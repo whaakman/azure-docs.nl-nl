@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/22/2018
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8e4cc67af4276bc244d402258a90dfec01d61add
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 2d49164748079346f24aeeebe216b2668a4e3aed
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919016"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258485"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory naadloze eenmalige aanmelding: veelgestelde vragen
 
@@ -93,6 +93,12 @@ Volg deze stappen op de on-premises server waarop Azure AD Connect:
 ### <a name="step-2-update-the-kerberos-decryption-key-on-each-ad-forest-that-it-was-set-it-up-on"></a>Stap 2. Bijwerken van de Kerberos-ontsleutelingssleutel op elk AD-forest dat deze is dit instellen op
 
 1. Bel `$creds = Get-Credential`. Wanneer u wordt gevraagd, typt u de domeinbeheerder-referenties voor het beoogde AD-forest.
+
+>[!NOTE]
+>We gebruiken de domeinbeheerder username, opgegeven in de User Principal namen (UPN) (johndoe@contoso.com) indeling of domein gekwalificeerde sam-account,-naam (contoso\janjansen of contoso.com\johndoe), om te vinden van de beoogde AD-forest. Als u de domeinnaam van de gekwalificeerde sam-account gebruikt, gebruiken we het domeingedeelte van de gebruikersnaam voor [vinden van de domeincontroller van de beheerder van het domein met behulp van DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Als u de UPN in plaats daarvan gebruiken we [vertaald in een domein gekwalificeerde sam-accountnaam](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) voordat het zoeken naar de desbetreffende domeincontroller.
+
+UPN's, gebruiken we vertalen 
+
 2. Bel `Update-AzureADSSOForest -OnPremCredentials $creds`. Deze opdracht werkt de ontsleutelingssleutel Kerberos voor de `AZUREADSSOACC` computeraccount in deze specifieke AD-forest en bijgewerkt in Azure AD.
 3. Herhaal de voorgaande stappen voor elk AD-forest dat u de functie hebt ingesteld op.
 

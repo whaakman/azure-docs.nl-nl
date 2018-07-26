@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: d8b8aee508ff1b243bf40261819071fc2a5194a3
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: cb23db13d67047225102c6888e27e8f79a3e5abf
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237611"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259310"
 ---
-# <a name="configure-managed-service-identity-msi-on-an-azure-vm-using-azure-cli"></a>Managed Service Identity (MSI) configureren op een Azure-VM met behulp van Azure CLI
+# <a name="configure-managed-service-identity-on-an-azure-vm-using-azure-cli"></a>Beheerde Service-identiteit configureren op een Azure-VM met behulp van Azure CLI
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -105,7 +105,7 @@ Als u een virtuele machine die systeem toegewezen identiteit niet meer nodig heb
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-Verwijderen van de MSI-VM-extensie, gebruiker `-n ManagedIdentityExtensionForWindows` of `-n ManagedIdentityExtensionForLinux` overschakelen (afhankelijk van het type virtuele machine) met [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
+Verwijderen van de beheerde Service-identiteit VM-extensie, gebruiker `-n ManagedIdentityExtensionForWindows` of `-n ManagedIdentityExtensionForLinux` overschakelen (afhankelijk van het type virtuele machine) met [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -119,7 +119,7 @@ In deze sectie leert u hoe u kunt toevoegen en verwijderen van een gebruiker toe
 
 In deze sectie helpt u bij het maken van een virtuele machine met de toewijzing van een gebruiker toegewezen identiteit. Als u al een virtuele machine die u wilt gebruiken, kunt u deze sectie overslaan en doorgaan met de volgende.
 
-1. U kunt deze stap overslaan als u al een resourcegroep die u wilt gebruiken. Maak een [resourcegroep](~/articles/azure-resource-manager/resource-group-overview.md#terminology) voor insluiting en implementatie van de MSI-bestand, met behulp van [az-groep maken](/cli/azure/group/#az_group_create). Vervang de parameterwaarden `<RESOURCE GROUP>` en `<LOCATION>` door uw eigen waarden. :
+1. U kunt deze stap overslaan als u al een resourcegroep die u wilt gebruiken. Maak een [resourcegroep](~/articles/azure-resource-manager/resource-group-overview.md#terminology) voor insluiting en implementatie van uw beheerde Service-identiteit, met behulp van [az-groep maken](/cli/azure/group/#az_group_create). Vervang de parameterwaarden `<RESOURCE GROUP>` en `<LOCATION>` door uw eigen waarden. :
 
    ```azurecli-interactive 
    az group create --name <RESOURCE GROUP> --location <LOCATION>
@@ -165,7 +165,7 @@ In deze sectie helpt u bij het maken van een virtuele machine met de toewijzing 
     ```azurecli-interactive
     az identity create -g <RESOURCE GROUP> -n <MSI NAME>
     ```
-Het antwoord bevat details voor de gebruiker toegewezen MSI-bestand gemaakt, vergelijkbaar met de volgende. De resource `id` waarde die is toegewezen aan de gebruiker toegewezen identiteit wordt gebruikt in de volgende stap.
+Het antwoord bevat details voor de gebruiker beheerde identiteit gemaakt, vergelijkbaar met de volgende toegewezen. De resource `id` waarde die is toegewezen aan de gebruiker toegewezen identiteit wordt gebruikt in de volgende stap.
 
    ```json
    {

@@ -1,5 +1,5 @@
 ---
-title: MSI configureren op een Azure-VMSS met behulp van PowerShell
+title: Beheerde Service-identiteit op een Azure-VMSS met behulp van PowerShell configureren
 description: Stap voor stap instructies voor het configureren van een systeem- en aan toegewezen identiteiten op een Azure-VMSS met behulp van PowerShell.
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: b82785d0f4b6a5952334e891e7adec570c624f2d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 5d4539c05d05053ac2ea6cd1c5fadbd161b41173
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238128"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257739"
 ---
-# <a name="configure-a-vmss-managed-service-identity-msi-using-powershell"></a>Configureren van een VMSS Managed Service Identity (MSI) met behulp van PowerShell
+# <a name="configure-a-vmss-managed-service-identity-using-powershell"></a>Configureren van een VMSS beheerde Service-identiteit met behulp van PowerShell
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -55,7 +55,7 @@ Voor het maken van een VMSS met het systeem toegewezen identiteit ingeschakeld:
     $VMSS = New-AzureRmVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
 
-2. (Optioneel) Het gebruik van MSI VMSS extensie toevoegen de `-Name` en `-Type` parameter op de [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet. U kunt een van beide "ManagedIdentityExtensionForWindows" doorgeven of "ManagedIdentityExtensionForLinux", afhankelijk van het type van virtuele-machineschaalset instellen en de naam met behulp van de `-Name` parameter. De `-Settings` parameter geeft u de poort die door het eindpunt van de OAuth-token gebruikt voor het ophalen van tokens:
+2. (Optioneel) Toevoegen die de beheerde Service-identiteit VMSS extension met behulp van de `-Name` en `-Type` parameter op de [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet. U kunt een van beide "ManagedIdentityExtensionForWindows" doorgeven of "ManagedIdentityExtensionForLinux", afhankelijk van het type van virtuele-machineschaalset instellen en de naam met behulp van de `-Name` parameter. De `-Settings` parameter geeft u de poort die door het eindpunt van de OAuth-token gebruikt voor het ophalen van tokens:
 
     > [!NOTE]
     > Deze stap is optioneel als u het eindpunt van de identiteit Azure Instance Metadata Service (IMDS) gebruiken kunt voor het ophalen en tokens.
@@ -82,7 +82,7 @@ Als u nodig hebt om in te schakelen van een systeem toegewezen identiteit op een
    Update-AzureRmVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
    ```
 
-3. Het gebruik van MSI VMSS extensie toevoegen de `-Name` en `-Type` parameter op de [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet. U kunt een van beide "ManagedIdentityExtensionForWindows" doorgeven of "ManagedIdentityExtensionForLinux", afhankelijk van het type van virtuele-machineschaalset instellen en de naam met behulp van de `-Name` parameter. De `-Settings` parameter geeft u de poort die door het eindpunt van de OAuth-token gebruikt voor het ophalen van tokens:
+3. Toevoegen die de beheerde Service-identiteit VMSS extension met behulp van de `-Name` en `-Type` parameter op de [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet. U kunt een van beide "ManagedIdentityExtensionForWindows" doorgeven of "ManagedIdentityExtensionForLinux", afhankelijk van het type van virtuele-machineschaalset instellen en de naam met behulp van de `-Name` parameter. De `-Settings` parameter geeft u de poort die door het eindpunt van de OAuth-token gebruikt voor het ophalen van tokens:
 
    ```powershell
    $setting = @{ "port" = 50342 }

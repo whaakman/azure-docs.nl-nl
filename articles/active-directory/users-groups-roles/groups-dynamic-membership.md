@@ -10,19 +10,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 07/24/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: a48dcff6eedc2aa6e8bb6cd5b0668af72259493b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e49da237584a48c01e72552abae01da2514da3c1
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869084"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248886"
 ---
-# <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Op kenmerken gebaseerde regels voor dynamisch groepslidmaatschap maken in Azure Active Directory
-In Azure Active Directory (Azure AD), kunt u aangepaste regels voor het inschakelen van complexe op kenmerken gebaseerde dynamisch lidmaatschap voor groepen. Dit artikel worden de kenmerken en de syntaxis voor het maken van dynamische lidmaatschapsregels voor gebruikers of apparaten. U kunt een regel instellen voor dynamisch lidmaatschap voor beveiligingsgroepen of Office 365-groepen.
+# <a name="create-dynamic-groups-with-attribute-based-membership-in-azure-active-directory"></a>Dynamische groepen maken op basis van een kenmerk lid is van Azure Active Directory
+
+In Azure Active Directory (Azure AD), kunt u complexe op kenmerken gebaseerde regels voor het inschakelen van dynamisch lidmaatschap voor groepen. Dit artikel worden de kenmerken en de syntaxis voor het maken van dynamische lidmaatschapsregels voor gebruikers of apparaten. U kunt een regel instellen voor dynamisch lidmaatschap voor beveiligingsgroepen of Office 365-groepen.
 
 Wanneer kenmerken van een gebruiker of apparaat wijzigt, evalueert het systeem alle dynamische groepsregels in een map om te controleren of de wijziging wilt activeren, een groep toevoegt of verwijdert. Als een gebruiker of het apparaat voldoet aan een regel voor een groep, worden ze toegevoegd als lid van die groep. Als ze niet langer voldoen aan de regel, worden ze verwijderd.
 
@@ -34,8 +35,9 @@ Wanneer kenmerken van een gebruiker of apparaat wijzigt, evalueert het systeem a
 > Op dit moment is het niet mogelijk te maken van een groep apparaten op basis van kenmerken van de gebruiker die eigenaar is. Regels voor groepslidmaatschap apparaat kunnen alleen verwijzen naar direct kenmerken van apparaatobjecten in de map.
 
 ## <a name="to-create-an-advanced-rule"></a>Een geavanceerde regel maken
+
 1. Aanmelden bij de [Azure AD-beheercentrum](https://aad.portal.azure.com) met een account dat een globale beheerder of een beheerder van gebruikersaccounts.
-2. Selecteer **gebruikers en groepen**.
+2. Selecteer **Gebruikers en groepen**.
 3. Selecteer **alle groepen**, en selecteer **nieuwe groep**.
 
    ![Nieuwe groep toevoegen](./media/groups-dynamic-membership/new-group-creation.png)
@@ -58,6 +60,7 @@ Hier ziet u het lidmaatschap van de verwerking van de status en het laatst bijge
 
 
 De volgende statusberichten kunnen worden weergegeven voor **lidmaatschap verwerking** status:
+
 * **Evaluatie van**: de groepswijziging is ontvangen en de updates worden geëvalueerd.
 * **Verwerking van**: Updates worden verwerkt.
 * **Bijwerken voltooid**: verwerking is voltooid en alle toepasselijke updates zijn aangebracht.
@@ -65,6 +68,7 @@ De volgende statusberichten kunnen worden weergegeven voor **lidmaatschap verwer
 * **Update onderbroken**: updates zijn onderbroken door de beheerder van de regel voor dynamisch lidmaatschap. MembershipRuleProcessingState is ingesteld op 'Onderbroken'.
 
 De volgende statusberichten kunnen worden weergegeven voor **lidmaatschap laatst bijgewerkt** status:
+
 * &lt;**Datum en tijd**&gt;: de laatste keer dat het lidmaatschap is bijgewerkt.
 * **Bezig**: Updates worden momenteel uitgevoerd.
 * **Onbekende**: de laatste updatetijd kan niet worden opgehaald. Het kan zijn vanwege de groep wordt pas gemaakt.
@@ -74,6 +78,7 @@ Als er een fout optreedt tijdens het verwerken van de lidmaatschapsregel voor ee
 ![verwerking van foutbericht](./media/groups-dynamic-membership/processing-error.png)
 
 ## <a name="constructing-the-body-of-an-advanced-rule"></a>De hoofdtekst van een geavanceerde regel maken
+
 De geavanceerde regel die u voor de dynamische lidmaatschappen voor groepen maken kunt is in feite een binaire expressie die bestaat uit drie delen en resulteert in een resultaat true of false. De drie onderdelen zijn:
 
 * Parameter naar links
@@ -96,6 +101,7 @@ De totale lengte van de hoofdtekst van de geavanceerde regel kan niet groter zij
 > Tekenreeksen met aanhalingstekens "moet worden weergegeven met behulp van ' teken, bijvoorbeeld user.department - eq \`'Verkoop'.
 
 ## <a name="supported-expression-rule-operators"></a>Ondersteunde expressie regel operators
+
 De volgende tabel bevat de operators voor de regel ondersteunde expressie en de syntaxis van moet worden gebruikt in de hoofdtekst van de geavanceerde regel:
 
 | Operator | Syntaxis |
@@ -114,6 +120,7 @@ De volgende tabel bevat de operators voor de regel ondersteunde expressie en de 
 ## <a name="operator-precedence"></a>Operatoren
 
 Hieronder vindt u alle Operators per prioriteit van lagere hoger. Operators op dezelfde regel zijn in dezelfde prioriteit:
+
 ````
 -any -all
 -or
@@ -121,15 +128,20 @@ Hieronder vindt u alle Operators per prioriteit van lagere hoger. Operators op d
 -not
 -eq -ne -startsWith -notStartsWith -contains -notContains -match –notMatch -in -notIn
 ````
+
 Alle operators kunnen worden gebruikt met of zonder het voorvoegsel afbreekstreepje staat. Haakjes zijn alleen nodig wanneer prioriteit voldoet niet aan uw vereisten.
 Bijvoorbeeld:
+
 ```
    user.department –eq "Marketing" –and user.country –eq "US"
 ```
+
 is gelijk aan:
+
 ```
    (user.department –eq "Marketing") –and (user.country –eq "US")
 ```
+
 ## <a name="using-the--in-and--notin-operators"></a>Met behulp van de - In en - notIn operators
 
 Als u wilt vergelijken van de waarde van een gebruikerskenmerk op basis van een aantal verschillende waarden kunt u de - In of notIn - operators. Hier volgt een voorbeeld met behulp van de - operator In:
@@ -140,6 +152,7 @@ Let op het gebruik van de ' [' en '] ' aan het begin en einde van de lijst met w
 
 
 ## <a name="query-error-remediation"></a>Herstel van query-fout
+
 De volgende tabel geeft een lijst van veelvoorkomende fouten en aanwijzingen om ze te corrigeren
 
 | Fout bij het parseren van query | Fout-gebruik | Gecorrigeerde syntaxis |
@@ -149,9 +162,11 @@ De volgende tabel geeft een lijst van veelvoorkomende fouten en aanwijzingen om 
 | Fout: Fout bij schemacompilatie Query. |1. (user.department - eq 'Verkoop') (user.department - eq "Marketing")<br/><br/>2. (user.userPrincipalName-overeenkomen met "*@domain.ext") |1. Ontbrekende operator. Gebruik de - en - of twee join-predicaten<br/><br/>(user.department - eq 'Verkoop')- of (user.department - eq "Marketing")<br/><br/>2. fout in reguliere expressie gebruikt in combinatie met - komt overeen met<br/><br/>(user.userPrincipalName-overeenkomen met '. *@domain.ext"), u kunt ook: (user.userPrincipalName-overeenkomen met"\@domain.ext$ ")|
 
 ## <a name="supported-properties"></a>Ondersteunde eigenschappen
+
 Hieronder ziet u alle eigenschappen voor de gebruikersaccount die u in de geavanceerde regel gebruiken kunt:
 
 ### <a name="properties-of-type-boolean"></a>Eigenschappen van het type boolean
+
 Toegestane operators
 
 * -eq
@@ -163,6 +178,7 @@ Toegestane operators
 | dirSyncEnabled |waar onwaar |user.dirSyncEnabled - eq true |
 
 ### <a name="properties-of-type-string"></a>Eigenschappen van het typetekenreeks
+
 Toegestane operators
 
 * -eq
@@ -179,9 +195,9 @@ Toegestane operators
 | Eigenschappen | Toegestane waarden | Gebruik |
 | --- | --- | --- |
 | city |Een tekenreekswaarde of *null* |(user.city - eq "waarde") |
-| land/regio |Een tekenreekswaarde of *null* |(zoals user.country - eq "waarde") |
+| Land/regio |Een tekenreekswaarde of *null* |(zoals user.country - eq "waarde") |
 | Bedrijfsnaam | Een tekenreekswaarde of *null* | (user.companyName - eq "waarde") |
-| afdeling |Een tekenreekswaarde of *null* |(user.department - eq "waarde") |
+| Afdeling |Een tekenreekswaarde of *null* |(user.department - eq "waarde") |
 | displayName |Een string-waarde |(user.displayName - eq "waarde") |
 | werknemer-id |Een string-waarde |(user.employeeId - eq "waarde")<br>(user.employeeId - ne *null*) |
 | facsimileTelephoneNumber |Een tekenreekswaarde of *null* |(user.facsimileTelephoneNumber - eq "waarde") |
@@ -203,9 +219,10 @@ Toegestane operators
 | telephoneNumber |Een tekenreekswaarde of *null* |(user.telephoneNumber - eq "waarde") |
 | usageLocation |Twee letters landcode |(user.usageLocation - eq "US") |
 | userPrincipalName |Een string-waarde |(user.userPrincipalName -eq "alias@domain") |
-| userType |lid Gast *null* |(user.userType - eq "Lid") |
+| UserType |lid Gast *null* |(user.userType - eq "Lid") |
 
 ### <a name="properties-of-type-string-collection"></a>Eigenschappen van het type tekenreeks-verzameling
+
 Toegestane operators
 
 * -bevat
@@ -217,6 +234,7 @@ Toegestane operators
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses-bevat "SMTP: alias@domain") |
 
 ## <a name="multi-value-properties"></a>Eigenschappen van meerdere waarden
+
 Toegestane operators
 
 * -een (voldaan wanneer ten minste één item in de verzameling komt overeen met de voorwaarde)
@@ -225,6 +243,7 @@ Toegestane operators
 | Eigenschappen | Waarden | Gebruik |
 | --- | --- | --- |
 | gebruikt u assignedPlans |Elk object in de verzameling beschrijft de tekenreekseigenschappen van de volgende: capabilityStatus, service, servicePlanId |user.assignedPlans-een (assignedPlan.servicePlanId - eq "efb87545-963c-4e0d-99df-69c6916d9eb0"- en assignedPlan.capabilityStatus - eq "Ingeschakeld") |
+| proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses-een (\_ -bevat "contoso")) |
 
 Eigenschappen van meerdere waarden zijn verzamelingen van objecten van hetzelfde type. U kunt gebruiken: een en -alle operators om toe te passen van een voorwaarde op een of meer van de items in de verzameling, respectievelijk. Bijvoorbeeld:
 
@@ -234,7 +253,7 @@ gebruikt u assignedPlans is een eigenschap met meerdere waarden met een lijst me
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-(De Guid-id identificeert het Exchange Online (abonnement 2) service-plan.)
+(De GUID-id identificeert het Exchange Online (abonnement 2) service-plan.)
 
 > [!NOTE]
 > Dit is handig als u wilt bepalen van alle gebruikers voor wie een Office 365 (of andere Microsoft Online Service) mogelijkheid is ingeschakeld, bijvoorbeeld om ze een bepaalde set van het beleid is gericht.
@@ -242,6 +261,16 @@ user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df
 De volgende expressie selecteert alle gebruikers die beschikken over een service-plan dat is gekoppeld aan de Intune-service (aangeduid met de naam van de service "SCO"):
 ```
 user.assignedPlans -any (assignedPlan.service -eq "SCO" -and assignedPlan.capabilityStatus -eq "Enabled")
+```
+
+### <a name="using-the-underscore--syntax"></a>Met behulp van het onderstrepingsteken (\_) syntaxis
+
+Het onderstrepingsteken (\_) syntaxis komt overeen met een specifieke waarde in een van de eigenschappen van de tekenreeks met meerdere waarden verzameling gebruikers of apparaten toevoegen aan een dynamische groep. Deze wordt gebruikt met de - of - alle operators.
+
+Hier volgt een voorbeeld van het gebruik van het onderstrepingsteken (\_) in een regel voor het toevoegen van leden op basis van user.proxyAddress (dit werkt hetzelfde voor user.otherMails). Deze regel wordt elke gebruiker met de proxy-adres met 'contoso' aan de groep toegevoegd.
+
+```
+(user.proxyAddresses -any (_ -contains "contoso"))
 ```
 
 ## <a name="use-of-null-values"></a>Gebruik van Null-waarden
@@ -256,14 +285,17 @@ Extensiekenmerken en aangepaste kenmerken die worden ondersteund in dynamisch-li
 
 Extensiekenmerken vanuit on-premises Windows Server AD worden gesynchroniseerd en neemt de indeling van "ExtensionAttributeX", waarbij X gelijk is aan 1-15.
 Een voorbeeld van een regel die gebruikmaakt van een kenmerk toestelnummer
+
 ```
 (user.extensionAttribute15 -eq "Marketing")
 ```
-Aangepaste kenmerken worden gesynchroniseerd vanuit on-premises Windows Server AD of vanuit een verbonden SaaS-toepassing en de indeling van ' user.extension_[GUID]\__ [kenmerk] ', waarbij [GUID] de unieke id in AAD voor de toepassing die gemaakt is de kenmerk in AAD en [kenmerk] is de naam van het kenmerk zoals deze is gemaakt.
-Een voorbeeld van een regel die gebruikmaakt van een aangepast kenmerk is
+
+Aangepaste kenmerken worden gesynchroniseerd vanuit on-premises Windows Server AD of vanuit een verbonden SaaS-toepassing en de indeling van ' user.extension_[GUID]\__ [kenmerk] ', waarbij [GUID] de unieke id in AAD voor de toepassing die gemaakt is de kenmerk in Azure AD en [kenmerk] is de naam van het kenmerk zoals deze is gemaakt. Een voorbeeld van een regel die gebruikmaakt van een aangepast kenmerk is
+
 ```
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber  
 ```
+
 Naam van het aangepaste kenmerk kan worden gevonden in de map door het opvragen van een gebruiker het kenmerk met behulp van Graph Explorer en zoeken naar de naam van het kenmerk.
 
 ## <a name="direct-reports-rule"></a>De regel "Directe ondergeschikten"
@@ -405,8 +437,8 @@ ConvertStaticGroupToDynamic "a58913b2-eee4-44f9-beb2-e381c375058f" "user.display
 ## <a name="next-steps"></a>Volgende stappen
 Deze artikelen bevatten aanvullende informatie over groepen in Azure Active Directory.
 
-* [Zie de bestaande groepen](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Bestaande groepen weergeven](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Een nieuwe groep maken en leden toevoegen](../fundamentals/active-directory-groups-create-azure-portal.md)
 * [Instellingen van een groep beheren](../fundamentals/active-directory-groups-settings-azure-portal.md)
-* [Lidmaatschap van een groep beheren](../fundamentals/active-directory-groups-membership-azure-portal.md)
+* [Lidmaatschappen van een groep beheren](../fundamentals/active-directory-groups-membership-azure-portal.md)
 * [Dynamische regels voor gebruikers in een groep beheren](groups-dynamic-membership.md)

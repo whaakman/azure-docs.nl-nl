@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 91ed8a073dd95ddf37e4a71bfd7c3ab1dcb94f09
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 2560296c088491b7ae0cd414f88ae337c1383c9a
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161358"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258793"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Rapportage-opties voor Azure AD-wachtwoordbeheer
 
@@ -54,6 +54,10 @@ In de Azure portal-ervaring, zijn de manier waarop u voor wachtwoord opnieuw ins
 6. Als u wilt filteren in deze weergave om te zien alleen de gebeurtenissen in verband met wachtwoord opnieuw instellen, selecteert u de **Filter** knop aan de bovenkant van het deelvenster.
 7. Uit de **Filter** in het menu het **categorie** vervolgkeuzelijst lijst en wijzig deze in de **Self-service wachtwoordbeheer** categorietype.
 8. (Optioneel) de lijst met door het kiezen van de specifieke verder filteren **activiteit** u geïnteresseerd bent in.
+
+### <a name="converged-registration-preview"></a>Geconvergeerde registratie (preview)
+
+Als u de openbare preview van geconvergeerde registratie deelneemt, gegevens over gebruikersactiviteit in de auditlogboeken gevonden onder de categorie **verificatiemethoden**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Beschrijving van de rapportkolommen in de Azure-portal
 

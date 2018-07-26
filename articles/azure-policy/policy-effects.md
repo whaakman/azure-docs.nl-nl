@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: a3267d8f2f088c93a8f69f949dc928437a80f455
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 17ad631e2441e4b8d6314557c17be143fd2f3de0
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856943"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248723"
 ---
 # <a name="understanding-policy-effects"></a>Understanding beleid effecten
 
@@ -26,7 +26,7 @@ Er zijn vijf effecten die in de beleidsdefinitie van een worden ondersteund:
 - Controleren
 - AuditIfNotExists
 - Weigeren
-- DeployIfNotExists
+- DeployIfNotExists (alleen beschikbaar voor **ingebouwde** beleid)
 
 ## <a name="order-of-evaluation"></a>Volgorde van de evaluatie
 
@@ -213,6 +213,9 @@ Voorbeeld: Evalueert virtuele Machines om te bepalen of de anti-malware-extensie
 ## <a name="deployifnotexists"></a>DeployIfNotExists
 
 Net als bij AuditIfNotExists, DeployIfNotExists voert een sjabloonimplementatie wanneer de voorwaarde wordt voldaan.
+
+> [!WARNING]
+> DeployIfNotExists is alleen beschikbaar voor **ingebouwde** beleid.
 
 ### <a name="deployifnotexists-evaluation"></a>DeployIfNotExists-evaluatie
 

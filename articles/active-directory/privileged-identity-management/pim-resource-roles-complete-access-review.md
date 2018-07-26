@@ -14,19 +14,19 @@ ms.component: protection
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: e21d0240469a9c775e610c97f98c073b8f83ce8e
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 3b27e4e26899b27557bdac4371283a8095847c94
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442188"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257773"
 ---
 # <a name="complete-an-access-review-for-azure-resources-by-using-privileged-identity-management"></a>Een toegangscontrole voor Azure-resources met behulp van Privileged Identity Management voltooien
-Beheerders met bevoegdheid kunnen bekijken bevoegde toegang na een [beveiligingsbeoordeling is gestart](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) voor Azure-resources verzendt automatisch een e-mailbericht dat gebruikers om te controleren van hun toegang wordt gevraagd. Als een gebruiker een e-mailbericht ontvangen heeft, kunt u ze de instructies van verzenden [hoe u een beveiligingsbeoordeling uitvoeren](pim-resource-roles-perform-access-review.md).
+Beheerders met bevoegdheid kunnen bekijken bevoegde toegang na een [toegangsbeoordeling is gestart](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) voor Azure-resources verzendt automatisch een e-mailbericht dat gebruikers om te controleren van hun toegang wordt gevraagd. Als een gebruiker een e-mailbericht ontvangen heeft, kunt u ze de instructies van verzenden [hoe u een toegangscontrole uitvoeren](pim-resource-roles-perform-access-review.md).
 
-Nadat de controleperiode voor de beveiliging is voltooid, of na alle gebruikers hebben hun eigen bekijken, volgt u de stappen in dit artikel voor het beheren van de beoordeling en bekijkt de resultaten.
+Nadat de periode van de toegangsbeoordeling is voltooid, of na alle gebruikers hebben hun eigen bekijken, volgt u de stappen in dit artikel voor het beheren van de beoordeling en bekijkt de resultaten.
 
-## <a name="manage-security-reviews"></a>Beoordelingen voor beveiliging beheren
+## <a name="manage-access-reviews"></a>Toegangsbeoordelingen beheren
 1. Ga naar de [Azure Portal](https://portal.azure.com/). Klik vervolgens op het dashboard, selecteert u de **Azure-resources** toepassing.
 
 2. Selecteer uw resource.

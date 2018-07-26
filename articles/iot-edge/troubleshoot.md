@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ecd19acdeba57a29a28187d42783bbf146095190
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eb185a83ea154025e94c01c7b142a8d16fce91ab
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001902"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258344"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Veelvoorkomende problemen en oplossingen voor Azure IoT Edge
 
@@ -292,6 +292,24 @@ In het manifest van de implementatie:
       }
     },
 ```
+## <a name="cant-get-the-iot-edge-daemon-logs-on-windows"></a>Kan niet op Windows op de IoT Edge daemon-logboeken ophalen
+Als u een EventLogException ontvangt wanneer u `Get-WinEvent` op Windows, controleert u de Register-invoer.
+
+### <a name="root-cause"></a>Hoofdoorzaak
+De `Get-WinEvent` PowerShell-opdracht is afhankelijk van een registervermelding moet aanwezig zijn om te zoeken van Logboeken op een specifieke `ProviderName`.
+
+### <a name="resolution"></a>Oplossing
+Een registervermelding voor de IoT Edge-daemon instellen. Maak een **iotedge.reg** bestand met de volgende inhoud en importeren naar het Windows-register door erop te dubbelklikken of met behulp van de `reg import iotedge.reg` opdracht:
+
+```
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
+"CustomSource"=dword:00000001
+"EventMessageFile"="C:\\ProgramData\\iotedge\\iotedged.exe"
+"TypesSupported"=dword:00000007
+```
+
 
 ## <a name="next-steps"></a>Volgende stappen
 Denkt u dat u een fout op het IoT Edge-platform hebt gevonden? [Verzend een probleem](https://github.com/Azure/iotedge/issues) zodat we het product verder kunnen blijven verbeteren. 

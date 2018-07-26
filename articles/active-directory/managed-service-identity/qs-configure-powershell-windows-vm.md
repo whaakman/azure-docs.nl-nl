@@ -1,6 +1,6 @@
 ---
-title: MSI configureren op een Azure-VM met behulp van PowerShell
-description: Voor stap door stap instructies voor het configureren van een Managed Service Identity (MSI) op een Azure-VM, met behulp van PowerShell.
+title: Beheerde Service-identiteit configureren op een Azure-VM met behulp van PowerShell
+description: Voor stap door stap instructies voor het configureren van een beheerde Service-identiteit op een Azure-VM, met behulp van PowerShell.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: 9a40ad66f104a33230484f24e20a5f3bd9ed6175
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 68c9ae7baa6b8fa1ebf672c28bf3c466b4b54860
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237652"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258389"
 ---
-# <a name="configure-a-vm-managed-service-identity-msi-using-powershell"></a>Configureren van een virtuele machine Managed Service Identity (MSI) met behulp van PowerShell
+# <a name="configure-a-vm-managed-service-identity-using-powershell"></a>Configureren van een virtuele machine beheerde Service-identiteit met behulp van PowerShell
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -59,7 +59,7 @@ Voor het maken van een Azure-VM met het systeem toegewezen identiteit ingeschake
    - [Maak een Windows-machine met behulp van PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
    - [Maken van een virtuele Linux-machine met behulp van PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (Optioneel) Toevoegen van de MSI VM-extensie via de `-Type` parameter op de [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. U kunt doorgeven "ManagedIdentityExtensionForWindows" of "ManagedIdentityExtensionForLinux", afhankelijk van het type virtuele machine, en geef de naam met behulp van de `-Name` parameter. De `-Settings` parameter geeft u de poort die door het eindpunt van de OAuth-token gebruikt voor het ophalen van tokens:
+2. (Optioneel) Toevoegen van de Managed Service Identity VM-extensie via de `-Type` parameter op de [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. U kunt doorgeven "ManagedIdentityExtensionForWindows" of "ManagedIdentityExtensionForLinux", afhankelijk van het type virtuele machine, en geef de naam met behulp van de `-Name` parameter. De `-Settings` parameter geeft u de poort die door het eindpunt van de OAuth-token gebruikt voor het ophalen van tokens:
 
    ```powershell
    $settings = @{ "port" = 50342 }
@@ -85,7 +85,7 @@ Als u nodig hebt om in te schakelen van een systeem toegewezen identiteit op een
    Update-AzureRmVM -ResourceGroupName myResourceGroup -VM $vm -AssignIdentity:$SystemAssigned
    ```
 
-3. (Optioneel) Toevoegen van de MSI VM-extensie via de `-Type` parameter op de [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. U kunt doorgeven "ManagedIdentityExtensionForWindows" of "ManagedIdentityExtensionForLinux", afhankelijk van het type virtuele machine, en geef de naam met behulp van de `-Name` parameter. De `-Settings` parameter geeft u de poort die door het eindpunt van de OAuth-token gebruikt voor het ophalen van tokens. Geef de juiste `-Location` parameter, die overeenkomt met de locatie van de bestaande virtuele machine:
+3. (Optioneel) Toevoegen van de Managed Service Identity VM-extensie via de `-Type` parameter op de [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. U kunt doorgeven "ManagedIdentityExtensionForWindows" of "ManagedIdentityExtensionForLinux", afhankelijk van het type virtuele machine, en geef de naam met behulp van de `-Name` parameter. De `-Settings` parameter geeft u de poort die door het eindpunt van de OAuth-token gebruikt voor het ophalen van tokens. Geef de juiste `-Location` parameter, die overeenkomt met de locatie van de bestaande virtuele machine:
 
    ```powershell
    $settings = @{ "port" = 50342 }
@@ -118,7 +118,7 @@ $vm = Get-AzureRmVM -ResourceGroupName myResourceGroup -Name myVM
 Update-AzureRmVm -ResourceGroupName myResourceGroup -VM $vm -IdentityType None
 ```
 
-Verwijderen van de MSI-VM-extensie, gebruiker de - de naam switch met de [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension) cmdlet, op te geven de dezelfde naam die u hebt gebruikt toen u de extensie toegevoegd:
+Verwijderen van de beheerde Service-identiteit VM-extensie, gebruiker de - de naam switch met de [Remove-AzureRmVMExtension](/powershell/module/azurerm.compute/remove-azurermvmextension) cmdlet, op te geven de dezelfde naam die u hebt gebruikt toen u de extensie toegevoegd:
 
    ```powershell
    Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -Name "ManagedIdentityExtensionForWindows" -VMName myVM
@@ -143,7 +143,7 @@ De identiteit van een gebruiker toegewezen aan een Azure-VM toewijzen bij het ma
     - [Maak een Windows-machine met behulp van PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
     - [Maken van een virtuele Linux-machine met behulp van PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
-2. (Optioneel) Toevoegen van de MSI VM-extensie via de `-Type` parameter op de [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. U kunt doorgeven "ManagedIdentityExtensionForWindows" of "ManagedIdentityExtensionForLinux", afhankelijk van het type virtuele machine, en geef de naam met behulp van de `-Name` parameter. De `-Settings` parameter geeft u de poort die door het eindpunt van de OAuth-token gebruikt voor het ophalen van tokens. Geef de juiste `-Location` parameter, die overeenkomt met de locatie van de bestaande virtuele machine:
+2. (Optioneel) Toevoegen van de Managed Service Identity VM-extensie via de `-Type` parameter op de [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. U kunt doorgeven "ManagedIdentityExtensionForWindows" of "ManagedIdentityExtensionForLinux", afhankelijk van het type virtuele machine, en geef de naam met behulp van de `-Name` parameter. De `-Settings` parameter geeft u de poort die door het eindpunt van de OAuth-token gebruikt voor het ophalen van tokens. Geef de juiste `-Location` parameter, die overeenkomt met de locatie van de bestaande virtuele machine:
       > [!NOTE]
     > Deze stap is optioneel als u het eindpunt van de identiteit Azure Instance Metadata Service (IMDS) gebruiken kunt voor het ophalen en tokens.
 
@@ -177,7 +177,7 @@ Als u wilt toewijzen van een gebruiker toegewezen identiteit aan een bestaande A
    Update-AzureRmVM -ResourceGroupName <RESOURCE GROUP> -VM $vm -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>"
    ```
 
-4. Toevoegen van de MSI VM-extensie via de `-Type` parameter op de [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. U kunt doorgeven "ManagedIdentityExtensionForWindows" of "ManagedIdentityExtensionForLinux", afhankelijk van het type virtuele machine, en geef de naam met behulp van de `-Name` parameter. De `-Settings` parameter geeft u de poort die door het eindpunt van de OAuth-token gebruikt voor het ophalen van tokens. Geef de juiste `-Location` parameter, die overeenkomt met de locatie van de bestaande virtuele machine.
+4. Toevoegen van de Managed Service Identity VM-extensie via de `-Type` parameter op de [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet. U kunt doorgeven "ManagedIdentityExtensionForWindows" of "ManagedIdentityExtensionForLinux", afhankelijk van het type virtuele machine, en geef de naam met behulp van de `-Name` parameter. De `-Settings` parameter geeft u de poort die door het eindpunt van de OAuth-token gebruikt voor het ophalen van tokens. Geef de juiste `-Location` parameter, die overeenkomt met de locatie van de bestaande virtuele machine.
 
    ```powershell
    $settings = @{ "port" = 50342 }

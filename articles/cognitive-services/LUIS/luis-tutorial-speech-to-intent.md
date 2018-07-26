@@ -4,18 +4,18 @@ titleSuffix: Azure
 description: Gebruik het spraak SDK voor C#-voorbeeld te spreken in microfoon en LUIS-voorspellingen intentie en entiteiten geretourneerd.
 services: cognitive-services
 author: diberry
-manager: kamran.iqbal
+manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: diberry;
-ms.openlocfilehash: 4249b908cc64eb229281cff60ddaa0394f946433
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 286efcd97c0c9ab95a8241215bc36799c486a8b6
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238910"
+ms.locfileid: "39247712"
 ---
 # <a name="integrate-speech-service"></a>Integreer Speech-service
 De [spraakservice](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kunt u gebruikmaken van een enkele aanvraag voor het ontvangen van audio en LUIS voorspelling JSON-objecten retourneren.

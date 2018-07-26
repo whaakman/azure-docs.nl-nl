@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 03/02/2018
+ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 45352c1cf4aca9043c23bbe12e94ba770a38c01b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 7a5372174fcc7cd9552c00c9d283772c9863b815
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436702"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257995"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Stream het Azure-activiteitenlogboek naar Eventhubs
 U kunt streamen de [Azure Activity Log](monitoring-overview-activity-logs.md) in bijna realtime voor elke toepassing door een van beide:
@@ -34,7 +34,7 @@ Als u een Event Hubs-naamruimte hebt, moet u eerst een te maken. Als u gestreamd
 
 Het beleid voor gedeelde toegang definieert de machtigingen die het mechanisme voor streaming is. Vandaag de dag streamen naar Event Hubs vereist **beheren**, **verzenden**, en **luisteren** machtigingen. U kunt maken of wijzigen van beleid voor gedeelde toegang voor de Event Hubs-naamruimte in Azure portal onder de **configureren** tabblad voor uw Event Hubs-naamruimte. 
 
-Voor het bijwerken van het activiteitenlogboek logboekprofiel om op te nemen streaming, moet de gebruiker die een wijziging aan te brengen de machtiging ListKey hebben op deze Event Hubs-autorisatieregel. De Event Hubs-naamruimte heeft geen zich in hetzelfde abonnement bevinden als het abonnement dat dat Logboeken verzendt wordt, mits de gebruiker die de instelling configureert de juiste RBAC-toegang voor beide abonnementen heeft.
+Voor het bijwerken van het activiteitenlogboek logboekprofiel om op te nemen streaming, moet de gebruiker die een wijziging aan te brengen de machtiging ListKey hebben op deze Event Hubs-autorisatieregel. De Event Hubs-naamruimte is niet nodig om zich in hetzelfde abonnement bevinden als het abonnement dat wordt dat Logboeken verzendt, zolang de gebruiker die de instelling configureert de juiste RBAC heeft toegang tot beide abonnementen en beide abonnementen in de dezelfde AAD-tenant zijn.
 
 ### <a name="via-the-azure-portal"></a>Via de Azure-portal
 1. Blader naar de **activiteitenlogboek** sectie met behulp van de **alle services** zoeken aan de linkerkant van de portal.
@@ -53,8 +53,9 @@ Voor het bijwerken van het activiteitenlogboek logboekprofiel om op te nemen str
    > Als u iets anders dan selecteert **alle regio's**, u zult missen belangrijke gebeurtenissen die u verwacht te ontvangen. Het activiteitenlogboek is een logboek met algemene (niet-regionaal) zodat de meeste gebeurtenissen niet in een regio die is gekoppeld aan deze hoeft. 
    >
 
-4. Selecteer **opslaan** deze instellingen op te slaan. De instellingen worden onmiddellijk toegepast op uw abonnement.
-5. Als u meerdere abonnementen hebt, herhaalt u deze actie en alle gegevens verzenden naar de dezelfde event hub.
+4. Klik op de **Azure Event Hubs** optie en selecteert u een event hubs-naamruimte naar welke logboeken moet worden verzonden, klik vervolgens op **OK**.
+5. Selecteer **opslaan** deze instellingen op te slaan. De instellingen worden onmiddellijk toegepast op uw abonnement.
+6. Als u meerdere abonnementen hebt, herhaalt u deze actie en alle gegevens verzenden naar de dezelfde event hub.
 
 ### <a name="via-powershell-cmdlets"></a>Via PowerShell-cmdlets
 Als een logboekprofiel al bestaat, moet u eerst de bestaande logboekprofiel verwijderen en maak vervolgens een nieuwe logboekprofiel.

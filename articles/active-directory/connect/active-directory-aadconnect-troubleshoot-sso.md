@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ba8392509f47ae91525841966d992c3ddfd9cd52
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 563958458979d0a0a28046ce35d21bd58be631ce
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216373"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259293"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory naadloze eenmalige aanmelding oplossen
 
@@ -119,12 +119,20 @@ Als het oplossen van hebt gehad, kunt u de functie handmatig herstellen op uw te
 ### <a name="step-3-disable-seamless-sso-for-each-active-directory-forest-where-youve-set-up-the-feature"></a>Stap 3: Naadloze eenmalige aanmelding uitschakelen voor elk Active Directory-forest waar u de functie hebt ingesteld
 
 1. Bel `$creds = Get-Credential`. Wanneer u wordt gevraagd, typt u de referenties voor de domeinbeheerder voor het beoogde Active Directory-forest.
+
+>[!NOTE]
+>We gebruiken de domeinbeheerder username, opgegeven in de User Principal namen (UPN) (johndoe@contoso.com) indeling of domein gekwalificeerde sam-account,-naam (contoso\janjansen of contoso.com\johndoe), om te vinden van de beoogde AD-forest. Als u de domeinnaam van de gekwalificeerde sam-account gebruikt, gebruiken we het domeingedeelte van de gebruikersnaam voor [vinden van de domeincontroller van de beheerder van het domein met behulp van DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Als u de UPN in plaats daarvan gebruiken we [vertaald in een domein gekwalificeerde sam-accountnaam](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) voordat het zoeken naar de desbetreffende domeincontroller.
+
 2. Bel `Disable-AzureADSSOForest -OnPremCredentials $creds`. Deze opdracht verwijdert u de `AZUREADSSOACCT` computeraccount van de lokale domeincontroller voor dit specifieke Active Directory-forest.
 3. Herhaal de voorgaande stappen voor elk Active Directory-forest waar u de functie hebt ingesteld.
 
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Stap 4: Naadloze eenmalige aanmelding inschakelen voor elk Active Directory-forest
 
 1. Bel `Enable-AzureADSSOForest`. Wanneer u wordt gevraagd, typt u de referenties voor de domeinbeheerder voor het beoogde Active Directory-forest.
+
+>[!NOTE]
+>We gebruiken de domeinbeheerder username, opgegeven in de User Principal namen (UPN) (johndoe@contoso.com) indeling of domein gekwalificeerde sam-account,-naam (contoso\janjansen of contoso.com\johndoe), om te vinden van de beoogde AD-forest. Als u de domeinnaam van de gekwalificeerde sam-account gebruikt, gebruiken we het domeingedeelte van de gebruikersnaam voor [vinden van de domeincontroller van de beheerder van het domein met behulp van DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Als u de UPN in plaats daarvan gebruiken we [vertaald in een domein gekwalificeerde sam-accountnaam](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) voordat het zoeken naar de desbetreffende domeincontroller.
+
 2. Herhaal de vorige stap voor elk Active Directory-forest waar u het instellen van de functie.
 
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>Stap 5. De functie op uw tenant inschakelen

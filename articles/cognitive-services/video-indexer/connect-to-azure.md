@@ -1,44 +1,44 @@
 ---
-title: Maak een indexeerfunctie Video-account met Azure bent verbonden | Microsoft Docs
-description: In dit artikel laat zien hoe u een Video indexeerfunctie account verbonden met Azure maakt.
+title: Een Video Indexer-account dat is verbonden met Azure maken | Microsoft Docs
+description: Dit artikel leest over het maken van een Video Indexer-account met Azure bent verbonden.
 services: cognitive services
 documentationcenter: ''
 author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: ac9093d41a2e70905ea82c6d11f020696488ff27
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 849a8dde07c248b6d7b317de5908b3a46dfad777
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35345902"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259007"
 ---
-# <a name="create-a-video-indexer-account-connected-to-azure"></a>Maak een indexeerfunctie Video-account met Azure bent verbonden
+# <a name="create-a-video-indexer-account-connected-to-azure"></a>Maken van een Video Indexer-account dat is verbonden met Azure
 
-Wanneer u een gratis proefaccount van Video indexeerfunctie, bent u beperkt door de quota en het nummer van video's die u kunt de index. In dit artikel laat zien hoe u een Video indexeerfunctie account die gekoppeld aan een Azure-abonnement die hoeft u deze limieten en die gebruikmaakt van de prijzen voor betalen naar gebruik maakt.
+Wanneer u een gratis proefaccount van Video Indexer, bent u beperkt door de quotum en het aantal video's die u kunt de index. Dit artikel leest hoe u een Video Indexer-account die gekoppeld aan een Azure-abonnement, hoeft u deze limieten en maakt gebruik van betalen naar gebruik maakt.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Een Azure-abonnement. 
 
-    Als u een Azure-abonnement nog geen hebt, zich aanmelden voor [gratis proefversie van Azure](https://azure.microsoft.com/free/).
+    Als u een Azure-abonnement nog geen hebt, kunt u zich aanmelden voor [gratis proefversie van Azure](https://azure.microsoft.com/free/).
 
 * Een Azure Active Directory (AD)-domein. 
 
-    Als u geen Azure AD-domein, moet u dit domein maken met uw Azure-abonnement.
+    Als u geen Azure AD-domein, moet u dit domein maken met uw Azure-abonnement. Zie voor meer informatie, [aangepaste domeinnamen in uw Azure Active Directory beheren](../../active-directory/users-groups-roles/domains-manage.md)
 
-* Een gebruiker en het lid in uw Azure AD-domein. U gebruikt dit lid bij het verbinden van uw account Video indexeerfunctie met Azure.
+* Een gebruiker en het lid in uw Azure AD-domein. U gebruikt dit lid bij het verbinden van uw Video Indexer-account met Azure.
 
-    Deze gebruiker aan deze criteria voldoen:
+    Deze gebruiker moet voldoen aan deze criteria:
 
-    * Een Azure AD-gebruiker met een werk- of schoolaccount, niet een persoonlijke account, zoals outlook.com, live.com of hotmail.com worden.
+    * Een Azure AD-gebruiker met een werk- of schoolaccount, niet een persoonlijk account, zoals outlook.com, live.com of hotmail.com worden.
         
         ![alle AAD-gebruikers](./media/create-account/all-aad-users.png)
 
-    *  Een lid in uw Azure-abonnement met een rol van eigenaar of bijdrager en-beheerder voor gebruikerstoegang zijn.
+    *  Een lid in uw Azure-abonnement met de rol van een eigenaar of Inzender-en beheerder van gebruikerstoegang worden. Een gebruiker kan twee keer worden toegevoegd met behulp van 2. Eenmaal met Inzender en anderzijds met Access-beheerder.
 
         ![Toegangsbeheer](./media/create-account/access-control-iam.png)
 
@@ -48,59 +48,59 @@ Wanneer u een gratis proefaccount van Video indexeerfunctie, bent u beperkt door
 
     ![Verbinding maken met Azure](./media/create-account/connect-to-azure.png)
 
-2. Wanneer de lijst met abonnementen wordt weergegeven, selecteert u het abonnement dat u wilt gebruiken. 
+2. Wanneer de abonnementenlijst met wordt weergegeven, selecteert u het abonnement dat u wilt gebruiken. 
 
-    ![Video indexeerfunctie verbinding te maken met Azure](./media/create-account/connect-vi-to-azure-subscription.png)
+    ![Video Indexer verbinden met Azure](./media/create-account/connect-vi-to-azure-subscription.png)
 
-3. Een Azure-regio selecteert in de ondersteunde locaties: VS-West 2, Noord-Europa of Oost-Azië.
+3. Selecteer een Azure-regio van de ondersteunde locaties: VS-West 2, Noord-Europa of Oost-Azië.
 4. Onder **Azure Media Services-account**, kies een van de volgende opties:
 
-    * U maakt een nieuw Media Services-account selecteren **nieuwe resourcegroep maken**. Geef een naam voor de resourcegroep.
+    * Voor het maken van een nieuwe Media Services-account selecteert **nieuwe resourcegroep maken**. Geef een naam voor de resourcegroep.
 
-        Azure maakt uw nieuwe account in uw abonnement, met inbegrip van een nieuw Azure Storage-account. Uw nieuwe Media Services-account heeft een standaard initiële configuratie met een Streaming-eindpunt en 10 S3 gereserveerde eenheden.
-    * Als u een bestaande Media Services-account, schakelt **bestaande resource gebruiken**. Selecteer uw account uit de lijst van accounts.
+        Azure maakt uw nieuwe account in uw abonnement, met inbegrip van een nieuw Azure Storage-account. Nieuwe Media Services-account heeft een standaard initiële configuratie met een Streaming-eindpunt en 10 gereserveerde S3-eenheden.
+    * Voor het gebruik van een Media Services-account, selecteert u **bestaande resource gebruiken**. Selecteer uw account in de lijst met accounts.
 
-        Media Services-account moet dezelfde regio bevinden als uw Video indexeerfunctie-account hebben. Om te beperken indexering duur en lage doorvoer, het type en aantal gereserveerde eenheden aanpassen **10 S3 gereserveerde eenheden** in uw Media Services-account.
-    * Handmatig configureren van uw verbinding, klikt u op de **overschakelen naar handmatige configuratie** koppelen en leveren de nodige informatie:
+        Media Services-account moet dezelfde regio als uw Video Indexer-account hebben. Om te beperken de duur van indexering en lage doorvoer, het aanpassen van het type en aantal gereserveerde eenheden voor **10 gereserveerde S3-eenheden** in Media Services-account.
+    * Voor het handmatig configureren van de verbinding, klikt u op de **overschakelen naar de handmatige configuratie** koppelen en geef de benodigde informatie:
 
-    ![Video indexeerfunctie verbinding te maken met Azure](./media/create-account/connect-vi-to-azure-subscription-2.png)
+    ![Video Indexer verbinden met Azure](./media/create-account/connect-vi-to-azure-subscription-2.png)
 
-5. Als u bent klaar, kiest u **Connect**. Deze bewerking kan enkele minuten duren. 
+5. Wanneer u klaar bent, kiest u **Connect**. Met deze bewerking kan enkele minuten duren. 
 
-    Nadat u met Azure verbonden bent, wordt uw nieuwe account voor de indexeerfunctie Video wordt weergegeven in de lijst met accounts:
+    Nadat u met Azure verbonden bent, wordt uw nieuwe Video Indexer-account wordt weergegeven in de lijst met accounts:
 
-    ![nieuwe account](./media/create-account/new-account.png)
+    ![nieuw account](./media/create-account/new-account.png)
 
 6. Blader naar uw nieuwe account: 
 
-    ![Video indexeerfunctie-account](./media/create-account/vi-account.png)
+    ![Video Indexer-account](./media/create-account/vi-account.png)
 
 ## <a name="considerations"></a>Overwegingen
 
-De volgende gerelateerde Azure Media Services-overwegingen van toepassing:
+De volgende Azure Media Services gerelateerde overwegingen zijn van toepassing:
 
-* Als u met een nieuw Media Services-account verbonden, ziet u een nieuwe resourcegroep Media Services-account en een opslagaccount in uw Azure-abonnement.
-* Als u met een nieuw Media Services-account verbonden, Video-indexeerfunctie het medium wordt ingesteld **gereserveerde eenheden** op 10 S3 eenheden:
+* Als u verbinding met een nieuwe Media Services-account, ziet u een nieuwe resourcegroep, Media Services-account en een opslagaccount in uw Azure-abonnement.
+* Als u met een nieuwe Media Services-account verbonden, het medium wordt ingesteld door Video Indexer **gereserveerde eenheden** op 10 S3-eenheden:
 
     ![Gereserveerde Media Services-eenheden](./media/create-account/ams-reserved-units.png)
 
-* Als u aan een bestaand Media Services-account verbonden, Video-indexeerfunctie verandert niets aan de bestaande mediaset **gereserveerde eenheden** configuratie.
+* Als u met een Media Services-account verbonden, wordt niet de bestaande mediaset is gewijzigd voor Video Indexer **gereserveerde eenheden** configuratie.
 
-    Mogelijk moet u het type en aantal media aanpassen **gereserveerde eenheden**, volgens uw geplande laden. Houd er rekening mee dat als de belasting hoge wordt en er geen voldoende eenheden of de snelheid, video's verwerken leiden mislukte time-out tot kunnen.
+    Mogelijk moet u het type en aantal media aanpassen **gereserveerde eenheden**, op basis van het geplande laden. Houd er rekening mee dat als het laden hoog is en u geen voldoende eenheden of snelheid, video's verwerken in time-fouten resulteren kunnen.
 
-* Als u met een nieuw Media Services-account verbonden, Video-indexeerfunctie wordt automatisch gestart. een **Streaming-eindpunt** erin:
+* Als u verbinding met een nieuwe Media Services-account, start Video Indexer automatisch een **Streaming-eindpunt** erin:
 
-    ![Media Services-streaming-eindpunt](./media/create-account/ams-streaming-endpoint.png)
+    ![Media Services streaming-eindpunt](./media/create-account/ams-streaming-endpoint.png)
 
-* Als u aan een bestaand Media Services-account verbonden, wordt de indexeerfunctie Video de streaming-eindpunten-configuratie niet gewijzigd. Als er geen uitgevoerd **Streaming-eindpunt**, u zich niet video van deze Media Services-account of in de indexeerfunctie Video.
+* Als u met een Media Services-account verbonden, wordt de configuratie van de streaming endpoints niet gewijzigd door Video Indexer. Als er geen wordt uitgevoerd **Streaming-eindpunt**, kunt u zich niet Bekijk video's vanaf deze Media Services-account of in Video Indexer.
 
-## <a name="use-video-indexer-apis-v2"></a>Gebruik Video indexeerfunctie v2 API's
+## <a name="use-video-indexer-apis-v2"></a>Gebruik Video Indexer API v2
 
-U programmatisch kunt werken met uw proefaccount en/of aan uw Video indexeerfunctie gebruikersaccounts die zijn verbonden met azure door de instructies in: [gebruik API's](video-indexer-use-apis.md).
+U kunt via programmacode communiceren met uw proefaccount en/of met uw Video Indexer-accounts die zijn verbonden met azure door de instructies in: [gebruik API's](video-indexer-use-apis.md).
 
 U moet dezelfde Azure AD-gebruiker die u hebt gebruikt bij het verbinden met Azure.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Bekijk de details van de JSON-uitvoer](video-indexer-output-json-v2.md).
+[Details van de JSON-uitvoer onderzoeken](video-indexer-output-json-v2.md).
 

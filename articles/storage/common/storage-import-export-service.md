@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: ab73420d1bfe0dbddcf2a0e3c3dd34203e4bb2d7
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: c435e21d85ae0ab35bc2fa99f7006e841eaecec0
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008413"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248771"
 ---
 # <a name="what-is-azure-importexport-service"></a>Wat is Azure Import/Export-service?
 
@@ -71,13 +71,18 @@ Op hoog niveau omvat een import-taak de volgende stappen uit:
 1. Bepaalt de gegevens moet worden geïmporteerd, het aantal stations dat u nodig hebt, blob doellocatie voor uw gegevens in Azure storage.
 2. Het hulpprogramma WAImportExport gebruiken om gegevens te kopiëren naar harde schijven. Versleutel de schijven met BitLocker.
 3. Een importtaak maken in uw doel-opslagaccount in Azure portal. Upload de logboekbestanden van het station.
-2. Geef de retouradres en accountnummer van vervoerder voor de schijven terug naar u verzonden.
-3. De schijven naar het verzendadres opgegeven tijdens het maken van taak verzenden.
-4. Bijwerken van de levering traceringsnummer in de taakgegevens importeren en het verzenden van de import-taak.
-5. Schijven zijn ontvangen en verwerkt in de Azure-Datacenter.
-6. Schijven worden geleverd met uw provider-account opgegeven in de import-taak adres van de afzender.
-  
-    ![Afbeelding 1:Import taak stroom](./media/storage-import-export-service/importjob.png)
+4. Geef de retouradres en accountnummer van vervoerder voor de schijven terug naar u verzonden.
+5. De schijven naar het verzendadres opgegeven tijdens het maken van taak verzenden.
+6. Bijwerken van de levering traceringsnummer in de taakgegevens importeren en het verzenden van de import-taak.
+7. De schijven zijn ontvangen en verwerkt in de Azure-Datacenter.
+8. De stations worden geleverd met uw provider-account opgegeven in de import-taak adres van de afzender.
+
+> [!NOTE]
+> Delen een nationale provider-account voor lokale (binnen data center land) verzendingen 
+>
+> Delen van verzendingen buitenland (buiten data center land), een internationale provider-account
+
+ ![Afbeelding 1:Import taak stroom](./media/storage-import-export-service/importjob.png)
 
 Voor stapsgewijze instructies voor gegevens importeert, gaat u naar:
 
@@ -101,8 +106,13 @@ Op hoog niveau omvat een exporttaak bekijken in de volgende stappen:
 8. De schijven zijn ontvangen en verwerkt in de Azure-Datacenter.
 9. De stations zijn versleuteld met BitLocker en de sleutels zijn beschikbaar via de Azure-portal.  
 10. De stations worden geleverd met uw provider-account opgegeven in de import-taak adres van de afzender.
+
+> [!NOTE]
+> Delen een nationale provider-account voor lokale (binnen data center land) verzendingen 
+>
+> Delen van verzendingen buitenland (buiten data center land), een internationale provider-account
   
-    ![Afbeelding 2:Export taak stroom](./media/storage-import-export-service/exportjob.png)
+ ![Afbeelding 2:Export taak stroom](./media/storage-import-export-service/exportjob.png)
 
 Ga voor stapsgewijze instructies voor het exporteren van gegevens naar [gegevens exporteren uit Azure Blobs](storage-import-export-data-from-blobs.md).
 

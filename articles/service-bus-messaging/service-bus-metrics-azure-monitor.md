@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus-metrische gegevens in de Azure-Monitor (preview) | Microsoft Docs
-description: Azure-bewaking gebruiken voor het bewaken van Service Bus-entiteiten
+title: Metrische gegevens van Azure Service Bus in Azure Monitor (preview) | Microsoft Docs
+description: Bewaking van Azure gebruiken voor het bewaken van Service Bus-entiteiten
 services: service-bus-messaging
 documentationcenter: .NET
 author: sethmanheim
@@ -9,65 +9,65 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: sethm
-ms.openlocfilehash: bb0c9fcc33d6f5b54a8c2c8ad3e356a485d6ccbb
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 517c1376415466f5ce0e3c854f6c91f60cdab9f8
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701291"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247620"
 ---
-# <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Azure Service Bus-metrische gegevens in de Azure-Monitor (preview)
+# <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Metrische gegevens van Azure Service Bus in Azure Monitor (preview)
 
-Metrische gegevens van Service Bus biedt u de status van resources in uw Azure-abonnement. Met een uitgebreide set met metrische gegevens, kunt u de algemene status van uw Service Bus-resources, niet alleen op het niveau van de naamruimte, maar ook op het entiteitsniveau van de beoordelen. Deze statistische gegevens is belangrijk, omdat ze u helpen bij het controleren van de status van Service Bus. Metrische gegevens kunnen ook helpen problemen hoofdoorzaak zonder contact opnemen met ondersteuning van Azure.
+Metrische gegevens over Service Bus biedt u de status van resources in uw Azure-abonnement. Met een uitgebreide set metrische gegevens, kunt u de algemene status van uw Service Bus-resources, niet alleen op het niveau van de naamruimte, maar ook op het entiteitsniveau van de beoordelen. Deze statistische gegevens is belangrijk, omdat ze u houden op de status van Service Bus. Metrische gegevens kunnen ook helpen problemen hoofdoorzaak zonder contact opnemen met ondersteuning van Azure.
 
-Azure biedt een uniforme gebruikersinterfaces voor het bewaken van alle verschillende Azure-services. Zie voor meer informatie [bewaken in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) en de [metrische gegevens ophalen van Azure-Monitor met .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) op GitHub.
+Azure Monitor biedt een uniforme gebruikersinterfaces voor bewaking over de verschillende Azure-services. Zie voor meer informatie, [bewaken in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) en de [ophalen van Azure Monitor metrics met .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) op GitHub.
 
 ## <a name="access-metrics"></a>Toegang tot metrische gegevens
 
-Azure biedt verschillende manieren met toegang tot metrische gegevens. U kunt de toegang tot metrische gegevens via de [Azure-portal](https://portal.azure.com), of gebruik de Azure-Monitor API's (REST en .NET) en analyse-oplossingen zoals Log Analytics en Event Hubs. Zie voor meer informatie [Azure Monitor metrische gegevens](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
+Azure Monitor biedt meerdere manieren voor toegang tot metrische gegevens. U kunt de toegang tot metrische gegevens via de [Azure-portal](https://portal.azure.com), of gebruik de Azure Monitor API's (REST en .NET) en oplossingen voor gegevensanalyse, zoals Log Analytics en Event Hubs. Zie voor meer informatie, [Azure Monitor metrics](../monitoring-and-diagnostics/monitoring-overview-metrics.md#access-metrics-via-the-rest-api).
 
-Metrische gegevens zijn standaard ingeschakeld en u toegang hebt tot de meest recente 30 dagen aan gegevens. Als u gegevens wilt behouden voor een langere periode nodig hebt, kunt u metrische gegevens om een Azure Storage-account te archiveren. Dit is geconfigureerd in [diagnostische instellingen](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) in de Azure-Monitor.
+Metrische gegevens zijn standaard ingeschakeld en u hebt toegang tot gegevens van de meest recente 30 dagen. Als u behouden van gegevens voor een langere periode wilt, kunt u metrische gegevens om een Azure Storage-account te archiveren. Dit is geconfigureerd in [diagnostische instellingen](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) in Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Toegang tot metrische gegevens in de portal
 
-U kunt metrische gegevens controleren na verloop van tijd in de [Azure-portal](https://portal.azure.com). Het volgende voorbeeld ziet u hoe geslaagde aanvragen en inkomende aanvragen op het niveau van het account weergeven:
+U kunt metrische gegevens controleren na verloop van tijd in de [Azure-portal](https://portal.azure.com). Het volgende voorbeeld laat zien hoe om binnenkomende aanvragen op accountniveau en geslaagde aanvragen weer te geven:
 
 ![][1]
 
-U kunt ook toegang tot metrische gegevens rechtstreeks via de naamruimte. Om dit te doen, selecteer de naamruimte en klik vervolgens op **metrische gegevens (Peview)**. Selecteer de entiteit om weer te geven de metrische gegevens die zijn gefilterd op het bereik van de entiteit, en klik vervolgens op **metrische gegevens (preview)**.
+U kunt ook toegang tot metrische gegevens rechtstreeks via de naamruimte. Om dit te doen, selecteert u uw naamruimte en klik vervolgens op **metrische gegevens (Peview)**. Als u wilt weergeven van metrische gegevens die zijn gefilterd op het bereik van de entiteit, selecteer de entiteit en klik vervolgens op **metrische gegevens (preview)**.
 
 ![][2]
 
-Voor de metrische gegevens voor ondersteuning van dimensies, moet u met de waarde van de gewenste dimensie filteren.
+Voor metrische gegevens voor ondersteuning van dimensies, moet u filteren met de gewenste dimensiewaarde.
 
 ## <a name="billing"></a>Billing
 
-Met metrische gegevens in de Azure-Monitor is gratis tijdens de Preview-versie. Echter, als u aanvullende oplossingen die metrische gegevens voor opnemen gebruikt, u mogelijk worden gefactureerd door deze oplossingen. U wordt bijvoorbeeld gefactureerd door Azure Storage als archiveren van metrische gegevens aan een Azure Storage-account. U wordt ook door logboekanalyse gefactureerd als stream van metrische gegevens voor logboekanalyse voor geavanceerde analyse.
+Met metrische gegevens in Azure Monitor is gratis tijdens preview. Echter, als u aanvullende oplossingen die metrische gegevens opnemen, u mogelijk worden kosten in rekening gebracht door deze oplossingen. U wordt bijvoorbeeld gefactureerd door Azure Storage als u metrische gegevens om een Azure Storage-account te archiveren. U wordt ook gefactureerd door Log Analytics, als u metrische gegevens naar Log Analytics voor geavanceerde analyse streamen.
 
-De volgende metrische gegevens geven een overzicht van de status van uw service. 
+De volgende metrische gegevens geven u een overzicht van de status van uw service. 
 
 > [!NOTE]
-> Er zijn verschillende metrische gegevens bestandstypen terwijl ze worden verplaatst onder een andere naam. Dit moet u mogelijk uw referenties bijwerken. Metrische gegevens die zijn gemarkeerd met het sleutelwoord 'afgeschaft' wordt niet ondersteund voortaan.
+> Er zijn verschillende metrische gegevens niet meer ondersteund als ze worden verplaatst onder een andere naam. Dit moet u mogelijk uw referenties bijwerken. Metrische gegevens die zijn gemarkeerd met het sleutelwoord 'afgeschaft' wordt niet ondersteund voortaan.
 
-Alle waarden van de metrische gegevens worden verzonden naar Azure Monitor elke minuut. De tijdgranulatie definieert het tijdsinterval waarvoor metrische waarden worden weergegeven. De ondersteunde tijdsinterval voor alle Service Bus-metrische gegevens is 1 minuut.
+Alle metrische waarden worden verzonden naar Azure Monitor elke minuut. De tijdgranulatie definieert het tijdsinterval waarvoor metrische waarden worden weergegeven. Het ondersteunde tijdsinterval voor alle Service Bus-metrische gegevens is 1 minuut.
 
-## <a name="request-metrics"></a>Aanvraag metrische gegevens
+## <a name="request-metrics"></a>Aanvraag voor metrische gegevens
 
-Telt het aantal aanvragen voor gegevens en beheer van bewerkingen.
+Telt het aantal aanvragen voor beheer van gegevens en bewerkingen.
 
 | Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
-| Inkomende aanvragen (preview) | Het aantal aanvragen voor de Service Bus-service gedurende een bepaalde periode. <br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|Geslaagde aanvragen (preview)|Het aantal geslaagde aanvragen voor de Service Bus-service gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|Server-fouten (preview)|Het aantal aanvragen dat is niet verwerkt vanwege een fout in de Service Bus-service gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|Gebruikersfouten (voorbeeld: Zie de volgende subsectie)|Het aantal aanvragen dat is niet verwerkt als gevolg van gebruikersfouten gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|Beperkte aanvragen (preview)|Het aantal aanvragen die zijn beperkt omdat het gebruik is overschreden.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
+| Inkomende aanvragen (preview) | Het aantal aanvragen voor de Service Bus-service gedurende een bepaalde periode. <br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
+|Geslaagde aanvragen (preview)|Het aantal geslaagde aanvragen voor de Service Bus-service gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
+|Server-fouten (preview)|Het aantal aanvragen die niet worden verwerkt vanwege een fout in de Service Bus-service gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
+|Gebruikersfouten (preview - Zie de volgende subsectie)|Het aantal aanvragen die niet worden verwerkt wegens gebruikersfouten gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
+|Beperkte aanvragen (preview)|Het aantal aanvragen die zijn beperkt omdat het gebruik is overschreden.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
 
 ### <a name="user-errors"></a>Gebruikersfouten
 
-De volgende twee soorten fouten zijn geclassificeerd als gebruikersfouten:
+De volgende twee typen fouten zijn geclassificeerd als gebruikersfouten:
 
-1. Client side fouten (In HTTP die 400 fouten).
+1. Client side-fouten (In HTTP die 400 fouten).
 2. Fouten die tijdens het verwerken van berichten, zoals optreden [MessageLockLostException](/dotnet/api/microsoft.azure.servicebus.messagelocklostexception).
 
 
@@ -75,35 +75,35 @@ De volgende twee soorten fouten zijn geclassificeerd als gebruikersfouten:
 
 | Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
-|Binnenkomende berichten (preview)|Het aantal gebeurtenissen of berichten die worden verzonden naar Service Bus gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|Uitgaande berichten (preview)|Het aantal gebeurtenissen of berichten ontvangen van Service Bus gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
+|Binnenkomende berichten (preview)|Het aantal gebeurtenissen of berichten die naar Service Bus wordt verzonden in een opgegeven periode.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
+|Uitgaande berichten (preview)|Het aantal gebeurtenissen of berichten ontvangen van Service Bus gedurende een bepaalde periode.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
 
-## <a name="connection-metrics"></a>Metrische gegevens voor verbinding
-
-| Naam van meetwaarde | Beschrijving |
-| ------------------- | ----------------- |
-|ActiveConnections (preview)|Het aantal actieve verbindingen voor een naamruimte, evenals op een entiteit.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|Verbindingen Opened (preview)|Het aantal geopende verbindingen.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName|
-|Verbindingen gesloten (preview)|Het aantal verbindingen afgesloten.<br/><br/> Eenheid: aantal <br/> Samenvoegingstype: totaal <br/> Dimensie: EntityName |
-
-## <a name="resource-usage-metrics"></a>Meetgegevens voor softwaregebruik van resource
+## <a name="connection-metrics"></a>Metrische verbindingsgegevens
 
 | Naam van meetwaarde | Beschrijving |
 | ------------------- | ----------------- |
-|CPU-gebruik per naamruimte (preview)|Het percentage CPU-gebruik van de naamruimte.<br/><br/> Eenheid: procent <br/> Samenvoegingstype: maximale <br/> Dimensie: EntityName|
-|Grootte van geheugengebruik per naamruimte (preview)|Het geheugengebruik van het percentage van de naamruimte.<br/><br/> Eenheid: procent <br/> Samenvoegingstype: maximale <br/> Dimensie: EntityName|
+|ActiveConnections (preview)|Het aantal actieve verbindingen voor een naamruimte, maar ook op een entiteit.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
+|Verbindingen geopend (preview)|Het aantal open verbindingen.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName|
+|Gesloten verbindingen (preview)|Het aantal gesloten verbindingen.<br/><br/> Eenheid: aantal <br/> Aggregatietype: totaal <br/> Dimensie: EntityName |
 
-## <a name="metrics-dimensions"></a>Metrische gegevens dimensies
+## <a name="resource-usage-metrics"></a>Metrische gegevens voor het gebruik van resources
 
-Azure Service Bus ondersteunt de volgende dimensies voor metrische gegevens in Azure-Monitor. Dimensies toevoegen aan uw metrische gegevens is optioneel. Als u dimensies niet toevoegt, worden de metrische gegevens opgegeven op het niveau van de naamruimte. 
+| Naam van meetwaarde | Beschrijving |
+| ------------------- | ----------------- |
+|CPU-gebruik per naamruimte (preview)|Het percentage CPU-gebruik van de naamruimte.<br/><br/> Eenheid: procent <br/> Aggregatietype: Maximum <br/> Dimensie: EntityName|
+|Geheugengebruik per naamruimte (preview)|Het geheugengebruik van het percentage van de naamruimte.<br/><br/> Eenheid: procent <br/> Aggregatietype: Maximum <br/> Dimensie: EntityName|
 
-|De dimensienaam van de|Beschrijving|
+## <a name="metrics-dimensions"></a>Metrische gegevens over dimensies
+
+Azure Service Bus ondersteunt de volgende dimensies voor metrische gegevens in Azure Monitor. Dimensies toevoegen aan uw metrische gegevens is optioneel. Als u dimensies niet toevoegt, worden de metrische gegevens opgegeven op het niveau van de naamruimte. 
+
+|Dimensienaam|Beschrijving|
 | ------------------- | ----------------- |
 |EntityName| Service Bus ondersteunt berichtentiteiten onder de naamruimte.|
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de [Azure bewakingsoverzicht](../monitoring-and-diagnostics/monitoring-overview.md).
+Zie de [overzicht Azure Monitoring](../monitoring-and-diagnostics/monitoring-overview.md).
 
 [1]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor1.png
 [2]: ./media/service-bus-metrics-azure-monitor/service-bus-monitor2.png

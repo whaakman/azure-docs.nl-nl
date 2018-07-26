@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 6d1002fd5131ca97f7bc1b9d081ae1471191a6cf
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d2f5ce97ee81deaf590771f4794af4adf0fdbd1b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076171"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248584"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Veelgestelde vragen over verbonden Factory-oplossingsversnellers
 
@@ -125,7 +125,7 @@ U kunt ook aanmelden bij de virtuele machine via SSH en controleren van de logbo
 
 ### <a name="how-can-i-check-if-the-simulation-is-sending-data-to-the-cloud"></a>Hoe kan ik controleren als de simulatie gegevens naar de cloud verzendt?
 
-Met de [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) of de [iothub-explorer](https://github.com/azure/iothub-explorer) hulpprogramma, kunt u de gegevens die worden verzonden naar IoT Hub van bepaalde apparaten controleren. Voor het gebruik van deze hulpprogramma's, moet u weten de verbindingsreeks voor de IoT-hub in uw implementatie. Zie [hoe vind ik uit de verbindingsreeks van de IoT-hub die is gebruikt door de oplossing?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
+Met de [DeviceExplorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) of de [-gebeurtenissen van Azure IoT CLI-extensie controleren](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-monitor-events) opdracht, kunt u de gegevens die worden verzonden naar IoT Hub van bepaalde apparaten controleren. Voor het gebruik van deze hulpprogramma's, moet u weten de verbindingsreeks voor de IoT-hub in uw implementatie. Zie [hoe vind ik uit de verbindingsreeks van de IoT-hub die is gebruikt door de oplossing?](#how-do-i-find-out-the-connection-string-of-the-iot-hub-used-by-my-solution)
 
 Controleer de gegevens die worden verzonden door een van de uitgever-apparaten:
 

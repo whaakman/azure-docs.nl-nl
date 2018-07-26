@@ -8,31 +8,35 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: a6435f74141429cbe4f9a169fd2f234161d486c4
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9d2a20ce681ea7e7c4ff2f9b492653e9d9a57b2b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918737"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248163"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Verzamelen en gebruiken van logboekgegevens van uw Azure-resources
 
-## <a name="what-are-azure-resource-diagnostic-logs"></a>Wat zijn Azure-resource diagnostische logboeken
+## <a name="what-are-azure-monitor-diagnostic-logs"></a>Wat zijn diagnostische logboeken van Azure Monitor
 
-**Diagnostische logboeken in Azure resourceniveau** zijn Logboeken door een resource met uitgebreide, regelmatig gegevens over de werking van die resource. Resourcetype is afhankelijk van de inhoud van deze logboeken. Tellers van regels voor Network Security Group en Key Vault audits zijn bijvoorbeeld twee categorieën van Logboeken van de resource.
+**Diagnostische logboeken in Azure Monitor** zijn logboeken op een Azure-service met uitgebreide, regelmatig gegevens over de werking van die service. Met Azure Monitor worden de beschikbare twee typen logboeken met diagnostische gegevens:
+* **Logboeken voor de tenantsleutel** -deze logboeken afkomstig zijn van het tenantniveau-services die buiten een Azure-abonnement bestaan, zoals Azure Active Directory-Logboeken.
+* **Logboeken van de resource** -deze logboeken afkomstig zijn van de Azure-services die resources binnen een Azure-abonnement, zoals Network Security Groups of Storage-Accounts implementeren.
 
-Diagnostische logboeken van de resource op het niveau verschillen van de [activiteitenlogboek](monitoring-overview-activity-logs.md). Het activiteitenlogboek biedt inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement met behulp van Resource Manager, bijvoorbeeld, het maken van een virtuele machine of een logische app verwijderen. Het activiteitenlogboek is een logboek op abonnementsniveau. Resourceniveau diagnoselogboeken bieden inzicht in bewerkingen die zijn uitgevoerd binnen die resource zelf, bijvoorbeeld een geheim ophalen uit een Key Vault.
+    ![Resource diagnostische logboeken en andere typen logboeken ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
 
-Diagnostische logboeken resourceniveau afwijken van de Gast OS-niveau van diagnostische logboeken. Diagnostische logboeken van Guest OS zijn deze die worden verzameld door een agent die wordt uitgevoerd op een virtuele machine of andere ondersteund resourcetype. Diagnostische logboeken resourceniveau vereisen geen gegevens van de resource-specifieke agent en vastleggen van de Azure-platform zelf wordt geboden, terwijl Gast OS-niveau logboeken met diagnostische gegevens vastleggen van gegevens uit het besturingssysteem en toepassingen die worden uitgevoerd op een virtuele machine.
+De inhoud van deze logboeken is afhankelijk van het Azure-service en resource-type. Tellers van regels voor Network Security Group en Key Vault controles zijn bijvoorbeeld twee typen logboeken met diagnostische gegevens.
 
-Niet alle resources ondersteuning voor het nieuwe type resource diagnostische logboeken die hier worden beschreven. In dit artikel bevat een sectie met welke resourcetypen ondersteunen de nieuwe resource-niveau van diagnostische logboeken.
+Deze logboeken afwijken van de [activiteitenlogboek](monitoring-overview-activity-logs.md). Het activiteitenlogboek biedt inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement met behulp van Resource Manager, bijvoorbeeld, het maken van een virtuele machine of een logische app verwijderen. Het activiteitenlogboek is een logboek op abonnementsniveau. Resourceniveau diagnoselogboeken bieden inzicht in bewerkingen die zijn uitgevoerd binnen die resource zelf, bijvoorbeeld een geheim ophalen uit een Key Vault.
 
-![Resource diagnostische logboeken en andere typen logboeken ](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_vs_other_logs_v5.png)
+Deze logboeken afwijken van de Gast OS-niveau van diagnostische logboeken. Diagnostische logboeken van Guest OS zijn deze die worden verzameld door een agent die wordt uitgevoerd op een virtuele machine of andere ondersteund resourcetype. Diagnostische logboeken resourceniveau vereisen geen gegevens van de resource-specifieke agent en vastleggen van de Azure-platform zelf wordt geboden, terwijl Gast OS-niveau logboeken met diagnostische gegevens vastleggen van gegevens uit het besturingssysteem en toepassingen die worden uitgevoerd op een virtuele machine.
 
-## <a name="what-you-can-do-with-resource-level-diagnostic-logs"></a>U kunt doen met diagnostische logboeken resourceniveau
-Hier volgen enkele dingen die u met diagnostische logboeken van resources doen kunt:
+Niet alle services die ondersteuning voor de diagnostische logboeken die hier worden beschreven. [In dit artikel bevat een sectie aanbieding welke services diagnostische logboeken ondersteunen](./monitoring-diagnostic-logs-schema.md).
 
-![Logische plaatsing van de Resource diagnostische logboeken](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
+## <a name="what-you-can-do-with-diagnostic-logs"></a>U kunt doen met diagnostische logboeken
+Hier volgen enkele dingen die u met Logboeken met diagnostische gegevens doen kunt:
+
+![Logische plaatsing van diagnostische logboeken](./media/monitoring-overview-of-diagnostic-logs/Diagnostics_Logs_Actions.png)
 
 * Opslaan naar een [ **Opslagaccount** ](monitoring-archive-diagnostic-logs.md) voor controle of handmatige controle. U kunt opgeven de bewaartermijn (in dagen) via **instellingen voor resourcediagnose**.
 * [Stream ze **Event Hubs** ](monitoring-stream-diagnostic-logs-to-event-hubs.md) voor opname van een service van derden of aangepaste analyseoplossing zoals Power BI.
@@ -44,22 +48,22 @@ U kunt een opslagaccount of Event Hubs-naamruimte die zich niet in hetzelfde abo
 >  U kan momenteel niet archiveren gegevens aan een storage-account die achter een beveiligd virtueel netwerk.
 
 > [!WARNING]
-> De indeling van de logboekgegevens in de storage-account wordt gewijzigd in JSON-regels op 1 november 2018. [Raadpleeg dit artikel voor een beschrijving van de impact en het bijwerken van uw hulpprogramma's voor het afhandelen van de nieuwe indeling.](./monitor-diagnostic-logs-append-blobs.md) 
+> De indeling van de logboekgegevens in het opslagaccount wordt op 1 november 2018 gewijzigd in JSON Lines. [Raadpleeg dit artikel voor een beschrijving van de gevolgen en hoe u uw tooling kunt bijwerken om de nieuwe indeling te verwerken. ](./monitor-diagnostic-logs-append-blobs.md) 
 >
 > 
 
-## <a name="resource-diagnostic-settings"></a>Diagnostische instellingen voor resources
+## <a name="diagnostic-settings"></a>Diagnostische instellingen
 
-Diagnostische logboeken van de resource voor niet-Compute resources met behulp van resource diagnostische instellingen zijn geconfigureerd. **Instellingen voor resourcediagnose** voor een resource-besturingselement:
+Diagnostische logboeken van resources zijn geconfigureerd met behulp van de instellingen voor resourcediagnose. Diagnostische logboeken tenant zijn geconfigureerd met behulp van de diagnostische instelling van een tenant. **Diagnostische instellingen** voor een service-besturingselement:
 
-* Waar resource diagnostische logboeken en metrische gegevens worden verzonden (Storage-Account, Event Hubs en/of Log Analytics).
+* Waar diagnostische logboeken en metrische gegevens worden verzonden (Storage-Account, Event Hubs en/of Log Analytics).
 * Welke logboekcategorieën worden verzonden en of u metrische gegevens ook worden verzonden.
 * Hoe lang elke logboekcategorie moet worden bewaard in een storage-account
     - Een bewaarperiode van nul dagen betekent dat Logboeken altijd worden bewaard. De waarde kan anders een willekeurig aantal dagen tussen 1 en 2147483647 zijn.
     - Als Logboeken opslaan in een Storage-Account is uitgeschakeld (bijvoorbeeld, als er alleen Event Hubs of Log Analytics-opties zijn geselecteerd), bewaarbeleid worden ingesteld, maar hebben het bewaarbeleid geen effect.
     - Bewaarbeleid zijn toegepast per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode van beleid worden verwijderd. Bijvoorbeeld, als u een beleid voor het bewaren van één dag had, worden aan het begin van de dag vandaag nog de logboeken van de dag voor gisteren vernietigd. De verwijderbewerking begint bij middernacht UTC, maar houd er rekening mee dat het kan tot 24 uur duren voor de logboeken worden verwijderd uit uw storage-account.
 
-Deze instellingen gemakkelijk worden geconfigureerd via de diagnostische instellingen voor een resource in Azure portal, via Azure PowerShell en CLI-opdrachten of via de [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931943.aspx).
+Deze instellingen gemakkelijk worden geconfigureerd via de diagnostische instellingen in de portal, via Azure PowerShell en CLI-opdrachten of via de [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/).
 
 > [!NOTE]
 > Het verzenden van multidimensionale metrische gegevens via diagnostische instellingen wordt momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte eendimensionale metrische gegevens, als totaal van alle dimensiewaarden.
@@ -68,17 +72,14 @@ Deze instellingen gemakkelijk worden geconfigureerd via de diagnostische instell
 >
 >
 
-> [!WARNING]
-> Diagnostische logboeken en metrische gegevens van de Gast-OS-laag van Compute-resources (bijvoorbeeld virtuele machines of Service Fabric) Gebruik [een afzonderlijk mechanisme voor configuratie en de selectie van uitvoer](../azure-diagnostics.md).
+## <a name="how-to-enable-collection-of-diagnostic-logs"></a>Het inschakelen van verzamelen van diagnostische logboeken
 
-## <a name="how-to-enable-collection-of-resource-diagnostic-logs"></a>Het inschakelen van verzamelen van diagnostische logboeken van resource
-
-Verzamelen van diagnostische logboeken resource kan worden ingeschakeld [als onderdeel van een resource maken in Resource Manager-sjabloon](./monitoring-enable-diagnostic-logs-using-template.md) of wanneer een resource is gemaakt op de pagina van de resource in de portal. U kunt ook de verzameling op elk gewenst moment met behulp van Azure PowerShell of CLI-opdrachten, of de REST-API van Azure Monitor inschakelen.
+Verzamelen van diagnostische logboeken kan worden ingeschakeld [als onderdeel van een resource maken in Resource Manager-sjabloon](./monitoring-enable-diagnostic-logs-using-template.md) of wanneer een resource is gemaakt op de pagina van de resource in de portal. U kunt ook de verzameling op elk gewenst moment met behulp van Azure PowerShell of CLI-opdrachten, of de REST-API van Azure Monitor inschakelen.
 
 > [!TIP]
 > Deze instructies mogelijk niet van toepassing rechtstreeks aan elke resource. Zie de koppelingen schema onderaan deze pagina om te begrijpen speciale stappen die van toepassing op bepaalde resourcetypen zijn.
 
-### <a name="enable-collection-of-resource-diagnostic-logs-in-the-portal"></a>Verzamelen van diagnostische logboeken van de resource in de portal inschakelen
+### <a name="enable-collection-of-diagnostic-logs-in-the-portal"></a>Verzamelen van logboeken met diagnostische gegevens in de portal inschakelen
 
 U kunt verzamelen van diagnostische logboeken van de resource in Azure portal inschakelen nadat een resource is gemaakt door te gaan naar een specifieke resource of door te navigeren naar Azure Monitor. Dit inschakelen via Azure Monitor:
 
@@ -103,6 +104,10 @@ U kunt verzamelen van diagnostische logboeken van de resource in Azure portal in
 4. Klik op **Opslaan**.
 
 Na enkele ogenblikken wordt de nieuwe instelling wordt weergegeven in de lijst met instellingen voor deze resource en logboeken met diagnostische gegevens worden verzonden naar de opgegeven bestemmingen zodra de gegevens van een nieuwe gebeurtenis wordt gegenereerd.
+
+Diagnostische instellingen voor tenant kunnen alleen worden geconfigureerd in de portalblade voor de tenant-service - deze instellingen worden niet weergegeven in de blade van de diagnostische instellingen Azure Monitor. Bijvoorbeeld: auditlogboeken van Azure Active Directory zijn geconfigureerd door te klikken op de **instellingen exporteren van gegevens** in de blade van de logboeken controleren.
+
+![Diagnostische instellingen van AAD](./media/monitoring-overview-of-diagnostic-logs/diagnostic-settings-aad.png)
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-powershell"></a>Inschakelen van verzamelen van diagnostische logboeken van de resource via PowerShell
 
@@ -137,6 +142,8 @@ U vindt de resource-ID van uw Log Analytics-werkruimte met de volgende opdracht:
 ```
 
 U kunt deze parameters voor het inschakelen van meerdere uitvoeropties combineren.
+
+U configureren momenteel diagnostische instellingen van tenant met behulp van Azure PowerShell niet.
 
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-azure-cli-20"></a>Inschakelen van verzamelen van diagnostische logboeken van de resource via Azure CLI 2.0
 
@@ -198,9 +205,13 @@ De `--resource-group` argument is alleen vereist als `--workspace` is geen objec
 
 Met een opdracht kunt u extra categorieën toevoegen aan de diagnostische logboeken van woordenlijsten toe te voegen aan de JSON-matrix die is doorgegeven als de `--logs` parameter. U kunt combineren de `--storage-account`, `--event-hub`, en `--workspace` parameters voor het inschakelen van meerdere opties voor uitvoer.
 
+U configureren momenteel diagnostische instellingen van tenant met behulp van de CLI niet.
+
 ### <a name="enable-collection-of-resource-diagnostic-logs-via-rest-api"></a>Inschakelen van verzamelen van diagnostische logboeken van de resource via REST-API
 
-Diagnostische instellingen met de Azure Monitor REST API, Zie [dit document](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+Diagnostische instellingen met de Azure Monitor REST API, Zie [dit document](https://docs.microsoft.com/rest/api/monitor/).
+
+U configureren diagnostische instellingen van tenant met behulp van de Azure Monitor REST API op dit moment niet.
 
 ## <a name="manage-resource-diagnostic-settings-in-the-portal"></a>Diagnostische instellingen van de resource in de portal beheren
 
@@ -216,7 +227,7 @@ Hier kunt u weergeven en filteren van alle resources die ondersteuning bieden vo
 
 Een diagnostische instelling toe te voegen, wordt de diagnostische instellingen weergeven, waar u kunt inschakelen, uitschakelen of wijzigen van de diagnostische instellingen voor de geselecteerde resource.
 
-## <a name="supported-services-categories-and-schemas-for-resource-diagnostic-logs"></a>Ondersteunde services, categorieën en schema's voor diagnostische logboeken van resource
+## <a name="supported-services-categories-and-schemas-for-diagnostic-logs"></a>Ondersteunde services, categorieën en schema's voor diagnostische logboeken
 
 [Raadpleeg dit artikel](monitoring-diagnostic-logs-schema.md) voor een volledige lijst van ondersteunde services en de logboekcategorieën en schema's die worden gebruikt door deze services.
 

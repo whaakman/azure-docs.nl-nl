@@ -10,17 +10,17 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 07f22345d2bf8c481091652d9faa0bdd10205fdb
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: f3b181c8d65cf8618b7599a999b2b8edf20ed809
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072562"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259024"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-using-the-speech-sdk"></a>Snelstartgids: Herkennen gesproken tekst in C# onder .NET Framework op Windows met behulp van de spraak-SDK
 
 In dit artikel leert u hoe u een C#-consoletoepassing maken voor .NET Framework voor Windows met behulp van de Cognitive Services Speech SDK spraak naar tekst te transcriberen.
-De toepassing is op basis van de [Microsoft Cognitive Services Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017.
+De toepassing is gemaakt met de [Microsoft Cognitive Services Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -47,9 +47,15 @@ De toepassing is op basis van de [Microsoft Cognitive Services Speech SDK NuGet-
 
     ![Installeer het NuGet-pakket Microsoft.CognitiveServices.Speech](media/sdk/qs-csharp-dotnet-windows-03-nuget-install-0.5.0.png "installeren Nuget-pakket")
 
-1. In het scherm van het type licentie dat verschijnt, accepteer de licentie:
+1. Accepteer de gebruiksrechtovereenkomst in het dialoogvenster dat wordt weergegeven.
 
     ![Accepteer de licentie](media/sdk/qs-csharp-dotnet-windows-04-nuget-license.png "gaat akkoord met de licentie")
+
+1. De volgende uitvoerregel wordt weergegeven in de Package Manager-console.
+
+   ```text
+   Successfully installed 'Microsoft.CognitiveServices.Speech 0.5.0' to helloworld
+   ```
 
 ## <a name="create-a-platform-configuration-matching-your-pc-architecture"></a>Maken van een platformconfiguratie die overeenkomen met uw PC-architectuur
 
@@ -69,7 +75,7 @@ In deze sectie maakt toevoegen u een nieuw platform aan de configuratie die over
 
 ## <a name="add-the-sample-code"></a>De voorbeeldcode toevoegen
 
-1. In de `Program.cs` bestand in Visual Studio-project, alle code vervangen door het volgende:
+1. Open `Program.cs` in uw Visual Studio-project en vervang de code in dit bestand door het volgende.
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
@@ -81,7 +87,7 @@ In deze sectie maakt toevoegen u een nieuw platform aan de configuratie die over
 
 ## <a name="build-and-run-the-sample"></a>Het voorbeeldproject compileren en uitvoeren
 
-1. Maken van de toepassing. Selecteer in de menubalk **bouwen** > **Build Solution**. De code moet nu compileren zonder fouten:
+1. Maken van de toepassing. Selecteer in de menubalk **bouwen** > **Build Solution**. De code moet nu compileren zonder fouten.
 
     ![Geslaagde build](media/sdk/qs-csharp-dotnet-windows-08-build.png "geslaagde build")
 
@@ -89,8 +95,7 @@ In deze sectie maakt toevoegen u een nieuw platform aan de configuratie die over
 
     ![De app te starten in foutopsporing](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "bij het opsporen van fouten in de app te starten")
 
-1. Een consolevenster verschijnt, waarin u kunt iets wat er op (in het Engels).
-   Het resultaat van de opname wordt op het scherm weergegeven.
+1. Een consolevenster wordt weergegeven, waarin u kunt iets wat er op (in het Engels). De herkende tekst wordt vervolgens weergegeven in hetzelfde venster.
 
     ![Console-uitvoer na geslaagde opname](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "Console-uitvoer na geslaagde opname")
 

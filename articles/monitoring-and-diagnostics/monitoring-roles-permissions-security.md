@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met rollen, machtigingen en -beveiliging met Azure-Monitor
-description: Informatie over het gebruik van de ingebouwde rollen en machtigingen van de Monitor van het Azure toegang tot de bewaking van de resources te beperken.
+title: Aan de slag met rollen, machtigingen en beveiliging met Azure Monitor
+description: Informatie over het gebruik van Azure Monitor ingebouwde rollen en machtigingen voor toegang tot het bewaken van resources te beperken.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,94 +8,94 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 82ec2b71ee83d2ec697fa44521c103b11976f1ed
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: a30c6a8d02b46656a0d76cf8438bdf0b3361ae91
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35264599"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248458"
 ---
-# <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Aan de slag met rollen, machtigingen en -beveiliging met Azure-Monitor
-Veel teams moeten strikt reguleren toegang tot gegevens en instellingen controleren. Als er teamleden die werken alleen op de bewaking (ondersteuningsmedewerkers, devops engineers) of als u een provider van beheerde services gebruikt, u kunt ze om toegang te verlenen tot alleen bewakingsgegevens terwijl de beperkingen voor de mogelijkheid om te maken, wijzigen of verwijderen van resources. In dit artikel laat zien hoe snel een ingebouwde bewaking RBAC-rol toepassen op een gebruiker in Azure of uw eigen aangepaste rol voor een gebruiker aan wie beperkte machtigingen voor controle moet bouwen. Vervolgens wordt de beveiligingsoverwegingen voor uw Azure-Monitor-gerelateerde resources en hoe u toegang tot de gegevens die ze bevatten alleen besproken.
+# <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Aan de slag met rollen, machtigingen en beveiliging met Azure Monitor
+Veel teams moeten strikt regelen de toegang tot gegevens en instellingen controleren. Bijvoorbeeld, als u de teamleden die uitsluitend over het bewaken van (ondersteuningstechnici, devops-technici) werken hebt of als u een provider van beheerde services gebruikt, kunt u ze om toegang te verlenen tot alleen bewakingsgegevens tijdens het beperken van de mogelijkheid om te maken, wijzigen, of resources verwijderen. In dit artikel laat zien hoe snel een ingebouwde bewaking RBAC-rol van toepassing op een gebruiker in Azure of bouw uw eigen aangepaste rol voor een gebruiker bent en beperkte machtigingen voor bewaking. Hierin worden vervolgens beveiligingsoverwegingen voor uw resources met betrekking tot Azure Monitor en het beperken van toegang tot de gegevens die ze bevatten.
 
 ## <a name="built-in-monitoring-roles"></a>Ingebouwde bewaking rollen
-De ingebouwde rollen Azure Monitor zijn ontworpen om te beperken van toegang tot bronnen in een abonnement terwijl nog steeds degenen die verantwoordelijk zijn voor het bewaken van de infrastructuur voor het verkrijgen en configureert u de gegevens die ze nodig hebben. Azure biedt twee out-of-the-box-rollen: een bewaking lezer en Inzender bewaking.
+Azure Monitor ingebouwde rollen zijn ontworpen om te beperken van toegang tot resources in een abonnement terwijl nog steeds die verantwoordelijk zijn voor het bewaken van de infrastructuur voor het downloaden en configureren van de gegevens die ze nodig hebben. Azure Monitor biedt twee out-of-the-box-rollen: een bewaking lezer en Inzender bewaking.
 
 ### <a name="monitoring-reader"></a>Controlelezer
-Personen die de rol Lezer bewaking toe kunt alle bewakingsgegevens weergeven in een abonnement, maar kan niet wijzigen van een resource of bewerken eventuele instellingen met betrekking tot de bewaking van resources. Deze rol is geschikt voor gebruikers in een organisatie, zoals ondersteuning of bewerkingen engineers die nodig kunnen hebben:
+Mensen de rol Lezer bewaking toe kunt alle controlegegevens weergeven in een abonnement, maar kan niet alle resource wijzigen of bewerken instellingen met betrekking tot het bewaken van resources. Deze rol is geschikt voor gebruikers in een organisatie, zoals ondersteuning of operations engineers, die nodig kunnen hebben:
 
-* Monitoring dashboards weergeven in de portal en maken van hun eigen persoonlijke dashboards voor bewaking.
+* Monitoring dashboards weergeven in de portal en hun eigen persoonlijke monitoring dashboards maken.
 * Waarschuwingsregels is gedefinieerd in weergeven [Azure-waarschuwingen](monitoring-overview-unified-alerts.md)
-* Query voor het gebruik van metrische gegevens de [REST-API van Azure-Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell-cmdlets](insights-powershell-samples.md), of [platformoverschrijdende CLI](insights-cli-samples.md).
-* Query uitvoeren op het activiteitenlogboek met behulp van de portal, Azure Monitor REST-API, PowerShell-cmdlets of platformoverschrijdende CLI.
-* Weergave de [diagnostische instellingen](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) voor een resource.
-* Weergave de [Meld profiel](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) voor een abonnement.
-* Weergave-instellingen voor automatisch schalen.
-* Waarschuwing activiteit weergeven en instellingen.
-* Toegang tot gegevens van Application Insights en gegevens weergeven in AI Analytics.
-* Zoeken naar gegevens in de werkruimte logboekanalyse met inbegrip van gegevens over het gebruik van de werkruimte.
+* Query voor het gebruik van metrische gegevens over de [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell-cmdlets](insights-powershell-samples.md), of [platformoverschrijdende CLI](insights-cli-samples.md).
+* Query uitvoeren op het activiteitenlogboek via de portal, Azure Monitor REST API, PowerShell-cmdlets of platformoverschrijdende CLI.
+* Weergave de [diagnostische instellingen](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) voor een resource.
+* Weergave de [logboekprofiel](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) voor een abonnement.
+* Bekijk de instellingen voor automatisch schalen.
+* Waarschuwingsactiviteit weergeven en -instellingen.
+* Toegang tot Application Insights-gegevens en gegevens weergeven in Analytics AI.
+* Zoeken naar gegevens in de werkruimte Log Analytics met inbegrip van gegevens over gebruik voor de werkruimte.
 * Log Analytics-beheergroepen weergeven.
-* Het schema van de zoekopdracht logboekanalyse ophalen.
-* Log Analytics intelligence packs weergeven.
+* De Log Analytics-zoekschema ophalen.
+* Lijst met Log Analytics intelligencepacks.
 * Haal en Log Analytics opgeslagen zoekopdrachten uitvoeren.
 * De opslagconfiguratie voor logboekanalyse ophalen.
 
 > [!NOTE]
-> Deze rol biedt niet alleen toegang geven tot logboekgegevens die is gestreamd naar een event hub of opgeslagen in een opslagaccount. [Zie hieronder](#security-considerations-for-monitoring-data) voor informatie over het configureren van toegang tot deze bronnen.
+> Deze rol heeft geen leestoegang geven tot logboekgegevens die zijn gestreamd naar een event hub of die zijn opgeslagen in een storage-account. [Zie hieronder](#security-considerations-for-monitoring-data) voor informatie over het configureren van toegang tot deze bronnen.
 > 
 > 
 
 ### <a name="monitoring-contributor"></a>Controlebijdrager
-Personen die de rol van Inzender bewaking toegewezen alle bewakingsgegevens kunt weergeven in een abonnement en maak of controle-instellingen wijzigen, maar niet alle andere resources wijzigen. Deze rol is een hoofdverzameling van de rol Lezer bewaking en geschikt is voor leden van de bewaking team een organisatie of de beheerde service-providers die naast de bovenstaande, machtigingen en ook moet kunnen:
+Mensen de rol Inzender bewaking toegewezen kan alle controlegegevens weergeven in een abonnement en maak of controle-instellingen wijzigen, maar alle andere resources kunnen niet worden gewijzigd. Deze rol is een superset van de rol van lezer bewaking en geschikt is voor leden van de controle-team van een organisatie of de providers van beheerde services die naast de bovenstaande, machtigingen en ook moet kunnen:
 
-* Monitoring dashboards publiceren als een gedeelde dashboard.
-* Stel [diagnostische instellingen](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings) voor een resource.*
-* Stel de [Meld profiel](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) voor een subscription.*
-* Stel waarschuwingsregels activiteit en -instellingen via [Azure waarschuwingen](monitoring-overview-unified-alerts.md).
-* Maak webtests Application Insights en onderdelen.
-* Werkruimte voor logboekanalyse lijst gedeelde sleutels.
-* In- of uitschakelen van logboekanalyse intelligence packs.
+* Monitoring dashboards als een gedeeld dashboard publiceren.
+* Stel [diagnostische instellingen](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) voor een resource.*
+* Stel de [logboekprofiel](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) voor een wijzigen.*
+* Activiteit van de regels voor waarschuwingen en-instellingen via [Azure-waarschuwingen](monitoring-overview-unified-alerts.md).
+* Application Insights-webtests en -onderdelen maken.
+* Lijst met Log Analytics-werkruimte gedeelde sleutels.
+* In- of uitschakelen van Log Analytics intelligencepacks.
 * Maken en verwijderen en Log Analytics opgeslagen zoekopdrachten uitvoeren.
-* Maken en verwijderen van de opslagconfiguratie voor logboekanalyse.
+* Maak en verwijder de opslagconfiguratie voor logboekanalyse.
 
-* gebruiker moet ook afzonderlijk worden gemachtigd ListKeys voor de doelbron (storage-account of event hub naamruimte) een profiel logboek of de diagnostische instelling in te stellen.
+* de gebruiker moet ook afzonderlijk worden verleend ListKeys machtiging voor de doelresource (storage-account of event hub-naamruimte) een logboekprofiel of de diagnostische instelling in te stellen.
 
 > [!NOTE]
-> Deze rol biedt niet alleen toegang geven tot logboekgegevens die is gestreamd naar een event hub of opgeslagen in een opslagaccount. [Zie hieronder](#security-considerations-for-monitoring-data) voor informatie over het configureren van toegang tot deze bronnen.
+> Deze rol heeft geen leestoegang geven tot logboekgegevens die zijn gestreamd naar een event hub of die zijn opgeslagen in een storage-account. [Zie hieronder](#security-considerations-for-monitoring-data) voor informatie over het configureren van toegang tot deze bronnen.
 > 
 > 
 
-## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Bewaking van aangepaste RBAC-rollen en machtigingen
-Als u de bovenstaande ingebouwde rollen niet voldoen aan de exacte behoeften van uw team, kunt u [maakt u een aangepaste RBAC-rol](../role-based-access-control/custom-roles.md) met meer gedetailleerde machtigingen. Hieronder vindt u de algemene Azure Monitor RBAC-bewerkingen met de bijbehorende beschrijvingen.
+## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Machtigingen voor controle en aangepaste RBAC-rollen
+Als de bovenstaande ingebouwde rollen niet voldoen aan de exacte behoeften van uw team, kunt u [maakt u een aangepaste RBAC-rol](../role-based-access-control/custom-roles.md) met meer gedetailleerde machtigingen. Hieronder vindt u de algemene Azure Monitor RBAC-bewerkingen met de bijbehorende beschrijvingen.
 
 | Bewerking | Beschrijving |
 | --- | --- |
-| Microsoft.Insights/ActionGroups/[Read, schrijven, verwijderen] |Lezen/schrijven/verwijderingsactie groepen. |
-| Microsoft.Insights/ActivityLogAlerts/[Read, schrijven, verwijderen] |Activiteit voor lezen, schrijven, verwijderen logboek waarschuwingen. |
-| Microsoft.Insights/AlertRules/[Read, schrijven, verwijderen] |Waarschuwingsregels lezen, schrijven, verwijderen (van waarschuwingen klassieke). |
-| Microsoft.Insights/AlertRules/Incidents/Read |Lijst met incidenten (geschiedenis van de waarschuwingsregel wordt geactiveerd) voor regels voor waarschuwingen. Dit geldt alleen voor de portal. |
-| Microsoft.Insights/AutoscaleSettings/[Read, schrijven, verwijderen] |Instellingen voor automatisch schalen die lezen/schrijven/verwijderen. |
-| Microsoft.Insights/DiagnosticSettings/[Read, schrijven, verwijderen] |Diagnostische instellingen voor lezen, schrijven, verwijderen. |
-| Microsoft.Insights/EventCategories/Read |Alle categorieën mogelijk in het activiteitenlogboek inventariseren. Gebruikt door de Azure-portal. |
+| Microsoft.Insights/ActionGroups/[Read, schrijven, verwijderen] |Actiegroepen lezen, schrijven en verwijderen. |
+| Microsoft.Insights/ActivityLogAlerts/[Read, schrijven, verwijderen] |Waarschuwingen voor activiteitenlogboeken lezen, schrijven en verwijderen. |
+| Microsoft.Insights/AlertRules/[Read, schrijven, verwijderen] |Waarschuwingsregels (van klassieke waarschuwingen) lezen, schrijven en verwijderen. |
+| Microsoft.Insights/AlertRules/Incidents/Read |Lijst met incidenten (geschiedenis van de waarschuwingsregel wordt geactiveerd) voor waarschuwingsregels. Dit is alleen van toepassing op de portal. |
+| Microsoft.Insights/AutoscaleSettings/[Read, schrijven, verwijderen] |Instellingen voor automatisch schalen lezen, schrijven en verwijderen. |
+| Microsoft.Insights/DiagnosticSettings/[Read, schrijven, verwijderen] |Diagnostische instellingen lezen, schrijven en verwijderen. |
+| Microsoft.Insights/EventCategories/Read |Het inventariseren van alle categorieën mogelijk in het activiteitenlogboek. Gebruikt door de Azure-portal. |
 | Microsoft.Insights/eventtypes/digestevents/Read |Deze machtiging is vereist voor gebruikers die toegang nodig tot activiteitenlogboeken via de portal. |
-| Microsoft.Insights/eventtypes/values/Read |Activiteitenlogboek gebeurtenissen (management gebeurtenissen) in een abonnement weergeven. Deze machtiging is van toepassing op de portal zowel programmatische toegang tot het activiteitenlogboek. |
-| Microsoft.Insights/ExtendedDiagnosticSettings/[Read, schrijven, verwijderen] | Lezen/schrijven/verwijderen van diagnostische instellingen voor network stroom Logboeken. |
+| Microsoft.Insights/eventtypes/values/Read |Lijst met gebeurtenissen in activiteitenlogboeken (van Beheergebeurtenissen) in een abonnement. Deze machtiging is van toepassing op zowel programmatische als portal toegang tot het activiteitenlogboek. |
+| Microsoft.Insights/ExtendedDiagnosticSettings/[Read, schrijven, verwijderen] | Diagnostische instellingen lezen, schrijven en verwijderen voor netwerk-stroomlogboeken. |
 | Microsoft.Insights/LogDefinitions/Read |Deze machtiging is vereist voor gebruikers die toegang nodig tot activiteitenlogboeken via de portal. |
-| Microsoft.Insights/LogProfiles/[Read, schrijven, verwijderen] |Lezen/schrijven/verwijderen logboek profielen (streaming activiteitenlogboek bij event hub- of opslag). |
+| Microsoft.Insights/LogProfiles/[Read, schrijven, verwijderen] |Lezen/schrijven/verwijderen logboekprofielen (activiteitenlogboek streamen naar event hub of storage-account). |
 | Microsoft.Insights/MetricAlerts/[Read, schrijven, verwijderen] |Lezen/schrijven/verwijderen bijna realtime metrische waarschuwingen |
 | Microsoft.Insights/MetricDefinitions/Read |Metrische definities (lijst met beschikbare metrische gegevens typen voor een resource) lezen. |
-| Microsoft.Insights/Metrics/Read |Metrische gegevens voor een resource lezen. |
-| Microsoft.Insights/Register/Action |Registreer de Monitor voor Azure resourceprovider. |
-| Microsoft.Insights/ScheduledQueryRules/[Read, schrijven, verwijderen] |Lezen/schrijven/verwijderen logboek waarschuwingen voor Application Insights. |
+| Microsoft.Insights/Metrics/Read |De metrische gegevens voor een resource lezen. |
+| Microsoft.Insights/Register/Action |Registreer de resourceprovider van Azure Monitor. |
+| Microsoft.Insights/ScheduledQueryRules/[Read, schrijven, verwijderen] |Lezen/schrijven/verwijderen logboekwaarschuwingen voor Application Insights. |
 
 
 
 > [!NOTE]
-> Toegang tot waarschuwingen, diagnostische instellingen en metrische gegevens voor een bron is vereist dat de gebruiker leestoegang tot de resourcetype en bereik van de bron heeft. Een diagnostische instelling of logboek-profiel dat met een opslagaccount of stromen naar event hubs-archieven maken ('schrijven') is ook ListKeys machtiging hebben voor de doelresource van de gebruiker vereist.
+> Toegang tot waarschuwingen, instellingen voor diagnostische en metrische gegevens voor een resource vereist dat de gebruiker leestoegang tot de resourcetype en bereik van die resource heeft. Het maken van ('write') moet een diagnostische instelling of log-profiel dat aan een opslagaccount of stromen naar eventhubs-archieven de gebruiker ook ListKeys machtiging hebben voor de doelresource.
 > 
 > 
 
-Bijvoorbeeld, met behulp van de bovenstaande tabel kunt u een aangepaste RBAC-rol voor een 'activiteit logboekweergave' als volgt:
+Bijvoorbeeld, met behulp van de bovenstaande tabel die u kunt een aangepaste RBAC-rol maken voor een 'activiteit Log Reader' als volgt:
 
 ```powershell
 $role = Get-AzureRmRoleDefinition "Reader"
@@ -110,30 +110,30 @@ New-AzureRmRoleDefinition -Role $role
 ```
 
 ## <a name="security-considerations-for-monitoring-data"></a>Beveiligingsoverwegingen voor het bewaken van gegevens
-Bewakingsgegevens, met name de logboekbestanden: vertrouwelijke gegevens, zoals IP-adressen of namen van gebruikers kan bevatten. Het bewaken van gegevens van Azure wordt geleverd in drie basic formulieren:
+Door gegevens te controleren, met name de logboekbestanden, vertrouwelijke gegevens, zoals IP-adressen of namen van de gebruikers kan bevatten. Bewakingsgegevens van Azure is beschikbaar in drie eenvoudige vormen:
 
-1. Het activiteitenlogboek waarin alle besturingselement vlak acties op uw Azure-abonnement.
-2. Diagnostische logboeken die verzonden door een resource van Logboeken zijn.
-3. Metrieken worden gegenereerd door de bronnen.
+1. Het activiteitenlogboek die hierin alle controlelaag acties in uw Azure-abonnement worden.
+2. Diagnostische logboeken, de logboeken door een resource zijn.
+3. Metrische gegevens die worden gegenereerd door resources.
 
-Alle drie van de volgende gegevenstypen worden opgeslagen in een opslagaccount of worden gestreamd naar Event Hub, die beide algemeen Azure-resources zijn. Omdat dit algemene bronnen, is maken, verwijderen en toegang hebben tot deze een bewerking met bevoegdheid die is gereserveerd voor een beheerder. Het is raadzaam om gebruik te maken van de volgende procedures voor bewaking-gerelateerde bronnen om te voorkomen dat misbruik:
+Alle drie van de volgende gegevenstypen kunnen worden opgeslagen in een opslagaccount of gestreamd naar Event Hub, die beide algemene Azure-resources zijn. Omdat dit algemene resources zijn, is het maken, verwijderen en ze toegang tot een bevoegde bewerking die is gereserveerd voor een beheerder. Het is raadzaam om gebruik te maken van de volgende procedures voor bewaking met betrekking tot resources om misbruik te voorkomen:
 
-* Een enkele, speciaal opslagaccount gebruiken voor het bewaken van gegevens. Als u bewakingsgegevens opdelen in meerdere opslagaccounts, nooit delen informatie over het gebruik van een opslagaccount tussen bewaking en niet-bewaking gegevens, zoals dit mogelijk per ongeluk geven degenen die hoeft alleen toegang tot bewakingsgegevens (bijvoorbeeld een SIEM van derden) toegang tot de niet-bewaking gegevens.
-* Een enkele, toegewezen Service Bus- of Event Hub-naamruimte via alle diagnostische instellingen gebruiken om dezelfde reden als hierboven.
-* Beperken van toegang tot de bewaking-gerelateerde storage-accounts of event hubs doordat ze op een afzonderlijke resourcegroep en [gebruik scope](../role-based-access-control/overview.md#scope) op uw bewaking rollen te beperken tot alleen die resourcegroep.
-* Nooit de machtiging ListKeys voor storage-accounts of event hubs op abonnementsbereik wanneer een gebruiker alleen toegang tot bewakingsgegevens nodig. In plaats daarvan deze machtigingen geven voor de gebruiker op een resource of resourcegroep (als u een speciale bewaking resourcegroep hebt) bereik.
+* Een enkele, specifieke storage-account gebruiken voor het bewaken van gegevens. Als u nodig hebt voor het scheiden van gegevens in meerdere opslagaccounts, gebruik van een opslagaccount tussen bewaking nooit delen en niet-bewaking gegevens, zoals dit mogelijk per ongeluk geven de personen die alleen toegang tot bewakingsgegevens (bijvoorbeeld een SIEM van derden) toegang tot niet-bewaking gegevens.
+* Gebruik een enkele, specifieke Service Bus of Event Hub-naamruimte voor alle diagnostische instellingen voor dezelfde reden als hierboven.
+* Beperk de toegang tot de bewaking met betrekking tot storage-accounts of eventhubs doordat ze op een afzonderlijke resourcegroep en [bereik gebruiken](../role-based-access-control/overview.md#scope) op uw bewaking rollen om te beperken tot alleen die resourcegroep.
+* Nooit de machtiging ListKeys voor storage-accounts of eventhubs binnen het abonnementsbereik als een gebruiker alleen toegang moet tot gegevens te controleren. (Als u een speciale resourcegroep waarin u bewaking hebt) in plaats daarvan deze machtigingen geven aan de gebruiker op een resource of resourcegroep bereik.
 
-### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>Beperken van toegang tot de bewaking-gerelateerde storage-accounts
-Wanneer een gebruiker of toepassing moet toegang tot bewakingsgegevens in een opslagaccount, moet u [genereren van een Account-SAS](https://msdn.microsoft.com/library/azure/mt584140.aspx) op het opslagaccount waarin bewakingsgegevens serviceniveau alleen-lezen toegang tot blob-opslag. In PowerShell dit als volgt uitzien:
+### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>Beperken van toegang tot de bewaking met betrekking tot storage-accounts
+Wanneer een gebruiker of toepassing moet toegang tot gegevens in een storage-account te controleren, moet u [genereren van een Account-SAS](https://msdn.microsoft.com/library/azure/mt584140.aspx) op het opslagaccount waarin gegevens met service level alleen-lezen toegang tot blob-opslag. In PowerShell, dit als volgt uitzien:
 
 ```powershell
 $context = New-AzureStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
 $token = New-AzureStorageAccountSASToken -ResourceType Service -Service Blob -Permission "rl" -Context $context
 ```
 
-U kunt vervolgens het token geeft aan de entiteit dat moet worden gelezen uit de opslag die account en deze kunt lijst en uit alle blobs in dit opslagaccount gelezen.
+U kunt vervolgens het token naar de entiteit geven dat moet leesrechten voor deze opslag-account en het kunt weergeven en uit alle blobs in dat opslagaccount lezen.
 
-U kunt ook als u beheren met deze machtiging met RBAC wilt, kunt u die entiteit Microsoft.Storage/storageAccounts/listkeys/action toestemming geven op dat bepaalde storage-account. Dit is nodig voor gebruikers die worden kunt instellen van een diagnostische instelling of meld u profiel moeten te archiveren naar een opslagaccount. U kunt bijvoorbeeld de volgende aangepaste RBAC-rol voor een gebruiker of toepassing die alleen moet worden gelezen vanuit een opslagaccount maken:
+U kunt ook als u nodig hebt voor het beheren van deze machtiging met RBAC, kunt u die entiteit de Microsoft.Storage/storageAccounts/listkeys/action machtiging verlenen voor die bepaalde storage-account. Dit is nodig voor gebruikers die nodig kunnen een diagnostische instelling instellen of logboekprofiel te archiveren naar een opslagaccount. U kunt bijvoorbeeld de volgende aangepaste RBAC-rol voor een gebruiker of toepassing die moet alleen lezen uit een opslagaccount maken:
 
 ```powershell
 $role = Get-AzureRmRoleDefinition "Reader"
@@ -149,15 +149,15 @@ New-AzureRmRoleDefinition -Role $role
 ```
 
 > [!WARNING]
-> De machtiging ListKeys kan de gebruiker voor een lijst met sleutels voor de primaire en secundaire opslagaccount. Deze sleutels verlenen de gebruiker alle ondertekende machtigingen (lezen, schrijven, BLOB's maken, verwijderen van blobs, etc.) voor alle ondertekend services (blob, queue, table, bestand) in die storage-account. U wordt aangeraden met een Account-SAS hierboven wordt beschreven indien mogelijk.
+> De machtiging ListKeys kan de gebruiker om de primaire en secundaire opslagaccountsleutels weer te geven. Deze sleutels Verleen de gebruiker alle ondertekende machtigingen (lezen, schrijven, blobs te maken, verwijderen van blobs, enz.) voor alle ondertekende services (blob, wachtrij, tabel, -bestand) dat opslagaccount. We raden u aan met behulp van een Account-SAS die hierboven worden beschreven, indien mogelijk.
 > 
 > 
 
-### <a name="limiting-access-to-monitoring-related-event-hubs"></a>Beperken van toegang tot de bewaking-gerelateerde event hubs
-Een vergelijkbaar patroon met event hubs kan worden uitgevoerd, maar u moet eerst een speciale Listen autorisatieregel maken. Als u toegang verlenen tot een toepassing die alleen nodig heeft om te luisteren naar bewaking-gerelateerde event hubs wilt, het volgende doen:
+### <a name="limiting-access-to-monitoring-related-event-hubs"></a>Beperken van toegang tot de bewaking met betrekking tot eventhubs
+Een vergelijkbaar patroon kan worden gevolgd met eventhubs, maar u moet eerst een toegewezen Listen-autorisatieregel. Als u toegang verlenen tot een toepassing die alleen nodig heeft om te luisteren naar bewaking-gerelateerde eventhubs wilt, het volgende doen:
 
-1. Een gedeeld toegangsbeleid maken op de event hub die zijn gemaakt voor streaming bewakingsgegevens met alleen Listen claims. Dit kan worden gedaan in de portal. Bijvoorbeeld, u mogelijk deze aanroepen 'monitoringReadOnly'. Indien mogelijk wilt u deze sleutel rechtstreeks naar de verbruiker geven en de volgende stap overslaan.
-2. Als de consument kunnen moet ophalen van de belangrijkste ad-hoc, verleent u de gebruiker de actie ListKeys voor deze event hub. Dit is ook nodig zijn voor gebruikers die moeten worden kunt instellen van een diagnostische instelling of meld u profiel naar een stream naar event hubs. U kunt bijvoorbeeld een regel RBAC maken:
+1. Maak een beleid voor gedeelde toegang op de event hub die zijn gemaakt voor het streamen van gegevens met alleen Listen-claims. Dit kan worden gedaan in de portal. Bijvoorbeeld, kunt u deze aanroepen "monitoringReadOnly." U wilt, indien mogelijk, geven deze sleutel rechtstreeks naar de gebruiker en de volgende stap overslaan.
+2. Als de consument kunnen om op te halen van de belangrijkste ad-hoc moet, verleent u de gebruiker de actie ListKeys voor die event hub. Dit is ook nodig zijn voor gebruikers die willen kunnen een diagnostische instelling instellen of logboekprofiel te streamen naar eventhubs. U kunt bijvoorbeeld een regel voor RBAC maken:
    
    ```powershell
    $role = Get-AzureRmRoleDefinition "Reader"

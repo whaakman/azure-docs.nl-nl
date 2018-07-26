@@ -8,24 +8,24 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 18a2aa289c89f98e6d20ddcdbd1217785fc163d1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e8af84467c008f5c576142fa094b2757cfd30387
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918407"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248075"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Automatisch diagnostische instellingen inschakelen bij het maken van resources met behulp van Resource Manager-sjabloon
 In dit artikel laten we zien hoe u kunt een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) diagnostische instellingen configureren op een resource als deze wordt gemaakt. Hiermee kunt u automatisch wilt streamen uw logboeken met diagnostische gegevens en metrische gegevens naar Event Hubs, archiveren in een Opslagaccount of ze naar Log Analytics verzenden wanneer een resource wordt gemaakt.
 
 > [!WARNING]
-> De indeling van de logboekgegevens in de storage-account wordt gewijzigd in JSON-regels op 1 november 2018. [Raadpleeg dit artikel voor een beschrijving van de impact en het bijwerken van uw hulpprogramma's voor het afhandelen van de nieuwe indeling.](./monitor-diagnostic-logs-append-blobs.md) 
+> De indeling van de logboekgegevens in het opslagaccount wordt op 1 november 2018 gewijzigd in JSON Lines. [Raadpleeg dit artikel voor een beschrijving van de gevolgen en hoe u uw tooling kunt bijwerken om de nieuwe indeling te verwerken. ](./monitor-diagnostic-logs-append-blobs.md) 
 >
 > 
 
 De methode voor het inschakelen van diagnostische logboeken met behulp van Resource Manager-sjabloon, is afhankelijk van het resourcetype.
 
-* **Niet-Compute** resources (bijvoorbeeld, Network Security Groups, Logic Apps, automatisering) gebruiken [diagnostische instellingen die worden beschreven in dit artikel](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
+* **Niet-Compute** resources (bijvoorbeeld, Network Security Groups, Logic Apps, automatisering) gebruiken [diagnostische instellingen die worden beschreven in dit artikel](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
 * **COMPUTE** resources (WAD/LAD-indeling) gebruikt de [WAD/LAD-configuratiebestand in dit artikel beschreven](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
 
 In dit artikel wordt beschreven hoe u met behulp van een van beide methoden diagnosefuncties te configureren.

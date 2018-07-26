@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 011358e223db419f31e0181b05ce6f89479dba81
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 7c4abb6832a030c2cb3cc2088dc5d0f1350a6ab8
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070940"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258844"
 ---
 # <a name="creating-custom-voice-fonts"></a>Het maken van aangepaste spraakstijlen
 
@@ -29,7 +29,7 @@ Stem aanpassing is beschikbaar voor Amerikaans Engels (en-US) en vasteland Chine
 
 De functie tekst naar spraak aanpassing is momenteel in private preview. [Vul het aanvraagformulier](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) worden overwogen om toegang te krijgen.
 
-U moet ook een Azure-account en een abonnement op de Speech-service. [Maak een] (https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started) als u dat nog niet gedaan hebt. Uw abonnement als volgt verbinding te maken met de aangepaste spraak-portal.
+U moet ook een Azure-account en een abonnement op de Speech-service. [Maak een](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) als u dat nog niet gedaan hebt. Uw abonnement als volgt verbinding te maken met de aangepaste spraak-portal.
 
 1. Meld u aan bij de [aangepaste spraak portal](https://customvoice.ai) met hetzelfde Microsoft-account dat u gebruikt om toe te passen om toegang te krijgen.
 
@@ -208,21 +208,21 @@ Na het invullen van het tekstvak en waaruit blijkt dat de invoer-modus, klikt u 
 
 Nadat u hebt gemaakt en het model van uw stem getest, kunt u deze implementeren in een aangepaste tekst-naar-spraak-eindpunt. Vervolgens gebruikt u dit eindpunt in plaats van het eindpunt van de gebruikelijke bij het maken van tekst naar spraak aanvragen via de REST-API. Uw aangepaste eindpunt kan worden aangeroepen door het abonnement dat u gebruikt voor het implementeren van het lettertype.
 
-Kies voor het maken van een nieuw aangepast eindpunt **eindpunten** in het menu voor aangepaste gesproken aan de bovenkant van de pagina. De implementatie-pagina wordt weergegeven, met de tabel van de huidige eindpunten voor aangepaste spraak, indien van toepassing.
+Kies voor het maken van een nieuw aangepast eindpunt **eindpunten** in het menu voor aangepaste gesproken aan de bovenkant van de pagina. De pagina Mijn geïmplementeerd stemmen wordt weergegeven, met de tabel van de huidige eindpunten voor aangepaste spraak, indien van toepassing. De huidige landinstelling is doorgevoerd in de eerste rij van de tabel. Wijzig de landinstelling van het weergegeven voor het maken van een implementatie voor een andere taal. (Deze moet overeenkomen met de stem die u implementeert.)
 
-Klik op de **implementeren stemmen** knop om een nieuwe eindpunt te maken. In het eindpunt maken' pagina, de huidige landinstelling wordt weergegeven in de eerste rij van de tabel. Wijzig de landinstelling van het weergegeven voor het maken van een implementatie voor een andere taal. (Deze moet overeenkomen met de stem die u implementeert.) Voer de naam en beschrijving van uw aangepast eindpunt.
+Klik op de **implementeren stemmen** knop om een nieuwe eindpunt te maken. Voer de naam en beschrijving van uw aangepast eindpunt.
 
 Kies het abonnement dat u wilt gebruiken in het menu abonnement. Gratis abonnementsgebruikers kunnen slechts één model geïmplementeerd op een moment hebben. Abonnementsgebruikers van de Standard-kunnen maximaal 20 eindpunten, elk met een eigen aangepaste gesproken maken.
 
 ![Eindpunt maken](media/custom-voice/create-endpoint.png)
 
-Selecteer het model om te worden geïmplementeerd en klik op **maken**. De pagina implementatie opnieuw wordt weergegeven, nu met een vermelding voor het nieuwe eindpunt voor. Het duurt een paar minuten voor het starten van een nieuw eindpunt. Wanneer de status van de implementatie is geslaagd, wordt het eindpunt is klaar voor gebruik.
+Selecteer het model om te worden geïmplementeerd en klik op **maken**. De pagina Mijn geïmplementeerd stemmen opnieuw wordt weergegeven, nu met een vermelding voor het nieuwe eindpunt voor. Het duurt een paar minuten voor het starten van een nieuw eindpunt. Wanneer de status van de implementatie is geslaagd, wordt het eindpunt is klaar voor gebruik.
 
 ![Mijn geïmplementeerde stemmen](media/custom-voice/my-deployed-voices.png)
 
-Wanneer de status van de implementatie is geslaagd, het eindpunt van uw geïmplementeerde spraakstijl wordt weergegeven in de tabel geïmplementeerde stemmen. U kunt deze URI gebruiken rechtstreeks in een HTTP-aanvraag.
+Wanneer de status van de implementatie is geslaagd, wordt het eindpunt van uw geïmplementeerde spraakstijl weergegeven in de tabel mijn stemmen geïmplementeerd. U kunt deze URI gebruiken rechtstreeks in een HTTP-aanvraag.
 
-Online testen van het eindpunt is ook beschikbaar via de portal voor aangepaste gesproken. Als u wilt testen op uw eindpunt, kies **eindpunten testen** uit de vervolgkeuzelijst van aangepaste spraak. Het eindpunt testen van de pagina wordt weergegeven. Kies een toon die u hebt geïmplementeerd en voer de tekst die moet worden uitgesproken (in tekst zonder opmaak of SSML-indeling) in het tekstvak.
+Online testen van het eindpunt is ook beschikbaar via de portal voor aangepaste gesproken. Als u wilt testen op uw eindpunt, kies **eindpunten testen** uit de vervolgkeuzelijst van aangepaste spraak. Het eindpunt testen van de pagina wordt weergegeven. Kies een geïmplementeerde aangepaste gesproken en voer de tekst die moet worden uitgesproken (in tekst zonder opmaak of SSML-indeling) in het tekstvak in.
 
 > [!NOTE] 
 > Bij het gebruik van SSML, de `<voice>` tag geeft de naam die u uw aangepaste gesproken hebt opgegeven toen u het maakte.

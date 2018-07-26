@@ -9,14 +9,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/24/2018
 ms.author: bonova
-ms.openlocfilehash: e0de9a1494641fef87d11545b99e5e7275f6b614
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: a9a02f9007c174024028305746682f9ac07dab22
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069260"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247207"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server-exemplaar migratie naar Azure SQL Database Managed Instance
 
@@ -24,7 +24,7 @@ In dit artikel leert u over de methoden voor het migreren van een SQL Server 200
 
 SQL Database Managed Instance is een uitbreiding van de bestaande SQL Database-service en biedt naast databases en elastische pools een derde implementatieoptie.  Het is ontworpen om in te schakelen database lift-and-shift naar een volledig beheerde PaaS zonder het ontwerp van de toepassing. SQL Database Managed Instance biedt extra compatibiliteit met het on-premises SQL Server-programmeermodel en gebruiksklare ondersteuning voor de meeste functies van SQL Server en de bijbehorende hulpprogramma's en services.
 
-Op het hoogste niveau lijkt het migratieproces toepassing op het volgende diagram:
+Op hoog niveau lijkt het migratieproces toepassing:
 
 ![Migratieproces](./media/sql-database-managed-instance-migration/migration-process.png)
 
@@ -105,7 +105,7 @@ De volgende tabel vindt u meer informatie over de methoden die u kunt gebruiken,
 |Herstellen van Azure-opslag naar beheerd exemplaar|[HERSTELLEN van URL met SAS-REFERENTIES](sql-database-managed-instance-restore-from-backup-tutorial.md)|
 
 > [!IMPORTANT]
-> - Wanneer een database die is beveiligd door migreren [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) naar Azure SQL Managed Instance met behulp van de optie voor systeemeigen terugzetten, het corresponderende certificaat uit het on-premises of IaaS SQL Server moet worden gemigreerd voordat database terugzetten. Zie voor gedetailleerde stappen [cert TDE migreren naar Managed Instance](sql-database-managed-instance-migrate-tde-certificate.md)
+> - Wanneer een database die is beveiligd met [transparante gegevensversleuteling](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) (TDE) wordt gemigreerd naar een met Azure SQL Database beheerd exemplaar met behulp van de optie voor systeemeigen herstel, moet het corresponderende certificaat van de on-premises of IaaS SQL-server worden gemigreerd voordat de database wordt hersteld. Zie voor gedetailleerde stappen [cert TDE migreren naar Managed Instance](sql-database-managed-instance-migrate-tde-certificate.md)
 > - Herstellen van systeemdatabases wordt niet ondersteund. Exemplaar niveau om objecten te migreren (opgeslagen in de basispagina of msdb-databases), wordt aangeraden deze scripts en T-SQL-scripts uitvoeren op de doel-exemplaar.
 
 Zie voor een volledige zelfstudie waarin de back-up van een database herstellen naar een beheerd exemplaar met behulp van een SAS-referenties, [herstellen vanuit back-up naar een beheerd exemplaar](sql-database-managed-instance-restore-from-backup-tutorial.md).

@@ -5,22 +5,22 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: a0146c0bf2b5a10f27cb59e32978aa6dff8f5982
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 266404a69c691cfbbfabc49e4d78deb11db74b52
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916323"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249152"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archiveren van diagnostische logboeken in Azure
 
 In dit artikel laten we zien hoe u de Azure portal, PowerShell-Cmdlets, CLI of REST-API gebruiken kunt om te archiveren uw [diagnostische logboeken in Azure](monitoring-overview-of-diagnostic-logs.md) in een storage-account. Deze optie is handig als u wilt behouden van de diagnostische logboeken met een optionele bewaarbeleid voor controle-, statische analysis- of back-up. Het storage-account heeft geen zich in hetzelfde abonnement als de resource dat Logboeken verzendt, zolang de gebruiker die de instelling configureert de juiste RBAC-toegang voor beide abonnementen heeft.
 
 > [!WARNING]
-> De indeling van de logboekgegevens in de storage-account wordt gewijzigd in JSON-regels op 1 november 2018. [Raadpleeg dit artikel voor een beschrijving van de impact en het bijwerken van uw hulpprogramma's voor het afhandelen van de nieuwe indeling.](./monitor-diagnostic-logs-append-blobs.md) 
+> De indeling van de logboekgegevens in het opslagaccount wordt op 1 november 2018 gewijzigd in JSON Lines. [Raadpleeg dit artikel voor een beschrijving van de gevolgen en hoe u uw tooling kunt bijwerken om de nieuwe indeling te verwerken. ](./monitor-diagnostic-logs-append-blobs.md) 
 >
 > 
 
@@ -33,7 +33,7 @@ Voordat u begint, moet u [een opslagaccount maken](../storage/storage-create-sto
 
 ## <a name="diagnostic-settings"></a>Diagnostische instellingen
 
-Als u wilt archiveren van uw logboeken met diagnostische gegevens met behulp van een van de onderstaande methoden, stelt u een **diagnostische instelling** voor een bepaalde resource. Een diagnostische instelling voor een resource definieert de categorieën van Logboeken en metrische gegevens die worden verzonden naar een bestemming (storage-account, Event Hubs-naamruimte of Log Analytics). Het definieert ook de (aantal dagen wilt behouden) van het bewaarbeleid voor gebeurtenissen van elke logboekcategorie en metrische gegevens die zijn opgeslagen in een storage-account. Als een bewaarbeleid is ingesteld op nul, worden gebeurtenissen voor die categorie logboekbestanden opgeslagen voor onbepaalde tijd (dat wil zeggen, permanent). Een bewaarbeleid kan anders zijn voor een willekeurig aantal dagen tussen 1 en 2147483647. [U kunt meer lezen over de diagnostische instellingen hier](monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings). Bewaarbeleid zijn toegewezen per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode van beleid wordt verwijderd. Bijvoorbeeld, als u een beleid voor het bewaren van één dag had, worden aan het begin van de dag vandaag nog de logboeken van de dag voor gisteren vernietigd. De verwijderbewerking begint bij middernacht UTC, maar houd er rekening mee dat het kan tot 24 uur duren voor de logboeken worden verwijderd uit uw storage-account. 
+Als u wilt archiveren van uw logboeken met diagnostische gegevens met behulp van een van de onderstaande methoden, stelt u een **diagnostische instelling** voor een bepaalde resource. Een diagnostische instelling voor een resource definieert de categorieën van Logboeken en metrische gegevens die worden verzonden naar een bestemming (storage-account, Event Hubs-naamruimte of Log Analytics). Het definieert ook de (aantal dagen wilt behouden) van het bewaarbeleid voor gebeurtenissen van elke logboekcategorie en metrische gegevens die zijn opgeslagen in een storage-account. Als een bewaarbeleid is ingesteld op nul, worden gebeurtenissen voor die categorie logboekbestanden opgeslagen voor onbepaalde tijd (dat wil zeggen, permanent). Een bewaarbeleid kan anders zijn voor een willekeurig aantal dagen tussen 1 en 2147483647. [U kunt meer lezen over de diagnostische instellingen hier](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings). Bewaarbeleid zijn toegewezen per dag, dus aan het einde van een dag (UTC), logboeken van de dag dat nu is buiten de bewaarperiode van beleid wordt verwijderd. Bijvoorbeeld, als u een beleid voor het bewaren van één dag had, worden aan het begin van de dag vandaag nog de logboeken van de dag voor gisteren vernietigd. De verwijderbewerking begint bij middernacht UTC, maar houd er rekening mee dat het kan tot 24 uur duren voor de logboeken worden verwijderd uit uw storage-account. 
 
 > [!NOTE]
 > Het verzenden van multidimensionale metrische gegevens via diagnostische instellingen wordt momenteel niet ondersteund. Metrische gegevens met dimensies worden geëxporteerd als platte eendimensionale metrische gegevens, als totaal van alle dimensiewaarden.
@@ -163,4 +163,5 @@ Elke gebeurtenis wordt in het bestand PT1H.json opgeslagen in de matrix "records
 
 * [Downloaden van blobs voor analyse](../storage/storage-dotnet-how-to-use-blobs.md)
 * [Diagnostische logboeken van de Stream naar een Event Hubs-naamruimte](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Logboeken van Azure Active Directory met Azure Monitor archiveren](../active-directory/reporting-azure-monitor-diagnostics-azure-storage-account.md)
 * [Lees meer over de diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md)

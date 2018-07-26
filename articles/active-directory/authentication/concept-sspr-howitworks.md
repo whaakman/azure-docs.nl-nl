@@ -10,16 +10,21 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 6b4c709f27a0c23c4fb977f64ef45e82df378d47
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: efc62243370ff2cc5214a4ae235139bdb5965486
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159471"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248216"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Hoe het werkt: Azure AD Self-service voor wachtwoord opnieuw instellen
 
 Hoe werkt selfservice wachtwoordherstel (SSPR)? Wat betekent dat optie in de interface? Lees voor meer informatie over Azure Active Directory (Azure AD) SSPR verder.
+
+|     |
+| --- |
+| Mobiele app-meldingen en mobiele app-code als methoden voor het Azure AD Self-service voor wachtwoord opnieuw instellen van de openbare preview-functies van Azure Active Directory zijn. Zie voor meer informatie over previews [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+|     |
 
 ## <a name="how-does-the-password-reset-portal-work"></a>Hoe werkt de wachtwoordherstel portal?
 
@@ -54,6 +59,8 @@ Lezen via de volgende stappen uit voor meer informatie over de logica achter het
 
 Als self-service voor Wachtwoordherstel is ingeschakeld, moet u ten minste één van de volgende opties voor de verificatiemethoden. Soms hoort u deze opties aangeduid als "gates." Is het raadzaam dat u **twee of meer verificatiemethoden kiezen** zodat uw gebruikers meer flexibiliteit hebben wanneer ze niet voor toegang tot een wanneer ze deze nodig hebben.
 
+* Melding mobiele app (preview)
+* Mobiele app-code (preview)
 * Email
 * Mobiele telefoon
 * Telefoon (werk)
@@ -70,6 +77,16 @@ Deze optie bepaalt u het minimale aantal van de beschikbare verificatiemethoden 
 Gebruikers kunnen meer verificatiemethoden opgeven als de beheerder deze verificatiemethode schakelt kiezen.
 
 Als een gebruiker beschikt niet over de minimale vereiste methoden die zijn geregistreerd, zien ze een foutpagina accountinschrijving om aan te vragen die hun wachtwoord opnieuw instellen door een beheerder.
+
+#### <a name="mobile-app-and-sspr-preview"></a>Mobiele app en SSPR (Preview)
+
+Bij het gebruik van een mobiele app, zoals de Microsoft Authenticator-app als een methode voor opnieuw instellen van wachtwoorden rekening gebruikers houden met het volgende. Verificatiecode is voor de self-service voor wachtwoord opnieuw instellen wanneer slechts één methode vereist voor het opnieuw instellen is de enige optie beschikbaar voor gebruikers. Wanneer twee methoden vereist zijn in te stellen met behulp van gebruikers is mogelijk **uitvoeren** melding **of** verificatiecode naast eventuele andere methoden ingeschakeld.
+
+| Het aantal methoden dat is vereist om het wachtwoord opnieuw in te stellen | een | Twee |
+| :---: | :---: | :---: |
+| Mam-functies die beschikbaar zijn | Code | Code- of -meldingen |
+
+Gebruikers hebben niet de optie voor het registreren van hun mobiele app tijdens het registreren van self-service voor wachtwoord opnieuw instellen. Gebruikers kunnen in plaats daarvan de mobiele app op aka.ms/mfasetup of in de preview security info registratie aka.ms/setupsecurityinfo registreren. 
 
 ### <a name="change-authentication-methods"></a>Verificatiemethoden wijzigen
 

@@ -98,7 +98,7 @@
         - name: Veelgestelde vragen over tekst naar spraak
           href: faq-text-to-speech.md
         - name: Veelgestelde vragen over vertalen
-          href: 'https://www.microsoft.com/en-us/translator/faq.aspx'
+          href: 'https://www.microsoft.com/translator/faq.aspx'
     - name: Prijzen
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: UserVoice

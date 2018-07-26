@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/24/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: d131fb09e365a7a2d17b8a96c6a5fbc5d82164dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 0376fc3eb3ad0b98f1d98ecd35683b08e08090da
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237930"
+ms.locfileid: "39248093"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure-Stream bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma
 
@@ -29,8 +29,9 @@ Er zijn verschillende 'categorieën' van de gegevens te controleren binnen uw Az
   - Door het instrumenteren van uw code met een SDK, zoals de [Application Insights-SDK](../application-insights/app-insights-overview.md).
   - Door het uitvoeren van een bewakingsagent die luistert naar nieuwe op de machine toepassingslogboeken uitvoeren van uw toepassing, zoals de [Windows Azure Diagnoseagent](./azure-diagnostics.md) of [Linux Azure Diagnoseagent](../virtual-machines/linux/diagnostic-extension.md).
 - **Gastbesturingssysteem door gegevens te controleren:** gegevens over het besturingssysteem waarop uw toepassing wordt uitgevoerd. Voorbeelden van Gast OS bewakingsgegevens zou zijn Linux syslog- of Windows-systeemgebeurtenissen. Voor het verzamelen van dit soort gegevens, moet u een agent wilt installeren, zoals de [Windows Azure Diagnoseagent](./azure-diagnostics.md) of [Linux Azure Diagnoseagent](../virtual-machines/linux/diagnostic-extension.md).
-- **Azure-resource door gegevens te controleren:** gegevens over de werking van een Azure-resource. Voor bepaalde typen Azure-resource, zoals virtuele machines, moet u er een gastbesturingssysteem en toepassingen om te controleren binnen die Azure-service is. De resource door gegevens te controleren is het hoogste niveau van de gegevens die beschikbaar zijn voor andere Azure-resources, zoals Network Security Groups, (omdat er is geen gastbesturingssysteem of de toepassing die wordt uitgevoerd in die bronnen). Deze gegevens kan worden verzameld met behulp van [instellingen voor resourcediagnose](./monitoring-overview-of-diagnostic-logs.md#resource-diagnostic-settings).
-- **Azure-platform door gegevens te controleren:** gegevens over de werking en het beheer van een Azure-abonnement of de tenant, evenals gegevens over de status en de werking van Azure zelf. De [activiteitenlogboek](./monitoring-overview-activity-logs.md), met inbegrip van service health data en Active Directory-controles zijn voorbeelden van platform door gegevens te controleren. Deze gegevens kan worden verzameld met behulp van diagnostische instellingen ook.
+- **Azure-resource door gegevens te controleren:** gegevens over de werking van een Azure-resource. Voor bepaalde typen Azure-resource, zoals virtuele machines, moet u er een gastbesturingssysteem en toepassingen om te controleren binnen die Azure-service is. De resource door gegevens te controleren is het hoogste niveau van de gegevens die beschikbaar zijn voor andere Azure-resources, zoals Network Security Groups, (omdat er is geen gastbesturingssysteem of de toepassing die wordt uitgevoerd in die bronnen). Deze gegevens kan worden verzameld met behulp van [instellingen voor resourcediagnose](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
+- **Azure-abonnement door gegevens te controleren:** gegevens over de werking en het beheer van een Azure-abonnement, evenals gegevens over de status en de werking van Azure zelf. De [activiteitenlogboek](./monitoring-overview-activity-logs.md) bevat de meeste abonnement, zoals service health incidenten en Azure Resource Manager-controle door gegevens te controleren. U kunt deze gegevens met behulp van een Logboekprofiel verzamelen.
+- **Azure-tenant door gegevens te controleren:** gegevens over de werking van op tenantniveau-Azure-services, zoals Azure Active Directory. Controles van de Azure Active Directory en aanmeldingen zijn voorbeelden van de tenant door gegevens te controleren. Deze gegevens kan worden verzameld met behulp van de diagnostische instelling van een tenant.
 
 Gegevens van elke laag kunnen worden verzonden naar een event hub, waar deze kan worden opgehaald in een partner-hulpprogramma. De volgende secties wordt beschreven hoe u gegevens uit elke laag kunnen worden gestreamd naar een event hub kunt configureren. De stappen wordt ervan uitgegaan dat u de activa in die laag moet worden bewaakt al hebt.
 
@@ -47,11 +48,17 @@ Voordat u begint, moet u [maken van een Event Hubs-naamruimte en event hub](../e
 
 Ook raadpleegt u de [Veelgestelde vragen over Azure Event Hubs](../event-hubs/event-hubs-faq.md).
 
-## <a name="how-do-i-set-up-azure-platform-monitoring-data-to-be-streamed-to-an-event-hub"></a>Hoe stel ik van Azure-platform bewakingsgegevens kunnen worden gestreamd naar een event hub?
+## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>Hoe stel ik Azure-tenant door gegevens te controleren in kunnen worden gestreamd naar een event hub?
 
-Er is een Azure-platform bewakingsgegevens afkomstig uit twee belangrijke bronnen:
-1. De [Azure-activiteitenlogboek](./monitoring-overview-activity-logs.md), waarin de maken, bijwerken en verwijderbewerkingen van Resource Manager, de wijzigingen in [Azure-servicestatus](../service-health/service-health-overview.md) die mogelijk van invloed op resources in uw abonnement, de [resourcestatus](../service-health/resource-health-overview.md) statusovergangen en diverse andere soorten gebeurtenissen op abonnementsniveau. [Dit artikel worden alle categorieën van gebeurtenissen die worden weergegeven in de Azure-activiteitenlogboek](./monitoring-activity-log-schema.md).
-2. [Azure Active Directory-rapportage](../active-directory/active-directory-reporting-azure-portal.md), die de geschiedenis van aanmelding activiteit en audit audittrail van wijzigingen in een bepaalde tenant bevat. Het is nog niet mogelijk is Azure Active Directory om gegevens te streamen naar een event hub.
+Azure-tenant door gegevens te controleren is momenteel alleen beschikbaar voor Azure Active Directory. U kunt de gegevens van [Azure Active Directory-rapportage](../active-directory/active-directory-reporting-azure-portal.md), die de geschiedenis van aanmelding activiteit en audit audittrail van wijzigingen in een bepaalde tenant bevat.
+
+### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>Azure Active Directory-gegevens in een event hub Stream
+
+Voor het verzenden van gegevens uit de Azure Active Directory-logboek in een Event Hubs-naamruimte, instellen van de diagnostische instelling van een tenant van uw AAD-tenant. [Deze handleiding volgt](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md) voor het instellen van de diagnostische instelling van een tenant.
+
+## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>Hoe stel ik Azure-abonnement door gegevens te controleren in kunnen worden gestreamd naar een event hub?
+
+Azure-abonnement door gegevens te controleren is beschikbaar in de [Azure-activiteitenlogboek](./monitoring-overview-activity-logs.md). Hierin zijn de maken, bijwerken en verwijderen van bewerkingen van Resource Manager, de wijzigingen in [Azure-servicestatus](../service-health/service-health-overview.md) die mogelijk van invloed op bronnen in uw abonnement, de [resourcestatus](../service-health/resource-health-overview.md) status overgangen en diverse andere soorten gebeurtenissen op abonnementsniveau. [Dit artikel worden alle categorieën van gebeurtenissen die worden weergegeven in de Azure-activiteitenlogboek](./monitoring-activity-log-schema.md).
 
 ### <a name="stream-azure-activity-log-data-into-an-event-hub"></a>Gegevens van een Azure-activiteitenlogboek Stream naar een event hub
 

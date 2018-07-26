@@ -132,7 +132,7 @@
     - name: HDInsight-hulpprogramma's gebruiken
       items:
         - name: Hulpprogramma's voor Visual Studio
-          href: ../hdinsight-hadoop-visual-studio-tools-get-started.md
+          href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
           maintainContext: true
         - name: Hulpprogramma's voor VSCode
           href: ../hdinsight-for-vscode.md

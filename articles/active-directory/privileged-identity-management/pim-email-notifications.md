@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: protection
-ms.date: 07/14/2018
+ms.date: 07/24/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 6c329554b5854f113fb216f874fa5a918110f9c5
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ffac7768fefece24cb69789558ce500e1ff64d98
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059779"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257891"
 ---
 # <a name="email-notifications-in-azure-ad-pim"></a>E-mailmeldingen in Azure AD PIM
 
@@ -32,7 +32,7 @@ Als er belangrijke gebeurtenissen optreedt in Azure AD Privileged Identity Manag
 - Wanneer een bevoorrechte rol wordt toegewezen
 - Wanneer Azure AD PIM is ingeschakeld
 
-Beginnen aan het einde van juli 2018, heeft e-mailmeldingen verzonden via PIM een nieuw e-mailadres van afzender en een nieuw visueel ontwerp. Deze update is van invloed op beide PIM voor Azure AD en PIM voor Azure-resources. Alle gebeurtenissen die al waren geactiveerd een e-mailmelding blijft een e-mail verzenden. Deze update is uitsluitend een visual wijzigen, zonder wijzigingen in functionaliteit.
+Beginnen aan het einde van juli 2018, heeft e-mailmeldingen verzonden via PIM een nieuw e-mailadres van afzender en een nieuw visueel ontwerp. Deze update is van invloed op beide PIM voor Azure AD en PIM voor Azure-resources. Alle gebeurtenissen die al waren geactiveerd een e-mailmelding blijft een e-mail verzenden. Sommige e-mailberichten inhoud hebt bijgewerkt met meer gerichte informatie.
 
 ## <a name="sender-email-address"></a>E-mailadres van afzender
 
@@ -45,6 +45,12 @@ Voorheen moest e-mailmeldingen het volgende adres:
 
 - E-mailadres:  **azureadnotifications@microsoft.com**
 - Weergavenaam: Microsoft Azure AD-Notification-Service
+
+## <a name="email-subject-line"></a>E-mailonderwerpregel
+
+Beginnen aan het einde van juli 2018, e-mailmeldingen voor zowel Azure AD en Azure-resourcerollen heeft een **PIM** voorvoegsel in de onderwerpregel. Hier volgt een voorbeeld:
+
+- PIM: Alain Charon is permanent toegewezen voor de rol van lezer van de back-up.
 
 ## <a name="pim-emails-for-azure-ad-roles"></a>PIM-e-mailberichten voor Azure AD-rollen
 

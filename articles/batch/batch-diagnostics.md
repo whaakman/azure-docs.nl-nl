@@ -1,6 +1,6 @@
 ---
-title: Metrische gegevens, meldingen en logboeken met diagnostische gegevens voor Azure Batch | Microsoft Docs
-description: Registreren en analyseren van diagnostische gebeurtenissen voor Azure Batch-account resources zoals pools en taken.
+title: Metrische gegevens, waarschuwingen en diagnostische logboeken voor Azure Batch | Microsoft Docs
+description: Registreren en analyseren van diagnostische gebeurtenissen voor Azure Batch-accountresources zoals pools en taken.
 services: batch
 documentationcenter: ''
 author: dlepow
@@ -15,98 +15,98 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: e64d272695c4e47c972df040d1c1c2a63bf3dddd
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 54034b9a851fc6f06f97be9cfd5f261465bad455
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31788191"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248259"
 ---
-# <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch metrische gegevens, waarschuwingen en logboeken voor de bewaking en diagnostische evaluatie
+# <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch metrische gegevens, waarschuwingen en logboeken voor diagnostische evaluatie en bewaking
 
-In dit artikel wordt uitgelegd hoe u voor het bewaken van een Batch-account gebruikt functies van [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Monitor voor Azure verzamelt [metrische gegevens](../monitoring-and-diagnostics/monitoring-overview-metrics.md) en [diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) voor resources in uw Batch-account. Verzamelen en gebruiken deze gegevens op verschillende manieren om uw Batch-account bewaken en onderzoeken van problemen. U kunt ook configureren [metrische waarschuwingen](../monitoring-and-diagnostics/monitoring-overview-alerts.md#alerts-on-azure-monitor-data) zodat u meldingen ontvangen wanneer een metriek een opgegeven waarde heeft bereikt. 
+In dit artikel wordt uitgelegd hoe u voor het bewaken van een Batch-account met behulp van functies van [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-azure-monitor.md). Azure Monitor verzamelt [metrische gegevens](../monitoring-and-diagnostics/monitoring-overview-metrics.md) en [diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) voor resources in uw Batch-account. Verzamelen en gebruiken deze gegevens op verschillende manieren voor het bewaken van uw Batch-account en problemen diagnosticeren. U kunt ook configureren [metrische waarschuwingen](../monitoring-and-diagnostics/monitoring-overview-alerts.md#alerts-on-azure-monitor-data) , zodat u meldingen ontvangen wanneer een metrische waarde een bepaalde waarde heeft bereikt. 
 
-## <a name="batch-metrics"></a>Batch metrische gegevens
+## <a name="batch-metrics"></a>Metrische gegevens voor batch
 
-Metrische gegevens zijn Azure telemetriegegevens (ook wel prestatiemeteritems) die door uw Azure-resources die worden verbruikt door de Monitor van de Azure-service. Voorbeeld van de metrische gegevens in een Batch-account behoren: groep maken gebeurtenissen, aantal van de knooppunten prioriteit Laag en taak voltooid. 
+Metrische gegevens zijn Azure telemetriegegevens (ook wel prestatiemeteritems) die door uw Azure-resources die worden verbruikt door de service Azure Monitor. Voorbeeld van de metrische gegevens in een Batch-account zijn: Pool maken gebeurtenissen, aantal van de knooppunten met lage prioriteit en taak voltooid. 
 
-Zie de [lijst met ondersteunde Batch metrische gegevens](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts).
+Zie de [lijst van ondersteunde metrische gegevens voor Batch](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftbatchbatchaccounts).
 
 Metrische gegevens zijn:
 
 * Standaard ingeschakeld in elke Batch-account zonder aanvullende configuratie
-* Elke 1 minuut gegenereerd
-* Niet persistent automatisch, maar hebben een rolling geschiedenis van 30 dagen. U kunt metrische gegevens van activiteiten behouden als onderdeel van [Diagnostische logboekregistratie](#work-with-diagnostic-logs).
+* Elke minuut gegenereerd
+* Niet permanent automatisch, maar beschikken over een 30-daagse rolling overzicht. U kunt metrische gegevens van activiteiten behouden als onderdeel van [registratie in diagnoselogboek](#work-with-diagnostic-logs).
 
 ### <a name="view-metrics"></a>Metrische gegevens weergeven
 
-Metrische gegevens voor uw Batch-account weergeven in de Azure-portal. De **overzicht** pagina voor het account standaard ziet u het knooppunt, core en taak metrische gegevens. 
+Bekijk metrische gegevens voor uw Batch-account in Azure portal. De **overzicht** pagina voor het account standaard ziet u het knooppunt, core en taak metrische gegevens. 
 
 Alle Batch-account metrische gegevens weergeven: 
 
 1. Klik in de portal op **alle services** > **Batch-accounts**, en klik vervolgens op de naam van uw Batch-account.
 2. Onder **bewaking**, klikt u op **metrische gegevens**.
-3. Selecteer een of meer van de metrische gegevens. Als u wilt, schakelt u metrische gegevens voor aanvullende resources met behulp van de **abonnementen**, **resourcegroep**, **brontype**, en **Resource** vervolgkeuzelijsten.
+3. Selecteer een of meer van de metrische gegevens. Als u wilt, selecteert u metrische gegevens voor aanvullende resources met behulp van de **abonnementen**, **resourcegroep**, **resourcetype**, en **Resource** vervolgkeuzelijsten.
 
-    ![Batch metrische gegevens](media/batch-diagnostics/metrics-portal.png)
+    ![Metrische gegevens voor batch](media/batch-diagnostics/metrics-portal.png)
 
-U haalt metrische gegevens via een programma met de Monitor Azure-API's. Zie bijvoorbeeld [metrische gegevens ophalen van Azure-Monitor met .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/).
+Om op te halen metrische gegevens via een programma, gebruikt u de Azure Monitor-API's. Zie bijvoorbeeld [ophalen van Azure Monitor metrics met .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/).
 
 ## <a name="batch-metric-alerts"></a>Batch metrische waarschuwingen
 
-Configureer desgewenst bijna realtime *metrische waarschuwingen* die wordt geactiveerd wanneer de waarde van een opgegeven waarde overschrijdt de drempelwaarde die u toewijst. De waarschuwing genereert een [melding](../monitoring-and-diagnostics/insights-alerts-portal.md) u kiezen wanneer de waarschuwing is 'geactiveerd' (als de drempelwaarde is overschreden en de waarschuwing voorwaarde wordt voldaan) evenals bij het probleem wordt 'opgelost' (wanneer de drempel opnieuw wordt gepasseerd en de voorwaarde is geen meer voldaan aan). 
+Configureer desgewenst bijna-realtime *metrische waarschuwingen* die wordt geactiveerd wanneer de waarde van een opgegeven metrische gegevens van een drempel die u toewijst overschrijden. De waarschuwing genereert een [melding](../monitoring-and-diagnostics/insights-alerts-portal.md) u kiest u wanneer de waarschuwing is 'geactiveerd' (als de drempelwaarde is overschreden en de waarschuwing voorwaarde wordt voldaan) evenals bij is 'opgelost' (wanneer de drempel voor het opnieuw is overschreden en de voorwaarde is geen meer voldaan aan). 
 
-U wilt bijvoorbeeld een waarschuwing voor metrische configureren wanneer uw met lage prioriteit core-telling op een bepaald niveau valt zodat u de samenstelling van uw pools kunt aanpassen.
+Bijvoorbeeld, als u wilt een waarschuwing voor metrische gegevens configureren wanneer uw kerngeheugens met lage prioriteit op een bepaald niveau, valt zodat u de samenstelling van uw toepassingen kunt aanpassen.
 
-Een metriek waarschuwing configureren in de portal:
+Het configureren van een waarschuwing voor metrische gegevens in de portal:
 
 1. Klik op **Alle services** > **Batch-accounts** en klik vervolgens op de naam van uw Batch-account.
-2. Onder **bewaking**, klikt u op **waarschuwing regels** > **metrische waarschuwing toevoegen**.
-3. Selecteer een waarde, een meldingsvoorwaarde (zoals een metriek wordt als een bepaalde waarde gedurende een periode overschrijdt) en een of meer meldingen.
+2. Onder **bewaking**, klikt u op **waarschuwingsregels** > **metrische waarschuwing toevoegen**.
+3. Selecteer een metrische waarde, de voorwaarde voor een waarschuwing (zoals wanneer een metrische waarde een bepaalde waarde gedurende een periode overschrijdt) en een of meer meldingen.
 
-U kunt ook een near realtime waarschuwingen met de [REST-API](). Zie voor meer informatie [gebruik van de nieuwere metrische waarschuwingen voor Azure-services in Azure-portal](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)
-## <a name="batch-diagnostics"></a>Batch diagnostische gegevens
+U kunt ook een bijna realtime waarschuwingen met de [REST-API](). Zie voor meer informatie, [de nieuwere metrische waarschuwingen voor Azure-services in Azure portal gebruiken](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)
+## <a name="batch-diagnostics"></a>Diagnostische gegevens van batch
 
-Logboeken met diagnostische gegevens bevatten informatie die door Azure-resources met een beschrijving van de werking van elke resource. Voor Batch, kunt u de volgende logboeken verzamelen:
+Diagnostische logboeken bevatten gegevens die zijn gegenereerd door Azure-resources die de werking van elke resource beschrijven. Voor Batch, kunt u de volgende logboeken te verzamelen:
 
-* **Service-logboeken** gebeurtenissen die door de Azure Batch-service tijdens de levensduur van een afzonderlijke Batch-resource, zoals een groep of de taak. 
+* **Servicelogboeken** gebeurtenissen die zijn gegenereerd door de Azure Batch-service tijdens de levensduur van een afzonderlijke Batch-resource, zoals een groep of -taak. 
 
-* **Metrische gegevens** logboeken op het niveau van het account. 
+* **Metrische gegevens** logboeken op het accountniveau. 
 
-Instellingen voor het verzamelen van diagnostische logboeken zijn standaard niet ingeschakeld. Diagnostische instellingen voor elke Batch-account dat u wilt bewaken expliciet inschakelen.
+Instellingen om te verzamelen van logboeken met diagnostische gegevens worden niet standaard ingeschakeld. Diagnostische instellingen voor elke Batch-account dat u wilt bewaken expliciet inschakelen.
 
 ### <a name="log-destinations"></a>Logboek bestemmingen
 
-Een gebruikelijk scenario is een account Azure opslag als bestemming voor de logboekbestanden selecteren. Voor het opslaan van Logboeken in Azure, opslag, de account te maken voordat u de collectie van logboeken inschakelt. Als u een opslag-account aan uw account Batch gekoppeld, kunt u die account als de bestemming van het logboek. 
+Een veelvoorkomend scenario is een Azure Storage-account selecteren als het doel van het logboek. Voor het opslaan van Logboeken in Azure Storage, moet u het account maken voordat u het verzamelen van logboeken inschakelt. Als u een storage-account gekoppeld aan uw Batch-account, kunt u dat account als de logboekbestemming. 
 
 Andere optionele bestemmingen voor diagnostische logboeken:
 
-* Stream-Batch diagnostische gebeurtenissen naar een [Azure gebeurtenis Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs kunnen miljoenen gebeurtenissen per seconde die u kunt vervolgens transformeren en opslaan met behulp van een realtime-analyseprovider opnemen. 
+* Stream gebeurtenissen uit batches met diagnostische logboeken naar een [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Eventhubs kunnen miljoenen gebeurtenissen per seconde, die u kunt vervolgens transformeren en opslaan met elke gewenste realtime analyseprovider opnemen. 
 
-* Diagnostische logboeken te verzenden [Azure logboek Analytics](../log-analytics/log-analytics-overview.md), kunt u deze in de portal Operations Management Suite (OMS analyseren), of ze voor analyse in Power BI of Excel exporteren.
+* Verzenden van diagnostische logboeken naar [Azure Log Analytics](../log-analytics/log-analytics-overview.md), kunt u ze in de portal voor Operations Management Suite (OMS) te analyseren, of ze voor analyse in Power BI of Excel exporteren.
 
 > [!NOTE]
-> U mogelijk extra kosten wordt opgeslagen of diagnostische gegevens met Azure services verwerkt. 
+> Er worden mogelijk extra kosten als u wilt opslaan of verwerken van diagnostische gegevens van een met Azure-services. 
 >
 
-### <a name="enable-collection-of-batch-diagnostic-logs"></a>Verzameling van Batch diagnostische logboeken inschakelen
+### <a name="enable-collection-of-batch-diagnostic-logs"></a>Verzamelen van diagnostische logboeken voor Batch
 
 1. Klik in de portal op **alle services** > **Batch-accounts**, en klik vervolgens op de naam van uw Batch-account.
-2. Onder **Monitoring**, klikt u op **diagnostische logboeken** > **diagnostics inschakelen**.
-3. In **diagnostische instellingen**, typ een naam voor de instelling en kies een bestemming logboek (bestaande opslag account, gebeurtenis Hub of Analytics logboek). Selecteer een of beide **ServiceLog** en **AllMetrics**.
+2. Onder **bewaking**, klikt u op **diagnostische logboeken** > **diagnostische gegevens inschakelen**.
+3. In **diagnostische instellingen**, voer een naam voor de instelling en kies een doel van het logboek (bestaande Storage-account, Event Hub of Log Analytics). Selecteer een of beide **ServiceLog** en **AllMetrics**.
 
-    Wanneer u een opslag-account selecteert, moet u eventueel een bewaarbeleid instellen. Als u een aantal dagen voor handhaving niet opgeeft, wordt tijdens de duur van de opslag account gegevens behouden.
+    Wanneer u een storage-account selecteert, moet u eventueel een bewaarbeleid instellen. Als u een aantal dagen voor bewaarperiode niet opgeeft, worden gegevens worden bewaard gedurende de levensduur van het storage-account.
 
 4. Klik op **Opslaan**.
 
-    ![Batch diagnostische gegevens](media/batch-diagnostics/diagnostics-portal.png)
+    ![Diagnostische gegevens van batch](media/batch-diagnostics/diagnostics-portal.png)
 
-Opnemen van andere opties voor het verzamelen: Azure Monitor in de portal gebruiken om diagnostische instellingen configureren, gebruikt u een [sjabloon Resource Manager](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md), of gebruikt u PowerShell Azure de CLI Azure. Zie [verzamelen en logboekgegevens van uw resources Azure verbruiken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-resource-diagnostic-logs).
+Andere opties om logboekbestanden te verzamelen zijn onder andere: Azure Monitor gebruiken in de portal voor diagnostische instellingen configureren, gebruikt u een [Resource Manager-sjabloon](../monitoring-and-diagnostics/monitoring-enable-diagnostic-logs-using-template.md), of gebruikt u Azure PowerShell of Azure CLI. Zie [verzamelen en gebruiken van logboekgegevens van uw Azure-resources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#how-to-enable-collection-of-diagnostic-logs).
 
 
-### <a name="access-diagnostics-logs-in-storage"></a>Diagnostische gegevens van Access zich in opslag
+### <a name="access-diagnostics-logs-in-storage"></a>Toegang tot diagnostische logboeken in de opslag
 
-Als u Batch diagnostische logboeken op een rekening van opslag archiveert, wordt een opslag container in de opslag gemaakt zodra een bijbehorende gebeurtenis zich voordoet. BLOB's worden gemaakt volgens het patroon van de volgende naamgeving:
+Als u diagnostische logboeken voor Batch in een opslagaccount archiveren, wordt een opslagcontainer wordt gemaakt in de storage-account als een gerelateerde gebeurtenis zich voordoet. BLOBs zijn gemaakt op basis van een naamgevingspatroon uit het volgende:
 
 ```
 insights-{log category name}/resourceId=/SUBSCRIPTIONS/{subscription ID}/
@@ -122,15 +122,15 @@ insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXX
 RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/
 BATCHACCOUNTS/MYBATCHACCOUNT/y=2018/m=03/d=05/h=22/m=00/PT1H.json
 ```
-Elke PT1H.json blob-bestand bevat opgemaakte JSON gebeurtenissen die hebben plaatsgevonden binnen het uur dat is opgegeven in de blob-URL (bijvoorbeeld, h = 12). Tijdens het huidige uur worden gebeurtenissen toegevoegd aan het bestand PT1H.json wanneer deze zich voordoen. De minuut waarde (m = 00) is altijd 00, aangezien diagnostische gebeurtenissen worden onderverdeeld in afzonderlijke blobs per uur. (Alle tijden zijn UTC).
+Elke PT1H.json-blob-bestand bevat JSON-indeling gebeurtenissen die hebben plaatsgevonden binnen het uur dat is opgegeven in de blob-URL (bijvoorbeeld, h = 12). Tijdens het huidige uur worden gebeurtenissen toegevoegd aan het bestand PT1H.json wanneer deze zich voordoen. De minuutwaarde (m = 00) is altijd 00 omdat logboekgebeurtenissen voor diagnostische zijn onderverdeeld in afzonderlijke blobs per uur. (Alle tijden zijn in UTC).
 
 
-Zie voor meer informatie over het schema van de diagnostische logboeken in de opslag, [archief Azure diagnoselogboeken](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
+Zie voor meer informatie over het schema van logboeken met diagnostische gegevens in de storage-account, [diagnostische logboeken archiveren Azure](../monitoring-and-diagnostics/monitoring-archive-diagnostic-logs.md#schema-of-diagnostic-logs-in-the-storage-account).
 
-Als u de logboeken in uw account opslag via programmering, gebruik de Storage API's. 
+Als u wilt toegang krijgen tot de logboeken in uw storage-account via een programma, de opslag-API's te gebruiken. 
 
-### <a name="service-log-events"></a>Service-logboekgebeurtenissen
-Azure Batch, Service, Logboeken, als verzameld, bevatten gebeurtenissen die door de service Azure Batch uitgestoten gedurende de levensduur van een afzonderlijke resource Batch als een groep van toepassingen of taak. Elke gebeurtenis door Batch uitgestraalde vastgelegd in JSON-indeling. Dit is bijvoorbeeld de hoofdtekst van een steekproef **groep maken gebeurtenis**:
+### <a name="service-log-events"></a>Gebeurtenissen van de service-logboek
+Azure Batch-Service zich aanmeldt, als die worden verzameld, bevatten gebeurtenissen die zijn gegenereerd door de Azure Batch-service tijdens de levensduur van een afzonderlijke Batch-bron, zoals een groep of -taak. Elke gebeurtenis verzonden door de Batch wordt geregistreerd in JSON-indeling. Dit is bijvoorbeeld de hoofdtekst van een voorbeeld van een **gebeurtenis pool maken**:
 
 ```json
 {
@@ -154,15 +154,15 @@ Azure Batch, Service, Logboeken, als verzameld, bevatten gebeurtenissen die door
 }
 ```
 
-De Batch-service verzendt momenteel de volgende Service gebeurtenissen. Deze lijst zijn mogelijk niet volledig, omdat er aanvullende gebeurtenissen zijn toegevoegd sinds dit artikel voor het laatst is bijgewerkt.
+De Batch-service verzendt momenteel de volgende Service-logboek-gebeurtenissen. Deze lijst zijn mogelijk niet volledig, omdat er aanvullende gebeurtenissen zijn toegevoegd sinds dit artikel voor het laatst is bijgewerkt.
 
-| **Service-logboekgebeurtenissen** |
+| **Gebeurtenissen van de service-logboek** |
 | --- |
 | [Groep maken](batch-pool-create-event.md) |
-| [Toepassingen verwijderen starten](batch-pool-delete-start-event.md) |
-| [Groep verwijderen is voltooid](batch-pool-delete-complete-event.md) |
-| [Groep formaat starten](batch-pool-resize-start-event.md) |
-| [Groep formaat voltooid](batch-pool-resize-complete-event.md) |
+| [Pool verwijderen starten](batch-pool-delete-start-event.md) |
+| [Pool verwijderen voltooid](batch-pool-delete-complete-event.md) |
+| [Pool resize start](batch-pool-resize-start-event.md) |
+| [Formaat van pool wijzigen voltooid](batch-pool-resize-complete-event.md) |
 | [Taak starten](batch-task-start-event.md) |
 | [De taak is voltooid](batch-task-complete-event.md) |
 | [Taak is mislukt](batch-task-fail-event.md) |

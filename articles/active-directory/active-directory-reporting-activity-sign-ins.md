@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 06/21/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 3c3737d3a98093f752c1248460a8084436e60941
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0d651f9d4fa48cec3a61f1f307f4447fe2cba63b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333595"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248948"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Aanmeldactiviteitenrapporten in Azure Active Directory Portal
 
@@ -41,7 +41,7 @@ In dit onderwerp vindt u meer informatie over de aanmeldactiviteiten.
 ## <a name="prerequisites"></a>Vereisten
 
 ### <a name="who-can-access-the-data"></a>Wie heeft er toegang tot de gegevens?
-* Gebruikers in de rol beheerder van de beveiliging, beveiliging lezer, rapportlezer of beheerder van de toepassing
+* Gebruikers in de beveiligingsbeheerder, Beveiligingslezer, de rol rapportlezer
 * Globale beheerders
 * Alle gebruiker (niet-beheerders) hebben toegang tot hun eigen aanmeldingen 
 
@@ -57,20 +57,22 @@ In de informatie die wordt aangeboden in het rapport over aanmeldingsactiviteite
 * Hoeveel gebruikers hebben zich gedurende een week aangemeld?
 * Wat is de status van deze aanmeldingen?
 
-Uw eerste ingangspunt voor alle aanmeldingsactiviteitgegevens is **Aanmeldingen** in het gedeelte activiteit van **Azure Active**.
+Uw eerste ingangspunt voor alle aanmeldingsactiviteitgegevens aanmelden is **aanmeldingen** in het gedeelte activiteit van **Azure Active Directory**.
 
 
 ![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/61.png "Aanmeldingsactiviteit")
 
 
-Een controlelogboek heeft een standaardlijstweergave die het volgende laat zien:
+Een aanmeldingslogboek heeft een standaardlijstweergave die het volgende laat zien:
 
-- de gerelateerde gebruiker
-- de toepassing waarbij de gebruiker is aangemeld
-- de aanmeldingsstatus
-- de aanmeldingstijd
+- De aanmeldingsdatum
+- De gerelateerde gebruiker
+- De toepassing waarbij de gebruiker zich heeft aangemeld
+- De aanmeldingsstatus
+- De status van de risicodetectie
+- De status van de vereiste voor meervoudige verificatie (MFA)
 
-![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/41.png "Aanmeldingsactiviteit")
+![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/01.png "Aanmeldingsactiviteit")
 
 U kunt de lijstweergave aanpassen door te klikken op **Kolommen** op de werkbalk.
 
@@ -78,58 +80,104 @@ U kunt de lijstweergave aanpassen door te klikken op **Kolommen** op de werkbalk
 
 Hiermee kunt u extra velden weergeven of velden verwijderen die al worden weergegeven.
 
-![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/42.png "Aanmeldingsactiviteit")
+![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/02.png "Aanmeldingsactiviteit")
 
-Wanneer u op een item in de lijstweergave klikt, krijgt u er alle beschikbare informatie over te zien.
+Wanneer u op een item in de lijstweergave klikt, worden in een horizontale weergave alle beschikbare gegevens voor het item vermeld.
 
-![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/43.png "Aanmeldingsactiviteit")
+![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/03.png "Aanmeldingsactiviteit")
+
+> [!NOTE]
+> Klanten kunnen nu beleidsregels voor voorwaardelijke toegang met behulp van rapporten voor alle aanmelden oplossen. Door te klikken op de **voorwaardelijke toegang** tabblad voor een record aanmelding bij klanten de status voor voorwaardelijke toegang en informatie over de details van het beleid toegepast op de aanmelding en het resultaat voor elk beleid kunnen bekijken.
+> Zie voor meer informatie de [Veelgestelde vragen over gegevens van de Certificeringsinstantie in alle aanmeldingen](active-directory-reporting-faq.md#conditional-access).
+
+![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/ConditionalAccess.png "Aanmeldingsactiviteit")
 
 
-## <a name="filtering-sign-in-activities"></a>Aanmeldingsactiviteiten filteren
+## <a name="filter-sign-in-activities"></a>Aanmeldactiviteiten filteren
 
-Als u de gerapporteerde gegevens wilt beperken tot een bepaald niveau, kunt u de aanmeldingsgegevens filteren met de volgende velden:
+Als u de gerapporteerde gegevens wilt beperken tot een bepaald niveau, kunt u de aanmeldingsgegevens filteren met de volgende standaardvelden:
 
-- Tijdsinterval
 - Gebruiker
 - Toepassing
-- Client
-- Aanmeldstatus
+- Aanmeldingsstatus
+- Status van de risicodetectie
+- Date
 
-![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/44.png "Aanmeldingsactiviteit")
+![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/04.png "Aanmeldingsactiviteit")
 
+Met het filter **Gebruiker** kunt u de naam of de UPN (User Principal Name) van de gewenste gebruiker opgeven.
 
-Met het filter **tijdsinterval** kunt u een tijdsbestek opgeven voor de geretourneerde gegevens.  
+Met het filter **Toepassing** kunt u de naam van de gewenste toepassing opgeven.
+
+Met het filter **Aanmeldingsstatus** kunt u selecteren:
+
+- Alle
+- Geslaagd
+- Fout
+
+Met het filter **Risico gedetecteerd** kunt u selecteren:
+
+- Alle
+- Ja
+- Nee
+
+Met het filter **Datum** kunt u een tijdsbestek opgeven voor de geretourneerde gegevens.  
 Mogelijke waarden zijn:
 
 - 1 maand
 - 7 dagen
 - 24 uur
-- Aangepast
+- Aangepast tijdsinterval
 
 Wanneer u een aangepast tijdsbestek selecteert, kunt u een begintijd en eindtijd configureren.
 
-Met het filter **gebruiker** kunt u de naam of de UPN (User Principal Name) van de gewenste gebruiker opgeven.
+Als u extra velden toevoegt aan uw aanmeldingsweergave, worden deze velden automatisch toegevoegd aan de lijst met filters. Als u bijvoorbeeld het veld **Client-app** aan uw lijst toevoegt, krijgt u ook een andere filteroptie waarmee u de volgende filters kunt instellen:
 
-Met het filter **toepassing** kunt u de naam van de gewenste toepassing opgeven.
+- Browser      
+- Exchange ActiveSync (ondersteund)               
+- Exchange ActiveSync (niet ondersteund)
+- Andere clients               
+    - IMAP
+    - MAPI
+    - Oudere Office-clients
+    - POP
+    - SMTP
 
-Met het filter **client** kunt u informatie over het gewenste apparaat opgeven.
 
-Met het filter **aanmeldingsstatus** kunt u een van de volgende filters selecteren:
+![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/12.png "Aanmeldingsactiviteit")
 
-- Alles
-- Geslaagd
-- Fout
+
+## <a name="download-sign-in-activities"></a>Aanmeldactiviteiten downloaden
+
+U kunt de gegevens van de aanmeldingsactiviteiten downloaden als u buiten Azure Portal met de gegevens wilt werken. Als u op **Downloaden** klikt, wordt er een CSV-bestand gemaakt met de vijfduizend meest recente records.  Naast een downloadknop bevat Azure Portal ook een optie voor het genereren van een script voor het downloaden van uw gegevens.  
+
+![Downloaden](./media/active-directory-reporting-activity-sign-ins/71.png "Downloaden")
+
+Als u meer flexibiliteit nodig hebt, kunt u kiezen voor de scriptoplossing. Te klikken op **Script** maakt u een PowerShell-script dat bevat alle filters die u hebt ingesteld. Downloaden en uitvoeren met dit script in **beheerdersmodus** voor het genereren van het CSV-bestand. 
+
+### <a name="running-the-script-on-a-windows-10-machine"></a>Het script is uitgevoerd op een Windows 10-computer
+
+Als u het script uitvoert wilt op een **Windows 10** machine, moet u eerst een paar extra stappen uitvoeren. 
+
+1. Installeer de [AzureRM-module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0l).
+2. Importeer de module door een PowerShell-prompt openen en het uitvoeren van de opdracht **Import-Module AzureRM**.
+3. Voer **Set-ExecutionPolicy unrestricted** en kies **Ja op Alles**. 
+4. U kunt nu het gedownloade PowerShell-script uitvoeren in de beheerdersmodus voor het genereren van het CSV-bestand.
+
+Naast de technische implementatie, wordt het aantal records dat u kunt downloaden ook beperkt door het [retentiebeleid voor Azure Active Directory-rapporten](active-directory-reporting-retention.md).  
 
 
 ## <a name="sign-in-activities-shortcuts"></a>Snelkoppelingen voor aanmeldingsactiviteiten
 
-Naast Azure Active Directory biedt de Azure Portal twee extra toegangspunten voor aanmeldingsactiviteitgegevens:
+Naast Azure Active Directory, de Azure-portal biedt u extra toegangspunten voor aanmelding bij activiteiten gegevens:
 
-- Gebruikers en groepen
+- Overzicht van identiteitbeveiliging en -bescherming
+- Gebruikers
+- Groepen
 - Bedrijfstoepassingen
 
 
-### <a name="users-and-groups-sign-ins-activities"></a>Aanmeldingsactiviteiten van gebruikers en groepen
+### <a name="users-sign-ins-activities"></a>Aanmeldingsactiviteiten van gebruikers
 
 In de informatie die wordt aangeboden in het rapport over aanmeldingsactiviteiten van gebruikers, vindt u antwoord op vragen zoals:
 
@@ -137,33 +185,37 @@ In de informatie die wordt aangeboden in het rapport over aanmeldingsactiviteite
 - Hoeveel keer hebben gebruikers zich aangemeld gedurende een week?
 - Wat is de status van deze aanmeldingen?
 
+Uw beginpunt voor deze gegevens is de aanmeldingsgrafiek van gebruikers op de overzichtspagina **Identiteitbeveiliging en -bescherming**. In de aanmeldingsgrafiek van gebruikers ziet u alle aanmeldingen van alle gebruikers gedurende een bepaalde periode. De standaard ingestelde periode is 30 dagen.
 
+![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/06.png "Aanmeldingsactiviteit")
 
-Uw beginpunt voor deze gegevens is de aanmeldingsgrafiek van gebruikers in het gedeelte **Overzicht** onder **Gebruikers en groepen**.
+Als u in de aanmeldingsgrafiek op een dag klikt, ziet u een overzicht van de aanmeldingsactiviteiten voor die dag.
 
-![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/45.png "Aanmeldingsactiviteit")
-
-In de aanmeldingsgrafiek van gebruikers ziet u alle aanmeldingen van alle gebruikers gedurende een bepaalde periode. De standaard ingestelde periode is 30 dagen.
-
-![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/46.png "Aanmeldingsactiviteit")
-
-Als u in de aanmeldingsgrafiek op een dag klikt, ziet u een gedetailleerd overzicht van de aanmeldingsactiviteiten voor die dag.
-
-![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/41.png "Aanmeldingsactiviteit")
-
-Elke rij in de lijst met aanmeldingsactiviteiten bevat gedetailleerde informatie over de geselecteerde aanmelding, zoals:
+Elke rij in de lijst met aanmeldingsactiviteiten geeft het volgende weer:
 
 * Wie heeft zich aangemeld?
-* Wat was de gerelateerde UPN?
 * Welke toepassing was het aanmeldingsdoel?
-* Wat is het IP-adres van de persoon die zich heeft aangemeld?
 * Wat is de status van de aanmelding?
+* Wat is de MFA-status van de aanmelding?
 
-Met de optie **Aanmeldingen** krijgt u een volledig overzicht van alle gebruikersaanmeldingen.
+Door op een item te klikken, krijgt u meer informatie over de aanmelding:
 
-![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/51.png "Aanmeldingsactiviteit")
+- Gebruikers-ID
+- Gebruiker
+- Gebruikersnaam
+- Toepassings-id
+- Toepassing
+- Client
+- Locatie
+- IP-adres
+- Date
+- MFA vereist
+- Aanmeldingsstatus
 
+ 
+Op de pagina **Gebruikers** krijgt u een volledig overzicht van alle aanmeldingen van gebruikers door in de sectie **Activiteit** op **Aanmelden** te klikken.
 
+![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/08.png "Aanmeldingsactiviteit")
 
 ## <a name="usage-of-managed-applications"></a>Het gebruik van beheerde toepassingen
 
@@ -175,7 +227,7 @@ Met een toepassingsgerichte weergave van uw aanmeldingsgegevens kunt u antwoord 
 
 Uw beginpunt voor deze gegevens is het overzicht van de drie populairste toepassingen in uw organisatie volgens het rapport van de laatste 30 dagen. Het overzicht vindt u in het gedeelte **Overzicht** onder **Bedrijfstoepassingen**.
 
-![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/64.png "Aanmeldingsactiviteit")
+![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/10.png "Aanmeldingsactiviteit")
 
 In de grafiek over appgebruik staat een wekelijks overzicht van alle aanmeldingen bij de drie populairste toepassingen gedurende een bepaalde periode. De standaard ingestelde periode is 30 dagen.
 
@@ -183,18 +235,13 @@ In de grafiek over appgebruik staat een wekelijks overzicht van alle aanmeldinge
 
 Als u wilt, kunt u de focus instellen op een specifieke toepassing.
 
-
 ![Rapportage](./media/active-directory-reporting-activity-sign-ins/single_spp_usage_graph.png "Rapportage")
 
 Als u op een dag in de appgebruikgrafiek klikt, ziet u een gedetailleerd overzicht van de aanmeldactiviteiten.
 
-
-![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/48.png "Aanmeldingsactiviteit")
-
-
 Met de optie **Aanmeldingen** krijgt u een volledig overzicht van alle aanmeldingsgebeurtenissen voor uw toepassingen.
 
-![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/49.png "Aanmeldingsactiviteit")
+![Aanmeldingsactiviteit](./media/active-directory-reporting-activity-sign-ins/11.png "Aanmeldingsactiviteit")
 
 
 

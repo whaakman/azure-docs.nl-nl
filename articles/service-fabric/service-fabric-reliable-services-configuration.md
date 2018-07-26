@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: c320f27dd53f0545ff5074d2d4f5a7bdd445fd89
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: f2af7c65d42cbbec28fd511be18c72a6cd3c3d0c
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866175"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249016"
 ---
 # <a name="configure-stateful-reliable-services"></a>Stateful reliable services configureren
 Er zijn twee sets met configuratie-instellingen voor betrouwbare services. Één set is globale voor alle betrouwbare services in het cluster, terwijl de andere set specifiek voor een bepaalde betrouwbare service is.
@@ -124,6 +124,7 @@ ReplicatorConfig
 | SharedLogId |GUID |"" |Hiermee geeft u een unieke GUID moet worden gebruikt voor het identificeren van de gedeelde logboekbestand gebruikt in combinatie met deze replica. Normaal gesproken moeten deze instelling niet gebruikt door services. Echter, als SharedLogId is opgegeven, klikt u vervolgens SharedLogPath moeten ook worden opgegeven. |
 | SharedLogPath |De naam van de volledig gekwalificeerde pad |"" |Hiermee geeft u de volledig gekwalificeerde pad waar het gedeelde logboekbestand voor deze replica wordt gemaakt. Normaal gesproken moeten deze instelling niet gebruikt door services. Echter, als SharedLogPath is opgegeven, klikt u vervolgens SharedLogId moeten ook worden opgegeven. |
 | SlowApiMonitoringDuration |Seconden |300 |Hiermee stelt u de controle-interval voor beheerde API-aanroepen. Voorbeeld: de gebruiker opgegeven back-callback-functie. Nadat het interval is verstreken, wordt een statusrapport waarschuwing verzonden naar de Health Manager. |
+| LogTruncationIntervalSeconds |Seconden |0 |Configureerbare interval op waarin de logboekbestanden moet worden afgekapt op elke replica wordt gestart. Het wordt gebruikt om ervoor te zorgen logboek ook is afgekapt op basis van tijd in plaats van alleen de grootte van het logboekbestand. Deze instelling dwingt ook opschonen van verwijderde items in een betrouwbare dictionary. Daarom kan deze worden gebruikt om te controleren of verwijderde items tijdig worden opgeschoond. |
 
 ### <a name="sample-configuration-via-code"></a>Voorbeeldconfiguratie via code
 ```csharp

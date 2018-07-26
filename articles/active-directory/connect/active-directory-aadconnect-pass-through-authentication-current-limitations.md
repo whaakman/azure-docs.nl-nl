@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 07/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2fff52a7909a1f3c59ebe4944386e096bd1a8d95
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e549293bf09781363e74c85ae689869d35de3092
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213415"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258283"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Pass through-verificatie van Active Directory: Huidige beperkingen
 
@@ -35,7 +35,7 @@ De volgende scenario's worden ondersteund:
 - Gebruikersaanmeldingen voor Outlook-clients met verouderde protocollen, zoals Exchange ActiveSync-, EAS-, SMTP-, POP- en IMAP.
 - Gebruikersaanmeldingen oudere clienttoepassingen voor Office en Office-toepassingen die ondersteuning bieden voor [moderne verificatie](https://aka.ms/modernauthga): versies van Office 2010, 2013 en 2016.
 - Gebruikersaanmeldingen voor toepassingen, zoals PowerShell-versie 1.0 en andere verouderde protocol.
-- Azure AD-domein wordt toegevoegd aan voor Windows 10-apparaten.
+- Azure AD koppelt voor Windows 10-apparaten.
 - App-wachtwoorden voor meervoudige verificatie.
 
 ## <a name="unsupported-scenarios"></a>Niet-ondersteunde scenario 's
@@ -47,7 +47,7 @@ De volgende scenario's zijn _niet_ ondersteund:
 - Pass through-verificatie is niet geïntegreerd met [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 >[!IMPORTANT]
->Als tijdelijke oplossing voor niet-ondersteunde scenario's _alleen_, wachtwoord-Hashsynchronisatie inschakelen op de [optionele functies](active-directory-aadconnect-get-started-custom.md#optional-features) pagina in de Azure AD Connect-wizard. Wanneer gebruikers zich aanmelden op toepassingen die worden vermeld in de 'niet-ondersteunde scenario's "sectie, die specifieke aanmeldingsaanvragen worden _niet_ verwerkt door Pass through-verificatie-Agents en daarom niet worden vastgelegd in [ Pass through-verificatie registreert](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
+>Als tijdelijke oplossing voor niet-ondersteunde scenario's _alleen_ (met uitzondering van Azure AD Connect Health-integratie), synchronisatie van Wachtwoordhashes inschakelen op de [optionele functies](active-directory-aadconnect-get-started-custom.md#optional-features) pagina in de Azure AD Connect-wizard. Wanneer gebruikers zich aanmelden op toepassingen die worden vermeld in de 'niet-ondersteunde scenario's "sectie, die specifieke aanmeldingsaanvragen worden _niet_ verwerkt door Pass through-verificatie-Agents en daarom niet worden vastgelegd in [ Pass through-verificatie registreert](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
 
 >[!NOTE]
 Wachtwoord-Hashsynchronisatie inschakelen biedt de mogelijkheid tot failover-verificatie als uw on-premises infrastructuur wordt onderbroken. Deze failover van Pass through-verificatie naar wachtwoord-Hashsynchronisatie wordt niet automatisch. U moet handmatig met behulp van Azure AD Connect methode overschakelen. Als de Azure AD Connect-server uitvalt, hebt u nodig hebt met hulp van Microsoft Support Pass through-verificatie uitschakelen.

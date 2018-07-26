@@ -5,16 +5,16 @@ keywords: ''
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/07/2018
+ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0432a1782ab5e3aef471666e2f0a3ca18dead73e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 28aa2904f63a9802305d24fec1650f84e38601ab
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001504"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258430"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Implementeren en bewaken van IoT Edge-modules op schaal met Azure portal
 
@@ -106,7 +106,7 @@ Gebruik de eigenschap tags van uw apparaten gericht op de specifieke apparaten d
 Omdat meerdere implementaties zijn op hetzelfde apparaat gericht kunnen, moet u elke implementatie enkele prioriteit geven. Als er een conflict optreedt is, wordt de implementatie met de hoogste prioriteit (hogere waarden geven aan hogere prioriteit) wins. Als twee implementaties hetzelfde prioriteitsnummer hebt, wordt het account waarmee de meeste is gemaakt onlangs wins. 
 
 1. Voer een positief geheel getal voor de implementatie **prioriteit**. In het geval dat twee of meer implementaties zijn gericht op hetzelfde apparaat, wordt de implementatie met de hoogste numerieke waarde voor prioriteit wordt toegepast.
-1. Voer een **voorwaarde als doel** om te bepalen welke apparaten doelgroepen voor deze implementatie. De voorwaarde is gebaseerd op het apparaat apparaatdubbel-tags of apparaatdubbel gewenste eigenschappen en moet overeenkomen met de indeling van de expressie. Bijvoorbeeld, `tags.environment='test'` of `properties.desired.devicemodel='4000x'`. 
+1. Voer een **voorwaarde als doel** om te bepalen welke apparaten doelgroepen voor deze implementatie. De voorwaarde is gebaseerd op het apparaat apparaatdubbel-tags of apparaatdubbel gerapporteerde eigenschappen en moet overeenkomen met de indeling van de expressie. Bijvoorbeeld, `tags.environment='test'` of `properties.reported.devicemodel='4000x'`. 
 1. Selecteer **volgende** om door te gaan naar de laatste stap.
 
 ### <a name="step-5-review-template"></a>Stap 5: Sjabloon controleren

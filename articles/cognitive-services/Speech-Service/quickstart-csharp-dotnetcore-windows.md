@@ -10,17 +10,20 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: f00653d0c58f52c73126693422ab0a485540dd7a
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 50cf1bbbe529b30da6bfe39281d11eee1c788dd8
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072566"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259157"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-using-the-speech-sdk"></a>Snelstartgids: Herkennen gesproken tekst in C# onder .NET Core in Windows met behulp van de spraak-SDK
 
 In dit artikel leert u hoe u een C#-consoletoepassing maken voor .NET Core in Windows met behulp van de Cognitive Services Speech SDK spraak naar tekst te transcriberen.
-De toepassing is op basis van de [Microsoft Cognitive Services Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017.
+De toepassing is gemaakt met de [Microsoft Cognitive Services Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017.
+
+> [!NOTE]
+> .NET core is een open-source, platformoverschrijdende .NET-platform uitvoering van de [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) specificatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -45,13 +48,13 @@ De toepassing is op basis van de [Microsoft Cognitive Services Speech SDK NuGet-
 
     ![Installeer het NuGet-pakket Microsoft.CognitiveServices.Speech](media/sdk/qs-csharp-dotnetcore-windows-03-nuget-install-0.5.0.png "installeren Nuget-pakket")
 
-1. In het scherm van het type licentie dat verschijnt, accepteer de licentie:
+1. Accepteer de gebruiksrechtovereenkomst in het dialoogvenster dat wordt weergegeven.
 
     ![Accepteer de licentie](media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png "gaat akkoord met de licentie")
 
 ## <a name="add-the-sample-code"></a>De voorbeeldcode toevoegen
 
-1. In de `Program.cs` bestand in Visual Studio-project, alle code vervangen door het volgende:
+1. Open `Program.cs` in uw Visual Studio-project en vervang de code in dit bestand door het volgende.
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnetcore-windows/helloworld/Program.cs#code)]
 
@@ -63,16 +66,15 @@ De toepassing is op basis van de [Microsoft Cognitive Services Speech SDK NuGet-
 
 ## <a name="build-and-run-the-sample"></a>Het voorbeeldproject compileren en uitvoeren
 
-1. Maken van de toepassing. Selecteer in de menubalk **bouwen** > **Build Solution**. De code moet nu compileren zonder fouten:
+1. Maken van de toepassing. Kies in de menubalk **bouwen** > **Build Solution**. De code moet nu compileren zonder fouten.
 
     ![Geslaagde build](media/sdk/qs-csharp-dotnetcore-windows-05-build.png "geslaagde build")
 
-1. De toepassing te starten. Selecteer in de menubalk **Debug** > **Start Debugging**, of druk op **F5**.
+1. De toepassing te starten. Kies in de menubalk **Debug** > **Start Debugging**, of druk op **F5**.
 
     ![De app te starten in foutopsporing](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "bij het opsporen van fouten in de app te starten")
 
-1. Een consolevenster verschijnt, waarin u kunt iets wat er op (in het Engels).
-Het resultaat van de opname wordt op het scherm weergegeven.
+1. Een consolevenster wordt weergegeven, waarin u kunt iets wat er op (in het Engels). De herkende tekst wordt vervolgens weergegeven in hetzelfde venster.
 
     ![Console-uitvoer na geslaagde opname](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "Console-uitvoer na geslaagde opname")
 

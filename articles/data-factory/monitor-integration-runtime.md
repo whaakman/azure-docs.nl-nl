@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 4da9696761747874395ec90cb3b446e3621650ba
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 9c45b428a6d2060243f1eba9a284c7eb1b1b21c0
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113254"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259099"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Een integratieruntime in Azure Data Factory controleren  
 **Integratieruntime** is de rekeninfrastructuur die door Azure Data Factory wordt gebruikt voor verschillende mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen. Er zijn drie typen integration runtime die worden aangeboden door Data Factory:
@@ -76,10 +76,18 @@ De volgende tabel bevat beschrijvingen van de eigenschappen voor bewaking **elk 
 | Beschikbaar geheugen | Beschikbaar geheugen op een zelf-hostende integration runtime-knooppunt. Deze waarde is een momentopname van een bijna realtime. | 
 | CPU-gebruik | CPU-gebruik van een zelf-hostende integration runtime-knooppunt. Deze waarde is een momentopname van een bijna realtime. |
 | Netwerken (In/uit) | Het netwerkgebruik van een zelf-hostende integration runtime-knooppunt. Deze waarde is een momentopname van een bijna realtime. | 
-| Gelijktijdige taken (actief / beperken) | Het aantal taken of taken die worden uitgevoerd op elk knooppunt. Deze waarde is een momentopname van een bijna realtime. Limiet geeft aan dat het maximum aantal gelijktijdige taken voor elk knooppunt. Deze waarde is gedefinieerd op basis van de machinegrootte. U kunt de limiet voor gelijktijdige taakuitvoering in geavanceerde scenario's waarbij CPU/geheugen/netwerk wordt benut, maar activiteiten zijn time-outs opschalen verhogen. Deze mogelijkheid is ook beschikbaar met een zelf-hostende integratieruntime met één knooppunt. |
+| Gelijktijdige taken (actief / beperken) | **Met**. Het aantal taken of taken die worden uitgevoerd op elk knooppunt. Deze waarde is een momentopname van een bijna realtime. <br/><br/>**Limiet**. Limiet geeft aan dat het maximum aantal gelijktijdige taken voor elk knooppunt. Deze waarde is gedefinieerd op basis van de machinegrootte. U kunt de limiet voor het opschalen van gelijktijdige taakuitvoering in geavanceerde scenario's wanneer activiteiten zijn time-outs, zelfs wanneer CPU, geheugen of netwerk benut wordt verhogen. Deze mogelijkheid is ook beschikbaar met een zelf-hostende integratieruntime met één knooppunt. |
 | Rol | Er zijn twee soorten rollen in een meerdere knooppunten zelf-hostende integratieruntime-functie voor berichtverzending en -werkrollen. Alle knooppunten zijn werknemers, wat betekent dat ze kunnen allemaal worden gebruikt voor het uitvoeren van taken. Er is slechts één functie voor berichtverzending knooppunt, die wordt gebruikt voor het ophalen van taken/taken uit cloudservices en ze verzenden naar verschillende worker-knooppunten. Het knooppunt verzender is ook een worker-knooppunt. |
 
-Sommige instellingen van de eigenschappen ook beter wanneer er twee of meer knooppunten (scale-out scenario) in de zelf-hostende integratieruntime. 
+Sommige instellingen van de eigenschappen ook beter wanneer er twee of meer knooppunten in de zelf-hostende integratieruntime (dat wil zeggen, in een scale-out scenario).
+
+#### <a name="concurrent-jobs-limit"></a>Limiet voor gelijktijdige taken
+
+De standaardwaarde van de gelijktijdige taken limiet is ingesteld, is afhankelijk van de grootte van de machine. De factoren die wordt gebruikt om deze waarde te berekenen, is afhankelijk van de hoeveelheid RAM-geheugen en het aantal CPU-kernen van de machine. Dus meer kernen en meer geheugen, de hogere beperken de standaardwaarde van gelijktijdige taken.
+
+U schalen opwaarts door het aantal knooppunten te verhogen. Als u het aantal knooppunten verhoogt, wordt de limiet voor gelijktijdige taken is het de som van de waarden van de limiet voor gelijktijdige taak van alle beschikbare knooppunten.  Bijvoorbeeld, als één knooppunt u maximaal twaalf gelijktijdige taken uitvoeren kunt, kunt vervolgens drie meer lijken knooppunten toe te voegen u maximaal 48 gelijktijdige taken (dat wil zeggen, 4 x 12) worden uitgevoerd. Het is raadzaam om de limiet voor gelijktijdige taken te verhogen, alleen wanneer er brongebruik laag met de standaardwaarden op elk knooppunt.
+
+U kunt de waarde in de Azure-portal berekende standaard overschrijven. Selecteer Auteur > verbindingen > Integratieruntimes > Edi > knooppunten > gelijktijdige taak waarde per knooppunt wijzigen. U kunt ook de PowerShell [update azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/en-us/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) opdracht.
   
 ### <a name="status-per-node"></a>Status (per knooppunt)
 De volgende tabel bevat de mogelijke statussen van een zelf-hostende integration runtime-knooppunt:

@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: 462ec359b8c29488a913d036a14b21b28ba27cdc
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f63832723a2c33b88d0e5fc9c6a38a0cad63fa38
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005211"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259174"
 ---
 # <a name="services-that-support-managed-service-identity"></a>Services die ondersteuning bieden voor beheerde Service-identiteit 
 
-Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. Met behulp van een beheerde identiteit, kunt u verifiëren met een service die ondersteuning biedt voor Azure AD-verificatie zonder referenties in uw code. We zijn bezig met MSI- en Azure AD-verificatie integreren in Azure. Controleer regelmatig of er updates.
+Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. Met behulp van een beheerde identiteit, kunt u verifiëren met een service die ondersteuning biedt voor Azure AD-verificatie zonder referenties in uw code. We zijn bezig met beheerde Service-identiteit en Azure AD-verificatie integreren in Azure. Controleer regelmatig of er updates.
 
 ## <a name="azure-services-that-support-managed-service-identity"></a>Azure-services die ondersteuning bieden voor beheerde Service-identiteit
 

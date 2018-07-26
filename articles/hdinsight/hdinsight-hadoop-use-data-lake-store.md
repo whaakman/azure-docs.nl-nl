@@ -3,8 +3,8 @@ title: Gebruik Data Lake Store met Hadoop in Azure HDInsight
 description: Informatie over hoe u gegevens opvraagt uit Azure Data Lake Store en hoe u resultaten van uw analyse opslaat.
 services: hdinsight,storage
 tags: azure-portal
-author: mumian
-ms.author: jgao
+author: jasonwhowell
+ms.author: jasonh
 manager: jhubbard
 editor: cgronlun
 ms.service: hdinsight
@@ -12,12 +12,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 07/23/2018
-ms.openlocfilehash: 8f81e04c1b80173868f068957b6ca7da6bfe19c1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 48b98e170601f80e8cd1348ccc9afa3b5fc0c4e1
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222886"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258028"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Data Lake Store gebruiken met Azure HDInsight-clusters
 
@@ -28,7 +28,7 @@ In dit artikel wordt beschreven hoe Data Lake Store werkt met HDInsight-clusters
 > [!NOTE]
 > De toegang tot Data Lake Store verloopt altijd via een beveiligd kanaal, zodat er geen `adls`-bestandssysteemschemanaam is. U gebruikt altijd `adl`.
 > 
-> 
+
 
 ## <a name="availability-for-hdinsight-clusters"></a>Beschikbaarheid voor HDInsight-clusters
 
@@ -136,8 +136,8 @@ Gebruik de volgende koppelingen voor gedetailleerde instructies over het maken v
 Het volgende voorbeeld PowerShell-code leest een lokale certificaatbestand en updates van uw HDInsight-cluster met het nieuwe certificaat voor toegang tot Azure Data Lake Store. Geef uw eigen naam van de HDInsight-cluster, Resourcegroepnaam, abonnements-ID, app-ID, lokaal pad naar het certificaat. Typ in het wachtwoord wanneer hierom wordt gevraagd.
 
 ```powershell-interactive
-$clusterName = 'MyCluster'
-$resourceGroupName = 'MyResourceGroup'
+$clusterName = '<clustername>'
+$resourceGroupName = '<resourcegroupname>'
 $subscriptionId = '01234567-8a6c-43bc-83d3-6b318c6c7305'
 $appId = '01234567-e100-4118-8ba6-c25834f4e938'
 $generateSelfSignedCert = $false

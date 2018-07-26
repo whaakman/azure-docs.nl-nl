@@ -1,6 +1,6 @@
 ---
-title: MSI configureren op een schaalset van de virtuele machine van Azure met behulp van een sjabloon
-description: Stapsgewijze instructies voor het configureren van een Managed Service Identity (MSI) op een Azure-VMSS, met een Azure Resource Manager-sjabloon.
+title: Beheerde Service-identiteit configureren op een schaalset van de virtuele machine van Azure met behulp van een sjabloon
+description: Stapsgewijze instructies voor het configureren van een beheerde Service-identiteit in een Azure-VMSS, met een Azure Resource Manager-sjabloon.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: b4fa875c71869dc3fd671f5dc4b801934c27f0ff
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 562bf5e5239114a8dad16727089f94f378db82ff
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237193"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258861"
 ---
 # <a name="configure-managed-service-identity-on-virtual-machine-scale-using-a-template"></a>Beheerde Service-identiteit configureren op virtuele-machineschaalset met behulp van een sjabloon
 
@@ -49,7 +49,7 @@ Net als bij Azure portal en uitvoeren van scripts, [Azure Resource Manager](../.
    - Met behulp van een lokale [JSON-editor (zoals VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md), en vervolgens uploaden en implementeren met behulp van PowerShell of CLI.
    - Met Visual Studio [Azure-resourcegroepproject](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) te maken en implementeren van een sjabloon.  
 
-Ongeacht welke optie die u kiest, is de sjabloonsyntaxis van de hetzelfde tijdens de initiële implementatie en opnieuw implementeren. Inschakelen van MSI op een nieuwe of bestaande virtuele machine wordt uitgevoerd op dezelfde manier. Bovendien standaard Azure Resource Manager biedt een [incrementele update](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) implementaties.
+Ongeacht welke optie die u kiest, is de sjabloonsyntaxis van de hetzelfde tijdens de initiële implementatie en opnieuw implementeren. Inschakelen van de beheerde Service-identiteit op een nieuwe of bestaande virtuele machine wordt uitgevoerd op dezelfde manier. Bovendien standaard Azure Resource Manager biedt een [incrementele update](../../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) implementaties.
 
 ## <a name="system-assigned-identity"></a>Systeem toegewezen identiteit
 
@@ -69,7 +69,7 @@ In deze sectie maakt u inschakelen en uitschakelen van het systeem toegewezen id
    },
    ```
 
-3. (Optioneel) Voeg de virtuele-machineschaalset MSI-extensie als een `extensionsProfile` element. Deze stap is optioneel, zoals u de identiteit van de Azure Instance Metadata Service (IMDS), kunt evenals tokens op te halen.  Gebruik de volgende syntaxis:
+3. (Optioneel) Toevoegen van de virtuele-machineschaalset uitbreiding van de beheerde Service-identiteit als een `extensionsProfile` element. Deze stap is optioneel, zoals u de identiteit van de Azure Instance Metadata Service (IMDS), kunt evenals tokens op te halen.  Gebruik de volgende syntaxis:
 
    >[!NOTE] 
    > Het volgende voorbeeld wordt ervan uitgegaan dat een virtuele-machineschaalset in Windows extensie instellen (`ManagedIdentityExtensionForWindows`) wordt geïmplementeerd. U kunt ook configureren voor Linux met behulp van `ManagedIdentityExtensionForLinux` in plaats daarvan voor de `"name"` en `"type"` elementen.

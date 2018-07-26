@@ -11,20 +11,43 @@ ms.topic: article
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: c5224422c88690ccf063a27b053963ebde622a1e
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: b2ef450a429b26843cf770a6243c6f4de932de43
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172099"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247316"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
 Deze handleiding bevat informatie over veelvoorkomende problemen die mogelijk hebt u bij het gebruik van Azure Dev spaties.
 
+## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Fout 'Failed to Azure Dev spaties controller maken'
+
+U kunt deze fout tegenkomen wanneer er iets met het maken van de controller misgaat. Als het een tijdelijke fout, wordt verwijderen en opnieuw maken van de controller eraan.
+
+### <a name="try"></a>Probeer:
+
+Als u wilt verwijderen van de controller, gebruikt u Azure Dev spaties CLI. Het is niet mogelijk om dat te doen in Visual Studio of Cloud Shell. AZDS CLI installeren, installeert eerst de Azure CLI en voer vervolgens deze opdracht uit:
+
+```cmd
+az aks use-dev-spaces -g <resource group name> -n <cluster name>
+```
+
+En voer vervolgens deze opdracht voor het verwijderen van de controller:
+
+```cmd
+azds remove -g <resource group name> -n <cluster name>
+```
+
+De controller opnieuw kan worden gedaan in de CLI of Visual Studio. Volg de instructies in de zelfstudies als voor de eerste keer starten.
+
+
 ## <a name="error-service-cannot-be-started"></a>Fout 'Service kan niet worden gestart.'
 
 U kunt deze fout tegenkomen wanneer de servicecode van uw niet kan worden gestart. De oorzaak is vaak in de gebruikerscode. Als u meer diagnostische gegevens, moet u de volgende wijzigingen aanbrengen aan uw opdrachten en -instellingen:
+
+### <a name="try"></a>Probeer:
 
 Op de opdrachtregel:
 

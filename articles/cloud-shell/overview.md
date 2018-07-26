@@ -12,21 +12,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 02/15/2018
+ms.date: 07/24/2018
 ms.author: juluk
-ms.openlocfilehash: 4ee02bc2a1956994da0ba49a24eefabf9608565c
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 9588bebdc827760f0e0d3e2aadccbff5f24723f1
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856457"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258922"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Overzicht van Azure Cloudshell
 Azure Cloud Shell is een interactieve, browser toegankelijke shell voor het beheren van Azure-resources.
 Het biedt de flexibiliteit van het kiezen van de shell-ervaring die het beste bij de manier waarop die u werkt.
 Linux-gebruikers kunnen voor een Bash-ervaring kiezen en voor Windows-gebruikers is PowerShell beschikbaar.
 
-Probeer uit shell.azure.com met behulp van deze knop.
+Probeer uit shell.azure.com door te klikken op volgende.
 
 [![](https://shell.azure.com/images/launchcloudshell.png "Open Azure Cloudshell")](https://shell.azure.com)
 
@@ -49,7 +49,12 @@ Linux-gebruikers kunt Bash in Cloud Shell, terwijl gebruikers van Windows PowerS
 ### <a name="authenticated-and-configured-azure-workstation"></a>Geverifieerde en geconfigureerde Azure werkstation
 Cloudshell wordt beheerd door Microsoft, zodat deze wordt geleverd met populaire opdrachtregelprogramma's en ondersteuning voor talen. Cloudshell wordt ook veilig automatisch geverifieerd voor directe toegang tot uw resources via de Azure CLI 2.0 of Azure PowerShell-cmdlets.
 
-Bekijk alle [lijst met hulpprogramma's.](features.md#tools)
+Bekijk alle [lijst met hulpprogramma's zijn geïnstalleerd in de Cloud Shell.](features.md#tools)
+
+### <a name="integrated-cloud-shell-editor"></a>Geïntegreerde Cloud Shell-editor
+Cloudshell biedt een geïntegreerde grafische teksteditor op basis van de open-source Monaco-Editor. Eenvoudig maken en bewerken van configuratiebestanden door uit te voeren `code .` voor de naadloze implementatie via Azure CLI 2.0 of Azure PowerShell.
+
+[Meer informatie over de Cloud Shell-editor](using-cloud-shell-editor.md).
 
 ### <a name="multiple-access-points"></a>Meerdere toegangspunten
 Cloudshell is een flexibele hulpprogramma dat kan worden gebruikt vanuit:

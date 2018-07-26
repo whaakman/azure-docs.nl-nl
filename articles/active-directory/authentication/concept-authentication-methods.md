@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 48f3a77d2aa81cda62f8206709268bae8e7c8737
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 9141658c25ea3051d8e7c866f523c54afb7d6e18
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163916"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248341"
 ---
 # <a name="what-are-authentication-methods"></a>Wat zijn verificatiemethoden?
 
@@ -30,10 +30,17 @@ Microsoft raadt beheerders kunnen gebruikers meer dan de minimaal vereiste aanta
 | Wachtwoord | MFA en Self-service voor Wachtwoordherstel |
 | Beveiligingsvragen | Alleen SSPR |
 | E-mailadres | Alleen SSPR |
-| Microsoft Authenticator-app | Alleen MFA |
+| Microsoft Authenticator-app | MFA en Preview-versie voor SSPR |
 | Sms | MFA en Self-service voor Wachtwoordherstel |
 | Spraakoproep | MFA en Self-service voor Wachtwoordherstel |
 | App-wachtwoorden | MFA alleen in bepaalde gevallen |
+
+![Verificatiemethoden in gebruik is op het aanmeldingsscherm](media/concept-authentication-methods/overview-login.png)
+
+|     |
+| --- |
+| Mobiele app-meldingen en mobiele app-code als methoden voor het Azure AD Self-service voor wachtwoord opnieuw instellen van de openbare preview-functies van Azure Active Directory zijn. Zie voor meer informatie over previews [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+|     |
 
 ## <a name="password"></a>Wachtwoord
 
@@ -116,13 +123,27 @@ De Microsoft Authenticator-app biedt een extra beveiligingsniveau voor uw Azure 
 
 De Microsoft Authenticator-app is beschikbaar voor [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) en [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
+> [!NOTE]
+> Gebruikers hebben niet de optie voor het registreren van hun mobiele app tijdens het registreren van self-service voor wachtwoord opnieuw instellen. In plaats daarvan gebruikers hun mobiele app kunnen registreren [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup) of in de security info registratie preview [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo).
+>
+
 ### <a name="notification-through-mobile-app"></a>Melding via mobiele app
 
 De Microsoft Authenticator-app kunt u voorkomt ongeoorloofde toegang tot accounts en frauduleuze transacties stoppen door het pushen van een melding naar uw smartphone of tablet. Gebruikers weergeven van de melding en wanneer deze geldig is, is Selecteer verifiëren. Anders kunnen ze weigeren selecteren.
 
+> [!WARNING]
+> Verificatiecode is voor de self-service voor wachtwoord opnieuw instellen wanneer slechts één methode vereist voor het opnieuw instellen is, de enige optie beschikbaar voor gebruikers.
+>
+> Wanneer twee methoden vereist zijn in te stellen met behulp van gebruikers is mogelijk **uitvoeren** melding **of** verificatiecode naast eventuele andere methoden ingeschakeld.
+>
+
 ### <a name="verification-code-from-mobile-app"></a>Verificatiecode via mobiele app
 
-De Microsoft Authenticator-app of andere apps van derden kunnen worden gebruikt als een Softwaretoken voor het genereren van een OAuth-verificatiecode. Na het invoeren van uw gebruikersnaam en wachtwoord, voert u de code die is geleverd door de app in het aanmeldingsscherm. De verificatiecode zorgt voor een tweede vorm van verificatie.
+De Microsoft Authenticator-app of andere apps van derden kunnen worden gebruikt als een Softwaretoken voor het genereren van een OATH-code voor verificatie. Na het invoeren van uw gebruikersnaam en wachtwoord, voert u de code die is geleverd door de app in het aanmeldingsscherm. De verificatiecode zorgt voor een tweede vorm van verificatie.
+
+> [!WARNING]
+> Verificatiecode is voor de self-service voor wachtwoord opnieuw instellen wanneer slechts één methode vereist voor het opnieuw instellen is de enige optie beschikbaar voor gebruikers.
+>
 
 ## <a name="mobile-phone"></a>Mobiele telefoon
 

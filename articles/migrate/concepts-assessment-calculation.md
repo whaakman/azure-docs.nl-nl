@@ -4,14 +4,14 @@ description: Biedt een overzicht van evaluatie van berekeningen in de Azure Migr
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/24/2018
+ms.date: 07/25/2018
 ms.author: raynew
-ms.openlocfilehash: af832cb3791f0175b38aad16526acd51509bbe52
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 7900a02ba9112b910589d04850a4cd5d52e044d2
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223681"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249186"
 ---
 # <a name="assessment-calculations"></a>Beoordelingsberekeningen
 
@@ -58,7 +58,8 @@ Windows Server 2016 en alle SP 's | Azure biedt volledige ondersteuning. | Geree
 Windows Server 2012 R2 en alle SP 's | Azure biedt volledige ondersteuning. | Gereed voor Azure
 Windows Server 2012 & alle SP 's | Azure biedt volledige ondersteuning. | Gereed voor Azure
 Windows Server 2008 R2 met alle SP 's | Azure biedt volledige ondersteuning.| Gereed voor Azure
-Windows Server 2003-2008 | Deze besturingssystemen zijn geslaagd voor het einde van ondersteuning voor de datum en het moet een [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement) voor ondersteuning in Azure. | Voorwaardelijk gereed voor Azure, kunt u het besturingssysteem te upgraden voordat u migreert naar Azure.
+WindowsServer 2008 (32-bits en 64-bits) | Azure biedt volledige ondersteuning. | Gereed voor Azure
+WindowsServer 2003, 2003 R2 | Deze besturingssystemen zijn geslaagd voor het einde van ondersteuning voor de datum en het moet een [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement) voor ondersteuning in Azure. | Voorwaardelijk gereed voor Azure, kunt u het besturingssysteem te upgraden voordat u migreert naar Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Deze besturingssystemen zijn geslaagd voor het einde van ondersteuning voor datum, mogelijk op de machine te starten in Azure, maar er is geen ondersteuning voor het besturingssysteem wordt geleverd door Azure. | Voorwaardelijk gereed voor Azure, het is raadzaam het besturingssysteem upgraden voordat u migreert naar Azure.
 Client voor Windows 7, 8 en 10 | Azure biedt ondersteuning voor Visual Studio-abonnement. | Voorwaardelijk gereed voor Azure
 Windows Vista, XP Professional | Deze besturingssystemen zijn geslaagd voor het einde van ondersteuning voor datum, mogelijk op de machine te starten in Azure, maar er is geen ondersteuning voor het besturingssysteem wordt geleverd door Azure. | Voorwaardelijk gereed voor Azure, het is raadzaam het besturingssysteem upgraden voordat u migreert naar Azure.

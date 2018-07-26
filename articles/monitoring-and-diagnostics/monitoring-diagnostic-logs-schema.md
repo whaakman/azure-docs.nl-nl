@@ -5,19 +5,19 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 7/06/2018
+ms.date: 7/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: f4bf77f07bd8f6b8172798ec3faf8c0bdaf3d3f5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: c1189e1b120f0bd1b3169618bebdb929d1cee18e
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921226"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248786"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Ondersteunde services, schema's en categorieën voor diagnostische logboeken van Azure
 
-[Diagnostische logboeken van Azure-resource](monitoring-overview-of-diagnostic-logs.md) zijn logboeken van uw Azure-resources die de werking van die resource beschrijven. Alle logboeken met diagnostische gegevens beschikbaar zijn via Azure Monitor delen een gemeenschappelijk schema van de op het hoogste niveau met flexibiliteit voor elke service op de unieke eigenschappen voor hun eigen gebeurtenissen verzenden.
+[Diagnostische logboeken in Azure Monitor](monitoring-overview-of-diagnostic-logs.md) zijn logboeken van Azure-services die worden beschreven van de werking van deze services of resources. Alle logboeken met diagnostische gegevens beschikbaar zijn via Azure Monitor delen een gemeenschappelijk schema van de op het hoogste niveau met flexibiliteit voor elke service op de unieke eigenschappen voor hun eigen gebeurtenissen verzenden.
 
 Een combinatie van het resourcetype (beschikbaar in de `resourceId` eigenschap) en de `category` unieke identificatie van een schema. Dit artikel beschrijft het schema op het hoogste niveau voor diagnostische logboeken en koppelingen naar de schema's voor elke service.
 
@@ -26,7 +26,8 @@ Een combinatie van het resourcetype (beschikbaar in de `resourceId` eigenschap) 
 | Naam | Vereist/optioneel | Beschrijving |
 |---|---|---|
 | tijd | Vereist | De tijdstempel (UTC) van de gebeurtenis. |
-| resourceId | Vereist | De resource-ID van de resource die de gebeurtenis verzonden. |
+| resourceId | Vereist | De resource-ID van de resource die de gebeurtenis verzonden. Dit is van het formulier /tenants/tenant-id/providers/provider-name voor tenantservices. |
+| tenant-id | Vereist voor de tenant-Logboeken | De tenant-ID van de Active Directory-tenant die deze gebeurtenis is gekoppeld aan. Deze eigenschap wordt alleen gebruikt voor op tenantniveau-Logboeken is het niet wordt weergegeven in Logboeken op het niveau van resources. |
 | operationName | Vereist | De naam van de bewerking die wordt vertegenwoordigd door deze gebeurtenis. Als de gebeurtenis een RBAC-bewerking stelt, is dit de naam van de RBAC-bewerking (bv. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Doorgaans zijn gemodelleerd in de vorm van een Resource Manager-bewerking, zelfs als ze niet werkelijke gedocumenteerde Resource Manager-bewerkingen zijn (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Optioneel | De api-versie die is gekoppeld aan de bewerking als de operationName is uitgevoerd met behulp van een API (bijvoorbeeld) http://myservice.windowsazure.net/object?api-version=2016-06-01). Als er geen API die overeenkomt met deze bewerking, vertegenwoordigt de versie van de versie van deze bewerking in het geval de eigenschappen die zijn gekoppeld aan de bewerking in de toekomst worden gewijzigd. |
 | category | Vereist | De categorie van de logboekbestanden van de gebeurtenis. Categorie is de granulatie waarmee u kunt inschakelen of uitschakelen van Logboeken op een bepaalde resource. De eigenschappen die worden weergegeven in de blob eigenschappen van een gebeurtenis zijn hetzelfde binnen een bepaalde categorie en resource Logboektype. Typische logboekcategorieën zijn 'Controle' "operationele" "Uitvoeren" en "-aanvraag. |
@@ -46,6 +47,7 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 
 | Service | Schema en documenten |
 | --- | --- |
+| Azure Active Directory | [Overzicht](../active-directory/reporting-azure-monitor-diagnostics-overview.md), [Audit log schema](../active-directory/reporting-azure-monitor-diagnostics-audit-log-schema.md) en [aanmeldingen schema](../active-directory/reporting-azure-monitor-diagnostics-sign-in-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [Diagnostische logboeken van API Management](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Toepassingsgateways |[Diagnostische logboekregistratie voor Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
@@ -76,7 +78,7 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 | Virtuele netwerkgateways | Het schema is niet beschikbaar. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Logboekcategorieën per resourcetype dat wordt ondersteund
-|Resourcetype|Category|Categorie-weergavenaam|
+|Resourcetype|Categorie|Categorie-weergavenaam|
 |---|---|---|
 |Microsoft.AnalysisServices/servers|Engine|Engine|
 |Microsoft.AnalysisServices/servers|Service|Service|

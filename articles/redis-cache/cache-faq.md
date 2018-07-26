@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: wesmc
-ms.openlocfilehash: 6c308205c5adb05f4c7e1668c67adea414020ea2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c0d88f0eaacaadbb508519f2e6804b9b311408c2
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232958"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39259327"
 ---
 # <a name="azure-redis-cache-faq"></a>Veelgestelde vragen over Azure Redis Cache
 Meer informatie over de antwoorden op veelgestelde vragen, patronen en best practices voor Azure Redis Cache.
@@ -139,7 +139,7 @@ We kunnen de volgende conclusies te trekken uit deze tabel:
 | C0 |250 MB |Gedeeld |100 / 12.5 |15,000 |7.500 |
 | C1 |1 GB |1 |500 / 62.5 |38.000 |20,720 |
 | C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
-| C3 |6 GB |4 |1000 / 125 |100,000 |90,000 |
+| C3 |6 GB |4 |1000 / 125 |100.000 |90,000 |
 | C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
 | C5 |26 GB |4 |1,000 / 125 |102.000 |93,000 |
 | C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
@@ -166,7 +166,7 @@ Ja, is Azure Redis-Cache beschikbaar in Azure Government-Cloud, Azure China-Clou
 
 | Cloud   | DNS-achtervoegsel voor Redis            |
 |---------|---------------------------------|
-| Openbaar  | *.redis.cache.windows.net       |
+| Public  | *.redis.cache.windows.net       |
 | Amerikaanse overheid  | *.redis.cache.usgovcloudapi.net |
 | Duitsland | *.redis.cache.cloudapi.de       |
 | China   | *.redis.cache.chinacloudapi.cn  |
@@ -358,7 +358,7 @@ De volgende opdrachten vindt u een voorbeeld van het gebruik van redis-benchmark
 ### <a name="important-details-about-threadpool-growth"></a>Belangrijke informatie over de groei van de ThreadPool
 De CLR-ThreadPool heeft twee soorten threads - "Werknemer" en "poort i/o-voltooiing' (ook wel Voltooiingspoort) threads.
 
-* Werkthreads worden gebruikt voor de verwerking zoals `Task.Run(…)` of `ThreadPool.QueueUserWorkItem(…)` methoden. Deze threads worden ook gebruikt door verschillende onderdelen in de CLR wanneer werk moet worden uitgevoerd op een achtergrond-thread.
+* Werkthreads worden gebruikt voor bewerkingen, zoals de verwerking van de `Task.Run(…)`, of `ThreadPool.QueueUserWorkItem(…)` methoden. Deze threads worden ook gebruikt door verschillende onderdelen in de CLR wanneer werk moet worden uitgevoerd op een achtergrond-thread.
 * Voltooiingspoort threads worden gebruikt als asynchrone i/o gebeurt (bijvoorbeeld lezen vanaf het netwerk).
 
 De thread-groep biedt nieuwe werkthreads of threads voor i/o-voltooiing op aanvraag (zonder een beperking) totdat de instelling 'Minimale' voor elk type thread is bereikt. Het minimum aantal threads is standaard ingesteld op het aantal processors op een systeem.
