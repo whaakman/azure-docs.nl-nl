@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: bonova
-ms.openlocfilehash: 698b02e1bad7da3f793a35184d634eaf5c948988
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: HT
+ms.openlocfilehash: 0951281a584d3c534d82ec5760d29f4b80616d2d
+ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/17/2018
-ms.locfileid: "39071574"
+ms.locfileid: "39091990"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Wat is een Managed Instance (preview)?
 
@@ -68,9 +68,9 @@ De volgende tabel toont enkele eigenschappen, toegankelijk zijn via Transact-SQL
 
 ![Eenmalige aanmelding](./media/sql-database-managed-instance/sso.png) 
 
-## <a name="vcore-based-purchasing-model-preview"></a>op vCore gebaseerde aankoopmodel (preview)
+## <a name="vcore-based-purchasing-model"></a>op vCore gebaseerde aankoopmodel
 
-De vCore gebaseerde aankoopmodel (preview) biedt u flexibiliteit, controle, transparantie, en een eenvoudige manier te vertalen on-premises vereisten workloads naar de cloud. Dit model kunt u Computing kunt schalen, het geheugen en opslag op basis van hun werkbelasting. Het vCore-model is ook in aanmerking komen voor van 30 procent besparen met de [Azure Hybrid Use Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+Het vCore-aanschafmodel biedt u flexibiliteit, controle, transparantie, en een eenvoudige manier te vertalen on-premises vereisten workloads naar de cloud. Dit model kunt u Computing kunt schalen, het geheugen en opslag op basis van hun werkbelasting. Het vCore-model is ook in aanmerking komen voor van 30 procent besparen met de [Azure Hybrid Use Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).
 
 Een virtuele kern staat voor de logische CPU met een optie te kiezen tussen verschillende hardwaregeneraties.
 - Logische CPU's van de vierde generatie zijn gebaseerd op Intel E5 2673 v3 (Haswell)-processors van 2,4 GHz.

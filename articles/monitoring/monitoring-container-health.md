@@ -1,5 +1,5 @@
 ---
-title: Controleren van Azure Kubernetes Service (AKS)-status (Preview) | Microsoft Docs
+title: Controleren van Azure Kubernetes Service (AKS)-status (preview) | Microsoft Docs
 description: Dit artikel wordt beschreven hoe u de prestaties van uw AKS-container om te zien van het gebruik van uw gehoste Kubernetes-omgeving snel kunt zien.
 services: log-analytics
 documentationcenter: ''
@@ -14,89 +14,98 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 6658eeb70e31593da5f3612ccac8685ecbb976b9
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 806487ec731a1b7fe02ccdfe6b285f5b2e119787
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161585"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39249094"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Containerstatus van Azure Kubernetes Service (AKS) (voorbeeld) bewaken
 
-Dit artikel wordt beschreven hoe u kunt instellen en containerstatus van Azure Monitor gebruiken voor het bewaken van de prestaties van uw workloads in Kubernetes-omgevingen die worden gehost in Azure Kubernetes Service (AKS) geïmplementeerd.  Het is erg belangrijk om uw Kubernetes-cluster en -containers te bewaken, vooral wanneer u een productiecluster op schaal uitvoert met meerdere toepassingen.
+Dit artikel wordt beschreven hoe u kunt instellen en containerstatus van Azure Monitor gebruiken voor het bewaken van de prestaties van workloads die zijn geïmplementeerd in Kubernetes-omgevingen en worden gehost in Azure Kubernetes Service (AKS). Controle van uw Kubernetes-cluster en de containers is kritiek, met name wanneer u een productiecluster op schaal, met meerdere toepassingen uitvoert.
 
-Containerstatus biedt u de mogelijkheid door verzamelen geheugen en processors metrische gegevens van domeincontrollers, knooppunten en containers in Kubernetes via de API voor metrische gegevens beschikbaar voor prestatiebewaking.  Na het inschakelen van de containerstatus van deze metrische gegevens worden automatisch verzameld voor u gemaakt met een beperkte versie van de OMS-Agent voor Linux en opgeslagen in uw [Log Analytics](../log-analytics/log-analytics-overview.md) werkruimte.  De vooraf gedefinieerde weergaven die zijn opgenomen weergeven die container-workloads en wat invloed heeft op de prestatiestatus van het Kubernetes-cluster, zodat u inzicht krijgt in:  
+Containerstatus biedt u de mogelijkheid door verzamelen geheugen en processors metrische gegevens van domeincontrollers, knooppunten en containers die beschikbaar in Kubernetes via de API voor metrische gegevens zijn voor prestatiebewaking. Nadat u de containerstatus hebt ingeschakeld, deze metrische gegevens automatisch worden via een beperkte versie van de Operations Management Suite (OMS)-Agent voor Linux voor u verzameld en opgeslagen in uw [Log Analytics](../log-analytics/log-analytics-overview.md) werkruimte. De opgenomen vooraf gedefinieerde weergaven weergegeven die container-workloads en wat van invloed is op de prestatiestatus van het Kubernetes-cluster dat u kunt:  
 
-* Welke containers worden uitgevoerd op het knooppunt en hun Gemiddeld gebruik voor de processor en geheugen aan de knelpunten in de resource
-* Bepalen waar de container bevindt zich in een domeincontroller en/of schillen om te zien van de algehele prestaties voor een domeincontroller of een pod 
-* Controleer het brongebruik van workloads die worden uitgevoerd op de host die geen verband houdt met de standaard processen ondersteunen de schil
-* Informatie over het gedrag van het cluster onder belasting voor de gemiddelde en zwaarste op te sporen behoeften aan capaciteit en de maximale belasting die het bestand is tegen bepalen 
+* Identificeer de containers die worden uitgevoerd op het knooppunt en het gemiddelde gebruik van de processor en geheugen. Aan de hand van deze kennis kunt u knelpunten in de resource.
+* Bepalen waar de container bevindt zich in een domeincontroller of een schil. Aan de hand van deze kennis kunt u de algehele prestaties van de van de domeincontroller of de schil weergeven. 
+* Controleer het brongebruik van workloads die worden uitgevoerd op de host die niet gerelateerd zijn aan de standaard processen die ondersteuning bieden voor de schil.
+* Begrijp het gedrag van het cluster bij gemiddelde en zwaarste belasting. Deze kennis kunt u identificeren behoeften aan capaciteit en bepaal de maximale belasting van het cluster kan tolereren. 
 
 Als u geïnteresseerd bent in controle en beheer van uw Docker- en Windows containerhosts configuratie weergeven, controle en gebruik van resources, Zie de [Container Monitoring solution](../log-analytics/log-analytics-containers.md).
 
-## <a name="requirements"></a>Vereisten 
-Lees voordat u begint, de volgende informatie zodat u inzicht krijgt in de ondersteunde vereisten.
+## <a name="prerequisites"></a>Vereisten 
+Voordat u begint, zorg ervoor dat u het volgende hebt:
 
-- Een nieuw of bestaand AKS-cluster
-- Een beperkte OMS-agent voor Linux-versie microsoft / oms:ciprod04202018 en hoger. Het versienummer wordt vertegenwoordigd door een datum volgende de indeling - *mmddyyyy*.  Er wordt automatisch geïnstalleerd tijdens de voorbereiding van de containerstatus.  
-- Een Log Analytics-werkruimte.  Het kan worden gemaakt wanneer u bewaking van het nieuwe cluster met AKS inschakelen of u via maken kunt [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), of vanuit de [Azure-portal](../log-analytics/log-analytics-quick-create-workspace.md).
-- Lid van de inzendersrol van Log Analytics om containerbewaking inschakelen.  Zie voor meer informatie over het beheren van toegang tot een Log Analytics-werkruimte [werkruimten beheren](../log-analytics/log-analytics-manage-access.md).
+- Een nieuw of bestaand AKS-cluster.
+- Een App in een container OMS-Agent voor Linux-versie microsoft / oms:ciprod04202018 of hoger. Het versienummer wordt vertegenwoordigd door een datum in de volgende indeling: *mmddyyyy*. De agent wordt automatisch geïnstalleerd tijdens de onboarding van de containerstatus. 
+- Een Log Analytics-werkruimte. Kunt u deze maken als u bewaking van uw nieuwe AKS-cluster, of kunt u het maken via [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), tot en met [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), of in de [Azure-portal](../log-analytics/log-analytics-quick-create-workspace.md).
+- De Log Analytics inzendersrol, containerbewaking van de wilt inschakelen. Zie voor meer informatie over het beheren van toegang tot een Log Analytics-werkruimte [werkruimten beheren](../log-analytics/log-analytics-manage-access.md).
 
 ## <a name="components"></a>Onderdelen 
 
-Deze mogelijkheid is afhankelijk van een beperkte OMS-Agent voor Linux voor het verzamelen van prestaties en gebeurtenisgegevens uit alle knooppunten in het cluster.  De agent is geregistreerd met de opgegeven Log Analytics-werkruimte nadat u containerbewaking inschakelen en automatisch geïmplementeerd. 
+De mogelijkheid om prestaties te bewaken is gebaseerd op een beperkte OMS-Agent voor Linux, welke prestaties en gebeurtenisgegevens worden verzameld van alle knooppunten in het cluster. De agent is geregistreerd met de opgegeven Log Analytics-werkruimte nadat u containerbewaking inschakelen en automatisch geïmplementeerd. 
 
 >[!NOTE] 
->Als u al een AKS-cluster hebt geïmplementeerd, kunt u inschakelen bewaking met behulp van een opgegeven Azure Resource Manager-sjabloon, zoals verderop in dit artikel wordt gedemonstreerd. U kunt geen gebruiken `kubectl` als u wilt bijwerken, verwijderen, opnieuw implementeren of implementeren van de agent.  
+>Als u al een AKS-cluster hebt geïmplementeerd, kunt u inschakelen bewaking met behulp van een opgegeven Azure Resource Manager-sjabloon, zoals verderop in dit artikel wordt gedemonstreerd. U kunt geen gebruiken `kubectl` als u wilt bijwerken, verwijderen, opnieuw implementeren of implementeren van de agent. 
 >
 
-## <a name="sign-in-to-azure-portal"></a>Aanmelden bij Azure Portal
-Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com). 
+## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+Meld u aan bij [Azure Portal](https://portal.azure.com). 
 
 ## <a name="enable-container-health-monitoring-for-a-new-cluster"></a>Inschakelen van de container en statusbewaking biedt voor een nieuw cluster
-U kunt het inschakelen van een nieuw AKS-cluster in de gaten tijdens de implementatie van de Azure-portal.  Volg de stappen in dit artikel [een Azure Kubernetes Service (AKS)-cluster implementeren](../aks/kubernetes-walkthrough-portal.md).  Wanneer u bent op de **bewaking** weergeeft, schakelt **Ja** voor de optie **bewaking inschakelen** inschakelt, en selecteer een bestaande of maak een nieuwe Log Analytics-werkruimte.  
+Tijdens de implementatie kunt u bewaking van een nieuw AKS-cluster in Azure portal. Volg de stappen in dit artikel [een Azure Kubernetes Service (AKS)-cluster implementeren](../aks/kubernetes-walkthrough-portal.md). Op de **bewaking** pagina voor de **bewaking inschakelen** optie, selecteer **Ja**, en selecteer een bestaande Log Analytics-werkruimte of maak een nieuwe. 
 
-Nadat de controle is ingeschakeld alle configuratietaken zijn voltooid, kunt u de prestaties van uw cluster op basis van twee manieren controleren:
+Nadat u bewaking hebt ingeschakeld, en alle configuratietaken zijn voltooid, kunt u de prestaties van uw cluster op twee manieren controleren:
 
-1. Rechtstreeks vanuit het AKS-cluster door te selecteren **Health** in het linkerdeelvenster.<br><br> 
-2. Door te klikken op de **containerstatus bewaken** tegel op de pagina van de AKS-cluster voor het geselecteerde cluster.  Selecteer in Azure Monitor **Health** in het linkerdeelvenster.  
+* Rechtstreeks in het AKS-cluster door te selecteren **Health** in het linkerdeelvenster.
+* Door het selecteren van de **containerstatus bewaken** tegel op de pagina van de AKS-cluster voor het geselecteerde cluster. In Azure Monitor in het linkerdeelvenster selecteert **Health**. 
 
-![Opties voor het selecteren van de containerstatus in AKS](./media/monitoring-container-health/container-performance-and-health-select-01.png)
+  ![Opties voor het selecteren van de containerstatus in AKS](./media/monitoring-container-health/container-performance-and-health-select-01.png)
 
-Nadat de controle is ingeschakeld, kunnen duurt ongeveer 15 minuten voordat u zich kunt om te zien van operationele gegevens voor het cluster.  
+Wanneer u bewaking inschakelt, is het duurt ongeveer 15 minuten voordat u de operationele gegevens voor het cluster kunt weergeven. 
 
 ## <a name="enable-container-health-monitoring-for-existing-managed-clusters"></a>Inschakelen van de container en statusbewaking biedt voor bestaande beheerde clusters
-U kunt inschakelen bewaking van een AKS-cluster al geïmplementeerd vanuit Azure portal of met de opgegeven Azure Resource Manager-sjabloon met behulp van de PowerShell-cmdlet **New-AzureRmResourceGroupDeployment** of Azure CLI.  
+U kunt inschakelen bewaking van een AKS-cluster dat wordt al geïmplementeerd in Azure portal of met de opgegeven Azure Resource Manager-sjabloon met de PowerShell-cmdlet `New-AzureRmResourceGroupDeployment` of Azure CLI. 
 
+### <a name="enable-monitoring-in-the-azure-portal"></a>Schakel bewaking in Azure portal
+Als u wilt inschakelen voor bewaking van uw AKS-container in Azure portal, het volgende doen:
 
-### <a name="enable-from-azure-portal"></a>Inschakelen van Azure-portal
-Voer de volgende stappen uit voor bewaking van uw AKS-container vanuit Azure portal.
+1. Selecteer in de Azure portal, **alle services**. 
+2. Begin met typen in de lijst met resources **Containers**.  
+    De lijst gefilterd op basis van uw invoer. 
+3. Selecteer **Kubernetes-services**.  
 
-1. Klik in Azure Portal op **Alle services**. Typ in de lijst met resources **Containers**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Kubernetes-services**.<br><br> ![Azure Portal](./media/monitoring-container-health/azure-portal-01.png)<br><br>  
-2. Selecteer een container in uw lijst met containers.
-3. Selecteer op de overzichtspagina van container **bewaken containerstatus** en de **Onboarding naar containerstatus en logboeken** pagina wordt weergegeven.
-4. Op de **Onboarding naar containerstatus en logboeken** pagina, hebt u een bestaande Log Analytics-werkruimte in hetzelfde abonnement bevinden als het cluster, selecteert u deze in de vervolgkeuzelijst.  De lijst worden er de standaardwerkruimte en locatie van de AKS-container is geïmplementeerd op in het abonnement.<br><br> ![Statuscontrole van AKS container inschakelen](./media/monitoring-container-health/container-health-enable-brownfield-02.png) 
+    ![De koppeling van Kubernetes-services](./media/monitoring-container-health/azure-portal-01.png)
+
+4. Selecteer een container in de lijst met containers.
+5. Selecteer op de overzichtspagina van container **containerstatus bewaken**.  
+6. Op de **Onboarding naar containerstatus en logboeken** pagina, hebt u een bestaande Log Analytics-werkruimte in hetzelfde abonnement bevinden als het cluster, selecteert u deze in de vervolgkeuzelijst.  
+    De lijst worden er de standaardwerkruimte en de locatie die het AKS-container is geïmplementeerd op in het abonnement. 
+
+    ![Statuscontrole van AKS container inschakelen](./media/monitoring-container-health/container-health-enable-brownfield-02.png)
 
 >[!NOTE]
->Als u maken van een nieuwe werkruimte voor logboekanalyse wilt voor het opslaan van de gegevens uit het cluster, volg de stappen in [een Log Analytics-werkruimte maken](../log-analytics/log-analytics-quick-create-workspace.md) en zorg ervoor dat u de werkruimte maakt in hetzelfde abonnement als dat het AKS-container geïmplementeerd op.  
->
+>Als u maken van een nieuwe werkruimte voor logboekanalyse wilt voor het opslaan van de gegevens uit het cluster, volg de instructies in [een Log Analytics-werkruimte maken](../log-analytics/log-analytics-quick-create-workspace.md). Zorg ervoor dat de werkruimte maakt in hetzelfde abonnement dat voor de AKS-container is geïmplementeerd. 
  
-Nadat de controle is ingeschakeld, kunnen duurt ongeveer 15 minuten voordat u zich kunt om te zien van operationele gegevens voor het cluster. 
+Wanneer u bewaking inschakelt, is het duurt ongeveer 15 minuten voordat u de operationele gegevens voor het cluster kunt weergeven. 
 
-### <a name="enable-using-azure-resource-manager-template"></a>Inschakelen met behulp van Azure Resource Manager-sjabloon
-Deze methode omvat twee JSON-sjablonen, één sjabloon Hiermee geeft u de configuratie voor bewaking en het JSON-sjabloon bevat parameterwaarden die u configureert om het volgende opgeven:
+### <a name="enable-monitoring-by-using-an-azure-resource-manager-template"></a>Schakel de bewaking met behulp van een Azure Resource Manager-sjabloon
+Deze methode omvat twee JSON-sjablonen. Een sjabloon Hiermee geeft u de configuratie voor bewaking en de andere bevat parameterwaarden die u configureert voor het volgende opgeven:
 
-* AKS container resource-ID 
-* Resourcegroep waarin het cluster wordt geïmplementeerd in 
-* Log Analytics-werkruimte en de regio voor het maken van de werkruimte in 
+* De AKS container resource-ID. 
+* De resourcegroep die in het cluster is geïmplementeerd.
+* De Log Analytics-werkruimte en de regio voor het maken van de werkruimte in. 
 
-De Log Analytics-werkruimte heeft handmatig worden gemaakt.  Voor het maken van de werkruimte, kunt u instellen een via [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), uit de [Azure-portal](../log-analytics/log-analytics-quick-create-workspace.md).
+De Log Analytics-werkruimte heeft handmatig worden gemaakt. Voor het maken van de werkruimte, u kunt dit instellen via [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), tot en met [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), of in de [Azure-portal](../log-analytics/log-analytics-quick-create-workspace.md).
 
-Als u niet bekend met de concepten bent van de implementatie van resources met behulp van een sjabloon met PowerShell, raadpleegt u [resources implementeren met Resource Manager-sjablonen en Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)of Azure CLI Zie, voor [resources implementeren met Resource Manager-sjablonen en Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
+Als u niet bekend met het concept bent van het implementeren van resources met behulp van een sjabloon, Zie:
+* [Resources implementeren met Resource Manager-sjablonen en Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [Resources implementeren met Resource Manager-sjablonen en Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-Als u het gebruik van Azure CLI, moet u eerst installeren en de CLI lokaal gebruikt.  Dit is vereist dat u de Azure CLI versie 2.0.27 of hoger. Voer `az --version` voor het identificeren van de versie. Zie [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren. 
+Als u ervoor de Azure CLI gebruiken kiest, moet u eerst installeren en de CLI lokaal gebruikt. U moet worden uitgevoerd van Azure CLI versie 2.0.27 of hoger. Voor het identificeren van uw versie uitvoeren `az --version`. Als u wilt installeren of upgraden van de Azure CLI, Zie [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
-#### <a name="create-and-execute-template"></a>Maken en uitvoeren van sjabloon
+#### <a name="create-and-execute-a-template"></a>Maken en uitvoeren van een sjabloon
 
 1. Kopieer en plak de volgende JSON-syntaxis in het bestand:
 
@@ -188,7 +197,7 @@ Als u het gebruik van Azure CLI, moet u eerst installeren en de CLI lokaal gebru
     ```
 
 2. Sla dit bestand als **existingClusterOnboarding.json** naar een lokale map.
-3. Kopieer en plak de volgende JSON-syntaxis in het bestand:
+3. Plak de volgende JSON-syntaxis in het bestand:
 
     ```json
     {
@@ -211,22 +220,22 @@ Als u het gebruik van Azure CLI, moet u eerst installeren en de CLI lokaal gebru
     }
     ```
 
-4. Bewerk de waarde voor **aksResourceId**, **aksResourceLocation** met de waarden, die u kunt vinden op de **overzicht van AKS** -pagina voor het AKS-cluster.  De waarde voor **workspaceResourceId** is de volledige resource-ID van uw Log Analytics-werkruimte, waaronder de naam van de werkruimte.  Geef ook de locatie van de werkruimte in voor **workspaceRegion**.    
+4. Bewerk de waarden voor **aksResourceId** en **aksResourceLocation** met behulp van de waarden op de **overzicht van AKS** -pagina voor het AKS-cluster. De waarde voor **workspaceResourceId** is de volledige resource-ID van uw Log Analytics-werkruimte, waaronder de naam van de werkruimte. Geef ook de locatie van de werkruimte voor **workspaceRegion**. 
 5. Sla dit bestand als **existingClusterParam.json** naar een lokale map.
 6. U kunt deze sjabloon nu implementeren. 
 
-    * Gebruik de volgende PowerShell-opdrachten uit de map met de sjabloon:
+    * Gebruik de volgende PowerShell-opdrachten in de map met de sjabloon:
 
         ```powershell
         New-AzureRmResourceGroupDeployment -Name OnboardCluster -ResourceGroupName ClusterResourceGroupName -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
         ```
-        Wijzigen van de configuratie kan een paar minuten duren. Als deze is voltooid, ziet u een bericht dat lijkt op de volgende mogelijkheden van het resultaat:
+        Wijzigen van de configuratie kan een paar minuten duren. Wanneer deze voltooid, wordt er een bericht weergegeven dat vergelijkbaar is met het volgende en het resultaat bevat:
 
         ```powershell
         provisioningState       : Succeeded
         ```
 
-    * De volgende opdracht uit met Azure CLI uitvoeren op Linux:
+    * De volgende opdracht uitvoeren met behulp van de Azure CLI op Linux:
     
         ```azurecli
         az login
@@ -234,24 +243,24 @@ Als u het gebruik van Azure CLI, moet u eerst installeren en de CLI lokaal gebru
         az group deployment create --resource-group <ResourceGroupName> --template-file ./existingClusterOnboarding.json --parameters @./existingClusterParam.json
         ```
 
-        Wijzigen van de configuratie kan een paar minuten duren. Als deze is voltooid, ziet u een bericht dat lijkt op de volgende mogelijkheden van het resultaat:
+        Wijzigen van de configuratie kan een paar minuten duren. Wanneer deze voltooid, wordt er een bericht weergegeven dat vergelijkbaar is met het volgende en het resultaat bevat:
 
         ```azurecli
         provisioningState       : Succeeded
         ```
-Nadat de controle is ingeschakeld, kunnen duurt ongeveer 15 minuten voordat u zich kunt om te zien van operationele gegevens voor het cluster.  
+Wanneer u bewaking inschakelt, is het duurt ongeveer 15 minuten voordat u de operationele gegevens voor het cluster kunt weergeven. 
 
 ## <a name="verify-agent-and-solution-deployment"></a>Controleer of de implementatie van agent en de oplossing
-Met de versie van agent *06072018* en hoger, kunt u om te controleren dat zowel de agent en de oplossing zijn geïmplementeerd.  U kunt alleen agentimplementatie controleren met eerdere versies van de agent.
+Met de versie van agent *06072018* of hoger, kunt u controleren dat zowel de agent en de oplossing zijn geïmplementeerd. U kunt alleen de implementatie van de agent controleren met eerdere versies van de agent.
 
-### <a name="agent-version-06072018-and-higher"></a>Agentversie 06072018 en hoger
-Voer de volgende opdracht om te controleren of dat de agent is geïmplementeerd.   
+### <a name="agent-version-06072018-or-later"></a>Agentversie 06072018 of hoger
+Voer de volgende opdracht om te controleren dat de agent is geïmplementeerd. 
 
 ```
 kubectl get ds omsagent --namespace=kube-system
 ```
 
-De uitvoer moet eruitzien zoals in de volgende aangeeft dat deze correct hebt geïmplementeerd:
+De uitvoer moet eruitzien zoals in het volgende, waarmee wordt aangegeven dat deze correct is geïmplementeerd:
 
 ```
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
@@ -265,7 +274,7 @@ Als u wilt controleren of de implementatie van de oplossing, moet u de volgende 
 kubectl get deployment omsagent-rs -n=kube-system
 ```
 
-De uitvoer moet eruitzien zoals in de volgende aangeeft dat deze correct hebt geïmplementeerd:
+De uitvoer moet eruitzien zoals in het volgende, waarmee wordt aangegeven dat deze correct is geïmplementeerd:
 
 ```
 User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
@@ -275,13 +284,13 @@ omsagent   1         1         1            1            3h
 
 ### <a name="agent-version-earlier-than-06072018"></a>Agent-versie ouder is dan 06072018
 
-Om te controleren of de versie van de OMS-agent uitgebracht vóór *06072018* correct is geïmplementeerd met de volgende opdracht uitvoeren:  
+Om te controleren dat de versie van de OMS-agent vóór uitgebracht *06072018* correct is geïmplementeerd met de volgende opdracht uitvoeren:  
 
 ```
 kubectl get ds omsagent --namespace=kube-system
 ```
 
-De uitvoer moet eruitzien zoals in de volgende aangeeft dat deze correct hebt geïmplementeerd:  
+De uitvoer moet eruitzien zoals in het volgende, waarmee wordt aangegeven dat deze correct is geïmplementeerd:  
 
 ```
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
@@ -290,81 +299,81 @@ omsagent   2         2         2         2            2           beta.kubernete
 ```  
 
 ## <a name="view-performance-utilization"></a>Gebruik van de prestaties weergeven
-Wanneer u containerstatus opent, geeft de pagina onmiddellijk het gebruik van de prestaties van uw hele cluster.  Informatie bekijken over uw AKS-cluster is onderverdeeld in vier perspectieven:
+Wanneer u containerstatus opent, geeft de pagina onmiddellijk het gebruik van de prestaties van uw hele cluster. Informatie bekijken over uw AKS-cluster is onderverdeeld in vier perspectieven:
 
 - Cluster
 - Knooppunten 
 - Controllers  
 - Containers
 
-De prestaties lijndiagrammen weergeven op het tabblad Cluster prestatie metrische gegevens van uw cluster.  
+Op de **Cluster** tabblad van de vier lijndiagrammen prestaties geven belangrijke prestatiegegevens van uw cluster. 
 
 ![Voorbeeld van de prestatiegrafieken weergegeven op het tabblad Cluster](./media/monitoring-container-health/container-health-cluster-perfview.png)
 
-Hier volgt een uitsplitsing van de maatstaven voor prestaties weergegeven:
+Het diagram van de prestaties worden vier metrische gegevens voor prestaties weergegeven:
 
-- CPU-gebruik van % - knooppunt in deze grafiek vertegenwoordigt een samengevoegde perspectief van de CPU-gebruik voor het hele cluster.  U kunt filteren dat de resultaten voor het tijdsbereik selecteren *Avg*, *Min*, *Max*, *50e*, *90e*, en *95th* van de percentielen kiezer boven de grafiek, ofwel afzonderlijk of gecombineerd. 
-- Knooppunt geheugen netwerkgebruik van % - in deze grafiek vertegenwoordigt een samengevoegde perspectief van geheugengebruik voor het hele cluster.  U kunt filteren dat de resultaten voor het tijdsbereik selecteren *Avg*, *Min*, *Max*, *50e*, *90e*, en *95th* van de percentielen kiezer boven de grafiek, ofwel afzonderlijk of gecombineerd. 
-- Aantal knooppunten: in deze grafiek vertegenwoordigt aantal knooppunten en de status van Kubernetes.  Status van de clusterknooppunten weergegeven zijn *alle*, *gereed*, en *niet gereed* en kunnen worden gefilterd, afzonderlijk of gecombineerd uit de kiezer boven de grafiek.    
-- Aantal activiteiten-pod - in deze grafiek vertegenwoordigt pod aantal en de status van Kubernetes.  Status van de vertegenwoordigd schillen zijn *alle*, *in behandeling*, *met*, en *onbekende* en kunnen worden gefilterd afzonderlijk of combinatie van de kiezer boven de grafiek.  
+- **Knooppunt CPU-gebruik&nbsp;%**: een samengevoegde perspectief van de CPU-gebruik voor het hele cluster. U kunt filteren dat de resultaten voor het tijdsbereik selecteren **Avg**, **Min**, **Max**, **50e**, **90e**, en **95th** in de kiezer percentielen boven de grafiek, ofwel afzonderlijk of gecombineerd. 
+- **Geheugengebruik knooppunt&nbsp;%**: een samengevoegde perspectief van geheugengebruik voor het hele cluster. U kunt filteren dat de resultaten voor het tijdsbereik selecteren **Avg**, **Min**, **Max**, **50e**, **90e**, en **95th** in de kiezer percentielen boven de grafiek, ofwel afzonderlijk of gecombineerd. 
+- **Aantal knooppunten**: een aantal knooppunten en de status van Kubernetes. Status van de clusterknooppunten weergegeven zijn *alle*, *gereed*, en *niet gereed* en kunnen worden gefilterd afzonderlijk of in de kiezer boven de grafiek worden gecombineerd. 
+- **Activiteit pod aantal**: een pod aantal en de status van Kubernetes. Status van de vertegenwoordigd schillen zijn *alle*, *in behandeling*, *uitgevoerd*, en *onbekende* en kunnen worden gefilterd, afzonderlijk of gecombineerd de kiezer boven de grafiek. 
 
-Overschakelen naar het tabblad knooppunten, volgt de rij-hiërarchie het Kubernetes-objectmodel beginnen met een knooppunt in het cluster.  Vouw het knooppunt en ziet u een of meer schillen die worden uitgevoerd op het knooppunt en als er meer dan één container gegroepeerd op een schil, worden deze weergegeven als de laatste rij in de hiërarchie. U zijn kunt ook zien hoeveel niet-schil gerelateerde workloads worden uitgevoerd op de host in het geval host processor of geheugen is.
+Als u naar overschakelt de **knooppunten** tabblad en de hiërarchie rij volgt het Kubernetes-objectmodel beginnen met een knooppunt in het cluster. Vouw het knooppunt en vindt u een of meer schillen die worden uitgevoerd op het knooppunt. Als meer dan één container is gegroepeerd op een schil, worden ze weergegeven als de laatste rij in de hiërarchie. U kunt ook bekijken hoeveel niet-schil gerelateerde workloads worden uitgevoerd op de host als de host processor of geheugen.
 
 ![Voorbeeld van de Kubernetes-knooppunt-hiërarchie in de weergave van agentprestaties](./media/monitoring-container-health/container-health-nodes-view.png)
 
-U kunt domeincontrollers of containers selecteren vanaf de bovenkant van de pagina en het gebruik van de status en resource voor die objecten bekijken.  Gebruik de vervolgkeuzelijsten boven aan het scherm om te filteren op de naamruimte, service en knooppunt. Als in plaats daarvan u bekijken geheugengebruik wilt, uit de **Metric** vervolgkeuzelijst selecteren **geheugen RSS** of **geheugenwerkset**.  **Geheugen RSS** wordt alleen ondersteund voor Kubernetes versie 1.8 en hoger. Anders is, ziet u waarden voor **MIN %** weergegeven als *NaN %*, die is een waarde van het numerieke gegevens die een niet-gedefinieerde of sjabloontaal waarde vertegenwoordigt. 
+U kunt selecteren controllers of containers aan de bovenkant van de pagina en het gebruik van de status en resource voor die objecten bekijken. Gebruik de vervolgkeuzelijsten boven om te filteren op de naamruimte, service en knooppunt. Als in plaats daarvan u bekijken geheugengebruik wilt, in de **Metric** vervolgkeuzelijst, selecteer **geheugen RSS** of **geheugenwerkset**. **Geheugen RSS** wordt alleen ondersteund voor Kubernetes versie 1.8 en hoger. Anders wordt het weergeven van waarden voor **Min&nbsp; %**  als *NaN&nbsp;%*, dit is een waarde voor het type van numerieke gegevens die een niet-gedefinieerde vertegenwoordigt of Sjabloontaal waarde. 
 
 ![Prestatieweergave container-knooppunten](./media/monitoring-container-health/container-health-node-metric-dropdown.png)
 
-Standaard prestatiegegevens is gebaseerd op de afgelopen zes uur, maar kunt u het venster met de **tijdsbereik** vervolgkeuzelijst gevonden in de rechterbovenhoek van de pagina. Op dit moment is de pagina wordt niet automatisch vernieuwen, dus u moet dit handmatig vernieuwen. U kunt ook de resultaten in het tijdsbereik filteren door te selecteren *Avg*, *Min*, *Max*, *50e*, *90e*, en *95th* uit de lijst met percentiel. 
+Standaard prestatiegegevens is gebaseerd op de afgelopen zes uur, maar u kunt het venster wijzigen met behulp van de **tijdsbereik** vervolgkeuzelijst in de rechterbovenhoek. Op dit moment is de pagina wordt niet automatisch vernieuwen, dus u moet dit handmatig vernieuwen. U kunt ook de resultaten in het tijdsbereik filteren door te selecteren **Avg**, **Min**, **Max**, **50e**, **90e**, en **95th** in de lijst met percentiel. 
 
 ![Percentiel selectie voor het filteren van gegevens](./media/monitoring-container-health/container-health-metric-percentile-filter.png)
 
-In het volgende voorbeeld ziet u voor het knooppunt *aks-nodepool-3977305*, de waarde voor **Containers** is 5, dit is een updatepakket van het totale aantal containers die zijn geïmplementeerd.
+Noteer in het volgende voorbeeld voor knooppunt *aks-nodepool-3977305*, de waarde voor **Containers** is 5, dit is een totaliseren van het totale aantal containers die zijn geïmplementeerd.
 
-![Updatepakket van containers per knooppunt voorbeeld](./media/monitoring-container-health/container-health-nodes-containerstotal.png)
+![Totaliseren van containers per knooppunt voorbeeld](./media/monitoring-container-health/container-health-nodes-containerstotal.png)
 
-Het kan helpen u snel vaststellen of u geen een goede balans tussen containers tussen knooppunten in uw cluster hebt.  
+U kunt snel bepalen of u een goede balans tussen containers tussen knooppunten in uw cluster hebt. 
 
-De volgende tabel beschrijft de informatie die wordt weergegeven wanneer u knooppunten weergeven.
+De informatie die wordt weergegeven wanneer u knooppunten weergeven wordt in de volgende tabel beschreven:
 
 | Kolom | Beschrijving | 
 |--------|-------------|
-| Naam | De naam van de host |
-| Status | Kubernetes-weergave van de status van het knooppunt |
-| GEM. %, % MIN, MAX %, % 50E, 90E % | Gemiddelde knooppunt percentage op basis van percentiel gedurende deze tijdsduur geselecteerd. |
-| AVG, MIN, MAX, 50E, 90E | Gemiddelde knooppunten werkelijke waarde op basis van percentiel gedurende deze tijdsduur geselecteerd.  De gemiddelde waarde wordt gemeten vanuit de CPU/geheugen die is ingesteld voor een knooppunt. het is de avg-waarde die wordt gerapporteerd door de host voor schillen en containers. |
+| Naam | De naam van de host. |
+| Status | Kubernetes-weergave van de status van het knooppunt. |
+| Gem.&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50e&nbsp;%, 90e&nbsp;% | Gemiddelde knooppunt percentage is gebaseerd op percentiel tijdens de geselecteerde periode. |
+| Avg, Min, Max, 50e, 90e | Gemiddelde knooppunten werkelijke waarde op basis van percentiel gedurende deze tijdsduur geselecteerd. De gemiddelde waarde wordt gemeten vanuit de CPU/geheugen die is ingesteld voor een knooppunt. het is de avg-waarde die wordt gerapporteerd door de host voor schillen en containers. |
 | Containers | Het aantal containers. |
 | Actieve tijdsduur | Geeft de tijd sinds een knooppunt is gestart of opnieuw is opgestart. |
-| Controllers | Alleen voor containers en schillen. Hier ziet u welke domeincontroller dat deze zich bevindt. Niet alle schillen bevindt zich in een domeincontroller, zodat sommige N.V.T. kunnen weergeven. | 
-| Gem. %, % MIN, MAX %, % 50e, 90e % trend | Staafdiagram trend percentiel metrische % van de controller wordt gepresenteerd. |
+| Controllers | Alleen voor containers en schillen. Hier ziet u welke domeincontroller is die zich bevinden in. Niet alle schillen zijn in een domeincontroller, zodat sommige mogelijk weergegeven **N.V.T**. | 
+| Gem. trend&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50e&nbsp;%, 90e&nbsp;% | Trend van staafdiagram het percentiel metrische percentage van de controller wordt gepresenteerd. |
 
 
-Kies in de lijst met **Controllers**.
+Selecteer in de lijst met **Controllers**.
 
 ![Selecteer controllers weergeven](./media/monitoring-container-health/container-health-controllers-tab.png)
 
-Hier ziet u de prestatiestatus van uw domeincontrollers.
+Hier vindt u de prestatiestatus van uw domeincontrollers.
 
 ![< naam > controllers Prestatieweergave](./media/monitoring-container-health/container-health-controllers-view.png)
 
-De rij-hiërarchie begint met een domeincontroller en breidt de controller en ziet u één of een of meer containers.  Vouw een schil en de laatste rij weergeven in de container de schil gegroepeerd.  
+De hiërarchie van de rij wordt gestart met een domeincontroller en breidt de controller. U weergeven een of meer containers. Vouw een schil en de laatste rij geeft de container de schil gegroepeerd. 
 
-De volgende tabel beschrijft de informatie die wordt weergegeven wanneer u domeincontrollers weergeeft.
+De informatie die wordt weergegeven wanneer u de controllers weergeven wordt in de volgende tabel beschreven:
 
 | Kolom | Beschrijving | 
 |--------|-------------|
-| Naam | De naam van de controller|
-| Status | Totalisering van status van de containers is voltooid met met de status, zoals *OK*, *beëindigd*, *mislukt* *gestopt*, of  *Onderbroken*. Als de container wordt uitgevoerd, maar de status is niet correct weergegeven of niet is doorgevoerd door de agent als meer dan dertig minuten niet heeft gereageerd, de status is *onbekende*. Aanvullende details van de statuspictogram zijn opgegeven in de onderstaande tabel.|
-| GEM. %, % MIN, MAX %, % 50E, 90E % | Gemiddelde van het gemiddelde percentage van elke entiteit voor de geselecteerde metrische gegevens en percentiel getotaliseerd. |
-| AVG, MIN, MAX, 50E, 90E  | Samenvouwen van de gemiddelde CPU millicore of geheugen prestaties van de container voor het geselecteerde percentiel.  De gemiddelde waarde wordt van de CPU/geheugen die is ingesteld voor een schil gemeten. |
+| Naam | De naam van de controller.|
+| Status | De status totaliseren van de containers is voltooid met met de status, zoals *OK*, *beëindigd*, *mislukt* *gestopt*, of *Onderbroken*. Als de container wordt uitgevoerd, maar de status is niet correct weergegeven of niet is doorgevoerd door de agent als meer dan dertig minuten niet heeft gereageerd, de status is *onbekende*. Aanvullende details van de statuspictogram zijn opgegeven in de onderstaande tabel.|
+| Gem.&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50e&nbsp;%, 90e&nbsp;% | Totaliseren gemiddelde van het gemiddelde percentage van elke entiteit voor de geselecteerde metrische gegevens en percentiel. |
+| Avg, Min, Max, 50e, 90e  | Totaliseren van de gemiddelde CPU millicore of geheugen prestaties van de container voor het geselecteerde percentiel. De gemiddelde waarde wordt van de CPU/geheugen die is ingesteld voor een schil gemeten. |
 | Containers | Totaal aantal containers voor de controller of de schil. |
-| Opnieuw opstarten | Getotaliseerde u van het aantal opnieuw opstarten van containers. |
+| Opnieuw opstarten | Totaliseren van de telling opnieuw starten van containers. |
 | Actieve tijdsduur | Geeft de tijd sinds een container is gestart. |
 | Knooppunt | Alleen voor containers en schillen. Hier ziet u welke domeincontroller dat deze zich bevindt. | 
-| Gem. %, % MIN, MAX %, % 50e, 90e % trend| Staafdiagram trend voor percentiel metrische gegevens van de controller. |
+| Gem. trend&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50e&nbsp;%, 90e&nbsp;%| Staafdiagram trend voor percentiel metrische gegevens van de controller. |
 
-De pictogrammen in het statusveld geven aan de onlinestatus van containers:
+De pictogrammen in het statusveld geven aan de online status van de containers:
  
 | Pictogram | Status | 
 |--------|-------------|
@@ -373,46 +382,46 @@ De pictogrammen in het statusveld geven aan de onlinestatus van containers:
 | ![De laatste keer doorgegeven met statuspictogram](./media/monitoring-container-health/container-health-grey-icon.png) | Laatst gerapporteerd uitgevoerd maar meer dan 30 minuten nog niet is gereageerd|
 | ![Geslaagde statuspictogram](./media/monitoring-container-health/container-health-green-icon.png) | Is gestopt of niet stoppen|
 
-De van het statuspictogram bevat een aantal op basis van wat de schil biedt. Hier ziet u de slechter twee statussen en wanneer u de muisaanwijzer over de status, toont een implementatie van de status van alle schillen in de container.  Als er geen gereed is, de waarde van de status wordt weergegeven in een **(0)**.  
+De van het statuspictogram wordt weergegeven een aantal op basis van wat de schil biedt. De slechtste twee statussen worden weergegeven, en wanneer u de muisaanwijzer over de status, status totaliseren uit alle schillen wordt weergegeven in de container. Als er geen een status gereed heeft, wordt de statuswaarde weergegeven **(0)**. 
 
-Kies in de lijst met **Containers**.
+Selecteer in de lijst met **Containers**.
 
 ![Selecteer containers weergeven](./media/monitoring-container-health/container-health-containers-tab.png)
 
-Hier ziet de prestatiestatus van uw containers.
+Hier vindt u de prestatiestatus van uw containers.
 
 ![< naam > controllers Prestatieweergave](./media/monitoring-container-health/container-health-containers-view.png)
 
-De volgende tabel beschrijft de informatie die wordt weergegeven wanneer u Containers weergeven.
+De informatie die wordt weergegeven wanneer u containers weergeven wordt in de volgende tabel beschreven:
 
 | Kolom | Beschrijving | 
 |--------|-------------|
-| Naam | De naam van de controller|
-| Status | De status van de containers, indien van toepassing. Aanvullende details van de statuspictogram zijn opgegeven in de onderstaande tabel.|
-| GEM. %, % MIN, MAX %, % 50E, 90E % | Gemiddelde van het gemiddelde percentage van elke entiteit voor de geselecteerde metrische gegevens en percentiel getotaliseerd. |
-| AVG, MIN, MAX, 50E, 90E  | Samenvouwen van de gemiddelde CPU millicore of geheugen prestaties van de container voor het geselecteerde percentiel.  De gemiddelde waarde wordt van de CPU/geheugen die is ingesteld voor een schil gemeten. |
+| Naam | De naam van de controller.|
+| Status | De status van de containers, indien van toepassing. Meer informatie over het statuspictogram vindt u in de volgende tabel.|
+| Gem.&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50e&nbsp;%, 90e&nbsp;% | De implementatie-up van het gemiddelde percentage van elke entiteit voor de geselecteerde metrische gegevens en percentiel. |
+| Avg, Min, Max, 50e, 90e  | Het totaliseren van de gemiddelde CPU millicore of geheugen prestaties van de container voor het geselecteerde percentiel. De gemiddelde waarde wordt van de CPU/geheugen die is ingesteld voor een schil gemeten. |
 | Pod | De container waarin de schil zich bevindt.| 
 | Knooppunt |  Het knooppunt waarin de container zich bevindt. | 
 | Opnieuw opstarten | Geeft de tijd sinds een container is gestart. |
 | Actieve tijdsduur | Geeft de tijd sinds een container is gestart of opnieuw opgestart. |
-| Gem. %, % MIN, MAX %, % 50e, 90e % trend | Staafdiagram trend van gemiddelde metrische % van de container. |
+| Gem. trend&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50e&nbsp;%, 90e&nbsp;% | Een trend van het type staafdiagram dat de gemiddelde metrische percentage van de container vertegenwoordigt. |
 
-De pictogrammen in het statusveld geven aan de online status van schillen:
+De pictogrammen in het statusveld geven aan de online status van schillen, zoals beschreven in de volgende tabel:
  
 | Pictogram | Status | 
 |--------|-------------|
 | ![Pictogram voor actieve status gereed](./media/monitoring-container-health/container-health-ready-icon.png) | Wordt uitgevoerd (klaar)|
 | ![In afwachting van ' of ' onderbroken statuspictogram](./media/monitoring-container-health/container-health-waiting-icon.png) | In afwachting van ' of ' onderbroken|
-| ![De laatste keer doorgegeven met statuspictogram](./media/monitoring-container-health/container-health-grey-icon.png) | Laatst gerapporteerd uitgevoerd maar meer dan 30 minuten nog niet is gereageerd|
+| ![De laatste keer doorgegeven met statuspictogram](./media/monitoring-container-health/container-health-grey-icon.png) | Laatst uitgevoerd gemeld, maar nog niet is gereageerd in meer dan 30 minuten|
 | ![Beëindigde statuspictogram](./media/monitoring-container-health/container-health-terminated-icon.png) | Is gestopt of niet stoppen|
 | ![Pictogram van de status mislukt](./media/monitoring-container-health/container-health-failed-icon.png) | Status mislukt |
 
-## <a name="container-data-collection-details"></a>Details van container gegevens verzamelen
+## <a name="container-data-collection-details"></a>Details van de gegevensverzameling container
 Containerstatus verzamelt verschillende metrische gegevens en logboekbestanden prestatiegegevens van de hosts van de container en containers. Gegevens worden verzameld om de drie minuten.
 
 ### <a name="container-records"></a>Container-records
 
-De volgende tabel ziet u voorbeelden van records die zijn verzameld door de containerstatus en de gegevenstypen die worden weergegeven in de resultaten van de logboekzoekopdracht.
+Voorbeelden van records die worden verzameld door de containerstatus en de gegevenstypen die worden weergegeven in de resultaten van de logboekzoekopdracht worden weergegeven in de volgende tabel:
 
 | Gegevenstype | Het gegevenstype in zoeken in Logboeken | Velden |
 | --- | --- | --- |
@@ -431,29 +440,33 @@ De volgende tabel ziet u voorbeelden van records die zijn verzameld door de cont
 | Metrische gegevens voor prestaties voor containers die deel uitmaken van het Kubernetes-cluster | Perf &#124; waarbij ObjectName == "K8SContainer" | CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes&#41;, CounterValue, TimeGenerated, itempad, SourceSystem | 
 
 ## <a name="search-logs-to-analyze-data"></a>Zoeken in Logboeken om gegevens te analyseren
-Log Analytics kunt u zoeken naar bestedingstrends en een diagnose stellen van knelpunten, prognose, of het correleren gegevens die u kan helpen te bepalen of de huidige configuratie van het cluster optimaal presteert.  Vooraf gedefinieerde zoekopdrachten in Logboeken vindt u onmiddellijk kunt beginnen met of om aan te passen om de gegevens van de manier waarop die u wilt retourneren. 
+Log Analytics kunt u zoeken naar bestedingstrends en een diagnose stellen van knelpunten, prognose, of het correleren gegevens die u kan helpen te bepalen of de huidige configuratie van het cluster optimaal presteert. Vooraf gedefinieerde zoekopdrachten in Logboeken vindt u onmiddellijk kunt beginnen met of om aan te passen als u wilt de gegevens van de manier waarop die u wilt retourneren. 
 
-U kunt interactieve analyses van gegevens in de werkruimte uitvoeren door het selecteren van de **logboek weergeven** optie beschikbaar is op de helemaal rechts wanneer u een domeincontroller of de container.  **Zoeken in logboeken** pagina wordt weergegeven boven de pagina die u al had geopend in de portal.
+U kunt interactieve analyses van gegevens in de werkruimte uitvoeren door het selecteren van de **logboek weergeven** beschikbaar helemaal rechts wanneer u een domeincontroller of de container. De **zoeken in logboeken** pagina wordt weergegeven boven de Azure portal-pagina die u al had geopend.
 
 ![Gegevens analyseren in Log Analytics](./media/monitoring-container-health/container-health-view-logs.png)   
 
-De container logboeken uitvoer doorgestuurd naar Log Analytics zijn STDOUT en STDERR. Omdat de containerstatus wordt bewaakt door Azure beheerde Kubernetes (AKS), Kube-systeem niet vandaag verzameld vanwege de grote hoeveelheid gegevens die zijn gegenereerd.     
+De uitvoer van de container-logboeken die wordt doorgestuurd naar Log Analytics zijn STDOUT en STDERR. Omdat de containerstatus wordt bewaakt door Azure beheerde Kubernetes (AKS), Kube-systeem niet vandaag verzameld vanwege het grote aantal gegenereerde gegevens. 
 
 ### <a name="example-log-search-queries"></a>Voorbeeld van de logboekbestanden zoekquery 's
-Vaak is het handig om te maken van query's beginnen met een voorbeeld of twee en vervolgens aanpassen aan uw behoeften. U kunt experimenteren met de volgende voorbeeldquery's waarmee u meer geavanceerde query's.
+Vaak is het handig om te maken van query's die beginnen met een voorbeeld of twee en vervolgens kan aanpassen aan uw behoeften. Om te helpen meer geavanceerde query's, kunt u experimenteren met de volgende voorbeeldquery's:
 
 | Query’s uitvoeren | Beschrijving | 
 |-------|-------------|
-| ContainerInventory<br> &#124;Computer, de naam, afbeelding, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime project<br> &#124;tabel weergeven | Lijst van alle Container levenscyclus van gegevens| 
+| ContainerInventory<br> &#124;Computer, de naam, afbeelding, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime project<br> &#124;tabel weergeven | Lijst met alle van de container levenscyclus van gegevens| 
 | KubeEvents_CL<br> &#124;waar not(isempty(Namespace_s))<br> &#124;sorteren op TimeGenerated desc<br> &#124;tabel weergeven | Kubernetes-gebeurtenissen|
 | ContainerImageInventory<br> &#124;summarize AggregatedValue = count() by afbeelding, ImageTag, actief | Voorraad | 
 | **Selecteer in de Advanced Analytics lijndiagrammen**:<br> Voor prestaties<br> &#124;waarbij ObjectName == 'Container' en CounterName == "% processortijd"<br> &#124;samenvatten AvgCPUPercent avg(CounterValue) door bin (TimeGenerated, 30 min.), InstanceName = | Container CPU | 
 | **Selecteer in de Advanced Analytics lijndiagrammen**:<br> Perf &#124; waarbij ObjectName == 'Container' en CounterName == "MB geheugen gebruik"<br> &#124;samenvatten AvgUsedMemory avg(CounterValue) door bin (TimeGenerated, 30 min.), InstanceName = | Container-geheugen |
 
 ## <a name="how-to-stop-monitoring-with-container-health"></a>Bewaking met de containerstatus stoppen
-Na het inschakelen van bewaking van uw AKS-container die u besluit niet langer wenst te bewaken, kunt u *opt-out* met behulp van de opgegeven Azure Resource Manager-sjablonen met de PowerShell-cmdlet  **Nieuwe-AzureRmResourceGroupDeployment** of Azure CLI.  Een JSON-sjabloon Hiermee geeft u de configuratie van *opt-out* en de andere JSON-sjabloon bevat parameterwaarden die u configureert om op te geven van de AKS-cluster-ID en resource resourcegroep in het cluster is geïmplementeerd.  Als u niet bekend met de concepten bent van de implementatie van resources met behulp van een sjabloon met PowerShell, raadpleegt u [resources implementeren met Resource Manager-sjablonen en Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) of Azure CLI Zie, voor [resources implementeren met Resource Manager-sjablonen en Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md).
+Als u inschakelt nadat de bewaking van uw AKS-container, u besluit u niet meer wilt bewaken, kunt u *opt-out* met behulp van de opgegeven Azure Resource Manager-sjablonen met de PowerShell-cmdlet  **Nieuwe-AzureRmResourceGroupDeployment** of de Azure CLI. Een JSON-sjabloon Hiermee geeft u de configuratie van *opt-out*. De andere bevat parameterwaarden die u configureert om op te geven van de AKS-cluster-ID en resource resourcegroep die het cluster is geïmplementeerd in. 
 
-Als u het gebruik van Azure CLI, moet u eerst installeren en de CLI lokaal gebruikt.  Dit is vereist dat u de Azure CLI versie 2.0.27 of hoger. Voer `az --version` voor het identificeren van de versie. Zie [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren. 
+Als u niet bekend met het concept bent van het implementeren van resources met behulp van een sjabloon, Zie:
+* [Resources implementeren met Resource Manager-sjablonen en Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [Resources implementeren met Resource Manager-sjablonen en Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
+
+Als u ervoor de Azure CLI gebruiken kiest, moet u eerst installeren en de CLI lokaal gebruikt. U moet worden uitgevoerd van Azure CLI versie 2.0.27 of hoger. Voor het identificeren van uw versie uitvoeren `az --version`. Als u wilt installeren of upgraden van de Azure CLI, Zie [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 ### <a name="create-and-execute-template"></a>Maken en uitvoeren van sjabloon
 
@@ -499,7 +512,7 @@ Als u het gebruik van Azure CLI, moet u eerst installeren en de CLI lokaal gebru
     ```
 
 2. Sla dit bestand als **OptOutTemplate.json** naar een lokale map.
-3. Kopieer en plak de volgende JSON-syntaxis in het bestand:
+3. Plak de volgende JSON-syntaxis in het bestand:
 
     ```json
     {
@@ -516,16 +529,16 @@ Als u het gebruik van Azure CLI, moet u eerst installeren en de CLI lokaal gebru
     }
     ```
 
-4. Bewerk de waarde voor **aksResourceId** en **aksResourceLocation** met de waarden van het AKS-cluster dat u kunt vinden op de **eigenschappen** pagina voor het geselecteerde cluster.
+4. Bewerk de waarden voor **aksResourceId** en **aksResourceLocation** met behulp van de waarden van het AKS-cluster dat u kunt vinden op de **eigenschappen** pagina voor het geselecteerde cluster .
 
     ![De eigenschappenpagina van container](./media/monitoring-container-health/container-properties-page.png)
 
-    Als u zich op de **eigenschappen** pagina, kopieert u ook de **Resource-ID van werkruimte**.  Deze waarde is vereist als u besluit dat u wilt verwijderen van de Log Analytics-werkruimte later, dit wordt niet uitgevoerd als onderdeel van dit proces.  
+    Als u zich op de **eigenschappen** pagina, kopieert u ook de **Resource-ID van werkruimte**. Deze waarde is vereist als u besluit dat u wilt verwijderen van de Log Analytics-werkruimte later opnieuw. Verwijderen van de Log Analytics-werkruimte wordt niet uitgevoerd als onderdeel van dit proces. 
 
 5. Sla dit bestand als **OptOutParam.json** naar een lokale map.
 6. U kunt deze sjabloon nu implementeren. 
 
-    * Gebruik de volgende PowerShell-opdrachten uit de map met de sjabloon:
+    * Gebruik de volgende PowerShell-opdrachten in de map met de sjabloon:
 
         ```powershell
         Connect-AzureRmAccount
@@ -533,7 +546,7 @@ Als u het gebruik van Azure CLI, moet u eerst installeren en de CLI lokaal gebru
         New-AzureRmResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupName> -TemplateFile .\OptOutTemplate.json -TemplateParameterFile .\OptOutParam.json
         ```
 
-        Wijzigen van de configuratie kan een paar minuten duren. Wanneer deze is voltooid, wordt een bericht dat lijkt op de volgende mogelijkheden van het resultaat geretourneerd:
+        Wijzigen van de configuratie kan een paar minuten duren. Wanneer deze voltooid, wordt een bericht dat lijkt op de volgende mogelijkheden van het resultaat geretourneerd:
 
         ```powershell
         ProvisioningState       : Succeeded
@@ -547,24 +560,24 @@ Als u het gebruik van Azure CLI, moet u eerst installeren en de CLI lokaal gebru
         az group deployment create --resource-group <ResourceGroupName> --template-file ./OptOutTemplate.json --parameters @./OptOutParam.json  
         ```
 
-        Wijzigen van de configuratie kan een paar minuten duren. Wanneer deze is voltooid, wordt een bericht dat lijkt op de volgende mogelijkheden van het resultaat geretourneerd:
+        Wijzigen van de configuratie kan een paar minuten duren. Wanneer deze voltooid, wordt een bericht dat lijkt op de volgende mogelijkheden van het resultaat geretourneerd:
 
         ```azurecli
         ProvisioningState       : Succeeded
         ```
 
-Als de werkruimte alleen ter ondersteuning van de bewaking van het cluster is gemaakt en deze niet meer nodig hebt, hebt u deze handmatig te verwijderen. Als u niet bekend bent met het verwijderen van een werkruimte, Zie [verwijderen van een Azure Log Analytics-werkruimte met de Azure-portal](../log-analytics/log-analytics-manage-del-workspace.md).  Vergeet niet over de **Resource-ID van werkruimte** we eerder in stap 4 hebt gekopieerd, gaat u die nodig hebt.  
+Als de werkruimte alleen ter ondersteuning van de bewaking van het cluster is gemaakt en deze niet meer nodig hebt, hebt u deze handmatig te verwijderen. Als u niet bekend bent met het verwijderen van een werkruimte, Zie [verwijderen van een Azure Log Analytics-werkruimte met de Azure-portal](../log-analytics/log-analytics-manage-del-workspace.md). Vergeet niet over de **Resource-ID van werkruimte** we eerder in stap 4 hebt gekopieerd, gaat u die nodig hebt. 
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 Deze sectie bevat informatie over het oplossen van problemen met de containerstatus.
 
-Als de containerstatus is ingeschakeld en geconfigureerd, maar u bent niet ziet de van statusinformatie of resultaten in Log Analytics wanneer u een zoekopdracht in Logboeken uitvoert, kunt u de volgende stappen uit om het probleem vast te stellen uitvoeren.   
+Als containerstatus is ingeschakeld en geconfigureerd, maar u niet de van statusgegevens of resultaten in Log Analytics wanneer u een zoekopdracht in Logboeken uitvoert, kunt u helpen het probleem vaststellen door het volgende te doen: 
 
 1. Controleer de status van de agent door het uitvoeren van de volgende opdracht uit: 
 
     `kubectl get ds omsagent --namespace=kube-system`
 
-    De uitvoer moet eruitzien zoals in de volgende aangeeft dat deze correct hebt geïmplementeerd:
+    De uitvoer moet eruitzien zoals in het volgende, waarmee wordt aangegeven dat deze correct is geïmplementeerd:
 
     ```
     User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
@@ -575,7 +588,7 @@ Als de containerstatus is ingeschakeld en geconfigureerd, maar u bent niet ziet 
 
     `kubectl get deployment omsagent-rs -n=kube-system`
 
-    De uitvoer moet eruitzien zoals in de volgende aangeeft dat deze correct hebt geïmplementeerd:
+    De uitvoer moet eruitzien zoals in het volgende, waarmee wordt aangegeven dat deze correct is geïmplementeerd:
 
     ```
     User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
@@ -583,7 +596,7 @@ Als de containerstatus is ingeschakeld en geconfigureerd, maar u bent niet ziet 
     omsagent   1         1         1            1            3h
     ```
 
-3. Controleer de status van de schil om te controleren of dat deze wordt uitgevoerd of niet door de volgende opdracht uit: `kubectl get pods --namespace=kube-system`
+3. Controleer de status van de schil om te controleren of deze wordt uitgevoerd door die wordt uitgevoerd de volgende opdracht uit: `kubectl get pods --namespace=kube-system`
 
     De uitvoer is vergelijkbaar met het volgende met de status van *met* voor de omsagent:
 
@@ -597,8 +610,9 @@ Als de containerstatus is ingeschakeld en geconfigureerd, maar u bent niet ziet 
     omsagent-fkq7g                      1/1       Running   0          1d 
     ```
 
-4. Raadpleeg de logboeken van de agent. Wanneer de agent in containers wordt geïmplementeerd, een snelle controle wordt uitgevoerd door te voeren OMI-opdrachten en toont de versie van de agent en 
-5.  de provider. Als u wilt zien dat de agent opnieuw toegevoegd is, moet u de volgende opdracht uitvoeren: `kubectl logs omsagent-484hw --namespace=kube-system`
+4. Raadpleeg de logboeken van de agent. Wanneer de agent in containers wordt geïmplementeerd, wordt een snelle controle uitgevoerd door het OMI-opdrachten uitvoeren en de versie van de agent en de provider weergeven. 
+
+5. Om te controleren dat de agent opnieuw toegevoegd is, moet u de volgende opdracht uitvoeren: `kubectl logs omsagent-484hw --namespace=kube-system`
 
     De status moet lijken op het volgende:
 
@@ -625,4 +639,4 @@ Als de containerstatus is ingeschakeld en geconfigureerd, maar u bent niet ziet 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Zoeken in logboeken](../log-analytics/log-analytics-log-search.md) om gedetailleerde container status en toepassing prestatiegegevens weer te geven.  
+Als u gedetailleerde container status en toepassing prestaties informatie, Zie [zoeken in logboeken](../log-analytics/log-analytics-log-search.md). 
