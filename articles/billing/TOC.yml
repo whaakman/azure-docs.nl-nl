@@ -131,6 +131,9 @@
   items:
     - name: Automatiseringsscenario's voor facturering
       href: billing-cost-management-automation-scenarios.md
+      items:
+        - name: Kosten beheren met Azure Budgets
+          href: billing-cost-management-budget-scenario.md
     - name: Overzicht van Azure Billing-API
       href: billing-usage-rate-card-overview.md
       items:

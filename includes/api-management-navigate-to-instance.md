@@ -1,18 +1,18 @@
-## <a name="navigate-to-your-apim-instance"></a>Ga naar uw APIM-exemplaar
-
-Volg deze stappen om naar uw APIM-exemplaar te gaan:
+## <a name="go-to-your-api-management-instance"></a>Ga naar uw API Management-exemplaar
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
-2. Selecteer **Alle services** linksboven op het scherm.  
-3. Typ ‘api’ in het zoekvak.
-4. Klik op **API Management-services**.
+2. Selecteer **Alle services**.  
+3. Typ **api** in het zoekvak.
+4. Selecteer **API Management-services** in de zoekresultaten.
 
-    ![Navigeren](./media/api-management-navigate-to-instance/navigate-to-api-management-services.png)
+    ![Selecteer API Management-services in de zoekresultaten](./media/api-management-navigate-to-instance/navigate-to-api-management-services.png)
 
-5. Selecteer uw exemplaar van de APIM-service.
+5. Selecteer uw service-exemplaar van API Management.
 
->[!TIP]
->Klik op de ster om API Management (APIM) toe te voegen aan uw favorieten in Azure Portal. <br/>Hierdoor wordt het pictogram voor APIM toegevoegd aan het menu aan de linkerkant van de portal. Klik op het pictogram (![APIM-pictogram](./media/api-management-navigate-to-instance/apim-icon.png)) voor een overzicht van al uw APIM-services.
+> [!TIP]
+> Selecteer de ster om API Management toe te voegen aan uw favorieten in Azure Portal.
+>
+> Het pictogram voor API Management (![API Management-pictogram](./media/api-management-navigate-to-instance/apim-icon.png)) wordt nu weergegeven in het menu aan de linkerkant van de portal.
  
 
 

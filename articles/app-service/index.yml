@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 2e455d86bbe5f6376fa1c13d07cd6f8978ea1f40
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257463"
 documentType: LandingData
 title: Documentatie voor Web Apps
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: carolz
-  ms.openlocfilehash: fd9ef52162933ae054263f42ca7498e24b1d863b
-  ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
-  ms.translationtype: HT
-  ms.contentlocale: nl-NL
-  ms.lasthandoff: 07/20/2018
-  ms.locfileid: "39172650"
 abstract:
   description: Met Azure Web Apps kunt u web-apps bouwen en hosten in de programmeertaal van uw keuze, zonder hiervoor infrastructuur te beheren. Het biedt automatisch schalen en een hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux en maakt automatische implementaties mogelijk vanuit GitHub, Visual Studio Team Services of een willekeurige Git-repo. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Web Apps gebruikt.
   aside:
@@ -55,6 +55,10 @@ sections:
         src: https://docs.microsoft.com/azure/app-service/media/index/logo_java.svg
       text: Java
       href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-java
+    - image:
+        src: https://docs.microsoft.com/azure/app-service/media/index/logo_python.svg
+      text: Python (op Linux)
+      href: https://docs.microsoft.com/azure/app-service/containers/quickstart-python
     - image:
         src: https://docs.microsoft.com/azure/app-service/media/index/logo_html5.svg
       text: HTML

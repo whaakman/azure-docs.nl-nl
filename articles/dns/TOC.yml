@@ -45,7 +45,7 @@
       href: ../networking/disaster-recovery-dns-traffic-manager.md
 - name: Procedures
   items:
-    - name: Een aangepaste DNS-zone en -record maken - Azure CLI
+    - name: Een persoonlijke DNS-zone en -record maken - Azure CLI
       href: private-dns-getstarted-cli.md
     - name: DNS-zones beheren
       items:

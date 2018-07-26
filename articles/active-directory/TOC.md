@@ -46,6 +46,7 @@
 ## Gebruikers beheren
 ### [Nieuwe gebruikers toevoegen aan Azure AD](fundamentals/add-users-azure-active-directory.md)
 ### [Gebruikersprofielen beheren](fundamentals/active-directory-users-profile-azure-portal.md)
+### [Gebruikerswachtwoorden opnieuw instellen](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [Accounts delen](active-directory-sharing-accounts.md)
 ### [Gebruikers aan beheerdersrollen toewijzen](fundamentals/active-directory-users-assign-role-azure-portal.md)
 ### [Een verwijderde gebruiker herstellen](fundamentals/active-directory-users-restore.md)
@@ -113,26 +114,32 @@
 ### [Gebruikers die risico lopen](active-directory-reporting-security-user-at-risk.md)
 ### [Riskante aanmeldingen](active-directory-reporting-security-risky-sign-ins.md)
 ### [Risicogebeurtenissen](active-directory-reporting-risk-events.md)
+### [Logboeken monitoren met behulp van Azure Monitor](reporting-azure-monitor-diagnostics-overview.md)
 ### [Veelgestelde vragen](active-directory-reporting-faq.md)
+
 ### Taken
 #### [Benoemde locaties configureren](active-directory-named-locations.md)
 #### [Activiteitenrapporten vinden](active-directory-reporting-migration.md)
-#### [Het Power BI-inhoudspakket van Azure Active Directory gebruiken](active-directory-reporting-power-bi-content-pack-how-to.md)
+#### [Het inhoudspakket voor Azure AD Power BI gebruiken](active-directory-reporting-power-bi-content-pack-how-to.md)
 #### [Gebruikers herstellen voor wie wordt aangegeven dat ze risico lopen](active-directory-report-security-user-at-risk-remediation.md)
+#### [Activiteitenlogboeken naar een Azure Event Hub leiden](reporting-azure-monitor-diagnostics-azure-event-hub.md)
+#### [Activiteitenlogboeken in een Azure-opslagaccount archiveren](reporting-azure-monitor-diagnostics-azure-storage-account.md)
+#### [Activiteitenlogboeken met Splunk integreren via Azure Monitor](reporting-azure-monitor-diagnostics-splunk-integration.md)
+
 ### Naslaginformatie
 #### [Retentie](active-directory-reporting-retention.md)
 #### [Wachttijden](active-directory-reporting-latencies-azure-portal.md)
 #### [Activiteitsverwijzing controleren](active-directory-reporting-activity-audit-reference.md)
 #### [Foutcodes voor aanmeldingsactiviteit](active-directory-reporting-activity-sign-ins-errors.md)
 #### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
-
+#### [Het schema van het auditlogboek interpreteren in Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
+#### [Het schema van het aanmeldingslogboek interpreteren in Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 
 ### Problemen oplossen
 #### [Ontbrekende controlegegevens](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Ontbrekende gegevens in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Azure Active Directory-activiteitenlogboek registreert inhoudspakketfouten](active-directory-reporting-troubleshoot-content-pack.md)
-#### [Fouten in Azure Active Directory Reporting-API](active-directory-reporting-troubleshoot-graph-api.md)
-
+#### [Fouten in inhoudspakket activiteitenlogboeken Azure AD](active-directory-rapportage-probleemoplossing-
+#### [Fouten in de rapportage-API voor Azure AD](active-directory-reporting-troubleshoot-graph-api.md)
 
 ### [Toegang op programmeerniveau](active-directory-reporting-api-getting-started-azure-portal.md)
 #### [Vereisten](active-directory-reporting-api-prerequisites-azure-portal.md)
@@ -140,13 +147,11 @@
 #### [Voorbeelden van aanmelden](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Certificaten gebruiken](active-directory-reporting-api-with-certificates.md)
 
-## Wachtwoorden beheren (active-directory/authentication/concept-sspr-howitworks.md)
+## [Wachtwoorden beheren](authentication/concept-sspr-howitworks.md)
 ### Gebruikersdocumenten
 #### [Uw wachtwoord opnieuw instellen of wijzigen](user-help/active-directory-passwords-update-your-own-password.md)
-#### [Aanbevolen procedures voor wachtwoorden](active-directory-secure-passwords.md)
 #### [Registreren voor de selfservice voor wachtwoordherstel](user-help/active-directory-passwords-reset-register.md)
-### IT-beheerders: wachtwoorden opnieuw instellen
-#### [Azure Portal](fundamentals/active-directory-users-reset-password-azure-portal.md)
+
 
 ## Apparaten beheren
 ### [Inleiding](device-management-introduction.md)

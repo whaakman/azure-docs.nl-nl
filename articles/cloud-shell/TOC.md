@@ -8,16 +8,17 @@
 ## [Functies en hulpprogramma's](features.md)
 
 # Uitleg
-## [Permanente opslag](persisting-shell-storage.md)
-## [Het venster gebruiken](using-the-shell-window.md)
 ## [PowerShell Cloud Shell voor Windows-gebruikers](cloud-shell-windows-users.md)
+## [Bestanden in opslag behouden](persisting-shell-storage.md)
+## [Het venster gebruiken](using-the-shell-window.md)
+## [MSI in Cloud Shell gebruiken](msi-authorization.md)
+## [Cloud Shell insluiten](embed-cloud-shell.md)
 
 # Voorbeelden
 ## [Bash - Resources maken met Terraform](example-terraform-bash.md)
 ## [Bash - Ansible-playbooks uitvoeren](../ansible/ansible-run-playbook-in-cloudshell.md)
 
-# [Cloud Shell insluiten](embed-cloud-shell.md)
-# [MSI in Cloud Shell gebruiken](msi-authorization.md)
+# [De Cloud Shell-editor gebruiken](using-cloud-shell-editor.md)
 
 # [Probleemoplossing en beperkingen](troubleshooting.md)
 
