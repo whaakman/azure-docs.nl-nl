@@ -9,12 +9,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: 1488f95296bcc11a55a45aff56cee83b7708a789
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 9e6be3608f5aa5ec5d68e6bbefff6da6c23c62fd
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072211"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247951"
 ---
 # <a name="speech-scenarios"></a>Spraakscenario's
 
@@ -36,7 +36,7 @@ Als uw app wordt gebruikt om te worden gebruikt door het grote publiek in omgevi
 
 ### <a name="voice-triggered-apps-with-custom-models"></a>Stem geactiveerd Apps met aangepaste modellen
 
-Als uw app in een specifiek domein, (zeg chemie, biologie of speciale wensen)-adressen is u misschien wilt gebruiken om aan te passen een [taalmodel](how-to-customize-language-model.md). Een taalmodel aan te passen, leert de decoder over de meest voorkomende zinnen en woorden die worden gebruikt door uw app. De decoder is mogelijk een met een aangepast taalmodel voor een bepaald domein in plaats van de basislijn-model spraak nauwkeuriger te transcriberen. Op dezelfde manier als de achtergrondgeluiden waar uw app gaat worden gebruikt opvallende kunt u een akoestisch model aanpassen. Verkennen van de documentatie voor andere gevallen waarin [aanpassing van taal](how-to-customize-language-model.md) en [akoestische aanpassing](how-to-customize-acoustic-models.md) waarde opgeven en Ga naar onze [aanpassing van woordenlijsten portal](https://customspeech.ai) voor beluisteren de ervaring van het maken van het model. Net als bij basislijn modellen, aangepaste modellen worden aangeroepen onze [spraak SDK](speech-sdk.md) en de relevante [voorbeelden](quickstart-csharp-dotnet-windows.md).
+Als uw app in een specifiek domein, (zeg chemie, biologie of speciale wensen)-adressen is u misschien wilt gebruiken om aan te passen een [taalmodel](how-to-customize-language-model.md). Een taalmodel aan te passen, leert de decoder over de meest voorkomende zinnen en woorden die worden gebruikt door uw app. De decoder is mogelijk een met een aangepast taalmodel voor een bepaald domein in plaats van de basislijn-model spraak nauwkeuriger te transcriberen. Op dezelfde manier als de achtergrondgeluiden waar uw app gaat worden gebruikt opvallende kunt u een akoestisch model aanpassen. Verken de documentatie voor andere gevallen waarin [aanpassing van taal](how-to-customize-language-model.md) en [akoestische aanpassing](how-to-customize-acoustic-models.md) waarde opgeven en Ga naar onze [aanpassing van woordenlijsten portal](https://customspeech.ai) voor kick-Starting creatieprocedure in het model. Net als bij basislijn modellen, aangepaste modellen worden aangeroepen onze [spraak SDK](speech-sdk.md) en de relevante [voorbeelden](quickstart-csharp-dotnet-windows.md).
 
 ## <a name="transcribe-call-center-audio-calls"></a>Call center audio gesprekken transcriberen
 

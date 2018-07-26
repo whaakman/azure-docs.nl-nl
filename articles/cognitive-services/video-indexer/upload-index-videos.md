@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: juliako
-ms.openlocfilehash: df3ebdcb07980c297204d6d2959cac6a759b34e2
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 64c4c8e4df0179f1644f23f0ae489015222a4ffd
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347411"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258361"
 ---
 # <a name="upload-and-index-your-videos"></a>Indexeren van uw video 's  
 
@@ -37,6 +37,12 @@ Gebruik deze parameter als onbewerkte of externe-opnamen achtergrondgeluiden bev
 - `DefaultWithNoiseReduction` – Index en het inzicht van zowel audio en video, tijdens het toepassen van ruis vermindering algoritmen op audiostream
 
 Prijs is afhankelijk van de geselecteerde optie voor indexering.  
+
+### <a name="callbackurl"></a>callbackUrl
+
+Een POST-URL om te waarschuwen wanneer indexeren is voltooid. Video Indexer voegt twee Reeksparameters naar deze query:-id en status. Bijvoorbeeld, als de callback-url is 'https://test.com/notifyme?projectName=MyProject', de melding wordt verzonden met extra parameters voor'https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed'.
+
+U kunt ook meer parameters toevoegen aan de URL voordat u de aanroep van Video Indexer en deze parameters worden opgenomen in de callback. Later in uw code kunt u ophalen en parseren van de query-tekenreeks back alle van de opgegeven parameters in de queryreeks (gegevens die u oorspronkelijk had toegevoegd aan de URL plus de gegevens van de Video Indexer opgegeven.) 
 
 ### <a name="streamingpereset"></a>streamingPereset
 

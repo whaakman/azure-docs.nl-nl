@@ -17,12 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 7aa48b65423db2a3af032ed64d9d571fa603668d
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: a98a23de3ea58af5c4a63958f554de1e002ec456
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144751"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248312"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD-Node.js web-app aan de slag
 We gebruiken hier Passport aan:
@@ -385,7 +385,7 @@ Nu `app.js` is voltooid. We gewoon wilt toevoegen de routes en weergaven die de 
     <% } %>
     ```
 
-5. Laten we dit uiterlijk goed door het toevoegen van een lay-out. Maak de ' / views/layout.ejs' weergeven onder de hoofddirectory.
+5. Laten we dit uiterlijk goed door het toevoegen van een lay-out. Maak de weergave `/views/layout.ejs` onder de hoofddirectory.
 
     ```HTML
 
