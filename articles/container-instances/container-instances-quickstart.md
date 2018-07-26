@@ -9,11 +9,12 @@ ms.topic: quickstart
 ms.date: 05/11/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: b68468cd8174d658d04d8e67433a8f18884493bd
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: da022af164af640c01c09a64ffcc64f2a67d25fc
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39162961"
 ---
 # <a name="quickstart-create-your-first-container-in-azure-container-instances"></a>Snelstart: Uw eerste container maken in Azure Container Instances
 
@@ -25,7 +26,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account][azure-acco
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-U kunt de Azure Cloud Shell of een lokale installatie van de Azure CLI gebruiken om deze Quick Start uit te voeren. Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids de Azure CLI versie 2.0.27 of later uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
+U kunt de Azure Cloud Shell of een lokale installatie van de Azure CLI gebruiken om deze Quick Start uit te voeren. Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstart de Azure CLI versie 2.0.27 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -33,7 +34,7 @@ Azure Container Instances moeten, zoals alle Azure-resources, in een resourcegro
 
 Een resourcegroep maken met de opdracht [az group create][az-group-create].
 
-In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
+In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS - oost*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -123,7 +124,7 @@ Wanneer u klaar bent met de container, verwijdert u deze met de opdracht [az con
 az container delete --resource-group myResourceGroup --name mycontainer
 ```
 
-Om te controleren of de container is verwijderd, voert u de opdracht [az container list](/cli/azure/container#az_container_list) uit:
+Om te controleren of de container is verwijderd, voert u de opdracht [az container list](/cli/azure/container#az-container-list) uit:
 
 ```azurecli-interactive
 az container list --resource-group myResourceGroup --output table
@@ -133,7 +134,7 @@ De container **mycontainer** mag dan niet worden weergegeven in de uitvoer van d
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstart hebt u een Azure-containerinstantie van een installatiekopie gemaakt in een openbaar Docker Hub-regiser. Als u zelf een containerinstallatiekopie wilt bouwen en deze wilt implementeren in Azure Container Instances met behulp van privé Azure Container Registry, gaat u verder met de zelfstudie voor Azure Container Instances.
+In deze snelstart hebt u een Azure-containerinstantie van een installatiekopie gemaakt in een openbare Docker Hub-opslagplaats. Als u zelf een containerinstallatiekopie wilt bouwen en deze wilt implementeren in Azure Container Instances met behulp van privé Azure Container Registry, gaat u verder met de zelfstudie voor Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Zelfstudie voor Azure Container Instances](./container-instances-tutorial-prepare-app.md)
@@ -149,12 +150,12 @@ Zie de snelstart [Service Fabric][service-fabric] of [Azure Kubernetes Service (
 [node-js]: http://nodejs.org
 
 <!-- LINKS - Internal -->
-[az-container-attach]: /cli/azure/container#az_container_attach
-[az-container-create]: /cli/azure/container#az_container_create
-[az-container-delete]: /cli/azure/container#az_container_delete
-[az-container-list]: /cli/azure/container#az_container_list
-[az-container-logs]: /cli/azure/container#az_container_logs
-[az-container-show]: /cli/azure/container#az_container_show
+[az-container-attach]: /cli/azure/container#az-container-attach
+[az-container-create]: /cli/azure/container#az-container-create
+[az-container-delete]: /cli/azure/container#az-container-delete
+[az-container-list]: /cli/azure/container#az-container-list
+[az-container-logs]: /cli/azure/container#az-container-logs
+[az-container-show]: /cli/azure/container#az-container-show
 [az-group-create]: /cli/azure/group#az_group_create
 [azure-cli-install]: /cli/azure/install-azure-cli
 [container-service]: ../aks/kubernetes-walkthrough.md

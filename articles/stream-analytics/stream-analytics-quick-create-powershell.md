@@ -2,24 +2,24 @@
 title: Een Stream Analytics-taak maken met behulp van Azure PowerShell
 description: In deze snelstart vindt u informatie over het gebruik van de Azure PowerShell-module om een Azure Stream Analytics-taak te implementeren en uit te voeren.
 services: stream-analytics
-author: SnehaGunda
-ms.author: sngun
+author: sidramadoss
+ms.author: sidram
 ms.date: 05/14/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 2b5d8bfd6dbe36637a0c6873e941118e7ee71b80
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 18903dfbe187de73a6edb14196fa29e02d35dbca
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34212429"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185377"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-azure-powershell"></a>Snelstart: Een Stream Analytics-taak maken met behulp van Azure PowerShell
 
 De Azure PowerShell-module wordt gebruikt voor het maken en beheren van Azure-resources met behulp van PowerShell-cmdlets of -scripts. In deze snelstart vindt u informatie over het gebruik van de Azure PowerShell-module om een Azure Stream Analytics-taak te implementeren en uit te voeren. 
-
+ 
 De voorbeeldtaak leest streaminggegevens vanuit een blob in Azure Blob-opslag. Het bestand met invoergegevens dat wordt gebruikt in deze snelstart, bevat statische gegevens die alleen zijn bedoeld ter illustratie. In een werkelijk scenario gebruikt u streaming-invoergegevens voor een Stream Analytics-taak. Vervolgens transformeert de taak de gegevens met behulp van de Stream Analytics-querytaal om de gemiddelde temperatuur te berekenen wanneer deze hoger is dan 100°. Tot slot worden de resulterende uitvoergebeurtenissen naar een ander bestand geschreven. 
 
 ## <a name="before-you-begin"></a>Voordat u begint

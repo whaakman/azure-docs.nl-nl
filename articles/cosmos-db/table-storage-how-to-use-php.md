@@ -10,12 +10,12 @@ ms.devlang: php
 ms.topic: sample
 ms.date: 04/05/2018
 ms.author: sngun
-ms.openlocfilehash: 19d475c16b672b960b417391b4c3a6efe27f6cd6
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 52c49475fb9014308db4ae5510d82fe9f423a828
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797937"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205405"
 ---
 # <a name="how-to-use-azure-storage-table-service-or-the-azure-cosmos-db-table-api-from-php"></a>De Azure Storage-tabelservice of de Azure Cosmos DB Table-API gebruiken in PHP
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -121,7 +121,7 @@ Met het object **TableRestProxy** kunt u een tabel maken via de methode **create
 require_once 'vendor\autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create Table REST proxy.
 $tableClient = TableRestProxy::createTableService($connectionString);
@@ -148,7 +148,7 @@ Als u een entiteit wilt toevoegen aan een tabel, maakt u een nieuw object **Enti
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Table\Models\Entity;
 use MicrosoftAzure\Storage\Table\Models\EdmType;
 
@@ -184,7 +184,7 @@ U kunt met de klasse **TableRestProxy** op twee manieren entiteiten invoegen: **
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Table\Models\Entity;
 use MicrosoftAzure\Storage\Table\Models\EdmType;
 
@@ -227,7 +227,7 @@ Met de methode **TableRestProxy->getEntity** kunt u één entiteit ophalen door 
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create table REST proxy.
 $tableClient = TableRestProxy::createTableService($connectionString);
@@ -256,7 +256,7 @@ Entiteitsquery's worden samengesteld met filters (zie [Query's uitvoeren op tabe
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create table REST proxy.
 $tableClient = TableRestProxy::createTableService($connectionString);
@@ -289,7 +289,7 @@ Het patroon uit het vorige voorbeeld kan ook worden gebruikt voor het ophalen va
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create table REST proxy.
 $tableClient = TableRestProxy::createTableService($connectionString);
@@ -322,7 +322,7 @@ U kunt met een query een subset van entiteitseigenschappen ophalen. Deze methode
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Table\Models\QueryEntitiesOptions;
 
 // Create table REST proxy.
@@ -361,7 +361,7 @@ U kunt een bestaande entiteit bijwerken met de methoden **Entity->setProperty** 
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Table\Models\Entity;
 use MicrosoftAzure\Storage\Table\Models\EdmType;
 
@@ -395,7 +395,7 @@ Als u een entiteit wilt verwijderen, geeft u de tabelnaam en de `PartitionKey` e
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create table REST proxy.
 $tableClient = TableRestProxy::createTableService($connectionString);
@@ -432,7 +432,7 @@ In het volgende voorbeeld wordt getoond hoe u de bewerkingen **insertEntity** en
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 use MicrosoftAzure\Storage\Table\Models\Entity;
 use MicrosoftAzure\Storage\Table\Models\EdmType;
 use MicrosoftAzure\Storage\Table\Models\BatchOperations;
@@ -483,7 +483,7 @@ En als u ten slotte een tabel wilt verwijderen, geeft u de tabelnaam door aan de
 require_once 'vendor/autoload.php';
 
 use MicrosoftAzure\Storage\Table\TableRestProxy;
-use MicrosoftAzure\Storage\Common\ServiceException;
+use MicrosoftAzure\Storage\Common\Exceptions\ServiceException;
 
 // Create table REST proxy.
 $tableClient = TableRestProxy::createTableService($connectionString);

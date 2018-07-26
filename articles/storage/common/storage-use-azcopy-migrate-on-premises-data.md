@@ -10,12 +10,12 @@ ms.devlang: azcopy
 ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
-ms.openlocfilehash: 3f9735a1e5a6973ab1c1c3f575cf3aa345a3a5a4
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 4e2d891705cbe4d51ddc6af6fe178257424220ab
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267438"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205320"
 ---
 #  <a name="migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>On-premises gegevens migreren naar cloudopslag met behulp van AzCopy
 
@@ -70,7 +70,7 @@ U kunt AzCopy gebruiken om alle bestanden in een map te uploaden naar Blob-opsla
         --recursive
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S
 ---
 
 Vervang `<key>` en `key` door uw accountsleutel. In Azure Portal kunt u uw accountsleutel ophalen door **Toegangssleutels** te selecteren onder **Instellingen** in uw opslagaccount. Selecteer een sleutel en plak deze in de AzCopy-opdracht. Als de opgegeven doelcontainer niet bestaat, wordt deze door AzCopy gemaakt en wordt het bestand erin geüpload. Werk het bronpad bij in uw gegevensmap en vervang **myaccount** in de doel-URL door de naam van uw opslagaccount.
@@ -91,7 +91,7 @@ Als u alleen resources wilt kopiëren die niet in het doel bestaan, geeft u zowe
     --exclude-older
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /S /XO
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S /XO
 ---
 
 ## <a name="create-a-scheduled-task-or-cron-job"></a>Een geplande taak of Cron-taak maken 
@@ -104,7 +104,7 @@ Kopieer de AzCopy-opdracht naar een teksteditor. Werk de parameterwaarden van de
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
     cd C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
-    AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey: key /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
+    AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
 ---
 
 AzCopy wordt uitgevoerd met de uitgebreide optie `--verbose` (Linux) of `/V` (Windows). De uitvoer wordt omgeleid naar een logboekbestand. 

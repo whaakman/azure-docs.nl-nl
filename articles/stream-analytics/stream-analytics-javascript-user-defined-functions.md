@@ -3,25 +3,25 @@ title: 'Zelfstudie: Door gebruiker gedefinieerde JavaScript-functies in Azure St
 description: In deze zelfstudie voert u geavanceerde querymechanismen uit met door de gebruiker gedefinieerde JavaScript-functies
 keywords: javascript, door gebruiker gedefinieerde functies, udf
 services: stream-analytics
-author: SnehaGunda
+author: rodrigoamicrosoft
 manager: kfile
 ms.assetid: ''
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
 ms.workload: data-services
-ms.author: sngun
-ms.openlocfilehash: f3a94017b95eb614669fa42594fe3a3499c74be7
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: rodrigoa
+ms.openlocfilehash: a50b96f128fb32b8ac7b7b9971beeb3b12397b5f
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31415293"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39184975"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Zelfstudie: Door gebruiker gedefinieerde JavaScript-functies in Azure Stream Analytics
-
+ 
 Azure Stream Analytics ondersteunt door de gebruiker gedefinieerde functies die zijn geschreven in JavaScript. Met de uitgebreide set van **String**-, **RegExp**-, **Math**-, **Array**- en **Date**-methoden van JavaScript kunt u gemakkelijker complexe gegevenstransformaties maken met Stream Analytics-taken.
 
 In deze zelfstudie leert u het volgende:
