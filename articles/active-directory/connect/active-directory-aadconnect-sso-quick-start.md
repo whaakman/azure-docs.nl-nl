@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df936c697f500f5ab98becd1529cd321f9f3f5c4
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 4be205f13260d60bc9788b873bea34970b560f5a
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259116"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283602"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory naadloze eenmalige aanmelding: snel starten
 
@@ -49,7 +49,7 @@ Zorg ervoor dat de volgende vereisten voldaan is:
     
 * **Moderne verificatie inschakelen**: U moet inschakelen [moderne verificatie](https://aka.ms/modernauthga) op uw tenant voor deze functie om te werken.
 
-* **Gebruik de meest recente versies van Office 365-clients**: als u een op de achtergrond aanmelding met Office 365-clients (Outlook, Word, Excel en anderen), moet u versies 16.0.8730.xxxx of hoger.
+* **Gebruik de meest recente versies van Office 365-clients**: als u een op de achtergrond aanmelding met Office 365-clients (Outlook, Word, Excel en anderen), uw gebruikers moeten versies 16.0.8730.xxxx gebruiken of hoger.
 
 ## <a name="step-2-enable-the-feature"></a>Stap 2: De functie inschakelen
 
@@ -194,7 +194,7 @@ Naadloze eenmalige aanmelding werkt niet in de privémodus bladeren in Firefox e
 
 Als u wilt testen van de functie voor een specifieke gebruiker, zorg ervoor dat de volgende voorwaarden voldaan is:
   - De gebruiker zich aanmeldt op een bedrijfsapparaat.
-  - Het apparaat is toegevoegd aan uw Active Directory-domein.
+  - Het apparaat is toegevoegd aan uw Active Directory-domein. Het apparaat _niet_ moet [Azure AD join](../active-directory-azureadjoin-overview.md).
   - Het apparaat heeft een directe verbinding met de domeincontroller (DC), op het bedrijfsnetwerk bekabelde of draadloze of via een RAS-verbinding, zoals een VPN-verbinding.
   - U hebt [bekendgemaakt die de functie](##step-3-roll-out-the-feature) aan deze gebruiker via Groepsbeleid.
 

@@ -16,12 +16,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: fab9ddefc022cb5643f98cf7fea4ca74d4f7101b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: a3b11abb665715f43279b925ad741de262c5656c
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228016"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263654"
 ---
 # <a name="authorize-access-to-azure-active-directory-web-applications-using-the-oauth-20-code-grant-flow"></a>Toegang verlenen aan webtoepassingen voor Azure Active Directory met behulp van de OAuth 2.0-stroom voor het verlenen van code
 Azure Active Directory (Azure AD) maakt gebruik van OAuth 2.0 waarmee u kunt toegang verlenen aan webtoepassingen en web-API's in uw Azure AD-tenant. Deze handleiding is taalonafhankelijk en wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een van onze [open source-bibliotheken](active-directory-authentication-libraries.md).
@@ -52,9 +52,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| tenant |vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn tenant-id's, bijvoorbeeld `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` of `common` voor tenant-onafhankelijke tokens |
-| client_id |vereist |De toepassings-ID die aan uw app wordt toegewezen wanneer u deze hebt geregistreerd bij Azure AD. U kunt dit vinden in de Azure Portal. Klik op **Azure Active Directory** in de zijbalk services, klikt u op **App-registraties**, en kies de toepassing. |
-| response_type |vereist |Moet bevatten `code` voor de autorisatiecodestroom. |
+| tenant |Vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn tenant-id's, bijvoorbeeld `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` of `common` voor tenant-onafhankelijke tokens |
+| client_id |Vereist |De toepassings-ID die aan uw app wordt toegewezen wanneer u deze hebt geregistreerd bij Azure AD. U kunt dit vinden in de Azure Portal. Klik op **Azure Active Directory** in de zijbalk services, klikt u op **App-registraties**, en kies de toepassing. |
+| response_type |Vereist |Moet bevatten `code` voor de autorisatiecodestroom. |
 | redirect_uri |Aanbevolen |De redirect_uri van uw app, waarbij verificatiereacties kunnen worden verzonden en ontvangen door uw app. Het moet een van de redirect_uris die u in de portal hebt geregistreerd, behalve het url-codering moet exact overeenkomen. Voor mobiele en systeemeigen apps, moet u de standaardwaarde van `urn:ietf:wg:oauth:2.0:oob`. |
 | response_mode |Aanbevolen |Hiermee geeft u de methode die moet worden gebruikt voor het verzenden van het resulterende token terug naar uw app. Kan `query`, `fragment`, of `form_post`. `query` biedt de code als een queryreeks-parameter op uw omleidings-URI. Als u een ID-token met behulp van de impliciete stroom aanvragen, u niet gebruiken `query` zoals opgegeven in de [OpenID spec](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Als u alleen de code aanvragen, kunt u `query`, `fragment`, of `form_post`. `form_post` voert een bericht met de code op uw omleidings-URI. |
 | state |Aanbevolen |Een waarde die is opgenomen in de aanvraag die ook in het token antwoord wordt geretourneerd. Een willekeurig gegenereerde unieke waarde wordt meestal gebruikt voor [cross-site-aanvraag kunnen worden vervalst aanvallen](http://tools.ietf.org/html/rfc6749#section-10.12). De status wordt ook gebruikt voor het coderen van informatie over de status van de gebruiker in de app voordat de verificatieaanvraag heeft plaatsgevonden, zoals de pagina of de weergave die ze al had geopend. |
@@ -137,12 +137,12 @@ grant_type=authorization_code
 
 | Parameter |  | Beschrijving |
 | --- | --- | --- |
-| tenant |vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn tenant-id's, bijvoorbeeld `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` of `common` voor tenant-onafhankelijke tokens |
-| client_id |vereist |De toepassings-Id die aan uw app wordt toegewezen wanneer u deze hebt geregistreerd bij Azure AD. U kunt dit vinden in Azure portal. De toepassings-Id wordt weergegeven in de instellingen van de app-registratie. |
-| grant_type |vereist |Moet `authorization_code` voor de autorisatiecodestroom. |
-| Code |vereist |De `authorization_code` die u in de vorige sectie hebt verkregen |
-| redirect_uri |vereist |Dezelfde `redirect_uri` waarde die is gebruikt voor het verkrijgen van de `authorization_code`. |
-| client_secret |vereist voor web-apps is niet toegestaan voor openbare clients |Het toepassingsgeheim die u hebt gemaakt in de Azure-Portal voor uw app bij **sleutels**. Het kan niet worden gebruikt in een systeemeigen app (openbare client), omdat client_secrets op betrouwbare wijze kunnen niet worden opgeslagen op apparaten. Dit is vereist voor de web-apps en web-API's (alle vertrouwelijke clients), waarvoor de mogelijkheid om op te slaan de `client_secret` veilig op de server. |
+| tenant |Vereist |De `{tenant}` waarde in het pad van de aanvraag kan worden gebruikt om te bepalen wie zich bij de toepassing aanmelden kan. De toegestane waarden zijn tenant-id's, bijvoorbeeld `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` of `contoso.onmicrosoft.com` of `common` voor tenant-onafhankelijke tokens |
+| client_id |Vereist |De toepassings-Id die aan uw app wordt toegewezen wanneer u deze hebt geregistreerd bij Azure AD. U kunt dit vinden in Azure portal. De toepassings-Id wordt weergegeven in de instellingen van de app-registratie. |
+| grant_type |Vereist |Moet `authorization_code` voor de autorisatiecodestroom. |
+| Code |Vereist |De `authorization_code` die u in de vorige sectie hebt verkregen |
+| redirect_uri |Vereist |Dezelfde `redirect_uri` waarde die is gebruikt voor het verkrijgen van de `authorization_code`. |
+| client_secret |vereist voor web-apps is niet toegestaan voor openbare clients |Het toepassingsgeheim die u hebt gemaakt in de Azure-Portal voor uw app bij **sleutels**. Het kan niet worden gebruikt in een systeemeigen app (openbare client), omdat client_secrets op betrouwbare wijze kunnen niet worden opgeslagen op apparaten. Dit is vereist voor de web-apps en web-API's (alle vertrouwelijke clients), waarvoor de mogelijkheid om op te slaan de `client_secret` veilig op de server. De waarde voor client_secret moet URL gecodeerd voordat het wordt verzonden. |
 | Bron | Aanbevolen |De App-ID-URI van de doel-web-API (beveiligde resource). U kunt de URI van de App-ID vinden in de Azure Portal op **Azure Active Directory**, klikt u op **toepassingsregistraties**, van de toepassing openen **instellingen** pagina en klik vervolgens op  **Eigenschappen van**. Mogelijk ook een externe bron, zoals `https://graph.microsoft.com`. Dit is vereist in een van de autorisatie- of token aanvragen. Om ervoor te zorgen minder verificatie plaats vragen deze in de autorisatieaanvraag om ervoor te zorgen toestemming wordt ontvangen van de gebruiker. Als in de autorisatieaanvraag en de tokenaanvraag, de resource' parameters moeten overeenkomen. | 
 | code_verifier | optioneel | De dezelfde code_verifier die is gebruikt voor het verkrijgen van de authorization_code. Vereist als PKCE is gebruikt in de autorisatieaanvraag voor het verlenen van code. Zie voor meer informatie de [PKCE RFC](https://tools.ietf.org/html/rfc7636)   |
 

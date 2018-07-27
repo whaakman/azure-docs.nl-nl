@@ -133,6 +133,8 @@
               href: devtest-lab-manage-formulas.md
         - name: Artefacten beheren
           items:
+            - name: Verplichte artefacten opgeven
+              href: devtest-lab-mandatory-artifacts.md
             - name: Aangepast artefacten maken
               href: devtest-lab-artifact-author.md
             - name: Problemen met artefacten vaststellen

@@ -138,7 +138,7 @@
 ### Problemen oplossen
 #### [Ontbrekende controlegegevens](active-directory-reporting-troubleshoot-missing-audit-data.md)
 #### [Ontbrekende gegevens in downloads](active-directory-reporting-troubleshoot-missing-data-download.md)
-#### [Fouten in inhoudspakket activiteitenlogboeken Azure AD](active-directory-rapportage-probleemoplossing-
+#### [Azure AD-activiteitenlogboek registreert inhoudspakketfouten](active-directory-reporting-troubleshoot-content-pack.md)
 #### [Fouten in de rapportage-API voor Azure AD](active-directory-reporting-troubleshoot-graph-api.md)
 
 ### [Toegang op programmeerniveau](active-directory-reporting-api-getting-started-azure-portal.md)
@@ -222,11 +222,13 @@
 #### [Problemen oplossen](manage-apps/application-proxy-troubleshoot.md)
 
 ### Enterprise-apps beheren
+#### [Een toepassing toevoegen](manage-apps/add-application-portal.md)
+#### [Tenant-apps bekijken](manage-apps/view-applications-portal.md)
 #### [Gebruikers toewijzen](manage-apps/assign-user-or-group-access-portal.md)
 #### [Huisstijl aanpassen](manage-apps/change-name-or-logo-portal.md)
 #### [Gebruikersaanmeldingen uitschakelen](manage-apps/disable-user-sign-in-portal.md)
 #### [Gebruikers verwijderen](manage-apps/remove-user-or-group-access-portal.md)
-#### [Al mijn apps weergeven](manage-apps/view-applications-portal.md)
+
 #### [Inrichting van gebruikersaccount beheren](manage-apps/configure-automatic-user-provisioning-portal.md)
 #### [Eenmalige aanmelding voor zakelijke apps beheren](manage-apps/configure-single-sign-on-portal.md)
 #### [Geavanceerde certificaatondertekening voor SAML-apps](manage-apps/certificate-signing-options.md)

@@ -387,24 +387,26 @@
           href: create-azure-ssis-integration-runtime.md
     - name: SSIS-pakketten uitvoeren in Azure
       items:
-        - name: Azure-SSIS-integratieruntime toevoegen aan een virtueel netwerk
-          href: join-azure-ssis-integration-runtime-virtual-network.md
-        - name: Azure AD-verificatie inschakelen voor Azure-SSIS-integratieruntime
-          href: enable-aad-authentication-azure-ssis-ir.md
-        - name: Hoge prestaties configureren voor Azure-SSIS-integratieruntime
-          href: configure-azure-ssis-integration-runtime-performance.md
-        - name: Enterprise Edition inrichten voor Azure-SSIS-integratieruntime
-          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
-        - name: Configuratie aanpassen voor Azure-SSIS-integratieruntime
-          href: how-to-configure-azure-ssis-ir-custom-setup.md
-        - name: Gelicentieerde onderdelen installeren voor Azure-SSIS-integratieruntime
-          href: how-to-develop-azure-ssis-ir-licensed-components.md
         - name: SSIS-pakketten uitvoeren met de activiteit SSIS-pakket uitvoeren
           href: how-to-invoke-ssis-package-ssis-activity.md
         - name: SSIS-pakketten uitvoeren met de activiteit Opgeslagen procedure
           href: how-to-invoke-ssis-package-stored-procedure-activity.md
         - name: Azure-SSIS-integratie-runtime plannen
           href: how-to-schedule-azure-ssis-integration-runtime.md
+        - name: Azure-SSIS-integratieruntime toevoegen aan een virtueel netwerk
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Azure AD-verificatie inschakelen voor Azure-SSIS-integratieruntime
+          href: enable-aad-authentication-azure-ssis-ir.md
+        - name: Enterprise Edition inrichten voor Azure-SSIS-integratieruntime
+          href: how-to-configure-azure-ssis-ir-enterprise-edition.md
+        - name: Configuratie aanpassen voor Azure-SSIS-integratieruntime
+          href: how-to-configure-azure-ssis-ir-custom-setup.md
+        - name: Gelicentieerde onderdelen installeren voor Azure-SSIS-integratieruntime
+          href: how-to-develop-azure-ssis-ir-licensed-components.md
+        - name: Hoge prestaties configureren voor Azure-SSIS-integratieruntime
+          href: configure-azure-ssis-integration-runtime-performance.md
+        - name: Herstel na noodgeval voor Azure-SSIS IR configureren
+          href: configure-bcdr-azure-ssis-integration-runtime.md
     - name: Triggers maken
       items:
         - name: Een planningstrigger maken

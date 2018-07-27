@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 32feac32af01e518ad6cede43cc4b4f00c097d3b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e07ed8f131697d6340b899ef76c988aed215556b
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041276"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283408"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Zelfstudie: Azure Active Directory-integratie met SmarterU
 
@@ -126,11 +126,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 7. Klik in de werkbalk bovenaan op **Accountinstellingen**.
    
-    ![Accountinstellingen](./media/smarteru-tutorial/IC777326.png "Accountinstellingen")
+    ![Accountinstellingen](./media/smarteru-tutorial/accountsettings.png)
 
 8. Voer de volgende stappen uit op de configuratiepagina van account:
    
-    ![Externe autorisatie](./media/smarteru-tutorial/IC777327.png "externe autorisatie") 
+    ![Externe verificatie](./media/smarteru-tutorial/externalauthorizationconfiguration.png) 
  
       a. Selecteer **externe autorisatie inschakelen**.
   
@@ -138,11 +138,13 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
   
       c. In de **standaard gebruikersaanmelding** sectie, selecteer de **SmarterU** tabblad.
   
-      d. Selecteer **inschakelen tussen okta en**.
+      d. Selecteer **SAML inschakelen**.
   
-      e. Kopieer de inhoud van het gedownloade metagegevensbestand en plak deze in de **Okta Metadata** tekstvak.
+      e. Kopieer de inhoud van het gedownloade metagegevensbestand en plak deze in de **IdP metagegevens** tekstvak.
+      
+      f. Selecteer een **id-kenmerk/Claim**.
   
-      f. Klik op **Opslaan**.
+      g. Klik op **Opslaan**.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -193,7 +195,7 @@ SmarterU, wordt ingericht als een handmatige taak is.
 
 3. In de sectie van de gebruiker, moet u de volgende stappen uitvoeren:
    
-    ![Nieuwe gebruiker](./media/smarteru-tutorial/IC777329.png "nieuwe gebruiker")  
+    ![Nieuwe gebruiker](./media/smarteru-tutorial/adduser.png)  
 
     a. Klik op **+ gebruiker**.
     
@@ -248,7 +250,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->
 

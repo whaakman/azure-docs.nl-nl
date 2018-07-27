@@ -9,12 +9,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: ashmaka
-ms.openlocfilehash: 94847adf761652a25fd3e2d594c7169776fefc89
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 59e2254054f51a8d5f30e1b38dc5e6c23899c054
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125122"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284318"
 ---
 # <a name="quickstart-for-text-analytics-api-with-c"></a>Snelstartgids voor Tekstanalyse-API met C# 
 <a name="HOLTop"></a>
@@ -48,7 +48,7 @@ Ook moet u de [eindpunt en de toegangssleutel](../How-tos/text-analytics-how-to-
 ## <a name="call-the-text-analytics-api-using-the-sdk"></a>Aanroep van de Tekstanalyse-API met behulp van de SDK
 1. Vervang Program.cs door de code hieronder. Dit programma ziet u de mogelijkheden van de Tekstanalyse-API in 3 secties (taal uitpakken, sleutel vindt er sleuteltermextractie plaats en sentimentanalyse).
 1. Vervang de `Ocp-Apim-Subscription-Key` headerwaarde met een geldige toegangssleutel voor uw abonnement.
-1. Vervang de locatie in `client.BaseUri` naar het eindpunt dat u zich heeft aangemeld. U vindt het eindpunt voor de resource van Azure Portal. Het eindpunt is doorgaans ziet eruit als 'https://[region].api.cognitive.microsoft.com/text/analytics/v2.0'.
+1. Vervang de locatie in `Endpoint` naar het eindpunt dat u zich heeft aangemeld. U vindt het eindpunt voor de resource van Azure Portal. Het eindpunt doorgaans begint met "https://[region].api.cognitive.microsoft.com" en zich hier alleen Neem protocol en de hostnaam.
 1. Voer het programma.
 
 ```csharp
@@ -81,8 +81,10 @@ namespace ConsoleApp1
         {
 
             // Create a client.
-            ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials());
-            client.BaseUri = new Uri("https://westus.api.cognitive.microsoft.com/text/analytics/v2.0");
+            ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials())
+            {
+                Endpoint = "https://westus.api.cognitive.microsoft.com"
+            };
 
             Console.OutputEncoding = System.Text.Encoding.UTF8;
 

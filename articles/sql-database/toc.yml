@@ -138,9 +138,9 @@
           items:
             - name: Langetermijnretentie van back-ups
               href: sql-database-long-term-retention.md
-            - name: Langetermijnretentie van back-ups configureren - SQL-opslag
+            - name: Configureren met Azure Blob-opslag
               href: sql-database-long-term-backup-retention-configure.md
-            - name: Langetermijnretentie van back-ups configureren - Azure Vault (afgeschaft)
+            - name: Configureren met Azure Vault (afgeschaft)
               href: sql-database-long-term-backup-retention-configure-vault.md
         - name: Failovergroepen en geo-replicatie
           items:

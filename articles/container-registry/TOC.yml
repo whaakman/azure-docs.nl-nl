@@ -55,6 +55,8 @@
       href: container-registry-get-started-docker-cli.md
     - name: Opslagplaatsen weergeven
       href: container-registry-repositories.md
+    - name: Containerinstallatiekopieën verwijderen
+      href: container-registry-delete.md
     - name: Een klassiek register upgraden
       href: container-registry-upgrade.md
     - name: ACR-webhooks gebruiken

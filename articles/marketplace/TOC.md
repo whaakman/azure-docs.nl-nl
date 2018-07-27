@@ -16,7 +16,7 @@
 #### [Virtuele machines](./marketplace-virtual-machines.md)
 #### [Azure Apps: Oplossingssjablonen](./marketplace-solution-templates.md)
 #### [Azure Apps: Managed Applications](./marketplace-managed-apps.md)
-#### [Publicatiehandleiding voor SaaS-apps](./marketplace-saas-applications-technical-publishing-guide.md) 
+#### [SaaS-app](./marketplace-saas-applications-technical-publishing-guide.md) 
 #### [Containers](./marketplace-containers.md)
 #### [Adviesservices](./consulting-services.md)  
 #### [AppSource-apps](./appsource-offer-publishing-guide.md)

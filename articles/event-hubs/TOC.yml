@@ -4,9 +4,10 @@
   items:
     - name: Wat is Event Hubs?
       href: event-hubs-about.md
-    - name: Berichtenservices vergelijken
-      href: ../event-grid/compare-messaging-services.md
-      maintainContext: true
+    - name: Event Hubs voor Apache Kafka
+      href: event-hubs-for-kafka-ecosystem-overview.md
+    - name: Event Hubs Capture
+      href: event-hubs-capture-overview.md
 - name: Snelstartgidsen
   expanded: true
   items:
@@ -16,14 +17,31 @@
       href: event-hubs-quickstart-cli.md
     - name: Gebeurtenisstromen verwerken - Azure PowerShell
       href: event-hubs-quickstart-powershell.md
+    - name: Streamen naar Azure Event Hubs voor Apache Kafka
+      href: event-hubs-quickstart-kafka-enabled-event-hubs.md
 - name: Zelfstudies
   items:
     - name: Gegevensafwijkingen visualiseren in Event Hubs-gegevensstromen
       href: event-hubs-tutorial-visualize-anomalies.md
+    - name: Big data streamen naar een datawarehouse
+      href: ../event-grid/event-grid-event-hubs-integration.md
+      maintainContext: true
+    - name: Gegevens streamen naar Azure Databricks met behulp van Event Hubs
+      href: ../azure-databricks/databricks-stream-from-eventhubs.md
+    - name: Event Hubs voor Apache Kafka
+      items:
+        - name: Apache Kafka MirrorMaker met Event Hubs
+          href: event-hubs-kafka-mirror-maker-tutorial.md
+        - name: Apache Flink met Event Hubs
+          href: event-hubs-kafka-flink-tutorial.md
+        - name: Akka Streams met Event Hubs
+          href: event-hubs-kafka-akka-streams-tutorial.md
 - name: Voorbeelden
   href: event-hubs-samples.md
 - name: Concepten
   items:
+    - name: Functies van Event Hubs
+      href: event-hubs-features.md
     - name: Overzicht van de gebeurtenisprocessorhost
       href: event-hubs-event-processor-host.md
     - name: Filters voor IP-verbinding
@@ -35,8 +53,6 @@
     - name: Integreren met Event Grid
       href: ../event-grid/event-grid-event-hubs-integration.md
       maintainContext: true
-    - name: Functies van Event Hubs
-      href: event-hubs-features.md
     - name: Beheerde service-identiteit (preview)
       href: event-hubs-managed-service-identity.md
     - name: Op rollen gebaseerd toegangsbeheer (preview)
@@ -64,20 +80,10 @@
       href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Gebeurtenissen ontvangen met behulp van .NET Framework
       href: event-hubs-dotnet-framework-getstarted-receive-eph.md
-    - name: Event Hubs voor Kafka
+    - name: Event Hubs voor Apache Kafka
       items:
-        - name: Overzicht Event Hubs voor Kafka-ecosystemen
-          href: event-hubs-for-kafka-ecosystem-overview.md
-        - name: Event-hubs maken waarvoor Kafka is ingeschakeld
+        - name: Event-hubs maken waarvoor Apache Kafka is ingeschakeld
           href: event-hubs-create-kafka-enabled.md
-        - name: Streamen naar Azure Event Hubs voor het Kafka-ecosysteem
-          href: event-hubs-quickstart-kafka-enabled-event-hubs.md
-        - name: Zelfstudie voor Kafka MirrorMaker met Event Hubs
-          href: event-hubs-kafka-mirror-maker-tutorial.md
-        - name: Zelfstudie voor Apache Flink met Event Hubs
-          href: event-hubs-kafka-flink-tutorial.md
-        - name: Zelfstudie voor Akka Streams met Event Hubs
-          href: event-hubs-kafka-akka-streams-tutorial.md
     - name: Beschikbare API's
       href: event-hubs-api-overview.md
       items:
@@ -113,12 +119,8 @@
           href: event-hubs-metrics-azure-monitor.md
         - name: Event Hubs-beheerbibliotheken
           href: event-hubs-management-libraries.md
-        - name: Capture
-          items:
-            - name: Event Hubs Capture
-              href: event-hubs-capture-overview.md
-            - name: Gegevens van Event Hubs vastleggen met behulp van Python
-              href: event-hubs-capture-python.md
+        - name: Gegevens van Event Hubs vastleggen met behulp van Python
+          href: event-hubs-capture-python.md
         - name: Gegevens van Azure Diagnostics streamen met behulp van Event Hubs
           href: event-hubs-streaming-azure-diags-data.md
         - name: Event Hub maken en implementeren met een Resource Manager-sjabloon

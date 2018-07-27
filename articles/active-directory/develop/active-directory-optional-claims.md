@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e2b8b1f63e4c23c0beeaff6fd246fa2ba8afe106
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6e0b00117c35cd5222c69e72819afb37f9ec14dd
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036748"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265061"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Optionele claims in Azure AD (preview)
 
@@ -31,7 +31,7 @@ Deze functie wordt gebruikt door ontwikkelaars van toepassingen om op te geven w
 -   Toevoegen en toegang tot aangepaste claims voor uw toepassing. 
 
 > [!Note]
-> Deze mogelijkheid is momenteel in openbare preview. Wees voorbereid om te herstellen of verwijderen van eventuele wijzigingen. De functie is beschikbaar in alle Azure AD-abonnement tijdens de openbare preview. Wanneer de functie algemeen beschikbaar komt, kunnen sommige aspecten van de functie echter een Azure AD premium-abonnement vereist.
+> Deze mogelijkheid is momenteel in openbare preview. Wees voorbereid om terug te keren of eventuele wijzigingen te verwijderen. De functie is beschikbaar in alle Azure AD-abonnement tijdens de openbare preview. Wanneer de functie algemeen beschikbaar komt, kunnen sommige aspecten van de functie echter een Azure AD premium-abonnement vereist.
 
 Zie voor een lijst van standaard claims en hoe ze worden gebruikt in tokens, de [basisprincipes van tokens die zijn uitgegeven door Azure AD](active-directory-token-and-claims.md). 
 
@@ -41,8 +41,8 @@ Een van de doelstellingen van de [Azure AD v2.0-eindpunt](active-directory-appmo
 
 | Accounttype | V1.0-eindpunt                      | V2.0-eindpunt  |
 |--------------|------------------------------------|----------------|
-| MSA          | N.V.T. - RPS Tickets in plaats daarvan worden gebruikt | Binnenkort ondersteuning |
-| AAD          | Ondersteund                          | Ondersteund      |
+| Persoonlijke Microsoft-account  | N.V.T. - RPS Tickets in plaats daarvan worden gebruikt | Binnenkort ondersteuning |
+| Azure AD-account          | Ondersteund                          | Ondersteund      |
 
 ## <a name="standard-optional-claims-set"></a>Standard optioneel claims instellen
 De set optioneel claims die standaard beschikbaar is voor toepassingen om te gebruiken, worden hieronder vermeld.  Zie het toevoegen van aangepaste optionele claims voor uw toepassing [Mapextensies](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions)hieronder. 
@@ -214,7 +214,7 @@ Er zijn meerdere opties beschikbaar voor het bijwerken van de eigenschappen van 
 3.  Selecteer **Azure AD-extensie** in het linkernavigatievenster en klik op **App-registraties**.
 4.  De toepassing die u wilt configureren van optionele claims voor in de lijst en klik op het niet vinden.
 5.  Klik op de toepassingspagina **Manifest** om het manifest inline-editor te openen. 
-6.  U kunt het manifest met behulp van deze editor rechtstreeks bewerken. Het manifest volgt het schema voor de [Toepassingsentiteit](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), en het manifest één keer opgeslagen automatische-indelingen. Nieuwe elemets wordt toegevoegd aan de `OptionalClaims` eigenschap.
+6.  U kunt het manifest met behulp van deze editor rechtstreeks bewerken. Het manifest volgt het schema voor de [Toepassingsentiteit](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), en het manifest één keer opgeslagen automatische-indelingen. Nieuwe elementen worden toegevoegd aan de `OptionalClaims` eigenschap.
 
       ```json
       "optionalClaims": 

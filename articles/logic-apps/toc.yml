@@ -312,9 +312,9 @@
     - name: Definitietaal van werkstroomschema
       href: logic-apps-workflow-definition-language.md
       items:
-        - name: Werkstroomacties en -triggers
+        - name: Verwijzing voor trigger- en actietypen
           href: logic-apps-workflow-actions-triggers.md
-        - name: Definitietaal van werkstroomfuncties
+        - name: Functieverwijzing
           href: workflow-definition-language-functions-reference.md
         - name: 'GA: schemageschiedenis'
           href: logic-apps-schema-2016-04-01.md

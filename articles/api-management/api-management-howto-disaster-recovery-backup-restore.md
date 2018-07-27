@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2018
 ms.author: apimpm
-ms.openlocfilehash: b06a179459a449762555879669d177f811cb9560
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 4135bd66e839037d7db694cb3c6df8f3905222e6
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090874"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283090"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Herstel na noodgeval met behulp van back-up van de service implementeren en te herstellen in Azure API Management
 
@@ -76,6 +76,7 @@ Alle taken die u doen op resources met behulp van Azure Resource Manager moeten 
 
 7. Klik op **gedelegeerde machtigingen** naast de zojuist toegevoegde toepassing, schakel het selectievakje voor **toegang tot Azure Service Management (preview)**.
 8. Druk op **Selecteer**.
+9. Klik op **verlenen inhoudt**.
 
 ### <a name="configuring-your-app"></a>Configureren van uw app
 
@@ -92,7 +93,7 @@ namespace GetTokenResourceManagerRequests
         static void Main(string[] args)
         {
             var authenticationContext = new AuthenticationContext("https://login.microsoftonline.com/{tenant id}");
-            var result = authenticationContext.AcquireToken("https://management.azure.com/", {application id}, new Uri({redirect uri});
+            var result = authenticationContext.AcquireTokenAsync("https://management.azure.com/", "{application id}", new Uri("{redirect uri}"), new PlatformParameters(PromptBehavior.Auto)).Result;
 
             if (result == null) {
                 throw new InvalidOperationException("Failed to obtain the JWT token");
@@ -123,6 +124,8 @@ Vervang `{tentand id}`, `{application id}`, en `{redirect uri}` met behulp van d
 
 ## <a name="calling-the-backup-and-restore-operations"></a>Aanroepen van de bewerkingen voor back-up en herstel
 
+De REST-API's zijn [Api Management-Service - back-up](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/backup) en [Api Management-Service - terugzetten](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/restore).
+
 Voordat het aanroepen van de 'back-up en herstellen' bewerkingen die worden beschreven in de volgende secties stelt u de autorisatie-header voor aanvraag voor de REST-aanroep.
 
 ```csharp
@@ -132,24 +135,27 @@ request.Headers.Add(HttpRequestHeader.Authorization, "Bearer " + token);
 ### <a name="step1"> </a>Back-up van een API Management-service
 Back-up een probleem van API Management-service de volgende HTTP-aanvraag:
 
-`POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}`
+```
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/backup?api-version={api-version}
+```
 
 Waar:
 
 * `subscriptionId` -id van het abonnement met de API Management-service die u wilt back-up maken
 * `resourceGroupName` -naam van de resourcegroep van uw Azure API Management-service
 * `serviceName` -de naam van de API Management-service maken van een back-up van de opgegeven op het moment van aanmaak
-* `api-version` -vervangen `2014-02-14`
+* `api-version` -vervangen `2018-06-01-preview`
 
 Geef in de hoofdtekst van de aanvraag, de doelnaam van het Azure storage-account, toegangssleutel, de naam van de blob-container en de naam van de back-up:
 
-```
-'{  
-    storageAccount : {storage account name for the backup},  
-    accessKey : {access key for the account},  
-    containerName : {backup container name},  
-    backupName : {backup blob name}  
-}'
+
+```json
+{
+  "storageAccount": "{storage account name for the backup}",
+  "accessKey": "{access key for the account}",
+  "containerName": "{backup container name}",
+  "backupName": "{backup blob name}"
+}
 ```
 
 Stel de waarde van de `Content-Type` aanvraagheader naar `application/json`.
@@ -168,24 +174,26 @@ Houd er rekening mee de volgende beperkingen bij het maken van een back-upaanvra
 ### <a name="step2"> </a>Herstellen van een API Management-service
 Als u wilt herstellen van een API Management-service van een eerder gemaakte back-up moet u de volgende HTTP-aanvraag:
 
-`POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}`
+```
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ApiManagement/service/{serviceName}/restore?api-version={api-version}
+```
 
 Waar:
 
 * `subscriptionId` -id van het abonnement met de API Management-service die u herstelt een back-up in
 * `resourceGroupName` -een tekenreeks in de vorm van 'Api - standaard-{service-regio}' waar `service-region` identificeert de Azure-regio waar u bij het herstellen van een back-up in de API Management-service wordt gehost, bijvoorbeeld: `North-Central-US`
 * `serviceName` -de naam van de API Management-service wordt hersteld in op het moment van aanmaak opgegeven
-* `api-version` -vervangen `2014-02-14`
+* `api-version` -vervangen `2018-06-01-preview`
 
 Geef de back-upbestand locatie, die is, Azure storage-accountnaam toegangssleutel, de naam van de blob-container en de naam van de back-up in de hoofdtekst van de aanvraag:
 
-```
-'{  
-    storageAccount : {storage account name for the backup},  
-    accessKey : {access key for the account},  
-    containerName : {backup container name},  
-    backupName : {backup blob name}  
-}'
+```json
+{
+  "storageAccount": "{storage account name for the backup}",
+  "accessKey": "{access key for the account}",
+  "containerName": "{backup container name}",
+  "backupName": "{backup blob name}"
+}
 ```
 
 Stel de waarde van de `Content-Type` aanvraagheader naar `application/json`.

@@ -1,40 +1,40 @@
 ---
-title: Maken van een momentopname van een alleen-lezen van een blob in Azure Storage | Microsoft Docs
-description: Informatie over het maken van een momentopname van een blob naar de back-up van blob-gegevens op een gegeven moment. Begrijpen hoe momentopnamen worden gefactureerd en het gebruik ervan capaciteit, kosten te minimaliseren.
+title: Een momentopname van een alleen-lezen van een blob maken in Azure Storage | Microsoft Docs
+description: Informatie over het maken van een momentopname van een blob naar de back-up van blob-gegevens op een bepaald tijdstip in de tijd. Begrijp hoe momentopnamen worden gefactureerd en hoe u kunt gebruiken voor het minimaliseren van capaciteit, kosten in rekening gebracht.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 03/06/2018
 ms.author: tamram
-ms.openlocfilehash: 1a27dfd61850d9dfa1f232eacf7f09d66202cafe
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.component: blobs
+ms.openlocfilehash: 6fa223ffcbc70b2f17649645df3daed22746edd0
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29852928"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264028"
 ---
 # <a name="create-a-blob-snapshot"></a>Een blob-momentopname maken
 
-Een momentopname is een alleen-lezen-versie van een blob die wordt uitgevoerd op een punt in tijd. Momentopnamen zijn nuttig voor back-up blobs. Nadat u een momentopname gemaakt, lezen, kopiëren of verwijderen, maar u kunt dit niet wijzigen.
+Een momentopname is een alleen-lezen versie van een blob die moet worden uitgevoerd op een bepaald tijdstip. Momentopnamen zijn handig voor het back-ups van blobs. Nadat u een momentopname gemaakt, kunt u lezen, kopiëren of verwijderen, maar u kunt dit niet wijzigen.
 
-Een momentopname van een blob is identiek aan de base blob, behalve dat de blob-URI bevat een **DateTime** waarde toegevoegd aan de blob-URI om aan te geven van de tijd waarop de momentopname werd gemaakt. Bijvoorbeeld, als een pagina blob-URI is `http://storagesample.core.blob.windows.net/mydrives/myvhd`, de momentopname van de URI vergelijkbaar met is `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
+Een momentopname van een blob is identiek aan de basis-blob, behalve dat de blob-URI is een **datum-/** waarde toegevoegd aan de blob-URI om aan te geven van de tijd waarop de momentopname werd gemaakt. Bijvoorbeeld, als een pagina blob-URI is `http://storagesample.core.blob.windows.net/mydrives/myvhd`, de momentopname-URI vergelijkbaar met is `http://storagesample.core.blob.windows.net/mydrives/myvhd?snapshot=2011-03-09T01:42:34.9360000Z`.
 
 > [!NOTE]
-> Alle momentopnamen delen de base blob-URI. Het enige verschil tussen de base blob en de momentopname is de toegevoegde **DateTime** waarde.
+> Alle momentopnamen delen van de basis blob-URI. De enige verschil tussen de base blob en de momentopname is de toegevoegde **datum-/** waarde.
 >
 
-Een blob kan een onbeperkt aantal momentopnamen hebben. Momentopnamen bewaard totdat ze expliciet worden verwijderd. Een momentopname kan niet de base blob outlive. U kunt de momentopnamen die zijn gekoppeld aan de basis blob om bij te houden van uw huidige momentopnamen opsommen.
+Een blob kan een onbeperkt aantal momentopnamen hebben. Momentopnamen blijft actief totdat ze expliciet worden verwijderd. Een momentopname kan niet de base blob outlive. U kunt de momentopnamen die zijn gekoppeld aan de basis-blob voor het bijhouden van uw huidige momentopnamen opsommen.
 
-Wanneer u een momentopname van een blob maakt, worden de blob-Systeemeigenschappen gekopieerd naar de momentopname met dezelfde waarden. De base blob metagegevens wordt ook gekopieerd naar de momentopname, tenzij u afzonderlijke metagegevens voor de momentopname opgeven wanneer u dit hebt gemaakt.
+Wanneer u een momentopname van een blob maakt, worden de eigenschappen van de blob gekopieerd naar de momentopname met dezelfde waarden. De base blobmetagegevens wordt ook gekopieerd naar de momentopname, tenzij u afzonderlijke metagegevens voor de momentopname opgeeft wanneer u deze maakt.
 
-Alle leases die zijn gekoppeld aan de basis blob hebben geen invloed op de momentopname. U kunt een lease op een momentopname kan niet verkrijgen.
+De momentopname niet van invloed op alle leases die zijn gekoppeld aan de basis-blob. U kunt een lease op een momentopname kan niet verkrijgen.
 
-Een VHD-bestand wordt gebruikt voor het opslaan van de huidige informatie en status voor een VM-schijf. U kunt loskoppelen van een schijf uit vanuit de virtuele machine of sluit de virtuele machine en vervolgens een momentopname van de VHD-bestand. U kunt dat momentopnamebestand later gebruiken voor het ophalen van het VHD-bestand op dat moment en de virtuele machine opnieuw.
+Een VHD-bestand wordt gebruikt voor het opslaan van de huidige informatie en status voor een VM-schijf. U kunt een schijf loskoppelen van binnen de virtuele machine of de virtuele machine af en vervolgens maakt u een momentopname van de VHD-bestand. U kunt dat momentopnamebestand later gebruiken voor het ophalen van het VHD-bestand op dat punt in tijd en opnieuw maken van de virtuele machine.
 
 ## <a name="create-a-snapshot"></a>Een momentopname maken
-De volgende voorbeeldcode laat zien hoe een momentopname te maken met behulp van de [Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). In dit voorbeeld bevat aanvullende metagegevens voor de momentopname wanneer deze wordt gemaakt.
+Het volgende codevoorbeeld laat zien hoe u een momentopname maakt met behulp van de [Azure Storage-clientbibliotheek voor .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). In dit voorbeeld bevat aanvullende metagegevens voor de momentopname wanneer deze wordt gemaakt.
 
 ```csharp
 private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
@@ -69,35 +69,35 @@ private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
 }
 ```
 
-## <a name="copy-snapshots"></a>Kopiëren van momentopnamen
-Kopieerbewerkingen met betrekking tot de blobs en momentopnamen van voldoen deze regels:
+## <a name="copy-snapshots"></a>Momentopnamen kopiëren
+Kopieerbewerkingen met betrekking tot blobs en momentopnamen volgt u deze regels:
 
-* U kunt een momentopname via de base blob kopiëren. Door een momentopname met de positie van de basis blob te promoveren, kunt u een eerdere versie van een blob herstellen. De momentopname blijft, maar de base blob wordt overschreven met een beschrijfbare kopie van de momentopname.
-* U kunt een momentopname kopiëren naar een bestemmings-blob met een andere naam. De resulterende bestemmings-blob is een beschrijfbare blob en niet een momentopname.
-* Als een bron-blob zijn gekopieerd, worden alle momentopnamen van de bron-blob niet gekopieerd naar de bestemming. Wanneer een bestemmings-blob is overschreven door een exemplaar, zijn de momentopnamen die zijn gekoppeld aan de oorspronkelijke bestemmings-blob blijven behouden.
-* Bij het maken van een momentopname van een blok-blob is ook de blob doorgevoerd blokkeringslijst gekopieerd naar de momentopname. Een niet-doorgevoerde blokken worden niet gekopieerd.
+* U kunt een momentopname van een via de base blob kopiëren. Door het promoveren van een momentopname met de positie van de basis-blob, kunt u een eerdere versie van een blob herstellen. De momentopname-blijven, maar de base blob wordt overschreven met een beschrijfbare kopie van de momentopname.
+* U kunt een momentopname van een kopiëren naar een bestemmings-blob met een andere naam. De resulterende bestemmings-blob is een beschrijfbare blob en niet een momentopname.
+* Als een bron-blob is gekopieerd, wordt alle momentopnamen van de bron-blob worden niet gekopieerd naar de bestemming. Wanneer een bestemmings-blob wordt overschreven met behulp van een kopie, blijven alle momentopnamen die zijn gekoppeld aan het oorspronkelijke bestemmings-blob intact.
+* Wanneer u een momentopname van een blok-blob maakt, wordt ook vastgelegd van de blob-blokkeringslijst gekopieerd naar de momentopname. Een niet-doorgevoerde blokken zijn niet gekopieerd.
 
 ## <a name="specify-an-access-condition"></a>Geef een voorwaarde voor toegang
-Als u aanroept [CreateSnapshotAsync][dotnet_CreateSnapshotAsync], kunt u een voorwaarde voor toegang opgeven, zodat de momentopname alleen gemaakt wordt als een voorwaarde wordt voldaan. Als u een voorwaarde voor toegang, gebruik de [AccessCondition] [ dotnet_AccessCondition] parameter. Als niet aan de opgegeven voorwaarde wordt voldaan, wordt de momentopname niet gemaakt is en de Blob-service statuscode retourneert [HTTPStatusCode][dotnet_HTTPStatusCode]. PreconditionFailed.
+Als u aanroept [CreateSnapshotAsync][dotnet_CreateSnapshotAsync], kunt u een voorwaarde toegang opgeven, zodat de momentopname alleen gemaakt wordt als een voorwaarde wordt voldaan. Als u een voorwaarde toegang, gebruik de [AccessCondition] [ dotnet_AccessCondition] parameter. Als niet aan de opgegeven voorwaarde wordt voldaan, de momentopname niet is gemaakt en de Blob-service statuscode retourneert [HTTPStatusCode][dotnet_HTTPStatusCode]. PreconditionFailed.
 
-## <a name="delete-snapshots"></a>Verwijder momentopnamen
-U kunt een blob met de momentopnamen niet verwijderen, tenzij de momentopnamen worden ook verwijderd. U kunt een momentopname van een afzonderlijk verwijderen of opgeven dat alle momentopnamen worden verwijderd wanneer de bron-blob is verwijderd. Als u probeert te verwijderen van een blob die nog steeds momentopnamen bevat, wordt een fout resulteert.
+## <a name="delete-snapshots"></a>Momentopnamen verwijderen
+U kunt een blob met momentopnamen niet verwijderen, tenzij de momentopnamen worden ook verwijderd. U kunt een momentopname van een afzonderlijk verwijderen of opgeven dat alle momentopnamen worden verwijderd wanneer de bron-blob wordt verwijderd. Als u probeert te verwijderen van een blob die nog steeds momentopnamen bevat, wordt er een fout resulteert.
 
-De volgende voorbeeldcode laat zien hoe een blob en bijbehorende momentopnamen in .NET, te verwijderen waar `blockBlob` is een object van het type [CloudBlockBlob][dotnet_CloudBlockBlob]:
+Het volgende codevoorbeeld laat zien hoe een blob en de momentopnamen in .NET, te verwijderen waar `blockBlob` is een object van het type [CloudBlockBlob][dotnet_CloudBlockBlob]:
 
 ```csharp
 await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
 ```
 
-## <a name="snapshots-with-azure-premium-storage"></a>Momentopnamen met Azure Premium-opslag
-Als u momentopnamen met Premium-opslag, gelden de volgende regels:
+## <a name="snapshots-with-azure-premium-storage"></a>Momentopnamen met Azure Premium Storage
+Als u momentopnamen voor Premium-opslag, gelden de volgende regels:
 
-* Het maximum aantal momentopnamen per pagina-blob in een premium storage-account is 100. Als deze limiet wordt overschreden, de momentopname Blob-bewerking retourneert foutcode 409 (`SnapshotCountExceeded`).
-* U kunt een momentopname van een pagina-blob nemen in een premium storage-account om de 10 minuten. Als dit percentage wordt overschreden, de momentopname Blob-bewerking retourneert foutcode 409 (`SnapshotOperationRateExceeded`).
-* Om te lezen van een momentopname, kunt u de bewerking Blob kopiëren naar een momentopname kopiëren naar een andere paginablob in het account. De bestemmings-blob voor de kopieerbewerking mag geen eventuele bestaande momentopnamen. Als de bestemmings-blob momentopnamen heeft, wordt de kopie Blob-bewerking foutcode 409 retourneert (`SnapshotsPresent`).
+* Het maximum aantal momentopnamen per pagina-blobs in een premium storage-account is 100. Als deze limiet wordt overschreden, de momentopname maken van Blob-bewerking retourneert foutcode 409 (`SnapshotCountExceeded`).
+* U kunt een momentopname van een pagina-blob in een premium storage-account om de tien minuten. Als dit percentage wordt overschreden, de momentopname maken van Blob-bewerking retourneert foutcode 409 (`SnapshotOperationRateExceeded`).
+* Om te lezen van een momentopname, kunt u de bewerking kopiëren van de Blob te kopiëren van een momentopname naar een andere paginablob in het account. De bestemmings-blob voor de kopieerbewerking moet alle bestaande momentopnamen niet hebben. Als de bestemmings-blob momentopnamen hebt, wordt het kopiëren van de Blob-bewerking foutcode 409 retourneert (`SnapshotsPresent`).
 
-## <a name="return-the-absolute-uri-to-a-snapshot"></a>Retourneert de absolute URI naar een momentopname
-In dit voorbeeld C#-code maakt een momentopname en schrijft de absolute URI voor de primaire locatie.
+## <a name="return-the-absolute-uri-to-a-snapshot"></a>Retourneert de absolute URI zijn die naar een momentopname
+Dit C#-codevoorbeeld wordt een momentopname gemaakt en schrijft de absolute URI zijn die voor de primaire locatie.
 
 ```csharp
 //Create the blob service client object.
@@ -119,56 +119,56 @@ CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
 Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
 ```
 
-## <a name="understand-how-snapshots-accrue-charges"></a>Begrijpen hoe de kosten voor het samenvoegen van momentopnamen
-Maken van een momentopname een alleen-lezen kopie van een blob is, kan leiden tot aanvullende gegevens opslagkosten aan uw account. Bij het ontwerpen van uw toepassing, is het belangrijk te weten van hoe deze kosten doorlopen kunnen, zodat u de kosten kunt minimaliseren.
+## <a name="understand-how-snapshots-accrue-charges"></a>Begrijpen hoe de kosten in rekening gebracht voor het samenvoegen van momentopnamen
+Het maken van een momentopname een alleen-lezen kopie van een blob is, kan leiden tot extra kosten voor opslag aan uw account. Bij het ontwerpen van uw toepassing, is het belangrijk dat u zich bewust zijn van hoe deze kosten toenemen kunnen, zodat u kosten kunt minimaliseren.
 
 ### <a name="important-billing-considerations"></a>Belangrijke overwegingen voor facturering
-De volgende lijst bevat de belangrijkste punten in overweging moet nemen bij het maken van een momentopname.
+De volgende lijst bevat belangrijke punten om te overwegen bij het maken van een momentopname.
 
-* Uw opslagaccount leidt ertoe dat de kosten voor unieke blokken of pagina's, ongeacht of deze in de blob of in de momentopname. Uw account heeft geen gevolgen voor de extra kosten voor momentopnamen die zijn gekoppeld met een blob, totdat u de blob waarop ze zijn gebaseerd bijwerkt. Na het bijwerken van de basis blob, wordt deze afwijkt van de momentopnamen. Als dit gebeurt, wordt u in rekening gebracht voor de unieke blokken of pagina's in elke blob of een momentopname.
-* Wanneer u een blok binnen een blok-blob vervangt, dat blok wordt vervolgens in rekening gebracht als unieke blok. Dit geldt zelfs als het blok heeft dezelfde blok-ID en dezelfde gegevens er in de momentopname. Nadat het blok doorgevoerd is opnieuw het afwijkt van het bijbehorende equivalent in een momentopname en wordt u gefactureerd voor de gegevens. Hetzelfde geldt voor een pagina in een pagina-blob bijgewerkt met identieke gegevens.
-* Een blok-blob vervangen door het aanroepen van de [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream] [ dotnet_UploadFromStream], of [UploadFromByteArray] [ dotnet_UploadFromByteArray] vervangt alle blokken in de blob-methode. Als er een momentopname die is gekoppeld aan blob, alle blokken in de basis-blob en momentopname nu luidsprekers en wordt u gefactureerd voor alle blokken in beide blobs. Dit geldt zelfs als de gegevens in de base blob en de momentopname identiek.
-* De Azure Blob-service heeft geen een manier om te bepalen of twee blokken identieke gegevens bevatten. Elk blok dat wordt geüpload en doorgevoerd wordt behandeld als uniek zijn, zelfs als deze dezelfde gegevens en de dezelfde blok-ID heeft. Omdat kosten voor unieke blokken doorlopen, is het belangrijk in die voor het bijwerken van een blob met een momentopname resulteert in extra unieke blokken en extra kosten.
+* Uw storage-account leidt tot kosten voor voor unieke blokken of pagina's, ongeacht of deze in de blob of in de momentopname. Uw account heeft geen extra kosten voor momentopnamen die zijn gekoppeld aan een blob, totdat u de blob op waarop ze zijn gebaseerd bijwerken. Nadat u de basis blob bijgewerkt, wordt het afwijkt van de momentopnamen ervan verwijderd. Als dit gebeurt, worden in rekening gebracht voor de unieke blokken of pagina's in elke blob of een momentopname.
+* Wanneer u een blok in een blok-blob vervangt, dat blok wordt later in rekening gebracht als een unieke blok. Dit geldt zelfs als het blok heeft dezelfde blok-ID en de dezelfde gegevens er in de momentopname. Nadat het blok is het belangrijk opnieuw het afwijkt van het bijbehorende equivalent van een momentopname, en u wordt gefactureerd voor de gegevens. Hetzelfde geldt voor een pagina in een pagina-blob die wordt bijgewerkt met identieke gegevens.
+* Een blok-blob vervangen door het aanroepen van de [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [UploadFromStream] [ dotnet_UploadFromStream], of [UploadFromByteArray] [ dotnet_UploadFromByteArray] methode vervangt alle blokken in de blob. Alle blokken in de basis blob en momentopname luidsprekers nu hebt u een momentopname die is gekoppeld aan die blob, en u wordt gefactureerd voor de blokken in beide blobs. Dit geldt zelfs als de gegevens in de basis-blob en de momentopname identiek.
+* De Azure Blob-service heeft geen een manier om te bepalen of twee blokken identieke gegevens bevatten. Elk blok dat is geüpload en verwerkt wordt beschouwd als uniek is, zelfs als deze dezelfde gegevens en de dezelfde blok-ID heeft. Omdat kosten voor unieke blokken toenemen, is het belangrijk te bedenken dat een blob die de resultaten van een momentopname in als u meer unieke blokken en extra kosten in rekening is bijgewerkt.
 
-### <a name="minimize-cost-with-snapshot-management"></a>Kosten met beheer van momentopnamen beperken
+### <a name="minimize-cost-with-snapshot-management"></a>Kosten met beheer van momentopnamen minimaliseren
 
-Het is raadzaam om het beheer van uw momentopnamen zorgvuldig om te voorkomen dat extra kosten. U kunt deze best practices te helpen de kosten van de opslag van uw momentopnamen minimaliseren volgen:
+Het is raadzaam om voor het beheren van uw momentopnamen zorgvuldig om te voorkomen dat extra kosten in rekening gebracht. U kunt deze aanbevolen procedures voor het minimaliseren van de kosten van de opslag van uw momentopnamen volgen:
 
-* Verwijderen en opnieuw maken van momentopnamen die zijn gekoppeld met een blob telkens wanneer u de blob bijwerkt, zelfs als u met identieke gegevens bijwerken wilt tenzij ontwerp van uw toepassing vereist is voor het onderhouden van momentopnamen. Door te verwijderen en opnieuw maken van de blob-momentopnamen, kunt u ervoor zorgen dat de blob en momentopnamen niet luidsprekers.
-* Als u momentopnamen voor een blob en onderhoudt voorkomen dat de aanroepen [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [ UploadFromStream][dotnet_UploadFromStream], of [UploadFromByteArray] [ dotnet_UploadFromByteArray] bijwerken van de blob. Deze methoden vervangen van alle van de gegevensblokken die zich in de blob, waardoor uw base blob en bijbehorende momentopnamen aanzienlijk afwijkt. In plaats daarvan het minste aantal blokken bijwerken met behulp van de [PutBlock] [ dotnet_PutBlock] en [PutBlockList] [ dotnet_PutBlockList] methoden.
+* Verwijderen en opnieuw maken van momentopnamen die zijn gekoppeld aan een blob wanneer u de blob bijwerken, zelfs als u met identieke gegevens, bijwerken wilt tenzij het ontwerp van uw toepassing vereist dat u momentopnamen behoudt. Door te verwijderen en opnieuw te maken van de blob-momentopnamen, kunt u ervoor zorgen dat de blob en de momentopnamen niet luidsprekers.
+* Als u momentopnamen voor een blob, te voorkomen dat aanroepen [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [ UploadFromStream][dotnet_UploadFromStream], of [UploadFromByteArray] [ dotnet_UploadFromByteArray] om bij te werken van de blob. Deze methoden vervangen van alle de blokken in de blob, waardoor uw basis-blob en de momentopnamen sterk afwijkt. In plaats daarvan het minst mogelijke aantal blokken bijwerken met behulp van de [PutBlock] [ dotnet_PutBlock] en [PutBlockList] [ dotnet_PutBlockList] methoden.
 
-### <a name="snapshot-billing-scenarios"></a>Momentopname facturering scenario 's
-De volgende scenario's laten zien hoe de kosten voor een blok-blob en bijbehorende momentopnamen doorlopen.
+### <a name="snapshot-billing-scenarios"></a>Momentopname van facturering van scenario 's
+De volgende scenario's laten zien hoe de kosten voor een blok-blob en de momentopnamen ervan verwijderd toenemen.
 
 **Scenario 1**
 
-In scenario 1, is de base blob niet bijgewerkt nadat de momentopname werd gemaakt, zodat de kosten verbonden zijn alleen voor unieke blokken 1, 2 en 3.
+In scenario 1, is de base blob niet bijgewerkt nadat de momentopname is gemaakt, zodat kosten in voor unieke blokken 1, 2 en 3 gebracht rekening.
 
 ![Azure Storage-resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-1.png)
 
 **Scenario 2**
 
-In scenario 2 de base blob is bijgewerkt, maar de momentopname niet heeft. Blok 3 is bijgewerkt en hoewel het bevat dezelfde gegevens en dezelfde ID, het is niet hetzelfde als 3 in de momentopname geblokkeerd. Als gevolg hiervan het account wordt in rekening gebracht voor vier blokken.
+In scenario 2, de base blob is bijgewerkt, maar de momentopname niet heeft. Blok 3 is bijgewerkt en zelfs als deze de dezelfde gegevens en dezelfde ID bevat, het is niet hetzelfde als 3 in de momentopname geblokkeerd. Als gevolg hiervan het account wordt in rekening gebracht voor vier blokken.
 
 ![Azure Storage-resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-2.png)
 
 **Scenario 3**
 
-In scenario 3 de base blob is bijgewerkt, maar de momentopname niet heeft. Blok 3 is vervangen door blok 4 in de base blob, maar de momentopname weerspiegelt nog steeds blok 3. Als gevolg hiervan het account wordt in rekening gebracht voor vier blokken.
+In scenario 3, de base blob is bijgewerkt, maar de momentopname niet heeft. Blok 3 is vervangen door blok 4 in de basis-blob, maar de momentopname weerspiegelt nog steeds block 3. Als gevolg hiervan het account wordt in rekening gebracht voor vier blokken.
 
 ![Azure Storage-resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-3.png)
 
 **Scenario 4**
 
-In scenario 4 de base blob volledig is bijgewerkt en geen van de oorspronkelijke blokken bevat. Het account wordt hierdoor alle acht unieke blokken belast. Dit kan gebeuren als u een update-methode, zoals [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [ UploadFromStream][dotnet_UploadFromStream], of [UploadFromByteArray][dotnet_UploadFromByteArray], omdat deze methoden vervangen van alle van de inhoud van een blob.
+In scenario 4, de base blob volledig is bijgewerkt en geen van de oorspronkelijke blokken bevat. Als gevolg hiervan het account wordt in rekening gebracht voor alle acht unieke blokken. Dit kan gebeuren als u een update-methode, zoals [UploadFromFile][dotnet_UploadFromFile], [UploadText][dotnet_UploadText], [ UploadFromStream][dotnet_UploadFromStream], of [UploadFromByteArray][dotnet_UploadFromByteArray], omdat deze methoden vervangen van alle van de inhoud van een blob.
 
 ![Azure Storage-resources](./media/storage-blob-snapshots/storage-blob-snapshots-billing-scenario-4.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* U vindt meer informatie over het werken met momentopnamen van virtuele machine (VM)-schijf in [Back-up van Azure niet-beheerde VM-schijven met incrementele momentopnamen](../../virtual-machines/windows/incremental-snapshots.md)
+* U vindt meer informatie over het werken met momentopnamen van de virtuele machine (VM)-schijf in [maakt u een Back-up van Azure niet-beheerde VM-schijven met incrementele momentopnamen](../../virtual-machines/windows/incremental-snapshots.md)
 
-* Zie voor aanvullende codevoorbeelden met behulp van Blob-opslag, [Azure codevoorbeelden](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). Een voorbeeld van een toepassing te downloaden en uitvoeren, of de code op GitHub bladeren.
+* Zie voor voorbeelden van aanvullende code met behulp van Blob-opslag, [Azure-codevoorbeelden](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob). U kunt een voorbeeld-App downloaden en uitvoeren, of de code bekijken op GitHub.
 
 [dotnet_AccessCondition]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.accesscondition.aspx
 [dotnet_CloudBlockBlob]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.cloudblockblob.aspx

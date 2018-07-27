@@ -2,18 +2,18 @@
 title: Azure Blob-opslaggebeurtenissen doorsturen naar een eindpunt op het aangepaste web - Powershell | Microsoft Docs
 description: Gebruik Azure Event Grid om u te abonneren op gebeurtenissen van Blob Storage.
 services: storage,event-grid
-keywords: ''
 author: david-stanford
 ms.author: dastanfo
 ms.date: 07/05/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: c2db67738dddbc9e20eb8fe9d2a30c7a26bf07cd
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.component: blobs
+ms.openlocfilehash: 26e80f166e1add5cebb837c1c05e45f25ff2d086
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068917"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262749"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Blob-opslaggebeurtenissen doorsturen naar een aangepaste web-eindpunt met PowerShell
 
@@ -38,7 +38,7 @@ Connect-AzureRmAccount
 ```
 
 > [!NOTE]
-> De beschikbaarheid van gebeurtenissen van Storage is gekoppeld aan Event Grid [beschikbaarheid](../../event-grid/overview.md) en worden pas beschikbaar in andere regio's als Event Grid.
+> [Beschikbaarheid](../../event-grid/overview.md) voor opslaggebeurtenissen is gekoppeld aan de beschikbaarheid van Event Grid en komt beschikbaar in andere regio’s wanneer dit ook voor Event Grid geldt.
 
 In dit voorbeeld wordt **westus2** en slaat u de selectie in een variabele voor gebruik over de hele.
 
@@ -102,9 +102,9 @@ Op de site zouden momenteel geen berichten moeten wijn weergeven.
 
 [!INCLUDE [event-grid-register-provider-powershell.md](../../../includes/event-grid-register-provider-powershell.md)]
 
-## <a name="subscribe-to-your-storage-account"></a>Abonneren op uw storage-account
+## <a name="subscribe-to-your-storage-account"></a>Abonneren op uw opslagaccount
 
-U abonneert u op een onderwerp om Event Grid te laten weten welke gebeurtenissen u wilt traceren. Het volgende voorbeeld is geabonneerd naar het opslagaccount dat u hebt gemaakt en hoe de URL van uw web-app als het eindpunt voor de gebeurtenismelding. Het eindpunt voor uw web-app moet het achtervoegsel `/api/updates/` bevatten.
+U abonneert u op een onderwerp om Event Grid te laten weten welke gebeurtenissen u wilt traceren. In het volgende voorbeeld ziet u hoe u zich abonneert op het opslagaccount dat u hebt gemaakt, en hoe de URL van de web-app wordt doorgegeven als het eindpunt voor de gebeurtenismelding. Het eindpunt voor uw web-app moet het achtervoegsel `/api/updates/` bevatten.
 
 ```powershell
 $storageId = (Get-AzureRmStorageAccount -ResourceGroupName $resourceGroup -AccountName $storageName).Id
