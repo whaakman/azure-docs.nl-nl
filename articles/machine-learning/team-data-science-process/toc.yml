@@ -15,8 +15,6 @@
       href: lifecycle-deployment.md
     - name: 5. Aanvaarding van de klant
       href: lifecycle-acceptance.md
-    - name: Met Azure ML
-      href: 'http://aka.ms/datascienceprocess'
 - name: Rollen en taken
   href: roles-tasks.md
   items:
@@ -127,20 +125,6 @@
         - name: Azure Machine Learning-werkruimte
           href: ../studio/create-workspace.md
           maintainContext: true
-        - name: Een Data Science VM instellen
-          items:
-            - name: Een Windows Data Science VM maken
-              href: ../data-science-virtual-machine/provision-vm.md
-              maintainContext: true
-            - name: Een Ubuntu Data Science VM maken
-              href: ../data-science-virtual-machine/dsvm-ubuntu-intro.md
-              maintainContext: true
-            - name: Een CentOS Data Science VM maken
-              href: ../data-science-virtual-machine/linux-dsvm-intro.md
-              maintainContext: true
-            - name: Een Deep Learning VM maken
-              href: ../data-science-virtual-machine/provision-deep-learning-dsvm.md
-              maintainContext: true
     - name: Zakelijke behoeften analyseren
       items:
         - name: Uw scenario identificeren

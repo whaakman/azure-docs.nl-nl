@@ -44,6 +44,12 @@
       items:
         - name: Architectuur
           href: iot-accelerators-connected-factory-sample-walkthrough.md
+    - name: Apparaatsimulatie
+      items:
+        - name: Apparaatmodelschema
+          href: iot-accelerators-device-simulation-device-schema.md
+        - name: Apparaatmodelgedrag
+          href: iot-accelerators-device-simulation-device-behavior.md
     - name: Machtigingen op azureiotsolutions.com
       href: iot-accelerators-permissions.md
 - name: Handleidingen
