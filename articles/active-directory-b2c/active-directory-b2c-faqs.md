@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e56b6f9360bdbfe2c5dcb2e81862cb80310bf54c
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6b5cc1eff5c6d080854754ec5b3b62068f1cbb9c
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928729"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264712"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Veelgestelde vragen (FAQ) 
 Deze pagina vindt u antwoorden op veelgestelde vragen over de Azure Active Directory (Azure AD) B2C. Houd regelmatig op updates controleren.
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Waarom geen ik toegang tot de Azure AD B2C-extensie in de Azure-portal?
-Er zijn twee gangbare redenen voor de Azure AD-uitbreiding waarom niet voor u werkt is.  Azure AD B2C vereist uw gebruikersrol in de map globale beheerder.  Neem contact op met uw beheerder als u denkt dat u toegang moet hebben.  Als u globale beheerder-bevoegdheden hebt, zorg ervoor dat u zich in een Azure AD B2C-map en niet in een Azure Active Directory-map.  Ziet u instructies voor het [het maken van een Azure AD B2C-directory](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
+Er zijn twee gangbare redenen voor de Azure AD-extensie waarom niet voor u werkt is.  Azure AD B2C vereist uw gebruikersrol in de map globale beheerder.  Neem contact op met uw beheerder als u denkt dat u toegang moet hebben.  Als u globale beheerder-bevoegdheden hebt, zorg ervoor dat u zich in een Azure AD B2C-map en niet in een Azure Active Directory-map.  Ziet u instructies voor het [het maken van een Azure AD B2C-directory](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant).
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Kan ik Azure AD B2C-functies gebruiken in mijn bestaande, op basis van een werknemer Azure AD-tenant?
 Azure AD en Azure AD B2C zijn afzonderlijke productaanbod en kunnen niet worden gecombineerd in dezelfde tenant.  Een Azure AD-tenant vertegenwoordigt een organisatie.  Een Azure AD B2C-tenant vertegenwoordigt een verzameling van identiteiten die worden gebruikt met relying party toepassingen.  Met aangepaste beleidsregels (in openbare preview), kan Azure AD B2C federeren naar Azure AD de verificatie van de werknemers toestaan in een organisatie.
@@ -118,7 +118,7 @@ Volg deze stappen voor het verwijderen van uw Azure AD B2C-tenant:
 1. Nu aanmelden bij de [Azure-portal](https://portal.azure.com/) als beheerder van het abonnement. (Gebruik de dezelfde werk- of schoolaccount of hetzelfde Microsoft-account die u hebt gebruikt om u te registreren voor Azure.)
 1. Switch voor de Azure AD B2C-tenant die u wilt verwijderen.
 2. Navigeer naar de Active Directory-menu aan de linkerkant.
-3. Selecteer **gebruikers en groepen**.
+3. Selecteer **Gebruikers en groepen**.
 4. Selecteer elke gebruiker in inschakelen (de beheerder van abonnement-gebruiker die u momenteel bent aangemeld als uitsluiten). Klik op **verwijderen** aan de onderkant van de pagina en klik op **Ja** wanneer hierom wordt gevraagd.
 5. Klik op de **App-registraties**.
 6. Selecteer de toepassing met de naam **b2c-extensions-app**. Klik op **verwijderen** en klikt u op **Ja** wanneer hierom wordt gevraagd.

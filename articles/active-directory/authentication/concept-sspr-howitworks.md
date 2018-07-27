@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: efc62243370ff2cc5214a4ae235139bdb5965486
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: de8957864502b8c3ec6d9a43a8134fdb8dac6069
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248216"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283517"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Hoe het werkt: Azure AD Self-service voor wachtwoord opnieuw instellen
 
@@ -59,7 +59,7 @@ Lezen via de volgende stappen uit voor meer informatie over de logica achter het
 
 Als self-service voor Wachtwoordherstel is ingeschakeld, moet u ten minste één van de volgende opties voor de verificatiemethoden. Soms hoort u deze opties aangeduid als "gates." Is het raadzaam dat u **twee of meer verificatiemethoden kiezen** zodat uw gebruikers meer flexibiliteit hebben wanneer ze niet voor toegang tot een wanneer ze deze nodig hebben.
 
-* Melding mobiele app (preview)
+* Mobiele app-meldingen (preview)
 * Mobiele app-code (preview)
 * Email
 * Mobiele telefoon
@@ -80,13 +80,16 @@ Als een gebruiker beschikt niet over de minimale vereiste methoden die zijn gere
 
 #### <a name="mobile-app-and-sspr-preview"></a>Mobiele app en SSPR (Preview)
 
-Bij het gebruik van een mobiele app, zoals de Microsoft Authenticator-app als een methode voor opnieuw instellen van wachtwoorden rekening gebruikers houden met het volgende. Verificatiecode is voor de self-service voor wachtwoord opnieuw instellen wanneer slechts één methode vereist voor het opnieuw instellen is de enige optie beschikbaar voor gebruikers. Wanneer twee methoden vereist zijn in te stellen met behulp van gebruikers is mogelijk **uitvoeren** melding **of** verificatiecode naast eventuele andere methoden ingeschakeld.
+Wanneer u een mobiele app, zoals de Microsoft Authenticator-app als een methode voor het wachtwoord opnieuw instellen, moet u rekening houden met het volgende:
+
+* Wanneer beheerders vereisen een methode dat worden gebruikt om een wachtwoord opnieuw instellen, de verificatiecode is de enige beschikbare optie.
+* Wanneer beheerders vereisen twee methoden dat worden gebruikt om een wachtwoord opnieuw instellen, gebruikers mogen gebruiken **uitvoeren** melding **of** verificatiecode naast eventuele andere methoden ingeschakeld.
 
 | Het aantal methoden dat is vereist om het wachtwoord opnieuw in te stellen | een | Twee |
 | :---: | :---: | :---: |
 | Mam-functies die beschikbaar zijn | Code | Code- of -meldingen |
 
-Gebruikers hebben niet de optie voor het registreren van hun mobiele app tijdens het registreren van self-service voor wachtwoord opnieuw instellen. Gebruikers kunnen in plaats daarvan de mobiele app op aka.ms/mfasetup of in de preview security info registratie aka.ms/setupsecurityinfo registreren. 
+Gebruikers hebben niet de optie voor het registreren van hun mobiele app bij het registreren voor self-service voor wachtwoord opnieuw van instellen [ https://aka.ms/ssprsetup ](https://aka.ms/ssprsetup). Gebruikers kunnen hun mobiele app registreren [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup), of in de nieuwe preview-info registratie beveiliging op [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo).
 
 ### <a name="change-authentication-methods"></a>Verificatiemethoden wijzigen
 

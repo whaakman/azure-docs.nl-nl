@@ -1,6 +1,6 @@
 ---
-title: Gegevens kopiëren of verplaatsen naar Azure Storage met AzCopy op Linux | Microsoft Docs
-description: De AzCopy op Linux-hulpprogramma gebruiken om te verplaatsen of kopiëren van gegevens of naar blob- en -inhoud. Gegevens van lokale bestanden kopiëren naar Azure Storage of kopiëren van gegevens binnen of tussen opslagaccounts. Uw gegevens eenvoudig migreren naar Azure Storage.
+title: Gegevens kopiëren of verplaatsen naar Azure Storage met AzCopy in Linux | Microsoft Docs
+description: De AzCopy voor Linux-hulpprogramma gebruiken om te verplaatsen of kopiëren van gegevens naar of van blob en bestand inhoud. Gegevens kopiëren naar Azure Storage van lokale bestanden en gegevens binnen of tussen opslagaccounts kopiëren. Migreer uw gegevens eenvoudig naar Azure Storage.
 services: storage
 documentationcenter: ''
 author: seguler
@@ -14,54 +14,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
-ms.openlocfilehash: 3ed449912df1e16b5c8f1dfa3c83b81eaf635227
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f45630a99d9045d0909e11d4ccc1517782d39779
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035925"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284440"
 ---
-# <a name="transfer-data-with-azcopy-on-linux"></a>Gegevensoverdracht met AzCopy op Linux
+# <a name="transfer-data-with-azcopy-on-linux"></a>Gegevens overdragen met AzCopy voor Linux
 
-AzCopy is een opdrachtregelprogramma dat is ontworpen voor het kopiëren van gegevens uit Microsoft Azure Blob- en bestandsopslag, met behulp van eenvoudige opdrachten die zijn ontworpen voor optimale prestaties. U kunt gegevens tussen een bestandssysteem en een opslagaccount of tussen opslagaccounts kopiëren.  
+AzCopy is een opdrachtregelprogramma voor het kopiëren van gegevens naar/van Microsoft Azure BLOB Storage en File-opslag met behulp van eenvoudige opdrachten die zijn ontworpen voor optimale prestaties. U kunt gegevens tussen een bestandssysteem en een opslagaccount of tussen opslagaccounts kopiëren.  
 
-Er zijn twee versies van AzCopy die u kunt downloaden. AzCopy op Linux is bedoeld voor Linux-platforms biedt POSIX-stijl opdrachtregelopties. [AzCopy op Windows](../storage-use-azcopy.md) biedt Windows stijl opdrachtregelopties. In dit artikel bevat informatie over AzCopy op Linux. 
+Er zijn twee versies van AzCopy die u kunt downloaden. AzCopy in Linux is bedoeld voor Linux-platforms bieden POSIX-stijl opdrachtregelopties. [AzCopy in Windows](../storage-use-azcopy.md) biedt Windows stijl opdrachtregelopties. In dit artikel bevat informatie over AzCopy in Linux. 
 
 > [!NOTE]  
-> Vanaf versie van AzCopy 7.2, zijn de afhankelijkheden .NET Core verpakt met het AzCopy-pakket. Als u 7,2 versie gebruiken of later kunt u niet langer .NET Core installeren als een vereiste.
+> Vanaf versie van AzCopy 7.2, zijn de .NET Core-afhankelijkheden verpakt met het AzCopy-pakket. Als u gebruikmaakt van 7,2 versie of hoger, niet meer u .NET Core installeren als een vereiste moet.
 
-## <a name="download-and-install-azcopy"></a>Downloaden en installeren van AzCopy
+## <a name="download-and-install-azcopy"></a>Download en installeer AzCopy
 
 ### <a name="installation-on-linux"></a>Installatie op Linux
 
 > [!NOTE]
-> U moet mogelijk installeren .NET Core 2.1 afhankelijkheden die zijn gemarkeerd in dit [.NET Core vereisten artikel](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) , afhankelijk van uw distributiepunt. 
+> Mogelijk moet u .NET Core 2.1-afhankelijkheden die zijn gemarkeerd in deze installeren [.NET Core-vereisten artikel](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x) , afhankelijk van uw distributie. 
 >
-> Installeren voor RHEL 7-distributies ICU en libunwind afhankelijkheden: ```yum install -y libunwind icu```
+> Voor distributies RHEL 7, installeert u ICU en libunwind afhankelijkheden: ```yum install -y libunwind icu```
 
-AzCopy installeren op Linux (v7.2 of hoger) is net zo eenvoudig als het uitpakken van een pakket tar en het script voor installatie uitgevoerd. 
+AzCopy in Linux installeren (v7.2 of hoger) is net zo gemakkelijk als een tar-pakket ophalen en het installatiescript wordt uitgevoerd. 
 
-**RHEL 6 op basis van distributies**: [downloadkoppeling](https://aka.ms/downloadazcopylinuxrhel6)
+**RHEL-6-distributies**: [downloadkoppeling](https://aka.ms/downloadazcopylinuxrhel6)
 ```bash
 wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinuxrhel6
 tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
 
-**Alle Linux-distributies**: [downloadkoppeling](https://aka.ms/downloadazcopylinux64)
+**Alle andere Linux-distributies**: [downloadkoppeling](https://aka.ms/downloadazcopylinux64)
 ```bash
 wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinux64
 tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
 
-Nadat AzCopy op Linux is geïnstalleerd, kunt u de uitgepakte bestanden verwijderen. U kunt ook als u bent niet bevoegd beheerder kunt u ook uitvoeren `azcopy` met het azcopy shell-script in de uitgepakte map.
+Als AzCopy in Linux is geïnstalleerd, kunt u de uitgepakte bestanden verwijderen. U kunt ook als u geen supergebruikersbevoegdheden hebt kunt u ook uitvoeren `azcopy` met behulp van de shell-script-azcopy in de uitgepakte map.
 
 ### <a name="alternative-installation-on-ubuntu"></a>Alternatieve installatie op Ubuntu
 
 **Ubuntu 14.04**
 
-Apt bron voor Linux Microsoft product opslagplaats toevoegen en AzCopy installeren:
+Apt-bron voor Linux Microsoft product opslagplaats toevoegen en installeert u AzCopy:
 
 ```bash
 sudo echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod/ trusty main" > azure.list
@@ -76,7 +76,7 @@ sudo apt-get install azcopy
 
 **Ubuntu 16.04**
 
-Apt bron voor Linux Microsoft product opslagplaats toevoegen en AzCopy installeren:
+Apt-bron voor Linux Microsoft product opslagplaats toevoegen en installeert u AzCopy:
 
 ```bash
 echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" > azure.list
@@ -90,16 +90,16 @@ sudo apt-get install azcopy
 ```
 
 ## <a name="writing-your-first-azcopy-command"></a>Schrijven van uw eerste AzCopy-opdracht
-De algemene syntaxis voor opdrachten van AzCopy is:
+De eenvoudige syntaxis voor de AzCopy-opdrachten is:
 
 ```azcopy
 azcopy --source <source> --destination <destination> [Options]
 ```
 
-De volgende voorbeelden worden de verschillende scenario's voor het kopiëren van gegevens naar en van Microsoft Azure Blobs en -bestanden. Raadpleeg de `azcopy --help` menu voor een gedetailleerde beschrijving van de parameters in elk voorbeeld gebruikt.
+De volgende voorbeelden tonen verschillende scenario's voor het kopiëren van gegevens naar en van Microsoft Azure-Blobs en -bestanden. Raadpleeg de `azcopy --help` menu voor een gedetailleerde uitleg van de parameters die in elk voorbeeld gebruikt.
 
 ## <a name="blob-download"></a>BLOB: downloaden
-### <a name="download-single-blob"></a>Enkele blobs downloaden
+### <a name="download-single-blob"></a>Één blob downloaden
 
 ```azcopy
 azcopy \
@@ -110,7 +110,7 @@ azcopy \
 
 Als de map `/mnt/myfiles` niet bestaat, AzCopy wordt deze gemaakt en gedownload `abc.txt ` naar de nieuwe map. 
 
-### <a name="download-single-blob-from-secondary-region"></a>Downloaden van één blob van de secundaire regio
+### <a name="download-single-blob-from-secondary-region"></a>Één blob downloaden uit de secundaire regio
 
 ```azcopy
 azcopy \
@@ -119,7 +119,7 @@ azcopy \
     --source-key <key>
 ```
 
-Houd er rekening mee dat u geografisch redundante opslag met leestoegang ingeschakeld nodig hebt.
+Houd er rekening mee dat u geografisch redundante opslag met leestoegang ingeschakeld moet hebben.
 
 ### <a name="download-all-blobs"></a>Alle blobs downloaden
 
@@ -131,7 +131,7 @@ azcopy \
     --recursive
 ```
 
-Stel dat de volgende BLOB's zich bevinden in de opgegeven container:  
+Wordt ervan uitgegaan dat de volgende BLOB's zich bevinden in de opgegeven container:  
 
 ```
 abc.txt
@@ -141,7 +141,7 @@ vd1/a.txt
 vd1/abcd.txt
 ```
 
-Na het opnieuw downloaden, de map `/mnt/myfiles` bevat de volgende bestanden:
+Nadat het downloaden is uitgevoerd, de map `/mnt/myfiles` bevat de volgende bestanden:
 
 ```
 /mnt/myfiles/abc.txt
@@ -153,7 +153,7 @@ Na het opnieuw downloaden, de map `/mnt/myfiles` bevat de volgende bestanden:
 
 Als u geen optie opgeeft `--recursive`, geen blob worden gedownload.
 
-### <a name="download-blobs-with-specified-prefix"></a>Blobs met het opgegeven voorvoegsel downloaden
+### <a name="download-blobs-with-specified-prefix"></a>Downloaden van blobs met het opgegeven voorvoegsel
 
 ```azcopy
 azcopy \
@@ -164,7 +164,7 @@ azcopy \
     --recursive
 ```
 
-Stel dat de volgende BLOB's zich bevinden in de opgegeven container. Alle blobs die beginnen met het voorvoegsel `a` worden gedownload.
+Wordt ervan uitgegaan dat de volgende BLOB's zich bevinden in de opgegeven container. Alle blobs die beginnen met het voorvoegsel `a` worden gedownload.
 
 ```
 abc.txt
@@ -175,7 +175,7 @@ vd1\a.txt
 vd1\abcd.txt
 ```
 
-Na het opnieuw downloaden, de map `/mnt/myfiles` bevat de volgende bestanden:
+Nadat het downloaden is uitgevoerd, de map `/mnt/myfiles` bevat de volgende bestanden:
 
 ```
 /mnt/myfiles/abc.txt
@@ -183,9 +183,9 @@ Na het opnieuw downloaden, de map `/mnt/myfiles` bevat de volgende bestanden:
 /mnt/myfiles/abc2.txt
 ```
 
-Het voorvoegsel is van toepassing op de virtuele map die het eerste deel van de blob-naam. In het bovenstaande voorbeeld de virtuele map komt niet overeen met het opgegeven voorvoegsel, zodat geen blob wordt gedownload. Bovendien, als de optie `--recursive` niet is opgegeven, AzCopy biedt niet alle blobs downloaden.
+Het voorvoegsel is van toepassing op de virtuele map die het eerste deel van de blob-naam. In het voorbeeld hierboven wordt weergegeven, de virtuele map komt niet overeen met het opgegeven voorvoegsel, zodat er geen blob wordt gedownload. Bovendien, als de optie `--recursive` niet is opgegeven, alle bestaande blobs wordt niet gedownload door AzCopy.
 
-### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>De tijd laatste wijziging van de geëxporteerde bestanden moet hetzelfde zijn als de bron-blobs instellen
+### <a name="set-the-last-modified-time-of-exported-files-to-be-same-as-the-source-blobs"></a>De tijd laatste wijziging van de geëxporteerde bestanden moet hetzelfde zijn als de bron-BLOB's instellen
 
 ```azcopy
 azcopy \
@@ -195,7 +195,7 @@ azcopy \
     --preserve-last-modified-time
 ```
 
-U kunt ook BLOB's uitsluiten van de downloadbewerking op basis van hun tijd voor het laatst is gewijzigd. Bijvoorbeeld, als u wilt uitsluiten waarvan laatst gewijzigd om blobs is dezelfde of nieuwer is dan het doelbestand toevoegen de `--exclude-newer` optie:
+U kunt ook blobs uitsluiten van de downloadbewerking op basis van hun tijd laatst gewijzigd. Bijvoorbeeld, als u wilt uitsluiten van blobs waarvan het laatste tijdstip gewijzigd is dezelfde of nieuwer is dan het doelbestand toevoegen de `--exclude-newer` optie:
 
 ```azcopy
 azcopy \
@@ -206,7 +206,7 @@ azcopy \
     --exclude-newer
 ```
 
-Of als u wilt uitsluiten van blobs waarvan laatst gewijzigd om de dezelfde of een ouder is dan het doelbestand toevoegen de `--exclude-older` optie:
+Of als u wilt uitsluiten van blobs waarvan het laatste tijdstip gewijzigd is dezelfde of ouder zijn dan het doelbestand toevoegen de `--exclude-older` optie:
 
 ```azcopy
 azcopy \
@@ -218,7 +218,7 @@ azcopy \
 ```
 
 ## <a name="blob-upload"></a>BLOB: uploaden
-### <a name="upload-single-file"></a>Bestand uploaden
+### <a name="upload-single-file"></a>Eén bestand uploaden
 
 ```azcopy
 azcopy \
@@ -229,7 +229,7 @@ azcopy \
 
 Als de opgegeven doelcontainer niet bestaat, wordt deze door AzCopy gemaakt en wordt het bestand erin geüpload.
 
-### <a name="upload-single-file-to-virtual-directory"></a>Bestand uploaden naar virtuele map
+### <a name="upload-single-file-to-virtual-directory"></a>Eén bestand uploaden naar de virtuele map
 
 ```azcopy
 azcopy \
@@ -238,7 +238,7 @@ azcopy \
     --dest-key <key>
 ```
 
-Als de opgegeven virtuele map niet bestaat, AzCopy uploadt het bestand voor het opnemen van de virtuele map in de blob-naam (*bijvoorbeeld*, `vd/abc.txt` in het bovenstaande voorbeeld).
+Als de opgegeven virtuele map niet bestaat, AzCopy wordt het bestand om op te nemen van de virtuele map in de naam van de blob geüpload (*bijvoorbeeld*, `vd/abc.txt` in het bovenstaande voorbeeld).
 
 ### <a name="redirect-from-stdin"></a>Omleiden van stdin
 
@@ -258,7 +258,7 @@ azcopy \
     --recursive
 ```
 
-Optie `--recursive` wordt de inhoud van de opgegeven map geüpload naar Blob storage recursief, wat betekent dat alle submappen en de bestanden ook worden geüpload. Bijvoorbeeld, wordt ervan uitgegaan dat de volgende bestanden bevinden zich in map `/mnt/myfiles`:
+Optie op te geven `--recursive` wordt de inhoud van de opgegeven map geüpload naar Blob storage recursief, wat betekent dat alle submappen en de bestanden ook geüpload. Bijvoorbeeld, wordt ervan uitgegaan dat de volgende bestanden bevinden zich in map `/mnt/myfiles`:
 
 ```
 /mnt/myfiles/abc.txt
@@ -268,7 +268,7 @@ Optie `--recursive` wordt de inhoud van de opgegeven map geüpload naar Blob sto
 /mnt/myfiles/subfolder/abcd.txt
 ```
 
-Nadat de uploadbewerking van bevat de container de volgende bestanden:
+Nadat de upload is uitgevoerd bevat de container de volgende bestanden:
 
 ```
 abc.txt
@@ -278,7 +278,7 @@ subfolder/a.txt
 subfolder/abcd.txt
 ```
 
-Wanneer de optie `--recursive` niet is opgegeven, worden alleen de volgende drie bestanden geüpload:
+Wanneer de optie `--recursive` niet is opgegeven, alleen de volgende drie bestanden worden geüpload:
 
 ```
 abc.txt
@@ -308,7 +308,7 @@ Wordt ervan uitgegaan dat de volgende bestanden bevinden zich in map `/mnt/myfil
 /mnt/myfiles/subfolder/abcd.txt
 ```
 
-Nadat de uploadbewerking van bevat de container de volgende bestanden:
+Nadat de upload is uitgevoerd bevat de container de volgende bestanden:
 
 ```
 abc.txt
@@ -318,7 +318,7 @@ subfolder/a.txt
 subfolder/abcd.txt
 ```
 
-Wanneer de optie `--recursive` niet is opgegeven, AzCopy slaat bestanden in submappen:
+Wanneer de optie `--recursive` niet is opgegeven, AzCopy wordt overgeslagen bestanden in submappen:
 
 ```
 abc.txt
@@ -327,7 +327,7 @@ abc2.txt
 ```
 
 ### <a name="specify-the-mime-content-type-of-a-destination-blob"></a>Geef het MIME-inhoudstype van een bestemmings-blob
-AzCopy wordt standaard ingesteld van het type inhoud van een bestemmings-blob naar `application/octet-stream`. U kunt echter expliciet opgeven het inhoudstype via de optie `--set-content-type [content-type]`. Deze syntaxis wordt het type inhoud voor alle blobs in een uploadbewerking.
+AzCopy wordt standaard ingesteld van het type inhoud van een bestemmings-blob naar `application/octet-stream`. Echter, u kunt het type inhoud via de optie expliciet opgeven `--set-content-type [content-type]`. Deze syntaxis wordt het type inhoud voor alle blobs in een uploadbewerking ingesteld.
 
 ```azcopy
 azcopy \
@@ -338,7 +338,7 @@ azcopy \
     --set-content-type "video/mp4"
 ```
 
-Als de optie `--set-content-type` is opgegeven zonder een waarde worden AzCopy elke blob of inhoudstype volgens de bestandsextensie van het bestand stelt.
+Als de optie `--set-content-type` is opgegeven zonder een waarde worden AzCopy elke blob of inhoudstype op basis van het de bestandsextensie van het bestand stelt.
 
 ```azcopy
 azcopy \
@@ -349,8 +349,11 @@ azcopy \
     --set-content-type
 ```
 
+### <a name="customizing-the-mime-content-type-mapping"></a>De toewijzing van MIME-type inhoud aanpassen
+AzCopy maakt gebruik van een configuratiebestand met een toewijzing van de bestandsextensie in inhoudstype. U kunt deze toewijzing aanpassen en toevoegen van nieuwe paren indien nodig. De toewijzing bevindt zich in  ```/usr/lib/azcopy/AzCopyConfig.json```
+
 ## <a name="blob-copy"></a>BLOB: kopiëren
-### <a name="copy-single-blob-within-storage-account"></a>Één blob binnen opslagaccount kopiëren
+### <a name="copy-single-blob-within-storage-account"></a>Kopieert één blob in de Storage-account
 
 ```azcopy
 azcopy \
@@ -360,7 +363,7 @@ azcopy \
     --dest-key <key>
 ```
 
-Wanneer u een blob zonder--gesynchroniseerde kopie-optie, kopieert een [serverversie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
+Wanneer u een blob zonder--sync-kopiëren-optie, kopieert een [serverzijde kopie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
 
 ### <a name="copy-single-blob-across-storage-accounts"></a>Één blob kopiëren tussen opslagaccounts
 
@@ -372,9 +375,9 @@ azcopy \
     --dest-key <key2>
 ```
 
-Wanneer u een blob zonder--gesynchroniseerde kopie-optie, kopieert een [serverversie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
+Wanneer u een blob zonder--sync-kopiëren-optie, kopieert een [serverzijde kopie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
 
-### <a name="copy-single-blob-from-secondary-region-to-primary-region"></a>Kopiëren van één blob van de secundaire regio naar primaire regio
+### <a name="copy-single-blob-from-secondary-region-to-primary-region"></a>Één blob van de secundaire regio kopiëren naar primaire regio
 
 ```azcopy
 azcopy \
@@ -384,9 +387,9 @@ azcopy \
     --dest-key <key2>
 ```
 
-Houd er rekening mee dat u geografisch redundante opslag met leestoegang ingeschakeld nodig hebt.
+Houd er rekening mee dat u geografisch redundante opslag met leestoegang ingeschakeld moet hebben.
 
-### <a name="copy-single-blob-and-its-snapshots-across-storage-accounts"></a>Één blob en bijbehorende momentopnamen kopiëren tussen opslagaccounts
+### <a name="copy-single-blob-and-its-snapshots-across-storage-accounts"></a>Één blob en de momentopnamen ervan verwijderd tussen opslagaccounts kopiëren
 
 ```azcopy
 azcopy \
@@ -398,7 +401,7 @@ azcopy \
     --include-snapshot
 ```
 
-Na de kopieerbewerking omvat de doelcontainer de blob en bijbehorende momentopnamen. De container bevat de volgende blob en bijbehorende momentopnamen:
+Na de kopieerbewerking bevat de doelcontainer de blob en de momentopnamen ervan verwijderd. De container bevat de volgende blob en de momentopnamen ervan verwijderd:
 
 ```
 abc.txt
@@ -406,10 +409,10 @@ abc (2013-02-25 080757).txt
 abc (2014-02-21 150331).txt
 ```
 
-### <a name="synchronously-copy-blobs-across-storage-accounts"></a>Synchroon kopiëren van BLOB's tussen opslagaccounts
-AzCopy standaard worden de gegevens tussen de twee eindpunten voor opslag asynchroon gekopieerd. Daarom wordt de kopie-bewerking wordt uitgevoerd op de achtergrond met behulp van ongebruikte bandbreedtecapaciteit die geen SLA in termen van hoe snel een blob heeft gekopieerd. 
+### <a name="synchronously-copy-blobs-across-storage-accounts"></a>Synchroon blobs kopiëren tussen opslagaccounts
+AzCopy standaard worden gegevens gekopieerd tussen twee opslag eindpunten asynchroon. Daarom wordt de kopie-bewerking wordt uitgevoerd op de achtergrond met behulp van ongebruikte bandbreedtecapaciteit geen SLA in termen van hoe snel een blob heeft gekopieerd. 
 
-De `--sync-copy` optie zorgt ervoor dat de kopieerbewerking consistente snelheid opgehaald. AzCopy voert de synchrone kopie door te downloaden van de blobs kopiëren vanuit de opgegeven bron naar lokaal geheugen en vervolgens uploaden naar de bestemming van Blob-opslag.
+De `--sync-copy` optie zorgt ervoor dat de kopieerbewerking consistente snelheid opgehaald. De synchrone kopie uitvoert AzCopy door te downloaden van de blobs te kopiëren uit de opgegeven bron in het lokale geheugen en vervolgens geüpload naar de bestemming van Blob storage.
 
 ```azcopy
 azcopy \
@@ -421,10 +424,10 @@ azcopy \
     --sync-copy
 ```
 
-`--sync-copy` Als u meer uitgaande kosten vergeleken met de asynchrone exemplaar kunnen worden gegenereerd. De aanbevolen aanpak is het gebruik van deze optie in een Azure VM, die zich in dezelfde regio bevinden als uw storage-account van de bron om te voorkomen dat de kosten voor uitgaande gegevens.
+`--sync-copy` aanvullende uitgaand verkeer kosten in vergelijking met asynchrone kopie genereren. De aanbevolen aanpak is het gebruik van deze optie in een Azure-VM, die zich in dezelfde regio als uw storage-account van de bron om te voorkomen dat de kosten voor uitgaand verkeer.
 
 ## <a name="file-download"></a>Bestand: downloaden
-### <a name="download-single-file"></a>Enkel bestand downloaden
+### <a name="download-single-file"></a>Eén bestand downloaden
 
 ```azcopy
 azcopy \
@@ -433,7 +436,7 @@ azcopy \
     --source-key <key>
 ```
 
-Als de opgegeven bron een Azure-bestandsshare is en vervolgens moet u de exacte bestandsnaam opgeven (*bijvoorbeeld* `abc.txt`) moeten worden gedownload van één bestand of de optie `--recursive` om alle bestanden in de share recursief te downloaden. Poging een patroon en de optie opgeven `--recursive` samen resulteert in een fout opgetreden.
+Als de opgegeven bron een Azure-bestandsshare is, dan moet u de exacte bestandsnaam opgeven (*bijvoorbeeld* `abc.txt`) om te downloaden van een enkel bestand of de optie opgeven `--recursive` om alle bestanden in de share recursief te downloaden. Er wordt geprobeerd om op te geven van een bestandspatroon en de optie `--recursive` samen resulteert in een fout.
 
 ### <a name="download-all-files"></a>Alle bestanden downloaden
 
@@ -445,10 +448,10 @@ azcopy \
     --recursive
 ```
 
-Alle lege mappen zijn niet gedownload.
+Houd er rekening mee dat alle lege mappen niet worden gedownload.
 
 ## <a name="file-upload"></a>Bestand: uploaden
-### <a name="upload-single-file"></a>Bestand uploaden
+### <a name="upload-single-file"></a>Eén bestand uploaden
 
 ```azcopy
 azcopy \
@@ -491,7 +494,7 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-Wanneer u een bestand via bestandsshares kopiëren, een [serverversie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
+Wanneer u een bestand via bestandsshares kopiëren, een [serverzijde kopie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
 
 ### <a name="copy-from-file-share-to-blob"></a>Kopiëren van de bestandsshare naar de blob
 
@@ -503,7 +506,7 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-Wanneer u een bestand vanuit de bestandsshare kopiëren naar de blob, een [serverversie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
+Wanneer u een bestand van de bestandsshare kopiëren naar de blob, een [serverzijde kopie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
 
 ### <a name="copy-from-blob-to-file-share"></a>Kopiëren van blob naar de bestandsshare
 
@@ -515,10 +518,10 @@ azcopy \
     --dest-key <key2> \
     --recursive
 ```
-Wanneer u een bestand van blob naar de bestandsshare kopiëren, een [serverversie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
+Wanneer u een bestand van blob naar de bestandsshare kopiëren, een [serverzijde kopie](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-asynchronous-cross-account-copy-blob.aspx) bewerking wordt uitgevoerd.
 
-### <a name="synchronously-copy-files"></a>Synchroon bestanden kopiëren
-U kunt opgeven de `--sync-copy` optie om gegevens te kopiëren van File Storage File Storage, uit de opslag van bestanden naar Blob Storage en naar Blob Storage tot bestandsopslag synchroon. Deze bewerking AzCopy uitgevoerd door de brongegevens downloaden naar het lokale geheugen en vervolgens uploaden naar de bestemming. In dit geval de standaard uitgaande kosten van toepassing.
+### <a name="synchronously-copy-files"></a>Synchroon kopiëren van bestanden
+U kunt opgeven de `--sync-copy` optie om gegevens te kopiëren van File Storage met File Storage, File Storage op Blob-opslag en Blob-opslag met File Storage synchroon. AzCopy wordt uitgevoerd met deze bewerking door te downloaden van de brongegevens naar het lokale geheugen, en vervolgens geüpload naar de bestemming. In dit geval standaard uitgaand verkeer kosten van toepassing is.
 
 ```azcopy
 azcopy \
@@ -530,13 +533,13 @@ azcopy \
     --sync-copy
 ```
 
-Bij het kopiëren van de opslag van bestanden naar Blob Storage, de standaard blob-type blok-blob is, optie kunt u opgeven `--blob-type page` blob doeltype wijzigen. Beschikbare typen zijn `page | block | append`.
+Bij het kopiëren van File Storage op Blob-opslag, het blobtype is blok-blob, optie kunt u opgeven `--blob-type page` te wijzigen van het blobtype. Beschikbare typen zijn `page | block | append`.
 
-Houd er rekening mee dat `--sync-copy` extra uitgaande kosten vergelijken met het asynchrone kopie kan genereren. De aanbevolen aanpak is het gebruik van deze optie in een Azure VM, die zich in dezelfde regio bevinden als uw storage-account van de bron om te voorkomen dat de kosten voor uitgaande gegevens.
+Houd er rekening mee dat `--sync-copy` aanvullende uitgaand verkeer kosten vergelijken met asynchrone kopiëren kunnen genereren. De aanbevolen aanpak is het gebruik van deze optie in een Azure-VM, die zich in dezelfde regio als uw storage-account van de bron om te voorkomen dat de kosten voor uitgaand verkeer.
 
 ## <a name="other-azcopy-features"></a>Andere functies van AzCopy
-### <a name="only-copy-data-that-doesnt-exist-in-the-destination"></a>Alleen gegevens die niet in de doel bestaat-gekopieerd
-De `--exclude-older` en `--exclude-newer` parameters kunt u oudere of nieuwere bron resources uitsluiten wordt gekopieerd, respectievelijk. Als u wilt kopiëren van de bron-resources die niet bestaan in de doel-, kunt u beide parameters in de AzCopy-opdracht opgeven:
+### <a name="only-copy-data-that-doesnt-exist-in-the-destination"></a>Alleen kopiëren van gegevens die niet in het doel bestaat.
+De `--exclude-older` en `--exclude-newer` parameters kunt u oudere of nieuwere bron resources uitsluiten wordt gekopieerd, respectievelijk. Als u wilt dat alleen bron-resources die niet bestaan in het doel wilt kopiëren, kunt u beide parameters in de AzCopy-opdracht:
 
     --source http://myaccount.blob.core.windows.net/mycontainer --destination /mnt/myfiles --source-key <sourcekey> --recursive --exclude-older --exclude-newer
 
@@ -550,9 +553,9 @@ De `--exclude-older` en `--exclude-newer` parameters kunt u oudere of nieuwere b
 azcopy --config-file "azcopy-config.ini"
 ```
 
-U kunt eventuele opdrachtregelparameters AzCopy opnemen in een configuratiebestand. AzCopy verwerkt de parameters in het bestand alsof ze had is opgegeven op de opdrachtregel voor het uitvoeren van een directe vervanging met de inhoud van het bestand.
+U kunt de parameters van AzCopy-opdrachtregelprogramma opnemen in een configuratiebestand. AzCopy verwerkt de parameters in het bestand alsof ze waren is opgegeven op de opdrachtregel voor het uitvoeren van een directe vervangen door de inhoud van het bestand.
 
-Stel een configuratiebestand met de naam `copyoperation`, die de volgende regels bevat. Elke parameter AzCopy kan worden opgegeven op één regel.
+Wordt ervan uitgegaan dat een configuratiebestand met de naam `copyoperation`, die de volgende regels bevat. Elke parameter AzCopy kan worden opgegeven op één regel.
 
     --source http://myaccount.blob.core.windows.net/mycontainer --destination /mnt/myfiles --source-key <sourcekey> --recursive --quiet
 
@@ -564,7 +567,7 @@ of op afzonderlijke regels:
     --recursive
     --quiet
 
-AzCopy mislukt als u de parameter over twee regels verdelen, zoals hier wordt weergegeven voor de `--source-key` parameter:
+AzCopy mislukt als u de parameter verdeeld over twee regels, zoals hier wordt weergegeven voor de `--source-key` parameter:
 
     http://myaccount.blob.core.windows.net/mycontainer
     /mnt/myfiles
@@ -592,12 +595,12 @@ azcopy \
     --recursive
 ```
 
-### <a name="journal-file-folder"></a>Map voor logboek-bestand
-Telkens wanneer die u een opdracht met AzCopy geven, controleert deze of een journal-bestand in de standaardmap bestaat en of deze bestaat in een map die u hebt opgegeven via deze optie. De wijzigingslogboek-bestand bestaat niet op beide plaatsen, AzCopy wordt de bewerking wordt beschouwd als nieuwe als genereert een nieuw journaalbestand.
+### <a name="journal-file-folder"></a>Bestandsmap logboek
+Telkens wanneer die u een opdracht voor AzCopy gebruikt geven, wordt gecontroleerd of een logboekbestand in de standaardmap bestaat en of deze bestaat in een map die u hebt opgegeven via deze optie. Het logboekbestand bestaat niet op beide plaatsen, AzCopy wordt de bewerking wordt beschouwd als nieuwe als een nieuw logboekbestand gegenereerd.
 
-Als het journaalbestand bestaat, controleert AzCopy of de opdrachtregel die ingevoerde overeenkomt met de opdrachtregel in het logboek-bestand. Als de twee opdrachtregels overeenkomen, hervat AzCopy de bewerking niet voltooid. Als ze niet overeenkomen, wordt AzCopy gebruiker of het journaalbestand te overschrijven naar een nieuwe bewerking starten of de huidige bewerking te annuleren.
+Als het logboekbestand bestaat, AzCopy wordt gecontroleerd of de opdrachtregel die u invoert, overeenkomt met de opdrachtregel in het logboekbestand. Als de twee regels van de opdracht overeenkomen, wordt de niet-voltooide bewerking door AzCopy hervat. Als ze niet overeenkomen, vraagt AzCopy gebruiker ofwel het bestand wilt overschrijven wijzigingslogboek om te starten van een nieuwe bewerking of de huidige bewerking te annuleren.
 
-Als u de standaardlocatie voor het wijzigingslogboek-bestand gebruiken wilt:
+Als u gebruiken van de standaardlocatie voor het logboekbestand wilt:
 
 ```azcopy
 azcopy \
@@ -607,9 +610,9 @@ azcopy \
     --resume
 ```
 
-Als u de optie weglaat `--resume`, of geef de optie `--resume` zonder het mappad, zoals hierboven, AzCopy wijzigingslogboek wordt het bestand gemaakt op de standaardlocatie `~\Microsoft\Azure\AzCopy`. Als het wijzigingslogboek bestand al bestaat, hervat de bewerking op basis van het journaalbestand met AzCopy.
+Als u de optie weglaat `--resume`, of de optie opgeven `--resume` zonder een pad naar de map, zoals hierboven, AzCopy maakt het logboekbestand op de standaardlocatie bevindt, dat is `~\Microsoft\Azure\AzCopy`. Als het logboekbestand al bestaat, hervat de bewerking op basis van het logboekbestand met AzCopy.
 
-Als u een aangepaste locatie voor het wijzigingslogboek-bestand opgeven wilt:
+Als u opgeven van een aangepaste locatie voor het logboekbestand wilt:
 
 ```azcopy
 azcopy \
@@ -619,15 +622,15 @@ azcopy \
     --resume "/mnt/myjournal"
 ```
 
-In dit voorbeeld wordt het journaalbestand als deze niet al bestaat. Als deze bestaat, hervat de bewerking op basis van het journaalbestand met AzCopy.
+In dit voorbeeld wordt het logboekbestand gemaakt als deze niet al bestaat. Als deze bestaat, hervat de bewerking op basis van het logboekbestand met AzCopy.
 
-Als u een bewerking AzCopy hervatten wilt, herhaalt u dezelfde opdracht. AzCopy op Linux vervolgens wordt om bevestiging gevraagd:
+Als u een AzCopy-bewerking hervatten wilt, herhaalt u de dezelfde opdracht. AzCopy in Linux vervolgens wordt om bevestiging gevraagd:
 
 ```azcopy
 Incomplete operation with same command line detected at the journal directory "/home/myaccount/Microsoft/Azure/AzCopy", do you want to resume the operation? Choose Yes to resume, choose No to overwrite the journal to start a new operation. (Yes/No)
 ```
 
-### <a name="output-verbose-logs"></a>Uitgebreide uitvoer-Logboeken
+### <a name="output-verbose-logs"></a>Uitgebreide logboeken met uitvoergegevens
 
 ```azcopy
 azcopy \
@@ -637,17 +640,17 @@ azcopy \
     --verbose
 ```
 
-### <a name="specify-the-number-of-concurrent-operations-to-start"></a>Geef het aantal gelijktijdige bewerkingen starten
-Optie `--parallel-level` geeft het aantal gelijktijdige te kopiëren. AzCopy wordt standaard een bepaald aantal gelijktijdige bewerkingen te verhogen van de overdracht gegevensdoorvoer gestart. Het aantal gelijktijdige bewerkingen gelijk is 8 maal het aantal processors dat u hebt. Als u via een netwerk met lage bandbreedte AzCopy uitvoert, kunt u een lager getal voor--parallel-niveau om te voorkomen dat mislukt, omdat resource concurrentie opgeven.
+### <a name="specify-the-number-of-concurrent-operations-to-start"></a>Geef het aantal gelijktijdige bewerkingen om te starten
+Optie `--parallel-level` geeft het aantal gelijktijdige kopieerbewerkingen. AzCopy wordt standaard gestart van een bepaald aantal gelijktijdige bewerkingen om de overdracht van gegevensdoorvoer te vergroten. Het aantal gelijktijdige bewerkingen is gelijk acht keer het aantal processors dat u hebt. Als u AzCopy via een netwerk met een lage bandbreedte uitvoert, kunt u een lager getal voor--parallel-niveau om te voorkomen dat is mislukt, concurrentie opgeven.
 
 >[!TIP]
->Bekijk de volledige lijst van AzCopy parameters wilt weergeven, 'azcopy--help-menu.
+>Bekijk de volledige lijst van AzCopy parameters wilt weergeven, de optie 'azcopy--help-menu.
 
-## <a name="installation-steps-for-azcopy-71-and-earlier-versions"></a>Installatiestappen voor 7.1 AzCopy en eerdere versies
+## <a name="installation-steps-for-azcopy-71-and-earlier-versions"></a>Installatiestappen voor AzCopy 7.1 en eerdere versies
 
-AzCopy op Linux (v7.1 en eerder) vereist .NET Core framework. Installatie-instructies zijn beschikbaar op de [.NET Core-installatie](https://www.microsoft.com/net/core#linuxubuntu) pagina.
+AzCopy in Linux (v7.1 en eerder) is de .NET Core framework vereist. Installatie-instructies zijn beschikbaar op de [.NET Core-installatie](https://www.microsoft.com/net/core#linuxubuntu) pagina.
 
-Bijvoorbeeld, beginnen met het installeren van .NET Core op Ubuntu 16,10. Voor de meest recente installatiehandleiding, gaat u naar [.NET Core op Linux](https://www.microsoft.com/net/core#linuxubuntu) op de installatiepagina.
+Bijvoorbeeld: begin met het installeren van .NET Core op Ubuntu 16,10. Voor de meest recente installatiehandleiding, gaat u naar [.NET Core in Linux](https://www.microsoft.com/net/core#linuxubuntu) installatiepagina.
 
 
 ```bash
@@ -665,24 +668,24 @@ tar -xf azcopy.tar.gz
 sudo ./install.sh
 ```
 
-Nadat AzCopy op Linux is geïnstalleerd, kunt u de uitgepakte bestanden verwijderen. U kunt ook als u geen supergebruiker bevoegdheden, kunt u ook uitvoeren `azcopy` met het azcopy shell-script in de uitgepakte map.
+Als AzCopy in Linux is geïnstalleerd, kunt u de uitgepakte bestanden verwijderen. U kunt ook als u geen supergebruikersbevoegdheden, kunt u ook uitvoeren `azcopy` met behulp van de shell-script-azcopy in de uitgepakte map.
 
 ## <a name="known-issues-and-best-practices"></a>Bekende problemen en aanbevolen procedures
 ### <a name="error-installing-azcopy"></a>Fout bij het installeren van AzCopy
-Als u problemen met de installatie van AzCopy, u kunt proberen om uit te voeren met de bash-script in de uitgepakte AzCopy `azcopy` map.
+Als u problemen met het AzCopy-installatie, kunt u proberen om uit te voeren met behulp van de bash-script in de uitgepakte AzCopy `azcopy` map.
 
 ```bash
 cd azcopy
 ./azcopy
 ```
 
-### <a name="limit-concurrent-writes-while-copying-data"></a>Limiet voor gelijktijdige schrijfbewerkingen tijdens het kopiëren van gegevens
-Als u blobs of bestanden met AzCopy kopieert, houd er rekening mee dat een andere toepassing de gegevens heeft terwijl u kopieert. Indien mogelijk, zorg dat de gegevens die u wilt kopiëren niet tijdens de kopieerbewerking wordt gewijzigd. Bijvoorbeeld bij het kopiëren van een VHD die is gekoppeld aan een virtuele machine van Azure, zorg dat er geen andere toepassingen momenteel voor de VHD schrijft. Een goede manier om dit te doen is door het leasen van de resource te worden gekopieerd. U kunt ook eerst een momentopname van de VHD maken en kopieer de momentopname.
+### <a name="limit-concurrent-writes-while-copying-data"></a>Gelijktijdige schrijfbewerkingen tijdens het kopiëren van gegevens beperken
+Wanneer u blobs of bestanden met AzCopy kopieert, houd er rekening mee dat een andere toepassing kan worden het wijzigen van gegevens terwijl u kopieert. Indien mogelijk, ervoor te zorgen dat de gegevens die u wilt kopiëren niet wordt gewijzigd tijdens de kopieerbewerking. Bijvoorbeeld, bij het kopiëren van een VHD die is gekoppeld aan een virtuele machine van Azure, moet u ervoor dat er geen andere toepassingen ontwikkelt die momenteel op de VHD. Een goede manier om dit te doen is door de overdracht van de resource moet worden gekopieerd. U kunt ook eerst een momentopname van de VHD maken en kopieer vervolgens de momentopname.
 
-Als u niet voorkomen andere toepassingen dat bij het schrijven naar blobs of bestanden, terwijl ze worden gekopieerd, klikt u vervolgens Houd er rekening mee dat op het moment dat de taak is voltooid, de gekopieerde resources niet meer mogelijk volledige pariteit met de bron-resources.
+Als u niet voorkomen andere toepassingen dat bij het schrijven naar blobs of de bestanden terwijl ze worden gekopieerd, klikt u vervolgens Houd er rekening mee dat op het moment dat de taak is voltooid, de gekopieerde resources niet meer mogelijk volledige pariteit met de bron-resources.
 
-### <a name="running-multiple-azcopy-processes"></a>Bezig met meerdere processen van AzCopy
-U kunt meerdere AzCopy processen uitvoeren op één client bieden verschillende logboekmappen te gebruiken. Met behulp van een map één journaal voor meerdere AzCopy processen wordt niet ondersteund.
+### <a name="running-multiple-azcopy-processes"></a>Meerdere AzCopy-processen
+U kunt meerdere AzCopy processen uitvoeren op één client bieden dat u verschillende logboek. Met behulp van een map één logboek voor processen die meerdere AzCopy wordt niet ondersteund.
 
 1e proces:
 ```azcopy
@@ -705,7 +708,7 @@ azcopy \
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende bronnen voor meer informatie over Azure Storage en AzCopy:
 
-### <a name="azure-storage-documentation"></a>Documentatie bij Azure Storage:
+### <a name="azure-storage-documentation"></a>Documentatie voor Azure Storage:
 * [Kennismaking met Azure Storage](../storage-introduction.md)
 * [Een opslagaccount maken](../storage-create-storage-account.md)
 * [Blobs beheren met Opslagverkenner](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs)
@@ -716,12 +719,12 @@ Zie de volgende bronnen voor meer informatie over Azure Storage en AzCopy:
 * [Blob Storage gebruiken met Python](../blobs/storage-python-how-to-use-blob-storage.md)
 
 ### <a name="azure-storage-blog-posts"></a>Azure Storage-blogberichten:
-* [AzCopy aangekondigd op Linux-Preview](https://azure.microsoft.com/en-in/blog/announcing-azcopy-on-linux-preview/)
-* [Inleiding tot Azure Storage Data Movement bibliotheek-Preview](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
-* [AzCopy: Introducing synchrone kopiëren en aangepaste type inhoud](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
-* [AzCopy: Aangekondigd algemene beschikbaarheid van AzCopy 3.0 plus preview-versie van AzCopy 4.0 met de ondersteuning voor de tabel en de bestandsnaam](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-* [AzCopy: Geoptimaliseerd voor grootschalige kopie scenario 's](http://go.microsoft.com/fwlink/?LinkId=507682)
+* [Aankondiging van AzCopy in Linux-Preview](https://azure.microsoft.com/en-in/blog/announcing-azcopy-on-linux-preview/)
+* [Maak kennis met de verplaatsing van Azure Storage-bibliotheek Gegevensvoorbeeld](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
+* [AzCopy: Introductie van synchrone kopiëren en aangepaste inhoudstype](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
+* [AzCopy: Aankondiging van algemene beschikbaarheid van AzCopy 3.0 plus preview-versie van AzCopy 4.0 met ondersteuning voor tabel en bestand](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
+* [AzCopy: Geoptimaliseerd voor scenario's voor grootschalige kopiëren](http://go.microsoft.com/fwlink/?LinkId=507682)
 * [AzCopy: Ondersteuning voor geografisch redundante opslag met leestoegang](http://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
-* [AzCopy: Gegevensoverdracht met modus voor opnieuw starten en SAS-token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
-* [AzCopy: Cross-account kopiëren Blob met behulp](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
-* [AzCopy: Uploaden/downloaden van bestanden voor Azure Blobs](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)
+* [AzCopy: Gegevens overdragen met modus voor opnieuw starten en SAS-token](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
+* [AzCopy: Kopiëren van de Blob cross-account met behulp](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)
+* [AzCopy: Uploaden/downloaden van bestanden voor Azure-Blobs](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/12/03/azcopy-uploading-downloading-files-for-windows-azure-blobs.aspx)

@@ -14,22 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/25/2018
 ms.author: fryu
-ms.openlocfilehash: 6c313b6015a8a6dcc4ca5befb5fef70b047d0410
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 232af6ec08152d18db86a7b6373da0d281a74a91
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866522"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262514"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Beveiligde TLS voor Azure Storage-client inschakelen
 
-Wanneer u nodig hebt om te controleren uw services in het gebruik van Azure Storage op basis van de meest recente nalevings- en beveiligingsvereisten, SSL 1.0, 2.0, 3.0 en TLS 1.0 worden herkend als niet-compatibele communicatieprotocollen.
-
-1.0 SSL 2.0 en 3.0 zijn kwetsbaar gevonden. Ze hebben door RFC is verboden. TLS 1.0 is onveilig voor het gebruik van onbeveiligde blok-codering (DES CBC en RC2 CBC) en Stream-codering (RC4). PCI-Raad wordt ook aangeraden de migratie naar een hoger TLS-versie. Voor meer informatie kunt u zien [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0).
+Transport Layer Security (TLS) en Secure Sockets Layer (SSL) zijn cryptografische protocollen die beveiliging van communicatie via een netwerk. 1.0 SSL 2.0 en 3.0 zijn kwetsbaar gevonden. Ze hebben door RFC is verboden. TLS 1.0 is onveilig voor het gebruik van onbeveiligde blok-codering (DES CBC en RC2 CBC) en Stream-codering (RC4). PCI-Raad wordt ook aangeraden de migratie naar een hoger TLS-versie. Voor meer informatie kunt u zien [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0).
 
 Azure Storage is gestopt met SSL 3.0 sinds 2015 en maakt gebruik van TLS 1.2 op openbare HTTPs-eindpunten, maar de TLS 1.0 en 1.1 TLS zijn nog steeds worden ondersteund voor achterwaartse compatibiliteit.
 
-Om ervoor te zorgen beveiligd en compatibel verbinding met Azure Storage, moet u TLS 1.2 in client-side inschakelen voordat u verzendt aanvragen naar Azure Storage-service werkt.
+Om ervoor te zorgen beveiligd en compatibel verbinding met Azure Storage, moet u TLS 1.2 of een nieuwere versie in client-side inschakelen voordat u verzendt aanvragen naar Azure Storage-service werkt.
 
 ## <a name="enable-tls-12-in-net-client"></a>TLS 1.2 in .NET-client inschakelen
 
@@ -86,4 +84,5 @@ De volgende schermafbeelding is een voorbeeld van de verificatie.
 ## <a name="see-also"></a>Zie ook
 
 * [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0)
+* [PCI-naleving van TLS](https://blog.pcisecuritystandards.org/migrating-from-ssl-and-early-tls)
 * [Schakel TLS in Java-client](https://www.java.com/en/configure_crypto.html)

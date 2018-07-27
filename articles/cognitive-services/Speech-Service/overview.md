@@ -1,21 +1,20 @@
 ---
-title: Wat is de spraakservice (preview)? | Microsoft Docs
+title: Wat is de spraakservice (preview)?
 description: 'De spraak-service, onderdeel van de Microsoft Cognitive Services, koppelt zijn verschillende Azure speech services die eerder beschikbaar afzonderlijk waren netwerk: Bing Speech (die bestaat uit spraakherkenning en tekst naar spraak), aangepaste spraak en Spraakomzetting.'
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: adfc854fc24b9e285c405f3038a21ec84cd2f4c2
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: fc6ef4ccbe6e392b991bd375afcc63a54f58db02
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989332"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285456"
 ---
 # <a name="what-is-the-speech-service-preview"></a>Wat is de spraakservice (preview)?
 

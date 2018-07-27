@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/20/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5d62eb4d5f43625b336ade68532cf734ef0cde6a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: af9a2e47a5e91d9b32a787f8f40ba06b5a1596e7
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214690"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39265043"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Wachtwoord-hashsynchronisatie met Azure AD Connect sync implementeren
 Dit artikel bevat gegevens die u nodig hebt om te synchroniseren van uw wachtwoorden van gebruikers uit een on-premises Active Directory-exemplaar naar een cloud-gebaseerde Azure Active Directory (Azure AD)-exemplaar.
@@ -173,3 +173,4 @@ Als u problemen met wachtwoord-hashsynchronisatie hebt, raadpleegt u [wachtwoord
 ## <a name="next-steps"></a>Volgende stappen
 * [Azure AD Connect-synchronisatie: synchronisatie-opties aanpassen](active-directory-aadconnectsync-whatis.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](active-directory-aadconnect.md)
+* [Ontvangt u een stapsgewijze implementatie-abonnement voor het migreren van AD FS naar wachtwoord-Hashsynchronisatie](https://aka.ms/authenticationDeploymentPlan)

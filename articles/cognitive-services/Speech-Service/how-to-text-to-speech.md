@@ -1,27 +1,26 @@
 ---
-title: Gebruik tekst naar spraak met behulp van Speech services | Microsoft Docs
+title: Tekst naar spraak met behulp van spraakservices gebruiken
 description: Informatie over het gebruik van tekst naar spraak in de Speech-service.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 84b577cd00d333717a7a5ad1f66182605429f9f1
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 21157af9ad6361234ffa9b927da64baab505f624
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213330"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39281511"
 ---
 # <a name="use-text-to-speech-in-speech-service"></a>'Tekst naar spraak' in de spraak-service gebruiken
 
 De spraak-service biedt de functionaliteit van tekst naar spraak via een eenvoudige HTTP-aanvraag. BOEKEN van de tekst die moet worden gesproken naar het juiste eindpunt en de service retourneert een geluidsbestand (`.wav`) spraak die worden gemaakt. Uw toepassing kunt vervolgens deze audio gebruiken, zoals het leuk vinden.
 
-Aanvraag voor de hoofdtekst van het bericht voor tekst naar spraak mogelijk tekst zonder opmaak (ASCII of UTF8) of een [SSML](speech-synthesis-markup.md) document. Tekst zonder opmaak aanvragen worden met een standaardstem gesproken. In de meeste gevallen die u wilt gebruiken een SSML-instantie. De HTTP-aanvraag moet bevatten een [autorisatie](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#authentication) token. 
+Aanvraag voor de hoofdtekst van het bericht voor tekst naar spraak mogelijk tekst zonder opmaak (ASCII of UTF8) of een [SSML](speech-synthesis-markup.md) document. Tekst zonder opmaak aanvragen worden met een standaardstem gesproken. In de meeste gevallen die u wilt gebruiken een SSML-instantie. De HTTP-aanvraag moet bevatten een [autorisatie](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#authentication) token. 
 
 De regionale tekst naar spraak-eindpunten worden hier weergegeven. Gebruik een geschikt is voor uw abonnement.
 

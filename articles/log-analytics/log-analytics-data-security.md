@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: b7fd880683eed9e742007d6e595e1f275467b664
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 4cf04ceeb8650b2978389cefb561ae31e88bc853
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990112"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282433"
 ---
 # <a name="log-analytics-data-security"></a>Meld u Analytics-gegevensbeveiliging
 Dit document is bedoeld om specifieke informatie van de Azure Log Analytics ter aanvulling van de gegevens op te geven [Azure Trust Center](../security/security-microsoft-trust-center.md).  
@@ -176,7 +176,7 @@ Zoals hierboven beschreven, wordt de gegevens van de beheerserver of rechtstreek
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. De Log Analytics-service ontvangt en verwerkt gegevens
 De Log Analytics-service zorgt ervoor dat binnenkomende gegevens van een vertrouwde bron is door het valideren van certificaten en de integriteit van gegevens met Azure-verificatie. De niet-verwerkte onbewerkte gegevens wordt vervolgens opgeslagen in een Azure Event Hub in de regio die de gegevens uiteindelijk worden opgeslagen in rust. Het type van de gegevens die zijn opgeslagen, is afhankelijk van de soorten oplossingen die zijn geïmporteerd en gebruikt om gegevens te verzamelen. Vervolgens wordt de met Log Analytics service processen de onbewerkte gegevens en neemt deze in de database.
 
-De bewaarperiode van de verzamelde gegevens opgeslagen in de database, is afhankelijk van de geselecteerde prijsstelling. Voor de *gratis* laag, verzamelde gegevens zijn beschikbaar voor zeven dagen. Voor de *betaald* laag, verzamelde gegevens gedurende 31 dagen standaard beschikbaar is, maar kan worden uitgebreid naar 720 dagen. Gegevens worden opgeslagen in Azure storage om te controleren of de vertrouwelijkheid van de gegevens versleuteld. De afgelopen twee weken aan gegevens, worden ook opgeslagen in de cache op basis van SSD en deze cache is momenteel niet versleuteld.  Wij van plan bent te dergelijke codering in de latere helft van 2018.  
+De bewaarperiode van de verzamelde gegevens opgeslagen in de database, is afhankelijk van de geselecteerde prijsstelling. Voor de *gratis* laag, verzamelde gegevens zijn beschikbaar voor zeven dagen. Voor de *betaald* laag, verzamelde gegevens gedurende 31 dagen standaard beschikbaar is, maar kan worden uitgebreid tot 730 dagen. Gegevens worden opgeslagen in Azure storage om te controleren of de vertrouwelijkheid van de gegevens versleuteld. De afgelopen twee weken aan gegevens, worden ook opgeslagen in de cache op basis van SSD en deze cache is momenteel niet versleuteld.  Wij van plan bent te dergelijke codering in de latere helft van 2018.  
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Log Analytics gebruiken voor toegang tot de gegevens
 Voor toegang tot uw Log Analytics-werkruimte moet u zich aanmeldt bij de Azure-portal met behulp van de organisatie-account of een Microsoft-account dat u eerder hebt ingesteld. Al het verkeer tussen de portal en de Log Analytics-service worden verzonden via een beveiligde HTTPS-kanaal. Wanneer u de portal, een sessie-ID is gegenereerd op de gebruiker-client (webbrowser) en gegevens worden opgeslagen in een lokale cache totdat de sessie wordt beëindigd. Wanneer is afgesloten, wordt de cache verwijderd. Client-side-cookies niet persoonlijk identificeerbare informatie bevatten, worden niet automatisch verwijderd. Sessiecookies HTTPOnly zijn gemarkeerd en worden beveiligd. Na een vooraf bepaald niet-actieve periode, is de Azure portal-sessie beëindigd.

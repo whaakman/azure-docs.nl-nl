@@ -6,15 +6,15 @@ author: adiganmsft
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/10/2017
+ms.date: 07/26/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 81653f9125b9cc4411e5cfe358bd602f92c5bf89
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: bd6228b6cb7409144a0cd16d6c9617b7127c3624
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448363"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264958"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup-rapporten configureren
 In dit artikel wordt stap voor het configureren van rapporten voor Azure Backup met behulp van de Recovery Services-kluis en voor toegang tot deze rapporten met Power BI besproken. Nadat u deze stappen uitvoert, kunt u rechtstreeks naar Power BI om alle rapporten weer te geven, aanpassen en maken van rapporten gaan. 
@@ -24,7 +24,6 @@ In dit artikel wordt stap voor het configureren van rapporten voor Azure Backup 
 2. Rapporten voor Azure SQL, DPM en Azure Backup Server worden niet ondersteund op dit moment.
 3. U kunt rapporten weergeven tussen kluizen en -abonnementen, als hetzelfde opslagaccount is geconfigureerd voor elk van de kluizen. Opslagaccount geselecteerd moet zich in dezelfde regio als de recovery services-kluis.
 4. De frequentie van geplande vernieuwing voor de rapporten is 24 uur in Power BI. U kunt ook een ad-hoc-vernieuwing van de rapporten in Power BI, waarin de aanvraag van de meest recente gegevens in klant storage-account wordt gebruikt voor het weergeven van rapporten uitvoeren. 
-5. Azure Backup-rapporten worden momenteel niet ondersteund in nationale clouds.
 
 ## <a name="prerequisites"></a>Vereisten
 1. Maak een [Azure storage-account](../storage/common/storage-create-storage-account.md#create-a-storage-account) te configureren voor rapporten. Dit opslagaccount wordt gebruikt voor het opslaan van rapporten gerelateerde gegevens.
@@ -75,7 +74,7 @@ Gebruik de volgende stappen uit om te configureren van het opslagaccount voor de
 ## <a name="view-reports-in-power-bi"></a>Rapporten weergeven in Power BI 
 Nadat storage-account configureren met behulp van de recovery services-kluis-rapporten, duurt het ongeveer 24 uur voor het melden van gegevens te starten van stromen in. Gebruik de volgende stappen voor het weergeven van rapporten in Power BI na 24 uur van het instellen van de storage-account:
 1. [Meld u aan](https://powerbi.microsoft.com/landing/signin/) naar Power BI.
-2. Klik op **gegevens ophalen** en klikt u op **ophalen** onder **Services** in Content Pack-bibliotheek. Gebruik de stappen in [Power BI-documentatie voor toegang tot inhoudspakket](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-packs-services/).
+2. Klik op **gegevens ophalen** en klikt u op **ophalen** onder **Services** in Content Pack-bibliotheek. Gebruik de stappen in [Power BI-documentatie voor toegang tot inhoudspakket](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
 
      ![Import-inhoudspakket](./media/backup-azure-configure-reports/content-pack-import.png)
 3. Type **Azure Backup** in de zoekbalk typt en op **nu downloaden**.

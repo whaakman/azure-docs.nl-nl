@@ -1,38 +1,30 @@
 ---
-title: 'Wijzigen van een ExpressRoute-circuit: PowerShell: klassieke Azure Portal | Microsoft Docs'
-description: Dit artikel begeleidt u bij de stappen voor het controleren van de status, bijwerken of verwijderen en uw ExpressRoute-circuit classic deployment model inrichting ervan ongedaan.
-documentationcenter: na
+title: 'Een ExpressRoute-circuit wijzigen: PowerShell: Azure classic | Microsoft Docs'
+description: In dit artikel leidt u door de stappen om te controleren van de status, bijwerken of verwijderen en de inrichting van uw ExpressRoute-circuit voor het model van klassieke implementatie.
 services: expressroute
 author: ganesr
-manager: timlt
-editor: ''
-tags: azure-service-management
-ms.assetid: 0134d242-6459-4dec-a2f1-4657c3bc8b23
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/08/2017
+ms.topic: conceptual
+ms.date: 07/26/2018
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 457bb74fa15d31fecbf668038ac880cafb8a897d
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 407782ff59147f227f5f34bc3318333093b4f57e
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/21/2017
-ms.locfileid: "24102831"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283568"
 ---
-# <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Wijzigen van een ExpressRoute-circuit met behulp van PowerShell (klassiek)
+# <a name="modify-an-expressroute-circuit-using-powershell-classic"></a>Aanpassen van een ExpressRoute-circuit met behulp van PowerShell (klassiek)
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure-CLI](howto-circuit-cli.md)
-> * [Video - Azure-portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [Video - Azure portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (klassiek)](expressroute-howto-circuit-classic.md)
 >
 
-Dit artikel ziet u ook het controleren van de status, update of delete en een ExpressRoute-circuit inrichting ervan ongedaan maakt.
+In dit artikel leest u ook hoe om te controleren van de status, bijwerken of verwijderen en de inrichting van een ExpressRoute-circuit ongedaan maken.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -42,11 +34,42 @@ Dit artikel ziet u ook het controleren van de status, update of delete en een Ex
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Installeer de nieuwste versies van de Azure Service Management (SM) PowerShell-modules Volg de instructies in [aan de slag met Azure PowerShell-cmdlets](/powershell/azure/overview) voor stapsgewijze instructies voor het configureren van uw computer te gebruiken de Azure PowerShell-modules.
+Installeer de nieuwste versies van de Azure SM (Service Management) PowerShell-modules en de ExpressRoute-module.  Wanneer u het volgende voorbeeld, houd er rekening mee dat het versienummer (in dit voorbeeld 5.1.1) worden gewijzigd als nieuwere versies van de cmdlets worden vrijgegeven.
 
-## <a name="get-the-status-of-a-circuit"></a>De status van een circuit ophalen
+```powershell
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
+```
 
-U kunt deze informatie op elk gewenst moment ophalen met behulp van de `Get-AzureCircuit` cmdlet. De oproep zonder parameters voor een lijst met alle circuits.
+Als u meer informatie over Azure PowerShell, Zie [aan de slag met Azure PowerShell-cmdlets](/powershell/azure/overview) voor stapsgewijze instructies over het configureren van uw computer voor het gebruik van de Azure PowerShell-modules.
+
+Als u wilt aanmelden bij uw Azure-account, gebruikt u het volgende voorbeeld:
+
+1. Open de PowerShell-console met verhoogde rechten en maak verbinding met uw account. Gebruik het volgende voorbeeld als hulp bij het maken van de verbinding:
+
+  ```powershel
+  Connect-AzureRmAccount
+  ```
+2. Controleer de abonnementen voor het account.
+
+  ```powershell
+  Get-AzureRmSubscription
+  ```
+3. Als u meerdere abonnementen hebt, selecteert u het abonnement dat u wilt gebruiken.
+
+  ```powershell
+  Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+  ```
+
+4. Gebruik vervolgens de volgende cmdlet uit uw Azure-abonnement toevoegen aan PowerShell voor het klassieke implementatiemodel.
+
+  ```powershell
+  Add-AzureAccount
+  ```
+
+## <a name="get-the-status-of-a-circuit"></a>Haal de status van een circuit
+
+U kunt deze informatie op elk gewenst moment ophalen met behulp van de `Get-AzureCircuit` cmdlet. De oproep zonder parameters geeft een lijst van alle circuits.
 
 ```powershell
 Get-AzureDedicatedCircuit
@@ -70,7 +93,7 @@ Sku                              : Standard
 Status                           : Enabled
 ```
 
-U kunt de informatie op een specifieke ExpressRoute-circuit opvragen door de servicesleutel wordt doorgegeven als parameter voor de aanroep.
+Doordat de servicesleutel worden doorgegeven als parameter aan de aanroep krijgt u informatie over een specifieke ExpressRoute-circuit.
 
 ```powershell
 Get-AzureDedicatedCircuit -ServiceKey "*********************************"
@@ -85,7 +108,7 @@ Sku                              : Standard
 Status                           : Enabled
 ```
 
-U kunt gedetailleerde beschrijvingen van alle parameters krijgen door het uitvoeren van het volgende voorbeeld:
+U kunt gedetailleerde beschrijvingen van alle parameters krijgen door het volgende voorbeeld uitvoert:
 
 ```powershell
 get-help get-azurededicatedcircuit -detailed
@@ -93,20 +116,20 @@ get-help get-azurededicatedcircuit -detailed
 
 ## <a name="modify-a-circuit"></a>Een circuit wijzigen
 
-U kunt bepaalde eigenschappen van een ExpressRoute-circuit wijzigen zonder enige impact op connectiviteit.
+U kunt bepaalde eigenschappen van een ExpressRoute-circuit wijzigen zonder gevolgen voor connectiviteit.
 
-U kunt de volgende taken zonder uitvaltijd doen:
+U kunt de volgende taken zonder uitvaltijd kunt doen:
 
-* In- of uitschakelen van een ExpressRoute premium-invoegtoepassing voor ExpressRoute-circuit.
-* De bandbreedte van uw ExpressRoute-circuit vergroten, mits er capaciteit beschikbaar is op de poort. De bandbreedte van een circuit downgraden wordt niet ondersteund. 
-* Wijzig het softwarelicentiecontrole plan van Datalimiet gegevens in onbeperkte gegevens. Het plan softwarelicentiecontrole wijzigen van onbeperkt naar Datalimiet gegevens wordt niet ondersteund.
+* In- of uitschakelen van een premium-invoegtoepassing voor ExpressRoute voor uw ExpressRoute-circuit.
+* De bandbreedte van uw ExpressRoute-circuit vergroten, mits er capaciteit beschikbaar is op de poort. Het downgraden van de bandbreedte van een circuit wordt niet ondersteund. 
+* De softwarelicentiecontrole abonnement van naar gebruik om onbeperkte gegevens te wijzigen. Wijzigen van de softwarelicentiecontrole plan van onbeperkte gegevens in naar gebruik wordt niet ondersteund.
 * U kunt inschakelen en uitschakelen *klassieke bewerkingen toestaan*.
 
 Raadpleeg de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md) voor meer informatie over limieten en beperkingen.
 
-### <a name="enable-the-expressroute-premium-add-on"></a>De invoegtoepassing ExpressRoute premium inschakelen
+### <a name="enable-the-expressroute-premium-add-on"></a>De add-on ExpressRoute premium inschakelen
 
-U kunt de invoegtoepassing ExpressRoute premium inschakelen voor uw bestaande circuit met de volgende PowerShell-cmdlet:
+U kunt de invoegtoepassing ExpressRoute premium inschakelen voor uw bestaande circuit met behulp van de volgende PowerShell-cmdlet:
 
 ```powershell
 Set-AzureDedicatedCircuitProperties -ServiceKey "*********************************" -Sku Premium
@@ -121,24 +144,24 @@ Sku                              : Premium
 Status                           : Enabled
 ```
 
-Het circuit hebt nu de ExpressRoute premium-invoegtoepassing voor functies ingeschakeld. Zodra de opdracht is uitgevoerd, begint de facturering voor de mogelijkheid van premium-invoegtoepassing.
+Uw circuit, hebben nu de ExpressRoute premium-invoegtoepassing-functies ingeschakeld. Zodra de opdracht is uitgevoerd, begint de facturering voor de mogelijkheid van premium-invoegtoepassing.
 
-### <a name="disable-the-expressroute-premium-add-on"></a>De invoegtoepassing ExpressRoute premium uitschakelen
+### <a name="disable-the-expressroute-premium-add-on"></a>Uitschakelen van de premium-invoegtoepassing voor ExpressRoute
 
 > [!IMPORTANT]
-> Deze bewerking kan mislukken als u resources die groter zijn dan wat voor het standaard circuit is toegestaan.
+> Met deze bewerking kan mislukken als u resources die groter zijn dan wat is toegestaan voor de standard-circuit.
 > 
 > 
 
 #### <a name="considerations"></a>Overwegingen
 
-* Zorg ervoor dat het aantal virtuele netwerken die zijn gekoppeld aan het circuit minder dan 10 is voordat u een van premium op standaard downgrade. Als u dit niet doet, de updateaanvraag mislukt en u wordt gefactureerd de premietarieven.
-* U moet alle virtuele netwerken in andere geopolitieke regio's ontkoppelen. Als u dit niet, uw aanvraag bijwerken mislukt en u wordt gefactureerd de premietarieven.
-* De routetabel moet minder dan 4000 routes voor persoonlijke peering. Als uw tabel route groter dan 4000 routes is, wordt de BGP-sessie zakt en pas het aantal geadverteerde voorvoegsels daaronder 4.000 won't worden ingeschakeld.
+* Zorg ervoor dat het aantal virtuele netwerken die zijn gekoppeld aan het circuit minder dan 10 is voordat u een downgrade van premium naar standard uitvoeren. Als u dit niet doet, uw aanvraag voor bijwerken mislukt en u wordt gefactureerd in de premietarieven.
+* U moet alle virtuele netwerken in andere geopolitieke regio's ontkoppelen. Als u dit niet doet, uw aanvraag voor bijwerken mislukt en u wordt gefactureerd in de premietarieven.
+* De routetabel moet minder dan 4000 routes voor persoonlijke peering. Als de grootte van uw route-table groter dan 4000 routes is, wordt de BGP-sessie wordt geweigerd en wordt niet worden ingeschakeld totdat het aantal geadverteerde voorvoegsels lager 4.000 is.
 
-#### <a name="to-disable-the-premium-add-on"></a>De premium-invoegtoepassing uitschakelen
+#### <a name="to-disable-the-premium-add-on"></a>De premium-invoegtoepassing wilt uitschakelen
 
-U kunt de invoegtoepassing ExpressRoute premium voor uw bestaande circuit uitschakelen met behulp van de volgende PowerShell-cmdlet:
+U kunt de premium-invoegtoepassing voor ExpressRoute voor uw bestaande circuit uitschakelen met behulp van de volgende PowerShell-cmdlet:
 
 ```powershell
 
@@ -156,18 +179,18 @@ Status                           : Enabled
 
 ### <a name="update-the-expressroute-circuit-bandwidth"></a>Bijwerken van de bandbreedte van het ExpressRoute-circuit
 
-Controleer de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md) voor ondersteunde bandbreedte-opties voor uw provider. U kunt de grootte die groter is dan de grootte van uw bestaande circuit, zolang de fysieke poort (waarop uw circuit is gemaakt) kunt verzamelen.
+Controleer de [Veelgestelde vragen over ExpressRoute](expressroute-faqs.md) voor ondersteunde bandbreedte-opties voor uw provider. U kunt een grootte die groter is dan de grootte van uw bestaande circuit, zolang de fysieke poort (waarop uw circuit wordt gemaakt) kunt kiezen.
 
 > [!IMPORTANT]
-> U moet de ExpressRoute-circuit opnieuw maken als er onvoldoende capaciteit op de bestaande poort. U kunt het circuit niet upgraden als er geen extra capaciteit beschikbaar is op die locatie.
+> U moet de ExpressRoute-circuit opnieuw te maken als er onvoldoende capaciteit op de bestaande poort. U kunt het circuit niet bijwerken als er geen extra capaciteit beschikbaar is op die locatie.
 >
-> U kunt de bandbreedte van een ExpressRoute-circuit zonder onderbreking niet reduceren. Downgraden bandbreedte, moet u het ExpressRoute-circuit inrichting ervan ongedaan en vervolgens opnieuw inrichten van nieuwe ExpressRoute-circuit.
+> U kunt de bandbreedte van een ExpressRoute-circuit zonder onderbreking niet reduceren. Het downgraden van bandbreedte, moet u de inrichting van het ExpressRoute-circuit ongedaan maken en vervolgens opnieuw inrichten van een nieuwe ExpressRoute-circuit.
 > 
 > 
 
 #### <a name="resize-a-circuit"></a>Een circuit vergroten of verkleinen
 
-Nadat u welke grootte die u nodig hebt besluit, kunt u de volgende opdracht om het formaat van uw circuit te gebruiken:
+Nadat u welke grootte die u nodig hebt besluit, kunt u de volgende opdracht uit om het formaat van uw circuit te:
 
 ```powershell
 Set-AzureDedicatedCircuitProperties -ServiceKey ********************************* -Bandwidth 1000
@@ -182,9 +205,9 @@ Sku                              : Standard
 Status                           : Enabled
 ```
 
-Zodra uw circuit, is in de aan de kant van Microsoft is aangepast, moet u contact op met uw connectiviteitsprovider om bij te werken-configuraties van hun kant overeenkomen met deze wijziging. Facturering begint op voor de optie bijgewerkte bandbreedte vanaf dit punt.
+Zodra uw circuit heeft zijn grote van aan de kant van Microsoft, moet u contact op met uw connectiviteitsprovider voor het bijwerken van configuraties op hun kant zodat deze overeenkomt met deze wijziging. Facturering begint op voor de optie bijgewerkte bandbreedte vanaf dit punt.
 
-Als u de volgende fout ziet wanneer de bandbreedte van het circuit vergroten, betekent dit er is geen voldoende bandbreedte beschikbaar is op de fysieke poort waarop uw bestaande circuit is gemaakt. U moet dit circuit verwijderen en een nieuwe circuit van de grootte die u moet maken.
+Als u de volgende fout ziet wanneer bandbreedte van het circuit vergroten, betekent dit er niet voldoende bandbreedte links op de fysieke poort waarin uw bestaande circuit wordt gemaakt. U moet dit circuit verwijderen en een nieuw circuit van de grootte die u moet maken.
 
 ```powershell
 Set-AzureDedicatedCircuitProperties : InvalidOperation : Insufficient bandwidth available to perform this circuit
@@ -196,17 +219,17 @@ At line:1 char:1
   + FullyQualifiedErrorId : Microsoft.WindowsAzure.Commands.ExpressRoute.SetAzureDedicatedCircuitPropertiesCommand
 ```
 
-## <a name="deprovision-and-delete-a-circuit"></a>Inrichting ervan ongedaan maakt en een circuit verwijderen
+## <a name="deprovision-and-delete-a-circuit"></a>Inrichting ongedaan maken en verwijderen van een circuit
 
 ### <a name="considerations"></a>Overwegingen
 
-* U moet alle virtuele netwerken van het ExpressRoute-circuit voor deze bewerking niet ontkoppelen. Controleer of er geen virtuele netwerken die zijn gekoppeld aan het circuit als deze bewerking is mislukt.
-* Als de ExpressRoute-circuit serviceprovider Inrichtingsstatus **inrichten** of **ingericht** moet u werken met uw serviceprovider voor inrichting ervan ongedaan maakt het circuit op hun kant. We blijven resources reserveren en u in rekening brengen totdat de serviceprovider is voltooid opheffen van inrichting het circuit en waarschuwt ons.
-* Als de provider heeft het circuit deprovisioned (de serviceprovider Inrichtingsstatus is ingesteld op **niet ingericht**), kunt u het circuit verwijderen. Hierdoor wordt voorkomen dat facturering voor het circuit.
+* U moet alle virtuele netwerken van het ExpressRoute-circuit voor deze bewerking te voltooien ontkoppelen. Controleer of er virtuele netwerken die zijn gekoppeld aan het circuit als deze bewerking is mislukt.
+* Als het ExpressRoute-circuit serviceprovider-Inrichtingsstatus **Provisioning** of **ingerichte** moet u werken met uw serviceprovider inrichting ongedaan maken van het circuit aan hun kant. We blijven reserveer resources en factureren u totdat de service-provider is voltooid ongedaan maken van inrichting van het circuit en ons wordt geïnformeerd.
+* Als de service-provider de inrichting van het circuit is beëindigd (de serviceprovider Inrichtingsstatus is ingesteld op **niet ingericht**), kunt u het circuit verwijderen. Hierdoor wordt voorkomen dat de facturering voor het circuit.
 
 #### <a name="delete-a-circuit"></a>Een circuit verwijderen
 
-U kunt uw ExpressRoute-circuit verwijderen door de volgende opdracht uit te voeren:
+U kunt uw ExpressRoute-circuit verwijderen door de volgende opdracht uit:
 
 ```powershell
 Remove-AzureDedicatedCircuit -ServiceKey "*********************************"

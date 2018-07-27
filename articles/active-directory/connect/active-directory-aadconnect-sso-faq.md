@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2d49164748079346f24aeeebe216b2668a4e3aed
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 9c59db56ad78818d9b6165d27fd2e64f0bfd902c
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258485"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283220"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory naadloze eenmalige aanmelding: veelgestelde vragen
 
@@ -94,10 +94,8 @@ Volg deze stappen op de on-premises server waarop Azure AD Connect:
 
 1. Bel `$creds = Get-Credential`. Wanneer u wordt gevraagd, typt u de domeinbeheerder-referenties voor het beoogde AD-forest.
 
->[!NOTE]
->We gebruiken de domeinbeheerder username, opgegeven in de User Principal namen (UPN) (johndoe@contoso.com) indeling of domein gekwalificeerde sam-account,-naam (contoso\janjansen of contoso.com\johndoe), om te vinden van de beoogde AD-forest. Als u de domeinnaam van de gekwalificeerde sam-account gebruikt, gebruiken we het domeingedeelte van de gebruikersnaam voor [vinden van de domeincontroller van de beheerder van het domein met behulp van DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Als u de UPN in plaats daarvan gebruiken we [vertaald in een domein gekwalificeerde sam-accountnaam](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) voordat het zoeken naar de desbetreffende domeincontroller.
-
-UPN's, gebruiken we vertalen 
+    >[!NOTE]
+    >We gebruiken de domeinbeheerder username, opgegeven in de User Principal namen (UPN) (johndoe@contoso.com) indeling of domein gekwalificeerde sam-account,-naam (contoso\janjansen of contoso.com\johndoe), om te vinden van de beoogde AD-forest. Als u de domeinnaam van de gekwalificeerde sam-account gebruikt, gebruiken we het domeingedeelte van de gebruikersnaam voor [vinden van de domeincontroller van de beheerder van het domein met behulp van DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Als u de UPN in plaats daarvan gebruiken we [vertaald in een domein gekwalificeerde sam-accountnaam](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) voordat het zoeken naar de desbetreffende domeincontroller.
 
 2. Bel `Update-AzureADSSOForest -OnPremCredentials $creds`. Deze opdracht werkt de ontsleutelingssleutel Kerberos voor de `AZUREADSSOACC` computeraccount in deze specifieke AD-forest en bijgewerkt in Azure AD.
 3. Herhaal de voorgaande stappen voor elk AD-forest dat u de functie hebt ingesteld op.
@@ -107,17 +105,36 @@ UPN's, gebruiken we vertalen
 
 ## <a name="how-can-i-disable-seamless-sso"></a>Hoe kan ik naadloze eenmalige aanmelding uitschakelen?
 
-Naadloze eenmalige aanmelding kan worden uitgeschakeld met behulp van Azure AD Connect.
+### <a name="step-1-disable-the-feature-on-your-tenant"></a>Step 1. Schakel de functie op uw tenant
 
-Azure AD Connect uitvoeren, kies 'Gebruiker aanmelden pagina wijzigen' en klik op 'Volgende'. Schakel de optie 'Eenmalige aanmelding inschakelen op'. Ga door met de wizard. Naadloze eenmalige aanmelding is na voltooiing van de wizard wordt uitgeschakeld op uw tenant.
+#### <a name="option-a-disable-using-azure-ad-connect"></a>Optie A: uitschakelen met behulp van Azure AD Connect
 
-Echter, ziet u een bericht op het scherm dat als volgt:
+1. Azure AD Connect uitvoeren, kiest u **gebruiker aanmelden pagina wijzigen** en klikt u op **volgende**.
+2. Schakel de **eenmalige aanmelding inschakelen** optie. Ga door met de wizard.
+
+Nadat de wizard is voltooid, wordt de naadloze eenmalige aanmelding worden uitgeschakeld op uw tenant. Echter, ziet u een bericht op het scherm dat als volgt:
 
 'Eenmalige aanmelding is nu uitgeschakeld, maar er zijn aanvullende handmatige stappen voor het uitvoeren als u wilt opschonen te voltooien. Meer informatie"
 
-Volg deze handmatige stappen voor het voltooien van het proces op de on-premises server waarop Azure AD Connect:
+Als u wilt de opschonen te voltooien, volgt u de stappen 2 en 3 op de on-premises server waarop Azure AD Connect.
 
-### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Step 1. Lijst met AD-forests waarop naadloze eenmalige aanmelding is ingeschakeld
+#### <a name="option-b-disable-using-powershell"></a>Optie B: uitschakelen met behulp van PowerShell
+
+Voer de volgende stappen uit op de on-premises server waarop Azure AD Connect:
+
+1. Eerst, downloaden en installeren van de [Microsoft Online Services-aanmeldhulp](http://go.microsoft.com/fwlink/?LinkID=286152).
+2. Download en installeer vervolgens de [64-bits Azure Active Directory-module voor Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
+3. Navigeer naar de map `%programfiles%\Microsoft Azure Active Directory Connect`.
+4. Importeer de naadloze eenmalige aanmelding PowerShell-module met de volgende opdracht: `Import-Module .\AzureADSSO.psd1`.
+5. Voer PowerShell uit als beheerder. In PowerShell, roept u `New-AzureADSSOAuthenticationContext`. Met deze opdracht geeft u een pop-upvenster van uw tenant hoofdbeheerder referenties in te voeren.
+6. Bel `Enable-AzureADSSO -Enable $false`.
+
+>[!IMPORTANT]
+>Naadloze eenmalige aanmelding uitschakelen verandert met behulp van PowerShell niet de status in Azure AD Connect. Naadloze eenmalige aanmelding wordt weergegeven als ingeschakeld in de **aanmelden van gebruikers wijzigen** pagina.
+
+### <a name="step-2-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Stap 2. Lijst met AD-forests waarop naadloze eenmalige aanmelding is ingeschakeld
+
+Volg de stappen 1 t/m 5 hieronder als u naadloze eenmalige aanmelding met Azure AD Connect hebt uitgeschakeld. Als u naadloze eenmalige aanmelding met behulp van PowerShell in plaats daarvan hebt uitgeschakeld, gaat u verder naar stap 6 hieronder.
 
 1. Eerst, downloaden en installeren van de [Microsoft Online Services-aanmeldhulp](http://go.microsoft.com/fwlink/?LinkID=286152).
 2. Download en installeer vervolgens de [64-bits Azure Active Directory-module voor Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
@@ -126,7 +143,7 @@ Volg deze handmatige stappen voor het voltooien van het proces op de on-premises
 5. Voer PowerShell uit als beheerder. In PowerShell, roept u `New-AzureADSSOAuthenticationContext`. Met deze opdracht geeft u een pop-upvenster van uw tenant hoofdbeheerder referenties in te voeren.
 6. Bel `Get-AzureADSSOStatus`. Met deze opdracht biedt u de lijst met AD-forests (zoek op de lijst met 'Domeinen') op die deze functie is ingeschakeld.
 
-### <a name="step-2-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Stap 2. Verwijder handmatig de `AZUREADSSOACCT` computeraccount in elk AD-forest die u ziet die worden vermeld.
+### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Stap 3. Verwijder handmatig de `AZUREADSSOACCT` computeraccount in elk AD-forest die u ziet die worden vermeld.
 
 ## <a name="next-steps"></a>Volgende stappen
 

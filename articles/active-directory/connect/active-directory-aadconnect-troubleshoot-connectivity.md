@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d30006fae8a0d495909b9a53cf0bffb5cc824433
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 793a65347552782c4a3482b29d10e4c94ef85663
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38295393"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263228"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Verbindingsproblemen met Azure AD Connect oplossen
 In dit artikel wordt uitgelegd hoe connectiviteit tussen Azure AD Connect en Azure AD werkt en het oplossen van problemen met de netwerkverbinding. Deze problemen zijn ondergebracht in een omgeving met een proxyserver worden weergegeven.
@@ -52,7 +52,7 @@ URL's is de volgende tabel het absolute minimum dat bare kunnen verbinding maken
 | \*.microsoftonline.com |HTTPS/443 |Gebruikt voor het configureren van uw Azure AD-directory en gegevens importeren/exporteren. |
 
 ## <a name="errors-in-the-wizard"></a>Fouten in de wizard
-De installatiewizard maakt gebruik van twee andere beveiligingscontext. Op de pagina **verbinding maken met Azure AD**, wordt de momenteel aangemelde gebruiker gebruikt. Op de pagina **configureren**, deze wordt gewijzigd in de [account dat de service voor de synchronisatie-engine](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). Als er een probleem is, wordt deze weergegeven waarschijnlijk al op de **verbinding maken met Azure AD** pagina in de wizard omdat de proxyconfiguratie globale.
+De installatiewizard maakt gebruik van twee andere beveiligingscontext. Op de pagina **verbinding maken met Azure AD**, wordt de momenteel aangemelde gebruiker gebruikt. Op de pagina **configureren**, deze wordt gewijzigd in de [account dat de service voor de synchronisatie-engine](active-directory-aadconnect-accounts-permissions.md#adsync-service-account). Als er een probleem is, wordt deze weergegeven waarschijnlijk al op de **verbinding maken met Azure AD** pagina in de wizard omdat de proxyconfiguratie globale.
 
 De volgende problemen zijn de meest voorkomende fouten die in de installatiewizard optreden.
 
@@ -161,28 +161,28 @@ Netwerk- of proxyinstellingen configuratieproblemen. Het netwerk kan niet worden
 ### <a name="user-password-expired"></a>Het gebruikerswachtwoord is verlopen
 Uw referenties zijn verlopen. Uw wachtwoord wijzigen.
 
-### <a name="authorizationfailure"></a>AuthorizationFailure
-Onbekend probleem.
+### <a name="authorization-failure"></a>Autorisatiefout
+Kan geen gebruiker actie uit te voeren in Azure AD te verlenen.
 
 ### <a name="authentication-cancelled"></a>Verificatie is geannuleerd
 De uitdaging multi-factor authentication (MFA) is geannuleerd.
 
-### <a name="connecttomsonline"></a>ConnectToMSOnline
+### <a name="connect-to-ms-online-failed"></a>Verbinding maken met MS Online is mislukt
 Verificatie is voltooid, maar er is een verificatieprobleem met Azure AD PowerShell.
 
-### <a name="azurerolemissing"></a>AzureRoleMissing
-Verificatie is voltooid. U bent geen globale beheerder.
+### <a name="azure-ad-global-admin-role-needed"></a>Azure AD-hoofdbeheerder rol nodig
+Gebruiker is geverifieerd. Gebruiker is echter niet toegewezen rol van globale beheerder. Dit is [hoe kunt u globale beheerdersrol toewijzen](../users-groups-roles/directory-assign-admin-roles.md) aan de gebruiker. 
 
-### <a name="privilegedidentitymanagement"></a>PrivilegedIdentityManagement
+### <a name="privileged-identity-management-enabled"></a>Privileged Identity Management is ingeschakeld
 Verificatie is voltooid. Privileged identity management is ingeschakeld en u bent momenteel niet een globale beheerder. Zie voor meer informatie, [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
-### <a name="companyinfounavailable"></a>CompanyInfoUnavailable
+### <a name="company-information-unavailable"></a>Bedrijfsgegevens die niet beschikbaar
 Verificatie is voltooid. Kan de bedrijfsgegevens niet ophalen uit Azure AD.
 
-### <a name="retrievedomains"></a>RetrieveDomains
+### <a name="domain-information-unavailable"></a>Domeininformatie niet beschikbaar
 Verificatie is voltooid. Kan de domeingegevens niet ophalen uit Azure AD.
 
-### <a name="unexpected-exception"></a>Onverwachte uitzondering
+### <a name="unspecified-authentication-failure"></a>Niet-opgegeven verificatie is mislukt
 Onverwachte fout opgetreden in de installatiewizard weergegeven. Kan gebeuren als u probeert te gebruiken een **Microsoft-Account** in plaats van een **school-of organisatieaccount**.
 
 ## <a name="troubleshooting-steps-for-previous-releases"></a>Stappen voor probleemoplossing voor eerdere versies.

@@ -4,23 +4,16 @@ description: Dit document bevat een overzicht van virtuele netwerken (VNets) kop
 services: expressroute
 documentationcenter: na
 author: ganesr
-manager: carmonm
-editor: ''
-tags: azure-service-management
-ms.assetid: 9b53fd72-9b6b-4844-80b9-4e1d54fd0c17
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/25/2018
+ms.topic: conceptual
+ms.date: 07/26/2018
 ms.author: ganesr
-ms.openlocfilehash: 7e1faa9dc5901861aab8e7911c241e6704b805b1
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 99e0bbc0e2501deead8990776d35835ea396590b
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257836"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284378"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Een virtueel netwerk verbinden met een ExpressRoute-circuit met behulp van PowerShell (klassiek)
 > [!div class="op_single_selector"]
@@ -40,9 +33,9 @@ In dit artikel krijgt u virtuele netwerken (VNets) koppelen aan Azure ExpressRou
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## <a name="configuration-prerequisites"></a>Configuratievereisten
-1. U moet de nieuwste versie van de Azure PowerShell-modules. U kunt de meest recente PowerShell-modules downloaden van de PowerShell-sectie van de [pagina Azure Downloads](https://azure.microsoft.com/downloads/). Volg de instructies in [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview) voor stapsgewijze instructies over het configureren van uw computer voor het gebruik van de Azure PowerShell-modules.
-2. U moet nemen de [vereisten](expressroute-prerequisites.md), [routeringsvereisten](expressroute-routing.md), en [werkstromen](expressroute-workflows.md) voordat u begint met de configuratie.
-3. U moet een actief ExpressRoute-circuit hebben.
+
+* Controleer de [vereisten](expressroute-prerequisites.md), [routeringsvereisten](expressroute-routing.md), en [werkstromen](expressroute-workflows.md) voordat u begint met de configuratie.
+* U moet een actief ExpressRoute-circuit hebben.
    * Volg de instructies voor [maken van een ExpressRoute-circuit](expressroute-howto-circuit-classic.md) en vraag uw connectiviteitsprovider het circuit inschakelen.
    * Zorg ervoor dat u Azure private peering is geconfigureerd voor uw circuit hebt. Zie de [configureren routering](expressroute-howto-routing-classic.md) artikel voor routeringsinstructies.
    * Zorg ervoor dat de persoonlijke Azure-peering is geconfigureerd en van de BGP-peering tussen uw netwerk en Microsoft is, zodat u end-to-end-connectiviteit kunt inschakelen.
@@ -52,16 +45,31 @@ U kunt maximaal 10 virtuele netwerken koppelen aan een ExpressRoute-circuit. All
 
 Een enkel VNet kan worden gekoppeld aan maximaal vier ExpressRoute-circuits. Gebruik de procedure hieronder een nieuwe koppeling maakt naar elk ExpressRoute-circuit dat u verbinding maakt. De ExpressRoute-circuits kunnen zich in hetzelfde abonnement, verschillende abonnementen of een combinatie van beide.
 
+## <a name="download-the-latest-powershell-cmdlets"></a>Download de meest recente PowerShell-cmdlets
+
+U moet de nieuwste versie van de Azure PowerShell-modules. U kunt de meest recente PowerShell-modules downloaden van de PowerShell-sectie van de [pagina Azure Downloads](https://azure.microsoft.com/downloads/). Volg de instructies in [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview) voor stapsgewijze instructies over het configureren van uw computer voor het gebruik van de Azure PowerShell-modules.
+
+Daarnaast moet u de module voor ExpressRoute downloaden. U kunt de volgende voorbeeldopdrachten gebruiken voor het downloaden van de Azure- en ExpressRoute-modules. Wanneer u deze opdrachten, houd er rekening mee dat het versienummer (in dit voorbeeld 5.1.1) worden gewijzigd als nieuwere versies van de cmdlets worden vrijgegeven.
+
+```powershell
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azure.psd1'
+Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
+```
+
 ## <a name="connect-a-virtual-network-in-the-same-subscription-to-a-circuit"></a>Een virtueel netwerk in hetzelfde abonnement verbinden met een circuit
 U kunt een virtueel netwerk koppelen aan een ExpressRoute-circuit met behulp van de volgende cmdlet. Zorg ervoor dat de virtuele netwerkgateway is gemaakt en gereed is voor het koppelen voordat u de cmdlet uitvoert.
 
-    New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
-    Provisioned
+```powershell
+New-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+Provisioned
+```
     
 ## <a name="remove-a-virtual-network-link-to-a-circuit"></a>Een virtueel netwerk koppelen aan een circuit verwijderen
 U kunt een virtueel netwerk koppelen aan een ExpressRoute-circuit verwijderen met behulp van de volgende cmdlet. Zorg ervoor dat het huidige abonnement is geselecteerd voor het opgegeven virtuele netwerk. 
 
-    Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+```powershell
+Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VNetName "MyVNet"
+```
  
 
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>Een virtueel netwerk in een ander abonnement verbinden met een circuit

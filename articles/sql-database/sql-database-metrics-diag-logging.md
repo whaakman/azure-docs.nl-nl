@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: c7a5031fab10f44809f9533e43c3596d46dc77e3
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: fbeda6a74be11668f16d477696ea00653b73baa6
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346022"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284823"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metrische gegevens van Azure SQL-Database en logboekregistratie van diagnostische gegevens 
 Azure SQL-Database kan metrische en diagnostische gegevens verzenden logboeken voor de bewaking vergemakkelijken. U kunt SQL Database configureren voor het opslaan van resourcegebruik, werkrollen en sessies, en connectiviteit in een van deze Azure-resources:
@@ -204,7 +204,7 @@ De eenvoudigste manier om te configureren waarin de hun metrische gegevens voor 
 
 SQL-analyse is een hiërarchische dashboard waarmee u de hiërarchie van SQL Database-resources te doorlopen. Zie voor meer informatie over het gebruik van de oplossing SQL Analytics, [SQL-Database controleren met behulp van de oplossing SQL Analytics](../log-analytics/log-analytics-azure-sql.md).
 
-## <a name="stream-into-event-hubs"></a>Stream naar Eventhubs
+## <a name="stream-into-event-hubs"></a>Streamen in Event Hubs
 
 De logboeken van de metrische gegevens en diagnostische gegevens van de SQL-Database kunnen worden gestreamd naar Event Hubs met behulp van de ingebouwde **Stream naar een event hub** optie in de portal. U kunt de regel-ID van Service Bus ook inschakelen met behulp van een diagnostische instelling via PowerShell-cmdlets, de Azure CLI of de Azure Monitor REST API. 
 
@@ -264,7 +264,7 @@ Meer informatie over het [metrische en diagnostische gegevens logboeken download
 |**Resource**|**Metrische gegevens**|
 |---|---|
 |Database|DTU-percentage, DTU gebruikt, DTU limiet, CPU-percentage, fysieke gegevens lezen percentage logboek schrijven percentage, geslaagd/mislukt/geblokkeerd door firewallverbindingen, sessies percentage, percentage van de werknemers, opslag, opslagpercentage, percentage van XTP-opslag, en impassen |
-|Elastische groep|eDTU-percentage, eDTU gebruikt, eDTU-limiet, CPU-percentage, fysieke gegevens lezen percentage logboek schrijven percentage, sessies percentage, percentage van de werknemers, opslag, opslagpercentage, limiet voor opslag, XTP-opslagpercentage |
+|Elastische pool|eDTU-percentage, eDTU gebruikt, eDTU-limiet, CPU-percentage, fysieke gegevens lezen percentage logboek schrijven percentage, sessies percentage, percentage van de werknemers, opslag, opslagpercentage, limiet voor opslag, XTP-opslagpercentage |
 |||
 
 ### <a name="query-store-runtime-statistics"></a>Query Store runtime-statistieken
@@ -276,7 +276,7 @@ Meer informatie over het [metrische en diagnostische gegevens logboeken download
 |TimeGenerated [UTC]|Tijdstempel waarop het logboek is vastgelegd.|
 |Type|Altijd: AzureDiagnostics|
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
-|Category|De naam van de categorie. Altijd: QueryStoreRuntimeStatistics|
+|Categorie|De naam van de categorie. Altijd: QueryStoreRuntimeStatistics|
 |OperationName|Naam van de bewerking. Altijd: QueryStoreRuntimeStatisticsEvent|
 |Resource|Naam van de resource.|
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
@@ -327,9 +327,9 @@ Meer informatie over [gegevens voor Query Store runtime-statistieken](https://do
 |TimeGenerated [UTC]|Tijdstempel waarop het logboek is vastgelegd.|
 |Type|Altijd: AzureDiagnostics|
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
-|Category|De naam van de categorie. Altijd: QueryStoreWaitStatistics|
+|Categorie|De naam van de categorie. Altijd: QueryStoreWaitStatistics|
 |OperationName|Naam van de bewerking. Altijd: QueryStoreWaitStatisticsEvent|
-|Resource|De naam van de resource|
+|Resource|Naam van de resource|
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
 |ResourceGroup|De naam van de resourcegroep die de database behoort.|
@@ -365,9 +365,9 @@ Meer informatie over [Query Store wacht statistiekgegevens](https://docs.microso
 |TimeGenerated [UTC]|Tijdstempel waarop het logboek is vastgelegd.|
 |Type|Altijd: AzureDiagnostics|
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
-|Category|De naam van de categorie. Altijd: fouten|
+|Categorie|De naam van de categorie. Altijd: fouten|
 |OperationName|Naam van de bewerking. Altijd: ErrorEvent|
-|Resource|De naam van de resource|
+|Resource|Naam van de resource|
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
 |ResourceGroup|De naam van de resourcegroep die de database behoort.|
@@ -394,9 +394,9 @@ Meer informatie over [SQL Server-foutberichten](https://msdn.microsoft.com/libra
 |TimeGenerated [UTC]|Tijdstempel waarop het logboek is vastgelegd.|
 |Type|Altijd: AzureDiagnostics|
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
-|Category|De naam van de categorie. Altijd: DatabaseWaitStatistics|
+|Categorie|De naam van de categorie. Altijd: DatabaseWaitStatistics|
 |OperationName|Naam van de bewerking. Altijd: DatabaseWaitStatisticsEvent|
-|Resource|De naam van de resource|
+|Resource|Naam van de resource|
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
 |ResourceGroup|De naam van de resourcegroep die de database behoort.|
@@ -423,9 +423,9 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 |TimeGenerated [UTC]|Tijdstempel waarop het logboek is vastgelegd.|
 |Type|Altijd: AzureDiagnostics|
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
-|Category|De naam van de categorie. Altijd: time-outs|
+|Categorie|De naam van de categorie. Altijd: time-outs|
 |OperationName|Naam van de bewerking. Altijd: TimeoutEvent|
-|Resource|De naam van de resource|
+|Resource|Naam van de resource|
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
 |ResourceGroup|De naam van de resourcegroep die de database behoort.|
@@ -446,9 +446,9 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 |TimeGenerated [UTC]|Tijdstempel waarop het logboek is vastgelegd.|
 |Type|Altijd: AzureDiagnostics|
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
-|Category|De naam van de categorie. Altijd: blokken|
+|Categorie|De naam van de categorie. Altijd: blokken|
 |OperationName|Naam van de bewerking. Altijd: BlockEvent|
-|Resource|De naam van de resource|
+|Resource|Naam van de resource|
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
 |ResourceGroup|De naam van de resourcegroep die de database behoort.|
@@ -460,6 +460,27 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 |resource_owner_type_s|Eigenaar van de vergrendeling.|
 |blocked_process_filtered_s|Proces rapport XML geblokkeerd.|
 |duration_d|De duur van de vergrendeling in microseconden.|
+
+### <a name="deadlocks-dataset"></a>Impassen gegevensset
+
+|Eigenschap|Beschrijving|
+|---|---|
+|TenantId|Uw tenant-ID.|
+|SourceSystem|Altijd: Azure|
+|TimeGenerated [UTC] |Tijdstempel waarop het logboek is vastgelegd.|
+|Type|Altijd: AzureDiagnostics|
+|ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
+|Categorie|De naam van de categorie. Altijd: impassen|
+|OperationName|Naam van de bewerking. Altijd: DeadlockEvent|
+|Resource|Naam van de resource.|
+|ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
+|SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
+|ResourceGroup|De naam van de resourcegroep die de database behoort.|
+|LogicalServerName_s|De naam van de server die de database behoort.|
+|ElasticPoolName_s|De naam van de elastische groep die de database deel uitmaakt, indien van toepassing.|
+|DatabaseName_s|Naam van de database. |
+|ResourceId|Resource-URI.|
+|deadlock_xml_s|Impasse rapport XML.|
 
 ### <a name="intelligent-insights-dataset"></a>Intelligent Insights-gegevensset
 Meer informatie over de [Intelligent Insights-logboekindeling](sql-database-intelligent-insights-use-diagnostics-log.md).

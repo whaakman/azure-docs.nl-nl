@@ -1,21 +1,20 @@
 ---
-title: 'Snelstartgids: Herkennen gesproken tekst in C# onder .NET Core in Windows met behulp van de Cognitive Services Speech SDK | Microsoft Docs'
+title: 'Snelstartgids: Herkennen gesproken tekst in C# onder .NET Core in Windows met behulp van de Cognitive Services spraak-SDK'
 titleSuffix: Microsoft Cognitive Services
 description: Meer informatie over het herkennen van gesproken tekst in C# onder .NET Core in Windows met behulp van de Cognitive Services spraak-SDK
 services: cognitive-services
 author: wolfma61
-manager: onano
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 50cf1bbbe529b30da6bfe39281d11eee1c788dd8
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: f66917ed49393988a378de0a55525105c5d19b7c
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259157"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282371"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-using-the-speech-sdk"></a>Snelstartgids: Herkennen gesproken tekst in C# onder .NET Core in Windows met behulp van de spraak-SDK
 

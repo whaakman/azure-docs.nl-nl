@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/19/2018
+ms.date: 07/25/2018
 ms.author: aljo
-ms.openlocfilehash: 1f7cad982e4a78aaad92e563eb4a1fc33b533478
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 56c904c0da87c3b0023fe5c9a125a359e23678dc
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238944"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263807"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Instellingen voor Service Fabric-cluster en Fabric-Upgradebeleid aanpassen
 Dit document leest u hoe de verschillende fabric-instellingen aanpassen en Upgradebeleid in de infrastructuur voor uw Service Fabric-cluster. U kunt aanpassen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon.
@@ -624,7 +624,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="securityadminclientx509names"></a>Beveiliging/AdminClientX509Names
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, is standaard ingesteld op geen|Dynamisch| |
+|PropertyGroup|X509NameMap, is standaard ingesteld op geen|Dynamisch|Dit is een lijst van een sleutelpaar met "Naam" en "Waarde". Elke 'naam' is van het algemene naam van het onderwerp of DNS-naam van X509 certificaten die zijn gemachtigd voor beheerder clientbewerkingen. Voor een bepaalde "naam", "Waarde" is een met door komma's gescheiden lijst met vingerafdrukken van het certificaat voor de verlener vast te maken, als dat niet leeg is, wordt de directe verlener van beheerder-clientcertificaten moet zich in de lijst. |
 
 ## <a name="securityclientaccess"></a>Beveiliging/ClientAccess
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
@@ -730,7 +730,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="securityclientx509names"></a>Beveiliging/ClientX509Names
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, is standaard ingesteld op geen|Dynamisch| |
+|PropertyGroup|X509NameMap, is standaard ingesteld op geen|Dynamisch|Dit is een lijst van een sleutelpaar met "Naam" en "Waarde". Elke 'naam' is van het algemene naam van het onderwerp of DNS-naam van X509 certificaten die zijn gemachtigd voor de clientbewerkingen. Voor een bepaalde "naam", "Waarde" is een met door komma's gescheiden lijst met vingerafdrukken van het certificaat voor de verlener vast te maken, als dat niet leeg is, wordt de directe verlener van clientcertificaten moet zich in de lijst.|
 
 ## <a name="securityclustercertificateissuerstores"></a>Beveiliging/ClusterCertificateIssuerStores
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
@@ -740,7 +740,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="securityclusterx509names"></a>Beveiliging/ClusterX509Names
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, is standaard ingesteld op geen|Dynamisch| |
+|PropertyGroup|X509NameMap, is standaard ingesteld op geen|Dynamisch|Dit is een lijst van een sleutelpaar met "Naam" en "Waarde". Elke 'naam' is van het algemene naam van het onderwerp of DNS-naam van X509 certificaten die zijn gemachtigd voor bewerkingen voor een cluster. Voor een bepaalde "naam", "Waarde" is een met door komma's gescheiden lijst met vingerafdrukken van het certificaat voor de verlener vast te maken, als dat niet leeg is, wordt de directe verlener van clustercertificaten moet zich in de lijst.|
 
 ## <a name="securityservercertificateissuerstores"></a>Beveiliging/ServerCertificateIssuerStores
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
@@ -750,7 +750,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="securityserverx509names"></a>Beveiliging/ServerX509Names
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, is standaard ingesteld op geen|Dynamisch| |
+|PropertyGroup|X509NameMap, is standaard ingesteld op geen|Dynamisch|Dit is een lijst van een sleutelpaar met "Naam" en "Waarde". Elke 'naam' is van het algemene naam van het onderwerp of DNS-naam van X509 certificaten die zijn gemachtigd voor siteserverbewerkingen. Voor een bepaalde "naam", "Waarde" is een met door komma's gescheiden lijst met vingerafdrukken van het certificaat voor de verlener vast te maken, als dat niet leeg is, wordt de directe verlener van certificaten moet zich in de lijst.|
 
 ## <a name="setup"></a>Instellen
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |

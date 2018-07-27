@@ -1,38 +1,37 @@
 ---
-title: Onveranderbare opslagfunctie van Azure Blob Storage (preview) | Microsoft Docs
-description: Azure Storage biedt nu WORM-ondersteuning voor Blob-objectopslag waarmee gegevens gedurende een door de gebruiker opgegeven duur kunnen worden opgeslagen in een niet-uitwisbare en onveranderbare status. Met deze functie kunnen organisaties in vele gereglementeerde branches, met name organisaties die makelaars- en handelaarsdiensten leveren, gegevens opslaan op een manier die compatibel is met SEC 17a-4(f) en andere regelgeving.
+title: Onveranderbare opslag voor Azure Blob storage (Preview) | Microsoft Docs
+description: Azure Storage biedt ondersteuning voor blobopslag (object) waarmee gebruikers gegevens opslaan in een status bewaarinterval, niet kan worden gewijzigd voor een gebruiker opgegeven tijdsinterval WORM (Write Once, Read Many). WORM-ondersteuning voor Azure Blob-opslag kan organisaties in veel gereguleerde bedrijfstakken, met name handelaar organisaties, voor het opslaan van gegevens in een manier die voldoet aan de seconde 17a-4(f) en andere voorschriften.
 services: storage
 author: sangsinh
-manager: twooley
-ms.custom: mvc
 ms.service: storage
-ms.topic: quickstart
+ms.topic: article
 ms.date: 05/29/2018
 ms.author: sangsinh
-ms.openlocfilehash: 04e88725c04fc88a8394bafd455d25ea13718f7d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-ms.translationtype: HT
+ms.component: blobs
+ms.openlocfilehash: a69d26b8c60f25b5710e48500cc727421d9e5c9a
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070005"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263324"
 ---
-# <a name="immutable-storage-feature-of-azure-blob-storage-preview"></a>Onveranderbare opslagfunctie van Azure Blob Storage (preview)
+# <a name="store-business-critical-data-in-azure-blob-storage-preview"></a>Store kritieke zakelijke gegevens in Azure Blob-opslag (Preview)
 
-Met de onveranderbare opslagfunctie voor Azure Blobs kunnen gebruikers bedrijfskritieke gegevens in een WORM-status (Write Once Read Many) opslaan in Azure Blob-opslag. Gegevens met deze status kunnen gedurende een door de gebruiker opgegeven periode niet worden gewist of gewijzigd. Blobs kunnen gedurende het retentie-interval worden gemaakt en gelezen, maar niet worden gewijzigd of verwijderd.
+Onveranderbare opslag voor Azure-blobopslag (object) kan gebruikers bedrijfskritieke gegevens opslaan in Azure blob-opslag in een status WORM (Write Once, Read Many). Gegevens met deze status kunnen gedurende een door de gebruiker opgegeven periode niet worden gewist of gewijzigd. BLOBs kunnen worden gemaakt en lezen, maar niet gewijzigd of verwijderd voor de duur van de retentie-interval.
 
 ## <a name="overview"></a>Overzicht
 
-Met de onveranderbare opslagfunctie kunnen organisaties in vele gereglementeerde branches, met name organisaties die makelaars- en handelaarsdiensten leveren, gegevens opslaan op een manier die compatibel is met SEC 17a-4(f) en andere regelgeving.
+Onveranderbare opslag kan organisaties in veel gereguleerde bedrijfstakken, met name handelaar organisaties, voor het opslaan van gegevens in een manier die voldoet aan de seconde 17a-4(f) en andere voorschriften.
 
 Typische toepassingen zijn onder andere:
 
-- **Naleving van regelgeving**: de onveranderbare opslagfunctie voor Azure Blobs is ontworpen om financiële instellingen en verwante branches te helpen te voldoen aan SEC 17a-4(f), CFTC 1.31©-(d), FINRA enzovoort.
+- **Naleving van regelgeving**: onveranderbare opslag voor Azure Blob-opslag is ontworpen om u te helpen financiële instellingen en verwante bedrijfstakken adres SEC 17a-4(f), CFTC 1.31©-(d), FINRA enzovoort.
 
-- **Veilige documentretentie**: gebruikers krijgen maximale gegevensbeveiliging, want de Blob Storage-service zorgt ervoor dat gegevens door niemand kunnen worden gewijzigd of verwijderd, ook niet door een gebruiker met beheerdersbevoegdheden.
+- **Beveiligen van documenten vasthouden**: gebruikers ontvangen maximale gegevensbeveiliging als Blob-opslag zorgt ervoor dat gegevens kan niet worden gewijzigd of verwijderd door een gebruiker met inbegrip van gebruikers met beheerdersrechten account.
 
-- **Juridische bewaring**: met de onveranderbare opslagfunctie voor Azure-blobs kunnen gebruikers gevoelige informatie die essentieel is voor bijvoorbeeld een geschil of juridisch onderzoek voor een gewenste duur opslaan in een fraudebestendige status.
+- **Juridische bewaring**: onveranderbare opslag voor Azure Blob-opslag kan gebruikers voor het opslaan van gevoelige informatie die essentieel zijn voor een geschil of juridisch onderzoek enz. in een fraudebestendig staat voor de gewenste duur.
 
-De onveranderbare opslagfunctie biedt het volgende:
+Onveranderbare opslag maakt:
 
 - **Ondersteuning voor een retentiebeleid op basis van tijd:** gebruikers stellen beleidsregels in voor het opslaan van gegevens voor een opgegeven periode.
 
@@ -44,11 +43,11 @@ De onveranderbare opslagfunctie biedt het volgende:
 
 - **Ondersteuning voor auditlogboekregistratie:** elke container heeft een auditlogboek dat wordt weergegeven voor maximaal vijf retentieopdrachten op basis van tijd voor beleidsregels voor vergrendelde retentie op basis van tijd, met maximaal drie logboeken voor retentieperiodeverlengingen.  Voor retentie op basis van tijd bevat het logboek de gebruikers-id, het opdrachttype, tijdstempels en de retentieperiode. Voor juridische bewaring bevat het logboek de gebruikers-id, het opdrachttype, tijdstempels en de labels voor juridische bewaring. Dit logboek blijft volgens de richtlijnen van de SEC 17a-4(f)-regelgeving bewaard gedurende de levensduur van de container. Een uitgebreider logboek van activiteiten op besturingsvlak vindt u in het [Azure-activiteitenlogboek](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs). Het is de verantwoordelijkheid van de gebruiker om deze logboeken permanent op te slaan wat mogelijk vereist is voor andere doeleinden.
 
- De functie is ingeschakeld in alle openbare Azure-regio's.
+Onveranderbare opslag is ingeschakeld in alle Azure openbare regio's.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
-De onveranderbare opslag voor Azure Blobs ondersteunt twee soorten WORM-beleidsregels of beleidsregels voor onveranderbare opslag: retentie op basis van tijd en juridische bewaring. Zie de sectie [Aan de slag](#Getting-started) voor meer informatie over het maken van deze beleidsregels voor onveranderbare opslag.
+Onveranderbare opslag voor Azure Blob storage ondersteunt twee typen onveranderbare beleidsregels of WORM: tijd gebaseerd bewaren en juridische bewaring. Zie de sectie [Aan de slag](#Getting-started) voor meer informatie over het maken van deze beleidsregels voor onveranderbare opslag.
 Wanneer een retentiebeleid op basis van tijd of een juridische bewaring wordt toegepast op een container, krijgen alle bestaande blobs de status Onveranderbaar (beveiligd tegen schrijven en verwijderen). Alle nieuwe blobs die worden geüpload naar de container krijgen ook de status Onveranderbaar.
 
 > [!IMPORTANT]
@@ -79,7 +78,7 @@ Raadpleeg de documentatie van [Azure Blob Service-API](https://docs.microsoft.co
 
 > [!NOTE]
 > In de eerste twee scenario's van bovenstaande tabel zijn de eerste Put Blob-bewerking en de Put Block List- en Put Block-bewerkingen die nodig zijn om een blob te maken, toegestaan. Alle volgende bewerkingen zijn niet toegestaan.
-> De onveranderbare opslagfunctie is alleen beschikbaar in GPv2- en blob-opslagaccounts en moet worden gemaakt via de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> Onveranderbare opslag is alleen beschikbaar in GPv2- en blob storage-accounts en moet worden gemaakt via de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="pricing"></a>Prijzen
 
@@ -94,7 +93,7 @@ Tijdens de openbare preview gelden de volgende beperkingen:
 
 ## <a name="getting-started"></a>Aan de slag
 
-Onveranderbare opslag voor Azure Blobs wordt ondersteund op de meest recente versies van [Azure Portal](http://portal.azure.com), Azure [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) en Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)
+Azure onveranderbare Storage voor Azure Blob-opslag wordt ondersteund op de meest recente versies van [Azure Portal](http://portal.azure.com), Azure [CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), en Azure [PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018)
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -132,7 +131,7 @@ Onveranderbare opslag voor Azure Blobs wordt ondersteund op de meest recente ver
 
 De [CLI-extensie](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installeren met `az extension add -n storage-preview`
 
-Als u de extensie al hebt geïnstalleerd, gebruikt u de volgende opdracht om de onveranderbare opslagfunctie in te schakelen: `az extension update -n storage-preview`
+Als u al de extensie geïnstalleerd hebt, gebruikt u de volgende opdracht uit om in te schakelen onveranderbare opslag: `az extension update -n storage-preview`
 
 De functie is opgenomen in de volgende opdrachtgroepen (voer '-h' voor deze opdrachtgroepen uit om de opdrachten te zien): `az storage container immutability-policy` en `az storage container legal-hold`.
 
@@ -150,7 +149,7 @@ Hieronder vindt u een voorbeeld van PowerShell-code ter illustratie van het gebr
 
 ## <a name="client-libraries"></a>Clientbibliotheken
 
-De onveranderbare opslagfunctie voor Azure-blobs wordt ondersteund in de volgende versies van de clientbibliotheek
+Onveranderbare opslag voor Azure Blob-opslag wordt ondersteund in de volgende versies van de client-bibliotheek
 
 - [.NET-clientbibliotheek (versie 7.2.0-preview en hoger](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
 - [node.js-clientbibliotheek (versie 4.0.0 en hoger)](https://www.npmjs.com/package/azure-arm-storage)
@@ -170,11 +169,11 @@ De onveranderbare opslagfunctie voor Azure-blobs wordt ondersteund in de volgend
 
 **Is de functie alleen van toepassing op blok-blobs of ook op pagina- en toevoeg-blobs?**
 
-De onveranderbare opslagfunctie voor blobs kan worden gebruikt met elk blob-type.  De functie wordt echter voornamelijk aanbevolen voor gebruik met blok-blobs. In tegenstelling tot blok-blobs moeten pagina-blobs en toevoeg-blobs worden gemaakt buiten een WORM-container en daarna naar de container worden gekopieerd.  Wanneer deze blobs naar een WORM-container zijn gekopieerd, zijn verdere *toevoegingen* aan een toevoeg-blob of wijzigingen in een pagina-blob niet meer toegestaan.
+Onveranderbare storage voor blobs kan worden gebruikt met elk blobtype.  De functie wordt echter voornamelijk aanbevolen voor gebruik met blok-blobs. In tegenstelling tot blok-blobs moeten pagina-blobs en toevoeg-blobs worden gemaakt buiten een WORM-container en daarna naar de container worden gekopieerd.  Wanneer deze blobs naar een WORM-container zijn gekopieerd, zijn verdere *toevoegingen* aan een toevoeg-blob of wijzigingen in een pagina-blob niet meer toegestaan.
 
 **Moet ik altijd een nieuw opslagaccount maken om deze functie te gebruiken?**
 
-U kunt de onveranderbare opslagfunctie gebruiken met een bestaand GPv2-account of met een nieuw opslagaccount als het accounttype GPv2 is. Deze functie is alleen beschikbaar met blob-opslag.
+U kunt onveranderbare storage gebruiken met een bestaande GPv2-accounts of voor nieuwe opslagaccounts als het accounttype GPv2. Deze functie is alleen beschikbaar met blob-opslag.
 
 **Wat gebeurt er als ik een container probeer te verwijderen die een *vergrendeld* retentiebeleid op basis van tijd of een juridische bewaring heeft?**
 
@@ -186,7 +185,7 @@ De verwijdering van het opslagaccount mislukt als er minimaal één WORM-contain
 
 **Kan ik de gegevens verplaatsen tussen verschillende blob-lagen (dynamische toegang, statische toegang, archieftoegang) als de blob de status onveranderbaar heeft?**
 
-Ja, met de opdracht Set Blob Tier kunt u gegevens tussen de blob-lagen verplaatsen met behoud met de onveranderbare status van de gegevens. De onveranderbare opslagfunctie wordt ondersteund op de blob-lagen voor dynamische-, statische- en archieftoegang.
+Ja, met de opdracht Set Blob Tier kunt u gegevens tussen de blob-lagen verplaatsen met behoud met de onveranderbare status van de gegevens. Onveranderbare opslag wordt ondersteund op de lagen hot, cool en koude blob.
 
 **Wat gebeurt er als ik niet meer betaal en mijn retentieperiode niet is verlopen?**
 
@@ -198,7 +197,7 @@ Ja, wanneer een eerste keer een bewaarbeleid op basis van tijd wordt gemaakt, kr
 
 **Is de functie beschikbaar in landelijke en overheidsclouds?**
 
-De onveranderbare opslagfunctie is momenteel alleen beschikbaar in openbare Azure-regio's. Stuur een e-mail naar azurestoragefeedback@microsoft.com als u belangstelling hebt voor een specifieke landelijke cloud.
+Onveranderbare opslag is momenteel alleen beschikbaar in Azure openbare regio's. Stuur een e-mail naar azurestoragefeedback@microsoft.com als u belangstelling hebt voor een specifieke landelijke cloud.
 
 ## <a name="sample-code"></a>Voorbeeldcode
 

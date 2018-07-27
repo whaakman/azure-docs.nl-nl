@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/16/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1cc58832d5f863f5bbfa6fc20d38b4be81ddad8f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: cfb09718c545d55b31250070fed0c8adff9d3fed
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089958"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263943"
 ---
 # <a name="azure-ad-connect-automatic-upgrade"></a>Azure AD Connect: automatische upgrade
 Deze functie is ingevoerd met build [1.1.105.0 (uitgebracht februari 2016)](active-directory-aadconnect-version-history.md#111050).  Deze functie is bijgewerkt in [1.1.561 bouwen](active-directory-aadconnect-version-history.md#115610) en biedt nu ondersteuning voor aanvullende scenario's die niet eerder werden ondersteund.
@@ -95,8 +95,8 @@ Hier volgt een lijst van de meest voorkomende berichten die u wilt zoeken. Deze 
 | UpgradeNotSupportedInvalidPersistedState |De installatie is niet een Express-instellingen of een upgrade van DirSync. |
 | UpgradeNotSupportedMetaverseSizeExceeeded |U hebt meer dan 100.000 objecten in de metaverse. |
 | UpgradeNotSupportedMultiForestSetup |U verbinding maakt met meer dan één forest. Snelle installatie maakt alleen verbinding met één forest. |
-| UpgradeNotSupportedNonLocalDbInstall |U maakt geen gebruik van een SQL Server Express LocalDB-database. |
-| UpgradeNotSupportedNonMsolAccount |De [AD Connector-account](active-directory-aadconnect-accounts-permissions.md#active-directory-account) is niet het standaardaccount voor MSOL_ meer. |
+| UpgradeNotSupportedNonLocalDbInstall |U maakt geen gebruik van een SQL Server Express LocalDB-database. |d
+| UpgradeNotSupportedNonMsolAccount |De [Connector voor AD DS-account](active-directory-aadconnect-accounts-permissions.md#ad-ds-connector-account) is niet het standaardaccount voor MSOL_ meer. |
 | UpgradeNotSupportedNotConfiguredSignInMethod | Bij het instellen van AAD Connect, u hebt gekozen *niet configureert* bij het selecteren van de methode voor eenmalige aanmelding. | 
 | UpgradeNotSupportedPtaSignInMethod | U kunt Pass through-verificatie hebt geselecteerd als de methode aanmelden. |
 | UpgradeNotSupportedStagingModeEnabled |De server is ingesteld in [faseringsmodus](active-directory-aadconnectsync-operations.md#staging-mode). |

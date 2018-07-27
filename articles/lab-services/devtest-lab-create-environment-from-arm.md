@@ -12,18 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: f73b6f594403ce51fcff4d757990afb3ce4a82bc
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 5ae7a0d3aa0606fd02bfbaa0dcebdfaed5d11eb7
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004843"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283088"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Multi-VM-omgevingen en PaaS-resources met Azure Resource Manager-sjablonen maken
 
-De [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) kunt u eenvoudig [maken en een virtuele machine toevoegen aan een lab](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Dit werkt goed voor het maken van een virtuele machine op een tijdstip. Als de omgeving meerdere virtuele machines bevat, moet elke virtuele machine echter worden afzonderlijk gemaakt. Voor scenario's zoals een Web-app voor meerdere lagen of een SharePoint-farm, een methode nodig om toe te staan voor het maken van meerdere virtuele machines in één stap. Met behulp van Azure Resource Manager-sjablonen, kunt u nu definieert de infrastructuur en configuratie van uw Azure-oplossing en herhaaldelijk implementeren meerdere virtuele machines in een consistente status. Deze functie biedt de volgende voordelen:
+De [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) kunt u eenvoudig [één virtuele machine tegelijk toevoegen aan een lab](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Als de omgeving meerdere virtuele machines bevat, moet elke virtuele machine echter worden afzonderlijk gemaakt. Voor scenario's zoals een Web-app voor meerdere lagen of een SharePoint-farm, een methode nodig om toe te staan voor het maken van meerdere virtuele machines in één stap. Met behulp van Azure Resource Manager-sjablonen, kunt u nu definieert de infrastructuur en configuratie van uw Azure-oplossing en herhaaldelijk implementeren meerdere virtuele machines in een consistente status. Deze functie biedt de volgende voordelen:
 
 - Azure Resource Manager-sjablonen worden geladen rechtstreeks vanuit uw resourcebeheerbibliotheek (GitHub of Team Services Git).
 - Wanneer geconfigureerd, uw gebruikers een omgeving kunnen maken door het verzamelen van een Azure Resource Manager-sjabloon via Azure portal, net als bij andere soorten [VM-basissen](./devtest-lab-comparing-vm-base-image-types.md).
@@ -43,6 +43,8 @@ Meer informatie over de vele [voordelen van het gebruik van Resource Manager-sja
 
 Als een van de aanbevolen procedures met infrastructure-as-code en configuratie als code, moeten omgevingssjablonen worden beheerd in broncodebeheer. Azure DevTest Labs met deze procedure volgt en alle sjablonen van Azure Resource Manager rechtstreeks vanuit uw GitHub- of VSTS Git-opslagplaatsen laadt. Als gevolg hiervan kunnen Resource Manager-sjablonen worden gebruikt voor de volledige release-cyclus, vanuit de testomgeving aan de productie-omgeving.
 
+Bekijk de sjablonen die zijn gemaakt door de DevTest Labs-team in de [openbare GitHub-opslagplaats](https://github.com/Azure/azure-devtestlab/tree/master/Environments). In deze openbare opslagplaats, kunt u de sjablonen die worden gedeeld met anderen kunt u rechtstreeks gebruiken of pas ze aan uw eigen wensen aan weergeven. Nadat u de sjabloon hebt gemaakt, wordt dit opslaan in deze opslagplaats om deze te delen met anderen. U kunt ook uw eigen Git-opslagplaats met sjablonen die kunnen worden gebruikt voor het instellen van omgevingen in de cloud instellen. 
+
 Er zijn een aantal regels voor het ordenen van uw Azure Resource Manager-sjablonen in een opslagplaats:
 
 - Het bestand master sjabloon moet de naam `azuredeploy.json`. 
@@ -50,18 +52,18 @@ Er zijn een aantal regels voor het ordenen van uw Azure Resource Manager-sjablon
     ![Sleutel Azure Resource Manager-sjabloonbestanden](./media/devtest-lab-create-environment-from-arm/master-template.png)
 
 - Als u gebruiken de parameterwaarden die zijn gedefinieerd in een parameterbestand wilt, de parameter-bestand moet de naam `azuredeploy.parameters.json`.
-- U kunt de parameters `_artifactsLocation` en `_artifactsLocationSasToken` kan de parametersLink URI-waarde, zodat u DevTest Labs geneste sjablonen automatisch worden beheerd. Zie [hoe Azure DevTest Labs vergemakkelijkt geneste Resource Manager sjabloonimplementaties voor testomgevingen](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/) voor meer informatie.
+- U kunt de parameters `_artifactsLocation` en `_artifactsLocationSasToken` kan de parametersLink URI-waarde, zodat u DevTest Labs geneste sjablonen automatisch worden beheerd. Zie voor meer informatie, [hoe Azure DevTest Labs vergemakkelijkt geneste Resource Manager sjabloonimplementaties voor testomgevingen](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/).
 - Metagegevens kan worden gedefinieerd om de weergavenaam van sjabloon en beschrijving te geven. Deze metagegevens moet zich in een bestand met de naam `metadata.json`. Het volgende voorbeeld-metagegevensbestand ziet u hoe u de weergavenaam en beschrijving opgeven: 
 
-```json
-{
+    ```json
+    {
  
-"itemDisplayName": "<your template name>",
+        "itemDisplayName": "<your template name>",
  
-"description": "<description of the template>"
+        "description": "<description of the template>"
  
-}
-```
+    }
+    ```
 
 De volgende stappen helpen u bij het toevoegen van een opslagplaats aan uw testomgeving met behulp van de Azure portal. 
 
@@ -150,7 +152,7 @@ Houd rekening met deze beperkingen bij het gebruik van Resource Manager-sjabloon
 
 - De meeste beleidsregels worden niet geëvalueerd bij het implementeren van Resource Manager-sjablonen.
 
-   U kunt bijvoorbeeld mogelijk een lab wordt beleid op te geven dat een gebruiker alleen vijf virtuele machines kunt maken. Echter, als de gebruiker heeft een Resource Manager-sjabloon die wordt gemaakt van tientallen VM's geïmplementeerd, dat die is toegestaan. Beleidsregels die niet zijn geëvalueerd zijn onder andere:
+   U kunt bijvoorbeeld mogelijk een lab wordt beleid op te geven dat een gebruiker alleen vijf virtuele machines kunt maken. Een gebruiker kan echter een Resource Manager-sjabloon die wordt gemaakt van tientallen VM's implementeren. Beleidsregels die niet zijn geëvalueerd zijn onder andere:
 
    - Aantal virtuele machines per gebruiker
    - Aantal premium-VM's per lab-gebruiker

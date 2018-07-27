@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: diberry
-ms.openlocfilehash: ace4aa48d3bfce5f88bce8947ab568f0990d67fa
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: b0b5852a223a77e33a288bb8061c1ce374018ec1
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226608"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282276"
 ---
 # <a name="entities-in-luis"></a>Entiteiten in LUIS
 
@@ -70,7 +70,7 @@ LUIS biedt veel soorten entiteiten; vooraf gemaakte entiteiten, aangepaste machi
 | **Eenvoudige** <br/>[Machine geleerd](#machine-learned) | ✔ | **Definitie**<br>Een enkele entiteit is een algemene entiteit die een enkele concept wordt beschreven en wordt geleerd van context machine geleerd. Context zijn woord keuze, word plaatsing en utterance lengte.<br/><br/>Dit is een goede entiteit naar woorden of zinsdelen die niet consistent zijn opgemaakt maar wijzen om hetzelfde te doen. <br/><br/>[Snelstartgids](luis-quickstart-primary-and-secondary-data.md)<br/>[Voorbeeld van de reactie voor entiteit](luis-concept-data-extraction.md#simple-entity-data)|  
 | **Lijst met** <br/>[Exacte overeenkomst](#exact-match)|| **Definitie**<br>Lijst met entiteiten vertegenwoordigen een vaste en gesloten set verwante woorden samen met hun synoymns in uw systeem. <br><br>Elke entiteit lijst mogelijk een of meer formulieren. Het best worden gebruikt voor een bekende set varianten van de manieren om weer te geven van hetzelfde concept.<br/><br/>LUIS detecteert geen aanvullende waarden voor de lijst met entiteiten. Gebruik de **raden** functie om te bekijken van suggesties voor nieuwe woorden op basis van de huidige lijst.<br/><br>Als er meer dan één lijst entiteit met dezelfde waarde, wordt elke entiteit in de query eindpunt geretourneerd. <br/><br/>[Snelstartgids](luis-quickstart-intent-and-list-entity.md)<br>[Voorbeeld van de reactie voor entiteit](luis-concept-data-extraction.md#list-entity-data)| 
 | **Pattern.any** <br/>[Gemengde modus](#mixed) | ✔|**Definitie**<br>Patterns.any is een tijdelijke aanduiding voor de variabele lengte gebruikt alleen in een patroon van sjabloon utterance markeren waar de entiteit begint en eindigt.  <br><br>**Voorbeeld**<br>Uitgaande van een zoekopdracht utterance voor rapporten op basis van de titel, haalt de pattern.any de volledige titel. Een sjabloon utterance met behulp van pattern.any is `Who wrote {BookTitle}[?]`.<br/><br/>[Zelfstudie](luis-tutorial-pattern.md)<br>[Voorbeeld van de reactie voor entiteit](luis-concept-data-extraction.md#composite-entity-data)|  
-| **Samengestelde** <br/>[Machine geleerd](#machine-learned) | ✔|**Definitie**<br>Een samengestelde entiteit is opgebouwd uit andere entiteiten, zoals de vooraf gemaakte entiteiten, eenvoudige, regex, hiërarchische lijst. De afzonderlijke entiteiten vormen een hele entiteit. Lijst met entiteiten zijn niet toegestaan in samengestelde entiteiten. <br><br>**Voorbeeld**<br>Een samengestelde entiteit met de naam PlaneTicketOrder mogelijk onderliggende entiteiten vooraf gedefinieerde `number` en `ToLocation`. <br/><br/>[Zelfstudie](luis-tutorial-composite-entity.md)<br>[Voorbeeld van de reactie voor entiteit](luis-concept-data-extraction.md#composite-entity-data)|  
+| **Samengestelde** <br/>[Machine geleerd](#machine-learned) | ✔|**Definitie**<br>Een samengestelde entiteit is opgebouwd uit andere entiteiten, zoals de vooraf gemaakte entiteiten, eenvoudige, regex, hiërarchische lijst. De afzonderlijke entiteiten vormen een hele entiteit. <br><br>**Voorbeeld**<br>Een samengestelde entiteit met de naam PlaneTicketOrder mogelijk onderliggende entiteiten vooraf gedefinieerde `number` en `ToLocation`. <br/><br/>[Zelfstudie](luis-tutorial-composite-entity.md)<br>[Voorbeeld van de reactie voor entiteit](luis-concept-data-extraction.md#composite-entity-data)|  
 | **Hiërarchische** <br/>[Machine geleerd](#machine-learned) |✔ | **Definitie**<br>Een hiërarchische entiteit is een categorie contextueel geleerde eenvoudige entiteiten.<br><br>**Voorbeeld**<br>Een hiërarchische entiteit van het gegeven `Location` met onderliggende `ToLocation` en `FromLocation`, elke onderliggende kan worden bepaald op basis van de **context** binnen de utterance. In de utterance `Book 2 tickets from Seattle to New York`, wordt de `ToLocation` en `FromLocation` contextueel verschillen op basis van de tekst eromheen. <br/><br/>**Gebruik niet als**<br>Als u naar een entiteit die overeenkomt met de exacte tekst voor kinderen, ongeacht de context zoekt, moet u een lijst met entiteit. Als u naar een bovenliggende / onderliggende relatie met andere Entiteitstypen zoekt, moet u de samengestelde entiteit.<br/><br/>[Snelstartgids](luis-quickstart-intent-and-hier-entity.md)<br>[Voorbeeld van de reactie voor entiteit](luis-concept-data-extraction.md#hierarchical-entity-data)|
 
 <a name="prebuilt"></a>

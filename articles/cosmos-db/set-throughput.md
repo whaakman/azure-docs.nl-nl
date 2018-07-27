@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: 99cd7fe6f9f46ff4d6dbbf6a6e024b3b32679724
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6d37ae9eb5aa5961c5da2e4cce0e79679f1e65ac
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444258"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283639"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Instellen en opvragen van doorvoer voor Azure Cosmos DB-containers en -database
 
@@ -153,7 +153,7 @@ await client.CreateDocumentCollectionAsync(
     new RequestOptions { OfferThroughput = 3000 });
 ```
 
-### <a name="set-throughput-at-the-for-a-set-of-containers-or-at-the-database-level"></a>Doorvoer instellen op de voor een set van containers of op databaseniveau
+### <a name="set-throughput-for-a-set-of-containers-at-the-database-level"></a>Doorvoer voor een set van containers op databaseniveau instellen
 
 Hier volgt een codefragment voor inrichting 100.000 aanvraageenheden per seconde in een set van containers met behulp van de SQL-API .NET SDK:
 

@@ -10,12 +10,12 @@ ms.date: 05/30/2018
 ms.service: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: eaf05d44a4d77f1a294664485e38c6f5719ce238
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: d153fa495c82103460dd8e4e2aae6000e49eb3eb
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238308"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283585"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limieten en configuratie-informatie voor Azure Logic Apps
 
@@ -52,7 +52,7 @@ Hier zijn de limieten voor een enkele logische app:
 | Naam | Limiet | Opmerkingen | 
 |------|-------|-------| 
 | Uitvoeringsduur | 90 dagen | Deze limiet, Zie [wijziging uitvoeringsduur](#change-duration). | 
-| Bewaarperiode | Begintijd van 90 dagen na het uitvoeren van | Deze limiet, Zie [opslag retentie wijzigen](#change-retention). | 
+| Bewaarperiode | Begintijd van 90 dagen na het uitvoeren van | Zie voor informatie over het wijzigen van deze limiet op een waarde tussen 7 dagen en 90 dagen [opslag retentie wijzigen](#change-retention). | 
 | Minimale vernieuwingsfrequentie | 1 seconde | | 
 | Maximale terugkeerpatroon | 500 dagen | | 
 |||| 
@@ -62,7 +62,7 @@ Hier zijn de limieten voor een enkele logische app:
 
 ### <a name="change-run-duration-and-storage-retention"></a>Voer de duur en opslag retentie wijzigen
 
-U kunt deze limiet wijzigen in een waarde tussen 7 dagen en 90 dagen. Om te gaan dan de maximale limiet [contact op met de Logic Apps-team](mailto://logicappsemail@microsoft.com) voor hulp bij uw vereisten.
+Als u wilt wijzigen van de standaardlimiet voor het tussen 7 dagen en 90 dagen, volg deze stappen. Als u nodig hebt om te gaan dan de maximale limiet [contact op met de Logic Apps-team](mailto://logicappsemail@microsoft.com) voor hulp bij uw vereisten.
 
 1. Kies in de Azure-portal, in het menu van uw logische app **Werkstroominstellingen**. 
 
@@ -72,16 +72,18 @@ U kunt deze limiet wijzigen in een waarde tussen 7 dagen en 90 dagen. Om te gaan
 
 <a name="looping-debatching-limits"></a>
 
-## <a name="looping-and-debatching-limits"></a>Lussen en debatching limieten
+## <a name="concurrency-looping-and-debatching-limits"></a>Gelijktijdigheid van taken, lussen en debatching limieten
 
 Hier zijn de limieten voor een enkele logische app:
 
 | Naam | Limiet | Opmerkingen | 
 | ---- | ----- | ----- | 
-| UNTIL-iteraties | 5.000 | | 
-| ForEach-items | 100.000 | U kunt de [queryactie](../connectors/connectors-native-query.md) naar behoefte grotere matrices filteren. | 
-| Parallelle uitvoering ForEach | 50 | De standaardwaarde is 20. <p>Als u wilt deze standaardniveau in een ForEach-lus wijzigen, stelt de `runtimeConfiguration` eigenschap in de `foreach` actie. <p>Als u wilt een ForEach-lus sequentieel worden uitgevoerd, stelt de `operationOptions` eigenschap in op 'Volgende' in de `foreach` actie. | 
+| Trigger gelijktijdigheid | 50 | De standaardlimiet is 20. Deze limiet wordt het maximum aantal logic app-exemplaren die kunnen worden uitgevoerd op hetzelfde moment of parallel beschreven. <p><p>De standaardlimiet op een waarde tussen 1 en 50 liggen, Zie [wijziging trigger gelijktijdigheid](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) of [exemplaren sequentieel activeren](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). | 
+| Maximale wachttijd wordt uitgevoerd | 100 | De standaardlimiet is 10. Deze limiet wordt het maximum aantal logic app-exemplaren die worden uitgevoerd wanneer u uw logische app wordt al uitgevoerd voor het maximum aantal gelijktijdige instanties kunt wachten beschreven. <p><p>De standaardlimiet op een waarde tussen 0 en 100 liggen, Zie [wijziging wachten uitvoeringen beperken](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). | 
+| Foreach-items | 100.000 | Deze limiet wordt het maximum aantal matrixitems die kan worden verwerkt door een lus 'voor elke' beschreven. <p><p>Voor grotere matrices filteren, kunt u de [queryactie](../connectors/connectors-native-query.md). | 
+| Foreach-iteraties | 50 | De standaardlimiet is 20. Deze limiet wordt beschreven voor het maximum aantal 'voor elke' iteraties die kunnen worden uitgevoerd op hetzelfde moment of parallel in een lus. <p><p>De standaardlimiet op een waarde tussen 1 en 50 liggen, Zie [wijzigen 'voor elke' gelijktijdigheid](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) of [uitvoeren 'voor elke' wordt uitgevoerd na elkaar](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). | 
 | SplitOn-items | 100.000 | | 
+| UNTIL-iteraties | 5.000 | | 
 |||| 
 
 <a name="throughput-limits"></a>
@@ -91,14 +93,14 @@ Hier zijn de limieten voor een enkele logische app:
 Hier zijn de limieten voor een enkele logische app:
 
 | Naam | Limiet | Opmerkingen | 
-| ----- | ----- | ----- | 
-| Uitvoeringen van acties per vijf minuten | 100.000 | Als u wilt de limiet voor 300.000 verhogen, kunt u een logische app uitvoeren in `High Throughput` modus. Het configureren van modus voor hoge doorvoer, onder de `runtimeConfiguration` instellen van de werkstroom-resource, de `operationOptions` eigenschap `OptimizedForHighThroughput`. <p>**Houd er rekening mee**: modus voor hoge doorvoer is beschikbaar als preview. U kunt ook een werkbelasting verdelen over meer dan één app, indien nodig. | 
-| Acties gelijktijdige uitgaande oproepen | ~2,500 | Verminder het aantal gelijktijdige aanvragen of Beperk de duur, indien nodig. | 
-| Runtime-eindpunt: gelijktijdige binnenkomende oproepen | ~1,000 | Verminder het aantal gelijktijdige aanvragen of Beperk de duur, indien nodig. | 
-| Runtime-eindpunt: aanroepen per vijf minuten lezen  | 60,000 | Workload kunt worden verdelen over meer dan één app, indien nodig. | 
-| Runtime-eindpunt: aanroepen aanroepen per vijf minuten| 45,000 | Workload kunt worden verdelen over meer dan één app, indien nodig. |
-| Inhoud doorvoer per vijf minuten | 600 MB | Workload kunt worden verdelen over meer dan één app, indien nodig. |  
-||||| 
+| ---- | ----- | ----- | 
+| Actie: Uitvoeringen per vijf minuten | 300,000 | De standaardlimiet is 100.000. De standaardlimiet Zie [uw logische app uitvoeren in de modus "hoge doorvoer"](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), deze bevindt zich in preview. Of u kunt de workload gedistribueerd over meer dan één logische app zo nodig. | 
+| Actie: Gelijktijdige uitgaande oproepen | ~2,500 | U kunt Verminder het aantal gelijktijdige aanvragen of Beperk de duur indien nodig. | 
+| Runtime-eindpunt: gelijktijdige binnenkomende oproepen | ~1,000 | U kunt Verminder het aantal gelijktijdige aanvragen of Beperk de duur indien nodig. | 
+| Runtime-eindpunt: aanroepen per vijf minuten lezen  | 60,000 | U kunt werklast verdelen over meer dan één app zo nodig. | 
+| Runtime-eindpunt: aanroepen aanroepen per vijf minuten | 45,000 | U kunt werklast verdelen over meer dan één app zo nodig. | 
+| Inhoud doorvoer per vijf minuten | 600 MB | U kunt werklast verdelen over meer dan één app zo nodig. | 
+|||| 
 
 Hoger dan deze limieten in de normale verwerking of voer belastingtests uitvoeren die mogelijk verder gaan dan deze limieten [contact op met de Logic Apps-team](mailto://logicappsemail@microsoft.com) voor hulp bij uw vereisten.
 
@@ -278,7 +280,7 @@ Alle logische apps in een regio gebruiken dezelfde bereiken van IP-adressen. Ter
 | Japan - west | 40.74.140.173, 40.74.81.13, 40.74.85.215 |
 | Noord-centraal VS | 168.62.249.81, 157.56.12.202, 65.52.211.164 |
 | Noord-Europa | 13.79.173.49, 52.169.218.253, 52.169.220.174 |
-| Zuid-centraal VS | 52.172.9.47, 52.172.49.43, 52.172.51.140 |
+| Zuid-centraal VS | 13.65.98.39, 13.84.41.46, 13.84.43.45 |
 | Zuid-India | 52.172.9.47, 52.172.49.43, 52.172.51.140 |
 | Zuidoost-Azië | 52.163.93.214, 52.187.65.81, 52.187.65.155 |
 | West-centraal VS | 52.161.26.172, 52.161.8.128, 52.161.19.82 |

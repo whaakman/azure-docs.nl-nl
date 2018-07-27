@@ -2,18 +2,18 @@
 title: Reageren op gebeurtenissen van Azure Blob storage | Microsoft Docs
 description: Gebruik Azure Event Grid om u te abonneren op gebeurtenissen van Blob Storage.
 services: storage,event-grid
-keywords: ''
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 68d722338562d21d59dd720250a62b8603c8af43
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.component: blobs
+ms.openlocfilehash: 6f3afa22a50728070c42cd6e2eff0cc148815fbc
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076144"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262681"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reageren op gebeurtenissen van Blob storage
 
@@ -21,7 +21,7 @@ Gebeurtenissen van Azure Storage kunnen toepassingen om te reageren op het maken
 
 Algemene Blob storage event-scenario's omvatten afbeelding of video verwerking, zoekindexen of elke werkstroom bestand gerichte.  Asynchrone bestandsuploads zijn uitstek geschikt voor de gebeurtenissen.  Wanneer wijzigingen incidentele zijn, maar uw scenario direct reactietijd is vereist, kan architectuur op basis van gebeurtenissen met name efficiënt zijn.
 
-De beschikbaarheid van gebeurtenissen van Storage is gekoppeld aan Event Grid [beschikbaarheid](../../event-grid/overview.md) en worden pas beschikbaar in andere regio's als Event Grid. Kijk eens [Route Blob-opslaggebeurtenissen aan een aangepaste web-eindpunt - CLI](storage-blob-event-quickstart.md) of [Route Blob-opslaggebeurtenissen aan een aangepaste web-eindpunt - PowerShell](storage-blob-event-quickstart-powershell.md) voor een kort voorbeeld. 
+[Beschikbaarheid](../../event-grid/overview.md) voor opslaggebeurtenissen is gekoppeld aan de beschikbaarheid van Event Grid en komt beschikbaar in andere regio’s wanneer dit ook voor Event Grid geldt. Kijk eens [Route Blob-opslaggebeurtenissen aan een aangepaste web-eindpunt - CLI](storage-blob-event-quickstart.md) of [Route Blob-opslaggebeurtenissen aan een aangepaste web-eindpunt - PowerShell](storage-blob-event-quickstart-powershell.md) voor een kort voorbeeld. 
 
 ![Event Grid-Model](./media/storage-blob-event-overview/event-grid-functional-model.png)
 

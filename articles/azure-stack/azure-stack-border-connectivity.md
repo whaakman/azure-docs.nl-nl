@@ -1,6 +1,6 @@
 ---
-title: Aandachtspunten voor de integratie van connectiviteit netwerk voor Azure-Stack geïntegreerd systemen rand | Microsoft Docs
-description: Meer informatie over wat u kunt doen om te plannen voor datacenter rand netwerkverbinding met meerdere knooppunten Azure Stack.
+title: Aandachtspunten voor de integratie van connectiviteit netwerk voor Azure Stack-geïntegreerde systemen rand | Microsoft Docs
+description: Meer informatie over wat u kunt doen om te plannen voor datacenter rand verbinding met het netwerk met meerdere knooppunten Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,53 +12,55 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 07/26/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 93dd609df90adac2c84ba8c62cf0d18f55a317bb
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: 260c58ad9099a4532c8a6558cfcf5c13f0fc8d52
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28919431"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282005"
 ---
-# <a name="border-connectivity"></a>Border-connectiviteit 
-Integratie met netwerkplanning is een belangrijk vereist voor een geslaagde implementatie van Azure-Stack geïntegreerd systemen, bewerking en beheer. Rand connectiviteit planning begint door te kiezen of u gebruik van dynamische routering met border gateway protocol (BGP) of niet. Hiervoor moet een 16-bits autonoom systeemnummer BGP (openbare of persoonlijke) toe te wijzen of met statische routering, waarbij een standaard statische route is toegewezen aan de rand-apparaten.
+# <a name="border-connectivity"></a>Rand-connectiviteit 
+Planning van integratie van het netwerk is een belangrijk vereist item voor geslaagde implementatie van de geïntegreerde Azure Stack-systemen, bewerking en beheren. Rand connectiviteit planning begint met het wel of niet gebruik van dynamische routering met border gateway protocol (BGP) te kiezen. Dit is vereist voor het toewijzen van een 16-bits autonoom systeemnummer BGP (openbaar of privé) of met behulp van statische routering, waarbij een standaard statische route is toegewezen aan de rand-apparaten.
 
 > [!IMPORTANT]
-> De bovenkant van de switches (TOR) rack vereisen Layer 3-uplinks met Point-to-Point IP-adressen (/ 30 netwerken) geconfigureerd op de fysieke interfaces. Dit wordt niet ondersteund voor het gebruik van Layer 2-uplinks met ondersteuning van Azure-Stack operations TOR-switches. 
+> De top van rack (TOR) switches vereisen Layer 3-uplinks met Point-to-Point IP-adressen (/ 30 netwerken) geconfigureerd op de fysieke interfaces. Het wordt niet ondersteund voor het gebruik van laag 2 uplinks met TOR-switches ondersteunen Azure Stack-bewerkingen. 
 
 ## <a name="bgp-routing"></a>BGP-routering
 Met behulp van een dynamisch routeringsprotocol zoals BGP zorgt ervoor dat uw systeem altijd op de hoogte van wijzigingen in het netwerk is en vereenvoudigt het beheer. 
 
-Zoals u in het volgende diagram, is adverteren van het particuliere IP-adres ruimte op de TOR-switch beperkt met een voorvoegsel-lijst. De lijsten voorvoegsel weigert de privé IP-subnetten en deze toe te passen als een route-kaart op de verbinding tussen de TOR en de rand.
+Zoals u in het volgende diagram, is adverteren van de privé IP-adres ruimte op de TOR-switch beperkt met behulp van een voorvoegsel-lijst. De lijsten voorvoegsel weigert het particuliere IP-subnetten en toe te passen als een route-kaart op de verbinding tussen de TOR- en de rand.
 
-De Software Load Balancer (SLB) uitgevoerd binnen de Azure-Stack oplossing peers op de TOR-apparaten zodat deze de VIP-adressen dynamisch kunt adverteren.
+De Software Load Balancer (SLB) die worden uitgevoerd binnen de Azure Stack-oplossing van collega's op de TOR-apparaten, zodat deze de VIP-adressen dynamisch kunt adverteren.
 
-Om ervoor te zorgen dat gebruikersverkeer onmiddellijk en transparant vanuit fout herstelt, wordt de VPC of MLAG geconfigureerd tussen de TOR-apparaten kunt het gebruik van meerdere chassis koppeling netwerk aggregatie op de hosts en HSRP of VRRP die biedt redundantie voor de IP-netwerken.
+Aggregatie op de hosts en HSRP of VRRP waarmee het netwerk om ervoor te zorgen dat gebruikersverkeer onmiddellijk en transparant van fout herstelt, de VPC of MLAG geconfigureerd tussen de TOR-apparaten kunt het gebruik van meerdere chassis koppeling redundantie voor de IP-netwerken.
 
 ![BGP-routering](media/azure-stack-border-connectivity/bgp-routing.png)
 
-## <a name="static-routing"></a>statische routering
-Gebruik van statische routes, voegt meer vaste configuratie toe aan de rand en TOR-apparaten. Grondige analyse te maken voordat u wijzigingen vereist. Problemen veroorzaakt door een configuratiefout kunnen meer tijd vergen terug te draaien, afhankelijk van de wijzigingen zijn aangebracht. Het is niet de aanbevolen methode om routering, maar wordt ondersteund.
+## <a name="static-routing"></a>Statische routering
+Statische routering vereist aanvullende configuratie aan de rand-apparaten. Het meer handmatige interventie nodig is en beheer, evenals een grondige analyse voor wijzigings- en problemen veroorzaakt door een configuratiefout meer tijd kan duren terug te draaien, afhankelijk van de wijzigingen. Het is niet de aanbevolen methode om routering, maar dit wordt ondersteund.
 
-Als u wilt integreren Azure-Stack in uw netwerkomgeving met deze methode, moet het apparaat van rand worden geconfigureerd met statische routes die verwijst naar de TOR-apparaten voor verkeer dat is bestemd voor een extern netwerk, openbare VIP's.
+Als u wilt integreren Azure Stack in uw netwerkomgeving met statische routering, alle vier fysieke koppelingen tussen de rand en de TOR-apparaat moet zijn verbonden en hoge beschikbaarheid vanwege hoe statische routering werkt niet worden gegarandeerd.
 
-De TOR-apparaten moeten worden geconfigureerd met een statische standaardroute alle verkeer verzenden naar de apparaten van de rand. De enige uitzondering verkeer op deze regel is voor de persoonlijke ruimte die wordt geblokkeerd met behulp van een toegangsbeheerlijst toegepast op de TOR op rand verbinding.
+Het apparaat van rand moet worden geconfigureerd met statische routes die verwijst naar de TOR-apparaten P2P voor verkeer dat bestemd is voor het externe netwerk of openbare VIP's en het infrastructuurnetwerk. Deze vereist statische routes met het BMC-netwerk voor de implementatie. Klanten kunnen kiezen om te laten statische routes in de rand voor toegang tot bepaalde resources die zich in de BMC-netwerk bevinden.  Statische routes toe te voegen *switch infrastructuur* en *overschakelen management* netwerken is optioneel.
 
-Alle andere moet hetzelfde zijn als de eerste methode. BGP dynamische routering wordt nog steeds worden gebruikt binnen het rack omdat het van essentieel voor de SLB en andere onderdelen en kan niet worden uitgeschakeld of verwijderd.
+De TOR-apparaten worden geconfigureerd geleverd met een standaard statische route verzendt al het verkeer naar de rand-apparaten. De enige uitzondering verkeer naar de standaardregel is voor de persoonlijke ruimte, dat is geblokkeerd met behulp van een toegangsbeheerlijst toegepast op de TOR verbinding van de rand.
 
-![statische routering](media/azure-stack-border-connectivity/static-routing.png)
+Statische routering geldt alleen voor de uplinks tussen de TOR- en randeigenschappen switches. Dynamische BGP-routering wordt gebruikt binnen het rack omdat het is een essentieel hulpprogramma voor de SLB en andere onderdelen en kan niet worden uitgeschakeld of verwijderd.
 
-## <a name="transparent-proxy"></a>Transparentproxy
-Als uw datacenter nodig al het verkeer naar een proxy gebruikt, moet u een *transparentproxy* voor het verwerken van al het verkeer van het rack verwerkt; het volgens het beleid, scheiden van verkeer tussen de zones in uw netwerk.
+![Statische routering](media/azure-stack-border-connectivity/static-routing.png)
+
+## <a name="transparent-proxy"></a>Transparante proxy
+Als uw datacenter al het verkeer vereist naar een proxy gebruikt, moet u een *transparante proxy* voor het verwerken van al het verkeer van het rack verwerkt; het op basis van beleid voor het scheiden van verkeer tussen de zones op uw netwerk.
 
 > [!IMPORTANT]
-> De Azure-Stack-oplossing biedt geen ondersteuning voor normale webproxy.  
+> De Azure Stack-oplossing biedt geen ondersteuning voor normale web proxy's.  
 
-Een transparentproxy (ook wel bekend als een onderschept, inline of geforceerde proxy) onderschept normale communicatie op de netwerklaag zonder speciale clientconfiguratie. Clients moeten niet op de hoogte van de aanwezigheid van de proxy.
+Normale communicatie in de netwerklaag onderschept een transparante proxy (ook wel bekend als een onderschept, inline of geforceerde proxy) zonder speciale clientconfiguratie. Clients moeten niet worden op de hoogte van de aanwezigheid van de proxy.
 
-![Transparentproxy](media/azure-stack-border-connectivity/transparent-proxy.png)
+![Transparante proxy](media/azure-stack-border-connectivity/transparent-proxy.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 [DNS-integratie](azure-stack-integrate-dns.md)

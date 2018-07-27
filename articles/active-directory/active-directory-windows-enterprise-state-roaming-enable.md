@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 81a404a19dc1604f0aa87ef86883d0c18edac5cd
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: bb2210619e481189fc88ca3bb6b8044a8f5d7e14
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224884"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262945"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Enterprise state roaming inschakelen in Azure Active Directory
 Enterprise State Roaming is beschikbaar voor elke organisatie met een Azure AD Premium of Enterprise Mobility + Security (EMS)-licentie. Zie voor meer informatie over het verkrijgen van een Azure AD-abonnement, de [productpagina van Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -56,7 +56,7 @@ Volg deze stappen om een statusrapport voor synchronisatie van per gebruiker-app
 
 1. Aanmelden bij [Azure AD-beheercentrum](https://aad.portal.azure.com/).
 
-2. Selecteer **Azure Active Directory** &gt; **gebruikers en groepen** &gt; **alle gebruikers**.
+2. Selecteer **Azure Active Directory** &gt; **gebruikers** &gt; **alle gebruikers**.
 
 3. Selecteer de gebruiker en selecteer vervolgens **apparaten**.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: d96fbac6ae09e8b6611ff615ba1f95fc1a084f89
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 306cb1fde67e877ccfd7c4d6dee093492e72d0a7
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205728"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285313"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>IP-adressen die worden gebruikt door Application Insights en Log Analytics
 De [Azure Application Insights](app-insights-overview.md) service maakt gebruik van een aantal IP-adressen. Mogelijk moet u deze adressen weten als de app die u bewaakt wordt gehost achter een firewall.
@@ -28,12 +28,17 @@ De [Azure Application Insights](app-insights-overview.md) service maakt gebruik 
 > 
 > 
 
+> [!TIP]
+> Abonneren op deze pagina als een RSS-feed door toe te voegen https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/application-insights/app-insights-ip-addresses.md.atom naar uw favoriete RSS-/ ATOM-lezer om te worden geïnformeerd van de meest recente wijzigingen.
+> 
+> 
+
 ## <a name="outgoing-ports"></a>Uitgaande poorten
 U moet het aantal uitgaande poorten openen in de firewall van uw server om toe te staan de Application Insights-SDK en/of Status Monitor om gegevens te verzenden naar de portal:
 
 | Doel | URL | IP | Poorten |
 | --- | --- | --- | --- |
-| Telemetrie |dc.services.visualstudio.com<br/>DC.applicationinsights.Microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244 |443 |
+| Telemetrie |dc.services.visualstudio.com<br/>DC.applicationinsights.Microsoft.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54 | 443 |
 | Live Metrics Stream |rt.services.visualstudio.com<br/>RT.applicationinsights.Microsoft.com |23.96.28.38<br/>13.92.40.198 |443 |
 
 ## <a name="status-monitor"></a>Statusmonitor

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7a1b6aa9afd26116253482a2e1a9c6a25bdf3c55
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 57d017e2320e5cfea15f1716bc3b6518606e2ea4
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441570"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282238"
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Portal gebruiken om een Azure Active Directory-toepassing en service-principal die toegang hebben tot resources te maken
 
-Wanneer u de code die u moet toegang tot of het wijzigen van resources hebt, moet u een Azure Active Directory (AD)-toepassing instellen. U kunt de vereiste machtigingen toewijzen aan AD-toepassing. Deze aanpak is beter de app onder uw eigen referenties te voeren, omdat u machtigingen kunt toewijzen aan de identiteit van de app die anders dan uw eigen machtigingen. Deze machtigingen worden meestal beperkt tot de functies die met de app moeten kunnen worden uitgevoerd.
+Wanneer u de code die u moet toegang tot of het wijzigen van resources hebt, moet u een Azure Active Directory (AD)-toepassing instellen. U kunt vervolgens de vereiste machtigingen toewijzen aan de AD-toepassing. Deze aanpak is beter de app onder uw eigen referenties te voeren, omdat u machtigingen kunt toewijzen aan de identiteit van de app die anders dan uw eigen machtigingen. Deze machtigingen worden meestal beperkt tot de functies die met de app moeten kunnen worden uitgevoerd.
 
-Dit artikel ziet u hoe u deze stappen via de portal uitvoert. Dit artikel gaat over de toepassing van een één tenant waar de toepassing is bedoeld om uit te voeren binnen één organisatie. Doorgaans gebruikt u één tenant toepassingen voor line-of-business-toepassingen die worden uitgevoerd binnen uw organisatie.
+Dit artikel leest u hoe u deze stappen uitvoert via de portal. Dit artikel gaat over de toepassing van een één tenant waar de toepassing is bedoeld om uit te voeren binnen één organisatie. Doorgaans gebruikt u één tenant toepassingen voor line-of-business-toepassingen die worden uitgevoerd binnen uw organisatie.
 
 > [!IMPORTANT]
 > In plaats van een service-principal te maken, kunt u overwegen Azure AD Managed Service Identity te gebruiken voor de identiteit van uw toepassing. Azure AD MSI is een openbare preview-functie van Azure Active Directory die het eenvoudiger maakt om een identiteit voor code te maken. Als uw code wordt uitgevoerd op een service met ondersteuning voor Azure AD MSI en toegang heeft tot bronnen met ondersteuning voor Azure Active Directory-verificatie, is Azure AD MSI een betere optie voor u. Zie [Managed Service Identity voor Azure-resources](../active-directory/managed-service-identity/overview.md) voor meer informatie over Azure AD MSI en de services die MSI ondersteunen.
@@ -84,7 +84,7 @@ Uw om abonnementsmachtigingen te controleren:
 
    ![toepassing toevoegen](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Geef een naam en URL voor de toepassing op. Selecteer **Web-app/API** voor het type toepassing dat u wilt maken. U kunt geen referenties voor de maken een [systeemeigen toepassing](../active-directory/manage-apps/application-proxy-configure-native-client-application.md); daarom type werkt niet voor een geautomatiseerde toepassing. Na het instellen van de waarden, selecteer **maken**.
+1. Geef een naam en URL op voor de toepassing. Selecteer **Web-app/API** voor het type toepassing dat u wilt maken. U kunt geen referenties voor de maken een [systeemeigen toepassing](../active-directory/manage-apps/application-proxy-configure-native-client-application.md); daarom type werkt niet voor een geautomatiseerde toepassing. Na het instellen van de waarden, selecteer **maken**.
 
    ![toepassing een naam geven](./media/resource-group-create-service-principal-portal/create-app.png)
 
@@ -110,11 +110,11 @@ Wanneer u zich programmatisch aanmeldt, hebt u de id voor uw toepassing en een v
 
    ![sleutels selecteren](./media/resource-group-create-service-principal-portal/select-keys.png)
 
-1. Geef een beschrijving van de sleutel en geef de duur van de sleutel op. Selecteer **Opslaan** wanneer u klaar bent.
+1. Geef een beschrijving op van de sleutel en geef de duur van de sleutel op. Selecteer **Opslaan** wanneer u klaar bent.
 
    ![sleutel opslaan](./media/resource-group-create-service-principal-portal/save-key.png)
 
-   Na het opslaan van de sleutel wordt de waarde van de sleutel weergegeven. Kopieer deze waarde, want u kunt de sleutel later niet meer ophalen. U geeft de sleutelwaarde samen met de toepassings-id op om u aan te melden met de toepassing. Sla de sleutelwaarde op waar uw toepassing deze kan ophalen.
+   Na het opslaan van de sleutel wordt de waarde van de sleutel weergegeven. Kopieer deze waarde, want u kunt de sleutel later niet meer ophalen. U geeft de sleutelwaarde samen met de toepassings-id op om u aan te melden met de toepassing. Bewaar de sleutelwaarde op een locatie waar de toepassing deze kan ophalen.
 
    ![opgeslagen sleutel](./media/resource-group-create-service-principal-portal/copy-key.png)
 
@@ -130,7 +130,7 @@ Wanneer u zich programmatisch aanmeldt, moet u de tenant-id samen met uw verific
 
    ![Azure AD-eigenschappen selecteren](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
 
-1. Kopieer de **Directory-id**. Deze waarde is uw tenant-id.
+1. Kopieer de **Map-id**. Deze waarde is uw tenant-id.
 
    ![tenant-id](./media/resource-group-create-service-principal-portal/copy-directory-id.png)
 
@@ -156,7 +156,7 @@ U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of r
 
    ![Selecteer toevoegen](./media/resource-group-create-service-principal-portal/select-add.png)
 
-1. Selecteer de rol die u wilt toewijzen aan de toepassing. De volgende afbeelding toont de **lezer** rol.
+1. Selecteer de rol die u wilt toewijzen aan de toepassing. Als u wilt toestaan dat de toepassing uitvoeren van acties zoals **opnieuw opstarten**, **start** en **stoppen** instanties, die u nodig hebt om de rol selecteren **Inzender**. De volgende afbeelding toont de **lezer** rol.
 
    ![rol selecteren](./media/resource-group-create-service-principal-portal/select-role.png)
 

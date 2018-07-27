@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: f215136c5d07eca098d68d882d22f6c9dd14b0b9
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e63f07e7819d464b4ee430571d8c5a05259c8df5
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214673"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282031"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Procedure: Vereist voor toegang tot cloud-Apps met voorwaardelijke toegang te beheren
 
@@ -64,7 +64,7 @@ Als u een apparaat is geregistreerd bij Azure AD, hebt u drie opties:
 
 - **[Azure AD gekoppelde apparaten](device-management-introduction.md#azure-ad-joined-devices)**  : als u wilt ophalen van een organisatie-Windows 10-apparaat die niet is gekoppeld aan een on-premises AD geregistreerd bij Azure AD. 
 
-- **[Hybride Azure AD gekoppelde apparaten](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  : als u wilt ophalen van een Windows 10-apparaat dat is gekoppeld aan een on-premises AD geregistreerd bij Azure AD.
+- **[Hybride Azure AD gekoppelde apparaten](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  : als u wilt ophalen van een Windows 10 of een ondersteunde downlevel-apparaten die lid van een on-premises is AD geregistreerd bij Azure AD.
 
 Als u wilt worden van een beheerd apparaat, een geregistreerd apparaat moet een **hybride Azure AD toegevoegde apparaat** of een **apparaat dat is gemarkeerd als compatibel**.  
 
@@ -77,7 +77,7 @@ In het beleid voor voorwaardelijke toegang, kunt u **vereisen dat het apparaat i
 
 ![Voorwaarden op basis van apparaat](./media/active-directory-conditional-access-policy-connected-applications/10.png)
 
-Deze instelling is alleen van toepassing op Windows 10-apparaten die zijn gekoppeld aan een on-premises AD. U kunt deze apparaten alleen registreren met Azure AD met behulp van een hybride Azure AD-join, dit is een [geautomatiseerd](device-management-hybrid-azuread-joined-devices-setup.md) om op te halen van een Windows 10-apparaat dat is geregistreerd. 
+Deze instelling is alleen van toepassing op Windows 10 of downlevel-apparaten, zoals Windows 7 of Windows 8 die zijn gekoppeld aan een on-premises AD. U kunt deze apparaten alleen registreren met Azure AD met behulp van een hybride Azure AD-join, dit is een [geautomatiseerd](device-management-hybrid-azuread-joined-devices-setup.md) om op te halen van een Windows 10-apparaat dat is geregistreerd. 
 
 ![Voorwaarden op basis van apparaat](./media/active-directory-conditional-access-policy-connected-applications/45.png)
 

@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 07/16/2018
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: dfea1587cddbf7440771ca7007928f7e4054f61a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 46ab4a177cc7d86e5d967ff8e219dae96f82a0dc
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092287"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263143"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Overzicht van bedrijfscontinuïteit met Azure SQL Database
 
@@ -33,7 +33,7 @@ De volgende tabel worden de ERT en RPO vergeleken voor elke servicelaag voor de 
 | --- | --- | --- | --- |--- |--- |
 | Herstel naar een bepaald tijdstip vanuit back-up |Willekeurig herstelpunt binnen 7 dagen |Willekeurig herstelpunt binnen 35 dagen |Willekeurig herstelpunt binnen 35 dagen |Willekeurig herstelpunt binnen de geconfigureerde periode (maximaal 35 dagen)|Willekeurig herstelpunt binnen de geconfigureerde periode (maximaal 35 dagen)|
 | Geo-herstellen vanaf back-ups via geo-replicatie |ERT < 12 u, RPO < 1 u |ERT < 12 u, RPO < 1 u |ERT < 12 u, RPO < 1 u |ERT < 12 u, RPO < 1 u|ERT < 12 u, RPO < 1 u|
-| Herstel vanuit Azure Backup Vault |ERT < 12 u, RPO < 1 wk |ERT < 12 u, RPO < 1 wk |ERT < 12 u, RPO < 1 wk |ERT < 12 u, RPO < 1 wk|ERT < 12 u, RPO < 1 wk|
+| Herstellen vanuit een langetermijnretentie voor SQL |ERT < 12 u, RPO < 1 wk |ERT < 12 u, RPO < 1 wk |ERT < 12 u, RPO < 1 wk |ERT < 12 u, RPO < 1 wk|ERT < 12 u, RPO < 1 wk|
 | Actieve geo-replicatie |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s|ERT < 30 s, RPO < 5 s|
 
 ### <a name="use-point-in-time-restore-to-recover-a-database"></a>Point-in-time restore gebruiken om een database te herstellen
@@ -102,7 +102,7 @@ Zie [Een verwijderde database herstellen](sql-database-recovery-using-backups.md
 
 ### <a name="restore-backups-from-long-term-retention"></a>Back-ups herstellen vanuit een langetermijnretentie
 
-Als het gegevensverlies is opgetreden buiten de huidige retentietermijn voor geautomatiseerde back-ups en uw database is geconfigureerd voor langetermijnretentie, kunt u vanuit een volledige back-up in de LTR-opslag herstellen naar een nieuwe database. Op dit punt kunt u de oorspronkelijke database vervangen door de herstelde database of de benodigde gegevens uit de herstelde gegevens naar de oorspronkelijke database kopiëren. Als u ophalen van een oude versie van uw database vóór een grote toepassingsupgrade wilt, voldoen aan een verzoek van auditors of een wettelijk bevel, dat kunt u een database met behulp van een volledige back-up opgeslagen in de Azure Backup-kluis maken.  Zie [Langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie.
+Als het gegevensverlies is opgetreden buiten de huidige retentietermijn voor geautomatiseerde back-ups en uw database is geconfigureerd voor langetermijnretentie met behulp van Azure blob-opslag, kunt u vanuit een volledige back-up in de Azure blob-opslag herstellen naar een nieuwe database. Op dit punt kunt u de oorspronkelijke database vervangen door de herstelde database of de benodigde gegevens uit de herstelde gegevens naar de oorspronkelijke database kopiëren. Als u ophalen van een oude versie van uw database vóór een grote toepassingsupgrade wilt, voldoen aan een verzoek van auditors of een wettelijk bevel, dat kunt u een database met behulp van een volledige back-up opgeslagen in Azure blob-opslag.  Zie [Langetermijnretentie](sql-database-long-term-retention.md) voor meer informatie.
 
 ## <a name="recover-a-database-to-another-region-from-an-azure-regional-data-center-outage"></a>Een database herstellen naar een andere regio na een storing in een regionaal Azure-datacenter
 <!-- Explain this scenario -->

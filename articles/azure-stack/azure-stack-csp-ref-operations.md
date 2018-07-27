@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/08/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: 18b34af8dc383cfa86017162ec48782f156156bc
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: efd1c1eafbff8bf56b16131e44cff6b03ce7338a
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39093099"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264807"
 ---
 # <a name="manage-tenant-registration-in-azure-stack"></a>Tenant-registratie in Azure Stack beheren
 
@@ -35,6 +35,13 @@ U kunt deze bewerking ook gebruiken als u wilt wijzigen van het abonnement dat i
 
 Houd er rekening mee dat slechts één Azure-abonnement gekoppeld aan een tenant worden kan. Als u probeert een tweede abonnement toevoegen aan een bestaande tenant, is het eerste abonnement overschreven. 
 
+### <a name="use-api-profiles"></a>Gebruik API-profielen
+
+De cmdlets in dit artikel is vereist dat u een API-profiel opgeven bij het uitvoeren van PowerShell. API-profielen vertegenwoordigen een verzameling Azure-resource-providers en hun API-versies. Ze helpen u de juiste versie van de API gebruiken bij interactie met meerdere Azure-clouds, bijvoorbeeld bij het werken met de globale Azure en Azure Stack. Profielen worden opgegeven door een naam die overeenkomt met de datum waarop de release. Met dit artikel, moet u gebruiken de **03-09-2017** profiel.
+
+Zie voor meer informatie over Azure Stack en API-profielen, [beheren API-versieprofielen in Azure Stack](user/azure-stack-version-profiles.md). Zie voor instructies over het ophalen van en uitvoeren met API-profiel met PowerShell [gebruik API-versieprofielen voor PowerShell in Azure Stack](user/azure-stack-version-profiles-powershell.md).
+
+### <a name="parameters"></a>Parameters
 
 | Parameter                  | Beschrijving |
 |---                         | --- |

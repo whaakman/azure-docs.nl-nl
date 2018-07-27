@@ -16,12 +16,12 @@ ms.date: 07/09/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: f1d85b031abda73c6ca41d6d2551db9d9cd36f1f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: ac338283bfe123e70697b0301fdccca886653c42
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092151"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285296"
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integratie van de SaaS-toepassingen met Azure Active Directory
 
@@ -330,7 +330,7 @@ Zie voor een uitgebreide lijst van SaaS-apps die al vooraf geïntegreerd in Azur
 | ![logo](./media/tutorial-list/active-directory-saas-lifesize-cloud-tutorial.png)| [Lifesize Cloud](lifesize-cloud-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-worksmobile-tutorial.png)| [REGEL WERKT](worksmobile-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-linkedinelevate-tutorial.png)| [LinkedIn met verhoogde bevoegdheden uitvoeren](linkedinelevate-tutorial.md)|[LinkedIn met verhoogde bevoegdheden uitvoeren-gebruiker wordt ingericht](linkedinelevate-provisioning-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-linkedinlearning-tutorial.png)| [LinkedIn Learning](linkedinlearning-tutorial.md)|[LinkedIn Learning - gebruikers inrichten](linkedinlearning-provisioning-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-linkedinlearning-tutorial.png)| [LinkedIn Learning](linkedinlearning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-linkedinsalesnavigator-tutorial.png)| [LinkedIn Sales Navigator](linkedinsalesnavigator-tutorial.md)|  [LinkedIn Sales Navigator - inrichten van gebruikers](linkedinsalesnavigator-provisioning-tutorial.md)| 
 | ![logo](./media/tutorial-list/active-directory-saas-liquidfiles-tutorial.png)| [LiquidFiles](liquidfiles-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-litmos-tutorial.png)| [Litmos](litmos-tutorial.md)|

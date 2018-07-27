@@ -8,15 +8,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: Active
-ms.date: 07/18/2018
+ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: cedad5f48769ed864fef10cfd7059111a4502fd3
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 1ddc663e6a7dc2d09a140b148c5297299d30d016
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136601"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39262844"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Meer informatie over automatische back-ups van SQL-Database
 
@@ -71,7 +71,7 @@ De PITR back-ups zijn geografisch redundante en beveiligd door [Azure Storage-ov
 Zie voor meer informatie, [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 ### <a name="backups-for-long-term-retention"></a>Back-ups voor langetermijnretentie
-SQL Database biedt de mogelijkheid van het configureren van (LTR) met een langetermijnbewaarperiode van volledige back-ups voor maximaal 10 jaar. Als LTR-beleid is ingeschakeld, worden de wekelijkse volledige back-ups automatisch gekopieerd naar een andere container voor RA-GRS-opslag. Om te voldoen aan verschillende nalevingsvereiste, kunt u verschillende bewaartermijnen voor wekelijkse, maandelijkse en/of jaarlijkse back-ups. Het opslagverbruik, is afhankelijk van de geselecteerde frequentie van back-ups en de retentie-periode. U kunt de [LTR-prijscalculator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) om in te schatten van de kosten voor LTR-opslag. 
+SQL Database biedt de mogelijkheid van het configureren van (LTR) met een langetermijnbewaarperiode van volledige back-ups voor maximaal tien jaar in Azure blob-opslag. Als LTR-beleid is ingeschakeld, worden de wekelijkse volledige back-ups automatisch gekopieerd naar een andere container voor RA-GRS-opslag. Om te voldoen aan verschillende nalevingsvereiste, kunt u verschillende bewaartermijnen voor wekelijkse, maandelijkse en/of jaarlijkse back-ups. Het opslagverbruik, is afhankelijk van de geselecteerde frequentie van back-ups en de retentie-periode. U kunt de [LTR-prijscalculator](https://azure.microsoft.com/pricing/calculator/?service=sql-database) om in te schatten van de kosten voor LTR-opslag. 
 
 Zoals PITR, zijn de LTR back-ups geografisch redundante en beveiligd door [Azure Storage-overschrijdend-replicatie](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
@@ -133,5 +133,5 @@ Zie [back-up bewaren REST-API](https://docs.microsoft.com/rest/api/sql/backupsho
 - Databaseback-ups zijn een essentieel onderdeel van een strategie voor zakelijke continuïteit en noodherstel omdat ze uw gegevens tegen per ongeluk beschadigd of verwijderd beschermen. Zie voor meer informatie over de andere Azure SQL Database oplossingen voor bedrijfscontinuïteit, [overzicht voor zakelijke continuïteit](sql-database-business-continuity.md).
 - Als u wilt herstellen naar een eerder tijdstip met behulp van de Azure-portal, Zie [database herstellen naar een eerder tijdstip met behulp van de Azure-portal](sql-database-recovery-using-backups.md).
 - Als u wilt herstellen naar een eerder tijdstip met behulp van PowerShell, Zie [database herstellen naar een eerder tijdstip met behulp van PowerShell](scripts/sql-database-restore-database-powershell.md).
-- Om te configureren, beheren en herstellen vanuit een langetermijnretentie van automatische back-ups in een Azure Recovery Services-kluis met de Azure-portal, Zie [beheren met behulp van de Azure-portal langetermijnretentie](sql-database-long-term-backup-retention-configure.md).
-- Om te configureren, beheren en herstellen vanuit een langetermijnretentie van automatische back-ups in een Azure Recovery Services-kluis met behulp van PowerShell, raadpleegt u [beheren met behulp van PowerShell langetermijnretentie](sql-database-long-term-backup-retention-configure.md).
+- Om te configureren, beheren en herstellen vanuit een langetermijnretentie van automatische back-ups in Azure blob-opslag met de Azure-portal, Zie [beheren met behulp van de Azure-portal langetermijnretentie](sql-database-long-term-backup-retention-configure.md).
+- Om te configureren, beheren en herstellen vanuit een langetermijnretentie van automatische back-ups in Azure BLOB-opslag met behulp van PowerShell, raadpleegt u [beheren met behulp van PowerShell langetermijnretentie](sql-database-long-term-backup-retention-configure.md).

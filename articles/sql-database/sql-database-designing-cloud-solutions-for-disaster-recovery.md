@@ -1,5 +1,5 @@
 ---
-title: Maximaal beschikbare service met behulp van Azure SQL-Database ontwerpen | Microsoft Docs
+title: Wereldwijd beschikbare services met behulp van Azure SQL-Database ontwerpen | Microsoft Docs
 description: Leer meer over toepassingsontwerp voor maximaal beschikbare services met behulp van Azure SQL Database.
 keywords: herstel na noodgevallen, oplossingen voor herstel na noodgevallen, back-up van app-gegevens, geo-replicatie, in de cloud business continuity plannen
 services: sql-database
@@ -8,19 +8,19 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/26/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: f1c228802bd0a2e65321a3abe47b87845f5f86a0
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 88a6e1a66390b2b317e1e30a71455ad693e6d7df
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092610"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264651"
 ---
-# <a name="designing-highly-available-services-using-azure-sql-database"></a>Maximaal beschikbare services met behulp van Azure SQL-Database ontwerpen
+# <a name="designing-globally-available-services-using-azure-sql-database"></a>Algemeen beschikbare services met behulp van Azure SQL-Database ontwerpen
 
-Tijdens het bouwen en implementeren van maximaal beschikbare services op Azure SQL Database, gebruikt u [failover-groepen en actieve geo-replicatie](sql-database-geo-replication-overview.md) voor herstelmogelijkheden bij regionale storingen en onherstelbare fouten. Ook kunt snel herstel naar de secundaire databases. In dit artikel is gericht op algemene toepassingspatronen en de voordelen en-en nadelen van elke optie. Zie voor meer informatie over actieve geo-replicatie met elastische Pools [strategieën voor noodherstel elastische Pool](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+Tijdens het bouwen en implementeren van cloudservices met Azure SQL Database, gebruikt u [failover-groepen en actieve geo-replicatie](sql-database-geo-replication-overview.md) voor herstelmogelijkheden bij regionale storingen en onherstelbare fouten. De functie kunt u wereldwijd gedistribueerde toepassingen die zijn geoptimaliseerd voor lokale toegang tot de gegevens maken. Dit artikel worden algemene toepassingspatronen, met inbegrip van de voor- en -en nadelen van elke optie. 
 
 > [!NOTE]
 > Als u van Premium en bedrijfskritiek databases en elastische pools gebruikmaakt, kunt u ze flexibele bij regionale uitval door deze te converteren naar de configuratie van de zone-redundante implementatie. Zie [Zone-redundante databases](sql-database-high-availability.md).  

@@ -1,29 +1,25 @@
 ---
-title: Werkstroom van werkstroomschema - Azure Logic Apps | Microsoft Docs
+title: Schemaverwijzing voor Definitietaal van werkstroom - Azure Logic Apps | Microsoft Docs
 description: Schrijven van aangepaste werkstroomdefinities voor Azure Logic Apps met de taal van de definitie van werkstroom
 services: logic-apps
-author: ecfan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: 26c94308-aa0d-4730-97b6-de848bffff91
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: ''
-ms.devlang: ''
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
 ms.topic: reference
 ms.date: 04/30/2018
-ms.author: estfan
-ms.openlocfilehash: babe21db6acc2f7154857b4eb0a02356e89a8ca7
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 9268ca3db6c99c4e660690e25a2331a1fa1cdf96
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060577"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263671"
 ---
-# <a name="logic-apps-workflow-definitions-with-the-workflow-definition-language-schema"></a>Definities van Logic Apps-werkstroom met het schema Definitietaal van werkstroom
+# <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Definitietaal van werkstroom in Azure Logic Apps-schemaverwijzing
 
-Wanneer u een werkstroom voor logische Apps met maakt [Azure Logic Apps](../logic-apps/logic-apps-overview.md), uw onderliggende werkstroomdefinitie beschrijving van de werkelijke logica die wordt uitgevoerd voor uw logische app. Deze beschrijving volgt een structuur die is gedefinieerd en gevalideerd door het schema Definitietaal van werkstroom, die gebruikmaakt van [JavaScript Object Notation (JSON)](https://www.json.org/) indeling. 
+Wanneer u een werkstroom voor logische Apps met maakt [Azure Logic Apps](../logic-apps/logic-apps-overview.md), uw onderliggende werkstroomdefinitie beschrijving van de werkelijke logica die wordt uitgevoerd voor uw logische app. Deze beschrijving volgt een structuur die is gedefinieerd en gevalideerd door het schema Definitietaal van werkstroom, die gebruikmaakt van [JavaScript Object Notation (JSON)](https://www.json.org/). 
   
 ## <a name="workflow-definition-structure"></a>Structuur van de werkstroom-definitie
 
@@ -226,7 +222,7 @@ Of, leren over de functies en hun algemeen gebruik.
 Hier volgen een paar voorbeelden van taken die u met functions uitvoeren kunt: 
 
 | Taak | Syntaxis van de functie | Resultaat | 
-| ---- | --------------- | -------------- | 
+| ---- | --------------- | ------ | 
 | Retourneert een tekenreeks in kleine letters indeling. | toLower ('<*tekst*>') <p>Bijvoorbeeld: toLower('Hello') | "Hallo" | 
 | Retourneert een globally unique identifier (GUID). | GUID() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" | 
 |||| 
@@ -308,7 +304,7 @@ Als u wilt werken met verzamelingen, in het algemeen matrices, tekenreeksen en s
 
 <a name="comparison-functions"></a>
 
-### <a name="comparison-functions"></a>Van vergelijkingsfuncties
+### <a name="comparison-functions"></a>Vergelijkingsfuncties
 
 Als u wilt werken met voorwaarden, waarden en de expressieresultaten vergelijken of verschillende soorten logische evalueren, kunt u deze van vergelijkingsfuncties. Zie voor de volledige naslaginformatie over elke functie, de [alfabetische naslagartikel](../logic-apps/workflow-definition-language-functions-reference.md).
 
@@ -471,7 +467,7 @@ Als u wilt werken met JSON-objecten en XML-knooppunt, kunt u deze functies voor 
 | [samenvoegen](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | Retourneert de eerste niet-null-waarde van een of meer parameters. | 
 | [removeProperty](../logic-apps/workflow-definition-language-functions-reference.md#removeProperty) | Verwijderen van een eigenschap van een JSON-object en het bijgewerkte object retourneren. | 
 | [setProperty](../logic-apps/workflow-definition-language-functions-reference.md#setProperty) | Stel de waarde voor eigenschap van een JSON-object en het bijgewerkte object geretourneerd. | 
-| [Hiermee geeft u de context waarin het script wordt uitgevoerd.](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | Controleren of XML knooppunten of waarden die overeenkomen met een (XML Path-taal) XPath-expressie en retourneert de overeenkomende waarden of knooppunten. | 
+| [XPath](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | Controleren of XML knooppunten of waarden die overeenkomen met een (XML Path-taal) XPath-expressie en retourneert de overeenkomende waarden of knooppunten. | 
 ||| 
 
 ## <a name="next-steps"></a>Volgende stappen

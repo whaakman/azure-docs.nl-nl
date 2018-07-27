@@ -1,6 +1,6 @@
 ---
-title: Bouw en implementeer een objectmodel detectie met behulp van Azure Machine Learning-pakket voor de visie van de Computer.
-description: Informatie over het bouwen, trainen, testen en implementeren van een computer vision-detectie objectmodel met het Azure Machine Learning-pakket voor Computer Vision.
+title: Bouw en implementeer met behulp van Azure Machine Learning-pakket voor Computer Vision model voor een object.
+description: Informatie over het bouwen, trainen, testen en implementeren van een computer vision-objectmodel met behulp van de Azure Machine Learning-pakket voor Computer Vision.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,67 +9,64 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 06/01/2018
-ms.openlocfilehash: 62cc37d8c462d0fc1831de7b50a85738d6e63a17
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 44059de5a0ef0667b4268d9cdc2997162bab474a
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34727771"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285805"
 ---
-# <a name="build-and-deploy-object-detection-models-with-azure-machine-learning"></a>Bouw en implementeer object detectie modellen met Azure Machine Learning
+# <a name="build-and-deploy-object-detection-models-with-azure-machine-learning"></a>Object detectie modellen met Azure Machine Learning bouwen en implementeren
 
-Informatie over het gebruik in dit artikel **Azure Machine Learning-pakket voor Computer Vision** om te trainen, testen en implementeren van een [sneller R CNN](https://arxiv.org/abs/1506.01497) objectmodel voor detectie. 
+In dit artikel leert u hoe u **Azure Machine Learning-pakket voor Computer Vision** om te trainen, testen en implementeren van een [sneller R-CNN](https://arxiv.org/abs/1506.01497) objectmodel voor detectie. 
 
-Een groot aantal problemen in het domein van de visie computer kan worden opgelost met object-detectie. Deze problemen zijn voor het bouwen van modellen die een variabele aantal objecten niet op een installatiekopie vinden. 
+Een groot aantal problemen in het domein van de computer vision, kan worden opgelost met behulp van de objectdetectie van het. Deze problemen zijn het ontwikkelen van modellen die een variabele aantal objecten in een afbeelding. 
 
-Bij het maken en implementeren van dit model met dit pakket, gaat u de volgende stappen:
-1.  Het maken van de gegevensset
-2.  Modeldefinitie diep Neurale netwerk (DNN)
-3.  Model trainen
+Als het bouwen en implementeren van dit model met dit pakket, gaat u door de volgende stappen:
+1.  Gegevensset maken
+2.  Definitie van deep Neural Network (DNN)-Model
+3.  Modeltraining
 4.  Evaluatie en visualisatie
 5.  Implementatie-webservice
-6.  Testen van de Load-webservice
+6.  Webservice Belastingstesten
 
-In dit voorbeeld TensorFlow wordt gebruikt als het framework grondige learning, training wordt lokaal uitgevoerd op een machine GPU ingeschakeld, zoals de [grondige learning gegevens wetenschappelijke VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview), en implementatie gebruikmaakt van de Azure ML uitoefening CLI.
+In dit voorbeeld TensorFlow wordt gebruikt als de deep learning-frameworks, training wordt lokaal uitgevoerd op een GPU gemaakte virtuele machine, zoals de [Deep learning, Data Science VM](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview), en implementatie maakt gebruik van de CLI van Azure ML uitoefening.
 
-Raadpleeg de [pakket naslagdocumentatie](https://aka.ms/aml-packages/vision) voor de gedetailleerde naslaginformatie voor elke module en de klasse.
+Raadpleeg de [referentiedocumentatie voor het pakket](https://aka.ms/aml-packages/vision) voor de uitgebreide referentie voor elke module en de klasse.
 
 ## <a name="prerequisites"></a>Vereisten
 
 1. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-1. De volgende accounts en de toepassing moeten worden ingesteld en geïnstalleerd:
+1. De volgende accounts en de toepassing moeten worden ingesteld en worden geïnstalleerd:
    - Een Azure Machine Learning Experimenten-account 
-   - Een Azure Machine Learning-Model Management-account
+   - Een Azure Machine Learning Modelbeheer-account
    - Azure Machine Learning Workbench moet zijn geïnstalleerd
 
-   Als deze drie zijn nog niet gemaakt of geïnstalleerd, voert u de [Quick Start Azure Machine Learning en de Workbench](../service/quickstart-installation.md) artikel. 
+   Als deze drie nog niet zijn gemaakt of is geïnstalleerd, volgt u de [installatie van Azure Machine Learning-Quickstart en Workbench](../service/quickstart-installation.md) artikel. 
 
-1. Het Azure Machine Learning-pakket voor de visie van de Computer moet worden geïnstalleerd. Meer informatie over hoe [hier in dit pakket installeren](https://aka.ms/aml-packages/vision).
+1. De Azure Machine Learning-pakketten voor Computer Vision moet worden geïnstalleerd. Meer informatie over het [hier in dit pakket installeert](https://aka.ms/aml-packages/vision).
 
-## <a name="sample-data-and-notebook"></a>Voorbeeldgegevens en notebook
+## <a name="sample-data-and-notebook"></a>Voorbeeldgegevens en -laptops
 
 ### <a name="get-the-jupyter-notebook"></a>De Jupyter-notebook ophalen
 
-Download de notebook om uit te voeren van het voorbeeld beschreven hier zelf.
+Download het notitieblok om uit te voeren van het voorbeeld beschreven hier zelf.
 
 > [!div class="nextstepaction"]
 > [De Jupyter-notebook ophalen](https://aka.ms/aml-packages/vision/notebooks/object_detection)
 
 ### <a name="load-the-sample-data"></a>De voorbeeldgegevens laden
 
-Voor deze demo is een gegevensset van boodschappen binnen koelkasten opgegeven, wordt die bestaan uit 30 installatiekopieën en 8 klassen (eggBox, joghurt ketchup, mushroom, mustard, oranje, squash en water). Er is een aantekening-xml-bestand met dezelfde naam voor elk jpg-afbeelding. 
+Voor deze demo is een gegevensset van boodschappen binnen koelkasten opgegeven, wordt die bestaat uit een 30-installatiekopieën en 8 klassen (eggBox, joghurt ketchup, mushroom, mustard, oranje, squash en water). Er is een aantekening-xml-bestand met vergelijkbare namen voor elke jpg-afbeelding. 
 
-De volgende afbeelding ziet de aanbevolen mapstructuur. 
+De volgende afbeelding ziet u de aanbevolen mapstructuur. 
 
-![Mapstructuur](media/how-to-build-deploy-object-detection-models/data_directory.JPG)
+![mapstructuur](media/how-to-build-deploy-object-detection-models/data_directory.JPG)
 
-## <a name="image-annotation"></a>Afbeelding aantekening
+## <a name="image-annotation"></a>Aantekening met afbeelding
 
-Object locaties hoeven te trainen en evalueren van de detectie van een object van aantekeningen voorzien. [LabelImg](https://tzutalin.github.io/labelImg) is een hulpprogramma voor open-source aantekening die aantekeningen toevoegen aan installatiekopieën kan worden gebruikt. LabelImg schrijft een xml-bestand per afbeelding in Pascal VOS-indeling kan worden gelezen door dit pakket. 
-
-## <a name="storage-context"></a>Opslag-Context
-De context van de opslag wordt gebruikt om te bepalen waar de verschillende uitvoerbestanden zoals DNN modelbestanden worden opgeslagen. Zie voor meer informatie de [StorageContext documentatie](https://docs.microsoft.com/en-us/python/api/cvtk.core.context.storagecontext?view=azure-ml-py-latest). De inhoud van de opslag hoeft normaal gesproken niet expliciet worden ingesteld. Om te voorkomen de Workbench project limiet van 25 MB, wordt echter de uitvoer-directory om te verwijzen naar een locatie buiten het project AML instellen ('... /.. /.. /.. / cvtk_output '). Zorg ervoor dat de map 'cvtk_output' verwijderen wanneer deze niet meer nodig is.
+Object locaties zijn vereist om te trainen en evalueren van de detectie van een object van aantekeningen voorzien. [LabelImg](https://tzutalin.github.io/labelImg) is een open-source aantekening-hulpprogramma dat kan worden gebruikt om aantekeningen toevoegen aan installatiekopieën. LabelImg schrijft een xml-bestand per afbeelding in Pascal VOS indeling, die kan worden gelezen door dit pakket. 
 
 
 ```python
@@ -77,28 +74,26 @@ import warnings
 warnings.filterwarnings("ignore")
 import os, time
 from cvtk.core import Context, ObjectDetectionDataset, TFFasterRCNN
+from cvtk.evaluation import DetectionEvaluation
+from cvtk.evaluation.evaluation_utils import graph_error_counts
 from cvtk.utils import detection_utils
-from matplotlib import pyplot as plt
 
 # Disable printing of logging messages
 from azuremltkbase.logging import ToolkitLogger
 ToolkitLogger.getInstance().setEnabled(False)
 
-# Initialize the context object
-out_root_path = "../../../cvtk_output"
-Context.create(outputs_path=out_root_path, persistent_path=out_root_path, temp_path=out_root_path)
-
+from matplotlib import pyplot as plt
 # Display the images
 %matplotlib inline
 ```
 
 ## <a name="create-a-dataset"></a>Een gegevensset maken
 
-Maak een CVTK gegevensset die uit een set installatiekopieën met hun respectieve omsluitende vak aantekeningen bestaat. In dit voorbeeld wordt de koelkast afbeeldingen die beschikbaar zijn in de '... de map/levensmiddelen-sample_data/training"worden gebruikt. Alleen JPEG-afbeeldingen worden ondersteund.
+Maakt een gegevensset CVTK die uit een reeks afbeeldingen met hun respectieve selectiekader vak aantekeningen bestaat. In dit voorbeeld wordt de koelkast-installatiekopieën die beschikbaar zijn in de '... de map/sample_data/foods/training' worden gebruikt. Alleen JPEG-afbeeldingen worden ondersteund.
 
 
 ```python
-image_folder = "../sample_data/foods/train"
+image_folder = "detection/sample_data/foods/train"
 data_train = ObjectDetectionDataset.create_from_dir(dataset_name='training_dataset', data_dir=image_folder,
                                                     annotations_dir="Annotations", image_subdirectory='JPEGImages')
 
@@ -131,7 +126,7 @@ _ = data_train.images[2].visualize_bounding_boxes(image_size = (10,10))
 
 ## <a name="define-a-model"></a>Een model definiëren
 
-In dit voorbeeld wordt het model sneller R CNN gebruikt. Verschillende parameters kunnen worden opgegeven bij het definiëren van dit model. De betekenis van deze parameters, evenals de parameters gebruikt voor het trainen van (Zie volgende sectie) vindt u in beide CVTK API documenten of op de [Tensorflow object detectiewebsite](https://github.com/tensorflow/models/tree/master/research/object_detection). Meer informatie over sneller R CNN model vindt u op [deze koppeling](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Faster-R-CNN#technical-details). Dit model is gebaseerd op snelle R-CNN en meer informatie hierover vindt u [hier](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Fast-R-CNN#algorithm-details).
+In dit voorbeeld wordt wordt het sneller R-CNN-model gebruikt. Verschillende parameters kunnen worden opgegeven bij het definiëren van dit model. De betekenis van deze parameters, evenals de parameters die worden gebruikt voor het trainen van (Zie volgende sectie) kan worden gevonden in de API-documenten van een van beide CVTK of op de [Tensorflow-object detectiewebsite](https://github.com/tensorflow/models/tree/master/research/object_detection). Meer informatie over sneller R-CNN model kan worden gevonden op [deze koppeling](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Faster-R-CNN#technical-details). Dit model is gebaseerd op snelle R-CNN en meer informatie hierover vindt u [hier](https://docs.microsoft.com/en-us/cognitive-toolkit/Object-Detection-using-Fast-R-CNN#algorithm-details).
 
 
 ```python
@@ -144,15 +139,15 @@ my_detector = TFFasterRCNN(labels=data_train.labels,
 
 ## <a name="train-the-model"></a>Het model trainen
 
-Het model Îles Cocos getraind sneller R-CNN met ResNet50 wordt gebruikt als startpunt voor training. 
+Het COCO getraind sneller R-CNN-model met ResNet50 wordt gebruikt als startpunt voor de training. 
 
-Het aantal stappen training in de code is ingesteld op 350 voor het trainen van de detectie, zodat de training sneller uitgevoerd (~ 5 minuten met GPU). In de praktijk, moet u deze op minstens 10 keer het aantal afbeeldingen in de trainingset instellen.
+Het aantal stappen training in de code is ingesteld op 350, het trainen van de detectie, zodat de training sneller uitgevoerd (ongeveer 5 minuten met GPU). In de praktijk moet u deze op ten minste 10 keer het aantal afbeeldingen in de trainingsset instellen.
 
-In dit voorbeeld is het aantal detectie training stappen ingesteld op 350 voor snelle training. In de praktijk kan is een goede vuistregel echter te stellen de stappen op 10 of meer keer het aantal afbeeldingen in de trainingset.
+In dit voorbeeld is het aantal detector training stappen ingesteld op 350 voor snelle training. In de praktijk moet is een goede vuistregel echter om in te stellen de stappen op 10 of meer keer het aantal afbeeldingen in de trainingsset.
 
 Er zijn twee belangrijke parameters voor training:
-- Het aantal stappen voor het trainen van het model dat wordt vertegenwoordigd door het argument num_seps. Elke stap traint het model met een minibatch van batchgrootte een.
-- Leren belastingtarie(f)(ven), die kan worden ingesteld door initial_learning_rate
+- Het aantal stappen voor het model wordt vertegenwoordigd door het argument num_seps te trainen. Elke stap traint het model met een minibatch van batchgrootte een.
+- Belastingtarie(f)(ven) bent gekomen, die kan worden ingesteld door initial_learning_rate
 
 ```python
 print("tensorboard --logdir={}".format(my_detector.train_dir))
@@ -188,21 +183,21 @@ print(end_train-start_train)
     361.604615688324
     
 
-TensorBoard kan worden gebruikt om de voortgang van de training te visualiseren. TensorBoard gebeurtenissen bevinden zich in de map die is opgegeven door het modelobject train_dir kenmerk. Als u wilt weergeven TensorBoard, de volgende stappen uit:
+TensorBoard kan worden gebruikt voor het visualiseren van de voortgang van de training. TensorBoard gebeurtenissen bevinden zich in de map die is opgegeven door het modelobject train_dir kenmerk. Als u wilt weergeven TensorBoard, de volgende stappen uit:
 1. Kopieer de afdruk die begint met 'tensorboard--logdir' aan een opdrachtregel en voer deze uit. 
-2. Kopieer de URL van de geretourneerde vanaf de opdrachtregel naar een webbrowser om de TensorBoard weer te geven. 
+2. Kopieer de geretourneerde URL vanaf de opdrachtregel naar een webbrowser om de TensorBoard weer te geven. 
 
-De TensorBoard moet eruitzien als in de volgende schermafbeelding. Het duurt enkele minuten voor de map training worden ingevuld. Dus als TensorBoard voorkomt stappen up correct de eerste keer probeert herhalende 1-2.  
+De TensorBoard moet eruitzien als in de volgende schermafbeelding. Het duurt een paar minuten voor de training-map wordt gevuld. Dus als TensorBoard niet wordt weergegeven stappen om goed de eerste keer probeert herhalende 1-2.  
 
 ![tensorboard](media/how-to-build-deploy-object-detection-models/tensorboard.JPG)
 
 ## <a name="evaluate-the-model"></a>Het model evalueren
 
-De methode 'evalueren' wordt gebruikt om het model beoordelen. Deze functie moet een object ObjectDetectionDataset als invoer. De gegevensset evaluatie kan worden gemaakt met behulp van dezelfde functie als het abonnement voor de gegevensset training gebruikt. De ondersteunde meetwaarde is gemiddelde precisie zoals is gedefinieerd voor de [PASCAL VOS uitdaging](http://host.robots.ox.ac.uk/pascal/VOC/pubs/everingham10.pdf).  
+De methode 'evalueren' wordt gebruikt om het model evalueren. Deze functie moet een object ObjectDetectionDataset als invoer. De evaluatie-gegevensset kan worden gemaakt met behulp van dezelfde functie als het account dat wordt gebruikt voor de training-gegevensset. De ondersteunde metrische gegevens is gemiddelde precisie, zoals gedefinieerd voor de [PASCAL VOS Challenge](http://host.robots.ox.ac.uk/pascal/VOC/pubs/everingham10.pdf).  
 
 
 ```python
-image_folder = "../sample_data/foods/test"
+image_folder = "detection/sample_data/foods/test"
 data_val = ObjectDetectionDataset.create_from_dir(dataset_name='val_dataset', data_dir=image_folder)
 eval_result = my_detector.evaluate(dataset=data_val)
 ```
@@ -237,7 +232,7 @@ eval_result = my_detector.evaluate(dataset=data_val)
     F1 2018-05-25 23:18:38,254 INFO Finished evaluation!
     
 
-De evaluatieresultaten kunnen in een schone indeling worden afgedrukt.
+De resultaten van evaluatie van kunnen worden afgedrukt in een nieuwe indeling.
 
 
 ```python
@@ -260,9 +255,9 @@ print('{0: <15}: {1: <3}'.format("overall:", round(eval_result['PASCAL/Precision
     overall:       : 0.99
     
 
-Op deze manier kunt u de nauwkeurigheid van het model op de trainingset berekenen. Dit zorgt ervoor dat training geconvergeerd naar een goede oplossing doen. De nauwkeurigheid van de trainingset na de geslaagde training is vaak dicht bij 100%.
+Op deze manier kunt u de nauwkeurigheid van het model op de trainingsset berekenen. Dit zorgt ervoor dat training geconvergeerd naar een goede oplossing doen. De nauwkeurigheid van de training-ingesteld na de geslaagde training is vaak bijna 100%.
 
-Evaluatieresultaten kunnen ook worden weergegeven uit TensorBoard, met inbegrip van de waarden van de kaart en afbeeldingen met voorspelde omsluitende vakken. Kopieer de afdruk van de volgende code in een opdrachtregelvenster om de client TensorBoard te starten. Hier wordt een poortwaarde 8008 gebruikt om conflicten met de standaardwaarde van 6006, die werd gebruikt voor het weergeven van trainingsstatus te voorkomen.
+Evaluatieresultaten kunnen ook worden weergegeven uit TensorBoard, inclusief waarden van de kaart en installatiekopieën met voorspelde selectiekader vakken. Kopieer de afdruk van de volgende code in een venster vanaf de opdrachtregel voor het starten van de client TensorBoard. Een poortwaarde worden opgegeven 8008 wordt hier gebruikt om te voorkomen dat veroorzaken een conflict met de standaardwaarde van 6006, die werd gebruikt voor het weergeven van de trainingsstatus van de.
 
 
 ```python
@@ -272,15 +267,15 @@ print("tensorboard --logdir={} --port=8008".format(my_detector.eval_dir))
     tensorboard --logdir=C:\Users\lixun\Desktop\AutoDL\CVTK\Src\API\cvtk_output\temp_faster_rcnn_resnet50\models\eval --port=8008
     
 
-## <a name="score-an-image"></a>Een installatiekopie van een beoordelen
+## <a name="score-an-image"></a>Een installatiekopie van een score
 
-Wanneer u tevreden met de prestaties van het getrainde model bent, kan het modelobject 'score' functie kan worden gebruikt voor de beoordeling van nieuwe afbeeldingen. De geretourneerde scores kunnen worden weergegeven met de functie 'visualiseren'. 
+Wanneer u tevreden met de prestaties van het getrainde model bent, kan het modelobject 'score'-functie kan worden gebruikt om nieuwe afbeeldingen te beoordelen. De geretourneerde scores kunnen worden gevisualiseerd met de functie 'visualiseren'. 
 
 
 ```python
 image_path = data_val.images[1].storage_path
 detections_dict = my_detector.score(image_path)
-path_save = out_root_path + "/scored_images/scored_image_preloaded.jpg"
+path_save = "./scored_images/scored_image_preloaded.jpg"
 ax = detection_utils.visualize(image_path, detections_dict, image_size=(8, 12))
 path_save_dir = os.path.dirname(os.path.abspath(path_save))
 os.makedirs(path_save_dir, exist_ok=True)
@@ -291,11 +286,11 @@ ax.get_figure().savefig(path_save)
 
 ##  <a name="save-the-model"></a>Sla het model
 
-Het getrainde model worden opgeslagen op schijf en weer in het geheugen geladen, zoals wordt weergegeven in de volgende codevoorbeelden.
+Het getrainde model kan worden opgeslagen op schijf en geladen weer in het geheugen, zoals wordt weergegeven in de volgende codevoorbeelden.
 
 
 ```python
-save_model_path = out_root_path + "/frozen_model/faster_rcnn.model" # Please save your model to outside of your AML workbench project folder because of the size limit of AML project
+save_model_path = "./frozen_model/faster_rcnn.model"
 my_detector.save(save_model_path)
 ```
 
@@ -304,15 +299,15 @@ my_detector.save(save_model_path)
     F1 2018-05-25 23:19:03,867 INFO 2953 ops in the final graph.
     
 
-## <a name="load-the-saved-model-for-scoring"></a>Het opgeslagen model voor score berekenen niet laden
+## <a name="load-the-saved-model-for-scoring"></a>Laden van de opgeslagen model voor het scoren
 
-Voor het gebruik van de opgeslagen model, het model niet laden in het geheugen met de functie 'load'. U moet slechts één keer laden. 
+Voor het gebruik van de opgeslagen model, het model te laden in het geheugen met de functie 'load'. U moet slechts één keer laden. 
 
 ```python
 my_detector_loaded = TFFasterRCNN.load(save_model_path)
 ```
 
-Nadat het model is geladen, kan deze worden gebruikt voor het verkrijgen van een afbeelding of een lijst met afbeeldingen. Voor een enkele afbeelding, een woordenlijst geretourneerd met sleutels zoals 'detection_boxes', 'detection_scores' en 'num_detections'. Als de invoer voor een lijst met afbeeldingen, is een lijst van woordenlijst die wordt geretourneerd, met één woordenlijst die overeenkomt met een installatiekopie. 
+Nadat het model wordt geladen, kan deze worden gebruikt om een installatiekopie of een lijst met installatiekopieën te beoordelen. Voor een enkele afbeelding, een woordenlijst met sleutels, zoals 'detection_boxes', 'detection_scores' en 'num_detections' geretourneerd. Als de invoer een lijst met installatiekopieën van is een lijst van woordenlijst die wordt geretourneerd, door een woordenlijst die overeenkomt met een afbeelding. 
 
 
 ```python
@@ -351,11 +346,11 @@ print("\nFound {} objects in image {}.".format(n_obj, image_path))
     Found 8 objects in image ../sample_data/foods/test\JPEGImages\10.jpg.
     
 
-Net zoals de scores visualiseren voordat.
+De scores net als voordat visualiseren.
 
 
 ```python
-path_save = out_root_path + "/scored_images/scored_image_frozen_graph.jpg"
+path_save = "./scored_images/scored_image_frozen_graph.jpg"
 ax = detection_utils.visualize(image_path, detections_dict, path_save=path_save, image_size=(8, 12))
 # ax.get_figure() # use this code extract the returned image
 ```
@@ -364,29 +359,29 @@ ax = detection_utils.visualize(image_path, detections_dict, path_save=path_save,
 
 ## <a name="operationalization-deploy-and-consume"></a>Uitoefening: implementeren en gebruiken
 
-Uitoefening is het proces van het publiceren van modellen en code als webservices en het verbruik van deze services levert geen resultaten voor bedrijven. 
+Uitoefening is het proces van het publiceren van modellen en webservices-code en het gebruik van deze services voor het produceren van bedrijfsresultaten te verbeteren. 
 
-Nadat uw model is getraind, kunt u dit model implementeren als een webservice voor verbruik met [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Uw modellen kunnen worden toegepast op uw lokale computer of een Azure Container Service (ACS)-cluster. ACS gebruikt, kunt u uw webservice handmatig schalen of gebruik de functie voor automatisch schalen.
+Nadat uw model wordt getraind, kunt u dit model implementeren als een webservice voor het gebruik van het verbruik [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/cli-for-azure-machine-learning). Uw modellen kunnen worden geïmplementeerd op uw lokale computer of cluster in Azure Container Service (ACS). Met ACS, kunt u uw web-service handmatig schalen of gebruikt u de functionaliteit voor automatisch schalen.
 
 **Meld u aan met Azure CLI**
 
 Met behulp van een [Azure](https://azure.microsoft.com/) account met een geldig abonnement, meld u aan met de volgende CLI-opdracht:
 <br>`az login`
 
-+ Als u wilt overschakelen naar een andere Azure-abonnement, moet u de opdracht gebruiken:
++ Als u wilt overschakelen naar een andere Azure-abonnement, gebruikt u de opdracht:
 <br>`az account set --subscription [your subscription name]`
 
-+ Als het huidige model-management-account weergeven, gebruikt u de opdracht:
++ Als de huidige Modelbeheer-account weergeven, gebruikt u de opdracht:
   <br>`az ml account modelmanagement show`
 
-**Maak en stel uw clusteromgeving voor implementatie**
+**Maken en uw clusteromgeving implementatie instellen**
 
-U hoeft alleen te uw implementatieomgeving eenmaal worden ingesteld. Als u een nog geen hebt, kunt u uw implementatieomgeving nu met gebruik van instellen [deze instructies](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
+U hoeft alleen te stelt één keer in uw implementatieomgeving. Als u een nog geen hebt, uw implementatieomgeving instellen met [deze instructies](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/deployment-setup-configuration#environment-setup). 
 
 Als uw omgeving actieve implementatie weergeven, gebruikt u de volgende CLI-opdracht:
 <br>`az ml env show`
    
-Azure CLI voorbeeldopdracht maken en implementatieomgeving instellen
+Voorbeeld van Azure CLI-opdracht voor het maken en implementatieomgeving instellen
 
 ```CLI
 az provider register -n Microsoft.MachineLearningCompute
@@ -397,25 +392,25 @@ az ml env set -n [environment name] -g [resource group]
 az ml env cluster
 ```
     
-### <a name="manage-web-services-and-deployments"></a>Web-services en -implementaties beheren
+### <a name="manage-web-services-and-deployments"></a>Webservices en implementaties beheren
 
-De volgende API's kunnen worden gebruikt voor modellen als webservices implementeren en beheren van implementaties die webservices te beheren.
+De volgende API's kunnen worden gebruikt om modellen als webservices implementeren en beheren van implementaties die webservices beheren.
 
 |Taak|API|
 |----|----|
 |Implementatieobject maken|`deploy_obj = AMLDeployment(deployment_name=deployment_name, associated_DNNModel=dnn_model, aml_env="cluster")`
 |-Webservice implementeren|`deploy_obj.deploy()`|
-|Score-afbeelding|`deploy_obj.score_image(local_image_path_or_image_url)`|
+|Afbeelding van score|`deploy_obj.score_image(local_image_path_or_image_url)`|
 |Webservice verwijderen|`deploy_obj.delete()`|
-|Een installatiekopie docker zonder webservice maken|`deploy_obj.build_docker_image()`|
-|Lijst van de bestaande implementatie|`AMLDeployment.list_deployment()`|
+|Docker-installatiekopie zonder webservice bouwen|`deploy_obj.build_docker_image()`|
+|Lijst met bestaande implementatie|`AMLDeployment.list_deployment()`|
 |Als de service met de implementatienaam van de bestaat verwijderen|`AMLDeployment.delete_if_service_exist(deployment_name)`|
 
-**API-documentatie:** raadpleegt u de [pakket naslagdocumentatie](https://aka.ms/aml-packages/vision) voor de gedetailleerde naslaginformatie voor elke module en de klasse.
+**API-documentatie:** raadpleegt u de [referentiedocumentatie voor het pakket](https://aka.ms/aml-packages/vision) voor de uitgebreide referentie voor elke module en de klasse.
 
-**CLI-verwijzing:** voor meer geavanceerde bewerkingen die zijn gerelateerd aan implementatie, naar verwijzen de [management CLI reference model](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-cli-reference).
+**CLI-verwijzing:** voor meer geavanceerde bewerkingen met betrekking tot implementatie, naar verwijzen de [Modelbeheer-CLI-verwijzing](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/model-management-cli-reference).
 
-**Implementatiebeheer in Azure-portal**: U kunt bijhouden en beheren van uw implementaties in de [Azure-portal](https://ms.portal.azure.com/). Vinden uw pagina voor het serviceaccount van Machine Learning-Model Management met de naam van de Azure-portal. Ga naar de pagina van de account Model Management > Model Management > Services.
+**In Azure portal onder implementatiebeheer**: U kunt bijhouden en beheren van uw implementaties in de [Azure-portal](https://ms.portal.azure.com/). Vinden uw Machine Learning Modelbeheer-account-pagina met de naam van de Azure-portal. Ga vervolgens naar de pagina Modelbeheer-account > Modelbeheer > Services.
 
 ```python
 # ##### OPTIONAL - Interactive CLI setup helper ###### 
@@ -457,15 +452,15 @@ deploy_obj.deploy()
 print("Deployment DONE")
 ```
 
-### <a name="consume-the-web-service"></a>De web-service gebruiken
+### <a name="consume-the-web-service"></a>De webservice gebruiken
 
-Nadat u de webservice hebt gemaakt, kunt u afbeeldingen met de geïmplementeerde webservice beoordelen. U hebt verschillende mogelijkheden:
+Als u de webservice gemaakt, kunt u installatiekopieën met de geïmplementeerde webservice beoordelen. U hebt verschillende mogelijkheden:
 
-   - U kunt de webservice met het implementatieobject met rechtstreeks beoordelen: deploy_obj.score_image(image_path_or_url) 
-   - Of u kunt de Service-eindpunt-url en de Service-sleutel (geen voor de implementatie van de lokale) gebruiken met: AMLDeployment.score_existing_service_with_image (image_path_or_url, service_endpoint_url, service_key = None)
-   - Vormen uw http-aanvragen rechtstreeks naar de webservice-eindpunt beoordelen (voor ervaren gebruikers).
+   - U kunt de webservice met het implementatieobject met rechtstreeks score: deploy_obj.score_image(image_path_or_url) 
+   - Of u kunt de Service-eindpunt-url en de servicesleutel (geen voor lokale implementatie) gebruiken met: AMLDeployment.score_existing_service_with_image (image_path_or_url, service_endpoint_url, service_key = None)
+   - Vormen op uw http-aanvragen rechtstreeks naar de webservice-eindpunt te beoordelen (voor ervaren gebruikers).
 
-### <a name="score-with-existing-deployment-object"></a>Score met bestaande implementatieobject
+### <a name="score-with-existing-deployment-object"></a>Score met de bestaande implementatieobject
 ```
 deploy_obj.score_image(image_path_or_url)
 ```
@@ -503,7 +498,7 @@ for img_index, img_obj in enumerate(data_train.images[:num_images]):
     print("   Time for API call: {:.2f} seconds".format(timeit.default_timer() - tic))
 ```
 
-### <a name="score-with-service-endpoint-url-and-service-key"></a>Met de service-eindpunt-url en servicesleutel beoordelen
+### <a name="score-with-service-endpoint-url-and-service-key"></a>Met service-eindpunt-url en servicesleutel score
 ```
     AMLDeployment.score_existing_service_with_image(image_path_or_url, service_endpoint_url, service_key=None)
 ```
@@ -523,8 +518,8 @@ serialized_result_in_json = AMLDeployment.score_existing_service_with_image(imag
 print("serialized_result_in_json:", serialized_result_in_json[:50])
 ```
 
-### <a name="score-endpoint-with-http-request-directly"></a>Score-eindpunt met HTTP-aanvraag rechtstreeks
-Hieronder vindt u enkele voorbeeldcode om de http-aanvraag rechtstreeks in Python. U kunt dit doen in andere programmeertalen.
+### <a name="score-endpoint-with-http-request-directly"></a>Score-eindpunt met de http-aanvraag rechtstreeks
+Hieronder volgt een van voorbeeldcode om te vormen van de http-aanvraag rechtstreeks in Python. U kunt dit doen in andere programmeertalen.
 
 
 ```python
@@ -575,7 +570,7 @@ def score_image_with_http(image, service_endpoint_url, service_key=None, paramet
 ```
 
 ### <a name="parse-serialized-result-from-webservice"></a>Parseren van geserialiseerde resultaat van de webservice
-Het resultaat van de webservice is in json-tekenreeks die kan worden geparseerd.
+Het resultaat van de webservice wordt in json-tekenreeks die kan worden geparseerd.
 
 
 ```python
@@ -596,7 +591,7 @@ print("Parsed result:", parsed_result)
 
 ```python
 ax = detection_utils.visualize(image_path, parsed_result)
-path_save = "../../../cvtk_output/scored_images/scored_image_web.jpg"
+path_save = "./scored_images/scored_image_web.jpg"
 path_save_dir = os.path.dirname(os.path.abspath(path_save))
 os.makedirs(path_save_dir, exist_ok=True)
 ax.get_figure().savefig(path_save)
@@ -606,8 +601,8 @@ ax.get_figure().savefig(path_save)
 
 Meer informatie over Azure Machine Learning-pakket voor Computer Vision in deze artikelen:
 
-+ Lees de [overzicht van het pakket en informatie over het installeren van deze](https://aka.ms/aml-packages/vision).
++ Lees de [overzicht verpakt en informatie over het installeren van deze](https://aka.ms/aml-packages/vision).
 
-+ Verken de [documentatie verwijst naar](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) voor dit pakket.
++ Verken de [referentiedocumentatie](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision) voor dit pakket.
 
 + Meer informatie over [andere Python-pakketten voor Azure Machine Learning](reference-python-package-overview.md).

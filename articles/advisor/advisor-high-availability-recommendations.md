@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.openlocfilehash: 297a213fe4219b834187f977e3281eb939352f60
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: ea8d8d0adbc7cf5a8dfb6e9af51257b9d2ba8db2
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249060"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264079"
 ---
 # <a name="advisor-high-availability-recommendations"></a>Advisor-aanbevelingen voor hoge beschikbaarheid
 
@@ -66,6 +66,14 @@ Traffic Manager-profielen met meer dan één eindpunt optreden hogere mate van b
 Als alle eindpunten in een Traffic Manager-profiel dat is geconfigureerd voor de routering van de service zich in dezelfde regio bevinden, kunnen gebruikers uit andere regio's verbindingsvertragingen optreden. Toe te voegen of het verplaatsen van een eindpunt naar een andere regio wordt de algehele prestaties verbeteren en een betere beschikbaarheid als alle eindpunten in één regio mislukken. Advisor identificeert Traffic Manager-profielen die zijn geconfigureerd voor de service Routering waar alle eindpunten die zich in dezelfde regio bevinden bevinden en raadt aan om toe te voegen of het verplaatsen van een eindpunt naar een andere Azure-regio.
 
 Als een Traffic Manager-profiel is geconfigureerd voor de geografische routering, wordt verkeer doorgestuurd naar eindpunten op basis van gedefinieerde regio's. Als een regio uitvalt, is er geen vooraf gedefinieerde failover. Met een eindpunt waar de regionale groepering is geconfigureerd voor 'Alle (wereld)' te voorkomen dat verkeer wordt verwijderd en de servicebeschikbaarheid te verbeteren. Advisor identificeert Traffic Manager-profielen die zijn geconfigureerd voor de geografische routering waarbij er geen eindpunt is geconfigureerd voor de regionale groepering als 'Alle (wereld)' hebben en deze wijziging configuratie aanbevolen.
+
+## <a name="remove-data-skew-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Gegevensverschil op uw SQL datawarehouse-tabel te verhogen van de prestaties van query's verwijderen
+
+Gegevensverschil kan leiden tot onnodige gegevens knelpunten in verkeer of resource biedt bij het uitvoeren van uw workload. Advisor detecteert distributiegegevens scheeftrekken groter is dan 15% is en aangeraden dat u uw gegevens distribueren en terugkeren naar uw tabel distributie sleutel selecties. Zie voor meer informatie over het identificeren en verwijderen van scheeftrekken [probleemoplossing scheeftrekken](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice).
+
+## <a name="create-or-update-outdated-table-statistics-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Maken of bijwerken van verouderde tabelstatistieken op uw SQL datawarehouse-tabel voor betere queryprestaties
+
+Advisor identificeert de tabellen die u geen recente hebt [tabelstatistieken](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) en de gebruiker wordt aanbevolen maken of bijwerken van statistieken tabel. Query's optimaliseren up-to-date statische waarden gebruikt om te schatten van de kardinaliteit of het aantal rijen in het queryresultaat waarmee het queryoptimalisatieprogramma om een hoge kwaliteit queryplan voor de snelste prestaties te maken voor de SQL data warehouse.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Toegang tot de aanbevelingen voor hoge beschikbaarheid in Advisor
 

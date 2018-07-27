@@ -1,20 +1,19 @@
 ---
-title: Spraakservice REST-API's | Microsoft Docs
+title: Spraakservice REST-API 's
 description: Naslaginformatie voor REST-API's voor de Speech-service.
 services: cognitive-services
 author: v-jerkin
-manager: noellelacharite
 ms.service: cognitive-services
 ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 311d0cb7f208c0f720b8611510fb65efc65c12bc
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 9991e0a1fc54e6aa4a99b8bfbd93abdfe974b01b
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112870"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39283066"
 ---
 # <a name="speech-service-rest-apis"></a>Spraakservice REST-API 's
 
@@ -50,8 +49,8 @@ De spraak-service biedt nu twee 24-KHz stemmen:
 
 Landinstelling | Taal   | Geslacht | De toewijzing van service
 -------|------------|--------|------------
-en-US  | Amerikaans-Engels | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, Jessa24kRUS)" 
-en-US  | Amerikaans-Engels | Man   | "Microsoft Server spraak tekst en spraak, spraak (en-US, Guy24kRUS)"
+nl-NL  | Amerikaans-Engels | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, Jessa24kRUS)" 
+nl-NL  | Amerikaans-Engels | Man   | "Microsoft Server spraak tekst en spraak, spraak (en-US, Guy24kRUS)"
 
 Hieronder vindt u de REST-eindpunten voor de uniforme spraakherkenning service Text to Speech-API. Gebruik het eindpunt dat overeenkomt met de regio van uw abonnement.
 

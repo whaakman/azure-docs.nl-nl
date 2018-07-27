@@ -1,52 +1,52 @@
 ---
-title: DSVM en HDI zoals doelen berekenen voor Azure ML maken
-description: Maak DSVM en HDI Spark-cluster zijn compute doelen voor Azure ML experimenteren.
+title: Over het maken van de DSVM en HDI zoals compute-doelen voor Azure ML
+description: DSVM- en HDI Spark-cluster zijn compute-doelen voor Azure ML-experimenten maken.
 services: machine-learning
 author: hning86
 ms.author: haining
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 40711c424d3d552253deba85110b0c4447f4ec62
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 18cf885cd71822c2c24791f3c6f55835c3204d35
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831018"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285725"
 ---
-# <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>DSVM en HDI Spark-cluster zijn compute doelen maken
+# <a name="create-dsvm-and-hdi-spark-cluster-as-compute-targets"></a>DSVM- en HDI Spark-cluster zijn compute-doelen maken
 
-U kunt eenvoudig omhoog schalen of uw machine learning-experiment uitbreiden door extra Reken-doelen zoals Ubuntu gebaseerde DSVM (gegevens wetenschappelijke virtuele Machine) en Apache Spark voor Azure HDInsight-cluster toe te voegen. Dit artikel begeleidt u stapsgewijs door de procedure voor het maken van deze doelen in Azure berekenen. Raadpleeg voor meer informatie over Azure ML compute doelen [overzicht van Azure Machine Learning experimenteren service](experimentation-service-configuration.md).
+U kunt eenvoudig omhoog of schaal uit uw machine learning-experiment door toe te voegen extra compute-doelen, zoals Ubuntu gebaseerde DSVM (Data Science Virtual Machine) en Apache Spark voor Azure HDInsight-cluster. In dit artikel wordt beschreven hoe u de stappen voor het maken van deze compute-doelen in Azure. Raadpleeg voor meer informatie over Azure ML compute-doelen [overzicht van Azure Machine Learning experimenten-service](experimentation-service-configuration.md).
 
 >[!NOTE]
->Moet u ervoor zorgen er de juiste machtigingen voor het maken van resources, zoals VM en HDI-clusters in Azure voordat u doorgaat. Ook kunnen zowel deze resources veel compute kernen afhankelijk van uw configuratie gebruiken. Zorg ervoor dat uw abonnement heeft voldoende capaciteit voor de virtuele CPU-kernen. U kunt altijd op de hoogte blijft ondersteuning van Azure ophalen voor het maximum aantal kernen dat is toegestaan in uw abonnement te verhogen.
+>U wilt controleren of u bent gemachtigd om resources zoals VM- en HDI-clusters te maken in Azure voordat u doorgaat. Beide van deze resources kunnen ook gebruikmaken van veel rekenkernen afhankelijk van uw configuratie. Zorg ervoor dat uw abonnement heeft onvoldoende capaciteit voor de virtuele CPU-kernen. U kunt altijd kunnen genieten van contact met ondersteuning van Azure om te verhogen van het maximum aantal kernen toegestaan in uw abonnement.
 
-## <a name="create-an-ubuntu-dsvm-in-azure-portal"></a>Een Ubuntu DSVM maken in Azure portal
+## <a name="create-an-ubuntu-dsvm-in-azure-portal"></a>Een Ubuntu-DSVM maken in Azure portal
 
-U kunt een DSVM maken vanuit Azure-portal. 
+U kunt een DSVM maken vanuit Azure portal. 
 
-1. Meld u bij de Azure-portal https://portal.azure.com
-2. Klik op de **+ nieuw** koppeling en zoek naar 'data wetenschappelijke virtuele machine voor Linux'.
+1. Meld u aan bij Azure-portal https://portal.azure.com
+2. Klik op de **+ nieuw** koppeling en zoek naar "data science virtual machine voor Linux".
     ![Ubuntu](media/how-to-create-dsvm-hdi/ubuntu_dsvm.png)
-4. Kies **gegevens wetenschappelijke virtuele Machine voor Linux (Ubuntu)** in de lijst en volg de aanwijzingen op het scherm instructies voor het maken van de DSVM.
+4. Kies **Data Science Virtual Machine voor Linux (Ubuntu)** in de lijst en volg de aanwijzingen op het scherm instructies voor het maken van de DSVM.
 
 >[!IMPORTANT]
 >Zorg ervoor dat u kiest **wachtwoord** als de _verificatietype_.
 
 ![pwd gebruiken](media/how-to-create-dsvm-hdi/use_pwd.png)
 
-## <a name="create-an-ubuntu-dsvm-using-azure-cli"></a>Maken van een Ubuntu DSVM met azure cli
+## <a name="create-an-ubuntu-dsvm-using-azure-cli"></a>Maken van een Ubuntu-DSVM met behulp van azure-cli
 
-U kunt ook een Azure-resource management-sjabloon gebruiken voor het implementeren van een DSVM.
+U kunt ook een Azure resource Manager-sjabloon gebruiken voor het implementeren van een DSVM.
 
 >[!NOTE]
 >Alle volgende opdrachten wordt aangenomen dat vanuit de hoofdmap van een Azure ML-project worden uitgegeven.
 
-Maak eerst een `mydsvm.json` bestand met behulp van uw favoriete teksteditor in de `docs` map. (Als u hebt een `docs` map in de hoofdmap van het project, maak een.) We dit bestand gebruiken voor het configureren van algemene parameters voor de Azure-resource management-sjabloon. 
+Maak eerst een `mydsvm.json` bestand met behulp van uw favoriete teksteditor in de `docs` map. (Als u geen een `docs` map in de hoofdmap van het project, maakt u er een.) We dit bestand gebruiken om enkele eenvoudige parameters voor de Azure resource management-sjabloon configureren. 
 
 Kopieer en plak de volgende JSON-fragment in het `mydsvm.json` bestand en vult u de juiste waarden:
 
@@ -63,33 +63,33 @@ Kopieer en plak de volgende JSON-fragment in het `mydsvm.json` bestand en vult u
 }
 ```
 
-Voor de _vmSize_ veld, kunt u elke suppported VM-grootte die worden vermeld in de [Ubuntu DSVM Azure resource management-sjabloon](https://github.com/Azure/DataScienceVM/blob/master/Scripts/CreateDSVM/Ubuntu/multiazuredeploywithext.json). We raden u een van de onderstaande grootten zoals doelen berekenen voor Azure ML. 
+Voor de _vmSize_ veld, kunt u elke ondersteund VM-grootte die worden vermeld in de [Ubuntu DSVM Azure resource management-sjabloon](https://github.com/Azure/DataScienceVM/blob/master/Scripts/CreateDSVM/Ubuntu/multiazuredeploywithext.json). Raden wij aan u een van de volgende grootten zoals compute-doelen voor Azure ML. 
 
 
 >[!TIP]
-> Voor [grondige learning werkbelastingen](how-to-use-gpu.md) u kunt implementeren op GPU VMs ingeschakeld.
+> Voor [deep learning-werkbelastingen](how-to-use-gpu.md) u kunt implementeren op GPU VM's mogelijk gemaakt.
 
-- [Virtuele machines voor algemene doeleinden](/virtual-machines/linux/sizes-general.md)
+- [Algemeen gebruik virtuele machines](/virtual-machines/linux/sizes-general.md)
   - Standard_DS2_v2 
   - Standard_DS3_v2 
   - Standard_DS4_v2 
   - Standard_DS12_v2 
   - Standard_DS13_v2 
   - Standard_DS14_v2 
-- [GPU VMs ingeschakeld](/virtual-machines/linux/sizes-gpu.md)
+- [GPU gemaakte virtuele machines](/virtual-machines/linux/sizes-gpu.md)
   - Standard_NC6 
   - Standard_NC12 
   - Standard_NC24 
  
 
-Meer informatie over deze [grootten voor virtuele Linux-machines in Azure](../../virtual-machines/linux/sizes.md) en hun [prijsgegevens](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+Meer informatie over deze [grootten voor virtuele Linux-machines in Azure](../../virtual-machines/linux/sizes.md) en de bijbehorende [informatie over de prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-CLI-venster starten vanuit de app Azure ML-Workbench door te klikken op **bestand** --> **opdrachtprompt openen**, of **Open PowerShell** menu-item. 
+CLI-venster starten vanuit de app Azure ML Workbench door te klikken op **bestand** --> **Open Command Prompt**, of **Open PowerShell** menu-item. 
 
 >[!NOTE]
->U kunt dit ook doen in een opdrachtregel omgeving waarin u az-cli geïnstalleerd hebben.
+>U kunt dit ook doen in een opdrachtregel omgeving waarin u werkt met az-cli is geïnstalleerd.
 
-In het opdrachtregelvenster, voer de onderstaande opdrachten:
+Voer in het opdrachtregelvenster in de onderstaande opdrachten:
 
 ```azurecli
 # first make sure you have a valid Azure authentication token
@@ -121,7 +121,7 @@ $ az vm show -g <resource group name> -n <vm name> --query "fqdns"
 # find the IP address of the VM just created
 $ az vm show -g <resource group name> -n <vm name> --query "publicIps"
 ```
-## <a name="attach-a-dsvm-compute-target"></a>Koppel een DSVM compute-doel
+## <a name="attach-a-dsvm-compute-target"></a>Een DSVM compute-doel toevoegen
 Zodra de DSVM is gemaakt, kunt u het nu koppelen aan uw Azure ML-project.
 
 ```azurecli
@@ -132,10 +132,10 @@ $ az ml computetarget attach remotedocker --name <compute target name> --address
 # prepare the Docker image on the DSVM 
 $ az ml experiment prepare -c <compute target name>
 ```
-U moet nu klaar om te experimenten worden uitgevoerd op deze DSVM zijn.
+U moet zijn nu gereed voor het uitvoeren van experimenten op deze DSVM.
 
-## <a name="deallocate-a-dsvm-and-restart-it-later"></a>Een DSVM ongedaan gemaakt en later opnieuw starten
-Wanneer u de compute-taken van Azure ML hebt, kunt u de DSVM ongedaan gemaakt. Deze actie wordt de virtuele machine, worden de rekenresources vrijgegeven afgesloten, maar dan de virtuele schijven behouden blijft. Er zijn niet in rekening gebracht voor de compute-kosten wanneer de toewijzing van de VM ongedaan is gemaakt.
+## <a name="deallocate-a-dsvm-and-restart-it-later"></a>Toewijzing ongedaan maken van een DSVM en deze later opnieuw starten
+Wanneer u klaar bent met de compute-taken in Azure ML, kunt u de toewijzing van de DSVM ongedaan maken. Deze actie sluit de virtuele machine, worden de rekenresources vrijgegeven, maar dan de virtuele schijven behouden blijft. U betaalt geen voor de compute-kosten wanneer de VM ongedaan is gemaakt.
 
 Toewijzing van een virtuele machine:
 
@@ -143,37 +143,37 @@ Toewijzing van een virtuele machine:
 $ az vm deallocate -g <resource group name> -n <vm name>
 ```
 
-Voor het maken van de virtuele machine terug naar de levensduur, gebruiken de `az ml start` opdracht:
+Als u wilt de virtuele machine terug tot leven brengen, gebruikt u de `az ml start` opdracht:
 
 ```azurecli
 $ az vm start -g <resource group name> -n <vm name>
 ```
 
-## <a name="expand-the-dsvm-os-disk"></a>Breid de DSVM OS-schijf
-De DSVM Ubuntu wordt geleverd met een besturingssysteemschijf 50GB en de schijf van 100GB gegevens. Docker slaat de installatiekopieën op de gegevensschijf als u meer ruimte er beschikbaar is. Wanneer gebruikt als doel berekenen voor Azure ML, kan deze schijf worden gebruikt door Docker-engine binnenhalen van Docker-installatiekopieën en het bouwen van conda lagen toe. Mogelijk moet u de schijf uitbreiden naar een groter formaat (zoals 200 GB) om te voorkomen dat de fout 'volledige-schijf' wanneer u zich in het midden van de uitvoering. Verwijzing [het uitbreiden van de virtuele harde schijven op een Linux-VM met de Azure CLI](../../virtual-machines/linux/expand-disks.md) voor meer informatie over hoe u dit eenvoudig doen vanuit de azure cli. 
+## <a name="expand-the-dsvm-os-disk"></a>De DSVM een besturingssysteemschijf uitbreiden
+De Ubuntu-DSVM wordt geleverd met een OS-schijf van 50GB en een schijf van 100GB gegevens. Als u meer ruimte er beschikbaar is, docker de afbeeldingen opslaat op de gegevensschijf. Als in combinatie compute-doel voor Azure ML, kan deze schijf worden gebruikt door Docker-engine omlaag Docker-installatiekopieën te schuiven en het bouwen van conda-lagen boven op het. Mogelijk moet u de schijf uitbreiden naar een groter formaat (zoals 200 GB) om te voorkomen dat de fout 'volledige-schijf', terwijl u in het midden van de uitvoering bent. Naslaginformatie over [over het uitbreiden van virtuele harde schijven op een Linux-VM met de Azure CLI](../../virtual-machines/linux/expand-disks.md) voor meer informatie over dit eenvoudig doen vanuit azure cli. 
 
-## <a name="create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal"></a>Maken van een Apache Spark voor Azure HDInsight-cluster in Azure portal
+## <a name="create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal"></a>Een Apache Spark voor Azure HDInsight-cluster maken in Azure portal
 
-Voor het scale-out Spark taken uitvoeren, moet u een Apache Spark voor Azure HDInsight-cluster maken in Azure portal.
+Als u wilt uitbreiden Spark-taken uitvoeren, moet u een Apache Spark voor Azure HDInsight-cluster maken in Azure portal.
 
-1. Meld u bij de Azure-portal https://portal.azure.com
+1. Meld u aan bij Azure-portal https://portal.azure.com
 2. Klik op de **+ nieuw** koppeling en zoek naar 'HDInsight'.
 
-    ![hdi vinden](media/how-to-create-dsvm-hdi/hdi.png)
+    ![hdi zoeken](media/how-to-create-dsvm-hdi/hdi.png)
     
 3. Kies **HDInsight** in de lijst en klik vervolgens op de **maken** knop.
-4. In de **basisbeginselen** Configuratiescherm **type Cluster** instellingen, zorg ervoor dat u kiest **Spark** als de _type Cluster_, **Linux** als de _besturingssysteem_, en **Spark 2.1.0 (HDI 3.6)** als de _Version.
+4. In de **basisbeginselen** Configuratiescherm **clustertype** instellingen, zorg ervoor dat u kiest **Spark** als de _clustertype_, **Linux** als de _besturingssysteem_, en **Spark 2.1.0 (HDI 3.6)** als de _Version.
 
     ![hdi configureren](media/how-to-create-dsvm-hdi/configure_hdi.png)
 
     >[!IMPORTANT]
-    >U ziet in het bovenstaande scherm het cluster heeft een _clusteraanmeldgegevens_ veld en een _Secure Shell (SSH) gebruikersnaam_ veld. Dit zijn twee verschillende gebruikers-id's, zelfs als voor het gemak kunt u hetzelfde wachtwoord voor beide aanmeldingen. De _clusteraanmeldgegevens_ wordt gebruikt voor aanmelding bij de management-webgebruikersinterface van het HDI-cluster. De _SSH-gebruikersnaam voor aanmelding_ wordt gebruikt voor aanmelding bij het hoofdknooppunt van het cluster, en dit is wat u nodig hebt voor Azure ML verzending Spark-taken.
+    >U ziet in het bovenstaande scherm het cluster heeft een _de gebruikersnaam voor clusteraanmelding_ veld en een _Secure Shell (SSH)-gebruikersnaam_ veld. Dit zijn twee verschillende gebruikers-id's, zelfs als voor het gemak kunt u hetzelfde wachtwoord voor beide aanmeldingen. De _de gebruikersnaam voor clusteraanmelding_ wordt gebruikt voor aanmelding bij de management-web-UI van het HDI-cluster. De _SSH-gebruikersnaam voor clusteraanmeldgegevens_ wordt gebruikt voor aanmelding bij met het hoofdknooppunt van het cluster, en dit is wat u nodig hebt voor Azure ML verzending van Spark-taken.
 
-5. Kies de clustergrootte en de grootte van het knooppunt u nodig hebt en voltooi de wizard maken. Het kan duren voordat tot 30 minuten voor het cluster is ingericht. 
+5. Kies de clustergrootte en de grootte van het knooppunt u nodig hebt en voltooi de wizard voor het maken. Het kan tot 30 minuten om het cluster te inrichting voltooien duren. 
 
-## <a name="attach-an-hdi-spark-cluster-compute-target"></a>Koppel een HDI Spark-cluster compute-doel
+## <a name="attach-an-hdi-spark-cluster-compute-target"></a>De compute-doel van een HDI Spark-cluster koppelen
 
-Zodra het Spark HDI-cluster is gemaakt, kunt u het nu koppelen aan uw Azure ML-project.
+Zodra de HDI Spark-cluster is gemaakt, kunt u het nu koppelen aan uw Azure ML-project.
 
 ```azurecli
 # attach the HDI compute target
@@ -182,12 +182,12 @@ $ az ml computetarget attach cluster --name <compute target name> --address <clu
 # prepare the conda environment on HDI
 $ az ml experiment prepare -c <compute target name>
 ```
-Nu moet u gereed om te experimenten worden uitgevoerd op deze Spark-cluster.
+U moet zijn nu gereed voor het uitvoeren van experimenten in deze Spark-cluster.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Meer informatie over:
-- [Overzicht van service van Azure Machine Learning-experimenten](experimentation-service-configuration.md)
-- [Azure Machine Learning Workbench service experimenteren configuratiebestanden](experimentation-service-configuration-reference.md)
+- [Overzicht van Azure Machine Learning experimenten-service](experimentation-service-configuration.md)
+- [Azure Machine Learning Workbench experimenten-service-configuratiebestanden](experimentation-service-configuration-reference.md)
 - [Apache Spark voor Azure HDInsight-cluster](https://azure.microsoft.com/services/hdinsight/apache-spark/)
-- [Gegevens wetenschappelijke virtuele Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)
+- [Virtuele Machine voor Datatechnologie](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

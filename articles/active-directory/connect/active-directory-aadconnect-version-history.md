@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/31/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e808d4bf116dcab344308c3dd2aa06c72e0318ba
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 1b14e1460eec54e89046f204be8f0c3a8f929881
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049514"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264589"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versiegeschiedenis van release
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen gelden voor alle doelgroepen.
@@ -36,6 +36,44 @@ Stappen voor het upgraden van Azure AD Connect | Verschillende methoden voor [ee
 Vereiste machtigingen | Zie voor de vereiste machtigingen voor een update toepast, [accounts en machtigingen](./active-directory-aadconnect-accounts-permissions.md#upgrade).
 
 Downloaden | [Azure AD Connect downloaden](http://go.microsoft.com/fwlink/?LinkId=615771).
+
+## <a name="118800"></a>1.1.880.0
+
+### <a name="release-status"></a>Releasestatus
+
+7/20/2018: die zijn uitgebracht voor automatische upgrade. Versie gedownload volgt binnenkort.
+
+### <a name="new-features-and-improvements"></a>Nieuwe functies en verbeteringen
+
+- De Ping federeren integratie in Azure AD Connect is nu beschikbaar voor algemene beschikbaarheid. [Meer informatie over het federatieve Azure AD met Ping federeren](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
+- Azure AD Connect maakt nu de back-up van Azure AD-vertrouwensrelatie in AD FS telkens wanneer een update wordt gemaakt en in een afzonderlijk bestand voor eenvoudig herstel, opgeslagen indien nodig. [Meer informatie over de nieuwe functionaliteit en de Azure AD management in Azure AD Connect vertrouwen ](https://aka.ms/fedtrustinaadconnect).
+- Nieuwe hulpprogramma's voor het oplossen van problemen helpt u bij het oplossen van wijzigen van primaire e-mailadres en het account van de globale adreslijst verbergen
+- Azure AD Connect is bijgewerkt met de nieuwste SQL Server 2012 Native Client
+- Als u aanmelden van gebruikers naar wachtwoord-Hashsynchronisatie of Pass through-verificatie in de taak 'Wijziging gebruiker aanmelden', wordt het selectievakje naadloze eenmalige aanmelding is standaard ingeschakeld.
+- Er is ondersteuning toegevoegd voor Windows Server Essentials 2019
+- De Azure AD Connect Health-agent is bijgewerkt naar de nieuwste versie 3.1.7.0
+- Als het installatieprogramma wijzigingen in de standaardregels voor synchronisatie detecteert wordt de beheerder tijdens een upgrade gevraagd met een waarschuwing voor het overschrijven van de gewijzigde regels. Hierdoor wordt de gebruiker corrigerende maatregelen en later hervatten. Oude gedrag: Er is een gewijzigde out-of-box-regel vervolgens handmatige upgrade is deze regels overschrijven zonder opgave van een waarschuwing voor de gebruiker als Synchronisatieplanning zonder waarin gebruiker is uitgeschakeld. Nieuw gedrag: Gebruiker wordt gevraagd met een waarschuwing voordat de gewijzigde out-of-box-synchronisatieregels wordt overschreven. Gebruikers hebben de keuze het upgradeproces stoppen en hervatten nadat corrigerende actie te ondernemen.
+- Bieden een betere verwerking van een compatibiliteitsprobleem FIPS, bieden een foutbericht weergegeven voor het genereren van de MD5-hash in een omgeving van FIPS-compatibel zijn en een koppeling naar documentatie waarmee een tijdelijke oplossing voor dit probleem.
+- Gebruikersinterface bijwerken ter verbetering van de federation-taken in de wizard, die nu naar een afzonderlijke subgroep voor Federatie. 
+- Alle federation aanvullende taken worden nu gegroepeerd onder een enkele submenu voor gebruiksgemak.
+- Een nieuwe vernieuwd ADSyncConfig Posh Module (AdSyncConfig.psm1) met nieuwe AD-machtigingen functions verplaatst van de oude ADSyncPrep.psm1 (dit kan binnenkort worden afgeschaft)
+
+### <a name="fixed-issues"></a>Opgeloste problemen 
+
+- Er is een fout die niet continu geeft als een foutbericht weergegeven voor een probleem SQL impasse automatisch opgelost resultaat opgelost
+- Verschillende toegankelijkheidsproblemen opgelost voor de regeleditor synchronisatie en de Sync-Service Manager  
+- Een bug opgelost waarbij Azure AD Connect kan geen toestemming krijgen instelling registergegevens
+- Er is een fout die problemen gemaakt wanneer de gebruiker doorsturen/terug in de wizard gaat opgelost
+- Een probleem opgelost om te voorkomen dat een fout opgetreden vanwege een onjuiste multi-thread verwerking in de wizard gebeurt
+- Pagina synchronisatiefilters groep, wordt er een LDAP-fout optreedt bij het omzetten van beveiligingsgroepen, Azure AD Connect nu is, retourneert de uitzondering met volledige betrouwbaarheid.  De hoofdoorzaak voor de referentie-uitzondering is nog steeds onbekend en wordt verholpen door een andere fout.
+-  Een bug opgelost waarbij de machtigingen voor de BEURS en NGC sleutels (kenmerk msDS-KeyCredentialLink op objecten voor WHfB gebruiker/apparaat) zijn niet juist ingesteld.     
+- Een bug opgelost waarbij 'Set-ADSyncRestrictedPermissions' is niet correct aangeroepen
+-  Ondersteuning toegevoegd voor machtigingen worden verleend voor write-back van groep in de installatiewizard van AADConnect
+- Wanneer u aanmelden bij de methode van synchronisatie van Wachtwoordhashes naar AD FS, is geen synchronisatie van Wachtwoordhashes uitgeschakeld.
+- Extra verificatie voor IPv6-adressen in AD FS-configuratie
+- De melding om te informeren dat een bestaande configuratie is bijgewerkt.
+- Write-back van apparaat mislukt voor het detecteren van de container in niet-vertrouwd forest. Dit is bijgewerkt voor een verbeterd foutbericht weergegeven en een koppeling naar de relevante documentatie
+- Als u een organisatie-eenheid en synchronisatie/terugschrijven overeenkomt met dat de organisatie-eenheid een algemene synchronisatiefout biedt uitschakelt. Dit is gewijzigd voor het maken van een inzichtelijk foutbericht.
 
 ## <a name="118190"></a>1.1.819.0
 

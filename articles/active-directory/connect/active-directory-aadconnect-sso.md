@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 88869fbeef0475f2c674e0f154a3624545182363
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 41e75fcfd0b88d5c37bb8dd6fcc16b1767b34dba
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213228"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285354"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory naadloze eenmalige aanmelding
 
@@ -30,12 +30,12 @@ Azure Active Directory naadloze eenmalige aanmelding (Azure AD naadloze eenmalig
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
-Naadloze eenmalige aanmelding kan worden gecombineerd met ofwel de [wachtwoord-Hashsynchronisatie](active-directory-aadconnectsync-implement-password-hash-synchronization.md) of [Pass through-verificatie](active-directory-aadconnect-pass-through-authentication.md) aanmeldingsmethoden.
+Naadloze eenmalige aanmelding kan worden gecombineerd met ofwel de [wachtwoord-Hashsynchronisatie](active-directory-aadconnectsync-implement-password-hash-synchronization.md) of [Pass through-verificatie](active-directory-aadconnect-pass-through-authentication.md) aanmeldingsmethoden. Naadloze eenmalige aanmelding is _niet_ van toepassing op Active Directory Federation Services (ADFS).
 
 ![Naadloze eenmalige aanmelding](./media/active-directory-aadconnect-sso/sso1.png)
 
 >[!IMPORTANT]
->Naadloze eenmalige aanmelding is _niet_ van toepassing op Active Directory Federation Services (ADFS).
+>Naadloze eenmalige aanmelding moet het apparaat van de gebruiker moet **domein**, maar niet nodig hebt voor het apparaat zich [Azure AD join](../active-directory-azureadjoin-overview.md).
 
 ## <a name="key-benefits"></a>Belangrijkste voordelen
 
@@ -76,7 +76,9 @@ Naadloze eenmalige aanmelding kan worden gecombineerd met ofwel de [wachtwoord-H
 ## <a name="next-steps"></a>Volgende stappen
 
 - [**Snel aan de slag** ](active-directory-aadconnect-sso-quick-start.md) : aan de slag en Azure AD naadloze eenmalige aanmelding wordt uitgevoerd.
+- [**Implementatieplan** ](https://aka.ms/AuthenticationDeploymentPlan) -plan voor de stapsgewijze implementatie.
 - [**Technische details** ](active-directory-aadconnect-sso-how-it-works.md) -te begrijpen hoe deze functie werkt.
 - [**Veelgestelde vragen over** ](active-directory-aadconnect-sso-faq.md) -antwoorden op veelgestelde vragen.
 - [**Problemen oplossen** ](active-directory-aadconnect-troubleshoot-sso.md) -informatie over het oplossen van veelvoorkomende problemen met de functie.
 - [**UserVoice** ](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - voor de nieuwe functieaanvragen in te dienen.
+

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 545766aa6c39fe678113297e584422872a6ded87
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 1897f2c5d532c030b2711a35eabeefd889f560c8
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008141"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264992"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Veelgestelde vragen over Azure Active Directory Connect
 
@@ -54,7 +54,7 @@ De eenvoudigste manier om dit te doen is met SQL Server Management Studio is ge√
 3. Installeer Azure AD Connect op basis van de bestaande [externe SQL-database](active-directory-aadconnect-existing-database.md).
    Het artikel ziet u hoe u migreren naar een lokale SQL-database gebruiken. Als u migreert naar een externe SQL-database, in stap 5 van het proces moet ook u een bestaand serviceaccount in de Windows-Sync-service wordt uitgevoerd. Dit serviceaccount voor synchronisatie-engine wordt hier beschreven:
    
-      **Een bestaand serviceaccount gebruiken**: Azure AD Connect maakt standaard een virtueel serviceaccount voor de Synchronisatieservices gebruik om te gebruiken. Als u een extern exemplaar van SQL Server gebruiken of een proxyserver waarvoor verificatie, gebruikt u een beheerd serviceaccount of een service-account in het domein en het wachtwoord kennen. Voer in dat geval het te gebruiken account in. Zorg ervoor dat gebruikers met de installatie van de systeembeheerders in SQL zijn zodat aanmeldingsreferenties voor het serviceaccount kunnen worden gemaakt. Zie voor meer informatie, [Azure AD Connect accounts en machtigingen](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account). 
+      **Een bestaand serviceaccount gebruiken**: Azure AD Connect maakt standaard een virtueel serviceaccount voor de Synchronisatieservices gebruik om te gebruiken. Als u een extern exemplaar van SQL Server gebruiken of een proxyserver waarvoor verificatie, gebruikt u een beheerd serviceaccount of een service-account in het domein en het wachtwoord kennen. Voer in dat geval het te gebruiken account in. Zorg ervoor dat gebruikers met de installatie van de systeembeheerders in SQL zijn zodat aanmeldingsreferenties voor het serviceaccount kunnen worden gemaakt. Zie voor meer informatie, [Azure AD Connect accounts en machtigingen](active-directory-aadconnect-accounts-permissions.md#adsync-service-account). 
    
       In de laatste versie kan de inrichting van de database out-of-band worden uitgevoerd door de SQL-beheerder en vervolgens worden ge√Ønstalleerd door de Azure AD Connect-beheerder met eigendomsrechten voor de database. Zie voor meer informatie, [Installeer Azure AD Connect met behulp van SQL-gedelegeerde beheerdersmachtigingen](active-directory-aadconnect-sql-delegation.md).
 

@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Slack configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
-description: Informatie over het configureren van Azure Active Directory automatisch leveren en intrekken accounts van gebruikers met Slack.
+description: Informatie over het configureren van Azure Active Directory automatisch inrichten en ongedaan maken inrichting accounts van gebruikers naar Slack.
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
@@ -16,105 +16,105 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: 2fef141cada8faffc055571516ae4c899ae6dc42
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 9763c7a9e79f4c9e9d6296efb79e944205e8a99c
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36229441"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264144"
 ---
-# <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Zelfstudie: Slack configureren voor het automatisch gebruikers inrichten
+# <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Zelfstudie: Slack configureren voor het automatisch inrichten van gebruikers
 
 
-Het doel van deze zelfstudie is zodat u de stappen die u wilt uitvoeren in Slack en Azure AD aan automatisch leveren en intrekken gebruikersaccounts vanuit Azure AD met Slack. 
+Het doel van deze zelfstudie is om weer te geven u de stappen die u wilt uitvoeren in Slack en Azure AD voor het automatisch inrichten en ongedaan maken inrichting gebruikersaccounts uit Azure AD naar Slack. 
 
 ## <a name="prerequisites"></a>Vereisten
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
-*   Een Azure Active Active directory-tenant
+*   Een Azure Active Directory-tenant
 *   Een Slack-tenant met de [Plus plan](https://aadsyncfabric.slack.com/pricing) of beter ingeschakeld 
-*   Een gebruikersaccount in Slack met beheerdersmachtigingen Team 
+*   Een gebruikersaccount in Slack met Team beheerdersmachtigingen 
 
-Opmerking: De Azure AD integratie inrichting is afhankelijk van de [Slack SCIM API](https://api.slack.com/scim) die voor toegestane teams beschikbaar is op het plusteken plannen of sneller.
+Opmerking: De integratie wordt ingericht op Azure AD is afhankelijk van de [Slack SCIM API](https://api.slack.com/scim) die voor Slack teams beschikbaar is op het plusteken plannen of hoger.
 
-## <a name="assigning-users-to-slack"></a>Toewijzen van gebruikers met Slack
+## <a name="assigning-users-to-slack"></a>Gebruikers toewijzen aan Slack
 
-Azure Active Directory gebruikt een concept 'toewijzingen' genoemd om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van automatische gebruikers account inrichten, worden alleen de gebruikers en groepen die '' tot een toepassing in Azure AD toegewezen zijn gesynchroniseerd. 
+Azure Active Directory maakt gebruik van een concept genaamd "toewijzingen" om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van het inrichten van automatische gebruikersaccounts, worden alleen de gebruikers en groepen die '' aan een toepassing in Azure AD toegewezen zijn gesynchroniseerd. 
 
-Voordat u configureren en inschakelen van de inrichting service, moet u bepalen welke gebruikers en/of groepen in Azure AD de gebruikers die toegang nodig tot de toegestane app vertegenwoordigen. Als besloten, kunt u deze gebruikers toewijzen aan uw toegestane app door de volgende instructies te volgen:
+Voordat u configureren en inschakelen van de inrichtingsservice, moet u bepalen welke gebruikers en/of groepen in Azure AD vertegenwoordigen de gebruikers die toegang nodig tot uw app in Slack. Als besloten, kunt u deze gebruikers toewijzen aan uw Slack-app door de instructies hier:
 
 [Een gebruiker of groep toewijzen aan een enterprise-app](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-slack"></a>Belangrijke tips voor het toewijzen van gebruikers met Slack
+### <a name="important-tips-for-assigning-users-to-slack"></a>Belangrijke tips voor het toewijzen van gebruikers naar Slack
 
-*   Het is raadzaam om één Azure AD-gebruiker worden toegewezen aan de vertraging voor het testen van de configuratie van de inrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
+*   Het wordt aanbevolen dat één Azure AD-gebruiker worden toegewezen aan Slack voor het testen van de configuratie van de inrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
 
-*   Bij het toewijzen van een gebruiker met Slack, moet u de **gebruiker** of 'Groep'-rol in het dialoogvenster toewijzing. De rol 'Default toegang' werkt niet voor het inrichten.
-
-
-## <a name="configuring-user-provisioning-to-slack"></a>Gebruikers inrichten met Slack configureren 
-
-Deze sectie helpt u bij uw Azure AD verbinden met Slack van gebruikersaccount inrichten API en de inrichting service maken, bijwerken en uitschakelen configureren toegewezen gebruikersaccounts in Slack op basis van gebruiker en groepstoewijzing in Azure AD.
-
-**Tip:** kunt u ook ingeschakeld op basis van SAML eenmalige aanmelding voor de vertraging, volgt de instructies in (Azure-portal) [https://portal.azure.com]. Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies aanvulling van elkaar.
+*   Wanneer u een gebruiker toewijst aan Slack, moet u de **gebruiker** of rol 'Groep' in het dialoogvenster toewijzing. De rol 'standaardtoegang' werkt niet voor het inrichten.
 
 
-### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Voor het configureren van automatische gebruikers account inrichten met Slack in Azure AD:
+## <a name="configuring-user-provisioning-to-slack"></a>Configureren met het inrichten van gebruikers naar Slack 
+
+Deze sectie helpt u bij uw Azure AD verbinden met de Slack-gebruikersaccount Inrichtings-API en configureren van de provisioning-service voor het maken, bijwerken en uitschakelen toegewezen gebruikersaccounts in Slack op basis van gebruiker en groepstoewijzing in Azure AD.
+
+**Tip:** u kunt ook ingeschakeld SAML gebaseerde eenmalige aanmelding voor Slack, op. instructies hiervoor vindt in (Azure portal) [https://portal.azure.com]. Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies een fraaie aanvulling in elkaar.
 
 
-1)  In de [Azure-portal](https://portal.azure.com), blader naar de **Azure Active Directory > zakelijke Apps > alle toepassingen** sectie.
+### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Het configureren van automatische inrichten van gebruikersaccounts aan Slack in Azure AD:
 
-2) Als u al vertraging voor eenmalige aanmelding hebt geconfigureerd, kunt u zoeken naar uw exemplaar van het zoekveld met Slack. Selecteer anders **toevoegen** en zoek naar **Slack** in de galerie met toepassingen. Vertraging in de zoekresultaten te selecteren en toe te voegen aan uw lijst met toepassingen.
 
-3)  Selecteer uw exemplaar van Slack en selecteer vervolgens de **inrichten** tabblad.
+1)  In de [Azure-portal](https://portal.azure.com), blader naar de **Azure Active Directory > Bedrijfsapps > alle toepassingen** sectie.
+
+2) Als u Slack al hebt geconfigureerd voor eenmalige aanmelding, zoeken naar uw exemplaar van het zoekveld met Slack. Selecteer anders **toevoegen** en zoek naar de **Slack** in de toepassingengalerie. Selecteer Slack in de resultaten voor zoeken en toe te voegen aan uw lijst met toepassingen.
+
+3)  Selecteer uw exemplaar van Slack, en selecteer vervolgens de **Provisioning** tabblad.
 
 4)  Stel de **Inrichtingsmodus** naar **automatische**.
 
-![Vertraging inrichten](./media/slack-provisioning-tutorial/Slack1.PNG)
+![Slack inrichten](./media/slack-provisioning-tutorial/Slack1.PNG)
 
-5)  Onder de **beheerdersreferenties** sectie, klikt u op **autoriseren**. Hiermee opent u een dialoogvenster toegestane autorisatie in een nieuw browservenster. 
+5)  Onder de **beheerdersreferenties** sectie, klikt u op **autoriseren**. Hiermee opent u een dialoogvenster Slack autorisatie in een nieuw browservenster. 
 
-6) Aanmelden bij uw Team beheerdersaccount met Slack in het nieuwe venster. Selecteer in het dialoogvenster resulterende autorisatie het toegestane team dat u inschakelen wilt voor inrichting, en selecteer vervolgens **autoriseren**. Als voltooid, terug naar de Azure-portal om het inrichtingsproces configuratie te voltooien.
+6) Meld u in Slack met uw Team-beheerdersaccount in het nieuwe venster. Selecteer in het dialoogvenster resulterende autorisatie het Slack-team dat u inschakelen wilt voor inrichting, en selecteer vervolgens **autoriseren**. Als voltooid, terug naar de Azure-portal om de configuratie van de inrichting te voltooien.
 
-![Dialoogvenster autorisatie](./media/slack-provisioning-tutorial/Slack3.PNG)
+![Autorisatie-dialoogvenster](./media/slack-provisioning-tutorial/Slack3.PNG)
 
-7) Klik in de Azure-portal op **testverbinding** om te controleren of Azure AD, kan verbinding maken met uw toegestane app. Als de verbinding is mislukt, controleert dat uw toegestane account Team beheerder machtigingen heeft en probeer het opnieuw de stap 'Autoriseren'.
+7) Klik in de Azure-portal op **testverbinding** om te controleren of Azure AD kunt verbinden met uw app in Slack. Als de verbinding is mislukt, zorg ervoor dat uw Slack-account Team beheerdersmachtigingen heeft en probeer het opnieuw de stap 'Autoriseren'.
 
-8) Voer het e-mailadres van een persoon of groep die in inrichting fout meldingen moet ontvangen de **e-mailmelding** veld en schakel het selectievakje hieronder in.
+8) Voer het e-mailadres van een persoon of groep die inrichting fout meldingen moet ontvangen de **e-mailmelding** veld en schakel het onderstaande selectievakje in.
 
 9) Klik op **Opslaan**. 
 
-10) Selecteer onder de sectie toewijzingen **synchroniseren Azure Active Directory-gebruikers met Slack**.
+10) Selecteer onder de sectie toewijzingen **synchroniseren Azure Active Directory: gebruikers aan Slack**.
 
-11) In de **kenmerktoewijzingen** sectie, controleert u de kenmerken van de gebruiker die met Slack van Azure AD worden gesynchroniseerd. Let op de kenmerken die zijn geselecteerd als **overeenkomend** eigenschappen overeenkomen met de gebruikersaccounts in Slack voor update-bewerkingen worden gebruikt. Selecteer de knop Opslaan eventuele wijzigingen doorvoeren.
+11) In de **kenmerktoewijzingen** sectie, controleert u de kenmerken van de gebruiker die van Azure AD worden gesynchroniseerd naar Slack. Houd er rekening mee dat de kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen wordt gebruikt zodat deze overeenkomen met de gebruikersaccounts in Slack voor update-bewerkingen. Selecteer de knop Opslaan om door te voeren van eventuele wijzigingen.
 
-12) Om de Azure AD-service voor Slack inricht, wijzigen de **inrichting Status** naar **op** in de **instellingen** sectie
+12) Als wilt inschakelen in de Azure AD-inrichtingsservice voor Slack, wijzigt de **Inrichtingsstatus** naar **op** in de **instellingen** sectie
 
 13) Klik op **Opslaan**. 
 
-Hiermee start u de initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen aan de vertraging in de sectie gebruikers en groepen. Houd er rekening mee dat de eerste synchronisatie langer dan het volgende wordt gesynchroniseerd, die ongeveer elke 10 minuten optreden duurt als de service wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van de activiteitsrapporten, waarin alle acties die worden uitgevoerd door de inrichting service op uw toegestane app te beschrijven.
+Hiermee start u de initiële synchronisatie van alle gebruikers en/of groepen die zijn toegewezen aan Slack in de sectie gebruikers en groepen. Houd er rekening mee dat de eerste synchronisatie langer dan het volgende wordt gesynchroniseerd, die ongeveer elke 10 minuten optreden duurt als de service wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en koppelingen volgen voor het inrichten van activiteitenrapporten, waarin alle acties die worden uitgevoerd door de provisioning-service in uw Slack-app worden beschreven.
 
-## <a name="optional-configuring-group-object-provisioning-to-slack"></a>[Optioneel] Groep object inrichten met Slack configureren 
+## <a name="optional-configuring-group-object-provisioning-to-slack"></a>[Optioneel] Configureren van de groep object inrichten naar Slack 
 
-Desgewenst kunt u de inrichting van groepsobjecten van Azure AD met Slack inschakelen. Dit is anders dan 'groepen gebruikers toe te wijzen', in dat de werkelijke groep object naast de leden ervan gerepliceerd van Azure AD met Slack. Als u een groep met de naam 'Mijn groep' in Azure AD hebt, wordt bijvoorbeeld een identitical groep met de naam 'Mijn groep' gemaakt binnen de toegestane vertraging.
+Desgewenst kunt u de inrichting van groepsobjecten van Azure AD naar Slack. Dit wijkt af van het 'groepen gebruikers toe te wijzen', in dat de werkelijke groep object naast de leden ervan gerepliceerd van Azure AD naar Slack. Als u een groep met de naam 'Mijn groeperen' in Azure AD hebt, wordt bijvoorbeeld een identitical-groep met de naam 'Mijn groeperen' gemaakt in Slack.
 
-### <a name="to-enable-provisioning-of-group-objects"></a>Inschakelen voor het inrichten van groepsobjecten:
+### <a name="to-enable-provisioning-of-group-objects"></a>Om in te schakelen voor het inrichten van een groepsobjecten worden weergegeven:
 
-1) Selecteer onder de sectie toewijzingen **synchroniseren Azure Active Directory-groepen met Slack**.
+1) Selecteer onder de sectie toewijzingen **synchroniseren Azure Active Directory-groepen naar Slack**.
 
-2) Stel op de blade kenmerk toewijzing Enabled in op Ja.
+2) Ingesteld op de blade kenmerk toewijzing ingeschakeld op Yes.
 
-3) In de **kenmerktoewijzingen** sectie, moet u de kenmerken die worden gesynchroniseerd vanuit Azure AD met Slack controleren. Let op de kenmerken die zijn geselecteerd als **overeenkomend** eigenschappen overeenkomen met de groepen in Slack voor update-bewerkingen worden gebruikt. 
+3) In de **kenmerktoewijzingen** sectie, controleert u de kenmerken van die van Azure AD worden gesynchroniseerd naar Slack. Houd er rekening mee dat de kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen wordt gebruikt zodat deze overeenkomen met de groepen in Slack voor update-bewerkingen. 
 
 4) Klik op **Opslaan**.
 
-Deze leiden tot een groepsobjecten worden toegewezen aan de vertraging in de **gebruikers en groepen** sectie volledig van Azure AD worden gesynchroniseerd met vertraging. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van activiteitenlogboeken, die alle acties die worden uitgevoerd door de inrichting service op uw toegestane app te beschrijven.
+Dit resultaat in een groepsobjecten die zijn toegewezen aan Slack in de **gebruikers en groepen** sectie volledig uit Azure AD worden gesynchroniseerd met Slack. U kunt de **synchronisatiedetails** sectie voortgang en koppelingen volgen voor het inrichten van activiteitenlogboeken, waarin alle acties die worden uitgevoerd door de provisioning-service in uw Slack-app worden beschreven.
 
-Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over automatische account gebruikersaanvragen](../active-directory-saas-provisioning-reporting.md).
+Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](../active-directory-saas-provisioning-reporting.md).
 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Het beheren van gebruikers account inrichten voor zakelijke Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

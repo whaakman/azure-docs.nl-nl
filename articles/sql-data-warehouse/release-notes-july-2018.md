@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 5f4d39c6aa1a5c2c30e84fbf26535fe3ee7799a6
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 86aadcbdd8d7168440726d6dbed996629cad3ff7
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216494"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285330"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? Juli 2018
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in juli 2018.
@@ -59,3 +59,23 @@ parameter_ordinal | name | suggested_system_type_id | suggested_system_type_name
 --------------------------------------------------------------------------------
 1                 | @id  | 56                       | int
 ```
+
+## <a name="next-steps"></a>Volgende stappen
+Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [Maak een SQL Data Warehouse] [een SQL Data Warehouse maken] en [voorbeeldgegevens laden] [voorbeeldgegevens laden]. Als u niet bekend bent met Azure, vindt u de [Azure-woordenlijst] [Azure-woordenlijst] handig zijn bij het opzoeken van nieuwe terminologie. U kunt ook enkele andere SQL Data Warehouse-resources bekijken.  
+
+* [Succesverhalen van klanten]
+* [Blogs]
+* [Functieverzoeken]
+* [Video's]
+* [Teamblogs met adviezen voor klanten]
+* [Stack Overflow-forum]
+* [Twitter]
+
+
+[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[Teamblogs met adviezen voor klanten]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Succesverhalen van klanten]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
+[Functieverzoeken]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[Stack Overflow-forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Twitter]: https://twitter.com/hashtag/SQLDW
+[Video's]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse

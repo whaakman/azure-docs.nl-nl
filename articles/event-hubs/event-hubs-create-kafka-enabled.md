@@ -1,5 +1,5 @@
 ---
-title: Maken waarvoor Kafka is ingeschakeld Azure Event Hubs | Microsoft Docs
+title: Apache Kafka ingeschakeld Azure Eventhubs maken | Microsoft Docs
 description: Maak een Kafka ingeschakeld Azure Event Hubs-naamruimte met behulp van de Azure portal
 services: event-hubs
 documentationcenter: .net
@@ -10,18 +10,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: shvija
-ms.openlocfilehash: 7a05a89fdf99efb6470ee9c8695f349cf22b8ebb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 79b6b879bd2332c044ce871e2c9a938c6b9c900c
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442124"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285074"
 ---
-# <a name="create-kafka-enabled-event-hubs"></a>Maken van eventhubs waarvoor Kafka is ingeschakeld
+# <a name="create-apache-kafka-enabled-event-hubs"></a>Apache Kafka ingeschakeld eventhubs maken
 
 Azure Event Hubs is een Big Data Platform as a Service (PaaS) waarmee miljoenen gebeurtenissen per seconde kan opnemen, en lage latentie en hoge doorvoer voor realtime analyses en visualisatie te streamen.
 
-Azure Event Hubs voor Kafka-ecosystemen biedt u een eindpunt. Dit eindpunt kunt u uw Event Hubs-naamruimte te begrijpen systeemeigen [Apache Kafka](https://kafka.apache.org/intro) message protocol en API's. Met deze functie kunt u communiceren met uw eventhubs als u met Kafka-onderwerpen zonder te wijzigen van uw clients protocol of uitvoeren van uw eigen clusters. Eventhubs voor Kafka-ecosystemen ondersteunt [Apache Kafka-versies 1.0](https://kafka.apache.org/10/documentation.html) en hoger.
+Azure Event Hubs biedt u een Kafka-eindpunt. Dit eindpunt kunt u uw Event Hubs-naamruimte te begrijpen systeemeigen [Apache Kafka](https://kafka.apache.org/intro) message protocol en API's. Met deze functie kunt u communiceren met uw eventhubs als u met Kafka-onderwerpen zonder te wijzigen van uw clients protocol of uitvoeren van uw eigen clusters. Biedt ondersteuning voor Eventhubs [Apache Kafka-versies 1.0](https://kafka.apache.org/10/documentation.html) en hoger.
 
 In dit artikel wordt beschreven hoe u een Event Hubs-naamruimte maken en haal de verbindingsreeks die is vereist voor het verbinding maken met Kafka-toepassingen met Kafka-functionaliteit eventhubs.
 
@@ -58,7 +58,7 @@ U kunt nu gebeurtenissen uit uw toepassingen die gebruikmaken van het Kafka-prot
 Volg deze koppelingen voor meer informatie over Event Hubs:
 
 * [Stream naar Event Hubs van uw Kafka-toepassingen](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-* [Meer informatie over Event Hubs voor Kafka-ecosystemen](event-hubs-for-kafka-ecosystem-overview.md)
+* [Meer informatie over Eventhubs voor Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * [Meer informatie over Event Hubs](event-hubs-what-is-event-hubs.md)
 
 

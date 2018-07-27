@@ -7,15 +7,15 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 05/28/2018
+ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: ae3d4c3e732024baae29f75fda6f6e821af701a2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 77f0444915a845a409f15d4533fe9593730e9bbb
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630340"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282631"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-april-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? April 2018
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in April 2018.
@@ -55,3 +55,23 @@ Zie voor meer informatie de [query's](https://docs.microsoft.com/azure/sql-data-
 
 ## <a name="removed-the-syspdwdatabasemappings-view-behavior-change"></a>De SYS verwijderd. PDW_DATABASE_MAPPINGS weergeven (gedrag wijzigen)
 Dit `sys.pdw_database_mappings` weergave wordt gebruikt in SQL Data Warehouse. Voorheen zou een selectie van deze weergave geen resultaten geretourneerd. De weergave is verwijderd. 
+
+## <a name="next-steps"></a>Volgende stappen
+Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [Maak een SQL Data Warehouse] [een SQL Data Warehouse maken] en [voorbeeldgegevens laden] [voorbeeldgegevens laden]. Als u niet bekend bent met Azure, vindt u de [Azure-woordenlijst] [Azure-woordenlijst] handig zijn bij het opzoeken van nieuwe terminologie. U kunt ook enkele andere SQL Data Warehouse-resources bekijken.  
+
+* [Succesverhalen van klanten]
+* [Blogs]
+* [Functieverzoeken]
+* [Video's]
+* [Teamblogs met adviezen voor klanten]
+* [Stack Overflow-forum]
+* [Twitter]
+
+
+[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[Teamblogs met adviezen voor klanten]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
+[Succesverhalen van klanten]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
+[Functieverzoeken]: https://feedback.azure.com/forums/307516-sql-data-warehouse
+[Stack Overflow-forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Twitter]: https://twitter.com/hashtag/SQLDW
+[Video's]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
