@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: c781f99d47da9705e1439af660e9801ecac91665
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324269"
 documentType: LandingData
 title: Documentatie bij Azure Storage
 metadata:
@@ -13,12 +19,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 06/27/2018
   ms.author: tamram
-  ms.openlocfilehash: a2254967a9f7338e29105682ea6d496271bbbe75
-  ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
-  ms.translationtype: HT
-  ms.contentlocale: nl-NL
-  ms.lasthandoff: 06/27/2018
-  ms.locfileid: "37030288"
 abstract:
   description: Azure Storage is een door Microsoft beheerde service waarmee u toegang krijgt tot cloudopslag met een zeer hoge beschikbaarheid, die bovendien veilig, duurzaam, schaalbaar en redundant is. Azure Storage omvat Azure Blobs (objecten), Azure Data Lake Storage Gen2, Azure Files, Azure Queues en Azure Tables. Ontdek met onze snelstartgidsen en zelfstudies hoe u Azure-opslag gebruikt in uw toepassingen.
 sections:
@@ -83,7 +83,7 @@ sections:
     - title: Blobs
       html: <p>Installatiekopiegegevens in de cloud uploaden en verwerken</p><ul><li><a href="/azure/storage/blobs/storage-upload-process-images">Installatiekopiegegevens uploaden en ophalen in de cloud</a></li><li><a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Azure Functions activeren om blobs te verwerken</a></li><li><a href="/azure/storage/blobs/storage-secure-access-application">Toepassingsgegevens beveiligen</a></li><li><a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Opslag controleren en problemen oplossen</a></li></ul><p>Een toepassing voor hoge beschikbaarheid ontwerpen</p><ul><li><a href="/azure/storage/blobs/storage-create-geo-redundant-storage">Uw toepassingsgegevens maximaal beschikbaar maken</a></li><li><a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">Een fout simuleren bij het openen van redundante opslag met leestoegang</a></li></ul><p><a href="/azure/storage/blobs/storage-unstructured-search">Niet-gestructureerde gegevens doorzoeken in Azure Storage</a></p>
     - title: Data Lake Storage Gen2
-      html: <p><a href="/azure/storage/data-lake-storage/handle-data-using-databricks">Gegevens uitpakken, transformeren en laden met Azure Databricks</a></p><p><a href="/azure/storage/data-lake-storage/using-databricks-spark">Toegang tot Azure Data Lake Storage Gen2-gegevens met DataBricks met behulp van Spark</a></p><p><a href="/azure/storage/data-lake-storage/tutorial-extract-transform-load-hive">Gegevens uitpakken, transformeren en laden met Apache Hive in Azure HDInsight</a></p>
+      html: <p><a href="/azure/storage/data-lake-storage/handle-data-using-databricks">Gegevens uitpakken, transformeren en laden met Azure Databricks</a></p><p><a href="/azure/storage/data-lake-storage/using-databricks-spark">Toegang tot Azure Data Lake Storage Gen2-gegevens met DataBricks met behulp van Spark</a></p><p><a href="/azure/storage/data-lake-storage/tutorial-extract-transform-load-hive">Gegevens extraheren, transformeren en laden met Apache Hive in Azure HDInsight</a></p>
 - title: Voorbeelden
   items:
   - type: paragraph
@@ -121,6 +121,6 @@ sections:
     - title: Opdrachtregel
       html: <p><a href="/powershell/storage">PowerShell</a></p><p><a href="/cli/azure/storage">Azure-CLI</a></p>
     - title: Talen
-      html: <p><a href="/dotnet/api/">.NET</a></p><p><a href="/java/api/">Java</a></p><p><a href="/javascript/api/overview/azure/">Node.js</a></p><p><a href="/python/api/overview/azure/storage">Python</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
+      html: <p><a href="/dotnet/api/overview/azure/storage/client?view=azure-dotnet">.NET</a></p><p><a href="/java/api/overview/azure/storage/client?view=azure-java-stable">Java</a></p><p><a href="/javascript/api/overview/azure/storage?view=azure-node-latest">Node.js</a></p><p><a href="/python/api/overview/azure/storage">Python</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
     - title: REST
       html: <p><a href="/rest/api/storageservices">API voor blobs, wachtrijen, tabellen en bestanden</a></p><p><a href="/rest/api/storagerp">Opslagresourceprovider-API</a></p><p><a href="/rest/api/storageimportexport">Import-/export-service-API</a></p>
