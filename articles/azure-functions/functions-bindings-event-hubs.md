@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: tdykstra
-ms.openlocfilehash: 51f64f6f74875c6afac350dc9cc235573b89c524
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 6e035fff4aba2fa16563339b4ea0dc0a027ef016
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989585"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325408"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs-bindingen voor Azure Functions
 
@@ -301,8 +301,11 @@ Dit is de JavaScript-code:
 module.exports = function (context, eventHubMessages) {
     context.log(`JavaScript eventhub trigger function called for message array ${eventHubMessages}`);
     
-    eventHubMessages.forEach(message => {
+    eventHubMessages.forEach((message, index) => {
         context.log(`Processed message ${message}`);
+        context.log(`EnqueuedTimeUtc = ${context.bindingData.enqueuedTimeUtcArray[index]}`);
+        context.log(`SequenceNumber = ${context.bindingData.sequenceNumberArray[index]}`);
+        context.log(`Offset = ${context.bindingData.offsetArray[index]}`);
     });
 
     context.done();
@@ -336,7 +339,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**De naam** | N.v.t. | De naam van de variabele die staat voor de gebeurtenis in de functiecode aan te geven. | 
 |**Pad** |**EventHubName** | 1.x alleen functies. De naam van de event hub.  | 
 |**eventHubName** |**EventHubName** | 2.x alleen functies. De naam van de event hub.  |
-|**consumerGroup** |**ConsumerGroup** | Een optionele eigenschap die Hiermee stelt u de [consumergroep](../event-hubs/event-hubs-features.md#event-consumers) gebruikt om u te abonneren op gebeurtenissen in de hub. Als u dit weglaat, de `$Default` consumergroep wordt gebruikt. | 
+|**ConsumerGroup** |**ConsumerGroup** | Een optionele eigenschap die Hiermee stelt u de [consumergroep](../event-hubs/event-hubs-features.md#event-consumers) gebruikt om u te abonneren op gebeurtenissen in de hub. Als u dit weglaat, de `$Default` consumergroep wordt gebruikt. | 
 |**de kardinaliteit** | N.v.t. | Voor Javascript. Ingesteld op `many` om in te schakelen via batchverwerking uitvoeren.  Als weggelaten of ingesteld op `one`, één bericht dat wordt doorgegeven aan functie. | 
 |**verbinding** |**verbinding** | De naam van een app-instelling met de verbindingsreeks voor de event hub-naamruimte. Kopieer deze verbindingsreeks door te klikken op de **verbindingsgegevens** knop voor de [naamruimte](../event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), niet de event hub zelf. Deze verbindingsreeks moet ten minste leesmachtigingen heeft voor de trigger wordt geactiveerd.|
 

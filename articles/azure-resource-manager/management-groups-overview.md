@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/09/2018
+ms.date: 7/26/2018
 ms.author: rithorn
-ms.openlocfilehash: c8152a6c12c776806d9a17c5e434d825d6c91165
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f9554c058fbebc215aa61979fa03280553597afc
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38466640"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308313"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Resources organiseren met beheergroepen voor Azure
 
@@ -45,14 +45,6 @@ Als u een hiërarchie die zijn gegroepeerd op afdelingsniveau mogelijk maakt, ku
 - Elke beheergroep kan meerdere onderliggende items hebben.
 - Alle abonnementen en beheergroepen bevinden zich in een enkele hiërarchie in elke map. Zie [belangrijke informatie over de Root management-groep](#important-facts-about-the-root-management-group) voor uitzonderingen tijdens de Preview-versie.
 
-### <a name="preview-subscription-visibility-limitation"></a>Preview-abonnement zichtbaarheid beperking
-
-Er is op dit moment een beperking in de Preview-versie waarin u niet-abonnementen die u hebt toegang tot overgenomen bekijken. De toegang tot het abonnement wordt overgenomen, maar de Azure Resource Manager kan geen tot de overname-toegang nog in acht neemt.  
-
-Retourneert de gegevens met behulp van de REST-API voor informatie over het abonnement als u toegang hebt, maar in de Azure portal en Azure Powershell de abonnementen niet weergeven.
-
-Dit item wordt gewerkt en worden opgelost voordat er management groepen zijn aangekondigd als 'Algemene beschikbaarheid'.  
-
 ### <a name="cloud-solution-provider-csp-limitation-during-preview"></a>Cloud Solution Provider (CSP) beperking tijdens de Preview-versie
 
 Er is een beperking voor Cloud Solution Provider (CSP)-Partners waar ze niet maken of beheren van hun klant-beheergroepen in de directory van de klant.  
@@ -76,7 +68,7 @@ Elke directory is een enkel op het hoogste niveau beheergroep met de naam van de
   - Er wordt standaardtoegang krijgen tot de root management-groep. Hoofdbeheerders van Active Directory zijn de enige gebruikers die u kunnen zelf om toegang te krijgen met verhoogde bevoegdheden.  Nadat ze toegang hebben, kunnen de directory-beheerders RBAC-rol toewijzen aan andere gebruikers te beheren.  
 
 >[!NOTE]
->Als uw directory wordt gestart met behulp van de beheerservice voor groepen voordat 25-6-2018, kan uw directory niet worden ingesteld met alle abonnementen in de hiërarchie. Het managementteam van de groep wordt met terugwerkende kracht bijgewerkt voor elke map die aan de slag met beheergroepen in de openbare preview-versie voor deze datum in juli 2018. Alle abonnementen in de mappen gemaakt op onderliggende items onder de root management-groep voorafgaande.  
+>Als uw directory wordt gestart met behulp van de beheerservice voor groepen voordat 25-6-2018, kan uw directory niet worden ingesteld met alle abonnementen in de hiërarchie. Het managementteam van de groep wordt met terugwerkende kracht bijgewerkt voor elke map die aan de slag met beheergroepen in de openbare preview-versie voor deze datum in juli/augustus 2018. Alle abonnementen in de mappen gemaakt op onderliggende items onder de root management-groep voorafgaande.  
 >
 >Als u vragen over dit proces met terugwerkende kracht hebt, contact op met: managementgroups@microsoft.com  
   
@@ -97,9 +89,13 @@ Het volgende diagram ziet u de lijst met functies en de ondersteunde bewerkingen
 |:-------------------------- |:------:|:------:|:----:|:------:|:-------------:| :------------:|:-----:|
 |Eigenaar                       | X      | X      | X    | X      | X             |               | X     |
 |Inzender                 | X      | X      | X    | X      |               |               | X     |
+|MG Inzender *             | X      | X      | X    | X      |               |               | X     |
 |Lezer                      |        |        |      |        |               |               | X     |
+|MG-lezer *                  |        |        |      |        |               |               | X     |
 |Inzender voor resourcebeleid |        |        |      |        |               | X             |       |
 |Beheerder van gebruikerstoegang   |        |        |      |        | X             |               |       |
+
+*: MG Inzender en lezer MG alleen toestaan dat gebruikers deze acties uitvoeren op het beheerbereik van de groep.  
 
 ### <a name="custom-rbac-role-definition-and-assignment"></a>De definitie van de aangepaste RBAC-rol en de toewijzing
 

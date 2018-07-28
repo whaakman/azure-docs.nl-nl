@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 07/27/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: be76965e99a20c1f7164187255e26f6463926c2f
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f3460d22354a944a14c814c372cacf6839dc7bb7
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214724"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325425"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Azure Active Directory Pass through-verificatie: Upgrade preview verificatie-Agents
 
@@ -68,7 +68,7 @@ U moet Azure AD Connect upgraden vóór de upgrade van de verificatie-Agent op d
 
 1. **Azure AD Connect upgraden**: Volg deze [artikel](./active-directory-aadconnect-upgrade-previous-version.md) en een upgrade uit naar de nieuwste versie van Azure AD Connect.
 2. **De preview-versie van de verificatie-Agent verwijderen**: downloaden [dit PowerShell-script](https://aka.ms/rmpreviewagent) en uitvoeren als beheerder op de server.
-3. **Download de nieuwste versie van de verificatie-Agent (versies 1.5.193.0 of hoger)**: aanmelden bij de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met de hoofdbeheerdersreferenties van uw tenant. Selecteer **Azure Active Directory -> Azure AD Connect Pass through-verificatie -> Download agent ->**. Accepteer de [servicevoorwaarden](https://aka.ms/authagenteula) en download de nieuwste versie van de verificatie-Agent. U kunt ook de verificatie-Agent vanuit downloaden [hier](https://aka.ms/getauthagent).
+3. **Download de nieuwste versie van de verificatie-Agent (versies 1.5.389.0 of hoger)**: aanmelden bij de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met de hoofdbeheerdersreferenties van uw tenant. Selecteer **Azure Active Directory -> Azure AD Connect Pass through-verificatie -> Download agent ->**. Accepteer de [servicevoorwaarden](https://aka.ms/authagenteula) en download de nieuwste versie van de verificatie-Agent. U kunt ook de verificatie-Agent vanuit downloaden [hier](https://aka.ms/getauthagent).
 4. **Installeer de nieuwste versie van de verificatie-Agent**: Voer het uitvoerbare bestand in stap 3 hebt gedownload. Bieden van uw tenant-hoofdbeheerder referenties wanneer hierom wordt gevraagd.
 5. **Controleer of de meest recente versie is geïnstalleerd**: zoals wordt weergegeven vóór, gaat u naar **Configuratiescherm -> programma's -> programma's en onderdelen** en controleer of er een vermelding voor '**Microsoft Azure AD Connect Verificatie-Agent**'.
 
@@ -80,7 +80,7 @@ U moet Azure AD Connect upgraden vóór de upgrade van de verificatie-Agent op d
 Volg deze stappen voor het upgraden van verificatie-Agents op andere servers (waarop Azure AD Connect is niet geïnstalleerd):
 
 1. **De preview-versie van de verificatie-Agent verwijderen**: downloaden [dit PowerShell-script](https://aka.ms/rmpreviewagent) en uitvoeren als beheerder op de server.
-2. **Download de nieuwste versie van de verificatie-Agent (versies 1.5.193.0 of hoger)**: aanmelden bij de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met de hoofdbeheerdersreferenties van uw tenant. Selecteer **Azure Active Directory -> Azure AD Connect Pass through-verificatie -> Download agent ->**. Accepteer de voorwaarden van de service en de nieuwste versie downloaden.
+2. **Download de nieuwste versie van de verificatie-Agent (versies 1.5.389.0 of hoger)**: aanmelden bij de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met de hoofdbeheerdersreferenties van uw tenant. Selecteer **Azure Active Directory -> Azure AD Connect Pass through-verificatie -> Download agent ->**. Accepteer de voorwaarden van de service en de nieuwste versie downloaden.
 3. **Installeer de nieuwste versie van de verificatie-Agent**: Voer het uitvoerbare bestand in stap 2 hebt gedownload. Bieden van uw tenant-hoofdbeheerder referenties wanneer hierom wordt gevraagd.
 4. **Controleer of de meest recente versie is geïnstalleerd**: zoals wordt weergegeven vóór, gaat u naar **Configuratiescherm -> programma's -> programma's en onderdelen** en controleer of er een vermelding die met de naam **Microsoft Azure AD Connect Verificatie-Agent**.
 

@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: luisca
-ms.openlocfilehash: dd9bb4cb2622651c2d1979166ad838b3b337d583
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: b428e6e7738c8a9052c3fcfe2ad5284bfd5293d6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342916"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307990"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Voorbeeld: Maak een aangepaste vaardigheden met behulp van de API tekst vertalen
 
@@ -244,6 +244,13 @@ Wanneer u tevreden met het gedrag van de functie bent, kunt u deze kunt publicer
 
 1. In de [Azure-portal](https://portal.azure.com), gaat u naar de resourcegroep en zoek naar de functie vertalen u gepubliceerd. Onder de **beheren** sectie ziet u Hostsleutels. Selecteer de **kopie** pictogram voor de *standaard* host-sleutel.  
 
+## <a name="update-ssl-settings"></a>SSL-instellingen bijwerken
+
+Alle Azure-functies die zijn gemaakt na 30 juni 2018 uitgeschakeld TLS 1.0, die is momenteel niet compatibel met aangepaste vaardigheden.
+
+1. In de [Azure-portal](https://portal.azure.com), gaat u naar de resourcegroep en zoek naar de functie vertalen u gepubliceerd. Onder de **platformfuncties** sectie ziet u SSL.
+
+1. Na het selecteren van SSL, moet u de **minimale TLS-versie** 1.0. TLS 1.2-functies zijn nog niet ondersteund als aangepaste vaardigheden.
 
 ## <a name="test-the-function-in-azure"></a>De functie testen in Azure
 

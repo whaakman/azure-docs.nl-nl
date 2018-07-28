@@ -1,6 +1,6 @@
 ---
-title: PowerShell in Quick Start Azure-Cloud-Shell (Preview) | Microsoft Docs
-description: Quick Start voor PowerShell in de Cloud-Shell
+title: PowerShell in de Snelstartgids voor Azure Cloud Shell (Preview) | Microsoft Docs
+description: Snelstartgids voor PowerShell in Cloudshell
 services: Azure
 documentationcenter: ''
 author: maertendmsft
@@ -12,42 +12,45 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2018
+ms.date: 07/27/2018
 ms.author: damaerte
-ms.openlocfilehash: a85d718d1c524a240f4b59b4db5004595fe1902f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: adae7ea79ada9247382c88e58f1ba5331007985b
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608607"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324490"
 ---
-# <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Quick Start voor PowerShell in de Azure-Cloud-Shell (Preview)
+# <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Snelstartgids voor PowerShell in Azure Cloudshell (Preview)
 
-In dit document worden de PowerShell gebruiken in de Cloud-Shell in de [Azure-portal](https://aka.ms/PSCloudPreview).
+Dit document wordt uitgelegd hoe het gebruik van PowerShell in Cloud Shell in de [Azure-portal](https://aka.ms/PSCloudPreview).
 
 > [!NOTE]
-> Een [Bash in de Azure-Cloud-Shell](quickstart.md) Quick Start is ook beschikbaar.
+> Een [Bash in Azure Cloud Shell](quickstart.md) Quick Start is ook beschikbaar.
 
-## <a name="start-cloud-shell"></a>Cloud-Shell starten
+## <a name="start-cloud-shell"></a>Cloudshell starten
 
-1. Klik op **Cloud Shell** knop van de bovenste navigatiebalk van de Azure portal
+1. Klik op **Cloud Shell** knop in de bovenste navigatiebalk van de Azure-portal
 
   ![](media/quickstart-powershell/shell-icon.png)
 
-2. Selecteer de PowerShell-omgeving in de vervolgkeuzelijst en kunt u in Azure station `(Azure:)`
+2. Selecteer de PowerShell-omgeving in de vervolgkeuzelijst en kunt u zich in de Azure-station `(Azure:)`
 
   ![](media/quickstart-powershell/environment-ps.png)
 
-## <a name="run-powershell-commands"></a>PowerShell-opdrachten uitvoeren
+## <a name="run-powershell-commands"></a>Voer PowerShell-opdrachten
 
-Voer reguliere PowerShell-opdrachten in de Cloud-Shell, zoals:
+Uitvoeren van reguliere PowerShell-opdrachten in de Cloud Shell, zoals:
 
-```PowerShell
+```azurepowershell-interactive
 PS Azure:\> Get-Date
-Monday, September 25, 2017 08:55:09 AM
+
+# Expected Output
+Friday, July 27, 2018 7:08:48 AM
 
 PS Azure:\> Get-AzureRmVM -Status
 
+# Expected Output
 ResourceGroupName       Name       Location                VmSize   OsType     ProvisioningState  PowerState
 -----------------       ----       --------                ------   ------     -----------------  ----------
 MyResourceGroup2        Demo        westus         Standard_DS1_v2  Windows    Succeeded           running
@@ -57,24 +60,24 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
 
 ## <a name="navigate-azure-resources"></a>Azure-resources navigeren
 
- 1. Lijst van uw abonnementen
+ 1. Lijst met al uw abonnementen van `Azure` station
 
-    ``` PowerShell
+    ```azurepowershell-interactive
     PS Azure:\> dir
     ```
 
- 2. `cd` aan uw voorkeur abonnement
+ 2. `cd` op het gewenste abonnement
 
-    ``` PowerShell
+    ```azurepowershell-interactive
     PS Azure:\> cd MySubscriptionName
     PS Azure:\MySubscriptionName>
     ```
 
- 3. Alle Azure-resources onder het huidige abonnement weergeven
- 
-    Type `dir` voor een lijst met meerdere weergaven van uw Azure-resources.
- 
-    ``` PowerShell
+ 3. Al uw Azure-resources onder het huidige abonnement weergeven
+
+    Type `dir` om meerdere weergaven van uw Azure-resources weer te geven.
+
+    ```azurepowershell-interactive
     PS Azure:\MySubscriptionName> dir
 
         Directory: azure:\MySubscriptionName
@@ -86,18 +89,21 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
     +    StorageAccounts
     +    VirtualMachines
     +    WebApps
-     ```
+    ```
 
-### <a name="allresources-view"></a>AllResources weergeven 
+### <a name="allresources-view"></a>AllResources weergeven
+
 Type `dir` onder `AllResources` directory om uw Azure-resources weer te geven.
-    
-    PS Azure:\MySubscriptionName> dir AllResources
+
+```azurepowershell-interactive
+PS Azure:\MySubscriptionName> dir AllResources
+```
 
 ### <a name="explore-resource-groups"></a>Resourcegroepen verkennen
 
- Gaat u naar de `ResourceGroups` directory en binnen een specifieke resourcegroep vindt u de virtuele machines.
+ Gaat u naar de `ResourceGroups` Active directory en binnen een specifieke resourcegroep kunt u virtuele machines vinden.
 
-``` PowerShell
+```azureowershell-interactive
 PS Azure:\MySubscriptionName> cd ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines
 
 PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup1\Microsoft.Compute\virtualMachines> dir
@@ -110,46 +116,40 @@ VMName    Location   ProvisioningState VMSize          OS            SKU        
 ------    --------   ----------------- ------          --            ---             --------- -------------  --------------------
 TestVm1   westus     Succeeded         Standard_DS2_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo371
 TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datacenter Latest    AdminUser      demo271
-
 ```
+
 > [!NOTE]
-> U merkt dat de tweede keer wanneer u typt `dir`, de cloud-shell is in staat om de items die veel sneller weer te geven.
+> U merkt dat de tweede keer wanneer u typt `dir`, kan de cloudshell om de items die veel sneller weer te geven.
 > Dit is omdat de onderliggende items in cache zijn opgeslagen in het geheugen voor een betere gebruikerservaring.
-U kunt echter altijd gebruiken `dir -Force` nieuwe gegevens ophalen.
+U kunt echter altijd gebruiken `dir -Force` nieuwe gegevens op te halen.
 
 ### <a name="navigate-storage-resources"></a>Storage-resources navigeren
-    
-Door te voeren in de `StorageAccounts` directory die u kunt eenvoudig uw storage-resources navigeren
-    
-``` PowerShell 
+
+Door te voeren in de `StorageAccounts` Active directory, kunt u eenvoudig uw opslagresources navigeren
+
+```azureowershell-interactive
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> dir
 
     Directory: Azure:\MySubscriptionNameStorageAccounts\MyStorageAccountName\Files
-
 
 Name          ConnectionString
 ----          ----------------
 MyFileShare1  \\MyStorageAccountName.file.core.windows.net\MyFileShare1;AccountName=MyStorageAccountName AccountKey=<key>
 MyFileShare2  \\MyStorageAccountName.file.core.windows.net\MyFileShare2;AccountName=MyStorageAccountName AccountKey=<key>
 MyFileShare3  \\MyStorageAccountName.file.core.windows.net\MyFileShare3;AccountName=MyStorageAccountName AccountKey=<key>
-
-
 ```
 
-Met de verbindingsreeks kunt u de volgende opdracht om te koppelen van de share Azure-bestanden.
-        
-``` PowerShell
+Met de verbindingsreeks, kunt u de volgende opdracht uit om te koppelen van de Azure-bestandsshare.
+
+```azurepowershell-interactive
 net use <DesiredDriveLetter>: \\<MyStorageAccountName>.file.core.windows.net\<MyFileShareName> <AccountKey> /user:Azure\<MyStorageAccountName>
-
-
 ```
 
-Zie voor meer informatie [koppelen van een Azure-bestanden delen en toegang tot de share in Windows][azmount].
+Zie voor meer informatie, [een Azure-bestandsshare koppelen en de share openen in Windows][azmount].
 
-U kunt ook de mappen onder de share Azure bestanden als volgt navigeren:
+U kunt ook de mappen onder de Azure-bestandsshare als volgt navigeren:
 
-            
-``` PowerShell
+```azurepowershell-interactive
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files> cd .\MyFileShare1\
 PS Azure:\MySubscriptionName\StorageAccounts\MyStorageAccountName\Files\MyFileShare1> dir
 
@@ -157,15 +157,13 @@ Mode  Name
 ----  ----
 +     TestFolder
 .     hello.ps1
-
-    
 ```
 
 ### <a name="interact-with-virtual-machines"></a>Werken met virtuele machines
 
-U vindt uw virtuele machines onder het huidige abonnement via `VirtualMachines` directory.
-    
-``` PowerShell
+U vindt alle virtuele machines weergegeven onder het huidige abonnement via `VirtualMachines` directory.
+
+```azurepowershell-interactive
 PS Azure:\MySubscriptionName\VirtualMachines> dir
 
     Directory: Azure:\MySubscriptionName\VirtualMachines
@@ -176,29 +174,27 @@ Name       ResourceGroupName  Location  VmSize          OsType              NIC 
 TestVm1    MyResourceGroup1   westus    Standard_DS2_v2 Windows       my2008r213         Succeeded     stopped
 TestVm2    MyResourceGroup1   westus    Standard_DS1_v2 Windows          jpstest         Succeeded deallocated
 TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest         Succeeded     running
-
-
 ```
 
-#### <a name="invoke-powershell-script-across-remote-vms"></a>Aanroepen van PowerShell-script over externe VM 's
+#### <a name="invoke-powershell-script-across-remote-vms"></a>PowerShell-script aanroepen naar externe VM 's
 
  > [!WARNING]
- > Raadpleeg [probleemoplossing extern beheer van Azure Virtual machines](troubleshooting.md#troubleshooting-remote-management-of-azure-vms).
+ > Raadpleeg [het oplossen van extern beheer van virtuele Azure-machines](troubleshooting.md#troubleshooting-remote-management-of-azure-vms).
 
-  Ervan uitgaande dat u een virtuele machine, MyVM1, hebben we gebruiken `Invoke-AzureRmVMCommand` aan te roepen, een PowerShell-scriptblok op de externe computer.
+  Ervan uitgaande dat u hebt een virtuele machine, MyVM1, gebruiken we `Invoke-AzureRmVMCommand` om aan te roepen, een scriptblok PowerShell op de externe computer.
 
-  ``` Powershell
+  ```azurepowershell-interactive
   Invoke-AzureRmVMCommand -Name MyVM1 -ResourceGroupName MyResourceGroup -Scriptblock {Get-ComputerInfo} -EnableRemoting
   ```
-  U kunt ook eerst Navigeer naar de map van de virtuele machines en `Invoke-AzureRmVMCommand` als volgt.
 
-  ``` PowerShell
+  U kunt ook eerst navigeren naar de map van de virtuele machines en uitvoeren `Invoke-AzureRmVMCommand` als volgt.
+
+  ```azurepowershell-interactive
   PS Azure:\> cd MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines
   PS Azure:\MySubscriptionName\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Invoke-AzureRmVMCommand -Scriptblock {Get-ComputerInfo}
-  ```
-  U ziet de uitvoer ziet er als volgt:
 
-  ``` PowerShell
+  # You will see output similar to the following:
+
   PSComputerName                                          : 65.52.28.207
   RunspaceId                                              : 2c2b60da-f9b9-4f42-a282-93316cb06fe1
   WindowsBuildLabEx                                       : 14393.1066.amd64fre.rs1_release_sec.170327-1835
@@ -212,37 +208,34 @@ TestVm10   MyResourceGroup2   eastus    Standard_DS1_v2 Windows           mytest
    ...
   ```
 
-#### <a name="interactively-log-on-to-a-remote-vm"></a>Interactief aanmelden bij een externe virtuele machine
+#### <a name="interactively-log-on-to-a-remote-vm"></a>Interactief aanmelden bij een externe VM
 
-U kunt `Enter-AzureRmVM` interactief aanmelden bij een virtuele machine in Azure wordt uitgevoerd.
+U kunt `Enter-AzureRmVM` interactief aanmelden bij een virtuele machine die wordt uitgevoerd in Azure.
 
-  ``` PowerShell
-  Enter-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
+  ```azurepowershell-interactive
+  PS Azure:\> Enter-AzureRmVM -Name MyVM1 -ResourceGroupName MyResourceGroup -EnableRemoting
   ```
 
-U kunt ook navigeren naar de `VirtualMachines` directory eerste en voer `Enter-AzureRmVM` als volgt
+U kunt ook navigeren naar de `VirtualMachines` directory eerste en werken met `Enter-AzureRmVM` als volgt
 
-  ``` PowerShell
+  ```azurepowershell-interactive
  PS Azure:\MySubscriptionName\ResourceGroups\MyResourceGroup\Microsoft.Compute\virtualMachines> Get-Item MyVM1 | Enter-AzureRmVM
  ```
 
-### <a name="discover-webapps"></a>WebApps detecteren
+### <a name="discover-webapps"></a>Web-Apps detecteren
 
-Door te voeren in de `WebApps` directory die u kunt eenvoudig uw web-apps resources navigeren
+Door te voeren in de `WebApps` Active directory, kunt u eenvoudig uw web-apps resources navigeren
 
-``` PowerShell
+```azurepowershell-interactive
 PS Azure:\MySubscriptionName> dir .\WebApps\
 
     Directory: Azure:\MySubscriptionName\WebApps
-
 
 Name            State    ResourceGroup      EnabledHostNames                  Location
 ----            -----    -------------      ----------------                  --------
 mywebapp1       Stopped  MyResourceGroup1   {mywebapp1.azurewebsites.net...   West US
 mywebapp2       Running  MyResourceGroup2   {mywebapp2.azurewebsites.net...   West Europe
 mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   South Central US
-
-
 
 # You can use Azure cmdlets to Start/Stop your web apps
 PS Azure:\MySubscriptionName\WebApps> Start-AzureRmWebApp -Name mywebapp1 -ResourceGroupName MyResourceGroup1
@@ -256,61 +249,35 @@ PS Azure:\MySubscriptionName\WebApps> dir -Force
 
     Directory: Azure:\MySubscriptionName\WebApps
 
-
 Name            State    ResourceGroup      EnabledHostNames                  Location
 ----            -----    -------------      ----------------                  --------
 mywebapp1       Running  MyResourceGroup1   {mywebapp1.azurewebsites.net...   West US
 mywebapp2       Running  MyResourceGroup2   {mywebapp2.azurewebsites.net...   West Europe
 mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   South Central US
-
 ```
 
 ## <a name="ssh"></a>SSH
 
-[Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) is beschikbaar in de Cloud-Shell PowerShell.
-Voor verificatie op servers of virtuele machines met SSH, het openbaar / persoonlijk sleutelpaar genereren in de Cloud-Shell en publiceren van de openbare sleutel voor `authorized_keys` op de externe computer, zoals `/home/user/.ssh/authorized_keys`.
+[Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) is beschikbaar in PowerShell Cloud Shell.
+Als u wilt verifiëren op servers of virtuele machines met behulp van SSH, het openbaar / persoonlijk sleutelpaar genereren in Cloud Shell en publiceren van de openbare sleutel toe `authorized_keys` op de externe computer, zoals `/home/user/.ssh/authorized_keys`.
 
 > [!NOTE]
-> U kunt SSH privé-openbare sleutels maken `ssh-keygen` en deze publiceren naar `$env:USERPROFILE\.ssh` in de Cloud-Shell.
+> U kunt SSH met behulp van privé-openbare-sleutels maken `ssh-keygen` en deze publiceren naar `$env:USERPROFILE\.ssh` in Cloud Shell.
 
-### <a name="using-a-custom-profile-to-persist-git-and-ssh-settings"></a>Met behulp van een aangepast profiel voor het persistent maken van GIT en SSH-instellingen
+### <a name="using-ssh"></a>Met behulp van SSH
 
-Aangezien sessies blijven niet behouden bij het ze afmelden Sla uw `$env:USERPROFILE\.ssh` map naar `clouddrive` of maak een symlink wanneer Cloud Shell wordt gestart.
-Plaats de volgende codefragment in uw profile.ps1 voor het maken van een symlink naar `clouddrive`.
+Volg de instructies [hier](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) te maken van een nieuwe VM-configuratie met behulp van de AzureRM-cmdlets.
+Voordat aanroepen in `New-AzureRmVM` als u wilt een vliegende start de implementatie, openbare SSH-sleutel aan de VM-configuratie toevoegen.
+De zojuist gemaakte virtuele machine bevat de openbare sleutel in de `~\.ssh\authorized_keys` locatie, waardoor u SSH-sessie referentie gratis aan de virtuele machine.
 
-``` PowerShell
-# Check if the .ssh directory exists
-if( -not (Test-Path $home\clouddrive\.ssh)){
-    mkdir $home\clouddrive\.ssh
-}
-
-# .ssh path relative to this script
-$script:sshFolderPath = Join-Path $PSScriptRoot .ssh
-
-# Create a symlink to .ssh in user's $home
-if(Test-Path $script:sshFolderPath){
-   if(-not (Test-Path (Join-Path $HOME .ssh ))){
-        New-Item -ItemType SymbolicLink -Path $HOME -Name .ssh -Value $script:sshFolderPath
-   }
-}
-
-```
-
-### <a name="using-ssh"></a>Gebruik van SSH
-
-Volg de instructies [hier](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) voor het maken van een nieuwe VM-configuratie met AzureRM-cmdlets.
-Vóór aanroep naar de `New-AzureRmVM` toevoegen voor het uitgangspunt voor de implementatie, openbare SSH-sleutel aan het VM-configuratie.
-De zojuist gemaakte virtuele machine bevat de openbare sleutel in de `~\.ssh\authorized_keys` locatie, waardoor u SSH-sessie referentie vrij op de virtuele machine.
-
-``` PowerShell
-
+```azurepowershell-interactive
 # Create VM config object - $vmConfig using instructions on linked page above
 
 # Generate SSH keys in Cloud Shell
 ssh-keygen -t rsa -b 2048 -f $HOME\.ssh\id_rsa 
 
 # Ensure VM config is updated with SSH keys
-$sshPublicKey = Get-Content "$env:USERPROFILE\.ssh\id_rsa.pub"
+$sshPublicKey = Get-Content "$HOME\.ssh\id_rsa.pub"
 Add-AzureRmVMSshPublicKey -VM $vmConfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 # Create a virtual machine
@@ -318,15 +285,13 @@ New-AzureRmVM -ResourceGroupName <yourResourceGroup> -Location <vmLocation> -VM 
 
 # SSH to the VM
 ssh azureuser@MyVM.Domain.Com
-
 ```
-
 
 ## <a name="list-available-commands"></a>Lijst met beschikbare opdrachten
 
-Onder `Azure` station `Get-AzureRmCommand` Contextspecifieke Azure opdrachten ophalen.
+Onder `Azure` station, typt u `Get-AzureRmCommand` om op te halen van context-specifieke Azure-opdrachten.
 
-U kunt ook altijd gebruiken `Get-Command *azurerm* -Module AzureRM.*` om erachter te komen de beschikbare Azure opdrachten.
+U kunt ook altijd gebruiken `Get-Command *azurerm* -Module AzureRM.*` om erachter te komen de beschikbare Azure-opdrachten.
 
 ## <a name="install-custom-modules"></a>Aangepaste modules installeren
 
@@ -334,62 +299,47 @@ U kunt uitvoeren `Install-Module` voor het installeren van modules van de [Power
 
 ## <a name="get-help"></a>Get-Help
 
-Type `Get-Help` voor informatie over PowerShell in Azure Cloud-Shell.
+Type `Get-Help` voor informatie over PowerShell in Azure Cloud Shell.
 
-``` PowerShell
-PS Azure:\> Get-Help
+```azurepowershell-interactive
+Get-Help
 ```
 
 Voor een specifieke opdracht u nog steeds kunt doen `Get-Help` gevolgd door een cmdlet.
 
-``` PowerShell
-PS Azure:\> Get-Help Get-AzureRmVM
+```azurepowershell-interactive
+Get-Help Get-AzureRmVM
 ```
 
-## <a name="use-azure-files-to-store-your-data"></a>Azure-bestanden gebruiken voor het opslaan van uw gegevens
+## <a name="use-azure-files-to-store-your-data"></a>Azure Files gebruiken voor het opslaan van uw gegevens
 
-Kunt u een script spreek `helloworld.ps1`, en sla deze op uw `clouddrive` gebruiken over de shell-sessies.
+U kunt bijvoorbeeld een script maken `helloworld.ps1`, en sla deze op uw `clouddrive` te gebruiken in shell-sessies.
 
-``` PowerShell
-cd C:\users\ContainerAdministrator\clouddrive
-PS C:\users\ContainerAdministrator\clouddrive> vim .\helloworld.ps1
+```azurepowershell-interactive
+cd $HOME\clouddrive
+code .\helloworld.ps1
 # Add the content, such as 'Hello World!'
-PS C:\users\ContainerAdministrator\clouddrive> .\helloworld.ps1
+.\helloworld.ps1
 Hello World!
 ```
 
-Wanneer u PowerShell in de Cloud-Shell gebruiken zodra de `helloworld.ps1` bestand blijft aanwezig in de `clouddrive` map die uw Azure-bestanden-share koppelt.
+Volgende keer wanneer u PowerShell in Cloud Shell gebruiken de `helloworld.ps1` bestand blijft aanwezig in de `$HOME\clouddrive` directory dat uw Azure Files-share koppelt.
 
 ## <a name="use-custom-profile"></a>Aangepast profiel gebruiken
 
-U kunt uw PowerShell-omgeving aanpassen door het maken van PowerShell-profielen - `profile.ps1` of `Microsoft.PowerShell_profile.ps1`. Sla deze onder de `clouddrive` zodat deze kan worden geladen in elke PowerShell-sessie wanneer het starten van de Cloud-Shell.
+U kunt uw PowerShell-omgeving, aanpassen door het maken van PowerShell-profielen - `profile.ps1` (of `Microsoft.PowerShell_profile.ps1`).
+Sla het onder `$profile.CurrentUserAllHosts` (of `$profile.CurrentUserAllHosts`), zodat deze kan worden geladen in elke PowerShell in Cloud Shell-sessie.
 
-Voor het maken van een profiel, verwijzen naar [over profielen][profile].
+Voor informatie over het maken van een profiel, raadpleeg dan [over profielen][profile].
 
-## <a name="use-git"></a>Git gebruiken
+## <a name="use-git"></a>Werken met Git
 
-Als u wilt een Git-opslagplaats in de Cloud-Shell klonen, moet u maken een [persoonlijke toegangstoken] [ githubtoken] en deze gebruiken als de gebruikersnaam. Eenmaal hebt u uw token, kloon de opslagplaats als volgt:
+Als u wilt klonen van een Git-opslagplaats in de Cloud Shell, moet u maken een [persoonlijk toegangstoken] [ githubtoken] en deze gebruiken als de gebruikersnaam. Nadat u hebt uw token, kloon de opslagplaats als volgt:
 
- ``` PowerShell
+```azurepowershell-interactive
   git clone https://<your-access-token>@github.com/username/repo.git
-
 ```
-Aangezien sessies in de Cloud-Shell, blijven niet behouden ze wanneer u zich afmeldt of de sessietime-out optreedt, bestaat de Git-configuratiebestand niet bij de volgende aanmelding. Als u wilt dat uw Git-config behouden, moet u uw .gitconfig naar opslaan uw `clouddrive` en kopieert u deze of een symlink te maken wanneer de Cloud-Shell wordt gestart. Gebruik het volgende codefragment in uw profile.ps1 voor het maken van een symlink naar `clouddrive`.
 
- ``` PowerShell
- 
-# .gitconfig path relative to this script
-$script:gitconfigPath = Join-Path $PSScriptRoot .gitconfig
-
-# Create a symlink to .gitconfig in user's $home
-if(Test-Path $script:gitconfigPath){
-
-    if(-not (Test-Path (Join-Path $home .gitconfig ))){
-         New-Item -ItemType SymbolicLink -Path $home -Name .gitconfig -Value $script:gitconfigPath
-    }
-}
-
-```
 ## <a name="exit-the-shell"></a>De shell afsluiten
 
 Type `exit` om de sessie te beëindigen.

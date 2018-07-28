@@ -8,12 +8,12 @@ ms.date: 07/16/2018
 ms.topic: article
 ms.prod: microsoft-iot-central
 manager: peterpr
-ms.openlocfilehash: 1298ba85a221368d9153fea4f0311935dd51ff0f
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 85c0432bceef3e94b32fa9b4a2803276b3efee17
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285737"
+ms.locfileid: "39324320"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualiseer en Analyseer uw Azure IoT Central-gegevens in Power BI-dashboard
 
@@ -33,9 +33,9 @@ Deze oplossingssjabloon stelt u de pijplijn die de gegevens in uw Azure Blob sto
 ## <a name="prerequisites"></a>Vereisten
 Instellen van de sjabloon vereist het volgende:
 - Toegang tot een Azure-abonnement
-- Geëxporteerde gegevens met [voortdurende gegevensexport](howto-export-data.md) van uw IoT Central-app. We raden in te schakelen op metingen, apparaten en apparaten sjabloon stromen ophalen - het meeste uit de Power BI-dashboard.
+- Geëxporteerde gegevens met [voortdurende gegevensexport](howto-export-data.md) van uw IoT Central-app. U wordt aangeraden dat u inschakelen metingen, apparaten en apparaten sjabloon streams optimaal gebruikmaken van de Power BI-dashboard.
 - Power BI Desktop (meest recente versie)
-- Power BI Pro (aan de sjabloon niet delen met anderen)
+- Power BI Pro (als u het dashboard delen met anderen wilt)
 
 ## <a name="reports"></a>Rapporten
 

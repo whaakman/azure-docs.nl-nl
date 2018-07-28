@@ -14,12 +14,12 @@ ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 34b56c7435e2995f806828dce34f3d6bf425ca75
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 73ffb1ab9c91794325725bb3b99b210a06979443
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449932"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325510"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Beheerrollen toewijzen in Azure Active Directory
 
@@ -98,15 +98,15 @@ De volgende beheerdersrollen zijn beschikbaar:
   | --- | --- |
   | Identity Protection Center |<ul><li>Alle machtigingen van de rol van Beveiligingslezer.<li>Bovendien de mogelijkheid om alle IPC-bewerkingen, met uitzondering van opnieuw instellen van wachtwoorden uitvoeren. |
   | Privileged Identity Management |<ul><li>Alle machtigingen van de rol van Beveiligingslezer.<li>**Kan geen** rollidmaatschappen voor Azure AD- of -instellingen beheren. |
-  | <p>Monitor voor Office 365-servicestatus</p><p>Office 365-beveiliging en compliance |<ul><li>Alle machtigingen van de rol van Beveiligingslezer.<li>Kan alle instellingen configureren in de functie Advanced Threat Protection (beveiliging voor schadelijke software en virussen, schadelijke URL config, URL-tracering, enzovoort). |
+  | <p>Monitor voor Office 365-servicestatus</p><p>Office 365-centrum voor beveiliging en naleving |<ul><li>Alle machtigingen van de rol van Beveiligingslezer.<li>Kan alle instellingen configureren in de functie Advanced Threat Protection (beveiliging voor schadelijke software en virussen, schadelijke URL config, URL-tracering, enzovoort). |
   
 * **[Beveiligingslezer](#security-reader)**: gebruikers met deze rol hebben globale alleen-lezen toegang, met inbegrip van alle gegevens in Azure Active Directory, Identity Protection, Privileged Identity Management, evenals de mogelijkheid om te lezen van Azure Active Directory -aanmeldingsrapporten en controlelogboeken. De rol biedt tevens alleen-lezen-machtiging in Office 365-beveiligings- en Compliancecentrum. Meer informatie over Office 365-machtigingen is beschikbaar op [machtigingen in het Office 365-beveiligings- en Nalevingscentrum](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
   | In | Kan doen |
   | --- | --- |
-  | Identity Protection Center |Alle beveiligingsrapporten en informatie over de instellingen voor beveiligingsfuncties lezen<ul><li>Anti-spam<li>Versleuteling<li>Preventie van gegevensverlies<li>Anti-malware<li>Geavanceerde bedreigingsbeveiliging<li>Anti-phishing<li>Mailflow regels |
+  | Identity Protection Center |Alle beveiligingsrapporten en informatie over de instellingen voor beveiligingsfuncties lezen<ul><li>Anti-spam<li>Versleuteling<li>Preventie van gegevensverlies<li>Anti-malware<li>Geavanceerde beveiliging tegen bedreigingen<li>Anti-phishing<li>Mailflow regels |
   | Privileged Identity Management |<p>Alleen-lezen toegang tot alle gegevens zichtbaar is in Azure AD PIM: beleid en rapporten voor Azure AD-roltoewijzingen security beoordeelt en toegang tot gegevens en rapporten voor scenario's behalve Azure AD-roltoewijzing in de toekomst te lezen.<p>**Kan geen** aanmelden voor Azure AD PIM of wijzigingen aanbrengen. In de PIM-portal of via PowerShell kunt iemand zich in deze rol aanvullende rollen (bijvoorbeeld: globale beheerder of beheerder met bevoorrechte rol), activeren als de gebruiker een kandidaat een voor hen. |
-  | <p>Monitor voor Office 365-servicestatus</p><p>Office 365-beveiliging en compliance</p> |<ul><li>Lezen en waarschuwingen beheren<li>Beveiligingsbeleid lezen<li>Bedreigingsinformatie, Cloud App Discovery en in quarantaine plaatsen in Search en onderzoeken<li>Alle rapporten lezen |
+  | <p>Monitor voor Office 365-servicestatus</p><p>Office 365-centrum voor beveiliging en naleving</p> |<ul><li>Lezen en waarschuwingen beheren<li>Beveiligingsbeleid lezen<li>Bedreigingsinformatie, Cloud App Discovery en in quarantaine plaatsen in Search en onderzoeken<li>Alle rapporten lezen |
 
 * **[De rol beheerder serviceondersteuning](#service-support-administrator)**: gebruikers met deze rol kunnen ondersteuningsaanvragen openen met Microsoft Azure en Office 365-services, weergaven en het servicedashboard en berichtencentrum weergeven in Azure portal en Office 365-beheerportal. Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -267,11 +267,6 @@ Kan alle aspecten van app-registraties en bedrijfsapps maken en beheren, behalve
 Kan alle aspecten beheren van Azure AD en Microsoft-services die Azure AD-identiteiten gebruiken. In Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell, wordt deze rol aangeduid als "Company Administrator". Het 'Globale beheerder' is in de [Azure-portal](https://portal.azure.com).
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
-  > [!NOTE]
   > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
   >
   >
@@ -389,13 +384,8 @@ Leden van deze rol worden toegevoegd aan de groep lokale beheerders op Azure AD 
 | **Acties** | **Beschrijving** |
 | --- | --- |
 
-### <a name="directory-reader"></a>Directory-lezer
+### <a name="directory-readers"></a>Adreslijstlezers
 Basic directory-informatie kan worden gelezen. Voor het verlenen van toegang tot toepassingen
-
-  > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
 
 | **Acties** | **Beschrijving** |
 | --- | --- |
@@ -449,11 +439,6 @@ Basic directory-informatie kan worden gelezen. Voor het verlenen van toegang tot
 ### <a name="directory-synchronization-accounts"></a>Synchronisatie van Active Directory-Accounts
 Alleen gebruikt door Azure AD Connect-service.
 
-  > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
 | **Acties** | **Beschrijving** |
 | --- | --- |
 | microsoft.aad.directory/Policy/Create | Maak beleid in Azure Active Directory. |
@@ -482,11 +467,6 @@ Alleen gebruikt door Azure AD Connect-service.
 
 ### <a name="directory-writer"></a>Schrijver van de Directory
 Kan lezen en schrijven van basic directory-informatie. Voor het verlenen van toegang tot toepassingen
-
-  > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
 
 | **Acties** | **Beschrijving** |
 | --- | --- |
@@ -783,6 +763,25 @@ Kunnen roltoewijzingen beheren in Azure AD
 | microsoft.aad.directory/DirectoryRole/Update | Werk de standaardeigenschappen voor DirectoryRoles bij in Azure Active Directory. |
 | microsoft.aad.privilegedrolemanagement/AllEntities/AllActions | Beheer alle aspecten van de Privileged Role Management-service. |
 
+### <a name="reports-reader"></a>Rapportenlezer
+Kan rapporten met betrekking tot aanmeldingen en controles lezen.
+
+  > [!NOTE]
+  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
+  >
+  >
+
+  > [!NOTE]
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  >
+  >
+
+| **Acties** | **Beschrijving** |
+| --- | --- |
+| microsoft.aad.reports/AllEntities/Read | Lees Azure AD-rapporten. |
+| microsoft.aad.servicehealth/AllEntities/AllActions | Lees en configureer de Office 365-servicestatus. |
+| Microsoft.Office365.usagereports/AllEntities/Read | Lees Office 365-gebruiksrapporten. |
+
 ### <a name="security-administrator"></a>Beveiligingsbeheerder
 Kan beveiligingsgegevens en -rapporten lezen
 
@@ -810,25 +809,6 @@ Kan beveiligingsgegevens en -rapporten lezen
 | microsoft.aad.privilegedrolemanagement/AllEntities/Read | Lees alle aspecten van Office Privileged Identity Management. |
 | microsoft.protectioncenter/AllEntities/Read | Lees alle aspecten van Office 365 Protection Center. |
 | microsoft.protectioncenter/AllEntities/Update | Beheer Office 365 Protection Center. |
-
-### <a name="reports-reader"></a>Rapportenlezer
-Kan rapporten met betrekking tot aanmeldingen en controles lezen.
-
-  > [!NOTE]
-  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
-  >
-  >
-
-  > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
-  >
-  >
-
-| **Acties** | **Beschrijving** |
-| --- | --- |
-| microsoft.aad.reports/AllEntities/Read | Lees Azure AD-rapporten. |
-| microsoft.aad.servicehealth/AllEntities/AllActions | Lees en configureer de Office 365-servicestatus. |
-| Microsoft.Office365.usagereports/AllEntities/Read | Lees Office 365-gebruiksrapporten. |
 
 ### <a name="security-reader"></a>Beveiligingslezer
 Kan beveiligingsgegevens en -rapporten lezen in Azure AD en Office 365.

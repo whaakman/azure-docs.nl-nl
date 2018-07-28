@@ -8,12 +8,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: ganesr
-ms.openlocfilehash: 99e0bbc0e2501deead8990776d35835ea396590b
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: e598249d0065bde8b3fe74883da8a0e39c9bc7c7
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284378"
+ms.locfileid: "39308082"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Een virtueel netwerk verbinden met een ExpressRoute-circuit met behulp van PowerShell (klassiek)
 > [!div class="op_single_selector"]
@@ -25,6 +25,10 @@ ms.locfileid: "39284378"
 >
 
 In dit artikel krijgt u virtuele netwerken (VNets) koppelen aan Azure ExpressRoute-circuits met behulp van het klassieke implementatiemodel en PowerShell. Virtuele netwerken kunnen in hetzelfde abonnement of kunnen deel uitmaken van een ander abonnement.
+
+Een enkel VNet kan worden gekoppeld aan maximaal vier ExpressRoute-circuits. Gebruik de stappen in dit artikel om te maken van een nieuwe koppeling naar elk ExpressRoute-circuit dat u verbinding maakt. De ExpressRoute-circuits kunnen zich in hetzelfde abonnement, verschillende abonnementen of een combinatie van beide.
+
+U kunt maximaal 10 virtuele netwerken koppelen aan een ExpressRoute-circuit. Alle virtuele netwerken moeten zich in dezelfde geopolitieke regio. Een groter aantal virtuele netwerken aan uw ExpressRoute-circuit of virtuele netwerken koppelen die zich in andere geopolitieke regio's als u de premium-invoegtoepassing voor ExpressRoute hebt ingeschakeld, kunt u koppelen. Controleer de [Veelgestelde vragen over](expressroute-faqs.md) voor meer informatie over de premium-invoegtoepassing.
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
@@ -41,11 +45,7 @@ In dit artikel krijgt u virtuele netwerken (VNets) koppelen aan Azure ExpressRou
    * Zorg ervoor dat de persoonlijke Azure-peering is geconfigureerd en van de BGP-peering tussen uw netwerk en Microsoft is, zodat u end-to-end-connectiviteit kunt inschakelen.
    * Hebt u een virtueel netwerk en een virtuele netwerkgateway gemaakt en volledig is ingericht. Volg de instructies voor [een virtueel netwerk configureren voor ExpressRoute](expressroute-howto-vnet-portal-classic.md).
 
-U kunt maximaal 10 virtuele netwerken koppelen aan een ExpressRoute-circuit. Alle virtuele netwerken moeten zich in dezelfde geopolitieke regio. Een groter aantal virtuele netwerken aan uw ExpressRoute-circuit of virtuele netwerken koppelen die zich in andere geopolitieke regio's als u de premium-invoegtoepassing voor ExpressRoute hebt ingeschakeld, kunt u koppelen. Controleer de [Veelgestelde vragen over](expressroute-faqs.md) voor meer informatie over de premium-invoegtoepassing.
-
-Een enkel VNet kan worden gekoppeld aan maximaal vier ExpressRoute-circuits. Gebruik de procedure hieronder een nieuwe koppeling maakt naar elk ExpressRoute-circuit dat u verbinding maakt. De ExpressRoute-circuits kunnen zich in hetzelfde abonnement, verschillende abonnementen of een combinatie van beide.
-
-## <a name="download-the-latest-powershell-cmdlets"></a>Download de meest recente PowerShell-cmdlets
+### <a name="download-the-latest-powershell-cmdlets"></a>Download de meest recente PowerShell-cmdlets
 
 U moet de nieuwste versie van de Azure PowerShell-modules. U kunt de meest recente PowerShell-modules downloaden van de PowerShell-sectie van de [pagina Azure Downloads](https://azure.microsoft.com/downloads/). Volg de instructies in [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview) voor stapsgewijze instructies over het configureren van uw computer voor het gebruik van de Azure PowerShell-modules.
 

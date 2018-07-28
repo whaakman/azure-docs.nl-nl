@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9341c3bcbe90788318c9b20ccc6988461e972347
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 22751d7ab38717fefdebe107e7a7d6fc10dda4c4
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264535"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326187"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Vereisten voor Azure AD Connect
 Dit onderwerp beschrijft de vereisten en de hardwarevereisten voor Azure AD Connect.
@@ -43,7 +43,6 @@ Voordat u Azure AD Connect installeert, zijn er enkele dingen die u nodig hebt.
 * Het AD-schema-versie en forest-functionaliteitsniveau moet WindowsServer 2003 of hoger. Domeincontrollers kunnen elke versie wordt uitgevoerd, zolang de schema- en forest niveau vereisten wordt voldaan.
 * Als u van plan bent om de functie te gebruiken **wachtwoord terugschrijven**, en vervolgens de domeincontrollers op Windows Server 2008 (met de meest recente SP) of hoger zijn moet. Als uw DC's op 2008 (pre-R2 worden), dan moet u ook toepassen [hotfix KB2386717](http://support.microsoft.com/kb/2386717).
 * De domeincontroller die wordt gebruikt door Azure AD moet beschrijfbaar zijn. Het is **niet ondersteund** het gebruik van een RODC (alleen-lezen domeincontroller) en Azure AD Connect niet voldoet aan alle omleidingen schrijven.
-* Het is **niet ondersteund** on-premises forests/domeinen met behulp van niveaudomeinen (domeinen met één Label) gebruiken.
 * Is het **niet ondersteund** gebruik van on-premises forests/domeinen met behulp van "gestippeld" (de naam van een punt bevat ".") NetBIOS-namen.
 * Het verdient [de Active Directory-Prullenbak inschakelen](active-directory-aadconnectsync-recycle-bin.md).
 

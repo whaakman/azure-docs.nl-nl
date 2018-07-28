@@ -9,14 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: f66917ed49393988a378de0a55525105c5d19b7c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 7790920b6553ba0e2738d693710bfc3a1d3b4f89
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282371"
+ms.locfileid: "39325098"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-core-on-windows-using-the-speech-sdk"></a>Snelstartgids: Herkennen gesproken tekst in C# onder .NET Core in Windows met behulp van de spraak-SDK
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In dit artikel leert u hoe u een C#-consoletoepassing maken voor .NET Core in Windows met behulp van de Cognitive Services Speech SDK spraak naar tekst te transcriberen.
 De toepassing is gemaakt met de [Microsoft Cognitive Services Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017.
@@ -82,6 +84,6 @@ Zoek in dit voorbeeld in de `quickstart/csharp-dotnetcore-windows` map.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Spraak vertalen](how-to-translate-speech.md)
+- [Spraak vertalen](how-to-translate-speech-csharp.md)
 - [Akoestische modellen aanpassen](how-to-customize-acoustic-models.md)
 - [Taalmodellen aanpassen](how-to-customize-language-model.md)

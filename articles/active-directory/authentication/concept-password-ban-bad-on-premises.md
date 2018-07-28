@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 5d4062ff2c21deeb56eb4ae6e8386452608f85fa
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: fa6048800aad04b45b72c4da61ad9e8b94541502
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158801"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308473"
 ---
 # <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Voorbeeld: Azure AD wachtwoordbeveiliging voor Windows Server Active Directory afdwingen
 
@@ -37,6 +37,7 @@ Er zijn drie softwareonderdelen die gezamenlijk protection voor Azure AD-wachtwo
 ## <a name="requirements"></a>Vereisten
 
 * Alle machines waar Azure AD wachtwoord beveiliging onderdelen zijn geïnstalleerd met inbegrip van de domeincontrollers moeten worden uitgevoerd worden WindowsServer 2012 of hoger.
+* Alle machines waar Azure AD wachtwoord beveiliging onderdelen zijn geïnstalleerd met inbegrip van de domeincontrollers moeten de Universal C-runtime geïnstalleerd hebben. Dit gebeurt bij voorkeur volledig patches voor de machine via Windows Update. Anders een juiste specifieke update-pakket kan worden geïnstalleerd: Zie [bijwerken voor universele C tijdens Runtime in Windows](https://support.microsoft.com/en-us/help/2999226/update-for-universal-c-runtime-in-windows)
 * Verbinding met het netwerk moet bestaan tussen ten minste één domeincontroller in elk domein en ten minste één server die als host fungeert voor de proxy-service van Azure AD wachtwoord beveiliging.
 * Een Active Directory-domein met de DC agent-service-software gebruiken DFS-replicatie voor sysvol-replicatie.
 * Een globale beheerdersaccount om u te registreren van de proxy-service van Azure AD wachtwoord beveiliging met Azure AD.
@@ -48,7 +49,7 @@ De voordelen van de lijst met uitgesloten wachtwoorden globale gelden voor alle 
 
 De lijst met aangepaste uitgesloten wachtwoorden vereist Azure AD Basic-licenties.
 
-Azure AD-wachtwoordbeveiliging voor Windows Server Active Directory vereist Azure AD Premium-licenties. 
+Azure AD-wachtwoordbeveiliging voor Windows Server Active Directory vereist Azure AD Premium-licenties.
 
 Extra licentie-informatie, inclusief kosten, vindt u op de [Azure Active Directory-site prijzen](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -61,7 +62,7 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van de Azure AD-wac
 * Er is geen verbinding met internet naar de domeincontrollers vereist. De computer (s) met de proxy-service van Azure AD wachtwoord beveiliging zijn de enige machines dat internetconnectiviteit vereist.
 * Er is geen netwerkpoorten zijn geopend op domeincontrollers.
 * Er zijn geen wijzigingen in Active Directory-schema zijn vereist.
-   * De software maakt gebruik van de bestaande Active Directory-container en serviceConnectionPoint schemaobjecten.
+* De software maakt gebruik van de bestaande Active Directory-container en serviceConnectionPoint schemaobjecten.
 * Er is geen Active Directory-domein of Forest functionele niveau (DFL\FFL) minimumvereiste.
 * De software niet maken of vereisen dat alle accounts in Active Directory-domeinen die worden beschermd.
 * Stapsgewijze implementatie wordt ondersteund daar staat tegenover dat beleid van het wachtwoord alleen wordt afgedwongen waar de domain controller-agent is geïnstalleerd.

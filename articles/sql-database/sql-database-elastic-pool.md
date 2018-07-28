@@ -7,19 +7,19 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
-ms.date: 07/16/2018
+ms.date: 07/27/2018
 ms.author: ninarn
 ms.topic: conceptual
-ms.openlocfilehash: a5d5c29b30f746c5507e45ecbee6c5ab9aff56f3
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: d350678d80497b44cdd854baf958926150867c01
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091939"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326095"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastische pools kunt u beheren en schalen van meerdere Azure SQL-databases
 
-SQL Database elastische pools zijn een eenvoudige en kosteneffectieve oplossing voor het beheren en schalen van meerdere databases met uiteenlopende en onvoorspelbare vraag voor gebruik. De databases in een elastische pool op een enkele Azure SQL Database-server en delen van een bepaald aantal resources in een vaste prijs. Met elastische groepen in Azure SQL Database kunnen SaaS-ontwikkelaars de prijsprestaties voor een groep databases binnen een voorgeschreven budget optimaliseren en flexibele prestaties voor elke database leveren.
+Elastische pools in SQL Database zijn eenvoudige, kosteneffectieve oplossingen voor het beheren en schalen van meerdere databases die een verschillend en onvoorspelbaar verbruik hebben. De databases in een elastische pool op een enkele Azure SQL Database-server en delen van een bepaald aantal resources in een vaste prijs. Met elastische groepen in Azure SQL Database kunnen SaaS-ontwikkelaars de prijsprestaties voor een groep databases binnen een voorgeschreven budget optimaliseren en flexibele prestaties voor elke database leveren.
 
 ## <a name="what-are-sql-elastic-pools"></a>Wat zijn elastische SQL-groepen?
 
@@ -36,6 +36,9 @@ Elastische groepen lossen dit probleem op door ervoor te zorgen dat databases de
 Elastische pools bieden de ontwikkelaar om aan te schaffen resources voor een groep die wordt gedeeld door meerdere databases aan onvoorspelbare perioden van gebruik door afzonderlijke databases. U kunt resources configureren voor de groep op basis van ofwel de [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) of de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). De Resourcevereiste voor een groep wordt bepaald door de gezamenlijke gebruik van de bijbehorende databases. De hoeveelheid resources die beschikbaar is voor de groep wordt bepaald door het budget van de ontwikkelaar. De ontwikkelaar gewoon databases aan de groep toegevoegd, Hiermee stelt u de minimale en maximale beschikbare resources voor de databases (de minimale en maximale aantal dtu's of minimum of maximum aantal vCores, afhankelijk van uw keuze van het model resourcing), en stelt vervolgens de resources van de groep op basis van hun budget. Met groepen kan een ontwikkelaar services naadloos met een alsmaar groeiende schaal uitbreiden van een kleine startende ondernemer tot een volwassen bedrijf.
 
 Binnen de pool hebben afzonderlijke databases de flexibiliteit om de schaal automatisch aan te passen binnen ingestelde parameters. Onder zware belasting kan verbruiken een database meer resources om te voldoen aan de vraag. Databases met een lichte belasting minder verbruiken en databases zonder enige belasting geen resources verbruiken. De inrichting van resources voor de hele pool in plaats van afzonderlijke databases vereenvoudigt uw beheertaken. Bovendien hebt u een voorspelbaar budget voor de pool. Aanvullende bronnen kunnen worden toegevoegd aan een bestaande pool met uitvaltijd, behalve dat de databases moeten mogelijk worden verplaatst om te voorzien van de extra rekenresources voor de nieuwe eDTU-reservering. Op dezelfde manier als extra resources niet meer nodig zijn kunnen ze worden verwijderd uit een bestaande pool op elk gewenst moment in-time. Daarnaast kunt u databases aan de groep toevoegen of uit de groep verwijderen. Als een database naar verwachting minder resources nodig heeft, kunt u deze verwijderen.
+
+> [!NOTE]
+> Bij het verplaatsen van databases naar of vanuit de elastische pool, is er geen uitvaltijd, met uitzondering van een korte periode (orde van grootte seconden) aan het einde van de bewerking wanneer databaseverbindingen worden verwijderd.
 
 ## <a name="when-should-you-consider-a-sql-database-elastic-pool"></a>Wanneer moet u rekening houden met een SQL Database elastische pool?
 

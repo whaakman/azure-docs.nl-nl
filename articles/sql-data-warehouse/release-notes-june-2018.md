@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 8d7047e8452170f550d200fffebe3cc2099657c7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 1db503ea40a9f07720aa9c130cd3bcc22f87f2af
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284314"
+ms.locfileid: "39324816"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? Juni 2018
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in juni 2018. 
@@ -109,7 +109,7 @@ start_time                | end_time                | command
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [Maak een SQL Data Warehouse] [een SQL Data Warehouse maken] en [voorbeeldgegevens laden] [voorbeeldgegevens laden]. Als u niet bekend bent met Azure, vindt u de [Azure-woordenlijst] [Azure-woordenlijst] handig zijn bij het opzoeken van nieuwe terminologie. U kunt ook enkele andere SQL Data Warehouse-resources bekijken.  
+Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [maken van een SQL Data Warehouse][create a SQL Data Warehouse]. Als u niet bekend bent met Azure, kan de [Azure-woordenlijst][Azure glossary] handig zijn bij het opzoeken van nieuwe terminologie. U kunt ook enkele andere SQL Data Warehouse-resources bekijken.  
 
 * [Succesverhalen van klanten]
 * [Blogs]
@@ -127,3 +127,5 @@ Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [Maak ee
 [Stack Overflow-forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Video's]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md

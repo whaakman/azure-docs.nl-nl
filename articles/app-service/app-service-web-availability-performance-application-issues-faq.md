@@ -1,6 +1,6 @@
 ---
-title: Toepassingsprestaties Veelgestelde vragen voor Azure-web-apps | Microsoft Docs
-description: Vind antwoorden op veelgestelde vragen over de beschikbaarheid, prestaties en problemen met toepassingen in de functie Web Apps van Azure App Service.
+title: Toepassingsprestaties Veelgestelde vragen voor Azure WebApps | Microsoft Docs
+description: Krijg antwoorden op veelgestelde vragen over beschikbaarheid, prestaties en toepassingsproblemen in de functie Web Apps van Azure App Service.
 services: app-service\web
 documentationcenter: ''
 author: genlin
@@ -15,94 +15,94 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 9c8eda1c4a65465a93b9c3f9caf23a6663073f26
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 06fe9f1fd65f70e41d528a513e44e61edb4a7e4f
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34159287"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307905"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Toepassingsprestaties Veelgestelde vragen voor Web-Apps in Azure
 
-In dit artikel bevat antwoorden op veelgestelde vragen (FAQ's) over toepassing prestatieproblemen voor de [functie van Azure App Service Web Apps](https://azure.microsoft.com/services/app-service/web/).
+In dit artikel vindt u antwoorden op veelgestelde vragen over toepassing prestatieproblemen voor de [functie van Azure App Service Web Apps](https://azure.microsoft.com/services/app-service/web/).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="why-is-my-app-slow"></a>Waarom wordt mijn trage app?
+## <a name="why-is-my-app-slow"></a>Waarom is mijn app is langzaam?
 
-Langzame appprestaties kan bijdragen tot meerdere factoren. Zie voor gedetailleerde stappen voor probleemoplossing, [problemen met trage web appprestaties](app-service-web-troubleshoot-performance-degradation.md).
+Langzame prestaties van de app mogelijk meerdere factoren bijdragen. Zie voor gedetailleerde stappen voor probleemoplossing, [prestaties voor problemen met trage web-apps](app-service-web-troubleshoot-performance-degradation.md).
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>Hoe kan ik een hoog CPU-verbruik scenario oplossen?
 
-Uw app kunnen in sommige gevallen hoog CPU-verbruik echt vereist meer bronnen. Overweeg in dat geval schalen met een hogere servicetier zodat de toepassing krijgt alle resources die nodig is. Andere keren kan hoog CPU-verbruik worden veroorzaakt door een onjuiste lus of door de code uit veiligheidsoverwegingen. Om inzicht te krijgen in wat meer CPU-verbruik wordt activering is een tweedelige-proces. Eerst een Procesdump maken en vervolgens de Procesdump analyseren. Zie voor meer informatie [vastleggen en analyseren van een dumpbestand voor hoog CPU-verbruik voor Web-Apps](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
+Uw app kunnen in sommige hoog CPU-verbruik-scenario's echt vereist meer bronnen. In dat geval kunt u overwegen naar een hogere servicelaag te schalen, zodat de toepassing krijgt alle resources die nodig is. In andere gevallen kan hoog CPU-verbruik worden veroorzaakt door een ongeldige lus of door code uit veiligheidsoverwegingen. Om inzicht te krijgen in wat hogere CPU-verbruik Triggert is een tweedelige-proces. Maak eerst een dump verwerken, en vervolgens analyseren de Procesdump. Zie voor meer informatie, [vastleggen en analyseren van een dumpbestand voor hoge CPU-verbruik voor Web-Apps](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
 
-## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Hoe kan ik een scenario hoog geheugengebruik oplossen?
+## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Hoe kan ik een hoog geheugenverbruik scenario oplossen?
 
-Uw app kunnen in sommige gevallen hoog geheugengebruik echt vereist meer bronnen. Overweeg in dat geval schalen met een hogere servicetier zodat de toepassing krijgt alle resources die nodig is. Andere tijden kan een fout in de code een geheugenlek veroorzaken. Code uit veiligheidsoverwegingen mogelijk ook geheugenverbruik verhogen. Om inzicht te krijgen in wat wordt activering van veel geheugen verbruik bestaat uit twee fasen. Eerst een Procesdump maken en vervolgens de Procesdump analyseren. Crash Diagnoser uit de galerie van Azure Site-uitbreiding kunt efficiënt beide deze stappen uitvoeren. Zie voor meer informatie [vastleggen en analyseren van een dumpbestand voor onregelmatige veel geheugen voor Web-Apps](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
+Uw app kunnen in bepaalde situaties hoog geheugenverbruik, echt vereist meer bronnen. In dat geval kunt u overwegen naar een hogere servicelaag te schalen, zodat de toepassing krijgt alle resources die nodig is. In andere gevallen een fout in de code kan leiden tot een geheugenlek. Uit veiligheidsoverwegingen codering mogelijk ook geheugenverbruik verhogen. Om inzicht te krijgen in wat veel geheugen verbruik is een tweedelige-proces wordt geactiveerd. Maak eerst een dump verwerken, en vervolgens analyseren de Procesdump. Crash Diagnoser uit de galerie met Azure Site-extensie kunt efficiënt beide stappen uitvoeren. Zie voor meer informatie, [vastleggen en analyseren van een dumpbestand voor onregelmatige hoge geheugen voor Web-Apps](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
 
-## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Hoe ik App Service-web-apps met behulp van PowerShell automatiseren?
+## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Hoe Automatiseer ik App Service WebApps met behulp van PowerShell?
 
-U kunt de PowerShell-cmdlets gebruiken om te beheren en onderhouden van App Service-web-apps. In onze blogbericht [web-apps die worden gehost in Azure App Service met behulp van PowerShell automatiseren](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/), er wordt beschreven hoe u op basis van Azure Resource Manager PowerShell-cmdlets gebruiken om algemene taken te automatiseren. Het blogbericht heeft ook een voorbeeld van code voor verschillende beheertaken voor web-apps. Zie voor beschrijvingen en de syntaxis voor alle cmdlets van App Service web apps [AzureRM.Websites](https://docs.microsoft.com/powershell/module/azurerm.websites/?view=azurermps-4.0.0).
+U kunt PowerShell-cmdlets gebruiken om te beheren en onderhouden van App Service Webapps. In onze blogpost [automatiseren webtoepassingen die worden gehost in Azure App Service met behulp van PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/), wordt beschreven hoe u op basis van een Azure Resource Manager PowerShell-cmdlets gebruiken om algemene taken te automatiseren. Het blogbericht: heeft ook voorbeeldcode voor verschillende beheertaken voor web-apps. Zie voor beschrijvingen en syntaxis voor alle App Service web apps-cmdlets voor [azurerm.websites gebruikt](https://docs.microsoft.com/powershell/module/azurerm.websites/?view=azurermps-4.0.0).
 
 ## <a name="how-do-i-view-my-web-apps-event-logs"></a>Hoe kan ik mijn web-app-gebeurtenislogboeken bekijken?
 
-Uw web-app-gebeurtenislogboeken weergeven:
+Logboeken voor uw web-app weergeven:
 
 1. Aanmelden bij uw [Kudu website](https://*yourwebsitename*.scm.azurewebsites.net).
-2. Selecteer in het menu **Console voor foutopsporing** > **CMD**.
+2. Selecteer in het menu **Foutopsporingsconsole** > **CMD**.
 3. Selecteer de **logboekbestanden** map.
-4. Wilt u gebeurtenislogboeken weergeven, selecteert u het potloodpictogram naast **eventlog.xml**.
-5. Voer de PowerShell-cmdlet voor het downloaden van de logboeken `Save-AzureWebSiteLog -Name webappname`.
+4. U wilt weergeven van gebeurtenislogboeken, selecteer het potloodpictogram naast **eventlog.xml**.
+5. Voor het downloaden van de logboeken, voert u de PowerShell-cmdlet `Save-AzureWebSiteLog -Name webappname`.
 
-## <a name="how-do-i-capture-a-user-mode-memory-dump-of-my-web-app"></a>Hoe ik een geheugendump gebruikersmodus van mijn web-app vastleggen?
+## <a name="how-do-i-capture-a-user-mode-memory-dump-of-my-web-app"></a>Hoe ik een geheugendump gebruiker-modus van mijn web-app opnemen?
 
-Voor het vastleggen van een geheugendump gebruikersmodus van uw web-app:
+Om vast te leggen een geheugendump gebruiker-modus van uw web-app:
 
 1. Aanmelden bij uw [Kudu website](https://*yourwebsitename*.scm.azurewebsites.net).
 2. Selecteer de **Procesverkenner** menu.
 3. Met de rechtermuisknop op de **w3wp.exe** proces of de webtaak wordt uitgevoerd.
-4. Selecteer **geheugendump downloaden** > **Dump volledige**.
+4. Selecteer **geheugendump downloaden** > **volledige Dump**.
 
-## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>Hoe kan ik voor mijn web-app procesniveau info bekijken?
+## <a name="how-do-i-view-process-level-info-for-my-web-app"></a>Hoe geef ik procesniveau informatie weer voor mijn web-app?
 
 U hebt twee opties voor het weergeven van procesniveau informatie voor uw web-app:
 
 *   In Azure Portal:
     1. Open de **Procesverkenner** voor de web-app.
-    2. Voor de details, selecteer de **w3wp.exe** proces.
+    2. De details, selecteer de **w3wp.exe** proces.
 *   In de Kudu-console:
     1. Aanmelden bij uw [Kudu website](https://*yourwebsitename*.scm.azurewebsites.net).
     2. Selecteer de **Procesverkenner** menu.
     3. Voor de **w3wp.exe** proces, selecteer **eigenschappen**.
 
-## <a name="when-i-browse-to-my-app-i-see-error-403---this-web-app-is-stopped-how-do-i-resolve-this"></a>Wanneer ik mijn app bladert, verschijnt "Fout 403 - deze web-app is gestopt." Hoe kan ik dit oplossen?
+## <a name="when-i-browse-to-my-app-i-see-error-403---this-web-app-is-stopped-how-do-i-resolve-this"></a>Wanneer ik naar Mijn app bladert, zie ik "Fout 403 - deze web-app is gestopt." Hoe kan ik dit oplossen?
 
 Drie voorwaarden kunnen leiden tot deze fout:
 
-* De web-app een facturering limiet heeft bereikt en uw site is uitgeschakeld.
-* De web-app is in de portal gestopt.
-* De web-app heeft een resource quotumlimiet die mogelijk van toepassing zijn op een vrij of gedeeld serviceplan schaal bereikt.
+* De web-app heeft een factureringslimiet bereikt en uw site is uitgeschakeld.
+* De web-app is gestopt in de portal.
+* De web-app heeft een limiet voor het resourcequotum die mogelijk van toepassing zijn op een gratis of gedeeld schaal service-plan bereikt.
 
-Om te zien wat de oorzaak van de fout en los het probleem, volg de stappen in [Web-Apps: 'Fout 403 – deze web-app is gestopt'](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
+Om te zien wat de oorzaak is van de fout en het probleem kunt oplossen, volg de stappen in [Web-Apps: 'Fout 403-deze web-app is gestopt'](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
 
-## <a name="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans"></a>Waar vind ik meer informatie over quota en limieten voor verschillende App Service-abonnementen?
+## <a name="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans"></a>Waar vind ik meer informatie over quota en limieten voor verschillende App Service-plannen?
 
-Zie voor meer informatie over quota en limieten [App Service-beperkingen](../azure-subscription-service-limits.md#app-service-limits). 
+Zie voor meer informatie over quota en limieten [limieten voor App Service](../azure-subscription-service-limits.md#app-service-limits). 
 
-## <a name="how-do-i-decrease-the-response-time-for-the-first-request-after-idle-time"></a>Hoe ik de reactietijd voor de eerste aanvraag na niet-actieve tijd verkleinen?
+## <a name="how-do-i-decrease-the-response-time-for-the-first-request-after-idle-time"></a>Hoe ik de reactietijd voor de eerste aanvraag na niet-actieve tijd verlagen?
 
-Standaard worden web-apps uit het geheugen verwijderd als ze inactief gedurende een bepaalde tijd zijn. Op deze manier het systeem kunt besparen. Het nadeel is dat het antwoord op de eerste aanvraag nadat de web-app verwijderd wordt langer om toe te staan van de web-app te laden en start de afhandeling van reacties. In het service-plan, Basic en Standard, kunt u op de **altijd op** instelling te houden van de app altijd geladen. Hierdoor langer laadtijden nadat de app actief is. Wijzigen van de **altijd op** instelling:
+Standaard worden web-apps uit het geheugen verwijderd als ze gedurende een bepaalde tijd niet actief zijn. Op deze manier het systeem kunt besparen. Het nadeel is dat het antwoord op de eerste aanvraag nadat de web-app verwijderd wordt langer om de web-app te laden en start de afhandeling van reacties. In de serviceabonnementen basis en standaard, kunt u inschakelen de **Always On** instelling in om te voorkomen dat de app altijd geladen. Hierdoor is er meer laadtijden nadat de app actief is. Wijzigen van de **Always On** instelling:
 
-1. Ga naar uw web-app in de Azure portal.
+1. In de Azure-portal, gaat u naar uw web-app.
 2. Selecteer **toepassingsinstellingen**.
-3. Voor **altijd op**, selecteer **op**.
+3. Voor **Always On**, selecteer **op**.
 
 ## <a name="how-do-i-turn-on-failed-request-tracing"></a>Hoe kan ik tracering van mislukte aanvragen inschakelen?
 
 Tracering van mislukte aanvragen inschakelen:
 
-1. Ga naar uw web-app in de Azure portal.
-3. Selecteer **alle instellingen** > **diagnostische logboeken**.
+1. In de Azure-portal, gaat u naar uw web-app.
+3. Selecteer **alle instellingen** > **diagnoselogboeken**.
 4. Voor **tracering van mislukte aanvragen**, selecteer **op**.
 5. Selecteer **Opslaan**.
 6. Selecteer op de blade web-app **extra**.
@@ -110,7 +110,7 @@ Tracering van mislukte aanvragen inschakelen:
 8. Als de instelling niet is **op**, selecteer **op**.
 9. Selecteer **gaat**.
 10. Selecteer **Web.config**.
-11. In system.webServer, voegt u deze configuratie (voor het vastleggen van een specifieke URL):
+11. System.webServer, voeg toe aan deze configuratie (voor het vastleggen van een specifieke URL):
 
     ```
     <system.webServer>
@@ -127,7 +127,7 @@ Tracering van mislukte aanvragen inschakelen:
     </add> </traceFailedRequests>
     </tracing>
     ```
-12. Voor het oplossen van problemen met trage prestaties moet u deze configuratie toevoegen (als de vastleggen aanvraag langer dan 30 seconden duurt):
+12. Voor het oplossen van problemen met trage prestaties, moet u deze configuratie toevoegen (als de aanvraag voor vastgelegde langer dan 30 seconden duurt):
     ```
     <system.webServer>
     <tracing> <traceFailedRequests>
@@ -142,51 +142,51 @@ Tracering van mislukte aanvragen inschakelen:
     </add> </traceFailedRequests>
     </tracing>
     ```
-13. Voor het downloaden van de traceringen van mislukte aanvragen de [portal](https://portal.azure.com), gaat u naar uw website.
+13. Voor het downloaden van de traceringen van mislukte aanvragen, in de [portal](https://portal.azure.com), gaat u naar uw website.
 15. Selecteer **extra** > **Kudu** > **gaat**.
-18. Selecteer in het menu **Console voor foutopsporing** > **CMD**.
-19. Selecteer de **logboekbestanden** map en selecteer vervolgens de map met een naam die met begint **W3SVC**.
-20. Overzicht van het XML-bestand, selecteer het potloodpictogram.
+18. Selecteer in het menu **Foutopsporingsconsole** > **CMD**.
+19. Selecteer de **logboekbestanden** map en selecteer vervolgens de map met de naam die met begint **W3SVC**.
+20. Als u wilt zien van het XML-bestand, selecteer het potloodpictogram.
 
-## <a name="i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue"></a>Het bericht ziet: "Werkproces recycling aangevraagd als gevolg ' percentage ' geheugenlimiet." Hoe ik dit probleem op te lossen?
+## <a name="i-see-the-message-worker-process-requested-recycle-due-to-percent-memory-limit-how-do-i-address-this-issue"></a>Het bericht ziet: 'Werkproces aangevraagd gerecycled vanwege een limiet voor 'Percentage geheugen'.' Hoe ik dit probleem oplossen?
 
-De maximaal beschikbare hoeveelheid geheugen voor een 32-bits proces (zelfs op een 64-bits besturingssysteem) is 2 GB. Het werkproces is standaard ingesteld op 32-bits in App Service (voor compatibiliteit met oudere toepassingen).
+De maximaal beschikbare hoeveelheid geheugen voor een 32-bits proces (zelfs op een 64-bits besturingssysteem) is 2 GB. Het werkproces is standaard ingesteld op 32-bits in App Service (voor compatibiliteit met oudere web-apps).
 
-Overweeg over te schakelen op 64-bits processen, zodat u van extra geheugen in uw Web-werkrol profiteren kunt. Dit activeert een web-app opnieuw starten, dus plannen dienovereenkomstig.
+Overweeg over te schakelen op 64-bits processen, zodat u van de extra geheugen die beschikbaar zijn in uw Web-werkrol profiteren kunt. Dit activeert een web-app opnieuw opstarten, dus dienovereenkomstig plannen.
 
-Let ook op een 64-bits-omgeving hebt u een Basic- of Standard service-abonnement nodig. Gratis en plannen van gedeelde altijd uitgevoerd in een 32-bits-omgeving.
+Houd er ook rekening mee dat een 64-bits-omgeving is een Basic- of Standard-serviceplan vereist. Gratis en gedeelde abonnementen worden altijd uitgevoerd in een 32-bits-omgeving.
 
-Zie voor meer informatie [configureren van web-apps in App Service](web-sites-configure.md).
+Zie voor meer informatie, [web-apps in App Service configureren](web-sites-configure.md).
 
-## <a name="why-does-my-request-time-out-after-240-seconds"></a>Waarom wordt mijn time-out aanvraag na 240 seconden?
+## <a name="why-does-my-request-time-out-after-230-seconds"></a>Waarom wordt mijn time-out aanvraag na 230 seconden?
 
-Azure Load Balancer heeft een time-out voor inactiviteit standaardinstelling van vier minuten. Doorgaans is dit een redelijke antwoord tijdslimiet voor een webaanvraag. Als uw web-app achtergrondverwerking vereist, wordt u aangeraden Azure WebJobs. De Azure-web-app kunt aanroepen WebJobs en een melding krijgen wanneer achtergrondverwerking is voltooid. U kunt kiezen uit meerdere methoden voor het gebruik van WebJobs, met inbegrip van wachtrijen en triggers.
+Azure Load Balancer heeft een standaardinstelling voor de time-out voor inactiviteit van vier minuten. Dit is doorgaans een redelijke antwoord tijdslimiet voor een webaanvraag. Als uw web-app is vereist voor verwerking op de achtergrond, raden wij met behulp van Azure WebJobs. De Azure-web-app WebJobs kunt aanroepen en een melding wanneer de verwerking op de achtergrond is voltooid. U kunt kiezen uit meerdere methoden voor het gebruik van WebJobs, met inbegrip van wachtrijen en -triggers.
 
-WebJobs is ontworpen voor de achtergrond wordt verwerkt. U kunt doen zoveel achtergrond verwerkt als u in een webtaak wilt. Zie voor meer informatie over WebJobs [achtergrondtaken uitvoeren met WebJobs](web-sites-create-web-jobs.md).
+WebJobs is ontworpen voor verwerking op de achtergrond. U kunt doen zoveel achtergrond verwerken als u in een webtaak wilt. Zie voor meer informatie over WebJobs [achtergrondtaken uitvoeren met WebJobs](web-sites-create-web-jobs.md).
 
-## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>ASP.NET Core toepassingen die worden gehost in App Service soms reageert. Hoe kan ik dit probleem oplossen?
+## <a name="aspnet-core-applications-that-are-hosted-in-app-service-sometimes-stop-responding-how-do-i-fix-this-issue"></a>ASP.NET Core-toepassingen die worden gehost in App Service soms reageert niet. Hoe kan ik dit probleem oplossen?
 
-Een bekend probleem met een eerdere [Kestrel versie](https://github.com/aspnet/KestrelHttpServer/issues/1182) kan ertoe leiden dat een ASP.NET Core 1.0-app die wordt gehost in App Service wel en soms niet reageert. Ook ziet u dit bericht: 'de opgegeven CGI-toepassing is een fout opgetreden en het proces is beëindigd.'
+Een bekend probleem met een eerdere [Kestrel versie](https://github.com/aspnet/KestrelHttpServer/issues/1182) kan leiden tot een ASP.NET Core 1.0-app die wordt gehost in App Service tijdelijk niet meer reageert. Ook ziet u mogelijk dit bericht: 'de opgegeven CGI-toepassing is een fout opgetreden en de server het proces beëindigd.'
 
-Dit probleem is opgelost in Kestrel versie 1.0.2. Deze versie is opgenomen in de update van ASP.NET Core 1.0.3. U lost dit probleem, moet dat u uw app-afhankelijkheden voor het gebruik van Kestrel 1.0.2 bijwerken. U kunt ook kunt u een van twee oplossingen die worden beschreven in de blogbericht [trage prestaties van ASP.NET Core 1.0 problemen in App Service WebApps](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites).
+Dit probleem is opgelost in versie 1.0.2 Kestrel. Deze versie is opgenomen in de ASP.NET Core 1.0.3-update. U lost dit probleem, moet dat u uw app-afhankelijkheden voor het gebruik van Kestrel 1.0.2 bijwerken. U kunt ook kunt u een van de twee oplossingen die worden beschreven in het blogbericht [problemen met trage prestaties van ASP.NET Core 1.0 in App Service WebApps](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites).
 
 
-## <a name="i-cant-find-my-log-files-in-the-file-structure-of-my-web-app-how-can-i-find-them"></a>Ik kan mijn logboekbestanden in de structuur van mijn web-app niet vinden. Hoe kan ik ze vinden?
+## <a name="i-cant-find-my-log-files-in-the-file-structure-of-my-web-app-how-can-i-find-them"></a>Ik kan mijn logboekbestanden vinden in de structuur van het bestand van mijn web-app. Hoe kan ik ze vinden?
 
-Als u de lokale cachefunctie van App Service gebruikt, geldt de mappenstructuur van de logboekbestanden en de gegevens mappen voor uw App Service-exemplaar. Wanneer lokale Cache wordt gebruikt, worden de submappen gemaakt in de opslag logboekbestanden en de gegevensmappen. De submappen gebruiken de naamgevingsconventie patroon 'unieke id' + tijdstempel. Elke submap komt overeen met een VM-exemplaar waarin de web-app wordt uitgevoerd of is uitgevoerd.
+Als u de lokale Cache-functie van App Service gebruikt, wordt de mappenstructuur van de mappen logboekbestanden en de gegevens voor uw App Service-exemplaar worden beïnvloed. Wanneer de lokale Cache wordt gebruikt, worden in de mappen van de gegevens en opslag logboekbestanden submappen gemaakt. De submappen gebruiken de naamgevingsconventie patroon 'de unieke id"+ tijdstempel. Elke submap komt overeen met een VM-instantie waarin de web-app wordt uitgevoerd of is uitgevoerd.
 
-Controleer uw App Service om te bepalen of u van lokale Cache gebruikmaakt, **toepassingsinstellingen** tabblad. Als de lokale Cache wordt gebruikt, de app instellen `WEBSITE_LOCAL_CACHE_OPTION` is ingesteld op `Always`.
+Om te bepalen of u lokale Cache gebruiken, Controleer uw App Service **toepassingsinstellingen** tabblad. Als de lokale Cache wordt gebruikt, de app-instelling `WEBSITE_LOCAL_CACHE_OPTION` is ingesteld op `Always`.
 
-Als u geen van lokale Cache gebruikmaakt en dit probleem zich voordoet, indienen ondersteuning aan te vragen.
+Als u geen van lokale Cache gebruikmaakt en dit probleem ondervindt, kunt u een ondersteuningsaanvraag indienen.
 
-## <a name="i-see-the-message-an-attempt-was-made-to-access-a-socket-in-a-way-forbidden-by-its-access-permissions-how-do-i-resolve-this"></a>Het bericht ziet: "Er is een poging gedaan te krijgen tot een socket op een manier is niet toegestaan volgens de toegangsmachtigingen." Hoe kan ik dit oplossen?
+## <a name="i-see-the-message-an-attempt-was-made-to-access-a-socket-in-a-way-forbidden-by-its-access-permissions-how-do-i-resolve-this"></a>Het bericht ziet: "Er is een poging gedaan te krijgen tot een socket op een manier die is niet toegestaan volgens de toegangsmachtigingen." Hoe kan ik dit oplossen?
 
-Deze fout treedt meestal op als de uitgaande TCP-verbindingen op de VM-exemplaar zijn uitgeput. In App Service gelden limieten voor het maximum aantal uitgaande verbindingen die kunnen worden gemaakt voor elke VM-instantie. Zie voor meer informatie [Cross-VM numerieke limieten](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits).
+Deze fout treedt meestal op als de uitgaande TCP-verbindingen op het VM-exemplaar worden verbruikt. In App Service, limieten gelden voor het maximum aantal uitgaande verbindingen die kunnen worden gemaakt voor elk VM-exemplaar. Zie voor meer informatie, [numerieke Cross-VM-limieten](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits).
 
-Deze fout kan ook optreden als u probeert te krijgen tot een lokaal adres van uw toepassing. Zie voor meer informatie [aanvragen van lokaal adres](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#local-address-requests).
+Deze fout kan ook optreden als u probeert te krijgen tot een lokaal adres van uw toepassing. Zie voor meer informatie, [aanvragen lokaal adres](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#local-address-requests).
 
 Zie voor meer informatie over uitgaande verbindingen in uw web-app, het blogbericht over [uitgaande verbindingen naar Azure websites](http://www.freekpaans.nl/2015/08/starving-outgoing-connections-on-windows-azure-web-sites/).
 
 ## <a name="how-do-i-use-visual-studio-to-remote-debug-my-app-service-web-app"></a>Hoe gebruik ik Visual Studio op afstand fouten opsporen in mijn App Service-web-app?
 
-Zie voor een gedetailleerd overzicht waarin u fouten opsporen in uw web-app met behulp van Visual Studio, [afstand fouten opsporen in uw App Service-web-app](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/).
+Zie voor een gedetailleerd overzicht waarin wordt uitgelegd hoe u fouten opsporen in uw web-app met behulp van Visual Studio, [extern fouten opsporen in uw App Service-web-app](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/).

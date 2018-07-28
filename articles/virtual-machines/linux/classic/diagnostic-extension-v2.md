@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: Ning
-ms.openlocfilehash: f1415e2cfbe48b287db5851bb8ebef1ff9251280
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 13d7594c15959661f3f9c3ab2165739719beac07
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "32193025"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308218"
 ---
 # <a name="use-the-linux-diagnostic-extension-to-monitor-the-performance-and-diagnostic-data-of-a-linux-vm"></a>De diagnostische Linux-extensie gebruiken voor het controleren van de prestaties en diagnostische gegevens van een Linux VM
 
@@ -89,7 +89,7 @@ Step 1. Maak een bestand met de naam PrivateConfig.json met de volgende inhoud:
         "storageAccountKey" : "the key of the account"
     }
 
-Stap 2. Voer **azure vm-extensie vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2 instellen.* --private-config-path PrivateConfig.json**.
+Stap 2. Uitvoeren **azure vm-extensie instellen vm_name LinuxDiagnostic Microsoft.OSTCExtensions 2.\* --private-config-path PrivateConfig.json**.
 
 ### <a name="scenario-2-customize-the-performance-monitor-metrics"></a>Scenario 2. Aanpassen van de monitor maatstaven voor prestaties
 
@@ -159,7 +159,7 @@ Bovendien kunt u de volgende hulpprogramma's voor de gebruikersinterface voor to
 1. Visual Studio Server Explorer. Ga naar uw storage-account. Nadat de virtuele machine wordt uitgevoerd voor ongeveer vijf minuten, ziet u de vier standaardtabellen: "LinuxCpu", "LinuxDisk", "LinuxMemory" en 'Linuxsyslog'. Dubbelklik op de tabelnamen van de om de gegevens weer te geven.
 1. [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
 
-![installatiekopie](./media/diagnostic-extension/no1.png)
+![image](./media/diagnostic-extension/no1.png)
 
 Als u fileCfg of perfCfg (zoals beschreven in de scenario's 2 en 3) hebt ingeschakeld, kunt u Visual Studio Server Explorer en Azure Storage Explorer gebruiken om niet-standaard gegevens weer te geven.
 

@@ -8,18 +8,20 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: c435e21d85ae0ab35bc2fa99f7006e841eaecec0
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 5b027051d4ea1e2f43d65a68def0482a44c7a3b7
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248771"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308685"
 ---
 # <a name="what-is-azure-importexport-service"></a>Wat is Azure Import/Export-service?
 
 Azure Import/Export-service wordt gebruikt om veilig grote hoeveelheden gegevens naar Azure Blob storage en Azure-bestanden importeren door de verzending van harde schijven voor een Azure-datacenter. Deze service kan ook worden gebruikt voor gegevensoverdracht van Azure Blob-opslag op schijven en verzend deze naar uw on-premises sites. Gegevens uit een of meer schijven kunnen worden geïmporteerd naar Azure Blob-opslag of naar Azure Files. 
 
-Azure Import/Export-service moet u uw eigen schijven leveren. Als u overdragen van gegevens met behulp van schijven die door Microsoft worden verstrekt wilt, kunt u Azure Data Box-schijf gebruiken om gegevens te importeren in Azure. Maximaal 5 versleutelde solid-state-schijven (SSD's) van Microsoft wordt geleverd met een capaciteit van 40 TB per order, naar uw datacenter via een regionale luchtvaartmaatschappij. U kunt snel configureren van schijven, gegevens kopiëren naar schijven via een USB-3.0-verbinding en stuur de schijven terug naar Azure. Ga voor meer informatie naar [overzicht van Azure Data Box-schijf](https://docs.microsoft.com/azure/databox/data-box-disk-overview).
+Azure Import/Export-service kunt u uw eigen schijven leveren of harde schijven die door Microsoft worden verstrekt. 
+
+Als u overdragen van gegevens met behulp van schijven die door Microsoft worden verstrekt wilt, kunt u [Azure Data Box-schijf](../../databox/data-box-disk-overview.md) gegevens importeren in Azure. Maximaal 5 versleutelde schijf SSD's (Solid-State) van Microsoft wordt geleverd met een totale capaciteit van 40 TB per order, naar uw datacenter via een regionale luchtvaartmaatschappij. U kunt snel schijfstations configureren, gegevens naar harde schijven te kopiëren via een USB-3.0-verbinding en verzend de schijven terug naar Azure. Ga voor meer informatie naar [overzicht van Azure Data Box-schijf](../../databox/data-box-disk-overview.md).
 
 ## <a name="azure-importexport-usecases"></a>Azure Import/Export-usecases
 
@@ -34,35 +36,29 @@ Overweeg het gebruik van Azure Import/Export-service bij het uploaden en downloa
 
 Import/Export-service maakt gebruik van de volgende onderdelen:
 
-- **Import/Export**service: deze service beschikbaar in Azure portal kan de gebruiker maken en bijhouden van importeren en exporteren van taken.  
+- **Import/Export service**: deze service is beschikbaar in Azure portal kunt u de gebruiker maken en gegevens bijhouden (uploaden) importeren en exporteren van taken (download).  
 
 - **WAImportExport hulpprogramma**: dit is een opdrachtregelprogramma dat het volgende doet: 
-    - Uw schijven die worden geleverd voorbereid voor het importeren van.
+    - Uw schijven die worden verzonden voorbereid voor het importeren van.
     - Vereenvoudigt het uitvoeren van uw gegevens kopiëren naar het station.
     - Versleutelt de gegevens op het station met BitLocker.
     - Genereert de logboekbestanden van het station gebruikt tijdens het importeren maken.
     - Aantal stations dat nodig is voor de export-taken wordt geïdentificeerd.
+    
+> [!NOTE]
+> Het hulpprogramma WAImportExport is beschikbaar in twee versies, versie 1 en 2. U wordt aangeraden dat u gebruikt:
+> - Versie 1 voor import/export naar Azure Blob-opslag. 
+> - Versie 2 voor het importeren van gegevens in Azure files.
+>
+> Het hulpprogramma WAImportExport is alleen compatibel met 64-bits Windows-besturingssysteem. Voor specifieke versies van het besturingssysteem wordt ondersteund, gaat u naar [Azure Import/Export-vereisten](storage-import-export-requirements.md#supported-operating-systems).
 
-    Dit hulpprogramma is beschikbaar in twee versies, versie 1 en 2. U wordt aangeraden dat u gebruikt:
-
-    - Versie 1 voor import/export naar Azure Blob-opslag. 
-    - Versie 2 voor het importeren van gegevens in Azure files.
-
-    Het hulpprogramma WAImportExport is alleen compatibel met 64-bits Windows-besturingssysteem. Voor specifieke versies van het besturingssysteem wordt ondersteund, gaat u naar [Azure Import/Export-vereisten](storage-import-export-requirements.md#supported-operating-systems).
-
-- **Schijven**: U SSD-schijven (SSD's) kan worden verzonden of harde schijven (HDD's) naar de Azure-datacenter. Bij het maken van een import-taak, kunt u schijven met uw gegevens verzenden. Bij het maken van een exporttaak bekijken, verzendt u lege stations in de Azure-datacenter. Voor specifieke schijftypen, gaat u naar [schijftypen ondersteund](storage-import-export-requirements.md#supported-hardware).
+- **Schijfstations**: U SSD-schijven (SSD's) kan worden verzonden of harde schijven (HDD's) naar de Azure-datacenter. Bij het maken van een import-taak, kunt u schijven met uw gegevens verzenden. Bij het maken van een exporttaak bekijken, verzendt u lege stations in de Azure-datacenter. Voor specifieke schijftypen, gaat u naar [schijftypen ondersteund](storage-import-export-requirements.md#supported-hardware).
 
 ## <a name="how-does-importexport-work"></a>Hoe werkt de Import-/ Exportservice?
 
 Azure Import/Export-service kunt overbrengen van gegevens in Azure-Blobs en Azure Files met het maken van taken. Azure portal of Azure Resource Manager REST API gebruiken om te maken van taken. Elke taak is gekoppeld aan één opslagaccount. 
 
 De taken kunnen worden importeren of exporteren van taken. Een importtaak kunt u gegevens importeren in Azure-Blobs of Azure files, terwijl de exporttaak toestaat dat gegevens van Azure-Blobs worden geëxporteerd. Voor een importtaak verzenden u stations die uw gegevens. Wanneer u een exporttaak maakt, kunt u lege schijven naar een Azure-datacenter verzenden. In beide gevallen kunt u maximaal 10 schijven per taak verzenden.
-
-> [!IMPORTANT]
-> Exporteren van gegevens naar Azure Files wordt niet ondersteund.
-
-In deze sectie hoog niveau stappen bij het importeren en exporteren worden beschreven. 
-
 
 ### <a name="inside-an-import-job"></a>Binnen een importtaak
 
@@ -125,14 +121,14 @@ De Azure Import/Export-service ondersteunt kopiëren van gegevens naar en van al
 
 |Land  |Land  |Land  |Land  |
 |---------|---------|---------|---------|
-|VS - oost    | Noord-Europa        | Centraal-India        |VS (overheid) - Iowa         |
-|VS - west     |West-Europa         | Zuid-India        | US DoD - oost        |
-|VS - oost 2    | Oost-Azië        |  West-India        | US DoD - centraal        |
-|VS - west 2     | Zuidoost-Azië        | Canada - midden        | China East         |
-|VS - midden     | Australië - oost        | Canada - oost        | China - noord        |
-|Noord-centraal VS     |  Australië - zuidoost       | Brazilië - zuid        | Verenigd Koninkrijk Zuid        |
-|Zuid-centraal VS     | Japan - west        |Korea - centraal         | Duitsland - centraal        |
-|West-centraal VS     |  Japan - oost       | VS (overheid) - Virginia        | Duitsland - noordoost        |
+|US - oost    | Europa - noord        | India - centraal        |US Gov - Iowa         |
+|US - west     |Europa -west         | India - zuid        | US DoD - oost        |
+|US - oost 2    | Azië - oost        |  India - west        | US DoD - centraal        |
+|US - west 2     | Azië - zuidoost        | Canada - midden        | China East         |
+|US - centraal     | Australië - oost        | Canada - oost        | China - noord        |
+|US - noord-centraal     |  Australië - zuidoost       | Brazilië - zuid        | Verenigd Koninkrijk Zuid        |
+|US - zuid-centraal     | Japan - west        |Korea - centraal         | Duitsland - centraal        |
+|US - west-centraal     |  Japan - oost       | VS (overheid) - Virginia        | Duitsland - noordoost        |
 
 
 ## <a name="security-considerations"></a>Beveiligingsoverwegingen

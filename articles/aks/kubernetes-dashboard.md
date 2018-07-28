@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/09/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 65525114f46002c5b9300f6bbabcee06cc27ef3a
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: af48af596e86e0eb09fe45deabe13beedef57cd2
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091135"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307922"
 ---
 # <a name="access-the-kubernetes-dashboard-with-azure-kubernetes-service-aks"></a>Toegang tot het Kubernetes-dashboard met Azure Kubernetes Service (AKS)
 
@@ -38,12 +38,14 @@ Met deze opdracht maakt een proxy tussen uw systeem voor de ontwikkeling en het 
 
 ### <a name="for-rbac-enabled-clusters"></a>Voor clusters met RBAC-ingeschakeld
 
-Als uw AKS-cluster maakt gebruik van RBAC, een *ClusterRoleBinding* moet worden gemaakt voordat u het dashboard correct kan openen. U kunt een binding maken met de [kubectl maken clusterrolebinding] [ kubectl-create-clusterrolebinding] opdracht zoals wordt weergegeven in het volgende voorbeeld. 
+Als uw AKS-cluster maakt gebruik van RBAC, een *ClusterRoleBinding* moet worden gemaakt voordat u het dashboard correct kan openen. Standaard wordt met het Kubernetes-dashboard wordt geïmplementeerd met minimale leestoegang en RBAC toegangsfouten worden weergegeven. Het Kubernetes-dashboard biedt momenteel geen ondersteuning voor gebruiker opgegeven referenties om te bepalen het niveau van toegang, in plaats daarvan wordt de rollen die zijn verleend aan de serviceaccount. De Clusterbeheerder van een kunt aanvullende toegang verlenen tot de *kubernetes-dashboard* -serviceaccount, maar dit kan een vector voor uitbreiding van bevoegdheden zijn. U kunt ook Azure Active Directory-verificatie voor een meer gedetailleerd niveau van toegang integreren.
+
+U kunt een binding maken met de [kubectl maken clusterrolebinding] [ kubectl-create-clusterrolebinding] opdracht zoals wordt weergegeven in het volgende voorbeeld. 
 
 > [!WARNING]
 > Deze voorbeeld-binding is niet van toepassing op alle onderdelen van de aanvullende verificatie en kan leiden tot onveilig gebruiken. Het Kubernetes-dashboard is geopend voor iedereen met toegang tot de URL. Het Kubernetes-dashboard niet openbaar beschikbaar.
 >
-> Kunt u mechanismen zoals bearer-tokens of een gebruikersnaam en wachtwoord om te bepalen wie toegang heeft tot het dashboard en welke machtigingen zij hebben. Hierdoor beter beveiligd gebruik van het dashboard. Zie voor meer informatie over het gebruik van de verschillende verificatiemethoden, de Kubernetes-dashboard-wiki op [besturingselementen voor toegang][dashboard-authentication].
+> Zie voor meer informatie over het gebruik van de verschillende verificatiemethoden, de Kubernetes-dashboard-wiki op [besturingselementen voor toegang][dashboard-authentication].
 
 ```console
 kubectl create clusterrolebinding kubernetes-dashboard --clusterrole=cluster-admin --serviceaccount=kube-system:kubernetes-dashboard

@@ -9,14 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: be15c8ca37e11f10c31c1fa8738d2b57308a00f2
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 549a8fd29cf1f986da0af1ae49dbf0e5335603bd
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283745"
+ms.locfileid: "39325697"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-using-the-speech-sdk"></a>Snelstartgids: Herkennen gesproken tekst in een UWP-app met behulp van de spraak-SDK
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In dit artikel leert u over het maken van een Universal Windows Platform (UWP)-toepassing met behulp van de Cognitive Services Speech SDK spraak naar tekst te transcriberen.
 De toepassing is gemaakt met de [Microsoft Cognitive Services Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017.
@@ -115,6 +117,6 @@ Zoek in dit voorbeeld in de `quickstart/csharp-uwp` map.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Spraak vertalen](how-to-translate-speech.md)
+- [Spraak vertalen](how-to-translate-speech-csharp.md)
 - [Akoestische modellen aanpassen](how-to-customize-acoustic-models.md)
 - [Taalmodellen aanpassen](how-to-customize-language-model.md)

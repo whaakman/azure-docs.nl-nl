@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/25/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 9c0519181ec03394e7d732a8eb608501d6dd6657
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5928896ab3c89972b7912f686be045afc988b1cd
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161827"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308872"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Voorbeeld: Azure AD-wachtwoordbeveiliging implementeren
 
@@ -56,7 +56,7 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van de Azure AD-wac
 
 1. Kies een of meer servers als host voor de proxy-service van Azure AD wachtwoord beveiliging.
    * Elke dergelijke service alleen wachtwoordbeleid biedt voor één forest en de hostcomputer moet worden toegevoegd aan een domein-(en onderliggende zijn zowel even ondersteund) in dat forest. Voor Azure AD wachtwoord beveiliging proxy-service om te voldoen aan de missie moet bestaan netwerkverbinding tussen ten minste één domeincontroller in elk domein van het forest en de Azure AD wachtwoord beveiliging Proxy-hostcomputer.
-   * Het wordt ondersteund voor het installeren en uitvoeren van de proxy-service van Azure AD wachtwoord beveiliging op een domeincontroller voor testdoeleinden, maar u moet vervolgens verbinding met internet.
+   * Het wordt ondersteund voor het installeren en uitvoeren van de proxy-service van Azure AD wachtwoord beveiliging op een domeincontroller voor het testen van toepassing, maar de domeincontroller en vervolgens verbinding met internet vereist.
 
    > [!NOTE]
    > De openbare preview-versie biedt ondersteuning voor maximaal twee (2) proxy-servers per forest.
@@ -110,6 +110,9 @@ Er zijn twee vereist installatieprogramma's voor beveiliging van de Azure AD-wac
 
    > [!NOTE]
    > Registratie van het Active Directory-forest is een eenmalige stap verwacht in de levensduur van het forest. De domain controller agents die worden uitgevoerd in het forest zal automatisch eventuele andere benodigde maintainenance uitvoeren vanaf dit punt en hoger. Zodra deze is voltooid voor een opgegeven forest, extra aanroepen van `Register-AzureADPasswordProtectionForest` voortgezet, maar zijn niet nodig.
+
+   > [!NOTE]
+   > Opdat `Register-AzureADPasswordProtectionForest` te voltooien ten minste één Windows Server 2012 of hoger domain controller moet beschikbaar zijn in het domein van de proxyserver. Er is echter geen vereiste dat de DC-agentsoftware worden geïnstalleerd op een domeincontroller voordat u deze stap.
 
 6. Optioneel: De Azure AD wachtwoord beveiliging proxy-service om te luisteren naar een specifieke poort configureren.
    * RPC via TCP wordt gebruikt door de Azure AD-wachtwoordbeveiliging DC-agentsoftware op de domeincontrollers om te communiceren met de proxy-service van Azure AD wachtwoord beveiliging. Standaard luistert de beveiliging in Azure AD wachtwoord wachtwoord beleid Proxy-service op alle beschikbare dynamische RPC-eindpunt. Indien nodig vanwege de netwerktopologie of firewall-vereisten, kan de service in plaats daarvan worden geconfigureerd om te luisteren naar een specifieke TCP-poort.

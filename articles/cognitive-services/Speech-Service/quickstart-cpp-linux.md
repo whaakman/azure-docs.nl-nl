@@ -9,14 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: a9a5a6b3c3f4831844083d082ba5b65cd900ec02
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 8f794f1d29b5fde9acd43fa4a018ccb39a8ccd25
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281606"
+ms.locfileid: "39324775"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-using-the-speech-sdk"></a>Snelstartgids: Herkennen gesproken tekst in C++ in Linux met behulp van de spraak-SDK
+
+[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In dit artikel leert u hoe u een C++-consoletoepassing maken in Linux (Ubuntu 16.04) met behulp van de Cognitive Services Speech SDK spraak naar tekst te transcriberen.
 
@@ -132,4 +134,4 @@ Zoek in dit voorbeeld in de `quickstart/cpp-linux` map.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Ga naar de [pagina met codevoorbeelden](samples.md) voor meer voorbeelden.
+* [Onze voorbeelden ophalen](speech-sdk.md#get-the-samples)

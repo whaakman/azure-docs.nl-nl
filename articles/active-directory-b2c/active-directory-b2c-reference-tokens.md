@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: adb78f04c0fd5ba175bb31c9a81ad58b3b03fb42
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 46e4956aa145aa082de86191ede4adaf9a43fca9
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447316"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309023"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Token verwijzing
 
@@ -72,7 +72,7 @@ Houd er rekening mee dat de claims in het ID-tokens worden niet geretourneerd in
 
 | Naam | Claim | Voorbeeldwaarde | Beschrijving |
 | --- | --- | --- | --- |
-| Doelgroep |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Een claim doelgroep identificeert de beoogde ontvanger van het token. Voor Azure AD B2C is de doelgroep van uw app toepassings-ID, zoals toegewezen aan uw app in de portal voor app-registratie. Uw app moet deze waarde te valideren en het token af te wijzen als komt niet overeen met. |
+| Doelgroep |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Een claim doelgroep identificeert de beoogde ontvanger van het token. Voor Azure AD B2C is de doelgroep van uw app toepassings-ID, zoals toegewezen aan uw app in de portal voor app-registratie. Uw app moet deze waarde te valideren en het token af te wijzen als komt niet overeen met. Doelgroep is gelijk aan de resource. |
 | Certificaatverlener |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Deze claim identificeert de beveiligingstokenservice (STS) die wordt gemaakt en het token retourneert. Het identificeert ook de Azure AD-directory waarin de gebruiker is geverifieerd. Uw app moet de claim van verlener om ervoor te zorgen dat het token afkomstig van het Azure Active Directory v2.0-eindpunt is te valideren. |
 | Uitgegeven op |`iat` |`1438535543` |Deze claim is de tijd waarop het token is uitgegeven, in epoche-tijd weergegeven. |
 | Vervaltijd |`exp` |`1438539443` |Verlooptijd van de claim is de tijd waarop het token ongeldig is, wordt weergegeven in epoche-tijd. Uw app moet deze claim gebruiken om de geldigheid van de levensduur van tokens. |

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/27/2018
 ms.author: carlrab
-ms.openlocfilehash: 2e4f2bf4303d2a6f52f6dac7e8d71eca24800f53
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 6c43a52309a6f41d73ead19fc5f5b7df2f06d6f6
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092066"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308810"
 ---
 # <a name="sql-database-faq"></a>Veelgestelde vragen over SQL Database
 
@@ -90,7 +90,7 @@ Ja, kunt u het niveau van de compute uw toepassing nodig heeft en de opslag die 
 U kunt de bewaarperiode voor back-up configureren voor PITR tussen 7 en 35 dagen. De back-ups-opslag wordt verrekend afzonderlijk op basis van verbruik van de werkelijke opslagruimte als deze de gelijk zijn aan de grootte van de maximale hoeveelheid opslagruimte overschrijdt. Preview-versie, wordt standaard is de bewaarperiode PITR ingesteld op 7 dagen. In veel gevallen is de maximale gegevensgrootte voldoende zijn voor het opslaan van zeven dagen aan back-ups.
 
 ## <a name="why-do-you-allow-selection-of-the-hardware-generation-for-compute"></a>Waarom kan u de selectie van de generatie hardware voor compute toestaan?
-Ons doel is om in te schakelen van maximale flexibiliteit, zodat u kunt een prestatieconfiguratie die overeenkomt met de behoeften van de toepassing. De bovenstaande tabel bevat de verschillen tussen Gen4 als Gen5. In het bijzonder biedt Gen4 hardware aanzienlijk meer geheugen per vCore. Gen5 hardware kunt u echter veel hoger rekenresources kan worden uitgebreid. We willen deze verschillen om transparant te maken zodat u de verhouding van de optimale prijs-prestatieverhouding voor uw toepassing bereiken kunt.
+Ons doel is om in te schakelen van maximale flexibiliteit, zodat u kunt een prestatieconfiguratie die overeenkomt met de behoeften van de toepassing. Gen4 hardware biedt aanzienlijk meer geheugen per vCore. Gen5 hardware kunt u echter veel hoger rekenresources kan worden uitgebreid. Zie voor meer informatie, [aankoopmodel vCore](sql-database-service-tiers-vcore.md)
 
 ## <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>Moet ik mijn toepassing offline te converteren van een database op basis van DTU naar een vCore-servicelaag? 
 De nieuwe servicelagen bieden een eenvoudige onlineconversiemethode die vergelijkbaar is met het bestaande upgradeproces van de Standard- naar de Premium-servicelaag en omgekeerd. Deze conversie kan worden gestart via de Azure-portal, PowerShell, Azure CLI, T-SQL of de REST-API. Zie [individuele databases beheren](sql-database-single-database-scale.md) en [elastische pools beheren](sql-database-elastic-pool.md).

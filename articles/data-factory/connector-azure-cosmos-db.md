@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 92b45c1038fd099926360dc80802ababf0e8ee93
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 6c0921a466864bf2b07711cfcd1eac397c5ced83
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37052763"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325350"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Cosmos DB met behulp van Azure Data Factory
 
@@ -165,6 +165,8 @@ Om gegevens te kopiëren naar Azure Cosmos DB, stelt u het sink-type in de kopie
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de kopie-activiteit-sink moet worden ingesteld op: **DocumentDbCollectionSink** |Ja |
+| WriteBehavior |Beschreven hoe u gegevens schrijft naar Cosmos DB. Toegestane waarden zijn: `insert` en `upsert`.<br/>Het gedrag van **upsert** wordt vervangen door het document als een document met dezelfde id al bestaat; anders is het invoegen. Opmerking ADF genereert automatisch een id voor het document als deze niet is opgegeven in het oorspronkelijke document of door in de kolomtoewijzing), wat betekent dat u nodig hebt om te controleren of uw document heeft een 'id' zodat upsert werken zoals verwacht. |Nee, de standaardwaarde is invoegen |
+| WriteBatchSize | Gebruik van Data Factory [Cosmos DB bulksgewijs executor](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) om gegevens te schrijven in Cosmos DB. "writeBatchSize" bepaalt de grootte van documenten die we elke tijd aan de bibliotheek biedt. U kunt proberen te vergroten writeBatchSize om prestaties te verbeteren. |Nee |
 | nestingSeparator |Er is een speciaal teken in naam van de bronkolom om aan te geven dat geneste document nodig. <br/><br/>Bijvoorbeeld, `Name.First` in de uitvoergegevensset structuur genereert de volgende JSON-structuur in de Cosmos DB-document:`"Name": {"First": "[value maps to this column from source]"}` wanneer de nestedSeparator punt is. |Nee (de standaardwaarde is punt `.`) |
 
 **Voorbeeld:**
@@ -191,7 +193,8 @@ Om gegevens te kopiëren naar Azure Cosmos DB, stelt u het sink-type in de kopie
                 "type": "<source type>"
             },
             "sink": {
-                "type": "DocumentDbCollectionSink"
+                "type": "DocumentDbCollectionSink",
+                "writeBehavior": "upsert"
             }
         }
     }

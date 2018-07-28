@@ -7,19 +7,33 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 07/23/2018
+ms.date: 07/27/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 86aadcbdd8d7168440726d6dbed996629cad3ff7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: b410722ff444c19572f61996c4a4d059ae831f5f
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285330"
+ms.locfileid: "39326078"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? Juli 2018
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in juli 2018.
 
+## <a name="lightning-fast-query-performance"></a>Snelle Lightning-queryprestaties
+[Azure SQL Data Warehouse](https://aka.ms/sqldw) Hiermee stelt u nieuwe referentiepunten voor prestaties met de introductie van directe toegang tot gegevens waarmee de bewerkingen in willekeurige volgorde worden verbeterd. Directe toegang tot gegevens vermindert de overhead voor bewerkingen voor gegevensverplaatsing met behulp van directe SQL-Server tot bewerkingen voor systeemeigen SQL Server. De integratie met de SQL Server-engine rechtstreeks voor verplaatsing van gegevens betekent dat SQL Data Warehouse nu is **67% sneller dan de Amazon Redshift** met behulp van een werkbelasting afgeleid van de erkende industriestandaard [TPC Benchmark™ H (TPC-H)](http://www.tpc.org/tpch/).
+
+![Azure SQL Data Warehouse is sneller en goedkoper dan Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/eb3b908a-464d-4847-b384-9f296083a737.png)
+<sub>bron: [Onderzoeksanalist analist onderzoeksrapport: Data Warehouse in de Cloud-Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
+
+Naast de prestaties van de runtime, de [Onderzoeksanalist onderzoek](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) rapport gemeten ook de prijs-prestatieverhouding verhouding om te kwantificeren de USD kosten van specifieke werkbelastingen. SQL Data Warehouse is **ten minste 23 procent goedkoper zijn** dan Redshift voor workloads 30 TB. Met SQL Data Warehouse de mogelijkheid om Computing elastisch schalen, evenals onderbreken en hervatten van werkbelastingen, klanten betalen alleen wanneer de service wordt gebruikt, hun kosten verder te verlagen.
+![Azure SQL Data Warehouse is sneller en goedkoper dan Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/cb76447e-621e-414b-861e-732ffee5345a.png)
+<sub>bron: [Onderzoeksanalist analist onderzoeksrapport: Data Warehouse in de Cloud-Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
+
+###<a name="query-concurrency"></a>Query gelijktijdigheid
+SQL Data Warehouse zorgt er ook voor dat de gegevens toegankelijk voor uw organisatie is. Microsoft heeft uitgebreid, de service ter ondersteuning van 128 gelijktijdige query's zodat meer gebruikers in de dezelfde database zoeken kunnen en niet door andere aanvragen worden geblokkeerd. Ter vergelijking beperkt Amazon Redshift maximum aantal gelijktijdige query's tot 50, beperken van toegang tot de gegevens binnen de organisatie.
+
+SQL Data Warehouse biedt deze query prestaties en query gelijktijdigheid winst zonder een toename van de prijs en het bouwen van de unieke architectuur met omdat opslag en Computing.
 
 ## <a name="finer-granularity-for-cross-region-and-server-restores"></a>Hoe fijner granulariteit voor meerdere regio's en -server herstellen
 U kunt nu herstellen in regio's en servers met behulp van een herstelpunt in plaats van het selecteren van geografisch redundante back-ups die worden uitgevoerd om de 24 uur. Cross-regio en server terugzetten worden ondersteund voor beide gebruiker gedefinieerde of Automatische herstelpunten fijner granulariteit voor de beveiliging van aanvullende gegevens inschakelen. Met meer beschikbare herstelpunten, u kunt er zeker van zijn dat uw datawarehouse worden logisch consistent is bij het herstellen van verschillende regio's.
@@ -59,9 +73,56 @@ parameter_ordinal | name | suggested_system_type_id | suggested_system_type_name
 --------------------------------------------------------------------------------
 1                 | @id  | 56                       | int
 ```
+## <a name="sprefreshsqlmodule"></a>SP_REFRESHSQLMODULE
+De [sp_refreshsqlmodule](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-refreshsqlmodule-transact-sql) opgeslagen procedure werkt de metagegevens voor een database-object als de onderliggende metagegevens is verouderd vanwege wijzigingen van de onderliggende objecten. Dit kan gebeuren als de basistabellen voor een weergave worden gewijzigd en de weergave is niet opnieuw is gemaakt. Dit bespaart u de stap van het verwijderen en opnieuw maken van afhankelijke objecten.
+
+Het volgende voorbeeld ziet een weergave die na de wijziging van de onderliggende tabel verloopt. U ziet dat de gegevens juist zijn voor de eerste kolom wijzigen (1 tot Mollie), maar de kolomnaam ongeldig is en de tweede kolom niet aanwezig is. 
+```sql
+CREATE TABLE base_table (Id INT);
+GO
+
+INSERT INTO base_table (Id) VALUES (1);
+GO
+
+CREATE VIEW base_view AS SELECT * FROM base_table;
+GO
+
+SELECT * FROM base_view;
+GO
+
+-- Id
+-- ----
+-- 1
+
+DROP TABLE base_table;
+GO
+
+CREATE TABLE base_table (fname VARCHAR(10), lname VARCHAR(10));
+GO
+
+INSERT INTO base_table (fname, lname) VALUES ('Mollie', 'Gallegos');
+GO
+
+SELECT * FROM base_view;
+GO
+
+-- Id
+-- ----------
+-- Mollie
+
+EXEC sp_refreshsqlmodule @Name = 'base_view';
+GO
+
+SELECT * FROM base_view;
+GO
+
+-- fname     | lname
+-- ---------- ----------
+-- Mollie    | Gallegos
+```
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [Maak een SQL Data Warehouse] [een SQL Data Warehouse maken] en [voorbeeldgegevens laden] [voorbeeldgegevens laden]. Als u niet bekend bent met Azure, vindt u de [Azure-woordenlijst] [Azure-woordenlijst] handig zijn bij het opzoeken van nieuwe terminologie. U kunt ook enkele andere SQL Data Warehouse-resources bekijken.  
+Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [maken van een SQL Data Warehouse][create a SQL Data Warehouse]. Als u niet bekend bent met Azure, kan de [Azure-woordenlijst][Azure glossary] handig zijn bij het opzoeken van nieuwe terminologie. U kunt ook enkele andere SQL Data Warehouse-resources bekijken.  
 
 * [Succesverhalen van klanten]
 * [Blogs]
@@ -79,3 +140,5 @@ Nu u een en ander weet over SQL Data Warehouse, kunt u leren hoe u snel [Maak ee
 [Stack Overflow-forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Video's]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+[create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
+[Azure glossary]: ../azure-glossary-cloud-terminology.md

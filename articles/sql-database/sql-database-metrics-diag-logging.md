@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: fbeda6a74be11668f16d477696ea00653b73baa6
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: c0c2e1748518b794916f1950c288ed1f4df628aa
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284823"
+ms.locfileid: "39309058"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metrische gegevens van Azure SQL-Database en logboekregistratie van diagnostische gegevens 
 Azure SQL-Database kan metrische en diagnostische gegevens verzenden logboeken voor de bewaking vergemakkelijken. U kunt SQL Database configureren voor het opslaan van resourcegebruik, werkrollen en sessies, en connectiviteit in een van deze Azure-resources:
@@ -264,8 +264,10 @@ Meer informatie over het [metrische en diagnostische gegevens logboeken download
 |**Resource**|**Metrische gegevens**|
 |---|---|
 |Database|DTU-percentage, DTU gebruikt, DTU limiet, CPU-percentage, fysieke gegevens lezen percentage logboek schrijven percentage, geslaagd/mislukt/geblokkeerd door firewallverbindingen, sessies percentage, percentage van de werknemers, opslag, opslagpercentage, percentage van XTP-opslag, en impassen |
-|Elastische pool|eDTU-percentage, eDTU gebruikt, eDTU-limiet, CPU-percentage, fysieke gegevens lezen percentage logboek schrijven percentage, sessies percentage, percentage van de werknemers, opslag, opslagpercentage, limiet voor opslag, XTP-opslagpercentage |
+|Elastische groep|eDTU-percentage, eDTU gebruikt, eDTU-limiet, CPU-percentage, fysieke gegevens lezen percentage logboek schrijven percentage, sessies percentage, percentage van de werknemers, opslag, opslagpercentage, limiet voor opslag, XTP-opslagpercentage |
 |||
+
+### <a name="logs"></a>Logboeken
 
 ### <a name="query-store-runtime-statistics"></a>Query Store runtime-statistieken
 
@@ -329,7 +331,7 @@ Meer informatie over [gegevens voor Query Store runtime-statistieken](https://do
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Categorie|De naam van de categorie. Altijd: QueryStoreWaitStatistics|
 |OperationName|Naam van de bewerking. Altijd: QueryStoreWaitStatisticsEvent|
-|Resource|Naam van de resource|
+|Resource|De naam van de resource|
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
 |ResourceGroup|De naam van de resourcegroep die de database behoort.|
@@ -367,7 +369,7 @@ Meer informatie over [Query Store wacht statistiekgegevens](https://docs.microso
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Categorie|De naam van de categorie. Altijd: fouten|
 |OperationName|Naam van de bewerking. Altijd: ErrorEvent|
-|Resource|Naam van de resource|
+|Resource|De naam van de resource|
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
 |ResourceGroup|De naam van de resourcegroep die de database behoort.|
@@ -396,7 +398,7 @@ Meer informatie over [SQL Server-foutberichten](https://msdn.microsoft.com/libra
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Categorie|De naam van de categorie. Altijd: DatabaseWaitStatistics|
 |OperationName|Naam van de bewerking. Altijd: DatabaseWaitStatisticsEvent|
-|Resource|Naam van de resource|
+|Resource|De naam van de resource|
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
 |ResourceGroup|De naam van de resourcegroep die de database behoort.|
@@ -425,7 +427,7 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Categorie|De naam van de categorie. Altijd: time-outs|
 |OperationName|Naam van de bewerking. Altijd: TimeoutEvent|
-|Resource|Naam van de resource|
+|Resource|De naam van de resource|
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
 |ResourceGroup|De naam van de resourcegroep die de database behoort.|
@@ -448,7 +450,7 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 |ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
 |Categorie|De naam van de categorie. Altijd: blokken|
 |OperationName|Naam van de bewerking. Altijd: BlockEvent|
-|Resource|Naam van de resource|
+|Resource|De naam van de resource|
 |ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
 |SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
 |ResourceGroup|De naam van de resourcegroep die de database behoort.|
@@ -481,6 +483,36 @@ Meer informatie over [wacht statistieken van de database](https://docs.microsoft
 |DatabaseName_s|Naam van de database. |
 |ResourceId|Resource-URI.|
 |deadlock_xml_s|Impasse rapport XML.|
+
+### <a name="automatic-tuning-dataset"></a>Automatische afstemming gegevensset
+
+|Eigenschap|Beschrijving|
+|---|---|
+|TenantId|Uw tenant-ID.|
+|SourceSystem|Altijd: Azure|
+|TimeGenerated [UTC]|Tijdstempel waarop het logboek is vastgelegd.|
+|Type|Altijd: AzureDiagnostics|
+|ResourceProvider|De naam van de resourceprovider. Altijd: MICROSOFT. SQL|
+|Categorie|De naam van de categorie. Altijd: AutomaticTuning|
+|Resource|Naam van de resource.|
+|ResourceType|De naam van het resourcetype. Altijd: SERVERS/DATABASES|
+|SubscriptionId|Abonnement-GUID die de database deel uitmaakt.|
+|ResourceGroup|De naam van de resourcegroep die de database behoort.|
+|LogicalServerName_s|De naam van de server die de database behoort.|
+|LogicalDatabaseName_s|Naam van de database.|
+|ElasticPoolName_s|De naam van de elastische groep die de database deel uitmaakt, indien van toepassing.|
+|DatabaseName_s|Naam van de database.|
+|ResourceId|Resource-URI.|
+|RecommendationHash_s|De unieke hash van de aanbeveling voor automatisch afstemmen.|
+|OptionName_s|Bewerking voor automatisch afstemmen.|
+|Schema_s|Databaseschema.|
+|Table_s|De tabel is beïnvloed.|
+|IndexName_s|Naam van de index.|
+|IndexColumns_s|De naam van de kolom.|
+|IncludedColumns_s|Kolommen die zijn opgenomen.|
+|EstimatedImpact_s|Geschatte invloed van automatisch afstemmen aanbeveling JSON.|
+|Event_s|Type gebeurtenis voor automatisch afstemmen.|
+|Timestamp_t|De laatst bijgewerkte timestamp.|
 
 ### <a name="intelligent-insights-dataset"></a>Intelligent Insights-gegevensset
 Meer informatie over de [Intelligent Insights-logboekindeling](sql-database-intelligent-insights-use-diagnostics-log.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2018
 ms.author: aljo
-ms.openlocfilehash: 56c904c0da87c3b0023fe5c9a125a359e23678dc
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 5628315423db1f0064d0e6b77f061d8e674757aa
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263807"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309150"
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Instellingen voor Service Fabric-cluster en Fabric-Upgradebeleid aanpassen
 Dit document leest u hoe de verschillende fabric-instellingen aanpassen en Upgradebeleid in de infrastructuur voor uw Service Fabric-cluster. U kunt aanpassen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon.
@@ -59,11 +59,11 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="applicationgatewayhttp"></a>Application Gateway/Http
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|ApplicationCertificateValidationPolicy|reeks, standaard is ingesteld op 'None'|Statisch| Dit valideert niet certificaat van de server; de aanvraag mislukt. Raadpleeg config ServiceCertificateThumbprints voor de door komma's gescheiden lijst met vingerafdrukken van de externe certificaten die de reverse proxy kunt vertrouwen. Raadpleeg config ServiceCommonNameAndIssuer voor de vingerafdruk van het onderwerp en -verlenersleutel van de externe certificaten die de reverse proxy kunt vertrouwen. |
+|ApplicationCertificateValidationPolicy|reeks, standaard is ingesteld op 'None'|Statisch| Dit valideert niet certificaat van de server; de aanvraag mislukt. Raadpleeg config ServiceCertificateThumbprints voor de door komma's gescheiden lijst met vingerafdrukken van de externe certificaten die de reverse proxy kunt vertrouwen. Raadpleeg config ServiceCommonNameAndIssuer voor de vingerafdruk van het onderwerp en -verlenersleutel van de externe certificaten die de reverse proxy kunt vertrouwen. Zie voor meer informatie, [Reverse proxy-beveiligde verbinding](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 |BodyChunkSize |Uint, de standaardwaarde is 16384 tekens |Dynamisch| Geeft de grootte van voor het segment in bytes die worden gebruikt om te lezen van de hoofdtekst. |
 |CrlCheckingFlag|uint, standaard is 0x40000000 |Dynamisch| Vlaggen voor de toepassing/service validatie van certificaatketen; bijvoorbeeld CRL-controle 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY instellen op 0 Hiermee schakelt CRL controleren of volledige lijst met ondersteunde waarden wordt beschreven door dwFlags van CertGetCertificateChain: http://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Tijd in seconden. de standaardwaarde is 120 |Dynamisch|Interval in seconden opgeven.  Geeft de standaardtime-out-aanvraag naar de http-aanvragen worden verwerkt in de http-gateway-app. |
-|ForwardClientCertificate|BOOL, standaard is ingesteld op FALSE|Dynamisch|Wanneer wordt ingesteld op false, omgekeerde proxy geen aanvragen voor het clientcertificaat. Wanneer is ingesteld op true, omgekeerde proxy wordt voor het clientcertificaat tijdens de SSL-handshake aanvragen en doorsturen van de met base64 gecodeerde kan tekenreeks voor PEM-indeling naar de service in een header X-Client-Certificate.The service genaamd de aanvraag met de juiste statuscode mislukken na het inspecteren van gegevens van het certificaat. Als dit correct is en de client heeft een certificaat niet aanwezig, wordt reverse proxy-doorsturen van een lege-header en kan de service die de aanvraag te verwerken. Omgekeerde proxy fungeert als een transparante laag.|
+|ForwardClientCertificate|BOOL, standaard is ingesteld op FALSE|Dynamisch|Wanneer wordt ingesteld op false, omgekeerde proxy geen aanvragen voor het clientcertificaat. Wanneer is ingesteld op true, omgekeerde proxy wordt voor het clientcertificaat tijdens de SSL-handshake aanvragen en doorsturen van de met base64 gecodeerde kan tekenreeks voor PEM-indeling naar de service in een header X-Client-Certificate.The service genaamd de aanvraag met de juiste statuscode mislukken na het inspecteren van gegevens van het certificaat. Als dit correct is en de client heeft een certificaat niet aanwezig, wordt reverse proxy-doorsturen van een lege-header en kan de service die de aanvraag te verwerken. Omgekeerde proxy fungeert als een transparante laag. Zie voor meer informatie, [instellen van verificatie van clientcertificaten](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy). |
 |GatewayAuthCredentialType |reeks, standaard is ingesteld op 'None' |Statisch| Hiermee geeft u het type van de beveiligingsreferenties voor het gebruik van op de HTTP-app gateway-eindpunt geldige waarden zijn ' geen / X 509. |
 |GatewayX509CertificateFindType |tekenreeks, standaard is "FindByThumbprint" |Dynamisch| Geeft aan hoe om te zoeken naar certificaat in het archief dat is opgegeven door de waarde GatewayX509CertificateStoreName ondersteund: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | tekenreeks, standaardwaarde is "" |Dynamisch| Filter zoekwaarde gebruikt voor het HTTP-app gateway-certificaat te zoeken. Dit certificaat is geconfigureerd op het https-eindpunt en kan ook worden gebruikt om te controleren of de identiteit van de app zo nodig door de services. FindValue wordt eerst; opgezocht en als dat niet bestaat; FindValueSecondary wordt opgezocht. |
@@ -75,13 +75,13 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |NumberOfParallelOperations | Uint, de standaardwaarde is 5000 |Statisch|Het aantal leesbewerkingen en op de server HTTP-wachtrij plaatsen. Hiermee bepaalt u het aantal gelijktijdige aanvragen op dat door de HttpGateway kan worden voldaan. |
 |RemoveServiceResponseHeaders|tekenreeks, standaard is 'datum; Server'|Statisch|Een puntkomma / door komma's gescheiden lijst met reactieheaders die wordt verwijderd uit het antwoord van de service; voordat deze worden doorgestuurd naar de client. Als deze is ingesteld op een lege tekenreeks; doorgeven van de headers die zijn geretourneerd door de service-is. Internet Explorer de datum en de Server niet overschrijven |
 |ResolveServiceBackoffInterval |Tijd in seconden, de standaardwaarde is 5 |Dynamisch|Interval in seconden opgeven.  Geeft het oplossen van het standaard back-off interval voordat opnieuw wordt geprobeerd een mislukte service bewerking. |
-|SecureOnlyMode|BOOL, standaard is ingesteld op FALSE|Dynamisch| SecureOnlyMode: true: omgekeerde Proxy alleen wordt doorgestuurd naar services die beveiligde eindpunten publiceren. ONWAAR: omgekeerde Proxy kan aanvragen voor beveiligde/niet-beveiligde eindpunten worden doorgestuurd.  |
-|ServiceCertificateThumbprints|tekenreeks, standaardwaarde is ""|Dynamisch|De door komma's gescheiden lijst met vingerafdrukken van de externe certificaten die de reverse proxy kunt vertrouwen.  |
+|SecureOnlyMode|BOOL, standaard is ingesteld op FALSE|Dynamisch| SecureOnlyMode: true: omgekeerde Proxy alleen wordt doorgestuurd naar services die beveiligde eindpunten publiceren. ONWAAR: omgekeerde Proxy kan aanvragen voor beveiligde/niet-beveiligde eindpunten worden doorgestuurd. Zie voor meer informatie, [Reverse proxy-eindpunt selectie logische](service-fabric-reverseproxy-configure-secure-communication.md#endpoint-selection-logic-when-services-expose-secure-as-well-as-unsecured-endpoints).  |
+|ServiceCertificateThumbprints|tekenreeks, standaardwaarde is ""|Dynamisch|De door komma's gescheiden lijst met vingerafdrukken van de externe certificaten die de reverse proxy kunt vertrouwen. Zie voor meer informatie, [Reverse proxy-beveiligde verbinding](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 
 ## <a name="applicationgatewayhttpservicecommonnameandissuer"></a>Application Gateway/Http/ServiceCommonNameAndIssuer
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|PropertyGroup|X509NameMap, is standaard ingesteld op geen|Dynamisch| Onderwerp en -verlenersleutel vingerafdruk van het externe certificaten die de reverse proxy kunt vertrouwen.|
+|PropertyGroup|X509NameMap, is standaard ingesteld op geen|Dynamisch| Onderwerp en -verlenersleutel vingerafdruk van het externe certificaten die de reverse proxy kunt vertrouwen. Zie voor meer informatie, [Reverse proxy-beveiligde verbinding](service-fabric-reverseproxy-configure-secure-communication.md#secure-connection-establishment-between-the-reverse-proxy-and-services). |
 
 ## <a name="backuprestoreservice"></a>BackupRestoreService
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |

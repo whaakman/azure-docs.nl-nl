@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: alkohli
-ms.openlocfilehash: 68e31f6b88a772ad67e3c58e11925f46f1cc37e9
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a86d5c1513594f5bc0df03b8ca7671a1f9541b4d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188804"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308051"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export-systeemvereisten
 
@@ -30,13 +30,12 @@ Voor het voorbereiden van de harde schijven met het hulpprogramma WAImportExport
 |Windows Server     |Windows Server 2008 R2 <br> WindowsServer 2012, Windows Server 2012 R2         |
 
 
-
 ## <a name="supported-storage-accounts"></a>Ondersteunde opslagaccounts
 
-Azure Import/Export-service ondersteunt de volgende Azure storage-accounts.
-- Klassiek
+Azure Import/Export-service ondersteunt de volgende [Azure storage-accounts](storage-account-options.md).
+- Storage-accounts voor algemeen gebruik v1 (zowel klassieke als Azure Resource Manager-implementaties)
 - Blob Storage-accounts
-- Algemeen gebruik v1-opslagaccounts. 
+- Opslagaccounts voor algemeen gebruik v2
 
 Elke taak kan worden gebruikt voor het overbrengen van gegevens naar of van slechts één opslagaccount. Een taak één import/export kan niet met andere woorden, omvatten voor meerdere opslagaccounts. Zie voor meer informatie over het maken van een nieuw opslagaccount [over het maken van een Storage-Account](storage-create-storage-account.md#create-a-storage-account).
 
@@ -48,10 +47,10 @@ Elke taak kan worden gebruikt voor het overbrengen van gegevens naar of van slec
 De volgende lijst met opslagtypen wordt ondersteund met Azure Import/Export-service.
 
 
-|Taak  |Storage  |Ondersteund  |Niet ondersteund  |
+|Taak  |Storage-Service |Ondersteund  |Niet ondersteund  |
 |---------|---------|---------|---------|
-|Importeren     |  Azure Blob-opslag. <br>Blok-Blobs, pagina-blobs ondersteund. <br> Azure-bestanden ondersteund.       |         |
-|Exporteren     |   Azure Blob-opslag. <br>Blok-blobs, pagina-blobs en toevoeg-blobs ondersteund.       | Azure Files wordt niet ondersteund.        |
+|Importeren     |  Azure Blob Storage <br><br> Azure File storage       | Blok-Blobs en pagina-blobs ondersteund <br><br> Ondersteunde bestanden          |
+|Exporteren     |   Azure Blob Storage       | Blok-blobs, pagina-blobs en toevoeg-blobs ondersteund         | Azure Files niet ondersteund
 
 
 ## <a name="supported-hardware"></a>Ondersteunde hardware 

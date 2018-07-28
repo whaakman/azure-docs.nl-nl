@@ -7,14 +7,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 8e0d834b94ff902eb0c1e0ada2fb32d374cee12b
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 75159319e25ac63907e0d8a2cbf044cf9a854785
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239114"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308742"
 ---
 # <a name="language-understanding-faq"></a>Veelgestelde vragen over de Language Understanding
 
@@ -147,6 +147,12 @@ Als u van het logboek voor de voorspelling analyse gebruikmaakt, test-uitingen i
 * U kunt uitingen verwijderen uit de lijst met gebruikers-uitingen die LUIS voorgesteld in de **bekijken eindpunt uitingen** pagina. Uitingen verwijderen uit deze lijst voorkomt dat deze wordt voorgesteld, maar niet verwijderd van Logboeken.
 * Als u een account verwijdert, worden alle apps verwijderd, samen met hun voorbeeld uitingen en Logboeken. De gegevens worden bewaard op de servers gedurende 60 dagen voordat deze worden definitief verwijderd.
 
+### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>Microsoft toegang tot mijn LUIS-app-gegevens voor een eigen doeleinden, bijvoorbeeld, ter verbetering van de LUIS of Microsoft in het algemeen? 
+
+Nee. Het gegevensmodel van de LUIS-app wordt niet gebruikt door LUIS voor het verbeteren van LUIS als een platform of gebruikt door Microsoft op geen enkele manier. De gegevens van elke app staat los en eigendom zijn alleen door de gebruiker en de deelnemers. 
+
+Meer informatie over [gebruikersprivacy](luis-reference-gdpr.md), [extra beveiliging, naleving](luis-concept-security.md#security-compliance), en [gegevensopslag](luis-concept-data-storage.md).
+
 ## <a name="language-and-translation-support"></a>Ondersteuning voor taal en vertaling 
 
 ### <a name="i-have-an-app-in-one-language-and-want-to-create-a-parallel-app-in-another-language-what-is-the-easiest-way-to-do-so"></a>Ik heb een app in één taal en een parallelle app maken in een andere taal wilt. Wat is de eenvoudigste manier om dit te doen?
@@ -175,20 +181,6 @@ Als u een LUIS-sjabloon selecteren en selecteer de **Selecteer** knop in het dee
 ### <a name="is-luis-available-on-premises-or-in-private-cloud"></a>LUIS on-premises beschikbaar is of in een privécloud?
 Nee. 
 
-## <a name="changes-to-the-docs"></a>Wijzigingen in de documenten
-
-### <a name="where-did-the-tutorials-go"></a>Waar zijn de zelfstudies gebleven? 
-De artikelen die eerder in het gedeelte van de zelfstudie zijn nu in de sectie van de procedures van de documenten. 
-
-|Zelfstudie|
-|--|
-|LUIS integreren met een bot met [C#](luis-csharp-tutorial-build-bot-framework-sample.md) en [Node.js](luis-nodejs-tutorial-build-bot-framework-sample.md)|
-|Application Insights toevoegen aan een Bot met [C#](luis-tutorial-bot-csharp-appinsights.md) en [Node.js](luis-tutorial-function-appinsights.md)|
-|Bouw een LUIS-app via een programma met behulp van [Node.js](luis-tutorial-node-import-utterances-csv.md)|
-|Gebruik [samengestelde entiteit](luis-tutorial-composite-entity.md) gegroepeerde gegevens extraheren|
-|Voeg [entiteit lijst](luis-tutorial-list-entity.md) voor verbeterde entiteit detectie met behulp van Node.js|
-|Verbetering van nauwkeurigheid met een [woordgroepenlijst](luis-quickstart-primary-and-secondary-data.md), [patronen](luis-tutorial-pattern.md), en [batch testen](luis-tutorial-batch-testing.md)|
-|[Spelling corrigeren](luis-tutorial-batch-testing.md) met de Bing Spell Check-API versie 7
 
 ### <a name="at-the-build-2018-conference-i-heard-about-a-language-understanding-feature-or-demo-but-i-dont-remember-what-it-was-called"></a>Ik gehoord over een functie voor Language Understanding of een demo maar ik niet meer weet wat het werd aangeroepen op de Build-conferentie 2018? 
 

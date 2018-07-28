@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 3389fed86fba8059db82816a6fc752f5374369a7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 1b5640b790b07050336a990a06b66e5f89fcf768
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283365"
+ms.locfileid: "39308606"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory Pass through-verificatie: Snel starten
 
@@ -45,7 +45,7 @@ Zorg ervoor dat de volgende vereisten voldaan is.
 ### <a name="in-your-on-premises-environment"></a>In uw on-premises-omgeving
 
 1. Identificeer een server met Windows Server 2012 R2 of later om uit te voeren van Azure AD Connect. De server toevoegen aan hetzelfde Active Directory-forest als de gebruikers met wachtwoorden die u wilt valideren.
-2. Installeer de [meest recente versie van Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) op de server die is geïdentificeerd in de vorige stap. Als u al Azure AD Connect wordt uitgevoerd hebt, controleert u of de versie 1.1.644.0 of hoger.
+2. Installeer de [meest recente versie van Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) op de server die is geïdentificeerd in de vorige stap. Als u al Azure AD Connect wordt uitgevoerd hebt, controleert u of de versie 1.1.750.0 of hoger.
 
     >[!NOTE]
     >Azure AD Connect-versies 1.1.557.0, 1.1.558.0 1.1.561.0 en 1.1.614.0 is een probleem met betrekking tot wachtwoord-hashsynchronisatie. Als u _niet_ wilt wachtwoord-hashsynchronisatie gebruiken in combinatie met Pass through-verificatie, lees de [opmerkingen bij de release van Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470).

@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: kgremban
-ms.openlocfilehash: f4a9c14a63e2cab84ccc20f8f36b272d21eb8332
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a56b2b12143a29637196d2239f648b78f1f8e763
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004181"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39307862"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Azure IoT Edge-runtime installeren op Windows gebruiken met Linux-containers
 
@@ -141,7 +141,7 @@ Als u wilt ophalen van uw IP-adres, voer `ipconfig` in uw PowerShell-venster. Ko
 
 ![DockerNat][img-docker-nat]
 
-Update de **workload_uri** en **management_uri** in de **verbinding:** gedeelte van het configuratiebestand. Vervang **\<GATEWAY_ADDRESS\>** met DockerNAT IP-adres dat u hebt gekopieerd. 
+Update de **workload_uri** en **management_uri** in de **verbinding:** gedeelte van het configuratiebestand. Vervang **\<GATEWAY_ADDRESS\>** met het DockerNAT-IP-adres dat u hebt gekopieerd. 
 
 ```yaml
 connect:
@@ -206,7 +206,8 @@ Get-WinEvent -ea SilentlyContinue `
   -FilterHashtable @{ProviderName= "iotedged";
     LogName = "application"; StartTime = [datetime]::Now.AddMinutes(-5)} |
   select TimeCreated, Message |
-  sort-object @{Expression="TimeCreated";Descending=$false}
+  sort-object @{Expression="TimeCreated";Descending=$false} |
+  format-table -autosize -wrap
 ```
 
 En lijst met modules met:
