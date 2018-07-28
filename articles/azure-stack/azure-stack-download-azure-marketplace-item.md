@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/13/2018
+ms.date: 07/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 73f8616449141ca91f96e9fcebede74597bc4fe3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: ab8cd950fcbfe61d558dc9d36fbaff9e6baa22c8
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044914"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39326021"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Marketplace-items van Azure naar Azure Stack downloaden
 
@@ -148,26 +148,7 @@ Er zijn twee onderdelen voor dit scenario:
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>Het downloaden van het importeren en publiceren op Azure Stack Marketplace
 1. De bestanden voor installatiekopieën van virtuele machines of sjablonen voor oplossingen die u hebt [eerder gedownloade](#use-the-marketplace-syndication-tool-to-download-marketplace-items) moeten lokaal beschikbaar zijn voor uw Azure Stack-omgeving worden gemaakt.  
 
-2. De VHD-installatiekopie importeren naar Azure Stack met behulp van de **toevoegen AzsPlatformimage** cmdlet. Wanneer u deze cmdlet gebruikt, vervangen door de *publisher*, *bieden*, en andere parameterwaarden met de waarden van de installatiekopie die u wilt importeren. 
-
-   U krijgt de *publisher*, *bieden*, en *sku* waarden van de installatiekopie van het tekstbestand dat wordt gedownload met het bestand AZPKG. Het tekstbestand dat is opgeslagen in de doellocatie.
- 
-   In het volgende voorbeeldscript worden waarden voor de Windows Server 2016 Datacenter - Server Core-virtuele machine gebruikt. 
-
-   ```PowerShell  
-   Add-AzsPlatformimage `
-    -publisher "MicrosoftWindowsServer" `
-    -offer "WindowsServer" `
-    -sku "2016-Datacenter-Server-Core" `
-    -osType Windows `
-    -Version "2016.127.20171215" `
-    -OsDiskLocalPath "C:\AzureStack-Tools-master\Syndication\Windows-Server-2016-DatacenterCore-20171215-en.us-127GB.vhd" `
-   ```
-   **Over oplossingssjablonen:** sommige sjablonen kunnen een klein 3 MB bevatten. VHD-bestand met de naam van de **fixed3.vhd**. U hoeft niet te importeren dat bestand in Azure Stack. Fixed3.VHD.  Dit bestand is opgenomen in sommige oplossingssjablonen om te voldoen aan vereisten voor de Azure Marketplace voor publiceren.
-
-   Lees de beschrijving van de sjablonen downloaden en importeer vervolgens de aanvullende vereisten zoals VHD's die nodig zijn voor het werken met de oplossingssjabloon.
-
-3. De beheerportal gebruiken voor het uploaden van het pakket in de marketplace-item (de .azpkg-bestand) naar Azure Stack-Blob-opslag. Uploaden van het pakket maakt ze beschikbaar voor Azure Stack, zodat u kunt het item later publiceren Azure Stack Marketplace.
+2. De beheerportal gebruiken voor het uploaden van het pakket in de marketplace-item (de .azpkg-bestand) naar Azure Stack-Blob-opslag. Uploaden van het pakket maakt ze beschikbaar voor Azure Stack, zodat u kunt het item later publiceren Azure Stack Marketplace.
 
    Uploaden, moet u een opslagaccount met een openbaar toegankelijke container hebt (Zie de vereisten voor dit scenario)   
    1. In de Azure Stack-beheerportal, gaat u naar **meer services** > **opslagaccounts**.  
@@ -183,6 +164,33 @@ Er zijn twee onderdelen voor dit scenario:
 
    5. Bestanden die u uploadt, worden weergegeven in het deelvenster van de container. Selecteer een bestand en kopieer vervolgens de URL van de **Blob-eigenschappen** deelvenster. U gebruikt deze URL in de volgende stap bij het importeren van de marketplace-item in Azure Stack.  In de volgende afbeelding is de container is *blob-opslag-testen* en het bestand is *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*.  Het bestand dat de URL is *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
       ![BLOB-eigenschappen](media/azure-stack-download-azure-marketplace-item/blob-storage.png)  
+
+3. De VHD-installatiekopie importeren naar Azure Stack met behulp van de **toevoegen AzsPlatformimage** cmdlet. Wanneer u deze cmdlet gebruikt, vervangen door de *publisher*, *bieden*, en andere parameterwaarden met de waarden van de installatiekopie die u wilt importeren. 
+
+   U krijgt de *publisher*, *bieden*, en *sku* waarden van de installatiekopie van het tekstbestand dat wordt gedownload met het bestand AZPKG. Het tekstbestand dat is opgeslagen in de doellocatie. De *versie* waarde is de versie die u bij het downloaden van het item van Azure in de vorige procedure hebt genoteerd. 
+ 
+   In het volgende voorbeeldscript worden waarden voor de Windows Server 2016 Datacenter - Server Core-virtuele machine gebruikt. Vervang *URI_path* met het pad naar de locatie van de blob-opslag voor het item.
+
+   ```PowerShell  
+   Add-AzsPlatformimage `
+    -publisher "MicrosoftWindowsServer" `
+    -offer "WindowsServer" `
+    -sku "2016-Datacenter-Server-Core" `
+    -osType Windows `
+    -Version "2016.127.20171215" `
+    -OsUri "URI_path"  
+   ```
+   **Over oplossingssjablonen:** sommige sjablonen kunnen een klein 3 MB bevatten. VHD-bestand met de naam van de **fixed3.vhd**. U hoeft niet te importeren dat bestand in Azure Stack. Fixed3.VHD.  Dit bestand is opgenomen in sommige oplossingssjablonen om te voldoen aan vereisten voor de Azure Marketplace voor publiceren.
+
+   Lees de beschrijving van de sjablonen downloaden en importeer vervolgens de aanvullende vereisten zoals VHD's die nodig zijn voor het werken met de oplossingssjabloon.  
+   
+   **Over extensies:** wanneer u met de extensies voor virtuele machine-installatiekopie werkt, gebruikt u de volgende parameters:
+   - *Publisher*
+   - *Type*
+   - *Versie*  
+
+   U gebruikt geen *bieden* voor extensies.   
+
 
 4.  PowerShell gebruiken voor de marketplace-item publiceren naar Azure Stack met behulp van de **toevoegen AzsGalleryItem** cmdlet. Bijvoorbeeld:  
     ```PowerShell  
