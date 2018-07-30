@@ -2,19 +2,19 @@
 title: Zelfstudie voor het maken van een LUIS-app die een sentimentanalyse als resultaat geeft - Azure | Microsoft Docs
 description: In deze zelfstudie leert u hoe u sentimentanalyse toevoegt aan uw LUIS-app om utterances te analyseren op positieve, negatieve en neutrale gevoelens.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/25/2018
-ms.author: v-geberr
-ms.openlocfilehash: 8dc6b8d4dd4cbe64841c4b36c498cf9021b4196f
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 1fa27cf04e136033c51b951271a3d329a910a720
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930603"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223616"
 ---
 # <a name="tutorial-9--add-sentiment-analysis"></a>Zelfstudie: 9.  Sentimentanalyse toevoegen
 In deze zelfstudie maakt u een app die laat zien hoe u positieve, negatieve en neutrale gevoelens kunt extraheren uit utterances.

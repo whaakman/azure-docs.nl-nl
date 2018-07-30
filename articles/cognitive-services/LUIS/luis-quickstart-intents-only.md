@@ -2,19 +2,19 @@
 title: Een eenvoudige app met twee intents maken - Azure | Microsoft Docs
 description: In deze snelstart leert u hoe u een eenvoudige LUIS-app maakt met behulp van twee 'intents' en geen entiteiten om 'utterances' van gebruikers te identificeren.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.author: v-geberr
-ms.openlocfilehash: 0668ba050a6918995deb42d8feea5afbbab3b010
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: diberry
+ms.openlocfilehash: 4be36e9d5b34c46138a657429680689014d0fd3d
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865808"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237771"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Zelfstudie: 1. Web-app met aangepast domein
 In deze zelfstudie maakt u een app die laat zien hoe u **intents** gebruikt om de _bedoeling_ van de gebruiker te bepalen op basis van de utterance (tekst) die ze naar de app verzenden. Wanneer u klaar bent, hebt u een LUIS-eindpunt in de cloud.

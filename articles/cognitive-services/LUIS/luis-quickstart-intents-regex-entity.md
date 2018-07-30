@@ -2,19 +2,19 @@
 title: Zelfstudie - LUIS-app maken voor het ophalen van gegevens die voldoen aan gewone expressie - Azure | Microsoft Docs
 description: In deze zelfstudie leert u hoe u een eenvoudige LUIS-app maakt met behulp van 'intenties' en een entiteit in de vorm van een gewone expressie om gegevens te extraheren.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-geberr
-ms.openlocfilehash: f51c296b39fda08d0bcc704fb974e71465385d67
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.author: diberry
+ms.openlocfilehash: 99f796bf26df755ca938c3023057e2e9de1706a1
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929368"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39238332"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>Zelfstudie: 3. Een entiteit in de vorm van een reguliere expressie toevoegen
 In deze zelfstudie maakt u een app die laat zien hoe u consistent opgemaakte gegevens kunt extraheren uit een utterance met behulp van de entiteit **Regular Expression (regex)**.
