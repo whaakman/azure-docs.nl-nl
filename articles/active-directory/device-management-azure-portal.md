@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 4410adfd5788b06163b8da18b96d2f8a9c350ac8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 98ab398d2ab1dc3b7cb12a7d13a841f6d713b57c
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008788"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308572"
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Beheer van apparaten met behulp van de Azure portal
 
@@ -74,7 +74,7 @@ De instellingenpagina voor het apparaat kunt u configureren:
 
 - **Extra lokale beheerders op Azure AD gekoppelde apparaten** -kunt u de gebruikers die lokale beheerdersrechten op een apparaat worden verleend. Gebruikers die zijn toegevoegd, worden toegevoegd aan de *Apparaatbeheerders* rol in Azure AD. Globale beheerders in Azure AD en eigenaren van de apparaten standaard lokale beheerdersrechten worden verleend. Deze optie is een premium-editie-mogelijkheid beschikbaar via producten, zoals Azure AD Premium of Enterprise Mobility Suite (EMS). 
 
-- **Gebruikers kunnen hun apparaten registreren bij Azure AD** -u moet deze instelling instelt op het apparaat mag worden [geregistreerd](device-management-introduction.md#azure-ad-registered-devices) met Azure AD. Als u selecteert **geen**, apparaten, zijn niet toegestaan om te registreren wanneer ze niet toegevoegd aan Azure AD of toegevoegd aan hybrid Azure AD. Registratie bij Microsoft Intune of Mobile Device Management (MDM) voor Office 365 is registratie vereist. Als u een van deze services hebt geconfigureerd **alle** is geselecteerd en **** is niet beschikbaar.
+- **Gebruikers kunnen hun apparaten registreren bij Azure AD** -u moet deze instelling instelt op het apparaat mag worden [geregistreerd](device-management-introduction.md#azure-ad-registered-devices) met Azure AD. Als u selecteert **geen**, apparaten, zijn niet toegestaan om te registreren wanneer ze niet toegevoegd aan Azure AD of toegevoegd aan hybrid Azure AD. Registratie bij Microsoft Intune of Mobile Device Management (MDM) voor Office 365 is registratie vereist. Als u een van deze services hebt geconfigureerd **alle** is geselecteerd en **is** niet beschikbaar.
 
 - **Multi-factor Authentication worden toegevoegd aan apparaten vereist** -u kunt kiezen of gebruikers zijn vereist voor een tweede verificatiefactor naar [join](device-management-introduction.md#azure-ad-joined-devices) hun apparaat naar Azure AD. De standaardwaarde is **Nee**. Het is raadzaam om meervoudige verificatie vereisen bij het registreren van een apparaat. Voordat u multi-factor authentication voor deze service inschakelt, moet u ervoor zorgen dat multi-factor authentication is geconfigureerd voor de gebruikers die hun apparaten registreren. Zie voor meer informatie over de verschillende Azure multi-factor authentication-services, [aan de slag met Azure multi-factor authentication](authentication/concept-mfa-whichversion.md). 
 
@@ -163,7 +163,7 @@ Als u wilt een apparaat verwijdert, hebt u twee opties:
 
 **Opmerking:**
 
-- U moet een globale beheerder in Azure AD te verwijderen van een apparaat.  
+- U moet een globale beheerder of Intune-beheerder in Azure AD te verwijderen van een apparaat.
 
 - Als u een apparaat verwijdert:
  

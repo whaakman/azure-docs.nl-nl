@@ -1,242 +1,247 @@
 ---
-title: Java-API wordt geconfronteerd voor Android-zelfstudie | Microsoft Docs
+title: Face-API Java voor Android-zelfstudie | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
-description: Maak een eenvoudige Android-app die gebruikmaakt van de cognitieve Services Face-API om te detecteren en menselijke vlakken in een installatiekopie van het frame.
+description: In deze zelfstudie maakt u een eenvoudige Android-app die gebruikmaakt van de service Cognitive Services Face waarmee gezichten in een afbeelding kunnen worden herkend en omlijst.
 services: cognitive-services
-author: SteveMSFT
-manager: corncar
+author: noellelacharite
+manager: nolachar
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
-ms.date: 03/01/2018
-ms.author: sbowles
-ms.openlocfilehash: 5164a261d482d0cca3842a973d2109b17999bd25
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 07/12/2018
+ms.author: nolachar
+ms.openlocfilehash: ad7b85b378db9e9687b5f8081bc9832e91e9ee5e
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345676"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125633"
 ---
-# <a name="getting-started-with-face-api-in-java-for-android-tutorial"></a>Aan de slag met Face-API in Java voor Android-zelfstudie
+# <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Zelfstudie: een Android-app maken om gezichten in een afbeelding te herkennen en te omlijsten
 
-In deze zelfstudie leert u te maken en een eenvoudige Android-toepassing die roept de Face-API om menselijke vlakken in een installatiekopie vast te ontwikkelen. De toepassing wordt het resultaat door framing de vlakken die worden gedetecteerd.
+In deze zelfstudie maakt u een eenvoudige Android-toepassing die gebruikmaakt van de Java-klassebibliotheek van de Face-service, waarmee menselijke gezichten in een afbeelding kunnen worden herkend. De toepassing toont een geselecteerde afbeelding waarbij elk gedetecteerd gezicht door een rechthoek is omlijst. De volledige voorbeeldcode is via GitHub beschikbaar op [Detect and frame faces in an image on Android](https://github.com/Azure-Samples/cognitive-services-face-android-sample) (Gezichten in een afbeelding detecteren en omlijsten in Android).
 
-![GettingStartedAndroid](../Images/android_getstarted2.1.PNG)
+![Android-schermafbeelding van een foto met gezichten in een rood vierkant](../Images/android_getstarted2.1.PNG)
 
-## <a name="preparation"></a> Voorbereiding
+In deze zelfstudie leert u:
 
-Als u wilt gebruiken de zelfstudie, moet u de volgende vereisten:
+> [!div class="checklist"]
+> - Een Android-app maken
+> - De clientbibliotheek van de Face-service installeren
+> - De clientbibliotheek gebruiken om gezichten in een afbeelding te detecteren
+> - Een kader rond elk gedetecteerd gezicht tekenen
 
-- Android Studio en SDK is geïnstalleerd
-- Android-apparaat (optioneel voor testdoeleinden).
+## <a name="prerequisites"></a>Vereisten
 
-## <a name="step1"></a>Stap 1: Abonneren voor Face-API en de abonnementssleutel van uw ophalen
+- U hebt een abonnementssleutel nodig om het voorbeeld uit te voeren. U kunt abonnementssleutels voor een gratis proefversie downloaden op [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- [Android Studio](https://developer.android.com/studio/) met ten minste SDK 22 (vereist voor de clientbibliotheek van de Face-service).
+- De clientbibliotheek van Face [com.microsoft.projectoxford:face:1.4.3](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.microsoft.projectoxford%22) van Maven. U hoeft het pakket niet te downloaden. Hieronder vindt u de installatie-instructies.
 
-Voordat u een Face-API gebruiken, moet u zich aanmelden voor een abonnement op Face-API in de portal cognitieve Microsoft-Services. Zie [abonnementen](https://azure.microsoft.com/try/cognitive-services/). Primaire en secundaire sleutel kan worden gebruikt in deze zelfstudie.
+## <a name="create-the-project"></a>Het project maken
 
-## <a name="step2"></a>Stap 2: Maak het toepassingsframework
+Maak uw Android-toepassingsproject door deze stappen te volgen:
 
-In deze stap maakt u een Android-toepassing-project voor het implementeren van de standaard gebruikersinterface voor het ophalen en weergeven van een installatiekopie. Gewoon de instructies hieronder: 
+1. Open Android Studio. In deze zelfstudie wordt Android Studio 3.1 gebruikt.
+1. Selecteer **Start a new Android Studio project**.
+1. Wijzig in het scherm **Create Android Project** zo nodig de standaardvelden en klik op **Volgende**.
+1. Gebruik in het scherm **Target Android Devices** de vervolgkeuzeselector om **API 22** of hoger te kiezen en klik op **Volgende**.
+1. Selecteer **Empty Activity** en klik op **Next**.
+1. Schakel het selectievakje **Backwards Compatibility** uit en klik op **Finish**.
 
-1. Open Android Studio.
-2. Klik in het menu bestand **nieuw Project...**
-3. Naam van de toepassing **MyFirstApp**, en klik op volgende. 
+## <a name="create-the-ui-for-selecting-and-displaying-the-image"></a>De gebruikersinterface voor het selecteren en weergeven van de afbeelding maken
 
-    ![GettingStartAndroidNewProject](../Images/AndroidNewProject.png)
+Open *activity_main.xml*. De indelingseditor wordt weergegeven. Selecteer het tabblad **Text** en vervang de inhoud door de volgende code.
 
-4. Kies doelplatform waar nodig, en klik op volgende. 
+```xml
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-    ![GettingStartAndroidNewProject2](../Images/AndroidNewProject2.png)
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView1"
+        android:layout_above="@+id/button1"
+        android:contentDescription="Image with faces to analyze"/>
 
-5. Selecteer **Basic activiteit** en klik op volgende.
-6. De activiteit als volgt een naam en klik op voltooien. 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Browse for face image"
+        android:id="@+id/button1"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>
+```
 
-    ![GettingStartAndroidNewProject4](../Images/AndroidNewProject4.png)
+Open *MainActivity.java* en vervang alles, behalve de eerste `package`-instructie, door de volgende code.
 
-7. Open **activity_main.xml**, ziet u de Editor voor de indeling van deze activiteit.
-8. Tekstbestand bron weergeven en bewerk vervolgens de indeling van de activiteit:
+Met de code wordt een gebeurtenis-handler voor `Button` ingesteld, waardoor een nieuwe activiteit wordt gestart zodat de gebruiker een afbeelding kan selecteren. Als de afbeelding is geselecteerd, wordt deze in `ImageView` weergegeven.
 
-    ```xml
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-        android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
-     
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/imageView1"
-            android:layout_above="@+id/button1" />
-    
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Browse"
-            android:id="@+id/button1"
-            android:layout_alignParentBottom="true" />
-    </RelativeLayout>
-    ```  
+```java
+import java.io.*;
+import android.app.*;
+import android.content.*;
+import android.net.*;
+import android.os.*;
+import android.view.*;
+import android.graphics.*;
+import android.widget.*;
+import android.provider.*;
 
-9. Open **MainActivity.java** en voeg de volgende instructies voor importeren toe aan het begin van het bestand:
-
-    ```java
-    import java.io.*; 
-    import android.app.*; 
-    import android.content.*; 
-    import android.net.*; 
-    import android.os.*; 
-    import android.view.*; 
-    import android.graphics.*; 
-    import android.widget.*; 
-    import android.provider.*;
-    ```
-      
-    Wijzig de klasse in de tweede plaats als volgt:  
-    
-    ```java
+public class MainActivity extends Activity {
     private final int PICK_IMAGE = 1;
     private ProgressDialog detectionProgressDialog;
-         
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-           super.onCreate(savedInstanceState);
-           setContentView(R.layout.activity_main);
-           Button button1 = (Button)findViewById(R.id.button1);
-           button1.setOnClickListener(new View.OnClickListener() {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_main);
+            Button button1 = (Button)findViewById(R.id.button1);
+            button1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                Intent gallIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                gallIntent.setType("image/*");
-                startActivityForResult(Intent.createChooser(gallIntent, "Select Picture"), PICK_IMAGE);
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.setType("image/*");
+                startActivityForResult(Intent.createChooser(
+                        intent, "Select Picture"), PICK_IMAGE);
             }
         });
-         
+
         detectionProgressDialog = new ProgressDialog(this);
     }
-    
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK &&
+                data != null && data.getData() != null) {
             Uri uri = data.getData();
             try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(
+                        getContentResolver(), uri);
                 ImageView imageView = (ImageView) findViewById(R.id.imageView1);
                 imageView.setImageBitmap(bitmap);
+
+                // Uncomment
+                //detectAndFrame(bitmap);
                 } catch (IOException e) {
-                e.printStackTrace();
+                    e.printStackTrace();
                 }
         }
     }
-    ```
-
-Nu kunt uw app zoeken naar een foto uit de galerie en weer te geven in het venster vergelijkbaar met de onderstaande afbeelding:
-
-![GettingStartAndroidUI](../Images/android_getstarted1.1.PNG)
-
-## <a name="step3"></a>Stap 3: Configureer de clientbibliotheek Face-API
-
-De Face-API is een cloud API die u kunt aanroepen via HTTPS-aanvragen. Voor een handige methode van het gebruik van de Face-API in .NET platform-toepassingen is een clientbibliotheek ook beschikbaar op het web inkapselen aanvragen. In dit voorbeeld gebruiken we de clientbibliotheek ons werk vereenvoudigen. 
-
-Volg de onderstaande instructies voor het configureren van de clientbibliotheek: 
-
-1. Zoek het hoogste niveau **build.gradle** -bestand van uw project uit het deelvenster Project weergegeven in het voorbeeld. Houd er rekening mee dat er diverse andere zijn **build.gradle** bestanden in de projectstructuur van uw en u wilt openen van het hoogste niveau **build.gradle** bestand eerst.
-2. Voeg **mavenCentral()** aan uw projecten-opslagplaatsen. U kunt ook jcenter() die de standaard-opslagplaats van Android Studio omdat jcenter() een hoofdverzameling van mavenCentral() is gebruiken.  
-
-```
-    allprojects {
-        repositories {
-            ...
-            mavenCentral()
-        }
-    }
+}
 ```
 
-3. Open de **build.gradle** bestand in uw appproject.
-4. Een afhankelijkheid voor onze clientbibliotheek opgeslagen in de centrale opslagplaats met Maven toevoegen:
+De app kan nu een foto zoeken en in het venster weergeven, zoals hieronder wordt getoond.
 
-```
-    dependencies {  
-        ...  
-        implementation 'com.microsoft.projectoxford:face:1.4.3'  
-    }
-```
+![Android-schermafbeelding van een foto met gezichten](../Images/android_getstarted1.1.PNG)
 
-5. Open **MainActivity.java** in uw 'app'-project en insert importeert de volgende richtlijnen: 
-    
-    ```java
-    import com.microsoft.projectoxford.face.*;  
-    import com.microsoft.projectoxford.face.contract.*;  
-    ```
-    
-   Voeg vervolgens de volgende code in de klasse:
+## <a name="configure-the-face-client-library"></a>De Face-clientbibliotheek configureren
 
-    ```java
-    private FaceServiceClient faceServiceClient = new FaceServiceRestClient("your API endpoint", "<Subscription Key>");
-    ```
+De Face-API is een cloud-API, die u kunt aanroepen met HTTPS-aanvragen. In de zelfstudie wordt de Face-clientbibliotheek gebruikt. Deze kapselt deze webaanvragen in om uw werk te vereenvoudigen.
 
-   De eerste parameter hierboven vervangen door de API-eindpunt dat is toegewezen aan de sleutel in stap 1. Bijvoorbeeld:
-   
-        https://eastus2.api.cognitive.microsoft.com/face/v1.0
-   
-   De tweede parameter vervangen door de sleutel van het abonnement dat u hebt verkregen in stap 1.
-   
-6. Open het bestand **AndroidManifest.xml** in uw appproject. Voeg het volgende element als onderliggend element van de **manifest** element:  
+Gebruik in het deelvenster **Project** de vervolgkeuzeselector om **Android** te selecteren. Vouw **Gradle Scripts** uit en open *build.gradle (Module: app)*.
 
-    ```xml
-    <uses-permission android:name="android.permission.INTERNET" />  
-    ```
+Voeg een afhankelijkheid toe voor de Face-clientbibliotheek, `com.microsoft.projectoxford:face:1.4.3`, zoals weergegeven in de onderstaande schermafbeelding. Klik vervolgens op **Sync Now**.
 
-7. U bent nu klaar om aan te roepen de Face-API van uw toepassing. 
+![Android Studio-schermafbeelding van app-bestand build.gradle](../Images/face-tut-java-gradle.png)
 
-## <a name="step4"></a>Stap 4: Afbeeldingen voor het detecteren van vlakken uploaden
-
-De eenvoudigste manier om te detecteren vlakken is door het aanroepen van de [geconfronteerd – detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API door het installatiekopiebestand rechtstreeks te uploaden. Wanneer u de clientbibliotheek gebruikt, kunt u dit doen met behulp van de asynchrone methode **DetectAsync** van de **FaceServiceClient** klasse. Elke geretourneerde face bevat een rechthoek voor het aangeven van de locatie, gecombineerd met een reeks optionele face-kenmerken. In dit voorbeeld moet er alleen voor het ophalen van de face-locatie. Hier moet invoegen van een methode in de **MainActivity** klasse voor face detection: 
+Open **MainActivity.java** en voeg de volgende importeerinstructies toe:
 
 ```java
+import com.microsoft.projectoxford.face.*;
+import com.microsoft.projectoxford.face.contract.*;
+```
 
-    // Detect faces by uploading face images
-    // Frame faces after detection
-    
-    private void detectAndFrame(final Bitmap imageBitmap)
-    {
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
-        ByteArrayInputStream inputStream = 
+## <a name="add-the-face-client-library-code"></a>De code van de Face-clientbibliotheek toevoegen
+
+Voeg de volgende code in de `MainActivity`-klasse in, boven de `onCreate`-methode:
+
+```java
+private final String apiEndpoint = "<API endpoint>";
+private final String subscriptionKey = "<Subscription Key>";
+
+private final FaceServiceClient faceServiceClient =
+        new FaceServiceRestClient(apiEndpoint, subscriptionKey);
+```
+
+Vervang `<API endpoint>` door het API-eindpunt dat aan uw sleutel is toegewezen. Abonnementssleutels voor een gratis proefversie worden gegenereerd in de regio **westcentralus**. Dus als u een abonnementssleutel voor een gratis proefversie gebruikt, dan wordt de instructie:
+
+```java
+apiEndpoint = "https://westcentralus.api.cognitive.microsoft.com/face/v1.0";
+```
+
+Vervang `<Subscription Key>` door uw abonnementssleutel. Bijvoorbeeld:
+
+```java
+subscriptionKey = "0123456789abcdef0123456789ABCDEF"
+```
+
+Vouw in het deelvenster **Project** achtereenvolgens **app**, **manifests** uit en open *AndroidManifest.xml*.
+
+Voeg het volgende element in als een direct onderliggend element van het `manifest`-element:
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+```
+
+Bouw het project zodat op fouten kan worden gecontroleerd. U bent nu klaar om de Face-service aan te roepen.
+
+## <a name="upload-an-image-to-detect-faces"></a>Een afbeelding uploaden om gezichten te detecteren
+
+De eenvoudigste manier om gezichten te detecteren, is door de `FaceServiceClient.detect`-methode aan te roepen. In deze methode wordt de API-methode [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) ingepakt en wordt een reeks `Face`'s geretourneerd.
+
+Elke geretourneerde `Face` bevat een rechthoek om de locatie ervan aan te geven, plus een reeks optionele gezichtskenmerken. In dit voorbeeld zijn alleen de locaties van de gezichten vereist.
+
+Als er een fout optreedt, geeft een `AlertDialog` de onderliggende oorzaak weer.
+
+Voeg de volgende methoden in de `MainActivity`-klasse in.
+
+```java
+// Detect faces by uploading a face image.
+// Frame faces after detection.
+private void detectAndFrame(final Bitmap imageBitmap) {
+    ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+    imageBitmap.compress(Bitmap.CompressFormat.JPEG, 100, outputStream);
+    ByteArrayInputStream inputStream =
             new ByteArrayInputStream(outputStream.toByteArray());
-        AsyncTask<InputStream, String, Face[]> detectTask =
+
+    AsyncTask<InputStream, String, Face[]> detectTask =
             new AsyncTask<InputStream, String, Face[]>() {
+                String exceptionMessage = "";
+
                 @Override
                 protected Face[] doInBackground(InputStream... params) {
                     try {
                         publishProgress("Detecting...");
                         Face[] result = faceServiceClient.detect(
-                                params[0], 
+                                params[0],
                                 true,         // returnFaceId
                                 false,        // returnFaceLandmarks
-                                null           // returnFaceAttributes: a string like "age, gender"
-                /* If you want value of FaceAttributes, try adding 4th argument like below.
-                            new FaceServiceClient.FaceAttributeType[] {
-                    FaceServiceClient.FaceAttributeType.Age,
-                    FaceServiceClient.FaceAttributeType.Gender }
-                */              
+                                null          // returnFaceAttributes:
+                                /* new FaceServiceClient.FaceAttributeType[] {
+                                    FaceServiceClient.FaceAttributeType.Age,
+                                    FaceServiceClient.FaceAttributeType.Gender }
+                                */
                         );
-                        if (result == null)
-                        {
-                            publishProgress("Detection Finished. Nothing detected");
+                        if (result == null){
+                            publishProgress(
+                                    "Detection Finished. Nothing detected");
                             return null;
                         }
-                        publishProgress(
-                                String.format("Detection Finished. %d face(s) detected",
-                                        result.length));
+                        publishProgress(String.format(
+                                "Detection Finished. %d face(s) detected",
+                                result.length));
                         return result;
                     } catch (Exception e) {
-                        publishProgress("Detection failed");
+                        exceptionMessage = String.format(
+                                "Detection failed: %s", e.getMessage());
                         return null;
                     }
                 }
+
                 @Override
                 protected void onPreExecute() {
                     //TODO: show progress dialog
@@ -250,92 +255,118 @@ De eenvoudigste manier om te detecteren vlakken is door het aanroepen van de [ge
                     //TODO: update face frames
                 }
             };
-        detectTask.execute(inputStream);
-    }
+
+    detectTask.execute(inputStream);
+}
+
+private void showError(String message) {
+    new AlertDialog.Builder(this)
+    .setTitle("Error")
+    .setMessage(message)
+    .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+        }})
+    .create().show();
+}
 ```
 
-## <a name="step5"></a>Stap 5: Markeren bespreekt in de afbeelding
+## <a name="frame-faces-in-the-image"></a>Gezichten in de afbeelding omlijsten
 
-In deze laatste stap we de bovenstaande stappen samen combineren en markeert de gedetecteerde vlakken met frames in de installatiekopie. Open eerst **MainActivity.java** en voeg een Help-methode om te tekenen rechthoeken: 
-
-```java
-    private static Bitmap drawFaceRectanglesOnBitmap(Bitmap originalBitmap, Face[] faces) {
-        Bitmap bitmap = originalBitmap.copy(Bitmap.Config.ARGB_8888, true);
-        Canvas canvas = new Canvas(bitmap);
-        Paint paint = new Paint();
-        paint.setAntiAlias(true);
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setColor(Color.RED);
-        int stokeWidth = 2;
-        paint.setStrokeWidth(stokeWidth);
-        if (faces != null) {
-            for (Face face : faces) {
-                FaceRectangle faceRectangle = face.faceRectangle;
-                canvas.drawRect(
-                        faceRectangle.left,
-                        faceRectangle.top,
-                        faceRectangle.left + faceRectangle.width,
-                        faceRectangle.top + faceRectangle.height,
-                        paint);
-            }
-        }
-        return bitmap;
-    }
-```
-
-Nu de TODO-onderdelen in de **detectAndFrame** methode om te vlakken frame en status rapporteren.
+Voeg de volgende helper-methode in de `MainActivity`-klasse in. Met deze methode wordt een rechthoek rond elk gedetecteerd gezicht getekend.
 
 ```java
-    @Override
-    protected void onPreExecute() {
-        detectionProgressDialog.show();
-    }
-    @Override
-    protected void onProgressUpdate(String... progress) {
-        detectionProgressDialog.setMessage(progress[0]);
-    }
-    @Override
-    protected void onPostExecute(Face[] result) {
-        detectionProgressDialog.dismiss();
-        if (result == null) return;
-        ImageView imageView = (ImageView)findViewById(R.id.imageView1);
-        imageView.setImageBitmap(drawFaceRectanglesOnBitmap(imageBitmap, result));
-        imageBitmap.recycle();
-    }
-```
- 
-Voeg een aanroep van de **detectAndFrame** methode van de **onActivityResult** methode, zoals hieronder wordt weergegeven. 
-
-```java
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            Uri uri = data.getData();
-            try {
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                ImageView imageView = (ImageView) findViewById(R.id.imageView1);
-                imageView.setImageBitmap(bitmap);
-     
-                // This is the new addition.
-                // detectAndFrame(bitmap);
-     
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+private static Bitmap drawFaceRectanglesOnBitmap(
+        Bitmap originalBitmap, Face[] faces) {
+    Bitmap bitmap = originalBitmap.copy(Bitmap.Config.ARGB_8888, true);
+    Canvas canvas = new Canvas(bitmap);
+    Paint paint = new Paint();
+    paint.setAntiAlias(true);
+    paint.setStyle(Paint.Style.STROKE);
+    paint.setColor(Color.RED);
+    paint.setStrokeWidth(10);
+    if (faces != null) {
+        for (Face face : faces) {
+            FaceRectangle faceRectangle = face.faceRectangle;
+            canvas.drawRect(
+                    faceRectangle.left,
+                    faceRectangle.top,
+                    faceRectangle.left + faceRectangle.width,
+                    faceRectangle.top + faceRectangle.height,
+                    paint);
         }
     }
+    return bitmap;
+}
 ```
 
-Deze toepassing en blader naar een installatiekopie van een gezicht uitvoeren. Wacht een paar seconden waarmee de cloud-API om te reageren. Daarna krijgt u een resultaat vergelijkbaar met de onderstaande afbeelding: 
+Voltooi de `AsyncTask`-methoden, aangegeven door de `TODO`-opmerkingen, in de `detectAndFrame`-methode. Als dit lukt, wordt de geselecteerde afbeelding met omlijste gezichten weergegeven in `ImageView`.
+
+```java
+@Override
+protected void onPreExecute() {
+    detectionProgressDialog.show();
+}
+@Override
+protected void onProgressUpdate(String... progress) {
+    detectionProgressDialog.setMessage(progress[0]);
+}
+@Override
+protected void onPostExecute(Face[] result) {
+    detectionProgressDialog.dismiss();
+    if(!exceptionMessage.equals("")){
+        showError(exceptionMessage);
+    }
+    if (result == null) return;
+    ImageView imageView = findViewById(R.id.imageView1);
+    imageView.setImageBitmap(
+            drawFaceRectanglesOnBitmap(imageBitmap, result));
+    imageBitmap.recycle();
+}
+```
+
+Verwijder ten slotte in de `onActivityResult`-methode de opmerkingen bij de aanroep naar de `detectAndFrame`-methode, zoals hieronder aangegeven.
+
+```java
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+
+    if (requestCode == PICK_IMAGE && resultCode == RESULT_OK &&
+                data != null && data.getData() != null) {
+        Uri uri = data.getData();
+        try {
+            Bitmap bitmap = MediaStore.Images.Media.getBitmap(
+                    getContentResolver(), uri);
+            ImageView imageView = findViewById(R.id.imageView1);
+            imageView.setImageBitmap(bitmap);
+
+            // Uncomment
+            detectAndFrame(bitmap);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+## <a name="run-the-app"></a>De app uitvoeren
+
+Voer de toepassing uit en blader naar een afbeelding met een gezicht. Wacht enkele seconden, zodat de Face-service kan reageren. Het resultaat dat volgt is soortgelijk aan de afbeelding hieronder:
 
 ![GettingStartAndroid](../Images/android_getstarted2.1.PNG)
 
-## <a name="summary"></a> Samenvatting
+## <a name="summary"></a>Samenvatting
 
-In deze zelfstudie hebt geleerd het basisproces voor het gebruik van de Face-API en een toepassing om weer te geven face aanhalingstekens in de afbeeldingen hebt gemaakt. Raadpleeg voor meer informatie over de Face-API's de instructies en [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236). 
+In deze zelfstudie hebt u het basisproces geleerd voor het gebruik van de Face-service en een toepassing gemaakt om omlijste gezichten in een afbeelding weer te geven.
 
-## <a name="related"></a> Verwante zelfstudies
+## <a name="next-steps"></a>Volgende stappen
 
-- [Aan de slag met Face-API in CSharp-zelfstudie](FaceAPIinCSharpTutorial.md)
-- [Aan de slag met Face-API in Python-zelfstudie](FaceAPIinPythonTutorial.md)
+Meer informatie over het detecteren en gebruiken van gezichtskenmerken.
+
+> [!div class="nextstepaction"]
+> [Gezichten in afbeeldingen detecteren](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
+
+Onderzoek de Face-API's die worden gebruikt voor het detecteren van gezichten en hun kenmerken, zoals de houding, het geslacht, de stand van het hoofd, de gezichtsbeharing en een eventuele bril.
+
+> [!div class="nextstepaction"]
+> [Verwijzing naar de Face-API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).

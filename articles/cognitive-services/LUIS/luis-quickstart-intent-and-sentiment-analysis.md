@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: v-geberr
-ms.openlocfilehash: 1a48810287c1639910db8e39af2da61d836b2988
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 8dc6b8d4dd4cbe64841c4b36c498cf9021b4196f
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340930"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37930603"
 ---
-# <a name="tutorial-8--add-sentiment-analysis"></a>Zelfstudie: 8.  Sentimentanalyse toevoegen
+# <a name="tutorial-9--add-sentiment-analysis"></a>Zelfstudie: 9.  Sentimentanalyse toevoegen
 In deze zelfstudie maakt u een app die laat zien hoe u positieve, negatieve en neutrale gevoelens kunt extraheren uit utterances.
 
 <!-- green checkmark -->
@@ -30,7 +30,7 @@ In deze zelfstudie maakt u een app die laat zien hoe u positieve, negatieve en n
 Voor dit artikel hebt u een gratis [LUIS](luis-reference-regions.md#luis-website)-account nodig om uw LUIS-toepassing te creëren.
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Als u geen Human Resources-app uit de zelfstudie over vooraf gemaakte [keyPhrase-entiteit](luis-quickstart-intent-and-key-phrase.md) hebt, [importeert](create-new-app.md#import-new-app) u de JSON in een nieuwe app op de [LUIS](luis-reference-regions.md#luis-website)-website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
+Als u geen Human Resources-app uit de zelfstudie over vooraf gemaakte [keyPhrase-entiteit](luis-quickstart-intent-and-key-phrase.md) hebt, [importeert](luis-how-to-start-new-app.md#import-new-app) u de JSON in een nieuwe app op de [LUIS](luis-reference-regions.md#luis-website)-website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-keyphrase-HumanResources.json).
 
 Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `sentiment`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
 
@@ -98,7 +98,7 @@ Configureer sentimentanalyse op de pagina **Publish**.
 
 2. Selecteer **Enable Sentiment Analysis**. Selecteer de slot Production en vervolgens de knop **Publish**.
 
-    [![](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png "Schermopname van de pagina Publish app met de knop Publish gemarkeerd")](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png#lightbox)
+    [![](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png "Schermopname van de pagina Publish met de knop Publish to production slot gemarkeerd")](media/luis-quickstart-intent-and-sentiment-analysis/hr-publish-to-production-expanded.png#lightbox)
 
 4. Het publiceren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het publiceren is gelukt.
 
@@ -212,10 +212,10 @@ Uw chatbot heeft nu voldoende gegevens om de volgende stap in het gesprek te bep
 LUIS hoeft niets meer te doen met deze aanvraag. De aanroepende toepassing, zoals een chatbot, kan het resultaat topScoringIntent nemen plus de sentimentgegevens uit de utterance om de volgende stap uit te voeren. LUIS is niet verantwoordelijk voor die programmatische werken voor de bot of aanroepende toepassing. LUIS bepaalt alleen wat de bedoeling van de gebruiker is. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer **My apps** in het bovenste menu links. Selecteer het menu met de drie punten (...) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Delete**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer **My apps** in het bovenste menu links. Selecteer het weglatingsteken (***...***) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"] 
-> [API op LUIS-eindpunt aanroepen met C#](luis-get-started-cs-get-intent.md) 
+> [Eindpuntuitingen beoordelen in de HR-app](luis-tutorial-review-endpoint-utterances.md) 
 

@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: f3808620c4527f2971d8eb6d53a09c893b162b59
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: ccefb4c2890d74978f340778cfab7cad979c9802
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340947"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929545"
 ---
-# <a name="tutorial-7-add-keyphrase-entity"></a>Zelfstudie: 7. KeyPhrase-entiteit toevoegen 
+# <a name="tutorial-8-add-keyphrase-entity"></a>Zelfstudie: 8. KeyPhrase-entiteit toevoegen 
 In deze zelfstudie gebruikt u een app die laat zien hoe u belangrijke informatie kunt extraheren uit utterances.
 
 <!-- green checkmark -->
@@ -30,7 +30,7 @@ In deze zelfstudie gebruikt u een app die laat zien hoe u belangrijke informatie
 Voor dit artikel kunt u het gratis [LUIS](luis-reference-regions.md#publishing-regions)-account gebruiken om de LUIS-toepassing te maken.
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Als u geen Human Resources-app uit de zelfstudie over de [entiteit Simple](luis-quickstart-primary-and-secondary-data.md) hebt, [importeert](create-new-app.md#import-new-app) u de JSON in een nieuwe app op de [LUIS](luis-reference-regions.md#luis-website)-website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json).
+Als u geen Human Resources-app uit de zelfstudie over de [entiteit Simple](luis-quickstart-primary-and-secondary-data.md) hebt, [importeert](luis-how-to-start-new-app.md#import-new-app) u de JSON in een nieuwe app op de [LUIS](luis-reference-regions.md#luis-website)-website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-simple-HumanResources.json).
 
 Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `keyphrase`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
 
@@ -201,10 +201,9 @@ Uw chatbot heeft nu voldoende gegevens om de volgende stap in het gesprek te bep
 LUIS hoeft niets meer te doen met deze aanvraag. De aanroepende toepassing, zoals een chatbot, kan het resultaat topScoringIntent nemen plus de sleuteltermen uit de utterance om de volgende stap te nemen. LUIS is niet verantwoordelijk voor die programmatische werken voor de bot of aanroepende toepassing. LUIS bepaalt alleen wat de bedoeling van de gebruiker is. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer **My apps** in het menu linksboven. Selecteer het menu met de drie punten (...) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Delete**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer **My apps** in het menu linksboven. Selecteer de drie puntjes (***...***) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
 > [Sentimentanalyse aan app toevoegen](luis-quickstart-intent-and-sentiment-analysis.md)
-

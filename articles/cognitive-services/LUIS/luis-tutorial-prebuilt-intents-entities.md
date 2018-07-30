@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 075cb270641ca995eec95aa6aa8986c90077148a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 387f20d2080a67041c90ec1af93e791716839dd9
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112185"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929046"
 ---
 # <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Zelfstudie: 2. Vooraf gemaakte intenties en entiteiten toevoegen
 Voeg vooraf gemaakte intenties en entiteiten toe aan de zelfstudie-app Human Resources om snel intenties te kunnen voorspellen en gegevens te extraheren. 
@@ -28,7 +28,7 @@ In deze zelfstudie leert u het volgende:
 * Een query uitvoeren met LUIS en een voorspelling als antwoord ontvangen
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Als u niet beschikt over de [Human Resources](luis-quickstart-intents-only.md)-app uit de vorige zelfstudie, [importeert](create-new-app.md#import-new-app) u de JSON in een nieuwe app op de website van [LUIS](luis-reference-regions.md#luis-website). Dit kan vanuit de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json).
+Als u niet beschikt over de [Human Resources](luis-quickstart-intents-only.md)-app uit de vorige zelfstudie, [importeert](luis-how-to-start-new-app.md#import-new-app) u de JSON in een nieuwe app op de website van [LUIS](luis-reference-regions.md#luis-website). Dit kan vanuit de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json).
 
 Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `prebuilts`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
 
@@ -171,7 +171,7 @@ Er zijn twee waarden voor 3 maart omdat de utterance niet vermeldt of 3 maart in
 Door snel en eenvoudig vooraf gemaakte intenties en entiteiten toe te voegen, kan de clienttoepassing conversatiebeheer toevoegen en algemene gegevenstypen extraheren. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Daarvoor selecteert u **My apps** in het menu linksboven. Selecteer het menu met de drie punten (...) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Delete**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Daarvoor selecteert u **My apps** in het menu linksboven. Selecteer het weglatingsteken (***...***) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

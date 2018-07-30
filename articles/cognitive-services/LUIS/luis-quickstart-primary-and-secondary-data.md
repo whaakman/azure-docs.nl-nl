@@ -9,14 +9,14 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: e6ab9d1db0144ffa68fe9dc3381ba31d57aa0cae
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: a4bf63b7a2fbbb26b8c121f5360aea0a5ca8a687
+ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130888"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37952382"
 ---
-# <a name="tutorial-6-add-simple-entity-and-phrase-list"></a>Zelfstudie: 6. De entiteit Simple en een woordgroepenlijst toevoegen
+# <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Zelfstudie: 7. De entiteit Simple en een woordgroepenlijst toevoegen
 In deze zelfstudie maakt u een app die laat zien hoe u met behulp van de entiteit **Simple** via machine learning verkregen gegevens extraheert uit een 'utterance'.
 
 <!-- green checkmark -->
@@ -32,7 +32,7 @@ In deze zelfstudie maakt u een app die laat zien hoe u met behulp van de entitei
 Voor dit artikel hebt u een gratis [LUIS](luis-reference-regions.md#luis-website)-account nodig om uw LUIS-toepassing te creëren.
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Als u geen Human Resources-app uit de zelfstudie over de [entiteit Hierarchical](luis-quickstart-intent-and-hier-entity.md) hebt, [importeert](create-new-app.md#import-new-app) u de JSON in een nieuwe app op de [LUIS](luis-reference-regions.md#luis-website)-website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json).
+Als u geen Human Resources-app uit de zelfstudie over de [samengestelde entiteit](luis-tutorial-composite-entity.md) hebt, [importeert](luis-how-to-start-new-app.md#import-new-app) u de JSON in een nieuwe app op de [LUIS](luis-reference-regions.md#luis-website)-website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-composite-HumanResources.json).
 
 Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `simple`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd.  
 
@@ -145,7 +145,7 @@ Om LUIS een voorspelling te laten geven in een chatbot of een andere toepassing,
 
 2. Selecteer de slot Production en vervolgens de knop **Publish**.
 
-    [![](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png "Schermopname van de pagina Publish app met de knop Publish gemarkeerd")](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png#lightbox)
+    [![](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png "Schermopname van de pagina Publish met de knop Publish to production slot gemarkeerd")](media/luis-quickstart-primary-and-secondary-data/publish-to-production.png#lightbox)
 
 3. Het publiceren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het publiceren is gelukt.
 
@@ -366,7 +366,7 @@ Open [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/maste
     ```
 
 ## <a name="phrase-lists"></a>Woordgroepenlijsten
-Door de woordgroepenlijst toe te voegen, wordt de signalering van woorden die in de lijst voorkomen versterkt, maar worden deze woorden **niet** als exacte overeenkomst gebruikt. De woordgroepenlijst bevat diverse functies met `lead` als eerste woord. Ze bevat ook de functie `welder` maar niet de functie `lead welder`. Deze woordgroepenlijst voor functies is mogelijk niet volledig. Omdat u regelmatig [utterances van eindpunten zult bekijken ](label-suggested-utterances.md) en daaronder andere woorden met betrekking tot functies zult tegenkomen, kunt u deze aan uw woordgroepenlijst toevoegen. Vervolgens moet u de app opnieuw trainen en publiceren.
+Door de woordgroepenlijst toe te voegen, wordt de signalering van woorden die in de lijst voorkomen versterkt, maar worden deze woorden **niet** als exacte overeenkomst gebruikt. De woordgroepenlijst bevat diverse functies met `lead` als eerste woord. Ze bevat ook de functie `welder` maar niet de functie `lead welder`. Deze woordgroepenlijst voor functies is mogelijk niet volledig. Omdat u regelmatig [utterances van eindpunten zult bekijken ](luis-how-to-review-endoint-utt.md) en daaronder andere woorden met betrekking tot functies zult tegenkomen, kunt u deze aan uw woordgroepenlijst toevoegen. Vervolgens moet u de app opnieuw trainen en publiceren.
 
 ## <a name="what-has-this-luis-app-accomplished"></a>Wat is er met deze LUIS-app bereikt?
 Met deze app, een entiteit Simple en een woordgroepenlijst met woorden, kan nu een intentie van een query in natuurlijke taal worden geïdentificeerd en kunnen de functiegegevens worden geretourneerd. 
@@ -377,7 +377,7 @@ Uw chatbot beschikt nu over voldoende informatie om vast te stellen wat de prima
 LUIS hoeft niets meer te doen met deze aanvraag. De aanroepende toepassing, zoals een chatbot, kan het resultaat topScoringIntent nemen plus de gegevens van de entiteit om vervolgens met behulp van een API van een derde partij de functiegegevens naar een HR-medewerker te verzenden. Als er andere programmatische opties bestaan voor de bot of de aanroepende toepassing, wordt die taak niet uitgevoerd door LUIS. LUIS bepaalt alleen wat de bedoeling van de gebruiker is. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer **My apps** in het menu linksboven. Selecteer het menu met de drie punten (...) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Delete**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer **My apps** in het menu linksboven. Selecteer het weglatingsteken (***...***) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

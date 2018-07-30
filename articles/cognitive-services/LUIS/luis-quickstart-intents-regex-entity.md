@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: v-geberr
-ms.openlocfilehash: 522d24c1c03a338633c340502087300c890d1771
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: f51c296b39fda08d0bcc704fb974e71465385d67
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128442"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929368"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>Zelfstudie: 3. Een entiteit in de vorm van een reguliere expressie toevoegen
 In deze zelfstudie maakt u een app die laat zien hoe u consistent opgemaakte gegevens kunt extraheren uit een utterance met behulp van de entiteit **Regular Expression (regex)**.
@@ -31,7 +31,7 @@ In deze zelfstudie maakt u een app die laat zien hoe u consistent opgemaakte geg
 Voor dit artikel hebt u een gratis [LUIS](luis-reference-regions.md#luis-website)-account nodig om uw LUIS-toepassing te creëren.
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Als u niet beschikt over de Human Resources-app uit de zelfstudie over de [vooraf gedefinieerde entiteit](luis-tutorial-prebuilt-intents-entities.md), [importeert](create-new-app.md#import-new-app) u de JSON in een nieuwe app op de website van [LUIS](luis-reference-regions.md#luis-website). Dit kan vanuit de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
+Als u niet beschikt over de Human Resources-app uit de zelfstudie over de [vooraf gedefinieerde entiteit](luis-tutorial-prebuilt-intents-entities.md), [importeert](luis-how-to-start-new-app.md#import-new-app) u de JSON in een nieuwe app op de website van [LUIS](luis-reference-regions.md#luis-website). Dit kan vanuit de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
 
 Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `regex`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
 
@@ -71,7 +71,7 @@ LUIS tokeniseert de utterance wanneer deze wordt toegevoegd aan een intentie. Di
 
 2. Selecteer **Create new intent**. 
 
-    [![Schermopname van pagina Intents met de knop Create new intent gemarkeerd](./media/luis-quickstart-intents-regex-entity/create-new-intent-button.png) ](./media/luis-quickstart-intents-regex-entity/create-new-intent-button.png#lightbox)
+    [![Schermopname van pagina Intents met de knop Create new intentie gemarkeerd](./media/luis-quickstart-intents-regex-entity/create-new-intent-button.png) ](./media/luis-quickstart-intents-regex-entity/create-new-intent-button.png#lightbox)
 
 3. Voer in het pop-updialoogvenster `FindForm` in en selecteer vervolgens **Done**. 
 
@@ -253,7 +253,7 @@ Uw chatbot heeft nu voldoende gegevens om de primaire actie te bepalen, `FindFor
 LUIS hoeft niets meer te doen met deze aanvraag. De aanroepende toepassing, zoals een chatbot, kan het resultaat topScoringIntent nemen plus de formuliernummers om te zoeken via een API van een derde partij. LUIS hoeft die taak niet uit te voeren. LUIS alleen bepaalt wat de intentie van de gebruiker is en extraheert gegevens over die intentie. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer **My apps** in het bovenste menu links. Selecteer het menu met de drie punten (...) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Delete**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer **My apps** in het bovenste menu links. Selecteer het weglatingsteken (***...***) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

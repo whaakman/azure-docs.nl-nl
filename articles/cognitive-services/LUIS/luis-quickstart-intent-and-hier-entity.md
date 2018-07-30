@@ -7,14 +7,14 @@ manager: kaiqb
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/22/2018
+ms.date: 07/04/2018
 ms.author: v-geberr
-ms.openlocfilehash: 6ba45de8ef41c8a57ca9c042a304e323a4fac263
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: babfc2f82e17f3745af1d940df89763170a002bd
+ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081690"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37929583"
 ---
 # <a name="tutorial-5-add-hierarchical-entity"></a>Zelfstudie: 5. Een hiërarchische entiteit toevoegen
 In deze zelfstudie maakt u een app die laat zien hoe u gerelateerde soorten gegevens kunt vinden op basis van context. 
@@ -27,12 +27,12 @@ In deze zelfstudie maakt u een app die laat zien hoe u gerelateerde soorten gege
 > * App inleren en publiceren
 > * Eindpunt van de app opvragen om LUIS JSON-antwoord te zien inclusief hiërarchische onderliggende elementen 
 
-Voor dit artikel hebt u een gratis [LUIS][LUIS]-account nodig om de LUIS-toepassing te maken.
+Voor dit artikel hebt u een gratis [LUIS](luis-reference-regions.md#luis-website)-account nodig om uw LUIS-toepassing te creëren.
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Als u geen Human Resources-app uit de zelfstudie over [List-entiteiten](luis-quickstart-intent-and-list-entity.md) hebt, [importeert](create-new-app.md#import-new-app) u de JSON in een nieuwe app op de [LUIS](luis-reference-regions.md#luis-website)-website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json).
+Als u geen Human Resources-app uit de zelfstudie over [List-entiteiten](luis-quickstart-intent-and-list-entity.md) hebt, [importeert](luis-how-to-start-new-app.md#import-new-app) u de JSON in een nieuwe app op de [LUIS](luis-reference-regions.md#luis-website)-website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-list-HumanResources.json).
 
-Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `hier`. Klonen is een uitstekende manier om te experimenten met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
+Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `hier`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
 
 ## <a name="purpose-of-the-app-with-this-entity"></a>Doel van de app met deze entiteit
 Met deze app wordt bepaald waar een werknemer naartoe wordt verplaatst van de locatie van herkomst (gebouw en kantoor) naar de bestemmingslocatie (gebouw en kantoor). Hierbij wordt de entiteit Hierarchical gebruikt om vast te stellen wat de locaties binnen de utterance zijn. 
@@ -55,7 +55,7 @@ Als slechts één onderliggend element (herkomst of bestemming) van een hiërarc
 ## <a name="remove-prebuilt-number-entity-from-app"></a>Vooraf gedefinieerde cijferentiteit uit app verwijderen
 Om de volledige utterance te zien en de onderliggende entiteiten Hierarchical te kunnen markeren, moet u de vooraf gedefinieerde cijferentiteit tijdelijk verwijderen.
 
-1. Zorg ervoor dat uw Human Resources-app zich bevindt in de sectie **Build** van LUIS. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
+1. Zorg ervoor dat uw Human Resources-app zich in de sectie **Build** van LUIS bevindt. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
 
     [ ![Schermopname van LUIS-app met Build gemarkeerd in de navigatiebalk rechtsboven](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png)](./media/luis-quickstart-intent-and-hier-entity/hr-first-image.png#lightbox)
 
@@ -64,12 +64,12 @@ Om de volledige utterance te zien en de onderliggende entiteiten Hierarchical te
     [ ![Schermopname van LUIS-app met de knop Entities in het linkermenu gemarkeerd](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png)](./media/luis-quickstart-intent-and-hier-entity/hr-select-entities-button.png#lightbox)
 
 
-3. Selecteer de drie puntjes (...) rechts van de cijferentiteit in de lijst. Selecteer **Verwijderen**. 
+3. Selecteer de drie puntjes (***...***) rechts van de cijferentiteit in de lijst. Selecteer **Verwijderen**. 
 
     [ ![Schermopname van LUIS-app op de lijstpagina met entiteiten met de verwijderknop gemarkeerd voor de vooraf gedefinieerde cijferentiteit](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png)](./media/luis-quickstart-intent-and-hier-entity/hr-delete-number-prebuilt.png#lightbox)
 
 
-## <a name="add-utterances-to-findform-intent"></a>Utterances toevoegen aan de intentie FindForm
+## <a name="add-utterances-to-moveemployee-intent"></a>Uitingen toevoegen aan de intentie MoveEmployee
 
 1. Selecteer **Intents** in het linkermenu.
 
@@ -126,18 +126,18 @@ De vooraf gedefinieerde cijferentiteit opnieuw toevoegen aan de toepassing.
 
 3. Selecteer het **cijfer** uit de lijst met vooraf gedefinieerde entiteiten en selecteer vervolgens **Done**.
 
-    ![Schermopname van het selecteren van een cijfer in het dialoogvenster met de vooraf gedefinieerde entiteiten](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
+    ![Schermopname van het selecteren van een nummer in het dialoogvenster met de vooraf gedefinieerde entiteiten](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
 
-## <a name="train-the-luis-app"></a>LUIS-app inleren
-LUIS niet weet dat de intents en entiteiten (het model) zijn gewijzigd, totdat u de app hebt ingeleerd. 
+## <a name="train-the-luis-app"></a>LUIS-app trainen
+LUIS niet weet dat de intenties en entiteiten (het model) zijn gewijzigd, totdat u de app hebt ingeleerd. 
 
 1. Selecteer rechtsboven op de website van LUIS de knop **Train**.
 
-    ![App inleren](./media/luis-quickstart-intent-and-hier-entity/train-button.png)
+    ![De app trainen](./media/luis-quickstart-intent-and-hier-entity/train-button.png)
 
-2. Het inleren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het inleren is gelukt.
+2. Het trainen is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het trainen is gelukt.
 
-    ![Inleren is voltooid](./media/luis-quickstart-intent-and-hier-entity/trained.png)
+    ![Trainen is voltooid](./media/luis-quickstart-intent-and-hier-entity/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>App publiceren om eindpunt-URL op te vragen
 Om LUIS een voorspelling te laten geven in een chatbot of een andere toepassing, moet u de app publiceren. 
@@ -146,12 +146,12 @@ Om LUIS een voorspelling te laten geven in een chatbot of een andere toepassing,
 
 2. Selecteer de slot Production en vervolgens de knop **Publish**.
 
-    [![](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png "Schermopname van de pagina Publish app met de knop Publish gemarkeerd")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
+    [![](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png "Schermopname van de pagina Publish met de knop Publish to production slot gemarkeerd")](media/luis-quickstart-intent-and-hier-entity/publish-to-production.png#lightbox)
 
 3. Het publiceren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het publiceren is gelukt.
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Eindpunt opvragen met een andere utterance
-1. Selecteer onderaan de pagina **Publish** de koppeling **endpoint**. Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbalk. 
+1. Selecteer onder aan de pagina **Publish** de koppeling **endpoint**. Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbalk. 
 
     [![](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png "Schermopname van de pagina Publish met eindpunt-URL gemarkeerd")](media/luis-quickstart-intent-and-hier-entity/publish-select-endpoint.png#lightbox)
 
@@ -268,12 +268,8 @@ Uw chatbot heeft nu voldoende gegevens om de primaire actie te bepalen, `MoveEmp
 LUIS hoeft niets meer te doen met deze aanvraag. De aanroepende toepassing, zoals een chatbot, kan het resultaat topScoringIntent nemen plus de gegevens van de entiteit om de volgende stap uit te voeren. LUIS is niet verantwoordelijk voor die programmatische werken voor de bot of aanroepende toepassing. LUIS bepaalt alleen wat de bedoeling van de gebruiker is. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer hiervoor het menu met de drie punten (...) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Delete**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer hiervoor de drie puntjes (***...***) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"] 
-> [Informatie over het toevoegen van een entiteit van het type List](luis-quickstart-intent-and-list-entity.md) 
-
-<!--References-->
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
-[LUIS-regions]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#publishing-regions
+> [Informatie over het toevoegen van een samengestelde entiteit](luis-tutorial-composite-entity.md) 

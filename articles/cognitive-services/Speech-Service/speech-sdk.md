@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 20fe0c3501e562584cd7762555479457a34a9297
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: c7eaa2aa37b05bd0e125e1841357979af4f6763a
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281320"
+ms.locfileid: "39326056"
 ---
 # <a name="about-the-cognitive-services-speech-sdk"></a>Informatie over de Cognitive Services Speech-SDK
 
@@ -24,11 +24,13 @@ De Cognitive Services spraak Software Development Kit (SDK) biedt uw toepassinge
 
 [!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="get-the-windows-sdk"></a>Ophalen van de Windows SDK
+## <a name="get-the-sdk"></a>Download de SDK
+
+### <a name="get-the-windows-sdk"></a>Ophalen van de Windows SDK
 
 De Windows-versie van de spraak-SDK bevat clientbibliotheken voor 32-bits en 64-bits-C/C++, evenals beheerde (.NET)-bibliotheken voor gebruik met C#. De SDK kan worden geïnstalleerd in Visual Studio met behulp van NuGet; Zoek `Microsoft.CognitiveServices.Speech`.
 
-## <a name="get-the-linux-sdk"></a>De Linux-SDK ophalen
+### <a name="get-the-linux-sdk"></a>De Linux-SDK ophalen
 
 Zorg ervoor dat u de vereiste compiler en bibliotheken hebt door het uitvoeren van de volgende shellopdrachten:
 
@@ -52,7 +54,7 @@ Vervolgens [de SDK downloaden](https://aka.ms/csspeech/linuxbinary) en pak de be
 
 Voor het maken van een toepassing, kopiëren of verplaatsen van de vereiste binaire bestanden (en -bibliotheken) naar uw ontwikkelomgeving en nemen ze zo nodig in uw buildproces.
 
-## <a name="get-the-java-sdk"></a>Ophalen van de Java SDK
+### <a name="get-the-java-sdk"></a>Ophalen van de Java SDK
 
 De Java-SDK voor Android wordt geleverd als een [AAR (Android-bibliotheek)](https://developer.android.com/studio/projects/android-library), waaronder de vereiste bibliotheken, evenals de vereiste Android-machtigingen voor het gebruik ervan.
 Deze wordt gehost in een Maven-opslagplaats op `https://csspeechstorage.blob.core.windows.net/maven/` als pakket `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`.
@@ -71,6 +73,8 @@ De verbruiken het pakket van uw Android Studio-project de volgende wijzigingen a
   ```
 
 De Java-SDK is ook deel uit van de [spraak Devices SDK](speech-devices-sdk.md).
+
+[!include[Get the samples](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

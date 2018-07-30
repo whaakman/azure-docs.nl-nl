@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 07/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4be205f13260d60bc9788b873bea34970b560f5a
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 24bda501f88d4f96fb558eeb6b21e437edd6d862
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283602"
+ms.locfileid: "39325384"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory naadloze eenmalige aanmelding: snel starten
 
@@ -80,6 +80,9 @@ Volg deze instructies om te controleren of u naadloze eenmalige aanmelding corre
 4. Controleer de **naadloze eenmalige aanmelding** functie wordt weergegeven als **ingeschakeld**.
 
 ![Azure-portal: Azure AD Connect-deelvenster](./media/active-directory-aadconnect-sso/sso10.png)
+
+>[!IMPORTANT]
+> Naadloze eenmalige aanmelding maakt u een account met de naam `AZUREADSSOACC` (die vertegenwoordigt Azure AD) in uw on-premises Active Directory (AD) in elk AD-forest. Dit computeraccount is nodig voor de functie te gebruiken. Verplaats de `AZUREADSSOACC` computeraccount aan een organisatie-eenheid (OE) waar de computeraccounts van andere worden opgeslagen om ervoor te zorgen dat deze op dezelfde manier wordt beheerd en is niet verwijderd.
 
 ## <a name="step-3-roll-out-the-feature"></a>Stap 3: Implementatie van de functie
 

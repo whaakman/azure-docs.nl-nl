@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: e564f48b4b90cfcaa72ed51d5f210a71a4980360
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ee4702733e775051cbbcace109bd1a7ffdf50e9c
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902942"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39325452"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Over het gebruik van een Azure VM Managed Service Identity (MSI) voor het ophalen van tokens 
 
@@ -49,6 +49,7 @@ Een clienttoepassing kan een beheerde Service-identiteit aanvragen [alleen app-t
 |  |  |
 | -------------- | -------------------- |
 | [Een met behulp van HTTP-token verkrijgen](#get-a-token-using-http) | Protocoldetails van het voor het eindpunt van de MSI-token |
+| [Een token met de Microsoft.Azure.Services.AppAuthentication-clientbibliotheek voor .NET ophalen](#get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net) | Voorbeeld van het gebruik van de bibliotheek Microsoft.Azure.Services.AppAuthentication vanuit een .NET-client
 | [Een met C#-token verkrijgen](#get-a-token-using-c) | Voorbeeld van het gebruik van het MSI-REST-eindpunt van een C#-client |
 | [Een token met behulp van Go ophalen](#get-a-token-using-go) | Voorbeeld van het gebruik van het MSI-REST-eindpunt van een Go-client |
 | [Een token met Azure PowerShell ophalen](#get-a-token-using-azure-powershell) | Voorbeeld van het gebruik van het MSI-REST-eindpunt van een PowerShell-client |
@@ -73,7 +74,9 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `http://169.254.169.254/metadata/identity/oauth2/token` | Het MSI-eindpunt voor de Instance Metadata Service. |
 | `api-version`  | Een queryreeks-parameter, die de API-versie voor het eindpunt IMDS aangeeft. Gebruik API-versie `2018-02-01` of hoger. |
 | `resource` | Een queryreeks-parameter, die wijzen op de URI van de App-ID van de doelresource. Het verschijnt ook in de `aud` claim (doelgroep) van de uitgegeven tokens. In dit voorbeeld vraagt een token voor toegang tot Azure Resource Manager heeft een URI van de App-ID van https://management.azure.com/. |
-| `Metadata` | Een HTTP-aanvraag veld header wordt vereist door MSI-bestand als een bescherming tegen aanvallen van Server Side aanvraag kunnen worden vervalst (SSRF). Deze waarde moet worden ingesteld op "true", volledig in kleine letters.
+| `Metadata` | Een HTTP-aanvraag veld header wordt vereist door MSI-bestand als een bescherming tegen aanvallen van Server Side aanvraag kunnen worden vervalst (SSRF). Deze waarde moet worden ingesteld op "true", volledig in kleine letters. |
+| `object_id` | (Optioneel) Een queryreeks-parameter, die de object_id van de beheerde identiteit die u wilt dat het token voor aangeeft. Vereist, als uw virtuele machine meerdere gebruiker beheerde identiteiten toegewezen heeft.|
+| `client_id` | (Optioneel) Een queryreeks-parameter, die de client_id van de beheerde identiteit die u wilt dat het token voor aangeeft. Vereist, als uw virtuele machine meerdere gebruiker beheerde identiteiten toegewezen heeft.|
 
 Voorbeeld van een aanvraag met behulp van het eindpunt van de VM-extensie voor de Managed Service Identity (MSI) *(om te worden afgeschaft)*:
 
@@ -87,7 +90,9 @@ Metadata: true
 | `GET` | De HTTP-term, die aangeeft dat u wilt ophalen van gegevens uit het eindpunt. In dit geval een OAuth-toegangstoken. | 
 | `http://localhost:50342/oauth2/token` | Het MSI-eindpunt, waarbij 50342 is de standaardpoort en kan worden geconfigureerd. |
 | `resource` | Een queryreeks-parameter, die wijzen op de URI van de App-ID van de doelresource. Het verschijnt ook in de `aud` claim (doelgroep) van de uitgegeven tokens. In dit voorbeeld vraagt een token voor toegang tot Azure Resource Manager heeft een URI van de App-ID van https://management.azure.com/. |
-| `Metadata` | Een HTTP-aanvraag veld header wordt vereist door MSI-bestand als een bescherming tegen aanvallen van Server Side aanvraag kunnen worden vervalst (SSRF). Deze waarde moet worden ingesteld op "true", volledig in kleine letters.
+| `Metadata` | Een HTTP-aanvraag veld header wordt vereist door MSI-bestand als een bescherming tegen aanvallen van Server Side aanvraag kunnen worden vervalst (SSRF). Deze waarde moet worden ingesteld op "true", volledig in kleine letters.|
+| `object_id` | (Optioneel) Een queryreeks-parameter, die de object_id van de beheerde identiteit die u wilt dat het token voor aangeeft. Vereist, als uw virtuele machine meerdere gebruiker beheerde identiteiten toegewezen heeft.|
+| `client_id` | (Optioneel) Een queryreeks-parameter, die de client_id van de beheerde identiteit die u wilt dat het token voor aangeeft. Vereist, als uw virtuele machine meerdere gebruiker beheerde identiteiten toegewezen heeft.|
 
 
 Het voorbeeldantwoord:
@@ -115,6 +120,26 @@ Content-Type: application/json
 | `not_before` | De timespan wanneer het toegangstoken wordt van kracht en kan worden geaccepteerd. De datum wordt weergegeven als het aantal seconden van ' 1970-01-01T0:0:0Z UTC ' (komt overeen met van het token `nbf` claim). |
 | `resource` | De resource het toegangstoken is aangevraagd voor, die overeenkomt met de `resource` query-tekenreeksparameter van de aanvraag. |
 | `token_type` | Het type token, dat een toegangstoken 'Bearer', wat betekent dat de resource kan toegang geven tot de houder van dit token is. |
+
+## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>Een token met de Microsoft.Azure.Services.AppAuthentication-clientbibliotheek voor .NET ophalen
+
+Voor .NET-toepassingen en -functies is de eenvoudigste manier om te werken met een beheerde service-identiteit via de Microsoft.Azure.Services.AppAuthentication-pakket. Deze bibliotheek wordt u ook de mogelijkheid voor het testen van uw code lokaal op uw ontwikkelcomputer, met behulp van uw gebruikersaccount vanuit Visual Studio, de [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), of geïntegreerde verificatie van Active Directory. Zie voor meer informatie over opties voor lokale ontwikkeling met deze bibliotheek [Microsoft.Azure.Services.AppAuthentication reference]. Deze sectie leest u hoe u aan de slag met de bibliotheek in uw code.
+
+1. Voeg verwijzingen toe aan de [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) en [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) NuGet-pakketten aan uw toepassing.
+
+2.  Voeg de volgende code toe aan uw toepassing:
+
+    ```csharp
+    using Microsoft.Azure.Services.AppAuthentication;
+    using Microsoft.Azure.KeyVault;
+    // ...
+    var azureServiceTokenProvider = new AzureServiceTokenProvider();
+    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://management.azure.com/");
+    // OR
+    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+    ```
+    
+Zie voor meer informatie over Microsoft.Azure.Services.AppAuthentication en de bewerkingen die beschikbaar worden gemaakt, de [Microsoft.Azure.Services.AppAuthentication verwijzing](/azure/key-vault/service-to-service-authentication) en de [App Service en de Key Vault met MSI-.NET voorbeeld](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ## <a name="get-a-token-using-c"></a>Een met C#-token verkrijgen
 

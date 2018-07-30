@@ -1,260 +1,287 @@
 ---
-title: Face -API C#-zelfstudie | Microsoft Docs
+title: Zelfstudie Face-API C# | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
-description: Maakt een eenvoudige Windows-app die gebruikmaakt van de cognitieve Services Emotion-API voor het detecteren van vlakken in een installatiekopie van een door de vlakken framing.
+description: In deze zelfstudie maakt u een Windows-app die gebruikmaakt van de service Cognitive Services Face waarmee gezichten in een afbeelding kunnen worden herkend en omlijst.
 services: cognitive-services
-author: SteveMSFT
-manager: corncar
+author: noellelacharite
+manager: nolachar
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
-ms.date: 03/01/2018
-ms.author: sbowles
-ms.openlocfilehash: ac4f247eb38cafc5582c1ffbb3752e049f0305ba
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 06/29/2018
+ms.author: nolachar
+ms.openlocfilehash: e4f2192c40f0b650b31ed59642dee89e42eca703
+ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344782"
+ms.lasthandoff: 07/18/2018
+ms.locfileid: "39125928"
 ---
-# <a name="getting-started-with-face-api-in-c35-tutorial"></a>Aan de slag met Face-API in C&#35; zelfstudie
+# <a name="tutorial-create-a-wpf-app-to-detect-and-frame-faces-in-an-image"></a>Zelfstudie: een WPF-app maken om gezichten in een afbeelding te herkennen en te omlijsten
 
-In deze zelfstudie maakt u een Windows WPF-toepassing die gebruikmaakt van de Face-API. De toepassing vlakken detecteert in een installatiekopie van een frame rond elk vlak tekent en een beschrijving van het oppervlak wordt weergegeven op de statusbalk.
+In deze zelfstudie maakt u een Windows Presentation Framework (WPF)-toepassing die gebruikmaakt van de Face-service via de .NET-clientbibliotheek. De app detecteert gezichten in een afbeelding, tekent een kader rond elk gezicht en geeft een beschrijving van het gezicht weer op de statusbalk. De volledige voorbeeldcode is via GitHub beschikbaar op [Detect and frame faces in an image on Windows](https://github.com/Azure-Samples/Cognitive-Face-CSharp-sample) (Gezichten in een afbeelding detecteren en omlijsten in Windows).
 
-![GettingStartCSharpScreenshot](../Images/getting-started-cs-detected.png)
+![Schermafbeelding met gedetecteerde gezichten omlijst door rechthoeken](../Images/getting-started-cs-detected.png)
 
-## <a name="Preparation"></a>Voorbereiding
+In deze zelfstudie ontdekt u hoe u:
 
-Als u wilt gebruiken de zelfstudie, moet u de volgende vereisten:
+> [!div class="checklist"]
+> - Een WPF-toepassing maken
+> - De clientbibliotheek van de Face-service installeren
+> - De clientbibliotheek gebruiken om gezichten in een afbeelding te detecteren
+> - Een kader rond elk gedetecteerd gezicht tekenen
+> - Een beschrijving van het gezicht op de statusbalk weergeven
 
-- Zorg ervoor dat Visual Studio 2015 of hoger is geïnstalleerd.
+## <a name="prerequisites"></a>Vereisten
 
-## <a name="step1"></a>Stap 1: Abonneer Face-API en u de abonnementssleutel van uw
+- U hebt een abonnementssleutel nodig om het voorbeeld uit te voeren. U kunt abonnementssleutels voor een gratis proefversie downloaden op [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- Een versie van [Visual Studio 2015 of 2017](https://www.visualstudio.com/downloads/). Voor Visual Studio 2017 is de workload voor de ontwikkeling van de .NET-Desktop-toepassing is vereist. In deze zelfstudie wordt Visual Studio 2017 Community Edition gebruikt.
+- Het NuGet-pakket van de [Microsoft.Azure.CognitiveServices.Vision.Face 2.0.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.0.0-preview)-clientbibliotheek. U hoeft het pakket niet te downloaden. Hieronder vindt u de installatie-instructies.
 
-Voordat u de Face-API gebruiken, moet u zich aanmelden voor een abonnement op Face-API in de portal cognitieve Microsoft-Services. Zie [abonnementen](https://azure.microsoft.com/try/cognitive-services/). De primaire of secundaire abonnementssleutel kan worden gebruikt in deze zelfstudie.
+## <a name="create-the-visual-studio-solution"></a>De Visual Studio-oplossing maken
 
-## <a name="step2"></a>Stap 2: De Visual Studio-oplossing maken
+Volg deze stappen voor het maken van een Windows WPF-toepassingsproject.
 
-In deze stap maakt u een toepassingsproject WPF Windows voor het maken van een eenvoudige toepassing om te selecteren en een afbeelding weergeven. Volg deze instructies:
+1. Open Visual Studio en klik in het menu **File** op **New** en vervolgens op **Project**.
+   - Vouw in Visual Studio 2017 **Installed** uit en vervolgens **Other Languages**. Selecteer **Visual C#** en vervolgens **WPF App (.NET Framework)**.
+   - Vouw in Visual Studio 2015 **Installed** uit en vervolgens **Templates**. Selecteer **Visual C#** en vervolgens **WPF Application**.
+1. Noem de toepassing **FaceTutorial** en klik vervolgens op **OK**.
 
-1. Open Visual Studio.
-1. Van de **bestand** menu, klikt u op **nieuw**, klikt u vervolgens **Project**.
-1. WPF selecteren voor de toepassing in de **nieuw Project** in het dialoogvenster.
+## <a name="install-the-face-service-client-library"></a>De clientbibliotheek van de Face-service installeren
 
-   Vouw in de Visual Studio 2015 **geïnstalleerde** &gt; **sjablonen** &gt; **Visual C#** &gt; **Windows** &gt; **Classic Desktop** &gt; en selecteer **WPF-toepassing**.
+Volg deze instructies voor het installeren van de clientbibliotheek.
 
-   Vouw in de Visual Studio-2017 **geïnstalleerde** &gt; **sjablonen** &gt; **Visual C#** &gt; **Windows-klassiek Bureaublad** &gt; en selecteer **WPF-App (.NET Framework)**.
-1. Naam van de toepassing **FaceTutorial**, klikt u vervolgens op **OK**.
+1. Selecteer in het menu **Tools** de optie **NuGet Package Manager** en vervolgens **Package Manager Console**.
+1. Plak het volgende in **Package Manager Console** en druk op **Enter**.
 
-   ![Het dialoogvenster Nieuw Project met WPF-toepassing geselecteerd](../Images/vs2017-new-project.png)
+    `Install-Package Microsoft.Azure.CognitiveServices.Vision.Face -Version 2.0.0-preview`
 
-1. Zoek de **Solution Explorer**, met de rechtermuisknop op het project (**FaceTutorial** in dit geval) en klik vervolgens op **NuGet-pakketten beheren**.
-1. In de **NuGet Package Manager** Selecteer **nuget.org** als de pakketbron.
-1. Zoeken naar **Newtonsoft.Json**, klikt u vervolgens **installeren**. (Klik in Visual Studio-2017 eerst op de **Bladeren** tabblad vervolgens **Search**).
+## <a name="add-the-initial-code"></a>De initiële code toevoegen
 
-   ![GettingStartCSharpPackageManager](../Images/install-nsoft-json.png)
+### <a name="mainwindowxaml"></a>MainWindow.xaml
 
-## <a name="step3"></a>Stap 3: Configureer de clientbibliotheek Face-API
+Open *MainWindow.xaml* (tip: wissel van deelvenster met behulp van het **pictogram pijl-omhoog/omlaag**) en vervang de inhoud door de volgende code. Deze xaml-code wordt gebruikt om het venster voor de gebruikersinterface te maken. Let op de gebeurtenis-handlers `FacePhoto_MouseMove` en `BrowseButton_Click`.
 
-Face-API is een cloud-API die u via HTTPS REST-aanvragen aanroepen kunt. Een .NET-clientbibliotheek ingekapseld voor eenvoudig te gebruiken in .NET-toepassingen, de REST van Face-API-aanvragen. In dit voorbeeld gebruiken we de clientbibliotheek ons werk vereenvoudigen.
+```xml
+<Window x:Class="FaceTutorial.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="700" Width="960">
+    <Grid x:Name="BackPanel">
+        <Image x:Name="FacePhoto" Stretch="Uniform" Margin="0,0,0,50" MouseMove="FacePhoto_MouseMove" />
+        <DockPanel DockPanel.Dock="Bottom">
+            <Button x:Name="BrowseButton" Width="72" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                    Content="Browse..."
+                    Click="BrowseButton_Click" />
+            <StatusBar VerticalAlignment="Bottom">
+                <StatusBarItem>
+                    <TextBlock Name="faceDescriptionStatusBar" />
+                </StatusBarItem>
+            </StatusBar>
+        </DockPanel>
+    </Grid>
+</Window>
+```
 
-Volg deze instructies voor het configureren van de clientbibliotheek:
+### <a name="mainwindowxamlcs"></a>MainWindow.xaml.cs
 
-1. In de **Solution Explorer**, met de rechtermuisknop op het project (**FaceTutorial** in dit geval) en klik vervolgens op **NuGet-pakketten beheren**.
-1. In de **NuGet Package Manager** Selecteer **nuget.org** als de pakketbron.
-1. Zoeken naar **Microsoft.ProjectOxford.Face**, klikt u vervolgens **installeren**. (Klik in Visual Studio-2017 eerst op de **Bladeren** tabblad vervolgens **Search**).
+Vouw *MainWindow.xaml* uit, open *MainWindow.xaml.cs* en vervang de inhoud door de volgende code. Negeer de rode kronkellijntjes; deze verdwijnen na de eerste build.
 
-   ![GettingStartCSharpPackageManagerSDK](../Images/install-project-oxford-face.png)
+Met de eerste twee regels worden de naamruimten van de clientbibliotheek geïmporteerd. Vervolgens wordt `FaceClient` gemaakt en de abonnementssleutel doorgegeven, terwijl de Azure-regio wordt ingesteld in de `MainWindow`-constructor. De twee methoden `BrowseButton_Click` en `FacePhoto_MouseMove` corresponderen met de gebeurtenis-handlers die in *MainWindow.xaml* zijn gedeclareerd.
 
-1. In **Solution Explorer**, Controleer de projectverwijzingen van uw. De verwijzingen **Microsoft.ProjectOxford.Common**, **Microsoft.ProjectOxford.Face**, en **Newtonsoft.Json** automatisch worden toegevoegd als de installatie slaagt.
-
-   ![GetStartedCSharp CheckInstallation.png](../Images/GetStartedCSharp-CheckInstallation.png)
-
-## <a name="step3"></a>Stap 4: Kopieer en plak de code van de eerste
-
-1. Open MainWindow.xaml en de bestaande code te vervangen door de volgende code om het venster UI te maken:
-
-    ```xml
-    <Window x:Class="FaceTutorial.MainWindow"
-            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-            Title="MainWindow" Height="700" Width="960">
-        <Grid x:Name="BackPanel">
-            <Image x:Name="FacePhoto" Stretch="Uniform" Margin="0,0,0,50" MouseMove="FacePhoto_MouseMove" />
-            <DockPanel DockPanel.Dock="Bottom">
-                <Button x:Name="BrowseButton" Width="72" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left"
-                        Content="Browse..."
-                        Click="BrowseButton_Click" />
-                <StatusBar VerticalAlignment="Bottom">
-                    <StatusBarItem>
-                        <TextBlock Name="faceDescriptionStatusBar" />
-                    </StatusBarItem>
-                </StatusBar>
-            </DockPanel>
-        </Grid>
-    </Window>
-    ```
-
-1. Open MainWindow.xaml.cs en de bestaande code te vervangen door de volgende code:
-
-    ```csharp
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Windows;
-    using System.Windows.Input;
-    using System.Windows.Media;
-    using System.Windows.Media.Imaging;
-    using Microsoft.ProjectOxford.Common.Contract;
-    using Microsoft.ProjectOxford.Face;
-    using Microsoft.ProjectOxford.Face.Contract;
-
-    namespace FaceTutorial
-    {
-        public partial class MainWindow : Window
-        {
-            // Replace the first parameter with your valid subscription key.
-            //
-            // Replace or verify the region in the second parameter.
-            //
-            // You must use the same region in your REST API call as you used to obtain your subscription keys.
-            // For example, if you obtained your subscription keys from the westus region, replace
-            // "westcentralus" in the URI below with "westus".
-            //
-            // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-            // a free trial subscription key, you should not need to change this region.
-            private readonly IFaceServiceClient faceServiceClient =
-                new FaceServiceClient("<Subscription Key>", "https://westcentralus.api.cognitive.microsoft.com/face/v1.0");
-
-            Face[] faces;                   // The list of detected faces.
-            String[] faceDescriptions;      // The list of descriptions for the detected faces.
-            double resizeFactor;            // The resize factor for the displayed image.
-            
-            public MainWindow()
-            {
-                InitializeComponent();
-            }
-            
-            // Displays the image and calls Detect Faces.
-
-            private void BrowseButton_Click(object sender, RoutedEventArgs e)
-            {
-                // Get the image file to scan from the user.
-                var openDlg = new Microsoft.Win32.OpenFileDialog();
-
-                openDlg.Filter = "JPEG Image(*.jpg)|*.jpg";
-                bool? result = openDlg.ShowDialog(this);
-
-                // Return if canceled.
-                if (!(bool)result)
-                {
-                    return;
-                }
-
-                // Display the image file.
-                string filePath = openDlg.FileName;
-
-                Uri fileUri = new Uri(filePath);
-                BitmapImage bitmapSource = new BitmapImage();
-
-                bitmapSource.BeginInit();
-                bitmapSource.CacheOption = BitmapCacheOption.None;
-                bitmapSource.UriSource = fileUri;
-                bitmapSource.EndInit();
-
-                FacePhoto.Source = bitmapSource;
-            }
-            
-            // Displays the face description when the mouse is over a face rectangle.
-
-            private void FacePhoto_MouseMove(object sender, MouseEventArgs e)
-            {
-            }
-        }
-    }
-    ```
-
-1. Invoegen van de abonnementssleutel van uw en controleer of de regio.
-
-    Deze regel niet vinden in het bestand MainWindow.xaml.cs (regels 28 en 29):
-
-    ```csharp
-    private readonly IFaceServiceClient faceServiceClient =
-            new FaceServiceClient("<Subscription Key>", "https://westcentralus.api.cognitive.microsoft.com/face/v1.0");
-    ```
-
-    Vervang `<Subscription Key>` in de eerste parameter met de sleutel van uw Face-API-abonnement uit stap 1.
-
-    Controleer ook de tweede parameter wilt controleren of u de locatie waar u de sleutels van uw abonnement hebt verkregen. Als u uw abonnement sleutels opgehaald uit de regio westus, bijvoorbeeld vervangen door "**westcentralus**'in de URI met'**westus**'.
-
-    Als u uw sleutels abonnement ontvangen met behulp van de gratis proefversie, de regio voor uw sleutels is **westcentralus**, dus er geen wijziging vereist is.
-
-Nu uw app een foto zoeken en weer te geven in het venster.
-
-![GettingStartCSharpUI](../Images/getting-started-cs-ui.png)
-
-## <a name="step4"></a>Stap 5: Afbeeldingen voor het detecteren van vlakken uploaden
-
-De eenvoudigste manier om te detecteren vlakken is door het aanroepen van de [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API door het installatiekopiebestand rechtstreeks te uploaden.
-Wanneer u de clientbibliotheek gebruikt, kunt u dit doen met behulp van de asynchrone methode DetectAsync van FaceServiceClient.
-Elke geretourneerde face bevat een rechthoek voor het aangeven van de locatie, gecombineerd met een reeks optionele face-kenmerken.
-
-Voeg de volgende code in de **MainWindow** klasse:
+`BrowseButton_Click` maakt een `OpenFileDialog`, waardoor de gebruiker een JPG-afbeelding kan selecteren. De afbeelding wordt gelezen en in het hoofdvenster weergegeven. De resterende code voor `BrowseButton_Click` en de code voor `FacePhoto_MouseMove` wordt in volgende stappen ingevoegd.
 
 ```csharp
-// Uploads the image file and calls Detect Faces.
+using Microsoft.Azure.CognitiveServices.Vision.Face;
+using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
 
-private async Task<Face[]> UploadAndDetectFaces(string imageFilePath)
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+
+namespace FaceTutorial
+{
+    public partial class MainWindow : Window
+    {
+        // Replace <SubscriptionKey> with your valid subscription key.
+        // For example, subscriptionKey = "0123456789abcdef0123456789ABCDEF"
+        private const string subscriptionKey = "<SubscriptionKey>";
+
+        // Replace or verify the region.
+        //
+        // You must use the same region as you used to obtain your subscription
+        // keys. For example, if you obtained your subscription keys from the
+        // westus region, replace "westcentralus" with "westus".
+        //
+        // NOTE: Free trial subscription keys are generated in the westcentralus
+        // region, so if you are using a free trial subscription key, you should
+        // not need to change this region.
+        private const string baseUri =
+            "https://westcentralus.api.cognitive.microsoft.com/face/v1.0";
+
+        private readonly IFaceClient faceClient = new FaceClient(
+            new ApiKeyServiceClientCredentials(subscriptionKey),
+            new System.Net.Http.DelegatingHandler[] { });
+
+        IList<DetectedFace> faceList;   // The list of detected faces.
+        String[] faceDescriptions;      // The list of descriptions for the detected faces.
+        double resizeFactor;            // The resize factor for the displayed image.
+
+        public MainWindow()
+        {
+            InitializeComponent();
+
+            if (Uri.IsWellFormedUriString(baseUri, UriKind.Absolute))
+            {
+                faceClient.BaseUri = new Uri(baseUri);
+            }
+            else
+            {
+                MessageBox.Show(baseUri,
+                    "Invalid URI", MessageBoxButton.OK, MessageBoxImage.Error);
+                Environment.Exit(0);
+            }
+        }
+
+        // Displays the image and calls UploadAndDetectFaces.
+        private async void BrowseButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Get the image file to scan from the user.
+            var openDlg = new Microsoft.Win32.OpenFileDialog();
+
+            openDlg.Filter = "JPEG Image(*.jpg)|*.jpg";
+            bool? result = openDlg.ShowDialog(this);
+
+            // Return if canceled.
+            if (!(bool)result)
+            {
+                return;
+            }
+
+            // Display the image file.
+            string filePath = openDlg.FileName;
+
+            Uri fileUri = new Uri(filePath);
+            BitmapImage bitmapSource = new BitmapImage();
+
+            bitmapSource.BeginInit();
+            bitmapSource.CacheOption = BitmapCacheOption.None;
+            bitmapSource.UriSource = fileUri;
+            bitmapSource.EndInit();
+
+            FacePhoto.Source = bitmapSource;
+        }
+
+        // Displays the face description when the mouse is over a face rectangle.
+        private void FacePhoto_MouseMove(object sender, MouseEventArgs e)
+        {
+        }
+    }
+}
+```
+
+### <a name="insert-your-subscription-key-and-verify-or-change-the-region"></a>Uw abonnementssleutel invoegen en de regio verifiëren of wijzigen
+
+- Zoek de volgende regel in *MainWindow.xaml.cs* en vervang `<Subscription Key>` door uw Face-API-abonnementssleutel:
+
+    ```csharp
+    private const string subscriptionKey = "<SubscriptionKey>";
+    ```
+
+- Zoek de volgende regel in *MainWindow.xaml.cs* en vervang of verifieer de Azure-regio die aan uw abonnementssleutel is gekoppeld:
+
+    ```csharp
+    private const string baseUri =
+        "https://westcentralus.api.cognitive.microsoft.com/face/v1.0";
+    ```
+
+    Zorg ervoor dat de locatie dezelfde is als die waar u de abonnementssleutels hebt verkregen. Als u uw abonnementssleutels hebt verkregen van bijvoorbeeld de regio **westus**, vervangt u `Westcentralus` door `Westus`.
+
+    Als u de abonnementssleutels hebt ontvangen door de proefversie te gebruiken, is **westcentralus** de regio voor uw sleutels en is er dus geen wijziging vereist.
+
+### <a name="test-the-app"></a>De app testen
+
+Druk op **Start** in het menu om uw app te testen. Als het venster wordt geopend, klikt u in de linkerbenedenhoek op **Browse**. Het dialoogvenster **File open** verschijn. Hier kunt u naar een foto zoeken en deze selecteren, waarna de foto in het venster wordt weergegeven.
+
+![Schermafbeelding met ongewijzigde afbeelding van gezichten](../Images/getting-started-cs-ui.png)
+
+## <a name="upload-an-image-to-detect-faces"></a>Een afbeelding uploaden om gezichten te detecteren
+
+De eenvoudigste manier om gezichten te detecteren, is door de methode `FaceClient.Face.DetectWithStreamAsync` aan te roepen. Hiermee wordt de API-methode [Detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) ingepakt om de lokale afbeelding te uploaden.
+
+Voeg de volgende methode in de `MainWindow`-klasse in, onder de methode `FacePhoto_MouseMove`.
+
+Er wordt een lijst met gezichtskenmerken gemaakt en het ingediende afbeeldingsbestand wordt in een `Stream` gelezen. Beide worden doorgegeven aan de `DetectWithStreamAsync`-aanroep.
+
+```csharp
+// Uploads the image file and calls DetectWithStreamAsync.
+private async Task<IList<DetectedFace>> UploadAndDetectFaces(string imageFilePath)
 {
     // The list of Face attributes to return.
-    IEnumerable<FaceAttributeType> faceAttributes =
-        new FaceAttributeType[] { FaceAttributeType.Gender, FaceAttributeType.Age, FaceAttributeType.Smile, FaceAttributeType.Emotion, FaceAttributeType.Glasses, FaceAttributeType.Hair };
+    IList<FaceAttributeType> faceAttributes =
+        new FaceAttributeType[]
+        {
+            FaceAttributeType.Gender, FaceAttributeType.Age,
+            FaceAttributeType.Smile, FaceAttributeType.Emotion,
+            FaceAttributeType.Glasses, FaceAttributeType.Hair
+        };
 
     // Call the Face API.
     try
     {
         using (Stream imageFileStream = File.OpenRead(imageFilePath))
         {
-            Face[] faces = await faceServiceClient.DetectAsync(imageFileStream, returnFaceId: true, returnFaceLandmarks:false, returnFaceAttributes: faceAttributes);
-            return faces;
+            // The second argument specifies to return the faceId, while
+            // the third argument specifies not to return face landmarks.
+            IList<DetectedFace> faceList =
+                await faceClient.Face.DetectWithStreamAsync(
+                    imageFileStream, true, false, faceAttributes);
+            return faceList;
         }
     }
     // Catch and display Face API errors.
-    catch (FaceAPIException f)
+    catch (APIErrorException f)
     {
-        MessageBox.Show(f.ErrorMessage, f.ErrorCode);
-        return new Face[0];
+        MessageBox.Show(f.Message);
+        return new List<DetectedFace>();
     }
     // Catch and display all other errors.
     catch (Exception e)
     {
         MessageBox.Show(e.Message, "Error");
-        return new Face[0];
+        return new List<DetectedFace>();
     }
 }
 ```
 
-## <a name="step5"></a>Stap 6: Markeren bespreekt in de afbeelding
+## <a name="draw-rectangles-around-each-face"></a>Rechthoeken rond de gezichten tekenen
 
-In deze stap we de vorige stappen combineren en markeert de gedetecteerde vlakken in de installatiekopie.
+Voeg de code toe om een rechthoek rond elk gedetecteerd gezicht in de afbeelding te tekenen.
 
-In **MainWindow.xaml.cs**, voeg de Wijzigingsfunctie 'async' aan de **BrowseButton_Click** methode:
+Voeg in *MainWindow.xaml.cs* de modifier `async` toe aan de methode `BrowseButton_Click`.
 
 ```csharp
 private async void BrowseButton_Click(object sender, RoutedEventArgs e)
 ```
 
-Voeg de volgende code aan het einde van de **BrowseButton_Click** gebeurtenis-handler:
+Voeg de volgende code toe aan het einde van de methode `BrowseButton_Click`, na de regel `FacePhoto.Source = bitmapSource`.
+
+De lijst met gedetecteerde gezichten wordt ingevuld door de aanroep naar `UploadAndDetectFaces`. Vervolgens wordt een rechthoek rond elk gezicht getekend en de aangepaste afbeelding wordt weergegeven in het hoofdvenster.
 
 ```csharp
 // Detect any faces in the image.
 Title = "Detecting...";
-faces = await UploadAndDetectFaces(filePath);
-Title = String.Format("Detection Finished. {0} face(s) detected", faces.Length);
+faceList = await UploadAndDetectFaces(filePath);
+Title = String.Format(
+    "Detection Finished. {0} face(s) detected", faceList.Count);
 
-if (faces.Length > 0)
+if (faceList.Count > 0)
 {
     // Prepare to draw rectangles around the faces.
     DrawingVisual visual = new DrawingVisual();
@@ -262,12 +289,12 @@ if (faces.Length > 0)
     drawingContext.DrawImage(bitmapSource,
         new Rect(0, 0, bitmapSource.Width, bitmapSource.Height));
     double dpi = bitmapSource.DpiX;
-    resizeFactor = 96 / dpi;
-    faceDescriptions = new String[faces.Length];
+    resizeFactor = (dpi > 0) ? 96 / dpi : 1;
+    faceDescriptions = new String[faceList.Count];
 
-    for (int i = 0; i < faces.Length; ++i)
+    for (int i = 0; i < faceList.Count; ++i)
     {
-        Face face = faces[i];
+        DetectedFace face = faceList[i];
 
         // Draw a rectangle on the face.
         drawingContext.DrawRectangle(
@@ -299,20 +326,20 @@ if (faces.Length > 0)
     FacePhoto.Source = faceWithRectBitmap;
 
     // Set the status bar text.
-    faceDescriptionStatusBar.Text = "Place the mouse pointer over a face to see the face description.";
+    faceDescriptionStatusBar.Text =
+        "Place the mouse pointer over a face to see the face description.";
 }
 ```
 
-## <a name="step6"></a>Stap 7: Beschrijven vlakken in de afbeelding
+## <a name="describe-the-faces-in-the-image"></a>Gezichten in de afbeelding beschrijven
 
-In deze stap controleert u de eigenschappen Face we en genereer een tekenreeks om te beschrijven de face. Deze tekenreeks wordt weergegeven wanneer de muisaanwijzer op de face-rechthoek.
+Voeg de volgende methode aan de klasse `MainWindow` toe, onder de methode `UploadAndDetectFaces`.
 
-En voeg deze methode kan worden de **MainWindow** klasse worden de details face geconverteerd naar een tekenreeks:
+De methode converteert de gezichtskenmerken naar een tekenreeks die het gezicht beschrijft. De tekenreeks wordt weergegeven als de muisaanwijzer boven het vierkant rond het gezicht wordt geplaatst.
 
 ```csharp
-// Returns a string that describes the given face.
-
-private string FaceDescription(Face face)
+// Creates a string out of the attributes describing the face.
+private string FaceDescription(DetectedFace face)
 {
     StringBuilder sb = new StringBuilder();
 
@@ -327,15 +354,23 @@ private string FaceDescription(Face face)
 
     // Add the emotions. Display all emotions over 10%.
     sb.Append("Emotion: ");
-    EmotionScores emotionScores = face.FaceAttributes.Emotion;
-    if (emotionScores.Anger     >= 0.1f) sb.Append(String.Format("anger {0:F1}%, ",     emotionScores.Anger * 100));
-    if (emotionScores.Contempt  >= 0.1f) sb.Append(String.Format("contempt {0:F1}%, ",  emotionScores.Contempt * 100));
-    if (emotionScores.Disgust   >= 0.1f) sb.Append(String.Format("disgust {0:F1}%, ",   emotionScores.Disgust * 100));
-    if (emotionScores.Fear      >= 0.1f) sb.Append(String.Format("fear {0:F1}%, ",      emotionScores.Fear * 100));
-    if (emotionScores.Happiness >= 0.1f) sb.Append(String.Format("happiness {0:F1}%, ", emotionScores.Happiness * 100));
-    if (emotionScores.Neutral   >= 0.1f) sb.Append(String.Format("neutral {0:F1}%, ",   emotionScores.Neutral * 100));
-    if (emotionScores.Sadness   >= 0.1f) sb.Append(String.Format("sadness {0:F1}%, ",   emotionScores.Sadness * 100));
-    if (emotionScores.Surprise  >= 0.1f) sb.Append(String.Format("surprise {0:F1}%, ",  emotionScores.Surprise * 100));
+    Emotion emotionScores = face.FaceAttributes.Emotion;
+    if (emotionScores.Anger >= 0.1f)
+        sb.Append(String.Format("anger {0:F1}%, ", emotionScores.Anger * 100));
+    if (emotionScores.Contempt >= 0.1f)
+        sb.Append(String.Format("contempt {0:F1}%, ", emotionScores.Contempt * 100));
+    if (emotionScores.Disgust >= 0.1f)
+        sb.Append(String.Format("disgust {0:F1}%, ", emotionScores.Disgust * 100));
+    if (emotionScores.Fear >= 0.1f)
+        sb.Append(String.Format("fear {0:F1}%, ", emotionScores.Fear * 100));
+    if (emotionScores.Happiness >= 0.1f)
+        sb.Append(String.Format("happiness {0:F1}%, ", emotionScores.Happiness * 100));
+    if (emotionScores.Neutral >= 0.1f)
+        sb.Append(String.Format("neutral {0:F1}%, ", emotionScores.Neutral * 100));
+    if (emotionScores.Sadness >= 0.1f)
+        sb.Append(String.Format("sadness {0:F1}%, ", emotionScores.Sadness * 100));
+    if (emotionScores.Surprise >= 0.1f)
+        sb.Append(String.Format("surprise {0:F1}%, ", emotionScores.Surprise * 100));
 
     // Add glasses.
     sb.Append(face.FaceAttributes.Glasses);
@@ -349,7 +384,7 @@ private string FaceDescription(Face face)
         sb.Append(String.Format("bald {0:F1}% ", face.FaceAttributes.Hair.Bald * 100));
 
     // Display all hair color attributes over 10%.
-    HairColor[] hairColors = face.FaceAttributes.Hair.HairColor;
+    IList<HairColor> hairColors = face.FaceAttributes.Hair.HairColor;
     foreach (HairColor hairColor in hairColors)
     {
         if (hairColor.Confidence >= 0.1f)
@@ -364,15 +399,17 @@ private string FaceDescription(Face face)
 }
 ```
 
-## <a name="step6"></a>Stap 8: De beschrijving face weergeven
+## <a name="display-the-face-description"></a>De beschrijving van het gezicht weergeven
 
-Vervang de **FacePhoto_MouseMove** methode met de volgende code:
+Vervang de methode `FacePhoto_MouseMove` door de volgende code.
+
+Deze gebeurtenis-handler geeft de tekenreeks met de beschrijving van het gezicht weer als de muisaanwijzer boven het vierkant rond het gezicht wordt geplaatst.
 
 ```csharp
 private void FacePhoto_MouseMove(object sender, MouseEventArgs e)
 {
-    // If the REST call has not completed, return from this method.
-    if (faces == null)
+    // If the REST call has not completed, return.
+    if (faceList == null)
         return;
 
     // Find the mouse position relative to the image.
@@ -387,16 +424,17 @@ private void FacePhoto_MouseMove(object sender, MouseEventArgs e)
     // Check if this mouse position is over a face rectangle.
     bool mouseOverFace = false;
 
-    for (int i = 0; i < faces.Length; ++i)
+    for (int i = 0; i < faceList.Count; ++i)
     {
-        FaceRectangle fr = faces[i].FaceRectangle;
+        FaceRectangle fr = faceList[i].FaceRectangle;
         double left = fr.Left * scale;
         double top = fr.Top * scale;
         double width = fr.Width * scale;
         double height = fr.Height * scale;
 
-        // Display the face description for this face if the mouse is over this face rectangle.
-        if (mouseXY.X >= left && mouseXY.X <= left + width && mouseXY.Y >= top && mouseXY.Y <= top + height)
+        // Display the face description if the mouse is over this face rectangle.
+        if (mouseXY.X >= left && mouseXY.X <= left + width &&
+            mouseXY.Y >= top  && mouseXY.Y <= top + height)
         {
             faceDescriptionStatusBar.Text = faceDescriptions[i];
             mouseOverFace = true;
@@ -404,302 +442,26 @@ private void FacePhoto_MouseMove(object sender, MouseEventArgs e)
         }
     }
 
-    // If the mouse is not over a face rectangle.
+    // String to display when the mouse is not over a face rectangle.
     if (!mouseOverFace)
-        faceDescriptionStatusBar.Text = "Place the mouse pointer over a face to see the face description.";
+        faceDescriptionStatusBar.Text =
+            "Place the mouse pointer over a face to see the face description.";
 }
 ```
 
-Deze toepassing en blader naar een installatiekopie van een gezicht uitvoeren. Wacht een paar seconden waarmee de cloud-API om te reageren. Hierna ziet u een rode rechthoek op de vlakken in de installatiekopie. Door de muis op de rechthoek face, wordt de beschrijving van het oppervlak weergegeven op de statusbalk:
+## <a name="run-the-app"></a>De app uitvoeren
 
-![GettingStartCSharpScreenshot](../Images/getting-started-cs-detected.png)
+Voer de toepassing uit en blader naar een afbeelding met een gezicht. Wacht enkele seconden, zodat de Face-service kan reageren. Daarna ziet u een rode rechthoek rond de gezichten in de afbeelding. Door de muisaanwijzer boven een gezichtsrechthoek te bewegen, wordt de beschrijving van dat gezicht op de statusbalk weergegeven.
 
-## <a name="summary"></a> Samenvatting
+![Schermafbeelding met gedetecteerde gezichten omlijst door rechthoeken](../Images/getting-started-cs-detected.png)
 
-In deze zelfstudie hebt u geleerd het basisproces voor het gebruik van de Face-API en een toepassing om weer te geven face aanhalingstekens in de afbeeldingen hebt gemaakt. Zie de instructies voor meer informatie over Face-API en [API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+## <a name="summary"></a>Samenvatting
 
-## <a name="fullsource"></a> Volledige bron
+In deze zelfstudie hebt u het basisproces geleerd voor het gebruik van de clientbibliotheek van de Face-service en een toepassing gemaakt om gezichten in een afbeelding weer te geven en te omlijsten.
 
-De volledige bron voor de Windows-toepassing WPF wordt hier weergegeven.
+## <a name="next-steps"></a>Volgende stappen
 
-MainWindow.xaml:
+Meer informatie over het detecteren en gebruiken van gezichtskenmerken.
 
-```xml
-<Window x:Class="FaceTutorial.MainWindow"
-         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-         Title="MainWindow" Height="700" Width="960">
-    <Grid x:Name="BackPanel">
-        <Image x:Name="FacePhoto" Stretch="Uniform" Margin="0,0,0,50" MouseMove="FacePhoto_MouseMove" />
-        <DockPanel DockPanel.Dock="Bottom">
-            <Button x:Name="BrowseButton" Width="72" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left"
-                     Content="Browse..."
-                     Click="BrowseButton_Click" />
-            <StatusBar VerticalAlignment="Bottom">
-                <StatusBarItem>
-                    <TextBlock Name="faceDescriptionStatusBar" />
-                </StatusBarItem>
-            </StatusBar>
-        </DockPanel>
-    </Grid>
-</Window>
-```
-
-MainWindow.xaml.cs:
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using Microsoft.ProjectOxford.Common.Contract;
-using Microsoft.ProjectOxford.Face;
-using Microsoft.ProjectOxford.Face.Contract;
-
-namespace FaceTutorial
-{
-    public partial class MainWindow : Window
-    {
-        // Replace the first parameter with your valid subscription key.
-        //
-        // Replace or verify the region in the second parameter.
-        //
-        // You must use the same region in your REST API call as you used to obtain your subscription keys.
-        // For example, if you obtained your subscription keys from the westus region, replace
-        // "westcentralus" in the URI below with "westus".
-        //
-        // NOTE: Free trial subscription keys are generated in the westcentralus region, so if you are using
-        // a free trial subscription key, you should not need to change this region.
-        private readonly IFaceServiceClient faceServiceClient =
-            new FaceServiceClient("<Subscription Key>", "https://westcentralus.api.cognitive.microsoft.com/face/v1.0");
-
-        Face[] faces;                   // The list of detected faces.
-        String[] faceDescriptions;      // The list of descriptions for the detected faces.
-        double resizeFactor;            // The resize factor for the displayed image.
-
-        public MainWindow()
-        {
-            InitializeComponent();
-        }
-
-        // Displays the image and calls Detect Faces.
-
-        private async void BrowseButton_Click(object sender, RoutedEventArgs e)
-        {
-            // Get the image file to scan from the user.
-            var openDlg = new Microsoft.Win32.OpenFileDialog();
-
-            openDlg.Filter = "JPEG Image(*.jpg)|*.jpg";
-            bool? result = openDlg.ShowDialog(this);
-
-            // Return if canceled.
-            if (!(bool)result)
-            {
-                return;
-            }
-
-            // Display the image file.
-            string filePath = openDlg.FileName;
-
-            Uri fileUri = new Uri(filePath);
-            BitmapImage bitmapSource = new BitmapImage();
-
-            bitmapSource.BeginInit();
-            bitmapSource.CacheOption = BitmapCacheOption.None;
-            bitmapSource.UriSource = fileUri;
-            bitmapSource.EndInit();
-
-            FacePhoto.Source = bitmapSource;
-
-            // Detect any faces in the image.
-            Title = "Detecting...";
-            faces = await UploadAndDetectFaces(filePath);
-            Title = String.Format("Detection Finished. {0} face(s) detected", faces.Length);
-
-            if (faces.Length > 0)
-            {
-                // Prepare to draw rectangles around the faces.
-                DrawingVisual visual = new DrawingVisual();
-                DrawingContext drawingContext = visual.RenderOpen();
-                drawingContext.DrawImage(bitmapSource,
-                    new Rect(0, 0, bitmapSource.Width, bitmapSource.Height));
-                double dpi = bitmapSource.DpiX;
-                resizeFactor = 96 / dpi;
-                faceDescriptions = new String[faces.Length];
-
-                for (int i = 0; i < faces.Length; ++i)
-                {
-                    Face face = faces[i];
-
-                    // Draw a rectangle on the face.
-                    drawingContext.DrawRectangle(
-                        Brushes.Transparent,
-                        new Pen(Brushes.Red, 2),
-                        new Rect(
-                            face.FaceRectangle.Left * resizeFactor,
-                            face.FaceRectangle.Top * resizeFactor,
-                            face.FaceRectangle.Width * resizeFactor,
-                            face.FaceRectangle.Height * resizeFactor
-                            )
-                    );
-
-                    // Store the face description.
-                    faceDescriptions[i] = FaceDescription(face);
-                }
-
-                drawingContext.Close();
-
-                // Display the image with the rectangle around the face.
-                RenderTargetBitmap faceWithRectBitmap = new RenderTargetBitmap(
-                    (int)(bitmapSource.PixelWidth * resizeFactor),
-                    (int)(bitmapSource.PixelHeight * resizeFactor),
-                    96,
-                    96,
-                    PixelFormats.Pbgra32);
-
-                faceWithRectBitmap.Render(visual);
-                FacePhoto.Source = faceWithRectBitmap;
-
-                // Set the status bar text.
-                faceDescriptionStatusBar.Text = "Place the mouse pointer over a face to see the face description.";
-            }
-        }
-
-        // Displays the face description when the mouse is over a face rectangle.
-
-        private void FacePhoto_MouseMove(object sender, MouseEventArgs e)
-        {
-            // If the REST call has not completed, return from this method.
-            if (faces == null)
-                return;
-
-            // Find the mouse position relative to the image.
-            Point mouseXY = e.GetPosition(FacePhoto);
-
-            ImageSource imageSource = FacePhoto.Source;
-            BitmapSource bitmapSource = (BitmapSource)imageSource;
-
-            // Scale adjustment between the actual size and displayed size.
-            var scale = FacePhoto.ActualWidth / (bitmapSource.PixelWidth / resizeFactor);
-
-            // Check if this mouse position is over a face rectangle.
-            bool mouseOverFace = false;
-
-            for (int i = 0; i < faces.Length; ++i)
-            {
-                FaceRectangle fr = faces[i].FaceRectangle;
-                double left = fr.Left * scale;
-                double top = fr.Top * scale;
-                double width = fr.Width * scale;
-                double height = fr.Height * scale;
-
-                // Display the face description for this face if the mouse is over this face rectangle.
-                if (mouseXY.X >= left && mouseXY.X <= left + width && mouseXY.Y >= top && mouseXY.Y <= top + height)
-                {
-                    faceDescriptionStatusBar.Text = faceDescriptions[i];
-                    mouseOverFace = true;
-                    break;
-                }
-            }
-
-            // If the mouse is not over a face rectangle.
-            if (!mouseOverFace)
-                faceDescriptionStatusBar.Text = "Place the mouse pointer over a face to see the face description.";
-        }
-
-        // Uploads the image file and calls Detect Faces.
-
-        private async Task<Face[]> UploadAndDetectFaces(string imageFilePath)
-        {
-            // The list of Face attributes to return.
-            IEnumerable<FaceAttributeType> faceAttributes =
-                new FaceAttributeType[] { FaceAttributeType.Gender, FaceAttributeType.Age, FaceAttributeType.Smile, FaceAttributeType.Emotion, FaceAttributeType.Glasses, FaceAttributeType.Hair };
-
-            // Call the Face API.
-            try
-            {
-                using (Stream imageFileStream = File.OpenRead(imageFilePath))
-                {
-                    Face[] faces = await faceServiceClient.DetectAsync(imageFileStream, returnFaceId: true, returnFaceLandmarks: false, returnFaceAttributes: faceAttributes);
-                    return faces;
-                }
-            }
-            // Catch and display Face API errors.
-            catch (FaceAPIException f)
-            {
-                MessageBox.Show(f.ErrorMessage, f.ErrorCode);
-                return new Face[0];
-            }
-            // Catch and display all other errors.
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "Error");
-                return new Face[0];
-            }
-        }
-
-        // Returns a string that describes the given face.
-
-        private string FaceDescription(Face face)
-        {
-            StringBuilder sb = new StringBuilder();
-
-            sb.Append("Face: ");
-
-            // Add the gender, age, and smile.
-            sb.Append(face.FaceAttributes.Gender);
-            sb.Append(", ");
-            sb.Append(face.FaceAttributes.Age);
-            sb.Append(", ");
-            sb.Append(String.Format("smile {0:F1}%, ", face.FaceAttributes.Smile * 100));
-
-            // Add the emotions. Display all emotions over 10%.
-            sb.Append("Emotion: ");
-            EmotionScores emotionScores = face.FaceAttributes.Emotion;
-            if (emotionScores.Anger >= 0.1f) sb.Append(String.Format("anger {0:F1}%, ", emotionScores.Anger * 100));
-            if (emotionScores.Contempt >= 0.1f) sb.Append(String.Format("contempt {0:F1}%, ", emotionScores.Contempt * 100));
-            if (emotionScores.Disgust >= 0.1f) sb.Append(String.Format("disgust {0:F1}%, ", emotionScores.Disgust * 100));
-            if (emotionScores.Fear >= 0.1f) sb.Append(String.Format("fear {0:F1}%, ", emotionScores.Fear * 100));
-            if (emotionScores.Happiness >= 0.1f) sb.Append(String.Format("happiness {0:F1}%, ", emotionScores.Happiness * 100));
-            if (emotionScores.Neutral >= 0.1f) sb.Append(String.Format("neutral {0:F1}%, ", emotionScores.Neutral * 100));
-            if (emotionScores.Sadness >= 0.1f) sb.Append(String.Format("sadness {0:F1}%, ", emotionScores.Sadness * 100));
-            if (emotionScores.Surprise >= 0.1f) sb.Append(String.Format("surprise {0:F1}%, ", emotionScores.Surprise * 100));
-
-            // Add glasses.
-            sb.Append(face.FaceAttributes.Glasses);
-            sb.Append(", ");
-
-            // Add hair.
-            sb.Append("Hair: ");
-
-            // Display baldness confidence if over 1%.
-            if (face.FaceAttributes.Hair.Bald >= 0.01f)
-                sb.Append(String.Format("bald {0:F1}% ", face.FaceAttributes.Hair.Bald * 100));
-
-            // Display all hair color attributes over 10%.
-            HairColor[] hairColors = face.FaceAttributes.Hair.HairColor;
-            foreach (HairColor hairColor in hairColors)
-            {
-                if (hairColor.Confidence >= 0.1f)
-                {
-                    sb.Append(hairColor.Color.ToString());
-                    sb.Append(String.Format(" {0:F1}% ", hairColor.Confidence * 100));
-                }
-            }
-
-            // Return the built string.
-            return sb.ToString();
-        }
-    }
-}
-```
-
-## <a name="related"></a> Volgende stappen
-
-- [Aan de slag met Face-API in Java voor Android](FaceAPIinJavaForAndroidTutorial.md)
-- [Aan de slag met Face-API in Python](FaceAPIinPythonTutorial.md)
+> [!div class="nextstepaction"]
+> [Gezichten in afbeeldingen detecteren](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

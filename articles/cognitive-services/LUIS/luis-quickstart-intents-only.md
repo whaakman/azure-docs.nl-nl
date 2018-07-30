@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 06/27/2018
 ms.author: v-geberr
-ms.openlocfilehash: fea311eb36c0654b45b2354cb283f1699be7257c
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 0668ba050a6918995deb42d8feea5afbbab3b010
+ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109338"
+ms.lasthandoff: 07/06/2018
+ms.locfileid: "37865808"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Zelfstudie: 1. Web-app met aangepast domein
 In deze zelfstudie maakt u een app die laat zien hoe u **intents** gebruikt om de _bedoeling_ van de gebruiker te bepalen op basis van de utterance (tekst) die ze naar de app verzenden. Wanneer u klaar bent, hebt u een LUIS-eindpunt in de cloud.
@@ -26,7 +26,7 @@ Deze app is het eenvoudigste type LUIS-app omdat dit type geen gegevens uit de u
 > * Een nieuwe app voor een Human Resources (HR)-domein maken 
 > * GetJobInformation-intent toevoegen
 > * Voorbeeldutterances toevoegen aan de GetJobInformation-intent 
-> * App inleren en publiceren
+> * App trainen en publiceren
 > * Eindpunt van app opvragen om JSON-antwoord van LUIS te zien
 > * ApplyForJob-intent toevoegen
 > * Voorbeeldutterances toevoegen aan de ApplyForJob-intent 
@@ -90,16 +90,16 @@ Deze app heeft enkele intents. De eerste intent, **`GetJobInformation`**, stelt 
 
     ![De knop Train](./media/luis-quickstart-intents-only/train-button.png)
 
-    Het inleren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het inleren is gelukt.
+    Het trainen is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het trainen is gelukt.
 
     ![Getrainde statusbalk](./media/luis-quickstart-intents-only/trained.png)
 
 2. Selecteer rechtsboven in de website van LUIS de knop **Publish** om de pagina Publish te openen. De productiesite is standaard geselecteerd. Selecteer de knop **Publish** door de productiesite te kiezen. Het publiceren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het publiceren is gelukt.
 
-    U hoeft geen LUIS-eindpuntsleutel in Azure Portal te maken voordat u publiceert of voordat u de eindpunt-URL test. Elke LUIS-app bestaat uit een gratis startersleutel voor ontwerpen. Dit biedt u onbeperkte ontwerpmogelijkheden en [enkele eindpunttreffers](luis-boundaries.md#key-limits). 
+    U hoeft niet geen LUIS-eindpuntsleutel in Azure Portal te maken voordat u publiceert of voordat u de eindpunt-URL test. Elke LUIS-app bestaat uit een gratis startersleutel voor ontwerpen. Dit biedt u onbeperkte ontwerpmogelijkheden en [enkele eindpunttreffers](luis-boundaries.md#key-limits). 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>Query-eindpunt voor GetJobInformation-intent
-1. Selecteer onderaan de pagina **Publish** de koppeling **endpoint**. Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbalk. 
+1. Selecteer onder aan de pagina **Publish** de koppeling **endpoint**. Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbalk. 
 
 2. Ga naar het einde van de URL in het adres en voer `I'm looking for a job with Natual Language Processing` in. De laatste parameter van de queryreeks is `q`, de utterance**query**. Deze utterance is niet hetzelfde als een van de voorbeeld-utterances in stap 4. Daarom is dit een goede test die de intent `GetJobInformation` als belangrijkste scorings-intent moet geven. 
 
@@ -152,7 +152,7 @@ Ga terug naar het browsertabblad voor de website van LUIS en maak een nieuwe int
     Opnieuw [trainen en publiceren](#train-and-publish-the-app). 
 
 ## <a name="query-endpoint-for-applyforjob-intent"></a>Query-eindpunt voor ApplyForJob-intent
-Selecteer onderaan de pagina **Publish** de koppeling **endpoint**. Voer in het nieuwe browservenster `Can I submit my resume for job 235986` in aan het einde van de URL. 
+Selecteer onder aan de pagina **Publish** de koppeling **endpoint**. Voer in het nieuwe browservenster `Can I submit my resume for job 235986` in aan het einde van de URL. 
 
     ```
     {
@@ -188,7 +188,7 @@ Het JSON-resultaat identificeert de hoogst scorende intent. Alle scores liggen t
 LUIS hoeft niets meer te doen met deze aanvraag. De aanroepende toepassing, zoals een chatbot, kan het topScoringIntent-resultaat gebruiken en informatie vinden (die niet is opgeslagen in LUIS) om de vraag te beantwoorden of de conversatie beëindigen. Dit zijn programma-opties voor de chatbot of aanroepende toepassing. LUIS hoeft die taak niet uit te voeren. LUIS bepaalt alleen wat de bedoeling van de gebruiker is. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Daarvoor selecteert u **My apps** in het menu linksboven. Selecteer het menu met de drie punten (...) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Delete**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Daarvoor selecteert u **My apps** in het menu linksboven. Selecteer het weglatingsteken (***...***) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
