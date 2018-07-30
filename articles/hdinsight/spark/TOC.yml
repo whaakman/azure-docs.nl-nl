@@ -209,6 +209,8 @@
       items:
         - name: Clusterresources beheren
           href: apache-spark-resource-manager.md
+        - name: Spark-toepassingen beheren met behulp van een uitgebreide History Server
+          href: apache-azure-spark-history-server.md
         - name: Spark-instellingen configureren
           href: apache-spark-settings.md
         - name: Spark-taken optimaliseren

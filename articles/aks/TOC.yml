@@ -89,6 +89,10 @@
         - name: Oplossing voor Azure-containerstatus
           href: ../monitoring/monitoring-container-health.md
           maintainContext: true
+        - name: Logboeken van het master-onderdeel weergeven
+          href: view-master-logs.md
+        - name: Kubelet-logboeken weergeven
+          href: kubelet-logs.md
     - name: Toepassingen ontwikkelen en uitvoeren
       items:
         - name: Toepassingen uitvoeren met Helm
@@ -121,8 +125,6 @@
       items:
         - name: Toegang van SSH-knooppunt
           href: aks-ssh.md
-        - name: Kubelet-logboeken ophalen
-          href: kubelet-logs.md
 - name: Naslaginformatie
   items:
     - name: Azure-CLI

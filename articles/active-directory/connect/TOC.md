@@ -83,6 +83,7 @@
 
 ## Federation Services beheren
 ### [Beheren en aanpassen](active-directory-aadconnect-federation-management.md)
+### [AD FS-vertrouwensrelatie met Azure AD beheren met behulp van Azure AD Connect](active-directory-azure-ad-connect-azure-ad-trust.md)
 ### [Meerdere exemplaren van Azure AD federeren met één exemplaar van AD FS](active-directory-aadconnectfed-single-adfs-multitenant-federation.md)
 
 
