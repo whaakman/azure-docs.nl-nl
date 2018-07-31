@@ -1,27 +1,24 @@
 ---
-title: Beheren van instellingen voor verificatie in twee stappen verificatie - Azure AD | Microsoft Docs
+title: Instellingen voor verificatie in twee stappen verificatie - Azure Active Directory beheren | Microsoft Docs
 description: Beheren hoe u Azure multi-factor Authentication, inclusief uw contactgegevens wijzigen of configureren van uw apparaten gebruiken.
-services: multi-factor-authentication
+services: active-directory
 keywords: Multi-factor authentication-client, verificatieprobleem, correlatie-ID
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.reviewer: richagi
 ms.assetid: d3372d9a-9ad1-4609-bdcf-2c4ca9679a3b
-ms.service: multi-factor-authentication
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
-ms.custom: end-user
-ms.openlocfilehash: ff48cb2cee5387f5dd5e0b89966a11fb76379337
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c3fd74731dbed2c2f36d97b3cb42b383f8e4ca0f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059436"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345086"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Uw instellingen beheren voor verificatie in twee stappen
 In dit artikel vindt u antwoorden op vragen over het bijwerken van instellingen voor verificatie in twee stappen verificatie of multi-factor authentication. Als u problemen met aanmelden bij uw account hebt, raadpleegt u [problemen hebt met verificatie in twee stappen](multi-factor-authentication-end-user-troubleshoot.md) voor oplossingen voor problemen.

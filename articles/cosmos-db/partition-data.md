@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: rimman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ba9982d1f63345db394f1803c31d4246cfac499c
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 0cb668dba661ce05d6393aec2707b65918f0c2ac
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309167"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344127"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitioneren en schalen in Azure Cosmos DB
 
@@ -86,7 +86,7 @@ Een partitiesleutel kiezen zodat:
   De bovenstaande afbeelding links toont het resultaat van een ongeldige partitiesleutel en de juiste bovenstaande afbeelding toont het resultaat wanneer een goede partitiesleutels is gekozen. In de afbeelding links ziet u dat de gegevens niet gelijkmatig wordt verdeeld over de partities. U moet streven naar een partitiesleutel die uw gegevens worden verdeeld, zodat deze op de juiste installatiekopie lijkt kiezen.
 
 * Query's die worden aangeroepen met hoge gelijktijdigheid kunnen door de partitiesleutel te nemen in het filterpredicaat efficiënt worden gerouteerd.  
-* Een partitiesleutel kiezen met een hogere kardinaliteit is in het algemeen aanbevolen – becaue deze doorgaans resulteert in betere distributie en schaalbaarheid. Een samengestelde sleutel kan bijvoorbeeld worden gevormd door het samenvoegen van waarden uit meerdere eigenschappen om te verhogen van de kardinaliteit van de.  
+* Een partitiesleutel kiezen met een hogere kardinaliteit is in het algemeen aanbevolen – becaue deze doorgaans resulteert in betere distributie en schaalbaarheid. Bijvoorbeeld, kan een synthetische sleutel worden gevormd door het samenvoegen van waarden uit meerdere eigenschappen om te verhogen van de kardinaliteit van de.  
 
 Als u ervoor kiest een partitiesleutel met bovenstaande overwegingen, u geen zorgen te hoeven maken over het aantal partities of hoeveel doorvoer is toegewezen per fysieke partitie, zoals Azure Cosmos DB is geschaald van het aantal fysieke partities kunnen ook worden geschaald de afzonderlijke partities indien nodig.
 
@@ -205,9 +205,9 @@ g.E(['USA', 'I5'])
 
 Zie voor meer informatie, [in Azure Cosmos DB met behulp van een gepartitioneerde grafiek](graph-partitioning.md).
 
-## <a name="composite-partition-key"></a>Samengestelde partitiesleutel
+## <a name="form-partition-key-by-concatenating-multiple-fields"></a>De partitiesleutel formulier door het samenvoegen van meerdere velden
 
-U kunt een samengestelde partitiesleutel vormen door samenvoegen en opvulling van meerdere waarden van eigenschappen in een enkele kunstmatige 'partitionKey'-eigenschap van het item.
+U kunt ook een partitiesleutel vormen door samenvoegen en opvulling van meerdere waarden van eigenschappen in een enkele kunstmatige 'partitionKey'-eigenschap van het item. Deze sleutels worden aangeduid als synthetische sleutels.
 
 U hebt bijvoorbeeld een document dat lijkt op:
 
@@ -218,7 +218,7 @@ U hebt bijvoorbeeld een document dat lijkt op:
 }
 ```
 
-Een optie is om in te stellen partitionKey op/DeviceID of /date. Als wilt vormen een samengestelde sleutel op apparaat-id en datum. Samenvoegen van deze twee waarden in voor een eigenschap kunstmatige 'partitionKey' en de partitiesleutel instellen op /partitionKey.
+Een optie is om in te stellen partitionKey op/DeviceID of /date. Als wilt vormen een partitiesleutel op apparaat-id en datum. Samenvoegen van deze twee waarden in voor een eigenschap kunstmatige 'partitionKey' en de partitiesleutel instellen op /partitionKey.
 
 ```json
 {
@@ -228,7 +228,7 @@ Een optie is om in te stellen partitionKey op/DeviceID of /date. Als wilt vormen
 }
 ```
 
-U kunt in realtime scenario's duizenden documenten hebben zodat u logica op de client voor het samenvoegen van waarden in een samengestelde sleutel, de samengestelde sleutel invoegen in de documenten en vervolgens worden gebruikt om op te geven van de partitiesleutel te definiëren.
+U kunt in realtime scenario's duizenden documenten hebben zodat u logica op de client voor het samenvoegen van waarden in een synthetische sleutel, de synthetische sleutel invoegen in de documenten en vervolgens worden gebruikt om op te geven van de partitiesleutel te definiëren.
 
 <a name="designing-for-scale"></a>
 ## <a name="design-for-scale"></a>Ontwerpen voor schalen

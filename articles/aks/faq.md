@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 07/27/2018
 ms.author: iainfou
-ms.openlocfilehash: ea22b33233f85da117de54829e5a16bd7dcab36a
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: b64c770bca84fba8cbed98e420abf649897f7a17
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205245"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345851"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Veelgestelde vragen over Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ Beveiligingspatches Azure automatisch toegepast op de knooppunten in uw cluster 
 
 - Handmatig via de Azure portal of de Azure CLI.
 - Voer een upgrade uw AKS-cluster. Cluster-upgrades automatisch [cordon en leegmaken van knooppunten](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/), vervolgens een back-up brengen met de meest recente Ubuntu-installatiekopie. De installatiekopie van het besturingssysteem op uw knooppunten bijwerken zonder dat Kubernetes-versies worden gewijzigd door de huidige clusterversie in op te geven `az aks upgrade`.
-- Met behulp van [Kured](https://github.com/weaveworks/kured), een open-source opnieuw opstarten-daemon voor Kubernetes. Kured wordt uitgevoerd als een [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) en bewaakt elk knooppunt op de aanwezigheid van een bestand dat aangeeft dat een herstart vereist is. Vervolgens deelt deze opnieuw wordt opgestart in de cluster, volgens de dezelfde cordon en drain proces die eerder zijn beschreven.
+- Met behulp van [Kured](https://github.com/weaveworks/kured), een open-source opnieuw opstarten-daemon voor Kubernetes. Kured wordt uitgevoerd als een [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) en bewaakt elk knooppunt op de aanwezigheid van een bestand dat aangeeft dat een herstart vereist is. Vervolgens beheert het besturingssysteem opnieuw wordt opgestart in het cluster, volgens de dezelfde cordon en drain proces die eerder zijn beschreven.
 
 ## <a name="does-aks-support-node-autoscaling"></a>Biedt ondersteuning voor AKS knooppunt automatisch schalen?
 
@@ -39,7 +39,7 @@ Ja, automatisch schalen is beschikbaar via de [Kubernetes automatisch schalen] [
 
 Ja, RBAC kan worden ingeschakeld wanneer [een AKS-cluster op basis van de Azure CLI of Azure Resource Manager-sjabloon implementeren](https://docs.microsoft.com/en-us/azure/aks/aad-integration). Deze functionaliteit wordt binnenkort komen bij Azure portal.
 
-## <a name="what-kubernetes-admission-controllers-does-aks-support-can-this-be-configured"></a>Welke Kubernetes toelating controllers biedt ondersteuning voor AKS? Kan dit worden geconfigureerd?
+## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Welke Kubernetes toelating controllers biedt ondersteuning voor AKS? Kunnen worden toelating controllers toegevoegd of verwijderd?
 
 AKS ondersteunt de volgende [toelating controllers][admission-controllers]:
 
@@ -62,11 +62,11 @@ Ja, u kunt implementeren met een AKS-cluster in een bestaand virtueel netwerk me
 
 ## <a name="can-i-restrict-the-kubernetes-api-server-to-only-be-accessible-within-my-virtual-network"></a>Kan ik de Kubernetes API-server als u alleen toegankelijk binnen het virtuele netwerk wilt beperken?
 
-Momenteel niet. De Kubernetes API-server wordt weergegeven als een openbare volledig gekwalificeerde domeinnaam (FQDN). U moet toegang tot uw cluster met beheren [Kubernetes op rollen gebaseerd beheer (RBAC) en Azure Active Directory (AAD) toegang krijgen tot](https://docs.microsoft.com/en-us/azure/aks/aad-integration).
+Momenteel niet. De Kubernetes API-server wordt weergegeven als een openbare volledig domeinnaam (FQDN gekwalificeerde). U moet toegang tot uw cluster met beheren [Kubernetes op rollen gebaseerd beheer (RBAC) en Azure Active Directory (AAD) toegang krijgen tot](https://docs.microsoft.com/en-us/azure/aks/aad-integration).
 
 ## <a name="is-azure-key-vault-integrated-with-aks"></a>Is Azure Key Vault geïntegreerd met AKS?
 
-AKS is niet geïntegreerd met Azure Key Vault op dit moment. Er zijn echter community-oplossingen, zoals [de acs-keyvault-agent vanuit Hexadite][hexadite].
+AKS is niet geïntegreerd met Azure Key Vault op dit moment. Echter, de [KeyVault inhoud aangepast aan blokkeringsstatus Volume project](https://github.com/Azure/kubernetes-keyvault-flexvol) kunnen directe integratie van Kubernetes-schillen voor KeyVault-geheimen.
 
 ## <a name="can-i-run-windows-server-containers-on-aks"></a>Kan ik Windows Server-containers in AKS uitvoeren?
 
@@ -76,11 +76,11 @@ Als u wilt uitvoeren in Windows Server-containers, die u wilt uitvoeren op basis
 
 Elke AKS-implementatie omvat twee resourcegroepen. De eerste door u is gemaakt en bevat alleen de bron van de Kubernetes-service. De tweede waarde tijdens de implementatie van de resourceprovider AKS automatisch gemaakt met een naam, zoals *MC_myResourceGroup_myAKSCluster_eastus*. De tweede resourcegroep bevat al de infrastructuurresources die zijn gekoppeld aan het cluster, zoals virtuele machines, netwerken en opslag. Ter vereenvoudiging van opruimen van de resource wordt gemaakt.
 
-Als u het maken van resources die worden gebruikt met uw AKS-cluster, zoals storage-accounts of gereserveerde openbare IP-adres, moet u deze in de automatisch gegenereerde resourcegroep plaatsen.
+Als u het maken van resources die worden gebruikt met uw AKS-cluster, zoals storage-accounts of gereserveerde openbare IP-adressen, moet u deze in de automatisch gegenereerde resourcegroep plaatsen.
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>Biedt AKS een service level agreement?
 
-In een serviceovereenkomst (SLA) stemt de provider in met het betalen van de klant voor de kosten van de service moet het niveau van de gepubliceerde service niet worden voldaan. Omdat AKS zelf gratis is, en is er geen kosten beschikbaar om te betalen en dus geen formeel SLA. Maar wij voor beschikbaarheid van ten minste bij minder dan 99,5% voor de Kubernetes API-server.
+In een serviceovereenkomst (SLA) stemt de provider in met het betalen van de klant voor de kosten van de service moet het niveau van de gepubliceerde service niet worden voldaan. Omdat AKS zelf gratis is, en is er geen kosten beschikbaar om te betalen en dus geen formeel SLA. Richt zich echter AKS voor beschikbaarheid van ten minste bij minder dan 99,5% voor de Kubernetes API-server.
 
 <!-- LINKS - internal -->
 

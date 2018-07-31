@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/19/2018
+ms.date: 7/30/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 3d19b42e339e9776d0fdbbf7cfcfba07d69549ad
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 2776017c6c4673f5c24d25b06b58a1e818f1bd24
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249077"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344440"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Back-up van SQL Server-databases naar Azure
 
@@ -56,27 +56,27 @@ Azure Backup wordt ondersteund voor de volgende geografische gebieden:
 - Brazilië - zuid (BRS)
 - Canada centraal (CNC)
 - Canada - oost (CE)
-- VS - centraal (CUS)
-- Oost-Azië (EA)
+- US - centraal (CUS)
+- Azië - oost (EA)
 - Oost-Australië (AE) 
-- VS - oost (EUS)
-- VS - oost 2 (EUS2)
+- US - oost (EUS)
+- US - oost 2 (EUS2)
 - India - centraal (INC) 
 - India - zuid (INS)
 - Japan - oost (JPE)
 - Japan - west (JPW)
 - Korea - centraal (KRC)
 - Korea - zuid (KRS)
-- VS - noord centraal (NCUS) 
-- Noord-Europa (NE) 
-- VS - zuid-centraal (SCUS) 
-- Zuidoost-Azië (SEA)
+- US - noord-centraal (NCUS) 
+- Europa - noord (NE) 
+- US - zuid-centraal (SCUS) 
+- Azië - zuidoost (SEA)
 - Verenigd Koninkrijk zuid (UKS) 
 - Verenigd Koninkrijk west (UKW) 
-- VS - west-centraal (WCUS)
-- West-Europa (WE) 
-- VS - west (WUS)
-- VS - west 2 (WUS 2) 
+- US - west-centraal (WCUS)
+- Europa - west (WE) 
+- US - west (WUS)
+- US - west 2 (WUS 2) 
 
 ## <a name="support-for-operating-systems-and-sql-server-versions"></a>Ondersteuning voor besturingssystemen en versies van SQL Server
 
@@ -148,7 +148,7 @@ Om machtigingen te configureren:
 
     ![SQL Server in virtuele Azure-machine voor de back-up selecteren](./media/backup-azure-sql-database/choose-sql-database-backup-goal.png)
 
-    De **back-updoel** menu u ziet nu twee stappen: **DB's detecteren in VM's** en **back-up configureren**. De **DB's detecteren in VM's** stap begint een zoekopdracht voor virtuele machines van Azure.
+    De **back-updoel** menu u ziet nu twee stappen: **DB's detecteren in VM's** en **back-up configureren**. De **DB's detecteren in VM's** stap start een zoekopdracht voor virtuele machines van Azure.
 
     ![Bekijk de twee stappen van de back-updoel](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
@@ -341,7 +341,7 @@ Beveiliging voor een SQL-database configureren:
 
 Een back-upbeleid definieert een matrix met wanneer back-ups worden gemaakt en hoe lang ze worden bewaard. Met Azure Backup voor het plannen van de drie typen van back-up voor SQL-databases:
 
-* Volledige back-up: een volledige databaseback-up een back-up van de gehele database. Een volledige back-up bevat alle gegevens in een specifieke database of een set bestandsgroepen of bestanden en genoeg logboekbestand om die gegevens te herstellen. U kunt maximaal, een volledige back-up per dag activeren. U kunt een volledige back-up te nemen in een interval van dagelijks of wekelijks. 
+* Volledige back-up: een volledige databaseback-up een back-up van de gehele database. Een volledige back-up bevat alle gegevens in een specifieke database of een set bestandsgroepen of bestanden en voldoende Logboeken om die gegevens te herstellen. U kunt maximaal, een volledige back-up per dag activeren. U kunt een volledige back-up te nemen in een interval van dagelijks of wekelijks. 
 * Differentiële back-up: een differentiële back-up is gebaseerd op de meest recente, de vorige volledige gegevens back-up. Een differentiële back-up legt alleen de gegevens die zijn gewijzigd nadat de volledige back-up. U kunt maximaal één differentiële back-up per dag activeren. U kunt een volledige back-up en een differentiële back-up niet configureren op dezelfde dag.
 * Transactielogboekback-up: een logboekback-up kunt punt in tijd herstel tot een specifieke seconde. Maximaal, kunt u configureren transactionele logboekback-ups om de 15 minuten.
 
@@ -406,15 +406,16 @@ Een back-upbeleid maken:
    ![De nieuwe back-upbeleid te accepteren](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
 ## <a name="restore-a-sql-database"></a>Een SQL-database herstellen
-
 Azure Backup biedt functionaliteit voor het herstellen van afzonderlijke databases naar een specifieke datum of tijd (voor de tweede) met behulp van transactielogboekback-ups. Azure Backup bepaalt automatisch de juiste volledige differentiële en de keten van logboekback-ups die nodig zijn voor het herstellen van uw gegevens op basis van uw hersteltijden.
 
 U kunt ook een specifieke volledige of differentiële back-up te herstellen naar een specifiek herstelpunt, in plaats van een bepaald tijdstip selecteren.
- > [!Note]
- > Voordat u een herstel van de database 'master' activeert, start u de SQL Server-exemplaar in de modus voor één gebruiker met de opstartoptie `-m AzureWorkloadBackup`. Het argument voor de `-m` optie is de naam van de client. Alleen deze client is toegestaan om de verbinding te openen. Voor alle systeemdatabases (model, master, msdb), door de SQL Agent-service te stoppen voordat u de terugzetbewerking kan worden geactiveerd. Sluit alle toepassingen waarbij wordt geprobeerd te stelen van een verbinding met een van deze databases.
->
 
-Een database te herstellen:
+### <a name="pre-requisite-before-trigerting-a-restore"></a>Vereiste voordat trigerting herstellen
+1. U kunt de database herstellen naar een exemplaar van een SQL-Server in dezelfde Azure-regio. De doelserver moet worden geregistreerd bij dezelfde Recovery Services-kluis als de bron.  
+2. Als u wilt een versleutelde TDE-database herstellen naar een andere SQL Server, eerst herstel het certificaat naar de doelserver door de volgende stappen die zijn beschreven [hier](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
+3. Voordat u een herstel van de database 'master' activeert, start u de SQL Server-exemplaar in de modus voor één gebruiker met de opstartoptie `-m AzureWorkloadBackup`. Het argument voor de `-m` optie is de naam van de client. Alleen deze client is toegestaan om de verbinding te openen. Voor alle systeemdatabases (model, master, msdb), door de SQL Agent-service te stoppen voordat u de terugzetbewerking kan worden geactiveerd. Sluit alle toepassingen waarbij wordt geprobeerd te stelen van een verbinding met een van deze databases.
+
+### <a name="steps-to-restore-a-database"></a>Stappen om een database te herstellen:
 
 1. Open de Recovery Services-kluis die geregistreerd bij de virtuele machine van SQL.
 

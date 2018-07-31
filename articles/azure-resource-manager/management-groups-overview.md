@@ -10,31 +10,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/26/2018
+ms.date: 7/31/2018
 ms.author: rithorn
-ms.openlocfilehash: f9554c058fbebc215aa61979fa03280553597afc
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 146ded37dbf517528af23574cd5b9325f4b5f9d0
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308313"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358766"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Resources organiseren met beheergroepen voor Azure
 
 Als uw organisatie veel abonnementen heeft, moet u de toegang, beleidsregels en naleving voor deze abonnementen op een efficiënte manier kunnen beheren. Een niveau van bereik bovenstaande abonnementen bieden dat Azure-beheergroepen. U abonnementen in containers met de naam "beheergroepen" ordenen en de voorwaarden van uw beheeracties toepassen op de beheergroepen. Alle abonnementen in een beheergroep overnemen automatisch de voorwaarden die aan de beheergroep. Van beheergroepen bieden u zakelijke management op grote schaal, ongeacht welk type abonnementen die u mogelijk hebt.
-
-De functie management group is beschikbaar in een openbare preview. Als u wilt gaan met behulp van van beheergroepen, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com) en zoek naar de **beheergroepen** in de **alle Services** sectie.
 
 U kunt bijvoorbeeld beleid toepassen op een beheergroep die de regio's beschikbaar voor het maken van virtuele machine (VM beperkt). Dit beleid zou worden toegepast op alle beheergroepen, abonnementen en resources van die groep management door toe te staan alleen virtuele machines in deze regio worden gemaakt.
 
 ## <a name="hierarchy-of-management-groups-and-subscriptions"></a>Hiërarchie van beheergroepen en -abonnementen
 
 U kunt een flexibele structuur van beheergroepen en abonnementen voor het organiseren van uw resources in een hiërarchie voor geïntegreerde policy and access management kunt bouwen.
-Het volgende diagram toont een voorbeeld van de hiërarchie die uit de beheergroepen en abonnementen die zijn geordend op afdelingen bestaat.
+Het volgende diagram toont een voorbeeld van het maken van een hiërarchie voor beheer met behulp van beheergroepen.
 
 ![structuur](media/management-groups/MG_overview.png)
 
-Als u een hiërarchie die zijn gegroepeerd op afdelingsniveau mogelijk maakt, kunt u [op rollen gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md) rollen die *overnemen* naar de afdelingen die beheergroep. Met behulp van van beheergroepen, moet u uw workload kunt beperken en vermindert het risico van fouten door slechts één keer de rol toewijzen.
+Door het maken van een hiërarchie zoals in dit voorbeeld kunt u een beleid, bijvoorbeeld VM locaties beperkt tot regio VS-West op de groep 'Infrastructure-Team beheergroep' toepassen op de interne naleving inschakelen en beveiligingsbeleid. Dit beleid worden overgenomen door naar beide EA-abonnementen onder deze beheergroep en geldt voor alle virtuele machines onder deze abonnementen. Als dit beleid van de beheergroep naar de abonnementen overneemt, kan dit beveiligingsbeleid kan niet worden gewijzigd door de eigenaar van de resource of abonnement waardoor het verbeterde governance.
+
+Een ander scenario waarin u beheergroepen wilt gebruiken is het bieden van toegang tot meerdere abonnementen voor gebruikers.  Als u meerdere abonnementen voor die beheergroep verplaatst, moet u de mogelijkheid een RBAC-toewijzing maken voor de beheergroep, die worden overgenomen door waarmee de toegang tot alle abonnementen hebben.  Zonder de noodzaak tot script RBAC-toewijzingen voor meerdere abonnementen kunt één toewijzing van de beheergroep die gebruikers toegang hebben tot alle benodigde inschakelen.
 
 ### <a name="important-facts-about-management-groups"></a>Belangrijke informatie over de beheergroepen
 
@@ -44,11 +44,6 @@ Als u een hiërarchie die zijn gegroepeerd op afdelingsniveau mogelijk maakt, ku
 - Elke beheergroep en het abonnement kan alleen ondersteuning voor één bovenliggend object.
 - Elke beheergroep kan meerdere onderliggende items hebben.
 - Alle abonnementen en beheergroepen bevinden zich in een enkele hiërarchie in elke map. Zie [belangrijke informatie over de Root management-groep](#important-facts-about-the-root-management-group) voor uitzonderingen tijdens de Preview-versie.
-
-### <a name="cloud-solution-provider-csp-limitation-during-preview"></a>Cloud Solution Provider (CSP) beperking tijdens de Preview-versie
-
-Er is een beperking voor Cloud Solution Provider (CSP)-Partners waar ze niet maken of beheren van hun klant-beheergroepen in de directory van de klant.  
-Dit item wordt gewerkt en worden opgelost voordat er management groepen zijn aangekondigd als 'Algemene beschikbaarheid'.
 
 ## <a name="root-management-group-for-each-directory"></a>Root management-groep voor elke map
 

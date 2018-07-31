@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: ergreenl
-ms.openlocfilehash: 93e93f3cfa72fff744ada8d5109ae30a619c84b0
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 8ae99534916ce258dcab01ce2e37db1ffd809381
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264729"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358749"
 ---
 # <a name="suspended-domains"></a>Onderbroken domeinen
-Wanneer Azure AD Domain Services kan niet worden uitgevoerd een beheerd domein voor een lange periode, worden het beheerde domein in de status onderbroken geplaatst. In dit artikel wordt uitgelegd waarom de beheerde domeinen worden onderbroken en het herstellen van een domein onderbroken.
+Wanneer Azure Active Directory Domain Services (Azure AD DS) kan niet worden uitgevoerd een beheerd domein voor een lange periode, worden het beheerde domein in de status onderbroken geplaatst. In dit artikel wordt uitgelegd waarom de beheerde domeinen worden onderbroken en het herstellen van een domein onderbroken.
 
 
 ## <a name="states-your-managed-domain-can-be-in"></a>Statussen uw beheerde domein, kunnen zich in
 
 ![Onderbroken domein tijdlijn](media\active-directory-domain-services-suspension\suspension-timeline.PNG)
 
-De voorgaande afbeelding geeft een overzicht van de mogelijke statussen, een Azure AD Domain Services beheerde domein, kan zich in.
+De voorgaande afbeelding geeft een overzicht van de mogelijke statussen een beheerd domein van Azure AD DS, kan zich in.
 
 ### <a name="running-state"></a>Status 'Running'
 Een beheerd domein dat correct geconfigureerde en operationele regelmatig wordt de **met** staat.
@@ -66,7 +66,7 @@ In sommige gevallen (bijvoorbeeld als u hebt een ongeldige configuratie), kunnen
 ### <a name="the-suspended-state"></a>De status 'Onderbroken'
 Een beheerd domein wordt geplaatst de **onderbroken** staat voor de volgende redenen:
 
-* Een of meer kritieke waarschuwingen nog niet zijn opgelost in 15 dagen. Kritieke waarschuwingen kunnen worden veroorzaakt door een onjuiste configuratie die blokkeert de toegang tot resources die nodig zijn voor Azure AD Domain Services.
+* Een of meer kritieke waarschuwingen nog niet zijn opgelost in 15 dagen. Kritieke waarschuwingen kunnen worden veroorzaakt door een onjuiste configuratie die blokkeert de toegang tot resources die nodig zijn voor Azure AD DS.
     * Bijvoorbeeld, de waarschuwing [AADDS104: netwerkfout](active-directory-ds-troubleshoot-nsg.md) heeft is niet opgelost gedurende meer dan 15 dagen in het beheerde domein.
 * Er is een factureringsprobleem met uw Azure-abonnement of uw Azure-abonnement is verlopen.
 
@@ -74,7 +74,7 @@ Beheerde domeinen worden onderbroken als niet te beheren, controleren, patch of 
 
 **Wat u kunt verwachten**
 * Domeincontrollers voor uw beheerde domein niet zijn ingericht en zijn niet bereikbaar is binnen het virtuele netwerk.
-* Toegang van Secure LDAP aan het beheerde domein via Internet (als deze ingeschakeld) werkt niet.
+* Toegang van Secure LDAP aan het beheerde domein via internet (als deze ingeschakeld) werkt niet.
 * U ziet fouten in de verificatie bij het beheerde domein, zich aanmelden op virtuele machines van domein of met elkaar verbinden via LDAP/LDAPS.
 * Back-ups voor uw beheerde domein worden niet meer genomen.
 * Hiermee stopt u de synchronisatie met Azure AD.
@@ -90,18 +90,18 @@ Een beheerd domein blijft in de status 'Onderbroken' 15 dagen is **verwijderde**
 
 **Wat u kunt verwachten**
 * Alle resources en back-ups voor het beheerde domein worden verwijderd.
-* U kan niet herstellen van het beheerde domein en moet een nieuwe beheerde domein voor het gebruik van Azure AD Domain Services maken.
+* U kan niet herstellen van het beheerde domein en moet maken van een nieuwe beheerde domein voor het gebruik van Azure AD DS.
 * Nadat deze verwijderd, worden niet in rekening gebracht voor het beheerde domein.
 
 
 ## <a name="how-do-you-know-if-your-managed-domain-is-suspended"></a>Hoe weet u als uw beheerde domein wordt onderbroken?
-U ziet een [waarschuwing](active-directory-ds-troubleshoot-alerts.md) op de pagina status van Azure AD Domain Services in Azure portal waarmee u verklaart dat het domein is onderbroken. Ook ziet u de status van het domein 'Onderbroken'.
+U ziet een [waarschuwing](active-directory-ds-troubleshoot-alerts.md) op de pagina Azure status van de AD DS in Azure portal waarmee u verklaart dat het domein is onderbroken. Ook ziet u de status van het domein 'Onderbroken'.
 
 
 ## <a name="restore-a-suspended-domain"></a>Herstellen van een onderbroken domein
 Voor het herstellen van een domein met de status 'Onderbroken', moet u de volgende stappen uitvoeren:
 
-1. Ga naar de [pagina Azure AD Domain Services](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) in Azure portal.
+1. Ga naar de [Azure Active Directory Domain Services-pagina](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) in Azure portal.
 2. Selecteer het beheerde domein.
 3. Selecteer in het linkerdeelvenster **Health**.
 4. Selecteer de waarschuwing. De waarschuwings-ID wordt AADDS503 of AADDS504, zijn afhankelijk van de oorzaak van onderbreking.
@@ -112,7 +112,7 @@ Uw beheerde domein kan alleen worden teruggezet naar de datum van de laatste bac
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Los waarschuwingen voor uw beheerde domein](active-directory-ds-troubleshoot-alerts.md)
-- [Lees meer over Azure AD Domain Services](active-directory-ds-overview.md)
+- [Lees meer over Azure Active Directory Domain Services](active-directory-ds-overview.md)
 - [Neem contact op met het productteam](active-directory-ds-contact-us.md)
 
 ## <a name="contact-us"></a>Contact opnemen

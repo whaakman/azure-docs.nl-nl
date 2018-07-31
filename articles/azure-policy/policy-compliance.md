@@ -4,17 +4,17 @@ description: Azure Policy-evaluaties en effecten bepaalt de naleving. Leer hoe u
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 390935d80e903631287b1a4b9f1075e547298d99
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: f2283125aff705aae87b6260b48deee01aa12f0d
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249518"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343549"
 ---
 # <a name="getting-compliance-data"></a>Ophalen van Nalevingsgegevens
 
@@ -35,7 +35,7 @@ Evaluatie van toegewezen beleid en de initiatieven gebeuren als gevolg van diver
 
 - Een beleid of initiatief is zojuist toegewezen aan een bereik. Wanneer dit gebeurt, duurt het ongeveer 30 minuten voor de toewijzing moet worden toegepast op het bereik zijn gedefinieerd. Zodra deze is toegepast, de evaluatiecyclus voor installatie wordt gestart voor resources binnen dat bereik op basis van de zojuist toegewezen beleid of initiatief en afhankelijk van de effecten die worden gebruikt door het beleid of initiatief, resources gemarkeerd als compatibel of niet-compatibel. Een grote beleid of initiatief geëvalueerd op basis van een grote resourcesbereik kan tijd duren, zodat er geen vooraf gedefinieerde verwachting van wanneer de evaluatiecyclus voor de wordt voltooid. Zodra deze is voltooid, is bijgewerkt nalevingsresultaten zijn beschikbaar in de portal en SDK's.
 - Een beleid of initiatief is al toegewezen aan een bereik wordt bijgewerkt. De evaluatiefase computerbeleid en het tijdstip voor dit scenario is hetzelfde als voor een nieuwe toewijzing aan een bereik.
-- Een resource wordt geïmplementeerd op een scope met een toewijzing via Resource Manager, REST, Azure CLI of Azure PowerShell. In dit scenario wordt de gebeurtenis effect (toevoegen, controleren, weigeren, implementeren) en nalevingsstatus-informatie is beschikbaar in de portal en SDK's circa 15 minuten later opnieuw.
+- Een resource wordt geïmplementeerd op een scope met een toewijzing via Resource Manager, REST, Azure CLI of Azure PowerShell. In dit scenario wordt de gebeurtenis effect (toevoegen, controleren, weigeren, implementeren) en informatie van de nalevingsstatus voor de afzonderlijke resource beschikbaar is in de portal en SDK's ongeveer 15 minuten later. Deze gebeurtenis leidt niet tot een evaluatie van andere bronnen.
 - Standard naleving evaluatiecyclus voor installatie. Elke 24 uur, toewijzingen worden automatisch opnieuw worden geëvalueerd. Een grote beleid of initiatief geëvalueerd op basis van een grote resourcesbereik kan tijd duren, zodat er geen vooraf gedefinieerde verwachting van wanneer de evaluatiecyclus voor de wordt voltooid. Zodra deze is voltooid, is bijgewerkt nalevingsresultaten zijn beschikbaar in de portal en SDK's.
 
 ## <a name="how-compliance-works"></a>De werking van naleving
@@ -51,8 +51,6 @@ Een resource is in een toewijzing, niet-compatibel als het beleid of initiatief 
 
 \*Voor de acties Toevoegen, DeployIfNotExist en AuditIfNotExist moet de IF-instructie TRUE zijn.
 De acties vereisen ook dat de bestaansvoorwaarde FALSE is om niet-compatibel te zijn. Indien TRUE, activeert de IF-voorwaarde de evaluatie van de bestaansvoorwaarde voor de gerelateerde resources.
-
-Voor meer informatie over hoe resources worden gemarkeerd als niet-compatibel, we gebruiken de toewijzing van voorbeeld van een beleid dat eerder is gemaakt.
 
 Bijvoorbeeld, wordt ervan uitgegaan dat u een resourcegroep – ContsoRG, sommige opslagaccounts hebt (rood gemarkeerd) die worden weergegeven met een openbaar netwerk.
 
@@ -353,4 +351,4 @@ Als u hebt een [Log Analytics](../log-analytics/log-analytics-overview.md) werkr
 
 - Bekijk de [structuur van Azure Policy-definities](policy-definition.md).
 - Lees [Informatie over de effecten van het beleid](policy-effects.md).
-- Lees wat een beheergroep met is [organiseren van uw resources met Azure-beheergroepen](../azure-resource-manager/management-groups-overview.md)
+- Bekijk wat een beheergroep is met [Resources organiseren met Azure-beheergroepen](../azure-resource-manager/management-groups-overview.md)

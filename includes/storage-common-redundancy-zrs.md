@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 07/03/2018
+ms.date: 07/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: a88588497919d6cce17ced6d94de3bcbbb6a3019
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 86c301748b58e7642df9a738c70b4fe70be3310b
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39069634"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358619"
 ---
 Zone-redundante opslag (ZRS) repliceert uw gegevens synchroon tussen drie opslagclusters in één regio. Elke opslagcluster fysiek gescheiden van de andere en bevindt zich in een eigen binnen een beschikbaarheidszone (AZ). Elke beschikbaarheidszone en wordt het cluster ZRS locatiemogelijkheid is autonome met afzonderlijke hulpprogramma's en netwerkmogelijkheden.
 
@@ -28,12 +28,13 @@ ZRS biedt momenteel ondersteuning voor standaard [voor algemeen gebruik v2 (GPv2
 
 ZRS is algemeen beschikbaar in de volgende regio's:
 
-- VS Oost 2
-- VS Centraal
-- Noord-Europa
-- West-Europa
+- US - oost 2
+- US - west 2
+- US - centraal
+- Europa - noord
+- Europa - west
 - Frankrijk - centraal
-- Zuidoost-Azië
+- Azië - zuidoost
 
 Microsoft blijft ZRS in extra Azure-regio's inschakelen. Controleer de [Azure Service-Updates](https://azure.microsoft.com/updates/) pagina regelmatig voor informatie over nieuwe regio's.
 

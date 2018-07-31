@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: d7c2224e6529d1675cdad5b29de887f19135a2a6
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: df5b2ecce2a5c9d7c263ee0acc3a49b859b93f7f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916907"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346117"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>De configuratieserver voor VMware-VM's beheren
 
@@ -75,104 +75,108 @@ Als u wilt, kunt u de configuratieserver in dezelfde kluis registreren. Hebt u e
   5. Op de **kluis registratie** tabblad **Bladeren**, en Ga naar het bestand met kluisreferenties die u hebt gedownload.
   6. Indien nodig, bieden u proxy-server-gegevens. Selecteer vervolgens **Registreren**.
   7. Open een admin PowerShell-opdrachtvenster en voer de volgende opdracht uit:
-
-      ```
+   ```
       $pwd = ConvertTo-SecureString -String MyProxyUserPassword
       Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
-      net stop obengine
-      net start obengine
-      ```
+   ```
 
-## <a name="upgrade-the-configuration-server"></a>De configuratieserver upgraden
+      >[!NOTE] 
+      >Om **ophalen van de meest recente certificaten** Voer de opdracht uit vanaf de configuratieserver naar uitbreidbare processerver *"< installatie Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe >"--registermt uit*
 
-U uitvoeren updatepakketten voor het bijwerken van de configuratieserver. Updates kunnen worden toegepast voor maximaal N-4 versies. Bijvoorbeeld:
+  8. Ten slotte de obengine opnieuw door de volgende opdracht wordt uitgevoerd.
+  ```
+          net stop obengine
+          net start obengine
 
-- Als u 9.7, 9,8, 9,9 of 9.10 uitvoert, kunt u rechtstreeks naar 9.11 bijwerken.
-- Als u 9,6 of een eerdere versie uitvoert en u wilt upgraden naar 9.11, moet u eerst upgraden naar versie 9.7. voordat u 9.11.
+## Upgrade the configuration server
 
-Koppelingen naar de updatepakketten voor het upgraden van alle versies van de configuratieserver zijn beschikbaar in de [wiki updates pagina](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+You run update rollups to update the configuration server. Updates can be applied for up to N-4 versions. For example:
 
-De server als volgt bijwerken:
+- If you run 9.7, 9.8, 9.9, or 9.10, you can upgrade directly to 9.11.
+- If you run 9.6 or earlier and you want to upgrade to 9.11, you must first upgrade to version 9.7. before 9.11.
 
-1. Ga in de kluis naar **beheren** > **Site Recovery-infrastructuur** > **configuratieservers**.
-2. Als een update beschikbaar is, wordt een koppeling weergegeven in de **Agentversie** > kolom.
+Links to update rollups for upgrading to all versions of the configuration server are available in the [wiki updates page](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+
+Upgrade the server as follows:
+
+1. In the vault, go to **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
+2. If an update is available, a link appears in the **Agent Version** > column.
     ![Update](./media/vmware-azure-manage-configuration-server/update2.png)
-3. Download het installatiebestand van de update naar de configuratieserver.
+3. Download the update installer file to the configuration server.
 
     ![Update](./media/vmware-azure-manage-configuration-server/update1.png)
 
-4. Dubbelklik erop om het installatieprogramma uitvoert.
-5. Het installatieprogramma detecteert de huidige versie die wordt uitgevoerd op de machine. Klik op **Ja** bij te werken.
-6. Wanneer de upgrade is voltooid valideert de configuratie van de server.
+4. Double-click to run the installer.
+5. The installer detects the current version running on the machine. Click **Yes** to start the upgrade.
+6. When the upgrade completes the server configuration validates.
 
     ![Update](./media/vmware-azure-manage-configuration-server/update3.png)
     
-7. Klik op **voltooien** te sluiten van het installatieprogramma.
+7. Click **Finish** to close the installer.
 
-## <a name="delete-or-unregister-a-configuration-server"></a>Verwijderen of de registratie van een configuratieserver
+## Delete or unregister a configuration server
 
-1. [Schakel de beveiliging](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) voor alle virtuele machines onder de configuratieserver.
-2. [Loskoppelen](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) en [verwijderen](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) alle replicatiebeleidsregels voor vanaf de configuratieserver.
-3. [Verwijder](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) alle vCenter-servers/vSphere-hosts die gekoppeld aan de configuratieserver zijn.
-4. Open in de kluis **Site Recovery-infrastructuur** > **configuratieservers**.
-5. Selecteer de configuratieserver die u wilt verwijderen. Klik vervolgens op de **Details** weergeeft, schakelt **verwijderen**.
+1. [Disable protection](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) for all VMs under the configuration server.
+2. [Disassociate](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) and [delete](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) all replication policies from the configuration server.
+3. [Delete](vmware-azure-manage-vcenter.md#delete-a-vcenter-server) all vCenter servers/vSphere hosts that are associated with the configuration server.
+4. In the vault, open **Site Recovery Infrastructure** > **Configuration Servers**.
+5. Select the configuration server that you want to remove. Then, on the **Details** page, select **Delete**.
 
-    ![Configuratieserver verwijderen](./media/vmware-azure-manage-configuration-server/delete-configuration-server.png)
+    ![Delete configuration server](./media/vmware-azure-manage-configuration-server/delete-configuration-server.png)
    
 
-### <a name="delete-with-powershell"></a>Verwijderen met PowerShell
+### Delete with PowerShell
 
-U kunt eventueel de configuratieserver verwijderen met behulp van PowerShell.
+You can optionally delete the configuration server by using PowerShell.
 
-1. [Installeer](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) de Azure PowerShell-module.
-2. Meld u aan uw Azure-account met de volgende opdracht:
+1. [Install](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) the Azure PowerShell module.
+2. Sign in to your Azure account by using this command:
     
     `Connect-AzureRmAccount`
-3. Selecteer het kluisabonnement.
+3. Select the vault subscription.
 
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
-3.  Stel de context van de kluis.
+3.  Set the vault context.
     
     ```
-    $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+    $vault = get-AzureRmRecoveryServicesVault-naam <name of your vault> Set AzureRmSiteRecoveryVaultSettings - ARSVault $vault
     ```
-4. De configuratieserver worden opgehaald.
+4. Retrieve the configuration server.
 
     `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
-6. De configuratieserver verwijderen.
+6. Delete the configuration server.
 
     `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
 
 > [!NOTE]
-> U kunt de **-Force** optie in Remove-AzureRmSiteRecoveryFabric voor geforceerde verwijdering van de configuratieserver.
+> You can use the **-Force** option in Remove-AzureRmSiteRecoveryFabric for forced deletion of the configuration server.
  
-## <a name="generate-configuration-server-passphrase"></a>Configuratieserver wachtwoordzin genereren
+## Generate configuration server Passphrase
 
-1. Meld u aan bij de configuratieserver en open een opdrachtpromptvenster als beheerder.
-2. Als u de map naar de bin-map, geeft u de opdracht **cd %ProgramData%\ASR\home\svsystems\bin**
-3. Voor het genereren van het bestand wachtwoordzin uitvoeren **genpassphrase.exe - v > MobSvc.passphrase**.
-4. De wachtwoordzin worden opgeslagen in het bestand dat zich bevindt in **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
+1. Sign in to your configuration server, and then open a command prompt window as an administrator.
+2. To change the directory to the bin folder, execute the command **cd %ProgramData%\ASR\home\svsystems\bin**
+3. To generate the passphrase file, execute **genpassphrase.exe -v > MobSvc.passphrase**.
+4. Your passphrase will be stored in the file located at **%ProgramData%\ASR\home\svsystems\bin\MobSvc.passphrase**.
 
-## <a name="renew-ssl-certificates"></a>SSL-certificaten vernieuwen
+## Renew SSL certificates
 
-De configuratieserver heeft een ingebouwde webserver, die regelt de activiteiten van de Mobility-Service, processervers, hoofddoelservers die zijn verbonden. De webserver wordt een SSL-certificaat gebruikt om clients te verifiëren. Het certificaat verloopt na drie jaar en kan op elk gewenst moment worden vernieuwd.
+The configuration server has an inbuilt web server, which orchestrates activities of the Mobility Service, process servers, and master target servers connected to it. The web server uses an SSL certificate to authenticate clients. The certificate expires after three years and can be renewed at any time.
 
-### <a name="check-expiry"></a>Controleer de vervaldatum
+### Check expiry
 
-Configuratie van implementaties van de server voordat mei 2016, is verlopen van het certificaat ingesteld op één jaar. Als u een certificaat dat verloopt hebben, gebeurt het volgende:
+For configuration server deployments before May 2016, certificate expiry was set to one year. If you have a certificate that is going to expire, the following occurs:
 
-- Wanneer de vervaldatum is twee maanden of minder, start de service verzenden van meldingen in de portal en via e-mail (als u zich hebt geabonneerd op meldingen voor Site Recovery).
-- Een meldingsbanner wordt weergegeven op de pagina van de kluis-resource. Selecteer de banner voor meer informatie.
-- Als u ziet een **nu bijwerken** knop, betekent dit dat sommige onderdelen in uw omgeving nog niet hebt bijgewerkt naar 9.4.xxxx.x of hogere versies. De onderdelen upgraden voordat u het certificaat vernieuwen. Kunt u vernieuwen niet in oudere versies.
+- When the expiry date is two months or less, the service starts sending notifications in the portal, and by email (if you subscribed to Site Recovery notifications).
+- A notification banner appears on the vault resource page. For more information, select the banner.
+- If you see an **Upgrade Now** button, it indicates that some components in your environment haven't been upgraded to 9.4.xxxx.x or higher versions. Upgrade the components before you renew the certificate. You can't renew on older versions.
 
-### <a name="renew-the-certificate"></a>Het certificaat vernieuwen
+### Renew the certificate
 
-1. Open in de kluis **Site Recovery-infrastructuur** > **configuratieserver**. Selecteer de vereiste configuratie-server.
-2. De vervaldatum wordt weergegeven onder **configuratieserver health**.
-3. Selecteer **certificaten vernieuwen**. 
+1. In the vault, open **Site Recovery Infrastructure** > **Configuration Server**. Select the required configuration server.
+2. The expiry date appears under **Configuration Server health**.
+3. Select **Renew Certificates**. 
 
 
-## <a name="next-steps"></a>Volgende stappen
+## Next steps
 
-Bekijk de zelfstudies voor het instellen van herstel na noodgevallen van [virtuele VMware-machines](vmware-azure-tutorial.md) naar Azure.
+Review the tutorials for setting up disaster recovery of [VMware VMs](vmware-azure-tutorial.md) to Azure.

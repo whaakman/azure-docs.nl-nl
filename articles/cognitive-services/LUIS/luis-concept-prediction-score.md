@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: cee7243531857f07dec2e968352ffb54aef16bf1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 7412459fca179e7a13d6933f27c2c9ac2d770f33
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224583"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358100"
 ---
 # <a name="prediction-score"></a>Voorspellingsscore
 Een voorspelling score geeft aan dat de mate van vertrouwen die LUIS voor voorspellingsresultaten heeft. 
@@ -36,6 +36,8 @@ Wanneer een utterance in een laag-betrouwbaarheidsscore resulteert, LUIS markeer
 Elke utterance voorspelling retourneert een scoring-bovenaan doel. Dit is een numerieke vergelijking van scores voorspelling. De eerste twee scores kunnen een klein verschil tussen deze twee hebben. LUIS wordt niet aangegeven deze nabijheid dan scores retourneren.  
 
 Als u zich zorgen over de nabijheid van bovenste scores, moet u de score voor alle intents retourneren. U kunt ofwel uitingen toevoegen aan de twee intenties die wijzen op de verschillen met het woord keuze en schema's of u kunt beschikken over de toepassing LUIS-aanroepen, zoals een chatbot, programmatische keuzes over het afhandelen van de twee bovenste intents. 
+
+Twee intents, die ook nauw worden beoordeeld, mogelijk vanwege een niet-deterministische training omkeren. De hoogste score kan de tweede boven en de tweede belangrijkste score kan worden de eerste hoogste score. Toevoegen om te voorkomen dat dit, voorbeeld-uitingen aan elk van de eerste twee intenties voor die utterance word keuze en context die wordt onderscheid gemaakt de twee intents tussen. De twee intenties moeten over hetzelfde aantal voorbeeld uitingen hebben. Vuistregel voor scheiding om te voorkomen dat tekenomkering vanwege training is een verschil 15% in scores.
 
 ## <a name="return-prediction-score-for-all-intents"></a>Voorspelling score voor alle intents retourneren
 Resultaat van een test- of -eindpunt kan alle intents bevatten. Deze configuratie is ingesteld op de [eindpunt](https://aka.ms/v1-endpoint-api-docs) met de `verbose=true` query uitvoeren op de naam/waarde-paar tekenreeks. 

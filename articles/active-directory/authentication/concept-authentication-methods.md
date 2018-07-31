@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 9141658c25ea3051d8e7c866f523c54afb7d6e18
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: fd46473fe1c60ccbac0b0c65ca2e30ac4b37a953
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248341"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344678"
 ---
 # <a name="what-are-authentication-methods"></a>Wat zijn verificatiemethoden?
 
@@ -41,6 +41,20 @@ Microsoft raadt beheerders kunnen gebruikers meer dan de minimaal vereiste aanta
 | --- |
 | Mobiele app-meldingen en mobiele app-code als methoden voor het Azure AD Self-service voor wachtwoord opnieuw instellen van de openbare preview-functies van Azure Active Directory zijn. Zie voor meer informatie over previews [aanvullende gebruiksrechtovereenkomst voor Microsoft Azure-Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
+
+## <a name="converged-user-registration-preview"></a>Geconvergeerde gebruikersregistratie (preview)
+
+Tot nu toe moesten gebruikers verificatiemethoden registreren voor MFA en Self-service voor Wachtwoordherstel in twee verschillende portals. Er zijn veel gebruikers verward door het feit dat vergelijkbare methoden werden gebruikt in zowel MFA en SSPR en kunnen niet worden geregistreerd in beide portals. Dit heeft geleid tot sommige gebruikers niet kan MFA of SSPR wanneer dat nodig is, leidt tot een helpdesk-aanroep te gebruiken en een tevreden gebruikers.
+
+Om uw gebruikers te verificatiemethoden registreren voor Azure multi-factor Authentication en Self-service voor wachtwoord voert opnieuw instellen, met behulp van dezelfde portal, u de volgende stappen uit:
+
+1. Meld u aan de Azure-portal als globale beheerder.
+1. Blader naar **Azure Active Directory**, **gebruikersinstellingen**, **beheren van instellingen voor toegang tot deelvenster preview-functies**.
+1. Onder **gebruikers kunnen preview-functies gebruiken voor het registreren en beheren van beveiligingsgegevens**, u kunt kiezen om in te schakelen voor een **geselecteerde** groep van gebruikers of voor **alle** gebruikers.
+
+Gebruikers kunnen nu gebruikmaken van [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo) te registreren voor MFA en Self-service voor Wachtwoordherstel.
+
+![Voorbeeld van geconvergeerd gebruikersregistratie - beveiligingsgegevens toevoegen aan uw account voor gebruik met MFA en Self-service voor Wachtwoordherstel](media/concept-authentication-methods/concept-add-methods.png)
 
 ## <a name="password"></a>Wachtwoord
 

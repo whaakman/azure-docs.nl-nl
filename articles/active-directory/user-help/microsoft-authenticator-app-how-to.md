@@ -1,110 +1,118 @@
 ---
-title: Microsoft Authenticator-app voor mobiele telefoons - Azure AD | Microsoft Docs
-description: Leer hoe u een upgrade uitvoert naar de nieuwste versie van Azure Authenticator.
-services: multi-factor-authentication
-documentationcenter: ''
+title: Aan de slag met de Microsoft Authenticator-app - Azure Active Directory | Microsoft Docs
+description: Leer hoe u een upgrade uitvoert naar de nieuwste versie van Microsoft Authenticator.
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
-ms.service: multi-factor-authentication
+ms.service: active-directoary
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: user-help
 ms.topic: conceptual
-ms.date: 10/17/2017
+ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.custom: H1Hack27Feb2017, end-user
-ms.openlocfilehash: 8241dcaaf5623a22f4fc485f021766276472fb51
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 8afd743f6010822709bf3d49f7a3bbcd51b19edf
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059821"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346484"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Aan de slag met de Microsoft Authenticator-app
-De Microsoft Authenticator-app biedt een extra beveiligingsniveau van uw werk of school-account (bijvoorbeeld bsimon@contoso.com) of uw Microsoft-account (bijvoorbeeld bsimon@outlook.com).
 
-De app werkt op twee manieren:
+De Microsoft Authenticator-app te voorkomen dat onbevoegde toegang tot accounts en frauduleuze transacties stoppen door te geven u een extra beveiligingsniveau voor uw werk- of schoolaccount (bijvoorbeeld alain@contoso.com) of uw persoonlijke Microsoft-account (voor bijvoorbeeld alain@outlook.com). U kunt gebruiken deze als een tweede verificatiemethode of als vervanging voor uw wachtwoord bij het gebruik van aanmelden via telefoon. Zie voor meer informatie over het instellen en gebruiken aanmelden via telefoon zonder wachtwoord uitproberen [Meld u aan met uw telefoon, niet uw wachtwoord](microsoft-authenticator-app-phone-signin-faq.md).
 
-* **Melding**. De app kunt u voorkomt ongeoorloofde toegang tot accounts en frauduleuze transacties stoppen door het pushen van een melding naar uw smartphone of tablet. Bekijk de melding, en wanneer deze geldig is, selecteert u **controleren**. Anders kunt u **weigeren**.
-* **Verificatiecode**. De app kan worden gebruikt als een Softwaretoken voor het genereren van een OAuth-verificatiecode. Nadat u uw gebruikersnaam en wachtwoord hebt ingevoerd, voert u de code die is geleverd door de app in het aanmeldingsscherm. De verificatiecode zorgt voor een tweede vorm van verificatie.
+Wanneer u de app voor verificatie in twee stappen, kan dit werkt op twee manieren:
 
-De Microsoft Authenticator-app wordt vervangen door de Azure Authenticator-app. De Azure Authenticator-app werkt nog steeds, maar als u besluit te verplaatsen naar de nieuwe Microsoft Authenticator-app, in dit artikel u kan helpen.  
+- **Melding over.** De app verzendt een melding naar uw apparaat. Zorg ervoor dat de melding is rechts en selecteer vervolgens **controleren**. Als u de melding niet herkent, selecteert u **weigeren**.
+
+- **Verificatiecode.** Nadat u uw gebruikersnaam en wachtwoord hebt getypt, kunt u de app openen en kopieert u de verificatiecode hebt opgegeven op de **Accounts** scherm op het aanmeldingsscherm. De verificatiecode in die fungeert als een tweede vorm van verificatie.
 
 ## <a name="opt-in-for-two-step-verification"></a>Opt-in voor verificatie in twee stappen
 
-De Microsoft Authenticator-app werkt niet op zichzelf. Elk van uw accounts aan u gevraagd om een tweede verificatiemethode, nadat u zich aanmelden met uw gebruikersnaam en wachtwoord configureren.
+Uw organisatie besluit of u verificatie in twee stappen met uw werk of school-account gebruiken. De beheerder laat u weten welke verificatiemethoden die moeten worden ingesteld en gebruikt. Zie voor meer informatie, [wat Azure multi-factor Authentication betekent voor mij](multi-factor-authentication-end-user.md).
 
-Voor een werk- of schoolaccount krijgt u niet normaal gesproken kiest u deze functie zelf. In plaats daarvan een beveiligingsbeheerder kan worden gebruikt in uw naam en vervolgens wordt geïnformeerd verificatiemethoden voor uw account te registreren. Meer informatie in dit scenario is van toepassing op u, [wat Azure multi-factor Authentication betekent voor mij](multi-factor-authentication-end-user.md).
+U kunt de verificatie in twee stappen voor uzelf instellen voor uw persoonlijke Microsoft-account. Zie voor meer informatie en instructies, [over verificatie in twee stappen](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
 
-Voor een persoonlijk account is moet u voor het instellen van verificatie in twee stappen voor uzelf. Als u een Microsoft-account hebt, deze stappen zijn beschikbaar in [over verificatie in twee stappen](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
-
-U kunt ook de Microsoft Authenticator gebruiken met niet-Microsoft-accounts. Ze kunnen de functie dan verificatie in twee stappen aanroepen, maar u moet kunnen Ga hiervoor naar de beveiligings- of instellingen voor aanmelding.
+U kunt ook de Microsoft Authenticator-app gebruiken met niet-Microsoft-accounts. Deze accounts kunnen aanroepen de functie dan verificatie in twee stappen, maar u zou het mogelijk te vinden binnen de beveiligings- of instellingen voor aanmelding. Zie voor meer informatie over het instellen van deze niet-Microsoft-accounts, het [klantondersteuning van Microsoft-video's](https://www.youtube.com/playlist?list=PLyhj1WZ29G65QdD9NxTOAm8HwOS-OBUrX).
 
 ## <a name="install-the-app"></a>De app installeren
-De Microsoft Authenticator-app is beschikbaar voor [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) en [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
+
+De Microsoft Authenticator-app is beschikbaar voor [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) en [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). Als u de beste ervaring, moet u toestaan dat de app meldingen te ontvangen wanneer u wordt gevraagd. 
 
 ## <a name="add-accounts-to-the-app"></a>Accounts toevoegen aan de app.
-Voor elk account dat u wilt toevoegen aan de Microsoft Authenticator-app, gebruikt u een van de volgende procedures:
 
-### <a name="add-a-personal-microsoft-account-to-the-app"></a>Een persoonlijk Microsoft-account toevoegen aan de app
+U kunt werk of schoolaccounts of persoonlijke accounts toevoegen aan de Microsoft Authenticator-app. 
+
+### <a name="add-a-personal-microsoft-account"></a>Een persoonlijk Microsoft-account toevoegen
 
 Voor een persoonlijk Microsoft-account (één waarmee u zich aanmeldt bij Outlook.com, Xbox, Skype, enzovoort), is hoeft u zich aanmeldt bij uw account in de Microsoft Authenticator-app.
 
-### <a name="add-a-work-or-school-account-to-the-app-using-the-qr-code-scanner"></a>Een account voor werk of school toevoegen aan de app met behulp van de QR-codescanner
-1. Ga naar het scherm beveiliging verificatie-instellingen.  Zie voor meer informatie over het verkrijgen op dit scherm [wijzigen van uw beveiligingsinstellingen](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page).
-2. Schakel het selectievakje in naast **Authenticator-app** Selecteer **configureren**.
+### <a name="add-a-work-or-school-account"></a>Een werk- of schoolaccount toevoegen
 
-    ![De knop configureren op het scherm beveiliging verificatie-instellingen](./media/microsoft-authenticator-app-how-to/azureauthe.png)
+1. Indien mogelijk, gaat u naar de [aanvullende beveiligingsverificatie](http://aka.ms/mfasetup) scherm op een andere computer of apparaat. Zie voor meer informatie over het registreren op dit scherm [wijzigen van uw beveiligingsinstellingen](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) of neem contact op met uw beheerder.
 
-    Hiermee wordt een scherm met een QR-code erop.
+    >[!Note]
+    >Als uw beheerder heeft ingeschakeld op de beveiliging info preview-ervaring, kunt u de instructies in de [beveiligingsgegevens ingesteld voor het gebruik van een verificator-app](security-info-setup-auth-app.md) sectie.
 
-    ![Scherm waarmee de QR-code](./media/microsoft-authenticator-app-how-to/barcode2.png)
-3. Open de Microsoft Authenticator-app. Op de **accounts** scherm, selecteer **+**, en vervolgens opgeven dat u een account voor werk- of schoolaccount toe te voegen.
-4. Gebruik van de camera aan de QR-code scannen en selecteer vervolgens **gedaan** te sluiten van het scherm QR-code.
+2. Schakel het selectievakje in naast **Authenticator-app**, en selecteer vervolgens **configureren**.
 
-    Als uw camera niet goed werkt is, kunt u [handmatig invoeren van de QR-code en URL](#add-an-account-to-the-app-manually).
+    ![De knop configureren op het scherm beveiliging verificatie-instellingen](./media/microsoft-authenticator-app-how-to/auth-app-configure.png)
 
-5. Als de app wordt de naam van uw account met een code van zes cijfers eronder weergegeven, bent u klaar.
+    De **mobiele app configureren** scherm wordt weergegeven met een QR-code voor u om te scannen met de authenticator-app.
 
-    ![Scherm accounts](./media/microsoft-authenticator-app-how-to/accounts.png)
+    ![Scherm waarmee de QR-code](./media/microsoft-authenticator-app-how-to/auth-app-barcode.png)
+
+3. Open de Microsoft Authenticator-app. Op de **Accounts** scherm, selecteer **account toevoegen**, en selecteer vervolgens **werk- of schoolaccount**.
+
+4. Voor het gebruik van de camera van het apparaat moet de QR-code scannen en selecteer vervolgens **gedaan** te sluiten van het scherm QR-code.
+
+    >[!Note]
+    >Als uw camera niet goed werkt, kunt u [handmatig invoeren van de QR-code en URL](#add-an-account-to-the-app-manually).
+
+    De **Accounts** scherm van de app ziet u de accountnaam van uw en een 6-cijferige verificatiecode. Voor extra beveiliging verandert de verificatiecode in die elke 30 seconden voorkomt dat u met de dezelfde code twee keer.  
+
+    ![Scherm accounts](./media/microsoft-authenticator-app-how-to/auth-app-accounts.png)
 
 ### <a name="add-an-account-to-the-app-manually"></a>Een account handmatig toevoegen aan de app.
-1. Ga naar het scherm beveiliging verificatie-instellingen.  Zie voor meer informatie over het verkrijgen op dit scherm [wijzigen van uw beveiligingsinstellingen](multi-factor-authentication-end-user-manage-settings.md).
-2. Selecteer **configureren**.
 
-    ![De knop configureren op het scherm beveiliging verificatie-instellingen](./media/microsoft-authenticator-app-how-to/azureauthe.png)
+1. Ga naar de **aanvullende beveiligingsverificatie** scherm. Zie voor meer informatie over het verkrijgen op dit scherm [wijzigen van uw beveiligingsinstellingen](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page).
 
-    Hiermee wordt een scherm met een QR-code erop.  Houd er rekening mee de code en URL.
+2. Schakel het selectievakje in naast **Authenticator-app**, en selecteer vervolgens **configureren**.
 
-    ![Scherm waarmee de QR-code en URL](./media/microsoft-authenticator-app-how-to/barcode2.png)
-3. Open de Microsoft Authenticator-app. Op de **accounts** scherm, selecteer **+**, en vervolgens opgeven dat u een account voor werk- of schoolaccount toe te voegen.
+    De **mobiele app configureren** scherm wordt weergegeven.
 
-4. Selecteer in de scanner **handmatig invoeren van code**.
+3. Kopieer de code en URL-gegevens van de **mobiele app configureren** scherm, zodat u ze handmatig in de QR-scanner kan typen.
 
-    ![Scherm voor het scannen van een QR-code](./media/microsoft-authenticator-app-how-to/scan2.png)
-5. Voer de code en de URL in de desbetreffende vakken in de app en selecteer vervolgens **voltooien**.
+4. Open de Microsoft Authenticator-app. Op de **Accounts** scherm, selecteer **account toevoegen**, en selecteer vervolgens **werk- of schoolaccount**.
 
-    ![Scherm voor het invoeren van code en URL in](./media/microsoft-authenticator-app-how-to/manual.png)
+5. Selecteer in het scherm QR-scanner **handmatig invoeren van code**.
 
-6. Als de app wordt de naam van uw account met een code van zes cijfers eronder weergegeven, bent u klaar.
+    ![Scherm voor het scannen van een QR-code](./media/microsoft-authenticator-app-how-to/auth-app-manual-code.png)
+   
+6. Typ de code en URL van het scherm met de QR-code in de **een account toevoegen** scherm en selecteer vervolgens **voltooien**.
 
-    ![Scherm accounts](./media/microsoft-authenticator-app-how-to/accounts.png)
+    ![Scherm voor het invoeren van code en URL in](./media/microsoft-authenticator-app-how-to/auth-app-code-url.png)
 
-### <a name="add-an-account-to-the-app-using-your-devices-fingerprint-or-facial-recognition-capabilities"></a>Een account toevoegen aan de app met de vingerafdruk of gezichtsherkenning-mogelijkheden van uw apparaat
-Uw organisatie mogelijk een PINCODE vereisen voor de verificatie-uitdaging voltooien. De Microsoft Authenticator-app kunt de vingerafdruk of gezichtsherkenning-mogelijkheden van uw apparaat in plaats van een PINCODE gebruiken. Om dit op uw eerste verificatie in de app, ziet u een optie voor het gebruik van Touch ID (voor iOS) of id van vingerafdruk in plaats daarvan. 
+    De **Accounts** scherm van de app ziet u de accountnaam van uw en een 6-cijferige verificatiecode. Voor extra beveiliging verandert de verificatiecode in die elke 30 seconden voorkomt dat u met de dezelfde code twee keer.
 
-Als u Touch ID voor de Microsoft Authenticator instelt, moet u een uitdaging normale verificatie met een PINCODE te voltooien. Microsoft Authenticator wordt deze automatisch ingesteld voor apparaten die ondersteuning bieden voor Touch-ID. 
+### <a name="using-your-devices-fingerprint-or-facial-recognition-capabilities"></a>Met behulp van de vingerafdruk of gezichtsherkenning-mogelijkheden van uw apparaat
 
-![Verificatie van de Touch ID instellen](./media/microsoft-authenticator-app-how-to/touchid1.png)
-
-Vanaf dat punt doorsturen, wanneer u bent verplicht om te controleren of de aanmelding, u selecteert de pushmelding ontvangen en scant uw vingerafdruk in plaats van uw pincode.
-
-![Pushmelding](./media/microsoft-authenticator-app-how-to/touchid2.png)
+Uw organisatie vereist mogelijk een PINCODE voor het voltooien van uw identiteit te verifiëren. U kunt de Microsoft Authenticator-app van uw apparaat vingerafdruk of gezichtsherkenning mogelijkheden gebruiken in plaats van een PINCODE instellen. U kunt dit instellen van de eerste keer dat u de authenticator-app gebruiken om te controleren of uw account door te selecteren de optie voor het gebruik van uw apparaat biometrische mogelijkheden als identificatie in plaats van uw PINCODE.
 
 ## <a name="use-the-app-when-you-sign-in"></a>De app gebruiken wanneer u zich aanmeldt
 
-Nadat uw account is toegevoegd aan de app, u mogelijk gevraagd om te doen van een testverificatie om te controleren of dat alles juist is geconfigureerd. Hierna kunt bent u klaar. U hoeft te doen niets totdat de volgende keer dat u zich aanmeldt.
+Nadat u uw accounts aan de app toevoegen, gebruikt u de app te melden bij uw accounts.
 
-Als u ervoor kiest verificatiecodes gebruiken in de app, start u deze op de startpagina te zien. Ze wijzigen elke 30 seconden zodat u altijd een nieuwe code hebt wanneer u nodig hebt. Maar u hoeft verder niets te doen met hen totdat u zich aanmelden en wordt gevraagd een verificatiecode invoeren.  
+Als u ervoor kiest verificatiecodes gebruiken in de app, zult u start in de **Accounts** pagina. De codes wijzigen elke 30 seconden, zodat u altijd een nieuwe code hebt wanneer u nodig hebt. Maar u hoeft verder niets te doen met hen totdat u zich aanmelden en wordt gevraagd een verificatiecode invoeren.
+
+## <a name="next-steps"></a>Volgende stappen
+
+- Als u meer algemene vragen over de app hebt, raadpleegt u [Veelgestelde vragen over de Microsoft Authenticator](microsoft-authenticator-app-faq.md)
+
+- Als u vragen over hoe u aanmelding via telefoon hebt, raadpleegt u [Meld u aan met uw telefoon, niet uw wachtwoord](microsoft-authenticator-app-phone-signin-faq.md)
+
+- Als u meer informatie over verificatie in twee stappen wilt, Zie [Mijn account voor verificatie in twee stappen instellen](multi-factor-authentication-end-user-first-time.md)
+
+- Als u meer informatie over de beveiligingsgegevens wilt, Zie [je beveiligingsgegevens beheren](security-info-manage-settings.md)

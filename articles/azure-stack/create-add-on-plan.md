@@ -1,6 +1,6 @@
 ---
-title: In dit artikel leert u hoe Azure-Stack aanbiedingen en plannen bijwerken | Microsoft Docs
-description: In dit artikel wordt beschreven hoe weergeven en wijzigen van bestaande Azure-Stack aanbiedingen en plannen.
+title: In dit artikel leert u hoe u Azure Stack-aanbiedingen en plannen bijwerken | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u weergeven en wijzigen van bestaande Azure Stack-aanbiedingen en plannen.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -13,42 +13,47 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.custom: mvc
-ms.date: 06/07/2018
+ms.date: 07/30/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: a84148a3ac31d51ff30cebffab00e5fec8fdaa87
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: a35ba993e6fd1162fa4a18bc0d6bc9351fe7dfa2
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35238417"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358257"
 ---
-# <a name="azure-stack-add-on-plans"></a>Azure Stack invoegtoepassing plannen
-Als een Azure-Stack-operator, kunt u plannen met de gewenste services en de toepasselijke quota's voor uw gebruikers zich abonneren op maken. Deze [ *baseren plannen* ](azure-stack-create-plan.md) bevatten de kernservices aan uw gebruikers moeten worden aangeboden en u kunt slechts één basisplan per aanbieding hebben. Als u uw aanbieding wijzigen wilt, kunt u *invoegtoepassing plannen* die kunt u het plan uit te breiden computer, opslag, wijzigen of quota in eerste instantie wordt aangeboden met het basisplan netwerk. 
+# <a name="azure-stack-add-on-plans"></a>Azure Stack aanvullende plannen
 
-Hoewel alles combineren in één abonnement mogelijk optimale in sommige gevallen, is het raadzaam om een base plannen en bieden extra services met behulp van de invoegtoepassing plannen. U kan bijvoorbeeld bepalen aanbieden van IaaS-services als onderdeel van een basisplan met alle PaaS-services behandeld als invoegtoepassing plannen. Plannen kunnen ook worden gebruikt voor het verbruik van bronnen in uw Azure-Stack-omgeving beheren. Bijvoorbeeld: als u wilt dat uw gebruikers Houd ook rekening met het gebruik van hun bronnen, kan er een relatief klein basisplan (afhankelijk van de services die zijn vereist) en als gebruikers capaciteit bereiken, ze zou gewaarschuwd dat ze de toewijzing van bronnen al hebben gebruikt op basis van hun toegewezen plan. De gebruikers mogelijk Selecteer een beschikbare aanvullende planning voor aanvullende bronnen. 
+Als u Azure Stack-operators, u aanvullende plannen om te wijzigen maken een [ *basisplan* ](azure-stack-create-plan.md) indien u wenst te bieden extra services of uit te breiden *computer*, *opslag* , of *netwerk* quota na de initiële basisplannen-aanbieding. Aanvullende plannen wijzigen van het basisplan en zijn optionele uitbreidingen die gebruikers kiezen kunnen voor een abonnement op. 
+
+Er zijn tijden wanneer alles combineren in één abonnement optimaal is. In andere gevallen kunt u hebt een base plannen en vervolgens de aanvullende services bieden met behulp van aanvullende plannen. U wilt bijvoorbeeld kan aanbieden van IaaS-services als onderdeel van een basis-abonnement, met alle PaaS-services behandeld als aanvullende plannen.
+
+Er is een andere reden voor het gebruik van aanvullende plannen om gebruikers Houd ook rekening met het gebruik van hun bronnen te helpen. Om dit te doen, kunt u beginnen met een basis-abonnement met relatief klein aantal quota (afhankelijk van de services die nodig zijn). Klik, als gebruikers capaciteit bereiken, ze zou worden gewaarschuwd dat ze de toewijzing van resources op basis van hun toegewezen planning hebt verbruikt. Van daaruit Selecteer de gebruikers kunnen vervolgens een aanvullende plan waarmee de extra resources.
 
 > [!NOTE]
-> Wanneer u een plan voor de invoegtoepassing een gebruiker toevoegt aan een bestaand abonnement van de aanbieding, de aanvullende bronnen kunnen een uur duren om te worden weergegeven. 
+> Wanneer u een aanvullende plan gebruiken om uit te breiden een quotum niet wilt, kunt u ook kiezen om te [bewerken van de oorspronkelijke configuratie van de quota voor](azure-stack-quota-types.md#to-edit-a-quota). 
+
+Als een aanvullende plan een gebruiker aan een bestaand abonnement voor de aanbieding toevoegt, de extra resources kunnen een uur duren om te worden weergegeven. 
 
 ## <a name="create-an-add-on-plan"></a>Een invoegtoepassing maken
-Plannen van de invoegtoepassing zijn gemaakt door het wijzigen van een bestaande aanbieding:
+Aanvullende plannen worden gemaakt door het wijzigen van een bestaande aanbieding:
 
-1. Aanmelden bij de Azure-Stack-beheerdersportal als een beheerder van de cloud.
-2. Volg dezelfde stappen waarmee [maken van een nieuwe basisplan](azure-stack-create-plan.md) voor het maken van een nieuw plan aanbieden van services die niet eerder aangeboden. In dit voorbeeld wordt de Sleutelkluis (Microsoft.KeyVault)-services worden opgenomen in het nieuwe plan.
-3. Klik in de beheerdersportal op **biedt** en selecteer vervolgens de aanbieding moet worden bijgewerkt met een invoegtoepassing plan.
+1. Meld u aan de portal van Azure Stack-beheerder als de beheerder van een cloud.
+2. Volg dezelfde stappen gebruikt voor het [maken van een nieuwe basisplan](azure-stack-create-plan.md) te maken van een nieuw abonnement met services die zijn niet eerder aangeboden. In dit voorbeeld wordt de Key Vault (Microsoft.KeyVault)-services worden opgenomen in het nieuwe abonnement.
+3. Klik in de beheerdersportal **biedt** en selecteer vervolgens de aanbieding moet worden bijgewerkt met een aanvullende-plan.
 
    ![](media/create-add-on-plan/1.PNG)
 
-4.  Ga naar de onderkant van de aanbieding eigenschappen en selecteer **invoegtoepassing plannen**. Klik op **Add**.
+4.  Ga naar de onderkant van de eigenschappen van de aanbieding en selecteer **aanvullende plannen**. Klik op **Add**.
    
     ![](media/create-add-on-plan/2.PNG)
 
-5. Selecteer het plan om toe te voegen. In dit voorbeeld wordt het plan wordt aangeroepen **sleutelkluis plan**, en klik vervolgens op **Selecteer** het plan toevoegen aan de aanbieding. U ontvangt een melding dat het plan is toegevoegd aan de aanbieding.
+5. Selecteer het abonnement toe te voegen. In dit voorbeeld wordt het abonnement heet **Key vault-abonnement**. Selecteer het abonnement en klik op **Selecteer** om toe te voegen van het abonnement op de aanbieding. U ontvangt een melding dat het plan is toegevoegd aan de aanbieding.
    
     ![](media/create-add-on-plan/3.PNG)
 
-6. Bekijk de lijst van invoegtoepassing plannen die deel uitmaakt van de aanbieding om te controleren dat de nieuwe invoegtoepassing plannen die worden vermeld.
+6. Bekijk de lijst met aanvullende abonnementen die zijn opgenomen in de aanbieding om te controleren dat de nieuwe aanvullende plan vermeld.
    
     ![](media/create-add-on-plan/4.PNG)
 

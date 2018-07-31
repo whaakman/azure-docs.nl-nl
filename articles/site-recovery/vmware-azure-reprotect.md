@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 04cb658da6a22643e21104f5673a3f211f48b7fc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 1b410b2832d856f80d640aab2096fef270156c81
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916476"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346676"
 ---
 # <a name="reprotect-machines-from-azure-to-an-on-premises-site"></a>Machines van Azure naar een on-premises site opnieuw beveiligen
 
@@ -63,7 +63,7 @@ Een processerver in Azure implementeren:
 De hoofddoelserver ontvangt failbackgegevens. De master target-server wordt standaard uitgevoegd op de on-premises configuratieserver. Echter, afhankelijk van de hoeveelheid verkeer is mislukt-back, u mogelijk wilt maken van een afzonderlijke hoofddoelserver voor failback. Dit is het maken van een:
 
 * [Maken van een Linux-hoofddoelserver](vmware-azure-install-linux-master-target.md) voor failback van virtuele Linux-machines. Dit is vereist.
-* (Optioneel) Maak een afzonderlijke hoofddoelserver voor failback van de Windows-VM. U doet dit door geïntegreerde Setup opnieuw uitvoeren en selecteren om te maken van een hoofddoelserver. [Meer informatie](physical-azure-set-up-source.md#run-azure-site-recovery-unified-setup).
+* (Optioneel) Maak een afzonderlijke hoofddoelserver voor failback van de Windows-VM. U doet dit door geïntegreerde Setup opnieuw uitvoeren en selecteren om te maken van een hoofddoelserver. [Meer informatie](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers).
 
 Nadat u een hoofddoelserver maakt, moet u de volgende taken uitvoeren:
 

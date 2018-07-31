@@ -1,23 +1,23 @@
 ---
-title: Verificatie - Azure AD oplossen | Microsoft Docs
+title: Verificatie - Azure Active Directory oplossen | Microsoft Docs
 description: Bevat instructies voor gebruikers over wat te doen als ze worden uitgevoerd in een probleem met Azure multi-factor Authentication en verificatie in twee stappen.
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
-ms.service: multi-factor-authentication
 ms.workload: identity
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: ec79adcaf7cbef778b8c9e572ae932d5ceb47aa6
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: fd722da236f3e1fff18e2561756635cd95f098e0
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090374"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346520"
 ---
 # <a name="get-help-with-two-step-verification"></a>Help-informatie weergeven bij verificatie in twee stappen
 
@@ -42,7 +42,7 @@ Er zijn diverse redenen waarom u moet mogelijk een andere verificatiemethode geb
 
 ## <a name="sign-in-using-another-verification-method"></a>Meld u aan met behulp van een andere verificatiemethode
 
-1. Meld u aan bij uw account normaal en kies de **Meld u aan een andere manier** koppelen op de **verificatie in twee stappen** pagina.
+1. Normaal gesproken aanmelden bij uw account en kies de **Meld u aan een andere manier** koppelen op de **verificatie in twee stappen** pagina.
 
     ![Meld u in de verificatiemethode wijzigen](./media/multi-factor-authentication-end-user-troubleshoot/two-factor-auth-signin-another-way.png)
 

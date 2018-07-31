@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: cf4579705e5910f62ca07223cb16405140926119
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 66b4f63e75773aa0c1857dfcc19e22b48a0c3537
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859197"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343148"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Automatische online back-up en herstel met Azure Cosmos DB
 Azure Cosmos DB maakt back-ups van al uw gegevens automatisch met regelmatige intervallen. De automatische back-ups worden zonder gevolgen voor de prestaties of beschikbaarheid van uw databasebewerkingen genomen. Uw back-ups apart zijn opgeslagen in een andere storage-service, en deze back-ups wereldwijd voor bescherming tegen regionale rampen zijn gerepliceerd. De automatische back-ups zijn bedoeld voor scenario's wanneer u uw Cosmos DB-container per ongeluk verwijdert en later nodig hebt voor herstel van gegevens of een oplossing voor noodherstel.  
@@ -50,7 +50,7 @@ Zoals hierboven beschreven, duurt Azure Cosmos DB momentopnamen van uw gegevens 
 Voor SQL-API, als u wilt behouden, uw eigen momentopnamen, kunt u het exporteren naar een JSON-optie in de Azure Cosmos DB [hulpprogramma voor gegevensmigratie](import-data.md#export-to-json-file) aanvullende back-ups plannen.
 
 > [!NOTE]
-> Als u "Inrichten doorvoer voor een set van containers op databaseniveau" – Houd er rekening mee wordt de terugzetbewerking gebeurt op niveau van de account volledige Database. Ook moet u ervoor zorgen dat contact binnen acht uur het ondersteuningsteam als u per ongeluk uw container - verzameling/tabel/graph verwijderd als u deze nieuwe functionaliteit gebruiken. 
+> Als u "Inrichten doorvoer voor een set van containers op databaseniveau" – Houd er rekening mee wordt de terugzetbewerking gebeurt op niveau van de account volledige Database. Ook moet u ervoor zorgen dat contact binnen acht uur het ondersteuningsteam als u per ongeluk verwijderd van de container. Gegevens kan niet worden hersteld als u geen contact opnemen met het ondersteuningsteam binnen acht uur. 
 
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Herstellen van een database vanuit een online back-up

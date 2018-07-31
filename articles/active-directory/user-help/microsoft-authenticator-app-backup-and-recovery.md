@@ -1,25 +1,22 @@
 ---
-title: Back-up en herstellen met de Microsoft Authenticator-app - Azure AD | Microsoft Docs
+title: Back-up en herstellen met de Microsoft Authenticator-app - Azure Active Directory | Microsoft Docs
 description: Leer hoe u back-up en herstellen van de referenties van uw account met behulp van de Microsoft Authenticator-app.
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
-ms.service: multi-factor-authentication
+ms.component: user-help
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.custom: end-user
-ms.openlocfilehash: a9c950ecafd2eb5f3aed1bee3707f57be6ec3b62
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 29226f0645a772ffe02e378c9b4df0a87909731a
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060101"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358117"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Back-up en herstel van accountreferenties met de Microsoft Authenticator-app
 
@@ -51,12 +48,12 @@ Vereist dat u zich aanmeldt bij beide accounts samen biedt een betere beveiligin
 ## <a name="recover-your-account-credentials-on-your-new-device"></a>De referenties van uw account op het nieuwe apparaat herstellen
 U kunt referenties voor uw account herstellen vanaf uw iCloud-account met hetzelfde Microsoft herstel dat die u hebt ingesteld toen u back-ups van uw gegevens.
 
-**Uw gegevens worden hersteld**
+### <a name="to-recover-your-information"></a>Uw gegevens worden hersteld
 1.  Open de Microsoft Authenticator-app op uw iOS-apparaat, en selecteer **herstel starten** vanaf de onderkant van het scherm.
 
     ![Microsoft Authenticator-app, die laat zien waar Begin recovery klikken](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-begin-recovery.png)
 
-2.  Meld u aan bij uw herstelaccount, met behulp van de dezelfde persoonlijke Microsoft-account u hebt gebruikt tijdens de back-upproces.
+2.  Meld u aan bij uw herstelaccount, met behulp van hetzelfde persoonlijke Microsoft-account die u hebt gebruikt tijdens de back-upproces.
 
     Referenties voor uw account worden hersteld naar het nieuwe apparaat.
 
@@ -67,7 +64,7 @@ Als u pushmeldingen kunt verzenden met uw persoonlijke, werk of schoolaccounts g
 
 Voor persoonlijke Microsoft-accounts kunt u uw identiteit bewijst door in te voeren van uw wachtwoord, samen met een alternatieve e-mailadres of telefoonnummer aantal. Voor werk of school-accounts, moet u een QR-code dat u van uw accountprovider scannen.
 
-**Aanvullende verificatie voor persoonlijke accounts opgeven**
+### <a name="to-provide-additional-verification-for-personal-accounts"></a>Aanvullende verificatie voor persoonlijke accounts opgeven
 1.  In de **Accounts** scherm van de Microsoft Authenticator-app, selecteer de vervolgkeuzelijst pijl naast het account dat u wilt herstellen.
 
     ![Microsoft Authenticator-app met de beschikbare accounts met hun bijbehorende vervolgkeuzelijstpijlen](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-arrow.png)
@@ -76,7 +73,7 @@ Voor persoonlijke Microsoft-accounts kunt u uw identiteit bewijst door in te voe
 
     ![Microsoft Authenticator-app, zodat u kunt uw aanmeldinformatie invoeren](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-sign-in.png)
 
-**Aanvullende verificatie voor werk-of schoolaccount opgeven**
+### <a name="to-provide-additional-verification-for-work-or-school-accounts"></a>Aanvullende verificatie voor werk-of schoolaccount opgeven
 1.  In de **Accounts** scherm van de Microsoft Authenticator-app, selecteer de vervolgkeuzelijst pijl naast het account dat u wilt herstellen.
 
     ![Microsoft Authenticator-app met de beschikbare accounts met hun bijbehorende vervolgkeuzelijstpijlen](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-additonal-accts.png)
@@ -86,7 +83,7 @@ Voor persoonlijke Microsoft-accounts kunt u uw identiteit bewijst door in te voe
     ![Microsoft Authenticator-app, zodat u uw QR-code scannen](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-scan-qr-code.png)
 
     >[!NOTE]
-    >Zie voor meer informatie over het registreren van een QR-code de [aan de slag met de Microsoft Authenticator-app](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/microsoft-authenticator-app-how-to) artikel.
+    >Zie voor meer informatie over het registreren van een QR-code de [toevoegen sectie van de Get-accounts aan de slag met de Microsoft Authenticator-app](https://docs.microsoft.com/azure/active-directory/user-help/microsoft-authenticator-app-how-to#add-accounts-to-the-app) artikel.
 
 ## <a name="troubleshooting-backup-and-recovery-problems"></a>Het oplossen van problemen met back-up en herstel
 Er zijn enkele redenen waarom de back-up mogelijk niet beschikbaar:

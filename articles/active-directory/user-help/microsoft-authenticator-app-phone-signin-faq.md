@@ -1,94 +1,98 @@
 ---
-title: Microsoft Authenticator aanmelden via telefoon - Azure en Microsoft-account | Microsoft Docs
-description: Gebruik uw telefoon aanmelden bij uw Microsoft-account in plaats van uw wachtwoord te typen. In dit artikel vindt u antwoorden op veelgestelde vragen over deze functie.
-services: multi-factor-authentication
-documentationcenter: ''
+title: Microsoft Authenticator aanmelden via telefoon - Azure Active Directory | Microsoft Docs
+description: Biedt gedetailleerde informatie en stapsgewijze instructies over het gebruik van uw telefoon aanmelden bij uw werk en school en persoonlijke Microsoft-accounts, in plaats van uw wachtwoord te typen.
+services: active-directory
 author: eross-msft
 manager: mtillman
-ms.assetid: ''
-ms.service: multi-factor-authentication
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: user-help
 ms.topic: conceptual
-ms.date: 08/12/2017
+ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.custom: end-user
-ms.openlocfilehash: 589309c956ebbbebe6c423cfcca117a86c796be3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 3303a0fb1ca4c4a8f6695c2e4338c1b0a0fc9f40
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060115"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358629"
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Meld u aan met uw telefoon, niet uw wachtwoord
 
-De Microsoft Authenticator-app kunt u uw accounts beveiligen door verificatie in twee stappen uitvoeren nadat u uw wachtwoord hebt ingevoerd. Maar wist u dat deze het wachtwoord voor uw persoonlijke Microsoft-account volledig kunt vervangen?
+De Microsoft Authenticator-app niet alleen kunt u uw accounts veilig houden door te voeren verificatie in twee stappen nadat u uw wachtwoord invoeren, maar nu kunt dit het wachtwoord voor je Microsoft-account volledig vervangen.
 
-Deze functie is beschikbaar op iOS en Android-apparaten, en werkt met persoonlijke Microsoft-accounts.
+Deze functie is beschikbaar op iOS en Android-apparaten met Android 6.0 of hoger.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
-Veel van u de Microsoft Authenticator-app wordt gebruikt voor verificatie in twee stappen wanneer u zich aanmeldt bij uw Microsoft-account. U typt u het wachtwoord en vervolgens gaat u naar de app een melding goed te keuren of ophalen van een verificatiecode. Met aanmelding via telefoon, die u kunt het wachtwoord overslaan en al uw identiteit te verifiëren op uw telefoon te doen. Omdat aanmelding via telefoon een type verificatie in twee stappen is, moet u nog steeds een ding die u kent en een ding hebt om uw identiteit te verifiëren. De telefoon is nog steeds het wat dat u hebt en de PINCODE of biometrische sleutel van uw telefoon is het dat u weet.
+Veel van u de Microsoft Authenticator-app wordt gebruikt voor verificatie in twee stappen wanneer u zich aanmeldt bij uw Microsoft-account. U uw wachtwoord typt en vervolgens gaat u naar de app voor ofwel een melding goed te keuren of het opvragen van een verificatiecode. Met aanmelding via telefoon, je het wachtwoord overslaan en alle uw identiteit te verifiëren op uw telefoon. Omdat aanmelding via telefoon een type verificatie in twee stappen is, moet u nog steeds uw identiteit verifiëren door een ding die u kent en een dat die u hoeft te geven. De telefoon is nog steeds het wat dat u hebt, maar de PINCODE of biometrische sleutel van uw telefoon is nu het wat dat u weet.
 
-## <a name="how-to-get-started"></a>Hoe gaat u aan de slag
+## <a name="turn-on-phone-sign-in-for-your-work-or-school-account"></a>Schakel telefoon aanmelden voor uw werk of school-account
 
-Als u wilt aanmelden bij uw persoonlijke Microsoft-account met uw telefoon, de volgende stappen uit:
+Als uw organisatie Azure Active Directory voor identiteitsbeheer en authenticatie gebruikt, kunt u aanmelding via telefoon nadat u deze in de Microsoft Authenticator-app inschakelen. 
 
-1. Schakel aanmelden via telefoon voor uw account.
+### <a name="to-turn-on-phone-sign-in-for-your-account"></a>Om in te schakelen op telefoon aanmelden voor uw account
 
-  - Als er geen de Microsoft Authenticator-app nog, installeren en toevoegen van uw persoonlijke Microsoft-account op basis van de stappen op de [Microsoft Authenticator pagina](microsoft-authenticator-app-how-to.md). Toegevoegde accounts zijn automatisch ingeschakeld, zodat u aan de slag.
+- **Als u dit pictogram ![aanmelden telefoonpictogram](./media/microsoft-authenticator-app-phone-signin-faq/icon.png) op uw telefoon.** U hebt al ingesteld aanmelden via telefoon. U mogelijk gevraagd om uw accounts om toe te voegen pushmeldingen te verzenden, zodat u een melding over verificatieaanvragen buiten de app ontvangt kunt te upgraden.
 
-  - Als u Microsoft Authenticator al voor verificatie in twee stappen gebruikt, selecteert u uw account vanaf de startpagina van de app en selecteer **aanmelden via telefoon inschakelen** uit de vervolgkeuzelijst.
+- **Als u de Microsoft Authenticator-app voor verificatie in twee stappen gebruiken.** Ga naar de **Accounts** scherm van de app, selecteer de pijl omlaag voor uw werk of school-account en selecteer vervolgens **aanmelden via telefoon inschakelen**.
 
-  >[!NOTE]
-  >Ter bescherming van uw account, moet een PINCODE of biometrische vergrendeling op uw apparaat. Als u uw telefoon ontgrendelen wilt houden, verschijnt de app een aanvraag waarin u wordt gevraagd voor het instellen van een vergrendeling voordat de aanmelding via telefoon inschakelen.
+- **Als u de Microsoft Authenticator-app voor uw persoonlijke account, maar niet voor uw account voor werk of school.** Ga als volgt van uw organisatie in twee stappen verificatie-instructies en schakel vervolgens op aanmelden via telefoon. Zie voor meer informatie, [aan de slag met de Microsoft Authenticator-app](microsoft-authenticator-app-how-to.md)
 
-3. De meeste pagina's waar normaal gesproken u het wachtwoord van uw Microsoft-account voert hebben een koppeling met de melding dat **gebruik van een app in plaats daarvan**. Selecteer deze koppeling naar aanmelden met uw telefoon.
+### <a name="to-use-phone-sign-in-to-sign-in-to-your-work-or-school-account"></a>Aanmelding via telefoon zich aanmeldt bij uw werk of school-account gebruiken
 
-4. Microsoft stuurt een melding naar uw telefoon. De melding om aan te melden bij uw account goed te keuren.   
+1.  Aanmelden bij uw werk of school-account, zoals gebruikelijk.
 
-## <a name="faq"></a>Veelgestelde vragen
+    Nadat u hebt uw gebruikersnaam wordt ingevoerd, ziet u een pagina met een cijfer 2 cijfers of u wilt goedkeuren de aanmelding via de Microsoft Authenticator-app. Als u niet dat dit teken in de methode gebruiken wilt, kunt u **uw wachtwoord gebruiken in plaats daarvan**, en meld u aan met uw wachtwoord.
 
-### <a name="how-is-signing-in-with-my-phone-more-secure-than-typing-a-password"></a>Hoe is het aanmelden met mijn telefoon veiliger dan een wachtwoord te typen?  
-
-De meeste mensen zich vandaag nog voor web sites of apps met behulp van een gebruikersnaam en wachtwoord.  Helaas zijn wachtwoorden vaak verloren, gestolen of geraden door hackers. Bij het instellen van de Microsoft Authenticator-app aan te melden bij genereren we een sleutel op uw telefoon die u kunt uw account ontgrendelen. We deze sleutel met de PINCODE of biometrische dat u al op uw telefoon gebruikt te beschermen.  Wanneer u zich met uw telefoon aanmeldt, wordt deze sleutel wordt gebruikt om te bewijzen dat je identiteit veilig met twee factoren – de telefoon zelf, en de mogelijkheid om te ontgrendelen. 
-
-De sleutel die wordt gebruikt, is vergelijkbaar met de sleutels die worden gebruikt in Windows Hello en de FIDO Alliance UAF-specificaties. Uw biografie van gegevens alleen is wordt gebruikt voor het beveiligen van de sleutel lokaal, en nooit verzonden naar of opgeslagen in de cloud. 
+    ![Aanmeldingspagina opgeven](./media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
  
-### <a name="where-can-i-use-my-phone-to-replace-my-password-and-where-would-i-still-need-the-password"></a>Waar kan ik mijn telefoon gebruiken voor het vervangen van mijn wachtwoord, en waar ik nog steeds moeten het wachtwoord?  
+2. In de Microsoft Authentication-app, ontvangt u een melding of u wilt **aanmelding goedkeuren**. Kies **goedkeuren** als je de aanmeldingspoging herkent. Kies anders **weigeren**.
 
-Vandaag de dag werkt de telefoonfunctie aanmelden alleen met web-apps en services die worden aangestuurd door een persoonlijke Microsoft-accounts, iOS of Android-apps die gebruikmaken van een persoonlijk Microsoft-account en apps op Windows 10 die gebruikmaken van een persoonlijk Microsoft-account. Wanneer u zich bij een van deze websites of toepassingen aanmelden, op de pagina waar u meestal Voer uw wachtwoord er is een koppeling met de melding dat **gebruik van een app in plaats daarvan**. 
-
-Aanmelding via telefoon kan niet worden gebruikt voor het ontgrendelen van een Windows-PC, XBOX of bureaublad versies van Microsoft-apps zoals Office-apps op dit moment.
+3. Tik op het hetzelfde nummer ziet u op de **aanmelding goedkeuren** scherm. De PINCODE van uw telefoon of uw biometrische sleutel gebruiken om de verificatie te voltooien.
  
-### <a name="does-this-replace-two-step-verification-should-i-turn-it-off"></a>Vervangt deze verificatie in twee stappen? Moet ik uitschakelen?   
+    ![Aanmeldingspagina goedkeuren](./media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
 
-Soms. Er wordt gewerkt aan het uitbreiden van het bereik van de aanmelding via telefoon, maar voor nu zijn er nog steeds plaatsen in het ecosysteem van Microsoft die deze niet ondersteunen. In deze locaties we verificatie in twee stappen nog steeds gebruiken voor beveiligde aanmelding. Om die reden Nee, mag niet u uitschakelen verificatie in twee stappen voor uw account.
- 
-### <a name="okay-if-i-keep-two-step-verification-turned-on-for-my-account-do-i-have-to-approve-two-notifications"></a>Oké, als ik verificatie in twee stappen ingeschakeld voor mijn account wilt houden, heb ik om goed te keuren twee meldingen?
+## <a name="turn-on-phone-sign-in-for-your-personal-account"></a>Telefoon aanmelden voor uw persoonlijke account inschakelen
 
-Nee, u niet. Aanmelden bij uw Microsoft-account met uw telefoon telt als verificatie in twee stappen. In plaats van te typen in uw wachtwoord, en een melding goed te keuren u uw identiteit bewijst door te weten hoe u om uw telefoon te ontgrendelen en vervolgens een melding goed te keuren. Er wordt niet sturen u een tweede melding goed te keuren.
+U kunt op aanmelden via telefoon inschakelen voor uw persoonlijke Microsoft-account, zoals het account waarmee u zich aanmeldt bij Outlook.com, Xbox of Skype.
 
-### <a name="what-if-i-lose-my-phone-or-dont-have-it-with-me-how-can-i-access-my-account"></a>Wat gebeurt er als ik mijn telefoon verlies of deze nog niet met mij, hoe krijg ik toegang tot mijn account?  
+### <a name="to-turn-on-phone-sign-in-for-your-personal-account"></a>Om in te schakelen op telefoon aanmelden voor uw persoonlijke account
 
-U kunt altijd klikken op **in plaats daarvan gebruik van een wachtwoord** op de aanmeldingspagina wilt terugkeren naar je wachtwoord gebruikt. Houd er rekening mee dat als u verificatie in twee stappen hebt gebruikt, moet u toch een tweede methode om te controleren of de aanmelding. Daarom ten zeerste aangeraden om ervoor te zorgen dat u extra, up-to-date beveiligingsgegevens voor je account hebt. U kunt uw beveiligingsgegevens op beheren https://account.live.com/proofs/manage.
- 
-### <a name="how-do-i-stop-using-this-feature-and-go-back-to-entering-my-password"></a>Hoe kan ik stoppen met het gebruik van deze functie en gaat u terug naar mijn wachtwoord invoeren?
+- **Als u de Microsoft Authenticator-app niet gebruikt.** Downloaden en installeren van de Microsoft Authenticator-app en voeg uw persoonlijke Microsoft-account aanmeldt bij het account van de **accounts toevoegen** scherm van de Microsoft Authenticator-app. Zie voor meer informatie, [aan de slag met de Microsoft Authenticator-app](microsoft-authenticator-app-how-to.md).
+Nieuwe accounts worden automatisch ingeschakeld, zodat u onmiddellijk beginnen met behulp van kunt aanmelden via telefoon.
 
-Klik op **in plaats daarvan gebruik van een wachtwoord** wanneer u zich aanmeldt. We de meest recente keuze onthouden en bieden die standaard de volgende keer dat u zich aanmeldt. Als u ooit wilt terugkeren naar het aanmelden met uw telefoon, klikt u op **gebruik van een app in plaats daarvan**. 
- 
-### <a name="can-i-use-the-app-to-sign-in-to-all-my-accounts-with-microsoft"></a>Kan ik de app gebruiken voor aanmelding bij alle accounts met Microsoft?   
-Deze functionaliteit is op dit moment alleen beschikbaar voor persoonlijke Microsoft-accounts. 
- 
-### <a name="can-i-sign-into-my-pc-with-my-phone"></a>Kan ik mij op mijn PC met mijn telefoon?  
-Voor uw PC, wordt u aangeraden zich aanmeldt met Windows Hello op Windows 10 uw face, vingerafdruk of een PINCODE.   
- 
-### <a name="can-i-sign-in-with-my-windows-phone"></a>Kan ik me aanmelden met mijn Windows Phone?  
-Op dit moment zijn we deze functionaliteit niet ontwikkelen voor de Microsoft Authenticator op Windows Phone. 
+- **Als u de Microsoft Authenticator-app voor verificatie in twee stappen gebruiken.** Ga naar de **Accounts** scherm van de app, selecteer de pijl omlaag voor uw werk of school-account en selecteer vervolgens **aanmelden via telefoon inschakelen**.
+
+>[!NOTE]
+>Ter bescherming van uw account, moet de app een PINCODE of biometrische vergrendeling op uw apparaat. Als u uw telefoon ontgrendelen wilt houden, wordt de app moet u een vergrendeling beveiliging instellen voordat de aanmelding via telefoon inschakelen.
+
+### <a name="to-use-phone-sign-in-to-sign-in-to-your-personal-account"></a>Aanmelding via telefoon gebruiken om aan te melden bij uw persoonlijke account
+
+1.  Ga naar uw persoonlijke Microsoft-account aanmelden pagina en selecteer vervolgens in plaats van uw wachtwoord te typen, de **gebruik van een app in plaats daarvan** koppeling.
+
+    Microsoft stuurt een melding naar uw telefoon. 
+
+2.  De melding goed te keuren.
+
+## <a name="phone-sign-in-faq"></a>Telefoon aanmelden Veelgestelde vragen
+
+|**Vraag**|**Oplossing**|
+|--------------|-------------|
+|**Hoe is het aanmelden met mijn telefoon veiliger dan een wachtwoord te typen?**|De meeste mensen zich vandaag nog voor web sites of apps met behulp van een gebruikersnaam en wachtwoord. Helaas kunnen wachtwoorden worden verloren, gestolen of geraden door hackers.<br><br>Na het instellen van de Microsoft Authenticator-app, wordt een sleutel gemaakt op uw telefoon om uw account die wordt beveiligd door de PINCODE of biometrische vergrendelen van uw telefoon te ontgrendelen. Deze sleutel wordt vervolgens naar uw identiteit bewijst bij het aanmelden gebruikt.<br><br>**Belangrijk**<br>Uw gegevens wordt alleen gebruikt om de sleutel lokaal te beveiligen. Er is nooit verzonden naar of opgeslagen in de cloud.|
+|**Vervangt deze verificatie in twee stappen? Moet ik uitschakelen?**| Er wordt geprobeerd om uit te breiden het bereik van de aanmelding via telefoon, maar voor nu zijn er nog steeds plaatsen in het ecosysteem van Microsoft die deze niet ondersteunen. In deze locaties wordt verificatie in twee stappen nog steeds gebruikt voor beveiligde aanmelding. Om die reden Nee, mag niet u uitschakelen verificatie in twee stappen voor uw account.|
+|**Als ik verificatie in twee stappen ingeschakeld voor mijn account wilt houden, heb ik twee meldingen goedkeuren?**| Nee. Aanmelden bij uw Microsoft-account met behulp van uw telefoon ook telt als verificatie in twee stappen, zodat er geen tweede goedkeuring is vereist.|
+|**Wat gebeurt er als ik mijn telefoon verlies of deze nog niet met mij? Hoe krijg ik toegang tot mijn account?**| U kunt altijd een wachtwoord in plaats daarvan een koppeling op de aanmeldingspagina wilt terugkeren naar het met het wachtwoord gebruikt selecteren. Echter, als u verificatie in twee stappen gebruikt u nog steeds moet een tweede verificatiemethode gebruiken om uw identiteit te verifiëren.<br><br>**Belangrijk**<br>U ten zeerste aan meer dan één hebben, up-to-date zijn, verificatiemethode die is gekoppeld aan uw account.<br><br>U kunt beheren van uw verificatiemethoden voor persoonlijke accounts van uw [beveiligingsinstellingen](https://account.live.com/proofs/manage) pagina. Voor accounts voor werk- of schoolaccount, gaat u naar uw organisatie [aanvullende beveiligingsverificatie](https://aka.ms/MFASetup) pagina of het **je account blijft beveiligd** pagina als de beheerder de beveiligingsgegevens is ingeschakeld. Zie voor meer informatie over beveiligingsgegevens [je beveiligingsgegevens beheren](security-info-manage-settings.md).<br><br>Als u niet uw verificatiemethoden beheren, moet u contact op met uw beheerder.|
+|**Hoe kan ik stoppen met het gebruik van deze functie en gaat u terug naar mijn wachtwoord gebruiken?**|Voor persoonlijke accounts, selecteert u de **in plaats daarvan gebruik van een wachtwoord** koppeling tijdens het aanmelden. Uw meest recente keuze is onthouden en aangeboden standaard de volgende keer dat u zich aanmeldt. Als u ooit terugkeren wilt naar de met behulp van aanmelden via telefoon, selecteer de **gebruik van een app in plaats daarvan** koppeling tijdens het aanmelden.<br><br>Voor werk of school-accounts, moet u het account verwijderen door het openen van de Microsoft Authenticator-app selecteren de **accounts bewerken** menu en vervolgens uw account te verwijderen.|
+|**Waarom kan ik meer dan één account voor werk of school niet gebruiken voor aanmelding via telefoon?**| Een telefoon moet worden geregistreerd in één werk- of schoolaccount. Als u wilt inschakelen op aanmelden via telefoon voor een ander werk- of schoolaccount, moet u eerst het oude account via registratie de **instellingen** pagina.|
+|**Kan ik me aanmelden met mijn PC met behulp van mijn telefoon?**| Voor uw PC, is het beste aanmelden met Windows Hello op Windows 10. Windows Hello kunt u uw face, vingerafdruk of PINCODE gebruikt om te melden.|
+|**Kan ik gebruiken aanmelden via telefoon met mijn Windows Phone?**| Nee. Deze functie wordt niet ondersteund door de Microsoft Authenticator-app voor Windows Phone.|
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u de Microsoft Authenticator-app nog niet hebt gedownload, bekijk het nu. De app is beschikbaar voor [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), en is beschikbaar op de Microsoft Authenticator-app voor aanmelding via telefoon [Android](http://go.microsoft.com/fwlink/?Linkid=825072) en [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
 
-Als u vragen over de app in het algemeen hebt, bekijk de [Veelgestelde vragen over de Microsoft Authenticator](microsoft-authenticator-app-faq.md)
+-   Als u meer algemene vragen over de app hebt, raadpleegt u [Veelgestelde vragen over de Microsoft Authenticator](microsoft-authenticator-app-faq.md)
+
+-   Als u meer informatie over verificatie in twee stappen wilt, Zie [Mijn account voor verificatie in twee stappen instellen](multi-factor-authentication-end-user-first-time.md)
+
+-   Als u meer informatie over de beveiligingsgegevens wilt, Zie [je beveiligingsgegevens beheren](security-info-manage-settings.md)

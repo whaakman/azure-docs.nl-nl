@@ -1,97 +1,126 @@
 ---
-title: Over het gebruik van App-wachtwoorden in Azure MFA? | Microsoft Docs
-description: Deze pagina helpt gebruikers begrijpen wat de app-wachtwoorden zijn en wat ze worden gebruikt voor met betrekking tot Azure MFA.
-services: multi-factor-authentication
-documentationcenter: ''
+title: App-wachtwoorden in Azure Active Directory beheren | Microsoft Docs
+description: Deze pagina helpt gebruikers begrijpen wat de app-wachtwoorden zijn en wat ze worden gebruikt voor met betrekking tot verificatie in twee stappen.
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.reviewer: richagi
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
-ms.service: multi-factor-authentication
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: active-directory
+ms.component: user-help
 ms.topic: conceptual
-ms.date: 01/05/2018
+ms.date: 07/30/2018
 ms.author: lizross
-ms.custom: end-user
-ms.openlocfilehash: 290458e95aaed0cc85d83539d9d870c334df45df
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c6340133971a226002ce11ae1521bdc88e3e7975
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059429"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343285"
 ---
-# <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>Wat zijn App-wachtwoorden in Azure multi-factor Authentication?
-Bepaalde niet-browsertoepassingen, zoals de Apple-systeemeigen e-mailclient die gebruikmaakt van Exchange Active Sync, bieden op dit moment geen ondersteuning van meervoudige verificatie. Multi-factor authentication is ingeschakeld per gebruiker. Dit betekent dat als een gebruiker is ingeschakeld voor multi-factor authentication en ze wilt gebruiken niet-browsertoepassingen, ze geen worden om dit te doen. Een app-wachtwoord maakt dit mogelijk. Als u multi-factor Authentication via beleid voor voorwaardelijke toegang en niet via MFA per gebruiker afdwingen, kunt u geen app-wachtwoorden maken. Toepassingen die gebruikmaken van beleid voor voorwaardelijke toegang om toegang te beheren, geen app-wachtwoorden nodig.
+# <a name="manage-app-passwords-for-two-step-verification"></a>App-wachtwoorden voor verificatie in twee stappen beheren
 
-Zodra u een app-wachtwoord hebt, kunt u deze gebruiken in plaats van het wachtwoord van uw oorspronkelijke bij deze niet-browsertoepassingen. Dit komt omdat wanneer u zich voor verificatie in twee stappen registreren, u Microsoft niet aan iedereen zich aanmelden met uw wachtwoord dat bent als ze niet kunnen ook de tweede verificatie uitvoeren. De systeemeigen e-mailclient van Apple op uw telefoon aanmelden niet als u omdat het geen vragen over verificatie in twee stappen stellen. De oplossing voor dit is het maken van een veiliger app-wachtwoord die u niet gebruikt, dagelijks, maar alleen voor de apps die verificatie in twee stappen niet ondersteunt. Gebruik het app-wachtwoord zodat apps kunnen multi-factor authentication eenmalig overslaan en doorgaan met werken.
+Bepaalde niet-browsertoepassingen, zoals Outlook 2010, biedt geen ondersteuning voor verificatie in twee stappen. Dit gebrek aan ondersteuning betekent dat als u verificatie in twee stappen, de app werkt niet. Als u lost dit probleem, kunt u een automatisch gegenereerd wachtwoord gebruiken met elke niet-browser-app, los van uw normale wachtwoord maken.
 
-> [!NOTE]
-> Nieuwe verificatieprotocollen worden ondersteund door Office 2013 clients (inclusief Outlook) en kan worden gebruikt met verificatie in twee stappen.  Dit betekent dat eenmaal is ingeschakeld, app-wachtwoorden niet vereist voor gebruik met Office 2013 clients zijn.  Zie voor meer informatie, [Office 2013 modern authentication openbare preview aangekondigd](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+Wanneer u app-wachtwoorden, is het belangrijk om te onthouden:
 
+- App-wachtwoorden zijn automatisch gegenereerd en slechts één keer per app worden opgegeven.
 
-## <a name="how-to-use-app-passwords"></a>Het gebruik van app-wachtwoorden
-Hier volgen enkele dingen om te weten over het gebruik van app-wachtwoorden.
+- Er is een limiet van 40 wachtwoorden per gebruiker. Als u probeert een na deze limiet te maken, wordt u gevraagd om te verwijderen van een bestaand wachtwoord naar de nieuwe maken te mogen.
 
-* U kunt uw eigen app-wachtwoorden niet maken. In plaats daarvan worden deze automatisch gegenereerd. Omdat u alleen hebt de appwachtwoord eenmaal per app in te voeren, is het veiliger om te gebruiken een meer complexe, automatisch gegenereerd wachtwoord in plaats van een makkelijk te onthouden.
-* Er is momenteel een limiet van 40 wachtwoorden per gebruiker. Als u probeert te maken nadat u de limiet hebt bereikt, wordt u gevraagd een van uw bestaande app-wachtwoorden verwijderen voordat u een nieuwe groep maken.
-* U moet één appwachtwoord per apparaat, niet per toepassing. U kunt bijvoorbeeld één app-wachtwoord voor uw laptop maken en die appwachtwoord gebruiken voor al uw toepassingen op die laptop. Vervolgens maakt u een tweede app-wachtwoord moet worden gebruikt voor al uw apps op uw bureaublad.
-* Krijgt u één app-wachtwoord de eerste keer dat u zich registreren voor verificatie in twee stappen.  Als u nieuwe zijn, kunt u ze kunt maken.
+- Gebruik één appwachtwoord per apparaat, niet per app. Maak bijvoorbeeld een enkel wachtwoord voor alle apps op uw laptop en vervolgens op een andere enkel wachtwoord voor alle apps op uw bureaublad.
 
+    >[!Note]
+    >Nieuwe verificatieprotocollen worden ondersteund door Office 2013 clients (inclusief Outlook) en kan worden gebruikt met verificatie in twee stappen. Deze ondersteuning betekent dat na verificatie in twee stappen is ingeschakeld, niet meer u app-wachtwoorden voor Office 2013 clients moet. Zie voor meer informatie de [hoe moderne verificatie werkt voor client-apps voor Office 2013 en Office 2016](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) artikel.
 
+## <a name="where-to-create-and-delete-your-app-passwords"></a>Waar u wilt maken en uw app-wachtwoorden verwijderen
 
-## <a name="creating-and-deleting-app-passwords"></a>Maken en verwijderen van app-wachtwoorden
-Tijdens de eerste aanmelding krijgt u een app-wachtwoord die u kunt gebruiken.  U kunt daarnaast ook maken en verwijderen van app-wachtwoorden later op.  Hoe u dit doet, is afhankelijk van hoe u multi-factor authentication gebruiken. Beantwoord de volgende vragen om te bepalen waar u naartoe moet gaan voor het beheren van app-wachtwoorden:
+Tijdens het registreren van uw initiële verificatie in twee stappen controle krijgt u een app-wachtwoord. Als u meer dan één wachtwoord nodig hebt, kunt u aanvullende wachtwoorden, op basis van hoe u verificatie in twee stappen:
 
-1. Gebruik je verificatie in twee stappen voor uw persoonlijke Microsoft-account? Zo ja, u moet verwijzen naar de [App-wachtwoorden en verificatie in twee stappen](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) artikel voor meer informatie over. Als er geen, blijven twee vraag.
+- **U verificatie in twee stappen gebruiken met uw Microsoft Azure-account.** Maken en verwijderen van uw app-wachtwoorden met behulp van de [Azure-portal](https://portal.azure.com). Zie voor meer informatie de [App-wachtwoorden en verificatie in twee stappen](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) artikel.
 
-2. OK, zodat u verificatie in twee stappen voor uw werk of school-account gebruiken. Gebruikt u deze zich aanmeldt bij Office 365-apps? Zo ja, u moet verwijzen naar [maken van een app-wachtwoord voor Office 365](https://support.office.com/article/Create-an-app-password-for-Office-365-3e7c860f-bda4-4441-a618-b53953ee1183) voor hulp. Als er geen, blijven vraag drie.
+- **U verificatie in twee stappen gebruiken met uw persoonlijke Microsoft-account.** Maken en verwijderen van uw app-wachtwoorden met behulp van de [basisprincipes van beveiliging](https://account.microsoft.com/account/) pagina met uw Microsoft-account. Zie voor meer informatie de [App-wachtwoorden en verificatie in twee stappen](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) artikel.
 
-3. Gebruik je verificatie in twee stappen met Microsoft Azure? Zo ja, blijven de [app-wachtwoorden in Azure portal beheren](#manage-app-passwords-in-the-Azure-portal) sectie van dit artikel. Als er geen, blijven vier vraag.
+- **U verificatie in twee stappen gebruiken met uw werk of school-account en uw Office 365-apps.** Maken en verwijderen van uw app-wachtwoorden met behulp van de instructies in de [maken en verwijderen app-wachtwoorden met behulp van de Office 365-portal](#create-and-delete-app-passwords-using-the-office-365-portal) sectie van dit artikel.
 
-4. Weet u niet zeker waar u verificatie in twee stappen? Blijven de [app-wachtwoorden met de MyApps-portal beheren](#manage-app-passwords-with-the-myapps-portal) sectie van dit artikel.
+## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>Maken en verwijderen van app-wachtwoorden met behulp van de Office 365-portal
 
+Als u verificatie in twee stappen met uw werk of school-account en uw Office 365-apps gebruikt, kunt u maken en verwijderen van uw app-wachtwoorden met behulp van de Office 365-portal. U kunt maximaal 40 app-wachtwoorden hebben op elk willekeurig moment. Als u een andere app-wachtwoord na deze limiet moet, hebt u een van uw bestaande appwachtwoorden verwijderen.
+
+### <a name="to-create-app-passwords-using-the-office-365-portal"></a>App-wachtwoorden met behulp van de Office 365-portal maken
+
+1. Meld u aan bij uw werk- of schoolaccount.
+
+2. Ga naar https://portal.office.com, selecteer de **instellingen** pictogram in de rechterbovenhoek van de **Office 365-portal** pagina uit en vouw vervolgens **aanvullende beveiligingsverificatie**.
+
+    ![Office-portal met extra beveiliging verificatie gebied uitgevouwen](media/security-info/security-info-o365password.png)
+
+3. Selecteer de tekst waarin wordt gemeld, **maken en beheren van app-wachtwoorden** te openen de **app-wachtwoorden** pagina.
+
+4. Selecteer **maken**, typ een beschrijvende naam voor de app die de app-wachtwoord nodig, en selecteer vervolgens **volgende**.
+
+5. Selecteer **wachtwoord naar Klembord kopiëren**, en selecteer vervolgens **sluiten**.
+
+6. Gebruik het gekopieerde app-wachtwoord aanmelden bij uw niet-browser-app. U hoeft alleen één keer wachtwoord invoeren en deze voor de toekomst wordt onthouden.
+
+### <a name="to-delete-app-passwords-using-the-office-365-portal"></a>Verwijderen van app-wachtwoorden met behulp van de Office 365-portal
+
+1. Meld u aan bij uw werk- of schoolaccount.
+
+2. Ga naar https://portal.office.com, selecteer de **instellingen** pictogram in de rechterbovenhoek van de **Office 365-portal** pagina en selecteer vervolgens **aanvullende beveiligingsverificatie**.
+
+3. Selecteer de tekst waarin wordt gemeld, **maken en beheren van app-wachtwoorden** te openen de **app-wachtwoorden** pagina.
+
+4. Selecteer **verwijderen** voor het app-wachtwoord wilt verwijderen, selecteert u **Ja** in het bevestigingsvenster en selecteer vervolgens **sluiten**.
+
+    Het app-wachtwoord is verwijderd.
+
+5. Volg de stappen voor het maken van een app-wachtwoord voor het maken van uw nieuwe app-wachtwoord.
 
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>App-wachtwoorden in Azure portal beheren
+
 Als u verificatie met Azure, die u wilt maken van app-wachtwoorden via Azure portal.
 
+## <a name="manage-app-passwords-with-the-myapps-portal"></a>App-wachtwoorden met de MyApps-portal beheren
 
+U kunt ook maken en verwijderen van app-wachtwoorden via de portal mijn Apps.
 
-## <a name="manage-app-passwords-with-the-myapps-portal"></a>App-wachtwoorden met de MyApps-portal beheren.
-Als u niet zeker weet hoe u multi-factor authentication gebruiken, kunt klikt u vervolgens u altijd maken en verwijderen van app-wachtwoorden via de myapps-portal.
+### <a name="to-create-an-app-password-using-the-my-apps-portal"></a>Het maken van een app-wachtwoord met behulp van de portal mijn Apps
 
-### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Het maken van een app-wachtwoord met behulp van de MyApps-portal
-1. Aanmelden bij [https://myapps.microsoft.com](https://myapps.microsoft.com)
-2. Klik op uw naam rechtsboven en kies **profiel**.
+1. Aanmelden bij [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
+
+2. Selecteer uw naam rechtsboven en kies **profiel**.
+
 3. Selecteer **aanvullende beveiligingsverificatie**.
+
    ![Selecteer aanvullende beveiligingsverificatie - schermafbeelding](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
 
-4. Selecteer **app-wachtwoorden**.
+4. Selecteer **App-wachtwoorden**.
+
    ![Selecteer de app-wachtwoorden - schermafbeelding](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
 
 5. Klik op **Create**.
-6. Voer een naam op voor het app-wachtwoord in en klikt u op **volgende**.
+
+6. Typ een naam voor het app-wachtwoord en selecteer vervolgens **volgende**.
+
 7. Het app-wachtwoord kopiëren naar het Klembord en plak deze in uw app.
-   ![Een app-wachtwoord maken](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+   
+    ![Een app-wachtwoord maken](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
-### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Verwijderen van een app-wachtwoord met behulp van de MyApps-portal
-1. Aanmelden bij [https://myapps.microsoft.com](https://myapps.microsoft.com)
-2. Aan de bovenkant profiel te selecteren.
-3. Selecteer **aanvullende beveiligingsverificatie**.
+### <a name="to-delete-an-app-password-using-the-my-apps-portal"></a>Een app-wachtwoord met behulp van de portal mijn Apps verwijderen
 
-   ![Selecteer aanvullende beveiligingsverificatie - schermafbeelding](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
+1. Ga naar uw profiel, en selecteer vervolgens **aanvullende beveiligingsverificatie**.
 
-4. Selecteer **app-wachtwoorden**.
-
-   ![Selecteer de app-wachtwoorden - schermafbeelding](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
-
-5. Naast het app-wachtwoord dat u wilt verwijderen, klikt u op **verwijderen**.
+2. Selecteer **App-wachtwoorden**, en selecteer vervolgens **verwijderen** naast het app-wachtwoord die u wilt verwijderen.
 
    ![Verwijderen van een app-wachtwoord](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
 
-6. Bevestig dat u verwijderen van dit wachtwoord wilt door te klikken op **Ja**.
-7. Zodra de app-wachtwoord is verwijderd, klikt u op **sluiten**.
+3. Selecteer **Ja** om te bevestigen dat u wilt verwijderen van het wachtwoord en selecteer vervolgens **sluiten**.
+
+## <a name="if-your-app-passwords-arent-working-properly"></a>Als uw app-wachtwoorden niet goed werken
+
+Zorg ervoor dat u uw wachtwoord correct hebt ingevoerd. Als u zeker dat u uw wachtwoord juist hebt ingevoerd, kunt u proberen opnieuw aan te melden en een nieuw app-wachtwoord maken. Als geen van deze opties voor uw probleem wordt verholpen, contact op met het ondersteuningsteam van uw bedrijf, zodat ze uw bestaande app-wachtwoorden, zodat u kunt een gloednieuwe maken kunnen verwijderen. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

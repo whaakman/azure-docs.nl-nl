@@ -1,123 +1,60 @@
 ---
-title: Help bij Microsoft Authenticator-app - Azure AD | Microsoft Docs
+title: Help bij Microsoft Authenticator-app - Azure Active Directory | Microsoft Docs
 description: Geeft een lijst met veelgestelde vragen en antwoorden die betrekking hebben op de Microsoft Authentication-app en de Azure multi-factor Authentication.
-services: multi-factor-authentication
-documentationcenter: ''
+services: active-directory
 author: eross-msft
 manager: mtillman
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
-ms.service: multi-factor-authentication
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.component: user-help
 ms.topic: conceptual
-ms.date: 03/08/2018
+ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.custom: end-user
-ms.openlocfilehash: d86bc84653e38a9b64a336b8ce9ed7e657129e8c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c2071e662b50e57189e048b028fd5359482c817f
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059828"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358646"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Veelgestelde vragen over Microsoft Authenticator-app
 
-In dit artikel vindt u antwoorden op veelgestelde vragen over de Microsoft Authenticator-app. Als u een antwoord op uw vraag niet ziet, gaat u naar de [Microsoft Authenticator-app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Bovendien kunt u een andere veelgestelde vragen over een specifieke functie in de app bekijken [Meld u aan met uw telefoon Veelgestelde vragen over](microsoft-authenticator-app-phone-signin-faq.md).
+In dit artikel vindt u antwoorden op veelgestelde vragen over de Microsoft Authenticator-app. Als u een antwoord op uw vraag niet ziet, gaat u naar de [Microsoft Authenticator-app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp). Bovendien, als u meer informatie over de aanmeldprocedure phone zoekt, kunt u zien, [Meld u aan met uw telefoon Veelgestelde vragen over](microsoft-authenticator-app-phone-signin-faq.md).
 
 De Microsoft Authenticator-app de app Azure Authenticator vervangen en is de aanbevolen app wanneer u Azure multi-factor Authentication. De Microsoft Authenticator-app is beschikbaar voor [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) en [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071).
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
-
-### <a name="what-data-does-the-authenticator-store-on-my-behalf-and-how-can-i-delete-it"></a>Welke gegevens de verificator opslaan op mijn naam en hoe kan ik deze verwijderen?
-
-Microsoft Authenticator slaat de accountgegevens die u maakt wanneer u een account toevoegen. Wanneer u Authenticator gebruikt, wordt een diagnostisch logboek voor foutopsporing wordt gemaakt en nuttige gegevens worden opgeslagen in uw hulp bij onvoorziene problemen vaststellen. U kunt toegang krijgen tot de logboekgegevens door het openen van **Help** > **logboeken verzenden** > **logboeken bekijken**.
-
-U kunt de gegevens te verwijderen van de tegel account verwijderen. Als u de tegel account verwijdert, verwijdert u ook alle accountgegevens die wordt gebruikt door de toepassing met inbegrip van de logboeken. 
-
-Voor meer informatie over hoe Microsoft uw gegevens gebruikt, gaat u naar: https://servicetrust.microsoft.com/ViewPage/PrivacyGettingStarted
-
-### <a name="what-are-the-codes-in-the-app-for-why-does-the-number-keep-counting-down"></a>Wat zijn de codes in de app voor? Waarom wordt het aantal behouden tellen omlaag?
-
-Wanneer u de Microsoft Authenticator-app opent, ziet u de accounts die u hebt toegevoegd en een getal van zes of acht cijfers door elk van deze. U ziet mogelijk een timer die 30 seconden.
-
-Deze codes worden gebruikt wanneer u zich aanmeldt bij uw account. Nadat u uw gebruikersnaam en wachtwoord hebt ingevoerd, u mogelijk gevraagd een verificatiecode invoeren. Open de Microsoft Authenticator-app en kopieer de code die wordt weergegeven. Voer deze code op de pagina aanmelden om te voltooien.
-
-De reden dat de codes voor elke 30 seconden wijzigen is zodat u dezelfde code nooit twee keer gebruiken. Het is niet als een wachtwoord dat u verwacht te onthouden. Het idee is dat alleen gebruikers met toegang tot uw telefoon weet dat uw verificatiecode.
-
-De codes nodig geen internet of gegevens, zodat u niet hoeft te hoeven maken over telefoonservice aan te melden bij een. Wanneer u de app sluit, deze niet blijven uitvoeren op de achtergrond en wordt de accu niet leegmaken. U kunt de app sluiten en negeren tot de volgende keer dat u zich aanmelden.  
-
-### <a name="i-only-get-notifications-when-i-have-the-app-open-if-the-app-isnt-open-i-dont-get-any-notifications"></a>Kan ik alleen ontvangen meldingen wanneer ik de app hebt geopend. Als de app niet geopend is, krijg ik geen meldingen.
-
-Als u vooraf meldingen krijgt, maar ze niet ruis maken of Trillen ondanks de belsignaal op, controleert u eerst de app-instellingen. Inschakelen voor de app voor het gebruik van geluid of Trillen met meldingen.
-
-Als u geen meldingen op alle krijgt, controleert u de volgende gevallen:
-
-- Uw telefoon is niet storen of de stille modus? Deze modus kan voorkomen dat apps verzenden van meldingen.
-- Kunt u meldingen ontvangen van andere apps? Als dat niet het geval is, kan er een probleem met de netwerkverbindingen op uw telefoon of het kanaal meldingen van Android- of Apple. U kunt de eerste optie adres in de instellingen van uw telefoon, maar u moet mogelijk om te communiceren met uw serviceprovider voor hulp bij de tweede optie.
-- Kunt u meldingen voor sommige accounts op de app, maar niet voor andere ontvangen? Zo ja, de problematische account verwijderen uit uw app en voeg deze opnieuw zodat pushmeldingen te verzenden.
-
-Als u deze suggesties voor probleemoplossing geprobeerd maar nog steeds problemen ondervindt, kunt u de logboeken voor diagnostische gegevens verzenden. Ga naar de app-instellingen en selecteer vervolgens **Help en feedback** en **logboeken verzenden**. Ga vervolgens naar de [Microsoft Authenticator-app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) en laat ons weten wat u ziet probleem en welke stappen u hebt geprobeerd tot nu toe.
-
-### <a name="im-already-using-the-microsoft-authenticator-application-for-verification-codes-how-do-i-switch-to-one-click-push-notifications"></a>Ik gebruik al de Microsoft Authenticator-toepassing voor verificatiecodes. Hoe kan ik schakelen om één muisklik pushmeldingen te verzenden?
-Goedkeuren van een aanmelding via push-bericht is alleen beschikbaar voor persoonlijke Microsoft-accounts of werk en school van Microsoft-accounts, niet voor de accounts van derden, zoals Google of Facebook. Als u een werk- of school Microsoft-account hebt, kan uw organisatie kunt deze optie uitschakelt.
-
-Als u een Microsoft-account voor uw persoonlijke account gebruiken en wilt overschakelen om pushmeldingen te verzenden, moet u uw account opnieuw toevoegen. Het apparaat bij uw account opnieuw te registreren en pushmeldingen instellen.  
-
-Als u Microsoft Authenticator voor uw werk gebruiken- of schoolaccount, klikt u vervolgens uw organisatie besluit of meldingen in één klik is toegestaan.
-
-### <a name="do-one-click-push-notifications-work-for-non-microsoft-accounts"></a>Werken pushmeldingen met één Klik voor niet-Microsoft-accounts?
-Nee, werken pushmeldingen alleen met Microsoft-accounts en Azure Active Directory-accounts. Als uw werk of school gebruikmaakt van Azure AD-accounts, kunnen ze deze functie uitschakelen.  
-
-### <a name="i-got-a-new-device-or-restored-my-device-from-a-backup-how-do-i-set-up-my-accounts-in-the-microsoft-authenticator-app-again"></a>Ik kreeg een nieuw apparaat of het apparaat teruggezet vanuit een back-up. Hoe ik mijn accounts in de Microsoft Authenticator-app opnieuw instellen?
-Als u een iOS-apparaat uitvoert, hebben ingeschakeld **automatische back-ups**, en een back-up van uw accounts hebt gemaakt op het oude apparaat; u kunt deze back-up herstellen van de referenties van uw account op het nieuwe apparaat. Zie voor meer informatie de [accountreferenties back-up en herstellen met de Microsoft Authenticator-app](microsoft-authenticator-app-backup-and-recovery.md) artikel. 
-
-### <a name="i-lost-my-device-or-moved-on-to-a-new-device-how-do-i-make-sure-notifications-dont-continue-to-go-to-my-old-device"></a>Kan ik mijn apparaat verloren of verplaatst op naar een nieuw apparaat. Hoe maak ik ervoor dat meldingen niet door te gaan naar het oude apparaat?  
-De Microsoft Authenticator-app toe te voegen aan uw nieuwe iOS-apparaat, wordt niet automatisch de app verwijderd uit het oude apparaat. Zelfs de app verwijderen uit het oude apparaat is niet voldoende. U moet zowel de app verwijderen uit het oude apparaat en laat weten van Microsoft of uw organisatie bent vergeten het oude apparaat en het ongedaan te maken van uw account.
-- **De app vanaf een apparaat met een persoonlijk Microsoft-account verwijderen.** Ga naar het gebied van de verificatie in twee stappen van uw [accountbeveiliging](https://account.microsoft.com/security) pagina en kiest u voor verificatie voor het oude apparaat uitschakelt.  
-- **Aan de app verwijderd uit een apparaat met een werk- of schoolaccount van Microsoft-account.** Ga naar het gebied van de verificatie in twee stappen van uw [MyApps](https://myapps.microsoft.com/) pagina of naar aangepaste portal van uw organisatie en kies verificatie voor het oude apparaat uitschakelen. 
-
-
-
-### <a name="how-do-i-remove-an-account-from-the-app"></a>Hoe verwijder ik een account van de app?
-* iOS: van het hoofdvenster, Veeg links op de tegel van een account. Selecteer **Verwijderen**.
-* Windows Phone: Van het hoofdvenster, selecteert u de menuknop klikt **accounts bewerken**. Tik op de **X** naast de accountnaam van het.
-* Android: Van het hoofdvenster, selecteert u de menuknop vervolgens **accounts bewerken**. Tik op de **X** naast de accountnaam van het.
-
-Als u een apparaat dat is geregistreerd bij uw organisatie hebt, moet u mogelijk om een extra stap als u wilt verwijderen van uw account te voltooien. De Microsoft Authenticator-app wordt op deze apparaten automatisch geregistreerd als de apparaatbeheerder van een. Als u de app volledig te verwijderen wilt, moet u eerst de registratie van de app in de instellingen van de app ongedaan maken.
-
-### <a name="why-does-the-app-request-so-many-permissions"></a>Waarom de app zoveel machtigingen aanvragen?
-Hier volgt een volledige lijst met machtigingen die kan worden gevraagd om en hoe ze worden gebruikt in de app. De specifieke machtigingen die u ziet, is afhankelijk van het type van de telefoon hebt.
-
-* **Camera**: gebruikt voor het QR-codes scannen als u een werk-, school- of niet-Microsoft-account toevoegen.
-* **Contactpersonen en phone**: gebruikt voor het vereenvoudigen van het proces door te zoeken naar bestaande accounts op uw telefoon wanneer u zich met uw persoonlijke Microsoft-account aanmeldt.
-* **SMS**: gebruikt om te controleren of het telefoonnummer dat overeenkomt met het aantal op record. Wanneer u zich aanmelden met uw persoonlijke Microsoft-account voor de eerste keer.  We verzenden een SMS-bericht naar de telefoon waar u de app met een verificatiecode van 6 tot 8 cijfer hebt gedownload. In plaats van of u wilt zoeken van deze code en voer deze in de app, wordt deze gevonden in het SMS-bericht voor u.
-* **Tekenen van andere apps**: de melding krijgt die controleert of uw identiteit wordt ook weergegeven op alle andere Apps die kan worden uitgevoerd.
-* **Gegevens ontvangen van internet**: met deze machtiging is vereist voor het verzenden van meldingen.
-* **Voorkomen dat phone slaapstand**: als u uw apparaat bij uw organisatie registreren, uw organisatie dit beleid op uw telefoon kunt wijzigen.
-* **Besturingselement trillingen**: U kunt kiezen of u een trillingen wilt wanneer u ontvangt een melding om uw identiteit te verifiëren.
-* **Vingerafdruk hardware gebruiken**: sommige accounts werk- en schoolaccounts een extra PINCODE is vereist wanneer u uw identiteit verifiëren. Het proces om eenvoudiger te maken, kunt u uw vingerafdruk gebruiken in plaats van de pincode.
-* **Netwerkverbindingen weergeven**: wanneer u een Microsoft-account toevoegt, app netwerk/internetverbinding nodig.
-* **De inhoud van uw opslag lezen**: met deze machtiging wordt alleen gebruikt wanneer u een technisch probleem met de app-instellingen. Sommige gegevens van uw opslag worden verzameld voor het vaststellen van het probleem.
-* **Volledige toegang tot het netwerk**: met deze machtiging is vereist voor het verzenden van meldingen om uw identiteit te verifiëren.
-* **Uitvoeren bij het opstarten**: als u uw telefoon opnieuw start, deze machtiging zorgt ervoor dat u blijven ontvangen van meldingen om uw identiteit te verifiëren.
-
-### <a name="why-does-the-microsoft-authenticator-app-allow-you-to-approve-a-request-without-unlocking-the-device"></a>Waarom de Microsoft Authenticator-App bent u in staat voor het goedkeuren van een aanvraag zonder het apparaat te ontgrendelen?
-
-U hebt geen voor het ontgrendelen van het apparaat voor het goedkeuren van aanvragen voor verificatie, omdat alles wat u nodig hebt om te bewijzen dat u uw telefoon bij u hebben. Verificatie in twee stappen vereist twee dingen: een ding die u kent en een dat die u hoeft aan te tonen. Het wat u weet dat is uw wachtwoord. Het wat dat u hebt, is uw telefoon (ingesteld met de Microsoft Authenticator-app en geregistreerd als een MFA-bewijs.) Daarom hebben de telefoon en de aanvraag wordt goedgekeurd voldoet aan de criteria voor de tweede factor van de verificatie.
-
-### <a name="what-does-the-lock-icon-in-the-account-list-mean"></a>Wat betekent het vergrendelingspictogram in de lijst met accounts?
-
-Het hangslotpictogram geeft aan dat het apparaat is geregistreerd bij Azure AD en geregistreerd voor het account. Device Registration service voor iOS vindt plaats tijdens de registratie van Microsoft Intune.
+|Vraag|Oplossing|
+|--------|--------|
+|Welke gegevens de verificator opslaan op mijn naam en hoe kan ik deze verwijderen?| De Microsoft Authenticator-app slaat de accountgegevens die u opgeeft wanneer u een account toevoegen. Wanneer u de app gebruikt, wordt een diagnostisch logboek voor foutopsporing wordt gemaakt en slaat alleen gegevens die helpen bij het Microsoft onvoorziene problemen vaststellen. U kunt de logboekgegevens bekijken door het openen van de app selecteren **Help**, te selecteren **logboeken verzenden**, en selecteer vervolgens de **logboeken bekijken** knop.<br><br>U kunt uw al uw gegevens, met inbegrip van uw logboekbestanden op de tegel account worden verwijderd op verwijderen de **Accounts** scherm. Zie voor meer informatie over hoe Microsoft uw gegevens gebruikt, de [Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/HomePage.)|
+|Wat zijn de codes in de app voor?|Wanneer u de Microsoft Authenticator-app opent, ziet u uw accounts toegevoegd als tegels met een getal van zes of acht cijfers voor elk.<br><br>U gebruikt deze codes als verificatie dat u bent wie u zegt te zijn. Nadat u zich met uw gebruikersnaam en wachtwoord aanmeldt, voert u de verificatiecode in die zich in de dezelfde tegel als uw account. Bijvoorbeeld, als u aanmelden bij uw account Contoso Alain, zou u de verificatiecode, 427303 gebruiken.<br><br>![Scherm accounts in de app.](./media/microsoft-authenticator-app-faq/auth-app-accounts.png)|
+|Waarom wordt het getal naast de code behouden tellen omlaag?|U ziet een 30 seconden timer naast uw actieve verificatiecode. Deze timer is zodat u zich niet aanmelden met de dezelfde code twee keer. In tegenstelling tot een wachtwoord willen we u niet te onthouden van dit getal. Het idee is dat alleen gebruikers met toegang tot uw telefoon weet dat uw code.|
+|Waarom is mijn account tegel grijs weergegeven?|Sommige organisaties moeten de Microsoft Authenticator-app om te werken met eenmalige aanmelding en om resources van de organisatie. In dit geval het account wordt niet gebruikt voor verificatie in twee stappen en wordt weergegeven als grijs of niet-actief. Dit type account wordt vaak een 'broker'-account genoemd.|
+|Wat doen alles van het gemiddelde pictogrammen?|![Pictogram telefoon-sleutel](./media/microsoft-authenticator-app-faq/icon.png)<br>Het pictogram telefoon-sleutel geeft aan dat uw account is bijgewerkt voor het gebruik van aanmelden via telefoon zonder wachtwoord uitproberen. Dit kan worden ingeschakeld voor alle persoonlijke Microsoft-accounts en voor één werk- of schoolaccounts in de authenticator-app. Zie voor meer informatie over het aanmelden via telefoon [Meld u aan met uw telefoon, niet uw wachtwoord](microsoft-authenticator-app-phone-signin-faq.md)<br><br>![Vergrendelingspictogram](./media/microsoft-authenticator-app-faq/lock.png)<br>Het vergrendelingspictogram ziet u dat uw werk of school-account is geregistreerd voor uw organisatie. Uw organisatie mogelijk wil dat u het apparaat te registreren, zodat ze kunnen begrijpen welke apparaten toegang hebben tot beveiligde bronnen, zoals bestanden en apps, en mogelijk inschakelen voor voorwaardelijke toegang vermindert het risico van ongeoorloofde toegang tot deze bronnen.|
+|Wat is het registreren van apparaten?|Uw organisatie mogelijk wil dat u het apparaat te registreren, zodat ze kunnen begrijpen welke apparaten toegang hebben tot beveiligde bronnen, zoals bestanden en apps, en mogelijk inschakelen voor voorwaardelijke toegang vermindert het risico van ongeoorloofde toegang tot deze bronnen. U kunt registratie van uw apparaten met **instellingen**, maar u mogelijk geen toegang meer tot e-mailberichten in de bestanden in OneDrive, Outlook en verliest u de mogelijkheid om met aanmelding via telefoon.|
+|Heb ik nodig om te worden verbonden met Internet of mijn netwerk te halen en gebruik de verificatiecodes?|De codes hoeft u niet op het Internet of verbonden met gegevens, dus u hoeft niet telefoonservice aan te melden. Omdat de app niet meer werkt als u deze sluiten, wordt niet het daarnaast de accu leegmaken.|
+|Ik krijg alleen meldingen wanneer de app geopend is. Als de app is gesloten, krijg ik geen meldingen.|Als u meldingen, maar niet een waarschuwing krijgt, moet zelfs met uw belsignaal op, u controleren instellingen van uw app. Zorg ervoor dat de app is ingeschakeld om geluid te gebruiken of aan het trillen voor meldingen. Als u geen meldingen op alle, moet u het volgende controleren:<ul><li>Uw telefoon is niet storen of de stille modus? Deze modi kunnen voorkomen dat apps verzenden van meldingen.</li><li>Kunt u vooraf meldingen krijgt van andere apps? Als dat niet het geval is, wordt een probleem met de netwerkverbindingen op uw telefoon of het kanaal meldingen van Android- of Apple. Kunt u proberen om op te lossen de netwerkverbindingen via de instellingen van uw telefoon, maar u moet mogelijk om te communiceren met uw serviceprovider om te helpen met het Android- of Apple meldingen-kanaal.</li><li>Kunt u meldingen voor sommige accounts op de app, maar niet voor andere krijgen? Zo ja, de problematische account verwijderen uit uw app, voeg deze opnieuw zodat meldingen toe en zien als het probleem hiermee is opgelost.</li></ul>Als u alle stappen geprobeerd en nog steeds problemen ondervindt, raden wij uw logboekbestanden voor diagnostische gegevens verzenden. Open de app, gaat u naar **Help**, en selecteer vervolgens **logboeken verzenden**. Daarna gaat u naar de [Microsoft Authenticator-app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) en laat ons weten wat u ziet probleem en welke stappen u hebt geprobeerd tot nu toe.|
+|Ik gebruik de verificatiecodes in de app, maar hoe verander ik de om pushmeldingen te verzenden?|U kunt dit instellen voor uw werk of school-account (indien ingeschakeld door de beheerder) of voor uw persoonlijke Microsoft-account, maar meldingen werkt niet voor de accounts van derden, zoals Google of Facebook.<br><br>Als u wilt overschakelen van uw persoonlijke account via meldingen hebt u op uw apparaat met het account, instellen van pushmeldingen opnieuw registreren.<br><br>Uw organisatie besluit of één muisklik meldingen voor uw werk- of schoolaccount, is toegestaan, zodat uw organisatie kan deze functie uitschakelen.|
+|Werken meldingen voor niet-Microsoft-accounts|Meldingen werken Nee, alleen met Microsoft-accounts en Azure Active Directory-accounts. Als uw werk of school gebruikmaakt van Azure AD-accounts, kunnen ze deze functie uitschakelen.|
+|Ik kreeg een nieuw apparaat of het apparaat teruggezet vanuit een back-up. Hoe ik mijn accounts in de Microsoft Authenticator-app opnieuw instellen?|Als u een iOS-apparaat uitvoert, hebben ingeschakeld **automatische back-ups**, en een back-up van uw accounts hebt gemaakt op het oude apparaat; u kunt deze back-up herstellen van de referenties van uw account op het nieuwe apparaat. Zie voor meer informatie de [accountreferenties back-up en herstellen met de Microsoft Authenticator-app](microsoft-authenticator-app-backup-and-recovery.md) artikel.|
+|Kan ik mijn apparaat verloren of verplaatst op naar een nieuw apparaat. Hoe maak ik ervoor dat meldingen niet door te gaan naar het oude apparaat?|De Microsoft Authenticator-app toe te voegen aan uw nieuwe iOS-apparaat, wordt niet automatisch de app verwijderd uit het oude apparaat. Zelfs de app verwijderen uit het oude apparaat is niet voldoende. U moet zowel de app verwijderen uit het oude apparaat en laat weten van Microsoft of uw organisatie bent vergeten het oude apparaat en het ongedaan te maken van uw account.<ul><li>**De app vanaf een apparaat met een persoonlijk Microsoft-account verwijderen.** Ga naar het gebied van de verificatie in twee stappen van uw [accountbeveiliging](https://account.microsoft.com/security) pagina en kiest u voor verificatie voor het oude apparaat uitschakelt.</li><li>**Aan de app verwijderd uit een apparaat met een werk- of schoolaccount van Microsoft-account.** Ga naar het gebied van de verificatie in twee stappen van uw [MyApps](https://myapps.microsoft.com/) pagina of naar aangepaste portal van uw organisatie en kies verificatie voor het oude apparaat uitschakelen.</li></ul>|
+|Hoe verwijder ik een account van de app?|<ul><li>**iOS.** In het hoofdvenster, selecteer de menuknop en selecteer vervolgens **accounts bewerken**. Tik op het rode pictogram naast de accountnaam van het en tik op **Account verwijderen**.</li><li>**Windows Phone.** Selecteer in het hoofdvenster van de menuknop vervolgens **accounts bewerken**. Tik op de **X** naast de accountnaam van het.</li><li>**Android.** Selecteer in het hoofdvenster van de menuknop vervolgens **accounts bewerken**. Tik op de **X** naast de accountnaam van het.</li></ul>Als u een apparaat dat is geregistreerd bij uw organisatie hebt, moet u mogelijk om een extra stap als u wilt verwijderen van uw account te voltooien. De Microsoft Authenticator-app wordt op deze apparaten automatisch geregistreerd als de apparaatbeheerder van een. Als u de app volledig te verwijderen wilt, moet u eerst de registratie van de app in de instellingen van de app ongedaan maken.|
+|Waarom de app zoveel machtigingen aanvragen?|Hier volgt een volledige lijst met machtigingen die kan worden gevraagd om en hoe ze worden gebruikt in de app. De specifieke machtigingen die u ziet, is afhankelijk van het type van de telefoon hebt.<ul><li>**Camera.** Gebruikt voor het QR-codes scannen als u een werk-, school- of niet-Microsoft-account toevoegen.</li><li>**Contactpersonen en telefoon.** Gebruikt voor het vereenvoudigen van het proces door te zoeken naar bestaande accounts op uw telefoon wanneer u zich met uw persoonlijke Microsoft-account aanmeldt.</li><li>**SMS.** Gebruikt om te controleren of uw telefoonnummer komt overeen met het nummer van de record. Wanneer u zich aanmelden met uw persoonlijke Microsoft-account voor de eerste keer. We verzenden een SMS-bericht naar de telefoon waar u de app met een verificatiecode van 6 tot 8 cijfer hebt gedownload. In plaats van of u wilt zoeken van deze code en voer deze in de app, wordt deze gevonden in het SMS-bericht voor u.</li><li>**Tekenen van andere apps.** De melding dat krijgt wordt gecontroleerd of dat uw identiteit wordt ook weergegeven op alle andere Apps die kan worden uitgevoerd.</li><li>**Gegevens ontvangen van het internet.** Deze machtiging is vereist voor het verzenden van meldingen.</li><li>**Voorkomen dat phone in de slaapstand staat.** Als u uw apparaat bij uw organisatie registreren, kunt dit beleid op uw telefoon wijzigen in uw organisatie.</li><li>**Besturingselement trillingen.** U kunt kiezen of u een trillingen wilt wanneer u ontvangt een melding om uw identiteit te verifiëren.</li><li>**Vingerafdruk hardware gebruiken.** Sommige accounts werk- en schoolaccounts, wordt er een extra PINCODE vereisen wanneer u uw identiteit verifiëren. Het proces om eenvoudiger te maken, kunt u uw vingerafdruk gebruiken in plaats van de pincode.</li><li> **Netwerkverbindingen weergeven.** Wanneer u een Microsoft-account toevoegt, moet de app netwerk/internetverbinding.</li><li>**De inhoud van uw opslag lezen**. Deze machtiging wordt alleen gebruikt wanneer u een technisch probleem met de app-instellingen. Sommige gegevens van uw opslag worden verzameld voor het vaststellen van het probleem.</li><li>**Toegang tot het volledige netwerk.** Deze machtiging is vereist voor het verzenden van meldingen om uw identiteit te verifiëren.</li><li>**Bij het opstarten worden uitgevoerd.** Als u uw telefoon opnieuw start, wordt deze machtiging zorgt ervoor dat u blijven ontvangen van meldingen om uw identiteit te verifiëren.</li></ul>|
+|Waarom de Microsoft Authenticator-app bent u in staat voor het goedkeuren van een aanvraag zonder het apparaat te ontgrendelen?|U hebt geen voor het ontgrendelen van het apparaat voor het goedkeuren van aanvragen voor verificatie, omdat alles wat u nodig hebt om te bewijzen dat u uw telefoon bij u hebben. Verificatie in twee stappen vereist twee dingen: een ding die u kent en een dat die u hoeft aan te tonen. Het wat u weet dat is uw wachtwoord. Het wat dat u hebt, is uw telefoon (ingesteld met de Microsoft Authenticator-app en geregistreerd als een MFA-bewijs.) Daarom hebben de telefoon en de aanvraag wordt goedgekeurd voldoet aan de criteria voor de tweede factor van de verificatie.|
+|Waarom worden niet alle accounts weergegeven wanneer ik de Microsoft Authenticator-app op mijn Apple Watch openen?|De Microsoft Authenticator-app ondersteunt alleen het gebruik van persoonlijke Microsoft- of school of werk accounts met pushmeldingen op de Apple Watch companion-app. Voor uw accounts, zoals Google of Facebook, hebt u opent de authenticator-app op uw telefoon om uw verificatiecodes weer te geven.|
+|Waarom niet kan ik goedkeuren of weigeren van meldingen op mijn Apple Watch?|Controleer eerst of u een upgrade hebt uitgevoerd naar de Microsoft Authenticator-app, versie 6.0.0 of hoger op uw iPhone. Hierna, open de Microsoft Authenticator companion-app op uw Apple Watch en zoekt u alle accounts met een **instellen** knop eronder. U moet uitvoeren die het proces om goed te keuren meldingen voor deze accounts instellen.|
+|Waarom krijg ik de fout **kan niet communiceren met de telefoon tijdens het gebruik van de Microsoft Authenticator companion-app op de Apple Watch**?|Als uw telefoon en bekijk zijn niet communiceren, kunt u het volgende proberen:<ol><li>Geforceerd de Microsoft Authenticator-telefoon-app sluit en opnieuw openen op uw iPhone.</li><li>Force sluit de companion-app op uw Apple Watch.<ol><li> Open de Microsoft Authenticator companion-app op uw horloge</li><li>Houd de knop naast totdat de **afsluiten** scherm wordt weergegeven.</li><li>De knop naast de release en houdt u de digitale kroon sluiten om af te dwingen de actieve app.</li></ol></li><li>Zowel Bluetooth- en Wi-Fi uit te schakelen voor uw telefoon en uw Watch en vervolgens weer terug.</li><li>Start opnieuw op uw iPhone en uw Watch.</li></ol>|
+|Waarom is niet de bijbehorende Microsoft Authenticator-app voor Apple Watch synchroniseren of weergegeven op mijn watch?|Als de app wordt niet op uw horloge weergegeven, probeert u het volgende: <ol><li>Zorg ervoor dat uw Watch watchOS 4.0 of hoger is uitgevoerd.</li><li>Uw Watch opnieuw gesynchroniseerd.</li></ol>|
+|Mijn Apple Watch companion-app is vastgelopen. Kan ik u Mijn crash logboeken verzenden, zodat u kunt onderzoeken? |U moet eerst Zorg ervoor dat u hebt gekozen voor het delen van uw analyses met ons. Als u een TestFlight-gebruiker bent, bent u al aangemeld. Anders gaat u naar **instellingen > Privacy > Analytics** en selecteert u zowel de **delen iPhone & Watch analytics** en de **delen met App-ontwikkelaars** opties.<br><br>Nadat u bent aangemeld, kunt u proberen om het te reproduceren uw crashes, zodat uw crash-logboeken automatisch naar ons voor onderzoek verzonden worden. Echter, als u uw probleem niet reproduceren, kunt u handmatig kopiëren van uw logboekbestanden en verzend dit naar ons.<ol><li>Open de Watch-app op uw telefoon, gaat u naar **instellingen > Algemeen**, en klik vervolgens op **kopie Watch Analytics**.</li><li>Vinden van de bijbehorende crash onder **instellingen > Privacy > Analytics > Analytics-gegevens**, en kopieert u handmatig de volledige tekst.</li><li>Open de Microsoft Authenticator-app op uw telefoon en plakken die de gekopieerde tekst in de **delen met App-ontwikkelaars** tekstvak op de **logboeken verzenden** pagina.</li></ol>|
 
 ## <a name="next-steps"></a>Volgende stappen
 
-### <a name="contact-us"></a>Contact opnemen
-Als uw vraag hier niet is beantwoord, willen we graag van u. Ga naar de [Microsoft Authenticator-app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) op uw vragen stellen en hulp krijgen van de community, of een opmerking op deze pagina.
+-   Als u meer vragen hebt over de aanmelding via telefoon, Zie [Meld u aan met uw telefoon, niet uw wachtwoord](microsoft-authenticator-app-phone-signin-faq.md)
 
+-   Als u meer informatie over verificatie in twee stappen wilt, Zie [Mijn account voor verificatie in twee stappen instellen](multi-factor-authentication-end-user-first-time.md)
 
-### <a name="related-topics"></a>Verwante onderwerpen
-* [Over verificatie in twee stappen](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) voor Microsoft-accounts
-* [Problemen met verificatie in twee stappen](multi-factor-authentication-end-user-troubleshoot.md) voor uw account voor werk of school?
-* [De Microsoft Authenticator gebruikt om te melden op uw telefoon](microsoft-authenticator-app-phone-signin-faq.md)
+-   Als u meer informatie over de beveiligingsgegevens wilt, Zie [je beveiligingsgegevens beheren](security-info-manage-settings.md)
+
+- Als uw vraag hier niet is beantwoord, willen we graag van u. Ga naar de [Microsoft Authenticator-app forum](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp) op uw vragen stellen en hulp krijgen van de community, of een opmerking op deze pagina.

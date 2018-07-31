@@ -10,12 +10,12 @@ ms.workload: web
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: tdykstra
-ms.openlocfilehash: 3d2c75ba2f7f5c276f495ec3589481b8131b58e1
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: a68085ee571654bc1bff2ea23303a02bfb2a9b0d
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342915"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343481"
 ---
 # <a name="how-to-prepare-for-an-outbound-ip-address-change"></a>Voorbereiden voor een uitgaande IP-adres wijzigen
 
@@ -38,6 +38,8 @@ De nieuwe uitgaande IP-adressen worden weergegeven in de portal voordat deze van
 2.  Selecteer in het navigatiemenu aan **App Services**.
 
 3.  Selecteer uw App Service-app in de lijst.
+
+4.  Als de app een functie-app is, raadpleegt u [functie app uitgaande IP-adressen](../azure-functions/ip-addresses.md#function-app-outbound-ip-addresses).
 
 4.  Onder de **instellingen** kop, klikt u op **eigenschappen** in de navigatiebalk aan de linkerkant en zoek de sectie met het label **uitgaande IP-adressen**.
 

@@ -1,6 +1,6 @@
 ---
-title: Gebruik Azure apparaat horende voor het beheren van MXChip IoT DevKit gebruiker LED | Microsoft Docs
-description: Informatie over het DevKit statussen bewaken en beheren van de gebruiker LED met Azure IoT Hub apparaat horende in deze zelfstudie.
+title: Azure-apparaatdubbels gebruiken voor het beheren van MXChip IoT DevKit gebruiker LED | Microsoft Docs
+description: In deze zelfstudie leert u hoe u DevKit statussen bewaken en beheren van de gebruiker LED met dubbele voor Azure IoT Hub-apparaten.
 author: liydu
 manager: jeffya
 ms.service: iot-hub
@@ -9,90 +9,112 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: 2845b545484f4eef1e6999c1c54aaba5de14b832
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6bc1255c5bbb9cf74c97b88600f34e7fcd90ae4f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34633261"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343144"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
-U kunt in dit voorbeeld gebruiken voor het bewaken van de MXChip IoT DevKit Wi-Fi-informatie en sensor status te bepalen en de kleur van de gebruiker LED met behulp van Azure IoT Hub apparaat horende.
+U kunt in dit voorbeeld gebruiken voor het bewaken van de MXChip IoT DevKit Wi-Fi-informatie en de sensor-status en de kleur van de gebruiker LED beheren met behulp van Azure IoT Hub-apparaatdubbels.
 
 ## <a name="what-you-learn"></a>Wat u leert
 
-- Het controleren van de sensor MXChip IoT DevKit statussen.
-- Het gebruik van Azure apparaat horende de kleur van de DevKit RGB-LED.
+- Klik hier voor meer informatie over het bewaken van de sensor MXChip IoT DevKit Staten.
+
+- Het gebruik van Azure-apparaatdubbels voor het beheren van de kleur van de de DevKit RGB-LED.
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
 
 - Uw ontwikkelomgeving instellen door de [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
-- Typ de volgende opdrachten vanuit uw terminalvenster GitBash (of andere opdrachtregelinterface Git):
-    - `git clone https://github.com/DevKitExamples/DevKitState.git`
-    - `cd DevKitState`
-    - `code .`
+
+- In uw terminalvenster GitBash (of een andere Git command-line interface), typ de volgende opdrachten:
+
+   ```bash
+   git clone https://github.com/DevKitExamples/DevKitState.git
+   cd DevKitState
+   code .
+   ```
 
 ## <a name="provision-azure-services"></a>Azure-Services inrichten
 
-1. Klik op de **taken** vervolgkeuzelijst in Visual Studio Code en selecteer **taak uitvoeren...**   -  **cloud-provision**.
-2. Uw voortgang wordt weergegeven onder de **TERMINAL** tabblad van de **Welkom** Configuratiescherm.
-3. Wanneer het bericht *welk abonnement dat u wilt kiezen*, selecteer een abonnement.
+1. Klik op de **taken** vervolgkeuzelijst in Visual Studio Code en selecteer **taak uitvoeren...**   -  **cloud inrichten**.
+
+2. De voortgang wordt weergegeven onder de **TERMINAL** tabblad van de **Welkom** deelvenster.
+
+3. Wanneer u wordt gevraagd de foutmelding *welk abonnement dat u wilt kiezen*, selecteer een abonnement.
+
 4. Selecteer of kies een resourcegroep. 
  
-    > [!NOTE]
-    > Als u al een gratis IoT-Hub, wordt deze stap overgeslagen.
+   > [!NOTE]
+   > Als u al een gratis IoT-Hub hebt, kunt u deze stap overslaan.
 
-5. Wanneer het bericht *welke IoT-hub wilt u Kies*selecteert of maakt u een IoT-Hub.
-6. Iets dergelijks naar *functie-app: de functie app-naam: xxx*, wordt weergegeven. Noteer de naam van de functie-app; Deze wordt gebruikt in een later stadium.
-7. Wacht tot de Azure Resource Manager sjabloonimplementatie voltooid die wordt aangegeven wanneer het bericht *sjabloonimplementatie van Resource Manager-: gedaan* wordt weergegeven.
+5. Wanneer u wordt gevraagd de foutmelding *welke IoT-hub wilt u kiest*selecteert of maakt u een IoT-Hub.
+
+6. Ongeveer als in *functie-app: functie-appnaam: xxx*, wordt weergegeven. Noteer de naam van de functie-app; Deze wordt gebruikt in een latere stap.
+
+7. Wacht tot de Azure Resource Manager sjabloonimplementatie is voltooid, die wordt aangegeven wanneer het bericht *sjabloonimplementatie van Resource Manager-: gedaan* wordt weergegeven.
 
 ## <a name="deploy-function-app"></a>Functie-App implementeren
 
 1. Klik op de **taken** vervolgkeuzelijst in Visual Studio Code en selecteer **taak uitvoeren...**   -  **cloud implementeren**.
-2. Wacht tot de functie app-code voor het uploaden van proces is voltooid; het bericht *functie-app wordt geïmplementeerd: gedaan* wordt weergegeven.
+
+2. Wachten op functie-app-code proces is voltooid; uploaden het bericht *functie-app wordt geïmplementeerd: gedaan* wordt weergegeven.
 
 ## <a name="configure-iot-hub-device-connection-string-in-devkit"></a>IoT Hub apparaat-verbindingsreeks in DevKit configureren
 
-1. Verbinding maken met uw IoT MXChip DevKit op uw computer.
-2. Klik op de **taken** vervolgkeuzelijst in Visual Studio Code en selecteer **taak uitvoeren...**   -  **config apparaatverbinding**
-3. Op de MXChip IoT DevKit, drukt u op en wacht knop **A**, drukt u op de **opnieuw instellen** knop en vervolgens op de knop release **A** waarmee de DekKit configuratiemodus invoeren.
-4. Wachten op verbinding tekenreeks proces voor de configuratie te voltooien.
+1. Uw MXChip IoT DevKit verbinden met uw computer.
+
+2. Klik op de **taken** vervolgkeuzelijst in Visual Studio Code en selecteer **taak uitvoeren...**   -  **config-apparaat-verbinding**
+
+3. MXChip IoT DevKit, drukt u op en wacht knop **A**, drukt u op de **opnieuw** knoppen, en vervolgens release **A** om de configuratie van de modus DekKit.
+
+4. Wachten op verbinding tekenreeks configuratieproces worden uitgevoerd.
 
 ## <a name="upload-arduino-code-to-devkit"></a>Arduino Code uploaden naar DevKit
 
-Verbonden met uw IoT MXChip DevKit op uw computer:
-1. Klik op de **taken** vervolgkeuzelijst in Visual Studio Code en selecteer **bouwen taak uitvoeren...** Het schema Arduino gecompileerd en geüpload naar de DevKit.
-2. Wanneer het schema is geüpload, een *Build & werk uploaden: geslaagd* bericht wordt weergegeven.
+Verbonden met uw MXChip IoT DevKit met uw computer:
 
-## <a name="monitor-devkit-state-in-browser"></a>Status van de monitor DevKit in Browser
+1. Klik op de **taken** vervolgkeuzelijst in Visual Studio Code en selecteer **bouwen taak uitvoeren...** De schets Arduino worden gebundeld en geüpload naar de DevKit.
 
-1. Open in een webbrowser, de `DevKitState\web\index.html` -bestand dat is gemaakt tijdens de [wat u moet](#whatyouneed) stap.
+2. Wanneer het schema is geüpload, een *Build & uploaden schetsen: geslaagd* bericht wordt weergegeven.
+
+## <a name="monitor-devkit-state-in-browser"></a>DevKit Monitorstatus in Browser
+
+1. Open in een webbrowser, de `DevKitState\web\index.html` -bestand dat is gemaakt tijdens de [wat u nodig hebt](#whatyouneed) stap.
+
 2. De volgende webpagina wordt weergegeven:![Geef de naam van de functie-app.](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state-function-app-name.png)
-1. Voer de naam van de functie-app die u eerder hebt genoteerd.
-2. Klik op de **Connect** knop
-3. Binnen enkele seconden, de pagina wordt vernieuwd en de DevKit Wi-Fi-verbindingsstatus en de status van elk van de ingebouwde sensoren worden weergegeven.
 
-## <a name="control-the-devkits-user-led"></a>De DevKit gebruiker LED beheren
+3. Voer de functie-appnaam die u eerder hebt genoteerd.
 
-1. Klik op de afbeelding van de gebruiker LED op de webpagina-afbeelding.
-2. Binnen enkele seconden, wordt het scherm wordt vernieuwd en geeft de huidige kleurstatus van de gebruiker LED.
-3. Wijzig de kleurwaarde van de RGB-LED door te klikken op verschillende locaties op de schuifregelaar RGB-besturingselementen.
+4. Klik op de **Connect** knop
+
+5. Binnen enkele seconden, de pagina wordt vernieuwd en status van de DevKit Wi-Fi-verbinding en de status van elk van de ingebouwde sensoren worden weergegeven.
+
+## <a name="control-the-devkits-user-led"></a>Gebruiker van de DevKit LED beheren
+
+1. Klik op de gebruiker LED afbeelding op de webpagina-afbeelding.
+
+2. Binnen enkele seconden, wordt het scherm wordt vernieuwd en ziet u de huidige kleurstatus van de gebruiker LED.
+
+3. Wijzig de kleurwaarde van de RGB-LED beheren door te klikken op verschillende locaties op de besturingselementen van de RGB-schuifregelaar.
 
 ## <a name="example-operation"></a>Voorbeeld van de bewerking
 
-![Test voorbeeldprocedure](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
+![Procedure voor het testen van voorbeeld](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> U kunt zien onbewerkte gegevens van het apparaat twin in Azure-portal: IoT Hub -\> IoT-apparaten:\> *\<uw apparaat\>*  - \> Twin apparaat.
+> U kunt zien onbewerkte gegevens van het dubbele apparaat in Azure portal: IoT Hub -\> IoT-apparaten -\> *\<uw apparaat\>*  - \> Apparaatdubbel.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe:
-- Een apparaat MXChip IoT DevKit aansluiten op uw oplossingsverbetering Azure IoT externe controle.
-- Gebruik de functie van Azure IoT-apparaat horende detecteren en beheren van de kleur van de DevKit RGB-LED.
+Hebt u geleerd hoe u:
+- Een apparaat MXChip IoT DevKit verbinden met uw oplossingsverbetering voor externe controle van Azure IoT.
+- Gebruik de functie van Azure IoT device twins detecteren en de kleur van de de DevKit RGB-LED beheren.
 
-Hier volgen de mogelijke volgende stappen:
+Hier volgen de voorgestelde volgende stappen:
 
 * [Overzicht van Azure accelerator voor externe controle IoT-oplossing](https://docs.microsoft.com/azure/iot-suite/)
-* [Sluit een apparaat MXChip IoT DevKit aan uw Azure IoT centrale toepassing](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Een apparaat MXChip IoT DevKit verbinden met uw Azure IoT Central-toepassing](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

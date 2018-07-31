@@ -1,6 +1,6 @@
 ---
-title: Verificatie-scenario's voor Azure AD | Microsoft Docs
-description: Biedt een overzicht van de vijf meest voorkomende verificatie scenario's voor Azure Active Directory (Azure AD)
+title: Verificatiescenario's voor Azure AD | Microsoft Docs
+description: Biedt een overzicht van de vijf meest voorkomende verificatiescenario's voor Azure Active Directory (Azure AD)
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -13,320 +13,320 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2018
+ms.date: 07/26/2018
 ms.author: celested
-ms.reviewer: jmprieur
+ms.reviewer: jmprieur, andret, nacanuma, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f85b97791c9e2d17417f82dae05d27838be63703
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 11a8486f7b425d1304b102fc23abdd013c970c4d
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36319010"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344491"
 ---
-# <a name="authentication-scenarios-for-azure-ad"></a>Verificatie-scenario's voor Azure AD
+# <a name="authentication-scenarios-for-azure-ad"></a>Verificatiescenario's voor Azure AD
 
-Azure Active Directory (Azure AD) vereenvoudigt de verificatie voor ontwikkelaars dankzij de identiteit als een service met ondersteuning voor de industriestandaard-protocollen zoals OAuth 2.0 en OpenID Connect, evenals open-source bibliotheken voor verschillende platforms om u te helpen Start snel coderen. Dit artikel krijgt u inzicht in de verschillende scenario's Azure AD wordt ondersteund en hoe u aan de slag. Het onderverdeeld in de volgende secties:
+Azure Active Directory (Azure AD) vereenvoudigt verificatie voor ontwikkelaars door op te geven van de identiteit als een service, met ondersteuning voor standaardprotocollen zoals OAuth 2.0 en OpenID Connect, evenals open-source-bibliotheken voor verschillende platforms om u te helpen begin snel te coderen. In dit artikel krijgt u inzicht in de verschillende scenario's Azure AD ondersteunt en ziet u hoe u aan de slag. Het onderverdeeld in de volgende secties:
 
-* [Basisprincipes van verificatie in Azure AD](#basics-of-authentication-in-azure-ad)
-* [Claims in Azure AD-beveiligingstokens](#claims-in-azure-ad-security-tokens)
+* [Basisbeginselen van verificatie in Azure AD](#basics-of-authentication-in-azure-ad)
+* [Claims in beveiligingstokens van Azure AD](#claims-in-azure-ad-security-tokens)
 * [Basisbeginselen van het registreren van een toepassing in Azure AD](#basics-of-registering-an-application-in-azure-ad)
-* [Toepassingstypen en scenario 's](#application-types-and-scenarios)
+* [Soorten toepassingen en scenario 's](#application-types-and-scenarios)
 
-  * [Webbrowser webtoepassing](#web-browser-to-web-application)
-  * [Toepassing van één pagina (SPA)](#single-page-application-spa)
-  * [Systeemeigen toepassing aan web-API](#native-application-to-web-api)
-  * [Webtoepassing aan web-API](#web-application-to-web-api)
-  * [Daemon of servertoepassing aan web-API](#daemon-or-server-application-to-web-api)
+  * [Webbrowser voor web-App](#web-browser-to-web-application)
+  * [Toepassing met één pagina (SPA)](#single-page-application-spa)
+  * [Systeemeigen toepassing voor de web-API](#native-application-to-web-api)
+  * [Web-App aan web-API](#web-application-to-web-api)
+  * [Daemon of servertoepassing naar web-API](#daemon-or-server-application-to-web-api)
 
-## <a name="basics-of-authentication-in-azure-ad"></a>Basisprincipes van verificatie in Azure AD
+## <a name="basics-of-authentication-in-azure-ad"></a>Basisbeginselen van verificatie in Azure AD
 
-Als u niet bekend met de basisconcepten van verificatie in Azure AD bent, leest u in deze sectie. U wilt anders gaat u naar beneden naar [toepassingstypen en scenario's](#application-types-and-scenarios).
+Als u niet bekend met de basisbeginselen van verificatie in Azure AD bent, lees deze sectie. Anders kunt u direct doorgaan naar beneden naar [toepassingstypen en scenario's](#application-types-and-scenarios).
 
-Laten we eens het eenvoudigste scenario waar identiteit vereist is: een gebruiker in een webbrowser nodig om een webtoepassing te verifiëren. Dit scenario wordt beschreven in meer detail in de [webbrowser webtoepassing](#web-browser-to-web-application) sectie, maar de een nuttig startpunt illustratie van de mogelijkheden van Azure AD en de werking van het scenario concept. Houd rekening met het volgende diagram voor dit scenario:
+Laten we eens het eenvoudigste scenario waarin de identiteit vereist is: een gebruiker in een webbrowser nodig heeft om een webtoepassing te verifiëren. In dit scenario wordt beschreven in meer detail in de [webbrowser webtoepassing](#web-browser-to-web-application) sectie, maar de een handig startpunt om te laten zien van de mogelijkheden van Azure AD en visualiseren van de werking van het scenario. Houd rekening met het volgende diagram voor dit scenario:
 
-![Overzicht van aanmelding bij de webtoepassing](./media/active-directory-authentication-scenarios/basics_of_auth_in_aad.png)
+![Overzicht van de aanmelding voor web-App](./media/active-directory-authentication-scenarios/basics_of_auth_in_aad.png)
 
 Met het diagram hierboven in gedachten is dit wat u moet weten over de verschillende onderdelen:
 
-* Azure AD is de id-provider, die verantwoordelijk is voor de identiteit van gebruikers en toepassingen die zijn opgenomen in de directory van de organisatie en het afgeven van uiteindelijk beveiligingstokens na een geslaagde verificatie van gebruikers en toepassingen.
-* Een toepassing die wil uitbesteden verificatie met Azure AD moet worden geregistreerd in Azure AD dat registreert en een unieke identificatie van de app in de map.
-* Ontwikkelaars kunnen de open source Azure AD-verificatiebibliotheken gebruiken dat verificatie gemakkelijker door de verwerking van de gegevens van het protocol voor u. Zie voor meer informatie [Azure Active Directory Authentication Libraries](active-directory-authentication-libraries.md).
-* Wanneer een gebruiker is geverifieerd, moet de toepassing van de gebruiker beveiligingstoken om ervoor te zorgen dat de verificatie is geslaagd valideren. Er zijn voorbeelden van wat de toepassing moet doen in verschillende talen en frameworks op [GitHub](https://github.com/Azure-Samples?q=active-directory). Als u een web-app in ASP.NET maakt, raadpleegt u de [aanmelden voor een ASP.NET web app handleiding toevoegen](https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp). Als u een web API-bron in ASP.NET maakt, raadpleegt u de [web-API aan de slag](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
-* De stroom van aanvragen en antwoorden voor het verificatieproces wordt bepaald door het verificatieprotocol dat is gebruikt, zoals OAuth 2.0, OpenID Connect, WS-Federation of SAML 2.0. Deze protocollen worden besproken in meer detail in de [Azure Active Directory-verificatieprotocollen](active-directory-authentication-protocols.md) artikel en in de onderstaande secties.
+* Azure AD is de id-provider, die verantwoordelijk is voor het verifiëren van de identiteit van gebruikers en toepassingen die zijn opgenomen in de adreslijst van een organisatie en uiteindelijk uitgeven van beveiligingstokens bij een geslaagde verificatie van gebruikers en toepassingen.
+* Een toepassing die wil uitbesteden van Azure AD-verificatie moet zijn geregistreerd in Azure AD. Hierbij worden geregistreerd en de app in de map wordt aangeduid.
+* Ontwikkelaars kunnen de open-source Azure AD-verificatiebibliotheken gebruiken voor verificatie vereenvoudigen doordat de gegevens van het protocol voor u. Zie voor meer informatie, [Azure Active Directory Authentication Libraries](active-directory-authentication-libraries.md).
+* Wanneer een gebruiker is geverifieerd, moet de toepassing van de gebruiker beveiligingstoken om ervoor te zorgen dat de verificatie is geslaagd valideren. Er zijn voorbeelden van wat de toepassing moet doen in verschillende talen en frameworks op [GitHub](https://github.com/Azure-Samples?q=active-directory). Als u een web-app in ASP.NET bouwt, ziet de [aanmelden voor een ASP.NET web-app-handleiding toevoegen](https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp). Als u een web API-resource in ASP.NET bouwt, ziet de [web-API aan de slag](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
+* De stroom van aanvragen en antwoorden voor het verificatieproces wordt bepaald door het verificatieprotocol dat is gebruikt, zoals OAuth 2.0, OpenID Connect, WS-Federation of SAML 2.0. Deze protocollen zijn uitgebreider besproken in de [Azure Active Directory-verificatieprotocollen](active-directory-authentication-protocols.md) artikel en in de onderstaande secties.
 
 > [!NOTE]
-> Azure AD ondersteunt het OAuth 2.0 en OpenID Connect standaarden uitgebreide maken gebruik van bearer-tokens, weergegeven als JWTs bearer-tokens. Een *bearer-token* is een lichtgewicht beveiligingstoken die de 'bearer' toegang tot een beveiligde bron verleent. In dit opzicht is het 'bearer' een partij die het token kan opleveren. Hoewel een partij moet eerst worden geverifieerd met Azure AD voor het ontvangen van de bearer-token als de vereiste stappen niet genomen worden voor het beveiligen van het token in overdracht en opslag, kunt u het probleem is onderschept en gebruikt door een onbedoelde partij. Sommige beveiligingstokens beschikken over een ingebouwde mechanisme om te voorkomen dat onbevoegden kunnen gebruiken, worden de bearer-tokens hebben geen dit mechanisme en moeten worden overgebracht in een beveiligd kanaal zoals transport layer security (HTTPS). Als een bearer-token in het wissen wordt verzonden, kan een man-in-the-middle-aanval worden gebruikt door een kwaadwillende partij het token verkrijgen en deze gebruiken voor een niet-geautoriseerde toegang tot een beveiligde bron. De dezelfde beveiligings-principals van toepassing wanneer caching bearer-tokens voor later gebruik of op te slaan. Altijd voor zorgen dat uw toepassing worden verzonden en bearer-tokens worden opgeslagen op een veilige manier. Zie voor meer beveiligingsoverwegingen op bearer-tokens [RFC 6750 sectie 5](http://tools.ietf.org/html/rfc6750).
+> Azure AD biedt ondersteuning voor de OAuth 2.0 en OpenID Connect-normen die uitgebreide maken gebruik van bearer-tokens, met inbegrip van weergegeven als JWTs bearer-tokens. Een *bearer-token* is een lichtgewicht beveiligingstoken die de "bearer" toegang tot een beveiligde bron verleent. In dit opzicht is de 'bearer' een partij die het token kan opleveren. Hoewel een partij moet eerst worden geverifieerd met Azure AD voor het ontvangen van het bearer-token, als de vereiste stappen zijn niet in gebruik voor het beveiligen van de token in overdracht en opslag, kan worden onderschept en die worden gebruikt door een onbedoelde partij. Hoewel sommige beveiligingstokens een ingebouwd mechanisme hebben voor zo wordt voorkomen dat onbevoegden gebruik ervan, wordt bearer-tokens geen dit mechanisme en moeten worden overgebracht in een beveiligd kanaal, zoals transport layer security (HTTPS). Als een bearer-token in het wissen wordt verzonden, kan een man-in-the-middle-aanval worden gebruikt door een schadelijke partij de token ophalen en deze gebruiken voor een niet-geautoriseerde toegang tot een beveiligde bron. Dezelfde beveiligingsprincipes van toepassing wanneer op te slaan of bearer-tokens voor later gebruik opslaan in cache. Altijd voor zorgen dat uw toepassing verzendt en bearer-tokens worden opgeslagen op een veilige manier. Zie voor meer beveiligingsoverwegingen op bearer-tokens, [RFC 6750 sectie 5](http://tools.ietf.org/html/rfc6750).
 
-Nu dat u een overzicht van de basisprincipes hebt, leest u de secties hieronder om te begrijpen hoe inrichting werkt in Azure AD en de gangbare scenario's die ondersteuning biedt voor Azure AD.
+Nu dat u een overzicht van de basisbeginselen hebt, lees de secties hieronder in om te begrijpen hoe inrichting werkt in Azure AD en de algemene scenario's die ondersteuning biedt voor Azure AD.
 
-## <a name="claims-in-azure-ad-security-tokens"></a>Claims in Azure AD-beveiligingstokens
+## <a name="claims-in-azure-ad-security-tokens"></a>Claims in beveiligingstokens van Azure AD
 
-Beveiligingstokens (toegang en ID-tokens) uitgegeven door Azure AD bevatten claims of asserties van informatie over het onderwerp dat is geverifieerd. Deze claims kunnen worden gebruikt door de toepassing voor verschillende taken. Bijvoorbeeld kunnen toepassingen claims gebruiken om te valideren van het token, identificeren van de certificaathouder directory-tenant, gebruikersgegevens weergeven, bepalen van de certificaathouder autorisatie, enzovoort. De claims die een bepaalde beveiligingstoken zijn afhankelijk van het type token, het type van de referentie gebruikt voor het verifiëren van de gebruiker en de configuratie van de toepassing. Een korte beschrijving van elk type claim verzonden door Azure AD is opgegeven in de onderstaande tabel. Raadpleeg voor meer informatie [ondersteunde typen tokens en claims](active-directory-token-and-claims.md).
+Beveiligingstokens (toegang en ID-tokens) dat is uitgegeven door Azure AD bevatten claims of asserties van informatie over het onderwerp dat is geverifieerd. Deze claims kunnen worden gebruikt door de toepassing voor verschillende taken. Toepassingen kunnen bijvoorbeeld claims gebruiken om het token valideren, identificeren van de certificaathouder directory-tenant, gebruikersgegevens weergeven, bepalen van de certificaathouder autorisatie, enzovoort. De claims aanwezig zijn in een bepaalde beveiligingstoken zijn afhankelijk van het type token, het type van de referentie die wordt gebruikt om de gebruiker en de configuratie van de toepassing te verifiëren. Een korte beschrijving van elk type claim verzonden door Azure AD is opgegeven in de onderstaande tabel. Raadpleeg voor meer informatie, [ondersteunde typen tokens en claims](active-directory-token-and-claims.md).
 
 | Claim | Beschrijving |
 | --- | --- |
-| Toepassings-id | Identificeert de toepassing die van het token gebruikmaakt. |
-| Doelgroep | De ontvanger resource die het token is bedoeld voor identificeert. |
-| Application Authentication Context Class Reference | Hiermee wordt aangegeven hoe de client is geverifieerd (openbare client versus vertrouwelijke client). |
-| Verificatie Instant | Registreert de datum en tijd waarop de verificatie heeft plaatsgevonden. |
-| Verificatiemethode | Geeft aan hoe het onderwerp van het token is geverifieerd (wachtwoord, certificaat, enzovoort). |
-| Voornaam | Biedt de voornaam van de gebruiker als set in Azure AD. |
-| Groepen | Object-id's van Azure AD-groepen waarvan de gebruiker lid is van bevat. |
-| Id-provider | Registreert de id-provider die het onderwerp van het token wordt geverifieerd. |
-| Verleend aan | De tijd waarop het token is uitgegeven, vaak gebruikt voor het token nieuwheid registreert. |
-| Certificaatverlener | Identificeert de STS dat het token, evenals de Azure AD-tenant verzonden. |
-| Achternaam | Biedt de achternaam van de gebruiker als set in Azure AD. |
-| Naam | Biedt een menselijke leesbare waarde die aangeeft van het onderwerp van het token. |
-| Object-id | Bevat een niet-wijzigbaar, unieke id van het onderwerp in Azure AD. |
-| Rollen | Beschrijvende namen bevat van Azure AD-toepassing-functies die de gebruiker heeft gekregen. |
-| Bereik | Hiermee geeft u de machtigingen te krijgen tot de clienttoepassing. |
-| Onderwerp | Hiermee geeft u de principal waarover het token asserts informatie. |
-| Tenant-id | Bevat een niet-wijzigbaar, unieke id van de directory-tenant die het token heeft uitgegeven. |
-| Levensduur van token | Definieert het tijdsinterval waarin een token geldig is. |
+| Toepassings-id | De toepassing die van het token gebruikmaakt wordt geïdentificeerd. |
+| Doelgroep | Hiermee geeft u de ontvanger resource die het token is bedoeld voor. |
+| Application Authentication Context Class Reference | Geeft aan hoe de client is geverifieerd (openbare client versus vertrouwelijke client). |
+| Instant verificatie | Registreert de datum en tijd waarop de verificatie heeft plaatsgevonden. |
+| Verificatiemethode | Geeft aan hoe de onderwerpnaam van het token is geverifieerd (wachtwoord, certificaten, enzovoort). |
+| Voornaam | Biedt de voornaam van de gebruiker als instellen in Azure AD. |
+| Groepen | Bevat de object-id's van Azure AD-groepen die de gebruiker een lid van is. |
+| Id-provider | Registreert de id-provider die het onderwerp van het token zijn geverifieerd. |
+| Uitgegeven op | Registreert de tijd waarop het token is uitgegeven, vaak gebruikt voor token webdocumenten. |
+| Certificaatverlener | Hiermee geeft u de STS die het token, evenals de Azure AD-tenant verzonden. |
+| Achternaam | Biedt de achternaam van de gebruiker als instellen in Azure AD. |
+| Naam | Biedt een mens leesbaar waarde die het onderwerp van het token identificeert. |
+| Object-id | Bevat een onveranderbare, unieke id van het onderwerp in de Azure AD. |
+| Rollen | Beschrijvende namen bevat van Azure AD-toepassingsrollen die de gebruiker heeft gekregen. |
+| Bereik | Geeft aan dat de machtigingen verleend aan de clienttoepassing. |
+| Onderwerp | Geeft aan dat de principal waarover het token worden bevestigd met informatie. |
+| Tenant-id | Bevat een onveranderbare, unieke id van de directory-tenant die het token is uitgegeven. |
+| Levensduur van token | Hiermee definieert u het tijdsinterval waarin een token geldig is. |
 | User principal name | Bevat de user principal name van het onderwerp. |
 | Versie | Het versienummer van het token bevat. |
 
 ## <a name="basics-of-registering-an-application-in-azure-ad"></a>Basisbeginselen van het registreren van een toepassing in Azure AD
 
-Alle toepassingen die verificatie met Azure AD heeft moet zijn geregistreerd in een map. Deze stap omvat het Azure AD om te informeren over uw toepassing, met inbegrip van de URL waar is gevonden, de URL van antwoorden verzenden na verificatie van de URI voor het identificeren van uw toepassing en meer. Deze informatie is vereist voor een aantal belangrijke oorzaken hebben:
+Alle toepassingen die Azure AD-verificatie heeft, moet zijn geregistreerd in een map. Deze stap omvat het Azure AD te vertellen over uw toepassing, met inbegrip van de URL waar deze zich, de URL voor het verzenden van antwoorden na verificatie van de URI voor het identificeren van uw toepassing, en meer. Deze informatie is vereist voor een aantal belangrijke redenen hebben:
 
-* Azure AD moet communiceren met de toepassing bij het verwerken van eenmalige aanmelding of uitwisselen van tokens. De gegevens doorgegeven tussen Azure AD en de toepassing omvat het volgende:
+* Azure AD moet communiceren met de toepassing bij het verwerken van aanmelding of uitwisselen-tokens. De gegevens doorgegeven tussen Azure AD en de toepassing omvat het volgende:
   
-  * **Aanvraag-ID-URI** -de id voor een toepassing. Deze waarde wordt verzonden naar Azure AD tijdens de verificatie om aan te geven welke toepassing de aanroeper wil een token. Deze waarde is ook opgenomen in het token zodat de toepassing weet was het beoogde doel.
-  * **Antwoord-URL** en **omleidings-URI** -voor een web-API of de webtoepassing de antwoord-URL is de locatie waar Azure AD van het verificatieantwoord ontvangt, met inbegrip van een token als verificatie gelukt is. De omleidings-URI is voor een native toepassing, een unieke id waarop Azure AD de gebruikersagent in een OAuth 2.0-aanvraag wordt omgeleid.
-  * **Toepassings-ID** -de ID voor een toepassing die wordt gegenereerd door Azure AD wanneer de toepassing is geregistreerd. Bij het aanvragen van een autorisatiecode of het token, worden de toepassings-ID en sleutel worden verzonden naar Azure AD tijdens de verificatie.
-  * **Sleutel** -de sleutel die wordt verzonden samen met een toepassings-ID bij het verifiëren met Azure AD aan te roepen een web-API.
-* Azure AD moet ervoor zorgen dat de toepassing de vereiste machtigingen heeft voor toegang tot uw directorygegevens, andere toepassingen in uw organisatie, enzovoort.
+  * **URI toepassings-ID** -de id voor een toepassing. Deze waarde wordt verzonden naar Azure AD tijdens de verificatie om aan te geven welke toepassing de oproepende functie wil een token. Deze waarde is ook opgenomen in het token zodat de toepassing weet dat dit is het beoogde doel.
+  * **Antwoord-URL** en **omleidings-URI** -een web-API of webtoepassing, is de antwoord-URL de locatie waar Azure AD het verificatieantwoord stuurt, met inbegrip van een token als verificatie voltooid is. Voor een systeemeigen toepassing is de omleidings-URI een unieke id waarnaar de gebruikersagent in een OAuth 2.0-aanvraag wordt omgeleid met Azure AD.
+  * **Toepassings-ID** -de ID voor een toepassing die wordt gegenereerd door Azure AD wanneer de toepassing is geregistreerd. Bij het aanvragen van een autorisatiecode of het token, worden de toepassings-ID en de sleutel worden verzonden naar Azure AD tijdens de verificatie.
+  * **Sleutel** -de sleutel die wordt verzonden, samen met een toepassings-ID bij het verifiëren met Azure AD naar een web-API aanroepen.
+* Vereist voor Azure AD om te controleren of dat de toepassing heeft de vereiste machtigingen om toegang te krijgen tot de directorygegevens van uw, andere toepassingen in uw organisatie, enzovoort.
 
-Inrichting wordt duidelijker wanneer u begrijpt dat er zijn twee soorten toepassingen die kunnen worden ontwikkeld en geïntegreerd met Azure AD:
+Inrichting wordt duidelijker als u weet wat er zijn twee soorten toepassingen die kunnen worden ontwikkeld en geïntegreerd met Azure AD:
 
-* **Eén tenant toepassing** -een toepassing voor één tenant is bedoeld voor gebruik in een organisatie. Dit zijn doorgaans line-of-business (LoB)-toepassingen geschreven door de ontwikkelaar van een onderneming. Een toepassing voor één tenant moet alleen worden geopend door gebruikers in een bepaalde map en als gevolg hiervan wordt alleen moet worden ingericht in één directory. Deze toepassingen zijn meestal geregistreerd door een ontwikkelaar in de organisatie.
-* **Multitenant toepassing** -een multitenant-toepassing is niet bedoeld voor gebruik in veel organisaties is slechts één organisatie. Dit zijn doorgaans software-as-a-service (SaaS)-toepassingen geschreven door een onafhankelijke softwareleverancier (ISV). Multitenant-toepassingen moeten worden ingericht in elke map waar ze worden gebruikt, waarvoor een gebruiker of beheerder toestemming om u te registreren. Dit proces toestemming wordt gestart wanneer een toepassing is geregistreerd in de map en toegang tot de Graph API of een andere web-API krijgt. Wanneer een gebruiker of beheerder van een andere organisatie zich registreert om de toepassing te gebruiken, moeten ze wordt weergegeven met een dialoogvenster waarin u de machtigingen die vereist zijn voor de toepassing. De gebruiker of beheerder kan vervolgens instemming met de toepassing dat geeft de toepassing toegang tot de opgegeven gegevens, en ten slotte registreert u de toepassing in de directory. Zie voor meer informatie [overzicht van het Framework toestemming](active-directory-integrating-applications.md#overview-of-the-consent-framework).
+* **Eén tenant toepassing** -een toepassing met één tenant is bedoeld voor gebruik in een organisatie. Dit zijn doorgaans line-of-business (LoB)-toepassingen die is geschreven door de ontwikkelaar in een organisatie. Een toepassing met één tenant moet alleen worden geopend door gebruikers in een map en als gevolg hiervan alleen moet worden ingericht in een map. Deze toepassingen zijn meestal geregistreerd door een ontwikkelaar in de organisatie.
+* **Toepassing met meerdere tenants** -een toepassing met meerdere tenants is bedoeld voor gebruik in veel organisaties niet slechts één organisatie. Dit zijn doorgaans software-as-a-service (SaaS)-toepassingen die is geschreven door een onafhankelijke softwareleverancier (ISV). Toepassingen met meerdere tenants moeten worden ingericht in elke map waar ze worden gebruikt, welke gebruiker of beheerder toestemming om u te registreren. Dit proces toestemming wordt gestart wanneer een toepassing in de directory is geregistreerd en toegang tot de Graph API of een andere web-API krijgen wordt. Wanneer een gebruiker of beheerder van een andere organisatie zich registreert voor het gebruik van de toepassing, worden ze weergegeven met een dialoogvenster waarin de machtigingen die voor de toepassing moet worden weergegeven. De gebruiker of beheerder kan vervolgens akkoord met de toepassing, die de toepassing toegang geeft tot de opgegeven gegevens en tot slot, registreert u de toepassing in de directory. Zie voor meer informatie, [overzicht van het Framework toestemming geven](active-directory-integrating-applications.md#overview-of-the-consent-framework).
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>Aanvullende overwegingen bij het ontwikkelen van één of meerdere tenant-apps
-Enkele aanvullende overwegingen ontstaan bij het ontwikkelen van een toepassing met meerdere tenants in plaats van een toepassing voor één tenant. Bijvoorbeeld, als u uw toepassing beschikbaar voor gebruikers in meerdere mappen, moet u een mechanisme om te bepalen welke tenant ze zich in. Een toepassing voor één tenant moet alleen zoeken in de eigen map voor een gebruiker, terwijl een multitenant-toepassing moet een specifieke gebruiker uit alle mappen identificeren in Azure AD. Als u wilt uitvoeren van deze taak levert Azure AD een algemene eindpunt voor authenticatie, waarbij elke toepassing met meerdere tenants aanmelden, in plaats van een tenantspecifieke-eindpunt wenden kan. Dit eindpunt is https://login.microsoftonline.com/common voor alle mappen in Azure AD, terwijl een eindpunt tenantspecifieke mogelijk https://login.microsoftonline.com/contoso.onmicrosoft.com. Het algemene eindpunt is vooral belangrijk bij het ontwikkelen van uw toepassing omdat u de benodigde logica moet voor het afhandelen van meerdere tenants tijdens het aanmelden, afmelden en validatie van tokens.
+Enkele aanvullende overwegingen zich voordoen bij het ontwikkelen van een toepassing met meerdere tenants in plaats van een toepassing met één tenant. Bijvoorbeeld, als u uw toepassing beschikbaar voor gebruikers in meerdere mappen, moet u een mechanisme om te bepalen welke tenant waarin ze zijn opgeslagen. Een toepassing met één tenant is alleen nodig heeft om te zoeken in een eigen map voor een gebruiker, terwijl een toepassing met meerdere tenants moet een specifieke gebruiker vanuit alle mappen in Azure AD te identificeren. Als u wilt deze taak wordt uitgevoerd, biedt Azure AD een algemene verificatie-eindpunt waar aanmeldingsaanvragen, in plaats van een tenant-specifieke eindpunt dat een toepassing met meerdere tenants instellen kunt. Dit eindpunt is https://login.microsoftonline.com/common voor alle mappen in Azure AD, dat een tenant-specifieke eindpunt mogelijk https://login.microsoftonline.com/contoso.onmicrosoft.com. Het eindpunt van de algemene is vooral belangrijk om te overwegen bij het ontwikkelen van uw toepassing omdat u de benodigde logica moet, voor het afhandelen van meerdere tenants tijdens het aanmelden, afmelden, en validatie van tokens.
 
-Als u een toepassing voor één tenant momenteel ontwikkelt, maar u beschikbaar wilt maken het voor veel organisaties, kunt u eenvoudig wijzigingen aanbrengen aan de toepassing en de configuratie in Azure AD om multitenant geschikt. Azure AD gebruikt bovendien de dezelfde ondertekeningssleutel voor alle tokens in alle mappen, of u verificatie in een tenant op één of meerdere tenants toepassing biedt.
+Als u momenteel het ontwikkelen van een toepassing met één tenant, maar u wilt het toegankelijk maken voor veel organisaties, kunt u eenvoudig wijzigingen aanbrengen aan de toepassing en de configuratie ervan in Azure AD te maken met meerdere tenants kan worden. Azure AD gebruikt bovendien de dezelfde ondertekeningssleutel voor alle tokens in alle mappen, of u verificatie in een enkele tenant of een toepassing met meerdere tenants opgeeft.
 
-Elk scenario vermeld in dit document bevat een subsectie die de vereisten voor inrichting beschrijft. Zie voor meer gedetailleerde informatie over het inrichten van een toepassing in Azure AD en de verschillen tussen één en multitenant-toepassingen [toepassingen integreren met Azure Active Directory](active-directory-integrating-applications.md) voor meer informatie. Blijven lezen om te begrijpen van de gangbare scenario's van toepassing in Azure AD.
+Elk scenario vermeld in dit document bevat een subsectie die de vereisten voor inrichting beschrijft. Zie voor meer gedetailleerde informatie over het inrichten van een toepassing in Azure AD en de verschillen tussen één en multitenant-toepassingen [toepassingen integreren met Azure Active Directory](active-directory-integrating-applications.md) voor meer informatie. Doorgaan met lezen voor meer informatie over de veelvoorkomende toepassingsscenario's in Azure AD.
 
-## <a name="application-types-and-scenarios"></a>Toepassingstypen en scenario 's
+## <a name="application-types-and-scenarios"></a>Soorten toepassingen en scenario 's
 
-Elk van de hier beschreven scenario's kan worden ontwikkeld met behulp van verschillende talen en platforms. Ze worden alle ondersteund door volledige codevoorbeelden die beschikbaar zijn in de [codevoorbeelden begeleiden](active-directory-code-samples.md), of rechtstreeks uit de bijbehorende [GitHub-opslagplaatsen voor voorbeeld](https://github.com/Azure-Samples?q=active-directory). Bovendien, als uw toepassing een bepaald of een segment van een end-to-end-scenario moet, kan in de meeste gevallen functionaliteit van die worden toegevoegd onafhankelijk. Als u een systeemeigen toepassing die een web-API aanroept hebt, kunt u bijvoorbeeld eenvoudig een webtoepassing die ook de web-API aanroept toevoegen. Het volgende diagram illustreert deze scenario's en de toepassingstypen, en hoe de andere onderdelen kunnen worden toegevoegd:
+Elk van de hier beschreven scenario's kan worden ontwikkeld met behulp van verschillende talen en platforms. Ze worden ondersteund door de volledige codevoorbeelden die beschikbaar zijn in de [handleiding voor voorbeelden van Code](active-directory-code-samples.md), of rechtstreeks vanuit de bijbehorende [GitHub-opslagplaatsen voor voorbeeld](https://github.com/Azure-Samples?q=active-directory). Bovendien, als uw toepassing nodig heeft voor een bepaald of een segment van een end-to-end-scenario, kan in de meeste gevallen deze functionaliteit worden toegevoegd onafhankelijk van elkaar. Als u een systeemeigen toepassing die een web-API-aanroepen hebt, kunt u bijvoorbeeld eenvoudig een webtoepassing die ook de web-API-aanroepen toevoegen. Het volgende diagram illustreert deze scenario's en de toepassingstypen, en hoe de verschillende onderdelen kunnen worden toegevoegd:
 
-![Toepassingstypen en scenario 's](./media/active-directory-authentication-scenarios/application_types_and_scenarios.png)
+![Soorten toepassingen en scenario 's](./media/active-directory-authentication-scenarios/application_types_and_scenarios.png)
 
-Dit zijn de vijf primaire toepassing scenario's ondersteund door Azure AD:
+Dit zijn de vijf primaire toepassing-scenario's ondersteund door Azure AD:
 
-* [Webbrowser webtoepassing](#web-browser-to-web-application): een gebruiker moet zich aanmelden bij een webtoepassing die wordt beveiligd door Azure AD.
+* [Web-App de webbrowser](#web-browser-to-web-application): een gebruiker moet zich aanmelden bij een webtoepassing die wordt beveiligd door Azure AD.
 * [Eén pagina toepassing (SPA)](#single-page-application-spa): een gebruiker moet zich aanmelden bij een toepassing met één pagina die wordt beveiligd door Azure AD.
-* [Systeemeigen toepassing aan web-API](#native-application-to-web-api): een systeemeigen toepassing die wordt uitgevoerd op een telefoon, tablet of PC moet een gebruiker van een web-API die wordt beveiligd door Azure AD om bronnen te verifiëren.
-* [Webtoepassing aan web-API](#web-application-to-web-api): een webtoepassing moet bronnen ophalen van een web-API die zijn beveiligd door Azure AD.
-* [Web-API-daemon of server toepassing](#daemon-or-server-application-to-web-api): een daemontoepassing of een servertoepassing zonder gebruikersinterface web moet bronnen ophalen van een web-API die zijn beveiligd door Azure AD.
+* [Systeemeigen toepassing voor de web-API](#native-application-to-web-api): een systeemeigen toepassing die wordt uitgevoerd op een telefoon, tablet of PC moet een gebruiker voor resources van een web-API die wordt beveiligd door Azure AD verifiëren.
+* [Webtoepassing aan web-API](#web-application-to-web-api): een web-App nodig heeft om op te halen van resources van een web-API is beveiligd door Azure AD.
+* [Web-API-daemon of server toepassing](#daemon-or-server-application-to-web-api): een daemon-toepassing of een servertoepassing zonder gebruikersinterface web moet de resources ophalen uit een web-API is beveiligd door Azure AD.
 
-### <a name="web-browser-to-web-application"></a>Webbrowser webtoepassing
+### <a name="web-browser-to-web-application"></a>Webbrowser voor web-App
 
-Deze sectie beschrijft een toepassing die een gebruiker in een webbrowser naar een webtoepassing verifieert. De webtoepassing in dit scenario zorgt ervoor dat de browser van de gebruiker aanmelden bij Azure AD. Azure AD retourneert een antwoord aanmelden via de browser van de gebruiker, met daarin de claims over de gebruiker in een beveiligingstoken. Dit scenario biedt ondersteuning voor aanmelding met behulp van de WS-Federation, SAML 2.0 en OpenID Connect-protocollen.
+Deze sectie beschrijft een toepassing die een gebruiker in een webbrowser naar een web-App wordt geverifieerd. De web-App in dit scenario zorgt ervoor dat de browser van de gebruiker ze zich aanmelden bij Azure AD. Azure AD retourneert een antwoord aanmelden via de browser van de gebruiker, met claims over de gebruiker in een beveiligingstoken. In dit scenario biedt ondersteuning voor aanmelding met de WS-Federation, SAML 2.0 en OpenID Connect-protocollen.
 
 #### <a name="diagram"></a>Diagram
 
-![Authenticatiestroom voor browser-webtoepassing](./media/active-directory-authentication-scenarios/web_browser_to_web_api.png)
+![Verificatie-stroom voor de browser naar de web-App](./media/active-directory-authentication-scenarios/web_browser_to_web_api.png)
 
 #### <a name="description-of-protocol-flow"></a>Beschrijving van de stroom protocol
 
-1. Wanneer een gebruiker bezoekt de toepassing en behoeften aan te melden, worden ze omgeleid via een aanvraag-in voor het eindpunt voor authenticatie in Azure AD.
-1. De gebruiker zich aanmeldt op de aanmeldingspagina.
-1. Als verificatie geslaagd is, wordt Azure AD maakt geen verificatietoken en retourneert een antwoord aanmelden aan antwoord-URL voor de toepassing die is geconfigureerd in de Azure portal. Voor een productietoepassing moet dit antwoord-URL HTTPS. Het resulterende token bevat claims over de gebruiker en de Azure AD die nodig zijn voor de toepassing voor het valideren van het token.
-1. De toepassing valideert het token met behulp van een openbare ondertekeningssleutel en informatie over de uitgever beschikbaar bij het document met federatieve metagegevens voor Azure AD. Nadat de toepassing het token valideert, wordt er een nieuwe sessie gestart met de gebruiker. Deze sessie kan de gebruiker toegang tot de toepassing totdat deze verloopt.
+1. Wanneer een gebruiker bezoekt de toepassing en behoeften aan te melden, worden ze omgeleid via een aanmeldingsaanvraag voor de verificatie-eindpunt in Azure AD.
+1. De gebruiker meldt zich aan op de pagina aanmelden.
+1. Als verificatie geslaagd is, wordt Azure AD maakt u een verificatietoken en retourneert een antwoord aanmelding aan van de toepassing antwoord-URL die is geconfigureerd in Azure portal. Voor een productietoepassing moet deze antwoord-URL HTTPS. Het geretourneerde token bevat claims over de gebruiker en de Azure AD die nodig zijn voor de toepassing voor het valideren van het token.
+1. De toepassing valideert het token met behulp van een openbare ondertekeningssleutel en informatie over de uitgever beschikbaar op het document met federatieve metagegevens voor Azure AD. Nadat de toepassing het token valideert, wordt een nieuwe sessie gestart met de gebruiker. Deze sessie kan de gebruiker toegang tot de toepassing totdat het verloopt.
 
 #### <a name="code-samples"></a>Codevoorbeelden
 
-Zie de codevoorbeelden voor webbrowser webtoepassing scenario's. En, vaak terugkomen--nieuwe samples vaak worden toegevoegd. [Webtoepassing](active-directory-code-samples.md#web-applications).
+Zie de codevoorbeelden voor webbrowser voor Web-App-scenario's. En kom regelmatig terug--nieuwe voorbeelden worden regelmatig toegevoegd. [Webtoepassing](active-directory-code-samples.md#web-applications).
 
 #### <a name="registering"></a>Registreren
 
-* Één Tenant: Als u een toepassing voor uw organisatie maakt, moet deze worden geregistreerd in de directory van uw bedrijf met behulp van de Azure-portal.
-* Multitenant: Als u een toepassing die kan worden gebruikt door gebruikers buiten uw organisatie maakt, het moet worden geregistreerd in de directory van uw bedrijf, maar ook moet worden geregistreerd in de map van elke organisatie die het gebruik van de toepassing. Als u uw toepassing in de directory, kunt u een aanmeldingsproces opnemen voor uw klanten kunnen ze om toestemming aan uw toepassing. Wanneer ze zich registreren voor uw toepassing, worden ze weergegeven met een dialoogvenster waarin u de machtigingen die vereist zijn voor de toepassing en de optie om toestemming. Afhankelijk van de vereiste machtigingen kan een beheerder in de andere organisatie worden vereist voor het opgeven van toestemming. Wanneer de gebruiker of beheerder hiermee akkoord gaat, wordt de toepassing is geregistreerd in de directory. Zie voor meer informatie [toepassingen integreren met Azure Active Directory](active-directory-integrating-applications.md).
+* Één Tenant: Als u een toepassing voor uw organisatie bouwt, moet deze worden geregistreerd in de directory van uw bedrijf met behulp van de Azure-portal.
+* Multitenant: Als u het bouwen van een toepassing die kan worden gebruikt door gebruikers buiten uw organisatie, deze moet worden geregistreerd in de directory van uw bedrijf, maar ook moet worden geregistreerd in de adreslijst van elke organisatie die van de toepassing gebruikmaakt. Als u uw toepassing in de directory, kunt u een aanmeldingsproces opnemen voor uw klanten waarmee ze akkoord gaan met uw toepassing. Wanneer ze zich registreren voor uw toepassing, wordt deze weergegeven met een dialoogvenster waarin de machtigingen die voor de toepassing moet worden weergegeven, en vervolgens de optie om in te stemmen. Afhankelijk van de vereiste machtigingen kan een beheerder in de andere organisatie worden vereist om toestemming te geven. Wanneer de gebruiker of beheerder hiermee akkoord gaat, wordt de toepassing is geregistreerd in de directory. Zie voor meer informatie, [toepassingen integreren met Azure Active Directory](active-directory-integrating-applications.md).
 
-#### <a name="token-expiration"></a>Verlopen van het token
+#### <a name="token-expiration"></a>Geldigheidsduur van het token
 
-De gebruikerssessie verloopt wanneer de levensduur van het token dat is uitgegeven door Azure AD is verlopen. Uw toepassing kunt inkorten deze periode indien gewenst, zoals het ondertekenen van de gebruikers op basis van een periode van inactiviteit. Wanneer de sessie is verlopen, wordt de gebruiker gevraagd opnieuw aanmelden.
+Sessie van de gebruiker is verlopen wanneer de levensduur van het token dat is uitgegeven door Azure AD is verlopen. Uw toepassing kunt korter deze periode, indien gewenst, zoals het afmelden van gebruikers op basis van een periode van inactiviteit. Wanneer de sessie is verlopen, wordt de gebruiker gevraagd zich opnieuw aanmelden.
 
-### <a name="single-page-application-spa"></a>Toepassing van één pagina (SPA)
+### <a name="single-page-application-spa"></a>Toepassing met één pagina (SPA)
 
-Deze sectie beschrijft de verificatie voor één pagina toepassing, die u maakt gebruik van Azure AD en de impliciete OAuth 2.0-machtiging verlenen om de web-API-back-end beveiligen. Toepassingen met één pagina zijn doorgaans geordend als een JavaScript-presentatie laag (front-end) die wordt uitgevoerd in de browser en een Web-API back-end die wordt uitgevoerd op een server en bedrijfslogica van de toepassing implementeert. Zie voor meer informatie over de impliciete authorization grant en kunt u bepalen of deze geschikt voor uw toepassingsscenario is, [inzicht in de impliciete OAuth2 stroom in Azure Active Directory verlenen](active-directory-dev-understanding-oauth2-implicit-grant.md).
+Deze sectie beschrijft de verificatie voor een enkele pagina toepassing, die maakt gebruik van Azure AD en de impliciete OAuth 2.0-machtiging verlenen voor het beveiligen van de web-API terug beëindigen. Toepassingen met één pagina zijn doorgaans gestructureerd als een JavaScript-presentatielaag (front-end) die in de browser en een Web-API back-end die wordt uitgevoerd op een server en implementeert de bedrijfslogica van de toepassing wordt uitgevoerd. Zie voor meer informatie over de impliciete autorisatietoekenning en kunt u bepalen of deze geschikt is voor uw toepassingsscenario, [inzicht in de OAuth2-impliciete stroom in Azure Active Directory verlenen](active-directory-dev-understanding-oauth2-implicit-grant.md).
 
-In dit scenario is wanneer de gebruiker zich aanmeldt, JavaScript front end gebruikt [Active Directory Authentication Library voor JavaScript (ADAL. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) en de impliciete authorization grant verkrijgen van een token ID (id_token) van Azure AD. Het token in de cache wordt opgeslagen en de client gekoppeld aan de aanvraag als de bearer-token bij het maken van aanroepen naar de Web-API back-end die is beveiligd met de OWIN-middleware. 
+In dit scenario is wanneer de gebruiker zich aanmeldt, JavaScript front-end gebruikt [Active Directory Authentication Library voor JavaScript (ADAL. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) en de impliciete autorisatietoekenning verkrijgen van een ID-token (id_token) van Azure AD. Het token is opgeslagen in de cache en de client gekoppeld aan de aanvraag als het bearer-token bij het maken van aanroepen naar de Web-API-back-end, dat is beveiligd met behulp van de OWIN-middleware. 
 
 #### <a name="diagram"></a>Diagram
 
-![Diagram van één pagina toepassing](./media/active-directory-authentication-scenarios/single_page_app.png)
+![Een diagram van één pagina toepassing](./media/active-directory-authentication-scenarios/single_page_app.png)
 
 #### <a name="description-of-protocol-flow"></a>Beschrijving van de stroom protocol
 
 1. De gebruiker navigeert naar de webtoepassing.
-1. De toepassing retourneert de JavaScript-front-end (presentatie laag) naar de browser.
-1. De gebruiker initieert aanmelden, bijvoorbeeld door te klikken op een koppeling aanmelden. De browser verzendt een GET naar het eindpunt van de autorisatie Azure AD om aan te vragen van een token ID. Deze aanvraag bevat de toepassings-ID en de antwoord-URL de queryparameters.
-1. Azure AD valideert de antwoord-URL voor de geregistreerde antwoord-URL die is geconfigureerd in de Azure portal.
-1. De gebruiker zich aanmeldt op de aanmeldingspagina.
-1. Als verificatie geslaagd is, wordt Azure AD maakt een token ID en wordt geretourneerd als een URL-fragment (#) antwoord-URL van de toepassing. Voor een productietoepassing moet dit antwoord-URL HTTPS. Het resulterende token bevat claims over de gebruiker en de Azure AD die nodig zijn voor de toepassing voor het valideren van het token.
-1. De JavaScript-clientcode uitgevoerd in de browser haalt het token uit het antwoord moet worden gebruikt in aanroepen naar de toepassing web dat API-back-end beveiliging.
-1. De browser aanroept van de toepassing-web-API terug in de autorisatie-header eindigen met het toegangstoken.
+1. De toepassing retourneert de JavaScript-front-end (presentatielaag) naar de browser.
+1. De gebruiker een aanmelding initieert, bijvoorbeeld door te klikken op een koppeling aanmelden. De browser verzendt een GET naar het autorisatie-eindpunt van de Azure AD om aan te vragen van een ID-token. Deze aanvraag bevat de toepassings-ID en antwoord-URL de queryparameters.
+1. Azure AD valideert de antwoord-URL op basis van de geregistreerde antwoord-URL die is geconfigureerd in Azure portal.
+1. De gebruiker meldt zich aan op de pagina aanmelden.
+1. Als verificatie geslaagd is, wordt Azure AD maakt u een ID-token en stuurt deze als een URL-fragment (#) naar antwoord-URL van de toepassing. Voor een productietoepassing moet deze antwoord-URL HTTPS. Het geretourneerde token bevat claims over de gebruiker en de Azure AD die nodig zijn voor de toepassing voor het valideren van het token.
+1. De JavaScript-client-code die wordt uitgevoerd in de browser extraheert het token uit het antwoord om te gebruiken bij het beveiligen van aanroepen van de toepassing web dat API terug beëindigen.
+1. De browser aanroept van de toepassing-web-API terug eindigen met de ID-token in de autorisatie-header. De Azure AD-verificatieservice problemen met een ID-token die kan worden gebruikt als een bearer-token als de resource hetzelfde als de client-ID is (in dit geval, dit geldt als de web-API de app zelf back-end is). 
 
 #### <a name="code-samples"></a>Codevoorbeelden
 
-Zie de codevoorbeelden voor scenario's met één pagina toepassing (SPA). Controleer regelmatig terug--nieuwe samples vaak worden toegevoegd. [Eén pagina toepassing (SPA)](active-directory-code-samples.md#single-page-applications).
+Zie de voorbeelden van code voor de toepassing van één pagina (SPA) scenario's. Zorg ervoor dat u vaak terugkomen--nieuwe voorbeelden worden regelmatig toegevoegd. [Enkele van de toepassing van de pagina (SPA)](active-directory-code-samples.md#single-page-applications).
 
 #### <a name="registering"></a>Registreren
 
-* Één Tenant: Als u een toepassing voor uw organisatie maakt, moet deze worden geregistreerd in de directory van uw bedrijf met behulp van de Azure-portal.
-* Multitenant: Als u een toepassing die kan worden gebruikt door gebruikers buiten uw organisatie maakt, het moet worden geregistreerd in de directory van uw bedrijf, maar ook moet worden geregistreerd in de map van elke organisatie die het gebruik van de toepassing. Als u uw toepassing in de directory, kunt u een aanmeldingsproces opnemen voor uw klanten kunnen ze om toestemming aan uw toepassing. Wanneer ze zich registreren voor uw toepassing, worden ze weergegeven met een dialoogvenster waarin u de machtigingen die vereist zijn voor de toepassing en de optie om toestemming. Afhankelijk van de vereiste machtigingen kan een beheerder in de andere organisatie worden vereist voor het opgeven van toestemming. Wanneer de gebruiker of beheerder hiermee akkoord gaat, wordt de toepassing is geregistreerd in de directory. Zie voor meer informatie [toepassingen integreren met Azure Active Directory](active-directory-integrating-applications.md).
+* Één Tenant: Als u een toepassing voor uw organisatie bouwt, moet deze worden geregistreerd in de directory van uw bedrijf met behulp van de Azure-portal.
+* Multitenant: Als u het bouwen van een toepassing die kan worden gebruikt door gebruikers buiten uw organisatie, deze moet worden geregistreerd in de directory van uw bedrijf, maar ook moet worden geregistreerd in de adreslijst van elke organisatie die van de toepassing gebruikmaakt. Als u uw toepassing in de directory, kunt u een aanmeldingsproces opnemen voor uw klanten waarmee ze akkoord gaan met uw toepassing. Wanneer ze zich registreren voor uw toepassing, wordt deze weergegeven met een dialoogvenster waarin de machtigingen die voor de toepassing moet worden weergegeven, en vervolgens de optie om in te stemmen. Afhankelijk van de vereiste machtigingen kan een beheerder in de andere organisatie worden vereist om toestemming te geven. Wanneer de gebruiker of beheerder hiermee akkoord gaat, wordt de toepassing is geregistreerd in de directory. Zie voor meer informatie, [toepassingen integreren met Azure Active Directory](active-directory-integrating-applications.md).
 
-Na de registratie van de toepassing moet deze worden geconfigureerd voor gebruik van OAuth 2.0 impliciete Grant-protocol. Dit protocol is standaard uitgeschakeld voor toepassingen. Het manifest van de toepassing van de Azure-portal bewerken om het impliciete Grant OAuth2-protocol voor uw toepassing, en de waarde 'oauth2AllowImplicitFlow' ingesteld op true. Zie voor gedetailleerde instructies [inschakelen van OAuth 2.0 impliciete Grant voor toepassingen met één pagina](active-directory-integrating-applications.md).
+Na de registratie van de toepassing, moet deze worden geconfigureerd voor het gebruik van de impliciete toekenning van OAuth 2.0-protocol. Dit protocol is standaard uitgeschakeld voor toepassingen. De impliciete goedkeuring voor Oauth2 als protocol wilt inschakelen voor uw toepassing, het manifest van de toepassing vanuit Azure portal bewerken en de waarde 'oauth2AllowImplicitFlow' ingesteld op true. Zie voor gedetailleerde instructies [inschakelen van OAuth 2.0 impliciete goedkeuring voor toepassingen met één pagina](active-directory-integrating-applications.md).
 
-#### <a name="token-expiration"></a>Verlopen van het token
+#### <a name="token-expiration"></a>Geldigheidsduur van het token
 
-Met behulp van ADAL.js helpt bij:
+Met behulp van ADAL.js helpt met het volgende:
 
-* vernieuwen van een verlopen token
-* aanvragen van een toegangstoken om aan te roepen een web API-resource
+* vernieuwen van een token verlopen
+* aanvragen van een toegangstoken voor het aanroepen van een web API-resource
 
-Na een geslaagde verificatie schrijft Azure AD een cookie in de browser van de gebruiker een sessie tot stand brengen. Noteer dat de sessie bestaat tussen de gebruiker en de Azure AD (niet tussen de webtoepassing en de gebruiker). Wanneer een token is verlopen, ADAL.js maakt gebruik van deze sessie op de achtergrond een ander token verkrijgen. ADAL.js maakt gebruik van een verborgen iFrame verzenden en ontvangen van de aanvraag met behulp van de impliciete OAuth-Grant-protocol. ADAL.js kunt ook hetzelfde mechanisme gebruiken achtergrond toegangstokens ophalen voor andere web-API-resources die de toepassing wordt aangeroepen, zolang deze resources ondersteuning voor cross-origin-resource delen (CORS) zijn geregistreerd in de map van de gebruiker en eventuele toestemming vereist is die door de gebruiker tijdens het aanmelden.
+Na een geslaagde verificatie wordt in Azure AD een cookie schrijft in de browser van de gebruiker een sessie tot stand brengen. Houd er rekening mee dat de sessie bestaat tussen de gebruiker en de Azure AD (niet tussen de gebruiker en de web-App). Wanneer een token is verlopen, ADAL.js maakt gebruik van deze sessie op de achtergrond verkrijgen van een ander token. ADAL.js maakt gebruik van een verborgen iFrame te verzenden en ontvangen van de aanvraag met behulp van de impliciete toekenning van OAuth-protocol. ADAL.js kunt ook hetzelfde mechanisme gebruiken op de achtergrond toegangstokens verkrijgen voor andere web-API-resources die de toepassing wordt aangeroepen, zolang deze resources ondersteuning voor cross-origin resource sharing (CORS), zijn geregistreerd in de map van de gebruiker en eventuele vereiste toestemming is opgegeven door de gebruiker tijdens het aanmelden.
 
-### <a name="native-application-to-web-api"></a>Systeemeigen toepassing aan web-API
+### <a name="native-application-to-web-api"></a>Systeemeigen toepassing voor de web-API
 
-Deze sectie beschrijft een systeemeigen toepassing die namens een gebruiker een web-API aanroept. Dit scenario is gebaseerd op het type OAuth 2.0 autorisatie code grant met een openbare-client, zoals beschreven in de sectie 4.1 van de [OAuth 2.0-specificatie](http://tools.ietf.org/html/rfc6749). Systeemeigen toepassing verkrijgt een toegangstoken voor de gebruiker via het OAuth 2.0-protocol. Deze toegangstoken wordt verzonden in de aanvraag voor de web-API die de gebruiker worden geautoriseerd en retourneert de gewenste resource.
+Deze sectie beschrijft een systeemeigen toepassing die namens een gebruiker een web-API aanroept. In dit scenario is gebaseerd op het machtigingstype van OAuth 2.0 machtiging code met een openbare client, zoals beschreven in sectie 4.1 van de [OAuth 2.0-specificatie](http://tools.ietf.org/html/rfc6749). De systeemeigen toepassing verkrijgt een toegangstoken voor de gebruiker met behulp van de OAuth 2.0-protocol. Deze toegangstoken wordt verzonden in de aanvraag naar de web-API, die de gebruiker toestaat en retourneert de gewenste resource.
 
 #### <a name="diagram"></a>Diagram
 
-![Systeemeigen toepassing naar de Web-API-Diagram](./media/active-directory-authentication-scenarios/native_app_to_web_api.png)
+![Systeemeigen toepassing voor de Web-API-Diagram](./media/active-directory-authentication-scenarios/native_app_to_web_api.png)
 
 #### <a name="description-of-protocol-flow"></a>Beschrijving van de stroom protocol
 
-Als u van de AD-Verificatiebibliotheken gebruikmaakt, worden de meeste van de gegevens van het protocol die hieronder worden beschreven, zoals de browser pop-upvenster token opslaan in cache en de verwerking van het vernieuwen van tokens afgehandeld.
+Als u van de AD-Verificatiebibliotheken gebruikmaakt, worden de meeste van de hieronder beschreven informatie voor het protocol voor u, zoals de browser pop-upvenster token opslaan in cache en de verwerking van vernieuwingstokens verwerkt.
 
-1. Via een browser pop-, dat de oorspronkelijke toepassing het eindpunt voor autorisatie van een aanvraag doet in Azure AD. Deze aanvraag bevat de toepassings-ID en de omleidings-URI van de systeemeigen toepassing zoals weergegeven in de Azure portal en de toepassings-ID-URI voor de web-API. Als de gebruiker nog niet al aangemeld, wordt deze gevraagd opnieuw aan te melden
-1. Azure AD verifieert de gebruiker. Als dit een multitenant-toepassing is en toestemming vereist voor het gebruik van de toepassing is, wordt de gebruiker vereist om toestemming als ze nog niet hebt gedaan. Na het verlenen en bij de verificatie is geslaagd, wordt in Azure AD een autorisatie code antwoord terug naar de clienttoepassing omleidings-URI geeft.
-1. Als Azure AD een code autorisatiereactie terug naar de omleidings-URI geeft, wordt de clienttoepassing wordt gestopt interactie van de browser en extraheert de autorisatiecode uit het antwoord. Met deze autorisatiecode, verzendt de clienttoepassing een aanvraag naar Azure AD-tokeneindpunt die de autorisatiecode bevat details over de clienttoepassing (toepassings-ID en omleidings-URI) en de gewenste resource (toepassings-ID-URI voor de Web-API).
-1. De autorisatiecode en informatie over de client-toepassing en web-API worden gevalideerd door Azure AD. Heeft validatie is geslaagd, wordt de Azure AD twee tokens: een JWT-token voor toegang en een vernieuwingstoken JWT. Bovendien retourneert Azure AD voor algemene informatie over de gebruiker, zoals een weergave naam en het tenant-ID.
-1. Via HTTPS, de clienttoepassing gebruikmaakt van het geretourneerde JWT-toegangstoken de JWT-tekenreeks met een aanduiding 'Bearer' in de autorisatie-header van de aanvraag toevoegen aan de web-API. De web-API valideert de JWT-token, en als validatie geslaagd is, retourneert de gewenste resource.
-1. Wanneer het toegangstoken is verlopen, ontvangt de clienttoepassing een fout die aangeeft dat de gebruiker moet opnieuw worden geverifieerd. Als de toepassing een ongeldig vernieuwingstoken heeft, kan het worden gebruikt voor het verkrijgen van een nieuw toegangstoken zonder tussenkomst van de gebruiker zich opnieuw aanmeldt. Als het vernieuwingstoken dat is verlopen, moet de toepassing interactief opnieuw verifiëren van de gebruiker.
+1. Met behulp van een browser pop, dat de systeemeigen toepassing een aanvraag doet bij het autorisatie-eindpunt in Azure AD. Deze aanvraag bevat de toepassings-ID en de omleidings-URI van de systeemeigen toepassing, zoals wordt weergegeven in de Azure-portal en de toepassings-ID-URI voor de web-API. Als de gebruiker nog niet is aangemeld, wordt ze gevraagd zich opnieuw aanmelden
+1. Azure AD verifieert de gebruiker. Als het is een multitenant-toepassing en toestemming vereist voor het gebruik van de toepassing is, de gebruiker moet toestemming geven als ze nog niet hebt gedaan. Na de toestemming verlenen en bij een geslaagde verificatie, problemen met Azure AD een autorisatie code-antwoord terug naar de clienttoepassing omleidings-URI.
+1. Wanneer Azure AD een autorisatie code-antwoord terug naar de omleidings-URI geeft, wordt de clienttoepassing stopt tussenkomst van de browser en extraheert de autorisatiecode uit het antwoord. Met deze autorisatiecode, verzendt de clienttoepassing een aanvraag naar Azure AD-token-eindpunt heeft met de autorisatiecode, details over de clienttoepassing (toepassings-ID en omleidings-URI) en de gewenste resource (toepassings-ID-URI voor de Web-API).
+1. De autorisatiecode en informatie over de client- en web-API worden gevalideerd door Azure AD. Na de validatie is geslaagd, Azure AD twee tokens retourneert: een JWT-toegangstoken en een JWT-vernieuwingstoken. Bovendien Azure AD als resultaat geeft algemene informatie over de gebruiker, zoals hun weergave naam en het tenant-ID.
+1. Via HTTPS gebruikt de clienttoepassing het geretourneerde JWT-toegangstoken om toe te voegen van de JWT-tekenreeks met een aanduiding 'Bearer' in de autorisatie-header van de aanvraag naar de web-API. De web-API valideert de JWT-token, en als validatie gelukt is, geeft de gewenste resource.
+1. Wanneer het toegangstoken is verlopen, is de clienttoepassing ontvangt een foutbericht weergegeven dat de gebruiker moet opnieuw worden geverifieerd. Als de toepassing een ongeldig vernieuwingstoken heeft, kan deze worden gebruikt om een nieuw toegangstoken verkrijgen zonder tussenkomst van de gebruiker zich opnieuw aanmelden. Als het vernieuwingstoken is verlopen, moet de toepassing interactief verifiëren van de gebruiker opnieuw.
 
 > [!NOTE]
-> Het vernieuwingstoken dat is uitgegeven door Azure AD kan worden gebruikt voor toegang tot meerdere resources. Bijvoorbeeld, hebt u een clienttoepassing die is gemachtigd om aan te roepen twee web-API's, kan het vernieuwingstoken dat kan worden gebruikt een om toegang te krijgen token gebruikt voor de andere web-API ook.
+> Het vernieuwingstoken dat is uitgegeven door Azure AD kan worden gebruikt voor toegang tot meerdere resources. Bijvoorbeeld, hebt u een clienttoepassing die gemachtigd is voor het aanroepen van twee web-API's, kan het vernieuwingstoken dat kan worden gebruikt voor een toegangstoken aan de andere web-API ook ophalen.
 
 #### <a name="code-samples"></a>Codevoorbeelden
 
-Zie de codevoorbeelden voor systeemeigen toepassing naar Web-API's. En terugkomen vaak--er regelmatig nieuwe samples toevoegen. [Systeemeigen toepassing aan Web-API](active-directory-code-samples.md#desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api).
+Zie de codevoorbeelden voor systeemeigen toepassing voor de Web-API-scenario's. En kom regelmatig terug--we nieuwe voorbeelden vaak toevoegen. [Systeemeigen toepassing voor de Web-API](active-directory-code-samples.md#desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api).
 
 #### <a name="registering"></a>Registreren
 
-* Één Tenant: Zowel het native toepassing en de web-API moeten zijn geregistreerd in dezelfde map in Azure AD. De web-API kan worden geconfigureerd om een reeks machtigingen die worden gebruikt voor het beperken van toegang tot de bronnen van de systeemeigen toepassing weer te geven. De clienttoepassing vervolgens selecteert de gewenste machtigingen uit de vervolgkeuzelijst 'Machtigingen voor andere toepassingen' in de Azure portal.
-* Multitenant: Eerst de systeemeigen toepassing alleen ooit geregistreerd in de ontwikkelaar of uitgever map. Ten tweede is systeemeigen toepassing geconfigureerd om aan te geven van de machtigingen die nodig is voor functioneel. Deze lijst met de vereiste machtigingen wordt in een dialoogvenster weergegeven wanneer een gebruiker of beheerder in de doelmap toestemming geeft tot de toepassing, waardoor er beschikbaar zijn voor hun organisatie. Sommige toepassingen vereisen alleen op gebruikersniveau machtigingen, wat een gebruiker in de organisatie met instemmen kunt. Andere toepassingen moet beheerdersniveau machtigingen, wat een gebruiker in de organisatie kan niet met instemmen. De beheerder van een directory kunt u toestemming geven tot toepassingen waarvoor dit niveau van machtigingen. Wanneer de gebruiker of beheerder hiermee akkoord gaat, wordt alleen de web-API is geregistreerd in de directory. Zie voor meer informatie [toepassingen integreren met Azure Active Directory](active-directory-integrating-applications.md).
+* Één Tenant: Zowel de native toepassing en de web-API moeten worden geregistreerd in dezelfde map in Azure AD. De web-API kan worden geconfigureerd als een reeks machtigingen die worden gebruikt voor het beperken van toegang tot de bronnen van de systeemeigen toepassing beschikbaar wilt maken. De clienttoepassing vervolgens selecteert de gewenste machtigingen in het menu van de vervolgkeuzelijst 'Machtigingen voor andere toepassingen' in de Azure-portal.
+* Multitenant: Eerst de systeemeigen toepassing slechts geregistreerd in de ontwikkelaar of in de map van de uitgever. Ten tweede is de systeemeigen toepassing geconfigureerd om aan te geven van de machtigingen die nodig is voor functioneel. Deze lijst met vereiste machtigingen in een dialoogvenster weergegeven wanneer een gebruiker of beheerder in de doelmap toestemming geeft voor de toepassing, waardoor het beschikbaar is voor hun organisatie. Sommige toepassingen vereisen alleen machtigingen op gebruikersniveau, waar een gebruiker in de organisatie toestemming kunt geven. Andere toepassingen vereist beheerdersrechten, die een gebruiker in de organisatie kan niet met instemmen zijn. Alleen een directory-beheerder kan toestemming geven voor toepassingen waarvoor dit niveau van machtigingen. Wanneer de gebruiker of beheerder hiermee akkoord gaat, worden alleen de web-API is geregistreerd in de directory. Zie voor meer informatie, [toepassingen integreren met Azure Active Directory](active-directory-integrating-applications.md).
 
-#### <a name="token-expiration"></a>Verlopen van het token
+#### <a name="token-expiration"></a>Geldigheidsduur van het token
 
-Wanneer de systeemeigen toepassing de autorisatiecode gebruikt een toegang JWT-token ophalen, ontvangt het ook een JWT-token voor vernieuwen. Wanneer het toegangstoken is verlopen, kan het vernieuwingstoken worden gebruikt voor het opnieuw verifiëren zonder dat ze opnieuw aanmelden. Dit vernieuwingstoken wordt vervolgens gebruikt voor het verifiëren van de gebruiker, wat resulteert in een nieuw toegangstoken en een vernieuwingstoken.
+Wanneer de systeemeigen toepassing maakt gebruik van de autorisatiecode ophalen een toegang JWT-token, ontvangt deze ook een JWT-vernieuwingstoken. Wanneer het toegangstoken is verlopen, kan het vernieuwingstoken dat kan worden gebruikt voor het opnieuw verifiëren zonder dat ze zich opnieuw aanmelden. Dit vernieuwingstoken wordt vervolgens gebruikt voor verificatie van de gebruiker, wat resulteert in een nieuw toegangstoken en een vernieuwingstoken.
 
-### <a name="web-application-to-web-api"></a>Webtoepassing aan web-API
+### <a name="web-application-to-web-api"></a>Web-App aan web-API
 
-Deze sectie beschrijft een webtoepassing die behoeften bronnen ophalen van een web-API. In dit scenario zijn er zijn twee identiteitstypen die de webtoepassing gebruiken kunt om te verifiëren en de web-API aanroepen: een toepassings-id of een gedelegeerde gebruikersidentiteit.
+Deze sectie beschrijft een webtoepassing die nodig heeft om op te halen van resources van een web-API. In dit scenario zijn er zijn twee identiteitstypen die de web-App gebruiken kunt om te verifiëren en de web-API aanroepen: een toepassings-id of een gedelegeerde gebruikersidentiteit.
 
-*Toepassings-id:* OAuth 2.0-client referenties verlenen om te verifiëren als de toepassing en toegang tot de web-API maakt gebruik van dit scenario. Bij gebruik van een toepassings-id, de web-API kan alleen worden gedetecteerd dat de webtoepassing wordt aangeroepen, als de web biedt API geen informatie ontvangen over de gebruiker. Als de toepassing gegevens over de gebruiker ontvangt, wordt verzonden via het toepassingsprotocol en het niet is ondertekend door Azure AD. De web-API vertrouwt dat de webtoepassing de gebruiker heeft geverifieerd. Om deze reden wordt dit patroon van een vertrouwde subsysteem genoemd.
+*Toepassings-id:* in dit scenario maakt gebruik van OAuth 2.0-clientreferenties om te verifiëren als de toepassing en toegang tot de web-API. Bij het gebruik van een toepassings-id, de web-API kan alleen worden gedetecteerd dat de web-App wordt aangeroepen, als de web-API heeft niet informatie is ontvangen over de gebruiker. Als de toepassing informatie over de gebruiker ontvangt, wordt verzonden via het toepassingsprotocol en is het niet ondertekend door Azure AD. De web-API vertrouwt die de web-App de gebruiker geverifieerd. Dit patroon wordt een subsysteem van het vertrouwde genoemd om deze reden.
 
-*Gedelegeerde gebruikersidentiteit:* dit scenario kan worden uitgevoerd op twee manieren: OpenID Connect en OAuth 2.0 autorisatie code grant met een vertrouwelijk client. De webtoepassing verkrijgt een toegangstoken voor de gebruiker, blijkt de web-API die de gebruiker is geverifieerd aan de webtoepassing en dat de webtoepassing heeft kunnen verkrijgen van een gedelegeerde gebruikersidentiteit dat voor het aanroepen van de web-API. Deze toegangstoken wordt verzonden in de aanvraag voor de web-API die de gebruiker worden geautoriseerd en retourneert de gewenste resource.
+*Gedelegeerde gebruikersidentiteit:* in dit scenario kan worden uitgevoerd op twee manieren: OpenID Connect en OAuth 2.0-autorisatiecode verlenen aan een vertrouwelijke client. De web-App verkrijgt een toegangstoken voor de gebruiker, blijkt dat de web-API die de gebruiker is geverifieerd aan de web-App en dat de web-App heeft kunnen verkrijgen van een gedelegeerde gebruikersidentiteit in voor het aanroepen van de web-API. Deze toegangstoken wordt verzonden in de aanvraag voor de web-API, die de gebruiker toestaat en retourneert de gewenste resource.
 
 #### <a name="diagram"></a>Diagram
 
-![Webtoepassing aan Web-API-diagram](./media/active-directory-authentication-scenarios/web_app_to_web_api.png)
+![Diagram van de Web-API van Web Apps](./media/active-directory-authentication-scenarios/web_app_to_web_api.png)
 
 #### <a name="description-of-protocol-flow"></a>Beschrijving van de stroom protocol
 
-De toepassings-id en de identiteit van gedelegeerd gebruikerstypen worden besproken in de onderstaande volgorde. Het belangrijkste verschil tussen deze twee is dat de gedelegeerde gebruikersidentiteit eerst een autorisatiecode verkrijgen moet voordat de gebruiker kunt aanmelden en toegang krijgen tot de web-API.
+De toepassings-id en de gemachtigde gebruiker-ID-typen worden beschreven in de onderstaande stroom. Het belangrijkste verschil is dat de gedelegeerde gebruikersidentiteit eerst een autorisatiecode verkrijgen moet voordat de gebruiker kan zich aanmelden en toegang tot de web-API krijgen.
 
-##### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>De toepassingsidentiteit met OAuth 2.0-clientreferenties verlenen
+##### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>Toepassings-id met referenties voor OAuth 2.0-client verlenen
 
-1. Een gebruiker is aangemeld bij Azure AD in de webtoepassing (Zie de [webbrowser webtoepassing](#web-browser-to-web-application) hierboven).
-1. De webtoepassing moet te verkrijgen van een toegangstoken zodat deze kan worden geverifieerd met de web-API en ophalen van de gewenste resource. Dit doet een aanvraag naar Azure AD-tokeneindpunt, de referentie-, toepassings-ID-en web-API van toepassings-ID-URI.
+1. Een gebruiker is aangemeld bij Azure AD in de web-App (Zie de [Web Browser webtoepassing](#web-browser-to-web-application) hierboven).
+1. De web-App moet een toegangstoken verkrijgen, zodat het kan worden geverifieerd bij de web-API en opvragen van de gewenste resource. Wordt een aanvraag naar Azure AD-token-eindpunt met de referentie, toepassings-ID en de web-API-toepassing-ID-URI.
 1. Azure AD verifieert de toepassing en retourneert een JWT-toegangstoken dat wordt gebruikt voor de web-API aanroepen.
-1. Het geretourneerde JWT-toegangstoken worden in de webtoepassing via HTTPS gebruikt de JWT-tekenreeks met een aanduiding 'Bearer' in de autorisatie-header van de aanvraag toevoegen aan de web-API. De web-API valideert de JWT-token, en als validatie geslaagd is, retourneert de gewenste resource.
+1. Via HTTPS gebruikt de web-App het geretourneerde JWT-toegangstoken om toe te voegen van de JWT-tekenreeks met een aanduiding 'Bearer' in de autorisatie-header van de aanvraag naar de web-API. De web-API valideert de JWT-token, en als validatie gelukt is, geeft de gewenste resource.
 
 ##### <a name="delegated-user-identity-with-openid-connect"></a>Gedelegeerde gebruikersidentiteit met OpenID Connect
 
-1. Een gebruiker is aangemeld bij een webtoepassing met behulp van Azure AD (Zie de [webbrowser webtoepassing](#web-browser-to-web-application) sectie hierboven). Als de gebruiker van de webtoepassing niet nog heeft ingestemd aan waardoor de webtoepassing om aan te roepen namens de web-API, wordt de gebruiker moet toestemming geven. De machtigingen die vereist worden weergegeven door de toepassing en als een van deze machtigingen op administrator-niveau, normale gebruiker in de map kan niet worden om toestemming. Dit proces toestemming geldt alleen voor multitenant-toepassingen, niet één tenant toepassingen, zoals de toepassing al over de vereiste machtigingen beschikt. Wanneer de gebruiker is aangemeld, heeft een token ID met informatie over de gebruiker, evenals een autorisatiecode ontvangen in de webtoepassing.
-1. Met behulp van de autorisatiecode uitgegeven door Azure AD, verzendt de webtoepassing een aanvraag naar Azure AD-tokeneindpunt waarin de autorisatiecode, informatie over de clienttoepassing (toepassings-ID en omleidings-URI) en de gewenste resource (toepassings-ID De URI voor de web-API).
-1. De autorisatiecode en informatie over de webtoepassing en de web-API worden gevalideerd door Azure AD. Heeft validatie is geslaagd, wordt de Azure AD twee tokens: een JWT-token voor toegang en een vernieuwingstoken JWT.
-1. Het geretourneerde JWT-toegangstoken worden in de webtoepassing via HTTPS gebruikt de JWT-tekenreeks met een aanduiding 'Bearer' in de autorisatie-header van de aanvraag toevoegen aan de web-API. De web-API valideert de JWT-token, en als validatie geslaagd is, retourneert de gewenste resource.
+1. Een gebruiker is aangemeld bij een web-App met behulp van Azure AD (Zie de [Web Browser webtoepassing](#web-browser-to-web-application) hierboven). Als de gebruiker van de web-App heeft nog niet toegestaan dat zodat de webtoepassing naar de web-API aanroepen namens, wordt de gebruiker moet toestemming geven. De machtigingen die vereist is door de toepassing wordt weergegeven, en als een van deze machtigingen op administrator-niveau, een normale gebruiker in de map niet mogelijk om in te stemmen. Dit proces toestemming geldt alleen voor toepassingen met meerdere tenants, niet één tenant-toepassingen, zoals de toepassing beschikt al over de vereiste machtigingen. Wanneer de gebruiker is aangemeld, heeft een ID-token met informatie over de gebruiker, evenals een autorisatiecode ontvangen in de web-App.
+1. Met behulp van de autorisatiecode dat is uitgegeven door Azure AD, verzendt de web-App een aanvraag naar Azure AD-token-eindpunt met de autorisatiecode, informatie over de clienttoepassing (toepassings-ID en omleidings-URI) en de gewenste resource (toepassings-ID De URI voor de web-API).
+1. De autorisatiecode en informatie over de web-App en web-API worden gevalideerd door Azure AD. Na de validatie is geslaagd, Azure AD twee tokens retourneert: een JWT-toegangstoken en een JWT-vernieuwingstoken.
+1. Via HTTPS gebruikt de web-App het geretourneerde JWT-toegangstoken om toe te voegen van de JWT-tekenreeks met een aanduiding 'Bearer' in de autorisatie-header van de aanvraag naar de web-API. De web-API valideert de JWT-token, en als validatie gelukt is, geeft de gewenste resource.
 
-##### <a name="delegated-user-identity-with-oauth-20-authorization-code-grant"></a>Gedelegeerde gebruikersidentiteit met OAuth 2.0 autorisatie code verlenen
+##### <a name="delegated-user-identity-with-oauth-20-authorization-code-grant"></a>Gedelegeerde gebruikersidentiteit met OAuth 2.0-autorisatiecode verlenen
 
-1. Een gebruiker is al aangemeld bij een webtoepassing waarvan verificatiemechanisme onafhankelijk van Azure AD is.
-1. De webtoepassing vereist een autorisatiecode bij het aanschaffen van een toegangstoken zodat deze een aanvraag via de browser aan Azure AD autorisatie eindpunt uitgeeft, bieden de toepassings-ID en omleidings-URI voor de webtoepassing na een geslaagde authenticatie. De gebruiker zich aanmeldt bij Azure AD.
-1. Als de gebruiker van de webtoepassing niet nog heeft ingestemd aan waardoor de webtoepassing om aan te roepen namens de web-API, wordt de gebruiker moet toestemming geven. De machtigingen die vereist worden weergegeven door de toepassing en als een van deze machtigingen op administrator-niveau, normale gebruiker in de map kan niet worden om toestemming. Deze toestemming geldt voor zowel één als meerdere tenants toepassing. Een beheerder kan admin toestemming-toestemming uitvoeren namens gebruikers in het geval één tenant. U kunt dit doen met behulp van de `Grant Permissions` knop in de [Azure Portal](https://portal.azure.com). 
-1. Nadat de gebruiker heeft ingestemd, ontvangt de webtoepassing de autorisatiecode die nodig zijn voor het verkrijgen van een toegangstoken.
-1. Met behulp van de autorisatiecode uitgegeven door Azure AD, verzendt de webtoepassing een aanvraag naar Azure AD-tokeneindpunt waarin de autorisatiecode, informatie over de clienttoepassing (toepassings-ID en omleidings-URI) en de gewenste resource (toepassings-ID De URI voor de web-API).
-1. De autorisatiecode en informatie over de webtoepassing en de web-API worden gevalideerd door Azure AD. Heeft validatie is geslaagd, wordt de Azure AD twee tokens: een JWT-token voor toegang en een vernieuwingstoken JWT.
-1. Het geretourneerde JWT-toegangstoken worden in de webtoepassing via HTTPS gebruikt de JWT-tekenreeks met een aanduiding 'Bearer' in de autorisatie-header van de aanvraag toevoegen aan de web-API. De web-API valideert de JWT-token, en als validatie geslaagd is, retourneert de gewenste resource.
+1. Een gebruiker is al aangemeld bij een webtoepassing, waarvan verificatiemechanisme onafhankelijk van Azure AD is.
+1. De web-App is een autorisatiecode voor een toegangstoken verkrijgen, zodat deze Hiermee wordt een aanvraag via de browser naar Azure AD autorisatie-eindpunt, bieden de toepassings-ID en omleidings-URI voor de web-App na een geslaagde authenticatie vereist. De gebruiker zich aanmeldt bij Azure AD.
+1. Als de gebruiker van de web-App heeft nog niet toegestaan dat zodat de webtoepassing naar de web-API aanroepen namens, wordt de gebruiker moet toestemming geven. De machtigingen die vereist is door de toepassing wordt weergegeven, en als een van deze machtigingen op administrator-niveau, een normale gebruiker in de map niet mogelijk om in te stemmen. Deze toestemming is van toepassing op zowel één als multitenant-toepassing. In het geval één tenant, kan een beheerder beheerder toestemming voor toestemming uitvoeren namens de gebruikers. Dit kan worden gedaan met behulp van de `Grant Permissions` knop in de [Azure Portal](https://portal.azure.com). 
+1. Nadat de gebruiker heeft ingestemd, ontvangt de webtoepassing de autorisatiecode die nodig zijn voor een toegangstoken verkrijgen.
+1. Met behulp van de autorisatiecode dat is uitgegeven door Azure AD, verzendt de web-App een aanvraag naar Azure AD-token-eindpunt met de autorisatiecode, informatie over de clienttoepassing (toepassings-ID en omleidings-URI) en de gewenste resource (toepassings-ID De URI voor de web-API).
+1. De autorisatiecode en informatie over de web-App en web-API worden gevalideerd door Azure AD. Na de validatie is geslaagd, Azure AD twee tokens retourneert: een JWT-toegangstoken en een JWT-vernieuwingstoken.
+1. Via HTTPS gebruikt de web-App het geretourneerde JWT-toegangstoken om toe te voegen van de JWT-tekenreeks met een aanduiding 'Bearer' in de autorisatie-header van de aanvraag naar de web-API. De web-API valideert de JWT-token, en als validatie gelukt is, geeft de gewenste resource.
 
 #### <a name="code-samples"></a>Codevoorbeelden
 
-Zie de codevoorbeelden voor webtoepassing naar Web-API's. En, vaak terugkomen--nieuwe samples vaak worden toegevoegd. Web [toepassing aan Web-API](active-directory-code-samples.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
+Zie de codevoorbeelden voor Web-App naar Web-API-scenario's. En kom regelmatig terug--nieuwe voorbeelden worden regelmatig toegevoegd. Web [toepassing naar Web-API](active-directory-code-samples.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
 
 #### <a name="registering"></a>Registreren
 
-* Één Tenant: Voor zowel de toepassings-id als gedelegeerde gebruiker identiteit gevallen worden de webtoepassing en de web-API moet worden geregistreerd in dezelfde map in Azure AD. De web-API kan worden geconfigureerd om een reeks machtigingen die worden gebruikt voor het beperken van toegang tot de bronnen van de webtoepassing weer te geven. Als een type gedelegeerde gebruikersidentiteit wordt gebruikt, moet de webtoepassing Selecteer de gewenste machtigingen in de vervolgkeuzelijst 'Machtigingen voor andere toepassingen' in de Azure portal. Deze stap is niet vereist als het type van de identiteit wordt gebruikt.
-* Multitenant: Eerst de webtoepassing is geconfigureerd om aan te geven van de machtigingen die nodig is voor functioneel. Deze lijst met de vereiste machtigingen wordt in een dialoogvenster weergegeven wanneer een gebruiker of beheerder in de doelmap toestemming geeft tot de toepassing, waardoor er beschikbaar zijn voor hun organisatie. Sommige toepassingen vereisen alleen op gebruikersniveau machtigingen, wat een gebruiker in de organisatie met instemmen kunt. Andere toepassingen moet beheerdersniveau machtigingen, wat een gebruiker in de organisatie kan niet met instemmen. De beheerder van een directory kunt u toestemming geven tot toepassingen waarvoor dit niveau van machtigingen. Wanneer de gebruiker of beheerder hiermee akkoord gaat, zijn de webtoepassing en de web-API beide geregistreerd in de directory.
+* Één Tenant: Voor zowel de toepassings-id als gemachtigde gebruiker identiteit gevallen worden de web-App en de web-API moet worden geregistreerd in dezelfde map in Azure AD. De web-API kan worden geconfigureerd als een reeks machtigingen die worden gebruikt voor het beperken van toegang tot de bronnen van de web-App beschikbaar wilt maken. Als een gemachtigde gebruiker-ID-type wordt gebruikt, moet de web-App selecteert de gewenste machtigingen in de vervolgkeuzelijst 'Machtigingen voor andere toepassingen' in de Azure-portal. Deze stap is niet vereist als het toepassingstype identiteit wordt gebruikt.
+* Multitenant: Eerst de webtoepassing is geconfigureerd om aan te geven van de machtigingen die nodig is voor functioneel. Deze lijst met vereiste machtigingen in een dialoogvenster weergegeven wanneer een gebruiker of beheerder in de doelmap toestemming geeft voor de toepassing, waardoor het beschikbaar is voor hun organisatie. Sommige toepassingen vereisen alleen machtigingen op gebruikersniveau, waar een gebruiker in de organisatie toestemming kunt geven. Andere toepassingen vereist beheerdersrechten, die een gebruiker in de organisatie kan niet met instemmen zijn. Alleen een directory-beheerder kan toestemming geven voor toepassingen waarvoor dit niveau van machtigingen. Wanneer de gebruiker of beheerder hiermee akkoord gaat, de web-App en de web-API zijn beide geregistreerd in de directory.
 
-#### <a name="token-expiration"></a>Verlopen van het token
+#### <a name="token-expiration"></a>Geldigheidsduur van het token
 
-Als de webtoepassing de autorisatiecode gebruikt een toegang JWT-token ophalen, ontvangt het ook een JWT-token voor vernieuwen. Wanneer het toegangstoken is verlopen, kan het vernieuwingstoken worden gebruikt voor het opnieuw verifiëren zonder dat ze opnieuw aanmelden. Dit vernieuwingstoken wordt vervolgens gebruikt voor het verifiëren van de gebruiker, wat resulteert in een nieuw toegangstoken en een vernieuwingstoken.
+Wanneer de web-App de autorisatiecode gebruikt om te profiteren van een JWT-token, ontvangt deze ook een JWT-vernieuwingstoken. Wanneer het toegangstoken is verlopen, kan het vernieuwingstoken dat kan worden gebruikt voor het opnieuw verifiëren zonder dat ze zich opnieuw aanmelden. Dit vernieuwingstoken wordt vervolgens gebruikt voor verificatie van de gebruiker, wat resulteert in een nieuw toegangstoken en een vernieuwingstoken.
 
-### <a name="daemon-or-server-application-to-web-api"></a>Daemon of servertoepassing aan web-API
+### <a name="daemon-or-server-application-to-web-api"></a>Daemon of servertoepassing naar web-API
 
-Deze sectie beschrijft een daemon of server-toepassing die bronnen ophalen van een web-API. Er zijn twee onderliggende scenario's die betrekking hebben op deze sectie: een daemon die moet worden aangeroepen een web-API, gebaseerd op OAuth 2.0 referenties grant clienttype; en een servertoepassing (zoals een web-API) die u een web-API moet, gebaseerd op OAuth 2.0 On-Behalf-Of conceptspecificatie aanroepen.
+Deze sectie beschrijft een daemon of server-toepassing die moet resources ophalen uit een web-API. Er zijn twee subregio's die betrekking hebben op deze sectie: een daemon uit die nodig zijn om aan te roepen een web-API, die is gebouwd op toekenningstype van OAuth 2.0-client-referenties; en een servertoepassing (zoals een web-API) die nodig heeft om aan te roepen een web-API, die is gebouwd op namens van OAuth 2.0-concept-specificatie.
 
-Voor het scenario wanneer een daemontoepassing moet aanroepen van een web-API, is het belangrijk om te begrijpen van een aantal dingen. Eerst is tussenkomst van de gebruiker niet mogelijk met een daemon-toepassing waarvoor de toepassing een eigen identiteit hebben. Een voorbeeld van een daemontoepassing is een batch-job of de service van een besturingssysteem op de achtergrond uitgevoerd. Dit type toepassing een toegangstoken aanvragen door het gebruik van de toepassingsidentiteit en presenteren van de toepassings-ID, de referentie (wachtwoord of certificaat) en de toepassing naar Azure AD-ID-URI. Wanneer u bent geverifieerd ontvangt de daemon een toegangstoken van Azure AD, die vervolgens wordt gebruikt voor de web-API aanroepen.
+Voor het scenario als een daemontoepassing nodig heeft om aan te roepen een web-API, is het belangrijk om te begrijpen van een aantal dingen. Eerst is tussenkomst van de gebruiker niet mogelijk is met een daemon-toepassing waarvoor u de toepassing een eigen identiteit hebben. Een voorbeeld van een daemontoepassing is een batch-taak, of de service van een besturingssysteem op de achtergrond uitgevoerd. Dit type toepassing vraagt een toegangstoken met behulp van de toepassings-id en presenteert de toepassings-ID, de referentie (wachtwoord of certificaat) en de toepassing-ID-URI naar Azure AD. Na een geslaagde authenticatie ontvangt de daemon voor een toegangstoken van Azure AD, dat vervolgens wordt gebruikt voor het aanroepen van de web-API.
 
-Voor het scenario wanneer een servertoepassing moet aanroepen van een web-API, is het handig om te gebruiken van een voorbeeld. Stel dat een gebruiker heeft geverifieerd op een systeemeigen toepassing en deze systeemeigen toepassing moet een web-API aanroepen. Azure AD geeft een JWT-token voor toegang voor het aanroepen van de web-API. Als de web-API een andere downstream web-API aanroepen moet, wordt de op namens-stroom delegeren van de identiteit van de gebruiker en kunt verifiëren bij de tweede laag web-API.
+Voor het scenario als nodig is voor een servertoepassing voor het aanroepen van een web-API, is het handig om een voorbeeld gebruiken. Stel dat een gebruiker is geverifieerd op een systeemeigen toepassing, en deze systeemeigen toepassing moet een web-API aanroepen. Azure AD geeft een JWT-toegangstoken voor het aanroepen van de web-API. Als de web-API een andere downstream web-API aanroepen moet, kan deze de stroom op-andere gebruikers-of gebruik het overdragen van de identiteit van de gebruiker en worden geverifieerd bij de tweede laag web-API.
 
 #### <a name="diagram"></a>Diagram
 
-![Daemon of servertoepassing aan Web-API-diagram](./media/active-directory-authentication-scenarios/daemon_server_app_to_web_api.png)
+![Daemon of servertoepassing naar Web-API-diagram](./media/active-directory-authentication-scenarios/daemon_server_app_to_web_api.png)
 
 #### <a name="description-of-protocol-flow"></a>Beschrijving van de stroom protocol
 
-##### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>De toepassingsidentiteit met OAuth 2.0-clientreferenties verlenen
+##### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>Toepassings-id met referenties voor OAuth 2.0-client verlenen
 
-1. De servertoepassing moet eerst worden geverifieerd bij Azure AD als zelf, zonder menselijke tussenkomst zoals een dialoogvenster voor interactieve aanmelding. Dit doet een aanvraag naar Azure AD-tokeneindpunt, waarbij de referentie-, toepassings-ID- en toepassings-ID-URI.
+1. De servertoepassing moet eerst worden geverifieerd bij Azure AD als zelf, zonder menselijke tussenkomst, zoals een dialoogvenster voor interactieve aanmelding. Wordt een aanvraag naar Azure AD-token-eindpunt met de referenties, toepassings-ID en toepassings-ID-URI.
 1. Azure AD verifieert de toepassing en retourneert een JWT-toegangstoken dat wordt gebruikt voor de web-API aanroepen.
-1. Het geretourneerde JWT-toegangstoken worden in de webtoepassing via HTTPS gebruikt de JWT-tekenreeks met een aanduiding 'Bearer' in de autorisatie-header van de aanvraag toevoegen aan de web-API. De web-API valideert de JWT-token, en als validatie geslaagd is, retourneert de gewenste resource.
+1. Via HTTPS gebruikt de web-App het geretourneerde JWT-toegangstoken om toe te voegen van de JWT-tekenreeks met een aanduiding 'Bearer' in de autorisatie-header van de aanvraag naar de web-API. De web-API valideert de JWT-token, en als validatie gelukt is, geeft de gewenste resource.
 
-##### <a name="delegated-user-identity-with-oauth-20-on-behalf-of-draft-specification"></a>Gedelegeerde gebruikersidentiteit met OAuth 2.0 On-Behalf-Of concept-specificatie
+##### <a name="delegated-user-identity-with-oauth-20-on-behalf-of-draft-specification"></a>Gedelegeerde gebruikersidentiteit met OAuth 2.0 namens concept-specificatie
 
-De stroom die hieronder worden beschreven, wordt ervan uitgegaan dat een gebruiker is geverifieerd op een andere toepassing (zoals een systeemeigen toepassing) en de identiteit van de gebruiker is gebruikt voor het verkrijgen van een toegangstoken uit aan de eerste laag web-API.
+De stroom die hierna wordt ervan uitgegaan dat een gebruiker is geverifieerd op een andere toepassing (zoals een systeemeigen toepassing) en de identiteit van de gebruiker is gebruikt voor het verkrijgen van een toegangstoken uit aan de web-API van de eerste laag.
 
-1. Het toegangstoken verzendt systeemeigen toepassing naar de web-API van de eerste laag.
-1. De web-API van de eerste laag verzendt een aanvraag naar Azure AD-tokeneindpunt, bieden de toepassings-ID en referenties, evenals het toegangstoken van de gebruiker. Bovendien wordt de aanvraag is verzonden met een on_behalf_of parameter die aangeeft van de web API nieuwe tokens aan te roepen een downstream web-API namens de oorspronkelijke gebruiker vraagt.
-1. Azure AD verifieert dat de web-API van de eerste laag machtigingen heeft voor toegang tot de web-API van de tweede laag en valideert de aanvraag kan retourneren van een JWT-token voor toegang en een JWT-token voor de web-API van de eerste laag vernieuwen.
-1. Via HTTPS roept de eerste laag web-API voor de web-API van de tweede laag vervolgens door de tekenreeks token in autorisatie-header in de aanvraag toe te voegen. De web-API van de eerste laag kunt doorgaan met de web-API van de tweede laag aanroepen, zolang het toegangstoken en vernieuwen van tokens geldig zijn.
+1. Het toegangstoken verzendt de systeemeigen toepassing naar de web-API van de eerste laag.
+1. De eerste laag web-API verzendt een aanvraag naar Azure AD-token-eindpunt biedt de toepassings-ID en referenties, evenals het toegangstoken van de gebruiker. Bovendien de aanvraag is verzonden met een on_behalf_of parameter die aangeeft van de web API nieuwe tokens voor het aanroepen van een downstream web-API namens de oorspronkelijke gebruiker wordt aangevraagd.
+1. Azure AD verifieert dat de eerste laag web-API heeft machtigingen voor toegang tot de tweede laag web-API en valideert de aanvraag, retourneren een JWT-toegangstoken en vernieuwen van een JWT-token naar de web-API voor de eerste laag.
+1. Via HTTPS roept de eerste laag web-API voor de web-API van de tweede laag vervolgens door de token tekenreeks in de autorisatie-header in de aanvraag toe te voegen. De eerste laag web-API kunt doorgaan met het aanroepen van de tweede laag web-API, zolang het toegangstoken en vernieuwen van tokens geldig zijn.
 
 #### <a name="code-samples"></a>Codevoorbeelden
 
-Zie de codevoorbeelden voor Daemon of servertoepassing naar Web-API's. En, vaak terugkomen--nieuwe samples vaak worden toegevoegd. [Server of daemontoepassing aan Web-API](active-directory-code-samples.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
+Zie de codevoorbeelden voor Daemon of servertoepassing naar Web-API-scenario's. En kom regelmatig terug--nieuwe voorbeelden worden regelmatig toegevoegd. [Server- of Daemon-toepassing naar Web-API](active-directory-code-samples.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
 #### <a name="registering"></a>Registreren
 
-* Één Tenant: Voor zowel de toepassings-id als gedelegeerde gebruiker identiteit gevallen worden de daemon of server-toepassing moet worden geregistreerd in dezelfde map in Azure AD. De web-API kan worden geconfigureerd om een reeks machtigingen die worden gebruikt voor het beperken van de daemon of toegang tot de bronnen van de server weer te geven. Als een type gedelegeerde gebruikersidentiteit wordt gebruikt, moet de servertoepassing Selecteer de gewenste machtigingen in de vervolgkeuzelijst 'Machtigingen voor andere toepassingen' in de Azure portal. Deze stap is niet vereist als het type van de identiteit wordt gebruikt.
-* Multitenant: Eerst de toepassing daemon of de server is geconfigureerd om aan te geven van de machtigingen die nodig is voor functioneel. Deze lijst met de vereiste machtigingen wordt in een dialoogvenster weergegeven wanneer een gebruiker of beheerder in de doelmap toestemming geeft tot de toepassing, waardoor er beschikbaar zijn voor hun organisatie. Sommige toepassingen vereisen alleen op gebruikersniveau machtigingen, wat een gebruiker in de organisatie met instemmen kunt. Andere toepassingen moet beheerdersniveau machtigingen, wat een gebruiker in de organisatie kan niet met instemmen. De beheerder van een directory kunt u toestemming geven tot toepassingen waarvoor dit niveau van machtigingen. Wanneer de gebruiker of beheerder hiermee akkoord gaat, worden beide van de web-API's in hun directory geregistreerd.
+* Één Tenant: Voor de toepassings-id en de gemachtigde gebruiker identiteit gevallen, de toepassing daemon of de server moet worden geregistreerd in dezelfde map in Azure AD. De web-API kan worden geconfigureerd als een reeks machtigingen die worden gebruikt voor het beperken van de daemon of van de server toegang tot de resources beschikbaar wilt maken. Als een gemachtigde gebruiker-ID-type wordt gebruikt, moet de servertoepassing Selecteer de gewenste machtigingen in de vervolgkeuzelijst 'Machtigingen voor andere toepassingen' in de Azure-portal. Deze stap is niet vereist als het toepassingstype identiteit wordt gebruikt.
+* Multitenant: Eerst de daemon of server toepassing is geconfigureerd om aan te geven van de machtigingen die nodig is voor functioneel. Deze lijst met vereiste machtigingen in een dialoogvenster weergegeven wanneer een gebruiker of beheerder in de doelmap toestemming geeft voor de toepassing, waardoor het beschikbaar is voor hun organisatie. Sommige toepassingen vereisen alleen machtigingen op gebruikersniveau, waar een gebruiker in de organisatie toestemming kunt geven. Andere toepassingen vereist beheerdersrechten, die een gebruiker in de organisatie kan niet met instemmen zijn. Alleen een directory-beheerder kan toestemming geven voor toepassingen waarvoor dit niveau van machtigingen. Wanneer de gebruiker of beheerder hiermee akkoord gaat, worden beide van de web-API's in de directory geregistreerd.
 
-#### <a name="token-expiration"></a>Verlopen van het token
+#### <a name="token-expiration"></a>Geldigheidsduur van het token
 
-Wanneer de eerste toepassing de autorisatiecode gebruikt een toegang JWT-token ophalen, ontvangt het ook een JWT-token voor vernieuwen. Wanneer het toegangstoken is verlopen, kan het vernieuwingstoken dat de gebruiker opnieuw worden geverifieerd zonder dat wordt gevraagd om referenties worden gebruikt. Dit vernieuwingstoken wordt vervolgens gebruikt voor het verifiëren van de gebruiker, wat resulteert in een nieuw toegangstoken en een vernieuwingstoken.
+Wanneer de eerste toepassing gebruikmaakt van de autorisatiecode ophalen een toegang JWT-token, ontvangt deze ook een JWT-vernieuwingstoken. Wanneer het toegangstoken is verlopen, kan het vernieuwingstoken dat kan worden gebruikt voor het opnieuw verifiëren zonder te vragen om referenties. Dit vernieuwingstoken wordt vervolgens gebruikt voor verificatie van de gebruiker, wat resulteert in een nieuw toegangstoken en een vernieuwingstoken.
 
 ## <a name="see-also"></a>Zie ook
 
-[Ontwikkelaarshandleiding Azure Active Directory](active-directory-developers-guide.md)
+[Ontwikkelaarshandleiding voor Azure Active Directory](active-directory-developers-guide.md)
 
 [Azure Active Directory-codevoorbeelden](active-directory-code-samples.md)
 

@@ -1,8 +1,8 @@
 ---
-title: App-naslaginformatie voor Azure Functions
-description: Documentatie voor de app-instellingen van Azure Functions of omgevingsvariabelen.
+title: Naslaginformatie over App-instellingen voor Azure Functions
+description: Referentiedocumentatie voor de Azure Functions-app-instellingen of omgevingsvariabelen.
 services: functions
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -13,23 +13,23 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/26/2017
-ms.author: tdykstra
-ms.openlocfilehash: bd5603b8f0e15eeae9dd3799d4e10952e115680f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: glenga
+ms.openlocfilehash: b5f4ce786371608b276e41f6881dcb1e0a91e303
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194264"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39345052"
 ---
-# <a name="app-settings-reference-for-azure-functions"></a>App-naslaginformatie voor Azure Functions
+# <a name="app-settings-reference-for-azure-functions"></a>Naslaginformatie over App-instellingen voor Azure Functions
 
-Appinstellingen in een functie-app bevat globale configuratie-opties die invloed hebben op alle functies voor die functie-app. Wanneer u lokaal uitvoert, worden deze instellingen zijn in omgevingsvariabelen. In dit artikel vindt u de appinstellingen die beschikbaar in de functie apps zijn.
+App-instellingen in een functie-app bevatten globale configuratie-opties die invloed hebben op alle functies voor die functie-app. Wanneer u lokaal uitvoert, worden deze instellingen zijn in omgevingsvariabelen. In dit artikel geeft een lijst van de app-instellingen die beschikbaar in de functie-apps zijn.
 
-Er zijn andere globale configuratie-opties in de [host.json](functions-host-json.md) bestand en in de [local.settings.json](functions-run-local.md#local-settings-file) bestand.
+Er zijn andere globale configuratie-opties in de [host.json](functions-host-json.md) bestand en klik in de [local.settings.json](functions-run-local.md#local-settings-file) bestand.
 
 ## <a name="appinsightsinstrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
-De Application Insights-instrumentatiesleutel als u Application Insights. Zie [bewaken van Azure Functions](functions-monitoring.md).
+De Application Insights-instrumentatiesleutel als u Application Insights. Zie [Azure Functions controleren](functions-monitoring.md).
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
@@ -37,27 +37,27 @@ De Application Insights-instrumentatiesleutel als u Application Insights. Zie [b
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
-Optioneel storage-account-verbindingsreeks voor het opslaan van Logboeken en weergeven in de **Monitor** tabblad in de portal. Het opslagaccount moet een die ondersteuning biedt voor blobs, wachtrijen en tabellen voor algemene doeleinden. Zie [opslagaccount](functions-infrastructure-as-code.md#storage-account) en [account opslagvereisten](functions-create-function-app-portal.md#storage-account-requirements).
+Optionele tekenreeks opslagaccountverbinding voor het opslaan van Logboeken en weergegeven in de **Monitor** tabblad in de portal. Het opslagaccount moet een die ondersteuning biedt voor blobs, wachtrijen en tabellen voor algemeen gebruik. Zie [opslagaccount](functions-infrastructure-as-code.md#storage-account) en [vereisten voor een Opslagaccount](functions-create-function-app-portal.md#storage-account-requirements).
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
-|AzureWebJobsDashboard|DefaultEndpointsProtocol = https; AccountName = [name]; AccountKey = [sleutel]|
+|AzureWebJobsDashboard|DefaultEndpointsProtocol = https; AccountName = [name]; AccountKey = [-toets]|
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
-`true` betekent dat de standaard landingspagina die wordt weergegeven voor de basis-URL van een functie-app niet uitschakelen. De standaardwaarde is `false`.
+`true` betekent dat uitschakelen de standaard landingspagina die wordt weergegeven voor de basis-URL van een functie-app. De standaardwaarde is `false`.
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
 |AzureWebJobsDisableHomepage|true|
 
-Wanneer deze appinstelling is weggelaten of ingesteld op `false`, een pagina zoals in het volgende voorbeeld wordt weergegeven in het antwoord naar de URL `<functionappname>.azurewebsites.net`.
+Wanneer deze app-instelling is weggelaten of ingesteld op `false`, een pagina zoals in het volgende voorbeeld wordt weergegeven in reactie op de URL `<functionappname>.azurewebsites.net`.
 
-![De functie app-startpagina](media/functions-app-settings/function-app-landing-page.png)
+![Landingspagina van de functie-app](media/functions-app-settings/function-app-landing-page.png)
 
 ## <a name="azurewebjobsdotnetreleasecompilation"></a>AzureWebJobsDotNetReleaseCompilation
 
-`true` betekent releasemodus gebruiken bij het compileren van .NET-code; `false` betekent foutopsporingsmodus gebruiken. De standaardwaarde is `true`.
+`true` betekent releasemodus gebruikt bij het compileren van .NET-code. `false` betekent foutopsporingsmodus gebruiken. De standaardwaarde is `true`.
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
@@ -65,7 +65,7 @@ Wanneer deze appinstelling is weggelaten of ingesteld op `false`, een pagina zoa
 
 ## <a name="azurewebjobsfeatureflags"></a>AzureWebJobsFeatureFlags
 
-Een door komma's gescheiden lijst met functies beta om in te schakelen. Beta-functies ingeschakeld door deze vlaggen zijn niet gereed productie, maar kunnen worden ingeschakeld voor experimenteel gebruik voordat u ze.
+Een door komma's gescheiden lijst van bèta-functies om in te schakelen. Bèta-functies ingeschakeld door deze vlaggen zijn niet klaar voor productie, maar kunnen worden ingeschakeld voor experimentele gebruiken voordat ze live gaan.
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
@@ -73,7 +73,7 @@ Een door komma's gescheiden lijst met functies beta om in te schakelen. Beta-fun
 
 ## <a name="azurewebjobsscriptroot"></a>AzureWebJobsScriptRoot
 
-Het pad naar de hoofdmap waarin de *host.json* bestands- en -mappen zich bevinden. In een functie-app, de standaardwaarde is `%HOME%\site\wwwroot`.
+Het pad naar de hoofdmap waarin de *host.json* bestands- en functie mappen zich bevinden. In een functie-app, de standaardwaarde is `%HOME%\site\wwwroot`.
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
@@ -81,7 +81,7 @@ Het pad naar de hoofdmap waarin de *host.json* bestands- en -mappen zich bevinde
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
-Hiermee geeft u de opslagplaats of de provider moet worden gebruikt voor opslag van sleutels. De ondersteunde opslagplaatsen zijn momenteel-blob ('Blob') en het bestandssysteem ("uitgeschakeld"). De standaardwaarde is bestandssysteem ("uitgeschakeld").
+Hiermee geeft u de opslagplaats of de provider moet worden gebruikt voor opslag van sleutels. Op dit moment zijn de ondersteunde opslagplaatsen blob ('Blob') en het bestandssysteem ("uitgeschakeld"). De standaardwaarde is bestandssysteem ("uitgeschakeld").
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
@@ -89,31 +89,31 @@ Hiermee geeft u de opslagplaats of de provider moet worden gebruikt voor opslag 
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
-De Azure Functions-runtime gebruikt deze account verbindingsreeks voor opslag voor alle functies, met uitzondering van HTTP-geactiveerde functies. Het opslagaccount moet een die ondersteuning biedt voor blobs, wachtrijen en tabellen voor algemene doeleinden. Zie [opslagaccount](functions-infrastructure-as-code.md#storage-account) en [account opslagvereisten](functions-create-function-app-portal.md#storage-account-requirements).
+De Azure Functions-runtime maakt gebruik van deze tekenreeks opslagaccountverbinding voor alle functies, met uitzondering van HTTP-geactiveerde functies. Het opslagaccount moet een die ondersteuning biedt voor blobs, wachtrijen en tabellen voor algemeen gebruik. Zie [opslagaccount](functions-infrastructure-as-code.md#storage-account) en [vereisten voor een Opslagaccount](functions-create-function-app-portal.md#storage-account-requirements).
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
-|AzureWebJobsStorage|DefaultEndpointsProtocol = https; AccountName = [name]; AccountKey = [sleutel]|
+|AzureWebJobsStorage|DefaultEndpointsProtocol = https; AccountName = [name]; AccountKey = [-toets]|
 
 ## <a name="azurewebjobstypescriptpath"></a>AzureWebJobs_TypeScriptPath
 
-Pad naar de compiler voor machineschrift gebruikt. Hiermee kunt u de standaardwaarde als u wilt vervangen.
+Pad naar de gebruikt voor TypeScript-compiler. Hiermee kunt u de standaardinstelling negeren als u wilt.
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
 |AzureWebJobs_TypeScriptPath|%Home%\typescript|
 
-## <a name="functionappeditmode"></a>DE FUNCTIE\_APP\_BEWERKEN\_MODUS
+## <a name="functionappeditmode"></a>FUNCTIE\_APP\_BEWERKEN\_MODUS
 
-Geldige waarden zijn 'readwrite' en 'readonly'.
+Geldige waarden zijn 'readwrite' en 'alleen-lezen'.
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
-|DE FUNCTIE\_APP\_BEWERKEN\_MODUS|alleen-lezen|
+|FUNCTIE\_APP\_BEWERKEN\_MODUS|alleen-lezen|
 
 ## <a name="functionsextensionversion"></a>FUNCTIES\_EXTENSIE\_VERSIE
 
-De versie van de Azure Functions-runtime moet worden gebruikt in deze functie-app. Een tilde met hoofdversie betekent dat de nieuwste versie van die primaire versie (bijvoorbeeld ' ~ 1) gebruiken. Wanneer nieuwe versies voor dezelfde hoofdversie beschikbaar zijn, worden ze automatisch geïnstalleerd in de functie-app. Om de app naar een specifieke versie, gebruikt u het nummer van de volledige versie (bijvoorbeeld ' 1.0.12345'). Standaard is '~ 1'.
+De versie van de Azure Functions-runtime voor gebruik in deze functie-app. Een tilde met hoofdversie betekent dat de meest recente versie van die primaire versie (bijvoorbeeld, ~ 1') gebruiken. Wanneer er nieuwe versies van dezelfde primaire versie beschikbaar zijn, worden ze automatisch geïnstalleerd in de functie-app. Als u wilt de app vastmaken aan een specifieke versie, gebruik het volledige versienummer (bijvoorbeeld ' 1.0.12345'). Standaardwaarde is '~ 1'.
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
@@ -121,30 +121,30 @@ De versie van de Azure Functions-runtime moet worden gebruikt in deze functie-ap
 
 ## <a name="websitecontentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
-Voor verbruik plannen. De verbindingsreeks voor de opslagaccount waarin de functie app-code en de configuratie zijn opgeslagen. Zie [maken van een functie-app](functions-infrastructure-as-code.md#create-a-function-app).
+Voor verbruiksabonnementen alleen. Verbindingsreeks voor het opslagaccount waarin de functie-app-code en de configuratie zijn opgeslagen. Zie [maken van een functie-app](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
-|WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol = https; AccountName = [name]; AccountKey = [sleutel]|
+|WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol = https; AccountName = [name]; AccountKey = [-toets]|
 
 ## <a name="websitecontentshare"></a>WEBSITE_CONTENTSHARE
 
-Voor verbruik plannen. Het pad naar de functie app-code en configuratie. Met WEBSITE_CONTENTAZUREFILECONNECTIONSTRING gebruikt. Standaard is een unieke tekenreeks die met de naam van de functie-app begint. Zie [maken van een functie-app](functions-infrastructure-as-code.md#create-a-function-app).
+Voor verbruiksabonnementen alleen. Het pad naar de functie-app-code en configuratie. Met WEBSITE_CONTENTAZUREFILECONNECTIONSTRING gebruikt. Standaard is een unieke tekenreeks die met de naam van de functie-app begint. Zie [maken van een functie-app](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
 
-## <a name="websitemaxdynamicapplicationscaleout"></a>WEBSITE\_MAX\_DYNAMISCHE\_TOEPASSING\_SCALE\_UIT
+## <a name="websitemaxdynamicapplicationscaleout"></a>WEBSITE\_MAX\_DYNAMISCHE\_TOEPASSING\_SCHAAL\_UIT
 
-Het maximum aantal exemplaren die de functie-app te kan uitbreiden. Standaard is geen limiet.
+Het maximum aantal exemplaren die de functie-app naar uitschalen kunt. Standaard is geen limiet.
 
 > [!NOTE]
 > Deze instelling is voor een preview-functie.
 
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
-|WEBSITE\_MAX\_DYNAMISCHE\_TOEPASSING\_SCALE\_UIT|10|
+|WEBSITE\_MAX\_DYNAMISCHE\_TOEPASSING\_SCHAAL\_UIT|10|
 
 ## <a name="websitenodedefaultversion"></a>WEBSITE\_KNOOPPUNT\_DEFAULT_VERSION
 
@@ -156,7 +156,7 @@ De standaardwaarde is '6.5.0'.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Informatie over het bijwerken van app-instellingen](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[Meer informatie over het bijwerken van app-instellingen](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
 
 [Zie globale instellingen in het bestand host.json](functions-host-json.md)
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: raynew
-ms.openlocfilehash: 2415812a62fc000ddb18318ac52b764c1b5de51b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0cfb583f9d16039249aaffe18f71039e91dc3705
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008430"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359203"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migratie van Contoso: een on-premises-app op Azure VM's en SQL Server AlwaysOn-beschikbaarheidsgroep Rehost
 
@@ -39,7 +39,7 @@ Artikel 6: Een app op Azure VM's en SQL Server Always On Availability Group opni
 
 
 
-In dit artikel migreren Contoso de twee lagen Windows. SmartHotel NET-app die worden uitgevoerd op virtuele VMware-machines naar Azure. Als u wilt deze app wilt gebruiken, wordt geleverd als open source en u kunt downloaden via [GitHub](https://github.com/Microsoft/SmartHotel360).
+In dit artikel is voor Contoso de app Windows .NET SmartHotel met twee lagen die worden uitgevoerd op virtuele VMware-machines naar Azure migreren. Als u wilt deze app wilt gebruiken, wordt geleverd als open source en u kunt downloaden via [GitHub](https://github.com/Microsoft/SmartHotel360).
 
 ## <a name="business-drivers"></a>Zakelijke drijfveren
 
@@ -412,7 +412,7 @@ Contoso nodig heeft om de bronomgeving te configureren. U doet dit door ze een O
 De configuratieserver wordt uitgevoerd voor een aantal onderdelen:
 
 - Het configuratieserveronderdeel coördineert de communicatie tussen on-premises en Azure en beheert de gegevensreplicatie.
-- Initiëren van failover met één klik in de portal of kunt u  PowerShell dat een failover wordt geactiveerd. Deze ontvangt replicatiegegevens, optimaliseert de gegevens met caching, compressie en versleuteling, en verzendt ze naar de Azure-opslag.
+- De processerver die als replicatiegateway fungeert. Deze ontvangt replicatiegegevens, optimaliseert de gegevens met caching, compressie en versleuteling, en verzendt ze naar de Azure-opslag.
 - De processerver installeert ook Mobility Service op VM's die u wilt repliceren, en detecteert automatisch on-premises VMware-VM's.
 
 Contoso uitvoeren als volgt te werk:
@@ -457,7 +457,7 @@ Contoso geeft nu doel replicatie-instellingen.
 
 ### <a name="create-a-replication-policy"></a>Een replicatiebeleid maken
 
-Nee, Contoso een replicatiebeleid kunt maken.
+Contoso kan nu een replicatiebeleid maken.
 
 1. In **infrastructuur voorbereiden** > **replicatie-instellingen** > **replicatiebeleid** >  **maken en Koppelen**, maken van een beleid **ContosoMigrationPolicy**.
 2. Ze gebruiken de standaard-instellingen:

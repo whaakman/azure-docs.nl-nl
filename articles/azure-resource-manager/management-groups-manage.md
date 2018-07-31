@@ -10,20 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/09/2018
+ms.date: 07/31/2018
 ms.author: rithorn
-ms.openlocfilehash: 730f79ce0a70da92dbb6332ad824b17e6c2327ff
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 967aa87f89eff34427456bad3828e1e6509639cf
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488375"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358686"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Uw resources beheren met beheergroepen
 
 Beheergroepen zijn containers waarmee u toegang, beleid en naleving beheren voor meerdere abonnementen. U kunt wijzigen, verwijderen en beheren van deze containers om hiërarchieën die kunnen worden gebruikt met [Azure Policy](../azure-policy/azure-policy-introduction.md) en [Azure rollen gebaseerde toegang besturingselementen (RBAC)](../role-based-access-control/overview.md). Zie voor meer informatie over het van beheergroepen, [organiseren van uw resources met Azure-beheergroepen ](management-groups-overview.md).
-
-De functie management group is beschikbaar in een openbare preview. Als u wilt gaan met behulp van van beheergroepen, moet u zich aanmelden bij de [Azure-portal](https://portal.azure.com) of kunt u [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups/0.0.1-preview), [Azure CLI](https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest#az_extension_list_available), of de [REST-API](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview/2018-01-01-preview) naar uw beheergroepen beheren.
 
 Als u wilt wijzigingen aanbrengt aan een beheergroep, moet u een rol eigenaar of bijdrager hebben voor de beheergroep. Om te zien welke machtigingen u hebt, selecteert u de beheergroep en selecteer vervolgens **IAM**. Zie voor meer informatie over RBAC-rollen, [beheren van toegang en machtigingen met RBAC](../role-based-access-control/overview.md).
 
@@ -80,6 +78,7 @@ Als u wilt verwijderen van een beheergroep, moeten de volgende vereisten worden 
 3. Selecteer de beheergroep die u wilt verwijderen.
 4. Selecteer **Verwijderen**.
     - Als het pictogram is uitgeschakeld, ziet de muis selector muiswijzer op het pictogram u de reden.
+
     ![Groep verwijderen](media/management-groups/delete.png)
 5. Er is een venster dat wordt geopend waaruit blijkt dat u wilt verwijderen van de beheergroep.
 

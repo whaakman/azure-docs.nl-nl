@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 06/22/2018
 ms.author: srrengar
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 79e5622dd73e53854204675b435e99d187a3ab26
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 9f857c23b5500bc7790a0ff7fcf81eaec51f37c9
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076199"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358272"
 ---
 # <a name="monitoring-and-diagnostics"></a>Controle en diagnose
-Azure Service Fabric NET is een volledig beheerde service waarmee ontwikkelaars microservices-toepassingen implementeren zonder beheer van virtuele machines, opslag, of netwerken. Bewaking en diagnose voor Service Fabric-NET is onderverdeeld in drie belangrijkste typen diagnostische gegevens:
+Azure Service Fabric Mesh is een volledig beheerde service waarmee ontwikkelaars microservices-toepassingen kunnen implementeren zonder virtuele machines, opslag of netwerken hoeven te beheren. Bewaking en diagnose voor Service Fabric-NET is onderverdeeld in drie belangrijkste typen diagnostische gegevens:
 
 - Toepassingslogboeken - deze worden gedefinieerd als de logboeken van uw toepassingen in containers, op basis van hoe u uw toepassing hebt geïnstrumenteerd (bijvoorbeeld docker-Logboeken)
 - Platform-gebeurtenissen - gebeurtenissen uit het Mesh-platform die relevant zijn voor uw containerbewerking, inclusief momenteel container activering en deactivering beëindiging.
@@ -40,7 +40,7 @@ az mesh code-package-log get --resource-group <nameOfRG> --app-name <nameOfApp> 
 ```
 
 > [!NOTE]
-> U kunt de opdracht "az mesh servicereplica" gebruiken om op te halen van de replicanaam van de. Replica-namen zijn getallen van 0.* verhogen
+> U kunt de opdracht "az NET service-replica" gebruiken om op te halen van de replicanaam van de. Replica-namen zijn getallen van 0.* verhogen
 
 Hier ziet u hoe dit eruitziet voor het bekijken van de logboeken van de container VotingWeb.Code van de stemtoepassing:
 

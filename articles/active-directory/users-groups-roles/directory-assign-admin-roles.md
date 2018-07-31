@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 07/25/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 73ffb1ab9c91794325725bb3b99b210a06979443
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 50ec925e10b32bd2bad63322ae166a02576c691a
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325510"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344423"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Beheerrollen toewijzen in Azure Active Directory
 
@@ -46,10 +46,8 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **[Beheerder van voorwaardelijke toegang](#conditional-access-administrator)**: gebruikers met deze rol hebben de mogelijkheid voor het beheren van instellingen voor voorwaardelijke toegang van Azure Active Directory.
   > [!NOTE]
-  > Voor het implementeren van Exchange ActiveSync-beleid voor voorwaardelijke toegang in Azure, moet de gebruiker tevens globale beheerder.
+  > Voor het implementeren van Exchange ActiveSync-beleid voor voorwaardelijke toegang in Azure, moet de gebruiker ook een globale beheerder zijn.
   
-* **[Dynamics 365-servicebeheerder / CRM-servicebeheerder](#crm-service-administrator)**: gebruikers met deze rol hebben algemene machtigingen in Microsoft CRM Online, wanneer de service aanwezig is, evenals de mogelijkheid om ondersteuningstickets en monitor te beheren status van de service. Meer informatie op [de rol admin gebruiken voor het beheren van uw tenant](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
-
 * **[Apparaatbeheerders](#device-administrators)**: gebruikers met deze rol worden lokale computerbeheerders op alle Windows 10-apparaten die zijn gekoppeld aan Azure Active Directory. Ze hebben niet de mogelijkheid voor het beheren van apparaatobjecten in Azure Active Directory.
 
 * **[Adreslijstlezers](#directory-readers)**: dit is een verouderde rol die moet worden toegewezen aan toepassingen die geen ondersteuning voor de [toestemming geven Framework](../develop/active-directory-integrating-applications.md). Deze moet niet worden toegewezen aan alle gebruikers.
@@ -57,6 +55,8 @@ De volgende beheerdersrollen zijn beschikbaar:
 * **[Directory-Accounts voor synchronisatie](#directory-synchronization-accounts)**: niet gebruiken. Deze rol is wordt automatisch toegewezen aan de Azure AD Connect-service en niet bedoeld of ondersteund voor ander gebruik.
 
 * **[Schrijvers van mappen](#directory-writers)**: dit is een verouderde rol die moet worden toegewezen aan toepassingen die geen ondersteuning voor de [toestemming geven Framework](../develop/active-directory-integrating-applications.md). Deze moet niet worden toegewezen aan alle gebruikers.
+
+* **[Dynamics 365-servicebeheerder / CRM-servicebeheerder](#dynamics-365-service-administrator)**: gebruikers met deze rol hebben algemene machtigingen in Microsoft Dynamics 365 Online, wanneer de service aanwezig is, evenals de mogelijkheid ondersteuningstickets te beheren en servicestatus controleren. Meer informatie op [de rol admin gebruiken voor het beheren van uw tenant](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
 * **[Exchange Service-beheerder](#exchange-service-administrator)**: gebruikers met deze rol hebben algemene machtigingen in Microsoft Exchange Online, wanneer de service aanwezig is. Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -352,27 +352,6 @@ Kan de mogelijkheden van voorwaardelijke toegang beheren.
 | microsoft.aad.directory/ConditionalAccessPolicy/Update | Werk de standaardeigenschappen voor ConditionalAccessPolicys bij in Azure Active Directory. |
 | microsoft.aad.directory/ConditionalAccessPolicy/Update/Owners | Werk de eigenschap ConditionalAccessPolicys.Owners bij in Azure Active Directory. |
 
-### <a name="crm-service-administrator"></a>CRM-servicebeheerder
-Kan alle aspecten van het Dynamics 365-product beheren.
-
-  > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
-  >
-  >
-
-  > [!NOTE]
-  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
-  >
-  >
-
-| **Acties** | **Beschrijving** |
-| --- | --- |
-| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Lees de eigenschap Organizations.TrustedCAsForPasswordlessAuth in Azure Active Directory. |
-| microsoft.aad.accessservice/AllEntities/AllActions | Maak en verwijder alle resources en lees de standaardeigenschappen in Azure Access Control en werk deze bij. |
-| microsoft.aad.servicehealth/AllEntities/AllActions | Lees en configureer de Office 365-servicestatus. |
-| microsoft.aad.supporttickets/AllEntities/AllActions | Maak en beheer tickets voor Office 365-ondersteuning. |
-| microsoft.crm/AllEntities/AllActions | Beheer alle aspecten van Dynamics 365. |
-
 ### <a name="device-administrators"></a>Apparaatadministrators
 Leden van deze rol worden toegevoegd aan de groep lokale beheerders op Azure AD join-apparaten.
 
@@ -385,7 +364,9 @@ Leden van deze rol worden toegevoegd aan de groep lokale beheerders op Azure AD 
 | --- | --- |
 
 ### <a name="directory-readers"></a>Adreslijstlezers
-Basic directory-informatie kan worden gelezen. Voor het verlenen van toegang tot toepassingen
+<<<<<<< Basic directory informatie hoofd kan worden gelezen. Voor het verlenen van toegang tot toepassingen.
+=== Basic directory informatie kan worden gelezen. Voor het verlenen van toegang tot toepassingen
+>>>>>>> ae91bfc09771777f3e74c0dd0f8db6bc14e1e710
 
 | **Acties** | **Beschrijving** |
 | --- | --- |
@@ -487,6 +468,27 @@ Kan lezen en schrijven van basic directory-informatie. Voor het verlenen van toe
 | microsoft.aad.directory/User/Update | Werk de standaardeigenschappen voor Gebruikers bij in Azure Active Directory. |
 | microsoft.aad.directory/User/Update/AppRoleAssignments | Werk de eigenschap Users.AppRoleAssignments bij in Azure Active Directory. |
 | microsoft.aad.directory/User/Update/Manager | Werk de eigenschap Users.Manager bij in Azure Active Directory. |
+
+### <a name="dynamics-365-service-administrator"></a>Dynamics 365-servicebeheerder
+Kan alle aspecten van het Dynamics 365-product beheren.
+
+  > [!NOTE]
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  >
+  >
+
+  > [!NOTE]
+  > Deze rol heeft aanvullende machtigingen buiten Azure Active Directory. Zie de beschrijving van de rol hierboven voor meer informatie.
+  >
+  >
+
+| **Acties** | **Beschrijving** |
+| --- | --- |
+| microsoft.aad.directory/Organization/Read/TrustedCAsForPasswordlessAuth | Lees de eigenschap Organizations.TrustedCAsForPasswordlessAuth in Azure Active Directory. |
+| microsoft.aad.accessservice/AllEntities/AllActions | Maak en verwijder alle resources en lees de standaardeigenschappen in Azure Access Control en werk deze bij. |
+| microsoft.aad.servicehealth/AllEntities/AllActions | Lees en configureer de Office 365-servicestatus. |
+| microsoft.aad.supporttickets/AllEntities/AllActions | Maak en beheer tickets voor Office 365-ondersteuning. |
+| microsoft.crm/AllEntities/AllActions | Beheer alle aspecten van Dynamics 365. |
 
 ### <a name="exchange-service-administrator"></a>Exchange Service-beheerder
 Kan alle aspecten van het product Exchange beheren.

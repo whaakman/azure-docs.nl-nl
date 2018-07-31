@@ -3,7 +3,7 @@ title: Triggers en bindingen in Azure Functions
 description: Informatie over het gebruik van triggers en bindingen in Azure Functions verbinding maken met de uitvoering van uw code online evenementen en cloud-gebaseerde services.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/24/2018
-ms.author: tdykstra
-ms.openlocfilehash: a201c62f881865e41175bc8bde359c4dce3d168c
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.author: glenga
+ms.openlocfilehash: 85b7248c9b4c61e29ce3c29b9432f94934255819
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309075"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346599"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-triggers en bindingen concepten
 

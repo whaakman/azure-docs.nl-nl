@@ -13,12 +13,12 @@ ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: rclaus
-ms.openlocfilehash: 1d3089052a67b899e2e4b38123145bd4ae51693f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: c5066d23705ca84febaa0ba527a01259134146c0
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902296"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358978"
 ---
 # <a name="sap-hana-backup-based-on-storage-snapshots"></a>Back-up van SAP HANA op basis van opslagmomentopnamen
 
@@ -89,7 +89,7 @@ Azure Backup bestaat uit vier belangrijke fasen:
 Voor meer informatie over waar u deze scripts kopiëren en meer informatie over hoe Azure Backup precies werkt, controleert u de volgende artikelen:
 
 - [Plannen van uw VM-back-upinfrastructuur in Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-introduction)
-- [Toepassing consistente consistente back-up van Azure Linux VM 's](https://docs.microsoft.com/en-us/azure/backup/backup-azure-linux-app-consistent)
+- [Toepassingsconsistente back-up van Azure Linux VM 's](https://docs.microsoft.com/en-us/azure/backup/backup-azure-linux-app-consistent)
 
 
 

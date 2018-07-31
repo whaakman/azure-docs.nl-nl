@@ -2,8 +2,8 @@
 title: Via een programma maken Azure Enterprise-abonnementen | Microsoft Docs
 description: Meer informatie over het maken van aanvullende Azure Enterprise- en Enterprise Dev/Test-abonnementen via een programma.
 services: azure-resource-manager
-author: jlian
-manager: jlian
+author: adpick
+manager: adpick
 editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
-ms.author: jlian
-ms.openlocfilehash: 36e69696b292454598faed2a95a844dc7a7442c5
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.author: adpick
+ms.openlocfilehash: 2bfa9944d85fde65ad8dbd73ddda11fa405df2f8
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265701"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358349"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Via een programma maken Azure Enterprise-abonnementen (preview)
 
@@ -28,9 +28,11 @@ Wanneer u een Azure-abonnement van deze API maakt, wordt dat aan het abonnement 
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Uw account moet de eigenaar van een Account in een Azure EA-inschrijving. Als dit niet het geval is, vraagt de Inschrijvingsbeheerder naar [u toevoegen als de eigenaar van een Account met behulp van de EA-portal](https://ea.azure.com/helpdocs/addNewAccount) (aanmelding vereist). Volg de instructies in de uitnodiging per e-mail ontvangt die u voor het handmatig maken van een eerste abonnement. Eigendom van accounts bevestigen en maak handmatig een initiële EA-abonnement voordat u doorgaat met de volgende stap. Het account bij de inschrijving is alleen toe te voegen niet voldoende.
+U moet een rol eigenaar of bijdrager hebben op het Inschrijvingsaccount die u wilt maken van abonnementen onder. Er zijn twee manieren om op te halen van deze rollen:
 
-* Als u gebruiken van een service-principal wilt te maken van de EA-abonnement, moet u [de mogelijkheid om abonnementen te maken voor deze service-principal verlenen](grant-access-to-create-subscription.md).
+* Kan de beheerder van uw inschrijving [moet u de eigenaar van een Account](https://ea.azure.com/helpdocs/addNewAccount) (aanmelding vereist) waardoor u een eigenaar van het Inschrijvingsaccount. Volg de instructies in de uitnodiging per e-mail ontvangt die u voor het handmatig maken van een eerste abonnement. Eigendom van accounts bevestigen en maak handmatig een initiële EA-abonnement voordat u doorgaat met de volgende stap. Het account bij de inschrijving is alleen toe te voegen niet voldoende.
+
+* Kan de eigenaar van een bestaand van het Inschrijvingsaccount [verlenen u toegang tot](grant-access-to-create-subscription.md). Op dezelfde manier als u gebruiken van een service-principal wilt te maken van de EA-abonnement, moet u [de mogelijkheid om abonnementen te maken voor deze service-principal verlenen](grant-access-to-create-subscription.md).
 
 ## <a name="find-accounts-you-have-access-to"></a>U toegang tot hebt accounts zoeken
 

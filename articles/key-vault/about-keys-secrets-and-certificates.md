@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: alleonar
-ms.openlocfilehash: 77675b3c0b2ed9fcdb923c92638384d215bddc40
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 8597b2d995b68e9ccff9b856b2ef6bd325cd2439
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972397"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359186"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Over sleutels, geheimen en certificaten
 Azure Key Vault kunnen gebruikers voor het opslaan en gebruiken van cryptografische sleutels binnen de Microsoft Azure-omgeving. Key Vault ondersteunt meerdere sleuteltypen en algoritmen, en maakt het gebruik van Hardware Security Modules (HSM) voor hoge waarde sleutels. Key Vault kunnen bovendien gebruikers geheimen veilig opslaan. Geheimen zijn geen specifieke semantiek beperkte grootte octet objecten. Key Vault biedt ook ondersteuning voor certificaten die zijn gebaseerd op de sleutels en geheimen en toevoegen van een functie voor automatische verlenging.
@@ -106,7 +106,7 @@ Waar:
 
 |||  
 |-|-|  
-|`keyvault-name`|De naam voor een key vault in de Microsoft Azure Key Vault-service.<br /><br /> Key Vault-namen worden geselecteerd door de gebruiker en wereldwijd uniek zijn.<br /><br /> Key Vault-naam moet een tekenreeks 3 tot 24 tekens lang dat alleen (0-9, a-z, A-Z, en -).|  
+|`keyvault-name`|De naam voor een key vault in de Microsoft Azure Key Vault-service.<br /><br /> Key Vault-namen worden geselecteerd door de gebruiker en wereldwijd uniek zijn.<br /><br /> De naam van een sleutelkluis moet een tekenreeks van 3 tot 24 tekens lang zijn (0-9, a-z, A-Z en -).|  
 |`object-type`|Het type van het object, 'sleutels' of 'geheimen'.|  
 |`object-name`|Een `object-name` is een door de gebruiker opgegeven naam voor en moet uniek zijn binnen een Key Vault. De naam moet een tekenreeks van 1-127 tekens lang dat alleen 0-9, a-z, A-Z, en -.|  
 |`object-version`|Een `object-version` is een door het systeem gegenereerde, tekenreeks-id van 32 tekens die eventueel wordt gebruikt om een unieke versie van een object.|  
@@ -117,15 +117,36 @@ Waar:
 
 Cryptografische sleutels in Azure Key Vault worden weergegeven als JSON-Websleutel [JWK]-objecten. De base JWK/JWA specificaties zijn ook uitgebreid zodat sleuteltypen uniek is voor de implementatie van Azure Key Vault, bijvoorbeeld het importeren van de sleutels naar Azure Key Vault met behulp van de specifieke verpakking voor HSM-leverancier (Thales) op het inschakelen van beveiligde vervoer van dergelijke sleutels die ze kunnen alleen worden gebruikt in de Azure Key Vault HSM's.  
 
-De eerste release van Azure Key Vault ondersteunt RSA-sleutels. toekomstige versies kunnen andere sleuteltypen zoals symmetrische en elliptic curve ondersteunen.  
-
--   **RSA**: een 2048-bits RSA-sleutel. Dit is een 'soft' sleutel, die in de software wordt verwerkt door Key Vault, maar die gegevens worden versleuteld met behulp van een systeemsleutel die in een HSM is opgeslagen. Clients kunnen importeren van een bestaande RSA-sleutel of vraag Azure Key Vault één genereert.  
--   **RSA-HSM**: een RSA-sleutel die wordt verwerkt in een HSM. RSA-HSM-sleutels worden beveiligd in een van de Azure Key Vault HSM-Beveiligingswerelden (Er is een Beveiligingswereld per Geografie isolatie onderhouden). Clients kunnen een RSA-sleutel in zachte formulier of door het exporteren van een compatibel apparaat van de HSM importeren of Azure Key Vault genereren een aanvraag. Dit sleuteltype voegt de T-kenmerk toe aan de JWK ophalen voor het uitvoeren van de HSM-sleutelmateriaal.  
+- **'Soft' sleutels**: een sleutel verwerkt in software door Key Vault, maar is in rust versleuteld met behulp van een systeemsleutel die zich in een HSM. Clients kunnen importeren van een bestaande RSA of EG sleutel of Azure Key Vault genereren een vraag.
+- **"Vaste" sleutels**: een sleutel verwerkt in een HSM (Hardware Security Module). Deze sleutels worden beveiligd in een van de Azure Key Vault HSM-Beveiligingswerelden (Er is een Beveiligingswereld per Geografie isolatie onderhouden). Clients kunnen een RSA of EG sleutel in zachte formulier of door het exporteren van een compatibel apparaat van de HSM importeren of vraag Azure Key Vault één genereert. Dit sleuteltype voegt de T-kenmerk toe aan de JWK ophalen voor het uitvoeren van de HSM-sleutelmateriaal.
 
      Zie voor meer informatie over geografische grenzen [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
+Azure Key Vault ondersteunt RSA- en Elliptic Curve sleutels; toekomstige versies kunnen ondersteuning voor andere typen sleutels zoals symmetrische.
+
+-   **EG**: 'Soft' elliptische-sleutel.
+-   **EG HSM**: "Harde" elliptische-sleutel.
+-   **RSA**: 'Soft' RSA-sleutel.
+-   **RSA-HSM**: "Vaste" RSA-sleutel.
+
+Azure Key Vault ondersteunt RSA-sleutels van de grootte 2048, 3072 en 4096 en elliptische-sleutels van type P-256, p-384, p-521 en P-256_K.
+
+### <a name="BKMK_Cryptographic"></a> Cryptografische beveiliging
+
+De cryptografische modules die gebruikmaakt van Azure Key Vault, of HSM of software zijn FIPS-gevalideerde modules. U hoeft te doen niets om uit te voeren in de FIPS-modus. Als u **maken** of **importeren** sleutels als HSM-beveiliging, ze moeten worden verwerkt in HSM's die zijn gevalideerd voor FIPS 140-2 Level 2 of hoger worden gegarandeerd. Als u **maken** of **importeren** sleutels als softwarebeveiliging en ze worden verwerkt in de cryptografische modules die zijn gevalideerd voor FIPS 140-2 niveau 1 of hoger. Zie voor meer informatie, [sleutels en sleuteltypen](about-keys-secrets-and-certificates.md#BKMK_KeyTypes).
+
+###  <a name="BKMK_ECAlgorithms"></a> EG algoritmen
+ De volgende algoritme-id's worden ondersteund met de EG en EG-HSM-sleutels in Azure Key Vault. 
+
+#### <a name="signverify"></a>AANMELDING/CONTROLEREN
+
+-   **ES256** - verwerkingen ECDSA voor SHA-256 en sleutels die zijn gemaakt met de curve p-256. Dit algoritme wordt beschreven op [RFC7518].
+-   **ES256K** - verwerkingen ECDSA voor SHA-256 en sleutels die zijn gemaakt met de curve P-256_K. Dit algoritme is in behandeling zijnde standaardisatie.
+-   **ES384** - verwerkingen ECDSA voor SHA-384 en sleutels die zijn gemaakt met de curve P-384. Dit algoritme wordt beschreven op [RFC7518].
+-   **ES512** - ECDSA voor SHA-512 verwerkingen en sleutels die zijn gemaakt met de curve p-521. Dit algoritme wordt beschreven op [RFC7518].
+
 ###  <a name="BKMK_RSAAlgorithms"></a> RSA-algoritmen  
- De volgende algoritme-id's worden ondersteund met de RSA-sleutels in Azure Key Vault.  
+ De volgende algoritme-id's worden ondersteund met de RSA- en RSA-HSM-sleutels in Azure Key Vault.  
 
 #### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>SLEUTEL INPAKKEN/SLEUTEL UITPAKKEN, VERSLEUTELEN/ONTSLEUTELEN
 
@@ -138,25 +159,6 @@ De eerste release van Azure Key Vault ondersteunt RSA-sleutels. toekomstige vers
 -   **RS384** - ONDERTEKENINGSMETHODE-PKCS-v1_5 met behulp van SHA-384. De toepassing opgegeven digest-waarde moet worden berekend op basis van SHA-384 en moet 48 bytes lang zijn.  
 -   **RS512** - ONDERTEKENINGSMETHODE-PKCS-v1_5 met behulp van SHA-512. De toepassing opgegeven digest-waarde moet worden berekend op basis van SHA-512 en moet 64 bytes lang zijn.  
 -   **RSNULL** -Zie [RFC2437] een gespecialiseerde use-case waarmee bepaalde TLS-scenario's.  
-
-###  <a name="BKMK_RSA-HSMAlgorithms"></a> RSA-HSM-algoritmen  
-De volgende algoritme-id's worden ondersteund met de RSA-HSM-sleutels in Azure Key Vault.  
-
-### <a name="BKMK_Cryptographic"></a> Cryptografische beveiliging
-
-De cryptografische modules die gebruikmaakt van Azure Key Vault, of HSM of software zijn FIPS-gevalideerde modules. U hoeft te doen niets om uit te voeren in de FIPS-modus. Als u **maken** of **importeren** sleutels als HSM-beveiliging, ze moeten worden verwerkt in HSM's die zijn gevalideerd voor FIPS 140-2 Level 2 of hoger worden gegarandeerd. Als u **maken** of **importeren** sleutels als softwarebeveiliging en ze worden verwerkt in de cryptografische modules die zijn gevalideerd voor FIPS 140-2 niveau 1 of hoger. Zie voor meer informatie, [sleutels en sleuteltypen](about-keys-secrets-and-certificates.md#BKMK_KeyTypes).
-
-#### <a name="wrapunwrap-encryptdecrypt"></a>VERPAKKEN/UITPAKKEN, VERSLEUTELEN/ONTSLEUTELEN
-
--   **RSA1_5** -RSAES PKCS1 V1_5 [RFC3447] key-versleuteling.  
--   **RSA-OAEP** - RSAES met optimale asymmetrische codering opvulling (OAEP) [RFC3447] met de standaardparameters die is opgegeven door RFC 3447 in sectie A.2.1. Deze standaardparameters worden met behulp van een hash-functie van SHA-1 en een functie voor het genereren van masker van MGF1 met SHA-1.  
-
- #### <a name="signverify"></a>AANMELDING/CONTROLEREN  
-
--   **RS256** - ONDERTEKENINGSMETHODE-PKCS-v1_5 met SHA-256. De opgegeven toepassing digest-waarde moet worden berekend op basis van SHA-256 en moet 32 bytes lang zijn.  
--   **RS384** - ONDERTEKENINGSMETHODE-PKCS-v1_5 met behulp van SHA-384. De toepassing opgegeven digest-waarde moet worden berekend op basis van SHA-384 en moet 48 bytes lang zijn.  
--   **RS512** - ONDERTEKENINGSMETHODE-PKCS-v1_5 met behulp van SHA-512. De toepassing opgegeven digest-waarde moet worden berekend op basis van SHA-512 en moet 64 bytes lang zijn.  
--   RSNULL: Zie [RFC2437] een gespecialiseerde use-case waarmee bepaalde TLS-scenario's.  
 
 ###  <a name="BKMK_KeyOperations"></a> Sleutelbewerkingen
 

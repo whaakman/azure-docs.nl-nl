@@ -247,7 +247,7 @@
     - name: Kookboeken
       items:
         - name: Referentiearchitecturen
-          href: /azure/architecture/reference-architectures/app-service-web-app/
+          href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/#web-applications'
         - name: Implementatiescripts
           href: 'https://azure.microsoft.com/documentation/scripts/'
     - name: Problemen oplossen

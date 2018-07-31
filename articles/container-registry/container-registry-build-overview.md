@@ -6,20 +6,20 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 07/28/2018
 ms.author: marsma
-ms.openlocfilehash: 3ef91270bceb5865bdbdf9c436e4519595a3dc09
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 532817c6289c1718fd82a502e04dc10715ee7203
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582627"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343097"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>OS- en framework patchen met ACR Build automatiseren
 
 Containers bieden nieuwe niveaus voor virtualisatie, isoleren van toepassings- en developer-afhankelijkheden van infrastructuur en operationele vereisten. Wat resteert, is echter de noodzaak om de manier waarop deze toepassingsvirtualisatie is gevuld.
 
-**ACR Build**, een reeks functies in Azure Container Registry biedt niet alleen systeemeigen container-installatiekopie bouwen mogelijkheid, maar ook worden geautomatiseerd [OS en framework patching uit handen](#automate-os-and-framework-patching) voor uw Docker-containers.
+**ACR Build** is een suite met functies in Azure Container Registry. Het cloud-gebaseerde container-installatiekopie maken voor Linux, Windows en ARM biedt, en kunt automatiseren [OS en framework patching uit handen](#automate-os-and-framework-patching) voor uw Docker-containers.
 
 [!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
 
@@ -33,7 +33,7 @@ Trigger-containerinstallatiekopie maakt automatisch als de code wordt doorgevoer
 
 Het begin van het beheer van de levenscyclus start voordat ontwikkelaars hun eerste coderegels doorvoeren. De ACR Build [snel bouwen](container-registry-tutorial-quick-build.md) functie kunnen een ervaring met geïntegreerde lokale inner loop-ontwikkeling, offloading builds naar Azure. Met snelle wordt gemaakt, kunt u uw geautomatiseerde builddefinities voordat het doorvoeren van uw code controleren.
 
-Met behulp van de vertrouwde `docker build` indeling, de [az acr build] [ az-acr-build] opdracht in de Azure CLI wordt een lokale context, verzonden naar de ACR Build-service en standaard de gemaakte installatiekopie naar het register bij gepusht is voltooid. ACR Build volgt de registers met geo-replicatie inschakelen van verspreide development-teams gebruikmaken van het dichtstbijzijnde gerepliceerde register. Tijdens de preview is de ACR build beschikbaar in de regio's VS-Oost en West-Europa.
+Met behulp van de vertrouwde `docker build` indeling, de [az acr build] [ az-acr-build] opdracht in de Azure CLI wordt een lokale context, verzonden naar de ACR Build-service en standaard de gemaakte installatiekopie naar het register bij gepusht is voltooid. ACR Build volgt de registers met geo-replicatie inschakelen van verspreide development-teams gebruikmaken van het dichtstbijzijnde gerepliceerde register.
 
 ACR Build is bedoeld als een container van primitieve levenscyclus. Bijvoorbeeld, integreren met ACR Build uw CI/CD-oplossing. Door het uitvoeren van [az login] [ az-login] met een [service-principal][az-login-service-principal], uw CI/CD-oplossing kan verlenen [az acrbouwen] [ az-acr-build] opdrachten uit om te worden gehouden, trappen af met installatiekopieën builds.
 
@@ -49,7 +49,7 @@ Meer informatie over het activeren van builds op bron code doorvoeren in de twee
 
 De kracht van de ACR Build voor het verbeteren van uw container build-pijplijn echt zijn afkomstig uit de mogelijkheid voor het detecteren van een update naar een basisinstallatiekopie. Wanneer de bijgewerkte installatiekopie naar het register is gepusht, bouwen ACR Build automatisch op basis van deze toepassing afbeeldingen.
 
-Containerinstallatiekopieën kunnen grotendeels worden onderverdeeld in *basis* afbeeldingen en *toepassing* afbeeldingen. De basisinstallatiekopieën bevatten doorgaans het besturingssysteem en toepassingsframeworks waarop uw toepassing is gemaakt, samen met andere aanpassingen. Deze basisinstallatiekopieën zijn doorgaans gebaseerd op openbare upstream afbeeldingen, bijvoorbeeld [Alpine Linux] [ base-alpine] of [Node.js][base-node]. Verschillende van uw toepassingsinstallatiekopieën mogelijk delen een gemeenschappelijke basisinstallatiekopie.
+Containerinstallatiekopieën kunnen grotendeels worden onderverdeeld in *basis* afbeeldingen en *toepassing* afbeeldingen. De basisinstallatiekopieën bevatten doorgaans het besturingssysteem en toepassingsframeworks waarop uw toepassing is gemaakt, samen met andere aanpassingen. Deze basisinstallatiekopieën zijn doorgaans gebaseerd op openbare upstream afbeeldingen, bijvoorbeeld: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet], of [Node.js][base-node]. Verschillende van uw toepassingsinstallatiekopieën mogelijk delen een gemeenschappelijke basisinstallatiekopie.
 
 Wanneer de installatiekopie van een besturingssysteem of app-framework wordt bijgewerkt door de upstream maintainer, moet bijvoorbeeld met een kritieke OS-beveiligingspatch, u ook bijwerken de basisinstallatiekopieën om op te nemen van de kritieke oplossing. De installatiekopie van elke toepassing moet vervolgens ook opnieuw worden opgebouwd zodanig dat deze upstream oplossingen nu opgenomen in de basisinstallatiekopie.
 
@@ -58,7 +58,7 @@ Omdat de basisinstallatiekopie afhankelijkheden ACR Build dynamisch worden gedet
 Meer informatie over het besturingssysteem en framework patching uit handen in de zelfstudie derde ACR Build [automatiseren installatiekopie is gebaseerd op updates van basisinstallatiekopieën met Azure Container Registry Build](container-registry-tutorial-base-image-update.md).
 
 > [!NOTE]
-> Basisinstallatiekopie updates trigger bouwt voor de eerste Preview-versie, alleen wanneer de basis- en de toepassingsdatabase afbeeldingen bevinden zich in dezelfde Azure container registry.
+> Basisinstallatiekopie updates trigger bouwt voor de eerste Preview-versie, alleen wanneer de basis- en de toepassingsdatabase afbeeldingen bevinden zich in de dezelfde Azure container registry of openbaar toegankelijke Docker Hub-opslagplaatsen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

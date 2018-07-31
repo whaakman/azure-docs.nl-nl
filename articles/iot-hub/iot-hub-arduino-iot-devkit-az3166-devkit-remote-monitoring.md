@@ -1,6 +1,6 @@
 ---
-title: IoT DevKit naar cloud--IoT MXChip DevKit verbinden met Azure IoT Hub | Microsoft Docs
-description: Informatie over het verzenden van status van sensoren op IoT DevKit AZ3166 naar Azure IoT Remote Monitoring solution accelerator in deze zelfstudie.
+title: IoT DevKit naar de cloud--IoT MXChip DevKit verbinden met Azure IoT Hub | Microsoft Docs
+description: In deze zelfstudie leert u hoe u de status van sensoren op IoT DevKit AZ3166 verzendt naar de oplossingsverbetering voor externe controle van Azure IoT.
 author: liydu
 manager: jeffya
 ms.service: iot-hub
@@ -9,115 +9,130 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: 6c5c12ffeacad9a3dd56ac561d9b4fe1a6e67eea
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 806ae38f614c44ce25b8fcc159b74f1bda3f00f3
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631493"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343114"
 ---
-# <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>Verbinding maken met MXChip IoT DevKit oplossingsverbetering Azure IoT externe controle
+# <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>MXChip IoT DevKit verbinden met Azure IoT Remote Monitoring solution accelerator
 
-In deze zelfstudie leert u het uitvoeren van een voorbeeld-app op uw DevKit sensorgegevens verzenden naar uw oplossingsverbetering Azure IoT externe controle.
+In deze zelfstudie leert u hoe u een voorbeeld-app op uw DevKit om sensorgegevens te verzenden naar uw externe controle van Azure IoT-oplossingsversnellers uitvoert.
 
-De [MXChip IoT DevKit](https://aka.ms/iot-devkit) is een Arduino alles in één mededelingenbord compatibel is met de randapparaten uitgebreide en sensoren. U kunt ontwikkelen via [Visual Studio Code-uitbreiding voor Arduino](https://aka.ms/arduino). En beschikt u over een groeiende [projecten catalogus](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) om u te begeleiden prototype Internet der dingen (IoT) oplossingen die van Microsoft Azure-services gebruikmaken.
+De [MXChip IoT DevKit](https://aka.ms/iot-devkit) is een compatibele alles-in-een Arduino-bord met uitgebreide randapparatuur en sensoren. U kunt ontwikkelen via [Visual Studio Code-extensie voor Arduino](https://aka.ms/arduino). En wordt geleverd met een groeiend [projecten catalogus](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) om u te begeleiden prototype Internet of Things (IoT)-oplossingen die van Microsoft Azure-services profiteren.
 
 ## <a name="what-you-need"></a>Wat u nodig hebt
 
-Voltooid de [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) naar:
+Voltooid de [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) aan:
 
 * Hebt u uw DevKit verbonden met Wi-Fi
 * De ontwikkelomgeving voorbereiden
 
-Een actief Azure-abonnement. Als u geen abonnement hebt, kunt u via een van deze twee manieren registreren:
+Een actief Azure-abonnement. Als u een hebt, kunt u registreren via een van deze twee methoden:
 
-* Activeren van een [gratis 30-daagse evaluatieversie Microsoft Azure-account](https://azure.microsoft.com/free/)
-* Claim uw [Azure-tegoeden](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) als u MSDN of Visual Studio-abonnee bent
+* Activeer een [gratis 30-daagse proefversie Microsoft Azure-account](https://azure.microsoft.com/free/)
 
-## <a name="create-an-azure-iot-remote-monitoring-solution-accelerator"></a>Maken van een oplossing voor externe controle van Azure IoT accelerator
+* Claim uw [Azure-tegoed](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) bent u MSDN of Visual Studio-abonnee
 
-1. Ga naar [Azure IoT-oplossing accelerators site](https://www.azureiotsolutions.com/) en klik op **maken van een nieuwe oplossing**.
-  ![Azure IoT-oplossing accelerator type selecteren](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
-  > [!WARNING]
-  > Dit voorbeeld maakt standaard een IoT-Hub S2 na het maken van een externe controle IoT oplossingsverbetering. Als deze iothub niet met het grote aantal apparaten gebruikt is, raden we u het downgraden van S2 naar S1 en verwijderen van de accelerator externe controle IoT-oplossing, zodat gerelateerde IoT Hub kan ook worden verwijderd, wanneer u deze niet meer nodig. 
+## <a name="create-an-azure-iot-remote-monitoring-solution-accelerator"></a>Maken van een externe controle van Azure IoT-oplossingsversnellers
 
-2. Selecteer **externe controle**.
+1. Ga naar [Azure IoT-oplossing accelerators site](https://www.azureiotsolutions.com/) en klikt u op **een nieuwe oplossing maken**.
 
-3. Voer de naam van een oplossing, selecteert u een abonnement en een regio en klik vervolgens op **oplossing maken**. De oplossing kan even duren om te worden ingericht.
-  ![Oplossing maken](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution.png)
+   ![Azure IoT-oplossing accelerator-type selecteren](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-solution-types.png)
 
-4. Nadat het inrichten is voltooid, klikt u op **starten**. Sommige gesimuleerde apparaten worden gemaakt voor de oplossing tijdens het inrichten. Klik op **apparaten** ze uitchecken. ![Dashboard](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
-  ![Console](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
+   > [!WARNING]
+   > In dit voorbeeld maakt standaard een IoT-Hub S2 na het maken van een oplossingsverbetering voor externe controle IoT. Als deze IoT hub niet met een groot aantal apparaten gebruikt wordt, ten zeerste aangeraden het downgraden van S2 naar S1, en de oplossingsverbetering voor externe controle IoT verwijderen zodat de gerelateerde IoT-Hub kan ook worden verwijderd, wanneer u ze niet meer nodig hebt. 
 
-5. Klik op **een apparaat TOEVOEGT**.
+2. Selecteer **bewaking op afstand**.
+
+3. Voer de naam van een oplossing, selecteer een abonnement en een regio en klik vervolgens op **oplossing maken**. De oplossing kan even om te worden ingericht.
+  
+   ![Oplossing maken](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution.png)
+
+4. Na het inrichten is voltooid, klikt u op **starten**. Sommige gesimuleerde apparaten worden tijdens het inrichtingsproces voor de oplossing gemaakt. Klik op **apparaten** en controleer of ze uit.
+
+   ![Dashboard](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-solution-created.png)
+  
+   ![Console](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-console.png)
+
+5. Klik op **toevoegen van een apparaat**.
 
 6. Klik op **nieuwe toevoegen** voor **aangepast apparaat**.
-  ![Nieuwe apparaat toevoegen](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-add-new-device.png)
+  
+   ![Een nieuw apparaat toevoegen](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-add-new-device.png)
 
 7. Klik op **laat mij mijn eigen apparaat-ID definiëren**, voer `AZ3166`, en klik vervolgens op **maken**.
-  ![Apparaat met de ID maken](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-device-configuration.png)
+  
+   ![Apparaat maken met de ID](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/azure-iot-suite-new-device-configuration.png)
 
-8. Maak een notitie van **IoT Hub-hostnaam**, en klik op **gedaan**.
+8. Maak een notitie van **IoT Hub-hostnaam**, en klikt u op **gedaan**.
 
 ## <a name="open-the-remotemonitoring-sample"></a>Open het voorbeeld RemoteMonitoring
 
-1. Verbreek de verbinding met de DevKit van uw computer, als deze is verbonden.
+1. De DevKit loskoppelt van de computer, als deze is verbonden.
 
-2. Start VS-Code.
+2. Start VS Code.
 
-3. De DevKit aansluiten op uw computer. VS Code uw DevKit detecteert automatisch en Hiermee opent u de volgende pagina's:
+3. De DevKit verbinden met uw computer. VS Code uw DevKit detecteert automatisch en opent de volgende pagina's:
+
   * De introductiepagina DevKit.
   * Voorbeelden van Arduino: Praktische voorbeelden aan de slag met DevKit.
 
-4. Vouw de linkerkant **ARDUINO voorbeelden** sectie, blader naar **voorbeelden voor MXCHIP AZ3166 > AzureIoT**, en selecteer **RemoteMonitoring**. Er wordt een nieuw venster van de VS Code geopend met een projectmap in het.
-  > [!NOTE]
-  > Als u per ongeluk het venster sluit, kunt u deze opnieuw openen. Gebruik `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) typt u de opdracht om palet te openen, **Arduino**, en zoek en selecteer **Arduino: voorbeelden**.
+4. Vouw linkerkant **ARDUINO voorbeelden** sectie, blader naar **voorbeelden voor MXCHIP AZ3166 > AzureIoT**, en selecteer **RemoteMonitoring**. Een nieuwe VS Code-venster wordt het geopend met een projectmap daarin.
 
-## <a name="provision-required-azure-services"></a>Vereist Azure services inrichten
+   > [!NOTE]
+   > Als u het deelvenster sluiten, kunt u deze opnieuw openen. Gebruik `Ctrl+Shift+P` (Mac OS: `Cmd+Shift+P`) om te openen de command palette, typt u **Arduino**, en zoek en selecteer **Arduino: voorbeelden**.
 
-In het oplossingsvenster kunt u uw taak uitvoeren via `Ctrl+P` (Mac OS: `Cmd+P`) door te voeren `task cloud-provision` in het tekstvak opgegeven:
+## <a name="provision-required-azure-services"></a>Vereiste Azure-services inrichten
 
-In de terminal VS-Code in leert een interactieve opdrachtregel u de vereiste Azure-services inrichten:
+In het venster van de oplossing, kunt u uw taak uitvoeren via `Ctrl+P` (Mac OS: `Cmd+P`) door in te voeren `task cloud-provision` in het tekstvak opgegeven.
+
+In de terminal van VS Code en helpt een interactieve vanaf de opdrachtregel u de vereiste Azure-services voor het inrichten.
 
 ![Azure-resources inrichten](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/provision.png)
 
-## <a name="build-and-upload-the-device-code"></a>Maken en uploaden van de apparaatcode
+## <a name="build-and-upload-the-device-code"></a>Bouwen en de apparaatcode uploaden
 
-1. Gebruik `Ctrl+P` (Mac OS: `Cmd + P`) en type **config apparaatverbinding taak**.
+1. Gebruik `Ctrl+P` (Mac OS: `Cmd + P`) en het type **config apparaatverbinding taak**.
 
-2. De terminal wordt u gevraagd of u wilt gebruiken van de verbindingsreeks die wordt opgehaald uit `task cloud-provision` stap. Er kan ook uw eigen apparaat verbindingsreeks door te klikken op 'Nieuw' ingevoerd
+2. De terminal wordt gevraagd of u gebruiken van een verbindingsreeks waarmee deze worden opgehaald wilt uit de `task cloud-provision` stap. U kunt ook de verbindingsreeks van uw eigen apparaat invoer door te klikken op 'Nieuw'
 
-3. De terminal vraagt u om de configuratie activeren. Om dit te doen, houdt u A, en vervolgens push en release van de knop herstellen. Het scherm wordt weergegeven voor de DevKit-ID en 'Configuration'.
-  ![Invoer-verbindingsreeks](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/config-device-connection.png)
+3. De terminal vraagt u om in te voeren van de configuratiemodus. Om dit te doen, houdt u ingedrukt A, en vervolgens push- en release van de knop opnieuw instellen. Het scherm wordt weergegeven de DevKit-ID en 'Configuration'.
 
-4. Na `task config-device-connection` is voltooid, klikt u op `F1` tegenover codeopdrachten laden en selecteer `Arduino: Upload`, VS-Code wordt gestart controleren en werk de Arduino uploaden: ![controle en het uploaden van het schema Arduino](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/arduino-upload.png)
+   ![Invoer verbindingsreeks](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/config-device-connection.png)
+
+4. Na `task config-device-connection` is voltooid, klikt u op `F1` laden van VS Code-opdrachten en selecteer `Arduino: Upload`. VS Code begint te controleren en de schets Arduino uploaden.
+  
+   ![Verificatie en uploaden van de schets Arduino](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/arduino-upload.png)
 
 De DevKit opnieuw wordt opgestart en de code wordt gestart.
 
 ## <a name="test-the-project"></a>Het project testen
 
-Wanneer de voorbeeld-app wordt uitgevoerd, verzendt DevKit sensorgegevens via Wi-Fi naar uw oplossingsverbetering Azure IoT externe controle. Het resultaat wilt weergeven, de volgende stappen uit:
+Wanneer de voorbeeld-app wordt uitgevoerd, verzendt DevKit sensorgegevens via Wi-Fi naar uw oplossingsverbetering voor externe controle van Azure IoT. Het resultaat wilt weergeven, de volgende stappen uit:
 
-1. Ga naar uw oplossingsverbetering Azure IoT externe controle en klik **DASHBOARD**.
+1. Ga naar uw externe controle van Azure IoT-oplossingsversnellers en klikt u op **DASHBOARD**.
 
-2. Op de oplossing voor externe controle console ziet u de status van de sensor DevKit.
+2. Op de oplossing voor externe controle-console ziet u de status van uw DevKit sensor.
 
-![Sensorgegevens in Azure IoT externe controle oplossingsverbetering](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/sensor-status.png)
+   ![Sensorgegevens in Azure IoT Remote Monitoring solution accelerator](media/iot-hub-arduino-iot-devkit-az3166-devkit-remote-monitoring/sensor-status.png)
 
 ## <a name="change-device-id"></a>Apparaat-ID wijzigen
 
-U kunt de apparaat-ID van IoT-Hub wijzigen door de volgende [in deze handleiding](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/). En als u wilt wijzigen van de hardcoded **AZ3166** aangepast aan de apparaat-ID in de code. [Hier](https://github.com/Microsoft/devkit-sdk/blob/master/AZ3166/src/libraries/AzureIoT/examples/RemoteMonitoring/RemoteMonitoring.ino#L23) is de regel code die u kunt wijzigen.
+U kunt de apparaat-ID van IoT-Hub wijzigen door de [aanpassen van de apparaat-ID handleiding](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/). Als u wilt wijzigen van de vastgelegde **AZ3166** naar een aangepaste apparaat-ID in de code, wijzigt u de line-of-code weergegeven oi de [externe bewaking voorbeeld](https://github.com/Microsoft/devkit-sdk/blob/master/AZ3166/src/libraries/AzureIoT/examples/RemoteMonitoring/RemoteMonitoring.ino#L23).
 
 ## <a name="problems-and-feedback"></a>Problemen en feedback
 
-Als u problemen ondervindt, raadpleegt u [Veelgestelde vragen over](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) of bereiken aan ons van de volgende kanalen:
+Als u problemen ondervindt, raadpleegt u [IoT developer kit Veelgestelde vragen over](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/) of contact opnemen met ons opnemen met behulp van de volgende kanalen:
 
 * [Gitter.IM](http://gitter.im/Microsoft/azure-iot-developer-kit)
 * [StackOverflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe u een DevKit apparaat aansluit op uw oplossingsverbetering Azure IoT externe controle en de sensorgegevens visualiseren, vindt hier u de voorgestelde volgende stappen uit:
+Nu dat u hebt geleerd hoe u een apparaat DevKit verbinden met uw externe controle van Azure IoT-oplossingsversnellers en de sensorgegevens visualiseren, vindt hier u de voorgestelde volgende stappen:
 
-* [Overzicht van Azure IoT-oplossing accelerators](https://docs.microsoft.com/azure/iot-suite/)
-* [Sluit een apparaat MXChip IoT DevKit aan uw Azure IoT centrale toepassing](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Overzicht oplossingsversnellers Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
+
+* [Een apparaat MXChip IoT DevKit verbinden met uw Azure IoT Central-toepassing](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)

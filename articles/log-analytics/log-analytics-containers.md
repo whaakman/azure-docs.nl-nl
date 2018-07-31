@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a5c459fa9bafa48bb8731009a0813cdff7a900d8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9e00e9c3f90d668458d692db88570dac7e8df5a3
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970799"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39359061"
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Container Monitoring solution in Log Analytics
 
@@ -181,7 +181,7 @@ Gebruik de volgende informatie om te maken van uw geheime informatie voor Docker
 3. Voer de volgende opdracht om te koppelen van de geheimen in de beperkte OMS-Agent.
 
     ```
-    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
+    sudo docker service create  --name omsagent --mode global  --mount type=bind,source=/var/run/docker.sock,destination=/var/run/docker.sock --mount type=bind,source=/var/lib/docker/containers,destination=/var/lib/docker/containers --secret source=WSID,target=WSID --secret source=KEY,target=KEY  -p 25225:25225 -p 25224:25224/udp --restart-condition=on-failure microsoft/oms
     ```
 
 #### <a name="configure-an-oms-agent-for-red-hat-openshift"></a>Een OMS-Agent voor Red Hat OpenShift configureren
@@ -582,12 +582,12 @@ Klik op de **Containers** tegel. Daar ziet u de weergaven die zijn geordend op:
 - **Voorraad Containerinstallatiekopieën** -toont het totale aantal containerinstallatiekopieën gebruikt en het aantal afbeeldingstypen. Het aantal afbeeldingen worden ook weergegeven met het label de installatiekopie.
 - **Containersstatus** -toont het totale aantal container-knooppunten/host-computers met actieve containers. Computers worden ook weergegeven door het aantal actieve hosts.
 - **Containerverwerking** -ziet u een lijndiagram van processen die na verloop van tijd worden uitgevoerd container. Containers worden ook vermeld door uit te voeren opdracht/proces binnen containers. *Deze gegevensset wordt alleen gebruikt in Linux-omgevingen.*
-- **Query's voor containers Opslaan van logboek zoekquery 's
-- **Opgeslagen query's is een standaardfunctie in Log Analytics. Door deze zijn opgeslagen, hebt u die u hebt gevonden nuttig bij de hand hebt voor toekomstig gebruik.
-- **Nadat u een query die u maakt, deze door te klikken op Opslaan **Favorieten** aan de bovenkant van de pagina voor zoeken in Logboeken. En vervolgens u gemakkelijk toegankelijk is vanuit de mijn Dashboard pagina.
+- **CPU-prestaties van container** -ziet u een lijndiagram van het gemiddelde CPU-gebruik na verloop van tijd voor computer-knooppunten /-hosts. Ook een lijst met de computer-knooppunten/hosts op basis van Gemiddeld CPU-gebruik.
+- **Prestaties van Containergeheugen** -ziet u een lijndiagram van geheugengebruik na verloop van tijd. Bevat ook gebruik gebaseerd op de instantienaam van de computergeheugen.
+- **Prestaties van de computer** -ziet u lijndiagrammen van het percentage van CPU-prestaties na verloop van tijd percentage geheugenverbruik na verloop van tijd en MB aan vrije schijfruimte na verloop van tijd. U kunt de muisaanwijzer over een regel in een grafiek om meer details weer te geven.
 
 
-Zoeken in logboeken om gedetailleerde container gegevensrecords weer te geven.
+Elk gebied van het dashboard is een visuele representatie van een zoekopdracht die wordt uitgevoerd op de verzamelde gegevens.
 
 ![Dashboard containers](./media/log-analytics-containers/containers-dash01.png)
 
