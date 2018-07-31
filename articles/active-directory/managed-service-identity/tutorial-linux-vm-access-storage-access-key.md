@@ -1,6 +1,6 @@
 ---
-title: Toegang krijgen tot Azure Storage met een MSI voor Linux-VM
-description: Een zelfstudie die u helpt bij het doorlopen van het proces voor het krijgen van toegang tot Azure Storage met een Managed Service Identity (MSI) voor Linux-VM.
+title: Toegang krijgen tot Azure Storage met de Managed Service Identity van een Linux-VM
+description: Een zelfstudie die u helpt bij het doorlopen van het proces voor het krijgen van toegang tot Azure Storage met een Managed Service Identity voor Linux-VM.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: eee0787518a17826d6256cb9b7dad8f4547f5663
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: aa0736452d7dc06c5a1a6c2710024a5fdc626af1
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048841"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258708"
 ---
 # <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Zelfstudie: Toegang krijgen tot Azure Storage via toegangssleutel met een Managed Service Identity voor Linux-VM
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Deze zelfstudie laat zien hoe u Managed Service Identity (MSI) kunt inschakelen voor een virtuele Linux-machine, en daarmee toegangssleutels voor opslagaccounts kunt ophalen. U kunt een toegangssleutel voor opslag gebruiken zoals u gewend bent bij opslagbewerkingen, bijvoorbeeld bij het gebruik van de Storage-SDK. Voor deze zelfstudie uploaden en downloaden we blobs met behulp van Azure CLI. U leert het volgende:
+Deze zelfstudie laat zien hoe u Managed Service Identity kunt inschakelen voor een virtuele Linux-machine, en daarmee toegangssleutels voor opslagaccounts kunt ophalen. U kunt een toegangssleutel voor opslag gebruiken zoals u gewend bent bij opslagbewerkingen, bijvoorbeeld bij het gebruik van de Storage-SDK. Voor deze zelfstudie uploaden en downloaden we blobs met behulp van Azure CLI. U leert het volgende:
 
 > [!div class="checklist"]
-> * MSI inschakelen op een virtuele Linux-machine 
+> * Managed Service Identity op een virtuele Linux-machine inschakelen 
 > * Uw virtuele machine toegang verlenen tot toegangssleutels voor opslagaccounts in Resource Manager 
 > * Een toegangstoken ophalen met de identiteit van de virtuele machine, en daarmee de toegangssleutels voor opslag ophalen uit Resource Manager  
 
@@ -44,7 +44,7 @@ Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azur
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Een virtuele Linux-machine maken in een nieuwe resourcegroep
 
-Voor deze zelfstudie maken we een nieuwe virtuele Linux-machine. U kunt MSI ook inschakelen op een bestaande virtuele machine.
+Voor deze zelfstudie maken we een nieuwe virtuele Linux-machine. U kunt Managed Service Identity ook op een bestaande VM inschakelen.
 
 1. Klik op de knop **+/Nieuwe service maken** in de linkerbovenhoek van Azure Portal.
 2. Selecteer **Compute** en selecteer vervolgens **Ubuntu Server 16.04 LTS**.
@@ -56,20 +56,20 @@ Voor deze zelfstudie maken we een nieuwe virtuele Linux-machine. U kunt MSI ook 
 5. Om een nieuwe **resourcegroep** te selecteren waarin u de virtuele machine wilt maken, kiest u **Nieuwe maken**. Na het voltooien klikt u op **OK**.
 6. Selecteer de grootte voor de virtuele machine. Kies om meer grootten weer te geven de optie **Alle weergeven** of wijzig het filter Ondersteund schijftype. Handhaaf op de blade Instellingen de standaardwaarden en klik op **OK**.
 
-## <a name="enable-msi-on-your-vm"></a>MSI op de virtuele machine inschakelen
+## <a name="enable-managed-service-identity-on-your-vm"></a>Managed Service Identity op uw VM inschakelen
 
-Met een MSI op de virtuele machine kunt u toegangstokens uit Azure AD ophalen zonder referenties in uw code te hoeven opnemen. Er gebeuren twee dingen als u Managed Service Identity inschakelt op een virtuele machine: de virtuele machine wordt bij Azure Active Directory geregistreerd om de beheerde identiteit te maken, en de identiteit wordt geconfigureerd op de virtuele machine.  
+Met Managed Service Identity op een virtuele machine kunt u toegangstokens uit Azure AD ophalen zonder dat u referenties in uw code hoeft op te nemen. Er gebeuren twee dingen als u Managed Service Identity inschakelt op een virtuele machine: de virtuele machine wordt bij Azure Active Directory geregistreerd om de beheerde identiteit te maken, en de identiteit wordt geconfigureerd op de virtuele machine.  
 
 1. Navigeer naar de resourcegroep van de nieuwe virtuele machine en selecteer de virtuele machine die u in de vorige stap hebt gemaakt.
 2. Klik onder de instellingen voor de VM aan de linkerkant op **Configuratie**.
-3. Als u de MSI wilt registreren en inschakelen, selecteert u **Ja**. Als u de MSI wilt uitschakelen, kiest u Nee.
+3. Als u Managed Service Identity wilt registreren en inschakelen, selecteert u **Ja**. Als u het wilt uitschakelen, kiest u Nee.
 4. Vergeet niet op **Opslaan** te klikken om de configuratie op te slaan.
 
     ![Alt-tekst voor afbeelding](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>Create a storage account 
 
-Als u nog geen opslagaccount hebt, maakt u er nu een.  U kunt deze stap ook overslaan en uw VM-MSI toegang verlenen tot de sleutels van een bestaand opslagaccount. 
+Als u nog geen opslagaccount hebt, maakt u er nu een.  U kunt deze stap ook overslaan en de Managed Service Identity voor uw VM toegang verlenen tot de sleutels van een bestaand opslagaccount. 
 
 1. Klik op de knop **+/Nieuwe service maken** in de linkerbovenhoek van Azure Portal.
 2. Klik op **Opslag** en vervolgens op **Opslagaccount**. Het paneel Opslagaccount maken wordt weergegeven.
@@ -91,9 +91,9 @@ Later zullen we een bestand uploaden en downloaden naar het nieuwe opslagaccount
 
     ![Opslagcontainer maken](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-msi-access-to-use-storage-account-access-keys"></a>MSI van de virtuele machine toegang verlenen voor het gebruik van toegangssleutels voor opslagaccounts
+## <a name="grant-your-vms-managed-service-identity-access-to-use-storage-account-access-keys"></a>De Managed Service Identity van uw VM toegang verlenen tot het gebruik van toegangssleutels voor het opslagaccount
 
-Azure Storage biedt geen systeemeigen ondersteuning voor Azure AD-verificatie.  U kunt echter een MSI gebruiken om toegangssleutels voor opslagaccounts op te halen uit Resource Manager, en vervolgens een sleutel gebruiken om toegang tot de opslag te krijgen.  In deze stap verleent u de MSI van de VM toegang tot de sleutels voor uw opslagaccount.   
+Azure Storage biedt geen systeemeigen ondersteuning voor Azure AD-verificatie.  U kunt echter een Managed Service Identity gebruiken om toegangssleutels voor opslagaccounts op te halen uit Resource Manager, en vervolgens een sleutel gebruiken om toegang tot de opslag te krijgen.  In deze stap verleent u de Managed Service Identity van de VM toegang tot de sleutels van uw opslagaccount.   
 
 1. Navigeer terug naar het zojuist gemaakte opslagaccount.
 2. Klik op de koppeling **Toegangsbeheer (IAM)** in het linkerpaneel.  

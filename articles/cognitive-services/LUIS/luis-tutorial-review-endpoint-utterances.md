@@ -2,19 +2,19 @@
 title: Zelfstudie over het beoordelen van eindpuntuitingen in Language Understanding (LUIS) - Azure | Microsoft Docs
 description: In deze zelfstudie leert u eindpuntuitingen in het domein Human Resources (HR) te beoordelen voor LUIS.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
 ms.date: 07/03/2018
-ms.author: v-geberr
-ms.openlocfilehash: cd8374b3804594f96212dbe741f99ba22d33a4e8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.author: diberry
+ms.openlocfilehash: 1f1e3310e0d02983aaecc3f87ba9c116d65b751b
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970503"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237210"
 ---
 # <a name="tutorial-review-endpoint-utterances"></a>Zelfstudie: Eindpuntuitingen beoordelen
 In deze zelfstudie leert u de voorspellingen van de app te verbeteren door de uitingen die worden ontvangen via het LUIS-HTTP-eindpunt te controleren of corrigeren. 
@@ -24,7 +24,7 @@ In deze zelfstudie leert u de voorspellingen van de app te verbeteren door de ui
 > * Inzicht krijgen in de beoordeling van eindpuntuitingen 
 > * De LUIS-app gebruiken voor het domein Human Resources (HR) 
 > * Eindpuntuitingen controleren
-> * App inleren en publiceren
+> * App trainen en publiceren
 > * Eindpunt van app opvragen om JSON-antwoord van LUIS te zien
 
 Voor dit artikel hebt u een gratis [LUIS](luis-reference-regions.md#luis-website)-account nodig om uw LUIS-toepassing te creëren.
@@ -34,7 +34,7 @@ Als u nog niet beschikt uit de Human Resources-app uit de zelfstudie over [senti
 
    [!code-nodejs[Node.js code showing endpoint utterances to add](~/samples-luis/examples/demo-upload-endpoint-utterances/endpoint.js?range=15-26)]
 
-Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `review`. Klonen is een uitstekende manier om te experimenten met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
+Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `review`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
 
 Als u alle versies van de app hebt, omdat u de hele reeks zelfstudies hebt gevolgd, zal het u wellicht verrassen dat de lijst **Eindpuntuitingen beoordelen** niet per versie verschilt. Er is één groep uitingen om te beoordelen, ongeacht welke versie van de uiting u actief bewerkt of welke versie van de app wordt gepubliceerd op het eindpunt. 
 
@@ -49,7 +49,7 @@ Door de eindpuntuitingen te boordelen, kunt u de voorspelde intenties controlere
 
 ## <a name="review-endpoint-utterances"></a>Eindpuntuitingen controleren
 
-1. Zorg ervoor dat uw Human Resources-app zich bevindt in de sectie **Build** van LUIS. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
+1. Zorg ervoor dat uw Human Resources-app zich in de sectie **Build** van LUIS bevindt. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
 
     [ ![Schermopname van LUIS-app met Build gemarkeerd in de navigatiebalk rechtsboven](./media/luis-tutorial-review-endpoint-utterances/first-image.png)](./media/luis-tutorial-review-endpoint-utterances/first-image.png#lightbox)
 
@@ -102,12 +102,12 @@ Houd de woordgroepenlijst actueel door alle nieuwe gedetecteerde taaknamen toe t
 
 3. Voeg `Natural Language Processing` toe als een waarde en selecteer vervolgens **Opslaan**. 
 
-## <a name="train-the-luis-app"></a>LUIS-app inleren
+## <a name="train-the-luis-app"></a>LUIS-app trainen
 LUIS is niet op de hoogte van eventuele wijzigingen totdat deze wordt getraind. 
 
 1. Selecteer rechtsboven op de website van LUIS de knop **Train**.
 
-2. Het inleren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het inleren is gelukt.
+2. Het trainen is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het trainen is gelukt.
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>App publiceren om eindpunt-URL op te vragen
 Om het bijgewerkte model van de LUIS-app in een chatbot of een andere toepassing te krijgen, moet u de app publiceren. 
@@ -123,7 +123,7 @@ Om het bijgewerkte model van de LUIS-app in een chatbot of een andere toepassing
 ## <a name="query-the-endpoint-with-an-utterance"></a>Eindpunt opvragen met een utterance
 Probeer een uiting die lijkt op de gecorrigeerde uiting. 
 
-1. Selecteer onderaan de pagina **Publish** de koppeling **endpoint**. Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbalk. 
+1. Selecteer onder aan de pagina **Publish** de koppeling **endpoint**. Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbalk. 
 
 2. Ga naar het einde van de URL in het adres en voer `Are there any natural language processing jobs in my department right now?` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. 
 

@@ -1,20 +1,20 @@
 ---
-title: Problemen met apparaten detecteren in een Azure-oplossing voor externe bewaking | Microsoft Docs
+title: Zelfstudie over problemen met apparaten detecteren in een Azure-oplossing voor externe bewaking | Microsoft Docs
 description: In deze zelfstudie leert u hoe u regels en acties kunt gebruiken voor het automatisch detecteren van problemen met apparaten op basis van een drempelwaarde in de oplossing voor externe bewaking.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/08/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 1e3eaeec1d2eae3c36f285a3e4c536657504cbb8
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 29d4289f5b83e37cddec652b976aeb5aa255ed4c
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098478"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39158874"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Zelfstudie: Problemen detecteren met apparaten die zijn verbonden met uw bewakingsoplossing
 
@@ -24,7 +24,7 @@ Om u kennis te laten maken met regels en meldingen, maakt de zelfstudie gebruik 
 
 U bent ook gevraagd een kritieke melding voor een chiller te maken wanneer in de laatste vijf minuten de gemiddelde vochtigheid in het apparaat hoger was dan 80% en de temperatuur van het apparaat hoger dan 75 graden Fahrenheit.
 
-In deze zelfstudie leert u het volgende:
+In deze zelfstudie hebt u:
 
 >[!div class="checklist"]
 > * De regels in uw oplossing weergeven
@@ -33,29 +33,19 @@ In deze zelfstudie leert u het volgende:
 > * Een bestaande rol bewerken
 > * Regels in- en uitschakelen
 
-## <a name="prerequisites"></a>Vereisten
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Voor deze zelfstudie hebt u een geïmplementeerd exemplaar van de oplossingsversneller voor externe bewaking in uw Azure-abonnement nodig.
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
-Als u de oplossingsverbetering voor externe controle nog niet hebt geïmplementeerd, voltooit u eerst de snelstart [Een cloudoplossing voor externe controle implementeren](quickstart-remote-monitoring-deploy.md).
-
-## <a name="view-the-existing-rules"></a>De bestaande regels weergeven
+## <a name="review-the-existing-rules"></a>De bestaande regels weergeven
 
 De pagina **Regels** in de oplossingsversneller geeft een lijst van de huidige regels weer:
 
 [![Pagina Regels](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactions_v2-expanded.png#lightbox)
 
-Als u alleen de regels wilt zien die betrekking hebben op chillers, moet u een filter toepassen:
-
-[![De lijst met regels filteren](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsfilter_v2-expanded.png#lightbox)
-
-U kunt meer informatie over een regel bekijken en deze bewerken wanneer u de regel in de lijst selecteert:
+Als u alleen de regels wilt zien die betrekking hebben op chillers, moet u een filter toepassen. U kunt meer informatie over een regel bekijken en deze bewerken wanneer u de regel in de lijst selecteert:
 
 [![Regeldetails weergeven](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdetail_v2-expanded.png#lightbox)
-
-Als u een of meer regels wilt in- of uitschakelen, selecteert u een of meer regels in de lijst:
-
-[![Meerdere regels selecteren](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsmultiselect_v2-expanded.png#lightbox)
 
 ## <a name="create-a-rule"></a>Een regel maken
 
@@ -80,7 +70,7 @@ U kunt zien wanneer de regel wordt geactiveerd op de pagina **Regels** of op de 
 
 [![De waarschuwingsregel geactiveerd](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-inline.png)](./media/iot-accelerators-remote-monitoring-automate/warningruletriggered-expanded.png#lightbox)
 
-## <a name="create-a-rule-with-multiple-conditions"></a>Een regel met meerdere voorwaarden maken
+## <a name="create-an-advanced-rule"></a>Een geavanceerde regel maken
 
 Klik op **Nieuwe regel**  als u een regel met meerdere voorwaarden wilt maken die een kritieke melding genereert wanneer in de laatste vijf minuten voor een chiller de gemiddelde vochtigheid hoger is dan 80% en de gemiddelde temperatuur hoger dan 75 graden Fahrenheit. Gebruik de volgende waarden om de regel te maken:
 
@@ -128,23 +118,7 @@ Als u een regel tijdelijk wilt uitschakelen, kunt u dat doen in de lijst met reg
 
 U kunt meerdere regels tegelijk in- en uitschakelen door meerdere regels in de lijst te selecteren.
 
-<!-- ## Delete a rule
-
-To permanently delete a rule, choose the rule in the list of rules and then choose **Delete**.
-
-You can delete multiple rules at the same time if you select multiple rules in the list.-->
-
-## <a name="clean-up-resources"></a>Resources opschonen
-
-Als u van plan bent verder te gaan naar de volgende zelfstudie, laat u de oplossingsversneller voor externe bewaking geïmplementeerd. Als u de kosten wilt verminderen voor het uitvoeren van de oplossingsversneller terwijl u deze niet gebruikt, kunt u de gesimuleerde apparaten in het deelvenster Instellingen stopzetten:
-
-[![Telemetrie onderbreken](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-automate/togglesimulation-expanded.png#lightbox)
-
-Wanneer u bent klaar om te beginnen met de volgende zelfstudie, kunt u de gesimuleerde apparaten opnieuw opstarten.
-
-Als u de oplossingsversneller niet meer nodig hebt, verwijdert u deze van de pagina [Ingerichte oplossingen](https://www.azureiotsolutions.com/Accelerators#dashboard):
-
-![Oplossing verwijderen](media/iot-accelerators-remote-monitoring-automate/deletesolution.png)
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

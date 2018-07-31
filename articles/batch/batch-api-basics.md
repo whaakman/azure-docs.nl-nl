@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9de4b00b2fff1feabcaee4e30667dfbdc75d9266
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: d404e3a300a953ccc1cfb691cbde6f6d7ee54b26
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114436"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39216305"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Grootschalige parallelle rekenoplossingen ontwikkelen met Batch
 
@@ -174,7 +174,7 @@ Zie [Batch-prijzen](https://azure.microsoft.com/pricing/details/batch/) voor inf
 
 ### <a name="size-of-the-compute-nodes"></a>Grootte van de rekenknooppunten
 
-Wanneer u een Azure Batch-groep maakt, kunt u kiezen uit bijna alle reeksen en grootten virtuele machines die beschikbaar zijn in Azure. Azure biedt een bereik aan VM-grootten voor verschillende workloads, met inbegrip van VM-grootten die speciaal bedoeld zijn voor [HPC](../virtual-machines/linux/sizes-hpc.md) of [GPU](../virtual-machines/linux/sizes-gpu.md). 
+Wanneer u een Azure Batch-groep maakt, kunt u kiezen uit bijna alle reeksen en grootten virtuele machines die beschikbaar zijn in Azure. Azure biedt verscheidene VM-grootten voor verschillende workloads, met inbegrip van VM-grootten die speciaal zijn bedoeld voor [HPC](../virtual-machines/linux/sizes-hpc.md) of [GPU](../virtual-machines/linux/sizes-gpu.md). 
 
 Zie [Choose a VM size for compute nodes in an Azure Batch pool](batch-pool-vm-sizes.md) (Een VM-grootte voor rekenknooppunten in een Azure Batch-groep kiezen) voor meer informatie.
 
@@ -505,7 +505,7 @@ In situaties waarin een aantal taken mislukken, kan uw Batch-clienttoepassing of
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over de [Batch-API's en -hulpprogramma's](batch-apis-tools.md) die beschikbaar zijn voor het bouwen van Batch-oplossingen.
 * Lees de basisbeginselen van het ontwikkelen van een voor Batch geschikte toepassing met behulp van de [clientbibliotheek Batch .NET](quick-run-dotnet.md) of [Python](quick-run-python.md). Deze snelstarts leiden u stapsgewijs door een voorbeeldtoepassing die gebruikmaakt van de Batch-service voor het uitvoeren van een workload op meerdere rekenknooppunten. U vindt er ook informatie over het gebruik van Azure Storage voor het faseren en ophalen van een workloadbestand.
-* Download en installeer [BatchLabs][batch_labs] voor gebruik bij het ontwikkelen van uw Batch-oplossingen. Gebruik BatchLabs bij het maken en bewaken van en opsporen van fouten in Azure Batch-toepassingen. 
+* Download en installeer [Batch Explorer][batch_labs] voor gebruik bij het ontwikkelen van uw Batch-oplossingen. Gebruik Batch Explorer bij het maken en bewaken van en opsporen van fouten in Azure Batch-toepassingen. 
 * Zie de bronnen van de community met inbegrip van [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-batch), de [Batch Community-opslagplaats](https://github.com/Azure/Batch) en het [Azure Batch-forum][batch_forum] op MSDN. 
 
 [1]: ./media/batch-api-basics/node-folder-structure.png
@@ -516,7 +516,7 @@ In situaties waarin een aantal taken mislukken, kan uw Batch-clienttoepassing of
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[batch_labs]: https://azure.github.io/BatchLabs/
+[batch_labs]: https://azure.github.io/BatchExplorer/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx

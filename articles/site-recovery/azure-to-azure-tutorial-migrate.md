@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 122fe9be768341716fb423a58560885c7d3035fe
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a8f081ca9a0868bee11b27e1065a72806cb8c2c9
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920634"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214592"
 ---
 # <a name="migrate-azure-vms-to-another-region"></a>Virtuele Azure-machines migreren naar een andere regio
 
@@ -67,7 +67,7 @@ Als u net pas uw gratis Azure-account hebt gemaakt, bent u de beheerder van uw a
 ### <a name="verify-vm-outbound-access"></a>Uitgaande toegang van de virtuele machine controleren
 
 1. Zorg ervoor dat u geen verificatieproxy gebruikt om de verbinding met het netwerk te beheren voor virtuele machines die u wilt migreren. 
-2. Voor deze zelfstudie gaan we ervan uit dat de virtuele machines die u wilt migreren toegang hebben tot internet en geen gebruik maken van een firewallproxy om de uitgaande toegang te beheren. Als dat wel het geval is, moet u de vereisten [hier](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity) controleren.
+2. Voor deze zelfstudie gaan we ervan uit dat de virtuele machines die u wilt migreren toegang hebben tot internet en geen gebruikmaken van een firewallproxy om de uitgaande toegang te beheren. Als dat wel het geval is, moet u de vereisten [hier](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity) controleren.
 
 ### <a name="verify-vm-certificates"></a>VM-certificaten controleren
 

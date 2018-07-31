@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
 ms.author: jdial
-ms.openlocfilehash: 27eaa6582a355198b61e996cce0a4acce48061cb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 63ea834401e5c6798b6f84b6f09a964005d14306
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35267125"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39257868"
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
 
@@ -85,7 +85,9 @@ Zie [Machtigingen voor peering op een virtueel netwerk](virtual-network-manage-p
 
 ## <a name="pricing"></a>Prijzen
 
-Er wordt een nominaal bedrag in rekening gebracht voor inkomend en uitgaand verkeer dat gebruikmaakt van een verbinding voor virtueel netwerk-peering. Zie de pagina [prijzen](https://azure.microsoft.com/pricing/details/virtual-network) voor meer informatie.
+Er wordt een nominaal bedrag in rekening gebracht voor inkomend en uitgaand verkeer dat gebruikmaakt van een verbinding voor virtueel netwerk-peering. Zie de [pagina met prijzen](https://azure.microsoft.com/pricing/details/virtual-network) voor meer informatie over prijzen voor VNet-peering en wereldwijde VNet-peering.
+
+Gatewayoverdracht is een peeringeigenschap die zorgt dat een virtueel netwerk een VPN-gateway in een als peer ingesteld virtuele netwerk kan gebruiken voor cross-premises- of VNet-naar-VNet-connectiviteit. Verkeer dat in dit scenario via een externe gateway passeert, is onderworpen aan [VPN-gateway kosten](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/) en hiervoor worden geen kosten in rekening gebracht voor [VNet-peering.](https://azure.microsoft.com/pricing/details/virtual-network) Als VNetA bijvoorbeeld een VPN-gateway heeft voor on-premises-connectiviteit en VNetB is gekoppeld aan VNetA met de gewenste geconfigureerde eigenschappen, worden voor verkeer van VNetB naar on-premises alleen kosten voor uitgaand verkeer in rekening gebracht volgens VPN-gatewaytarieven. Er zijn geen kosten voor VNet-peering van toepassing. Lees hoe u [VPN-gatewayoverdracht kunt configureren voor peering voor virtuele netwerken.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="next-steps"></a>Volgende stappen
 

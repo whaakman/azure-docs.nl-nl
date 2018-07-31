@@ -1,22 +1,22 @@
 ---
-title: Waarschuwingen gebruiken en problemen met apparaten verhelpen met de oplossing voor externe controle - Azure | Microsoft Docs
+title: Zelfstudie over het gebruik van waarschuwingen en het verhelpen van problemen met apparaten met de oplossing voor externe controle - Azure | Microsoft Docs
 description: In deze zelfstudie ziet u hoe u waarschuwingen kunt gebruiken om problemen te identificeren en op te lossen met apparaten die zijn verbonden met de oplossingsverbetering voor externe controle.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/18/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 9607705220450b30d2ffaf0f2be9fa2a5664b879
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: acff6586f35f1c86cba8d519586d72247255ccd7
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081785"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159380"
 ---
-# <a name="troubleshoot-and-remediate-device-issues"></a>Problemen met apparaten oplossen en herstellen
+# <a name="troubleshoot-and-fix-device-issues"></a>Problemen met apparaten opsporen en oplossen
 
 In deze zelfstudie gebruikt u de oplossingsverbetering voor externe controle om problemen met verbonden IoT-apparaten te identificeren en te herstellen. U gebruikt waarschuwingen op het dashboard van de oplossingsverbetering om problemen te identificeren. Vervolgens voert u externe taken uit om deze problemen op te lossen.
 
@@ -28,11 +28,9 @@ In deze zelfstudie hebt u:
 > * Een waarschuwing voor een apparaat onderzocht
 > * Het probleem met het apparaat opgelost
 
-## <a name="prerequisites"></a>Vereisten
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Voor deze zelfstudie hebt u een geïmplementeerd exemplaar van de oplossingsverbetering voor externe controle in uw Azure-abonnement nodig.
-
-Als u de oplossingsverbetering voor externe controle nog niet hebt geïmplementeerd, voltooit u eerst de snelstart [Een cloudoplossing voor externe controle implementeren](quickstart-remote-monitoring-deploy.md).
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="investigate-an-alert"></a>Een waarschuwing onderzoeken
 
@@ -58,7 +56,7 @@ Als u de waarschuwing wilt accepteren, selecteert u alle **Voorvallen van de waa
 
 Als u de waarschuwing hebt geaccepteerd, wordt de status van het voorval gewijzigd in **Geaccepteerd**.
 
-In de lijst ziet u welk **Prototypeapparaat** verantwoordelijk is voor het activeren van de temperatuurwaarschuwing:
+In de lijst met gewaarschuwde apparaten ziet u welk **Prototypeapparaat** verantwoordelijk is voor het activeren van de temperatuurwaarschuwing:
 
 [![Een lijst maken met de apparaten waardoor de waarschuwing is veroorzaakt](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenanceresponsibledevice-expanded.png#lightbox)
 
@@ -66,11 +64,11 @@ In de lijst ziet u welk **Prototypeapparaat** verantwoordelijk is voor het activ
 
 Als u het probleem met het **Prototypeapparaat** wilt oplossen, moet u de methode **DecreaseTemperature** aanroepen op het apparaat.
 
-Als u actie wilt ondernemen voor een apparaat, selecteert u het apparaat in de lijst en kiest u vervolgens **Taken**. Voor het **Prototypeapparaatmodel** zijn zes methoden opgegeven waarvoor een apparaat ondersteuning moet bieden:
+Als u actie wilt ondernemen voor een apparaat, selecteert u het apparaat in de lijst met gewaarschuwde apparaten en kiest u vervolgens **Taken**. Het model **Prototypeapparaat** biedt ondersteuning voor zes methoden:
 
 [![De methoden weergeven die worden ondersteund op het apparaat](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancemethods-expanded.png#lightbox)
 
-Kies **DecreaseTemperature** en stel de taaknaam in op **DecreaseTemperature**. Kies vervolgens **Toepassen**:
+Kies **DecreaseTemperature** en stel de taaknaam in op **DecreaseTemperature**. Klik vervolgens op **Toepassen**:
 
 [![De taak maken om de temperatuur te verlagen](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/maintenancecreatejob-expanded.png#lightbox)
 
@@ -81,6 +79,8 @@ Als u de status van de taak wilt bijhouden, klikt u op **Taakstatus bekijken**. 
 U kunt controleren of de temperatuur van het apparaat is afgenomen door de telemetrie te bekijken op de **Dashboardpagina**:
 
 [![De verlaging van de temperatuur weergeven](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
+
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

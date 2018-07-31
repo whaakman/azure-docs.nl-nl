@@ -9,14 +9,14 @@ ms.date: 06/01/2018
 ms.author: ghogen
 ms.custom: include file
 ms.openlocfilehash: eac352ac43293da923fa0e6edf2e0074c05659ab
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
-ms.translationtype: MT
+ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927485"
+ms.lasthandoff: 07/12/2018
+ms.locfileid: "38991047"
 ---
 > [!IMPORTANT]
-> Azure Dev spaties is in momenteel in preview en wordt alleen ondersteund door AKS-clusters in de **VS-Oost**,**VS-midden**, **VS-West 2**, **West-Europa**, **Canada-centraal**, en **Canada-Oost** regio's. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden][terms-of-use]. Sommige aspecten van deze functionaliteit kunnen wijzigen voordat deze functionaliteit algemeen beschikbaar wordt.
+> Azure Dev Spaces is momenteel beschikbaar als preview-versie en wordt alleen ondersteund door AKS-clusters in de regio's **US - oost**,**US - centraal**, **US - west 2**, **Europa - west**, **Canada - centraal** en **Canada - oost**. Preview-versies worden beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden][terms-of-use]. Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

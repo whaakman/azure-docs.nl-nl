@@ -9,70 +9,82 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 1e4e93c276fe62caae17c85bf9ac92282dfdfb88
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d589c0ece2b36970a31884aa72ee7ab87941a656
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631265"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39146432"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Een apparaat instellen om in te richten met behulp van IoT Hub Device Provisioning Service
 
-In de vorige zelfstudie hebt u geleerd hoe u Azure IoT Hub Device Provisioning Service kunt instellen om apparaten automatisch in te richten in uw IoT-hub. In deze zelfstudie ziet u hoe u uw apparaat kunt instellen tijdens het fabriceren van het apparaat, en ervoor zorgt dat het automatisch kan worden ingericht met IoT Hub. Uw apparaat wordt ingericht op basis van het bijbehorende [Attestation-mechanisme](concepts-device.md#attestation-mechanism) na de eerste keer opstarten en verbinden met de inrichtingsservice. In deze zelfstudie worden de volgende processen besproken:
+In de vorige zelfstudie hebt u geleerd hoe u Azure IoT Hub Device Provisioning Service kunt instellen om apparaten automatisch in te richten in uw IoT-hub. In deze zelfstudie ziet u hoe u uw apparaat kunt instellen tijdens het fabriceren van het apparaat, en ervoor zorgt dat het automatisch kan worden ingericht met IoT Hub. Uw apparaat wordt ingericht op basis van het bijbehorende [Attestation-mechanisme](concepts-device.md#attestation-mechanism) na de eerste keer opstarten en verbinden met de inrichtingsservice. Deze zelfstudie bestaat uit de volgende taken:
 
 > [!div class="checklist"]
 > * Platformspecifieke SDK van de Device Provisioning Service-client bouwen
 > * De beveiligingsartefacten extraheren
 > * De software voor apparaatregistratie maken
 
-## <a name="prerequisites"></a>Vereisten
-
-Voordat u doorgaat, maakt u een Device Provisioning Service-instantie en een IoT-hub, met behulp van de instructies in de vorige zelfstudie [1 - Cloudresources instellen](./tutorial-set-up-cloud.md).
+Voor deze zelfstudie wordt ervan uitgegaan dat u al een Device Provisioning Service-instantie en een IoT-hub hebt gemaakt met behulp van de instructies in de vorige zelfstudie [Cloudresources instellen](tutorial-set-up-cloud.md).
 
 In deze zelfstudie wordt gebruikgemaakt van de [Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c)-opslagplaats (Azure IoT SDK’s en bibliotheken voor C), die de SDK van de Device Provisioning Service-client voor C bevat. De SDK biedt momenteel ondersteuning voor TPM en X.509 voor apparaten die worden uitgevoerd in Windows- of Ubuntu-implementaties. Deze zelfstudie is gebaseerd op het gebruik van een Windows-ontwikkelclient. Er wordt vanuit gegaan dat u de basisprincipes van het werken met Visual Studio 2017 onder de knie hebt. 
 
 Als u niet bekend bent met het proces van automatische inrichting, bekijkt u de [Concepten voor automatische inrichting](concepts-auto-provisioning.md) voordat u verdergaat. 
 
+
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>Vereisten
+
+* Visual Studio 2015 of [Visual Studio 2017](https://www.visualstudio.com/vs/) met de workload ['Desktopontwikkeling met C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) ingeschakeld.
+* Meest recente versie van [Git](https://git-scm.com/download/) geïnstalleerd.
+
+
+
 ## <a name="build-a-platform-specific-version-of-the-sdk"></a>Een platformspecifieke versie van de SDK bouwen
 
 De SDK van de Device Provisioning Service-client helpt u bij het implementeren van de software voor apparaatregistratie. Maar voordat u deze kunt gebruiken, moet u een versie van de SDK bouwen die specifiek is voor uw ontwikkelclientplatform en attestation- mechanisme. In deze zelfstudie bouwt u een SDK die gebruikmaakt van Visual Studio 2017 op een Windows-ontwikkelplatform, voor een ondersteund type attestation:
 
-1. Installeer de vereiste hulpprogramma’s en kloon de GitHub-opslagplaats die de Client SDK voor C voor de inrichtingsservice bevat:
+1. Download de meest recente versie van het [CMake-bouwsysteem](https://cmake.org/download/). Zoek op dezelfde site de cryptografische hash op voor de versie van de binaire distributie die u hebt gekozen. Controleer het gedownloade binaire bestand met behulp van de bijbehorende cryptografische hash-waarde. In het volgende voorbeeld is Windows PowerShell gebruikt om de cryptografische hash te controleren voor versie 3.11.4 van de x64 MSI-distributie:
 
-   a. Op uw computer moet Visual Studio 2015 of [Visual Studio 2017](https://www.visualstudio.com/vs/) zijn geïnstalleerd. De workload ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) (Bureaubladontwikkeling met C++) moet zijn ingeschakeld voor uw installatie van Visual Studio.
+    ```PowerShell
+    PS C:\Users\wesmc\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
+    PS C:\Users\wesmc\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    True
+    ```
 
-   b. Download en installeer het [CMake-bouwsysteem](https://cmake.org/download/). Het is belangrijk dat Visual Studio met 'Desktop development with C++'-werkbelasting (Bureaubladontwikkeling met C++) op de computer wordt geïnstalleerd **vóór** de CMake-installatie.
+    Het is belangrijk dat de vereisten voor Visual Studio met (Visual Studio en de workload Desktopontwikkeling met C++) op uw computer zijn geïnstalleerd **voordat** de `CMake`-installatie wordt gestart. Zodra aan de vereisten is voldaan en de download is geverifieerd, installeert u het CMake-bouwsysteem.
 
-   c. Zorg ervoor dat `git` op de computer wordt geïnstalleerd en toegevoegd aan de omgevingsvariabelen die voor het opdrachtvenster toegankelijk zijn. Zie [Hulpprogramma’s voor de Git-client van Software Freedom Conservancy](https://git-scm.com/download/) voor de nieuwste hulpprogramma’s voor `git`, inclusief **Git Bash**, een opdrachtregel Bash-shell voor interactie met de lokale Git-opslagplaats. 
-
-   d. Open Git Bash en kloon de ‘Azure IoT SDKs and libraries for C’-opslagplaats (Azure IoT SDK’s en bibliotheken voor C). Het kan enige tijd duren voordat de kloonopdracht is voltooid, omdat ook verschillende afhankelijke submodules worden gedownload:
+2. Open een opdrachtprompt of Git Bash-shell. Voer de volgende opdracht uit voor het klonen van de [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-opslagplaats:
     
-   ```cmd/sh
-   git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
-   ```
+    ```cmd/sh
+    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
+    ```
+    De grootte van deze opslagplaats is momenteel ongeveer 220 MB. Deze bewerking kan enkele minuten in beslag nemen.
 
-   e. Een nieuwe `cmake`-submap maken in de submap van de nieuwe opslagplaats:
 
-   ```cmd/sh
-   mkdir azure-iot-sdk-c/cmake
-   ``` 
+3. Maak de submap `cmake` in de hoofdmap van de Git-opslagplaats en navigeer naar die map. 
 
-2. Ga vanuit de Git Bash-opdrachtprompt naar de `cmake`-submap van de azure-iot-sdk-c-opslagplaats:
+    ```cmd/sh
+    cd azure-iot-sdk-c
+    mkdir cmake
+    cd cmake
+    ```
 
-   ```cmd/sh
-   cd azure-iot-sdk-c/cmake
-   ```
+4. Bouw de SDK voor uw ontwikkelplatform op basis van de attestation-mechanismen die u gaat gebruiken. Gebruik een van de volgende opdrachten (let ook op de twee puntjes waarop elke opdracht eindigt). Na het voltooien wordt de `/cmake`-submap met CMake uitgebreid met inhoud die specifiek is voor uw apparaat:
+ 
+    - Voor apparaten die gebruikmaken van de TPM-simulator voor attestation:
 
-3. Bouw de SDK voor het ontwikkelplatform en een van de ondersteunde attestation-mechanismen met behulp van een van de volgende opdrachten (let op: eindigt op twee puntjes). Na het voltooien wordt de `/cmake`-submap met CMake uitgebreid met inhoud die specifiek is voor uw apparaat:
-    - Voor apparaten die gebruikmaken van een fysieke TPM/HSM, of een gesimuleerd X.509-certificaat voor attestation:
+        ```cmd/sh
+        cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
+        ```
+
+    - Voor elk ander apparaat (een fysiek TPM/HSM/X.509- of een gesimuleerd X.509-certificaat):
+
         ```cmd/sh
         cmake -Duse_prov_client:BOOL=ON ..
         ```
 
-    - Voor apparaten die gebruikmaken van de TPM-simulator voor attestation:
-        ```cmd/sh
-        cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
-        ```
 
 Nu bent u klaar om de SDK te gebruiken om de registratiecode voor het apparaat te bouwen. 
  
@@ -82,26 +94,33 @@ Nu bent u klaar om de SDK te gebruiken om de registratiecode voor het apparaat t
 
 De volgende stap is het extraheren van de beveiligingsartefacten voor het attestation-mechanisme dat wordt gebruikt op het apparaat. 
 
-### <a name="physical-device"></a>Fysiek apparaat 
+### <a name="physical-devices"></a>Fysieke apparaten 
 
-Als u de SDK hebt gebouwd om attestation te gebruiken vanaf een fysieke TPM/HSM :
+Afhankelijk van of u de SDK bouwt om gebruik te maken van attestation voor een fysieke TPM/HSM of dat u gebruikmaakt van X.509-certificaten, gaat het verzamelen van de beveiligingsartefacten als volgt:
 
 - Voor een TPM-apparaat moet u bij de TPM-chipfabrikant de bijbehorende **Goedkeuringssleutel** achterhalen. U kunt een unieke **Registratie-id** voor het TPM-apparaat afleiden door de goedkeuringssleutel te hashen.  
 
-- Voor een X.509-apparaat moet u de certificaten verkrijgen die zijn verleend aan uw apparaat/apparaten: eindentiteitcertificaten voor afzonderlijke apparaatinschrijvingen, en hoofdcertificaten voor groepsinschrijvingen van apparaten. 
+- Voor een X.509-apparaat moet u de certificaten verkrijgen die aan uw apparaten zijn verleend. Door de inrichtingsservice worden twee typen inschrijvingsvermeldingen beschikbaar gemaakt die de toegang voor apparaten beheren met behulp van het X.509-attestation-mechanisme. Welke certificaten u nodig hebt, is afhankelijk van het type inschrijving dat u gaat gebruiken.
 
-### <a name="simulated-device"></a>Gesimuleerd apparaat
+    1. Afzonderlijke inschrijvingen: inschrijving voor één specifiek apparaat. Dit type inschrijvingsvermelding vereist [leaf-certificaten voor eindentiteiten](concepts-security.md#end-entity-leaf-certificate).
+    2. Registratiegroepen: voor dit type inschrijvingsvermelding zijn tussenliggende certificaten of basiscertificaten vereist. Zie [Apparaattoegang tot de inrichtingsservice beheren met X.509-certificaten](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates) voor meer informatie.
 
-Als u de SDK hebt gebouwd om attestation te gebruiken vanaf een gesimuleerd TPM-certificaat of een gesimuleerd X.509-certificaat:
+### <a name="simulated-devices"></a>Gesimuleerde apparaten
+
+Afhankelijk van of u de SDK bouwt om gebruik te maken van attestation voor een gesimuleerd apparaat met behulp van TPM- of X.509-certificaten, gaat het verzamelen van de beveiligingsartefacten als volgt:
 
 - Voor een gesimuleerd TPM-apparaat:
-   1. Ga in een afzonderlijke/nieuwe opdrachtprompt naar de `azure-iot-sdk-c`-submap en voer de TPM-simulator uit. Deze luistert via een socket op poorten 2321 en 2322. Sluit dit opdrachtvenster niet. De simulator moet actief blijven tot het einde van de volgende snelstart. 
+
+   1. Open een Windows-opdrachtprompt, navigeer naar de submap `azure-iot-sdk-c` en voer de TPM-simulator uit. Deze luistert via een socket op poorten 2321 en 2322. Sluit dit opdrachtvenster niet. De simulator moet actief blijven tot het einde van de volgende snelstart. 
 
       Voer vanuit de `azure-iot-sdk-c`-submap de volgende opdracht uit om de simulator te starten:
 
       ```cmd/sh
       .\provisioning_client\deps\utpm\tools\tpm_simulator\Simulator.exe
       ```
+
+      > [!NOTE]
+      > Als u de Git Bash-opdrachtprompt voor deze stap gebruikt, moet u de backslash-tekens wijzigen in slashes, bijvoorbeeld: `./provisioning_client/deps/utpm/tools/tpm_simulator/Simulator.exe`.
 
    2. Open in Visual Studio de oplossing die is gegenereerd in de *cmake*-map met de naam `azure_iot_sdks.sln`, en bouw deze met behulp van de opdracht Build solution in het menu Build.
 
@@ -110,6 +129,7 @@ Als u de SDK hebt gebouwd om attestation te gebruiken vanaf een gesimuleerd TPM-
    4. Voer de oplossing uit met behulp van een van de twee opdrachten Start in het menu Debug. In het uitvoervenster worden de voor apparaatinschrijving en -registratie vereiste **_Registratie-id_** en **_Goedkeuringssleutel_** van de TPM-simulator weergegeven. Kopieer deze waarden voor later gebruik. U kunt dit venster (met de registratie-id en goedkeuringssleutel) sluiten, maar laat het venster voor de TPM-simulator uit stap 1 geopend.
 
 - Voor een gesimuleerd X.509-apparaat:
+
   1. Open in Visual Studio de oplossing die is gegenereerd in de *cmake*-map met de naam `azure_iot_sdks.sln`, en bouw deze met behulp van de opdracht Build solution in het menu Build.
 
   2. In het deelvenster *Solution Explorer* van Visual Studio gaat u naar de map **Inrichten\_Extra**. Klik met de rechtermuisknop op het**dice\_device\_enrollment**-project en selecteer **Set as Startup Project**. 

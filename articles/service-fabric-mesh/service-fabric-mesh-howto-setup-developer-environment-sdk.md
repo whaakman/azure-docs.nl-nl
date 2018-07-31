@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: tylermsft
 ms.author: twhitney
-ms.date: 07/11/2018
+ms.date: 07/20/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 96549696013a2dd94741090a0a017b57a3b1e19e
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 589bef1894a3bee1e6974a0ea2516200fae2891f
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125158"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185540"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-applications"></a>Uw Windows-ontwikkelomgeving instellen om Service Fabric-toepassingen te maken
 
@@ -29,52 +29,32 @@ De volgende versies van besturingssystemen worden ondersteund voor de ontwikkeli
 * Windows 10 (Enterprise, Professional of Education)
 * Windows Server 2016
 
-## <a name="enable-hyper-v"></a>Hyper-V inschakelen
-
-Hyper-V moet zijn ingeschakeld als u Service Fabric-apps wilt maken. 
-
-### <a name="windows-10"></a>Windows 10
-
-Open PowerShell als een beheerder en voer de volgende opdracht uit:
-
-```powershell
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All
-```
-
-Start de computer opnieuw op. Zie [Install Hyper-V on Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) (Hyper-V installeren op Windows 10) voor meer informatie over het inschakelen van Hyper-V.
-
-### <a name="windows-server-2016"></a>Windows Server 2016
-
-Open PowerShell als een beheerder en voer de volgende opdracht uit:
-
-```powershell
-Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
-```
-
-Start de computer opnieuw op. Zie [Install the Hyper-V role on Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server) (De Hyper-V-functie installeren op Windows Server 2016) voor meer informatie over het inschakelen van Hyper-V.
-
 ## <a name="visual-studio"></a>Visual Studio
 
 Visual Studio 2017 is vereist voor het implementeren van Service Fabric-apps. [Installeer versie 15.6.0][download-visual-studio] of hoger en schakel de volgende werkbelastingen in:
 
 - ASP.NET-ontwikkeling en webontwikkeling
 - Azure-ontwikkeling
+ 
+## <a name="windows-10---install-docker"></a>Windows 10 - Docker installeren
 
-## <a name="docker"></a>Docker
+Download en installeer de nieuwste versie van [Docker Community Edition voor Windows][download-docker] ter ondersteuning van de in containers verpakte Service Fabric-apps die door Service Fabric Mesh worden gebruikt.
 
-Installeer Docker ter ondersteuning van de door Service Fabric Mesh gebruikte Service Fabric-apps met containers.
+Tijdens de installatie selecteert u **Use Windows containers instead of Linux containers** als daarom wordt gevraagd. Als Hyper-V niet is ingeschakeld op uw computer, biedt de Docker-installatie aan om dit in te schakelen. Klik op **OK** om dit te doen als u hierom wordt gevraagd.
 
-### <a name="windows-10"></a>Windows 10
+## <a name="windows-server-2016---install-hyper-v-and-docker"></a>WindowsServer 2016 - Hyper-V en Docker installeren
 
-Download en installeer de nieuwste versie van [Docker Community Edition for Windows][download-docker]. 
+**Hyper-V installeren**
 
-Tijdens de installatie selecteert u **Use Windows containers instead of Linux containers** als daarom wordt gevraagd. Vervolgens dient u zich af te melden en u opnieuw aan te melden. Als u zich opnieuw hebt aangemeld en u Hyper-V nog niet had ingeschakeld, kunt u worden gevraagd Hyper-V in te schakelen. U dient Hyper-V in te schakelen en de computer opnieuw op te starten.
+Open eerst PowerShell als een beheerder en voer de volgende opdracht uit om Hyper-V te installeren en uw computer opnieuw op te starten. Zie [Docker Enterprise Edition for Windows Server][download-docker-server] (Docker Enterprise Edition voor Windows Server) voor meer informatie.
 
-Als u de computer opnieuw hebt opgestart, wordt u gevraagd de functie **Containers** in te schakelen. Schakel deze functie in en start de computer opnieuw op.
+```powershell
+Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
+```
 
-### <a name="windows-server-2016"></a>Windows Server 2016
+**Docker installeren**
 
-Gebruik de volgende PowerShell-opdrachten om Docker te installeren. Zie [Docker Enterprise Edition for Windows Server][download-docker-server] (Docker Enterprise Edition voor Windows Server) voor meer informatie.
+Open PowerShell als een beheerder en voer de volgende opdracht uit om Docker te installeren:
 
 ```powershell
 Install-Module DockerMsftProvider -Force
@@ -86,12 +66,14 @@ Start de computer opnieuw op.
 
 ## <a name="sdk-and-tools"></a>SDK's en hulpprogramma's
 
-Installeer de Service Fabric Mesh-runtime, SDK en hulpprogramma's in een afhankelijke volgorde.
+Installeer de Service Fabric Mesh-runtime, SDK en hulpprogramma's in de volgende volgorde.
 
 1. Installeer de [Service Fabric Mesh SDK][download-sdkmesh] met behulp van Web Platform Installer. Hierdoor worden ook de Microsoft Azure Service Fabric SDK en -runtime geïnstalleerd.
 2. Installeer de [extensie Visual Studio Service Fabric Tools (preview)][download-tools] vanaf Visual Studio Marketplace.
 
 ## <a name="build-a-cluster"></a>Een cluster bouwen
+
+Als u Visual Studio gebruikt, kunt u dit gedeelte overslaan, omdat Visual Studio een lokaal cluster voor u maakt als u er geen hebt.
 
 Voor de beste prestaties bij het opsporen van fouten tijdens het maken en uitvoeren van Service Fabric-apps wordt u aangeraden een lokaal ontwikkelcluster met één knooppunt te maken. Dit cluster moet worden uitgevoerd wanneer u een Service Fabric-NET-project implementeert of er fouten in opspoort.
 
@@ -100,7 +82,7 @@ Docker **moet** worden uitgevoerd voordat u een cluster kunt bouwen. Test of Doc
 Als u de runtime, SDK's en hulpprogramma's van Visual Studio hebt geïnstalleerd, maakt u een ontwikkelcluster.
 
 1. Sluit het PowerShell-venster.
-2. Open als beheerder een nieuw PowerShell-venster met verhoogde bevoegdheid. Deze stap is nodig om de Service Fabric-modules te laden die u hebt geïnstalleerd.
+2. Open als beheerder een nieuw PowerShell-venster met verhoogde bevoegdheid. Deze stap is nodig om de Service Fabric-modules te laden die onlangs zijn geïnstalleerd.
 3. Voer de volgende PowerShell-opdracht uit om een ontwikkelcluster te maken:
 
     ```powershell

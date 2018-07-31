@@ -1,62 +1,61 @@
 ---
-title: Het schrijven van een Microsoft Translator WPF-app met C# en cognitieve Azure-Services | Microsoft Docs
-description: Informatie over het gebruik van de tekst conversieprogramma service voor tekst vertalen, een gelokaliseerde lijst met ondersteunde talen en meer.
+title: 'Zelstudie: Een WPF-toepassing voor Translator Text maken met behulp van C# | Microsoft Docs'
+titleSuffix: Microsoft Cognitive Services
+description: In deze zelfstudie leert u hoe u de Translator Text-API gebruikt om tekst te vertalen, een gelokaliseerde lijst met ondersteunde talen op te halen, en meer, door een WPF-toepassing te bouwen met behulp van C#.
 services: cognitive-services
-author: Jann-Skotdal
-manager: chriswendt1
+author: noellelacharite
+manager: nolachar
 ms.service: cognitive-services
 ms.component: translator-text
-ms.devlang: csharp
-ms.topic: article
-ms.date: 10/25/2017
-ms.author: v-jansko
-ms.openlocfilehash: fb58fd087de09561a0ea930748562e595d3dde1c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 07/20/2018
+ms.author: nolachar
+ms.openlocfilehash: 5dc9478516f4e9850543a6ee129fef0f1d3ee4f7
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344814"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39214914"
 ---
-# <a name="how-to-write-a-microsoft-translator-wpf-application-in-c"></a>Het schrijven van een toepassing Microsoft Translator WPF in C#
+# <a name="tutorial-write-a-wpf-application-for-translator-text-using-c35"></a>Zelfstudie: Een WPF-toepassing voor Translator Text maken met behulp van C&#35;
 
-In deze zelfstudie hebt wij een interactieve tekst vertaling hulpprogramma met behulp van Microsoft Translator tekst API (V3), een onderdeel van Microsoft cognitieve Services in Azure bouwen. U leert hoe:
+In deze zelfstudie bouwt u een interactief hulpprogramma om tekst te vertalen met behulp van de Translator Text-API (V3), een onderdeel van Microsoft Cognitive Services in Azure. U leert het volgende:
 
 > [!div class="checklist"]
-> * Een lijst met korte codes voor de talen die worden ondersteund door de service aanvragen
-> * Een lijst met namen van de gelokaliseerde taal overeenkomt met deze taalcodes ophalen
-> * De vertaalde versie van de gebruiker ingevoerde tekst naar een andere bemachtigen één taal
+> * Een lijst ophalen met talen die door de service worden ondersteund
+> * Door een gebruiker ingevoerde tekst vertalen van de ene naar de andere taal
 
-Deze toepassing biedt ook integratie met twee andere Microsoft cognitieve-Services.
+Deze toepassing biedt ook integratie met twee andere Microsoft Cognitive Services.
 
 |||
 |-|-|
-|[Tekstanalyse](https://azure.microsoft.com/services/cognitive-services/text-analytics/)|Gebruikt voor het detecteren van eventueel automatisch de taal van de bron van de tekst die moet worden omgezet|
-|[Spellingcontrole van Bing](https://azure.microsoft.com/services/cognitive-services/spell-check/)|Voor Engels brontekst gebruikt voor het corrigeren van de spelling, zodat de vertaling nauwkeuriger is
+|[Tekstanalyse](https://azure.microsoft.com/services/cognitive-services/text-analytics/)|Kan worden gebruikt om de brontaal van de te vertalen tekst automatisch te detecteren|
+|[Bing Spellingcontrole](https://azure.microsoft.com/services/cognitive-services/spell-check/)|Voor Engelse tekst kan deze worden gebruikt om spelfouten te corrigeren, zodat de vertaling nauwkeuriger wordt
 
-![[De zelfstudie program uitgevoerd]](media/translator-text-csharp-session.png)
+![[Het actieve zelfstudieprogramma]](media/translator-text-csharp-session.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
-Deze zelfstudie doet, moet u een versie van Visual Studio-2017, waaronder de Community-versie.
+U hebt [Visual Studio 2017](https://www.visualstudio.com/downloads/) nodig om deze code op Windows uit te voeren. (De gratis Community-editie volstaat.)
 
-U moet ook abonnement sleutels voor de drie Azure-services in het programma gebruikt. U kunt een sleutel voor de service conversieprogramma tekst ophalen vanuit het Azure-dashboard. Er is een gratis prijscategorie beschikbaar waarmee u maximaal twee miljoen tekens per maand gratis vertalen.
+U hebt ook abonnementssleutels nodig voor de drie Azure-services die in het programma worden gebruikt. U kunt een sleutel krijgen voor de Translator Text-service in het Azure-dashboard. Er is een gratis prijscategorie beschikbaar waarmee u kosteloos twee miljoen tekens per maand kunt vertalen.
 
-De Text Analytics en spellingcontrole van Bing aanbieding gratis proefversies, die u kunt zich aanmelden voor services [cognitieve Services probeer](https://azure.microsoft.com/try/cognitive-services/). U kunt ook een abonnement voor een van deze services via de Azure-dashboard maken. Tekstanalyse heeft een gratis laag.
+Voor zowel de Tekstanalyse- als de Bing Spellingcontrole-service is er een gratis proefversie beschikbaar, waarvoor u zich kunt aanmelden via [Cognitive Services proberen](https://azure.microsoft.com/try/cognitive-services/). U kunt ook een abonnement voor beide services maken via het Azure-dashboard. Er is een gratis versie beschikbaar voor Tekstanalyse.
 
-De broncode voor deze zelfstudie vindt u hieronder. Uw abonnement sleutels moeten worden gekopieerd naar de broncode als de variabelen `TEXT_TRANSLATION_API_SUBSCRIPTION_KEY`, enzovoort, in `MainWindow.xaml.cs`.
+De broncode voor deze zelfstudie is hieronder te vinden. Uw abonnementssleutels moeten in de broncode als de variabelen `TEXT_TRANSLATION_API_SUBSCRIPTION_KEY` enz., in `MainWindow.xaml.cs` worden gekopieerd.
 
 > [!IMPORTANT]
-> De tekst Analytics-service is beschikbaar in meerdere regio's. De URI in onze zelfstudie broncode is in de `westus` regio, wat de regio is gratis proefversies gebruikt. Als u een abonnement in een andere regio hebt, worden deze URI dienovereenkomstig bijgewerkt.
+> De Tekstanalyse-service is beschikbaar in meerdere regio’s. De URI in de broncode van deze zelfstudie is in de regio `westus`. Deze regio wordt gebruikt voor gratis proefversies. Als u een abonnement in een andere regio hebt, moet u deze URI dienovereenkomstig bijwerken.
 
 ## <a name="source-code"></a>Broncode
 
-Dit is de broncode voor de tekst van Microsoft Translator API. Uitvoeren van de app door de broncode te kopiëren naar het juiste bestand in een nieuw WPF-project in Visual Studio.
+Dit is de broncode voor de tekst-API van Microsoft Translator. Kopieer de broncode naar het juiste bestand in een nieuw WPF-project in Visual Studio om de app uit te voeren.
 
 ### <a name="mainwindowxamlcs"></a>MainWindow.xaml.cs
 
-Dit is de code-behind-bestand waarmee de functionaliteit van de toepassing.
+Dit is het onderliggende-codebestand dat de toepassing voorziet van functionaliteit.
 
-```cs
+```csharp
 using System;
 using System.Windows;
 using System.Net;
@@ -74,9 +73,9 @@ using Newtonsoft.Json;
 namespace MSTranslatorTextDemo
 {
     /// <summary>
-    /// This WPF application demonstrates the use of the Microsoft Translator Text API to translate a brief text string
-    /// one language to another. The langauges are selected from a drop-down menu. The text of the translation is displayed.
-    /// The source language may optionally be automatically detected.  English text is spell-checked.
+    /// This WPF application demonstrates the use of the Microsoft Translator Text API to translate a brief text string from
+    /// one language to another. The languages are selected from a drop-down menu. The text of the translation is displayed.
+    /// The source language may optionally be automatically detected. English text is spell-checked.
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -97,7 +96,7 @@ namespace MSTranslatorTextDemo
 
         public MainWindow()
         {
-            // at least show an error dialog when we get an unexpected error
+            // at least show an error dialog if there's an unexpected error
             AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(HandleExceptions);
 
             if (TEXT_TRANSLATION_API_SUBSCRIPTION_KEY.Length != 32
@@ -166,7 +165,7 @@ namespace MSTranslatorTextDemo
 
             HttpWebResponse response = (HttpWebResponse)detectLanguageWebRequest.GetResponse();
 
-            // read and and parse JSON response
+            // read and parse JSON response
             var responseStream = response.GetResponseStream();
             var jsonString = new StreamReader(responseStream, Encoding.GetEncoding("utf-8")).ReadToEnd();
             dynamic jsonResponse = serializer.DeserializeObject(jsonString);
@@ -334,7 +333,7 @@ namespace MSTranslatorTextDemo
 
 ### <a name="mainwindowxaml"></a>MainWindow.xaml
 
-Dit bestand definieert de gebruikersinterface voor de toepassing, een WPF-formulier. Als u uw eigen versie van het formulier ontwerpt wilt, moet u niet deze XAML.
+Dit bestand definieert de gebruikersinterface voor de toepassing, een WPF-formulier. Als u uw eigen versie van het formulier wilt ontwerpen, hebt u deze XAML niet nodig.
 
 ```xml
 <Window x:Class="MSTranslatorTextDemo.MainWindow"
@@ -352,18 +351,18 @@ Dit bestand definieert de gebruikersinterface voor de toepassing, een WPF-formul
         <Label x:Name="toLabel" Content="Translate to:" HorizontalAlignment="Left" Margin="304,58,0,0" VerticalAlignment="Top" FontSize="14"/>
 
         <Button x:Name="TranslateButton" Content="Translate" HorizontalAlignment="Left" Margin="39,206,0,0" VerticalAlignment="Top" Width="114" Height="31" Click="TranslateButton_Click" FontSize="14" TabIndex="4" IsDefault="True"/>
-        <ComboBox x:Name="ToLanguageComboBox" 
-                HorizontalAlignment="Left" 
-                Margin="306,88,0,0" 
-                VerticalAlignment="Top" 
+        <ComboBox x:Name="ToLanguageComboBox"
+                HorizontalAlignment="Left"
+                Margin="306,88,0,0"
+                VerticalAlignment="Top"
                 Width="175" FontSize="14" TabIndex="2">
 
         </ComboBox>
         <Label x:Name="fromLabel" Content="Translate from:" HorizontalAlignment="Left" Margin="40,58,0,0" VerticalAlignment="Top" FontSize="14"/>
-        <ComboBox x:Name="FromLanguageComboBox" 
-            HorizontalAlignment="Left" 
-            Margin="42,88,0,0" 
-            VerticalAlignment="Top" 
+        <ComboBox x:Name="FromLanguageComboBox"
+            HorizontalAlignment="Left"
+            Margin="42,88,0,0"
+            VerticalAlignment="Top"
             Width="175" FontSize="14" TabIndex="1"/>
         <Label x:Name="TranslatedTextLabel" Content="Translation appears here" HorizontalAlignment="Left" Margin="39,255,0,0" VerticalAlignment="Top" Width="620" FontSize="14" Height="85" BorderThickness="0"/>
     </Grid>
@@ -372,27 +371,27 @@ Dit bestand definieert de gebruikersinterface voor de toepassing, een WPF-formul
 
 ## <a name="service-endpoints"></a>Service-eindpunten
 
-De service Microsoft Translator heeft meerdere eindpunten die verschillende soorten vertaling functionaliteit bieden. De waarden die in deze zelfstudie we gebruiken zijn:
+De Microsoft Translator-service heeft een aantal eindpunten die zorgen voor verschillende onderdelen van de vertaalfunctionaliteit. De eindpunten die in deze zelfstudie worden gebruikt, zijn:
 
 |||
 |-|-|
-|`Languages`|Retourneert de set van talen die momenteel door andere bewerkingen van de tekst conversieprogramma API ondersteund.|
-|`Translate`|Brontekst gezien, retourneert een taalcode van gegevensbron en een doel taalcode een vertaling van de brontekst op de doel-taal.|
+|`Languages`|Retourneert de set talen die momenteel worden ondersteund door andere bewerkingen van de Translator Text-API.|
+|`Translate`|Retourneert een vertaling van de brontekst in de doeltaal als er een brontekst, een code voor de brontaal en een code voor de doeltaal zijn opgegeven.|
 
-## <a name="the-translation-app"></a>De NAT-app
+## <a name="the-translation-app"></a>De vertaalapp
 
-De gebruikersinterface van de toepassing van onze vertaler wordt gebouwd met behulp van Windows Presentation Foundation (WPF). Maak een nieuwe WPF-project in Visual Studio met de volgende stappen.
+De gebruikersinterface van de vertaaltoepassing is gebouwd met behulp van Windows Presentation Foundation (WPF). Volg onderstaande stappen om een nieuw WPF-project te maken in Visual Studio.
 
-* Van de **bestand** menu kiezen **Nieuw > Project**.
-* Open in het venster Nieuw Project **geïnstalleerde > Sjablonen > Visual C#**. Er wordt een lijst van de beschikbare sjablonen weergegeven in het midden van het dialoogvenster.
-* Zorg ervoor dat **.NET Framework 4.5.2** in de vervolgkeuzelijst boven de lijst van de sjabloon project is gekozen.
-* Klik op **WPF-App (.NET Framework)** in de lijst van de sjabloon project.
-* Met behulp van de velden aan de onderkant van het dialoogvenster, het nieuwe project en de oplossing die deze bevat een naam.
+* Kies in het menu **Bestand** voor **Nieuw > Project**.
+* Open in het venster Nieuw project **Geïnstalleerd > Sjablonen > Visual C#**. In het midden van het dialoogvenster verschijnt een lijst met de beschikbare projectsjablonen.
+* Controleer of **.NET Framework 4.5.2** is geselecteerd in de vervolgkeuzelijst boven de lijst met projectsjablonen.
+* Klik op **WPF App (.NET Framework)** in de lijst met projectsjablonen.
+* Geef het nieuwe project en de oplossing waarvan het deel uitmaakt een nieuwe naam met behulp van de velden onderaan het dialoogvenster.
 * Klik op **OK** om het nieuwe project en de oplossing te maken.
 
 ![[Een nieuwe WPF-app maken in Visual Studio]](media/translator-text-csharp-new-project.png)
 
-Verwijzingen naar de volgende .NET framework-assembly's toevoegen aan uw project.
+Voeg verwijzingen naar de volgende .NET Framework-assembly’s toe aan uw project.
 
 * System.Runtime.Serialization
 * System.Web
@@ -400,32 +399,32 @@ Verwijzingen naar de volgende .NET framework-assembly's toevoegen aan uw project
 
 Installeer ook het NuGet-pakket `Newtonsoft.Json` in uw project.
 
-Nu zoeken de `MainWindow.xaml` bestand in Solution Explorer en open het bestand. Het is in eerste instantie leeg. Dit is wat de gebruikersinterface van de voltooide moet eruitzien als, met de namen van de besturingselementen in blauw aantekeningen. Dezelfde namen voor de besturingselementen in de gebruikersinterface niet gebruiken omdat ze ook worden weergegeven in de code.
+Zoek nu in Solution Explorer het `MainWindow.xaml`-bestand op en open het. In de eerste instantie is het leeg. Hier ziet u hoe de voltooide gebruikersinterface eruit hoort te zien, voorzien van aantekeningen met de namen van de besturingselementen in het blauw. Gebruik dezelfde namen voor de besturingselementen in uw gebruikersinterface, aangezien deze ook voorkomen in de code.
 
-![[Aantekeningen weergave van het hoofdvenster in Visual Studio designer]](media/translator-text-csharp-xaml.png)
+![[Weergave met aantekeningen van het hoofdvenster van de Visual Studio-designer]](media/translator-text-csharp-xaml.png)
 
 > [!NOTE]
-> De broncode voor deze zelfstudie bevat de XAML-bron voor dit formulier. U kunt deze plakken aan uw project in plaats van het bouwen van het formulier in Visual Studio.
+> De broncode voor deze zelfstudie bevat de XAML-bron voor dit formulier. U kunt deze in uw project plakken. Dan hoeft u het formulier niet te bouwen in Visual Studio.
 
-* `FromLanguageComboBox` *(ComboBox)*  -Geeft een lijst met de talen die worden ondersteund door Microsoft Translator voor tekstvertaling. De gebruiker selecteert de taal die ze vertaalt uit.
-* `ToLanguageComboBox` *(ComboBox)*  -Geeft dezelfde lijst met talen als `FromComboBox`, maar wordt gebruikt voor de taal van de gebruiker te vertalen selecteren.
-* `TextToTranslate` *(Tekstvak)*  -De gebruiker de tekst die moet worden vertaald hier invoert.
-* `TranslateButton` *(Knop)*  -De gebruiker klikt op deze knop (of op Enter drukt) om de tekst te vertalen.
-* `TranslatedTextLabel` *(Label)*  -De omzetting van de tekst van de gebruiker hier weergegeven.
+* `FromLanguageComboBox` *(ComboBox)* - Hiermee wordt een lijst weergegeven met alle talen die door Microsoft Translator worden ondersteund voor het vertalen van tekst. De gebruiker selecteert de taal waaruit hij vertaalt.
+* `ToLanguageComboBox` *(ComboBox)* - Hiermee wordt dezelfde lijst met talen als met `FromComboBox`, maar dit element wordt gebruikt om de taal te selecteren waarin de gebruiker vertaalt.
+* `TextToTranslate` *(TextBox)* - Hier voert de gebruiker de te vertalen tekst in.
+* `TranslateButton` *(Button)* - De gebruiker klikt op deze knop (of drukt op Enter) om de tekst te vertalen.
+* `TranslatedTextLabel` *(Label)* - Hier wordt de vertaling van de tekst van de gebruiker weergegegven.
 
-Als u uw eigen versie van dit formulier, hoeft u geen zodat het *exact* zoals onze. Maar zorg ervoor dat de taal-keuzelijsten zijn breed genoeg is om te voorkomen dat de naam van een taal wordt afgekapt.
+Als u een eigen versie van dit formulier maakt, hoeft die niet *precies* zo te zijn als het formulier dat hier wordt gebruikt. Zorg er wel voor dat de vervolgkeuzelijsten voor de talen zo breed zijn dat de namen van de talen niet worden afgebroken.
 
 ## <a name="the-mainwindow-class"></a>De klasse MainWindow
 
-Het bestand code-behind `MainWindow.xaml.cs` is waar komt de code op die manier kunt doen wat het doet. Het werk gebeurt op twee keer:
+Het onderliggende-codebestand `MainWindow.xaml.cs` moet de code bevatten die ervoor zorgt dat het programma doet wat het doet. Het werk vindt plaats op twee momenten:
 
-* Als het programma wordt gestart. Wanneer `MainWindow` is gestart, we de lijst van de taal met behulp van conversieprogramma ophalen `GetLanguagesForTranslate` en `GetLanguageNames` API's en onze vervolgkeuzelijsten met hen te vullen. Deze taak wordt slechts één keer gedaan aan het begin van elke sessie.
+* Wanneer het programma wordt opgestart en `MainWindow` is geïnstantieerd, wordt de lijst met talen opgehaald met behulp van Translator en API’s en worden de vervolgkeuzemenu’s ermee ingevuld. Deze taak wordt één keer uitgevoerd, aan het begin van iedere sessie.
 
-* Wanneer de gebruiker klikt op de **vertalen** knop we ophalen taalselectie voor de gebruiker en de tekst die ze ingevoerd. Vervolgens we Roep de `Translate` API's voor het uitvoeren van de vertaling. We kunnen ook andere functies die de taal van de tekst te bepalen en corrigeer de spelling voordat de vertaling van aanroepen.
+* Wanneer de gebruiker op de knop **Vertalen** klikt, worden de taalkeuzes van de gebruiker en de tekst die hij heeft ingevoerd, opgehaald. Vervolgens wordt de API `Translate` aangeroepen om de vertaling uit te voeren. Er kunnen ook andere functies worden aangeroepen om de taal van de tekst te bepalen en om spelfouten te verbeteren voordat de tekst wordt vertaald.
 
-Bekijk hoe we onze klasse beginnen:
+Kijk eens naar het begin van de klasse:
 
-```cs
+```csharp
 public partial class MainWindow : Window
 {
     // Translator text subscription key from Microsoft Azure dashboard
@@ -445,7 +444,7 @@ public partial class MainWindow : Window
 
     public MainWindow()
     {
-        // at least show an error dialog when we get an unexpected error
+        // at least show an error dialog if there's an unexpected error
         AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(HandleExceptions);
 
         if (TEXT_TRANSLATION_API_SUBSCRIPTION_KEY.Length != 32
@@ -468,32 +467,32 @@ public partial class MainWindow : Window
 }
 ```
 
-Twee variabelen gedeclareerd houdt hier informatie over onze talen:
+Twee lidvariabelen die hier worden gedeclareerd, bevatten informatie over onze talen:
 
 |||
 |-|-|
-|`languageCodes`<br>matrix van tekenreeks|Slaat de taalcodes. De NAT-service gebruikt korte codes, zoals `en` voor Engels talen te identificeren.|
-|`languageCodesAndTitles`<br>SortedDictionary|Maps 'beschrijvende' namen in de gebruikersinterface terug naar de korte codes in de API wordt gebruikt. Opgeslagen gesorteerde alfabetisch zonder te letten op aanvraag.|
+|`languageCodes`<br>tekenreeksmatrix|Hiermee worden de taalcodes opgeslagen in de cache. De Translator-service gebruikt korte codes, zoals `en` voor Engels, om talen te identificeren.|
+|`languageCodesAndTitles`<br>SortedDictionary|Hiermee worden de beschrijvende namen in de gebruikersinterface terugverwezen naar de korte codes die in de API worden gebruikt. Ze worden op alfabetische volgorde gesorteerd, zonder rekening te houden met het gebruik van hoofdletters.|
 
-De eerste code uitgevoerd door de toepassing is de `MainWindow` constructor. Eerst we een methode instellen `HandleExceptions` als de globale foutafhandeling. Op deze manier ten minste krijgen we een foutmelding als een uitzondering is niet verwerkt.
+De eerste code die wordt uitgevoerd door de toepassing is de constructor `MainWindow`. Stel eerst de methode `HandleExceptions` in als handler voor globale fouten. Op deze manier verschijnt er in ieder geval een foutmelding als een uitzondering niet wordt verwerkt.
 
-Vervolgens controleren we om ervoor te zorgen dat de API-abonnement sleutels alle exact 32 tekens lang zijn. Als ze niet, is de meest waarschijnlijke reden *iemand* geplakt nog niet in de API-sleutels (tsk). In dit geval wordt een foutbericht weergegeven en oplossen uit. (Deze test wordt doorgegeven betekent niet dat de sleutels zijn geldig is, natuurlijk.)
+Controleer vervolgens of de API-abonnementssleutels allemaal precies 32 tekens bevatten. Als dit niet het geval is, is er waarschijnlijk *iemand* die zijn API-sleutels niet heeft geplakt. In dit geval geeft u een foutbericht weer en sluit u af. (Als de sleutels aan deze voorwaarde voldoen, wil dat natuurlijk nog niet zeggen dat deze geldig zijn.)
 
-Als we sleutels die ten minste de juiste lengte hebben de `InitializeComponent()` aanroep van de gebruikersinterface te zoeken, laden en de XAML-beschrijving van het venster hoofdtoepassing instantiëren rolling opgehaald.
+Als er sleutels met minstens 32 tekens zijn, brengt de aanroep `InitializeComponent()` de gebruikersinterface op gang door de XAML-beschrijving van het hoofdtoepassingsvenster te zoeken, te laden en te instantiëren.
 
-Ten slotte wordt de vervolgkeuzelijsten taal hebt ingesteld. Deze taak vereist drie afzonderlijke methodeaanroepen. We gaan via deze methoden in de volgende secties in detail.
+Ten slotte stelt u de vervolgkeuzelijsten voor de talen in. Voor deze taak moet u drie afzonderlijke methodeaanroepen uitvoeren, die in de volgende secties in detail worden behandeld.
 
-## <a name="get-supported-languages"></a>Ondersteunde talen niet ophalen
+## <a name="get-supported-languages"></a>Ondersteunde talen ophalen
 
-De service Microsoft Translator ondersteunt een totaal van op deze schrijven 61 talen en meer kan van tijd tot tijd kan worden toegevoegd. Daarom is het handig niet op harde code de ondersteunde talen in uw programma. Vraag de NAT-service in plaats daarvan welke talen wordt ondersteund. Elke ondersteunde taal kan worden omgezet in een andere ondersteunde taal.
+De Microsoft Translator-service ondersteunt nu in totaal 61 talen en af en toe kunnen er nieuwe talen worden toegevoegd. Daarom kunt u de ondersteunde talen beter niet vastleggen in uw programma. Vraag in plaats daarvan aan de Translator-service welke talen worden ondersteund. Tekst in een van de ondersteunde talen kan worden vertaald in een andere ondersteunde taal.
 
-Roep de `Languages` API voor de lijst met ondersteunde talen.
+Roep de `Languages`-API aan om de lijst met ondersteunde talen op te halen.
 
-De `Languages` API duurt een optionele parameter in de query GET, *bereik*. *bereik* kan een van drie waarden hebben: `translation`, `transliteration`, en `dictionary`. We gebruiken de waarde `translation`.
+De `Languages`-API maakt gebruik van een optionele GET-queryparameter, *scope*. *scope* kan een van deze drie waarden hebben: `translation`, `transliteration`, en `dictionary`. In deze code wordt de waarde `translation` gebruikt.
 
-De `Languages` API neemt ook een optionele HTTP-header `Accept-Language`. De waarde van deze header bepaalt de taal waarin de namen van de ondersteunde talen worden geretourneerd. De waarde moet een goed ingedeelde BCP 47 taallabel. We gebruiken de waarde `en` ophalen van de taalnamen van de in het Engels.
+De `Languages`-API maakt ook gebruik van een optionele HTTP-header, `Accept-Language`. De waarde van deze header bepaalt de taal waarin de namen van de ondersteunde talen worden geretourneerd. De waarde moet een grammaticaal correcte BCP 47-taalcode zijn. Deze code gebruikt de waarde `en` om de namen van de talen in het Engels op te halen.
 
-De `Languages` API retourneert een JSON-antwoord dat op het volgende lijkt.
+De `Languages`-API retourneert een JSON-antwoord dat lijkt op het antwoord hieronder.
 
 ```json
 {
@@ -512,11 +511,11 @@ De `Languages` API retourneert een JSON-antwoord dat op het volgende lijkt.
 }
 ```
 
-We willen halen de taalcodes (bijvoorbeeld `af`) en de taalnamen van de (bijvoorbeeld `Afrikaans`). We gebruiken de methode NewtonSoft.Json [JsonConvert.DeserializeObject](https://www.newtonsoft.com/json/help/html/M_Newtonsoft_Json_JsonConvert_DeserializeObject__1.htm) om dit te doen.
+Deze code gebruikt de NewtonSoft.Json-methode [JsonConvert.DeserializeObject](https://www.newtonsoft.com/json/help/html/M_Newtonsoft_Json_JsonConvert_DeserializeObject__1.htm), zodat taalcodes (bijvoorbeeld `af`) en namen van talen (bijvoorbeeld `Afrikaans`) kunnen worden opgehaald.
 
-Met deze achtergrondkennis maken we de volgende methode voor het ophalen van de taalcodes en hun namen.
+Met deze achtergrondkennis kunt u de volgende methode maken om de taalcodes en de bijbehorende namen op te halen.
 
-```cs
+```csharp
 private void GetLanguagesForTranslate()
 {
     // send request to get supported language codes
@@ -541,15 +540,15 @@ private void GetLanguagesForTranslate()
 }
 ```
 
-`GetLanguagesForTranslate()` eerst maakt de HTTP-aanvraag. De `scope=translation` query tekenreeksparameter geeft aan dat we de talen die worden ondersteund voor de tekstvertaling van. We toevoegen de sleutel tekst vertaling API-abonnement aan onze aanvraagheaders. We ook toevoegen de `Accept-Language` header met de waarde `en` om aan te geven we de ondersteunde talen geretourneerd in het Engels.
+Met `GetLanguagesForTranslate()` maakt u eerst de HTTP-aanvraag. De querytekenreeksparameter `scope=translation` vraagt alleen de talen die worden ondersteund voor het vertalen van tekst. De abonnementssleutel voor de API voor het vertalen van tekst wordt toegevoegd aan de aanvraagheaders. De header `Accept-Language` met de waarde `en` wordt toegevoegd, zodat de ondersteunde talen worden geretourneerd in het Engels.
 
-Nadat de aanvraag is voltooid, we parseren van het JSON-antwoord en deze omzetten in een woordenlijst. We de taalcodes toevoegen de `languageCodes` lidvariabele. Vervolgens doorlopen we de sleutel/waarde-paren die de taalcodes en de van de beschrijvende taalnamen bevatten en deze toevoegen aan de `languageCodesAndTitles` lidvariabele. (De vervolgkeuzelijsten in onze formulier weer de beschrijvende namen, maar moeten we de codes om aan te vragen van de vertaling.)
+Nadat de aanvraag is voltooid, wordt het JSON-antwoord geparseerd en geconverteerd naar een woordenlijst en vervolgens worden de taalcodes toegevoegd aan de lidvariabele `languageCodes`. De sleutel-waardeparen die de taalcodes en de beschrijvende namen van de talen bevatten, worden doorgegeven en toegevoegd aan de lidvariabele `languageCodesAndTitles`. (In de vervolgkeuzelijsten in het formulier worden de beschrijvende namen weergegeven, maar u hebt de codes wel nodig om de vertaling aan te vragen.)
 
-## <a name="populate-the-language-menus"></a>Vullen van de taal van menu 's
+## <a name="populate-the-language-menus"></a>De taalmenu’s invullen
 
-De meeste van de gebruikersinterface is gedefinieerd in XAML, zodat we niet hoeven te veel om in te stellen naast aanroep doen `InitializeComponent()`. Het alleen andere wat we moeten doen is de van de beschrijvende taalnamen naar de en toevoegen van vervolgkeuzelijsten, die wordt uitgevoerd in `PopulateLanguageMenus()`.
+Het grootste deel van de gebruikersinterface wordt gedefinieerd in XAML, dus voor het instellen hoeft u niet veel te doen, behalve dat u `InitializeComponent()` moet aanroepen. Het enige andere wat u moet doen, is de beschrijvende namen van de talen toevoegen aan de vervolgkeuzelijsten **Vertalen van** en **Vertalen naar**. Dit kunt u doen in `PopulateLanguageMenus()`.
 
-```cs
+```csharp
 private void PopulateLanguageMenus()
 {
     // Add option to automatically detect the source language
@@ -568,18 +567,18 @@ private void PopulateLanguageMenus()
 }
 ```
 
-Vullen van de menu's is een eenvoudige kwestie van iteratie van de `languageCodesAndTitles` woordenlijst en elke sleutel is de naam van de 'beschrijvende', toe te voegen aan beide menu's. Na het vullen van de menu's, wordt de standaardwaarde instellen naar en van de talen te detecteren (voor de taal automatische detectie) en Engels.
+Het invullen van de menu's is gewoon een kwestie van het doorlopen van de woordenlijst `languageCodesAndTitles` en het toevoegen van elke sleutel (de beschrijvende naam) aan beide menu's. Nadat de menu's zijn ingevuld, worden de standaardwaarden voor de 'naar'- en de 'van'-taal ingesteld op **Detecteren** (om de taal automatisch te detecteren) en **Engels**.
 
 > [!TIP]
-> Als we een standaardselectie niet ingesteld voor onze menu's, de gebruiker kan klikken **vertalen** zonder een te kiezen of van taal. De standaardinstellingen hoeft te bekommeren om dit probleem.
+> Als er geen standaardselectie is voor de menu's, kan de gebruiker op **Vertalen** klikken, zonder dat hij eerst een 'naar'- of 'van'-taal hoeft te kiezen. De standaardinstellingen zorgen ervoor dat het niet meer nodig is om dit probleem op te lossen.
 
-Nu `MainWindow` is geïnitialiseerd, maakt de gebruikersinterface. We niet opnieuw besturingselement ophalen totdat de gebruiker klikt op de **vertalen** knop.
+Nu `MainWindow` is geïnitialiseerd en de gebruikersinterface is gemaakt, wacht de code tot de gebruiker op de knop **Vertalen** klikt.
 
-## <a name="perform-translation"></a>Vertaling uitvoeren
+## <a name="perform-translation"></a>Vertalen
 
-Wanneer de gebruiker klikt op **vertalen**, WPF roept de `TranslateButton_Click()` gebeurtenis-handler die hier worden weergegeven.
+Wanneer de gebruiker op **Vertalen** klikt, roept WPF de gebeurtenis-handler `TranslateButton_Click()` aan, die hier wordt weergegeven.
 
-```cs
+```csharp
 private async void TranslateButton_Click(object sender, EventArgs e)
 {
     string textToTranslate = TextToTranslate.Text.Trim();
@@ -652,24 +651,24 @@ private async void TranslateButton_Click(object sender, EventArgs e)
 }
 ```
 
-Hier het eerst worden opgehaald en talen, samen met de tekst die de gebruiker heeft ingevoerd, vanuit het formulier.
+Eerst moeten de 'naar'- en de 'van'-taal, samen met de tekst die de gebruiker heeft ingevoerd, worden opgehaald uit het formulier.
 
-Als de bron-taal is ingesteld om te detecteren, noemen we `DetectLanguage()` de taal van de tekst te bepalen. De tekst kan zich in een taal die niet van de NAT-API's ondersteuning (vele andere talen kunnen worden gevonden dan kan worden omgezet) of de tekst Analytics API mogelijk niet kunnen worden gedetecteerd. In dat geval wordt een bericht gemeld en retourneren zonder de te vertalen weergegeven.
+Als de brontaal is ingesteld op **Detecteren**, moet u `DetectLanguage()` aanroepen om de taal van de tekst te bepalen. Mogelijk wordt de taal van de tekst niet ondersteund door de Translator-API’s (er kunnen veel meer talen worden gedetecteerd dan vertaald) of is de Tekstanalyse-API niet in staat om de taal te detecteren. In dat geval geeft u een bericht weer om de gebruiker hiervan op de hoogte te stellen en gaat u terug zonder een vertaling te geven.
 
-Als de taal van de bron is Engels (opgegeven of gedetecteerd), we spellingcontrole de tekst met `CorrectSpelling()` en correcties toepassen. De gecorrigeerde tekst is gevuld terug naar het veld invoer zodat de gebruiker weet dat de correcties is gedaan. (De gebruiker kan worden voorafgegaan door de tekst wordt geconverteerd met een afbreekstreepje correctie onderdrukken.)
+Als de brontaal Engels is (ongeacht of deze is opgegeven of gedetecteerd), controleert u de tekst op spelfouten met `CorrectSpelling()` en voert u eventuele correcties door. De gecorrigeerde tekst wordt teruggezet in het invoerveld, zodat de gebruiker weet dat de correctie is doorgevoerd. (De gebruiker kan een afbreekstreepje voor de te vertalen tekst zetten om aan te geven dat de spelling niet moet worden gecorrigeerd.)
 
-Als de gebruiker geen tekst is opgegeven, of als de regel aan en talen zijn hetzelfde, geen vertaling nodig is. In dit geval voorkomen we dat de aanvraag.
+Als een gebruiker geen tekst heeft ingevoerd, of als de 'naar'- en de 'van'-taal dezelfde zijn, hoeft de tekst niet te worden vertaald en hoeft er geen aanvraag te worden gedaan.
 
-De code voor het uitvoeren van de aanvraag vertaling ziet er waarschijnlijk vertrouwd. We de URI bouwen, maakt u een aanvraag verzenden en parseren van het antwoord. Als u wilt de tekst wordt weergegeven, opgeslagen in de `TranslatedTextLabel` besturingselement.
+De code waarmee de aanvraag voor de vertaling wordt uitgevoerd, moet u bekend voorkomen: de URI bouwen, een aanvraag maken en verzenden, en het antwoord parseren. Verzend de tekst naar het besturingselement `TranslatedTextLabel` om de tekst weer te geven.
 
-Geven we tekst naar de `Translate` API in een geserialiseerde JSON-matrix in de hoofdtekst van een POST-aanvraag. De JSON-matrix meerdere tekst om te vertalen kan bevatten, maar hier we zojuist een opnemen.
+Geef de tekst vervolgens door aan de `Translate`-API in een geserialiseerde JSON-matrix in de hoofdtekst van een POST-aanvraag. De JSON-matrix kan meerdere stukken tekst bevatten om te vertalen, maar hier is er maar één nodig.
 
-De HTTP-header met de naam `X-ClientTraceId` is optioneel. De waarde moet een GUID zijn. De client opgegeven traceer-ID is handig voor trace-aanvragen wanneer dingen niet werken zoals verwacht. Niet handig, moet de waarde van de X-ClientTraceID worden vastgelegd door de client. Een client traceer-ID en de datum van de aanvragen kunt Microsoft vaststellen van problemen die zich kunnen voordoen.
+De HTTP-header met de naam `X-ClientTraceId` is optioneel. De waarde moet een GUID zijn. Een door de client geleverde traceer-id is handig voor het traceren van aanvragen wanneer iets niet werkt zoals verwacht. De waarde van X-ClientTraceID moet echter door de client worden geregistreerd. Anders hebt u er weinig aan. Met een traceer-id van de client en de datum van de aanvragen kan Microsoft eventuele problemen diagnosticeren.
 
 > [!NOTE]
-> Deze zelfstudie richt zich op de service Microsoft Translator, dus niet wordt behandeld de `DetectLanguage()` en `CorrectSpelling()` methoden in detail. De Text Analytics en spellingcontrole van Bing-services bieden antwoorden in JSON in plaats van XML- en Tekstanalyse vereist dat de aanvraag worden opgemaakt als JSON ook. Deze kenmerken zijn verantwoordelijk voor de meeste code verschillen van de methoden die we al hebt gezien.
+> Deze zelfstudie is gericht op de Microsoft Translator-service. Daarom worden de methoden `DetectLanguage()` en `CorrectSpelling()` niet in detail behandeld. De Tekstanalyse- en de Bing Spellingcontrole-service leveren antwoorden in JSON in plaats van XML. Voor Tekstanalyse moet de aanvraag ook als JSON zijn opgemaakt. Deze kenmerken verschillen qua code het meest van de methoden die hier zijn behandeld.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Microsoft Translator tekst API-referentiemateriaal](http://docs.microsofttranslator.com/text-translate.html)
+> [Naslaginformatie over de Translator Text-API van Microsoft](http://docs.microsofttranslator.com/text-translate.html)

@@ -1,6 +1,6 @@
 ---
 title: Een MSI voor Windows-VM gebruiken voor toegang tot Azure Resource Manager
-description: Een zelfstudie die u helpt bij het doorlopen van het proces voor het krijgen van toegang tot Azure Resource Manager met een Managed Service Identity (MSI) voor Windows-VM.
+description: Een zelfstudie die u helpt bij het doorlopen van het proces voor het krijgen van toegang tot Azure Resource Manager met een Managed Service Identity voor Windows-VM.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 7e2033310a30499cf862fb4d399cb0180ac9b713
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: bd314dd1543280cf2533e45f156ca634d15d1d2a
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006961"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39247241"
 ---
-# <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Toegang krijgen tot Resource Manager met een Managed Service Identity (MSI) voor Windows-VM
+# <a name="use-a-windows-vm-managed-service-identity-to-access-resource-manager"></a>Toegang krijgen tot Resource Manager met een Managed Service Identity voor Windows-VM
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-In deze zelfstudie leert u Managed Service Identity (MSI) in te schakelen voor een virtuele Windows-machine (VM). U kunt vervolgens die identiteit gebruiken voor toegang tot de Azure Resource Manager-API. Managed Service Identity's worden automatisch beheerd in Azure en stellen u in staat om verificaties uit te voeren bij services die Azure AD-verificatie ondersteunen, zonder referenties in code te hoeven invoegen. In deze zelfstudie leert u procedures om het volgende te doen:
+In deze zelfstudie leert u Managed Service Identity in te schakelen voor een virtuele Windows-machine (VM). U kunt vervolgens die identiteit gebruiken voor toegang tot de Azure Resource Manager-API. Managed Service Identity's worden automatisch beheerd in Azure en stellen u in staat om verificaties uit te voeren bij services die Azure AD-verificatie ondersteunen, zonder referenties in code te hoeven invoegen. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
-> * MSI inschakelen op een Windows-VM 
+> * Managed Service Identity op een Windows-VM inschakelen 
 > * Uw virtuele machine toegang verlenen tot een resourcegroep in Azure Resource Manager 
 > * Een toegangstoken ophalen met behulp van de identiteit van de virtuele machine en daarmee Azure Resource Manager aanroepen
 
@@ -43,7 +43,7 @@ Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azur
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Een virtuele Windows-machine maken in een nieuwe resourcegroep
 
-Voor deze zelfstudie maken we een nieuwe virtuele Windows-machine.  U kunt MSI ook inschakelen op een bestaande virtuele machine.
+Voor deze zelfstudie maken we een nieuwe virtuele Windows-machine.  U kunt Managed Service Identity ook op een bestaande VM inschakelen.
 
 1.  Klik op de knop **Een resource maken** in de linkerbovenhoek van Azure Portal.
 2.  Selecteer **Compute** en vervolgens **Windows Server 2016 Datacenter**. 
@@ -54,18 +54,18 @@ Voor deze zelfstudie maken we een nieuwe virtuele Windows-machine.  U kunt MSI o
 
     ![Alt-tekst voor afbeelding](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>MSI op de virtuele machine inschakelen 
+## <a name="enable-managed-service-identity-on-your-vm"></a>Managed Service Identity op uw VM inschakelen 
 
-Met een MSI op de VM kunt u toegangstokens uit Azure AD ophalen zonder referenties in uw code te hoeven opnemen. Er gebeuren twee dingen als u Managed Service Identity inschakelt op een virtuele machine: de virtuele machine wordt bij Azure Active Directory geregistreerd om de beheerde identiteit te maken, en de identiteit wordt geconfigureerd op de virtuele machine.
+Met Managed Service Identity op een virtuele machine kunt u toegangstokens uit Azure AD ophalen zonder dat u referenties in uw code hoeft op te nemen. Er gebeuren twee dingen als u Managed Service Identity inschakelt op een virtuele machine: de virtuele machine wordt bij Azure Active Directory geregistreerd om de beheerde identiteit te maken, en de identiteit wordt geconfigureerd op de virtuele machine.
 
-1.  Selecteer de **virtuele machine** waarop u MSI wilt inschakelen.  
+1.  Selecteer de **virtuele machine** waarop u Managed Service Identity wilt inschakelen.  
 2.  Klik op de linkernavigatiebalk op **Configuratie**. 
-3.  U ziet **Managed Service Identity**. Als u de MSI wilt registreren en inschakelen, selecteert u **Ja**. Als u de MSI wilt uitschakelen, kiest u Nee. 
+3.  U ziet **Managed Service Identity**. Als u Managed Service Identity wilt registreren en inschakelen, selecteert u **Ja**. Als u het wilt uitschakelen, kiest u Nee. 
 4.  Vergeet niet op **Opslaan** te klikken om de configuratie op te slaan.  
     ![Alt-tekst voor afbeelding](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="grant-your-vm-access-to-a-resource-group-in-resource-manager"></a>Uw virtuele machine toegang verlenen tot een resourcegroep in Resource Manager
-Met behulp van MSI kan uw code toegangstokens ophalen voor verificatie bij resources die ondersteuning bieden voor Azure AD-verificatie.  Azure Resource Manager biedt ondersteuning voor Azure AD-verificatie.  Eerst moeten we de identiteit van deze virtuele machine toegang verlenen tot een resource in Resource Manager, in dit geval de resourcegroep waarin de virtuele machine is opgenomen.  
+Met behulp van Managed Service Identity kan uw code toegangstokens ophalen voor verificatie bij resources die ondersteuning bieden voor Azure AD-verificatie.  Azure Resource Manager biedt ondersteuning voor Azure AD-verificatie.  Eerst moeten we de identiteit van deze virtuele machine toegang verlenen tot een resource in Resource Manager, in dit geval de resourcegroep waarin de virtuele machine is opgenomen.  
 
 1.  Navigeer naar het tabblad **Resourcegroepen**. 
 2.  Selecteer de specifieke **resourcegroep** die u eerder voor uw **virtuele Windows-machine** hebt gemaakt. 
@@ -84,7 +84,7 @@ In dit gedeelte moet u **PowerShell** gebruiken.  Als dat nog niet is geïnstall
 1.  Navigeer in Azure Portal naar **Virtuele machines**, ga naar uw virtuele Windows-machine en klik op de pagina **Overzicht** op **Verbinden**. 
 2.  Voer uw referenties (**gebruikersnaam** en **wachtwoord**) in die u hebt toegevoegd bij het maken van de virtuele Windows-machine. 
 3.  Nu u een **Verbinding met extern bureaublad** met de virtuele machine hebt gemaakt, opent u **PowerShell** in de externe sessie. 
-4.  Dien met behulp van Powershell een Invoke-WebRequest-aanvraag in op het lokale MSI-eindpunt om een toegangstoken voor Azure Resource Manager op te halen.
+4.  Dien met behulp van Powershell een Invoke-WebRequest-aanvraag in op het lokale Managed Service Identity-eindpunt om een toegangstoken voor Azure Resource Manager op te halen.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

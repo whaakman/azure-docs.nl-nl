@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 453159e51473b76d8a95b98237796ac490f8ed6a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c4355d6bebe00650a6fb4e2f2a6e400be30722b2
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34630133"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39145125"
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Het apparaat inrichten in een IoT-hub met behulp van IoT Hub Device Provisioning Service
 
-In de vorige zelfstudie hebt u geleerd hoe u een apparaat kunt instellen om verbinding te maken met Device Provisioning Service. In deze zelfstudie leert u hoe u deze service gebruikt om uw apparaat in te richten voor één IoT-hub. U gebruikt daarvoor automatische inrichting **_inschrijvingslijsten_**. In deze handleiding ontdekt u hoe u:
+In de vorige zelfstudie hebt u geleerd hoe u een apparaat kunt instellen om verbinding te maken met Device Provisioning Service. In deze zelfstudie leert u hoe u deze service gebruikt om uw apparaat in te richten voor één IoT-hub. U gebruikt daarvoor automatische inrichting **_inschrijvingslijsten_**. In deze zelfstudie ontdekt u hoe u:
 
 > [!div class="checklist"]
 > * Het apparaat inschrijven
@@ -49,7 +49,7 @@ In deze stap worden de unieke beveiligingsartefacten van het apparaat toegevoegd
 
 Er zijn twee manieren om het apparaat te registreren bij Device Provisioning Service:
 
-- **Inschrijvingsgroepen**: dit is een groep apparaten die een specifiek attestation-mechanisme delen. We raden u aan om een inschrijvingsgroep te gebruiken bij een groot aantal apparaten die een gewenste initiële configuratie delen, of voor apparaten die allemaal zijn verbonden met dezelfde tenant.
+- **Inschrijvingsgroepen**: dit is een groep apparaten die een specifiek attestation-mechanisme delen. We raden u aan om een inschrijvingsgroep te gebruiken bij een groot aantal apparaten die een gewenste initiële configuratie delen, of voor apparaten die allemaal zijn verbonden met dezelfde tenant. Raadpleeg [Beveiliging](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates) voor meer informatie over identiteit-attestation voor registratiegroepen.
 
     [![Groepsinschrijving voor attestation X.509 toevoegen in de portal](./media/tutorial-provision-device-to-hub/group-enrollment.png)](./media/tutorial-provision-device-to-hub/group-enrollment.png#lightbox)
 
@@ -67,26 +67,29 @@ Nu schrijft u het apparaat in met uw Device Provisioning Service-instantie, met 
 
 Na de inschrijving wacht de inrichtingsservice tot het apparaat op enig moment later is opgestart en verbonden met de service. Als het apparaat voor de eerste keer wordt opgestart, communiceert de SDK-clientbibliotheek met uw chip om de beveiligingsartefacten te extraheren uit het apparaat, en wordt de registratie bij Device Provisioning Service geverifieerd. 
 
-## <a name="start-the-device"></a>Het apparaat starten
+## <a name="start-the-iot-device"></a>Het IoT-apparaat starten
 
-Op dit punt is de volgende installatie gereed voor apparaatregistratie:
+Uw IoT-apparaat kan een echt apparaat of een gesimuleerd apparaat zijn. Aangezien het IoT-apparaat nu is geregistreerd met een Device Provisioning Service-instantie, kan het apparaat opstarten en de inrichtingsservice aanroepen om te worden herkend met het attestation-mechanisme. Nadat de inrichtingsservice het apparaat heeft herkend, wordt het apparaat toegewezen aan een IoT-hub. 
 
-1. Uw apparaat of groep met apparaten zijn geregistreerd bij Device Provisioning Service, en 
-2. Het attestation-mechanisme is geconfigureerd op het apparaat en het apparaat is toegankelijk via de toepassing met behulp van de SDK van de Device Provisioning Service-client.
+Voorbeelden van gesimuleerde apparaten die zowel TPM als X.509-attestation gebruiken, zijn opgenomen voor C, Java, C#, Node.js en Python. Een gesimuleerd apparaat dat TMP en de [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) gebruikt, volgt bijvoorbeeld het proces dat in de sectie [Eerste opstartvolgorde voor het apparaat simuleren](quick-create-simulated-device.md#simulate-first-boot-sequence-for-the-device) wordt beschreven. Hetzelfde apparaat dat voor attestation een X.509-certificaat gebruikt, verwijst naar deze [opstartvolgordesectie](quick-create-simulated-device-x509.md#simulate-first-boot-sequence-for-the-device).
 
-Start het apparaat zodat de registratie via de clienttoepassing met Device Provisioning service kan worden gestart.  
+Raadpleeg [How-to guide for the MXChip Iot DevKit](how-to-connect-mxchip-iot-devkit.md) (Handleiding voor de MXChip IoT DevKit) voor een voorbeeld van een echt apparaat.
+
+Start het apparaat zodat de registratie via de clienttoepassing van uw apparaat met Device Provisioning Service kan worden gestart.  
 
 ## <a name="verify-the-device-is-registered"></a>Controleren of het apparaat is geregistreerd
 
-Zodra het apparaat is opgestart, worden de volgende acties uitgevoerd. Zie de voorbeeldtoepassing van TPM-simulator [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) voor meer informatie. 
+Nadat het apparaat is opgestart, worden de volgende acties uitgevoerd:
 
 1. Vanaf het apparaat wordt een registratie-aanvraag verzonden naar Device Provisioning Service.
 2. Voor TPM-apparaten wordt vanuit Device Provisioning Service een registratie-uitdaging teruggestuurd waarop het apparaat reageert. 
 3. Als de registratie is gelukt, worden Device Provisioning Service de IoT Hub-URI, apparaat-id en versleutelingssleutel via Device Provisioning Service teruggestuurd naar het apparaat. 
 4. De IoT Hub-clienttoepassing op het apparaat maakt vervolgens verbinding met de hub. 
-5. Als de verbinding met de hub is gemaakt, wordt het apparaat weergegeven in **Device Explorer** van de IoT-hub. 
+5. Als de verbinding met de hub is gemaakt, wordt het apparaat weergegeven in de **IoT Device Explorer** van de IoT-hub. 
 
     ![Geslaagde verbinding met de hub in de portal](./media/tutorial-provision-device-to-hub/hub-connect-success.png)
+
+Raadpleeg de voorbeeldtoepassing van TPM-simulator [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c) voor meer informatie. 
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie heeft u het volgende geleerd:

@@ -1,29 +1,26 @@
 ---
-title: 'Snelstart: Een Spark-taak uitvoeren op Azure Databricks met Azure portal | Microsoft Docs'
-description: De snelstart laat zien hoe er met Azure Portal een Azure Databricks-werkruimte en een Apache Spark-cluster kan worden gemaakt, en hoe een Spark-taak kan worden uitgevoerd.
+title: 'Snelstart: Een Apache Spark-taak uitvoeren in Azure Databricks met behulp van Azure Portal'
+description: De quickstart laat zien hoe er met Azure Portal een Azure Databricks-werkruimte en een Apache Spark-cluster kan worden gemaakt, en hoe een Spark-taak kan worden uitgevoerd.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
+ms.service: azure-databricks
+author: jasonwhowell
+ms.author: jasonh
 manager: cgronlun
 editor: cgronlun
-ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/23/2018
-ms.author: nitinme
+ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 19dcdeefe4a65f5c0fab06766a0fa40838df8b08
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: a302c0c6c4ecbaff2d11d852caf9e1e1500931b8
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30232429"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39225343"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snelstart: Een Spark-taak uitvoeren op Azure Databricks met Azure portal
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Quickstart: Een Spark-taak uitvoeren op Azure Databricks met Azure portal
 
-Deze snelstart laat zien hoe een Azure Databricks-werkruimte wordt gemaakt en hoe binnen die werkruimte een Apache Spark-cluster kan worden gemaakt. Tot slot leert u hoe u een Spark-taak op het Databricks-cluster kunt uitvoeren. Zie [Wat is Azure Databricks?](what-is-azure-databricks.md) voor meer informatie over Azure Databricks.
+Deze quickstart laat zien hoe een Azure Databricks-werkruimte wordt gemaakt en hoe binnen die werkruimte een Apache Spark-cluster kan worden gemaakt. Tot slot leert u hoe u een Spark-taak op het Databricks-cluster kunt uitvoeren. Zie [Wat is Azure Databricks?](what-is-azure-databricks.md) voor meer informatie over Azure Databricks.
 
 In deze snelstart analyseert u als onderdeel van de Spark-taak abonnementsgegevens van een radiozender voor meer inzicht in vrij/betaald gebruik op basis van demografische gegevens. 
 
@@ -41,7 +38,7 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
 
     ![Databricks in Azure Portal](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks in Azure Portal")
 
-3. Geef bij **Azure Databricks Service** de waarden op voor het maken van een Databricks-werkruimte.
+2. Geef bij **Azure Databricks Service** de waarden op voor het maken van een Databricks-werkruimte.
 
     ![Een Azure Databricks-werkruimte maken](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Een Azure Databricks-werkruimte maken")
 
@@ -63,6 +60,9 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Een Spark-cluster maken in Databricks
 
+> [!NOTE] 
+> Als u een gratis account wilt gebruiken om het Azure Databricks-cluster te maken, gaat u voordat het cluster is gemaakt naar uw profiel en wijzigt u uw abonnement in **betalen per gebruik**. Zie [Gratis Azure-account](https://azure.microsoft.com/en-us/free/) voor meer informatie.  
+
 1. Ga in Azure Portal naar de Databricks-werkruimte die u hebt gemaakt en klik op **Werkruimte starten**.
 
 2. U wordt omgeleid naar de Azure Databricks-portal. Klik in de portal op **Cluster**.
@@ -83,14 +83,34 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
 
 Zie [Een Spark-cluster maken in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html) voor meer informatie over het maken van clusters.
 
+
+## <a name="download-a-sample-data-file"></a>Een bestand met voorbeeldgegevens downloaden
+Download een JSON-bestand met voorbeeldgegevens en sla het op in Azure Blob-opslag.
+
+1. Download dit JSON-bestand met voorbeeldgegeven [vanuit Github](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) naar uw lokale computer. Klik met de rechtermuisknop op en sla op om het raw-bestand lokaal op te slaan. 
+
+2. Als u nog geen opslagaccount hebt, maakt u er nu een. 
+   - Selecteer in Azure Portal **Een resource maken**.  Selecteer de **opslag**categorie en selecteer **Opslagaccounts**  
+   - Geef een unieke naam op voor het opslagaccount.
+   - Selecteer **Soort account**: **Blob-opslag**
+   - Selecteer de naam van een **Resourcegroep**. Gebruik dezelfde resourcegroep als waarin u de Databricks-werkruimte hebt gemaakt.
+   
+   Zie [Een Azure Blob-opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) voor meer informatie. 
+
+3. Maak een opslagcontainer in het Blob-opslagaccount en upload het JSON-voorbeeldbestand naar de container. U kunt het bestand uploaden via Azure Portal of de [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+
+   - Open het opslagaccount in Azure Portal.
+   - Selecteer **Blobs**.
+   - Selecteer **+ Container** om een nieuwe lege container te maken.
+   - Geef een **naam** op voor de container, zoals `databricks`. 
+   - Selecteer het toegangsniveau **Privé (niet-anonieme toegang)**.
+   - Zodra de container is gemaakt, selecteert u de containernaam.
+   - Selecteer de knop **Uploaden**.
+   - Selecteer op de pagina **Bestanden** het **mappictogram** om naar het voorbeeldbestand `small_radio_json.json` te bladeren en het te selecteren om het te uploaden. 
+   - Selecteer **Uploaden** om het bestand te uploaden.
+   
+   
 ## <a name="run-a-spark-sql-job"></a>Een Spark SQL-taak uitvoeren
-
-Voordat u met deze sectie begint, moet u eerst aan de volgende vereisten voldoen:
-
-* [Maak een Azure Blob-opslagaccount](../storage/common/storage-create-storage-account.md#create-a-storage-account). 
-* Download een voorbeeld-JSON-bestand [vanuit Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json). 
-* Upload het JSON-voorbeeldbestand naar het Azure Blob-opslagaccount dat u hebt gemaakt. U kunt [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) gebruiken om bestanden te uploaden.
-
 Voer de volgende taken uit om een notitieblok in Databricks te maken. Configureer het notitieblok om de gegevens te lezen uit een Azure Blob-opslagaccount en voer vervolgens een Spark SQL-taak uit op de gegevens.
 
 1. Klik in het linkerdeelvenster op **Werkruimte**. Klik in de vervolgkeuzelijst **Werkruimte** op **Maken** en klik vervolgens op **Notitieblok**.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 07/17/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: a66d845fcf7507613cda475bbc96225f8a7cc7eb
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: bb0e3ee685d5a52a9f372e99d97f3608f67c17c0
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126854"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185394"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Snelstart: Azure Resource Manager-sjablonen maken met Visual Studio Code
 
@@ -144,7 +144,7 @@ Schoon de geïmplementeerd Azure-resources, wanneer u deze niet meer nodig hebt,
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u een sjabloon maakt met behulp van Visual Studio Code en hoe u de sjabloon via Cloud Shell in Azure Portal implementeert. De gebruikte sjabloon in deze snelstart bevat slechts één Azure-resource.  In de volgende zelfstudie ontwikkelt u een sjabloon met meerdere resources.  Sommige resources hebben afhankelijke resources.
+In deze zelfstudie hebt u geleerd hoe u een sjabloon maakt met behulp van Visual Studio Code en hoe u de sjabloon via Cloud Shell in Azure Portal implementeert. In de volgende zelfstudie leert u meer over het ontwikkelen van een sjabloon en het gebruiken sjabloonverwijzing.
 
 > [!div class="nextstepaction"]
-> [Create templates by using Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) (Sjablonen maken met Visual Studio)
+> [Een versleuteld Storage-account maken](./resource-manager-tutorial-create-encrypted-storage-accounts.md)

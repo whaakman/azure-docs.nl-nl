@@ -1,20 +1,20 @@
 ---
-title: Apparaten beheren in een op Azure gebaseerde oplossing voor externe bewaking | Microsoft Docs
+title: Zelfstudie over apparaten beheren in een op Azure gebaseerde oplossing voor externe bewaking | Microsoft Docs
 description: In deze zelfstudie leert u hoe u apparaten kunt beheren die verbonden zijn met de oplossingsversneller voor externe bewaking.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/12/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 63baf6397b2542311525bac740c50b5eacbd35cf
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: cd8e8c1fe1b77113968b7af635f45f9e0e077b7c
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097424"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159194"
 ---
 # <a name="tutorial-configure-and-manage-devices-connected-to-your-monitoring-solution"></a>Zelfstudie: Apparaten configureren en beheren die zijn verbonden met uw bewakingsoplossing
 
@@ -24,7 +24,7 @@ Contoso heeft nieuwe machines besteld om de capaciteit van een van de faciliteit
 
 Voor een uitbreidbare manier om apparaten te configureren en beheren, gebruikt de oplossingsversneller voor externe bewaking IoT Hub-functies zoals [taken](../iot-hub/iot-hub-devguide-jobs.md) en [directe methoden](../iot-hub/iot-hub-devguide-direct-methods.md). Hoewel in deze zelfstudie gebruik wordt gemaakt van gesimuleerde apparaten, kan een ontwikkelaar directe methoden implementeren op een [fysiek apparaat dat is verbonden met de oplossingsversneller voor externe bewaking](iot-accelerators-connecting-devices.md).
 
-In deze zelfstudie doet u het volgende:
+In deze zelfstudie hebt u:
 
 >[!div class="checklist"]
 > * Een gesimuleerd apparaat inrichten.
@@ -33,11 +33,9 @@ In deze zelfstudie doet u het volgende:
 > * Een apparaat opnieuw configureren.
 > * Uw apparaten organiseren.
 
-## <a name="prerequisites"></a>Vereisten
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Voor deze zelfstudie hebt u een geïmplementeerd exemplaar van de oplossingsversneller voor externe bewaking in uw Azure-abonnement nodig.
-
-Als u de oplossingsverbetering voor externe controle nog niet hebt geïmplementeerd, voltooit u eerst de snelstart [Een cloudoplossing voor externe controle implementeren](quickstart-remote-monitoring-deploy.md).
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="add-a-simulated-device"></a>Een gesimuleerd apparaat toevoegen
 
@@ -51,23 +49,21 @@ In het deelvenster **Nieuw apparaat** kiest u **Gesimuleerd**, laat u het aantal
 
 ## <a name="test-the-simulated-device"></a>Het gesimuleerde apparaat testen
 
-Om te testen of het gesimuleerde apparaat telemetrie verzendt en eigenschapswaarden meldt, selecteert u het apparaat in de lijst met apparaten op de pagina **Apparaten**. Live informatie over uw apparaat wordt weergegeven in het deelvenster **Apparaatdetails**:
+Om te testen of het gesimuleerde engine-apparaat telemetrie verzendt en eigenschapswaarden meldt, selecteert u het apparaat in de lijst met apparaten op de pagina **Apparaten**. Live informatie over uw apparaat wordt weergegeven in het deelvenster **Apparaatdetails**:
 
 [![Het gesimuleerde apparaat weergeven](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesviewnew-expanded.png#lightbox)
 
-Controleer in **Apparaatdetails** of het nieuwe apparaat telemetrie verzendt. Als u de andere trillingstelemetriestroom van uw apparaat wilt weergeven, klikt u op **Trillingen**:
+Controleer in **Apparaatdetails** of het nieuwe apparaat telemetrie verzendt. Als u de trillingstelemetriestroom van uw apparaat wilt weergeven, klikt u op **Trillingen**:
 
 [![Selecteer een telemetriestroom om weer te geven](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesvibration-expanded.png#lightbox)
 
 In het deelvenster **Apparaatdetails** ziet u andere informatie over het apparaat, zoals tagwaarden, de methoden die worden ondersteund en de eigenschappen die zijn gerapporteerd door het apparaat.
 
-Als u gedetailleerde diagnostische gegevens wilt weergeven, bladert u omlaag om **Diagnostische gegevens** weer te geven:
-
-[![Diagnostische gegevens over het apparaat weergeven](./media/iot-accelerators-remote-monitoring-manage/devicediagnostics-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicediagnostics-expanded.png#lightbox)
+Als u gedetailleerde diagnostische gegevens wilt zien, schuift u omlaag in het deelvenster **Apparaatdetails** naar de sectie **Diagnostische gegevens**.
 
 ## <a name="act-on-a-device"></a>Reageren op een apparaat
 
-Om te testen of het gesimuleerde apparaat correct reageert op acties die worden gestart door de oplossingsversneller, voert u de **FirmwareUpdate**-methode uit. Als u een apparaat test door een methode uit te voeren, selecteert u het apparaat in de lijst met apparaten en klikt u op **Taken**. U kunt meer dan één apparaat selecteren om te testen. In het deelvenster **Taken** selecteert u **Methode uitvoeren**. Het **Engine**-apparaatmodel werkt met drie methoden: **FirmwareUpdate**, **FillTank** en **EmptyTank**:
+Om te testen of het gesimuleerde engine-apparaat correct reageert op acties die worden gestart vanuit het dashboard, voert u de **FirmwareUpdate**-methode uit. Als u een apparaat test door een methode uit te voeren, selecteert u het apparaat in de lijst met apparaten en klikt u op **Taken**. U kunt meer dan één apparaat selecteren om te testen. In het deelvenster **Taken** selecteert u **Methode uitvoeren**. Het **Engine**-apparaatmodel werkt met drie methoden: **FirmwareUpdate**, **FillTank** en **EmptyTank**:
 
 [![Engine-methoden](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmethods-expanded.png#lightbox)
 
@@ -103,7 +99,7 @@ Nadat de taak is voltooid, gaat u naar de pagina **Dashboard**. Het apparaat wor
 
 ## <a name="organize-your-devices"></a>Uw apparaten organiseren
 
-Om het als operator gemakkelijker te maken uw apparaten te organiseren en beheren, kunt u ze markeren met de naam van het desbetreffende team. Contoso heeft twee verschillende teams voor activiteiten van de buitendienst:
+Om het als operator gemakkelijker te maken uw apparaten te organiseren en beheren, kunt u ze de naam van een team geven. Contoso heeft twee verschillende teams voor activiteiten van de buitendienst:
 
 * Het team Smart Vehicle beheert trucks en prototypen van apparaten.
 * Het team Smart Building beheert koelers (chillers), liften (elevators) en motoren (engines).
@@ -114,19 +110,15 @@ Als u al uw apparaten wilt weergeven, gaat u naar de pagina **Apparaten** en kie
 
 ### <a name="add-tags"></a>Tags toevoegen
 
-Selecteer alle **Trucks** en **Prototyping**-apparaten. Klik vervolgens op **Taken**:
+Selecteer alle **Trucks** en **Prototyping**-apparaten. Klik vervolgens op **Taken**.
 
-[![Prototyping- en truck-apparaten selecteren](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect-expanded.png#lightbox)
-
-Selecteer **Tag**, stel de naam van de taak in op **AddConnectedVehicleTag** en voeg een tekstlabel met de naam **FieldService** in met de waarde **ConnectedVehicle**. Klik vervolgens op **Toepassen**:
+Selecteer in het scherm **Taken** de optie **Tag**, stel de naam van de taak in op **AddConnectedVehicleTag** en voeg een tekstlabel met de naam **FieldService** in met de waarde **ConnectedVehicle**. Klik vervolgens op **Toepassen**:
 
 [![Tag toevoegen aan prototyping- en truck-apparaten](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag-expanded.png#lightbox)
 
-Selecteer op de apparaatpagina alle **Chiller**-, **Elevator**- en **Engine**-apparaten. Klik vervolgens op **Taken**:
+Selecteer op de apparaatpagina alle **Chiller**-, **Elevator**- en **Engine**-apparaten. Klik vervolgens op **Taken**.
 
-[![Chiller-, elevator- en engine-apparaten selecteren](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect2-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesmultiselect2-expanded.png#lightbox)
-
-Selecteer **Tag**, stel de naam van de taak in op **AddSmartBuildingTag** en voeg een teksttag met de naam **FieldService** in met de waarde **SmartBuilding**. Klik vervolgens op **Toepassen**:
+Selecteer in het scherm **Taken** de optie **Tag**, stel de naam van de taak in op **AddSmartBuildingTag** en voeg een teksttag met de naam **FieldService** in met de waarde **SmartBuilding**. Klik vervolgens op **Toepassen**:
 
 [![Tag toevoegen aan chiller-, elevator- en engine-apparaten](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesaddtag2-expanded.png#lightbox)
 
@@ -148,17 +140,7 @@ Nu kan de Contoso-operator apparaten opvragen op basis van het operationele team
 
 [![Filter Connected Vehicle maken](./media/iot-accelerators-remote-monitoring-manage/filterinaction-inline.png)](./media/iot-accelerators-remote-monitoring-manage/filterinaction-expanded.png#lightbox)
 
-## <a name="clean-up-resources"></a>Resources opschonen
-
-Als u van plan bent verder te gaan naar de volgende zelfstudie, laat u de oplossingsversneller voor externe bewaking geïmplementeerd. Als u de kosten wilt verminderen voor het uitvoeren van de oplossingsversneller terwijl u deze niet gebruikt, kunt u de gesimuleerde apparaten in het deelvenster Instellingen stopzetten:
-
-[![Telemetrie onderbreken](./media/iot-accelerators-remote-monitoring-manage/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-manage/togglesimulation-expanded.png#lightbox)
-
-Wanneer u bent klaar om te beginnen met de volgende zelfstudie, kunt u de gesimuleerde apparaten opnieuw opstarten.
-
-Als u de oplossingsversneller niet meer nodig hebt, verwijdert u deze van de pagina [Ingerichte oplossingen](https://www.azureiotsolutions.com/Accelerators#dashboard):
-
-![Oplossing verwijderen](media/iot-accelerators-remote-monitoring-manage/deletesolution.png)
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

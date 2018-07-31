@@ -1,119 +1,76 @@
 ---
-title: Snelstartgids Selfservice voor wachtwoordherstel - Azure Active Directory
-description: Wachtwoorden snel opnieuw instellen voor Azure AD via self-service
+title: 'Snelstart: Azure AD-selfservice voor wachtwoordherstel'
+description: In deze snelstart gaat u de Azure AD-selfservice voor wachtwoordherstel snel configureren, zodat gebruikers hun eigen wachtwoorden opnieuw kunnen instellen
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: get-started-article
-ms.date: 01/11/2018
+ms.topic: quickstart
+ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: c99ae755705dddf501609c8f199d1977d0bde415
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c40cb3192d514d990ea2a5d66e1484ff204e9b10
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39057358"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39223554"
 ---
-# <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Snelle implementatie van Azure AD-selfservice voor wachtwoordherstel
+# <a name="quickstart-self-service-password-reset"></a>Snelstart: selfservice voor wachtwoordherstel
 
-> [!IMPORTANT]
-> **Bent u hier terechtgekomen omdat u problemen ondervindt met het aanmelden?** Zie in dat geval [Help, ik ben mijn wachtwoord voor Azure AD vergeten](../user-help/active-directory-passwords-update-your-own-password.md).
+In deze snelstart wordt het configureren van de selfservice voor wachtwoordherstel (SSPR) uitgelegd. Deze service biedt een eenvoudige manier voor IT-beheerders om gebruikers in staat te stellen hun eigen wachtwoord opnieuw in te stellen of account te ontgrendelen.
 
-De self-service voor wachtwoordherstel (SSPR) biedt een eenvoudige manier voor IT-beheerders om gebruikers in staat te stellen hun eigen wachtwoord of account opnieuw in te stellen of te ontgrendelen. Het systeem biedt gedetailleerde rapporten zodat u kunt volgen wanneer gebruikers het systeem openen. U ontvangt ook meldingen om u te waarschuwen over misbruik.
+## <a name="prerequisites"></a>Vereisten
 
-In deze handleiding wordt ervan uitgegaan dat u een werkende proefversie hebt van de Azure Active Directory-tenant (Azure AD) of dat u er een licentie voor hebt. Als u hulp nodig hebt bij het instellen van Azure AD ziet u [Aan de slag met Azure AD](../fundamentals/get-started-azure-ad.md).
+* Een werkende Azure AD-tenant waarop minimaal een proeflicentie is ingeschakeld.
+* Een account met de bevoegdheden van een globale beheerder.
+* Zie het artikel [Snelstart: Nieuwe gebruikers toevoegen aan Azure Active Directory](../add-users-azure-active-directory.md) als een testgebruiker zonder beheerdersbevoegdheden een wachtwoord heeft dat u kent, en u een gebruiker moet maken.
+* Zie het artikel [Een groep maken en leden toevoegen in Azure Active Directory](../active-directory-groups-create-azure-portal.md) als u een pilotgroep hebt om mee te testen waarvan de testgebruiker zonder beheerdersbevoegdheden lid is, en u een groep wilt maken.
 
-## <a name="enable-sspr-for-your-azure-ad-tenant"></a>SSPR inschakelen voor uw Azure Active Directory-tenant
+## <a name="enable-self-service-password-reset"></a>Selfservice voor wachtwoordherstel inschakelen
 
 > [!VIDEO https://www.youtube.com/embed/Pa0eyqjEjvQ]
 
 1. Selecteer vanuit uw bestaande Azure AD-tenant in **Azure Portal** onder **Azure Active Directory** de optie **Wachtwoord opnieuw instellen**.
 
-2. Op de pagina **Eigenschappen** kiest u onder **Selfservice voor wachtwoord opnieuw instellen is ingeschakeld** een van de volgende opties:
-   * **Geen**: niemand kan de SSPR-functionaliteit gebruiken.
-   * **Geselecteerd**: alleen leden van een specifieke Azure Active Directory-groep die u kiest kunnen de SSPR-functionaliteit gebruiken. Het is raadzaam om een groep gebruikers te definiëren en deze instelling te gebruiken wanneer u deze functionaliteit implementeert voor het testen van een concept. Het nesten van beveiligingsgroepen wordt hier ondersteund.
-   * **Iedereen**: alle gebruikers met een account in uw Azure Active Directory-tenant kunnen de SSPR-functionaliteit gebruiken. U wordt aangeraden deze instelling te gebruiken wanneer u klaar bent voor het implementeren van deze functionaliteit in uw hele tenant nadat u het testen van een concept hebt voltooid.
-
-   > [!IMPORTANT]
-   > U kunt de wachtwoorden voor Azure-beheerdersaccounts altijd opnieuw instellen, hoe deze optie ook is ingesteld. 
+2. Op de pagina **Eigenschappen** kiest u onder **Selfservice voor wachtwoord opnieuw instellen is ingeschakeld** de optie **Geselecteerd**.
+    * Selecteer bij **Groep selecteren** de pilotgroep die u hebt gemaakt als onderdeel van het gedeelte over vereisten in dit artikel.
+    * Klik op **Opslaan**.
 
 3. Op de pagina **Verificatiemethoden** kiest u het volgende:
-   * **Aantal methoden dat is vereist om het wachtwoord opnieuw in te stellen**: minimaal een en maximaal twee.
-   * **Methoden voor gebruikers**: er is er ten minste één nodig, maar het kan geen kwaad om een extra keuze beschikbaar te maken.
-      * **E-mailadres**: er wordt een e-mail met een code verstuurd naar het e-mailadres voor verificatie dat door de gebruiker is geconfigureerd.
-      * **Mobiele telefoon** geeft de gebruiker de keuze om een oproep of sms-bericht te ontvangen met een code, via het geconfigureerde mobiele telefoonnummer.
-      * **Zakelijke telefoon**: hiermee wordt de gebruiker voor een code gebeld via het geconfigureerde zakelijke telefoonnummer.
-      * **Beveiligingsvragen**: hiervoor moet u een optie kiezen:
-         * **Het aantal vragen dat is vereist voor de registratie**: het minimum aantal vragen voor een succesvolle registratie. Een gebruiker kan ervoor kiezen om meer vragen te beantwoorden en een groep vragen te maken waaruit vragen worden opgehaald. Deze optie kan worden ingesteld op drie, vier of vijf vragen. Het aantal moet gelijk zijn aan of groter zijn dan het aantal vragen dat vereist is om het wachtwoord opnieuw in te stellen. De gebruiker kan aangepaste vragen toevoegen als deze de knop **Aangepast** kiest tijdens het selecteren van de beveiligingsvragen.
-         * **Het aantal vragen dat is vereist om het wachtwoord opnieuw in te stellen**: kan worden ingesteld van drie tot vijf vragen. Deze vragen moeten correct worden beantwoord; daarna mag een gebruiker zijn of haar wachtwoord pas opnieuw instellen of ontgrendelen.
-            
+   * Het aantal methoden dat is vereist om het wachtwoord opnieuw in te stellen: **1**
+   * Methoden voor gebruikers:
+      * **Mobiele telefoon**
+      * **Telefoon (werk)**
+   * Klik op **Opslaan**.
+
     ![Verificatie][Authentication]
 
-4. Aanbevolen: onder **Aanpassing** kunt u de koppeling **Contact opnemen met de beheerder** laten leiden naar een zelf gekozen pagina of e-mailadres. U wordt aangeraden om deze koppeling in te stellen op bijvoorbeeld een e-mailadres of een website die uw gebruikers al gebruiken voor ondersteuningsvragen.
+4. Op de pagina **Registratie** kiest u het volgende:
+   * Vereisen dat gebruikers zich bij aanmelding registreren: **Ja**
+   * Het aantal dagen instellen waarna gebruikers wordt gevraagd om de verificatiegegevens opnieuw te bevestigen: **365**
 
-5. Optioneel: op de pagina **Registratie** hebben beheerders verschillende opties:
-   * Vereisen dat gebruikers zich bij aanmelding registreren.
-   * Het aantal dagen instellen waarna gebruikers wordt gevraagd om de verificatiegegevens opnieuw te bevestigen.
+## <a name="test-self-service-password-reset"></a>Selfservice voor wachtwoord opnieuw instellen testen
 
-6. Optioneel: op de pagina **Meldingen** hebben beheerders verschillende opties:
-   * Gebruikers een melding tonen over het opnieuw instellen van hun wachtwoord.
-   * Alle beheerders waarschuwen wanneer andere beheerders hun wachtwoord opnieuw instellen.
+We gaan nu de configuratie van de selfservice voor wachtwoordherstel met een testgebruiker testen. Aangezien Microsoft sterke verificatievereisten afdwingt voor Azure-beheerdersaccounts, kan het testen met een beheerdersaccount het resultaat beïnvloeden. Zie ons [artikel over wachtwoordbeleid](concept-sspr-policy.md) voor meer informatie over het wachtwoordbeleid voor beheerders.
 
-U hebt op dit moment SSPR geconfigureerd voor uw Azure AD-tenant. Uw gebruikers kunnen de instructies in de artikelen [Registreren voor de selfservice voor wachtwoordherstel](../user-help/active-directory-passwords-reset-register.md) en [Uw wachtwoord opnieuw instellen of wijzigen](../user-help/active-directory-passwords-update-your-own-password.md) nu gebruiken om hun wachtwoord bij te werken zonder tussenkomst van de beheerder. U kunt hier stoppen als u alleen in de cloud werkt. U kunt ook doorgaan met de volgende sectie om de synchronisatie van wachtwoorden met een on-premises Active Directory-domein te configureren.
+1. Open een nieuw browservenster in de InPrivate- of incognitomodus en browse naar [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup).
+2. Meld u aan met een testgebruiker die geen beheerder is en registreer uw telefoon voor verificatie.
+3. Als u klaar bent, klikt u op de knop **ziet er goed uit** en sluit u het browservenster.
+4. Open een nieuw browservenster in de InPrivate- of incognitomodus en browse naar [https://aka.ms/sspr](https://aka.ms/sspr).
+5. Geef de gebruikers-id van uw testgebruiker die geen beheerder is op, plus de tekens uit de CAPTCHA, en klik vervolgens op **Volgende**.
+6. Volg de verificatiestappen om uw wachtwoord opnieuw in te stellen
 
-> [!TIP]
-> Test self-service voor wachtwoordherstel als een gebruiker en niet als beheerder, aangezien Microsoft sterke verificatievereisten afdwingt voor Azure-accounts van beheerders. Zie ons [artikel over wachtwoordbeleid](concept-sspr-policy.md#administrator-password-policy-differences) voor meer informatie over het wachtwoordbeleid voor beheerders.
-
-## <a name="configure-synchronization-to-an-existing-identity-source"></a>Synchronisatie met een bestaande identiteitsbron configureren
-
-Als u on-premises identiteitssynchronisatie met Azure AD wilt inschakelen, moet u [Azure AD Connect](./../connect/active-directory-aadconnect.md) installeren en configureren op een server in uw organisatie. Met deze toepassing worden gebruikers en groepen uit uw bestaande identiteitsbron met uw Azure AD-tenant gesynchroniseerd. Zie voor meer informatie:
-
-* [Upgraden van DirSync of Azure AD Sync naar Azure AD Connect](./../connect/active-directory-aadconnect-dirsync-deprecated.md)
-* [Aan de slag met Azure AD Connect met Express-instellingen](./../connect/active-directory-aadconnect-get-started-express.md)
-* [Configureer write-back van wachtwoord](howto-sspr-writeback.md#configure-password-writeback) om wachtwoorden van Azure AD terug te schrijven naar uw on-premises directory
-
-### <a name="on-premises-policy-change"></a>On-premises beleid wijzigen
-
-Als u gebruikers van een on-premises Active Directory-domein synchroniseert en wilt toestaan dat gebruikers hun wachtwoord direct opnieuw kunnen instellen, moet u de volgende wijziging voor uw on-premises wachtwoordbeleid toepassen:
-
-1. Blader naar **Computerconfiguratie** > **Beleid** > **Windows-instellingen** > **Beveiligingsinstellingen** > **Accountbeleid** > **Wachtwoordbeleid**.
-
-2. Stel de **Minimale wachtwoordduur** in op **0 dagen**.
-
-Hiermee bepaalt u hoe lang (in dagen) een wachtwoord moet worden gebruikt voordat de gebruiker het kan wijzigen. Als u de minimale wachtwoordduur instelt op **0 dagen**, kunnen gebruikers SSPR gebruiken als hun wachtwoorden worden gewijzigd door hun ondersteuningsteams.
-
-![Beleid][Policy]
-
-## <a name="disable-self-service-password-reset"></a>Selfservice voor wachtwoordherstel uitschakelen
+## <a name="clean-up-resources"></a>Resources opschonen
 
 Selfservice voor wachtwoordherstel kan eenvoudig worden uitgeschakeld. Open uw Azure AD-tenant en ga naar **Wachtwoord opnieuw instellen** > **Eigenschappen** en selecteer vervolgens **Geen** onder **Selfservice voor wachtwoord opnieuw instellen is ingeschakeld**.
 
-### <a name="learn-more"></a>Meer informatie
-De volgende koppelingen bieden aanvullende informatie over wachtwoordherstel met behulp van Azure AD:
-
-* [Hoe kan ik een geslaagde implementatie van SSPR voltooien?](howto-sspr-deployment.md)
-* [Uw wachtwoord opnieuw instellen of wijzigen](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Registreren voor de selfservice voor wachtwoordherstel](../user-help/active-directory-passwords-reset-register.md)
-* [Hebt u een vraag over licenties?](concept-sspr-licensing.md)
-* [Welke gegevens worden gebruikt door selfservice voor wachtwoordherstel en welke gegevens moet u voor uw gebruikers invullen?](howto-sspr-authenticationdata.md)
-* [Welke verificatiemethoden zijn beschikbaar voor gebruikers?](concept-sspr-howitworks.md#authentication-methods)
-* [Wat zijn de beleidsopties bij selfservice voor wachtwoordherstel?](concept-sspr-policy.md)
-* [Wat is Wachtwoord terugschrijven en waarom is dit van belang?](howto-sspr-writeback.md)
-* [Hoe maak ik rapporten van activiteit in selfservice voor wachtwoordherstel?](howto-sspr-reporting.md)
-* [Wat zijn alle opties in selfservice voor wachtwoordherstel en wat houden ze in?](concept-sspr-howitworks.md)
-* [Ik denk dat er iets misgaat. Hoe los ik problemen in selfservice voor wachtwoordherstel op?](active-directory-passwords-troubleshoot.md)
-* [Ik heb een vraag die nog niet is beantwoord](active-directory-passwords-faq.md)
-
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u geleerd hoe u selfservice voor wachtwoordherstel kunt configureren voor uw gebruikers. Ga verder naar Azure Portal om deze stappen uit te voeren:
+In deze snelstart hebt u geleerd hoe u selfservice voor wachtwoordherstel snel kunt configureren voor uw cloudgebruikers. Als u wilt weten hoe u een gedetailleerdere implementatie uitvoert, kunt u verder gaan met onze implementatiehandleiding.
 
 > [!div class="nextstepaction"]
-> [Selfservice voor wachtwoordherstel inschakelen](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset)
+> [Selfservice voor wachtwoordherstel implementeren](howto-sspr-deployment.md)
 
 [Authentication]: ./media/quickstart-sspr/sspr-authentication-methods.png "Azure Active Directory-verificatiemethoden die beschikbaar zijn en hoeveel er vereist zijn"
-[Policy]: ./media/quickstart-sspr/password-policy.png "Groepsbeleid voor on-premises wachtwoord is ingesteld op 0 dagen"
-

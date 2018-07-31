@@ -1,28 +1,28 @@
 ---
-title: Uw IoT-apparaten bewaken met een Azure-oplossing | Microsoft Docs
+title: Zelfstudie over het bewaken van uw IoT-apparaten met een Azure-oplossing | Microsoft Docs
 description: In deze zelfstudie leert u hoe u uw IoT-apparaten kunt bewaken met behulp van de oplossingsversneller voor externe bewaking.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 06/08/2018
+ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 5f42ed0fa5362959e5619f2d550ca1ae3711ed65
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: d31ea1fe579e5ac7a846c1c0d03012d70be9884d
+ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097458"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39159345"
 ---
 # <a name="tutorial-monitor-your-iot-devices"></a>Zelfstudie: Uw IoT-apparaten bewaken
 
 In deze zelfstudie gebruikt u de oplossingsversneller voor externe bewaking om de verbonden IoT-apparaten te bewaken. Gebruik het dashboard van de oplossing om telemetrie, apparaatgegevens, waarschuwingen en KPI's weer te geven.
 
-Om u te laten kennismaken met deze bewakingsfuncties, wordt in de zelfstudie gebruikgemaakt van twee simulatieapparaten voor vrachtwagens ('Trucks' in het voorbeeld hieronder). De trucks worden beheerd door een organisatie met de naam Contoso en zijn verbonden met de oplossingsversneller voor externe bewaking. Als Contoso-operator moet u de locatie en het gedrag van uw trucks in het veld bewaken.
+In de zelfstudie wordt gebruikgemaakt van twee gesimuleerde apparaten voor trucks die telemetriegegevens over de locatie, de snelheid en de temperatuur van de lading verzenden. De vrachtwagens worden beheerd door een organisatie met de naam Contoso en zijn verbonden met de oplossingsversneller voor externe bewaking. Als operator van Contoso is het uw taak om de locatie en het gedrag van een van uw trucks (truck-02) in het veld te bewaken.
 
-In deze zelfstudie doet u het volgende:
+In deze zelfstudie hebt u:
 
 >[!div class="checklist"]
 > * De apparaten filteren in het dashboard
@@ -31,11 +31,9 @@ In deze zelfstudie doet u het volgende:
 > * Meldingen van uw apparaten weergeven
 > * De systeem-KPI's weergeven
 
-## <a name="prerequisites"></a>Vereisten
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Voor deze zelfstudie hebt u een geïmplementeerd exemplaar van de oplossingsversneller voor externe bewaking in uw Azure-abonnement nodig.
-
-Als u de oplossingsverbetering voor externe controle nog niet hebt geïmplementeerd, voltooit u eerst de snelstart [Een cloudoplossing voor externe controle implementeren](quickstart-remote-monitoring-deploy.md).
+[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="choose-the-devices-to-display"></a>Kies de weer te geven apparaten
 
@@ -43,31 +41,27 @@ Gebruik filters om te selecteren welke verbonden apparaten worden weergegeven op
 
 [![Filteren op trucks in het dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckfilter-expanded.png#lightbox)
 
-Wanneer u een filter toepast, worden alleen de apparaten die voldoen aan de filtervoorwaarden weergegeven op de kaart op de pagina **Dashboard**:
+Wanneer u een filter toepast, worden alleen de apparaten die voldoen aan de filtervoorwaarden weergegeven op de kaart en in het deelvenster Telemetrie op de pagina **Dashboard**. U kunt zien dat er twee trucks zijn verbonden met de oplossingsversnellers, waaronder vrachtwagen-02:
 
-[![Alleen trucks worden weergegeven op de kaart](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-expanded.png#lightbox)
+[![Alleen vrachtwagens worden er weergegeven op de kaart](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-expanded.png#lightbox)
 
-Het filter bepaalt ook welke apparaten u in de grafiek **Telemetrie** te zien krijgt:
-
-[![Telemetrie van trucks wordt weergegeven op het dashboard](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetry-expanded.png#lightbox)
-
-Als u filters wilt maken, bewerken en verwijderen, kiest u **Apparaatgroepen beheren**.
+Als u filters wilt maken, bewerken en verwijderen, klikt u op **Apparaatgroepen beheren**.
 
 ## <a name="view-real-time-telemetry"></a>Telemetrie in realtime weergeven
 
-De oplossingsversneller plot in realtime telemetrie in de grafiek op de pagina **Dashboard**. Boven in de telemetriegrafiek ziet u de beschikbare telemetrietypen voor de apparaten die met het huidige filter zijn geselecteerd:
+De oplossingsversneller plot in realtime telemetrie in de grafiek op de pagina **Dashboard**. Boven in de telemetriegrafiek ziet u de beschikbare telemetrietypen voor de apparaten, waaronder truck-02, die met het huidige filter zijn geselecteerd. Standaard wordt in de grafiek de breedtegraad van de trucks weergegeven, en truck-02 lijkt stil te staan:
 
-[![Telemetrietypen voor trucks](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-expanded.png#lightbox)
+[![Telemetrietypen voor vrachtwagens](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-expanded.png#lightbox)
 
-Als u temperatuurtelemetrie wilt weergeven, klikt u op **Temperatuur**:
+Als u voor de trucks temperatuurtelemetrie wilt weergeven, klikt u op **Temperatuur**: U kunt zien hoe de temperatuur voor truck-02 in het afgelopen uur is veranderd:
 
 [![Temperatuurtelemetrie voor trucks geplot](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardselecttelemetry-expanded.png#lightbox)
 
-## <a name="use-the-map"></a>Gebruik van de kaart
+## <a name="view-the-map"></a>De kaart weergeven
 
-De kaart bevat informatie over de gesimuleerde trucks die met het huidige filter zijn geselecteerd. U kunt de kaart inzoomen en pannen om locaties met meer of minder details weer te geven. De kleur van een apparaatpictogram op de kaart geeft aan of er voor het apparaat **Meldingen** of **Waarschuwingen** actief zijn. Een samenvatting van het aantal **Meldingen** en **Waarschuwingen** wordt links van de kaart weergegeven.
+De kaart bevat informatie over de gesimuleerde trucks die met het huidige filter zijn geselecteerd. U kunt de kaart inzoomen en pannen om locaties met meer of minder details weer te geven. De kleur van een apparaatpictogram op de kaart geeft aan of er voor het apparaat **Meldingen** (donkerblauw) of **Waarschuwingen** (rood) actief zijn. Een samenvatting van het aantal **Meldingen** en **Waarschuwingen** wordt links van de kaart weergegeven.
 
-Als u de apparaatdetails wilt bekijken, zoomt en pant u de kaart om naar het apparaat te zoeken en selecteert u het apparaat op de kaart. Klik vervolgens op het apparaatlabel om het deelvenster **Apparaatdetails** te openen. De apparaatdetails omvatten:
+Als u de details voor truck-02 wilt bekijken, zoomt en pant u de kaart om naar de truck te zoeken en selecteert u deze op de kaart. Klik vervolgens op het apparaatlabel om het deelvenster **Apparaatdetails** te openen. De apparaatdetails omvatten:
 
 * Recente telemetriewaarden
 * Methoden die door het apparaat worden ondersteund
@@ -77,13 +71,11 @@ Als u de apparaatdetails wilt bekijken, zoomt en pant u de kaart om naar het app
 
 ## <a name="view-alerts"></a>Waarschuwingen weergeven
 
-Het deelvenster **Waarschuwingen** geeft gedetailleerde informatie over de meest recente meldingen van uw apparaten weer:
+Het deelvenster **Waarschuwingen** geeft gedetailleerde informatie over de meest recente meldingen van uw apparaten weer. De waarschuwingen voor truck-02 geven aan dat de temperatuur van de lading hoger dan normaal is:
 
 [![Apparaatmeldingen in het dashboard bekijken](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardsystemalarms-expanded.png#lightbox)
 
-U kunt een filter gebruiken om de tijdsduur voor recente meldingen aan te passen. Standaard worden in het deelvenster waarschuwingen van het afgelopen uur weergegeven:
-
-[![De meldingen filteren op tijd](./media/iot-accelerators-remote-monitoring-monitor/dashboardalarmsfilter-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardalarmsfilter-expanded.png#lightbox)
+U kunt een filter gebruiken om de tijdsduur voor recente meldingen aan te passen. Standaard worden in het deelvenster waarschuwingen van het afgelopen uur weergegeven.
 
 ## <a name="view-the-system-kpis"></a>De systeem-KPI's weergeven
 
@@ -97,19 +89,11 @@ Het dashboard geeft drie KPI's weer voor de meldingen die door de huidige filter
 * Het deel van de meldingen op basis van apparaattype.
 * Het percentage meldingen dat uit kritieke meldingen bestaat.
 
+Voor truck-02 bestaan alle meldingen uit waarschuwingen die betrekking hebben op de temperatuur van de lading die hoger is dan normaal.
+
 Dezelfde filters die de tijdsduur instellen voor meldingen en regelen welke apparaten worden weergegeven, bepalen hoe de KPI's worden samengevoegd. Standaard worden in het deelvenster KPI's weergegeven die in de loop van het afgelopen uur zijn samengevoegd.
 
-## <a name="clean-up-resources"></a>Resources opschonen
-
-Als u van plan bent verder te gaan naar de volgende zelfstudie, laat u de oplossingsversneller voor externe bewaking geïmplementeerd. Als u de kosten wilt verminderen voor het uitvoeren van de oplossingsversneller terwijl u deze niet gebruikt, kunt u de gesimuleerde apparaten in het deelvenster Instellingen stopzetten:
-
-[![Telemetrie onderbreken](./media/iot-accelerators-remote-monitoring-monitor/togglesimulation-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/togglesimulation-expanded.png#lightbox)
-
-Wanneer u bent klaar om te beginnen met de volgende zelfstudie, kunt u de gesimuleerde apparaten opnieuw opstarten.
-
-Als u de oplossingsversneller niet meer nodig hebt, verwijdert u deze van de pagina [Ingerichte oplossingen](https://www.azureiotsolutions.com/Accelerators#dashboard):
-
-![Oplossing verwijderen](media/iot-accelerators-remote-monitoring-monitor/deletesolution.png)
+[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

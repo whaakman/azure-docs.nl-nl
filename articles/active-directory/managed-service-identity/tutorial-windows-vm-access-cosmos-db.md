@@ -1,6 +1,6 @@
 ---
-title: Toegang krijgen tot Azure Cosmos DB met een MSI voor Windows-VM
-description: Een zelfstudie die u helpt bij het gebruiken van een System-Assigned Managed Service Identity (MSI) op een Windows-VM voor toegang tot Azure Cosmos DB.
+title: Toegang krijgen tot Azure Cosmos DB met een Managed Service Identity voor een Windows-VM
+description: Een zelfstudie die u helpt bij het gebruiken van een System-Assigned Managed Service Identity op een Windows-VM voor toegang tot Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: cee3a1425d7c3ad8f680394831175165203b4839
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 05b31dffbe51dcbcd76c13a17f6ecc640b63569b
+ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005642"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39248965"
 ---
-# <a name="tutorial-use-a-windows-vm-msi-to-access-azure-cosmos-db"></a>Zelfstudie: toegang krijgen tot Azure Cosmos DB met een MSI voor Windows-VM
+# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-cosmos-db"></a>Zelfstudie: Toegang krijgen tot Azure Cosmos DB met een Managed Service Identity voor Windows-VM
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-In deze zelfstudie wordt uitgelegd hoe u een Windows-VM-MSI maakt en gebruikt om toegang te krijgen tot Cosmos DB. In deze zelfstudie leert u procedures om het volgende te doen:
+In deze zelfstudie wordt uitgelegd hoe u een Managed Service Identity op een Windows-VM maakt en gebruikt om toegang te krijgen tot Cosmos DB. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
-> * Een Windows-VM met ingeschakelde MSI maken 
+> * Een Windows-VM maken waarop Managed Service Identity is ingeschakeld 
 > * Cosmos DB-account maken
-> * Uw Windows-VM-MSI toegang geven tot de toegangssleutels van het Cosmos DB-account
-> * Een toegangstoken ophalen met behulp van de identiteit van de Windows-VM-MSI om Azure Resource Manager aan te roepen
+> * Uw Managed Service Identity op de Windows-VM toegang geven tot de toegangssleutels van het Cosmos DB-account
+> * Een toegangstoken ophalen met behulp van de Managed Service Identity op de Windows-VM om Azure Resource Manager aan te roepen
 > * Toegangssleutels ophalen uit Azure Resource Manager voor Cosmos DB-aanroepen
 
 ## <a name="prerequisites"></a>Vereisten
@@ -47,7 +47,7 @@ Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azur
 
 ## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Een virtuele Windows-machine maken in een nieuwe resourcegroep
 
-Voor deze zelfstudie maken we een nieuwe virtuele Windows-machine.  U kunt MSI ook inschakelen op een bestaande virtuele machine.
+Voor deze zelfstudie maken we een nieuwe virtuele Windows-machine.  U kunt Managed Service Identity ook op een bestaande VM inschakelen.
 
 1. Klik op de knop **Een resource maken** in de linkerbovenhoek van Azure Portal.
 2. Selecteer **Compute** en vervolgens **Windows Server 2016 Datacenter**. 
@@ -58,13 +58,13 @@ Voor deze zelfstudie maken we een nieuwe virtuele Windows-machine.  U kunt MSI o
 
    ![Alt-tekst voor afbeelding](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
 
-## <a name="enable-msi-on-your-vm"></a>MSI op de virtuele machine inschakelen 
+## <a name="enable-managed-service-identity-on-your-vm"></a>Managed Service Identity op uw VM inschakelen 
 
-Met een MSI op de virtuele machine kunt u toegangstokens uit Azure AD ophalen zonder referenties in uw code te hoeven opnemen. Er gebeuren twee dingen als u MSI op een virtuele machine via Azure Portal inschakelt: de virtuele machine wordt bij Azure AD geregistreerd om een beheerde identiteit te maken, en de identiteit wordt geconfigureerd op de virtuele machine.
+Met Managed Service Identity op een virtuele machine kunt u toegangstokens uit Azure AD ophalen zonder dat u referenties in uw code hoeft op te nemen. Er gebeuren twee dingen als u Managed Service Identity op een virtuele machine via Azure Portal inschakelt: de virtuele machine wordt bij Azure AD geregistreerd om een beheerde identiteit te maken en de identiteit wordt geconfigureerd op de virtuele machine.
 
-1. Selecteer de **virtuele machine** waarop u MSI wilt inschakelen.  
+1. Selecteer de **virtuele machine** waarop u Managed Service Identity wilt inschakelen.  
 2. Klik op de linkernavigatiebalk op **Configuratie**. 
-3. U ziet **Managed Service Identity**. Als u de MSI wilt registreren en inschakelen, selecteert u **Ja**. Als u de MSI wilt uitschakelen, kiest u Nee. 
+3. U ziet **Managed Service Identity**. Als u Managed Service Identity wilt registreren en inschakelen, selecteert u **Ja**. Als u het wilt uitschakelen, kiest u Nee. 
 4. Vergeet niet op **Opslaan** te klikken om de configuratie op te slaan.  
    ![Alt-tekst voor afbeelding](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
@@ -87,18 +87,18 @@ Voeg vervolgens een gegevensverzameling toe in het Cosmos DB-account, waarop u l
 2. Klik op het tabblad **Overzicht** op de knop **+/Verzameling toevoegen**. Het deelvenster 'Verzameling toevoegen' wordt weergegeven.
 3. Geef de verzameling een database-ID en een verzameling-ID, selecteer een opslagcapaciteit, voer een partitiesleutel in, voer een doorvoerwaarde in en klik vervolgens op **OK**.  Voor deze zelfstudie volstaat het om ‘Test’ te gebruiken als database-ID en verzameling-ID en een vaste opslagcapaciteit en de laagste doorvoer (400 RU/s) te selecteren.  
 
-## <a name="grant-windows-vm-msi-access-to-the-cosmos-db-account-access-keys"></a>Uw Windows-VM-MSI toegang geven tot de toegangssleutels van het Cosmos DB-account
+## <a name="grant-windows-vm-managed-service-identity-access-to-the-cosmos-db-account-access-keys"></a>Uw Managed Service Identity op de Windows-VM toegang geven tot de toegangssleutels van het Cosmos DB-account
 
-Cosmos DB biedt geen systeemeigen ondersteuning voor Azure AD-verificatie. U kunt echter een MSI gebruiken om een Cosmos DB-toegangssleutel op te halen uit Resource Manager, en die sleutel gebruiken om toegang tot Cosmos DB te krijgen. In deze stap verleent u de MSI toegang tot de sleutels voor het Cosmos DB-account.
+Cosmos DB biedt geen systeemeigen ondersteuning voor Azure AD-verificatie. U kunt echter Managed Service Identity gebruiken om een Cosmos DB-toegangssleutel op te halen uit Resource Manager, en die sleutel gebruiken om toegang tot Cosmos DB te krijgen. In deze stap verleent u Managed Service Identity toegang tot de sleutels voor het Cosmos DB-account.
 
-Werk de waarden voor `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` en `<COSMOS DB ACCOUNT NAME>` bij voor uw omgeving om de MSI-identiteit met behulp van PowerShell toegang te geven tot het Cosmos DB-account in Azure Resource Manager. Vervang `<MSI PRINCIPALID>` door de `principalId` eigenschap die wordt geretourneerd door de opdracht `az resource show` in [De principalID van de Linux-VM-MSI ophalen](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB ondersteunt twee granulariteitsniveaus bij het gebruik van toegangssleutels: lees-/schrijftoegang tot het account en alleen-lezen toegang tot het account.  Wijs de rol `DocumentDB Account Contributor` toe als u sleutels voor lezen/schrijven voor het account wilt krijgen, de rol `Cosmos DB Account Reader Role` als u alleen-lezensleutels voor het account wilt ophalen:
+Werk de waarden voor `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` en `<COSMOS DB ACCOUNT NAME>` bij voor uw omgeving om de Managed Service Identity-identiteit met behulp van PowerShell toegang te geven tot het Cosmos DB-account in Azure Resource Manager. Vervang `<MSI PRINCIPALID>` door de `principalId` eigenschap die wordt geretourneerd door de opdracht `az resource show` in [De principalID van de Linux-VM-MSI ophalen](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB ondersteunt twee granulariteitsniveaus bij het gebruik van toegangssleutels: lees-/schrijftoegang tot het account en alleen-lezen toegang tot het account.  Wijs de rol `DocumentDB Account Contributor` toe als u sleutels voor lezen/schrijven voor het account wilt krijgen, de rol `Cosmos DB Account Reader Role` als u alleen-lezensleutels voor het account wilt ophalen:
 
 ```azurepowershell
 $spID = (Get-AzureRMVM -ResourceGroupName myRG -Name myVM).identity.principalid
 New-AzureRmRoleAssignment -ObjectId $spID -RoleDefinitionName "Reader" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/<myStorageAcct>"
 ```
 
-## <a name="get-an-access-token-using-the-windows-vms-msi-to-call-azure-resource-manager"></a>Een toegangstoken ophalen met behulp van de identiteit van de Windows-VM-MSI om Azure Resource Manager aan te roepen
+## <a name="get-an-access-token-using-the-windows-vms-managed-service-identity-to-call-azure-resource-manager"></a>Een toegangstoken ophalen met behulp van de Managed Service Identity op de Windows-VM om Azure Resource Manager aan te roepen
 
 Voor de rest van de zelfstudie werken we op de virtuele machine die we eerder hebben gemaakt. 
 
@@ -109,7 +109,7 @@ U moet ook de nieuwste versie van [Azure CLI 2.0](https://docs.microsoft.com/cli
 1. In Azure Portal navigeert u naar **Virtuele machines**, gaat u naar uw virtuele Windows-machine, klikt u vervolgens boven aan de pagina **Overzicht** op **Verbinden**. 
 2. Voer uw referenties (**gebruikersnaam** en **wachtwoord**) in die u hebt toegevoegd bij het maken van de virtuele Windows-machine. 
 3. Nu u een **Verbinding met extern bureaublad** met de virtuele machine hebt gemaakt, opent u PowerShell in de externe sessie.
-4. Dien met behulp van Powershell een Invoke-WebRequest-aanvraag in op het lokale MSI-eindpunt om een toegangstoken voor Azure Resource Manager op te halen.
+4. Dien met behulp van Powershell een Invoke-WebRequest-aanvraag in op het lokale Managed Service Identity-eindpunt om een toegangstoken voor Azure Resource Manager op te halen.
 
     ```powershell
         $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

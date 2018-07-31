@@ -1,6 +1,6 @@
 ---
-title: Een Linux-VM-MSI gebruiken voor toegang tot Azure Cosmos DB
-description: Een zelfstudie die u helpt bij het gebruiken van een System-Assigned Managed Service Identity (MSI) op een Linux-VM voor toegang tot Azure Cosmos DB.
+title: Toegang krijgen tot Azure Cosmos DB met een Managed Service Identity voor een Linux-VM
+description: Een zelfstudie die u helpt bij het gebruiken van een System-Assigned Managed Service Identity op een Linux-VM voor toegang tot Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,26 +14,26 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: 30962827d0a7fbc70c2ed4c642d9bb8a586124da
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: af148cd8b3eececb258057a8bf6a78216ec0e50a
+ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37904421"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39258327"
 ---
-# <a name="tutorial-use-a-linux-vm-msi-to-access-azure-cosmos-db"></a>Zelfstudie: een Linux-VM-MSI gebruiken voor toegang tot Azure Cosmos DB 
+# <a name="tutorial-use-a-linux-vm-managed-service-identity-to-access-azure-cosmos-db"></a>Zelfstudie: Toegang krijgen tot Azure Cosmos DB met een Managed Service Identity voor een Linux-VM 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 
-In deze zelfstudie leert u hoe u een Linux-VM-MSI kunt gebruiken en maken. In deze zelfstudie leert u procedures om het volgende te doen:
+In deze zelfstudie leert u hoe u een Managed Service Identity voor een Linux-VM kunt gebruiken en maken. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Een Linux-VM maken waarop MSI is ingeschakeld
 > * Cosmos DB-account maken
 > * Een verzameling maken in het Cosmos DB-account
-> * De MSI toegang verlenen tot een Azure Cosmos DB-exemplaar
-> * De `principalID` van de MSI van de Linux-VM ophalen
+> * De Managed Service Identity toegang verlenen tot een Azure Cosmos DB-exemplaar
+> * De `principalID` van de Managed Service Identity voor de Linux-VM ophalen
 > * Een toegangstoken ophalen en daarmee Azure Resource Manager aanroepen
 > * Toegangssleutels ophalen uit Azure Resource Manager voor Cosmos DB-aanroepen
 
@@ -54,9 +54,9 @@ Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azur
 
 ## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Een virtuele Linux-machine maken in een nieuwe resourcegroep
 
-Voor deze zelfstudie maakt u een nieuwe Linux-VM waarop MSI is ingeschakeld.
+Voor deze zelfstudie maakt u een nieuwe Linux-VM waarop Managed Service Identity is ingeschakeld.
 
-Een VM met MSI maken:
+Ga als volgt te werk om een VM te maken waarop Managed Service Identity is ingeschakeld:
 
 1. Als u de Azure CLI in een lokale console gebruikt, meldt u zich eerst aan bij Azure met [az login](/cli/azure/reference-index#az_login). Gebruik een account dat is gekoppeld aan het Azure-abonnement waaronder u de VM wilt implementeren:
 
@@ -70,7 +70,7 @@ Een VM met MSI maken:
    az group create --name myResourceGroup --location westus
    ```
 
-3. Maak een VM met [az vm create](/cli/azure/vm/#az_vm_create). In het volgende voorbeeld wordt een VM genaamd *myVM* gemaakt met een MSI, zoals gevraagd door de parameter `--assign-identity`. Met de parameters `--admin-username` en `--admin-password` worden de naam van de gebruiker met beheerdersrechten en het wachtwoord van het account voor aanmelding bij de virtuele machine opgegeven. Werk deze waarden bij met waarden die geschikt zijn voor uw omgeving: 
+3. Maak een VM met [az vm create](/cli/azure/vm/#az_vm_create). In het volgende voorbeeld wordt een VM genaamd *myVM* gemaakt met een Managed Service Identity, zoals aangevraagd door de parameter `--assign-identity`. Met de parameters `--admin-username` en `--admin-password` worden de naam van de gebruiker met beheerdersrechten en het wachtwoord van het account voor aanmelding bij de virtuele machine opgegeven. Werk deze waarden bij met waarden die geschikt zijn voor uw omgeving: 
 
    ```azurecli-interactive 
    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --generate-ssh-keys --assign-identity --admin-username azureuser --admin-password myPassword12
@@ -95,14 +95,14 @@ Voeg vervolgens een gegevensverzameling toe in het Cosmos DB-account, waarop u l
 2. Klik op het tabblad **Overzicht** op de knop **+/Verzameling toevoegen**. Het deelvenster 'Verzameling toevoegen' wordt weergegeven.
 3. Geef de verzameling een database-ID en een verzameling-ID, selecteer een opslagcapaciteit, voer een partitiesleutel in, voer een doorvoerwaarde in en klik vervolgens op **OK**.  Voor deze zelfstudie volstaat het om ‘Test’ te gebruiken als database-ID en verzameling-ID en een vaste opslagcapaciteit en de laagste doorvoer (400 RU/s) te selecteren.  
 
-## <a name="retrieve-the-principalid-of-the-linux-vms-msi"></a>De `principalID` van de MSI van de Linux-VM ophalen
+## <a name="retrieve-the-principalid-of-the-linux-vms-managed-service-identity"></a>De `principalID` van de Managed Service Identity van de Linux-VM ophalen
 
-Om in de volgende sectie vanuit Resource Manager toegang te krijgen tot de toegangssleutels van het Cosmos DB-account, moet u de `principalID` van de MSI van de Linux-VM ophalen.  Vervang de waarden van de parameters `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (resourcegroep waar de VM zich bevindt) en `<VM NAME>` door uw eigen waarden.
+Om in de volgende sectie vanuit Resource Manager toegang te krijgen tot de toegangssleutels van het Cosmos DB-account, moet u de `principalID` van de Managed Service Identity van de Linux-VM ophalen.  Vervang de waarden van de parameters `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` (resourcegroep waar de VM zich bevindt) en `<VM NAME>` door uw eigen waarden.
 
 ```azurecli-interactive
 az resource show --id /subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAMe> --api-version 2017-12-01
 ```
-Het antwoord bevat de details van de door het systeem toegewezen MSI (noteer de principalID, want die wordt gebruikt in de volgende sectie):
+Het antwoord bevat de details van de door het systeem toegewezen Managed Service Identity (noteer de principalID, want die wordt gebruikt in de volgende sectie):
 
 ```bash  
 {
@@ -114,11 +114,11 @@ Het antwoord bevat de details van de door het systeem toegewezen MSI (noteer de 
  }
 
 ```
-## <a name="grant-your-linux-vm-msi-access-to-the-cosmos-db-account-access-keys"></a>Uw Linux-VM-MSI toegang geven tot de toegangssleutels van het Cosmos DB-account
+## <a name="grant-your-linux-vm-managed-service-identity-access-to-the-cosmos-db-account-access-keys"></a>Uw Managed Service Identity op de Linux-VM toegang verlenen tot de toegangssleutels van het Cosmos DB-account
 
-Cosmos DB biedt geen systeemeigen ondersteuning voor Azure AD-verificatie. U kunt echter een MSI gebruiken om een Cosmos DB-toegangssleutel op te halen uit Resource Manager, en die sleutel gebruiken om toegang tot Cosmos DB te krijgen. In deze stap verleent u de MSI toegang tot de sleutels voor het Cosmos DB-account.
+Cosmos DB biedt geen systeemeigen ondersteuning voor Azure AD-verificatie. U kunt echter Managed Service Identity gebruiken om een Cosmos DB-toegangssleutel op te halen uit Resource Manager, en vervolgens die sleutel gebruiken om toegang tot Cosmos DB te krijgen. In deze stap verleent u Managed Service Identity toegang tot de sleutels voor het Cosmos DB-account.
 
-Werk de waarden voor `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` en `<COSMOS DB ACCOUNT NAME>` bij voor uw omgeving om de MSI-identiteit met behulp van de Azure CLI toegang te geven tot het Cosmos DB-account in Azure Resource Manager. Vervang `<MSI PRINCIPALID>` door de `principalId` eigenschap die wordt geretourneerd door de opdracht `az resource show` in [De principalID van de Linux-VM-MSI ophalen](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB ondersteunt twee granulariteitsniveaus bij het gebruik van toegangssleutels: lees-/schrijftoegang tot het account en alleen-lezen toegang tot het account.  Wijs de rol `DocumentDB Account Contributor` toe als u sleutels voor lezen/schrijven voor het account wilt krijgen, de rol `Cosmos DB Account Reader Role` als u alleen-lezensleutels voor het account wilt ophalen:
+Werk de waarden voor `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` en `<COSMOS DB ACCOUNT NAME>` bij voor uw omgeving om de Managed Service Identity-identiteit met behulp van de Azure CLI toegang te geven tot het Cosmos DB-account in Azure Resource Manager. Vervang `<MSI PRINCIPALID>` door de `principalId` eigenschap die wordt geretourneerd door de opdracht `az resource show` in [De principalID van de Linux-VM-MSI ophalen](#retrieve-the-principalID-of-the-linux-VM's-MSI).  Cosmos DB ondersteunt twee granulariteitsniveaus bij het gebruik van toegangssleutels: lees-/schrijftoegang tot het account en alleen-lezen toegang tot het account.  Wijs de rol `DocumentDB Account Contributor` toe als u sleutels voor lezen/schrijven voor het account wilt krijgen, de rol `Cosmos DB Account Reader Role` als u alleen-lezensleutels voor het account wilt ophalen:
 
 ```azurecli-interactive
 az role assignment create --assignee <MSI PRINCIPALID> --role '<ROLE NAME>' --scope "/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.DocumentDB/databaseAccounts/<COSMODS DB ACCOUNT NAME>"
@@ -140,7 +140,7 @@ Het antwoord bevat de details voor de gemaakte roltoewijzing:
 }
 ```
 
-## <a name="get-an-access-token-using-the-linux-vms-msi-and-use-it-to-call-azure-resource-manager"></a>Een toegangstoken ophalen met behulp van de identiteit van de Linux-VM-MSI en daarmee Azure Resource Manager aanroepen
+## <a name="get-an-access-token-using-the-linux-vms-managed-service-identity-and-use-it-to-call-azure-resource-manager"></a>Een toegangstoken ophalen met behulp van de Managed Service Identity op de Linux-VM en dit gebruiken om Azure Resource Manager aan te roepen
 
 Werk voor de rest van de zelfstudie op de eerder gemaakte virtuele machine.
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e39e5861c0606c43a869fe02a7de2dc9b6f489ea
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: ad6812f25ee33bf723ed86d4ec32ca6898d01774
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125650"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39186735"
 ---
 # <a name="tutorial-debug-a-service-fabric-mesh-web-application"></a>Zelfstudie: Fouten opsporen in een Service Fabric Mesh-webtoepassing
 
@@ -75,8 +75,8 @@ Als de lokale implementatie is voltooid en uw app in Visual Studio wordt uitgevo
 **Tips voor foutopsporing**
 
 * Als u de fout **No Service Fabric local cluster is running** ziet, controleert u of de SLCM (Service Local Custer Manager) wordt uitgevoerd en klikt u met de rechtermuisknop op het SLCM-symbool op de taakbalk. Klik vervolgens op **Start Local Cluster**. Als het cluster gestart, gaat u terug naar Visual Studio en drukt u op **F5**.
-* Als u een **404**-fout krijgt als de app wordt gestart, betekent dit waarschijnlijk dat de omgevingsvariabelen in **service.yaml** onjuist zijn. Controleer of `AppName`, `ApiHostPort` en `ServiceName` volgens de instructies in [Set environment variables](#set-environment-variables) (Omgevingsvariabelen instellen) correct zijn ingesteld.
-* Als u opbouwfouten krijgt in **service.yaml**, controleert u of er spaties in plaats van tabs zijn gebruikt om de regels in te laten springen.
+* Als u een **404**-fout krijgt als de app wordt gestart, betekent dit waarschijnlijk dat de omgevingsvariabelen in **service.yaml** onjuist zijn. Controleer of `ApiHostPort` en `ServiceName` volgens de instructies in [Omgevingsvariabelen maken](https://docs.microsoft.com/azure/service-fabric-mesh/service-fabric-mesh-tutorial-create-dotnetcore#create-environment-variables) zijn ingesteld.
+* Als u opbouwfouten krijgt in **service.yaml**, controleert u of er spaties in plaats van tabs zijn gebruikt om de regels in te laten springen. Ook moet u de app op dit moment met Engelse landinstellingen maken.
 
 ### <a name="debug-in-visual-studio"></a>Fouten opsporen met Visual Studio
 

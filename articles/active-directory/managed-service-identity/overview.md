@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/28/2018
 ms.author: daveba
-ms.openlocfilehash: d25d868d8f3542d74de8edf8d7d5d26037409911
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e58ba598df06feddc7b48072dfefd409f31e2445
+ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006927"
+ms.lasthandoff: 07/25/2018
+ms.locfileid: "39237866"
 ---
 #  <a name="what-is-managed-service-identity-for-azure-resources"></a>Wat is Managed Service Identity voor Azure-resources?
 
@@ -59,7 +59,7 @@ Hier volgt een voorbeeld van hoe door het systeem toegewezen identiteiten werken
 6. Er wordt een aanroep uitgevoerd naar Azure AD om een toegangstoken aan te vragen zoals beschreven in stap 5, met behulp van de client-id en het certificaat geconfigureerd in stap 3. Azure AD retourneert een JWT-toegangstoken (JSON Web Token).
 7. Uw code verzendt het toegangstoken bij een aanroep naar een service die Azure AD-verificatie ondersteunt.
 
-Hier is (met gebruikmaking van hetzelfde diagram) een voorbeeld van hoe een door de gebruiker toegewezen MSI met Azure Virtual Machines werkt.
+Hier is (met gebruikmaking van hetzelfde diagram) een voorbeeld van hoe een door de gebruiker toegewezen beheerde identiteit met Azure Virtual Machines werkt.
 
 1. Azure Resource Manager ontvangt een aanvraag voor het maken van een door de gebruiker toegewezen identiteit.
 2. Azure Resource Manager maakt een Service-principal in Azure AD die de identiteit van de door de gebruiker toegewezen identiteit voorstelt. De Service-principal wordt gemaakt in de Azure AD-tenant die wordt vertrouwd door dit abonnement.

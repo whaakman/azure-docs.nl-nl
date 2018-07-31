@@ -3,20 +3,19 @@ title: Een toepassing voor cloudopslag bewaken en problemen oplossen in Azure | 
 description: Gebruik diagnostische hulpprogramma's, metrische gegevens en waarschuwingen voor het oplossen van problemen met een cloudtoepassing en deze te bewaken.
 services: storage
 author: tamram
-manager: jeconnoc
+manager: twooley
 ms.service: storage
 ms.workload: web
-ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 07/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: eb58104309802125a8424cbbf8a1bef3d1c5e79c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ad64384ff17b1666f88ba99e04ec345015e07276
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418183"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39206051"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Een toepassing voor cloudopslag bewaken en problemen oplossen
 
@@ -30,9 +29,9 @@ In deel vier van de serie leert u het volgende:
 > * Testverkeer met onjuiste SAS-tokens uitvoeren
 > * Logboeken downloaden en analyseren
 
-[Azure Storage Analytics](../common/storage-analytics.md) biedt logboekregistratie en metrische gegevens voor een opslagaccount. Deze gegevens bieden inzicht in de status van uw opslagaccount. Voordat u inzicht in uw opslagaccount kunt krijgen, moet u het verzamelen van gegevens instellen. Dit proces omvat het inschakelen van logboekregistratie, het configureren van metrische gegevens en het inschakelen van waarschuwingen.
+[Azure Storage Analytics](../common/storage-analytics.md) biedt logboekregistratie en metrische gegevens voor een opslagaccount. Deze gegevens bieden inzicht in de status van uw opslagaccount. U kunt logboekregistratie, metrische gegevens en waarschuwingen configureren om gegevens uit Azure-opslaganalyse te verzamelen. Dit proces omvat het inschakelen van logboekregistratie, het configureren van metrische gegevens en het inschakelen van waarschuwingen.
 
-Logboekregistratie en metrische gegevens van opslagaccounts worden ingeschakeld op het tabblad **Diagnostische gegevens** in Azure-portal. Er zijn twee soorten metrische gegevens. **Cumulatieve** metrische gegevens verzamelen inkomende/uitgaande gegevens, beschikbaarheid, latentie en succespercentages. Deze metrische gegevens worden voor de blob-, wachtrij- tabel- en bestandsservices geaggregeerd. Met **Per API** wordt dezelfde set metrische gegevens voor elke opslagbewerking verzameld in de Azure Storage-service-API. Met logboekregistratie voor opslag kunt u details vastleggen voor zowel geslaagde als mislukte aanvragen in uw opslagaccount. Deze logboeken stellen u in staat details te zien over lees-, schrijf en verwijderbewerkingen met betrekking tot uw Azure-tabellen, -wachtrijen en -blobs. Ze maken het ook mogelijk om te zien wat de oorzaken zijn van mislukte aanvragen zoals time-outs, aanvraagbeperkingen en autorisatiefouten.
+Logboekregistratie en metrische gegevens van opslagaccounts worden ingeschakeld op het tabblad **Diagnostische gegevens** in Azure-portal. Met logboekregistratie voor opslag kunt u details vastleggen voor zowel geslaagde als mislukte aanvragen in uw opslagaccount. Deze logboeken stellen u in staat details te zien over lees-, schrijf en verwijderbewerkingen met betrekking tot uw Azure-tabellen, -wachtrijen en -blobs. Ze maken het ook mogelijk om te zien wat de oorzaken zijn van mislukte aanvragen zoals time-outs, aanvraagbeperkingen en autorisatiefouten.
 
 ## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
@@ -42,11 +41,11 @@ Meld u aan bij [Azure Portal](https://portal.azure.com).
 
 Selecteer in het menu links **Resourcegroepen**, selecteer **myResourceGroup** en selecteer vervolgens uw opslagaccount in de lijst met resources.
 
-Stel onder **Diagnostische gegevens** de **status** in op **Aan**. Zorg ervoor dat alle opties onder **Blob-eigenschappen** zijn ingeschakeld.
+Stel onder **Diagnostische instellingen (klassiek)** **Status** in op **Aan**. Zorg ervoor dat alle opties onder **Blob-eigenschappen** zijn ingeschakeld.
 
 Na het voltooien klikt u op **Opslaan**.
 
-![Het deelvenster Diagnostische gegevens](media/storage-monitor-troubleshoot-storage-application/contoso.png)
+![Het deelvenster Diagnostische gegevens](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
 ## <a name="enable-alerts"></a>Waarschuwingen inschakelen
 
@@ -54,34 +53,33 @@ Waarschuwingen bieden een manier waarbij beheerders e-mails ontvangen of dat er 
 
 ### <a name="navigate-to-the-storage-account-in-the-azure-portal"></a>Navigeren naar het opslagaccount in Azure Portal
 
-Selecteer in het menu links **Resourcegroepen**, selecteer **myResourceGroup** en selecteer vervolgens uw opslagaccount in de lijst met resources.
+Selecteer onder het gedeelte **Bewaking** de optie **Waarschuwingen (klassiek)**.
 
-Selecteer onder de sectie **Controleren** de optie **Waarschuwingsregels**.
+Selecteer **Waarschuwing voor metrische gegevens toevoegen (klassiek)** en voltooi het formulier **Regel toevoegen** door de vereiste gegevens in te vullen. In de vervolgkeuzelijst **Metrisch** selecteert u `SASClientOtherError`. Als u wilt toestaan dat de waarschuwing bij de eerste fout wordt geactiveerd, selecteert u in de vervolgkeuzelijst **Voorwaarde** **Groter dan of gelijk aan**.
 
-Selecteer **+ Waarschuwing toevoegen** onder **Een waarschuwingsregel toevoegen** en vul de vereiste gegevens in. Kies `SASClientOtherError` in de vervolgkeuzelijst **Metrisch gegeven**.
-
-![Het deelvenster Diagnostische gegevens](media/storage-monitor-troubleshoot-storage-application/figure2.png)
+![Het deelvenster Diagnostische gegevens](media/storage-monitor-troubleshoot-storage-application/add-alert-rule.png)
 
 ## <a name="simulate-an-error"></a>Een fout simuleren
 
-Als u een geldige waarschuwing wilt simuleren, kunt u proberen om een niet-bestaande blob uit uw opslagaccount aan te vragen. Om dit te doen, vervangt u de waarde `<incorrect-blob-name>` met een waarde die niet bestaat. Voer de volgende voorbeeldcode een paar keer uit om mislukte blobaanvragen te simuleren.
+Als u een geldige waarschuwing wilt simuleren, kunt u proberen om een niet-bestaande blob uit uw opslagaccount aan te vragen. De volgende opdracht vereist een naam voor de opslagcontainer. U kunt de naam van een bestaande container gebruiken of een nieuwe maken voor dit voorbeeld.
+
+Vervang de tijdelijke aanduidingen door echte waarden (zorg ervoor dat `<INCORRECT_BLOB_NAME>` is ingesteld op een waarde die niet bestaat) en voer de opdracht uit.
 
 ```azurecli-interactive
 sasToken=$(az storage blob generate-sas \
-    --account-name <storage-account-name> \
-    --account-key <storage-account-key> \
-    --container-name <container> \
-    --name <incorrect-blob-name> \
+    --account-name <STORAGE_ACCOUNT_NAME> \
+    --account-key <STORAGE_ACCOUNT_KEY> \
+    --container-name <CONTAINER_NAME> \
+    --name <INCORRECT_BLOB_NAME> \
     --permissions r \
-    --expiry `date --date="next day" +%Y-%m-%d` \
-    --output tsv)
+    --expiry `date --date="next day" +%Y-%m-%d`)
 
-curl https://<storage-account-name>.blob.core.windows.net/<container>/<incorrect-blob-name>?$sasToken
+curl https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net/<CONTAINER_NAME>/<INCORRECT_BLOB_NAME>?$sasToken
 ```
 
 In de volgende afbeelding ziet u een voorbeeldwaarschuwing die is gebaseerd op de gesimuleerde mislukte aanvraag die in het vorige voorbeeld is uitgevoerd.
 
- ![Voorbeeldwaarschuwing](media/storage-monitor-troubleshoot-storage-application/alert.png)
+ ![Voorbeeldwaarschuwing](media/storage-monitor-troubleshoot-storage-application/email-alert.png)
 
 ## <a name="download-and-view-logs"></a>Logboeken downloaden en weergeven
 

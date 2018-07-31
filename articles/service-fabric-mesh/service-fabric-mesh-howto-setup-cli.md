@@ -9,12 +9,12 @@ ms.date: 07/11/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: f56bcf0c844545e8883175da2bd3f22afdcd19ea
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: cf899e236b7fa21a90a0784e1e2b4fce0feae055
+ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089524"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39213432"
 ---
 # <a name="set-up-the-service-fabric-mesh-cli"></a>De Service Fabric Mesh CLI instellen
 De Service Fabric Mesh CLI is vereist voor het implementeren en beheren van resources in Service Fabric Mesh. 
@@ -37,6 +37,6 @@ Installeer de Azure Service Fabric Mesh CLI-uitbreidingsmodule met behulp van de
 az extension add --source https://sfmeshcli.blob.core.windows.net/cli/mesh-0.8.1-py2.py3-none-any.whl
 ```
 
-U kunt ook uw [Windows-ontwikkelomgeving instellen](service-fabric-mesh-howto-setup-developer-environment-sdk.md).
+U kunt ook uw [Windows-ontwikkelomgeving](service-fabric-mesh-howto-setup-developer-environment-sdk.md) instellen.
 
 [azure-cli-install]: /cli/azure/install-azure-cli

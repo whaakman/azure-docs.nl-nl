@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/17/2018
+ms.date: 07/10/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 3ceed8b88b9c81954c967d3d7ddd964c532867ab
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 4b45d917118d5be1252c3bb232e4b24e68d7857f
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34301604"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39188179"
 ---
 # <a name="tutorial-assign-access-to-cost-management-data"></a>Zelfstudie: toegang tot gegevens van Cost Management beheren
 
@@ -28,6 +28,8 @@ Op het moment dat u uw Azure overeenkomst of -account registreert, wordt er een 
 > [!div class="checklist"]
 > * Een gebruiker met beheerderstoegang maken
 > * Een gebruiker met gebruikerstoegang maken
+> * Een gebruiker verwijderen
+> * Persoonlijke gegevens verwijderen of exporteren
 > * Entiteiten maken en beheren
 
 
@@ -42,7 +44,7 @@ Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://az
 
 Hoewel u al beschikt over beheerderstoegang, hebben collega's in uw organisatie misschien ook beheerderstoegang nodig. Klik in de rechterbovenhoek van de portal van Cloudyn op het tandwielpictogram en selecteer **User Management**. Klik op **Add New User** om een nieuwe gebruiker toe te voegen.
 
-Voer de vereiste gegevens in voor de gebruiker. De aanmeldings-id moet een geldig e-mailadres zijn. Selecteer Allow User Management om het beheer van gebruikers toe te staan, zodat de gebruiker andere gebruikers kan maken en wijzigen. Met Adressenlijstbeheer kan de gebruiker adressenlijsten bewerken. Op het moment dat u **Notify user by email** selecteert, wordt er vanuit Cloudyn per e-mail een koppeling met aanmeldingsgegevens verzonden naar de gebruiker. Bij de eerste aanmelding stelt de gebruiker een wachtwoord in.
+Voer de vereiste gegevens in voor de gebruiker. De **aanmeldings-id** moet een geldig e-mailadres zijn. Selecteer Allow User Management om het beheer van gebruikers toe te staan, zodat de gebruiker andere gebruikers kan maken en wijzigen. Met Adressenlijstbeheer kan de gebruiker adressenlijsten bewerken. Op het moment dat u **Notify user by email** selecteert, wordt er vanuit Cloudyn per e-mail een koppeling met aanmeldingsgegevens verzonden naar de gebruiker. Bij de eerste aanmelding stelt de gebruiker een wachtwoord in.
 
 Onder **User has admin access** is de hoofdentiteit van uw organisatie geselecteerd. Laat dit zo en sla vervolgens de gebruikersgegevens op. Als u de hoofdentiteit selecteert, heeft de gebruiker niet alleen beheerdersmachtigingen voor de hoofdentiteit in de structuur, maar ook voor alle onderliggende entiteiten.  
   ![Een nieuwe gebruiker met beheerderstoegang toevoegen](.\media\tutorial-user-access\new-admin-access.png)
@@ -57,6 +59,24 @@ Meestal is het zo dat gebruikers die toegang nodig hebben tot gegevens van Cost 
 ![Een nieuwe gebruiker met gebruikerstoegang toevoegen](.\media\tutorial-user-access\new-user-access.png)
 
 Als u een Engelstalige zelfstudievideo wilt bekijken over het toevoegen van gebruikers, gaat u naar [Adding Users to Azure Cost Management](https://youtu.be/Nzn7GLahx30).
+
+## <a name="delete-a-user"></a>Een gebruiker verwijderen
+
+Wanneer u een gebruiker verwijdert, blijven alle entiteiten waar de gebruiker toegang tot heeft intact. Opgeslagen *persoonlijke* rapporten worden verwijderd wanneer de gebruiker wordt verwijderd. Opgeslagen *openbare* rapporten die zijn gemaakt door de gebruiker worden niet verwijderd.
+
+U kunt zichzelf niet als gebruiker verwijderen.
+
+> [!WARNING]
+> Wanneer u een gebruiker verwijdert, kan dit niet worden hersteld.
+
+1.  Klik in de rechterbovenhoek van de portal van Cloudyn op het tandwielpictogram en selecteer vervolgens **User Management**.
+2.  Selecteer in de lijst met gebruikers de gebruiker die u wilt verwijderen en klik vervolgens op **Gebruiker verwijderen** (prullenbaksymbool).
+3.  Klik in het vak Gebruiker verwijderen op **Ja** en klik vervolgens op **OK**.
+
+
+## <a name="delete-or-export-personal-data"></a>Persoonlijke gegevens verwijderen of exporteren
+
+Als u persoonlijke gegevens wilt verwijderen of exporteren vanuit Cloudyn, moet u een ondersteuningsticket maken. Wanneer het ondersteuningsticket is gemaakt, fungeert het als een formele aanvraag: een AVG-aanvraag (van betrokkene). Microsoft gaat vervolgens onmiddellijk over tot het verwijderen van het account en eventuele klant- en persoonlijke gegevens. Ga naar [Data Subject Requests of Cloudyn Data](https://www.cloudyn.com/cloudyn-gdpr-requests) (AVG-aanvragen voor Cloudyn-gegevens) voor meer informatie over hoe u het verwijderen of exporteren van uw gegevens kunt aanvragen.
 
 ## <a name="create-and-manage-entities"></a>Entiteiten maken en beheren
 
@@ -105,6 +125,8 @@ In deze zelfstudie heeft u het volgende geleerd:
 > [!div class="checklist"]
 > * Een gebruiker met beheerderstoegang maken
 > * Een gebruiker met gebruikerstoegang maken
+> * Een gebruiker verwijderen
+> * Persoonlijke gegevens verwijderen of exporteren
 > * Entiteiten maken en beheren
 
 

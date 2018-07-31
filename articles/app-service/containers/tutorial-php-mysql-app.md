@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 593f89071f03cb2e2b8ed9d7eda2cc7cb3971128
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: dd9c6f2969bfbcd1b2170c0685ab69b8b2ce70da
+ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38317987"
+ms.lasthandoff: 07/24/2018
+ms.locfileid: "39224310"
 ---
 # <a name="build-a-php-and-mysql-web-app-in-azure-app-service-on-linux"></a>Een PHP- en MySQL-web-app maken in Azure App Service in Linux
 
@@ -152,7 +152,7 @@ Typ `Ctrl + C` in de terminal om PHP te stoppen.
 
 ## <a name="create-mysql-in-azure"></a>MySQL in Azure maken
 
-In deze stap maakt u een MySQL-database in [Azure Database for MySQL (Preview)](/azure/mysql). Later configureert u de PHP-toepassing om verbinding te maken met deze database.
+In deze stap maakt u een MySQL-database in [Azure Database for MySQL](/azure/mysql). Later configureert u de PHP-toepassing om verbinding te maken met deze database.
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
@@ -160,7 +160,7 @@ In deze stap maakt u een MySQL-database in [Azure Database for MySQL (Preview)](
 
 ### <a name="create-a-mysql-server"></a>Een MySQL-server maken
 
-Een server in Azure Database for MySQL (Preview) maken met de opdracht [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+Maak een server in Azure Database for MySQL met de opdracht [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
 
 Vervang in de volgende opdracht de naam van uw MySQL-server waarin u de tijdelijke aanduiding _&lt;mysql_server_name>_ ziet (geldige tekens zijn `a-z`, `0-9`, en `-`). Deze naam maakt deel uit van de hostnaam van de MySQL-server (`<mysql_server_name>.database.windows.net`), hij moet globaal uniek zijn.
 
@@ -230,7 +230,7 @@ quit
 
 ## <a name="connect-app-to-azure-mysql"></a>App verbinden met Azure MySQL
 
-In deze stap verbindt u de PHP-toepassing met de MySQL-database die u hebt gemaakt in Azure Database for MySQL (Preview).
+In deze stap verbindt u de PHP-toepassing met de MySQL-database die u in Azure Database for MySQL hebt gemaakt.
 
 <a name="devconfig"></a>
 
@@ -254,7 +254,7 @@ MYSQL_SSL=true
 Sla de wijzigingen op.
 
 > [!TIP]
-> Dit bestand is voor het beveiligen van uw MySQL-verbindingsgegevens al uitgesloten van de Git-opslagplaats (zie _.gitignore_ in de hoofdmap van de opslagplaats). Later leert u hoe u omgevingsvariabelen in App Service configureert om verbinding te maken met uw database in Azure Database for MySQL (Preview). Met omgevingsvariabelen heeft u het *.env*-bestand in App Service niet nodig.
+> Dit bestand is voor het beveiligen van uw MySQL-verbindingsgegevens al uitgesloten van de Git-opslagplaats (zie _.gitignore_ in de hoofdmap van de opslagplaats). Later leert u hoe u omgevingsvariabelen in App Service configureert om verbinding te maken met uw database in Azure Database for MySQL. Met omgevingsvariabelen heeft u het *.env*-bestand in App Service niet nodig.
 >
 
 ### <a name="configure-ssl-certificate"></a>SSL-certificaat configureren
@@ -277,7 +277,7 @@ Het certificaat `BaltimoreCyberTrustRoot.crt.pem` is voor uw gemak in deze zelfs
 
 ### <a name="test-the-application-locally"></a>De toepassing lokaal testen
 
-Voer Laravel-databasemigraties uit met _.env.production_ als het omgevingsbestand om de tabellen te maken in uw MySQL-database in Azure Database for MySQL (Preview). Vergeet niet dat _. env.production_ de verbindingsgegevens heeft voor uw MySQL-database in Azure.
+Voer Laravel-databasemigraties uit met _.env.production_ als het omgevingsbestand om de tabellen te maken in uw MySQL-database in Azure Database for MySQL. Vergeet niet dat _. env.production_ de verbindingsgegevens heeft voor uw MySQL-database in Azure.
 
 ```bash
 php artisan migrate --env=production --force
@@ -299,7 +299,7 @@ Navigeer naar `http://localhost:8000`. Als de pagina zonder fouten wordt geladen
 
 Voeg een paar taken op de pagina toe.
 
-![PHP maakt verbinding met Azure Database for MySQL (Preview)](./media/tutorial-php-mysql-app/mysql-connect-success.png)
+![PHP maakt verbinding met Azure Database for MySQL](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
 Typ `Ctrl + C` in de terminal om PHP te stoppen.
 

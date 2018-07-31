@@ -1,5 +1,5 @@
 ---
-title: Een oplossing implementeren in Azure om mijn industriële IoT-apparaten te beheren | Microsoft Docs
+title: Een oplossing proberen in Azure om mijn industriële IoT-apparaten te beheren | Microsoft Docs
 description: In deze snelstart implementeert u de Azure IoT-oplossingsversneller voor verbonden factory’s. Vervolgens meldt u zich aan bij het oplossingsdashboard.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2018
 ms.author: dobett
-ms.openlocfilehash: ce4d32c80040ec658070a3fa3132e34931a6755a
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 649ce7bcd2d2e4ceb2fc397643f4dd0d3ef89c1e
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072627"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144510"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Snelstart: Een cloudgebaseerde oplossing uitproberen voor het beheren van mijn industriële IoT-apparaten
 
@@ -48,7 +48,7 @@ Klik op **Oplossing maken** om de implementatie te starten. Het duurt minstens v
 
 ## <a name="sign-in-to-the-solution"></a>Aanmelden bij de oplossing
 
-Wanneer de implementatie van uw Azure-abonnement is voltooid, ziet u een groen vinkje en **Gereed** op de tegel staan. U kunt zich nu aanmelden bij het dashboard van de oplossingsversneller voor verbonden factory's.
+Wanneer de implementatie in uw Azure-abonnement is voltooid, ziet u een groen vinkje en **Gereed** op de tegel staan. U kunt zich nu aanmelden bij het dashboard van de oplossingsversneller voor verbonden factory's.
 
 Klik op de pagina **Ingerichte oplossingen** op de nieuwe oplossingsversneller voor verbonden factory's:
 

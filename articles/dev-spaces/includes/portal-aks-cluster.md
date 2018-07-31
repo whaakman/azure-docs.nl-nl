@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 05736495d0d4a0c3a5072d29ad27801b6d4a7241
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2f894549951a0ef23a95acaab48ab20ce6646443
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967628"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39189327"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Een Kubernetes-cluster maken dat is ingeschakeld voor Azure Dev Spaces
 
@@ -32,7 +32,11 @@ ms.locfileid: "37967628"
 
    ![Configuratie-instellingen voor Kubernetes](../media/common/Kubernetes-Create-Cluster-2.PNG)
 
-   Selecteer **Volgende: Netwerk** wanneer u klaar bent.
+   Selecteer **Volgende: verificatie** wanneer u klaar bent.
+
+1. Kies de gewenste instelling voor RBAC (op rollen gebaseerd toegangsbeheer). Azure Dev Spaces biedt ondersteuning voor clusters waarop RBAC is ingeschakeld of uitgeschakeld.
+
+    ![RBAC-instelling](../media/common/k8s-RBAC.PNG)
 
 1. Zorg ervoor dat routering van HTTP-toepassingen is ingeschakeld.
 
@@ -40,9 +44,5 @@ ms.locfileid: "37967628"
 
     > [!IMPORTANT]
     > U moet routering van HTTP-toepassingen inschakelen wanneer u uw cluster AKS maakt. Het is niet mogelijk deze instelling later te wijzigen.
-
-1. Kies de gewenste instelling voor RBAC (op rollen gebaseerd toegangsbeheer). Azure Dev Spaces biedt ondersteuning voor clusters waarop RBAC is ingeschakeld of uitgeschakeld.
-
-    ![RBAC-instelling](../media/common/k8s-RBAC.PNG)
 
 1. Selecteer **Controleren + maken** en vervolgens **Maken** wanneer u klaar bent.

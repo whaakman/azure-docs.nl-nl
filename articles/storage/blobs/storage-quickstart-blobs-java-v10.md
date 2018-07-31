@@ -1,6 +1,6 @@
 ---
-title: 'Azure-snelstart: Een blob maken in objectopslag via de Java Storage SDK V10 | Microsoft Docs'
-description: In deze snelstart gaat u een container maken in objectopslag (Blob), een bestand uploaden, objecten vermelden en downloaden met behulp van de Java Storage SDK.
+title: 'Azure-snelstart: een blob maken in objectopslag met behulp van Java Storage SDK V10 | Microsoft Docs'
+description: In deze snelstart gaat u een container maken in objectopslag (Azure Blob), een bestand uploaden, objecten vermelden en downloaden met behulp van de Java Storage SDK.
 services: storage
 author: roygara
 manager: jeconnoc
@@ -9,23 +9,23 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 07/02/2018
 ms.author: rogarana
-ms.openlocfilehash: a789269e73e1817f6a45e1e5948dbfaa21efd283
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 749badbc0bf5286c06da02f092933abbefda7ceb
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704467"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185411"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-the-java-sdk-v10-preview"></a>Snelstart: Blobs uploaden, downloaden en vermelden met behulp van de Java SDK V10 (preview)
+# <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10-preview"></a>Snelstart: blobs uploaden, downloaden en vermelden met behulp van de Java Storage SDK V10 (preview)
 
-In deze snelstart leert u hoe u de nieuwe Java Storage SDK kunt gebruiken om blok-bobs te uploaden, te downloaden en weer te geven in een container in Azure Blob-opslag. De nieuwe Java SDK maakt gebruik van het reactieve programmeermodel met RxJava om u asynchrone bewerkingen te bieden. Krijg [hier](https://github.com/ReactiveX/RxJava) meer informatie over RxJava. 
+In deze snelstart leert u hoe u de nieuwe Java Storage SDK kunt gebruiken om blok-bobs te uploaden, te downloaden en weer te geven in een container in Azure Blob-opslag. De nieuwe Java SDK maakt gebruik van het reactieve programmeermodel met RxJava, dat asynchrone bewerkingen mogelijk maakt. Meer informatie over RxJava [reactieve extensies voor de Java-VM](https://github.com/ReactiveX/RxJava). 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze Quickstart:
+Installeer en configureer deze applicaties:
 
-* U kunt [Maven](http://maven.apache.org/download.cgi) installeren en configureren voor gebruik vanaf de opdrachtregel, of elke gewenste Java IDE
-* Installeer en configureer een [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [ Maven ](http://maven.apache.org/download.cgi) om te werken vanaf de opdrachtregel of de Java-geïntegreerde ontwikkelomgeving van uw voorkeur
+* [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -43,21 +43,21 @@ git clone https://github.com/Azure-Samples/storage-blobs-java-v10-quickstart.git
 
 Met deze opdracht wordt de opslagplaats naar uw lokale git-map gekloond.
 
-Zodra het importeren in het project is voltooid, opent u **Quickstart.java** (locatie: **src/main/java/quickstart**).
+Nadat het importeren van het project is voltooid, opent u **Snelstart.java** (locatie: **src/main/java/quickstart**).
 
 [!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
 ## <a name="configure-your-storage-connection-string"></a>De opslagverbindingsreeks configureren
-Deze oplossing vereist dat uw opslagaccountnaam en -sleutel veilig zijn opgeslagen in omgevingsvariabelen die lokaal op de computer staan waarop u het voorbeeld uitvoert. Volg afhankelijk van uw besturingssysteem een van de onderstaande voorbeelden voor het maken van de omgevingsvariabelen.
+Voor deze oplossing moet u de naam en sleutel van uw opslagaccount veilig opslaan. Bewaar ze in omgevingsvariabelen die lokaal zijn op de computer waarop het voorbeeld wordt uitgevoerd. Volg het Linux- of het Windows-voorbeeld, afhankelijk van uw besturingssysteem, voor het maken van de omgevingsvariabelen.
 
-### <a name="for-linux"></a>Voor Linux
+### <a name="linux-example"></a>Linux-voorbeeld
 
 ```
 export AZURE_STORAGE_ACCOUNT="<youraccountname>"
 export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 ```
 
-### <a name="for-windows"></a>Voor Windows
+### <a name="windows-example"></a>Windows-voorbeeld
 
 ```
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
@@ -66,11 +66,15 @@ setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 
 ## <a name="run-the-sample"></a>De voorbeeldtoepassing uitvoeren
 
-Met dit voorbeeld wordt er een testbestand gemaakt in de standaardmap (AppData\Local\Temp voor Windows-gebruikers). Vervolgens wordt u gevraagd om opdrachten in te voeren voor het uploaden van het testbestand naar Blob-opslag, worden de blobs vermeld in de container en wordt het bestand gedownload met een nieuwe naam, zodat u het oude en het nieuwe bestand met elkaar kunt vergelijken. 
+Met dit voorbeeld wordt een testbestand gemaakt in uw standaardmap, **AppData\Local\Temp**, voor Windows-gebruikers. Vervolgens wordt u gevraagd de volgende stappen uit te voeren:
 
-Als u het voorbeeld met behulp van Maven wilt uitvoeren op de opdrachtregel, opent u een shell en navigeert u naar **storage-blobs-java-v10-quickstart** binnen de gekloonde map. Voer vervolgens `mvn compile exec:java` uit.
+1. Voer opdrachten in om het testbestand te uploaden naar Azure Blob Storage.
+2. Maak een lijst van de blobs in de container.
+3. Download het geüploade bestand met een nieuwe naam, zodat u het oude en nieuwe bestand kunt vergelijken. 
 
-Hieronder ziet u een voorbeeld van uitvoer als u de toepassing zou uitvoeren in Windows.
+Als u het voorbeeld met behulp van Maven wilt uitvoeren op de opdrachtregel, opent u een shell en bladert u naar **storage-blobs-java-v10-quickstart** binnen de gekloonde map. Voer vervolgens `mvn compile exec:java` uit.
+
+Dit voorbeeld toont uw uitvoer als u de toepassing op Windows uitvoert.
 
 ```
 Created quickstart container
@@ -97,38 +101,44 @@ E
 Cleaning up the sample and exiting!
 ```
 
-U beheert het voorbeeld. Voer daarom opdrachten in om de code te laten uitvoeren. Let op: invoer is hoofdlettergevoelig.
+U beheert het voorbeeld; voer dus opdrachten in om de code te laten uitvoeren. De invoer is hoofdlettergevoelig.
 
 U kunt ook een hulpprogramma zoals [Azure Storage Explorer](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) gebruiken om de bestanden in de Blob-opslag te bekijken. Azure Storage Explorer is een gratis hulpprogramma voor meerdere platforms waarmee u toegang hebt tot de gegevens van uw opslagaccount. 
 
-Nadat u de bestanden hebt gecontroleerd, **E** en drukt u op Enter om de demo te voltooien en de testbestanden te verwijderen. Nu u weet wat het voorbeeld doet, opent u het bestand **Quickstart.java** om de code te bekijken. 
+Controleer de bestanden. Selecteer vervolgens **E** en selecteer **Enter** om de demo te voltooien en de testbestanden te verwijderen. Nu u weet wat het voorbeeld doet, opent u het bestand **Quickstart.java** om de code te bekijken. 
 
 ## <a name="understand-the-sample-code"></a>De voorbeeldcode begrijpen
 
-We gaan nu de voorbeeldcode bespreken, zodat u begrijpt hoe deze werkt.
+In de volgende secties wordt de voorbeeldcode besproken, zodat u begrijpt hoe deze werkt.
 
 ### <a name="get-references-to-the-storage-objects"></a>Verwijzingen naar de opslagobjecten ophalen
 
-Als eerste moeten verwijzingen worden gemaakt naar objecten die worden gebruikt voor het verkrijgen van toegang tot de Blob-opslag en voor het beheren ervan. Deze objecten zijn afhankelijk van elkaar en elk object vormt de basis voor het volgende object in de lijst.
+Eerst maakt u verwijzingen naar objecten die worden gebruikt voor het verkrijgen van toegang tot de Blob-opslag en voor het beheren ervan. Deze objecten bouwen voort op elkaar. Elk object wordt gebruikt door het volgende object in de lijst.
 
-* Maak een exemplaar van het object StorageURL dat naar het opslagaccount wijst.
+1. Maak een exemplaar van het object **StorageURL** dat naar het opslagaccount wijst.
 
-    Het object [**StorageURL**](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._storage_u_r_l?view=azure-java-preview) is een weergave van het opslagaccount en stelt u in staat om een nieuwe pijplijn te genereren. Een pijplijn ([Http-pijplijn](https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview#url-types--http-pipeline)) is een set beleidsregels die worden gebruikt om aanvragen en antwoorden te bewerken met mechanismen voor autorisatie, logboekregistratie en opnieuw uitvoeren. U kunt met de pijplijn een exemplaar van het object [**ServiceURL**](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._service_u_r_l?view=azure-java-preview) maken, wat u in staat stelt om een exemplaar van de [**ContainerURL**](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview) te maken. Dit laatste is nodig om bewerkingen uit te voeren in Blob-containers.
+    * Het object [StorageURL](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._storage_u_r_l?view=azure-java-preview) vertegenwoordigt uw storage-account. U gebruikt het om een nieuwe pijplijn te genereren. 
+    * Een pijplijn is een set beleidsregels die wordt gebruikt om aanvragen en antwoorden te bewerken met mechanismen voor autorisatie, logboekregistratie en opnieuw proberen. Zie [HTTP Pipeline](https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview#url-types--http-pipeline) voor meer informatie.  
+    * Maak met behulp van de pijplijn een exemplaar van het object [ServiceURL](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._service_u_r_l?view=azure-java-preview).
+    * Gebruik het **ServiceURL**-object om een ​​exemplaar van [ContainerURL](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview) te maken.
+    * De **ContainerURL** is nodig om bewerkingen uit te voeren op blobcontainers.
 
-* Maak een exemplaar van het object ContainerURL, dat de container voorstelt waartoe u toegang wilt. Containers worden gebruikt om uw blobs te organiseren op een wijze die lijkt op het gebruik van mappen op uw computer om uw bestanden te organiseren.
+2. Maak een exemplaar van het object **ContainerURL**, dat de container voorstelt waartoe u toegang wilt. Containers organiseren uw blobs op dezelfde manier als mappen op uw computer uw bestanden ordenen.
 
-    De **ContainerURL** biedt u een toegangspunt tot de containerservice. Met behulp van de **ContainerURL** kunt u een exemplaar van de [**BlobURL**](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview) maken, wat nodig is voor het maken van blobs.
+    * De **ContainerURL** biedt een toegangspunt tot de containerservice. 
+    * U kunt een exemplaar van het [BlobURL](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._blob_u_r_l?view=azure-java-preview)-object maken met behulp van [ContainerURL](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l?view=azure-java-preview).
+    * De **BlobURL** is nodig om blobs te maken.
 
-* Maak een exemplaar van het object [BlobURL](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._blob_u_r_l?view=azure-java-preview), dat verwijst naar een specifieke blob waarin u geïnteresseerd bent.
+3. Maak een exemplaar van het object **BlobURL** dat verwijst naar de specifieke blob waarin u geïnteresseerd bent. 
 
 > [!IMPORTANT]
 > Containernamen moeten uit kleine letters bestaan. Zie [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Containers, blobs en metagegevens een naam geven en hiernaar verwijzen) voor meer informatie over de namen van containers en blobs.
 
 ### <a name="create-a-container"></a>Een container maken 
 
-In deze sectie maakt u een exemplaar van de ContainerURL en maakt u hiermee een nieuwe container. De container in het voorbeeld heet **quickstart**. 
+In deze sectie maakt u een exemplaar van de **ContainerURL**. U maakt hierbij ook een nieuwe container. De container in het voorbeeld heet **quickstart**. 
 
-In dit voorbeeld wordt [containerURL.create](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.create?view=azure-java-preview) gebruikt omdat we bij elke nieuwe uitvoering van het voorbeeld een nieuwe container willen maken. U kunt de container ook vooraf maken, zodat u dit niet in de code hoeft te doen.
+In dit voorbeeld wordt [containerURL.create](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.create?view=azure-java-preview) gebruikt, zodat u bij elke nieuwe uitvoering van het voorbeeld een nieuwe container kunt maken. U kunt de container ook vooraf maken, zodat u dit niet in de code hoeft te doen.
 
 ```java
 // Create a ServiceURL to call the Blob service. We will also use this to construct the ContainerURL
@@ -154,11 +164,18 @@ try {
 
 ### <a name="upload-blobs-to-the-container"></a>Blobs uploaden naar de container
 
-Blob-opslag ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs. Blok-blobs worden het meest gebruikt, en dat is wat er wordt gebruikt in deze quickstart. 
+Blob-opslag ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs. Blok-blobs worden het meest gebruikt. Ze worden gebruikt in deze snelstart. 
 
-Als u een bestand naar een blob wilt uploaden, haalt u een verwijzing naar de blob op in de doelcontainer. Zodra u beschikt over een blobverwijzing, kunt u een bestand naar deze blob uploaden. Dit doet u met behulp van de API’s op laag niveau, zoals [Upload](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-preview) (ook wel PutBlob) genoemd, [StageBlock](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-preview#com_microsoft_azure_storage_blob__block_blob_u_r_l_stageBlock_String_Flowable_ByteBuffer__long_LeaseAccessConditions_) (ook wel PutBLock genoemd) in het geval van BlockBlobURL, of de API’s op hoog niveau die worden geboden in de klasse [TransferManager](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-preview), zoals de methode [TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-preview). Met deze bewerking wordt de blob gemaakt als deze nog niet bestaat, of overschreven als deze wel al bestaat.
+1. Als u een bestand naar een blob wilt uploaden, haalt u een verwijzing naar de blob op in de doelcontainer. 
+2. Nadat u de blobverwijzing hebt ontvangen, kunt u een bestand uploaden met een van de volgende API's:
 
-Met de voorbeeldcode wordt een lokaal bestand gemaakt dat kan worden gebruikt voor uploaden en downloaden, waarbij het bestand dat moet worden geüpload, wordt opgeslagen als **sourceFile** en de naam wordt opgeslagen in **blob**. In het volgende voorbeeld wordt het bestand geüpload naar de container met de naam **quickstart**.
+    * API's op laag niveau. Voorbeelden zijn [BlockBlobURL.upload](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-preview), ook wel PutBlob genoemd, en [BlockBlobURL.stageBlock](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-preview#com_microsoft_azure_storage_blob__block_blob_u_r_l_stageBlock_String_Flowable_ByteBuffer__long_LeaseAccessConditions_), ook wel PutBLock genoemd, in het exemplaar van **BlockBlobURL**. 
+
+    * API's op hoog niveau die worden geboden in de klasse [TransferManager](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-preview). Een voorbeeld is de methode [TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-preview). 
+
+    Met deze bewerking wordt de blob gemaakt als deze nog niet bestaat. Als de blob al bestaat, wordt deze overschreven.
+
+Met de voorbeeldcode wordt een lokaal bestand gemaakt dat kan worden gebruikt voor uploaden en downloaden. Het bestand dat moet worden geüpload, wordt opgeslagen als **sourceFile** en de URL van de blob wordt opgeslagen in **blob**. In het volgende voorbeeld wordt het bestand geüpload naar de container met de naam **quickstart**.
 
 ```java
 static void uploadFile(BlockBlobURL blob, File sourceFile) throws IOException {
@@ -175,11 +192,11 @@ static void uploadFile(BlockBlobURL blob, File sourceFile) throws IOException {
 }
 ```
 
-Blok-bobs kunnen bestaan uit elk type tekstbestand of binair bestand. Pagina-blobs worden hoofdzakelijk gebruikt voor de VHD-bestanden die worden gebruikt als back-up voor IaaS-VM‘s. Toevoeg-blobs zijn bedoeld om gegevens toe te voegen aan het eind en worden vaak gebruikt voor aanmelden. De meeste objecten die worden opgeslagen in Blob-opslag, zijn blok-blobs.
+Blok-bobs kunnen bestaan uit elk type tekstbestand of binair bestand. Pagina-blobs worden hoofdzakelijk gebruikt voor de VHD-bestanden die worden gebruikt als back-up voor IaaS-VM‘s. Toevoeg-blobs worden gebruikt om gegevens toe te voegen aan het eind en worden vaak gebruikt voor logboekregistratie. De meeste objecten die worden opgeslagen in Blob-opslag, zijn blok-blobs.
 
 ### <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 
-Met behulp van [containerURL.listBlobsFlatSegment](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.listblobsflatsegment?view=azure-java-preview) kunt u een lijst met objecten in een container ophalen. Met deze methode worden maximaal 5000 objecten tegelijk geretourneerd samen met een vervolgmarkering (markering Volgende) als de container meer objecten bevat om weer te geven. Hiervoor maken we een Helper-functie die zichzelf herhaaldelijk aanroept, zolang er een markering Volgende is in het vorige listBlobsFlatSegment-antwoord.
+Met behulp van [ContainerURL.listBlobsFlatSegment](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.listblobsflatsegment?view=azure-java-preview) kunt u een lijst met objecten in een container ophalen. Met deze methode worden maximaal 5.000 objecten tegelijk geretourneerd samen met een vervolgmarkering (markering Volgende) als de container meer objecten bevat om weer te geven. Maak een Helper-functie die zichzelf herhaaldelijk aanroept wanneer er een markering Volgende is in het vorige **listBlobsFlatSegment**-antwoord.
 
 ```java
 static void listBlobs(ContainerURL containerURL) {
@@ -237,9 +254,9 @@ private static Single <ContainersListBlobFlatSegmentResponse> listAllBlobs(Conta
 
 ### <a name="download-blobs"></a>Blobs downloaden
 
-Download blobs naar de lokale schijf met [blobURL.download](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._blob_u_r_l.download?view=azure-java-preview).
+Download blobs naar de lokale schijf met behulp van [BlobURL.download](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._blob_u_r_l.download?view=azure-java-preview).
 
-Met de volgende code wordt de blob gedownload die in een eerdere sectie is geüpload, waarbij het achtervoegsel '_DOWNLOADED' wordt toegevoegd aan de blobnaam, zodat u beide bestanden op de lokale schijf kunt zien. 
+Met de volgende code wordt een blob gedownload die in een vorige sectie is geüpload. Het achtervoegsel **_DOWNLOADED** wordt toegevoegd aan de naam van de blob, zodat u beide bestanden op de lokale schijf kunt zien. 
 
 ```java
 static void getBlob(BlockBlobURL blobURL, File sourceFile) {
@@ -262,7 +279,7 @@ static void getBlob(BlockBlobURL blobURL, File sourceFile) {
 
 ### <a name="clean-up-resources"></a>Resources opschonen
 
-Als u de blobs die in deze snelstart zijn geüpload, niet meer nodig hebt, kunt u de hele container verwijderen met behulp van [containerURL.delete](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.delete?view=azure-java-preview). Met deze methode worden ook de bestanden in de container verwijderd.
+Als u de blobs die in deze snelstart zijn geüpload, niet nodig hebt, kunt u de hele container verwijderen met behulp van [ContainerURL.delete](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.blob._container_u_r_l.delete?view=azure-java-preview). Met deze methode worden ook de bestanden in de container verwijderd.
 
 ```java
 containerURL.delete(null).blockingGet();
@@ -270,7 +287,7 @@ containerURL.delete(null).blockingGet();
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quickstart hebt u geleerd hoe u bestanden overbrengt tussen een lokale schijf en Azure Blob-opslag met behulp van Java. 
+In deze snelstart hebt u geleerd hoe u bestanden overbrengt tussen een lokale schijf en Azure Blob-opslag met behulp van Java. 
 
 > [!div class="nextstepaction"]
 > [Storage SDK V10 voor Java-broncode](https://github.com/Azure/azure-storage-java/tree/New-Storage-SDK-V10-Preview)

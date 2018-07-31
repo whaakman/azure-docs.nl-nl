@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 8c92b45cd3949e56515286c963b035e3c449835b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 192992917432a64c2f9f81761e22bf7d9205703a
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37967346"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39205558"
 ---
 # <a name="create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Een CI/CD-pijplijn voor uw bestaande code maken met het Azure DevOps-project
 
@@ -142,7 +142,7 @@ Met Azure Application Insights kunt u eenvoudig de prestaties en het gebruik van
 1. Voer een **naam** in voor de waarschuwing.
 
 1. Selecteer de vervolgkeuzelijst voor **Bron wijzigen voor**.  Kies uw **App Service-resource.**
-
+<!-- Could you please confirm if this should be "Source Alter on" instead of "Source Alert on"? -->
 1. De standaardwaarschuwing is voor een **serverreactietijd langer dan 1 seconde**.  Selecteer de vervolgkeuzelijst **Metrische gegevens** om de verschillende metrische waarschuwingsgegevens te verkennen.  U kunt eenvoudig tal van waarschuwingen configureren om de controlemogelijkheden van uw app te verbeteren.
 
 1. Schakel het selectievakje in voor **Eigenaars, bijdragers en lezers op de hoogte brengen via e-mail**.  Desgewenst kunt u aanvullende acties uitvoeren wanneer een waarschuwing wordt geactiveerd, door een logische app van Azure uit te voeren.

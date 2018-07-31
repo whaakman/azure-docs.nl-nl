@@ -1,41 +1,40 @@
 ---
-title: Aan de slag met Azure DNS met behulp van Azure Portal | Microsoft Docs
-description: Informatie over het maken van een DNS-zone en -record in Azure DNS. Dit is een stapsgewijze handleiding voor het maken en beheren van uw eerste DNS-zone en -record met behulp van Azure Portal.
+title: 'Snelstart: een DNS-zone en -record maken met behulp van Azure Portal'
+description: Gebruik deze snelstart om te leren hoe u een DNS-zone en -record maakt in Azure DNS. Dit is een stapsgewijze handleiding voor het maken en beheren van uw eerste DNS-zone en -record met behulp van Azure Portal.
 services: dns
-documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
-editor: 
-tags: azure-resource-manager
-ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
 ms.service: dns
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/18/2017
-ms.author: kumud
-ms.openlocfilehash: 22bf52f7452f182510c3714f7d1c2ca884446953
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.topic: quickstart
+ms.date: 6/13/2018
+ms.author: victorh
+ms.openlocfilehash: 421c4e0464eac22a7feba01e2e84660b02a32455
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39174646"
 ---
-# <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Aan de slag met Azure DNS met behulp van Azure Portal
+# <a name="quickstart-configure-azure-dns-for-name-resolution-using-the-azure-portal"></a>Snelstart: Azure DNS configureren voor naamomzetting met behulp van Azure Portal
 
-> [!div class="op_single_selector"]
-> * [Azure Portal](dns-getstarted-portal.md)
-> * [PowerShell](dns-getstarted-powershell.md)
-> * [Azure CLI 2.0](dns-getstarted-cli.md)
+ U kunt Azure DNS configureren voor het omzetten van hostnamen in uw openbare domein. Als u bijvoorbeeld de domeinnaam contoso.com hebt gekocht van een domeinnaamregistrar, kunt u Azure DNS configureren om het domein contoso.com te hosten en www.contoso.com om te zetten in het IP-adres van uw webserver of web-app.
 
-Dit artikel leidt u stapsgewijs door de procedure voor het maken van uw eerste DNS-zone en -record met behulp van Azure Portal. U kunt deze stappen ook uitvoeren met Azure PowerShell of de platformoverschrijdende Azure CLI.
+In deze snelstart maakt u een testdomein en maakt u vervolgens een adresrecord met de naam 'www' dat wordt omgezet naar het IP-adres 10.10.10.10.
 
-Een DNS-zone wordt gebruikt om de DNS-records voor een bepaald domein te hosten. Als u uw domein wilt hosten in Azure DNS, moet u een DNS-zone maken voor die domeinnaam. Alle DNS-records voor uw domein worden vervolgens gemaakt binnen deze DNS-zone. Tot slot moet u de naamservers voor het domein configureren om de DNS-zone te publiceren naar internet. Deze stappen worden hieronder afzonderlijk beschreven.
+Het is belangrijk te weten dat de namen en IP-adressen die worden gebruikt in deze snelstart slechts voorbeelden zijn, en niet bedoeld zijn om een werkelijk scenario voor te stellen. Waar van toepassing worden echter ook werkelijke scenario's beschreven.
+
+<!---
+You can also perform these steps using [Azure PowerShell](dns-getstarted-powershell.md) or the cross-platform [Azure CLI 2.0](dns-getstarted-cli.md).
+--->
+
+Een DNS-zone bevat de DNS-records voor een bepaald domein. Als u uw domein wilt hosten in Azure DNS, moet u een DNS-zone maken voor die domeinnaam. Alle DNS-records voor uw domein worden vervolgens gemaakt binnen deze DNS-zone. De volgende stappen laten zien hoe u dit doet.
+
+Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
 ## <a name="create-a-dns-zone"></a>Een DNS-zone maken
 
 1. Meld u aan bij Azure Portal.
-2. Klik in het menu Hub op **Een resource maken > Netwerken >** en klik vervolgens op **DNS-zone** om de pagina **DNS-zone maken** te openen.
+2. Klik linksboven op **+ Een resource maken**, vervolgens op **Netwerken** en daarna op **DNS-zone** om de pagina **DNS-zone maken** te openen.
 
     ![DNS-zone](./media/dns-getstarted-portal/openzone650.png)
 
@@ -44,19 +43,18 @@ Een DNS-zone wordt gebruikt om de DNS-records voor een bepaald domein te hosten.
 
    | **Instelling** | **Waarde** | **Details** |
    |---|---|---|
-   |**Naam**|contoso.com|De naam van de DNS-zone|
+   |**Naam**|contoso.xyz|De naam van de DNS-zone voor dit voorbeeld. U kunt elke gewenste waarde gebruiken voor deze snelstart, zolang deze nog niet is geconfigureerd op de Azure DNS-servers. Een werkelijke waarde zou een domein zijn dat u hebt gekocht via een domeinnaamregistrar.|
    |**Abonnement**|[Uw abonnement]|Selecteer een abonnement waarin de DNS-zone moet worden gemaakt.|
-   |**Resourcegroep**|**Nieuwe maken:** contosoDNSRG|Maak een resourcegroep. De naam van de resourcegroep moet uniek zijn binnen het abonnement dat u hebt geselecteerd. Lees het overzichtsartikel over [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) voor meer informatie over resourcegroepen.|
-   |**Locatie**|VS - west||
+   |**Resourcegroep**|**Nieuwe maken:** dns-test|Maak een resourcegroep. De naam van de resourcegroep moet uniek zijn binnen het abonnement dat u hebt geselecteerd. |
+   |**Locatie**|VS - oost||
 
-> [!NOTE]
-> De resourcegroep verwijst naar de locatie van de resourcegroep en heeft geen invloed op de DNS-zone. De locatie van de DNS-zone is altijd 'global' en wordt niet weergegeven.
+Het maken van de zone kan een paar minuten duren.
 
 ## <a name="create-a-dns-record"></a>Een DNS-record maken
 
-In het volgende voorbeeld ziet u hoe de nieuwe 'A'-record wordt gemaakt. Voor andere typen en voor het wijzigen van bestaande records, raadpleegt u [Manage DNS records and record sets by using the Azure portal](dns-operations-recordsets-portal.md) (DNS-records en -recordsets beheren met behulp van Azure Portal). 
+Maak nu een nieuwe adresrecord (A-record). A-records worden gebruikt om de naam van een host om te zetten in een IPv4-adres.
 
-1. Nu de DNS-zone is gemaakt, klikt u in het deelvenster **Favorieten** van Azure Portal op **Alle resources**. Klik op de pagina Alle resources op de DNS-zone **contoso.com**. Als het abonnement dat u hebt geselecteerd, al verschillende resources heeft, kunt u **contoso.com** invoeren in het vak **Filteren op naam...** voor eenvoudige toegang tot de DNS-zone.
+1. Klik in het deelvenster **Favorieten** van Azure Portal op **Alle resources**. Klik op de pagina Alle resources op de DNS-zone **contoso.xyz**. Als het abonnement dat u hebt geselecteerd, al verschillende resources heeft, kunt u **contoso.xyz** invoeren in het vak **Filteren op naam…** voor eenvoudige toegang tot de DNS-zone.
 
 1. Selecteer boven in de pagina **DNS-zone** de optie **+ Recordset** om de pagina **Recordset toevoegen** te openen.
 
@@ -64,41 +62,48 @@ In het volgende voorbeeld ziet u hoe de nieuwe 'A'-record wordt gemaakt. Voor an
 
    |**Instelling** | **Waarde** | **Details** |
    |---|---|---|
-   |**Naam**|www|Naam van de record|
-   |**Type**|A| Type DNS-record dat u wilt maken; toegestane waarden zijn A, AAAA, CNAME MX, NS, SRV, TXT en PTR.  Voor meer informatie over recordtypen gaat u naar [Overview of DNS zones and records](dns-zones-records.md) (Overzicht van DNS-zones en -records)|
-   |**TTL**|1|Time-to-Live van de DNS-aanvraag.|
-   |**TTL-eenheid**|Uren|Maateenheid van de TTL-waarde.|
-   |**IP-adres**|ipAddressValue| Dit is het IP-adres dat de DNS-record oplost.|
-
-## <a name="view-records"></a>Records weergeven
-
-In het onderste gedeelte van de pagina van de DNS-zone ziet u de records voor de DNS-zone. U ziet de standaardrecords voor DNS en SOA, die in elke zone worden gemaakt, plus alle nieuwe records die u hebt gemaakt.
-
-![zone](./media/dns-getstarted-portal/viewzone500.png)
+   |**Naam**|www|Naam van de record. Dit is de naam die u wilt gebruiken voor de host die u wilt omzetten in een IP-adres.|
+   |**Type**|A| Het type van de te maken DNS-record. A-records worden het meest gebruikt, maar er zijn andere recordtypen voor e-mailservers (MX), IPv6-adressen (AAAA), enzovoort. |
+   |**TTL**|1|Time-to-Live van de DNS-aanvraag. Geeft aan hoelang DNS-servers en -clients een antwoord in de cache kunnen opslaan.|
+   |**TTL-eenheid**|uur|Maateenheid van de TTL-waarde.|
+   |**IP-adres**|10.10.10.10| Dit is het IP-adres waarnaar de A-record wordt omgezet. Dit is slechts een testwaarde voor deze snelstart. Voor een reëel voorbeeld zou u het openbare IP-adres van uw webserver invoeren.|
 
 
-## <a name="update-name-servers"></a>Naamservers bijwerken
+Omdat u in deze snelstart geen echte domeinnaam aanschaft, hoeft u Azure DNS niet als de naamserver te configureren bij uw domeinnaamregistrar. Maar in een reëel scenario wilt u dat iedereen op internet uw hostnaam kan omzetten om verbinding te maken met uw webserver of app. Zie [Een domein delegeren naar Azure DNS](dns-delegate-domain-azure-dns.md) voor meer informatie over dat reële scenario.
 
-Wanneer uw DNS-zone en -records correct zijn ingesteld, moet u uw domeinnaam configureren voor het gebruik van de Azure DNS-naamservers . Op die manier kunnen andere gebruikers op internet uw DNS-records vinden.
 
-De naamservers voor de zone worden verstrekt in Azure Portal:
+## <a name="test-the-name-resolution"></a>De naamomzetting testen
 
-![zone](./media/dns-getstarted-portal/viewzonens500.png)
+Nu je een testzone hebt met daarin een A-record, kunt u de naamomzetting testen met het hulpprogramma nslookup. 
 
-Deze naamservers moeten worden geconfigureerd met de domeinnaamregistrar (waar u de domeinnaam hebt gekocht). Uw registrar biedt u de mogelijkheid om de naamservers voor het domein in te stellen. Zie [Uw domein delegeren naar Azure DNS](dns-domain-delegation.md) voor meer informatie.
+1. Eerst moet u de Azure DNS-naamservers noteren die u met nslookup wilt gebruiken. 
 
-## <a name="delete-all-resources"></a>Alle resources verwijderen
+   De naamservers voor uw zone worden vermeld op de pagina **Overzicht** van de DNS-zone. Kopieer de naam van een van de naamservers:
 
-Als u alle resources wilt verwijderen die u in dit artikel hebt gemaakt, voert u de volgende stappen uit:
+   ![zone](./media/dns-getstarted-portal/viewzonens500.png)
 
-1. Klik in het deelvenster **Favorieten** van Azure Portal op **Alle resources**. Klik op de pagina Alle resources op de resourcegroep **MyResourceGroup**. Als het abonnement dat u hebt geselecteerd, al verschillende resources heeft, kunt u **MyResourceGroup** invoeren in het vak **Filteren op naam...** voor eenvoudige toegang tot de resourcegroep.
-1. Klik op de pagina **MyResourceGroup** op de knop **Verwijderen**.
-1. De portal vereist dat u de naam van de resourcegroep typt om te bevestigen dat u deze wilt verwijderen. Klik op **Verwijderen**, typ *MyResourceGroup* als naam van de resourcegroep en klik op **Verwijderen**. Als u een resourcegroep verwijdert, worden alle resources binnen de resourcegroep verwijderd. Zorg er dus altijd voor dat u de inhoud van een resourcegroep bevestigt, voordat u deze verwijdert. Alle resources die zich in de resourcegroep bevinden en de resourcegroep zelf worden verwijderd. Dit proces duurt enkele minuten.
+2. Open nu een opdrachtprompt en voer de volgende opdracht uit:
+
+   ```
+   nslookup <host name> <name server>
+   
+   For example:
+
+   nslookup www.contoso.xyz ns1-08.azure-dns.com
+   ```
+
+Er verschijnt een pagina die er ongeveer uitziet als in de volgende schermafbeelding:
+
+![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+
+Hiermee wordt gecontroleerd of de naamomzetting correct werkt. www.contoso.xyz wordt omgezet naar 10.10.10.10, net zoals u hebt geconfigureerd.
+
+## <a name="clean-up-resources"></a>Resources opschonen
+
+Verwijder de resourcegroep **dns-test** als u deze niet langer nodig hebt, om de resources die u in deze snelstart hebt gemaakt, te verwijderen. Klik hiervoor op de resourcegroep **dns-test**en vervolgens op **Resourcegroep verwijderen**.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie [Azure DNS Overview](dns-overview.md) (Overzicht van Azure DNS) voor meer informatie over Azure DNS.
-
-Zie [Manage DNS records and record sets in Azure DNS using the Azure portal](dns-operations-recordsets-portal.md) (DNS-records en -recordsets in Azure DNS beheren met behulp van Azure Portal) voor meer informatie over het beheren van DNS-records in Azure DNS.
-
+> [!div class="nextstepaction"]
+> [DNS-records voor een web-app in een aangepast domein maken](./dns-web-sites-custom-domain.md)

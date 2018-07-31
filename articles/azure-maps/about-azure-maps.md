@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 93fe8dc3f8ff991cd6c48923d9e2073e4e93f1ad
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d0ec146d276f72abf4cbbe3da4d11c0d5539df6d
+ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040844"
+ms.lasthandoff: 07/19/2018
+ms.locfileid: "39144190"
 ---
 # <a name="what-is-azure-maps"></a>Wat is Azure Maps?
 Azure Maps is een verzameling georuimtelijke services die wordt ondersteund door nieuwe kaartgegevens, waarmee u uw webtoepassingen en mobiele toepassingen kunt voorzien van een nauwkeurige geografische context. Het bevat REST API’s voor het renderen van kaarten en het zoeken van nuttige plaatsen, routes naar nuttige plaatsen, verkeersomstandigheden, tijdzones en services voor IP-adressen naar locatie. U kunt deze API’s gebruiken met vertrouwde hulpprogramma's om snel oplossingen te ontwikkelen en te schalen waarmee locatiegegevens worden geïntegreerd in Azure-oplossingen. Samen met de REST API’s biedt het een webgebaseerd JavaScript-besturingselement om ontwikkeltaken voor meerdere mediums gemakkelijk, flexibel en mobiel te maken. 
@@ -92,6 +92,7 @@ Ga naar de pagina [Verkeers-API’s voor Azure Maps](https://docs.microsoft.com/
 
 IP-adres naar locatie is een preview-service waarmee u de tweeletterige landcode voor een bepaald IP-adres kunt ophalen. Met deze service kunt u uw toepassing aanpassen om aan speciale geopolitieke beperkingen te voldoen en om de gebruikerservaring te verbeteren doordat de inhoud van de toepassing wordt gewijzigd op basis van de geografische locatie. 
 
+Raadpleeg de pagina [Azure Maps Geoloctatie-API's](https://docs.microsoft.com/rest/api/maps/geolocation) voor informatie over de REST API's voor IP-naar-locatie-service.
 
 ## <a name="programming-model"></a>Programmeermodel
 

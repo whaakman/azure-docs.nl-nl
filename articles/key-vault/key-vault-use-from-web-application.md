@@ -2,24 +2,25 @@
 title: 'Zelfstudie: Azure Key Vault gebruiken vanuit een webtoepassing | Microsoft Docs'
 description: In deze zelfstudie leert u hoe u Azure Key Vault gebruikt vanuit een webtoepassing.
 services: key-vault
-author: adhurwit
+author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
 ms.service: key-vault
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/29/2018
-ms.author: adhurwit
-ms.openlocfilehash: 5cd764395e91a82973318da7284b28d7a43d35ea
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.date: 07/20/2018
+ms.author: barclayn
+ms.openlocfilehash: ff59e39e54433aa673b093e2ee1fbe8c74010e54
+ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115061"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39171320"
 ---
 # <a name="tutorial-use-azure-key-vault-from-a-web-application"></a>Zelfstudie: Azure Key Vault gebruiken vanuit een webtoepassing
-In deze zelfstudie leert u hoe u Azure Key Vault gebruikt vanuit een webtoepassing in Azure. U ziet hoe u vanuit een Azure Key Vault toegang krijgt tot een geheim voor gebruik in een webtoepassing. De zelfstudie bouwt vervolgens voort op dit proces en gebruikt een certificaat in plaats van een clientgeheim. Deze zelfstudie is ontworpen voor webontwikkelaars die bekend zijn met de basisbeginselen van het maken van webtoepassingen in Azure. 
+
+In deze zelfstudie leert u hoe u Azure Key Vault gebruikt vanuit een webtoepassing in Azure. U ziet hoe u vanuit een Azure Key Vault toegang krijgt tot een geheim voor gebruik in een webtoepassing. De zelfstudie bouwt vervolgens voort op dit proces en gebruikt een certificaat in plaats van een clientgeheim. Deze zelfstudie is ontworpen voor webontwikkelaars die bekend zijn met de basisbeginselen van het maken van webtoepassingen in Azure.
 
 In deze zelfstudie leert u het volgende: 
 
@@ -27,7 +28,7 @@ In deze zelfstudie leert u het volgende:
 > * Toepassingsinstellingen toevoegen aan het bestand web.config
 > * Een methode toevoegen om een toegangstoken te verkrijgen
 > * Het token ophalen in de gebeurtenis Toepassing starten
-> * Verifiëren met een certificaat 
+> * Verifiëren met een certificaat
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -41,7 +42,7 @@ U hebt de volgende items nodig om deze zelfstudie te voltooien:
 
 Voer de stappen uit in [Aan de slag met Azure Key Vault](key-vault-get-started.md) om de URI naar een geheim, de client-id en het clientgeheim op te halen en om de toepassing te registreren. De webtoepassing opent de kluis en moet worden geregistreerd in Azure Active Directory. De toepassing moet ook toegangsrechten hebben voor Key Vault. Als dat niet het geval is, gaat u terug naar Een toepassing registreren in de zelfstudie Aan de slag en herhaalt u de weergegeven stappen. Zie [Overzicht van Web Apps](../app-service/app-service-web-overview.md) voor meer informatie over Azure Web Apps.
 
-Dit voorbeeld is afhankelijk van een handmatige inrichting van Azure Active Directory-identiteiten. Er is momenteel een nieuwe functie in preview, [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview), waarmee Azure AD-identiteiten automatisch kunnen worden ingericht. Zie voor meer informatie het voorbeeld op [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) en de verwante [MSI with App Service and Functions tutorial](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) (Zelfstudie: MSI met Azure App Service en Azure Functions). 
+Dit voorbeeld is afhankelijk van een handmatige inrichting van Azure Active Directory-identiteiten. Maar u moet in plaats daarvan [Managed Service Identity (MSI)](https://docs.microsoft.com/azure/active-directory/msi-overview) gebruiken. MSI kan automatisch Azure AD-identiteiten inrichten. Zie voor meer informatie het voorbeeld op [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) en de verwante [MSI with App Service and Functions tutorial](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) (Zelfstudie: MSI met Azure App Service en Azure Functions). U kunt ook de Key Vault-specifieke [MSI-zelfstudie](tutorial-web-application-keyvault.md) bekijken
 
 
 ## <a id="packages"></a>NuGet-pakketten toevoegen

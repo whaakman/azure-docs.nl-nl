@@ -1,111 +1,106 @@
 ---
-title: Aangepaste DNS-records voor een web-app maken | Microsoft Docs
-description: Het aangepaste domein-DNS-records voor web-app met behulp van Azure DNS maken.
+title: 'Zelfstudie: aangepaste Azure DNS-records voor een web-app maken'
+description: In deze zelfstudie maakt u DNS-records voor een web-app in een aangepast domein met behulp van Azure DNS.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
-ms.assetid: 6c16608c-4819-44e7-ab88-306cf4d6efe5
 ms.service: dns
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.topic: tutorial
+ms.date: 7/20/2018
 ms.author: victorh
-ms.openlocfilehash: f24c301cea5ef91d101206e71b69b7ceb03b0282
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
-ms.translationtype: MT
+ms.openlocfilehash: 9ebbc955bcb426738db598491266c2a1bcb9dd33
+ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172446"
+ms.lasthandoff: 07/23/2018
+ms.locfileid: "39204939"
 ---
-# <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a>DNS-records voor een web-app maken in een aangepast domein
+# <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Zelfstudie: DNS-records voor een web-app in een aangepast domein maken 
 
-U kunt Azure DNS gebruiken voor het hosten van een aangepast domein voor uw web-apps. Bijvoorbeeld, het maken van een Azure-web-app en u wilt dat uw gebruikers toegang tot het door een van beide contoso.com of www.contoso.com als een FQDN-naam gebruiken.
+U kunt Azure DNS configureren voor het hosten van een aangepast domein voor uw web-apps. U kunt bijvoorbeeld een web-app in Azure maken en uw gebruikers toegang geven via www.contoso.com of contoso.com als een volledig gekwalificeerde domeinnaam (FQDN).
 
-Om dit te doen, moet u twee records maken:
+> [!NOTE]
+> Contoso.com wordt in de hele zelfstudie als voorbeeld gebruikt. Vervang uw eigen domeinnaam door contoso.com.
 
-* Een 'A'-hoofdmaprecord die verwijst naar contoso.com
-* Een 'CNAME'-record voor de www-naam die naar de A-record verwijst
+Hiervoor moet u drie records maken:
 
-Houd er rekening mee dat als u een A-record voor een web-app in Azure maken, de A-record handmatig moet worden bijgewerkt als het onderliggende IP-adres voor de web-app wordt gewijzigd.
+* Een hoofdrecord 'A' die verwijst naar contoso.com
+* Een hoofdrecord 'TXT' voor verificatie
+* Een record 'CNAME' voor de www-naam die naar de A-record verwijst
 
-## <a name="before-you-begin"></a>Voordat u begint
+Houd er rekening mee dat als u een A-record voor een web-app in Azure maakt, het A-record handmatig moet worden bijgewerkt als het onderliggende IP-adres voor de web-app wordt gewijzigd.
 
-Voordat u begint, moet u eerst een DNS-zone maken in Azure DNS, en de zone in uw registrar naar Azure DNS delegeren.
+In deze zelfstudie leert u het volgende:
 
-1. Volg de stappen in voor het maken van een DNS-zone, [maken van een DNS-zone](dns-getstarted-create-dnszone.md).
-2. Volg de stappen in voor het overdragen van uw DNS naar Azure DNS, [domein-DNS-delegering](dns-domain-delegation.md).
+> [!div class="checklist"]
+> * Een A- en TXT-record voor uw aangepaste domein maken
+> * Een CNAME-record voor uw aangepaste domein maken
+> * De nieuwe records testen
+> * Aangepaste hostnamen voor uw web-app toevoegen
+> * De aangepaste hostnamen testen
 
-Na het maken van een zone en deze naar Azure DNS delegeren, kunt u vervolgens records maken voor uw aangepaste domein.
 
-## <a name="1-create-an-a-record-for-your-custom-domain"></a>1. Maken van een A-record voor uw aangepaste domein
+Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-Een A-record wordt gebruikt om een naam toewijzen aan het IP-adres. In het volgende voorbeeld toegewezen \@ als een A-record in een IPv4-adres:
+[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-### <a name="step-1"></a>Stap 1
+## <a name="prerequisites"></a>Vereisten
 
-Een A-record maken en toewijzen aan een variabele $rs
+- [Maak een App Service-app](../app-service/app-service-web-get-started-html.md), of gebruik een app die u hebt gemaakt voor een andere zelfstudie.
 
-```powershell
-$rs= New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" -ResourceGroupName "MyAzureResourceGroup" -Ttl 600
-```
+- Maak een DNS-zone in Azure DNS en delegeer de zone in uw registrar naar Azure DNS.
 
-### <a name="step-2"></a>Stap 2
+   1. Volg de stappen in [Een DNS-zone maken](dns-getstarted-create-dnszone.md) om een DNS-zone te maken.
+   2. Volg de stappen in [DNS domain delegation](dns-domain-delegation.md) (Delegering van DNS-domeinen) om uw zone naar Azure DNS te delegeren.
 
-De waarde IPv4 toevoegen aan de eerder gemaakte recordset '\@' met behulp van de variabele $rs is toegewezen. De toegewezen waarde voor IPv4 is het IP-adres voor uw web-app.
+Nadat u een zone hebt gemaakt en deze naar Azure DNS hebt gedelegeerd, kunt u records voor uw aangepaste domein maken.
 
-Het IP-adres voor een web-app vindt u de stappen in [een aangepaste domeinnaam configureren in Azure App Service](../app-service/app-service-web-tutorial-custom-domain.md).
+## <a name="create-an-a-record-and-txt-record"></a>Een A-record en TXT-record maken
 
-```powershell
-Add-AzureRMDnsRecordConfig -RecordSet $rs -Ipv4Address "<your web app IP address>"
-```
+Een A-record wordt gebruikt om een naam aan het bijbehorende IP-adres toe te wijzen. Wijs in het volgende voorbeeld @ toe als een A-record met behulp van het IPv4-adres van uw web-app. @ vertegenwoordigt doorgaans het hoofddomein.
 
-### <a name="step-3"></a>Stap 3
+### <a name="get-the-ipv4-address"></a>IPv4-adres ophalen
 
-Voer de wijzigingen aan de recordset. Gebruik `Set-AzureRMDnsRecordSet` uploadt u de wijzigingen aan de recordset naar Azure DNS:
+Selecteer in het linkernavigatievenster van de pagina App Services in Azure Portal **Aangepaste domeinen**. 
 
-```powershell
-Set-AzureRMDnsRecordSet -RecordSet $rs
-```
+![Menu voor aangepaste domeinen](../app-service/./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-## <a name="2-create-a-cname-record-for-your-custom-domain"></a>2. Maak een CNAME-record voor uw aangepaste domein
+Op de pagina **Aangepaste domeinen** kopieert u het IPv4-adres van de app:
 
-Als uw domein wordt al beheerd door Azure DNS (Zie [domein-DNS-delegering](dns-domain-delegation.md), kunt u het volgende voorbeeld maakt een CNAME-record voor contoso.azurewebsites.net.
+![Navigatie naar Azure-app in de portal](../app-service/./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
-### <a name="step-1"></a>Stap 1
-
-Open PowerShell en een nieuwe CNAME-recordset maken en toewijzen aan een variabele $rs. In dit voorbeeld wordt een type recordset CNAME met een 'time to live"maken van een 600 seconden in DNS-zone met de naam 'contoso.com'.
+### <a name="create-the-a-record"></a>Een A-record maken
 
 ```powershell
-$rs = New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName myresourcegroup -Name "www" -RecordType "CNAME" -Ttl 600
+New-AzureRMDnsRecordSet -Name "@" -RecordType "A" -ZoneName "contoso.com" `
+ -ResourceGroupName "MyAzureResourceGroup" -Ttl 600 `
+ -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address "<your web app IP address>")
 ```
 
-Het volgende voorbeeld is het antwoord.
+### <a name="create-the-txt-record"></a>Een TXT-record maken
 
-```
-Name              : www
-ZoneName          : contoso.com
-ResourceGroupName : myresourcegroup
-Ttl               : 600
-Etag              : 8baceeb9-4c2c-4608-a22c-229923ee1856
-RecordType        : CNAME
-Records           : {}
-Tags              : {}
-```
-
-### <a name="step-2"></a>Stap 2
-
-Als de CNAME-recordset is gemaakt, moet u de aliaswaarde van een die naar de web-app verwijst maken.
-
-Met behulp van de eerder toegewezen variabele '$rs' kunt u de onderstaande PowerShell-opdracht voor het maken van de alias voor de web-app contoso.azurewebsites.net.
+App Services gebruikt dit record alleen tijdens de configuratie, om te controleren of u de eigenaar bent van het aangepaste domein. Nadat uw aangepaste domein is gevalideerd en geconfigureerd in App Service, kunt u dit TXT-record verwijderen.
 
 ```powershell
-Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "contoso.azurewebsites.net"
+New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyAzureResourceGroup `
+ -Name `"@" -RecordType "txt" -Ttl 600 `
+ -DnsRecords (New-AzureRmDnsRecordConfig -Value  "contoso.azurewebsites.net")
 ```
 
-Het volgende voorbeeld is het antwoord.
+## <a name="create-the-cname-record"></a>Het CNAME-record maken
+
+Als uw domein al wordt beheerd door Azure DNS (zie [DNS domain delegation](dns-domain-delegation.md) (Delegering van DNS-domeinen)) kunt u het volgende voorbeeld gebruiken om een CNAME-record voor contoso.azurewebsites.net te maken.
+
+Open Azure PowerShell en maak een nieuw CNAME-record. In dit voorbeeld wordt een type recordset CNAME gemaakt met een 'time to live' van 600 seconden in een DNS-zone genaamd contoso.com met de alias voor de web-app contoso.azurewebsites.net.
+
+### <a name="create-the-record"></a>Een record maken
+
+```powershell
+New-AzureRMDnsRecordSet -ZoneName contoso.com -ResourceGroupName "MyAzureResourceGroup" `
+ -Name "www" -RecordType "CNAME" -Ttl 600 `
+ -DnsRecords (New-AzureRmDnsRecordConfig -cname "contoso.azurewebsites.net")
+```
+
+Het volgende voorbeeld is het antwoord:
 
 ```
     Name              : www
@@ -118,15 +113,9 @@ Het volgende voorbeeld is het antwoord.
     Tags              : {}
 ```
 
-### <a name="step-3"></a>Stap 3
+## <a name="test-the-new-records"></a>De nieuwe records testen
 
-De wijzigingen aan met behulp van de `Set-AzureRMDnsRecordSet` cmdlet:
-
-```powershell
-Set-AzureRMDnsRecordSet -RecordSet $rs
-```
-
-U kunt controleren of de record correct is gemaakt door het opvragen van de 'www.contoso.com' met behulp van nslookup, zoals hieronder wordt weergegeven:
+U kunt controleren of de records correct zijn gemaakt door een query uit te voeren op www.contoso.com en contoso.com met behulp van nslookup, zoals hieronder wordt weergegeven:
 
 ```
 PS C:\> nslookup
@@ -143,62 +132,55 @@ Address:  <ip of web app service>
 Aliases:  www.contoso.com
 contoso.azurewebsites.net
 <instance of web app service>.vip.azurewebsites.windows.net
+
+> contoso.com
+Server:  default server
+Address:  192.168.0.1
+
+Non-authoritative answer:
+Name:    contoso.com
+Address:  <ip of web app service>
+
+> set type=txt
+> contoso.com
+
+Server:  default server
+Address:  192.168.0.1
+
+Non-authoritative answer:
+contoso.com text =
+
+        "contoso.azurewebsites.net"
 ```
+## <a name="add-custom-host-names"></a>Aangepaste hostnamen toevoegen
 
-## <a name="create-an-awverify-record-for-web-apps"></a>Maak een 'awverify'-record voor web-apps
-
-Als u besluit een A-record voor uw web-app gebruiken, moet u een verificatieprocedure voor om te controleren of dat u eigenaar van het aangepaste domein doorlopen. Deze verificatiestap wordt uitgevoerd door het maken van een speciale CNAME-record met de naam 'awverify'. In deze sectie is van toepassing op een alleen-records.
-
-### <a name="step-1"></a>Stap 1
-
-De 'awverify'-record maken. In het onderstaande voorbeeld maken we de 'aweverify'-record voor contoso.com te verifiëren voor het aangepaste domein.
+U kunt nu de aangepaste hostnamen aan uw web-app toevoegen:
 
 ```powershell
-$rs = New-AzureRMDnsRecordSet -ZoneName "contoso.com" -ResourceGroupName "myresourcegroup" -Name "awverify" -RecordType "CNAME" -Ttl 600
+set-AzureRmWebApp `
+ -Name contoso `
+ -ResourceGroupName MyAzureResourceGroup `
+ -HostNames @("contoso.com","www.contoso.com","contoso.azurewebsites.net")
 ```
+## <a name="test-the-custom-host-names"></a>De aangepaste hostnamen testen
 
-Het volgende voorbeeld is het antwoord.
+Open een browser en browse naar `http://www.<your domainname>` en `http://<you domain name>`.
 
-```
-Name              : awverify
-ZoneName          : contoso.com
-ResourceGroupName : myresourcegroup
-Ttl               : 600
-Etag              : 8baceeb9-4c2c-4608-a22c-229923ee1856
-RecordType        : CNAME
-Records           : {}
-Tags              : {}
-```
+> [!NOTE]
+> Zorg ervoor dat u het voorvoegsel `http://` toevoegt, anders probeert de browser een URL voor u te voorspellen.
 
-### <a name="step-2"></a>Stap 2
+U zou voor beide URL's dezelfde pagina moeten zien. Bijvoorbeeld:
 
-Zodra de recordset 'awverify' is gemaakt, wijzen de CNAME-Recordset alias. In het onderstaande voorbeeld zullen we de CNAMe-record ingesteld alias op awverify.contoso.azurewebsites.net toewijzen.
+![Contoso-appservice](media/dns-web-sites-custom-domain/contoso-app-svc.png)
 
-```powershell
-Add-AzureRMDnsRecordConfig -RecordSet $rs -Cname "awverify.contoso.azurewebsites.net"
-```
 
-Het volgende voorbeeld is het antwoord.
+## <a name="clean-up-resources"></a>Resources opschonen
 
-```
-    Name              : awverify
-    ZoneName          : contoso.com
-    ResourceGroupName : myresourcegroup
-    Ttl               : 600
-    Etag              : 8baceeb9-4c2c-4608-a22c-229923ee185
-    RecordType        : CNAME
-    Records           : {awverify.contoso.azurewebsites.net}
-    Tags              : {}
-```
-
-### <a name="step-3"></a>Stap 3
-
-De wijzigingen aan met behulp van de `Set-AzureRMDnsRecordSet cmdlet`, zoals wordt weergegeven in de onderstaande opdracht.
-
-```powershell
-Set-AzureRMDnsRecordSet -RecordSet $rs
-```
+Verwijder de resourcegroep **myresourcegroup** wanneer u de resources die u in deze zelfstudie hebt gemaakt niet meer nodig hebt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Volg de stappen in [configureren van een aangepaste domeinnaam voor App Service](../app-service/app-service-web-tutorial-custom-domain.md) aan uw web-app voor het gebruik van een aangepast domein configureren.
+Leer hoe u privézones in Azure DNS maakt.
+
+> [!div class="nextstepaction"]
+> [Aan de slag met privézones in Azure DNS met behulp van PowerShell](private-dns-getstarted-powershell.md)

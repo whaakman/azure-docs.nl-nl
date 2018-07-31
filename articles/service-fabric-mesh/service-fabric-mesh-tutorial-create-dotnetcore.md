@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 692a384c3695001677b7a3d6161b77f3f015ad7c
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: d48d7625221dfb96e0119ef0d42b3b0a8d04baba
+ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125866"
+ms.lasthandoff: 07/20/2018
+ms.locfileid: "39185666"
 ---
 # <a name="tutorial-create-debug-and-deploy-a-multi-service-web-application-to-service-fabric-mesh"></a>Zelfstudie: Een webtoepassing voor meerdere services maken, foutvrij maken en implementeren in Service Fabric Mesh
 
@@ -53,6 +53,8 @@ Voor u met deze zelfstudie begint:
 * Als u nog geen abonnement op Azure hebt, kunt u een [gratis account maken](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) voordat u begint.
 
 * Controleer of u [uw ontwikkelomgeving hebt ingesteld](service-fabric-mesh-howto-setup-developer-environment-sdk.md). Hieronder valt het installeren van de Service Fabric-runtime, SDK, Docker en Visual Studio 2017.
+
+* De app voor deze zelfstudie moet voorlopig worden gebouwd met behulp van de Engelse landinstelling.
 
 ## <a name="create-a-service-fabric-mesh-project"></a>Een Service Fabric Mesh-project maken
 
