@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: bonova
-ms.openlocfilehash: ced88c491f4d2ff2c1e51fd04c481a8477053a20
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
-ms.translationtype: HT
+ms.openlocfilehash: 02a2a5d808f21c48181da265b05c7f532a200c2f
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346695"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390684"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Wat is een Managed Instance (preview)?
 
@@ -148,7 +148,7 @@ De volgende lijst geeft een overzicht van de belangrijkste kenmerken van de laag
 | SQL Server-versie / build | SQL Server nieuwste (beschikbaar) |
 | Extra functies | [In-Memory OLTP](sql-database-in-memory.md)<br> 1 extra alleen-lezen replica ([Read Scale-Out](sql-database-read-scale-out.md))
 | De opslaggrootte min | 32 GB |
-| Maximumgrootte van opslag | Gen 4: 1 TB (alle vCore-grootten<br> Gen 5:<ul><li>1 TB voor 8, 16 vcores uitvoert</li><li>2 TB voor 24 vCores</li><li>4 TB voor 40, 64, 80 vCores</ul>|
+| Maximumgrootte van opslag | Gen 4: 1 TB (alle vCore-grootten<br> Gen 5:<ul><li>1 TB voor 8, 16 vcores uitvoert</li><li>2 TB voor 24 vCores</li><li>4 TB voor 32, 40, 64, 80 vCores</ul>|
 | Maximale opslagruimte per database | Bepaald door de maximale opslagruimte per exemplaar |
 | Het aantal gegevensbestanden (rijen) per de database | Meerdere | 
 | Aantal logboekbestanden (logboek) per database | 1 | 

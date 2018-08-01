@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 698dbbba55ed32a5cef8034059ee8e36edd16ae5
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 9fa71c221b276e2173694e2c1e86673e52677e63
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37346989"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389820"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream-gegevens als invoer in Stream Analytics
 
@@ -123,7 +123,7 @@ Voor scenario's met grote hoeveelheden ongestructureerde gegevens opslaan in de 
 
 De verwerking van logboekbestanden is een veelgebruikte scenario voor het gebruik van Blob storage invoer met Stream Analytics. In dit scenario telemetrie-gegevensbestanden zijn vastgelegd in een systeem en moeten worden geparseerd en verwerkt om bruikbare gegevens te extraheren.
 
-De standaard-tijdstempel van gebeurtenissen van Blob storage in Stream Analytics is het tijdstempel dat de blob het laatst is gewijzigd, dat is `BlobLastModifiedUtcTime`. Voor het verwerken van de gegevens als een stroom met behulp van een tijdstempel in het geval van nettolading, moet u de [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) trefwoord.
+De standaard-tijdstempel van gebeurtenissen van Blob storage in Stream Analytics is het tijdstempel dat de blob het laatst is gewijzigd, dat is `BlobLastModifiedUtcTime`. Voor het verwerken van de gegevens als een stroom met behulp van een tijdstempel in het geval van nettolading, moet u de [TIMESTAMP BY](https://msdn.microsoft.com/library/azure/dn834998.aspx) trefwoord. Een Stream Analytics-taak haalt gegevens op uit Azure Blob storage invoer per seconde als de blobbestand beschikbaar is. Als de blob-bestand niet beschikbaar is, is er een exponentieel uitstel met een maximale vertraging van 90 seconden.
 
 CSV-indeling invoer *vereisen* een veldnamenrij voor het definiëren van velden voor de gegevensset en alle koptekstvelden rij moet uniek zijn.
 

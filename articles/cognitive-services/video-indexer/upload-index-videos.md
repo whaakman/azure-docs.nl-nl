@@ -7,18 +7,21 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: 64c4c8e4df0179f1644f23f0ae489015222a4ffd
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c4a755d0c13516ce3cb0177cea2ea17e4a3abcbb
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258361"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390966"
 ---
 # <a name="upload-and-index-your-videos"></a>Indexeren van uw video 's  
 
 In dit artikel ziet u hoe u de [video uploaden](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API voor het uploaden en indexeren van uw video's met Video Indexer van Azure. Hierin worden ook enkele van de parameters die u op de API instellen kunt te wijzigen van het proces en de uitvoer van de API.
+
+> [!Note]
+> Als u een Video Indexer-account maakt, kunt u een gratis proefaccount (waar u aan een bepaald aantal gratis indexering minuten) of een betaalde optie (waarbij u bent niet beperkt door het quotum). <br/>Met gratis proefversie Video Indexer biedt maximaal 600 minuten gratis worden geïndexeerd voor gebruikers van de website en maximaal 2400 minuten gratis indexing voor een API-gebruikers. <br/>Betaalde optie, maakt u een Video Indexer-account dat is [verbonden met uw Azure-abonnement en een Azure Media Services-account](connect-to-azure.md). U betaalt voor minuten geïndexeerd, evenals de Media-Account gekoppeld kosten in rekening gebracht. 
 
 ## <a name="configurations-and-params"></a>Configuraties en parameters
 

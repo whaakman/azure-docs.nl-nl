@@ -1,6 +1,6 @@
 ---
-title: Problemen bij het installeren van de Agent Connector voor toepassingsproxy | Microsoft Docs
-description: Het oplossen van problemen die u mee te maken mogelijk bij het installeren van de Connector voor toepassingsproxy-Agent
+title: Problemen bij het installeren van de Toepassingsproxyagent | Microsoft Docs
+description: Het oplossen van problemen die u tegenkomen kan bij het installeren van de Toepassingsproxyagent
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,65 +11,65 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: d7d893c75fc0da31824491b834ca6ab21bec8b41
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6d0eb2e816e39a92bf895842d570587ec5385f1a
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330275"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366141"
 ---
-# <a name="problem-installing-the-application-proxy-agent-connector"></a>Problemen bij het installeren van de Connector voor toepassingsproxy-Agent
+# <a name="problem-installing-the-application-proxy-agent-connector"></a>Problemen bij het installeren van de Toepassingsproxyagent
 
-Microsoft AAD Application Proxy Connector is een onderdeel van het interne domein die gebruikmaakt van uitgaande verbindingen tot stand brengen van de verbinding van de cloud beschikbaar eindpunt met het interne domein.
+Microsoft AAD Application Proxy Connector is een intern Domeinonderdeel die gebruikmaakt van uitgaande verbindingen tot stand brengen van de verbinding van de beschikbare cloud-eindpunt met het interne domein.
 
-## <a name="general-problem-areas-with-connector-installation"></a>Algemene probleemgebieden met installatie van de Connector
+## <a name="general-problem-areas-with-connector-installation"></a>Algemene probleemgebieden met installatie van Connector
 
 Wanneer de installatie van een connector is mislukt, is de hoofdoorzaak meestal een van de volgende gebieden:
 
-1.  **Connectiviteit** – voor het voltooien van een geslaagde installatie, de nieuwe connector moet registreren en toekomstige vertrouwensgegevens tot stand brengen. Dit wordt gedaan door verbinding te maken met de cloudservice AAD Application Proxy.
+1.  **Connectiviteit** – om uit te voeren van een geslaagde installatie, de behoeften van de nieuwe connector te registreren en eigenschappen van de toekomstige vertrouwensrelatie tot stand brengen. Dit wordt gedaan door verbinding te maken met de cloudservice AAD Application Proxy.
 
-2.  **Vertrouwensrelatie tot stand brengen** : de nieuwe connector maakt u een zelfondertekend certificaat en registreert met de cloudservice.
+2.  **Vertrouwensrelatie tot stand brengen** : de nieuwe connector maakt u een zelfondertekend certificaat en geregistreerd met de cloudservice.
 
 3.  **Verificatie van de beheerder** – tijdens de installatie van de gebruiker beheerdersreferenties om de installatie van de Connector te voltooien moet opgeven.
 
-## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>Controleer of de verbinding met de toepassingsproxy van Cloud-service en Microsoft Login pagina
+## <a name="verify-connectivity-to-the-cloud-application-proxy-service-and-microsoft-login-page"></a>Controleer de verbinding met de Cloud Application Proxy-service en Microsoft Login-pagina
 
-**Doelstelling:** Controleer of de machine connector verbinding met het eindpunt voor AAD Application Proxy-registratie, alsmede de aanmeldingspagina voor Microsoft maken kan.
+**Doelstelling:** Controleer of de connector-machine verbinding met het eindpunt van het AAD Application Proxy, evenals de Microsoft-aanmeldingspagina maken kunt.
 
-1.  Open een browser en Ga naar de volgende webpagina: <https://aadap-portcheck.connectorporttest.msappproxy.net> , en controleren of de verbinding met VS-midden en VS-Oost datacenters met poorten 80 en 443 werkt.
+1.  Open een browser en Ga naar de volgende webpagina: <https://aadap-portcheck.connectorporttest.msappproxy.net> , en controleer of de verbinding met VS-centraal en VS-Oost-datacenters met de poorten 80 en 443 werkt.
 
-2.  Als een van deze poorten is niet geslaagd (geen een groen vinkje), Controleer of de Firewall of een back-end-proxy heeft \*. msappproxy.net met poorten 80 en 443 correct gedefinieerd.
+2.  Als een van deze poorten is mislukt (geen heeft een groen vinkje), Controleer of de Firewall of een back-end-proxy heeft \*. msappproxy.net met poorten 80 en 443 correct gedefinieerd.
 
-3.  Open een browser (door tabs gescheiden) en Ga naar de volgende webpagina: <https://login.microsoftonline.com>, zorg ervoor dat u op deze pagina aanmelden zich.
+3.  Open een browser (gescheiden door tabs) en Ga naar de volgende webpagina: <https://login.microsoftonline.com>, zorg ervoor dat u op die pagina aanmelden zich.
 
-## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>Controleer of de Machine- en back-end-onderdelen ondersteund voor toepassingsproxy vertrouwensrelatie cert
+## <a name="verify-machine-and-backend-components-support-for-application-proxy-trust-cert"></a>Controleer of de Machine en back-end-onderdelen ondersteunen voor toepassingsproxy vertrouwensrelatie certificaat
 
 **Doelstelling:** controleren of de connector-machine, back-end-proxy en firewall het certificaat dat is gemaakt door de connector voor toekomstige vertrouwensrelatie kunnen ondersteunen.
 
 >[!NOTE]
->De connector probeert te maken van een certificaat SHA512 gebruikt die wordt ondersteund door TLS1.2. Als de machine of de back endfirewall en proxy biedt geen ondersteuning voor TLS1.2, mislukt de installatie.
+>De connector probeert te maken van een certificaat SHA512 gebruikt die wordt ondersteund door TLS1.2. Als de machine of de back-end-firewall en proxy wordt niet ondersteund voor TLS1.2, mislukt de installatie.
 >
 >
 
-**Het probleem oplossen:**
+**Het probleem kunt oplossen:**
 
-1.  Controleer of de computer ondersteunt TLS1.2 – TLS 1.2 moeten ondersteuning voor alle Windows-versies na 2012 R2. Als uw computer connector van een versie van 2012 R2 of vóór, zorg ervoor dat zijn de volgende KB op de computer geïnstalleerd: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
+1.  Controleer of de computer ondersteunt TLS1.2: alle Windows-versies na 2012 R2 moeten ondersteuning bieden voor TLS 1.2. Als uw connector-computer van een versie van 2012 R2 of een voorafgaand is, zorg ervoor dat het volgende kB's worden geïnstalleerd op de machine: <https://support.microsoft.com/help/2973337/sha512-is-disabled-in-windows-when-you-use-tls-1.2>
 
-2.  Neem contact op met de beheerder van uw netwerk en vraagt u om te controleren dat de back-end-proxy- en firewallservers niet SHA512 voor uitgaand verkeer blokkeren.
+2.  Neem contact op met uw netwerk-beheerder en vraag om te controleren dat de back-end-proxy en firewall niet SHA512 gebruikt voor uitgaand verkeer blokkeren.
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Controleer of de beheerder wordt gebruikt om de connector te installeren
 
-**Doelstelling:** Controleer of de gebruiker die probeert te installeren van de connector is een beheerder met de juiste referenties. Op dit moment wordt moet de gebruiker een globale beheerder voor de installatie mislukt.
+**Doelstelling:** Controleer of de gebruiker die probeert te installeren van de connector is een beheerder met de juiste referenties. De gebruiker moet op dit moment een globale beheerder voor de installatie te voltooien.
 
-**Om te controleren of zijn de referenties correct:**
+**Om te controleren of dat de referenties correct zijn:**
 
-Verbinding maken met <https://login.microsoftonline.com> en dezelfde referenties gebruikt. Zorg ervoor dat de aanmelding is geslaagd. U kunt de gebruikersrol controleren door te gaan naar **Azure Active Directory**  - &gt; **gebruikers en groepen**  - &gt; **alle gebruikers**. 
+Verbinding maken met <https://login.microsoftonline.com> en gebruik de dezelfde referenties. Zorg ervoor dat de aanmelding is geslaagd. U kunt de gebruikersrol controleren door te gaan naar **Azure Active Directory**  - &gt; **gebruikers en groepen**  - &gt; **alle gebruikers**. 
 
-Selecteer uw gebruikersaccount, klikt u vervolgens 'Directory rol' in het resulterende menu. Controleer of de geselecteerde rol 'Globale beheerder'. Als u geen toegang tot alle pagina's langs deze stappen zijn, bent u niet een globale beheerder.
+Selecteer uw gebruikersaccount, klikt u vervolgens 'Directory rol' in het resulterende menu. Controleer of de geselecteerde rol 'Globale beheerder'. Als u geen toegang tot alle pagina's die aan deze stappen, maar u bent niet een globale beheerder.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Azure AD-toepassingsproxy connectors begrijpen](manage-apps/application-proxy-connectors.md)
+[Meer informatie over Azure AD Application Proxy connectors](manage-apps/application-proxy-connectors.md)
