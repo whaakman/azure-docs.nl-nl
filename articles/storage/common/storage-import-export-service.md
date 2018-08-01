@@ -8,18 +8,18 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.openlocfilehash: 5b027051d4ea1e2f43d65a68def0482a44c7a3b7
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: e9fc74e6cd145cbba5b620b9db6db9635a0c4c77
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308685"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364522"
 ---
 # <a name="what-is-azure-importexport-service"></a>Wat is Azure Import/Export-service?
 
 Azure Import/Export-service wordt gebruikt om veilig grote hoeveelheden gegevens naar Azure Blob storage en Azure-bestanden importeren door de verzending van harde schijven voor een Azure-datacenter. Deze service kan ook worden gebruikt voor gegevensoverdracht van Azure Blob-opslag op schijven en verzend deze naar uw on-premises sites. Gegevens uit een of meer schijven kunnen worden geïmporteerd naar Azure Blob-opslag of naar Azure Files. 
 
-Azure Import/Export-service kunt u uw eigen schijven leveren of harde schijven die door Microsoft worden verstrekt. 
+Geef u eigen schijfstations en gegevens overdragen met de Azure Import/Export-service. Ook kunt u schijven die door Microsoft worden verstrekt. 
 
 Als u overdragen van gegevens met behulp van schijven die door Microsoft worden verstrekt wilt, kunt u [Azure Data Box-schijf](../../databox/data-box-disk-overview.md) gegevens importeren in Azure. Maximaal 5 versleutelde schijf SSD's (Solid-State) van Microsoft wordt geleverd met een totale capaciteit van 40 TB per order, naar uw datacenter via een regionale luchtvaartmaatschappij. U kunt snel schijfstations configureren, gegevens naar harde schijven te kopiëren via een USB-3.0-verbinding en verzend de schijven terug naar Azure. Ga voor meer informatie naar [overzicht van Azure Data Box-schijf](../../databox/data-box-disk-overview.md).
 

@@ -9,16 +9,18 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: 849a8dde07c248b6d7b317de5908b3a46dfad777
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 456ee8f7461fdb6a4335cdb36d4a6f9182e4c63e
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259007"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389276"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Maken van een Video Indexer-account dat is verbonden met Azure
 
-Wanneer u een gratis proefaccount van Video Indexer, bent u beperkt door de quotum en het aantal video's die u kunt de index. Dit artikel leest hoe u een Video Indexer-account die gekoppeld aan een Azure-abonnement, hoeft u deze limieten en maakt gebruik van betalen naar gebruik maakt.
+Als u een Video Indexer-account maakt, kunt u een gratis proefaccount (waar u aan een bepaald aantal gratis indexering minuten) of een betaalde optie (waarbij u bent niet beperkt door het quotum). Met gratis proefversie Video Indexer biedt maximaal 600 minuten gratis worden geïndexeerd voor gebruikers van de website en maximaal 2400 minuten gratis indexing voor een API-gebruikers. Met de betaalde optie maakt u een Video Indexer-account dat is verbonden met uw Azure-abonnement en een Azure Media Services-account. U betaalt voor minuten geïndexeerd, evenals de Media-Account gekoppeld kosten in rekening gebracht. 
+
+In dit artikel laat zien hoe een Video Indexer-account dat gekoppeld aan een Azure-abonnement en een Azure Media Services-account maken. 
 
 ## <a name="prerequisites"></a>Vereisten
 

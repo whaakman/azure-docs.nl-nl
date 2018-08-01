@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 7/30/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 2776017c6c4673f5c24d25b06b58a1e818f1bd24
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 430490859e6d8a58a54eea267e0c3f16991f74c8
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344440"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364373"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Back-up van SQL Server-databases naar Azure
 
@@ -258,7 +258,7 @@ Wanneer u gebruikt de **DB's detecteren** hulpprogramma voor Azure Backup wordt 
 
     ![Selecteer de virtuele machine en de database](./media/backup-azure-sql-database/registration-errors.png)
 
-## <a name="configure-backup-for-sql-server-databases"></a>Back-up voor SQL Server-databases configureren 
+## <a name="configure-backup-for-sql-server-databases"></a>Back-up voor SQL Server-databases configureren
 
 Azure Backup biedt beheerservices voor het beveiligen van uw SQL Server-databases en back-uptaken beheren. De beheer- en bewakingsfuncties, is afhankelijk van uw Recovery Services-kluis. 
 
@@ -317,6 +317,9 @@ Beveiliging voor een SQL-database configureren:
 
 8. In de **back-upbeleid kiezen** vervolgkeuzelijst keuzelijst, een back-upbeleid kiezen en selecteer vervolgens **OK**. Zie voor meer informatie over het maken van een back-upbeleid [een back-upbeleid definiëren](backup-azure-sql-database.md#define-a-backup-policy).
 
+   > [!NOTE]
+   > Tijdens de Preview, kunt u back-upbeleid niet bewerken. Als u een ander beleid dan wat er beschikbaar is in de lijst wilt, moet u dat beleid maken. Zie de sectie voor informatie over het maken van een nieuwe back-upbeleid [een back-upbeleid definiëren](backup-azure-sql-database.md#define-a-backup-policy).
+
     ![Een back-upbeleid kiezen uit de lijst](./media/backup-azure-sql-database/select-backup-policy-steptwo.png)
 
     Op de **back-upbeleid** menu in de **back-upbeleid kiezen** vervolgkeuzelijst vak, kunt u: 
@@ -345,21 +348,28 @@ Een back-upbeleid definieert een matrix met wanneer back-ups worden gemaakt en h
 * Differentiële back-up: een differentiële back-up is gebaseerd op de meest recente, de vorige volledige gegevens back-up. Een differentiële back-up legt alleen de gegevens die zijn gewijzigd nadat de volledige back-up. U kunt maximaal één differentiële back-up per dag activeren. U kunt een volledige back-up en een differentiële back-up niet configureren op dezelfde dag.
 * Transactielogboekback-up: een logboekback-up kunt punt in tijd herstel tot een specifieke seconde. Maximaal, kunt u configureren transactionele logboekback-ups om de 15 minuten.
 
-Van het beleid gemaakt in de Recovery Services-kluis niveau. Meerdere kluizen het dezelfde back-upbeleid kunnen gebruiken, maar u moet het back-upbeleid toepassen op elke kluis. Wanneer u een back-upbeleid maakt, is de dagelijkse volledige back-up de standaardinstelling. Als u een volledige back-ups wekelijks optreden als u wilt configureren, kunt u een differentiële back-up, maar alleen toevoegen. De volgende procedure wordt uitgelegd hoe u een back-upbeleid voor een SQL Server-exemplaar maakt in een virtuele machine van Azure.
+Van het beleid gemaakt in de Recovery Services-kluis niveau. Meerdere kluizen het dezelfde back-upbeleid kunnen gebruiken, maar u moet het back-upbeleid toepassen op elke kluis. Wanneer u een back-upbeleid maakt, is de dagelijkse volledige back-up de standaardinstelling. Als u een volledige back-ups wekelijks optreden als u wilt configureren, kunt u een differentiële back-up, maar alleen toevoegen. De volgende procedure wordt uitgelegd hoe u een back-upbeleid voor een SQL Server-exemplaar maakt in een virtuele machine van Azure. 
 
+> [!NOTE]
+> Preview-versie, kunt u een back-upbeleid niet bewerken. In plaats daarvan moet u een nieuw beleid maken met de gewenste gegevens.  
+ 
 Een back-upbeleid maken:
 
-1. Op de **back-upbeleid** menu in de **back-upbeleid kiezen** vervolgkeuzelijst Schakel **nieuw**.
+1. Klik in de Recovery Services-kluis die worden beveiligd met de SQL-database op **back-upbeleid**, en klik vervolgens op **toevoegen**. 
 
-   ![Een nieuwe back-upbeleid maken](./media/backup-azure-sql-database/create-new-backup-policy.png)
+   ![Open het dialoogvenster nieuwe back-upbeleid maken](./media/backup-azure-sql-database/new-policy-workflow.png)
 
-    De **back-upbeleid** menu toont de velden die nodig voor een nieuwe SQL Server back-upbeleid zijn.
+   De **toevoegen** menu wordt weergegeven.
 
-   ![nieuwe back-upbeleid velden](./media/backup-azure-sql-database/blank-new-policy.png)
+2. In de **toevoegen** menu, klikt u op **SQL Server in virtuele Azure-machine**.
 
-2. In de **beleidsnaam** vak, voer een naam in.
+   ![Kies een beleidstype voor de nieuwe back-upbeleid](./media/backup-azure-sql-database/policy-type-details.png)
 
-3. Een volledige back-up is verplicht. Accepteer de standaardwaarden voor de volledige back-up, of selecteer **volledige back-up** om het beleid te bewerken.
+   SQL-Server in virtuele Azure-machine te selecteren definieert het beleidstype en het menu back-upbeleid wordt geopend. De **back-upbeleid** menu toont de velden die nodig voor een nieuwe SQL Server back-upbeleid zijn.
+
+3. In **beleidsnaam**, voer een naam in voor het nieuwe beleid.
+
+4. Een volledige back-up is verplicht. u kunt geen uitschakelen de **volledige back-up** optie. Klik op **volledige back-up** bekijken en bewerken van het beleid. Zelfs als u het back-upbeleid niet wijzigt, moet u de details van het beleid bekijken.
 
     ![nieuwe back-upbeleid velden](./media/backup-azure-sql-database/full-backup-policy.png)
 
@@ -371,13 +381,13 @@ Een back-upbeleid maken:
 
    ![wekelijks interval instellen](./media/backup-azure-sql-database/weekly-interval.png)
 
-4. Standaard alle **bewaartermijn** opties zijn geselecteerd: dagelijkse, wekelijkse, maandelijkse en jaarlijkse. Schakel alle limieten voor het bereik van ongewenste bewaren. Stel de intervallen dat u wilt gebruiken. In de **volledige back-upbeleid** in het menu **OK** te accepteren van de instellingen.
+5. Standaard alle **bewaartermijn** opties zijn geselecteerd: dagelijkse, wekelijkse, maandelijkse en jaarlijkse. Schakel alle limieten voor het bereik van ongewenste bewaren. Stel de intervallen dat u wilt gebruiken. In de **volledige back-upbeleid** in het menu **OK** te accepteren van de instellingen.
 
    ![Instellingen voor het bewaren bereik interval](./media/backup-azure-sql-database/retention-range-interval.png)
 
     Herstelpunten zijn voor de bewaarperiode gebaseerd op de bewaartermijn gelabeld. Als u een dagelijkse volledige back-up selecteert, wordt slechts één volledige back-up elke dag geactiveerd. De back-up voor een specifieke dag is gemarkeerd en bewaard op basis van de wekelijkse bewaartermijn en de instelling van de wekelijkse bewaren. De maandelijkse en jaarlijkse bewaartermijnen gedragen zich op een soortgelijke manier.
 
-5. Als u wilt toevoegen een differentiële back-upbeleid, selecteert u **differentiële back-**. De **differentiële back-upbeleid** menu wordt geopend. 
+6. Als u wilt toevoegen een differentiële back-upbeleid, selecteert u **differentiële back-**. De **differentiële back-upbeleid** menu wordt geopend. 
 
    ![Open het menu differentiële back-upbeleid](./media/backup-azure-sql-database/backup-policy-menu-choices.png)
 
@@ -391,17 +401,17 @@ Een back-upbeleid maken:
 
     Selecteer **OK** slaat u het beleid en terugkeren naar de hoofdpagina **back-upbeleid** menu.
 
-6. Als u wilt toevoegen een transactionele logboek back-upbeleid, selecteert u **logboekback-up**. De **logboekback-up** menu wordt geopend.
+7. Als u wilt toevoegen een transactionele logboek back-upbeleid, selecteert u **logboekback-up**. De **logboekback-up** menu wordt geopend.
 
     In de **logboekback-up** in het menu **inschakelen**, en stel de frequentie en retentie-besturingselementen. Logboekback-ups kunnen optreden zo vaak als elke 15 minuten en maximaal 35 dagen kunnen worden bewaard. Selecteer **OK** slaat u het beleid en terugkeren naar de hoofdpagina **back-upbeleid** menu.
 
    ![Het logboek back-upbeleid bewerken](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
-7. Op de **back-upbeleid** menu, kies of u om in te schakelen **compressie van SQL-back-up**. Compressie is standaard uitgeschakeld.
+8. Op de **back-upbeleid** menu, kies of u om in te schakelen **compressie van SQL-back-up**. Compressie is standaard uitgeschakeld.
 
     Op de back-end Azure Backup maakt gebruik van systeemeigen back-up-compressie van SQL.
 
-8. Nadat u de bewerkingen van het back-upbeleid hebt voltooid, selecteert u **OK**. 
+9. Nadat u de bewerkingen van het back-upbeleid hebt voltooid, selecteert u **OK**. 
 
    ![De nieuwe back-upbeleid te accepteren](./media/backup-azure-sql-database/backup-policy-click-ok.png)
 
@@ -410,8 +420,9 @@ Azure Backup biedt functionaliteit voor het herstellen van afzonderlijke databas
 
 U kunt ook een specifieke volledige of differentiële back-up te herstellen naar een specifiek herstelpunt, in plaats van een bepaald tijdstip selecteren.
 
-### <a name="pre-requisite-before-trigerting-a-restore"></a>Vereiste voordat trigerting herstellen
-1. U kunt de database herstellen naar een exemplaar van een SQL-Server in dezelfde Azure-regio. De doelserver moet worden geregistreerd bij dezelfde Recovery Services-kluis als de bron.  
+### <a name="pre-requisite-before-triggering-a-restore"></a>Vereiste voordat een herstelpunt wordt geactiveerd
+
+1. U kunt de database herstellen naar een exemplaar van een SQL-Server in dezelfde Azure-regio. De doelserver moet worden geregistreerd in dezelfde Recovery Services-kluis als de bron.  
 2. Als u wilt een versleutelde TDE-database herstellen naar een andere SQL Server, eerst herstel het certificaat naar de doelserver door de volgende stappen die zijn beschreven [hier](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
 3. Voordat u een herstel van de database 'master' activeert, start u de SQL Server-exemplaar in de modus voor één gebruiker met de opstartoptie `-m AzureWorkloadBackup`. Het argument voor de `-m` optie is de naam van de client. Alleen deze client is toegestaan om de verbinding te openen. Voor alle systeemdatabases (model, master, msdb), door de SQL Agent-service te stoppen voordat u de terugzetbewerking kan worden geactiveerd. Sluit alle toepassingen waarbij wordt geprobeerd te stelen van een verbinding met een van deze databases.
 

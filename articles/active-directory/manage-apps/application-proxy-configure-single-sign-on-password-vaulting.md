@@ -1,6 +1,6 @@
 ---
 title: Eenmalige aanmelding voor apps met Azure AD-toepassingsproxy | Microsoft Docs
-description: Schakel één aanmelding voor uw gepubliceerde on-premises toepassingen met Azure AD-toepassingsproxy in de Azure portal.
+description: Schakel eenmalige aanmelding voor uw gepubliceerde on-premises toepassingen met Azure AD-toepassingsproxy in de Azure-portal.
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -10,27 +10,27 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/20/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: fef163e258f797fc57d391a353b1acc148a3ef49
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: fa12dd5e9dbe25bad947abed5ab1c732d231b25c
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161978"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39362819"
 ---
-# <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Wachtwoord voor eenmalige aanmelding met toepassingsproxy vaulting
+# <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Wachtwoord voor eenmalige aanmelding met Application Proxy vaulting
 
-Azure Active Directory-toepassingsproxy helpt u bij de productiviteit door on-premises toepassingen publiceren zodat externe werknemers veilig toegang deze te tot verbeteren. In de Azure-portal kunt u ook instellen van eenmalige aanmelding (SSO) op deze apps. Uw gebruikers alleen vereist voor verificatie met Azure AD en toegang te krijgen tot uw zakelijke toepassing zonder opnieuw aanmelden.
+Azure Active Directory-toepassingsproxy helpt u bij de productiviteit te verbeteren door het publiceren van on-premises toepassingen, zodat externe werknemers veilig toegang deze te tot. In de Azure-portal kunt u ook instellen van eenmalige aanmelding (SSO) tot deze apps. Er hoeft alleen uw gebruikers te verifiëren met Azure AD en ze toegang krijgen tot uw zakelijke toepassing zonder te hoeven aan te melden bij het opnieuw.
 
-Toepassingsproxy ondersteunt verschillende [eenmalige aanmelding modi](application-proxy-single-sign-on.md). Op basis van wachtwoorden eenmalige aanmelding is bedoeld voor toepassingen die gebruikmaken van een combinatie van gebruikersnaam en wachtwoord voor verificatie. Wanneer u op basis van wachtwoorden eenmalige aanmelding voor uw toepassing configureert, wordt uw gebruikers aan te melden bij de on-premises toepassing eenmaal hebben. Hierna is Azure Active Directory de gegevens worden opgeslagen en automatisch aan de toepassing te biedt wanneer uw gebruikers toegang op afstand. 
+Application Proxy biedt ondersteuning voor diverse [eenmalige aanmelding modi](application-proxy-single-sign-on.md). Wachtwoord gebaseerde aanmelding is bedoeld voor toepassingen die gebruikmaken van een combinatie van gebruikersnaam en wachtwoord voor verificatie. Wanneer u op basis van wachtwoorden aanmelding voor uw toepassing configureren, hebben uw gebruikers zich aanmeldt bij de on-premises toepassing één keer. Hierna Azure Active Directory de gegevens worden opgeslagen en deze automatisch biedt aan de toepassing als uw gebruikers toegang hebben tot het op afstand. 
 
-U moet al hebt gepubliceerd en uw app met toepassingsproxy getest. Als dit niet het geval is, volg de stappen in [toepassingen publiceren met Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md) vervolgens kun je hier. 
+U moet al hebt gepubliceerd en uw app met Application Proxy getest. Als dit niet het geval is, volg de stappen in [toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](application-proxy-publish-azure-portal.md) vervolgens hier terugkeren. 
 
-## <a name="set-up-password-vaulting-for-your-application"></a>Wachtwoord voor uw toepassing vaulting instellen
+## <a name="set-up-password-vaulting-for-your-application"></a>Instellen van wachtwoord vaulting voor uw toepassing
 
 1. Meld u als beheerder aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer **Azure Active Directory** > **bedrijfstoepassingen** > **alle toepassingen**.
@@ -39,10 +39,10 @@ U moet al hebt gepubliceerd en uw app met toepassingsproxy getest. Als dit niet 
 
    ![Schakel eenmalige aanmelding](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
 
-5. Kies voor de modus SSO **op basis van wachtwoorden aanmelding**.
-6. Voer de URL voor de URL eenmalige aanmelding voor de pagina waar gebruikers hun gebruikersnaam en wachtwoord aanmelden bij uw app buiten het bedrijfsnetwerk invoeren. Dit kan zijn dat de externe URL die u hebt gemaakt toen u de app via toepassingsproxy hebt gepubliceerd. 
+5. Kies voor de SSO-modus, **op basis van wachtwoorden Sign-on**.
+6. Voer de URL voor de aanmeldings-URL voor de pagina waar gebruikers hun gebruikersnaam en wachtwoord aanmelden bij uw app buiten het bedrijfsnetwerk invoeren. Dit kan zijn dat de externe URL die u hebt gemaakt toen u de app via de toepassingsproxy hebt gepubliceerd. 
 
-   ![Kiezen op basis van wachtwoorden eenmalige aanmelding en voer de URL](./media/application-proxy-configure-single-sign-on-password-vaulting/password-sso.png)
+   ![Kies op basis van wachtwoorden Sign-on en voer de URL van uw](./media/application-proxy-configure-single-sign-on-password-vaulting/password-sso.png)
 
 7. Selecteer **Opslaan**.
 
@@ -52,9 +52,9 @@ U moet al hebt gepubliceerd en uw app met toepassingsproxy getest. Als dit niet 
 
 ## <a name="test-your-app"></a>Uw app testen
 
-Ga naar de externe URL die u hebt geconfigureerd voor externe toegang tot uw toepassing. Aanmelden met uw referenties voor die app (of de referenties voor een testaccount dat u toegang hebt ingesteld). Zodra u zich is aanmeldt, kunt u moet de app laat en keert u terug zonder uw referenties opnieuw invoeren. 
+Ga naar de externe URL die u hebt geconfigureerd voor externe toegang tot uw toepassing. Meld u aan met uw referenties voor die app (of de referenties voor een testaccount dat u toegang hebt ingesteld). Zodra u zich is aanmeldt, zou het mogelijk de app verlaten en keert u terug zonder uw referenties opnieuw in te voeren. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over andere manieren om te implementeren [eenmalige aanmelding met toepassingsproxy](application-proxy-single-sign-on.md)
-- Meer informatie over [beveiligingsoverwegingen voor toegang tot apps op afstand met Azure AD-toepassingsproxy](application-proxy-security.md)
+- Meer informatie over andere manieren om te implementeren [eenmalige aanmelding met Application Proxy](application-proxy-single-sign-on.md)
+- Meer informatie over [beveiligingsoverwegingen voor het openen van apps op afstand met Azure AD-toepassingsproxy](application-proxy-security.md)

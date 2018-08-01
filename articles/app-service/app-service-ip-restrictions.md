@@ -1,7 +1,7 @@
 ---
-title: Azure App Service IP-beperkingen | Microsoft Docs
+title: Azure App Service-IP-beperkingen | Microsoft Docs
 description: IP-beperkingen gebruiken met Azure App Service
-author: btardif
+author: ccompy
 manager: stefsch
 editor: ''
 services: app-service\web
@@ -12,33 +12,71 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/23/2017
-ms.author: byvinyal
-ms.openlocfilehash: 72416cfcd05767b223cc92ac28bd0e736516ddf6
-ms.sourcegitcommit: 168426c3545eae6287febecc8804b1035171c048
+ms.date: 7/30/2018
+ms.author: ccompy
+ms.openlocfilehash: fb26d91ae772c4da1055da80366d6e8c6b80a6ac
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/08/2018
-ms.locfileid: "29800106"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364305"
 ---
-# <a name="azure-app-service-static-ip-restrictions"></a>Azure App Service statische IP-beperkingen #
+# <a name="azure-app-service-static-ip-restrictions"></a>Statische IP-beperkingen voor Azure App Service #
 
-IP-beperkingen kunt u een lijst met IP-adressen die toegang hebben tot uw app definiëren. De lijst met toegestane kan afzonderlijke IP-adressen of een bereik met IP-adressen die zijn gedefinieerd door een subnetmasker.
+IP-beperkingen kunt u een prioriteit geordende lijst toestaan/weigeren van IP-adressen die zijn toegestaan voor toegang tot uw app te definiëren. De acceptatielijst kan IPv4 en IPv6-adressen bevatten. Wanneer er een of meer vermeldingen, is er een impliciete weigeren alle die aan het einde van de lijst voorkomt. 
 
-Wanneer een aanvraag naar de app wordt gegenereerd vanuit een client, wordt het IP-adres wordt geëvalueerd op basis van de lijst toestaan. Als het IP-adres niet in de lijst, wordt de app geantwoord met een [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) statuscode.
+De mogelijkheid IP-beperkingen werkt met alle App Service die wordt gehost werkbelastingen, waaronder; web-apps, api-apps, linux-apps, linux-container-apps en functies. 
 
-IP-beperkingen zijn gedefinieerd in het bestand web.config die uw app tijdens runtime verbruikt (meer exact beperkingen worden ingevoegd in een set toegestane IP-adressen in het bestand applicationHost.config, dus als u ook een set toegestane IP-adressen in het bestand web.config toevoegen, ze nemen prioriteit). Onder bepaalde omstandigheden mogelijk bepaalde module worden uitgevoerd voordat de logica van de IP-beperkingen in de HTTP-pipeline. Als dit gebeurt, wordt de aanvraag mislukt met een andere HTTP-foutcode.
+Wanneer een aanvraag wordt gedaan aan uw app, wordt het van IP-adres geëvalueerd op basis van de lijst met IP-beperkingen. Als het adres is niet toegestaan voor toegang op basis van de regels in de lijst, de service reageert met een [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) statuscode.
 
-IP-beperkingen worden geëvalueerd op dezelfde App Service plan exemplaren toegewezen aan uw app.
+De mogelijkheid IP-beperkingen is geïmplementeerd in de front-end-rollen van App Service, die zijn upstream van de werknemer hosts waarop uw code wordt uitgevoerd. IP-beperkingen zijn daarvoor effectief netwerk ACL's.  
 
-Om een regel voor IP-beperking toevoegen aan uw app, gebruikt u het menu openen **netwerk**>**IP-beperkingen** en klik op **IP-beperkingen configureren**
+![IP-beperkingen voor stroom](media/app-service-ip-restrictions/ip-restrictions-flow.png)
 
-![IP-beperkingen](media/app-service-ip-restrictions/ip-restrictions.png)  
+Gedurende een periode is de mogelijkheid IP-beperkingen in de portal voor een laag bovenop de mogelijkheid ipSecurity in IIS. De huidige beperkingen voor IP-capaciteit is anders. U kunt nog steeds ipSecurity configureren binnen de web.config van uw toepassing, maar de front-end op basis van IP-beperkingen regels worden toegepast voordat IIS al het verkeer wordt bereikt.
 
-Hier kunt kunt u de lijst met IP-beperking regels gedefinieerd voor uw app bekijken.
+## <a name="adding-and-editing-ip-restriction-rules-in-the-portal"></a>Toevoegen en bewerken van IP-beperking regels in de portal ##
 
-![lijst met IP-beperkingen](media/app-service-ip-restrictions/browse-ip-restrictions.png)
+Een regel voor het IP-beperkingen toevoegen aan uw app, gebruikt u het menu te openen **netwerk**>**IP-beperkingen** en klikt u op **IP-beperkingen configureren**
 
-U kunt klikken op **[+] toevoegen** toevoegen van een nieuwe regel voor het IP-beperkingen.
+![Netwerkopties van App Service](media/app-service-ip-restrictions/ip-restrictions.png)  
 
-![IP-beperkingen toevoegen](media/app-service-ip-restrictions/add-ip-restrictions.png)
+Vanaf de gebruikersinterface van de IP-beperkingen, kunt u de lijst met IP-beperking regels gedefinieerd voor uw app bekijken.
+
+![lijst met IP-beperkingen](media/app-service-ip-restrictions/ip-restrictions-browse.png)
+
+Als uw regels zijn geconfigureerd zoals in deze afbeelding, uw app accepteert alleen verkeer van 131.107.159.0/24 en van elk IP-adres worden geweigerd.
+
+U kunt klikken op **[+] toevoegen** om toe te voegen een nieuwe regel voor het IP-beperkingen. Als u een regel toevoegt, wordt deze zijn onmiddellijk van kracht. Regels worden afgedwongen in volgorde van prioriteit begonnen met het laagste getal en neemt. Er is een impliciete weigeren die van kracht nadat u zelfs een enkele regel toegevoegd. 
+
+![een regel voor het IP-beperking toevoegen](media/app-service-ip-restrictions/ip-restrictions-add.png)
+
+Notatie van de IP-adres moet worden opgegeven in CIDR-notatie voor zowel IPv4 als IPv6-adressen. Als u wilt een exact adres opgeeft, kunt u er ongeveer als 1.2.3.4/32 waarin de eerste vier octetten vertegenwoordigen uw IP-adres en /32 is het masker. De IPv4-CIDR-notatie voor alle adressen is 0.0.0.0/0. Voor meer informatie over de CIDR-notatie, kunt u lezen [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).  
+
+U kunt klikken op een rij aan een bestaande regel voor het IP-beperkingen bewerken. Bewerkingen zijn van kracht inclusief direct wijzigingen in volgorde van prioriteit.
+
+![een regel voor het IP-beperkingen bewerken](media/app-service-ip-restrictions/ip-restrictions-edit.png)
+
+Als u wilt een regel hebt verwijderd, klikt u op de **...**  op de regel en klik vervolgens op **verwijderen**. 
+
+![regel voor het IP-beperkingen verwijderen](media/app-service-ip-restrictions/ip-restrictions-delete.png)
+
+## <a name="programmatic-manipulation-of-ip-restriction-rules"></a>Programmatische manipulatie van IP-beperking regels ##
+
+Er is momenteel geen CLI of PowerShell voor de nieuwe functie van de IP-beperkingen, maar de waarden kunnen handmatig worden ingesteld met een PUT-bewerking op de app-configuratie in Resource Manager. U kunt bijvoorbeeld resources.azure.com gebruiken en bewerken van het blok ipSecurityRestrictions om toe te voegen van de vereiste JSON. 
+
+De locatie voor deze informatie in Resource Manager is:
+
+Management.Azure.com/subscriptions/**abonnements-ID**/resourceGroups/**resourcegroepen**/providers/Microsoft.Web/sites/**web-appnaam**  /config/website? API-version = 2018-02-01
+
+De JSON-syntaxis voor het vorige voorbeeld is:
+
+    "ipSecurityRestrictions": [
+      {
+        "ipAddress": "131.107.159.0/24",
+        "action": "Allow",
+        "tag": "Default",
+        "priority": 100,
+        "name": "allowed access"
+      }
+    ],

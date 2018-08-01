@@ -5,27 +5,27 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 7/19/2018
+ms.date: 7/30/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 1db5f0a62a21d040949c9f4e4c42f80c86e76506
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: e23579479c61810d651bebae7b486b53aaaf0d42
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39164004"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39361467"
 ---
 ### <a name="what-is-azure-firewall"></a>Wat is Azure Firewall?
 
-Firewall van Azure is een beheerde, cloud-gebaseerde beveiliging netwerkservice die worden beveiligd met uw Azure Virtual Network-resources. Het is een volledig stateful firewall-as-a-service met de ingebouwde hoge beschikbaarheid en cloudschaalbaarheid van de onbeperkte. U kunt Centraal maken, afdwingen en meld u toepassings- en network connectivity beleidsregels voor abonnementen en virtuele netwerken. Firewall van Azure is momenteel in openbare preview.
+Azure Firewall is een beheerde, cloudgebaseerde netwerkbeveiligingsservice die uw Azure Virtual Network-resources beschermt. Het is een volledig stateful firewall-as-a-service met de ingebouwde hoge beschikbaarheid en cloudschaalbaarheid van de onbeperkte. U kunt beleid voor toepassings- en netwerkconnectiviteit centraal maken, afdwingen en registreren voor abonnementen en virtuele netwerken. Firewall van Azure is momenteel in openbare preview.
 
 ### <a name="what-capabilities-are-supported-in-the-azure-firewall-public-preview-release"></a>Welke mogelijkheden worden ondersteund in de openbare preview-versie van Azure-Firewall?  
 
 * Stateful firewall als een Service
 * Ingebouwde hoge beschikbaarheid met onbeperkte cloudschaalbaarheid
-* FQDN-naam filteren 
-* Regels filteren van netwerkverkeer
-* Uitgaande SNAT-ondersteuning
+* Filteren op FQDN 
+* Regels voor het filteren van netwerkverkeer
+* Ondersteuning voor uitgaande SNAT
 * Centraal maken, afdwingen en meld u beleid van toepassing en netwerk connectiviteit tussen Azure-abonnementen en VNETs
 * Volledig geïntegreerd met Azure Monitor voor registratie en analyses 
 
@@ -66,7 +66,7 @@ Firewall van Azure is geïntegreerd met Azure Monitor voor het weergeven en anal
 
 ### <a name="how-does-azure-firewall-work-relative-to-existing-like-nvas-in-the-marketplace"></a>Hoe werkt Azure Firewall ten opzichte van de bestaande zoals NVA's in de marketplace?
 
-Firewall van Azure is een eenvoudige firewall-service die in bepaalde scenario's van klanten voorzien kan. We verwachten dat klanten hebben een combinatie van 3e partij NVA's en Azure-Firewall en werkt met onze partners op meerdere samen beter verkoopkansen. 
+Firewall van Azure is een eenvoudige firewall-service die in bepaalde scenario's van klanten voorzien kan. Verwacht wordt dat u een combinatie van de NVA's van derden en de Firewall van Azure hebt. Samen beter is een prioriteit core.
  
 ### <a name="what-is-the-difference-between-application-gateway-waf-and-azure-firewall"></a>Wat is het verschil tussen de Application Gateway WAF- en firewallinstellingen van Azure?
 
@@ -74,7 +74,7 @@ De Web Application Firewall (WAF) is een functie van Application Gateway die gec
 
 ### <a name="what-is-the-difference-between-network-security-groups-nsg-and-azure-firewall"></a>Wat is het verschil tussen Netwerkbeveiligingsgroep groepen (NSG) en de Firewall van Azure?
 
-De firewall van Azure-service vormt een aanvulling op onze bestaande Network Security Group-functionaliteit en bieden samen beter in ingrijpende netwerkbeveiliging. Nsg's gedistribueerde laag filteren van netwerkverkeer om te beperken van verkeer naar resources in virtuele netwerken in elk abonnement.  Firewall van Azure is een volledig stateful, gecentraliseerde netwerk firewall as-a-service, netwerk- en beveiliging op netwerkniveau biedt voor verschillende abonnementen en virtuele netwerken (VNets). 
+De Firewall van de Azure-service vormt een aanvulling op Network Security Group functionaliteit en samen biedt betere ingrijpende netwerkbeveiliging. Nsg's gedistribueerde laag filteren van netwerkverkeer om te beperken van verkeer naar resources in virtuele netwerken in elk abonnement.  Firewall van Azure is een volledig stateful, gecentraliseerde netwerk firewall as-a-service, netwerk- en beveiliging op netwerkniveau biedt voor verschillende abonnementen en virtuele netwerken (VNets). 
 
 ### <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Hoe stel ik Azure-Firewall in met de service-eindpunten?
 
@@ -84,4 +84,5 @@ Voor beveiligde toegang tot PaaS-services raden wij Service-eindpunten. Azure Fi
 
 * Firewall van Azure is een dynamische limiet van 1000 TB/firewall/maand. 
 * Firewall van Azure die worden uitgevoerd in een centrale VNET is onderworpen aan beperkingen voor VNET-peering: maximum van 50 knooppunt VNETs.  
-* Firewall van Azure kan niet werken met wereldwijde peering, zodat klanten moeten ten minste één implementatie van de Firewall per regio.
+* Firewall van Azure werkt niet met wereldwijde peering, dus u moet ten minste één firewall implementatie per regio hebben.
+* Azure ondersteunt 10k toepassing firewallregels en 10 k-netwerkregels.

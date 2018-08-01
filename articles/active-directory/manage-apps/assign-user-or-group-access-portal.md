@@ -1,6 +1,6 @@
 ---
 title: Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory | Microsoft Docs
-description: Hoe u een enterprise app selecteren om een gebruiker of groep aan toewijzen in Azure Active Directory
+description: Het selecteren van een zakelijke app toewijzen van een gebruiker of groep toe in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,55 +11,55 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: 487312cb79c5c278849668a472acfda7823e4bc1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: f23c9976dacc1ca696772d6bf02b5d59e3e0b4d5
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303411"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39369182"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory
-Als u wilt een gebruiker of groep toewijzen aan een enterprise-app, moet u de juiste machtigingen voor het beheren van de enterprise-app hebt en u moet een globale beheerder voor de map.
+Als u wilt een gebruiker of groep aan een enterprise-app toewijst, moet u de juiste machtigingen voor het beheren van de enterprise-app hebt en u moet globale beheerder voor de map.
 
 > [!NOTE]
-> De functies die in dit artikel wordt besproken vereisen een Azure Active Directory Premium P1- of Premium P2-licentie. Zie voor meer informatie de [Azure Active Directory pagina met prijzen](https://azure.microsoft.com/pricing/details/active-directory).
+> De functies die worden beschreven in dit artikel nodig een Azure Active Directory Premium P1- of Premium P2-licentie. Zie voor meer informatie de [Azure Active Directory pagina met prijzen](https://azure.microsoft.com/pricing/details/active-directory).
 
 > [!NOTE]
 > Voor Microsoft Applications (zoals Office 365-apps), PowerShell gebruikers toewijzen aan een enterprise-app te gebruiken.
 
 
-## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Hoe wijs ik toegang voor gebruikers in een enterprise-app in de Azure-portal
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account met globale beheerdersrechten voor de map.
-2. Selecteer **alle services**, Azure Active Directory invoeren in het tekstvak en selecteer vervolgens **Enter**.
-3. Op de **Azure Active Directory - *directoryname***  blade (dat wil zeggen, de Azure AD blade voor de map die u beheert), selecteer **bedrijfstoepassingen**.
+## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Hoe wijs ik gebruikerstoegang toe aan een enterprise-app in Azure portal?
+1. Meld u aan bij [Azure Portal](https://portal.azure.com) met een account van een globale beheerder voor de directory.
+2. Selecteer **alle services**, voert u Azure Active Directory in het tekstvak in en selecteer vervolgens **Enter**.
+3. Op de **Azure Active Directory - *directoryname***  blade (dat wil zeggen, de Azure AD-blade voor de map die u beheert), selecteer **bedrijfstoepassingen**.
 
-    ![Openen zakelijke apps](./media/assign-user-or-group-access-portal/open-enterprise-apps.png)
-4. Op de **bedrijfstoepassingen** blade Selecteer **alle toepassingen**. Hier ziet u de apps die u kunt beheren.
+    ![Bedrijfsapps openen](./media/assign-user-or-group-access-portal/open-enterprise-apps.png)
+4. Op de **bedrijfstoepassingen** Selecteer **alle toepassingen**. Hier ziet u de apps die u kunt beheren.
 5. Op de **bedrijfstoepassingen - alle toepassingen** blade, selecteert u een app.
 6. Op de ***appname*** blade (dat wil zeggen, de blade met de naam van de geselecteerde app in de titel), selecteer **gebruikers en groepen**.
 
     ![De opdracht Alles toepassingen selecteren](./media/assign-user-or-group-access-portal/select-app-users.png)
 7. Op de ***appname*** **-gebruiker & groepstoewijzing** blade, selecteer de **toevoegen** opdracht.
-8. Op de **toevoegen toewijzing** blade Selecteer **gebruikers en groepen**.
+8. Op de **toevoegen toewijzing** Selecteer **gebruikers en groepen**.
 
     ![Een gebruiker of groep toewijzen aan de app.](./media/assign-user-or-group-access-portal/assign-users.png)
-9. Op de **gebruikers en groepen** blade gebruikers of groepen uit de lijst selecteren en selecteer vervolgens de **Selecteer** knop aan de onderkant van de blade.
-10. Op de **toevoegen toewijzing** blade Selecteer **rol**. Klik op de **rol selecteren** blade, selecteert u een rol op de geselecteerde gebruikers of groepen wilt toepassen en selecteer vervolgens de **OK** knop aan de onderkant van de blade.
-11. Op de **toevoegen toewijzing** blade, selecteer de **toewijzen** knop aan de onderkant van de blade. De toegewezen gebruikers of groepen hebt de machtigingen die zijn gedefinieerd door de geselecteerde rol voor deze app voor de onderneming.
+9. Op de **gebruikers en groepen** blade, selecteer een of meer gebruikers of groepen in de lijst en selecteer vervolgens de **Selecteer** knop aan de onderkant van de blade.
+10. Op de **toevoegen toewijzing** Selecteer **rol**. Klik vervolgens op de **rol selecteren** blade, selecteer een rol die u wilt toepassen op de geselecteerde gebruikers of groepen, en selecteer vervolgens de **OK** knop aan de onderkant van de blade.
+11. Op de **toevoegen toewijzing** blade, selecteer de **toewijzen** knop aan de onderkant van de blade. De toegewezen gebruikers of groepen hebt de machtigingen die zijn gedefinieerd door de geselecteerde rol voor deze app enterprise.
 
-## <a name="how-do-i-assign-a-user-to-an-enterprise-app-using-powershell"></a>Hoe wijs ik een gebruiker naar een enterprise-app met behulp van PowerShell
+## <a name="how-do-i-assign-a-user-to-an-enterprise-app-using-powershell"></a>Hoe ik een gebruiker toewijzen aan een enterprise-app met behulp van PowerShell?
 
-1. Open een opdrachtprompt van Windows PowerShell.
+1. Open een opdrachtprompt met verhoogde bevoegdheid Windows PowerShell.
 
     >[!NOTE] 
-    > U moet de AzureAD-module installeren (Gebruik de opdracht `Install-Module -Name AzureAD`). Als u wordt gevraagd om een NuGet-module of de nieuwe Azure Active Directory V2 PowerShell-module te installeren, typt u j en druk op ENTER.
+    > U moet de AzureAD-module installeren (Gebruik de opdracht `Install-Module -Name AzureAD`). Als u hierom wordt gevraagd om een NuGet-module of de nieuwe Azure Active Directory V2 PowerShell-module te installeren, typt u Y en druk op ENTER.
 
-2. Voer `Connect-AzureAD` en meld u aan met een gebruikersaccount globale beheerder.
-3. Gebruik het volgende script een gebruiker en de rol toewijzen aan een toepassing:
+2. Voer `Connect-AzureAD` en meld u aan met een globale beheerdersaccount voor de gebruiker.
+3. Gebruik het volgende script een gebruiker en rol toewijzen aan een toepassing:
 
     ```powershell
     # Assign the values to the variables
@@ -76,15 +76,15 @@ Als u wilt een gebruiker of groep toewijzen aan een enterprise-app, moet u de ju
     New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
     ```     
 
-Voor meer informatie over het toewijzen van een gebruiker aan een toepassingsrol gaat u naar de documentatie voor [nieuw AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
+Voor meer informatie over hoe u een gebruiker toewijzen aan een toepassingsrol gaat u naar de documentatie voor [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
 
-Als u een groep toewijst aan een onderneming app, moet u vervangen `Get-AzureADUser` met `Get-AzureADGroup`.
+Als u wilt een groep toewijzen aan een enterprise-app, moet u vervangen `Get-AzureADUser` met `Get-AzureADGroup`.
 
 ### <a name="example"></a>Voorbeeld
 
-In dit voorbeeld wordt de gebruiker Britta Simon toegewezen aan de [Microsoft werkplek Analytics](https://products.office.com/business/workplace-analytics) toepassing met behulp van PowerShell.
+In dit voorbeeld wordt de gebruiker Britta Simon toegewezen aan de [Microsoft Workplace Analytics](https://products.office.com/business/workplace-analytics) toepassing met behulp van PowerShell.
 
-1. Toewijzen in PowerShell de bijbehorende waarden voor de variabelen $username, $app_naam en $app_role_name. 
+1. Toewijzen in PowerShell, de overeenkomstige waarden ervan op de variabelen $username $app_name en $app_role_name. 
 
     ```powershell
     # Assign the values to the variables
@@ -92,7 +92,7 @@ In dit voorbeeld wordt de gebruiker Britta Simon toegewezen aan de [Microsoft we
     $app_name = "Workplace Analytics"
     ```
 
-2. In dit voorbeeld weten niet we wat de exacte naam van de toepassingsrol die we wilt toewijzen aan Britta Simon is. Voer de volgende opdrachten om op te halen van de gebruiker ($user) en de service-principal ($sp) gebruikt de UPN van de gebruiker en de service-principal weergavenamen.
+2. We weten niet wat de exacte naam van de toepassingsrol die we wilt toewijzen aan Britta Simon is in dit voorbeeld. Voer de volgende opdrachten om op te halen van de gebruiker ($user) en de weergavenamen van de service-principal ($sp) met behulp van de gebruiker UPN en de service-principal.
 
     ```powershell
     # Get the user to assign, and the service principal for the app to assign to
@@ -100,9 +100,9 @@ In dit voorbeeld wordt de gebruiker Britta Simon toegewezen aan de [Microsoft we
     $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
     ```
         
-3. Voer de opdracht `$sp.AppRoles` om de functies die beschikbaar zijn voor de toepassing werkplek Analytics weer te geven. In dit voorbeeld willen we rol toe te wijzen Britta Simon de analist (beperkte toegang).
+3. Voer de opdracht `$sp.AppRoles` om de rollen die beschikbaar zijn voor de toepassing Workplace Analytics weer te geven. In dit voorbeeld dat we willen Britta Simon de rol van de analist (beperkte toegang) toewijzen.
     
-    ![Werkplek Analytics rol](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
+    ![Workplace Analytics rol](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
 
 4. Toewijzen van de naam van de rol aan de `$app_role_name` variabele.
         
@@ -112,7 +112,7 @@ In dit voorbeeld wordt de gebruiker Britta Simon toegewezen aan de [Microsoft we
     $appRole = $sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }
     ```
 
-5. Voer de volgende opdracht om de gebruiker toewijzen aan de app-rol:
+5. Voer de volgende opdracht uit om de gebruiker toewijzen aan de rol van de app:
 
     ```powershell
     # Assign the user to the app role
@@ -120,7 +120,7 @@ In dit voorbeeld wordt de gebruiker Britta Simon toegewezen aan de [Microsoft we
     ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Zie al mijn groepen](../active-directory-groups-view-azure-portal.md)
+* [Zie alle Mijn groepen](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [De toewijzing van een gebruiker of groep verwijderen uit een enterprise-app](remove-user-or-group-access-portal.md)
-* [Uitschakelen van de gebruikersaanmeldingen voor een enterprise-app](disable-user-sign-in-portal.md)
-* [Wijzig de naam of het logo van een enterprise-app](change-name-or-logo-portal.md)
+* [Gebruikersaanmeldingen voor een zakelijke app uitschakelen](disable-user-sign-in-portal.md)
+* [De naam of het logo van een zakelijke app wijzigen](change-name-or-logo-portal.md)

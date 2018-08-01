@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 07/20/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 902516d194a8f3a91cad829e05437343eabf95cd
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 9fc067c46828079f7369683b5edec682747cd5c7
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348330"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391449"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Visual Studio Code gebruiken om te ontwikkelen en fouten opsporen in C-modules voor Azure IoT Edge
 
@@ -73,7 +73,7 @@ Er zijn vier items in de oplossing:
 
 ## <a name="develop-your-module"></a>Uw-module ontwikkelen
 
-De standaardcode voor het Azure-functie die wordt geleverd met de oplossing bevindt zich in **modules** > **\<de modulenaam van uw\>**   >   **main.c**. De module en het bestand deployment.template.json zijn ingesteld zodat u kunt de oplossing te bouwen, deze naar het containerregister pushen en implementeren op een apparaat om te testen zonder code aan te starten. De module is gebouwd om te gewoon nemen invoer van een bron (in dit geval de tempSensor-module die gegevens simuleert) en doorgeven naar IoT Hub. 
+De standaard C-module-code die wordt geleverd met de oplossing bevindt zich in **modules** > **\<de modulenaam van uw\>** > **main.c** . De module en het bestand deployment.template.json zijn ingesteld zodat u kunt de oplossing te bouwen, deze naar het containerregister pushen en implementeren op een apparaat om te testen zonder code aan te starten. De module is gebouwd om te gewoon nemen invoer van een bron (in dit geval de tempSensor-module die gegevens simuleert) en doorgeven naar IoT Hub. 
 
 Wanneer u klaar bent om de sjabloon C met uw eigen code aanpassen, gebruikt u de [Azure IoT Hub SDK's](../iot-hub/iot-hub-devguide-sdks.md) modules bouwen dat adres de sleutel die nodig zijn voor IoT-oplossingen, zoals beveiliging, beheer van apparaten en betrouwbaarheid. 
 
@@ -81,9 +81,15 @@ Wanneer u klaar bent om de sjabloon C met uw eigen code aanpassen, gebruikt u de
 
 In elke modulemap zijn er verschillende Docker-bestanden voor andere containertypen. Gebruik een van deze bestanden die met de extensie eindigen **.debug** uw-module voor het testen van maken. Op dit moment ondersteunen C modules foutopsporing alleen in Linux amd64-containers.
 
-1. In VS Code, gaat u naar de `deployment.template.json` bestand. De URL van uw functie-installatiekopie bijwerken door toe te voegen **.debug** aan het einde.
+1. In VS Code, gaat u naar de `deployment.template.json` bestand. De afbeeldings-URL van uw module bijwerken door toe te voegen **.debug** aan het einde.
 
-   ![Voeg *** .debug op de installatiekopienaam van uw](./media/how-to-develop-c-module/image-debug.png)
+    ![Voeg *** .debug op de installatiekopienaam van uw](./media/how-to-develop-c-module/image-debug.png)
+
+2. Vervang de Node.js-module createOptions in **deployment.template.json** met onderstaande inhoud en sla dit bestand: 
+    
+    ```json
+    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
+    ```
 
 2. Voer in het opdrachtenpalet VS Code en voer de opdracht **Edge: Build IoT Edge-oplossing**.
 3. Selecteer de `deployment.template.json` -bestand voor uw oplossing van de command palette. 
@@ -107,8 +113,7 @@ VS Code houdt opsporen van fouten in configuratie-informatie in een `launch.json
 
 4. VS-Code opsporen in de weergave ziet u de variabelen in het linkerdeelvenster. 
 
-> [!NOTE]
-> In dit voorbeeld laat zien hoe fouten opsporen in .NET Core IoT Edge-modules voor containers. Deze gebaseerd op de foutopsporingsversie van `Dockerfile.debug`, waaronder het opdrachtregelprogramma foutopsporingsprogramma van .NET Core VSDBG in uw containerinstallatiekopie tijdens het maken van deze. Nadat u fouten opsporen in uw C#-modules, wordt aangeraden dat u rechtstreeks gebruiken of aanpassen `Dockerfile` zonder VSDBG voor IoT Edge-modules gereed is voor productie.
+Het vorige voorbeeld laat zien hoe fouten opsporen in C IoT Edge-modules voor containers. Deze blootgestelde poorten in uw container module createOptions toegevoegd. Nadat u klaar bent met het opsporen van fouten in uw Node.js-modules, wordt u aangeraden verwijderen van deze blootgestelde poorten voor de IoT Edge-modules gereed is voor productie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

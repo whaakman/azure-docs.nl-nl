@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 75159319e25ac63907e0d8a2cbf044cf9a854785
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 93ced2d0c79d80a631ad90aa3f5d2dc9f8c79c7e
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308742"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390191"
 ---
 # <a name="language-understanding-faq"></a>Veelgestelde vragen over de Language Understanding
 
@@ -190,7 +190,7 @@ De volgende functies zijn uitgebracht op de Build 2018-conferentie:
 |--|--|
 |Verbeteringen|[Reguliere expressie](luis-concept-data-extraction.md##regular-expression-entity-data) entiteit en [sleutel woordgroep](luis-concept-data-extraction.md#key-phrase-extraction-entity-data) entiteit
 |Patronen|Patronen [concept](luis-concept-patterns.md), [zelfstudie](luis-tutorial-pattern.md), [procedures](luis-how-to-model-intent-pattern.md)<br>[Patterns.Any](luis-concept-entity-types.md) entiteit met inbegrip van concept [expliciete lijst](luis-concept-patterns.md#explicit-lists) voor uitzonderingen<br>[Rollen](luis-concept-roles.md) concept|
-|Integraties|[Tekstanalyse](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) integratie van [sentimentanalyse](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>[Spraak](https://docs.microsoft.com/azure/cognitive-services/speech) integratie van [spraak voorbereiden](luis-how-to-publish-app.md#enable-speech-priming) in combinatie met [spraak SDK](https://aka.ms/SpeechSDK)|
+|Integraties|[Tekstanalyse](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) integratie van [sentimentanalyse](luis-how-to-publish-app.md#enable-sentiment-analysis)<br>[Spraak](https://docs.microsoft.com/azure/cognitive-services/speech) integratie van spraak voorbereiden in combinatie met [spraak SDK](https://aka.ms/SpeechSDK)|
 |Hulpprogramma voor verzending|Onderdeel van [BotBuilder-hulpprogramma's](https://github.com/Microsoft/botbuilder-tools), verzending vanaf de opdrachtregel [hulpprogramma](luis-concept-enterprise.md#when-you-need-to-combine-several-luis-and-qna-maker-apps) meerdere LUIS en QnA Maker apps combineren tot één LUIS-app voor betere intentieherkenning in een Bot
 
 Aanvullende ontwerpen [API-routes](https://github.com/Microsoft/LUIS-Samples/blob/master/authoring-routes.md) zijn opgenomen. 

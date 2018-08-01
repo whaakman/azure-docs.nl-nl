@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: de5ccd62a9624ad463a51fa204c0b5dca19992ef
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: fb4ac675462cf9946a0667e2956c4c0c75b591bf
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226166"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390344"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Instellen van on-premises voorwaardelijke toegang met behulp van Azure Active Directory device Registration service
 Wanneer u vereisen dat gebruikers met workplace join hun persoonlijke apparaten aan de apparaatregistratieservice van Azure Active Directory (Azure AD), kunnen hun apparaten worden gemarkeerd als bekend is bij uw organisatie. Hieronder volgt een stapsgewijze handleiding voor het inschakelen van voorwaardelijke toegang tot on-premises toepassingen met behulp van Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
@@ -165,7 +165,7 @@ Er zijn veel verschillende manieren om te communiceren deze URL naar uw gebruike
 ### <a name="join-a-windows-7-device-by-using-azure-active-directory-device-registration"></a>Deelnemen aan een apparaat met Windows 7 met behulp van Azure Active Directory device Registration service
 Voor het registreren van apparaten voor het domein van Windows 7, moet u implementeren de [softwarepakket voor apparaatregistratie](https://www.microsoft.com/download/details.aspx?id=53554).
 
-Zie voor instructies over het gebruik van het pakket [Windows Installer-pakketten voor Windows 10-computers](device-management-hybrid-azuread-joined-devices-setup.md#windows-installer-packages-for-non-windows-10-computers).
+Zie voor instructies over het gebruik van het pakket [Windows Installer-pakketten voor Windows 10-computers](devices/hybrid-azuread-join-manual-steps.md#windows-installer-packages-for-non-windows-10-computers).
 
 ## <a name="verify-that-registered-devices-are-written-back-to-active-directory"></a>Controleer of dat geregistreerde apparaten worden teruggeschreven naar Active Directory
 U kunt bekijken en controleren of dat uw apparaatobjecten hebben is teruggeschreven naar uw Active Directory met behulp van LDP.exe of ADSI bewerken. Beide zijn beschikbaar met de beheerhulpprogramma's voor Active Directory.

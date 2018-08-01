@@ -1,6 +1,6 @@
 ---
 title: Het verwijderen van een gebruiker toegang tot een toepassing | Microsoft Docs
-description: Begrijpen hoe een gebruiker toegang tot een toepassing te verwijderen
+description: Meer informatie over het verwijderen van een gebruiker toegang tot een toepassing
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,27 +11,27 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: e227f46db05c108c27322e8dd76177cf9849c937
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0deb5215c1379ac552a492f4b9e90df83201aebf
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330329"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364478"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Het verwijderen van een gebruiker toegang tot een toepassing
 
-In dit artikel helpt u om te begrijpen hoe een gebruiker toegang tot een toepassing te verwijderen.
+In dit artikel helpt u te begrijpen hoe u van een gebruiker toegang tot een toepassing te verwijderen.
 
 ## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Ik wil een specifieke gebruiker of groep van toewijzing aan een toepassing verwijderen
 
-Als u wilt verwijderen van een gebruiker of groepstoewijzing aan een toepassing, volg de stappen in de [de toewijzing van een gebruiker of groep verwijderen uit een enterprise-app in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) artikel.
+Als u wilt verwijderen van een gebruiker of groepstoewijzing aan een toepassing, volgt u de stappen in de [de toewijzing van een gebruiker of groep verwijderen uit een enterprise-app in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) artikel.
 
 . ## ik wil alle toegang tot een toepassing voor elke gebruiker uitschakelen
 
-Schakel alle gebruikersaanmeldingen tot een toepassing die de stappen die worden vermeld in de [gebruikersaanmeldingen een enterprise-App in Azure Active Directory uitschakelen](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) artikel.
+Als u wilt alle gebruikers zich aangemeld bij een toepassing uitschakelen, volgt u de stappen in de [gebruikersaanmeldingen voor een enterprise-app in Azure Active Directory uitschakelen](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) artikel.
 
 ## <a name="i-want-to-delete-an-application-entirely"></a>Ik wil een toepassing volledig verwijderen
 
@@ -39,11 +39,11 @@ Naar **verwijderen van een toepassing**, volgt u deze instructies:
 
 1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van de belangrijkste links navigatiemenu.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het menu van de linkernavigatiebalk Azure Active Directory.
+4.  Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
 
 5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
@@ -51,25 +51,25 @@ Naar **verwijderen van een toepassing**, volgt u deze instructies:
 
 6.  Selecteer de toepassing die u wilt verwijderen.
 
-7.  Nadat de toepassing wordt geladen, klikt u op **verwijderen** pictogram van de bovenste toepassing **overzicht** deelvenster.
+7.  Nadat de toepassing wordt geladen, klikt u op **verwijderen** pictogram in de bovenste toepassing **overzicht** deelvenster.
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Ik wil alle bewerkingen van toekomstige gebruikers toestemming voor elke toepassing uitschakelen
 
-Toestemming van de gebruiker uitschakelt voor uw hele directory te voorkomen dat eindgebruikers ermee akkoord dat elke toepassing. Beheerders kunnen nog steeds op behalves van de gebruiker toestemming. Meer informatie over de toepassing toestemming en waarom u niet wilt doen, of lezen [wat gebruikers- en toestemming van de beheerder](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+Toestemming van de gebruiker wordt uitgeschakeld voor uw hele directory te voorkomen dat eindgebruikers ermee akkoord dat voor elke toepassing. Beheerders kunnen nog steeds op van de gebruiker behalves instemmen. Voor meer informatie over de toestemming van de toepassing en waarom u niet wenst dat mogelijk dit wilt doen of lezen [inzicht in gebruikers- en toestemming van een beheerder](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
 
-Naar **uitschakelen alle toekomstige gebruikers toestemming bewerkingen in uw hele directory**, volgt u deze instructies:
+Naar **uitschakelen van alle toekomstige gebruikers toestemming bewerkingen in uw hele directory**, volgt u deze instructies:
 
 1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van de belangrijkste links navigatiemenu.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
 4.  Klik op **gebruikers en groepen** in het navigatiemenu.
 
 5.  Klik op **gebruikersinstellingen**.
 
-6.  Alle toekomstige gebruikers toestemming bewerkingen uitschakelen door in te stellen de **gebruikers kunnen toestaan dat apps toegang tot hun gegevens** in-of uitschakelen op **Nee** en klik op de **opslaan** knop.
+6.  Alle toekomstige gebruikers toestemming bewerkingen uitschakelen door in te stellen de **gebruikers kunnen toestaan dat apps toegang tot hun gegevens** overzet naar **Nee** en klikt u op de **opslaan** knop.
 
 
 # <a name="next-steps"></a>Volgende stappen

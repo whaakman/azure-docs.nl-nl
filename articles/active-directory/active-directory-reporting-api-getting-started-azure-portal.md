@@ -16,12 +16,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ce8630f5718a849f460b372d9e15b03902ac2117
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 89562e6a2bfb977585cec1925a5f306c69c3d1e8
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159676"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390667"
 ---
 # <a name="get-started-with-the-azure-active-directory-reporting-api"></a>Aan de slag met de Azure Active Directory reporting API
 
@@ -43,8 +43,6 @@ Voor toegang tot de rapportage-API, zelfs als u van plan bent over de toegang to
 3. Machtigingen verlenen
 4. Verzamelen van configuratie-instellingen
 
-
- 
 Zie voor gedetailleerde instructies, de [vereisten voor toegang tot de Azure Active Directory reporting API](active-directory-reporting-api-prerequisites-azure-portal.md).
 
 ## <a name="apis-with-graph-explorer"></a>API's met Graph Explorer
@@ -55,9 +53,9 @@ U kunt de [MSGraph explorer](https://developer.microsoft.com/en-us/graph/graph-e
 
 ![Machtigingen voor gebruikersinterface wijzigen](./media/active-directory-reporting-api-getting-started-azure-portal/modify-permissions.png)
 
-## <a name="recommendation"></a>Aanbeveling 
+## <a name="use-certificates-to-access-the-azure-ad-reporting-api"></a>Certificaten gebruiken voor toegang tot de rapportage-API van Azure AD 
 
-Als u van plan bent over het ophalen van rapportgegevens zonder tussenkomst van de gebruiker, moet u overwegen de Reporting API van Azure AD met certificaten.
+Overweeg het gebruik van de Reporting API van Azure AD met certificaten, als u van plan bent om op te halen van de rapportagegegevens zonder tussenkomst van de gebruiker.
 
 Zie voor gedetailleerde instructies [ophalen van gegevens met behulp van de Reporting API van Azure AD met certificaten](active-directory-reporting-api-with-certificates.md).
 
@@ -67,17 +65,13 @@ Zie voor gedetailleerde instructies [ophalen van gegevens met behulp van de Repo
 Haal een eerste indruk van de rapportage-API's:
    
    - [Met behulp van de voorbeelden voor de API-controle](active-directory-reporting-api-audit-samples.md) 
- 
    - [Met behulp van de voorbeelden voor het rapport van aanmeldingsactiviteiten API](active-directory-reporting-api-sign-in-activity-samples.md)
 
 
-## <a name="customize"></a>Aanpassen  
+## <a name="next-steps"></a>Volgende stappen
 
-Maak uw eigen oplossing: 
-   
-   - [Met behulp van de audit API-verwijzing](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-
-   - [Met behulp van de aanmeldingsactiviteiten rapport API-verwijzing](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
-
+ * [Controle van de API-verwijzing](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+ * [Rapport van aanmeldingsactiviteiten API-verwijzing](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+ * [Fouten oplossen in Azure AD rapportage-API](active-directory-reporting-troubleshoot-graph-api.md)
 
 

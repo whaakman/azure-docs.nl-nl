@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: aa575340c0775369d4be05b5e323c05f7dd3218a
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 34696802735fd2a145cd6383dcdc7e4a4b6368e2
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348328"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391406"
 ---
 # <a name="set-up-security-info-to-use-email-preview"></a>Beveiligingsgegevens ingesteld voor het gebruik van e-mailadres (preview)
 
@@ -29,7 +29,7 @@ Instellen van je beveiligingsgegevens, moet u zich aanmelden bij uw werk of scho
 Afhankelijk van instellingen van uw organisatie, u mogelijk gevraagd een e-mailadres toevoegen aan je beveiligingsgegevens, wanneer u zich aanmeldt. Anders wordt om te beginnen met het instellen van e-mailadres in beveiligingsgegevens, volg de stappen in [je beveiligingsgegevens beheren](security-info-manage-settings.md).
 
 >[!Note]
->Als u de e-optie niet ziet, is het mogelijk dat uw organisatie niet kunt u een e-mailadres voor verificatie gebruiken. Als dit het geval is, moet u een andere methode kiezen of neem contact op met uw beheerder voor meer informatie.
+>Het is raadzaam om met behulp van een e-mailaccount dat uw netwerkwachtwoord voor toegang tot niet nodig.<br>Als u de e-optie niet ziet, is het mogelijk dat uw organisatie niet kunt u een e-mailadres voor verificatie gebruiken. Als dit het geval is, moet u een andere methode kiezen of neem contact op met uw beheerder voor meer informatie.
 
 ### <a name="to-use-your-email-address"></a>Uw e-mailadres gebruiken
 

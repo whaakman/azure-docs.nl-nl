@@ -1,53 +1,51 @@
 ---
-title: Het aanmelden voor Azure Video indexeerfunctie en het uploaden van uw eerste video | Microsoft Docs
-description: In dit onderwerp wordt beschreven hoe registreren en uw eerste video met behulp van de Video indexeerfunctie portal uploaden.
+title: Hoe u zich aanmelden voor Video Indexer van Azure en uw eerste video uploaden | Microsoft Docs
+description: In dit onderwerp ziet u hoe u zich aanmelden en uw eerste video met behulp van de Video Indexer-portal uploaden.
 services: cognitive services
 documentationcenter: ''
 author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: 5310ae419f7eb1e1e1b54e9c0669c9ecfe62f7cc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a05b7b71cf7af54140167c99ea6cc2d7e306d2de
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "35345908"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390855"
 ---
-# <a name="how-to-sign-up-and-upload-your-first-video"></a>Het aanmelden en uw eerste video uploaden
+# <a name="how-to-sign-up-and-upload-your-first-video"></a>Hoe u zich aanmelden en uw eerste video uploaden
 
-Deze korte zelfstudie aan de slag toont hoe u aan te melden bij Video indexeerfunctie en het uploaden van uw eerste video.
+In deze korte zelfstudie ziet u hoe u zich aanmeldt bij Video Indexer en over het uploaden van uw eerste video.
 
-Vindt u een gedetailleerd overzicht van de indexeerfunctie Video-service de [overzicht](video-indexer-overview.md) artikel.
+> [!Note]
+> Als u een Video Indexer-account maakt, kunt u een gratis proefaccount (waar u aan een bepaald aantal gratis indexering minuten) of een betaalde optie (waarbij u bent niet beperkt door het quotum). <br/>Met gratis proefversie Video Indexer biedt maximaal 600 minuten gratis worden geïndexeerd voor gebruikers van de website en maximaal 2400 minuten gratis indexing voor een API-gebruikers. <br/>Betaalde optie, maakt u een Video Indexer-account dat is [verbonden met uw Azure-abonnement en een Azure Media Services-account](connect-to-azure.md). U betaalt voor minuten geïndexeerd, evenals de Media-Account gekoppeld kosten in rekening gebracht. 
 
 ## <a name="sign-up-and-sign-in"></a>Registreren en aanmelden
 
-Start ontwikkelen met Video indexeerfunctie, moet u eerst aanmelden en aanmelden bij de [Video indexeerfunctie](https://api-portal.videoindexer.ai/) portal. 
+Begin met ontwikkelen met Video Indexer, moet u eerst aanmelden en aanmelden bij de [Video Indexer](https://api-portal.videoindexer.ai/) portal. 
      
-Zie voor meer informatie [aan de slag met API's](video-indexer-use-apis.md).
+Zie voor meer informatie, [Start met behulp van API's](video-indexer-use-apis.md).
 
-## <a name="upload-a-video-using-the-video-indexer-portal"></a>Een video via de portal Video indexeerfunctie uploaden
+## <a name="upload-a-video-using-the-video-indexer-portal"></a>Een video met behulp van de Video Indexer-portal uploaden
 
 1. Aanmelden bij [https://www.videoindexer.ai/](https://www.videoindexer.ai/)
-2. Als u wilt uploaden video, drukt u op de knop uploaden of de koppeling.
+2. Als u wilt uploaden van video, drukt u op de knop voor uploaden of de koppeling.
 
  ![Uploaden](./media/video-indexer-get-started/video-indexer-upload.png)
 
-Na het uploaden van uw video Video indexeerfunctie indexeren en analyseren van de video wordt gestart.
+Zodra uw video is geüpload, start Video Indexer indexeren en analyseren van de video.
 
 ![Geüpload](./media/video-indexer-get-started/video-indexer-uploaded.png) 
 
-Video indexeerfunctie hierna analyseren, ontvangt u een melding met een koppeling naar uw video en een korte beschrijving van wat is gevonden in uw video. Bijvoorbeeld: mensen, onderwerpen, optisch.
-
-> [!Note]
-> De gratis proefversie heeft een totale quotumlimiet van 40 uur en een dagelijkse uploadlimiet van 100 bestanden. Houd er rekening mee dat de totale quota en de dagelijkse limiet kunnen worden gewijzigd.
+Video Indexer hierna analyseren, ontvangt u een melding met een koppeling naar uw video en een korte beschrijving van wat is gevonden in uw video. Bijvoorbeeld: mensen, onderwerpen, optisch.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt nu de [Video indexeerfunctie portal](video-indexer-view-edit.md) of de [API](video-indexer-use-apis.md) om te zien van de inzichten van de video. 
+U kunt nu de [Video Indexer-portal](video-indexer-view-edit.md) of de [API](video-indexer-use-apis.md) om de inzichten van de video te bekijken. 
 
 ## <a name="see-also"></a>Zie ook
 
-[Video indexeerfunctie-overzicht](video-indexer-overview.md)
+[Video Indexer-overzicht](video-indexer-overview.md)

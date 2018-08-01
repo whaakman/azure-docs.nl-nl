@@ -15,12 +15,12 @@ ms.component: compliance-reports
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0da0e5d4b7dd8ff000d6c56716bea1b36935af01
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 44ec19721ba59898915f6547231fb586cb44eb30
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928903"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389749"
 ---
 # <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Gegevens ophalen met de Azure Active Directory rapportage-API met certificaten
 
@@ -85,10 +85,9 @@ Nu kunt u deze gegevens exporteren naar een CSV en opslaan in een SIEM-systeem. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Een eerste indruk van de rapportage-API 's krijgen](active-directory-reporting-api-getting-started-azure-portal.md#explore)
-
-- [Uw eigen oplossing maken](active-directory-reporting-api-getting-started-azure-portal.md#customize)
-
+* [Een eerste indruk van de rapportage-API 's krijgen](active-directory-reporting-api-getting-started-azure-portal.md)
+* [Controle van de API-verwijzing](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
+* [Rapport van aanmeldingsactiviteiten API-verwijzing](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
 
 
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: fd2539830ab20fe4c63ddf3bb97cccdb13e535ea
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 02f730aaf9f47da564d459577a31377ef63207a4
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857001"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390633"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Wat zijn de Hadoop-onderdelen en versies die beschikbaar met HDInsight?
 
@@ -36,7 +36,7 @@ De component-versies die zijn gekoppeld aan de versies van HDInsight-cluster wor
 > [!NOTE]
 > De standaardversie voor de HDInsight-service kan zonder kennisgeving worden gewijzigd. Als u een afhankelijkheid versie hebt, geeft u de HDInsight-versie wanneer u uw clusters met de .NET-SDK met Azure PowerShell en Azure CLI maken.
 
-| Component | HDInsight 3.6 (standaard) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | 3.2 voor HDInsight | HDInsight 3.1 | HDInsight 3.0 |
+| Onderdeel | HDInsight 3.6 (standaard) | HDInsight 3.5 | HDInsight 3.4 | HDInsight 3.3 | 3.2 voor HDInsight | HDInsight 3.1 | HDInsight 3.0 |
 | --- | --- | --- | --- | --- | --- | --- |--- |
 | Hortonworks Data Platform |2.6 |2.5 |2.4 |2.3 |2.2 |2.1.7 |2.0 |
 | Apache Hadoop en YARN |2.7.3 |2.7.3 |2.7.1 |2.7.1 |2.6.0 |2.4.0 |2.2.0 |
@@ -81,10 +81,9 @@ De volgende tabellen worden de versies van HDInsight. De HDP-versies die met elk
 
 De volgende tabel bevat de versies van HDInsight die beschikbaar in de Azure-Portal, evenals andere methoden voor het implementeren, zoals PowerShell en .NET SDK zijn.
 
-| HDInsight-versie | HDP-versie | VM OS | Uitgebracht op | Datum van afloop voor ondersteuning | Vervaldatum | Hoge beschikbaarheid |  Beschikbaarheid in Azure portal | 
+| HDInsight-versie | HDP-versie | VM OS | Releasedatum | Datum van afloop voor ondersteuning | Vervaldatum | Hoge beschikbaarheid |  Beschikbaarheid in Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 april 2017 | | |Ja |Ja |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 december 2015 |27 juni 2016 |En met 31 juli 2018 |Ja |Nee |
 
 > [!NOTE]
 > Na de ondersteuning voor een versie is verlopen, wordt mogelijk niet beschikbaar via de Microsoft Azure-portal. Clusterversies blijven echter zijn beschikbaar met de `Version` parameter in de Windows PowerShell [New-AzureRmHDInsightCluster](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/new-azurermhdinsightcluster) opdracht en de .NET SDK tot de vervaldatum van de versie.
@@ -94,10 +93,11 @@ De volgende tabel bevat de versies van HDInsight die beschikbaar in de Azure-Por
 
 De volgende tabel bevat de versies van HDInsight die **niet** beschikbaar in de Azure-Portal.
 
-| HDInsight-versie | HDP-versie | VM OS | Uitgebracht op | Datum van afloop voor ondersteuning | Vervaldatum | Hoge beschikbaarheid |  Beschikbaarheid in Azure portal | 
+| HDInsight-versie | HDP-versie | VM OS | Releasedatum | Datum van afloop voor ondersteuning | Vervaldatum | Hoge beschikbaarheid |  Beschikbaarheid in Azure portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |En met 30 september 2016 |5 september 2017 |28 juni 2018 |Ja |Nee |
 | HDInsight 3.4 |HDP 2.4 |14.0.4 Ubuntu LTS |29 maart 2016 |29 december 2016 |9 januari 2018 |Ja |Nee |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 december 2015 |27 juni 2016 |En met 31 juli 2018 |Ja |Nee |
 | HDInsight 3.3 |HDP 2.3 |14.0.4 Ubuntu LTS |2 december 2015 |27 juni 2016 |En met 31 juli 2017 |Ja |Nee |
 | 3.2 voor HDInsight |HDP 2.2 |Ubuntu 12.04 LTS of Windows Server 2012 R2 |18 februari 2015 |1 maart 2016 |Vanaf 1 april 2017 |Ja |Nee |
 | HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 juni 2014 |18 mei 2015 |Tot 30 juni 2016 |Ja |Nee |
@@ -116,7 +116,7 @@ Beveiliging voor bedrijven is een optioneel pakket die u als onderdeel van de cl
 
     In het verleden, kunt u alleen een HDInsight-clusters maken met een lokale beheerder en een lokale SSH-gebruiker. De gebruiker met lokale beheerdersrechten kan toegang tot alle bestanden, mappen, tabellen en kolommen.  Met de Enterprise-beveiligingspakket, kunt u op rollen gebaseerd toegangsbeheer inschakelen door de integratie van HDInsight-clusters met uw eigen Active Directory, waaronder on-premises Active Directory, Azure Active Directory Domain Services, of Active Directory op IaaS de virtuele machine. Domeinbeheerder op het cluster kan gebruikers voor het gebruik van hun eigen bedrijf (domein)-gebruikersnaam en wachtwoord voor toegang tot het cluster verlenen. 
 
-    Ga voor meer informatie naar:
+    Zie voor meer informatie:
 
     - [Een inleiding tot Hadoop-beveiliging met aan domein gekoppelde HDInsight-clusters](./domain-joined/apache-domain-joined-introduction.md)
     - [Azure domein Hadoop-clusters in HDInsight plannen](./domain-joined/apache-domain-joined-architecture.md)
@@ -128,7 +128,7 @@ Beveiliging voor bedrijven is een optioneel pakket die u als onderdeel van de cl
     - Integratie met Apache Ranger voor autorisatie voor Hive, Apache Spark SQL en Yarn-wachtrijen.
     - U kunt toegangsbeheer voor bestanden en mappen instellen.
 
-    Ga voor meer informatie naar:
+    Zie voor meer informatie:
 
     - [Hive-beleidsregels configureren in aan domein gekoppelde HDInsight](./domain-joined/apache-domain-joined-run-hive.md)
 
@@ -140,7 +140,7 @@ Op dit moment ondersteunen alleen de volgende clustertypen de Enterprise-beveili
 
 - Hadoop (alleen HDInsight 3.6)
 - Spark
-- Interactieve query
+- Interactive Query
 
 ### <a name="support-for-azure-data-lake-store"></a>Ondersteuning voor Azure Data Lake Store
 
@@ -235,7 +235,7 @@ De volgende tabellen worden de standaardgrootte van de virtuele machine (VM) voo
 
 * Alle ondersteunde regio's met uitzondering van Brazilië-Zuid en Japan (West):
 
-  | Clustertype | Hadoop | HBase | Interactieve query | Storm | Spark | ML-Server |
+  | Clustertype | Hadoop | HBase | Interactive Query | Storm | Spark | ML-Server |
   | --- | --- | --- | --- | --- | --- | --- |
   | HEAD: standaard VM-grootte |D3 v2 |D3 v2 | D13, D14 |A3 |D12 v2 |D12 v2 |
   | HEAD: aanbevolen VM-grootten |D3 v2, D4 v2, D12 v2 |D3 v2, D4 v2, D12 v2  | D13, D14 |A3, A4, A5 |D12 v2, D13 v2, D14 v2 |D12 v2, D13 v2, D14 v2 |
@@ -247,7 +247,7 @@ De volgende tabellen worden de standaardgrootte van de virtuele machine (VM) voo
   | Edge: aanbevolen VM-grootte | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Brazilië-Zuid en Japan-West alleen (geen v2-grootte):
 
-  | Clustertype | Hadoop | HBase | Interactieve query |Storm | Spark | ML-Server |
+  | Clustertype | Hadoop | HBase | Interactive Query |Storm | Spark | ML-Server |
   | --- | --- | --- | --- | --- | --- | --- |
   | HEAD: standaard VM-grootte |D3 |D3  | D13, D14 |A3 |D12 |D12 |
   | HEAD: aanbevolen VM-grootten |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |

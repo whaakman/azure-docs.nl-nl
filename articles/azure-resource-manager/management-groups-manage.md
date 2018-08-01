@@ -12,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2018
 ms.author: rithorn
-ms.openlocfilehash: 967aa87f89eff34427456bad3828e1e6509639cf
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: fab26fec44b671a9f779b114c1521bc8142d9427
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358686"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389395"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Uw resources beheren met beheergroepen
 
-Beheergroepen zijn containers waarmee u toegang, beleid en naleving beheren voor meerdere abonnementen. U kunt wijzigen, verwijderen en beheren van deze containers om hiërarchieën die kunnen worden gebruikt met [Azure Policy](../azure-policy/azure-policy-introduction.md) en [Azure rollen gebaseerde toegang besturingselementen (RBAC)](../role-based-access-control/overview.md). Zie voor meer informatie over het van beheergroepen, [organiseren van uw resources met Azure-beheergroepen ](management-groups-overview.md).
+Beheergroepen zijn containers waarmee u toegang, beleid en naleving beheren voor meerdere abonnementen. U kunt wijzigen, verwijderen en beheren van deze containers om hiërarchieën die kunnen worden gebruikt met [Azure Policy](../azure-policy/azure-policy-introduction.md) en [Azure rollen gebaseerde toegang besturingselementen (RBAC)](../role-based-access-control/overview.md). Zie voor meer informatie over het van beheergroepen, [organiseren van uw resources met Azure-beheergroepen](management-groups-overview.md).
 
 Als u wilt wijzigingen aanbrengt aan een beheergroep, moet u een rol eigenaar of bijdrager hebben voor de beheergroep. Om te zien welke machtigingen u hebt, selecteert u de beheergroep en selecteer vervolgens **IAM**. Zie voor meer informatie over RBAC-rollen, [beheren van toegang en machtigingen met RBAC](../role-based-access-control/overview.md).
 
-[!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="change-the-name-of-a-management-group"></a>Wijzig de naam van een beheergroep
 

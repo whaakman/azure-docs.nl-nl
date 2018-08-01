@@ -1,6 +1,6 @@
 ---
-title: Probleem administrator-referenties opslaan bij het configureren van gebruikers inrichten tot een galerie van Azure AD-toepassing | Microsoft Docs
-description: Het oplossen van algemene problemen bij het configureren van gebruikers inrichten tot een toepassing die al in de Azure AD-Toepassingsgalerie
+title: Probleem bij het opslaan van administratorreferenties tijdens het inrichten van gebruikers naar een toepassing in Azure AD-galerie configureren | Microsoft Docs
+description: Het oplossen van veelvoorkomende problemen met het configureren gebruikers in te richten al een toepassing die worden vermeld in de Azure AD-Toepassingsgalerie
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,38 +11,38 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 1146df364a08128b5cd191ed1120198ae31b763e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b31e4a9a15f4ed9bfb51e26252a00c749ef333ce
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337791"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366907"
 ---
-# <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Probleem bij het opslaan van referenties tijdens het configureren van gebruikers inrichten tot een galerie van Azure Active Directory-toepassing 
+# <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Problemen bij het opslaan van referenties tijdens het inrichten van gebruikers naar een galerie van Azure Active Directory-toepassing configureren 
 
-Wanneer u de Azure-portal voor het configureren van [automatisch gebruikers inrichten](active-directory-saas-app-provisioning.md) voor een zakelijke toepassing een situatie kunnen optreden wanneer:
+Bij het gebruik van de Azure-portal configureren [automatisch gebruikers inrichten](active-directory-saas-app-provisioning.md) voor een bedrijfstoepassing, kan er een situatie waarbij:
 
-* De **beheerdersreferenties** hebt ingevoerd voor de toepassing geldig zijn, en de **testverbinding** knop werkt. Echter, de referenties kunnen niet worden opgeslagen en de Azure-portal retourneert een algemene foutmelding.
+* De **beheerdersreferenties** hebt ingevoerd voor de toepassing geldig zijn, en de **testverbinding** knop werkt. Echter, de referenties kunnen niet worden opgeslagen en de Azure-portal geeft als resultaat een algemeen foutbericht krijgen.
 
-Op basis van SAML eenmalige aanmelding ook is geconfigureerd voor dezelfde toepassing, de meest waarschijnlijke oorzaak van de fout is dat Azure AD interne, per toepassing opslaglimiet voor certificaten als referenties is overschreden.
+Als SAML gebaseerde eenmalige aanmelding ook is geconfigureerd voor dezelfde toepassing, de meest waarschijnlijke oorzaak van de fout is dat Azure AD-limiet voor interne, per toepassing opslag voor certificaten en referenties is overschreden.
 
-Momenteel Azure AD heeft een maximale capaciteit van een kilobyte voor alle certificaten, geheime tokens, referenties en verwante configuratiegegevens die zijn gekoppeld aan één exemplaar van een toepassing (ook wel bekend als een service principal-record in Azure AD).
+Azure AD op dit moment heeft een maximale capaciteit van een kilobyte voor alle certificaten, geheime tokens, referenties en verwante configuratiegegevens die zijn gekoppeld aan één exemplaar van een toepassing (ook wel bekend als een service principal-record in Azure AD).
 
-Wanneer op basis van SAML eenmalige aanmelding is geconfigureerd, wordt het certificaat gebruikt voor het ondertekenen van de SAML-tokens hier is opgeslagen en vaak verbruikt meer dan 50 procent van de ruimte.
+Wanneer SAML gebaseerde eenmalige aanmelding is geconfigureerd, wordt het certificaat dat wordt gebruikt voor het ondertekenen van de SAML-tokens worden opgeslagen en vaak verbruikt meer dan 50 procent van de ruimte.
 
-Alle geheime tokens, URI's melding e-mailadressen, gebruikersnamen en wachtwoorden op dat ophalen ingevoerd tijdens de installatie van de gebruikersinrichting kunnen leiden tot de opslaglimiet wordt overschreden.
+Een geheim tokens, URI's melding e-mailadressen, gebruikersnamen en wachtwoorden op dat u hebt opgegeven tijdens de installatie van het inrichten van gebruikers kunnen leiden tot de limiet voor opslag wordt overschreden.
 
-## <a name="how-to-work-around-this-issue"></a>Hoe u kunt dit probleem omzeilen 
+## <a name="how-to-work-around-this-issue"></a>Hoe u dit probleem omzeilen 
 
-Er zijn twee mogelijke manieren vandaag de dag dit probleem omzeilen:
+Er zijn twee manieren om vandaag nog dit probleem omzeilen:
 
-1. **Galerie met twee exemplaren van een toepassing, één voor eenmalige aanmelding en één voor gebruikers inrichten gebruiken** -de galerie-toepassing duurt [LinkedIn bevoegdheden](saas-apps/linkedinelevate-tutorial.md) als voorbeeld, kunt u LinkedIn worden de bevoegdheden van de galerie toevoegen en configureren het is voor eenmalige aanmelding. Voor het inrichten, toevoegen van een ander exemplaar van het LinkedIn worden de bevoegdheden van de app-galerie van Azure AD en naam 'LinkedIn uitbreiden (inrichten)'. Voor deze tweede exemplaar configureren [inrichting](saas-apps/linkedinelevate-provisioning-tutorial.md), maar geen eenmalige aanmelding. Wanneer u deze tijdelijke oplossing, dezelfde gebruikers en groepen moeten [toegewezen](manage-apps/assign-user-or-group-access-portal.md) voor beide toepassingen. 
+1. **Gebruik de galerie met twee exemplaren van een toepassing, één voor één aanmelding en één voor het inrichten van gebruikers** -houdend met de toepassing in de galerie [LinkedIn met verhoogde bevoegdheden](saas-apps/linkedinelevate-tutorial.md) als voorbeeld, kunt u LinkedIn met verhoogde bevoegdheden uit de galerie toevoegen en configureren het is voor eenmalige aanmelding. Voor het inrichten, een ander exemplaar van LinkedIn met verhoogde bevoegdheden uit de galerie met Azure AD-app toevoegen en de naam "LinkedIn toestaan (inrichten)." Voor deze tweede exemplaar configureren [inrichting](saas-apps/linkedinelevate-provisioning-tutorial.md), maar geen eenmalige aanmelding. Wanneer u deze tijdelijke oplossing, de dezelfde gebruikers en groepen moeten worden [toegewezen](manage-apps/assign-user-or-group-access-portal.md) voor beide toepassingen. 
 
-2. **Verklein de hoeveelheid opgeslagen configuratiegegevens** -alle gegevens die zijn opgegeven in de [beheerdersreferenties](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) sectie van het tabblad voor inrichting is opgeslagen in dezelfde locatie als het SAML-certificaat. Hoewel het niet mogelijk om te beperken, de lengte van al deze gegevens, sommige velden optionele configuratie, zoals de **e-mailmelding** kan worden verwijderd.
+2. **Verminder de hoeveelheid opgeslagen configuratiegegevens** -alle gegevens die zijn opgegeven in de [beheerdersreferenties](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) sectie van het tabblad voor de inrichting is opgeslagen op dezelfde plaats als het SAML-certificaat. Hoewel het niet mogelijk om te beperken van de lengte van al deze gegevens, voor sommige velden optionele configuratie, zoals de **e-mailmelding** kan worden verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Gebruiker inrichting en inrichten van de SaaS-toepassingen configureren](active-directory-saas-app-provisioning.md)
+[Gebruiker inrichting en ongedaan maken inrichting voor SaaS-toepassingen configureren](active-directory-saas-app-provisioning.md)

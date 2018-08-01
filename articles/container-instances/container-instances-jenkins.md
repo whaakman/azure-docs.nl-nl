@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 08/31/2018
 ms.author: marsma
-ms.openlocfilehash: d8ac5850a61c1dec9daa508236ef56836876c3fe
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 6419753a48e1356b2d94592fca72cee1f848dcdb
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072072"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390650"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Gebruik Azure Container Instances als een Jenkins build-agent
 
@@ -127,6 +127,10 @@ Als u wilt testen van de build-taak en u ziet Azure Container Instances als de b
 4. Nadat alle build-taken hebt voltooid, wordt de containerinstanties zijn verwijderd.
 
    ![Resourcegroep met container instances is verwijderd](./media/container-instances-jenkins/jenkins-aci-none.png)
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>De Jenkins-invoegtoepassing oplossen
+
+Als u er fouten met de Jenkins-invoegtoepassingen optreden, dient u een probleem in de [Jenkins JIRA](https://issues.jenkins-ci.org/) voor het specifieke onderdeel.
 
 ## <a name="next-steps"></a>Volgende stappen
 

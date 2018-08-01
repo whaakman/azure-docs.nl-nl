@@ -1,27 +1,23 @@
 ---
-title: BizTalk Server EDI-oplossingen migreren naar BizTalk Services technische handleiding | Microsoft Docs
-description: EDI migreren naar MABS; Microsoft Azure BizTalk Services
+title: BizTalk Server EDI-oplossingen migreren naar BizTalk Services | Microsoft Docs
+description: Leer hoe u kunt uw Microsoft BizTalk Server EDI-oplossingen migreren naar Microsoft Azure BizTalk Services (MABS)
 services: biztalk-services
-documentationcenter: na
-author: MandiOhlinger
-manager: anneta
-editor: ''
-ms.assetid: 61c179fa-3f37-495b-8016-dee7474fd3a6
 ms.service: biztalk-services
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: jonfancey
+ms.author: jonfan
+manager: jeconnoc
 ms.topic: article
-ms.date: 11/07/2016
-ms.author: mandia
-ms.openlocfilehash: aaa7028bb37ac4c2c313efce2afebc1dc5e814d2
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.date: 07/31/2018
+ms.reviewer: jonfan, LADocs
+ms.suite: integration
+ms.openlocfilehash: 4ce65f1b5dd22da031ebf6730b5efad2d04f91a0
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860075"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365584"
 ---
-# <a name="migrating-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Server EDI-oplossingen migreren naar BizTalk Services: technische handleiding
+# <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Server EDI-oplossingen migreren naar BizTalk Services: technische handleiding
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -32,9 +28,9 @@ Revisoren: Karthik Bharthy
 Met behulp van geschreven: Microsoft Azure BizTalk Services – februari 2014-release.
 
 ## <a name="introduction"></a>Inleiding
-(EDI, Electronic Data Interchange) is een van de meest voorkomende manier waarop bedrijven exchange de gegevens elektronisch, ook als Business-to-Business- of B2B-transacties worden genoemd. BizTalk Server heeft EDI-ondersteuning voor meer dan een decennium, sinds de eerste release van BizTalk Server. Microsoft blijft de ondersteuning voor EDI-oplossingen met BizTalk Services, de op het Microsoft Azure-platform. B2B-transacties worden meestal buiten een organisatie en daarom is het gemakkelijker te implementeren als deze is geïmplementeerd op een cloudplatform. Microsoft Azure biedt deze mogelijkheid tot en met BizTalk Services.
+(EDI, Electronic Data Interchange) is een van de meest voorkomende manier waarop bedrijven exchange de gegevens elektronisch, ook als Business-to-Business- of B2B-transacties worden genoemd. BizTalk Server heeft EDI-ondersteuning voor ruim tien jaar na de initiële release van BizTalk Server. Microsoft blijft de ondersteuning voor EDI-oplossingen met BizTalk Services, de op het Microsoft Azure-platform. B2B-transacties worden meestal buiten een organisatie en daarom is het gemakkelijker te implementeren als deze is geïmplementeerd op een cloudplatform. Microsoft Azure biedt deze mogelijkheid tot en met BizTalk Services.
 
-Hoewel sommige klanten naar BizTalk Services als een 'greenfield'-platform voor het nieuwe EDI-oplossingen kijkt, hebben veel klanten huidige BizTalk Server EDI-oplossingen die ze wilt migreren naar Azure. Omdat EDI van BizTalk Services is ontworpen is op basis van de dezelfde voornaamste entiteiten als BizTalk Server EDI-architectuur (trading partners, entiteiten, overeenkomsten), het mogelijk om te migreren van BizTalk Server EDI-artefacten naar BizTalk Services.
+Hoewel sommige klanten naar BizTalk Services als een 'groen veld'-platform voor het nieuwe EDI-oplossingen kijkt, hebben veel klanten huidige BizTalk Server EDI-oplossingen die ze wilt migreren naar Azure. Omdat EDI van BizTalk Services is ontworpen is op basis van de dezelfde voornaamste entiteiten als BizTalk Server EDI-architectuur (trading partners, entiteiten, overeenkomsten), het mogelijk om te migreren van BizTalk Server EDI-artefacten naar BizTalk Services.
 
 Dit document komen enkele van de verschillen die betrokken zijn bij het migreren van BizTalk Server EDI-artefacten naar BizTalk Services. Dit document wordt ervan uitgegaan dat een praktische kennis van BizTalk Server EDI-verwerking en Trading Partner overeenkomsten. Zie voor meer informatie over BizTalk Server EDI [Trading Partner met behulp van BizTalk-beheerserver](https://msdn.microsoft.com/library/bb259970.aspx).
 
@@ -76,7 +72,7 @@ Pijplijnen zijn in BizTalk Server EDI, bericht verwerking entiteiten die u kunne
 
 U kunt een stroom voor publiceren/abonneren met aangepaste code en/of met behulp van Service Bus messaging-wachtrijen en onderwerpen voordat de handelspartnerovereenkomst ontvangt het bericht of nadat de overeenkomst verwerkt het bericht en doorgestuurd naar een Service Bus-eindpunt kunt invoegen.
 
-Zie **scenario's / berichtenstroom** in dit onderwerp voor het patroon van de stroom weergegeven.
+Zie **scenario's / berichtenstroom** in dit artikel voor het patroon van de stroom weergegeven.
 
 ## <a name="agreements"></a>Overeenkomsten
 Als u bekend met de BizTalk Server 2010 handel Partner overeenkomsten voor EDI-verwerking gebruikt bent, zijn BizTalk Services handelspartnerovereenkomsten er waarschijnlijk bekend. De meeste van de instellingen van de overeenkomst zijn hetzelfde, en gebruik de dezelfde terminologie. In sommige gevallen kan de instellingen van de overeenkomst zijn veel eenvoudiger vergeleken met dezelfde instellingen in BizTalk Server. Microsoft Azure BizTalk Services ondersteunt X12 en EDIFACT, AS2-transport.
@@ -118,10 +114,7 @@ BizTalk Server EDI-verwerking heeft het concept van 'Terugval overeenkomsten'.  
 ### <a name="routing-to-multiple-destinations"></a>Routering naar meerdere bestemmingen
 BizTalk Services-bruggen, in de huidige status biedt geen ondersteuning voor routeren van berichten naar meerdere bestemmingen van een publish-subscribe-model. In plaats daarvan kunt u berichten van een brug BizTalk Services naar een Service Bus-onderwerp, die vervolgens uit meerdere abonnementen voor het bericht op meer dan één eindpunt versturen.
 
-## <a name="conclusion"></a>Conclusie
-Microsoft Azure BizTalk Services is bijgewerkt op reguliere mijlpalen om toe te voegen meer functies en mogelijkheden. Bij elke update wordt we kijken ernaar uit om ontwikkelaars te ondersteunen verbeterde functionaliteit voor het maken van end-to-end-oplossingen met behulp van BizTalk Services en andere Azure-technologieën in het kader.
-
 ## <a name="see-also"></a>Zie ook
-[Het ontwikkelen van zakelijke toepassingen met Azure](https://msdn.microsoft.com/library/azure/hh674490.aspx)
+[LOB-oplossingen in Azure](https://azure.microsoft.com/solutions/lob-applications)
 
 [EDImessageflow]: ./media/biztalk-migrating-to-edi-guide/IC719455.png

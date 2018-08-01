@@ -10,25 +10,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: afd1944006a08811075e8af8b1a641d00ee3c352
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: e3aefc23cd0f4d8043232214591155aa893f4522
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112811"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390133"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformeer gegevens in Azure Data Factory
 > [!div class="op_single_selector"]
 > * [Hive](transform-data-using-hadoop-hive.md)  
 > * [Pig](transform-data-using-hadoop-pig.md)  
 > * [MapReduce](transform-data-using-hadoop-map-reduce.md)  
-> * [Hadoop Streaming](transform-data-using-hadoop-streaming.md)
-> * [Spark](transform-data-using-spark.md)
+> * [HDInsight Streaming](transform-data-using-hadoop-streaming.md)
+> * [HDInsight Spark](transform-data-using-spark.md)
 > * [Machine Learning](transform-data-using-machine-learning.md) 
 > * [Opgeslagen procedure](transform-data-using-stored-procedure.md)
 > * [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md)
+> * [Databricks-notebook](transform-data-databricks-notebook.md)
+> * [Databricks-Jar](transform-data-databricks-jar.md)
+> * [Databricks-Python](transform-data-databricks-python.md)
 > * [Aangepaste .NET](transform-data-using-dotnet-custom-activity.md)
 
 ## <a name="overview"></a>Overzicht
@@ -63,6 +66,18 @@ U kunt de SQL Server opgeslagen Procedure-activiteit in een Data Factory-pijplij
 
 ## <a name="data-lake-analytics-u-sql-activity"></a>U-SQL-activiteit van Data Lake Analytics
 Data Lake Analytics U-SQL-activiteit wordt een U-SQL-script uitgevoerd op een Azure Data Lake Analytics-cluster. Zie [Data Analytics U-SQL-activiteit](transform-data-using-data-lake-analytics.md) artikel voor meer informatie. 
+
+## <a name="databricks-notebook-activity"></a>Databricks Notebook-activiteit
+
+De Azure Databricks Notebook-activiteit in een Data Factory-pijplijn voert een Databricks-notebook in uw Azure Databricks-werkruimte. Azure Databricks is een beheerd platform voor het uitvoeren van Apache Spark. Zie [transformeren van gegevens door te voeren een Databricks-notebook](transform-data-databricks-notebook.md).
+
+## <a name="databricks-jar-activity"></a>Databricks-Jar-activiteit
+
+De Azure Databricks Jar-activiteit in een Data Factory-pijplijn voert een Spark-Jar in uw Azure Databricks-cluster. Azure Databricks is een beheerd platform voor het uitvoeren van Apache Spark. Zie [gegevens transformeren met behulp van een Jar-activiteit in Azure Databricks](transform-data-databricks-jar.md).
+
+## <a name="databricks-python-activity"></a>Databricks-Python-activiteit
+
+De Azure Databricks Python-activiteit in een Data Factory-pijplijn voert een Python-bestand in uw Azure Databricks-cluster. Azure Databricks is een beheerd platform voor het uitvoeren van Apache Spark. Zie [gegevens transformeren met behulp van een Python-activiteit in Azure Databricks](transform-data-databricks-python.md).
 
 ## <a name="custom-activity"></a>Aangepaste activiteit
 Als u nodig hebt voor het transformeren van gegevens op een manier die niet wordt ondersteund door Data Factory, kunt u een aangepaste activiteit maken met uw eigen logica gegevensverwerking en het gebruik van de activiteit in de pijplijn. U kunt de aangepaste .NET-activiteit om uit te voeren met behulp van een Azure Batch-service of een Azure HDInsight-cluster configureren. Zie [aangepaste activiteiten gebruiken](transform-data-using-dotnet-custom-activity.md) artikel voor meer informatie. 

@@ -1,6 +1,6 @@
 ---
-title: Problemen met aanmelden bij een toepassing ontwikkelde aangepaste | Microsoft Docs
-description: Algemene rrors die kan worden veroorzaakt door u niet kunt aanmelden bij een toepassing die u hebt ontwikkeld met Azure AD
+title: Problemen met aanmelden bij een aangepaste toepassing | Microsoft Docs
+description: Algemene rrors die kan worden veroorzaakt door u pas weer aan te melden bij een toepassing die u hebt ontwikkeld met Azure AD
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,24 +11,24 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 3cbc9f981ab528efe2d739022c674cef48dfeb51
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 68ab777efee3af67cfcdddf1744a36aca0f09571
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330883"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366699"
 ---
-# <a name="problems-signing-in-to-an-custom-developed-application"></a>Problemen met aanmelden bij een toepassing ontwikkelde aangepaste
+# <a name="problems-signing-in-to-an-custom-developed-application"></a>Problemen met aanmelden bij een aangepaste toepassing
 
-Er zijn verschillende fouten die kunnen worden veroorzaakt door u niet kunt aanmelden bij een app. De belangrijkste reden mensen optreden die dit probleem is onjuist geconfigureerd apps.
+Er zijn meerdere fouten die kunnen worden veroorzaakt door u pas weer aan te melden bij een app. De belangrijkste reden mensen ondervindt die dit probleem is onjuist geconfigureerd apps.
 
 ## <a name="errors-related-to--misconfigured-apps"></a>Fouten met betrekking tot onjuist geconfigureerde apps
 
-* Controleer of zowel de configuraties in de portal overeenkomen met wat u hebt in uw app. In het bijzonder vergelijken Client-toepassing-ID, antwoord-URL's, Clientcodes geheimen en App-ID-URI.
+* Controleer of zowel de configuraties in de portal overeenkomen met wat er in uw app. Vergelijk specifiek, Client/toepassings-ID, antwoord-URL's, Clientcodes geheimen en App-ID-URI.
 
 * Vergelijk de resource die u bij het aanvragen van toegang tot in de code met de geconfigureerde machtigingen in de **vereiste Resources** tabblad om ervoor te zorgen dat u resources die u hebt geconfigureerd voor het alleen aanvragen.
 
@@ -36,10 +36,10 @@ Er zijn verschillende fouten die kunnen worden veroorzaakt door u niet kunt aanm
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Ontwikkelaarshandleiding voor Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)<br>
+[Handleiding voor ontwikkelaars van Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide)<br>
 
-[Toestemming en het integreren van Apps naar Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications>)<br>
+[Toestemming en het integreren van Apps aan Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications>)<br>
 
-[Toestemming en rollen voor Azure AD v2.0 geconvergeerde Apps](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
+[De toestemming en rollen voor Azure AD v2.0 geconvergeerde Apps](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
 
 [Azure AD-StackOverflow](http://stackoverflow.com/questions/tagged/azure-active-directory>)

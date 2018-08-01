@@ -10,21 +10,21 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: aaec5febaa8d697ceb9fd32d3bcdd6c37c399e84
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 2621c4e3ef3425f5a44d78ed5ceb529110c18f4c
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34162034"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365119"
 ---
-# <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Beveiligingsoverwegingen voor toegang tot apps op afstand met Azure AD-toepassingsproxy
+# <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Beveiligingsoverwegingen voor het openen van apps op afstand met Azure AD-toepassingsproxy
 
-Dit artikel wordt uitgelegd dat de onderdelen die werken veilig te houden uw gebruikers en toepassingen wanneer u Azure Active Directory-toepassingsproxy.
+In dit artikel wordt uitgelegd dat de onderdelen die werken aan uw gebruikers en toepassingen veilig houden wanneer u Azure Active Directory-toepassingsproxy.
 
 Het volgende diagram laat zien hoe Azure AD kunt veilige externe toegang tot uw on-premises toepassingen.
 
@@ -32,157 +32,157 @@ Het volgende diagram laat zien hoe Azure AD kunt veilige externe toegang tot uw 
 
 ## <a name="security-benefits"></a>De voordelen van beveiliging
 
-Azure AD-toepassingsproxy biedt de voordelen van de volgende beveiliging:
+Azure AD Application Proxy biedt de voordelen van de volgende beveiliging:
 
 ### <a name="authenticated-access"></a>Geverifieerde toegang 
 
-Als u gebruikmaken van Azure Active Directory vooraf-verificatie wilt, klikt u vervolgens alleen geverifieerde verbindingen toegang tot uw netwerk.
+Als u ervoor Azure Active Directory vooraf-verificatie gebruiken kiest, klikt u vervolgens alleen geverifieerde verbindingen toegang tot uw netwerk.
 
-Azure AD-toepassingsproxy is afhankelijk van de Azure AD beveiligingstokenservice (STS) voor alle verificatie.  Vooraf-verificatie, blokkeert door de aard een groot aantal anonieme aanvallen, omdat alleen geauthenticeerde identiteiten toegang heeft tot de back-end-toepassing.
+Azure AD-toepassingsproxy, is afhankelijk van de Azure AD security token service (STS) voor alle verificatie.  Vooraf-verificatie, blokkeert door de aard, een groot aantal anonieme aanvallen, omdat alleen geauthenticeerde identiteiten toegang hebben tot de back-endtoepassing.
 
-Als u Passthrough als uw methode voor verificatie vooraf kiest, kunt u voordeel niet ophalen. 
+Als u ervoor Passthrough als uw methode voor verificatie vooraf kiest, krijgt u geen dit voordeel. 
 
 ### <a name="conditional-access"></a>Voorwaardelijke toegang
 
 Besturingselementen voor uitgebreidere beleid van toepassing voordat verbindingen met uw netwerk tot stand worden gebracht.
 
-Met [voorwaardelijke toegang](../active-directory-conditional-access-azure-portal-get-started.md), kunt u beperkingen op welk verkeer is toegestaan voor toegang tot uw back-end-toepassingen. Kunt u beleidsregels die aanmeldingen op basis van locatie, sterkte van verificatie en gebruikersprofiel risico beperken.
+Met [voorwaardelijke toegang](../active-directory-conditional-access-azure-portal-get-started.md), kunt u beperkingen op welk verkeer is toegestaan voor toegang tot uw back-end-toepassingen. U kunt beleidsregels maken die aanmeldingen op basis van locatie, sterkte van verificatie- en gebruikersprofiel van het risico te beperken.
 
-U kunt ook voorwaardelijke toegang gebruiken voor het configureren van multi-factor Authentication-beleid, nog een beveiligingslaag toe te voegen aan uw gebruikersverificaties. 
+U kunt ook gebruik van voorwaardelijke toegang configureren van multi-factor Authentication-beleid, nog een beveiligingslaag toe te voegen aan uw gebruikersverificaties. 
 
 ### <a name="traffic-termination"></a>Beëindiging van verkeer
 
 Al het verkeer wordt beëindigd in de cloud.
 
-Omdat Azure AD-toepassingsproxy een reverse proxy is, wordt al het verkeer naar de back-end-toepassingen wordt beëindigd bij de service. De sessie kan ophalen opnieuw tot stand gebracht alleen met de back-end-server, wat betekent dat uw back-endservers niet worden blootgesteld aan direct HTTP-verkeer. Deze configuratie betekent dat u beter beschermd zijn tegen gerichte aanvallen.
+Omdat Azure AD Application Proxy reverse proxy is, wordt al het verkeer naar de back-end-toepassingen wordt beëindigd bij de service. De sessie kan ophalen opnieuw tot stand gebracht met de back-end-server, wat betekent dat uw back-endservers niet worden blootgesteld aan HTTP-verkeer. Deze configuratie betekent dat u beter beschermd tegen gerichte aanvallen.
 
-### <a name="all-access-is-outbound"></a>Alle gebruikers de toegang is uitgaand 
+### <a name="all-access-is-outbound"></a>Alle toegang is uitgaand 
 
 U hoeft niet te openen van binnenkomende verbindingen met het bedrijfsnetwerk.
 
-Application Proxy connectors alleen uitgaande verbindingen naar de service Azure AD-toepassingsproxy, wat betekent dat niet hoeft te openen, firewall-poorten voor binnenkomende verbindingen gebruiken. Traditionele proxy's vereist een perimeternetwerk (ook wel bekend als *DMZ*, *gedemilitariseerde zone*, of *gescreend subnet*) en toegang hebben tot niet-geverifieerde verbindingen aan de rand van het netwerk. Dit scenario vereist investeringen in web application firewallproducten voor het analyseren van verkeer en de omgeving te beveiligen. Met toepassingsproxy hoeft u niet een perimeternetwerk omdat alle verbindingen uitgaande zijn en plaats via een beveiligd kanaal vindt.
+Toepassingsproxyconnectors gebruik alleen uitgaande verbindingen naar de Azure AD Application Proxy-service, wat betekent dat is het niet nodig om firewallpoorten voor binnenkomende verbindingen te openen. Traditionele proxy vereist een perimeternetwerk (ook wel bekend als *DMZ*, *gedemilitariseerde zone*, of *screened subnet genoemd*) en toegang hebben tot niet-geverifieerde verbindingen aan de rand van het netwerk. In dit scenario vereist investeringen in web application firewallproducten voor het analyseren van netwerkverkeer en de omgeving te beschermen. Met Application Proxy hoeft u geen een perimeternetwerk omdat alle verbindingen uitgaande zijn en plaats via een beveiligd kanaal vindt.
 
-Zie voor meer informatie over connectors [inzicht in Azure AD-toepassingsproxy connectors](application-proxy-connectors.md).
+Zie voor meer informatie over connectors [over Azure AD Application Proxy connectors](application-proxy-connectors.md).
 
-### <a name="cloud-scale-analytics-and-machine-learning"></a>Cloud-scale analytics en machine learning 
+### <a name="cloud-scale-analytics-and-machine-learning"></a>Schaalbare analytics en machine learning 
 
-Geavanceerde beveiliging worden opgehaald.
+Geavanceerde beveiliging en bescherming krijgen.
 
-Omdat deze deel uitmaakt van Azure Active Directory, kunnen gebruikmaken van toepassingsproxy [Azure AD Identity Protection](../active-directory-identityprotection.md), met gegevens van de Microsoft Security Response Center en de Digital Crimes Unit. Samen we proactief identificeren waarmee is geknoeid en bieden bescherming tegen aanmeldingen met een hoog risico. We rekening gehouden met meerdere factoren om te bepalen welke attemps aanmelden met een hoog risico zijn. Deze factoren omvatten markeert geïnfecteerde apparaten, anonymizing netwerken en locaties ongebruikelijk of waarschijnlijk niet.
+Omdat deze deel uitmaakt van Azure Active Directory, Application Proxy kan gebruikmaken van [Azure AD Identity Protection](../active-directory-identityprotection.md), met gegevens van de Microsoft Security Response Center en de Digital Crimes Unit. Samen we proactief identificeren accounts waarmee is geknoeid en bieden van bescherming tegen riskante aanmeldingen. We houden rekening talloze factoren om te bepalen welke probeert aanmelding goed met een hoog risico. Deze factoren omvatten markeringen geïnfecteerde apparaten, anoniem netwerken en ongewone of onwaarschijnlijk locaties.
 
-Veel van deze rapporten en gebeurtenissen zijn al beschikbaar via een API voor de integratie met uw security information en event management (SIEM)-systemen.
+Veel van deze rapporten en gebeurtenissen zijn al beschikbaar via een API voor integratie met uw security information en event management (SIEM) systemen.
 
 ### <a name="remote-access-as-a-service"></a>Externe toegang als een service
 
-U hoeft niet te hoeven maken over het onderhouden en patchen lokale servers.
+U hebt geen zorgen te hoeven maken over het onderhoud en patching uit handen on-premises servers.
 
-Niet-gepatchte software nog steeds accounts voor een groot aantal aanvallen. Azure AD-toepassingsproxy is een Internet-scale-service die Microsoft eigenaar is, zodat u altijd de meest recente beveiligingspatches en upgrades.
+Nog steeds niet-gepatchte software-accounts voor een groot aantal aanvallen. Azure AD Application Proxy is een internetschaal-service die eigendom zijn van Microsoft, zodat u altijd de meest recente beveiligingspatches en upgrades.
 
-Ter verbetering van de beveiliging van toepassingen die zijn gepubliceerd door Azure AD-toepassingsproxy blokkeren we web crawler robots indexeren en uw toepassingen wilt archiveren. Elke keer web crawler robot probeert op te halen van de robot-instellingen voor een gepubliceerde app toepassingsproxy geantwoord met een robots.txt-bestand met `User-agent: * Disallow: /`.
+Ter verbetering van de beveiliging van toepassingen die zijn gepubliceerd door de Azure AD-toepassingsproxy, blokkeren we crawler Webrobots van indexeren en archiveren van uw toepassingen. Telkens wanneer een web crawler robot probeert op te halen van de robot-instellingen voor een gepubliceerde app Application Proxy reageert met een robots.txt-bestand met `User-agent: * Disallow: /`.
 
-### <a name="ddos-prevention"></a>DDOS voorkomen
+### <a name="ddos-prevention"></a>DDOS-preventie
 
-Toepassingen die zijn gepubliceerd via toepassingsproxy zijn beschermd tegen aanvallen gedistribueerd DOS van Service (DDOS).
+Toepassingen die zijn gepubliceerd via toepassingsproxy zijn beschermd tegen aanvallen van Distributed Denial-of van de Service (DDOS).
 
-De Webtoepassingsproxy-service controleert de hoeveelheid verkeer probeert toegang te krijgen van de toepassingen en het netwerk. Als het aantal apparaten die externe toegang tot uw toepassingen aanvragen is bereikt, beperkt Microsoft toegang tot uw netwerk. 
+De Application Proxy-service controleert de hoeveelheid verkeer er wordt geprobeerd om uw toepassingen en het netwerk te bereiken. Als het aantal apparaten extern toegang krijgen tot uw toepassingen pieken, beperkt Microsoft toegang tot uw netwerk. 
 
-Microsoft controleert verkeerspatronen voor afzonderlijke toepassingen en voor uw abonnement als geheel. Als één toepassing is hoger dan normaal aanvragen ontvangt, worden de aanvragen voor toegang tot de toepassing geweigerd voor een korte periode. Als u hoger dan normaal aanvragen over uw hele abonnement ontvangt, worden aanvragen voor toegang tot uw Apps geweigerd. Deze preventieve maatregel houdt uw toepassingsservers overbelast raakt door externe toegangsaanvragen, zodat uw on-premises gebruikers hun apps kunnen blijven gebruiken. 
+Microsoft controleert verkeerspatronen voor afzonderlijke toepassingen en voor uw abonnement als geheel. Als één toepassing is hoger dan normaal aanvragen ontvangt, worden de verzoeken voor toegang tot deze toepassing geweigerd voor een korte periode. Als u hoger dan normaal aanvragen in uw hele abonnement ontvangt, klikt u vervolgens verzoeken voor toegang tot uw Apps geweigerd. Deze preventieve maatregel zorgt ervoor dat uw toepassingsservers niet wordt overbelast door aanvragen van externe toegang, zodat uw on-premises gebruikers houden toegang hun apps tot kunnen. 
 
-## <a name="under-the-hood"></a>Onderhuids
+## <a name="under-the-hood"></a>Achter de schermen
 
-Azure AD-toepassingsproxy bestaat uit twee delen:
+Azure AD-toepassingsproxy bestaat uit twee onderdelen:
 
-* De cloudservice: deze service wordt uitgevoerd in Azure, en is waar de verbindingen van de externe client/gebruiker zijn gemaakt.
-* [De on-premises connector](application-proxy-connectors.md): een onderdeel van de lokale de connector luistert naar aanvragen van de Azure AD-toepassingsproxy-service en -ingangen verbindingen naar de interne toepassingen. 
+* De cloud gebaseerde service: deze service wordt uitgevoerd in Azure, en is waar de verbindingen van de externe client/gebruiker zijn gemaakt.
+* [De on-premises connector](application-proxy-connectors.md): een on-premises-onderdeel, de connector luistert naar aanvragen van de Azure AD Application Proxy-service en verwerkt de verbindingen naar de interne toepassingen. 
 
-Een stroom tussen de connector en de service-toepassingsproxy tot stand wordt gebracht wanneer:
+Een stroom tussen de connector en de Application Proxy-service tot stand is gebracht wanneer:
 
-* De connector is eerst instellen.
-* De connector haalt de configuratie-informatie van de service-toepassingsproxy.
-* Een gebruiker toegang krijgt tot een gepubliceerde toepassing.
+* De connector is eerst ingesteld.
+* De connector haalt configuratie-informatie uit de Application Proxy-service.
+* Een gebruiker toegang heeft tot een gepubliceerde toepassing.
 
 >[!NOTE]
->Alle communicatie vindt plaats via SSL en ze altijd afkomstig van de connector met de service-toepassingsproxy. De service is alleen uitgaand.
+>Alle communicatie vindt plaats via SSL en ze altijd afkomstig van de connector met de Application Proxy-service. De service is alleen uitgaande.
 
-De connector gebruikt een certificaat voor verificatie bij de service-toepassingsproxy voor bijna alle aanroepen. De enige uitzondering op dit proces is de initiële installatie stap, waarbij het clientcertificaat tot stand is gebracht.
+De connector gebruikt een certificaat voor verificatie bij de service voor toepassingsproxy voor bijna alle aanroepen. De enige uitzondering op dit proces is de stap van de eerste configuratie waarbij het clientcertificaat tot stand is gebracht.
 
 ### <a name="installing-the-connector"></a>De connector installeren
 
-Wanneer de connector eerst instelt is, wordt de volgende stroom gebeurtenissen plaatsvinden:
+Als de connector eerst is ingesteld, worden de volgende stroom gebeurtenissen plaatsvinden:
 
-1. De registratie van de connector met de service wordt uitgevoerd als onderdeel van de installatie van de connector. Gebruikers gevraagd hun Azure AD-referenties invoeren. Het token dat is verkregen van deze verificatie wordt vervolgens gepresenteerd aan de service Azure AD-toepassingsproxy.
-2. De service voor toepassingsproxy evalueert het token. Er wordt gecontroleerd of de gebruiker een bedrijfsbeheerder zijn in de tenant is. Als de gebruiker geen beheerder is, wordt het proces beëindigd.
-3. De connector genereert een certificaataanvraag van de client en wordt doorgegeven, samen met het token, met de service-toepassingsproxy. De service het token heeft geverifieerd op zijn beurt en de clientaanvraag certificaat ondertekent.
-4. De connector gebruikt het clientcertificaat voor toekomstige communicatie met de service-toepassingsproxy.
-5. De connector voert een initiële pull van het systeem-configuratiegegevens van de service met behulp van het clientcertificaat en het is nu klaar om aanvragen te.
+1. De registratie van de connector met de service wordt uitgevoerd als onderdeel van de installatie van de connector. Gebruikers zijn gevraagd hun Azure AD-beheerder-referenties in te voeren. Het token dat is verkregen via deze verificatie wordt vervolgens weergegeven met de Azure AD Application Proxy-service.
+2. De Application Proxy-service beoordeelt wat het token. Er wordt gecontroleerd of de gebruiker een bedrijfsbeheerder in de tenant is. Als de gebruiker niet een beheerder is, wordt het proces beëindigd.
+3. De connector een certificaataanvraag client genereert en geeft deze, samen met het token, naar de Application Proxy-service. De service wordt op zijn beurt controleert of het token en de aanvraag van de client-certificaat ondertekent.
+4. De connector maakt gebruik van het clientcertificaat voor toekomstige communicatie met de Application Proxy-service.
+5. De connector voert een initiële pull van het systeem-configuratiegegevens van de service met behulp van het clientcertificaat en het is nu klaar zijn voor aanvragen.
 
-### <a name="updating-the-configuration-settings"></a>Bijwerken van de configuratieinstellingen
+### <a name="updating-the-configuration-settings"></a>De configuratie-instellingen bijwerken
 
-Wanneer de service Application Proxy-updates voor de configuratie-instellingen, worden de volgende stroom gebeurtenissen plaatsvinden:
+Wanneer de Application Proxy-service-updates de configuratie-instellingen, worden de volgende stroom gebeurtenissen plaatsvinden:
 
-1. De connector maakt verbinding met het eindpunt van de configuratie in de service voor toepassingsproxy met behulp van het clientcertificaat.
-2. Nadat het clientcertificaat is gevalideerd, stuurt de service-toepassingsproxy configuratiegegevens naar de connector (bijvoorbeeld de connector groep die de connector deel uitmaken van moeten).
-3. Als het huidige certificaat meer dan 180 dagen is, genereert de connector een nieuwe certificaataanvraag waarmee het clientcertificaat effectief per 180 dagen bijgewerkt.
+1. De connector maakt verbinding met het eindpunt van de configuratie in de Application Proxy-service met behulp van het clientcertificaat.
+2. Nadat het clientcertificaat is gevalideerd, stuurt de Application Proxy-service configuratiegegevens naar de connector (bijvoorbeeld de connectorgroep die de connector deel uitmaken van moeten).
+3. Als het huidige certificaat meer dan 180 dagen oud is, genereert de connector een nieuwe certificaataanvraag, waarmee het clientcertificaat effectief per 180 dagen bijgewerkt.
 
 ### <a name="accessing-published-applications"></a>Toegang tot gepubliceerde toepassingen
 
-Als gebruikers toegang hebben tot een gepubliceerde toepassing, plaatsvinden de volgende gebeurtenissen tussen de toepassingsproxy-service en de Application Proxy connector:
+Wanneer gebruikers toegang krijgen een gepubliceerde toepassing tot, plaatsvinden de volgende gebeurtenissen tussen de Application Proxy-service en de Application Proxy-connector:
 
-1. [De service verifieert de gebruiker voor de app](#the-service-checks-the-configuration-settings-for-the-app)
-2. [De service plaatst een aanvraag in de connectorwachtrij](#The-service-places-a-request-in-the-connector-queue)
-3. [De aanvraag uit de wachtrij wordt verwerkt door een connector](#the-connector-receives-the-request-from-the-queue)
-4. [De connector wordt gewacht op een reactie](#the-connector-waits-for-a-response)
+1. [De service verifieert de gebruiker voor de app.](#the-service-checks-the-configuration-settings-for-the-app)
+2. [De service plaatst een aanvraag in de wachtrij van de connector](#The-service-places-a-request-in-the-connector-queue)
+3. [Een connector verwerkt de aanvraag uit de wachtrij](#the-connector-receives-the-request-from-the-queue)
+4. [De connector wachten op antwoord](#the-connector-waits-for-a-response)
 5. [De service streams gegevens naar de gebruiker](#the-service-streams-data-to-the-user)
 
-Houd lezen voor meer informatie over wat in elk van deze stappen plaatsvindt.
+Blijf lezen voor meer informatie over wat in elk van deze stappen plaatsvindt.
 
 
-#### <a name="1-the-service-authenticates-the-user-for-the-app"></a>1. De service verifieert de gebruiker voor de app
+#### <a name="1-the-service-authenticates-the-user-for-the-app"></a>1. De service verifieert de gebruiker voor de app.
 
-Als u de app om Passthrough gebruiken als de methode voor verificatie vooraf geconfigureerd, worden de stappen in deze sectie worden overgeslagen.
+Als u de app voor het gebruik van Passthrough als de methode voor verificatie vooraf is geconfigureerd, worden de stappen in deze sectie worden overgeslagen.
 
 Als u de app met Azure AD worden geconfigureerd, worden gebruikers omgeleid naar de Azure AD-STS om te verifiëren en de volgende stappen worden uitgevoerd:
 
-1. Toepassingsproxy controleert u alle vereisten voor het beleid van voorwaardelijke toegang voor de specifieke toepassing. Deze stap zorgt ervoor dat de gebruiker is toegewezen aan de toepassing. Als verificatie in twee stappen vereist is, vraagt de verificatiemethode die de gebruiker om een tweede methode voor verificatie.
+1. Toepassingsproxy controleert op eventuele vereisten van het beleid voor voorwaardelijke toegang voor de specifieke toepassing. Deze stap zorgt ervoor dat de gebruiker is toegewezen aan de toepassing. Als verificatie in twee stappen vereist is, vraagt de verificatiemethode die de gebruiker om een tweede verificatiemethode.
 
-2. Nadat alle controles zijn verstreken, wordt de Azure AD STS een ondertekende token voor de toepassing en wordt de gebruiker omgeleid naar de service-toepassingsproxy.
+2. Nadat alle controles zijn verstreken, wordt de Azure AD STS een ondertekende token voor de toepassing en wordt de gebruiker omgeleid naar de Application Proxy-service.
 
-3. Toepassingsproxy controleert of het token is uitgegeven voor het corrigeren van de toepassing. Het andere controles ook, zoals ervoor te zorgen dat het token is ondertekend door Azure AD en is nog steeds binnen het geldige venster uitgevoerd.
+3. Toepassingsproxy worden geverifieerd of het token is uitgegeven om op te lossen van de toepassing. Deze andere voert controles uit ook, zoals ervoor te zorgen dat het token is ondertekend door Azure AD en is nog steeds binnen het geldige venster.
 
-4. Application Proxy sets een gecodeerde verificatiecookie om aan te geven dat de verificatie bij de toepassing heeft plaatsgevonden. De cookie bevat de tijdstempel van een vervaldatum die gebaseerd op het token van Azure AD en andere gegevens, zoals de naam van de gebruiker die de verificatie is gebaseerd op. De cookie wordt versleuteld met een persoonlijke sleutel die alleen bekend is bij de service-toepassingsproxy.
+4. Application Proxy stelt in een versleutelde verificatiecookie om aan te geven dat de verificatie naar de toepassing is opgetreden. De cookie bevat de timestamp van een vervaldatum die gebaseerd op het token uit Azure AD en andere gegevens, zoals de naam van de gebruiker die de verificatie is gebaseerd op. De cookie is versleuteld met een persoonlijke sleutel die alleen bekend bij de Application Proxy-service.
 
 5. Toepassingsproxy leidt de gebruiker terug naar de oorspronkelijk aangevraagde URL.
 
-Als een deel van de stappen die vooraf-verificatie is mislukt, wordt van de gebruiker de aanvraag is geweigerd en wordt de gebruiker een bericht met de bron van het probleem wordt weergegeven.
+Als een onderdeel van de stappen die vooraf-verificatie is mislukt, van de gebruiker de aanvraag is geweigerd en de gebruiker een bericht weergegeven dat aangeeft van de bron van het probleem wordt weergegeven.
 
 
-#### <a name="2-the-service-places-a-request-in-the-connector-queue"></a>2. De service plaatst een aanvraag in de connectorwachtrij
+#### <a name="2-the-service-places-a-request-in-the-connector-queue"></a>2. De service plaatst een aanvraag in de wachtrij van de connector
 
-Connectors openhouden die een uitgaande verbinding met de service-toepassingsproxy. Als een aanvraag binnenkomt, wordt de service wachtrijen van de aanvraag op een van de geopende verbindingen voor de connector om op te halen.
+Connectors Houd een uitgaande verbinding geopend met de Application Proxy-service. Wanneer een aanvraag binnenkomt, wachtrijen voor de service van de aanvraag op een van de geopende verbindingen voor de connector om op te halen.
 
-De aanvraag bevat de items uit de toepassing, zoals de aanvraagheaders gegevens uit de gecodeerde cookie, de gebruiker de aanvraag en/of de aanvraag-ID. Hoewel de gegevens van de versleutelde cookie aan de aanvraag is verzonden, is de verificatiecookie zelf niet.
+De aanvraag bevat de items uit de toepassing, zoals de aanvraagheaders, gegevens van de versleutelde cookie, de gebruiker de aanvraag en de aanvraag-ID. Hoewel de gegevens van de versleutelde cookie wordt verzonden met de aanvraag, wordt de verificatiecookie zelf niet is.
 
-#### <a name="3-the-connector-processes-the-request-from-the-queue"></a>3. De aanvraag uit de wachtrij wordt verwerkt door de connector. 
+#### <a name="3-the-connector-processes-the-request-from-the-queue"></a>3. De connector verwerkt de aanvraag uit de wachtrij. 
 
-Toepassingsproxy voert op basis van de aanvraag, een van de volgende acties:
+Application Proxy voert op basis van de aanvraag, een van de volgende acties:
 
-* Als de aanvraag een eenvoudige operatie is (bijvoorbeeld: Er zijn geen gegevens in de hoofdtekst is met een RESTful *ophalen* aanvraag), de connector maakt verbinding met de interne doel-resource en vervolgens wordt gewacht op een antwoord.
+* Als de aanvraag een eenvoudige operatie is (bijvoorbeeld, er zijn geen gegevens in de hoofdtekst is met een RESTful *ophalen* aanvraag), de connector maakt verbinding met de doelresource van de interne en wacht dan een reactie.
 
-* Als de aanvraag bevat de gegevens die zijn gekoppeld in de hoofdtekst (bijvoorbeeld een RESTful *POST* bewerking), de connector een uitgaande verbinding maakt met behulp van het clientcertificaat met het exemplaar van de toepassingsproxy. Dit maakt deze verbinding met het aanvragen van de gegevens en een verbinding met de interne resource openen. Nadat deze de aanvraag van de connector is ontvangen, wordt de service voor toepassingsproxy begint met het accepteren van de inhoud van de gebruiker en stuurt gegevens naar de connector. De connector stuurt op zijn beurt de gegevens naar de interne resource.
+* Als de aanvraag gegevens die zijn gekoppeld aan deze in de hoofdtekst heeft (bijvoorbeeld een RESTful *POST* bewerking), de connector een uitgaande verbinding maakt met behulp van het clientcertificaat met het exemplaar van de Application Proxy. Het maakt deze verbinding om te vragen van de gegevens en geen verbinding met de interne resource openen. Zodra het verzoek van de connector is ontvangen, wordt de service voor toepassingsproxy begint met het accepteren van de inhoud van de gebruiker en verzendt gegevens naar de connector. De connector verzendt op zijn beurt de gegevens naar de interne resource.
 
-#### <a name="4-the-connector-waits-for-a-response"></a>4. De connector wacht een antwoord.
+#### <a name="4-the-connector-waits-for-a-response"></a>4. De connector wachten op antwoord.
 
-Nadat de aanvraag en de overdracht van alle inhoud naar de back-end is voltooid, wordt de connector wordt gewacht op een antwoord.
+Nadat de aanvraag en de overdracht van alle inhoud naar de back-end is voltooid, wacht de connector op een antwoord.
 
-Nadat hij een antwoord ontvangt, de connector een uitgaande verbinding maakt met de service-toepassingsproxy, om te retourneren van de details van de header en beginnen met het streamen van de geretourneerde gegevens.
+Zodra er een antwoord is ontvangen, kunt u de connector een uitgaande verbinding met de Application Proxy-service om te retourneren van de details van de koptekst en beginnen met streamen, de geretourneerde gegevens.
 
 #### <a name="5-the-service-streams-data-to-the-user"></a>5. De service streams gegevens naar de gebruiker. 
 
-Sommige verwerking van de toepassing optreden hier. Als u toepassingsproxy headers omzetten of URL's in uw toepassing hebt geconfigureerd, gebeurt dat verwerking zo nodig tijdens deze stap.
+Sommige verwerking van de toepassing kan hier optreden. Als u Application Proxy voor de omzetting van headers of URL's geconfigureerd in uw toepassing, gebeurt dat verwerking zo nodig tijdens deze stap.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Netwerk topologie overwegingen bij het gebruik van Azure AD-toepassingsproxy](application-proxy-network-topology.md)
+[Netwerk-topologie overwegingen bij het gebruik van Azure AD-toepassingsproxy](application-proxy-network-topology.md)
 
-[Azure AD-toepassingsproxy connectors begrijpen](application-proxy-connectors.md)
+[Meer informatie over Azure AD Application Proxy connectors](application-proxy-connectors.md)

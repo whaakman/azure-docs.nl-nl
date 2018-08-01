@@ -1,6 +1,6 @@
 ---
 title: Aangepaste tests van Load Balancer gebruiken voor het bewaken van de integriteitsstatus van de | Microsoft Docs
-description: Informatie over het gebruik van aangepaste tests voor Azure Load Balancer voor het bewaken van instanties achter de Load Balancer
+description: Informatie over het gebruik van statuscontroles instanties achter Load Balancer bewaken
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -13,20 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 07/30/2018
 ms.author: kumud
-ms.openlocfilehash: afe46cf9fc710decba4524bd5a0fe1e73804f636
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: b73028935fd60945a948c1c4e1848424b615d92e
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344161"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363680"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer-tests voor status
 
 Azure Load Balancer maakt gebruik van de gezondheid van tests om te bepalen welke instanties van de groep back-end ontvangt nieuwe stromen. U kunt statuscontroles gebruiken voor het detecteren van het uitvallen van een toepassing op een back-end-instantie. U kunt ook een aangepast antwoord op een statustest genereren en gebruiken de statustest voor datatransportbesturing en signaal naar Load Balancer of u wilt doorgaan met het verzenden van nieuwe stromen of stoppen met het nieuwe stromen te verzenden naar een back-end-exemplaar. Dit kan worden gebruikt voor het beheren van de belasting of geplande uitvaltijd.
 
 Wanneer een statustest mislukt, stopt Load Balancer nieuwe stromen te verzenden naar het desbetreffende exemplaar niet in orde. Het gedrag van nieuwe en bestaande stromen is afhankelijk van of een stroom is TCP of UDP als alsmede welke Load Balancer-SKU die u gebruikt.  Beoordeling [test omlaag gedrag voor meer informatie](#probedown).
+
+> [!IMPORTANT]
+> Load Balancer statuscontroles zijn afkomstig uit het IP-adres 168.63.129.16 en moeten niet worden geblokkeerd voor tests uitvoeren voor uw exemplaar markeren.  Beoordeling [bron-IP-adres-test](#probesource) voor meer informatie.
 
 ## <a name="health-probe-types"></a>Health test typen
 
@@ -37,6 +40,8 @@ Voor het UDP-taakverdeling, moet u een aangepaste test van het statussignaal voo
 Bij het gebruik van [HA-poorten in load balancer-regels](load-balancer-ha-ports-overview.md) met [standaardversie van Load Balancer](load-balancer-standard-overview.md), alle poorten worden gelijkmatig verdeeld en een antwoord van de gezondheid van één test moet vergelijkbaar zijn met de status van de volledige-exemplaar.  
 
 U moet geen NAT- of proxy een statustest via het exemplaar waarop de statustest naar een andere instantie in uw VNet ontvangt, omdat dit tot een opeenstapeling van storingen in uw scenario leiden kan.
+
+Als u wilt testen van een test-fout health- of markeren in een afzonderlijk exemplaar, kunt u een beveiligingsgroep op expliciete blokkeren de statustest (doel of [bron](#probesource)).
 
 ### <a name="tcp-probe"></a>TPC-test
 
@@ -97,9 +102,6 @@ De waarden voor time-outs en frequentie in SuccessFailCount te bepalen of een ex
 
 Een regel voor taakverdeling is een eenmalige statustest gedefinieerd de respectieve back-endpool.
 
-> [!IMPORTANT]
-> Een load balancer-statustest maakt gebruik van het IP-adres 168.63.129.16. Dit openbare IP-adres vergemakkelijkt de communicatie met interne platform bronnen voor de bring-your-own-IP-Azure Virtual Network scenario. De virtuele openbare IP-adres 168.63.129.16 wordt gebruikt in alle regio's en wordt niet gewijzigd. Het is raadzaam dat u dit IP-adres toestaan in elke Azure [beveiligingsgroepen](../virtual-network/security-overview.md) en lokale firewall-beleid. Deze moet niet worden beschouwd als een veiligheidsrisico inhouden omdat alleen het interne Azure-platform kunt een pakket van dat adres van bron. Als u niet toestaat deze IP-adres in uw firewall-beleid dat, onverwacht gedrag optreedt in een verscheidenheid aan scenario's, balanced met inbegrip van uitval van uw load service. U moet uw VNet ook niet configureren met een IP-adresbereik met 168.63.129.16.  Als u meerdere interfaces op de virtuele machine hebt, moet u zorgen dat u de test op de interface die u hebt ontvangen op reageren.  Dit is mogelijk een unieke bron NAT'ing dit adres in de virtuele machine op basis van de per-interface.
-
 ## <a name="probedown"></a>Test omlaag gedrag
 
 ### <a name="tcp-connections"></a>TCP-verbindingen
@@ -120,11 +122,25 @@ UDP is zonder verbinding en er is geen flow-status voor UDP bijgehouden. Als de 
 
 Als alle tests voor alle exemplaren in een back-endpool mislukken, worden bestaande UDP-stromen worden beëindigd voor Basic en Standard Load Balancers.
 
+
+## <a name="probesource"></a>Bron-IP-adres-test
+
+Alle tests van de Load Balancer zijn afkomstig uit het IP-adres 168.63.129.16 als bron gebruikt.  Wanneer u uw eigen IP-adressen naar Azure Virtual Network meebrengen, wordt dit IP-adres van de gezondheid van test bron gegarandeerd uniek zijn omdat deze wereldwijd is bestemd voor Microsoft.  Dit adres is hetzelfde als in alle regio's en verandert niet. Deze moet niet worden beschouwd als een veiligheidsrisico inhouden omdat alleen het interne Azure-platform kunt een pakket van dit IP-adres van bron. 
+
+Voor Load Balancer statustest uw exemplaar omhoog, markeert u **moet** toestaan dit IP-adres in elke Azure [beveiligingsgroepen](../virtual-network/security-overview.md) en lokale firewall-beleid.
+
+Als u niet toestaan dat dit IP-adres in uw firewall-beleid, mislukt de statustest omdat deze kan niet worden bereikt uw exemplaar.  Load Balancer wordt op zijn beurt markeren in uw exemplaar omdat de status test is mislukt.  Hierdoor kan de service met taakverdeling mislukken. 
+
+U moet uw VNet ook niet configureren met de IP-adresbereik dat 168.63.129.16 bevat het eigendom van Microsoft.  Dit wordt in conflict zijn met het IP-adres van de statustest.
+
+Als u meerdere interfaces op de virtuele machine hebt, moet u zorgen dat u de test op de interface die u hebt ontvangen op reageren.  Dit is mogelijk een unieke bron NAT'ing dit adres in de virtuele machine op basis van de per-interface.
+
 ## <a name="monitoring"></a>Bewaking
 
 Alle [Standard Load Balancer](load-balancer-standard-overview.md) wordt aangegeven dat de integriteitsstatus van de test als multi-dimensionale metrische gegevens per exemplaar via Azure Monitor.
 
 Basic Load Balancer wordt aangegeven dat de integriteitsstatus van de test per back-endpool via Log Analytics.  Dit is alleen beschikbaar voor openbare Basic Load Balancers en niet beschikbaar voor interne Basic Load Balancers.  U kunt [melden analytics](load-balancer-monitor-log.md) om te controleren op de status van openbare load balancer-test en count-test. Logboekregistratie kan worden gebruikt met Power BI of Azure Operational Insights voor statistische gegevens over de integriteitsstatus van de load balancer.
+
 
 ## <a name="limitations"></a>Beperkingen
 

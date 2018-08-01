@@ -1,6 +1,6 @@
 ---
-title: Het configureren van een toepassing toepassingsproxy gebruiken PingAccess | Microsoft Docs
-description: Informatie over het gebruik van PingAccess uit te breiden, de voordelen van toepassingsproxy van toepassingen via verificatie op basis van een koptekst
+title: Het configureren van een toepassing Application Proxy voor het gebruik van PingAccess | Microsoft Docs
+description: Informatie over het gebruik van PingAccess om uit te breiden, de voordelen van de toepassingsproxy van toepassingen via verificatie op basis van koptekst
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,31 +11,31 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 0b8f0134888cfb54f60d3ac455c02c51072e3685
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 67621a3472829174f6f3888c2f3da660f75f3d4f
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36333469"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366525"
 ---
-# <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>Het configureren van een toepassing toepassingsproxy PingAccess gebruiken
+# <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>Het configureren van een toepassing Application Proxy voor het gebruik van PingAccess
 
-Onze samenwerking met PingAccess kunt u de voordelen van toepassingsproxy van toepassingen via verificatie op basis van een koptekst uitbreiden. Als uw toepassingen headers niet gebruikt, raadpleegt u onze [Single Sign-On documentatie](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md) voor meer informatie over andere opties.
+Onze samenwerking met PingAccess nu kunt u de voordelen van de toepassingsproxy van toepassingen via verificatie op basis van een koptekst uitbreiden. Als uw toepassingen headers niet gebruikt, raadpleegt u onze [Single Sign-On documentatie](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md) voor meer informatie over andere opties.
 
 ## <a name="overview-of-steps-and-recommended-documents"></a>Overzicht van stappen en aanbevolen documenten
 
 Voor het configureren van een toepassing met PingAccess, zijn er vier stappen:
 
-1.  Application Proxy Connectors configureren
+1.  Toepassingsproxyconnectors configureren
 
-2.  Een Azure AD-toepassing Proxy-toepassing maken
+2.  Een Azure AD Application Proxy-toepassing maken
 
-3.  & Downloaden PingAccess configureren
+3.  Downloaden en configureren van PingAccess
 
 4.  Toepassingen in PingAccess configureren
 
-Zie voor meer informatie over elk van deze stappen onze [eenmalige aanmelding met koppen documentatie](manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md).
+Zie voor meer informatie over elk van deze stappen, onze [eenmalige aanmelding met koppen documentatie](manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md).

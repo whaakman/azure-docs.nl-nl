@@ -1,121 +1,121 @@
 ---
-title: Apps met bereikfilters inrichten | Microsoft Docs
-description: Informatie over het bereik filters gebruiken om te voorkomen dat de objecten in apps die ondersteuning bieden voor geautomatiseerde gebruikersinrichting van ingericht als een object niet voldoet aan uw zakelijke vereisten.
+title: Inrichten van apps met bereikfilters | Microsoft Docs
+description: Informatie over het gebruik van bereikfilters toevoegen om te voorkomen dat objecten in apps die ondersteuning bieden voor geautomatiseerde gebruikersinrichting van wordt ingericht als een object niet voldoet aan uw zakelijke vereisten.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
-ms.assetid: bcfbda74-e4d4-4859-83bc-06b104df3918
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/31/2017
-ms.author: markvi
+ms.topic: conceptual
+ms.date: 07/30/2018
+ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d6f4f257d380d6521774afd23dbeaf6a94711c6d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 9f28c97fed2a5fa4990c1310e8389868c6b7dc20
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293072"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39369084"
 ---
-# <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Inrichten van toepassing op basis van kenmerken met bereikfilters
-Het doel van dit artikel is legt uit hoe bereik filters gebruiken om te bepalen op kenmerken gebaseerde regels die bepalen welke gebruikers zijn ingericht voor een toepassing.
+# <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Op kenmerken gebaseerde toepassing inrichten met bereikfilters
+Het doel van dit artikel is waarin wordt uitgelegd hoe u bereikfilters die zijn gebruikt om op kenmerken gebaseerde regels die bepalen welke gebruikers worden ingericht voor een toepassing te definiëren.
 
-## <a name="scoping-filter-use-cases"></a>Filter gebruiksvoorbeelden scoping
+## <a name="scoping-filter-use-cases"></a>Scoping filter use-cases
 
-Een scope filter kunt de Azure Active Directory (Azure AD)-service inricht wilt opnemen of uitsluiten van gebruikers die een kenmerk dat overeenkomt met een specifieke waarde hebben. Bijvoorbeeld bij het inrichten van een SaaS-toepassing die wordt gebruikt door een verkoopteam gebruikers van Azure AD, kunt u alleen gebruikers met een kenmerk 'Afdeling' van 'Verkoop' moet binnen het bereik van de inrichting.
+Een bereikfilter kunt de Azure Active Directory (Azure AD) inrichtingsservice wilt opnemen of uitsluiten van alle gebruikers die een kenmerk dat overeenkomt met een specifieke waarde hebben. Bijvoorbeeld bij het inrichten van gebruikers van Azure AD voor een SaaS-toepassing die wordt gebruikt door een verkoopteam, kunt u opgeven dat alleen gebruikers met een kenmerk 'Afdeling' van 'Verkoop' moet binnen het bereik voor het inrichten van.
 
 Bereikfilters kan anders worden gebruikt, afhankelijk van het type inrichting connector:
 
-* **Uitgaande inrichten van Azure AD SaaS-toepassingen**. Wanneer u Azure AD is het bronsysteem [toewijzingen van gebruikers en groepen](manage-apps/assign-user-or-group-access-portal.md) zijn de meest voorkomende methode om te bepalen welke gebruikers in het bereik voor het inrichten. Deze toewijzingen worden ook worden gebruikt voor het inschakelen van eenmalige aanmelding en bieden een één methode voor het beheren van toegang en de inrichting. Bereikfilters kan worden gebruikt eventueel naast toewijzingen of in plaats van ze, voor het filteren van gebruikers op basis van kenmerkwaarden.
+* **Uitgaande via Azure AD in te richten SaaS-toepassingen**. Wanneer Azure AD het bronsysteem [gebruikers en groepen toewijzingen](manage-apps/assign-user-or-group-access-portal.md) zijn de meest gebruikte methode voor het bepalen van welke gebruikers zijn binnen het bereik voor het inrichten. Deze toewijzingen worden gebruikt voor het inschakelen van eenmalige aanmelding ook en bieden een één methode voor het beheren van toegang en de inrichting. Bereikfilters kan worden gebruikt (optioneel), naast toewijzingen of in plaats van ze voor het filteren van gebruikers op basis van kenmerkwaarden.
 
     >[!TIP]
-    > U kunt uitschakelen inrichten op basis van de toewijzingen voor een zakelijke toepassing door het wijzigen van instellingen in de [bereik](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) menu onder de inrichting instellingen **synchroniseren van alle gebruikers en groepen**. Met deze optie plus bereik filters op basis van kenmerken, biedt betere prestaties dan wanneer u toewijzingen op basis van een groep.  
+    > U kunt uitschakelen inrichten op basis van toewijzingen voor een zakelijke toepassing door het wijzigen van instellingen in de [bereik](active-directory-saas-app-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) menu onder de inrichting instellingen **alle gebruikers en groepen synchroniseren**. Met deze optie plus bereikfilters op kenmerken gebaseerde biedt snellere prestaties dan het gebruik van toewijzingen op basis van een groep.  
 
-* **Inkomende inrichting van HCM toepassingen naar Azure AD en Active Directory**. Wanneer een [HCM toepassing zoals Workday](active-directory-saas-workday-tutorial.md) is het bronsysteem bereik filters zijn de primaire methode voor het bepalen van welke gebruikers moeten worden ingericht vanuit de toepassing HCM naar Active Directory of Azure AD.
+* **Inkomende inrichten van HCM-toepassingen naar Azure AD en Active Directory**. Wanneer een [HCM toepassing zoals Workday](saas-apps/workday-tutorial.md) is het bronsysteem bereikfilters worden de primaire methode voor het bepalen van welke gebruikers moeten worden ingericht vanuit de toepassing HCM naar Active Directory of Azure AD.
 
-Standaard hoeft Azure AD-inrichting connectors niet op basis van het kenmerk SCOPE filters geconfigureerd. 
+Standaard hoeft Azure AD-inrichting connectors niet op kenmerken gebaseerde bereikfilters die zijn geconfigureerd. 
 
-## <a name="scoping-filter-construction"></a>Filter constructie scoping
+## <a name="scoping-filter-construction"></a>Scoping filter constructie
 
-Een scope filter bestaat uit een of meer *componenten*. Componenten bepalen welke gebruikers kunnen het bereik filter doorgeven door elke gebruiker kenmerken te evalueren. Bijvoorbeeld wellicht een component die vereist dat een gebruikerskenmerk 'Status' is gelijk aan 'New York', zodat alleen Den Haag gebruikers zijn ingericht in de toepassing. 
+Een bereikfilter bestaat uit een of meer *componenten*. Componenten bepalen welke gebruikers zijn toegestaan om door te geven via de bereikfilter door het evalueren van de kenmerken van elke gebruiker. Bijvoorbeeld, mogelijk hebt u een van de componenten die vereist dat een gebruikerskenmerk 'State' is gelijk aan 'Antwerpen', zodat alleen gebruikers van de New York zijn ingericht in de toepassing. 
 
-Één component definieert één voorwaarde voor een enkele kenmerkwaarde. Als meerdere componenten in één scope filter worden gemaakt, zijn ze samen geëvalueerd met behulp van 'En' logica. Dit betekent dat alle componenten moeten worden geëvalueerd op 'true' in volgorde van een gebruiker moeten worden ingericht.
+Één component definieert één voorwaarde voor een enkel kenmerk-waarde. Als meerdere componenten zijn gemaakt in een enkele bereikfilter, werkt ze samen geëvalueerd met behulp van en-logica. Dit betekent dat alle componenten moeten worden geëvalueerd tot 'true' in order voor een gebruiker moet worden ingericht.
 
-Ten slotte kunnen meerdere scope filters worden gemaakt voor één toepassing. Als meerdere scope filters aanwezig zijn, zijn ze samen geëvalueerd met behulp van 'Of' logica. Dit betekent dat als de componenten in een van de geconfigureerde bereik filters evalueren op 'true', de gebruiker is ingericht.
+Ten slotte kunnen meerdere bereikfilters worden gemaakt voor één toepassing. Als er meerdere bereikfilters aanwezig zijn, worden ze samen geëvalueerd met behulp van of-logica. Dit betekent dat als de componenten in een van de geconfigureerde bereikfilters evalueren op 'true', de gebruiker is ingericht.
 
-Elke gebruiker of groep verwerkt door de service van Azure AD-inrichting worden wordt altijd afzonderlijk geëvalueerd tegen elke scope filter.
+Elke gebruiker of groep verwerkt door de Azure AD-inrichtingsservice worden is altijd afzonderlijk geëvalueerd op basis van elke bereikfilter.
 
-Overweeg bijvoorbeeld het volgende bereik filter:
+Houd rekening met de volgende bereikfilter als een voorbeeld:
 
 ![Bereikfilter](./media/active-directory-saas-scoping-filters/scoping-filter.PNG) 
 
-Gebruikers moeten voldoen aan de volgende criteria om te worden ingericht volgens dit bereik filter:
+Gebruikers moeten voldoen aan de volgende criteria om te worden ingericht op basis van deze bereikfilter:
 
 * Ze moeten zich in New York.
-* Ze moeten in de afdeling Engineering werken.
-* Werknemer-ID van hun bedrijf moet liggen tussen 1.000.000 en 2.000.000.
-* De functie mag geen null of leeg.
+* Ze moeten werken in de technische afdeling.
+* Hun bedrijf werknemer-ID moet tussen 1.000.000 en 2.000.000.
+* De functie moet niet null of leeg zijn.
 
-## <a name="create-scoping-filters"></a>Bereik filters maken
-Bereik filters zijn geconfigureerd als onderdeel van de kenmerktoewijzingen voor elke Azure AD-gebruikers inrichten van connector. De volgende procedure wordt ervan uitgegaan dat u al ingesteld voor een automatische inrichting [een van de ondersteunde toepassingen](active-directory-saas-tutorial-list.md) en het toevoegen van een scope filter aan.
+## <a name="create-scoping-filters"></a>Bereikfilters maken
+Bereikfilters zijn geconfigureerd als onderdeel van de kenmerktoewijzingen voor elke Azure AD-gebruiker connector wordt ingericht. De volgende procedure wordt ervan uitgegaan dat u al automatische inrichting instellen voor [een van de ondersteunde toepassingen](saas-apps/tutorial-list.md) en een bereikfilter toe toevoegt.
 
-### <a name="create-a-scoping-filter"></a>Maken van een scope filter
+### <a name="create-a-scoping-filter"></a>Maken van een bereikfilter
 1. In de [Azure-portal](https://portal.azure.com), gaat u naar de **Azure Active Directory** > **bedrijfstoepassingen** > **alle toepassingen** sectie.
 
 2. Selecteer de toepassing waarvoor u automatische inrichting hebt geconfigureerd: bijvoorbeeld 'ServiceNow'.
 
-3. Selecteer de **inrichten** tabblad.
+3. Selecteer de **Provisioning** tabblad.
 
-4. In de **toewijzingen** sectie, selecteert u de toewijzing die u wilt configureren voor een scope-filter: bijvoorbeeld 'synchroniseren Azure Active Directory: gebruikers aan ServiceNow'.
+4. In de **toewijzingen** sectie, selecteert u de toewijzing die u wilt configureren van een bereikfilter voor: bijvoorbeeld 'synchroniseren Azure Active Directory: gebruikers aan ServiceNow'.
 
 5. Selecteer de **bron objectbereik** menu.
 
-6. Selecteer **scope-filter toevoegen**.
+6. Selecteer **bereikfilter toevoegen**.
 
-7. Een component definiëren door te selecteren van een bron **kenmerknaam**, een **Operator**, en een **kenmerkwaarde** voor het vergelijken van. De volgende operators worden ondersteund:
+7. Een component definiëren door het selecteren van een bron **kenmerknaam**, een **Operator**, en een **kenmerkwaarde** voor het vergelijken van. De volgende operators worden ondersteund:
 
-   a. **IS GELIJK AAN**. Component retourneert 'true' als de geëvalueerde kenmerk precies overeenkomen met de waarde voor de invoer (hoofdlettergevoelig).
+   a. **IS GELIJK AAN**. Component retourneert 'true' als de geëvalueerde kenmerk precies overeenkomen met de ingevoerde tekenreeks-waarde (hoofdlettergevoelig).
 
-   b. **NIET GELIJK AAN**. Component retourneert 'true' als de geëvalueerde kenmerk komt niet overeen met de waarde invoerreeks (hoofdlettergevoelig).
+   b. **NIET GELIJK IS AAN**. Component retourneert 'true' als de geëvalueerde kenmerk komt niet overeen met de ingevoerde tekenreeks-waarde (hoofdlettergevoelig).
 
-   c. **IS INGESTELD OP TRUE**. Component retourneert 'true' als de geëvalueerde kenmerk een Booleaanse waarde waar bevat.
+   c. **IS INGESTELD OP TRUE**. Component retourneert 'true' als de geëvalueerde kenmerk een Booleaanse waarde ' True ' geretourneerd bevat.
 
-   d. **IS INGESTELD OP FALSE**. Component retourneert 'true' als de geëvalueerde kenmerk een Booleaanse waarde ONWAAR bevat.
+   d. **IS INGESTELD OP FALSE**. Component retourneert 'true' als de geëvalueerde kenmerk Booleaanse waarde false bevat.
 
-   e. **NULL**. Component retourneert 'true' als de geëvalueerde kenmerk leeg is.
+   e. **IS NULL**. Component retourneert 'true' als de geëvalueerde kenmerk leeg is.
 
-   f. **IS GEEN NULL**. Component retourneert 'true' als de geëvalueerde kenmerk niet leeg zijn.
+   f. **IS NIET NULL**. Component retourneert 'true' als de geëvalueerde kenmerk niet leeg zijn.
 
-   g. **REGEX-OVEREENKOMST**. Component retourneert 'true' als de geëvalueerde kenmerk overeenkomt met een reguliere-expressiepatroon. Bijvoorbeeld: ([1-9][0-9]) komt overeen met een willekeurig getal tussen 10 en 99.
+   g. **REGULIERE EXPRESSIE OVEREENKOMST**. Component retourneert 'true' als de geëvalueerde kenmerk overeenkomt met een reguliere-expressiepatroon. Bijvoorbeeld: ([1-9][0-9]) komt overeen met een willekeurig getal tussen 10 en 99.
 
    h. **NIET OVEREEN MET REGULIERE EXPRESSIE**. Component retourneert 'true' als de geëvalueerde kenmerk komt niet overeen met een reguliere-expressiepatroon.
 
-8. Selecteer **toevoegen van de nieuwe scope component**.
+8. Selecteer **nieuwe scope component toevoegen**.
 
-9. Optioneel, herhaalt u stap 7-8 als u wilt meer bereik componenten toevoegen.
+9. (Optioneel) Herhaal stap 7-8 als u wilt meer bereikcomponenten toevoegen.
 
-10. In **Scoping filtertitel**, Voeg een naam voor uw filter bereik toe.
+10. In **titel Scoping**, een naam voor het bereikfilter toevoegen.
 
 11. Selecteer **OK**.
 
-12. Selecteer **OK** opnieuw op de **Scoping Filters** scherm. Eventueel Herhaal stap 6-11 als een ander bereik filter wilt toevoegen.
+12. Selecteer **OK** opnieuw op de **Scoping Filters** scherm. (Optioneel) Herhaal stap 6-11 als een ander bereik filter wilt toevoegen.
 
 13. Selecteer **opslaan** op de **kenmerk toewijzing** scherm. 
 
 >[!IMPORTANT] 
-> Een nieuwe scope filter triggers wordt een nieuwe volledige synchronisatie voor de toepassing, waarbij alle gebruikers in het bronsysteem opnieuw worden geëvalueerd op basis van de nieuwe scope filter opgeslagen. Als een gebruiker in de toepassing eerder binnen het bereik van de inrichting, maar valt buiten het bereik was, hun account is uitgeschakeld of in de toepassing gemaakt.
+> Een nieuwe scope filter triggers wordt een nieuwe volledige synchronisatie uit voor de toepassing, waarbij alle gebruikers in het bronsysteem opnieuw worden geëvalueerd op basis van de nieuwe bereikfilter opgeslagen. Als een gebruiker in de toepassing eerder binnen het bereik van de inrichting, maar valt buiten het bereik was, wordt hun account uitgeschakeld of in de toepassing de inrichting ongedaan gemaakt.
 
 
 ## <a name="related-articles"></a>Verwante artikelen:
-* [Artikel index voor Toepassingsbeheer in Azure Active Directory](active-directory-apps-index.md)
-* [Automatisch gebruikers inrichten en opheffen van inrichting tot SaaS-toepassingen](active-directory-saas-app-provisioning.md)
-* [Kenmerktoewijzingen voor gebruikers inrichten aanpassen](active-directory-saas-customizing-attribute-mappings.md)
+* [Artikelenindex voor Toepassingsbeheer in Azure Active Directory](active-directory-apps-index.md)
+* [Gebruiker-inrichting en ongedaan maken van inrichting voor SaaS-toepassingen automatiseren](active-directory-saas-app-provisioning.md)
+* [Kenmerktoewijzingen voor het inrichten van gebruikers aanpassen](active-directory-saas-customizing-attribute-mappings.md)
 * [Expressies schrijven voor kenmerktoewijzingen](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-* [Meldingen inrichten van een account](active-directory-saas-account-provisioning-notifications.md)
-* [SCIM gebruiken om in te schakelen automatische inrichting van gebruikers en groepen van Azure Active Directory voor toepassingen](manage-apps/use-scim-to-provision-users-and-groups.md)
-* [Lijst met zelfstudies over het integreren van SaaS-apps](active-directory-saas-tutorial-list.md)
+* [Meldingen over accountinrichting](active-directory-saas-account-provisioning-notifications.md)
+* [SCIM gebruiken om in te schakelen automatische inrichting van gebruikers en groepen uit Azure Active Directory voor toepassingen](manage-apps/use-scim-to-provision-users-and-groups.md)
+* [Lijst met zelfstudies over het integreren van SaaS-apps](saas-apps/tutorial-list.md)
 

@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: cca9befb65abed3b6d07a52aa286c43725577121
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: cfab1a82c7da0ad596c9989e5a9f3ed800c58e4a
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051743"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389307"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - naamgevingsregels
 De volgende tabel bevat de naamgevingsregels voor Data Factory-artefacten.
 
-| Naam | Uniekheid van de naam | De validatie wordt gecontroleerd |
+| Naam | Uniekheid van naam | De validatie wordt gecontroleerd |
 |:--- |:--- |:--- |
-| Data Factory |Uniek zijn voor Microsoft Azure. Namen zijn niet hoofdlettergevoelig, dat wil zeggen, `MyDF` en `mydf` verwijzen naar de dezelfde gegevensfactory. |<ul><li>Elke gegevensfactory is gekoppeld aan één Azure-abonnement.</li><li>Object-namen moeten beginnen met een letter of cijfer en mag alleen letters, cijfers en het streepje (-) bevatten.</li><li>Elk streepje (-) moet direct worden voorafgegaan en gevolgd door een letter of cijfer. Twee opeenvolgende streepjes zijn in containernamen niet toegestaan.</li><li>Naam mag 3-63 tekens lang zijn.</li></ul> |
-| Gekoppelde Services/tabellen/pijplijnen |Unieke met in een gegevensfactory. De namen zijn niet hoofdlettergevoelig. |<ul><li>Maximum aantal tekens in een tabelnaam: 260.</li><li>Objectnamen moeten beginnen met een letter, cijfer of een onderstrepingsteken (_).</li><li>Volgende tekens zijn niet toegestaan: '. ', '+ ','?', '/', ' < ', ' > "," * ","%","&",": ","\\"</li><li>Streepjes ('-') zijn niet toegestaan in de namen van de gekoppelde services en alleen gegevenssets.</li></ul>  |
-| Resourcegroep |Uniek zijn voor Microsoft Azure. De namen zijn niet hoofdlettergevoelig. | Zie voor meer informatie [Azure naamgevingsregels en -beperkingen](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions). |
+| Data Factory |Uniek zijn voor Microsoft Azure. Namen zijn niet hoofdlettergevoelig, dat wil zeggen, `MyDF` en `mydf` verwijzen naar de dezelfde data factory. |<ul><li>Elke data factory is gekoppeld aan één Azure-abonnement.</li><li>De naam moeten beginnen met een letter of cijfer en mag alleen letters, cijfers en streepjes (-) bevatten.</li><li>Elk streepje (-) moet direct worden voorafgegaan en gevolgd door een letter of cijfer. Opeenvolgende streepjes zijn niet toegestaan in containernamen.</li><li>Naam mag 3 tot 63 tekens lang zijn.</li></ul> |
+| Gekoppelde Services/gegevenssets/pijplijnen |Unieke met in een data factory. Namen zijn niet hoofdlettergevoelig. |<ul><li>De naam moeten beginnen met een letter, cijfer of een onderstrepingsteken (_).</li><li>Volgende tekens zijn niet toegestaan: ".", '+ ','?', '/', ' < ', ' > ',' * ', '%', '&', ":","\\"</li><li>Streepjes ('-') zijn niet toegestaan in de namen van gekoppelde services en gegevenssets alleen.</li></ul>  |
+| Resourcegroep |Uniek zijn voor Microsoft Azure. Namen zijn niet hoofdlettergevoelig. | Zie voor meer informatie, [Azure naamgevingsregels en beperkingen](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions). |
 
 ## <a name="next-steps"></a>Volgende stappen
-Informatie over het maken van data Factory door volgen Stapsgewijze instructies in [Snelstartgids: Maak een gegevensfactory](quickstart-create-data-factory-powershell.md) artikel. 
+Meer informatie over het maken van data factory's door het volgen van stapsgewijze instructies in [Snelstartgids: een data Factory](quickstart-create-data-factory-powershell.md) artikel. 

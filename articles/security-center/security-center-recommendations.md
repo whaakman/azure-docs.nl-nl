@@ -3,7 +3,7 @@ title: Aanbevelingen voor beveiliging in Azure Security Center beheren | Microso
 description: Dit document helpt u bij hoe aanbevelingen in Azure Security Center helpen u bij het beveiligen van uw Azure-resources en blijven in overeenstemming met beveiligingsbeleid.
 services: security-center
 documentationcenter: na
-author: TerryLan
+author: TerryLanfear
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/12/2018
+ms.date: 07/31/2018
 ms.author: terrylan
-ms.openlocfilehash: 35f9f197dc9886998f695c4c632aa4b68ac4d072
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: caeef52ed8eb456bbec015f1766a95aa5ceb49f8
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006611"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39367103"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Aanbevelingen voor beveiliging in Azure Security Center beheren
 Dit document helpt u bij het gebruik van de aanbevelingen in Azure Security Center kunt u uw Azure-resources beveiligen.
@@ -95,7 +95,7 @@ Gebruik de onderstaande tabel als referentie om te begrijpen van de beschikbare 
 | [Evaluatie van beveiligingsproblemen is niet geïnstalleerd](security-center-vulnerability-assessment-recommendations.md) |Hiermee wordt aanbevolen dat een oplossing voor de beoordeling van beveiligingslekken wordt geïnstalleerd op de VM. |
 | [Beveiligingsproblemen herstellen](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Hiermee ziet u beveiligingsproblemen in het systeem en in de toepassing die zijn gedetecteerd met de oplossing voor beveiligingslekken die op de VM is geïnstalleerd. |
 | [Versleuteling inschakelen voor Azure Storage-Account](security-center-enable-encryption-for-storage-account.md) | Hiermee wordt aanbevolen dat u Azure Storage Service Encryption voor data-at-rest inschakelen. Storage Service Encryption (SSE) werkt door het versleutelen van de gegevens wanneer deze worden geschreven naar Azure storage en voordat ophalen ontsleutelt. SSE is momenteel alleen beschikbaar voor de Azure Blob-service en kan worden gebruikt voor blok-blobs, pagina-blobs en toevoeg-blobs. Zie voor meer informatie, [Storage Service Encryption voor data-at-rest](../storage/common/storage-service-encryption.md).</br>SSE wordt alleen ondersteund op Resource Manager-opslagaccounts. |
-| [Besturingselementen voor adaptieve toepassingen inschakelen](security-center-adaptive-application.md) | Hiermee wordt aanbevolen dat u besturingselementen voor adaptieve toepassingen op uw Windows-VM's van toepassing zijn. Deze functie is in preview en beschikbaar zijn op de prijscategorie Standard van Security Center. Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center. |
+| [Besturingselementen voor adaptieve toepassingen inschakelen](security-center-adaptive-application.md) | Hiermee wordt aanbevolen dat u besturingselementen voor adaptieve toepassingen op uw Windows-VM's van toepassing zijn. Deze functie is beschikbaar op de prijscategorie Standard van Security Center. Bekijk de pagina [Prijzen](security-center-pricing.md) voor meer informatie over de tariefopties van Security Center. |
 | App Service mag alleen toegankelijk zijn via HTTPS | Hiermee wordt aanbevolen dat u de toegang van App Service via HTTPS alleen beperken. |
 | Websockets moeten worden uitgeschakeld voor Web-App| Hiermee wordt aanbevolen dat u zorgvuldig door het gebruik van Websockets in webtoepassingen.  Het websocketsprotocol is kwetsbaar voor verschillende soorten beveiligingsrisico's. |
 | Aangepaste domeinen gebruiken voor uw Web-App | Hiermee wordt aanbevolen dat u aangepaste domeinen gebruiken voor een webtoepassing beveiligen tegen algemene aanvallen zoals phishing en andere aanvallen met betrekking tot DNS. |

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 82a7449bf75cd31f8da5bb93618c4e6977ed312b
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 67b2babcd19268a61794d123f5aa9780af16976b
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144931"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364009"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Een probleem VM-netwerk-verkeersfilter vaststellen
 
@@ -152,7 +152,7 @@ In de uitvoer van de vorige naam van de netwerk-interface is *myVMVMNic interfac
 
 ## <a name="interpret-command-output"></a>Uitvoer van de opdracht interpreteren
 
-Ongeacht of u gebruikt de [PowerShell](#diangose-using-powershell), of de [Azure CLI](#diagnose-using-azure-cli) om de oorzaak van het probleem, ontvangt u uitvoer met de volgende informatie:
+Ongeacht of u gebruikt de [PowerShell](#diagnose-using-powershell), of de [Azure CLI](#diagnose-using-azure-cli) om de oorzaak van het probleem, ontvangt u uitvoer met de volgende informatie:
 
 - **NetworkSecurityGroup**: de ID van de netwerkbeveiligingsgroep.
 - **Koppeling**: of de netwerkbeveiligingsgroep is gekoppeld aan een *NetworkInterface* of *Subnet*. Als een NSG gekoppeld aan beide is, wordt de uitvoer geretourneerd met **NetworkSecurityGroup**, **koppeling**, en **EffectiveSecurityRules**, voor elke NSG. Als de NSG is gekoppeld of losgekoppeld direct vóór het uitvoeren van de opdracht om de effectieve beveiligingsregels weer te geven, moet u mogelijk Wacht een paar seconden om de wijziging doorgevoerd in de uitvoer van de opdracht.

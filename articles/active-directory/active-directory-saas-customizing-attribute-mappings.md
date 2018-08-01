@@ -1,154 +1,154 @@
 ---
 title: Azure AD-kenmerktoewijzingen aanpassen | Microsoft Docs
-description: Meer informatie over welke kenmerktoewijzingen voor SaaS-apps in Azure Active Directory zijn hoe u kunt deze aanpassen om de behoeften van uw bedrijf op te lossen.
+description: Meer informatie over welke kenmerktoewijzingen voor SaaS-apps in Azure Active Directory zijn hoe u ze om te voldoen aan uw bedrijfsbehoeften kunt aanpassen.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barbkess
 manager: mtillman
 editor: ''
-ms.assetid: 549e0b8c-87ce-4c9b-b487-b7bf0155dc77
 ms.service: active-directory
+ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/13/2018
-ms.author: markvi
+ms.topic: conceptual
+ms.date: 07/30/2018
+ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7dad9f3e688c43de3eabd430bf5618ad4632ca3d
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 366b89d3db0db634e239ac2d99188c7ea0444c13
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035930"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365189"
 ---
-# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Gebruikers inrichten kenmerktoewijzingen voor SaaS-toepassingen in Azure Active Directory aanpassen
-Microsoft Azure AD biedt ondersteuning voor gebruikersinrichting voor SaaS-toepassingen van derden zoals Salesforce en Google Apps. Als u gebruikers inrichten voor een SaaS-toepassing van derden is ingeschakeld hebt, bepaalt de Azure-portal de kenmerkwaarden weer in de vorm van kenmerk toewijzingen.
+# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Kenmerktoewijzingen voor Gebruikersinrichting voor SaaS-toepassingen in Azure Active Directory aanpassen
+Microsoft Azure AD biedt ondersteuning voor het inrichten van gebruikers voor SaaS-toepassingen van derden zoals Salesforce, Google Apps en anderen. Als u hebt met het inrichten van gebruikers voor een SaaS-toepassing van derden ingeschakeld, bepaalt de Azure-portal de kenmerkwaarden in de vorm van kenmerk-toewijzingen.
 
-Er is een vooraf geconfigureerde set kenmerken en kenmerktoewijzingen tussen Azure AD-gebruikersobjecten en gebruikersobjecten van elke SaaS-app. Sommige apps beheren andere typen objecten naast gebruikers, zoals groepen. <br> 
- U kunt de standaard-kenmerktoewijzingen aanpassen volgens uw bedrijfsbehoeften. Dit houdt in dat u kunt wijzigen of verwijderen van bestaande kenmerktoewijzingen, of nieuwe kenmerktoewijzingen maken.
+Er is een vooraf geconfigureerde set kenmerken en kenmerktoewijzingen tussen Azure AD-gebruikersobjecten en gebruikersobjecten elke SaaS-app. Sommige apps beheren andere typen objecten naast de gebruikers, zoals groepen. <br> 
+ U kunt de standaard-kenmerktoewijzingen aanpassen op basis van de behoeften van uw bedrijf. Dit houdt in dat u kunt wijzigen of verwijderen van bestaande kenmerktoewijzingen, of nieuwe kenmerktoewijzingen maken.
  
-## <a name="editing-user-attribute-mappings"></a>Kenmerk Gebruikerstoewijzingen bewerken
+## <a name="editing-user-attribute-mappings"></a>Gebruiker-kenmerktoewijzingen bewerken
 
-In de Azure AD-portal, opent u deze functie door te klikken op een **toewijzingen** configuratie onder **inrichten** in de **beheren** gedeelte van een  **Bedrijfstoepassing**.
+In de Azure AD-portal, kunt u deze functie openen door te klikken op een **toewijzingen** configuratie onder **Provisioning** in de **beheren** gedeelte van een  **Bedrijfstoepassing**.
 
 
 ![SalesForce][5] 
 
-Te klikken op een **toewijzingen** configuratie, de verwante geopend **kenmerk toewijzing** scherm. Er zijn kenmerktoewijzingen die door een SaaS-toepassing vereist zijn te laten functioneren. Voor de vereiste kenmerken de **verwijderen** functie is niet beschikbaar.
+Te klikken op een **toewijzingen** -configuratie, is het gerelateerde geopend **kenmerktoewijzing** scherm. Er zijn kenmerktoewijzingen die voor een SaaS-toepassing vereist zijn te laten functioneren. Voor de vereiste kenmerken, de **verwijderen** functie is niet beschikbaar.
 
 
 ![SalesForce][6]  
 
-In het bovenstaande voorbeeld kunt u zien dat de **gebruikersnaam** kenmerk van een beheerd object in Salesforce is gevuld met de **userPrincipalName** waarde van de gekoppelde Azure Active Directory-Object.
+In het bovenstaande voorbeeld ziet u dat de **gebruikersnaam** kenmerk van een beheerd object in Salesforce wordt gevuld met de **userPrincipalName** waarde van de gekoppelde Azure Active Directory-Object.
 
-U kunt bestaande **kenmerktoewijzingen** door te klikken op een toewijzing. Hiermee opent u de **kenmerk bewerken** scherm.
+U kunt bestaande **kenmerktoewijzingen** door te klikken op een-toewijzing. Hiermee opent u de **kenmerk bewerken** scherm.
 
 ![SalesForce][7]  
 
 
-### <a name="understanding-attribute-mapping-types"></a>Typen van de toewijzing van kenmerken
-Met kenmerktoewijzingen, kunt u bepalen hoe kenmerken worden ingevuld in een SaaS-toepassing van derden. Er zijn vier verschillende toewijzingstypen ondersteund:
+### <a name="understanding-attribute-mapping-types"></a>Kenmerktoewijzing typen
+Met kenmerktoewijzingen, kunt u bepalen hoe kenmerken worden ingevuld in een SaaS-toepassing van derden. Er zijn vier verschillende toewijzen die worden ondersteund:
 
 * **Directe** : het kenmerk target is gevuld met de waarde van een kenmerk van het gekoppelde object in Azure AD.
-* **Constante** : het kenmerk target is gevuld met een specifieke tekenreeks die u hebt opgegeven.
+* **Constante** – het doelkenmerk gevuld met een specifieke tekenreeks die u hebt opgegeven.
 * **Expressie** -het kenmerk target is ingevuld op basis van het resultaat van een script-achtige-expressie. 
-  Zie voor meer informatie [schrijven expressies voor kenmerktoewijzingen in Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
-* **Geen** -het kenmerk target blijft ongewijzigd. Echter, als het kenmerk target ooit leeg is, wordt dit ingevuld met de standaardwaarde die u opgeeft.
+  Zie voor meer informatie, [expressies schrijven voor kenmerktoewijzingen in Azure Active Directory](active-directory-saas-writing-expressions-for-attribute-mappings.md).
+* **Geen** -het kenmerk target blijft ongewijzigd. Echter, als het doelkenmerk ooit leeg is, wordt dit ingevuld met de standaard-waarde die u opgeeft.
 
-Naast deze vier eenvoudige typen aangepaste kenmerktoewijzingen ondersteuning voor het concept van een optionele **standaard** waarde toewijzing. De toewijzing van de standaard waarde zorgt ervoor dat een target-kenmerk is gevuld met een waarde als er geen waarde in Azure AD en ook op het doelobject. De meest voorkomende configuratie is leeg laten.
+Naast deze vier eenvoudige typen aangepaste kenmerktoewijzingen bieden ondersteuning voor het concept van een optionele **standaard** toewijzing-waarde. De toewijzing van de standaard-waarde zorgt ervoor dat een target-kenmerk is gevuld met een waarde als er geen waarde in Azure AD, noch van het doelobject. De meest voorkomende configuratie is te laat dit veld leeg.
 
 
-### <a name="understanding-attribute-mapping-properties"></a>Inzicht in de eigenschappen van de toewijzing van kenmerken
+### <a name="understanding-attribute-mapping-properties"></a>Understanding kenmerktoewijzing eigenschappen
 
-In de vorige sectie hebt u al is geïntroduceerd voor de eigenschap type van de toewijzing van kenmerken.
+In de vorige sectie, hebt u al kennisgemaakt met de eigenschap type van kenmerk-toewijzing.
 Naast deze eigenschap ondersteunen kenmerktoewijzingen ook de volgende kenmerken:
 
-- **Bronkenmerk** -gebruikerskenmerk uit het bronsysteem (voorbeeld: Azure Active Directory).
+- **Bronkenmerk** -het gebruikerskenmerk van de van het bronsysteem (voorbeeld: Azure Active Directory).
 - **Doelkenmerk** – het gebruikerskenmerk in het doelsysteem (voorbeeld: ServiceNow).
-- **Overeen met objecten met behulp van dit kenmerk** : of deze toewijzing moet worden gebruikt als unieke identificatie van gebruikers tussen de bron en doel-systemen of niet. Dit is standaard ingesteld op het kenmerk userPrincipalName of e-mail in Azure AD, die meestal naar een veld username in een doeltoepassing is toegewezen.
-- **Overeenkomende voorrang** – meerdere overeenkomende kenmerken kan worden ingesteld. Wanneer er meerdere, moeten ze worden geëvalueerd in de volgorde gedefinieerd door dit veld. Als een overeenkomst is gevonden, er is geen verdere overeenkomende kenmerken worden geëvalueerd.
-- **Deze toewijzing is van toepassing**
-    - **Altijd** : deze toewijzing is van toepassing op beide maken van een gebruikersaccount en acties bijwerken
-    - **Alleen tijdens het maken van** -deze toewijzing is van toepassing alleen op gebruikersacties maken
+- **Overeenkomen met de objecten met behulp van dit kenmerk** – ongeacht of deze toewijzing moet worden gebruikt voor het aanduiden van gebruikers tussen de bron en doel-systemen of niet. Dit is standaard ingesteld op het kenmerk userPrincipalName of e-mail in Azure AD, die meestal is toegewezen aan een veld username in een doeltoepassing.
+- **Prioriteit bij** : meerdere overeenkomende kenmerken kan worden ingesteld. Wanneer er meerdere, worden deze geëvalueerd in de volgorde die is gedefinieerd in dit veld. Zodra een overeenkomst wordt gevonden, geen verdere overeenkomende kenmerken worden geëvalueerd.
+- **Deze toewijzing toepassen**
+    - **Altijd** : deze toewijzing toepassen op beide gebruiker maken en bijwerken van acties
+    - **Alleen tijdens het maken van** -deze toewijzing is van toepassing alleen op acties van het maken van de gebruiker
 
 
 ## <a name="editing-group-attribute-mappings"></a>Kenmerktoewijzingen groep bewerken
 
-Aantal toepassingen, zoals ServiceNow, vak en Google Apps, ondersteunen de mogelijkheid om in te richten groepsobjecten naast gebruikersobjecten. Groepsobjecten kunnen bevatten groepseigenschappen zoals weergavenamen en e-aliassen naast groepsleden.
+Aantal toepassingen, zoals ServiceNow, Box en Google Apps, ondersteunen de mogelijkheid om in te richten groepsobjecten worden weergegeven naast gebruikersobjecten. Groepsobjecten kunnen bevatten groepseigenschappen zoals weergavenamen en e-aliassen, naast de groepsleden.
 
 ![ServiceNow][8]  
 
-Inrichting van de groep kan worden eventueel ingeschakeld of uitgeschakeld door het selecteren van de toewijzing van de groep onder **toewijzingen**, en de instelling **ingeschakeld** met de gewenste optie in de **kenmerk-toewijzing** scherm.
+Inrichten van de groep kan worden eventueel ingeschakeld of uitgeschakeld door het selecteren van de toewijzing van apparaatgroepen onder **toewijzingen**, en de instelling **ingeschakeld** aan de gewenste optie in de **kenmerktoewijzing** scherm.
 
-De kenmerken die zijn ingericht als onderdeel van een groepsobjecten kunnen worden aangepast op dezelfde manier als gebruikersobjecten, zoals eerder besproken. 
+De kenmerken die zijn ingericht als onderdeel van de groepsobjecten kunnen worden aangepast op dezelfde manier als de objecten gebruiker, die eerder zijn beschreven. 
 
 >[!TIP]
->Het inrichten van een groepsobjecten (eigenschappen en leden) is een afzonderlijke concept van [groepen toewijzen](manage-apps/assign-user-or-group-access-portal.md) tot een toepassing. Het is mogelijk een groep worden toegewezen aan een toepassing, maar alleen de gebruikersobjecten in de groep inrichten. Het inrichten van een volledige groepsobjecten is niet vereist voor het gebruik van groepen in de toewijzingen.
+>Het inrichten van een groepsobjecten (eigenschappen en leden) is een afzonderlijke concept van [groepen toewijzen](manage-apps/assign-user-or-group-access-portal.md) tot een toepassing. Het is mogelijk een groep toewijzen aan een toepassing, maar alleen de gebruikersobjecten in de groep inrichten. Inrichting van de volledige groepsobjecten is niet vereist voor het gebruik van groepen in toewijzingen.
 
 
 ## <a name="editing-the-list-of-supported-attributes"></a>De lijst met ondersteunde kenmerken bewerken
 
-De kenmerken van de gebruiker ondersteund voor een bepaalde toepassing zijn vooraf geconfigureerd. De meeste toepassing Gebruikersbeheer API's bieden geen ondersteuning voor detectie van schema, de Azure AD-service inricht is daarom niet dynamisch genereren van de lijst met ondersteunde kenmerken door het aanroepen van de toepassing. 
+De kenmerken van de gebruiker ondersteund voor een bepaalde toepassing zijn vooraf geconfigureerd. De meeste toepassingen Gebruikersbeheer-API's bieden geen ondersteuning voor detectie van schema, de Azure AD-inrichtingsservice is daarom niet dynamisch genereren van de lijst met ondersteunde kenmerken door het aanroepen van de toepassing. 
 
-Sommige toepassingen ondersteunen echter aangepaste kenmerken. In de volgorde voor de Azure AD-service inricht kunnen lezen en schrijven naar aangepaste kenmerken, de definities moeten worden ingevoerd in de Azure portal met behulp van de **geavanceerde opties weergeven** selectievakje aan de onderkant van de  **Toewijzing van kenmerken** scherm.
+Sommige toepassingen ondersteunen echter aangepaste kenmerken. In de volgorde voor de Azure AD-inrichtingsservice kunnen lezen en schrijven naar aangepaste kenmerken, de definities moeten worden ingevoerd in de Azure portal met de **geavanceerde opties weergeven** selectievakje aan de onderkant van de  **Kenmerktoewijzing** scherm.
 
-Toepassingen en systemen die ondersteuning voor aanpassing van de lijst met kenmerken zijn onder andere:
+Toepassingen en systemen die ondersteuning bieden voor aanpassing van de lijst met kenmerken zijn onder andere:
 
 * SalesForce
 * ServiceNow
-* Werkdag
-* Azure Active Directory ([Azure AD Graph API standaardkenmerken](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) en aangepaste directory-uitbreidingen worden ondersteund)
+* WorkDay
+* Azure Active Directory ([Azure AD Graph API standaardkenmerken](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) en aangepaste mapextensies worden ondersteund)
 * Apps die ondersteuning bieden voor [SCIM 2.0](https://tools.ietf.org/html/rfc7643), waarbij de kenmerken die zijn gedefinieerd in de [core schema](https://tools.ietf.org/html/rfc7643) moeten worden toegevoegd
 
 >[!NOTE]
->De lijst met ondersteunde kenmerken bewerken wordt alleen aanbevolen voor beheerders die het schema van de toepassingen en systemen hebt aangepast en eerste hand kennis hebben van hoe de aangepaste kenmerken zijn gedefinieerd. Hiervoor moet soms bekend bent met de API's en ontwikkelaars-hulpprogramma's van een toepassing of het systeem. 
+>De lijst met ondersteunde kenmerken bewerken wordt alleen aanbevolen voor beheerders die het schema van hun toepassingen en systemen hebt aangepast en eerste hand kennis hebben van hoe de aangepaste kenmerken zijn gedefinieerd. Hiervoor moet soms vertrouwd zijn met de API's en ontwikkelaars-hulpprogramma's van een toepassing of het systeem. 
 
 ![Editor][9]  
 
-Wanneer u de lijst met ondersteunde kenmerken bewerkt, vindt u de volgende eigenschappen:
+Tijdens het bewerken van de lijst met ondersteunde kenmerken, vindt u de volgende eigenschappen:
 
 * **Naam** -de systeemnaam van het kenmerk, zoals gedefinieerd in het schema van het doelobject. 
-* **Type** -het type gegevens dat het kenmerk is opgeslagen, zoals gedefinieerd in het schema van het doelobject. Dit kan een van de volgende zijn:
-   * *Binaire* -kenmerk bevat de binaire gegevens.
-   * *Booleaanse* -kenmerk bevat een waarde True of False.
-   * *Datum-/* -kenmerk bevat een datumtekenreeks.
-   * *Geheel getal* -kenmerk bevat een geheel getal.
-   * *Verwijzing* -kenmerk bevat een ID die verwijst naar een waarde die is opgeslagen in een andere tabel in de doeltoepassing.
-   * *Tekenreeks* -kenmerk bevat een tekenreeks. 
-* **Primaire sleutel?** -Of het kenmerk is gedefinieerd als een veld van de primaire sleutel in het schema van het doelobject.
-* **Vereist?** -Het kenmerk is al dan niet vereist om te worden gevuld in de doeltoepassing of het systeem.
-* **Met meerdere waarden?** -Controleren of het kenmerk ondersteunt meerdere waarden.
-* **Hoofdletters?** -De waarden van kenmerken worden al dan niet in een hoofdlettergevoelige manier geëvalueerd.
-* **API-expressie** -niet gebruikt, tenzij om dit te doen door de documentatie voor een specifieke inrichting connector (zoals Workday).
-* **Het kenmerk Object waarnaar wordt verwezen** : als dit een kenmerk van het type verwijzing is, wordt dit menu kunt u de tabel en het kenmerk in de doeltoepassing waarin de waarde die is gekoppeld aan het kenmerk selecteren. Als u een kenmerk genaamd 'Afdeling' waarvan opgeslagen waarde verwijst naar een object in een aparte 'Afdelingen' tabel hebt, selecteert u bijvoorbeeld 'Departments.Name'. Denk eraan dat de verwijzing naar tabellen en de primaire ID velden die worden ondersteund voor een bepaalde toepassing vooraf is geconfigureerd en momenteel kunnen niet worden bewerkt met de Azure portal, maar kunnen worden bewerkt met behulp van de [Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+* **Type** -het type gegevens dat het kenmerk opslaat, zoals gedefinieerd in het schema van het doelobject. Dit kan een van de volgende zijn:
+   * *Binaire* -kenmerk bevat binaire gegevens.
+   * *Booleaanse* -kenmerk bevat een waarde waar of ONWAAR.
+   * *Datum-/* -kenmerk bevat een tekenreeks met datum.
+   * *Geheel getal* -kenmerk bevat een geheel getal zijn.
+   * *Naslaginformatie over* -kenmerk bevat een ID die verwijst naar een waarde die is opgeslagen in een andere tabel in de doeltoepassing.
+   * *Tekenreeks* -kenmerk bevat een tekenreeks met tekst. 
+* **Primaire sleutel?** -Of het kenmerk wordt gedefinieerd als een veld van de primaire sleutel in het schema van het doelobject.
+* **Vereist?** -Het kenmerk is wel of niet moet worden ingevuld in de doeltoepassing of het systeem.
+* **Meerdere waarden?** -Controleren of het kenmerk ondersteunt meerdere waarden.
+* **Hoofdlettergevoelig?** -Al dan niet de waarden voor kenmerken worden geëvalueerd in een hoofdlettergevoelige manier.
+* **API-expressie** -niet gebruikt, tenzij dit niet doet, in de documentatie voor een specifieke inrichting connector (zoals Workday).
+* **Objectkenmerk waarnaar wordt verwezen** : als dit een kenmerk van het type referentie, is wordt dit menu kunt u de tabel en het kenmerk in de doeltoepassing waarin de waarde die is gekoppeld aan het kenmerk selecteren. Als u een kenmerk met de naam 'Afdeling' waarvan u de opgeslagen waarde verwijst naar een object in een afzonderlijke "Diensten"-tabel hebt, zou u bijvoorbeeld 'Departments.Name' selecteren. Houd er rekening mee dat de referentietabellen en de primaire id-velden die worden ondersteund voor een bepaalde toepassing vooraf zijn geconfigureerd en op dit moment kunnen niet worden bewerkt met behulp van de Azure portal, maar kunnen worden bewerkt met behulp van de [Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
-Als u wilt een nieuw kenmerk toevoegen, Ga naar het einde van de lijst met ondersteunde kenmerken, vul de velden dan het gebruik van de opgegeven invoer en selecteer **kenmerk toevoegen**. Selecteer **opslaan** wanneer u klaar bent met het toevoegen van kenmerken. Vervolgens moet u opnieuw laden van de **inrichten** tabblad voor de nieuwe kenmerken beschikbaar in de editor voor de toewijzing van kenmerken.
+Als u wilt een nieuw kenmerk toevoegen, Ga naar het einde van de lijst met ondersteunde kenmerken, vul de velden dan het gebruik van de opgegeven invoer en selecteer **kenmerk toevoegen**. Selecteer **opslaan** wanneer u klaar bent kenmerken toe te voegen. Vervolgens moet u laden van de **Provisioning** tabblad voor de nieuwe kenmerken beschikbaar in de editor kenmerk-toewijzing.
 
 ## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>Herstellen van de standaardkenmerken en kenmerktoewijzingen
 
-U moet beginnen en opnieuw instellen van uw bestaande toewijzingen terug naar de standaardstatus, kunt u de **herstellen standaardtoewijzingen** selectievakje en de configuratie op te slaan. Hiermee stelt u alle toewijzingen als de toepassing heeft zojuist toegevoegd aan uw Azure AD-tenant uit de galerie met toepassingen. 
+U moet beginnen en opnieuw instellen van uw bestaande toewijzingen terug naar de standaardstatus heeft, kunt u de **standaardtoewijzingen herstellen** selectievakje en de configuratie op te slaan. Hiermee wordt alle toewijzingen ingesteld als de toepassing hadden NET is toegevoegd aan uw Azure AD-tenant uit de galerie. 
 
-Deze optie wordt een nieuwe synchronisatie van alle gebruikers effectief geforceerd terwijl de inrichting-service wordt uitgevoerd. 
+Deze optie selecteert, wordt een hernieuwde synchronisatie van alle gebruikers effectief gedwongen terwijl de provisioning-service wordt uitgevoerd. 
 
 >[!IMPORTANT]
->Het is raadzaam dat **Inrichtingsstatus** worden ingesteld op **uit** voordat deze optie wordt aangeroepen.
+>Het wordt sterk aanbevolen die **Inrichtingsstatus** worden ingesteld op **uit** voordat het aanroepen van deze optie.
 
 
 ## <a name="what-you-should-know"></a>Wat u moet weten
 
-* Microsoft Azure AD biedt een efficiënte implementatie van een synchronisatieproces. In een omgeving met geïnitialiseerde worden alleen objecten die moet worden bijgewerkt verwerkt tijdens een synchronisatiecyclus. 
+* Microsoft Azure AD biedt een efficiënte implementatie van een proces van synchronisatie. In een omgeving geïnitialiseerd, worden alleen de objecten waarvoor updates zijn vereist tijdens een synchronisatiecyclus verwerkt. 
 
-* Kenmerktoewijzingen bijwerken, heeft een invloed op de prestaties van een synchronisatiecyclus. Een update voor de configuratie van de toewijzing van kenmerken is vereist voor alle beheerde objecten die moeten worden opnieuw worden geëvalueerd. 
+* Kenmerk-toewijzingen bijwerken, heeft een invloed op de prestaties van een synchronisatiecyclus. Een update voor de configuratie van de kenmerk-toewijzing is vereist voor alle beheerde objecten om te worden opnieuw geëvalueerd. 
 
-* Het is aanbevolen om het aantal opeenvolgende wijzigingen tot uw kenmerktoewijzingen minimaal te beperken.
+* Het is een aanbevolen procedure om te blijven het aantal opeenvolgende wijzigingen in uw kenmerktoewijzingen ten minste.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Automatisch gebruikers inrichten/opheffen van inrichting tot SaaS-Apps](active-directory-saas-app-provisioning.md)
-* [Expressies voor kenmerktoewijzingen schrijven](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-* [Bereikfilters voor gebruikers inrichten](active-directory-saas-scoping-filters.md)
+* [Gebruiker inrichting/ongedaan maken van inrichting voor SaaS-toepassingen automatiseren](active-directory-saas-app-provisioning.md)
+* [Expressies schrijven voor kenmerktoewijzingen](active-directory-saas-writing-expressions-for-attribute-mappings.md)
+* [Bereikfilters toevoegen voor het inrichten van gebruikers](active-directory-saas-scoping-filters.md)
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md) (SCIM gebruiken om in te stellen dat gebruikers en groepen van Azure Active Directory automatisch worden ingericht voor toepassingen)
 * [Lijst met zelfstudies over het integreren van SaaS-Apps](saas-apps/tutorial-list.md)
 

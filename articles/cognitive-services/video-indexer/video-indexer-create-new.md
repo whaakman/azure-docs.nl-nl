@@ -1,36 +1,36 @@
 ---
-title: Gebruik van Azure Video indexeerfunctie video insights maken van bestaande video's | Microsoft Docs
-description: Dit onderwerp leest u hoe u maken en publiceren van video inzichten op basis van bepaalde andere video.
+title: Video Indexer van Azure gebruiken voor het maken van inzichten in video's van bestaande video's | Microsoft Docs
+description: Dit onderwerp ziet u hoe u kunt maken en inzichten in video's op basis van bepaalde andere video publiceren.
 services: cognitive services
 documentationcenter: ''
 author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: 8b336f2818769af8372320cadc20e3a152e51de2
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 161a47f72a0f8038a515c09f25ec2a8e8a520547
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265577"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390837"
 ---
-# <a name="create-highlights-from-existing-videos"></a>Highlights van bestaande video's maken
+# <a name="create-highlights-from-existing-videos"></a>Hoogtepunten maken van bestaande video 's
 
-Dit onderwerp leest u hoe u maken en publiceren van video inzichten op basis van bepaalde andere video.
+Dit onderwerp ziet u hoe u kunt maken en inzichten in video's op basis van bepaalde andere video publiceren.
 
-1. Aanmelden bij uw [Video indexeerfunctie](https://api-portal.videoindexer.ai/) account.
-2. Een video van waaruit u wilt maken van uw video insights vinden.
+1. Aanmelden bij uw [Video Indexer](https://api-portal.videoindexer.ai/) account.
+2. Zoek een video van waaruit u wilt maken van uw inzichten in video's.
 3. Druk op **afspelen**.
 
-    De pagina weergegeven van de video samengevatte insights. 
+    De pagina bevat een overzicht van de video-inzichten. 
 
     ![Inzichten](./media/video-indexer-create-new/video-indexer-summarized-insights.png)
 
 3. Druk op de **bewerken** knop.
 
-    Deze pagina kunt u de volledige uitsplitsing van een video. De uitsplitsing is onderverdeeld in blokken. Blokken zijn hier gemakkelijker te doorlopen van de gegevens. Bijvoorbeeld, kan blok worden onderverdeeld op basis van wanneer luidsprekers wijzigt of er een lange pauze is. U kunt uw eigen afspeellijst met alleen de regels die u wilt maken. Om weer te geven dat alleen bepaalde delen van de bron-video, kunt u filteren op onderwerpen/trefwoorden, patronen, mensen, luidsprekers. U kunt alleen tekst of OCR van de video bekijken.    
+    Deze pagina kunt u de volledige uitsplitsing van een video. De uitsplitsing van de is onderverdeeld in blokken. Blokken staan klaar om het u gemakkelijker kunt doorlopen van de gegevens. Bijvoorbeeld, kan blok worden opgesplitst op basis van wanneer sprekers wijzigen of als er een pauze van lang. U kunt uw eigen afspeellijst met alleen de regels die u wilt maken. Om weer te geven alleen specifieke onderdelen van de bron-video, kunt u filteren op onderwerpen/trefwoorden, sentimenten, personen, sprekers. U kunt alleen het transcript of de OCR van de video bekijken.    
 
     ![Inzichten](./media/video-indexer-create-new/video-indexer-create-new-playlist.png)
 
@@ -38,23 +38,23 @@ Dit onderwerp leest u hoe u maken en publiceren van video inzichten op basis van
 
     Als u wilt toevoegen of verwijderen van regels naar/van de afspeellijst, drukt u op **+** / **-**.
 
-5. Voorbeeld bekijken van de afspeellijst.
+5. De afspeellijst Preview.
 
-    Wanneer u klaar bent voor het maken van de afspeellijst druk op **Preview**.
+    Zodra u klaar bent met het maken van de afspeellijst, drukt u op **Preview**.
 6. De afspeellijst publiceren.
 
-    Nadat u een voorbeeld bekijken van de afspeellijst, kunt u deze hebt gepubliceerd.
+    Nadat u de afspeellijst bekijkt, kunt u deze kunt publiceren.
 
-    Zodra u de afspeellijst publiceert, wordt deze toegevoegd aan de lijst met video inzicht in uw gegevens.
+    Nadat u de afspeellijst publiceert, wordt deze toegevoegd aan de lijst met uw inzichten in video's.
 
 
 ## <a name="next-steps"></a>Volgende stappen 
 
-Wanneer u de nieuwe afspeellijst maakt, kunt u blijven verwerken, zoals beschreven in een van de volgende onderwerpen: 
+Als u de nieuwe afspeellijst maakt, kunt u doorgaan met het verwerken, zoals beschreven in een van de volgende onderwerpen: 
 
-- [Processen inhoud met Video indexeerfunctie REST-API](video-indexer-use-apis.md)
+- [Verwerken met Video Indexer REST-API-inhoud](video-indexer-use-apis.md)
 - [Visual widgets insluiten in uw toepassing](video-indexer-embed-widgets.md)
 
 ## <a name="see-also"></a>Zie ook
 
-[Video indexeerfunctie-overzicht](video-indexer-overview.md) 
+[Video Indexer-overzicht](video-indexer-overview.md) 

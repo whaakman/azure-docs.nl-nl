@@ -1,6 +1,6 @@
 ---
-title: Overzicht van de verwerking van Media schalen | Microsoft Docs
-description: Dit onderwerp bevat een overzicht van het vergroten/verkleinen Media verwerken met Azure Media Services.
+title: Verwerking van Media schalingsoverzicht | Microsoft Docs
+description: In dit onderwerp wordt een overzicht van het vergroten/verkleinen Media verwerken met Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -12,30 +12,31 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/04/2017
+ms.date: 07/30/2018
 ms.author: juliako
-ms.openlocfilehash: 894b403b59624b6c42ce947169e9c9ac30ec76b9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 81fab8903c0101d0e4aae8a392f05129651cd762
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790361"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39369140"
 ---
-# <a name="scaling-media-processing-overview"></a>Overzicht van de verwerking van Media schalen
-Deze pagina biedt een overzicht van hoe en waarom schalen verwerking van media. 
+# <a name="scaling-media-processing-overview"></a>Verwerking van Media schalingsoverzicht
+Deze pagina geeft een overzicht van hoe en waarom mediaverwerking schalen. 
 
 ## <a name="overview"></a>Overzicht
-Media Services-accounts worden gekoppeld aan een gereserveerde-eenheidstype, waarmee wordt bepaald hoe snel de mediaverwerkingstaken worden verwerkt. U kunt kiezen uit de volgende gereserveerde-eenheidstypen: **S1**, **S2** en **S3**. Een coderingstaak wordt bijvoorbeeld sneller uitgevoerd wanneer u het gereserveerde-eenheidstype **S2** gebruikt (in vergelijking met het type **S1**). Zie voor meer informatie de [gereserveerde eenheidstypen](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/).
+Media Services-accounts worden gekoppeld aan een gereserveerde-eenheidstype, waarmee wordt bepaald hoe snel de mediaverwerkingstaken worden verwerkt. U kunt kiezen uit de volgende gereserveerde-eenheidstypen: **S1**, **S2** en **S3**. Een coderingstaak wordt bijvoorbeeld sneller uitgevoerd wanneer u het gereserveerde-eenheidstype **S2** gebruikt (in vergelijking met het type **S1**). Zie voor meer informatie de [gereserveerde-eenheidstypen](https://azure.microsoft.com/blog/high-speed-encoding-with-azure-media-services/).
 
-Naast het opgeven van het type gereserveerde eenheid, kunt u opgeven voor het inrichten van uw account met gereserveerde eenheden. Op basis van het aantal ingerichte, gereserveerde eenheden wordt bepaald hoeveel mediataken tegelijk kunnen worden verwerkt voor een bepaald account. Bijvoorbeeld, als uw account vijf gereserveerde eenheden, heeft en vervolgens vijf media taken wordt gelijktijdig zo lang worden uitgevoerd als er zijn taken moeten worden verwerkt. De resterende taken in de wachtrij moeten wachten en wordt ophalen opgepikt sequentieel worden verwerkt wanneer een actieve taak is voltooid. Als een account heeft geen geen gereserveerde eenheden die zijn ingericht, zullen vervolgens taken worden opgepikt sequentieel worden verwerkt. In dit geval afhankelijk de wachttijd tussen één taak voltooid en de volgende begin van de beschikbaarheid van resources in het systeem.
+Naast het opgeven van de gereserveerde-eenheidstype, kunt u opgeven voor het inrichten van uw account met gereserveerde eenheden. Op basis van het aantal ingerichte, gereserveerde eenheden wordt bepaald hoeveel mediataken tegelijk kunnen worden verwerkt voor een bepaald account. Bijvoorbeeld, als uw account vijf gereserveerde eenheden, heeft en vervolgens vijf mediataken gelijktijdig zo lang zal worden uitgevoerd als er zijn taken die moeten worden verwerkt. De resterende taken in de wachtrij wordt gewacht en wordt u opgehaald voor het verwerken van sequentieel worden verwerkt wanneer een actieve taak is voltooid. Als een account heeft geen alle gereserveerde eenheden worden ingericht, klikt u vervolgens taken opgehaald sequentieel worden verwerkt. In dit geval afhankelijk de wachttijd tussen één taak is voltooid en de volgende begin van de beschikbaarheid van resources in het systeem.
 
-## <a name="choosing-between-different-reserved-unit-types"></a>Kiezen tussen verschillende gereserveerde eenheidstypen
-De volgende tabel kunt u besluit bij de keuze tussen verschillende codering snelheid te koppelen. Ook biedt enkele benchmark gevallen en biedt SAS-URL's die u gebruiken kunt voor het downloaden van video's waarop u uw eigen tests kunt uitvoeren:
+## <a name="choosing-between-different-reserved-unit-types"></a>Kiezen tussen verschillende gereserveerde-eenheidstypen
+De volgende tabel kunt u besluit bij de keuze tussen verschillende snelheden voor codering. Ook vindt u enkele benchmark gevallen en biedt SAS-URL's die u gebruiken kunt voor het downloaden van video's waarop u uw eigen tests kunt uitvoeren:
 
 | Scenario's | **S1** | **S2** | **S3** |
 | --- | --- | --- | --- |
-| Beoogde gebruiksscenario |Single-bitrate codering. <br/>Bestanden op SD of onder oplossingen, tijd niet gevoelige, lage kosten. |Single-bitrate en meerdere bitrate codering.<br/>Het normale gebruik voor zowel SD en HD codering. |Single-bitrate en meerdere bitrate codering.<br/>Volledige HD en 4K resolutie video's. Tijd die gevoelige en snellere reactietijd ook codering. |
-| Benchmark |[Bestand voor invoer: 5 minuten lang 640x360p op 29,97 frames per seconde](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_360p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D).<br/><br/>Codering naar een single-bitrate MP4-bestand met de resolutie, duurt ongeveer 11 minuten. |[Bestand voor invoer: 5 minuten lang 1280x720p op 29,97 frames per seconde](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_720p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D)<br/><br/>Codering met 'Standaardinstelling H264 Single-Bitrate 720p' vooraf duurt ongeveer 5 minuten.<br/><br/>Codering met ' standaardinstelling H264 Multiple Bitrate 720p ' voorinstelling duurt ongeveer 11.5 minuten. |[Bestand voor invoer: 5 minuten lang 1920x1080p op 29,97 frames per seconde](https://wamspartners.blob.core.windows.net/for-long-term-share/Whistler_5min_1080p30.mp4?sr=c&si=AzureDotComReadOnly&sig=OY0TZ%2BP2jLK7vmcQsCTAWl33GIVCu67I02pgarkCTNw%3D). <br/><br/>Codering met 'Standaardinstelling H264 Single-Bitrate 1080p' vooraf duurt ongeveer 2.7 minuten.<br/><br/>Codering met ' standaardinstelling H264 Multiple Bitrate 1080p ' voorinstelling duurt ongeveer 5.7 minuten. |
+| Beoogde use-case |Single-bitrate codering. <br/>Bestanden op SD of onder oplossingen, tijd niet gevoelige, lage kosten. |Single-bitrate en meerdere bitrate codering.<br/>Normaal gebruik voor zowel SD en HD-codering. |Single-bitrate en meerdere bitrate codering.<br/>Volledige HD en 4K resolutie van video's. Tijd gevoelige en snellere doorlooptijd codering. |
+| Benchmark |Coderen naar een single-bitrate MP4-bestand met de dezelfde resolutie duurt ongeveer 11 minuten. |Codering met "H264 Single-Bitrate 720p" vooraf duurt ongeveer 5 minuten.<br/><br/>Codering met ' H264 Multiple Bitrate 720p "vooraf ingestelde duurt ongeveer 11,5 minuten. |Codering met "H264 Single-Bitrate 1080p" vooraf duurt ongeveer 2.7 minuten.<br/><br/>Codering met ' H264 Multiple Bitrate 1080p "vooraf ingestelde duurt ongeveer 5,7 minuten. |
+
 
 ## <a name="considerations"></a>Overwegingen
 > [!IMPORTANT]
@@ -43,18 +44,18 @@ De volgende tabel kunt u besluit bij de keuze tussen verschillende codering snel
 > 
 > 
 
-* Gereserveerde eenheden werkt voor alle media verwerking, met inbegrip van taken met behulp van Azure Media Indexer indexeren parallelizing.  Indexeringstaken worden echter niet sneller verwerkt met snellere gereserveerde eenheden, terwijl dit bij coderen wel het geval is.
-* Als de gedeelde groep wordt gebruikt, dat wil zeggen, hebben zonder eventuele gereserveerde eenheden vervolgens uw taken coderen dezelfde prestaties als met S1 RUs. Er is echter geen bovengrens voor de tijd die uw taken in in de wachtrij staat besteden kunnen, en op elk gewenst maximaal slechts één taak wordt uitgevoerd.
+* S3-eenheidstype wordt voor de analyse van Audio en Video Analysis-taken die worden geactiveerd door Media Services v3 of Video Indexer, sterk aanbevolen.
+* Als de gedeelde groep wordt gebruikt, dat wil zeggen, zonder eventuele gereserveerde eenheden, klikt u vervolgens uw coderen taken hebben dezelfde prestaties net als bij de S1-ME. Er is geen bovengrens voor de tijd dat uw taken kunnen besteden aan de status in wachtrij echter en op elk moment maximaal slechts één taak wordt uitgevoerd.
 
 ## <a name="billing"></a>Billing
 
-Er worden kosten in rekening gebracht op basis van het werkelijke aantal minuten dat gereserveerde media-eenheden worden gebruikt. Voor een gedetailleerde uitleg, Zie de sectie Veelgestelde vragen over de [Media Services-prijzen](https://azure.microsoft.com/pricing/details/media-services/) pagina.   
+Er worden kosten in rekening gebracht op basis van het werkelijke aantal minuten dat gereserveerde media-eenheden worden gebruikt. Voor een gedetailleerde uitleg, Zie de sectie Veelgestelde vragen over van de [prijzen van Media Services](https://azure.microsoft.com/pricing/details/media-services/) pagina.   
 
 ## <a name="quotas-and-limitations"></a>Quota en beperkingen
-Zie voor meer informatie over quota's en beperkingen en hoe u een ondersteuningsticket opent [quota's en beperkingen](media-services-quotas-and-limitations.md).
+Zie voor meer informatie over quota en beperkingen en hoe u een ondersteuningsticket [quota en beperkingen](media-services-quotas-and-limitations.md).
 
 ## <a name="next-step"></a>Volgende stap
-De schaal verwerkingstaak voor media met een van deze technologieën bereiken: 
+Het vergroten/verkleinen verwerkingstaak voor media met een van deze technologieën bereiken: 
 
 > [!div class="op_single_selector"]
 > * [.NET](media-services-dotnet-encoding-units.md)

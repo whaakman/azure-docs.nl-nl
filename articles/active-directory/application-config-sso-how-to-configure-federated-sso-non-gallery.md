@@ -1,6 +1,6 @@
 ---
-title: Het configureren van federatieve eenmalige aanmelding voor een toepassing niet galerie | Microsoft Docs
-description: Het configureren van federatieve eenmalige aanmelding voor een aangepaste niet-galerie-toepassing die u wilt integreren met Azure AD
+title: Het configureren van eenmalige aanmelding in voor een toepassing buiten de galerie | Microsoft Docs
+description: Het configureren van eenmalige aanmelding in voor een aangepaste toepassing buiten de galerie die u wilt integreren met Azure AD
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,88 +11,88 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 916261de1f53c7b859378e83e423dea44b58af9b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: badbec991230ca13a85088a79fb6e67eb2d71e68
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331939"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39367212"
 ---
-# <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Het configureren van federatieve eenmalige aanmelding voor de toepassing van een niet-galerie
+# <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Het configureren van eenmalige aanmelding in voor een toepassing buiten de galerie
 
-Voor het configureren van eenmalige aanmelding voor een toepassing niet galerie *zonder code te schrijven*, moet u beschikken over een abonnement of Azure AD Premium en de toepassing moeten SAML 2.0 ondersteunen. Voor meer informatie over Azure AD-versies, gaat u naar [prijzen van Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+Het configureren van eenmalige aanmelding voor een toepassing buiten de galerie *zonder code te schrijven*, moet u beschikken over een abonnement of Azure AD Premium en de toepassing moeten ondersteuning van SAML 2.0. Voor meer informatie over de versies van Azure AD, gaat u naar [prijzen voor Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## <a name="overview-of-steps-required"></a>Overzicht van stappen vereist
-Hieronder vindt u een overzicht van de stappen die nodig zijn voor het configureren van federatieve eenmalige aanmelding met SAML 2.0 voor een niet-galerie (bijvoorbeeld aangepast)-toepassing.
+## <a name="overview-of-steps-required"></a>Overzicht van stappen die nodig zijn
+Hieronder vindt u een overzicht van de vereiste stappen voor het configureren van federatieve eenmalige aanmelding met SAML 2.0 voor een (bijvoorbeeld aangepaste) toepassing buiten de galerie.
 
--   [Waarden voor metagegevens van de toepassing configureren in Azure AD (URL,-id en antwoord-URL van de aanmelding)](#_Configuring_single_sign-on)
+-   [Waarden van de metagegevens van de toepassing in Azure AD (aanmeldings-URL-id en antwoord-URL) configureren](#_Configuring_single_sign-on)
 
--   [Selecteer gebruikers-id en gebruikerskenmerken worden verzonden naar de toepassing toevoegen](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
+-   [Selecteer gebruikers-id en de kenmerken van de gebruiker moet worden verzonden naar de toepassing toevoegen](#select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application)
 
--   [Azure AD-metagegevens en certificaat ophalen](#download-the-azure-ad-metadata-or-certificate)
+-   [De metagegevens van de Azure AD en het certificaat ophalen](#download-the-azure-ad-metadata-or-certificate)
 
--   [Azure AD metagegevenswaarden configureren in de toepassing (aanmelding URL, uitgever, afmelding URL en certificaat)](#_Configuring_single_sign-on)
+-   [Waarden voor metagegevens van Azure AD configureren in de toepassing (aanmelding URL, uitgever, afmeldings-URL en certificaat)](#_Configuring_single_sign-on)
 
 -   [Gebruikers toewijzen aan de toepassing](#_Assign_users_to_the_application)
 
-## <a name="configuring-single-sign-on-to-non-gallery-applications"></a>Eenmalige aanmelding niet galerie toepassingen configureren
+## <a name="configuring-single-sign-on-to-non-gallery-applications"></a>Single sign-on bij niet-galerietoepassingen configureren
 
-Volg de onderstaande stappen voor het configureren van eenmalige aanmelding voor een toepassing die zich niet in de galerie van Azure AD:
+Voor het configureren van eenmalige aanmelding voor een toepassing die zich niet in de Azure AD-galerie, de volgende stappen uit te voeren:
 
 1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van de belangrijkste links navigatiemenu.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het menu van de linkernavigatiebalk Azure Active Directory.
+4.  Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
 
-5.  Klik op de **toevoegen** middenonder in de rechterbovenhoek op het **bedrijfstoepassingen** deelvenster.
+5.  Klik op de **toevoegen** knop in de rechterbovenhoek op het **bedrijfstoepassingen** deelvenster.
 
-6.  Klik op **Non-galerie toepassing** in de **uw eigen app toevoegen** sectie
+6.  Klik op **niet in de galerij toepassing** in de **toevoegen aan uw eigen app** sectie
 
-7.  Voer de naam van de toepassing in de **naam** textbox.
+7.  Voer de naam van de toepassing in de **naam** tekstvak.
 
-8.  Klik op **toevoegen** knop, de toepassing toevoegen.
+8.  Klik op **toevoegen** knop om toe te voegen van de toepassing.
 
-9.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in de toepassing linkermenubalk menu.
+9.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing.
 
-10. Selecteer **op basis van SAML aanmelding** in de **modus** vervolgkeuzelijst.
+10. Selecteer **SAML gebaseerde aanmelding** in de **modus** vervolgkeuzelijst.
 
-11. Voer de vereiste waarden in **domein en de URL's.** U moet deze waarden ophalen van de leverancier van de toepassing.
+11. Voer de vereiste waarden in **domein en URL's.** U krijgt deze waarden van de leverancier van de toepassing.
 
-   1. Voer de antwoord-URL en de id voor het configureren van de toepassing als IdP geïnitieerde eenmalige aanmelding.
+   1. Voer de antwoord-URL en de id voor het configureren van de toepassing als id-provider geïnitieerde eenmalige aanmelding.
 
-   2. **Optioneel:** voor het configureren van de toepassing als Serviceprovider geïnitieerde eenmalige aanmelding, de aanmeldings-URL is een vereiste waarde.
+   2. **Optioneel:** configureren van de toepassing als Serviceprovider geïnitieerde eenmalige aanmelding, de aanmeldings-URL is een vereiste waarde.
 
 12. In de **gebruikerskenmerken**, selecteert u de unieke id voor uw gebruikers in de **gebruikers-id** vervolgkeuzelijst.
 
-13. **Optioneel:** klikt u op **weergeven en bewerken van alle andere gebruikerskenmerken** bewerken van de kenmerken worden verzonden naar de toepassing in het SAML-token wanneer gebruikers zich aanmelden.
+13. **Optioneel:** klikt u op **weergeven en bewerken van alle andere gebruikerskenmerken** bewerken van de kenmerken die moeten worden verzonden naar de toepassing in het SAML-token wanneer gebruikers zich aanmelden.
 
    Een kenmerk toevoegen:
 
-   1. Klik op **toevoegen kenmerk**. Voer de **naam** en selecteer de **waarde** uit de vervolgkeuzelijst.
+   1. Klik op **kenmerk toevoegen**. Voer de **naam** en selecteer de **waarde** in de vervolgkeuzelijst.
 
    2. Klik op **opslaan.** Ziet u het nieuwe kenmerk in de tabel.
 
-14. Klik op **configureren &lt;toepassingsnaam&gt;**  toegang tot documentatie over het configureren van eenmalige aanmelding in de toepassing. Bovendien heeft u Azure AD-URL's en het certificaat dat is vereist voor de toepassing.
+14. Klik op **configureren &lt;toepassingsnaam&gt;**  toegang documentatie over het configureren van eenmalige aanmelding in de toepassing. Bovendien heeft u Azure AD-URL's en dat is vereist voor de toepassing.
 
 15. [Gebruikers toewijzen aan de toepassing.](#assign-users-to-the-application)
 
-## <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Selecteer gebruikers-id en gebruikerskenmerken worden verzonden naar de toepassing toevoegen
+## <a name="select-user-identifier-and-add-user-attributes-to-be-sent-to-the-application"></a>Selecteer gebruikers-id en de kenmerken van de gebruiker moet worden verzonden naar de toepassing toevoegen
 
-Als u de gebruikers-ID selecteren of gebruikerskenmerken toevoegen, de volgende stappen uit te voeren:
+Als u wilt de gebruikers-ID selecteren of toevoegen van gebruikerskenmerken, de volgende stappen uit te voeren:
 
 1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van de belangrijkste links navigatiemenu.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het menu van de linkernavigatiebalk Azure Active Directory.
+4.  Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
 
 5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
@@ -100,33 +100,33 @@ Als u de gebruikers-ID selecteren of gebruikerskenmerken toevoegen, de volgende 
 
 6.  Selecteer de toepassing die u hebt geconfigureerd eenmalige aanmelding.
 
-7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in de toepassing linkermenubalk menu.
+7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing.
 
 8.  Onder de **gebruikerskenmerken** sectie, selecteert u de unieke id voor uw gebruikers in de **gebruikers-id** vervolgkeuzelijst. De geselecteerde optie moet overeenkomen met de verwachte waarde in de toepassing om de gebruiker te verifiëren.
 
- >[! Opmerking} Azure AD de indeling voor het kenmerk NameID (gebruikers-id) op basis van de geselecteerde waarde of de indeling die is aangevraagd door de toepassing in de SAML-AuthRequest selecteren. Raadpleeg voor meer informatie het artikel [Single Sign-On SAML-protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) onder de sectie NameIDPolicy.
+ >[! Houd er rekening mee} Azure AD de indeling voor het kenmerk van NameID (gebruikers-id) op basis van de geselecteerde waarde of de indeling die is aangevraagd door de toepassing in het SAML-AuthRequest selecteren. Ga naar het artikel voor meer informatie [Single Sign-On SAML-protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) onder de sectie NameIDPolicy.
  >
  >
 
-9.  Gebruikerskenmerken toevoegen: klik op **weergeven en bewerken van alle andere gebruikerskenmerken** bewerken van de kenmerken worden verzonden naar de toepassing in het SAML-token wanneer gebruikers zich aanmelden.
+9.  Als u wilt toevoegen gebruikerskenmerken, klikt u op **weergeven en bewerk alle andere gebruikerskenmerken** bewerken van de kenmerken die moeten worden verzonden naar de toepassing in het SAML-token wanneer gebruikers zich aanmelden.
 
    Een kenmerk toevoegen:
 
-   1. Klik op **toevoegen kenmerk**. Voer de **naam** en selecteer de **waarde** uit de vervolgkeuzelijst.
+   1. Klik op **kenmerk toevoegen**. Voer de **naam** en selecteer de **waarde** in de vervolgkeuzelijst.
 
    2. Klik op **opslaan.** Ziet u het nieuwe kenmerk in de tabel.
 
 ## <a name="download-the-azure-ad-metadata-or-certificate"></a>De metagegevens van de Azure AD of het certificaat downloaden
 
-Voor het downloaden van de metagegevens van de toepassing of het certificaat van Azure AD, de volgende stappen uit te voeren:
+De metagegevens van de toepassing of het certificaat downloaden van Azure AD, de volgende stappen uit te voeren:
 
 1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van de belangrijkste links navigatiemenu.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het menu van de linkernavigatiebalk Azure Active Directory.
+4.  Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
 
 5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
@@ -134,23 +134,23 @@ Voor het downloaden van de metagegevens van de toepassing of het certificaat van
 
 6.  Selecteer de toepassing die u hebt geconfigureerd eenmalige aanmelding.
 
-7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in de toepassing linkermenubalk menu.
+7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing.
 
-8.  Ga naar **SAML-certificaat voor ondertekening van** sectie en klik vervolgens op **downloaden** waarde in de kolom. Afhankelijk van wat de toepassing configureren van eenmalige aanmelding vereist, ziet u ofwel de optie voor het downloaden van de Metadata XML of het certificaat.
+8.  Ga naar **SAML-handtekeningcertificaat** sectie en klik vervolgens op **downloaden** waarde in de kolom. Afhankelijk van wat de toepassing configureren van eenmalige aanmelding moet, ziet u ofwel de optie voor het downloaden van de Metadata XML of het certificaat.
 
-Azure AD biedt ook een URL als u de metagegevens. Ga als volgt dit patroon voor het ophalen van de URL van de metagegevens die specifiek zijn voor de toepassing: https://login.microsoftonline.com/ <Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>.
+Azure AD biedt ook een URL waarmee u de metagegevens ophalen. Ga als volgt dit patroon om op te halen de metagegevens-URL voor de toepassing: https://login.microsoftonline.com/ <Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>.
 
 ## <a name="assign-users-to-the-application"></a>Gebruikers toewijzen aan de toepassing
 
-Als u wilt toewijzen een of meer gebruikers rechtstreeks naar een toepassing, de volgende stappen uit te voeren:
+Als u wilt toewijzen een of meer gebruikers rechtstreeks aan een toepassing, de volgende stappen uit te voeren:
 
 1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **globale beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van de belangrijkste links navigatiemenu.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het menu van de linkernavigatiebalk Azure Active Directory.
+4.  Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
 
 5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
@@ -158,29 +158,29 @@ Als u wilt toewijzen een of meer gebruikers rechtstreeks naar een toepassing, de
 
 6.  Selecteer de toepassing die u wilt toewijzen van een gebruiker in de lijst.
 
-7.  Nadat de toepassing wordt geladen, klikt u op **gebruikers en groepen** in de toepassing linkermenubalk menu.
+7.  Nadat de toepassing wordt geladen, klikt u op **gebruikers en groepen** in het navigatiemenu aan de van de toepassing.
 
-8.  Klik op de **toevoegen** knop boven de **gebruikers en groepen** lijst openen de **toevoegen toewijzing** deelvenster.
+8.  Klik op de **toevoegen** knop boven de **gebruikers en groepen** lijst om de **toevoegen toewijzing** deelvenster.
 
-9.  Klik op de **gebruikers en groepen** selector van de **toevoegen toewijzing** deelvenster.
+9.  Klik op de **gebruikers en groepen** selector vanaf de **toevoegen toewijzing** deelvenster.
 
 10. Typ in het **volledige naam** of **e-mailadres** van de gebruiker die u geïnteresseerd bent in toewijzen in de **zoeken op naam of e-mailadres** zoekvak.
 
-11. Beweeg de muisaanwijzer over de **gebruiker** in de lijst om weer te geven een **selectievakje**. Klik op het selectievakje naast de profielfoto van de gebruiker of het logo voor uw gebruiker toevoegen aan de **geselecteerde** lijst.
+11. Beweeg de muisaanwijzer over de **gebruiker** in de lijst om weer te geven een **selectievakje**. Klik op het selectievakje naast de profielfoto van de gebruiker of het logo om toe te voegen van de gebruiker naar de **geselecteerde** lijst.
 
 12. **Optioneel:** als u wilt **toevoegen van meer dan één gebruiker**, type in een andere **volledige naam** of **e-mailadres** in de **zoeken op naam of e-mailadres** zoekvak en klik op het selectievakje voor deze gebruiker toevoegen aan de **geselecteerde** lijst.
 
-13. Wanneer u klaar bent met het selecteren van gebruikers, klikt u op de **Selecteer** om toe te voegen aan de lijst met gebruikers en groepen kunnen worden toegewezen aan de toepassing.
+13. Wanneer u klaar bent met gebruikers te selecteren, klikt u op de **Selecteer** knop aan de lijst met gebruikers en groepen die moeten worden toegewezen aan de toepassing wilt toevoegen.
 
-14. **Optioneel:** klikt u op de **rol selecteren** selector in de **toevoegen toewijzing** klikken en selecteer een rol toewijzen aan de gebruikers die u hebt geselecteerd.
+14. **Optioneel:** klikt u op de **rol selecteren** selector in de **toevoegen toewijzing** deelvenster te selecteren van een rol toewijzen aan de gebruikers die u hebt geselecteerd.
 
-15. Klik op de **toewijzen** knop de toepassing toewijzen aan de geselecteerde gebruikers.
+15. Klik op de **toewijzen** knop om de toepassing aan de geselecteerde gebruikers te wijzen.
 
 Na een korte periode, de gebruikers die u hebt geselecteerd mogelijk om deze toepassingen met behulp van de methoden die worden beschreven in de sectie oplossing beschrijving te starten.
 
 ## <a name="customizing-the-saml-claims-sent-to-an-application"></a>De SAML-claims verzonden naar een toepassing aanpassen
 
-Zie voor meer informatie over het aanpassen van de SAML-kenmerk claims verzonden naar uw toepassing, [toewijzen in Azure Active Directory-Claims](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) voor meer informatie.
+Zie voor meer informatie over het aanpassen van de SAML-kenmerk claims verzonden naar uw toepassing, [Claims toewijzen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Geef één aanmelding bij uw apps met toepassingsproxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
+[Geef single sign-on bij uw apps met Application Proxy](manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)

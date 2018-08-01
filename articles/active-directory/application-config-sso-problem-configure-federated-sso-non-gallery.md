@@ -1,6 +1,6 @@
 ---
-title: Probleem federatieve eenmalige aanmelding voor een toepassing niet galerie configureren | Microsoft Docs
-description: Adres van een aantal veelvoorkomende problemen die optreden kunnen bij het configureren van federatieve eenmalige aanmelding voor uw aangepaste SAML-toepassing die niet wordt vermeld in de Azure AD-Toepassingsgalerie
+title: Probleem bij het federatieve eenmalige aanmelding voor een toepassing buiten de galerie configureren | Microsoft Docs
+description: Adres van enkele veelvoorkomende problemen die optreden kunnen bij het configureren van eenmalige aanmelding in voor uw aangepaste SAML-toepassing die niet wordt vermeld in de Azure AD-Toepassingsgalerie
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,47 +11,47 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 36262320a5a8457b22cbe9fe9d902fda26b6609c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ce7c224075b2cd99eddcc5f57b5971e7e43d9b69
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331101"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366651"
 ---
-# <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>Probleem federatieve eenmalige aanmelding voor een toepassing niet galerie configureren
+# <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>Probleem opgetreden bij het configureren van eenmalige aanmelding in voor een toepassing buiten de galerie
 
-Als u een probleem ondervindt bij het configureren van een toepassing. Controleer of u alle stappen in het artikel hebt gevolgd [eenmalige aanmelding tot toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie configureren.](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery)
+Als u een probleem ondervindt bij het configureren van een toepassing. Controleer of u alle stappen in het artikel hebt gevolgd [configureren van eenmalige aanmelding voor toepassingen die zich niet in de galerie met Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery)
 
 ## <a name="cant-add-another-instance-of-the-application"></a>Een ander exemplaar van de toepassing toevoegen niet
 
-Als u wilt een tweede exemplaar van een toepassing toevoegt, moet u mogelijk:
+Als u wilt toevoegen een tweede exemplaar van een toepassing, moet u mogelijk:
 
--   Configureer een unieke id voor de tweede instantie. U kunt dezelfde gebruikt voor het eerste exemplaar-id niet configureren.
+-   Configureer een unieke id voor de tweede instantie. U kunt de dezelfde id die wordt gebruikt voor het eerste exemplaar niet configureren.
 
 -   Configureer een ander certificaat dan de versie die wordt gebruikt voor het eerste exemplaar.
 
-Als de toepassing niet een van de voorgaande ondersteunt, kunt u een tweede exemplaar niet configureren.
+Als de toepassing biedt geen ondersteuning voor een van de voorgaande, kunt u een tweede exemplaar niet configureren.
 
 ## <a name="where-do-i-set-the-entityid-user-identifier-format"></a>Waar kan ik de id van de entiteit (gebruikers-id)-indeling instellen
 
-U kunt de id van de entiteit (gebruikers-id)-indeling die Azure AD naar de toepassing in het antwoord na verificatie van gebruiker verzendt niet selecteren.
+U kunt de id van de entiteit (gebruikers-id)-indeling die Azure AD worden verzonden naar de toepassing in de reactie na verificatie van de gebruiker niet selecteren.
 
-Azure AD selecteert u de indeling voor het kenmerk NameID (gebruikers-id) op basis van de geselecteerde waarde of de indeling die is aangevraagd door de toepassing in de SAML-AuthRequest. Raadpleeg voor meer informatie het artikel [Single Sign-On SAML-protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) onder de sectie NameIDPolicy,
+Azure AD wordt de indeling voor het kenmerk van NameID (gebruikers-id) op basis van de geselecteerde waarde of de indeling die is aangevraagd door de toepassing in het SAML-AuthRequest geselecteerd. Ga naar het artikel voor meer informatie [Single Sign-On SAML-protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) onder de sectie NameIDPolicy,
 
 ## <a name="where-do-i-get-the-application-metadata-or-certificate-from-azure-ad"></a>Waar vind ik de metagegevens van de toepassing of het certificaat van Azure AD
 
-Voor het downloaden van de metagegevens van de toepassing of het certificaat van Azure AD, de volgende stappen uit:
+De metagegevens van de toepassing of het certificaat downloaden van Azure AD, de volgende stappen uit:
 
 1.  Open de [ **Azure-portal** ](https://portal.azure.com/) en meld u aan als een **hoofdbeheerder** of **Co-beheerder.**
 
-2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van de belangrijkste links navigatiemenu.
+2.  Open de **Azure Active Directory-extensie** door te klikken op **alle services** aan de bovenkant van het menu links hoofdgedeelte voor navigatie.
 
-3.  Typ in **' Azure Active Directory**' in het zoekvak filter en selecteer de **Azure Active Directory** item.
+3.  Typ in **' Azure Active Directory**' in het zoekvak van filter en selecteer de **Azure Active Directory** item.
 
-4.  Klik op **bedrijfstoepassingen** in het menu van de linkernavigatiebalk Azure Active Directory.
+4.  Klik op **bedrijfstoepassingen** in het navigatiemenu aan Azure Active Directory.
 
 5.  Klik op **alle toepassingen** om een lijst met al uw toepassingen weer te geven.
 
@@ -59,15 +59,15 @@ Voor het downloaden van de metagegevens van de toepassing of het certificaat van
 
 6.  Selecteer de toepassing die u hebt geconfigureerd eenmalige aanmelding.
 
-7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in de toepassing linkermenubalk menu.
+7.  Nadat de toepassing wordt geladen, klikt u op de **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing.
 
-8.  Ga naar **SAML-certificaat voor ondertekening van** sectie en klik vervolgens op **downloaden** waarde in de kolom. Afhankelijk van wat de toepassing configureren van eenmalige aanmelding vereist, ziet u ofwel de optie voor het downloaden van de Metadata XML of het certificaat.
+8.  Ga naar **SAML-handtekeningcertificaat** sectie en klik vervolgens op **downloaden** waarde in de kolom. Afhankelijk van wat de toepassing configureren van eenmalige aanmelding moet, ziet u ofwel de optie voor het downloaden van de Metadata XML of het certificaat.
 
-Azure AD biedt een URL als u de metagegevens niet. De metagegevens kan alleen worden opgehaald als een XML-bestand.
+Azure AD biedt geen een URL waarmee u de metagegevens ophalen. De metagegevens kan alleen worden opgehaald als een XML-bestand.
 
-## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>Weet u niet het aanpassen van SAML-claims verzonden naar een toepassing
+## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>Weet niet hoe moet het SAML-claims verzonden naar een toepassing aanpassen
 
-Zie voor meer informatie over het aanpassen van de SAML-kenmerk claims verzonden naar uw toepassing, [toewijzen in Azure Active Directory-Claims](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) voor meer informatie.
+Zie voor meer informatie over het aanpassen van de SAML-kenmerk claims verzonden naar uw toepassing, [Claims toewijzen in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Toepassingen beheren met Azure Active Directory](manage-apps/what-is-application-management.md)

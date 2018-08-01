@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/24/2018
+ms.date: 7/31/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 0376fc3eb3ad0b98f1d98ecd35683b08e08090da
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: a43b70d2ce7a8205903fb877ea056dea88ac8bb5
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248093"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389606"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure-Stream bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma
 
@@ -106,13 +106,14 @@ Toepassing door gegevens te controleren is vereist dat uw code is uitgerust met 
 
 ## <a name="what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub"></a>Wat kan ik doen met de gegevens worden verzonden naar de event hub?
 
-Routering van uw bewakingsgegevens naar een event hub met Azure Monitor kunt u eenvoudig kunt integreren met SIEM-partner- en controlehulpprogramma's. De meeste hulpprogramma's moeten de event hub-verbindingsreeks en bepaalde machtigingen aan uw Azure-abonnement om gegevens te lezen uit de event hub. Hier is een niet-complete lijst van hulpprogramma's met Azure Monitor-integratie:
+Routering van uw bewakingsgegevens naar een event hub met Azure Monitor kunt u eenvoudig kunt integreren met SIEM-partner- en controlehulpprogramma's. De meeste hulpprogramma's moeten de event hub-verbindingsreeks en bepaalde machtigingen aan uw Azure-abonnement om gegevens te lezen uit de event hub. Hier ziet u een onvolledige lijst met Azure Monitor-integratie:
 
-* **IBM QRadar** -DSM van de Microsoft Azure en Microsoft Azure Event Hub-Protocol zijn beschikbaar voor downloaden van [de ondersteuningswebsite van IBM](http://www.ibm.com/support). U kunt [meer informatie over de integratie met Azure hier](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
+* **IBM QRadar** -DSM van de Microsoft Azure en Microsoft Azure Event Hub-Protocol zijn beschikbaar voor downloaden van [de ondersteuningswebsite van IBM](http://www.ibm.com/support). Informatie over [de integratie mat Azure vindt u hier](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
 * **Splunk** -afhankelijk van de instellingen Splunk, er zijn twee manieren:
     1. [De Azure Monitor-invoegtoepassing voor Splunk](https://splunkbase.splunk.com/app/3534/) is beschikbaar in Splunkbase en een open-source-project. [Documentatie is hier](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
     2. Als u niet een invoegtoepassing in uw exemplaar van Splunk (bv installeren. Als een proxy of die worden uitgevoerd op Splunk Cloud), kunt u deze gebeurtenissen voor het gebruik van de Splunk HTTP Event Collector doorsturen [deze functie die wordt geactiveerd door nieuwe berichten in de event hub](https://github.com/Microsoft/AzureFunctionforSplunkVS).
 * **SumoLogic** -instructies voor het instellen van SumoLogic gebruiken voor gegevens van een event hub zijn [beschikbaar hier](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
+* **Syslog-server** : als u wilt dat Azure Monitor om gegevens te streamen rechtstreeks naar een syslog-server, kunt u uitchecken [deze github-opslagplaats](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Het activiteitenlogboek naar een opslagaccount archiveren](monitoring-archive-activity-log.md)

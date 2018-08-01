@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 4b889f47c696148c693081ee0873fc57d91600c9
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 701a47a3907c77dbf5d51692e5d1ddc0c49ab985
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348347"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390099"
 ---
 # <a name="set-up-security-info-to-use-phone-calls-preview"></a>Beveiligingsgegevens ingesteld voor het gebruik van telefoongesprekken (preview)
 
@@ -29,7 +29,7 @@ Instellen van je beveiligingsgegevens, moet u zich aanmelden bij uw werk of scho
 Afhankelijk van instellingen van uw organisatie, u mogelijk gevraagd een telefoonnummer aan uw beveiligingsgegevens toevoegen wanneer u zich aanmeldt. Anders wordt om te beginnen met het instellen van telefoongesprekken beveiligingsgegevens, volg de stappen in [je beveiligingsgegevens beheren](security-info-manage-settings.md).
 
 >[!Note]
->Als u de optie telefoon niet ziet, is het mogelijk dat uw organisatie niet toestaan u telefoonoproepen voor verificatie gebruiken. Als dit het geval is, moet u een andere methode kiezen of neem contact op met uw beheerder voor meer informatie.
+>Beveiligingsgegevens biedt geen ondersteuning voor het gebruik van doorkiesnummers zijn. Zelfs als u de juiste indeling toevoegt, worden de 4255551234 + 1 X-12345, de extensies worden verwijderd voordat de oproep wordt gedaan.<br>Als u de optie telefoon niet ziet, is het mogelijk dat uw organisatie niet toestaan u telefoonoproepen voor verificatie gebruiken. Als dit het geval is, moet u een andere methode kiezen of neem contact op met uw beheerder voor meer informatie.
 
 ### <a name="to-use-your-phone-number"></a>Uw telefoonnummer gebruiken
 

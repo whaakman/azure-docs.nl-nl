@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/30/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 072b34ecb2e57bfa5d13b1fbc6e7fb441a5252aa
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 3d85bc79ddd08cb051b2e4d978a931f460020c10
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/31/2018
-ms.locfileid: "39357687"
+ms.locfileid: "39364497"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>NVIDIA GPU-stuurprogramma's installeren op N-serie VM's waarop Linux wordt uitgevoerd
 
@@ -289,7 +289,7 @@ Een SSH-verbinding maken met elke virtuele machine voor het installeren van stuu
 8. Het volgende toevoegen aan `/etc/nvidia/gridd.conf`:
  
   ```
-  IgnoreSP=TRUE
+  IgnoreSP=FALSE
   ```
 9. Start de VM opnieuw op en gaat u verder met de installatie controleren.
 

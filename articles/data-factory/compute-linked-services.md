@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 07/31/2018
 ms.author: douglasl
-ms.openlocfilehash: 4a4ec63d41f013ebfef8a78eddc88a6131a960fc
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 127438e1e65400daac75cec525197a5cfc8cd46a
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070039"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390208"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>COMPUTE-omgevingen die worden ondersteund door Azure Data Factory
 In dit artikel vindt u verschillende rekenomgevingen die u kunt gebruiken voor gegevens verwerken en transformeren. Het biedt ook meer informatie over de verschillende configuraties (op aanvraag en voeg uw eigen) ondersteund door Data Factory bij het configureren van gekoppelde services koppelt deze compute-omgevingen aan een Azure data factory.
@@ -385,7 +385,7 @@ U maakt een Azure Machine Learning gekoppelde service voor het registreren van e
 | ---------------------- | ---------------------------------------- | ---------------------------------------- |
 | Type                   | De eigenschap type moet worden ingesteld op: **AzureML**. | Ja                                      |
 | mlEndpoint             | Het batch scoring-URL.                   | Ja                                      |
-| apiKey                 | Het gepubliceerde werkruimtemodel API.     | Ja                                      |
+| ApiKey                 | Het gepubliceerde werkruimtemodel API.     | Ja                                      |
 | updateResourceEndpoint | De bron-URL bijwerken voor een Azure ML Web Service-eindpunt dat is gebruikt voor het bijwerken van de voorspellende webservice met getrainde model-bestand | Nee                                       |
 | servicePrincipalId     | Opgeven van de toepassing client-ID.     | Vereist als updateResourceEndpoint wordt opgegeven |
 | servicePrincipalKey    | Geef de sleutel van de toepassing.           | Vereist als updateResourceEndpoint wordt opgegeven |
@@ -429,8 +429,8 @@ U maakt een **Azure Data Lake Analytics** gekoppelde service om te koppelen van 
 | type                 | De eigenschap type moet worden ingesteld op: **AzureDataLakeAnalytics**. | Ja                                      |
 | accountName          | Azure Data Lake Analytics-accountnaam.  | Ja                                      |
 | dataLakeAnalyticsUri | Azure Data Lake Analytics-URI.           | Nee                                       |
-| subscriptionId       | Azure-abonnement-id                    | Geen (indien niet opgegeven, abonnement van de data factory wordt gebruikt). |
-| resourceGroupName    | Naam van Azure-resourcegroep                | Geen (indien niet opgegeven, de resourcegroep van de data factory wordt gebruikt). |
+| subscriptionId       | Azure-abonnement-id                    | Nee                                       |
+| resourceGroupName    | Naam van Azure-resourcegroep                | Nee                                       |
 | servicePrincipalId   | Opgeven van de toepassing client-ID.     | Ja                                      |
 | servicePrincipalKey  | Geef de sleutel van de toepassing.           | Ja                                      |
 | tenant               | De tenantgegevens (domain name of tenant-ID) opgeven in uw toepassing zich bevindt. U kunt het ophalen van de muis in de rechterbovenhoek van de Azure-portal. | Ja                                      |
@@ -505,15 +505,6 @@ U een Azure SQL Data Warehouse gekoppelde service maken en gebruiken met de [opg
 
 ## <a name="sql-server-linked-service"></a>Gekoppelde SQL Server-service
 U maakt een gekoppelde SQL Server-service en deze gebruikt met de [opgeslagen-Procedureactiviteit](transform-data-using-stored-procedure.md) om aan te roepen een opgeslagen procedure uit een Data Factory-pijplijn. Zie [SQL Server-connector](connector-sql-server.md#linked-service-properties) artikel voor meer informatie over deze gekoppelde service.
-
-## <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - naamgevingsregels
-De volgende tabel bevat de naamgevingsregels voor Data Factory-artefacten.
-
-| Naam                             | Uniekheid van naam                          | De validatie wordt gecontroleerd                        |
-| :------------------------------- | :--------------------------------------- | :--------------------------------------- |
-| Data Factory                     | Uniek zijn voor Microsoft Azure. Namen zijn niet hoofdlettergevoelig, dat wil zeggen, `MyDF` en `mydf` verwijzen naar de dezelfde data factory. | <ul><li>Elke data factory is gekoppeld aan één Azure-abonnement.</li><li>De naam moeten beginnen met een letter of cijfer en mag alleen letters, cijfers en streepjes (-) bevatten.</li><li>Elk streepje (-) moet direct worden voorafgegaan en gevolgd door een letter of cijfer. Opeenvolgende streepjes zijn niet toegestaan in containernamen.</li><li>Naam mag 3 tot 63 tekens lang zijn.</li></ul> |
-| Gekoppelde services/tabellen/pijplijnen | Unieke met in een data factory. Namen zijn niet hoofdlettergevoelig. | <ul><li>Maximum aantal tekens in een tabelnaam: 260.</li><li>De naam moeten beginnen met een letter, cijfer of een onderstrepingsteken (_).</li><li>Volgende tekens zijn niet toegestaan: ".", '+ ','?', '/', ' < ', ' > ',' * ', '%', '&', ":","\\"</li></ul> |
-| Resourcegroep                   | Uniek zijn voor Microsoft Azure. Namen zijn niet hoofdlettergevoelig. | <ul><li>Maximum aantal tekens: 1000.</li><li>Naam mag letters, cijfers en de volgende tekens bevatten: '-', ' _ ',', 'en'. '</li></ul> |
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor een lijst van de activiteiten voor gegevenstransformatie ondersteund door Azure Data Factory, [gegevens transformeren](transform-data.md).

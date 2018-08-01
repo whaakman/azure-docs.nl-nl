@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 1ca7d40bb3c358b374e354fa2c3ef77edba055c9
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4a37ac6cdf5d13556c6a3e293c19c00ad36e4495
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971778"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364162"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Voorbeelden van algemene patronen voor het gebruik van Stream Analytics query
 
@@ -24,6 +24,12 @@ Query's in Azure Stream Analytics worden uitgedrukt in een SQL-achtige querytaal
 Ontwerp van de query kan eenvoudige Pass Through-logica voor het verplaatsen van gebeurtenisgegevens uit één invoerstroom in een andere uitvoer gegevensarchief express. Of het patroon voor uitgebreide overeenkomende en tijdelijke analyse voor het berekenen van statistische functies via verschillende tijdvensters zoals in het voorbeeld TollApp kunt doen. U kunt deelnemen aan gegevens van meerdere invoergegevens te combineren met streaming-gebeurtenissen en lookups op basis van statische referentiegegevens te verrijken van de waarden van de gebeurtenis. U kunt ook gegevens schrijven naar meerdere uitvoer.
 
 In dit artikel bevat een overzicht van oplossingen voor enkele veelvoorkomende querypatronen, op basis van echte scenario's. Het mee bezig is en moet worden bijgewerkt met nieuwe patronen regelmatig blijft.
+
+## <a name="work-with-complex-data-types-in-json-and-avro"></a>Werken met complexe gegevenstypen in JSON en AVRO 
+Azure Stream Analytics ondersteunt verwerking van gebeurtenissen in de opmaak van CSV, JSON en Avro-gegevens.
+JSON- en Avro mag complexe typen zoals geneste objecten (records) of matrices zijn. Om te kunnen werken met deze complexe gegevenstypen, Raadpleeg de [MSDN-pagina waarin wordt uitgelegd hoe u werkt met complexe gegevenstypen in JSON en AVRO pagina](
+https://msdn.microsoft.com/azure/stream-analytics/reference/complex-data-types-stream-analytics).
+
 
 ## <a name="query-example-convert-data-types"></a>Voorbeeld: gegevenstypen converteren
 **Beschrijving**: definieert de typen eigenschappen voor de invoerstroom.

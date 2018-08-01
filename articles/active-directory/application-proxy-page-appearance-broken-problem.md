@@ -1,6 +1,6 @@
 ---
-title: Toepassingspagina niet correct weergegeven voor een toepassing toepassingsproxy | Microsoft Docs
-description: Richtlijnen wanneer de pagina is niet correct in een toepassing Proxy-toepassing weergegeven hebt geïntegreerd met Azure AD
+title: Toepassingspagina wordt niet correct weergegeven voor een toepassingsproxy-toepassing | Microsoft Docs
+description: Richtlijnen voor wanneer de pagina wordt niet correct in een toepassing voor een toepassingsproxy weergegeven hebt geïntegreerd met Azure AD
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -10,33 +10,33 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ee06018cd500937c69824f796c137e3972c55f6c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 118d5780145d0421160c70546f01dc930190185e
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334697"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365206"
 ---
-# <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Toepassingspagina weergegeven niet correct voor een toepassing toepassingsproxy
+# <a name="application-page-does-not-display-correctly-for-an-application-proxy-application"></a>Toepassingspagina wordt niet correct weergegeven voor een toepassingsproxy-toepassing
 
-In dit artikel helpt u bij het oplossen van problemen met Azure Active Directory-toepassingsproxy toepassingen wanneer u naar de pagina navigeren, maar er op de pagina ziet er niet juist.
+Dit artikel helpt u problemen met Azure Active Directory-toepassingsproxy-toepassingen oplossen wanneer u gaat u naar de pagina, maar iets op de pagina ziet er niet juist.
 
 ## <a name="overview"></a>Overzicht
-Wanneer u een toepassingsproxy-app publiceert, zijn alleen pagina's in uw hoofdmap toegankelijk bij het openen van de toepassing. Als de pagina is niet correct weergegeven, kan de interne basis-URL voor de toepassing gebruikt enkele pagina resources ontbreken. Om op te lossen, zorg ervoor dat u hebt gepubliceerd *alle* de resources voor de pagina als onderdeel van uw toepassing.
+Wanneer u een Application Proxy-app publiceert, zijn alleen pagina's in de hoofdmap van uw toegankelijk bij het openen van de toepassing. Als de pagina wordt niet correct weergegeven, kan de interne basis-URL die wordt gebruikt voor de toepassing enkele pagina resources ontbreken. Als u wilt oplossen, zorg ervoor dat u hebt gepubliceerd *alle* de resources voor de pagina als onderdeel van uw toepassing.
 
-U kunt controleren als bronnen ontbreekt het probleem door het openen van het beheer van uw netwerk (zoals Fiddler of F12 extra in Internet Explorer/Edge), de pagina te laden en zoekt 404-fouten. Die aangeeft dat de pagina's die momenteel is niet gevonden en dat u wilt publiceren.
+U kunt controleren als het probleem ontbrekende resources is door het openen van het beheer van uw netwerk (zoals Fiddler of F12 tools in Internet Explorer/Edge), het laden van de pagina en zoek naar 404-fouten. Dat geeft aan de pagina's op dit moment kunnen niet worden gevonden en dat u wilt publiceren.
 
-Als een voorbeeld van deze aanvraag, wordt ervan uitgegaan hebt u een toepassing kosten op basis van de interne URL gepubliceerd http://myapps/expenses, maar de app gebruikmaakt van het opmaakmodel http://myapps/style.css. Het opmaakmodel is in dit geval niet gepubliceerd in uw toepassing, zodat u een 404-fout tijdens het laden van style.css bij het laden van de app uitgaven genereert. In dit voorbeeld wordt het probleem is opgelost door het publiceren van de toepassing met een interne URL http://myapp/.
+Als een voorbeeld van deze aanvraag, wordt ervan uitgegaan een onkosten-toepassing met behulp van de interne URL publiceert http://myapps/expenses, maar de app gebruikmaakt van het opmaakmodel http://myapps/style.css. Het opmaakmodel is in dit geval niet gepubliceerd in uw toepassing, zodat het laden van de app onkosten genereert een 404-fout tijdens het laden van style.css. In dit voorbeeld wordt het probleem is opgelost door het publiceren van de toepassing met een interne URL http://myapp/.
 
-## <a name="problems-with-publishing-as-one-application"></a>Problemen met de publicatie als één toepassing
+## <a name="problems-with-publishing-as-one-application"></a>Problemen met het publiceren als een toepassing
 
-Als het niet mogelijk om alle bronnen binnen dezelfde toepassing te publiceren, moet u meerdere toepassingen publiceren en koppelingen tussen deze twee inschakelen.
+Als het niet mogelijk om alle resources binnen dezelfde toepassing te publiceren, moet u meerdere toepassingen publiceren en koppelingen tussen hen inschakelen.
 
-Om dit te doen, wordt u aangeraden de [aangepaste domeinen](manage-apps/application-proxy-configure-custom-domain.md) oplossing. Deze oplossing vereist echter dat de eigenaar van het certificaat voor uw domein en uw toepassingen volledig gekwalificeerde domeinnamen (FQDN's) gebruiken. Zie voor andere opties, de [verbroken koppelingen documentatie oplossen](application-proxy-page-links-broken-problem.md).
+Om dit te doen, wordt u aangeraden de [aangepaste domeinen](manage-apps/application-proxy-configure-custom-domain.md) oplossing. Deze oplossing is echter vereist dat u daar het certificaat voor uw domein en uw toepassingen volledig gekwalificeerde domeinnamen (FQDN's) gebruiken. Zie voor andere opties, de [oplossen verbroken koppelingen de documentatie bij](application-proxy-page-links-broken-problem.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-[Toepassingen publiceren met Azure AD-toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md)
+[Toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md)

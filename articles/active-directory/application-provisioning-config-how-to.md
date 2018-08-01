@@ -1,6 +1,6 @@
 ---
-title: Het configureren van gebruikers inrichten tot een galerie van Azure AD-toepassing | Microsoft Docs
-description: Hoe kunt u snel uitgebreide gebruikersaccount inrichten en toepassingen die al wordt vermeld in de Azure AD-Toepassingsgalerie opheffen van inrichting configureren
+title: Het inrichten van gebruikers tot een toepassing met Azure AD-galerie configureren | Microsoft Docs
+description: Hoe kunt u snel uitgebreide gebruikersaccount inrichten en -opheffing in toepassingen aanwezig zijn in de Azure AD-Toepassingsgalerie configureren
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,48 +11,48 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 79f836b4fc5964ffeb5cd9c1e179c3140395c219
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ef9bb5540691f322620e2c510df52f62899048ff
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36334452"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366827"
 ---
-# <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Het configureren van gebruikers inrichten tot een toepassing die Azure AD-galerie
+# <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Het configureren van inrichten van gebruikers naar een toepassing in Azure AD-galerie
 
-*Het inrichten van het account* wordt het maken, bijwerken, en/of account gebruikersrecords in lokale opgeslagen gebruikersprofiel van de toepassing uit te schakelen. De meeste cloud en SaaS-toepassingen Sla de gebruikers, rollen en machtigingen in hun eigen lokale opgeslagen gebruikersprofiel en aanwezigheid van dergelijke een gebruikersrecord in hun lokale archief is *vereist* voor eenmalige aanmelding en toegang tot werkitems.
+*Het inrichten van gebruikersaccounts* is de handeling van het maken, bijwerken en/of gebruikersaccountrecords in lokale gebruikersarchief profiel van een toepassing. De meeste SaaS-toepassingen en cloud slaat de gebruikers, rollen en machtigingen in hun eigen lokale gebruiker profiel store en aanwezigheid van dergelijke een gebruikersrecord in hun lokale archief is *vereist* voor eenmalige aanmelding en samen te werken.
 
-In de Azure portal, de **inrichten** tabblad in het navigatiedeelvenster links voor een Enterprise-App wordt weergegeven welke inrichting modi voor die app worden ondersteund. Dit kan een van twee waarden zijn:
+In de Azure-portal, de **Provisioning** tabblad in het navigatiedeelvenster links in voor een Enterprise-App wordt weergegeven welke inrichting modi voor die app worden ondersteund. Dit kan een van twee waarden zijn:
 
-## <a name="configuring-an-application-for-manual-provisioning"></a>Configureren van een toepassing voor handmatige inrichting
+## <a name="configuring-an-application-for-manual-provisioning"></a>Configureren van een toepassing voor het inrichten van de handleiding
 
-*Handmatige* inrichting betekent dat gebruikersaccounts handmatig met behulp van de methoden die door die app moeten worden gemaakt. Dit kan betekenen aan te melden bij een portal beheerdersrechten voor die app en het toevoegen van gebruikers met behulp van een webgebaseerde gebruikersinterface. Of het een spreadsheet met account-details met een mechanisme dat is opgegeven door de toepassing kan uploaden. Raadpleeg de documentatie van de app of neem contact op met de ontwikkelaar van de app om te bepalen wat mechanismen zijn beschikbaar.
+*Handmatige* inrichting betekent dat gebruikersaccounts handmatig met behulp van de methoden die door deze app moeten worden gemaakt. Dit kan betekenen dat zich aanmeldt bij de beheerdersportal voor die app en het toevoegen van gebruikers met behulp van een web gebaseerde gebruikersinterface. Of het een werkblad met details van gebruiker-account, met behulp van een mechanisme dat is opgegeven door de toepassing kan uploaden. Raadpleeg de documentatie van de app of neem contact op met de app-ontwikkelaar om te bepalen wat mechanismen zijn beschikbaar.
 
-Als u handmatig is alleen de modus voor een bepaalde toepassing weergegeven, betekent dit dat er geen automatische Azure AD connector inrichting is gemaakt voor de app nog. Of betekent dit dat de vereiste gebruiker management API waarop voor het bouwen van een geautomatiseerde inrichting connector biedt geen ondersteuning voor de app.
+Als handmatig de enige modus die voor een bepaalde toepassing worden weergegeven is, betekent dit dat er geen automatische Azure AD connector inrichting is gemaakt voor de app nog. Of betekent dit dat de app biedt geen ondersteuning voor de API voor het beheer van vereiste gebruiker waarop een automatische inrichting connector bouwen.
 
-Als u vraag ondersteuning wilt voor automatische inrichting voor een bepaalde app u vult een aanvraag met de [Azure Active Directory-toepassingsaanvragen](https://aka.ms/aadapprequest).
+Als u wilt het aanvragen van ondersteuning voor automatische inrichting voor een bepaalde app, vul u kunt een aanvraag met de [Azure Active Directory-toepassingsaanvragen](https://aka.ms/aadapprequest).
 
 ## <a name="configuring-an-application-for-automatic-provisioning"></a>Een toepassing configureren voor automatische inrichting
 
-*Automatische* betekent dat een Azure AD connector inrichting is ontwikkeld voor deze toepassing. Zie voor meer informatie over de Azure AD-service en hoe het werkt inrichting [gebruikersaanvragen automatiseren en Deprovisioning voor SaaS-toepassingen met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning).
+*Automatische* betekent dat een Azure AD connector wordt ingericht voor deze toepassing is ontwikkeld. Zie voor meer informatie over de Azure AD provisioning-service en hoe het werkt, [automatiseren van Gebruikersinrichting en het opheffen van inrichting voor SaaS-toepassingen met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning).
 
-Zie voor meer informatie over het inrichten van specifieke gebruikers en groepen naar een toepassing [het beheren van gebruikers account inrichten voor zakelijke apps](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning).
+Zie voor meer informatie over het inrichten van specifieke gebruikers en groepen met een toepassing [beheren van het inrichten van gebruikersaccounts voor bedrijfs-apps](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning).
 
-Werkelijke instructies voor het inschakelen en configureren van automatische inrichting variëren afhankelijk van de toepassing.
+De werkelijke vereiste stappen voor het inschakelen en configureren van automatische inrichting variëren afhankelijk van de toepassing.
 
 >[!NOTE]
->U moet beginnen met het vinden van de setup-zelfstudie specifiek zijn voor het instellen van de inrichting voor uw toepassing, en na deze stappen voor het configureren van de app en de Azure AD om het inrichtingsproces verbinding te maken. 
+>U moet beginnen met zoeken naar de setup-zelfstudie die specifiek zijn voor het instellen van de inrichting voor uw toepassing, en na deze stappen voor het configureren van de app en de Azure AD de inrichting verbinding te maken. 
 >
 >
 
-App-zelfstudies kunnen worden gevonden op [lijst zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+Zelfstudies voor App kunnen worden gevonden op [lijst met zelfstudies over het SaaS-Apps integreren met Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
 
-Een belangrijkste waarmee u rekening moet houden bij het instellen van de inrichting worden om te bekijken en configureren van de kenmerktoewijzingen en werkstromen die welke gebruiker (of groep) eigenschappen stroom van Azure AD voor de toepassing definiëren. Dit omvat de 'overeenkomende eigenschap' instelt met worden gebruikt voor unieke identificatie dient en overeen met gebruikers/groepen tussen de twee systemen. Voor meer informatie over dit belangrijk proces.
+Een belangrijke dingen die u moet overwegen bij het instellen van de inrichting worden om te controleren en configureren van de kenmerktoewijzingen en werkstromen die welke gebruiker (of groep) eigenschappen stroom van Azure AD aan de toepassing definiëren. Dit omvat instellen van de 'overeenkomende eigenschap"die worden gebruikt voor het uniek identificeren en overeenkomen met de gebruikers/groepen tussen de twee systemen. Voor meer informatie over dit belangrijk proces.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Gebruikers inrichten kenmerktoewijzingen voor SaaS-toepassingen in Azure Active Directory aanpassen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
+[Kenmerktoewijzingen voor Gebruikersinrichting voor SaaS-toepassingen in Azure Active Directory aanpassen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 

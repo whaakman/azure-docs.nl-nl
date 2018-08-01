@@ -48,7 +48,6 @@ Voer `az acs scale --help` uit voor meer opdrachtopties.
 
 * Afhankelijk van de orchestrator die u in uw cluster implementeert, kunt u het aantal exemplaren van een container die wordt uitgevoerd op het cluster afzonderlijk schalen. Gebruik in een DC/OS-cluster bijvoorbeeld de [Marathon-gebruikersinterface](../articles/container-service/dcos-swarm/container-service-mesos-marathon-ui.md) om het aantal exemplaren van een containertoepassing te wijzigen.
 
-* Automatisch schalen van agentknooppunten in een containerservicecluster wordt momenteel niet ondersteund.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Bekijk [meer voorbeelden](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) van de toepassing van Azure CLI 2.0-opdrachten met Azure Container Service.

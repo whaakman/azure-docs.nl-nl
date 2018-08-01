@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1b14e1460eec54e89046f204be8f0c3a8f929881
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 6ca32d51a52cf636b1c41667e20872cfe49fa7e2
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264589"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390150"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versiegeschiedenis van release
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen gelden voor alle doelgroepen.
@@ -60,6 +60,7 @@ Downloaden | [Azure AD Connect downloaden](http://go.microsoft.com/fwlink/?LinkI
 
 ### <a name="fixed-issues"></a>Opgeloste problemen 
 
+- Een bug opgelost waarbij de AAD Connect-server toont hoog CPU-gebruik na een upgrade naar .net 4.7.2
 - Er is een fout die niet continu geeft als een foutbericht weergegeven voor een probleem SQL impasse automatisch opgelost resultaat opgelost
 - Verschillende toegankelijkheidsproblemen opgelost voor de regeleditor synchronisatie en de Sync-Service Manager  
 - Een bug opgelost waarbij Azure AD Connect kan geen toestemming krijgen instelling registergegevens

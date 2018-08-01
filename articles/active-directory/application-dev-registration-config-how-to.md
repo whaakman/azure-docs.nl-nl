@@ -1,6 +1,6 @@
 ---
-title: Het selecteren van machtigingen voor een bepaalde API | Microsoft Docs
-description: Het vinden van de verificatie-eindpunten voor een aangepaste toepassing die u ontwikkelt of registreren bij Azure AD.
+title: Hoe u machtigingen voor een bepaalde API selecteert | Microsoft Docs
+description: Over het vinden van de verificatie-eindpunten voor een aangepaste toepassing die u met Azure AD registreren of ontwikkelt.
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,15 +11,15 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 203ecc1dd83bebffadf0e85a08cb3ee383b0d412
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: dcb3a8f735b72b2408e28d2f0dc61b2c634baf96
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332004"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39366630"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>Machtigingen voor een bepaalde API selecteren
 
@@ -27,13 +27,13 @@ U kunt de verificatie-eindpunten vinden voor uw toepassing in de [Azure-portal](
 
 -   Navigeer naar [Azure Portal](https://portal.azure.com).
 
--   Klik in het navigatiedeelvenster links op **Azure Active Directory**.
+-   Klik in het linkernavigatiedeelvenster op **Azure Active Directory**.
 
--   Klik op **App registraties** en kies **eindpunten**.
+-   Klik op **App-registraties** en kies **eindpunten**.
 
--   Hiermee opent u de **eindpunten** pagina, die een lijst van alle verificatie-eindpunten voor uw tenant.
+-   Hiermee opent u de **eindpunten** pagina, die alle eindpunten die verificatie voor uw tenant.
 
--   Gebruik het eindpunt die specifiek zijn voor de verificatieprotocol dat u gebruikt, in combinatie met de toepassings-ID worden opgesteld van de verificatie aanvragen specifiek voor uw toepassing.
+-   Gebruik het eindpunt dat specifiek is voor de verificatieprotocol dat u gebruikt, in combinatie met de toepassings-ID ze moesten maken de verificatie aanvragen specifiek is voor uw toepassing.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Ontwikkelaarshandleiding voor Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide#authentication-and-authorization-protocols)

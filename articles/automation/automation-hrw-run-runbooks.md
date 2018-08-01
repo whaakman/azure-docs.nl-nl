@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cd2578f2fd8217d513a693ef348a5c26a4b18623
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 118f9d7865728177f323078c036aee1884a61431
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126504"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390293"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Runbooks uitvoeren op een Hybrid Runbook Worker
 
@@ -172,7 +172,7 @@ Hybrid Runbook Workers kunnen worden geconfigureerd om alleen ondertekende runbo
 Het volgende voorbeeld wordt een zelfondertekend certificaat dat kan worden gebruikt voor het ondertekenen van runbooks. Het voorbeeld maakt het certificaat en exporteert het. Het certificaat wordt geïmporteerd in de Hybrid Runbook Workers later opnieuw. De vingerafdruk wordt geretourneerd, dat dit wordt later gebruikt om te verwijzen naar het certificaat.
 
 ```powershell
-# Create a self signed runbook that can be used for code signing
+# Create a self-signed certificate that can be used for code signing
 $SigningCert = New-SelfSignedCertificate -CertStoreLocation cert:\LocalMachine\my `
                                         -Subject "CN=contoso.com" `
                                         -KeyAlgorithm RSA `
@@ -211,14 +211,14 @@ Set-HybridRunbookWorkerSignatureValidation -Enable $true -TrustedCertStoreLocati
 
 ### <a name="sign-your-runbooks-using-the-certificate"></a>Meld u aan uw Runbooks met behulp van het certificaat
 
-Met de Hybrid Runbook ondertekend werknemers die zijn geconfigureerd voor het gebruik van alleen runbooks. U moet zich aanmelden runbooks die moeten worden gebruikt op de Hybrid Runbook Worker. Gebruik het volgende voorbeeld PowerShell aan te melden van uw runbooks.
+Met de Hybrid Runbook workers geconfigureerd voor het gebruik van alleen runbooks ondertekend, moet u zich aanmelden met runbooks die moeten worden gebruikt op de Hybrid Runbook Worker. Gebruik het volgende voorbeeld PowerShell aan te melden van uw runbooks.
 
 ```powershell
 $SigningCert = ( Get-ChildItem -Path cert:\LocalMachine\My\<CertificateThumbprint>)
 Set-AuthenticodeSignature .\TestRunbook.ps1 -Certificate $SigningCert
 ```
 
-Zodra het runbook is ondertekend, moet deze worden geïmporteerd in uw Automation-Account en gepubliceerd met het handtekeningblok. Voor meer informatie over het importeren van runbooks, Zie [een runbook uit een bestand importeren in Azure Automation](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
+Wanneer het runbook is ondertekend, moet deze worden geïmporteerd in uw Automation-Account en gepubliceerd met het handtekeningblok. Zie voor informatie over het importeren van runbooks, [een runbook uit een bestand importeren in Azure Automation](automation-creating-importing-runbook.md#importing-a-runbook-from-a-file-into-azure-automation).
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 

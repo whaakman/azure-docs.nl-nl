@@ -1,6 +1,6 @@
 ---
-title: Koppelingen op de pagina werken niet voor een toepassing toepassingsproxy | Microsoft Docs
-description: Het oplossen van problemen met verbroken koppelingen op hebt geïntegreerd met Azure AD-toepassingsproxy-toepassingen
+title: Koppelingen op de pagina werken niet voor een toepassingsproxy-toepassing | Microsoft Docs
+description: Het oplossen van problemen met verbroken koppelingen op toepassingsproxy-toepassingen die u hebt geïntegreerd met Azure AD
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -11,42 +11,42 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 7da9642281db07d873c4db234b8316c8248ef7f4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 09fa527f8a1e03d568dec67369651bbcee2a26f2
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36330900"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39365818"
 ---
-# <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Koppelingen op de pagina werken niet voor een toepassing toepassingsproxy
+# <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Koppelingen op de pagina werken niet voor een toepassingsproxy-toepassing
 
-In dit artikel helpt u bij waarom koppelingen op uw toepassing met Azure Active Directory-toepassingsproxy niet goed werken.
+Dit artikel helpt u waarom koppelingen op uw Azure Active Directory Application Proxy-toepassing niet goed werken.
 
 ## <a name="overview"></a>Overzicht 
-Na het publiceren van een app-toepassingsproxy, zijn de enige koppelingen die standaard in de toepassing werken koppelingen naar bestemmingen die zich in de gepubliceerde basis-URL. De koppelingen in de toepassingen zijn niet werkt, de interne URL voor de toepassing bevatten waarschijnlijk niet de doelen van koppelingen binnen de toepassing.
+Na het publiceren van een app Application Proxy, zijn de enige koppelingen die standaard in de toepassing werken koppelingen naar bestemmingen die zijn opgenomen in de gepubliceerde basis-URL. De koppelingen in de toepassingen niet werken, de interne URL voor de toepassing bevatten waarschijnlijk niet de bestemmingen van koppelingen in de toepassing.
 
-**Waarom komt dat?** Wanneer u op een koppeling in een toepassing, probeert de toepassingsproxy omzetten van de URL als een interne URL binnen dezelfde toepassing, of als een extern beschikbare URL. Als de koppeling naar een interne URL valt niet binnen dezelfde toepassing verwijst, deze niet behoren tot een van deze buckets en resulteert in een fout niet gevonden.
+**Waarom gebeurt dit?** Wanneer u op een koppeling in een toepassing, probeert de Application Proxy om op te lossen van de URL als een interne URL binnen dezelfde toepassing of als de URL van een extern beschikbaar. Als de koppeling naar een interne URL die zich niet binnen dezelfde toepassing verwijst, deze niet behoren tot een van deze buckets en leiden tot een fout niet gevonden.
 
 ## <a name="ways-you-can-resolve-broken-links"></a>Manieren waarop die u het kunt oplossen verbroken koppelingen
 
-Er zijn drie manieren om dit probleem te verhelpen. De opties hieronder in staan in oplopende complexiteit.
+Er zijn drie manieren om dit probleem te verhelpen. De opties hieronder worden in weergegeven in de toenemende complexiteit.
 
-1.  Zorg ervoor dat de interne URL een toegangspunt met de relevante koppelingen voor de toepassing. Hierdoor kunnen alle koppelingen naar worden omgezet naar inhoud die wordt gepubliceerd binnen dezelfde toepassing.
+1.  Zorg ervoor dat de interne URL een hoofdmap waarin alle relevante koppelingen voor de toepassing. Hiermee worden alle koppelingen naar inhoud binnen dezelfde toepassing gepubliceerd worden omgezet.
 
-    Als u de URL van de interne wijzigen, maar niet wilt wijzigen van de startpagina voor gebruikers, wijzigt u de URL van de aan de eerder gepubliceerde interne URL. Dit kan worden gedaan door te gaan naar 'Azure Active Directory' -&gt; registraties van App -&gt; selecteert u de toepassing -&gt; eigenschappen. Op dit tabblad Eigenschappen ziet u het veld "startpagina URL', dat u moet de gewenste startpagina kunt aanpassen.
+    Als u de URL van de interne wijzigen, maar niet wilt wijzigen van de landingspagina voor gebruikers, wijzigt u de URL van startpagina naar de eerder gepubliceerde interne URL. Dit kan worden gedaan door te gaan naar 'Azure Active Directory' -&gt; App-registraties -&gt; selecteert u de toepassing -&gt; eigenschappen. Op dit tabblad Eigenschappen ziet u het veld "startpagina-URL, die u moet de startpagina van de gewenste kunt aanpassen.
 
-2.  Als uw toepassingen volledig gekwalificeerde domeinnamen (FQDN's), gebruik [aangepaste domeinen](manage-apps/application-proxy-configure-custom-domain.md) om uw toepassingen te publiceren. Deze functie kunt dezelfde URL zijn voor zowel intern en extern.
+2.  Als uw toepassingen volledig gekwalificeerde domeinnamen (FQDN's), gebruik [aangepaste domeinen](manage-apps/application-proxy-configure-custom-domain.md) om uw toepassingen te publiceren. Deze functie kunt dezelfde URL moet worden gebruikt zowel intern als extern.
 
-    Deze optie zorgt ervoor dat de koppelingen in uw toepassing extern toegankelijk is via toepassingsproxy omdat de koppelingen in de toepassing naar interne URL's ook extern worden herkend. Alle koppelingen moeten nog steeds te behoren tot een gepubliceerde toepassing. Met deze optie de koppelingen niet hoeft echter te behoren tot dezelfde toepassing en tot meerdere toepassingen kunt behoren.
+    Deze optie zorgt ervoor dat de koppelingen in uw toepassing extern toegankelijk zijn via de toepassingsproxy zijn omdat de koppelingen in de toepassing naar interne URL's ook extern worden herkend. Er moet nog steeds alle koppelingen te behoren tot een gepubliceerde toepassing. Echter met deze optie de koppelingen niet hoeft te behoren tot dezelfde toepassing en kunnen deel uitmaken van meerdere toepassingen.
 
-3.  Als geen van beide opties haalbaar is, kunt u een nieuwe functie die wordt het URL-omzetting/herschrijven bekijken. Met deze functie interne URL's of koppelingen die aanwezig zijn in de hoofdtekst HTML van uw toepassingen worden vertaald of 'toegewezen', aan de gepubliceerde externe App Proxy-URL's. Deze vertaling werkt alleen op de koppelingen in de HTML-indeling of CSS, en niet als de koppeling wordt gegenereerd via JS helpen. 
+3.  Als geen van beide opties haalbaar is, kunt u een nieuwe functie die URL vertaling/herschrijven bekijken. Met deze functie zijn interne URL's of koppelingen die zijn opgenomen in de hoofdtekst HTML-code van uw toepassingen vertaald, of 'toegewezen', aan de gepubliceerde externe App Proxy-URL's. Deze omzetting werkt alleen op de koppelingen in de HTML- of CSS, en niet wordt opgelost als de koppeling is gegenereerd via JS. 
 
-Als gevolg hiervan wordt aangeraden met behulp van de [aangepaste domeinen](manage-apps/application-proxy-configure-custom-domain.md) oplossing indien mogelijk. Als u deelnemen aan de preview wilt, e- <aadapfeedback@microsoft.com> met de applicationId(s).
+Als gevolg hiervan wordt ten zeerste aangeraden de [aangepaste domeinen](manage-apps/application-proxy-configure-custom-domain.md) oplossing indien mogelijk. Als u deelnemen aan de preview wilt, stuurt u e-mail <aadapfeedback@microsoft.com> met de applicationId(s).
 
 ## <a name="next-steps"></a>Volgende stappen
-[Werken met bestaande lokale proxyservers](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
+[Werken met bestaande on-premises proxy-servers](manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
 
