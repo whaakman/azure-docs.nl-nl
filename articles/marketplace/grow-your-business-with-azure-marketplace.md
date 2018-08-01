@@ -1,6 +1,6 @@
 ---
-title: Go-to-Market voordelen op marketplace | Azure
-description: GTM-voordelen voor de Azure Marketplace en AppSource zijn voor uitgevers van app- en service
+title: Go-to-market voordelen van de Azure Marketplace | Azure
+description: De GTM-voordelen van de Azure Marketplace en AppSource voor uitgevers van app- en service
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 documentationcenter: ''
 author: ellacroi
@@ -14,243 +14,262 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: f1616f7a20fdd55b98b3bfb37973a783997e2eb0
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
-ms.translationtype: MT
+ms.openlocfilehash: 3c45abb16f571485fdea292f9436fe24b550fc10
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145237"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358960"
 ---
-# <a name="grow-your-business-on-marketplace"></a>Breid uw bedrijf op marketplace 
-Nadat u uw aanbieding in AppSource of Azure Marketplace hebt gepubliceerd, kunt u uw aanbieding gebruiken als een launchpad voor gezamenlijke (GTM)-activiteiten met go-to-market met Microsoft. Verkeer naar uw marketplace-aanbieding te stimuleren en nurturing marketplace leads, zijn bijvoorbeeld geweldige manieren om uw zakelijke groei te versnellen. In dit artikel hebben we veel marketing aanbevolen procedures voor het vergroten van uw bedrijf op marketplace.
+# <a name="grow-your-business-in-the-marketplace"></a>Ontwikkel uw bedrijfsactiviteiten in de Marketplace 
+Nadat u uw aanbieding in AppSource of in de Azure Marketplace hebt gepubliceerd, kunt u uw aanbieding gebruiken als een launchpad voor gezamenlijke (GTM)-activiteiten met go-to-market met Microsoft. Verkeer naar uw Marketplace-aanbieding te stimuleren en nurturing Marketplace leads, zijn bijvoorbeeld geweldige manieren om uw zakelijke groei te versnellen. 
+
+In dit artikel hebben delen we veel marketing aanbevolen procedures voor de groei van uw bedrijf in de Marketplace.
 
 ## <a name="app-listing-best-practices"></a>Aanbevolen procedures voor App-aanbieding
 
-De volgende tabellen bevatten suggesties over het maken van een aantrekkelijke marketplace-aanbieding. U gebruikt de [Cloud Partner-Portal](https://cloudpartner.azure.com/#insights) te schrijven en configureren van deze marketingmaterialen. 
+De tabellen in de volgende secties vindt u suggesties voor het maken van aantrekkelijke Marketplace-aanbiedingen. Om te schrijven en configureren uw marketingmaterialen, gaat u naar de [Cloud Partner-portal](https://cloudpartner.azure.com/#insights). 
 
-
-### <a name="offer-identity"></a>Identiteit
-
-### <a name="storefront-details--offer-details"></a>StoreFront details > details van de aanbieding
-| StoreFront-instellingen | Beste praktijken |
+### <a name="storefront-offer-details"></a>Details van StoreFront aanbieding
+| StoreFront instelling | Best practices |
 |:--- |:--- |  
-| Naam van aanbieding: | Geef een sterk titel:<br />Naam van uw app moet contact opnemen voor dat de core value-klanten worden ontvangen. Inclusief zoekwoorden in de titel van uw app, kunt ook uw app die hoger in zoekmachineresultaten wordt gerangschikt.<br /> <br />Overleg met service-aanbiedingen, moet de indeling van een set titel volgen: [naam van aanbieding]: [duur] [Offertype], bijvoorbeeld Contoso: implementatie 2 weken<br /> <br />Voldoen aan de Merkrichtlijnen van:<br />Volg de Trademark van Microsoft en Merkrichtlijnen, evenals relevante productspecifieke richtlijnen met betrekking tot handelsmerken van Microsoft en de namen van Microsoft, software, producten en services.<br />Voor meer informatie over handelsmerken van Microsoft en een huisstijl, gaat u naar de [pagina Trademark van Microsoft en Merkrichtlijnen](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx). |
-| Beschrijving van aanbieding | Geef een beschrijving van de juiste aanbieding<br />De toegevoegde waarde van uw aanbieding in de eerste paar zinnen van de beschrijving van uw duidelijk te beschrijven. Houd er rekening mee dat de eerste paar zinnen kunnen worden weergegeven in zoekmachineresultaten. Vertrouw niet op de functies en functionaliteit om uw product te verkopen. In plaats daarvan richten op de waarde die u levert. Branchespecifieke vocabulaire of op basis van een voordeel bewoording zo veel mogelijk gebruiken.<br />Belangrijkste onderdelen van de toegevoegde waarde moeten de volgende informatie opnemen:<br /> -Beschrijving van het product<br /> -Type van de gebruiker die heeft voordelen voor<br /> -Klant of pijn doet het allemaal adressen |
+| Naam van aanbieding: | Geef een sterk titel:<br>Naam van uw app moet de core-waarde die uw klanten ontvangt communiceren. Inclusief zoekwoorden in de titel van uw app kunt u uw app die hoger in zoekmachineresultaten wordt gerangschikt.<br><br>Ga als volgt een set titel-indeling voor het service-aanbiedingen consulting:<br>[Naam van aanbieding]: [duur] [Aanbiedingstype (Offertype)] (bijvoorbeeld *Contoso: 2 weken implementatie*)<br><br>Voldoen aan de Merkrichtlijnen van:<br>Ga als volgt [Trademark van Microsoft en Merkrichtlijnen](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx) en andere relevante, product-specifieke richtlijnen wanneer u naar handelsmerken van Microsoft en de namen van de Microsoft-software, producten en services verwijst. |
+| Beschrijving van aanbieding | Geef een beschrijving wissen aanbieding:<br>Duidelijk waardevoorstel in de eerste paar zinnen van de beschrijving van uw aanbieding te beschrijven. Houd er rekening mee dat de eerste paar zinnen kunnen worden weergegeven in zoekmachineresultaten. Vertrouw niet op de functies en functionaliteit om uw product te verkopen. In plaats daarvan richten op de waarde die u levert. Branchespecifieke vocabulaire of op basis van een voordeel bewoording zo veel mogelijk gebruiken.<br><br>Belangrijkste onderdelen van de toegevoegde waarde moeten de volgende informatie opnemen:<ul><li>Beschrijving van het product</li><li>Type van de gebruiker om te kunnen van het product profiteren</li><li>Klant- of pijn die het product</li></ul> |
 
-### <a name="storefront-details--listing-details"></a>StoreFront details > details van de aanbieding
-| StoreFront-instellingen | Beste praktijken |
+### <a name="storefront-listing-details"></a>De details van StoreFront aanbieding
+| StoreFront instelling | Best practices |
 |:--- |:--- |  
-| Branches: De AppSource-apps en adviesservices alleen | Selecteer branches als uw aanbieding branche-specifieke vereisten adressen. Zorg ervoor dat u deze branche-specifieke mogelijkheden in de beschrijving van uw aanbieding belichten.<br /> <br />Opmerking: het maximum aantal opties is afhankelijk van het aanbiedingtype, en wordt aangegeven in de Cloud Partner-Portal. |
-| Categorieën | Categorieën selecteren die het beste zijn afgestemd op uw aanbieding. Deze categorieën zorgvuldig kiezen als klanten de categorieën gebruiken om te zoeken naar relevante apps. Zorg ervoor dat u houden hoe uw aanbieding categorie-specifieke behoeften in de beschrijving van de aanbieding ondersteunt.<br /> <br /> Opmerking: het maximum aantal opties is afhankelijk van het aanbiedingtype, en wordt aangegeven in de Cloud Partner-Portal. |
-| Uw app met (maximaal 3 werkt) producten: alleen apps in AppSource | Lijst met aanvullende producten en technologieën die uw oplossing wordt gebruikt of wordt uitgebreid, bijvoorbeeld Azure IOT Hub, Azure Machine Learning, enzovoort. |
-| Trefwoorden (maximaal 3) | Trefwoorden voor zoekopdrachten mogen help zakelijke gebruikers vinden van uw aanbieding in Azure Marketplace en AppSource of met behulp van zoekmachines zoeken. Trefwoorden voor zoekopdrachten mogen de top drie van de identiteit van uw aanbieding; de zoekwoorden in uw aanbieding samenvatting, beschrijving; opnemen en hier de trefwoorden te vermelden. |
+| Branches: De AppSource-apps en adviesservices alleen | Selecteer branches als uw aanbieding branche-specifieke vereisten adressen:<br>Aanroepen per branche mogelijkheden in de beschrijving van uw aanbieding.<br><br>**Houd er rekening mee**: het maximum aantal opties is afhankelijk van het aanbiedingtype en wordt aangegeven in de Cloud Partner-portal. |
+| Categorieën | Selecteer de categorieën die het beste zijn afgestemd op uw aanbieding:<br>Kies de categorieën zorgvuldig, omdat klanten deze gebruiken om te zoeken naar relevante apps. Zorg ervoor dat houden hoe uw aanbieding categorie-specifieke behoeften in de beschrijving van de aanbieding ondersteunt.<br><br> **Houd er rekening mee**: het maximum aantal opties is afhankelijk van het aanbiedingtype en wordt aangegeven in de Cloud Partner-portal. |
+| Producten die uw app met werkt (3&nbsp;max): alleen apps in AppSource | Lijst met aanvullende producten en technologieën die uw oplossing wordt gebruikt of uitbreiden:<br>Bijvoorbeeld, Azure IoT Hub of Azure Machine Learning. |
+| Trefwoorden zoeken (3&nbsp;max) | Gebruik zoekwoorden waarmee zakelijke gebruikers uw aanbieding vinden wanneer ze zoeken in de Azure Marketplace en op AppSource of met behulp van zoekmachines:<br>Identificeren van de top drie zoekwoorden voor uw aanbieding; de zoekwoorden in uw aanbieding samenvatting en beschrijving; opnemen en hier de trefwoorden te vermelden. |
 
-### <a name="storefront-details--marketing-artifacts"></a>StoreFront details > artefacten Marketing
-| StoreFront-instellingen | Beste praktijken |
+### <a name="storefront-marketing-details"></a>Details van StoreFront marketing
+| StoreFront instelling | Best practices |
 |:--- |:--- |  
-| Logo van de aanbieding (PNG-indeling, 48 x 48) | Uw logo moet worden ontworpen en geoptimaliseerd voor een digitaal medium. Upload het logo in PNG-indeling voor de zoekpagina van uw aanbieding. |
-| Logo van de aanbieding (.png. 216 x 216) | Uw logo moet worden ontworpen en geoptimaliseerd voor een digitaal medium. Upload het logo in PNG-indeling voor de app-gegevens weergeven van de pagina van uw aanbieding. |
-| Meer informatie / documenten | Opnemen voor ondersteuning van verkoop en marketing activa onder 'Meer informatie,' zoals white papers, brochures, controlelijsten, PowerPoints, enzovoort. Alle bestanden moeten zich in PDF-indeling. Het doel met deze documenten moeten klanten, niet verkopen.<br /> <br />De koppeling naar de landingspagina van uw app naar al uw documenten en voeg de URL-parameters voor het bijhouden van bezoekers en proefversies. |
-| Videos: AppSource, consulting services en alleen SaaS-aanbiedingen | De sterkste video's die communiceren de waarde van uw aanbieding in verhaalvorm. Controleer de klant de hero van het artikel, niet uw bedrijf. Uw video moet contact op met de principal-uitdagingen en doelstellingen van uw klant doel.<br /> <br />Aanbevolen lengte: 60-90 seconden.<br /> <br />Woorden die sleutel zoeken op naam van de video's opnemen.<br /> <br />U kunt aanvullende video's, zoals instructies, aan de slag video of klantgetuigschrift video toevoegen. |
-| Schermafbeeldingen (1280 x 720) | Toevoegen van maximaal vijf schermafbeeldingen; woorden in de namen van de sleutel opnemen. |
+| Logo bieden (PNG-indeling, 48&nbsp;&times;&nbsp;48): zoekpagina | Ontwerpen en optimaliseren van uw logo voor een digitaal medium:<br>Upload het logo in PNG-indeling naar de zoekpagina van uw aanbieding. |
+| Logo bieden (PNG-indeling, 216&nbsp;&times;&nbsp;216): app-detailpagina | Ontwerpen en optimaliseren van uw logo voor een digitaal medium:<br>Upload het logo in PNG-indeling naar de app-gegevens weergeven van de pagina van uw aanbieding. |
+| "Meer informatie" documenten | Verkoop en marketing activa onder 'Meer informatie' ondersteunende opnemen:<br>Bijvoorbeeld, technische documenten, brochures, controlelijsten of PowerPoint-presentaties. Sla alle bestanden in PDF-indeling. Het doel moet aan klanten, niet voor deze verkopen.<br><br>Een koppeling naar de landingspagina van uw app naar al uw documenten toevoegen en URL-parameters voor het bijhouden van bezoekers en proefversies toevoegen. |
+| Videos: AppSource, consulting services en alleen SaaS-aanbiedingen | De sterkste video's, communiceren de waarde van uw aanbieding in verhaalvorm:<br>Controleer uw klant, niet uw bedrijf, de hero van het artikel. Uw video moet de belangrijkste uitdagingen en doelstellingen van uw klant doel aanpakken.<br><br>Aanbevolen lengte: 60-90 seconden.<br><br>Sleutel woorden die de naam van de video's opnemen.<br><br>U kunt aanvullende video's, zoals een instructies, aan de slag of klantgetuigschrift video toevoegen. |
+| Schermafbeeldingen (1280&nbsp;&times;&nbsp;720) | Maximaal vijf schermafbeeldingen toevoegen:<br>Woorden in de namen van de sleutel opnemen. |
 
 ## <a name="marketing-best-practices"></a>Aanbevolen procedures voor marketing 
 
-Voor hulp bij het maximaliseren van het voordeel van de aanbieding op marketplace, verzameld we de volgende aanbevolen procedures voor de marketing van uw aanbiedingen op AppSource en de Azure Marketplace. Eerst moet u de aanbevolen procedures voor marketing en resources op het Microsoft Partner Network (MPN) bekijken. Dit is de gateway voor alle resources voor marketing- en programma met betrekking tot de samenwerking met Microsoft.<br /> <br />Bovendien helpen de kwaliteit van uw marketplace-aanbieding en uw toezegging voor het genereren van de klantgerichte vraag groei te stimuleren voor uw bedrijf. Deelnemen aan deze activiteiten ingegaan helpt Microsoft uw go-to-market werk en functie belangrijkste oplossingen op de storefronts op de marketplace.<br /> <br />Als u een fantastische aanbieding hebt gemaakt, kunt de volgende marketingactiviteiten u uw bedrijfsactiviteiten in:
+Voor hulp bij het maximaliseren van het voordeel van de aanbieding op Marketplace, verzameld we de volgende aanbevolen procedures voor marketing-aanbiedingen op AppSource en in de Azure Marketplace. Eerst moet u de aanbevolen procedures voor marketing en resources op het Microsoft Partner Network (MPN) bekijken. Deze site is de gateway voor alle resources voor marketing- en programma met betrekking tot de samenwerking met Microsoft.
 
-*   Bouw een sterke waardevoorstel.<br />Bepalen wie de potentiële klant en de belangrijke differentiators van uw oplossing.
+Bovendien helpen de kwaliteit van uw Marketplace-aanbieding en uw toezegging voor het genereren van de klantgerichte vraag groei te stimuleren voor uw bedrijf. Deelnemen aan deze activiteiten, helpt Microsoft bij uw werk GTM ingegaan en oplossingen voor belangrijke functies via het storefronts in de Marketplace.
 
-*   Maak een unieke landingspagina op uw site om te maken van de aanbieding van uw app opvalt.<br />Station van verkeer van daaruit naar uw aanbieding en maak een goede eerste indruk. Op basis van uw aanbieding-aanbieding, bepalen klanten of ze willen meer informatie en uw oplossingen proberen.
+Nadat u een fantastische aanbieding hebt gemaakt, kunt de volgende marketingactiviteiten u uw bedrijfsactiviteiten in:
 
-*   Een test-station of andere testervaring inschakelen.<br />Om uw app eerst handmatig de gebruikers willen. Uitgevers soms in het verleden wordt veel hogere leadconversie via een aanbieding met een test- of proefversie.
+* Bouw een sterke waardevoorstel.<br>Identificeer de potentiële klant en de belangrijke differentiators van uw oplossing.
 
-*   Uw aanbieding om boost zoekmachines te optimaliseren.<br />Zoekwoorden in uw app-naam, de samenvatting en de aanbieding opnemen en zoektrefwoorden in de drie zoekwoorden bevatten. 
+* Maak een unieke landingspagina op uw site om te maken van de aanbieding van uw app opvalt.<br>Verkeer naar uw aanbieding-station van uw site en maak een goede eerste indruk. Op basis van de aanbieding van uw aanbieding, bepalen klanten of ze wilt meer informatie en uw oplossingen proberen.
 
-*   Schakel het delen van leads.<br />De contactgegevens van uw klant ontvangen wanneer ze het recht van uw app in uw CRM-systeem proberen. Zorg ervoor dat u hebt een proces geïmplementeerd moeten worden opgevolgd deze leads.
+* Een test-station of andere testervaring inschakelen.<br>Gebruikers willen om uw app uit eerste hand. Uitgevers soms in het verleden wordt veel hoger lead conversie tarief met ingang van aanbiedingen die een testrit of proefversie te bieden.
 
-*   Uw aanvraag genereren plan kunt opstellen.<br />Gebruik uw marketplace-aanbieding biedt als de landingspagina voor marketing-aanroepen naar actie. Zodra van uw aanbieding van marketplace-vermelding, telkens wanneer de evaluatieversies van een klant, testen en implementeren van uw aanbieding kunt u ontvangen van hun naam en contactgegevens als u het delen van leads hebt ingeschakeld.
+* Uw aanbieding om boost zoekmachines te optimaliseren.<br>Zoekwoorden in uw app-naam, de samenvatting en de aanbieding opnemen. 
 
-*   Promoot uw app op AppSource en/of Azure Marketplace.<br />Koppelen aan uw app-aanbieding en URL labels telkens wanneer u een koppeling naar uw app te gebruiken.
+* Schakel het delen van leads.<br>Neem contact op met uw klanten-informatie verkrijgen wanneer ze het recht van uw app in uw CRM-systeem proberen. Zorg ervoor dat u hebt een proces geïmplementeerd moeten worden opgevolgd deze nieuwe leads.
 
-*   Marketing en promotie campagnes maken.<br />Plannen en bouwen klantenecosysteem campagnes en betrokkenheid met een duidelijk aanroep-naar-actie die verkeer doorgestuurd naar uw marketplace-vermelding.
+* Uw aanvraag generatie plan kunt opstellen.<br>Gebruik uw Marketplace-aanbieding biedt als de landingspagina voor verzoeken aan marketing. Als u hebt ingeschakeld om delen van leads, elke klanten tijd probeert, u kunt uitproberen of implementeren van uw aanbieding vanaf de startpagina, u verkrijgen van de naam en contactgegevens.
 
-*   Ophalen van feedback van klanten.<br />Uw klanten kunnen een beoordeling indienen en reviewen herinneren. Gebruikers ontvangen een e-mailbericht voor het delen van de ervaring van uw klanten nadat ze een proefversie gestart.
+* Promoot uw app op AppSource en/of in de Azure Marketplace.<br>Koppelen aan uw app-aanbieding en tagging telkens wanneer u een koppeling naar uw app-URL gebruiken.
 
-*   Krijg praktische informatie.<br />Het dashboard inzichten in de [Cloud Partner-Portal](https://cloudpartner.azure.com/#insights). Bijhouden hoeveel bezoekers van uw app-vermelding opgehaald en hoeveel probeer uw app. Meer informatie over de prestaties van uw marketingcampagnes en welke inhoud werkt het beste.
+* Marketing en promotie campagnes maken.<br>Plannen en bouwen van campagnes klantenecosysteem en engagement, met een duidelijk aanzet tot actie die verkeer doorgestuurd naar uw Marketplace-vermelding.
 
-*   Go-To-Market services-voordelen gebruiken.<br />Profiteer optimaal van onze Go-To-Market-services. [Meer informatie over de voordelen van](https://partner.microsoft.com/reach-customers/gtm) beschikbaar via het Microsoft Partner Network (MPN).
+* Ophalen van feedback van klanten.<br>Vraag uw klanten om in te dienen een classificatie en evaluatie van de site van uw aanbieding. Nadat ze een proefversie hebt gestart, krijgen ze een e-mailbericht uitnodiging voor het delen van hun ervaring met andere klanten.
+
+* Krijg praktische informatie.<br>Het dashboard inzichten in de [Cloud Partner-portal](https://cloudpartner.azure.com/#insights). Bijhouden hoeveel bezoekers van uw app-vermelding opgehaald en hoeveel probeer uw app. Meer informatie over de prestaties van uw marketingcampagnes en welke inhoud werkt het beste.
+
+* Voordelen van GTM services gebruiken.<br>Profiteer optimaal van onze GTM-services. [Meer informatie over de voordelen van](https://partner.microsoft.com/reach-customers/gtm) die beschikbaar zijn via het MPN.
 
 ## <a name="build-an-effective-marketing-campaign"></a>Maken van een doeltreffende marketingcampagne
 
-Een marketingcampagne is een reeks promotionele activiteiten of tactieken marketing zijn bedoeld om uw publiek op een gewenste handeling of het resultaat. Voordat u ontwerpen van uw campagne overweegt de volgende aanbevolen procedures:
+Een marketingcampagne is een reeks promotionele activiteiten of marketing tactieken die gericht zijn op uw publiek op een gewenste handeling of het resultaat te stimuleren. Als u het ontwerpen van uw campagne, houd rekening met de volgende aanbevolen procedures:
 
 ### <a name="know-your-audience"></a>Uw doelgroep kennen
-Bepaal eerst de werkelijke koper ten opzichte van de besluitvormer aankoop. Zij je misschien verschillende mensen binnen een organisatie en uw tactieken en aanroepen naar actie voor elke groep kunnen verschillen. Deze evaluatie vragen beter inzicht in uw doelgroep:
+Bepaal eerst de werkelijke koper ten opzichte van de besluitvormer aankoop. Zijn er verschillende mensen binnen een organisatie en uw tactieken en aanroepen naar de actie voor elke rol kunnen verschillen. Deze evaluatie vragen beter inzicht in uw doelgroep:
 
-*   Hoeveel controle heeft de koper via de beslissing aanschaffen?
-*   Hoeveel invloed heeft de besluitvormer?
-*   Wat de besluitvormer beïnvloeden?
-*   Ze invloed hebben op budget of welke oplossing is verzameld?
+* Hoeveel controle heeft de koper via de beslissing aanschaffen?
+* Hoeveel invloed heeft de besluitvormer?
+* Wat de besluitvormer beïnvloeden?
+* Deze persoon invloed hebben op budget of welke oplossing is verzameld?
 
 De antwoorden op deze vragen kent, kunt u beslissingen over waar u uw bedrijfsmiddelen verkoop en marketing te investeren.
 
 ### <a name="define-where-your-audience-learns"></a>Waar uw doelgroep leert definiëren
-Deze dagen typische klanten zijn de meeste van de manier waarop via nieuw op het moment dat ze een marketplace bezoeken. Kopers krijgen dit tot nu toe in de besluitvorming door oplossingen leren en opties van tevoren beoordelen. U wilt een campagne worden waar uw kopers en testteam meer informatie over oplossingen geruime tijd voordat ze rekening houden met het aanschaffen van een softwareontwikkelingsproces dat ontwerpen.<br /> <br />Elke doelgroep voor elke sector, verticale of categorie komt niet overeen. Heeft uw doelgroep meer online via e-mail op beurzen, via sociale media of gesprekken met vertrouwde adviseurs? U moet, afhankelijk van waar en hoe uw doelgroep leert, activiteiten ontwerpen en distribueren van uw marketing dollars dienovereenkomstig. De combinatie van deze aanpak wordt uw campagne-strategie.
+Deze dagen zijn typische klanten de meeste van de manier waarop via nieuw op het moment dat ze de Marketplace bezoeken. Kopers krijgen dit tot nu toe in de besluitvorming door oplossingen leren en opties van tevoren beoordelen. U wilt een campagne worden waar uw kopers en testteam meer informatie over oplossingen geruime tijd voordat ze rekening houden met het aanschaffen van een softwareontwikkelingsproces dat ontwerpen.
+
+De doelgroep voor elke sector, verticale of categorie komt niet overeen. Heeft uw doelgroep meer online via e-mail op beurzen, via sociale media of gesprekken met vertrouwde adviseurs? U moet, afhankelijk van waar en hoe uw doelgroep leert, activiteiten ontwerpen en distribueren van uw marketing dollars dienovereenkomstig. De combinatie van deze aanpak wordt uw campagne-strategie.
 
 ### <a name="create-clear-campaign-goals"></a>Doelstellingen duidelijk campagne maken
-U moet geslaagd definiëren voor uw campagne op de marketplace en clear key performance indicators (KPI's) maken. U kunt meerdere campagnes met drie doelen voor verschillende end, natuurlijk uitvoeren. De end-einddoel is doorgaans meer omzet of klant overname; echter mogelijk uw marketingcampagnes worden gekoppeld aan de doelen op de andere fasen van de cyclus kopen. Enkele voorbeelden: 
+U moet geslaagd definiëren voor uw campagne in de Marketplace en clear key performance indicators (KPI's) maken. U kunt meerdere campagnes met drie doelen voor verschillende end, natuurlijk uitvoeren. Het uiteindelijke doel is doorgaans meer omzet of klant overname; echter mogelijk uw marketingcampagnes worden gekoppeld aan de doelen op de andere fasen van de cyclus kopen. Enkele voorbeelden: 
 
-*   U hebt zojuist uw product in de marketplace gelanceerd. In dit geval wellicht uw marketing-resources op de beste worden gebruikt op doelgroep onderwijs- en leadgegevens generatie. Succes wordt gedefinieerd door het aantal leads die zijn gegenereerd op basis van uw marketplace-vermelding. Uw tactieken marketing (en landingspagina) zou in dit geval richten op het tekenen van klanten naar uw marketplace-aanbieding.
-*   U hebt een evaluatieversie die u instelt in de marketplace en uw product is vereist voor bepaalde mate van betrokkenheid en ervaring voordat u aanschaft. Houd rekening met een campagne-doel van het aantal experimenten die zijn gedownload. In dit geval wilt de aanroep-naar-actie voor uw campagne-tactieken sterk richten op het stimuleren van een proefversie in marketplace.
-*   Uw product of een categorie is erg bekend is en u hebt ingesteld in de marketplace kopen-mogelijkheden. Houd rekening met de proefversie aanroep naar actie overgeslagen en aangeven dat uw doelgroep op de koppeling 'Krijgen nu' in de marketplace.
-*   Uw aanbieding is tot stand gebrachte en uitontwikkelde. Houd rekening met uw campagne inspanningen richten op upselling uw klantenbestand en sparen actie bedoeld voor de verbeterde aankoop in de marketplace. Uw berichtgeving wilt richten op klanten om aan te schaffen via de marketplace te stimuleren. Uw KPI kan worden de opbrengsten die worden gegenereerd via de marketplace.
+* U hebt zojuist uw product in de Marketplace gelanceerd. In dit geval wellicht uw marketing-resources op de beste worden gebruikt op doelgroep onderwijs- en leadgegevens generatie. Succes wordt gedefinieerd door het aantal leads die zijn gegenereerd op basis van uw Marketplace-vermelding. Uw tactieken marketing (en landingspagina) zou in dit geval richten op het tekenen van klanten naar uw Marketplace-aanbieding.
+
+* U hebt een evaluatieversie die u instelt in de Marketplace en bepaalde mate van betrokkenheid en ervaring van uw product is vereist voordat er een aankoop plaatsvindt. Houd rekening met een campagne-doel van het aantal experimenten die zijn gedownload. In dit geval wilt de aanbieding voor uw campagne-tactieken sterk richten op het stimuleren van een proefversie in Marketplace.
+
+* Uw product of een categorie is erg bekend is en u hebt ingesteld in de Marketplace kopen-mogelijkheden. Houd rekening met de proefversie oproepen tot actie overgeslagen en rechtstreeks met uw doelgroep naar uw **Koop nu** koppeling in de Marketplace.
+
+* Uw aanbieding is tot stand gebrachte en uitontwikkelde. Houd rekening met uw campagne inspanningen richten op upselling uw klantenbestand en sparen actie meer aankopen op Marketplace. Uw berichtgeving wilt richten op klanten om aan te schaffen via de Marketplace te stimuleren. Uw KPI kan worden de opbrengsten die wordt gegenereerd via de Marketplace.
 
 Ongeacht de rijpheid van uw aanbieding en de doelstellingen van uw organisatie, zijn de volgende sleutels de effectiviteit van uw campagne maximaliseren:
-*   Blijven onze aandacht richten op de goal(s)
-*   Overzicht te maken van een set met geïntegreerde marketing tactieken uitgelijnd met dit doel
+* Blijven onze aandacht richten op de doelstellingen.
+* Overzicht te maken van een set met geïntegreerde marketing tactieken die zijn afgestemd op de doelstellingen.
 
-Als onderdeel van een nieuwe uitgever op marketplace worden, biedt Microsoft bepaalde voordelen van de go-to-market gratis marketplace. U moet doen met ernstige over het gebruik van deze voordelen in uw campagne-strategie. Laat ons marketing team op de hoogte van de doelstellingen van uw marketplace-campagne en de gewenste doelgroep-actie. Microsoft kan deze producten werken in uw planning aanpassen.
+Als onderdeel van een nieuwe uitgever op Marketplace worden, kunt u sommige gratis Marketplace GTM-voordelen van Microsoft ontvangt. Ernstige denken over het gebruik van deze voordelen in uw campagne-strategie. Laat ons marketing team op de hoogte van de doelstellingen van uw Marketplace-campagne en de gewenste doelgroep-actie. Microsoft kan helpen met het aanpassen van deze producten werken in uw plan.
 
-Zorg ervoor dat u deelnemen aan de [slimme Partner Marketing programma](https://partner.microsoft.com/smart-partner-marketing), een voordeel van deelname aan het Microsoft Partner Network, voor aanvullende inhoud die op het bouwen en procedures marketing campagne
+Voor aanvullende inhoud over campagne bouwen en praktijken, marketing bezighouden met de [slimme Partner Marketing programma](https://partner.microsoft.com/smart-partner-marketing), een voordeel van deelname aan het Microsoft Partner Network. 
 
 ### <a name="invest-in-merchandising"></a>Investeer in merchandising
-Als onderdeel van het publicatieproces, moet u rekening houden met welk type aanbieding maken en kies een categorie voor uw aanbieding in AppSource of Azure Marketplace. Zorg ervoor dat u selecteert een categorie die het juist is voor uw oplossing is zodanig dat deze correct wordt weergegeven op potentiële klanten.<br /> <br />Aanbevolen Marketplace-aanbiedingen worden gekozen op basis van welke aanbiedingen bieden de beste klantervaring en profiteer van hoge kwaliteit partner marketing engagement. De volgende criteria verhoogt de kans dat uw oplossing die deel uitmaken van aanbevolen marketplace-aanbiedingen:
-*   Helderheid van de aanbieding
-*   Kwaliteit van de oplossing
-*   Betrouwbaarheid van de technologie
-*   Groei van de platformgebruik door uw klanten
-*   De mate van betrokkenheid bij het maken van hoge kwaliteit marketingmateriaal
+Houd rekening met welk type aanbieding maken als onderdeel van het publicatieproces, en kies een categorie voor uw aanbod op AppSource of in de Azure Marketplace. Zorg ervoor dat een categorie selecteren die geschikt is voor uw oplossing, zodat deze correct wordt weergegeven op potentiële klanten.
 
-Als u wilt maximaliseren de kans dat uw aanbieding wordt weergegeven, moet u investeren in het succes van uw marketplace-aanbieding. Houd rekening met de volgende methoden om te controleren of een uitstekende klantervaring voor uw aanbod:
-*   Zorg ervoor dat uw marketing-artefacten geüploade en weer te geven correct.
-*   Leid hoogwaardige verkeer naar uw aanbieding op marketplace met het maken van hoge kwaliteit aanvraag genereren van campagnes.
-*   Vergroten van het verbruik van uw AppSource of Azure Marketplace-aanbiedingen per aanvraag, met hoogwaardige klantenservice, groot en tijdig updates bieden op uw aanbieding.
+Aanbevolen Marketplace-aanbiedingen worden gekozen op basis van die de beste gebruikerservaring te bieden en te profiteren van hoge kwaliteit partner marketing engagement. De volgende criteria vergroot de kans dat uw oplossing deel uit van aanbevolen Marketplace-aanbiedingen maakt:
+* Helderheid van de aanbieding
+* Kwaliteit van de oplossing
+* Betrouwbaarheid van de technologie
+* Groei van de platformgebruik door uw klanten
+* De mate van betrokkenheid bij het maken van hoge kwaliteit marketingmateriaal
 
-Voor meer informatie over hoe aanbevolen aanbiedingen in de context van de voordelen van uw go-to-market passen, gaat u naar de [GTM-voordelen](https://review.docs.microsoft.com/azure/marketplace/gtm-benefits) op de marketplace-pagina.
+Als u wilt maximaliseren de kans dat uw aanbieding wordt weergegeven, investeren in het succes van uw Marketplace-aanbieding. Ter verzekering ervan een uitstekende klantervaring voor uw aanbod, houd rekening met de volgende methoden:
+* Zorg ervoor dat uw marketing-artefacten worden geüpload en correct wordt weergegeven.
+* Leid hoogwaardige verkeer naar uw aanbieding op Marketplace door het maken van hoge kwaliteit aanvraag generatie campagnes.
+* Vergroten van het verbruik van uw AppSource of Azure Marketplace-aanbiedingen per aanvraag, met hoogwaardige klantenservice, groot en tijdig updates bieden op uw aanbieding.
 
-#### <a name="merchandising-badge"></a>Merchandising Badge
-Wanneer uw aanbieding wordt weergegeven in AppSource of Azure Marketplace, hebt u het voordeel van het weergeven van behaald de _beschikbaar op AppSource_ of _beschikbaar op Azure Marketplace_ badge op uw website.<br /> <br />De badge AppSource is beschikbaar in drie grootten. U kunt de badge, samen met instructies over het gebruik op het downloaden [bevordering van de beschikbaarheid van uw app op Microsoft AppSource](https://appsource.microsoft.com/blogs/promote-your-app-s-availability-on-microsoft-appsource).<br /> <br />De Azure Marketplace-badge wordt geleverd als onderdeel van uw gratis [go-to-market voordelen](https://review.docs.microsoft.com/azure/marketplace/gtm-benefits?branch=master).
+Zie voor meer informatie over hoe aanbevolen aanbiedingen in de context van uw GTM-voordelen passen [GTM-voordelen in de Marketplace](https://review.docs.microsoft.com/azure/marketplace/gtm-benefits).
 
-### <a name="linking-to-your-app-listing-page-on-marketplace-from-your-website"></a>Koppeling naar de pagina voor uw app-aanbieding op marketplace vanuit uw website
-Wanneer u een koppeling van de badge AppSource of Azure Marketplace op uw site aan uw aanbieding op marketplace, zijn onder andere de volgende queryparameters aan het einde van de URL voor de ondersteuning van krachtige analyse en rapportage:
-*   src<br />De bron van waar het verkeer wordt doorgestuurd naar AppSource, zijn bijvoorbeeld website, LinkedIn, Facebook, enzovoort.
-*   mktcmpid<br />Uw marketing campagne-ID, die tot 16 tekens met een combinatie van letter, cijfer, onderstrepingsteken en afbreekstreepje, bijvoorbeeld blogpost_12 in het volgende voorbeeld ziet u een URL die de twee queryparameters bevat kan bevatten. De parameters toe te voegen aan de URL van uw AppSource kunt u controleren van de effectiviteit van uw campagne in het analytics-dashboard in de [Cloud Partner-Portal](http://cloudpartner.azure.com/#insights): <https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12>
+#### <a name="merchandising-badge"></a>Merchandising badge
+Wanneer uw aanbieding wordt weergegeven in AppSource of in de Azure Marketplace, hebt u het voordeel van het weergeven van behaald de _beschikbaar op AppSource_ of _beschikbaar op Azure Marketplace_ badge op uw website.
+
+De badge AppSource is beschikbaar in drie grootten. U kunt de badge, samen met instructies over het gebruik op het downloaden [bevordering van de beschikbaarheid van uw app op Microsoft AppSource](https://appsource.microsoft.com/blogs/promote-your-app-s-availability-on-microsoft-appsource).
+
+De Azure Marketplace-badge wordt geleverd als onderdeel van uw gratis [go-to-market voordelen](https://review.docs.microsoft.com/azure/marketplace/gtm-benefits?branch=master).
+
+### <a name="link-to-your-app-listing-page-in-the-marketplace-from-your-website"></a>Koppeling naar de pagina voor uw app-aanbieding op Marketplace van uw website
+Wanneer u een koppeling van de badge AppSource of Azure Marketplace op uw site aan uw aanbieding op Marketplace, bieden ondersteuning voor sterke analyse en rapportage door de volgende queryparameters aan het einde van de URL:
+* **SRC**: de bron van waaruit het verkeer wordt doorgestuurd naar AppSource (bijvoorbeeld, website, LinkedIn of Facebook) opnemen.
+* **mktcmpid**: uw marketing campagne-ID, die mag maximaal 16 tekens in een willekeurige combinatie van letters, cijfers, onderstrepingstekens, en afbreekstreepjes (bijvoorbeeld *blogpost_12*).
+
+Het volgende voorbeeld-URL bevat zowel van de voorgaande queryparameters: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
+
+De parameters toevoegt aan de URL van uw AppSource, kunt u bekijken van de effectiviteit van uw campagne in het analytics-dashboard in de [Cloud Partner-portal](http://cloudpartner.azure.com/#insights). 
 
 ## <a name="analytics-and-reporting"></a>Analyse en rapportage
 
-In de sectie inzichten van de [Cloud Partner-Portal](http://cloudpartner.azure.com/#insights), ziet u een prestatieoverzicht op hoog niveau voor uw aanbieding. De aanbevolen procedure voor de informatie in deze rapporten is deze met uw interne gegevens afstemmen. Gebruik deze om te prioriteren uw marketing campagne-acties.
+In de sectie inzichten van de [Cloud Partner-portal](http://cloudpartner.azure.com/#insights), vindt u een prestatieoverzicht op hoog niveau van uw aanbieding. De aanbevolen procedure voor het werken met de informatie in deze rapporten is deze met uw interne gegevens afstemmen. Gebruik de informatie om te prioriteren uw marketing campagne-acties.
 
-De sectie Analytics van [Cloud Partner-Portal](http://cloudpartner.azure.com/#insights) (momenteel in preview en beschikbaar alleen voor AppSource biedt) biedt een uitgebreide Power BI-dashboard. U kunt het dashboard gebruiken om te zien van verkeer op de detailpagina van uw aanbieding. Nieuwe functies voor dit dashboard worden in een lopende manier uitgerold.
+De sectie Analytics van [Cloud Partner-portal](http://cloudpartner.azure.com/#insights) (momenteel in preview en beschikbaar alleen voor AppSource biedt) biedt een uitgebreide Power BI-dashboard. U kunt het dashboard gebruiken om verkeer op de detailpagina van uw aanbieding weer te geven. Nieuwe functies voor dit dashboard worden in een lopende manier uitgerold.
 
-Ook wordt in de [Cloud Partner-Portal](http://cloudpartner.azure.com/#insights) is documentatie over Microsoft-campagnes. U mag de documentatie bij de Microsoft-campagnes gebruiken voor het instellen en bijhouden van uw campagne.
+Ook in de [Cloud Partner-portal](http://cloudpartner.azure.com/#insights) is documentatie over Microsoft-campagnes. U kunt de documentatie gebruiken voor het instellen en bijhouden van uw campagnes.
 
 De volgende rapporten zijn opgenomen in het gedeelte van het overzicht op hoog niveau prestaties:
-*   Momentopname van de samenvatting van orders
-*   Gebruik
-*   Implementaties
-*   Klantentrends op de startpagina van inzichten
-*   Gedetailleerde orders, gebruik en gegevens van de klant
-*   Orders en het gebruik weergegeven als een maandelijkse samenvatting of als een weergave van de trend van zes maanden
-*   Gebruik en orders gesegmenteerd door verschillende criteria
+* Momentopname van de samenvatting van orders
+* Gebruik
+* Implementaties
+* Klantentrends op de startpagina van inzichten
+* Gedetailleerde orders, gebruik en gegevens van de klant
+* Orders en gebruik, weergegeven als een maandelijkse samenvatting of als een weergave van de trend van zes maanden
+* Gebruik en orders uitgesplitst door verschillende criteria
 
-Gedetailleerde rapporten bevatten klantinformatie, zoals de bedrijfsnaam en geografische locatie op het niveau van de postcode. Overweeg het gebruik van deze informatie om te vergelijken van uw klanten of uw verkopers compenseren. Microsoft biedt de volgende specifieke kenmerken voor uw klanten:
-*   Reseller
-*   Voornaam
-*   Achternaam
-*   Email
-*   Bedrijfsnaam
-*   De datum van transactie
-*   Abonnementsnaam
-*   Azure-abonnement-ID (alleen voor betalen per gebruik betalen klanten)
-*   Naam van de cloud-exemplaar
-*   Aantal orders
-*   Land van de klant
-*   Plaats klant
-*   Klant communicatie cultuur
-*   Klant-postcode
+Gedetailleerde rapporten bevatten klantinformatie, zoals de bedrijfsnaam en geografische locatie op het niveau van de postcode. Overweeg het gebruik van deze informatie om te vergelijken van uw klanten of uw verkopers compenseren. Microsoft biedt de volgende kenmerken voor uw klanten:
+* Reseller
+* Voornaam
+* Achternaam
+* Email
+* Bedrijfsnaam
+* De datum van transactie
+* Abonnementsnaam
+* Azure-abonnement-ID (alleen voor betalen per gebruik betalen klanten)
+* Naam van de cloud-exemplaar
+* Aantal orders
+* Land van de klant
+* Plaats klant
+* Klant communicatie cultuur
+* Klant-postcode
 
-## <a name="enable-lead-sharing"></a>Schakel het delen van potentiële klanten 
-Nurturing leads uit marketplace is een belangrijke factor voor geslaagde betrokkenheid bij gebruikers van de marketplace. Start door ervoor te zorgen dat de lead management is ingeschakeld voor uw aanbieding en correct wordt geconfigureerd in uw bedrijf CRM-systeem naar keuze, zodat u de signalen ontvangen en neem contact op met de informatie voor de gebruikers die moeten worden verwerkt voor interactie met uw aanbieding in een wachtrij kwalificatie. Gebruik de volgende procedures voor uw leads:
-*   Verrijk marketplace leads met extra gegevens uit uw marketing- en -databases. Een marketplace-klant mogelijk al in een van uw systemen van de vormingscampagne potentiële klant vanwege een eerdere marketingcampagne of als een bestaande klant. 
-*   Score potentiële klanten en andere vormingscampagne paden gebruiken voor verschillende acties op marketplace. Er is een klant die uw toepassing testen in een andere fase dan iemand een aankoop, bijvoorbeeld starten.
-*   Proces leidt vaak gegevens. Recentheid van betrokkenheid bij klanten is een belangrijkste factor voor succes. 
-*   Leads via e-mail of binnen/pre-sales om ervoor te zorgen goede kwalificatie voordat het in een verkooppijplijn nurturing.
-*   Uw inspanningen van uw algehele strategie voor marketing campagne uitlijnen.
-Voor meer informatie over hoe u toegang tot het programma voor gezamenlijke verkoop, gaat u naar de [bevordering van uw bedrijf met Microsoft](https://docs.microsoft.com/azure/marketplace/promote-your-business-with-microsoft) pagina.
+## <a name="enable-lead-sharing"></a>Schakel het delen van leads 
+Nurturing leads vanuit de Marketplace is een belangrijke factor voor geslaagde betrokkenheid bij gebruikers van de Marketplace. Gestart door ervoor te zorgen dat de lead management is ingeschakeld voor uw aanbieding en juist geconfigureerd in uw bedrijf CRM-systeem. Op deze manier ontvangen de signalen en contact opnemen met informatie voor de gebruikers die werken met uw aanbieding in een wachtrij om te worden verwerkt voor de kwalificatie. 
 
-## <a name="gtm-benefits-on-the-marketplace"></a>GTM-voordelen op de Marketplace
+Gebruik de volgende procedures voor uw leads:
 
-Nieuwe vermeldingen in de storefronts op de markt komen in aanmerking voor het ontvangen van gratis Marketplace GTM-voordelen. Na afloop van aanbieding, marketing-specialisten van Microsoft contact op met u of uw marketing contactpersoon die moet worden inventarismechanisme de activiteiten. Er is niets voor u met uitzondering van te nemen met Microsoft wanneer u contact wordt opgenomen.
+* Verrijk Marketplace leads met extra gegevens uit uw marketing- en -databases. Een Marketplace-klant is mogelijk al in een van uw systemen van de vormingscampagne lead vanuit een eerdere marketingcampagne of als een bestaande klant. 
+* Score potentiële klanten en tal van vormingscampagne paden gebruiken voor verschillende acties in de Marketplace. Een klant die uw toepassing test is in een andere fase dan één die bijvoorbeeld een aankoop.
+* Proces leidt vaak gegevens. Recentheid van betrokkenheid bij klanten is een belangrijkste factor voor succes. 
+* Verkoopactiviteiten leads via e-mail of binnen de verkoop- of voorverkoop om ervoor te zorgen goede kwalificatie voordat ze uw verkooppijplijn invoeren.
+* Uw inspanningen van uw algehele strategie voor marketing campagne uitlijnen.
+Zie voor meer informatie over toegang tot het programma voor gezamenlijke verkoop [bevordering van uw bedrijf met Microsoft](https://docs.microsoft.com/azure/marketplace/promote-your-business-with-microsoft).
 
-De activiteiten die Microsoft u biedt, is afhankelijk van de oplossingsstatus van uw op de marketplace. Voordelen aanzienlijk verbeteren voor aanbiedingen.
+## <a name="gtm-benefits-in-the-marketplace"></a>GTM-voordelen in de Marketplace
 
-| Storefront | Aanvullende voordelen die beschikbaar zijn |
-|:--- |:--- |   
+Nieuwe vermeldingen in de storefronts in de markt komen in aanmerking voor het ontvangen van gratis Marketplace GTM-voordelen. Nadat u een aanbieding hebt geplaatst, marketing specialisten van Microsoft contact met u of uw marketing contact opnemen met te starten de activiteiten. Er is niets voor u met uitzondering van te nemen met Microsoft wanneer u contact wordt opgenomen.
+
+De activiteiten die Microsoft u biedt, is afhankelijk van de oplossingsstatus van uw in de Marketplace. Voordelen aanzienlijk verbeteren voor aanbiedingen.
+
+| Storefront | Aanvullende beschikbare voordelen |
+|--- |--- |   
 | AppSource | <table> <tr><td>Microsoft Gold-partners</td></tr> <tr><td>Proefversie apps</td></tr> </table> |  
-| Azure Marketplace | <table> <tr><td>Transact-aanbiedingen</td></tr> <tr><td>Proefaanbiedingen</td></tr> </table> | 
-
+| De Azure Marketplace | <table> <tr><td>Transact-aanbiedingen</td></tr> <tr><td>Proefaanbiedingen</td></tr> </table> | 
 
 Als u wilt de impact van deze activiteiten te maximaliseren, raadt Microsoft u aan uw plan starten klaar voor de implementatie hebt. Het is raadzaam gebruik van de landingspagina voor veel van uw tactieken starten.
 
-Uw go-to-market-ondersteuning omvat sjablonen, webinhoud, training en hulpprogramma's voor het promoten van uw bedrijf.
-*   Bezoek voor meer informatie over de ondersteuning van go-to-market [Microsoft Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
+De GTM-ondersteuning omvat sjablonen, webinhoud, training en hulpprogramma's voor het promoten van uw bedrijf.
+* Bezoek voor meer informatie over de ondersteuning van GTM [Microsoft go-to-market services](https://partner.microsoft.com/reach-customers/gtm).
 
 ## <a name="promote-your-business-with-microsoft"></a>Promoot uw bedrijf met Microsoft
-Microsoft heeft het doel voor de ondersteuning van uitgevers, zoals u en vereenvoudig uw app verkopen of in de storefronts op marketplace bieden. Door de aanbieding op marketplace, u toegang tot extra, gratis marketing- en programma's en resources.
+Ons doel is voor de ondersteuning van uitgevers, zoals u en vereenvoudigt het verkopen van uw app of in de storefronts in de Marketplace aanbieden. Door de aanbieding op Marketplace, u toegang tot aanvullende gratis marketing, verkoop-programma's en resources.
 
-Als u hebt niet al aangemeld in het Microsoft Partner Network (MPN) en vervolgens deze aanmelding voordat u doorgaat.
-*   Ga naar de Microsoft Partner Network-pagina te vinden op partner.microsoft.com voor meer informatie over MPN.
+Als u hebt al niet aangemeld voor het Microsoft Partner Network, doen voordat u doorgaat. Voor meer informatie over het MPN, gaat u naar de [Microsoft Partner Network](https://partner.microsoft.com) pagina.
 
-MPN biedt richtlijnen voor de volgende onderwerpen.
-*   Nieuwe zakelijke verkoopkansen
-*   Verbinding maken met de teams of partners
-*   Oplossingen en training om u te helpen uw vaardigheden te vergroten
+Het MPN bevat richtlijnen voor:
+* Nieuwe zakelijke verkoopkansen.
+* Verbinding maken met de teams of partners.
+* Oplossingen en training om u te helpen uw vaardigheden te vergroten.
 
-Gebruik de volgende tabel voor toegang tot meer voordelen en bronnen ter bevordering van uw aanbieding of de app:
+Gebruik de volgende tabel ter bevordering van uw aanbieding of de app en voor toegang tot meer voordelen en bronnen:
 
 | Voordelen | Resources |
 |:--- |:--- |
-| Profiteer van uw belangrijkste voordelen | Als onderdeel van het Microsoft Partner Network ontvangt u een set van de belangrijkste voordelen waarmee u tijd en geld besparen. De voordelen kunnen ook helpen u versterken van de mogelijkheden, beter klanten van dienst en verbindingen voor uw volledige bedrijf mogelijke bereiken.<br /> Voor meer informatie over de belangrijkste voordelen, gaat u naar [belangrijkste voordelen en vereisten](http://partner.microsoft.com/membership/core-benefits). |
-| Uw competentie voor het Cloudplatform behalen | Een competentie voor het verdienen, kunt u zelf te onderscheiden van andere Microsoft-partners. Verdienen een competentie helpt u bij gebruik van de technische expertise en klantsucces op de markt. Competentie is een vereiste voor veel belangrijke partner-programma's zoals gezamenlijke verkoop.<br /> Bezoek voor meer informatie over Cloud Platform-competentie [Cloudplatformcompetentie](https://partner.microsoft.com/membership/cloud-platform-competency). |
-| IP-CO-sell Ready geworden | Het is mogelijk dat u in aanmerking komen voor het IP-CO-sell Ready-programma, waarmee u rechtstreeks kunt samenwerken met Microsoft-verkopers en andere partners op verkoopkansen doel en het plannen van de account. Uw oplossing zichtbaar voor Microsoft-verkopers in de catalogus van de oplossing verkoper. Microsoft-verkopers worden beloond voor samenwerken en het verschil maken met u.<br /> Voor meer informatie over de gereedheid voor gezamenlijke verkoop, met inbegrip van de vereisten voor geschiktheid, gaat u naar [bevordering van uw bedrijf](https://partner.microsoft.com/reach-customers/promote-your-business). |
+| Profiteer van uw belangrijkste voordelen | Als onderdeel van het Microsoft Partner Network ontvangt u een set van de belangrijkste voordelen van kan tijd en geld besparen. De voordelen kunt u versterking van uw mogelijkheden, beter klanten van dienst en verbindingen voor het bereiken van uw volledige bedrijf mogelijke te bouwen.<br>Voor meer informatie over de belangrijkste voordelen, gaat u naar [belangrijkste voordelen en vereisten](http://partner.microsoft.com/membership/core-benefits). |
+| Uw competentie voor het Cloudplatform behalen | Een competentie voor het verdienen, kunt u zelf te onderscheiden van andere Microsoft-partners. Verdienen een competentie helpt u bij gebruik van de technische expertise en klantsucces op de markt. Competentie is een vereiste voor veel belangrijke partner-programma's, zoals gezamenlijke verkoop.<br> Bezoek voor meer informatie over Cloud Platform-competentie [Cloudplatformcompetentie](https://partner.microsoft.com/membership/cloud-platform-competency). |
+| IP-CO-sell Ready geworden | Het is mogelijk dat u in aanmerking komen voor het IP-CO-sell Ready-programma, waarmee u rechtstreeks kunt samenwerken met Microsoft-verkopers en andere partners op verkoopkansen doel en het plannen van de account. Uw oplossing zichtbaar voor Microsoft-verkopers in de catalogus van de oplossing verkoper. Microsoft-verkopers worden beloond voor samenwerken en het verschil maken met u.<br> Voor meer informatie over het CO-sell Ready-programma, met inbegrip van de vereisten voor geschiktheid, gaat u naar [bevordering van uw bedrijf](https://partner.microsoft.com/reach-customers/promote-your-business). |
 
 
-## <a name="azure-partner-customer-usage-attribution"></a>Azure-Partner klant gebruik Attribution
+## <a name="easier-customer-usage-attribution-for-azure-partners"></a>Eenvoudiger gebruik van de klant attribution voor Azure-partners
 
-Als een software-partner voor Azure is uw oplossingen vereisen Azure-onderdelen of rechtstreeks op de Azure-infrastructuur is geïmplementeerd.  Vandaag de dag wanneer een partneroplossing is geïmplementeerd door de klant en maakt gebruik van Azure-resources ingericht door de klant, is het moeilijk voor de partner te krijgen van de zichtbaarheid van de status van deze implementaties en lastig om beeldverwerkingstoepassingen in gevolgen voor de Azure-groei en de uitlijning met de Microsoft-verkoopteams en het tegoed voor Microsoft-partner-programma's.   
+Als een software-partner voor Azure is uw oplossingen vereisen Azure-onderdelen of rechtstreeks in Azure-infrastructuur worden geïmplementeerd. Vandaag de dag als oplossingen van partners door klanten worden geïmplementeerd en gebruikt Azure-resources die zijn ingericht door klanten, kan het lastig zijn om de status van deze implementaties weer te geven. Het kan ook lastig voor toegang tot informatie over de impact op de groei van Azure. Deze informatie helpt u bij de Microsoft-verkoopteams en tegoed voor Microsoft-partner-programma's te verkrijgen.  
 
-Microsoft is het maken van een nieuwe methode zodat partners beter gebruik van Azure die het gevolg is van een klant implementeren van uw software op Azure bijhouden. Deze nieuwe methode is gebaseerd op Azure Resource Manager gebruiken voor het indelen van de implementatie van Azure-services.
+Microsoft is het maken van een nieuwe methode zodat partners beter gebruik van Azure die het resultaat is van klanten uw software onder Azure implementeren bijhouden. Deze nieuwe methode is gebaseerd op Azure Resource Manager gebruiken voor het indelen van de implementatie van Azure-services.
 
-Als een Microsoft-partner, kunt u gebruik van Azure kunt koppelen aan alle Azure-resources die u in te op andere gebruikers van een klant richten.  Dit kan worden gedaan via de Azure Marketplace, de Quick Start-opslagplaats, persoonlijke github-opslagplaatsen en zelfs 1 op 1 klant-engagements.  Hiervoor zijn twee manieren beschikbaar:
+Als een Microsoft-partner, kunt u gebruik van Azure kunt koppelen aan alle Azure-resources die u namens een klant inricht. U kunt deze koppeling via de Azure Marketplace, de Quick Start-opslagplaats, privé-GitHub-opslagplaatsen en zelfs één klant-engagements. U kunt deze inschakelen, kunt u een van twee manieren uitvoeren:
 
- 1. Azure Resource Manager-sjablonen: Azure Resource Manager-sjablonen of sjablonen voor oplossingen met de Azure-services voor het uitvoeren van de partner software implementeren. Partners kunnen Azure Resource Manager-sjabloon die de infrastructuur en configuratie van uw Azure-oplossing definieert maken. Het maken van een Azure Resource Manager-sjabloon, kunt u en uw klanten herhaaldelijk gedurende de levenscyclus van uw oplossing implementeren en erop vertrouwen dat die uw resources worden geïmplementeerd in een consistente status. 
+* **Azure Resource Manager-sjablonen**: gebruik Azure Resource Manager-sjablonen of sjablonen voor oplossingen met de Azure-services voor het uitvoeren van uw software implementeren. U kunt sjablonen die u de infrastructuur en configuratie van uw Azure-oplossing definieert maken. Hiermee kunt u en uw klanten gedurende de levenscyclus van uw oplossing herhaaldelijk implementeren. U kunt er zeker van te zijn dat uw resources consistent worden geïmplementeerd zijn. 
 
- 2. Azure Resource Manager-API's: partners kunnen de Azure Resource Manager API's om ofwel een Azure Resource Manager-sjabloon implementeren rechtstreeks te worden aangeroepen of voor het genereren van de API-aanroepen voor het inrichten van rechtstreeks Azure-services. 
+* **Azure Resource Manager-API's**: U kunt de Azure Resource Manager API's direct naar ofwel een Azure Resource Manager-sjabloon te implementeren of voor het genereren van de API-aanroepen voor het inrichten van Azure-services rechtstreeks aanroepen. 
 
 ## <a name="method-1-azure-resource-manager-templates"></a>Methode 1: Azure Resource Manager-sjablonen 
-Tegenwoordig zijn veel oplossingen van partners geïmplementeerd op het abonnement van een klant met behulp van Azure Resource Manager-sjablonen.  Als u al een Azure Resource Manager-sjabloon beschikbaar in de Azure Marketplace op GitHub, of als een snelstartgids, moet het proces van het wijzigen van de sjabloon voor het inschakelen van deze nieuwe methode voor het bijhouden van rechtstreeks doorsturen.  Als u geen van een Azure Resource Manager-sjabloon vandaag hier gebruikmaakt zijn enkele koppelingen naar informatie waarmee u beter inzicht in Azure Resource Manager-sjablonen en hoe u een te maken: 
+Vandaag de dag zijn veel oplossingen van partners geïmplementeerd op het abonnement van een klant met behulp van Azure Resource Manager-sjablonen. Als u al een Azure Resource Manager-sjabloon beschikbaar in de Azure Marketplace op GitHub, of als een snelstartgids, is het proces van het wijzigen van de sjabloon voor het inschakelen van deze nieuwe methode voor het bijhouden van moet eenvoudig. Als u een Azure Resource Manager-sjabloon niet momenteel gebruiken, volgt bepaalde informatie beter inzicht in Azure Resource Manager-sjablonen en hoe u een te maken: 
 
 *   [Uw eerste Azure Resource Manager-sjabloon maken en implementeren](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-create-first-template)
 *   [Handleiding voor het maken van een oplossingssjabloon voor Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace-publishing/marketplace-publishing-solution-template-creation)
 
-## <a name="instructions-add-a-guid-to-your-existing-azure-resource-manager-template"></a>Instructies: een GUID toevoegen aan uw bestaande Azure Resource Manager-sjabloon
+### <a name="add-a-guid-to-your-existing-azure-resource-manager-template"></a>Een GUID toevoegen aan uw bestaande Azure Resource Manager-sjabloon
 
-Toevoegen van de GUID is een één wijziging van de belangrijkste sjabloon:
- 1. Maak een GUID, Stel dat de gegenereerde waarde eb7927c8-dd66-43e1-b0cf-c346a422063
- 2. Open de Azure Resource Manager-sjabloon
- 3. Een nieuwe resource toevoegen in de belangrijkste sjabloonbestand. De resource alleen moet zich in de mainTemplate.json of azuredeploy.json, niet in een geneste of gekoppelde sjablonen.
- 4. Voer de GUID na de 'pid-' zoals u hierboven ziet.
+Toevoegen van de GUID is een eenmalige wijziging van de belangrijkste sjabloon. Dit doet u als volgt:
+ 1. Maak een GUID. Bijvoorbeeld, de gegenereerde waarde mogelijk *eb7927c8-dd66-43e1-b0cf-c346a422063*.
+ 2. Open de Azure Resource Manager-sjabloon.
+ 3. Een nieuwe resource toevoegen in de belangrijkste sjabloonbestand. De resource moet worden alleen in de *mainTemplate.json* of *azuredeploy.json* -bestand, niet in een geneste of gekoppelde sjablonen.
+ 4. Voer de GUID na de *pid -*, zoals eerder weergegeven.
 
-   Dit ziet er ongeveer als in dit voorbeeld: `pid-eb7927c8-dd66-43e1-b0cf-c346a422063`
+    Dit ziet er ongeveer als in dit voorbeeld: `pid-eb7927c8-dd66-43e1-b0cf-c346a422063`
 
- 5. Controleer de sjabloon voor fouten
- 6. De sjabloon in de juiste opslagplaatsen publiceren
+ 5. Controleer de sjabloon op fouten.
+ 6. De sjabloon in de juiste opslagplaatsen publiceren.
 
-## <a name="sample-template-code"></a>Voorbeeldcode van sjabloon
+### <a name="sample-template-code"></a>Voorbeeldcode van sjabloon
 
 ```
 
-{ // add this resource to the mainTemplate.json (do not add the entire file)
+{ // add this resource to the mainTemplate.json file (do not add the entire file)
       "apiVersion": "2018-02-01",
       "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your GUID here
       "type": "Microsoft.Resources/deployments",
@@ -268,76 +287,68 @@ Toevoegen van de GUID is een één wijziging van de belangrijkste sjabloon:
 
 ## <a name="method-2-azure-resource-manager-apis"></a>Methode 2: Azure Resource Manager API 's
 
-In sommige gevallen wil partners aanroepen rechtstreeks op basis van de Azure Resource Manager REST API's naar Azure-services implementeren. [Azure biedt ondersteuning voor meerdere SDK's](https://docs.microsoft.com/en-us/azure/#pivot=sdkstools) inschakelen dit.  U kunt een van de SDK's gebruiken, of aanroepen van de REST-API's direct voor het implementeren van resources.
+In sommige gevallen voor het implementeren van Azure-services, liever partners rechtstreeks met de Azure Resource Manager REST API-aanroepen. Om in te schakelen van deze implementatie [Azure biedt ondersteuning voor meerdere SDK's](https://docs.microsoft.com/en-us/azure/#pivot=sdkstools). U kunt voor het implementeren van resources, gebruikt u een van de SDK's of het rechtstreeks aanroepen van de REST API's.
 
-Als u een Azure Resource Manager-sjabloon gebruikt, moet u de oplossing met behulp van de bovenstaande instructies taggen.  Als u niet met behulp van een Azure Resource Manager-sjabloon en die directe API-aanroepen kunt u nog steeds uw implementatie om te koppelen van het gebruik van Azure-resources te labelen. 
+Als u een Azure Resource Manager-sjabloon gebruikt, moet u uw oplossing labelen met behulp van de voorgaande instructies. Als u niet met behulp van een Azure Resource Manager-sjabloon en die directe API-aanroepen, kunt u nog steeds uw implementatie om te koppelen van het gebruik van Azure-resources te labelen. 
 
-**Informatie over het taggen van een implementatie met behulp van de Azure Resource Manager API's:** voor deze benadering gebruikt bij het ontwerpen van uw API-aanroepen dat u een GUID in de koptekst van de gebruiker agent in de aanvraag bevat. De GUID moet worden toegevoegd voor elke aanbieding of SKU.  De tekenreeks moet zijn geformatteerd met het voorvoegsel van de pid - en neemt u de partner gegenereerde GUID.   
+### <a name="tag-a-deployment-by-using-the-azure-resource-manager-apis"></a>Label van een implementatie met behulp van de Azure Resource Manager API 's
+Voor deze benadering gebruikt bij het ontwerpen van uw API-aanroepen, opnemen u een GUID in de koptekst van de gebruiker agent in de aanvraag. De GUID moet worden toegevoegd voor elke aanbieding of SKU. De tekenreeks moet zijn geformatteerd met het voorvoegsel *pid -* en neemt u de partner gegenereerde GUID.  
 
->[!Note] 
->GUID-indeling voor invoegen in de gebruikersagent: pid-eb7927c8-dd66-43e1-b0cf-c346a422063 / / Voer uw GUID na de 'pid-'
+>[!NOTE] 
+>Gebruik deze GUID-indeling voor invoegen in de gebruikersagent: `pid-eb7927c8-dd66-43e1-b0cf-c346a422063`. Deze tijdelijke aanduiding GUID vervangen door de GUID nadat de *pid -* (Houd er rekening mee afbreekstreepje).
 
-De indeling van de tekenreeks is belangrijk. Als het voorvoegsel 'pid-' niet opgenomen is zijn niet wij kunnen de gegevens op te vragen. Verschillende SDK's doen dit anders.  U wilt bekijken over de ondersteuning en benadering voor uw gewenste Azure-SDK voor het implementeren van deze methode. 
+De indeling van de tekenreeks is belangrijk. Als het voorvoegsel *pid -* is niet opgenomen, kunnen niet we de gegevens opvragen. SDK's doen dit op verschillende manieren. Controleer de ondersteuning en een nieuwe benadering voor uw gewenste Azure-SDK voor het implementeren van deze methode. 
 
-**Voorbeeld met behulp van de Python-SDK:** voor Python, moet u het kenmerk "configuratie" gebruiken. U kunt alleen toevoegen aan een UserAgent (we nog steeds willen een soort besturingselement). Dit zou kunnen zijn:
+### <a name="example-using-the-python-sdk"></a>Voorbeeld met behulp van de Python-SDK
+Voor Python, gebruikt u de `config` kenmerk. U kunt deze toevoegen aan een UserAgent alleen zoals hier wordt weergegeven:
 
 ```python
-
 client = azure.mgmt.servicebus.ServiceBusManagementClient(**parameters)
         client.config.add_user_agent("pid-eb7927c8-dd66-43e1-b0cf-c346a422063")
 
-
 ```
 
->Dit moet worden uitgevoerd voor elke client, er is geen globale statische configuratie (u kunt kiezen een factory client om er zeker van dat elke client zoiets doen. 
->[Aanvullende referentie-informatie](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)
+Deze aanpak gebruiken voor elke client. Er is geen globale, statische configuratie. Om ervoor te zorgen dat elke client wordt gebruikt, kunt u een client-factory doen. Ophalen [aanvullende naslaginformatie](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79).
 
-Informatie over het taggen van een implementatie met behulp van Azure PowerShell of Azure CLI: als u resources via AzurePowerShell implementeert, kunt u uw GUID toevoegen met behulp van de volgende methode:
+### <a name="tag-a-deployment-by-using-the-azure-powershell-or-the-azure-cli"></a>Label van een implementatie met behulp van Azure PowerShell of Azure CLI
+Als u resources via Azure PowerShell implementeert, kunt u uw GUID toevoegen met behulp van de volgende methode:
 
 ```
-
 [Microsoft.Azure.Common.Authentication.AzureSession]::ClientFactory.AddUserAgent("pid-eb7927c8-dd66-43e1-b0cf-c346a422063")
 
-
 ```
 
-Als u wilt uw GUID toevoegen bij het gebruik van de Azure CLI, stel de omgevingsvariabele AZURE_HTTP_USER_AGENT.  U kunt dit instellen binnen het bereik van een script of wereldwijd instellen voor gebruik van shell-bereik:
+Als u wilt uw GUID toevoegen met behulp van de Azure CLI, stel de omgevingsvariabele AZURE_HTTP_USER_AGENT. U kunt de variabele instellen binnen het bereik van een script of wereldwijd instellen voor gebruik van shell-bereik:
 
 ```
-
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 
-
 ```
 
-## <a name="registering-guidsoffers"></a>Registreren van GUID's / aanbiedingen
+## <a name="register-guids-and-offers"></a>Registreert de GUID's en aanbiedingen
 
-Opdat de GUID moet worden opgenomen in onze bijhouden moet deze worden geregistreerd.  
+Als u wilt opnemen een GUID in uw bijhouden, moet u deze registreren. U kunt alle sjabloon-GUID's registreren in de Azure Marketplace Cloud Partner-portal. Voor toegang tot de Cloud Partner-portal, gelden voor de [Azure Marketplace](http://aka.ms/listonazuremarketplace).
 
-Alle registraties voor de sjabloon-GUID's worden uitgevoerd via de Azure Marketplace Cloud Partner Portal (CPP). 
+Meer informatie over het registreren van GUID's:
+*   Partners zijn vereist voor het [hebt u een profiel in de Cloud Partner-portal](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher) en worden ook aangemoedigd om de aanbieding in Azure Marketplace of AppSource weer te geven. 
+*   Partners kunnen zich registreren voor meerdere GUID's. 
+*   Partners kunnen ook registreren voor een GUID voor sjablonen voor niet-Marketplace-oplossingen en aanbiedingen.
 
-Van toepassing op [Azure Marketplace](http://aka.ms/listonazuremarketplace) vandaag en krijgen toegang tot de Cloud Partner-portal.
+Nadat u de GUID hebt toegevoegd aan de sjabloon of in de agent en u de GUID in de Cloud Partner-portal hebt geregistreerd, wordt Microsoft begint om bij te houden van uw implementaties. 
 
-*   Partners moeten [hebt u een profiel in CPP](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher) en aangemoedigd om de aanbieding in Azure Marketplace of AppSource weer te geven 
-*   Partners is mogelijk meerdere GUID's registreren 
-*   Partners worden ook een GUID voor de oplossing voor niet-Marketplace-sjablonen/aanbiedingen registreren
+## <a name="verify-guid-deployment"></a>Controleer of de GUID-implementatie 
 
-Nadat u hebt de GUID wordt toegevoegd aan de sjabloon of in de gebruikersagent en de GUID geregistreerd in het CPP alle implementaties worden bijgehouden. 
+Nadat u hebt uw sjabloon is gewijzigd en een test-implementatie wordt uitgevoerd, kunt u de resources die zijn geïmplementeerd en worden gelabeld met behulp van het PowerShell-script in deze sectie kunt ophalen. 
 
-## <a name="verification-of-guid-deployment"></a>Verificatie van de GUID-implementatie 
+U kunt het script gebruiken om te controleren of de GUID is toegevoegd aan uw Azure Resource Manager-sjabloon. Deze methode is niet van toepassing op Azure Resource Manager API-implementatie.
 
-Nadat u hebt uw sjabloon is gewijzigd en een test-implementatie wordt uitgevoerd, kunt u het volgende PowerShell-script kunt gebruiken om op te halen van de resrouces die zijn geïmplementeerd en gelabeld. 
+Voordat u het script uitvoert, aanmelden bij Azure en selecteer het abonnement met de implementatie die u wilt controleren. Deze moet worden uitgevoerd binnen de context van het abonnement van de implementatie.
 
-U kunt deze gebruiken om te controleren of de GUID is toegevoegd aan uw Azure Resource Manager-sjabloon is. Dit geldt niet voor Azure Resource Manager API-implementatie.
+De GUID en `resourceGroup` naam van de implementatie zijn vereiste parameters.
 
-Meld u aan bij Azure en selecteer het abonnement met de implementatie die u controleren wilt voordat u het script is uitgevoerd. Deze moet worden uitgevoerd binnen de context van het abonnement van de implementatie.
-
-De GUID en de resourceGroup-naam van de implementatie zijn vereiste parameters.
-
-U vindt het oorspronkelijke script [hier](https://gist.github.com/bmoore-msft/ae6b8226311014d6e7177c5127c7eba1#file-verify-deploymentguid-ps1).
+[Haal het oorspronkelijke script](https://gist.github.com/bmoore-msft/ae6b8226311014d6e7177c5127c7eba1#file-verify-deploymentguid-ps1).
 
 ```
-
 Param(
     [GUID][Parameter(Mandatory=$true)]$guid,
     [string][Parameter(Mandatory=$true)]$resourceGroupName'
@@ -362,93 +373,96 @@ foreach ($deployment in $deployments){
 
 }
 
-
 ```
 
-## <a name="guidance-on-creating-guids"></a>Informatie over het maken van GUID 's
+## <a name="create-a-guid"></a>Maak een GUID
 
-Een GUID (globally unique identifier) is een uniek nummer 32 hexadecimale cijfers. Voor het maken van een partner voor een GUID moeten een GUID-generator gebruiken om het maken van hun GUID's voor het bijhouden.  Er zijn meerdere [online GUID generatoren](https://www.bing.com/search?q=guid%20generator&qs=n&form=QBRE&sp=-1&ghc=2&pq=guid%20g&sc=8-6&sk=&cvid=0BAFAFCD70B34E4296BB97FBFA3E1B4E) u kunt gebruiken.
+Een GUID (globally unique identifier) is een uniek nummer 32 hexadecimale cijfers. Gebruik voor het maken een GUID voor het bijhouden van verschillende online [GUID generatoren](https://www.bing.com/search?q=guid%20generator&qs=n&form=QBRE&sp=-1&ghc=2&pq=guid%20g&sc=8-6&sk=&cvid=0BAFAFCD70B34E4296BB97FBFA3E1B4E).
 
-Worden uitgevers aangemoedigd om te maken van een unieke GUID voor elke aanbieding en de distributie-kanaal.  Bijvoorbeeld, een partner die u heeft twee oplossingen en beide worden geïmplementeerd via een sjabloon en zijn beschikbaar in de Azure Marketplace en op GitHub.  De partner moet 4 GUID's maken:
+We raden u aan het maken van een unieke GUID voor elke aanbieding en de distributie-kanaal. Als u twee oplossingen hebt en worden geïmplementeerd via een sjabloon en zijn beschikbaar in de Azure Marketplace en op GitHub, moet u bijvoorbeeld 4 GUID's maken:
 
-*   Bieden van een in Azure Marketplace 
+*   Bieden van een in de Azure Marketplace 
 *   Bieden van een op GitHub
 *   Bieden van B in Azure Marketplace 
 *   Aanbieding B op GitHub
 
-Reporting wordt gedaan door partner (Microsoft Partner-ID) en de GUID. 
+Reporting wordt uitgevoerd door Microsoft-Partner-ID en de GUID. 
 
-U kunt ook kiezen voor het bijhouden van GUID's op een meer gedetailleerd niveau dat wil zeggen SKU (SKU's zijn waarbij varianten van een aanbieding).
+U kunt ook kiezen voor het bijhouden van GUID's op een meer gedetailleerd niveau (dat wil zeggen, SKU, waar de SKU's varianten van een aanbieding zijn).
 
 ## <a name="guidance-on-privacy-and-data-collection"></a>Informatie over privacy en gegevensverzameling
 
-Partners moeten opgeven om te informeren over hun klanten die Microsoft voor het rapporteren van het gebruik van Azure die zijn gekoppeld aan deze implementaties met de partner-implementaties waarin het bijhouden van Azure Resource Manager-GUID, kunnen berichten.  Er is een voorbeeld van de taal hieronder. Partners moeten bovendien voor zorgen dat deze correspondeert met hun eigen gegevens beleidsregels voor privacy en verzameling, inclusief opties voor klanten moeten worden uitgesloten van bijhouden: 
+U moet opgeven om te informeren over uw klanten implementaties met de Azure Resource Manager-GUID-tracering dat Microsoft voor rapportage aan u het gebruik van Azure die is gekoppeld aan deze implementaties-berichten. Er volgt een voorbeeld van de taal. Bovendien moet u ervoor zorgen dat deze berichten worden uitgelijnd met uw eigen gegevens privacy en verzameling beleid, inclusief opties voor uw klanten moeten worden uitgesloten van het volgen van de volgende typen implementaties: 
 
-**Voor sjabloonimplementaties van Azure Resource Manager**
+* **Sjabloonimplementaties van Azure Resource Manager**
 
-Bij het implementeren van deze sjabloon Microsoft is mogelijk identificeren van de installatie van onze software [insert partner software name] met de Azure-resources geïmplementeerd.  Microsoft is kunnen correleren van de Azure-resources gebruikt ter ondersteuning van de software.  Microsoft verzamelt deze informatie om de beste ervaringen met hun producten en om te werken van hun bedrijf. Deze gegevens worden verzameld en onderworpen aan het privacybeleid van Microsoft, die kunnen worden gevonden op https://www.microsoft.com/en-us/trustcenter. 
+    Wanneer u deze sjabloon implementeert, kan Microsoft de installatie van onze software [naam insert partner software] identificeren met de Azure-resources geïmplementeerd. Microsoft kan de Azure-resources gebruikt ter ondersteuning van de software te correleren. Microsoft verzamelt deze informatie om de beste ervaringen met hun producten en om te werken van hun bedrijf. Deze gegevens worden verzameld en onderworpen aan Microsoft-privacybeleid, die u kunt vinden op de [Microsoft Trust Center](https://www.microsoft.com/en-us/trustcenter) site. 
 
-**Voor implementaties van SDK of -API**
+* **Voor implementaties van SDK of -API**
 
-Bij het implementeren van onze Microsoft-software is mogelijk moet u de installatie van onze software [naam insert partner software] identificeren met de Azure-resources geïmplementeerd.  Microsoft is kunnen correleren van de Azure-resources gebruikt ter ondersteuning van de software.  Microsoft verzamelt deze informatie om de beste ervaringen met hun producten en om te werken van hun bedrijf. Deze gegevens worden verzameld en onderworpen aan het privacybeleid van Microsoft, die kunnen worden gevonden op https://www.microsoft.com/en-us/trustcenter.
+    Wanneer u onze software implementeert, kan Microsoft de installatie van onze software [naam insert partner software] identificeren met de Azure-resources geïmplementeerd. Microsoft kan de Azure-resources gebruikt ter ondersteuning van de software te correleren. Microsoft verzamelt deze informatie om de beste ervaringen met hun producten en om te werken van hun bedrijf. Deze gegevens worden verzameld en onderworpen aan Microsoft-privacybeleid, die u kunt vinden op de [Microsoft Trust Center](https://www.microsoft.com/en-us/trustcenter) site.
 
 ## <a name="support"></a>Ondersteuning
 
-Hulp nodig hebt, volgt u de onderstaande stappen te volgen:
- 1. Ga naar de ondersteuningspagina te vinden op [go.microsoft.com/fwlink/?linkid=844975](https://go.microsoft.com/fwlink/?linkid=844975)
- 2. Selecteer het probleemtype voor problemen met het gebruik van koppeling -: **Marketplace Onboarding** en categorie: **andere** en klik vervolgens op **aanvraag starten.** 
->[!Note]
->Voor problemen met toegang tot de Azure Marketplace Cloud Partner Portal - Selecteer probleemtype: **Marketplace Onboarding** en categorie: **probleem met toegang tot** en klik vervolgens op **aanvraag starten.**
- 3. Vul de vereiste velden op de volgende pagina en klik op **doorgaan.**
- 4. Vul de velden vrije tekst op de volgende pagina.  
+1. Hulp nodig hebt, gaat u naar [Marketplace-publicatie ondersteuning](https://go.microsoft.com/fwlink/?linkid=844975).
+2. In de **probleemtype** vervolgkeuzelijst, selecteer **Marketplace Onboarding**.
+3. Voer een van de volgende bewerkingen uit:
  
+   * Voor problemen met **gebruik koppeling**, in de **categorie** vervolgkeuzelijst, selecteer **andere**.
 
+   * Voor problemen met **toegang tot de Azure Marketplace Cloud Partner-portal**, in de **categorie** vervolgkeuzelijst, selecteer **probleem met toegang tot**.
 
+4. Selecteer **Start-aanvraag**. 
+5. Vul de vereiste velden op de volgende pagina en selecteer vervolgens **doorgaan**.
+6. Vul de velden in vrije tekst op de volgende pagina.
  
->[!Important] 
->Vul in de titel van Incident met **'ISV gebruik bijhouden'** en beschrijf het probleem in de details in het veld grote vrije tekst na.  Voltooi de rest van het formulier en klikt u op **indienen**.
+    >[!IMPORTANT] 
+    >In de **Incident titel** Voer **ISV gebruik bijhouden**, en vervolgens een beschrijving van uw probleem in detail. 
 
-## <a name="faqs"></a>Veelgestelde vragen
+7. Voltooi de rest van het formulier en selecteer vervolgens **indienen**.
+
+## <a name="faq"></a>Veelgestelde vragen
 
 **Wat is het voordeel van de GUID toe te voegen aan de sjabloon?**
 
-Microsoft biedt partners met een weergave van implementaties van klanten hun sjablonen en inzichten op het gebruik van hun beïnvloed.  Zowel Microsoft als de partner kunnen u deze gegevens dichter bij betrokkenheid tussen partners en de Microsoft-verkoopteams en een consistente weergave van de impact van een afzonderlijke partner ook gebruiken op Azure groei. 
+Microsoft biedt partners een weergave van implementaties van klanten hun sjablonen en inzichten in het gebruik van hun beïnvloed. Microsoft en u kunt deze informatie ook gebruiken om beide dichter engagement tussen u en de Microsoft-verkoopteams en een consistente weergave van uw invloed op de Azure-groei te stimuleren. 
 
 **Wie kan een GUID toevoegen aan een sjabloon?**
 
-De tracerings-resource is bedoeld om van de partner-oplossing verbinden met de Azure-klanten gebruik.  Gegevens over gebruik is gekoppeld aan de identiteit van een partner Microsoft Partner Network (MPN-ID) en rapportage is beschikbaar voor partners in de Cloud Partner Portal (CPP).  
+De tracerings-resource is bedoeld om uw oplossing verbinden met uw klanten gebruik van Azure. Gegevens over gebruik is gekoppeld aan de identiteit van de Microsoft Partner Network (MPN-ID) en de rapportage is aan u beschikbaar gesteld in de Cloud Partner-portal. 
 
-**Zodra een GUID is toegevoegd kan worden gewijzigd?**
+**Nadat een GUID is toegevoegd, kan het worden gewijzigd?**
  
-Ja, een partner of implementatie van de klant kan de sjabloon aanpassen en kan wijzigen of verwijderen de GUID. Het is raadzaam dat partners proactief de rol van de resource en de GUID voor hun klanten en partners beschrijven om te voorkomen dat de verwijdering of bewerkingen voor het bijhouden van GUID.  Houd er rekening mee dat het wijzigen van de GUID wordt alleen van invloed op nieuwe, niet-bestaande implementaties en resources.
+Ja, een klant of een implementatiepartner kan de sjabloon aanpassen en kan wijzigen of verwijderen de GUID. Het is raadzaam om de rol van de resource en de GUID proactief te beschrijven voor uw klanten en andere partners om te voorkomen dat de verwijdering of bewerkingen voor het bijhouden van GUID. Houd er rekening mee dat de GUID, alleen voor nieuwe implementaties en resources, niet-bestaande implementaties en resources wijzigt.
 
 **Wanneer reporting beschikbaar zal zijn?**
 
-Een bètaversie van rapportage moet zijn binnenkort beschikbaar.  Reporting wordt geïntegreerd in de Cloud Partner Portal (CPP).
+Een bètaversie van rapportage moet zijn binnenkort beschikbaar. Reporting is geïntegreerd in de Cloud Partner-portal.
 
-**Kan ik de sjablonen die zijn geïmplementeerd vanuit een niet-Microsoft-opslagplaats, zoals GitHub bijhouden?**
+**Kan ik sjablonen die zijn geïmplementeerd vanuit een niet-Microsoft-opslagplaats, zoals GitHub bijhouden?**
 
-Ja, zolang de GUID gebruikt wordt als de sjabloon wordt geïmplementeerd, gebruik wordt bijgehouden.  
-Partners is vereist om een profiel in de Cloud Partner-Portal voor het registreren van de sjablonen met betrekking tot buiten de Azure Marketplace worden gepubliceerd. 
+Ja. Zolang de GUID gebruikt wordt als de sjabloon wordt geïmplementeerd, wordt het gebruik wordt bijgehouden. 
 
-**Is er een verschil als de sjabloon wordt geïmplementeerd op Azure Marketplace ten opzichte van andere opslagplaatsen zoals GitHub?**
+Voor het registreren van sjablonen met betrekking tot die buiten de Azure Marketplace worden gepubliceerd, moet u een profiel hebt in de Cloud Partner-portal. 
 
-Ja, partner die het publiceren van aanbiedingen in de Azure Marketplace ontvangt mogelijk meer gedetailleerde gegevens over implementaties van Azure Marketplace.  Partners profiteren van hun aanbieding aan klanten in de portal van Azure Marketplace en in de Azure-beheerportal om vrij te geven. Aanbiedingen in Azure marketplace een leads voor de partner.
+**Is het verschil maken of de sjabloon wordt geïmplementeerd vanuit Azure Marketplace of in andere opslagplaatsen, zoals GitHub?**
+
+Ja, kunnen partners die het publiceren van aanbiedingen in de Azure Marketplace meer gedetailleerde gegevens over implementaties in de Azure Marketplace ontvangen. U profiteren van het blootstellen van uw aanbiedingen aan klanten in de Azure Marketplace-portal en de Azure management portal. Leads een aanbiedingen op Azure Marketplace voor u.
 
 **Wat gebeurt er als ik een aangepaste sjabloon voor een afzonderlijke klantcontacten maken?**
 
-U bent nog steeds Welkom bij de GUID toevoegen aan de sjabloon.  Als u een bestaande GUID die is geregistreerd kunt u deze worden opgenomen in het reporting.  Als u een nieuwe GUID u moet voor het registreren van de nieuwe GUID om hiermee aan opgenomen in de tracering te maken.
+U bent nog steeds Welkom bij de GUID toevoegen aan de sjabloon. Als u een bestaande, reeds geregistreerde GUID, is het opgenomen in de rapportage. Als u een nieuwe GUID maakt, moet u registreren om deze opgenomen in de tracering.
 
 **De klant's ontvangen ook melden?**
 
-Klanten kunnen op dit moment om bij te houden van hun gebruik van afzonderlijke resources of door de klant gedefinieerde resourcegroepen binnen de Azure management portal.   
+Klanten kunnen op dit moment om bij te houden van hun gebruik van afzonderlijke resources of de klant gedefinieerde resourcegroepen binnen de Azure management portal.  
 
 **Is dit gelijk aan de Digital Partner van Record (DPOR)?**
 
-Deze nieuwe methode voor het koppelen van de implementatie en het gebruik aan van een partner-oplossing is bedoeld om u te bieden een mechanisme om te koppelen van een partneroplossing aan het gebruik van Azure.  DPOR is bedoeld om een advies (systeemintegrator) of management (Managed Service Provider) werken samen met een klant Azure-abonnement te koppelen.   
+Deze nieuwe methode voor het koppelen van de implementatie en het gebruik aan van een partner-oplossing is bedoeld om u te bieden een mechanisme om te koppelen van een partneroplossing aan het gebruik van Azure. DPOR is bedoeld om een advies (systeemintegrator) of management (Managed Service Provider) werken samen met een klant Azure-abonnement te koppelen.  
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Ga naar [gaat u naar de Market-Services](https://partner.microsoft.com/reach-customers/gtm) voor meer informatie over de Marketplace-services. 
+Voor meer informatie over de Marketplace-services, gaat u naar [Go-to-market services](https://partner.microsoft.com/reach-customers/gtm). 
 
 ---
