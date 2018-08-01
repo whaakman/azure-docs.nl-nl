@@ -11,6 +11,7 @@
 ##### [Een Microsoft-account maken](./guidelines.md)
 ##### [Registreren in Dev Center](./register-dev-center.md) 
 ##### [Factureringsopties voor Azure Marketplace](./billing-options-azure-marketplace.md)  
+##### [Gebruikskenmerken van klanten van Azure-partners](./azure-partner-customer-usage-attribution.md)
 
 ### Publicatiehandleiding op Type aanbieding 
 #### [Virtuele machines](./marketplace-virtual-machines.md)

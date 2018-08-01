@@ -22,7 +22,8 @@
 
 ## Procedures
 ### [Beheren via Azure Portal](storsimple-virtual-array-manager-service-administration.md)
-#### [Meest recente update installeren](storsimple-virtual-array-install-update-1.md)
+#### [Meest recente update installeren](storsimple-virtual-array-install-update-11.md)
+##### [Update 1 installeren](storsimple-virtual-array-install-update-1.md)
 ##### [Update 0.6 installeren](storsimple-virtual-array-install-update-06.md)
 ##### Archiveren
 ###### [Update 0.5 installeren](storsimple-virtual-array-install-update-05.md)
@@ -47,7 +48,8 @@
 ### [Configureren via lokale webinterface](storsimple-ova-web-ui-admin.md)
 
 ## Releaseopmerkingen
-### [Update 1 - actueel](storsimple-virtual-array-update-1-release-notes.md)
+### [Update 1.1 - actueel](storsimple-virtual-array-update-11-release-notes.md)
+### [Update 1](storsimple-virtual-array-update-1-release-notes.md)
 ### [Update 0.6](storsimple-virtual-array-update-06-release-notes.md)
 ### Archiveren
 #### [Update 0.5](storsimple-virtual-array-update-05-release-notes.md)
