@@ -116,6 +116,8 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Integratie-runtime
       href: concepts-integration-runtime.md
+    - name: Naamgevingsregels
+      href: naming-rules.md
 - name: Handleidingen
   items:
     - name: Auteur
@@ -305,7 +307,7 @@
           href: transform-data-using-hadoop-pig.md
         - name: HDInsight MapReduce-activiteit
           href: transform-data-using-hadoop-map-reduce.md
-        - name: HDInsight Streaming-activiteit
+        - name: HDInsight-streamingactiviteit
           href: transform-data-using-hadoop-streaming.md
         - name: HDInsight Spark-activiteit
           href: transform-data-using-spark.md
