@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 06/22/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 98d023f801ab4864e01a7dba32b5700b2d52e604
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 427964a6651dd4ab71d0029f89e40afdd34d162a
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264314"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390701"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Documentatie over de trigger en actie typen voor Definitietaal van werkstroom in Azure Logic Apps
 
@@ -156,8 +156,8 @@ Deze trigger wordt gecontroleerd of *polls* een eindpunt met behulp van [Microso
  
 | Element | Type | Beschrijving |
 |---------|------|-------------| 
-| Headers | JSON-Object | De headers van de reactie | 
-| De hoofdtekst | JSON-Object | De hoofdtekst van het antwoord | 
+| headers | JSON-Object | De headers van de reactie | 
+| hoofdtekst | JSON-Object | De hoofdtekst van het antwoord | 
 |||| 
 
 *Voorbeeld*
@@ -328,8 +328,8 @@ Deze trigger wordt gecontroleerd of het opgegeven eindpunt op basis van de opgeg
 
 | Element | Type | Beschrijving |
 |---------|------|-------------| 
-| Headers | JSON-Object | De headers van de reactie | 
-| De hoofdtekst | JSON-Object | De hoofdtekst van het antwoord | 
+| headers | JSON-Object | De headers van de reactie | 
+| hoofdtekst | JSON-Object | De hoofdtekst van het antwoord | 
 |||| 
 
 *Vereisten voor binnenkomende aanvragen*
@@ -422,8 +422,8 @@ Sommige waarden, zoals <*type methode*>, zijn beschikbaar voor zowel de `"subscr
 
 | Element | Type | Beschrijving |
 |---------|------|-------------| 
-| Headers | JSON-Object | De headers van de reactie | 
-| De hoofdtekst | JSON-Object | De hoofdtekst van het antwoord | 
+| headers | JSON-Object | De headers van de reactie | 
+| hoofdtekst | JSON-Object | De hoofdtekst van het antwoord | 
 |||| 
 
 *Voorbeeld*
@@ -816,7 +816,7 @@ Hier volgen enkele veelgebruikte actietypen:
 ### <a name="built-in-actions"></a>Ingebouwde acties
 
 | Actietype | Beschrijving | 
-|-------------|-------------|  
+|-------------|-------------| 
 | [**Opstellen**](#compose-action) | Maakt een enkele van de uitvoer van de invoer, die verschillende typen kunnen hebben. | 
 | [**Functie**](#function-action) | Een Azure Function aanroept. | 
 | [**HTTP**](#http-action) | Hiermee wordt een HTTP-eindpunt. | 

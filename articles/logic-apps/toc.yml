@@ -49,6 +49,8 @@
               href: logic-apps-control-flow-run-steps-group-scopes.md
         - name: Variabelen maken om waarden op te slaan
           href: logic-apps-create-variables-store-values.md
+        - name: Gegevensbewerkingen uitvoeren
+          href: logic-apps-perform-data-operations.md
         - name: Aangepaste code toevoegen met Azure Functions
           href: logic-apps-azure-functions.md
         - name: Logische apps aanroepen met Azure Functions
@@ -282,6 +284,8 @@
     - name: 'Voorbeelden, scenario''s en rondleidingen'
       href: logic-apps-examples-and-scenarios.md
       items:
+        - name: Gegevensbewerkingen - voorbeelden van code
+          href: logic-apps-data-operations-code-samples.md
         - name: Sociale media bewaken
           href: logic-apps-scenario-social-serverless.md
         - name: 'Een serverloze app bouwen: Visual Studio'

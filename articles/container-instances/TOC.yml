@@ -51,6 +51,8 @@
           href: container-instances-liveness-probe.md
     - name: Beheren
       items:
+        - name: Actieve containers bijwerken
+          href: container-instances-update.md
         - name: Een opdracht uitvoeren (exec)
           href: container-instances-exec.md
         - name: CPU en geheugengebruik bewaken

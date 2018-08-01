@@ -4,22 +4,20 @@ description: Doorlopend bouwen en integreren voor uw Service Fabric Linux-toepas
 services: service-fabric
 documentationcenter: java
 author: sayantancs
-manager: timlt
-editor: ''
-ms.assetid: 02b51f11-5d78-4c54-bb68-8e128677783e
+manager: jpconnock
 ms.service: service-fabric
 ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 3/9/2018
+ms.date: 07/31/2018
 ms.author: saysa
-ms.openlocfilehash: efdbfa9664e180031926982adedfcf94a4184081
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0de62b6fa05ccad1977e7d98a614e8d601409f5b
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972245"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390174"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins gebruiken om te bouwen en implementeren van uw Linux-toepassingen
 Jenkins is een populair hulpprogramma voor doorlopende integratie en implementatie van uw apps. Hier leest u hoe u een Azure Service Fabric-toepassing maakt en implementeert met behulp van Jenkins.
@@ -233,7 +231,7 @@ De stappen in deze sectie laten zien hoe u een Jenkins-taak om te reageren op wi
 
    * **Voor Java-toepassingen:** uit de **build-stap toevoegen** Vervolgkeuzelijst, selecteer **Invoke Gradle Script**. Klik op **geavanceerde**. Geef het pad naar in het menu Geavanceerd **hoofdscript** voor uw toepassing. Het haalt build.gradle op uit het opgegeven pad en werkt dienovereenkomstig. Voor de [ActorCounter toepassing](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/reliable-services-actor-sample/Actors/ActorCounter), dit is: `${WORKSPACE}/reliable-services-actor-sample/Actors/ActorCounter`.
 
-     ![Service Fabric-bouwactie voor Jenkins][build-step]
+     ![Service Fabric Jenkins Build-actie][build-step]
 
    * **Voor .NET Core-toepassingen:** uit de **build-stap toevoegen** Vervolgkeuzelijst, selecteer **Shell uitvoeren**. In het vak in de opdracht die wordt weergegeven, moet de map eerst moet worden gewijzigd in het pad waar het bestand build.sh zich bevindt. Zodra de map is gewijzigd, wordt het script build.sh kan worden uitgevoerd en wordt de toepassing gebouwd.
 
@@ -244,7 +242,7 @@ De stappen in deze sectie laten zien hoe u een Jenkins-taak om te reageren op wi
 
      De volgende schermafbeelding ziet u een voorbeeld van de opdrachten die worden gebruikt om te bouwen de [teller Service](https://github.com/Azure-Samples/service-fabric-dotnet-core-getting-started/tree/master/Services/CounterService) voorbeeld met de naam van een Jenkins-taak van CounterServiceApplication.
 
-      ![Service Fabric-bouwactie voor Jenkins][build-step-dotnet]
+      ![Service Fabric Jenkins Build-actie][build-step-dotnet]
 
 9. Voor het configureren van Jenkins voor het implementeren van uw app in een Service Fabric-cluster in de acties na bouwen, moet u de locatie van het certificaat van het cluster in uw Jenkins-container. Kies een van de volgende, afhankelijk van of uw Jenkins-container wordt uitgevoerd binnen of buiten uw cluster en noteer de locatie van het clustercertificaat:
 
@@ -325,6 +323,10 @@ Voor ontwikkel- en testomgevingen, kunt u Azure-referenties of het eindpunt voor
 11. Onder **Toepassingsconfiguratie**, configureer de **toepassingsnaam**, **toepassingstype**, en de (relatief) **pad naar het Manifest van de toepassing** velden.
     ![Service Fabric Jenkins na Build-actie configureren Azure-referenties](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-credentials.png)
 12. Klik op **configuratie controleren**. Klik op een geslaagde verificatie **opslaan**. De pijplijn van uw Jenkins-taak is nu volledig geconfigureerd. Gaat u naar [Vervolgstappen](#next-steps) om uw implementatie te testen.
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>De Jenkins-invoegtoepassing oplossen
+
+Als u er fouten met de Jenkins-invoegtoepassingen optreden, dient u een probleem in de [Jenkins JIRA](https://issues.jenkins-ci.org/) voor het specifieke onderdeel.
 
 ## <a name="next-steps"></a>Volgende stappen
 GitHub en Jenkins zijn nu geconfigureerd. U kunt een aantal voorbeelden wijzigen de `reliable-services-actor-sample/Actors/ActorCounter` project in de fork van de opslagplaats https://github.com/Azure-Samples/service-fabric-java-getting-started. Push uw wijzigingen naar de externe `master` vertakking (of een vertakking die u hebt geconfigureerd om te werken met). Op die manier wordt de geconfigureerde Jenkins-taak `MyJob` geactiveerd. Het haalt de wijzigingen vanuit GitHub, ze maakt en implementeert de toepassing op het cluster dat u hebt opgegeven in de acties na bouwen.  

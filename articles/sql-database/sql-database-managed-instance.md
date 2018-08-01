@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 07/30/2018
 ms.author: bonova
-ms.openlocfilehash: 0951281a584d3c534d82ec5760d29f4b80616d2d
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
-ms.translationtype: MT
+ms.openlocfilehash: ced88c491f4d2ff2c1e51fd04c481a8477053a20
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091990"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346695"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Wat is een Managed Instance (preview)?
 
@@ -139,15 +139,16 @@ Kritieke-bedrijfslaag is gebouwd voor toepassingen met hoge i/o-vereisten. Het b
 
 De volgende lijst geeft een overzicht van de belangrijkste kenmerken van de laag bedrijfskritiek service: 
 -   Ontworpen voor zakelijke toepassingen met de hoogste prestaties en HA-vereisten 
--   Wordt geleverd met zeer snelle SSD-opslag (maximaal 1 TB op Gen 4 en maximaal 4 TB voor Gen 5)-biedt ondersteuning voor maximaal 100 databases per exemplaar 
+-   Wordt geleverd met zeer snelle SSD-opslag (maximaal 1 TB op Gen 4 en maximaal 4 TB voor Gen 5)
+-   Biedt ondersteuning voor maximaal 100 databases per exemplaar 
 
 |Functie | Beschrijving|
 |---|---|
-| Aantal vCores * | 8, 16, 24 uur per dag (gen 4)<br>8, 16, 24 uur per dag, 32, 40, 64, 80 (gen 5)|
+| Aantal vCores * | 8, 16, 24 uur per dag, 32 (gen 4)<br>8, 16, 24 uur per dag, 32, 40, 64, 80 (gen 5)|
 | SQL Server-versie / build | SQL Server nieuwste (beschikbaar) |
 | Extra functies | [In-Memory OLTP](sql-database-in-memory.md)<br> 1 extra alleen-lezen replica ([Read Scale-Out](sql-database-read-scale-out.md))
 | De opslaggrootte min | 32 GB |
-| Maximumgrootte van opslag | Gen 4: 1 TB (alle vCore-grootten<br> Gen 5:<ul><li>1 TB voor 8, 16 vcores uitvoert</li><li>2 TB voor 24 vCores</li><li>4 TB voor 40, 60, 80 vCores</ul>|
+| Maximumgrootte van opslag | Gen 4: 1 TB (alle vCore-grootten<br> Gen 5:<ul><li>1 TB voor 8, 16 vcores uitvoert</li><li>2 TB voor 24 vCores</li><li>4 TB voor 40, 64, 80 vCores</ul>|
 | Maximale opslagruimte per database | Bepaald door de maximale opslagruimte per exemplaar |
 | Het aantal gegevensbestanden (rijen) per de database | Meerdere | 
 | Aantal logboekbestanden (logboek) per database | 1 | 

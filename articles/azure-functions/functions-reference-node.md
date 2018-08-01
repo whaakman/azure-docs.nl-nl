@@ -1,9 +1,9 @@
 ---
 title: JavaScript-referentie voor ontwikkelaars voor Azure Functions | Microsoft Docs
-description: Begrijpen hoe functies ontwikkelen met behulp van JavaScript.
+description: Lees hoe u voor het ontwikkelen van functies met behulp van JavaScript.
 services: functions
 documentationcenter: na
-author: tdykstra
+author: ggailey777
 manager: cfowler
 editor: ''
 tags: ''
@@ -15,22 +15,22 @@ ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
-ms.author: tdykstra
-ms.openlocfilehash: 78f29cd4a20861e40bb7f7f398979b8d93387a7b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
-ms.translationtype: MT
+ms.author: glenga
+ms.openlocfilehash: 7164ee938c61f9b8ec0b80a1b0f37b5f4838ca13
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936623"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344518"
 ---
-# <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript-handleiding voor ontwikkelaars
+# <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
 
-De JavaScript-ervaring voor Azure Functions maakt het gemakkelijk te exporteren van een functie die wordt doorgegeven als een `context` voor communicatie met de runtime en voor het ontvangen en verzenden van gegevens via bindingen-object.
+De JavaScript-ervaring voor Azure Functions kunt u eenvoudig voor het exporteren van een functie die wordt doorgegeven als een `context` -object om te communiceren met de runtime en voor het ontvangen en verzenden van gegevens via bindingen.
 
-In dit artikel wordt ervan uitgegaan dat u al hebt gelezen de [naslaginformatie voor ontwikkelaars van Azure Functions](functions-reference.md).
+In dit artikel wordt ervan uitgegaan dat u al hebt gelezen de [referentie voor ontwikkelaars van Azure Functions](functions-reference.md).
 
 ## <a name="exporting-a-function"></a>Exporteren van een functie
-Alle JavaScript-functies moeten één exporteren `function` via `module.exports` voor de runtime vinden van de functie en voer deze uit. Deze functie moet altijd bevatten een `context` object.
+Alle JavaScript-functies moeten één exporteren `function` via `module.exports` voor de runtime functie voor het vinden en voer deze uit. Deze functie moet altijd bevatten een `context` object.
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -46,16 +46,16 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
 };
 ```
 
-Bindingen van `direction === "in"` worden doorgegeven als argument, wat betekent dat u kunt gebruiken [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) dynamisch afhandelen nieuwe invoer (bijvoorbeeld met behulp van `arguments.length` worden herhaald voor de ingevoerde gegevens). Deze functie is handig wanneer u alleen een trigger en er zijn geen extra invoergegevens omdat u voorspelbare toegang uw triggergegevens zonder die verwijzen naar tot uw `context` object.
+Bindingen van `direction === "in"` worden doorgegeven als argument, wat betekent dat u kunt gebruiken [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) voor het afhandelen van nieuwe invoer dynamisch (bijvoorbeeld met behulp van `arguments.length` om te herhalen uw invoergrootte). Deze functionaliteit is handig wanneer u alleen een trigger en er zijn geen aanvullende invoer, omdat u uw triggergegevens voorspelbare toegang hebben tot zonder verwijzing naar uw `context` object.
 
-De argumenten worden altijd doorgegeven aan de functie in de volgorde waarin ze plaatsvinden in *function.json*, zelfs als u ze niet in de uitvoer-instructie opgeven. Als u hebt bijvoorbeeld `function(context, a, b)` en wijzig dit in `function(context, a)`, kunt u de waarde van krijgen `b` in de functiecode door te verwijzen naar `arguments[2]`.
+De argumenten worden altijd doorgegeven aan de functie in de volgorde waarin ze plaatsvinden in *function.json*, zelfs als u ze niet in de uitvoer-instructie opgeeft. Als u hebt bijvoorbeeld `function(context, a, b)` en wijzig deze in `function(context, a)`, krijgt u nog steeds de waarde van `b` in functiecode door te verwijzen naar `arguments[2]`.
 
-Alle bindingen, ongeacht de richting, worden ook doorgegeven op de `context` object (Zie het volgende script). 
+Alle bindingen, ongeacht de richting, ook worden doorgegeven in de `context` object (Zie het volgende script). 
 
 ## <a name="context-object"></a>context-object
-De runtime gebruikt een `context` object voor het doorgeven van gegevens naar en van de functie en kunt u communiceren met de runtime.
+De runtime wordt gebruikt een `context` object om door te geven gegevens van en naar uw functie en u communiceren met de runtime te laten.
 
-De `context` object is altijd de eerste parameter aan een functie en moet worden opgenomen omdat deze methoden, zoals `context.done` en `context.log`, die vereist zijn juist gebruik van de runtime. U kunt het object naam wat u wilt dat (bijvoorbeeld `ctx` of `c`).
+De `context` object is altijd de eerste parameter voor een functie en moet worden opgenomen omdat deze methoden, zoals `context.done` en `context.log`, die vereist zijn correct gebruik van de runtime. U kunt het object naam wat u graag (bijvoorbeeld `ctx` of `c`).
 
 ```javascript
 // You must include a context, but other arguments are optional
@@ -69,7 +69,7 @@ module.exports = function(context) {
 ```
 context.bindings
 ```
-Retourneert een benoemde object dat al uw invoer en uitvoer gegevens bevat. Bijvoorbeeld de volgende bindingsdefinitie in uw *function.json* hebt u toegang de inhoud van de wachtrij van tot de `context.bindings.myInput` object. 
+Retourneert een benoemde object dat al uw invoer- en gegevens bevat. Bijvoorbeeld, volgende definitie van de binding in uw *function.json* hebt u toegang de inhoud van de wachtrij van tot de `context.bindings.myInput` object. 
 
 ```json
 {
@@ -89,14 +89,14 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
-### <a name="contextdone-method"></a>context.Done methode
+### <a name="contextdone-method"></a>methode context.Done
 ```
 context.done([err],[propertyBag])
 ```
 
-Informeert de runtime die uw code is voltooid. U moet aanroepen `context.done`, of anders de runtime nooit weet dat uw functie voltooid is en de uitvoering wordt time-out. 
+Informeert de runtime die uw code is voltooid. U moet aanroepen `context.done`, of anders de runtime nooit weet dat uw functie voltooid is en de uitvoering wordt de time-out. 
 
-De `context.done` methode kunt u weer zowel een gebruiker gedefinieerde fout doorgeven aan de runtime en een eigenschappenverzameling van eigenschappen die het overschrijven van de eigenschappen op de `context.bindings` object.
+De `context.done` methode kunt u weer zowel een gebruiker gedefinieerde fout doorgeven aan de runtime en een eigenschappenverzameling van eigenschappen die de eigenschappen worden overschreven op het `context.bindings` object.
 
 ```javascript
 // Even though we set myOutput to have:
@@ -108,31 +108,31 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 //  -> text: hello there, world, noNumber: true
 ```
 
-### <a name="contextlog-method"></a>context.log methode  
+### <a name="contextlog-method"></a>methode context.log  
 
 ```
 context.log(message)
 ```
-Hiermee kunt u om te schrijven naar de logboeken van de streaming-console op het standaardniveau voor tracering. Op `context.log`, extra logboekregistratie methoden zijn beschikbaar waarmee u naar het consolelogboek op andere traceringsniveaus schrijven:
+Kunt u schrijven naar de streaminglogboeken console op het standaardniveau voor tracering. Op `context.log`, extra logboekregistratie methoden zijn beschikbaar waarmee u naar het consolelogboek op andere traceringsniveaus schrijven:
 
 
 | Methode                 | Beschrijving                                |
 | ---------------------- | ------------------------------------------ |
-| **fout (_bericht_)**   | Schrijft naar foutniveau registreren of lager.   |
-| **waarschuwen (_bericht_)**    | Schrijft naar waarschuwingsniveau registreren of lager. |
-| **Info (_bericht_)**    | Schrijft naar info-niveau registreren of lager.    |
-| **uitgebreide (_bericht_)** | Schrijft naar de uitgebreide logboekregistratie.           |
+| **fout (_bericht_)**   | Schrijft naar foutniveau logboekregistratie of lager.   |
+| **waarschuwing (_bericht_)**    | Schrijft naar waarschuwingsniveau logboekregistratie of lager. |
+| **Info (_bericht_)**    | Schrijft naar info-niveau logboekregistratie of lager.    |
+| **uitgebreide (_bericht_)** | Schrijft gegevens naar uitgebreide logboekregistratie op.           |
 
-Het volgende voorbeeld wordt geschreven naar de console op het niveau voor het traceren van waarschuwing:
+Het volgende voorbeeld schrijft naar de console het traceerniveau waarschuwing:
 
 ```javascript
 context.log.warn("Something has happened."); 
 ```
-U kunt stellen voor het registreren in het bestand host.json traceerniveau of uitschakelen.  Zie de volgende sectie voor meer informatie over het schrijven naar de logboeken.
+U kunt het traceerniveau drempelwaarde voor het registreren in het bestand host.json in te stellen of uitschakelen.  Zie de volgende sectie voor meer informatie over het schrijven naar de logboeken.
 
 ## <a name="binding-data-type"></a>Binding-gegevenstype
 
-Gebruik het definiëren van het gegevenstype voor een invoer-binding het `dataType` eigenschap in de definitie van de binding. Gebruik bijvoorbeeld om te lezen van de inhoud van een HTTP-aanvraag in binaire indeling, het type `binary`:
+Voor het definiëren van het gegevenstype voor een Invoerbinding, de `dataType` eigenschap in het bindingsdefinitie van de. Bijvoorbeeld, om te lezen van de inhoud van een HTTP-aanvraag in binaire indeling, gebruikt het type `binary`:
 
 ```json
 {
@@ -147,9 +147,9 @@ Andere opties voor `dataType` zijn `stream` en `string`.
 
 ## <a name="writing-trace-output-to-the-console"></a>Trace-uitvoer schrijven naar de console 
 
-In de functies, gebruikt u de `context.log` methoden trace-uitvoer schrijven naar de console. Op dit moment kunt u niet gebruiken `console.log` schrijven naar de console.
+In de functies, gebruikt u de `context.log` methoden trace-uitvoer schrijven naar de console. Op dit moment kunt u niet gebruiken `console.log` te schrijven naar de console.
 
-Als u aanroept `context.log()`, het bericht is geschreven naar de console op het standaardniveau van trace die de _info_ traceerniveau. De volgende code schrijft naar de console op het info-Traceerniveau:
+Als u aanroept `context.log()`, het bericht is geschreven naar de console op het standaardniveau van trace die is de _info_ traceerniveau. De volgende code schrijft naar de console op het traceerniveau informatie:
 
 ```javascript
 context.log({hello: 'world'});  
@@ -170,7 +170,7 @@ context.log.error("An error has occurred.");
 Omdat _fout_ is de hoogste niveau, deze tracering wordt geschreven naar de uitvoer op alle traceringsniveaus als logboekregistratie is ingeschakeld.  
 
 
-Alle `context.log` methoden ondersteunen dezelfde indeling voor parameter die wordt ondersteund door de Node.js [util.format methode](https://nodejs.org/api/util.html#util_util_format_format). Houd rekening met de volgende code, naar de console schrijft met behulp van het standaard Traceerniveau:
+Alle `context.log` methoden ondersteunen dezelfde parameter-indeling die wordt ondersteund door de op Node.js [util.format methode](https://nodejs.org/api/util.html#util_util_format_format). Houd rekening met de volgende code schrijft naar de console met behulp van het traceerniveau dat is standaard:
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=' + req.originalUrl);
@@ -184,9 +184,9 @@ context.log('Node.js HTTP trigger function processed a request. RequestUri=%s', 
 context.log('Request Headers = ', JSON.stringify(req.headers));
 ```
 
-### <a name="configure-the-trace-level-for-console-logging"></a>Het traceerniveau voor console-logboekregistratie configureren
+### <a name="configure-the-trace-level-for-console-logging"></a>Het traceerniveau voor console-aanmelding configureren
 
-Functies kunt u het traceerniveau drempelwaarde voor het schrijven naar de console kunt u gemakkelijk om te bepalen die anders de traceringen manier worden geschreven naar de console van uw functies definiëren. U stelt de drempelwaarde voor alle traces geschreven naar de console met de `tracing.consoleLevel` eigenschap in het bestand host.json. Deze instelling geldt voor alle functies in uw app in de functie. Het volgende voorbeeld wordt de tracering drempelwaarde uitgebreide logboekregistratie inschakelen:
+Functions kunt u bij het definiëren van het traceerniveau drempelwaarde voor het schrijven van de console, Hierdoor is het eenvoudig om te bepalen de traceringen manier worden geschreven naar de console van uw functies. Als u wilt dat de drempelwaarde voor alle traceringen geschreven naar de console, gebruikt u de `tracing.consoleLevel` eigenschap in het bestand host.json. Deze instelling geldt voor alle functies in uw functie-app. Het volgende voorbeeld wordt de tracering drempelwaarde uitgebreide logboekregistratie inschakelen:
 
 ```json
 { 
@@ -196,11 +196,11 @@ Functies kunt u het traceerniveau drempelwaarde voor het schrijven naar de conso
 }  
 ```
 
-Waarden van **consoleLevel** overeenkomen met de namen van de `context.log` methoden. Schakel alle traceerlogboek in de console ingesteld **consoleLevel** naar _uit_. Zie voor meer informatie [host.json verwijzing](functions-host-json.md).
+Waarden van **consoleLevel** komen overeen met de namen van de `context.log` methoden. Als u wilt uitschakelen op alle traceerlogboekregistratie naar de console, stelt **consoleLevel** naar _uit_. Zie voor meer informatie, [naslaginformatie over host.json](functions-host-json.md).
 
 ## <a name="http-triggers-and-bindings"></a>HTTP-triggers en bindingen
 
-HTTP- en webhook triggers en HTTP-uitvoer bindingen met de aanvraag en -antwoord objecten vertegenwoordigen de HTTP-berichten.  
+HTTP- en webhook-triggers en HTTP-output bindingen met de aanvraag en respons objecten vertegenwoordigen de HTTP-berichten.  
 
 ### <a name="request-object"></a>Request-object
 
@@ -208,37 +208,37 @@ De `request` object heeft de volgende eigenschappen:
 
 | Eigenschap      | Beschrijving                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _Hoofdtekst_        | Een object dat de hoofdtekst van de aanvraag bevat.               |
+| _De hoofdtekst_        | Een object dat de hoofdtekst van de aanvraag bevat.               |
 | _Headers_     | Een object dat de aanvraagheaders bevat.                   |
 | _Methode_      | De HTTP-methode van de aanvraag.                                |
 | _originalUrl_ | De URL van de aanvraag.                                        |
 | _params_      | Een object dat de routering parameters van de aanvraag bevat. |
-| _query_       | Een object dat de queryparameters bevat.                  |
+| _Query_       | Een object met de queryparameters.                  |
 | _rawBody_     | De hoofdtekst van het bericht als een tekenreeks.                           |
 
 
-### <a name="response-object"></a>Response-object
+### <a name="response-object"></a>Antwoordobject
 
 De `response` object heeft de volgende eigenschappen:
 
 | Eigenschap  | Beschrijving                                               |
 | --------- | --------------------------------------------------------- |
-| _Hoofdtekst_    | Een object dat de hoofdtekst van het antwoord bevat.         |
+| _De hoofdtekst_    | Een object dat de hoofdtekst van het antwoord bevat.         |
 | _Headers_ | Een object met de antwoordheaders.             |
-| _isRaw_   | Hiermee wordt aangegeven dat opmaak voor het antwoord is overgeslagen.    |
+| _isRaw_   | Geeft aan dat de opmaak is overgeslagen voor het antwoord.    |
 | _status_  | De HTTP-statuscode van het antwoord.                     |
 
-### <a name="accessing-the-request-and-response"></a>Toegang tot de aanvraag en -antwoord 
+### <a name="accessing-the-request-and-response"></a>Toegang tot de aanvraag en respons 
 
-Wanneer u met HTTP-triggers werkt, kunt u de HTTP-aanvraag en antwoord-objecten in een van drie manieren openen:
+Wanneer u met HTTP-triggers werkt, kunt u de HTTP-aanvraag en respons objecten in een van drie manieren openen:
 
-+ Van de benoemde invoer en uitvoer bindingen. Op deze manier kunnen werken de HTTP-trigger en bindingen op dezelfde manier als andere bindingen. Het volgende voorbeeld wordt het antwoordobject met behulp van een benoemde `response` binding: 
++ Van de benoemde invoer- en uitvoerbindingen. Op deze manier kunnen werken de HTTP-trigger en bindingen op dezelfde manier als andere bindingen. Het volgende voorbeeld wordt het antwoordobject met behulp van een benoemde `response` binding: 
 
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
 
-+ Van `req` en `res` eigenschappen op de `context` object. Op deze manier kunt u het conventionele patroon voor toegang tot HTTP gegevens uit het contextobject de volledige gebruiken in plaats van `context.bindings.name` patroon. Het volgende voorbeeld laat zien hoe voor toegang tot de `req` en `res` objecten op de `context`:
++ Van `req` en `res` eigenschappen op de `context` object. Op deze manier kunt u het gebruikelijke patroon voor toegang tot HTTP gegevens uit het contextobject, de volledige gebruiken in plaats van `context.bindings.name` patroon. Het volgende voorbeeld ziet u hoe u toegang tot de `req` en `res` objecten op de `context`:
 
     ```javascript
     // You can access your http request off the context ...
@@ -247,7 +247,7 @@ Wanneer u met HTTP-triggers werkt, kunt u de HTTP-aanvraag en antwoord-objecten 
     context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
     ```
 
-+ Door het aanroepen van `context.done()`. Een speciaal soort HTTP-binding retourneert de reactie die wordt doorgegeven aan de `context.done()` methode. De volgende HTTP-uitvoer binding definieert een `$return` uitvoerparameter:
++ Door het aanroepen van `context.done()`. Een speciaal soort HTTP-binding retourneert het antwoord dat is doorgegeven aan de `context.done()` methode. De volgende HTTP-Uitvoerbinding definieert een `$return` uitvoerparameter:
 
     ```json
     {
@@ -256,7 +256,7 @@ Wanneer u met HTTP-triggers werkt, kunt u de HTTP-aanvraag en antwoord-objecten 
       "name": "$return"
     }
     ``` 
-    Deze binding uitvoer verwacht op te geven van het antwoord bij het aanroepen van `done()`, als volgt:
+    Deze Uitvoerbinding wordt verwacht dat u om op te geven van het antwoord bij het aanroepen van `done()`, als volgt:
 
     ```javascript
      // Define a valid response object.
@@ -264,28 +264,28 @@ Wanneer u met HTTP-triggers werkt, kunt u de HTTP-aanvraag en antwoord-objecten 
     context.done(null, res);   
     ```  
 
-## <a name="node-version-and-package-management"></a>Knooppunt-versie en pakket-management
+## <a name="node-version-and-package-management"></a>Knooppunt-versie en package management
 
-De volgende tabel ziet u de Node.js-versie die door elke primaire versie van de runtime van Functions gebruikt:
+De volgende tabel ziet u de Node.js-versie die wordt gebruikt door elke primaire versie van de runtime van Functions:
 
 | Versie van de functies | Versie van Node.js | 
 |---|---|
 | 1.x | 6.11.2 (vergrendeld door de runtime) |
-| 2.x  |> = 8.4.0 met huidige TNS 8.9.4 aanbevolen. De versie ingesteld met behulp van de WEBSITE_NODE_DEFAULT_VERSION [app-instelling](functions-how-to-use-azure-function-app-settings.md#settings).|
+| 2.x  |> = 8.4.0 met huidige LTS 8.9.4 aanbevolen. De-versie instellen met behulp van de WEBSITE_NODE_DEFAULT_VERSION [app-instelling](functions-how-to-use-azure-function-app-settings.md#settings).|
 
 U kunt zien dat de huidige versie die door de runtime wordt gebruikt door af te drukken `process.version` van elke functie.
 
-De volgende stappen kunt u pakketten opnemen in uw app in functie: 
+De volgende stappen kunnen u pakketten opnemen in uw functie-app: 
 
 1. Ga naar `https://<function_app_name>.scm.azurewebsites.net`.
 
-2. Klik op **Console voor foutopsporing** > **CMD**.
+2. Klik op **Foutopsporingsconsole** > **CMD**.
 
-3. Ga naar `D:\home\site\wwwroot`, en sleep uw package.json-bestand naar de **wwwroot** map in het bovenste gedeelte van de pagina.  
-    U kunt ook bestanden uploaden naar uw app in de functie op andere manieren. Zie voor meer informatie [het bijwerken van de functie app-bestanden](functions-reference.md#fileupdate). 
+3. Ga naar `D:\home\site\wwwroot`, en sleep vervolgens uw package.json-bestand naar de **wwwroot** map in het bovenste gedeelte van de pagina.  
+    U kunt ook bestanden uploaden naar uw functie-app op andere manieren. Zie voor meer informatie, [het bijwerken van de functie app-bestanden](functions-reference.md#fileupdate). 
 
-4. Nadat de package.json-bestand is geüpload, voert u de `npm install` opdracht in de **Kudu-console voor uitvoering op afstand**.  
-    Deze actie de pakketten die zijn aangegeven in de package.json-bestand wordt gedownload en de functie-app opnieuw wordt opgestart.
+4. Nadat het package.json-bestand is geüpload, voert u de `npm install` opdracht in de **Kudu-console voor uitvoering op afstand**.  
+    Met deze actie wordt gedownload van de pakketten die zijn aangegeven in het package.json-bestand en de functie-app opnieuw wordt opgestart.
 
 Nadat de pakketten die u moet zijn geïnstalleerd, u deze importeren naar de functie door het aanroepen van `require('packagename')`, zoals in het volgende voorbeeld:
 
@@ -300,10 +300,10 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-U moet definiëren een `package.json` bestand in de hoofdmap van uw app functie. Het definiëren van het bestand, kunt alle functies in de app delen de dezelfde in de cache pakketten, waardoor de beste prestaties. Als een conflict ontstaat, u het kunt oplossen door toe te voegen een `package.json` bestand in de map van een specifieke functie.  
+U moet definiëren een `package.json` bestand in de hoofdmap van uw functie-app. Het bestand te definiëren, kunt alle functies in de app delen de dezelfde in de cache-pakketten, waardoor de beste prestaties. Als een conflict zich voordoet, kunt u deze oplossen door toe te voegen een `package.json` bestand in de map van een specifieke functie.  
 
 ## <a name="environment-variables"></a>Omgevingsvariabelen
-Als u een omgevingsvariabele of een app die waarde instellen, gebruikt `process.env`, zoals hier wordt weergegeven in de `GetEnvironmentVariable` functie:
+Als u een omgevingsvariabele of een app-instelling waarde, gebruikt u `process.env`, zoals hier wordt weergegeven de `GetEnvironmentVariable` functie:
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -323,14 +323,14 @@ function GetEnvironmentVariable(name)
 ```
 ## <a name="considerations-for-javascript-functions"></a>Overwegingen voor JavaScript-functies
 
-Wanneer u met JavaScript-functies werkt, rekening houden met het in de volgende twee secties worden.
+Wanneer u met JavaScript-functies werkt, worden op de hoogte van de overwegingen voor in de volgende twee secties.
 
-### <a name="choose-single-vcpu-app-service-plans"></a>Kies één vCPU App Service-abonnementen
+### <a name="choose-single-vcpu-app-service-plans"></a>Kies één vCPU Appservice-plannen
 
-Wanneer u een functie-app die gebruikmaakt van de App Service-abonnement maakt, wordt u aangeraden dat u een plan één vCPU in plaats van een plan met meerdere vcpu's selecteert. Vandaag de dag functies JavaScript-functies efficiënter uitgevoerd op één vCPU VM's en met behulp van grotere virtuele machines niet de verwachte prestatieverbeteringen produceren. Indien nodig, zodat u handmatig kunt uitbreiden door meer VM-instanties van één vCPU toe te voegen of u automatisch schalen kunt inschakelen. Zie voor meer informatie [aantal exemplaren handmatig of automatisch schalen](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
+Wanneer u een functie-app die gebruikmaakt van de App Service-plan maakt, wordt u aangeraden dat u een één-vCPU-plan in plaats van een abonnement met meerdere vcpu's selecteert. Vandaag de dag functies uitgevoerd JavaScript-functies efficiënter op één vCPU-VM's en grotere VM's niet de verwachte prestatieverbeteringen produceren. Indien nodig, kunt u handmatig uitschalen door meer VM-instanties van één vCPU toe te voegen of kunt u automatisch schalen inschakelen. Zie voor meer informatie, [aantal exemplaren handmatig of automatisch schalen](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json).    
 
-### <a name="typescript-and-coffeescript-support"></a>Ondersteuning voor machineschrift en CoffeeScript
-Omdat rechtstreekse ondersteuning nog niet voor het compileren van automatische machineschrift of CoffeeScript via de runtime bestaat, moet deze ondersteuning buiten de runtime worden verwerkt tijdens de implementatie. 
+### <a name="typescript-and-coffeescript-support"></a>Ondersteuning voor typeScript en CoffeeScript
+Omdat direct-ondersteuning nog niet voor het compileren van automatische TypeScript of CoffeeScript via de runtime bestaat, moet deze ondersteuning buiten de runtime worden verwerkt tijdens de implementatie. 
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende bronnen voor meer informatie:

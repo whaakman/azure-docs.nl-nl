@@ -175,16 +175,20 @@
               href: search-indexer-field-mappings.md
     - name: Zoekgegevens
       items:
-        - name: Basisquery's bouwen
+        - name: Basisprincipes van query’s
           href: search-query-overview.md
         - name: Search Explorer (portal)
           href: search-explorer.md
-        - name: Vereenvoudigde querysyntaxis
-          href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
-        - name: Lucene-querysyntaxis
-          href: 'https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search'
-        - name: Lucene-queryvoorbeelden
+        - name: Voorbeelden voor eenvoudige syntaxis
+          href: search-query-simple-examples.md
+        - name: Voorbeelden voor volledige syntaxis
           href: search-query-lucene-examples.md
+        - name: Naslaginformatie over query’s
+          items:
+            - name: Vereenvoudigde querysyntaxis
+              href: 'https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search'
+            - name: Lucene-querysyntaxis
+              href: 'https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search'
         - name: Resultaten pagineren
           href: search-pagination-page-layout.md
         - name: Relevantie afstemmen

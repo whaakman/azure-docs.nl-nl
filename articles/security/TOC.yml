@@ -39,8 +39,16 @@
         - name: Gegevensversleuteling in rust
           href: azure-security-encryption-atrest.md
         - name: Schijfversleuteling voor IaaS-VM's
-          href: azure-security-disk-encryption.md
+          href: azure-security-disk-encryption-overview.md
           items:
+            - name: Vereisten voor schijfversleuteling
+              href: azure-security-disk-encryption-prerequisites.md
+            - name: Schijfversleuteling voor Windows-VM's
+              href: azure-security-disk-encryption-windows.md
+            - name: Schijfversleuteling voor Linux-VM's
+              href: azure-security-disk-encryption-linux.md
+            - name: Bijlage voor schijfversleuteling
+              href: azure-security-disk-encryption-appendix.md
             - name: Veelgestelde vragen over schijfversleuteling
               href: azure-security-disk-encryption-faq.md
             - name: Problemen oplossen
@@ -198,6 +206,16 @@
       items:
         - name: Statusgegevens en AI
           href: ./blueprints/azure-health.md
+    - name: NIST SP 800-171
+      items:
+        - name: Gegevensanalyse
+          href: ./blueprints/nist171-analytics-overview.md
+        - name: Datawarehouse
+          href: ./blueprints/nist171-datawarehouse-overview.md
+        - name: IaaS-webtoepassing
+          href: ./blueprints/nist171-iaaswa-overview.md
+        - name: PaaS-webtoepassing
+          href: ./blueprints/nist171-paaswa-overview.md
     - name: PCI DSS
       items:
         - name: Gegevensanalyse

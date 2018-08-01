@@ -131,7 +131,6 @@
 #### [Wachttijden](active-directory-reporting-latencies-azure-portal.md)
 #### [Activiteitsverwijzing controleren](active-directory-reporting-activity-audit-reference.md)
 #### [Foutcodes voor aanmeldingsactiviteit](active-directory-reporting-activity-sign-ins-errors.md)
-#### [Multi-factor authentication](active-directory-reporting-activity-sign-ins-mfa.md)
 #### [Het schema van het auditlogboek interpreteren in Azure Monitor](reporting-azure-monitor-diagnostics-audit-log-schema.md)
 #### [Het schema van het aanmeldingslogboek interpreteren in Azure Monitor](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
 
@@ -159,9 +158,16 @@
 ### [Azure AD Join plannen](active-directory-azureadjoin-deployment-aadjoindirect.md)
 ### [Veelgestelde vragen](device-management-faq.md)
 ### Taken
+#### [De implementatie van uw hybride Azure Active Directory-deelname plannen](devices/hybrid-azuread-join-plan.md)
+#### [Hybride Azure Active Directory-deelname configureren voor beheerde domeinen](devices/hybrid-azuread-join-managed-domains.md)
+#### [Hybride Azure Active Directory-deelname configureren voor federatieve domeinen](devices/hybrid-azuread-join-federated-domains.md)
+#### [De hybride Azure AD-deelname van uw apparaten beheren](devices/hybrid-azuread-join-control.md)
+
+
+
 #### [Bij Azure AD ingeschreven Windows 10-apparaten instellen](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [In Azure AD gekoppelde apparaten instellen](user-help/device-management-azuread-joined-devices-setup.md)
-#### [Hybride, in Azure AD gekoppelde apparaten instellen](device-management-hybrid-azuread-joined-devices-setup.md)
+#### [Hybride, in Azure AD gekoppelde apparaten instellen](devices/hybrid-azuread-join-manual-steps.md)
 #### [On-premises implementeren](active-directory-device-registration-on-premises-setup.md)
 #### [Koppelen aan Azure AD tijdens eerste sessie in Windows 10](device-management-azuread-joined-devices-frx.md)
 ### Problemen oplossen

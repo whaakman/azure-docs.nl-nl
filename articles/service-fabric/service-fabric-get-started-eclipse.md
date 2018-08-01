@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: 2fbae584c09fd83f2233895d31c1013acd06ae3b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a9888a23088949b5373aa0eef7d4df3b3064466f
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642995"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358582"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Service Fabric-invoegtoepassing voor de ontwikkeling van Eclipse Java-toepassingen
 Eclipse is een van de meest gebruikte Integrated Development Environments (IDE's) voor Java-ontwikkelaars. In dit artikel wordt beschreven hoe u een Eclipse-ontwikkelomgeving instelt voor gebruik met Azure Service Fabric. Ontdek hoe u de Service Fabric-invoegtoepassing installeert en een Service Fabric-toepassing implementeert in een lokaal of extern Service Fabric-cluster in Eclipse. 
@@ -43,7 +43,8 @@ Installeer Eclipse Neon of hoger vanaf de [Eclipse-site](https://www.eclipse.org
 Als u de Service Fabric-invoegtoepassing wilt installeren, gaat u in Eclipse naar **Help** > **Install New Software**.
 1. In het vak **Work with** voert u **http://dl.microsoft.com/eclipse** in.
 2. Klik op **Add**.
-    ![De Service Fabric-invoegtoepassing voor Eclipse][sf-eclipse-plugin-install]
+
+   ![De Service Fabric-invoegtoepassing voor Eclipse][sf-eclipse-plugin-install]
 3. Selecteer de Fabric Service-invoegtoepassing en klik op **Next**.
 4. Voer de installatiestappen uit en accepteer de licentievoorwaarden voor Microsoft-software.
   
@@ -85,35 +86,99 @@ Als u de Service Fabric-invoegtoepassing al hebt geïnstalleerd, zorgt u ervoor 
 
     ![Nieuw Service Fabric-project pagina 6][create-application/p6]
 
-## <a name="build-and-deploy-a-service-fabric-application-in-eclipse"></a>Een Service Fabric-toepassing maken en implementeren in Eclipse
+## <a name="build-a-service-fabric-application-in-eclipse"></a>Bouw een Service Fabric-toepassing in Eclipse
 
 1.  Klik met de rechtermuisknop op de nieuwe Service Fabric-toepassing en selecteer **Service Fabric**.
 
     ![Snelmenu van Service Fabric][publish/RightClick]
 
-2. Selecteer de gewenste optie in het submenu:
+2. Selecteer in het contextmenu, een van de volgende opties:
     -   Klik op **Build Application** als u de toepassing wilt maken zonder op te schonen.
     -   Klik op **Rebuild Application** als u een schone build van de toepassing wilt maken.
     -   Klik op **Clean Application** als u de gebouwde artefacts uit de toepassing wilt verwijderen.
+     
+## <a name="deploy-a-service-fabric-application-to-the-local-cluster-with-eclipse"></a>Implementeren van een Service Fabric-toepassing met het lokale cluster met Eclipse
 
-3.  Vanuit dit menu kunt u de toepassing ook implementeren, de implementatie ervan verwijderen en de toepassing publiceren:
-    -   Klik op **Deploy Application** als u wilt implementeren naar het lokale cluster.
-    -   Selecteer in het dialoogvenster **Publish Application** een publicatieprofiel:
-        -  **Local.json**
-        -  **Cloud.json**
+Nadat u uw Service Fabric-toepassing hebt gebouwd, volg deze stappen voor het implementeren van deze met het lokale cluster.
 
-     Deze JSON-bestanden (JavaScript Object Notation) bevatten informatie (zoals verbindingseindpunten en beveiligingsgegevens) die nodig zijn om verbinding te maken met het lokale cluster of het cloudcluster (Azure).
+1. Als u het lokale cluster nog niet hebt gestart, volg de instructies in [instellen van een lokaal cluster](./service-fabric-get-started-linux.md#set-up-a-local-cluster) naar uw lokale cluster starten en zorg ervoor dat deze wordt uitgevoerd.
+2. Met de rechtermuisknop op uw Service Fabric-toepassing en selecteer vervolgens **Service Fabric**.
 
-  ![Service Fabric-menu Publish][publish/Publish]
+    ![Snelmenu van Service Fabric][publish/RightClick]
+
+3.  Klik in het contextmenu op **toepassing implementeren**.
+4.  U kunt de voortgang van de bewerking implementeren in het consolevenster op te volgen.
+5.  Als u wilt controleren of uw toepassing wordt uitgevoerd, opent u de Service Fabric Explorer op uw lokale cluster in een browservenster [ http://localhost:19080/Explorer ](http://localhost:19080/Explorer). Vouw de **toepassingen** knooppunt en zorg ervoor dat uw toepassing wordt uitgevoerd. 
+
+Zie voor meer informatie over fouten opsporen in uw toepassing in Eclipse met behulp van het lokale cluster, [fouten opsporen in een Java-service in Eclipse](./service-fabric-debugging-your-application-java.md).
+
+U kunt ook uw toepassing in het lokale cluster wuth implementeren de **Publish Application** opdracht:
+
+1. Met de rechtermuisknop op uw Service Fabric-toepassing en selecteer vervolgens **Service Fabric**.
+2. Klik in het contextmenu op **Publish Application...** .
+3. In de **Publish Application** venster, kiest u **PublishProfiles/Local.json** als doelprofiel en klik op **publiceren**.
+
+    ![Het dialoogvenster Publiceren voor Local](./media/service-fabric-get-started-eclipse/localjson.png)
+
+    De Local.json publiceren profiel is standaard ingesteld om te publiceren naar het lokale cluster. Zie de volgende sectie voor meer informatie over de parameters-verbinding en -eindpunt aanwezig zijn in de publicatieprofielen.
+
+## <a name="publish-your-service-fabric-application-to-azure-with-eclipse"></a>Publiceren van uw Service Fabric-toepassing naar Azure met Eclipse
+
+Volg deze stappen voor het publiceren van uw toepassing in de cloud:
+
+1. Voor het publiceren van uw toepassing met een beveiligd cluster in de cloud, moet u een X.509-certificaat te gebruiken om te communiceren met uw cluster. Het certificaat dat wordt gebruikt is in test- en ontwikkelomgevingen, vaak het clustercertificaat. Het certificaat moet een clientcertificaat dat verschilt van het clustercertificaat in productieomgevingen. U moet zowel het certificaat en de persoonlijke sleutel. Het certificaat (en de sleutel)-bestand moet PEM-indeling. U kunt een PEM-bestand met het certificaat en de persoonlijke sleutel uit een PFX-bestand met de volgende openssl-opdracht maken:
+
+    ```bash
+    openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pass:your-pfx-password
+    ```
+
+   Als u het PFX-bestand is niet beveiligd met een wachtwoord, gebruikt u `--passin pass:` voor de laatste parameter zijn.
+
+2. Open de **Cloud.json** bestand onder de **PublishProfiles** directory. U moet de clusterreferenties voor eindpunt en de beveiliging voor uw cluster op de juiste wijze configureren.
+
+   - De `ConnectionIPOrURL` veld bevat de IP-adres of de URL van uw cluster. Houd er rekening mee dat de waarde de URL-schema bevat (`https://`).
+   - Standaard de `ConnectionPort` veld moeten `19080`, tenzij u hebt deze poort expliciet gewijzigd voor uw cluster.
+   - De `ClientKey` veld moet verwijzen naar een PEM-indeling PEM- of .key-bestand op uw lokale computer met de persoonlijke sleutel voor het certificaat van de client of het cluster.
+   - De `ClientCert` veld moet verwijzen naar een PEM-indeling PEM- of .crt-bestand op uw lokale computer met de gegevens van het certificaat voor de client of het cluster. het certificaat. 
+
+    ```bash
+    {
+         "ClusterConnectionParameters":
+         {
+            "ConnectionIPOrURL": "lnxxug0tlqm5.westus.cloudapp.azure.com",
+            "ConnectionPort": "19080",
+            "ClientKey": "[path_to_your_pem_file_on_local_machine]",
+            "ClientCert": "[path_to_your_pem_file_on_local_machine]"
+         }
+    }
+    ```
+
+2. Met de rechtermuisknop op uw Service Fabric-toepassing en selecteer vervolgens **Service Fabric**.
+3. Klik in het contextmenu op **Publish Application...** .
+3. In de **Publish Application** venster, kiest u **PublishProfiles/Cloud.json** als doelprofiel en klik op **publiceren**.
+
+    ![Het dialoogvenster Publiceren voor Cloud](./media/service-fabric-get-started-eclipse/cloudjson.png)
+
+4.  U kunt de voortgang van de bewerking publiceren in het consolevenster op te volgen.
+5.  Als u wilt controleren of uw toepassing wordt uitgevoerd, Service Fabric Explorer te openen op uw Azure-cluster in een browservenster. Voor het bovenstaande voorbeeld zou dit: `https://lnxxug0tlqm5.westus.cloudapp.azure.com:19080/Explorer`. Vouw de **toepassingen** knooppunt en zorg ervoor dat uw toepassing wordt uitgevoerd. 
+
+
+Op een beveiligd Linux-clusters, als uw toepassing Reliable Services-services bevat, wordt ook moet u een certificaat configureren dat uw services gebruiken kunnen om aan te roepen van Service Fabric runtime-API's. Zie voor meer informatie, [een Reliable Services-app uit te voeren op Linux-clusters configureren](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).
+
+Zie voor een snelle Walkthrough van hoe u een Service Fabric Reliable Services-toepassing die is geschreven in Java met een beveiligd Linux-cluster implementeert, [Quckstart: een Java Reliable Services-toepassing implementeren](./service-fabric-quickstart-java-reliable-services.md).
+
+## <a name="deploy-a-service-fabric-application-by-using-eclipse-run-configurations"></a>Implementeer een Service Fabric-toepassing met behulp van Eclipse-uitvoerconfiguraties
 
 U kunt de Service Fabric-toepassing ook implementeren met behulp van Eclipse-uitvoerconfiguraties.
 
-  1.    Ga naar **Run** > **Run Configurations**.
-  2.    Selecteer onder **Gradle Project** de uitvoerconfiguratie **ServiceFabricDeployer**.
-  3.    Klik in het rechterdeelvenster op het tabblad **Arguments** en selecteer bij **publishProfile** de optie **local** of **cloud**.  De standaardinstelling is **local**. Selecteer **cloud** voor een implementatie in een extern of cloudcluster.
-  4.    Bewerk **Local.json** of **Cloud.json** als dat nodig is om ervoor te zorgen dat de juiste informatie in de publicatieprofielen wordt ingevuld. U kunt eindpuntdetails en beveiligingsreferenties toevoegen of bijwerken.
-  5.    Zorg ervoor dat **Working Directory** wijst naar de toepassing die u wilt implementeren. Als u de toepassing wilt wijzigen, klikt u op de knop **Workspace** en selecteert u de gewenste toepassing.
-  6.    Klik op **Apply** en vervolgens op **Run**.
+1. Ga in Eclipse naar **uitvoeren** > **Uitvoerconfiguraties**.
+2. Selecteer onder **Gradle Project** de uitvoerconfiguratie **ServiceFabricDeployer**.
+3. In het rechter deelvenster op de **argumenten** tabblad, zorg ervoor dat de **ip**, **poort**, **clientCert**, en **clientKey**parameters juist zijn ingesteld voor uw implementatie. Standaard worden de parameters zijn ingesteld om te implementeren op het lokale cluster zoals in de volgende schermafbeelding. U kunt de parameters voor de eindpuntdetails en beveiligingsreferenties voor uw Azure-cluster wijzigen voor het publiceren van uw app naar Azure. Voor meer informatie, Zie de vorige sectie, [publiceren van uw Service Fabric-toepassing naar Azure met Eclipse](#publish-your-service-fabric-application-to-azure-with-eclipse).
+
+    ![Configuratie van dialoogvenster lokaal uitvoeren](./media/service-fabric-get-started-eclipse/run-config-local.png)
+
+5. Zorg ervoor dat **werkmap** verwijst naar de toepassing die u wilt implementeren. Als u de toepassing wilt wijzigen, klikt u op de knop **Workspace** en selecteert u de gewenste toepassing.
+6. Klik op **Apply** en vervolgens op **Run**.
 
 De toepassing is binnen enkele ogenblikken gemaakt en geïmplementeerd. U kunt de implementatiestatus controleren in Service Fabric Explorer.  
 
@@ -162,6 +227,12 @@ De toepassingsupgrade duurt enkele minuten. U kunt de upgrade van de toepassing 
 
 ## <a name="migrating-old-service-fabric-java-applications-to-be-used-with-maven"></a>Oude Service Fabric Java-toepassingen migreren die moeten worden gebruikt met Maven
 We hebben onlangs de bibliotheken van Java Service Fabric verplaatst van de Service Fabric Java SDK naar de Maven-opslagplaats. De nieuwe toepassingen die u genereert met behulp van Eclipse produceren projecten die u zonder problemen kunt gebruiken met Maven. Uw bestaande stateless Service Fabric- of Java-actortoepassingen zult u echter moeten bijwerken om ze te laten werken met de Service Fabric Java-afhankelijkheden van Maven. Deze oudere toepassingen maken namelijk nog gebruik van de Service Fabric Java SDK. Volg [deze stappen](service-fabric-migrate-old-javaapp-to-use-maven.md) om te controleren of een oudere toepassing werkt met Maven.
+
+## <a name="next-steps"></a>Volgende stappen
+
+- Voor snelle stappen voor het bouwen van betrouwbare Java service-toepassing en het lokaal en implementeert naar Azure, Zie [Quckstart: een Java Reliable Services-toepassing implementeren](./service-fabric-quickstart-java-reliable-services.md).
+- Zie voor meer informatie over fouten opsporen in een Java-toepassing op uw lokale cluster, [fouten opsporen in een Java-service in Eclipse](./service-fabric-debugging-your-application-java.md).
+- Zie voor meer informatie over controle en diagnose van Service Fabric-toepassingen, [bewaken en diagnosticeren van services in een lokale machine development setup](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
 
 <!-- Images -->
 

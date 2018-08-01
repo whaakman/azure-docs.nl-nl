@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 07/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 794039ee1a5b1cf3b382e0f0769383b1e033e982
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b003f29db699d89f0d3cec76ee3562ffad08b40f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046935"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39346331"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Zelfstudie: Azure Active Directory-integratie met Jamf Pro
 
@@ -139,7 +139,21 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Jamf Pro-configuratie](./media/jamfprosamlconnector-tutorial/configure2.png)
 
-10. Schuif omlaag in maximaal **id-PROVIDER** onder de **Single Sign-On** sectie en voer de volgende stappen uit:
+10. Op de **Single Sign-On** pagina de volgende stappen uitvoeren:
+
+    ![Jamf Pro één](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
+
+    a. Selecteer **Jamf Pro Server** om eenmalige aanmelding toegang te krijgen.
+
+    b. Door het selecteren van **bypass voor alle gebruikers toestaan** gebruikers niet omgeleid naar de aanmeldingspagina van de id-Provider voor verificatie, maar kunt aanmelden bij Jamf Pro rechtstreeks in plaats daarvan. Wanneer een gebruiker probeert toegang tot Jamf Pro via de id-Provider, treedt IdP gestart door SSO-verificatie en autorisatie op.
+
+    c. Selecteer de **NameID** optie voor **GEBRUIKERSTOEWIJZING: SAML**. Deze instelling is standaard ingesteld op **NameID** , maar u kunt een aangepast kenmerk definiëren.
+
+    d. Selecteer **e** voor **GEBRUIKERSTOEWIJZING: JAMF PRO**. Jamf Pro toegewezen SAML-kenmerken die zijn verzonden door de id-provider op de volgende manieren: door gebruikers en groepen. Wanneer een gebruiker probeert toegang te kunnen Jamf Pro standaard Jamf Pro Hiermee haalt u informatie over de gebruiker van de id-Provider en komt overeen met het tegen Jamf Pro-gebruikersaccounts. Als het binnenkomende gebruikersaccount niet in Jamf Pro bestaat, klikt u vervolgens optreedt groep namen matchen.
+
+    e. Plak de waarde `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` in de **KENMERK GROEPSNAAM** tekstvak.
+ 
+11. Op de dezelfde pagina Schuif omlaag in maximaal **id-PROVIDER** onder de **Single Sign-On** sectie en voer de volgende stappen uit:
 
     ![Jamf Pro-configuratie](./media/jamfprosamlconnector-tutorial/configure3.png)
 
@@ -149,10 +163,10 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     c. Selecteer **metagegevens-URL** als een optie in de **IDENTITEITSBRON PROVIDER metagegevens** vervolgkeuzelijst en plak in het volgende tekstvak de **App-Url voor federatieve metagegevens** waarvan de waarde u hebt gekopieerd vanuit Azure portal.
 
-    d. Kopieer de **entiteit-ID** vlaue en plak deze in de **id (entiteits-ID)** -tekstvak in **Jamf Pro domein en URL's** sectie in Azure portal.
+    d. Kopieer de **entiteit-ID** waarde en plak deze in de **id (entiteits-ID)** -tekstvak in **Jamf Pro domein en URL's** sectie in Azure portal.
 
     >[!NOTE]
-    > Hier `aadsso` is het gedeelte van het subdomein (dit is voor verwijzing doel). Deze waarde gebruiken voor het voltooien van de aanmeldings-URL en de antwoord-URL in de **Jamf Pro domein en URL's** sectie in Azure portal.
+    > Hier is vage waarde het gedeelte van het subdomein. Deze waarde gebruiken voor het voltooien van de aanmeldings-URL en de antwoord-URL in de **Jamf Pro domein en URL's** sectie in Azure portal.
 
     e. Klik op **Opslaan**.
 
@@ -270,7 +284,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->
 

@@ -46,10 +46,14 @@
       href: stream-analytics-compatibility-level.md
     - name: Veelvoorkomende querypatronen
       href: stream-analytics-stream-analytics-query-patterns.md
+    - name: Werken met complexe gegevenstypen in JSON en Avro
+      href: 'https://msdn.microsoft.com/azure/stream-analytics/reference/complex-data-types-stream-analytics'
     - name: Overwegingen over gebeurtenisvolgordes
       href: stream-analytics-out-of-order-and-late-events.md
     - name: Controlepunt en herhaling
       href: stream-analytics-concepts-checkpoint-replay.md
+    - name: Foutbeleid
+      href: output-error-policy.md
 - name: Handleidingen
   items:
     - name: Beheren
