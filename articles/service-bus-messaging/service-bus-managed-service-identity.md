@@ -1,6 +1,6 @@
 ---
-title: Service-identiteit beheerd met Azure Service Bus-preview | Microsoft Docs
-description: Gebruik van beheerde Service-identiteiten met Azure Servicebus
+title: Beheerde Service-identiteit met Azure Service Bus-preview | Microsoft Docs
+description: Beheerde Service-identiteiten gebruiken met Azure Servicebus
 services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
@@ -12,70 +12,74 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 08/01/2018
 ms.author: sethm
-ms.openlocfilehash: 7b9901ee3478cb193c808b65d2dbbcf8b596a3c1
-ms.sourcegitcommit: a0be2dc237d30b7f79914e8adfb85299571374ec
+ms.openlocfilehash: 30df312e349bd6f6ebd1f38141075382be2522a2
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/12/2018
-ms.locfileid: "29874649"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397981"
 ---
-# <a name="managed-service-identity-preview"></a>Beheerde Service-identiteit (preview)
+# <a name="managed-service-identity-preview"></a>Beheerde service-identiteit (preview)
 
-Een beheerde Service identiteit (MSI) is een cross-Azure-functie waarmee u een beveiligde identiteit die is gekoppeld aan de implementatie waarmee uw toepassingscode wordt uitgevoerd. U kunt vervolgens die identiteit koppelen aan de access control-functies die aangepaste machtigingen voor toegang tot specifieke Azure-resources die uw toepassing moet verlenen.
+Een Managed Service Identity (MSI) is een cross-Azure-functie waarmee u te maken van een veilige identiteit die is gekoppeld aan de implementatie waarmee uw toepassingscode wordt uitgevoerd. Daarna kunt u die identiteit koppelen met access-control-rollen die aangepaste machtigingen voor toegang tot specifieke Azure-resources die uw toepassing nodig heeft.
 
-Met MSI beheert het Azure-platform deze runtime-identiteit. U hoeft niet op te slaan en toegangstoetsen in uw toepassingscode of de configuratie voor de identiteit zelf of voor de bronnen die u wilt beveiligen. Een Service Bus-client-app uitgevoerd binnen een Azure App Service-toepassing of in een virtuele machine met ingeschakelde MSI-ondersteuning hoeft niet te handelen SAS-regels en sleutels of andere toegangstokens. De client-app moet alleen een adres van het eindpunt van de Service Bus-berichtenservice-naamruimte. Wanneer de app verbinding maakt, wordt de MSI-context in Service Bus gebonden aan de client in een bewerking die wordt weergegeven in een voorbeeld verderop in dit artikel. 
+Met MSI-bestand beheert het Azure-platform deze runtime-identiteit. U hoeft niet voor het opslaan en toegang tot sleutels in uw toepassingscode of de configuratie voor de identiteit zelf, of voor de resources die u nodig hebt om toegang te beveiligen. Een Service Bus-client-app die wordt uitgevoerd binnen een Azure App Service-toepassing of in een virtuele machine met ingeschakelde MSI-ondersteuning hoeft niet voor het afhandelen van SAS-regels en sleutels of andere toegangstokens. De client-app hoeft alleen het adres van het eindpunt van de Service Bus Messaging-naamruimte. Wanneer de app verbinding maakt, wordt de MSI-context in Service Bus gebonden aan de client in een bewerking die wordt weergegeven in een voorbeeld verderop in dit artikel. 
 
-Zodra deze gekoppeld aan een beheerde service-identiteit is, kan alle gemachtigde bewerkingen uitvoeren in een Service Bus-clienttoepassing. Autorisatie wordt verleend door een MSI-bestand koppelen aan Service Bus-functies. 
+Zodra deze gekoppeld aan een beheerde service-identiteit is, kan alle geautoriseerde bewerkingen uitvoeren in een Service Bus-clienttoepassing. Autorisatie is verleend door te koppelen van een MSI-bestand met behulp van Service Bus. 
 
 ## <a name="service-bus-roles-and-permissions"></a>Service Bus-rollen en machtigingen
 
-Voor de eerste openbare preview-versie, kunt u een beheerde service-identiteit alleen toevoegen aan de rollen 'Eigenaar' of 'Inzender' van een Service Bus-naamruimte die de volledige controle van de identiteit op alle entiteiten in de naamruimte toekent. Beheer van bewerkingen die de naamruimte-topologie wijzigen in eerste instantie zijn ondersteund echter alleen via Azure Resource Manager en niet via de systeemeigen Service Bus REST-interface. Deze ondersteuning betekent ook dat u de .NET Framework-client kan geen [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) object binnen een beheerde service-identiteit.
+Voor de eerste openbare preview-versie kunt u alleen een beheerde service-identiteit toevoegen aan de rollen 'Eigenaar' of 'Medewerker' van een Service Bus-naamruimte, waarmee de identiteit volledig beheer voor alle entiteiten in de naamruimte worden verleend. Beheer van bewerkingen die wijzigen van de naamruimte-topologie in eerste instantie zijn ondersteund echter alleen via Azure Resource Manager en niet via de systeemeigen Service Bus REST-beheerinterface. Deze ondersteuning betekent ook dat u de .NET Framework-client niet gebruiken [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) object in een beheerde service-identiteit.
 
 ## <a name="use-service-bus-with-a-managed-service-identity"></a>Servicebus gebruiken met een beheerde Service-identiteit
 
-De volgende sectie wordt beschreven hoe u maken en implementeren van een voorbeeldtoepassing die compatibel is met een beheerde service-identiteit, hoe die identiteit toegang verlenen tot een Service Bus-berichtenservice-naamruimte en de interactie van de toepassing met de Service Bus entiteiten met die identiteit.
+De volgende sectie wordt beschreven hoe u maken en implementeren van een voorbeeldtoepassing die wordt uitgevoerd onder een beheerde service-identiteit, hoe u die identiteit toegang verlenen tot een Service Bus Messaging-naamruimte en hoe de toepassing communiceert met Service Bus entiteiten met die identiteit.
 
-Deze inleiding beschrijft een webtoepassing die wordt gehost in [Azure App Service](https://azure.microsoft.com/services/app-service/). De stappen die nodig zijn voor een virtuele machine wordt gehost toepassing lijken.
+Deze inleiding beschrijft een webtoepassing die wordt gehost [Azure App Service](https://azure.microsoft.com/services/app-service/). De stappen die nodig zijn voor een virtuele machine wordt gehost toepassing lijken.
 
 ### <a name="create-an-app-service-web-application"></a>Een App Service-webtoepassing maken
 
-De eerste stap is het maken van een App Service-ASP.NET-toepassing. Als u niet bekend met hoe u dit doet in Azure bent, voert u de [in deze handleiding instructies](../app-service/app-service-web-get-started-dotnet-framework.md). Echter, in plaats van een MVC-toepassing, zoals wordt weergegeven in de zelfstudie maakt, een Web Forms-toepassing maken.
+De eerste stap is het maken van een App Service-ASP.NET-toepassing. Als u niet bekend met hoe u dit doet in Azure bent, voert u de [in deze gebruiksaanwijzing](../app-service/app-service-web-get-started-dotnet-framework.md). Echter, in plaats van het maken van een MVC-toepassing zoals wordt weergegeven in de zelfstudie, een Web Forms-toepassing maken.
 
-### <a name="set-up-the-managed-service-identity"></a>De identiteit van de beheerde service instellen
+### <a name="set-up-the-managed-service-identity"></a>Instellen van de beheerde service-identiteit
 
-Als u de toepassing hebt gemaakt, gaat u naar de nieuwe web-app in de Azure portal (wordt ook weergegeven in de procedures voor) en vervolgens gaat u naar de **beheerde Service-identiteit** pagina en de functie inschakelen: 
+Zodra u de toepassing hebt gemaakt, gaat u naar de nieuwe web-app in Azure portal (wordt ook weergegeven in de instructies) en navigeer naar de **beheerde Service-identiteit** pagina en de functie inschakelen: 
 
 ![](./media/service-bus-managed-service-identity/msi1.png)
 
-Nadat u de functie hebt ingeschakeld, is een nieuwe service-identiteit in uw Azure Active Directory hebt gemaakt en geconfigureerd in de App Service-host.
+Nadat u de functie hebt ingeschakeld, is een nieuwe service-identiteit in uw Azure Active Directory gemaakt en geconfigureerd in de App Service-host.
 
-### <a name="create-a-new-service-bus-messaging-namespace"></a>Een nieuwe Service Bus-berichtenservice-naamruimte maken
+### <a name="create-a-new-service-bus-messaging-namespace"></a>Een nieuwe Service Bus Messaging-naamruimte maken
 
-Vervolgens [maken van een Service Bus-berichtenservice naamruimte](service-bus-create-namespace-portal.md) in een van de Azure-regio's die preview ondersteuning bieden voor RBAC: **VS-Oost**, **ons Oost 2**, of **West-Europa** . 
+Volgende [maken van een Service Bus Messaging-naamruimte](service-bus-create-namespace-portal.md) in een van de Azure-regio's die ondersteuning bieden voor Preview-versie voor RBAC: **VS Oost**, **VS Oost 2**, of **West-Europa** . 
 
-Navigeer naar de naamruimte **Access Control (IAM)** pagina in de portal en klik vervolgens op **toevoegen** om toe te voegen aan de identiteit van de beheerde service de **eigenaar** rol. Om dit te doen, zoekt u de naam van de webtoepassing in de **machtigingen toevoegen** Configuratiescherm **Selecteer** veld en klik op de vermelding. Klik vervolgens op **Opslaan**.
+Navigeer naar de naamruimte **Access Control (IAM)** pagina in de portal en klik vervolgens op **toevoegen** om toe te voegen van de beheerde service-identiteit voor de **eigenaar** rol. Om dit te doen, zoekt u de naam van de web-App in de **machtigingen toevoegen** deelvenster **Selecteer** veld en klik vervolgens op de vermelding. Klik vervolgens op **Opslaan**.
 
 ![](./media/service-bus-managed-service-identity/msi2.png)
  
-De webtoepassing beheerde service-identiteit heeft nu toegang tot de Service Bus-naamruimte en naar de wachtrij die u eerder hebt gemaakt. 
+Beheerde service-identiteit voor de web-App heeft nu toegang tot de Service Bus-naamruimte en naar de wachtrij die u eerder hebt gemaakt. 
 
 ### <a name="run-the-app"></a>De app uitvoeren
 
-Nu wijzigen de standaardpagina van de ASP.NET-toepassing die u hebt gemaakt. U kunt ook de code van de web application [deze GitHub-opslagplaats](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ManagedServiceIdentity).
+Wijzig nu de standaardpagina van de ASP.NET-toepassing die u hebt gemaakt. U kunt de code van de web-endtoepassing van [deze GitHub-opslagplaats](https://github.com/Azure-Samples/app-service-msi-servicebus-dotnet).  
 
-De pagina Default.aspx is uw startpagina. De code kan worden gevonden in het bestand Default.aspx.cs. Het resultaat is een minimale webtoepassing met enkele invoervelden en met **verzenden** en **ontvangen** knoppen die verbinding met Service Bus maken te verzenden of ontvangen van berichten.
+De pagina Default.aspx is de landingspagina. De code kan worden gevonden in het bestand Default.aspx.cs. Het resultaat is een minimale webtoepassing met een paar velden, en met **verzenden** en **ontvangen** knoppen die verbinding met Service Bus maken te verzenden of ontvangen van berichten.
 
-Opmerking hoe de [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) -object is geïnitialiseerd. In plaats van de tokenprovider Shared Access Token (SAS), de code maakt een tokenprovider voor de identiteit van de beheerde service met de `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.ServiceBusAudience)` aanroepen. Er zijn als zodanig geen geheimen te behouden en te gebruiken. De stroom van de context van de identiteit beheerde service naar Service Bus en de autorisatie-handshake worden automatisch verwerkt door de tokenprovider is een eenvoudiger dan het gebruik van SAS-model.
+Houd er rekening mee hoe de [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) -object is geïnitialiseerd. In plaats van de tokenprovider Shared Access Token (SAS), de code maakt u een token provider voor de identiteit van de beheerde service met de `TokenProvider.CreateManagedServiceIdentityTokenProvider(ServiceAudience.ServiceBusAudience)` aanroepen. Er zijn daarom geen geheimen behouden en te gebruiken. De stroom van de context van de beheerde service-identiteit voor Service Bus en de autorisatie-handshake worden automatisch verwerkt door de tokenprovider, dit is een eenvoudiger dan het gebruik van SAS-model.
 
-Zodra u deze wijzigingen hebt aangebracht, publiceren en voer de toepassing. Er is een eenvoudige manier om op te halen van de juiste gegevens te publiceren om te downloaden en vervolgens importeren een publicatieprofiel in Visual Studio:
+Zodra u deze wijzigingen hebt aangebracht, publiceren en de toepassing wordt uitgevoerd. Een eenvoudige manier om op te halen van de juiste publiceren van gegevens is om te downloaden en vervolgens importeren een publicatieprofiel in Visual Studio:
 
 ![](./media/service-bus-managed-service-identity/msi3.png)
  
 Als u wilt verzenden of ontvangen van berichten, voer de naam van de naamruimte en de naam van de entiteit die u hebt gemaakt, en klik vervolgens op een **verzenden** of **ontvangen**.
- 
-Houd er rekening mee dat de identiteit van de beheerde service alleen werkt in de Azure-omgeving, en alleen in de App Service-implementatie waarin u het hebt geconfigureerd. Houd er ook rekening mee dat beheerde service-identiteiten niet met App Service-implementatiesites op dit moment werken.
+
+
+> [!NOTE]
+> - De beheerde service-identiteit werkt alleen in de Azure-omgeving van App-services, Azure-VM's, en schaal worden ingesteld. Voor .NET-toepassingen, de Microsoft.Azure.Services.AppAuthentication library, die wordt gebruikt door de Service Bus NuGet-pakket, biedt een abstractie via dit protocol en biedt ondersteuning voor een lokale ontwikkeling-ervaring. Deze bibliotheek kunt u uw code lokaal op uw ontwikkelcomputer, met behulp van uw gebruikersaccount vanuit Visual Studio, Azure CLI 2.0 of Active Directory Integrated Authentication testen. Zie voor meer informatie over opties voor lokale ontwikkeling met deze bibliotheek [Service-naar-serviceverificatie naar Azure Key Vault met behulp van .NET](../key-vault/service-to-service-authentication.md).  
+> 
+> - Beheerde service-identiteiten werken op dit moment niet met implementatiesites voor App Service.
 
 ## <a name="next-steps"></a>Volgende stappen
 

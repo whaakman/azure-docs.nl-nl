@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: 1c8fad4b2c66515af05996395a53a7d8b5dba97f
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: bac3747f3f410e63454f543c035d7e04c20fac2a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036918"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399174"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager Frequently Asked Questions (FAQ)
 
@@ -27,23 +27,23 @@ ms.locfileid: "39036918"
 
 ### <a name="what-ip-address-does-traffic-manager-use"></a>Welke IP-adres maakt gebruik van Traffic Manager?
 
-Zoals uitgelegd in [hoe Traffic Manager werkt](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager werkt op DNS-niveau. DNS-antwoorden aan clients omleiden naar de juiste service-eindpunt wordt verzonden. Clients vervolgens rechtstreeks verbinding maken met de service-eindpunt, niet via Traffic Manager.
+Zoals uitgelegd in [hoe Traffic Manager werkt](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager werkt op DNS-niveau. DNS-antwoorden aan clients omleiden naar de juiste service-eindpunt wordt verzonden. Clients vervolgens rechtstreeks verbinding maken met de service-eindpunt, niet via Traffic Manager.
 
 Traffic Manager biedt daarom geen een eindpunt of een IP-adres voor clients verbinding maken met. Als u statische IP-adres voor uw service, die moet worden geconfigureerd op de service, niet in Traffic Manager.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Welke soorten verkeer kunnen worden doorgestuurd met Traffic Manager?
-Zoals uitgelegd in [hoe Traffic Manager werkt](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), een Traffic Manager-eindpunt mag een internetgerichte service die wordt gehost binnen en buiten Azure. Traffic Manager kan daarom routeren van verkeer dat afkomstig van het openbare internet naar een set eindpunten is die ook internet ondervindt. Hebt u eindpunten die zich in een particulier netwerk (bijvoorbeeld een interne versie van [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) of gebruikers die DNS-aanvragen van dergelijke interne netwerken, Traffic Manager kan niet worden gebruikt voor deze verkeer.
+Zoals uitgelegd in [hoe Traffic Manager werkt](../traffic-manager/traffic-manager-how-it-works.md), een Traffic Manager-eindpunt mag een internetgerichte service die wordt gehost binnen en buiten Azure. Traffic Manager kan daarom routeren van verkeer dat afkomstig van het openbare internet naar een set eindpunten is die ook internet ondervindt. Hebt u eindpunten die zich in een particulier netwerk (bijvoorbeeld een interne versie van [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) of gebruikers die DNS-aanvragen van dergelijke interne netwerken, Traffic Manager kan niet worden gebruikt voor deze verkeer.
 
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Traffic Manager biedt ondersteuning voor 'sticky' sessies?
 
-Zoals uitgelegd in [hoe Traffic Manager werkt](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager werkt op DNS-niveau. Het maakt gebruik van DNS-antwoorden aan clients omleiden naar de juiste service-eindpunt. Clients rechtstreeks verbinding maken met de service-eindpunt, niet via Traffic Manager. Traffic Manager ziet daarom niet de HTTP-verkeer tussen de client en de server.
+Zoals uitgelegd in [hoe Traffic Manager werkt](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager werkt op DNS-niveau. Het maakt gebruik van DNS-antwoorden aan clients omleiden naar de juiste service-eindpunt. Clients rechtstreeks verbinding maken met de service-eindpunt, niet via Traffic Manager. Traffic Manager ziet daarom niet de HTTP-verkeer tussen de client en de server.
 
 Bovendien wordt de bron-IP-adres van de DNS-query die is ontvangen door Traffic Manager behoort tot de recursieve DNS-service, niet door de client. Traffic Manager is daarom geen enkele manier voor het bijhouden van afzonderlijke clients en 'sticky' sessies kan niet worden geïmplementeerd. Deze beperking is gebruikelijk voor alle verkeer op basis van de DNS beheer van systemen en is niet specifiek op Traffic Manager.
 
 ### <a name="why-am-i-seeing-an-http-error-when-using-traffic-manager"></a>Waarom zie ik een HTTP-fout bij het gebruik van Traffic Manager?
 
-Zoals uitgelegd in [hoe Traffic Manager werkt](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager werkt op DNS-niveau. Het maakt gebruik van DNS-antwoorden aan clients omleiden naar de juiste service-eindpunt. Clients vervolgens rechtstreeks verbinding maken met de service-eindpunt, niet via Traffic Manager. Traffic Manager biedt geen Zie HTTP-verkeer tussen client en server. Daarom moet een HTTP-fout die wordt weergegeven afkomstig zijn van uw toepassing. Voor de client verbinding maken met de toepassing, zijn alle DNS-omzetting stappen zijn voltooid. Dit is inclusief elke interactie met Traffic Manager op de stroom van de toepassing verkeer.
+Zoals uitgelegd in [hoe Traffic Manager werkt](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager werkt op DNS-niveau. Het maakt gebruik van DNS-antwoorden aan clients omleiden naar de juiste service-eindpunt. Clients vervolgens rechtstreeks verbinding maken met de service-eindpunt, niet via Traffic Manager. Traffic Manager biedt geen Zie HTTP-verkeer tussen client en server. Daarom moet een HTTP-fout die wordt weergegeven afkomstig zijn van uw toepassing. Voor de client verbinding maken met de toepassing, zijn alle DNS-omzetting stappen zijn voltooid. Dit is inclusief elke interactie met Traffic Manager op de stroom van de toepassing verkeer.
 
 Verder onderzoek moet daarom zich richten op de toepassing.
 
@@ -51,7 +51,7 @@ De HTTP host-header verzonden vanuit de browser van de client is de meest voorko
 
 ### <a name="what-is-the-performance-impact-of-using-traffic-manager"></a>Wat zijn de prestatiegevolgen van het gebruik van Traffic Manager?
 
-Zoals uitgelegd in [hoe Traffic Manager werkt](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager werkt op DNS-niveau. Omdat clients rechtstreeks verbinding met uw service-eindpunten maken, is er geen invloed op de prestaties in rekening gebracht bij het gebruik van Traffic Manager nadat de verbinding tot stand is gebracht.
+Zoals uitgelegd in [hoe Traffic Manager werkt](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager werkt op DNS-niveau. Omdat clients rechtstreeks verbinding met uw service-eindpunten maken, is er geen invloed op de prestaties in rekening gebracht bij het gebruik van Traffic Manager nadat de verbinding tot stand is gebracht.
 
 Sinds de Traffic Manager kan worden geïntegreerd met toepassingen op DNS-niveau, hoeft een extra DNS-zoekactie in de keten van DNS-resolutie moet worden ingevoegd. De impact van Traffic Manager op de DNS-omzettingstijd is minimaal. Traffic Manager gebruikt een wereldwijd netwerk met naamservers en maakt gebruik van [anycast](https://en.wikipedia.org/wiki/Anycast) netwerken om ervoor te zorgen DNS worden query's altijd doorgestuurd naar de dichtstbijzijnde beschikbare naam-server. Bovendien houdt in cache plaatsen van DNS-antwoorden die de extra DNS-latentie in rekening gebracht met behulp van Traffic Manager alleen voor een fractie van sessies geldt.
 
@@ -59,7 +59,7 @@ De methode prestaties verkeer routeert naar de dichtstbijzijnde beschikbare eind
 
 ### <a name="what-application-protocols-can-i-use-with-traffic-manager"></a>Welke toepassingsprotocollen kan ik met Traffic Manager gebruiken?
 
-Zoals uitgelegd in [hoe Traffic Manager werkt](../traffic-manager/traffic-manager-overview.md#how-traffic-manager-works), Traffic Manager werkt op DNS-niveau. Nadat de DNS-zoekactie voltooid is, clients rechtstreeks verbinding maken met het toepassingseindpunt, niet via Traffic Manager. De verbinding Gebruik daarom elk toepassingsprotocol voor de. Als u TCP als de controle van het protocol, Traffic Manager selecteren statuscontrole eindpunt kan worden uitgevoerd zonder met behulp van een toepassingsprotocollen. Als u ervoor kiest om de status controleren met behulp van een toepassingsprotocol, moet het eindpunt kunnen reageren op aanvragen via HTTP of HTTPS ophalen.
+Zoals uitgelegd in [hoe Traffic Manager werkt](../traffic-manager/traffic-manager-how-it-works.md), Traffic Manager werkt op DNS-niveau. Nadat de DNS-zoekactie voltooid is, clients rechtstreeks verbinding maken met het toepassingseindpunt, niet via Traffic Manager. De verbinding Gebruik daarom elk toepassingsprotocol voor de. Als u TCP als de controle van het protocol, Traffic Manager selecteren statuscontrole eindpunt kan worden uitgevoerd zonder met behulp van een toepassingsprotocollen. Als u ervoor kiest om de status controleren met behulp van een toepassingsprotocol, moet het eindpunt kunnen reageren op aanvragen via HTTP of HTTPS ophalen.
 
 ### <a name="can-i-use-traffic-manager-with-a-naked-domain-name"></a>Kan ik Traffic Manager gebruiken met de naam van een domein 'zonder voorvoegsel zijn'?
 

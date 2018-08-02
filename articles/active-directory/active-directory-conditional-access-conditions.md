@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 59ae7e83bc2b76cb679b0baf1f5739f28ec7046c
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: d868a59dd5d00dea410cbe8c373263e13903d3ba
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248277"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413141"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Wat zijn de voorwaarden voor de voorwaardelijke toegang van Azure Active Directory? 
 
@@ -152,7 +152,7 @@ Algemene scenario's voor deze voorwaarde zijn beleid met de volgende goed:
 
 - Blokkeer de toegang van web-apps, maar zodat toegang vanaf mobiele en bureaubladtoepassingen.
 
-U kunt dit probleem op het web-SSO en moderne-verificatieprotocollen toepassen. U kunt deze ook toepassen op e-mailtoepassingen die gebruikmaken van Microsoft Exchange ActiveSync. Voorbeelden zijn de systeemeigen e-mailapps op de meeste smartphones. Client-apps die gebruikmaken van verouderde protocollen moeten op dit moment worden beveiligd met behulp van Azure AD-Federation-Services.
+U kunt dit probleem op het web-SSO en moderne-verificatieprotocollen toepassen. U kunt deze ook toepassen op e-mailtoepassingen die gebruikmaken van Microsoft Exchange ActiveSync. Voorbeelden zijn de systeemeigen e-mailapps op de meeste smartphones. 
 
 U kunt de client-apps-voorwaarde alleen selecteren als Microsoft Office 365 Exchange Online is de enige cloud-app die u hebt geselecteerd.
 

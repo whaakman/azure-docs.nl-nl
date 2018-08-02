@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: 6d37ae9eb5aa5961c5da2e4cce0e79679f1e65ac
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 5f022f366c0247fade4cc39925e116a09b3d08de
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283639"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399087"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Instellen en opvragen van doorvoer voor Azure Cosmos DB-containers en -database
 
@@ -226,7 +226,16 @@ offer.getContent().put("offerThroughput", newThroughput);
 client.replaceOffer(offer);
 ```
 
-## <a id="GetLastRequestStatistics"></a>Doorvoer met behulp van MongoDB-API GetLastRequestStatistics opdracht ophalen
+## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Doorvoer ophalen met behulp van MongoDB-API-portal metrische gegevens
+
+De eenvoudigste manier om een goede schatting van de aanvraag eenheid kosten in rekening gebracht voor uw MongoDB-API-database is het gebruik van de [Azure-portal](https://portal.azure.com) metrische gegevens. Met de *aantal aanvragen* en *aanvraag kosten in rekening gebracht* grafieken, krijgt u een schatting van het aantal aanvraageenheden elke bewerking is verbruikt en het aantal aanvraageenheden dat ze gebruiken ten opzichte van elkaar.
+
+![Portal metrische gegevens voor MongoDB-API][1]
+
+### <a id="RequestRateTooLargeAPIforMongoDB"></a> Overschrijding van grenzen van de gereserveerde doorvoer in de MongoDB-API
+Toepassingen die groter zijn dan de ingerichte doorvoer voor een container of een set van containers zijn beperkt in de snelheid totdat het tarief verbruik lager is dan het tarief voor de ingerichte doorvoer. Wanneer er een tarief-beperking optreedt, de back-end verloopt de aanvraag met een `16500` foutcode - `Too Many Requests`. Standaard de MongoDB-API wordt automatisch opnieuw geprobeerd maximaal 10 keer alvorens een `Too Many Requests` foutcode. Als u veel ontvangt `Too Many Requests` foutcodes, kunt u overwegen toe te voegen een logica voor opnieuw proberen routines voor foutafhandeling van uw toepassing of [verhogen van de ingerichte doorvoer voor de container](set-throughput.md).
+
+## <a id="GetLastRequestStatistics"></a>Aanvraag kosten in rekening gebracht met behulp van MongoDB-API GetLastRequestStatistics opdracht ophalen
 
 De MongoDB-API biedt ondersteuning voor een aangepaste opdracht *getLastRequestStatistics*, voor het ophalen van de kosten van de aanvraag voor een bepaalde bewerking.
 
@@ -254,14 +263,19 @@ Een methode voor het schatten van de hoeveelheid gereserveerde doorvoer die is v
 > 
 > 
 
-## <a name="get-throughput-by-using-mongodb-api-portal-metrics"></a>Doorvoer ophalen met behulp van MongoDB-API-portal metrische gegevens
+## <a id="RequestchargeGraphAPI"></a>Aanvraag kosten in rekening gebracht voor de Gremlin-API-accounts ophalen 
 
-De eenvoudigste manier om een goede schatting van de aanvraag eenheid kosten in rekening gebracht voor uw MongoDB-API-database is het gebruik van de [Azure-portal](https://portal.azure.com) metrische gegevens. Met de *aantal aanvragen* en *aanvraag kosten in rekening gebracht* grafieken, krijgt u een schatting van het aantal aanvraageenheden elke bewerking is verbruikt en het aantal aanvraageenheden dat ze gebruiken ten opzichte van elkaar.
+Hier volgt een voorbeeld voor het verkrijgen van aanvraag kosten in rekening gebracht voor de Gremlin-API-accounts met behulp van de bibliotheek Gremlin.Net. 
 
-![Portal metrische gegevens voor MongoDB-API][1]
+```csharp
 
-### <a id="RequestRateTooLargeAPIforMongoDB"></a> Overschrijding van grenzen van de gereserveerde doorvoer in de MongoDB-API
-Toepassingen die groter zijn dan de ingerichte doorvoer voor een container of een set van containers zijn beperkt in de snelheid totdat het tarief verbruik lager is dan het tarief voor de ingerichte doorvoer. Wanneer er een tarief-beperking optreedt, de back-end verloopt de aanvraag met een `16500` foutcode - `Too Many Requests`. Standaard de MongoDB-API wordt automatisch opnieuw geprobeerd maximaal 10 keer alvorens een `Too Many Requests` foutcode. Als u veel ontvangt `Too Many Requests` foutcodes, kunt u overwegen toe te voegen een logica voor opnieuw proberen routines voor foutafhandeling van uw toepassing of [verhogen van de ingerichte doorvoer voor de container](set-throughput.md).
+var response = await gremlinClient.SubmitAsync<int>(requestMsg, bindings);
+                var resultSet = response.AsResultSet();
+                var statusAttributes= resultSet.StatusAttributes;
+```
+
+Naast de bovenstaande methode, kunt u "x-ms-totaal aantal-verzoek-kosten" header ook gebruiken voor berekeningen van Aanvraageenheden.
+
 
 ## <a name="throughput-faq"></a>Veelgestelde vragen over de doorvoer
 

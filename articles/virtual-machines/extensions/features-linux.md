@@ -1,9 +1,9 @@
 ---
 title: Azure VM-extensies en functies voor Linux | Microsoft Docs
-description: Meer informatie over welke extensies beschikbaar zijn voor virtuele machines in Azure, gegroepeerd op wat ze bieden of verbeteren.
+description: Meer informatie over welke extensies beschikbaar zijn voor virtuele machines van Azure, gegroepeerd op wat ze bieden of verbeteren.
 services: virtual-machines-linux
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -14,64 +14,64 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: danis
-ms.openlocfilehash: 760f832bc12bccbf1cce77db25bf60413ad9a36b
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: roiyz
+ms.openlocfilehash: e172b9d6a59f14f741a09450d31602b0d2d9ee5a
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942828"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412624"
 ---
-# <a name="virtual-machine-extensions-and-features-for-linux"></a>Uitbreidingen van de virtuele machine en functies voor Linux
+# <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensies voor virtuele machines en functies voor Linux
 
-Azure virtuele machine (VM) extensies zijn kleine toepassingen waarmee de configuratie en automatisering taken na de implementatie op Azure Virtual machines. Bijvoorbeeld, als een virtuele machine is vereist voor software-installatie, beveiliging tegen virussen, of een script daarbinnen uitvoeren, kan een VM-extensie kan worden gebruikt. Azure VM-extensies kunnen worden uitgevoerd met de Azure CLI, PowerShell, Azure resourcemanager-sjablonen en de Azure-portal. Uitbreidingen worden gebundeld met een nieuwe VM-implementatie of uitvoeren op een bestaande systeem.
+Extensies voor Azure-machines (VM) zijn kleine toepassingen die taken van configuratie- en automatiseringstaken na de implementatie op Azure Virtual machines bieden. Bijvoorbeeld, als een virtuele machine is vereist voor software-installatie, beveiliging tegen virussen, of een script daarbinnen uit te voeren, kan een VM-extensie kan worden gebruikt. Azure VM-extensies kunnen worden uitgevoerd met de Azure CLI, PowerShell, Azure resourcemanager-sjablonen en Azure portal. Extensies worden gebundeld met een nieuwe VM-implementatie of op basis van een bestaand systeem worden uitgevoerd.
 
-In dit artikel biedt een overzicht van de VM-extensies voor vereisten voor het gebruik van Azure VM-extensies en instructies voor het detecteren, beheren en verwijderen van de VM-extensies. Dit artikel vindt u algemene informatie omdat veel VM-extensies beschikbaar zijn, elk met een potentieel unieke configuratie. Extensie-specifieke informatie vindt u in elk document specifiek is voor de afzonderlijke extensie.
+In dit artikel biedt een overzicht van VM-extensies, vereisten voor het gebruik van Azure VM-extensies, en instructies over het detecteren, beheren en verwijderen van de VM-extensies. Dit artikel bevat algemene informatie, omdat veel VM-extensies beschikbaar zijn, elk met een potentieel unieke configuratie. Extensie-specifieke details vindt u in elk document specifiek is voor de afzonderlijke extensie.
 
-## <a name="use-cases-and-samples"></a>Gebruiksvoorbeelden en voorbeelden
+## <a name="use-cases-and-samples"></a>Use cases en voorbeelden
 
-Enkele andere Azure VM-extensies beschikbaar zijn, elk met een specifieke gebruiksvoorbeeld. Voorbeelden zijn:
+Meerdere verschillende Azure-VM-extensies beschikbaar zijn, elk met een specifieke use-case. Voorbeelden zijn:
 
-- Status van PowerShell gewenste configuraties toepassen op een virtuele machine met de DSC-extensie voor Linux. Zie voor meer informatie [Azure gewenst State configuration-uitbreiding](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Bewaking van een virtuele machine met de Microsoft Monitoring Agent VM-extensie te configureren. Zie voor meer informatie [het bewaken van Linux-VM](../linux/tutorial-monitoring.md).
+- PowerShell Desired State configuraties toepassen op een virtuele machine met de DSC-extensie voor Linux. Zie voor meer informatie, [Azure Desired State configuration-extensie](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
+- Bewaking van een virtuele machine met de Microsoft Monitoring Agent-VM-extensie configureren. Zie voor meer informatie, [over het bewaken van een Linux-VM](../linux/tutorial-monitoring.md).
 - Bewaking van uw Azure-infrastructuur met de extensie Chef of Datadog configureren. Zie voor meer informatie de [Chef docs](https://docs.chef.io/azure_portal.html) of [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
-Een aangepast Script-uitbreiding is naast processpecifieke uitbreidingen beschikbaar voor Windows- en Linux virtuele machines. De aangepaste scriptextensie voor Linux kunt u een Bash-script worden uitgevoerd op een virtuele machine. Aangepaste scripts zijn handig voor het ontwerpen van Azure-implementaties die moeten worden geconfigureerd afgezien van wat systeemeigen Azure tooling kan bieden. Zie voor meer informatie [Linux VM aangepaste scriptextensie](custom-script-linux.md).
+Een aangepast Script-extensie is naast processpecifieke extensies beschikbaar voor zowel Windows als Linux virtuele machines. De aangepaste scriptextensie voor Linux kunt Bash-script om te worden uitgevoerd op een virtuele machine. Aangepaste scripts zijn handig voor het ontwerpen van Azure-implementaties die moeten worden geconfigureerd dan welke systeemeigen Azure-hulpprogramma kan bieden. Zie voor meer informatie, [Linux VM Custom Script extension](custom-script-linux.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het afhandelen van de uitbreiding op de virtuele machine, moet u de Azure Linux Agent is geïnstalleerd. Een aantal afzonderlijke uitbreidingen hebben vereisten, zoals toegang tot bronnen of afhankelijkheden.
+Voor het afhandelen van de extensie op de virtuele machine, moet u de Azure Linux Agent is geïnstalleerd. Aantal afzonderlijke extensies hebben vereisten, zoals toegang tot bronnen of afhankelijkheden.
 
 ### <a name="azure-vm-agent"></a>Azure VM-agent
 
-De Azure VM-agent beheert interactie tussen een Azure-virtuele machine en de domeincontroller van de Azure-infrastructuur. De VM-agent is verantwoordelijk voor veel functionele aspecten van het implementeren en beheren van Azure Virtual machines, waaronder het uitvoeren van de VM-extensies. De Azure VM-agent is geïnstalleerd op Azure Marketplace-installatiekopieën en kan handmatig worden geïnstalleerd op ondersteunde besturingssystemen. De Azure VM-Agent voor Linux wordt de Linux-agent genoemd.
+Interactie tussen een Azure-VM en de Azure-infrastructuurcontroller wordt beheerd door de Azure VM-agent. De VM-agent is verantwoordelijk voor veel functionele aspecten van het implementeren en beheren van virtuele machines van Azure, inclusief het uitvoeren van VM-extensies. De Azure VM-agent is vooraf geïnstalleerd in Azure Marketplace-installatiekopieën en handmatig kan worden geïnstalleerd op ondersteunde besturingssystemen. De Azure VM-Agent voor Linux staat bekend als de Linux-agent.
 
-Zie voor informatie over ondersteunde besturingssystemen en installatie-instructies, [virtuele machine van Azure-agent](agent-linux.md).
+Zie voor informatie over ondersteunde besturingssystemen en installatie-instructies, [virtuele Azure-machineagent](agent-linux.md).
 
 #### <a name="supported-agent-versions"></a>Ondersteunde agent-versies
 
-Om de best mogelijke ervaring bieden, zijn er minimaal vereiste versies van de agent. Raadpleeg [dit artikel](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) voor meer informatie.
+Als u wilt de best mogelijke ervaring bieden, zijn er minimaal vereiste versies van de agent. Raadpleeg [dit artikel](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) voor meer informatie.
 
 #### <a name="supported-oses"></a>Ondersteunde besturingssystemen
 
-De Linux-agent wordt uitgevoerd op meerdere besturingssystemen, maar het framework extensies een limiet voor de besturingssystemen die uitbreidingen kent. Zie voor meer informatie [in dit artikel] (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems ).
+De Linux-agent wordt uitgevoerd op meerdere besturingssystemen, maar het framework extensions een limiet voor de besturingssystemen die uitbreidingen heeft. Zie voor meer informatie [in dit artikel] (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems ).
 
-Bepaalde extensies worden niet ondersteund in alle besturingssystemen en verzendt *fout Code 51, 'Niet-ondersteunde OS'*. Raadpleeg de documentatie van de afzonderlijke extensie voor ondersteuning.
+Bepaalde extensies worden niet ondersteund in alle besturingssystemen en verzendt *fout Code 51, 'Niet-ondersteund besturingssysteem'*. Raadpleeg de documentatie van de afzonderlijke-extensie voor ondersteuning.
 
 #### <a name="network-access"></a>Netwerktoegang
 
--Extensiepakketten worden gedownload vanuit de opslagplaats van de extensie Azure Storage en extensie status uploads worden gepubliceerd naar Azure Storage. Als u [ondersteund](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) versie van de agents, hoeft u niet dat toegang tot Azure Storage in het gebied van de virtuele machine als de agent kan worden gebruikt om te leiden van de communicatie naar de controller Azure-infrastructuur voor communicatie van agent. Als u van een niet-ondersteunde versie van de agent gebruikmaakt, moet u uitgaand verkeer toestaan naar Azure-opslag in deze regio van de virtuele machine.
+-Extensiepakketten zijn gedownload vanuit de opslagplaats van de extensie Azure Storage en extensie status uploaden naar Azure Storage worden geboekt. Als u [ondersteund](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) versie van de agents, hoeft u niet voor toegang tot Azure Storage in de regio van de virtuele machine, zoals de agent kan worden gebruikt zodat de communicatie worden omgeleid naar de Azure-infrastructuurcontroller voor communicatie van agent. Als u van een niet-ondersteunde versie van de agent gebruikmaakt, moet u de uitgaande toegang tot Azure storage in die regio van de virtuele machine toestaan.
 
 > [!IMPORTANT]
-> Als u toegang tot hebben geblokkeerd *168.63.129.1* met de Gast-firewall, klikt u vervolgens extensies mislukken ongeacht de bovenstaande.
+> Als u toegang tot hebben geblokkeerd *168.63.129.1* met behulp van de Gast-firewall, extensies mislukt, ongeacht de bovenstaande.
 
-Agents kunnen alleen worden gebruikt voor het downloaden van extensiepakketten en rapporteringsstatus. Bijvoorbeeld als een installatie van de extensie moet een script downloaden vanuit GitHub (aangepast Script) of moet toegang tot Azure Storage (Azure Backup), klikt u vervolgens extra firewall/netwerk beveiliging groep poorten moeten worden geopend. Verschillende extensies hebben verschillende vereisten, omdat ze toepassingen in hun eigen rechts. Voor uitbreidingen waarvoor toegang tot Azure Storage, kunt u toegang met behulp van Azure NSG Service-Tags voor [opslag](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Agents kunnen alleen worden gebruikt voor het downloaden van extensiepakketten en rapporteringsstatus. Bijvoorbeeld, als een extensie installeren moet een script downloaden vanuit GitHub (aangepast Script) of moet toegang tot Azure Storage (Azure Backup), klikt u vervolgens aanvullende firewall/Network Security Group-poorten moeten worden geopend. Verschillende extensies hebben verschillende vereisten, omdat ze toepassingen in hun eigen rechts. Voor uitbreidingen waarvoor toegang tot Azure Storage, kunt u toegang met behulp van Azure NSG servicetags voor [opslag](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
 
-De Linux-Agent heeft agent verkeer aanvragen wilt omleiden, ondersteuning voor proxyserver. Ondersteuning voor deze proxyserver geldt echter niet uitbreidingen. U moet elke afzonderlijke extensie te kunnen gebruiken met een proxy configureren.
+De Linux-Agent heeft om te leiden verkeer agentaanvragen, ondersteuning voor proxyserver. Ondersteuning voor deze proxyserver geldt echter niet extensies. U moet elke afzonderlijke extensie om te werken met een proxy configureren.
 
-## <a name="discover-vm-extensions"></a>VM-extensies detecteren
+## <a name="discover-vm-extensions"></a>Detecteren van VM-extensies
 
-Veel andere VM-extensies zijn beschikbaar voor gebruik met Azure Virtual machines. Als een volledige lijst wilt weergeven, gebruikt [az vm-extensie afbeeldingenlijst](/cli/azure/vm/extension/image#az-vm-extension-image-list). Het volgende voorbeeld worden alle beschikbare uitbreidingen in de *westus* locatie:
+Er zijn veel verschillende VM-extensies beschikbaar voor gebruik met Azure-VM's. Als een volledige lijst wilt weergeven, gebruikt [az vm extension image lijst](/cli/azure/vm/extension/image#az-vm-extension-image-list). Het volgende voorbeeld worden alle beschikbare uitbreidingen in de *westus* locatie:
 
 ```azurecli
 az vm extension image list --location westus --output table
@@ -79,13 +79,13 @@ az vm extension image list --location westus --output table
 
 ## <a name="run-vm-extensions"></a>VM-extensies worden uitgevoerd
 
-Azure VM-extensies worden uitgevoerd op de bestaande virtuele machines, die is handig als u wilt configuratiewijzigingen aanbrengen of connectiviteit op een reeds geïmplementeerde virtuele machine herstellen. VM-extensies kunnen ook worden gebundeld met implementaties van Azure Resource Manager-sjabloon. Via uitbreidingen met Resource Manager-sjablonen kunt virtuele Azure-machines worden geïmplementeerd en geconfigureerd zonder tussenkomst van de na de implementatie.
+Azure VM-extensies worden uitgevoerd op bestaande VM's, die is handig als u wilt configuratiewijzigingen aanbrengen of beschikbaar is op een reeds geïmplementeerde virtuele machine herstellen. VM-extensies kunnen ook worden gebundeld met sjabloonimplementaties van Azure Resource Manager. Met extensies met Resource Manager-sjablonen, kan virtuele machines van Azure worden geïmplementeerd en geconfigureerd zonder tussenkomst van de na de implementatie.
 
-De volgende manieren kunnen worden gebruikt voor het uitvoeren van een uitbreiding op een bestaande virtuele machine.
+De volgende methoden kunnen worden gebruikt om uit te voeren van een uitbreiding op basis van een bestaande virtuele machine.
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
-Azure VM-extensies kunnen worden uitgevoerd op basis van een bestaande virtuele machine met de [az vm-extensie set](/cli/azure/vm/extension#az-vm-extension-set) opdracht. Het volgende voorbeeld wordt de extensie voor aangepaste scripts uitgevoerd tegen een virtuele machine met de naam *myVM* in een resourcegroep met de naam *myResourceGroup*:
+Azure VM-extensies kunnen worden uitgevoerd op basis van een bestaande virtuele machine met de [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) opdracht. Het volgende voorbeeld wordt de extensie aangepast Script uitgevoerd op basis van een virtuele machine met de naam *myVM* in een resourcegroep met de naam *myResourceGroup*:
 
 ```azurecli
 az vm extension set `
@@ -96,7 +96,7 @@ az vm extension set `
   --settings '{"fileUris": ["https://raw.githubusercontent.com/me/project/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
-Wanneer de uitbreiding juist wordt uitgevoerd, wordt de uitvoer is vergelijkbaar met het volgende voorbeeld:
+Wanneer de uitbreiding correct wordt uitgevoerd, wordt de uitvoer is vergelijkbaar met het volgende voorbeeld:
 
 ```bash
 info:    Executing command vm extension set
@@ -107,17 +107,17 @@ info:    vm extension set command OK
 
 ### <a name="azure-portal"></a>Azure Portal
 
-VM-extensies kunnen worden toegepast op een bestaande virtuele machine via de Azure portal. Selecteer de virtuele machine in de portal, kies **extensies**, selecteer daarna **toevoegen**. Kies de extensie die u wilt dat in de lijst met beschikbare uitbreidingen en volg de instructies in de wizard.
+VM-extensies kunnen worden toegepast op een bestaande virtuele machine via de Azure-portal. Selecteer de virtuele machine in de portal, kiest u **extensies**en selecteer vervolgens **toevoegen**. Kies de extensie die u wilt in de lijst van beschikbare uitbreidingen en volg de instructies in de wizard.
 
-De volgende afbeelding ziet u de installatie van de extensie Linux aangepast Script van de Azure-portal:
+De volgende afbeelding ziet u de installatie van de Linux-aangepaste scriptextensie van Azure portal:
 
-![Extensie voor aangepaste scripts installeren](./media/features-linux/installscriptextensionlinux.png)
+![Aangepaste scriptextensie te installeren](./media/features-linux/installscriptextensionlinux.png)
 
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-sjablonen
 
-VM-extensies worden toegevoegd aan een Azure Resource Manager-sjabloon en uitgevoerd met de implementatie van de sjabloon. Wanneer u een uitbreiding met een sjabloon implementeert, kunt u volledig geconfigureerde Azure-implementaties. Bijvoorbeeld is de volgende JSON afkomstig van een Resource Manager-sjabloon die u implementeert een set van netwerktaakverdeling VM's en een Azure SQL database en vervolgens installeert een .NET Core-toepassing op elke virtuele machine. De VM-extensie zorgt voor de software-installatie.
+VM-extensies kunnen worden toegevoegd aan een Azure Resource Manager-sjabloon en uitgevoerd met de implementatie van de sjabloon. Wanneer u een uitbreiding met een sjabloon implementeert, kunt u volledig geconfigureerde Azure-implementaties maken. Bijvoorbeeld, is de volgende JSON afkomstig uit een Resource Manager-sjabloon die een set virtuele machines met load balancing en een Azure SQL-database wordt geïmplementeerd, en vervolgens een .NET Core-toepassing wordt geïnstalleerd op elke virtuele machine. De VM-extensie zorgt dat de software-installatie.
 
-Voor meer informatie raadpleegt u de volledige [Resource Manager-sjabloon](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
+Zie voor meer informatie, de volledige [Resource Manager-sjabloon](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
 ```json
 {
@@ -148,13 +148,13 @@ Voor meer informatie raadpleegt u de volledige [Resource Manager-sjabloon](https
 }
 ```
 
-Zie voor meer informatie over het maken van Resource Manager-sjablonen [Azure Resource Manager-sjablonen samenstellen](../windows/template-description.md#extensions).
+Zie voor meer informatie over het maken van Resource Manager-sjablonen [Authoring Azure Resource Manager-sjablonen](../windows/template-description.md#extensions).
 
-## <a name="secure-vm-extension-data"></a>Beveiligde gegevens van de VM-extensie
+## <a name="secure-vm-extension-data"></a>VM-extensie-gegevens beveiligen
 
-Wanneer u een VM-extensie uitvoert, is het mogelijk nodig is met gevoelige informatie zoals referenties, namen van opslagaccounts en toegangssleutels voor opslag-account. Veel VM-extensies bevatten een beveiligde configuratie die gegevens versleutelt en ontsleutelt deze alleen binnen het doel-virtuele machine. Elke uitbreiding heeft een specifieke beveiligde configuratieschema en elk wordt beschreven in de uitbreiding specifieke documentatie bij.
+Wanneer u een VM-extensie uitvoert, is het mogelijk dat het nodig zijn voor gevoelige informatie zoals referenties, namen van opslagaccounts en opslagaccountsleutels. Veel VM-extensies bevatten een beveiligde configuratie die gegevens versleutelt en ontsleutelt deze alleen in de doel-VM. Elke uitbreiding heeft een specifieke beveiligde configuratieschema en elk wordt beschreven in de extensie-specifieke documentatie bij.
 
-Het volgende voorbeeld ziet een exemplaar van de aangepaste scriptextensie voor Linux. De opdracht uit te voeren bevat een set referenties. In dit voorbeeld wordt de opdracht wordt uitgevoerd niet versleuteld:
+Het volgende voorbeeld ziet een exemplaar van de aangepaste scriptextensie voor Linux. De opdracht om uit te voeren bevat een set referenties. In dit voorbeeld wordt de opdracht om uit te voeren niet versleuteld:
 
 ```json
 {
@@ -183,7 +183,7 @@ Het volgende voorbeeld ziet een exemplaar van de aangepaste scriptextensie voor 
 }
 ```
 
-Het verplaatsen van de **opdracht wordt uitgevoerd** eigenschap in op de **beveiligd** configuratie beveiligt de tekenreeks kan worden uitgevoerd, zoals wordt weergegeven in het volgende voorbeeld:
+Het verplaatsen van de **opdracht om uit te voeren** eigenschap in op de **beveiligd** configuratie beveiligt de tekenreeks kan worden uitgevoerd, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```json
 {
@@ -214,34 +214,34 @@ Het verplaatsen van de **opdracht wordt uitgevoerd** eigenschap in op de **bevei
 }
 ```
 
-### <a name="how-do-agents-and-extensions-get-updated"></a>Hoe agents en -uitbreidingen bijgewerkt?
+### <a name="how-do-agents-and-extensions-get-updated"></a>Hoe agents en -extensies bijgewerkt?
 
-De Agents en -extensies delen de dezelfde updatemechanisme. Sommige updates vereisen geen extra firewallregels.
+De Agents en -extensies delen de dezelfde updatemechanisme. Sommige updates vereisen geen aanvullende firewallregels.
 
-Wanneer een update beschikbaar is, wordt deze alleen geïnstalleerd op de virtuele machine wanneer er een wijziging in de uitbreidingen en andere wijzigingen van de VM-Model, zoals:
+Wanneer een update beschikbaar is, is deze alleen geïnstalleerd op de virtuele machine wanneer er een wijziging naar uitbreidingen en andere wijzigingen in het gegevensmodel van de virtuele machine, zoals:
 
 - Gegevensschijven
 - Extensies
 - Boot diagnostics container
-- Gastbesturingssysteem geheimen
+- Gast-OS-geheimen
 - VM-grootte
 - Netwerkprofiel
 
-Uitgevers stellen updates beschikbaar te regio's op verschillende tijdstippen, zodat het mogelijk dat u kunt virtuele machines in verschillende regio's op verschillende versies hebben.
+Uitgevers stellen updates beschikbaar aan regio's op verschillende tijdstippen, zodat het mogelijk dat u kunt virtuele machines in verschillende regio's op verschillende versies hebben.
 
-#### <a name="agent-updates"></a>Agent-updates
+#### <a name="agent-updates"></a>Agentupdates
 
-De Linux VM-Agent bevat *inrichting Agent Code* en *code afhandeling van extensie* in één pakket, dat niet kan worden gescheiden. U kunt uitschakelen de *inrichting Agent* wanneer u wilt inrichten op Azure met behulp van cloud-init. Om dit te doen, Zie [met behulp van cloud-init](../linux/using-cloud-init.md).
+De VM-Agent voor Linux bevat *Agentcode inrichting* en *code-extensie verwerken* in één pakket, dat niet kan worden gescheiden. U kunt uitschakelen de *Agent ingericht* wanneer u wilt inrichten op Azure met behulp van cloud-init. Om dit te doen, Zie [cloud-init gebruiken](../linux/using-cloud-init.md).
 
-Ondersteunde versies van de Agents kunnen automatische updates gebruiken. De alleen-code die kan worden bijgewerkt is de *code afhandeling van extensie*, niet de inrichting code. De *inrichting Agent code* code eenmaal wordt uitgevoerd.
+Ondersteunde versies van de Agents kunnen automatische updates gebruiken. De enige code die kan worden bijgewerkt is de *code-extensie verwerken*, niet de inrichting code. De *inrichting agentcode* code is eenmalig worden uitgevoerd.
 
-De *code afhandeling van extensie* verantwoordelijk is voor communicatie met de Azure-infrastructuur en verwerken van de VM-extensies bewerkingen, zoals is geïnstalleerd, rapportage over de status, de afzonderlijke uitbreidingen bijgewerkt en deze te verwijderen. Updates bevatten beveiligingsverbeteringen, oplossingen voor problemen en verbeteringen van de *code afhandeling van extensie*.
+De *code-extensie verwerken* verantwoordelijk is voor communicatie met de Azure-infrastructuur en de afhandeling van de VM-extensies-bewerkingen, zoals is geïnstalleerd, die de status, de afzonderlijke uitbreidingen bijwerken en verwijderen. Updates bevatten oplossingen, oplossingen voor problemen en verbeteringen in de *code-extensie verwerken*.
 
-Wanneer de agent is geïnstalleerd, wordt een bovenliggende-daemon wordt gemaakt. Deze bovenliggende gestart vervolgens een onderliggend proces dat wordt gebruikt voor het afhandelen van extensies. Als een update beschikbaar is voor de agent, deze is gedownload, de bovenliggende stopt het onderliggende proces, upgrade van deze en start deze opnieuw op. Moet er een probleem met de update, het bovenliggende proces is teruggedraaid naar de vorige versie van de onderliggende.
+Wanneer de agent is geïnstalleerd, wordt een bovenliggende-daemon wordt gemaakt. Een onderliggend proces dat wordt gebruikt voor het afhandelen van extensies wordt vervolgens gestart door dit bovenliggende item. Als een update beschikbaar is voor de agent, het is gedownload, de bovenliggende stopt met het onderliggende proces, deze upgrades en start deze opnieuw op. Moet er een probleem met de update, teruggedraaid het bovenliggende proces naar de vorige versie van de onderliggende.
 
-Het bovenliggende proces kan niet automatisch bijgewerkt. Het bovenliggende object kan alleen worden bijgewerkt door een pakketupdate distro.
+Het bovenliggende proces mag niet automatisch bijgewerkt. De bovenliggende kan alleen worden bijgewerkt door een pakketupdate distributie.
 
-Als u wilt controleren welke versie u uitvoert, Controleer de `waagent` als volgt:
+Als u wilt controleren welke versie u gebruikt, controleert u de `waagent` als volgt:
 
 ```bash
 waagent --version
@@ -255,15 +255,15 @@ Python: 3.5.2
 Goal state agent: 2.2.18
 ```
 
-In het voorgaande voorbeeld van uitvoer is de bovenliggende of 'pakket geïmplementeerd versie' *WALinuxAgent 2.2.17*
+In het voorgaande van de voorbeelduitvoer is de bovenliggende of 'pakket geïmplementeerd versie' *WALinuxAgent 2.2.17*
 
 De 'doel status agent' is de versie van de update automatisch.
 
-Het is raadzaam dat u altijd automatisch bijwerken voor de agent hebben [AutoUpdate.Enabled=y](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent). Niet dat deze ingeschakeld betekent dat u wilt bewaren handmatig bijwerken van de agent en oplossingen voor oplossingen en -beveiliging niet ophalen.
+Het is raadzaam dat u altijd automatisch bijwerken voor de agent hebt [AutoUpdate.Enabled=y](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent). Niet dat u hoeft dit ingeschakelde betekent dat die u wilt houden handmatig bijwerken van de agent, en oplossingen voor bugs en beveiliging niet ophalen.
 
 #### <a name="extension-updates"></a>Extensie-updates
 
-Wanneer een uitbreidingsupdate beschikbaar is, wordt de Linux-Agent downloadt en upgrades van de extensie. Automatische verlenging updates zijn *secundaire* of *Hotfix*. U kunt aanmelden of afmelden extensies *secundaire* bijgewerkt wanneer u de extensie inrichten. Het volgende voorbeeld ziet u het automatisch bijwerken van secundaire versies in Resource Manager-sjabloon met *autoUpgradeMinorVersion ': true,'*:
+Wanneer een update van de extensie beschikbaar is, wordt de Linux-Agent downloadt en de extensie wordt bijgewerkt. Automatische verlenging updates zijn *kleine* of *Hotfix*. U kunt aanmelden of afmelden voor extensies *kleine* bijgewerkt wanneer u de extensie inrichten. Het volgende voorbeeld ziet u het automatisch upgraden van secundaire versies in Resource Manager-sjabloon met *autoUpgradeMinorVersion ': ' True ','*:
 
 ```json
     "publisher": "Microsoft.Azure.Extensions",
@@ -277,19 +277,19 @@ Wanneer een uitbreidingsupdate beschikbaar is, wordt de Linux-Agent downloadt en
     },
 ```
 
-Als u de nieuwste secundaire versie oplossingen voor problemen, is het raadzaam dat u altijd automatisch bijwerken in uw implementaties extensie selecteren. Hotfix-updates die beveiligings- of sleutel bugfixes uitvoeren kunnen niet worden heeft zich afgemeld.
+Als u de nieuwste secundaire versie oplossingen voor problemen, is het raadzaam dat u altijd automatisch bijwerken in uw extensie-implementaties selecteren. Hotfix-updates die beveiligings- of sleutel bugfixes uitvoeren kunnen niet worden afgemeld.
 
 ### <a name="how-to-identify-extension-updates"></a>Extensie updates identificeren
 
-#### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Bepalen of de uitbreiding met autoUpgradeMinorVersion is ingesteld op een virtuele machine
+#### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Als de extensie met autoUpgradeMinorVersion is ingesteld op een virtuele machine identificeren
 
-U kunt zien uit het model van de virtuele machine als de extensie is ingericht met 'autoUpgradeMinorVersion'. Gebruiken om te controleren, [az vm weergeven](/cli/azure/vm#az-vm-show) en geef de resourcegroep en de VM naam als volgt:
+U kunt zien uit het model van de virtuele machine als de extensie is ingericht met 'autoUpgradeMinorVersion'. Als u wilt controleren, gebruikt u [az vm show](/cli/azure/vm#az-vm-show) en geef de resourcegroep en VM naam als volgt:
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM
 ```
 
-De volgende voorbeelduitvoer wordt weergegeven die *autoUpgradeMinorVersion* is ingesteld op *true*:
+De volgende voorbeelduitvoer ziet u dat *autoUpgradeMinorVersion* is ingesteld op *waar*:
 
 ```json
   "resources": [
@@ -299,11 +299,11 @@ De volgende voorbeelduitvoer wordt weergegeven die *autoUpgradeMinorVersion* is 
       "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM/extensions/CustomScriptExtension",
 ```
 
-#### <a name="identifying-when-an-autoupgrademinorversion-occurred"></a>Om te identificeren wanneer een autoUpgradeMinorVersion opgetreden
+#### <a name="identifying-when-an-autoupgrademinorversion-occurred"></a>Wanneer een autoUpgradeMinorVersion opgetreden identificeren
 
-Logboeken wilt zien wanneer een update voor de uitbreiding is opgetreden, Controleer de agent op de virtuele machine op */var/log/waagent.log*.
+Om te zien wanneer een update voor de extensie is opgetreden, controleert u de agent-logboeken op de virtuele machine op */var/log/waagent.log*.
 
-In het volgende voorbeeld wordt de virtuele machine had *Microsoft.OSTCExtensions.LinuxDiagnostic 2.3.9025* geïnstalleerd. Er is een hotfix beschikbaar om te *Microsoft.OSTCExtensions.LinuxDiagnostic 2.3.9027*:
+In het volgende voorbeeld wordt de virtuele machine was *Microsoft.OSTCExtensions.LinuxDiagnostic 2.3.9025* geïnstalleerd. Er is een hotfix beschikbaar voor *Microsoft.OSTCExtensions.LinuxDiagnostic 2.3.9027*:
 
 ```bash
 INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Expected handler state: enabled
@@ -324,35 +324,35 @@ INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Launch command:diagnost
 2017/08/14 20:21:57 LinuxAzureDiagnostic started to handle.
 ```
 
-## <a name="agent-permissions"></a>Agent machtigingen
+## <a name="agent-permissions"></a>Agent-machtigingen
 
-Voor het uitvoeren van de taken, de agent moet worden uitgevoerd als *hoofdmap*.
+Als u wilt de taken uitvoert, wordt de agent moet uit te voeren als *hoofdmap*.
 
-## <a name="troubleshoot-vm-extensions"></a>VM-extensies oplossen
+## <a name="troubleshoot-vm-extensions"></a>Problemen met VM-extensies oplossen
 
-Elk VM-extensie mogelijk naar de extensie specifieke stappen voor probleemoplossing. Bijvoorbeeld, wanneer u de extensie voor aangepaste scripts, script uitvoering details zijn te vinden lokaal op de virtuele machine waar de extensie is uitgevoerd. Probleemoplossing-extensie-specifieke worden beschreven in de documentatie van de extensie-specifieke.
+Elke VM-extensie kan hebben op de extensie voor specifieke stappen voor probleemoplossing. Bijvoorbeeld, wanneer u de aangepaste scriptextensie gebruikt, uitvoeringsdetails voor script vindt u lokaal op de virtuele machine waar de extensie is uitgevoerd. Probleemoplossing-extensie-specifieke worden beschreven in de extensie-specifieke documentatie bij.
 
-De volgende stappen van toepassing op alle VM-extensies.
+De volgende stappen voor probleemoplossing van toepassing op alle VM-extensies.
 
-1. Als u wilt controleren in het logboek van de Linux-Agent, de activiteit kijken wanneer de uitbreiding is ingericht in */var/log/waagent.log*
+1. Om te controleren of het logboek van de Linux-Agent, de activiteit kijken wanneer de extensie is ingericht in */var/log/waagent.log*
 
-2. Raadpleeg de logboeken van de werkelijke extensie voor meer informatie in   */var/aanmelden/azure /<extensionName>*
+2. Raadpleeg de werkelijke extensie-logboeken voor meer informatie in   */var/aanmelden/azure /<extensionName>*
 
-3. Raadpleeg de documentatie van de extensie-specifieke probleemoplossing secties voor foutcodes, bekende problemen, enzovoort.
+3. Raadpleeg de documentatie van extensie-specifieke secties voor foutcodes, bekende problemen enzovoort oplossen van problemen.
 
-3. Bekijk de systeemlogboeken. Controleer of er andere bewerkingen die mogelijk met de extensie, zoals een langdurige installatie van een andere toepassing die exclusieve package manager toegang nodig hebben verstoord.
+3. Bekijk de systeemlogboeken. Controleer voor andere bewerkingen die met de extensie in, zoals een langdurige installatie van een andere toepassing die exclusieve package manager toegang vereiste mag hebben verstoord.
 
-### <a name="common-reasons-for-extension-failures"></a>Veelvoorkomende redenen voor uitbreiding fouten
+### <a name="common-reasons-for-extension-failures"></a>Veelvoorkomende redenen voor extensies oplossen
 
-1. Uitbreidingen moeten 20 minuten om uit te voeren (uitzonderingen zijn de extensies CustomScript, Chef en DSC waarvoor 90 minuten). Als uw implementatie ditmaal overschrijdt, wordt dit is gemarkeerd als een time-out. De oorzaak hiervan kan zijn veroorzaakt door onvoldoende bronnen virtuele machines, andere VM configuraties/opstarten taken hoge hoeveelheden resource gebruiken terwijl de uitbreiding wordt geprobeerd om in te richten.
+1. Extensies zijn 20 minuten om uit te voeren (uitzonderingen zijn de CustomScript-extensies, Chef en DSC waarvoor 90 minuten). Als uw implementatie van dit moment overschrijdt, wordt deze gemarkeerd als een time-out. De oorzaak hiervan kan worden veroorzaakt door onvoldoende bronnen virtuele machines, andere VM-configuraties/starten van de taken die grote hoeveelheden resource verbruikt, terwijl de extensie wordt geprobeerd om in te richten.
 
-2. Minimale vereisten niet voldaan aan. Bepaalde extensies zijn afhankelijk van VM-SKU's, zoals HPC-installatiekopieën. Uitbreidingen mogelijk bepaalde netwerken toegangsvereisten, zoals communicatie met Azure Storage of openbare services. Andere voorbeelden mogelijk toegang tot het pakket, onvoldoende schijfruimte of beveiligingsbeperkingen opslagplaatsen.
+2. Minimale vereisten niet voldaan aan. Aantal extensies zijn afhankelijk van VM-SKU's, zoals HPC-afbeeldingen. Extensies mogelijk bepaalde netwerken vereisten voor gegevenstoegang, zoals communicatie met Azure Storage of openbare services. Andere voorbeelden mogelijk toegang tot de pakket-opslagplaatsen, onvoldoende schijfruimte of beveiligingsbeperkingen.
 
-3. Exclusieve package manager toegang. In sommige gevallen kunnen optreden een langdurige VM-configuratie en installatie van de extensie conflicterende, waar ze beide exclusieve toegang tot de package manager nodig.
+3. Exclusieve package manager-toegang. In sommige gevallen kunnen optreden een langlopende VM-configuratie en installatie van de extensie conflicterende, waar ze beide exclusieve toegang tot de package manager nodig.
 
 ### <a name="view-extension-status"></a>Status van de extensie weergeven
 
-Nadat u een VM-extensie is uitgevoerd voor een virtuele machine, gebruikt u [az vm get--instantieweergave](/cli/azure/vm#az-vm-get-instance-view) om terug te keren status van extensie als volgt:
+Nadat een VM-extensie is uitgevoerd op basis van een virtuele machine, gebruikt u [az vm get-instance-view](/cli/azure/vm#az-vm-get-instance-view) om terug te keren status van de extensie als volgt:
 
 ```azurecli
 az vm get-instance-view \
@@ -381,11 +381,11 @@ De uitvoer is vergelijkbaar met de volgende voorbeelduitvoer:
   }
 ```
 
-Status van extensie-uitvoering kan worden gevonden in de Azure portal. Om weer te geven de status van een uitbreiding, selecteert u de virtuele machine, kiest u **extensies**, selecteert u de gewenste extensie.
+Uitvoeringsstatus van de extensie kan ook worden gevonden in Azure portal. Als u wilt weergeven van de status van een uitbreiding, selecteer de virtuele machine, kiest u **extensies**, selecteert u de gewenste extensie.
 
-### <a name="rerun-a-vm-extension"></a>Voer een VM-extensie
+### <a name="rerun-a-vm-extension"></a>Opnieuw uitvoeren van een VM-extensie
 
-Mogelijk zijn er gevallen waarin een VM-extensie moet opnieuw worden gestart. U kunt een uitbreiding opnieuw uitvoeren te verwijderen en vervolgens opnieuw uit te voeren de uitbreiding met een methode van de uitvoering van uw keuze. U kunt een uitbreiding met [az vm-extensie verwijderen](/cli/azure/vm/extension#az-vm-extension-delete) als volgt:
+Mogelijk zijn er gevallen waarin een VM-extensie moet opnieuw worden gestart. U kunt een uitbreiding opnieuw uitvoeren door deze te verwijderen en vervolgens opnieuw uit te voeren de extensie met een methode van de uitvoering van uw keuze. U kunt een extensie verwijderen [az vm extension delete](/cli/azure/vm/extension#az-vm-extension-delete) als volgt:
 
 ```azurecli
 az vm extension delete \
@@ -394,22 +394,22 @@ az vm extension delete \
     --name customScript
 ```
 
-U kunt ook verwijderen extensie in de Azure portal als volgt:
+U kunt ook verwijderen een extensie in de Azure-portal als volgt:
 
 1. Selecteer een virtuele machine.
 2. Kies **extensies**.
 3. Selecteer de gewenste extensie.
 4. Kies **verwijderen**.
 
-## <a name="common-vm-extension-reference"></a>Algemene referentie voor VM-extensie
+## <a name="common-vm-extension-reference"></a>Algemene VM-extensie-referentie
 
-| Naam van de uitbreiding | Beschrijving | Meer informatie |
+| Extensienaam | Beschrijving | Meer informatie |
 | --- | --- | --- |
-| Extensie voor aangepaste scripts voor Linux |Scripts uitvoeren op een virtuele machine van Azure |[Extensie voor aangepaste scripts voor Linux](custom-script-linux.md) |
-| VM-extensie voor toegang |Weer toegang tot een virtuele machine van Azure |[VM-extensie voor toegang](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
-| Azure extensie voor diagnostische gegevens |Azure Diagnostics beheren |[Azure extensie voor diagnostische gegevens](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| De extensie Azure VM-toegang |Gebruikers en referenties beheren |[Uitbreiding van de VM-toegang voor Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Aangepaste scriptextensie voor Linux |Scripts uitvoeren op een virtuele machine van Azure |[Aangepaste scriptextensie voor Linux](custom-script-linux.md) |
+| VM-extensie voor toegang |Opnieuw toegang krijgen tot een virtuele machine van Azure |[VM-extensie voor toegang](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
+| Azure Diagnostics-extensie |Beheren van Azure Diagnostics |[Azure Diagnostics-extensie](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
+| Azure-extensie voor VM-toegang |Beheren van gebruikers en referenties |[Extensie voor Linux-VM-toegang](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de VM-extensies [virtuele machine van Azure-extensies en functies overzicht](overview.md).
+Zie voor meer informatie over VM-extensies, [overzicht van de extensies en functies van de virtuele machine van Azure](overview.md).

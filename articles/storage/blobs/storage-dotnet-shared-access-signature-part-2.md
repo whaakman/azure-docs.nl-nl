@@ -1,53 +1,48 @@
 ---
-title: Maken en een shared access signature (SAS) gebruiken met Azure Blob storage | Microsoft Docs
-description: Deze zelfstudie ziet u het maken van handtekeningen voor gedeelde toegang voor gebruik met Blob storage en ze gebruiken in uw clienttoepassingen.
+title: Maken en een shared access signature (SAS) gebruiken met Azure Blob-opslag | Microsoft Docs
+description: Deze zelfstudie leert u over het maken van handtekeningen voor gedeelde toegang voor gebruik met Blob-opslag, en u deze consumeert in uw client-toepassingen.
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: 491e0b3c-76d4-4149-9a80-bbbd683b1f3e
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: dotnet
 ms.topic: article
+ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
-ms.openlocfilehash: 9dde12acde748c48b56f9f96ee772fca49954358
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.component: blobs
+ms.openlocfilehash: 6546553fa3537ac63d956dc5febfd77efe9fd34d
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873210"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400397"
 ---
-# <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Shared Access Signatures, deel 2: Maken en gebruiken van een SAS met Blob-opslag
+# <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Shared Access Signatures, deel 2: Maken en een SAS gebruiken met Blob-opslag
 
-[Deel 1](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) shared access signatures (SAS) van deze zelfstudie verkend en aanbevolen procedures voor het gebruik ervan beschreven. Deel 2 ziet u hoe genereren en vervolgens handtekeningen voor gedeelde toegang gebruiken met Blob storage. De voorbeelden zijn geschreven in C# en gebruiken van de Azure Storage-clientbibliotheek voor .NET. De voorbeelden in deze zelfstudie:
+[Deel 1](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) shared access signatures (SAS) van deze zelfstudie verkend en beschreven aanbevolen procedures voor het gebruik ervan. Deel 2 ziet u hoe te genereren en vervolgens handtekeningen voor gedeelde toegang gebruiken met Blob-opslag. De voorbeelden zijn geschreven in C# en de Azure Storage-clientbibliotheek voor .NET gebruiken. De voorbeelden in deze zelfstudie:
 
-* Een shared access signature in een container genereren
-* Een shared access signature op een blob genereren
-* Maak een opgeslagen-beleid voor het beheren van handtekeningen in een container resources
-* De handtekeningen voor gedeelde toegang testen in een clienttoepassing
+* Genereren van een shared access signature voor een container
+* Genereren van een shared access signature voor een blob
+* Een opgeslagen toegangsbeleid voor het beheren van handtekeningen voor resources van een container maken
+* Testen van de handtekeningen voor gedeelde toegang in een clienttoepassing
 
 ## <a name="about-this-tutorial"></a>Over deze zelfstudie
-In deze zelfstudie maken we twee consoletoepassingen die laten zien maken en gebruiken van handtekeningen voor gedeelde toegang voor containers en blobs:
+In deze zelfstudie maken we twee consoletoepassingen die laten zien van het maken en gebruiken van handtekeningen voor gedeelde toegang voor containers en blobs:
 
-**1 toepassing**: de management-toepassing. Genereert een shared access signature voor een container en een blob. De toegangssleutel voor opslagaccount bevat in de broncode.
+**Toepassing 1**: de management-toepassing. Genereert een shared access signature voor een container en een blob. De toegangssleutel voor opslagaccount bevat in de broncode.
 
-**Toepassing 2**: de clienttoepassing. Toegang tot een container en blob resources met behulp van de handtekeningen voor gedeelde toegang gemaakt met de eerste toepassing. Maakt gebruik van alleen de handtekeningen voor gedeelde toegang tot access container en bronnen van de blob--wordt *niet* de toegangssleutel voor opslagaccount bevatten.
+**Toepassing 2**: de clienttoepassing. Toegang tot container- en blobnaam resources met behulp van de handtekeningen voor gedeelde toegang gemaakt met de eerste toepassing. Maakt gebruik van alleen de handtekeningen voor gedeelde toegang tot toegang tot container en blobbronnen--doet *niet* de toegangssleutel voor opslagaccount bevatten.
 
 ## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>Deel 1: Maak een consoletoepassing voor het genereren van handtekeningen voor gedeelde toegang
-Eerst, zorg ervoor dat u de Azure Storage-clientbibliotheek voor .NET is geïnstalleerd. U kunt installeren de [NuGet-pakket](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet-pakket") met de meest recente assembly's voor de clientbibliotheek. Dit is de aanbevolen methode om ervoor te zorgen dat u de meest recente oplossingen hebt. U kunt ook de clientbibliotheek downloaden als onderdeel van de meest recente versie van de [Azure SDK voor .NET](https://azure.microsoft.com/downloads/).
+Eerst voor zorgen dat u de Azure Storage-clientbibliotheek voor .NET geïnstalleerd hebt. U kunt installeren de [NuGet-pakket](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet-pakket") met de meest recente assembly's voor de clientbibliotheek. Dit is de aanbevolen methode om ervoor te zorgen dat u de meest recente oplossingen hebt. U kunt ook de clientbibliotheek downloaden als onderdeel van de meest recente versie van de [Azure SDK voor .NET](https://azure.microsoft.com/downloads/).
 
-Maak een nieuwe Windows-consoletoepassing in Visual Studio en noem deze **GenerateSharedAccessSignatures**. Voeg verwijzingen naar [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) en [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) met behulp van een van de volgende methoden:
+Maak een nieuwe Windows-consoletoepassing in Visual Studio en noem dit **GenerateSharedAccessSignatures**. Verwijzingen toevoegen aan [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) en [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/) met behulp van een van de volgende methoden:
 
-* Gebruik de [NuGet-Pakketbeheer](https://docs.nuget.org/consume/installing-nuget) in Visual Studio. Selecteer **Project** > **NuGet-pakketten beheren**, online zoeken naar elk pakket (Microsoft.WindowsAzure.ConfigurationManager en WindowsAzure.Storage) en deze installeren.
-* U kunt ook deze assembly's in uw installatie van de Azure SDK en voeg verwijzingen ernaar toe:
+* Gebruik de [NuGet-Pakketbeheer](https://docs.nuget.org/consume/installing-nuget) in Visual Studio. Selecteer **Project** > **NuGet-pakketten beheren**, zoek online naar elk pakket (Microsoft.WindowsAzure.ConfigurationManager en WindowsAzure.Storage) en deze installeren.
+* U kunt ook deze assembly's in de installatie van de Azure SDK en verwijzingen naar deze toevoegen:
   * Microsoft.WindowsAzure.Configuration.dll
   * Microsoft.WindowsAzure.Storage.dll
 
-Voeg het volgende toe aan de bovenkant van het bestand Program.cs **met** richtlijnen:
+Voeg het volgende toe aan de bovenkant van het bestand Program.cs **met behulp van** richtlijnen:
 
 ```csharp
 using System.IO;
@@ -56,7 +51,7 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 ```
 
-Bewerk het bestand app.config zodat deze een configuratie-instelling met een verbindingsreeks die naar uw opslagaccount verwijst bevat. Het bestand app.config moet er ongeveer als deze zijn:
+Bewerk het bestand app.config zodat deze een configuratie-instelling met een verbindingsreeks die naar uw storage-account verwijst bevat. Het bestand app.config moet op deze als volgt uitzien:
 
 ```xml
 <configuration>
@@ -69,10 +64,10 @@ Bewerk het bestand app.config zodat deze een configuratie-instelling met een ver
 </configuration>
 ```
 
-### <a name="generate-a-shared-access-signature-uri-for-a-container"></a>Een shared access signature URI voor een container genereren
-Allereerst toevoegen we een methode voor het genereren van een shared access signature voor een nieuwe container. De handtekening is in dit geval niet gekoppeld aan een opgeslagen-beleid, zodat zij de informatie die de verlooptijd en de machtigingen die hij verleent aangeeft uitoefenen op de URI.
+### <a name="generate-a-shared-access-signature-uri-for-a-container"></a>Genereren van een shared access signature URI voor een container
+Begint met, voegen we een methode voor het genereren van een shared access signature voor een nieuwe container. De handtekening is in dit geval niet gekoppeld aan een opgeslagen toegangsbeleid, zodat zij werkzaam in de URI de informatie die de verlooptijd en de machtigingen die hij verleent aangeeft.
 
-Voeg eerst de code voor de **Main()** methode voor het verifiëren van toegang tot uw storage-account en een nieuwe container maken:
+Eerst, voeg code toe aan de **Main()** methode voor het machtigen van toegang tot uw storage-account en een nieuwe container maken:
 
 ```csharp
 static void Main(string[] args)
@@ -94,7 +89,7 @@ static void Main(string[] args)
 }
 ```
 
-Vervolgens voegt u een methode die de shared access signature voor de container genereert en retourneert de URI van de handtekening:
+Vervolgens voegt u een methode die de shared access signature voor de container genereert en retourneert de handtekening URI toe:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -113,7 +108,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 }
 ```
 
-De volgende regels toevoegen aan de onderkant van de **Main()** voordat de aanroep van methode **Console.ReadLine()**, om aan te roepen **GetContainerSasUri()** en de handtekening URI schrijven naar het consolevenster:
+Voeg de volgende regels toe aan de onderkant van de **Main()** voordat de aanroep van methode **Console.ReadLine()**, om aan te roepen **GetContainerSasUri()** en schrijven van de handtekening URI naar de consolevenster:
 
 ```csharp
 //Generate a SAS URI for the container, without a stored access policy.
@@ -121,18 +116,18 @@ Console.WriteLine("Container SAS URI: " + GetContainerSasUri(container));
 Console.WriteLine();
 ```
 
-Compileren en uitvoeren als u wilt uitvoeren van de shared access signature URI voor de nieuwe container. De URI is vergelijkbaar met het volgende:
+Compileren en uitvoeren als u wilt uitvoeren van de shared access signature URI voor de nieuwe container. De URI zijn die vergelijkbaar is met het volgende:
 
 ```
 https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2013-04-13T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3D
 ```
 
-Zodra u de code hebt uitgevoerd, zijn de shared access signature die u hebt gemaakt voor de container zijn geldig voor de eerstvolgende 24 uur. De handtekening verleent een client-machtigingen voor de lijst met blobs in de container en nieuwe blobs schrijven naar de container.
+Nadat u de code hebt uitgevoerd, zijn de shared access signature die u hebt gemaakt voor de container zijn geldig voor de volgende 24 uur. De handtekening een client een machtiging verleend voor blobs weergeven in de container en het schrijven van nieuwe blobs naar de container.
 
-### <a name="generate-a-shared-access-signature-uri-for-a-blob"></a>Een shared access signature URI voor een blob genereren
-Vervolgens schrijven we vergelijkbare code voor het maken van een nieuwe blob in de container en een shared access signature genereren voor. Deze shared access signature is niet gekoppeld aan een opgeslagen-beleid, zodat deze de begintijd, de verlooptijd en de machtigingsinformatie in de URI bevat.
+### <a name="generate-a-shared-access-signature-uri-for-a-blob"></a>Genereren van een shared access signature URI voor een blob
+Vervolgens schrijven we met vergelijkbare code voor het maken van een nieuwe blob in de container en een shared access signature genereren voor het. Deze shared access signature is niet gekoppeld aan een opgeslagen toegangsbeleid, zodat deze de begintijd, verlooptijd en machtigingsinformatie in de URI bevat.
 
-Voeg een nieuwe methode die u maakt een nieuwe blob en wat tekst, schrijft vervolgens genereert een shared access signature en retourneert de URI van de handtekening:
+Voeg een nieuwe methode die wordt een nieuwe blob gemaakt en geschreven tekst, en vervolgens genereert een shared access signature en retourneert de handtekening URI toe:
 
 ```csharp
 static string GetBlobSasUri(CloudBlobContainer container)
@@ -161,7 +156,7 @@ static string GetBlobSasUri(CloudBlobContainer container)
 }
 ```
 
-Aan de onderkant van de **Main()** methode, voeg de volgende regels om aan te roepen **GetBlobSasUri()**, voordat de aanroep van **Console.ReadLine()**, en de shared access signature URI schrijven naar het consolevenster:
+Aan de onderkant van de **Main()** methode, voeg de volgende regels om aan te roepen **GetBlobSasUri()**, voordat de aanroep van **Console.ReadLine()**, en de shared access signature schrijven De URI in het consolevenster:
 
 ```csharp
 //Generate a SAS URI for a blob within the container, without a stored access policy.
@@ -169,22 +164,22 @@ Console.WriteLine("Blob SAS URI: " + GetBlobSasUri(container));
 Console.WriteLine();
 ```
 
-Compileren en uitvoeren als u wilt uitvoeren van de shared access signature URI voor de nieuwe blob. De URI is vergelijkbaar met het volgende:
+Compileren en uitvoeren als u wilt uitvoeren van de shared access signature URI voor de nieuwe blob. De URI zijn die vergelijkbaar is met het volgende:
 
 ```
 https://storageaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2012-02-12&st=2013-04-12T23%3A37%3A08Z&se=2013-04-13T00%3A12%3A08Z&sr=b&sp=rw&sig=dF2064yHtc8RusQLvkQFPItYdeOz3zR8zHsDMBi4S30%3D
 ```
 
-### <a name="create-a-stored-access-policy-on-the-container"></a>Een opgeslagen toegangsbeleid maken op de container
-Nu gaan we een opgeslagen toegangsbeleid maken op de container waarin de beperkingen voor alle handtekeningen voor gedeelde toegang die gekoppeld zijn.
+### <a name="create-a-stored-access-policy-on-the-container"></a>Een opgeslagen toegangsbeleid voor de container maken
+Nu gaan we een opgeslagen toegangsbeleid maken op de container, zodat de beperkingen voor alle handtekeningen voor gedeelde toegang die gekoppeld aan deze zijn definieert.
 
-In de voorgaande voorbeelden we opgegeven de begintijd (impliciet of expliciet), de verlooptijd en de machtigingen voor de shared access signature URI zelf. In de volgende voorbeelden opgeven we deze op het opgeslagen toegangsbeleid en niet op de shared access signature. In dat geval kan wij deze beperkingen wijzigen zonder het opnieuw uitgeven van de shared access signature.
+In de vorige voorbeelden, we hebben opgegeven de begintijd (impliciet of expliciet), de verlooptijd en de machtigingen op de shared access signature URI zelf. In de volgende voorbeelden Geef deze op het opgeslagen toegangsbeleid en niet volgens de shared access signature. In dat geval kan we deze beperkingen zonder opnieuw uitgeven van de shared access signature worden gewijzigd.
 
-Het is mogelijk om een of meer van de beperkingen voor de shared access signature en de rest van de opgeslagen toegangsbeleid. U kunt de begintijd, verlooptijd en machtigingen alleen opgeven in één locatie of de andere. U kan bijvoorbeeld machtigingen opgeven op de shared access signature en geef ze ook op het opgeslagen toegangsbeleid.
+Het is mogelijk dat een of meer van de beperkingen met betrekking tot de shared access signature en de rest van de opgeslagen toegangsbeleid. U kunt de begintijd, verlooptijd en machtigingen alleen opgeven in één locatie of in de andere. U kunt geen bijvoorbeeld machtigingen opgeven op de shared access signature en geef ze ook op het opgeslagen toegangsbeleid.
 
-Wanneer u een opgeslagen toegangsbeleid aan een container toevoegt, moet u bestaande machtigingen van de container ophalen, het nieuwe toegangsbeleid toevoegen en vervolgens stelt de machtigingen van de container.
+Wanneer u een opgeslagen toegangsbeleid aan een container toevoegen, moet u de bestaande machtigingen van de container ophalen, de nieuw toegangsbeleid toevoegen en vervolgens machtigingen van de container instellen.
 
-Voeg een nieuwe methode die een nieuw opgeslagen-beleid maakt in een container en retourneert de naam van het beleid:
+Voeg een nieuwe methode die u maakt een nieuwe opgeslagen toegangsbeleid in een container en retourneert de naam van het beleid toe:
 
 ```csharp
 static void CreateSharedAccessPolicy(CloudBlobClient blobClient, CloudBlobContainer container,
@@ -206,7 +201,7 @@ static void CreateSharedAccessPolicy(CloudBlobClient blobClient, CloudBlobContai
 }
 ```
 
-Aan de onderkant van de **Main()** voordat de aanroep van methode **Console.ReadLine()**, het toevoegen van de volgende regels om te wissen eerste alle bestaande beleidsregels voor toegang en roept u vervolgens de **CreateSharedAccessPolicy()** methode:
+Aan de onderkant van de **Main()** voordat de aanroep van methode **Console.ReadLine()**, voeg de volgende regels om te wissen eerste alle bestaande beleidsregels voor toegang en roep vervolgens de  **CreateSharedAccessPolicy()** methode:
 
 ```csharp
 //Clear any existing access policies on container.
@@ -220,12 +215,12 @@ string sharedAccessPolicyName = "tutorialpolicy";
 CreateSharedAccessPolicy(blobClient, container, sharedAccessPolicyName);
 ```
 
-Wanneer u het toegangsbeleid in een container uitschakelt, moet u eerst bestaande machtigingen van de container, ophalen en vervolgens schakelt u de machtigingen, vervolgens de machtigingen opnieuw instellen.
+Wanneer u het toegangsbeleid voor een container wist, moet u eerst de bestaande machtigingen van de container, schakelt u de machtigingen vervolgens, de machtigingen opnieuw instellen.
 
 ### <a name="generate-a-shared-access-signature-uri-on-the-container-that-uses-an-access-policy"></a>Een shared access signature URI voor de container die gebruikmaakt van een toegangsbeleid genereren
-Vervolgens maakt u een andere shared access signature voor de container die eerder, maar nu die we de handtekening koppelen aan het beleid voor opgeslagen toegang dat wordt gemaakt in het vorige voorbeeld is gemaakt.
+Vervolgens maken we een andere shared access signature voor de container die we eerder, maar deze keer die we de handtekening koppelen aan het opgeslagen toegangsbeleid dat wordt gemaakt in het vorige voorbeeld gemaakt.
 
-Een nieuwe methode voor het genereren van een andere shared access signature voor de container toevoegen:
+Voeg een nieuwe methode voor het genereren van een andere shared access signature voor de container toe:
 
 ```csharp
 static string GetContainerSasUriWithPolicy(CloudBlobContainer container, string policyName)
@@ -247,8 +242,8 @@ Console.WriteLine("Container SAS URI using stored access policy: " + GetContaine
 Console.WriteLine();
 ```
 
-### <a name="generate-a-shared-access-signature-uri-on-the-blob-that-uses-an-access-policy"></a>Een Shared Access Signature-URI op de Blob die gebruikmaakt van een toegangsbeleid genereren
-Ten slotte toevoegen we een vergelijkbare manier voor het maken van een andere blob en het genereren van een shared access signature die is gekoppeld aan een opgeslagen toegangsbeleid.
+### <a name="generate-a-shared-access-signature-uri-on-the-blob-that-uses-an-access-policy"></a>Een Shared Access Signature URI in de Blob die gebruikmaakt van een toegangsbeleid genereren
+Ten slotte toevoegen we een vergelijkbare manier voor het maken van een andere blob en genereren van een shared access signature die is gekoppeld aan een opgeslagen toegangsbeleid.
 
 Voeg een nieuwe methode voor het maken van een blob en een shared access signature genereren:
 
@@ -285,7 +280,7 @@ Console.WriteLine("Blob SAS URI using stored access policy: " + GetBlobSasUriWit
 Console.WriteLine();
 ```
 
-De **Main()** methode ziet er nu als volgt in zijn geheel. Uitvoeren om te schrijven van de shared access signature URI's in het consolevenster Kopieer en plak ze in een tekstbestand voor gebruik in het tweede gedeelte van deze zelfstudie.
+De **Main()** methode moet er nu uitzien als volgt in zijn geheel toe. Uitvoeren om te schrijven van de shared access signature URI's in het consolevenster, kopieer en plak deze in een tekstbestand voor gebruik in het tweede gedeelte van deze zelfstudie.
 
 ```csharp
 static void Main(string[] args)
@@ -330,7 +325,7 @@ static void Main(string[] args)
 }
 ```
 
-Wanneer u de GenerateSharedAccessSignatures consoletoepassing uitvoert, ziet u uitvoer ziet er als volgt. Dit zijn de handtekeningen voor gedeelde toegang u in deel 2 van de zelfstudie.
+Wanneer u de GenerateSharedAccessSignatures consoletoepassing uitvoert, ziet u uitvoer die vergelijkbaar is met de volgende. Dit zijn de handtekeningen voor gedeelde toegang u in deel 2 van de zelfstudie.
 
 ```
 Container SAS URI: https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=pFlEZD%2F6sJTNLxD%2FQ26Hh85j%2FzYPxZav6mP1KJwnvJE%3D&se=2017-05-16T16%3A16%3A47Z&sp=wl
@@ -343,15 +338,15 @@ Blob SAS URI using stored access policy: https://storagesample.blob.core.windows
 ```
 
 ## <a name="part-2-create-a-console-application-to-test-the-shared-access-signatures"></a>Deel 2: Maak een consoletoepassing voor het testen van de handtekeningen voor gedeelde toegang
-Als u wilt testen van de handtekeningen voor gedeelde toegang gemaakt in de eerdere voorbeelden, maken we een tweede consoletoepassing die gebruikmaakt van de handtekeningen kunt u bewerkingen uitvoeren op de container en op een blob.
+Als u wilt testen van de handtekeningen voor gedeelde toegang gemaakt in de vorige voorbeelden, maken we een tweede consoletoepassing die gebruikmaakt van de handtekeningen bewerkingen uit te voeren op de container en op een blob.
 
 > [!NOTE]
-> Als meer dan 24 uur zijn verstreken nadat u het eerste deel van de zelfstudie hebt voltooid, is de handtekeningen die u hebt gegenereerd niet langer geldig. In dit geval moet u de code uitvoeren in de eerste consoletoepassing voor het genereren van handtekeningen voor nieuwe gedeelde toegang voor gebruik in het tweede gedeelte van de zelfstudie.
+> Als er meer dan 24 uur zijn verstreken nadat u het eerste deel van de zelfstudie hebt voltooid, is de handtekeningen die u hebt gegenereerd niet langer geldig. In dit geval moet u de code uitvoeren in de eerste consoletoepassing voor het genereren van nieuwe gedeelde toegangshandtekeningen voor gebruik in het tweede gedeelte van de zelfstudie.
 >
 
-Maak een nieuwe Windows-consoletoepassing in Visual Studio en noem deze **ConsumeSharedAccessSignatures**. Voeg verwijzingen naar [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) en [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/), zoals u eerder hebt gedaan.
+Maak een nieuwe Windows-consoletoepassing in Visual Studio en noem dit **ConsumeSharedAccessSignatures**. Verwijzingen toevoegen aan [Microsoft.WindowsAzure.ConfigurationManager](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager) en [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage/), zoals u eerder hebt gedaan.
 
-Voeg het volgende toe aan de bovenkant van het bestand Program.cs **met** richtlijnen:
+Voeg het volgende toe aan de bovenkant van het bestand Program.cs **met behulp van** richtlijnen:
 
 ```csharp
 using System.IO;
@@ -359,7 +354,7 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 ```
 
-In de hoofdtekst van de **Main()** methode, voeg de volgende tekenreeksconstanten wijzigen de waarden in de handtekeningen voor gedeelde toegang u hebt gegenereerd in deel 1 van de zelfstudie.
+In de hoofdtekst van de **Main()** methode, voeg de volgende tekenreeks constanten toe, wijzigen de waarden in de handtekeningen voor gedeelde toegang die u in deel 1 van de zelfstudie.
 
 ```csharp
 static void Main(string[] args)
@@ -371,8 +366,8 @@ static void Main(string[] args)
 }
 ```
 
-### <a name="add-a-method-to-try-container-operations-using-a-shared-access-signature"></a>Een methode om te proberen container-bewerkingen met behulp van een shared access signature toevoegen
-Vervolgens voegt we een methode die een bepaalde container-bewerkingen met behulp van een shared access signature voor de container wordt getest. De shared access signature wordt gebruikt om een verwijzing retourneren naar de container, toegang tot de container op basis van de handtekening alleen verifiëren.
+### <a name="add-a-method-to-try-container-operations-using-a-shared-access-signature"></a>Een methode om te proberen met behulp van een shared access signature containers toevoegen
+Vervolgens voegt we een methode die een bepaalde container-bewerkingen met behulp van een shared access signature voor de container wordt getest. De shared access signature wordt gebruikt om een verwijzing naar de container, het verifiëren van toegang tot de container op basis van de handtekening alleen retourneert.
 
 Voeg de volgende methode toe aan Program.cs:
 
@@ -460,7 +455,7 @@ static void UseContainerSAS(string sas)
 }
 ```
 
-Update de **Main()** methode aan te roepen **UseContainerSAS()** met zowel de handtekeningen voor gedeelde toegang u op de container gemaakt:
+Update de **Main()** methode om aan te roepen **UseContainerSAS()** met beide van de handtekeningen voor gedeelde toegang hebt gemaakt op de container:
 
 ```csharp
 static void Main(string[] args)
@@ -479,7 +474,7 @@ static void Main(string[] args)
 ```
 
 ### <a name="add-a-method-to-try-blob-operations-using-a-shared-access-signature"></a>Een methode om te proberen de blob-bewerkingen met behulp van een shared access signature toevoegen
-Ten slotte toevoegen we een methode waarmee bepaalde blob-bewerkingen met behulp van een shared access signature op de blob wordt getest. In dit geval we gebruiken de constructor **CloudBlockBlob(String)** doorgegeven in de shared access signature, als resultaat een verwijzing naar de blob. Er is geen andere verificatie vereist. deze gebaseerd op de alleen-handtekening.
+Ten slotte toevoegen we een methode die bepaalde blob-bewerkingen met behulp van een shared access signature voor de blob test. In dit geval gebruiken we de constructor **CloudBlockBlob(String)** aan te in de shared access signature, om terug te keren naar de blob verwijst. Er is geen andere verificatie vereist. deze gebaseerd op de handtekening alleen.
 
 Voeg de volgende methode toe aan Program.cs:
 
@@ -554,7 +549,7 @@ static void UseBlobSAS(string sas)
 }
 ```
 
-Update de **Main()** methode aan te roepen **UseBlobSAS()** met zowel de handtekeningen voor gedeelde toegang die u op de blob gemaakt:
+Update de **Main()** methode om aan te roepen **UseBlobSAS()** met beide van de handtekeningen voor gedeelde toegang die u hebt gemaakt in de blob:
 
 ```csharp
 static void Main(string[] args)
@@ -576,7 +571,7 @@ static void Main(string[] args)
 }
 ```
 
-Start de consoletoepassing en bekijk de uitvoer om te zien welke bewerkingen zijn toegestaan voor welke handtekeningen. De uitvoer in het consolevenster ziet er ongeveer als volgt:
+Voer de consoletoepassing uit en bekijk de uitvoer om te zien welke bewerkingen zijn toegestaan voor welke handtekeningen. De uitvoer in het consolevenster ziet er ongeveer als volgt:
 
 ```
 Write operation succeeded for SAS https://storagesample.blob.core.windows.net/sascontainer?sv=2016-05-31&sr=c&sig=32EaQGuFyDMb3yOAey3wq%2B%2FLwgPQxAgSo7UhzLdyIDU%3D&se=2017-05-16T15%3A41%3A20Z&sp=wl
@@ -596,5 +591,5 @@ Additional error information: The remote server returned an error: (403) Forbidd
 
 * [Handtekeningen voor gedeelde toegang, deel 1: Inzicht in het SAS-Model](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Anonieme leestoegang tot containers en blobs beheren](storage-manage-access-to-resources.md)
-* [Delegeren van toegang met een shared access signature (REST-API)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-* [Inleiding tot Table en Queue SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+* [Toegang delegeren met een shared access signature (REST-API)](http://msdn.microsoft.com/library/azure/ee395415.aspx)
+* [Maak kennis met de tabel en wachtrij SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

@@ -1,6 +1,6 @@
 ---
-title: Met behulp van databases die worden geleverd door de RP MySQL-Adapter op AzureStack | Microsoft Docs
-description: Het maken en beheren van MySQL-databases die zijn ingericht met behulp van de Resourceprovider voor MySQL-Adapter
+title: Met behulp van databases die worden geleverd door de MySQL-Adapter Relying Party op AzureStack | Microsoft Docs
+description: Over het maken en beheren van de MySQL-databases die zijn ingericht met behulp van de Resourceprovider van MySQL-Adapter
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -14,51 +14,51 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: fdadc29aa1d25e90afe088053ae4fe2139fa7f16
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 77dca29b0c60726f0a072dd662aba0d12730502a
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031821"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413685"
 ---
 # <a name="create-mysql-databases"></a>MySQL-databases maken
 
-U kunt maken en beheren van selfservice-databases in de gebruikersportal. Een Azure-Stack-gebruiker moet een abonnement met een aanbieding met de MySQL-database-service.
+U kunt maken en beheren van databases in de gebruikersportal selfservice. Een Azure Stack-gebruiker moet een abonnement met een aanbieding met de MySQL-databaseservice.
 
-## <a name="test-your-deployment-by-creating-a-mysql-database"></a>Uw implementatie testen door een MySQL-database te maken
+## <a name="test-your-deployment-by-creating-a-mysql-database"></a>Testen van uw implementatie door het maken van een MySQL-database
 
-1. Aanmelden bij de gebruikersportal van Azure-Stack.
+1. Meld u aan bij de gebruikersportal van Azure Stack.
 2. Selecteer **+ nieuw** > **gegevens en opslag** > **MySQL-Database** > **toevoegen**.
-3. Onder **MySQL-Database maken**, voer de naam van de Database en de overige instellingen te configureren zoals vereist voor uw omgeving.
+3. Onder **MySQL-Database maken**, voer de naam van de Database en configureer de andere instellingen zoals vereist voor uw omgeving.
 
-    ![Een test MySQL-database maken](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
+    ![Een test-MySQL-database maken](./media/azure-stack-mysql-rp-deploy/mysql-create-db.png)
 
 4. Onder **Create Database**, selecteer **SKU**. Onder **selecteert u een MySQL-SKU**, kies de SKU voor uw database.
 
-    ![Selecteer een MySQL-SKU](./media/azure-stack-mysql-rp-deploy/mysql-select-a-sku.png)
+    ![Selecteer een MySQL-SKU](./media/azure-stack-mysql-rp-deploy/mysql-select-sku.png)
 
     >[!Note]
-    >Als u hosting-servers worden toegevoegd aan Azure-Stack, waaraan ze een SKU zijn toegewezen. Databases zijn gemaakt in de groep servers in een SKU hosten.
+    >Als hosting-servers worden toegevoegd aan Azure Stack, krijgt deze een SKU. Databases worden gemaakt in de groep van het host-servers in een SKU.
 
 5. Onder **aanmelding**, selecteer ***vereiste instellingen configureren***.
-6. Onder **selecteert u een aanmelding**, kunt u ervoor kiezen een bestaande aanmelding of selecteren **+ Maak een nieuwe aanmelding** voor het instellen van een nieuwe aanmelding.  Voer een **databaseaanmelding** naam en **wachtwoord**, en selecteer vervolgens **OK**.
+6. Onder **selecteert u een aanmelding**, u kunt een bestaande aanmelding kiezen of selecteer **en maak een nieuwe aanmelding** voor het instellen van een nieuwe aanmelding.  Voer een **databaseaanmelding** naam en **wachtwoord**, en selecteer vervolgens **OK**.
 
     ![Maak een nieuwe databaseaanmelding](./media/azure-stack-mysql-rp-deploy/create-new-login.png)
 
     >[!NOTE]
-    >De lengte van de aanmeldingsnaam voor de Database mag maximaal 32 tekens MySQL 5.7. In eerdere versies, mag deze 16 tekens niet overschrijden.
+    >De lengte van de naam van de Database kan niet groter zijn dan 32 tekens in MySQL 5.7. Het kan niet meer dan 16 tekens in eerdere versies.
 
-7. Selecteer **maken** voltooid instellen van de database.
+7. Selecteer **maken** instellen van de database voltooid.
 
-Nadat de database is geïmplementeerd, dient u de **verbindingsreeks** onder **Essentials**. U kunt deze tekenreeks gebruiken in elke toepassing die u moet toegang tot de MySQL-database.
+Nadat de database is geïmplementeerd, noteer de **Connection String** onder **Essentials**. U kunt deze tekenreeks gebruiken in alle toepassingen die toegang nodig heeft tot de MySQL-database.
 
 ![De verbindingsreeks ophalen voor de MySQL-database](./media/azure-stack-mysql-rp-deploy/mysql-db-created.png)
 
-## <a name="update-the-administrative-password"></a>Het beheerderswachtwoord bijwerken
+## <a name="update-the-administrative-password"></a>Het beheerprogramma wachtwoord bijwerken
 
-U kunt het wachtwoord wijzigen door deze te wijzigen op het exemplaar van de server MySQL.
+U kunt het wachtwoord wijzigen door deze te wijzigen in de MySQL-server-exemplaar.
 
-1. Selecteer **SERVERVIRTUALISATIE** > **MySQL-Servers die als host fungeert**. Selecteer de hostserver.
+1. Selecteer **BEHEERDERSRESOURCES** > **MySQL-Servers die als host fungeert**. Selecteer de host-server.
 2. Onder **instellingen**, selecteer **wachtwoord**.
 3. Onder **wachtwoord**, voer het nieuwe wachtwoord en selecteer vervolgens **opslaan**.
 
@@ -66,4 +66,4 @@ U kunt het wachtwoord wijzigen door deze te wijzigen op het exemplaar van de ser
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Update de MySQL-resourceprovider](azure-stack-mysql-resource-provider-update.md)
+[Bijwerken van de MySQL-resourceprovider](azure-stack-mysql-resource-provider-update.md)

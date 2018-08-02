@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: de8957864502b8c3ec6d9a43a8134fdb8dac6069
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 8c0810c4a1b92f14e510d005eaf1b6945a058dd7
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283517"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413100"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Hoe het werkt: Azure AD Self-service voor wachtwoord opnieuw instellen
 
@@ -50,6 +50,7 @@ Lezen via de volgende stappen uit voor meer informatie over de logica achter het
        * Als u de verificatiemethoden die niet zijn geconfigureerd, wordt de gebruiker aanbevolen contact opnemen met de beheerder om hun wachtwoord opnieuw instellen.
      * Als het beleid twee methoden vereist, klikt u vervolgens het zorgt ervoor dat de gebruiker de juiste gegevens voor ten minste twee van de verificatiemethoden ingeschakeld door het beheerdersbeleid voor de gedefinieerd heeft.
        * Als u de verificatiemethoden die niet zijn geconfigureerd, wordt de gebruiker aanbevolen contact opnemen met de beheerder om hun wachtwoord opnieuw instellen.
+     * Als een Azure-beheerdersrol is toegewezen aan de gebruiker wordt vervolgens het wachtwoord van de twee-gate-beleid afgedwongen. Meer informatie over dit beleid kan worden gevonden in de sectie [beheerder opnieuw instellen van beleid verschillen](concept-sspr-policy.md#administrator-reset-policy-differences).
    * Controles om te controleren of het wachtwoord van de gebruiker wordt beheerd on-premises (federatieve, Pass through-verificatie of wachtwoord-hash gesynchroniseerd).
      * Als u Write-back is geïmplementeerd en het wachtwoord van gebruikers is on-premises worden beheerd, is de gebruiker toegestaan om door te gaan om te verifiëren en hun wachtwoord opnieuw instellen.
      * Als u Write-back is niet geïmplementeerd en het wachtwoord van gebruikers is on-premises worden beheerd, en vervolgens de gebruiker gevraagd contact op met de beheerder om hun wachtwoord opnieuw instellen.
@@ -59,7 +60,7 @@ Lezen via de volgende stappen uit voor meer informatie over de logica achter het
 
 Als self-service voor Wachtwoordherstel is ingeschakeld, moet u ten minste één van de volgende opties voor de verificatiemethoden. Soms hoort u deze opties aangeduid als "gates." Is het raadzaam dat u **twee of meer verificatiemethoden kiezen** zodat uw gebruikers meer flexibiliteit hebben wanneer ze niet voor toegang tot een wanneer ze deze nodig hebben.
 
-* Mobiele app-meldingen (preview)
+* Melding mobiele app (preview)
 * Mobiele app-code (preview)
 * Email
 * Mobiele telefoon
@@ -67,6 +68,9 @@ Als self-service voor Wachtwoordherstel is ingeschakeld, moet u ten minste één
 * Beveiligingsvragen
 
 Gebruikers kunnen hun wachtwoord alleen opnieuw instellen als ze beschikken over gegevens aanwezig zijn in de verificatiemethoden die de beheerder heeft ingeschakeld.
+
+> [!WARNING]
+> Accounts die zijn toegewezen Azure-beheerdersrollen is vereist voor het gebruik van methoden, zoals gedefinieerd in de sectie [beheerder opnieuw instellen van beleid verschillen](concept-sspr-policy.md#administrator-reset-policy-differences).
 
 ![Verificatie][Authentication]
 
@@ -85,7 +89,7 @@ Wanneer u een mobiele app, zoals de Microsoft Authenticator-app als een methode 
 * Wanneer beheerders vereisen een methode dat worden gebruikt om een wachtwoord opnieuw instellen, de verificatiecode is de enige beschikbare optie.
 * Wanneer beheerders vereisen twee methoden dat worden gebruikt om een wachtwoord opnieuw instellen, gebruikers mogen gebruiken **uitvoeren** melding **of** verificatiecode naast eventuele andere methoden ingeschakeld.
 
-| Het aantal methoden dat is vereist om het wachtwoord opnieuw in te stellen | een | Twee |
+| Het aantal methoden dat is vereist om het wachtwoord opnieuw in te stellen | Een | Twee |
 | :---: | :---: | :---: |
 | Mam-functies die beschikbaar zijn | Code | Code- of -meldingen |
 

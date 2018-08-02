@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2174135aaf2e16907f16f38c1df1ec002b3083fd
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 589df59e02a18629d5f405ff1ce8870333f2228e
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391432"
+ms.locfileid: "39397710"
 ---
 # <a name="runbook-settings"></a>Runbook-instellingen
 Elk runbook in Azure Automation heeft meerdere instellingen waarmee het kan worden geïdentificeerd en de logboekregistratie te wijzigen. Elk van deze instellingen wordt hieronder beschreven gevolgd door procedures voor het wijzigen van deze.
@@ -39,7 +39,7 @@ U kunt instellingen voor een runbook in de Azure-portal wijzigen de **instelling
 3. Klik op de naam van een runbook en u worden doorgestuurd naar de instellingenblade voor het runbook. Hier kunt u opgeven of wijzigen van de runbookbeschrijving van de-tags, logboekregistratie en traceringsinstellingen configureren en toegang tot ondersteuning voor hulpprogramma's om u te helpen bij het oplossen van problemen.     
 
 ### <a name="changing-runbook-settings-with-windows-powershell"></a>Runbookinstellingen wijzigen met Windows PowerShell
-U kunt de [Set-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603786.aspx) cmdlet om de instellingen voor een runbook te wijzigen. Als u opgeven van meerdere labels wilt, kunt u ofwel een matrix of een tekenreeks met door komma's gescheiden waarden naar de parameter Tags opgeven. Krijgt u de huidige labels met de [Get-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603728.aspx).
+U kunt de [Set-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/set-azurermautomationrunbook) cmdlet om de instellingen voor een runbook te wijzigen. Als u opgeven van meerdere labels wilt, kunt u ofwel een matrix of een tekenreeks met door komma's gescheiden waarden naar de parameter Tags opgeven. Krijgt u de huidige labels met de [Get-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/get-azurermautomationrunbook).
 
 De volgende voorbeeldopdrachten laten zien hoe de eigenschappen voor een runbook in te stellen. In dit voorbeeld wordt drie codes toegevoegd aan de bestaande tags en geeft aan dat uitgebreide records moeten worden geregistreerd.
 

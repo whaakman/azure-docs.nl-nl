@@ -1,50 +1,49 @@
 ---
-title: Azure Video indexeerfunctie concepten | Microsoft Docs
-description: Dit onderwerp worden enkele concepten die van de indexeerfunctie Video-service.
+title: Azure Video Indexer-concepten | Microsoft Docs
+description: Dit onderwerp worden enkele concepten van de Video Indexer-service.
 services: cognitive services
 documentationcenter: ''
 author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 04/17/2017
+ms.date: 07/31/2018
 ms.author: juliako
-ms.openlocfilehash: 01d92a6b55d2fb2c09cee333f482d79d2cdf763c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 224c8b05027f51fb99c8d58be34c3604032c0f77
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345471"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399492"
 ---
-# <a name="video-indexer-concepts"></a>Video indexeerfunctie-concepten
+# <a name="video-indexer-concepts"></a>Video Indexer-concepten
  
-Dit onderwerp worden enkele concepten die van de indexeerfunctie Video-service.
+Dit onderwerp worden enkele concepten van de Video Indexer-service.
     
 ## <a name="summarized-insights"></a>Samengevatte insights
 
-Samengevatte insights een samengevoegde weergave van de gegevens bevatten: vlakken, trefwoorden, patronen. Bijvoorbeeld, in plaats van wat over elk van de duizenden tijdsbereik en controleren welke vlakken erin, de samengevatte inzichten bevat alle vlakken en voor elk adres, de tijd bereiken die wordt weergegeven in en het percentage van de tijd wordt weergegeven.
+Samengevatte insights bevat een samengevoegde weergave van de gegevens: gezichten, trefwoorden, sentimenten. Bijvoorbeeld, in plaats van gaan over elk van de duizenden tijdsbereik en waarin gezichten worden weergegeven in het te controleren, de samengevatte inzichten bevat alle gezichten en voor elk adres, het tijdsbereik dat deze wordt weergegeven in en het percentage van de tijd die wordt weergegeven.
 
-## <a name="topicskeywords"></a>Onderwerpen over/trefwoorden
+## <a name="topicskeywords"></a>Onderwerpen/trefwoorden
 
-Onderwerpen over/trefwoorden zijn in de lijst met belangrijke termen die Video indexeerfunctie uit de tekst ophaalt. Een video van Scott Guthrie bevat bijvoorbeeld mogelijk de volgende onderwerpen/sleutelwoorden: beveiliging, Azure, Microsoft Cloud, omzet.
+Er zijn onderwerpen/trefwoorden in de lijst met belangrijke zinnen die Video Indexer worden geëxtraheerd uit de tekst. Bijvoorbeeld, een video van Scott Guthrie de volgende onderwerpen/trefwoorden kan bevatten: beveiliging, Azure, Microsoft Cloud, omzet.
 
-## <a name="sentiments"></a>Zie
+## <a name="sentiments"></a>sentimenten
 
-Wanneer Video indexeerfunctie transcripties analyseert, wordt ook patronen gedetecteerd. Bijvoorbeeld, is een positieve gevoel 'is een bijzondere gebeurtenis'.
+Wanneer Video Indexer transcripties analyseert, wordt ook sentimenten gedetecteerd. Bijvoorbeeld, is 'Dit is een spannende gebeurtenis' een positieve stemming.
 
-## <a name="time-range-vs-adjusted-time-range"></a>tijdsbereik versus gecorrigeerde tijdsbereik
+## <a name="time-range-vs-adjusted-time-range"></a>tijdsbereik versus aangepast tijdsbereik
 
-TimeRange is het tijdsbereik in de oorspronkelijke video. AdjustedTimeRange is het tijdsbereik ten opzichte van de huidige afspeellijst. Omdat u een afspeellijst van andere regels van verschillende video's maken kunt, kunt u een video van 1 uur duren en slechts 1 regel af, bijvoorbeeld: 10:00-10:15. In dat geval hebt u een afspeellijst met 1 regel, waar het tijdsbereik 10:00-10:15 is, maar de adjustedTimeRange is 00:00-00:15.
+TimeRange is het tijdsbereik in de oorspronkelijke video. AdjustedTimeRange is het tijdsbereik ten opzichte van de huidige afspeellijst. Omdat u een afspeellijst van verschillende regels van verschillende video's maken kunt, kunt u een video van 1 uur duren en slechts 1 regel van het, bijvoorbeeld, 10:00-10:15 gebruikt. In dat geval hebt u een afspeellijst met 1 regel, waar het tijdsbereik 10:00:15-10 is, maar de adjustedTimeRange is 00:00-00:15.
  
-## <a name="blocks"></a>Blokken
+## <a name="blocks"></a>blokken
 
-Blokken zijn bedoeld om eenvoudiger te doorlopen van de gegevens. Bijvoorbeeld, kan blok worden onderverdeeld op basis van wanneer luidsprekers wijzigt of er een lange pauze is.
+Blokken zijn bedoeld om gemakkelijker te doorlopen van de gegevens. Bijvoorbeeld, kan blok worden opgesplitst op basis van wanneer sprekers wijzigen of als er een pauze van lang.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over het aan de slag [het aanmelden en het uploaden van uw eerste video](video-indexer-get-started.md).
+Zie voor meer informatie over hoe u aan de slag [hoe u zich aanmelden en uw eerste video uploaden](video-indexer-get-started.md).
 
 ## <a name="see-also"></a>Zie ook
 
-[Video indexeerfunctie-overzicht](video-indexer-overview.md)
-
+[Video Indexer-overzicht](video-indexer-overview.md)

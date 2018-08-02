@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/28/2018
+ms.date: 08/01/2018
 ms.author: marsma
-ms.openlocfilehash: 532817c6289c1718fd82a502e04dc10715ee7203
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 63bbd9b5711330207c34ac4aa05aac3a71304653
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343097"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413576"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-build"></a>OS- en framework patchen met ACR Build automatiseren
 
@@ -33,7 +33,20 @@ Trigger-containerinstallatiekopie maakt automatisch als de code wordt doorgevoer
 
 Het begin van het beheer van de levenscyclus start voordat ontwikkelaars hun eerste coderegels doorvoeren. De ACR Build [snel bouwen](container-registry-tutorial-quick-build.md) functie kunnen een ervaring met geïntegreerde lokale inner loop-ontwikkeling, offloading builds naar Azure. Met snelle wordt gemaakt, kunt u uw geautomatiseerde builddefinities voordat het doorvoeren van uw code controleren.
 
-Met behulp van de vertrouwde `docker build` indeling, de [az acr build] [ az-acr-build] opdracht in de Azure CLI wordt een lokale context, verzonden naar de ACR Build-service en standaard de gemaakte installatiekopie naar het register bij gepusht is voltooid. ACR Build volgt de registers met geo-replicatie inschakelen van verspreide development-teams gebruikmaken van het dichtstbijzijnde gerepliceerde register.
+Met behulp van de vertrouwde `docker build` indeling, de [az acr build] [ az-acr-build] opdracht in de Azure CLI gebruikt u een **context** (de set van bestanden om te bouwen), verzonden naar de ACR Build-service en standaard de gemaakte installatiekopie naar het register bij voltooiing gepusht.
+
+De volgende tabel ziet u enkele voorbeelden van context ondersteunde locaties voor ACR Build:
+
+| Locatie van de context | Beschrijving | Voorbeeld |
+| ---------------- | ----------- | ------- |
+| Lokaal bestandssysteem | Bestanden in een map op het lokale bestandssysteem. | `/home/user/projects/myapp` |
+| Master-vertakking van GitHub | De vertakking van de bestanden in de master (of andere standaard) van een GitHub-opslagplaats.  | `https://github.com/gituser/myapp-repo.git` |
+| GitHub-vertakking | Specifieke vertakking van een GitHub-opslagplaats.| `https://github.com/gituser/myapp-repo.git#mybranch` |
+| GitHub-pull-aanvraag | Pull-aanvraag in een GitHub-opslagplaats. | `https://github.com/gituser/myapp-repo.git#pull/23/head` |
+| GitHub-submap | Bestanden in een submap in een GitHub-opslagplaats. Voorbeeld ziet u de combinatie van pull-aanvraag en submap-specificatie. | `https://github.com/gituser/myapp-repo.git#pull/24/head:myfolder` |
+| Externe tarball | Bestanden in een gecomprimeerd archief op een externe webserver. | `http://remoteserver/myapp.tar.gz` |
+
+ACR Build ook volgt uw registers met geo-replicatie inschakelen van verspreide development-teams gebruikmaken van het dichtstbijzijnde gerepliceerde register.
 
 ACR Build is bedoeld als een container van primitieve levenscyclus. Bijvoorbeeld, integreren met ACR Build uw CI/CD-oplossing. Door het uitvoeren van [az login] [ az-login] met een [service-principal][az-login-service-principal], uw CI/CD-oplossing kan verlenen [az acrbouwen] [ az-acr-build] opdrachten uit om te worden gehouden, trappen af met installatiekopieën builds.
 

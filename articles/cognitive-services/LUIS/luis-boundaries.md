@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 07/31/2018
 ms.author: diberry
-ms.openlocfilehash: ea4f31094e27f1abbe57c212f262845fd16dd984
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 0a75c113f619aa70ba6c504f07afc8dc8a35b694
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225275"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399828"
 ---
 # <a name="luis-boundaries"></a>LUIS grenzen
 LUIS heeft verschillende gebieden van de grens. De eerste is de [model grens](#model-boundaries), welke besturingselementen intents, entiteiten en functies van LUIS. Het tweede gedeelte [quotalimieten](#key-limits) op basis van het type sleutel. Is van een derde deel van de grenzen van de [combinatie op het toetsenbord](#keyboard-controls) voor het beheren van de website van LUIS. Een vierde gebied is de [world regiotoewijzing](luis-reference-regions.md) tussen de LUIS website ontwerpen en de LUIS [eindpunt](luis-glossary.md#endpoint) API's. 
@@ -31,7 +31,7 @@ LUIS heeft verschillende gebieden van de grens. De eerste is de [model grens](#m
 | Expliciete lijst | 50 per toepassing|
 | **[Hiërarchische](./luis-concept-entity-types.md) |100 met maximaal 10 onderliggende items |
 | [Intents][intents]|500 per toepassing<br>[Op basis van verzending](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) toepassing heeft een bijbehorende 500 verzending bronnen|
-| [Lijst met entiteiten](./luis-concept-entity-types.md) | Bovenliggende: 50, onderliggende: maximaal 20.000 items. Canonieke naam is * standaard teken max. Synoniemen hebben geen lengtebeperking. |
+| [Lijst met entiteiten](./luis-concept-entity-types.md) | Bovenliggende: 50, onderliggende: maximaal 20.000 items. Canonieke naam is * standaard teken max. Synoniem waarden hebben geen lengtebeperking. |
 | [Patronen](luis-concept-patterns.md)|500 patronen per toepassing.<br>Maximale lengte van het patroon is 400 tekens.<br>3 Pattern.any entiteiten per patroon<br>Maximaal 2 geneste optionele tekst in het patroon|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per toepassing, 3 pattern.any entiteiten per patroon |
 | [Woordgroepenlijst met][phrase-list]|10 woordgroep lijsten, 5000 items per lijst|
@@ -41,6 +41,7 @@ LUIS heeft verschillende gebieden van de grens. De eerste is de [model grens](#m
 | **[Eenvoudige](./luis-concept-entity-types.md)| 100 entiteiten|
 | [Utterance][utterances] | 500 tekens bevatten|
 | [Uitingen][utterances] | 15.000 per toepassing|
+| [Versies](luis-concept-version.md)| geen limiet |
 | [Versienaam][luis-how-to-manage-versions] | beperkt tot alleen alfanumerieke tekens en periode 10 tekens (.) |
 
 * Standaard teken maximaal is 50 tekens. 

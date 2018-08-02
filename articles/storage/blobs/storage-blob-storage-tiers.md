@@ -2,23 +2,18 @@
 title: Azure Hot, Cool en Archive Storage voor blobs | Microsoft Docs
 description: Dynamische, statische en archiefopslag voor Azure Storage-accounts.
 services: storage
-documentationcenter: ''
 author: kuhussai
-manager: jwillis
-editor: ''
-ms.assetid: eb33ed4f-1b17-4fd6-82e2-8d5372800eef
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: 21b09d9c428f9c29e0048faa32ce5349a127be89
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.component: blobs
+ms.openlocfilehash: 5d12b9f04dc1cc5017ab4c9ff1bde9b84ac24cfe
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400383"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: dynamische, statische en archiefopslaglaag
 
@@ -72,7 +67,7 @@ Tijdens rehydratatie kunt u aan de blob-eigenschap **archive status** zien of de
 
 De functie Laaginstelling op blob-niveau maakt het mogelijk om de laag van uw gegevens op objectniveau te wijzigen met behulp van een eenmalige bewerking met de naam [Blob-laag instellen](/rest/api/storageservices/set-blob-tier). U kunt de toegangslaag van een blob gemakkelijk wijzigen van Hot in Cool of Archive, plus alle mogelijke varianten. U kunt zo snel inspelen op veranderende gebruikspatronen zonder dat u gegevens tussen accounts hoeft te verplaatsen. Alle laagwijzigingen vinden direct plaats, behalve wanneer een blob wordt gerehydrateerd uit Archive Storage, wat enkele uren kan duren. Het tijdstip waarop de laatste wijziging aan de blob-laag heeft plaatsgevonden, wordt weergegeven via de blob-eigenschap **Access Tier Change Time**. Als een blob zich in de archieflaag bevindt, wordt deze mogelijk niet overschreven. Vandaar dat in dit scenario dezelfde blob niet mag worden geüpload. Blobs in Hot en Cool Storage mogen worden overschreven. In dit geval neemt de nieuwe blob de laag over van de oude, overschreven blob.
 
-Blobs in alle drie de opslaglagen kunnen naast elkaar bestaan binnen hetzelfde account. Een blob waaraan niet expliciet een laag is toegewezen, leidt de laag af die is ingesteld als toegangslaag voor het account. Als de toegangslaag van het account is afgeleid, ziet u dat de blob-eigenschap **Access Tier Inferred** is ingesteld op 'waar'. De blob-eigenschap **Access Tier** komt overeen met de accountlaag. In Azure Portal wordt de eigenschap Access Tier Inferred weergegeven met de Blob-toegangslaag (bijvoorbeeld Hot (afgeleid) of Cool (afgeleid)).
+Blobs in alle drie de opslaglagen kunnen naast elkaar bestaan binnen hetzelfde account. Een blob waaraan niet expliciet een laag is toegewezen, leidt de laag af die is ingesteld als toegangslaag voor het account. Als de toegangslaag van het account is afgeleid, ziet u de **Access Tier Inferred** blob-eigenschap is ingesteld op 'true', en met de blob **Toegangslaag** blob-eigenschap komt overeen met de accountlaag. In Azure Portal wordt de eigenschap Access Tier Inferred weergegeven met de Blob-toegangslaag (bijvoorbeeld Hot (afgeleid) of Cool (afgeleid)).
 
 > [!NOTE]
 > Archiefopslag en laaginstelling op blobniveau ondersteunen alleen blok-blobs. U kunt evenmin de laag wijzigen van een blok-blob die momentopnamen bevat.
@@ -93,11 +88,11 @@ In de volgende tabel ziet u een vergelijking van de dynamische, statische en arc
 
 | | **Hot Storage-laag** | **Cool Storage-laag** | **Archive Storage-laag**
 | ---- | ----- | ----- | ----- |
-| **Beschikbaarheid** | 99,9% | 99% | N.v.t. |
-| **Beschikbaarheid** <br> **(RA-GRS-leesbewerkingen)**| 99,99% | 99,9% | N.v.t. |
+| **Beschikbaarheid** | 99,9% | 99% | N/A |
+| **Beschikbaarheid** <br> **(RA-GRS-leesbewerkingen)**| 99,99% | 99,9% | N/A |
 | **Gebruikskosten** | Hogere opslagkosten, lagere toegangs- en transactiekosten | Lagere opslagkosten, hogere toegangs- en transactiekosten | Laagste opslagkosten, hoogste toegangs- en transactiekosten |
-| **Minimale objectgrootte** | N.v.t. | N.v.t. | N.v.t. |
-| **Minimale opslagduur** | N.v.t. | 30 dagen (alleen GPv2) | 180 dagen
+| **Minimale objectgrootte** | N/A | N/A | N/A |
+| **Minimale opslagduur** | N/A | 30 dagen (alleen GPv2) | 180 dagen
 | **Latentie** <br> **(Tijd tot eerste byte)** | milliseconden | milliseconden | < 15 uur
 | **Schaalbaarheids- en prestatiedoelen** | Dezelfde als bij opslagaccounts voor algemeen gebruik | Dezelfde als bij opslagaccounts voor algemeen gebruik | Dezelfde als bij opslagaccounts voor algemeen gebruik |
 

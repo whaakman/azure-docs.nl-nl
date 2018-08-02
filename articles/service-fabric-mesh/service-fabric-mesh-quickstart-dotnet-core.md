@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 07/17/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ad8920ac01ce62eb676b495dcde2aae6b076cbe2
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: d14420a363cfea23c86f63533a4ea89c5f2fd06f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125500"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412913"
 ---
 # <a name="quickstart-create-and-deploy-a-web-app-to-azure-service-fabric-mesh"></a>QuickStart: Maken en implementeren van een web-app in Azure Service Fabric NET
 
-Azure Service Fabric NET is een volledig beheerde service waarmee ontwikkelaars microservices-toepassingen implementeren zonder beheer van virtuele machines, opslag, of netwerken.
+Azure Service Fabric Mesh is een volledig beheerde service waarmee ontwikkelaars microservices-toepassingen kunnen implementeren zonder virtuele machines, opslag of netwerken hoeven te beheren.
 
 In deze snelstartgids maakt u een nieuwe Service Fabric NET toepassing die bestaat uit een ASP.NET Core web-app uitvoeren op het lokale ontwikkelcluster en publiceert u het uit te voeren op Azure.
 
@@ -32,27 +32,27 @@ U hebt een Azure-abonnement nodig. Als u niet hebt, kunt u eenvoudig een gratis 
 
 [!INCLUDE [preview note](./includes/include-preview-note.md)]
 
-## <a name="create-a-service-fabric-mesh-project"></a>Een Service Fabric-NET-project maken
+## <a name="create-a-service-fabric-mesh-project"></a>Een Service Fabric Mesh-project maken
 
 Open Visual Studio en selecteer **bestand** > **nieuw** > **Project...**
 
-In de **nieuw Project** dialoogvenster **zoeken** vak aan de bovenkant, type `mesh`. Selecteer de **Service Fabric-NET toepassing** sjabloon. (Als u de sjabloon niet ziet, zorg ervoor dat u de NET-SDK geïnstalleerd en voorbeeld van de Visual Studio-hulpprogramma's, zoals beschreven in [uw ontwikkelomgeving instellen](service-fabric-mesh-howto-setup-developer-environment-sdk.md). 
+In het dialoogvenster **New Project** typt u `mesh` in het vak **Search**. Selecteer de sjabloon **Service Fabric Mesh Application**. (Als u de sjabloon niet ziet, controleert u of u de Mesh-SDK en de previewversie van de hulpmiddelen van Visual Studio hebt geïnstalleerd, zoals beschreven in [set up your development environment](service-fabric-mesh-howto-setup-developer-environment-sdk.md) (uw ontwikkelomgeving instellen).) 
 
 In de **naam** in het vak **ServiceFabricMesh1** en in de **locatie** vak, stelt u het pad naar de map van de waarin de bestanden voor het project wordt opgeslagen.
 
-Zorg ervoor dat **map maken voor oplossing** is ingeschakeld en klik op **OK** om de Service Fabric-NET-project te maken.
+Controleer of het selectievakje **Create directory for solution** is ingeschakeld en klik op **OK** om het Service Fabric Mesh-project te maken.
 
-![Visual studio-Service Fabric net het dialoogvenster Nieuw project](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-project.png)
+![Dialoogvenster Nieuw project van Service Fabric Mesh in Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-project.png)
 
 ### <a name="create-a-service"></a>Een service maken
 
 Nadat u op **OK**, wordt de **New Service Fabric Service** dialoogvenster wordt weergegeven. Selecteer de **ASP.NET Core** projecttype, controleert u of **Container OS** is ingesteld op **Windows** en klikt u op **OK** het ASP.NET Core-project maken . 
 
-![Visual studio-Service Fabric net het dialoogvenster Nieuw project](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-service-fabric-service.png)
+![Dialoogvenster Nieuw project van Service Fabric Mesh in Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-service-fabric-service.png)
 
 De **nieuwe ASP.NET Core-webtoepassing** dialoogvenster wordt weergegeven. Selecteer **webtoepassing** en klik vervolgens op **OK**.
 
-![Visual studio nieuwe ASP.NET core-toepassing](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-aspnetcore-app.png)
+![Nieuwe ASP.NET Core-toepassing in Visual Studio](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-new-aspnetcore-app.png)
 
 Visual Studio maakt het toepassingsproject net van Service Fabric en de ASP.NET Core-project.
 
@@ -72,34 +72,21 @@ Voor het publiceren van uw Service Fabric-NET-project naar Azure, met de rechter
 
 U ziet een **Service Fabric-toepassing publiceren** dialoogvenster.
 
-![Visual studio-Service Fabric NET dialoogvenster publiceren](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-dialog.png)
+![Dialoogvenster in Visual Studio over Service Fabric Mesh-publicatie](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-dialog.png)
 
-Selecteer uw Azure-account en -abonnement. Kies een **locatie**. In dit artikel wordt gebruikgemaakt van **VS-Oost**.
+Selecteer uw Azure-account en -abonnement. Kies een **Locatie**. In dit artikel wordt gebruikgemaakt van **US - oost**.
 
-Onder **resourcegroep**, selecteer  **\<nieuwe resourcegroep maken... >**. De **resourcegroep maken** dialoogvenster wordt weergegeven. Stel de **groepsnaam voor Accountresources** en **locatie**.  Deze snelstartgids maakt gebruik van de **VS-Oost** locatie en de namen van de groep **sfmeshTutorial1RG** (als uw organisatie meerdere mensen met behulp van hetzelfde abonnement heeft, kies de naam van een unieke resource-groep).  Klik op **maken** om te maken van de resourcegroep en gaat u terug naar het dialoogvenster publiceren.
+Selecteer onder **Resourcegroep** **\<Nieuwe resourcegroep maken...>**. De **resourcegroep maken** dialoogvenster wordt weergegeven. Stel de **groepsnaam voor Accountresources** en **locatie**.  Deze snelstartgids maakt gebruik van de **VS-Oost** locatie en de namen van de groep **sfmeshTutorial1RG** (als uw organisatie meerdere mensen met behulp van hetzelfde abonnement heeft, kies de naam van een unieke resource-groep).  Klik op **maken** om te maken van de resourcegroep en gaat u terug naar het dialoogvenster publiceren.
 
-![Visual studio-Service Fabric net nieuwe resource groepsdialoogvenster](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
+![Dialoogvenster in Visual Studio over nieuwe resourcegroep in Service Fabric Mesh](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-resource-group-dialog.png)
 
-Klik in de **Service Fabric-toepassing publiceren** dialoogvenster onder **Azure Container Registry**, selecteer  **\<maken nieuwe Container Registry... >**. In de **Container Registry maken** dialoogvenster, gebruik een unieke naam voor de **containerregisternaam**. Geef een **locatie** (maakt gebruik van deze snelstartgids **VS-Oost**). Selecteer de **resourcegroep** die u hebt gemaakt in de vorige stap in de vervolgkeuzelijst, bijvoorbeeld **sfmeshTutorial1RG**. Stel de **SKU** naar **Basic** en klik vervolgens op **maken** om terug te keren naar het dialoogvenster publiceren.
+In het dialoogvenster **Service Fabric-toepassing publiceren** selecteert u onder **Azure Container Registry** **\<Nieuw containerregister maken...>**. In het dialoogvenster **Containerregister maken** gebruikt u een unieke naam voor de **Containerregisternaam**. Geef een **locatie** (maakt gebruik van deze snelstartgids **VS-Oost**). Selecteer in de vervolgkeuzelijst de **Resourcegroep** die u eerder hebt gemaakt, bijvoorbeeld **sfmeshTutorial1RG**. Stel de **SKU** naar **Basic** en klik vervolgens op **maken** om terug te keren naar het dialoogvenster publiceren.
 
-Als u een foutmelding dat krijgt een resourceprovider is niet geregistreerd voor uw abonnement en u deze kunt registreren. Eerst controleren of de resourceprovider beschikbaar voor uw abonnement is:
-
-```Powershell
-Connect-AzureRmAccount
-Get-AzureRmResourceProvider -ListAvailable
-```
-
-Als de container registry-provider (`Microsoft.ContainerRegistry`) beschikbaar is, registreert u dit vanuit Powershell:
-
-```Powershell
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.ContainerRegistry
-```
-
-![Visual studio-Service Fabric net nieuwe resource groepsdialoogvenster](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
+![Dialoogvenster in Visual Studio over nieuwe resourcegroep in Service Fabric Mesh](media/service-fabric-mesh-quickstart-dotnet-core/visual-studio-publish-new-container-registry-dialog.png)
 
 Klik in het dialoogvenster publiceren op de **publiceren** knop om uw Service Fabric-NET toepassing naar Azure te implementeren.
 
-Wanneer u voor de eerste keer naar Azure publiceert, wordt de docker-installatiekopie naar Azure Container Registry (ACR) die het kost tijd, afhankelijk van de grootte van de afbeelding doorgestuurd. Volgende publiceert van hetzelfde project worden sneller. U kunt de voortgang van de implementatie door te selecteren **Service Fabric Tools** in de Visual Studio **uitvoer** venster vervolgkeuzelijst. Nadat de implementatie is voltooid, de **Service Fabric Tools** uitvoer wordt weergegeven de IP-adres en poort van uw toepassing in de vorm van een URL.
+Wanneer u voor het eerst in Azure implementeert, wordt de docker-installatiekopie naar de Azure Container Registry (ACR) gepushed, wat afhankelijk van de grootte van de kopie even kan duren. Volgende publicaties voor hetzelfde project zullen sneller verlopen. U kunt de voortgang van de implementatie door te selecteren **Service Fabric Tools** in de Visual Studio **uitvoer** venster vervolgkeuzelijst. Nadat de implementatie is voltooid, toont de uitvoer van de **Service Fabric Tools** het IP-adres en de poort van uw toepassing in de vorm van een URL.
 
 ```json
 Packaging Application...
@@ -131,6 +118,6 @@ U kunt ook kunt u de resourcegroep verwijderen [vanuit Azure portal](https://por
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor meer informatie over het maken en implementeren van Service Fabric-NET-toepassingen, gaat u naar de zelfstudie.
+Voor meer informatie over het maken en implementeren van Service Fabric Mesh-toepassingen, gaat u naar de zelfstudie.
 > [!div class="nextstepaction"]
-> [Maken, fouten opsporen en implementeren van een webtoepassing voor meerdere services naar Service Fabric NET](service-fabric-mesh-tutorial-create-dotnetcore.md)
+> [Een web-app voor meerdere services maken, foutvrij maken en implementeren in Service Fabric Mesh](service-fabric-mesh-tutorial-create-dotnetcore.md)

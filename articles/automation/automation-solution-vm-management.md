@@ -6,37 +6,34 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/30/2018
+ms.date: 08/1/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5bb59206f1b9f63f7d0310d35fc888cec1546874
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: f272ac7ee6432b43d0c9a72daf620a46e52366f8
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364563"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399046"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
 
 De VM's starten/stoppen buiten kantooruren oplossing wordt gestart en gestopt van uw Azure virtual machines op de gebruiker gedefinieerde schema's, biedt inzichten via Azure Log Analytics en optioneel e-mailberichten worden verzonden via [actiegroepen](../monitoring-and-diagnostics/monitoring-action-groups.md). Deze biedt ondersteuning voor zowel Azure Resource Manager en klassieke virtuele machines voor de meeste scenario's.
 
-Deze oplossing biedt een automatiseringsoptie gedecentraliseerde voor gebruikers die hun kosten verlagen met behulp van serverloze, lage kosten resources. Met deze oplossing kunt u het volgende doen:
+Deze oplossing biedt een automatiseringsoptie gedecentraliseerde van de lage kosten voor gebruikers die hun VM-kosten optimaliseren. Met deze oplossing kunt u het volgende doen:
 
 - Plannen van virtuele machines starten en stoppen.
 - Plannen van virtuele machines starten en stoppen in oplopende volgorde met behulp van Azure-Tags (niet ondersteund voor klassieke VM's).
 - Automatisch-VM's stoppen op basis van lage CPU-gebruik.
 
+De volgende zijn beperkingen aan de huidige oplossing:
+
+- Deze oplossing VM's in andere regio's worden beheerd, maar kan alleen worden gebruikt in hetzelfde abonnement als uw Azure Automation-account.
+- Deze oplossing is beschikbaar in Azure en AzureGov in elke regio die ondersteuning biedt voor een Log Analytics-werkruimte, een Azure Automation-account en waarschuwingen. AzureGov regio's bieden op dit moment geen ondersteuning van e-mailfunctionaliteit.
+
 ## <a name="prerequisites"></a>Vereisten
 
-- De runbooks werken met een [Uitvoeren als-account voor Azure](automation-create-runas-account.md). Uitvoeren als-account is de aanbevolen verificatiemethode omdat deze verificatie via certificaten gebruikt in plaats van een wachtwoord dat mogelijk verlopen of regelmatig wordt gewijzigd.
-- Deze oplossing beheert alleen virtuele machines die zich in hetzelfde abonnement als uw Azure Automation-account.
-- Deze oplossing is beschikbaar in Azure en AzureGov in elke regio die ondersteuning biedt voor een Log Analytics-werkruimte, een Azure Automation-account en waarschuwingen.
-
-  > [!NOTE]
-  > Het beheren van de VM-planning runbooks kunnen virtuele machines in elke regio zijn gericht.
-
-  > [!NOTE]
-  > AzureGov regio's bieden geen ondersteuning voor e-mailfunctionaliteit.
+De runbooks voor deze oplossing werkt met een [uitvoeren als-account](automation-create-runas-account.md). Uitvoeren als-account is de aanbevolen verificatiemethode omdat deze verificatie via certificaten gebruikt in plaats van een wachtwoord dat mogelijk verlopen of regelmatig wordt gewijzigd.
 
 ## <a name="deploy-the-solution"></a>De oplossing implementeren
 
@@ -64,7 +61,7 @@ De volgende stappen uitvoeren om de VM's starten/stoppen buiten kantooruren oplo
    - Selecteer een **prijscategorie**. Kies de **Per GB (zelfstandig)** optie. Log Analytics is bijgewerkt [prijzen](https://azure.microsoft.com/pricing/details/log-analytics/) en de Per GB-laag is de enige optie.
 
 1. Na het opgeven van de vereiste gegevens op de **OMS-werkruimte** pagina, klikt u op **maken**. U kunt de voortgang bijhouden onder **meldingen** in het menu dat gaat u terug naar de **oplossing toevoegen** pagina wanneer u klaar bent.
-1. Op de **oplossing toevoegen** weergeeft, schakelt **Automation-account**. Als u een nieuwe Log Analytics-werkruimte maakt, moet u ook maken een nieuw Automation-account om te worden gekoppeld. Selecteer **maken van een Automation-account**, en klik op de **Automation-account toevoegen** pagina, geef de volgende informatie:
+1. Op de **oplossing toevoegen** weergeeft, schakelt **Automation-account**. Als u een nieuwe Log Analytics-werkruimte maakt, kunt u een nieuw Automation-account worden gekoppeld aan het maken of Selecteer een bestaand Automation-Account die nog niet is gekoppeld aan een werkruimte voor Log u. Selecteer een bestaand Automation-Account of klik op **maken van een Automation-account**, en klik op de **Automation-account toevoegen** pagina, geef de volgende informatie:
    - Voer in het veld **Naam** de naam van het Automation-account in.
 
     Alle andere opties worden automatisch ingevuld op basis van de geselecteerde Log Analytics-werkruimte. Deze opties worden niet gewijzigd. Een Uitvoeren als-account voor Azure is de standaardmethode voor verificatie voor de runbooks die zijn opgenomen in deze oplossing. Nadat u op **OK**, worden de configuratieopties gevalideerd en het Automation-account wordt gemaakt. U kunt de voortgang bijhouden onder **Meldingen** in het menu.

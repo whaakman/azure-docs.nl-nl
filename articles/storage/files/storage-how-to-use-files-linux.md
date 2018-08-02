@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
-ms.openlocfilehash: d4f77460ea6b0a31ed40286f33aa4296bafc9087
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eda06fbb63352dd71cb0183ebdf683dc2f3a4a4c
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007287"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413838"
 ---
 # <a name="use-azure-files-with-linux"></a>Azure Files gebruiken met Linux
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen worden gekoppeld in Linux-distributies, met de [SMB-kernel-client](https://wiki.samba.org/index.php/LinuxCIFS). In dit artikel ziet u een Azure-bestandsshare koppelen op twee manieren: op aanvraag met de `mount` opdracht en op opstarten met het maken van een vermelding in `/etc/fstab`.
@@ -34,7 +34,7 @@ ms.locfileid: "39007287"
     
     Ondersteuning voor SMB 3.0-versleuteling is geïntroduceerd in Linux kernelversie 4.11 en is backported tot oudere kernelversies voor populaire Linux-distributies. Op het moment van publicatie van dit document ondersteunen de volgende distributies vanuit de Azure-galerie koppelen optie opgegeven in de headers-tabel. 
 
-* ** Minimaal aanbevolen versies met de bijbehorende mount-mogelijkheden (SMB-versie 2.1 versus SMB-versie 3.0) **    
+* **Minimaal aanbevolen versies met de bijbehorende mount-mogelijkheden (SMB-versie 2.1 vs SMB-versie 3.0)**    
     
     |   | SMB 2.1 <br>(Koppelingen op VM's binnen dezelfde Azure-regio) | SMB 3.0 <br>(Koppelingen van locatie en regio-overschrijdende) |
     | --- | :---: | :---: |

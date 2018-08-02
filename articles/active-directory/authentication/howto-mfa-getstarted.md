@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 0afe5ba21fe17d8aec4d72c30086c6840f9e3c8e
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: d248f8bc5708dfe8554f513d4f96a6c1bee7605e
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161567"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412409"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Implementeren van cloud-gebaseerde Azure multi-factor Authentication
 
@@ -40,7 +40,7 @@ Ingeschakeld door het veranderen van de gebruiker status - dit is de traditionel
 
 ## <a name="choose-authentication-methods"></a>Verificatiemethoden kiezen
 
-Schakel ten minste één verificatiemethode voor uw gebruikers op basis van de vereisten van uw organisatie. We vinden dat wanneer dit is ingeschakeld voor gebruikers van de Microsoft Authenticator-app de beste gebruikerservaring biedt. Als u nodig hebt om te begrijpen welke methoden beschikbaar zijn en hoe u deze instelt, Zie het artikel [wat zijn de methods]](concept-authentication-methods.md) verificatie.
+Schakel ten minste één verificatiemethode voor uw gebruikers op basis van de vereisten van uw organisatie. We vinden dat wanneer dit is ingeschakeld voor gebruikers van de Microsoft Authenticator-app de beste gebruikerservaring biedt. Als u nodig hebt om te begrijpen welke methoden beschikbaar zijn en hoe u deze instelt, Zie het artikel [wat verificatiemethoden zijn](concept-authentication-methods.md).
 
 ## <a name="get-users-to-enroll"></a>Gebruikers te registreren
 
@@ -69,37 +69,37 @@ Voordat u Azure multi-factor Authentication inschakelt, moet uw organisatie te b
 ### <a name="create-conditional-access-policy"></a>Beleid voor voorwaardelijke toegang maken
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van een globale beheerdersaccount.
-1. Blader naar **Azure Active Directory**, **voorwaardelijke toegang**
-1. Selecteer **nieuw beleid**
+1. Blader naar **Azure Active Directory**, **Voorwaardelijke toegang**.
+1. Selecteer **Nieuw beleid**.
 1. Geef een beschrijvende naam voor het beleid
 1. Onder **gebruikers en groepen**
    * Op de **opnemen** tabblad de **alle gebruikers** keuzerondje
    * AANBEVOLEN: Op de **uitsluiten** tabblad, schakel het selectievakje voor **gebruikers en groepen** en kiest u een groep moet worden gebruikt voor uitsluitingen wanneer gebruikers geen toegang tot hun verificatiemethoden.
-   * Klik op **gedaan**
+   * Klik op **Gereed**.
 1. Onder **Cloud-apps**, selecteer de **alle cloud-apps** keuzerondje
    * Optioneel: Op de **uitsluiten** tabblad, kiest u cloud-apps die uw organisatie geen MFA voor vereist.
-   * Klik op **gedaan**
+   * Klik op **Gereed**.
 1. Onder **voorwaarden** sectie
    * (Optioneel): Als u Azure Identity Protection hebt ingeschakeld, kunt u aanmeldingsrisico beoordelen als onderdeel van het beleid.
    * (Optioneel): Als u hebt geconfigureerd vertrouwde locaties of benoemde locaties, kunt u opgeven als u wilt opnemen of uitsluiten van deze locaties van het beleid.
-1. Onder **verlenen**, zorg ervoor dat de **toegang verlenen** keuzerondje is geselecteerd
-    * Schakel het selectievakje voor **meervoudige verificatie vereisen**
+1. Zorg ervoor dat bij **Verlenen** het keuzerondje **Toegang verlenen** is geselecteerd.
+    * Schakel het selectievakje **Multi-Factor Authentication vereisen** in.
     * Klik op **Selecteren**.
-1. Overslaan de **sessie** sectie
-1. Stel de **beleid inschakelen** overzet naar **op**
+1. Sla de sectie **Sessie** over.
+1. Stel de wisselknop **Beleid inschakelen** in op **Aan**.
 1. Klik op **Maken**.
 
 ![Maken van een beleid voor voorwaardelijke toegang voor MFA inschakelen voor gebruikers van de Azure portal in de testfasegroep](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 
-### <a name="test-azure-multi-factor-authentication"></a>Azure multi-factor Authentication testen
+### <a name="test-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication testen
 
 Om te bevestigen dat uw beleid voor voorwaardelijke toegang werkt, test u aanmelden aan een resource die geen MFA vereist en vervolgens naar de Azure-portal die MFA vereist.
 
-1. Open een nieuw browservenster in InPrivate- of incognito-modus en blader naar [ https://account.activedirectory.windowsazure.com ](https://account.activedirectory.windowsazure.com).
-   * Meld u aan met de testgebruiker gemaakt als onderdeel van de sectie vereisten van dit artikel en houd er rekening mee dat deze niet vraagt u om MFA te voltooien.
+1. Open een nieuw browservenster in de InPrivate- of incognitomodus en blader naar [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com).
+   * Meld u aan als de testgebruiker die u hebt gemaakt als onderdeel van de sectie over vereisten in dit artikel, en zoals u ziet wordt u niet gevraagd om een MFA uit te voeren.
    * Sluit het browservenster
-2. Open een nieuw browservenster in InPrivate- of incognito-modus en blader naar [ https://portal.azure.com ](https://portal.azure.com).
-   * Meld u aan met de test gemaakt als onderdeel van de sectie vereisten van dit artikel en merk op dat u zou nu moeten van de gebruiker vereist om te registreren voor en het gebruik van Azure multi-factor Authentication.
+2. Open een nieuw browservenster in de InPrivate- of incognitomodus en blader naar [https://portal.azure.com](https://portal.azure.com).
+   * Meld u aan als de testgebruiker die u hebt gemaakt als onderdeel van de sectie over vereisten in dit artikel, en zoals u ziet bent u nu verplicht om u te registreren voor Azure Multi-Factor Authentication en er gebruik van te maken.
    * Sluit het browservenster
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -14,12 +14,12 @@ ms.date: 05/21/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: d17ba9ed4548a986d6846d934aee197609ec80ca
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 23b5b5d79f0f905d7c4a173247232ede2cad2877
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "34806833"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412444"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>API-versieprofielen gebruiken met Python in Azure Stack
 
@@ -121,7 +121,7 @@ De voorbeelden zijn niet noodzakelijkerwijs in de volgorde die wordt weergegeven
 
 6.  De volgende variabelen instellen en deze omgevingsvariabelen worden geëxporteerd in uw huidige shell. 
 
-    ````bash
+    ```bash
     export AZURE_TENANT_ID={your tenant id}
     export AZURE_CLIENT_ID={your client id}
     export AZURE_CLIENT_SECRET={your client secret}
@@ -129,32 +129,29 @@ De voorbeelden zijn niet noodzakelijkerwijs in de volgorde die wordt weergegeven
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
     ```
 
-7.  In order to run this sample, Ubuntu 16.04-LTS and WindowsServer 2012-R2-Datacenter images must be present in Azure Stack market place. These can be either [downloaded from Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) or [added to Platform Image Repository](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image).
+7.  Om uit te voeren in dit voorbeeld, moet Ubuntu 16.04-LTS en WindowsServer 2012 R2 Datacenter afbeeldingen aanwezig zijn in Azure Stack-marktplaats. Dit kunnen zijn [gedownload van Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) of [toegevoegd aan Platform Image Repository](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-vm-image).
 
-8. Run the sample.
+8. Voet het voorbeeld uit.
 
     ```
     python unmanaged-disks\example.py
     ```
 
-## Notes
+## <a name="notes"></a>Opmerkingen
 
-You may be tempted to try to retrieve a VM's OS disk by using
-`virtual_machine.storage_profile.os_disk`.
-In some cases, this may do what you want,
-but be aware that it gives you an `OSDisk` object.
-In order to update the OS Disk's size, as `example.py` does,
-you need not an `OSDisk` object but a `Disk` object.
-`example.py` gets the `Disk` object with the following:
+U kunt mogelijk geneigd om te proberen om op te halen van de besturingssysteemschijf van een virtuele machine met behulp van `virtual_machine.storage_profile.os_disk`.
+In sommige gevallen kan dit doen wat u wilt hebt, maar er rekening mee dat dit u biedt een `OSDisk` object.
+Als u wilt bijwerken van de grootte van de OS-schijf, als `example.py` , u hoeft niet een `OSDisk` object, maar een `Disk` object.
+`example.py` haalt de `Disk` object met het volgende:
 
 ```python
 os_disk_name = virtual_machine.storage_profile.os_disk.name
 os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
 ```
 
-## Next steps
+## <a name="next-steps"></a>Volgende stappen
 
-- [Azure Python Development Center](https://azure.microsoft.com/develop/python/)
-- [Azure Virtual Machines documentation](https://azure.microsoft.com/services/virtual-machines/)
-- [Learning Path for Virtual Machines](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
-- If you don't have a Microsoft Azure subscription, you can get a FREE trial account [here](http://go.microsoft.com/fwlink/?LinkId=330212).
+- [Azure Python-ontwikkeling Center](https://azure.microsoft.com/develop/python/)
+- [Documentatie voor Azure-Machines](https://azure.microsoft.com/services/virtual-machines/)
+- [Leertraject voor virtuele Machines](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
+- Als u geen Microsoft Azure-abonnement hebt, krijgt u een gratis proefaccount [hier](http://go.microsoft.com/fwlink/?LinkId=330212).

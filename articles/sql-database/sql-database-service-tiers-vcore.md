@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: d18076486704d5f03acd2253650762c3bd24b0af
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 68343f3fcdd2275012207d7ac5a5f3bcdc71d1b8
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091489"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414371"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Een vCore-servicelaag kiezen, Reken-, geheugen, opslag- en i/o-resources
 
@@ -56,6 +56,9 @@ Overweeg de volgende:
 
 Voor het controleren van de huidige totale grootte van het MDF en LDF gebruikt [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql). Voor het controleren van de huidige grootte van de afzonderlijke MDF en LDF-bestanden gebruikt [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
 
+> [!IMPORTANT]
+> In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
+
 ## <a name="backups-and-storage"></a>Back-ups en opslag
 
 Opslag voor back-ups wordt ter ondersteuning van het punt in tijd herstellen (PITR) en de lange termijn Retention (LTR) mogelijkheden van SQL-Database toegewezen. Deze opslag is toegewezen afzonderlijk voor elke database en wordt gefactureerd als twee afzonderlijke database kosten in rekening gebracht. 
@@ -77,7 +80,7 @@ Bij het gebruik van geo-replicatie tussen twee elastische pools, is het raadzaam
 
 De volgende tabel bevat richtlijnen voor de specifieke migratiescenario's: 
 
-|Huidige servicelaag|Gewenste servicelaag|Migratietype|Acties van de gebruiker|
+|Huidige servicelaag|Gewenste servicelaag|Migratietype|Gebruikerssacties|
 |---|---|---|---|
 |Standard|Algemeen doel|Laterale|Kunnen in willekeurige volgorde worden gemigreerd, maar moet ervoor zorgen dat een juiste vCore sizing *|
 |Premium|Bedrijfskritiek|Laterale|Kunnen in willekeurige volgorde worden gemigreerd, maar moet ervoor zorgen dat juiste vCore sizing *|

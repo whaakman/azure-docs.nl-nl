@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance-reports
-ms.date: 07/18/2018
+ms.date: 07/31/2018
 ms.author: rolyon
-ms.openlocfilehash: b1a11fdb685b8b4e5c513931269c479506d943a0
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 970e748d7174a9b443fc96f52ac94e082a6c9d44
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136652"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398951"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Functie Azure Active Directory Gebruiksrechtovereenkomst
 Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties informatie kunnen presenteren aan eindgebruikers. Deze presentatie zorgt ervoor dat gebruikers relevante disclaimers voor juridische vereisten of nalevingsvereisten te zien krijgen. In dit artikel wordt beschreven hoe u aan de slag kunt gaan met Azure AD Gebruiksrechtovereenkomst.
@@ -138,6 +138,42 @@ Gebruikers kunnen de gebruiksvoorwaarden die ze hebben geaccepteerd, controleren
 
 1. Van hieruit kunt u de gebruiksrechtovereenkomst bekijken die u hebt geaccepteerd. 
 
+## <a name="edit-terms-of-use-details"></a>Gegevens van gebruiksvoorwaarden bewerken
+U kunt sommige gegevens van gebruiksvoorwaarden bewerken, maar u kunt een bestaand document niet wijzigen. De volgende procedure wordt beschreven hoe u de details bewerken.
+
+1. Meld u aan bij Azure en navigeer naar **Gebruiksrechtovereenkomst** op [https://aka.ms/catou](https://aka.ms/catou).
+
+1. Selecteer de gebruiksvoorwaarden die u wilt bewerken.
+
+1. Klik op **gebruiksvoorwaarden bewerken**.
+
+1. In de voorwaarden bewerken van deelvenster gebruikt, wijzigt u de naam, weergavenaam of vereisen dat gebruikers om uit te breiden waarden.
+
+    ![Gebruiksrechtovereenkomst toevoegen](media/active-directory-tou/edit-tou.png)
+
+1. Klik op **opslaan** uw wijzigingen op te slaan.
+
+    Nadat u uw wijzigingen hebt opgeslagen, moeten gebruikers de nieuwe voorwaarden accepteren.
+
+## <a name="add-a-terms-of-use-language"></a>Een gebruiksrechtovereenkomst gebruik taal toevoegen
+De volgende procedure wordt beschreven hoe u een gebruiksrechtovereenkomst gebruik taal toevoegen.
+
+1. Meld u aan bij Azure en navigeer naar **Gebruiksrechtovereenkomst** op [https://aka.ms/catou](https://aka.ms/catou).
+
+1. Selecteer de gebruiksvoorwaarden die u wilt bewerken.
+
+1. In de het detailvenster, klik op de **talen** tabblad.
+
+    ![Gebruiksrechtovereenkomst toevoegen](media/active-directory-tou/languages-tou.png)
+
+1. Klik op **taal toevoegen**.
+
+1. In de voorwaarden toevoegen van gebruik taal deelvenster, uw gelokaliseerde PDF-bestand uploaden en selecteer de taal.
+
+    ![Gebruiksrechtovereenkomst toevoegen](media/active-directory-tou/language-add-tou.png)
+
+1. Klik op **toevoegen** om toe te voegen van de taal.
+
 ## <a name="delete-terms-of-use"></a>Gebruiksrechtovereenkomst verwijderen
 Met de volgende procedure kunt u een oude gebruiksrechtovereenkomst verwijderen.
 
@@ -175,8 +211,11 @@ A: de gebruiker wordt geteld in de voorwaarden van het rapport gebruiken en die 
 **V: Waarom zie ik een ander aantal toestemmingen in de voorwaarden van gebruik rapport vergeleken met de Azure AD auditlogboeken?**</br>
 A: de gebruiksrechtovereenkomst gebruik rapport wordt opgeslagen voor de levensduur van deze gebruiksrechtovereenkomst, terwijl de Azure AD-audit logboeken worden opgeslagen voor 30 dagen. Ook de voorwaarden van gebruik rapport alleen de huidige toestemming-status van gebruikers weergegeven. Bijvoorbeeld, als een gebruiker geweigerd en vervolgens accepteert de gebruiksrechtovereenkomst gebruik rapport wordt alleen weergegeven van die gebruiker accepteren. Als u nodig hebt om te zien van de geschiedenis, kunt u de Azure AD auditlogboeken.
 
-**V: als ik van de gebruiksrechtovereenkomst wijzigt,, moeten gebruikers opnieuw accepteren?**</br>
-A: Ja, kan een beheerder van de gebruiksrechtovereenkomst wijzigen en het vereist dat gebruikers de nieuwe voorwaarden accepteren.
+**Vraag: als het bewerken van de details voor een gebruiksrechtovereenkomst, moeten gebruikers opnieuw accepteren?**</br>
+A: Ja, moeten gebruikers de nieuwe voorwaarden accepteren als een beheerder de details voor een gebruiksrechtovereenkomst bewerkt.
+
+**V: kan ik een document met bestaande gebruiksrechtovereenkomst bijwerken?**</br>
+A: u kunt een document met bestaande gebruiksrechtovereenkomst op dit moment niet bijwerken. Als u wilt wijzigen van een document met gebruiksrechtovereenkomst, wordt u moet maken van een nieuwe gebruiksrechtovereenkomst gebruik exemplaar.
 
 **V: als hyperlinks in PDF-document met de gebruiksrechtovereenkomst, eindgebruikers zich erop klikt?**</br>
 A: het PDF-bestand wordt standaard weergegeven als een JPEG, zodat hyperlinks niet geklikt. Gebruikers hebben de optie te selecteren **hebt u problemen met weergeven? Klik hier**, die wordt weergegeven het PDF-bestand systeemeigen waar hyperlinks worden ondersteund.

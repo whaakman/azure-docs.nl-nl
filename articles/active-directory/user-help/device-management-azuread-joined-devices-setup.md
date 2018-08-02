@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: 511580b95646677a231a68862cae8a6aa57abcb0
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 83eea565cc775a0569015c04d79d627d6ba120e6
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345528"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39411706"
 ---
 # <a name="set-up-azure-active-directory-joined-devices"></a>Gekoppelde apparaten instellen van Azure Active Directory
 
@@ -28,7 +28,7 @@ Als u wilt om eigendom van het werk Windows 10-apparaten onder het beheer van Az
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u wilt deelnemen aan een Windows 10-apparaat, moet de device registratieservice om te registreren van apparaten worden geconfigureerd. Naast de machtiging voor het toevoegen van apparaten in uw Azure AD-tenant, moet u minder apparaten die zijn geregistreerd dan het geconfigureerde maximum hebben. Zie voor meer informatie, [apparaatinstellingen configureren](../device-management-azure-portal.md#configure-device-settings).
+Als u wilt deelnemen aan een Windows 10-apparaat, moet de device registratieservice om te registreren van apparaten worden geconfigureerd. Naast de machtiging voor het toevoegen van apparaten in uw Azure AD-tenant, moet u minder apparaten die zijn geregistreerd dan het geconfigureerde maximum hebben. Zie voor meer informatie, [apparaatinstellingen configureren](../devices/device-management-azure-portal.md#configure-device-settings).
 
 
 
@@ -116,16 +116,14 @@ U kunt ook de instellingen voor apparaten op de Azure AD-portal bekijken.
 
 ![Verbonden](./media/device-management-azuread-joined-devices-setup/15.png)
 
-Zie voor meer informatie, [apparaten zoeken](../device-management-azure-portal.md#locate-devices).
+Zie voor meer informatie, [apparaten zoeken](../devices/device-management-azure-portal.md#locate-devices).
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor meer informatie: 
 
-- De [Inleiding tot Apparaatbeheer in Azure Active Directory](../device-management-introduction.md)
-- [Beheer van apparaten met behulp van de Azure portal](../device-management-azure-portal.md)
-- 
-
+- De [Inleiding tot Apparaatbeheer in Azure Active Directory](../devices/overview.md)
+- [Beheer van apparaten met behulp van de Azure portal](../devices/device-management-azure-portal.md)
 
 

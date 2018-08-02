@@ -1,6 +1,6 @@
 ---
-title: Azure Linux Agent extensie keren stackify | Microsoft Docs
-description: Implementeer de Stackify keren Linux-agent op een virtuele Linux-machine.
+title: Azure Linux Agent-extensie keren stackify | Microsoft Docs
+description: De Stackify keren Linux-agent op een Linux-machine implementeren.
 services: virtual-machines-linux
 documentationcenter: ''
 author: darinhoward
@@ -13,52 +13,52 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
-ms.author: danis
-ms.openlocfilehash: 376c5a087f74fbe087db9fa2df38b2ba4e6cf1ff
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.author: roiyz
+ms.openlocfilehash: b286ebc2e50166e8491b45346a81b161227f8d21
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33943080"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39415118"
 ---
-# <a name="stackify-retrace-linux-agent-extension"></a>Linux-Agent extensie keren stackify
+# <a name="stackify-retrace-linux-agent-extension"></a>Stackify keren Linux-Agent-extensie
 
 ## <a name="overview"></a>Overzicht
-Stackify biedt producten die gegevens over uw toepassing bij het oplossen van problemen snel bijhouden. Voor ontwikkelaars teams is keren een volledig geïntegreerde, meerdere omgeving app prestaties absoluut macht. Verschillende hulpprogramma's voor die elke ontwikkelteam moet worden gecombineerd.
+Stackify biedt producten die meer informatie over uw toepassing om te zoeken en oplossen van problemen snel bijhouden. Voor teams van ontwikkelaars, keren dat is een volledig geïntegreerde, meerdere omgevingen app prestaties Supergebruikers. Het combineert verschillende programma's die elke ontwikkelteam nodig heeft.
 
-Keren is het alleen-hulpprogramma dat alle van de volgende mogelijkheden in alle omgevingen in één enkel platform biedt.
+Keren is de alleen-hulpprogramma dat voorziet in alle van de volgende mogelijkheden in alle omgevingen in één platform.
 
-* Beheer van de prestaties van toepassingen (APM)
+* Beheer van prestaties van toepassingen (APM)
 * Toepassings- en server-logboekregistratie
-* Fout bijhouden en bewaking
+* Fout volgen en controleren
 * Server-, toepassings- en aangepaste metrische gegevens
 
-**Punt Stackify uitbreiding van de Linux-Agent**
+**Stackify over Linux-Agent-extensie**
 
 Deze uitbreiding biedt een installatiepad voor de Linux-Agent voor keren. 
 
 ## <a name="prerequisites"></a>Vereisten
 
 ### <a name="operating-system"></a>Besturingssysteem 
-De agent keren kan worden uitgevoerd op basis van deze Linux-distributies
+De agent keren kan worden uitgevoerd voor deze Linux-distributies
 
 | Distributie | Versie |
 |---|---|
-| Ubuntu | 16.04 TNS, 14.04 TNS, 16,10 en 17.04 |
+| Ubuntu | 16.04 LTS, 14.04 LTS, 16,10 en 17.04 |
 | Debian | 7,9 + en 8.2 +, 9 |
-| RedHat | 6.7 +, 7.1 + |
+| Red Hat | 6.7 +, 7.1 + |
 | CentOS | 6.3 +, 7.0 + |
 
 ### <a name="internet-connectivity"></a>Internetconnectiviteit
-De extensie Stackify Agent voor Linux vereist dat de virtuele doelmachine is verbonden met internet. 
+De Stackify Agent-extensie voor Linux is vereist dat de virtuele doelmachine is verbonden met internet. 
 
-Mogelijk moet u uw netwerkconfiguratie als u wilt toestaan verbindingen met Stackify, Zie aanpassen https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall. 
+Mogelijk moet u uw netwerkconfiguratie Stackify verbindingen worden toegestaan, raadpleeg dan aanpassen https://support.stackify.com/hc/en-us/articles/207891903-Adding-Exceptions-to-a-Firewall. 
 
 
 ## <a name="extension-schema"></a>Extensieschema
 ---
 
-De volgende JSON ziet u het schema voor de uitbreiding Stackify keren Agent. De uitbreiding vereist de `environment` en `activationKey`.
+De volgende JSON ziet u het schema voor de Stackify keren Agent-extensie. De extensie is vereist de `environment` en `activationKey`.
 
 ```json
     {
@@ -86,13 +86,13 @@ De volgende JSON ziet u het schema voor de uitbreiding Stackify keren Agent. De 
 
 ## <a name="template-deployment"></a>Sjabloonimplementatie 
 
-Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. De JSON-schema in de vorige sectie wordt beschreven, kan de extensie keren Linux-Agent Stackify uitvoeren tijdens de sjabloonimplementatie van een Azure Resource Manager-in een Azure Resource Manager-sjabloon worden gebruikt.  
+Azure VM-extensies kunnen worden geïmplementeerd met Azure Resource Manager-sjablonen. De JSON-schema in de vorige sectie worden beschreven, kan de Stackify keren Linux Agent-extensie uitgevoerd tijdens de sjabloonimplementatie van een Azure Resource Manager-in een Azure Resource Manager-sjabloon worden gebruikt.  
 
-De JSON voor de extensie van een virtuele machine worden genest in de bron van de virtuele machine, of aan de basis- of bovenste niveau van een Resource Manager JSON-sjabloon geplaatst. De plaatsing van de JSON van invloed op de waarde van de resourcenaam en het type. Zie de naam en type op voor de onderliggende resources voor meer informatie.
+De JSON voor de extensie van een virtuele machine kan worden genest in de bron van de virtuele machine of geplaatst op de hoofdmap of het hoogste niveau van een Resource Manager JSON-sjabloon. De plaatsing van de JSON is van invloed op de waarde van de resourcenaam en het type. Zie voor meer informatie, de naam en het type voor de onderliggende resources.
 
-Het volgende voorbeeld wordt ervan uitgegaan dat de extensie keren Linux Stackify is genest binnen de bron van de virtuele machine. Wanneer het nesten van de extensie-resource, de JSON wordt geplaatst in de 'resources': []-object van de virtuele machine.
+Het volgende voorbeeld wordt ervan uitgegaan dat de Stackify keren Linux-extensie is genest in de bron van de virtuele machine. Wanneer het nesten van de extensie-resource, de JSON wordt geplaatst in de 'resources': []-object van de virtuele machine.
 
-De uitbreiding vereist de `environment` en `activationKey`.
+De extensie is vereist de `environment` en `activationKey`.
 
 ```json
     {
@@ -118,7 +118,7 @@ De uitbreiding vereist de `environment` en `activationKey`.
     }      
 ```
 
-Bij het plaatsen van de JSON-extensie in de hoofdmap van de sjabloon, de naam van de bron bevat een verwijzing naar de bovenliggende virtuele machine en het type reflecteert de geneste configuratie.
+Bij het plaatsen van de JSON-extensie in de hoofdmap van de sjabloon, naam van de resource bevat een verwijzing naar de bovenliggende virtuele machine en het type weerspiegelt de geneste configuratie.
 
 ```json
     {
@@ -147,9 +147,9 @@ Bij het plaatsen van de JSON-extensie in de hoofdmap van de sjabloon, de naam va
 
 ## <a name="powershell-deployment"></a>PowerShell-implementatie
 
-De `Set-AzureRmVMExtension` opdracht kan worden gebruikt voor het implementeren van de extensie van de virtuele machine keren Linux-Agent Stackify op een bestaande virtuele machine. Voordat u de opdracht uitvoert, moeten de openbare en persoonlijke configuraties worden opgeslagen in een PowerShell-hash-tabel.
+De `Set-AzureRmVMExtension` opdracht kan worden gebruikt om de extensie van de virtuele machine Stackify keren Linux Agent implementeren op een bestaande virtuele machine. Voordat u de opdracht uitvoert, moeten de openbare en privé-configuraties worden opgeslagen in een PowerShell-hash-tabel.
 
-De uitbreiding vereist de `environment` en `activationKey`.
+De extensie is vereist de `environment` en `activationKey`.
 
 ```
 $PublicSettings = @{"environment" = "myEnvironment"}
@@ -168,15 +168,15 @@ Set-AzureRmVMExtension -ExtensionName "Stackify.LinuxAgent.Extension" `
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-implementatie 
 
-De Azure CLI-hulpprogramma kan worden gebruikt voor het implementeren van de extensie van de virtuele machine keren Linux-Agent Stackify op een bestaande virtuele machine.  
+De Azure CLI-hulpprogramma kan worden gebruikt voor de extensie van de virtuele machine Stackify keren Linux Agent implementeren op een bestaande virtuele machine.  
 
-De uitbreiding vereist de `environment` en `activationKey`.
+De extensie is vereist de `environment` en `activationKey`.
 
 ```azurecli
 az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --name 'StackifyLinuxAgentExtension' --protected-settings '{"activationKey":"myActivationKey"}' --settings '{"environment":"myEnvironment"}'  --resource-group 'myResourceGroup' --vm-name 'myVmName'
 ```
 
-## <a name="troubleshoot-and-support"></a>Oplossen van problemen en ondersteunen
+## <a name="troubleshoot-and-support"></a>Problemen oplossen en ondersteuning
 
 ### <a name="error-codes"></a>Foutcodes
 
@@ -185,8 +185,8 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 10 | Fout bij installeren | wget is vereist |
 | 20 | Fout bij installeren | Python is vereist |
 | 30 | Fout bij installeren | sudo is vereist |
-| 40 | Fout bij installeren | activationKey is vereist |
-| 51 | Fout bij installeren | OS-distro niet ondersteund |
+| 40 | Fout bij installeren | Kluisbestand is vereist |
+| 51 | Fout bij installeren | Distributie van besturingssysteem niet ondersteund |
 | 60 | Fout bij installeren | omgeving is vereist |
 | 70 | Fout bij installeren | Onbekend |
 | 80 | Fout bij inschakelen | Service-instellingen is mislukt |
@@ -195,4 +195,4 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 110 | Fout bij uitschakelen | Service verwijderen is mislukt |
 | 120 | Fout bij verwijderen | Service stoppen is mislukt |
 
-Als u meer hulp nodig kunt u wel een contact opnemen met ondersteuning Stackify https://support.stackify.com.
+Als u meer hulp nodig kunt u contact met ondersteuning van Stackify op https://support.stackify.com.

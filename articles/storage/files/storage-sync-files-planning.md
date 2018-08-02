@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: 79f3787713d7615d8f5c42d1747dfa5ed96780cd
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 0493679575e9ff94ede1ad40c2bcadc6066afa6b
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214880"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399012"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -156,6 +156,10 @@ Omdat antivirus werkt door te scannen van bestanden voor bekende schadelijke cod
 
 De volgende oplossingen zijn bekende ter ondersteuning van offlinebestanden overslaan:
 
+- [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
+    - Windows Defender slaat automatisch over het lezen van deze bestanden. We hebben getest Defender en een klein probleem geïdentificeerd: wanneer u een server aan een bestaande synchronisatiegroep toevoegen, bestanden kleiner is dan 800 bytes (gedownload) op de nieuwe server worden ingetrokken. Deze bestanden blijven aanwezig op de nieuwe server en gelaagd omdat ze niet voldoen aan de vereiste cloudlagen (> 64kb).
+- [System Center Endpoint Protection (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
+    - SCEP werkt op dezelfde manier als Defender; Zie hierboven
 - [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
 - [McAfee EndPoint Security](https://kc.mcafee.com/resources/sites/MCAFEE/content/live/PRODUCT_DOCUMENTATION/26000/PD26799/en_US/ens_1050_help_0-00_en-us.pdf) (Zie "scannen alleen wat u moet' op de pagina 90 van het PDF-bestand)
 - [Kaspersky Anti-Virus](https://support.kaspersky.com/4684)
@@ -194,16 +198,16 @@ Azure File Sync is alleen beschikbaar in de volgende regio's:
 | Australië - zuidoost | Victoria |
 | Canada - midden | Toronto |
 | Canada - oost | Quebec (stad) |
-| VS - midden | Iowa |
-| Oost-Azië | Hongkong |
-| VS - oost | Virginia |
-| VS-Oost 2 | Virginia |
-| Noord-Europa | Ierland |
-| Zuidoost-Azië | Singapore |
+| US - centraal | Iowa |
+| Azië - oost | Hongkong |
+| US - oost | Virginia |
+| US - oost 2 | Virginia |
+| Europa - noord | Ierland |
+| Azië - zuidoost | Singapore |
 | Verenigd Koninkrijk Zuid | Londen |
 | Verenigd Koninkrijk West | Cardiff |
-| West-Europa | Nederland |
-| VS - west | Californië |
+| Europa -west | Nederland |
+| US - west | Californië |
 
 Azure File Sync ondersteunt alleen met een Azure-bestandsshare die zich in dezelfde regio als de Opslagsynchronisatieservice worden gesynchroniseerd.
 
@@ -218,16 +222,16 @@ Ter ondersteuning van de failover-integratie tussen geografisch redundante opsla
 | Australië - zuidoost | Australië - oost     |
 | Canada - midden      | Canada - oost        |
 | Canada - oost         | Canada - midden     |
-| VS - midden          | VS - oost 2          |
-| Oost-Azië           | Zuidoost-Azië     |
-| VS - oost             | VS - west            |
-| VS - oost 2           | VS - midden         |
-| Noord-Europa        | West-Europa        |
-| Zuidoost-Azië      | Oost-Azië          |
+| US - centraal          | US - oost 2          |
+| Azië - oost           | Azië - zuidoost     |
+| US - oost             | US - west            |
+| US - oost 2           | US - centraal         |
+| Europa - noord        | Europa -west        |
+| Azië - zuidoost      | Azië - oost          |
 | Verenigd Koninkrijk Zuid            | Verenigd Koninkrijk West            |
 | Verenigd Koninkrijk West             | Verenigd Koninkrijk Zuid           |
-| West-Europa         | Noord-Europa       |
-| VS - west             | VS - oost            |
+| Europa -west         | Europa - noord       |
+| US - west             | US - oost            |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Updatebeleid Azure File Sync-agent
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

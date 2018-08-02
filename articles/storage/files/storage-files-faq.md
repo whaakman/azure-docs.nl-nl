@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 07/19/2018
 ms.author: renash
-ms.openlocfilehash: 89c1bb0404e1fbff9241fe42404123288fffea71
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 9ecedb171fba9ae8719121f51026134f2bdc1a5f
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160226"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413702"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Veelgestelde vragen (FAQ) over Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard [Server Message Block (SMB)-protocol](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). U kunt Azure-bestandsshares gelijktijdig koppelen in de cloud of on-premises implementaties van Windows, Linux en macOS. U kunt ook Azure-bestandsshares op Windows Server-machines cache met behulp van Azure File Sync voor snelle toegang dicht bij waar de gegevens wordt gebruikt.
@@ -54,7 +54,7 @@ In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Files-functi
     Zie voor een gedetailleerdere beschrijving van de verschillen tussen Azure Files en Azure Blob-opslag, [beslissen wanneer u het gebruik van Azure Blob-opslag, Azure Files of Azure-schijven](../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Zie voor meer informatie over Azure Blob-opslag, [Inleiding tot Blob-opslag](../blobs/storage-blobs-introduction.md).
 
 * <a id="files-versus-disks"></a>**Waarom zou ik een Azure-bestandsshare in plaats van Azure-schijven gebruiken?**  
-    Een diskette in Azure-schijven is gewoon een schijf. Een diskette zelfstandige op zichzelf is niet te nuttig. Als u de waarde van Azure-schijven, moet u een schijf koppelen aan een virtuele machine die wordt uitgevoerd in Azure. Azure-schijven kunnen worden gebruikt voor alles wat zou u een schijf voor op een on-premises server. U kunt deze gebruiken als een besturingssysteemschijf systeem, als wisselruimte voor een besturingssysteem, of als toegewezen opslag voor een toepassing. Een interessante gebruiken voor Azure-schijven is het maken van een bestandsserver in de cloud te gebruiken op de dezelfde plaatsen waar u een Azure-bestandsshare kunt. Implementeren van een bestandsserver in Azure Virtual Machines is een krachtige manier om opslag van bestanden in Azure wanneer u de implementatie-opties die op dit moment niet worden ondersteund door Azure-bestanden (zoals NFS-protocol ondersteunings- of premium-opslag) vereist. 
+    Een diskette in Azure-schijven is gewoon een schijf. Als u de waarde van Azure-schijven, moet u een schijf koppelen aan een virtuele machine die wordt uitgevoerd in Azure. Azure-schijven kunnen worden gebruikt voor alles wat zou u een schijf voor op een on-premises server. U kunt deze gebruiken als een besturingssysteemschijf systeem, als wisselruimte voor een besturingssysteem, of als toegewezen opslag voor een toepassing. Een interessante gebruiken voor Azure-schijven is het maken van een bestandsserver in de cloud te gebruiken op de dezelfde plaatsen waar u een Azure-bestandsshare kunt. Implementeren van een bestandsserver in Azure Virtual Machines is een krachtige manier om opslag van bestanden in Azure wanneer u de implementatie-opties die op dit moment niet worden ondersteund door Azure-bestanden (zoals NFS-protocol ondersteunings- of premium-opslag) vereist. 
 
     Uitvoeren van een bestandsserver met Azure-schijven als opslag voor back-end doorgaans is echter veel duurder dan het gebruik van een Azure-bestandsshare, een aantal oorzaken hebben. Eerst, naast de facturatie voor schijfopslag, betaalt u ook moet voor de kosten van het uitvoeren van een of meer virtuele machines van Azure. Ten tweede u kan ook moet de virtuele machines die worden gebruikt voor het uitvoeren van de bestandsserver beheren. Bijvoorbeeld, bent u verantwoordelijk voor het besturingssysteem. Ten slotte, als u gegevens in de cache on-premises moet worden uiteindelijk vereist, het is aan u instellen en beheren van replicatietechnologieën, zoals Distributed File System Replication (DFSR), aan u dit kunt doen.
 

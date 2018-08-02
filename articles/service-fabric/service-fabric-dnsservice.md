@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 4d248724597a411f7253be1ccca0be6b85db95af
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 3c8eac98414fa43213136940fb4c91694a78a2c1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237176"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397523"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>DNS-Service in Azure Service Fabric
 De DNS-Service is een optionele systeemservice waarmee u in uw cluster inschakelen kunt voor het detecteren van andere services met behulp van het DNS-protocol. 
@@ -159,7 +159,7 @@ U kunt de DNS-naam voor een service instellen bij het maken van met behulp van d
     -ServiceDnsName service1.application1
 ```
 
-## <a name="making-dns-queries-on-a-stateful-service-partition"></a>DNS-query's maken op de servicepartitie van een stateful
+## <a name="preview-making-dns-queries-on-a-stateful-service-partition"></a>[Preview] DNS-query's maken op de servicepartitie van een stateful
 Beginnen met Service Fabric versie 6.3, de Service Fabric-DNS-service biedt ondersteuning voor query's voor servicepartities.
 
 Voor de partities die worden gebruikt voor DNS-query's, de volgende naamsbeperkingen zijn van toepassing:
@@ -249,6 +249,8 @@ public class ValuesController : Controller
 }
 ```
 
+## <a name="known-issues"></a>Bekende problemen
+* Voor Service Fabric versie 6.3 en hoger is er een probleem met DNS-zoekacties voor de servicenamen met een koppelteken in de DNS-naam. Volgen voor meer informatie over dit probleem, de volgende [GitHub-probleem](https://github.com/Azure/service-fabric-issues/issues/1197). Een oplossing voor dit wordt binnenkort in de volgende 6.3 update. 
 
 ## <a name="next-steps"></a>Volgende stappen
 Meer informatie over communicatie binnen het cluster met [verbinding maken en te communiceren met services](service-fabric-connect-and-communicate-with-services.md)

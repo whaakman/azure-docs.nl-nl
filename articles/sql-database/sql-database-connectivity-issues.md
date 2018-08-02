@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/01/2018
 ms.author: ninarn
-ms.openlocfilehash: 62b5f7470491027dbf5a1c60ee478268e969d1a8
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 1da4e8d94007653a43f187322c1d0e4077e337fa
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113491"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398934"
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Oplossen, opsporen en voorkomen van SQL-verbindingsfouten en tijdelijke fouten voor SQL-database
 In dit artikel wordt beschreven hoe om te voorkomen, oplossen, opsporen en oplossen van verbindingsfouten en tijdelijke fouten die uw clienttoepassing tegenkomt wanneer u de interactie met Azure SQL Database. Informatie over het configureren van de logica voor opnieuw proberen, de verbindingsreeks en andere verbindingsinstellingen aanpassen.
@@ -181,17 +181,21 @@ Zie voor achtergrondinformatie over het configureren van poorten en IP-adressen,
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-### <a name="connection-adonet-461"></a>Verbinding: ADO.NET 4.6.1
-Als uw programma maakt gebruik van ADO.NET-klassen, zoals **System.Data.SqlClient.SqlConnection** voor verbinding met SQL-Database, raden wij aan dat u .NET Framework 4.6.1 versie of hoger.
+### <a name="connection-adonet-462-or-later"></a>Verbinding: ADO.NET 4.6.2 of hoger
+Als uw programma maakt gebruik van ADO.NET-klassen, zoals **System.Data.SqlClient.SqlConnection** voor verbinding met SQL-Database, raden wij aan dat u .NET Framework versie 4.6.2 of hoger.
 
-ADO.NET 4.6.1:
+Beginnen met ADO.NET 4.6.2 vereist:
+
+- De open verbindingspoging opnieuw onmiddellijk wordt uitgevoerd voor Azure SQL-databases, waardoor de prestaties van apps met cloud-functionaliteit.
+
+Beginnen met ADO.NET 4.6.1:
 
 * Voor SQL-Database, de betrouwbaarheid is verbeterd bij het openen van een verbinding met behulp van de **SqlConnection.Open** methode. De **Open** methode bevat nu mechanismen voor het best-effort nieuwe pogingen in reactie op tijdelijke fouten voor bepaalde fouten binnen de time-outperiode.
 * Groepsgewijze verbinding wordt ondersteund, waaronder een doeltreffende controle die het verbindingsobject verzekert uw programma werkt.
 
-Wanneer u een verbindingsobject van een verbindingsgroep wordt gebruikt, wordt u aangeraden dat uw programma de verbinding tijdelijk sluiten wanneer deze niet onmiddellijk in gebruik. Is het niet duur om opnieuw een verbinding te openen, maar het is om een nieuwe verbinding te maken.
+Wanneer u een verbindingsobject van een verbindingsgroep wordt gebruikt, wordt u aangeraden dat uw programma tijdelijk de verbinding wordt gesloten wanneer het niet onmiddellijk wordt gebruikt. Is het niet duur om opnieuw een verbinding te openen, maar het is om een nieuwe verbinding te maken.
 
-Als u werkt met ADO.NET 4.0 of eerder gebruikt, raden wij aan dat u een upgrade uitvoert naar de meest recente ADO.NET. Vanaf November 2015, kunt u [downloaden ADO.NET 4.6.1](http://blogs.msdn.com/b/dotnet/archive/2015/11/30/net-framework-4-6-1-is-now-available.aspx).
+Als u werkt met ADO.NET 4.0 of eerder gebruikt, raden wij aan dat u een upgrade uitvoert naar de meest recente ADO.NET. Vanaf augustus 2018, kunt u [downloaden ADO.NET 4.6.2](https://blogs.msdn.microsoft.com/dotnet/2018/04/30/announcing-the-net-framework-4-7-2/).
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 

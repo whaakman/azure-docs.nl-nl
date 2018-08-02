@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 08/01/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 2c62f8ab0e5f8974fbed51848772dee69f60b063
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 0190298cbf6352feeb71e365f5815e174c9e30cc
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344246"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413512"
 ---
 # <a name="azure-stack-1804-update"></a>Azure Stack 1804 update
 
@@ -80,7 +80,10 @@ De volgende zijn nu beschikbaar, maar geen Azure Stack update 1804 vereist.
 ## <a name="before-you-begin"></a>Voordat u begint    
 
 ### <a name="prerequisites"></a>Vereisten
-- De Azure-Stack installeren [1803 bijwerken](azure-stack-update-1803.md) voordat u de Azure Stack 1804 update toepassen.    
+- De Azure-Stack installeren [1803 bijwerken](azure-stack-update-1803.md) voordat u de Azure Stack 1804 update toepassen.  
+  
+- Installeer de meest recente beschikbare [update of hotfix voor versie 1803](azure-stack-update-1803.md#post-update-steps). 
+
 
 ### <a name="known-issues-with-the-update-process"></a>Bekende problemen met het updateproces   
 - Tijdens de installatie van de update 1804, ziet u mogelijk waarschuwingen met de titel *fout: sjabloon voor FaultType UserAccounts.New ontbreekt.*  U kunt deze waarschuwingen negeren. Deze waarschuwingen worden automatisch gesloten nadat de update van 1804 is voltooid.   

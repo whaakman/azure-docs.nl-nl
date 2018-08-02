@@ -7,17 +7,17 @@ manager: carmonm
 keywords: back-up en herstel na noodgeval; Backup-service
 ms.service: backup
 ms.topic: conceptual
-ms.date: 5/9/2018
+ms.date: 8/1/2018
 ms.author: markgal
-ms.openlocfilehash: ac3c90fef602c5f840fff9ccd03efc360ca16200
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 33a3a1c0fd375f6ed88e13f910c46e71f216b892
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605821"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412948"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Vragen over de Azure Backup-service
-In dit artikel antwoorden op veelgestelde vragen over de Azure Backup-onderdelen. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt via **Opmerkingen** (aan de rechterkant) vragen stellen over Azure Backup. De opmerkingen worden onder aan dit artikel weergegeven. Er is een Livefyre-account vereist om opmerkingen te kunnen plaatsen. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
+In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-onderdelen. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt via **Opmerkingen** (aan de rechterkant) vragen stellen over Azure Backup. De opmerkingen worden onder aan dit artikel weergegeven. Er is een Livefyre-account vereist om opmerkingen te kunnen plaatsen. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
 
 Als u kort de secties in dit artikel wilt bekijken, gebruikt u de koppelingen aan de rechterkant, onder **In dit artikel**.
 
@@ -28,19 +28,22 @@ Als u kort de secties in dit artikel wilt bekijken, gebruikt u de koppelingen aa
 Ja. U kunt maximaal 500 Recovery Services-kluizen per ondersteunde regio van Azure Backup per abonnement maken. Als u extra kluizen nodig hebt, maakt u een extra abonnement.
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Zijn er beperkingen met betrekking tot het aantal servers/machines dat kan worden geregistreerd voor elke kluis? <br/>
-U kunt maximaal 1000 Azure virtuele machines per kluis registreren. Als u de Agent mal gebruikt, kunt u maximaal 50 mal agents per kluis registreren. En u kunt 50 mal servers/DPM-servers in een kluis registreren.
+U kunt maximaal 1000 Azure Virtual machines per kluis registreren. Als u de MAB-Agent gebruikt, kunt u maximaal 50 MAB-agents per kluis registreren. En u kunt de 50 MAB-servers/DPM-servers naar een kluis registreren.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Als mijn organisatie één kluis heeft, hoe kan ik bij het herstellen van gegevens de gegevens van de ene server dan isoleren van de gegevens van een andere server?<br/>
 Alle servers die zijn geregistreerd bij dezelfde kluis, kunnen de gegevensback-ups herstellen van andere servers *die gebruikmaken van dezelfde wachtwoordzin*. Als u servers hebt waarvan u de back-upgegevens wilt isoleren van andere servers in uw organisatie, gebruikt u een speciale wachtwoordzin voor die servers. U kunt bijvoorbeeld verschillende wachtwoordzinnen voor de human resource-server, de accountingserver en de opslagserver gebruiken.
 
-### <a name="can-i-migrate-my-backup-data-or-vault-between-subscriptions-br"></a>Kan ik mijn back-upgegevens- of back-upkluis 'migreren' tussen abonnementen? <br/>
-Nee. De kluis is gemaakt op abonnementsniveau en kan, zodra deze is gemaakt, niet opnieuw worden toegewezen aan een ander abonnement.
+### <a name="can-i-migrate-my-vault-between-subscriptions-br"></a>Kan ik mijn kluis tussen abonnementen migreren? <br/>
+Nee. De kluis wordt gemaakt op abonnementsniveau en kan niet opnieuw worden toegewezen aan een ander abonnement.
+
+### <a name="can-i-migrate-backup-data-to-another-vault-br"></a>Kan ik back-upgegevens naar een andere kluis migreren? <br/>
+Nee. Back-upgegevens die zijn opgeslagen in een kluis kan niet worden verplaatst naar een andere kluis.
 
 ### <a name="recovery-services-vaults-are-resource-manager-based-are-backup-vaults-still-supported-br"></a>Recovery Services-kluizen zijn op basis van Resource Manager. Worden Backup-kluizen nog steeds ondersteund? <br/>
-Back-upkluizen zijn geconverteerd naar een Recovery Services-kluizen. Als u de Backup-kluis niet naar een Recovery Services-kluis converteren hebt, is klikt u vervolgens de Backup-kluis geconverteerd naar een Recovery Services-kluis voor u. 
+Back-upkluizen zijn geconverteerd naar Recovery Services-kluizen. Als u de Backup-kluis niet naar een Recovery Services-kluis converteren hebt, is klikt u vervolgens de Backup-kluis geconverteerd naar een Recovery Services-kluis voor u. 
 
 ### <a name="can-i-migrate-a-backup-vault-to-a-recovery-services-vault-br"></a>Kan ik een Backup-kluis migreren naar een Recovery Services-kluis? <br/>
-Alle Backup-kluizen zijn geconverteerd naar een Recovery Services-kluizen. Als u de Backup-kluis niet naar een Recovery Services-kluis converteren hebt, is klikt u vervolgens de Backup-kluis geconverteerd naar een Recovery Services-kluis voor u.
+Alle back-upkluizen zijn geconverteerd naar Recovery Services-kluizen. Als u de Backup-kluis niet naar een Recovery Services-kluis converteren hebt, is klikt u vervolgens de Backup-kluis geconverteerd naar een Recovery Services-kluis voor u.
 
 ## <a name="azure-backup-agent"></a>Azure Backup-agent
 Een uitgebreide lijst met vragen vindt u in [FAQ on Azure file-folder backup](backup-azure-file-folder-backup-faq.md) (Veelgestelde vragen over het maken van back-ups van Azure-bestandsmappen)
@@ -65,16 +68,16 @@ Nee. Een DPM- of MABS-server kan voor slechts één kluis worden geregistreerd.
 ### <a name="which-version-of-system-center-data-protection-manager-is-supported"></a>Welke versie van System Center Data Protection Manager wordt ondersteund?
 
 U kunt het beste de [nieuwste](http://aka.ms/azurebackup_agent) versie van de Azure Backup-agent installeren met het nieuwste updatepakket voor System Center Data Protection Manager (DPM). 
-- Voor System Center DPM 2012 R2 [Update Rollup 14](https://support.microsoft.com/help/4043315/update-rollup-14-for-system-center-2012-r2-data-protection-manager) is de meest recente update.
-- Voor System Center DPM 2016 [Update Rollup 2](https://support.microsoft.com/en-us/help/3209593) is de meest recente update.
+- Voor System Center DPM 2012 R2, [Update Rollup 14](https://support.microsoft.com/help/4043315/update-rollup-14-for-system-center-2012-r2-data-protection-manager) is de meest recente update.
+- Voor System Center DPM 2016 [updatepakket 2](https://support.microsoft.com/en-us/help/3209593) is de meest recente update.
 
-### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-protect-on-premises-applicationvm-workloads-to-azure"></a>Ik heb de Azure Backup-agent geïnstalleerd om bestanden en mappen te beveiligen. Kan ik een installeren voor System Center DPM om lokale toepassings-/ VM-werkbelastingen naar Azure te beveiligen?
+### <a name="i-have-installed-azure-backup-agent-to-protect-my-files-and-folders-can-i-install-system-center-dpm-to-protect-on-premises-applicationvm-workloads-to-azure"></a>Ik heb de Azure Backup-agent geïnstalleerd om bestanden en mappen te beveiligen. Kan ik een installeren voor System Center DPM ter bescherming van workloads van on-premises toepassingen of virtuele machines naar Azure?
 
-Ja. Echter, voor het gebruik van Azure Backup met System Center Data Protection Manager (DPM), installeert u DPM eerst en installeer vervolgens Azure backup-agent. Als u de Azure Backup-onderdelen in deze volgorde installeert, zorgt u ervoor dat de Azure Backup-agent werkt met DPM. Het installeren van de Azure Backup-agent vóór DPM wordt niet geadviseerd of ondersteund.
+Ja. Echter voor het gebruik van Azure Backup met System Center Data Protection Manager (DPM), installeert u eerst DPM en installeer vervolgens Azure backup-agent. Als u de Azure Backup-onderdelen in deze volgorde installeert, zorgt u ervoor dat de Azure Backup-agent werkt met DPM. Het installeren van de Azure Backup-agent vóór DPM wordt niet geadviseerd of ondersteund.
 
-### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Kan ik DPM back-up-apps in Azure-Stack gebruiken?
+### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>Kan ik DPM back-up-apps in Azure Stack gebruiken?
 
-Nee. Hoewel Azure Backup kunt u Azure-Stack beveiligen, biedt Azure Backup momenteel geen ondersteuning met behulp van DPM back-up-apps in Azure-Stack.
+Nee. Hoewel u Azure Backup gebruiken kunt om te beveiligen van Azure Stack, biedt Azure Backup momenteel geen ondersteuning met behulp van DPM back-up-apps in Azure Stack.
 
 ## <a name="how-azure-backup-works"></a>De werking van Azure Backup
 ### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted-br"></a>Als ik een back-uptaak annuleer nadat deze is gestart, worden de overgedragen back-upgegevens dan verwijderd? <br/>
@@ -83,13 +86,13 @@ Nee. Alle gegevens die naar de kluis zijn overgebracht voordat de back-uptaak is
 Als u een back-uptaak voor een virtuele Azure-machine annuleert, worden eventuele overgedragen gegevens geannuleerd. De volgende back-uptaak draagt incrementele gegevens over van na de vorige succesvolle back-up-taak.
 
 ### <a name="are-there-limits-on-when-or-how-many-times-a-backup-job-can-be-scheduledbr"></a>Gelden er limieten voor het moment waarop een back-uptaak kan worden gepland en voor het aantal keren?<br/>
-Ja. U kunt maximaal drie keer per dag back-uptaken uitvoeren op werkstations met Windows Server of Windows. U kunt back-uptaken op System Center DPM maximaal twee keer per dag uitvoeren. Voor IaaS VM's kunt u maximaal één keer per dat een back-uptaak uitvoeren. Planningsbeleid voor Windows Server of Windows-werkstation gebruiken om op te geven dagelijks of wekelijks schema's. U kunt met System Center DPM dagelijkse, wekelijkse, maandelijkse en jaarlijkse planning opgeven.
+Ja. U kunt maximaal drie keer per dag back-uptaken uitvoeren op werkstations met Windows Server of Windows. U kunt back-uptaken uitvoeren op System Center DPM maximaal twee keer per dag. Voor IaaS VM's kunt u maximaal één keer per dat een back-uptaak uitvoeren. Gebruik het planningsbeleid voor Windows Server of Windows-werkstation dagelijks of wekelijks schema's opgeven. U kunt met System Center DPM dagelijkse, wekelijkse, maandelijkse en jaarlijkse planning opgeven.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Waarom is de omvang van de gegevens die worden overgebracht naar de Recovery Services-kluis, kleiner dan de hoeveelheid gegevens waarvan ik een back-up heb gemaakt?<br/>
- Alle gegevens waarvan een back-up is gemaakt via Azure Backup-agent, SCDPM of Azure Backup-server, worden gecomprimeerd en versleuteld voordat ze worden overgedragen. Nadat de compressie en codering is toegepast, is de gegevens in de Recovery Services-kluis 30 tot 40% kleiner.
+ Alle gegevens waarvan een back-up is gemaakt via Azure Backup-agent, SCDPM of Azure Backup-server, worden gecomprimeerd en versleuteld voordat ze worden overgedragen. Nadat de compressie en versleuteling wordt toegepast, is de gegevens in de Recovery Services-kluis 30-40% kleiner.
 
 ## <a name="what-can-i-back-up"></a>Waar kan ik een back-up van maken?
-### <a name="which-operating-systems-does-azure-backup-support-br"></a>Welke besturingssystemen ondersteunen Azure Backup? <br/>
+### <a name="which-operating-systems-does-azure-backup-support-br"></a>Welke besturingssystemen biedt ondersteuning voor Azure Backup? <br/>
 Azure Backup ondersteunt de volgende besturingssystemen voor het maken van back-ups van bestanden, mappen en workloadtoepassingen die worden beschermd met behulp van Azure Backup Server en System Center Data Protection Manager (DPM).
 
 | Besturingssysteem | Platform | SKU |
@@ -114,7 +117,7 @@ Azure Backup ondersteunt de volgende besturingssystemen voor het maken van back-
 
 
 ### <a name="is-there-a-limit-on-the-size-of-each-data-source-being-backed-up-br"></a>Geldt er een limiet voor de grootte van elke gegevensbron waarvan een back-up wordt gemaakt? <br/>
-Azure Backup een maximale grootte voor een gegevensbron wordt afgedwongen, echter de limieten voor de bron te groot zijn. Vanaf augustus 2015 geldt er een maximale gegevensbrongrootte voor de ondersteunde besturingssystemen van:
+Azure Backup wordt afgedwongen voor een maximale grootte voor een gegevensbron, de limieten voor de bron zijn echter hoog. Vanaf augustus 2015 geldt er een maximale gegevensbrongrootte voor de ondersteunde besturingssystemen van:
 
 | S.Nee | Besturingssysteem | Maximale grootte van de gegevensbron |
 |:---:|:--- |:--- |
@@ -134,16 +137,16 @@ In de volgende tabel wordt uitgelegd hoe de grootte voor elke gegevensbron wordt
 | Microsoft Exchange |De som van alle Exchange-databases in een Exchange-server waarvan een back-up wordt gemaakt. |
 | BMR/systeemstatus |Elke afzonderlijke kopie van de BMR of systeemstatus van de machine waarvan een back-up wordt gemaakt. |
 
-Voor back-up van Azure IaaS VM, kan elke VM maximaal 16 gegevensschijven, en elke gegevensschijf 4095 GB kan zijn.
+Voor Azure IaaS VM backup, kan elke virtuele machine mag maximaal 16 gegevensschijven hebben en elke gegevensschijf maximaal 4095 GB.
 
-### <a name="is-there-a-limit-on-the-amount-of-data-held-in-a-recovery-services-vault"></a>Is er een limiet van de hoeveelheid gegevens die zijn opgeslagen in een Recovery Services-kluis?
+### <a name="is-there-a-limit-on-the-amount-of-data-held-in-a-recovery-services-vault"></a>Is er een limiet voor de hoeveelheid gegevens die zijn opgeslagen in een Recovery Services-kluis?
 Er is geen limiet voor de hoeveelheid gegevens die u kunt back-up naar een Recovery Services-kluis.
 
 ## <a name="retention-policy-and-recovery-points"></a>Retentiebeleid en herstelpunten
 ### <a name="is-there-a-difference-between-the-retention-policy-for-dpm-and-windows-serverclient-that-is-on-windows-server-without-dpmbr"></a>Is er een verschil tussen het retentie- of bewaarbeleid voor DPM en Windows Server of de Windows-client (dat wil zeggen op Windows Server zonder DPM)?<br/>
 Nee, u kunt zowel voor DPM als voor Windows Server of de Windows-client een dagelijks, wekelijks, maandelijks en jaarlijks bewaarbeleid instellen.
 
-### <a name="can-i-configure-my-retention-policies-selectively--that-is-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Kan ik mijn bewaarbeleidsregels selectief – dat wil configureren, het configureren van wekelijks en dagelijks, maar niet jaarlijks en maandelijks?<br/>
+### <a name="can-i-configure-my-retention-policies-selectively--that-is-configure-weekly-and-daily-but-not-yearly-and-monthlybr"></a>Kan ik mijn bewaarbeleidsregels selectief – dat wil zeggen configureren, configureren van wekelijks en dagelijks, maar niet jaarlijks en maandelijks?<br/>
 Ja, de bewaarstructuur van Azure Backup biedt u de volledige flexibiliteit om het bewaarbeleid te configureren overeenkomstig uw vereisten.
 
 ### <a name="can-i-schedule-a-backup-at-6pm-and-specify-retention-policies-at-a-different-timebr"></a>Kan ik 'een back-up plannen' om 18:00 uur en voor het retentiebeleid een ander tijdstip opgeven?<br/>
@@ -168,7 +171,7 @@ Er is geen limiet voor het aantal herstelbewerkingen vanuit Azure Backup.
 Nee. Uw herstelbewerkingen zijn gratis en er worden geen kosten in rekening gebracht voor het uitgaande verkeer.
 
 ### <a name="what-happens-when-i-change-my-backup-policy"></a>Wat gebeurt er wanneer ik mijn back-upbeleid wijzigen?
-Wanneer een nieuw beleid wordt toegepast, wordt planning en retentie van het nieuwe beleid gevolgd. Als de retentie is uitgebreid, worden de bestaande herstelpunten gemarkeerd voor bewaring conform het nieuwe beleid. Als de retentie is beperkt, worden de bestaande herstelpunten gemarkeerd voor verwijdering in de eerstvolgende opschoontaak, en worden ze vervolgens verwijderd.
+Wanneer een nieuw beleid wordt toegepast, schema en de retentie van het nieuwe beleid gevolgd. Als de retentie is uitgebreid, worden de bestaande herstelpunten gemarkeerd voor bewaring conform het nieuwe beleid. Als de retentie is beperkt, worden de bestaande herstelpunten gemarkeerd voor verwijdering in de eerstvolgende opschoontaak, en worden ze vervolgens verwijderd.
 
 ## <a name="azure-backup-encryption"></a>Azure Backup-versleuteling
 ### <a name="is-the-data-sent-to-azure-encrypted-br"></a>Worden de gegevens die naar Azure worden verzonden, versleuteld? <br/>

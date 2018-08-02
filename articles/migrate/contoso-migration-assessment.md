@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: raynew
-ms.openlocfilehash: 2be5ddd51140563efc44b1c1a4c84502bf491020
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: e2fbe766391759f2bbe4a95e75897b2bc9523c0c
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215319"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39399070"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migratie van Contoso: on-premises workloads evalueren voor migratie naar Azure
 
@@ -123,8 +123,10 @@ Contoso en andere gebruikers moeten voldoen aan de volgende vereisten voor de ev
 - Ten minste twee on-premises virtuele VMware-machines, en op één daarvan moet een SQL Server-database worden uitgevoerd.
 - Machtigingen voor het Azure Migrate-agents installeren op elke virtuele machine.
 - De virtuele machines moeten directe verbinding met internet hebben.  
-        - U kunt de toegang tot internet beperken de [vereiste URL's](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-        -Als uw VM's geen verbinding met internet, de Azure Log Analytics [OMS-Gateway](../log-analytics/log-analytics-oms-gateway.md) moet worden geïnstalleerd.
+        
+- U kunt de toegang tot internet beperken de [vereiste URL's](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+
+- Als uw virtuele machines niet over een internetverbinding beschikt, de Azure Log Analytics [OMS-Gateway](../log-analytics/log-analytics-oms-gateway.md) moet worden geïnstalleerd.
 - De FQDN-naam van de virtuele machine waarop het SQL Server-exemplaar wordt uitgevoerd. Deze wordt gebruikt voor database-evaluatie.
 - Windows Firewall op de SQL Server-VM moet externe verbindingen toestaan via TCP-poort 1433 (standaard). De installatie kunt Data Migration Assistant om verbinding te maken.
 

@@ -7,14 +7,14 @@ manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/18/2018
+ms.date: 8/1/2018
 ms.author: trinadhk
-ms.openlocfilehash: 787c4b0f6e8d5ed76260582bfa3d6c49574bd102
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 1021900620272cc5476d8972daf9d7e0a161797a
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205337"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397998"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Upgrade uitvoeren naar Azure VM Backup-stack V2
 
@@ -107,7 +107,7 @@ Er zijn geen kosten verbonden aan de stack upgraden naar v2. Momentopnamen worde
 
 ### <a name="does-upgrading-to-stack-v2-increase-the-premium-storage-account-snapshot-limit-by-10-tb"></a>Bijwerken voor stack v2 premium storage-accountlimiet voor de Momentopnames van 10 TB verhogen?
 
-Momentopnamen als onderdeel van v2 stack aantal naar 10 TB momentopnamelimiet voor een premium storage-account voor niet-beheerde schijven. 
+Nee, totale momentopnamelimiet per storage-account is nog steeds op 10TB. 
 
 ### <a name="in-premium-storage-accounts-do-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>Premium-opslagaccounts kunt momentopnamen die zijn gemaakt voor directe herstelpunt dat de momentopname-limiet van 10 TB innemen?
 

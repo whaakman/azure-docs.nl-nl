@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: e63f07e7819d464b4ee430571d8c5a05259c8df5
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 5d67abe003afc6f5aec420f4668efa5df7d8dbc4
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282031"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414464"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Procedure: Vereist voor toegang tot cloud-Apps met voorwaardelijke toegang te beheren
 
@@ -60,11 +60,11 @@ Simpel gezegd, beheerde apparaten zijn apparaten die onder *sommige sorteren* va
 
 Als u een apparaat is geregistreerd bij Azure AD, hebt u drie opties:
 
-- **[Azure AD ingeschreven apparaten](device-management-introduction.md#azure-ad-registered-devices)**  : als u wilt ophalen van een persoonlijk apparaat is geregistreerd bij Azure AD
+- **[Azure AD ingeschreven apparaten](devices/overview.md#azure-ad-registered-devices)**  : als u wilt ophalen van een persoonlijk apparaat is geregistreerd bij Azure AD
 
-- **[Azure AD gekoppelde apparaten](device-management-introduction.md#azure-ad-joined-devices)**  : als u wilt ophalen van een organisatie-Windows 10-apparaat die niet is gekoppeld aan een on-premises AD geregistreerd bij Azure AD. 
+- **[Azure AD gekoppelde apparaten](devices/overview.md#azure-ad-joined-devices)**  : als u wilt ophalen van een organisatie-Windows 10-apparaat die niet is gekoppeld aan een on-premises AD geregistreerd bij Azure AD. 
 
-- **[Hybride Azure AD gekoppelde apparaten](device-management-introduction.md#hybrid-azure-ad-joined-devices)**  : als u wilt ophalen van een Windows 10 of een ondersteunde downlevel-apparaten die lid van een on-premises is AD geregistreerd bij Azure AD.
+- **[Hybride Azure AD gekoppelde apparaten](devices/overview.md#hybrid-azure-ad-joined-devices)**  : als u wilt ophalen van een Windows 10 of een ondersteunde downlevel-apparaten die lid van een on-premises is AD geregistreerd bij Azure AD.
 
 Als u wilt worden van een beheerd apparaat, een geregistreerd apparaat moet een **hybride Azure AD toegevoegde apparaat** of een **apparaat dat is gemarkeerd als compatibel**.  
 

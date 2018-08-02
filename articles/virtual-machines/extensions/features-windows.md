@@ -1,9 +1,9 @@
 ---
 title: Azure VM-extensies en functies voor Windows | Microsoft Docs
-description: Meer informatie over welke extensies beschikbaar zijn voor virtuele machines in Azure, gegroepeerd op wat ze bieden of verbeteren.
+description: Meer informatie over welke extensies beschikbaar zijn voor virtuele machines van Azure, gegroepeerd op wat ze bieden of verbeteren.
 services: virtual-machines-windows
 documentationcenter: ''
-author: danielsollondon
+author: zroiy
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -14,67 +14,67 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
-ms.author: danis
+ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e9e147e2cbe5ff42562d6fcfab62460df48f3d65
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: 939c8d203382d76c1b163eb68143f3fff78d71d3
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809723"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413035"
 ---
-# <a name="virtual-machine-extensions-and-features-for-windows"></a>Virtuele machine-extensies en functies voor Windows
+# <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensies voor virtuele machines en functies voor Windows
 
-Azure virtuele machine (VM) extensies zijn kleine toepassingen waarmee de configuratie en automatisering taken na de implementatie op Azure Virtual machines. Bijvoorbeeld, als een virtuele machine is vereist voor software-installatie, beveiliging tegen virussen, of een script daarbinnen uitvoeren, kan een VM-extensie kan worden gebruikt. Azure VM-extensies kunnen worden uitgevoerd met de Azure CLI, PowerShell, Azure resourcemanager-sjablonen en de Azure-portal. Uitbreidingen worden gebundeld met een nieuwe VM-implementatie of uitvoeren op een bestaande systeem.
+Extensies voor Azure-machines (VM) zijn kleine toepassingen die taken van configuratie- en automatiseringstaken na de implementatie op Azure Virtual machines bieden. Bijvoorbeeld, als een virtuele machine is vereist voor software-installatie, beveiliging tegen virussen, of een script daarbinnen uit te voeren, kan een VM-extensie kan worden gebruikt. Azure VM-extensies kunnen worden uitgevoerd met de Azure CLI, PowerShell, Azure resourcemanager-sjablonen en Azure portal. Extensies worden gebundeld met een nieuwe VM-implementatie of op basis van een bestaand systeem worden uitgevoerd.
 
-In dit artikel biedt een overzicht van de VM-extensies voor vereisten voor het gebruik van Azure VM-extensies en instructies voor het detecteren, beheren en verwijderen van de VM-extensies. Dit artikel vindt u algemene informatie omdat veel VM-extensies beschikbaar zijn, elk met een potentieel unieke configuratie. Extensie-specifieke informatie vindt u in elk document specifiek is voor de afzonderlijke extensie.
+In dit artikel biedt een overzicht van VM-extensies, vereisten voor het gebruik van Azure VM-extensies, en instructies over het detecteren, beheren en verwijderen van de VM-extensies. Dit artikel bevat algemene informatie, omdat veel VM-extensies beschikbaar zijn, elk met een potentieel unieke configuratie. Extensie-specifieke details vindt u in elk document specifiek is voor de afzonderlijke extensie.
 
-## <a name="use-cases-and-samples"></a>Gebruiksvoorbeelden en voorbeelden
+## <a name="use-cases-and-samples"></a>Use cases en voorbeelden
 
-Enkele andere Azure VM-extensies beschikbaar zijn, elk met een specifieke gebruiksvoorbeeld. Voorbeelden zijn:
+Meerdere verschillende Azure-VM-extensies beschikbaar zijn, elk met een specifieke use-case. Voorbeelden zijn:
 
-- Status van PowerShell gewenste configuraties toepassen op een virtuele machine met de DSC-extensie voor Windows. Zie voor meer informatie [Azure gewenst State configuration-uitbreiding](dsc-overview.md).
-- Bewaking van een virtuele machine met de Microsoft Monitoring Agent VM-extensie te configureren. Zie voor meer informatie [Azure-machines verbinding maken met logboekanalyse](../../log-analytics/log-analytics-azure-vm-extension.md).
-- Een Azure VM configureren met behulp van Chef. Zie voor meer informatie [automatiseren Azure VM-implementatie met Chef](../windows/chef-automation.md).
+- PowerShell Desired State configuraties toepassen op een virtuele machine met de DSC-extensie voor Windows. Zie voor meer informatie, [Azure Desired State configuration-extensie](dsc-overview.md).
+- Bewaking van een virtuele machine met de Microsoft Monitoring Agent-VM-extensie configureren. Zie voor meer informatie, [Azure VM's verbinding maken met Log Analytics](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Een Azure-VM configureren met behulp van Chef. Zie voor meer informatie, [implementatie van de Azure-VM automatiseren met Chef](../windows/chef-automation.md).
 - Bewaking van uw Azure-infrastructuur met de extensie Datadog configureren. Zie voor meer informatie de [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 
-Een aangepast Script-uitbreiding is naast processpecifieke uitbreidingen beschikbaar voor Windows- en Linux virtuele machines. De extensie voor aangepaste scripts voor Windows kunt een PowerShell-script worden uitgevoerd op een virtuele machine. Aangepaste scripts zijn handig voor het ontwerpen van Azure-implementaties die moeten worden geconfigureerd afgezien van wat systeemeigen Azure tooling kan bieden. Zie voor meer informatie [Windows VM aangepaste scriptextensie](custom-script-windows.md).
+Een aangepast Script-extensie is naast processpecifieke extensies beschikbaar voor zowel Windows als Linux virtuele machines. De aangepaste scriptextensie voor Windows kunt een PowerShell-script om te worden uitgevoerd op een virtuele machine. Aangepaste scripts zijn handig voor het ontwerpen van Azure-implementaties die moeten worden geconfigureerd dan welke systeemeigen Azure-hulpprogramma kan bieden. Zie voor meer informatie, [Windows VM Custom Script extension](custom-script-windows.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het afhandelen van de uitbreiding op de virtuele machine, moet u de Azure Linux Agent is geïnstalleerd. Een aantal afzonderlijke uitbreidingen hebben vereisten, zoals toegang tot bronnen of afhankelijkheden.
+Voor het afhandelen van de extensie op de virtuele machine, moet u de Azure Linux Agent is geïnstalleerd. Aantal afzonderlijke extensies hebben vereisten, zoals toegang tot bronnen of afhankelijkheden.
 
 ### <a name="azure-vm-agent"></a>Azure VM-agent
 
-De Azure VM-agent beheert interactie tussen een Azure-virtuele machine en de domeincontroller van de Azure-infrastructuur. De VM-agent is verantwoordelijk voor veel functionele aspecten van het implementeren en beheren van Azure Virtual machines, waaronder het uitvoeren van de VM-extensies. De Azure VM-agent is geïnstalleerd op Azure Marketplace-installatiekopieën en kan handmatig worden geïnstalleerd op ondersteunde besturingssystemen. De Azure VM-Agent voor Windows, wordt de Windows-gastagent genoemd.
+Interactie tussen een Azure-VM en de Azure-infrastructuurcontroller wordt beheerd door de Azure VM-agent. De VM-agent is verantwoordelijk voor veel functionele aspecten van het implementeren en beheren van virtuele machines van Azure, inclusief het uitvoeren van VM-extensies. De Azure VM-agent is vooraf geïnstalleerd in Azure Marketplace-installatiekopieën en handmatig kan worden geïnstalleerd op ondersteunde besturingssystemen. De Azure VM-Agent voor Windows staat bekend als de Windows Guest-agent.
 
-Zie voor informatie over ondersteunde besturingssystemen en installatie-instructies, [virtuele machine van Azure-agent](agent-windows.md).
+Zie voor informatie over ondersteunde besturingssystemen en installatie-instructies, [virtuele Azure-machineagent](agent-windows.md).
 
 #### <a name="supported-agent-versions"></a>Ondersteunde agent-versies
 
-Om de best mogelijke ervaring bieden, zijn er minimaal vereiste versies van de agent. Raadpleeg [dit artikel](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) voor meer informatie.
+Als u wilt de best mogelijke ervaring bieden, zijn er minimaal vereiste versies van de agent. Raadpleeg [dit artikel](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) voor meer informatie.
 
 #### <a name="supported-oses"></a>Ondersteunde besturingssystemen
 
-De Windows Guest-agent wordt uitgevoerd op meerdere besturingssystemen, maar het framework extensies een limiet voor de besturingssystemen die uitbreidingen kent. Zie voor meer informatie [in dit artikel] (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems ).
+De Windows Guest-agent wordt uitgevoerd op meerdere besturingssystemen, maar het framework extensions een limiet voor de besturingssystemen die uitbreidingen heeft. Zie voor meer informatie [in dit artikel] (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems ).
 
-Bepaalde extensies worden niet ondersteund in alle besturingssystemen en verzendt *fout Code 51, 'Niet-ondersteunde OS'*. Raadpleeg de documentatie van de afzonderlijke extensie voor ondersteuning.
+Bepaalde extensies worden niet ondersteund in alle besturingssystemen en verzendt *fout Code 51, 'Niet-ondersteund besturingssysteem'*. Raadpleeg de documentatie van de afzonderlijke-extensie voor ondersteuning.
 
 #### <a name="network-access"></a>Netwerktoegang
 
--Extensiepakketten worden gedownload vanuit de opslagplaats van de extensie Azure Storage en extensie status uploads worden gepubliceerd naar Azure Storage. Als u [ondersteund](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) versie van de agents, hoeft u niet dat toegang tot Azure Storage in het gebied van de virtuele machine als de agent kan worden gebruikt om te leiden van de communicatie naar de controller Azure-infrastructuur voor communicatie van agent. Als u van een niet-ondersteunde versie van de agent gebruikmaakt, moet u uitgaand verkeer toestaan naar Azure-opslag in deze regio van de virtuele machine.
+-Extensiepakketten zijn gedownload vanuit de opslagplaats van de extensie Azure Storage en extensie status uploaden naar Azure Storage worden geboekt. Als u [ondersteund](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) versie van de agents, hoeft u niet voor toegang tot Azure Storage in de regio van de virtuele machine, zoals de agent kan worden gebruikt zodat de communicatie worden omgeleid naar de Azure-infrastructuurcontroller voor communicatie van agent. Als u van een niet-ondersteunde versie van de agent gebruikmaakt, moet u de uitgaande toegang tot Azure storage in die regio van de virtuele machine toestaan.
 
 > [!IMPORTANT]
-> Als u toegang tot hebben geblokkeerd *168.63.129.1* met de Gast-firewall, klikt u vervolgens extensies mislukken ongeacht de bovenstaande.
+> Als u toegang tot hebben geblokkeerd *168.63.129.1* met behulp van de Gast-firewall, extensies mislukt, ongeacht de bovenstaande.
 
-Agents kunnen alleen worden gebruikt voor het downloaden van extensiepakketten en rapporteringsstatus. Bijvoorbeeld als een installatie van de extensie moet een script downloaden vanuit GitHub (aangepast Script) of moet toegang tot Azure Storage (Azure Backup), klikt u vervolgens extra firewall/netwerk beveiliging groep poorten moeten worden geopend. Verschillende extensies hebben verschillende vereisten, omdat ze toepassingen in hun eigen rechts. Voor uitbreidingen waarvoor toegang tot Azure Storage, kunt u toegang met behulp van Azure NSG Service-Tags voor [opslag](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Agents kunnen alleen worden gebruikt voor het downloaden van extensiepakketten en rapporteringsstatus. Bijvoorbeeld, als een extensie installeren moet een script downloaden vanuit GitHub (aangepast Script) of moet toegang tot Azure Storage (Azure Backup), klikt u vervolgens aanvullende firewall/Network Security Group-poorten moeten worden geopend. Verschillende extensies hebben verschillende vereisten, omdat ze toepassingen in hun eigen rechts. Voor uitbreidingen waarvoor toegang tot Azure Storage, kunt u toegang met behulp van Azure NSG servicetags voor [opslag](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
-De Gastagent Windows heeft geen ondersteuning voor het omleiden van aanvragen van de agent-verkeer via proxy-server.
+De Windows Guest-Agent heeft geen ondersteuning voor u omleiden van verkeer agentaanvragen via proxy-server.
 
-## <a name="discover-vm-extensions"></a>VM-extensies detecteren
+## <a name="discover-vm-extensions"></a>Detecteren van VM-extensies
 
-Veel andere VM-extensies zijn beschikbaar voor gebruik met Azure Virtual machines. Als een volledige lijst wilt weergeven, gebruikt [Get-AzureRmVMExtensionImage](/powershell/module/azurerm.compute/get-azurermvmextensionimage). Het volgende voorbeeld worden alle beschikbare uitbreidingen in de *WestUS* locatie:
+Er zijn veel verschillende VM-extensies beschikbaar voor gebruik met Azure-VM's. Als een volledige lijst wilt weergeven, gebruikt [Get-AzureRmVMExtensionImage](/powershell/module/azurerm.compute/get-azurermvmextensionimage). Het volgende voorbeeld worden alle beschikbare uitbreidingen in de *WestUS* locatie:
 
 ```powershell
 Get-AzureRmVmImagePublisher -Location "WestUS" | `
@@ -84,19 +84,19 @@ Get-AzureRmVMExtensionImage | Select Type, Version
 
 ## <a name="run-vm-extensions"></a>VM-extensies worden uitgevoerd
 
-Azure VM-extensies worden uitgevoerd op de bestaande virtuele machines, die is handig als u wilt configuratiewijzigingen aanbrengen of connectiviteit op een reeds geïmplementeerde virtuele machine herstellen. VM-extensies kunnen ook worden gebundeld met implementaties van Azure Resource Manager-sjabloon. Via uitbreidingen met Resource Manager-sjablonen kunt virtuele Azure-machines worden geïmplementeerd en geconfigureerd zonder tussenkomst van de na de implementatie.
+Azure VM-extensies worden uitgevoerd op bestaande VM's, die is handig als u wilt configuratiewijzigingen aanbrengen of beschikbaar is op een reeds geïmplementeerde virtuele machine herstellen. VM-extensies kunnen ook worden gebundeld met sjabloonimplementaties van Azure Resource Manager. Met extensies met Resource Manager-sjablonen, kan virtuele machines van Azure worden geïmplementeerd en geconfigureerd zonder tussenkomst van de na de implementatie.
 
-De volgende manieren kunnen worden gebruikt voor het uitvoeren van een uitbreiding op een bestaande virtuele machine.
+De volgende methoden kunnen worden gebruikt om uit te voeren van een uitbreiding op basis van een bestaande virtuele machine.
 
 ### <a name="powershell"></a>PowerShell
 
-Er bestaan verschillende PowerShell-opdrachten voor het uitvoeren van afzonderlijke uitbreidingen. Als een lijst wilt weergeven, gebruikt [Get-Command](/powershell/module/microsoft.powershell.core/get-command) en filtert u op *extensie*:
+Er bestaan verschillende PowerShell-opdrachten voor het uitvoeren van afzonderlijke uitbreidingen. Een lijst wilt bekijken, gebruikt u [Get-Command](/powershell/module/microsoft.powershell.core/get-command) en filtert u op *extensie*:
 
 ```powershell
 Get-Command Set-AzureRM*Extension* -Module AzureRM.Compute
 ```
 
-Dit biedt de uitvoer ziet er als volgt:
+Deze biedt uitvoer is vergelijkbaar met het volgende:
 
 ```powershell
 CommandType     Name                                               Version    Source
@@ -116,7 +116,7 @@ Cmdlet          Set-AzureRmVMSqlServerExtension                    4.5.0      Az
 Cmdlet          Set-AzureRmVmssDiskEncryptionExtension             4.5.0      AzureRM.Compute
 ```
 
-Het volgende voorbeeld wordt de extensie voor aangepaste scripts voor het downloaden van een script van een GitHub-opslagplaats naar de doel-virtuele machine en voer het script. Zie voor meer informatie over de aangepaste scriptextensie [extensieoverzicht aangepast Script](custom-script-windows.md).
+Het volgende voorbeeld wordt de aangepaste scriptextensie voor het downloaden van een script vanuit een GitHub-opslagplaats naar de doel-VM en voer het script. Zie voor meer informatie over de aangepaste scriptextensie [Custom Script extensieoverzicht](custom-script-windows.md).
 
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
@@ -125,7 +125,7 @@ Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -Run "Create-File.ps1" -Location "West US"
 ```
 
-In het volgende voorbeeld wordt de toegang van de VM-extensie gebruikt het beheerderswachtwoord van een virtuele Windows opnieuw wordt ingesteld op een tijdelijk wachtwoord. Zie voor meer informatie over de toegang van de VM-extensie [opnieuw instellen van extern bureaublad-service in een Windows-VM](../windows/reset-rdp.md). Als u dit hebt uitgevoerd, moet u bij de eerste aanmelding het wachtwoord opnieuw instellen:
+In het volgende voorbeeld wordt de extensie voor VM-toegang gebruikt om het beheerderswachtwoord van een Windows-VM naar een tijdelijk wachtwoord opnieuw in te. Zie voor meer informatie over de extensie voor VM-toegang, [opnieuw instellen van extern bureaublad-service in een Windows-VM](../windows/reset-rdp.md). Nadat u dit hebt uitgevoerd, moet u bij de eerste aanmelding het wachtwoord opnieuw instellen:
 
 ```powershell
 $cred=Get-Credential
@@ -135,20 +135,20 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-De `Set-AzureRmVMExtension` opdracht kan worden gebruikt voor het starten van een VM-extensie. Zie voor meer informatie de [Set AzureRmVMExtension verwijzing](https://msdn.microsoft.com/library/mt603745.aspx).
+De `Set-AzureRmVMExtension` opdracht kan worden gebruikt om te beginnen een VM-extensie. Zie voor meer informatie de [Set-AzureRmVMExtension verwijzing](https://msdn.microsoft.com/library/mt603745.aspx).
 
 
 ### <a name="azure-portal"></a>Azure Portal
 
-VM-extensies kunnen worden toegepast op een bestaande virtuele machine via de Azure portal. Selecteer de virtuele machine in de portal, kies **extensies**, selecteer daarna **toevoegen**. Kies de extensie die u wilt dat in de lijst met beschikbare uitbreidingen en volg de instructies in de wizard.
+VM-extensies kunnen worden toegepast op een bestaande virtuele machine via de Azure-portal. Selecteer de virtuele machine in de portal, kiest u **extensies**en selecteer vervolgens **toevoegen**. Kies de extensie die u wilt in de lijst van beschikbare uitbreidingen en volg de instructies in de wizard.
 
 Het volgende voorbeeld ziet u de installatie van de Microsoft Antimalware-extensie van de Azure-portal:
 
-![Antimalware-uitbreiding installeren](./media/features-windows/installantimalwareextension.png)
+![Anti-malware-extensie installeren](./media/features-windows/installantimalwareextension.png)
 
 ### <a name="azure-resource-manager-templates"></a>Azure Resource Manager-sjablonen
 
-VM-extensies worden toegevoegd aan een Azure Resource Manager-sjabloon en uitgevoerd met de implementatie van de sjabloon. Wanneer u een uitbreiding met een sjabloon implementeert, kunt u volledig geconfigureerde Azure-implementaties. Bijvoorbeeld de volgende JSON wordt gemaakt van een Resource Manager sjabloon implementeert een set van netwerktaakverdeling VM's en een Azure SQL database en vervolgens installeert u een .NET Core-toepassing op elke virtuele machine. De VM-extensie zorgt voor de software-installatie.
+VM-extensies kunnen worden toegevoegd aan een Azure Resource Manager-sjabloon en uitgevoerd met de implementatie van de sjabloon. Wanneer u een uitbreiding met een sjabloon implementeert, kunt u volledig geconfigureerde Azure-implementaties maken. Bijvoorbeeld, de volgende JSON wordt gemaakt van een Resource Manager sjabloon implementeert u een set virtuele machines met load balancing en een Azure SQL database en vervolgens een .NET Core-toepassing wordt geïnstalleerd op elke virtuele machine. De VM-extensie zorgt dat de software-installatie.
 
 Zie voor meer informatie de [volledige Resource Manager-sjabloon](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
 
@@ -182,13 +182,13 @@ Zie voor meer informatie de [volledige Resource Manager-sjabloon](https://github
 }
 ```
 
-Zie voor meer informatie over het maken van Resource Manager-sjablonen [Azure Resource Manager-sjablonen samenstellen met Windows VM-extensies](../windows/template-description.md#extensions).
+Zie voor meer informatie over het maken van Resource Manager-sjablonen [Azure Resource Manager-sjablonen samenstellen met Windows-VM-extensies](../windows/template-description.md#extensions).
 
-## <a name="secure-vm-extension-data"></a>Beveiligde gegevens van de VM-extensie
+## <a name="secure-vm-extension-data"></a>VM-extensie-gegevens beveiligen
 
-Wanneer u een VM-extensie uitvoert, is het mogelijk nodig is met gevoelige informatie zoals referenties, namen van opslagaccounts en toegangssleutels voor opslag-account. Veel VM-extensies bevatten een beveiligde configuratie die gegevens versleutelt en ontsleutelt deze alleen binnen het doel-virtuele machine. Elke uitbreiding heeft een specifieke beveiligde configuratieschema en elk wordt beschreven in de uitbreiding specifieke documentatie bij.
+Wanneer u een VM-extensie uitvoert, is het mogelijk dat het nodig zijn voor gevoelige informatie zoals referenties, namen van opslagaccounts en opslagaccountsleutels. Veel VM-extensies bevatten een beveiligde configuratie die gegevens versleutelt en ontsleutelt deze alleen in de doel-VM. Elke uitbreiding heeft een specifieke beveiligde configuratieschema en elk wordt beschreven in de extensie-specifieke documentatie bij.
 
-Het volgende voorbeeld ziet een exemplaar van de extensie voor aangepaste scripts voor Windows. De opdracht uit te voeren bevat een set referenties. In dit voorbeeld wordt de opdracht wordt uitgevoerd niet versleuteld:
+Het volgende voorbeeld ziet een exemplaar van de aangepaste scriptextensie voor Windows. De opdracht om uit te voeren bevat een set referenties. In dit voorbeeld wordt de opdracht om uit te voeren niet versleuteld:
 
 ```json
 {
@@ -218,7 +218,7 @@ Het volgende voorbeeld ziet een exemplaar van de extensie voor aangepaste script
 }
 ```
 
-Het verplaatsen van de **opdracht wordt uitgevoerd** eigenschap in op de **beveiligd** configuratie beveiligt de tekenreeks kan worden uitgevoerd, zoals wordt weergegeven in het volgende voorbeeld:
+Het verplaatsen van de **opdracht om uit te voeren** eigenschap in op de **beveiligd** configuratie beveiligt de tekenreeks kan worden uitgevoerd, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```json
 {
@@ -250,22 +250,22 @@ Het verplaatsen van de **opdracht wordt uitgevoerd** eigenschap in op de **bevei
 }
 ```
 
-### <a name="how-do-agents-and-extensions-get-updated"></a>Hoe agents en -uitbreidingen bijgewerkt?
+### <a name="how-do-agents-and-extensions-get-updated"></a>Hoe agents en -extensies bijgewerkt?
 
-De Agents en -extensies delen de dezelfde updatemechanisme. Sommige updates vereisen geen extra firewallregels.
+De Agents en -extensies delen de dezelfde updatemechanisme. Sommige updates vereisen geen aanvullende firewallregels.
 
-Wanneer een update beschikbaar is, wordt deze alleen geïnstalleerd op de virtuele machine wanneer er een wijziging in de uitbreidingen en andere wijzigingen van de VM-Model, zoals:
+Wanneer een update beschikbaar is, is deze alleen geïnstalleerd op de virtuele machine wanneer er een wijziging naar uitbreidingen en andere wijzigingen in het gegevensmodel van de virtuele machine, zoals:
 
 - Gegevensschijven
 - Extensies
 - Boot diagnostics container
-- Gastbesturingssysteem geheimen
+- Gast-OS-geheimen
 - VM-grootte
 - Netwerkprofiel
 
-Uitgevers stellen updates beschikbaar te regio's op verschillende tijdstippen, zodat het mogelijk dat u kunt virtuele machines in verschillende regio's op verschillende versies hebben.
+Uitgevers stellen updates beschikbaar aan regio's op verschillende tijdstippen, zodat het mogelijk dat u kunt virtuele machines in verschillende regio's op verschillende versies hebben.
 
-#### <a name="listing-extensions-deployed-to-a-vm"></a>Aanbieding-extensies die zijn geïmplementeerd op een virtuele machine
+#### <a name="listing-extensions-deployed-to-a-vm"></a>Aanbieding-uitbreidingen die zijn geïmplementeerd op een virtuele machine
 
 ```powershell
 $vm = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "myVM"
@@ -278,17 +278,17 @@ Publisher             VirtualMachineExtensionType          TypeHandlerVersion
 Microsoft.Compute     CustomScriptExtension                1.9
 ```
 
-#### <a name="agent-updates"></a>Agent-updates
+#### <a name="agent-updates"></a>Agentupdates
 
-Bevat alleen de Windows-Gastagent *code afhandeling van extensie*, wordt de *Windows inrichting code* is gescheiden. U kunt de Windows Guest-Agent verwijderen. U kunt de automatische update van het venster Guest-Agent niet uitschakelen.
+De Windows Guest-Agent bevat alleen *code-extensie verwerken*, wordt de *inrichten van Windows-code* is gescheiden. U kunt de Windows Guest-Agent verwijderen. U kunt de automatische update van de Gastagent venster niet uitschakelen.
 
-De *code afhandeling van extensie* verantwoordelijk is voor communicatie met de Azure-infrastructuur en verwerken van de VM-extensies bewerkingen, zoals is geïnstalleerd, rapportage over de status, de afzonderlijke uitbreidingen bijgewerkt en deze te verwijderen. Updates bevatten beveiligingsverbeteringen, oplossingen voor problemen en verbeteringen van de *code afhandeling van extensie*.
+De *code-extensie verwerken* verantwoordelijk is voor communicatie met de Azure-infrastructuur en de afhandeling van de VM-extensies-bewerkingen, zoals is geïnstalleerd, die de status, de afzonderlijke uitbreidingen bijwerken en verwijderen. Updates bevatten oplossingen, oplossingen voor problemen en verbeteringen in de *code-extensie verwerken*.
 
-Als u wilt controleren welke versie u uitvoert, Zie [opsporen Windows Guest-Agent geïnstalleerd](agent-windows.md#detect-the-vm-agent).
+Als u wilt controleren welke versie u gebruikt, Zie [opsporen Windows-Gastagent heeft geïnstalleerd](agent-windows.md#detect-the-vm-agent).
 
 #### <a name="extension-updates"></a>Extensie-updates
 
-Wanneer een uitbreidingsupdate beschikbaar is, wordt de Windows-Gastagent downloadt en upgrades van de extensie. Automatische verlenging updates zijn *secundaire* of *Hotfix*. U kunt aanmelden of afmelden extensies *secundaire* bijgewerkt wanneer u de extensie inrichten. Het volgende voorbeeld ziet u het automatisch bijwerken van secundaire versies in Resource Manager-sjabloon met *autoUpgradeMinorVersion ': true,'*:
+Wanneer een extensie-update beschikbaar is, wordt de Windows Guest Agent downloadt en de extensie wordt bijgewerkt. Automatische verlenging updates zijn *kleine* of *Hotfix*. U kunt aanmelden of afmelden voor extensies *kleine* bijgewerkt wanneer u de extensie inrichten. Het volgende voorbeeld ziet u het automatisch upgraden van secundaire versies in Resource Manager-sjabloon met *autoUpgradeMinorVersion ': ' True ','*:
 
 ```json
     "properties": {
@@ -303,20 +303,20 @@ Wanneer een uitbreidingsupdate beschikbaar is, wordt de Windows-Gastagent downlo
     },
 ```
 
-Als u de nieuwste secundaire versie oplossingen voor problemen, is het raadzaam dat u altijd automatisch bijwerken in uw implementaties extensie selecteren. Hotfix-updates die beveiligings- of sleutel bugfixes uitvoeren kunnen niet worden heeft zich afgemeld.
+Als u de nieuwste secundaire versie oplossingen voor problemen, is het raadzaam dat u altijd automatisch bijwerken in uw extensie-implementaties selecteren. Hotfix-updates die beveiligings- of sleutel bugfixes uitvoeren kunnen niet worden afgemeld.
 
 ### <a name="how-to-identify-extension-updates"></a>Extensie updates identificeren
 
-#### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Bepalen of de uitbreiding met autoUpgradeMinorVersion is ingesteld op een virtuele machine
+#### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>Als de extensie met autoUpgradeMinorVersion is ingesteld op een virtuele machine identificeren
 
-U kunt zien uit het model van de virtuele machine als de extensie is ingericht met 'autoUpgradeMinorVersion'. Gebruiken om te controleren, [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm) en geef de resourcegroep en de VM naam als volgt:
+U kunt zien uit het model van de virtuele machine als de extensie is ingericht met 'autoUpgradeMinorVersion'. Als u wilt controleren, gebruikt u [Get-AzureRmVm](/powershell/module/azurerm.compute/get-azurermvm) en geef de resourcegroep en VM naam als volgt:
 
 ```powerShell
  $vm = Get-AzureRmVm -ResourceGroupName "myResourceGroup" -VMName "myVM"
  $vm.Extensions
 ```
 
-De volgende voorbeelduitvoer wordt weergegeven die *autoUpgradeMinorVersion* is ingesteld op *true*:
+De volgende voorbeelduitvoer ziet u dat *autoUpgradeMinorVersion* is ingesteld op *waar*:
 
 ```powershell
 ForceUpdateTag              :
@@ -326,46 +326,46 @@ TypeHandlerVersion          : 1.9
 AutoUpgradeMinorVersion     : True
 ```
 
-#### <a name="identifying-when-an-autoupgrademinorversion-occurred"></a>Om te identificeren wanneer een autoUpgradeMinorVersion opgetreden
+#### <a name="identifying-when-an-autoupgrademinorversion-occurred"></a>Wanneer een autoUpgradeMinorVersion opgetreden identificeren
 
-Logboeken wilt zien wanneer een update voor de uitbreiding is opgetreden, Controleer de agent op de virtuele machine op *C:\WindowsAzure\Logs\WaAppAgent.log*
+Om te zien wanneer een update voor de extensie is opgetreden, controleert u de agent-logboeken op de virtuele machine op *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-In het volgende voorbeeld wordt de virtuele machine had *Microsoft.Compute.CustomScriptExtension 1.8* geïnstalleerd. Er is een hotfix beschikbaar naar versie *1,9*:
+In het volgende voorbeeld wordt de virtuele machine was *Microsoft.Compute.CustomScriptExtension 1.8* geïnstalleerd. Er is een hotfix beschikbaar naar versie *1.9*:
 
 ```powershell
 [INFO]  Getting plugin locations for plugin 'Microsoft.Compute.CustomScriptExtension'. Current Version: '1.8', Requested Version: '1.9'
 [INFO]  Auto-Upgrade mode. Highest public version for plugin 'Microsoft.Compute.CustomScriptExtension' with requested version: '1.9', is: '1.9'
 ```
 
-## <a name="agent-permissions"></a>Agent machtigingen
+## <a name="agent-permissions"></a>Agent-machtigingen
 
-Voor het uitvoeren van de taken, de agent moet worden uitgevoerd als *lokaal systeem*.
+Als u wilt de taken uitvoert, wordt de agent moet uit te voeren als *lokaal systeem*.
 
-## <a name="troubleshoot-vm-extensions"></a>VM-extensies oplossen
+## <a name="troubleshoot-vm-extensions"></a>Problemen met VM-extensies oplossen
 
-Elk VM-extensie mogelijk naar de extensie specifieke stappen voor probleemoplossing. Bijvoorbeeld, wanneer u de extensie voor aangepaste scripts, script uitvoering details zijn te vinden lokaal op de virtuele machine waar de extensie is uitgevoerd. Probleemoplossing-extensie-specifieke worden beschreven in de documentatie van de extensie-specifieke.
+Elke VM-extensie kan hebben op de extensie voor specifieke stappen voor probleemoplossing. Bijvoorbeeld, wanneer u de aangepaste scriptextensie gebruikt, uitvoeringsdetails voor script vindt u lokaal op de virtuele machine waar de extensie is uitgevoerd. Probleemoplossing-extensie-specifieke worden beschreven in de extensie-specifieke documentatie bij.
 
-De volgende stappen van toepassing op alle VM-extensies.
+De volgende stappen voor probleemoplossing van toepassing op alle VM-extensies.
 
-1. Om te zien in het logboek van de Windows Guest-Agent, de activiteit kijken wanneer de uitbreiding is ingericht in *C:\WindowsAzure\Logs\WaAppAgent.txt*
+1. Om te controleren of het logboek van de Windows Guest Agent, de activiteit kijken wanneer de extensie is ingericht in *C:\WindowsAzure\Logs\WaAppAgent.txt*
 
-2. Raadpleeg de logboeken van de werkelijke extensie voor meer informatie in *C:\WindowsAzure\Logs\Plugins\<Extensienaam >*
+2. Raadpleeg de werkelijke extensie-logboeken voor meer informatie in *C:\WindowsAzure\Logs\Plugins\<Extensienaam >*
 
-3. Controleer de extensie specifieke documentatie bij het oplossen van problemen secties voor foutcodes, bekende problemen, enzovoort.
+3. Controleer de extensie specifieke documentatie over het oplossen van problemen secties voor foutcodes, bekende problemen enzovoort.
 
-4. Bekijk de systeemlogboeken. Controleer of er andere bewerkingen die mogelijk met de extensie, zoals een langdurige installatie van een andere toepassing die exclusieve package manager toegang nodig hebben verstoord.
+4. Bekijk de systeemlogboeken. Controleer voor andere bewerkingen die met de extensie in, zoals een langdurige installatie van een andere toepassing die exclusieve package manager toegang vereiste mag hebben verstoord.
 
-### <a name="common-reasons-for-extension-failures"></a>Veelvoorkomende redenen voor uitbreiding fouten
+### <a name="common-reasons-for-extension-failures"></a>Veelvoorkomende redenen voor extensies oplossen
 
-1. Uitbreidingen moeten 20 minuten om uit te voeren (uitzonderingen zijn de extensies CustomScript, Chef en DSC waarvoor 90 minuten). Als uw implementatie ditmaal overschrijdt, wordt dit is gemarkeerd als een time-out. De oorzaak hiervan kan zijn veroorzaakt door onvoldoende bronnen virtuele machines, andere VM configuraties/opstarten taken hoge hoeveelheden resource gebruiken terwijl de uitbreiding wordt geprobeerd om in te richten.
+1. Extensies zijn 20 minuten om uit te voeren (uitzonderingen zijn de CustomScript-extensies, Chef en DSC waarvoor 90 minuten). Als uw implementatie van dit moment overschrijdt, wordt deze gemarkeerd als een time-out. De oorzaak hiervan kan worden veroorzaakt door onvoldoende bronnen virtuele machines, andere VM-configuraties/starten van de taken die grote hoeveelheden resource verbruikt, terwijl de extensie wordt geprobeerd om in te richten.
 
-2. Minimale vereisten niet voldaan aan. Bepaalde extensies zijn afhankelijk van VM-SKU's, zoals HPC-installatiekopieën. Uitbreidingen mogelijk bepaalde netwerken toegangsvereisten, zoals communicatie met Azure Storage of openbare services. Andere voorbeelden mogelijk toegang tot het pakket, onvoldoende schijfruimte of beveiligingsbeperkingen opslagplaatsen.
+2. Minimale vereisten niet voldaan aan. Aantal extensies zijn afhankelijk van VM-SKU's, zoals HPC-afbeeldingen. Extensies mogelijk bepaalde netwerken vereisten voor gegevenstoegang, zoals communicatie met Azure Storage of openbare services. Andere voorbeelden mogelijk toegang tot de pakket-opslagplaatsen, onvoldoende schijfruimte of beveiligingsbeperkingen.
 
-3. Exclusieve package manager toegang. In sommige gevallen kunnen optreden een langdurige VM-configuratie en installatie van de extensie conflicterende, waar ze beide exclusieve toegang tot de package manager nodig.
+3. Exclusieve package manager-toegang. In sommige gevallen kunnen optreden een langlopende VM-configuratie en installatie van de extensie conflicterende, waar ze beide exclusieve toegang tot de package manager nodig.
 
 ### <a name="view-extension-status"></a>Status van de extensie weergeven
 
-Nadat u een VM-extensie is uitgevoerd voor een virtuele machine, gebruikt u [Get-AzureRmVM ](/powershell/module/azurerm.compute/get-azurermvm) te retourneren van de status van extensie. *Substatus [0]* blijkt dat de inrichting van de extensie is voltooid, wat betekent dat deze geslaagde geïmplementeerd op de virtuele machine, maar de uitvoering van de extensie in de virtuele machine is mislukt, *substatus [1]*.
+Nadat een VM-extensie is uitgevoerd op basis van een virtuele machine, gebruikt u [Get-AzureRmVM ](/powershell/module/azurerm.compute/get-azurermvm) Extensiestatus moet worden geretourneerd. *Substatus [0]* laat zien dat de extensie wordt ingericht is voltooid, wat betekent dat deze succesvolle geïmplementeerd op de VM, maar de uitvoering van de extensie in de virtuele machine is mislukt, *substatus [1]*.
 
 ```powershell
 Get-AzureRmVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status
@@ -397,31 +397,31 @@ Extensions[0]           :
     Message             : Finished executing command
 ```
 
-Status van extensie-uitvoering kan worden gevonden in de Azure portal. Om weer te geven de status van een uitbreiding, selecteert u de virtuele machine, kiest u **extensies**, selecteert u de gewenste extensie.
+Uitvoeringsstatus van de extensie kan ook worden gevonden in Azure portal. Als u wilt weergeven van de status van een uitbreiding, selecteer de virtuele machine, kiest u **extensies**, selecteert u de gewenste extensie.
 
-### <a name="rerun-vm-extensions"></a>VM-extensies opnieuw uitvoeren
+### <a name="rerun-vm-extensions"></a>Opnieuw uitvoeren van VM-extensies
 
-Mogelijk zijn er gevallen waarin een VM-extensie moet opnieuw worden gestart. U kunt een uitbreiding opnieuw uitvoeren te verwijderen en vervolgens opnieuw uit te voeren de uitbreiding met een methode van de uitvoering van uw keuze. U kunt een uitbreiding met [verwijderen AzureRmVMExtension](/powershell/module/AzureRM.Compute/Remove-AzureRmVMExtension) als volgt:
+Mogelijk zijn er gevallen waarin een VM-extensie moet opnieuw worden gestart. U kunt een uitbreiding opnieuw uitvoeren door deze te verwijderen en vervolgens opnieuw uit te voeren de extensie met een methode van de uitvoering van uw keuze. U kunt een extensie verwijderen [Remove-AzureRmVMExtension](/powershell/module/AzureRM.Compute/Remove-AzureRmVMExtension) als volgt:
 
 ```powershell
 Remove-AzureRmVMExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myExtensionName"
 ```
 
-U kunt ook verwijderen extensie in de Azure portal als volgt:
+U kunt ook verwijderen een extensie in de Azure-portal als volgt:
 
 1. Selecteer een virtuele machine.
 2. Kies **extensies**.
 3. Selecteer de gewenste extensie.
 4. Kies **verwijderen**.
 
-## <a name="common-vm-extensions-reference"></a>Algemene referentie voor VM-extensies
-| Naam van de uitbreiding | Beschrijving | Meer informatie |
+## <a name="common-vm-extensions-reference"></a>Algemene referentie van de VM-extensies
+| Extensienaam | Beschrijving | Meer informatie |
 | --- | --- | --- |
-| Extensie voor aangepaste scripts voor Windows |Scripts uitvoeren op een virtuele machine van Azure |[Extensie voor aangepaste scripts voor Windows](custom-script-windows.md) |
+| Aangepaste Scriptextensie voor Windows |Scripts uitvoeren op een virtuele machine van Azure |[Aangepaste Scriptextensie voor Windows](custom-script-windows.md) |
 | DSC-extensie voor Windows |PowerShell DSC (Desired State Configuration)-extensie |[DSC-extensie voor Windows](dsc-overview.md) |
-| Azure Diagnostics-extensie |Azure Diagnostics beheren |[Azure Diagnostics-extensie](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Uitbreiding van de toegang tot Azure VM |Gebruikers en referenties beheren |[Uitbreiding van de VM-toegang voor Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Azure Diagnostics-extensie |Beheren van Azure Diagnostics |[Azure Diagnostics-extensie](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
+| Azure VM-extensie voor toegang |Beheren van gebruikers en referenties |[VM-extensie voor toegang voor Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de VM-extensies [virtuele machine van Azure-extensies en functies overzicht](overview.md).
+Zie voor meer informatie over VM-extensies, [overzicht van de extensies en functies van de virtuele machine van Azure](overview.md).

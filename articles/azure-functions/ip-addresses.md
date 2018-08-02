@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: glenga
-ms.openlocfilehash: 656ccf5d133094c0fcf361cb519e48428b677a0a
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: c2e066ddf444cb81d7f0033641a300d18b266f62
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358306"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397844"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>IP-adressen in Azure Functions
 
@@ -39,19 +39,11 @@ Elke functie-app heeft één inkomende IP-adres. Om te zoeken dat IP-adres:
 3. Selecteer **platformfuncties**.
 4. Selecteer **eigenschappen**, en de inkomende IP-adres wordt weergegeven onder **virtueel IP-adres**.
 
-Onder **platformfuncties**, een alternatieve manier om het IP-adressen zoeken is om te selecteren **problemen vaststellen en oplossen > IP-configuratie controleren**.
-
 ## <a name="function-app-outbound-ip-addresses"></a>Functie-app uitgaande IP-adressen
 
 Elke functie-app heeft een reeks uitgaande IP-adressen beschikbaar. Alle uitgaande verbindingen van een functie, zoals het een back-end-database maakt gebruik van een van de uitgaande IP-adressen beschikbaar als het oorspronkelijke IP-adres. U weten niet vooraf welk IP-adres een bepaalde verbinding moet worden gebruikt. Om deze reden moet de back-end-service de firewall om alle uitgaande IP-adressen van de functie-app te openen.
 
 Zoek de uitgaande IP-adressen beschikbaar zijn voor een functie-app:
-
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Navigeer naar de functie-app.
-3. Selecteer **platformfuncties > problemen vaststellen en oplossen > IP-configuratie controleren**.
-
-De IP-adressen die beschikbaar zijn wanneer de functie-app kan worden geschaald naar andere Prijscategorieën zoeken:
 
 1. Aanmelden bij de [Azure Resource Explorer](https://resources.azure.com).
 2. Selecteer **abonnementen > {uw abonnement} > providers > Microsoft.Web > sites**.

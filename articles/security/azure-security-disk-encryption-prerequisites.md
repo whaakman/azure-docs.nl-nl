@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/30/2018
 ms.author: mstewart
-ms.openlocfilehash: 3a93f4df52f5e148faaa1e8e7a0275b68d2ff508
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 19fe03a6d06b0f058a90e8bdc40d862601db4f7e
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391772"
+ms.locfileid: "39399895"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Vereisten voor Azure Disk Encryption 
  In dit artikel, de vereisten voor Azure Disk Encryption, wordt beschreven welke items die worden voldaan moet voordat u Azure Disk Encryption kunt gebruiken. Samen met algemene vereisten Azure Disk Encryption is geïntegreerd met [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) en maakt gebruik van een Azure AD-toepassing voor verificatie voor het beheer van versleutelingssleutels in de key vault. U kunt ook meer te gebruiken [Azure PowerShell](/powershell/azure/overview) of de [Azure CLI](/cli/azure/) instellen of configureren van Key Vault en de Azure AD-toepassing.
@@ -398,11 +398,6 @@ Voordat u het PowerShell-script gebruikt, moet u bekend bent met de Azure Disk E
 
 ## <a name="bkmk_Cert"></a> Verificatie op basis van certificaten (optioneel)
 Als u wilt om certificaatverificatie te gebruiken, kunt u een voor uw key vault uploaden en deze implementeren naar de client. Voordat u het PowerShell-script gebruikt, moet u bekend bent met de Azure Disk Encryption-vereisten voor het begrijpen van de stappen in het script. Het voorbeeldscript mogelijk wijzigingen voor uw omgeving.
-
-> [!IMPORTANT]
-> Azure AD-certificaten gebaseerde verificatie wordt momenteel niet ondersteund op virtuele Linux-machines.
-
-
 
      
  ```powershell

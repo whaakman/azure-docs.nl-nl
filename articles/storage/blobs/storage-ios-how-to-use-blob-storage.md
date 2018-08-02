@@ -2,20 +2,19 @@
 title: Het gebruik van object (Blob)-opslag i/o - Azure | Microsoft Docs
 description: Sla niet-gestructureerde gegevens op in de cloud met Azure Blob Storage (objectopslag).
 services: storage
-documentationcenter: ios
 author: michaelhauss
-manager: jeconnoc
 ms.service: storage
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.openlocfilehash: a15ba7409b4c5f75729b1b40cd2f333c44ae0368
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: blobs
+ms.openlocfilehash: 35cfa36aba8042bcc753c1005c8fd8dbcdb70e79
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718910"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397669"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Het Blob storage gebruiken met iOS
 

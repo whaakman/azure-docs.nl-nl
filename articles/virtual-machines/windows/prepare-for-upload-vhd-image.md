@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 08/01/2018
 ms.author: genli
-ms.openlocfilehash: 9eb9984d99b907cd73f5f667cca41496127744e9
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 48037bc92d26cd01086451fdc778651df5b6bf67
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263511"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398968"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Een Windows VHD of VHDX te uploaden naar Azure voorbereiden
-Voordat u een Windows virtuele machines (VM van on-premises met Microsoft Azure) uploadt, moet u de virtuele harde schijf (VHD of VHDX) voorbereiden. Azure ondersteunt alleen generation 1 VM's die in de VHD-indeling en hebben een schijf met vaste grootte. De maximale grootte van de VHD is 1023 GB. U kunt een generatie 1 VM op basis van de VHDX-bestandssysteem en naar een dynamisch uitbreidbare schijf naar vaste VHD converteren. Maar u kunt een virtuele machine generatie niet wijzigen. Zie voor meer informatie, [maak ik een generatie 1 of 2 virtuele machine in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+Voordat u een Windows virtuele machines (VM van on-premises met Microsoft Azure) uploadt, moet u de virtuele harde schijf (VHD of VHDX) voorbereiden. Azure ondersteunt **alleen virtuele machines van generatie 1** die in de VHD-indeling en hebben een schijf met vaste grootte. De maximale grootte van de VHD is 1023 GB. U kunt een generatie 1 VM op basis van de VHDX-bestandssysteem en naar een dynamisch uitbreidbare schijf naar vaste VHD converteren. Maar u kunt een virtuele machine generatie niet wijzigen. Zie voor meer informatie, [maak ik een generatie 1 of 2 virtuele machine in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
 
 Zie voor meer informatie over het ondersteuningsbeleid voor voor Azure-VM [ondersteuning voor Microsoft Azure-VM's van Microsoft-serversoftware](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).
 
@@ -39,8 +39,8 @@ Nadat u de schijf converteren, moet u een virtuele machine die gebruikmaakt van 
 1. Open Hyper-V-beheer en selecteer uw lokale computer aan de linkerkant. Klik in het menu boven de lijst met computers op **actie** > **schijf bewerken**.
 2. Op de **virtuele hardeschijf zoeken** scherm, zoekt en selecteert u de virtuele schijf.
 3. Op de **Kies actie** scherm en selecteer vervolgens **converteren** en **volgende**.
-4. Als u converteren van VHDX wilt, selecteert u **VHD** en klik vervolgens op **volgende**
-5. Als u converteren van een dynamisch uitbreidbare schijf wilt, selecteert u **vaste grootte** en klik vervolgens op **volgende**
+4. Als u converteren van VHDX wilt, selecteert u **VHD** en klik vervolgens op **volgende**.
+5. Als u converteren van een dynamisch uitbreidbare schijf wilt, selecteert u **vaste grootte** en klik vervolgens op **volgende**.
 6. Zoek en selecteer een pad naar het nieuwe VHD-bestand in.
 7. Klik op **Voltooien**.
 
@@ -73,7 +73,7 @@ Voer alle opdrachten in de volgende stappen uit op de virtuele machine die u van
     ```PowerShell
     netsh winhttp reset proxy
     ```
-3. De schijf SAN-beleid instellen op [Onlineall](https://technet.microsoft.com/library/gg252636.aspx). 
+3. De schijf SAN-beleid instellen op [Onlineall](https://technet.microsoft.com/library/gg252636.aspx):
    
     ```PowerShell
     diskpart 
@@ -160,7 +160,7 @@ Zorg ervoor dat de volgende instellingen correct zijn geconfigureerd voor verbin
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveInterval" 1 -Type DWord
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "KeepAliveTimeout" 1 -Type DWord
     ```
-6. Reconnect：
+6. Opnieuw verbinding maken met:
     
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDisableAutoReconnect" 0 -Type DWord
@@ -205,7 +205,7 @@ Zorg ervoor dat de volgende instellingen correct zijn geconfigureerd voor verbin
     netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
     netsh advfirewall firewall set rule dir=in name="Windows Remote Management (HTTP-In)" new enable=yes
    ```
-3. De volgende firewallregels waarmee het RDP-verkeer inschakelen 
+3. De volgende firewallregels waarmee het RDP-verkeer inschakelen:
 
    ```PowerShell
     netsh advfirewall firewall set rule group="Remote Desktop" new enable=yes
@@ -236,76 +236,82 @@ Zorg ervoor dat de volgende instellingen correct zijn geconfigureerd voor verbin
 2. De instellingen voor de Boot Configuration Data (BCD) ingesteld. 
 
     > [!Note]
-    > Zorg ervoor dat u deze opdrachten uitvoeren in een verhoogde CMD-venster en **niet** op PowerShell:
+    > Zorg ervoor dat u deze opdrachten uitvoeren op een PowerShell-venster met verhoogde bevoegdheid.
    
-   ```CMD
-   bcdedit /set {bootmgr} integrityservices enable
-   
-   bcdedit /set {default} device partition=C:
-   
-   bcdedit /set {default} integrityservices enable
-   
-   bcdedit /set {default} recoveryenabled Off
-   
-   bcdedit /set {default} osdevice partition=C:
-   
-   bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
+   ```powershell
+    cmd
 
-   #Enable Serial Console Feature
+    bcdedit /set {bootmgr} integrityservices enable
+    bcdedit /set {default} device partition=C:
+    bcdedit /set {default} integrityservices enable
+    bcdedit /set {default} recoveryenabled Off
+    bcdedit /set {default} osdevice partition=C:
+    bcdedit /set {default} bootstatuspolicy IgnoreAllFailures
 
+    #Enable Serial Console Feature
     bcdedit /set {bootmgr} displaybootmenu yes
-
     bcdedit /set {bootmgr} timeout 10
-
     bcdedit /set {bootmgr} bootems yes
-
-    bcdedit /ems {<<BOOT LOADER IDENTIFIER>>} ON
-
+    bcdedit /ems {current} ON
     bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200
 
-    #Setup the Guest OS to collect a kernel dump on an OS crash event
-
-    REG ADD "HKLM\SYSTEM\ControlSet00x\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2
-
-    REG ADD "HKLM\SYSTEM\ControlSet00x\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP"
-
-    REG ADD "HKLM\SYSTEM\ControlSet00x\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1
+    exit
    ```
-3. Controleer of de Windows Management Instrumentation-opslagplaats consistent is. Als u wilt uitvoeren, moet u de volgende opdracht uitvoeren:
+3. Het logboek Dump kan nuttig zijn bij het oplossen van problemen voor Windows-crashes. De logboekverzamelaar Dump inschakelen:
+
+    ```powershell
+    cmd
+
+    #Setup the Guest OS to collect a kernel dump on an OS crash event
+    REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
+    REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 2 /f
+    REG ADD "HKLM\SYSTEM\CurrentControlSet\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+
+    #Setup the Guest OS to collect user mode dumps on a service crash event
+    md c:\Crashdumps
+    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v DumpFolder /t REG_EXPAND_SZ /d "c:\CrashDumps" /f
+    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v CrashCount /t REG_DWORD /d 10 /f
+    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting" /v DumpType /t REG_DWORD /d 2 /f
+    sc config WerSvc start= demand
+
+    exit
+    
+    ```
+4. Controleer of de Windows Management Instrumentation-opslagplaats consistent is. Als u wilt uitvoeren, moet u de volgende opdracht uitvoeren:
 
     ```PowerShell
     winmgmt /verifyrepository
     ```
     Als de opslagplaats is beschadigd, Zie [WMI: beschadiging van de opslagplaats, of niet](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
 
-4. Zorg ervoor dat alle andere toepassingen geen gebruik van de poort 3389 maakt. Deze poort wordt gebruikt voor de RDP-service in Azure. U kunt uitvoeren **netstat - anob** om te zien welke poorten zijn in gebruikt op de virtuele machine:
+5. Zorg ervoor dat alle andere toepassingen geen gebruik van de poort 3389 maakt. Deze poort wordt gebruikt voor de RDP-service in Azure. U kunt uitvoeren **netstat - anob** om te zien welke poorten zijn in gebruikt op de virtuele machine:
 
     ```PowerShell
     netstat -anob
     ```
 
-5. Als de Windows-VHD die u wilt uploaden een domeincontroller is, volgt u deze stappen:
+6. Als de Windows-VHD die u wilt uploaden een domeincontroller is, volgt u deze stappen:
 
-    A. Ga als volgt [deze extra stappen](https://support.microsoft.com/kb/2904015) voorbereiden van de schijf.
+    1. Ga als volgt [deze extra stappen](https://support.microsoft.com/kb/2904015) voorbereiden van de schijf.
 
-    B. Zorg ervoor dat u kent het DSRM-wachtwoord in het geval u moet de virtuele machine te starten in DSRM op een bepaald moment. U kunt om te verwijzen naar deze koppeling om in te stellen de [DSRM-wachtwoord](https://technet.microsoft.com/library/cc754363(v=ws.11).aspx).
+    1. Zorg ervoor dat u kent het DSRM-wachtwoord in het geval u moet de virtuele machine te starten in DSRM op een bepaald moment. U kunt om te verwijzen naar deze koppeling om in te stellen de [DSRM-wachtwoord](https://technet.microsoft.com/library/cc754363(v=ws.11).aspx).
 
-6. Zorg ervoor dat de ingebouwde Administrator-account en het wachtwoord bekend zijn voor u. Mogelijk wilt de huidige lokale administrator-wachtwoord opnieuw instellen en zorg ervoor dat u dit account gebruiken kunt voor aanmelding bij Windows via de RDP-verbinding. Deze machtiging wordt bepaald door het groepsbeleidsobject 'Aanmelden toestaan via Extern bureaublad-Services'. U kunt dit object in de Editor voor lokaal groepsbeleid onder bekijken:
+7. Zorg ervoor dat de ingebouwde Administrator-account en het wachtwoord bekend zijn voor u. Mogelijk wilt de huidige lokale administrator-wachtwoord opnieuw instellen en zorg ervoor dat u dit account gebruiken kunt voor aanmelding bij Windows via de RDP-verbinding. Deze machtiging wordt bepaald door het groepsbeleidsobject 'Aanmelden toestaan via Extern bureaublad-Services'. U kunt dit object in de Editor voor lokaal groepsbeleid onder bekijken:
 
     Computer\Computerconfiguratie\Windows-instellingen\Beveiligingsinstellingen\Lokaal Beleid\toewijzing
 
-7. Controleer dat de volgende AD-beleidsregels om ervoor te zorgen dat u niet uw RDP-toegang via RDP, en niet in het netwerk blokkeert:
+8. Controleer dat de volgende AD-beleidsregels om ervoor te zorgen dat u niet uw RDP-toegang via RDP, en niet in het netwerk blokkeert:
 
     - Computer Configuration\Windows Settings\Security instellingen\Beveiligingsinstellingen\Lokaal beleid\Toewijzing weigeren toegang tot deze computer vanaf het netwerk
 
     - Computer Configuration\Windows Settings\Security instellingen\Beveiligingsinstellingen\Lokaal beleid\Toewijzing weigeren aanmelden via Extern bureaublad-Services
 
 
-8. Opnieuw opstarten van de virtuele machine om ervoor te zorgen dat Windows nog steeds in orde is, kan worden bereikt met behulp van de RDP-verbinding. Op dit moment kunt u een virtuele machine maken in uw lokale Hyper-V Zorg ervoor dat de virtuele machine volledig is gestart en vervolgens controleren of het RDP-bereikbaar is.
+9. Opnieuw opstarten van de virtuele machine om ervoor te zorgen dat Windows nog steeds in orde is, kan worden bereikt met behulp van de RDP-verbinding. Op dit moment kunt u een virtuele machine maken in uw lokale Hyper-V Zorg ervoor dat de virtuele machine volledig is gestart en vervolgens controleren of het RDP-bereikbaar is.
 
-9. Verwijder eventuele extra filters voor het Transport Driver Interface, zoals software waarmee worden geanalyseerd TCP-pakketten of extra firewalls. U kunt ook bekijkt u deze op een later stadium nadat de virtuele machine is geïmplementeerd in Azure, indien nodig.
+10. Verwijder eventuele extra filters voor het Transport Driver Interface, zoals software waarmee worden geanalyseerd TCP-pakketten of extra firewalls. U kunt ook bekijkt u deze op een later stadium nadat de virtuele machine is geïmplementeerd in Azure, indien nodig.
 
-10. Verwijder eventuele andere software van derden en stuurprogramma's met betrekking tot fysieke onderdelen of andere virtualisatietechnologie bevindt.
+11. Verwijder eventuele andere software van derden en stuurprogramma's met betrekking tot fysieke onderdelen of andere virtualisatietechnologie bevindt.
 
 ### <a name="install-windows-updates"></a>Windows-Updates installeren
 De ideale configuratie is het **hebben van de patch-niveau van de machine op de meest recente**. Als dit niet mogelijk is, zorg ervoor dat de volgende updates zijn geïnstalleerd:
@@ -387,25 +393,7 @@ De volgende instellingen hebben geen invloed op de VHD uploaden. Echter, wordt a
 
     - [VM-Agent en -extensies – deel 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
     - [VM-Agent en -extensies – deel 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)
-* Het logboek Dump kan nuttig zijn bij het oplossen van problemen voor Windows-crashes. De logboekverzamelaar Dump inschakelen:
-  
-    ```cmd
-    md c:\CrashDumps
-    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpFolder /t REG_EXPAND_SZ /d "c:\CrashDumps" /f
-    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpCount /t REG_DWORD /d 10 /f
-    REG ADD "HKLM\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps" /v DumpType /t REG_DWORD /d 2 /f
-    sc config WerSvc start= demand
-    ```
-    Als u eventuele fouten tijdens de procedure stappen in dit artikel ontvangt, betekent dit dat de registersleutels al bestaat. In dit geval gebruikt u de volgende opdrachten:
 
-    ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name "CrashDumpEnable" -Value "2" -Type DWord
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name "DumpFile" -Value "%SystemRoot%\MEMORY.DMP"
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps' -name "DumpFolder" -Value "c:\CrashDumps"
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps' -name "DumpCount" -Value 10 -Type DWord
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps' -name "DumpType" -Value 2 -Type DWord
-    Set-Service -Name WerSvc -StartupType Manual
-    ```
 *  Nadat de virtuele machine is gemaakt in Azure, wordt u aangeraden dat u het wisselbestand op het stationsvolume 'Tijdelijke plaatsen' om prestaties te verbeteren. U kunt instellen dit als volgt:
 
     ```PowerShell

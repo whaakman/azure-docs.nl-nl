@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.openlocfilehash: d3ff80391214dbc5d29f04c4a1972b46e68d73d4
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 3f377c24a53313ff8c9243152281344200167856
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215142"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414238"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure Files SYNC implementeren
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -83,7 +83,7 @@ De Azure File Sync-agent is een downloadbare pakket waarmee Windows-Server kan w
 U kunt de agent uit downloaden de [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). Wanneer het downloaden is voltooid, dubbelklikt u op het MSI-pakket voor het starten van de installatie van de Azure File Sync-agent.
 
 > [!Important]  
-> Als u van plan bent te gebruiken van Azure File Sync met een failovercluster, moet de Azure File Sync-agent worden geïnstalleerd op elk knooppunt in het cluster.
+> Als u van plan bent te gebruiken van Azure File Sync met een failovercluster, moet de Azure File Sync-agent worden geïnstalleerd op elk knooppunt in het cluster. Elk knooppunt in het cluster moet worden geregistreerd voor het werken met Azure File Sync.
 
 U wordt aangeraden dat u het volgende doen:
 - Laat het standaardinstallatiepad (C:\Program Files\Azure\StorageSyncAgent), voor het oplossen van problemen en server onderhoud eenvoudiger.
@@ -93,6 +93,9 @@ Wanneer de installatie van de Azure File Sync-agent is voltooid, wordt de gebrui
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 Voer de volgende PowerShell-code voor het downloaden van de juiste versie van de Azure File Sync-agent voor uw besturingssysteem en installeer deze op uw systeem.
+
+> [!Important]  
+> Als u van plan bent te gebruiken van Azure File Sync met een failovercluster, moet de Azure File Sync-agent worden geïnstalleerd op elk knooppunt in het cluster. Elk knooppunt in het cluster moet worden geregistreerd voor het werken met Azure File Sync.
 
 ```PowerShell
 # Gather the OS version

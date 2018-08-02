@@ -7,35 +7,49 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 07/31/2018
 ms.author: diberry
-ms.openlocfilehash: 9ea0269439b3d00bf36186cf2fd5c73311526bec
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 99f37cb6dc5e05fc5eb4bde09685435ee57fecc6
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225598"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397782"
 ---
-# <a name="collaborate-with-others-on-language-understanding-luis-apps"></a>Samenwerken met anderen aan Language Understanding (LUIS)-apps  
+# <a name="how-to-manage-authors-and-collaborators"></a>Auteurs en deelnemers beheren 
 
 U kunt samenwerken met anderen in uw LUIS-app samen. 
 
 ## <a name="owner-and-collaborators"></a>Eigenaar en samenwerkers
-Een app is eigenaar van een enkele maar veel deelnemers kan hebben. 
+
+Een app kunt heeft een enkel auteur, de eigenaar, maar veel deelnemers. 
 
 ## <a name="add-collaborator"></a>De samenwerker toevoegen
 
-Om toe te staan samenwerkers om te bewerken van uw LUIS-app op de **instellingen** pagina van uw LUIS-app, voer de e-mailadres van de samenwerker en klik op **toevoegen samenwerker**.
+Om toe te staan samenwerkers om te bewerken van uw LUIS-app op de **instellingen** pagina van uw LUIS-app, voer de e-mailadres van de samenwerker en klik op **toevoegen samenwerker**. Deelnemers kunnen aanmelden en uw LUIS-app op hetzelfde moment als die u in de app werkt bewerken.
 
 ![De samenwerker toevoegen](./media/luis-how-to-collaborate/add-collaborator.png)
 
-* Deelnemers kunnen aanmelden en uw LUIS-app op hetzelfde moment als die u in de app werkt bewerken. <!--If a collaborator edits the LUIS app, you see a notification at the top of the browser.-->
-* Samenwerkers kunnen geen andere deelnemers toevoegen.
+## <a name="transfer-of-ownership"></a>Overdracht van eigendom
 
-Zie [Azure Active Directory-tenant gebruiker](luis-how-to-account-settings.md#azure-active-directory-tenant-user) voor meer informatie over Active Directory-gebruikersaccounts. 
-
-## <a name="set-application-as-public"></a>Set-toepassing als openbare
-Zie [toegang tot het eindpunt van de openbare app](luis-concept-security.md#public-app-endpoint-access) voor meer informatie.
-
-### <a name="transfer-of-ownership"></a>Overdracht van eigendom
 Hoewel LUIS momenteel geen overdracht van eigendom ondersteunt, kunt u uw app exporteren en een andere LUIS gebruiker de app kunt importeren. Er zijn kleine verschillen in LUIS scores tussen de twee toepassingen. 
+
+## <a name="azure-active-directory-tenant-user"></a>Azure Active Directory-tenant-gebruiker
+
+LUIS gebruikt standaard instemmingsstroom van Azure Active Directory (Azure AD). 
+
+De tenantbeheerder kunnen rechtstreeks met de gebruiker die toegang krijgen tot LUIS in de Azure AD gebruiken nodig heeft. 
+
+Eerst de gebruiker zich aanmeldt bij LUIS en ziet de pop-upvenster hoeven beheerder goedkeuring. De gebruiker neemt contact op met de tenantbeheerder voordat u doorgaat. 
+
+Ten tweede tenant-beheerder zich aanmeldt bij LUIS en een toestemming stroom pop-upvenster ziet. Dit is het dialoogvenster dat de beheerder moet de machtiging voor de gebruiker. Zodra de beheerder de machtiging accepteert, kan de gebruiker om door te gaan met LUIS.
+
+Als de tenantbeheerder niet bij LUIS aanmelden wordt, de beheerder toegang tot [toestemming geven](https://account.activedirectory.windowsazure.com/r#/applications) voor LUIS. 
+
+![Azure active directory-machtigingen per app-website](./media/luis-how-to-account-settings/tenant-permissions.png)
+
+Als de tenant-beheerder wil dat alleen bepaalde gebruikers LUIS gebruiken, verwijzen naar dit [identiteit blog](https://blogs.technet.microsoft.com/tfg/2017/10/15/english-tips-to-manage-azure-ad-users-consent-to-applications-using-azure-ad-graph-api/).
+
+### <a name="user-accounts-with-multiple-emails-for-collaborators"></a>Gebruikersaccounts met meerdere e-mailberichten voor de medewerkers
+
+Als u de medewerkers aan een LUIS-app toevoegt, geeft u de exacte e-mailadres moet een samenwerker LUIS gebruikt als samenwerker. Azure Active Directory (Azure AD) kunt u een enkele gebruiker meer dan één e-mailaccount door elkaar gebruikt, is de gebruiker zich aanmelden met het e-mailadres dat is opgegeven in de lijst van de samenwerker door LUIS vereist.

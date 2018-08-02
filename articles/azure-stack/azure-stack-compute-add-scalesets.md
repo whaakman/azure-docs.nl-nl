@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
-ms.openlocfilehash: ddde2e6bad8a373df405ac05e78a5dbccd0257fc
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 4e77e187d969af7ea2a12754b18d4a218daceed6
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "34800637"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39411903"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Virtual Machine Scale Sets beschikbaar maken in Azure Stack
 
@@ -33,8 +33,8 @@ In Azure Stack ondersteuning virtuele-machineschaalsets geen voor automatisch sc
 
 ## <a name="prerequisites"></a>Vereisten
 
-- **Marketplace-syndicatie**  
-    Azure Stack registreren met globale Azure Marketplace-publicatie inschakelen. Volg de instructies in [Azure Stack registreren met Azure](azure-stack-registration.md).
+- **De Marketplace**  
+    Azure Stack registreren met globale Azure, de beschikbaarheid van de items in de Marketplace. Volg de instructies in [Azure Stack registreren met Azure](azure-stack-registration.md).
 - **Installatiekopie van besturingssysteem**  
     Als u een installatiekopie van besturingssysteem nog niet hebt toegevoegd in de Azure Stack Marketplace, Zie [een Azure Stack marketplace-item toevoegen van Azure](asdk/asdk-marketplace-item.md).
 

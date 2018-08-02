@@ -3,17 +3,17 @@ title: Voorlopig verwijderen voor Azure Storage-blobs | Microsoft Docs
 description: Azure Storage biedt nu voorlopig verwijderen voor blob-objecten, zodat u uw gegevens eenvoudig herstellen kunt wanneer deze per ongeluk wordt gewijzigd of verwijderd door een toepassing of de gebruiker van andere storage-account.
 services: storage
 author: MichaelHauss
-manager: vamshik
 ms.service: storage
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: mihauss
-ms.openlocfilehash: 37ae52b34cc87a7d78524f893a3b1577a5a59f7e
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.component: blobs
+ms.openlocfilehash: 0e7487525dc23482cbd3029b626e7bb30dd51b50
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248822"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398557"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Voorlopig verwijderen voor Azure Storage-blobs
 Azure Storage biedt nu voorlopig verwijderen voor blob-objecten, zodat u uw gegevens eenvoudig herstellen kunt wanneer deze per ongeluk wordt gewijzigd of verwijderd door een toepassing of de gebruiker van andere storage-account.

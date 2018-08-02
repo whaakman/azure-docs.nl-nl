@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: b39a1f7b0de01c50b04072cc0de011928c6af786
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f54849b9fef8ff09aa9b5b6254c92fc3c452ef4a
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003610"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414422"
 ---
 # <a name="network-connectivity"></a>Verbinding met het netwerk
 Dit artikel bevat informatie over de infrastructuur Azure Stack-netwerk om te bepalen hoe u het beste Azure Stack integreren met uw bestaande netwerkomgeving. 
@@ -85,7 +85,7 @@ U moet Azure Stack-services beschikbaar te maken voor gebruikers van buiten Azur
 ### <a name="ports-and-urls"></a>Poorten en URL 's
 Om te maken van Azure Stack-services (zoals de portals, Azure Resource Manager, DNS, enzovoort) beschikbaar voor externe netwerken, moet u inkomend verkeer naar deze eindpunten toestaan voor specifieke URL's, poorten en protocollen.
  
-In een implementatie waarbij een transparante proxy uplinks met een traditionele proxyserver, moet u toestaan specifieke poorten en URL's voor zowel [inkomende](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) en [uitgaande](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) communicatie. Deze bevatten poorten en URL's voor identiteit, marketplace-syndicatie, patch en bijwerken, registratie en gegevens over het gebruik.
+In een implementatie waarbij een transparante proxy uplinks met een traditionele proxyserver, moet u toestaan specifieke poorten en URL's voor zowel [inkomende](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-protocols-inbound) en [uitgaande](https://docs.microsoft.com/azure/azure-stack/azure-stack-integrate-endpoints#ports-and-urls-outbound) communicatie. Deze bevatten poorten en URL's voor identiteit, de marketplace-, patch- en update-, registratie-en gebruiksgegevens.
 
 ## <a name="next-steps"></a>Volgende stappen
 [Rand-connectiviteit](azure-stack-border-connectivity.md)

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 62b0639f134a134739b09593a0b21b47d06699dc
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6f6fa1ebc086530f138d32ee5a9c799b5bfbbdeb
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236921"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412107"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Overzicht van Azure SQL Database-resourcebeperkingen 
 
@@ -28,10 +28,12 @@ Dit artikel bevat een overzicht van de resource van Azure SQL Database beperkt e
 | Standaardaantal servers per abonnement in andere regio 's | 20 |
 | Maximumaantal servers per abonnement in andere regio 's | 200 |
 | DTU / eDTU-quotum per server | 54,000 |
+| vCore quotum per server | 540 |
+| Maximum aantal toepassingen per server | afhankelijk van het aantal dtu's of vCores |
 |||
 
 > [!NOTE]
-> Als u wilt meer DTU-quotum voor /eDTU of meer servers dan de standaardinstelling, kan een nieuwe ondersteuningsaanvraag in de Azure-portal voor het abonnement met probleemtype 'Target' worden verzonden. De DTU / eDTU-quota en database-limiet per server beperkt het aantal elastische pools per server. 
+> Als u wilt meer DTU-quotum voor /eDTU, vCore quotum of meer servers dan de standaardinstelling, kan een nieuwe ondersteuningsaanvraag in de Azure-portal voor het abonnement met probleemtype 'Target' worden verzonden. De DTU / eDTU-quota en database-limiet per server beperkt het aantal elastische pools per server. 
 
 > [!IMPORTANT]
 > Als het aantal databases de limiet is per server nadert, kan het volgende gebeuren:
@@ -56,6 +58,7 @@ Als hoge ruimteverbruik worden aangetroffen, wordt een risicobeperking opties zi
 
 - Vergroten van de maximale grootte van de database of elastische pool of Voeg meer opslag toe. Zie [schalen van één database-resources](sql-database-single-database-scale.md) en [resources voor elastische pool schalen](sql-database-elastic-pool-scale.md).
 - Als de database zich in een elastische pool, kan vervolgens ook de database worden verplaatst buiten de groep zodat de opslagruimte wordt niet gedeeld met andere databases.
+- Een database voor het vrijmaken van ongebruikte ruimte verkleinen. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md)
 
 ### <a name="sessions-and-workers-requests"></a>Sessies en werknemers (aanvragen) 
 

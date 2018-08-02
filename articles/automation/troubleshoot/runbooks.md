@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: ea134cde8b174d020a0adf73256aec3a6c406eaa
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 48b2aab9d2a3937fb53a2e63efa26efc18a894f8
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237594"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413855"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Fouten met runbooks oplossen
 
@@ -94,6 +94,26 @@ Als u MFA op uw Azure-account hebt, kunt u een Azure Active Directory-gebruiker 
 Raadpleeg voor het gebruik van een certificaat met de klassieke Azure-implementatie-cmdlets voor model, [maken en toevoegen van een certificaat voor het beheren van Azure-services.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Voor het gebruik van een service-principal met Azure Resource Manager-cmdlets, raadpleegt u [service-principal met behulp van Azure portal maken](../../azure-resource-manager/resource-group-create-service-principal-portal.md) en [verifiëren van een service-principal met Azure Resource Manager.](../../azure-resource-manager/resource-group-authenticate-service-principal.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Veelvoorkomende fouten bij het werken met runbooks
+
+### <a name="task-was-cancelled"></a>Scenario: Het runbook is mislukt met de fout: een taak is geannuleerd
+
+#### <a name="issue"></a>Probleem
+
+Uw runbook is mislukt met een fout die vergelijkbaar is met het volgende voorbeeld:
+
+```
+Exception: A task was canceled.
+```
+
+#### <a name="cause"></a>Oorzaak
+
+Deze fout kan worden veroorzaakt door verouderde Azure-modules.
+
+#### <a name="resolution"></a>Oplossing
+
+Deze fout kan worden opgelost door uw Azure-modules bijwerken naar de nieuwste versie.
+
+Klik in uw Automation-Account op **Modules**, en klikt u op **Update Azure-modules**. De update duurt ongeveer 15 minuten, één keer voltooid opnieuw uitvoeren van het runbook is mislukt.
 
 ### <a name="not-recognized-as-cmdlet"></a>Scenario: Het runbook is mislukt vanwege een ontbrekende cmdlet
 
