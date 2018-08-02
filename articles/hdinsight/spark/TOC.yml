@@ -319,6 +319,8 @@
       items:
         - name: Fouten in Spark-taken opsporen
           href: apache-spark-job-debugging.md
+        - name: Fouten in Spark-taken opsporen met taakdiagrammen
+          href: apache-azure-spark-history-server.md
         - name: IntelliJ gebruiken om fouten in een Spark-taak op te sporen
           href: apache-spark-intellij-tool-debug-remotely-through-ssh.md
         - name: Problemen met een traag of niet werkend HDInsight-cluster oplossen

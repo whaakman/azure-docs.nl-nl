@@ -25,6 +25,8 @@
   items:
     - name: Verificatiemethoden
       href: concept-authentication-methods.md
+    - name: Geconvergeerde registratie
+      href: concept-registration-mfa-sspr-converged.md
     - name: Self-service voor wachtwoord opnieuw instellen
       items:
         - name: Hoe het opnieuw instellen van het wachtwoord werkt

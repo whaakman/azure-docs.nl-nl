@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 07/27/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: ab8cd950fcbfe61d558dc9d36fbaff9e6baa22c8
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 418b2f6b156853c1a2820271808bdba922d41a87
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39326021"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412896"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Marketplace-items van Azure naar Azure Stack downloaden
 
@@ -31,7 +31,7 @@ Als een cloud-operator, items downloaden van de Azure Marketplace en stel ze bes
 Er zijn twee scenario's voor het verbinden met de Azure Marketplace: 
 
 - **Een verbonden scenario** -die uw Azure Stack-omgeving moet worden verbonden met internet vereist. U kunt de Azure Stack-portal gebruiken om te zoeken en downloaden van items. 
-- **Een verbinding is verbroken of gedeeltelijk verbonden scenario** -waarvoor u toegang tot het internet met behulp van de marketplace syndication-hulpprogramma voor het downloaden van items voor de marketplace is vereist. Vervolgens brengt u de downloads naar uw niet-verbonden Azure Stack-installatie. In dit scenario maakt gebruik van PowerShell.
+- **Een verbinding is verbroken of gedeeltelijk verbonden scenario** -waarvoor u toegang tot het Internet met behulp van de marketplace syndication-hulpprogramma voor het downloaden van items voor de marketplace is vereist. Vervolgens brengt u de downloads naar uw niet-verbonden Azure Stack-installatie. In dit scenario maakt gebruik van PowerShell.
 
 Zie [Azure Marketplace-items voor Azure Stack](azure-stack-marketplace-azure-items.md) voor een lijst van de marketplace-items die u kunt downloaden.
 

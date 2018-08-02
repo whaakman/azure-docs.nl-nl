@@ -55,8 +55,10 @@
           href: log-analytics-log-search-portals.md
 - name: Handleidingen
   items:
-    - name: Een Log Analytics-werkruimte maken
-      href: log-analytics-quick-create-workspace.md
+    - name: Werkruimte maken
+      items:
+        - name: Azure Portal gebruiken
+          href: log-analytics-quick-create-workspace.md
     - name: Gegevens verzamelen
       items:
         - name: Verbonden bronnen
