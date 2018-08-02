@@ -9,12 +9,12 @@ ms.component: luis
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: diberry
-ms.openlocfilehash: 3fc2040e66f6fc649448d3241b01678b7bb7f214
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 0ec6f002b35b1224118b62accda1f69e7be22fb8
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239032"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358519"
 ---
 # <a name="tutorial-2-add-prebuilt-intents-and-entities"></a>Zelfstudie: 2. Vooraf gemaakte intenties en entiteiten toevoegen
 Voeg vooraf gemaakte intenties en entiteiten toe aan de zelfstudie-app Human Resources om snel intenties te kunnen voorspellen en gegevens te extraheren. 
@@ -27,6 +27,8 @@ In deze zelfstudie leert u het volgende:
 * Trainen en publiceren
 * Een query uitvoeren met LUIS en een voorspelling als antwoord ontvangen
 
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
 ## <a name="before-you-begin"></a>Voordat u begint
 Als u niet beschikt over de [Human Resources](luis-quickstart-intents-only.md)-app uit de vorige zelfstudie, [importeert](luis-how-to-start-new-app.md#import-new-app) u de JSON in een nieuwe app op de website van [LUIS](luis-reference-regions.md#luis-website). Dit kan vanuit de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-intent-only-HumanResources.json).
 
@@ -36,8 +38,6 @@ Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie 
 LUIS biedt verschillende vooraf gemaakte intenties om u te helpen met algemene gebruikersintenties.  
 
 1. Zorg ervoor dat uw app zich in de sectie **Build** van LUIS bevindt. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
-
-    [ ![Schermopname van LUIS-app met Build gemarkeerd in de navigatiebalk rechtsboven](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png)](./media/luis-tutorial-prebuilt-intents-and-entities/first-image.png#lightbox)
 
 2. Selecteer **Add prebuilt domain intent**. 
 
@@ -72,24 +72,20 @@ LUIS biedt verschillende vooraf gemaakte entiteiten voor het ophalen van algemen
     ![Schermopname van het selecteren van een nummer in het dialoogvenster met de vooraf gedefinieerde entiteiten](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
 ## <a name="train-and-publish-the-app"></a>De app trainen en publiceren
-1. Selecteer rechtsboven op de website van LUIS de knop **Train**. 
 
-    ![De knop Train](./media/luis-quickstart-intents-only/train-button.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-    Het trainen is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het trainen is gelukt.
+## <a name="publish-app-to-endpoint"></a>App publiceren naar eindpunt
 
-    ![Getrainde statusbalk](./media/luis-quickstart-intents-only/trained.png)
-
-2. Selecteer rechtsboven in de website van LUIS de knop **Publish** om de pagina Publish te openen. 
-
-3. De productiesite is standaard geselecteerd. Selecteer de knop **Publish** door de productiesite te kiezen. Het publiceren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het publiceren is gelukt.
-
-    U hoeft niet geen LUIS-eindpuntsleutel in Azure Portal te maken voordat u publiceert of voordat u de eindpunt-URL test. Elke LUIS-app bestaat uit een gratis startersleutel voor ontwerpen. Dit biedt u onbeperkte ontwerpmogelijkheden en [enkele eindpunttreffers](luis-boundaries.md#key-limits). 
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-endpoint-with-an-utterance"></a>Eindpunt opvragen met een utterance
-Selecteer onder aan de pagina **Publish** de koppeling **endpoint**. Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbalk. Ga naar het einde van de URL in het adres en voer `I want to cancel on March 3` in. De laatste parameter van de queryreeks is `q`, de utterance**query**. 
 
-Het resultaat voorspelde de intentie Utilities.Cancel en extraheerde 3 maart als datum en 3 als nummer. 
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+
+2. Ga naar het einde van de URL in het adres en voer `I want to cancel on March 3` in. De laatste parameter van de queryreeks is `q`, de utterance**query**. 
+
+    Het resultaat voorspelde de intentie Utilities.Cancel en extraheerde 3 maart als datum en 3 als nummer. 
 
     ```
     {
@@ -166,12 +162,13 @@ Het resultaat voorspelde de intentie Utilities.Cancel en extraheerde 3 maart als
     }
     ```
 
-Er zijn twee waarden voor 3 maart omdat de utterance niet vermeldt of 3 maart in het verleden of in de toekomst ligt. Het is aan de toepassing die LUIS aanroept, om een aanname te doen of om opheldering te vragen als dat nodig is. 
+    Er zijn twee waarden voor 3 maart omdat de utterance niet vermeldt of 3 maart in het verleden of in de toekomst ligt. Het is aan de toepassing die LUIS aanroept, om een aanname te doen of om opheldering te vragen als dat nodig is. 
 
-Door snel en eenvoudig vooraf gemaakte intenties en entiteiten toe te voegen, kan de clienttoepassing conversatiebeheer toevoegen en algemene gegevenstypen extraheren. 
+    Door snel en eenvoudig vooraf gemaakte intenties en entiteiten toe te voegen, kan de clienttoepassing conversatiebeheer toevoegen en algemene gegevenstypen extraheren. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Daarvoor selecteert u **My apps** in het menu linksboven. Selecteer het weglatingsteken (***...***) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
