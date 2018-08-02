@@ -153,26 +153,23 @@
 
 
 ## Apparaten beheren
-### [Inleiding](device-management-introduction.md)
-### [Azure Portal gebruiken](device-management-azure-portal.md)
-### [Azure AD Join plannen](active-directory-azureadjoin-deployment-aadjoindirect.md)
-### [Veelgestelde vragen](device-management-faq.md)
+### [Overzicht](devices/overview.md)
+### [Azure Portal gebruiken](devices/device-management-azure-portal.md)
+### [Azure AD Join plannen](devices/azureadjoin-plan.md)
+### [Veelgestelde vragen](devices/faq.md)
 ### Taken
 #### [De implementatie van uw hybride Azure Active Directory-deelname plannen](devices/hybrid-azuread-join-plan.md)
 #### [Hybride Azure Active Directory-deelname configureren voor beheerde domeinen](devices/hybrid-azuread-join-managed-domains.md)
 #### [Hybride Azure Active Directory-deelname configureren voor federatieve domeinen](devices/hybrid-azuread-join-federated-domains.md)
 #### [De hybride Azure AD-deelname van uw apparaten beheren](devices/hybrid-azuread-join-control.md)
-
-
-
 #### [Bij Azure AD ingeschreven Windows 10-apparaten instellen](user-help/device-management-azuread-registered-devices-windows10-setup.md)
 #### [In Azure AD gekoppelde apparaten instellen](user-help/device-management-azuread-joined-devices-setup.md)
 #### [Hybride, in Azure AD gekoppelde apparaten instellen](devices/hybrid-azuread-join-manual-steps.md)
 #### [On-premises implementeren](active-directory-device-registration-on-premises-setup.md)
-#### [Koppelen aan Azure AD tijdens eerste sessie in Windows 10](device-management-azuread-joined-devices-frx.md)
+#### [Koppelen aan Azure AD tijdens eerste sessie in Windows 10](devices/azuread-joined-devices-frx.md)
 ### Problemen oplossen
-#### [Hybride, in Azure AD gekoppelde Windows 10- en Windows Server 2016-apparaten](device-management-troubleshoot-hybrid-join-windows-current.md)
-#### [Hybride, in Azure AD gekoppelde oudere Windows-apparaten](device-management-troubleshoot-hybrid-join-windows-legacy.md)
+#### [Hybride, in Azure AD gekoppelde Windows 10- en Windows Server 2016-apparaten](devices/troubleshoot-hybrid-join-windows-current.md)
+#### [Hybride, in Azure AD gekoppelde oudere Windows-apparaten](devices/troubleshoot-hybrid-join-windows-legacy.md)
 
 ## Apps beheren
 ### [Overzicht](manage-apps/what-is-application-management.md)

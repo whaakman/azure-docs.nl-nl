@@ -8,23 +8,24 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 9a29406b92f7d2e2ce8171974efb5a264e112d1d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fce9e42e24be7f8678292a5d98a683ca4e579cd2
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38724899"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39357181"
 ---
-1. Meld u aan bij [Azure Portal][lnk-portal].
-1. Selecteer **Een resource maken** > **Internet of Things** > **IoT Hub**.
-   
-    ![Schermafbeelding van navigatie in Azure Portal naar IoT Hub][1]
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-1. Voer in het deelvenster **IoT Hub** deelvenster de volgende informatie in voor uw IoT-hub:
+2. Selecteer **Een resource maken** > **Internet of Things** > **IoT Hub**.
+   
+    ![Schermafbeelding van navigatie in Azure Portal naar IoT Hub](./media/iot-hub-create-hub/create-iot-hub1.png)
+
+3. Voer in het deelvenster **IoT Hub** deelvenster de volgende informatie in voor uw IoT-hub:
 
    * **Abonnement**: kies het abonnement dat u wilt gebruiken om deze IoT-hub te maken.
 
-   * **Resourcegroep**: maak een resourcegroep voor het hosten van de IoT-hub of gebruik een bestaande. Raadpleeg voor meer informatie [Resourcegroepen gebruiken om Azure-resources te beheren][lnk-resource-groups].
+   * **Resourcegroep**: maak een resourcegroep voor het hosten van de IoT-hub of gebruik een bestaande. Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../articles/azure-resource-manager/resource-group-portal.md) voor meer informatie.
 
    * **Regio**: selecteer de locatie die het dichtst bij u in de buurt is.
 
@@ -32,22 +33,14 @@ ms.locfileid: "38724899"
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![IoT Hub-basisinformatievenster][2]
+   ![IoT Hub-basisinformatievenster](./media/iot-hub-create-hub/create-iot-hub2.png)
 
-2. Selecteer **Volgende: grootte en schaal** om verder te gaan met het maken van uw IoT-hub. 
+4. Selecteer **Volgende: grootte en schaal** om verder te gaan met het maken van uw IoT-hub. 
 
-3. Kies uw **prijs- en schaalcategorie**. Selecteer voor dit artikel de categorie **F1 - Gratis** als deze nog beschikbaar is voor uw abonnement. Zie [Prijs- en schaalniveau][lnk-pricing] voor meer informatie.
+5. Kies uw **prijs- en schaalcategorie**. Selecteer voor dit artikel de categorie **F1 - Gratis** als deze nog beschikbaar is voor uw abonnement. Zie [Prijs- en schaalniveau](https://azure.microsoft.com/pricing/details/iot-hub/) voor meer informatie.
 
-   ![Venster met grootte en schaal van IoT Hub][3]
+   ![Venster met grootte en schaal van IoT Hub](./media/iot-hub-create-hub/create-iot-hub3.png)
 
-4. Selecteer **Controleren + maken**.
+6. Selecteer **Controleren + maken**.
 
-1. Controleer de informatie van uw IoT-hub en klik vervolgens op **Maken**. Het maken van de IoT-hub kan een paar minuten duren. U kunt de voortgang bewaken via het deelvenster **Meldingen**.
-<!-- Images -->
-[1]: ./media/iot-hub-create-hub/create-iot-hub1.png
-[2]: ./media/iot-hub-create-hub/create-iot-hub2.png
-[3]: ./media/iot-hub-create-hub/create-iot-hub3.png
-<!-- Links -->
-[lnk-portal]: https://portal.azure.com/
-[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub/
-[lnk-resource-groups]: ../articles/azure-resource-manager/resource-group-portal.md
+7. Controleer de informatie van uw IoT-hub en klik vervolgens op **Maken**. Het maken van de IoT-hub kan een paar minuten duren. U kunt de voortgang bewaken via het deelvenster **Meldingen**.

@@ -3,26 +3,24 @@ title: 'Azure-snelstart: een blob maken in objectopslag met PHP | Microsoft Docs
 description: Snel leren om objecten over te dragen naar/van Azure Blob-opslag met PHP
 services: storage
 author: roygara
-manager: jeconnoc
 ms.service: storage
-ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: c97585607a8694840d24f4582f5a850b3d6e11f0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f0d5cba238b9fc026a3bc67dd33dba8427b9b506
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618556"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397138"
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-php"></a>Objecten overdragen naar/van Azure Blob-opslag met PHP
 In deze snelstart leert u hoe u PHP kunt gebruiken om blok-bobs te uploaden, te downloaden en weer te geven in een container in Azure Blob-opslag. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze Quickstart: 
+Dit zijn de vereisten voor het voltooien van deze snelstart: 
 * [PHP installeren](http://php.net/downloads.php)
 * De [Azure Storage SDK voor PHP](https://github.com/Azure/azure-storage-php) installeren
 

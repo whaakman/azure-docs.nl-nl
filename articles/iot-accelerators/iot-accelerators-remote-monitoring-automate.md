@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 29d4289f5b83e37cddec652b976aeb5aa255ed4c
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: d94f8d38ef771bd5ab03f4d3cef25233c33e7546
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158874"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282614"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Zelfstudie: Problemen detecteren met apparaten die zijn verbonden met uw bewakingsoplossing
 
@@ -35,7 +35,7 @@ In deze zelfstudie hebt u:
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
+[!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="review-the-existing-rules"></a>De bestaande regels weergeven
 
@@ -118,7 +118,7 @@ Als u een regel tijdelijk wilt uitschakelen, kunt u dat doen in de lijst met reg
 
 U kunt meerdere regels tegelijk in- en uitschakelen door meerdere regels in de lijst te selecteren.
 
-[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
+[!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,13 +14,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
-ms.author: charwen,cherylmc
-ms.openlocfilehash: cdeda7d72461f35c138f12ca9b2758cdba44d5f6
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.author: charwen,cherylmc,rambala
+ms.openlocfilehash: 80d2f65f516d7f1190f276fa9f2c62206bd31e67
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259252"
+ms.locfileid: "39262869"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Gelijktijdige ExpressRoute- en site-to-site-verbindingen configureren
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Configuratie van gelijktijdige site-naar-site-VPN- en ExpressRoute-verbindingen 
 * U kunt een site-naar-site-VPN configureren als een beveiligd failoverpad voor ExpressRoute. 
 * U kunt ook site-naar-site-VPN's gebruiken om verbinding te maken met sites die niet zijn verbonden via ExpressRoute. 
 
-In dit artikel worden de stappen beschreven voor het configureren van beide scenario's. Dit artikel is van toepassing op het Resource Manager-implementatiemodel en maakt gebruik van PowerShell. Deze configuratie is niet beschikbaar in de Azure Portal.
+In dit artikel worden de stappen beschreven voor het configureren van beide scenario's. Dit artikel is van toepassing op het Resource Manager-implementatiemodel en maakt gebruik van PowerShell. 
 
 >[!NOTE]
 >Als u een site-naar-site-VPN wilt maken via een ExpressRoute-circuit, raadpleegt u [dit artikel](site-to-site-vpn-over-microsoft-peering.md).

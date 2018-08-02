@@ -3,18 +3,17 @@ title: 'Azure-snelstart: een blob maken in objectopslag met behulp van Java Stor
 description: In deze snelstart gaat u een container maken in objectopslag (Azure Blob), een bestand uploaden, objecten vermelden en downloaden met behulp van de Java Storage SDK.
 services: storage
 author: roygara
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 07/02/2018
 ms.author: rogarana
-ms.openlocfilehash: 749badbc0bf5286c06da02f092933abbefda7ceb
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6e15f31ed0e9f6bfcbc41277fcf90e9444bac661
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185411"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397044"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10-preview"></a>Snelstart: blobs uploaden, downloaden en vermelden met behulp van de Java Storage SDK V10 (preview)
 
@@ -175,7 +174,7 @@ Blob-opslag ondersteunt blok-blobs, toevoeg-blobs en pagina-blobs. Blok-blobs wo
 
     Met deze bewerking wordt de blob gemaakt als deze nog niet bestaat. Als de blob al bestaat, wordt deze overschreven.
 
-Met de voorbeeldcode wordt een lokaal bestand gemaakt dat kan worden gebruikt voor uploaden en downloaden. Het bestand dat moet worden geüpload, wordt opgeslagen als **sourceFile** en de URL van de blob wordt opgeslagen in **blob**. In het volgende voorbeeld wordt het bestand geüpload naar de container met de naam **quickstart**.
+Met de voorbeeldcode wordt een lokaal bestand gemaakt dat kan worden gebruikt voor uploaden en downloaden, Het bestand dat moet worden geüpload, wordt opgeslagen als **sourceFile** en de URL van de blob wordt opgeslagen in **blob**. In het volgende voorbeeld wordt het bestand geüpload naar de container met de naam **quickstart**.
 
 ```java
 static void uploadFile(BlockBlobURL blob, File sourceFile) throws IOException {

@@ -3,18 +3,17 @@ title: 'Azure-snelstart: een blob maken in objectopslag met Go | Microsoft Docs'
 description: In deze snelstart maakt u een opslagaccount en een container in object(blob)-opslag. Vervolgens gebruikt u de opslagclientbibliotheek voor Go om een blob in Azure Storage te uploaden, een blob te downloaden en de blobs in een container te vermelden.
 services: storage
 author: seguler
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: seguler
-ms.openlocfilehash: 1ce3debd8b04cf6c799dd7d6a3c87f843f1e0338
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 90858501cbf20af032c98ca8703f9e74b475e9c1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38707560"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398573"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-go"></a>Quickstart: blobs downloaden, uploaden en vermelden met behulp van Go
 
@@ -22,7 +21,7 @@ In deze quickstart leert u hoe u de programmeertaal Go kunt gebruiken om blok-bo
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze Quickstart: 
+Dit zijn de vereisten voor het voltooien van deze snelstart: 
 * Installeer [Go 1.8 of hoger](https://golang.org/dl/)
 * Download en installeer [Azure Storage Blob-SDK voor Go](https://github.com/azure/azure-storage-blob-go/) met behulp van `go get -u github.com/azure/azure-storage-blob-go/2016-05-31/azblob`. 
 

@@ -14,12 +14,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: b052613161b4fee9a01def966fb02cbf8a7a483c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 118f8258673c8a19d5f06e5fc62ff56d0fb44ea1
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056933"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398361"
 ---
 # <a name="understand-azure-identity-solutions"></a>Inzicht in Azure-identiteitsoplossingen
 Microsoft Azure Active Directory (Azure AD) is een cloudoplossing voor identiteits- en toegangsbeheer die voorziet in adreslijstservices, identiteitsgovernance en toegangsbeheer voor toepassingen. Met Azure AD kunt u snel gebruikmaken van [eenmalige aanmelding](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) bij duizenden vooraf geïntegreerde commerciële en aangepaste apps in de [Azure AD-toepassingsgalerie](https://azure.microsoft.com/marketplace/active-directory/all/). Veel van deze apps gebruikt u waarschijnlijk al, bijvoorbeeld Office 365, Salesforce.com, Box, ServiceNow en Workday.
@@ -103,7 +103,7 @@ Hieronder volgen enkele veelvoorkomende identiteits- en toegangsscenario's met a
 |Mijn organisatie heeft veel geïnvesteerd in on-premises Windows Server Active Directory, maar we willen identiteit uitbreiden naar de cloud.| De meestgebruikte Azure-identiteitsoplossing is [hybride identiteit](https://docs.microsoft.com/azure/active-directory/active-directory-hybrid-identity-design-considerations-overview). Als u al hebt geïnvesteerd in on-premises AD DS, kunt u identiteit eenvoudig uitbreiden naar de cloud met Azure AD Connect.|
 |Mijn bedrijf is opgezet in de cloud en we hebben geen investeringen gedaan in on-premises identiteitsoplossingen.| [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) is de beste keuze voor cloudbedrijven zonder on-premises investeringen.|
 |Ik heb eenvoudige configuratie en beheer van virtuele Azure-machines nodig om te voldoen aan de on-premises identiteitsvereisten voor het ontwikkelen en testen van apps.|[Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) is een goede keuze als u AD DS wilt gebruiken voor eenvoudige configuratie en beheer van virtuele Azure-machines of als u oudere, on-premises directory-toepassingen wilt ontwikkelen of migreren naar de cloud.|  
-|Ik wil een aantal virtuele machines in Azure ondersteunen, maar mijn bedrijf is sterk afhankelijk van on-premises Active Directory (AD DS).|Gebruik [doe-het-zelf AD DS](https://msdn.microsoft.com/library/azure/jj156090.aspx) om virtuele Azure-machines te gebruiken wanneer u een aantal virtuele machines wilt ondersteunen en on-premises veel hebt geïnvesteerd in AD DS. |
+|Ik wil een aantal virtuele machines in Azure ondersteunen, maar mijn bedrijf is sterk afhankelijk van on-premises Active Directory (AD DS).|Gebruik [doe-het-zelf AD DS](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison#do-it-yourself-diy-ad-deployment-options) om virtuele Azure-machines te gebruiken wanneer u een aantal virtuele machines wilt ondersteunen en on-premises veel hebt geïnvesteerd in AD DS. |
 
 ## <a name="where-can-i-learn-more"></a>Waar vind ik meer informatie?
 We bieden online tal van goede bronnen met allerlei informatie over Azure AD. Hieronder volgt een lijst van artikelen waarmee u aan de slag kunt:
@@ -126,5 +126,3 @@ Nu u een idee hebt van Azure-identiteitsconcepten en de opties die voor u beschi
 [Meer informatie over hybride identiteitsoplossingen van Azure](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution)
 
 [Vergroot uw kennis in een Azure Proof of Concept-omgeving](https://aka.ms/aad-poc)
-
-[Implementeer Azure AD in productie](https://aka.ms/aad-onboard)

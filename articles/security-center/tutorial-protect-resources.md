@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 07/30/2018
 ms.author: terrylan
-ms.openlocfilehash: cda204f5b54aef239cc0795b62c6fa484a27ebb5
-ms.sourcegitcommit: 12fa5f8018d4f34077d5bab323ce7c919e51ce47
+ms.openlocfilehash: b882f9740a9b29cddb2cbe0359056cf66c293717
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/23/2018
-ms.locfileid: "29529411"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39363751"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Zelfstudie: uw resources beveiligen met Azure Security Center
 Security Center beperkt de blootstelling aan bedreigingen met behulp van toegangs- en toepassingsbesturingselementen om schadelijke activiteiten te blokkeren. Just-In-Time-toegang tot virtuele machines (VM's) vermindert de blootstelling aan aanvallen doordat u permanente toegang tot VM's kunt weigeren. U biedt in plaats daarvan beheerde en gecontroleerde toegang tot VM's, alleen wanneer dat nodig is. Besturingselementen voor adaptieve toepassingen helpen u om VM's beter te beschermen tegen malware door te beheren welke toepassingen op uw VM's kunnen worden uitgevoerd. Security Center maakt gebruik van machine learning om de processen te analyseren die op de virtuele machine worden uitgevoerd. Ook helpt het u op basis van deze informatie regels voor opname in de whitelist toe te passen.
@@ -38,8 +38,6 @@ Om de functies in deze zelfstudie te doorlopen, moet u zich in de Standard-prijs
 
 ## <a name="manage-vm-access"></a>VM-toegang beheren
 Just-In-Time-VM-toegang kan worden gebruikt om binnenkomend verkeer naar uw Azure-VM's te blokkeren, zodat u minder kwetsbaar bent voor aanvallen maar tegelijkertijd eenvoudig toegang wordt geboden om verbinding met VM's te kunnen maken wanneer dat nodig is.
-
-Just-In-Time-VM-toegang is een preview-versie.
 
 Beheerpoorten hoeven niet te allen tijde geopend te zijn. Ze hoeven alleen geopend te zijn wanneer u bent verbonden met de VM, bijvoorbeeld om beheer- of onderhoudstaken uit te voeren. Wanneer Just-In-Time is ingeschakeld, maakt Security Center gebruik van NSG-regels (netwerkbeveiligingsgroep) die toegang tot beheerpoorten beperken, zodat ze niet het doelwit van aanvallers worden.
 
@@ -75,7 +73,7 @@ Beheerpoorten hoeven niet te allen tijde geopend te zijn. Ze hoeven alleen geope
 ## <a name="harden-vms-against-malware"></a>Virtuele machines beschermen tegen malware
 Met Besturingselementen voor adaptieve toepassingen kunt u een set toepassingen definiëren die in de geconfigureerde resourcegroepen mogen worden uitgevoerd. Een van de voordelen hiervan is dat uw VM's tegen malware worden beschermd. Security Center maakt gebruik van machine learning om de processen te analyseren die op de virtuele machine worden uitgevoerd. Ook helpt het u op basis van deze informatie regels voor opname in de whitelist toe te passen.
 
-Besturingselementen voor adaptieve toepassingen is een preview-versie. Deze functie is alleen beschikbaar voor Windows-machines.
+Deze functie is alleen beschikbaar voor Windows-machines.
 
 1. Ga terug naar het hoofdmenu van Security Center. Selecteer onder **GEAVANCEERDE CLOUDBEVEILIGING** de optie **Besturingselementen voor adaptieve toepassingen**.
 

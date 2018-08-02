@@ -3,18 +3,17 @@ title: 'Azure-snelstart: Een blob maken in objectopslag via de Java Storage-SDK 
 description: In deze snelstart maakt u een opslagaccount en een container in object(blob)-opslag. Vervolgens gebruikt u de opslagclientbibliotheek voor Java om een blob in Azure Storage te uploaden, een blob te downloaden en de blobs in een container te vermelden.
 services: storage
 author: roygara
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 30d31a7f4b77864549dcb9e27030ba19c4fd84fe
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7fc5b164792907644a0a41615436806f998a8b1e
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606606"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398706"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-java-sdk-v7"></a>Snelstart: Blobs uploaden, downloaden en vermelden met behulp van Java-SDK v7
 
@@ -22,7 +21,7 @@ In deze quickstart leert u hoe u Java kunt gebruiken om blok-bobs te uploaden, t
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze Quickstart:
+Dit zijn de vereisten voor het voltooien van deze snelstart:
 
 * Een IDE met Maven-integratie installeren
 

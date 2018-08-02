@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 08/01/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: 142ea08f026ad8d4b736fd62384eceb927cac359
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: abc96497c95397a6fab72672f1525462301c5cf9
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344229"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414630"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 update
 
@@ -72,7 +72,8 @@ Deze update bevat de volgende verbeteringen voor Azure Stack.
 ## <a name="before-you-begin"></a>Voordat u begint    
 
 ### <a name="prerequisites"></a>Vereisten
-- De Azure-Stack installeren [1804 bijwerken](azure-stack-update-1804.md) voordat u de Azure Stack 1805 update toepassen.    
+- De Azure-Stack installeren [1804 bijwerken](azure-stack-update-1804.md) voordat u de Azure Stack 1805 update toepassen.  
+- Installeer de meest recente beschikbare [update of hotfix voor versie 1804](azure-stack-update-1804.md#post-update-steps).   
 - Voordat u begint met de installatie van update 1805, voert u [Test AzureStack](azure-stack-diagnostic-test.md) om te valideren van de status van uw Azure-Stack en los eventuele operationele problemen gevonden. Ook actieve waarschuwingen bekijken en op te lossen die actie is vereist. 
 
 ### <a name="known-issues-with-the-update-process"></a>Bekende problemen met het updateproces   

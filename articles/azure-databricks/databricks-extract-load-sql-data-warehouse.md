@@ -10,13 +10,13 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
-ms.date: 07/23/2018
-ms.openlocfilehash: 7f0354413932aef8a27b09ebac542ad1b8f375e1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.date: 07/26/2018
+ms.openlocfilehash: 11046089bd25e1ca9e117d5d8908471858450e6d
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223827"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308793"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Zelfstudie: Gegevens extraheren, transformeren en laden met behulp van Azure Databricks
 
@@ -72,7 +72,7 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
     |**Werkruimtenaam**     | Geef een naam op voor uw Databricks-werkruimte.        |
     |**Abonnement**     | Selecteer uw Azure-abonnement in de vervolgkeuzelijst.        |
     |**Resourcegroep**     | Geef aan of u een nieuwe resourcegroep wilt maken of een bestaande groep wilt gebruiken. Een resourcegroep is een container met gerelateerde resources voor een Azure-oplossing. Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie. |
-    |**Locatie**     | Selecteer **VS - oost 2**. Zie [Producten beschikbaar per regio](https://azure.microsoft.com/regions/services/) voor andere beschikbare regio's.        |
+    |**Locatie**     | Selecteer **US - oost 2**. Zie [Producten beschikbaar per regio](https://azure.microsoft.com/regions/services/) voor andere beschikbare regio's.        |
     |**Prijscategorie**     |  U kunt kiezen tussen **Standard** en **Premium**. Bekijk de pagina [Prijzen voor Databricks](https://azure.microsoft.com/pricing/details/databricks/) voor meer informatie over deze categorieën.       |
 
     Selecteer **Vastmaken aan dashboard** en selecteer **Maken**.
@@ -117,7 +117,7 @@ In deze sectie maakt u een Azure Data Lake Store-account waaraan u een service-p
     |**Naam**     | Voer een unieke naam in voor het Data Lake Store-account.        |
     |**Abonnement**     | Selecteer uw Azure-abonnement in de vervolgkeuzelijst.        |
     |**Resourcegroep**     | Selecteer voor deze zelfstudie dezelfde resourcegroep die u hebt gebruikt bij het maken van de Azure Databricks-werkruimte.  |
-    |**Locatie**     | Selecteer **VS - oost 2**.  |
+    |**Locatie**     | Selecteer **US - oost 2**.  |
     |**Prijspakket**     |  Selecteer **Betalen per gebruik**. |
     | **Versleutelingsinstellingen** | Behoud de standaardinstellingen. |
 
@@ -344,7 +344,7 @@ De onbewerkte voorbeeldgegevensset **small_radio_json.json** legt de doelgroep v
 2.  U kunt deze gegevens nog verder transformeren door de naam van de kolom **level** te wijzigen in **subscription_type**.
 
         val renamedColumnsDf = specificColumnsDf.withColumnRenamed("level", "subscription_type")
-        renamedColumnsDF.show()
+        renamedColumnsDf.show()
 
     De volgende uitvoer wordt weergegeven.
 
@@ -387,7 +387,7 @@ Zoals eerder vermeld, maakt de SQL Data Warehouse-connector gebruik van Azure Bl
 
 2. Geef een tijdelijke map op die wordt gebruikt tijdens het verplaatsen van gegevens tussen Azure Databricks en Azure SQL Data Warehouse.
 
-        val tempDir = "wasbs://" + blobContainer + "\@" + blobStorage +"/tempDirs"
+        val tempDir = "wasbs://" + blobContainer + "@" + blobStorage +"/tempDirs"
 
 3. Voer het volgende codefragment uit om toegangssleutels voor Azure Blob-opslag op te slaan in de configuratie. Daardoor hoeft u de toegangssleutel niet als gewone tekst in het notitieblok te bewaren.
 

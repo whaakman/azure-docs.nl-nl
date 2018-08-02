@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2018
+ms.date: 07/31/2018
 ms.author: rkarlin
-ms.openlocfilehash: 27e013ad9e94bb025cfad87cc68b244882a207b3
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6dd971ff8cd51435978ab80db006f6494dff8a94
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161929"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39389324"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Adaptieve toepassingsbesturingselementen in Azure Security Center
 Lees hoe u toepassingsbeheer configureert in Azure Security Center met behulp van dit stapsgewijze overzicht.
@@ -87,8 +87,7 @@ De sectie **Groepen virtuele machines** bevat drie tabbladen:
 
 5. Selecteer **Maken** nadat u uw selecties hebt gemaakt.
 
-6. Security Center past de juiste regels toe op elk van de geselecteerde VM's door gebruik te maken van de in AppLocker ingebouwde mogelijkheden voor Windows-servers. Bovendien schakelt Security Center standaard altijd toepassingsbeheer in de modus Controle in. Nadat is gevalideerd dat de whitelist geen negatieve gevolgen heeft gehad voor uw workload, kunt u overschakelen naar de modus **Afdwingen**. Zie [How AppLocker works](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/how-applocker-works-techref) (Hoe AppLocker werkt) voor meer informatie.
- 
+
 > [!NOTE]
 > - Security Center heeft minimaal twee weken aan gegevens nodig om een basislijn te maken en de unieke aanbevelingen per groep virtuele machines te vullen. Voor nieuwe klanten van de Security Center-standaardcategorie worden groepen virtuele machines in het begin weergegeven op het tabblad *Geen aanbeveling*.
 > - Adaptieve toepassingsbesturingselementen in Security Center bieden geen ondersteuning voor virtuele machines waarvoor al een AppLocker-beleid is ingeschakeld door een groepsbeleidsobject (GPO) of een lokaal beveiligingsbeleid.

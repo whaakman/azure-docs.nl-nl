@@ -2,18 +2,18 @@
 title: Gebeurtenissen van Azure Blob Storage routeren naar een aangepast eindpunt op het web | Microsoft Docs
 description: Gebruik Azure Event Grid om u te abonneren op gebeurtenissen van Blob Storage.
 services: storage,event-grid
-keywords: ''
 author: cbrooksmsft
 ms.author: cbrooks
 ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: storage
-ms.openlocfilehash: a554c3beb9ed0428dd4ccf3c9d8e9490adab9ac5
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.component: blobs
+ms.openlocfilehash: 8e52c9268af5268ec29d2bee24ad75c8b3107e43
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072177"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39263443"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-azure-cli"></a>Gebeurtenissen van Blob Storage routeren naar een aangepast eindpunt op het web met Azure CLI
 

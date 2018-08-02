@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,DBs & servers
 ms.topic: quickstart
-ms.date: 04/01/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 0d930cc200d8f8df30927ba7d2f942b2eb8a85a7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9177ad9cc4cbb668599d35b295ab939cea148a5a
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652197"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412811"
 ---
 # <a name="azure-sql-database-use-sql-server-management-studio-to-connect-and-query-data"></a>Azure SQL Database: SQL Server Management Studio gebruiken om verbinding te maken en query's uit te voeren voor gegevens
 
@@ -62,7 +62,7 @@ Gebruik SQL Server Management Studio om verbinding te maken met uw Azure SQL Dat
 
    ![verbinding maken met database op server](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 
-4. Klik op **Verbinden**. Het venster Objectverkenner wordt geopend in SSMS. 
+4. Klik op **Verbinden**. Het venster Objectverkenner wordt geopend in SQL Server Management Studio. 
 
    ![verbonden met server](./media/sql-database-connect-query-ssms/connected.png)  
 
@@ -149,7 +149,6 @@ Gebruik de volgende code om het nieuwe product te verwijderen dat u eerder hebt 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie [Meer informatie over Azure SQL Database-servers en -databases](sql-database-servers-databases.md) voor informatie over het maken en beheren van servers en databases met Transact-SQL.
 - Zie [SQL Server Management Studio gebruiken](https://msdn.microsoft.com/library/ms174173.aspx) voor meer informatie over SSMS.
 - Als u verbinding wilt maken en query's wilt uitvoeren met Azure Portal, raadpleegt u [Connect and query with the Azure Portal SQL query editor](sql-database-connect-query-portal.md) (Verbinding maken en query's uitvoeren met de SQL-query-editor in Azure Portal).
 - Zie [Verbinding maken en query's uitvoeren met Visual Studio Code](sql-database-connect-query-vscode.md) als u verbinding wilt maken en query’s wilt uitvoeren met Visual Studio Code.

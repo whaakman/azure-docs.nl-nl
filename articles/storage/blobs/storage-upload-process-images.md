@@ -4,20 +4,18 @@ description: Azure Blob Storage gebruiken me een web-app om toepassingsgegevens 
 services: storage
 documentationcenter: ''
 author: tamram
-manager: jeconnoc
 ms.service: storage
-ms.workload: web
-ms.devlang: csharp
+ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 02/20/2018
 ms.author: tamram
 ms.custom: mvc
-ms.openlocfilehash: 307ccc6f5fce703b786708196779f0cf3d71ae96
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1756ac4ddbbc6d93307839e8447da84deb0716f7
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38461500"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398724"
 ---
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Afbeeldingsgegevens uploaden in de cloud met Azure Storage
 
@@ -60,7 +58,7 @@ az group create --name myResourceGroup --location westcentralus
 Met het voorbeeld worden afbeeldingen geüpload naar een blobcontainer in een Azure Storage-account. Een opslagaccount biedt een unieke naamruimte voor het opslaan en openen van uw Azure Storage-gegevensobjecten. Maak een opslagaccount in de resourcegroep die u hebt gemaakt met behulp van de opdracht [az storage account create](/cli/azure/storage/account#az_storage_account_create). 
 
 > [!IMPORTANT] 
-> In deel 2 van de zelfstudie gebruikt u gebeurtenisabonnementen voor blob-opslag. Gebeurtenisabonnementen worden momenteel alleen ondersteund voor Blob-opslagaccounts in de volgende locaties: Azië - zuidoost, Azië - oost, Australië - oost, Australië - zuidoost, VS - centraal, VS - oost, VS 2 - oost, Europa - west, Europa - noord, Japan - oost, Japan - west, VS - west-centraal, VS - west en VS 2 - west. Vanwege deze beperking dient u een Blob Storage-account te maken dat door de voorbeeld-app wordt gebruikt voor het opslaan van afbeeldingen en miniaturen.   
+> In deel 2 van de zelfstudie gebruikt u gebeurtenisabonnementen voor blob-opslag. Gebeurtenisabonnementen worden momenteel alleen ondersteund voor Blob-opslagaccounts in de volgende locaties: Azië - zuidoost, Azië - oost, AU - oost, AU - zuidoost, US - centraal, US - oost, US - oost 2, Europa - west, Europa - noord, Japan - oost, Japan - west, US - west-centraal, US - west en US - west 2. Vanwege deze beperking dient u een Blob Storage-account te maken dat door de voorbeeld-app wordt gebruikt voor het opslaan van afbeeldingen en miniaturen.   
 
 Vervang in de volgende opdracht het Blob Storage-account in de tijdelijke aanduiding `<blob_storage_account>` door uw eigen unieke naam.  
 

@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 9c961c06a01bba0b645088a19cd55e72a54396c1
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6dc5d494135fde3740d41453f3f484b49fcb3f80
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38586849"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308657"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Maak een functie in Azure die wordt geactiveerd door een timer
 
@@ -62,7 +62,7 @@ Vervolgens maakt u een functie in de nieuwe functie-app.
     | Instelling | Voorgestelde waarde | Beschrijving |
     |---|---|---|
     | **Naam** | Standaard | Bepaalt de naam van de door de timer geactiveerde functie. |
-    | **[Planning](http://en.wikipedia.org/wiki/Cron#CRON_expression)** | 0 \*/1 \* \* \* \* | Een [CRON-expressie](http://en.wikipedia.org/wiki/Cron#CRON_expression) met zes velden aan de hand waarvan uw functie elke minuut wordt uitgevoerd. |
+    | **Planning** | 0 \*/1 \* \* \* \* | Een [CRON-expressie](functions-bindings-timer.md#cron-expressions) met zes velden aan de hand waarvan uw functie elke minuut wordt uitgevoerd. |
 
 2. Klik op **Create**. Er wordt een functie gemaakt in uw gekozen taal en deze wordt elke minuut uitgevoerd.
 

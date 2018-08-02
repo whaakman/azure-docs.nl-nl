@@ -3,18 +3,17 @@ title: 'Azure-snelstart: een blob maken in objectopslag met Ruby | Microsoft Doc
 description: In deze snelstart maakt u een opslagaccount en een container in object(blob)-opslag. Vervolgens gebruikt u de opslagclientbibliotheek voor Ruby om een blob in Azure Storage te uploaden, een blob te downloaden en de blobs in een container te vermelden.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: seguler
-ms.openlocfilehash: 7ef74fe59400ff38a96e7b1b652393eef60eac81
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9b0a7047cf7e5eab55c8a56acae42dd95fd61d94
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38606623"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39398067"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-ruby"></a>Snelstart: blobs downloaden, uploaden en vermelden met behulp van Ruby
 
@@ -22,7 +21,7 @@ In deze snelstartgids leert u hoe u Ruby kunt gebruiken om blok-bobs te uploaden
 
 ## <a name="prerequisites"></a>Vereisten
 
-Dit zijn de vereisten voor het voltooien van deze Quickstart: 
+Dit zijn de vereisten voor het voltooien van deze snelstart: 
 * [Ruby](https://www.ruby-lang.org/en/downloads/) installeren
 * Installeer de [Azure Storage-bibliotheek voor Ruby](https://docs.microsoft.com/azure/storage/blobs/storage-ruby-how-to-use-blob-storage#configure-your-application-to-access-storage) met het pakket rubygem. 
 

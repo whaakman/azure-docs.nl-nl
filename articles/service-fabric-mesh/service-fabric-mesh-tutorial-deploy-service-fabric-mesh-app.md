@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 07/26/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f9dea759f6556bc521dda4efbd27176f1e06452b
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 350749161260768071afbb47b854cb2e9184bd9d
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126572"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284724"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-web-application"></a>Zelfstudie: een Service Fabric Mesh-webtoepassing implementeren
 
@@ -106,26 +106,9 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 Open een webbrowser en navigeer naar de URL om de website in Azure uitgevoerd te zien worden.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="set-up-service-fabric-mesh-cli"></a>Service Fabric Mesh CLI instellen 
+U kunt de Azure Cloud Shell of een lokale installatie van de Azure CLI gebruiken voor de resterende stappen. Installeer de Azure Service Fabric Mesh CLI-uitbreidingsmodule door de volgende [instructies](service-fabric-mesh-howto-setup-cli.md) te volgen.
 
-U kunt de Azure Cloud Shell of een lokale installatie van de Azure CLI gebruiken voor de resterende stappen.
-
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u Azure CLI 2.0.35 of hoger gebruiken voor deze zelfstudie. Voer `az --version` uit om de versie te bekijken. Raadpleeg [Azure CLI 2.0 installeren][azure-cli-install] voor informatie over het installeren van of upgraden naar de nieuwste versie van de CLI.
-
-## <a name="install-the-az-mesh-cli"></a>De az mesh cli installeren
-Bij het CLI-prompt
-
-1) Verwijder eventuele vorige installaties van de Azure Service Fabric Mesh CLI-module.
-
-```cli
-az extension remove --name mesh
-```
-
-2)  Installeer de Azure Service Fabric Mesh CLI-extensiemodule. Voor de preview-versie wordt de Azure Service Fabric Mesh CLI geschreven als extensie van Azure CLI, maar bij de openbare preview wordt deze geleverd als onderdeel van de Azure CLI.
-
-```cli
-az extension add --source https://sfmeshcli.blob.core.windows.net/cli/mesh-0.8.1-py2.py3-none-any.whl
-```
 
 ## <a name="check-application-deployment-status"></a>De implementatiestatus van de toepassing controleren
 

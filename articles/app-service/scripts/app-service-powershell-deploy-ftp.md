@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 03/20/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 87a8a86fc0d655ae3881613ef89a31b8cf85219d
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 5d9cf2cf491afdfeadf620cc32dc08ae29cfe448
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31586871"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324457"
 ---
 # <a name="upload-files-to-a-web-app-using-ftp"></a>Bestanden uploaden naar een web-app met FTP
 
@@ -30,7 +30,7 @@ Installeer zo nodig de Azure PowerShell volgens de instructies in de [Azure Powe
 
 ## <a name="sample-script"></a>Voorbeeldscript
 
-[!code-powershell[main](../../../powershell_scripts/app-service/deploy-ftp/deploy-ftp.ps1?highlight=1 "Upload files to a web app using FTP")]
+[!code-azurepowershell-interactive[main](../../../powershell_scripts/app-service/deploy-ftp/deploy-ftp.ps1?highlight=1 "Upload files to a web app using FTP")]
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie 
 

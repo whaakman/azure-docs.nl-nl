@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 706afa7cb79b7b5c2afcd729f36ff150b87dd6df
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: c22831ae781239f2474720ee9cd1b58f6e14fe41
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242934"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412862"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Datacenter-integratie Azure Stack - identiteit
 U kunt Azure Stack met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) implementeren als de id-providers. Voordat u Azure Stack implementeren, moet u de keuze maken. Implementatie met behulp van AD FS is ook aangeduid als Azure Stack implementeren in de niet-verbonden modus.
@@ -26,7 +26,7 @@ De volgende tabel ziet u de verschillen tussen de twee identity-opties:
 |---------|---------|---------|
 |Billing|Capaciteit moet worden<br> Alleen Enterprise Agreement (EA)|Capaciteit of betalen als u-gebruik<br>EA- of Cloud Solution Provider (CSP)|
 |Identiteit|Moet de AD FS|Azure AD of AD FS|
-|Marketplace-syndicatie|Ondersteund<br>BYOL-licentieverlening|Ondersteund<br>BYOL-licentieverlening|
+|Marketplace |Ondersteund<br>BYOL-licentieverlening|Ondersteund<br>BYOL-licentieverlening|
 |Registratie|Aanbevolen, verwisselbare media vereist<br> en een afzonderlijke verbonden apparaten.|Geautomatiseerd|
 |Voor patches en updates|Vereist, verwisselbare media vereist<br> en een afzonderlijke verbonden apparaten.|Updatepakket kan rechtstreeks worden gedownload.<br> vanaf het Internet met Azure Stack.|
 

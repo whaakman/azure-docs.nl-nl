@@ -9,18 +9,18 @@ services: iot-accelerators
 ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d31ea1fe579e5ac7a846c1c0d03012d70be9884d
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 1f9e5885e79e184b621ba2be7e2a8f329e31a6b1
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159345"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39284486"
 ---
 # <a name="tutorial-monitor-your-iot-devices"></a>Zelfstudie: Uw IoT-apparaten bewaken
 
 In deze zelfstudie gebruikt u de oplossingsversneller voor externe bewaking om de verbonden IoT-apparaten te bewaken. Gebruik het dashboard van de oplossing om telemetrie, apparaatgegevens, waarschuwingen en KPI's weer te geven.
 
-In de zelfstudie wordt gebruikgemaakt van twee gesimuleerde apparaten voor trucks die telemetriegegevens over de locatie, de snelheid en de temperatuur van de lading verzenden. De vrachtwagens worden beheerd door een organisatie met de naam Contoso en zijn verbonden met de oplossingsversneller voor externe bewaking. Als operator van Contoso is het uw taak om de locatie en het gedrag van een van uw trucks (truck-02) in het veld te bewaken.
+In de zelfstudie wordt gebruikgemaakt van twee gesimuleerde apparaten voor trucks die telemetriegegevens over de locatie, de snelheid en de temperatuur van de lading verzenden. De trucks worden beheerd door een organisatie met de naam Contoso en zijn verbonden met de oplossingsversneller voor externe bewaking. Als operator van Contoso is het uw taak om de locatie en het gedrag van een van uw trucks (truck-02) in het veld te bewaken.
 
 In deze zelfstudie hebt u:
 
@@ -33,7 +33,7 @@ In deze zelfstudie hebt u:
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
+[!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="choose-the-devices-to-display"></a>Kies de weer te geven apparaten
 
@@ -43,7 +43,7 @@ Gebruik filters om te selecteren welke verbonden apparaten worden weergegeven op
 
 Wanneer u een filter toepast, worden alleen de apparaten die voldoen aan de filtervoorwaarden weergegeven op de kaart en in het deelvenster Telemetrie op de pagina **Dashboard**. U kunt zien dat er twee trucks zijn verbonden met de oplossingsversnellers, waaronder vrachtwagen-02:
 
-[![Alleen vrachtwagens worden er weergegeven op de kaart](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-expanded.png#lightbox)
+[![Alleen trucks worden weergegeven op de kaart](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtruckmap-expanded.png#lightbox)
 
 Als u filters wilt maken, bewerken en verwijderen, klikt u op **Apparaatgroepen beheren**.
 
@@ -51,7 +51,7 @@ Als u filters wilt maken, bewerken en verwijderen, klikt u op **Apparaatgroepen 
 
 De oplossingsversneller plot in realtime telemetrie in de grafiek op de pagina **Dashboard**. Boven in de telemetriegrafiek ziet u de beschikbare telemetrietypen voor de apparaten, waaronder truck-02, die met het huidige filter zijn geselecteerd. Standaard wordt in de grafiek de breedtegraad van de trucks weergegeven, en truck-02 lijkt stil te staan:
 
-[![Telemetrietypen voor vrachtwagens](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-expanded.png#lightbox)
+[![Telemetrietypen voor trucks](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-inline.png)](./media/iot-accelerators-remote-monitoring-monitor/dashboardtelemetryview-expanded.png#lightbox)
 
 Als u voor de trucks temperatuurtelemetrie wilt weergeven, klikt u op **Temperatuur**: U kunt zien hoe de temperatuur voor truck-02 in het afgelopen uur is veranderd:
 
@@ -93,7 +93,7 @@ Voor truck-02 bestaan alle meldingen uit waarschuwingen die betrekking hebben op
 
 Dezelfde filters die de tijdsduur instellen voor meldingen en regelen welke apparaten worden weergegeven, bepalen hoe de KPI's worden samengevoegd. Standaard worden in het deelvenster KPI's weergegeven die in de loop van het afgelopen uur zijn samengevoegd.
 
-[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
+[!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
