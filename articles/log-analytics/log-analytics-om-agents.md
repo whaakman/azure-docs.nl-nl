@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 37cabadb18bf065de64b7ae24c4ed19994e60625
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 9f086687540ed12590429fb73b05083a8b8d7f33
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413634"
+ms.locfileid: "39435116"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Operations Manager verbinden met Log Analytics
 Als u uw bestaande investering in System Center Operations Manager wilt behouden en combineren met de uitgebreide mogelijkheden van Log Analytics, kunt u Operations Manager integreren met uw Log Analytics-werkruimte.  Zo profiteert u van de mogelijkheden van Log Analytics, maar kunt u Operations Manager nog steeds gebruiken voor het volgende:
@@ -90,32 +90,32 @@ De optie om op te geven van de configuratie van de proxy voor de beheergroep is 
 1. Open een opdrachtprompt met verhoogde bevoegdheid.
    a. Ga naar **Start** en het type **cmd**.
    b. Met de rechtermuisknop op **opdrachtprompt** en selecteert u uitvoeren als beheerder **.
-2. Voer de volgende opdracht in en druk op **Enter**:
+1. Voer de volgende opdracht in en druk op **Enter**:
 
     `netsh winhttp set proxy <proxy>:<port>`
 
 Na het voltooien van de volgende stappen voor de integratie met Log Analytics, kunt u de configuratie verwijderen door het uitvoeren van `netsh winhttp reset proxy`. Geef vervolgens de proxy- of OMS-gatewayserver op met de optie **Proxyserver configureren** in de Operations-console. 
 
 1. Selecteer de werkruimte **Beheer** in de Operations Manager-console.
-2. Vouw het knooppunt Operations Management Suite uit en klik op **Verbinding**.
-3. Klik op de koppeling **Registreren bij Operations Management Suite**.
-4. Voer op de pagina **Wizard Operations Management Suite voorbereiden: verificatie** het e-mailadres of telefoonnummer en het wachtwoord in van het beheerdersaccount dat is gekoppeld aan uw OMS-abonnement, en klik op **Aanmelden**.
-5. Nadat u bent geverifieerd, op de **Wizard Operations Management Suite voorbereiden: werkruimte selecteren** pagina, wordt u gevraagd om uw Azure-tenant, abonnement en Log Analytics-werkruimte te selecteren.  Als u meerdere werkruimten hebt, selecteert u in de keuzelijst de werkruimte die u bij de Operations Manager-beheergroep wilt registreren, en klikt u op **Volgende**.
+1. Vouw het knooppunt Operations Management Suite uit en klik op **Verbinding**.
+1. Klik op de koppeling **Registreren bij Operations Management Suite**.
+1. Voer op de pagina **Wizard Operations Management Suite voorbereiden: verificatie** het e-mailadres of telefoonnummer en het wachtwoord in van het beheerdersaccount dat is gekoppeld aan uw OMS-abonnement, en klik op **Aanmelden**.
+1. Nadat u bent geverifieerd, op de **Wizard Operations Management Suite voorbereiden: werkruimte selecteren** pagina, wordt u gevraagd om uw Azure-tenant, abonnement en Log Analytics-werkruimte te selecteren.  Als u meerdere werkruimten hebt, selecteert u in de keuzelijst de werkruimte die u bij de Operations Manager-beheergroep wilt registreren, en klikt u op **Volgende**.
    
    > [!NOTE]
    > Operations Manager ondersteunt slechts één Log Analytics-werkruimte tegelijk. De verbinding en de computers die bij de vorige Log Analytics-werkruimte waren geregistreerd, worden verwijderd.
    > 
    > 
-6. Controleer de instellingen op de pagina **Wizard Operations Management Suite voorbereiden: samenvatting**. Als deze juist zijn, klikt u op **Maken**.
-7. Op de pagina **Wizard Operations Management Suite voorbereiden: voltooien** klikt u op **Sluiten**.
+1. Controleer de instellingen op de pagina **Wizard Operations Management Suite voorbereiden: samenvatting**. Als deze juist zijn, klikt u op **Maken**.
+1. Op de pagina **Wizard Operations Management Suite voorbereiden: voltooien** klikt u op **Sluiten**.
 
 ### <a name="add-agent-managed-computers"></a>Door een agent beheerde computers toevoegen
 Na het configureren van integratie met uw Log Analytics-werkruimte, wordt alleen een verbinding tot stand met de service, er worden geen gegevens worden verzameld van de agents die rapporteren aan de beheergroep. Dit zal niet worden uitgevoerd tot nadat u hebt geconfigureerd welke specifieke door agents beheerde computers verzamelen van gegevens voor Log Analytics. U kunt de computerobjecten afzonderlijk selecteren of een groep met Windows-computerobjecten selecteren. U kunt geen groep met objecten van een andere klasse selecteren, zoals logische schijven of SQL-databases.
 
 1. Open de Operations Manager-console en selecteer de werkruimte **Beheer**.
-2. Vouw het knooppunt Operations Management Suite uit en klik op **Verbinding**.
-3. Klik op de koppeling **Computer/Groep toevoegen** onder de kop Acties rechts in het deelvenster.
-4. In het dialoogvenster **Computer zoeken** kunt u zoeken naar computers of groepen die worden bewaakt door Operations Manager. Selecteer de computers of groepen die u wilt toevoegen aan Log Analytics, klik op **Toevoegen** en klik vervolgens op **OK**.
+1. Vouw het knooppunt Operations Management Suite uit en klik op **Verbinding**.
+1. Klik op de koppeling **Computer/Groep toevoegen** onder de kop Acties rechts in het deelvenster.
+1. In het dialoogvenster **Computer zoeken** kunt u zoeken naar computers of groepen die worden bewaakt door Operations Manager. Selecteer de computers of groepen die u wilt toevoegen aan Log Analytics, klik op **Toevoegen** en klik vervolgens op **OK**.
 
 U kunt de computers en groepen die zijn geconfigureerd voor het verzamelen van gegevens bekijken in het knooppunt Beheerde computers onder Operations Management Suite in de werkruimte **Beheer** van de Operations-console.  Hier kunt u zo nodig computers en groepen toevoegen of verwijderen.
 
@@ -123,20 +123,20 @@ U kunt de computers en groepen die zijn geconfigureerd voor het verzamelen van g
 Voer de volgende stappen uit als een interne proxyserver tussen de beheergroep en de Log Analytics-service is.  Deze instellingen worden centraal beheerd via de beheergroep en gedistribueerd naar door een agent beheerde systemen die zijn opgenomen in het bereik voor het verzamelen van gegevens voor Log Analytics.  Dit is nuttig voor oplossingen die de beheerserver overslaan en gegevens rechtstreeks naar de service verzenden.
 
 1. Open de Operations Manager-console en selecteer de werkruimte **Beheer**.
-2. Vouw Operations Management Suite uit en klik op **Verbindingen**.
-3. Klik in de weergave OMS-verbinding op **Proxyserver configureren**.
-4. Selecteer op de pagina **Wizard Operations Management Suite: proxyserver** de optie **Een proxyserver gebruiken voor toegang tot Operations Management Suite** en typ de URL met het poortnummer, bijvoorbeeld http://corpproxy:80, en klik op **Voltooien**.
+1. Vouw Operations Management Suite uit en klik op **Verbindingen**.
+1. Klik in de weergave OMS-verbinding op **Proxyserver configureren**.
+1. Selecteer op de pagina **Wizard Operations Management Suite: proxyserver** de optie **Een proxyserver gebruiken voor toegang tot Operations Management Suite** en typ de URL met het poortnummer, bijvoorbeeld http://corpproxy:80, en klik op **Voltooien**.
 
 Als verificatie vereist is voor de proxyserver, voert u de volgende stappen om referenties en instellingen te configureren voor propagatie naar beheerde computers die rapporteren aan OMS in de beheergroep.
 
 1. Open de Operations Manager-console en selecteer de werkruimte **Beheer**.
-2. Selecteer onder **RunAs-configuratie** de optie **Profielen**.
-3. Open het profiel **System Center Advisor RunAs-profielproxy**.
-4. Klik in de wizard Uitvoeren als-profiel op Toevoegen om een Uitvoeren als-account te gebruiken. U kunt een nieuw [Uitvoeren als-account](https://technet.microsoft.com/library/hh321655.aspx) maken of een bestaand account gebruiken. Dit account moet over voldoende rechten beschikken voor het doorgeven van de proxyserver.
-5. Als u het account voor beheer wilt instellen, kiest u **Een geselecteerde klasse, groep of object**, klikt u op **Selecteren...** en klikt u vervolgens op **Groep...** om het vak **Groep zoeken** te openen.
-6. Zoek en selecteer de **Microsoft System Center Advisor Monitoring Server-groep**.  Klik op **OK** na het selecteren van de groep om het vak **Groep zoeken** te sluiten.
-7. Klik op **OK** om het vak **Een Uitvoeren als-account toevoegen** te sluiten.
-8. Klik op **Opslaan** om de wizard te voltooien en de wijzigingen op te slaan.
+1. Selecteer onder **RunAs-configuratie** de optie **Profielen**.
+1. Open het profiel **System Center Advisor RunAs-profielproxy**.
+1. Klik in de wizard Uitvoeren als-profiel op Toevoegen om een Uitvoeren als-account te gebruiken. U kunt een nieuw [Uitvoeren als-account](https://technet.microsoft.com/library/hh321655.aspx) maken of een bestaand account gebruiken. Dit account moet over voldoende rechten beschikken voor het doorgeven van de proxyserver.
+1. Als u het account voor beheer wilt instellen, kiest u **Een geselecteerde klasse, groep of object**, klikt u op **Selecteren...** en klikt u vervolgens op **Groep...** om het vak **Groep zoeken** te openen.
+1. Zoek en selecteer de **Microsoft System Center Advisor Monitoring Server-groep**.  Klik op **OK** na het selecteren van de groep om het vak **Groep zoeken** te sluiten.
+1. Klik op **OK** om het vak **Een Uitvoeren als-account toevoegen** te sluiten.
+1. Klik op **Opslaan** om de wizard te voltooien en de wijzigingen op te slaan.
 
 Nadat de verbinding is gemaakt en u de agents die gegevens verzamelen en verzenden naar Log Analytics hebt geconfigureerd, wordt de volgende configuratie toegepast in de beheergroep, niet noodzakelijkerwijs in deze volgorde:
 
@@ -156,11 +156,11 @@ Als u wilt doorgaan na uw bestaande wijzigingsproces voor een besturingselement 
 
 ## <a name="switch-an-operations-manager-group-to-a-new-log-analytics-workspace"></a>Een Operations Manager-groep overschakelen naar een nieuwe Log Analytics-werkruimte
 1. Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
-2. Klik in Azure Portal op **Meer services** in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics** en maak vervolgens een werkruimte.  
-3. Open de Operations Manager-console met een account dat lid is van de rol Administrators in Operations Manager en selecteer de werkruimte **Beheer**.
-4. Vouw Operations Management Suite uit en selecteer **Verbindingen**.
-5. Selecteer de koppeling **Operations Management Suite opnieuw configureren** in het middelste gedeelte van het deelvenster.
-6. Volg de **Wizard Operations Management Suite voorbereiden** en voer het e-mailadres of telefoonnummer en het wachtwoord in van het beheerdersaccount dat is gekoppeld aan de nieuwe Log Analytics-werkruimte.
+1. Klik in Azure Portal op **Meer services** in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Log Analytics** en maak vervolgens een werkruimte.  
+1. Open de Operations Manager-console met een account dat lid is van de rol Administrators in Operations Manager en selecteer de werkruimte **Beheer**.
+1. Vouw Operations Management Suite uit en selecteer **Verbindingen**.
+1. Selecteer de koppeling **Operations Management Suite opnieuw configureren** in het middelste gedeelte van het deelvenster.
+1. Volg de **Wizard Operations Management Suite voorbereiden** en voer het e-mailadres of telefoonnummer en het wachtwoord in van het beheerdersaccount dat is gekoppeld aan de nieuwe Log Analytics-werkruimte.
    
    > [!NOTE]
    > Op de pagina **Wizard Operations Management Suite voorbereiden: werkruimte selecteren** wordt de bestaande werkruimte weergegeven die momenteel wordt gebruikt.
@@ -172,17 +172,17 @@ Er zijn meerdere manieren om te controleren of Log Analytics met succes is geïn
 
 ### <a name="to-confirm-integration-from-the-azure-portal"></a>Integratie controleren vanuit Azure Portal
 1. Klik in Azure Portal op **Meer services** in de linkerbenedenhoek. Typ in de lijst met resources **Log Analytics**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer.
-2. Selecteer de toepasselijke werkruimte in de lijst met Log Analytics-werkruimten.  
-3. Selecteer achtereenvolgens **Geavanceerde instellingen**, **Verbonden bronnen** en **System Center**. 
-4. In de tabel onder de sectie System Center Operations Manager ziet u de naam van de beheergroep met het aantal agents en wanneer er voor het laatst gegevens zijn ontvangen.
+1. Selecteer de toepasselijke werkruimte in de lijst met Log Analytics-werkruimten.  
+1. Selecteer achtereenvolgens **Geavanceerde instellingen**, **Verbonden bronnen** en **System Center**. 
+1. In de tabel onder de sectie System Center Operations Manager ziet u de naam van de beheergroep met het aantal agents en wanneer er voor het laatst gegevens zijn ontvangen.
    
    ![oms-settings-connectedsources](./media/log-analytics-om-agents/oms-settings-connectedsources.png)
 
 ### <a name="to-confirm-integration-from-the-operations-console"></a>Integratie controleren vanuit de Operations-console
 1. Open de Operations Manager-console en selecteer de werkruimte **Beheer**.
-2. Selecteer **Management Packs** en typ in het tekstvak **Look for:** (Zoeken naar) **Advisor** of **Intelligence**.
-3. Voor elke oplossing die u hebt ingeschakeld, ziet u een bijbehorend management pack in de lijst met zoekresultaten.  Als u bijvoorbeeld de oplossing Waarschuwingenbeheer hebt ingeschakeld, wordt het management pack Microsoft System Center Advisor Waarschuwingenbeheer weergegeven in de lijst.
-4. Schakel over van de weergave **Monitoring** (Bewaking) naar de weergave **Operations Management Suite\Health State** (Status van Operations Management Suite).  Selecteer een beheerserver in het deelvenster **Management Server State** (Status van beheerserver) en controleer in het deelvenster **Detail View** (Detailweergave) of de waarde voor de eigenschap **Authentication service URI** (URI van verificatieservice) overeenkomt met de id van de Log Analytics-werkruimte.
+1. Selecteer **Management Packs** en typ in het tekstvak **Look for:** (Zoeken naar) **Advisor** of **Intelligence**.
+1. Voor elke oplossing die u hebt ingeschakeld, ziet u een bijbehorend management pack in de lijst met zoekresultaten.  Als u bijvoorbeeld de oplossing Waarschuwingenbeheer hebt ingeschakeld, wordt het management pack Microsoft System Center Advisor Waarschuwingenbeheer weergegeven in de lijst.
+1. Schakel over van de weergave **Monitoring** (Bewaking) naar de weergave **Operations Management Suite\Health State** (Status van Operations Management Suite).  Selecteer een beheerserver in het deelvenster **Management Server State** (Status van beheerserver) en controleer in het deelvenster **Detail View** (Detailweergave) of de waarde voor de eigenschap **Authentication service URI** (URI van verificatieservice) overeenkomt met de id van de Log Analytics-werkruimte.
    
    ![oms-opsmgr-mg-authsvcuri-property-ms](./media/log-analytics-om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
@@ -197,29 +197,29 @@ De management packs voor de oplossingen die u hebt ingeschakeld en die zijn geï
     > Controleer voordat u doorgaat of er geen aangepaste management packs zijn met 'Advisor' of 'IntelligencePack' in de naam, anders worden ze uit de beheergroep verwijderd tijdens de volgende stappen.
     > 
 
-2. Typ vanaf de opdrachtshell-prompt `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
-3. Typ vervolgens `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
-4. Als u ook alle resterende management packs die afhankelijk zijn van andere management packs van System Center Advisor wilt verwijderen, gebruikt u het script *RecursiveRemove.ps1* dat u eerder van TechNet Script Center hebt gedownload.  
+1. Typ vanaf de opdrachtshell-prompt `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+1. Typ vervolgens `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+1. Als u ook alle resterende management packs die afhankelijk zijn van andere management packs van System Center Advisor wilt verwijderen, gebruikt u het script *RecursiveRemove.ps1* dat u eerder van TechNet Script Center hebt gedownload.  
  
     > [!NOTE]
     > De management packs voor Microsoft System Center Advisor of Microsoft System Center Advisor interne wordt niet automatisch verwijderd door de stap voor het verwijderen van de management packs voor Advisor met PowerShell.  Probeer niet om ze te verwijderen.  
     >  
 
-5. Open de Operations-console van Operations Manager met een account dat lid is van de rol Administrators in Operations Manager.
-6. Selecteer onder **Beheer** het knooppunt **Management Packs**, typ in het vak **Look for:** (Zoeken naar) **Advisor** en controleer of de volgende management packs nog zijn geïmporteerd in de beheergroep:
+1. Open de Operations-console van Operations Manager met een account dat lid is van de rol Administrators in Operations Manager.
+1. Selecteer onder **Beheer** het knooppunt **Management Packs**, typ in het vak **Look for:** (Zoeken naar) **Advisor** en controleer of de volgende management packs nog zijn geïmporteerd in de beheergroep:
    
    * Microsoft System Center Advisor
    * Microsoft System Center Advisor Internal
 
-7. Klik in de OMS-portal op de tegel **Instellingen**.
-8. Selecteer **verbonden bronnen**.
-9. In de tabel onder de sectie System Center Operations Manager ziet u de naam van de beheergroep die u wilt verwijderen uit de werkruimte.  Klik onder de kolom **Laatste gegevens** op **Verwijderen**.  
+1. Klik in de OMS-portal op de tegel **Instellingen**.
+1. Selecteer **verbonden bronnen**.
+1. In de tabel onder de sectie System Center Operations Manager ziet u de naam van de beheergroep die u wilt verwijderen uit de werkruimte.  Klik onder de kolom **Laatste gegevens** op **Verwijderen**.  
    
     > [!NOTE]
     > De koppeling **Verwijderen** is pas beschikbaar als er 14 dagen geen activiteit van de verbonden beheergroep is gedetecteerd.  
     > 
 
-10. Er wordt een bevestigingsvenster weergegeven waarin u wordt gevraagd of u wilt doorgaan met het verwijderen.  Klik op **Ja** om door te gaan. 
+1. Er wordt een bevestigingsvenster weergegeven waarin u wordt gevraagd of u wilt doorgaan met het verwijderen.  Klik op **Ja** om door te gaan. 
 
 Als u de twee connectors Microsoft.SystemCenter.Advisor.DataConnector en Advisor Connector wilt verwijderen, slaat u het onderstaande PowerShell-script op uw computer op en voert u het script uit met behulp van de volgende voorbeelden:
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/23/2017
 ms.author: jeedes
-ms.openlocfilehash: e536663669cadc0352a52c7f4f24ed9669661d2d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 985304244acdfafa4fa99dbbe876f35b3e6c58b2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042976"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439358"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>Zelfstudie: Azure Active Directory-integratie met druva nodig
 
@@ -53,7 +53,7 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Druva uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-druva-from-the-gallery"></a>Druva uit de galerie toe te voegen
 Voor het configureren van de integratie van druva nodig in Azure AD, moet u Druva uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -64,15 +64,15 @@ Voor het configureren van de integratie van druva nodig in Azure AD, moet u Druv
 
     ![De Azure Active Directory-knop][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![De knop nieuwe toepassing][3]
 
-4. Typ in het zoekvak **Druva**, selecteer **Druva** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Typ in het zoekvak **Druva**, selecteer **Druva** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Druva nodig in de lijst met resultaten](./media/druva-tutorial/tutorial_druva_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Wijs in druva nodig, de waarde van de **gebruikersnaam** in Azure AD als de waar
 Om te configureren en testen van Azure AD eenmalige aanmelding met druva nodig, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker Druva](#create-a-druva-test-user)**  : als u wilt een equivalent van Britta Simon in druva nodig die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Maak een testgebruiker Druva](#create-a-druva-test-user)**  : als u wilt een equivalent van Britta Simon in druva nodig die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -102,31 +102,31 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![In het dialoogvenster voor eenmalige aanmelding](./media/druva-tutorial/tutorial_druva_samlbase.png)
 
-3. Op de **Druva domein en URL's** sectie, als u wilt configureren van de toepassing in **IDP** modus gestart:
+1. Op de **Druva domein en URL's** sectie, als u wilt configureren van de toepassing in **IDP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/druva-tutorial/tutorial_druva_url.png)
 
     In de **id** tekstvak typt u de tekenreekswaarde: `druva-cloud`
     
-4. Controleer **geavanceerde URL-instellingen weergeven**. Als u wilt configureren van de toepassing in **SP** modus gestart:
+1. Controleer **geavanceerde URL-instellingen weergeven**. Als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/druva-tutorial/tutorial_druva_url1.png)
     
     In de **aanmeldings-URL** tekstvak typt u de URL: `https://cloud.druva.com/home`
 
-5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 
     ![De downloadkoppeling certificaat](./media/druva-tutorial/tutorial_druva_certificate.png) 
 
-6. Uw toepassing Druva wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, die vereist dat u om toe te voegen van aangepast kenmerktoewijzingen aan uw **SAML-Token kenmerken** configuratie. 
+1. Uw toepassing Druva wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, die vereist dat u om toe te voegen van aangepast kenmerktoewijzingen aan uw **SAML-Token kenmerken** configuratie. 
 
     ![Eenmalige aanmelding configureren](./media/druva-tutorial/tutorial_druva_attribute.png)
 
-7. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de voorgaande afbeelding en voer de volgende stappen uit:
+1. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de voorgaande afbeelding en voer de volgende stappen uit:
 
     | Naam kenmerk      | Waarde kenmerk      |
     | ------------------- | -------------------- |
@@ -144,21 +144,21 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     
     d. Klik op **OK**.    
 
-8. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/druva-tutorial/tutorial_general_400.png)
 
-9. Op de **Druva configuratie** sectie, klikt u op **configureren Druva** openen **aanmelding configureren** venster. Kopiëren de **afmelding URL's en SAML Single Sign-On Service** uit de **Naslaggids sectie.**
+1. Op de **Druva configuratie** sectie, klikt u op **configureren Druva** openen **aanmelding configureren** venster. Kopiëren de **afmelding URL's en SAML Single Sign-On Service** uit de **Naslaggids sectie.**
 
     ![Eenmalige aanmelding configureren](./media/druva-tutorial/tutorial_druva_configure.png) 
 
-10. In een ander browservenster aanmelden bij uw bedrijf Druva site als beheerder.
+1. In een ander browservenster aanmelden bij uw bedrijf Druva site als beheerder.
 
-11. Ga naar **beheren \> instellingen**.
+1. Ga naar **beheren \> instellingen**.
 
     ![Instellingen voor](./media/druva-tutorial/ic795091.png "instellingen")
 
-12. In het dialoogvenster Instellingen voor eenmalige aanmelding in de volgende stappen uitvoeren:
+1. In het dialoogvenster Instellingen voor eenmalige aanmelding in de volgende stappen uitvoeren:
 
     ![Single Sign-On instellingen](./media/druva-tutorial/ic795092.png "Single Sign-On-instellingen")
     
@@ -170,11 +170,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
      
     d. Om te openen de **instellingen** pagina, klikt u op **opslaan**.
 
-13. Op de **instellingen** pagina, klikt u op **SSO-Token genereren**.
+1. Op de **instellingen** pagina, klikt u op **SSO-Token genereren**.
 
     ![Instellingen voor](./media/druva-tutorial/ic795093.png "instellingen")
 
-14. Op de **Single Sign-on-verificatietoken** dialoogvenster, voer de volgende stappen uit:
+1. Op de **Single Sign-on-verificatietoken** dialoogvenster, voer de volgende stappen uit:
 
     ![Het SSO-Token](./media/druva-tutorial/ic795094.png "SSO-Token")
     
@@ -198,15 +198,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![De Azure Active Directory-knop](./media/druva-tutorial/create_aaduser_01.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/druva-tutorial/create_aaduser_02.png)
 
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
     ![De knop toevoegen](./media/druva-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
     ![Het dialoogvenster gebruiker](./media/druva-tutorial/create_aaduser_04.png)
 
@@ -226,15 +226,15 @@ Als u wilt dat Azure AD-gebruikers zich aanmelden bij druva nodig, moeten ze wor
 
 1. Meld u aan bij uw **Druva** bedrijf site als administrator.
 
-2. Ga naar **beheren \> gebruikers**.
+1. Ga naar **beheren \> gebruikers**.
    
    ![Gebruikers beheren](./media/druva-tutorial/ic795097.png "gebruikers beheren")
 
-3. Klik op **Maak een nieuwe**.
+1. Klik op **Maak een nieuwe**.
    
    ![Gebruikers beheren](./media/druva-tutorial/ic795098.png "gebruikers beheren")
 
-4. Voer de volgende stappen uit in het dialoogvenster Nieuwe gebruiker maken:
+1. Voer de volgende stappen uit in het dialoogvenster Nieuwe gebruiker maken:
    
    ![Maken van nieuwegebruiker](./media/druva-tutorial/ic795099.png "nieuwegebruiker maken")
    
@@ -259,23 +259,23 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **Druva**.
+1. Selecteer in de lijst met toepassingen, **Druva**.
 
     ![De koppeling druva nodig in de lijst met toepassingen](./media/druva-tutorial/tutorial_druva_app.png)  
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![De koppeling 'Gebruikers en groepen'][202]
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -287,7 +287,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->
 
