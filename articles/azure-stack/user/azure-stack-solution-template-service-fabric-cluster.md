@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 05/08/2018
 ms.author: mattbriggs
 ms.reviewer: shnatara
-ms.openlocfilehash: acf850bdc56e55d13b13a40ef343f2f20c4a77ca
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9feb2e538d3578fe259aa3fbc693a1e953f2f894
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969109"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440348"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Een Service Fabric-cluster in Azure Stack implementeren
 
@@ -39,9 +39,9 @@ Het volgende is vereist om de Service Fabric-cluster te implementeren:
     > [!NOTE]  
     > Voor testdoeleinden kunt u een directe zelf-ondertekend certificaat van het x.509-servercertificaat. Zelfondertekende certificaten hoeven niet overeenkomt met de FQDN-naam van het cluster.
 
-2.  **Beheerder clientcertificaat** dit is het certificaat dat de client wordt gebruikt voor verificatie bij de Service Fabric-cluster zelf kan worden ondertekend. Zie [vereisten](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) voor het maken van dit clientcertificaat.
+1.  **Beheerder clientcertificaat** dit is het certificaat dat de client wordt gebruikt voor verificatie bij de Service Fabric-cluster zelf kan worden ondertekend. Zie [vereisten](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) voor het maken van dit clientcertificaat.
 
-3.  **De volgende items moeten beschikbaar zijn in de Azure Stack Marketplace:**
+1.  **De volgende items moeten beschikbaar zijn in de Azure Stack Marketplace:**
      - **Windows Server 2016** – de sjabloon maakt gebruik van de installatiekopie van het Windows Server 2016 om het cluster te maken.  
      - **Voor Klantenscripts** -extensie van de virtuele Machine van Microsoft.  
      - **PowerShell Desired Configuration fase** -extensie van de virtuele Machine van Microsoft.
@@ -124,15 +124,15 @@ Zie voor meer informatie, [KeyVault beheren in Azure Stack met PowerShell](https
 
    ![Selecteer Service Fabric-Cluster](./media/azure-stack-solution-template-service-fabric-cluster/image2.png)
 
-2. Voor elke pagina, zoals *basisbeginselen*, vul het formulier in de implementatie. Standaardinstellingen gebruiken als u niet zeker van een waarde bent. Selecteer **OK** om door te gaan naar de volgende pagina:
+1. Voor elke pagina, zoals *basisbeginselen*, vul het formulier in de implementatie. Standaardinstellingen gebruiken als u niet zeker van een waarde bent. Selecteer **OK** om door te gaan naar de volgende pagina:
 
    ![Basisbeginselen](media/azure-stack-solution-template-service-fabric-cluster/image3.png)
 
-3. Op de *netwerkinstellingen* pagina, kunt u specifieke poorten te openen voor uw toepassingen:
+1. Op de *netwerkinstellingen* pagina, kunt u specifieke poorten te openen voor uw toepassingen:
 
    ![Netwerkinstellingen](media/azure-stack-solution-template-service-fabric-cluster/image4.png)
 
-4. Op de *Security* pagina, voegt u de waarden die u hebt verkregen via [het maken van de Azure Key Vault](#add-a-secret-to-key-vault) en het geheim te uploaden.
+1. Op de *Security* pagina, voegt u de waarden die u hebt verkregen via [het maken van de Azure Key Vault](#add-a-secret-to-key-vault) en het geheim te uploaden.
 
    Voor de *Admin-Client de vingerafdruk van certificaat*, voer de vingerafdruk van het *Admin clientcertificaat*. (Zie de [vereisten](#prerequisites).)
    
@@ -145,7 +145,7 @@ Zie voor meer informatie, [KeyVault beheren in Azure Stack met PowerShell](https
 
    ![Beveiliging](media/azure-stack-solution-template-service-fabric-cluster/image6.png)
 
-5. Voltooi de wizard en selecteer vervolgens **maken** naar de Service Fabric-Cluster implementeren.
+1. Voltooi de wizard en selecteer vervolgens **maken** naar de Service Fabric-Cluster implementeren.
 
 
 
@@ -169,7 +169,7 @@ U kunt toegang tot de Service Fabric-cluster met behulp van de Service Fabric Ex
 
     d. Op de *certificaat Store* weergeeft, schakelt **persoonlijke**, en voltooi de wizard.  
        ![Certificaatarchief](media/azure-stack-solution-template-service-fabric-cluster/image9.png)  
-2. Zoek de FQDN-naam van uw Service Fabric-cluster:  
+1. Zoek de FQDN-naam van uw Service Fabric-cluster:  
 
     a. Ga naar de resourcegroep die is gekoppeld aan uw Service Fabric-cluster en zoek de *openbaar IP-adres* resource. Selecteer het object dat is gekoppeld aan het openbare IP-adres te openen de *openbaar IP-adres* blade.  
 
@@ -179,12 +179,12 @@ U kunt toegang tot de Service Fabric-cluster met behulp van de Service Fabric Ex
 
       ![DNS-naam](media/azure-stack-solution-template-service-fabric-cluster/image11.png)  
 
-3. Als u de URL voor de Service Fabric Explorer, en het eindpunt van de clientverbinding zoekt, bekijk de resultaten van de implementatie van de sjabloon.
+1. Als u de URL voor de Service Fabric Explorer, en het eindpunt van de clientverbinding zoekt, bekijk de resultaten van de implementatie van de sjabloon.
 
-4. Ga in uw browser naar https://*FQDN*: 19080. Vervang *FQDN* met de FQDN van uw Service Fabric-cluster uit stap 2.   
+1. Ga in uw browser naar https://*FQDN*: 19080. Vervang *FQDN* met de FQDN van uw Service Fabric-cluster uit stap 2.   
    Als u een zelfondertekend certificaat hebt gebruikt, krijgt u een waarschuwing dat de verbinding is niet beveiligd. Selecteer om door te gaan naar de website, **meer informatie**, en vervolgens **gaat u naar de webpagina**. 
 
-5. U moet een certificaat selecteren om te verifiëren naar de site. Selecteer **meer opties**, kies het juiste certificaat en klik vervolgens op **OK** verbinding maken met de Service Fabric Explorer. 
+1. U moet een certificaat selecteren om te verifiëren naar de site. Selecteer **meer opties**, kies het juiste certificaat en klik vervolgens op **OK** verbinding maken met de Service Fabric Explorer. 
 
    ![Verifiëren](media/azure-stack-solution-template-service-fabric-cluster/image14.png)
 
@@ -194,7 +194,7 @@ U kunt toegang tot de Service Fabric-cluster met behulp van de Service Fabric Ex
 
 1. Installeer de *Microsoft Azure Service Fabric SDK* van [uw ontwikkelomgeving voorbereiden in Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started#install-the-sdk-and-tools) in de documentatie van Azure Service Fabric.  
 
-2. Nadat de installatie voltooid is, configureert u de omgevingsvariabelen om ervoor te zorgen dat de Service Fabric-cmdlets toegankelijk is vanuit PowerShell zijn.  
+1. Nadat de installatie voltooid is, configureert u de omgevingsvariabelen om ervoor te zorgen dat de Service Fabric-cmdlets toegankelijk is vanuit PowerShell zijn.  
     
     a. Ga naar **Configuratiescherm** > **systeem en beveiliging** > **System**, en selecteer vervolgens **Geavanceerde systeeminstellingen**.  
     
@@ -206,7 +206,7 @@ U kunt toegang tot de Service Fabric-cluster met behulp van de Service Fabric Ex
 
       ![Lijst met variabelen van omgeving](media/azure-stack-solution-template-service-fabric-cluster/image16.png)
 
-3. Na het wijzigen van de volgorde van de omgevingsvariabelen, start PowerShell en voer de volgende PowerShell-script om toegang krijgen tot de Service Fabric-cluster:
+1. Na het wijzigen van de volgorde van de omgevingsvariabelen, start PowerShell en voer de volgende PowerShell-script om toegang krijgen tot de Service Fabric-cluster:
 
    ````PowerShell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric

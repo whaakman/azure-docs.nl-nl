@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 33a447e2161925d23385cbd0c471e0f5babd618f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 292540100096b26a652094cb0ea8d8f585961a22
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38473746"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422430"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Het gebruik van de Mobile Apps Node.js-SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -50,7 +50,7 @@ Elke back-end van Mobile Apps Node.js wordt gestart als een toepassing ExpressJS
 1. Maak een map voor uw project in een opdracht of het PowerShell-venster:
 
         mkdir basicapp
-2. Voer `npm init` initialiseren van de pakketstructuur:
+1. Voer `npm init` initialiseren van de pakketstructuur:
 
         cd basicapp
         npm init
@@ -58,10 +58,10 @@ Elke back-end van Mobile Apps Node.js wordt gestart als een toepassing ExpressJS
    De `npm init` opdracht vraagt een reeks vragen om te initialiseren van het project. Zie het voorbeeld van uitvoer:
 
    ![De uitvoer van de init npm][0]
-3. Installeer de `express` en `azure-mobile-apps` bibliotheken van de npm-opslagplaats:
+1. Installeer de `express` en `azure-mobile-apps` bibliotheken van de npm-opslagplaats:
 
         npm install --save express azure-mobile-apps
-4. Maak een app.js-bestand voor het implementeren van de eenvoudige mobiele-server:
+1. Maak een app.js-bestand voor het implementeren van de eenvoudige mobiele-server:
 
         var express = require('express'),
             azureMobileApps = require('azure-mobile-apps');
@@ -94,18 +94,18 @@ U vindt de code voor deze eenvoudige toepassing in de [basicapp voorbeeld op Git
 Visual Studio 2015 is vereist voor het ontwikkelen van Node.js-toepassingen vanuit de IDE. Als u wilt starten, installeert de [Node.js-hulpprogramma's 1.1 voor Visual Studio]. Wanneer u klaar bent met de installatie, moet u een snelle 4.x-toepassing maken:
 
 1. Open de **nieuw Project** in het dialoogvenster (van **bestand** > **nieuw** > **Project**).
-2. Vouw **sjablonen** > **JavaScript** > **Node.js**.
-3. Selecteer **Basic Azure Node.js Express 4-toepassing**.
-4. Vul de projectnaam in. Selecteer **OK**.
+1. Vouw **sjablonen** > **JavaScript** > **Node.js**.
+1. Selecteer **Basic Azure Node.js Express 4-toepassing**.
+1. Vul de projectnaam in. Selecteer **OK**.
 
    ![Nieuw project voor Visual Studio 2015][1]
-5. Met de rechtermuisknop op de **npm** knooppunt en selecteert u **nieuwe installatie van npm-pakketten**.
-6. Mogelijk moet u de catalogus npm vernieuwen nadat u uw eerste Node.js-toepassing maken. Selecteer **vernieuwen** indien nodig.
-7. Voer **azure-mobile-apps** in het zoekvak in. Selecteer de **azure mobile apps 2.0.0** verpakt en selecteer vervolgens **pakket installeren**.
+1. Met de rechtermuisknop op de **npm** knooppunt en selecteert u **nieuwe installatie van npm-pakketten**.
+1. Mogelijk moet u de catalogus npm vernieuwen nadat u uw eerste Node.js-toepassing maken. Selecteer **vernieuwen** indien nodig.
+1. Voer **azure-mobile-apps** in het zoekvak in. Selecteer de **azure mobile apps 2.0.0** verpakt en selecteer vervolgens **pakket installeren**.
 
    ![Nieuwe npm-pakketten installeren][2]
-8. Selecteer **sluiten**.
-9. Open het bestand app.js om toe te voegen ondersteuning voor de Mobile Apps SDK. Op regel 6 at onder aan de bibliotheek `require` overzichten, voeg de volgende code:
+1. Selecteer **sluiten**.
+1. Open het bestand app.js om toe te voegen ondersteuning voor de Mobile Apps SDK. Op regel 6 at onder aan de bibliotheek `require` overzichten, voeg de volgende code:
 
         var bodyParser = require('body-parser');
         var azureMobileApps = require('azure-mobile-apps');
@@ -120,7 +120,7 @@ Visual Studio 2015 is vereist voor het ontwikkelen van Node.js-toepassingen vanu
         app.use(mobile);
 
    Sla het bestand op.
-10. Ofwel de toepassing lokaal uitvoeren (de API wordt geleverd op http://localhost:3000) publiceren naar Azure.
+1. Ofwel de toepassing lokaal uitvoeren (de API wordt geleverd op http://localhost:3000) publiceren naar Azure.
 
 ### <a name="create-node-backend-portal"></a>Een Node.js-back-end maken met behulp van de Azure-portal
 Kunt u een mobiele back-end Apps rechtstreeks in de [Azure Portal]. U kunt de volgende stappen uit of een client en server samen te maken door de volgende de [maken van een mobiele app](app-service-mobile-ios-get-started.md) zelfstudie. De zelfstudie bevat een vereenvoudigde versie van deze instructies en wordt aanbevolen voor proof-of-concept-projecten.
@@ -136,13 +136,13 @@ Wanneer u een back-end voor Node.js mobiele Apps maakt met behulp van de portal 
 De volgende procedure maakt gebruik van een Git-opslagplaats voor het downloaden van de snelstartcode project:
 
 1. Installeer Git, als u dat nog niet hebt gedaan. De stappen die nodig zijn om Git te installeren variëren tussen besturingssystemen. Zie voor specifieke besturingssysteem-distributies en installatie [installeren van Git](http://git-scm.com/book/en/Getting-Started-Installing-Git).
-2. Zie [voorbereiden van uw opslagplaats](../app-service/app-service-deploy-local-git.md#prepare-your-repository) om in te schakelen van de Git-opslagplaats voor uw back-end-site. Maak een notitie van de implementatie-gebruikersnaam en wachtwoord.
-3. In het deelvenster voor uw Mobile Apps-back-end, maak een notitie van de **Git-kloon-URL** instelling.
-4. Voer de `git clone` met behulp van de Git-kloon-URL. Voer uw wachtwoord indien nodig, zoals in het volgende voorbeeld:
+1. Zie [voorbereiden van uw opslagplaats](../app-service/app-service-deploy-local-git.md#prepare-your-repository) om in te schakelen van de Git-opslagplaats voor uw back-end-site. Maak een notitie van de implementatie-gebruikersnaam en wachtwoord.
+1. In het deelvenster voor uw Mobile Apps-back-end, maak een notitie van de **Git-kloon-URL** instelling.
+1. Voer de `git clone` met behulp van de Git-kloon-URL. Voer uw wachtwoord indien nodig, zoals in het volgende voorbeeld:
 
         $ git clone https://username@todolist.scm.azurewebsites.net:443/todolist.git
-5. Blader naar de lokale map (`/todolist` in het voorgaande voorbeeld), en u ziet dat project-bestanden zijn gedownload. Ga naar het bestand todoitem.json in de `/tables` directory. Dit bestand definieert machtigingen voor de tabel. Ook vindt u het bestand todoitem.js in dezelfde map. Hiermee definieert u de scripts CRUD bewerking voor de tabel.
-6. Nadat u wijzigingen in de project-bestanden aanbrengt, voer de volgende opdrachten om toe te voegen, doorvoeren en de wijzigingen vervolgens uploaden naar de site:
+1. Blader naar de lokale map (`/todolist` in het voorgaande voorbeeld), en u ziet dat project-bestanden zijn gedownload. Ga naar het bestand todoitem.json in de `/tables` directory. Dit bestand definieert machtigingen voor de tabel. Ook vindt u het bestand todoitem.js in dezelfde map. Hiermee definieert u de scripts CRUD bewerking voor de tabel.
+1. Nadat u wijzigingen in de project-bestanden aanbrengt, voer de volgende opdrachten om toe te voegen, doorvoeren en de wijzigingen vervolgens uploaden naar de site:
 
         $ git commit -m "updated the table script"
         $ git push origin master
@@ -252,7 +252,7 @@ De Mobile Apps Node.js-SDK gebruikt de [mssql Node.js-pakket] voor het maken van
 >
 
 1. Download en installeer [Microsoft SQL Server 2014 Express]. Zorg ervoor dat u de SQL Server Express 2014 met hulpprogramma's-editie installeert. Tenzij u expliciet 64-bits-ondersteuning nodig hebt, neemt de 32-bits versie minder geheugen bij het uitvoeren van.
-2. Voer SQL Server 2014 Configuration Manager:
+1. Voer SQL Server 2014 Configuration Manager:
 
    a. Vouw de **SQL Server-netwerkconfiguratie** knooppunt in het menu van de structuur.
 
@@ -275,25 +275,25 @@ De Mobile Apps Node.js-SDK gebruikt de [mssql Node.js-pakket] voor het maken van
    i. Met de rechtermuisknop op **SQL Server (SQLEXPRESS)** en selecteer **opnieuw**.
 
    j. Sluit SQL Server 2014 Configuration Manager.
-3. Voer SQL Server 2014 Management Studio en maak verbinding met uw lokale exemplaar van SQL Server Express:
+1. Voer SQL Server 2014 Management Studio en maak verbinding met uw lokale exemplaar van SQL Server Express:
 
    1. Met de rechtermuisknop op het exemplaar in Object Explorer en selecteer **eigenschappen**.
-   2. Selecteer de **Security** pagina.
-   3. Zorg ervoor dat **modus van SQL Server en Windows-verificatie** is geselecteerd.
-   4. Selecteer **OK**.
+   1. Selecteer de **Security** pagina.
+   1. Zorg ervoor dat **modus van SQL Server en Windows-verificatie** is geselecteerd.
+   1. Selecteer **OK**.
 
       ![SQL Server Express-verificatie configureren][4]
-   5. Vouw **Security** > **aanmeldingen** in Object Explorer.
-   6. Met de rechtermuisknop op **aanmeldingen** en selecteer **nieuwe aanmelding**.
-   7. Voer een aanmeldingsnaam. Selecteer **SQL Server-verificatie**. Geef een wachtwoord op en voer vervolgens het wachtwoord in **wachtwoord bevestigen**. Het wachtwoord moet voldoen aan complexiteitsvereisten van Windows.
-   8. Selecteer **OK**.
+   1. Vouw **Security** > **aanmeldingen** in Object Explorer.
+   1. Met de rechtermuisknop op **aanmeldingen** en selecteer **nieuwe aanmelding**.
+   1. Voer een aanmeldingsnaam. Selecteer **SQL Server-verificatie**. Geef een wachtwoord op en voer vervolgens het wachtwoord in **wachtwoord bevestigen**. Het wachtwoord moet voldoen aan complexiteitsvereisten van Windows.
+   1. Selecteer **OK**.
 
       ![Een nieuwe gebruiker toevoegen aan SQL Server Express][5]
-   9. Met de rechtermuisknop op uw nieuwe aanmelding en selecteer **eigenschappen**.
-   10. Selecteer de **serverfuncties** pagina.
-   11. Schakel het selectievakje in voor de **dbcreator** serverfunctie.
-   12. Selecteer **OK**.
-   13. Sluit SQL Server 2015 Management Studio.
+   1. Met de rechtermuisknop op uw nieuwe aanmelding en selecteer **eigenschappen**.
+   1. Selecteer de **serverfuncties** pagina.
+   1. Schakel het selectievakje in voor de **dbcreator** serverfunctie.
+   1. Selecteer **OK**.
+   1. Sluit SQL Server 2015 Management Studio.
 
 Zorg ervoor dat de gebruikersnaam en wachtwoord die u hebt geselecteerd. U moet mogelijk extra server-rollen of machtigingen, afhankelijk van uw vereisten voor de database toewijst.
 
@@ -348,13 +348,13 @@ De meeste instellingen in het bestand azureMobile.js hebben een gelijkwaardige a
 Instellen van een app-instelling:
 
 1. Meld u aan bij de [Azure Portal].
-2. Selecteer **alle resources** of **App Services**, en selecteer vervolgens de naam van uw mobiele app.
-3. De **instellingen** deelvenster wordt standaard geopend. Als dit niet zo is, selecteert u **instellingen**.
-4. Op de **algemene** in het menu **toepassingsinstellingen**.
-5. Schuif naar de **App-instellingen** sectie.
-6. Als uw app-instelling al bestaat, selecteert u de waarde van de app-instelling om de waarde te bewerken.
+1. Selecteer **alle resources** of **App Services**, en selecteer vervolgens de naam van uw mobiele app.
+1. De **instellingen** deelvenster wordt standaard geopend. Als dit niet zo is, selecteert u **instellingen**.
+1. Op de **algemene** in het menu **toepassingsinstellingen**.
+1. Schuif naar de **App-instellingen** sectie.
+1. Als uw app-instelling al bestaat, selecteert u de waarde van de app-instelling om de waarde te bewerken.
    Als uw app-instelling niet bestaat, voert u de app-instelling in de **sleutel** vak en de waarde in de **waarde** vak.
-8. Selecteer **Opslaan**.
+1. Selecteer **Opslaan**.
 
 Als u de meeste appinstellingen wijzigt, moet service opnieuw worden opgestart.
 
@@ -364,9 +364,9 @@ Als u de meeste appinstellingen wijzigt, moet service opnieuw worden opgestart.
 Met behulp van Azure SQL Database als een gegevensarchief is vrijwel identiek voor alle typen voor Azure App Service-toepassing. Als u niet hebt gedaan al, volgt u deze stappen voor het maken van een back-end van Mobile Apps:
 
 1. Meld u aan bij de [Azure Portal].
-2. Selecteer in de linkerbovenhoek van het venster de **+ nieuw** knop > **Web en mobiel** > **mobiele App**, en geef vervolgens een naam voor uw Mobile Apps-back-end.
-3. In de **resourcegroep** voert u dezelfde naam als uw app.
-4. De standaardwaarde van App Service-plan is geselecteerd. Als u wijzigen van uw App Service-plan wilt:
+1. Selecteer in de linkerbovenhoek van het venster de **+ nieuw** knop > **Web en mobiel** > **mobiele App**, en geef vervolgens een naam voor uw Mobile Apps-back-end.
+1. In de **resourcegroep** voert u dezelfde naam als uw app.
+1. De standaardwaarde van App Service-plan is geselecteerd. Als u wijzigen van uw App Service-plan wilt:
 
    a. Selecteer **App Service-Plan** > **+ nieuwe maken**. 
    
@@ -377,7 +377,7 @@ Met behulp van Azure SQL Database als een gegevensarchief is vrijwel identiek vo
    d. Klik op de **Selecteer** knop. 
    
    e. Klik in de **App Service-plan** venster **OK**.
-5. Selecteer **Maken**. 
+1. Selecteer **Maken**. 
 
 Inrichting van een mobiele Apps kan-back-end enkele minuten duren. Nadat de Mobile Apps back-end is ingericht, de portal wordt geopend de **instellingen** deelvenster voor de back-end voor mobiele Apps.
 
@@ -389,13 +389,13 @@ U kunt een bestaande SQL-database verbinden met uw back-end van Mobile Apps of m
 >
 
 1. Selecteer in het nieuwe Mobile Apps back-end, **instellingen** > **mobiele App** > **gegevens** > **+ toevoegen**.
-2. In de **gegevensverbinding toevoegen** venster **SQL Database - vereiste instellingen configureren** > **een nieuwe database maken**. Voer de naam van de nieuwe database in de **naam** vak.
-3. Selecteer **Server**. In de **nieuwe server** deelvenster, voer een unieke naam in de **servernaam** in en geef een geschikte server beheerdersaanmelding bij en het wachtwoord. Zorg ervoor dat **azure-services tot server toestaan** is geselecteerd. Selecteer **OK**.
+1. In de **gegevensverbinding toevoegen** venster **SQL Database - vereiste instellingen configureren** > **een nieuwe database maken**. Voer de naam van de nieuwe database in de **naam** vak.
+1. Selecteer **Server**. In de **nieuwe server** deelvenster, voer een unieke naam in de **servernaam** in en geef een geschikte server beheerdersaanmelding bij en het wachtwoord. Zorg ervoor dat **azure-services tot server toestaan** is geselecteerd. Selecteer **OK**.
 
    ![Een Azure SQL-database maken][6]
-4. In de **nieuwe database** venster **OK**.
-5. Klik in de **gegevensverbinding toevoegen** venster **Connection string**, en voer de aanmeldingsnaam en het wachtwoord die u hebt opgegeven tijdens het maken van de database. Als u een bestaande database gebruikt, bieden u de aanmeldingsreferenties voor die database. Selecteer **OK**.
-6. Klik in de **gegevensverbinding toevoegen** deelvenster opnieuw uit, selecteer **OK** om de database te maken.
+1. In de **nieuwe database** venster **OK**.
+1. Klik in de **gegevensverbinding toevoegen** venster **Connection string**, en voer de aanmeldingsnaam en het wachtwoord die u hebt opgegeven tijdens het maken van de database. Als u een bestaande database gebruikt, bieden u de aanmeldingsreferenties voor die database. Selecteer **OK**.
+1. Klik in de **gegevensverbinding toevoegen** deelvenster opnieuw uit, selecteer **OK** om de database te maken.
 
 <!--- END OF ALTERNATE INCLUDE -->
 
@@ -693,8 +693,8 @@ Als u gebruiken van App Service-verificatie met een aangepaste API wilt, moet u 
 Aangepaste API's zijn gedefinieerd op ongeveer dezelfde manier als de tabel-API:
 
 1. Maak een `api` directory.
-2. Maken van een API-definitie JavaScript-bestand in de `api` directory.
-3. Gebruik van de importeermethode voor het importeren van de `api` directory.
+1. Maken van een API-definitie JavaScript-bestand in de `api` directory.
+1. Gebruik van de importeermethode voor het importeren van de `api` directory.
 
 Hier volgt een prototype van de API-definitie op basis van de steekproef van de basic-app die we eerder hebben gebruikt:
 
@@ -857,7 +857,7 @@ Met behulp van de Azure-portal, kunt u uw Node.js-back-end-script-bestanden in A
 1. In het deelvenster voor uw Mobile Apps-back-end, selecteer **alle instellingen** > beide **eenvoudige tabellen** of **eenvoudige API's**. Selecteer een tabel of de API, en selecteer vervolgens **script bewerken**. Het scriptbestand wordt geopend in App Service-Editor.
 
    ![App Service-editor](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-visual-studio-editor.png)
-2. Breng uw wijzigingen naar het codebestand in de online-editor. Wijzigingen worden automatisch opgeslagen terwijl u typt.
+1. Breng uw wijzigingen naar het codebestand in de online-editor. Wijzigingen worden automatisch opgeslagen terwijl u typt.
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png

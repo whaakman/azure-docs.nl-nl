@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 1af195e644fe93e0c59f5e4402dd8942f5fe1aba
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 108abe45b4b296e0d7928f2da00a06ac43e1ccbe
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635503"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438780"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>Azure DevTest Labs te integreren in uw VSTS continue integratie en van leveringspijplijn
 U kunt de *Azure DevTest Labs-taken* -extensie die in Visual Studio Team Services (VSTS) op eenvoudige wijze geïnstalleerd uw CI/CD-build-en release-pijplijn integreren met Azure DevTest Labs. De extensie installeert drie taken: 
@@ -91,10 +91,10 @@ In deze sectie wordt beschreven hoe u de Azure Resource Manager-sjabloon die u g
 Voor het maken van de release-definitie, het volgende doen:
 
 1. Op de **Releases** tabblad van de **Build & Release** hub, selecteer de knop plusteken (+).
-2. In de **release-definitie maken** venster de **leeg** sjabloon en selecteer vervolgens **volgende**.
-3. Selecteer **Kies Later**, en selecteer vervolgens **maken** een nieuwe release-definitie maken met een standaard-omgeving en er is geen gekoppelde artefacten.
-4. Als u wilt openen in het snelmenu, in de nieuwe definitie van de release, selecteer het weglatingsteken (...) naast de omgevingsnaam van de, en selecteer vervolgens **variabelen configureren**. 
-5. In de **configureren - omgeving** venster voor de variabelen die u in de release-definitie-taken gebruikt, voer de volgende waarden:
+1. In de **release-definitie maken** venster de **leeg** sjabloon en selecteer vervolgens **volgende**.
+1. Selecteer **Kies Later**, en selecteer vervolgens **maken** een nieuwe release-definitie maken met een standaard-omgeving en er is geen gekoppelde artefacten.
+1. Als u wilt openen in het snelmenu, in de nieuwe definitie van de release, selecteer het weglatingsteken (...) naast de omgevingsnaam van de, en selecteer vervolgens **variabelen configureren**. 
+1. In de **configureren - omgeving** venster voor de variabelen die u in de release-definitie-taken gebruikt, voer de volgende waarden:
 
    a. Voor **vmName**, voer de naam die u hebt toegewezen aan de virtuele machine tijdens het maken van de Resource Manager-sjabloon in Azure portal.
 
@@ -107,7 +107,7 @@ Voor het maken van de release-definitie, het volgende doen:
 De volgende fase van de implementatie is het maken van de virtuele machine als de 'gouden installatiekopie' voor latere implementaties wilt gebruiken. U kunt de virtuele machine maken in uw Azure DevTest Lab-instantie met behulp van de taak die speciaal voor dit doel ontwikkeld. 
 
 1. Selecteer in de release-definitie **toevoegen taken**.
-2. Op de **implementeren** tabblad, voegt u een *Azure DevTest Labs maken VM* taak. De taak als volgt configureren:
+1. Op de **implementeren** tabblad, voegt u een *Azure DevTest Labs maken VM* taak. De taak als volgt configureren:
 
    > [!NOTE]
    > Zie voor het maken van de virtuele machine moet worden gebruikt voor latere implementaties [Azure DevTest Labs-taken](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
@@ -134,8 +134,8 @@ De volgende fase van de implementatie is het maken van de virtuele machine als d
    /subscriptions/{subId}/resourceGroups/{rgName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualMachines/{vmName}
    ```
 
-3. Voer het script dat u eerder hebt voor het verzamelen van de details van de DevTest Labs-virtuele machine gemaakt. 
-4. Selecteer in de release-definitie **toevoegen taken** en klik op de **implementeren** tabblad, voegt u een *Azure PowerShell* taak. De taak als volgt configureren:
+1. Voer het script dat u eerder hebt voor het verzamelen van de details van de DevTest Labs-virtuele machine gemaakt. 
+1. Selecteer in de release-definitie **toevoegen taken** en klik op de **implementeren** tabblad, voegt u een *Azure PowerShell* taak. De taak als volgt configureren:
 
    > [!NOTE]
    > Zie voor het verzamelen van de details van de virtuele machine DevTest-Labs, [implementeren: Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell) en voer het script uit.
@@ -156,7 +156,7 @@ De volgende fase van de implementatie is het maken van de virtuele machine als d
       ```
     Het script worden de vereiste waarden verzameld en opgeslagen in omgevingsvariabelen in de release-definitie zodat u eenvoudig naar deze in de volgende stappen verwijzen kunt.
 
-5. Uw app implementeren in de nieuwe virtuele machine een DevTest-Labs. De taken die u normaal gesproken gebruikt om de app te implementeren zijn *Azure bestandskopie* en *PowerShell op de doelmachines*.
+1. Uw app implementeren in de nieuwe virtuele machine een DevTest-Labs. De taken die u normaal gesproken gebruikt om de app te implementeren zijn *Azure bestandskopie* en *PowerShell op de doelmachines*.
    De informatie over de virtuele machine die u nodig hebt voor de parameters van deze taken wordt opgeslagen in drie variabelen met de naam **labVmRgName**, **labVMIpAddress**, en **labVMFqdn**binnen de release-definitie. Als u wilt dat alleen om te experimenteren met het maken van een DevTest Labs-virtuele machine en een aangepaste installatiekopie, zonder dat een app implementeren op deze, kunt u deze stap overslaan.
 
 ### <a name="create-an-image"></a>Een installatiekopie maken
@@ -164,7 +164,7 @@ De volgende fase van de implementatie is het maken van de virtuele machine als d
 De volgende fase is het maken van een installatiekopie van de geïmplementeerde virtuele machine in uw Azure DevTest Labs-exemplaar. U kunt vervolgens de installatiekopie te maken van kopieën van de virtuele machine op aanvraag wanneer u wilt uitvoeren van een taak ontwikkelen of bepaalde tests worden uitgevoerd. 
 
 1. Selecteer in de release-definitie **toevoegen taken**.
-2. Op de **implementeren** tabblad, voegt u een **Azure DevTest Labs maken Custom-Image** taak. Configureer deze als volgt:
+1. Op de **implementeren** tabblad, voegt u een **Azure DevTest Labs maken Custom-Image** taak. Configureer deze als volgt:
 
    > [!NOTE]
    > Zie voor het maken van de installatiekopie, [Azure DevTest Labs-taken](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
@@ -194,8 +194,8 @@ De laatste fase is het verwijderen van de virtuele machine die u hebt geïmpleme
  
    b. Voor **Lab VM-ID**, als u de standaardnaam van de omgevingsvariabele die automatisch is gevuld met de ID van het lab VM door een eerdere taak gewijzigd hier bewerken. De standaardwaarde is **$(labVMId)**.
 
-2. Voer een naam voor de release-definitie en vervolgens op te slaan.
-3. Maken van een nieuwe versie, selecteert u de nieuwste build en deze implementeren in één omgeving in de definitie.
+1. Voer een naam voor de release-definitie en vervolgens op te slaan.
+1. Maken van een nieuwe versie, selecteert u de nieuwste build en deze implementeren in één omgeving in de definitie.
 
 In elk stadium, vernieuw de weergave van uw DevTest Labs-exemplaar in de Azure-portal om weer te geven van de virtuele machine en de installatiekopie die worden gemaakt en de virtuele machine die opnieuw wordt verwijderd.
 

@@ -1,6 +1,6 @@
 ---
 title: Uitvoeren van een MariaDB (MySQL)-cluster in Azure | Microsoft Docs
-description: Maken van een MariaDB + Galera MySQL-cluster op virtuele machines in Azure
+description: Maken van een MariaDB + Galera MySQL-cluster op Azure virtual machines
 services: virtual-machines-linux
 documentationcenter: ''
 author: sabbour
@@ -15,124 +15,124 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/15/2015
 ms.author: asabbour
-ms.openlocfilehash: 4a3eede532345f8628af1722a06531571f01afbf
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2cdc58a827f696d62e6240b90202ee04ce371d07
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32191948"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426850"
 ---
 # <a name="mariadb-mysql-cluster-azure-tutorial"></a>MariaDB (MySQL)-cluster: zelfstudie voor Azure
 > [!IMPORTANT]
-> Azure heeft twee verschillende implementatiemodellen voor het maken en werken met resources: [Azure Resource Manager](../../../resource-manager-deployment-model.md) en klassieke. Dit artikel is van toepassing op het klassieke implementatiemodel. Microsoft raadt aan dat de meeste nieuwe implementaties het Azure Resource Manager-model gebruiken.
+> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Azure Resource Manager](../../../resource-manager-deployment-model.md) en klassiek. Dit artikel is van toepassing op het klassieke implementatiemodel. Microsoft raadt aan dat de meeste nieuwe implementaties het Azure Resource Manager-model gebruiken.
 
 > [!NOTE]
-> MariaDB Enterprise-cluster is nu beschikbaar in Azure Marketplace. De nieuwe aanbieding implementeren automatisch een MariaDB Galera-cluster op Azure Resource Manager. Moet u de nieuwe aanbieding van [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/mariadb/cluster-maxscale/).
+> MariaDB Enterprise cluster is nu beschikbaar in de Azure Marketplace. De nieuwe aanbieding wordt automatisch geïmplementeerd voor een MariaDB Galera-cluster op Azure Resource Manager. Moet u de nieuwe aanbieding van [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/mariadb/cluster-maxscale/).
 >
 >
 
-Dit artikel ziet u het maken van een model met meerdere [Galera](http://galeracluster.com/products/) cluster [MariaDBs](https://mariadb.org/en/about/) (een robuuste, schaalbare en betrouwbare onverwachte ter vervanging van MySQL) werkt in een maximaal beschikbare omgeving op Azure virtuele machines.
+Dit artikel leest u over het maken van een meerdere masters [Galera](http://galeracluster.com/products/) cluster [MariaDBs](https://mariadb.org/en/about/) (een robuuste, schaalbare en betrouwbare drop-in replacement voor MySQL) om te werken in een maximaal beschikbare omgeving op Azure virtuele machines.
 
 ## <a name="architecture-overview"></a>Overzicht van de architectuur
-Dit artikel wordt beschreven hoe u de volgende stappen uit:
+In dit artikel wordt beschreven hoe u de volgende stappen uit:
 
 - Maak een cluster met drie knooppunten.
-- De gegevensschijven scheiden van de besturingssysteemschijf.
-- De gegevensschijven in RAID-0/striped instelling te verhogen IOP's maken.
-- Azure Load Balancer gebruiken voor taakverdeling voor de drie knooppunten.
-- Om te beperken herhalende werk, een VM-installatiekopie waarin MariaDB + Galera maken en deze gebruiken om het andere cluster virtuele machines te maken.
+- De gegevensschijven te scheiden van de besturingssysteemschijf.
+- De gegevensschijven maken in RAID-0/striped instelling voor het verhogen van IOPS.
+- Azure Load Balancer gebruiken om taken te verdelen voor de drie knooppunten.
+- Maken van een VM-installatiekopie met MariaDB + Galera om te beperken terugkerende werk, en het andere cluster virtuele machines maken.
 
 ![Systeemarchitectuur](./media/mariadb-mysql-cluster/Setup.png)
 
 > [!NOTE]
-> In dit onderwerp worden de [Azure CLI](../../../cli-install-nodejs.md) hulpprogramma's, dus zorg ervoor dat u deze downloaden en verbind ze met uw Azure-abonnement volgens de instructies. Als u een verwijzing naar de opdrachten die beschikbaar zijn in de Azure CLI moet, Zie de [Azure CLI-opdrachten](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). U moet ook [maken van een SSH-sleutel voor verificatie] en noteer de locatie van het .pem-bestand.
+> In dit onderwerp wordt gebruikgemaakt van de [Azure CLI](../../../cli-install-nodejs.md) hulpprogramma's, dus zorg ervoor dat u ze downloaden en verbind deze met uw Azure-abonnement op basis van de instructies. Als u een verwijzing naar de opdrachten die beschikbaar zijn in de Azure CLI nodig hebt, raadpleegt u de [overzicht van Azure CLI-opdrachten](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2). U moet ook [een SSH-sleutel voor verificatie maken] en noteer de locatie van het .pem-bestand.
 >
 >
 
 ## <a name="create-the-template"></a>De sjabloon maken
 ### <a name="infrastructure"></a>Infrastructuur
-1. Maak een affiniteitsgroep voor het opslaan van de resources samen.
+1. Maak een affiniteitsgroep die de resources samen.
 
         azure account affinity-group create mariadbcluster --location "North Europe" --label "MariaDB Cluster"
-2. Maak een virtueel netwerk.
+1. Maak een virtueel netwerk.
 
         azure network vnet create --address-space 10.0.0.0 --cidr 8 --subnet-name mariadb --subnet-start-ip 10.0.0.0 --subnet-cidr 24 --affinity-group mariadbcluster mariadbvnet
-3. Een opslagaccount voor het hosten van alle onze schijven maken. U mag niet meer dan 40 intensief gebruikte schijven op hetzelfde opslagaccount om te voorkomen dat de 20.000 IOPS account opslaglimiet roept plaatsen. In dit geval je ruim onder deze limiet, zodat u alles wat u wilt opslaan op dezelfde account voor de eenvoud.
+1. Maak een opslagaccount voor het hosten van alle onze schijven. U mag niet meer dan 40 intensief gebruikte schijven te plaatsen op hetzelfde opslagaccount om te voorkomen dat de 20.000 IOP's account opslaglimiet bereikt. In dit geval u goed onder deze limiet, zodat u alles op hetzelfde account voor het gemak wilt opslaan.
 
         azure storage account create mariadbstorage --label mariadbstorage --affinity-group mariadbcluster
-4. De naam van de installatiekopie van de virtuele machine CentOS 7 vinden.
+1. Zoek de naam van de virtuele machine-installatiekopie van CentOS 7.
 
         azure vm image list | findstr CentOS
-   De uitvoer is ongeveer `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926`.
+   De uitvoer zal er ongeveer als worden `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926`.
 
-   Gebruikt u de naam in de volgende stap.
-5. De VM-sjabloon maken en /path/to/key.pem vervangen door het pad waar u de gegenereerde .pem SSH-sleutel hebt opgeslagen.
+   Deze naam in de volgende stap gebruiken.
+1. De VM-sjabloon maken en /path/to/key.pem vervangen door het pad waar u de gegenereerde .pem SSH-sleutel hebt opgeslagen.
 
         azure vm create --virtual-network-name mariadbvnet --subnet-names mariadb --blob-url "http://mariadbstorage.blob.core.windows.net/vhds/mariadbhatemplate-os.vhd"  --vm-size Medium --ssh 22 --ssh-cert "/path/to/key.pem" --no-ssh-password mariadbtemplate 5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926 azureuser
-6. Vier 500 GB gegevensschijven koppelen aan de virtuele machine voor gebruik in de RAID-configuratie.
+1. Vier 500 GB-gegevensschijven koppelen aan de virtuele machine voor gebruik in de RAID-configuratie.
 
         FOR /L %d IN (1,1,4) DO azure vm disk attach-new mariadbhatemplate 512 http://mariadbstorage.blob.core.windows.net/vhds/mariadbhatemplate-data-%d.vhd
-7. SSH aan te melden bij de virtuele machine die u hebt gemaakt op mariadbhatemplate.cloudapp.net:22-sjabloon gebruiken en verbinding maken met behulp van uw persoonlijke sleutel.
+1. SSH gebruiken om aan te melden bij de sjabloon voor virtuele machine die u hebt gemaakt op mariadbhatemplate.cloudapp.net:22 en verbinding maken met behulp van uw persoonlijke sleutel.
 
 ### <a name="software"></a>Software
 1. Haal de hoofdmap.
 
         sudo su
 
-2. Ondersteuning voor RAID installeren:
+1. Ondersteuning voor RAID installeren:
 
     a. Mdadm installeren.
 
               yum install mdadm
 
-    b. Maak de RAID 0/stripe-configuratie met een bestandssysteem EXT4.
+    b. Maak de RAID 0/stripe-configuratie met een EXT4 file system.
 
               mdadm --create --verbose /dev/md0 --level=stripe --raid-devices=4 /dev/sdc /dev/sdd /dev/sde /dev/sdf
               mdadm --detail --scan >> /etc/mdadm.conf
               mkfs -t ext4 /dev/md0
-    c. Het punt Koppelmap maken.
+    c. De koppelpunt punt map niet maken.
 
               mkdir /mnt/data
     d. De UUID van het zojuist gemaakte RAID-apparaat worden opgehaald.
 
               blkid | grep /dev/md0
-    e. /Etc/fstab bewerken.
+    e. Bewerk/etc/fstab.
 
               vi /etc/fstab
-    f. Toevoegen van het apparaat zodat automatisch koppelen op opnieuw opstarten, de UUID vervangen door de waarde die is verkregen van de vorige **blkid** opdracht.
+    f. Toevoegen van het apparaat om in te schakelen automatisch koppelen op opnieuw opstarten, de UUID vervangen door de waarde die is verkregen uit de vorige **blkid** opdracht.
 
               UUID=<UUID FROM PREVIOUS>   /mnt/data ext4   defaults,noatime   1 2
     g. Koppel de nieuwe partitie.
 
               mount /mnt/data
 
-3. MariaDB installeren.
+1. MariaDB installeren.
 
     a. Het bestand MariaDB.repo maken.
 
                 vi /etc/yum.repos.d/MariaDB.repo
 
-    b. Vul het repo-bestand met de volgende inhoud:
+    b. Vul de opslagplaats-bestand met de volgende inhoud:
 
               [mariadb]
               name = MariaDB
               baseurl = http://yum.mariadb.org/10.0/centos7-amd64
               gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
               gpgcheck=1
-    c. Om conflicten te voorkomen, verwijder bestaande postfix en mariadb-bibliotheken.
+    c. Om conflicten te voorkomen, verwijdert u de bestaande postfix en mariadb-bibliotheken.
 
            yum remove postfix mariadb-libs-*
-    d. Installeer MariaDB met Galera.
+    d. MariaDB met Galera installeren.
 
            yum install MariaDB-Galera-server MariaDB-client galera
 
-4. De gegevensmap MySQL verplaatsen naar het apparaat RAID-blok.
+1. De map met MySQL gegevens verplaatsen naar het apparaat blokkeren voor RAID.
 
     a. De huidige MySQL-map kopiëren naar de nieuwe locatie en de oude map verwijderen.
 
            cp -avr /var/lib/mysql /mnt/data  
            rm -rf /var/lib/mysql
-    b. Stel machtigingen voor de nieuwe map dienovereenkomstig.
+    b. Machtigingen instellen voor de nieuwe map dienovereenkomstig.
 
            chown -R mysql:mysql /mnt/data && chmod -R 755 /mnt/data/
 
@@ -140,20 +140,20 @@ Dit artikel wordt beschreven hoe u de volgende stappen uit:
 
            ln -s /mnt/data/mysql /var/lib/mysql
 
-5. Omdat [SELinux verstoort clusterbewerkingen](http://galeracluster.com/documentation-webpages/configuration.html#selinux), is het nodig dat u deze uitschakelt voor de huidige sessie. Bewerken `/etc/selinux/config` dat u deze uitschakelt voor latere opnieuw wordt opgestart.
+1. Omdat [SELinux verstoort de clusterbewerkingen](http://galeracluster.com/documentation-webpages/configuration.html#selinux), moet u deze uitschakelen voor de huidige sessie. Bewerken `/etc/selinux/config` uitschakelen voor latere opnieuw wordt opgestart.
 
             setenforce 0
 
             then editing `/etc/selinux/config` to set `SELINUX=permissive`
-6. Valideren van MySQL wordt uitgevoerd.
+1. Valideer MySQL wordt uitgevoerd.
 
-   a. MySQL wordt gestart.
+   a. Start MySQL.
 
            service mysql start
-   b. Beveiligen van de MySQL-installatie, het root-wachtwoord instellen, anonieme gebruikers om uit te schakelen externe hoofdmap aanmelding verwijderen en de testdatabase verwijderen.
+   b. Beveiligen van de MySQL-installatie, het root-wachtwoord instellen, verwijderen van anonieme gebruikers externe hoofdmap aanmelding uitschakelen en verwijderen van de testdatabase.
 
            mysql_secure_installation
-   c. Maak een gebruiker op de database voor bewerkingen voor een cluster, en desgewenst voor uw toepassingen.
+   c. Maak een gebruiker op de database voor bewerkingen voor een cluster, en (optioneel) voor uw toepassingen.
 
            mysql -u root -p
            GRANT ALL PRIVILEGES ON *.* TO 'cluster'@'%' IDENTIFIED BY 'p@ssw0rd' WITH GRANT OPTION; FLUSH PRIVILEGES;
@@ -162,12 +162,12 @@ Dit artikel wordt beschreven hoe u de volgende stappen uit:
    d. MySQL stoppen.
 
             service mysql stop
-7. Maak een configuratie-tijdelijke aanduiding.
+1. Maak een tijdelijke aanduiding voor configuratie.
 
-   a. De MySQL-configuratie voor het maken van een tijdelijke aanduiding voor de clusterinstellingen bewerken. Geen vervanging voor de **`<Variables>`** of verwijder de opmerking nu. Dat gebeurt nadat u een virtuele machine met deze sjabloon maken.
+   a. De MySQL-configuratie voor het maken van een tijdelijke aanduiding voor de clusterinstellingen bewerken. Geen vervanging voor de **`<Variables>`** of verwijder de opmerking nu bij. Dit gaat gebeuren, nadat u een virtuele machine met deze sjabloon maken.
 
             vi /etc/my.cnf.d/server.cnf
-   b. Bewerk de **[galera]** sectie en maak deze.
+   b. Bewerk de **[galera]** sectie en deze wissen.
 
    c. Bewerk de **[mariadb]** sectie.
 
@@ -183,23 +183,23 @@ Dit artikel wordt beschreven hoe u de volgende stappen uit:
            #wsrep_cluster_address="gcomm://mariadb1,mariadb2,mariadb3" # CHANGE: Uncomment and Add all your servers
            #wsrep_node_address='<ServerIP>' # CHANGE: Uncomment and set IP address of this server
            #wsrep_node_name='<NodeName>' # CHANGE: Uncomment and set the node name of this server
-8. Vereiste poorten op de firewall openen met behulp van FirewallD op CentOS 7.
+1. Vereiste poorten op de firewall openen met behulp van FirewallD op CentOS 7.
 
    * MySQL: `firewall-cmd --zone=public --add-port=3306/tcp --permanent`
    * GALERA: `firewall-cmd --zone=public --add-port=4567/tcp --permanent`
-   * GALERA IST: `firewall-cmd --zone=public --add-port=4568/tcp --permanent`
+   * GALERA IS: `firewall-cmd --zone=public --add-port=4568/tcp --permanent`
    * RSYNC: `firewall-cmd --zone=public --add-port=4444/tcp --permanent`
-   * Laden van de firewall: `firewall-cmd --reload`
+   * Laad de firewall: `firewall-cmd --reload`
 
-9. Het systeem voor prestaties optimaliseren. Zie voor meer informatie [prestaties afstemmen strategie](optimize-mysql.md).
+1. Het systeem voor de prestaties optimaliseren. Zie voor meer informatie, [strategie voor afstemmen van prestaties](optimize-mysql.md).
 
-   a. Het configuratiebestand MySQL opnieuw bewerken.
+   a. De MySQL-configuratiebestand opnieuw bewerken.
 
             vi /etc/my.cnf.d/server.cnf
-   b. Bewerk de **[mariadb]** sectie en het toevoegen van de volgende inhoud:
+   b. Bewerk de **[mariadb]** sectie en voeg de volgende inhoud toe:
 
    > [!NOTE]
-   > We raden aan dat innodb\_buffer\_pool_size 70 procent van het geheugen van de VM is. In dit voorbeeld is deze ingesteld op 2,45 GB voor de virtuele machine van Azure met 3.5 GB aan RAM-geheugen van het medium.
+   > We raden aan dat innodb\_buffer\_pool_size 70 procent van het geheugen van de virtuele machine is. In dit voorbeeld is het 2,45 GB is ingesteld voor de Azure-VM met 3,5 GB aan RAM-geheugen.
    >
    >
 
@@ -210,35 +210,35 @@ Dit artikel wordt beschreven hoe u de volgende stappen uit:
            innodb_log_buffer_size = 128M # The log buffer allows transactions to run without having to flush the log to disk before the transactions commit
            innodb_flush_log_at_trx_commit = 2 # The setting of 2 enables the most data integrity and is suitable for Master in MySQL cluster
            query_cache_size = 0
-10. Stop MySQL, MySQL-service worden uitgevoerd op starten om te voorkomen dat het cluster verstoren bij het toevoegen van een knooppunt uitschakelen en inrichting ervan ongedaan maakt de machine.
+1. MySQL stoppen, uitschakelen van de service MySQL niet kunnen worden uitgevoerd bij het opstarten om te voorkomen dat het cluster te onderbreken wanneer u een knooppunt toevoegt en de inrichting van de machine.
 
         service mysql stop
         chkconfig mysql off
         waagent -deprovision
-11. Vastleggen van de virtuele machine via de portal. (Momenteel [#1268 in de Azure CLI-hulpprogramma's uitgeven](https://github.com/Azure/azure-xplat-cli/issues/1268) beschrijving van het feit afbeeldingen die zijn vastgelegd door de Azure CLI-hulpprogramma's worden niet vastgelegd voor de schijven bijgesloten gegevens.)
+1. Vastleggen van de virtuele machine via de portal. (Op dit moment [#1268 in de Azure CLI-hulpprogramma's uitgeven](https://github.com/Azure/azure-xplat-cli/issues/1268) beschrijving van het feit dat installatiekopieën die zijn vastgelegd door de Azure CLI-hulpprogramma's niet de gekoppelde gegevensschijven vastlegt.)
 
     a. Sluit de machine via de portal.
 
-    b. Klik op **vastleggen** en geef de naam van de installatiekopie als **mariadb-galera-image**. Geef een beschrijving op en controleer 'Ik hebben waagent uitvoeren'.
+    b. Klik op **vastleggen** en geeft u de naam van de installatiekopie als **mariadb-galera-image**. Geef een beschrijving op en controleer "Ik uitvoeren waagent."
       
       ![De virtuele machine vastleggen](./media/mariadb-mysql-cluster/Capture2.PNG)
 
 ## <a name="create-the-cluster"></a>Het cluster maken
-Maak drie virtuele machines met de sjabloon die u hebt gemaakt, en vervolgens configureren en starten van het cluster.
+Drie virtuele machines maken met de sjabloon die u hebt gemaakt, en vervolgens configureren en starten van het cluster.
 
-1. De eerste CentOS 7 VM maken van de installatiekopie van het mariadb-galera-installatiekopie die u hebt gemaakt, met de volgende informatie:
+1. De eerste CentOS 7-VM maken van de installatiekopie van het mariadb-galera-installatiekopie die u hebt gemaakt, met de volgende informatie:
 
  - Virtuele-netwerknaam: mariadbvnet
  - Subnet: mariadb
  - Grootte van de computer: gemiddeld
- - Cloudservicenaam: mariadbha (of de naam die u wilt worden benaderd via mariadbha.cloudapp.net)
+ - Cloudservicenaam: mariadbha (of de naam die u wilt worden geopend via mariadbha.cloudapp.net)
  - Computernaam: mariadb1
  - Gebruikersnaam: azureuser
  - SSH-toegang: ingeschakeld
- - Het .pem-bestand van de SSH-certificaat doorgeeft en /path/to/key.pem vervangen door het pad waar u de gegenereerde .pem SSH-sleutel hebt opgeslagen.
+ - Het .pem-bestand van de SSH-certificaat te geven en /path/to/key.pem vervangen door het pad waar u de gegenereerde .pem SSH-sleutel hebt opgeslagen.
 
    > [!NOTE]
-   > De volgende opdrachten worden gesplitst over meerdere regels voor de duidelijkheid, maar u moet elk als één regel invoeren.
+   > De volgende opdrachten zijn verdeeld over meerdere regels voor de duidelijkheid, maar u moet elk als één regel invoeren.
    >
    >
         azure vm create
@@ -251,7 +251,7 @@ Maak drie virtuele machines met de sjabloon die u hebt gemaakt, en vervolgens co
         --ssh 22
         --vm-name mariadb1
         mariadbha mariadb-galera-image azureuser
-2. Twee meer virtuele machines door deze te verbinden met de cloudservice mariadbha maken. Wijzig de naam van de virtuele machine en de SSH-poort in een unieke poort niet conflicteert met andere virtuele machines in dezelfde cloudservice.
+1. Maak twee meer virtuele machines door ze naar de cloudservice mariadbha verbinding te maken. Wijzig de naam van de virtuele machine en de SSH-poort in een unieke poort niet conflicteert met andere virtuele machines in dezelfde cloudservice.
 
         azure vm create
         --virtual-network-name mariadbvnet
@@ -275,57 +275,57 @@ Maak drie virtuele machines met de sjabloon die u hebt gemaakt, en vervolgens co
         --ssh 24
         --vm-name mariadb3
         --connect mariadbha mariadb-galera-image azureuser
-3. U moet de interne IP-adres van elk van de drie virtuele machines ophalen voor de volgende stap:
+1. U moet het interne IP-adres van elk van de drie VM's ophalen voor de volgende stap:
 
     ![IP-adres ophalen](./media/mariadb-mysql-cluster/IP.png)
-4. SSH gebruiken om te melden bij de drie virtuele machines en bewerken van het configuratiebestand op elk van deze.
+1. SSH gebruiken om te melden bij de drie virtuele machines en het configuratiebestand op elk van deze bewerken.
 
         sudo vi /etc/my.cnf.d/server.cnf
 
-    Verwijder de opmerking **`wsrep_cluster_name`** en **`wsrep_cluster_address`** door het verwijderen van de **#** aan het begin van de regel.
-    Verder vervangen **`<ServerIP>`** in **`wsrep_node_address`** en **`<NodeName>`** in **`wsrep_node_name`** met de VM-IP-adres een naam, respectievelijk, en verwijder deze regels ook de opmerkingen.
-5. Start het cluster op MariaDB1 en laat het uitgevoerd bij het opstarten.
+    Verwijder de opmerking bij **`wsrep_cluster_name`** en **`wsrep_cluster_address`** door het verwijderen van de **#** aan het begin van de regel.
+    Bovendien vervangen **`<ServerIP>`** in **`wsrep_node_address`** en **`<NodeName>`** in **`wsrep_node_name`** met de De VM-IP-adres een naam, respectievelijk, en verwijder de opmerkingen in deze regels ook.
+1. Start het cluster op MariaDB1 en laat het bij het opstarten worden uitgevoerd.
 
         sudo service mysql bootstrap
         chkconfig mysql on
-6. Start MySQL op MariaDB2 en MariaDB3 en laat het uitgevoerd bij het opstarten.
+1. Start MySQL op MariaDB2 en MariaDB3 en laat het bij het opstarten worden uitgevoerd.
 
         sudo service mysql start
         chkconfig mysql on
 
 ## <a name="load-balance-the-cluster"></a>Taakverdeling het cluster
-Wanneer u de geclusterde virtuele machines hebt gemaakt, kunt u ze in een beschikbaarheidsset aangeroepen clusteravset om ervoor te zorgen dat ze op verschillende domeinen met fouten en update domeinen zijn geplaatst en nooit onderhoud op alle computers in één keer die Azure biedt toegevoegd. Deze configuratie voldoet aan de vereisten worden ondersteund door Azure service level agreement (SLA).
+Wanneer u de geclusterde virtuele machines gemaakt, kunt u ze in een beschikbaarheidsset met de naam clusteravset om ervoor te zorgen dat ze zijn geplaatst op verschillende foutdomeinen en updatedomeinen en nooit onderhoud op alle computers in één keer die Azure worden toegevoegd. Deze configuratie voldoet aan de vereisten om te worden ondersteund door de Azure service level agreement (SLA).
 
-Nu Azure Load Balancer gebruiken voor een evenwicht tussen aanvragen tussen de drie knooppunten.
+Azure Load Balancer nu gebruiken om te verdelen van aanvragen tussen de drie knooppunten.
 
-De volgende opdrachten uitvoeren op uw computer met behulp van de Azure CLI.
+Voer de volgende opdrachten op uw computer met behulp van de Azure CLI.
 
-De parameters-structuur van de opdracht is: `azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
+De structuur van de parameters van de opdracht is: `azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
 
     azure vm endpoint create-multiple mariadb1 3306:3306:tcp:false:MySQL:tcp:3306
     azure vm endpoint create-multiple mariadb2 3306:3306:tcp:false:MySQL:tcp:3306
     azure vm endpoint create-multiple mariadb3 3306:3306:tcp:false:MySQL:tcp:3306
 
-De CLI Hiermee stelt u het interval van load balancer-test op 15 seconden en dit is mogelijk iets te lang. Dit wijzigen in de portal onder **eindpunten** voor een van de virtuele machines.
+De CLI Hiermee stelt u de load balancer-testinterval op 15 seconden en die mogelijk iets te lang. Wijzigingen aanbrengen in de portal onder **eindpunten** voor het gebruik van de virtuele machines.
 
 ![Eindpunt bewerken](./media/mariadb-mysql-cluster/Endpoint.PNG)
 
-Selecteer **opnieuw configureren van de Set met gelijke taakverdeling**.
+Selecteer **opnieuw configureren van de Load Balancer-Set**.
 
-![De Set met gelijke taakverdeling configureren](./media/mariadb-mysql-cluster/Endpoint2.PNG)
+![Configureren van de load balancer-Set](./media/mariadb-mysql-cluster/Endpoint2.PNG)
 
 Wijziging **Probe Interval** op 5 seconden en sla de wijzigingen.
 
-![Interval voor wijzigen van test](./media/mariadb-mysql-cluster/Endpoint3.PNG)
+![Testinterval wijzigen](./media/mariadb-mysql-cluster/Endpoint3.PNG)
 
 ## <a name="validate-the-cluster"></a>Het cluster valideren
-De vaste werk wordt uitgevoerd. Het cluster toegankelijk moet zijn nu op `mariadbha.cloudapp.net:3306`, die de load balancer en route-aanvragen tussen de drie virtuele machines treffers soepel en efficiënt.
+Het harde werk wordt uitgevoerd. Het cluster toegankelijk moet zijn nu op `mariadbha.cloudapp.net:3306`, waarvan de load balancer en route-aanvragen tussen de drie virtuele machines treffers soepel en efficiënt.
 
-Uw favoriete MySQL-client gebruiken om verbinding maken of verbinding maakt vanaf een van de virtuele machines om te controleren of dit cluster werkt.
+Gebruik uw favoriete MySQL-client verbinding maken of verbinding maken vanaf een van de virtuele machines om te controleren of dit cluster werkt.
 
      mysql -u cluster -h mariadbha.cloudapp.net -p
 
-Vervolgens maakt u een database en deze vullen met gegevens.
+Maak een database en deze vullen met gegevens.
 
     CREATE DATABASE TestDB;
     USE TestDB;
@@ -346,9 +346,9 @@ De database die u hebt gemaakt, retourneert de volgende tabel:
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel wordt gemaakt van een drie-knooppunt MariaDB + Galera maximaal beschikbare cluster in Azure virtuele machines actief CentOS 7. De virtuele machines zijn taakverdeling met Azure Load Balancer.
+In dit artikel hebt u een MariaDB drie knooppunten gemaakt + Galera maximaal beschikbare cluster op Azure virtual machines actieve CentOS 7. De virtuele machines worden gelijkmatig verdeeld met Azure Load Balancer.
 
-U kunt kijken [MySQL-cluster op Linux op een andere manier](mysql-cluster.md) en manieren om te [optimaliseren en test de prestaties van MySQL op Azure Linux VM's](optimize-mysql.md).
+Kunt u om te kijken naar [een andere manier om de MySQL-cluster op Linux](mysql-cluster.md) en manieren om [te optimaliseren en test de prestaties van MySQL op Azure Linux Virtual machines](optimize-mysql.md).
 
 <!--Anchors-->
 [Architecture overview]:#architecture-overview
@@ -363,5 +363,5 @@ U kunt kijken [MySQL-cluster op Linux op een andere manier](mysql-cluster.md) en
 <!--Link references-->
 [Galera]:http://galeracluster.com/products/
 [MariaDBs]:https://mariadb.org/en/about/
-[maken van een SSH-sleutel voor verificatie]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
+[een SSH-sleutel voor verificatie maken]:http://www.jeff.wilcox.name/2013/06/secure-linux-vms-with-ssh-certificates/
 [issue #1268 in the Azure CLI]:https://github.com/Azure/azure-xplat-cli/issues/1268
