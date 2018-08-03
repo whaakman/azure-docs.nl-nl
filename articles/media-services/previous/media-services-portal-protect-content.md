@@ -1,6 +1,6 @@
 ---
-title: Content protection-beleid configureren met behulp van de Azure portal | Microsoft Docs
-description: In dit artikel laat zien hoe de Azure portal gebruiken voor het configureren van beleid voor beveiliging van inhoud. Ook wordt uitgelegd hoe u dynamische versleuteling voor de activa in te schakelen.
+title: Content protection-beleid configureren met behulp van Azure portal | Microsoft Docs
+description: In dit artikel ziet u hoe u de Azure portal gebruiken voor het configureren van beleid voor beveiliging van inhoud. Ook wordt uitgelegd hoe u dynamische versleuteling inschakelen voor uw activa.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,110 +14,110 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: 8603716d30e1061ca9d600f2c053e90ff50c2433
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c46faf2298ebaac4f40fb1d18cbfca83076e0d4f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790382"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423536"
 ---
-# <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Content protection-beleid configureren met behulp van de Azure-portal
- U kunt uw media vanaf het moment dat het verlaten van uw computer via de opslag, verwerking en levering beveiligen met Azure Media Services. Media Services kunt u de inhoud die is versleuteld met de Advanced Encryption Standard (AES) dynamisch met behulp van 128-bits versleutelingssleutels bezorgen. Ook kunt u deze met common encryption (CENC) met behulp van PlayReady en/of Widevine beheer van digitale rechten (DRM) en FairPlay van Apple. 
+# <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Content protection-beleid configureren met behulp van Azure portal
+ U kunt uw media vanaf het moment dat het verlaten van uw computer via opslag, verwerking en levering beveiligen met Azure Media Services. U kunt Media Services gebruiken om uw inhoud dynamisch met het Advanced Encryption Standard (AES) versleuteld met behulp van 128-bits versleutelingssleutels te leveren. Ook kunt u deze met algemene versleuteling (CENC) met behulp van PlayReady en/of Widevine digital rights management (DRM) en Apple FairPlay. 
 
-Media Services biedt een service voor het leveren van DRM-licenties en AES-sleutels geautoriseerde clients wissen. U kunt de Azure-portal gebruiken voor het maken van een sleutel/licentie verificatiebeleid voor alle typen versleutelingen.
+Media Services biedt een service voor het leveren van DRM-licenties en AES clear sleutels naar geautoriseerde clients. De Azure-portal kunt u een autorisatiebeleid voor sleutels/licenties voor alle typen coderingen maken.
 
-In dit artikel laat zien hoe een content protection-beleid configureren met behulp van de portal. Ook wordt uitgelegd hoe u dynamische versleuteling toepassen op uw assets.
+In dit artikel ziet u hoe u een beleid voor beveiliging van inhoud configureren via de portal. Ook wordt uitgelegd hoe u dynamische versleuteling toepassen op uw assets.
 
-## <a name="start-to-configure-content-protection"></a>Begint met het configureren van beveiliging van inhoud
-Als u de portal wilt algemene inhoudsbeveiliging configureren met behulp van uw Media Services-account, moet u de volgende stappen uitvoeren:
+## <a name="start-to-configure-content-protection"></a>Beginnen met de beveiliging van inhoud configureren
+Als u de portal wilt algemene inhoudsbeveiliging configureren met behulp van Media Services-account, moet u de volgende stappen uitvoeren:
 
 1. In de [portal](https://portal.azure.com/), selecteert u uw Media Services-account.
 
-2. Selecteer **instellingen** > **Content protection**.
+1. Selecteer **instellingen** > **Content protection**.
 
-    ![Content Protection](./media/media-services-portal-content-protection/media-services-content-protection001.png)
+    ![Inhoudsbeveiliging](./media/media-services-portal-content-protection/media-services-content-protection001.png)
 
 ## <a name="keylicense-authorization-policy"></a>Autorisatiebeleid voor sleutels/licenties
-Media Services ondersteunt meerdere manieren van gebruikers die sleutel of licentie-aanvragen te verifiëren. U moet het autorisatiebeleid voor de inhoudssleutel configureren. De client vervolgens moet voldoen aan het beleid voordat de sleutel/licentie kunnen worden aangeboden aan. Het autorisatiebeleid voor inhoudssleutels kan een of meer autorisatiebeperkingen hebben: beperking voor openen of tokenbeperkingen.
+Media Services ondersteunt meerdere manieren om gebruikers die sleutel of licentie aanvragen te verifiëren. U moet het autorisatiebeleid voor de inhoudssleutel configureren. De client vervolgens moet voldoen aan het beleid voordat de sleutels/licenties kan worden geleverd. Het autorisatiebeleid voor inhoudssleutels kan een of meer autorisatiebeperkingen hebben: beperking voor openen of tokenbeperkingen.
 
-U kunt de portal gebruiken voor het maken van een sleutel/licentie verificatiebeleid voor alle typen versleutelingen.
+U kunt de portal gebruiken om te maken van een autorisatiebeleid voor sleutels/licenties voor alle typen coderingen.
 
 ### <a name="open-authorization"></a>Open autorisatie
-Open beperking betekent dat het systeem de sleutel voor iedereen die een sleutel aanvraag indient levert. Deze beperking kan handig zijn voor testdoeleinden. 
+Open beperking betekent dat het systeem de sleutel levert aan iedereen die sleutels aanvragen. Deze beperking kan handig zijn voor test-doeleinden. 
 
 ### <a name="token-authorization"></a>Token autorisatie
-Het beleid met de tokenbeperking moet vergezeld gaan van een token dat is uitgegeven door een beveiligingstokenservice (STS). Media Services ondersteunt tokens in de eenvoudige web token (SWT) en indelingen JSON Web Token (JWT). Media Services biedt niet een STS. U kunt een aangepaste STS maken of gebruiken van Azure Access Control Service voor het probleem van tokens. De STS moeten worden geconfigureerd voor het maken van een token dat is ondertekend met de opgegeven sleutel- en claims die u hebt opgegeven in de configuratie van de tokenbeperking. Als het token geldig is en de claims in het token overeenkomen met die zijn geconfigureerd voor de sleutel (of licentie), stuurt de Media Services sleutellevering-service de aangevraagde sleutel (of licentie) naar de client.
+Het beleid met de tokenbeperking moet vergezeld gaan van een token dat is uitgegeven door een beveiligingstokenservice (STS). Media Services ondersteunt tokens in de eenvoudige webtoken (SWT) en JSON Web Token (JWT). Media Services biedt geen een STS. U kunt een aangepaste STS maken of gebruik van Azure Access Control Service om probleem tokens. De STS moeten worden geconfigureerd voor het maken van een token dat is ondertekend met de opgegeven sleutel en probleem claims die u hebt opgegeven in de configuratie van de tokenbeperking. Als het token geldig is en de claims in het token overeenkomen met die zijn geconfigureerd voor de sleutel (of een licentie), retourneert de Media Services-sleutelleveringsservice de aangevraagde sleutel (of een licentie) naar de client.
 
-Wanneer u het beleid token beperkt configureert, moet u de verificatie van de primaire sleutel, uitgever en doelgroep parameters opgeven. De verificatie van de primaire sleutel bevat de sleutel die het token is ondertekend met. De certificaatverlener is de secure token service die de token uitgeeft. De doelgroep (ook wel bereik genoemd) beschrijft de intentie van het token of de resource het token gemachtigd voor toegang tot. De Media Services-service sleutellevering valideert dat deze waarden in het token overeenkomen met de waarden in de sjabloon.
+Wanneer u de tokenbeperking beleid configureert, moet u de primaire verificatiesleutel, uitgever en doelgroep parameters opgeven. De primaire verificatiesleutel bevat de sleutel die het token is ondertekend. De uitgever wordt de secure token service die de token uitgeeft. De doelgroep (ook wel bereik) beschrijft de intentie van de token of de resource voor het token wordt toegang tot geautoriseerd. De Media Services-sleutelleveringsservice valideert dat deze waarden in het token overeenkomen met de waarden in de sjabloon.
 
 ![Autorisatiebeleid voor sleutels/licenties](./media/media-services-portal-content-protection/media-services-content-protection002.png)
 
 ## <a name="playready-license-template"></a>PlayReady-licentiesjabloon
-De sjabloon PlayReady-licenties Hiermee stelt u de functionaliteit die is ingeschakeld op uw PlayReady-licentie. Zie voor meer informatie over de sjabloon PlayReady-licentie, de [Media Services PlayReady licentie sjabloon overzicht](media-services-playready-license-template-overview.md).
+De PlayReady-licentiesjabloon Hiermee stelt u de functionaliteit die is ingeschakeld op uw PlayReady-licentie. Zie voor meer informatie over de PlayReady-licentiesjabloon de [overzicht van sjablonen voor Media Services PlayReady-licentie](media-services-playready-license-template-overview.md).
 
 ### <a name="nonpersistent"></a>Niet-persistente
-Als u een licentie als niet-persistente configureert, wordt deze alleen tijdens de speler maakt gebruik van de licentie bewaard in het geheugen.  
+Als u een licentie als niet-persistente configureert, deze alleen vast als Windows media player maakt gebruik van de licentie ondergebracht in het geheugen.  
 
 ![Niet-persistente inhoudsbeveiliging](./media/media-services-portal-content-protection/media-services-content-protection003.png)
 
 ### <a name="persistent"></a>Permanent
-Als u een licentie als permanente configureert, wordt deze opgeslagen in de permanente opslag op de client.
+Als u een licentie als permanente configureert, wordt deze opgeslagen in een permanente opslag op de client.
 
 ![Permanente beveiliging van inhoud](./media/media-services-portal-content-protection/media-services-content-protection004.png)
 
-## <a name="widevine-license-template"></a>Sjabloon voor Widevine-licentie
-De sjabloon voor Widevine-licentie wordt de functionaliteit die is ingeschakeld op uw Widevine-licenties.
+## <a name="widevine-license-template"></a>Widevine-licentiesjabloon
+De Widevine-licentiesjabloon Hiermee stelt u de functionaliteit die is ingeschakeld op uw Widevine-licenties.
 
 ### <a name="basic"></a>Basic
-Wanneer u selecteert **Basic**, de sjabloon wordt gemaakt met alle standaardwaarden.
+Wanneer u selecteert **Basic**, de sjabloon is gemaakt met alle standaardwaarden.
 
 ### <a name="advanced"></a>Geavanceerd
-Zie voor meer informatie over de rechtensjabloon Widevine de [Widevine-licentie sjabloon overzicht](media-services-widevine-license-template-overview.md).
+Zie voor meer informatie over de Widevine-rechtensjabloon, de [overzicht van Widevine-licentiesjablonen](media-services-widevine-license-template-overview.md).
 
 ![Geavanceerde beveiliging van inhoud](./media/media-services-portal-content-protection/media-services-content-protection005.png)
 
 ## <a name="fairplay-configuration"></a>FairPlay-configuratie
-Als u FairPlay versleuteling selecteert **FairPlay configuratie**. Selecteer vervolgens de **certificaat App** en voer de **toepassing geheime sleutel**. Zie voor meer informatie over de vereisten en FairPlay configuratie [beveiligen van uw inhoud met Apple FairPlay of Microsoft PlayReady HLS](media-services-protect-hls-with-FairPlay.md).
+Als u FairPlay-versleuteling, schakelt **FairPlay-configuratie**. Selecteer vervolgens de **App certificate** en voer de **geheime Toepassingssleutel**. Zie voor meer informatie over de vereisten en FairPlay-configuratie [beveiligen van uw inhoud met Apple FairPlay of Microsoft PlayReady HLS](media-services-protect-hls-with-FairPlay.md).
 
 ![FairPlay-configuratie](./media/media-services-portal-content-protection/media-services-content-protection006.png)
 
 ## <a name="apply-dynamic-encryption-to-your-asset"></a>Dynamische versleuteling toepassen op uw asset
-Om te profiteren van dynamische versleuteling, moet u het bronbestand coderen in een set adaptive bitrate MP4-bestanden.
+Als u wilt profiteren van dynamische versleuteling, moet u het bronbestand coderen in een set adaptive bitrate MP4-bestanden.
 
 ### <a name="select-an-asset-that-you-want-to-encrypt"></a>Selecteer een asset die u wilt versleutelen
-Overzicht van alle uw assets selecteert **instellingen** > **activa**.
+Al uw activa Selecteer **instellingen** > **activa**.
 
 ![Activa-optie](./media/media-services-portal-content-protection/media-services-content-protection007.png)
 
-### <a name="encrypt-with-aes-or-drm"></a>Versleutelen met AES of DRM
+### <a name="encrypt-with-aes-or-drm"></a>Coderen met AES of DRM
 Wanneer u selecteert **versleutelen** voor een asset, ziet u twee opties: **AES** of **DRM**. 
 
 #### <a name="aes"></a>AES
-Schakel codering is ingeschakeld op alle protocollen voor streaming AES: Smooth Streaming, HLS en MPEG-DASH.
+AES clear key-versleuteling is ingeschakeld voor alle streamingprotocollen: Smooth Streaming, HLS en MPEG-DASH.
 
 ![Versleutelingsconfiguratie](./media/media-services-portal-content-protection/media-services-content-protection008.png)
 
 #### <a name="drm"></a>DRM
-1. Nadat u hebt geselecteerd **DRM**, ziet u andere inhoud-beveiligingsbeleid (die moeten worden geconfigureerd door dit punt) en een set protocollen voor streaming:
+1. Nadat u hebt geselecteerd **DRM**, ziet u andere inhoud beveiligingsbeleid voor apps (die moeten worden geconfigureerd door dit punt) en een set protocollen voor streaming:
 
     a. **PlayReady en Widevine met MPEG-DASH** dynamisch versleutelt uw MPEG-DASH-stream met PlayReady en Widevine DRM's.
 
-    b. **PlayReady en Widevine met MPEG-DASH + FairPlay met HLS** dynamisch versleutelen uw MPEG-DASH-stream met PlayReady en Widevine DRM's. Uw HLS-streams met FairPlay met deze optie ook versleuteld.
+    b. **PlayReady en Widevine met MPEG-DASH + FairPlay met HLS** uw MPEG-DASH-stream met PlayReady en Widevine DRM's dynamisch wordt versleuteld. Deze optie versleutelt ook uw HLS-streams met FairPlay.
 
-    c. **PlayReady alleen met Smooth Streaming, HLS en MPEG-DASH** Smooth Streaming, HLS en MPEG-DASH-streams met PlayReady DRM dynamisch worden versleuteld.
+    c. **PlayReady alleen met Smooth Streaming, HLS en MPEG-DASH** dynamisch versleutelt Smooth Streaming, HLS en MPEG-DASH-streams met PlayReady DRM.
 
     d. **Widevine alleen met MPEG-DASH** dynamisch versleutelt uw MPEG-DASH met Widevine DRM.
     
-    e. **FairPlay alleen met HLS** uw HLS-stream met FairPlay dynamisch worden versleuteld.
+    e. **FairPlay alleen met HLS** dynamisch versleutelt uw HLS-stream met FairPlay.
 
-2. FairPlay-versleuteling inschakelen op de **Content Protection globale instellingen** blade Selecteer **FairPlay configuratie**. Selecteer vervolgens de **certificaat App**, en voer de **toepassing geheime sleutel**.
+1. FairPlay-versleuteling inschakelen voor de **Content Protection globale instellingen** Selecteer **FairPlay-configuratie**. Selecteer vervolgens de **App certificate**, en voer de **geheime Toepassingssleutel**.
 
     ![Versleutelingstype](./media/media-services-portal-content-protection/media-services-content-protection009.png)
 
-3. Nadat u de versleutelingsselectie, selecteer **toepassen**.
+1. Nadat u de versleutelingsselectie, selecteer **toepassen**.
 
 >[!NOTE] 
->Als u een HLS AES-versleuteling in Safari speelt wilt, Zie het blogbericht [HLS versleuteld in Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+>Als u van plan bent een met AES versleutelde HLS afspelen in Safari, Zie het blogbericht [versleutelde HLS in Safari](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ## <a name="next-steps"></a>Volgende stappen
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

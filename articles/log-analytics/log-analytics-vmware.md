@@ -1,6 +1,6 @@
 ---
-title: Bewaking van de VMware-oplossing in Log Analytics | Microsoft Docs
-description: Meer informatie over hoe de oplossing VMware bewaking kunt logboeken beheren en controleren van ESXi-hosts.
+title: VMware Monitoring solution in Log Analytics | Microsoft Docs
+description: Meer informatie over hoe u de oplossing VMware Monitoring kunt logboeken beheren en controleren van de ESXi-hosts.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,144 +15,144 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: a538b23e829e309c10e745beef4fc8512c3294de
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 6ba37a026a3c8f50fa47b0775a2ad49ee75f2769
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131424"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424643"
 ---
-# <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (Preview)-oplossing in Log Analytics
+# <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (Preview) solution in Log Analytics
 
-![VMware symbool](./media/log-analytics-vmware/vmware-symbol.png)
+![VMware-symbool](./media/log-analytics-vmware/vmware-symbol.png)
 
 > [!NOTE]
-> De bewaking van de VMware-oplossing is afgeschaft.  Klanten die de oplossing al hebt geïnstalleerd kunnen blijven gebruiken, maar VMware bewaking kan niet worden toegevoegd aan eventuele nieuwe werkruimten.
+> De oplossing VMware Monitoring is afgeschaft.  Klanten die de oplossing al hebt geïnstalleerd kunnen blijven gebruiken, maar de VMware-bewaking kan niet worden toegevoegd voor nieuwe werkruimten.
 
-De oplossing VMware bewaking in Log Analytics is een oplossing waarmee u een centrale logboekregistratie en controle benadering voor grote VMware logboeken maken. Dit artikel wordt beschreven hoe u kunt oplossen, vastleggen en beheren van de ESXi-hosts op één locatie met de oplossing. Met de oplossing kunt u gedetailleerde gegevens bekijken voor uw ESXi-hosts op één locatie. U ziet de bovenste gebeurtenis aantallen, status en trends van VM- en ESXi-hosts via de logboeken van de ESXi-host. Als u problemen met het weergeven en zoeken naar Logboeken van gecentraliseerde ESXi-host. En u waarschuwingen op basis van het logboek zoekquery's kunt maken.
+De oplossing VMware Monitoring in Log Analytics is een oplossing die helpt u bij het maken van een centrale logboekregistratie en bewaking benadering voor grote VMware-Logboeken. Dit artikel wordt beschreven hoe u kunt oplossen, vastleggen en beheren van de ESXi-hosts op één locatie met behulp van de oplossing. Met de oplossing ziet u gedetailleerde gegevens voor uw ESXi-hosts op één locatie. U kunt zien aantal belangrijke gebeurtenissen, statussen en trends van VM- en ESXi-hosts via de logboeken van ESXi-host. U kunt oplossen door bekijken en gecentraliseerde logboeken van ESXi-host te zoeken. Daarnaast kunt u waarschuwingen op basis van log zoekquery's.
 
-De oplossing maakt gebruik van systeemeigen syslog-functionaliteit van de ESXi-host om gegevens te pushen naar een doel-virtuele machine, met OMS-Agent. De oplossing schrijven niet echter bestanden in syslog binnen een virtuele machine. De OMS-agent wordt poort 1514 geopend en luistert naar dit. Wanneer deze de gegevens ontvangt, stuurt de OMS-agent de gegevens in logboekanalyse.
+De oplossing maakt gebruik van systeemeigen syslog-functionaliteit van de ESXi-host om gegevens te pushen naar een doel-VM met OMS-Agent. De oplossing schrijven niet echter bestanden naar syslog binnen de doel-VM. De OMS-agent wordt poort 1514 geopend en luistert naar deze. Wanneer deze de gegevens ontvangt, wordt in de OMS-agent de gegevens in Log Analytics pushes.
 
 ## <a name="install-and-configure-the-solution"></a>Installeren en configureren van de oplossing
 Gebruik de volgende informatie om de oplossing te installeren en configureren.
 
-* De oplossing VMware bewaking toevoegen aan uw abonnement met behulp van de procedure beschreven in [toevoegen van een beheeroplossing](log-analytics-add-solutions.md#add-a-management-solution).
+* VMware Monitoring solution toevoegen aan uw abonnement met behulp van de procedure beschreven in [toevoegen van een oplossing voor](log-analytics-add-solutions.md#add-a-management-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>Ondersteunde VMware ESXi-hosts
-vSphere Host ESXi 5.5, 6.0 en 6.5
+vSphere ESXi-Host 5.5, 6.0 of 6.5
 
-#### <a name="prepare-a-linux-server"></a>Bereid een server voor Linux
-Maak een Linux-besturingssysteem VM alle syslog-gegevens ontvangen van de ESXi-hosts. De [OMS Linux-Agent](log-analytics-linux-agents.md) is de verzameling voor alle ESXi-host syslog-gegevens. U kunt meerdere ESXi-hosts gebruiken voor het doorsturen van logboeken met een enkel Linux-server, zoals in het volgende voorbeeld.  
+#### <a name="prepare-a-linux-server"></a>Een Linux-server voorbereiden
+Maak een Linux-besturingssysteem VM voor het ontvangen van alle syslog-gegevens van de ESXi-hosts. De [OMS-Agent voor Linux](log-analytics-linux-agents.md) is het punt verzameling voor alle ESXi-host syslog-gegevens. U kunt meerdere ESXi-hosts kunt gebruiken om logboeken naar een enkel Linux-server, zoals in het volgende voorbeeld te sturen.  
 
    ![Syslog-stroom](./media/log-analytics-vmware/diagram.png)
 
-### <a name="configure-syslog-collection"></a>Syslog verzamelen configureren
-1. Syslog-doorsturen voor VSphere instellen. Zie voor gedetailleerde informatie om u te helpen bij het opstellen van syslog doorsturen [syslog op ESXi 5.0 en hoger (2003322) configureren](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Ga naar **ESXi-hostconfiguratie** > **Software** > **geavanceerde instellingen** > **Syslog**.
+### <a name="configure-syslog-collection"></a>Syslog-verzameling configureren
+1. Instellen van syslog doorsturen voor VSphere. Zie voor gedetailleerde informatie over het instellen van syslog doorsturen, [syslog op ESXi 5.0 en hoger (2003322) configureren](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2003322). Ga naar **ESXi-Host configuratie** > **Software** > **geavanceerde instellingen** > **Syslog**.
    ![vsphereconfig](./media/log-analytics-vmware/vsphere1.png)  
-2. In de *Syslog.global.logHost* veld, het toevoegen van de Linux-server en het poortnummer *1514*. Bijvoorbeeld, `tcp://hostname:1514` of `tcp://123.456.789.101:1514`
-3. Open de hostfirewall ESXi voor syslog. **De hostconfiguratie ESXi** > **Software** > **beveiligingsprofiel** > **Firewall** en open **Eigenschappen**.  
+1. In de *Syslog.global.logHost* veld, voegt u uw Linux-server en het poortnummer *1514*. Bijvoorbeeld, `tcp://hostname:1514` of `tcp://123.456.789.101:1514`
+1. Open de firewall van de ESXi-host voor syslog. **De configuratie van de ESXi-Host** > **Software** > **beveiligingsprofiel** > **Firewall** en open **Eigenschappen**.  
 
     ![vspherefw](./media/log-analytics-vmware/vsphere2.png)  
 
     ![vspherefwproperties](./media/log-analytics-vmware/vsphere3.png)  
-4. Controleer de vSphere-Console om te controleren dat die syslog correct is ingesteld. Bevestig op de host ESXI die poort **1514** is geconfigureerd.
-5. Download en installeer de OMS-Agent voor Linux op de Linux-server. Zie voor meer informatie de [documentatie voor de OMS-Agent voor Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
-6. Nadat de OMS-Agent voor Linux is geïnstalleerd, gaat u naar de map /etc/opt/microsoft/omsagent/sysconf/omsagent.d en het vmware_esxi.conf-bestand kopiëren naar de map /etc/opt/microsoft/omsagent/conf/omsagent.d en de wijziging van de eigenaar of groep en machtigingen van het bestand. Bijvoorbeeld:
+1. Controleer de vSphere-Console om te controleren dat die syslog correct is ingesteld. Bevestig op de ESXI-host die poort **1514** is geconfigureerd.
+1. Download en installeer de OMS-Agent voor Linux op de Linux-server. Zie voor meer informatie de [documentatie voor OMS-Agent voor Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
+1. Nadat de OMS-Agent voor Linux is geïnstalleerd, gaat u naar de map /etc/opt/microsoft/omsagent/sysconf/omsagent.d en het vmware_esxi.conf-bestand kopiëren naar de map /etc/opt/microsoft/omsagent/conf/omsagent.d en de wijziging, de eigenaar of groep en machtigingen van het bestand. Bijvoorbeeld:
 
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
-7. Start de OMS-Agent opnieuw voor Linux met `sudo /opt/microsoft/omsagent/bin/service_control restart`.
-8. Test de verbinding tussen de Linux-server en de ESXi-host met behulp van de `nc` opdracht op de ESXi-Host. Bijvoorbeeld:
+1. De OMS-Agent voor Linux opnieuw door te voeren `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+1. Test de connectiviteit tussen de Linux-server en de ESXi-host met behulp van de `nc` opdracht op de ESXi-Host. Bijvoorbeeld:
 
     ```
     [root@ESXiHost:~] nc -z 123.456.789.101 1514
     Connection to 123.456.789.101 1514 port [tcp/*] succeeded!
     ```
 
-9. In de Azure portal doorzoeken logboek voor `VMware_CL`. Log Analytics syslog-gegevens worden verzameld, behouden de syslog-indeling. In de portal voor bepaalde specifieke velden zijn vastgelegd, zoals *hostnaam* en *procesnaam*.  
+1. In de Azure-portal, voert u een zoeken in Logboeken voor `VMware_CL`. Wanneer de Log Analytics verzamelt de syslog-gegevens, behoudt de syslog-indeling. In de portal, enkele specifieke velden worden vastgelegd, zoals *hostnaam* en *procesnaam*.  
 
     ![type](./media/log-analytics-vmware/type.png)  
 
-    Als weergave logboek zoekresultaten vergelijkbaar met de afbeelding hierboven zijn, bent u ingesteld op het dashboard van de oplossing VMware bewaking gebruiken.  
+    Als de resultaten van de logboekzoekopdracht weergave vergelijkbaar met de afbeelding hierboven zijn, bent u ingesteld op het dashboard van de oplossing VMware Monitoring.  
 
-## <a name="vmware-data-collection-details"></a>De verzameling Gegevensdetails VMware
-De oplossing VMware bewaking verzamelt verschillende metrische gegevens en logboekbestanden prestatiegegevens van ESXi-hosts met behulp van de OMS-Agents voor Linux die u hebt ingeschakeld.
+## <a name="vmware-data-collection-details"></a>Details van VMware gegevens verzamelen
+De oplossing VMware Monitoring verzamelt verschillende metrische gegevens en logboekbestanden prestatiegegevens van ESXi-hosts met behulp van de OMS-Agents voor Linux die u hebt ingeschakeld.
 
-De volgende tabel bevat de methoden van de collectie en andere informatie over hoe gegevens worden verzameld.
+De volgende tabel bevat de methoden voor het verzamelen van gegevens en andere informatie over hoe gegevens worden verzameld.
 
-| Platform | OMS-Agent voor Linux | SCOM-agents | Azure Storage | SCOM vereist? | SCOM-agent gegevens die worden verzonden via de beheergroep | Frequentie van de verzameling |
+| Platform | OMS-Agent voor Linux | SCOM-agents | Azure Storage | SCOM vereist? | SCOM-agent gegevens verzonden via de beheergroep | Verzamelingsfrequentie |
 | --- | --- | --- | --- | --- | --- | --- |
 | Linux |&#8226; |  |  |  |  |om de 3 minuten |
 
-De volgende tabel ziet u voorbeelden van gegevensvelden verzameld door de bewaking van de VMware-oplossing:
+De volgende tabel ziet u voorbeelden van velden die worden verzameld door de oplossing VMware Monitoring:
 
 | veldnaam | description |
 | --- | --- |
 | Device_s |VMware-opslagapparaten |
 | ESXIFailure_s |Fout-typen |
 | EventTime_t |tijd waarop de gebeurtenis heeft plaatsgevonden |
-| HostName_s |ESXi-hostnaam |
-| Operation_s |virtuele machine maken of verwijderen van de virtuele machine |
-| ProcessName_s |de naam van gebeurtenis |
+| HostName_s |De naam van de ESXi-host |
+| Operation_s |maken van virtuele machine of virtuele machine verwijderen |
+| ProcessName_s |De naam van gebeurtenis |
 | ResourceId_s |naam van de VMware-host |
 | ResourceLocation_s |VMware |
 | ResourceName_s |VMware |
 | ResourceType_s |Hyper-V |
-| SCSIStatus_s |VMware SCSI-status |
+| SCSIStatus_s |VMware SCSC-status |
 | SyslogMessage_s |Syslog-gegevens |
-| UserName_s |gebruiker die zijn gemaakt of verwijderd van virtuele machine |
+| UserName_s |gebruikers die zijn gemaakt of verwijderd van virtuele machine |
 | VMName_s |VM-naam |
-| Computer |hostcomputer |
-| TimeGenerated |tijd die de gegevens is gegenereerd |
-| DataCenter_s |VMware datacenter |
+| Computer |host-computer |
+| TimeGenerated |Wanneer die de gegevens is gegenereerd |
+| DataCenter_s |VMware-datacenter |
 | StorageLatency_s |opslaglatentie (ms) |
 
-## <a name="vmware-monitoring-solution-overview"></a>Overzicht van de bewaking van de VMware-oplossing
-De VMware-tegel wordt weergegeven in de werkruimte voor logboekanalyse. Het bevat een overzichtsweergave van storingen. Wanneer u op de tegel klikt, gaat u in een dashboardweergave.
+## <a name="vmware-monitoring-solution-overview"></a>Overzicht van de oplossing VMware Monitoring
+De VMware-tegel wordt weergegeven in uw Log Analytics-werkruimte. Het biedt een weergave op hoog niveau van storingen. Als u op de tegel klikt, gaat u naar de weergave van een dashboard.
 
-![tegel](./media/log-analytics-vmware/tile.png)
+![tegelzetter](./media/log-analytics-vmware/tile.png)
 
-#### <a name="navigate-the-dashboard-view"></a>De dashboardweergave navigeren
-In de **VMware** dashboardweergave blades zijn gerangschikt op:
+#### <a name="navigate-the-dashboard-view"></a>De dashboardweergave gaan
+In de **VMware** dashboardweergave, blades zijn gerangschikt op:
 
-* Aantal mislukte-Status
-* Telt bovenste Host door gebeurtenis
-* Telt het aantal bovenste gebeurtenis
+* Aantal van de Status mislukt
+* Bovenste Host door het aantal gebeurtenissen
+* Aantal belangrijke gebeurtenissen
 * Activiteiten van de virtuele Machine
-* Gebeurtenissen van ESXi-Host schijf
+* Schijfgebeurtenissen voor ESXi-Host
 
 ![solution1](./media/log-analytics-vmware/solutionview1-1.png)
 
 ![solution2](./media/log-analytics-vmware/solutionview1-2.png)
 
-Klik op een blade als u wilt openen, logboekanalyse zoekvenster die specifiek is voor de blade ziet u gedetailleerde informatie.
+Klik op een blade om Log Analytics search deelvenster waarin gedetailleerde informatie voor de blade te openen.
 
-Hier kunt kunt u de zoekopdracht om dit te wijzigen voor een bepaald bewerken. Zie voor meer informatie over het maken van logboek zoekopdrachten [vinden van gegevens met behulp van logboek zoekopdrachten in logboekanalyse](log-analytics-log-searches.md).
+Hier kunt kunt u de zoekopdracht om dit te wijzigen voor een bepaald bewerken. Zie voor meer informatie over het maken van zoekopdrachten in logboeken [vinden van gegevens met behulp van zoekopdrachten in Logboeken in Log Analytics](log-analytics-log-searches.md).
 
-#### <a name="find-esxi-host-events"></a>Gebeurtenissen van ESXi-host vinden
-Eén ESXi-host genereert meerdere logboeken, op basis van hun processen. De bewaking van de VMware-oplossing zijn ze gecentraliseerd en bevat een overzicht van het aantal gebeurtenissen. Deze centrale weergave helpt u begrijpen welke ESXi-host heeft een groot aantal gebeurtenissen en welke gebeurtenissen treden het vaakst in uw omgeving.
+#### <a name="find-esxi-host-events"></a>ESXi-host evenementen zoeken
+Één ESXi-host genereert meerdere logboeken, op basis van hun processen. De oplossing VMware Monitoring zijn ze gecentraliseerd en bevat een overzicht van het aantal gebeurtenissen. Deze gecentraliseerde weergave helpt u begrijpen welke ESXi-host heeft een groot aantal gebeurtenissen en welke gebeurtenissen treden het vaakst in uw omgeving.
 
 ![gebeurtenis](./media/log-analytics-vmware/events.png)
 
-U kunt inzoomen verdere door te klikken op een ESXi-host of een gebeurtenistype.
+U kunt inzoomen verder door te klikken op een ESXi-host of een gebeurtenistype.
 
-Als u op de naam van een ESXi-host, kunt u gegevens vanaf deze host ESXi weergeven. Als u beperken resultaten met het gebeurtenistype wilt, voegt u `“ProcessName_s=EVENT TYPE”` in uw query. U kunt selecteren **procesnaam** in het zoekvak. Die de gegevens wordt beperkt.
+Wanneer u op de naam van een ESXi-host, kunt u gegevens uit die ESXi-host weergeven. Als u beperken resultaten met het gebeurtenistype wilt, voegt u toe `“ProcessName_s=EVENT TYPE”` in uw zoekopdracht. U kunt selecteren **procesnaam** in het zoekvak. Zo beperkt de gegevens voor u.
 
 ![Inzoomen](./media/log-analytics-vmware/eventhostdrilldown.png)
 
-#### <a name="find-high-vm-activities"></a>Activiteiten met hoge VM zoeken
-Een virtuele machine worden gemaakt en op elke host ESXi verwijderd. Het is handig voor een beheerder om te bepalen hoeveel virtuele machines ESXi-host wordt gemaakt. Die beurt, kunt u inzicht in prestaties en capaciteitsplanning. Het bijhouden van activiteitsgebeurtenissen VM is van cruciaal belang bij het beheren van uw omgeving.
+#### <a name="find-high-vm-activities"></a>Hoge VM activiteiten zoeken
+Een virtuele machine worden gemaakt en verwijderd op een ESXi-host. Het is handig voor een beheerder om te bepalen hoeveel virtuele machines maakt u een ESXi-host. Deze beurt, kunt u inzicht in prestaties en het plannen van capaciteit. Het bijhouden van gebeurtenissen van de virtuele machine-activiteit is van cruciaal belang bij het beheren van uw omgeving.
 
 ![Inzoomen](./media/log-analytics-vmware/vmactivities1.png)
 
-Als u aanvullende ESXi host VM maken voor gegevens zien wilt, klikt u op de naam van een ESXi-host.
+Als u zien van aanvullende ESXi-host virtuele machine maken van gegevens wilt, klikt u op de naam van een ESXi-host.
 
 ![Inzoomen](./media/log-analytics-vmware/createvm.png)
 
 #### <a name="common-search-queries"></a>Algemene zoekquery 's
-De oplossing omvat andere nuttige query's die kunnen helpen bij het beheren van uw ESXi-hosts, zoals hoge opslagruimte opslaglatentie en path-fout.
+De oplossing bevat andere handige query's die u kunnen helpen uw ESXi-hosts, zoals hoge opslagruimte, opslaglatentie en padfout beheren.
 
 [!INCLUDE[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
@@ -160,52 +160,52 @@ De oplossing omvat andere nuttige query's die kunnen helpen bij het beheren van 
 
 
 #### <a name="save-queries"></a>Query's opslaan
-Zoekopdrachten opslaan is een standaardfunctie in Log Analytics en u kan helpen om alle query's die u hebt gevonden nuttig. Nadat u een query die nuttig maakt, opslaan door te klikken op de **Favorieten**. Een opgeslagen query kunt u eenvoudig gebruiken vanuit de [mijn Dashboard](log-analytics-dashboards.md) pagina waar u uw eigen aangepaste dashboards kunt maken.
+Zoekopdrachten opslaan is een standaardfunctie in Log Analytics en kunt u alle query's die u hebt gevonden nuttig. Nadat u een query die u hebt gemaakt, sla deze door te klikken op de **Favorieten**. Een opgeslagen query kunt u eenvoudig opnieuw kunt gebruiken vanaf de [mijn Dashboard](log-analytics-dashboards.md) pagina waar u uw eigen aangepaste dashboards kunt maken.
 
 ![DockerDashboardView](./media/log-analytics-vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Waarschuwingen van query's maken
-Nadat u uw query's hebt gemaakt, wilt u mogelijk de query's gebruiken om u te waarschuwen wanneer specifieke gebeurtenissen plaatsvinden. Zie [waarschuwingen in logboekanalyse](log-analytics-alerts.md) voor informatie over het maken van waarschuwingen. Zie voor voorbeelden van waarschuwingen, query's en andere voorbeelden van query's de [Monitor VMware met logboekanalyse](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blogbericht.
+Nadat u uw query's hebt gemaakt, wilt u mogelijk de query's gebruiken om u te waarschuwen wanneer specifieke gebeurtenissen plaatsvinden. Zie [waarschuwingen in Log Analytics](log-analytics-alerts.md) voor informatie over het maken van waarschuwingen. Zie voor meer voorbeelden van query's en voorbeelden van andere waarschuwingen, de [Monitor VMware met behulp van Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blogbericht.
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
-### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Wat moet ik doen op de ESXi hosten instelling? Wat zijn de gevolgen hebben deze op mijn huidige omgeving?
-De oplossing maakt gebruik van de systeemeigen ESXi-Host Syslog mechanisme doorsturen. U hoeft geen aanvullende Microsoft-software op de ESXi Host om vast te leggen van de logboeken niet. Er moet een lage impact op uw bestaande omgeving. U hoeft echter doorsturen van syslog ESXI-functionaliteit is ingesteld.
+### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Wat moet ik doen op de ESXi host instellen? Wat zijn de gevolgen heeft dit op mijn huidige omgeving?
+De oplossing maakt gebruik van de systeemeigen ESXi-Host Syslog doorsturen mechanisme. U hoeft geen aanvullende Microsoft-software op de ESXi-Host om vast te leggen van de logboeken niet. Er moet een weinig impact op uw bestaande omgeving. U hoeft echter syslog doorsturen van berichten, ESXI-functionaliteit is ingesteld.
 
-### <a name="do-i-need-to-restart-my-esxi-host"></a>Moet ik mijn ESXi-host starten?
-Nee. Dit proces is niet opnieuw opstarten vereist. Soms vSphere niet correct bijgewerkt de syslog. In dat geval, meld u aan bij de ESXi-host en laad de syslog opnieuw. U moet niet opnieuw in en start opnieuw op de host, zodat dit proces is niet aan uw omgeving verstoren.
+### <a name="do-i-need-to-restart-my-esxi-host"></a>Moet ik mijn ESXi-host opnieuw opstarten?
+Nee. Dit proces vereist niet opnieuw worden opgestart. Soms vSphere niet correct bijgewerkt de syslog. In dat geval, meld u aan bij de ESXi-host en laad de syslog opnieuw. U hebt geen opnieuw start opnieuw op de host, zodat dit proces wordt niet verstorend voor uw omgeving.
 
-### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-log-analytics"></a>Kan ik verhogen of verlagen van het volume van logboekgegevens verzonden met Log Analytics?
-U kunt Ja. U kunt de instellingen logboekniveau ESXi-Host in de vSphere. Logboekverzameling is gebaseerd op de *info* niveau. Dus als u controleren VM maken of verwijderen wilt, moet u houden de *info* niveau op Hostd. Zie voor meer informatie de [VMware Knowledge Base](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658).
+### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-log-analytics"></a>Kan ik vergroten of verkleinen van de hoeveelheid logboekgegevens die zijn verzonden naar Log Analytics?
+U kunt Ja. U kunt de instellingen van de ESXi-Host logboek-niveau in vSphere gebruiken. Logboekverzameling is gebaseerd op de *info* niveau. Dus als u controleren van de virtuele machine worden gemaakt of verwijderd wilt, moet u houden de *info* op Hostd. Zie voor meer informatie de [VMware Knowledge Base](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658).
 
-### <a name="why-is-hostd-not-providing-data-to-log-analytics-my-log-setting-is-set-to-info"></a>Waarom Hostd niet-gegevens levert met Log Analytics? Mijn logboek is ingesteld op info.
-Er is een fout ESXi-host voor de syslog-timestamp. Zie voor meer informatie de [VMware Knowledge Base](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2111202). Nadat u de oplossing hebt toegepast, moeten Hostd normaal functioneren.
+### <a name="why-is-hostd-not-providing-data-to-log-analytics-my-log-setting-is-set-to-info"></a>Waarom is Hostd niet het leveren van gegevens naar Log Analytics? De instelling voor mijn log is ingesteld op info.
+Er is een fout van de ESXi-host voor de syslog-tijdstempel. Zie voor meer informatie de [VMware Knowledge Base](https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=2111202). Nadat u de oplossing hebt toegepast, moet Hostd normaal functioneren.
 
-### <a name="can-i-have-multiple-esxi-hosts-forwarding-syslog-data-to-a-single-vm-with-omsagent"></a>Kan ik meerdere ESXi-hosts die syslog-gegevens voor een enkele virtuele machine met omsagent doorsturen hebben?
+### <a name="can-i-have-multiple-esxi-hosts-forwarding-syslog-data-to-a-single-vm-with-omsagent"></a>Kan ik meerdere ESXi-hosts syslog-gegevens worden doorgestuurd naar een enkele virtuele machine met omsagent hebben?
 Ja. U kunt meerdere ESXi-hosts worden doorgestuurd naar een enkele virtuele machine met omsagent hebben.
 
-### <a name="why-dont-i-see-data-flowing-into-log-analytics"></a>Waarom zie ik niet gegevens die binnenkomen in Log Analytics?
-Er zijn meerdere redenen:
+### <a name="why-dont-i-see-data-flowing-into-log-analytics"></a>Waarom zie ik geen gegevens die binnenkomen in Log Analytics?
+Kunnen er meerdere redenen zijn:
 
-* De ESXi-host is niet correct gegevens worden gepusht naar de virtuele machine omsagent uitgevoerd. Als u wilt testen, moet u de volgende stappen uitvoeren:
+* De ESXi-host is niet correct pushen van gegevens naar de virtuele machine omsagent uitgevoerd. Als u wilt testen, moet u de volgende stappen uitvoeren:
 
-  1. Om te bevestigen, meld u aan bij de ESXi-host met behulp van ssh en voer de volgende opdracht: `nc -z ipaddressofVM 1514`
+  1. Om te bevestigen, meld u aan bij de ESXi-host met behulp van ssh en voer de volgende opdracht uit: `nc -z ipaddressofVM 1514`
 
-      Als dit niet lukt, vSphere-instellingen in de geavanceerde configuratie zijn waarschijnlijk niet worden hersteld. Zie [syslog verzamelen configureren](#configure-syslog-collection) voor meer informatie over het instellen van de ESXi-host voor het doorsturen van syslog.
-  2. Als syslog-poort verbinding geslaagd is, maar u geen gegevens nog steeds niet ziet, klikt u vervolgens opnieuw laden de syslog op de host ESXi met ssh de volgende opdracht uitvoeren: ` esxcli system syslog reload`
-* De virtuele machine met OMS-Agent is niet juist ingesteld. U kunt dit testen, moet u de volgende stappen uitvoeren:
+      Als dit niet lukt, vSphere-instellingen in de geavanceerde configuratie waarschijnlijk niet corrigeren. Zie [syslog-verzameling configureren](#configure-syslog-collection) voor meer informatie over het instellen van de ESXi-host voor syslog doorsturen.
+  1. Als syslog-poort verbinding geslaagd is, maar u nog steeds geen gegevens ziet, moet u vervolgens de syslog op de ESXi-host laden met behulp van ssh de volgende opdracht uit te voeren: ` esxcli system syslog reload`
+* De virtuele machine met OMS-Agent is niet correct ingesteld. U kunt dit testen, moet u de volgende stappen uitvoeren:
 
-  1. Log Analytics luistert op poort 1514. Om te controleren of dit geopend is, moet u de volgende opdracht uitvoeren: `netstat -a | grep 1514`
-  2. U ziet poort `1514/tcp` openen. Als u dit niet doet, moet u controleren of de omsagent correct is geïnstalleerd. Als u de poortinformatie niet ziet, klikt u vervolgens is de syslog-poort niet geopend op de virtuele machine.
+  1. Log Analytics luistert naar de 1514-poort. Om te controleren dat geopend is, moet u de volgende opdracht uitvoeren: `netstat -a | grep 1514`
+  1. U ziet nu poort `1514/tcp` openen. Als u dit niet doet, moet u controleren of de omsagent correct is geïnstalleerd. Als u de informatie over de poort niet ziet, klikt u vervolgens is de syslog-poort niet geopend op de virtuele machine.
 
     a. Controleren of de OMS-Agent wordt uitgevoerd met behulp van `ps -ef | grep oms`. Als deze niet wordt uitgevoerd, het proces starten met de opdracht ` sudo /opt/microsoft/omsagent/bin/service_control start`
 
     b. Open het `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`-bestand.
 
-    c. Controleer of de juiste gebruiker en groepsinstelling is geldig, vergelijkbaar met: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+    c. Controleer of de juiste gebruiker en de instelling voor het groepsbeleid is geldig, vergelijkbaar met: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 
-    d. Als het bestand bestaat niet of de gebruiker en groepsinstelling is onjuist, los problemen door [voorbereiden van een Linux-server](#prepare-a-linux-server).
+    d. Als het bestand bestaat niet of de gebruiker en de instelling voor het groepsbeleid onjuist is, neemt u corrigerende maatregelen door [een Linux-server voorbereiden](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Gebruik [logboek zoekopdrachten](log-analytics-log-searches.md) in Log Analytics om gedetailleerde VMware weer te geven gegevens te hosten.
-* [Maak uw eigen dashboards](log-analytics-dashboards.md) VMware hostgegevens weergegeven.
-* [Waarschuwingen maken](log-analytics-alerts.md) wanneer specifieke VMware hostgebeurtenissen plaatsvinden.
+* Gebruik [zoekopdrachten](log-analytics-log-searches.md) in Log Analytics om gedetailleerde VMware weer te geven gegevens te hosten.
+* [Maak uw eigen dashboards](log-analytics-dashboards.md) VMware hostgegevens weergeven.
+* [Waarschuwingen maken](log-analytics-alerts.md) wanneer specifieke VMware host gebeurtenissen plaatsvinden.

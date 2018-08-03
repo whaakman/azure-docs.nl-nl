@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 8cc37bbabd33fbf9e05132f0dfed575d03e93f4c
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 1c604eebb2c1c85de717217063333190ffa865f4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045203"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426513"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumtotalcentral"></a>Zelfstudie: Azure Active Directory-integratie met SumTotalCentral
 
@@ -53,7 +53,7 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. SumTotalCentral uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-sumtotalcentral-from-the-gallery"></a>SumTotalCentral uit de galerie toe te voegen
 Voor het configureren van de integratie van SumTotalCentral in Azure AD, moet u SumTotalCentral uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -64,15 +64,15 @@ Voor het configureren van de integratie van SumTotalCentral in Azure AD, moet u 
 
     ![De Azure Active Directory-knop][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![De knop nieuwe toepassing][3]
 
-4. Typ in het zoekvak **SumTotalCentral**, selecteer **SumTotalCentral** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Typ in het zoekvak **SumTotalCentral**, selecteer **SumTotalCentral** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![SumTotalCentral in de lijst met resultaten](./media/sumtotalcentral-tutorial/tutorial_sumtotalcentral_addfromgallery.png)
 
@@ -87,10 +87,10 @@ In SumTotalCentral, wijs de waarde van de **gebruikersnaam** in Azure AD als de 
 Om te configureren en testen van Azure AD eenmalige aanmelding met SumTotalCentral, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker SumTotalCentral](#create-a-sumtotalcentral-test-user)**  : als u wilt een equivalent van Britta Simon in SumTotalCentral die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Maak een testgebruiker SumTotalCentral](#create-a-sumtotalcentral-test-user)**  : als u wilt een equivalent van Britta Simon in SumTotalCentral die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -102,11 +102,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![In het dialoogvenster voor eenmalige aanmelding](./media/sumtotalcentral-tutorial/tutorial_sumtotalcentral_samlbase.png)
 
-3. Op de **SumTotalCentral domein en URL's** sectie, voert u de volgende stappen uit:
+1. Op de **SumTotalCentral domein en URL's** sectie, voert u de volgende stappen uit:
 
     ![SumTotalCentral domein en URL's, eenmalige aanmelding informatie](./media/sumtotalcentral-tutorial/tutorial_sumtotalcentral_url.png)
 
@@ -117,15 +117,15 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     > [!NOTE] 
     > De aanmeldings-URL-waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [SumTotalCentral Client ondersteuningsteam](http://www.sumtotalsystems.com/support/) om de waarde. 
  
-4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
     ![De downloadkoppeling certificaat](./media/sumtotalcentral-tutorial/tutorial_sumtotalcentral_certificate.png) 
 
-5. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Configureren van eenmalige aanmelding opslaan](./media/sumtotalcentral-tutorial/tutorial_general_400.png)
 
-6. Het configureren van eenmalige aanmelding op **SumTotalCentral** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [SumTotalCentral ondersteuningsteam](http://www.sumtotalsystems.com/support/). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+1. Het configureren van eenmalige aanmelding op **SumTotalCentral** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [SumTotalCentral ondersteuningsteam](http://www.sumtotalsystems.com/support/). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -143,15 +143,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![De Azure Active Directory-knop](./media/sumtotalcentral-tutorial/create_aaduser_01.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/sumtotalcentral-tutorial/create_aaduser_02.png)
 
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
     ![De knop toevoegen](./media/sumtotalcentral-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
     ![Het dialoogvenster gebruiker](./media/sumtotalcentral-tutorial/create_aaduser_04.png)
 
@@ -179,23 +179,23 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **SumTotalCentral**.
+1. Selecteer in de lijst met toepassingen, **SumTotalCentral**.
 
     ![De koppeling SumTotalCentral in de lijst met toepassingen](./media/sumtotalcentral-tutorial/tutorial_sumtotalcentral_app.png)  
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![De koppeling 'Gebruikers en groepen'][202]
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -207,7 +207,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 

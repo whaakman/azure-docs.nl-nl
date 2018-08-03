@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 1aa5c0f259fdb5fce449bc86f9cf293801b4770a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b5cd03098f4b4698c40966ceb79d5263b456a979
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369168"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430301"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Zelfstudie: Hybride Azure Active Directory join voor federatieve domeinen configureren
 
@@ -48,7 +48,7 @@ In deze zelfstudie wordt ervan uitgegaan dat u bekend met bent:
 
 -  [Inleiding tot Apparaatbeheer in Azure Active Directory](../device-management-introduction.md)
 
--  [Hoe u uw hybride Azure Active Directory join-implementatie plannen](hybrid-azuread-join-plan.md)
+-  [De implementatie van uw hybride Azure Active Directory-deelname plannen](hybrid-azuread-join-plan.md)
 
 
 
@@ -212,8 +212,8 @@ Wanneer u de **Get-MSolDevice** cmdlet om de servicedetails te controleren:
 
 Als u problemen ondervindt bij het invullen van hybride Azure AD join voor domein gekoppelde Windows-apparaten, Zie:
 
-- [Oplossen van problemen met Hybrid Azure AD join voor de huidige Windows-apparaten](../device-management-troubleshoot-hybrid-join-windows-current.md)
-- [Oplossen van problemen met Hybrid Azure AD join voor Windows downlevel-apparaten](../device-management-troubleshoot-hybrid-join-windows-legacy.md)
+- [Oplossen van problemen met Hybrid Azure AD join voor de huidige Windows-apparaten](troubleshoot-hybrid-join-windows-current.md)
+- [Oplossen van problemen met Hybrid Azure AD join voor Windows downlevel-apparaten](troubleshoot-hybrid-join-windows-legacy.md)
 
 
 
@@ -221,7 +221,7 @@ Als u problemen ondervindt bij het invullen van hybride Azure AD join voor domei
 
 > [!div class="nextstepaction"]
 > [Configure hybride Azure Active Directory join voor beheerde domeinen](hybrid-azuread-join-managed-domains.md)
-> [hybride Azure Active Directory join handmatig configureren](../device-management-hybrid-azuread-joined-devices-setup.md)
+> [hybride Azure Active Directory join handmatig configureren](hybrid-azuread-join-manual-steps.md)
 
 
 

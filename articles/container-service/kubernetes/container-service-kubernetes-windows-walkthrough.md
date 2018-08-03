@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 74ce913548fbcefdc441d0d2b772c864dacd4482
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b20f19c504a7967d01d51d976315fa49c2317885
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38485441"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424799"
 ---
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Kubernetes-cluster voor Windows-containers implementeren
 
@@ -34,16 +34,16 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische groep waarin Azure-resources worden geïmplementeerd en beheerd. 
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az-group-create). Een Azure-resourcegroep is een logische groep waarin Azure-resources worden geïmplementeerd en beheerd. 
 
-In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
+In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS - oost*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-kubernetes-cluster"></a>Een Kubernetes-cluster maken
-Maak een Kubernetes-cluster in Azure Container Service met de opdracht [az acs create](/cli/azure/acs#az_acs_create). 
+Maak een Kubernetes-cluster in Azure Container Service met de opdracht [az acs create](/cli/azure/acs#az-acs-create). 
 
 In het volgende voorbeeld wordt een cluster gemaakt met de naam *myK8sCluster* met een Linux-hoofdknooppunt en twee knooppunten van de Windows-agent. In dit voorbeeld worden de SSH-sleutels gemaakt die nodig zijn om verbinding te maken met de Linux-master. In dit voorbeeld wordt *azureuser* gebruikt als gebruikersnaam voor iemand met beheerdersrechten. Het wachtwoord is *myPassword12*. Werk deze waarden bij met waarden die geschikt zijn voor uw omgeving. 
 
@@ -184,7 +184,7 @@ U kunt de gewenste webbrowser gebruiken om de standaard IIS-welkomstpagina weer 
 
 
 ## <a name="delete-cluster"></a>Cluster verwijderen
-U kunt de opdracht [az group delete](/cli/azure/group#az_group_delete) gebruiken om de resourcegroep, de containerservice en alle gerelateerde resources te verwijderen wanneer u het cluster niet meer nodig hebt.
+U kunt de opdracht [az group delete](/cli/azure/group#az-group-delete) gebruiken om de resourcegroep, de containerservice en alle gerelateerde resources te verwijderen wanneer u het cluster niet meer nodig hebt.
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup

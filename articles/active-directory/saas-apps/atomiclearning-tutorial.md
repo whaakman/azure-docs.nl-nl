@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: jeedes
-ms.openlocfilehash: b69050ef85bd7108fcfb5dc5d2f6742af6218618
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 57239be1b4976d1c42a9bbee5520c1149c7d5091
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053944"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425286"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atomic-learning"></a>Zelfstudie: Azure Active Directory-integratie met Atomic Learning
 
@@ -52,7 +52,7 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Atomische Learning uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-atomic-learning-from-the-gallery"></a>Atomische Learning uit de galerie toe te voegen
 Voor het configureren van de integratie van Atomic Learning in Azure AD, moet u atomische Learning uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -63,19 +63,19 @@ Voor het configureren van de integratie van Atomic Learning in Azure AD, moet u 
 
     ![Active Directory][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **Atomic Learning**.
+1. Typ in het zoekvak **Atomic Learning**.
 
     ![Het maken van een Azure AD-testgebruiker](./media/atomiclearning-tutorial/tutorial_atomiclearning_search.png)
 
-5. Selecteer in het deelvenster resultaten **Atomic Learning**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Selecteer in het deelvenster resultaten **Atomic Learning**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Het maken van een Azure AD-testgebruiker](./media/atomiclearning-tutorial/tutorial_atomiclearning_addfromgallery.png)
 
@@ -89,10 +89,10 @@ In een Atomic-Learning, wijs de waarde van de **gebruikersnaam** in Azure AD als
 Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Atomic Learning, u nodig hebt voor de volgende bouwstenen:
 
 1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Het maken van een testgebruiker Atomic Learning](#creating-an-atomic-learning-test-user)**  : als u wilt een equivalent van Britta Simon in atomische Learning die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Het maken van een testgebruiker Atomic Learning](#creating-an-atomic-learning-test-user)**  : als u wilt een equivalent van Britta Simon in atomische Learning die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -104,11 +104,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/atomiclearning-tutorial/tutorial_atomiclearning_samlbase.png)
 
-3. Op de **Atomic Learning domein en URL's** sectie, voert u de volgende stappen uit:
+1. Op de **Atomic Learning domein en URL's** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/atomiclearning-tutorial/tutorial_atomiclearning_url.png)
 
@@ -117,15 +117,15 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     > [!NOTE] 
     > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Atomic Learning Client ondersteuningsteam](mailto:cs@atomiclearning.com) deze waarde op te halen. 
  
-4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/atomiclearning-tutorial/tutorial_atomiclearning_certificate.png) 
 
-5. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/atomiclearning-tutorial/tutorial_general_400.png)
 
-6. Het configureren van eenmalige aanmelding op **Atomic Learning** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [Atomic Learning ondersteuningsteam](mailto:cs@atomiclearning.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+1. Het configureren van eenmalige aanmelding op **Atomic Learning** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [Atomic Learning ondersteuningsteam](mailto:cs@atomiclearning.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -141,15 +141,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![Het maken van een Azure AD-testgebruiker](./media/atomiclearning-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
     ![Het maken van een Azure AD-testgebruiker](./media/atomiclearning-tutorial/create_aaduser_02.png) 
 
-3. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
     ![Het maken van een Azure AD-testgebruiker](./media/atomiclearning-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
     ![Het maken van een Azure AD-testgebruiker](./media/atomiclearning-tutorial/create_aaduser_04.png) 
 
@@ -179,23 +179,23 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **Atomic Learning**.
+1. Selecteer in de lijst met toepassingen, **Atomic Learning**.
 
     ![Eenmalige aanmelding configureren](./media/atomiclearning-tutorial/tutorial_atomiclearning_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -207,7 +207,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 <!--Image references-->

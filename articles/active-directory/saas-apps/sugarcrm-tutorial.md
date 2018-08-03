@@ -1,5 +1,5 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met suiker CRM | Microsoft Docs'
+title: 'Zelfstudie: Azure Active Directory-integratie met CRM suiker | Microsoft Docs'
 description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en suiker CRM.
 services: active-directory
 documentationCenter: na
@@ -14,157 +14,157 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: jeedes
-ms.openlocfilehash: 99699161e8047932d27b4b124255701d13a4ec41
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 1acaf5e530f5d5563901d8d498901ecc1bffecdb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225861"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427387"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a>Zelfstudie: Azure Active Directory-integratie met suiker CRM
+# <a name="tutorial-azure-active-directory-integration-with-sugar-crm"></a>Zelfstudie: Azure Active Directory-integratie met CRM suiker
 
-In deze zelfstudie leert u hoe suiker CRM integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u suiker CRM integreren met Azure Active Directory (Azure AD).
 
-Suiker CRM integreren met Azure AD biedt de volgende voordelen:
+Suiker CRM integreren met Azure AD biedt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot de CRM suiker heeft
+- U kunt beheren in Azure AD die toegang tot suiker CRM heeft
 - U kunt uw gebruikers automatisch ophalen aangemeld bij suiker CRM (Single Sign-On) inschakelen met hun Azure AD-accounts
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
+- U kunt uw accounts in één centrale locatie - Azure portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met suiker CRM, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met CRM suiker, moet u de volgende items:
 
 - Een Azure AD-abonnement
-- Een CRM suiker eenmalige aanmelding ingeschakeld abonnement
+- Een suiker CRM eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Suiker CRM uit de galerie toevoegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Suiker CRM uit de galerie toe te voegen
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-sugar-crm-from-the-gallery"></a>Suiker CRM uit de galerie toevoegen
-Voor het configureren van de integratie van suiker CRM in Azure AD, moet u suiker CRM uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+## <a name="adding-sugar-crm-from-the-gallery"></a>Suiker CRM uit de galerie toe te voegen
+Voor het configureren van de integratie van suiker CRM in Azure AD, moet u suiker CRM uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen suiker CRM uit de galerie, moet u de volgende stappen uitvoeren:**
+**Als u wilt toevoegen suiker CRM vanuit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **suiker CRM**.
+1. Typ in het zoekvak **suiker CRM**.
 
-    ![Een Azure AD-testgebruiker maken](./media/sugarcrm-tutorial/tutorial_sugarcrm_search.png)
+    ![Het maken van een Azure AD-testgebruiker](./media/sugarcrm-tutorial/tutorial_sugarcrm_search.png)
 
-5. Selecteer in het deelvenster resultaten **suiker CRM**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Selecteer in het deelvenster resultaten **suiker CRM**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Een Azure AD-testgebruiker maken](./media/sugarcrm-tutorial/tutorial_sugarcrm_addfromgallery.png)
+    ![Het maken van een Azure AD-testgebruiker](./media/sugarcrm-tutorial/tutorial_sugarcrm_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie kunt u configureren en testen eenmalige aanmelding Azure AD met suiker CRM op basis van een testgebruiker 'Britta Simon' genoemd.
+In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met suiker CRM op basis van een testgebruiker 'Julia steen' genoemd.
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in suiker CRM is voor een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de verwante suiker CRM-gebruiker worden gemaakt.
+Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in suiker CRM is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in suiker CRM tot stand worden gebracht.
 
-Wijs in suiker CRM, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In de CRM-suiker, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met suiker CRM, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een testgebruiker suiker CRM](#creating-a-sugar-crm-test-user)**  - suiker CRM die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
+1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Het maken van een testgebruiker suiker CRM](#creating-a-sugar-crm-test-user)**  : als u wilt een equivalent van Britta Simon in suiker CRM die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw toepassing suiker CRM.
+In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw suiker CRM-toepassing.
 
 **Voor het configureren van Azure AD eenmalige aanmelding met suiker CRM, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **suiker CRM** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **suiker CRM** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/sugarcrm-tutorial/tutorial_sugarcrm_samlbase.png)
 
-3. Op de **suiker CRM-domein en URL's** sectie, voert u de volgende stappen uit:
+1. Op de **suiker CRM-domein en URL's** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/sugarcrm-tutorial/tutorial_sugarcrm_url.png)
 
-    In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen:
+    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon:
     | |
     |--|
     | `https://<companyname>.sugarondemand.com` |
     | `https://<companyname>.trial.sugarcrm` |
 
     > [!NOTE] 
-    > De waarde is geen echte. Werk de waarde met de werkelijke URL voor eenmalige aanmelding. Neem contact op met [suiker CRM-Client-ondersteuningsteam](https://support.sugarcrm.com/) de waarde op te halen. 
+    > De waarde is niet echt. Werk de waarde bij met de werkelijke aanmeldings-URL. Neem contact op met [suiker CRM-Client-ondersteuningsteam](https://support.sugarcrm.com/) om de waarde. 
  
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/sugarcrm-tutorial/tutorial_sugarcrm_certificate.png) 
 
-5. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/sugarcrm-tutorial/tutorial_general_400.png)
 
-6. Op de **suiker CRM configuratie** sectie, klikt u op **configureren suiker CRM** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out URL's, en SAML Single Sign-On Service** van de **Naslaggids punt.**
+1. Op de **suiker CRM-configuratie** sectie, klikt u op **configureren suiker CRM** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 
     ![Eenmalige aanmelding configureren](./media/sugarcrm-tutorial/tutorial_sugarcrm_configure.png) 
 
-7. In een ander browservenster, meld u aan bij uw bedrijf suiker CRM site als beheerder.
+1. In een ander browservenster aanmelden bij uw bedrijf suiker CRM site als beheerder.
 
-8. Ga naar **Admin**.
+1. Ga naar **Admin**.
    
     ![Beheerder](./media/sugarcrm-tutorial/ic795888.png "Admin")
 
-9. In de **beheer** sectie, klikt u op **wachtwoordbeheer**.
+1. In de **beheer** sectie, klikt u op **wachtwoordbeheer**.
    
     ![Beheer](./media/sugarcrm-tutorial/ic795889.png "beheer")
 
-10. Selecteer **SAML-verificatie inschakelen**.
+1. Selecteer **SAML-verificatie inschakelen**.
    
     ![Beheer](./media/sugarcrm-tutorial/ic795890.png "beheer")
 
-11. In de **SAML-verificatie** sectie, voert u de volgende stappen uit:
+1. In de **SAML-verificatie** sectie, voert u de volgende stappen uit:
    
     ![SAML-verificatie](./media/sugarcrm-tutorial/ic795891.png "SAML-verificatie")  
  
-    a. In de **aanmeldings-URL** textbox, plak de waarde van **SAML Single Sign-On Service-URL**, die u hebt gekopieerd vanuit Azure-portal.
+    a. In de **aanmeldings-URL** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML**, die u hebt gekopieerd vanuit Azure portal.
   
-    b. In de **SLO URL** textbox, plak de waarde van **Sign-Out URL**, die u hebt gekopieerd vanuit Azure-portal.
+    b. In de **SLO URL** tekstvak, plak de waarde van **afmelding URL**, die u hebt gekopieerd vanuit Azure portal.
   
-    c. Open uw base-64 gecodeerde certificaat in Kladblok, Kopieer de inhoud ervan naar het Klembord en plak het gehele certificaat in **X.509-certificaat** textbox.
+    c. Open uw base-64 gecodeerde certificaat in Kladblok, Kopieer de inhoud ervan in het Klembord en plakt u het gehele certificaat in **X.509-certificaat** tekstvak.
   
     d. Klik op **Opslaan**.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
+Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
 ![Azure AD-gebruiker maken][100]
 
@@ -172,59 +172,59 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
 1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
 
-    ![Een Azure AD-testgebruiker maken](./media/sugarcrm-tutorial/create_aaduser_01.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/sugarcrm-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
-    ![Een Azure AD-testgebruiker maken](./media/sugarcrm-tutorial/create_aaduser_02.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/sugarcrm-tutorial/create_aaduser_02.png) 
 
-3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
-    ![Een Azure AD-testgebruiker maken](./media/sugarcrm-tutorial/create_aaduser_03.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/sugarcrm-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
-    ![Een Azure AD-testgebruiker maken](./media/sugarcrm-tutorial/create_aaduser_04.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/sugarcrm-tutorial/create_aaduser_04.png) 
 
-    a. In de **naam** textbox type **BrittaSimon**.
+    a. In de **naam** tekstvak, type **BrittaSimon**.
 
-    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
+    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
 
     c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
     d. Klik op **Create**.
  
-### <a name="creating-a-sugar-crm-test-user"></a>Een testgebruiker suiker CRM maken
+### <a name="creating-a-sugar-crm-test-user"></a>Het maken van een testgebruiker suiker CRM
 
-Om in te schakelen Azure AD-gebruikers zich aanmelden bij suiker CRM, moeten ze worden ingericht op suiker CRM.
+Als u wilt dat Azure AD-gebruikers zich aanmelden bij suiker CRM, moeten ze worden ingericht op suiker CRM.
 
-In het geval van suiker CRM is inrichting een handmatige taak.
+In het geval van CRM-suiker is inrichten een handmatige taak.
 
 **Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
 
 1. Meld u aan bij uw **suiker CRM** bedrijf site als administrator.
 
-2. Ga naar **Admin**.
+1. Ga naar **Admin**.
    
     ![Beheerder](./media/sugarcrm-tutorial/ic795888.png "Admin")
 
-3. In de **beheer** sectie, klikt u op **Gebruikersbeheer**.
+1. In de **beheer** sectie, klikt u op **Gebruikersbeheer**.
    
     ![Beheer](./media/sugarcrm-tutorial/ic795893.png "beheer")
 
-4. Ga naar **gebruikers \> nieuwe gebruiker maken**.
+1. Ga naar **gebruikers \> nieuwe gebruiker maken**.
    
     ![Nieuwe gebruiker maken](./media/sugarcrm-tutorial/ic795894.png "nieuwe gebruiker maken")
 
-5. Op de **gebruikersprofiel** tabblad, voert u de volgende stappen uit:
+1. Op de **gebruikersprofiel** tabblad, voert u de volgende stappen uit:
    
     ![Nieuwe gebruiker](./media/sugarcrm-tutorial/ic795895.png "nieuwe gebruiker")
 
-    a. Typ de **gebruikersnaam**, **achternaam**, en **e-mailadres** van een geldige Azure Active Directory-gebruiker in de bijbehorende tekstvakken.
+    a. Type de **gebruikersnaam**, **achternaam**, en **e-mailadres** van een geldige Azure Active Directory-gebruiker in de bijbehorende tekstvakken.
   
-6. Als **Status**, selecteer **Active**.
+1. Als **Status**, selecteer **Active**.
 
-7. Voer de volgende stappen uit op het tabblad wachtwoord:
+1. Voer de volgende stappen uit op het tabblad wachtwoord:
    
     ![Nieuwe gebruiker](./media/sugarcrm-tutorial/ic795896.png "nieuwe gebruiker")
 
@@ -233,49 +233,49 @@ In het geval van suiker CRM is inrichting een handmatige taak.
     b. Klik op **Opslaan**.
 
 >[!NOTE]
->U kunt andere suiker CRM gebruiker account hulpmiddelen voor het maken of API's die is geleverd door suiker CRM aan inrichten AAD-gebruikersaccounts. 
+>Kunt u alle andere suiker CRM gebruiker-account maken van hulpprogramma's of API's die door CRM suiker inrichten AAD-gebruikersaccounts. 
 > 
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 
-In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding toegang verleent tot suiker CRM.
+In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan suiker CRM.
 
 ![Gebruiker toewijzen][200] 
 
-**Britta Simon om aan te wijzen suiker CRM, moet u de volgende stappen uitvoeren:**
+**Als u wilt toewijzen Britta Simon suiker CRM, moet u de volgende stappen uitvoeren:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **suiker CRM**.
+1. Selecteer in de lijst met toepassingen, **suiker CRM**.
 
     ![Eenmalige aanmelding configureren](./media/sugarcrm-tutorial/tutorial_sugarcrm_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
-### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
+### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
-Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie via het toegangsvenster.
 
-Als u op de tegel suiker CRM in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw suiker CRM-toepassing.
+Wanneer u op de tegel suiker CRM in het toegangsvenster, u moet u automatisch aangemeld bij uw suiker CRM-toepassing.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 6e3cec5cc537fcb03df856933e0609d2d037455d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c3a91509238534bed37cfd169c66f37732546bfb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042874"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425116"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envoy"></a>Zelfstudie: Azure Active Directory-integratie met Envoy
 
@@ -53,7 +53,7 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Envoy uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-envoy-from-the-gallery"></a>Envoy uit de galerie toe te voegen
 Voor het configureren van de integratie van Envoy in Azure AD, moet u Envoy uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -64,15 +64,15 @@ Voor het configureren van de integratie van Envoy in Azure AD, moet u Envoy uit 
 
     ![De Azure Active Directory-knop][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![De knop nieuwe toepassing][3]
 
-4. Typ in het zoekvak **Envoy**, selecteer **Envoy** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Typ in het zoekvak **Envoy**, selecteer **Envoy** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Envoy in de lijst met resultaten](./media/envoy-tutorial/tutorial_envoy_addfromgallery.png)
 
@@ -87,10 +87,10 @@ In Envoy, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van
 Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Envoy, u nodig hebt voor de volgende bouwstenen:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker Envoy](#create-an-envoy-test-user)**  : als u wilt een equivalent van Britta Simon in Envoy die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Maak een testgebruiker Envoy](#create-an-envoy-test-user)**  : als u wilt een equivalent van Britta Simon in Envoy die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -102,11 +102,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![In het dialoogvenster voor eenmalige aanmelding](./media/envoy-tutorial/tutorial_envoy_samlbase.png)
 
-3. Op de **Envoy domein en URL's** sectie, voert u de volgende stappen uit:
+1. Op de **Envoy domein en URL's** sectie, voert u de volgende stappen uit:
 
     ![Envoy domein en URL's, eenmalige aanmelding informatie](./media/envoy-tutorial/tutorial_envoy_url.png)
 
@@ -115,33 +115,33 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     > [!NOTE] 
     > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Envoy Client ondersteuningsteam](https://envoy.com/contact/) deze waarde op te halen.
 
-4. Op de **SAML-handtekeningcertificaat** sectie, Kopieer de **VINGERAFDRUK** waarde van het certificaat...
+1. Op de **SAML-handtekeningcertificaat** sectie, Kopieer de **VINGERAFDRUK** waarde van het certificaat...
 
     ![De downloadkoppeling certificaat](./media/envoy-tutorial/tutorial_envoy_certificate.png) 
 
-5. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Configureren van eenmalige aanmelding opslaan](./media/envoy-tutorial/tutorial_general_400.png)
 
-6. Op de **Envoy configuratie** sectie, klikt u op **configureren Envoy** openen **aanmelding configureren** venster. Kopiëren de **Single Sign-On Service URL voor SAML** uit de **Naslaggids sectie.**
+1. Op de **Envoy configuratie** sectie, klikt u op **configureren Envoy** openen **aanmelding configureren** venster. Kopiëren de **Single Sign-On Service URL voor SAML** uit de **Naslaggids sectie.**
 
     ![Envoy configuratie](./media/envoy-tutorial/tutorial_envoy_configure.png)
 
-7. Meld u in een ander browservenster in uw bedrijf Envoy site als beheerder.
+1. Meld u in een ander browservenster in uw bedrijf Envoy site als beheerder.
 
-8. Klik in de werkbalk bovenaan op **instellingen**.
+1. Klik in de werkbalk bovenaan op **instellingen**.
 
     ![Envoy](./media/envoy-tutorial/ic776782.png "Envoy")
 
-9. Klik op **bedrijf**.
+1. Klik op **bedrijf**.
 
     ![Bedrijf](./media/envoy-tutorial/ic776783.png "bedrijf")
 
-10. Klik op **SAML**.
+1. Klik op **SAML**.
 
     ![SAML](./media/envoy-tutorial/ic776784.png "SAML")
 
-11. In de **SAML-verificatie** configuratie sectie, voert u de volgende stappen uit:
+1. In de **SAML-verificatie** configuratie sectie, voert u de volgende stappen uit:
 
     ![SAML-verificatie](./media/envoy-tutorial/ic776785.png "SAML-verificatie")
     
@@ -170,15 +170,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![De Azure Active Directory-knop](./media/envoy-tutorial/create_aaduser_01.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/envoy-tutorial/create_aaduser_02.png)
 
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
     ![De knop toevoegen](./media/envoy-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
     ![Het dialoogvenster gebruiker](./media/envoy-tutorial/create_aaduser_04.png)
 
@@ -206,23 +206,23 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **Envoy**.
+1. Selecteer in de lijst met toepassingen, **Envoy**.
 
     ![De koppeling Envoy in de lijst met toepassingen](./media/envoy-tutorial/tutorial_envoy_app.png)  
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![De koppeling 'Gebruikers en groepen'][202]
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -234,7 +234,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 

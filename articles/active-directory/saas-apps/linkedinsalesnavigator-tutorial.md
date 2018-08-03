@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: 1df301e197c90970aa1e73620f94f977ecd34ba0
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f0e34a614251cf11c9547d749fef58dfa8ca623a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39046903"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425194"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-sales-navigator"></a>Zelfstudie: Azure Active Directory-integratie met LinkedIn Sales Navigator
 
@@ -52,7 +52,7 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. LinkedIn Sales Navigator uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-linkedin-sales-navigator-from-the-gallery"></a>LinkedIn Sales Navigator uit de galerie toe te voegen
 Voor het configureren van de integratie van LinkedIn Sales Navigator in Azure AD, moet u LinkedIn Sales Navigator uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -63,19 +63,19 @@ Voor het configureren van de integratie van LinkedIn Sales Navigator in Azure AD
 
     ![Active Directory][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Klik op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Klik op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **LinkedIn Sales Navigator**.
+1. Typ in het zoekvak **LinkedIn Sales Navigator**.
 
     ![Het maken van een Azure AD-testgebruiker](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_search.png)
 
-5. Selecteer in het deelvenster resultaten **LinkedIn Sales Navigator**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Selecteer in het deelvenster resultaten **LinkedIn Sales Navigator**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Het maken van een Azure AD-testgebruiker](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Deze relatie koppeling tot stand is gebracht door toe te wijzen de waarde van de
 Om te configureren en testen van Azure AD eenmalige aanmelding met LinkedIn Sales Navigator, moet u de volgende bouwstenen voltooien:
 
 1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Het maken van een testgebruiker LinkedIn Sales Navigator](#creating-a-linkedin-sales-navigator-test-user)**  : als u wilt een equivalent van Britta Simon in LinkedIn Sales Navigator die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Het maken van een testgebruiker LinkedIn Sales Navigator](#creating-a-linkedin-sales-navigator-test-user)**  : als u wilt een equivalent van Britta Simon in LinkedIn Sales Navigator die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -104,21 +104,21 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster in **modus** Selecteer **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster in **modus** Selecteer **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_samlbase.png)
 
-3. In een ander browservenster aanmelden voor uw **LinkedIn Sales Navigator** website als beheerder.
+1. In een ander browservenster aanmelden voor uw **LinkedIn Sales Navigator** website als beheerder.
 
-4. In **Accountcentrum**, klikt u op **globale instellingen** onder **instellingen**. Schakel ook **Sales Navigator** in de vervolgkeuzelijst.
+1. In **Accountcentrum**, klikt u op **globale instellingen** onder **instellingen**. Schakel ook **Sales Navigator** in de vervolgkeuzelijst.
 
     ![Eenmalige aanmelding configureren](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_01.png)
 
-5. Klik op **of Klik hier om te laden en kopiëren van afzonderlijke velden van het formulier** en kopieert u **entiteit-Id** en **Assertion Consumer Access (ACS) Url**.
+1. Klik op **of Klik hier om te laden en kopiëren van afzonderlijke velden van het formulier** en kopieert u **entiteit-Id** en **Assertion Consumer Access (ACS) Url**.
 
     ![Eenmalige aanmelding configureren](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_031.png)
 
-6. In Azure portal onder **LinkedIn Sales Navigator domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart.
+1. In Azure portal onder **LinkedIn Sales Navigator domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart.
 
     ![Eenmalige aanmelding configureren](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url1.png)
 
@@ -126,17 +126,17 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     b. In de **antwoord-URL** tekstvak, voer de **Assertion Consumer Access (ACS) Url** opgehaald uit de LinkedIn-Portal
 
-7. Controleer **geavanceerde URL-instellingen weergeven**, als u wilt configureren van de toepassing in **SP** modus gestart.
+1. Controleer **geavanceerde URL-instellingen weergeven**, als u wilt configureren van de toepassing in **SP** modus gestart.
 
     ![Eenmalige aanmelding configureren](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_url2.png)
 
     In de **aanmeldings-URL** tekstvak typt u de waarde met behulp van het volgende patroon: `https://www.linkedin.com/checkpoint/enterprise/login/<account id>?application=salesNavigator`
 
-8. Uw **LinkedIn Sales Navigator** toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. De volgende Schermafbeelding toont een voorbeeld. De standaardwaarde van **gebruikers-id** is **user.userprincipalname** maar LinkedIn Sales Navigator wordt verwacht dat wordt toegewezen met de e-mailadres van de gebruiker. U kunt **user.mail** kenmerk in de lijst of gebruik de waarde van het juiste kenmerk op basis van de organisatieconfiguratie van uw. 
+1. Uw **LinkedIn Sales Navigator** toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling, waarvoor u aangepaste kenmerktoewijzingen toevoegen aan de configuratie van de SAML-token kenmerken. De volgende Schermafbeelding toont een voorbeeld. De standaardwaarde van **gebruikers-id** is **user.userprincipalname** maar LinkedIn Sales Navigator wordt verwacht dat wordt toegewezen met de e-mailadres van de gebruiker. U kunt **user.mail** kenmerk in de lijst of gebruik de waarde van het juiste kenmerk op basis van de organisatieconfiguratie van uw. 
 
     ![Eenmalige aanmelding configureren](./media/linkedinsalesnavigator-tutorial/updateusermail.png)
     
-9. In **gebruikerskenmerken** sectie, klikt u op **weergeven en bewerken van alle andere gebruikerskenmerken** en de kenmerken instellen. De gebruiker nodig heeft om toe te voegen vier claims met de naam **e**, **afdeling**, **firstname**, en **lastname** en de waarde moet worden toegewezen met **user.mail**, **user.department**, **user.givenname**, en **user.surname** respectievelijk
+1. In **gebruikerskenmerken** sectie, klikt u op **weergeven en bewerken van alle andere gebruikerskenmerken** en de kenmerken instellen. De gebruiker nodig heeft om toe te voegen vier claims met de naam **e**, **afdeling**, **firstname**, en **lastname** en de waarde moet worden toegewezen met **user.mail**, **user.department**, **user.givenname**, en **user.surname** respectievelijk
 
     | Naam kenmerk | Waarde kenmerk |
     | --- | --- |    
@@ -159,7 +159,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     
     d. Klik op **Ok**
 
-10. Voer de volgende stappen uit op de **naam** kenmerk -
+1. Voer de volgende stappen uit op de **naam** kenmerk -
 
     a. Klik op het kenmerk te openen de **kenmerk bewerken** venster.
 
@@ -169,19 +169,19 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     
     c. Klik op **Ok** om op te slaan van de instelling.
 
-11. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het XML-bestand op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het XML-bestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_certificate.png) 
 
-12. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/linkedinsalesnavigator-tutorial/tutorial_general_400.png)
 
-13. Ga naar **LinkedIn beheerdersinstellingen** sectie. Klik op **uploaden XML-bestand** voor het uploaden van de Metadata-XML-bestand dat u hebt gedownload vanuit Azure portal.
+1. Ga naar **LinkedIn beheerdersinstellingen** sectie. Klik op **uploaden XML-bestand** voor het uploaden van de Metadata-XML-bestand dat u hebt gedownload vanuit Azure portal.
 
     ![Eenmalige aanmelding configureren](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_metadata_03.png)
 
-14. Klik op **op** SSO inschakelen. SSO-status verandert van **niet verbonden** naar **verbonden**
+1. Klik op **op** SSO inschakelen. SSO-status verandert van **niet verbonden** naar **verbonden**
 
     ![Eenmalige aanmelding configureren](./media/linkedinsalesnavigator-tutorial/tutorial_linkedin_admin_05.png)
 
@@ -201,15 +201,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![Het maken van een Azure AD-testgebruiker](./media/linkedinsalesnavigator-tutorial/create_aaduser_01.png) 
 
-2. Ga naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
+1. Ga naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
     ![Het maken van een Azure AD-testgebruiker](./media/linkedinsalesnavigator-tutorial/create_aaduser_02.png) 
 
-3. Aan de bovenkant van het dialoogvenster klikt u op **toevoegen** openen de **gebruiker** dialoogvenster.
+1. Aan de bovenkant van het dialoogvenster klikt u op **toevoegen** openen de **gebruiker** dialoogvenster.
  
     ![Het maken van een Azure AD-testgebruiker](./media/linkedinsalesnavigator-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
     ![Het maken van een Azure AD-testgebruiker](./media/linkedinsalesnavigator-tutorial/create_aaduser_04.png) 
 
@@ -239,23 +239,23 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **LinkedIn Sales Navigator**.
+1. Selecteer in de lijst met toepassingen, **LinkedIn Sales Navigator**.
 
     ![Eenmalige aanmelding configureren](./media/linkedinsalesnavigator-tutorial/tutorial_linkedinsalesnavigator_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -266,7 +266,7 @@ Wanneer u op de tegel LinkedIn Sales Navigator in het toegangsvenster, moet u wo
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 

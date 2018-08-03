@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 0d717c9a70d078300b59a4e3fd6df08e971e8075
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 92ff93f9836b1ab8157602569c8171f81b976d6f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042959"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422668"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Zelfstudie: Azure Active Directory-integratie met Jobscience
 
@@ -52,7 +52,7 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Jobscience uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-jobscience-from-the-gallery"></a>Jobscience uit de galerie toe te voegen
 Voor het configureren van de integratie van Jobscience in Azure AD, moet u Jobscience uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -63,19 +63,19 @@ Voor het configureren van de integratie van Jobscience in Azure AD, moet u Jobsc
 
     ![Active Directory][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **Jobscience**.
+1. Typ in het zoekvak **Jobscience**.
 
     ![Het maken van een Azure AD-testgebruiker](./media/jobscience-tutorial/tutorial_jobscience_search.png)
 
-5. Selecteer in het deelvenster resultaten **Jobscience**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Selecteer in het deelvenster resultaten **Jobscience**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Het maken van een Azure AD-testgebruiker](./media/jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
 
@@ -89,10 +89,10 @@ In Jobscience, wijs de waarde van de **gebruikersnaam** in Azure AD als de waard
 Om te configureren en testen van Azure AD eenmalige aanmelding met Jobscience, moet u de volgende bouwstenen voltooien:
 
 1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Het maken van een testgebruiker Jobscience](#creating-a-jobscience-test-user)**  : als u wilt een equivalent van Britta Simon in Jobscience die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Het maken van een testgebruiker Jobscience](#creating-a-jobscience-test-user)**  : als u wilt een equivalent van Britta Simon in Jobscience die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -104,11 +104,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/jobscience-tutorial/tutorial_jobscience_samlbase.png)
 
-3. Op de **Jobscience domein en URL's** sectie, voert u de volgende stappen uit:
+1. Op de **Jobscience domein en URL's** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/jobscience-tutorial/tutorial_jobscience_url.png)
 
@@ -117,37 +117,37 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     > [!NOTE] 
     > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Deze waarde krijgen door [Jobscience Client ondersteuningsteam](https://www.jobscience.com/support) of van het profiel voor eenmalige aanmelding wordt u maken die later in de zelfstudie wordt uitgelegd. 
  
-4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/jobscience-tutorial/tutorial_jobscience_certificate.png) 
 
-5. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/jobscience-tutorial/tutorial_general_400.png)
 
-6. Op de **Jobscience configuratie** sectie, klikt u op **configureren Jobscience** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+1. Op de **Jobscience configuratie** sectie, klikt u op **configureren Jobscience** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 
     ![Eenmalige aanmelding configureren](./media/jobscience-tutorial/tutorial_jobscience_configure.png) 
 
-7. Meld u aan bij uw bedrijf Jobscience site aan als beheerder.
+1. Meld u aan bij uw bedrijf Jobscience site aan als beheerder.
 
-8. Ga naar **Setup**.
+1. Ga naar **Setup**.
    
    ![Setup](./media/jobscience-tutorial/IC784358.png "Setup")
 
-9. In het navigatiedeelvenster links in de **beheren** sectie, klikt u op **domeinbeheer** de gerelateerde sectie uitvouwen en klik vervolgens op **mijn domein** openen de **Mijn domein** pagina. 
+1. In het navigatiedeelvenster links in de **beheren** sectie, klikt u op **domeinbeheer** de gerelateerde sectie uitvouwen en klik vervolgens op **mijn domein** openen de **Mijn domein** pagina. 
    
    ![Mijn domein](./media/jobscience-tutorial/ic767825.png "mijn domein")
 
-10. Om te bevestigen dat uw domein correct is ingesteld, zorg ervoor dat deze zich op "**stap 4 geïmplementeerd naar gebruikers**' en bekijk uw"**mijn domeininstellingen**'.
+1. Om te bevestigen dat uw domein correct is ingesteld, zorg ervoor dat deze zich op "**stap 4 geïmplementeerd naar gebruikers**' en bekijk uw"**mijn domeininstellingen**'.
 
     ![Domein geïmplementeerd voor gebruiker](./media/jobscience-tutorial/ic784377.png "domein geïmplementeerd voor gebruiker")
 
-11. Klik op de site van het bedrijf Jobscience **beveiligingsmechanismen**, en klik vervolgens op **instellingen voor eenmalige aanmelding**.
+1. Klik op de site van het bedrijf Jobscience **beveiligingsmechanismen**, en klik vervolgens op **instellingen voor eenmalige aanmelding**.
     
     ![Beveiligingscontroles](./media/jobscience-tutorial/ic784364.png "beveiligingscontroles")
 
-12. In de **instellingen voor eenmalige aanmelding** sectie, voert u de volgende stappen uit:
+1. In de **instellingen voor eenmalige aanmelding** sectie, voert u de volgende stappen uit:
     
     ![Single Sign-On instellingen](./media/jobscience-tutorial/ic781026.png "Single Sign-On-instellingen")
     
@@ -155,7 +155,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     b. Klik op **Nieuw**.
 
-13. Op de **SAML Single Sign-On instelling bewerken** dialoogvenster, voer de volgende stappen uit:
+1. Op de **SAML Single Sign-On instelling bewerken** dialoogvenster, voer de volgende stappen uit:
     
     ![Eenmalige SAML-aanmelding instelling](./media/jobscience-tutorial/ic784365.png "eenmalige SAML-aanmelding instellen")
     
@@ -177,19 +177,19 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     i. Klik op **Opslaan**.
 
-14. In het navigatiedeelvenster links in de **beheren** sectie, klikt u op **domeinbeheer** de gerelateerde sectie uitvouwen en klik vervolgens op **mijn domein** openen de **Mijn domein** pagina. 
+1. In het navigatiedeelvenster links in de **beheren** sectie, klikt u op **domeinbeheer** de gerelateerde sectie uitvouwen en klik vervolgens op **mijn domein** openen de **Mijn domein** pagina. 
     
     ![Mijn domein](./media/jobscience-tutorial/ic767825.png "mijn domein")
 
-15. Op de **mijn domein** pagina, in de **aanmelden pagina huisstijl** sectie, klikt u op **bewerken**.
+1. Op de **mijn domein** pagina, in de **aanmelden pagina huisstijl** sectie, klikt u op **bewerken**.
     
     ![Aanmeldingspagina huisstijl](./media/jobscience-tutorial/ic767826.png "aanmeldingspagina huisstijl")
 
-16. Op de **aanmelden pagina huisstijl** pagina, in de **verificatieservice** sectie, de naam van uw **SAML SSO-instellingen** wordt weergegeven. Selecteer deze en klik vervolgens op **opslaan**.
+1. Op de **aanmelden pagina huisstijl** pagina, in de **verificatieservice** sectie, de naam van uw **SAML SSO-instellingen** wordt weergegeven. Selecteer deze en klik vervolgens op **opslaan**.
     
     ![Aanmeldingspagina huisstijl](./media/jobscience-tutorial/ic784366.png "aanmeldingspagina huisstijl")
 
-17. Gestart om op te halen van de Serviceprovider eenmalige aanmelding bij klikken op de aanmeldings-URL op de **instellingen voor eenmalige aanmelding** in de **beveiligingsmechanismen** sectie menu.
+1. Gestart om op te halen van de Serviceprovider eenmalige aanmelding bij klikken op de aanmeldings-URL op de **instellingen voor eenmalige aanmelding** in de **beveiligingsmechanismen** sectie menu.
 
     ![Beveiligingscontroles](./media/jobscience-tutorial/ic784368.png "beveiligingscontroles")
     
@@ -210,15 +210,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![Het maken van een Azure AD-testgebruiker](./media/jobscience-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
     ![Het maken van een Azure AD-testgebruiker](./media/jobscience-tutorial/create_aaduser_02.png) 
 
-3. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
     ![Het maken van een Azure AD-testgebruiker](./media/jobscience-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
     ![Het maken van een Azure AD-testgebruiker](./media/jobscience-tutorial/create_aaduser_04.png) 
 
@@ -242,16 +242,16 @@ Als u wilt dat Azure AD-gebruikers zich aanmelden bij Jobscience, moeten ze word
 
 1. Meld u aan bij uw **Jobscience** bedrijf site als administrator.
 
-2. Ga naar instellingen.
+1. Ga naar instellingen.
    
    ![Setup](./media/jobscience-tutorial/ic784358.png "Setup")
-3. Ga naar **gebruikers beheren \> gebruikers**.
+1. Ga naar **gebruikers beheren \> gebruikers**.
    
    ![Gebruikers](./media/jobscience-tutorial/ic784369.png "gebruikers")
-4. Klik op **nieuwe gebruiker**.
+1. Klik op **nieuwe gebruiker**.
    
    ![Alle gebruikers](./media/jobscience-tutorial/ic784370.png "alle gebruikers")
-5. Op de **gebruiker bewerken** dialoogvenster, voer de volgende stappen uit:
+1. Op de **gebruiker bewerken** dialoogvenster, voer de volgende stappen uit:
    
    ![Gebruiker bewerken](./media/jobscience-tutorial/ic784371.png "gebruiker bewerken")
    
@@ -285,23 +285,23 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **Jobscience**.
+1. Selecteer in de lijst met toepassingen, **Jobscience**.
 
     ![Eenmalige aanmelding configureren](./media/jobscience-tutorial/tutorial_jobscience_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -313,7 +313,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->
 

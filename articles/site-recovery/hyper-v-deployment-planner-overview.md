@@ -9,12 +9,12 @@ ms.workload: storage-backup-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 120c78d9adb83ca58ae61700ae70d07ead42ebd0
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 9981db7e2994b9a4f20f99f4997a89b0368d343c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226557"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423671"
 ---
 # <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Site Recovery Deployment Planner voor Hyper-V naar Azure
 
@@ -96,7 +96,7 @@ Het hulpprogramma heeft drie belangrijke fasen voor Hyper-V: lijst ophalen met d
 
             set-item wsman:\localhost\Client\TrustedHosts -value '<ComputerName>[,<ComputerName>]' -Concatenate
 
-2.  Elke Hyper-V-Host die moet worden geprofileerd dient te beschikken over:
+1.  Elke Hyper-V-Host die moet worden geprofileerd dient te beschikken over:
 
     a. De virtuele machine waarop het hulpprogramma moet worden uitgevoerd in de lijst met TrustedHosts. Voer de volgende opdracht uit vanuit een PowerShell-sessie met verhoogde bevoegdheden op de Hyper-V-host.
 
@@ -111,10 +111,10 @@ Het hulpprogramma heeft drie belangrijke fasen voor Hyper-V: lijst ophalen met d
 1.  Download de nieuwste versie van de [Azure Site Recovery-implementatieplanner](https://aka.ms/asr-deployment-planner).
 Het hulpprogramma bevindt zich in een gecomprimeerde map. Hetzelfde hulpprogramma ondersteunt zowel VMware naar Azure als Hyper-V naar Azure herstel na noodgevallen. U kunt dit hulpprogramma ook gebruiken voor een Hyper-V-naar secundaire site noodherstelscenario maar negeer dan de infrastructuuradviezen voor Azure uit het rapport.
 
-2.  Kopieer de ZIP-map naar de Windows-server waarop u het hulpprogramma wilt uitvoeren. U kunt het hulpprogramma uitvoeren op een Windows Server 2012 R2 of Windows Server 2016. De server moet toegang tot het netwerk hebben om verbinding te kunnen maken met het Hyper-V-cluster of de Hyper-V-host met de virtuele machines die moeten worden geprofileerd. We raden dezelfde hardwareconfiguratie op de virtuele machine waar het hulpprogramma wordt uitgevoerd, als op die van de Hyper-V-server, die u wilt beveiligen. Een dergelijke configuratie zorgt ervoor dat de behaalde doorvoer die het hulpprogramma aangeeft, overeenkomt met de werkelijke doorvoer die Azure Site Recovery kan bereiken tijdens replicatie. De berekening van de doorvoer is afhankelijk van de beschikbare netwerkbandbreedte op de server en de hardwareconfiguratie van de server (CPU, opslag, enzovoort). De doorvoer wordt berekend door de server waarop het hulpprogramma wordt uitgevoerd naar Azure. Aangezien de hardwareconfiguratie van de server kan verschillen van die van de configuratieserver, is het bovendien mogelijk dat de berekende doorvoer onjuist is.
+1.  Kopieer de ZIP-map naar de Windows-server waarop u het hulpprogramma wilt uitvoeren. U kunt het hulpprogramma uitvoeren op een Windows Server 2012 R2 of Windows Server 2016. De server moet toegang tot het netwerk hebben om verbinding te kunnen maken met het Hyper-V-cluster of de Hyper-V-host met de virtuele machines die moeten worden geprofileerd. We raden dezelfde hardwareconfiguratie op de virtuele machine waar het hulpprogramma wordt uitgevoerd, als op die van de Hyper-V-server, die u wilt beveiligen. Een dergelijke configuratie zorgt ervoor dat de behaalde doorvoer die het hulpprogramma aangeeft, overeenkomt met de werkelijke doorvoer die Azure Site Recovery kan bereiken tijdens replicatie. De berekening van de doorvoer is afhankelijk van de beschikbare netwerkbandbreedte op de server en de hardwareconfiguratie van de server (CPU, opslag, enzovoort). De doorvoer wordt berekend door de server waarop het hulpprogramma wordt uitgevoerd naar Azure. Aangezien de hardwareconfiguratie van de server kan verschillen van die van de configuratieserver, is het bovendien mogelijk dat de berekende doorvoer onjuist is.
 De aanbevolen configuratie van de virtuele machine: 8 Vcpu, 16 GB RAM-geheugen, 300 GB harde schijf.
 
-3.  Pak de gecomprimeerde map uit.
+1.  Pak de gecomprimeerde map uit.
 De map bevat meerdere bestanden en submappen. Het uitvoerbare bestand is ASRDeploymentPlanner.exe in de map op het hoogste niveau.
 
 Voorbeeld: kopieer het ZIP-bestand naar station E:\ en pak het uit. E:\ASR Deployment Planner_v2.2.zip

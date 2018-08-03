@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 98ddd26bce7a8e2741db4f8e064a1b5bf2b6bed5
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: d45712a94a6a2eb18088c99d7175b73b29e62ce3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865855"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428397"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-the-funding-portal"></a>Zelfstudie: Azure Active Directory-integratie met de financiering Portal
 
@@ -52,7 +52,7 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. De financiering Portal uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-the-funding-portal-from-the-gallery"></a>De financiering Portal uit de galerie toe te voegen
 Voor het configureren van de integratie van de financiering Portal in Azure AD, moet u de financiering Portal vanuit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -63,19 +63,19 @@ Voor het configureren van de integratie van de financiering Portal in Azure AD, 
 
     ![Active Directory][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **de financiering Portal**.
+1. Typ in het zoekvak **de financiering Portal**.
 
     ![Het maken van een Azure AD-testgebruiker](./media/thefundingportal-tutorial/tutorial_thefundingportal_search.png)
 
-5. Selecteer in het deelvenster resultaten **de financiering Portal**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Selecteer in het deelvenster resultaten **de financiering Portal**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Het maken van een Azure AD-testgebruiker](./media/thefundingportal-tutorial/tutorial_thefundingportal_addfromgallery.png)
 
@@ -89,10 +89,10 @@ In de Portal voor financiering, wijs de waarde van de **gebruikersnaam** in Azur
 Om te configureren en testen van Azure AD eenmalige aanmelding met de financiering Portal, moet u de volgende bouwstenen voltooien:
 
 1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Het maken van de Portal financiering testgebruiker](#creating-the-funding-portal-test-user)**  : als u wilt een equivalent van Britta Simon hebben in de Portal financiering die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Het maken van de Portal financiering testgebruiker](#creating-the-funding-portal-test-user)**  : als u wilt een equivalent van Britta Simon hebben in de Portal financiering die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -104,11 +104,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/thefundingportal-tutorial/tutorial_thefundingportal_samlbase.png)
 
-3. Op de **Portal van de financiering domein en URL's** sectie, voert u de volgende stappen uit:
+1. Op de **Portal van de financiering domein en URL's** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/thefundingportal-tutorial/tutorial_thefundingportal_url.png)
 
@@ -119,11 +119,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     > [!NOTE] 
     > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [de financiering Portal Client ondersteuningsteam](mailto:info@regenteducation.com) om deze waarden te verkrijgen. 
 
-4. De toepassing financiering Portal wordt verwacht dat de SAML-asserties ondertekend bevat een kenmerk met de naam 'externalId1'. De waarde van 'externalId1' moet een herkende studentID. Configureer de claim 'externalId1' voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de **gebruikerskenmerken** van de toepassing. De volgende Schermafbeelding toont een voorbeeld voor deze.
+1. De toepassing financiering Portal wordt verwacht dat de SAML-asserties ondertekend bevat een kenmerk met de naam 'externalId1'. De waarde van 'externalId1' moet een herkende studentID. Configureer de claim 'externalId1' voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de **gebruikerskenmerken** van de toepassing. De volgende Schermafbeelding toont een voorbeeld voor deze.
 
     ![Eenmalige aanmelding configureren](./media/thefundingportal-tutorial/tutorial_thefundingportal_attribute.png)
 
-5. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding en voer de volgende stappen uit:
+1. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de afbeelding en voer de volgende stappen uit:
 
     | Naam kenmerk | Waarde kenmerk |
     | ------------------- | ---------------- |
@@ -141,15 +141,15 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     
     d. Klik op **OK**.
  
-6. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/thefundingportal-tutorial/tutorial_thefundingportal_certificate.png) 
 
-7. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/thefundingportal-tutorial/tutorial_general_400.png)
 
-8. Het configureren van eenmalige aanmelding op **de financiering Portal** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [de financiering Portal ondersteuningsteam](mailto:info@regenteducation.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+1. Het configureren van eenmalige aanmelding op **de financiering Portal** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [de financiering Portal ondersteuningsteam](mailto:info@regenteducation.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -166,15 +166,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![Het maken van een Azure AD-testgebruiker](./media/thefundingportal-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
     ![Het maken van een Azure AD-testgebruiker](./media/thefundingportal-tutorial/create_aaduser_02.png) 
 
-3. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
     ![Het maken van een Azure AD-testgebruiker](./media/thefundingportal-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
     ![Het maken van een Azure AD-testgebruiker](./media/thefundingportal-tutorial/create_aaduser_04.png) 
 
@@ -202,23 +202,23 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **de financiering Portal**.
+1. Selecteer in de lijst met toepassingen, **de financiering Portal**.
 
     ![Eenmalige aanmelding configureren](./media/thefundingportal-tutorial/tutorial_thefundingportal_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -229,7 +229,7 @@ Wanneer u op de financiering Portal-tegel in het toegangsvenster, u moet u autom
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 07/13/2018
 ms.author: mbullwin
-ms.openlocfilehash: e4712b94be94eb6d4cf363fc120b72c74f29f0a2
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 52f0e6c90aa9fa0dc439eae3801b2d4ac29387a9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059660"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429677"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profiel live Azure-web-apps met Application Insights
 
@@ -33,15 +33,15 @@ Profiler is op dit moment werkt voor ASP.NET en ASP.NET Core web-apps die worden
 Wanneer u een Web-App hebt geïmplementeerd, ongeacht als u de App Insights-SDK in de broncode opgenomen, het volgende doen:
 
 1. Ga naar de **App Services** deelvenster in de Azure-portal.
-2. Navigeer naar **instellingen > controle** deelvenster.
+1. Navigeer naar **instellingen > controle** deelvenster.
 
    ![App Insights inschakelen in App Services-portal](./media/app-insights-profiler/AppInsights-AppServices.png)
 
-3. Ofwel de instructies in het deelvenster te maken van een nieuwe resource of Selecteer een bestaande App Insights-resource voor het bewaken van uw web-app. Accepteer alle standaardopties. **Gegevens op codeniveau** is standaard ingeschakeld en kunt u Profiler.
+1. Ofwel de instructies in het deelvenster te maken van een nieuwe resource of Selecteer een bestaande App Insights-resource voor het bewaken van uw web-app. Accepteer alle standaardopties. **Gegevens op codeniveau** is standaard ingeschakeld en kunt u Profiler.
 
    ![App Insights-site-extensie toevoegen][Enablement UI]
 
-4. Profiler is nu geïnstalleerd met de App Insights-site-extensie en is ingeschakeld met behulp van een App-instelling van de App-Services.
+1. Profiler is nu geïnstalleerd met de App Insights-site-extensie en is ingeschakeld met behulp van een App-instelling van de App-Services.
 
     ![App-instelling voor Profiler][profiler-app-setting]
 
@@ -214,14 +214,14 @@ Deze parameters Verwijder de map die wordt gebruikt door Application Insights Pr
 Als u Profiler configureert, zijn er updates naar de web-app-instellingen. U kunt de updates handmatig toepassen als uw omgeving vereist. Een voorbeeld is mogelijk dat uw toepassing wordt uitgevoerd in een omgeving met Web-Apps voor PowerApps.
 
 1. In de **Web App-beheer** geopend deelvenster **instellingen**.
-2. Stel **.Net Framework-versie** naar **v4.6**.
-3. Stel **AlwaysOn** naar **op**.
-4. Voeg de **APPINSIGHTS_INSTRUMENTATIONKEY** app instellen en stel de waarde in op de dezelfde instrumentatiesleutel die wordt gebruikt door de SDK.
-5. Open **geavanceerde hulpmiddelen**.
-6. Selecteer **gaat** openen van de Kudu-website.
-7. Selecteer op de website Kudu **Site-extensies**.
-8. Installeer **Application Insights** uit de galerie met Azure Web Apps.
-9. Start opnieuw op de web-app.
+1. Stel **.Net Framework-versie** naar **v4.6**.
+1. Stel **AlwaysOn** naar **op**.
+1. Voeg de **APPINSIGHTS_INSTRUMENTATIONKEY** app instellen en stel de waarde in op de dezelfde instrumentatiesleutel die wordt gebruikt door de SDK.
+1. Open **geavanceerde hulpmiddelen**.
+1. Selecteer **gaat** openen van de Kudu-website.
+1. Selecteer op de website Kudu **Site-extensies**.
+1. Installeer **Application Insights** uit de galerie met Azure Web Apps.
+1. Start opnieuw op de web-app.
 
 ## <a id="profileondemand"></a> Profiler handmatig activeren
 
@@ -272,7 +272,7 @@ Er zijn twee redenen waarom u deze fout ziet:
 
 1. De sessie op aanvraag profiler is voltooid, maar de Application Insights duurde langer om de verzamelde gegevens te verwerken. Als gegevens niet worden verwerkt in 15 minuten is voltooid, wordt een time-out-bericht weergegeven in de portal. Hoewel het na enige tijd, worden Profiler-traceringen weergegeven. Als dit het geval is, alleen kunt negeren het foutbericht voor nu. We werken actief aan een oplossing
 
-2. Uw web-app heeft een oudere versie van Profiler-agent die beschikt niet over de functie op aanvraag. Als u Application Insights-profiel eerder ingeschakeld, is het waarschijnlijk moet u bijwerken van uw Profiler-agent te starten met behulp van de capaciteit op aanvraag.
+1. Uw web-app heeft een oudere versie van Profiler-agent die beschikt niet over de functie op aanvraag. Als u Application Insights-profiel eerder ingeschakeld, is het waarschijnlijk moet u bijwerken van uw Profiler-agent te starten met behulp van de capaciteit op aanvraag.
   
 Volg deze stappen om te controleren en installeren van de meest recente Profiler:
 
@@ -281,25 +281,25 @@ Volg deze stappen om te controleren en installeren van de meest recente Profiler
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0 als een van deze instellingen niet zijn ingesteld, gaat u naar het deelvenster voor het inschakelen van Application Insights voor het installeren van de recentste site-extensie.
 
-2. Ga naar Application Insights-venster in App Services-portal.
+1. Ga naar Application Insights-venster in App Services-portal.
 
     ![Application Insights inschakelen vanuit de portal voor App Services][enable-app-insights]
 
-3. Als u een knop 'Update' in de volgende pagina ziet, klikt u erop om bij te werken van Application Insights-extensie voor site die de meest recente Profiler-agent wordt geïnstalleerd.
+1. Als u een knop 'Update' in de volgende pagina ziet, klikt u erop om bij te werken van Application Insights-extensie voor site die de meest recente Profiler-agent wordt geïnstalleerd.
 ![Update-site-uitbreiding][update-site-extension]
 
-4. Klik vervolgens op **wijzigen** om te zorgen dat de Profiler is ingeschakeld en selecteer **OK** de wijzigingen op te slaan.
+1. Klik vervolgens op **wijzigen** om te zorgen dat de Profiler is ingeschakeld en selecteer **OK** de wijzigingen op te slaan.
 
     ![Wijzigen en opslaan van app insights][change-and-save-appinsights]
 
-5. Ga terug naar **App-instellingen** tabblad voor de App Service om te controleren van de volgende items voor de app-instellingen zijn ingesteld:
+1. Ga terug naar **App-instellingen** tabblad voor de App Service om te controleren van de volgende items voor de app-instellingen zijn ingesteld:
     * **APPINSIGHTS_INSTRUMENTATIONKEY**: vervangen door de juiste instrumentatiesleutel voor application insights.
     * **APPINSIGHTS_PORTALINFO**: ASP.NET
     * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
     ![App-instellingen voor profiler][app-settings-for-profiler]
 
-6. (Optioneel) Controleer de versie van de extensie en ervoor te zorgen dat er is geen update beschikbaar.
+1. (Optioneel) Controleer de versie van de extensie en ervoor te zorgen dat er is geen update beschikbaar.
 
     ![selectievakje voor het bijwerken van de extensie][check-for-extension-update]
 

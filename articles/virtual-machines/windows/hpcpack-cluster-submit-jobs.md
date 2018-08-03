@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: c4fd48e40eb4f03daf4bcb7e3b7d6794880799cf
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: f2cf26bc9f980729e74c4a4e0b4e3f4b311fd754
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036486"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421131"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>HPC-taken vanaf een on-premises computer verzenden naar een HPC Pack-cluster die in Azure is geïmplementeerd
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -47,34 +47,34 @@ Zie voor gedetailleerde procedures [de webonderdelen van Microsoft HPC Pack inst
 **Voor het installeren van de webonderdelen**
 
 1. Verbinding maken met het hoofdknooppunt VM met behulp van de referenties van de Clusterbeheerder van een.
-2. Vanuit de installatiemap van HPC Pack HpcWebComponents.msi worden uitgevoerd op het hoofdknooppunt.
-3. Volg de stappen in de wizard voor het installeren van de webonderdelen
+1. Vanuit de installatiemap van HPC Pack HpcWebComponents.msi worden uitgevoerd op het hoofdknooppunt.
+1. Volg de stappen in de wizard voor het installeren van de webonderdelen
 
 **Het configureren van de webonderdelen**
 
 1. Start op het hoofdknooppunt HPC PowerShell als beheerder.
-2. Als u de map naar de locatie van het configuratiescript, typ de volgende opdracht:
+1. Als u de map naar de locatie van het configuratiescript, typ de volgende opdracht:
    
     ```powershell
     cd $env:CCP_HOME\bin
     ```
-3. Voor het configureren van de REST-interface en de HPC-webservice starten, typt u de volgende opdracht:
+1. Voor het configureren van de REST-interface en de HPC-webservice starten, typt u de volgende opdracht:
    
     ```powershell
     .\Set-HPCWebComponents.ps1 –Service REST –enable
     ```
-4. Wanneer u hierom wordt gevraagd om een certificaat te selecteren, kiest u het certificaat dat overeenkomt met de openbare DNS-naam van het hoofdknooppunt. Bijvoorbeeld, als u het hoofdknooppunt VM met het klassieke implementatiemodel implementeert, naam van het certificaat ziet eruit als CN =&lt;*HeadNodeDnsName*&gt;. cloudapp.net. Als u de Resource Manager-implementatiemodel, naam van het certificaat ziet eruit als CN =&lt;*HeadNodeDnsName*&gt;.&lt; *regio*&gt;. cloudapp.azure.com.
+1. Wanneer u hierom wordt gevraagd om een certificaat te selecteren, kiest u het certificaat dat overeenkomt met de openbare DNS-naam van het hoofdknooppunt. Bijvoorbeeld, als u het hoofdknooppunt VM met het klassieke implementatiemodel implementeert, naam van het certificaat ziet eruit als CN =&lt;*HeadNodeDnsName*&gt;. cloudapp.net. Als u de Resource Manager-implementatiemodel, naam van het certificaat ziet eruit als CN =&lt;*HeadNodeDnsName*&gt;.&lt; *regio*&gt;. cloudapp.azure.com.
    
    > [!NOTE]
    > U selecteert dit certificaat later bij het verzenden van taken met het hoofdknooppunt van een on-premises computer. Geen selecteren of een certificaat dat overeenkomt met de naam van de computer van het hoofdknooppunt in Active Directory-domein configureren (bijvoorbeeld: CN =*MyHPCHeadNode.HpcAzure.local*).
    > 
    > 
-5. Voor het configureren van de web-portal voor het verzenden van taken, typ de volgende opdracht:
+1. Voor het configureren van de web-portal voor het verzenden van taken, typ de volgende opdracht:
    
     ```powershell
     .\Set-HPCWebComponents.ps1 –Service Portal -enable
     ```
-6. Nadat het script is voltooid, stoppen en opnieuw opstarten van de HPC Job Scheduler-Service door de volgende opdrachten te typen:
+1. Nadat het script is voltooid, stoppen en opnieuw opstarten van de HPC Job Scheduler-Service door de volgende opdrachten te typen:
    
     ```powershell
     net stop hpcscheduler
@@ -89,18 +89,18 @@ Als u de clienthulpprogramma's van HPC Pack wilt verzenden van taken naar het ho
 **Het certificaat exporteren van het hoofdknooppunt**
 
 1. De module Certificaten aan een Microsoft Management Console voor het account lokale Computer toevoegen op het hoofdknooppunt. Zie voor stappen om toe te voegen de module [de module Certificaten toevoegen aan een MMC](https://technet.microsoft.com/library/cc754431.aspx).
-2. Vouw in de consolestructuur **certificaten-lokale Computer** > **persoonlijke**, en klik vervolgens op **certificaten**.
-3. Zoek het certificaat dat u hebt geconfigureerd voor de webonderdelen van HPC Pack in [stap 1: installeren en configureren van de webonderdelen op het hoofdknooppunt](#step-1-install-and-configure-the-web-components-on-the-head-node) (bijvoorbeeld: CN =&lt;*HeadNodeDnsName* &gt;. cloudapp.net).
-4. Met de rechtermuisknop op het certificaat en klik op **alle taken** > **exporteren**.
-5. Klik in de Wizard Certificaat exporteren op **volgende**, en zorg ervoor dat **Nee, de persoonlijke sleutel niet exporteren** is geselecteerd.
-6. Volg de resterende stappen van de wizard voor het exporteren van het certificaat in DER encoded binary X.509 (. CER)-indeling.
+1. Vouw in de consolestructuur **certificaten-lokale Computer** > **persoonlijke**, en klik vervolgens op **certificaten**.
+1. Zoek het certificaat dat u hebt geconfigureerd voor de webonderdelen van HPC Pack in [stap 1: installeren en configureren van de webonderdelen op het hoofdknooppunt](#step-1-install-and-configure-the-web-components-on-the-head-node) (bijvoorbeeld: CN =&lt;*HeadNodeDnsName* &gt;. cloudapp.net).
+1. Met de rechtermuisknop op het certificaat en klik op **alle taken** > **exporteren**.
+1. Klik in de Wizard Certificaat exporteren op **volgende**, en zorg ervoor dat **Nee, de persoonlijke sleutel niet exporteren** is geselecteerd.
+1. Volg de resterende stappen van de wizard voor het exporteren van het certificaat in DER encoded binary X.509 (. CER)-indeling.
 
 **Voor het importeren van het certificaat op de clientcomputer**
 
 1. Kopieer het certificaat dat u hebt geëxporteerd uit het hoofdknooppunt naar een map op de clientcomputer.
-2. Voer op de clientcomputer certmgr.msc.
-3. Vouw in de certificaatbeheerder **certificaten-huidige gebruiker** > **Trusted Root Certification Authorities**, met de rechtermuisknop op **certificaten**, en vervolgens Klik op **alle taken** > **importeren**.
-4. Klik in de Wizard Certificaat importeren op **volgende** en volg de stappen voor het importeren van het certificaat dat u hebt geëxporteerd uit het hoofdknooppunt aan het archief Vertrouwde basiscertificeringsinstanties.
+1. Voer op de clientcomputer certmgr.msc.
+1. Vouw in de certificaatbeheerder **certificaten-huidige gebruiker** > **Trusted Root Certification Authorities**, met de rechtermuisknop op **certificaten**, en vervolgens Klik op **alle taken** > **importeren**.
+1. Klik in de Wizard Certificaat importeren op **volgende** en volg de stappen voor het importeren van het certificaat dat u hebt geëxporteerd uit het hoofdknooppunt aan het archief Vertrouwde basiscertificeringsinstanties.
 
 > [!TIP]
 > U ziet mogelijk een beveiligingswaarschuwing, omdat de certificeringsinstantie op het hoofdknooppunt is niet herkend door de clientcomputer. Voor testdoeleinden kunt u deze waarschuwing negeren en het certificaat importeren voltooien.
@@ -113,7 +113,7 @@ Probeer om te controleren of uw configuratie, uit te voeren taken op het cluster
 **Taak indienen opdrachten uitvoeren op de clientcomputer**
 
 1. Op een clientcomputer waarop de hulpprogramma's voor HPC Pack-client zijn geïnstalleerd, start u een opdrachtprompt.
-2. Typ een voorbeeldopdracht in. Bijvoorbeeld, als alle taken op het cluster, typt u een opdracht die vergelijkbaar is met een van de volgende, afhankelijk van de volledige DNS-naam van het hoofdknooppunt:
+1. Typ een voorbeeldopdracht in. Bijvoorbeeld, als alle taken op het cluster, typt u een opdracht die vergelijkbaar is met een van de volgende, afhankelijk van de volledige DNS-naam van het hoofdknooppunt:
    
     ```command
     job list /scheduler:https://<HeadNodeDnsName>.cloudapp.net /all
@@ -129,7 +129,7 @@ Probeer om te controleren of uw configuratie, uit te voeren taken op het cluster
    > Gebruik de volledige DNS-naam van het hoofdknooppunt, niet het IP-adres, in de scheduler-URL. Als u het IP-adres opgeeft, een fout wordt weergegeven die vergelijkbaar is met "het servercertificaat moet te hebben een geldige vertrouwensketen of in het vertrouwde basisarchief worden geplaatst."
    > 
    > 
-3. Wanneer u wordt gevraagd, typt u de gebruikersnaam (in het formulier &lt;DomainName&gt;\\&lt;gebruikersnaam&gt;) en het wachtwoord van de beheerder van de HPC-cluster of een ander clustergebruiker die u hebt geconfigureerd. U kunt de referenties voor meer taakbewerkingen lokaal opgeslagen.
+1. Wanneer u wordt gevraagd, typt u de gebruikersnaam (in het formulier &lt;DomainName&gt;\\&lt;gebruikersnaam&gt;) en het wachtwoord van de beheerder van de HPC-cluster of een ander clustergebruiker die u hebt geconfigureerd. U kunt de referenties voor meer taakbewerkingen lokaal opgeslagen.
    
     Er wordt een lijst weergegeven van taken.
 
@@ -142,8 +142,8 @@ Probeer om te controleren of uw configuratie, uit te voeren taken op het cluster
     b. Klik op **Windows-referenties** > **een algemene referentie toevoegen**.
    
     c. Geef het adres (bijvoorbeeld: https://&lt;HeadNodeDnsName&gt;.cloudapp.net/HpcScheduler of https://&lt;HeadNodeDnsName&gt;.&lt; regio&gt;.cloudapp.azure.com/HpcScheduler), en de naam van de gebruiker (&lt;DomainName&gt;\\&lt;gebruikersnaam&gt;) en het wachtwoord van de Clusterbeheerder van de of een andere clustergebruiker die u hebt geconfigureerd.
-2. Start HPC Job Manager op de clientcomputer.
-3. In de **hoofdknooppunt Selecteer** dialoogvenster vak, typ de URL naar het hoofdknooppunt in Azure (bijvoorbeeld: https://&lt;HeadNodeDnsName&gt;. cloudapp.net of https://&lt;HeadNodeDnsName&gt;.&lt; regio&gt;. cloudapp.azure.com).
+1. Start HPC Job Manager op de clientcomputer.
+1. In de **hoofdknooppunt Selecteer** dialoogvenster vak, typ de URL naar het hoofdknooppunt in Azure (bijvoorbeeld: https://&lt;HeadNodeDnsName&gt;. cloudapp.net of https://&lt;HeadNodeDnsName&gt;.&lt; regio&gt;. cloudapp.azure.com).
    
     HPC Job Manager wordt geopend en ziet u een lijst met taken op het hoofdknooppunt.
 
@@ -160,13 +160,13 @@ Probeer om te controleren of uw configuratie, uit te voeren taken op het cluster
     ```
     https://<HeadNodeDnsName>.<region>.cloudapp.azure.com/HpcPortal
     ```
-2. Typ in het beveiligingsdialoogvenster de domeinreferenties van de beheerder van de HPC-cluster. (U kunt ook andere cluster gebruikers toevoegen in verschillende rollen. Zie [beheren van gebruikers van de Cluster](https://technet.microsoft.com/library/ff919335.aspx).)
+1. Typ in het beveiligingsdialoogvenster de domeinreferenties van de beheerder van de HPC-cluster. (U kunt ook andere cluster gebruikers toevoegen in verschillende rollen. Zie [beheren van gebruikers van de Cluster](https://technet.microsoft.com/library/ff919335.aspx).)
    
     De web-portal de takenlijstweergave wordt geopend.
-3. Als u een voorbeeldtaak die de tekenreeks "Hallo wereld" uit het cluster retourneert wilt, klikt u op **nieuwe taak** in de navigatiebalk links.
-4. Op de **nieuwe taak** pagina onder **van verzending van pagina's**, klikt u op **HelloWorld**. De pagina van de taak verzenden wordt weergegeven.
-5. Klik op **indienen**. Als u hierom wordt gevraagd, bieden de domeinreferenties van de beheerder van de HPC-cluster. De taak is verzonden, en de taak-ID wordt weergegeven op de **mijn taken** pagina.
-6. Als u wilt weergeven van de resultaten van de taak die u wilde verzenden, klikt u op de taak-ID en klik vervolgens op **taken** om de opdrachtuitvoer weer te geven (onder **uitvoer**).
+1. Als u een voorbeeldtaak die de tekenreeks "Hallo wereld" uit het cluster retourneert wilt, klikt u op **nieuwe taak** in de navigatiebalk links.
+1. Op de **nieuwe taak** pagina onder **van verzending van pagina's**, klikt u op **HelloWorld**. De pagina van de taak verzenden wordt weergegeven.
+1. Klik op **indienen**. Als u hierom wordt gevraagd, bieden de domeinreferenties van de beheerder van de HPC-cluster. De taak is verzonden, en de taak-ID wordt weergegeven op de **mijn taken** pagina.
+1. Als u wilt weergeven van de resultaten van de taak die u wilde verzenden, klikt u op de taak-ID en klik vervolgens op **taken** om de opdrachtuitvoer weer te geven (onder **uitvoer**).
 
 ## <a name="next-steps"></a>Volgende stappen
 * U kunt ook verzenden van taken naar de Azure-cluster met de [HPC Pack REST-API](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).

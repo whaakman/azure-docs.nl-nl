@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
-ms.openlocfilehash: 20292c06cf336a0245b5f5db6b1cb4894df0f1ae
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 7bb4782fa390ad2cc324a79a1f544c3db062c921
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051578"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421546"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---aperture"></a>Zelfstudie: Azure Active Directory-integratie met Palo Alto Networks - scherpstelling
 
@@ -53,7 +53,7 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Palo Alto Networks - scherpstelling uit de galerie toevoegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-palo-alto-networks---aperture-from-the-gallery"></a>Palo Alto Networks - scherpstelling uit de galerie toevoegen
 Voor het configureren van de integratie van Palo Alto Networks - scherpstelling in Azure AD, moet u Palo Alto Networks - scherpstelling uit de galerie aan de lijst met beheerde SaaS-apps toevoegen.
@@ -64,15 +64,15 @@ Voor het configureren van de integratie van Palo Alto Networks - scherpstelling 
 
     ![De Azure Active Directory-knop][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![De knop nieuwe toepassing][3]
 
-4. Typ in het zoekvak **Palo Alto Networks - scherpstelling**, selecteer **Palo Alto Networks - scherpstelling** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Typ in het zoekvak **Palo Alto Networks - scherpstelling**, selecteer **Palo Alto Networks - scherpstelling** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Palo Alto Networks - scherpstelling in de lijst met resultaten](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruik
 Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Palo Alto Networks - scherpstelling, u nodig hebt voor de volgende bouwstenen:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een Palo Alto Networks - scherpstelling testgebruiker](#create-a-palo-alto-networks---aperture-test-user)**  : als u wilt een equivalent van Britta Simon in Palo Alto Networks - scherpstelling die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Maken van een Palo Alto Networks - scherpstelling testgebruiker](#create-a-palo-alto-networks---aperture-test-user)**  : als u wilt een equivalent van Britta Simon in Palo Alto Networks - scherpstelling die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -100,11 +100,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![In het dialoogvenster voor eenmalige aanmelding](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_samlbase.png)
 
-3. Op de **Palo Alto Networks - scherpstelling domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
+1. Op de **Palo Alto Networks - scherpstelling domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
 
     ![Palo Alto Networks - scherpstelling domein en URL's, eenmalige aanmelding informatie](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_url.png)
 
@@ -112,7 +112,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.aperture.paloaltonetworks.com/d/users/saml/auth`
 
-4. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+1. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![Palo Alto Networks - scherpstelling domein en URL's, eenmalige aanmelding informatie](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_url1.png)
 
@@ -121,30 +121,30 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     > [!NOTE] 
     > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. Neem contact op met [Palo Alto Networks - ondersteuningsteam scherpstelling Client](https://live.paloaltonetworks.com/t5/custom/page/page-id/Support) om deze waarden te verkrijgen. 
 
-5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
 
     ![De downloadkoppeling certificaat](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_certificate.png) 
 
-6. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Configureren van eenmalige aanmelding opslaan](./media/paloaltonetworks-aperture-tutorial/tutorial_general_400.png)
 
 
-7. Op de **Palo Alto Networks - scherpstelling configuratie** sectie, klikt u op **configureren Palo Alto Networks - scherpstelling** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+1. Op de **Palo Alto Networks - scherpstelling configuratie** sectie, klikt u op **configureren Palo Alto Networks - scherpstelling** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 
     ![De koppeling configureren](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_configure.png)
 
-8. In een ander browservenster, meld u aan bij Palo Alto Networks - scherpstelling als beheerder.
+1. In een ander browservenster, meld u aan bij Palo Alto Networks - scherpstelling als beheerder.
 
-9. Klik op de bovenste menubalk **instellingen**.
+1. Klik op de bovenste menubalk **instellingen**.
 
     ![Het tabblad instellingen](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_settings.png)
 
-10. Navigeer naar **toepassing** sectie Klik **verificatie** vormen aan de linkerkant van het menu.
+1. Navigeer naar **toepassing** sectie Klik **verificatie** vormen aan de linkerkant van het menu.
 
     ![Het tabblad Auth](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_auth.png)
     
-11. Op de **verificatie** pagina de volgende stappen uitvoeren:
+1. Op de **verificatie** pagina de volgende stappen uitvoeren:
     
     ![Het tabblad verificatie](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_singlesignon.png)
 
@@ -175,15 +175,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![De Azure Active Directory-knop](./media/paloaltonetworks-aperture-tutorial/create_aaduser_01.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/paloaltonetworks-aperture-tutorial/create_aaduser_02.png)
 
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
     ![De knop toevoegen](./media/paloaltonetworks-aperture-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
     ![Het dialoogvenster gebruiker](./media/paloaltonetworks-aperture-tutorial/create_aaduser_04.png)
 
@@ -211,23 +211,23 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **Palo Alto Networks - scherpstelling**.
+1. Selecteer in de lijst met toepassingen, **Palo Alto Networks - scherpstelling**.
 
     ![De Palo Alto Networks - scherpstelling koppeling in de lijst met toepassingen](./media/paloaltonetworks-aperture-tutorial/tutorial_paloaltonetwork_app.png)  
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![De koppeling 'Gebruikers en groepen'][202]
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -239,7 +239,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 

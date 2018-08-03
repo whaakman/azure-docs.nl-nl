@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: f51f9eff7a2ab0dd7ca466931f9de78355b917c0
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f4247a24905b5865635495774412237118e3372a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39050721"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427360"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Zelfstudie: Azure Active Directory-integratie met Work.com
 
@@ -53,7 +53,7 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Work.com uit de galerie toevoegen
-2. Configureren en Azure AD eenmalige aanmelding testen
+1. Configureren en Azure AD eenmalige aanmelding testen
 
 ## <a name="add-workcom-from-the-gallery"></a>Work.com uit de galerie toevoegen
 Voor het configureren van de integratie van Work.com in Azure AD, moet u Work.com uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -64,15 +64,15 @@ Voor het configureren van de integratie van Work.com in Azure AD, moet u Work.co
 
     ![Active Directory][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **Work.com**, selecteer **Work.com** Klik vanuit het deelvenster resultaten **toevoegen** om toe te voegen van de toepassing.
+1. Typ in het zoekvak **Work.com**, selecteer **Work.com** Klik vanuit het deelvenster resultaten **toevoegen** om toe te voegen van de toepassing.
 
     ![Uit de galerie toevoegen](./media/work-com-tutorial/tutorial_work-com_addfromgallery.png)
 
@@ -86,10 +86,10 @@ In Work.com, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Work.com, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker Work.com](#create-a-workcom-test-user)**  : als u wilt een equivalent van Britta Simon in Work.com die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Maak een testgebruiker Work.com](#create-a-workcom-test-user)**  : als u wilt een equivalent van Britta Simon in Work.com die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -104,11 +104,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![Op SAML gebaseerde aanmelding](./media/work-com-tutorial/tutorial_work-com_samlbase.png)
 
-3. Op de **Work.com domein en URL's** sectie, voer de volgende stappen uit:
+1. Op de **Work.com domein en URL's** sectie, voer de volgende stappen uit:
 
     ![Sectie Work.com domein en URL 's](./media/work-com-tutorial/tutorial_work-com_url.png)
 
@@ -117,42 +117,42 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     > [!NOTE] 
     > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Work.com Client ondersteuningsteam](https://help.salesforce.com/articleView?id=000159855&type=3) deze waarde op te halen. 
 
-4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
 
     ![Sectie voor SAML-handtekeningcertificaat](./media/work-com-tutorial/tutorial_work-com_certificate.png) 
 
-5. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![De knop Opslaan](./media/work-com-tutorial/tutorial_general_400.png)
 
-6. Op de **Work.com configuratie** sectie, klikt u op **configureren Work.com** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+1. Op de **Work.com configuratie** sectie, klikt u op **configureren Work.com** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 
     ![De configuratiesectie Work.com](./media/work-com-tutorial/tutorial_work-com_configure.png) 
-7. Meld u aan bij uw tenant Work.com als administrator.
+1. Meld u aan bij uw tenant Work.com als administrator.
 
-8. Ga naar **Setup**.
+1. Ga naar **Setup**.
    
     ![Setup](./media/work-com-tutorial/ic794108.png "Setup")
 
-9. In het navigatiedeelvenster links in de **beheren** sectie, klikt u op **domeinbeheer** de gerelateerde sectie uitvouwen en klik vervolgens op **mijn domein** openen de **Mijn domein** pagina. 
+1. In het navigatiedeelvenster links in de **beheren** sectie, klikt u op **domeinbeheer** de gerelateerde sectie uitvouwen en klik vervolgens op **mijn domein** openen de **Mijn domein** pagina. 
    
     ![Mijn domein](./media/work-com-tutorial/ic767825.png "mijn domein")
 
-10. Om te bevestigen dat uw domein correct is ingesteld, zorg ervoor dat deze zich op "**stap 4 geïmplementeerd naar gebruikers**' en bekijk uw"**mijn domeininstellingen**'.
+1. Om te bevestigen dat uw domein correct is ingesteld, zorg ervoor dat deze zich op "**stap 4 geïmplementeerd naar gebruikers**' en bekijk uw"**mijn domeininstellingen**'.
    
     ![Domein geïmplementeerd voor gebruiker](./media/work-com-tutorial/ic784377.png "domein geïmplementeerd voor gebruiker")
 
-11. Meld u aan bij uw tenant Work.com.
+1. Meld u aan bij uw tenant Work.com.
 
-12. Ga naar **Setup**.
+1. Ga naar **Setup**.
     
     ![Setup](./media/work-com-tutorial/ic794108.png "Setup")
 
-13. Vouw de **beveiligingsmechanismen** menu en klik vervolgens op **instellingen voor eenmalige aanmelding**.
+1. Vouw de **beveiligingsmechanismen** menu en klik vervolgens op **instellingen voor eenmalige aanmelding**.
     
     ![Single Sign-On instellingen](./media/work-com-tutorial/ic794113.png "Single Sign-On-instellingen")
 
-14. Op de **instellingen voor eenmalige aanmelding** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Op de **instellingen voor eenmalige aanmelding** dialoogvenster pagina, voert u de volgende stappen uit:
     
     ![SAML ingeschakeld](./media/work-com-tutorial/ic781026.png "SAML ingeschakeld")
     
@@ -160,7 +160,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     
     b. Klik op **Nieuw**.
 
-15. In de **eenmalige SAML-aanmelding instellingen** sectie, voert u de volgende stappen uit:
+1. In de **eenmalige SAML-aanmelding instellingen** sectie, voert u de volgende stappen uit:
     
     ![Eenmalige SAML-aanmelding instelling](./media/work-com-tutorial/ic794114.png "eenmalige SAML-aanmelding instellen")
     
@@ -187,15 +187,15 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     
     j. Klik op **Opslaan**.
 
-16. Klik in de klassieke portal van Work.com in het linkernavigatiedeelvenster op **domeinbeheer** de gerelateerde sectie uitvouwen en klik vervolgens op **mijn domein** openen de **mijn domein** de pagina. 
+1. Klik in de klassieke portal van Work.com in het linkernavigatiedeelvenster op **domeinbeheer** de gerelateerde sectie uitvouwen en klik vervolgens op **mijn domein** openen de **mijn domein** de pagina. 
     
     ![Mijn domein](./media/work-com-tutorial/ic794115.png "mijn domein")
 
-17. Op de **mijn domein** pagina, in de **aanmelden pagina huisstijl** sectie, klikt u op **bewerken**.
+1. Op de **mijn domein** pagina, in de **aanmelden pagina huisstijl** sectie, klikt u op **bewerken**.
     
     ![Aanmeldingspagina huisstijl](./media/work-com-tutorial/ic767826.png "aanmeldingspagina huisstijl")
 
-14. Op de **aanmelden pagina huisstijl** pagina, in de **verificatieservice** sectie, de naam van uw **SAML SSO-instellingen** wordt weergegeven. Selecteer deze en klik vervolgens op **opslaan**.
+1. Op de **aanmelden pagina huisstijl** pagina, in de **verificatieservice** sectie, de naam van uw **SAML SSO-instellingen** wordt weergegeven. Selecteer deze en klik vervolgens op **opslaan**.
     
     ![Aanmeldingspagina huisstijl](./media/work-com-tutorial/ic784366.png "aanmeldingspagina huisstijl")
 
@@ -214,15 +214,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![Het maken van een Azure AD-testgebruiker](./media/work-com-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
     ![Gebruikers en groepen -> alle gebruikers](./media/work-com-tutorial/create_aaduser_02.png) 
 
-3. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
     ![Toevoegen](./media/work-com-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
     ![Dialoogvenster op de gebruikerspagina](./media/work-com-tutorial/create_aaduser_04.png) 
 
@@ -240,18 +240,18 @@ Voor Azure Active Directory-gebruikers kunnen zich aanmelden, moeten ze worden i
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Als u wilt inrichten van gebruikers configureren, moet u de volgende stappen uitvoeren:
 1. Meld u aan bij uw bedrijf Work.com site als beheerder.
 
-2. Ga naar **Setup**.
+1. Ga naar **Setup**.
    
     ![Setup](./media/work-com-tutorial/IC794108.png "Setup")
-3. Ga naar **gebruikers beheren \> gebruikers**.
+1. Ga naar **gebruikers beheren \> gebruikers**.
    
     ![Gebruikers beheren](./media/work-com-tutorial/IC784369.png "gebruikers beheren")
 
-4. Klik op **nieuwe gebruiker**.
+1. Klik op **nieuwe gebruiker**.
    
     ![Alle gebruikers](./media/work-com-tutorial/IC794117.png "alle gebruikers")
 
-5. Uitvoeren in de sectie gebruikers bewerken in de volgende stappen in de kenmerken van een geldige Azure AD-account die u inrichten in de bijbehorende tekstvakken wilt:
+1. Uitvoeren in de sectie gebruikers bewerken in de volgende stappen in de kenmerken van een geldige Azure AD-account die u inrichten in de bijbehorende tekstvakken wilt:
    
     ![Gebruiker bewerken](./media/work-com-tutorial/ic794118.png "gebruiker bewerken")
    
@@ -288,23 +288,23 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **Work.com**.
+1. Selecteer in de lijst met toepassingen, **Work.com**.
 
     ![Work.com in de applijst](./media/work-com-tutorial/tutorial_work-com_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -316,7 +316,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 <!--Image references-->

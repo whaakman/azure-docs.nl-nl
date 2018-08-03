@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 97b6507cb8c5a66b8b6ccbfccd2c838b4b3fb53a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 68d8ba6b08811b96df8b8b2daa074166301ffcd0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39053298"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421985"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Zelfstudie: Azure Active Directory-integratie met samenloop SAML SSO door Microsoft
 
@@ -69,7 +69,7 @@ Vanaf nu de volgende versies van samenloop worden ondersteund:
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Samenloop SAML SSO door Microsoft uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-confluence-saml-sso-by-microsoft-from-the-gallery"></a>Samenloop SAML SSO door Microsoft uit de galerie toe te voegen
 Voor het configureren van de integratie van samenloop SAML SSO door Microsoft in Azure AD, moet u samenloop SAML SSO door Microsoft uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -80,19 +80,19 @@ Voor het configureren van de integratie van samenloop SAML SSO door Microsoft in
 
     ![Active Directory][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **samenloop SAML SSO door Microsoft**.
+1. Typ in het zoekvak **samenloop SAML SSO door Microsoft**.
 
     ![Het maken van een Azure AD-testgebruiker](./media/confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_search.png)
 
-5. Selecteer in het deelvenster resultaten **samenloop SAML SSO door Microsoft**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Selecteer in het deelvenster resultaten **samenloop SAML SSO door Microsoft**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Het maken van een Azure AD-testgebruiker](./media/confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_addfromgallery.png)
 
@@ -104,10 +104,10 @@ Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruik
 Om te configureren en testen van Azure AD eenmalige aanmelding met samenloop SAML SSO door Microsoft, moet u de volgende bouwstenen voltooien:
 
 1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Het maken van een samenloop SAML SSO door Microsoft testgebruiker](#creating-a-confluence-saml-sso-by-microsoft-test-user)**  : als u wilt een equivalent van Britta Simon in samenloop SAML SSO door Microsoft en die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Het maken van een samenloop SAML SSO door Microsoft testgebruiker](#creating-a-confluence-saml-sso-by-microsoft-test-user)**  : als u wilt een equivalent van Britta Simon in samenloop SAML SSO door Microsoft en die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -119,11 +119,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
 
     ![Eenmalige aanmelding configureren](./media/confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_samlbase.png)
 
-3. Op de **samenloop SAML SSO door Microsoft Domain en URL's** sectie, voert u de volgende stappen uit:
+1. Op de **samenloop SAML SSO door Microsoft Domain en URL's** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_url.png)
 
@@ -136,29 +136,29 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     > [!NOTE]
     > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. Poort is optioneel als een URL met de naam is. Deze waarden zijn ontvangen tijdens de configuratie van samenloop-invoegtoepassing, die later in de zelfstudie wordt uitgelegd.
 
-4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
     
     ![Eenmalige aanmelding configureren](./media/confluencemicrosoft-tutorial/tutorial_metadataurl.png)
      
-5. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/confluencemicrosoft-tutorial/tutorial_general_400.png)
 
-6. In een ander browservenster aanmelden bij uw samenloop exemplaar als beheerder.
+1. In een ander browservenster aanmelden bij uw samenloop exemplaar als beheerder.
 
-7. Beweeg de muisaanwijzer op het tandwiel en klikt u op de **invoegtoepassingen**.
+1. Beweeg de muisaanwijzer op het tandwiel en klikt u op de **invoegtoepassingen**.
     
     ![Eenmalige aanmelding configureren](./media/confluencemicrosoft-tutorial/addon1.png)
 
-8. Download de invoegtoepassing van [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56503). Handmatig uploaden van de invoegtoepassing die is opgegeven met behulp van Microsoft **invoegtoepassing uploaden** menu. Het downloaden van de invoegtoepassing wordt gedekt onder [Microsoft-serviceovereenkomst](https://www.microsoft.com/en-us/servicesagreement/). 
+1. Download de invoegtoepassing van [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=56503). Handmatig uploaden van de invoegtoepassing die is opgegeven met behulp van Microsoft **invoegtoepassing uploaden** menu. Het downloaden van de invoegtoepassing wordt gedekt onder [Microsoft-serviceovereenkomst](https://www.microsoft.com/en-us/servicesagreement/). 
     
     ![Eenmalige aanmelding configureren](./media/confluencemicrosoft-tutorial/addon12.png)
 
-9. Zodra de invoegtoepassing is geïnstalleerd, wordt deze weergegeven **gebruiker geïnstalleerd** invoegtoepassingen-sectie van **beheren invoegtoepassing** sectie. Klik op **configureren** het configureren van de nieuwe-invoegtoepassing.
+1. Zodra de invoegtoepassing is geïnstalleerd, wordt deze weergegeven **gebruiker geïnstalleerd** invoegtoepassingen-sectie van **beheren invoegtoepassing** sectie. Klik op **configureren** het configureren van de nieuwe-invoegtoepassing.
     
     ![Eenmalige aanmelding configureren](./media/confluencemicrosoft-tutorial/addon13.png)
 
-10. Voert u de volgende stappen uit op de configuratiepagina:
+1. Voert u de volgende stappen uit op de configuratiepagina:
 
     ![Eenmalige aanmelding configureren](./media/confluencemicrosoft-tutorial/addon52.png)
 
@@ -200,15 +200,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![Het maken van een Azure AD-testgebruiker](./media/confluencemicrosoft-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
     ![Het maken van een Azure AD-testgebruiker](./media/confluencemicrosoft-tutorial/create_aaduser_02.png) 
 
-3. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
     ![Het maken van een Azure AD-testgebruiker](./media/confluencemicrosoft-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
     ![Het maken van een Azure AD-testgebruiker](./media/confluencemicrosoft-tutorial/create_aaduser_04.png) 
 
@@ -228,11 +228,11 @@ Om Azure AD-gebruikers zich aanmelden met samenloop on-premises server, moeten d
 
 1. Meld u aan bij uw samenloop on-premises-server aan als beheerder.
 
-2. Beweeg de muisaanwijzer op het tandwiel en klikt u op de **Gebruikersbeheer**.
+1. Beweeg de muisaanwijzer op het tandwiel en klikt u op de **Gebruikersbeheer**.
 
     ![Werknemer toevoegen](./media/confluencemicrosoft-tutorial/user1.png) 
 
-3. Klik onder de sectie gebruikers op **gebruikers toevoegen** tabblad. Op de **toevoegen van een gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Klik onder de sectie gebruikers op **gebruikers toevoegen** tabblad. Op de **toevoegen van een gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
 
     ![Werknemer toevoegen](./media/confluencemicrosoft-tutorial/user2.png) 
 
@@ -260,23 +260,23 @@ In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **samenloop SAML SSO door Microsoft**.
+1. Selecteer in de lijst met toepassingen, **samenloop SAML SSO door Microsoft**.
 
     ![Eenmalige aanmelding configureren](./media/confluencemicrosoft-tutorial/tutorial_confluencemicrosoft_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -288,7 +288,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 

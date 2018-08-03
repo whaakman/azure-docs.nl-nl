@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met Qlik zin Enterprise | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Qlik zin Enterprise.
+title: 'Zelfstudie: Azure Active Directory-integratie met Qlik Sense Enterprise | Microsoft Docs'
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Qlik Sense Enterprise.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,262 +15,262 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 09e1850956150eab6bd7fea365a17c12fa15bdc3
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: b2c48c8c4566fb143f0a356f342d21580b1b6359
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230097"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39420254"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Zelfstudie: Azure Active Directory-integratie met Qlik zin Enterprise
+# <a name="tutorial-azure-active-directory-integration-with-qlik-sense-enterprise"></a>Zelfstudie: Azure Active Directory-integratie met Qlik Sense Enterprise
 
-In deze zelfstudie leert u hoe Qlik zin Enterprise integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Qlik Sense Enterprise integreren met Azure Active Directory (Azure AD).
 
-Qlik zin Enterprise integreren met Azure AD biedt de volgende voordelen:
+Qlik Sense Enterprise integreren met Azure AD biedt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot Qlik zin Enterprise heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij Qlik zin Enterprise (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
+- U kunt beheren in Azure AD die toegang tot Qlik Sense Enterprise heeft.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij Qlik Sense Enterprise (Single Sign-On) inschakelen met hun Azure AD-accounts.
+- U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met Qlik zin voor ondernemingen, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met Qlik Sense Enterprise, moet u de volgende items:
 
 - Een Azure AD-abonnement
-- Een Qlik zin Enterprise eenmalige aanmelding ingeschakeld abonnement
+- Een Qlik Sense Enterprise eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand hier downloaden: [proefversie aanbieding](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, kunt u een proefversie van één maand hier downloaden: [proefversie aanbieding](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Qlik zin Enterprise uit de galerie toevoegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Qlik Sense Enterprise uit de galerie toe te voegen
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-qlik-sense-enterprise-from-the-gallery"></a>Qlik zin Enterprise uit de galerie toevoegen
-Voor het configureren van de integratie van Qlik zin Enterprise in Azure AD, moet u Qlik zin Enterprise uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+## <a name="adding-qlik-sense-enterprise-from-the-gallery"></a>Qlik Sense Enterprise uit de galerie toe te voegen
+Voor het configureren van de integratie van Qlik Sense Enterprise in Azure AD, moet u Qlik Sense Enterprise uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen Qlik zin Enterprise uit de galerie, moet u de volgende stappen uitvoeren:**
+**Als u wilt toevoegen Qlik Sense Enterprise uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuw toepassing][3]
+    ![De knop nieuwe toepassing][3]
 
-4. Typ in het zoekvak **Qlik zin Enterprise**, selecteer **Qlik zin Enterprise** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Typ in het zoekvak **Qlik Sense Enterprise**, selecteer **Qlik Sense Enterprise** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Qlik zin onderneming in de lijst met resultaten](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_addfromgallery.png)
+    ![Qlik Sense onderneming in de lijst met resultaten](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie configureert en test eenmalige aanmelding Azure AD met Qlik zin Enterprise op basis van een testgebruiker 'Britta Simon' genoemd.
+In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Qlik Sense Enterprise op basis van een testgebruiker 'Julia steen' genoemd.
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in Qlik zin onderneming is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in Qlik zin onderneming tot stand worden gebracht.
+Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Qlik Sense onderneming is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Qlik Sense onderneming tot stand worden gebracht.
 
-Wijs in Qlik zin Enterprise, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In Qlik Sense Enterprise, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Qlik zin voor ondernemingen, moet u de volgende bouwstenen voltooien:
+Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Qlik Sense Enterprise, u nodig hebt voor de volgende bouwstenen:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker Qlik zin Enterprise](#create-a-qlik-sense-enterprise-test-user)**  - Qlik zin Enterprise die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
+1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Maak een testgebruiker Qlik Sense Enterprise](#create-a-qlik-sense-enterprise-test-user)**  : als u wilt een equivalent van Britta Simon in Qlik Sense onderneming die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw toepassing Qlik zin Enterprise.
+In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing Qlik Sense Enterprise.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met Qlik zin voor ondernemingen, moet u de volgende stappen uitvoeren:**
+**Voor het configureren van Azure AD eenmalige aanmelding met Qlik Sense Enterprise, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **Qlik zin Enterprise** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **Qlik Sense Enterprise** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
-    ![Dialoogvenster voor eenmalige aanmelding](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_samlbase.png)
+    ![In het dialoogvenster voor eenmalige aanmelding](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_samlbase.png)
 
-3. Op de **Qlik zin Enterprise domein en de URL's** sectie, voert u de volgende stappen uit:
+1. Op de **Qlik Sense Enterprise domein en URL's** sectie, voert u de volgende stappen uit:
 
-    ![URL's en Qlik zin Enterprise domein eenmalige aanmelding informatie](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_url.png)
+    ![Qlik Sense Enterprise domein en URL's, eenmalige aanmelding informatie](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<Qlik Sense Fully Qualifed Hostname>:443//samlauthn/`
+    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<Qlik Sense Fully Qualifed Hostname>:443//samlauthn/`
     
     > [!NOTE]
-    > Noteer de afsluitende slash aan het einde van deze URI. Dit is vereist.
+    > Houd er rekening mee de afsluitende slash aan het einde van deze URI. Dit is vereist.
     
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen:
+    b. In de **id** tekstvak, een URL met behulp van het volgende patroon:
     | |
     |--|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qlikpoc.com`|
     | `https://<Qlik Sense Fully Qualifed Hostname>.qliksense.com`|
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Bijwerken van deze waarden met de werkelijke aanmeldings-URL en de id, die worden beschreven verderop in deze zelfstudie of neem contact op met [Qlik zin Enterprise Client ondersteuningsteam](https://www.qlik.com/us/services/support) ophalen van deze waarden. 
+    > Deze waarden zijn niet echt. Bijwerken van deze waarden met de werkelijke aanmeldings-URL en de id, die worden beschreven verderop in deze zelfstudie of neem contact op met [Qlik Sense Enterprise Client-ondersteuningsteam](https://www.qlik.com/us/services/support) om deze waarden te verkrijgen. 
 
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
     ![De downloadkoppeling certificaat](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_certificate.png) 
 
-5. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
-    ![Knop Single Sign-On opslaan configureren](./media/qliksense-enterprise-tutorial/tutorial_general_400.png)
+    ![Configureren van eenmalige aanmelding opslaan](./media/qliksense-enterprise-tutorial/tutorial_general_400.png)
 
-6. Bereid het federatieve metagegevens-XML-bestand zodat u die naar Qlik zin-server uploaden kunt.
+1. Bereid het federatieve metagegevens-XML-bestand zodat u die naar Qlik Sense-server uploaden kunt.
    
     > [!NOTE]
-    > Voordat u de metagegevens van de IdP uploadt naar de server Qlik zin, het bestand moet worden bewerkt om informatie om te controleren of de juiste werking tussen Azure AD te verwijderen en Qlik zin-server.
+    > Voordat u de metagegevens van de IdP uploadt naar de server Qlik Sense, het bestand moet worden bewerkt om gegevens om ervoor te zorgen goede werking tussen Azure AD te verwijderen en Qlik Sense-server.
     
     ![QlikSense][qs24]
    
-    a. Open het bestand FederationMetaData.xml, dat u hebt gedownload vanuit Azure-portal in een teksteditor.
+    a. Open het bestand FederationMetaData.xml, die u hebt gedownload vanuit Azure portal in een teksteditor.
    
-    b. Zoeken naar de waarde **RoleDescriptor**.  Er zijn vier gegevens (twee paren openen en sluiten elementlabels).
+    b. Zoek de waarde **RoleDescriptor**.  Er zijn vier items (twee paren van openen en sluiten van element tags).
    
-    c. De codes RoleDescriptor en alle informatie daartussen uit het bestand verwijderen.
+    c. Verwijder tussen de codes RoleDescriptor en alle gegevens uit het bestand.
    
-    d. Sla het bestand en het in de buurt te houden voor gebruik verderop in dit document.
+    d. Sla het bestand op en bewaar deze in de buurt voor gebruik verderop in dit document.
 
-7. Navigeer naar de Qlik zin Qlik Management Console (QMC) als een gebruiker die virtuele proxyconfiguraties kunt maken.
+1. Navigeer naar de Qlik Sense Qlik Management Console (QMC) als een gebruiker die de configuraties van virtuele webproxy's kunt maken.
 
-8. Klik in de QMC op de **virtuele proxy's** menu-item.
+1. Klik in de QMC op de **virtuele proxy's** menu-item.
    
     ![QlikSense][qs6] 
 
-9. Aan de onderkant van het scherm, klikt u op de **nieuw** knop.
+1. Aan de onderkant van het scherm, klikt u op de **nieuw** knop.
    
     ![QlikSense][qs7]
 
-10. Het scherm virtuele proxy bewerken wordt weergegeven.  Aan de rechterkant van het scherm wordt een menu voor het zichtbaar maken van configuratie-opties.
+1. Het bewerkingsscherm van de virtuele-proxy wordt weergegeven.  Aan de rechterkant van het scherm is een menu voor het maken van configuratie-opties zichtbaar.
    
     ![QlikSense][qs9]
 
-11. Voer de gegevens voor de virtuele Azure-proxy-configuratie met de id-menuoptie gecontroleerd.
+1. Met de id-menuoptie is ingeschakeld, voer de identificatiegegevens voor de Azure virtuele proxyconfiguratie.
     
     ![QlikSense][qs8]  
     
     a. De **beschrijving** veld is een beschrijvende naam voor de virtuele-proxyconfiguratie.  Voer een waarde voor een beschrijving.
     
-    b. De **voorvoegsel** veld identificeert het eindpunt van de virtuele proxy voor het verbinden met Qlik zin met Azure AD eenmalige aanmelding.  Voer een naam uniek voorvoegsel voor deze virtuele proxy.
+    b. De **voorvoegsel** veld identificeert het eindpunt van de virtuele-proxy voor het verbinden met Qlik Sense met Azure AD eenmalige aanmelding.  Voer een van de unieke voorvoegselnaam voor deze virtuele-proxy.
     
-    c. **Time-out voor inactiviteit sessie (minuten)** is de time-out voor verbindingen via deze virtuele proxy.
+    c. **Sessietime-out voor inactiviteit (minuten)** is de time-out voor verbindingen via deze virtuele proxy.
     
-    d. De **cookie-kop sessienaam** is de naam van de cookie voor het opslaan van de sessie-id voor de sessie Qlik zin is een gebruiker na een geslaagde authenticatie ontvangt.  Deze naam moet uniek zijn.
+    d. De **sessienaam cookie-header** is de naam van de cookie voor het opslaan van de sessie-id voor de Qlik Sense sessie een gebruiker na een geslaagde authenticatie ontvangt.  Deze naam moet uniek zijn.
 
-12. Klik op de menuoptie verificatie zichtbaar te maken.  De verificatie-scherm wordt weergegeven.
+1. Klik op de menuoptie verificatie zichtbaar te maken.  De verificatie-scherm wordt weergegeven.
     
     ![QlikSense][qs10]
     
-    a. De **anonieme toegangsmodus** vervolgkeuzelijst bepaalt als anonieme gebruikers toegang Qlik zin via de virtuele-proxy tot mogelijk.  De standaardoptie is geen anonieme gebruiker.
+    a. De **anonieme toegangsmodus** vervolgkeuzelijst bepaalt als anonieme gebruikers kunnen toegang hebben tot Qlik Sense via de virtuele-proxy.  De standaardoptie is geen anonieme gebruiker.
     
-    b. De **verificatiemethode** vervolgkeuzelijst bepaalt het verificatieschema dat de virtuele-proxy wordt gebruikt.  Selecteer SAML in de vervolgkeuzelijst.  Meer opties als gevolg hiervan worden weergegeven.
+    b. De **verificatiemethode** vervolgkeuzelijst bepaalt het verificatieschema de virtuele-proxy wordt gebruikt.  Selecteer SAML in de vervolgkeuzelijst.  Meer opties als gevolg hiervan worden weergegeven.
     
-    c. In de **SAML host URI veld**, voer de gebruikers van de hostnaam invoeren voor toegang tot Qlik zin via deze virtuele SAML-proxy.  De hostnaam is de uri van de server Qlik zin.
+    c. In de **SAML host URI veld**, voer de gebruikers van de hostnaam invoeren voor toegang tot Qlik Sense via deze virtuele SAML-proxy.  De hostnaam is de uri van de Qlik Sense-server.
     
-    d. In de **SAML entiteit-ID**, voert u de dezelfde waarde die is ingevoerd voor het veld SAML host URI.
+    d. In de **SAML entiteit-ID**, dezelfde waarde ingevoerd voor het veld SAML host URI invoeren.
     
-    e. De **SAML IdP metagegevens** is het bestand bewerkt eerder in de **Federatiemetagegevens van Azure AD-configuratie bewerken** sectie.  **Voordat u uploadt de IdP-metagegevens, het bestand moet worden bewerkt** gegevens om te controleren of de juiste werking tussen Azure AD te verwijderen en Qlik zin-server.  **Raadpleeg de bovenstaande instructies als het bestand nog heeft moeten worden bewerkt.**  Klik op de knop Bladeren en selecteer vervolgens het bewerkte metagegevensbestand te uploaden naar de virtuele-proxyconfiguratie als het bestand is bewerkt.
+    e. De **IdP SAML-metagegevens** is het bestand bewerkt eerder in de **Federatiemetagegevens bewerken van Azure AD-configuratie** sectie.  **Voordat u uploadt de metagegevens van de id-provider, het bestand moet worden bewerkt** gegevens om ervoor te zorgen goede werking tussen Azure AD te verwijderen en Qlik Sense-server.  **Raadpleeg de bovenstaande instructies als het bestand nog heeft kunnen worden bewerkt.**  Klik op de bladerknop en selecteer vervolgens het bewerkte metagegevensbestand te uploaden naar de virtuele-proxyconfiguratie als het bestand is bewerkt.
     
-    f. Voer in de kenmerkverwijzing naam of het schema voor de SAML-kenmerk voor de **UserID** Azure AD naar de server Qlik zin verzendt.  Schema referentie-informatie is beschikbaar in de configuratie van Azure app schermen post.  Voer voor het gebruik van het kenmerk name `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    f. Voer in de kenmerkverwijzing naam of het schema voor de SAML-kenmerk voor de **UserID** Azure AD verzendt naar de Qlik Sense-server.  Schema-referentie-informatie is beschikbaar in de Azure-app schermen post-configuratie.  Voer voor het gebruik van het kenmerk name `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
     
-    g. Voer de waarde voor de **gebruikerslijst** die wordt gekoppeld aan gebruikers wanneer ze zich met Qlik zin server via Azure AD verifiëren.  Hardcoded waarden moeten worden omgeven door **vierkante haakjes []**.  Voor het gebruik van een kenmerk in de Azure AD SAML-bevestiging verzonden, voert u de naam van het kenmerk in dit tekstvak **zonder** vierkante haken.
+    g. Voer de waarde voor de **gebruikerslijst** die zal worden gekoppeld aan gebruikers wanneer ze worden geverifieerd met de server Qlik Sense via Azure AD.  Vastgelegde waarden moeten tussen **vierkant vierkante haken []**.  Voor het gebruik van een kenmerk in de Azure AD-SAML-verklaring verzonden, voert u de naam van het kenmerk in dit tekstvak **zonder** tussen vierkante haken.
     
-    h. De **SAML-ondertekeningsalgoritme** Hiermee stelt u de serviceprovider (in dit geval Qlik zin server) voor Certificaatondertekening voor de virtuele-proxyconfiguratie.  Als Qlik zin server gebruikmaakt van een vertrouwd certificaat gegenereerd met behulp van de Microsoft Enhanced RSA and AES Cryptographic Provider, wijzigt u de SAML-ondertekeningsalgoritme naar **SHA-256**.
+    h. De **algoritme voor ondertekening die SAML** Hiermee stelt u de serviceprovider (in dit geval Qlik Sense-server) voor Certificaatondertekening voor de virtuele-proxyconfiguratie.  Als Qlik Sense server gebruikmaakt van een vertrouwd certificaat gegenereerd met behulp van de Microsoft Enhanced RSA and AES Cryptographic Provider, wijzigt u de SAML-ondertekeningsalgoritme naar **SHA-256**.
     
-    i. De SAML-kenmerk toewijzing sectie kan extra kenmerken zoals groepen worden verzonden naar Qlik zin voor gebruik in regels.
+    i. De sectie voor SAML-kenmerk toewijzing kunt voor aanvullende kenmerken, zoals groepen moet worden verzonden naar Qlik Sense voor gebruik in regels.
 
-13. Klik op de **LOAD BALANCING** menuoptie zichtbaar te maken.  Het scherm Load Balancing wordt weergegeven.
+1. Klik op de **LOAD BALANCING** menuoptie zichtbaar te maken.  Het scherm Load Balancing wordt weergegeven.
     
     ![QlikSense][qs11]
 
-14. Klik op de **toevoegen nieuwe serverknooppunt** knop, selecteer engine knooppunt of knooppunten Qlik zin stuurt sessies laden voor taakverdeling doeleinden, en klik op de **toevoegen** knop.
+1. Klik op de **de nieuwe server-knooppunt toevoegen** knop, selecteer engine knooppunt of knooppunten Qlik Sense ontvangt sessies laden voor taakverdeling doeleinden, en klikt u op de **toevoegen** knop.
     
     ![QlikSense][qs12]
 
-15. Klik op de geavanceerde optie zichtbaar te maken. Het geavanceerde scherm wordt weergegeven.
+1. Klik op de geavanceerde optie zichtbaar te maken. Het geavanceerde scherm wordt weergegeven.
     
     ![QlikSense][qs13]
     
-    De Host witte lijst identificeert hostnamen die worden geaccepteerd wanneer ze verbinden met de server Qlik zin.  **Geef de hostnaam van de gebruikers wordt opgeven bij het verbinden met server Qlik zin.** De hostnaam is dezelfde waarde als het SAML-uri die host zonder de https://.
+    De Host witte lijst identificeert hostnamen die bij het verbinden met de server Qlik Sense worden geaccepteerd.  **Voer de hostnaam die gebruikers opgeven bij het verbinden met Qlik Sense-server.** De hostnaam is dezelfde waarde als de uri van de host SAML zonder de https://.
 
-16. Klik op de **toepassen** knop.
+1. Klik op de **toepassen** knop.
     
     ![QlikSense][qs14]
 
-17. Klik op OK accepteer het waarschuwingsbericht dat aangeeft proxy's die zijn gekoppeld aan de virtuele-proxy wordt opnieuw gestart.
+1. Klik op OK om de waarschuwing waarin wordt vermeld proxy's die zijn gekoppeld aan de virtuele-proxy wordt opnieuw gestart te accepteren.
     
     ![QlikSense][qs15]
 
-18. Klik aan de rechterkant van het scherm de gekoppelde items menu wordt weergegeven.  Klik op de **proxy's** menuoptie.
+1. Aan de rechterkant van het scherm, is het gekoppelde items menu wordt weergegeven.  Klik op de **proxy's** menu-optie.
     
     ![QlikSense][qs16]
 
-19. De proxy-scherm wordt weergegeven.  Klik op de **koppeling** knop onder een proxy te koppelen aan de virtuele-proxy.
+1. De proxy-scherm wordt weergegeven.  Klik op de **koppeling** onder een proxy koppelen aan de virtuele-proxy.
     
     ![QlikSense][qs17]
 
-20. Selecteer de proxyknooppunt dat ondersteuning biedt voor deze virtuele proxyverbinding en klikt u op de **koppeling** knop.  Na het koppelen, wordt de proxy wordt vermeld onder de bijbehorende proxy's.
+1. Selecteer de proxyknooppunt dat ondersteuning biedt voor deze virtuele proxyverbinding en klikt u op de **koppeling** knop.  Na de koppeling, worden de proxy vermeld in de bijbehorende proxy's.
     
     ![QlikSense][qs18]
   
     ![QlikSense][qs19]
 
-21. Na ongeveer vijf tot tien seconden verschijnt het bericht QMC vernieuwen.  Klik op de **QMC vernieuwen** knop.
+1. Na ongeveer vijf tot tien seconden verschijnt het bericht QMC vernieuwen.  Klik op de **QMC vernieuwen** knop.
     
     ![QlikSense][qs20]
 
-22. Wanneer de QMC is vernieuwd, klikt u op de **virtuele proxy's** menu-item. De nieuwe SAML virtuele proxy invoer wordt vermeld in de tabel op het scherm.  Één klik op de vermelding virtuele proxy.
+1. Wanneer de QMC is vernieuwd, klikt u op de **virtuele proxy's** menu-item. Het nieuwe item van de SAML-virtuele-proxy wordt vermeld in de tabel op het scherm.  Één klik op de vermelding van de virtuele-proxy.
     
     ![QlikSense][qs51]
 
-23. Aan de onderkant van het scherm wordt de metagegevens-knop downloaden SP geactiveerd.  Klik op de **downloaden SP metagegevens** om op te slaan van de metagegevens naar een bestand.
+1. Aan de onderkant van het scherm wordt de knop downloaden SP-metagegevens geactiveerd.  Klik op de **downloaden SP metagegevens** om op te slaan van de metagegevens naar een bestand.
     
     ![QlikSense][qs52]
 
-24. Open het metagegevensbestand van de serviceprovider.  Houd rekening met de **id van de entiteit** vermelding en de **AssertionConsumerService** vermelding.  Deze waarden gelijk zijn aan de **id** en de **aanmelden URL** in de configuratie van de Azure AD-toepassing. Plak deze waarden in de **Qlik zin Enterprise domein en de URL's** sectie in de configuratie van de toepassing Azure AD als ze niet overeen komen en vervolgens u deze in de configuratiewizard van Azure AD-App vervangen moet.
+1. Open het bestand met sp metagegevens.  Bekijk de **entityID** vermelding en de **AssertionConsumerService** vermelding.  Deze waarden zijn gelijk aan de **id** en de **aanmeldings-URL** in de configuratie van de Azure AD-toepassing. Plak deze waarden in de **Qlik Sense Enterprise domein en URL's** sectie in de configuratie van de toepassing Azure AD als ze niet overeenkomen met de, en vervolgens u deze in de wizard Azure AD-App configureren vervangen moet.
     
     ![QlikSense][qs53]
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
+Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
-![Een Azure AD-testgebruiker maken][100]
+![Maak een testgebruiker Azure AD][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
+1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
 
    ![De Azure Active Directory-knop](./media/qliksense-enterprise-tutorial/create_aaduser_01.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
    !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/qliksense-enterprise-tutorial/create_aaduser_02.png)
 
-3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
+1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
    ![De knop toevoegen](./media/qliksense-enterprise-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
+1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
    ![Het dialoogvenster gebruiker](./media/qliksense-enterprise-tutorial/create_aaduser_04.png)
 
@@ -278,54 +278,54 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
    b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
 
-   c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+   c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
    d. Klik op **Create**.
  
-### <a name="create-a-qlik-sense-enterprise-test-user"></a>Maak een testgebruiker Qlik zin Enterprise
+### <a name="create-a-qlik-sense-enterprise-test-user"></a>Maak een testgebruiker Qlik Sense Enterprise
 
-In deze sectie kunt u een gebruiker met de naam van Britta Simon in Qlik zin onderneming maken. Werken met [Qlik zin Enterprise Client ondersteuningsteam](https://www.qlik.com/us/services/support) om toe te voegen de gebruikers van het platform Qlik zin Enterprise. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in Qlik Sense onderneming. Werken met [Qlik Sense Enterprise Client-ondersteuningsteam](https://www.qlik.com/us/services/support) om toe te voegen de gebruikers in het Qlik Sense Enterprise-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding toegang verleent tot Qlik zin onderneming gebruiken.
+In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Qlik Sense onderneming.
 
-![Toewijzen van de gebruikersrol][200] 
+![De de gebruikersrol toewijzen][200] 
 
-**Britta Simon om aan te wijzen Qlik zin Enterprise, moet u de volgende stappen uitvoeren:**
+**Als u wilt toewijzen Britta Simon naar Qlik Sense Enterprise, moet u de volgende stappen uitvoeren:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **Qlik zin Enterprise**.
+1. Selecteer in de lijst met toepassingen, **Qlik Sense Enterprise**.
 
-    ![De koppeling Qlik zin Enterprise in de lijst met toepassingen](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_app.png)  
+    ![De koppeling Qlik Sense Enterprise in de lijst met toepassingen](./media/qliksense-enterprise-tutorial/tutorial_qliksense-enterprise_app.png)  
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![De koppeling 'Gebruikers en groepen'][202]
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Als u op de tegel Qlik zin Enterprise in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing Qlik zin Enterprise. 
+Wanneer u op de tegel Qlik Sense Enterprise in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Qlik Sense Enterprise. 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->
 

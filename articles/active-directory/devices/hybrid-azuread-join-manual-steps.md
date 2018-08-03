@@ -13,19 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/02/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b8fec9a263eee6bf1e8bf347a9b6dd256840738f
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 2ee54ca3d6e787267010736343a570e614c4204d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391765"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427547"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Zelfstudie: Hybride Azure Active Directory verbonden apparaten handmatig configureren 
 
-Met Apparaatbeheer in Azure Active Directory (Azure AD), kunt u ervoor zorgen dat uw gebruikers toegang hebben tot de bronnen van apparaten die voldoen aan uw normen voor beveiliging en naleving. Zie voor meer informatie, [... / Inleiding tot Apparaatbeheer in Azure Active Directory](../device-management-introduction.md).
+Met Apparaatbeheer in Azure Active Directory (Azure AD), kunt u ervoor zorgen dat uw gebruikers toegang hebben tot de bronnen van apparaten die voldoen aan uw normen voor beveiliging en naleving. Zie voor meer informatie de [Inleiding tot Apparaatbeheer in Azure Active Directory](overview.md).
 
 Als u een on-premises Active Directory-omgeving hebt en u wilt deelnemen aan uw domein apparaten naar Azure AD, kunt u dit doen met hybride Azure AD gekoppelde apparaten configureren. In dit artikel biedt u de bijbehorende stappen. 
 
@@ -114,15 +114,15 @@ Gebruik de volgende tabel voor een overzicht van de stappen die vereist voor uw 
 
 | Stappen                                      | Windows huidige en het wachtwoord-hash-synchronisatie | Huidige Windows- en Federatie | Oudere versies van Windows |
 | :--                                        | :-:                                    | :-:                            | :-:                |
-| Stap 1: Het service connection point configureren | ![Selecteren][1]                            | ![Selecteren][1]                    | ![Selecteren][1]        |
-| Stap 2: De uitgifte van claims instellen           |                                        | ![Selecteren][1]                    | ![Selecteren][1]        |
-| Stap 3: Windows 10-apparaten inschakelen      |                                        |                                | ![Selecteren][1]        |
-| Stap 4: Implementatie beheren     | ![Selecteren][1]                            | ![Selecteren][1]                    | ![Selecteren][1]        |
-| Stap 5: Controleer of de gekoppelde apparaten          | ![Selecteren][1]                            | ![Selecteren][1]                    | ![Selecteren][1]        |
+| Het service connection point configureren | ![Selecteren][1]                            | ![Selecteren][1]                    | ![Selecteren][1]        |
+| Uitgifte van claims instellen           |                                        | ![Selecteren][1]                    | ![Selecteren][1]        |
+| Windows 10-apparaten inschakelen      |                                        |                                | ![Selecteren][1]        |
+| Besturingselement voor implementatie     | ![Selecteren][1]                            | ![Selecteren][1]                    | ![Selecteren][1]        |
+| Controleer of de gekoppelde apparaten          | ![Selecteren][1]                            | ![Selecteren][1]                    | ![Selecteren][1]        |
 
 
 
-## <a name="step-1-configure-service-connection-point"></a>Stap 1: Het service connection point configureren
+## <a name="configure-service-connection-point"></a>Het service connection point configureren
 
 Het service connection point (SCP)-object wordt gebruikt door uw apparaten tijdens de registratie voor het detecteren van informatie over Azure AD-tenant. In uw on-premises Active Directory (AD) moet het SCP-object voor de hybride Azure AD gekoppelde apparaten zich in de configuratie van de naam van de partitie van de context van de forest van de computer. Er is slechts één configuratienaamgevingscontext per forest. In een configuratie met meerdere forests Active Directory, moet de service connection point in alle forests met domein computers bestaan.
 
@@ -200,7 +200,7 @@ Als u een lijst van uw bedrijf met geverifieerde domeinen, kunt u de [Get-AzureA
 
 ![Get-AzureADDomain](./media/hybrid-azuread-join-manual-steps/01.png)
 
-## <a name="step-2-setup-issuance-of-claims"></a>Stap 2: De uitgifte van claims instellen
+## <a name="setup-issuance-of-claims"></a>Uitgifte van claims instellen
 
 In een federatieve Azure AD-configuratie, de apparaten zijn afhankelijk van de Active Directory Federation Services (AD FS) of een 3e partij on-premises federation-service om te verifiëren met Azure AD. Apparaten worden geverifieerd voor een toegangstoken om te registreren op basis van de Azure Active Directory Device Registration Service (Azure DRS).
 
@@ -504,7 +504,7 @@ Het volgende script waarmee u met het maken van de uitgifte regels die hierboven
 
 - Als u al hebt verzonden een **ImmutableID** claim voor gebruikersaccounts, stel de waarde van **$immutableIDAlreadyIssuedforUsers** in het script naar **$true**.
 
-## <a name="step-3-enable-windows-down-level-devices"></a>Stap 3: Windows downlevel-apparaten inschakelen
+## <a name="enable-windows-down-level-devices"></a>Windows downlevel-apparaten inschakelen
 
 Als sommige van uw apparaten domein Windows downlevel-apparaten zijn, moet u naar:
 
@@ -562,7 +562,7 @@ Om te voorkomen dat certificaat wordt gevraagd wanneer gebruikers van apparaten 
 
 `https://device.login.microsoftonline.com`
 
-## <a name="step-4-control-deployment-and-rollout"></a>Stap 4: Implementatie beheren
+## <a name="control-deployment-and-rollout"></a>Besturingselement voor implementatie
 
 Wanneer u de vereiste stappen hebt voltooid, gaan domein apparaten worden automatisch gekoppeld aan Azure AD:
 
@@ -611,15 +611,24 @@ U kunt het pakket implementeren met behulp van het systeem in een software-distr
 
 Het installatieprogramma maakt een geplande taak op het systeem dat wordt uitgevoerd in de context van de gebruiker. De taak wordt geactiveerd wanneer de gebruiker zich aanmeldt bij Windows. De taak op de achtergrond lid wordt van het apparaat met Azure AD met de referenties van de gebruiker na verificatie met behulp van geïntegreerde Windows-verificatie. De geplande taak, het apparaat, Ga naar **Microsoft** > **Workplace Join**, en ga vervolgens naar de Task Scheduler-bibliotheek.
 
-## <a name="step-5-verify-joined-devices"></a>Stap 5: Controleer of de gekoppelde apparaten
+## <a name="verify-joined-devices"></a>Controleer of de gekoppelde apparaten
 
 U kunt geslaagde gekoppelde apparaten controleren in uw organisatie met behulp van de [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) cmdlet in de [Azure Active Directory PowerShell-module](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
 
 De uitvoer van deze cmdlet toont de apparaten die zijn geregistreerd en samengevoegd met Azure AD. Voor alle apparaten, gebruikt de **-alle** parameter, en ze vervolgens te filteren met behulp van de **deviceTrustType** eigenschap. Domein apparaten hebben een waarde van **domein**.
 
+
+
+## <a name="troubleshoot-your-implementation"></a>Uw implementatie oplossen
+
+Als u problemen ondervindt bij het invullen van hybride Azure AD join voor domein gekoppelde Windows-apparaten, Zie:
+
+- [Oplossen van problemen met Hybrid Azure AD join voor de huidige Windows-apparaten](troubleshoot-hybrid-join-windows-current.md)
+- [Oplossen van problemen met Hybrid Azure AD join voor Windows downlevel-apparaten](troubleshoot-hybrid-join-windows-legacy.md)
+
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Inleiding tot Apparaatbeheer in Azure Active Directory](../device-management-introduction.md)
+* [Inleiding tot Apparaatbeheer in Azure Active Directory](overview.md)
 
 
 

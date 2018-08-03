@@ -1,7 +1,7 @@
 ---
-title: Registratie-vertaler tekst API | Microsoft Docs
+title: Meld u aan Translator Text-API | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
-description: Hoe u zich registreert voor de API van de tekst conversieprogramma.
+description: Hoe u zich registreert voor de Translator Text-API.
 services: cognitive-services
 author: noellelacharite
 manager: nolachar
@@ -11,53 +11,53 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: nolachar
 ms.openlocfilehash: 2aa293acfa1a9e3fd95a64f6981bd8dc9747b6b6
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
+ms.lasthandoff: 08/02/2018
 ms.locfileid: "36265554"
 ---
-# <a name="how-to-sign-up-for-the-translator-text-api"></a>Hoe u zich registreert voor de API van de tekst conversieprogramma
+# <a name="how-to-sign-up-for-the-translator-text-api"></a>Hoe u zich registreert voor de Translator Text-API
 
 ## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
-- Hebt u geen account? Kunt u een [gratis account](https://azure.microsoft.com/free/) om te experimenteren zonder kosten.
+- Hebt u geen account? U kunt maken een [gratis account](https://azure.microsoft.com/free/) om te experimenteren zonder kosten.
 - Hebt u al een account? [Aanmelden](https://ms.portal.azure.com/)
 
-## <a name="create-a-subscription-to-the-translator-text-api"></a>Een abonnement op de tekst conversieprogramma API maken
+## <a name="create-a-subscription-to-the-translator-text-api"></a>Een abonnement op de Translator Text-API maken
 
-Nadat u zich bij de portal aanmelden, kunt u een abonnement op de API van de tekst conversieprogramma als volgt:
+Nadat u zich bij de portal aanmelden, kunt u een abonnement op de Translator Text-API als volgt maken:
 
 1. Selecteer **+ Een resource maken**.
-1. In de **zoeken van de Marketplace** het zoekvak, voert u **conversieprogramma tekst** en selecteert u deze in de resultaten.
-1. Selecteer **maken** details definiëren voor het abonnement.
-1. Van de **prijscategorie** , selecteert u de prijscategorie die het beste past bij uw behoeften.
-    1. Elk abonnement heeft een gratis laag. Gratis laag heeft dezelfde functies en functionaliteiten als de betaalde abonnementen en verloopt niet.
-    1. U kunt slechts één gratis abonnement voor uw account hebben.
+1. In de **Marketplace doorzoeken** het zoekvak, typ **Translator tekst** en selecteert u deze in de resultaten.
+1. Selecteer **maken** details voor het abonnement definiëren.
+1. Uit de **prijscategorie** , selecteert u de prijscategorie die het beste past bij uw behoeften.
+    1. Elk abonnement heeft een gratis laag. De gratis laag heeft de dezelfde functies en functionaliteiten als de betaalde abonnementen en niet verloopt.
+    1. U kunt slechts één gratis abonnement hebben voor uw account.
 1. Selecteer **maken** voltooid met het maken van het abonnement.
 
 ## <a name="authentication-key"></a>Verificatiesleutel
 
-Als u zich voor conversieprogramma tekst aanmelden, krijgt u een toegangssleutel voor persoonlijke unieke aan uw abonnement. Deze sleutel is vereist voor elke aanroep van de API van de tekst conversieprogramma.
+Als u zich registreert voor Translator tekst, krijgt u een toegangssleutel voor persoonlijke unieke aan uw abonnement. Deze sleutel is vereist voor elke aanroep naar de Translator Text-API.
 
-1. Uw verificatiesleutel ophalen door eerst het juiste abonnement te selecteren.
-1. Selecteer **sleutels** in de **bronbeheer** sectie van de details van uw abonnement.
-1. Kopieer een van de sleutels die worden vermeld voor uw abonnement.
+1. De verificatiesleutel ophalen door eerst het juiste abonnement te selecteren.
+1. Selecteer **sleutels** in de **resourcebeheer** sectie van de details van uw abonnement.
+1. Kopieer een van de sleutels die worden weergegeven voor uw abonnement.
 
 ## <a name="learn-test-and-get-support"></a>Meer informatie, testen en ondersteuning krijgen
 
 - [Codevoorbeelden op GitHub](https://github.com/MicrosoftTranslator)
-- [Microsoft Translator ondersteuningsforum](http://www.aka.ms/TranslatorForum)
+- [Ondersteuningsforum voor Microsoft Translator](http://www.aka.ms/TranslatorForum)
 
 ## <a name="pricing-options"></a>Prijsopties
 
-- [Conversieprogramma tekst API](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
+- [Translator Text-API](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 
 ## <a name="customization"></a>Aanpassing
 
-Gebruik aangepaste conversieprogramma een vertaling-systeem dat is afgestemd op uw eigen terminologie en stijl, algemene Microsoft Translator neural machinevertaling systemen vanaf maken en aanpassen van uw vertalingen. [Meer informatie](customization.md)
+Met aangepaste Translator kunt u uw vertalingen aanpassen en maken een vertaling systeem afgestemd op uw eigen terminologie en stijl, starten van algemene Microsoft Translator neurale automatische vertalingssystemen. [Meer informatie](customization.md)
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 - [Aan de slag met Azure (3 minuten durende video)](https://azure.microsoft.com/get-started/?b=16.24)
-- [Hoe Betaal met een factuur](https://azure.microsoft.com/pricing/invoicing/)
+- [Hoe u met een factuur betaalt](https://azure.microsoft.com/pricing/invoicing/)

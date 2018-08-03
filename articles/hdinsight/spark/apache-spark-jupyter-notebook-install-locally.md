@@ -1,6 +1,6 @@
 ---
-title: Jupyter lokaal installeren en te verbinden met een Azure HDInsight Spark-cluster | Microsoft Docs
-description: Informatie over het installeren van de Jupyter-notebook lokaal op uw computer en te verbinden met een Apache Spark-cluster in Azure HDInsight.
+title: Lokaal Jupyter installeren en verbinding maken met een Azure HDInsight Spark-cluster | Microsoft Docs
+description: Leer hoe u lokaal Jupyter-notebook op uw computer installeren en verbinden met een Apache Spark-cluster in Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -14,67 +14,67 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: nitinme
-ms.openlocfilehash: eea61586054f34142d77f16333fe70a66d95d529
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 72850bc7d7c86f2fefd1b8f4311b038ddd7c8b33
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31528355"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423534"
 ---
-# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Jupyter-notebook installeren op uw computer en maak verbinding met Apache Spark in HDInsight
+# <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Jupyter-notebook op uw computer installeren en verbinden met Apache Spark in HDInsight
 
-In dit artikel leert u hoe u Jupyter-notebook installeren met de aangepaste PySpark (voor Python) en kernels met Spark-magic Spark (voor Scala) en de notebook verbinding met een HDInsight-cluster. Er is een aantal redenen voor het installeren van Jupyter op uw lokale computer en kunnen er ook enkele uitdagingen. Zie de sectie voor meer informatie over dit [waarom zou ik Jupyter installeren op mijn computer](#why-should-i-install-jupyter-on-my-computer) aan het einde van dit artikel.
+In dit artikel leert u hoe u Jupyter-notebook, met de aangepaste PySpark (voor Python) en Spark (voor Scala) kernels met Spark Magic-pakket installeren en de notebook verbinden met een HDInsight-cluster. Er is een aantal redenen voor het installeren van Jupyter op uw lokale computer en kunnen er ook enkele uitdagingen. Zie de sectie voor meer informatie over dit [waarom moet ik Jupyter installeren op mijn computer](#why-should-i-install-jupyter-on-my-computer) aan het einde van dit artikel.
 
-Er zijn drie belangrijke stappen die betrokken zijn bij het installeren van Jupyter en de Spark-magie op uw computer.
+Er zijn drie belangrijke stappen die betrokken zijn bij de Jupyter- en de Spark-Magic-pakket installeren op uw computer.
 
 * Jupyter-notebook installeren
-* De PySpark- en Spark kernels installeren met de magische Spark
-* Spark-magic voor toegang tot Spark-cluster in HDInsight configureren
+* De PySpark- en Spark-kernels installeren met de Magic-pakket voor Spark
+* Spark Magic-pakket voor toegang tot Spark-cluster in HDInsight configureren
 
-Zie voor meer informatie over de aangepaste kernels en het beschikbaar voor Jupyter-notebooks met HDInsight-cluster Spark-magic [beschikbare Kernels voor Jupyter-notebooks met Apache Spark Linux-clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md).
+Zie voor meer informatie over de aangepaste kernels en de Spark-magic beschikbaar voor de Jupyter-notebooks met HDInsight-cluster [beschikbare Kernels voor Jupyter-notebooks met Apache Spark Linux-clusters in HDInsight](apache-spark-jupyter-notebook-kernels.md).
 
 ## <a name="prerequisites"></a>Vereisten
-De hier vermelde vereisten zijn niet beschikbaar voor het installeren van Jupyter. Dit zijn voor het verbinden van de Jupyter-notebook met een HDInsight-cluster als de laptop is geïnstalleerd.
+De vereisten die hier worden vermeld, zijn niet voor het installeren van Jupyter. Dit zijn voor de Jupyter-notebook verbinding met een HDInsight-cluster nadat het notitieblok is geïnstalleerd.
 
 * Een Azure-abonnement. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Een Apache Spark-cluster in HDInsight. Zie voor instructies [maken Apache Spark-clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* Een Apache Spark-cluster in HDInsight. Zie [Apache Spark-clusters maken in Azure HDInsight](apache-spark-jupyter-spark-sql.md) voor instructies.
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>Jupyter-notebook op uw computer installeren
 
-Voordat u de Jupyter-notebooks kunt installeren, moet u Python installeren. Zowel Python en Jupyter zijn beschikbaar als onderdeel van de [Anaconda distributie](https://www.continuum.io/downloads). Als u Anaconda installeert, installeert u een distributiepunt van Python. Nadat Anaconda is geïnstalleerd, kunt u de installatie van de Jupyter toevoegen door de juiste opdrachten uit te voeren.
+Voordat u de Jupyter-notebooks kunt installeren, moet u Python installeren. Zowel Python als Jupyter zijn beschikbaar als onderdeel van de [Anaconda distributie](https://www.continuum.io/downloads). Als u Anaconda installeert, installeert u een Python-distributie. Wanneer Anaconda is geïnstalleerd, kunt u de Jupyter-installatie toevoegen door het uitvoeren van opdrachten.
 
-1. Download de [Anaconda-installatieprogramma](https://www.continuum.io/downloads) voor uw platform en voer de installatie. Zorg dat u de optie Anaconda toevoegen aan de padvariabele tijdens het uitvoeren van de wizard setup.
-2. Voer de volgende opdracht voor het installeren van Jupyter.
+1. Download de [Anaconda installatieprogramma](https://www.continuum.io/downloads) voor uw platform en voer de installatie. Tijdens het uitvoeren van de wizard setup, zorg ervoor dat u selecteert de optie voor het Anaconda toevoegen aan de variabele PATH.
+1. Voer de volgende opdracht voor het installeren van Jupyter.
 
         conda install jupyter
 
-    Zie voor meer informatie over het installeren van Jupyter [installeren Jupyter met Anaconda](http://jupyter.readthedocs.io/en/latest/install.html).
+    Zie voor meer informatie over het installeren van Jupyter [installeren Jupyter met behulp van Anaconda](http://jupyter.readthedocs.io/en/latest/install.html).
 
-## <a name="install-the-kernels-and-spark-magic"></a>Installeer de kernels en Spark verwerkt Magic-pakket
+## <a name="install-the-kernels-and-spark-magic"></a>De kernels en Spark Magic-pakket installeren
 
-Voor instructies over het installeren van de Spark-magic, de kernels PySpark en Spark installatie-instructies in de [sparkmagic documentatie](https://github.com/jupyter-incubator/sparkmagic#installation) op GitHub. De eerste stap in de documentatie van de Spark-magic vraagt u Spark verwerkt Magic-pakket installeren. Deze eerste stap in de koppeling met de volgende opdrachten, afhankelijk van de versie van het HDInsight-cluster dat maakt u verbinding met vervangen. Volg daarna de overige stappen in de documentatie van Spark-magic. Als u installeren van de verschillende kernels wilt, voert u stap 3 in de sectie Spark magische installatie-instructies.
+Voor instructies over het installeren van de Spark-magic, volgt u de PySpark- en Spark-kernels, de installatie-instructies in de [sparkmagic documentatie](https://github.com/jupyter-incubator/sparkmagic#installation) op GitHub. De eerste stap in de documentatie van de Spark-magic, vraagt u Spark Magic-pakket te installeren. Deze eerste stap in de koppeling vervangen door de volgende opdrachten, afhankelijk van de versie van het HDInsight-cluster dat maakt u verbinding met. Volg daarna de resterende stappen in de documentatie van de Spark-magic. Als u installeren van de verschillende kernels wilt, voert u stap 3 in de sectie Spark magic-installatie-instructies.
 
-* Voor clusters v3.4, installeert u sparkmagic 0.2.3 door te voeren `pip install sparkmagic==0.2.3`
+* Voor clusters v3.4, installeert u sparkmagic 0.2.3 door uit te voeren `pip install sparkmagic==0.2.3`
 
-* Installeren voor clusters v3.5 en v3.6 sparkmagic 0.11.2 door `pip install sparkmagic==0.11.2`
+* Voor clusters v3.5 en v3.6, installeert u sparkmagic 0.11.2 door uit te voeren `pip install sparkmagic==0.11.2`
 
-## <a name="configure-spark-magic-to-connect-to-hdinsight-spark-cluster"></a>Spark-magic verbinding maken met HDInsight Spark-cluster configureren
+## <a name="configure-spark-magic-to-connect-to-hdinsight-spark-cluster"></a>Spark magic verbinding maken met HDInsight Spark-cluster configureren
 
-In deze sectie configureert u de Spark-magie die u eerder hebt geïnstalleerd voor de verbinding met een Apache Spark-cluster moet u al hebt gemaakt in Azure HDInsight.
+In deze sectie configureert u de Spark-magic die u eerder hebt geïnstalleerd als u wilt verbinding maken met een Apache Spark-cluster moet u al hebt gemaakt in Azure HDInsight.
 
-1. De Jupyter-configuratie-informatie wordt meestal opgeslagen in de basismap van gebruikers. Als u wilt vinden uw basismap op een besturingssysteem of platform, typ de volgende opdrachten.
+1. De Jupyter-configuratiegegevens worden meestal opgeslagen in de basismap van gebruikers. Als u wilt de basismap op elk platform OS vinden, typ de volgende opdrachten.
 
-    Start de Python-shell. Op een opdrachtvenster, typt u het volgende:
+    Start de Python-shell. In een opdrachtvenster, typt u het volgende:
 
         python
 
-    Voer de volgende opdracht om erachter te komen de basismap op de shell Python.
+    Voer de volgende opdracht om erachter te komen de basismap van de Python-shell.
 
         import os
         print(os.path.expanduser('~'))
 
-2. Navigeer naar de basismap en maak een map met de naam **.sparkmagic** als deze niet al bestaat.
-3. Maak een bestand met de naam in de map **config.json** en voeg de volgende JSON-fragment hierin.
+1. Navigeer naar de oorspronkelijke directory en maak een map genaamd **.sparkmagic** als deze niet al bestaat.
+1. Maak een bestand met de naam in de map **config.json** en voeg de volgende JSON-codefragment hierin.
 
         {
           "kernel_python_credentials" : {
@@ -89,34 +89,34 @@ In deze sectie configureert u de Spark-magie die u eerder hebt geïnstalleerd vo
           }
         }
 
-4. Vervang **{USERNAME}**, **{CLUSTERDNSNAME}**, en **{BASE64ENCODEDPASSWORD}** met de juiste waarden. U kunt een aantal hulpprogramma's in uw favoriete programmeertaal of online gebruiken voor het genereren van een base64-gecodeerd wachtwoord voor uw huidige wachtwoord.
+1. Vervang **{USERNAME}**, **{CLUSTERDNSNAME}**, en **{BASE64ENCODEDPASSWORD}** met de juiste waarden. U kunt een aantal hulpprogramma's in uw favoriete programmeertaal of online gebruiken voor het genereren van een met base64 gecodeerde wachtwoord voor uw huidige wachtwoord.
 
-5. Configureer de juiste Heartbeat-instellingen in `config.json`. U moet deze instellingen toevoegen op hetzelfde niveau als het `kernel_python_credentials` en `kernel_scala_credentials` codefragmenten uw toegevoegde eerder. Zie voor een voorbeeld van hoe en waar u de heartbeatinstellingen toe te voegen, [voorbeeld config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
+1. Configureer de juiste Heartbeat-instellingen in `config.json`. U moet deze instellingen toevoegen op hetzelfde niveau als het `kernel_python_credentials` en `kernel_scala_credentials` codefragmenten uw toegevoegd eerder. Zie voor een voorbeeld van hoe en waar u de heartbeatinstellingen toe te voegen, [voorbeeld config.json](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json).
 
-    * Voor `sparkmagic 0.2.3` (clusters met v3.4) omvatten:
+    * Voor `sparkmagic 0.2.3` (clusters v3.4), opnemen:
 
             "should_heartbeat": true,
             "heartbeat_refresh_seconds": 5,
             "heartbeat_retry_seconds": 1
 
-    * Voor `sparkmagic 0.11.2` (clusters v3.5 en v3.6), zijn onder andere:
+    * Voor `sparkmagic 0.11.2` (clusters v3.5 en v3.6), opnemen:
 
             "heartbeat_refresh_seconds": 5,
             "livy_server_heartbeat_timeout_seconds": 60,
             "heartbeat_retry_seconds": 1
 
     >[!TIP]
-    >Heartbeats worden verzonden om ervoor te zorgen dat sessies niet gelekt. Wanneer een computer overschakelt naar de slaapstand of wordt afgesloten, wordt de heartbeat is niet verzonden, wat resulteert in de sessie wordt opgeschoond. Voor clusters v3.4, als u wilt uitschakelen, dit gedrag kunt u instellen Livy config `livy.server.interactive.heartbeat.timeout` naar `0` van de Ambari UI. Voor clusters v3.5, als de bovenstaande 3.5 configuratie niet is ingesteld worden de sessie niet verwijderd.
+    >Heartbeats worden verzonden om ervoor te zorgen dat sessies niet kunnen worden gelekt. Wanneer een computer in de slaapstand gaat of wordt afgesloten, wordt de heartbeat is niet verzonden, wat resulteert in de sessie wordt opgeschoond. Voor clusters v3.4, als u wilt uitschakelen van dit gedrag kunt u instellen de configuratie van Livy `livy.server.interactive.heartbeat.timeout` naar `0` van de Ambari UI. Voor clusters v3.5, als u niet de bovenstaande, 3,5 configuratie stelt worden de sessie niet verwijderd.
 
-6. Jupyter starten. Gebruik de volgende opdracht vanaf de opdrachtprompt.
+1. Jupyter starten. Gebruik de volgende opdracht uit vanaf de opdrachtprompt.
 
         jupyter notebook
 
-7. Controleer of u verbinding kunt maken met het cluster via de Jupyter-notebook en dat u de Spark-magie beschikbaar met de kernels kunt gebruiken. De volgende stappen uitvoeren.
+1. Controleer of u verbinding kunt maken met het cluster via de Jupyter-notebook en dat u de Spark-magic beschikbaar met de kernels kunt gebruiken. Voer de volgende stappen uit.
 
     a. Maak een nieuwe notebook. Klik in de rechterhoek op **nieuw**. U ziet nu de standaard-kernel **Python2** en de twee nieuwe kernels die u installeert, **PySpark** en **Spark**. Klik op **PySpark**.
 
-    ![Kernels in Jupyter-notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Kernels in Jupyter-notebook")
+    ![Kernels op Jupyter-notitieblok](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels.png "Kernels op Jupyter-notitieblok")
 
     b. Voer het volgende codefragment.
 
@@ -126,19 +126,19 @@ In deze sectie configureert u de Spark-magie die u eerder hebt geïnstalleerd vo
     Als u de uitvoer met succes ophalen kunt, wordt de verbinding met het HDInsight-cluster getest.
 
     >[!TIP]
-    >Als u de configuratie van de notebook verbinding maken met een ander cluster bijwerken wilt, bijwerken van de config.json met de nieuwe set waarden, zoals u in stap 3 hierboven.
+    >Als u de configuratie van de notebook verbinding maken met een ander cluster bijwerken wilt, werkt u de config.json met de nieuwe set waarden, zoals wordt weergegeven in stap 3 hierboven.
 
 ## <a name="why-should-i-install-jupyter-on-my-computer"></a>Waarom zou ik Jupyter installeren op mijn computer?
-Er is een aantal redenen waarom u wilt mogelijk Jupyter op uw computer installeren en deze vervolgens verbinding met een Spark-cluster in HDInsight.
+Er is een aantal redenen waarom u wilt mogelijk Jupyter op uw computer installeren en verbindt dit vervolgens met een Spark-cluster in HDInsight.
 
-* Hoewel Jupyter-notebooks al beschikbaar op het Spark-cluster in Azure HDInsight zijn, biedt installeert Jupyter op uw computer u de optie voor het maken van uw notitieblokken lokaal door uw toepassing testen op een actief cluster en vervolgens de laptops uploaden naar het cluster. Als u wilt uploaden de laptops aan het cluster, kunt u uploaden met de Jupyter-notebook die wordt uitgevoerd of het cluster of opslaan op de map /HdiNotebooks in het opslagaccount die is gekoppeld aan het cluster. Zie voor meer informatie over hoe notitieblokken worden opgeslagen op het cluster, [waar zijn Jupyter-notebooks opgeslagen](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)?
-* Met de beschikbare laptops lokaal, kunt u verschillende Spark-clusters op basis van uw vereisten voor toepassingsimplementatie.
-* U kunt GitHub gebruiken voor het implementeren van een bronbeheersysteem en versiebeheer voor de laptops hebben. U kunt ook een samenwerkingsomgeving waar meerdere gebruikers met de dezelfde laptop werken kunnen hebben.
-* U kunt lokaal werken met notitieblokken zonder zelfs een cluster van. U hoeft alleen een cluster voor het testen van uw notitieblokken tegen, niet handmatig te beheren uw notitieblokken of een ontwikkelomgeving.
-* Het is wellicht eenvoudiger te configureren van uw eigen lokale ontwikkelingsomgeving dan de Jupyter-installatie op het cluster configureren.  U kunt profiteren van alle software die u lokaal hebt geïnstalleerd zonder het configureren van een of meer externe clusters.
+* Hoewel Jupyter-notebooks al beschikbaar op het Spark-cluster in Azure HDInsight zijn, Jupyter op uw computer installeren biedt u de optie voor het lokaal uw notitieblokken maken en upload uw toepassing testen op een actief cluster de notitieblokken aan het cluster. Als u wilt de notebooks uploaden naar het cluster, kunt u uploaden met behulp van de Jupyter-notebook die wordt uitgevoerd of het cluster of opslaan naar de map /HdiNotebooks in het opslagaccount dat is gekoppeld aan het cluster. Zie voor meer informatie over hoe notitieblokken worden opgeslagen op het cluster, [waar zijn Jupyter-notebooks opgeslagen](apache-spark-jupyter-notebook-kernels.md#where-are-the-notebooks-stored)?
+* De notebooks beschikbaar lokaal, u kunt verbinding maken met andere Spark-clusters op basis van de vereisten van uw toepassing.
+* GitHub kunt u een bronbeheersysteem implementeren en versiebeheer voor de laptops hebben. U kunt ook een samenwerkingsomgeving waarin meerdere gebruikers met de dezelfde notebook werken kunnen hebben.
+* U kunt lokaal werken met notitieblokken zonder dat ook een cluster omhoog. U hoeft alleen een cluster voor het testen van uw laptops, niet voor het handmatig beheren van uw laptops of een ontwikkelomgeving.
+* Het is mogelijk eenvoudiger te configureren van uw eigen lokale ontwikkelomgeving dan de Jupyter-installatie op het cluster configureren.  U kunt profiteren van alle software die u lokaal hebt geïnstalleerd zonder een of meer externe clusters configureren.
 
 > [!WARNING]
-> Jupyter op uw lokale computer geïnstalleerd, kunnen meerdere gebruikers kunnen de dezelfde notebook in hetzelfde Spark-cluster uitvoeren op hetzelfde moment. In een dergelijke situatie worden meerdere Livy sessies gemaakt. Als u een probleem ondervindt en foutopsporing uitvoeren wilt, zal zijn voor een complexe taak bijhouden welke sessie Livy waarmee de gebruiker behoort.
+> Jupyter op uw lokale computer is geïnstalleerd, kunnen meerdere gebruikers kunnen de dezelfde notebook op de dezelfde Spark-cluster uitvoeren op hetzelfde moment. In een dergelijke situatie worden meerdere Livy-sessies gemaakt. Als u een probleem ondervindt en daarop foutopsporing uitvoeren wilt, is dit een complexe taak om bij te houden welke Livy-sessie behoort tot welke gebruiker.
 >
 >
 

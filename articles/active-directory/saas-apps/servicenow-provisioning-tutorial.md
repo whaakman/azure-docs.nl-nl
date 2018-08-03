@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: ServiceNow configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
-description: Informatie over het automatisch inrichten en gebruikersaccounts vanuit Azure AD naar ServiceNow ongedaan in te richten.
+description: Meer informatie over het automatisch inrichten en de inrichting van gebruikersaccounts uit Azure AD met ServiceNow ongedaan maken.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,97 +15,97 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: d76a8996f7ccc6a7b6df2f8e1fe52568dbd725db
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8d05e314cb31aaba96e7db79e0e4dd287e6d2184
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210795"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426901"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Zelfstudie: ServiceNow configureren voor het automatisch gebruikers inrichten met Azure Active Directory
 
-Het doel van deze zelfstudie is zodat u de stappen die u uitvoeren in ServiceNow en Azure AD wilt om automatisch in te richten en inrichten van gebruikersaccounts vanuit Azure AD naar ServiceNow ongedaan.
+Het doel van deze zelfstudie is om weer te geven u de stappen die u uitvoeren in ServiceNow en Azure AD wilt voor het automatisch inrichten en inrichting van gebruikersaccounts uit Azure AD met ServiceNow ongedaan maken.
 
 > [!NOTE]
-> Deze zelfstudie wordt een connector die is ingebouwd in de Azure AD-gebruiker inrichtingsservice beschreven. Zie voor belangrijke informatie over wat deze service doet, hoe het werkt en veelgestelde vragen [gebruikers inrichten en opheffen van inrichting voor SaaS-toepassingen met Azure Active Directory automatiseren](./../active-directory-saas-app-provisioning.md).
+> Deze zelfstudie beschrijft een connector die is gebaseerd op de Provisioning-Service van Azure AD-gebruiker. Zie voor belangrijke informatie over wat deze service biedt, hoe het werkt en veelgestelde vragen [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure Active Directory](./../active-directory-saas-app-provisioning.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met ServiceNow, moet u de volgende items:
+Voor het Azure AD-integratie configureren met ServiceNow, moet u de volgende items:
 
 - Een Azure AD-abonnement
-- Voor ServiceNow, een exemplaar of de tenant van ServiceNow, Calgary versie of hoger
-- Voor ServiceNow snelle, een exemplaar van ServiceNow Express, Helsinki versie of hoger
+- Voor ServiceNow, een exemplaar of een tenant van ServiceNow, Calgary versie of hoger
+- Voor snelle ServiceNow, een exemplaar van ServiceNow Express, Helsinki versie of hoger
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="assigning-users-to-servicenow"></a>Gebruikers toewijzen aan ServiceNow
 
-Azure Active Directory gebruikt een concept 'toewijzingen' genoemd om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van automatische gebruikers account inrichten, alleen de gebruikers en groepen die '' tot een toepassing in Azure AD toegewezen zijn gesynchroniseerd.
+Azure Active Directory maakt gebruik van een concept genaamd "toewijzingen" om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van het inrichten van automatische gebruikersaccounts, wordt alleen de gebruikers en groepen die '' aan een toepassing in Azure AD toegewezen zijn gesynchroniseerd.
 
-Voordat u configureren en inschakelen van de inrichting service, moet u bepalen welke gebruikers en/of groepen in Azure AD vertegenwoordigen de gebruikers die toegang nodig tot uw ServiceNow-app. Als u had besloten, kunt u deze gebruikers toewijzen aan uw ServiceNow-app door de instructies volgen hier: [een gebruiker of groep toewijzen aan een enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Voordat u configureren en inschakelen van de inrichtingsservice, moet u bepalen welke gebruikers en/of groepen in Azure AD vertegenwoordigen de gebruikers die toegang nodig tot uw ServiceNow-app. Als besloten, kunt u deze gebruikers toewijzen aan uw ServiceNow-app door de instructies hier: [een gebruiker of groep toewijzen aan een enterprise-app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 
 > [!IMPORTANT]
->*   Het is raadzaam om één Azure AD-gebruiker is toegewezen aan ServiceNow voor het testen van de configuratie van de inrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
->*   Wanneer een gebruiker aan ServiceNow toewijzen, moet u een geldige gebruikersrol selecteren. De rol 'Default toegang' werkt niet voor het inrichten.
+>*   Het wordt aanbevolen dat één Azure AD-gebruiker is toegewezen aan ServiceNow voor het testen van de configuratie van de inrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
+>*   Bij het toewijzen van een gebruiker met ServiceNow, moet u een geldige gebruikersrol selecteren. De rol 'standaardtoegang' werkt niet voor het inrichten.
 
 ## <a name="enable-automated-user-provisioning"></a>Geautomatiseerde gebruikersinrichting inschakelen
 
-Deze sectie helpt u bij het verbinding maken met uw Azure AD ServiceNow van gebruikersaccount inrichten API en configureren van de inrichting service te maken, bijwerken en uitschakelen van toegewezen gebruikersaccounts in ServiceNow op basis van gebruikers en groepen toewijzen in Azure AD.
+In deze sectie helpt u bij uw Azure AD verbinden met de ServiceNow-gebruikersaccount Inrichtings-API en configureren van de provisioning-service voor het maken, bijwerken en uitschakelen van toegewezen gebruikersaccounts in ServiceNow op basis van gebruikers en groepen in Azure AD.
 
 > [!TIP]
->U kunt ook op basis van SAML eenmalige aanmelding is ingeschakeld voor ServiceNow, vindt u de instructies te volgen in [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies aanvulling van elkaar.
+>U kunt ook op SAML gebaseerde eenmalige aanmelding ingeschakeld voor ServiceNow, vindt u de instructies te volgen in [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies een fraaie aanvulling in elkaar.
 
-### <a name="configure-automatic-user-account-provisioning"></a>Automatisch gebruikers inrichten van account configureren
+### <a name="configure-automatic-user-account-provisioning"></a>Het inrichten van automatische gebruikersaccounts configureren
 
-1. In de [Azure-portal](https://portal.azure.com), blader naar de **Azure Active Directory > zakelijke Apps > alle toepassingen** sectie.
+1. In de [Azure-portal](https://portal.azure.com), blader naar de **Azure Active Directory > Bedrijfsapps > alle toepassingen** sectie.
 
-2. Als u al ServiceNow hebt geconfigureerd voor eenmalige aanmelding, zoekt u uw exemplaar van ServiceNow met behulp van het zoekveld. Selecteer anders **toevoegen** en zoek naar **ServiceNow** in de galerie met toepassingen. ServiceNow selecteert in de zoekresultaten en toe te voegen aan uw lijst met toepassingen.
+1. Als u al ServiceNow hebt geconfigureerd voor eenmalige aanmelding, zoeken naar uw exemplaar van ServiceNow met behulp van het zoekveld. Selecteer anders **toevoegen** en zoek naar de **ServiceNow** in de toepassingengalerie. ServiceNow selecteren in de resultaten voor zoeken en toe te voegen aan uw lijst met toepassingen.
 
-3. Selecteer uw ServiceNow-exemplaar en selecteer vervolgens de **inrichten** tabblad.
+1. Selecteer uw exemplaar van ServiceNow, en selecteer vervolgens de **Provisioning** tabblad.
 
-4. Stel de **inrichting** modus **automatische**. 
+1. Stel de **inrichting** modus waarnaar moet worden **automatische**. 
 
     ![inrichten](./media/servicenow-provisioning-tutorial/provisioning.png)
 
-5. In de sectie beheerdersreferenties, moet u de volgende stappen uitvoeren:
+1. In de sectie beheerdersreferenties, moet u de volgende stappen uitvoeren:
    
-    a. In de **ServiceNow-exemplaarnaam** textbox, typ de naam van het ServiceNow-exemplaar.
+    a. In de **ServiceNow-exemplaarnaam** tekstvak typt u de naam van het ServiceNow-exemplaar.
 
-    b. In de **ServiceNow-Beheerdersgebruikersnaam** textbox, typ de gebruikersnaam van een beheerder.
+    b. In de **ServiceNow-Beheerdersgebruikersnaam** tekstvak, typ de naam van de gebruiker van een beheerder.
 
-    c. In de **ServiceNow-beheerderswachtwoord** textbox, het administrator wachtwoord.
+    c. In de **ServiceNow beheerderswachtwoord** tekstvak, het administrator wachtwoord.
 
-6. Klik in de Azure-portal op **testverbinding** om te controleren of Azure AD, kan verbinding maken met uw ServiceNow-app. Als de verbinding is mislukt, Controleer uw ServiceNow-account Team beheerdersmachtigingen heeft en probeer de **'Beheerdersreferenties'** stap opnieuw.
+1. Klik in de Azure-portal op **testverbinding** om te controleren of Azure AD kunt verbinden met uw ServiceNow-app. Als de verbinding is mislukt, zorg ervoor dat uw ServiceNow-account Team beheerdersmachtigingen heeft en probeer de **"Beheerdersreferenties"** stap opnieuw uit.
 
-7. Voer het e-mailadres van een persoon of groep die in inrichting fout meldingen moet ontvangen de **e-mailmelding** veld en schakel het selectievakje in.
+1. Voer het e-mailadres van een persoon of groep die inrichting fout meldingen moet ontvangen de **e-mailmelding** veld en schakel het selectievakje in.
 
-8. Klik op **opslaan.**
+1. Klik op **opslaan.**
 
-9. Selecteer onder de sectie toewijzingen **synchroniseren Azure Active Directory-gebruikers ServiceNow.**
+1. Selecteer onder de sectie toewijzingen **synchroniseren Azure Active Directory: gebruikers met ServiceNow.**
 
-10. In de **kenmerktoewijzingen** sectie, moet u de kenmerken van de gebruiker is gesynchroniseerd vanuit Azure AD ServiceNow controleren. De kenmerken die zijn geselecteerd als **overeenkomend** eigenschappen overeenkomen met de gebruikersaccounts in ServiceNow voor update-bewerkingen worden gebruikt. Selecteer de knop Opslaan eventuele wijzigingen doorvoeren.
+1. In de **kenmerktoewijzingen** sectie, controleert u de kenmerken van de gebruiker die worden gesynchroniseerd vanuit Azure AD met ServiceNow. De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt zodat deze overeenkomen met de gebruikersaccounts in ServiceNow voor update-bewerkingen. Selecteer de knop Opslaan om door te voeren van eventuele wijzigingen.
 
-11. Wijzigen om de Azure AD-service voor ServiceNow-inrichting, de **inrichting Status** naar **op** in de sectie instellingen
+1. Als wilt inschakelen in de Azure AD-inrichtingsservice voor ServiceNow, wijzigt de **Inrichtingsstatus** naar **op** in de sectie instellingen
 
-12. Klik op **opslaan.**
+1. Klik op **opslaan.**
 
-De initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen aan ServiceNow in de sectie gebruikers en groepen wordt gestart. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden als de service wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van activiteitenlogboeken waarin alle acties die worden uitgevoerd door de inrichting service op uw ServiceNow-app.
+De initiële synchronisatie van alle gebruikers en/of groepen die zijn toegewezen met ServiceNow in de sectie gebruikers en groepen wordt gestart. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden als de service wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en koppelingen volgen voor het inrichten van activiteitenlogboeken, waarin alle acties die worden uitgevoerd door de provisioning-service op de ServiceNow-app worden beschreven.
 
-Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over automatische account gebruikersaanvragen](../active-directory-saas-provisioning-reporting.md).
+Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](../active-directory-saas-provisioning-reporting.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Het beheren van gebruikers account inrichten voor zakelijke Apps](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](tutorial-list.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 * [Eenmalige aanmelding configureren](servicenow-tutorial.md)
 
 

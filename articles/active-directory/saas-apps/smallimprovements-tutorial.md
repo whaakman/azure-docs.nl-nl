@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 5a984c7955218e29e4a6f99c93e9336e88c9f63a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 48b1e47befa647a9d221e5cdf5bf0485c3b66028
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36225827"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423824"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-small-improvements"></a>Zelfstudie: Azure Active Directory-integratie met kleine verbeteringen
 
-In deze zelfstudie leert u hoe kleine verbeteringen integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u kleine verbeteringen integreren met Azure Active Directory (Azure AD).
 
-Kleine verbeteringen integreren met Azure AD biedt de volgende voordelen:
+Kleine verbeteringen integreren met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot kleine verbeteringen heeft
 - U kunt uw gebruikers automatisch ophalen aangemeld bij kleine verbeteringen (Single Sign-On) inschakelen met hun Azure AD-accounts
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
+- U kunt uw accounts in één centrale locatie - Azure portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -41,126 +41,126 @@ Voor het configureren van Azure AD-integratie met kleine verbeteringen, moet u d
 - Een kleine verbeteringen eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u hier een proefversie van één maand krijgen [proefversie aanbieding](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand hier [proefversie aanbieding](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Kleine verbeteringen in de galerie toevoegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-small-improvements-from-the-gallery"></a>Kleine verbeteringen in de galerie toevoegen
-Voor het configureren van de integratie van kleine verbeteringen in Azure AD, moet u kleine verbeteringen in de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+Voor het configureren van de integratie van kleine verbeteringen in Azure AD, moet u kleine verbeteringen in de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen kleine verbeteringen in de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **kleine verbeteringen**.
+1. Typ in het zoekvak **kleine verbeteringen**.
 
-    ![Een Azure AD-testgebruiker maken](./media/smallimprovements-tutorial/tutorial_smallimprovements_search.png)
+    ![Het maken van een Azure AD-testgebruiker](./media/smallimprovements-tutorial/tutorial_smallimprovements_search.png)
 
-5. Selecteer in het deelvenster resultaten **kleine verbeteringen**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Selecteer in het deelvenster resultaten **kleine verbeteringen**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Een Azure AD-testgebruiker maken](./media/smallimprovements-tutorial/tutorial_smallimprovements_addfromgallery.png)
+    ![Het maken van een Azure AD-testgebruiker](./media/smallimprovements-tutorial/tutorial_smallimprovements_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie configureert en test eenmalige aanmelding Azure AD met kleine verbeteringen op basis van een testgebruiker 'Britta Simon' genoemd.
+In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met kleine verbeteringen op basis van een testgebruiker 'Julia steen' genoemd.
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in kleine verbeteringen in Azure AD voor een gebruiker is. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in kleine verbeteringen tot stand worden gebracht.
+Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in kleine verbeteringen is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in kleine verbeteringen tot stand worden gebracht.
 
-Wijs in kleine verbeteringen, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In kleine verbeteringen, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met kleine verbeteringen, moet u de volgende bouwstenen voltooien:
+Als u wilt configureren en testen van Azure AD eenmalige aanmelding met kleine verbeteringen, u nodig hebt voor de volgende bouwstenen:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een testgebruiker kleine verbeteringen](#creating-a-small-improvements-test-user)**  - hebben een equivalent van Britta Simon in kleine verbeteringen die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
+1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Het maken van een testgebruiker kleine verbeteringen](#creating-a-small-improvements-test-user)**  : als u wilt een equivalent van Britta Simon in kleine verbeteringen die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-In deze sectie maakt u Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in uw toepassing kleine verbeteringen.
+In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschakelen en configureren van eenmalige aanmelding in uw toepassing kleine verbeteringen.
 
 **Voor het configureren van Azure AD eenmalige aanmelding met kleine verbeteringen, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **kleine verbeteringen** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **kleine verbeteringen** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/smallimprovements-tutorial/tutorial_smallimprovements_samlbase.png)
 
-3. Op de **kleine verbeteringen domein en de URL's** sectie, voert u de volgende stappen uit:
+1. Op de **kleine verbeteringen domein en URL's** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/smallimprovements-tutorial/tutorial_smallimprovements_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.small-improvements.com`
+    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.small-improvements.com`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://<subdomain>.small-improvements.com`
+    b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.small-improvements.com`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met het werkelijke aanmeldings-URL en de id. Neem contact op met [kleine verbeteringen Client ondersteuningsteam](mailto:support@small-improvements.com) ophalen van deze waarden. 
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [kleine verbeteringen Client ondersteuningsteam](mailto:support@small-improvements.com) om deze waarden te verkrijgen. 
  
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/smallimprovements-tutorial/tutorial_smallimprovements_certificate.png) 
 
-5. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/smallimprovements-tutorial/tutorial_general_400.png)
 
-6. Op de **kleine verbeteringen configuratie** sectie, klikt u op **kleine verbeteringen configureren** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+1. Op de **kleine verbeteringen configuratie** sectie, klikt u op **kleine verbeteringen configureren** openen **aanmelding configureren** venster. Kopiëren de **Single Sign-On Service URL voor SAML** uit de **Naslaggids sectie.**
 
     ![Eenmalige aanmelding configureren](./media/smallimprovements-tutorial/tutorial_smallimprovements_configure.png) 
 
-7. In een ander browservenster zich aanmelden bij uw bedrijf kleine verbeteringen site als een beheerder.
+1. In een ander browservenster, meld u aan bij uw bedrijf kleine verbeteringen site als beheerder.
 
-8. Klik op de pagina hoofddashboard **beheer** knop aan de linkerkant.
+1. Klik op de pagina hoofddashboard **beheer** knop aan de linkerkant.
    
     ![Eenmalige aanmelding configureren](./media/smallimprovements-tutorial/tutorial_smallimprovements_06.png) 
 
-9. Klik op de **SAML SSO** knop van **integraties** sectie.
+1. Klik op de **SAML SSO** knop van **integraties** sectie.
    
     ![Eenmalige aanmelding configureren](./media/smallimprovements-tutorial/tutorial_smallimprovements_07.png) 
 
-10. Voer de volgende stappen uit op de installatiepagina van eenmalige aanmelding:
+1. Voer de volgende stappen uit op de pagina instellingen voor eenmalige aanmelding:
    
     ![Eenmalige aanmelding configureren](./media/smallimprovements-tutorial/tutorial_smallimprovements_08.png)  
 
-    a. In de **HTTP-eindpunt** textbox, plak de waarde van **SAML Single Sign-On Service-URL**, die u hebt gekopieerd vanuit Azure-portal.
+    a. In de **HTTP-eindpunt** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML**, die u hebt gekopieerd vanuit Azure portal.
 
-    b. Open uw gedownloade certificaat in Kladblok, Kopieer de inhoud en plakt u deze in de **x509 certificaat** textbox. 
+    b. Open het gedownloade certificaat in Kladblok, Kopieer de inhoud en plak deze in de **x509 certificaat** tekstvak. 
 
-    c. Als u wilt dat eenmalige aanmelding en aanmelding formulier verificatieoptie beschikbaar voor gebruikers hebt, controleert u de **toegang via aanmelding en wachtwoord te inschakelen** optie.  
+    c. Als u dat eenmalige aanmelding en meld u aan formulier optie voor verificatie beschikbaar voor gebruikers wilt, controleert u de **toegang via aanmelding en wachtwoord te inschakelen** optie.  
 
-    d. Voer de juiste waarde als naam voor de knop SSO aanmelden in de **SAML vragen** textbox.  
+    d. Voer de juiste waarde als naam van de knop Aanmelden voor eenmalige aanmelding in de **SAML vragen** tekstvak.  
 
     e. Klik op **Opslaan**.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
+Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
 ![Azure AD-gebruiker maken][100]
 
@@ -168,100 +168,100 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
 1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
 
-    ![Een Azure AD-testgebruiker maken](./media/smallimprovements-tutorial/create_aaduser_01.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/smallimprovements-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
-    ![Een Azure AD-testgebruiker maken](./media/smallimprovements-tutorial/create_aaduser_02.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/smallimprovements-tutorial/create_aaduser_02.png) 
 
-3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
-    ![Een Azure AD-testgebruiker maken](./media/smallimprovements-tutorial/create_aaduser_03.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/smallimprovements-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
-    ![Een Azure AD-testgebruiker maken](./media/smallimprovements-tutorial/create_aaduser_04.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/smallimprovements-tutorial/create_aaduser_04.png) 
 
-    a. In de **naam** textbox type **BrittaSimon**.
+    a. In de **naam** tekstvak, type **BrittaSimon**.
 
-    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
+    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
 
     c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
     d. Klik op **Create**.
  
-### <a name="creating-a-small-improvements-test-user"></a>Een kleine verbeteringen testgebruiker maken
+### <a name="creating-a-small-improvements-test-user"></a>Het maken van een testgebruiker kleine verbeteringen
 
-Om Azure AD-gebruikers zich aanmelden bij kleine verbeteringen, moeten ze worden ingericht in kleine verbeteringen. In het geval van kleine verbeteringen is inrichting een handmatige taak.
+Als u wilt dat Azure AD-gebruikers zich aanmelden bij kleine verbeteringen, moeten ze worden ingericht voor kleine verbeteringen. In het geval van kleine verbeteringen is inrichting een handmatige taak.
 
 **Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
 
 1. Aanmelding bij uw bedrijf kleine verbeteringen site als beheerder.
 
-2. Vanaf de startpagina, gaat u naar het menu van de linkerkant, klik op **beheer**.
+1. Vanaf de startpagina, gaat u naar het menu aan de linkerkant, klik op **beheer**.
 
-3. Klik op de **gebruikerslijst** knop uit de sectie beheer van gebruikers. 
+1. Klik op de **gebruikerslijst** knop in de sectie beheer van gebruikers. 
    
-    ![Een Azure AD-testgebruiker maken](./media/smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/smallimprovements-tutorial/tutorial_smallimprovements_10.png) 
 
-4. Klik op **gebruikers toevoegen**.
+1. Klik op **gebruikers toevoegen**.
 
-    ![Een Azure AD-testgebruiker maken](./media/smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/smallimprovements-tutorial/tutorial_smallimprovements_11.png) 
 
-5. Op de **gebruikers toevoegen** dialoogvenster de volgende stappen uitvoeren: 
+1. Op de **gebruikers toevoegen** dialoogvenster, voer de volgende stappen uit: 
 
-    ![Een Azure AD-testgebruiker maken](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
+    ![Het maken van een Azure AD-testgebruiker](./media/smallimprovements-tutorial/tutorial_smallimprovements_12.png)
     
-    a. Voer de **voornaam** van gebruiker zoals **Britta**.
+    a. Voer de **voornaam** van gebruiker, zoals **Julia**.
 
-    b. Voer de **achternaam** van gebruiker zoals **Simon**.
+    b. Voer de **achternaam** van gebruiker, zoals **Simon**.
 
-    c. Voer de **e** van gebruiker zoals **brittasimon@contoso.com**. 
+    c. Voer de **e** van gebruiker, zoals **brittasimon@contoso.com**. 
 
-    d. U kunt er ook voor kiezen om in te voeren van het persoonlijke bericht in de **e-mailmelding verzenden** vak. Als u niet verzenden van de melding wilt, schakelt u dit selectievakje in.
+    d. U kunt er ook voor kiezen om in te voeren van het persoonlijke bericht in de **e-mailmelding verzenden** vak. Als u niet verzenden van de melding wilt, schakel dit selectievakje in.
 
-    e. Klik op **gebruikers maken**.
+    e. Klik op **maken gebruikers**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 
-In deze sectie schakelt u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan kleine verbeteringen.
+In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding toegang verlenen tot kleine verbeteringen.
 
 ![Gebruiker toewijzen][200] 
 
-**Britta Simon om aan te wijzen kleine verbeteringen, moet u de volgende stappen uitvoeren:**
+**Als u wilt toewijzen Britta Simon kleine verbeteringen, moet u de volgende stappen uitvoeren:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **kleine verbeteringen**.
+1. Selecteer in de lijst met toepassingen, **kleine verbeteringen**.
 
     ![Eenmalige aanmelding configureren](./media/smallimprovements-tutorial/tutorial_smallimprovements_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
-### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
+### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
-Het doel van deze sectie is het testen van uw Azure AD SSO-configuratie met behulp van het toegangsvenster.  
+Het doel van deze sectie is het testen van de configuratie van uw Azure AD-eenmalige aanmelding via het toegangsvenster.  
 
-Als u op de tegel kleine verbeteringen in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing kleine verbeteringen.
+Wanneer u op de tegel kleine verbeteringen in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing kleine verbeteringen.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 

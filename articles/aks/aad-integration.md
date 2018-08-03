@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 6/17/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e75577ae917cbe14a123ff5e2d44da2edc8062ef
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 48f27a00f12c14b21edbc3d5ae7cc068e7297e7d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307310"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427472"
 ---
 # <a name="integrate-azure-active-directory-with-aks---preview"></a>Azure Active Directory integreren met AKS - Preview
 
@@ -23,7 +23,7 @@ Azure Kubernetes Service (AKS) kunnen worden geconfigureerd voor het gebruik van
 In dit document worden het maken van alle benodigde vereisten voor AKS en Azure AD, het implementeren van een Azure AD-functionaliteit-cluster en het maken van een eenvoudige RBAC-rol in het AKS-cluster. Houd er rekening mee dat bestaande RBAC ingeschakeld AKS-clusters op dit moment kunnen niet worden bijgewerkt voor RBAC gebruiken.
 
 > [!IMPORTANT]
-> Azure Kubernetes Service (AKS) RBAC en Azure AD-integratie is momenteel in **preview**. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sommige aspecten van deze functionaliteit kunnen wijzigen voordat deze functionaliteit algemeen beschikbaar wordt.
+> Azure Kubernetes Service (AKS) RBAC en Azure AD-integratie is momenteel in **preview**. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.
 >
 
 ## <a name="authentication-details"></a>Verificatiegegevens
@@ -214,6 +214,6 @@ Meer informatie over het beveiligen van Kubernetes-clusters met RBAC met de [RBA
 
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az_aks_get_credentials
-[az-group-create]: /cli/azure/group#az_group_create
+[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-group-create]: /cli/azure/group#az-group-create
 [open-id-connect]: ../active-directory/develop/active-directory-protocols-openid-connect-code.md

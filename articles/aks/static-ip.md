@@ -1,5 +1,5 @@
 ---
-title: Gebruik een statisch IP-adres met de Azure Kubernetes Service (AKS) load balancer
+title: Gebruik een statisch IP-adres aan de load balancer van Azure Kubernetes Service (AKS)
 description: Gebruik een statisch IP-adres met de Azure Kubernetes Service (AKS) load balancer.
 services: container-service
 author: iainfoulds
@@ -9,20 +9,20 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2ff964e4909c288686253816bc40322b7839a2da
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: af1dffd681eaf7b2eb90ab4657cc25f2144a48d9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100586"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423620"
 ---
-# <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Gebruik een statisch IP-adres met de Azure Kubernetes Service (AKS) load balancer
+# <a name="use-a-static-ip-address-with-the-azure-kubernetes-service-aks-load-balancer"></a>Gebruik een statisch IP-adres aan de load balancer van Azure Kubernetes Service (AKS)
 
-In sommige gevallen, zoals wanneer het Azure Kubernetes Service (AKS) load balancer opnieuw gemaakt wordt of Kubernetes services met een type Load Balancer opnieuw gemaakt worden, het openbare IP-adres van de service Kubernetes kan worden gewijzigd. Dit documentgegevens voor het configureren van een statisch IP-adres voor uw Kubernetes-services.
+In sommige gevallen, zoals wanneer de Azure Kubernetes Service (AKS) load balancer opnieuw gemaakt wordt of Kubernetes-services met een type Load Balancer opnieuw gemaakt worden, kan het openbare IP-adres van de Kubernetes-service wijzigen. Deze document vindt u een statisch IP-adres voor uw Kubernetes-services configureren.
 
 ## <a name="create-static-ip-address"></a>Statische IP-adres maken
 
-Maak een statische openbare IP-adres voor de service Kubernetes. Het IP-adres moet worden gemaakt in de AKS **knooppunt** resourcegroep. Ophalen van de naam van de resourcegroep met de [az resource weergeven] [ az-resource-show] opdracht.
+Maak een statisch openbaar IP-adres voor de Kubernetes-service. Het IP-adres moet worden gemaakt in de AKS **knooppunt** resourcegroep. De naam van de resource met de [az resource show] [ az-resource-show] opdracht.
 
 ```azurecli-interactive
 $ az resource show --resource-group myResourceGroup --name myAKSCluster --resource-type Microsoft.ContainerService/managedClusters --query properties.nodeResourceGroup -o tsv
@@ -30,13 +30,13 @@ $ az resource show --resource-group myResourceGroup --name myAKSCluster --resour
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-Gebruik de [az netwerk openbare IP-adres maken] [ az-network-public-ip-create] opdracht voor het maken van het IP-adres.
+Gebruik de [az network public-ip maken] [ az-network-public-ip-create] opdracht voor het maken van het IP-adres.
 
 ```azurecli-interactive
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
 ```
 
-Let op het IP-adres.
+Noteer het IP-adres.
 
 ```json
 {
@@ -64,7 +64,7 @@ Let op het IP-adres.
   }
 ````
 
- Indien nodig, het adres kan worden opgehaald met de [az netwerk openbare ip-lijst] [ az-network-public-ip-list] opdracht.
+ Indien nodig, het adres kan worden opgehaald met behulp van de [az network public-IP-lijst] [ az-network-public-ip-list] opdracht.
 
 ```azurecli-interactive
 az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastus --query [0].ipAddress --output tsv
@@ -74,9 +74,9 @@ az network public-ip list --resource-group MC_myResourceGroup_myAKSCluster_eastu
 40.121.183.52
 ```
 
-## <a name="create-service-with-ip-address"></a>Service met IP-adres maken
+## <a name="create-service-with-ip-address"></a>Service maken met IP-adres
 
-Zodra het statische IP-adres is ingericht, een service Kubernetes kan worden gemaakt met de `loadBalancerIP` eigenschap en een waarde van het statische IP-adres.
+Zodra het statische IP-adres is ingericht, een Kubernetes-service kan worden gemaakt met de `loadBalancerIP` eigenschap en een waarde van het statische IP-adres.
 
 ```yaml
 apiVersion: v1
@@ -94,7 +94,7 @@ spec:
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Als het statische IP-adres niet gemaakt is of is gemaakt in de verkeerde resourcegroep, mislukt het maken van de service. Als u wilt oplossen, retourneren gebeurtenissen van de service maken met de [kubectl beschrijven] [ kubectl-describe] opdracht.
+Als het statische IP-adres is niet gemaakt, of in de verkeerde resourcegroep is gemaakt, wordt het maken van de service mislukt. Gebeurtenissen van de service maken met retourneren om op te lossen de [kubectl beschrijven] [ kubectl-describe] opdracht.
 
 ```azurecli-interactive
 kubectl describe service azure-vote-front
@@ -127,6 +127,6 @@ Events:
 
 <!-- LINKS - Internal -->
 [aks-faq-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks
-[az-network-public-ip-create]: /cli/azure/network/public-ip#az_network_public_ip_create
-[az-network-public-ip-list]: /cli/azure/network/public-ip#az_network_public_ip_list
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
+[az-network-public-ip-list]: /cli/azure/network/public-ip#az-network-public-ip-list
 [az-resource-show]: /cli/azure/resource#az-resource-show

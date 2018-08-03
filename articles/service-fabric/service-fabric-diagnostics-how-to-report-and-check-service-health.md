@@ -1,6 +1,6 @@
 ---
-title: Rapporteren en controleer de status van Azure Service Fabric | Microsoft Docs
-description: Informatie over het statusrapporten verzenden vanuit uw servicecode en het controleren van de status van uw service met behulp van de health-controleprogramma die Azure Service Fabric bevat.
+title: Rapporteren en controleren van health gebruiken met Azure Service Fabric | Microsoft Docs
+description: Informatie over health om rapporten te verzenden vanuit uw servicecode en hoe u controleert de status van uw service met behulp van de health-controleprogramma's die Azure Service Fabric biedt.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,59 +14,59 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/2/2017
 ms.author: dekapur
-ms.openlocfilehash: 82ee3cbca40713d527f64ae4698cb9ce64a10215
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d374886efb708797db1dd6352aa063a56aff4f44
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208417"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39427305"
 ---
 # <a name="report-and-check-service-health"></a>Servicestatus rapporteren en controleren
-Wanneer uw services problemen ondervindt, is de mogelijkheid om te reageren op en oplossen van incidenten en storingen afhankelijk van de mogelijkheid voor het detecteren van de problemen snel. Als u problemen en fouten aan de Azure Service Fabric health manager vanuit uw servicecode, kunt u standaard voor health monitoring hulpprogramma's die Service Fabric bevat om de health-status te controleren.
+Wanneer uw services problemen optreden, afhankelijk van de mogelijkheid om te reageren op incidenten en storingen oplossen kunt gebruiken om de problemen snel te detecteren. Als u problemen en fouten aan de Azure Service Fabric health manager vanuit uw servicecode rapporteren, kunt u standaard voor health monitoring hulpprogramma's die Service Fabric biedt om te controleren of de status.
 
 Er zijn drie manieren dat u de status van de service kan rapporteren:
 
 * Gebruik [partitie](https://docs.microsoft.com/dotnet/api/system.fabric.istatefulservicepartition) of [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext) objecten.  
-  U kunt de `Partition` en `CodePackageActivationContext` objecten voor het rapporteren van de status van de elementen die deel van de huidige context uitmaken. Code die wordt uitgevoerd als onderdeel van een replica kan bijvoorbeeld health rapporteren alleen op die replica en de partitie die hoort bij de toepassing die deel van uitmaakt.
+  U kunt de `Partition` en `CodePackageActivationContext` objecten voor het rapporteren van de status van de elementen die deel van de huidige context uitmaken. Code die wordt uitgevoerd als onderdeel van een replica kan bijvoorbeeld status rapporteren alleen op die replica en de partitie die hoort bij de toepassing die het is een onderdeel van.
 * Gebruik `FabricClient`.   
-  U kunt `FabricClient` aan het rapport de status van de code als het cluster niet [beveiligde](service-fabric-cluster-security.md) of als de service wordt uitgevoerd met beheerdersbevoegdheden. De meeste real-world scenario's geen niet-beveiligde clusters gebruiken of bieden beheerdersbevoegdheden. Met `FabricClient`, u kunt een entiteit die deel uitmaakt van het cluster health rapporteren. In het ideale geval echter moet servicecode alleen rapporten verzenden die gerelateerd zijn aan een eigen health.
-* Gebruik de REST API's op het cluster, toepassing, geïmplementeerde toepassingen, service, servicepakket, partitie, replica of knooppunt niveaus. Dit kan worden gebruikt voor het rapporteren van de status van binnen een container.
+  U kunt `FabricClient` aan het rapport wordt de status van de servicecode als het cluster niet [beveiligde](service-fabric-cluster-security.md) of als de service wordt uitgevoerd met beheerdersbevoegdheden. De meeste real-world scenario's geen niet-beveiligde clusters gebruiken, of bieden beheerdersbevoegdheden. Met `FabricClient`, kunt u de status rapporteren op elke entiteit die deel uitmaakt van het cluster. In het ideale geval echter moet servicecode alleen rapporten verzenden die gerelateerd zijn aan de eigen status.
+* Gebruik de REST API's op het cluster, toepassing, geïmplementeerde toepassing, service, service-pakket, partitie, replica of knooppunt niveaus. Dit kan worden gebruikt voor het rapporteren van de status van binnen een container.
 
-Dit artikel begeleidt u bij een voorbeeld waarin de status van de code van de rapporten. Het voorbeeld ziet ook hoe de hulpprogramma's van Service Fabric kunnen worden gebruikt om de health-status te controleren. In dit artikel is bedoeld als een korte inleiding in de controlefuncties van Service Fabric. U kunt de reeks diepgaande artikelen over health die met de koppeling aan het einde van dit artikel beginnen lezen voor meer gedetailleerde informatie.
+Dit artikel begeleidt u bij een voorbeeld waarin wordt de status van de code van de rapporten. Het voorbeeld ziet ook hoe de hulpprogramma's van Service Fabric kunnen worden gebruikt om de status van de status te controleren. In dit artikel is bedoeld als een korte inleiding over de mogelijkheden van Service Fabric voor statuscontrole. U kunt de reeks uitgebreide artikelen over de status van die met de koppeling aan het einde van dit artikel beginnen lezen voor meer gedetailleerde informatie.
 
 ## <a name="prerequisites"></a>Vereisten
-Hiervoor hebt u het volgende zijn geïnstalleerd:
+U hebt het volgende zijn geïnstalleerd:
 
 * Visual Studio 2015 of Visual Studio 2017
-* Service Fabric SDK
+* Service Fabric-SDK
 
 ## <a name="to-create-a-local-secure-dev-cluster"></a>Een lokale veilige dev-cluster maken
-* Open PowerShell met beheerdersbevoegdheden en voer de volgende opdrachten:
+* Open PowerShell met beheerdersbevoegdheden en voer de volgende opdrachten uit:
 
-![Opdrachten die laten zien hoe u een beveiligde dev-cluster maken](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-secure-dev-cluster.png)
+![Opdrachten die laten zien hoe u een veilige dev-cluster maken](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-secure-dev-cluster.png)
 
-## <a name="to-deploy-an-application-and-check-its-health"></a>Een toepassing implementeren en controleren van de status
+## <a name="to-deploy-an-application-and-check-its-health"></a>Een toepassing implementeren en de status controleren
 1. Open Visual Studio als beheerder.
-2. Een project maken met behulp van de **Stateful Service** sjabloon.
+1. Maak een project met behulp van de **Stateful Service** sjabloon.
    
-    ![Maken van een Service Fabric-toepassing met Stateful Service](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-stateful-service-application-dialog.png)
-3. Druk op **F5** voor het uitvoeren van de toepassing in de foutopsporingsmodus. De toepassing wordt geïmplementeerd op het lokale cluster.
-4. Nadat de toepassing wordt uitgevoerd, met de rechtermuisknop op het pictogram Lokaal Clusterbeheer in het systeemvak en selecteert u **lokaal Cluster beheren** in het snelmenu om Service Fabric Explorer te openen.
+    ![Een Service Fabric-toepassing maken met de Stateful Service](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/create-stateful-service-application-dialog.png)
+1. Druk op **F5** voor het uitvoeren van de toepassing in de foutopsporingsmodus. De toepassing wordt geïmplementeerd op het lokale cluster.
+1. Nadat de toepassing wordt uitgevoerd, met de rechtermuisknop op het pictogram Local Cluster Manager in het systeemvak te plaatsen en selecteert u **lokaal Cluster beheren** in het snelmenu om Service Fabric Explorer te openen.
    
     ![Service Fabric Explorer openen vanuit het systeemvak](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/LaunchSFX.png)
-5. De toepassingsstatus moet worden weergegeven zoals in deze afbeelding. Op dit moment moet de toepassing zonder fouten in orde.
+1. De status van de toepassing moet worden weergegeven zoals in deze afbeelding. Op dit moment moet de toepassing in orde zonder fouten.
    
     ![In orde toepassing in Service Fabric Explorer](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-healthy-app.png)
-6. U kunt ook de status controleren met behulp van PowerShell. U kunt ```Get-ServiceFabricApplicationHealth``` om te controleren van de status van een toepassing, en u kunnen gebruiken ```Get-ServiceFabricServiceHealth``` om te controleren van de status van een service. Het statusrapport voor dezelfde toepassing in PowerShell is in deze afbeelding.
+1. U kunt ook de status controleren met behulp van PowerShell. U kunt ```Get-ServiceFabricApplicationHealth``` om te controleren of de status van een toepassing en u kunnen gebruiken ```Get-ServiceFabricServiceHealth``` om te controleren of de status van een service. Het statusrapport voor dezelfde toepassing in PowerShell is in deze afbeelding.
    
     ![In orde toepassing in PowerShell](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/ps-healthy-app-report.png)
 
-## <a name="to-add-custom-health-events-to-your-service-code"></a>Aangepaste health gebeurtenissen toevoegen aan uw servicecode
-De sjablonen voor de Service Fabric-project in Visual Studio bevatten voorbeeldcode. De volgende stappen laten zien hoe u aangepaste health gebeurtenissen vanuit uw servicecode kan rapporteren. Deze rapporten weergegeven automatisch in de standaard hulpprogramma's voor statuscontrole biedt Service Fabric, zoals Service Fabric Explorer, Azure portal health weergeven en PowerShell.
+## <a name="to-add-custom-health-events-to-your-service-code"></a>Aangepaste statusgebeurtenissen toevoegen aan uw servicecode
+De sjablonen van de Service Fabric-project in Visual Studio bevatten voorbeelden van code. De volgende stappen laten zien hoe kunt u aangepaste statusgebeurtenissen rapporteren vanuit uw servicecode. Deze rapporten wordt automatisch weergegeven in de standard-hulpprogramma's voor de statuscontrole biedt Service Fabric, zoals Service Fabric Explorer, de weergave van de gezondheid van Azure portal en PowerShell.
 
-1. Open de toepassing die u eerder hebt gemaakt in Visual Studio of een nieuwe toepassing maken met behulp van de **Stateful Service** Visual Studio-sjabloon.
-2. Open het bestand Stateful1.cs en zoek de `myDictionary.TryGetValueAsync` -aanroep in de `RunAsync` methode. U ziet dat deze methode retourneert een `result` die bevat de huidige waarde van de teller omdat de sleutel logica in deze toepassing is een aantal actief houden. Als dit een echte toepassing zijn, en als het ontbreken van het resultaat van een fout weergegeven, wilt u dat de gebeurtenis vlag.
-3. Toevoegen de volgende stappen uit om het rapport een statusgebeurtenis wanneer het ontbreken van resultaat duidt op een fout.
+1. Open de toepassing die u eerder hebt gemaakt in Visual Studio opnieuw of maak een nieuwe toepassing met behulp van de **Stateful Service** Visual Studio-sjabloon.
+1. Open het bestand Stateful1.cs en zoek de `myDictionary.TryGetValueAsync` aanroepen in de `RunAsync` methode. U kunt zien dat deze methode retourneert een `result` dat de huidige waarde van de teller bevat omdat de sleutel logica in deze toepassing te houden van een aantal die wordt uitgevoerd. Als dit een echte toepassing zijn, en als het ontbreken van het resultaat van een fout weergegeven, zou u markering waarmee wordt aangegeven dat de gebeurtenis.
+1. Als een statusgebeurtenis wanneer het ontbreken van resultaat staat voor een fout wilt melden, voeg de volgende stappen uit.
    
     a. Voeg de `System.Fabric.Health` naamruimte naar het bestand Stateful1.cs.
    
@@ -83,7 +83,7 @@ De sjablonen voor de Service Fabric-project in Visual Studio bevatten voorbeeldc
         this.Partition.ReportReplicaHealth(healthInformation);
     }
     ```
-    We gerapporteerd replica health omdat deze wordt gerapporteerd van een stateful service. De `HealthInformation` parameter wordt opgeslagen informatie over het statusprobleem met de wordt gerapporteerd.
+    We melden replica health omdat deze wordt gerapporteerd door een stateful service. De `HealthInformation` parameter bevat informatie over het probleem met de status die wordt gerapporteerd.
    
     Als u een stateless service hebt gemaakt, gebruikt u de volgende code
    
@@ -94,7 +94,7 @@ De sjablonen voor de Service Fabric-project in Visual Studio bevatten voorbeeldc
         this.Partition.ReportInstanceHealth(healthInformation);
     }
     ```
-4. Als uw service wordt uitgevoerd met beheerdersbevoegdheden, of als het cluster niet [beveiligde](service-fabric-cluster-security.md), u kunt ook `FabricClient` voor de gezondheid van het rapport zoals weergegeven in de volgende stappen uit.  
+1. Als uw service wordt uitgevoerd met beheerdersbevoegdheden, of als het cluster niet [beveiligde](service-fabric-cluster-security.md), u kunt ook `FabricClient` tot de status van het rapport zoals wordt weergegeven in de volgende stappen uit.  
    
     a. Maak de `FabricClient` exemplaar na de `var myDictionary` declaratie.
    
@@ -114,7 +114,7 @@ De sjablonen voor de Service Fabric-project in Visual Studio bevatten voorbeeldc
         fabricClient.HealthManager.ReportHealth(replicaHealthReport);
     }
     ```
-5. Laten we simuleren van deze fout en wordt weergegeven in de health-controleprogramma weergegeven. De fout moet de eerste regel in de health reporting code die u eerder hebt toegevoegd commentaar simuleren. Nadat u de eerste regel uitcommentariëren, wordt de code eruit als in het volgende voorbeeld.
+1. Laten we deze fout simuleren en wordt in de status controleprogramma's weergeven. Als u wilt de fout te simuleren, opmerkingen bij de eerste regel in de status voor het melden van code die u eerder hebt toegevoegd. Nadat u bij de eerste regel opmerkingen, wordt de code lijken op het volgende voorbeeld.
    
     ```csharp
     //if(!result.HasValue)
@@ -123,24 +123,24 @@ De sjablonen voor de Service Fabric-project in Visual Studio bevatten voorbeeldc
         this.Partition.ReportReplicaHealth(healthInformation);
     }
     ```
-   Deze code wordt het statusrapport geactiveerd telkens `RunAsync` wordt uitgevoerd. Nadat u de wijziging aanbrengt, drukt u op **F5** de toepassing uit te voeren.
-6. Nadat de toepassing wordt uitgevoerd, opent u de Service Fabric Explorer om te controleren van de status van de toepassing. Deze tijd ziet Service Fabric Explorer u dat de toepassing niet in orde is. Dit is vanwege de fout die is gerapporteerd door de code dat we eerder toegevoegd.
+   Deze code wordt het statusrapport geactiveerd telkens wanneer `RunAsync` wordt uitgevoerd. Nadat u de wijziging hebt aangebracht, druk op **F5** de toepassing uit te voeren.
+1. Nadat de toepassing wordt uitgevoerd, opent u de Service Fabric Explorer om te controleren of de status van de toepassing. Deze keer ziet Service Fabric Explorer u dat de toepassing niet in orde is. Dit is vanwege de fout die is gerapporteerd vanuit de code die we eerder toegevoegd.
    
-    ![Slecht toepassingstype in Service Fabric Explorer](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-unhealthy-app.png)
-7. Als u de primaire replica in de structuurweergave van Service Fabric Explorer selecteert, ziet u dat **status** te duidt op een fout. Service Fabric Explorer geeft ook de health-rapportgegevens die zijn toegevoegd aan de `HealthInformation` parameter in de code. Hier ziet u de dezelfde statusrapporten in PowerShell en de Azure-portal.
+    ![Beschadigde toepassing in Service Fabric Explorer](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/sfx-unhealthy-app.png)
+1. Als u de primaire replica in de structuurweergave van Service Fabric Explorer selecteert, ziet u dat **status** te geeft aan dat een fout. Service Fabric Explorer geeft ook de details van het health-rapport die zijn toegevoegd aan de `HealthInformation` parameter in de code. Hier ziet u de dezelfde statusrapporten in PowerShell en Azure portal.
    
     ![Status van de replica in Service Fabric Explorer](./media/service-fabric-diagnostics-how-to-report-and-check-service-health/replica-health-error-report-sfx.png)
 
-Dit rapport blijft in de health manager totdat deze is vervangen door een ander rapport of totdat deze replica wordt verwijderd. Omdat we niet hebt ingesteld `TimeToLive` voor deze health-rapport in de `HealthInformation` object, het rapport verloopt nooit.
+Dit rapport blijft in de health manager totdat deze is vervangen door een ander rapport, of totdat deze replica wordt verwijderd. Omdat we niet ingesteld `TimeToLive` voor deze health-rapport in de `HealthInformation` -object, het rapport verloopt nooit.
 
-Het is raadzaam dat status op het meest gedetailleerd niveau, in dit geval de replica wordt moet worden gerapporteerd. U kunt ook rapporteren health `Partition`.
+Het is raadzaam dat status op de meest gedetailleerde niveau, die in dit geval de replica wordt moet worden gerapporteerd. U kunt ook status rapporteren op `Partition`.
 
 ```csharp
 HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
 this.Partition.ReportPartitionHealth(healthInformation);
 ```
 
-Voor de gezondheid van het rapport op `Application`, `DeployedApplication`, en `DeployedServicePackage`, gebruik `CodePackageActivationContext`.
+Tot de status van het rapport op `Application`, `DeployedApplication`, en `DeployedServicePackage`, gebruikt u `CodePackageActivationContext`.
 
 ```csharp
 HealthInformation healthInformation = new HealthInformation("ServiceCode", "StateDictionary", HealthState.Error);
@@ -149,7 +149,7 @@ activationContext.ReportApplicationHealth(healthInformation);
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Deep dive op Service Fabric-status](service-fabric-health-introduction.md)
-* [REST-API voor de status van de service reporting](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service)
+* [Gedetailleerde informatie over Service Fabric-status](service-fabric-health-introduction.md)
+* [REST-API voor het melden van servicestatus](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-a-service)
 * [REST-API voor het melden van toepassingsstatus](https://docs.microsoft.com/rest/api/servicefabric/report-the-health-of-an-application)
 

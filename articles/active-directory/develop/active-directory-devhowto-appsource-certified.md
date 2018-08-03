@@ -1,6 +1,6 @@
 ---
-title: Het ophalen van AppSource gecertificeerd voor Azure Active Directory | Microsoft Docs
-description: Meer informatie over het ophalen van uw toepassing AppSource gecertificeerd voor Azure Active Directory.
+title: AppSource certificeren voor Azure Active Directory verkrijgen | Microsoft Docs
+description: Als u meer informatie over hoe u uw toepassing AppSource-gecertificeerd voor Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -17,48 +17,48 @@ ms.date: 08/03/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 844c19803f57987f4435d013cd12aa3d1ef8aeb8
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 8b3254fa9416b1e59f4209ffa00c504d15dddbc4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257528"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430824"
 ---
-# <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Het ophalen van AppSource gecertificeerd voor Azure Active Directory
-[Microsoft AppSource](https://appsource.microsoft.com/) een doel voor zakelijke gebruikers om te detecteren, probeer en beheren van LOB-SaaS-toepassingen (zelfstandige SaaS en add-on voor bestaande Microsoft SaaS-producten).
+# <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Over het verkrijgen van AppSource-gecertificeerd voor Azure Active Directory
+[Microsoft AppSource](https://appsource.microsoft.com/) is een doel voor zakelijke gebruikers om te ontdekken, uitproberen en line-of-business SaaS-toepassingen (zelfstandige SaaS en invoegtoepassing voor bestaande Microsoft SaaS-producten) beheren.
 
-Als een zelfstandige SaaS-toepassing op AppSource wilt weergeven, moet uw toepassing accepteren eenmalige aanmelding van werkaccounts van een bedrijf of organisatie die Azure Active Directory heeft. Het proces voor aanmelden moet gebruiken de [OpenID Connect](./active-directory-protocols-openid-connect-code.md) of [OAuth 2.0](./active-directory-protocols-oauth-code.md) protocollen. SAML-integratie wordt niet geaccepteerd voor AppSource-certificering.
+Als u een zelfstandige SaaS-toepassing op AppSource, moet uw toepassing accepteren eenmalige aanmelding van werkaccounts van een bedrijf of organisatie die Azure Active Directory heeft. Het proces voor aanmelden moet gebruiken de [OpenID Connect](./active-directory-protocols-openid-connect-code.md) of [OAuth 2.0](./active-directory-protocols-oauth-code.md) protocollen. SAML-integratie wordt niet geaccepteerd voor AppSource-certificering.
 
 ## <a name="guides-and-code-samples"></a>Handleidingen en codevoorbeelden
-Als u wilt weten over het integreren van uw toepassing met Azure Active Directory met Open ID verbinding, onze richtlijnen te volgen en codevoorbeelden in de [ontwikkelaarshandleiding Azure Active Directory](./active-directory-developers-guide.md#get-started "aan de slag met Azure AD voor ontwikkelaars").
+Als u wilt meer informatie over het integreren van uw toepassing met Azure Active Directory met behulp van Open ID verbinden, volgt u onze richtlijnen en codevoorbeelden in de [ontwikkelaarsgids van Azure Active Directory](azure-ad-developers-guide.md#get-started "aan de slag met Azure AD voor ontwikkelaars").
 
-## <a name="multi-tenant-applications"></a>Multitenant-toepassingen
+## <a name="multi-tenant-applications"></a>Toepassingen met meerdere tenants
 
-Een toepassing die aan de aanmeldingen van gebruikers van een bedrijf of organisatie die Azure Active Directory zijn zonder een afzonderlijk exemplaar, de configuratie of de implementatie accepteert wordt ook wel een *multitenant toepassing*. AppSource raadt aan dat de multi-tenancymodus om in te schakelen voor het implementeren van toepassingen de *éénkliks-* gratis evaluatieversie.
+Een toepassing die aanmeldingen van gebruikers van een bedrijf of organisatie die Azure Active Directory hebben zonder een afzonderlijk exemplaar, de configuratie of de implementatie accepteert wordt ook wel een *toepassing met meerdere tenants*. AppSource raadt aan dat de multitenancy om in te schakelen voor het implementeren van toepassingen de *met één klik* gratis proefversie.
 
-Om in te schakelen multi-tenancymodus op uw toepassing:
-- Ingesteld `Multi-Tenanted` eigenschap `Yes` van gegevens van uw toepassing registreren in de [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (toepassingen die zijn gemaakt in de Azure Portal zijn standaard geconfigureerd als *single-tenant*)
+Om in te schakelen multitenancy op uw toepassing:
+- Instellen `Multi-Tenanted` eigenschap `Yes` op de informatie van de registratie van uw toepassing in de [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (standaard, toepassingen die zijn gemaakt in de Azure Portal zijn geconfigureerd als *metééntenant*)
 - Werk uw code voor het verzenden van aanvragen voor de '`common`' eindpunt (bijwerken van het eindpunt van *https://login.microsoftonline.com/{yourtenant}* naar *https://login.microsoftonline.com/common*)
-- Voor sommige platformen, zoals ASP.NET, moet u ook werk uw code voor het accepteren van meerdere uitgevers van certificaten
+- Voor sommige platformen, zoals ASP.NET, moet u ook uw code voor het accepteren van meerdere certificaatverleners bijwerken
 
-Zie voor meer informatie over multi-tenancymodus: [aanmelden met een Azure Active Directory (AD) gebruiker met behulp van het patroon toepassing met meerdere tenants](./active-directory-devhowto-multi-tenant-overview.md).
+Zie voor meer informatie over multitenancy: [aanmelden bij een Azure Active Directory (AD) gebruiker met behulp van het patroon voor multitenant-toepassingen](./active-directory-devhowto-multi-tenant-overview.md).
 
-### <a name="single-tenant-applications"></a>Toepassingen voor één tenant
-Toepassingen die alleen aanmeldingen van gebruikers van een gedefinieerde Azure Active Directory-exemplaar accepteren worden aangeduid als *toepassing voor één tenant*. Externe gebruikers (inclusief werk of School accounts van andere organisaties of persoonlijk account) kunnen aanmelden bij een toepassing voor één tenant na het toevoegen van elke gebruiker als *gastaccount* met Azure Active Directory-instantie die de toepassing is geregistreerd. U kunt gebruikers als gastaccounts toevoegen aan een Azure Active Directory via de [ *Azure AD B2B-samenwerking* ](../b2b/what-is-b2b.md) - en kan worden gedaan [via programmacode](../b2b/code-samples.md). Wanneer u een gebruiker als Gast-account aan een Azure Active Directory toevoegt, wordt een uitnodiging voor een e-mailbericht verzonden naar de gebruiker die de uitnodiging te accepteren door te klikken op de koppeling in de uitnodiging via e-mail. Uitnodigingen die worden verzonden naar een extra gebruiker in een uitnodiging organisatie die deel uitmaakt van de partnerorganisatie zijn niet vereist voor het accepteren van een uitnodiging aan te melden.
+### <a name="single-tenant-applications"></a>Toepassingen met één tenant
+Toepassingen die alleen aanmeldingen van gebruikers van een gedefinieerde Azure Active Directory-exemplaar accepteren worden aangeduid als *toepassing met één tenant*. Externe gebruikers (met inbegrip van werk of School-accounts van andere organisaties of persoonlijk account) kunnen zich aanmelden bij een toepassing met één tenant na het toevoegen van elke gebruiker als *gastaccount* naar de Azure Active Directory-exemplaar dat de toepassing is geregistreerd. U kunt gebruikers als Gast-account toevoegen aan een Azure Active Directory via de [ *Azure AD B2B-samenwerking* ](../b2b/what-is-b2b.md) - en kan worden gedaan [programmatisch](../b2b/code-samples.md). Wanneer u een gebruiker als Gast-account aan een Azure Active Directory toevoegen, wordt een uitnodiging via e-mail verzonden naar de gebruiker, met de uitnodiging te accepteren door te klikken op de koppeling in de uitnodiging per e-mail. Uitnodigingen die worden verzonden naar een andere gebruiker in een organisatie die ook lid is van de partnerorganisatie zijn niet vereist om een uitnodiging aan te melden bij te accepteren.
 
-Toepassingen voor één tenant kunnen inschakelen de *Contact met mij opnemen* ervaring, maar als u de éénkliks- / gratis proefabonnement ervaring die AppSource aanbeveelt inschakelen wilt, schakelt u multi-tenancymodus op uw toepassing in plaats daarvan.
+Toepassingen met één tenant kunnen inschakelen de *Contact Me* optreden, maar als u de éénkliks- / gratis proefversie waarmee AppSource raadt inschakelen wilt, multitenancy inschakelen op uw toepassing in plaats daarvan.
 
 
-## <a name="appsource-trial-experiences"></a>De evaluatieversie ervaringen AppSource
+## <a name="appsource-trial-experiences"></a>Proefversie ervaringen van AppSource
 
-### <a name="free-trial-customer-led-trial-experience"></a>Gratis proefversie (klant geleid proefversie experience) 
-De *klant geleid proefversie* de ervaring die AppSource aanbeveelt zoals een één-op-toegang tot uw toepassing biedt is. Hieronder een illustratie van hoe ziet deze ervaring:<br/><br/>
+### <a name="free-trial-customer-led-trial-experience"></a>Gratis proefversie (klant geleide proefversie) 
+De *klant geleide proef* is de ervaring die AppSource wordt aanbevolen als het biedt een één-op-toegang tot uw toepassing. Hieronder een voorbeeld van hoe deze ervaring eruitziet:<br/><br/>
 
 <table >
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%"/><ul><li>Gebruiker uw toepassing worden gevonden in AppSource website</li><li>Optie 'Gratis proefversie' geselecteerd</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" /><ul><li>AppSource wordt de gebruiker omgeleid naar een URL in uw website</li><li>De website wordt opgestart de <i>eenmalige aanmelding</i> processen automatisch (laden van de pagina)</li></ul></td>
-    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%"/><ul><li>Gebruiker wordt omgeleid naar de Microsoft-aanmeldingspagina</li><li>Gebruiker heeft referenties aan te melden</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step1.png" width="85%"/><ul><li>Gebruiker zoeken naar uw toepassing in de AppSource-website</li><li>Optie 'Gratis proefversie' geselecteerd</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step2.png" width="85%" /><ul><li>AppSource wordt de gebruiker omgeleid naar een URL in uw website</li><li>Uw website begint de <i>single-sign-on</i> automatisch (op de pagina laden)</li></ul></td>
+    <td valign="top" width="33%">3.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step3.png" width="85%"/><ul><li>Gebruiker wordt omgeleid naar de Microsoft-aanmeldingspagina opgeven</li><li>Gebruiker heeft de referenties voor het aanmelden</li></ul></td>
 </tr>
 <tr>
     <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step4.png" width="85%"/><ul><li>Gebruiker geeft toestemming voor uw toepassing</li></ul></td>
@@ -67,33 +67,33 @@ De *klant geleid proefversie* de ervaring die AppSource aanbeveelt zoals een é�
 </tr>
 </table>
 
-### <a name="contact-me-partner-led-trial-experience"></a>Contact met Me (proefversie experience partners)
-De *evaluatieversie partner* kan worden gebruikt wanneer een handmatige of een langdurige bewerking moet worden uitgevoerd voor het inrichten van de gebruiker / company: bijvoorbeeld uw toepassing nodig voor het inrichten van virtuele machines, database-exemplaren of bewerkingen die veel tijd in beslag nemen. In dit geval nadat de gebruiker selecteert de *'Proefversie aanvragen'* knop en de opvulling van een formulier, AppSource verzendt u de contactgegevens van de gebruiker. Bij ontvangst van deze informatie vervolgens inrichten van de omgeving en de instructies verzenden naar de gebruiker over toegang krijgen tot de evaluatieversie:<br/><br/>
+### <a name="contact-me-partner-led-trial-experience"></a>Contact met mij (door Partner geleide proef experience)
+De *testervaring partner* kan worden gebruikt wanneer een handmatige of een langdurige bewerking moet worden opgestart voor het inrichten van de gebruiker / company: bijvoorbeeld de toepassing nodig heeft voor het inrichten van virtuele machines, database-exemplaren of bewerkingen die veel tijd in beslag nemen. In dit geval nadat de gebruiker selecteert de *'Proefversie aanvragen'* knop en vult van een formulier, AppSource verzendt u de contactgegevens van de gebruiker. Na ontvangst van deze informatie u vervolgens de omgeving inrichten en de instructies voor de gebruiker bij het openen van de testervaring verzenden:<br/><br/>
 
 <table valign="top">
 <tr>
-    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%"/><ul><li>Uw toepassing in de website AppSource gevonden met een gebruiker</li><li>De optie 'Contact Me' geselecteerd</li></ul></td>
-    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%"/><ul><li>Een formulier met contactgegevens invult</li></ul></td>
+    <td valign="top" width="33%">1.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step1.png" width="85%"/><ul><li>Gebruiker vindt uw toepassing AppSource-website</li><li>Optie voor 'Contact opnemen'</li></ul></td>
+    <td valign="top" width="33%">2.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step2.png" width="85%"/><ul><li>Invullen van een formulier met contactgegevens</li></ul></td>
      <td valign="top" width="33%">3.<br/><br/>
         <table bgcolor="#f7f7f7">
         <tr>
             <td><img src="media/active-directory-devhowto-appsource-certified/UserContact.png" width="55%"/></td>
-            <td>U ontvangt gebruikersgegevens</td>
+            <td>U ontvangt gebruikersinformatie</td>
         </tr>
         <tr>
             <td><img src="media/active-directory-devhowto-appsource-certified/SetupEnv.png" width="55%"/></td>
-            <td>Setup-omgeving</td>
+            <td>Omgeving instellen</td>
         </tr>
         <tr>
             <td><img src="media/active-directory-devhowto-appsource-certified/ContactCustomer.png" width="55%"/></td>
             <td>Neem contact op met gebruiker met de proefversie info</td>
         </tr>
         </table><br/><br/>
-        <ul><li>U ontvangt van de gebruiker informatie en proefversie exemplaar van setup</li><li>Verzenden van de hyperlink voor toegang tot uw toepassing aan de gebruiker</li></ul>
+        <ul><li>U ontvangt de informatie en setup proefversie exemplaar van de gebruiker</li><li>U verzendt de hyperlink voor toegang tot uw toepassing aan de gebruiker</li></ul>
     </td>
 </tr>
 <tr>
-    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%"/><ul><li>Gebruiker heeft toegang tot uw toepassing en het proces voor eenmalige aanmelding te voltooien</li></ul></td>
+    <td valign="top" width="33%">4.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step3.png" width="85%"/><ul><li>Gebruiker toegang heeft tot uw toepassing en het proces voor eenmalige aanmelding te voltooien</li></ul></td>
     <td valign="top" width="33%">5.<br/><img src="media/active-directory-devhowto-appsource-certified/partner-led-trial-step4.png" width="85%"/><ul><li>Gebruiker geeft toestemming voor uw toepassing</li></ul></td>
     <td valign="top" width="33%">6.<br/><img src="media/active-directory-devhowto-appsource-certified/customer-led-trial-step5.png" width="85%"/><ul><li>Aanmelden is voltooid en de gebruiker wordt omgeleid naar uw website</li><li>Gebruiker begint de gratis proefversie</li></ul></td>
    
@@ -101,28 +101,28 @@ De *evaluatieversie partner* kan worden gebruikt wanneer een handmatige of een l
 </table>
 
 ### <a name="more-information"></a>Meer informatie
-Zie voor meer informatie over de evaluatieversie AppSource [in deze video](https://aka.ms/trialexperienceforwebapps). 
+Zie voor meer informatie over de AppSource-testervaring [in deze video](https://aka.ms/trialexperienceforwebapps). 
  
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over het bouwen van toepassingen die ondersteuning bieden voor Azure Active Directory aanmeldingen [verificatie scenario's voor Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios) 
+- Zie voor meer informatie over het bouwen van toepassingen die ondersteuning bieden voor Azure Active Directory-aanmeldingen, [Verificatiescenario's voor Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios) 
 
-- Ga voor informatie over hoe u uw SaaS-toepassing in AppSource, Zie [AppSource partnergegevens](https://appsource.microsoft.com/partners)
+- Ga voor informatie over hoe u uw SaaS-toepassing in AppSource, Zie [partnergegevens AppSource](https://appsource.microsoft.com/partners)
 
 
 ## <a name="get-support"></a>Krijg ondersteuning
-We gebruiken voor Azure Active Directory-integratie [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) met de community om ondersteuning te bieden. 
+Voor Azure Active Directory-integratie, gebruiken we [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) met de community om ondersteuning te bieden. 
 
-We raden u eerst uw vragen stellen over stackoverloop en blader bestaande problemen om te zien of iemand anders uw vraag voordat heeft gesteld. Zorg ervoor dat uw vragen of opmerkingen zijn gelabeld met [ `[azure-active-directory]` en `[appsource]` ](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
+Wij raden u eerst uw vragen stellen op Stack Overflow en bestaande problemen om te zien als iemand anders uw vraag voordat u heeft gevraagd. Zorg ervoor dat uw vragen of opmerkingen worden gemarkeerd met [ `[azure-active-directory]` en `[appsource]` ](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 
-Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en onze content vorm.
+Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en vorm van onze inhoud.
 
 <!--Reference style links -->
 [AAD-Auth-Scenarios]: ./active-directory-authentication-scenarios.md
 [AAD-Auth-Scenarios-Browser-To-WebApp]: ./active-directory-authentication-scenarios.md#web-browser-to-web-application
-[AAD-Dev-Guide]: ./active-directory-developers-guide.md
+[AAD-Dev-Guide]: azure-ad-developers-guide.md
 [AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
-[AAD-QuickStart-Web-Apps]: ./active-directory-developers-guide.md#get-started
+[AAD-QuickStart-Web-Apps]: azure-ad-developers-guide.md#get-started
 
 
 <!--Image references-->

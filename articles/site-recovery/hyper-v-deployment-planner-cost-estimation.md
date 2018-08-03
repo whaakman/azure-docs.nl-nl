@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 01d4f3873c854776078986918e6ece55017c9193
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: d5b3bf62999c197c437e55a66ee6ba935bdc6ea8
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917469"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428527"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Rapport met kostenramingen van Azure Site Recovery Deployment Planner 
 
@@ -39,7 +39,7 @@ U kunt de kosten maandelijks of jaarlijks weergeven. Meer informatie over [onder
 **Azure-opslagkosten per maand/jaar**: de totale opslagkosten die worden gemaakt voor Premium- en Standard-opslag voor replicatie en noodherstelanalyse.
 
 ## <a name="detailed-cost-analysis"></a>Gedetailleerde kostenanalyse
-Azure-prijzen voor berekenen, opslag en netwerk kunnen variëren per Azure-regio. U kunt een kostenramingsrapport genereren met de meest recente Azure-prijzen op basis van uw abonnement, de aanbieding die aan uw abonnement is gekoppeld en de opgegeven Azure-doelregio in de opgegeven valuta. Het hulpprogramma gebruikt standaard de Azure-regio VS - west 2 en als valuta de Amerikaanse dollar (USD). Als u een andere regio en valuta gebruikt, worden de volgende keer dat u een rapport zonder abonnements-id, aanbiedings-id, doelregio en valuta genereert, de prijzen van de laatst gebruikte doelregio en valuta voor de raming van kosten gebruikt.
+Azure-prijzen voor berekenen, opslag en netwerk kunnen variëren per Azure-regio. U kunt een kostenramingsrapport genereren met de meest recente Azure-prijzen op basis van uw abonnement, de aanbieding die aan uw abonnement is gekoppeld en de opgegeven Azure-doelregio in de opgegeven valuta. Het hulpprogramma gebruikt standaard de Azure-regio US - west 2 en als valuta de Amerikaanse dollar (USD). Als u een andere regio en valuta gebruikt, worden de volgende keer dat u een rapport zonder abonnements-id, aanbiedings-id, doelregio en valuta genereert, de prijzen van de laatst gebruikte doelregio en valuta voor de raming van kosten gebruikt.
 
 In dit gedeelte worden de abonnements-id en aanbiedings-id weergegeven die u hebt gebruikt voor het genereren van rapporten. Als u deze niet hebt gebruikt, zijn de velden leeg.
 
@@ -105,7 +105,7 @@ Handmatig VM's toevoegen:
 
 1. Selecteer **Rij invoegen** als u een nieuwe rij wilt invoegen tussen de rijen **Begin** en **Eind**.
 
-2. Vul de volgende kolommen in op basis van de geschatte VM-grootte en het aantal VM's dat overeenkomt met de volgende configuratie: 
+1. Vul de volgende kolommen in op basis van de geschatte VM-grootte en het aantal VM's dat overeenkomt met de volgende configuratie: 
 
     a. **Aantal VM's**
 
@@ -125,9 +125,9 @@ Handmatig VM's toevoegen:
 
     i. **Azure Hybrid Use Benefit**
 
-3. U kunt dezelfde waarde toepassen op alle virtuele machines in de tabel door **Op alles toepassen** te selecteren voor **Aantal noodherstelanalyses in een jaar**, **Duur van elke noodherstelanalyse (dagen)**, **Gegevensredundantie** en **Azure Hybrid Use Benefit**.
+1. U kunt dezelfde waarde toepassen op alle virtuele machines in de tabel door **Op alles toepassen** te selecteren voor **Aantal noodherstelanalyses in een jaar**, **Duur van elke noodherstelanalyse (dagen)**, **Gegevensredundantie** en **Azure Hybrid Use Benefit**.
 
-4. Selecteer **Kosten opnieuw berekenen** om de kosten bij te werken.
+1. Selecteer **Kosten opnieuw berekenen** om de kosten bij te werken.
 
 **VM-naam**: de naam van de virtuele machine.
 

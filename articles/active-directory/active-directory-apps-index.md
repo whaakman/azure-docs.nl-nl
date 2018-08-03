@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 5c6a4ac68694c74f9a7ed99a2d7b4939b84dc33f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 38e5e37111c6996fcf1342b123b5fc034b58fc0b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054876"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430991"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Article Index for Application Management in Azure Active Directory (Engelstalig)
 Deze pagina bevat een uitgebreide lijst van elk document geschreven over de verschillende functies van de toepassing in Azure Active Directory (Azure AD).
@@ -143,7 +143,7 @@ Als uw organisatie ontwikkelt of onderhouden van line-of-business (LoB)-toepassi
 
 | Artikel-handleiding |  |
 |:---:| --- |
-| Richtlijnen voor IT-professionals en ontwikkelaars van toepassingen voor het integreren van apps met Azure AD |[De IT van de Pro-handleiding voor het ontwikkelen van toepassingen voor Azure AD](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[De Developer's Guide voor Azure Active Directory](active-directory-developers-guide.md) |
+| Richtlijnen voor IT-professionals en ontwikkelaars van toepassingen voor het integreren van apps met Azure AD |[De IT van de Pro-handleiding voor het ontwikkelen van toepassingen voor Azure AD](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[De Developer's Guide voor Azure Active Directory](develop/azure-ad-developers-guide.md) |
 | Hoe aan toepassing leveranciers kunnen hun apps toevoegen aan de App-galerie van Azure AD |[Lijst van uw toepassing in de Azure Active Directory-Toepassingsgalerie](active-directory-app-gallery-listing.md) |
 | Over het beheren van toegang tot ontwikkelde toepassingen met Azure Active Directory |[Gebruikerstoewijzing voor ontwikkelde toepassingen inschakelen](active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[Gebruikers toewijzen aan uw App](active-directory-applications-guiding-developers-assigning-users.md)<br /><br />[Groep toewijzen aan uw App](active-directory-applications-guiding-developers-assigning-groups.md) |
 

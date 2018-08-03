@@ -1,6 +1,6 @@
 ---
-title: ML-Services op HDInsight - Azure operationeel | Microsoft Docs
-description: Informatie over het ML-Services in Azure HDInsight operationeel.
+title: Operationeel maken van ML-Services op HDInsight - Azure | Microsoft Docs
+description: Informatie over het operationeel maken van ML-Services in Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -12,35 +12,35 @@ ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: caefe30ff567a5e24e1f4c3a11309bd35e06190c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 0472158dfb9ad228ce2ddef0edf4eafcf4cd3d29
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37046136"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430974"
 ---
-# <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>Operationeel ML-Services-cluster in Azure HDInsight
+# <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>ML-Services-cluster in Azure HDInsight operationeel maken
 
-Nadat u ML Services cluster in HDInsight gebruikt hebt om uit te voeren van uw gegevens modelleren, kunt u het model om te maken van voorspellingen operationeel te maken. In dit artikel bevat instructies over het uitvoeren van deze taak.
+Nadat u Services ML-cluster in HDInsight gebruikt hebt om uit te voeren van het modelleren van uw gegevens, kunt u operationeel maken van het model om voorspellingen te maken. In dit artikel bevat instructies over het uitvoeren van deze taak.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Een cluster ML-Services op HDInsight**: Zie voor instructies [aan de slag met ML-Services op HDInsight](r-server-get-started.md).
+* **Een ML-Services-cluster in HDInsight**: Zie voor instructies [aan de slag met ML-Services op HDInsight](r-server-get-started.md).
 
 * **Een SSH-client (Secure Shell)**: er wordt een SSH-client gebruikt om extern verbinding te maken met het HDInsight-cluster en om opdrachten rechtstreeks uit te voeren op het cluster. Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
-## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Operationeel ML-Services-cluster met één-box-configuratie
+## <a name="operationalize-ml-services-cluster-with-one-box-configuration"></a>Cluster met-in-één configuratie ML-Services operationeel maken
 
 > [!NOTE]
-> De onderstaande stappen zijn van toepassing op R Server 9.0 en ML Server 9.1. Raadpleeg voor ML Server 9.3, [gebruik van het beheerprogramma voor het beheren van de configuratie van de uitoefening](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch).
+> De onderstaande stappen zijn van toepassing op R Server 9.0 en ML Server 9.1. Raadpleeg voor ML Server 9.3, [gebruiken het beheerprogramma voor het beheren van de configuratie voor uitoefening](https://docs.microsoft.com/machine-learning-server/operationalize/configure-admin-cli-launch).
 
 1. SSH op het Edge-knooppunt.
 
         ssh USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-    Zie voor instructies over het gebruik van SSH met Azure HDInsight [gebruik van SSH met HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
+    Zie voor instructies over het gebruik van SSH met HDInsight van Azure [SSH gebruiken met HDInsight.](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-2. Wijzig de directory voor de desbetreffende versie en sudo het DLL-bestand net punt: 
+1. Wijzig de directory voor de relevante versie en sudo in de dot net-dll: 
 
     - Voor Microsoft ML Server 9.1:
 
@@ -52,37 +52,37 @@ Nadat u ML Services cluster in HDInsight gebruikt hebt om uit te voeren van uw g
             cd /usr/lib64/microsoft-deployr/9.0.1
             sudo dotnet Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. U wordt kunt kiezen uit de opties weergegeven. De eerste optie, zoals wordt weergegeven in de volgende schermafbeelding tot **ML-Server configureren voor uitoefening**.
+1. U wordt kunt kiezen uit de opties weergegeven. De eerste optie, zoals wordt weergegeven in de volgende schermafbeelding op **ML-Server voor uitoefening configureren**.
 
     ![De optie Alles-in-één](./media/r-server-operationalize/admin-util-one-box-1.png)
 
-4. U wordt kunt kiezen hoe u wilt operationeel ML-Server nu weergegeven. Kies het eerste beheerpunt door te voeren in de aangeboden opties **A**.
+1. Nu krijgt u de mogelijkheid om te kiezen hoe u voor het operationeel maken van ML-Server. Kies de eerste record door te voeren in de geboden opties **A**.
 
     ![De optie Alles-in-één](./media/r-server-operationalize/admin-util-one-box-2.png)
 
-5. Wanneer u wordt gevraagd, voer en geef het wachtwoord voor een gebruiker met lokale beheerdersrechten opnieuw.
+1. Wanneer u hierom wordt gevraagd, voer en het wachtwoord voor een gebruiker met lokale beheerdersrechten opnieuw invoeren.
 
-6. Hier ziet u uitvoer opmaken dat de bewerking voltooid is. U wordt ook gevraagd een andere optie te selecteren in het menu. Selecteer E tot de terug te keren naar het hoofdmenu.
+1. Hier ziet u uitvoer die stellen dat de bewerking geslaagd is. U wordt ook gevraagd om een andere optie in het menu. Selecteer E om terug te gaan naar het hoofdmenu.
 
     ![De optie Alles-in-één](./media/r-server-operationalize/admin-util-one-box-3.png)
 
-7. U kunt eventueel diagnostische controles uitvoeren door het uitvoeren van een diagnostische test als volgt:
+1. Desgewenst kunt u diagnostische controles uitvoeren door het uitvoeren van een diagnostische test als volgt:
 
-    a. Selecteer in het hoofdmenu **6** diagnostische tests uitvoeren.
+    a. Selecteer in het hoofdmenu van **6** diagnostische tests uitvoeren.
 
     ![De optie Alles-in-één](./media/r-server-operationalize/diagnostic-1.png)
 
-    b. Selecteer in het menu Diagnostische Tests **A**. Wanneer u wordt gevraagd, typt u het wachtwoord die u hebt opgegeven voor de lokale beheerder.
+    b. Selecteer in het menu Diagnostische tests uit **A**. Wanneer u wordt gevraagd, typt u het wachtwoord die u hebt opgegeven voor de gebruiker met lokale beheerdersrechten.
 
     ![De optie Alles-in-één](./media/r-server-operationalize/diagnostic-2.png)
 
-    c. Controleer of de uitvoer laat zien dat de algehele status geslaagd is.
+    c. Controleer of dat de uitvoer ziet u dat de algehele status geslaagd is.
 
     ![De optie Alles-in-één](./media/r-server-operationalize/diagnostic-3.png)
 
-    d. Van de menuopties gepresenteerd, voer **E** om te keren naar het hoofdmenu en voer **8** om af te sluiten van het hulpprogramma Serverbeheer.
+    d. Voer bij de menuopties weergegeven, **E** om te keren naar het hoofdmenu en voer **8** om af te sluiten van het beheerprogramma.
 
-### <a name="long-delays-when-consuming-web-service-on-spark"></a>Lange vertragingen bij webservice op Spark
+### <a name="long-delays-when-consuming-web-service-on-spark"></a>Lange vertragingen bij het gebruiken van webservice op Spark
 
 Als er lange vertragingen optreden bij het gebruiken van een webservice die is gemaakt met mrsdeploy-functies in een Spark-compute-context, moet u mogelijk een aantal ontbrekende mappen toevoegen. De Spark-toepassing is van een gebruiker met de naam *rserve2* wanneer de toepassing wordt aangeroepen vanuit een webservice met behulp van mrsdeploy-functies. Dit probleem omzeilen:
 
@@ -100,9 +100,9 @@ Als er lange vertragingen optreden bij het gebruiken van een webservice die is g
     rxSparkConnect(reset = TRUE)
 
 
-In dit stadium is de configuratie voor uitoefening voltooid. Nu kunt u de `mrsdeploy` pakket op uw RClient verbinding maken met de uitoefening op de edge-knooppunt en aan de slag met de functies, zoals [uitvoering op afstand](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) en [webservices](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services). Afhankelijk van of het cluster is ingesteld in een virtueel netwerk of niet, moet u mogelijk forward tunneling via SSH-aanmelding instellen voor de poort. In de volgende secties wordt uitgelegd hoe u deze tunnel instelt.
+In dit stadium is de configuratie voor uitoefening voltooid. Nu kunt u de `mrsdeploy` pakket op de RClient verbinding maken met het uitoefening op edge-knooppunt en start met behulp van de functies zoals [uitvoering op afstand](https://docs.microsoft.com/machine-learning-server/r/how-to-execute-code-remotely) en [webservices](https://docs.microsoft.com/machine-learning-server/operationalize/concept-what-are-web-services). Afhankelijk van of het cluster is ingesteld in een virtueel netwerk of niet, moet u mogelijk forward tunneling via SSH-aanmelding instellen voor de poort. In de volgende secties wordt uitgelegd hoe u deze tunnel instelt.
 
-### <a name="ml-services-cluster-on-virtual-network"></a>Cluster ML-Services op virtuele netwerk
+### <a name="ml-services-cluster-on-virtual-network"></a>Cluster met ML-Services op virtueel netwerk
 
 Zorg ervoor dat u verkeer via poort 12800 naar het Edge-knooppunt toestaat. Op deze manier kunt u het Edge-knooppunt gebruiken om verbinding te maken met de functie Uitoefening.
 
@@ -116,15 +116,15 @@ Zorg ervoor dat u verkeer via poort 12800 naar het Edge-knooppunt toestaat. Op d
     )
 
 
-Als de `remoteLogin()` geen verbinding kan maken met het Edge-knooppunt maar als u wel verbinding hebt via SSH, moet u controleren of de regel op basis waarvan verkeer via poort 12800 is toegestaan, juist is ingesteld of niet. Als dit probleem zich blijft voordoen, kunt u een tijdelijke oplossing gebruiken door forward tunneling via SSH in te stellen voor de poort. Zie de volgende sectie voor instructies:
+Als de `remoteLogin()` geen verbinding kan maken met het Edge-knooppunt maar als u wel verbinding hebt via SSH, moet u controleren of de regel op basis waarvan verkeer via poort 12800 is toegestaan, juist is ingesteld of niet. Als dit probleem zich blijft voordoen, kunt u een tijdelijke oplossing gebruiken door forward tunneling via SSH in te stellen voor de poort. Zie voor instructies in de volgende sectie:
 
-### <a name="ml-services-cluster-not-set-up-on-virtual-network"></a>ML Services cluster niet is ingesteld op virtueel netwerk
+### <a name="ml-services-cluster-not-set-up-on-virtual-network"></a>ML-Services-cluster niet is ingesteld op virtueel netwerk
 
 Als het cluster niet is ingesteld in het virtuele netwerk vnet of als u problemen ondervindt met de connectiviteit via dit netwerk, kunt u forward tunneling via SSH instellen voor de poort:
 
     ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-Zodra de SSH-sessie actief is, wordt het verkeer bij poort 12800 op uw computer via de SSH-sessie doorgestuurd naar poort 12800 van het Edge-knooppunt. Zorg ervoor dat u `127.0.0.1:12800` gebruikt in de `remoteLogin()`-methode. Dit aanmeldt bij het edge-knooppunt uitoefening via poort doorsturen.
+Zodra de SSH-sessie actief is, wordt het verkeer bij poort 12800 op uw computer via de SSH-sessie doorgestuurd naar poort 12800 van het Edge-knooppunt. Zorg ervoor dat u `127.0.0.1:12800` gebruikt in de `remoteLogin()`-methode. Dit meldt zich aan bij de uitoefening van het edge-knooppunt via doorsturen via poort.
 
 
     library(mrsdeploy)
@@ -136,55 +136,55 @@ Zodra de SSH-sessie actief is, wordt het verkeer bij poort 12800 op uw computer 
     )
 
 
-## <a name="scale-operationalized-compute-nodes-on-hdinsight-worker-nodes"></a>Schaal geoperationaliseerd rekenknooppunten op HDInsight worker-knooppunten
+## <a name="scale-operationalized-compute-nodes-on-hdinsight-worker-nodes"></a>Schaal geoperationaliseerd rekenknooppunten op worker-knooppunten voor HDInsight
 
-Als u wilt schalen van de rekenknooppunten, schaft u eerst de worker-knooppunten en configureer vervolgens de rekenknooppunten voor het buiten gebruik gestelde worker-knooppunten.
+Als u wilt de compute-knooppunten schalen, moet u eerst uit bedrijf nemen de worker-knooppunten en vervolgens rekenknooppunten configureren op de uit bedrijf genomen worker-knooppunten.
 
-### <a name="step-1-decommission-the-worker-nodes"></a>Stap 1: Uit bedrijf nemen worker-knooppunten
+### <a name="step-1-decommission-the-worker-nodes"></a>Stap 1: Uit bedrijf nemen de worker-knooppunten
 
-ML Services cluster niet wordt beheerd via YARN. Als de worker-knooppunten niet buiten gebruik wordt gesteld, werkt de YARN-Resource Manager niet zoals verwacht, omdat deze niet op de hoogte van de resources in beslag nemen door de server. Om deze sitatie te voorkomen raden we u aan de werkknooppunten uit bedrijf te nemen voordat u de rekenknooppunten uitschaalt.
+ML-Services cluster niet wordt beheerd via YARN. Als de worker-knooppunten niet uit bedrijf genomen, werkt de resourcemanager YARN niet zoals verwacht, omdat het is niet op de hoogte van de resources in beslag wordt genomen door de server. Om deze sitatie te voorkomen raden we u aan de werkknooppunten uit bedrijf te nemen voordat u de rekenknooppunten uitschaalt.
 
-Volg deze stappen voor worker-knooppunten uit bedrijf nemen:
+Volg deze stappen voor het worker-knooppunten uit bedrijf nemen:
 
-1. Aanmelden bij de Ambari-console van het cluster en klik op **Hosts** tabblad.
+1. Meld u aan bij de Ambari-console van het cluster en klik op **Hosts** tabblad.
 
-2. Selecteer de worker-knooppunten (om te worden buiten gebruik wordt gesteld).
+1. Selecteer worker-knooppunten (worden buiten gebruik gestelde).
 
-3. Klik op **acties** > **Hosts geselecteerd** > **Hosts** > **onderhoudsmodus inschakelen**. In de volgende afbeelding zijn bijvoorbeeld wk3 en wk4 geselecteerd om uit bedrijf te worden genomen.  
+1. Klik op **acties** > **geselecteerde Hosts** > **Hosts** > **onderhoudsmodus inschakelen**. In de volgende afbeelding zijn bijvoorbeeld wk3 en wk4 geselecteerd om uit bedrijf te worden genomen.  
 
    ![worker-knooppunten uit bedrijf nemen](./media/r-server-operationalize/get-started-operationalization.png)  
 
-* Selecteer **acties** > **Hosts geselecteerd** > **DataNodes** > klikt u op **uit bedrijf nemen**.
-* Selecteer **acties** > **Hosts geselecteerd** > **NodeManagers** > klikt u op **uit bedrijf nemen**.
-* Selecteer **acties** > **Hosts geselecteerd** > **DataNodes** > klikt u op **stoppen**.
-* Selecteer **acties** > **Hosts geselecteerd** > **NodeManagers** > Klik op **stoppen**.
-* Selecteer **acties** > **Hosts geselecteerd** > **Hosts** > klikt u op **stoppen alle onderdelen**.
+* Selecteer **acties** > **geselecteerde Hosts** > **DataNodes** > klikt u op **uit bedrijf nemen**.
+* Selecteer **acties** > **geselecteerde Hosts** > **NodeManagers** > klikt u op **uit bedrijf nemen**.
+* Selecteer **acties** > **geselecteerde Hosts** > **DataNodes** > klikt u op **stoppen**.
+* Selecteer **acties** > **geselecteerde Hosts** > **NodeManagers** > Klik op **stoppen**.
+* Selecteer **acties** > **geselecteerde Hosts** > **Hosts** > klikt u op **alle onderdelen stoppen**.
 * Hef de selectie van de worker-knooppunten op en selecteer de hoofdknooppunten.
-* Selecteer **acties** > **Hosts geselecteerd** > "**Hosts** > **alle onderdelen opnieuw**.
+* Selecteer **acties** > **geselecteerde Hosts** > "**Hosts** > **alle onderdelen opnieuw starten**.
 
-### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Stap 2: Configureer rekenknooppunten op elke buiten gebruik gestelde worker-knooppunten
+### <a name="step-2-configure-compute-nodes-on-each-decommissioned-worker-nodes"></a>Stap 2: Configureer rekenknooppunten op elk uit bedrijf genomen worker-knooppunten
 
 1. SSH op elk uit bedrijf genomen werkknooppunt.
 
-2. Hulpprogramma voor Serverbeheer met behulp van de relevante DLL voor het cluster ML-Services die u hebt uitgevoerd. ML Server 9.1, voert u de volgende:
+1. Hulpprogramma voor beheer met behulp van de relevante dll-bestand voor het ML-Services-cluster dat u hebt uitgevoerd. Voor ML Server 9.1, voert u het volgende:
 
         dotnet /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Utils.AdminUtil/Microsoft.DeployR.Utils.AdminUtil.dll
 
-3. Voer **1** optie selecteren **ML-Server configureren voor uitoefening**.
+1. Voer **1** optie **ML-Server voor uitoefening configureren**.
 
-4. Voer **C** optie `C. Compute node`. Hiermee configureert u het rekenknooppunt op het werkknooppunt.
+1. Voer **C** optie `C. Compute node`. Hiermee configureert u het rekenknooppunt op het werkknooppunt.
 
-5. Sluit het beheerprogramma.
+1. Sluit het beheerprogramma.
 
-### <a name="step-3-add-compute-nodes-details-on-web-node"></a>Stap 3: Toevoegen compute details van de knooppunten op web-knooppunt
+### <a name="step-3-add-compute-nodes-details-on-web-node"></a>Stap 3: Toevoegen compute-knooppunten details op het webknooppunt
 
-Zodra alle buiten gebruik gestelde worker-knooppunten zijn geconfigureerd voor het rekenknooppunt worden uitgevoerd, keert u terug op het edge-knooppunt en buiten gebruik gestelde worker-knooppunten IP-adressen in de configuratie van de Server ML web knooppunt toevoegen:
+Zodra alle uit bedrijf genomen worker-knooppunten zijn geconfigureerd voor het rekenknooppunt worden uitgevoerd, keert u terug naar het edge-knooppunt en toevoegen van IP-adressen uit bedrijf genomen worker-knooppunten in het ML-Server-webknooppunt configuratie:
 
 1. SSH op het Edge-knooppunt.
 
-2. Voer `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json` uit.
+1. Voer `vi /usr/lib64/microsoft-deployr/9.0.1/Microsoft.DeployR.Server.WebAPI/appsettings.json` uit.
 
-3. Zoek naar de sectie 'URI' en werkrolknooppunt van IP- en poortgegevens toevoegen.
+1. Zoek naar de sectie 'URI' en voeg worker-knooppunt IP- en poortgegevens.
 
        "Uris": {
          "Description": "Update 'Values' section to point to your backend machines. Using HTTPS is highly recommended",
@@ -195,6 +195,6 @@ Zodra alle buiten gebruik gestelde worker-knooppunten zijn geconfigureerd voor h
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [ML-Services-cluster in HDInsight beheren](r-server-hdinsight-manage.md)
-* [COMPUTE context opties voor het cluster in HDInsight ML-Services](r-server-compute-contexts.md)
-* [Azure ML-Services-cluster in HDInsight opslagopties](r-server-storage.md)
+* [ML Services-cluster beheren in HDInsight](r-server-hdinsight-manage.md)
+* [Opties voor compute-context voor ML Services-cluster in HDInsight](r-server-compute-contexts.md)
+* [Opties voor Azure Storage voor ML Services-cluster in HDInsight](r-server-storage.md)

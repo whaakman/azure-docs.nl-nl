@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 06/01/2017
 ms.author: danlep
-ms.openlocfilehash: aaf26e04fdb38fd76f4ab8211f9fdda8ebafd668
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4a6327fcfe6f6e6f3b8b5c6ecbd14b832b4134c5
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971856"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421209"
 ---
 # <a name="get-started-running-excel-and-soa-workloads-on-an-hpc-pack-cluster-in-azure"></a>Aan de slag met Excel- en SOA-workloads op een HPC Pack-cluster in Azure
 In dit artikel wordt beschreven hoe u een Microsoft HPC Pack 2012 R2-cluster op Azure virtual machines implementeren met behulp van een Azure-quickstart-sjabloon of optioneel een Azure PowerShell-script voor implementatie. Het cluster maakt gebruik van Azure Marketplace VM-installatiekopieën die zijn ontworpen voor het uitvoeren van Microsoft Excel of een service oriented architecture (SOA)-workloads met HPC Pack. U kunt het cluster gebruiken voor het uitvoeren van Excel HPC en SOA-services vanuit een on-premises clientcomputer. De Excel-HPC-services bevatten Excel-werkmap offloading en de gebruiker gedefinieerde functies van Excel of de UDF's.
@@ -53,10 +53,10 @@ Een Azure-quickstart-sjabloon gebruiken om snel te implementeren een HPC Pack-cl
 > 
 
 1. Ga naar de [sjabloonpagina HPC-Cluster maken op GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/create-hpc-cluster). Als u wilt, kunt u informatie over de sjabloon en de broncode controleren.
-2. Klik op **implementeren in Azure** om te beginnen een implementatie met de sjabloon in Azure portal.
+1. Klik op **implementeren in Azure** om te beginnen een implementatie met de sjabloon in Azure portal.
    
    ![Sjabloon implementeren in Azure][github]
-3. Volg deze stappen voor het invoeren van de parameters voor de sjabloon HPC-cluster in de portal.
+1. Volg deze stappen voor het invoeren van de parameters voor de sjabloon HPC-cluster in de portal.
    
    a. Op de **Parameters** pagina, invoeren of wijzigen van waarden voor de sjabloonparameters. (Klik op het pictogram naast elke instelling voor help-informatie.) Voorbeeldwaarden worden in het volgende scherm weergegeven. In dit voorbeeld wordt een cluster met de naam *hpc01* in de *hpc.local* domein die bestaan uit een hoofdknooppunt en 2-rekenknooppunten. De compute-knooppunten zijn gemaakt op basis van een HPC Pack VM-installatiekopie met Microsoft Excel.
    
@@ -76,7 +76,7 @@ Een Azure-quickstart-sjabloon gebruiken om snel te implementeren een HPC Pack-cl
    d. Kies een locatie voor de resourcegroep, zoals VS-midden.
    
    e. Op de **juridische voorwaarden** pagina, lees de voorwaarden. Als u akkoord gaat, klikt u op **aankoop**. Vervolgens, wanneer u klaar bent met instellen van de waarden voor de sjabloon, klikt u op **maken**.
-4. Wanneer de implementatie is voltooid (meestal duurt het ongeveer 30 minuten), het certificaatbestand van het cluster exporteren van het hoofdknooppunt van het cluster. In een latere stap importeert u dit openbare certificaat op de clientcomputer voor de server-side '-verificatie voor beveiligde HTTP-binding.
+1. Wanneer de implementatie is voltooid (meestal duurt het ongeveer 30 minuten), het certificaatbestand van het cluster exporteren van het hoofdknooppunt van het cluster. In een latere stap importeert u dit openbare certificaat op de clientcomputer voor de server-side '-verificatie voor beveiligde HTTP-binding.
    
    a. In de Azure-portal, gaat u naar het dashboard, selecteert u het hoofdknooppunt en klikt u op **Connect** aan de bovenkant van de pagina verbinding maken met behulp van extern bureaublad.
    
@@ -177,12 +177,12 @@ Het implementatiescript HPC Pack IaaS biedt een andere veelzijdige manier om een
 **Het script uitvoeren**
 
 1. Open de PowerShell-console op de clientcomputer als beheerder.
-2. Wijzig de map naar de scriptmap (E:\IaaSClusterScript in dit voorbeeld).
+1. Wijzig de map naar de scriptmap (E:\IaaSClusterScript in dit voorbeeld).
    
    ```
    cd E:\IaaSClusterScript
    ```
-3. Voer de volgende opdracht voor het implementeren van de HPC Pack-cluster. In dit voorbeeld wordt ervan uitgegaan dat het configuratiebestand in E:\HPCDemoConfig.xml bevinden zich.
+1. Voer de volgende opdracht voor het implementeren van de HPC Pack-cluster. In dit voorbeeld wordt ervan uitgegaan dat het configuratiebestand in E:\HPCDemoConfig.xml bevinden zich.
    
    ```
    .\New-HpcIaaSCluster.ps1 –ConfigFile E:\HPCDemoConfig.xml –AdminUserName MyAdminName
@@ -214,8 +214,8 @@ Office Professional Plus 2013 is geïnstalleerd op de VM-installatiekopie is een
 Volg deze stappen voor het offloaden van een Excel-werkmap, zodat deze wordt uitgevoerd op het HPC Pack-cluster in Azure. Om dit te doen, moet u Excel 2010 of 2013 is al geïnstalleerd op de clientcomputer hebben.
 
 1. Gebruik een van de opties in stap 1 voor het implementeren van een HPC Pack-cluster met de Excel-knooppunt afbeelding berekenen. Verkrijgen van de cluster-certificaatbestand (.cer) en de cluster-gebruikersnaam en het wachtwoord.
-2. Importeer het clustercertificaat onder Cert: \CurrentUser\Root op de clientcomputer.
-3. Zorg ervoor dat Excel is geïnstalleerd. Maak een Excel.exe.config-bestand met de volgende inhoud in dezelfde map als Excel.exe op de clientcomputer. Deze stap zorgt ervoor dat de HPC Pack 2012 R2 Excel COM-invoegtoepassing wordt geladen is.
+1. Importeer het clustercertificaat onder Cert: \CurrentUser\Root op de clientcomputer.
+1. Zorg ervoor dat Excel is geïnstalleerd. Maak een Excel.exe.config-bestand met de volgende inhoud in dezelfde map als Excel.exe op de clientcomputer. Deze stap zorgt ervoor dat de HPC Pack 2012 R2 Excel COM-invoegtoepassing wordt geladen is.
    
     ```
     <?xml version="1.0"?>
@@ -225,13 +225,13 @@ Volg deze stappen voor het offloaden van een Excel-werkmap, zodat deze wordt uit
         </startup>
     </configuration>
     ```
-4. De client ingesteld voor het verzenden van taken naar de HPC Pack-cluster. Een optie is voor het downloaden van de volledige [HPC Pack 2012 R2 Update 3 installatie](http://www.microsoft.com/download/details.aspx?id=49922) en de HPC Pack-client installeren. U kunt ook downloaden en installeren de [client hulpprogramma's van HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49923) en de juiste Visual C++ 2010 redistributable voor uw computer ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555) ).
-5. In dit voorbeeld gebruiken we een voorbeeld-Excel-werkmap met de naam ConvertiblePricing_Complete.xlsb. U kunt dit downloaden [hier](https://www.microsoft.com/en-us/download/details.aspx?id=2939).
-6. Kopieer de Excel-werkmap naar een werkmap zoals D:\Excel\Run.
-7. Open de Excel-werkmap. Op de **ontwikkelen** lint, klikt u op **COM-invoegtoepassingen** en bevestigt u dat de HPC Pack Excel COM-invoegtoepassing is geladen.
+1. De client ingesteld voor het verzenden van taken naar de HPC Pack-cluster. Een optie is voor het downloaden van de volledige [HPC Pack 2012 R2 Update 3 installatie](http://www.microsoft.com/download/details.aspx?id=49922) en de HPC Pack-client installeren. U kunt ook downloaden en installeren de [client hulpprogramma's van HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49923) en de juiste Visual C++ 2010 redistributable voor uw computer ([x64](http://www.microsoft.com/download/details.aspx?id=14632), [x86](https://www.microsoft.com/download/details.aspx?id=5555) ).
+1. In dit voorbeeld gebruiken we een voorbeeld-Excel-werkmap met de naam ConvertiblePricing_Complete.xlsb. U kunt dit downloaden [hier](https://www.microsoft.com/en-us/download/details.aspx?id=2939).
+1. Kopieer de Excel-werkmap naar een werkmap zoals D:\Excel\Run.
+1. Open de Excel-werkmap. Op de **ontwikkelen** lint, klikt u op **COM-invoegtoepassingen** en bevestigt u dat de HPC Pack Excel COM-invoegtoepassing is geladen.
    
    ![Excel-invoegtoepassing voor HPC Pack][addin]
-8. De macro VBA HPCControlMacros in Excel bewerken door te wijzigen van de regels voor opmerkingen, zoals wordt weergegeven in het volgende script. Vervangen door de juiste waarden voor uw omgeving.
+1. De macro VBA HPCControlMacros in Excel bewerken door te wijzigen van de regels voor opmerkingen, zoals wordt weergegeven in het volgende script. Vervangen door de juiste waarden voor uw omgeving.
    
    ![Excel-macro voor HPC Pack][macro]
    
@@ -251,8 +251,8 @@ Volg deze stappen voor het offloaden van een Excel-werkmap, zodat deze wordt uit
    'HPCExcelClient.OpenSession headNode:=HPC_ClusterScheduler, remoteWorkbookPath:=HPCWorkbookPath
    HPCExcelClient.OpenSession headNode:=HPC_ClusterScheduler, remoteWorkbookPath:=HPCWorkbookPath, UserName:="hpc\azureuser", Password:="<YourPassword>"
    ```
-9. Kopieer de Excel-werkmap naar een Uploadmap, zoals D:\Excel\Upload. Deze map is opgegeven in de constante HPC_DependsFiles in de VBA-macro.
-10. De werkmap op het cluster in Azure worden uitgevoerd, klikt u op de **Cluster** knop op het werkblad.
+1. Kopieer de Excel-werkmap naar een Uploadmap, zoals D:\Excel\Upload. Deze map is opgegeven in de constante HPC_DependsFiles in de VBA-macro.
+1. De werkmap op het cluster in Azure worden uitgevoerd, klikt u op de **Cluster** knop op het werkblad.
 
 ### <a name="run-excel-udfs"></a>Excel UDF's worden uitgevoerd
 Als u wilt uitvoeren van Excel UDF's, volgt u de voorgaande stappen 1-3 voor het instellen van de clientcomputer. Voor Excel UDF's moet u niet de Excel-toepassing geïnstalleerd op rekenknooppunten. Dus als het maken van uw cluster rekenknooppunten, u kunt ervoor kiezen een normale compute-knooppunt afbeelding in plaats van de installatiekopie van rekenknooppunt met Excel.
@@ -267,10 +267,10 @@ Nadat het cluster is geïmplementeerd, doorgaan met de volgende stappen voor het
 1. Open een nieuwe Excel-werkmap. Op de **ontwikkelen** lint, klikt u op **Add-Ins**. Klik vervolgens in het dialoogvenster op **Bladeren**, navigeer naar de map %CCP_HOME%Bin\XLL32 en selecteert u het voorbeeld ClusterUDF32.xll. Als de ClusterUDF32 niet op de clientcomputer bestaat, kopieert u deze in de map %CCP_HOME%Bin\XLL32 op het hoofdknooppunt.
    
    ![Selecteer de UDF][udf]
-2. Klik op **bestand** > **opties** > **geavanceerde**. Onder **formules**, Controleer **toestaan van de gebruiker gedefinieerde XLL functies om uit te voeren van een rekencluster**. Klik vervolgens op **opties** en voer de naam van het volledige cluster in **hoofdknooppunt clusternaam**. (Als zijn aangegeven eerder dit invoervak is beperkt tot 34 tekens, zodat een lange clusternaam mogelijk niet voldoende. U kunt hier een variabele voor alle computers gebruiken voor een lange clusternaam.)
+1. Klik op **bestand** > **opties** > **geavanceerde**. Onder **formules**, Controleer **toestaan van de gebruiker gedefinieerde XLL functies om uit te voeren van een rekencluster**. Klik vervolgens op **opties** en voer de naam van het volledige cluster in **hoofdknooppunt clusternaam**. (Als zijn aangegeven eerder dit invoervak is beperkt tot 34 tekens, zodat een lange clusternaam mogelijk niet voldoende. U kunt hier een variabele voor alle computers gebruiken voor een lange clusternaam.)
    
    ![De UDF configureren][options]
-3. Als u wilt de UDF-berekening uitvoeren op het cluster, klikt u op de cel met de waarde =XllGetComputerNameC() en druk op Enter. De functie haalt gewoon de naam van het rekenknooppunt waarop de UDF wordt uitgevoerd. Voor de eerste keer uitvoert, wordt een dialoogvenster referenties gevraagd om de gebruikersnaam en wachtwoord verbinding maken met het IaaS-cluster.
+1. Als u wilt de UDF-berekening uitvoeren op het cluster, klikt u op de cel met de waarde =XllGetComputerNameC() en druk op Enter. De functie haalt gewoon de naam van het rekenknooppunt waarop de UDF wordt uitgevoerd. Voor de eerste keer uitvoert, wordt een dialoogvenster referenties gevraagd om de gebruikersnaam en wachtwoord verbinding maken met het IaaS-cluster.
    
    ![-UDF uitvoeren][run]
    
@@ -280,9 +280,9 @@ Nadat het cluster is geïmplementeerd, doorgaan met de volgende stappen voor het
 Voor het uitvoeren algemene SOA-toepassingen op het cluster met HPC Pack IaaS, eerst gebruiken een van de methoden in stap 1 om het cluster te implementeren. Geef een algemene compute-knooppunt afbeelding in dit geval omdat u geen Excel nodig op de rekenknooppunten. Volg deze stappen.
 
 1. Bij het ophalen van het clustercertificaat, importeert u het op de clientcomputer onder Cert: \CurrentUser\Root.
-2. Installeer de [HPC Pack 2012 R2 Update 3 SDK](http://www.microsoft.com/download/details.aspx?id=49921) en [client hulpprogramma's van HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49923). Deze hulpprogramma's kunnen u ontwikkelen en uitvoeren van de SOA-clienttoepassingen.
-3. Download de HelloWorldR2 [voorbeeldcode](https://www.microsoft.com/download/details.aspx?id=41633). Open de HelloWorldR2.sln in Visual Studio 2010- of 2012. (In dit voorbeeld is momenteel niet compatibel met nieuwere versies van Visual Studio.)
-4. Maak eerst het EchoService-project. Vervolgens implementeert u de service met het IaaS-cluster op dezelfde manier als die u op een on-premises cluster implementeren. Zie de Readme.doc in HelloWordR2 voor gedetailleerde stappen. Wijzig en bouw de HellWorldR2 en andere projecten zoals beschreven in de volgende sectie voor het genereren van de SOA-clienttoepassingen die worden uitgevoerd op een Azure IaaS-cluster.
+1. Installeer de [HPC Pack 2012 R2 Update 3 SDK](http://www.microsoft.com/download/details.aspx?id=49921) en [client hulpprogramma's van HPC Pack 2012 R2 Update 3](https://www.microsoft.com/download/details.aspx?id=49923). Deze hulpprogramma's kunnen u ontwikkelen en uitvoeren van de SOA-clienttoepassingen.
+1. Download de HelloWorldR2 [voorbeeldcode](https://www.microsoft.com/download/details.aspx?id=41633). Open de HelloWorldR2.sln in Visual Studio 2010- of 2012. (In dit voorbeeld is momenteel niet compatibel met nieuwere versies van Visual Studio.)
+1. Maak eerst het EchoService-project. Vervolgens implementeert u de service met het IaaS-cluster op dezelfde manier als die u op een on-premises cluster implementeren. Zie de Readme.doc in HelloWordR2 voor gedetailleerde stappen. Wijzig en bouw de HellWorldR2 en andere projecten zoals beschreven in de volgende sectie voor het genereren van de SOA-clienttoepassingen die worden uitgevoerd op een Azure IaaS-cluster.
 
 ### <a name="use-http-binding-with-azure-storage-queue"></a>Http-binding gebruiken met Azure storage-wachtrij
 Voor het gebruik van Http-binding met een Azure storage-wachtrij, moet u enkele wijzigingen aanbrengen aan de voorbeeldcode.
@@ -335,10 +335,10 @@ Voor het gebruik van Http-binding zonder een Azure storage-wachtrij, moet u expl
 De configuratie is vergelijkbaar met het verbinding maken met een on-premises cluster voor het gebruik van NetTcp-binding. U moet een aantal eindpunten op het hoofdknooppunt VM openen. Als u het HPC Pack IaaS-implementatiescript gebruikt om het cluster te maken, bijvoorbeeld de eindpunten in Azure portal als volgt instellen.
 
 1. De virtuele machine stoppen.
-2. Toevoegen van de TCP-poorten 9090, 9087, 9091, 9094 voor de sessie Broker, werknemer- en gegevensservices, respectievelijk Broker
+1. Toevoegen van de TCP-poorten 9090, 9087, 9091, 9094 voor de sessie Broker, werknemer- en gegevensservices, respectievelijk Broker
    
     ![Eindpunten configureren][endpoint-new-portal]
-3. Start de virtuele machine.
+1. Start de virtuele machine.
 
 De SOA-clienttoepassing vereist geen wijzigingen, behalve de naam van de kop voor de volledige naam voor IaaS-cluster te wijzigen.
 

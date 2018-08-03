@@ -1,6 +1,6 @@
 ---
-title: Klassieke activiteit logboek waarschuwingen maken
-description: Een melding via SMS, webhook en e-mailbericht wanneer bepaalde in het gebeurtenissenlogboek gebeurtenissen.
+title: Waarschuwingen voor klassieke activiteitenlogboek maken
+description: Bericht via SMS, webhook en e-mailbericht wanneer bepaalde in het activiteitenlogboek gebeurtenissen.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,121 +8,121 @@ ms.topic: conceptual
 ms.date: 03/18/2017
 ms.author: johnkem
 ms.component: alerts
-ms.openlocfilehash: 84bd82f479ce516152f50d5753e8d91940724c93
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 120fd3552ad36b3d19179f39ca95ce2b3ee2c2e6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263521"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426615"
 ---
-# <a name="create-activity-log-alerts-classic"></a>Activiteit logboek waarschuwingen (klassiek) maken
+# <a name="create-activity-log-alerts-classic"></a>Waarschuwingen (klassiek) voor activiteitenlogboek maken
 
 ## <a name="overview"></a>Overzicht
-Activiteit logboek waarschuwingen zijn waarschuwingen die worden geactiveerd wanneer er een nieuwe activiteit gebeurtenislogboek optreedt die overeenkomt met de voorwaarden die is opgegeven in de waarschuwing. Ze zijn Azure-resources, zodat ze kunnen worden gemaakt met behulp van een Azure Resource Manager-sjabloon. Ze kunnen ook worden gemaakt, bijgewerkt of verwijderd in de Azure portal. Dit artikel bevat de concepten achter activiteit logboek waarschuwingen. Deze vervolgens ziet u hoe de Azure portal gebruiken voor het instellen van een waarschuwing op activiteit logboekgebeurtenissen.
+Waarschuwingen voor activiteitenlogboeken zijn waarschuwingen die activeren wanneer een nieuwe activiteit log-gebeurtenis optreedt die overeenkomt met de voorwaarden die zijn opgegeven in de waarschuwing. Ze zijn Azure-resources, zodat ze kunnen worden gemaakt met behulp van een Azure Resource Manager-sjabloon. Ze kunnen ook worden gemaakt, bijgewerkt of verwijderd in Azure portal. In dit artikel bevat de concepten achter waarschuwingen voor activiteitenlogboeken. Hier vervolgens ziet u hoe u Azure portal gebruiken voor het instellen van een waarschuwing op gebeurtenissen in het activiteitenlogboek.
 
 > [!NOTE]
 
->  De nieuwe [waarschuwingen](monitoring-overview-unified-alerts.md) ervaring met deze procedure is vervangen. In dit artikel wordt aangeboden als referentie voor de ervaring. [Meer informatie](monitoring-activity-log-alerts-new-experience.md).
+>  De nieuwe [waarschuwingen](monitoring-overview-unified-alerts.md) ervaring is vervangen door deze procedure. In dit artikel is bedoeld als referentie voor de eerdere ervaring. [Meer informatie](monitoring-activity-log-alerts-new-experience.md).
 
-Meestal maakt u activiteit logboek waarschuwingen om meldingen te ontvangen wanneer:
+Normaal gesproken u waarschuwingen voor activiteitenlogboek maken om meldingen te ontvangen wanneer:
 
-* Specifieke wijzigingen optreden voor bronnen in uw Azure-abonnement, vaak binnen het bereik van bepaalde resourcegroepen of resources. U wilt worden gewaarschuwd wanneer een virtuele machine in myProductionResourceGroup wordt verwijderd. Of u mogelijk wilt worden gewaarschuwd als er geen nieuwe rollen zijn toegewezen aan een gebruiker in uw abonnement.
-* Er treedt een gebeurtenis van de health service op. Gebeurtenissen van de health service omvatten melding van incidenten en het onderhoud van gebeurtenissen die betrekking hebben op de resources in uw abonnement.
+* Bepaalde wijzigingen optreden voor resources in uw Azure-abonnement, vaak binnen het bereik van bepaalde resourcegroepen of resources. Bijvoorbeeld, als u wilt worden gewaarschuwd wanneer een virtuele machine in myProductionResourceGroup wordt verwijderd. Of u wilt worden gewaarschuwd als nieuwe rollen zijn toegewezen aan een gebruiker in uw abonnement.
+* Er treedt een gebeurtenis van de health service op. Service health-gebeurtenissen opnemen van incidenten en onderhoudsgebeurtenissen die betrekking hebben op de resources in uw abonnement.
 
-In beide gevallen controleert de activiteit logboek waarschuwing alleen voor gebeurtenissen in het abonnement waarmee de waarschuwing is gemaakt.
+In beide gevallen wordt een waarschuwing voor activiteitenlogboek controleert alleen voor gebeurtenissen in het abonnement waarin de waarschuwing is gemaakt.
 
-U kunt een activiteit logboek waarschuwing op basis van een eigenschap op het hoogste niveau in de JSON-object voor een activiteit van het gebeurtenislogboek kunt configureren. Echter, de portal ziet u de meest voorkomende opties:
+U kunt een waarschuwing voor activiteitenlogboek op basis van een eigenschap op het hoogste niveau in de JSON-object voor het activiteitenlogboek kunt configureren. De portal ziet u echter de meest voorkomende opties:
 
-- **Categorie**: beheer-, status, automatisch schalen en aanbeveling. Zie voor meer informatie [overzicht van het Azure activiteitenlogboek](./monitoring-overview-activity-logs.md#categories-in-the-activity-log). Zie voor meer informatie over gebeurtenissen van de health service, [activiteit logboek meldingen ontvangen over servicemeldingen](./monitoring-activity-log-alerts-on-service-notifications.md).
+- **Categorie**: met beheerdersrechten, Service-status, automatisch schalen en aanbeveling. Zie voor meer informatie, [overzicht van de Azure-activiteitenlogboek](./monitoring-overview-activity-logs.md#categories-in-the-activity-log). Zie voor meer informatie over service health-gebeurtenissen, [ontvangen van waarschuwingen voor activiteitenlogboeken voor servicemeldingen](./monitoring-activity-log-alerts-on-service-notifications.md).
 - **Resourcegroep**
 - **Resource**
 - **Resourcetype**
-- **Naam van de bewerking**: de naam van de The Resource Manager Role-Based Access Control-bewerking.
-- **Niveau**: de ernst van de gebeurtenis (uitgebreid, ter Info, waarschuwing, fout of kritiek).
-- **Status**: de status van de gebeurtenis, doorgaans gestart, is mislukt of geslaagd.
-- **De gebeurtenis wordt gestart door**: ook wel bekend als de "aanroeper." De e-mailadres of Azure Active Directory-id van de gebruiker die de bewerking uitgevoerd.
+- **De naam van bewerking**: naam van de bewerking The Resource Manager Role-Based Access Control.
+- **Niveau**: de ernst van de gebeurtenis (uitgebreid, informatief, waarschuwing, fout of kritiek).
+- **Status**: de status van de gebeurtenis, meestal aan de slag, mislukt of geslaagd.
+- **Gebeurtenis gestart door**: ook wel bekend als de "oproepende functie." De e-mailadres of Azure Active Directory-id van de gebruiker die de bewerking heeft uitgevoerd.
 
 > [!NOTE]
-> Wanneer de categorie 'administratieve' is, moet u ten minste één van de bovenstaande criteria opgeven in de waarschuwing. U kunt een waarschuwing die wordt geactiveerd telkens wanneer een gebeurtenis wordt gemaakt in de activiteitenlogboeken van de niet maken.
+> Wanneer de categorie 'administratieve' is, moet u ten minste één van de bovenstaande criteria opgeven in de waarschuwing. U kunt een waarschuwing die wordt geactiveerd wanneer een gebeurtenis wordt gemaakt in de activiteitenlogboeken niet maken.
 
-Wanneer een activiteit logboek waarschuwing is geactiveerd, wordt een actiegroep gebruikt om acties of meldingen te genereren. Een actiegroep is een herbruikbare reeks melding ontvangers, zoals e-mailadressen, telefoonnummers webhook-URL's of SMS-bericht. De ontvangers kunnen worden verwezen vanuit meerdere waarschuwingen en de meldingskanalen groep centraliseren. Wanneer u uw logboek activiteit waarschuwing definieert, hebt u twee opties. U kunt:
+Wanneer een waarschuwing voor activiteitenlogboek wordt geactiveerd, wordt een actiegroep die u gebruikt om acties of meldingen te genereren. Een actiegroep is een herbruikbare set van ontvangers van meldingen, zoals e-mailadressen, telefoonnummers webhook-URL's of SMS. De ontvangers kunnen worden verwezen vanuit meerdere waarschuwingen en de meldingskanalen groep centraliseren. Wanneer u de waarschuwing voor activiteitenlogboeken hebt gedefinieerd, hebt u twee opties. U kunt:
 
-* Gebruik een bestaande actiegroep in de activiteit logboek-waarschuwing.
-* Maak een nieuwe actiegroep.
+* Gebruik een bestaande actiegroep die u in de waarschuwing voor activiteitenlogboeken.
+* Een nieuwe actiegroep maken.
 
-Zie voor meer informatie over actiegroepen, [maken en beheren van actiegroepen in de Azure portal](monitoring-action-groups.md).
+Zie voor meer informatie over actiegroepen [maken en beheren van actiegroepen in Azure portal](monitoring-action-groups.md).
 
-Zie voor meer informatie over servicestatusmeldingen, [activiteit logboek meldingen ontvangen op servicestatusmeldingen](monitoring-activity-log-alerts-on-service-notifications.md).
+Zie voor meer informatie over servicestatusmeldingen [ontvangen van waarschuwingen voor activiteitenlogboeken op servicestatusmeldingen](monitoring-activity-log-alerts-on-service-notifications.md).
 
-## <a name="create-an-alert-classic-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Maak een waarschuwing (klassiek) op het gebeurtenislogboek van een activiteit met een nieuwe actiegroep met behulp van de Azure-portal
+## <a name="create-an-alert-classic-on-an-activity-log-event-with-a-new-action-group-by-using-the-azure-portal"></a>Een waarschuwing maken (klassiek) van een activiteitenlogboek met een nieuwe actiegroep met behulp van Azure portal
 1. In de [portal](https://portal.azure.com), selecteer **Monitor**.
 
-    ![De 'Monitor'-service](./media/monitoring-activity-log-alerts/home-monitor.png)
-2. In de **activiteitenlogboek** sectie **waarschuwingen (klassiek)**.
+    ![De service 'Controleren'](./media/monitoring-activity-log-alerts/home-monitor.png)
+1. In de **activiteitenlogboek** sectie, selecteer **waarschuwingen (klassiek)**.
 
     ![Het tabblad 'Waarschuwingen'](./media/monitoring-activity-log-alerts/alerts-blades.png)
-3. Selecteer **toevoegen activiteit logboek waarschuwing**, en vul de velden in.
+1. Selecteer **waarschuwing voor activiteitenlogboek toevoegen**, en vul de velden in.
 
-4. Voer een naam in de **waarschuwing logboeknaam activiteit** vak en selecteer een **beschrijving**.
+1. Voer een naam in de **naam voor waarschuwing voor activiteitenlogboek** vak en selecteer een **beschrijving**.
 
-    ![De opdracht 'Melding toevoegen activiteit log'](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
+    ![De opdracht 'Waarschuwing voor activiteitenlogboek toevoegen'](./media/monitoring-activity-log-alerts/add-activity-log-alert.png)
 
-5. De **abonnement** vak autofills met uw huidige abonnement. Dit abonnement is de waarin de actiegroep wordt opgeslagen. De waarschuwing resource wordt geïmplementeerd voor dit abonnement en activiteit logboekgebeurtenissen hieruit bewaakt.
+1. De **abonnement** vak autofills met uw huidige abonnement. Dit abonnement is de waarin de actiegroep is opgeslagen. De waarschuwing resource wordt geïmplementeerd voor dit abonnement en gebeurtenissen in het activiteitenlogboek uit bewaakt.
 
-    ![Het dialoogvenster 'Activiteit logboek waarschuwing toevoegen' in](./media/monitoring-activity-log-alerts/activity-log-alert-new-action-group.png)
+    ![In het dialoogvenster 'Waarschuwing voor activiteitenlogboek toevoegen'](./media/monitoring-activity-log-alerts/activity-log-alert-new-action-group.png)
 
-6. Selecteer de **resourcegroep** waarin de waarschuwing resource is gemaakt. Dit is niet de resourcegroep die wordt bewaakt door de waarschuwing. Het is in plaats daarvan de resourcegroep waar de waarschuwing bron zich bevindt.
+1. Selecteer de **resourcegroep** waarin de waarschuwing resource is gemaakt. Dit is niet de resourcegroep die wordt bewaakt door de waarschuwing. Het is in plaats daarvan de resourcegroep waar de waarschuwing resource zich bevindt.
 
-7. Selecteer desgewenst een **gebeurteniscategorie** te wijzigen van de aanvullende filters die worden weergegeven. Administratieve gebeurtenissen, de filters omvatten **resourcegroep**, **Resource**, **brontype**, **bewerkingsnaam**, **niveau**, **Status**, en **gebeurtenis wordt gestart door**. Deze waarden bepalen welke gebeurtenissen moet worden gecontroleerd door deze waarschuwing.
+1. Selecteer desgewenst een **gebeurteniscategorie** te wijzigen van de aanvullende filters die worden weergegeven. Voor gebeurtenissen met beheerdersrechten, de filters bevatten **resourcegroep**, **Resource**, **resourcetype**, **bewerkingsnaam**, **Niveau**, **Status**, en **gebeurtenis gestart door**. Deze waarden identificeren welke gebeurtenissen die deze waarschuwing moet worden gecontroleerd.
 
     >[!NOTE]
-    >U moet ten minste één van de bovenstaande criteria opgeven in de waarschuwing. U kunt een waarschuwing die wordt geactiveerd telkens wanneer een gebeurtenis wordt gemaakt in de activiteitenlogboeken van de niet maken.
+    >U moet ten minste één van de bovenstaande criteria opgeven in de waarschuwing. U kunt een waarschuwing die wordt geactiveerd wanneer een gebeurtenis wordt gemaakt in de activiteitenlogboeken niet maken.
     >
     >
 
-8. Voer een naam in de **actie groepsnaam** vak en voer een naam in de **afkorting** vak. De korte naam wordt gebruikt in plaats van een volledige naam van de actiegroep als er meldingen via deze groep worden verzonden.
+1. Voer een naam in de **naam van de actiegroep** vak en voer een naam in de **afkorting** vak. De korte naam wordt gebruikt in plaats van een volledige naam van de actiegroep als er meldingen via deze groep worden verzonden.
 
-9.  Een lijst van acties door te geven van de actie definiëren:
+1.  Een lijst met acties definiëren door te geven van de actie:
 
-    a. **Naam**: Voer de naam, de alias of de id van de actie.
+    a. **Naam**: Voer de naam, alias of id van de actie.
 
     b. **Actietype**: Selecteer SMS, e-mail of webhook.
 
     c. **Details**: op basis van het actietype, voer een telefoonnummer, e-mailadres of webhook URI.
 
-10. Selecteer **OK** de waarschuwing wilt maken.
+1.  Selecteer **OK** om de waarschuwing te maken.
 
-De waarschuwing duurt een paar minuten volledig doorgegeven en vervolgens worden actieve. Deze wordt geactiveerd wanneer nieuwe gebeurtenissen aan de waarschuwing criteria voldoen.
+De waarschuwing duurt een paar minuten volledig doorgegeven en vervolgens worden actief. Deze wordt geactiveerd wanneer er nieuwe gebeurtenissen die overeenkomen met de criteria van de waarschuwing.
 
-Zie voor meer informatie [begrijpen van de webhook-schema gebruikt in een logboek activiteitswaarschuwingen](monitoring-activity-log-alerts-webhook.md).
+Zie voor meer informatie, [begrijpen van de webhook-schema gebruikt in waarschuwingen voor activiteitenlogboeken](monitoring-activity-log-alerts-webhook.md).
 
 >[!NOTE]
->De actiegroep gedefinieerd in deze stappen is herbruikbare als een bestaande actiegroep voor alle toekomstige definities van de waarschuwing.
+>De actiegroep die is gedefinieerd in deze stappen is herbruikbare als een bestaande actiegroep voor alle toekomstige definities van de waarschuwing.
 >
 >
 
-## <a name="create-an-alert-on-an-activity-log-event-for-an-existing-action-group-by-using-the-azure-portal"></a>Maken van een waarschuwing op het gebeurtenislogboek van een activiteit voor een bestaande actiegroep met behulp van de Azure-portal
-1. Volg de stappen 1 tot en met 7 in de vorige sectie uw logboek activiteit waarschuwing wilt maken.
+## <a name="create-an-alert-on-an-activity-log-event-for-an-existing-action-group-by-using-the-azure-portal"></a>Een waarschuwing in het activiteitenlogboek voor een bestaande actiegroep maken met de Azure-portal
+1. Volg de stappen 1 tot en met 7 in de vorige sectie om te maken van de waarschuwing voor activiteitenlogboeken.
 
-2. Onder **melden**, selecteer de **bestaande** actieknop groep. Selecteer een bestaande actiegroep in de lijst.
+1. Onder **hierover te informeren via**, selecteer de **bestaande** groep actieknop. Selecteer een bestaande actiegroep die u in de lijst.
 
-3. Selecteer **OK** de waarschuwing wilt maken.
+1. Selecteer **OK** om de waarschuwing te maken.
 
-De waarschuwing duurt een paar minuten volledig doorgegeven en vervolgens worden actieve. Deze wordt geactiveerd wanneer nieuwe gebeurtenissen aan de waarschuwing criteria voldoen.
+De waarschuwing duurt een paar minuten volledig doorgegeven en vervolgens worden actief. Deze wordt geactiveerd wanneer er nieuwe gebeurtenissen die overeenkomen met de criteria van de waarschuwing.
 
-## <a name="manage-your-alerts"></a>Waarschuwingen beheren
+## <a name="manage-your-alerts"></a>Uw waarschuwingen beheren
 
-Nadat u een waarschuwing gemaakt, is deze zichtbaar in de sectie waarschuwingen van de Monitor-blade. Selecteer de waarschuwing die u wilt beheren:
+Nadat u een waarschuwing gemaakt, is deze zichtbaar in de sectie waarschuwingen van de blade Monitor. Selecteer de waarschuwing die u wilt beheren:
 
-* Bewerken.
-* Verwijder de groep.
-* - Of uitschakelen, als u wilt tijdelijk stoppen of te hervatten ontvangen van meldingen voor de waarschuwing.
+* Deze bewerken.
+* Het verwijderen.
+* - Of uitschakelen, als u wilt tijdelijk stoppen of doorgaan met het ontvangen van meldingen voor de waarschuwing.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Ophalen van een [overzicht van waarschuwingen](monitoring-overview-alerts.md).
-- Meer informatie over [melding snelheidsbeperking](monitoring-alerts-rate-limiting.md).
-- Controleer de [activiteit logboek waarschuwing webhook schema](monitoring-activity-log-alerts-webhook.md).
+- Krijgen een [overzicht van waarschuwingen](monitoring-overview-alerts.md).
+- Meer informatie over [melding gelden enkele beperkingen](monitoring-alerts-rate-limiting.md).
+- Controleer de [activiteit log waarschuwing webhook-schema](monitoring-activity-log-alerts-webhook.md).
 - Meer informatie over [actiegroepen](monitoring-action-groups.md).  
-- Meer informatie over [service health meldingen](monitoring-service-notifications.md).
-- Maak een [activiteit logboek waarschuwing voor het bewaken van alle automatisch schalen engine bewerkingen voor uw abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
-- Maak een [activiteit logboek waarschuwing voor het bewaken van alle mislukte automatisch schalen scale-in/scale-out-bewerkingen op uw abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+- Meer informatie over [health servicemeldingen](monitoring-service-notifications.md).
+- Maak een [waarschuwing voor activiteitenlogboek voor het bewaken van alle voor automatisch schalen-engine-bewerkingen op uw abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
+- Maak een [waarschuwing voor activiteitenlogboek voor het bewaken van alle mislukte voor automatisch schalen schaal-in/scale-out-bewerkingen op uw abonnement](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).

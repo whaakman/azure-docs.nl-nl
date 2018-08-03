@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: 7833147e455d5f43f05d87261287061db4291e45
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: c76941d366ecd7aa44c8fa64dbe2245103db715b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036843"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425823"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Gebruik Resource Manager verificatie-API voor toegang tot abonnementen
 ## <a name="introduction"></a>Inleiding
@@ -106,7 +106,7 @@ De aanvraag is mislukt omdat de gebruiker heeft geen nog aangemeld, maar u de te
 ## <a name="get-user--app-access-token"></a>Voor gebruikers en app-toegangstoken ophalen
 Uw toepassing wordt de gebruiker omgeleid naar Azure AD met een OAuth 2.0 autoriseren aanvraag - referenties van de gebruiker worden geverifieerd, waarna een autorisatiecode. Uw toepassing maakt gebruik van de autorisatiecode voor een toegangstoken ophalen voor Resource Manager. De [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) methode maakt u de autorisatieaanvraag.
 
-Dit artikel laat de REST-API-aanvragen voor het verifiëren van de gebruiker. U kunt ook helper bibliotheken gebruiken voor het uitvoeren van verificatie in uw code. Zie voor meer informatie over deze bibliotheken [Azure Active Directory Authentication Libraries](../active-directory/active-directory-authentication-libraries.md). Zie voor instructies over het integreren van identiteitsbeheer in een toepassing [ontwikkelaarsgids van Azure Active Directory](../active-directory/active-directory-developers-guide.md).
+Dit artikel laat de REST-API-aanvragen voor het verifiëren van de gebruiker. U kunt ook helper bibliotheken gebruiken voor het uitvoeren van verificatie in uw code. Zie voor meer informatie over deze bibliotheken [Azure Active Directory Authentication Libraries](../active-directory/active-directory-authentication-libraries.md). Zie voor instructies over het integreren van identiteitsbeheer in een toepassing [ontwikkelaarsgids van Azure Active Directory](../active-directory/develop/azure-ad-developers-guide.md).
 
 ### <a name="auth-request-oauth-20"></a>Aanvraag voor verificatie (OAuth 2.0)
 Geef een Open ID Connect/OAuth 2.0 autoriseren aanvragen naar het Azure AD-geautoriseerde eindpunt:

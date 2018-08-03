@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/6/2018
 ms.author: markgal
-ms.openlocfilehash: 5a3a67a41525d30b73bb203eeeacbdf49bb35193
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 4dc5b006be8599177fb908fe022a3a821b137e12
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901847"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422940"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Een Recovery Services-kluis verwijderen
 
@@ -35,11 +35,11 @@ Als u de Recovery Services-kluis openen al hebt, gaat u naar de tweede stap.
 
    ![Kies de kluis uit lijst](./media/backup-azure-delete-vault/choose-vault-to-delete-.png)
 
-2. Selecteer de kluis die u wilt verwijderen uit de lijst. Wanneer u de kluis selecteert, wordt het kluisdashboard wordt geopend.
+1. Selecteer de kluis die u wilt verwijderen uit de lijst. Wanneer u de kluis selecteert, wordt het kluisdashboard wordt geopend.
 
     ![Selecteer uw kluis om het dashboard te openen](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
-3. Als u wilt verwijderen van een kluis, in het dashboard van de kluis, klikt u op **verwijderen**. U wordt gevraagd om te controleren of dat u wilt verwijderen van de kluis.
+1. Als u wilt verwijderen van een kluis, in het dashboard van de kluis, klikt u op **verwijderen**. U wordt gevraagd om te controleren of dat u wilt verwijderen van de kluis.
 
     ![Selecteer uw kluis om het dashboard te openen](./media/backup-azure-delete-vault/click-delete-button-to-delete-vault.png)
 
@@ -71,26 +71,26 @@ Een Recovery Services-kluis verwijderen:
     Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
    ```
 
-2. Open een PowerShell-venster met beheerdersbevoegdheden.
+1. Open een PowerShell-venster met beheerdersbevoegdheden.
 
-3. Gebruik `Set-ExecutionPolicy Unrestricted` beperkingen verwijderen.
+1. Gebruik `Set-ExecutionPolicy Unrestricted` beperkingen verwijderen.
 
-4. Voer de volgende opdracht om te downloaden van het Azure Resource Manager-clientpakket van chocolately.org.
+1. Voer de volgende opdracht om te downloaden van het Azure Resource Manager-clientpakket van chocolately.org.
 
     `iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
 
-5. Gebruik de volgende opdracht om de Azure Resource Manager API-Client te installeren.
+1. Gebruik de volgende opdracht om de Azure Resource Manager API-Client te installeren.
 
    `choco.exe install armclient`
 
-6. Verzamel de abonnements-ID en de naam van gekoppelde resource voor de Recovery Services-kluis die u wilt verwijderen in de Azure-portal.
+1. Verzamel de abonnements-ID en de naam van gekoppelde resource voor de Recovery Services-kluis die u wilt verwijderen in de Azure-portal.
 
-7. Voer de volgende opdracht uit met behulp van uw abonnements-ID, de naam van de resourcegroep en de naam van de Recovery Services-kluis in PowerShell. Wanneer u de opdracht uitvoert, worden de kluis en alle afhankelijkheden verwijderd.
+1. Voer de volgende opdracht uit met behulp van uw abonnements-ID, de naam van de resourcegroep en de naam van de Recovery Services-kluis in PowerShell. Wanneer u de opdracht uitvoert, worden de kluis en alle afhankelijkheden verwijderd.
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-8. Meld u aan uw abonnement in Azure portal en controleer of dat de kluis wordt verwijderd.
+1. Meld u aan uw abonnement in Azure portal en controleer of dat de kluis wordt verwijderd.
 
 
 ## <a name="remove-vault-dependencies-and-delete-vault"></a>Afhankelijkheden van de kluis verwijderen en de kluis verwijderen
@@ -113,17 +113,17 @@ Gebruik de **back-upinfrastructuur** menu (Zie afbeelding) voor:
 
     ![Selecteer uw kluis om het dashboard te openen](./media/backup-azure-delete-vault/selected-backup-items.png)
 
-2. Selecteer een type back-up om alle objecten van dat type weer te geven.
+1. Selecteer een type back-up om alle objecten van dat type weer te geven.
 
     ![Selecteer de back-uptype](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
-3. Voor alle items in de lijst met de rechtermuisknop op het item en selecteer in het contextmenu **back-up stoppen**.
+1. Voor alle items in de lijst met de rechtermuisknop op het item en selecteer in het contextmenu **back-up stoppen**.
 
     ![Selecteer de back-uptype](./media/backup-azure-delete-vault/stop-backup-item.png) 
 
     Het menu back-up stoppen wordt geopend.
 
-4. Op de **back-up stoppen** in het menu van de **Kies een optie** in het menu **back-upgegevens verwijderen**, typ de naam van het item en klikt u op **back-up stoppen**.
+1. Op de **back-up stoppen** in het menu van de **Kies een optie** in het menu **back-upgegevens verwijderen**, typ de naam van het item en klikt u op **back-up stoppen**.
 
     Typ de naam van het item, om te controleren of dat u wilt verwijderen. De **back-up stoppen** knop wordt geactiveerd zodra u het item controleren. Als u de gegevens worden bewaard, kunt u zich niet aan de kluis verwijderen.
 
@@ -132,17 +132,17 @@ Gebruik de **back-upinfrastructuur** menu (Zie afbeelding) voor:
     Als u wilt, Geef een reden op waarom u de gegevens wilt verwijderen, en voeg opmerkingen toe. Als u wilt controleren of de taak is voltooid, controleert u de Azure-berichten ![back-upgegevens verwijderen](./media/backup-azure-delete-vault/messages.png). <br/>
     Nadat de taak is voltooid, de service verzendt een bericht: *het back-upproces is gestopt en de back-upgegevens is verwijderd*.
 
-5. Na het verwijderen van een item in de lijst op de **back-Upitems** menu, klikt u op **vernieuwen** om te zien van de items in de kluis.
+1. Na het verwijderen van een item in de lijst op de **back-Upitems** menu, klikt u op **vernieuwen** om te zien van de items in de kluis.
 
       ![back-upgegevens verwijderen](./media/backup-azure-delete-vault/empty-items-list.png)
 
       Wanneer er geen items in de lijst zijn, schuif naar de **Essentials** deelvenster in het menu Recovery Services-kluis. Er mag niet een **back-up items**, **back-up van beheerservers**, of **gerepliceerde items** vermeld. Als items is nog steeds worden weergegeven in de kluis, gaat u terug naar stap 3 en kies een ander item type lijst.  
 
-6. Wanneer er geen items meer in de werkbalk van de kluis zijn, klikt u op **verwijderen**.
+1. Wanneer er geen items meer in de werkbalk van de kluis zijn, klikt u op **verwijderen**.
 
     ![back-upgegevens verwijderen](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
 
-7. Om te controleren dat u wilt de kluis verwijderen, klikt u op **Ja**.
+1. Om te controleren dat u wilt de kluis verwijderen, klikt u op **Ja**.
 
     De kluis wordt verwijderd en u gaat terug naar de **nieuw** Servicemenu.
 
@@ -150,17 +150,17 @@ Gebruik de **back-upinfrastructuur** menu (Zie afbeelding) voor:
 
 1. Schuif omlaag naar het gedeelte beheren in de kluis in het menu en klik op **back-upinfrastructuur**. 
 
-2. Klik in het submenu **back-up-beheerservers** om de Azure Backup-Servers en System Center DPM-server weer te geven. u kunt stoppen en verwijderen van Azure-bestandsservers, SQL-Servers in de virtuele machine van Azure en Azure virtual machines. 
+1. Klik in het submenu **back-up-beheerservers** om de Azure Backup-Servers en System Center DPM-server weer te geven. u kunt stoppen en verwijderen van Azure-bestandsservers, SQL-Servers in de virtuele machine van Azure en Azure virtual machines. 
 
     ![Selecteer uw kluis om het dashboard te openen](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
-3. Met de rechtermuisknop op het item dat u wilt verwijderen en selecteer in het submenu **verwijderen**.
+1. Met de rechtermuisknop op het item dat u wilt verwijderen en selecteer in het submenu **verwijderen**.
 
     ![Selecteer de back-uptype](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
     Het menu back-up stoppen wordt geopend.
 
-4. Op de **back-up stoppen** in het menu van de **Kies een optie** in het menu **back-upgegevens verwijderen**, typ de naam van het item en klikt u op **back-up stoppen**.
+1. Op de **back-up stoppen** in het menu van de **Kies een optie** in het menu **back-upgegevens verwijderen**, typ de naam van het item en klikt u op **back-up stoppen**.
 
     Als u wilt controleren of dat u wilt verwijderen, typt u de naam. De **back-up stoppen** knop wordt geactiveerd zodra u het item controleren. Als u de gegevens worden bewaard, kunt u de kluis niet verwijderen.
 
@@ -169,16 +169,16 @@ Gebruik de **back-upinfrastructuur** menu (Zie afbeelding) voor:
     Geef desgewenst een reden op waarom u de gegevens wilt verwijderen, en voeg opmerkingen toe. Om te controleren dat de taak is voltooid, controleert u de Azure-berichten ![back-upgegevens verwijderen](./media/backup-azure-delete-vault/messages.png). <br/>
     Nadat de taak voltooid is, de service verzendt een bericht: het back-upproces is gestopt en de back-upgegevens is verwijderd.
 
-5. Na het verwijderen van een item in de lijst op de **back-Upitems** menu, klikt u op **vernieuwen** om te zien van de resterende items in de kluis.
+1. Na het verwijderen van een item in de lijst op de **back-Upitems** menu, klikt u op **vernieuwen** om te zien van de resterende items in de kluis.
 
       ![back-upgegevens verwijderen](./media/backup-azure-delete-vault/empty-items-list.png)
 
       Wanneer er geen items in de lijst zijn, schuif naar de **Essentials** deelvenster in het menu Recovery Services-kluis. Er mag niet een **back-up items**, **back-up van beheerservers**, of **gerepliceerde items** vermeld. Als items is nog steeds worden weergegeven in de kluis, gaat u terug naar stap 3 en kies een ander item type lijst.  
-6. Wanneer er zijn geen items meer in de kluis, op het kluisdashboard klikt u op **verwijderen**.
+1. Wanneer er zijn geen items meer in de kluis, op het kluisdashboard klikt u op **verwijderen**.
 
     ![back-upgegevens verwijderen](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
 
-7. Om te controleren dat u wilt de kluis verwijderen, klikt u op **Ja**.
+1. Om te controleren dat u wilt de kluis verwijderen, klikt u op **Ja**.
 
     De kluis wordt verwijderd en u gaat terug naar de **nieuw** Servicemenu.
 
@@ -187,11 +187,11 @@ Gebruik de **back-upinfrastructuur** menu (Zie afbeelding) voor:
 
 1. Schuif omlaag naar het gedeelte beheren in de kluis in het menu en klik op **back-upinfrastructuur**.
 
-2. Klik in het submenu **beschermde Servers** beveiligd servertypen, met inbegrip van Azure backup-agent om de lijst weer te geven.
+1. Klik in het submenu **beschermde Servers** beveiligd servertypen, met inbegrip van Azure backup-agent om de lijst weer te geven.
 
     ![Selecteer uw kluis om het dashboard te openen](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
-3. In de **beschermde Servers** lijst, klikt u op Azure Backup-Agent.
+1. In de **beschermde Servers** lijst, klikt u op Azure Backup-Agent.
 
     ![Selecteer de back-uptype](./media/backup-azure-delete-vault/list-of-protected-server-types.png)
 
@@ -199,15 +199,15 @@ Gebruik de **back-upinfrastructuur** menu (Zie afbeelding) voor:
 
     ![Selecteer de beveiligde server](./media/backup-azure-delete-vault/azure-backup-agent-protected-servers.png)
 
-4. In de lijst met servers, klikt u op een om het menu te openen.
+1. In de lijst met servers, klikt u op een om het menu te openen.
 
     ![de geselecteerde server dashboard weergeven](./media/backup-azure-delete-vault/selected-protected-server.png)
 
-5. Klik op de geselecteerde server in het menu **verwijderen**.
+1. Klik op de geselecteerde server in het menu **verwijderen**.
 
     ![de geselecteerde server verwijderen](./media/backup-azure-delete-vault/selected-protected-server-click-delete.png)
 
-6. Op de **verwijderen** menu, typ de naam van het item en klikt u op **verwijderen**.
+1. Op de **verwijderen** menu, typ de naam van het item en klikt u op **verwijderen**.
 
     Typ de naam van het item, om te controleren of dat u wilt verwijderen. De **verwijderen** knop wordt geactiveerd zodra u het item controleren.
 
@@ -216,16 +216,16 @@ Gebruik de **back-upinfrastructuur** menu (Zie afbeelding) voor:
     Geef desgewenst een reden op waarom u de gegevens wilt verwijderen, en voeg opmerkingen toe. Om te controleren dat de taak is voltooid, controleert u de Azure-berichten ![back-upgegevens verwijderen](./media/backup-azure-delete-vault/messages.png). <br/>
     Nadat de taak voltooid is, de service verzendt een bericht: het back-upproces is gestopt en de back-upgegevens is verwijderd.
 
-7. Na het verwijderen van een item in de lijst op de **back-Upitems** menu, klikt u op **vernieuwen** om te zien van de resterende items in de kluis.
+1. Na het verwijderen van een item in de lijst op de **back-Upitems** menu, klikt u op **vernieuwen** om te zien van de resterende items in de kluis.
 
       ![back-upgegevens verwijderen](./media/backup-azure-delete-vault/empty-items-list.png)
 
       Wanneer er geen items in de lijst zijn, schuif naar de **Essentials** deelvenster in het menu Recovery Services-kluis. Er mag niet een **back-up items**, **back-up van beheerservers**, of **gerepliceerde items** vermeld. Als items is nog steeds worden weergegeven in de kluis, gaat u terug naar stap 3 en kies een ander item type lijst.  
-8. Wanneer er zijn geen items meer in de kluis, op het kluisdashboard klikt u op **verwijderen**.
+1. Wanneer er zijn geen items meer in de kluis, op het kluisdashboard klikt u op **verwijderen**.
 
     ![back-upgegevens verwijderen](./media/backup-azure-delete-vault/vault-ready-to-delete.png)
 
-9. Om te controleren dat u wilt de kluis verwijderen, klikt u op **Ja**.
+1. Om te controleren dat u wilt de kluis verwijderen, klikt u op **Ja**.
 
     De kluis wordt verwijderd en u gaat terug naar de **nieuw** Servicemenu.
 
@@ -238,7 +238,7 @@ Als u stopt met het back-upproces maar per ongeluk *behouden* de gegevens, moet 
     ![back-upgegevens verwijderen](./media/backup-azure-delete-vault/delete-backup-data-menu.png)
 
     De **back-upgegevens verwijderen** menu wordt geopend.
-2. Op de **back-upgegevens verwijderen** menu, typ de naam van het item en klikt u op **verwijderen**.
+1. Op de **back-upgegevens verwijderen** menu, typ de naam van het item en klikt u op **verwijderen**.
 
     ![back-upgegevens verwijderen](./media/backup-azure-delete-vault/delete-retained-vault.png)
 

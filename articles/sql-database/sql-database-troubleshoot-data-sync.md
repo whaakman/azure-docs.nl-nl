@@ -9,12 +9,12 @@ author: allenwux
 ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 2be6d0321db41772116078d5308824fe8e1b64fd
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 2853310df1183a8b32450c5b5c79289b78d1a26d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113896"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422498"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Problemen oplossen met SQL Data Sync
 
@@ -61,16 +61,16 @@ Een van de volgende voorwaarden kan leiden tot een groep voor synchronisatie wor
 - **Resolutie**. Als de clientagent is verwijderd of anderszins ontbreekt:
 
     1. Als het bestand bestaat, moet u de agent XML-bestand verwijderen uit de installatiemap van SQL Data Sync.
-    2. Installeer de agent op de lokale computer (het kan zijn hetzelfde of een andere computer). Vervolgens, verzendt de agentsleutel die wordt gegenereerd in de portal voor de agent die wordt weergegeven als offline.
+    1. Installeer de agent op de lokale computer (het kan zijn hetzelfde of een andere computer). Vervolgens, verzendt de agentsleutel die wordt gegenereerd in de portal voor de agent die wordt weergegeven als offline.
 
 - **Oorzaak**. De SQL Data Sync-service is gestopt.
 
 - **Resolutie**. Start de SQL Data Sync-service.
 
     1. In de **Start** menu, zoekt u **Services**.
-    2. Selecteer in de lijst met zoekresultaten **Services**.
-    3. Zoek de **SQL Data Sync** service.
-    4. Als de servicestatus van de is **gestopt**, met de rechtermuisknop op de servicenaam en selecteer vervolgens **Start**.
+    1. Selecteer in de lijst met zoekresultaten **Services**.
+    1. Zoek de **SQL Data Sync** service.
+    1. Als de servicestatus van de is **gestopt**, met de rechtermuisknop op de servicenaam en selecteer vervolgens **Start**.
 
 > [!NOTE]
 > Als de voorgaande informatie niet van uw groep voor synchronisatie met de verwerkingsstatus verlaten, kan Microsoft Support de status van uw groep voor synchronisatie kunt herstellen. Om de synchronisatiestatus van de groep opnieuw instelt, in de [-forum Azure SQL Database](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted), een bericht maken. In het bericht, zijn uw abonnements-ID en de synchronisatie-ID voor de groep die moet worden ingesteld. Een Microsoft Support engineer reageren op uw bericht en laat u weten wanneer de status is opnieuw ingesteld.
@@ -179,14 +179,14 @@ U ontdekt dat de agent niet wordt uitgevoerd op een computer die als host fungee
     b. Voer in het zoekvak **services.msc**.  
     c. Selecteer in de lijst met zoekresultaten **Services**.  
     d. In de **Services** venster, Ga naar de vermelding voor **SQL Data Sync-Agent**.  
-  2. Met de rechtermuisknop op **SQL Data Sync-Agent**, en selecteer vervolgens **stoppen**.
-  3. Met de rechtermuisknop op **SQL Data Sync-Agent**, en selecteer vervolgens **eigenschappen**.
-  4. Op **eigenschappen van SQL Data Sync-Agent**, selecteer de **aanmelden** tabblad.
-  5. In de **wachtwoord** vak, Voer uw wachtwoord.
-  6. In de **wachtwoord bevestigen** vak, uw wachtwoord opnieuw invoeren.
-  7. Selecteer **Apply** en vervolgens **OK**.
-  8. In de **Services** venster met de rechtermuisknop op de **SQL Data Sync-Agent** service, en klik vervolgens op **Start**.
-  9. Sluit de **Services** venster.
+  1. Met de rechtermuisknop op **SQL Data Sync-Agent**, en selecteer vervolgens **stoppen**.
+  1. Met de rechtermuisknop op **SQL Data Sync-Agent**, en selecteer vervolgens **eigenschappen**.
+  1. Op **eigenschappen van SQL Data Sync-Agent**, selecteer de **aanmelden** tabblad.
+  1. In de **wachtwoord** vak, Voer uw wachtwoord.
+  1. In de **wachtwoord bevestigen** vak, uw wachtwoord opnieuw invoeren.
+  1. Selecteer **Apply** en vervolgens **OK**.
+  1. In de **Services** venster met de rechtermuisknop op de **SQL Data Sync-Agent** service, en klik vervolgens op **Start**.
+  1. Sluit de **Services** venster.
 
 ### <a name="agent-key"></a> Kan ik de agentsleutel kan niet worden verzonden
 
@@ -212,17 +212,17 @@ Nadat u maakt of opnieuw maken van een sleutel voor een agent, die u wilt de sle
 - **Resolutie**. Als uw agent niet werkt, is omdat één of beide van deze voorwaarden niet wordt voldaan. Ophalen van de agent opnieuw werken:
 
   1. Genereer een nieuwe sleutel.
-  2. De nieuwe sleutel van toepassing op de agent.
+  1. De nieuwe sleutel van toepassing op de agent.
 
   De nieuwe sleutel toepassen op de agent:
 
   1. In Windows Verkenner, Ga naar de map voor agentinstallatie. De standaardinstallatiemap is C:\\Program Files (x86)\\Microsoft SQL Data Sync.
-  2. Dubbelklik op de bin-submap.
-  3. Open de toepassing SqlAzureDataSyncAgent.
-  4. Selecteer **indienen Agentsleutel**.
-  5. Plak de sleutel van het Klembord in de daarvoor bestemde ruimte.
-  6. Selecteer **OK**.
-  7. Sluit het programma.
+  1. Dubbelklik op de bin-submap.
+  1. Open de toepassing SqlAzureDataSyncAgent.
+  1. Selecteer **indienen Agentsleutel**.
+  1. Plak de sleutel van het Klembord in de daarvoor bestemde ruimte.
+  1. Selecteer **OK**.
+  1. Sluit het programma.
 
 ### <a name="agent-delete"></a> De clientagent kan niet worden verwijderd uit de portal als de gekoppelde on-premises database niet bereikbaar is
 
@@ -240,12 +240,12 @@ Als een lokaal eindpunt (dat wil zeggen, een database) die is geregistreerd bij 
 - **Resolutie**. Voer de volgende stappen uit:
 
   1. Sluit de app.  
-  2. Open het deelvenster met Component Services.  
+  1. Open het deelvenster met Component Services.  
     a. Voer in het zoekvak op de taakbalk **services.msc**.  
     b. Dubbelklik in de lijst met zoekresultaten op **Services**.  
-  3. Stop de **SQL Data Sync** service.
-  4. Start opnieuw op de **SQL Data Sync** service.  
-  5. Open de app opnieuw.
+  1. Stop de **SQL Data Sync** service.
+  1. Start opnieuw op de **SQL Data Sync** service.  
+  1. Open de app opnieuw.
 
 ## <a name="setup-and-maintenance-issues"></a>Problemen met installatie en onderhoud
 
@@ -312,9 +312,9 @@ Uw poging om een synchronisatiegroep verwijderen is mislukt. Een van de volgende
     e. Als de service wordt uitgevoerd, stoppen.  
     f. Met de rechtermuisknop op de service en selecteer vervolgens **Start**.  
     g. Controleer of de database nog steeds is geregistreerd. Als deze niet meer is geregistreerd, bent u klaar. Ga anders verder met de volgende stap.
-  2. Open de app in client-agent (SqlAzureDataSyncAgent).
-  3. Selecteer **referenties bewerken**, en voer vervolgens de referenties voor de database.
-  4. Doorgaan met verwijderen van registratie.
+  1. Open de app in client-agent (SqlAzureDataSyncAgent).
+  1. Selecteer **referenties bewerken**, en voer vervolgens de referenties voor de database.
+  1. Doorgaan met verwijderen van registratie.
 
 ### <a name="setup-perms"></a> Ik hoef niet voldoende bevoegdheden voor het starten van systeemservices
 
@@ -325,10 +325,10 @@ Uw poging om een synchronisatiegroep verwijderen is mislukt. Een van de volgende
 - **Resolutie**. Logboek-op-as-a-service-referenties voor het gebruikersaccount waarbij verlenen:
 
   1. Ga naar **Start** > **Configuratiescherm** > **Systeembeheer** > **lokaal beveiligingsbeleid**  >  **Lokaal beleid** > **gebruiker Rights Management**.
-  2. Selecteer **aanmelden als een service**.
-  3. In de **eigenschappen** dialoogvenster vak, het gebruikersaccount toevoegen.
-  4. Selecteer **Apply** en vervolgens **OK**.
-  5. Sluit alle vensters.
+  1. Selecteer **aanmelden als een service**.
+  1. In de **eigenschappen** dialoogvenster vak, het gebruikersaccount toevoegen.
+  1. Selecteer **Apply** en vervolgens **OK**.
+  1. Sluit alle vensters.
 
 ### <a name="setup-date"></a> Een database heeft de status van een 'Verouderde'
 
@@ -339,7 +339,7 @@ Uw poging om een synchronisatiegroep verwijderen is mislukt. Een van de volgende
   Als de status van een database **verouderde**:
 
   1. Verwijderen van de database is een **verouderde** status van de groep voor synchronisatie.
-  2. Toevoegen van de database weer aan de groep voor synchronisatie.
+  1. Toevoegen van de database weer aan de groep voor synchronisatie.
 
   > [!WARNING]
   > U verliest alle wijzigingen die in deze database terwijl deze offline was.
@@ -359,8 +359,8 @@ U kunt een synchronisatiegroep niet verwijderen binnen drie minuten na het verwi
 - **Resolutie**.
 
   1. Een synchronisatiegroep verwijderen terwijl de bijbehorende synchronisatieagents online zijn (aanbevolen).
-  2. Als de agent offline is, maar is geïnstalleerd, breng online op de lokale computer. Wacht totdat de status van de agent moet worden weergegeven als **Online** in de portal voor SQL Data Sync. Verwijder vervolgens de groep voor synchronisatie.
-  3. Als de agent offline is, omdat deze is verwijderd:  
+  1. Als de agent offline is, maar is geïnstalleerd, breng online op de lokale computer. Wacht totdat de status van de agent moet worden weergegeven als **Online** in de portal voor SQL Data Sync. Verwijder vervolgens de groep voor synchronisatie.
+  1. Als de agent offline is, omdat deze is verwijderd:  
     a.  Als het bestand bestaat, moet u de agent XML-bestand verwijderen uit de installatiemap van SQL Data Sync.  
     b.  Installeer de agent op de lokale computer (het kan zijn hetzelfde of een andere computer). Vervolgens, verzendt de agentsleutel die wordt gegenereerd in de portal voor de agent die wordt weergegeven als offline.  
     c. Probeer te verwijderen van de groep voor synchronisatie.

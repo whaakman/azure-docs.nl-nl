@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 59b05814be0be9042e7507cc8d928b5f5feb80ad
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 04ba94e3263af03279b74b4832b8291ad6414274
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051758"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426557"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rfpio"></a>Zelfstudie: Azure Active Directory-integratie met RFPIO
 
@@ -52,7 +52,7 @@ Als u wilt testen van de stappen in deze zelfstudie, volgt u deze aanbevelingen:
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario dat wordt beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Toe te voegen RFPIO uit de galerie.
-2. Configureren en testen van Azure AD eenmalige aanmelding.
+1. Configureren en testen van Azure AD eenmalige aanmelding.
 
 ## <a name="add-rfpio-from-the-gallery"></a>RFPIO uit de galerie toevoegen
 Voor het configureren van de integratie van RFPIO in Azure AD, moet u RFPIO uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -63,19 +63,19 @@ Voor het configureren van de integratie van RFPIO in Azure AD, moet u RFPIO uit 
 
     ![Active Directory][1]
 
-2. Selecteer **bedrijfstoepassingen**, en selecteer vervolgens **alle toepassingen**.
+1. Selecteer **bedrijfstoepassingen**, en selecteer vervolgens **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Als u wilt een nieuwe toepassing toevoegen, selecteert u de **nieuwe toepassing** knop boven aan in het dialoogvenster.
+1. Als u wilt een nieuwe toepassing toevoegen, selecteert u de **nieuwe toepassing** knop boven aan in het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **RFPIO**.
+1. Typ in het zoekvak **RFPIO**.
 
     ![Het maken van een Azure AD-testgebruiker](./media/rfpio-tutorial/tutorial_rfpio_search.png)
 
-5. Selecteer in het deelvenster resultaten **RFPIO**, en selecteer vervolgens de **toevoegen** om toe te voegen van de toepassing.
+1. Selecteer in het deelvenster resultaten **RFPIO**, en selecteer vervolgens de **toevoegen** om toe te voegen van de toepassing.
 
     ![Het maken van een Azure AD-testgebruiker](./media/rfpio-tutorial/tutorial_rfpio_addfromgallery.png)
 
@@ -89,10 +89,10 @@ In RFPIO, wijs de waarde van **gebruikersnaam** in Azure AD als de waarde van **
 Om te configureren en testen van Azure AD eenmalige aanmelding met RFPIO, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configuring-azure-ad-single-sign-on)**--zodat uw gebruikers deze functie wilt gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**--voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker RFPIO](#creating-a-rfpio-test-user)**  --een equivalent van Britta Simon in RFPIO die is gekoppeld aan de Azure AD-weergave van de gebruiker kan hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**--Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  --om te controleren of de configuratie werkt.
+1. **[Maak een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**--voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Maak een testgebruiker RFPIO](#creating-a-rfpio-test-user)**  --een equivalent van Britta Simon in RFPIO die is gekoppeld aan de Azure AD-weergave van de gebruiker kan hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**--Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  --om te controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -104,11 +104,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/rfpio-tutorial/tutorial_rfpio_samlbase.png)
 
-3. Op de **RFPIO domein en URL's** sectie, als u wilt configureren van de toepassing in **IDP** modus gestart:
+1. Op de **RFPIO domein en URL's** sectie, als u wilt configureren van de toepassing in **IDP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/rfpio-tutorial/tutorial_rfpio_url.png)
 
@@ -120,39 +120,39 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     c. In de **Relaystatus** tekstvak een string-waarde. Neem contact op met [RFPIO ondersteuningsteam](https://www.rfpio.com/contact/) deze waarde op te halen. 
 
-4. Controleer **geavanceerde URL-instellingen weergeven**. Als u wilt configureren van de toepassing in **SP** modus gestart: 
+1. Controleer **geavanceerde URL-instellingen weergeven**. Als u wilt configureren van de toepassing in **SP** modus gestart: 
 
     ![Eenmalige aanmelding configureren](./media/rfpio-tutorial/tutorial_rfpio_url2.png)
 
     In de **aanmeldings-URL** tekstvak typt u de URL: `https://www.app.rfpio.com`
 
-5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/rfpio-tutorial/tutorial_rfpio_certificate.png) 
 
-6. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/rfpio-tutorial/tutorial_general_400.png)
 
-7. In een ander browservenster, meld u aan bij de **RFPIO** website als beheerder.
+1. In een ander browservenster, meld u aan bij de **RFPIO** website als beheerder.
 
-8. Klik op de onderste linkerhoek vervolgkeuzelijst.
+1. Klik op de onderste linkerhoek vervolgkeuzelijst.
 
     ![Eenmalige aanmelding configureren](./media/rfpio-tutorial/app1.png)
 
-9. Klik op de **organisatie-instellingen**. 
+1. Klik op de **organisatie-instellingen**. 
 
     ![Eenmalige aanmelding configureren](./media/rfpio-tutorial/app2.png)
 
-10. Klik op de **functies en integratie**.
+1. Klik op de **functies en integratie**.
 
     ![Eenmalige aanmelding configureren](./media/rfpio-tutorial/app4.png)
 
-11. In de **SAML SSO-configuratie** klikt u op **bewerken**.
+1. In de **SAML SSO-configuratie** klikt u op **bewerken**.
 
     ![Eenmalige aanmelding configureren](./media/rfpio-tutorial/app3.png)
 
-12. In deze sectie voert u de volgende acties:
+1. In deze sectie voert u de volgende acties:
 
     ![Eenmalige aanmelding configureren](./media/rfpio-tutorial/app5.png)
     
@@ -182,15 +182,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![Het maken van een Azure AD-testgebruiker](./media/rfpio-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
     ![Het maken van een Azure AD-testgebruiker](./media/rfpio-tutorial/create_aaduser_02.png) 
 
-3. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
     ![Het maken van een Azure AD-testgebruiker](./media/rfpio-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
     ![Het maken van een Azure AD-testgebruiker](./media/rfpio-tutorial/create_aaduser_04.png) 
 
@@ -211,23 +211,23 @@ In het geval van RFPIO is inrichten een handmatige taak.
 
 1. Meld u aan bij uw bedrijf RFPIO site aan als beheerder.
 
-2. Klik op de onderste linkerhoek vervolgkeuzelijst.
+1. Klik op de onderste linkerhoek vervolgkeuzelijst.
 
     ![Eenmalige aanmelding configureren](./media/rfpio-tutorial/app1.png)
 
-3. Klik op de **organisatie-instellingen**. 
+1. Klik op de **organisatie-instellingen**. 
 
     ![Eenmalige aanmelding configureren](./media/rfpio-tutorial/app2.png)
 
-4. Klik op **TEAMLEDEN**.
+1. Klik op **TEAMLEDEN**.
 
     ![Eenmalige aanmelding configureren](./media/rfpio-tutorial/app6.png)
 
-5. Klik op **leden toevoegen**.
+1. Klik op **leden toevoegen**.
 
     ![Eenmalige aanmelding configureren](./media/rfpio-tutorial/app7.png)
 
-6. In de **nieuwe leden toevoegen** sectie. Voer de volgende acties:
+1. In de **nieuwe leden toevoegen** sectie. Voer de volgende acties:
 
     ![Eenmalige aanmelding configureren](./media/rfpio-tutorial/app8.png)
 
@@ -252,23 +252,23 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **RFPIO**.
+1. Selecteer in de lijst met toepassingen, **RFPIO**.
 
     ![Eenmalige aanmelding configureren](./media/rfpio-tutorial/tutorial_rfpio_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -280,7 +280,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->
 

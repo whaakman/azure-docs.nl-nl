@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/02/2018
 ms.author: raynew
-ms.openlocfilehash: e2fbe766391759f2bbe4a95e75897b2bc9523c0c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 50d1b8fca8e5377c35810e08258a0ecc3770ae75
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399070"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422321"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migratie van Contoso: on-premises workloads evalueren voor migratie naar Azure
 
@@ -99,7 +99,7 @@ In dit scenario, Contoso downloadt en Data Migration Assistant voor het evaluere
 - Contoso is een fictieve naam die een typische bedrijfsorganisatie vertegenwoordigt.
 - Contoso heeft een on-premises datacenter (**contoso-datacenter**) en on-premises domeincontrollers (**CONTOSODC1**, **CONTOSODC2**).
 - Virtuele VMware-machines bevinden zich op VMware ESXi-hosts met versie 6.5 (**contosohost1**, **contosohost2**).
-- De VMware-omgeving wordt beheerd door vCenter Server 6.5 (**vcenter**uitgevoerd op een virtuele machine).
+- De VMware-omgeving wordt beheerd door vCenter Server 6.5 (**vcenter.contoso.com**uitgevoerd op een virtuele machine).
 - De SmartHotel reis-app heeft de volgende kenmerken:
     - De app is gelaagd over twee virtuele VMware-machines (**WEBVM** en **SQLVM**).
     - De virtuele machines bevinden zich op VMware ESXi-host **contosohost1.contoso.com**.
@@ -123,12 +123,10 @@ Contoso en andere gebruikers moeten voldoen aan de volgende vereisten voor de ev
 - Ten minste twee on-premises virtuele VMware-machines, en op één daarvan moet een SQL Server-database worden uitgevoerd.
 - Machtigingen voor het Azure Migrate-agents installeren op elke virtuele machine.
 - De virtuele machines moeten directe verbinding met internet hebben.  
-        
-- U kunt de toegang tot internet beperken de [vereiste URL's](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
-
-- Als uw virtuele machines niet over een internetverbinding beschikt, de Azure Log Analytics [OMS-Gateway](../log-analytics/log-analytics-oms-gateway.md) moet worden geïnstalleerd.
+        - U kunt de toegang tot internet beperken de [vereiste URL's](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-pre-requisites).  
+        -Als uw VM's geen verbinding met internet, de Azure Log Analytics [OMS-Gateway](../log-analytics/log-analytics-oms-gateway.md) moet worden geïnstalleerd op deze en verkeer dat bestemd is via deze agent.
 - De FQDN-naam van de virtuele machine waarop het SQL Server-exemplaar wordt uitgevoerd. Deze wordt gebruikt voor database-evaluatie.
-- Windows Firewall op de SQL Server-VM moet externe verbindingen toestaan via TCP-poort 1433 (standaard). De installatie kunt Data Migration Assistant om verbinding te maken.
+- Windows Firewall op de SQL Server-VM moet externe verbindingen toestaan via TCP-poort 1433 (standaard). Deze instelling kan Data Migration Assistant om verbinding te maken.
 
 ## <a name="assessment-overview"></a>Evaluatie, overzicht
 
@@ -297,7 +295,7 @@ Voordat u de virtuele machine implementeert, controleert Contoso dat het OVA-bes
 
 ### <a name="create-the-collector-appliance"></a>Het collector-apparaat maken
 
-Contoso kan nu, importeer het gedownloade bestand naar de vCenter-Server-exemplaar en inrichten van de configuratieserver VM:
+Contoso kan nu, importeer het gedownloade bestand naar de vCenter-Server-exemplaar en inrichten van de virtuele machine van de collector-apparaat:
 
 1. In de vSphere Client-console selecteert u Contoso **bestand** > **OVF-sjabloon implementeren**.
 
@@ -353,7 +351,7 @@ Wanneer de verzameling is voltooid, wordt door Contoso controleert dat de virtue
 
 ## <a name="step-5-prepare-for-dependency-analysis"></a>Stap 5: Afhankelijkheidsanalyse voorbereiden
 
-Als u wilt weergeven van afhankelijkheden tussen VM's die het bedrijf wil openen, Contoso downloadt en installeert agents op de VM's van de app. Contoso installeert agents op alle VM's voor de apps, zowel voor Windows en Linux.
+Als u wilt weergeven van afhankelijkheden tussen VM's die het bedrijf wil beoordelen, Contoso downloadt en installeert agents op de VM's van de app. Contoso installeert agents op alle VM's voor de apps, zowel voor Windows en Linux.
 
 ### <a name="take-a-snapshot"></a>Een momentopname maken
 

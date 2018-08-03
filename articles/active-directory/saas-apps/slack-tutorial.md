@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: Azure Active Directory-integratie met Slack | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en de toegestane vertraging.
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en Slack.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,119 +14,119 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 5d16e633f29ca635a9b32118e699cb59d3896353
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 8f79926d0d4729c6ad939bc604e9eb885dbe9f03
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36221339"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39421238"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Zelfstudie: Azure Active Directory-integratie met Slack
 
-In deze zelfstudie leert u hoe Slack integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u Slack integreren met Azure Active Directory (Azure AD).
 
-Vertraging integreren met Azure AD biedt de volgende voordelen:
+Slack integreren met Azure AD biedt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot de toegestane vertraging heeft
-- U kunt uw gebruikers automatisch ophalen aangemeld bij de vertraging (Single Sign-On) met hun Azure AD-accounts inschakelen
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
+- U kunt beheren in Azure AD die toegang tot Slack heeft
+- U kunt uw gebruikers automatisch ophalen aangemeld bij Slack (Single Sign-On) met hun Azure AD-accounts inschakelen
+- U kunt uw accounts in één centrale locatie - Azure portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het configureren van Azure AD-integratie met Slack, moet u de volgende items:
 
 - Een Azure AD-abonnement
-- Een toegestane eenmalige aanmelding ingeschakeld abonnement
+- Een Slack eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Vertraging in de galerie toevoegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Slack uit de galerie toe te voegen
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-slack-from-the-gallery"></a>Vertraging in de galerie toevoegen
-Voor het configureren van de integratie van Slack met Azure AD, moet u de vertraging in de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+## <a name="adding-slack-from-the-gallery"></a>Slack uit de galerie toe te voegen
+Voor het configureren van de integratie van Slack in Azure AD, moet u Slack uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen Slack uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **Slack**.
+1. Typ in het zoekvak **Slack**.
 
-    ![Een Azure AD-testgebruiker maken](./media/slack-tutorial/tutorial_slack_search.png)
+    ![Het maken van een Azure AD-testgebruiker](./media/slack-tutorial/tutorial_slack_search.png)
 
-5. Selecteer in het deelvenster resultaten **Slack**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Selecteer in het deelvenster resultaten **Slack**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Een Azure AD-testgebruiker maken](./media/slack-tutorial/tutorial_slack_addfromgallery.png)
+    ![Het maken van een Azure AD-testgebruiker](./media/slack-tutorial/tutorial_slack_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie configureert en test eenmalige aanmelding Azure AD met Slack op basis van een testgebruiker 'Britta Simon' genoemd.
+In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Slack op basis van een testgebruiker 'Julia steen' genoemd.
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in Slack is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in Slack tot stand worden gebracht.
+Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Slack is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Slack tot stand worden gebracht.
 
-Wijs in Slack, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In Slack, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Slack, moet u de volgende bouwstenen voltooien:
+Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Slack, u nodig hebt voor de volgende bouwstenen:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een toegestane testgebruiker](#creating-a-slack-test-user)**  - vertraging die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
+1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Het maken van een Slack testgebruiker](#creating-a-slack-test-user)**  : als u wilt een equivalent van Britta Simon in Slack die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw toepassing toegestane configureren.
+In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw Slack-toepassing.
 
 **Voor het configureren van Azure AD eenmalige aanmelding met Slack, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **Slack** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **Slack** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/slack-tutorial/tutorial_slack_samlbase.png)
 
-3. Op de **Slack-domein en de URL's** sectie, voert u de volgende stappen uit:
+1. Op de **Slack-domein en URL's** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/slack-tutorial/tutorial_slack_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<companyname>.slack.com`
+    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<companyname>.slack.com`
 
-    b. In de **id** textbox, typ de URL: `https://slack.com`
+    b. In de **id** tekstvak typt u de URL: `https://slack.com`
 
     > [!NOTE] 
-    > De waarde is geen echte. U moet de waarde wordt bijgewerkt met de werkelijke aanmelding op de URL. Neem contact op met [toegestane ondersteuningsteam](https://slack.com/help/contact) de waarde op te halen.
+    > De waarde is niet echt. U moet de waarde met de werkelijke op URL bijwerken. Neem contact op met [Slack ondersteuningsteam](https://slack.com/help/contact) om de waarde.
      
-4. De SAML-asserties verwacht toegestane toepassing in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt beheren de waarden van deze kenmerken van de '**gebruikerskenmerken**' sectie op de pagina van de toepassing-integratie. De volgende Schermafbeelding toont een voorbeeld voor deze.
+1. Slack-toepassing wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de "**gebruikerskenmerken**" sectie op de pagina van de toepassing-integratie. De volgende Schermafbeelding toont een voorbeeld voor deze.
     
     ![Eenmalige aanmelding configureren](./media/slack-tutorial/tutorial_slack_attribute.png)
 
     > [!NOTE] 
-    > Als u gebruikers hebt die is toegewezen **e-mailadres** is niet op een licentie Office365 de **User.Email** claim worden niet weergegeven in het SAML-Token. In dergelijke gevallen we raden aan met behulp van **user.userprincipalname** als de **User.Email** kenmerk waarde om toe te wijzen als **unieke id** in plaats daarvan.
+    > Als u gebruikers hebt die is toegewezen **e-mailadres** zich niet op een licentie voor Office 365 de **User.Email** claim wordt niet weergegeven in het SAML-Token. In dergelijke gevallen beste **user.userprincipalname** als de **User.Email** waarde om toe te wijzen als van het kenmerk **unieke id** in plaats daarvan.
 
-5. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster Selecteer **user.mail** als **gebruikers-id** en voor elke rij in de onderstaande tabel wordt weergegeven, voert u de volgende stappen uit:
+1. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster, selecteer **user.mail** als **gebruikers-id** en voor elke rij wordt weergegeven in de onderstaande tabel, voer de volgende stappen uit:
     
     | Naam kenmerk | Waarde kenmerk |
     | --- | --- |
@@ -139,52 +139,52 @@ In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en 
 
     ![Eenmalige aanmelding configureren](./media/slack-tutorial/tutorial_slack_attribute1.png)
 
-    a. In de **naam** textbox, typ de naam van het kenmerk wordt weergegeven voor die rij.
+    a. In de **naam** tekstvak typt u de naam van het kenmerk wordt weergegeven voor die rij.
 
-    b. Van de **waarde** , selecteert u de waarde van het kenmerk wordt weergegeven voor die rij.
+    b. Uit de **waarde** , selecteert u de waarde van het kenmerk wordt weergegeven voor die rij.
 
     c. Laat de **Namespace** leeg.
 
     d. Klik op **OK**
 
-6. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Base64)** en sla het certificaatbestand op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/slack-tutorial/tutorial_slack_certificate.png)
 
-7. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/slack-tutorial/tutorial_general_400.png)
 
-8. Op de **Slack configuratie** sectie, klikt u op **Slack configureren** openen **eenmalige aanmelding configureren** venster. Kopieer de **SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+1. Op de **Slack configuratie** sectie, klikt u op **configureren Slack** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 
     ![Eenmalige aanmelding configureren](./media/slack-tutorial/tutorial_slack_configure.png)
 
-9. In een ander browservenster, meld u aan bij uw site toegestane bedrijf als beheerder.
+1. In een ander browservenster aanmelden bij uw site Slack bedrijf als beheerder.
 
-10. Navigeer naar **Microsoft Azure AD** Ga vervolgens naar **instellingen Team**.
+1. Navigeer naar **Microsoft Azure AD** Ga vervolgens naar **Teaminstellingen**.
 
-     ![App-zijde eenmalige aanmelding configureren](./media/slack-tutorial/tutorial_slack_001.png)
+     ![Single Sign-On aan App configureren](./media/slack-tutorial/tutorial_slack_001.png)
 
-11. In de **instellingen Team** sectie, klikt u op de **verificatie** tabblad en klik vervolgens op **Wijzigingsinstellingen**.
+1. In de **Teaminstellingen** sectie, klikt u op de **verificatie** tabblad en klik vervolgens op **Wijzigingsinstellingen**.
 
-    ![App-zijde eenmalige aanmelding configureren](./media/slack-tutorial/tutorial_slack_002.png)
+    ![Single Sign-On aan App configureren](./media/slack-tutorial/tutorial_slack_002.png)
 
-12. Op de **SAML-verificatie-instellingen** dialoogvenster de volgende stappen uitvoeren:
+1. Op de **SAML-verificatie-instellingen** dialoogvenster, voer de volgende stappen uit:
 
-    ![App-zijde eenmalige aanmelding configureren](./media/slack-tutorial/tutorial_slack_003.png)
+    ![Single Sign-On aan App configureren](./media/slack-tutorial/tutorial_slack_003.png)
 
-    a.  In de **SAML 2.0-eindpunt (HTTP)** textbox, plak de waarde van **SAML Single Sign-On Service-URL**, die u hebt gekopieerd vanuit Azure-portal.
+    a.  In de **SAML 2.0-eindpunt (HTTP)** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML**, die u hebt gekopieerd vanuit Azure portal.
 
-    b.  In de **identiteit Provider verlener** textbox, plak de waarde van **SAML entiteit-ID**, die u hebt gekopieerd vanuit Azure-portal.
+    b.  In de **Identity Provider Issuer** tekstvak, plak de waarde van **SAML entiteit-ID**, die u hebt gekopieerd vanuit Azure portal.
 
-    c.  Open uw gedownloade certificaat-bestand in Kladblok, Kopieer de inhoud ervan naar het Klembord en plakt u deze naar de **openbaar certificaat** textbox.
+    c.  Open het gedownloade certificaat-bestand in Kladblok, Kopieer de inhoud ervan in het Klembord en plakt u deze naar de **openbaar certificaat** tekstvak.
 
-    d. Configureer de bovenstaande drie instellingen voor uw team toegestane. Voor meer informatie over de instellingen, gaat u naar de **vertraging van SSO configuratiehandleiding** hier. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
+    d. De bovenstaande drie instellingen configureren als geschikt is voor uw Slack-team. Raadpleeg voor meer informatie over de instellingen voor de **configuratiehandleiding voor eenmalige aanmelding van Slack** hier. `https://get.slack.help/hc/articles/220403548-Guide-to-single-sign-on-with-Slack%60`
 
     e.  Klik op **configuratie op te slaan**.
 
-### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
+Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
 ![Azure AD-gebruiker maken][100]
 
@@ -192,76 +192,76 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
 1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
 
-    ![Een Azure AD-testgebruiker maken](./media/slack-tutorial/create_aaduser_01.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/slack-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
-    ![Een Azure AD-testgebruiker maken](./media/slack-tutorial/create_aaduser_02.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/slack-tutorial/create_aaduser_02.png) 
 
-3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
 
-    ![Een Azure AD-testgebruiker maken](./media/slack-tutorial/create_aaduser_03.png)
+    ![Het maken van een Azure AD-testgebruiker](./media/slack-tutorial/create_aaduser_03.png)
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
 
-    ![Een Azure AD-testgebruiker maken](./media/slack-tutorial/create_aaduser_04.png)
+    ![Het maken van een Azure AD-testgebruiker](./media/slack-tutorial/create_aaduser_04.png)
 
-    a. In de **naam** textbox type **BrittaSimon**.
+    a. In de **naam** tekstvak, type **BrittaSimon**.
 
-    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
+    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
 
     c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
     d. Klik op **Create**.
 
-### <a name="creating-a-slack-test-user"></a>Een toegestane testgebruiker maken
+### <a name="creating-a-slack-test-user"></a>Het maken van een gebruiker Slack testen
 
-Het doel van deze sectie is het maken van een gebruiker Britta Simon in Slack genoemd. Vertraging ondersteunt just-in-time-inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot de toegestane vertraging als deze nog niet bestaat. Toegestane ondersteunt ook automatisch gebruikers inrichten, vindt u meer informatie [hier](slack-provisioning-tutorial.md) over het configureren van automatische gebruikers inrichten.
+Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Slack. Slack biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot Slack als deze nog niet bestaat. Slack biedt ook ondersteuning voor automatisch gebruikers inrichten, vindt u meer details [hier](slack-provisioning-tutorial.md) voor het automatisch inrichten van gebruikers configureren.
 
 > [!NOTE]
-> Als u een gebruiker handmatig maken wilt, moet u contact op met [toegestane ondersteuningsteam](https://slack.com/help/contact).
+> Als u een gebruiker handmatig hebt gemaakt wilt, moet u contact opnemen met [Slack ondersteuningsteam](https://slack.com/help/contact).
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 
-In deze sectie maakt inschakelen u Britta Simon Azure eenmalige aanmelding gebruiken door het verlenen van toegang met Slack.
+In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan Slack.
 
 ![Gebruiker toewijzen][200]
 
-**Als u wilt toewijzen Britta Simon met Slack, moet u de volgende stappen uitvoeren:**
+**Als u wilt toewijzen Britta Simon naar Slack, moet u de volgende stappen uitvoeren:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **Slack**.
+1. Selecteer in de lijst met toepassingen, **Slack**.
 
     ![Eenmalige aanmelding configureren](./media/slack-tutorial/tutorial_slack_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
-### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
+### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
-In deze sectie kunt u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster testen.
+In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
 
-Wanneer u klikt op de toegestane tegel in het deelvenster toegang u moet ophalen automatisch aangemeld bij uw toegestane toepassing.
+Wanneer u klikt op het Slack-tegel in het toegangsvenster, u moet u automatisch aangemeld bij uw Slack-toepassing.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Gebruikers inrichten configureren](slack-provisioning-tutorial.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
+* [Inrichten van gebruikers configureren](slack-provisioning-tutorial.md)
 
 
 <!--Image references-->

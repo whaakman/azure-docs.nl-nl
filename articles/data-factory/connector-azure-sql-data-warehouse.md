@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 70615726ed313884a977ae1b338d3c484fc32a1a
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 7a9adc8e9b7bcf69cce6b8ecf00e44477c1b0da3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39326170"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430736"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Data Warehouse met behulp van Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -105,21 +105,21 @@ Volg deze stappen voor het gebruik van service-principal op basis van Azure AD-t
     - Toepassingssleutel
     - Tenant-id
 
-2. **[Een Azure Active Directory-beheerder inrichten](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  voor uw Azure SQL-server in Azure portal als u dat nog niet hebt gedaan. De Azure AD-beheerder kan een Azure AD-gebruiker of een Azure AD-groep zijn. Als u de groep met MSI-bestand op een beheerdersrol toewijst, moet u de stappen 3 en 4 overslaan. De beheerder heeft volledige toegang tot de database.
+1. **[Een Azure Active Directory-beheerder inrichten](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  voor uw Azure SQL-server in Azure portal als u dat nog niet hebt gedaan. De Azure AD-beheerder kan een Azure AD-gebruiker of een Azure AD-groep zijn. Als u de groep met MSI-bestand op een beheerdersrol toewijst, moet u de stappen 3 en 4 overslaan. De beheerder heeft volledige toegang tot de database.
 
-3. **[Maak ingesloten databasegebruikers](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  voor de service-principal. Verbinding maken met het datawarehouse uit of die u kopiëren van gegevens wilt met behulp van hulpprogramma's zoals SSMS, met een Azure AD-identiteit ten minste heeft de machtiging ALTER elke gebruiker. Voer de volgende T-SQL:
+1. **[Maak ingesloten databasegebruikers](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  voor de service-principal. Verbinding maken met het datawarehouse uit of die u kopiëren van gegevens wilt met behulp van hulpprogramma's zoals SSMS, met een Azure AD-identiteit ten minste heeft de machtiging ALTER elke gebruiker. Voer de volgende T-SQL:
     
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **De service-principal die nodig is machtigingen verlenen** zoals u gewend voor SQL-gebruikers of voor anderen bent. Voer de volgende code:
+1. **De service-principal die nodig is machtigingen verlenen** zoals u gewend voor SQL-gebruikers of voor anderen bent. Voer de volgende code:
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-5. **Configureren van een Azure SQL Data Warehouse gekoppelde service** in Azure Data Factory.
+1. **Configureren van een Azure SQL Data Warehouse gekoppelde service** in Azure Data Factory.
 
 
 #### <a name="linked-service-example-that-uses-service-principal-authentication"></a>Voorbeeld van de gekoppelde service die gebruikmaakt van verificatie van service-principal
@@ -168,21 +168,21 @@ Volg deze stappen voor het gebruik van Azure AD MSI-gebaseerde toepassing tokenv
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"
     ```
 
-2. **[Een Azure Active Directory-beheerder inrichten](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  voor uw Azure SQL-server in Azure portal als u dat nog niet hebt gedaan.
+1. **[Een Azure Active Directory-beheerder inrichten](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  voor uw Azure SQL-server in Azure portal als u dat nog niet hebt gedaan.
 
-3. **[Maak ingesloten databasegebruikers](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  voor de Azure AD-groep. Verbinding maken met het datawarehouse uit of die u kopiëren van gegevens wilt met behulp van hulpprogramma's zoals SSMS, met een Azure AD-identiteit ten minste heeft de machtiging ALTER elke gebruiker. Voer de volgende T-SQL. 
+1. **[Maak ingesloten databasegebruikers](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  voor de Azure AD-groep. Verbinding maken met het datawarehouse uit of die u kopiëren van gegevens wilt met behulp van hulpprogramma's zoals SSMS, met een Azure AD-identiteit ten minste heeft de machtiging ALTER elke gebruiker. Voer de volgende T-SQL. 
     
     ```sql
     CREATE USER [your Azure AD group name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **De Azure AD-groep die nodig is machtigingen verlenen** zoals u gewend voor de SQL-gebruikers en anderen bent. Voer bijvoorbeeld de volgende code.
+1. **De Azure AD-groep die nodig is machtigingen verlenen** zoals u gewend voor de SQL-gebruikers en anderen bent. Voer bijvoorbeeld de volgende code.
 
     ```sql
     EXEC sp_addrolemember [role name], [your Azure AD group name];
     ```
 
-5. **Configureren van een Azure SQL Data Warehouse gekoppelde service** in Azure Data Factory.
+1. **Configureren van een Azure SQL Data Warehouse gekoppelde service** in Azure Data Factory.
 
 #### <a name="linked-service-example-that-uses-msi-authentication"></a>Voorbeeld van de gekoppelde service die gebruikmaakt van MSI-verificatie
 
@@ -398,13 +398,13 @@ SQL Data Warehouse PolyBase biedt rechtstreeks ondersteuning voor Azure BLOB Sto
 Als aan de vereisten zijn niet voldaan, wordt Azure Data Factory controleert of de instellingen en automatisch terugvalt op het mechanisme BULKINSERT voor de verplaatsing van gegevens.
 
 1. De **bron gekoppelde service** type **AzureStorage** of **AzureDataLakeStore** met service-principal verificatie.
-2. De **invoergegevensset** type **AzureBlob** of **AzureDataLakeStoreFile**. Het indelingstype onder `type` eigenschappen is **OrcFormat**, **ParquetFormat**, of **TextFormat**, met de volgende configuraties:
+1. De **invoergegevensset** type **AzureBlob** of **AzureDataLakeStoreFile**. Het indelingstype onder `type` eigenschappen is **OrcFormat**, **ParquetFormat**, of **TextFormat**, met de volgende configuraties:
 
    1. `rowDelimiter` moet **\n**.
-   2. `nullValue` is een ingesteld op **lege tekenreeks** ("") of als standaard, links en `treatEmptyAsNull` niet is ingesteld op false.
-   3. `encodingName` is ingesteld op **utf-8**, dit is de standaardwaarde.
-   4. `escapeChar`, `quoteChar` en `skipLineCount` zijn niet opgegeven. Ondersteuning voor PolyBase overslaan rij met koppen die kan worden geconfigureerd als `firstRowAsHeader` in ADF.
-   5. `compression` kan **geen compressie**, **GZip**, of **Deflate**.
+   1. `nullValue` is een ingesteld op **lege tekenreeks** ("") of als standaard, links en `treatEmptyAsNull` niet is ingesteld op false.
+   1. `encodingName` is ingesteld op **utf-8**, dit is de standaardwaarde.
+   1. `escapeChar`, `quoteChar` en `skipLineCount` zijn niet opgegeven. Ondersteuning voor PolyBase overslaan rij met koppen die kan worden geconfigureerd als `firstRowAsHeader` in ADF.
+   1. `compression` kan **geen compressie**, **GZip**, of **Deflate**.
 
     ```json
     "typeProperties": {

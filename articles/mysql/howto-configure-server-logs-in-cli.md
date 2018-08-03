@@ -1,6 +1,6 @@
 ---
-title: Toegang tot logboeken-server in Azure-Database voor MySQL met Azure CLI
-description: Dit artikel wordt beschreven hoe u toegang tot de server-Logboeken in Azure-Database voor MySQL met het opdrachtregelprogramma Azure CLI.
+title: Access-server-Logboeken in Azure Database for MySQL met behulp van Azure CLI
+description: In dit artikel wordt beschreven hoe u toegang krijgen tot de serverlogboeken in Azure Database voor MySQL met behulp van het opdrachtregelprogramma van Azure CLI.
 services: mysql
 author: rachel-msft
 ms.author: raagyema
@@ -10,29 +10,29 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 85c7840c0e919e77e807e6114c4d0c65601ff334
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 57b72ded77484dc1c8ca4c62811b62e171365db4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265823"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423454"
 ---
-# <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configureren en server-Logboeken openen met behulp van Azure CLI
-U kunt de Azure-Database voor MySQL server-logboeken downloaden met behulp van Azure CLI, het Azure-opdrachtregelprogramma.
+# <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configureren en serverlogboeken openen met behulp van Azure CLI
+U kunt de Azure Database for MySQL-serverlogboeken downloaden met behulp van Azure CLI, het Azure-opdrachtregelprogramma.
 
 ## <a name="prerequisites"></a>Vereisten
-Stap in deze handleiding instructies, wilt u het volgende nodig:
-- [Azure-Database voor de MySQL-server](quickstart-create-mysql-server-database-using-azure-cli.md)
+Als u wilt in deze gebruiksaanwijzing kunt doorlopen, hebt u het volgende nodig:
+- [Azure Database voor MySQL-server](quickstart-create-mysql-server-database-using-azure-cli.md)
 - De [Azure CLI 2.0](/cli/azure/install-azure-cli) of Azure Cloud Shell in de browser
 
-## <a name="configure-logging-for-azure-database-for-mysql"></a>Logboekregistratie voor Azure-Database voor MySQL configureren
-U kunt de server om het logboek van de query wordt vertraagd MySQL door het volgende doen om toegang te configureren:
-1. Logboekregistratie inschakelen door het instellen van de **trage\_query\_logboek** parameter op ON.
-2. Andere parameters, zoals aanpassen **lang\_query\_tijd** en **logboek\_trage\_admin\_instructies**.
+## <a name="configure-logging-for-azure-database-for-mysql"></a>Logboekregistratie voor Azure Database voor MySQL configureren
+U kunt de server voor toegang tot het MySQL-logboek voor langzame query's door de volgende stappen configureren:
+1. Logboekregistratie inschakelen door in te stellen de **trage\_query\_log** parameter op ON.
+2. Andere parameters, zoals aanpassen **lang\_query\_tijd** en **log\_trage\_admin\_instructies**.
 
-Zie voor meer informatie over het instellen van de waarde van deze parameters via Azure CLI, [parameters van de server configureren](howto-configure-server-parameters-using-cli.md). 
+Zie voor meer informatie over het instellen van de waarde van deze parameters via Azure CLI, [serverparameters configureren](howto-configure-server-parameters-using-cli.md). 
 
-Bijvoorbeeld de volgende opdracht in de CLI Hiermee schakelt u het trage querylogboek, de lang Querytijd ingesteld op 10 seconden en vervolgens de registratie van de instructie trage beheerder uitgeschakeld. Ten slotte geeft de configuratieopties voor uw beoordeling.
+Bijvoorbeeld, de volgende CLI-opdracht Hiermee schakelt u het logboek voor langzame query's, wordt de tijd van lange query ingesteld op 10 seconden en schakelt vervolgens de registratie van de trage admin-instructie. Ten slotte geeft de configuratieopties voor uw beoordeling.
 ```azurecli-interactive
 az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver --value ON
 az mysql server configuration set --name long_query_time --resource-group myresourcegroup --server mydemoserver --value 10
@@ -40,15 +40,15 @@ az mysql server configuration set --name log_slow_admin_statements --resource-gr
 az mysql server configuration list --resource-group myresourcegroup --server mydemoserver
 ```
 
-## <a name="list-logs-for-azure-database-for-mysql-server"></a>Logboeken van de lijst voor de Azure-Database voor de MySQL-server
-Uitvoeren als de beschikbare logboekbestanden voor uw server wilt weergeven, de [az mysql serverlogboeken lijst](/cli/azure/mysql/server-logs#az_mysql_server_logs_list) opdracht.
+## <a name="list-logs-for-azure-database-for-mysql-server"></a>Lijst met Logboeken voor Azure Database voor MySQL-server
+Uitvoeren als u de beschikbare logboekbestanden voor uw server, de [az mysql server-logs list](/cli/azure/mysql/server-logs#az-mysql-server-logs-list) opdracht.
 
-U kunt geven lijsten van logboekbestanden voor server **mydemoserver.mysql.database.azure.com** onder de resourcegroep **myresourcegroup**. De lijst met logboekbestanden naar een tekstbestand aangeroepen vervolgens omleiden **logboek\_bestanden\_lijst.txt**.
+U kunt een lijst de logboekbestanden voor server **mydemoserver.mysql.database.azure.com** onder de resourcegroep **myresourcegroup**. De lijst met logboekbestanden naar een tekstbestand met de naam vervolgens direct **log\_bestanden\_lijst.txt**.
 ```azurecli-interactive
 az mysql server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
-## <a name="download-logs-from-the-server"></a>Logboeken van de server downloaden
-Met de [az mysql serverlogboeken downloaden](/cli/azure/mysql/server-logs#az_mysql_server_logs_download) opdracht, kunt u afzonderlijke logboekbestanden voor de server downloaden. 
+## <a name="download-logs-from-the-server"></a>Logboeken downloaden die van de server
+Met de [az mysql server-logs download](/cli/azure/mysql/server-logs#az-mysql-server-logs-download) opdracht, kunt u afzonderlijke logboekbestanden voor de server downloaden. 
 
 Gebruik het volgende voorbeeld voor het downloaden van het specifieke logboekbestand voor de server **mydemoserver.mysql.database.azure.com** onder de resourcegroep **myresourcegroup** op uw lokale omgeving.
 ```azurecli-interactive
@@ -56,4 +56,4 @@ az mysql server-logs download --name 20170414-mydemoserver-mysql.log --resource-
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over [serverlogboekbestanden in Azure-Database voor MySQL](concepts-server-logs.md).
+- Meer informatie over [serverlogboeken in Azure Database for MySQL](concepts-server-logs.md).

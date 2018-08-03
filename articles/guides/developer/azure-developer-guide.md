@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: f4dfc376e49ac26f0c054282994a29d9a7d2b54b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2c6db85763b448133d53b22c0600b27b533b2041
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442168"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424225"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Aan de slag-handleiding voor Azure-ontwikkelaars
 
@@ -162,7 +162,7 @@ Is het cruciaal niet alleen weten wie uw toepassingen gebruikt, maar ook om te v
 
     >**Wanneer u**: als u een SSO-ervaring bieden wilt, werken met gegevens op basis van een grafiek of verificatie van gebruikers op basis van een domein.
 
-    >**Aan de slag**: Zie voor meer informatie, de [ontwikkelaarsgids van Azure Active Directory](../../active-directory/develop/active-directory-developers-guide.md).
+    >**Aan de slag**: Zie voor meer informatie, de [ontwikkelaarsgids van Azure Active Directory](../../active-directory/develop/azure-ad-developers-guide.md).
 
 -   **App Service-verificatie**: wanneer u App Service voor het hosten van uw app kunt u ook ondersteuning voor ingebouwde verificatie voor Azure AD, samen met sociale id-providers, zoals Facebook, Google, Microsoft en Twitter.
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 2e8c67e979cc796337a750d960b95cfe5b6be119
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 3a7fa57a2228443184abe7d380be9fa098aebbc9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072462"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428988"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Een toepassingsgateway maken met HTTP naar HTTPS-omleiding met de Azure CLI
 
@@ -64,7 +64,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Netwerkbronnen maken
 
-Maak het virtuele netwerk *myVNet* en het subnet *myAGSubnet* met [az network vnet create](/cli/azure/network/vnet#az_net). Vervolgens kunt u het subnet *myBackendSubnet*, dat voor de back-endservers vereist is, toevoegen met [az network vnet subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create). Maak het openbare IP-adres*myAGPublicIPAddress* met [az network public-ip create](/cli/azure/public-ip#az_network_public_ip_create).
+Maak het virtuele netwerk *myVNet* en het subnet *myAGSubnet* met [az network vnet create](/cli/azure/network/vnet#az-net). Vervolgens kunt u het subnet *myBackendSubnet*, dat voor de back-endservers vereist is, toevoegen met [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Maak het openbare IP-adres*myAGPublicIPAddress* met [az network public-ip create](/cli/azure/public-ip#az-network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -86,7 +86,7 @@ az network public-ip create \
 
 ## <a name="create-the-application-gateway"></a>De toepassingsgateway maken
 
-U kunt [az network application-gateway create](/cli/azure/network/application-gateway#az_network_application_gateway_create) gebruiken om de toepassingsgateway *myAppGateway* te maken. Als u met de Azure CLI een toepassingsgateway maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. 
+U kunt [az network application-gateway create](/cli/azure/network/application-gateway#az-network_application_gateway_create) gebruiken om de toepassingsgateway *myAppGateway* te maken. Als u met de Azure CLI een toepassingsgateway maakt, geeft u configuratiegegevens op, zoals capaciteit, SKU en HTTP-instellingen. 
 
 De toepassingsgateway wordt toegewezen aan *myAGSubnet* en *myAGPublicIPAddress*, die u eerder hebt gemaakt. In dit voorbeeld koppelt u het certificaat dat u hebt gemaakt aan het wachtwoord als u de toepassingsgateway maakt. 
 
@@ -121,7 +121,7 @@ az network application-gateway create \
 
 ### <a name="add-the-http-port"></a>De HTTP-poort toevoegen
 
-U kunt [az network application-gateway frontend-port maken](/cli/azure/network/application-gateway/frontend-port#az_network_application_gateway_frontend_port_create) de HTTP-poort toevoegen aan de toepassingsgateway.
+U kunt [az network application-gateway frontend-port maken](/cli/azure/network/application-gateway/frontend-port#az-network_application_gateway_frontend_port_create) de HTTP-poort toevoegen aan de toepassingsgateway.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -133,7 +133,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-the-http-listener"></a>De HTTP-listener toevoegen
 
-U kunt [az network application-gateway http-listener maken](/cli/azure/network/application-gateway/http-listener#az_network_application_gateway_http_listener_create) om toe te voegen van de listener met de naam *myListener* aan de toepassingsgateway.
+U kunt [az network application-gateway http-listener maken](/cli/azure/network/application-gateway/http-listener#az-network_application_gateway_http_listener_create) om toe te voegen van de listener met de naam *myListener* aan de toepassingsgateway.
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -146,7 +146,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>De configuratie van omleiding toevoegen
 
-De HTTP toevoegen aan HTTPS-omleiding configuratie aan de application gateway met [az network application-gateway redirect-config maken](/cli/azure/network/application-gateway/redirect-config#az_network_application_gateway_redirect_config_create).
+De HTTP toevoegen aan HTTPS-omleiding configuratie aan de application gateway met [az network application-gateway redirect-config maken](/cli/azure/network/application-gateway/redirect-config#az-network_application_gateway_redirect_config_create).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -161,7 +161,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-the-routing-rule"></a>Toevoegen van de regel voor doorsturen
 
-Toevoegen van de routeringsregel met de naam *regel 2* met de application gateway met behulp van de configuratie van de omleiding [az network application-gateway-regel maken](/cli/azure/network/application-gateway/rule#az_network_application_gateway_rule_create).
+Toevoegen van de routeringsregel met de naam *regel 2* met de application gateway met behulp van de configuratie van de omleiding [az network application-gateway-regel maken](/cli/azure/network/application-gateway/rule#az-network_application_gateway_rule_create).
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -175,7 +175,7 @@ az network application-gateway rule create \
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Een virtuele-machineschaalset maken
 
-In dit voorbeeld maakt u een virtuele-machineschaalset met de naam *myvmss* die servers voor de back endpool in de application gateway biedt. De virtuele machines in de schaalset worden gekoppeld aan *myBackendSubnet* en *appGatewayBackendPool*. U kunt [az vmss create](/cli/azure/vmss#az_vmss_create) gebruiken om de schaalset te maken.
+In dit voorbeeld maakt u een virtuele-machineschaalset met de naam *myvmss* die servers voor de back endpool in de application gateway biedt. De virtuele machines in de schaalset worden gekoppeld aan *myBackendSubnet* en *appGatewayBackendPool*. U kunt [az vmss create](/cli/azure/vmss#az-vmss-create) gebruiken om de schaalset te maken.
 
 ```azurecli-interactive
 az vmss create \
@@ -208,7 +208,7 @@ az vmss extension set \
 
 ## <a name="test-the-application-gateway"></a>De toepassingsgateway testen
 
-Gebruik [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) om het openbare IP-adres van de toepassingsgateway op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser.
+Gebruik [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show) om het openbare IP-adres van de toepassingsgateway op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser.
 
 ```azurepowershell-interactive
 az network public-ip show \

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 562e8e49d769f15ba0b965bfb03c0d56076c78f1
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 8da582750b5e20ddd7018f59292e7342f1628c8c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091319"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39425380"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager
 
@@ -39,7 +39,7 @@ Dit artikel beschrijft een aantal veelvoorkomende fouten voor Azure-implementati
 | Conflict | Vraagt u een bewerking die is niet toegestaan in de huidige status van de resource. Bijvoorbeeld, de schijfgrootte mag alleen als het maken van een virtuele machine of als de VM ongedaan is gemaakt. | |
 | DeploymentActive | Wachten op voor gelijktijdige implementatie aan deze resourcegroep te voltooien. | |
 | Implementatie mislukt | De implementatie mislukt-fout is een algemene fout dat biedt geen informatie die u nodig hebt voor het oplossen van de fout. Zoek in de foutdetails voor een foutcode die vindt u meer informatie. | [Foutcode vinden](#find-error-code) |
-| DeploymentQuotaExceeded | Als u de limiet van 800 implementaties per resourcegroep bereikt, verwijdert u implementaties uit de geschiedenis die niet meer nodig zijn. U kunt items verwijderen uit de geschiedenis met [az group deployment verwijderen](/cli/azure/group/deployment#az_group_deployment_delete) voor Azure CLI of [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) in PowerShell. Een vermelding verwijderen uit de implementatiegeschiedenis, heeft dit geen invloed op de resources implementeren. | |
+| DeploymentQuotaExceeded | Als u de limiet van 800 implementaties per resourcegroep bereikt, verwijdert u implementaties uit de geschiedenis die niet meer nodig zijn. U kunt items verwijderen uit de geschiedenis met [az group deployment verwijderen](/cli/azure/group/deployment#az-group-deployment-delete) voor Azure CLI of [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) in PowerShell. Een vermelding verwijderen uit de implementatiegeschiedenis, heeft dit geen invloed op de resources implementeren. | |
 | DnsRecordInUse | De naam van de DNS-record moet uniek zijn. U kunt een andere naam of de bestaande record wijzigen. | |
 | ImageNotFound | Controleer de instellingen van de VM-installatiekopie. |  |
 | InUseSubnetCannotBeDeleted | U kunt deze fout kan optreden wanneer bij het bijwerken van een resource, maar de aanvraag wordt verwerkt door te verwijderen en het maken van de resource. Zorg ervoor dat alle ongewijzigd waarden op te geven. | [Bron bijwerken](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -70,7 +70,7 @@ Dit artikel beschrijft een aantal veelvoorkomende fouten voor Azure-implementati
 | RequestDisallowedByPolicy | Uw abonnement bevat een resourcebeleid waarmee wordt voorkomen dat een actie die u wilt uitvoeren tijdens de implementatie. Zoek het beleid dat de actie wordt geblokkeerd. Indien mogelijk, wijzigen van uw implementatie om te voldoen aan de beperkingen van het beleid. | [Beleid oplossen](resource-manager-policy-requestdisallowedbypolicy-error.md) |
 | ReservedResourceName | Geef de naam van een resource die niet een gereserveerde naam. | [Gereserveerde resourcenamen](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Wachten op verwijderen om te voltooien. | |
-| ResourceGroupNotFound | Controleer de naam van de doelresourcegroep voor de implementatie. Het moet al bestaan in uw abonnement. Controleer de context van uw abonnement. | [Azure CLI](/cli/azure/account?#az_account_set) [PowerShell](/powershell/module/azurerm.profile/set-azurermcontext) |
+| ResourceGroupNotFound | Controleer de naam van de doelresourcegroep voor de implementatie. Het moet al bestaan in uw abonnement. Controleer de context van uw abonnement. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/azurerm.profile/set-azurermcontext) |
 | ResourceNotFound | Uw implementatie verwijst naar een resource die kan niet worden omgezet. Controleer uw gebruik van de **verwijzing** functie bevat de vereiste parameters voor uw scenario. | [Referenties oplossen](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | De implementatie wordt geprobeerd om de resources die het quotum voor het abonnement, resourcegroep of de regio te maken. Wijzig, indien mogelijk, uw infrastructuur in binnen de quota blijven. Overweeg anders aanvragen van een wijziging in uw quota's. | [Quota's oplossen](resource-manager-quota-errors.md) |
 | SkuNotAvailable | Selecteer de SKU (zoals VM-grootte) die beschikbaar is voor de locatie die u hebt geselecteerd. | [SKU oplossen](resource-manager-sku-not-available-errors.md) |
@@ -102,7 +102,7 @@ Selecteer het bericht voor meer informatie. In de volgende afbeelding ziet u een
 
 ![Validatiedetails weergeven](./media/resource-manager-common-deployment-errors/validation-details.png)
 
-### <a name="deployment-errors"></a>Fouten bij de implementatie
+### <a name="deployment-errors"></a>fouten bij de implementatie
 
 Als de bewerking is gevalideerd, maar niet tijdens de implementatie, krijgt u een implementatiefout opgetreden.
 

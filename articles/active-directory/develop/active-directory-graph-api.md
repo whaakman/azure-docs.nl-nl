@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: eb7e77af86628be7f92de1caf3137ae829511d0a
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 741affee9d073cd282be4ee7e30dfd7a1a0ff45d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263024"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426268"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 > [!IMPORTANT]
@@ -67,5 +67,5 @@ Azure AD Graph API kunt veel toepassingsscenario's. De volgende scenario's zijn 
 
 [Documentatie voor Azure AD Graph REST](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
-[Ontwikkelaarshandleiding voor Azure Active Directory](active-directory-developers-guide.md)
+[Ontwikkelaarshandleiding voor Azure Active Directory](azure-ad-developers-guide.md)
 

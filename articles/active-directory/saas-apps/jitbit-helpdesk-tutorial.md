@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: jeedes
-ms.openlocfilehash: bbfee75497681df0d51e164b3035b9b88c67ccaa
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 94ded0ef1bf77de20973a87a1ca2d6d1dd3fdf3f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39052132"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426649"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Zelfstudie: Azure Active Directory-integratie met Jitbit Helpdesk
 
@@ -52,7 +52,7 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Jitbit Helpdesk uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-jitbit-helpdesk-from-the-gallery"></a>Jitbit Helpdesk uit de galerie toe te voegen
 Voor het configureren van de integratie van Jitbit Helpdesk in Azure AD, moet u Jitbit Helpdesk uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -63,19 +63,19 @@ Voor het configureren van de integratie van Jitbit Helpdesk in Azure AD, moet u 
 
     ![Active Directory][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **Jitbit Helpdesk**.
+1. Typ in het zoekvak **Jitbit Helpdesk**.
 
     ![Het maken van een Azure AD-testgebruiker](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_search.png)
 
-5. Selecteer in het deelvenster resultaten **Jitbit Helpdesk**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Selecteer in het deelvenster resultaten **Jitbit Helpdesk**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Het maken van een Azure AD-testgebruiker](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_addfromgallery.png)
 
@@ -89,10 +89,10 @@ In de Jitbit Helpdesk, wijs de waarde van de **gebruikersnaam** in Azure AD als 
 Om te configureren en testen van Azure AD eenmalige aanmelding met de Jitbit Helpdesk, moet u de volgende bouwstenen voltooien:
 
 1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Het maken van een testgebruiker Jitbit Helpdesk](#creating-a-jitbit-helpdesk-test-user)**  : als u wilt een equivalent van Britta Simon in Jitbit Helpdesk die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Het maken van een testgebruiker Jitbit Helpdesk](#creating-a-jitbit-helpdesk-test-user)**  : als u wilt een equivalent van Britta Simon in Jitbit Helpdesk die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -104,11 +104,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_samlbase.png)
 
-3. Op de **Jitbit Helpdesk domein en URL's** sectie, voert u de volgende stappen uit:
+1. Op de **Jitbit Helpdesk domein en URL's** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_url.png)
 
@@ -128,29 +128,29 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
  
 
 
-4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_certificate.png) 
 
-5. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/jitbit-helpdesk-tutorial/tutorial_general_400.png)
 
-6. Op de **Jitbit Helpdesk configuratie** sectie, klikt u op **configureren Jitbit Helpdesk** openen **aanmelding configureren** venster. Kopiëren de **Single Sign-On Service URL voor SAML** uit de **Naslaggids sectie.**
+1. Op de **Jitbit Helpdesk configuratie** sectie, klikt u op **configureren Jitbit Helpdesk** openen **aanmelding configureren** venster. Kopiëren de **Single Sign-On Service URL voor SAML** uit de **Naslaggids sectie.**
 
     ![Eenmalige aanmelding configureren](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_configure.png) 
 
-7. Meld u in een ander browservenster in uw bedrijf Jitbit Helpdesk site als beheerder.
+1. Meld u in een ander browservenster in uw bedrijf Jitbit Helpdesk site als beheerder.
 
-8. Klik in de werkbalk bovenaan op **beheer**.
+1. Klik in de werkbalk bovenaan op **beheer**.
    
     ![Beheer](./media/jitbit-helpdesk-tutorial/ic777681.png "beheer")
 
-9. Klik op **algemene instellingen**.
+1. Klik op **algemene instellingen**.
    
     ![Gebruikers, bedrijven en machtigingen](./media/jitbit-helpdesk-tutorial/ic777680.png "gebruikers, bedrijven en machtigingen")
 
-10. In de **verificatie-instellingen** configuratie sectie, voert u de volgende stappen uit:
+1. In de **verificatie-instellingen** configuratie sectie, voert u de volgende stappen uit:
    
     ![Verificatie-instellingen](./media/jitbit-helpdesk-tutorial/ic777683.png "verificatie-instellingen")
     
@@ -177,15 +177,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![Het maken van een Azure AD-testgebruiker](./media/jitbit-helpdesk-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
     ![Het maken van een Azure AD-testgebruiker](./media/jitbit-helpdesk-tutorial/create_aaduser_02.png) 
 
-3. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
     ![Het maken van een Azure AD-testgebruiker](./media/jitbit-helpdesk-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
     ![Het maken van een Azure AD-testgebruiker](./media/jitbit-helpdesk-tutorial/create_aaduser_04.png) 
 
@@ -205,19 +205,19 @@ Om in te schakelen in Azure AD-gebruikers zich aanmelden bij de Jitbit Helpdesk,
 
 1. Meld u aan bij uw **Jitbit Helpdesk** tenant.
 
-2. Klik in het menu aan de bovenkant op **beheer**.
+1. Klik in het menu aan de bovenkant op **beheer**.
    
     ![Beheer](./media/jitbit-helpdesk-tutorial/ic777681.png "beheer")
 
-3. Klik op **gebruikers, bedrijven en machtigingen**.
+1. Klik op **gebruikers, bedrijven en machtigingen**.
    
     ![Gebruikers, bedrijven en machtigingen](./media/jitbit-helpdesk-tutorial/ic777682.png "gebruikers, bedrijven en machtigingen")
 
-4. Klik op **gebruiker toevoegen**.
+1. Klik op **gebruiker toevoegen**.
    
     ![Gebruiker toevoegen](./media/jitbit-helpdesk-tutorial/ic777685.png "gebruiker toevoegen")
    
-5. In de sectie maken, typt u de gegevens van de Azure AD-account dat u wilt inrichten gaat als volgt:
+1. In de sectie maken, typt u de gegevens van de Azure AD-account dat u wilt inrichten gaat als volgt:
 
     ![Maak](./media/jitbit-helpdesk-tutorial/ic777686.png "maken")
    
@@ -248,23 +248,23 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **Jitbit Helpdesk**.
+1. Selecteer in de lijst met toepassingen, **Jitbit Helpdesk**.
 
     ![Eenmalige aanmelding configureren](./media/jitbit-helpdesk-tutorial/tutorial_jitbit-helpdesk_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -276,7 +276,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 

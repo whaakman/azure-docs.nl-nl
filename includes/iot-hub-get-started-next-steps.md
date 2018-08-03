@@ -6,5 +6,6 @@ Lees deze artikelen als u aan de slag wilt met IoT Hub en andere IoT-scenario's 
 - [Use Power BI to visualize real-time sensor data from your IoT hub](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md) (Power BI gebruiken voor het visualiseren van realtime-sensorgegevens uit IoT Hub)
 - [Visualize real-time sensor data from your Azure IoT hub by using the Web Apps feature of Azure App Service](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md) (De functie Web Apps van Azure App Service gebruiken voor het visualiseren van realtime-sensorgegevens uit IoT Hub)
 - [Weather forecast using the sensor data from your IoT hub in Azure Machine Learning](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md) (Weer voorspellen met behulp van de sensorgegevens uit IoT Hub in Azure Machine Learning)
+- [Apparaten beheren met Azure IoT Toolkit-extensie voor Visual Studio Code](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)
 - [Manage devices with iothub-explorer](../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md) (Apparaten beheren met iothub-explorer)
 - [Logic Apps gebruiken voor externe bewaking en meldingen](../articles/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)

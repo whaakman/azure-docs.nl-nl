@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: c466e811d868403c59d6615882422996442d792a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e498b0ca4b9efe09c2fe2f2bfcdcb3cc68b9c2c4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39045824"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39430250"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Zelfstudie: Azure Active Directory-integratie met SAP HANA
 
@@ -55,7 +55,7 @@ Als u wilt testen van de stappen in deze zelfstudie, volgt u deze aanbevelingen:
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario dat wordt beschreven in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. SAP HANA uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="add-sap-hana-from-the-gallery"></a>SAP HANA uit de galerie toevoegen
 Voor het configureren van de integratie van SAP HANA in Azure AD, SAP HANA uit de galerie te toevoegt aan uw lijst met beheerde SaaS-apps.
@@ -66,15 +66,15 @@ Voor het configureren van de integratie van SAP HANA in Azure AD, SAP HANA uit d
 
     ![De Azure Active Directory-knop][1]
 
-2. Ga naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Ga naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Als u wilt de nieuwe toepassing toevoegen, selecteert u de **nieuwe toepassing** knop boven aan in het dialoogvenster.
+1. Als u wilt de nieuwe toepassing toevoegen, selecteert u de **nieuwe toepassing** knop boven aan in het dialoogvenster.
 
     ![De knop nieuwe toepassing][3]
 
-4. Typ in het zoekvak **SAP HANA**. Selecteer vervolgens **SAP HANA** vanuit het deelvenster resultaten. Selecteer ten slotte de **toevoegen** om toe te voegen van de toepassing. 
+1. Typ in het zoekvak **SAP HANA**. Selecteer vervolgens **SAP HANA** vanuit het deelvenster resultaten. Selecteer ten slotte de **toevoegen** om toe te voegen van de toepassing. 
 
     ![De nieuwe toepassing](./media/saphana-tutorial/tutorial_saphana_addfromgallery.png)
 
@@ -88,10 +88,10 @@ In SAP HANA, geven de **gebruikersnaam** waarde dezelfde waarde voor de **gebrui
 Als u wilt configureren en testen van Azure AD eenmalige aanmelding met SAP HANA, voert u de volgende bouwstenen:
 
 1. [Azure AD eenmalige aanmelding configureren](#configuring-azure-ad-single-sign-on) zodat uw gebruikers deze functie wilt gebruiken.
-2. [Maak een Azure AD-testgebruiker](#creating-an-azure-ad-test-user) voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. [Maak een testgebruiker SAP HANA](#creating-a-sap-hana-test-user) een equivalent van Britta Simon hebben in SAP HANA die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-4. [Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user) Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. [Eenmalige aanmelding testen](#testing-single-sign-on) om te controleren of de configuratie werkt.
+1. [Maak een Azure AD-testgebruiker](#creating-an-azure-ad-test-user) voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. [Maak een testgebruiker SAP HANA](#creating-a-sap-hana-test-user) een equivalent van Britta Simon hebben in SAP HANA die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+1. [Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user) Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. [Eenmalige aanmelding testen](#testing-single-sign-on) om te controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -103,11 +103,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren][4]
 
-2. In de **eenmalige aanmelding** dialoogvenster onder **SAML gebaseerde aanmelding**, selecteer **modus**.
+1. In de **eenmalige aanmelding** dialoogvenster onder **SAML gebaseerde aanmelding**, selecteer **modus**.
  
     ![In het dialoogvenster voor eenmalige aanmelding](./media/saphana-tutorial/tutorial_saphana_samlbase.png)
 
-3. In de **SAP HANA-domein en URL's** sectie, de volgende stappen uit:
+1. In de **SAP HANA-domein en URL's** sectie, de volgende stappen uit:
 
     ![Domein en URL's, eenmalige aanmelding informatie](./media/saphana-tutorial/tutorial_saphana_url.png)
 
@@ -118,35 +118,35 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     > [!NOTE] 
     > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id en antwoord-URL. Neem contact op met de [SAP HANA client-ondersteuningsteam](https://cloudplatform.sap.com/contact.html) om deze waarden te verkrijgen. 
 
-4. In de **SAML-handtekeningcertificaat** sectie, selecteer **Metadata XML**. Sla het bestand met metagegevens op uw computer.
+1. In de **SAML-handtekeningcertificaat** sectie, selecteer **Metadata XML**. Sla het bestand met metagegevens op uw computer.
 
     ![De downloadkoppeling certificaat](./media/saphana-tutorial/tutorial_saphana_certificate.png) 
 
     >[!Note]
     >Als het certificaat niet actief is, klikt u vervolgens het te activeren door het selecteren van de **nieuw certificaat activeren** selectievakje in Azure AD. 
 
-5. De SAP HANA-toepassing wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. De volgende Schermafbeelding toont een voorbeeld van deze indeling. 
+1. De SAP HANA-toepassing wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. De volgende Schermafbeelding toont een voorbeeld van deze indeling. 
 
     We hebben hier toegewezen de **gebruikers-id** met de **ExtractMailPrefix()** functie van **user.mail**. Dit geeft de waarde van het aanpassingsvoorvoegsel van de gebruiker e-mailbericht, dit de unieke gebruikers-ID is. Deze gebruikersnaam wordt verzonden naar de SAP HANA-toepassing in elke geslaagde reactie.
 
     ![Eenmalige aanmelding configureren](./media/saphana-tutorial/attribute.png)
 
-6. In de **gebruikerskenmerken** sectie van de **eenmalige aanmelding** dialoogvenster vak, voer de volgende stappen uit:
+1. In de **gebruikerskenmerken** sectie van de **eenmalige aanmelding** dialoogvenster vak, voer de volgende stappen uit:
 
     a. In de **gebruikers-id** vervolgkeuzelijst, selecteer **ExtractMailPrefix**.
     
     b. In de **e-Mail** vervolgkeuzelijst, selecteer **user.mail**.
 
-7. Selecteer de knop **Opslaan**.
+1. Selecteer de knop **Opslaan**.
 
     ![Configureer de eenmalige aanmelding knop Opslaan](./media/saphana-tutorial/tutorial_general_400.png)
     
-8. Voor het configureren van eenmalige aanmelding aan de SAP HANA, moet u zich aanmelden bij uw **HANA XSA webconsole** door te gaan naar de respectieve HTTPS-eindpunt.
+1. Voor het configureren van eenmalige aanmelding aan de SAP HANA, moet u zich aanmelden bij uw **HANA XSA webconsole** door te gaan naar de respectieve HTTPS-eindpunt.
 
     > [!NOTE]
     > In de standaardconfiguratie leidt de URL van de aanvraag naar een aanmeldingsscherm, die de referenties van een geverifieerde gebruiker van de SAP HANA-database vereist. De gebruiker die zich aanmeldt moet machtigingen hebben voor SAML-beheertaken uitvoeren.
 
-9. Ga in de webinterface XSA naar **SAML-identiteitsprovider**. Selecteer de **+** knop aan de onderkant van het scherm om weer te geven de **identiteit Providerinfo toevoegen** deelvenster. Vervolgens voert u de volgende stappen uit:
+1. Ga in de webinterface XSA naar **SAML-identiteitsprovider**. Selecteer de **+** knop aan de onderkant van het scherm om weer te geven de **identiteit Providerinfo toevoegen** deelvenster. Vervolgens voert u de volgende stappen uit:
 
     ![ID-Provider toevoegen](./media/saphana-tutorial/sap1.png)
 
@@ -163,11 +163,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     > [!NOTE]
     > De naam van de SAML-id-provider is verplicht en moet uniek zijn. Deze wordt weergegeven in de lijst met beschikbare SAML id-providers die wordt weergegeven wanneer u SAML als de verificatiemethode voor SAP HANA XS toepassingen selecteren moeten worden gebruikt. Bijvoorbeeld, u kunt dit doen de **verificatie** scherm van het beheerprogramma voor XS artefact.
 
-10. Selecteer **opslaan** om op te slaan van de details van de SAML-id-provider en de nieuwe SAML-id-provider toevoegen aan de lijst met bekende SAML-id-providers.
+1. Selecteer **opslaan** om op te slaan van de details van de SAML-id-provider en de nieuwe SAML-id-provider toevoegen aan de lijst met bekende SAML-id-providers.
 
     ![De knop Opslaan](./media/saphana-tutorial/sap4.png)
 
-11. In HANA Studio, binnen de eigenschappen van de **configuratie** tabblad, het filteren van de instellingen door **saml**. Pas vervolgens de **assertion_timeout** van **10 sec** naar **120 per seconde**.
+1. In HANA Studio, binnen de eigenschappen van de **configuratie** tabblad, het filteren van de instellingen door **saml**. Pas vervolgens de **assertion_timeout** van **10 sec** naar **120 per seconde**.
 
     ![assertion_timeout instelling](./media/saphana-tutorial/sap7.png)
 
@@ -186,15 +186,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![De Azure Active Directory-knop](./media/saphana-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**. Selecteer vervolgens **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**. Selecteer vervolgens **alle gebruikers**.
     
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/saphana-tutorial/create_aaduser_02.png) 
 
-3. Om te openen de **gebruiker** in het dialoogvenster, selecteer **toevoegen** aan de bovenkant van het dialoogvenster.
+1. Om te openen de **gebruiker** in het dialoogvenster, selecteer **toevoegen** aan de bovenkant van het dialoogvenster.
  
     ![De knop toevoegen](./media/saphana-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+1. Op de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
  
     ![Het dialoogvenster gebruiker](./media/saphana-tutorial/create_aaduser_04.png) 
 
@@ -220,23 +220,23 @@ Als u een gebruiker handmatig hebt gemaakt wilt, kunt u de volgende stappen:
 
     ![Gebruiker maken](./media/saphana-tutorial/sap5.png)
 
-2. Schakel het selectievakje onzichtbaar aan de linkerkant van **SAML**, en selecteer vervolgens de **configureren** koppeling.
+1. Schakel het selectievakje onzichtbaar aan de linkerkant van **SAML**, en selecteer vervolgens de **configureren** koppeling.
 
-3. Selecteer **toevoegen** om toe te voegen van de SAML-id-provider.  Selecteer de juiste SAML IDP, en selecteer vervolgens **OK**.
+1. Selecteer **toevoegen** om toe te voegen van de SAML-id-provider.  Selecteer de juiste SAML IDP, en selecteer vervolgens **OK**.
 
-4. Voeg de **externe id** (in dit geval BrittaSimon) of kies **eventuele**. Selecteer vervolgens **OK**.
+1. Voeg de **externe id** (in dit geval BrittaSimon) of kies **eventuele**. Selecteer vervolgens **OK**.
 
     >[!Note]
     >Als de **eventuele** selectievakje niet is ingeschakeld, wordt de naam van de gebruiker in HANA moet exact overeenkomen met de naam van de gebruiker in de UPN voor het domeinachtervoegsel. (Bijvoorbeeld BrittaSimon@contoso.com BrittaSimon in HANA wordt.)
 
-5. Voor testdoeleinden alle toewijzen **XS** rollen aan de gebruiker.
+1. Voor testdoeleinden alle toewijzen **XS** rollen aan de gebruiker.
 
     ![Toewijzen van rollen](./media/saphana-tutorial/sap6.png)
 
     > [!TIP]
     > U moet machtigingen die geschikt voor uw use-cases alleen zijn op te geven.
 
-6. Sla de gebruiker.
+1. Sla de gebruiker.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
@@ -250,23 +250,23 @@ In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding toeg
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **SAP HANA**.
+1. Selecteer in de lijst met toepassingen, **SAP HANA**.
 
     ![Gebruiker toewijzen](./media/saphana-tutorial/tutorial_saphana_app.png) 
 
-3. Selecteer in het menu aan de linkerkant, **gebruikers en groepen**.
+1. Selecteer in het menu aan de linkerkant, **gebruikers en groepen**.
 
     ![De koppeling 'Gebruikers en groepen'][202] 
 
-4. Selecteer de **toevoegen** knop. In de **toevoegen toewijzing** in het dialoogvenster, selecteer **gebruikers en groepen**.
+1. Selecteer de **toevoegen** knop. In de **toevoegen toewijzing** in het dialoogvenster, selecteer **gebruikers en groepen**.
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. In de **gebruikers en groepen** in het dialoogvenster, selecteer **Britta Simon** in de **gebruikers** lijst.
+1. In de **gebruikers en groepen** in het dialoogvenster, selecteer **Britta Simon** in de **gebruikers** lijst.
 
-6. Klik op de **Selecteer** knop in de **gebruikers en groepen** in het dialoogvenster.
+1. Klik op de **Selecteer** knop in de **gebruikers en groepen** in het dialoogvenster.
 
-7. Selecteer de **toewijzen** knop in de **toevoegen toewijzing** in het dialoogvenster.
+1. Selecteer de **toewijzen** knop in de **toevoegen toewijzing** in het dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -278,7 +278,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 

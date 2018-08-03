@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 97154f0ee8f07e0fa4fe8d70fef997144251c27d
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 571b1723c1c064415e4d8cbee3620799af14d508
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041976"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428261"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>Zelfstudie: Azure Active Directory-integratie met PolicyStat
 
@@ -52,7 +52,7 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. PolicyStat uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-policystat-from-the-gallery"></a>PolicyStat uit de galerie toe te voegen
 Voor het configureren van de integratie van PolicyStat in Azure AD, moet u PolicyStat uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -63,19 +63,19 @@ Voor het configureren van de integratie van PolicyStat in Azure AD, moet u Polic
 
     ![Active Directory][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **PolicyStat**.
+1. Typ in het zoekvak **PolicyStat**.
 
     ![Het maken van een Azure AD-testgebruiker](./media/policystat-tutorial/tutorial_policystat_search.png)
 
-5. Selecteer in het deelvenster resultaten **PolicyStat**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Selecteer in het deelvenster resultaten **PolicyStat**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Het maken van een Azure AD-testgebruiker](./media/policystat-tutorial/tutorial_policystat_addfromgallery.png)
 
@@ -89,10 +89,10 @@ In PolicyStat, wijs de waarde van de **gebruikersnaam** in Azure AD als de waard
 Om te configureren en testen van Azure AD eenmalige aanmelding met PolicyStat, moet u de volgende bouwstenen voltooien:
 
 1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Het maken van een testgebruiker PolicyStat](#creating-a-policystat-test-user)**  : als u wilt een equivalent van Britta Simon in PolicyStat die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Het maken van een testgebruiker PolicyStat](#creating-a-policystat-test-user)**  : als u wilt een equivalent van Britta Simon in PolicyStat die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -104,11 +104,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/policystat-tutorial/tutorial_policystat_samlbase.png)
 
-3. Op de **PolicyStat domein en URL's** sectie, voert u de volgende stappen uit:
+1. Op de **PolicyStat domein en URL's** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/policystat-tutorial/tutorial_policystat_url.png)
 
@@ -119,11 +119,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     > [!NOTE] 
     > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [PolicyStat Client ondersteuningsteam](http://www.policystat.com/support/) om deze waarden te verkrijgen. 
  
-4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/policystat-tutorial/tutorial_policystat_certificate.png) 
 
-5. Het doel van deze sectie is om een overzicht van hoe u gebruikers wilt verifiëren naar PolicyStat met hun account in Azure AD gebruikmaakt van Federatie op basis van het SAML-protocol te.
+1. Het doel van deze sectie is om een overzicht van hoe u gebruikers wilt verifiëren naar PolicyStat met hun account in Azure AD gebruikmaakt van Federatie op basis van het SAML-protocol te.
 
     De toepassing PolicyStat wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, die vereist dat u om toe te voegen van aangepast kenmerktoewijzingen aan uw **SAML-Token kenmerken** configuratie.  
 
@@ -131,7 +131,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
      ![Kenmerken](./media/policystat-tutorial/tutorial_policystat_attribute.png "kenmerken")
 
-6. Als u wilt toevoegen de vereiste kenmerktoewijzingen, moet u de volgende stappen uitvoeren:
+1. Als u wilt toevoegen de vereiste kenmerktoewijzingen, moet u de volgende stappen uitvoeren:
 
     | Naam kenmerk    |   Waarde kenmerk |
     |------------------- | -------------------- |
@@ -151,21 +151,21 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     
     e. Klik op **Ok**
 
-7. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/policystat-tutorial/tutorial_general_400.png)
 
-8. Meld u in een ander browservenster in uw bedrijf PolicyStat site als beheerder.
+1. Meld u in een ander browservenster in uw bedrijf PolicyStat site als beheerder.
 
-9. Klik op de **Admin** tabblad en klik vervolgens op **configuratie voor eenmalige aanmelding** in het navigatiedeelvenster links.
+1. Klik op de **Admin** tabblad en klik vervolgens op **configuratie voor eenmalige aanmelding** in het navigatiedeelvenster links.
    
     ![Menu beheerder](./media/policystat-tutorial/ic808633.png "Menu beheerder")
 
-10. In de **Setup** sectie, selecteer **inschakelen Single Sign-on integratie**.
+1. In de **Setup** sectie, selecteer **inschakelen Single Sign-on integratie**.
    
     ![Single Sign-On configuratie](./media/policystat-tutorial/ic808634.png "Single Sign-On-configuratie")
 
-11. Klik op **kenmerken configureren**, en klik vervolgens op de **kenmerken configureren** sectie, voert u de volgende stappen uit:
+1. Klik op **kenmerken configureren**, en klik vervolgens op de **kenmerken configureren** sectie, voert u de volgende stappen uit:
    
     ![Single Sign-On configuratie](./media/policystat-tutorial/ic808635.png "Single Sign-On-configuratie")
    
@@ -179,7 +179,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     e. Klik op **wijzigingen opslaan**.
 
-12. Klik op **metagegevens van uw id-provider**, en klik vervolgens op de **uw IDP metagegevens** sectie, voert u de volgende stappen uit:
+1. Klik op **metagegevens van uw id-provider**, en klik vervolgens op de **uw IDP metagegevens** sectie, voert u de volgende stappen uit:
    
     ![Single Sign-On configuratie](./media/policystat-tutorial/ic808636.png "Single Sign-On-configuratie")
    
@@ -202,15 +202,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![Het maken van een Azure AD-testgebruiker](./media/policystat-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
     ![Het maken van een Azure AD-testgebruiker](./media/policystat-tutorial/create_aaduser_02.png) 
 
-3. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
     ![Het maken van een Azure AD-testgebruiker](./media/policystat-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
     ![Het maken van een Azure AD-testgebruiker](./media/policystat-tutorial/create_aaduser_04.png) 
 
@@ -244,23 +244,23 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **PolicyStat**.
+1. Selecteer in de lijst met toepassingen, **PolicyStat**.
 
     ![Eenmalige aanmelding configureren](./media/policystat-tutorial/tutorial_policystat_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -272,7 +272,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 

@@ -1,6 +1,6 @@
 ---
 title: Zeppelin-notebooks gebruiken met Apache Spark-cluster in Azure HDInsight | Microsoft Docs
-description: Stapsgewijze instructies voor het gebruik van Zeppelin-notebooks met Apache Spark-clusters op Azure HDInsight.
+description: Stapsgewijze instructies voor het Zeppelin-notebooks gebruiken met Apache Spark-clusters in Azure HDInsight.
 services: hdinsight
 documentationcenter: ''
 author: nitinme
@@ -13,46 +13,46 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: b2f47dce058af7a39366c06d0b33117a66ed116a
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 0346e81fb7601085df483291ff352cc611e9a2b0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31521998"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429449"
 ---
-# <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Zeppelin-notebooks met Apache Spark-cluster in Azure HDInsight gebruiken
+# <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Zeppelin-notebooks gebruiken met Apache Spark-cluster in Azure HDInsight
 
-HDInsight Spark-clusters bevatten Zeppelin-notebooks die u gebruiken kunt om uit te voeren Spark taken. In dit artikel leert u hoe u de notebook Zeppelin gebruikt op een HDInsight-cluster.
+HDInsight Spark-clusters bevatten Zeppelin-notitieblokken die u kunt Spark-taken uitvoeren. In dit artikel leert u hoe u kunt de Zeppelin-notitieblok gebruiken op een HDInsight-cluster.
 
 > [!NOTE]
-> Zeppelin-notebooks zijn alleen beschikbaar voor Spark 1.6.3 in HDInsight 3.5 en Spark 2.1.0 in HDInsight 3.6.
+> Zeppelin-notebooks zijn alleen beschikbaar voor Spark 1.6.3 in HDInsight 3.5 en 2.1.0 Spark in HDInsight 3.6.
 >
 
 **Vereisten:**
 
 * Een Azure-abonnement. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Een Apache Spark-cluster in HDInsight. Zie voor instructies [maken Apache Spark-clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* Een Apache Spark-cluster in HDInsight. Zie [Apache Spark-clusters maken in Azure HDInsight](apache-spark-jupyter-spark-sql.md) voor instructies.
 
-## <a name="launch-a-zeppelin-notebook"></a>Een laptop Zeppelin starten
-1. Klik in de blade Spark-cluster op **Cluster-Dashboard**, en klik vervolgens op **Zeppelin-Notebook**. Voer de beheerdersreferenties voor het cluster in als u daarom wordt gevraagd.
+## <a name="launch-a-zeppelin-notebook"></a>Start een Zeppelin-notitieblok
+1. Klik in de blade Spark-cluster op **Clusterdashboard**, en klik vervolgens op **Zeppelin-notitieblok**. Voer de beheerdersreferenties voor het cluster in als u daarom wordt gevraagd.
    
    > [!NOTE]
-   > U mogelijk ook de Zeppelin-Notebook voor uw cluster bereiken door de volgende URL in uw browser te openen. Vervang **CLUSTERNAME** door de naam van uw cluster.
+   > U kunt ook contact opnemen de Zeppelin-Notebook voor uw cluster door het openen van de volgende URL in uw browser. Vervang **CLUSTERNAME** door de naam van uw cluster.
    > 
    > `https://CLUSTERNAME.azurehdinsight.net/zeppelin`
    > 
    > 
-2. Maak een nieuwe notebook. Klik in het headerdeelvenster **Notebook**, en klik vervolgens op **nieuwe notitie maken**.
+1. Maak een nieuwe notebook. Klik in het headerdeelvenster **Notebook**, en klik vervolgens op **nieuwe notitie maken**.
    
     ![Maak een nieuwe Zeppelin-notebook](./media/apache-spark-zeppelin-notebook/hdinsight-create-zeppelin-notebook.png "een nieuwe Zeppelin-notebook maken")
    
     Voer een naam voor de notebook en klik vervolgens op **opmerking maken**.
-3. Controleer ook of dat de notebook-header bevat een verbonden status. Dit wordt aangeduid met een groen punt in de rechterbovenhoek.
+1. Controleer ook of dat de notebook-header geeft de status van een verbonden. Dit wordt aangeduid met een groene punt in de rechterbovenhoek.
    
-    ![Zeppelin-notebook status](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png "Zeppelin-notebook status")
-4. Laad voorbeeldgegevens in een tijdelijke tabel. Wanneer u een Spark-cluster in HDInsight, het voorbeeldgegevensbestand maakt **hvac.csv**, wordt gekopieerd naar de bijbehorende opslagaccount onder **\HdiSamples\SensorSampleData\hvac**.
+    ![Zeppelin-notebook status](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-connected.png "Zeppelin notebook status")
+1. Laad voorbeeldgegevens in een tijdelijke tabel. Wanneer u een Spark-cluster in HDInsight, het bestand met voorbeeldgegevens maakt **hvac.csv**, wordt gekopieerd naar het bijbehorende opslagaccount onder **\HdiSamples\SensorSampleData\hvac**.
    
-    Plak het volgende codefragment in de lege alinea die standaard in de nieuwe laptop is gemaakt.
+    Plak het volgende codefragment in de lege alinea die wordt standaard in de nieuwe notebook gemaakt.
    
         %livy.spark
         //The above magic instructs Zeppelin to use the Livy Scala interpreter
@@ -76,61 +76,61 @@ HDInsight Spark-clusters bevatten Zeppelin-notebooks die u gebruiken kunt om uit
         // Register as a temporary table called "hvac"
         hvac.registerTempTable("hvac")
    
-    Druk op **SHIFT + ENTER** of klik op de **afspelen** knop voor de alinea om uit te voeren van het fragment. De status van de rechterbenedenhoek van de alinea moet de voortgang van READY, PENDING, die wordt uitgevoerd op voltooid. De uitvoer wordt weergegeven aan de onderkant van dezelfde paragraph. De schermafbeelding ziet er als volgt:
+    Druk op **SHIFT + ENTER** of klik op de **afspelen** knop van de alinea om uit te voeren in het codefragment. De status van de rechterbenedenhoek van de alinea moet de voortgang van gereed is, in behandeling, die wordt uitgevoerd op voltooid. De uitvoer wordt weergegeven aan de onderkant van stejném paragraph. De schermafbeelding ziet er als volgt uit:
    
-    ![Een tijdelijke tabel maken van ruwe gegevens](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "een tijdelijke tabel maken van ruwe gegevens")
+    ![Maak een tijdelijke tabel van onbewerkte gegevens](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "een tijdelijke tabel maken van onbewerkte gegevens")
    
-    U kunt ook een titel op elke alinea opgeven. Klik in de rechterhoek op de **instellingen** pictogram en klik vervolgens op **titel weergeven**.
-5. U kunt nu Spark SQL-instructies uitvoeren op de **hvac** tabel. Plak de volgende query in een nieuwe alinea. De query haalt de gebouw-ID en het verschil tussen het doel en de werkelijke temperaturen voor elke bouwen op een bepaalde datum. Druk op **SHIFT + ENTER**.
+    U kunt ook een titel aan elke alinea opgeven. Klik in de rechterhoek op de **instellingen** pictogram en klik vervolgens op **titel weergeven**.
+1. U kunt nu Spark SQL-instructies uitvoeren op de **hvac** tabel. De volgende query in een nieuwe alinea te plakken. De query haalt de gebouw-ID en het verschil tussen het doel en de werkelijke temperaturen voor elke bouwen op een bepaalde datum. Druk op **SHIFT + ENTER**.
    
         %sql
         select buildingID, (targettemp - actualtemp) as temp_diff, date from hvac where date = "6/1/13" 
    
-    De **% sql** instructie aan het begin vertelt de notebook de interpreter Livy Scala gebruiken.
+    De **% sql** instructie aan het begin wordt de notebook geïnstrueerd om het gebruik van de Livy Scala-interpreter.
    
     De volgende schermafbeelding ziet u de uitvoer.
    
-    ![Voer een Spark SQL-instructie met behulp van de notebook](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "een Spark SQL-instructie met behulp van de notebook uitvoert")
+    ![Een Spark SQL-instructie met behulp van de notebook uitvoert](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-1.png "voert u een Spark SQL-instructie uit met behulp van de notebook")
    
-     Klik op de weergaveopties (gemarkeerd rechthoek) om te schakelen tussen de verschillende manieren voor dezelfde uitvoer. Klik op **instellingen** kiezen welke consitutes de sleutel en de waarden in de uitvoer. Maakt gebruik van de bovenstaande schermafbeelding **buildingID** als de sleutel en het gemiddelde van **temp_diff** als de waarde.
-6. U kunt ook Spark SQL-instructies voor het gebruik van variabelen in de query uitvoeren. Het volgende fragment toont hoe een variabele definiëren **Temp**, in de query met de mogelijke waarden die u wilt zoeken met. Wanneer u de query voor het eerst uitvoert, wordt een vervolgkeuzelijst automatisch ingevuld met de waarden die u hebt opgegeven voor de variabele.
+     Klik op de weergaveopties (rechthoek gemarkeerd) als u wilt overschakelen tussen verschillende manieren voor hetzelfde resultaat. Klik op **instellingen** om te kiezen welke consitutes de sleutel en de waarden in de uitvoer. Maakt gebruik van de bovenstaande schermopname **buildingID** als de sleutel en het gemiddelde van **temp_diff** als de waarde.
+1. U kunt ook Spark SQL-instructies voor het gebruik van variabelen in de query uitvoeren. Het volgende fragment ziet u hoe u een variabele, **Temp**, in de query met de mogelijke waarden die u wilt zoeken met. Wanneer u de query voor het eerst uitvoert, wordt een vervolgkeuzelijst wordt automatisch gevuld met de waarden die u hebt opgegeven voor de variabele.
    
         %sql
         select buildingID, date, targettemp, (targettemp - actualtemp) as temp_diff from hvac where targettemp > "${Temp = 65,65|75|85}" 
    
-    In dit fragment plakken in een nieuwe alinea en druk op **SHIFT + ENTER**. De volgende schermafbeelding ziet u de uitvoer.
+    Dit fragment plakken in een nieuwe alinea en druk op **SHIFT + ENTER**. De volgende schermafbeelding ziet u de uitvoer.
    
-    ![Voer een Spark SQL-instructie met behulp van de notebook](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "een Spark SQL-instructie met behulp van de notebook uitvoert")
+    ![Een Spark SQL-instructie met behulp van de notebook uitvoert](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-spark-query-2.png "voert u een Spark SQL-instructie uit met behulp van de notebook")
    
-    U kunt voor de volgende query's, selecteert u een nieuwe waarde in de vervolgkeuzelijst en voer de query opnieuw uit. Klik op **instellingen** kiezen welke consitutes de sleutel en de waarden in de uitvoer. Maakt gebruik van de bovenstaande schermafbeelding **buildingID** als de sleutel, wordt het gemiddelde van **temp_diff** als de waarde en **targettemp** als de groep.
-7. Start de interpreter Livy om af te sluiten van de toepassing opnieuw. Om dit te doen interpreter instellingen openen door te klikken op de geregistreerde gebruikersnaam in de rechterbovenhoek en klik vervolgens op **Interpreter**.
+    U kunt voor de volgende query's, selecteert u een nieuwe waarde in de vervolgkeuzelijst en voer de query opnieuw uit. Klik op **instellingen** om te kiezen welke consitutes de sleutel en de waarden in de uitvoer. Maakt gebruik van de bovenstaande schermopname **buildingID** als de sleutel, het gemiddelde van **temp_diff** als de waarde en **targettemp** als de groep.
+1. Start opnieuw op de Livy-interpreter om de toepassing af te sluiten. Om dit te doen, interpreter instellingen openen door te klikken op de geregistreerde gebruikersnaam in de rechterbovenhoek en klik vervolgens op **Interpreter**.
    
     ![Start interpreter](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Hive-uitvoer")
-8. Schuif naar Livy interpreter instellingen en klik vervolgens op **opnieuw**.
+1. Schuif naar Livy-interpreter instellingen en klik vervolgens op **opnieuw**.
    
     ![Opnieuw opstarten van de intepreter Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "opnieuw opstarten van de intepreter Zeppelin")
 
-## <a name="how-do-i-use-external-packages-with-the-notebook"></a>Hoe gebruik ik externe pakketten met de notebook
-U kunt de notebook Zeppelin in Apache Spark-cluster in HDInsight (Linux) configureren voor het gebruik van externe, community bijgedragen pakketten die niet opgenomen out-of-the-box in het cluster zijn. U kunt zoeken in de [Maven opslagplaats](http://search.maven.org/) voor de volledige lijst met pakketten die beschikbaar zijn. U kunt ook een lijst met beschikbare pakketten opvragen uit andere bronnen. Bijvoorbeeld, een volledige lijst met pakketten community bijgedragen is beschikbaar op [Spark pakketten](http://spark-packages.org/).
+## <a name="how-do-i-use-external-packages-with-the-notebook"></a>Hoe ik externe pakketten gebruiken met de notebook?
+U kunt de Zeppelin-notitieblok in Apache Spark-cluster in HDInsight (Linux) configureren voor het gebruik van externe, door de community geleverde pakketten die niet opgenomen out-of-the-box in het cluster zijn. U kunt zoeken naar de [Maven-opslagplaats](http://search.maven.org/) voor de volledige lijst met pakketten die beschikbaar zijn. U kunt ook een lijst met beschikbare pakketten ophalen uit andere bronnen. Bijvoorbeeld, een volledige lijst van door de community geleverde pakketten is beschikbaar op [Spark pakketten](http://spark-packages.org/).
 
 In dit artikel ziet u hoe u de [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) pakket met de Jupyter-notebook.
 
-1. Open interpreter instellingen. Klikt u op de geregistreerde gebruikersnaam in de rechterbovenhoek en klik vervolgens op **Interpreter**.
+1. Instellingen voor Open-interpreter. In de rechterbovenhoek klikt u op de geregistreerde naam in en klik vervolgens op **Interpreter**.
    
     ![Start interpreter](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Hive-uitvoer")
-2. Schuif naar Livy interpreter instellingen en klik vervolgens op **bewerken**.
+1. Schuif naar Livy-interpreter instellingen en klik vervolgens op **bewerken**.
    
-    ![Wijzig de instellingen van de interpreter](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "interpreter instellingen wijzigen")
-3. Voeg een nieuwe sleutel aangeroepen **livy.spark.jars.packages** en stel de waarde in de notatie `group:id:version`. Dus als u wilt gebruiken de [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) pakket, moet u de waarde van de sleutel instellen `com.databricks:spark-csv_2.10:1.4.0`.
+    ![Wijzigen van instellingen voor interpreter](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "interpreter instellingen wijzigen")
+1. Voeg een nieuwe sleutel toe met de naam **livy.spark.jars.packages** en stel de waarde in de indeling `group:id:version`. Als u wilt gebruiken de [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) pakket, moet u de waarde van de sleutel instellen `com.databricks:spark-csv_2.10:1.4.0`.
    
-    ![Wijzig de instellingen van de interpreter](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "interpreter instellingen wijzigen")
+    ![Wijzigen van instellingen voor interpreter](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "interpreter instellingen wijzigen")
    
-    Klik op **opslaan** en start vervolgens opnieuw de interpreter Livy.
-4. **Tip**: als u wilt weten hoe moet worden uitgevoerd op de waarde van de sleutel dat hierboven is opgegeven, wordt hier hoe.
+    Klik op **opslaan** en start vervolgens opnieuw de Livy-interpreter.
+1. **Tip**: als u wilt weten hoe u om naar de waarde van de sleutel die hierboven zijn ingevoerd, ziet u hier hoe.
    
-    a. Het pakket niet vinden in de opslagplaats met Maven. Voor deze zelfstudie gebruikt we [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
+    a. Het pakket niet vinden in de Maven-opslagplaats. Voor deze zelfstudie gebruikt we [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
-    b. Verzamel de waarden voor uit de opslagplaats **GroupId**, **artefact-id**, en **versie**.
+    b. Verzamel uit de opslagplaats en de waarden voor **groeps-id**, **ArtifactId**, en **versie**.
    
     ![Externe pakketten gebruiken met Jupyter-notebook](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "externe pakketten gebruiken met Jupyter-notebook")
    
@@ -139,24 +139,24 @@ In dit artikel ziet u hoe u de [spark-csv](http://search.maven.org/#artifactdeta
         com.databricks:spark-csv_2.10:1.4.0
 
 ## <a name="where-are-the-zeppelin-notebooks-saved"></a>Waar worden de Zeppelin-notebooks opgeslagen?
-Zeppelin-notebooks worden opgeslagen in de cluster-headnodes. Dus als u het cluster verwijdert, wordt de laptops ook verwijderd. Als u uw notitieblokken voor later gebruik op andere clusters behouden wilt, moet u deze exporteren wanneer u klaar bent met het uitvoeren van de taken. Als u wilt exporteren een laptop, klikt u op de **exporteren** pictogram zoals weergegeven in de onderstaande afbeelding.
+Zeppelin-notebooks worden opgeslagen in de hoofdknooppunten van het cluster. Dus als u het cluster verwijdert, wordt de notebooks eveneens worden verwijderd. Als u uw notitieblokken voor later gebruik in andere clusters behouden wilt, moet u deze exporteren wanneer u klaar bent met het uitvoeren van de taken. Voor het exporteren van een laptop, klikt u op de **exporteren** pictogram zoals wordt weergegeven in de onderstaande afbeelding.
 
 ![Downloaden van de notebook](./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png "downloaden van de notebook")
 
-Hiermee wordt de notebook opgeslagen als een JSON-bestand op uw downloadlocatie.
+Dit wordt de notebook opgeslagen als JSON-bestand in uw downloadlocatie.
 
 ## <a name="livy-session-management"></a>Sessiebeheer Livy
-Wanneer u de eerste alinea in de code in uw laptop Zeppelin uitvoert, wordt een nieuwe sessie van Livy gemaakt in uw HDInsight Spark-cluster. Deze sessie worden verdeeld over alle Zeppelin-notebooks die u maakt. Als de Livy sessie is beëindigd voor een bepaalde reden (cluster opnieuw opstarten, enzovoort), is het niet mogelijk om uit te voeren taken van de notebook Zeppelin.
+Wanneer u het eerste lid van de code in uw Zeppelin-notitieblok uitvoert, wordt een nieuwe sessie van Livy gemaakt in uw HDInsight Spark-cluster. Deze sessie wordt gedeeld door alle Zeppelin-notitieblokken die u maakt. Als de Livy sessie is afgesloten om een bepaalde reden (cluster opnieuw opstarten, enzovoort), wordt het niet mogelijk om uit te voeren taken vanuit de Zeppelin-notitieblok.
 
-In dat geval moet u de volgende stappen uitvoeren voordat u taken uitvoert vanuit een Zeppelin-notebook kunt starten. 
+In dat geval moet u de volgende stappen uitvoeren voordat u kunt beginnen met het uitvoeren van taken van een Zeppelin-notitieblok. 
 
-1. De interpreter Livy van de notebook Zeppelin opnieuw opstarten Om dit te doen interpreter instellingen openen door te klikken op de geregistreerde gebruikersnaam in de rechterbovenhoek en klik vervolgens op **Interpreter**.
+1. Start opnieuw op de Livy-interpreter vanuit het Zeppelin-notitieblok. Om dit te doen, interpreter instellingen openen door te klikken op de geregistreerde gebruikersnaam in de rechterbovenhoek en klik vervolgens op **Interpreter**.
    
     ![Start interpreter](./media/apache-spark-zeppelin-notebook/zeppelin-launch-interpreter.png "Hive-uitvoer")
-2. Schuif naar Livy interpreter instellingen en klik vervolgens op **opnieuw**.
+1. Schuif naar Livy-interpreter instellingen en klik vervolgens op **opnieuw**.
    
     ![Opnieuw opstarten van de intepreter Livy](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-restart-interpreter.png "opnieuw opstarten van de intepreter Zeppelin")
-3. Een codecel uitvoeren vanaf een bestaande Zeppelin-notebook. Hiermee maakt u een nieuwe sessie van Livy in het HDInsight-cluster.
+1. Voer een codecel uit een bestaand Zeppelin-notitieblok. Hiermee maakt u een nieuwe Livy-sessie in het HDInsight-cluster.
 
 ## <a name="seealso"></a>Zie ook
 * [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md)
