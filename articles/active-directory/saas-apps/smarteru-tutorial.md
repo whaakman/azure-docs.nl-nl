@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: e07ed8f131697d6340b899ef76c988aed215556b
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 12c7a2751b980ef7951be9043a62dbb1ec50a63d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283408"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439758"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smarteru"></a>Zelfstudie: Azure Active Directory-integratie met SmarterU
 
@@ -52,7 +52,7 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. SmarterU uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-smarteru-from-the-gallery"></a>SmarterU uit de galerie toe te voegen
 Voor het configureren van de integratie van SmarterU in Azure AD, moet u SmarterU uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -63,19 +63,19 @@ Voor het configureren van de integratie van SmarterU in Azure AD, moet u Smarter
 
     ![Active Directory][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **SmarterU**.
+1. Typ in het zoekvak **SmarterU**.
 
     ![Het maken van een Azure AD-testgebruiker](./media/smarteru-tutorial/tutorial_smarteru_search.png)
 
-5. Selecteer in het deelvenster resultaten **SmarterU**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Selecteer in het deelvenster resultaten **SmarterU**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Het maken van een Azure AD-testgebruiker](./media/smarteru-tutorial/tutorial_smarteru_addfromgallery.png)
 
@@ -89,10 +89,10 @@ In SmarterU, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde 
 Om te configureren en testen van Azure AD eenmalige aanmelding met SmarterU, moet u de volgende bouwstenen voltooien:
 
 1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Het maken van een testgebruiker SmarterU](#creating-a-smarteru-test-user)**  : als u wilt een equivalent van Britta Simon in SmarterU die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Het maken van een testgebruiker SmarterU](#creating-a-smarteru-test-user)**  : als u wilt een equivalent van Britta Simon in SmarterU die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -104,31 +104,31 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/smarteru-tutorial/tutorial_smarteru_samlbase.png)
 
-3. Op de **SmarterU domein en URL's** sectie, voert u de volgende stappen uit: 
+1. Op de **SmarterU domein en URL's** sectie, voert u de volgende stappen uit: 
 
     ![Eenmalige aanmelding configureren](./media/smarteru-tutorial/tutorial_smarteru_url.png)
 
     In de **id** tekstvak typt u de URL: `https://www.smarteru.com/`
 
-4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/smarteru-tutorial/tutorial_smarteru_certificate.png) 
 
-5. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/smarteru-tutorial/tutorial_general_400.png)
 
-6. In een ander browservenster aanmelden bij uw bedrijf SmarterU site als beheerder.
+1. In een ander browservenster aanmelden bij uw bedrijf SmarterU site als beheerder.
 
-7. Klik in de werkbalk bovenaan op **Accountinstellingen**.
+1. Klik in de werkbalk bovenaan op **Accountinstellingen**.
    
     ![Accountinstellingen](./media/smarteru-tutorial/accountsettings.png)
 
-8. Voer de volgende stappen uit op de configuratiepagina van account:
+1. Voer de volgende stappen uit op de configuratiepagina van account:
    
     ![Externe verificatie](./media/smarteru-tutorial/externalauthorizationconfiguration.png) 
  
@@ -161,15 +161,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![Het maken van een Azure AD-testgebruiker](./media/smarteru-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
     ![Het maken van een Azure AD-testgebruiker](./media/smarteru-tutorial/create_aaduser_02.png) 
 
-3. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
     ![Het maken van een Azure AD-testgebruiker](./media/smarteru-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
     ![Het maken van een Azure AD-testgebruiker](./media/smarteru-tutorial/create_aaduser_04.png) 
 
@@ -191,9 +191,9 @@ SmarterU, wordt ingericht als een handmatige taak is.
 
 1. Meld u aan bij uw **SmarterU** tenant.
 
-2. Ga naar **gebruikers**.
+1. Ga naar **gebruikers**.
 
-3. In de sectie van de gebruiker, moet u de volgende stappen uitvoeren:
+1. In de sectie van de gebruiker, moet u de volgende stappen uitvoeren:
    
     ![Nieuwe gebruiker](./media/smarteru-tutorial/adduser.png)  
 
@@ -221,23 +221,23 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **SmarterU**.
+1. Selecteer in de lijst met toepassingen, **SmarterU**.
 
     ![Eenmalige aanmelding configureren](./media/smarteru-tutorial/tutorial_smarteru_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 

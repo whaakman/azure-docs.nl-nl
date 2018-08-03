@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.author: mabrigg
 ms.reviewer: sijuman
-ms.openlocfilehash: 1b59409e43a23dd63a6697a44a20df079a751516
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: e5dd41b34c41c442034e0a7ccb74c8d5b6583753
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866855"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436706"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>API-versieprofielen gebruiken met Azure CLI 2.0 in Azure Stack
 
@@ -38,7 +38,7 @@ Hier ziet u de versie van Azure CLI en andere afhankelijke bibliotheken die zijn
 
 1. Ophalen van de Azure Stack-CA-basiscertificaat van [uw Azure Stack-operators](..\azure-stack-cli-admin.md#export-the-azure-stack-ca-root-certificate) en vertrouwt. Als u het basiscertificaat van de Azure Stack-CA vertrouwt, voegt u deze toe aan het bestaande certificaat voor Python.
 
-2. De certificaatlocatie op uw computer vinden. De locatie kan variëren, afhankelijk van waar u Python hebt geïnstalleerd. U moet hebben [pip](https://pip.pypa.io) en de [gecertificeerde](https://pypi.org/project/certifi/) -module geïnstalleerd. U kunt de volgende Python-opdracht uit vanuit de bash-prompt:
+1. De certificaatlocatie op uw computer vinden. De locatie kan variëren, afhankelijk van waar u Python hebt geïnstalleerd. U moet hebben [pip](https://pip.pypa.io) en de [gecertificeerde](https://pypi.org/project/certifi/) -module geïnstalleerd. U kunt de volgende Python-opdracht uit vanuit de bash-prompt:
 
   ```bash  
     python -c "import certifi; print(certifi.where())"
@@ -60,9 +60,9 @@ Als u CLI van een virtuele machine uitvoert **buiten** de Azure Stack-omgeving:
 
 1. U moet instellen [VPN-verbinding met Azure Stack](azure-stack-connect-azure-stack.md).
 
-2. Kopieer het PEM-certificaat dat u hebt verkregen via de Azure Stack-operators en noteer de locatie van het bestand (PATH_TO_PEM_FILE).
+1. Kopieer het PEM-certificaat dat u hebt verkregen via de Azure Stack-operators en noteer de locatie van het bestand (PATH_TO_PEM_FILE).
 
-3. Voer de volgende opdrachten, afhankelijk afloopt op uw ontwikkelwerkstation OS.
+1. Voer de volgende opdrachten, afhankelijk afloopt op uw ontwikkelwerkstation OS.
 
 #### <a name="linux"></a>Linux
 
@@ -140,7 +140,7 @@ Gebruik de volgende stappen uit om te verbinden met Azure Stack:
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
 
-2. De actieve omgeving instellen met behulp van de volgende opdrachten.
+1. De actieve omgeving instellen met behulp van de volgende opdrachten.
 
    a. Voor de *cloud administratieve* omgeving gebruiken:
 
@@ -156,14 +156,14 @@ Gebruik de volgende stappen uit om te verbinden met Azure Stack:
         -n AzureStackUser
       ```
 
-3. Werk de configuratie van uw omgeving voor het gebruik van de Azure Stack specifieke API-versie-profiel. Voor het bijwerken van de configuratie, moet u de volgende opdracht uitvoeren:
+1. Werk de configuratie van uw omgeving voor het gebruik van de Azure Stack specifieke API-versie-profiel. Voor het bijwerken van de configuratie, moet u de volgende opdracht uitvoeren:
 
    ```azurecli
    az cloud update \
      --profile 2017-03-09-profile
    ```
 
-4. Aanmelden bij uw Azure Stack-omgeving met behulp van de `az login` opdracht. U kunt aanmelden bij de Azure Stack-omgeving als een gebruiker of als een [service-principal](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
+1. Aanmelden bij uw Azure Stack-omgeving met behulp van de `az login` opdracht. U kunt aanmelden bij de Azure Stack-omgeving als een gebruiker of als een [service-principal](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
    * Meld u aan als een *gebruiker*: U kunt de gebruikersnaam en het wachtwoord rechtstreeks binnen opgeven de `az login` opdracht of verifiëren met behulp van een browser. U moet de laatste doen als uw account multi-factor authentication ingeschakeld heeft.
 

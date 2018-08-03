@@ -17,12 +17,12 @@ ms.date: 07/12/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4fbde5306efb2de5cfe3ffd0a49b9e24a7b67e8c
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 986440e5af2fb665f5d7e244f2df12edba09f022
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003955"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431297"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Moet ik het v2.0-eindpunt gebruiken?
 
@@ -31,7 +31,7 @@ Wanneer u toepassingen die zijn geïntegreerd met Azure Active Directory (Azure 
 Dit is een vereenvoudigde aanbeveling voor ontwikkelaars op dit moment:
 
 * Als in uw toepassing, u persoonlijke Microsoft-accounts ondersteunen moet, gebruikt u het v2.0-eindpunt. Maar voordat u dit doet, moet u dat u begrijpt dat de beperkingen die in dit artikel worden besproken.
-* Als uw toepassing alleen moet ondersteuning voor Microsoft werk en schoolaccounts, hoeft u het v2.0-eindpunt. In plaats daarvan verwijzen naar de [ontwikkelaarsgids van Azure AD](active-directory-developers-guide.md).
+* Als uw toepassing alleen moet ondersteuning voor Microsoft werk en schoolaccounts, hoeft u het v2.0-eindpunt. In plaats daarvan verwijzen naar de [ontwikkelaarsgids van Azure AD](azure-ad-developers-guide.md).
 
 Het v2.0-eindpunt wordt aangepast om te voorkomen van de beperkingen die hier worden vermeld, zodat u alleen ooit moet het v2.0-eindpunt gebruiken. In de tussentijd Gebruik dit artikel om te bepalen of het v2.0-eindpunt bij u past. We blijven om bij te werken in dit artikel om de huidige status van het v2.0-eindpunt weer te geven. Controleer terug Evalueer uw vereisten op basis van v2.0-mogelijkheden.
 

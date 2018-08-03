@@ -1,6 +1,6 @@
 ---
-title: 'App-Service op Azure Stack: Fault-domein Update | Microsoft Docs'
-description: Het distribueren van Azure App Service op Azure-Stack in domeinen met fouten
+title: 'App Service op Azure Stack: domein Update Fault | Microsoft Docs'
+description: Over het distribueren van Azure App Service in Azure Stack in domeinen met fouten
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: anwestg
-ms.openlocfilehash: ce57e153dcab6a386150ebefe1ecb4a018514247
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 53766099f283f802482fe8e84144502d386b1d69
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130367"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440148"
 ---
-# <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Het distribueren van Azure App Service op Azure-Stack in domeinen met fouten
+# <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Over het distribueren van Azure App Service in Azure Stack in domeinen met fouten
 
-*Van toepassing op: Azure Stack geïntegreerd systemen*
+*Is van toepassing op: Azure Stack-geïntegreerde systemen*
 
-Met de update 1802 ondersteunt Azure Stack nu de distributie van werkbelastingen tussen domeinen met fouten, een functie die van essentieel belang voor hoge beschikbaarheid.
+Met de update 1802 ondersteunt Azure Stack nu de distributie van workloads in domeinen met fouten, een functie die essentieel zijn voor hoge beschikbaarheid.
 
 >[!IMPORTANT]
->Om te profiteren van ondersteuning voor fouttolerantie domeinen, moet u uw Azure-Stack geïntegreerd systeem naar 1802 bijwerken. Dit document is alleen van toepassing op App Service resource provider-implementaties die zijn voltooid voordat u de update 1802. Als u App-Service op Azure-Stack geïmplementeerd nadat de update 1802 is toegepast op Azure-Stack, wordt de resourceprovider al verdeeld over de domeinen met fouten.
+>Als u wilt profiteren van ondersteuning voor fout met betrekking tot domeinen, moet u uw geïntegreerde Azure Stack-systeem bijwerken naar 1802. Dit document is alleen van toepassing op App Service resource provider implementaties die zijn voltooid voordat de update 1802. Als u App Service in Azure Stack geïmplementeerd nadat de update 1802 is toegepast op Azure Stack, wordt de resourceprovider al verdeeld over foutdomeinen.
 
-## <a name="rebalance-an-app-service-resource-provider-across-fault-domains"></a>Opnieuw verdelen van een App Service-resourceprovider tussen domeinen met fouten
+## <a name="rebalance-an-app-service-resource-provider-across-fault-domains"></a>Een App Service-resourceprovider herverdelen in domeinen met fouten
 
-Als u wilt de schaalsets geïmplementeerd voor de App Service-resourceprovider distribueren, moet u de stappen in dit artikel voor elke set scale uitvoeren. Standaard zijn de namen scaleset:
+Als u wilt distribueren de schaalsets die is geïmplementeerd voor de resourceprovider App Service, moet u de stappen in dit artikel voor elke schaalset uitvoeren. Standaard zijn de namen van de schaalset:
 
 * ManagementServersScaleSet
 * FrontEndsScaleSet
@@ -43,17 +43,17 @@ Als u wilt de schaalsets geïmplementeerd voor de App Service-resourceprovider d
 * LargeWorkerTierScaleSet
 
 >[!NOTE]
-> Als er geen instanties zijn geïmplementeerd in sommige van de werknemer laag-schaalsets, moet u niet opnieuw verdelen die schaalsets. De schaalsets wordt correct worden verdeeld wanneer u deze in de toekomst schalen.
+> Als u geen instanties zijn geïmplementeerd in enkele van de schaalsets van de werknemer-laag, moet u niet opnieuw verdelen van de schaalsets. De schaalsets wordt correct worden verdeeld wanneer u deze in de toekomst.
 
-Als u wilt uitbreiden de schaalsets, de volgende stappen uit:
+Als u wilt schalen de schaalsets, de volgende stappen uit:
 
-1. Meld u aan bij de Azure Portal in de Stack-beheerder.
-2. Selecteer **meer services**.
-3. Selecteer onder COMPUTE-, **virtuele-machineschaalsets**. Bestaande schaalsets geïmplementeerd als onderdeel van de App Service-implementatie wordt vermeld met exemplaar count-informatie. De volgende Schermafbeelding toont een voorbeeld van-schaalsets.
+1. Aanmelden bij de Azure Stack-Beheerdersportal.
+1. Selecteer **meer services**.
+1. Selecteer onder COMPUTE, **virtuele-machineschaalsets**. Wordt het bestaande schaalsets worden geïmplementeerd als onderdeel van de App Service-implementatie met instance count wordt informatie weergegeven. De volgende Schermafbeelding toont een voorbeeld van schaalsets.
 
-      ![Azure App Service Scale Sets die worden vermeld in de virtuele Machine Scale Sets UX][1]
+      ![Azure App Service Scale Sets die worden vermeld in Virtual Machine Scale Sets UX][1]
 
-4. Elke set uitschalen. Bijvoorbeeld, hebt u drie bestaande exemplaren in de schaalset u moet worden uitgebreid tot en met 6 zodat de drie nieuwe exemplaren zijn geïmplementeerd op domeinen met fouten. De volgende PowerShell-voorbeeld toont uit aan de schaalaanpassingsset worden uitgebreid.
+1. Voor elke set schalen. Bijvoorbeeld, hebt u drie bestaande exemplaren in de schaalset u moet de schaal vergroten tot 6, zodat de drie nieuwe instanties worden geïmplementeerd op verschillende foutdomeinen. De volgende PowerShell-voorbeeld laat zien van uit de schaalset te schalen.
 
    ```powershell
    Add-AzureRmAccount -EnvironmentName AzureStackAdmin 
@@ -67,15 +67,15 @@ Als u wilt uitbreiden de schaalsets, de volgende stappen uit:
    ```
 
    >[!NOTE]
-   >Deze stap duurt enkele uren in beslag, afhankelijk van het type van de rol en het aantal exemplaren.
+   >Deze stap kan duren voordat een aantal uren in beslag, afhankelijk van het type van de rol en het aantal exemplaren.
 
-5. In **App Service-beheer rollen**, de status van de nieuwe rolexemplaren controleren. Om de status van een rolinstantie controleren, selecteert u het Roltype in de lijst
+1. In **App Service-beheerdersrollen**, bewaakt de status van de nieuwe rolinstanties. Om te controleren of de status van een rolinstantie, selecteert u het Roltype in de lijst
 
-    ![Op rollen Azure Stack-Azure App Service][2]
+    ![Azure App Service onder Azure Stack-rollen][2]
 
-6. Wanneer de status van de nieuwe rolexemplaren is **gereed**, gaat u terug naar **virtuele-Machineschaalset** en **verwijderen** de oude rolinstanties.
+1. Wanneer de status van de nieuwe rolinstanties is **gereed**, gaat u terug naar **virtuele-Machineschaalset** en **verwijderen** de oude rolinstanties.
 
-7. Herhaal deze stappen voor **elke** virtuele-machineschaalset.
+1. Herhaal deze stappen voor **elke** virtuele-machineschaalset.
 
 ## <a name="next-steps"></a>Volgende stappen
 

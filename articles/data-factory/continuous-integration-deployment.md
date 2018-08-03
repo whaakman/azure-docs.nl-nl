@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: douglasl
-ms.openlocfilehash: 26ab8c0547bb533a032dec59183f8152be9180cf
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c3aeb57bf9c613da3edb8c5dda0e88aa308a4b6e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364542"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448438"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Continue integratie en implementatie in Azure Data Factory
 
@@ -53,15 +53,15 @@ Hier wordt de hele levenscyclus voor doorlopende integratie en implementatie die
 
 1.  Instellen van een gegevensfactory ontwikkeling met VSTS waarin alle ontwikkelaars Data Factory-resources, zoals de pijplijnen en gegevenssets kunnen maken.
 
-2.  Ontwikkelaars kunnen vervolgens resources zoals pijplijnen wijzigen. Wanneer ze hun wijzigingen aanbrengt, kunnen ze selecteren **Debug** om te zien hoe de pijplijn wordt uitgevoerd met de meest recente wijzigingen.
+1.  Ontwikkelaars kunnen vervolgens resources zoals pijplijnen wijzigen. Wanneer ze hun wijzigingen aanbrengt, kunnen ze selecteren **Debug** om te zien hoe de pijplijn wordt uitgevoerd met de meest recente wijzigingen.
 
-3.  Nadat ontwikkelaars tevreden met hun wijzigingen bent, kunnen ze een pull-aanvraag maken van de vertakking naar de master-vertakking (of de vertakking samenwerking) om op te halen van hun wijzigingen gecontroleerd door de peers.
+1.  Nadat ontwikkelaars tevreden met hun wijzigingen bent, kunnen ze een pull-aanvraag maken van de vertakking naar de master-vertakking (of de vertakking samenwerking) om op te halen van hun wijzigingen gecontroleerd door de peers.
 
-4.  Nadat wijzigingen in de master-vertakking zijn, kunnen ze publiceren naar de factory ontwikkeling door te selecteren **publiceren**.
+1.  Nadat wijzigingen in de master-vertakking zijn, kunnen ze publiceren naar de factory ontwikkeling door te selecteren **publiceren**.
 
-5.  Wanneer het team gereed om te promoten wijzigingen in de fabriek test en de productie-factory is, kunnen zij de Resource Manager-sjabloon exporteren vanuit de master-vertakking of vanuit een andere vertakking in het geval de master-vertakking back-ups de live Data Factory-ontwikkeling.
+1.  Wanneer het team gereed om te promoten wijzigingen in de fabriek test en de productie-factory is, kunnen zij de Resource Manager-sjabloon exporteren vanuit de master-vertakking of vanuit een andere vertakking in het geval de master-vertakking back-ups de live Data Factory-ontwikkeling.
 
-6.  De geëxporteerde Resource Manager-sjabloon kan worden geïmplementeerd met andere parameterbestanden voor de factory test en de productie-factory.
+1.  De geëxporteerde Resource Manager-sjabloon kan worden geïmplementeerd met andere parameterbestanden voor de factory test en de productie-factory.
 
 ## <a name="automate-continuous-integration-with-vsts-releases"></a>Continue integratie met VSTS Releases automatiseren
 
@@ -81,19 +81,19 @@ Hier volgen de stappen voor het instellen van een VSTS-Release, zodat u kunt de 
 
 1.  Ga naar uw VSTS-pagina in hetzelfde project als het account dat is geconfigureerd met de Data Factory.
 
-2.  Klik op het bovenste menu **Build and Release** &gt; **Releases** &gt; **release-definitie maken**.
+1.  Klik op het bovenste menu **Build and Release** &gt; **Releases** &gt; **release-definitie maken**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
-3.  Selecteer de **leeg proces** sjabloon.
+1.  Selecteer de **leeg proces** sjabloon.
 
-4.  Voer de naam van uw omgeving.
+1.  Voer de naam van uw omgeving.
 
-5.  Een Git-artefact toevoegen en selecteer de dezelfde opslagplaats is geconfigureerd met de Data Factory. Kies `adf_publish` als de standaardvertakking met de meest recente standaardversie.
+1.  Een Git-artefact toevoegen en selecteer de dezelfde opslagplaats is geconfigureerd met de Data Factory. Kies `adf_publish` als de standaardvertakking met de meest recente standaardversie.
 
     ![](media/continuous-integration-deployment/continuous-integration-image7.png)
 
-7.  Een implementatie van Azure Resource Manager-taak toevoegen:
+1.  Een implementatie van Azure Resource Manager-taak toevoegen:
 
     a.  Nieuwe taak maken, te zoeken naar **Azure Resource Group Deployment**, en voeg deze toe.
 
@@ -109,9 +109,9 @@ Hier volgen de stappen voor het instellen van een VSTS-Release, zodat u kunt de 
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-8.  Sla de release-definitie.
+1.  Sla de release-definitie.
 
-9.  Maak een nieuwe versie van deze release-definitie.
+1.  Maak een nieuwe versie van deze release-definitie.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
@@ -144,7 +144,7 @@ Er zijn twee manieren voor het afhandelen van de geheimen:
 
     -   Het parameterbestand moet zich in de vertakking publiceren ook.
 
-2.  Voeg een [Azure Key Vault-taak](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) voordat u de Azure Resource Manager-implementatie in de vorige sectie beschreven:
+1.  Voeg een [Azure Key Vault-taak](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) voordat u de Azure Resource Manager-implementatie in de vorige sectie beschreven:
 
     -   Selecteer de **taken** tabblad, een nieuwe taak maken, zoekt u **Azure Key Vault** en toe te voegen.
 
@@ -160,9 +160,9 @@ Implementatie kan mislukken als u probeert active triggers bijwerken. Voor het a
 
 1.  Zoek in het tabblad taken van de VSTS Release **Azure Powershell** en toe te voegen.
 
-2.  Kies **Azure Resource Manager** als de verbinding typt en selecteer uw abonnement.
+1.  Kies **Azure Resource Manager** als de verbinding typt en selecteer uw abonnement.
 
-3.  Kies **Inline Script** als het script typt en geef vervolgens uw code. Het volgende voorbeeld stopt de triggers:
+1.  Kies **Inline Script** als het script typt en geef vervolgens uw code. Het volgende voorbeeld stopt de triggers:
 
     ```powershell
     $triggersADF = Get-AzureRmDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName

@@ -15,12 +15,12 @@ ms.date: 06/27/2018
 ms.author: barbkess
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.openlocfilehash: 61ac0d823322b919952b7ea426c447e070a09fc1
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 5d8af50e3007342a5cd46e4862623f2cf7145172
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363193"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480418"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Extern bureaublad met Azure AD Application Proxy publiceren
 
@@ -64,14 +64,14 @@ Na het instellen van extern bureaublad-services en Azure AD-toepassingsproxy voo
 ### <a name="publish-the-rd-host-endpoint"></a>Het eindpunt van de extern bureaublad-Sessiehost host publiceren
 
 1. [Een nieuwe Application Proxy-toepassing publiceren](application-proxy-publish-azure-portal.md) met de volgende waarden:
-   - Interne URL: https://\<rdhost\>.com / waar \<rdhost\> is de algemene basis met RD-Web- en RD-Gateway.
+   - Interne URL: `https://\<rdhost\>.com/`, waarbij `\<rdhost\>` is de algemene basis met RD-Web- en RD-Gateway.
    - Externe URL: Dit veld wordt automatisch ingevuld op basis van de naam van de toepassing, maar u kunt deze wijzigen. Uw gebruikers gaan naar deze URL wanneer ze toegang krijgen van RDS. tot
    - Methode voor verificatie vooraf: Azure Active Directory
    - URL-headers vertalen: Nee
 2. Gebruikers toewijzen aan de gepubliceerde toepassing in de extern bureaublad. Zorg ervoor dat ze alle toegang tot extern bureaublad-services, te hebben.
 3. Laat de methode voor eenmalige aanmelding voor de toepassing als **Azure AD eenmalige aanmelding uitgeschakeld**. Uw gebruikers wordt gevraagd om te verifiëren eenmaal naar Azure AD en eenmaal op RD Web, maar hebben eenmalige aanmelding voor extern bureaublad-Gateway.
 4. Ga naar **Azure Active Directory** > **App-registraties** > *uw toepassing* > **instellingen**.
-5. Selecteer **eigenschappen** en werk de **URL van startpagina** veld om te verwijzen naar het eindpunt van de RD Web (zoals https://\<rdhost\>.com/RDWeb).
+5. Selecteer **eigenschappen** en bij te werken de **URL van startpagina** veld om te verwijzen naar uw RD-Web-eindpunt (zoals `https://\<rdhost\>.com/RDWeb`).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Extern bureaublad-services verkeer naar toepassingsproxy
 

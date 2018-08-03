@@ -2,72 +2,73 @@
 title: Azure Application Insights-processen automatiseren met behulp van Logic Apps.
 description: Meer informatie over hoe u snel herhaalbare processen kunt automatiseren door de Application Insights-connector toe te voegen aan uw logische app.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: e17d8076a00cab2cf608fe1a690e4a780a69d56f
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 4ae5adaf37f49e9909fa80fd31f088ed6ee1b081
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449867"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Application Insights-processen automatiseren met behulp van Logic Apps
 
-Vindt u uzelf herhaaldelijk de dezelfde query's uitvoeren op de telemetriegegevens om te controleren of uw service goed werkt? Zoekt u voor het automatiseren van deze query's voor het vinden van trends en afwijkingen en vervolgens uw eigen werkstromen omheen te bouwen? De Azure Application Insights-connector (preview) voor Logic Apps is het juiste programma voor dit doel.
+Vind u uzelf herhaaldelijk uitvoeren van de dezelfde query's op de telemetriegegevens om te controleren of uw service goed functioneert? Bent u op zoek naar deze query's voor het vinden van trends en afwijkingen automatiseren en bouw vervolgens uw eigen werkstromen omheen? De Azure Application Insights-connector (preview) voor Logic Apps is de juiste hulpprogramma voor dit doel.
 
-Met deze integratie kunt u meerdere processen automatiseren zonder een één regel code te schrijven. U kunt een logische app maken met de Application Insights-connector voor het snel een Application Insights-proces te automatiseren. 
+Met deze integratie kunt kunt u veel processen automatiseren zonder één regel code te schrijven. U kunt een logische app maken met de Application Insights-connector voor het snel een Application Insights-proces te automatiseren. 
 
-U kunt ook aanvullende acties toevoegen. De functie Logic Apps van Azure App Service maakt honderden acties beschikbaar. Bijvoorbeeld, met behulp van een logische app, kunt u automatisch een e-mailmelding verzenden of maken van een bug in Visual Studio Team Services. U kunt ook een van de vele beschikbaar gebruiken [sjablonen](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) om u te helpen bij het maken van uw logische app versnellen. 
+U kunt ook aanvullende acties toevoegen. De functie logische Apps van Azure App Service maakt honderden acties beschikbaar. Bijvoorbeeld, met behulp van een logische app, kunt u automatisch een e-mailmelding verzenden of een bug in Visual Studio Team Services maken. U kunt ook een van de vele beschikbare gebruiken [sjablonen](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) om u te helpen versnellen van het proces voor het maken van uw logische app. 
 
 ## <a name="create-a-logic-app-for-application-insights"></a>Een logische app maken voor Application Insights
 
-In deze zelfstudie leert u hoe u een logische app die gebruikmaakt van het algoritme Analytics autocluster kenmerken in de gegevens voor een webtoepassing maken. De stroom verzendt de resultaten automatisch via e-mail, slechts één voorbeeld van hoe u kunt Application Insights Analytics en Logic Apps samen gebruiken. 
+In deze zelfstudie leert u hoe u een logische app die gebruikmaakt van de algoritme Analytics autocluster groepskenmerken in de gegevens voor een webtoepassing maken. De stroom worden de resultaten automatisch verzonden via e-mail, slechts één voorbeeld van hoe u Application Insights Analytics en Logic Apps samen kunt. 
 
 ### <a name="step-1-create-a-logic-app"></a>Stap 1: Een logische app maken
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik op **maken van een resource**, selecteer **Web en mobiel**, en selecteer vervolgens **logische App**.
+1. Klik op **een resource maken**, selecteer **Web en mobiel**, en selecteer vervolgens **logische App**.
 
-    ![Nieuwe logische app venster](./media/automate-with-logic-apps/logicapp1.png)
+    ![Nieuw venster van de logische app](./media/automate-with-logic-apps/logicapp1.png)
 
 ### <a name="step-2-create-a-trigger-for-your-logic-app"></a>Stap 2: Een trigger voor uw logische app maken
-1. In de **Logic App-ontwerper** venster onder **beginnen met een algemene trigger**, selecteer **terugkeerpatroon**.
+1. In de **Logic App Designer** venster onder **beginnen met een algemene trigger**, selecteer **terugkeerpatroon**.
 
     ![Logic App Designer-venster](./media/automate-with-logic-apps/logicapp2.png)
 
-2. In de **frequentie** de optie **dag** en klikt u op de **Interval** in het vak **1**.
+1. In de **frequentie** Schakel **dag** en klikt u op de **Interval** in het vak **1**.
 
-    ![Logic App-ontwerper "Recurrence" venster](./media/automate-with-logic-apps/step2b.png)
+    ![Logic App Designer "Terugkeerpatroon" venster](./media/automate-with-logic-apps/step2b.png)
 
 ### <a name="step-3-add-an-application-insights-action"></a>Stap 3: Een Application Insights-actie toevoegen
 1. Klik op **nieuwe stap**, en klik vervolgens op **een actie toevoegen**.
 
-2. In de **kiest u een actie** zoekvak, type **Azure Application Insights**.
+1. In de **een actie kiezen** zoekvak, type **Azure Application Insights**.
 
-3. Onder **acties**, klikt u op **Azure Application Insights – visualiseren Analytics query Preview**.
+1. Onder **acties**, klikt u op **Preview query uitvoeren op Azure Application Insights-Analytics visualiseren**.
 
-    ![Logic App-ontwerper 'Kies een actie' venster](./media/automate-with-logic-apps/flow2.png)
+    ![Logic App Designer 'Kies een actie' venster](./media/automate-with-logic-apps/flow2.png)
 
 ### <a name="step-4-connect-to-an-application-insights-resource"></a>Stap 4: Verbinding maken met een Application Insights-resource
 
-Deze stap voltooien, moet u een toepassings-ID en een API-sleutel voor uw resource. U kunt ze ophalen uit de Azure-portal, zoals wordt weergegeven in het volgende diagram:
+Als u wilt deze stap hebt voltooid, moet u een toepassings-ID en een API-sleutel voor uw resource. U kunt ze ophalen vanuit de Azure-portal, zoals wordt weergegeven in het volgende diagram:
 
-![Toepassings-ID in de Azure portal](./media/automate-with-logic-apps/appid.png) 
+![Toepassings-ID in de Azure-portal](./media/automate-with-logic-apps/appid.png) 
 
 Geef een naam voor de verbinding, de toepassings-ID en de API-sleutel.
 
-![Venster Logic App-ontwerper stroom-verbinding](./media/automate-with-logic-apps/flow3.png)
+![Logic App Designer stroom verbindingsvenster](./media/automate-with-logic-apps/flow3.png)
 
-### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>Stap 5: Geef het Analytics-query en grafiek type
-In het volgende voorbeeld wordt de query selecteert de mislukte aanvragen binnen de laatste dag en verbindt deze met uitzonderingen die als onderdeel van de bewerking opgetreden. Analytics correleert de mislukte aanvragen, op basis van de operation_Id-id. De query vervolgens de resultaten met behulp van de algoritme autocluster segmenten. 
+### <a name="step-5-specify-the-analytics-query-and-chart-type"></a>Stap 5: Geef het Analytics-query's en grafiek-type
+In het volgende voorbeeld wordt de query selecteert de mislukte aanvragen in de laatste dag en verbindt deze met uitzonderingen die als onderdeel van de bewerking opgetreden. Analytics overeenkomt met de mislukte aanvragen, op basis van de operation_Id-id. De query vervolgens de resultaten met behulp van het algoritme autocluster segmenten. 
 
-Wanneer u uw eigen query's maakt, moet u controleren of ze correct in Analytics werken voordat u deze aan uw stroom toevoegen.
+Wanneer u uw eigen query's maakt, controleert u of dat ze goed in Analytics werken voordat u deze aan uw stroom toevoegt.
 
 1. In de **Query** Voeg de volgende Analytics-query: 
 
@@ -82,56 +83,56 @@ Wanneer u uw eigen query's maakt, moet u controleren of ze correct in Analytics 
     | evaluate autocluster()
     ```
 
-2. In de **grafiektype** de optie **HTML-tabel**.
+1. In de **grafiektype** Schakel **Html-tabel**.
 
-    ![De configuratie queryvenster Analytics](./media/automate-with-logic-apps/flow4.png)
+    ![Analytics-queryvenster configuratie](./media/automate-with-logic-apps/flow4.png)
 
-### <a name="step-6-configure-the-logic-app-to-send-email"></a>Stap 6: Configureer de logische app voor het verzenden van e-mail
+### <a name="step-6-configure-the-logic-app-to-send-email"></a>Stap 6: De logische app configureren voor e-mailbericht verzenden
 
 1. Klik op **nieuwe stap**, en selecteer vervolgens **een actie toevoegen**.
 
-2. Typ in het zoekvak **Outlook van Office 365**.
+1. Typ in het zoekvak **Office 365 Outlook**.
 
-3. Klik op **Outlook in Office 365 – stuurt u een e-mailadres**.
+1. Klik op **Office 365 Outlook: een e-mail verzenden**.
 
-    ![Selectie van Office 365 Outlook](./media/automate-with-logic-apps/flow2b.png)
+    ![Office 365 Outlook-selectie](./media/automate-with-logic-apps/flow2b.png)
 
-4. In de **e-mailbericht verzenden** venster de volgende handelingen uit:
+1. In de **een e-mailbericht verzenden** venster de volgende handelingen uit:
 
    a. Typ het e-mailadres van de ontvanger.
 
    b. Typ een onderwerp in voor het e-mailbericht.
 
-   c. Klik ergens in de **hoofdtekst** vak en selecteer vervolgens in het dynamische inhoud menu dat op het recht verschijnt **hoofdtekst**.
+   c. Klik ergens in de **hoofdtekst** vak en selecteer vervolgens in het menu voor dynamische inhoud die wordt geopend aan de rechterkant, **hoofdtekst**.
 
    d. Klik op **geavanceerde opties weergeven**.
 
-      ![Outlook-configuratie voor Office 365](./media/automate-with-logic-apps/flow5.png)
+      ![Office 365 Outlook-configuratie](./media/automate-with-logic-apps/flow5.png)
 
-5. In het menu van dynamische inhoud het volgende doen:
+1. Op het menu voor dynamische inhoud het volgende doen:
 
     a. Selecteer **Bijlagenaam**.
 
-    b. Selecteer **bijlage inhoud**.
+    b. Selecteer **inhoud van de bijlage**.
     
-    c. In de **Is HTML** de optie **Ja**.
+    c. In de **Is HTML** Schakel **Ja**.
 
       ![Configuratiescherm voor Office 365-e-mailadres](./media/automate-with-logic-apps/flow7.png)
 
-### <a name="step-7-save-and-test-your-logic-app"></a>Stap 7: Opslaan en uw logische app testen
+### <a name="step-7-save-and-test-your-logic-app"></a>Stap 7: Opslaan en testen van uw logische app
 * Klik op **opslaan** uw wijzigingen op te slaan.
 
-U kunt wachten op de trigger uit te voeren van de logische app, of u kunt de logische app onmiddellijk uitvoeren door te selecteren **uitvoeren**.
+U kunt wachten op de trigger om uit te voeren van de logische app of kunt u de logische app direct uitvoeren door het selecteren van **uitvoeren**.
 
-![Scherm van logische app maken](./media/automate-with-logic-apps/step7.png)
+![Scherm voor logische app maken](./media/automate-with-logic-apps/step7.png)
 
-Wanneer uw logische app wordt uitgevoerd, is de ontvangers die u hebt opgegeven in de lijst met e-mailbericht ontvangt een e-mailbericht dat op het volgende lijkt:
+Wanneer uw logische app wordt uitgevoerd, is de ontvangers die u hebt opgegeven in de lijst met e-mailbericht ontvangt een e-mailbericht dat lijkt op het volgende:
 
-![Logic app e-mailbericht](./media/automate-with-logic-apps/flow9.png)
+![Logische app e-mailbericht](./media/automate-with-logic-apps/flow9.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het maken van [analysequery's](app-insights-analytics-using.md).
+- Meer informatie over het maken van [Analytics-query's](app-insights-analytics-using.md).
 - Meer informatie over [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
 
 

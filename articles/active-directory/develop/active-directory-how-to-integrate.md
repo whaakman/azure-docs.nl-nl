@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 79721c2ad0ae83e3c8bd103aee94916f1e2995aa
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 58431e43312046c5a30ebcd4c974849641c05156
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054634"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446452"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integreren met Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -81,7 +81,7 @@ Integratie met Azure AD wordt geleverd met voordelen die niet nodig hebt u extra
 **Azure AD wordt wordt geïmplementeerd in datacenters over de hele wereld en beheerd en bewaakt nacht.**  Azure AD het beheersysteem voor identiteit voor Microsoft Azure en Office 365 en wordt geïmplementeerd in 28 datacenters over de hele wereld. Directory-gegevens wordt worden gerepliceerd naar ten minste drie datacenters gegarandeerd. Globale load balancers Zorg ervoor dat gebruikers toegang tot de dichtstbijzijnde kopie van de Azure AD met hun gegevens en aanvragen voor andere datacenters automatisch opnieuw verzenden als er een probleem is gedetecteerd.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Aan de slag schrijven van code](active-directory-developers-guide.md#get-started).
+[Aan de slag schrijven van code](azure-ad-developers-guide.md#get-started).
 
 [Gebruikers aanmelden met behulp van Azure AD](active-directory-authentication-scenarios.md)
 

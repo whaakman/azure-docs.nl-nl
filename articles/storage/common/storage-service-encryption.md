@@ -1,6 +1,6 @@
 ---
 title: Azure Storage-Serviceversleuteling voor data-at-rest | Microsoft Docs
-description: De functie Azure Storage-Serviceversleuteling gebruiken voor het versleutelen van Azure Blob-opslag aan de servicezijde bij het opslaan van de gegevens en bij het ophalen van de gegevens ontsleutelen.
+description: De functie Azure Storage-Serviceversleuteling gebruiken voor het versleutelen van Azure Managed Disks, Azure Blob-opslag, Azure Files, Azure Queue storage en Azure-tabelopslag aan de servicezijde bij het opslaan van de gegevens en bij het ophalen van de gegevens ontsleutelen.
 services: storage
 author: lakasa
 manager: jeconnoc
@@ -8,26 +8,28 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.openlocfilehash: f35697139a4be49be8a645cfd4d451ad8e3c8094
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 1a127f7e3dd57376ecd05d4ae7030becb33f1159
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412352"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480302"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage-Serviceversleuteling voor data-at-rest
-Azure Storage-Serviceversleuteling voor data-at-rest kunt u uw gegevens om te voldoen aan uw organisatie beveiligings- en nalevingsverplichtingen beveiligen. Met deze functie door het platform van Azure storage automatisch uw gegevens worden versleuteld voordat opgeslagen in Azure Blob storage, Azure Files of Azure Queue storage en ontsleutelt de gegevens voor het ophalen van. De verwerking van versleuteling en versleuteling-at-rest, ontsleuteling en sleutelbeheer in Storage Service-versleuteling is transparant voor gebruikers. Alle gegevens die zijn geschreven naar het Azure storage-platform worden versleuteld met 256-bits [AES-versleuteling](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), een van de krachtigste blokversleutelingsmethoden die er bestaan.
+Azure Storage-Serviceversleuteling voor data-at-rest kunt u uw gegevens om te voldoen aan uw organisatie beveiligings- en nalevingsverplichtingen beveiligen. Met deze functie door het platform van Azure storage automatisch uw gegevens worden versleuteld voordat Azure Managed Disks, Azure Blob-opslag, Azure Files of Azure Queue storage opgeslagen en ontsleutelt de gegevens voor het ophalen van. De verwerking van versleuteling en versleuteling-at-rest, ontsleuteling en sleutelbeheer in Storage Service-versleuteling is transparant voor gebruikers. Alle gegevens die zijn geschreven naar het Azure storage-platform worden versleuteld met 256-bits [AES-versleuteling](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), een van de krachtigste blokversleutelingsmethoden die er bestaan.
 
 Storage-Serviceversleuteling is ingeschakeld voor alle nieuwe en bestaande opslagaccounts en kan niet worden uitgeschakeld. Omdat uw gegevens beveiligd standaard, hoeft u niet te wijzigen van uw code of toepassingen om te profiteren van Storage Service Encryption.
 
 De functie versleutelt automatisch gegevens in:
 
-- Azure Blob storage, Azure Files, Azure Queue storage, Azure Table storage.  
+- Azure storage-services:
+    - Azure Managed Disks
+    - Azure Blob Storage
+    - Azure Files
+    - Azure Queue storage
+    - Azure-tabelopslag.  
 - Beide prestatielagen (standaard en Premium).
 - Beide implementatiemodellen (Azure Resource Manager en klassiek).
-
-> [!Note]  
-> Storage-Serviceversleuteling is niet beschikbaar voor [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). Raden wij aan u versleuteling op het niveau van het besturingssysteem, zoals [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), die gebruikmaakt van industriestandaard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) op Windows en [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) op Linux te geven versleuteling is geïntegreerd met Key Vault.
 
 Storage-Serviceversleuteling heeft geen invloed op de prestaties van Azure storage-services.
 
@@ -55,13 +57,10 @@ Versleuteling is standaard ingeschakeld en er is geen inrichten om versleuteling
 Er is geen extra kosten.
 
 **Kan ik mijn eigen versleutelingssleutels gebruiken?**  
-Ja, kunt u uw eigen versleutelingssleutels. Zie voor meer informatie, [Storage Service Encryption door de klant beheerde sleutels in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
+Voor Azure-blobopslag en Azure Files, Ja, kunt u uw eigen versleutelingssleutels. Door de klant beheerde sleutels worden momenteel niet ondersteund door Azure Managed Disks. Zie voor meer informatie, [Storage Service Encryption door de klant beheerde sleutels in Azure Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 **Kan ik toegang tot de versleutelingssleutels intrekken?**  
 Ja, als u [gebruik uw eigen versleutelingssleutels](storage-service-encryption-customer-managed-keys.md) in Azure Key Vault.
-
-**Storage-Serviceversleuteling beschikbaar op Azure Managed Disks is?**  
-Nee, versleuteling voor opslagservice is niet beschikbaar voor [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). Raden wij aan u versleuteling op het niveau van het besturingssysteem, zoals [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), die gebruikmaakt van industriestandaard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) op Windows en [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) op Linux te geven versleuteling is geïntegreerd met Key Vault.
 
 **Hoe verschilt versleuteling voor opslagservice van Azure Disk Encryption?**  
 Azure Disk Encryption biedt integratie tussen OS gebaseerde oplossingen, zoals BitLocker en DM-Crypt en Azure Key Vault. Storage Service-versleuteling biedt versleuteling standaard op de laag van een Azure storage-platform, onder de virtuele machine.

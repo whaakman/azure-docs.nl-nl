@@ -1,6 +1,6 @@
 ---
 title: Een waarschuwing voor een logboek maken met een Resource Manager-sjabloon
-description: Informatie over het logboek waarschuwing maken met behulp van een Azure Resource Manager-sjabloon en de API.
+description: Informatie over het maken van een waarschuwing met behulp van een Azure Resource Manager-sjabloon en de API.
 author: msvijayn
 services: monitoring
 ms.service: azure-monitor
@@ -8,39 +8,39 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 5afa34a5eadf5367b3ab28749735197ca6ed82bd
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 588a0686eda1966582b82a4673a8b6805453c94c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263198"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441439"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Een waarschuwing voor een logboek maken met een Resource Manager-sjabloon
-Dit artikel laat zien hoe u kunt beheren [waarschuwingen melden](monitor-alerts-unified-log.md) programmatisch op grote schaal, bij het gebruik van Azure [Azure Resource Manager-sjabloon](..//azure-resource-manager/resource-group-authoring-templates.md) via [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) en [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md). Momenteel waarschuwingen van Azure, ondersteunt Meld u waarschuwingen op query's van [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) en [Azure Application Insights](../application-insights/app-insights-analytics-tour.md).
+Dit artikel wordt beschreven hoe u kunt beheren [waarschuwingen voor activiteitenlogboeken](monitor-alerts-unified-log.md) via een programma op schaal in Azure met [Azure Resource Manager-sjabloon](..//azure-resource-manager/resource-group-authoring-templates.md) via [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) en [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md). Momenteel Azure-waarschuwingen ondersteunt waarschuwingen voor activiteitenlogboeken op query's uit de [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) en [Azure Application Insights](../application-insights/app-insights-analytics-tour.md).
 
-## <a name="managing-log-alert-on-log-analytics"></a>Het beheren van het logboek een waarschuwing voor logboekanalyse
-Waarschuwing voor logboek [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) is geïntegreerd in de [nieuwe waarschuwingen van de Azure-ervaring](monitoring-overview-unified-alerts.md); terwijl er nog steeds Log Analytics-API's verdwijnt en compatibiliteit met eerdere gebruikt voor het beheren van schemablijft[waarschuwingen in de OMS-portal](..//log-analytics/log-analytics-alerts-creating.md).
+## <a name="managing-log-alert-on-log-analytics"></a>Waarschuwing in Log Analytics beheren
+Waarschuwing voor [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) is geïntegreerd in de [waarschuwingen voor nieuwe Azure-ervaring](monitoring-overview-unified-alerts.md); terwijl deze nog steeds wordt uitgevoerd uit Log Analytics-API's en compatibiliteit met schema eerder hebt gebruikt voor het beheren van blijft[waarschuwingen in OMS-portal](..//log-analytics/log-analytics-alerts-creating.md).
 
 > [!NOTE]
-> Alle waarschuwingen in een werkruimte, dat is vanaf 14 mei 2018, wordt automatisch gestart om uit te breiden naar Azure. Een gebruiker kunt uitbreiden waarschuwingen naar Azure vrijwillig voordat 14 mei 2018 initiëren. Zie voor meer informatie [waarschuwingen uitbreiden naar Azure van OMS](monitoring-alerts-extend.md). 
+> Alle waarschuwingen in een werkruimte, dat is vanaf 14 mei 2018, wordt automatisch gestart om uit te breiden naar Azure. Een gebruiker kunt vrijwillig uitbreiding van waarschuwingen naar Azure initiëren vóór 14 mei 2018. Zie voor meer informatie, [waarschuwingen uitbreiden naar Azure OMS](monitoring-alerts-extend.md). 
 
 ### <a name="using-azure-resource-manager-template"></a>Met behulp van Azure Resource Manager-sjabloon
-Logboek waarschuwingen voor logboekanalyse worden gemaakt door regels voor waarschuwingen die een opgeslagen zoekopdracht op een vast interval uitvoert. Als de resultaten van de query overeenkomen met criteria opgegeven, wordt een waarschuwing record gemaakt en een of meer acties worden uitgevoerd. 
+Waarschuwingen voor logboeken voor Log Analytics worden gemaakt door waarschuwingsregels die een opgeslagen zoekopdracht op een vast interval uitvoert. Als de resultaten van de query overeenkomen met criteria opgegeven, wordt een waarschuwingsrecord gemaakt en een of meer acties worden uitgevoerd. 
 
-Resource-sjabloon voor [Log analytics opgeslagen zoekopdracht](../log-analytics/log-analytics-log-searches.md) en [analytics waarschuwingen melden](../log-analytics/log-analytics-alerts.md) zijn beschikbaar in de sectie logboekanalyse van documentatie. Meer informatie over, [logboekanalyse toe te voegen opgeslagen zoekopdrachten en waarschuwingen](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md); waaronder aanvullende voorbeelden, evenals een schema-informatie.
+Resource-sjabloon voor Log analytics opgeslagen zoekopdracht en beschikbare Log analytics alertsare in Log Analytics-sectie van de documentatie bij. Voor meer informatie over meer Zie [toe te voegen met Log Analytics opgeslagen zoekopdrachten en waarschuwingen](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md); die bevat illustratieve voorbeelden, evenals de schemadetails van het.
 
-### <a name="using-resource-template-via-apipowershell"></a>Met behulp van de sjabloon Resource via API/Powershell
-De waarschuwing REST-API van Log Analytics RESTful is en toegankelijk zijn via de REST-API van Azure Resource Manager. De API dus toegankelijk zijn vanuit een PowerShell-opdrachtregel en wordt de uitvoer zoekresultaten aan u in de JSON-indeling, zodat u kunt de resultaten programmatisch op veel verschillende manieren gebruiken.
+### <a name="using-resource-template-via-apipowershell"></a>Met behulp van Resourcesjabloon via API/Powershell
+De Log Analytics Alert REST-API is RESTful en zijn toegankelijk via de Azure Resource Manager REST API. De API kan dus worden benaderd vanaf een PowerShell-opdrachtregel en wordt de uitvoer zoekresultaten aan u in JSON-indeling, zodat u kunt de resultaten een programmatische manier op veel verschillende manieren gebruiken.
 
-Meer informatie over [maken en beheren van waarschuwingsregels in logboekanalyse met REST-API](../log-analytics/log-analytics-api-alerts.md); inclusief voorbeelden van de toegang tot de API van Powershell.
+Meer informatie over [maken en beheren van regels voor waarschuwingen in Log Analytics met REST-API](../log-analytics/log-analytics-api-alerts.md), inclusief voorbeelden van toegang tot de API vanuit Powershell.
 
-## <a name="managing-log-alert-on-application-insights"></a>Het beheren van het logboek een waarschuwing voor Application Insights
-Logboek waarschuwingen voor Azure Application Insights hebt geïntroduceerd als onderdeel van de nieuwe Azure waarschuwingen onder Azure bewaken. Daarom deze wordt uitgevoerd onder de API van Azure-Monitor als [queryregels gepland](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) groep voor REST-bewerking.
+## <a name="managing-log-alert-on-application-insights"></a>Waarschuwing voor Application Insights beheren
+Waarschuwingen voor Azure Application Insights zijn geïntroduceerd als onderdeel van de nieuwe Azure-waarschuwingen onder Azure Monitor. Daarom deze wordt uitgevoerd onder de API van Azure Monitor als [queryregels gepland](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) groep voor REST-bewerking.
 
 ### <a name="using-azure-resource-manager-template"></a>Met behulp van Azure Resource Manager-sjabloon
-Waarschuwing voor Application Insights-resources logboek heeft een type `Microsoft.Insights/scheduledQueryRules/`. Zie voor meer informatie over dit brontype [Azure Monitor - gepland Query regels API-referentiemateriaal](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/).
+Waarschuwing voor Application Insights-resources heeft een type `Microsoft.Insights/scheduledQueryRules/`. Zie voor meer informatie over dit brontype [Azure Monitor - gepland Query regels API-verwijzing](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/).
 
-Hieronder volgt de structuur voor [queryregels gepland maken](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/createorupdate) op basis van de resource-sjabloon met voorbeeldgegevens als variabelen.
+Hieronder volgt de structuur voor [queryregels gepland maken](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/createorupdate) op basis van resource-sjabloon met de voorbeeld-gegevensset als variabelen.
 
 ```json
 {
@@ -113,27 +113,27 @@ Hieronder volgt de structuur voor [queryregels gepland maken](https://docs.micro
 }
 ```
 > [!IMPORTANT]
-> Tagveld met verborgen koppeling naar doelbron is verplicht in het gebruik van [queryregels gepland ](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) API-aanroep of resource-sjabloon. 
+> Label-veld met verborgen-koppeling naar de doelresource is verplicht in het gebruik van [queryregels gepland ](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) sjabloon voor API-oproep of een resource. 
 
-Het bovenstaande voorbeeld-json als (spreek) sampleScheduledQueryRule.json omwille van de in dit scenario kunnen worden opgeslagen en kan worden geïmplementeerd met [Azure Resource Manager in Azure-portal](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
+Het bovenstaande voorbeeld-json als (bijvoorbeeld) sampleScheduledQueryRule.json ten behoeve van dit scenario kunnen worden opgeslagen en kunnen worden geïmplementeerd met [Azure Resource Manager in Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
-### <a name="using-resource-template-via-clipowershell"></a>Met behulp van de sjabloon Resource via CLI/Powershell
-Controleprogramma voor Azure - API van de regels geplande Query is een REST-API en volledig compatibel is met de REST-API van Azure Resource Manager. Daarom kan worden gebruikt via Powershell met Resource Manager-cmdlet, evenals Azure CLI.
+### <a name="using-resource-template-via-clipowershell"></a>Met behulp van Resourcesjabloon via CLI/Powershell
+Azure Monitor - geplande regels API-Query is een REST-API en volledig compatibel met Azure Resource Manager REST API. Daarom kan deze worden gebruikt via Powershell met Resource Manager-cmdlet, evenals Azure CLI.
 
-Hieronder gebruik via Azure Resource Manager PowerShell-cmdlet voor het voorbeeld Resource sjabloon eerder weergegeven (sampleScheduledQueryRule.json) weergegeven:
+Hieronder gebruik via Azure Resource Manager PowerShell-cmdlet voor het voorbeeld hierboven Resourcesjabloon (sampleScheduledQueryRule.json) weergegeven:
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
-Hieronder gebruik via Azure Resource Manager-opdracht in de Azure CLI voor Resource sjabloon eerder weergegeven (sampleScheduledQueryRule.json) weergegeven:
+Hieronder gebruik via Azure Resource Manager-opdracht in de Azure CLI voor het voorbeeld hierboven Resourcesjabloon (sampleScheduledQueryRule.json) weergegeven:
 
 ```azurecli
 az group deployment create --resource-group myRG --template-file sampleScheduledQueryRule.json
 ```
-Op de goede werking 201 wordt geretourneerd naar de status van het maken van nieuwe waarschuwingsregel of 200 wordt geretourneerd als een bestaande waarschuwingsregel is gewijzigd.
+Op de goede werking 201 te maken van waarschuwingsregel nieuwe status wordt geretourneerd of 200 wordt geretourneerd als een bestaande waarschuwingsregel is gewijzigd.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Begrijpen [webhookacties voor logboek-waarschuwingen](monitor-alerts-unified-log-webhook.md)
+* Inzicht in [webhookacties voor logboekwaarschuwingen](monitor-alerts-unified-log-webhook.md)
 * Meer informatie over de nieuwe [Azure-waarschuwingen](monitoring-overview-unified-alerts.md)
 * Meer informatie over [Application Insights](../application-insights/app-insights-analytics.md)
-* Meer informatie over [logboekanalyse](../log-analytics/log-analytics-overview.md).   
+* Meer informatie over [Log Analytics](../log-analytics/log-analytics-overview.md).   

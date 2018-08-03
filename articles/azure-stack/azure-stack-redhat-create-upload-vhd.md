@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffgo
-ms.openlocfilehash: 82a8da5897d811f80dd18cc199cb31f810a5a438
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 5af8380accc23a62baf04b842430e692fdff3692
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399784"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443549"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Een Red Hat gebaseerde virtuele machine voorbereiden voor Azure Stack
 
@@ -47,16 +47,16 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
 
 1. Selecteer de virtuele machine in Hyper-V-beheer.
 
-2. Klik op **Connect** om een consolevenster voor de virtuele machine te openen.
+1. Klik op **Connect** om een consolevenster voor de virtuele machine te openen.
 
-3. Maak of bewerk de `/etc/sysconfig/network` bestand en voeg de volgende tekst toe:
+1. Maak of bewerk de `/etc/sysconfig/network` bestand en voeg de volgende tekst toe:
 
     ```sh
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
-4. Maak of bewerk de `/etc/sysconfig/network-scripts/ifcfg-eth0` bestand, en voeg de volgende tekst toe indien nodig:
+1. Maak of bewerk de `/etc/sysconfig/network-scripts/ifcfg-eth0` bestand, en voeg de volgende tekst toe indien nodig:
 
     ```sh
     DEVICE=eth0
@@ -69,19 +69,19 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
     NM_CONTROLLED=no
     ```
 
-5. Zorg ervoor dat de netwerkservice wordt gestart bij het opstarten met de volgende opdracht:
+1. Zorg ervoor dat de netwerkservice wordt gestart bij het opstarten met de volgende opdracht:
 
     ```sh
     # sudo systemctl enable network
     ```
 
-6. Registreer uw Red Hat-abonnement om in te schakelen van de installatie van pakketten van de RHEL-opslagplaats met de volgende opdracht:
+1. Registreer uw Red Hat-abonnement om in te schakelen van de installatie van pakketten van de RHEL-opslagplaats met de volgende opdracht:
 
     ```sh
     # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-7. Wijzig de kernel boot line in de grub-configuratie om op te nemen van aanvullende kernel-parameters voor Azure. Open hiervoor deze wijziging `/etc/default/grub` in een teksteditor en wijzig de `GRUB_CMDLINE_LINUX` parameter. Bijvoorbeeld:
+1. Wijzig de kernel boot line in de grub-configuratie om op te nemen van aanvullende kernel-parameters voor Azure. Open hiervoor deze wijziging `/etc/default/grub` in een teksteditor en wijzig de `GRUB_CMDLINE_LINUX` parameter. Bijvoorbeeld:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -95,32 +95,32 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
     rhgb quiet crashkernel=auto
     ```
 
-8. Als u klaar bent bewerken `/etc/default/grub`, voer de volgende opdracht om op te bouwen de grub-configuratie:
+1. Als u klaar bent bewerken `/etc/default/grub`, voer de volgende opdracht om op te bouwen de grub-configuratie:
 
     ```sh
     # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-9. Zorg ervoor dat de SSH-server is geïnstalleerd en geconfigureerd om te starten tijdens het opstarten, dit doorgaans de standaardinstelling is. Wijzigen `/etc/ssh/sshd_config` om op te nemen in de volgende regel:
+1. Zorg ervoor dat de SSH-server is geïnstalleerd en geconfigureerd om te starten tijdens het opstarten, dit doorgaans de standaardinstelling is. Wijzigen `/etc/ssh/sshd_config` om op te nemen in de volgende regel:
 
     ```sh
     ClientAliveInterval 180
     ```
 
-10. Het pakket WALinuxAgent `WALinuxAgent-<version>`, naar de opslagplaats van Red Hat extra's is gepusht. De opslagplaats extra's inschakelen met de volgende opdracht:
+1. Het pakket WALinuxAgent `WALinuxAgent-<version>`, naar de opslagplaats van Red Hat extra's is gepusht. De opslagplaats extra's inschakelen met de volgende opdracht:
 
     ```sh
     # subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-11. De Azure Linux-Agent installeren met de volgende opdracht:
+1. De Azure Linux-Agent installeren met de volgende opdracht:
 
     ```sh
     # sudo yum install WALinuxAgent
     # sudo systemctl enable waagent.service
     ```
 
-12. Maak geen wisselruimte op de besturingssysteemschijf.
+1. Maak geen wisselruimte op de besturingssysteemschijf.
 
     De Azure Linux Agent kunt wisselruimte automatisch configureren met behulp van de schijf van de lokale resource die is gekoppeld aan de virtuele machine nadat de virtuele machine is ingericht op Azure. De lokale bronschijf is een tijdelijke schijf en kan worden leeggemaakt wanneer de inrichting van de virtuele machine is beëindigd. Nadat u de Azure Linux Agent in de vorige stap hebt geïnstalleerd, wijzigt u de volgende parameters in `/etc/waagent.conf` op de juiste wijze:
 
@@ -132,15 +132,15 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
     ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
     ```
 
-13. Als u wilt de registratie van het abonnement, moet u de volgende opdracht uitvoeren:
+1. Als u wilt de registratie van het abonnement, moet u de volgende opdracht uitvoeren:
 
     ```sh
     # sudo subscription-manager unregister
     ```
 
-14. Als u van een systeem dat is geïmplementeerd met behulp van de certificeringsinstantie van een bedrijf gebruikmaakt, vertrouwt de RHEL-virtuele machine niet de Azure Stack-basiscertificaat. U moet die in het archief Vertrouwde basiscertificeringsinstanties plaatsen. Zie [toe te voegen vertrouwde basiscertificaten op de server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+1. Als u van een systeem dat is geïmplementeerd met behulp van de certificeringsinstantie van een bedrijf gebruikmaakt, vertrouwt de RHEL-virtuele machine niet de Azure Stack-basiscertificaat. U moet die in het archief Vertrouwde basiscertificeringsinstanties plaatsen. Zie [toe te voegen vertrouwde basiscertificaten op de server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
-15. Voer de volgende opdrachten voor de inrichting van de virtuele machine ongedaan maken en voorbereiden voor het inrichten op Azure:
+1. Voer de volgende opdrachten voor de inrichting van de virtuele machine ongedaan maken en voorbereiden voor het inrichten op Azure:
 
     ```sh
     # sudo waagent -force -deprovision
@@ -148,15 +148,15 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
     # logout
     ```
 
-16. Klik op **actie** > **afsluiten** in Hyper-V-beheer.
+1. Klik op **actie** > **afsluiten** in Hyper-V-beheer.
 
-17. De VHD converteren naar een vaste grootte VHD met behulp van de 'Schijf bewerken'-functie van Hyper-V-beheer of de Convert-VHD PowerShell-opdracht. De VHD met Linux is nu klaar om te worden geüpload naar Azure.
+1. De VHD converteren naar een vaste grootte VHD met behulp van de 'Schijf bewerken'-functie van Hyper-V-beheer of de Convert-VHD PowerShell-opdracht. De VHD met Linux is nu klaar om te worden geüpload naar Azure.
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-kvm"></a>Een Red Hat gebaseerde virtuele machine op basis van KVM voorbereiden
 
 1. Download de KVM-afbeelding van RHEL 7 van de Red Hat-website. Deze procedure maakt gebruik van RHEL 7 als voorbeeld.
 
-2. Een root-wachtwoord instellen.
+1. Een root-wachtwoord instellen.
 
     Een versleuteld wachtwoord genereren en kopieer de uitvoer van de opdracht:
 
@@ -177,16 +177,16 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
 
    Wijzigen van de tweede veld van de hoofdgebruiker van "." in het versleutelde wachtwoord.
 
-3. Maak een virtuele machine in KVM vanuit de installatiekopie van het qcow2. Het schijftype instellen op **qcow2**, en stelt u het virtuele netwerkinterface-Apparaatmodel op **virtio**. Vervolgens start u de virtuele machine en meld u aan als hoofdgebruiker.
+1. Maak een virtuele machine in KVM vanuit de installatiekopie van het qcow2. Het schijftype instellen op **qcow2**, en stelt u het virtuele netwerkinterface-Apparaatmodel op **virtio**. Vervolgens start u de virtuele machine en meld u aan als hoofdgebruiker.
 
-4. Maak of bewerk de `/etc/sysconfig/network` bestand en voeg de volgende tekst toe:
+1. Maak of bewerk de `/etc/sysconfig/network` bestand en voeg de volgende tekst toe:
 
     ```sh
     NETWORKING=yes
     HOSTNAME=localhost.localdomain
     ```
 
-5. Maak of bewerk de `/etc/sysconfig/network-scripts/ifcfg-eth0` bestand en voeg de volgende tekst toe:
+1. Maak of bewerk de `/etc/sysconfig/network-scripts/ifcfg-eth0` bestand en voeg de volgende tekst toe:
 
     ```sh
     DEVICE=eth0
@@ -199,19 +199,19 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
     NM_CONTROLLED=no
     ```
 
-6. Zorg ervoor dat de netwerkservice wordt gestart bij het opstarten met de volgende opdracht:
+1. Zorg ervoor dat de netwerkservice wordt gestart bij het opstarten met de volgende opdracht:
 
     ```sh
     # sudo systemctl enable network
     ```
 
-7. Registreer uw Red Hat-abonnement om in te schakelen van installatie van pakketten van de RHEL-opslagplaats met de volgende opdracht:
+1. Registreer uw Red Hat-abonnement om in te schakelen van installatie van pakketten van de RHEL-opslagplaats met de volgende opdracht:
 
     ```sh
     # subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-8. Wijzig de kernel boot line in de grub-configuratie om op te nemen van aanvullende kernel-parameters voor Azure. Open hiervoor deze configuratie `/etc/default/grub` in een teksteditor en wijzig de `GRUB_CMDLINE_LINUX` parameter. Bijvoorbeeld:
+1. Wijzig de kernel boot line in de grub-configuratie om op te nemen van aanvullende kernel-parameters voor Azure. Open hiervoor deze configuratie `/etc/default/grub` in een teksteditor en wijzig de `GRUB_CMDLINE_LINUX` parameter. Bijvoorbeeld:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -225,13 +225,13 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
     rhgb quiet crashkernel=auto
     ```
 
-9. Als u klaar bent bewerken `/etc/default/grub`, voer de volgende opdracht om op te bouwen de grub-configuratie:
+1. Als u klaar bent bewerken `/etc/default/grub`, voer de volgende opdracht om op te bouwen de grub-configuratie:
 
     ```sh
     # grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-10. Hyper-V-modules in initramfs toevoegen.
+1. Hyper-V-modules in initramfs toevoegen.
 
     Bewerken `/etc/dracut.conf` en voeg inhoud toe:
 
@@ -245,13 +245,13 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
     # dracut -f -v
     ```
 
-11. Cloud-init verwijderen:
+1. Cloud-init verwijderen:
 
     ```sh
     # yum remove cloud-init
     ```
 
-12. Zorg ervoor dat de SSH-server is geïnstalleerd en geconfigureerd om te starten tijdens het opstarten:
+1. Zorg ervoor dat de SSH-server is geïnstalleerd en geconfigureerd om te starten tijdens het opstarten:
 
     ```sh
     # systemctl enable sshd
@@ -264,13 +264,13 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
     ClientAliveInterval 180
     ```
 
-13. Het pakket WALinuxAgent `WALinuxAgent-<version>`, naar de opslagplaats van Red Hat extra's is gepusht. De opslagplaats extra's inschakelen met de volgende opdracht:
+1. Het pakket WALinuxAgent `WALinuxAgent-<version>`, naar de opslagplaats van Red Hat extra's is gepusht. De opslagplaats extra's inschakelen met de volgende opdracht:
 
     ```sh
     # subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-14. De Azure Linux-Agent installeren met de volgende opdracht:
+1. De Azure Linux-Agent installeren met de volgende opdracht:
 
     ```sh
     # yum install WALinuxAgent
@@ -282,7 +282,7 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
     # systemctl enable waagent.service
     ```
 
-15. Maak geen wisselruimte op de besturingssysteemschijf.
+1. Maak geen wisselruimte op de besturingssysteemschijf.
 
     De Azure Linux Agent kunt wisselruimte automatisch configureren met behulp van de schijf van de lokale resource die is gekoppeld aan de virtuele machine nadat de virtuele machine is ingericht op Azure. De lokale bronschijf is een tijdelijke schijf en kan worden leeggemaakt wanneer de inrichting van de virtuele machine is beëindigd. Nadat u de Azure Linux Agent in de vorige stap hebt geïnstalleerd, wijzigt u de volgende parameters in `/etc/waagent.conf` op de juiste wijze:
 
@@ -294,15 +294,15 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
     ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
     ```
 
-16. Het abonnement (indien nodig) registratie met de volgende opdracht:
+1. Het abonnement (indien nodig) registratie met de volgende opdracht:
 
     ```sh
     # subscription-manager unregister
     ```
 
-17. Als u van een systeem dat is geïmplementeerd met behulp van de certificeringsinstantie van een bedrijf gebruikmaakt, vertrouwt de RHEL-virtuele machine niet de Azure Stack-basiscertificaat. U moet die in het archief Vertrouwde basiscertificeringsinstanties plaatsen. Zie [toe te voegen vertrouwde basiscertificaten op de server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+1. Als u van een systeem dat is geïmplementeerd met behulp van de certificeringsinstantie van een bedrijf gebruikmaakt, vertrouwt de RHEL-virtuele machine niet de Azure Stack-basiscertificaat. U moet die in het archief Vertrouwde basiscertificeringsinstanties plaatsen. Zie [toe te voegen vertrouwde basiscertificaten op de server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
-18. Voer de volgende opdrachten voor de inrichting van de virtuele machine ongedaan maken en voorbereiden voor het inrichten op Azure:
+1. Voer de volgende opdrachten voor de inrichting van de virtuele machine ongedaan maken en voorbereiden voor het inrichten op Azure:
 
     ```sh
     # sudo waagent -force -deprovision
@@ -310,9 +310,9 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
     # logout
     ```
 
-19. De virtuele machine in KVM afgesloten.
+1. De virtuele machine in KVM afgesloten.
 
-20. De afbeelding qcow2 naar de VHD-indeling converteren.
+1. De afbeelding qcow2 naar de VHD-indeling converteren.
 
     > [!NOTE]
     > Er is een bekend probleem in qemu img versies > = 2.2.1 die in een onjuiste indeling VHD resulteert. Het probleem is opgelost in QEMU 2.6. Het verdient aanbeveling qemu-img 2.2.0 of lager gebruiken, of bijwerken op 2.6 of hoger. Naslaginformatie: https://bugs.launchpad.net/qemu/+bug/1490611.
@@ -362,7 +362,7 @@ In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware a
     HOSTNAME=localhost.localdomain
     ```
 
-2. Maak of bewerk de `/etc/sysconfig/network-scripts/ifcfg-eth0` bestand en voeg de volgende tekst toe:
+1. Maak of bewerk de `/etc/sysconfig/network-scripts/ifcfg-eth0` bestand en voeg de volgende tekst toe:
 
     ```sh
     DEVICE=eth0
@@ -375,19 +375,19 @@ In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware a
     NM_CONTROLLED=no
     ```
 
-3. Zorg ervoor dat de netwerkservice wordt gestart bij het opstarten met de volgende opdracht:
+1. Zorg ervoor dat de netwerkservice wordt gestart bij het opstarten met de volgende opdracht:
 
     ```sh
     # sudo chkconfig network on
     ```
 
-4. Registreer uw Red Hat-abonnement om in te schakelen van de installatie van pakketten van de RHEL-opslagplaats met de volgende opdracht:
+1. Registreer uw Red Hat-abonnement om in te schakelen van de installatie van pakketten van de RHEL-opslagplaats met de volgende opdracht:
 
     ```sh
     # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
-5. Wijzig de kernel boot line in de grub-configuratie om op te nemen van aanvullende kernel-parameters voor Azure. Open hiervoor deze wijziging `/etc/default/grub` in een teksteditor en wijzig de `GRUB_CMDLINE_LINUX` parameter. Bijvoorbeeld:
+1. Wijzig de kernel boot line in de grub-configuratie om op te nemen van aanvullende kernel-parameters voor Azure. Open hiervoor deze wijziging `/etc/default/grub` in een teksteditor en wijzig de `GRUB_CMDLINE_LINUX` parameter. Bijvoorbeeld:
 
     ```sh
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
@@ -401,13 +401,13 @@ In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware a
 
     Grafische en stil opstarten zijn niet nuttig in een cloudomgeving waar we alle logboeken worden verzonden naar de seriële poort. U kunt laten de `crashkernel` geconfigureerd als de gewenste optie. Houd er rekening mee dat deze parameter vermindert de hoeveelheid beschikbaar geheugen in de virtuele machine door 128 MB of meer, die mogelijk problemen op kleinere virtuele machine.
 
-6. Als u klaar bent bewerken `/etc/default/grub`, voer de volgende opdracht om op te bouwen de grub-configuratie:
+1. Als u klaar bent bewerken `/etc/default/grub`, voer de volgende opdracht om op te bouwen de grub-configuratie:
 
     ```sh
     # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
-7. Hyper-V-modules aan initramfs toevoegen.
+1. Hyper-V-modules aan initramfs toevoegen.
 
     Bewerken `/etc/dracut.conf`, Voeg inhoud toe:
 
@@ -421,26 +421,26 @@ In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware a
     # dracut -f -v
     ```
 
-8. Zorg ervoor dat de SSH-server is geïnstalleerd en geconfigureerd om te starten tijdens het opstarten. Dit is doorgaans de standaardinstelling. Wijzigen `/etc/ssh/sshd_config` om op te nemen in de volgende regel:
+1. Zorg ervoor dat de SSH-server is geïnstalleerd en geconfigureerd om te starten tijdens het opstarten. Dit is doorgaans de standaardinstelling. Wijzigen `/etc/ssh/sshd_config` om op te nemen in de volgende regel:
 
     ```sh
     ClientAliveInterval 180
     ```
 
-9. Het pakket WALinuxAgent `WALinuxAgent-<version>`, naar de opslagplaats van Red Hat extra's is gepusht. De opslagplaats extra's inschakelen met de volgende opdracht:
+1. Het pakket WALinuxAgent `WALinuxAgent-<version>`, naar de opslagplaats van Red Hat extra's is gepusht. De opslagplaats extra's inschakelen met de volgende opdracht:
 
     ```sh
     # subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-10. De Azure Linux-Agent installeren met de volgende opdracht:
+1. De Azure Linux-Agent installeren met de volgende opdracht:
 
     ```sh
     # sudo yum install WALinuxAgent
     # sudo systemctl enable waagent.service
     ```
 
-11. Maak geen wisselruimte op de besturingssysteemschijf.
+1. Maak geen wisselruimte op de besturingssysteemschijf.
 
     De Azure Linux Agent kunt wisselruimte automatisch configureren met behulp van de schijf van de lokale resource die is gekoppeld aan de virtuele machine nadat de virtuele machine is ingericht op Azure. Houd er rekening mee dat de lokale bronschijf een tijdelijke schijf is en kan worden leeggemaakt wanneer de inrichting van de virtuele machine is beëindigd. Nadat u de Azure Linux Agent in de vorige stap hebt geïnstalleerd, wijzigt u de volgende parameters in `/etc/waagent.conf` op de juiste wijze:
 
@@ -452,15 +452,15 @@ In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware a
     ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
     ```
 
-12. Als u wilt de registratie van het abonnement, moet u de volgende opdracht uitvoeren:
+1. Als u wilt de registratie van het abonnement, moet u de volgende opdracht uitvoeren:
 
     ```sh
     # sudo subscription-manager unregister
     ```
 
-13. Als u van een systeem dat is geïmplementeerd met behulp van de certificeringsinstantie van een bedrijf gebruikmaakt, vertrouwt de RHEL-virtuele machine niet de Azure Stack-basiscertificaat. U moet die in het archief Vertrouwde basiscertificeringsinstanties plaatsen. Zie [toe te voegen vertrouwde basiscertificaten op de server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
+1. Als u van een systeem dat is geïmplementeerd met behulp van de certificeringsinstantie van een bedrijf gebruikmaakt, vertrouwt de RHEL-virtuele machine niet de Azure Stack-basiscertificaat. U moet die in het archief Vertrouwde basiscertificeringsinstanties plaatsen. Zie [toe te voegen vertrouwde basiscertificaten op de server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
-14. Voer de volgende opdrachten voor de inrichting van de virtuele machine ongedaan maken en voorbereiden voor het inrichten op Azure:
+1. Voer de volgende opdrachten voor de inrichting van de virtuele machine ongedaan maken en voorbereiden voor het inrichten op Azure:
 
     ```sh
     # sudo waagent -force -deprovision
@@ -468,7 +468,7 @@ In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware a
     # logout
     ```
 
-15. Sluit de virtuele machine en het VMDK-bestand converteren naar de VHD-indeling.
+1. Sluit de virtuele machine en het VMDK-bestand converteren naar de VHD-indeling.
 
     > [!NOTE]
     > Er is een bekend probleem in qemu img versies > = 2.2.1 die in een onjuiste indeling VHD resulteert. Het probleem is opgelost in QEMU 2.6. Het verdient aanbeveling qemu-img 2.2.0 of lager gebruiken, of bijwerken op 2.6 of hoger. Naslaginformatie over: <https://bugs.launchpad.net/qemu/+bug/1490611.>
@@ -626,11 +626,11 @@ In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware a
     %end
     ```
 
-2. Plaats het bestand kickstart waar het installatie-systeem kunt openen.
+1. Plaats het bestand kickstart waar het installatie-systeem kunt openen.
 
-3. Maak een nieuwe virtuele machine in Hyper-V-beheer. Op de **virtuele hardeschijf aansluiten** weergeeft, schakelt **later een virtuele harde schijf koppelen**, en voltooi de Wizard Nieuwe virtuele Machine.
+1. Maak een nieuwe virtuele machine in Hyper-V-beheer. Op de **virtuele hardeschijf aansluiten** weergeeft, schakelt **later een virtuele harde schijf koppelen**, en voltooi de Wizard Nieuwe virtuele Machine.
 
-4. Open de instellingen van de virtuele machine:
+1. Open de instellingen van de virtuele machine:
 
     a. Een nieuwe virtuele harde schijf koppelen aan de virtuele machine. Zorg ervoor dat u selecteert **VHD-indeling** en **vaste grootte**.
 
@@ -638,11 +638,11 @@ In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware a
 
     c. Stel het BIOS om op te starten vanaf de CD.
 
-5. Hiermee wordt de virtuele machine gestart. Wanneer de installatiehandleiding wordt weergegeven, drukt u op **tabblad** het configureren van de opstartopties.
+1. Hiermee wordt de virtuele machine gestart. Wanneer de installatiehandleiding wordt weergegeven, drukt u op **tabblad** het configureren van de opstartopties.
 
-6. ENTER `inst.ks=<the location of the kickstart file>` aan het einde van de opstartopties en druk op **Enter**.
+1. ENTER `inst.ks=<the location of the kickstart file>` aan het einde van de opstartopties en druk op **Enter**.
 
-7. Wacht tot de installatie is voltooid. Wanneer deze voltooid, wordt de virtuele machine automatisch afgesloten. De VHD met Linux is nu klaar om te worden geüpload naar Azure.
+1. Wacht tot de installatie is voltooid. Wanneer deze voltooid, wordt de virtuele machine automatisch afgesloten. De VHD met Linux is nu klaar om te worden geüpload naar Azure.
 
 ## <a name="known-issues"></a>Bekende problemen
 

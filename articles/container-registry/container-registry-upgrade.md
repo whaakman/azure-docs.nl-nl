@@ -1,6 +1,6 @@
 ---
-title: Upgrade van een klassieke Azure-container-register
-description: Profiteren van de uitgevouwen functieset van Basic, Standard en Premium container registers beheerd door uw niet-beheerde klassieke container register upgraden.
+title: Een klassieke Azure-containerregister upgraden
+description: Profiteer van de uitgebreide reeks functies van Basic, Standard en Premium-containerregisters beheerd door uw niet-beheerde klassiek containerregister upgraden.
 services: container-registry
 author: mmacy
 manager: jeconnoc
@@ -8,65 +8,65 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/15/2018
 ms.author: marsma
-ms.openlocfilehash: 084dfc8f87aaea4b5bbad7cb5fdb9d445d566206
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 562bd8da54605986e95d8105782ce7ebb9b359ea
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32168704"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432385"
 ---
-# <a name="upgrade-a-classic-container-registry"></a>Upgrade van een container klassieke register
+# <a name="upgrade-a-classic-container-registry"></a>Een container klassiek register upgraden
 
-Azure Container register (ACR) is beschikbaar in verschillende Servicelagen, [bekend als SKU's](container-registry-skus.md). De eerste release van ACR aangeboden een enkele SKU klassieke die beschikt niet over de verschillende functies die deel uitmaken van de Basic, Standard en Premium-SKU's (gezamenlijk bekend als *beheerd* registers). In dit artikel wordt het niet-beheerde klassieke register migreren naar een van de beheerde SKU's zodat u van hun verbeterde functieset profiteren kunt.
+Azure Container Registry (ACR) is beschikbaar in verschillende Servicelagen, [wel SKU's](container-registry-skus.md). De eerste release van de ACR aangeboden een enkel SKU klassiek, die beschikt niet over de verschillende functies documentatiesysteem dat in de Basic, Standard en Premium-SKU's (gezamenlijk bekend als *beheerd* registers). Dit artikel wordt uitgelegd hoe u uw niet-beheerde Classic-register migreren naar een van de beheerde SKU's zodat u van hun uitgebreide functieset profiteren kunt.
 
-## <a name="why-upgrade"></a>Waarom upgraden?
+## <a name="why-upgrade"></a>Waarom een upgrade uitvoeren?
 
-U wordt aangeraden dat alle klassieke registers worden bijgewerkt naar Basic, Standard of Premium beheerde registers vanwege de beperkte mogelijkheden van registers klassieke zonder begeleiding. Het register deze op een hoger niveau SKU's meer diep geïntegreerd in de mogelijkheden van Azure.
+Vanwege de beperkte mogelijkheden van klassieke niet-beheerde registers, wordt het aangeraden dat alle klassieke registers worden bijgewerkt naar Basic, Standard of Premium beheerde registers. De Register integreren-SKU's deze op een hoger niveau dieper in de mogelijkheden van Azure.
 
 Beheerde registers bieden:
 
 * Azure Active Directory-integratie voor [afzonderlijke aanmelding](container-registry-authentication.md#individual-login-with-azure-ad)
-* Ondersteuning voor image en label verwijderen
+* Ondersteuning voor installatiekopie en tag verwijderen
 * [Geo-replicatie](container-registry-geo-replication.md)
-* [Webhooks.](container-registry-webhook.md)
+* [Webhooks](container-registry-webhook.md)
 
-Een klassieke-register is meest, afhankelijk van het opslagaccount dat Azure automatisch in uw Azure-abonnement voorziet bij het maken van het register. Daarentegen is de Basic, Standard en Premium-SKU's profiteren van Azure [geavanceerde functies van storage](container-registry-storage.md) op transparante wijze de opslag van uw afbeeldingen voor u. Een afzonderlijke opslagaccount is niet gemaakt in uw eigen abonnement.
+Een Classic-register is bovenal, afhankelijk van het opslagaccount dat automatisch in uw Azure-abonnement ingericht bij het maken van het register. Daarentegen is de basis, standaard en Premium-SKU's profiteren van Azure [geavanceerde opslagfuncties](container-registry-storage.md) op transparante wijze de opslag van uw installatiekopieën voor u. Een afzonderlijk opslagaccount is niet gemaakt in uw eigen abonnement.
 
-Beheerde register opslag biedt de volgende voordelen:
+Beheerd register-opslag biedt de volgende voordelen:
 
-* Container afbeeldingen zijn [in rust versleuteld](container-registry-storage.md#encryption-at-rest).
-* Installatiekopieën worden opgeslagen met behulp van [geografisch redundante opslag](container-registry-storage.md#geo-redundant-storage), zodat de zeker back-up van uw afbeeldingen met meerdere landen/regio-replicatie.
-* Mogelijkheid om te vrijelijk [verplaatsen tussen SKU's](container-registry-skus.md#changing-skus), hogere doorvoer inschakelen wanneer u ervoor een hogere SKU kiest. Met elke SKU ACR kunt doorvoer aan uw eisen voldoen als verhogen voor uw behoeften.
-* Geïntegreerde beveiligingsmodel voor het register en bijbehorende opslag biedt vereenvoudigde rights management. U beheren machtigingen alleen voor het register container zonder dat ook om machtigingen te beheren voor een afzonderlijke opslagaccount.
+* Containerinstallatiekopieën worden [in rust versleuteld met](container-registry-storage.md#encryption-at-rest).
+* Installatiekopieën worden opgeslagen met behulp van [geografisch redundante opslag](container-registry-storage.md#geo-redundant-storage), ingeschakeld, back-up van uw afbeeldingen met replicatie voor meerdere regio's.
+* Mogelijkheid om naar eigen inzicht [verplaatsen tussen SKU's](container-registry-skus.md#changing-skus), hogere doorvoer inschakelen wanneer u een hogere SKU kiest. Met elke SKU kunt ACR voldoen aan de vereisten voor uw doorvoer naarmate uw behoeften toenemen.
+* Geïntegreerde beveiligingsmodel voor het register en de opslag biedt vereenvoudigde rights management. U beheert machtigingen alleen voor de container registry, zonder te moeten ook machtigingen voor een afzonderlijk opslagaccount beheren.
 
-Zie voor meer informatie over de opslag van de afbeelding in ACR [Container installatiekopie opslag in Azure Container register](container-registry-storage.md).
+Zie voor meer informatie over de installatiekopie van opslag in de ACR [afbeeldingopslag Container in Azure Container Registry](container-registry-storage.md).
 
-## <a name="migration-considerations"></a>Overwegingen bij migratie
+## <a name="migration-considerations"></a>Overwegingen bij migraties
 
-Wanneer u een klassiek register met een beheerde register wijzigt, moet Azure alle bestaande container installatiekopieën van het opslagaccount ACR gemaakt in uw abonnement kopiëren naar een beheerd door Azure storage-account. Afhankelijk van de grootte van het register kan dit proces enkele minuten tot enkele uren duren.
+Wanneer u een klassiek register naar een beheerd register wijzigt, moet Azure alle bestaande containerinstallatiekopieën uit het ACR gemaakte opslagaccount in uw abonnement kopiëren naar een beheerd door Azure storage-account. Dit proces kan enkele minuten tot enkele uren duren, afhankelijk van de grootte van het register.
 
-Tijdens het conversieproces alle `docker push` bewerkingen worden geblokkeerd, terwijl `docker pull` blijft werken.
+Tijdens de conversie, alle `docker push` bewerkingen worden geblokkeerd, terwijl `docker pull` blijft werken.
 
-Verwijder of wijzig de inhoud van het opslagaccount back-ups van het register klassieke tijdens de conversie niet. In dat geval kan leiden tot beschadiging van de container afbeeldingen.
+Niet verwijderen of wijzigen van de inhoud van het opslagaccount dat een back-up uw Classic-register tijdens de conversie. In dat geval kan leiden tot beschadiging van uw containerinstallatiekopieën.
 
-Zodra de migratie voltooid is, wordt het opslagaccount in uw abonnement die oorspronkelijk ondersteund uw register klassieke meer gebruikt door ACR. Nadat u hebt geverifieerd dat de migratie geslaagd is, moet u overwegen verwijderen van opslagaccount te helpen minimaliseren kosten.
+Nadat de migratie voltooid is, wordt het opslagaccount in uw abonnement die oorspronkelijk ondersteund uw Classic-register meer door ACR gebruikt. Nadat u hebt gecontroleerd of de migratie gelukt is, kunt u het verwijderen van het storage-account om u te helpen de kosten minimaliseren.
 
 >[!IMPORTANT]
-> Upgraden van klassiek naar een van de beheerde SKU's is een **onomkeerbaar**. Nadat u hebt een klassiek register in op Basic, Standard of Premium geconverteerd, kunt u niet terugkeren naar de klassieke. U kunt echter vrijelijk verplaatsen tussen beheerde SKU's met voldoende capaciteit voor het register.
+> Een upgrade uitvoert van klassiek naar een van de beheerde SKU's is een **eenrichtingsproces**. Nadat u hebt een klassiek register naar Basic, Standard of Premium geconverteerd, kunt u niet terugkeren naar de klassieke. U kunt echter vrijelijk verplaatsen tussen beheerde SKU's met voldoende capaciteit voor uw register.
 
-## <a name="how-to-upgrade"></a>Bijwerken
+## <a name="how-to-upgrade"></a>Upgrade uitvoeren
 
-U kunt een niet-beheerde klassieke registry upgraden naar een van de beheerde SKU's op verschillende manieren. In de volgende secties beschrijven we de procedure voor het gebruik van de [Azure CLI] [ azure-cli] en de [Azure-portal][azure-portal].
+U kunt een niet-beheerde klassiek register upgraden naar een van de beheerde SKU's op verschillende manieren. In de volgende secties beschrijven we de procedure voor het gebruik van de [Azure CLI] [ azure-cli] en de [Azure-portal][azure-portal].
 
-## <a name="upgrade-in-azure-cli"></a>Upgrade uitvoeren in Azure CLI
+## <a name="upgrade-in-azure-cli"></a>Upgrade uitvoeren in de Azure CLI
 
-Uitvoeren als u wilt upgraden een klassiek register in de Azure CLI, de [az acr update] [ az-acr-update] opdracht en geeft u de nieuwe SKU van het register. In het volgende voorbeeld wordt een klassiek register met de naam *myclassicregistry* is bijgewerkt naar de Premium-SKU:
+Als u een Classic-register in de Azure CLI bijwerken, uitvoeren van de [az acr update] [ az-acr-update] opdracht en geeft u de nieuwe SKU voor het register. In het volgende voorbeeld wordt een Classic-register met de naam *myclassicregistry* is bijgewerkt naar de Premium-SKU:
 
 ```azurecli-interactive
 az acr update --name myclassicregistry --sku Premium
 ```
 
-Wanneer de migratie voltooid is, ziet u uitvoer ziet er als volgt. U ziet dat de `sku` ' Premium ' en de `storageAccount` ' null ' waarmee wordt aangegeven dat Azure nu de installatiekopie van opslag voor deze registersleutel beheert.
+Wanneer de migratie voltooid is, ziet u uitvoer die vergelijkbaar is met de volgende. U ziet dat de `sku` "Premium" is en de `storageAccount` ' null is, ' die aangeeft dat Azure nu opslag wordt beheerd door de installatiekopie voor dit register.
 
 ```JSON
 {
@@ -89,35 +89,35 @@ Wanneer de migratie voltooid is, ziet u uitvoer ziet er als volgt. U ziet dat de
 }
 ```
 
-Als u een beheerde register SKU waarvan maximale capaciteit kleiner dan de grootte van het register klassieke is opgeeft, ontvangt u een vergelijkbaar met het volgende foutbericht weergegeven.
+Als u een beheerd register waarvan maximale capaciteit kleiner dan de grootte van uw register klassiek is SKU, ontvangt u een vergelijkbaar met het volgende foutbericht weergegeven.
 
 `Cannot update the registry SKU due to reason: Registry size 12936251113 bytes exceeds the quota value 10737418240 bytes for SKU Basic. The suggested SKU is Standard.`
 
-Als u een vergelijkbare foutbericht ontvangt, voert u de [az acr update] [ az-acr-update] opdracht opnieuw en geef de voorgestelde SKU de SKU van de volgende hoogste niveau die kan worden aangepast aan uw afbeeldingen.
+Als u een vergelijkbaar foutbericht ontvangt, voert u de [az acr update] [ az-acr-update] opdracht opnieuw uit en geeft u de voorgestelde SKU, die de volgende hoogste niveau SKU die kan worden aangepast aan uw installatiekopieën.
 
-## <a name="upgrade-in-azure-portal"></a>Upgrade uitvoeren in Azure-portal
+## <a name="upgrade-in-azure-portal"></a>Een upgrade uitvoert in Azure portal
 
-Wanneer u een upgrade uitvoert van een klassiek register met behulp van de Azure-portal, selecteert Azure automatisch het laagste niveau SKU die kan worden aangepast aan uw afbeeldingen. Bijvoorbeeld, als het register 12 GiB in afbeeldingen bevat, Azure automatisch geselecteerd en het register klassieke converteert naar Standard (maximaal van 100 GiB).
+Wanneer u een klassiek register upgraden met behulp van Azure portal, selecteert Azure automatisch de laagste SKU die kan worden aangepast aan uw installatiekopieën. Bijvoorbeeld, als uw register 12 GiB in afbeeldingen bevat, Azure automatisch geselecteerd en de Classic-register converteert naar Standard (100 GiB maximum).
 
-Als u wilt uw register klassieke upgraden met behulp van de Azure-portal, gaat u naar het register van de container **overzicht** en selecteer **Upgrade naar beheerde register**.
+Als u uw Classic-register bijwerken met behulp van Azure portal, gaat u naar het containerregister **overzicht** en selecteer **Upgrade naar beheerd register**.
 
-![Klassieke register upgrade knop in de gebruikersinterface van de Azure portal][update-classic-01-upgrade]
+![Klassiek register upgraden knop in de gebruikersinterface van Azure portal][update-classic-01-upgrade]
 
-Selecteer **OK** om te bevestigen dat u wilt upgraden naar een beheerde register.
+Selecteer **OK** om te bevestigen dat u wilt upgraden naar een beheerd register.
 
-![Klassieke register upgrade bevestiging in de gebruikersinterface van de Azure portal][update-classic-02-confirm]
+![Klassiek register upgraden bevestiging in de gebruikersinterface van Azure portal][update-classic-02-confirm]
 
-Tijdens de migratie de portal aan te geven dat het register **Inrichtingsstatus** is *Updating*. Zoals eerder gezegd `docker push` zijn uitgeschakeld tijdens de migratie en moet u niet verwijderen of update het storage-account door het register klassieke gebruikt terwijl de migratie uitgevoerd wordt--in dat geval kan leiden tot beschadiging van de installatiekopie.
+Tijdens de migratie, geeft de portal aan die van het register **Inrichtingsstatus** is *bijwerken*. Zoals eerder aangegeven, `docker push` bewerkingen zijn uitgeschakeld tijdens de migratie en moet u niet verwijderen of update het opslagaccount dat wordt gebruikt door het register klassiek terwijl de migratie uitgevoerd wordt, in dat geval kan leiden tot beschadiging van de installatiekopie.
 
-![Klassieke register voortgang in de gebruikersinterface van de Azure portal bijwerken][update-classic-03-updating]
+![Klassiek register upgraden wordt uitgevoerd in de gebruikersinterface van Azure portal][update-classic-03-updating]
 
-Als de migratie voltooid is, de **Inrichtingsstatus** geeft *geslaagd*, en kunt u nog een keer `docker push` toe aan het register.
+Wanneer de migratie voltooid is, de **Inrichtingsstatus** geeft aan dat *geslaagd*, en kunt u nog een keer `docker push` naar het register.
 
-![Klassieke register upgrade voltooiingsstatus in de gebruikersinterface van de Azure portal][update-classic-04-updated]
+![Klassiek register upgraden voltooiingsstatus in de gebruikersinterface van Azure portal][update-classic-04-updated]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zodra u een klassiek register in op Basic, Standard of Premium hebt bijgewerkt, maakt gebruik van Azure niet langer de storage-account dat het register klassieke oorspronkelijk ondersteund. Als u kosten, kunt u eventueel het opslagaccount of de Blob-container binnen het account dat uw oude installatiekopieën van de container bevat verwijderen.
+Wanneer u een klassiek register naar Basic, Standard of Premium hebt bijgewerkt, gebruikt Azure niet meer de storage-account dat een back-Classic-register oorspronkelijk gemaakt. Als u wilt kosten reduceren, houd rekening met het verwijderen van het storage-account of de Blob-container binnen het account dat uw oude containerinstallatiekopieën bevat.
 
 <!-- IMAGES -->
 [update-classic-01-upgrade]: ./media/container-registry-upgrade\update-classic-01-upgrade.png
@@ -126,6 +126,6 @@ Zodra u een klassiek register in op Basic, Standard of Premium hebt bijgewerkt, 
 [update-classic-04-updated]: ./media/container-registry-upgrade\update-classic-04-updated.png
 
 <!-- LINKS - internal -->
-[az-acr-update]: /cli/azure/acr#az_acr_update
+[az-acr-update]: /cli/azure/acr#az-acr-update
 [azure-cli]: /cli/azure/install-azure-cli
 [azure-portal]: https://portal.azure.com

@@ -9,14 +9,17 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: 82416c7c653438fcd8b8f4a4ead7591bad0ac022
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 73359955861b88f2bc5ca297c32fa78c2632148c
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391517"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449464"
 ---
 # <a name="use-azure-video-indexer-api"></a>Gebruik Azure Video Indexer-API
+
+> [!Note]
+> De Video Indexer-API V1 is op 1 augustus 2018 afgeschaft. U moet nu de v2-API voor Video Indexer gebruiken. <br/>Als u wilt ontwikkelen met Video Indexer v2-API's, Zie de instructies [hier](https://api-portal.videoindexer.ai/). 
 
 Video Indexer consolideert verschillende audio en video kunstmatige intelligentie (AI)-technologieën die worden aangeboden door Microsoft in één geïntegreerde service, wat het ontwikkelen eenvoudiger. De API's zijn ontworpen voor ontwikkelaars zich richten op de Media AI-technologieën gebruiken zonder u zorgen te maken over schalen, globale bereiken inschakelen, beschikbaarheid en betrouwbaarheid van cloud-platform. De API kunt u uw bestanden uploaden, ophalen, gedetailleerde inzichten in video's, URL's van inzicht en de ingesloten speler widgets ophalen als u wilt deze insluiten in uw toepassing en andere taken.
 

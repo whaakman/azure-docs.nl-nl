@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: jeedes
-ms.openlocfilehash: a0e3d6822c3aa79018482ec601a3f821f9fda254
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 7dc2f13979bb0ea919a78b750160119198ee7d6d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040861"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436604"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Zelfstudie: Azure Active Directory-integratie met Mozy Enterprise
 
@@ -52,7 +52,7 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Mozy Enterprise uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-mozy-enterprise-from-the-gallery"></a>Mozy Enterprise uit de galerie toe te voegen
 Voor het configureren van de integratie van Mozy Enterprise in Azure AD, moet u Mozy Enterprise uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -63,19 +63,19 @@ Voor het configureren van de integratie van Mozy Enterprise in Azure AD, moet u 
 
     ![Active Directory][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **Mozy Enterprise**.
+1. Typ in het zoekvak **Mozy Enterprise**.
 
     ![Het maken van een Azure AD-testgebruiker](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_search.png)
 
-5. Selecteer in het deelvenster resultaten **Mozy Enterprise**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Selecteer in het deelvenster resultaten **Mozy Enterprise**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Het maken van een Azure AD-testgebruiker](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_addfromgallery.png)
 
@@ -89,10 +89,10 @@ In de onderneming Mozy, wijs de waarde van de **gebruikersnaam** in Azure AD als
 Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Mozy Enterprise, u nodig hebt voor de volgende bouwstenen:
 
 1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Het maken van een testgebruiker Mozy Enterprise](#creating-a-mozy-enterprise-test-user)**  : als u wilt een equivalent van Britta Simon in Mozy-onderneming die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Het maken van een testgebruiker Mozy Enterprise](#creating-a-mozy-enterprise-test-user)**  : als u wilt een equivalent van Britta Simon in Mozy-onderneming die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -104,11 +104,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_samlbase.png)
 
-3. Op de **Mozy Enterprise domein en URL's** sectie, voert u de volgende stappen uit:
+1. Op de **Mozy Enterprise domein en URL's** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_url.png)
 
@@ -117,25 +117,25 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     > [!NOTE] 
     > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Mozy Enterprise Client-ondersteuningsteam](http://support.mozy.com/) deze waarde op te halen.
 
-4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_certificate.png) 
 
-5. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/mozy-enterprise-tutorial/tutorial_general_400.png)
 
-6. Op de **Mozy Ondernemingsconfiguratie** sectie, klikt u op **configureren Mozy Enterprise** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+1. Op de **Mozy Ondernemingsconfiguratie** sectie, klikt u op **configureren Mozy Enterprise** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 
     ![Eenmalige aanmelding configureren](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_configure.png) 
 
-7. Meld u in een ander browservenster in uw bedrijf Mozy Enterprise site als beheerder.
+1. Meld u in een ander browservenster in uw bedrijf Mozy Enterprise site als beheerder.
 
-8. In de **configuratie** sectie, klikt u op **verificatiebeleid**.
+1. In de **configuratie** sectie, klikt u op **verificatiebeleid**.
    
    ![Verificatiebeleid](./media/mozy-enterprise-tutorial/ic777314.png "verificatiebeleid")
 
-9. Op de **verificatiebeleid** sectie, voert u de volgende stappen uit:
+1. Op de **verificatiebeleid** sectie, voert u de volgende stappen uit:
    
    ![Verificatiebeleid](./media/mozy-enterprise-tutorial/ic777315.png "verificatiebeleid")
    
@@ -170,15 +170,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![Het maken van een Azure AD-testgebruiker](./media/mozy-enterprise-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
     ![Het maken van een Azure AD-testgebruiker](./media/mozy-enterprise-tutorial/create_aaduser_02.png) 
 
-3. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
     ![Het maken van een Azure AD-testgebruiker](./media/mozy-enterprise-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
     ![Het maken van een Azure AD-testgebruiker](./media/mozy-enterprise-tutorial/create_aaduser_04.png) 
 
@@ -201,14 +201,14 @@ Om in te schakelen in Azure AD-gebruikers zich aanmelden bij Mozy Enterprise, mo
 
 1. Meld u aan bij uw **Mozy Enterprise** tenant.
 
-2. Klik op **gebruikers**, en klik vervolgens op **Add New User**.
+1. Klik op **gebruikers**, en klik vervolgens op **Add New User**.
    
    ![Gebruikers](./media/mozy-enterprise-tutorial/ic777317.png "gebruikers")
    
    >[!NOTE]
    >De **Add New User** optie wordt alleen weergegeven als **Mozy** is geselecteerd als de provider onder **verificatiebeleid**. Als SAML-verificatie is geconfigureerd, worden klikt u vervolgens de gebruikers automatisch toegevoegd aan hun eerste keer aanmelden via eenmalige aanmelding op.
     
-3. In het gebruikersdialoogvenster nieuwe de volgende stappen uitvoeren:
+1. In het gebruikersdialoogvenster nieuwe de volgende stappen uitvoeren:
    
    ![Gebruikers toevoegen](./media/mozy-enterprise-tutorial/ic777318.png "gebruikers toevoegen")
    
@@ -239,23 +239,23 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **Mozy Enterprise**.
+1. Selecteer in de lijst met toepassingen, **Mozy Enterprise**.
 
     ![Eenmalige aanmelding configureren](./media/mozy-enterprise-tutorial/tutorial_mozyenterprise_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -267,7 +267,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->
 

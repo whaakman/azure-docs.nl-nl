@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: d76ee059720baa1f91dd157c093b476e4cfaf035
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 2a477d8e10b9be4aa90cc80341c787facaabc520
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040701"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438746"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Zelfstudie: Azure Active Directory-integratie met Tangoe opdracht Premium Mobile
 
@@ -53,7 +53,7 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Tangoe opdracht Premium Mobile uit de galerie toevoegen
-2. Configureren en Azure AD eenmalige aanmelding testen
+1. Configureren en Azure AD eenmalige aanmelding testen
 
 ## <a name="add-tangoe-command-premium-mobile-from-the-gallery"></a>Tangoe opdracht Premium Mobile uit de galerie toevoegen
 Voor het configureren van de integratie van Tangoe opdracht Premium Mobile in Azure AD, moet u Tangoe opdracht Premium Mobile uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -64,15 +64,15 @@ Voor het configureren van de integratie van Tangoe opdracht Premium Mobile in Az
 
     ![Active Directory][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **Tangoe opdracht Premium Mobile**, selecteer **Tangoe opdracht Premium Mobile** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Typ in het zoekvak **Tangoe opdracht Premium Mobile**, selecteer **Tangoe opdracht Premium Mobile** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Tangoe opdracht Premium Mobile uit galerie toevoegen ](./media/tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
 
@@ -86,10 +86,10 @@ In Tangoe opdracht Premium Mobile, wijs de waarde van de **gebruikersnaam** in A
 Als u wilt configureren en testen van Azure AD eenmalige aanmelding met Tangoe opdracht Premium mobiele, u nodig hebt voor de volgende bouwstenen:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker Tangoe opdracht Premium Mobile](#create-a-tangoe-command-premium-mobile-test-user)**  : als u wilt een equivalent van Britta Simon in Tangoe opdracht Premium mobiele die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Maak een testgebruiker Tangoe opdracht Premium Mobile](#create-a-tangoe-command-premium-mobile-test-user)**  : als u wilt een equivalent van Britta Simon in Tangoe opdracht Premium mobiele die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -101,11 +101,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![Op SAML gebaseerde aanmelding](./media/tangoe-tutorial/tutorial_tangoe_samlbase.png)
 
-3. Op de **Tangoe opdracht Premium Mobile domein en URL's** sectie, voert u de volgende stappen uit:
+1. Op de **Tangoe opdracht Premium Mobile domein en URL's** sectie, voert u de volgende stappen uit:
 
     ![Tangoe opdracht Premium mobiele domein en URL 's](./media/tangoe-tutorial/tutorial_tangoe_url.png)
 
@@ -116,19 +116,19 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     > [!NOTE] 
     > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke antwoord-URL en de aanmeldings-URL. Neem contact op met [Tangoe opdracht Premium Mobile-Client-ondersteuningsteam](https://www.tangoe.com/contact-us/) om deze waarden te verkrijgen. 
 
-4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
     ![Sectie voor SAML-handtekeningcertificaat](./media/tangoe-tutorial/tutorial_tangoe_certificate.png) 
 
-5. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![De knop Opslaan](./media/tangoe-tutorial/tutorial_general_400.png)
     
-6. Op de **Tangoe opdracht Premium mobiele configuratie** sectie, klikt u op **configureren Tangoe opdracht Premium Mobile** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
+1. Op de **Tangoe opdracht Premium mobiele configuratie** sectie, klikt u op **configureren Tangoe opdracht Premium Mobile** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 
     ![Configuratiesectie Tangoe opdracht Premium Mobile](./media/tangoe-tutorial/tutorial_tangoe_configure.png) 
 
-7. Als u eenmalige aanmelding configureren voor uw toepassing, neem contact op met uw [Tangoe opdracht Premium Mobile-Client-ondersteuningsteam](https://www.tangoe.com/contact-us/) en geeft u het volgende:
+1. Als u eenmalige aanmelding configureren voor uw toepassing, neem contact op met uw [Tangoe opdracht Premium Mobile-Client-ondersteuningsteam](https://www.tangoe.com/contact-us/) en geeft u het volgende:
 
    - Het gedownloade metagegevensbestand
    - De **SAML entiteit-ID**
@@ -150,15 +150,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![Het maken van een Azure AD-testgebruiker](./media/tangoe-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
     ![Gebruikers en groepen -> alle gebruikers](./media/tangoe-tutorial/create_aaduser_02.png) 
 
-3. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
     ![Gebruiker toevoegen](./media/tangoe-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
     ![Dialoogvenster op de gebruikerspagina](./media/tangoe-tutorial/create_aaduser_04.png) 
 
@@ -188,23 +188,23 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **Tangoe opdracht Premium Mobile**.
+1. Selecteer in de lijst met toepassingen, **Tangoe opdracht Premium Mobile**.
 
     ![Tangoe opdracht Premium mobiel in de lijst met Apps](./media/tangoe-tutorial/tutorial_tangoe_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -215,7 +215,7 @@ Wanneer u op de tegel Tangoe opdracht Premium Mobile in het toegangsvenster, u m
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 

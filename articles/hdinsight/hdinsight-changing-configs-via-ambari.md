@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: 2f0956c1cbbc6a351b2fc76a6918280dbead298f
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 6fe7092b2038b5cf53906e537ef02e457370d0d3
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951213"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434659"
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Ambari gebruiken om de configuraties van HDInsight-clusters optimaliseren
 
@@ -44,19 +44,19 @@ De NameNode Java heap-grootte wijzigen:
 
     ![HDFS-configuratie](./media/hdinsight-changing-configs-via-ambari/hdfs-config.png)
 
-2. Ga naar de instelling **NameNode Java heap-grootte**. U kunt ook de **filter** in het tekstvak te typen en een bepaalde instelling te vinden. Selecteer de **pen** pictogram naast de naam van de instelling.
+1. Ga naar de instelling **NameNode Java heap-grootte**. U kunt ook de **filter** in het tekstvak te typen en een bepaalde instelling te vinden. Selecteer de **pen** pictogram naast de naam van de instelling.
 
     ![NameNode Java heap-grootte](./media/hdinsight-changing-configs-via-ambari/java-heap-size.png)
 
-3. Typ de nieuwe waarde in het tekstvak in en druk vervolgens op **Enter** de wijziging op te slaan.
+1. Typ de nieuwe waarde in het tekstvak in en druk vervolgens op **Enter** de wijziging op te slaan.
 
     ![NameNode Java heap-grootte bewerken](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
-4. De NameNode Java heap-grootte wordt gewijzigd naar 2 GB van 1 GB.
+1. De NameNode Java heap-grootte wordt gewijzigd naar 2 GB van 1 GB.
 
     ![Bewerkt NameNode Java heap-grootte](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
-5. Sla de wijzigingen door te klikken op de groene **opslaan** knop boven aan het Configuratiescherm.
+1. Sla de wijzigingen door te klikken op de groene **opslaan** knop boven aan het Configuratiescherm.
 
     ![Wijzigingen opslaan](./media/hdinsight-changing-configs-via-ambari/save-changes.png)
 
@@ -65,7 +65,7 @@ De NameNode Java heap-grootte wijzigen:
 De volgende secties beschrijven de configuratieopties voor het optimaliseren van de algehele prestaties van Hive.
 
 1. Voor het wijzigen van Hive-configuratieparameters, selecteer **Hive** in de zijbalk Services.
-2. Navigeer naar de **Peeringconfiguraties** tabblad.
+1. Navigeer naar de **Peeringconfiguraties** tabblad.
 
 ### <a name="set-the-hive-execution-engine"></a>De engine voor het uitvoeren van Hive instellen
 
@@ -75,7 +75,7 @@ Hive biedt twee uitvoering motoren: MapReduce en Tez. Tez is veel sneller dan Ma
 
     ![Engine voor het uitvoeren van Search](./media/hdinsight-changing-configs-via-ambari/search-execution.png)
 
-2. De **optimalisatie** is de standaardwaarde van de eigenschap **Tez**.
+1. De **optimalisatie** is de standaardwaarde van de eigenschap **Tez**.
 
     ![Optimalisatie - Tez](./media/hdinsight-changing-configs-via-ambari/optimization-tez.png)
 
@@ -92,7 +92,7 @@ Bijvoorbeeld, om in te stellen vier mapper-taken voor een gegevensgrootte van 12
 
 1. Als u wilt de parameters van de limiet wijzigen, gaat u naar de **Peeringconfiguraties** tabblad van de Tez-service. Vouw de **algemene** deelvenster en zoek de `tez.grouping.max-size` en `tez.grouping.min-size` parameters.
 
-2. Beide parameters ingesteld op **33,554,432** bytes (32 MB).
+1. Beide parameters ingesteld op **33,554,432** bytes (32 MB).
 
     ![Tez groepering grootten](./media/hdinsight-changing-configs-via-ambari/tez-grouping-size.png)
  
@@ -112,13 +112,13 @@ De `hive.exec.reducers.bytes.per.reducer` parameter geeft u het aantal bytes dat
 
     ![Gegevens per Reducer](./media/hdinsight-changing-configs-via-ambari/data-per-reducer.png)
  
-2. Selecteer **bewerken** wijzigen van de waarde van 128 MB (134,217,728 bytes) en druk vervolgens op **Enter** om op te slaan.
+1. Selecteer **bewerken** wijzigen van de waarde van 128 MB (134,217,728 bytes) en druk vervolgens op **Enter** om op te slaan.
 
     ![Gegevens per Reducer - bewerkt](./media/hdinsight-changing-configs-via-ambari/data-per-reducer-edited.png)
   
     Gegeven een invoergrootte van 1024 MB, met 128 MB aan gegevens per reducer, er 8 reducers tegelijkertijd zijn (1024/128).
 
-3. Een onjuiste waarde voor de **gegevens per Reducer** parameter kan leiden tot een groot aantal reducers tegelijkertijd, nadelige invloed heeft op de prestaties van query's. Instellen om te beperken het maximum aantal reducers tegelijkertijd, `hive.exec.reducers.max` naar een geschikte waarde. De standaardwaarde is 1009.
+1. Een onjuiste waarde voor de **gegevens per Reducer** parameter kan leiden tot een groot aantal reducers tegelijkertijd, nadelige invloed heeft op de prestaties van query's. Instellen om te beperken het maximum aantal reducers tegelijkertijd, `hive.exec.reducers.max` naar een geschikte waarde. De standaardwaarde is 1009.
 
 ### <a name="enable-parallel-execution"></a>Inschakelen van parallelle uitvoering
 
@@ -126,7 +126,7 @@ Een Hive-query wordt uitgevoerd in een of meer fasen. Als de onafhankelijke fase
 
 1.  Als u wilt uitvoeren van parallelle query's inschakelen, gaat u naar de component **Config** tabblad en zoek de `hive.exec.parallel` eigenschap. De standaardwaarde is false. Wijzig de waarde true en druk vervolgens op **Enter** om op te slaan de waarde.
  
-2.  Als u wilt beperken het aantal taken parallel worden uitgevoerd, wijzigt de `hive.exec.parallel.thread.number` eigenschap. De standaardwaarde is 8.
+1.  Als u wilt beperken het aantal taken parallel worden uitgevoerd, wijzigt de `hive.exec.parallel.thread.number` eigenschap. De standaardwaarde is 8.
 
     ![Exec parallelle hive](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
 
@@ -137,7 +137,7 @@ Hive verwerkt gegevens per rij. Vectorisatie in stuurt Hive om gegevens te verwe
 
 1. Als u wilt een vectorized queryuitvoering inschakelen, gaat u naar de component **Peeringconfiguraties** tabblad en zoek de `hive.vectorized.execution.enabled` parameter. De standaardwaarde is true voor Hive 0.13.0 of hoger.
  
-2. Om in te schakelen vectorized voor het uitvoeren van de kant van het verminderen van de query, stel de `hive.vectorized.execution.reduce.enabled` parameter op waar. De standaardwaarde is false.
+1. Om in te schakelen vectorized voor het uitvoeren van de kant van het verminderen van de query, stel de `hive.vectorized.execution.reduce.enabled` parameter op waar. De standaardwaarde is false.
 
     ![Het uitvoeren van hive vectorized](./media/hdinsight-changing-configs-via-ambari/hive-vectorized-execution.png)
 
@@ -193,9 +193,9 @@ Als een regel met de compressiemethode splitsbare is belangrijk, anders heel wei
     > [!NOTE]
     > Voor het comprimeren van tussenliggende bestanden, kiest u een compressiecodec met lagere CPU kosten, zelfs als de codec beschikt niet over een hoge mate van compressie-uitvoer.
 
-2. De aangepaste eigenschap toevoegen om in te stellen de tussenliggende compressiecodec, `mapred.map.output.compression.codec` naar de `hive-site.xml` of `mapred-site.xml` bestand.
+1. De aangepaste eigenschap toevoegen om in te stellen de tussenliggende compressiecodec, `mapred.map.output.compression.codec` naar de `hive-site.xml` of `mapred-site.xml` bestand.
 
-3. Een aangepaste instelling toevoegen:
+1. Een aangepaste instelling toevoegen:
 
     a. Navigeer naar de component **Peeringconfiguraties** tabblad en selecteer de **Geavanceerd** tabblad.
 
@@ -220,7 +220,7 @@ De uiteindelijke uitvoer van Hive kan ook worden gecomprimeerd.
 
 1. Voor het comprimeren van de uiteindelijke uitvoer van Hive, gaat u naar de component **Peeringconfiguraties** tabblad en stel vervolgens de `hive.exec.compress.output` parameter op waar. De standaardwaarde is false.
 
-2. Als u de compressiecodec uitvoer, voeg de `mapred.output.compression.codec` aangepaste eigenschap aan het aangepaste hive-site deelvenster, zoals beschreven in de vorige sectie stap 3.
+1. Als u de compressiecodec uitvoer, voeg de `mapred.output.compression.codec` aangepaste eigenschap aan het aangepaste hive-site deelvenster, zoals beschreven in de vorige sectie stap 3.
 
     ![De aangepaste eigenschap hive](./media/hdinsight-changing-configs-via-ambari/hive-custom-property2.png)
 
@@ -240,11 +240,11 @@ Hive kunt u dynamische partities maken bij het invoegen van records in een tabel
 
 1. Voor Hive dynamische partities, doet de `hive.exec.dynamic.partition` parameterwaarde moet ' True ' (de standaardinstelling).
 
-2. De partitiemodus dynamische te wijzigen *strikte*. In de strikte modus moet ten minste één partitie niet statisch zijn. Dit voorkomt dat query's zonder dat het filter partitie in de WHERE-component, dat wil zeggen, *strikte* voorkomt dat query's die scannen van alle partities. Navigeer naar de component **configuraties** tabblad en stel vervolgens `hive.exec.dynamic.partition.mode` naar **strikte**. De standaardwaarde is **nonstrict**.
+1. De partitiemodus dynamische te wijzigen *strikte*. In de strikte modus moet ten minste één partitie niet statisch zijn. Dit voorkomt dat query's zonder dat het filter partitie in de WHERE-component, dat wil zeggen, *strikte* voorkomt dat query's die scannen van alle partities. Navigeer naar de component **configuraties** tabblad en stel vervolgens `hive.exec.dynamic.partition.mode` naar **strikte**. De standaardwaarde is **nonstrict**.
  
-3. Als u wilt beperken het aantal dynamische partities wilt maken, wijzigen de `hive.exec.max.dynamic.partitions` parameter. De standaardwaarde is 5000.
+1. Als u wilt beperken het aantal dynamische partities wilt maken, wijzigen de `hive.exec.max.dynamic.partitions` parameter. De standaardwaarde is 5000.
  
-4. Als u wilt beperken het totale aantal dynamische partities per knooppunt, wijzigen `hive.exec.max.dynamic.partitions.pernode`. De standaardwaarde is 2000.
+1. Als u wilt beperken het totale aantal dynamische partities per knooppunt, wijzigen `hive.exec.max.dynamic.partitions.pernode`. De standaardwaarde is 2000.
 
 ### <a name="enable-local-mode"></a>De lokale modus inschakelen
 
@@ -285,7 +285,7 @@ Extra aanbevelingen voor het optimaliseren van de engine voor het uitvoeren van 
 | `hive.mapjoin.hybridgrace.hashtable` | = True veiliger, langzamer; False = sneller | false |
 | `tez.am.resource.memory.mb` | Bovengrens van 4 GB voor de meeste | Automatisch zijn afgestemd |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
-| `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
+| `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10.000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
 
 ## <a name="pig-optimization"></a>Pig-optimalisatie
@@ -294,9 +294,9 @@ Pig-eigenschappen kunnen worden gewijzigd via de Ambari-webgebruikersinterface o
 
 1. Pig om eigenschappen te wijzigen, gaat u naar de Pig **Peeringconfiguraties** tabblad uit en vouw vervolgens de **geavanceerde pig-eigenschappen** deelvenster.
 
-2. Zoeken, verwijder de opmerkingen en wijzig de waarde van de eigenschap die u wilt wijzigen.
+1. Zoeken, verwijder de opmerkingen en wijzig de waarde van de eigenschap die u wilt wijzigen.
 
-3. Selecteer **opslaan** op de rechtsboven in het venster om op te slaan van de nieuwe waarde. Sommige eigenschappen is mogelijk een service opnieuw is gestart.
+1. Selecteer **opslaan** op de rechtsboven in het venster om op te slaan van de nieuwe waarde. Sommige eigenschappen is mogelijk een service opnieuw is gestart.
 
     ![Geavanceerde pig-eigenschappen](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  
@@ -309,7 +309,7 @@ Twee motoren voor uitvoering beschikbaar zijn voor Pig-scripts uit te voeren: Ma
 
 1. Wijzigen van de engine voor het uitvoeren, in de **geavanceerde pig-eigenschappen** in het deelvenster Zoeken van de eigenschap `exectype`.
 
-2. De standaardwaarde is **MapReduce**. Wijzig dit in **Tez**.
+1. De standaardwaarde is **MapReduce**. Wijzig dit in **Tez**.
 
 
 ### <a name="enable-local-mode"></a>De lokale modus inschakelen
@@ -318,7 +318,7 @@ Net als bij Hive, lokale modus wordt gebruikt om de snelheid van taken met relat
 
 1. De lokale modus wilt activeren, stel `pig.auto.local.enabled` naar **waar**. De standaardwaarde is false.
 
-2. Taken met een grootte van invoergegevens kleiner is dan de `pig.auto.local.input.maxbytes` eigenschapswaarde worden beschouwd als kleine taken. De standaardwaarde is 1 GB.
+1. Taken met een grootte van invoergegevens kleiner is dan de `pig.auto.local.input.maxbytes` eigenschapswaarde worden beschouwd als kleine taken. De standaardwaarde is 1 GB.
 
 
 ### <a name="copy-user-jar-cache"></a>Cache van de gebruiker jar kopiëren
@@ -327,7 +327,7 @@ Pig kopieert de JAR-bestanden vereist voor UDF's aan een gedistribueerde cache z
 
 1. Instellen om in te schakelen, `pig.user.cache.enabled` op ' True '. De standaardwaarde is false.
 
-2. Om in te stellen het basispad van de JAR-bestanden in de cache `pig.user.cache.location` aan het basispad. De standaardwaarde is `/tmp`.
+1. Om in te stellen het basispad van de JAR-bestanden in de cache `pig.user.cache.location` aan het basispad. De standaardwaarde is `/tmp`.
 
 
 ### <a name="optimize-performance-with-memory-settings"></a>Optimaliseer de prestaties met instellingen voor het geheugen
@@ -372,7 +372,7 @@ De HBase-heap-grootte geeft de maximale hoeveelheid opslagruimte moet worden geb
 
 1. Als u wilt wijzigen, gaat u naar de **geavanceerde HBase-env** deelvenster in de HBase **Peeringconfiguraties** tabblad en gaat u naar de `HBASE_HEAPSIZE` instelling.
 
-2. Wijzig de standaardwaarde in 5000 MB.
+1. Wijzig de standaardwaarde in 5000 MB.
 
     ![HBASE_HEAPSIZE](./media/hdinsight-changing-configs-via-ambari/hbase-heapsize.png)
 
@@ -389,7 +389,7 @@ De blokcache is de leescache. De grootte wordt bepaald door de `hfile.block.cach
 
     ![Blokgrootte van HBase voor cache](./media/hdinsight-changing-configs-via-ambari/hbase-block-cache-size.png)
  
-2. De waarde wilt wijzigen, selecteert u de **bewerken** pictogram.
+1. De waarde wilt wijzigen, selecteert u de **bewerken** pictogram.
 
 
 #### <a name="memstore-size"></a>Grootte van de geheugenopslag

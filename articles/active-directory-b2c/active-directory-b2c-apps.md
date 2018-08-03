@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f4b45c743c0efa1c9df665018b28a8b4ffb76f73
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: e42bc63b0c2b6edf4dc0de204bbac5fe90071a67
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238400"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480509"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Typen toepassingen die kunnen worden gebruikt in Active Directory B2C
 
@@ -60,7 +60,13 @@ Meer informatie over de typen tokens en claims die beschikbaar zijn voor een toe
 
 In een webtoepassing, bestaat de uitvoering van een [beleid](active-directory-b2c-reference-policies.md) neemt deze stappen op hoog niveau:
 
-![Afbeelding van web-app-banen](./media/active-directory-b2c-apps/webapp.png)
+1. De gebruiker navigeert naar de web-App.
+2. De web-App wordt de gebruiker omgeleid naar Azure AD B2C die wijzen op het beleid om uit te voeren.
+3. De gebruiker is voltooid beleid.
+4. Azure AD B2C retourneert een `id_token` naar de browser.
+5. De `id_token` wordt geplaatst op de omleidings-URI.
+6. De `id_token` wordt gevalideerd en wordt een sessiecookie ingesteld.
+7. Een beveiligde pagina wordt geretourneerd naar de gebruiker.
 
 Validatie van het `id_token` met behulp van een openbare ondertekeningssleutel die is ontvangen van Azure AD is voldoende om de identiteit van de gebruiker te controleren. Hiermee wordt ook een sessiecookie ingesteld waarmee de gebruiker bij volgende pagina-aanvragen kan worden geïdentificeerd.
 
@@ -89,7 +95,15 @@ De web-API kan het token vervolgens gebruiken om de identiteit van de API-aanroe
 
 Een web-API kan tokens ontvangen van tal van clients, waaronder webtoepassingen, desktop en mobiele toepassingen, één pagina toepassingen, server-side-daemons en andere web-API's. Hier volgt een voorbeeld van de volledige stroom voor een webtoepassing die een web-API aanroept:
 
-![Afbeelding van web-API van web-app-banen](./media/active-directory-b2c-apps/webapi.png)
+1. De web-App wordt uitgevoerd een beleid en de gebruikerservaring door de gebruiker is voltooid.
+2. Azure AD B2C retourneert een `access_token` en een autorisatiecode naar de browser.
+3. De berichten van de browser de `access_token` en autorisatiecode op de omleidings-URI.
+4. De webserver valideert de `access token` en een sessiecookie ingesteld.
+5. De `access_token` aan Azure AD B2C wordt geleverd bij de autorisatiecode, client-ID van toepassing, en de referenties.
+6. De `access_token` en `refresh_token` keert terug naar de webserver.
+7. De web-API wordt aangeroepen met de `access_token` in een autorisatie-header.
+8. De web-API valideert het token.
+9. Beveiligde gegevens worden geretourneerd naar de webserver.
 
 Voor meer informatie over autorisatiecodes, vernieuwingstokens en de stappen voor het ophalen van tokens, leest u over het [OAuth 2.0-protocol](active-directory-b2c-reference-oauth-code.md).
 
@@ -105,8 +119,6 @@ In deze stroom voert de toepassing wordt uitgevoerd [beleid](active-directory-b2
 > Azure AD B2C ondersteunt momenteel alleen tokens die worden gebruikt voor toegang tot een toepassing uit eigen back-end-webservice. De volledige toepassing omvat bijvoorbeeld een iOS-toepassing, een Android-toepassing en een back-end web-API. Deze architectuur wordt volledig ondersteund. Uw iOS-toepassing voor toegang tot een web-API van de partner met behulp van OAuth 2.0-toegangstokens zodat wordt momenteel niet ondersteund. Alle onderdelen van de volledige toepassing moet een enkele toepassing-id delen.
 >
 >
-
-![Afbeelding van banen voor systeemeigen web-app](./media/active-directory-b2c-apps/native.png)
 
 ## <a name="current-limitations"></a>Huidige beperkingen
 

@@ -8,12 +8,12 @@ manager: jpconnock
 ms.service: devops
 ms.custom: jenkins
 ms.date: 07/31/2018
-ms.openlocfilehash: 1b01eb760fa36c9f0fb6180c12dc3e5c1bf9de6f
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: f54e4e8f64fe444f264b547d5af475c533c5723f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391483"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441677"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implementeren in Azure App Service met behulp van de Jenkins-invoegtoepassing 
 
@@ -65,7 +65,7 @@ U kunt uw build-artefacten (bijvoorbeeld een WAR-bestand in Java) voor het imple
 Voordat u de taak in Jenkins instelt, moet u een Azure App Service-plan en een web-app om uit te voeren van de Java-app.
 
 
-1. Maak een Azure App Service-plan met de **gratis** prijscategorie uit te voeren met behulp van de `az appservice plan create` [Azure CLI-opdracht](/cli/azure/appservice/plan#az_appservice_plan_create). De App Service-plan definieert de fysieke resources die worden gebruikt voor het hosten van uw apps. Alle toepassingen die zijn toegewezen aan een App Service-plan delen deze resources. Gedeelde resources helpen u om op te slaan op de kosten als u meerdere apps host.
+1. Maak een Azure App Service-plan met de **gratis** prijscategorie uit te voeren met behulp van de `az appservice plan create` [Azure CLI-opdracht](/cli/azure/appservice/plan#az-appservice-plan-create). De App Service-plan definieert de fysieke resources die worden gebruikt voor het hosten van uw apps. Alle toepassingen die zijn toegewezen aan een App Service-plan delen deze resources. Gedeelde resources helpen u om op te slaan op de kosten als u meerdere apps host.
 2. Maak een web-app. U kunt de [Azure-portal](/azure/app-service-web/web-sites-configure) of de volgende `az` Azure CLI-opdracht:
     ```azurecli-interactive 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: ccd24e1498282cd2b627226df79af22e9647b64d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d1188b40021fbb221bc19af6d4a5397f7ba8f800
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38681569"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439869"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>U kunt MPIO configureren op een StorSimple-host waarop CentOS wordt uitgevoerd
 In dit artikel worden de stappen beschreven die vereist voor het configureren van multipath i/o-(MPIO) op uw Centos 6.6 host-server. De host-server is verbonden met uw Microsoft Azure StorSimple-apparaat voor hoge beschikbaarheid via iSCSI-initiators. Er wordt in detail beschreven de automatische detectie van multipath-apparaten en de specifieke instellingen alleen van StorSimple-volumes.
@@ -106,21 +106,21 @@ In deze sectie worden de configuratievereisten voor CentOS-server en het StorSim
           TX packets:12 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0
           RX bytes:720 (720.0 b)  TX bytes:720 (720.0 b)
-2. Installeer *iSCSI-initiator-utils* op uw server CentOS. Voer de volgende stappen uit voor het installeren van *iSCSI-initiator-utils*.
+1. Installeer *iSCSI-initiator-utils* op uw server CentOS. Voer de volgende stappen uit voor het installeren van *iSCSI-initiator-utils*.
    
    1. Meld u aan als `root` in uw CentOS-host.
-   2. Installeer de *iSCSI-initiator-utils*. Type:
+   1. Installeer de *iSCSI-initiator-utils*. Type:
       
        `yum install iscsi-initiator-utils`
-   3. Na de *iSCSI-Initiator-utils* nog niet is geïnstalleerd, start de iSCSI-service. Type:
+   1. Na de *iSCSI-Initiator-utils* nog niet is geïnstalleerd, start de iSCSI-service. Type:
       
        `service iscsid start`
       
        In gevallen `iscsid` mogelijk niet daadwerkelijk wordt gestart en de `--force` optie kan ook nodig zijn
-   4. Om ervoor te zorgen dat de iSCSI-initiator tijdens het opstarten is ingeschakeld, gebruikt u de `chkconfig` opdracht uit om de service.
+   1. Om ervoor te zorgen dat de iSCSI-initiator tijdens het opstarten is ingeschakeld, gebruikt u de `chkconfig` opdracht uit om de service.
       
        `chkconfig iscsi on`
-   5. Als u wilt controleren of deze is correct ingesteld, moet u de opdracht uitvoeren:
+   1. Als u wilt controleren of deze is correct ingesteld, moet u de opdracht uitvoeren:
       
        `chkconfig --list | grep iscsi`
       
@@ -130,7 +130,7 @@ In deze sectie worden de configuratievereisten voor CentOS-server en het StorSim
            iscsid  0:off   1:off   2:on3:on4:on5:on6:off
       
        In het bovenstaande voorbeeld ziet u dat de iSCSI-omgeving worden uitgevoerd op opstarten op uitvoeringsniveaus van 2, 3, 4 en 5.
-3. Installeer *apparaat-mapper-multipath*. Type:
+1. Installeer *apparaat-mapper-multipath*. Type:
    
     `yum install device-mapper-multipath`
    
@@ -142,7 +142,7 @@ Uw StorSimple-apparaat moet hebben:
 * Minimaal twee interfaces zijn ingeschakeld voor iSCSI. Als u wilt controleren of twee interfaces voor iSCSI-zijn ingeschakeld op uw StorSimple-apparaat, moet u de volgende stappen uitvoeren in de klassieke Azure portal voor uw StorSimple-apparaat:
   
   1. Meld u aan bij de klassieke portal voor uw StorSimple-apparaat.
-  2. Selecteer uw StorSimple Manager-service, klikt u op **apparaten** en kies de specifieke StorSimple-apparaat. Klik op **configureren** en controleer of de netwerkinterface-instellingen. Hieronder ziet u een schermopname met twee netwerkinterfaces die op iSCSI-zijn ingeschakeld. Hier DATA 2 en DATA 3, beide 10 GbE interfaces voor iSCSI-zijn ingeschakeld.
+  1. Selecteer uw StorSimple Manager-service, klikt u op **apparaten** en kies de specifieke StorSimple-apparaat. Klik op **configureren** en controleer of de netwerkinterface-instellingen. Hieronder ziet u een schermopname met twee netwerkinterfaces die op iSCSI-zijn ingeschakeld. Hier DATA 2 en DATA 3, beide 10 GbE interfaces voor iSCSI-zijn ingeschakeld.
      
       ![MPIO StorsSimple DATA 2-configuratie](./media/storsimple-configure-mpio-on-linux/IC761347.png)
      
@@ -151,8 +151,8 @@ Uw StorSimple-apparaat moet hebben:
       In de **configureren** pagina
      
      1. Zorg ervoor dat beide netwerkinterfaces ingeschakeld voor iSCSI zijn. De **iSCSI ingeschakeld** veld moet worden ingesteld op **Ja**.
-     2. Zorg ervoor dat de netwerkinterfaces hebben dezelfde snelheid, zowel moet 1 GbE of 10 GbE.
-     3. Houd er rekening mee de IPv4-adressen van de interfaces voor iSCSI-zijn ingeschakeld en opslaan voor later gebruik op de host.
+     1. Zorg ervoor dat de netwerkinterfaces hebben dezelfde snelheid, zowel moet 1 GbE of 10 GbE.
+     1. Houd er rekening mee de IPv4-adressen van de interfaces voor iSCSI-zijn ingeschakeld en opslaan voor later gebruik op de host.
 * De iSCSI-interfaces op uw StorSimple-apparaat moet bereikbaar is vanaf de CentOS-server.
       Om dit te controleren, moet u IP-adressen van uw StorSimple-ingeschakeld voor iSCSI-netwerkinterfaces op uw host-server opgeven. De opdrachten die worden gebruikt en de bijbehorende uitvoer met DATA2 (10.126.162.25) en DATA3 (10.126.162.26) wordt hieronder weergegeven:
   
@@ -191,14 +191,14 @@ De multipath-ondersteunde apparaten kunnen automatisch worden gedetecteerd en ge
      `mpathconf --enable`
    
     De bovenstaande opdracht maakt u een `sample/etc/multipath.conf` bestand.
-2. Start multipath-service. Type:
+1. Start multipath-service. Type:
    
     `service multipathd start`
    
     Hier ziet u de volgende uitvoer:
    
     `Starting multipathd daemon:`
-3. Automatische detectie van multipaths inschakelen. Type:
+1. Automatische detectie van multipaths inschakelen. Type:
    
     `mpathconf --find_multipaths y`
    
@@ -216,7 +216,7 @@ Standaard worden alle apparaten zwart zijn vermeld in het bestand multipath.conf
 1. Bewerk de `/etc/mulitpath.conf` bestand. Type:
    
     `vi /etc/multipath.conf`
-2. Zoek de sectie blacklist_exceptions in het bestand multipath.conf. Uw StorSimple-apparaat moet worden weergegeven als een blacklist uitzondering in deze sectie. U kunt Verwijder opmerkingen bij de desbetreffende regels in dit bestand te wijzigen zoals hieronder (Gebruik alleen het specifieke model van het apparaat dat u gebruikt):
+1. Zoek de sectie blacklist_exceptions in het bestand multipath.conf. Uw StorSimple-apparaat moet worden weergegeven als een blacklist uitzondering in deze sectie. U kunt Verwijder opmerkingen bij de desbetreffende regels in dit bestand te wijzigen zoals hieronder (Gebruik alleen het specifieke model van het apparaat dat u gebruikt):
    
         blacklist_exceptions {
             device {
@@ -235,7 +235,7 @@ Dit algoritme load balancing gebruikt alle beschikbare multipaths naar de actiev
 1. Bewerk de `/etc/multipath.conf` bestand. Type:
    
     `vi /etc/multipath.conf`
-2. Onder de `defaults` sectie, stelt u de `path_grouping_policy` naar `multibus`. De `path_grouping_policy` Hiermee geeft u het standaardpad beleid toe te passen op niet-opgegeven multipaths groeperen. De standaard-sectie eruit zoals hieronder wordt weergegeven.
+1. Onder de `defaults` sectie, stelt u de `path_grouping_policy` naar `multibus`. De `path_grouping_policy` Hiermee geeft u het standaardpad beleid toe te passen op niet-opgegeven multipaths groeperen. De standaard-sectie eruit zoals hieronder wordt weergegeven.
    
         defaults {
                 user_friendly_names yes
@@ -254,7 +254,7 @@ Dit algoritme load balancing gebruikt alle beschikbare multipaths naar de actiev
 1. Start opnieuw op de `multipathd` daemon. Type:
    
     `service multipathd restart`
-2. De uitvoer zijn, zoals hieronder weergegeven:
+1. De uitvoer zijn, zoals hieronder weergegeven:
    
         [root@centosSS ~]# service multipathd start
         Starting multipathd daemon:  [OK]
@@ -298,9 +298,9 @@ Dit algoritme load balancing gebruikt alle beschikbare multipaths naar de actiev
 
     Als u slechts één hostinterface en hier twee paden ziet, moet u zowel de interfaces op de host voor iSCSI-inschakelen. U kunt volgen de [gedetailleerde instructies in de documentatie voor virtuele Linux](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
 
-2. Een volume wordt blootgesteld aan de CentOS-server van de StorSimple-apparaat. Zie voor meer informatie, [stap 6: een volume maken](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) via Azure portal op uw StorSimple-apparaat.
+1. Een volume wordt blootgesteld aan de CentOS-server van de StorSimple-apparaat. Zie voor meer informatie, [stap 6: een volume maken](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) via Azure portal op uw StorSimple-apparaat.
 
-3. Controleer of de beschikbare paden. Type:
+1. Controleer of de beschikbare paden. Type:
 
       ```
       multipath –l
@@ -333,17 +333,17 @@ Dit algoritme load balancing gebruikt alle beschikbare multipaths naar de actiev
 ## <a name="troubleshoot-multipathing"></a>Meerdere paden oplossen
 Deze sectie bevat enkele nuttige tips als u problemen tijdens het configureren van meerdere paden ondervindt.
 
-Q. Ik zie niet de wijzigingen in `multipath.conf` bestand die van kracht.
+V. Ik zie niet de wijzigingen in `multipath.conf` bestand die van kracht.
 
 A. Als u wijzigingen hebt aangebracht de `multipath.conf` -bestand, moet u de Multipath-service opnieuw starten. Typ de volgende opdracht:
 
     service multipathd restart
 
-Q. Kan ik hebt twee netwerkinterfaces op het StorSimple-apparaat en twee netwerkinterfaces op de host ingeschakeld. Wanneer ik de beschikbare paden, zie ik slechts twee paden. Ik verwacht te zien van vier beschikbare paden.
+V. Kan ik hebt twee netwerkinterfaces op het StorSimple-apparaat en twee netwerkinterfaces op de host ingeschakeld. Wanneer ik de beschikbare paden, zie ik slechts twee paden. Ik verwacht te zien van vier beschikbare paden.
 
 A. Zorg ervoor dat de twee paden op hetzelfde subnet en routeerbaar. Als de netwerkinterfaces op verschillende VLAN's en niet-routeerbare zijn, ziet u slechts twee paden. Er is één manier om dit te controleren om ervoor te zorgen dat u zowel de hostinterfaces van een netwerkinterface op het StorSimple-apparaat kunt bereiken. U moet [Neem contact op met Microsoft Support](storsimple-8000-contact-microsoft-support.md) omdat deze verificatie kan alleen worden uitgevoerd via een ondersteuningssessie voor.
 
-Q. Wanneer ik beschikbare paden, zie ik geen uitvoer.
+V. Wanneer ik beschikbare paden, zie ik geen uitvoer.
 
 A. Normaal gesproken een mogelijk probleem met de daemon Multipath ziet niet alle paden multipathed aangeeft, en het is zeer waarschijnlijk dat er probleem hier ligt in de `multipath.conf` bestand.
 
@@ -376,7 +376,7 @@ Herhaal deze opdracht voor de verbonden netwerkinterfaces op de iSCSI-doel is va
     iscsiadm -m node --login -T <TARGET_IQN>
 
 
-Q. Ik ben niet zeker weet of het apparaat opgenomen in de whitelist is.
+V. Ik ben niet zeker weet of het apparaat opgenomen in de whitelist is.
 
 A. Als u wilt controleren of uw apparaat in de whitelist opgenomen, gebruik de volgende opdracht voor het oplossen van problemen interactieve:
 

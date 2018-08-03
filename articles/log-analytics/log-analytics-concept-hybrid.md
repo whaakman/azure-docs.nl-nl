@@ -1,5 +1,5 @@
 ---
-title: Gegevens uit uw omgeving verzamelen met Azure Log Analytics | Microsoft Docs
+title: Gegevens verzamelen in een hybride omgeving met Azure Log Analytics-agent | Microsoft Docs
 description: Dit onderwerp helpt u begrijpen hoe u gegevens verzamelen en controleren van computers die worden gehost in uw on-premises of andere cloudomgeving met Log Analytics.
 services: log-analytics
 documentationcenter: ''
@@ -12,25 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/02/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 2a21c7867bf0dd2d6ca6ee0bd9025739315c8d0a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: fa1d86bade0981a000d9310c4734b1e93d50944d
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003315"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480860"
 ---
-# <a name="collect-data-from-computers-in-your-environment-with-log-analytics"></a>Gegevens verzamelen van computers in uw omgeving met Log Analytics
+# <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Gegevens verzamelen in een hybride omgeving met Log Analytics-agent
 
-Azure Log Analytics kunt verzamelen en reageren op gegevens van Windows of Linux-computers die zich bevindt:
+Azure Log Analytics kunt verzamelen en reageren op gegevens van computers met het besturingssysteem Windows of Linux wordt uitgevoerd in:
 
 * [Virtuele machines van Azure](log-analytics-quick-collect-azurevm.md) met behulp van de VM-extensie van Log Analytics 
 * Uw datacenter als fysieke servers of virtuele machines
 * Virtuele machines in een cloud-gebaseerde service, zoals Amazon Web Services (AWS)
 
-Computers die worden gehost in uw omgeving kunnen rechtstreeks worden verbonden met Log Analytics, of als u al deze computers met System Center Operations Manager 2012 R2, 2016 controleert of versie 1801, kunt u uw beheergroep Operations beheren met het integreren Log Analytics en doorgaan met het beheren van uw IT-service operations-processen.  
+Computers die worden gehost in uw omgeving kunnen rechtstreeks worden verbonden met Log Analytics, of als u al deze computers met System Center Operations Manager 2012 R2 of hoger controleert, kunt u uw beheergroep Operations beheren integreren met Log Analytics en door te gaan met het onderhouden van uw IT-service operations-processen.  
 
 ## <a name="overview"></a>Overzicht
 
@@ -40,7 +40,7 @@ Voordat u analyseren en uitvoeren van de verzamelde gegevens, moet u eerst insta
 
 De agent voor Linux en Windows uitgaande met de Log Analytics-service communiceert via TCP-poort 443, en als de computer verbinding maakt met een firewall of proxy-server om te communiceren via Internet, raadpleegt u [de sectie vereisten](#prerequisites) naar Krijg inzicht in de vereiste netwerkconfiguratie.  Als uw IT-beveiligingsbeleid computers op het netwerk verbinding maken met het Internet niet toestaan, kunt u instellen een [OMS-Gateway](log-analytics-oms-gateway.md) en configureer vervolgens de agent verbinding maken via de gateway naar Log Analytics. De agent vervolgens configuratie-informatie ontvangen en verzenden van gegevens die zijn verzameld, afhankelijk van welke regels voor het verzamelen van gegevens en de oplossingen die u hebt ingeschakeld. 
 
-Als u bij het bewaken van de computer met System Center 2016 - Operations Manager of Operations Manager 2012 R2, met de Log Analytics-service voor het verzamelen van gegevens en door te sturen naar de service en nog steeds worden bewaakt door multihomed kan het zijn [Operations Manager ](log-analytics-om-agents.md). Linux-computers bewaakt door een Operations Manager-beheergroep is geïntegreerd met Log Analytics wordt geen configuratie voor gegevensbronnen en vooruit verzamelde gegevens via de beheergroep. De Windows-agent kan rapporteren dat maximaal vier werkruimten, terwijl de Linux-agent biedt alleen ondersteuning voor rapportage aan één werkruimte.  
+Als u de computer met System Center Operations Manager 2012 R2 of hoger worden bewaakt, kan zijn bij de Log Analytics-service voor het verzamelen van gegevens en door te sturen naar de service en nog steeds worden bewaakt door multihomed [Operations Manager](log-analytics-om-agents.md). Linux-computers bewaakt door een Operations Manager-beheergroep is geïntegreerd met Log Analytics wordt geen configuratie voor gegevensbronnen en vooruit verzamelde gegevens via de beheergroep. De Windows-agent kan rapporteren dat maximaal vier werkruimten, terwijl de Linux-agent biedt alleen ondersteuning voor rapportage aan één werkruimte.  
 
 De agent voor Linux en Windows-niet alleen voor het verbinden met Log Analytics, het ondersteunt ook Azure Automation voor de functie Hybrid Runbook worker-host en beheeroplossingen, zoals wijzigingen bijhouden en updatebeheer.  Zie voor meer informatie over de Hybrid Runbook Worker-rol, [Azure Automation Hybrid Runbook Worker](../automation/automation-hybrid-runbook-worker.md).  
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 2f77fedddd84303ae489379a62a3b1845127b16b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 25f8b09f31bd9eecc454444312ea02182a71a77a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051816"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448849"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pantheon"></a>Zelfstudie: Azure Active Directory-integratie met Pantheon
 
@@ -52,7 +52,7 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Pantheon uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-pantheon-from-the-gallery"></a>Pantheon uit de galerie toe te voegen
 Voor het configureren van de integratie van Pantheon in Azure AD, moet u Pantheon uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -63,19 +63,19 @@ Voor het configureren van de integratie van Pantheon in Azure AD, moet u Pantheo
 
     ![Active Directory][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **Pantheon**.
+1. Typ in het zoekvak **Pantheon**.
 
     ![Het maken van een Azure AD-testgebruiker](./media/pantheon-tutorial/tutorial_pantheon_search.png)
 
-5. Selecteer in het deelvenster resultaten **Pantheon**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Selecteer in het deelvenster resultaten **Pantheon**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Het maken van een Azure AD-testgebruiker](./media/pantheon-tutorial/tutorial_pantheon_addfromgallery.png)
 
@@ -89,10 +89,10 @@ In Pantheon, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Pantheon, moet u de volgende bouwstenen voltooien:
 
 1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Het maken van een testgebruiker Pantheon](#creating-a-pantheon-test-user)**  : als u wilt een equivalent van Britta Simon in Pantheon die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Het maken van een testgebruiker Pantheon](#creating-a-pantheon-test-user)**  : als u wilt een equivalent van Britta Simon in Pantheon die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -104,11 +104,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/pantheon-tutorial/tutorial_pantheon_samlbase.png)
 
-3. Op de **Pantheon domein en URL's** sectie, voert u de volgende stappen uit:
+1. Op de **Pantheon domein en URL's** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/pantheon-tutorial/tutorial_pantheon_url.png)
 
@@ -119,24 +119,24 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     > [!NOTE] 
     > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke id en de antwoord-URL. Neem contact op met [Pantheon ondersteuningsteam](https://pantheon.io/docs/getting-support/) om deze waarden te verkrijgen.
 
-4. Pantheon toepassing verwacht het SAML-verklaring in specifieke indeling, die moet worden ingesteld de kenmerkwaarde UserIdentifier met e-mailadres van de gebruiker. Azure AD maakt standaard gebruik van de UserPrincipalName voor UserIdentifier kenmerk. Maar voor geslaagde integratie moet u deze waarde moet overeenkomen met de e-mailadres van gebruiker aanpassen. De integratie werkt alleen hierna de juiste toewijzing.
+1. Pantheon toepassing verwacht het SAML-verklaring in specifieke indeling, die moet worden ingesteld de kenmerkwaarde UserIdentifier met e-mailadres van de gebruiker. Azure AD maakt standaard gebruik van de UserPrincipalName voor UserIdentifier kenmerk. Maar voor geslaagde integratie moet u deze waarde moet overeenkomen met de e-mailadres van gebruiker aanpassen. De integratie werkt alleen hierna de juiste toewijzing.
 
     ![Eenmalige aanmelding configureren](./media/pantheon-tutorial/tutorial_attribute.png)    
 
 
-5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/pantheon-tutorial/tutorial_pantheon_certificate.png)
 
-6. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/pantheon-tutorial/tutorial_general_400.png)
 
-7. Op de **Pantheon configuratie** sectie, klikt u op **configureren Pantheon** openen **aanmelding configureren** venster. Kopiëren de **Single Sign-On Service URL voor SAML** uit de **Naslaggids sectie.**
+1. Op de **Pantheon configuratie** sectie, klikt u op **configureren Pantheon** openen **aanmelding configureren** venster. Kopiëren de **Single Sign-On Service URL voor SAML** uit de **Naslaggids sectie.**
 
     ![Eenmalige aanmelding configureren](./media/pantheon-tutorial/tutorial_pantheon_configure.png) 
 
-8. Het configureren van eenmalige aanmelding op **Pantheon** zijde, moet u voor het verzenden van de gedownloade **certificaat** en **Single Sign-On Service URL voor SAML** naar [Pantheon ondersteuning voor team](https://pantheon.io/docs/getting-support/).
+1. Het configureren van eenmalige aanmelding op **Pantheon** zijde, moet u voor het verzenden van de gedownloade **certificaat** en **Single Sign-On Service URL voor SAML** naar [Pantheon ondersteuning voor team](https://pantheon.io/docs/getting-support/).
 
      > [!Note]
      > U moet ook de e-mailbericht domein(en) informatie en de datum en tijd opgeven als u wilt dat deze verbinding. U vindt meer informatie over het [hier](https://pantheon.io/docs/sso-organizations/)
@@ -155,15 +155,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![Het maken van een Azure AD-testgebruiker](./media/pantheon-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
     ![Het maken van een Azure AD-testgebruiker](./media/pantheon-tutorial/create_aaduser_02.png) 
 
-3. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
     ![Het maken van een Azure AD-testgebruiker](./media/pantheon-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
     ![Het maken van een Azure AD-testgebruiker](./media/pantheon-tutorial/create_aaduser_04.png) 
 
@@ -184,17 +184,17 @@ In deze sectie maakt u een gebruiker met de naam van Britta Simon in Pantheon. V
 
 1. Meld u aan bij Pantheon met beheerdersreferenties.
 
-2. Navigeer naar **organisatie** dashboardpagina.
+1. Navigeer naar **organisatie** dashboardpagina.
  
-3. Klik op **mensen**.
+1. Klik op **mensen**.
 
-4. Klik op **gebruiker toevoegen**.
+1. Klik op **gebruiker toevoegen**.
 
-5. Voer de e-mailadres van de gebruiker.
+1. Voer de e-mailadres van de gebruiker.
 
-6. Kies de gebruikersrol.
+1. Kies de gebruikersrol.
 
-7. Klik op **gebruiker toevoegen**.
+1. Klik op **gebruiker toevoegen**.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 
@@ -208,23 +208,23 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **Pantheon**.
+1. Selecteer in de lijst met toepassingen, **Pantheon**.
 
     ![Eenmalige aanmelding configureren](./media/pantheon-tutorial/tutorial_pantheon_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -236,7 +236,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->
 

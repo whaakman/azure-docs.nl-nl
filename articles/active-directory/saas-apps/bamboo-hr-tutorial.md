@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: jeedes
-ms.openlocfilehash: 77625296797ec8ed8364e7d8bff3e5a15b4b74b5
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: dc6664321588d383b4656199c3e8ea79159ca850
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39048035"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39437674"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bamboohr"></a>Zelfstudie: Azure Active Directory-integratie met BambooHR
 
@@ -55,7 +55,7 @@ In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving.
 Het scenario dat geeft een overzicht van deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. BambooHR uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="add-bamboohr-from-the-gallery"></a>BambooHR uit de galerie toevoegen
 Voor het configureren van de integratie van BambooHR in Azure AD toevoegen BambooHR uit de galerie aan de lijst met beheerde SaaS-apps door het volgende te doen:
@@ -64,15 +64,15 @@ Voor het configureren van de integratie van BambooHR in Azure AD toevoegen Bambo
 
     ![De Azure Active Directory-knop][1]
 
-2. Selecteer **bedrijfstoepassingen** > **alle toepassingen**.
+1. Selecteer **bedrijfstoepassingen** > **alle toepassingen**.
 
     ![Het deelvenster met Enterprise-toepassingen][2]
     
-3. Als u wilt een toepassing hebt toegevoegd, selecteert u **nieuwe toepassing**.
+1. Als u wilt een toepassing hebt toegevoegd, selecteert u **nieuwe toepassing**.
 
     ![De 'nieuwe toepassing"knop][3]
 
-4. Typ in het zoekvak **BambooHR**. Selecteer in de lijst met resultaten **BambooHR**, en selecteer vervolgens **toevoegen**.
+1. Typ in het zoekvak **BambooHR**. Selecteer in de lijst met resultaten **BambooHR**, en selecteer vervolgens **toevoegen**.
 
     ![BambooHR in de lijst met resultaten](./media/bamboo-hr-tutorial/tutorial_bamboohr_addfromgallery.png)
 
@@ -94,11 +94,11 @@ In deze sectie maakt u Azure AD-eenmalige aanmelding inschakelen in Azure portal
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. In de **eenmalige aanmelding** venster in de **modus** vervolgkeuzelijst, selecteer **SAML gebaseerde aanmelding**.
+1. In de **eenmalige aanmelding** venster in de **modus** vervolgkeuzelijst, selecteer **SAML gebaseerde aanmelding**.
  
     ![Venster voor eenmalige aanmelding](./media/bamboo-hr-tutorial/tutorial_bamboohr_samlbase.png)
 
-3. Onder **BambooHR domein en URL's**, doet u het volgende:
+1. Onder **BambooHR domein en URL's**, doet u het volgende:
 
     ![De sectie BambooHR domein en URL 's](./media/bamboo-hr-tutorial/tutorial_bamboohr_url.png)
 
@@ -109,21 +109,21 @@ In deze sectie maakt u Azure AD-eenmalige aanmelding inschakelen in Azure portal
     > [!NOTE] 
     > De **aanmeldings-URL** waarde is niet echt. Bijwerken met de werkelijke aanmeldings-URL. Als u wilt de waarde niet ophalen, neem contact op met de [BambooHR client ondersteuningsteam](https://www.bamboohr.com/contact.php). 
  
-4. Onder **SAML-handtekeningcertificaat**, selecteer **certificaat (Base64)**, en sla het certificaatbestand op uw computer.
+1. Onder **SAML-handtekeningcertificaat**, selecteer **certificaat (Base64)**, en sla het certificaatbestand op uw computer.
 
     ![De downloadkoppeling certificaat](./media/bamboo-hr-tutorial/tutorial_bamboohr_certificate.png) 
 
-5. Selecteer **Opslaan**.
+1. Selecteer **Opslaan**.
 
     ![De knop Opslaan](./media/bamboo-hr-tutorial/tutorial_general_400.png)
 
-6. Onder **BambooHR configuratie**, selecteer **configureren BambooHR** openen de **aanmelding configureren** venster. In de **Naslaggids** sectie, Kopieer de **Single Sign-On Service URL voor SAML** voor later gebruik.
+1. Onder **BambooHR configuratie**, selecteer **configureren BambooHR** openen de **aanmelding configureren** venster. In de **Naslaggids** sectie, Kopieer de **Single Sign-On Service URL voor SAML** voor later gebruik.
 
     ![BambooHR configuratie](./media/bamboo-hr-tutorial/tutorial_bamboohr_configure.png) 
 
-7. In een nieuw venster aanmelden bij uw bedrijf BambooHR site als beheerder.
+1. In een nieuw venster aanmelden bij uw bedrijf BambooHR site als beheerder.
 
-8. Op de startpagina, door het volgende te doen:
+1. Op de startpagina, door het volgende te doen:
    
     ![De pagina BambooHR Single Sign-On](./media/bamboo-hr-tutorial/ic796691.png "Single Sign-On")   
 
@@ -133,7 +133,7 @@ In deze sectie maakt u Azure AD-eenmalige aanmelding inschakelen in Azure portal
    
     c. Selecteer **SAML Single Sign-On**.
 
-9. In de **SAML Single Sign-On** in het deelvenster de volgende handelingen uit:
+1. In de **SAML Single Sign-On** in het deelvenster de volgende handelingen uit:
    
     ![Het deelvenster SAML Single Sign-On](./media/bamboo-hr-tutorial/IC796692.png "SAML Single Sign-On")
    
@@ -159,15 +159,15 @@ Als u wilt een testgebruiker maken in Azure AD, het volgende doen:
 
     ![De Azure Active Directory-knop](./media/bamboo-hr-tutorial/create_aaduser_01.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en selecteer vervolgens **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en selecteer vervolgens **alle gebruikers**.
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/bamboo-hr-tutorial/create_aaduser_02.png)
 
-3. Aan de bovenkant van de **alle gebruikers** venster **toevoegen**.
+1. Aan de bovenkant van de **alle gebruikers** venster **toevoegen**.
 
     ![De knop toevoegen](./media/bamboo-hr-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** venster de volgende handelingen uit:
+1. In de **gebruiker** venster de volgende handelingen uit:
 
     ![Het venster van de gebruiker](./media/bamboo-hr-tutorial/create_aaduser_04.png)
 
@@ -185,17 +185,17 @@ Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden bij BambooHR, handmatig
 
 1. Aanmelden bij uw **BambooHR** site als beheerder.
 
-2. Selecteer in de werkbalk boven **instellingen**.
+1. Selecteer in de werkbalk boven **instellingen**.
    
     ![De knop instellingen](./media/bamboo-hr-tutorial/IC796694.png "instelling")
 
-3. Selecteer **Overzicht**.
+1. Selecteer **Overzicht**.
 
-4. Selecteer in het linkerdeelvenster **Security** > **gebruikers**.
+1. Selecteer in het linkerdeelvenster **Security** > **gebruikers**.
 
-5. Typ de gebruikersnaam, wachtwoord en e-mailadres van de geldige Azure AD-account dat u wilt instellen.
+1. Typ de gebruikersnaam, wachtwoord en e-mailadres van de geldige Azure AD-account dat u wilt instellen.
 
-6. Selecteer **Opslaan**.
+1. Selecteer **Opslaan**.
         
 >[!NOTE]
 >Als u Azure AD-gebruikersaccounts instelt, kunt u ook BambooHR gebruiker accountaanmaak hulpprogramma's of API's gebruiken.
@@ -212,23 +212,23 @@ Gebruiker Britta Simon om aan te wijzen BambooHR, het volgende doen:
 
     ![Gebruiker toewijzen][201] 
 
-2. In de **bedrijfstoepassingen** in de lijst met **BambooHR**.
+1. In de **bedrijfstoepassingen** in de lijst met **BambooHR**.
 
     ![De koppeling BambooHR in de lijst met Enterprise-toepassingen](./media/bamboo-hr-tutorial/tutorial_bamboohr_app.png)  
 
-3. Selecteer in het linkerdeelvenster **gebruikers en groepen**.
+1. Selecteer in het linkerdeelvenster **gebruikers en groepen**.
 
     ![De koppeling 'Gebruikers en groepen'][202]
 
-4. Selecteer de **toevoegen** knop en klik vervolgens op de **toevoegen toewijzing** venster **gebruikers en groepen**.
+1. Selecteer de **toevoegen** knop en klik vervolgens op de **toevoegen toewijzing** venster **gebruikers en groepen**.
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. In de **gebruikers en groepen** venster in de **gebruikers** in de lijst met **Britta Simon**.
+1. In de **gebruikers en groepen** venster in de **gebruikers** in de lijst met **Britta Simon**.
 
-6. Selecteer de **Selecteer** knop.
+1. Selecteer de **Selecteer** knop.
 
-7. In de **toevoegen toewijzing** venster de **toewijzen** knop.
+1. In de **toevoegen toewijzing** venster de **toewijzen** knop.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -241,7 +241,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 

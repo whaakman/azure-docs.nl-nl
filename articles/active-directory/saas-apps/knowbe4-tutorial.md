@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Azure Active Directory-integratie met KnowBe4 Awareness beveiligingstraining | Microsoft Docs'
-description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en KnowBe4 Awareness beveiligingstraining.
+title: 'Zelfstudie: Azure Active Directory-integratie met KnowBe4 Security Awareness Training | Microsoft Docs'
+description: Informatie over het configureren van eenmalige aanmelding tussen Azure Active Directory en KnowBe4 Security Awareness Training.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,150 +15,150 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 201abc6acd6e8021131f6064e346ca4b5df64e73
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: c27af4e7bc88f24b76310336859740d8795f7cbe
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36211934"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39449270"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-knowbe4-security-awareness-training"></a>Zelfstudie: Azure Active Directory-integratie met KnowBe4 Awareness beveiligingstraining
+# <a name="tutorial-azure-active-directory-integration-with-knowbe4-security-awareness-training"></a>Zelfstudie: Azure Active Directory-integratie met KnowBe4 Security Awareness Training
 
-In deze zelfstudie leert u hoe KnowBe4 Awareness beveiligingstraining integreren met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u KnowBe4-Awareness beveiligingstraining integreren met Azure Active Directory (Azure AD).
 
-KnowBe4 Awareness beveiligingstraining integreren met Azure AD biedt de volgende voordelen:
+KnowBe4-Awareness beveiligingstraining integreren met Azure AD biedt u de volgende voordelen:
 
-- U kunt beheren in Azure AD die toegang tot de beveiligingstraining Awareness KnowBe4 heeft.
-- U kunt uw gebruikers automatisch ophalen aangemeld bij KnowBe4 beveiligingstraining Awareness (Single Sign-On) inschakelen met hun Azure AD-accounts.
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
+- U kunt beheren in Azure AD die toegang tot KnowBe4 Security Awareness Training heeft.
+- U kunt uw gebruikers automatisch ophalen aangemeld bij KnowBe4-Awareness beveiligingstraining (Single Sign-On) inschakelen met hun Azure AD-accounts.
+- U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het configureren van Azure AD-integratie met KnowBe4 Awareness beveiligingstraining, moet u de volgende items:
+Voor het configureren van Azure AD-integratie met KnowBe4 Security Awareness Training, moet u de volgende items:
 
 - Een Azure AD-abonnement
-- Een KnowBe4 Awareness beveiligingstraining eenmalige aanmelding ingeschakeld abonnement
+- Een KnowBe4-Awareness beveiligingstraining eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. KnowBe4 Awareness beveiligingstraining uit de galerie toevoegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. KnowBe4-Awareness beveiligingstraining uit de galerie toe te voegen
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-knowbe4-security-awareness-training-from-the-gallery"></a>KnowBe4 Awareness beveiligingstraining uit de galerie toevoegen
-Voor het configureren van de integratie van KnowBe4 Awareness beveiligingstraining in Azure AD, moet u KnowBe4 Awareness beveiligingstraining uit de galerie toevoegen aan de lijst met beheerde SaaS-apps.
+## <a name="adding-knowbe4-security-awareness-training-from-the-gallery"></a>KnowBe4-Awareness beveiligingstraining uit de galerie toe te voegen
+Voor het configureren van de integratie van KnowBe4 Security Awareness Training in Azure AD, moet u KnowBe4-Awareness beveiligingstraining uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
-**Als u wilt toevoegen KnowBe4 Awareness beveiligingstraining uit de galerie, moet u de volgende stappen uitvoeren:**
+**Als u wilt toevoegen KnowBe4-Awareness beveiligingstraining uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuw toepassing][3]
+    ![De knop nieuwe toepassing][3]
 
-4. Typ in het zoekvak **KnowBe4 Awareness beveiligingstraining**, selecteer **KnowBe4 Awareness beveiligingstraining** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen de de toepassing.
+1. Typ in het zoekvak **KnowBe4-Awareness beveiligingstraining**, selecteer **KnowBe4-Awareness beveiligingstraining** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen de de toepassing.
 
-    ![KnowBe4 beveiligingstraining inzicht in de lijst met resultaten](./media/knowbe4-tutorial/tutorial_knowbe4_addfromgallery.png)
+    ![KnowBe4 Security Awareness Training in de lijst met resultaten](./media/knowbe4-tutorial/tutorial_knowbe4_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie configureert en test eenmalige aanmelding Azure AD met KnowBe4 Awareness beveiligingstraining op basis van een testgebruiker 'Britta Simon' genoemd.
+In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met KnowBe4 Security Awareness Training op basis van een testgebruiker 'Britta Simon' genoemd.
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in KnowBe4 Awareness beveiligingstraining is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in KnowBe4 Awareness beveiligingstraining tot stand worden gebracht.
+Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in KnowBe4 Security Awareness Training is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in KnowBe4-Awareness beveiligingstraining tot stand worden gebracht.
 
-Wijs in KnowBe4 Awareness beveiligingstraining, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In KnowBe4 Security Awareness Training, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met KnowBe4 Awareness beveiligingstraining, moet u de volgende bouwstenen voltooien:
+Als u wilt configureren en testen van Azure AD eenmalige aanmelding met KnowBe4 Security Awareness Training, u nodig hebt voor de volgende bouwstenen:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker KnowBe4 Awareness beveiligingstraining](#create-a-knowbe4-security-awareness-training-test-user)**  - KnowBe4 Awareness beveiligingstraining die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
+1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Maak een testgebruiker KnowBe4-Awareness beveiligingstraining](#create-a-knowbe4-security-awareness-training-test-user)**  : als u wilt een equivalent van Britta Simon in KnowBe4-Awareness beveiligingstraining die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw toepassing KnowBe4 Awareness beveiligingstraining configureren.
+In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw toepassing KnowBe4 Security Awareness Training.
 
-**Voor het configureren van Azure AD eenmalige aanmelding met KnowBe4 Awareness beveiligingstraining, moet u de volgende stappen uitvoeren:**
+**Voor het configureren van Azure AD eenmalige aanmelding met KnowBe4 Security Awareness Training, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **KnowBe4 Awareness beveiligingstraining** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **KnowBe4-Awareness beveiligingstraining** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
-    ![Dialoogvenster voor eenmalige aanmelding](./media/knowbe4-tutorial/tutorial_knowbe4_samlbase.png)
+    ![In het dialoogvenster voor eenmalige aanmelding](./media/knowbe4-tutorial/tutorial_knowbe4_samlbase.png)
 
-3. Op de **Awareness KnowBe4-Training beveiligingsdomein en URL's** sectie, voert u de volgende stappen uit:
+1. Op de **KnowBe4 Security Awareness Training domein en URL's** sectie, voert u de volgende stappen uit:
 
-    ![URL's en Awareness KnowBe4-Training beveiligingsdomein één aanmelding informatie](./media/knowbe4-tutorial/tutorial_knowbe4_url.png)
+    ![KnowBe4 Security Awareness Training domein en URL's eenmalige aanmelding informatie](./media/knowbe4-tutorial/tutorial_knowbe4_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://<companyname>.KnowBe4.com/auth/saml/<instancename>`
+    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<companyname>.KnowBe4.com/auth/saml/<instancename>`
 
     > [!NOTE] 
-    > Eenmalige aanmelding URL-waarde is geen echte. Deze waarde bijwerken met de werkelijke URL voor eenmalige aanmelding. Neem contact op met [KnowBe4 beveiliging Awareness Training Client ondersteuningsteam](mailto:support@KnowBe4.com) deze waarde op te halen. 
+    > Aanmeldings-URL-waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Awareness KnowBe4-Training Beveiligingsclient ondersteuningsteam](mailto:support@KnowBe4.com) deze waarde op te halen. 
 
-    b. In de **id** textbox, typt u de string-waarde: `KnowBe4`
+    b. In de **id** tekstvak typt u de tekenreekswaarde: `KnowBe4`
 
     > [!NOTE]
     >Dit is hoofdlettergevoelig
 
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **certificaat (Raw)** en sla het certificaatbestand op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Raw)** en slaat u het certificaatbestand op uw computer.
 
     ![De downloadkoppeling certificaat](./media/knowbe4-tutorial/tutorial_knowbe4_certificate.png) 
 
-5. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
-    ![Knop Single Sign-On opslaan configureren](./media/knowbe4-tutorial/tutorial_general_400.png)
+    ![Configureren van eenmalige aanmelding opslaan](./media/knowbe4-tutorial/tutorial_general_400.png)
 
-6. Op de **Awareness KnowBe4-Training Beveiligingsconfiguratie** sectie, klikt u op **configureren KnowBe4 Awareness beveiligingstraining** openen **eenmalige aanmelding configureren** venster. Kopieer de **Sign-Out-URL, SAML entiteit-ID en SAML Single Sign-On Service-URL** van de **Naslaggids punt.**
+1. Op de **Awareness KnowBe4-Training Beveiligingsconfiguratie** sectie, klikt u op **configureren KnowBe4-Awareness beveiligingstraining** openen **aanmelding configureren** venster. Kopiëren de **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 
     ![Bewustzijn KnowBe4-Training Beveiligingsconfiguratie](./media/knowbe4-tutorial/tutorial_knowbe4_configure.png) 
 
-7. Eenmalige aanmelding configureren op **KnowBe4 Awareness beveiligingstraining** zijde, moet u de gedownloade verzenden **certificaat (Raw)**, **Sign-Out-URL, SAML entiteit-ID en eenmalige aanmelding SAML Service-URL** naar [KnowBe4 beveiliging Awareness Training Client ondersteuningsteam](mailto:support@KnowBe4.com).
+1. Het configureren van eenmalige aanmelding op **KnowBe4-Awareness beveiligingstraining** zijde, moet u voor het verzenden van de gedownloade **certificaat (Raw)**, **afmelding-URL, SAML-entiteit-ID en SAML Single Sign-On Service-URL** naar [Awareness KnowBe4-Training Beveiligingsclient ondersteuningsteam](mailto:support@KnowBe4.com).
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
-   ![Een Azure AD-testgebruiker maken][100]
+   ![Maak een testgebruiker Azure AD][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
+1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
 
     ![De Azure Active Directory-knop](./media/knowbe4-tutorial/create_aaduser_01.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/knowbe4-tutorial/create_aaduser_02.png)
 
-3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
+1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
     ![De knop toevoegen](./media/knowbe4-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
+1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
     ![Het dialoogvenster gebruiker](./media/knowbe4-tutorial/create_aaduser_04.png)
 
@@ -166,59 +166,59 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
     b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
 
-    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
     d. Klik op **Create**.
  
-### <a name="create-a-knowbe4-security-awareness-training-test-user"></a>Een testgebruiker KnowBe4 Awareness beveiligingstraining maken
+### <a name="create-a-knowbe4-security-awareness-training-test-user"></a>Maak een testgebruiker KnowBe4 Security Awareness Training
 
-Het doel van deze sectie is het maken van een gebruiker Britta Simon aangeroepen in KnowBe4 Awareness beveiligingstraining. KnowBe4 Awareness beveiligingstraining ondersteunt just-in-time-inrichting, dit is standaard ingeschakeld.
+Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in KnowBe4 Security Awareness Training. KnowBe4 Security Awareness Training biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld.
 
-Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot de beveiligingstraining Awareness KnowBe4 als deze nog niet bestaat. 
+Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot KnowBe4-Awareness beveiligingstraining als deze nog niet bestaat. 
 
 >[!NOTE]
->Als u een gebruiker handmatig maken wilt, moet u contact op met de [KnowBe4 Awareness beveiligingstraining ondersteuningsteam](mailto:support@KnowBe4.com).
+>Als u een gebruiker handmatig hebt gemaakt wilt, moet u contact op met de [KnowBe4-Awareness beveiligingstraining ondersteuningsteam](mailto:support@KnowBe4.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan KnowBe4 Awareness beveiligingstraining.
+In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen tot KnowBe4 Security Awareness Training.
 
-![Toewijzen van de gebruikersrol][200] 
+![De de gebruikersrol toewijzen][200] 
 
-**Britta Simon om aan te wijzen KnowBe4 Awareness beveiligingstraining, moet u de volgende stappen uitvoeren:**
+**Als u wilt toewijzen Britta Simon tot KnowBe4 Security Awareness Training, moet u de volgende stappen uitvoeren:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **KnowBe4 Awareness beveiligingstraining**.
+1. Selecteer in de lijst met toepassingen, **KnowBe4-Awareness beveiligingstraining**.
 
-    ![De koppeling KnowBe4 Awareness beveiligingstraining in de lijst met toepassingen](./media/knowbe4-tutorial/tutorial_knowbe4_app.png)  
+    ![De koppeling KnowBe4 Security Awareness Training in de lijst met toepassingen](./media/knowbe4-tutorial/tutorial_knowbe4_app.png)  
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![De koppeling 'Gebruikers en groepen'][202]
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
+Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie via het toegangsvenster.
   
-Als u op de tegel KnowBe4 Awareness beveiligingstraining in het deelvenster toegang, u moet ophalen automatisch aangemeld bij uw toepassing KnowBe4 Awareness beveiligingstraining. 
+Wanneer u op de tegel KnowBe4 Security Awareness Training in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing KnowBe4 Security Awareness Training. 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->
 

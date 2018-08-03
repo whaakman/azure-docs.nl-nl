@@ -13,15 +13,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/30/2018
+ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: 430490859e6d8a58a54eea267e0c3f16991f74c8
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c3321fb64c423b1b3c80f48fb97a70cc7dbc83f9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364373"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433561"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Back-up van SQL Server-databases naar Azure
 
@@ -47,6 +47,8 @@ De volgende items zijn bekende beperkingen voor de openbare preview-versie:
 - [Back-ups van gedistribueerde beschikbaarheidsgroepen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/distributed-availability-groups?view=sql-server-2017) hebben beperkingen.
 - SQL Server Always On Failover Cluster Instances (Failoverclusterinstanties) worden niet ondersteund.
 - De Azure portal gebruiken voor Azure Backup configureren om het beveiligen van SQL Server-databases. Azure PowerShell, de Azure CLI en de REST API's worden momenteel niet ondersteund.
+
+Raadpleeg [gedeelte met veelgestelde vragen](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#faq) voor meer informatie over de ondersteuning/niet-ondersteunde scenario's.
 
 ## <a name="support-for-azure-geos"></a>Ondersteuning voor geografische gebieden voor Azure
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2017
 ms.author: jeedes
-ms.openlocfilehash: dad37a0d66ff1af9ad7e7f3b6a807ef1104da39f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: fb985b389139bfd8d54e6c54d101bbfa8a68a6d4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041089"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444620"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Zelfstudie: Azure Active Directory-integratie met Vodeclic
 
@@ -53,7 +53,7 @@ Als u wilt testen van de stappen in deze zelfstudie, volgt u deze aanbevelingen:
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Vodeclic uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="add-vodeclic-from-the-gallery"></a>Vodeclic uit de galerie toevoegen
 Voor het configureren van de integratie van Vodeclic in Azure AD, moet u Vodeclic uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -64,15 +64,15 @@ Voor het configureren van de integratie van Vodeclic in Azure AD, moet u Vodecli
 
     ![De Azure Active Directory-knop][1]
 
-2. Ga naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Ga naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Als u wilt een nieuwe toepassing toevoegen, selecteert u de **nieuwe toepassing** knop aan de bovenkant van het dialoogvenster.
+1. Als u wilt een nieuwe toepassing toevoegen, selecteert u de **nieuwe toepassing** knop aan de bovenkant van het dialoogvenster.
 
     ![De knop nieuwe toepassing][3]
 
-4. Typ in het zoekvak **Vodeclic**. Selecteer **Vodeclic** vanuit het deelvenster met resultaten en selecteer vervolgens de **toevoegen** om toe te voegen van de toepassing.
+1. Typ in het zoekvak **Vodeclic**. Selecteer **Vodeclic** vanuit het deelvenster met resultaten en selecteer vervolgens de **toevoegen** om toe te voegen van de toepassing.
 
     ![Vodeclic in de lijst met resultaten](./media/vodeclic-tutorial/tutorial_vodeclic_addfromgallery.png)
 
@@ -87,10 +87,10 @@ Geef de waarde in Vodeclic, **gebruikersnaam** dezelfde waarde als **gebruikersn
 Als u wilt configureren en Azure AD eenmalige aanmelding met Vodeclic testen, voert u de volgende bouwstenen:
 
 1. [Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on) zodat uw gebruikers deze functie wilt gebruiken.
-2. [Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user) voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. [Maak een testgebruiker Vodeclic](#create-a-vodeclic-test-user) hebben een equivalent van Britta Simon in Vodeclic die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-4. [Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user) Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. [Eenmalige aanmelding testen](#test-single-sign-on) om te controleren of de configuratie werkt.
+1. [Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user) voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. [Maak een testgebruiker Vodeclic](#create-a-vodeclic-test-user) hebben een equivalent van Britta Simon in Vodeclic die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+1. [Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user) Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. [Eenmalige aanmelding testen](#test-single-sign-on) om te controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -102,11 +102,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. In de **eenmalige aanmelding** dialoogvenster onder **Single-Sign-on modus**, selecteer **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. In de **eenmalige aanmelding** dialoogvenster onder **Single-Sign-on modus**, selecteer **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![In het dialoogvenster voor eenmalige aanmelding](./media/vodeclic-tutorial/tutorial_vodeclic_samlbase.png)
 
-3. Als u wilt configureren van de toepassing in **IDP** modus gestart de **Vodeclic domein en URL's** sectie, de volgende stappen uit:
+1. Als u wilt configureren van de toepassing in **IDP** modus gestart de **Vodeclic domein en URL's** sectie, de volgende stappen uit:
 
     ![Vodeclic domein en URL's, eenmalige aanmelding informatie](./media/vodeclic-tutorial/tutorial_vodeclic_url.png)
 
@@ -114,7 +114,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     b. In de **antwoord-URL** vak, typ een URL met het volgende patroon: `https://<companyname>.lms.vodeclic.net/auth/saml/callback`
 
-4. Als u wilt configureren van de toepassing in **SP** gestart modus, selecteer de **geavanceerde URL-instellingen weergeven** selectievakje en de volgende stap uitvoeren:
+1. Als u wilt configureren van de toepassing in **SP** gestart modus, selecteer de **geavanceerde URL-instellingen weergeven** selectievakje en de volgende stap uitvoeren:
 
     ![Vodeclic domein en URL's, eenmalige aanmelding informatie](./media/vodeclic-tutorial/tutorial_vodeclic_url1.png)
 
@@ -123,15 +123,15 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     > [!NOTE] 
     > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke-id, antwoord-URL en aanmeldings-URL. Neem contact op met de [Vodeclic Client ondersteuningsteam](mailto:hotline@vodeclic.com) om deze waarden te verkrijgen.
 
-5. In de **SAML-handtekeningcertificaat** sectie, selecteer **Metadata XML**. Sla het bestand met metagegevens op uw computer.
+1. In de **SAML-handtekeningcertificaat** sectie, selecteer **Metadata XML**. Sla het bestand met metagegevens op uw computer.
 
     ![De downloadkoppeling certificaat](./media/vodeclic-tutorial/tutorial_vodeclic_certificate.png) 
 
-6. Selecteer **Opslaan**.
+1. Selecteer **Opslaan**.
 
     ![Configureren van eenmalige aanmelding opslaan](./media/vodeclic-tutorial/tutorial_general_400.png)
     
-7. Het configureren van eenmalige aanmelding op de **Vodeclic** zijde, verzendt de gedownloade **Metadata XML** naar de [Vodeclic ondersteuningsteam](mailto:hotline@vodeclic.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+1. Het configureren van eenmalige aanmelding op de **Vodeclic** zijde, verzendt de gedownloade **Metadata XML** naar de [Vodeclic ondersteuningsteam](mailto:hotline@vodeclic.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com) tijdens het instellen van de app. Nadat u deze app uit de **Active Directory** > **bedrijfstoepassingen** sectie, selecteer de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie op [documentatie over Azure AD embedded]( https://go.microsoft.com/fwlink/?linkid=845985).
@@ -148,15 +148,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![De Azure Active Directory-knop](./media/vodeclic-tutorial/create_aaduser_01.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**. Selecteer vervolgens **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**. Selecteer vervolgens **alle gebruikers**.
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/vodeclic-tutorial/create_aaduser_02.png)
 
-3. Om te openen de **gebruiker** in het dialoogvenster, selecteer **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+1. Om te openen de **gebruiker** in het dialoogvenster, selecteer **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
     ![De knop toevoegen](./media/vodeclic-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
     ![Het dialoogvenster gebruiker](./media/vodeclic-tutorial/create_aaduser_04.png)
 
@@ -187,23 +187,23 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **Vodeclic**.
+1. Selecteer in de lijst met toepassingen, **Vodeclic**.
 
     ![De koppeling Vodeclic in de lijst met toepassingen](./media/vodeclic-tutorial/tutorial_vodeclic_app.png)  
 
-3. Selecteer in het menu aan de linkerkant, **gebruikers en groepen**.
+1. Selecteer in het menu aan de linkerkant, **gebruikers en groepen**.
 
     ![De koppeling 'Gebruikers en groepen'][202]
 
-4. Selecteer de **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** in het dialoogvenster.
+1. Selecteer de **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** in het dialoogvenster.
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. In de **gebruikers en groepen** in het dialoogvenster, selecteer **Britta Simon** in de **gebruikers** lijst.
+1. In de **gebruikers en groepen** in het dialoogvenster, selecteer **Britta Simon** in de **gebruikers** lijst.
 
-6. In de **gebruikers en groepen** in het dialoogvenster, selecteer de **Selecteer** knop.
+1. In de **gebruikers en groepen** in het dialoogvenster, selecteer de **Selecteer** knop.
 
-7. In de **toevoegen toewijzing** in het dialoogvenster, selecteer de **toewijzen** knop.
+1. In de **toevoegen toewijzing** in het dialoogvenster, selecteer de **toewijzen** knop.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -216,7 +216,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 

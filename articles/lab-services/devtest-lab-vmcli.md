@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 0f6713b9b8704e813ab1fd77ab1cf4e71e7f6670
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5e50bc3c6804a6f3d3dafd07b2918605c4cbc6ab
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235426"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434676"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Maken en beheren van virtuele machines met DevTest Labs met de Azure CLI
 In deze quick start begeleidt u bij het maken, starten, verbinding te maken, bijwerken en opschonen van een ontwikkelcomputer in uw testomgeving. 
@@ -38,7 +38,7 @@ az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGrou
 > Plaats de **lab van resourcegroep** naam in de--resource-group-parameter.
 >
 
-Als u wilt een virtuele machine maken met behulp van een formule, gebruik de formule parameter--in [az lab vm maken](https://docs.microsoft.com/cli/azure/lab/vm#az_lab_vm_create).
+Als u wilt een virtuele machine maken met behulp van een formule, gebruik de formule parameter--in [az lab vm maken](https://docs.microsoft.com/cli/azure/lab/vm#az-lab-vm-create).
 
 
 Controleer of de virtuele machine beschikbaar is.

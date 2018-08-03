@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: jeedes
-ms.openlocfilehash: c9997f27723b399344a18292905b558a9f61d6bd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 515b89502a9794671c1086b9dc537cdac9779f79
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39051124"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447884"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-spaceiq"></a>Zelfstudie: Azure Active Directory-integratie met SpaceIQ
 
@@ -53,7 +53,7 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. SpaceIQ uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-spaceiq-from-the-gallery"></a>SpaceIQ uit de galerie toe te voegen
 Voor het configureren van de integratie van SpaceIQ in Azure AD, moet u SpaceIQ uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -64,15 +64,15 @@ Voor het configureren van de integratie van SpaceIQ in Azure AD, moet u SpaceIQ 
 
     ![De Azure Active Directory-knop][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![De knop nieuwe toepassing][3]
 
-4. Typ in het zoekvak **SpaceIQ**, selecteer **SpaceIQ** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Typ in het zoekvak **SpaceIQ**, selecteer **SpaceIQ** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![SpaceIQ in de lijst met resultaten](./media/spaceiq-tutorial/tutorial_spaceiq_addfromgallery.png)
 
@@ -87,10 +87,10 @@ In SpaceIQ, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde v
 Om te configureren en testen van Azure AD eenmalige aanmelding met SpaceIQ, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker SpaceIQ](#create-a-spaceiq-test-user)**  : als u wilt een equivalent van Britta Simon in SpaceIQ die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Maak een testgebruiker SpaceIQ](#create-a-spaceiq-test-user)**  : als u wilt een equivalent van Britta Simon in SpaceIQ die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -102,11 +102,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![In het dialoogvenster voor eenmalige aanmelding](./media/spaceiq-tutorial/tutorial_spaceiq_samlbase.png)
 
-3. Op de **SpaceIQ domein en URL's** sectie, voert u de volgende stappen uit:
+1. Op de **SpaceIQ domein en URL's** sectie, voert u de volgende stappen uit:
 
     ![SpaceIQ domein en URL's, eenmalige aanmelding informatie](./media/spaceiq-tutorial/tutorial_spaceiq_url.png)
 
@@ -117,29 +117,29 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     > [!NOTE] 
     > Werk deze waarden met de werkelijke antwoord-URL en -id in die later in de zelfstudie wordt uitgelegd.
  
-4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **(Base64-certificaat)** en slaat u het certificaatbestand op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **(Base64-certificaat)** en slaat u het certificaatbestand op uw computer.
 
     ![De downloadkoppeling certificaat](./media/spaceiq-tutorial/tutorial_spaceiq_certificate.png) 
 
-5. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Configureren van eenmalige aanmelding opslaan](./media/spaceiq-tutorial/tutorial_general_400.png)
 
-6. Op de **SpaceIQ configuratie** sectie, klikt u op **configureren SpaceIQ** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID** uit de **Naslaggids sectie.**
+1. Op de **SpaceIQ configuratie** sectie, klikt u op **configureren SpaceIQ** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID** uit de **Naslaggids sectie.**
 
     ![SpaceIQ configuratie](./media/spaceiq-tutorial/tutorial_spaceiq_configure.png) 
 
-7.  Open een nieuw browservenster en meld u aan uw omgeving SpaceIQ als beheerder.
+1.  Open een nieuw browservenster en meld u aan uw omgeving SpaceIQ als beheerder.
 
-8. Nadat u bent aangemeld, klikt u op het teken puzzel in de rechterbovenhoek en klik op **"Integraties"**
+1. Nadat u bent aangemeld, klikt u op het teken puzzel in de rechterbovenhoek en klik op **"Integraties"**
 
     ![Accountinstellingen](./media/spaceiq-tutorial/setting1.png) 
 
-9. Onder **alle inrichting & SSO**, klikt u op de **Azure** tegel toevoegen een exemplaar van Azure als id-provider.
+1. Onder **alle inrichting & SSO**, klikt u op de **Azure** tegel toevoegen een exemplaar van Azure als id-provider.
 
     ![SAML-pictogram](./media/spaceiq-tutorial/setting2.png)
 
-10. In de **SSO** dialoogvenster vak, voer de volgende stappen uit:
+1. In de **SSO** dialoogvenster vak, voer de volgende stappen uit:
 
     ![SAML-verificatie-instellingen](./media/spaceiq-tutorial/setting3.png)
 
@@ -168,15 +168,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![De Azure Active Directory-knop](./media/spaceiq-tutorial/create_aaduser_01.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/spaceiq-tutorial/create_aaduser_02.png)
 
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
     ![De knop toevoegen](./media/spaceiq-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
     ![Het dialoogvenster gebruiker](./media/spaceiq-tutorial/create_aaduser_04.png)
 
@@ -204,23 +204,23 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **SpaceIQ**.
+1. Selecteer in de lijst met toepassingen, **SpaceIQ**.
 
     ![De koppeling SpaceIQ in de lijst met toepassingen](./media/spaceiq-tutorial/tutorial_spaceiq_app.png)  
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![De koppeling 'Gebruikers en groepen'][202]
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -232,7 +232,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 

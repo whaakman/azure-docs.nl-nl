@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: marsma
-ms.openlocfilehash: dd411ff38411c71cce2a8a63cc453c34e665a385
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: f4d30a9902261c0e785a1af36a7c1c7a8a0fec46
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262732"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444942"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>Taken in containers uitvoeren met beleid voor opnieuw opstarten
 
@@ -173,7 +173,7 @@ Zie voor meer informatie over het behouden van de uitvoer van de containers die 
 [aci-wordcount-image]: https://hub.docker.com/r/microsoft/aci-wordcount/
 
 <!-- LINKS - Internal -->
-[az-container-create]: /cli/azure/container?view=azure-cli-latest#az_container_create
-[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az_container_logs
-[az-container-show]: /cli/azure/container?view=azure-cli-latest#az_container_show
+[az-container-create]: /cli/azure/container?view=azure-cli-latest#az-container-create
+[az-container-logs]: /cli/azure/container?view=azure-cli-latest#az-container-logs
+[az-container-show]: /cli/azure/container?view=azure-cli-latest#az-container-show
 [azure-cli-install]: /cli/azure/install-azure-cli

@@ -15,187 +15,187 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: jeedes
-ms.openlocfilehash: f35fbacd4eac39cd9931d4725ac9bb299986c934
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e73ca95c27e7c9ef0799107dadc58c17aea5a9ca
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36217245"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435903"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Zelfstudie: Azure Active Directory-integratie met MOVEit overdracht - Azure AD-integratie
 
-In deze zelfstudie leert u het integreren van MOVEit overdracht - Azure AD-integratie met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u om te integreren, overdracht MOVEit - Azure AD-integratie met Azure Active Directory (Azure AD).
 
-Integratie van MOVEit overdracht - Azure AD-integratie met Azure AD biedt de volgende voordelen:
+Integratie van MOVEit overdracht - Azure AD-integratie met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot MOVEit overdracht - Azure AD-integratie heeft.
 - U kunt uw gebruikers automatisch ophalen aangemeld bij MOVEit overdracht - Azure AD-integratie met hun Azure AD-accounts (Single Sign-On) inschakelen.
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren.
+- U kunt uw accounts in één centrale locatie - Azure portal beheren.
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voor het configureren van Azure AD-integratie met MOVEit overdracht - integratie van Azure AD, moet u de volgende items:
 
 - Een Azure AD-abonnement
-- De overdracht van een MOVEit - Azure AD-integratie eenmalige aanmelding ingeschakeld abonnement
+- Een overdracht MOVEit - Azure AD-integratie eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u [ophalen van een proefversie van één maand](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
-1. Overdracht van MOVEit - Azure AD-integratie uit de galerie toevoegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. MOVEit overdracht - Azure AD-integratie uit de galerie toevoegen
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
-## <a name="adding-moveit-transfer---azure-ad-integration-from-the-gallery"></a>Overdracht van MOVEit - Azure AD-integratie uit de galerie toevoegen
-Om de integratie van MOVEit overdracht - Azure AD-integratie met Azure AD te configureren die u wilt toevoegen MOVEit overdracht - Azure AD-integratie uit de galerie aan de lijst met beheerde SaaS-apps.
+## <a name="adding-moveit-transfer---azure-ad-integration-from-the-gallery"></a>MOVEit overdracht - Azure AD-integratie uit de galerie toevoegen
+Als u wilt configureren van de integratie van MOVEit overdracht - Azure AD-integratie met Azure AD, moet u MOVEit overdracht - Azure AD-integratie uit de galerie aan de lijst van beheerde SaaS-apps toevoegen.
 
 **Als u wilt toevoegen MOVEit overdracht - Azure AD-integratie uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![De Azure Active Directory-knop][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
-    ![De knop Nieuw toepassing][3]
+    ![De knop nieuwe toepassing][3]
 
-4. Typ in het zoekvak **MOVEit overdracht - Azure AD-integratie**, selecteer **MOVEit overdracht - Azure AD-integratie** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Typ in het zoekvak **MOVEit overdracht - Azure AD-integratie**, selecteer **MOVEit overdracht - Azure AD-integratie** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen de de toepassing.
 
-    ![Overdracht van MOVEit - Azure AD-integratie in de lijst met resultaten](./media/moveittransfer-tutorial/tutorial_moveittransfer_addfromgallery.png)
+    ![MOVEit overdracht - Azure AD-integratie in de lijst met resultaten](./media/moveittransfer-tutorial/tutorial_moveittransfer_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en testen eenmalige aanmelding Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configureren en Azure AD eenmalige aanmelding testen
 
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met MOVEit overdracht - Azure AD-integratie op basis van een testgebruiker 'Britta Simon' genoemd.
+In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met MOVEit overdracht - Azure AD-integratie op basis van een testgebruiker 'Britta Simon' genoemd.
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de gebruiker equivalent in MOVEit overdracht - Azure AD-integratie is voor een gebruiker in Azure AD. Met andere woorden, een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in overdrachts-MOVEit - Azure AD-integratie moet tot stand worden gebracht.
+Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in MOVEit overdracht - Azure AD-integratie is aan een gebruiker in Azure AD. Met andere woorden, een koppeling de relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in MOVEit overdracht - Azure AD-integratie moet tot stand worden gebracht.
 
-Wijs in overdrachts-MOVEit - Azure AD-integratie, de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
+In MOVEit overdracht - Azure AD-integratie, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
-Als u wilt configureren en testen Azure AD eenmalige aanmelding met MOVEit Transfer - Azure AD-integratie moet u de volgende elementen voltooid:
+Om te configureren en testen van Azure AD eenmalige aanmelding met MOVEit overdracht - de Azure AD-integratie, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een overdracht MOVEit - Azure AD-integratie testgebruiker](#create-a-moveit-transfer---azure-ad-integration-test-user)**  - MOVEit overdracht - Azure AD-integratie die is gekoppeld aan de Azure AD-weergave van de gebruiker van een exemplaar van Britta Simon bevatten.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Test eenmalige aanmelding](#test-single-sign-on)**  : om te controleren of de configuratie werkt.
+1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Maken van een overdracht MOVEit - gebruiker van Azure AD-integratie testen](#create-a-moveit-transfer---azure-ad-integration-test-user)**  : als u wilt een equivalent van Britta Simon in MOVEit overdracht - integratie van Azure AD die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-In dit gedeelte Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding configureren in de overdracht van uw MOVEit - toepassing voor Azure AD-integratie.
+In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal en configureren van eenmalige aanmelding in uw MOVEit overdracht - toepassing voor Azure AD-integratie.
 
-**Voer de volgende stappen uit voor het configureren van Azure AD eenmalige aanmelding met MOVEit overdracht - Azure AD-integratie:**
+**Voor het configureren van Azure AD eenmalige aanmelding met MOVEit overdracht - integratie van Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. In de Azure-portal op de **MOVEit overdracht - Azure AD-integratie** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **MOVEit overdracht - Azure AD-integratie** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
-    ![Dialoogvenster voor eenmalige aanmelding](./media/moveittransfer-tutorial/tutorial_moveittransfer_samlbase.png)
+    ![In het dialoogvenster voor eenmalige aanmelding](./media/moveittransfer-tutorial/tutorial_moveittransfer_samlbase.png)
 
-3. Op de **MOVEit overdracht - URL's en Azure AD-integratie domein** sectie, voert u de volgende stappen uit:
+1. Op de **MOVEit overdracht - URL's en integratie van Azure AD Domain** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/moveittransfer-tutorial/tutorial_moveittransfer_url.png)
 
-    a. In de **aanmeldings-URL** textbox, typ een URL met het volgende patroon volgen: `https://contoso.com`
+    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://contoso.com`
 
-    b. In de **id** textbox, typ een URL met het volgende patroon volgen: `https://contoso.com/<tenatid>`
+    b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://contoso.com/<tenatid>`
 
-    c. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://contoso.com/<tenatid>/SAML/SSO/HTTP-Post`    
+    c. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://contoso.com/<tenatid>/SAML/SSO/HTTP-Post`    
      
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Deze waarden bijwerken met de werkelijke id, antwoord-URL en aanmeldings-URL. U kunt deze waarden later in verwijzen **metagegevens-URL voor Service Provider** sectie of neem contact op met [MOVEit overdracht - ondersteuningsteam van Azure AD-integratie Client](https://community.ipswitch.com/s/support) ophalen van deze waarden.
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. U kunt deze waarden later in verwijzen **metagegevens-URL van Service Provider** sectie of neem contact op met [MOVEit overdracht - ondersteuningsteam voor Azure AD-integratie-Client](https://community.ipswitch.com/s/support) om deze waarden te verkrijgen.
 
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
     ![De downloadkoppeling certificaat](./media/moveittransfer-tutorial/tutorial_moveittransfer_certificate.png) 
 
-5. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
-    ![Knop Single Sign-On opslaan configureren](./media/moveittransfer-tutorial/tutorial_general_400.png)
+    ![Configureren van eenmalige aanmelding opslaan](./media/moveittransfer-tutorial/tutorial_general_400.png)
     
-6. Meld u aan op uw tenant MOVEit overdracht als beheerder.
+1. Meld u aan bij uw tenant MOVEit overdracht als beheerder.
 
-7. Klik in het navigatiedeelvenster links op **instellingen**.
+1. Klik in het linkernavigatiedeelvenster op **instellingen**.
 
-    ![Instellingen sectie op App aan clientzijde](./media/moveittransfer-tutorial/tutorial_moveittransfer_000.png)
+    ![Instellingen voor sectie op App aan clientzijde](./media/moveittransfer-tutorial/tutorial_moveittransfer_000.png)
 
-8. Klik op **eenmalige aanmelding** koppeling, die zich onder **beveiligingsbeleid-gebruikersverificatie >**.
+1. Klik op **eenmalige aanmelding** koppeling naar deze bevindt zich onder **beveiligingsbeleid -> verificatie van de gebruiker**.
 
-    ![Security-beleid op App aan clientzijde](./media/moveittransfer-tutorial/tutorial_moveittransfer_001.png)
+    ![Beveiliging-beleid op App aan clientzijde](./media/moveittransfer-tutorial/tutorial_moveittransfer_001.png)
 
-9. Klik op de koppeling van de metagegevens-URL voor het downloaden van het metagegevensdocument.
+1. Klik op de koppeling van de metagegevens-URL om de metadata-document te downloaden.
 
     ![Serviceprovider metagegevens-URL](./media/moveittransfer-tutorial/tutorial_moveittransfer_002.png)
     
-    * Controleer of **id van de entiteit** overeenkomt met **id** in de **MOVEit overdracht - URL's en Azure AD-integratie domein** sectie.
-    * Controleer of **AssertionConsumerService** locatie-URL overeenkomt met **antwoord-URL** in de **MOVEit overdracht - URL's en Azure AD-integratie domein** sectie.
+    * Controleer of **entityID** komt overeen met **id** in de **MOVEit overdracht - URL's en integratie van Azure AD Domain** sectie.
+    * Controleer of **AssertionConsumerService** locatie-URL overeenkomt met **antwoord-URL** in de **MOVEit overdracht - URL's en integratie van Azure AD Domain** sectie.
     
-    ![Eenmalige aanmelding op App aan clientzijde configureren](./media/moveittransfer-tutorial/tutorial_moveittransfer_007.png)
+    ![Configureren van eenmalige aanmelding op App-zijde](./media/moveittransfer-tutorial/tutorial_moveittransfer_007.png)
 
-10. Klik op **identiteitsprovider toevoegen** knop een nieuwe federatieve identiteitsprovider toevoegen.
+1. Klik op **id-Provider toevoegen** om toe te voegen een nieuwe federatieve id-Provider.
 
     ![ID-Provider toevoegen](./media/moveittransfer-tutorial/tutorial_moveittransfer_003.png)
 
-11. Klik op **bladeren...**  om te selecteren in het bestand met metagegevens die u hebt gedownload van Azure-portal, klikt u vervolgens op **identiteitsprovider toevoegen** het gedownloade bestand te uploaden.
+1. Klik op **bladeren...**  om te selecteren in het bestand met metagegevens die u hebt gedownload van Azure portal, klik vervolgens op **id-Provider toevoegen** het gedownloade bestand te uploaden.
 
     ![SAML-identiteitsprovider](./media/moveittransfer-tutorial/tutorial_moveittransfer_004.png)
 
-12. Selecteer "**Ja**' als **ingeschakeld** in de **bewerken federatieve identiteit Providerinstellingen...**  pagina en klik op **opslaan**.
+1. Selecteer "**Ja**' als **ingeschakeld** in de **bewerken voor federatieve identiteit Providerinstellingen...**  pagina en klik op **opslaan**.
 
-    ![Federatieve identiteiten Providerinstellingen](./media/moveittransfer-tutorial/tutorial_moveittransfer_005.png)
+    ![Instellingen van de federatieve identiteit](./media/moveittransfer-tutorial/tutorial_moveittransfer_005.png)
 
-13. In de **bewerken federatieve identiteit Provider gebruikersinstellingen** pagina, de volgende acties uitvoeren:
+1. In de **bewerken voor federatieve identiteit Provider gebruikersinstellingen** pagina, de volgende acties uitvoeren:
     
-    ![Federatieve identiteiten Providerinstellingen bewerken](./media/moveittransfer-tutorial/tutorial_moveittransfer_006.png)
+    ![Instellingen van de federatieve identiteit bewerken](./media/moveittransfer-tutorial/tutorial_moveittransfer_006.png)
     
-    a. Selecteer **SAML NameID** als **aanmeldingsnaam**.
+    a. Selecteer **NameID van SAML** als **aanmeldingsnaam**.
     
-    b. Selecteer **andere** als **volledige naam** en in de **kenmerknaam** textbox plaatsen de waarde: `http://schemas.microsoft.com/identity/claims/displayname`.
+    b. Selecteer **andere** als **volledige naam** en in de **kenmerknaam** tekstvak plaatst de waarde: `http://schemas.microsoft.com/identity/claims/displayname`.
     
-    c. Selecteer **andere** als **e** en in de **kenmerknaam** textbox plaatsen de waarde: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    c. Selecteer **andere** als **e** en in de **kenmerknaam** tekstvak plaatst de waarde: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
     
-    d. Selecteer **Ja** als **automatisch maken van account aanmeldt**.
+    d. Selecteer **Ja** als **-account maken met een automatisch aanmeldt**.
     
     e. Klik op **opslaan** knop.
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
-### <a name="create-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
+### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
-   ![Een Azure AD-testgebruiker maken][100]
+   ![Maak een testgebruiker Azure AD][100]
 
 **Als u wilt een testgebruiker maken in Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. Klik in de Azure-portal in het linkerdeelvenster op het **Azure Active Directory** knop.
+1. In de Azure portal, in het linkerdeelvenster klikt u op de **Azure Active Directory** knop.
 
     ![De Azure Active Directory-knop](./media/moveittransfer-tutorial/create_aaduser_01.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/moveittransfer-tutorial/create_aaduser_02.png)
 
-3. Openen van de **gebruiker** in het dialoogvenster klikt u op **toevoegen** boven aan de **alle gebruikers** in het dialoogvenster.
+1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
     ![De knop toevoegen](./media/moveittransfer-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voert u de volgende stappen uit:
+1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
     ![Het dialoogvenster gebruiker](./media/moveittransfer-tutorial/create_aaduser_04.png)
 
@@ -203,57 +203,57 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
     b. In de **gebruikersnaam** typt u het e-mailadres van gebruiker Britta Simon.
 
-    c. Selecteer de **wachtwoord weergeven** selectievakje, en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
+    c. Selecteer de **wachtwoord weergeven** selectievakje en noteer de waarde die wordt weergegeven in de **wachtwoord** vak.
 
     d. Klik op **Create**.
  
-### <a name="create-a-moveit-transfer---azure-ad-integration-test-user"></a>Een MOVEit Transfer - Azure AD-integratie testgebruiker maken
+### <a name="create-a-moveit-transfer---azure-ad-integration-test-user"></a>Maken van een overdracht MOVEit - gebruiker van Azure AD-integratie testen
 
-Het doel van deze sectie is het maken van een gebruiker Britta Simon aangeroepen in MOVEit overdracht - Azure AD-integratie. Overdracht van MOVEit - Azure AD-integratie ondersteunt just-in-time-inrichting, die u hebt ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot MOVEit overdracht - Azure AD-integratie als deze nog niet bestaat.
+Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in MOVEit overdracht - Azure AD-integratie. MOVEit overdracht - integratie van Azure AD biedt ondersteuning voor just-in-time inrichting, die u hebt ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot MOVEit overdracht - integratie van Azure AD als deze nog niet bestaat.
 
 >[!NOTE]
->Als u een gebruiker handmatig maken wilt, moet u contact op met de [MOVEit overdracht - ondersteuningsteam van Azure AD-integratie Client](https://community.ipswitch.com/s/support).
+>Als u een gebruiker handmatig hebt gemaakt wilt, moet u contact op met de [MOVEit overdracht - ondersteuningsteam voor Azure AD-integratie Client](https://community.ipswitch.com/s/support).
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 
-In deze sectie schakelt u Britta Simon Azure eenmalige aanmelding gebruiken door het verlenen van toegang op de overdracht van MOVEit - Azure AD-integratie.
+In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan MOVEit overdracht - Azure AD-integratie.
 
-![Toewijzen van de gebruikersrol][200] 
+![De de gebruikersrol toewijzen][200] 
 
-**Voer de volgende stappen uit om toe te wijzen Britta Simon op de overdracht van MOVEit - Azure AD-integratie:**
+**Als u wilt toewijzen Britta Simon MOVEit overdracht - integratie van Azure AD, moet u de volgende stappen uitvoeren:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **MOVEit overdracht - Azure AD-integratie**.
+1. Selecteer in de lijst met toepassingen, **MOVEit overdracht - Azure AD-integratie**.
 
     ![De overdracht MOVEit - Azure AD-integratie koppeling in de lijst met toepassingen](./media/moveittransfer-tutorial/tutorial_moveittransfer_app.png)  
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![De koppeling 'Gebruikers en groepen'][202]
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
-Het doel van deze sectie is het testen van uw Azure AD SSO-configuratie met behulp van het toegangsvenster.
+Het doel van deze sectie is het testen van de configuratie van uw Azure AD-eenmalige aanmelding via het toegangsvenster.
 
-Wanneer u klikt op de overdracht MOVEit - tegel Azure AD-integratie in het deelvenster toegang u moet ophalen automatisch aangemeld bij de overdracht van uw MOVEit - toepassing voor Azure AD-integratie. 
+Wanneer u klikt op de overdracht MOVEit - tegel Azure AD-integratie in het toegangsvenster, u moet u automatisch aangemeld bij de overdracht van uw MOVEit - toepassing voor Azure AD-integratie. 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 <!--Image references-->

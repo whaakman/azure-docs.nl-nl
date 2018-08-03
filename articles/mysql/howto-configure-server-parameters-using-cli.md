@@ -10,12 +10,12 @@ ms.service: mysql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 07/18/2018
-ms.openlocfilehash: 637e2d27e92c1a2618fcf8b524e475a4d2f88f12
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 61fee0771d6847a0ec56de656057409bbcdcba16
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136369"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433739"
 ---
 # <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Parameters voor serverconfiguratie aanpassen met behulp van Azure CLI
 U kunt lijst, weergeven en bijwerken van parameters voor de configuratie voor een Azure Database for MySQL-server met behulp van Azure CLI, het Azure-opdrachtregelprogramma. Een subset van de engine-configuratie wordt weergegeven op het niveau van de server en kan worden gewijzigd. 
@@ -26,7 +26,7 @@ Als u wilt in deze gebruiksaanwijzing kunt doorlopen, hebt u het volgende nodig:
 - [Azure CLI 2.0](/cli/azure/install-azure-cli) opdrachtregelprogramma of gebruik de Azure Cloud Shell in de browser.
 
 ## <a name="list-server-configuration-parameters-for-azure-database-for-mysql-server"></a>Lijst met parameters voor serverconfiguratie voor Azure Database voor MySQL-server
-Als u alle parameters van kan worden gewijzigd in een server en de bijbehorende waarden, voer de [az mysql server configuration list](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_list) opdracht.
+Als u alle parameters van kan worden gewijzigd in een server en de bijbehorende waarden, voer de [az mysql server configuration list](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-list) opdracht.
 
 U kunt de parameters voor serverconfiguratie voor de server een lijst **mydemoserver.mysql.database.azure.com** onder de resourcegroep **myresourcegroup**.
 ```azurecli-interactive
@@ -35,14 +35,14 @@ az mysql server configuration list --resource-group myresourcegroup --server myd
 Zie de sectie van de MySQL-documentatie op voor de definitie van elk van de vermelde parameters [Server systeemvariabelen](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html).
 
 ## <a name="show-server-configuration-parameter-details"></a>Details van de parameter voor de serverconfiguratie van de weergeven
-Uitvoeren als u wilt weergeven van details over een bepaalde configuratieparameter voor een server, de [az mysql server configuration show](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_show) opdracht.
+Uitvoeren als u wilt weergeven van details over een bepaalde configuratieparameter voor een server, de [az mysql server configuration show](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-show) opdracht.
 
 In dit voorbeeld worden details van de **trage\_query\_log** configuratieparameter van de server voor server **mydemoserver.mysql.database.azure.com** onder de resourcegroep **myresourcegroup.**
 ```azurecli-interactive
 az mysql server configuration show --name slow_query_log --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="modify-a-server-configuration-parameter-value"></a>De parameterwaarde van een server-configuratie wijzigen
-U kunt ook de waarde van een bepaalde server configuratieparameter, die de onderliggende configuratiewaarde voor de MySQL-server-engine-updates wijzigen. Voor het bijwerken van de configuratie, gebruikt u de [az mysql server configuratieset](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) opdracht. 
+U kunt ook de waarde van een bepaalde server configuratieparameter, die de onderliggende configuratiewaarde voor de MySQL-server-engine-updates wijzigen. Voor het bijwerken van de configuratie, gebruikt u de [az mysql server configuratieset](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) opdracht. 
 
 Om bij te werken de **trage\_query\_log** server configuratieparameter van server **mydemoserver.mysql.database.azure.com** onder de resourcegroep  **myresourcegroup.**
 ```azurecli-interactive
@@ -75,7 +75,7 @@ SELECT name FROM mysql.time_zone_name;
 
 ### <a name="setting-the-global-level-time-zone"></a>De globale niveau tijdzone instellen
 
-De globale niveau tijdzone kan worden ingesteld met behulp van de [az mysql server configuratieset](/cli/azure/mysql/server/configuration#az_mysql_server_configuration_set) opdracht.
+De globale niveau tijdzone kan worden ingesteld met behulp van de [az mysql server configuratieset](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) opdracht.
 
 De volgende opdracht updates de **tijd\_zone** server configuratieparameter van server **mydemoserver.mysql.database.azure.com** onder de resourcegroep  **myresourcegroup** naar **VS / Stille Oceaan**.
 

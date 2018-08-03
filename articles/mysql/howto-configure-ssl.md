@@ -1,6 +1,6 @@
 ---
-title: SSL-verbindingen veilig verbinding kunnen maken met Azure-Database voor MySQL configureren
-description: Instructies voor het correcte configuratie van Azure-Database voor MySQL en de bijbehorende toepassingen juist gebruik van SSL-verbindingen
+title: Configureren van SSL-verbinding met het veilig verbinding maken met Azure Database for MySQL
+description: Instructies voor het juiste configuratie van Azure Database for MySQL en gekoppelde toepassingen correct gebruik van SSL-verbindingen
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -9,51 +9,51 @@ manager: kfile
 ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: ea4fd90670c2137fbe6127ba5c0b7641d846f407
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f18510e83d4e7d6498f34012b68368552399c806
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265424"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439572"
 ---
-# <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>SSL-verbindingen in uw toepassing veilig verbinding kunnen maken met Azure-Database voor MySQL configureren
-Azure MySQL-Database ondersteunt verbindingen van uw Azure-Database voor de MySQL-server met clienttoepassingen met Secure Sockets Layer (SSL). Het afdwingen van SSL-verbindingen tussen uw databaseserver en clienttoepassingen zorgt dat u bent beschermt tegen 'man in the middle'-aanvallen omdat de gegevensstroom tussen de server en uw toepassing wordt versleuteld.
+# <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Configureren van SSL-connectiviteit in uw toepassing veilig verbinding maken met Azure Database for MySQL
+Azure Database for MySQL ondersteunt verbindingen van uw Azure Database voor MySQL-server voor clienttoepassingen met Secure Sockets Layer (SSL). Het afdwingen van SSL-verbindingen tussen uw databaseserver en clienttoepassingen zorgt dat u bent beschermt tegen 'man in the middle'-aanvallen omdat de gegevensstroom tussen de server en uw toepassing wordt versleuteld.
 
-## <a name="step-1-obtain-ssl-certificate"></a>Stap 1: SSL-certificaat verkrijgen
-Download het certificaat nodig om te communiceren via SSL met uw Azure-Database voor de server uit een MySQL [ https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem ](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) en sla het certificaatbestand op de lokale schijf (in deze zelfstudie gebruikt c:\ssl bijvoorbeeld).
+## <a name="step-1-obtain-ssl-certificate"></a>Stap 1: SSL-certificaat ophalen
+Download het certificaat nodig om te communiceren via SSL met uw Azure Database voor MySQL-server uit [ https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem ](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) en sla het certificaatbestand op uw lokale schijf (in deze zelfstudie wordt c:\ssl bijvoorbeeld).
 **Voor Microsoft Internet Explorer en Microsoft Edge:** nadat het downloaden is voltooid, wijzig de naam van het certificaat naar BaltimoreCyberTrustRoot.crt.pem.
 
-## <a name="step-2-bind-ssl"></a>Stap 2: SSL is gekoppeld
-### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>Verbinding maken met server met behulp van de MySQL-Workbench via SSL
-Configureer de MySQL Workbench veilig verbinding te maken via SSL. Navigeer via de dialoog nieuwe Setup-verbinding naar de **SSL** tabblad. In de **SSL CA bestand:** en voer de locatie van het bestand van de **BaltimoreCyberTrustRoot.crt.pem**. 
-![Sla aangepaste tegel](./media/howto-configure-ssl/mysql-workbench-ssl.png) voor bestaande verbindingen kunt u SSL binden door met de rechtermuisknop op het verbindingspictogram en kiest u bewerken. Navigeer naar de **SSL** tabblad en verbindt u het certificaatbestand.
+## <a name="step-2-bind-ssl"></a>Stap 2: SSL Bind
+### <a name="connecting-to-server-using-the-mysql-workbench-over-ssl"></a>Verbinding maken met server met behulp van de MySQL Workbench via SSL
+Configureer de MySQL Workbench veilig verbinding maken via SSL. In het dialoogvenster Nieuwe verbinding instellen, gaat u naar de **SSL** tabblad. In de **SSL CA-bestand:** en voer de locatie van het bestand van de **BaltimoreCyberTrustRoot.crt.pem**. 
+![Sla de aangepaste tegel](./media/howto-configure-ssl/mysql-workbench-ssl.png) voor bestaande verbindingen kunt u SSL binden met de rechtermuisknop op het pictogram voor verbinding en kies bewerken. Navigeer naar de **SSL** tabblad en een binding van het certificaat-bestand.
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>Verbinding maken met server met behulp van de CLI MySQL via SSL
-De SSL-certificaat binden op een andere manier is met de opdrachtregelinterface MySQL door het uitvoeren van de volgende opdracht:
+Een andere manier om de SSL-certificaat binden is het gebruik van de MySQL-opdrachtregelinterface door het uitvoeren van de volgende opdracht:
 ```dos
 mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
 
-## <a name="step-3--enforcing-ssl-connections-in-azure"></a>Stap 3: Afdwingen van SSL-verbindingen in Azure 
+## <a name="step-3--enforcing-ssl-connections-in-azure"></a>Stap 3: Het afdwingen van SSL-verbindingen in Azure 
 ### <a name="using-the-azure-portal"></a>Azure Portal gebruiken
-Met de Azure portal, gaat u naar uw Azure-Database voor de MySQL-server en klik vervolgens op **verbindingsbeveiliging**. Gebruik de wisselknop inschakelen of uitschakelen de **afdwingen SSL-verbinding** instellen en klik vervolgens op **opslaan**. Microsoft raadt aan om in te schakelen altijd de **afdwingen SSL-verbinding** instellen voor een betere beveiliging.
+Met behulp van de Azure-portal, gaat u naar uw Azure Database voor MySQL-server en klik vervolgens op **verbindingsbeveiliging**. Gebruik de knop in-/ uitschakelen om in- of uitschakelen de **afdwingen van SSL-verbinding** instellen en klik vervolgens op **opslaan**. Microsoft raadt aan om in te schakelen altijd de **afdwingen van SSL-verbinding** instellen voor een betere beveiliging.
 ![enable-ssl](./media/howto-configure-ssl/enable-ssl.png)
 
 ### <a name="using-azure-cli"></a>Azure CLI gebruiken
-U kunt inschakelen of uitschakelen de **ssl-afdwinging** parameter waarden ingeschakeld of uitgeschakeld door respectievelijk te gebruiken in Azure CLI.
+U kunt inschakelen of uitschakelen de **ssl afdwingen** parameter met behulp van respectievelijk ingeschakeld of uitgeschakeld waarden in de Azure CLI.
 ```azurecli-interactive
 az mysql server update --resource-group myresource --name mydemoserver --ssl-enforcement Enabled
 ```
 
 ## <a name="step-4-verify-the-ssl-connection"></a>Stap 4: De SSL-verbinding controleren
-Uitvoeren van de mysql **status** om te controleren of u verbinding hebt gemaakt met uw MySQL-server via SSL:
+Uitvoeren van de mysql **status** opdracht uit om te controleren of u hebt verbonden met uw MySQL-server met behulp van SSL:
 ```dos
 mysql> status
 ```
-Controleer de verbinding is versleuteld aan de hand van de uitvoer, die moet worden weergegeven: **SSL: Cipher in gebruik is AES256 SHA** 
+Controleer of de verbinding is versleuteld aan de hand van de uitvoer, die moet worden weergegeven: **SSL: codering in gebruik is AES256 SHA** 
 
 ## <a name="sample-code"></a>Voorbeeldcode
-Voor het opzetten van een beveiligde verbinding met Azure-Database voor MySQL via SSL van uw toepassing, raadpleegt u de volgende codevoorbeelden:
+Als u wilt geen veilige verbinding maken met Azure Database for MySQL via SSL van uw toepassing, raadpleegt u de volgende codevoorbeelden:
 
 ### <a name="php"></a>PHP
 ```php
@@ -100,7 +100,7 @@ pem, _ := ioutil.ReadFile("/var/www/html/BaltimoreCyberTrustRoot.crt.pem")
 if ok := rootCertPool.AppendCertsFromPEM(pem); !ok {
     log.Fatal("Failed to append PEM.")
 }
-mysql.RegisterTLSConfig("custom", &tls.Config{RootCAs: rootCertPool, InsecureSkipVerify: true})
+mysql.RegisterTLSConfig("custom", &tls.Config{RootCAs: rootCertPool})
 var connectionString string
 connectionString = fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?allowNativePasswords=true&tls=custom",'myadmin@mydemoserver' , 'yourpassword', 'mydemoserver.mysql.database.azure.com', 'quickstartdb')   
 db, _ := sql.Open("mysql", connectionString)
@@ -161,4 +161,4 @@ conn = DriverManager.getConnection(url, properties);
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Bekijk verschillende toepassing connectiviteitsopties na [verbindingsbibliotheken voor Azure-Database voor MySQL](concepts-connection-libraries.md)
+Bekijk verschillende connectiviteitsopties van toepassing na [verbindingsbibliotheken voor Azure Database for MySQL](concepts-connection-libraries.md)

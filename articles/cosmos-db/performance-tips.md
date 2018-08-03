@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: 89c1daf1d5d257e02a8253a82d543605ff4cacb0
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: c300782432350c1997e25313b4301d94c29e2ed6
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126342"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480989"
 ---
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
@@ -132,9 +132,10 @@ Dus als u vraagt "hoe kan ik mijn de databaseprestaties verbeteren?" Houd rekeni
     Als u op het niveau van hoge doorvoer testen wilt (> 50.000 RU/s), de clienttoepassing kan knelpunt vanwege de machine beperking af op CPU- of -gebruik. Als u dit punt bereikt, kunt u blijven om de Azure Cosmos DB-account verder door uw client-toepassingen schalen over meerdere servers.
 8. **Document-URI's voor lagere latentie voor lezen in de cache**
 
-    Document-URI's indien mogelijk voor de beste prestaties lezen in de cache.
+    Document-URI's indien mogelijk voor de beste prestaties lezen in de cache. U hebt voor het definiëren van logica voor de resourceid in de cache bij het maken van de resource. ResourceID op basis van zoekopdrachten zijn sneller dan de naam op basis van zoekopdrachten, zodat deze waarden opslaan in cache worden de prestaties verbeterd. 
+
    <a id="tune-page-size"></a>
-9. **De paginagrootte voor query's / lezen-feeds voor betere prestaties afstemmen**
+1. **De paginagrootte voor query's / lezen-feeds voor betere prestaties afstemmen**
 
     Bij het uitvoeren van een bulksgewijs documenten met behulp van de feed-functionaliteit (bijvoorbeeld ReadDocumentFeedAsync) lezen of lezen bij de uitgifte van een SQL-query, worden de resultaten worden geretourneerd in een gesegmenteerde manier als de resultatenset is te groot is. Standaard resultaten worden geretourneerd in chunks van 100 items of 1 MB, het eerste ongeacht welke limiet wordt bereikt.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Storage-Serviceversleuteling door de klant beheerde sleutels in Azure Key Vault | Microsoft Docs
-description: De functie Azure Storage-Serviceversleuteling gebruiken voor het versleutelen van Azure Blob-opslag, Azure Files Azure Queue storage en Azure-tabelopslag aan de servicezijde bij het opslaan van de gegevens en ontsleutelen van het bij het ophalen van de gegevens die door de klant beheerde sleutels.
+description: De functie Azure Storage-Serviceversleuteling gebruiken voor het versleutelen van Azure Blob storage en Azure Files aan de servicezijde bij het opslaan van de gegevens en ontsleutelen van het bij het ophalen van de gegevens die door de klant beheerde sleutels.
 services: storage
 author: lakasa
 manager: jeconnoc
@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.openlocfilehash: b92a486ea8dfc148cd10b905f90a0e871602cc61
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: adca912121b4317d08481aeacffaa89b403ff7db
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414936"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480748"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Versleuteling voor opslagservice met behulp van de klant beheerde sleutels in Azure Key Vault
 Microsoft Azure is belangrijk dat u kunt beschermen en beveiligen van uw gegevens om te voldoen aan uw organisatie beveiligings- en nalevingsverplichtingen goed. Een manier die het opslagplatform van Azure beschermt uw gegevens is via versleuteling SSE (Storage Service), die uw gegevens worden versleuteld bij het schrijven van deze naar de opslag en ontsleutelt de gegevens bij het ophalen van het. De versleuteling en ontsleuteling is automatische, transparant en maakt gebruik van 256-bits [AES-versleuteling](https://wikipedia.org/wiki/Advanced_Encryption_Standard), een van de krachtigste blokversleutelingsmethoden die er bestaan.
@@ -23,7 +23,7 @@ U kunt Microsoft beheerde sleutels gebruiken met SSE of kunt u uw eigen versleut
 SSE voor Azure Blob storage en Azure Files is geïntegreerd met Azure Key Vault, zodat u een key vault gebruiken kunt voor het beheren van uw versleutelingssleutels. U kunt uw eigen versleutelingssleutels maken en op te slaan in een key vault, of u kunt Azure Key Vault-API's gebruiken voor het genereren van sleutels voor gegevenscodering. Met Azure Key Vault, kunt u beheren en besturen van uw sleutels en ook controle uitvoeren op uw gebruik van de sleutel.
 
 > [!Note]  
-> Storage-Serviceversleuteling is niet beschikbaar voor [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). Raden wij aan u versleuteling op het niveau van het besturingssysteem, zoals [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), die gebruikmaakt van industriestandaard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) op Windows en [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) op Linux te geven versleuteling is geïntegreerd met Key Vault.
+> Versleuteling voor opslagservice met behulp van de klant beheerde sleutels is niet beschikbaar voor [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md) maakt gebruik van industriestandaard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) op Windows en [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) op Linux om een oplossing versleuteling te bieden die is geïntegreerd met Key Vault.
 
 Waarom uw eigen sleutels maken? Aangepaste sleutels biedt u meer flexibiliteit, zodat u kunt maken, draaien, uitschakelen en definiëren van besturingselementen voor toegang. Aangepaste sleutels maken het ook mogelijk om te controleren van de versleutelingssleutels die wordt gebruikt om uw gegevens te beveiligen.
 
@@ -121,7 +121,7 @@ Ja.
 Er is een kosten die gepaard gaan voor het gebruik van Azure Key Vault. Ga voor meer informatie naar [prijzen van Key Vault](https://azure.microsoft.com/pricing/details/key-vault/). Er is geen extra kosten voor SSE, dat is ingeschakeld voor alle opslagaccounts.
 
 **Storage-Serviceversleuteling beschikbaar op Azure Managed Disks is?**  
-Nee, versleuteling voor opslagservice is niet beschikbaar voor [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md). Raden wij aan u versleuteling op het niveau van het besturingssysteem, zoals [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), die gebruikmaakt van industriestandaard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) op Windows en [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) op Linux te geven versleuteling is geïntegreerd met Key Vault.
+Storage-Serviceversleuteling is beschikbaar voor Azure Managed Disks met door Microsoft beheerde sleutels, maar niet met de klant beheerde sleutels. In plaats van Managed Disks SSE ondersteunen met de klant beheerde sleutels, wordt aangeraden [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md), die gebruikmaakt van industriestandaard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) op Windows en [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt)in Linux voor versleuteling die is geïntegreerd met Key Vault.
 
 **Hoe verschilt versleuteling voor opslagservice van Azure Disk Encryption?**  
 Azure Disk Encryption biedt integratie tussen OS gebaseerde oplossingen, zoals BitLocker en DM-Crypt en Azure Key Vault. Storage Service-versleuteling biedt versleuteling standaard op de laag van een Azure storage-platform, onder de virtuele machine.

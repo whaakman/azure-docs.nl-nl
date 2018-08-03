@@ -1,8 +1,8 @@
 ---
-title: Beveiliging voor Azure Active Directory-identiteit in te schakelen | Microsoft Docs
-description: 'Informatie over het inschakelen van Azure Active Directory: Identity Protection.'
+title: Azure Active Directory Identity Protection inschakelen | Microsoft Docs
+description: Informatie over het inschakelen van Azure Active Directory Identity Protection.
 services: active-directory
-keywords: beveiliging in Azure active directory-identiteit, cloud app discovery, het beheren van toepassingen, beveiliging, risico, risiconiveau, beveiligingsprobleem, beveiligingsbeleid
+keywords: Azure active directory identity protection cloud app discovery, toepassingen, beveiliging, risico's, risiconiveau, beveiligingsproblemen, beveiligingsbeleid beheren
 documentationcenter: ''
 author: MarkusVi
 manager: mtillman
@@ -13,39 +13,44 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 08/02/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 03e0c255f235a3896c818bec07cacab87b0a2d7e
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 9c52a8a0a2b755c86da264c2198bfe3a9b3cb797
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712885"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447640"
 ---
-# <a name="enabling-azure-active-directory-identity-protection"></a>Inschakelen van beveiliging voor Azure Active Directory-identiteit
+# <a name="enabling-azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection inschakelen
 
-Azure Active Directory: Identity Protection is een functie van Azure Active Directory (Azure AD). U kunt met Azure AD Identity Protection:
+Azure Active Directory Identity Protection is een functie van Azure Active Directory (Azure AD). U kunt met Azure AD Identity Protection:
 
 - Een gecombineerde weergave opvragen van gemarkeerde gebruikers en risicogebeurtenissen die zijn gedetecteerd met Machine Learning-algoritmen
 - Op risico's gebaseerde beleidsregels voor voorwaardelijke toegang instellen om uw gebruikers automatisch te beveiligen
 - Het beveiligingspostuur verbeteren door te handelen op basis van beveiligingsproblemen 
 
-Zie voor meer informatie [Azure Active Directory: Identity Protection](active-directory-identityprotection.md).
+Zie voor meer informatie, [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
 
-In dit artikel laat zien hoe Azure Active Directory identiteitsbeveiliging in te schakelen.
+In dit artikel laat zien hoe Azure Active Directory Identity Protection inschakelen.
 
-## <a name="steps-to-enable-azure-active-directory-identity-protection"></a>Stappen voor het inschakelen van Azure Active Directory: Identity Protection
-1. [Eenmalige aanmelding](https://ms.portal.azure.com/) naar uw Azure-portal als globale beheerder. 
+## <a name="steps-to-enable-azure-active-directory-identity-protection"></a>Stappen voor het inschakelen van Azure Active Directory Identity Protection
+
+1. Aanmelding bij uw [Azure-portal](https://ms.portal.azure.com/) als globale beheerder. 
+
 2. Klik in de Azure-portal op **Marketplace**.
    
     ![Maak](./media/active-directory-identityprotection-enable/01.png "maken")
-3. Klik in de lijst met toepassingen op **beveiliging en identiteit**.
+
+3. Klik in de lijst met toepassingen, op **identiteit**.
    
-    ![Maak](./media/active-directory-identityprotection-enable/02.png "maken")
+    ![Maak](./media/active-directory-identityprotection-enable/05.png "maken")
+
 4. Klik op **Azure AD Identity Protection**.
    
-    ![Maak](./media/active-directory-identityprotection-enable/03.png "maken")
+    ![Maak](./media/active-directory-identityprotection-enable/06.png "maken")
+
 5. Op de **Azure AD Identity Protection** blade, klikt u op **maken**.
    
     ![Maak](./media/active-directory-identityprotection-enable/04.png "maken")

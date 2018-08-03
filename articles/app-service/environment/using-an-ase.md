@@ -1,6 +1,6 @@
 ---
-title: Gebruik van een Azure App Service-omgeving
-description: Het maken, publiceren en schalen van apps in een Azure App Service-omgeving
+title: Een Azure App Service-omgeving gebruiken
+description: Over het maken, publiceren en apps in een Azure App Service environment schalen
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -13,111 +13,111 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 66ef20616df77dc809a79e516a53133a80759dc7
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: b3550c771b4c2916987c66f318010e5bb246fa39
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355301"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446847"
 ---
-# <a name="use-an-app-service-environment"></a>Gebruik van een App Service-omgeving #
+# <a name="use-an-app-service-environment"></a>Een App Service-omgeving gebruiken #
 
 ## <a name="overview"></a>Overzicht ##
 
-Azure App Service-omgeving is een implementatie van Azure App Service in een subnet in virtuele Azure-netwerk van een klant. Deze bestaat uit:
+Azure App Service Environment is een implementatie van Azure App Service in een subnet in de Azure-netwerk van een klant. Deze bestaat uit:
 
-- **FrontPage-ends**: de front-ends zijn waar HTTP/HTTPS wordt beëindigd in een App Service-omgeving (as-omgeving).
-- **Werknemers**: de werknemers zijn de resources die uw apps te hosten.
-- **Database**: de database bevat informatie die de omgeving bepaalt.
+- **Front-ends**: de front-ends zijn waar de HTTP/HTTPS in een App Service environment (ASE) wordt beëindigd.
+- **Werknemers**: de werknemers zijn de resources die uw apps hosten.
+- **Database**: de database bevat informatie die u de omgeving definieert.
 - **Opslag**: de opslag wordt gebruikt voor het hosten van de klant gepubliceerde apps.
 
 > [!NOTE]
-> Er zijn twee versies van App Service-omgeving: ASEv1 en ASEv2. ASEv1, moet u de resources beheren voordat u ze kunt gebruiken. Zie voor informatie over het configureren en beheren van ASEv1, [configureren van een App Service-omgeving v1][ConfigureASEv1]. De rest van dit artikel is gericht op ASEv2.
+> Er zijn twee versies van App Service-omgeving: ASEv1 en ASEv2. In ASEv1 moet u de resources beheren, voordat u ze kunt gebruiken. Zie voor meer informatie over het configureren en beheren van ASEv1, [configureren van een App Service environment v1][ConfigureASEv1]. De rest van dit artikel is gericht op ASEv2.
 >
 >
 
-U kunt een as-omgeving (ASEv1 en ASEv2) implementeren met een externe of interne VIP voor toegang tot Apps. De implementatie met een externe VIP wordt gewoonlijk aangeduid met een externe as-omgeving. De interne versie heet de as ILB-omgeving omdat deze gebruikmaakt van een interne load balancer (ILB). Zie voor meer informatie over de as ILB-omgeving, [maken en gebruiken een ILB-as-omgeving][MakeILBASE].
+U kunt een as-omgeving (ASEv1 en ASEv2) implementeren met een extern of intern VIP-adres voor toegang tot Apps. De implementatie met een extern VIP-adres wordt vaak een externe as-omgeving genoemd. De interne versie heet de ILB as-omgeving omdat het gebruikmaakt van een interne load balancer (ILB). Zie voor meer informatie over de ILB as-omgeving, [maken en gebruiken een ILB as-omgeving][MakeILBASE].
 
 ## <a name="create-a-web-app-in-an-ase"></a>Een web-app maken in een as-omgeving ##
 
-Voor het maken van een web-app in een as-omgeving, gebruiken hetzelfde proces als wanneer u normaal gesproken maakt, maar met een paar kleine verschillen. Wanneer u een nieuwe App Service-abonnement maken:
+Voor het maken van een web-app in een as-omgeving, gebruikt u dezelfde procedure als wanneer u deze normaal gesproken maakt, maar met enkele kleine verschillen. Wanneer u een nieuwe App Service-plan maken:
 
-- In plaats van een geografische locatie in waarop uw app implementeren, u een as-omgeving als uw locatie kiest te kiezen.
-- Alle App Service-abonnementen gemaakt in een as-omgeving moeten zich in een geïsoleerd prijscategorie.
+- In plaats van het kiezen van een geografische locatie op waar om uw app te implementeren, kunt u een as-omgeving als locatie kiezen.
+- Alle App Service-plannen hebt gemaakt in een as-omgeving moeten zich in een geïsoleerd prijscategorie.
 
-Als u een as-omgeving hebt, kunt u een door de instructies in [maken van een App Service-omgeving][MakeExternalASE].
+Als u een as-omgeving hebt, kunt u maken volgt u de instructies in [maken van een App Service environment][MakeExternalASE].
 
 Een web-app maken in een as-omgeving:
 
-1. Selecteer **maken van een resource** > **Web en mobiel** > **Web-App**.
+1. Selecteer **een resource maken** > **Web en mobiel** > **Web-App**.
 
-2. Voer een naam voor de web-app. Als u al een App Service-abonnement in een as-omgeving hebt geselecteerd, geeft de domeinnaam voor de app de domeinnaam van de as-omgeving.
+1. Voer een naam voor de web-app. Als u al een App Service-plan in een as-omgeving hebt geselecteerd, geeft de domeinnaam op voor de app de domeinnaam van de as-omgeving.
 
     ![Web-app-naam selecteren][1]
 
-3. Selecteer een abonnement.
+1. Selecteer een abonnement.
 
-4. Geef een naam voor een nieuwe resourcegroep of selecteer **gebruik bestaande** en selecteer een optie uit de vervolgkeuzelijst.
+1. Voer een naam in voor een nieuwe resourcegroep of selecteer **gebruik bestaande** en selecteer in de vervolgkeuzelijst.
 
-5. Selecteer uw besturingssysteem. 
+1. Selecteer uw besturingssysteem. 
 
-    * Het is een nieuwe functie van de preview, die als host fungeert voor een Linux-app in een as-omgeving, zodat we raden aan dat u niet Linux apps toevoegen in een as-omgeving die productieworkloads momenteel wordt uitgevoerd. 
-    * Toevoegen van een Linux-app in een as-omgeving, betekent het as-omgeving worden ook in de voorbeeldmodus. 
+    * Die als host fungeert voor een Linux-app in een as-omgeving is een nieuwe preview-functie, het is raadzaam dat u geen Linux-apps toevoegen in een as-omgeving die productieworkloads momenteel wordt uitgevoerd. 
+    * Toevoegen van een Linux-app in een as-omgeving, betekent dat de ASE ook opgenomen in de preview-modus worden. 
 
-5. Selecteer een bestaand App Service-abonnement in uw as-omgeving of een nieuwe maken met de volgende stappen:
+1. Selecteer een bestaand App Service-plan in de as-omgeving of maak een nieuwe door de volgende stappen:
 
-    a. Selecteer **maken van nieuwe**.
+    a. Selecteer **Maak een nieuwe**.
 
     b. Voer de naam van uw App Service-plan.
 
-    c. Selecteer uw as-omgeving in de **locatie** vervolgkeuzelijst. Die als host fungeert voor een Linux-app in een as-omgeving is alleen ingeschakeld in 6 gebieden op het moment dat: **VS-West, VS-Oost, West-Europa, Noord-Europa, Australië-Oost, Zuidoost-Azië.** 
+    c. Selecteer de as-omgeving in de **locatie** vervolgkeuzelijst. Die als host fungeert voor een Linux-app in een as-omgeving is alleen ingeschakeld in 6 regio's, op dit moment: **VS-West, VS-Oost, West-Europa, Noord-Europa, Australië-Oost, Zuidoost-Azië.** 
 
     d. Selecteer een **geïsoleerd** prijscategorie. Selecteer **Selecteer**.
 
     e. Selecteer **OK**.
     
-    ![Geïsoleerde Prijscategorieën][2]
+    ![Geïsoleerde categorieën][2]
 
     > [!NOTE]
-    > Linux-web-apps en web-apps voor Windows kunnen niet in de dezelfde App Service-Plan, maar kunnen zich in dezelfde App Service-omgeving. 
+    > Linux-web-apps en web-apps voor Windows kunnen niet in de dezelfde App Service-Plan, maar kunnen zich in hetzelfde App Service Environment. 
     >
 
-6. Selecteer **Maken**.
+1. Selecteer **Maken**.
 
 ## <a name="how-scale-works"></a>Hoe werkt schalen ##
 
-Elke App Service-app wordt uitgevoerd in een App Service-plan. Het model van de container is omgevingen Houd App Service-abonnementen en App Service-abonnementen Houd apps. Wanneer u een app schalen, kunt u de App Service-abonnement schalen en schalen dus alle apps in hetzelfde abonnement.
+Elke App Service-app wordt uitgevoerd in een App Service-plan. Het model van de container is omgevingen Houd App Service-plannen en App Service-plannen Houd apps. Wanneer u een app, kunt u schalen van het App Service-plan en schaal dus alle apps in hetzelfde abonnement.
 
-In ASEv2, wanneer u een App Service-abonnement schaal wordt de benodigde infrastructuur automatisch toegevoegd. Er is een vertraging te schaalbewerkingen terwijl de infrastructuur wordt toegevoegd. In ASEv1, kan de benodigde infrastructuur moet worden toegevoegd voordat u kunt maken of uitbreiden van uw App Service-abonnement. 
+In ASEv2, wanneer u de schaal van een App Service-plan, wordt de benodigde infrastructuur automatisch toegevoegd. Er is een vertraging om bewerkingen te schalen, terwijl de infrastructuur wordt toegevoegd. In ASEv1, kan de benodigde infrastructuur moet worden toegevoegd voordat u kunt maken of uitbreiden van uw App Service-plan. 
 
-In de App Service multitenant is schalen meestal onmiddellijke omdat een groep die direct beschikbaar is voor de ondersteuning. Er is geen dergelijke buffer in een as-omgeving, en bronnen worden toegewezen na nodig.
+In de multitenant-App Service is schalen meestal direct omdat een groep resources gemakkelijk beschikbaar zijn voor de ondersteuning. Er is geen dergelijke buffer in een as-omgeving en bronnen bij moet worden toegewezen.
 
-In een as-omgeving, kunt u maximaal 100 exemplaren schalen. De instanties van 100 kunnen alles in één enkele App Service-abonnement of verdeeld over meerdere App Service-abonnementen.
+U kunt maximaal 100 exemplaren schalen in een as-omgeving. De 100 instanties kunnen allemaal op één enkele App Service-plan of verdeeld over meerdere App Service-plannen.
 
 ## <a name="ip-addresses"></a>IP-adressen ##
 
-App Service biedt de mogelijkheid om toe te wijzen een toegewijde IP-adres aan een app. Deze mogelijkheid is beschikbaar nadat u een SSL op IP-basis geconfigureerd zoals beschreven in [een bestaande aangepaste SSL-certificaat binden aan Azure-web-apps][ConfigureSSL]. In een as-omgeving is er echter een opmerkelijke uitzondering. U kunt extra IP-adressen moet worden gebruikt voor een IP-gebaseerde SSL in een ILB-as-omgeving niet toevoegen.
+App Service biedt de mogelijkheid om toe te wijzen een toegewezen IP-adres aan een app. Deze mogelijkheid is beschikbaar nadat u een IP-gebaseerd SSL configureren zoals beschreven in [een bestaand aangepast SSL-certificaat binden aan Azure WebApps][ConfigureSSL]. In een as-omgeving is er echter een uitzondering die aandacht vereisen. U kunt extra IP-adressen moet worden gebruikt voor een op IP gebaseerde SSL in een ILB as-omgeving niet toevoegen.
 
-In ASEv1 moet u de IP-adressen toewijzen als resources voordat u ze kunt gebruiken. In ASEv2 gebruikt u deze van uw app net als in de multitenant-App Service. Er is altijd één spare adres in ASEv2 maximaal 30 IP-adressen. Telkens wanneer is u een gebruikt, een andere toegevoegd, zodat een adres altijd direct beschikbaar voor gebruik is. Een moment vertraging vereist is voor het toewijzen van een ander IP-adres, waardoor het toevoegen van IP-adressen snel achter elkaar.
+In ASEv1 moet u de IP-adressen als resources toewijzen voordat u ze kunt gebruiken. In ASEv2 gebruikt u deze vanuit uw app net als in de multitenant-App Service. Er is altijd één spare-adres in ASEv2 maximaal 30 IP-adressen. Telkens wanneer is u een, andere toegevoegd, zodat een adres altijd direct beschikbaar voor gebruik is. Een tijd vertraging is vereist voor het toewijzen van een ander IP-adres, waardoor het toevoegen van IP-adressen snel achter elkaar.
 
-## <a name="front-end-scaling"></a>Front-schaling ##
+## <a name="front-end-scaling"></a>Front-endschaling ##
 
-In ASEv2, wanneer u uw App Service-abonnementen worden uitgebreid worden werknemers automatisch toegevoegd om ze te ondersteunen. Elke as-omgeving met twee front-ends gemaakt. Bovendien eindigt de voorgrond automatisch scale-out met een snelheid van één front-end voor elke 15 exemplaren in uw App Service-abonnementen. Bijvoorbeeld, als u 15 exemplaren hebt, hebt u drie front-ends. Als u op 30 exemplaren schalen, hebt u vier FrontPage-ends, enzovoort.
+In ASEv2, wanneer u uw App Service-plannen uitschalen worden werknemers automatisch toegevoegd om ze te ondersteunen. Elke as-omgeving is gemaakt met twee front-ends. Bovendien de-front-ends automatisch scale-out tegen een tarief van één front-end voor elke 15-exemplaren in uw App Service-plannen. Bijvoorbeeld, als u 15 exemplaren hebt, hebt u drie front-ends. Als u de schaal aan 30 exemplaren, hebt u vier front-ends, enzovoort.
 
-Dit aantal front-ends moet hetgeen ruim voldoende is voor de meeste scenario's. Echter, kunt u uitschalen sneller. U kunt de verhouding tussen zo laag één front end voor elke vijf exemplaren wijzigen. Er is een kosten voor het wijzigen van de verhouding tussen het. Zie voor meer informatie [prijzen voor Azure App Service][Pricing].
+Dit aantal front-ends moet ruim voldoende is voor de meeste scenario's. U kunt echter opwaarts schalen met een hogere snelheid. U kunt de verhouding tussen het zo laag één front end voor elke vijf exemplaren wijzigen. Er is een kosten in rekening gebracht voor het wijzigen van de verhouding. Zie voor meer informatie, [prijzen voor Azure App Service][Pricing].
 
-Front-resources zijn het HTTP/HTTPS-eindpunt voor de as-omgeving. Geheugengebruik per front-end is met de front-standaardconfiguratie consistent ongeveer 60 procent. Klant-werkbelastingen uitvoeren niet op een front-end. De belangrijkste factor voor een front-end met betrekking tot het schalen is de CPU, is vooral als gevolg van HTTPS-verkeer.
+Front-endresources zijn de HTTP/HTTPS-eindpunt voor de as-omgeving. Geheugengebruik per front-end is met de front-end-configuratie van de standaard consistent ongeveer 60 procent. Klantwerkbelastingen uitvoeren niet op een front-end. De belangrijkste factor voor een front-end met betrekking tot het schalen is de CPU, die wordt aangedreven voornamelijk door HTTPS-verkeer.
 
 ## <a name="app-access"></a>App-toegang ##
 
-In een externe as-omgeving verschilt het domein dat wordt gebruikt wanneer u apps maken die van de multitenant-App Service. Het bevat de naam van de as-omgeving. Zie voor meer informatie over het maken van een externe as-omgeving [maken van een App Service-omgeving][MakeExternalASE]. De naam van het domein in een externe as-omgeving ziet eruit als *.&lt; asename&gt;. p.azurewebsites.net*. Bijvoorbeeld, als de naam van uw as-omgeving _externe-as-omgeving_ en hosten van een app aangeroepen _contoso_ in dat as-omgeving, u dit op de volgende URL's bereikt:
+In een externe as-omgeving, moet aan het domein dat wordt gebruikt bij het maken van apps wijkt af van de multitenant-App Service. Het bevat de naam van de as-omgeving. Zie voor meer informatie over het maken van een externe as-omgeving [maken van een App Service environment][MakeExternalASE]. De naam van het domein in een externe as-omgeving ziet eruit als *.&lt; asename&gt;. p.azurewebsites.net*. Bijvoorbeeld, als de naam van de as-omgeving _external ase_ en hosten van een app met de naam _contoso_ in deze as-omgeving, u deze met de volgende URL's opent:
 
 - contoso.external-ase.p.azurewebsites.net
 - contoso.scm.external-ase.p.azurewebsites.net
 
-De URL contoso.scm.external-ase.p.azurewebsites.net wordt gebruikt voor toegang tot de Kudu-console of voor het publiceren van uw app met behulp van web implementeren. Zie voor informatie over de Kudu-console, [Kudu-console voor Azure App Service][Kudu]. De Kudu-console biedt u een webgebruikersinterface voor foutopsporing, het uploaden van bestanden, bestanden en nog veel meer bewerken.
+De URL contoso.scm.external-ase.p.azurewebsites.net wordt gebruikt voor toegang tot de Kudu-console of voor het publiceren van uw app met behulp van web implementeren. Zie voor informatie over de Kudu-console, [Kudu-console voor Azure App Service][Kudu]. De Kudu-console biedt u een web-UI voor foutopsporing, uploaden van bestanden, bestanden en nog veel meer bewerken.
 
-In een ILB as-omgeving bepaalt u het domein tijdens de implementatie. Zie voor meer informatie over het maken van een as-omgeving voor de ILB [maken en gebruiken een ILB-as-omgeving][MakeILBASE]. Als u de domeinnaam opgeven _ilb ase.info_, gebruiken de apps in die as-omgeving dat domein tijdens het maken van de app. Voor de app met de naam _contoso_, wordt de URL's zijn:
+In een ILB as-omgeving bepaalt u het domein tijdens de implementatie. Zie voor meer informatie over het maken van een ILB as-omgeving [maken en gebruiken een ILB as-omgeving][MakeILBASE]. Als u de domeinnaam opgeven _ilb-ase.info_, de apps in deze as-omgeving dat domein gebruiken tijdens het maken van apps. Voor de app met de naam _contoso_, wordt de URL's zijn:
 
 - Contoso.ILB ase.info
 - Contoso.SCM.ILB ase.info
@@ -126,43 +126,43 @@ In een ILB as-omgeving bepaalt u het domein tijdens de implementatie. Zie voor m
 
 Net als bij de multitenant-App Service in een as-omgeving kunt u publiceren met:
 
-- Web-implementatie.
+- Webimplementatie.
 - FTP.
 - Continue integratie.
 - Slepen en neerzetten in de Kudu-console.
-- Een IDE, zoals Visual Studio, Eclipse of IntelliJ IDEA.
+- Een IDE, zoals Visual Studio, Eclipse en IntelliJ IDEE.
 
-Met een externe as-omgeving werken op dezelfde manier deze alle publicatieopties. Zie voor meer informatie [-implementatie in Azure App Service][AppDeploy]. 
+Met een externe as-omgeving werken deze alle publicatieopties hetzelfde. Zie voor meer informatie, [implementatie in Azure App Service][AppDeploy]. 
 
-Het belangrijkste verschil met het publiceren is ten opzichte van een as ILB-omgeving. De publicerende eindpunten zijn met een ILB as-omgeving, alle beschikbare alleen via de ILB. De ILB is op een privé IP-adres in het subnet van de as-omgeving in het virtuele netwerk. Als u geen toegang tot de ILB netwerk hebt, kunt u alle apps op die as-omgeving niet publiceren. Zoals vermeld in [maken en gebruiken een ILB-as-omgeving][MakeILBASE], moet u DNS configureren voor de apps in het systeem. Dat betekent onder meer het SCM-eindpunt. Als ze zijn niet correct gedefinieerd, kunt u niet publiceren. Er moet ook uw IDE netwerktoegang hebben tot de ILB om te kunnen publiceren naar deze.
+Het belangrijkste verschil met het publiceren is met betrekking tot een ILB as-omgeving. De publicatie-eindpunten zijn met een ILB as-omgeving, alle alleen beschikbaar via de ILB. De ILB is op een privé IP-adres in de ASE-subnet in het virtuele netwerk. Als u geen toegang tot het netwerk naar de ILB, kunt u alle apps in deze as-omgeving niet publiceren. Zoals vermeld in [maken en gebruiken een ILB as-omgeving][MakeILBASE], moet u DNS configureren voor de apps in het systeem. Dit is inclusief de SCM-eindpunt. Als ze zijn niet correct gedefinieerd, kunt u niet publiceren. Er moet ook uw IDE's netwerktoegang hebben tot de ILB om te kunnen publiceren naar deze.
 
-Internetgebaseerde CI systemen, zoals GitHub en Visual Studio Team Services, werkt niet met een ILB-as-omgeving omdat het publishing eindpunt niet Internet toegankelijk is. In plaats hiervan moet u een CI-systeem gebruiken dat gebruikmaakt van een pull-model, bijvoorbeeld Dropbox.
+Op internet gebaseerde CI-systemen, zoals GitHub en Visual Studio Team Services, werken niet met een ILB as-omgeving omdat het publicatie-eindpunt niet toegankelijk is via Internet is. In plaats hiervan moet u een CI-systeem gebruiken dat gebruikmaakt van een pull-model, bijvoorbeeld Dropbox.
 
-De publicatie-eindpunten voor apps in een ILB AS-omgeving maken gebruik van het domein waarmee de ILB AS-omgeving is gemaakt. Kunt u deze bekijken in het profiel voor het publiceren van de app en de portalblade van de app (in **overzicht** > **Essentials** en ook in **eigenschappen**). 
+De publicatie-eindpunten voor apps in een ILB AS-omgeving maken gebruik van het domein waarmee de ILB AS-omgeving is gemaakt. U kunt dit zien in het publicatieprofiel van de app en in de portalblade van de app (in **overzicht** > **Essentials** en ook in **eigenschappen**). 
 
 ## <a name="pricing"></a>Prijzen ##
 
-De prijzen SKU aangeroepen **geïsoleerd** is gemaakt voor gebruik met ASEv2. Alle App Service-abonnementen die worden gehost in ASEv2 zijn in de SKU-prijzen geïsoleerd. Geïsoleerde App Service plan tarieven kunnen verschillen per regio. 
+De prijzen SKU met de naam **geïsoleerd** is gemaakt voor gebruik met ASEv2. Alle App Service-abonnementen die worden gehost in ASEv2 zijn in de geïsoleerde prijs-SKU. Geïsoleerde App Service-plan tarieven kunnen afwijken per regio. 
 
-Naast de prijs voor uw App Service-abonnementen is er een vast tarief voor de as-omgeving zelf. De snelheid platte verandert niet met de grootte van uw as-omgeving en betaalt voor de infrastructuur as-omgeving op een standaard frequentie van 1 aanvullende schalen front-voor elke 15 exemplaren van de App Service-plan.  
+Naast de prijs voor uw App Service-abonnementen is er een vast tarief voor as-omgeving zelf. Vast bedrag verandert niet met de grootte van de as-omgeving en betaalt voor de infrastructuur as-omgeving op een standaard-tarief voor 1 extra schalen front-end voor elke 15 App Service-plan-exemplaren.  
 
-Als de standaardfrequentie van de schaal van 1-front-end voor elke 15 exemplaren van de App Service-plan niet snel genoeg is, kunt u de verhouding op welke front-ends worden toegevoegd of de grootte van de front-ends aanpassen.  Wanneer u de verhouding of grootte aanpast, betaalt u voor de front-kernen die niet standaard zou worden toegevoegd.  
+Als het standaardtarief voor de schaal van 1-front-end voor elke 15 exemplaren van de App Service-plan niet snel genoeg is, kunt u de verhouding bij welke front-ends worden toegevoegd of de grootte van de front-ends aanpassen.  Als u de verhouding tussen of de grootte aanpassen, betaalt u voor de front-end-kernen dat kunnen niet standaard worden toegevoegd.  
 
-Bijvoorbeeld, als u de schaal verhouding tussen 10 aanpast, is een front-end toegevoegd voor elke 10 exemplaren in uw App Service-abonnementen. De platte vergoeding geldt voor een snelheid van de schaal van één front-end voor elke 15 exemplaren. Met een ratio van de schaal van 10 betaalt u een vast bedrag voor het derde front-end die toegevoegd voor de 10 exemplaren van de App Service-plan. U hoeft niet te betalen wanneer u 15 exemplaren bereikt omdat deze automatisch is toegevoegd.
+Bijvoorbeeld, als u de schaal verhouding tussen het 10 aanpast, wordt een front-end toegevoegd voor elke 10 exemplaren in uw App Service-plannen. De vast tarief omvat een tarief van de schaal van één front-end voor elke 15-exemplaren. Met een ratio van de schaal van 10, kunt u een bedrag betaalt voor de derde front-end die wordt toegevoegd voor de 10 exemplaren van de App Service-plan. U hoeft te betalen voor wanneer u 15 exemplaren bereikt omdat deze automatisch is toegevoegd.
 
-Als u de grootte van de front-ends 2 kernen aangepast, maar niet van de verhouding tussen wijzigen vervolgens betaalt u voor de extra kernen.  Een as-omgeving wordt gemaakt met 2 front-ends, dus ook onder de automatische schaling drempelwaarde die u voor 2 extra kernen betalen zou als u de grootte van 2 core front-ends verhoogd.
+Als u de grootte van de front-ends op 2 kernen aangepast, maar niet van de verhouding tussen wijzigen vervolgens betaalt u voor de extra cores.  Een as-omgeving wordt gemaakt met 2 front-ends, dus ook onder de automatisch vergroten/verkleinen drempelwaarde u voor 2 extra kernen betaalt als u de grootte tot 2 core front-ends verhoogd.
 
-Zie voor meer informatie [prijzen voor Azure App Service][Pricing].
+Zie voor meer informatie, [prijzen voor Azure App Service][Pricing].
 
-## <a name="delete-an-ase"></a>Verwijderen van een as-omgeving ##
+## <a name="delete-an-ase"></a>Een as-omgeving verwijderen ##
 
-Verwijderen van een as-omgeving: 
+Een as-omgeving verwijderen: 
 
-1. Gebruik **verwijderen** boven aan de **App Service-omgeving** blade. 
+1. Gebruik **verwijderen** aan de bovenkant van de **App Service-omgeving** blade. 
 
-2. Voer de naam van uw as-omgeving om te bevestigen dat u wilt verwijderen. Wanneer u een as-omgeving verwijdert, verwijdert u alle van de inhoud van deze ook. 
+1. Voer de naam van de as-omgeving om te bevestigen dat u wilt verwijderen. Als u een as-omgeving verwijdert, verwijdert u alle ook inhoud binnen het. 
 
-    ![Verwijderen van een as-omgeving][3]
+    ![As-omgeving verwijderen][3]
 
 <!--Image references-->
 [1]: ./media/using_an_app_service_environment/usingase-appcreate.png

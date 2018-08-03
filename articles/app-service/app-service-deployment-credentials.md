@@ -1,6 +1,6 @@
 ---
 title: Azure App Service-implementatie referenties | Microsoft Docs
-description: Informatie over het gebruik van de referenties voor de Azure App Service-implementatie.
+description: Informatie over het gebruik van de referenties voor Azure App Service-implementatie.
 services: app-service
 documentationcenter: ''
 author: dariagrigoriu
@@ -13,84 +13,84 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/05/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: d66b5aa4eb2ad90596dfe9e26bbc18996c967295
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.openlocfilehash: a17260770f0b2e0a73585ce4108bd5625ac22229
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "27778544"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436145"
 ---
-# <a name="configure-deployment-credentials-for-azure-app-service"></a>Referenties voor implementatie configureren voor Azure App Service
-[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) ondersteunt twee soorten referenties voor [lokale Git-implementatie](app-service-deploy-local-git.md) en [FTP-/ S implementatie](app-service-deploy-ftp.md). Deze zijn niet hetzelfde zijn als uw Azure Active Directory-referenties.
+# <a name="configure-deployment-credentials-for-azure-app-service"></a>Referenties voor implementatie voor Azure App Service configureren
+[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) ondersteunt twee soorten referenties voor [lokale Git-implementatie](app-service-deploy-local-git.md) en [FTP/S implementatie](app-service-deploy-ftp.md). Dit zijn niet gelijk zijn aan uw Azure Active Directory-referenties.
 
-* **Beveiliging op gebruikersniveau referenties**: één set met referenties voor de volledige Azure-account. Het kan worden gebruikt om te implementeren in App Service voor een app, in een abonnement dat het Azure-account toegang heeft tot. Dit zijn de standaardset van de referenties die u configureert in **App Services** > **&lt;app_naam >** > **implementatiereferenties**. Dit is de standaardinstelling set die wordt opgehaald in de GUI-portal (zoals de **overzicht** en **eigenschappen** van uw app [bronpagina](../azure-resource-manager/resource-group-portal.md#manage-resources)).
-
-    > [!NOTE]
-    > Wanneer u toegang tot Azure-resources via op rollen gebaseerd toegangsbeheer (RBAC) of co-beheerder machtigingen delegeren, kunt elke Azure-gebruiker die toegang tot een app ontvangt stelt zijn/haar persoonlijke op gebruikersniveau referenties gebruiken totdat de toegang is ingetrokken. Deze referenties voor implementatie mag niet worden gedeeld met andere Azure-gebruikers.
-    >
-    >
-
-* **App-niveau referenties**: één set met referenties voor elke app. Het kan worden gebruikt om deze app alleen te implementeren. De referenties publicatieprofiel voor elke app bij het maken van de app automatisch wordt gegenereerd en is gevonden in de app. U kunt handmatig de referenties niet configureren, maar u kunt ze op elk gewenst moment voor een app herstellen.
+* **De referenties op gebruikersniveau**: één set referenties voor de gehele Azure-account. Het kan worden gebruikt voor het implementeren in App Service voor apps, in elk abonnement dat het Azure-account gemachtigd is voor toegang tot. Dit zijn de standaardset van de referenties die u configureert in **App Services** > **&lt;app_name >** > **implementatiereferenties**. Dit is ook de standaardwaarde instellen die in de portal GUI wordt opgehaald (zoals de **overzicht** en **eigenschappen** van uw app [resourcepagina](../azure-resource-manager/resource-group-portal.md#manage-resources)).
 
     > [!NOTE]
-    > Om aan te geven die iemand toegang tot deze referenties via rollen gebaseerd toegangsbeheer (RBAC), moet u ze Inzender of hoger op de Web-App. Lezers zijn niet toegestaan voor het publiceren van, en daarom geen toegang tot deze referenties.
+    > Wanneer u toegang tot Azure-resources via de rollen gebaseerd toegangsbeheer (RBAC) of co-beheerder machtigingen delegeren, kunt elke Azure-gebruiker die toegang tot een app ontvangt zijn of haar persoonlijke op gebruikersniveau-referenties gebruiken totdat de toegang is ingetrokken. Deze referenties voor implementatie mag niet worden gedeeld met andere Azure-gebruikers.
     >
     >
 
-## <a name="userscope"></a>Instellen en de referenties op gebruikersniveau resetten
+* **De referenties op App-niveau**: één set referenties voor elke app. Het kan worden gebruikt om te implementeren voor die app alleen. De referenties publiceren voor elke app automatisch wordt gegenereerd tijdens het maken van apps, en is gevonden in van de app profiel. U kunt handmatig de referenties niet configureren, maar u kunt ze op elk gewenst moment voor een app herstellen.
 
-U kunt uw referenties op gebruikersniveau configureren in elke app [bronpagina](../azure-resource-manager/resource-group-portal.md#manage-resources). Ongeacht in welke app configureert u deze referenties, geldt dit voor alle apps en voor alle abonnementen in uw Azure-account. 
+    > [!NOTE]
+    > Om aan te geven die iemand toegang tot deze referenties via rollen gebaseerd toegangsbeheer (RBAC), moet u bijdrager maken of hoger op de Web-App. Lezers zijn niet toegestaan om te publiceren, en kan daarom geen toegang tot deze referenties.
+    >
+    >
+
+## <a name="userscope"></a>Instellen en op gebruikersniveau referenties opnieuw instellen
+
+U kunt uw referenties op gebruikersniveau configureren van een App [resourcepagina](../azure-resource-manager/resource-group-portal.md#manage-resources). Ongeacht in welke app u configureert deze referenties, geldt dit voor alle apps en voor alle abonnementen in uw Azure-account. 
 
 Uw referenties op gebruikersniveau configureren:
 
-1. In de [Azure-portal](https://portal.azure.com), klik op App Service >  **&lt;any_app >** > **implementatiereferenties**.
+1. In de [Azure-portal](https://portal.azure.com), klikt u op App Service >  **&lt;any_app >** > **implementatiereferenties**.
 
     > [!NOTE]
-    > U moet ten minste één app in de portal hebben voordat u toegang hebt tot de pagina implementatie-referenties. Bij de [Azure CLI](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set), kunt u de referenties op gebruikersniveau zonder een bestaande app configureren.
+    > In de portal, moet u ten minste één app hebben voordat u krijgt de implementatiepagina-referenties tot toegang. Met de [Azure CLI](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set), kunt u de referenties op gebruikersniveau zonder een bestaande app configureren.
 
-2. Configureer de gebruikersnaam en wachtwoord en klik vervolgens op **opslaan**.
+2. Configureer de gebruikersnaam en het wachtwoord en klik vervolgens op **opslaan**.
 
     ![](./media/app-service-deployment-credentials/deployment_credentials_configure.png)
 
-Als u de referenties voor uw implementatie hebt ingesteld, kunt u vinden de *Git* gebruikersnaam van de implementatie in uw app **overzicht**,
+Als u de referenties voor implementatie hebt ingesteld, kunt u vinden de *Git* gebruikersnaam van de implementatie van uw App **overzicht**,
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_overview.png)
 
-en *FTP* gebruikersnaam van de implementatie in uw app **eigenschappen**.
+en *FTP* gebruikersnaam van de implementatie van uw App **eigenschappen**.
 
 ![](./media/app-service-deployment-credentials/deployment_credentials_properties.png)
 
 > [!NOTE]
-> Uw wachtwoord op gebruikersniveau implementatie wordt niet door Azure worden weergegeven. Als u het wachtwoord vergeet, kunt u het niet ophalen. U kunt echter uw referenties herstellen door de stappen in deze sectie.
+> Uw implementatiewachtwoord op gebruikersniveau niet wordt weergegeven in Azure. Als u het wachtwoord vergeet, kunt u het niet ophalen. U kunt echter uw referenties opnieuw met de volgende stappen in deze sectie.
 >
 >  
 
-## <a name="appscope"></a>Ophalen en app-niveau referenties opnieuw instellen
-Voor elke app in App Service, de referenties van de app-niveau worden opgeslagen in het XML-profiel publiceren.
+## <a name="appscope"></a>Ophalen en op app-niveau referenties opnieuw instellen
+Voor elke app in App Service, de referenties op app-niveau worden opgeslagen in het XML-bestand publicatieprofiel.
 
-De referenties van de app-niveau ophalen:
+De referenties op app-niveau ophalen:
 
-1. In de [Azure-portal](https://portal.azure.com), klik op App Service >  **&lt;any_app >** > **overzicht**.
+1. In de [Azure-portal](https://portal.azure.com), klikt u op App Service >  **&lt;any_app >** > **overzicht**.
 
-2. Klik op **... Meer** > **Get publicatieprofiel**, en begint met het downloaden voor een. Bestand met publicatie-instellingen.
+2. Klik op **... Meer** > **publicatieprofiel ophalen**, en begint met het downloaden van een. Het bestand met publicatie-instellingen.
 
     ![](./media/app-service-deployment-credentials/publish_profile_get.png)
 
-3. Open de. Met publicatie-instellingen bestand en zoek de `<publishProfile>` tag met het kenmerk `publishMethod="FTP"`. Haal vervolgens, de `userName` en `password` kenmerken.
-Dit zijn de referenties van de app-niveau.
+3. Open het. Met publicatie-instellingen-bestand en zoek de `<publishProfile>` tag met het kenmerk `publishMethod="FTP"`. Vervolgens kunt u de `userName` en `password` kenmerken.
+Dit zijn de referenties op app-niveau.
 
     ![](./media/app-service-deployment-credentials/publish_profile_editor.png)
 
-    Vergelijkbaar met de referenties op gebruikersniveau, de gebruikersnaam van FTP-implementatie is in de indeling van `<app_name>\<username>`, en de gebruikersnaam Git-implementatie is zojuist `<username>` zonder de voorafgaande `<app_name>\`.
+    Net als bij de referenties op gebruikersniveau, de gebruikersnaam van de FTP-implementatie is in de indeling van `<app_name>\<username>`, en de gebruikersnaam van de Git-implementatie is zojuist `<username>` zonder de voorafgaande `<app_name>\`.
 
-Om in te stellen de referenties van de app-niveau:
+De referenties op app-niveau opnieuw instellen:
 
-1. In de [Azure-portal](https://portal.azure.com), klik op App Service >  **&lt;any_app >** > **overzicht**.
+1. In de [Azure-portal](https://portal.azure.com), klikt u op App Service >  **&lt;any_app >** > **overzicht**.
 
-2. Klik op **... Meer** > **Reset publicatieprofiel**. Klik op **Ja** om te bevestigen dat het opnieuw instellen.
+2. Klik op **... Meer** > **publicatieprofiel opnieuw instellen**. Klik op **Ja** om te bevestigen van het opnieuw instellen.
 
-    Reset-actie wordt een eerder gedownloade ongeldig. Bestanden met publicatie-instellingen.
+    De actie opnieuw instellen wordt een eerder gedownloade ongeldig. Bestanden met publicatie-instellingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ontdek hoe u kunt deze referenties gebruiken voor het implementeren van uw app uit [lokale Git](app-service-deploy-local-git.md) of met behulp van [FTP/S](app-service-deploy-ftp.md).
+Leer hoe u gebruikt deze referenties voor uw app implementeren vanuit [lokale Git](app-service-deploy-local-git.md) of met behulp van [FTP/S](app-service-deploy-ftp.md).

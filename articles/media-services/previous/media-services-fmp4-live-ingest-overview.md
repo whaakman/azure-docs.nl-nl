@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services tot gefragmenteerde MP4 live opnemen specificatie | Microsoft Docs
-description: Deze specificatie beschrijft het protocol en de indeling voor gefragmenteerde MP4 gebaseerde live streaming opname voor Azure Media Services. U kunt Azure Media Services gebruiken om te streamen live gebeurtenissen en inhoud in realtime uitzenden met behulp van Azure als het cloudplatform. Dit document wordt ook beschreven best practices voor het bouwen van maximaal redundante en robuuste live mechanismen opnemen.
+title: Specificatie van Azure Media Services live gefragmenteerde MP4-liveopname | Microsoft Docs
+description: Deze specificatie beschrijving van het protocol en de indeling voor gefragmenteerde MP4-opname op basis van live streaming voor Azure Media Services. U kunt Azure Media Services gebruiken om te streamen van live-evenementen en inhoud in realtime uitzenden met behulp van Azure als het cloud-platform. Dit document wordt ook beschreven aanbevolen procedures voor het bouwen van uiterst redundante en robuuste live mechanismen opnemen.
 services: media-services
 documentationcenter: ''
 author: cenkdin
@@ -14,180 +14,180 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 367066b0073775ae10fd5e9d084c5bc78ebf6677
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 88c152872ef8b571b8bc3e3f06ce486943e724b1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788975"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39443525"
 ---
-# <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Azure Media Services tot gefragmenteerde MP4 live opnemen specificatie
-Deze specificatie beschrijft het protocol en de indeling voor gefragmenteerde MP4 gebaseerde live streaming opname voor Azure Media Services. Media Services biedt een service voor live streamen waarmee klanten kunnen stream live gebeurtenissen en de inhoud in realtime uitzenden met behulp van Azure als het cloudplatform. Dit document wordt ook beschreven best practices voor het bouwen van maximaal redundante en robuuste live mechanismen opnemen.
+# <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Specificatie van Azure Media Services live gefragmenteerde MP4-liveopname
+Deze specificatie beschrijving van het protocol en de indeling voor gefragmenteerde MP4-opname op basis van live streaming voor Azure Media Services. Media Services biedt een service voor live streamen die klanten gebruiken kunnen voor het streamen van live-evenementen uit te zenden van inhoud in realtime met behulp van Azure als het cloud-platform. Dit document wordt ook beschreven aanbevolen procedures voor het bouwen van uiterst redundante en robuuste live mechanismen opnemen.
 
-## <a name="1-conformance-notation"></a>1. Conformiteit notatie
-De sleutel 'Moet' 'Moet geen,' 'Is vereist,' "Geldt," "wordt niet," 'SHOULD', 'Mag niet' woorden 'Aanbevolen,' 'Kunnen' en 'Optioneel' in dit document moeten worden geïnterpreteerd als ze worden beschreven in RFC 2119.
+## <a name="1-conformance-notation"></a>1. Conformiteit van notatie
+De sleutel 'moet,""Moet niet,"'Vereist,'"Geldt,""wordt niet,""SHOULD,""Moet niet"woorden 'Aanbevolen,' 'Mei,' en 'Optioneel' in dit document zijn om te worden geïnterpreteerd als ze worden beschreven in RFC 2119.
 
-## <a name="2-service-diagram"></a>2. Diagram van de service
-Het volgende diagram toont de architectuur op hoog niveau van de service voor live streamen in Media Services:
+## <a name="2-service-diagram"></a>2. Servicediagram
+Het volgende diagram toont de architectuur op hoog niveau van de live-streamingservice in Media Services:
 
-1. Een live coderingsprogramma duwt live-feeds kanalen die zijn gemaakt en zijn ingericht via Azure Media Services SDK.
-2. Kanalen, programma's en streaming-eindpunten in Media Services verwerkt alle functionaliteiten voor live streamen, waaronder opnemen, opmaken, DVR, beveiliging, schaalbaarheid en redundantie cloud.
-3. Klanten kunnen eventueel kiezen voor het implementeren van een laag Azure Content Delivery Network tussen het streaming-eindpunt en de clienteindpunten.
-4. Client-eindpunten stroom van het streaming-eindpunt met behulp van protocollen HTTP adaptief streamen. Voorbeelden zijn Microsoft Smooth Streaming, dynamische adaptief streamen via HTTP (DASH of MPEG-DASH) en Apple HTTP Live Streaming (HLS).
+1. Een live coderingsprogramma pushes live-feeds aan kanalen die zijn gemaakt en ingericht via de Azure Media Services SDK.
+1. Kanalen, programma's en streaming-eindpunten in Media Services verwerkt alle functionaliteiten voor live streamen, waaronder opnemen, opmaken, DVR, beveiliging, schaalbaarheid en redundantie in de cloud.
+1. (Optioneel) kunnen klanten kiezen voor het implementeren van een laag Azure Content Delivery Network tussen het streaming-eindpunt en de clienteindpunten.
+1. Client-eindpunten stroom van het streaming-eindpunt met behulp van protocollen HTTP adaptieve Streaming. Voorbeelden zijn onder meer Microsoft Smooth Streaming, Dynamic Adaptive Streaming via HTTP (DASH of MPEG-DASH) en Apple HTTP Live Streaming (HLS).
 
 ![stroom opnemen][image1]
 
-## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. De indeling bitstream – ISO 14496 12 gefragmenteerd MP4
-Draadindeling voor live streamen opnemen die worden beschreven dit document is gebaseerd op [ISO 14496 12]. Zie voor een gedetailleerde uitleg van gefragmenteerde MP4-indeling en extensies zowel voor video-on-demand bestanden en live streaming opname [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx).
+## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. Indeling voor bitstream – ISO 14496-12-gefragmenteerde MP4
+De draadindeling voor live streaming-opnameprotocol worden besproken dit document is gebaseerd op [ISO-14496-12]. Zie voor een gedetailleerde uitleg van gefragmenteerde MP4-indeling en -extensies zowel voor video-on-demand-bestanden en live streaming opnemen, [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx).
 
-### <a name="live-ingest-format-definitions"></a>Indeling definities voor Live opnemen
-De volgende lijst bevat speciale indeling definities die van toepassing op live in Azure Media Services opnemen:
+### <a name="live-ingest-format-definitions"></a>Live opnemen indeling definities
+De volgende lijst bevat speciale indeling definities die van toepassing op live te worden opgenomen in Azure Media Services:
 
-1. De **ftyp legt vast**, **vak Server Manifest Live**, en **moov** vakken bij elke aanvraag (HTTP POST) moeten worden verzonden. Deze vakken aan het begin van de stroom moeten worden verzonden en elk gewenst moment de encoder moet opnieuw verbinding maken om te hervatten stroom opnemen. Zie de sectie 6 in [1] voor meer informatie.
-2. Sectie 3.3.2 in [1] definieert een optioneel het zogenaamde **StreamManifestBox** voor live opnemen. Vanwege de routering logica van de Azure load balancer is met behulp van dit vak afgeschaft. Het selectievakje niet moet aanwezig zijn bij het opnemen van Media Services. Als dit selectievakje aanwezig is, Media Services achtergrond deze genegeerd.
-3. De **TrackFragmentExtendedHeaderBox** vak gedefinieerd in 3.2.3.2 in [1] moet aanwezig zijn voor elke fragment.
-4. Versie 2 van de **TrackFragmentExtendedHeaderBox** vak moet worden gebruikt voor het genereren van mediasegmenten die identiek URL's in meerdere datacenters hebben. Het veld fragment index is REQUIRED voor cross-datacenter failover van een index gebaseerde streaming-indelingen zoals Apple HLS en MPEG-DASH op basis van een index. Om cross-datacenter failover, wordt de index fragment moet worden gesynchroniseerd tussen meerdere coderingsprogramma's en worden verhoogd met 1 voor elke fragment opeenvolgende media, zelfs in encoder opnieuw wordt opgestart of storingen.
-5. Sectie 3.3.6 in [1] definieert een invoervak **MovieFragmentRandomAccessBox** (**mfra**) die aan het einde van live opname worden verzonden om aan te geven einde van stroom (EOS) naar het kanaal. Als gevolg van de logica opnemen van Media Services, met behulp van EOS is afgeschaft, en de **mfra** vak voor live opname niet moet worden verzonden. Als verzonden, Media Services achtergrond deze genegeerd. Als u de status van het punt opnemen herstellen, wordt aangeraden dat u [kanaal opnieuw](https://docs.microsoft.com/rest/api/media/operations/channel#reset_channels). Wordt ook aangeraden dat u [programma stoppen](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) naar einde van een presentatie en de stream.
-6. De duur van MP4-fragment moet constant, de grootte van de clientmanifesten verminderen. Een constante MP4 verbetert ook methodiek voor client downloaden met behulp van het fragment duur Herhaal labels. De duur kan om te compenseren voor niet-integere framesnelheid variëren.
-7. De duur van MP4-fragment moet liggen tussen ongeveer 2 en 6 seconden.
-8. MP4 fragment tijdstempels en indexen (**TrackFragmentExtendedHeaderBox** `fragment_ absolute_ time` en `fragment_index`) moeten in oplopende volgorde binnenkomen. Hoewel Media Services flexibel omgaan met dubbele fragmenten, heeft dit dan beperkt de mogelijkheid om opnieuw te rangschikken fragmenten volgens de planning van de media.
+1. De **ftyp legt vast**, **vak Server Manifest Live**, en **moov** vakken moeten worden verzonden met elke aanvraag (HTTP POST). Deze vakken moeten worden verzonden aan het begin van de stroom en elk gewenst moment om te hervatten van de stroom moet opnieuw verbinding te maken met het coderingsprogramma opnemen. Zie de sectie 6 in [1] voor meer informatie.
+1. Sectie 3.3.2 in [1] definieert een optioneel vak met de naam **StreamManifestBox** voor live opnemen. Vanwege de routering logica van de Azure load balancer is met behulp van dit vak afgeschaft. Het vak moet niet worden gebruikt als opnemen in Media Services. Als dit selectievakje in aanwezig is, Media Services op de achtergrond wordt deze genegeerd.
+1. De **TrackFragmentExtendedHeaderBox** vak gedefinieerd in 3.2.3.2 in [1] moet aanwezig zijn voor elk fragment.
+1. Versie 2 van de **TrackFragmentExtendedHeaderBox** box moet worden gebruikt voor het genereren van mediasegmenten waarvoor de dezelfde URL's in meerdere datacenters. Het fragment index-veld is vereist voor cross-datacenter failover van de index op basis van streaming-indelingen, zoals Apple HLS en MPEG-DASH op basis van een index. Cross-datacenter om failover mogelijk te, het fragment index moet worden gesynchroniseerd tussen meerdere coderingsprogramma's en zelfs in het coderingsprogramma wordt opnieuw opgestart of fouten worden verhoogd met 1 voor elk fragment opeenvolgende media.
+1. Sectie 3.3.6 in [1] definieert een vak met de naam **MovieFragmentRandomAccessBox** (**mfra**) die kunnen worden verzonden aan het einde van live-opname om aan te geven van end-van-stream (EOS) naar het kanaal. Vanwege de logica voor opname van Media Services, met behulp van EOS is afgeschaft, en de **mfra** vak voor live-opname niet moet worden verzonden. Als de verzonden, Media Services op de achtergrond wordt deze genegeerd. Als u de status van de opname-punt herstellen, raden wij aan dat u [kanaal opnieuw](https://docs.microsoft.com/rest/api/media/operations/channel#reset_channels). We raden u ook aan dat u [programma stoppen](https://msdn.microsoft.com/library/azure/dn783463.aspx#stop_programs) beëindigen van een presentatie en stream.
+1. De duur van de MP4-fragment moet constante, te verminderen van de grootte van de clientmanifesten. Een constante MP4 fragment duur verbetert tevens methodiek van de client downloaden via het gebruik van tags herhalen. De duur kan om te compenseren voor niet-geheel getal framesnelheden variëren.
+1. De duur van de MP4-fragment moet ongeveer 2 tot 6 seconden.
+1. MP4 fragment tijdstempels en indexen (**TrackFragmentExtendedHeaderBox** `fragment_ absolute_ time` en `fragment_index`) moeten in oplopende volgorde binnenkomen. Hoewel Media Services tegen dubbele fragmenten is, is deze mogelijkheid om opnieuw te rangschikken fragmenten op basis van de media-tijdlijn beperkt.
 
 ## <a name="4-protocol-format--http"></a>4. Indeling protocol: HTTP
-ISO gefragmenteerd MP4 gebaseerde live opnemen voor Media Services maakt gebruik van een standaard langlopende HTTP POST-aanvraag voor het verzenden van mediagegevens van het gecodeerde die wordt verpakt in gefragmenteerde MP4-indeling met de service. Elke HTTP POST verstuurt een complete gefragmenteerd MP4 bitstream ('stream'), vanaf het begin met header vakken (**ftyp legt vast**, **vak Server Manifest Live**, en **moov** vakken), en wilt doorgaan met een reeks fragmenten (**moof** en **mdat** vakken). Zie de sectie 9.2 in [1] voor URL-syntaxis voor de HTTP POST-aanvraag. Een voorbeeld van de POST-URL is: 
+ISO-gefragmenteerde MP4 gebaseerde live opnemen voor Media Services maakt gebruik van een standard langdurige HTTP POST-aanvraag te verzenden gecodeerde mediagegevens die in gefragmenteerde MP4-indeling naar de service wordt geleverd. Elke HTTP-POST verstuurt een complete gefragmenteerd MP4 bitstream ('stream'), vanaf het begin met header vakken (**ftyp legt vast**, **vak Server Manifest Live**, en **moov** vakken ), en doorgaan met een reeks fragmenten (**moof** en **mdat** vakken). URL-syntaxis voor de HTTP POST-aanvraag, Zie sectie 9.2 in [1]. Er is een voorbeeld van de POST-URL: 
 
     http://customer.channel.mediaservices.windows.net/ingest.isml/streams(720p)
 
 ### <a name="requirements"></a>Vereisten
 Hier volgen de gedetailleerde vereisten:
 
-1. Het coderingsprogramma moet eerst de uitzending verzenden van een HTTP POST-aanvraag met een leeg 'hoofdtekst' (nul inhoudslengte) met behulp van dezelfde URL voor de opname. Zo kunt u het coderingsprogramma snel detecteren of het eindpunt live opname geldig is en als er verificatie of andere voorwaarden. Per HTTP-protocol, kan niet de server teruggestuurd een HTTP-antwoord totdat de gehele request, met inbegrip van de hoofdtekst van bericht is ontvangen. Gezien de langlopende aard van een live gebeurtenis, zonder deze stap wordt het coderingsprogramma niet mogelijk voor het detecteren van alle fouten, totdat het klaar is met het verzenden van de gegevens.
-2. Het coderingsprogramma moet eventuele fouten of verificatiecontroles verwerken vanwege (1). Als (1) is voltooid met een 200 antwoord worden voortgezet.
-3. Het coderingsprogramma moet een nieuwe HTTP POST-aanvraag beginnen met de gefragmenteerde MP4-stream. De nettolading moet beginnen met de vakken koptekst, gevolgd door fragmenten. Houd er rekening mee dat de **ftyp legt vast**, **vak Server Manifest Live**, en **moov** vakken (in deze volgorde) moeten worden verzonden met elke aanvraag, zelfs als het coderingsprogramma opnieuw verbinding maken moet omdat het eerdere verzoek voorafgaand aan het einde van de stroom is beëindigd. 
-4. Het coderingsprogramma moet gedeelde codering voor het uploaden, omdat het onmogelijk om te voorspellen van de hele lengte van de inhoud van de live gebeurtenis is voor overdracht gebruiken.
-5. Wanneer de gebeurtenis is afgelopen, na het verzenden van het laatste fragment moet het coderingsprogramma probleemloos gesegmenteerde overdrachtscodering berichtenstroom (de meeste HTTP-client stacks verwerkt; het automatisch) eindigen. Het coderingsprogramma moet wachten op de service te retourneren van de laatste antwoordcode en vervolgens de verbinding verbreken. 
-6. Het coderingsprogramma niet moet de `Events()` zelfstandig naamwoord zoals beschreven in 9.2 in [1] voor live opname in Media Services.
-7. Als de HTTP POST-aanvraag wordt beëindigd of met een TCP-fout voorafgaand aan het einde van de stroom een optreedt time-out, moet het coderingsprogramma uitgeven van een nieuwe POST-aanvraag met behulp van een nieuwe verbinding en volg de bovenstaande vereisten. Het coderingsprogramma moet bovendien opnieuw verzenden van de vorige twee MP4 fragmenten voor elk nummer in de stroom en hervatten zonder een onderbreking in de tijdlijn van media. Opnieuw verzenden van de laatste twee MP4-fragmenten voor elk nummer zorgt ervoor dat er geen gegevens verloren gaan. Met andere woorden, als een stroom geen audio en video bijgehouden bevat en de huidige POST-aanvraag is mislukt, moet de encoder opnieuw verbinding maken en verzenden van de laatste twee fragmenten voor de audio bijhouden die eerder met succes zijn verzonden, en de laatste twee fragmenten voor de video bijhouden die eerder met succes zijn verzonden, om ervoor te zorgen dat er geen gegevensverlies is. Het coderingsprogramma moet onderhouden een "forward" buffer van media fragmenten die het opnieuw verzendt wanneer verbinding wordt gemaakt.
+1. Het coderingsprogramma moet eerst de uitzending een HTTP POST-aanvraag met een lege 'hoofdtekst' (nul inhoudslengte) verzenden met behulp van dezelfde opname-URL. Dit kan helpen de encoder snel te detecteren of de live-opname-eindpunt geldig is en als er verificatie of andere voorwaarden die vereist zijn. Per HTTP-protocol, kan geen de server terugsturen van een HTTP-antwoord totdat de gehele aanvraag, met inbegrip van de hoofdtekst van het bericht is ontvangen. Gezien de aard van de langdurige van live-gebeurtenis, zonder deze stap wordt het coderingsprogramma niet mogelijk voor het detecteren van alle fouten, totdat het is voltooid met het verzenden van alle gegevens.
+1. Het coderingsprogramma moet eventuele fouten of verificatiecontroles verwerken vanwege (1). Als (1) is voltooid met een 200-respons worden voortgezet.
+1. Het coderingsprogramma moet een nieuwe HTTP POST-aanvraag starten met de gefragmenteerde MP4-stream. De nettolading van de moet beginnen met de vakken kop, gevolgd door fragmenten. Houd er rekening mee dat de **ftyp legt vast**, **vak Server Manifest Live**, en **moov** vakken (in deze volgorde) moeten worden verzonden met elke aanvraag, zelfs als het coderingsprogramma opnieuw verbinding maken moet omdat de vorige aanvraag is beëindigd voorafgaand aan het einde van de stroom. 
+1. Het coderingsprogramma moet gesegmenteerde overdrachtscodering voor het uploaden, omdat het is niet mogelijk om te voorspellen van de lengte van de gehele inhoud van de live-gebeurtenis gebruiken.
+1. Wanneer de gebeurtenis is afgelopen, na het verzenden van de laatste fragment, moet het coderingsprogramma zonder problemen de gesegmenteerde overdrachtscodering berichtenstroom (de meeste HTTP-client-stacks verwerkt automatisch) eindigen. Het coderingsprogramma moet wachten op de service om te retourneren van de laatste responscode en vervolgens de verbinding verbreken. 
+1. Het coderingsprogramma niet moet gebruiken de `Events()` zelfstandig naamwoord zoals beschreven in 9.2 in [1] voor live-opname in Media Services.
+1. Als de HTTP POST-aanvraag wordt beëindigd of met een TCP-fout voorafgaand aan het einde van de stroom een optreedt time-out, moet het coderingsprogramma uitgeven van een nieuwe POST-aanvraag met behulp van een nieuwe verbinding en volg de bovenstaande vereisten. Het coderingsprogramma moet bovendien opnieuw verzenden van de vorige twee MP4-fragmenten voor elk nummer in de stroom en hervatten zonder een onderbreking in de tijdlijn van de media. Opnieuw verzenden van de laatste twee MP4-fragmenten voor elk nummer zorgt ervoor dat er geen gegevens verloren gaan. Met andere woorden, als een stroom zowel een audio- en een video traceren bevat en de huidige POST-aanvraag is mislukt, de encoder moet opnieuw verbinding maken en verzenden van de laatste twee fragmenten voor het audiospoor die eerder met succes zijn verzonden, en de laatste twee fragmenten voor de video bijhouden, die eerder met succes zijn verzonden, om ervoor te zorgen dat er geen gegevens verloren gaan. Het coderingsprogramma moet onderhouden van een "forward" buffer van media-fragmenten, die het opnieuw wanneer verbinding wordt gemaakt.
 
-## <a name="5-timescale"></a>5. Tijdschaal
-[[MS-SSTR] ](https://msdn.microsoft.com/library/ff469518.aspx) beschrijft het gebruik van tijdschaal voor **SmoothStreamingMedia** (sectie 2.2.2.1) **StreamElement** (sectie 2.2.2.3) **StreamFragmentElement** () Sectie 2.2.2.6) en **LiveSMIL** (punt 2.2.7.3.1). Als de waarde tijdschaal niet aanwezig is, is de standaardwaarde gebruikt 10,000,000 (10 MHz). Hoewel de indelingsspecificatie Smooth Streaming wordt geen informatie over het gebruik van andere waarden tijdschaal geblokkeerd, de meeste implementaties van het coderingsprogramma gebruikt deze standaard waarde (10 MHz) voor het genereren van Smooth Streaming opnemen van gegevens. Vanwege de [Azure Media dynamische pakketten](media-services-dynamic-packaging-overview.md) functie, het is raadzaam een tijdschaal 90 KHz te gebruiken voor video stromen en 44,1 of 48.1 KHz voor audio stromen. Als andere tijdschaal waarden worden gebruikt voor verschillende stromen, kan de stroom-niveau tijdschaal moet worden verzonden. Zie voor meer informatie [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).     
+## <a name="5-timescale"></a>5. tijdschaal
+[[MS-SSTR] ](https://msdn.microsoft.com/library/ff469518.aspx) beschrijft het gebruik van tijdschaal voor **SmoothStreamingMedia** (sectie 2.2.2.1), **StreamElement** (sectie 2.2.2.3), **StreamFragmentElement** () Sectie 2.2.2.6), en **LiveSMIL** (sectie 2.2.7.3.1). Als de waarde tijdschaal niet aanwezig is, is de standaardwaarde gebruikt 10,000,000 (10 MHz). Hoewel de indelingsspecificatie Smooth Streaming niet gebruik van andere waarden tijdschaal blokkeert, meeste encoder-implementaties maken gebruik van deze standaard waarde (10 MHz) voor het genereren van Smooth Streaming opnemen van gegevens. Vanwege de [dynamische verpakking van Azure Media](media-services-dynamic-packaging-overview.md) functie, raden wij aan dat u een 90-KHz tijdschaal voor video-streams en 44,1 of 48.1 KHz voor audiostreams. Als andere tijdschaal waarden worden gebruikt voor verschillende gegevensstromen, kan de stream-niveau tijdschaal moet worden verzonden. Zie voor meer informatie, [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).     
 
 ## <a name="6-definition-of-stream"></a>6. Definitie van 'stream'
-Stroom is de basiseenheid voor bewerking in live opname voor het opstellen van live presentaties verwerken streaming failover en redundantie scenario's. Stroom wordt gedefinieerd als een unieke, gefragmenteerde MP4-bitstream met één track of meerdere nummers. Een volledige live presentatie kan een of meer stromen, afhankelijk van de configuratie van de live coderingsprogramma's bevatten. De volgende voorbeelden ziet diverse opties van het gebruik van streams voor het opstellen van een volledige live presentatie.
+Stream is de basiseenheid van bewerking in de live-opname voor het opstellen van live presentaties, streaming failover en het scenario's voor redundantie. Stream wordt gedefinieerd als een unieke, gefragmenteerde MP4-bitstream die één track kan bevatten of meerdere nummers. Een volledige live presentatie kan een of meer stromen, afhankelijk van de configuratie van de live coderingsprogramma's bevatten. De volgende voorbeelden ziet u verschillende opties van het gebruik van stromen voor het opstellen van een volledige live presentatie.
 
 **Voorbeeld:** 
 
-Een klant wil een live streaming presentatie met de volgende audio/video-bitsnelheden maken:
+Een klant wil maken van een live streaming presentatie met de volgende audio/video-bitsnelheden:
 
-Video – 3000 kbps, 1500 kbps, 750 kbps
+Video: 3000 kbps, 1500 kbps, 750 kbps
 
 Audio-128 k
 
-### <a name="option-1-all-tracks-in-one-stream"></a>Optie 1: Alle nummers in één stroom
-Bij deze optie geen enkele coderingsprogramma genereert alle audio/video-nummers en verzamelt ze in één gefragmenteerde MP4 bitstream. De gefragmenteerde MP4-bitstream wordt verzonden via één HTTP POST-verbinding. In dit voorbeeld is er slechts één stream voor deze live presentatie.
+### <a name="option-1-all-tracks-in-one-stream"></a>Optie 1: Alle sporen in één stroom
+Bij deze optie een één-coderingsprogramma genereert alle audio/video-nummers en worden ze vervolgens in een gefragmenteerde MP4-bitstream. De gefragmenteerde MP4-bitstream wordt verzonden via één HTTP POST-verbinding. In dit voorbeeld is er slechts één stroom voor deze live presentatie.
 
 ![Streams-een bijhouden][image2]
 
-### <a name="option-2-each-track-in-a-separate-stream"></a>Optie 2: Elk nummer in een afzonderlijke stream
-Bij deze optie het coderingsprogramma plaatst een nummer in elke bitstream fragment MP4 en plaatst alle stromen via afzonderlijke HTTP-verbindingen. Dit kan worden gedaan met een coderingsprogramma of met meerdere coderingsprogramma's. De live opname ziet deze live presentatie als bestaat uit vier stromen.
+### <a name="option-2-each-track-in-a-separate-stream"></a>Optie 2: Elke bijhouden in een afzonderlijke stream
+Bij deze optie, de encoder een nummer in elk fragment MP4-bitstream wordt geplaatst en plaatst vervolgens alle van de stromen via afzonderlijke HTTP-verbindingen. Dit kan worden gedaan met een coderingsprogramma of met meerdere coderingsprogramma's. De opname van live gegevens ziet deze live presentatie zoals bestaat uit vier streams.
 
-![Streams afzonderlijke houdt][image3]
+![Streams afzonderlijke sporen te wissen][image3]
 
-### <a name="option-3-bundle-audio-track-with-the-lowest-bitrate-video-track-into-one-stream"></a>Optie 3: Audio bijhouden met de laagste bitrate video spoor bundelen in één stream
-Bij deze optie kiest de klant de audio bijhouden met de laagste bitrate video bijhouden bundelen in één MP4-fragment bitstream, en laat de andere twee video sporen als afzonderlijke stromen. 
+### <a name="option-3-bundle-audio-track-with-the-lowest-bitrate-video-track-into-one-stream"></a>Optie 3: Bundel audiotrack met de laagste bitrate video bijhouden in één stream
+Bij deze optie kiest de klant het audiospoor met de laagste-bitrate video track bundelen in één fragment MP4 bitstream, en dat de andere twee video sporen als afzonderlijke streams. 
 
 ![Streams-audio en video-nummers][image4]
 
 ### <a name="summary"></a>Samenvatting
-Dit is geen uitputtende lijst van alle mogelijke opname opties voor dit voorbeeld. Als een sterker nog, wordt een groepering van nummers in streams ondersteund door live opname. Klanten en leveranciers encoder kunt hun eigen implementaties op basis van de technische complexiteit, encoder-capaciteit en redundantie en overwegingen. In de meeste gevallen is er echter slechts één-nummer voor de hele live presentatie. Het is dus belangrijk om te controleren of de gezondheid van de stroom opnemen met de-nummer. Dit aandachtspunt vaak resulteert in het nummer in een eigen stroom (zoals in de optie 2) of het bundeling deze met de laagste bitrate video bijhouden (zoals in de optie 3). Ook, voor betere redundantie en fouttolerantie, verzendt de dezelfde audio bijhouden in twee verschillende stromen (optie 2 met redundant audio houdt) of de audio bijhouden met ten minste twee van de laagste bitrate video-nummers (optie 3 met audio gebundeld in ten minste twee video stromen) bundeling wordt nadrukkelijk aanbevolen voor live opnemen in Media Services.
+Dit is niet een volledige lijst van alle mogelijke opname-opties voor dit voorbeeld. Als een sterker nog, wordt een groepering van de nummers in stromen ondersteund door live-opname. Klanten en leveranciers encoder kunnen kiezen voor hun eigen implementaties op basis van de technische complexiteit, encoder-capaciteit en redundantie en failover-overwegingen. In de meeste gevallen is er echter slechts één audiotrack voor de hele live presentatie. Het is dus belangrijk om te controleren of de gezondheid van de opname-stream met de audiotrack. Deze overweging vaak resulteert in het audiospoor plaatsen in een eigen stream (zoals in optie 2) of deze bundeling met de laagste-bitrate video bijhouden (zoals in de optie 3). Bovendien, voor betere redundantie en fouttolerantie geboden kunnen verzenden van de dezelfde audiotrack in twee verschillende stromen (optie 2 met redundante audionummers) of het audiospoor met ten minste twee van de laagste-bitrate video-nummers (optie 3 met audio gebundeld in ten minste twee bundeling video-streams) wordt sterk aanbevolen voor live te worden opgenomen in Media Services.
 
 ## <a name="7-service-failover"></a>7. Failover van de service
-Gegeven de aard van live streamen, zijn goede failover-ondersteuning is essentieel voor de beschikbaarheid van de service. Media Services is ontworpen voor het verwerken van verschillende typen fouten, waaronder netwerkfouten, server-fouten en opslagproblemen. Wanneer gebruikt in combinatie met de juiste failoverlogica vanaf de live codering, kunnen klanten een uiterst betrouwbare service voor live streamen vanuit de cloud kunnen bereiken.
+Gezien de aard van live streamen, goede failover-ondersteuning, het is essentieel voor ervoor te zorgen dat de beschikbaarheid van de service. Media Services is ontworpen voor het afhandelen van verschillende typen fouten, met inbegrip van netwerkfouten, server-fouten en opslagproblemen. Wanneer gebruikt in combinatie met de juiste failoverlogica aan de live coderingsprogramma, kunnen klanten een zeer betrouwbare service voor live streamen vanuit de cloud kunnen bereiken.
 
-In deze sectie bespreken we service failover-scenario's. In dit geval wordt de fout gebeurt er ergens in de service en het doet zich voor als een netwerkfout opgetreden. Hier volgen enkele aanbevelingen voor de uitvoering van de codering voor het verwerken van de service failover:
+In deze sectie wordt besproken hoe service failover-scenario's. In dit geval wordt de fout doet zich ergens in de service en het doet zich voor als er is een netwerkfout. Hier volgen enkele aanbevelingen voor de implementatie van het coderingsprogramma voor het verwerken van de failover van de service:
 
-1. Gebruik een 10 seconden time-out voor de TCP-verbinding tot stand brengen. Als een poging de verbinding tot stand brengen langer dan 10 seconden duurt, afbreken van de bewerking en probeer het opnieuw. 
-2. Gebruik een korte time-out voor het verzenden van bericht segmenten van de HTTP-aanvraag. Als de doel-MP4-fragment duur N seconden, gebruikt u de time-out voor een verzenden tussen N en 2 N seconden; Als de duur van MP4-fragment 6 seconden, gebruikt u bijvoorbeeld een time-out van 6 tot en met 12 seconden. Als er een time-out optreedt, opnieuw instellen van de verbinding en opent u een nieuwe verbinding hervatten stroom opnemen op de nieuwe verbinding. 
-3. Houd een rolling buffer die is de laatste twee fragmenten voor elk nummer dat correct en volledig naar de service verzonden is.  Als de HTTP POST-aanvraag voor een stroom wordt beëindigd of time-out voorafgaand aan het einde van de stroom, opent u een nieuwe verbinding en beginnen met een andere HTTP POST-aanvraag, opnieuw verzenden van de stroom-headers, opnieuw verzenden van de laatste twee fragmenten voor elk nummer en hervatten van de stroom zonder een onderbreking in de tijdlijn media. Dit vermindert de kans op verlies van gegevens.
-4. U wordt aangeraden dat het coderingsprogramma geen beperking is het aantal nieuwe pogingen om een verbinding tot stand brengen of hervatten streaming nadat een TCP-fout is opgetreden.
-5. Nadat een TCP-fout:
+1. Gebruik een 10 seconden time-out voor de TCP-verbinding tot stand brengen. Als een poging tot het maken van de verbinding langer duurt dan 10 seconden, de bewerking afbreken en probeer het opnieuw. 
+1. Gebruik een korte time-out voor het verzenden van de HTTP-aanvraag bericht segmenten. Als de duur van de doel-MP4-fragment N seconden, gebruikt u de time-out voor een verzenden tussen N en 2 N seconden; Als de duur van de MP4-fragment 6 seconden, gebruikt u bijvoorbeeld een time-out van 6 tot en met 12 seconden. Als er een time-out optreedt, opnieuw instellen van de verbinding, opent u een nieuwe verbinding en hervatten van stream opnemen met de nieuwe verbinding. 
+1. Onderhouden een rolling buffer die de laatste twee fragmenten voor elke bijhouden die zijn correct en volledig zijn verzonden naar de service heeft.  Als de HTTP POST-aanvraag voor een stroom wordt beëindigd of een time-out optreedt voorafgaand aan het einde van de stroom, opent u een nieuwe verbinding en beginnen met een andere HTTP POST-aanvraag, de stream-headers verzenden opnieuw verzenden van de laatste twee fragmenten voor elk nummer en de stroom hervatten zonder een d iscontinuity in de tijdlijn van de media. Dit vermindert de kans op gegevensverlies.
+1. Het is raadzaam om het coderingsprogramma stelt geen beperking voor het aantal nieuwe pogingen om een verbinding tot stand brengen of hervatten streaming nadat een TCP-fout optreedt.
+1. Na een TCP-fout:
   
     a. De huidige verbinding moet worden gesloten en een nieuwe verbinding moet worden gemaakt voor een nieuwe HTTP POST-aanvraag.
 
     b. De nieuwe HTTP POST-URL moet hetzelfde zijn als de oorspronkelijke POST-URL.
   
-    c. De nieuwe HTTP POST moet bestaan uit kopteksten stream (**ftyp legt vast**, **vak Server Manifest Live**, en **moov** vakken) die identiek zijn aan de kopteksten stream in het eerste bericht.
+    c. De nieuwe HTTP POST moet stream headers bevatten (**ftyp legt vast**, **vak Server Manifest Live**, en **moov** vakken) die zijn identiek aan de stream-headers in het eerste bericht.
   
-    d. De laatste twee fragmenten verzonden voor elk nummer moeten opnieuw worden verzonden en streaming moet hervat zonder een onderbreking in de tijdlijn van media. De tijdstempels MP4-fragment toenemen continu, zelfs in een HTTP POST-aanvragen.
-6. Het coderingsprogramma moet de HTTP POST-aanvraag beëindigd als er gegevens worden niet verzonden met een frequentie in overeenstemming met de duur van MP4-fragment.  Een HTTP POST-aanvraag die geen gegevens verzendt kunt voorkomen dat Media Services de encoder snel verbreken in het geval van een service-update. Daarom moet het HTTP POST-protocol voor sparse (ad signaal) houdt moeten worden kortstondig wordt beëindigd zodra de sparse fragment wordt verzonden.
+    d. De laatste twee fragmenten verzonden voor elk nummer moeten opnieuw worden verzonden en streaming moet hervatten zonder een onderbreking in de tijdlijn van de media. Het fragment MP4 tijdstempels oplopen continu, zelfs via HTTP POST-aanvragen.
+1. Het coderingsprogramma moet de HTTP POST-aanvraag beëindigen als gegevens niet tegen een tarief evenredig met de duur van de MP4-fragment wordt verzonden.  Een HTTP POST-aanvraag die geen gegevens verzendt kunt voorkomen dat van Media Services van het coderingsprogramma snel verbreken in het geval van een service-update. Om deze reden, de HTTP-POST voor sparse (ad signaal) houdt moeten worden kortstondig wordt beëindigd zodra de sparse fragment wordt verzonden.
 
-## <a name="8-encoder-failover"></a>8. codering-failover
-Failover van de codering is het tweede type van failover-scenario dat moet worden opgelost voor de levering van end-to-end-live-streaming. In dit scenario wordt optreedt de fout aan de kant van de encoder. 
+## <a name="8-encoder-failover"></a>8. Failover van het coderingsprogramma
+Failover van het coderingsprogramma is het tweede type failoverscenario dat moet worden verholpen voor een end-to-end levering van live streaming. In dit scenario treedt het probleem op aan de kant van het coderingsprogramma. 
 
-![codering-failover][image5]
+![failover van het coderingsprogramma][image5]
 
-De volgende verwachtingen van het eindpunt live opname van toepassing wanneer encoder failover gebeurt:
+De volgende verwachtingen zijn van toepassing uit de live-opname-eindpunt als encoder failover gebeurt:
 
-1. Een nieuw exemplaar van de codering moet worden gemaakt om door te gaan streaming, zoals geïllustreerd in het diagram (Stream voor 3000k video met stippellijn).
-2. De nieuwe encoder moet dezelfde URL gebruiken voor HTTP POST-aanvragen als de instantie is mislukt.
-3. De nieuwe encoder POST-aanvraag moet opnemen met de dezelfde gefragmenteerde MP4-header vakken als de instantie is mislukt.
-4. De nieuwe encoder moet juist worden gesynchroniseerd met alle andere actieve coderingsprogramma's voor dezelfde live presentatie gesynchroniseerde audio/video-voorbeelden met uitgelijnde fragment grenzen genereren.
-5. De nieuwe stroom moet semantisch equivalent met de vorige stroom en uitwisselbaar op het niveau van-header en het fragment.
-6. De nieuwe encoder moet proberen om gegevensverlies te minimaliseren. De `fragment_absolute_time` en `fragment_index` Media fragmenten vanaf het punt waar de encoder laatste gestopt moeten verhogen. De `fragment_absolute_time` en `fragment_index` in een ononderbroken wijze moet verhogen, maar is het toegestaan om te introduceren een onderbreking, indien nodig. Media Services negeert fragmenten dat al is ontvangen en verwerkt, dus is het beter err naast fragmenten dan introduceren aan onderbrekingen in de tijdlijn media opnieuw te verzenden. 
+1. Een nieuw exemplaar van het coderingsprogramma moet worden gemaakt om door te gaan streaming, zoals wordt geïllustreerd in het diagram (Stream voor 3000k video met stippellijn).
+1. De nieuwe encoder moet dezelfde URL gebruiken voor HTTP POST-aanvragen als het mislukte exemplaar.
+1. De nieuwe encoder POST-aanvraag moet opnemen met de dezelfde gefragmenteerde MP4-header vakken als het mislukte exemplaar.
+1. De nieuwe encoder moet correct worden gesynchroniseerd met alle andere actieve coderingsprogramma's voor een live presentatie voor het genereren van gesynchroniseerde audio/video-voorbeelden met uitgelijnde fragment grenzen.
+1. De nieuwe stroom moet semantisch overeen met de vorige stroom en uitwisselbaar op het niveau van de kop- en fragment.
+1. De nieuwe encoder moet proberen om gegevensverlies te minimaliseren. De `fragment_absolute_time` en `fragment_index` van media fragmenten vanaf het punt waar de encoder laatst geëindigd moeten vergroten. De `fragment_absolute_time` en `fragment_index` op een manier die doorlopende moet verhogen, maar is het toegestaan om te introduceren een onderbreking, indien nodig. Media Services negeert fragmenten die al is ontvangen en verwerkt, dus is het beter om de fout aan de zijkant fragmenten dan te introduceren wijzigingen in de tijdlijn van de media opnieuw verzenden. 
 
-## <a name="9-encoder-redundancy"></a>9. codering redundantie
-Voor bepaalde kritieke live gebeurtenissen dat verzoek zelfs hogere beschikbaarheid en kwaliteit vereisen, we u actieve redundante coderingsprogramma's gebruiken raden voor een naadloze failover zonder verlies van gegevens.
+## <a name="9-encoder-redundancy"></a>9. Coderingsprogramma redundantie
+Voor bepaalde kritieke live gebeurtenissen die aanvraag nog hogere beschikbaarheid en kwaliteit vereisen, het wordt aangeraden dat u actief / actief redundante coderingsprogramma's gebruiken voor een naadloze failover zonder verlies van gegevens.
 
-![codering redundantie][image6]
+![coderingsprogramma redundantie][image6]
 
-Zoals wordt geïllustreerd in dit diagram, push twee groepen coderingsprogramma's twee exemplaren van elke stroom tegelijkertijd naar de service voor live. Deze instelling wordt ondersteund, omdat Media Services dubbele fragmenten op basis van de stroom-ID en het fragment timestamp uitfilteren kunt. De resulterende livestream en -archief is één exemplaar van de stromen die de best mogelijke aggregatie van de twee bronnen. Bijvoorbeeld in een hypothetische extreme aanvraag, zolang er is een coderingsprogramma (deze heeft geen moet hetzelfde account) uitgevoerd op elk gewenst moment in de tijd van elke stroom, de resulterende live stream van de service is continue zonder gegevensverlies. 
+Zoals wordt geïllustreerd in het volgende diagram, pushen twee groepen van encoders twee exemplaren van elke stroom tegelijkertijd naar de live-service. Deze instelling wordt ondersteund, omdat Media Services dubbele fragmenten op basis van de stream-ID en het fragment timestamp uitfilteren kunt. De resulterende live te streamen en te archiveren is één exemplaar van alle stromen die het best mogelijke aggregatie is van de twee bronnen. Bijvoorbeeld, in een hypothetische uiterste geval, zolang er is een coderingsprogramma (deze hebben niet hetzelfde account worden) uitgevoerd op een willekeurig moment in de tijd voor elke stroom, de resulterende live stream van de service is continue zonder verlies van gegevens. 
 
-De vereisten voor dit scenario zijn bijna gelijk zijn aan de vereisten in het geval 'Encoder failover' met de uitzondering die de tweede reeks coderingsprogramma's worden uitgevoerd op hetzelfde moment als de primaire coderingsprogramma's.
+De vereisten voor dit scenario zijn bijna hetzelfde als de vereisten in het geval is 'Encoder failover', met uitzondering dat de tweede set coderingsprogramma's worden uitgevoerd op hetzelfde moment als de primaire coderingsprogramma's.
 
-## <a name="10-service-redundancy"></a>10. redundantie van de service
-Voor maximaal redundante globale distributie, moet u soms regio-overschrijdende back-up voor het afhandelen van regionale noodsituaties hebben. Uitbreiden van de topologie 'Encoder redundantie', kunnen klanten kiezen om een redundante service-implementatie in een andere regio die verbonden met de tweede reeks coderingsprogramma's. Klanten kunnen ook werken met een Content Delivery Network-provider voor het implementeren van een globale Traffic Manager voor de twee implementaties naadloos om clientverkeer te routeren. De vereisten voor het coderingsprogramma's zijn hetzelfde als de aanvraag 'Encoder redundantie'. De enige uitzondering hierop is dat de tweede set worden waarnaar wordt verwezen naar een andere live coderingsprogramma's moet eindpunt opnemen. Het volgende diagram ziet u deze installatie:
+## <a name="10-service-redundancy"></a>10. Serviceredundantie
+Voor zeer redundante wereldwijde distributie, moet u soms regio-overschrijdende back-up voor het afhandelen van regionale rampen hebben. Voortbouwend op de 'Encoder redundantie'-topologie, kunnen klanten kiezen om een redundante service-implementatie in een andere regio die verbonden met de tweede set coderingsprogramma's. Klanten kunnen ook werken met een Content Delivery Network-provider voor het implementeren van een globale Traffic Manager voor de twee implementaties naadloos om clientverkeer te routeren. De vereisten voor het coderingsprogramma's zijn hetzelfde als de aanvraag 'Encoder redundantie'. De enige uitzondering hierop is dat de tweede set encoders moet worden gekoppeld aan een andere live eindpunt opnemen. Het volgende diagram ziet u deze instellingen:
 
-![redundantie van de service][image7]
+![serviceredundantie][image7]
 
-## <a name="11-special-types-of-ingestion-formats"></a>11. Speciale soorten opname-indelingen
-Deze sectie wordt beschreven speciale soorten live opname-indelingen die zijn ontworpen voor het afhandelen van specifieke scenario's.
+## <a name="11-special-types-of-ingestion-formats"></a>11. Speciale typen opname-indelingen
+Deze sectie wordt besproken speciale typen van live-opname-indelingen die zijn ontworpen voor het afhandelen van specifieke scenario's.
 
 ### <a name="sparse-track"></a>Sparse bijhouden
-Wanneer u een live streaming presentatie met een interactieve ervaring, vaak het nodig is voor het verzenden van gebeurtenissen die tijd zijn gesynchroniseerd of signalen in-band met de belangrijkste mediagegevens. Een voorbeeld hiervan is dynamische live ad invoegen. Dit type gebeurtenis-signalering wijkt af van reguliere audio/video-streaming vanwege de sparse aard. Met andere woorden, de signalering gegevens meestal gebeurt niet continu en het interval kan zijn moeilijk te voorspellen. Het concept van sparse bijhouden is ontworpen voor opnemen en signalering van gegevens in-band-broadcast.
+Wanneer u een live streaming presentatie met een rijke Clientervaring, vaak het nodig is voor het verzenden van gebeurtenissen tijd gesynchroniseerd of signalen in-band met de belangrijkste mediagegevens. Een voorbeeld hiervan is dynamische live advertentie-invoeging. Dit type gebeurtenis signalering wijkt af van reguliere audio/video-streaming vanwege de aard van de sparse. Met andere woorden, de signalering gegevens meestal gebeurt niet continu en het interval kan het moeilijk te voorspellen zijn. Het concept van sparse bijhouden is ontworpen voor het opnemen en uitzenden van in-band signalering van gegevens.
 
 De volgende stappen zijn een aanbevolen implementatie voor het opnemen van sparse bijhouden:
 
-1. Maak een afzonderlijke gefragmenteerde MP4 bitstream met sparse houdt, zonder audio/video houdt.
-2. In de **vak Server Manifest Live** zoals gedefinieerd in de sectie 6 in [1], gebruiken de *parentTrackName* parameter om de naam van de bovenliggende bijhouden. Zie voor meer informatie de sectie 4.2.1.2.1.2 in [1].
-3. In de **vak Server Manifest Live**, **manifestOutput** moet worden ingesteld op **true**.
-4. Gezien de sparse aard van de gebeurtenis signalering, raden we het volgende:
+1. Maak een afzonderlijke gefragmenteerde MP4 bitstream met sparse sporen, zonder audio/video sporen te wissen.
+1. In de **vak Server Manifest Live** zoals gedefinieerd in de sectie 6 in [1], gebruikt u de *parentTrackName* parameter opgeven voor de naam van de bovenliggende bijhouden. Zie voor meer informatie de sectie 4.2.1.2.1.2 in [1].
+1. In de **vak Server Manifest Live**, **manifestOutput** moet worden ingesteld op **waar**.
+1. Gezien de sparse aard van de signalering gebeurtenis, is het raadzaam het volgende:
    
-    a. Aan het begin van de live gebeurtenis verzendt het coderingsprogramma de selectievakjes voor de eerste header aan de service, waarmee de service de sparse bijhouden registratie in het manifest van de client.
+    a. Aan het begin van de live-gebeurtenis verzendt de codering de eerste kop vakken naar de service, waardoor de service voor het registreren van de sparse bijhouden in het manifest van de client.
    
-    b. HTTP POST-aanvraag moet worden beëindigd door de encoder wanneer gegevens worden niet verzonden. Een langlopende HTTP POST die geen gegevens verzendt kunt voorkomen dat Media Services de encoder snel verbreken in het geval van een service-update of de server opnieuw opstarten. In dergelijke gevallen is de server tijdelijk zijn geblokkeerd in een ontvangstbewerking op de socket.
+    b. Het coderingsprogramma moet de HTTP POST-aanvraag beëindigen wanneer gegevens worden niet verzonden. Een langdurige HTTP POST die geen gegevens verzendt kunt voorkomen dat Media Services snel loskoppelen van het coderingsprogramma in het geval van een service-update of de server opnieuw opstarten. In dergelijke gevallen worden de media-server is tijdelijk geblokkeerd in een ontvangstbewerking op de socket.
    
-    c. Tijdens de tijd wanneer signalering van gegevens is niet beschikbaar, de encoder SHOULD sluit het HTTP POST-protocol vragen. Terwijl de POST-aanvraag actief is, moet het coderingsprogramma gegevens verzenden.
+    c. Tijdens het tijdstip waarop signalering van gegevens niet beschikbaar is, de encoder SHOULD sluit de HTTP POST vragen. Terwijl de POST-aanvraag actief is, moet het coderingsprogramma gegevens verzenden.
 
-    d. Bij het verzenden van sparse fragmenten instellen het coderingsprogramma een expliciete header content-length, als deze beschikbaar is.
+    d. Bij het verzenden van sparse fragmenten, de encoder een expliciete content-length-header ingesteld als deze beschikbaar is.
 
-    e. Bij het verzenden van sparse fragmenten op basis van een nieuwe verbinding, moet het coderingsprogramma beginnen met het verzenden van de header vakken, gevolgd door de nieuwe fragmenten. Dit is voor gevallen waarin failover tussen gebeurt en de nieuwe sparse verbinding is met een nieuwe server die niet zichtbaar is voor de sparse bijhouden voordat wordt gemaakt.
+    e. Bij het verzenden van sparse fragmenten op basis van een nieuwe verbinding, moet de encoder beginnen met het verzenden van de vakken kop, gevolgd door de nieuwe fragmenten. Dit is bedoeld voor gevallen waarin failover gebeurt daartussenin, en de nieuwe sparse verbinding is tot stand brengen met een nieuwe server die niet zichtbaar is voor de sparse track voordat.
 
-    f. Het fragment sparse bijhouden beschikbaar voor de client wanneer de bijbehorende bovenliggende bijhouden fragment dat een tijdstempelwaarde groter of gelijk beschikbaar wordt gesteld aan de client. Bijvoorbeeld, als de sparse fragment een tijdstempel van t heeft = 1000, wordt verwacht dat nadat de client worden gezien 'video' (ervan uitgaande dat de naam van de bovenliggende bijhouden is 'video') fragment tijdstempel 1000 of voorbij, het kan downloaden, de sparse fragment t = 1000. Houd er rekening mee dat het werkelijke signaal kan worden gebruikt voor een andere positie in de presentatie-tijdlijn voor het opgegeven doel. In dit voorbeeld is het mogelijk dat de sparse fragment van t = 1000 heeft een XML-nettolading is voor het invoegen van een ad dat een paar seconden later.
+    f. Het fragment sparse bijhouden wordt beschikbaar gesteld aan de client wanneer de bijbehorende bovenliggende bijhouden fragment dat een waarde gelijk aan of groter timestamp heeft voor de client beschikbaar wordt gesteld. Bijvoorbeeld, als de sparse fragment een tijdstempel van t heeft = 1000, verwacht wordt dat nadat de client ziet "video" (ervan uitgaande dat de naam van de bovenliggende bijhouden is "video") "fragment timestamp 1000 of meer, kan deze de sparse fragment t downloaden = 1000. Houd er rekening mee dat de werkelijke signaal voor een andere positie in de tijdlijn van de presentatie kan worden gebruikt voor het opgegeven doel. In dit voorbeeld is het mogelijk dat de sparse fragment van t = 1000 heeft een XML-nettolading is voor het invoegen van een AD-tenant in een positie die een paar seconden later opnieuw.
 
-    g. De nettolading van sparse bijhouden fragmenten kan zich in verschillende indelingen (zoals XML, tekst of binair), afhankelijk van het scenario.
+    g. De nettolading van sparse bijhouden fragmenten kan zich in verschillende indelingen (zoals XML, tekst of binaire waarde), afhankelijk van het scenario.
 
-### <a name="redundant-audio-track"></a>Redundante-nummer
-In een typische HTTP adaptieve streaming-scenario (bijvoorbeeld Smooth Streaming of streepje) vaak, is er slechts één-nummer in de hele presentatie. In tegenstelling tot de video nummers die meerdere kwaliteitsniveaus voor de client op fouten te hebben, mag de-nummer een potentieel risico als de opname van de stroom waarin het nummer verbroken is. 
+### <a name="redundant-audio-track"></a>Redundante audiotrack
+In een typisch HTTP adaptieve streaming scenario (bijvoorbeeld Smooth Streaming of streepje), vaak het geval is, is er slechts één audiotrack in de hele presentatie. In tegenstelling tot de video worden bijgehouden, die meerdere kwaliteitsniveaus voor de client om de verkeersbelasting in foutcondities hebben, kan het audiospoor een single point of failure zijn als de opname van gegevens van de stroom met de audiotrack verbroken is. 
 
-Media Services ondersteunt u lost dit probleem, live opname van redundante audio houdt. Het idee is of de dezelfde-nummer kan worden verzonden naar meerdere keren in verschillende stromen. Hoewel de service alleen-nummer eenmaal in het manifest van de client registreert, kan deze redundante audio houdt als back-ups gebruiken voor het ophalen van audio fragmenten als de primaire-nummer problemen heeft. Als u wilt opnemen redundante audio houdt, het coderingsprogramma moet:
+U lost dit probleem, ondersteunt Media Services live-opname van redundante audionummers. Het idee is dat de dezelfde audiotrack kan worden verzonden meerdere keren in verschillende stromen. Hoewel de service alleen het audiospoor één keer in het manifest van de client registreert, kan deze redundante audionummers gebruiken als back-ups voor het ophalen van audio fragmenten als de primaire audiotrack problemen heeft. Als u wilt redundante audionummers opnemen, de encoder moet:
 
-1. Maak de dezelfde-nummer in meerdere fragment MP4 bitstreams. Redundante audio nummers moeten semantisch gelijk zijn, met de dezelfde fragment tijdstempels en uitwisselbaar op het niveau van-header en het fragment.
-2. Zorg ervoor dat de 'audio' vermelding in de Live Server Manifest (sectie 6 in [1]) hetzelfde voor alle redundante audio nummers is.
+1. De dezelfde audiotrack in meerdere fragment MP4 bitstreams maken. De redundante audionummers moeten semantisch overeenkomen met de hetzelfde fragment tijdstempels en uitwisselbaar op het niveau van de kop- en fragment.
+1. Zorg ervoor dat de "audio" vermelding in de Live Server Manifest (sectie 6 in [1]) hetzelfde voor alle redundante audionummers is.
 
-De volgende implementatie wordt aanbevolen voor redundante audio houdt:
+De volgende implementatie wordt aanbevolen voor redundante Audionummers:
 
-1. Elke unieke-nummer in een stream zelfstandig verzenden. Ook verzenden van een redundant stroom voor elk van deze stromen-nummer, waarbij de tweede stroom van de eerste afwijkt alleen door de id in de HTTP POST-URL: {protocol} :// {server address} / {punt path}/Streams({identifier}) publiceren.
-2. Gebruik afzonderlijke stromen voor het verzenden van de twee laagste video bitsnelheden. Elk van deze stromen moet ook een kopie van elke unieke nummer bevatten. Wanneer er meerdere talen worden ondersteund, moeten deze stromen audio houdt voor elke taal bevatten.
-3. Instanties van de afzonderlijke server (coderingsprogramma) gebruiken om te coderen en verzenden van de redundante stromen vermeld in (1) en (2). 
+1. Elke unieke audiotrack verzenden in een stroom op zichzelf. Een redundante stream ook verzenden voor elk van deze stromen audiotrack, waar de tweede stream van de eerste verschilt alleen door de id in de HTTP POST-URL: {protocol} :// {server address} / {punt path}/Streams({identifier}) publiceren.
+1. Gebruik afzonderlijke streams voor het verzenden van de twee laagste video bitsnelheden. Elk van deze stromen moet ook een kopie van elke unieke audiotrack bevatten. Wanneer er meerdere talen worden ondersteund, moeten deze stromen audionummers voor elke taal bevatten.
+1. Exemplaren van de afzonderlijke server (codering) gebruiken om te coderen en verzenden van de redundante stromen die worden vermeld (1) en (2). 
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

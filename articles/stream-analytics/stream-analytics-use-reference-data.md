@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: f87337d51b86f6b1eb053c1b618a2fc0696a9eb2
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 888a99cad68f98030d4481cc23cb82123c900ee6
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114504"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480526"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Met behulp van referentiegegevens voor zoekacties in Stream Analytics
 Referentiegegevens (ook wel bekend als een opzoektabel) is een eindige gegevensset die is statische of langzaam veranderende aard is, gebruikt om uit te voeren een zoekopdracht of om te correleren met de stroom van uw gegevens. Azure Stream Analytics wordt geladen referentiegegevens in het geheugen te controleren van de verwerking van gegevensstromen met lage latentie. Om het gebruik van referentiegegevens in uw Azure Stream Analytics-taak, gebruikt u in het algemeen een [verwijzing gegevens Join](https://msdn.microsoft.com/library/azure/dn949258.aspx) in uw Query. Stream Analytics maakt gebruik van Azure Blob-opslag als de opslaglaag voor referentiegegevens en met Azure Data Factory-verwijzing gegevens kunnen worden getransformeerd en/of gekopieerd naar Azure Blob-opslag, voor gebruik als referentiegegevens, van [een willekeurig aantal cloudgebaseerde en on-premises gegevensarchieven](../data-factory/copy-activity-overview.md). Referentiegegevens is gemodelleerd als een reeks blobs (gedefinieerd in de configuratie van de invoer), in oplopende volgorde van de datum/tijd opgegeven in de blobnaam. Deze **alleen** ondersteunt het toevoegen aan het einde van de reeks met behulp van een datum/tijd **groter** dan de versie die is opgegeven door de laatste blob in de reeks.
@@ -46,8 +46,13 @@ Voor het configureren van de referentiegegevens, moet u eerst het maken van de i
 |Serialisatie-indeling voor gebeurtenissen   | Er moet in Stream Analytics zijn aangegeven welke serialisatie-indeling wordt gebruikt voor inkomende gegevensstromen om te controleren of uw query's werken zoals verwacht. Voor referentiegegevens zijn de ondersteunde indelingen CSV en JSON.  |
 |Encoding   | Alleen de coderingsindeling UTF-8 wordt momenteel ondersteund.  |
 
+## <a name="static-reference-data"></a>Statische referentiegegevens
+Als uw referentiegegevens niet verwacht wordt te wijzigen, klikt u vervolgens ondersteuning voor statische verwijzing gegevens is ingeschakeld door een statische pad op te geven in de configuratie van de invoer. Azure Stream Analytics, neemt de blob uit het opgegeven pad. {date} en {time} vervanging tokens niet vereist. Referentiegegevens is onveranderbaar in Stream Analytics. Daarom wordt overschrijven van een statische referentiegegevens-blob niet aanbevolen.
+
 ## <a name="generating-reference-data-on-a-schedule"></a>Referentiegegevens volgens een schema genereren
 Als uw referentiegegevens een langzaam veranderende gegevensset is, wordt ondersteund voor het vernieuwen van verwijzing gegevens is ingeschakeld door een padpatroon op te geven in de invoer-configuratie met behulp van de {date} en {time} vervanging tokens. Stream Analytics, neemt de bijgewerkte referentiegegevens-gegevens-definities op basis van dit padpatroon. Bijvoorbeeld, een patroon van `sample/{date}/{time}/products.csv` met datumnotatie **'Jjjj-MM-DD'** en een tijd-indeling van **'HH: mm'** Hiermee geeft u Stream Analytics om op te halen de bijgewerkte blob `sample/2015-04-16/17-30/products.csv` om 17:30 uur op 16 April , 2015 UTC-tijdzone.
+
+Azure Stream Analytics scant automatisch voor vernieuwd referentiegegevens-blobs op basis van een interval van één minuut.
 
 > [!NOTE]
 > Stream Analytics-taken bekijken die momenteel voor het vernieuwen van de blob alleen wanneer de tijd op de computer wordt verplaatst naar de tijd die is gecodeerd in de blob-naam. Bijvoorbeeld, de taak wordt gezocht naar `sample/2015-04-16/17-30/products.csv` zo snel mogelijk maar het is niet eerder dan 17:30 uur op 16 April 2015 UTC tijdzone. Het wordt *nooit* zoeken naar een blob met een gecodeerde tijd ouder is dan het laatste item dat is gedetecteerd.
@@ -63,8 +68,12 @@ Als uw referentiegegevens een langzaam veranderende gegevensset is, wordt onders
 [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) kan worden gebruikt voor het indelen van de taak voor het maken van de bijgewerkte blobs nodig door Stream Analytics voor het bijwerken van definities van de referentie-gegevens. Een Data Factory is een cloudgebaseerde gegevensintegratieservice waarmee de verplaatsing en transformatie van gegevens wordt beheerd en geautomatiseerd. Data Factory ondersteunt [verbinding te maken met een groot aantal van de cloud gebaseerde en on-premises gegevensarchieven](../data-factory/copy-activity-overview.md) en verplaatsen van gegevens eenvoudig een regelmatige die u opgeeft. Voor meer informatie en stapsgewijze instructies over het instellen van een Data Factory-pijplijn voor het genereren van referentiegegevens voor Stream Analytics wordt vernieuwd volgens een vooraf gedefinieerd schema, bekijk deze [GitHub voorbeeld](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
 
 ## <a name="tips-on-refreshing-your-reference-data"></a>Tips voor het vernieuwen van uw verwijzingsgegevens
-1. Overschrijven van referentiegegevens-blobs worden niet leiden tot Stream Analytics opnieuw te laden van de blob en in sommige gevallen kan dit leiden tot de taak is mislukt. De aanbevolen manier om te wijzigen van referentiegegevens is een nieuwe blob gebruikt dezelfde container en het pad patroon dat is gedefinieerd in de Taakinvoer toevoegen en gebruiken van een datum/tijd **groter** dan de versie die is opgegeven door de laatste blob in de reeks.
-2. Referentiegegevens-blobs zijn **niet** besteld door van de blob-tijdstip 'Laatst gewijzigd', maar alleen door de tijd en datum die is opgegeven in de blob naam met behulp van de {date} en {time} vervangingen.
+1. Referentiegegevens-blobs niet overschrijven omdat ze onveranderd zijn.
+2. De aanbevolen manier om te vernieuwen referentiegegevens is aan:
+    * Gebruik {date} / {time} in het padpatroon
+    * Een nieuwe blob gebruikt dezelfde container en het pad patroon dat is gedefinieerd in de taak invoer toevoegen
+    * Gebruik van een datum/tijd **groter** dan de versie die is opgegeven door de laatste blob in de reeks.
+3. Referentiegegevens-blobs zijn **niet** besteld door van de blob-tijdstip 'Laatst gewijzigd', maar alleen door de tijd en datum die is opgegeven in de blob naam met behulp van de {date} en {time} vervangingen.
 3. Om te voorkomen dat u hoeft te groot aantal blobs lijst, overweeg dan het verwijderen van oude blobs waarvoor de verwerking niet meer worden uitgevoerd. Houd er rekening mee dat ASA mogelijk gaan moet een klein bedrag in sommige scenario's zoals opnieuw opstarten opnieuw verwerken.
 
 ## <a name="next-steps"></a>Volgende stappen

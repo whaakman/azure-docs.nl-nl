@@ -9,16 +9,18 @@ ms.topic: article
 ms.date: 07/19/18
 ms.author: sakthivetrivel
 ms.custom: mvc
-ms.openlocfilehash: 4f8df8e7004ca3cee832b6230dc153b21e2a6c18
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 8431181c1f3d5fbe31fa6c96303367ee71f83b17
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186710"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480455"
 ---
 # <a name="cluster-autoscaler-on-azure-kubernetes-service-aks---preview"></a>Automatisch schalen van cluster op Azure Kubernetes Service (AKS) - Preview
 
-Azure Kubernetes Service (AKS) biedt een flexibele oplossing voor het implementeren van een beheerde Kubernetes-cluster in Azure. Als resource vraag-toeneemt, het cluster automatisch schalen kunt u uw cluster uitbreiden om te voldoen aan deze vraag op basis van beperkingen u instelt. Het cluster automatisch schalen (CA) doet dit door de agentknooppunten op basis van in behandeling zijnde schillen schalen. Het scant de cluster regelmatig te controleren op openstaande schillen of lege knooppunten en neemt de omvang indien mogelijk. Standaard de CA scant op in behandeling zijnde schillen elke 10 seconden en een knooppunt wordt verwijderd als het niet nodig voor meer dan 10 minuten. Gebruikt in combinatie met het horizontale schillen automatisch schalen (HPA), worden de HPA schilreplica's en resources aan de hand van aanvraag bijgewerkt. Als er niet voldoende knooppunten of overbodige knooppunten volgens deze pod schalen, de CA reageert en plannen van de schillen in de nieuwe set knooppunten.
+Azure Kubernetes Service (AKS) biedt een flexibele oplossing voor het implementeren van een beheerde Kubernetes-cluster in Azure. Als resource vraag-toeneemt, het cluster automatisch schalen kunt u uw cluster uitbreiden om te voldoen aan deze vraag op basis van beperkingen u instelt. Het cluster automatisch schalen (CA) doet dit door de agentknooppunten op basis van in behandeling zijnde schillen schalen. Het scant de cluster regelmatig te controleren op openstaande schillen of lege knooppunten en neemt de omvang indien mogelijk. Standaard de CA scant op in behandeling zijnde schillen elke 10 seconden en een knooppunt wordt verwijderd als het niet nodig voor meer dan 10 minuten. Gebruikt in combinatie met de [horizontale schillen automatisch schalen](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) (HPA), de HPA worden schilreplica's en resources aan de hand van aanvraag bijgewerkt. Als er niet voldoende knooppunten of overbodige knooppunten volgens deze pod schalen, de CA reageert en plannen van de schillen in de nieuwe set knooppunten.
+
+In dit artikel wordt beschreven hoe u het cluster automatisch schalen op de agentknooppunten implementeren. Omdat het cluster automatisch schalen wordt geïmplementeerd in de naamruimte kube-systeem, wordt niet automatisch schalen geschaald in het knooppunt dat pod uitgevoerd.
 
 > [!IMPORTANT]
 > Integratie van Azure Kubernetes Service (AKS) cluster automatisch schalen is momenteel in **preview**. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.
@@ -32,41 +34,70 @@ Dit document wordt ervan uitgegaan dat u een RBAC-functionaliteit AKS-cluster he
 
 ## <a name="gather-information"></a>Gegevens verzamelen
 
-De volgende lijst bevat alle informatie die u moet opgeven in de definitie van automatisch schalen.
+Voer deze bash-script voor het genereren van de machtigingen voor uw cluster automatisch schalen om uit te voeren in uw cluster:
 
-- *Abonnements-ID*: ID die overeenkomt met het abonnement dat is gebruikt voor dit cluster
-- *Naam resourcegroep* : naam van resourcegroep waarin het cluster behoort 
-- *Clusternaam*: naam van het cluster
-- *Client-ID*: App-ID die zijn verleend door machtiging stap genereren
-- *Clientgeheim*: App-geheim verleend door machtiging stap genereren
-- *Tenant-ID*: ID van de tenant (eigenaar van account)
-- *Knooppunt resourcegroep*: naam van resourcegroep met de agentknooppunten in het cluster
-- *Knooppunt-groepsnaam*: naam van het knooppunt toepassingen u wilt dat de schaal
-- *Minimum aantal knooppunten*: minimumaantal knooppunten in het cluster voor te komen
-- *Maximum aantal knooppunten*: maximumaantal knooppunten in het cluster voor te komen
-- *VM-Type*: Service gebruikt voor het genereren van het Kubernetes-cluster
+```sh
+#! /bin/bash
+ID=`az account show --query id -o json`
+SUBSCRIPTION_ID=`echo $ID | tr -d '"' `
 
-Haal uw abonnements-ID met: 
+TENANT=`az account show --query tenantId -o json`
+TENANT_ID=`echo $TENANT | tr -d '"' | base64`
 
-``` azurecli
-az account show --query id
+read -p "What's your cluster name? " cluster_name
+read -p "Resource group name? " resource_group
+
+CLUSTER_NAME=`echo $cluster_name | base64`
+RESOURCE_GROUP=`echo $resource_group | base64`
+
+PERMISSIONS=`az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$SUBSCRIPTION_ID" -o json`
+CLIENT_ID=`echo $PERMISSIONS | sed -e 's/^.*"appId"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+CLIENT_SECRET=`echo $PERMISSIONS | sed -e 's/^.*"password"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+
+SUBSCRIPTION_ID=`echo $ID | tr -d '"' | base64 `
+
+CLUSTER_INFO=`az aks show --name $cluster_name  --resource-group $resource_group -o json`
+NODE_RESOURCE_GROUP=`echo $CLUSTER_INFO | sed -e 's/^.*"nodeResourceGroup"[ ]*:[ ]*"//' -e 's/".*//' | base64`
+
+echo "---
+apiVersion: v1
+kind: Secret
+metadata:
+    name: cluster-autoscaler-azure
+    namespace: kube-system
+data:
+    ClientID: $CLIENT_ID
+    ClientSecret: $CLIENT_SECRET
+    ResourceGroup: $RESOURCE_GROUP
+    SubscriptionID: $SUBSCRIPTION_ID
+    TenantID: $TENANT_ID
+    VMType: QUtTCg==
+    ClusterName: $CLUSTER_NAME
+    NodeResourceGroup: $NODE_RESOURCE_GROUP
+---"
 ```
 
-Genereert een set Azure-referenties met de volgende opdracht:
+Nadat u de stappen in het script, het script uw gegevens in de vorm van een geheim wordt uitvoer als volgt te werk:
 
-```console
-$ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscription-id>" --output json
-
-"appId": <app-id>,
-"displayName": <display-name>,
-"name": <name>,
-"password": <app-password>,
-"tenant": <tenant-id>
+```yaml
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cluster-autoscaler-azure
+  namespace: kube-system
+data:
+  ClientID: <base64-encoded-client-id>
+  ClientSecret: <base64-encoded-client-secret>$
+  ResourceGroup: <base64-encoded-resource-group>  SubscriptionID: <base64-encode-subscription-id>
+  TenantID: <base64-encoded-tenant-id>
+  VMType: QUtTCg==
+  ClusterName: <base64-encoded-clustername>
+  NodeResourceGroup: <base64-encoded-node-resource-group>
+---
 ```
 
-De App-ID, het wachtwoord en Tenant-ID is de clientID, clientSecret en tenant-id in de volgende stappen.
-
-Haal de naam van uw knooppuntgroep door het uitvoeren van de volgende opdracht uit. 
+Vervolgens de naam van uw knooppuntgroep ophalen door het uitvoeren van de volgende opdracht uit. 
 
 ```console
 $ kubectl get nodes --show-labels
@@ -81,49 +112,7 @@ aks-nodepool1-37756013-0   Ready     agent     1h        v1.10.3   agentpool=nod
 
 Haal vervolgens de waarde van het label **agentpool**. De standaardnaam voor de knooppuntgroep van een cluster is 'nodepool1'.
 
-Als u de naam van uw resourcegroep knooppunt, haal de waarde van het label **kubernetes.azure.com<span></span>/cluster**. Naam van de resourcegroep knooppunt is algemeen van het formulier MC_ [resourcegroep]\__ [cluster-naam] [Plaats].
-
-De parameter vmType verwijst naar de service wordt gebruikt, die hier, AKS.
-
-U hebt nu de volgende informatie:
-
-- abonnements-id
-- ResourceGroup
-- Clusternaam
-- ClientID
-- ClientSecret
-- TenantID
-- NodeResourceGroup
-- VMType
-
-Vervolgens, codeert u al deze waarden met base64. Als u bijvoorbeeld de waarde VMType met base64 coderen:
-
-```console
-$ echo AKS | base64
-QUtTCg==
-```
-
-## <a name="create-secret"></a>Geheim maken
-Met deze gegevens kunt maken van een geheim voor de implementatie van de waarden in de vorige stappen in de volgende indeling:
-
-```yaml
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: cluster-autoscaler-azure
-  namespace: kube-system
-data:
-  ClientID: <base64-encoded-client-id>
-  ClientSecret: <base64-encoded-client-secret>
-  ResourceGroup: <base64-encoded-resource-group>
-  SubscriptionID: <base64-encode-subscription-id>
-  TenantID: <base64-encoded-tenant-id>
-  VMType: QUtTCg==
-  ClusterName: <base64-encoded-clustername>
-  NodeResourceGroup: <base64-encoded-node-resource-group>
----
-```
+Nu u uw geheim en knooppunt-groep, kunt u een implementatie-grafiek kunt maken.
 
 ## <a name="create-a-deployment-chart"></a>Maak een implementatie-grafiek
 
@@ -313,7 +302,7 @@ spec:
       restartPolicy: Always
 ```
 
-Kopieer en plak het geheim in de vorige stap hebt gemaakt en voeg deze aan het begin van het bestand.
+Kopiëren en plakken van het geheim in de vorige stap hebt gemaakt en deze aan het begin van het bestand invoegen.
 
 Vervolgens om in te stellen het bereik van knooppunten, vul in het argument voor `--nodes` onder `command` in het formulier MIN:MAX:NODE_POOL_NAME. Bijvoorbeeld: `--nodes=3:10:nodepool1` stelt het minimum aantal knooppunten tot 3, het maximum aantal knooppunten tot en met 10 en de naam van het knooppunt toepassingen naar nodepool1.
 
@@ -327,7 +316,7 @@ Cluster-automatisch schalen implementeren door uit te voeren
 kubectl create -f cluster-autoscaler-containerservice.yaml
 ```
 
-Gebruik de volgende opdracht om te controleren of het cluster automatisch schalen wordt uitgevoerd, en controleer de lijst met schillen. Als er een schil voorafgegaan door 'cluster-automatisch schalen"uitgevoerd, is uw cluster automatisch schalen geïmplementeerd.
+Gebruik de volgende opdracht om te controleren of het cluster automatisch schalen wordt uitgevoerd, en controleer de lijst met schillen. Er moet een schil voorafgegaan door 'cluster-automatisch schalen"uitgevoerd. Als u dit ziet, is uw cluster automatisch schalen is geïmplementeerd.
 
 ```console
 kubectl -n kube-system get pods
@@ -338,6 +327,68 @@ Als u wilt weergeven van de status van het cluster automatisch schalen, worden u
 ```console
 kubectl -n kube-system describe configmap cluster-autoscaler-status
 ```
+
+## <a name="interpreting-the-cluster-autoscaler-status"></a>Interpreteren van de status van het cluster automatisch schalen
+
+```console
+$ kubectl -n kube-system describe configmap cluster-autoscaler-status
+Name:         cluster-autoscaler-status
+Namespace:    kube-system
+Labels:       <none>
+Annotations:  cluster-autoscaler.kubernetes.io/last-updated=2018-07-25 22:59:22.661669494 +0000 UTC
+
+Data
+====
+status:
+----
+Cluster-autoscaler status at 2018-07-25 22:59:22.661669494 +0000 UTC:
+Cluster-wide:
+  Health:      Healthy (ready=1 unready=0 notStarted=0 longNotStarted=0 registered=1 longUnregistered=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleUp:     NoActivity (ready=1 registered=1)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleDown:   NoCandidates (candidates=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+
+NodeGroups:
+  Name:        nodepool1
+  Health:      Healthy (ready=1 unready=0 notStarted=0 longNotStarted=0 registered=1 longUnregistered=0 cloudProviderTarget=1 (minSize=1, maxSize=5))
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleUp:     NoActivity (ready=1 cloudProviderTarget=1)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+  ScaleDown:   NoCandidates (candidates=0)
+               LastProbeTime:      2018-07-25 22:59:22.067828801 +0000 UTC
+               LastTransitionTime: 2018-07-25 00:38:36.41372897 +0000 UTC
+
+
+Events:  <none>
+```
+
+De status van het cluster automatisch schalen kunt u de status van het cluster automatisch schalen op twee verschillende niveaus: brede, door het cluster en binnen de groep van elk knooppunt. Aangezien AKS momenteel alleen toepassingen met één knooppunt ondersteunt, wordt deze metrische gegevens zijn hetzelfde.
+
+* Status geeft aan dat de algehele status van de knooppunten. Als het cluster automatisch schalen strijd om te maken of knooppunten in het cluster verwijdert, wordt deze status wordt gewijzigd in 'Niet in orde'. Er is ook een uitsplitsing van de status van andere knooppunten:
+    * 'Gereed' betekent dat een knooppunt is een kan worden gepland op het gehele product hebben.
+    * 'Unready' betekent dat een knooppunt dat defect is geraakt nadat deze is gestart.
+    * 'NotStarted' betekent dat een knooppunt volledig nog niet is gestart.
+    * 'LongNotStarted' betekent dat een knooppunt kan niet worden gestart binnen een redelijke termijn.
+    * "Geregistreerde betekent dat die een knooppunt wordt geregistreerd in de groep
+    * 'Niet-geregistreerde' betekent dat een knooppunt aan de kant van de provider cluster aanwezig is, maar is niet geregistreerd in Kubernetes.
+  
+* ScaleUp kunt u om te controleren wanneer het cluster bepaalt dat een omhoog schalen in uw cluster moet worden uitgevoerd.
+    * Een overgang is wanneer het aantal knooppunten in het cluster wordt gewijzigd of de status van een knooppunt wordt gewijzigd.
+    * Het aantal knooppunten dat gereed is het aantal knooppunten en dat deze klaar in het cluster. 
+    * De cloudProviderTarget is het aantal knooppunten die het cluster automatisch schalen heeft vastgesteld dat het cluster nodig heeft voor het afhandelen van de werkbelasting.
+
+* ScaleDown kunt u controleren of er kandidaten voor schaal omlaag. 
+    * Een kandidaat voor omlaag schalen is een knooppunt die heeft vastgesteld dat het cluster automatisch schalen kan worden verwijderd zonder mogelijkheid voor het afhandelen van de belasting van het cluster. 
+    * De tijden die zijn opgegeven weergeven de laatste keer dat het cluster is ingeschakeld voor omlaag kandidaten schalen en de laatste overgangstijd.
+
+Ten slotte onder gebeurtenissen, kunt u zien van elke schaal of verkleinen van gebeurtenissen, mislukte of geslaagde, en hun tijden dat het cluster automatisch schalen is uitgevoerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

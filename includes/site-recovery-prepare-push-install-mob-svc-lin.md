@@ -1,11 +1,11 @@
 ### <a name="prepare-for-a-push-installation-on-a-linux-server"></a>Een push-installatie voorbereiden op een Linux-server
 
 1. Zorg ervoor dat er een netwerkverbinding tussen de Linux-computer en de processerver is.
-2. Maak een account dat op de processerver kan worden gebruikt voor toegang tot de computer. Het account moet een **rootgebruiker** zijn op de Linux-bronserver. Gebruik dit account alleen voor de push-installatie en voor updates.
-3. Controleer of het bestand /etc/hosts op de Linux-bronserver vermeldingen bevat die de lokale hostnaam toewijzen aan IP-adressen die zijn gekoppeld aan alle netwerkadapters.
-4. Installeer de meest recente openssh, openssh-server en openssl-pakketten op de computer die u wilt repliceren.
-5. Zorg ervoor dat SSH (Secure Shell) is ingeschakeld en wordt uitgevoerd op poort 22.
-6. SFTP-subsysteem en wachtwoordverificatie verificatie in het bestand sshd_config inschakelen. Volg deze stappen:
+1. Maak een account dat op de processerver kan worden gebruikt voor toegang tot de computer. Het account moet een **rootgebruiker** zijn op de Linux-bronserver. Gebruik dit account alleen voor de push-installatie en voor updates.
+1. Controleer of het bestand /etc/hosts op de Linux-bronserver vermeldingen bevat die de lokale hostnaam toewijzen aan IP-adressen die zijn gekoppeld aan alle netwerkadapters.
+1. Installeer de meest recente openssh, openssh-server en openssl-pakketten op de computer die u wilt repliceren.
+1. Zorg ervoor dat SSH (Secure Shell) is ingeschakeld en wordt uitgevoerd op poort 22.
+1. SFTP-subsysteem en wachtwoordverificatie verificatie in het bestand sshd_config inschakelen. Volg deze stappen:
 
     a. Meld u aan als **rootgebruiker**.
 
@@ -19,7 +19,7 @@
 
     e. Start de service **sshd** opnieuw.
 
-7. Voeg het account toe dat u hebt gemaakt in CSPSConfigtool. Volg deze stappen:
+1. Voeg het account toe dat u hebt gemaakt in CSPSConfigtool. Volg deze stappen:
 
     a. Meld u aan bij de configuratieserver.
 

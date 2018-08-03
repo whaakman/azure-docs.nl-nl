@@ -7,5 +7,5 @@
 | Maximumaantal opgeslagen toegangsbeleid per bestandsshare | 5 |
 | Maximale aantal aanvragen per opslagaccount | 20.000 aanvragen per seconde voor bestanden met een geldige grootte<sup>3</sup> |
 | Doeldoorvoer van één bestandsshare | Maximaal 60 MiB per seconde |
-| Maximum aantal open ingangen voor per bestand | 2000 open ingangen |
+| Maximum aantal open ingangen per bestand | 2000 open ingangen |
 | Maximum aantal momentopnamen van shares | 200 momentopnamen |

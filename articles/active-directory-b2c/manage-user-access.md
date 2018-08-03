@@ -7,17 +7,17 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/04/2018
+ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: adf2f555e907976f8b8efa863f255aa283098be9
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 8243f67dee231a896f8d7248f9582c333f797d52
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449824"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480622"
 ---
-# <a name="manage-user-access-in-azure-ad-b2c"></a>Gebruikers beheren in Azure AD B2C
+# <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gebruikers beheren in Azure Active Directory B2C
 
 In dit artikel wordt beschreven hoe u toegang tot uw toepassingen beheren met behulp van Azure Active Directory (Azure AD) B2C. Toegangsbeheer in uw toepassing bevat:
 
@@ -27,9 +27,6 @@ In dit artikel wordt beschreven hoe u toegang tot uw toepassingen beheren met be
 - Vastleggen van een overeenkomst gebruiksvoorwaarden van en toegang te beperken.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
-
->[!Note] 
->In dit artikel bevat informatie die u gebruiken kunt voor ondersteuning van uw verplichtingen onder de AVG. Zie het [gedeelte AVG van de Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted) als u op zoek bent naar algemene informatie over de AVG.
 
 ## <a name="control-minor-access"></a>Secundaire toegang beheren
 

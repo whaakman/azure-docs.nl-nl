@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: jeedes
-ms.openlocfilehash: 50e9a65f881981964270e0a8bbc7af46a9dfd27a
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5ecb0e87d45cc01b65c91ee4c5c9d29806999269
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39047722"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431678"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ebsco"></a>Zelfstudie: Azure Active Directory-integratie met EBSCO
 
@@ -53,7 +53,7 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. EBSCO uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-ebsco-from-the-gallery"></a>EBSCO uit de galerie toe te voegen
 Voor het configureren van de integratie van EBSCO in Azure AD, moet u EBSCO uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -64,15 +64,15 @@ Voor het configureren van de integratie van EBSCO in Azure AD, moet u EBSCO uit 
 
     ![De Azure Active Directory-knop][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![De knop nieuwe toepassing][3]
 
-4. Typ in het zoekvak **EBSCO**, selecteer **EBSCO** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Typ in het zoekvak **EBSCO**, selecteer **EBSCO** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![EBSCO in de lijst met resultaten](./media/ebsco-tutorial/tutorial_ebsco_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruik
 Om te configureren en testen van Azure AD eenmalige aanmelding met EBSCO, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker EBSCO](#create-an-ebsco-test-user)**  -u EBSCOhost inrichting/persoonlijke instellingen kunt automatiseren. EBSCO biedt ondersteuning voor Just-In-Time inrichting van gebruikers.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Maak een testgebruiker EBSCO](#create-an-ebsco-test-user)**  -u EBSCOhost inrichting/persoonlijke instellingen kunt automatiseren. EBSCO biedt ondersteuning voor Just-In-Time inrichting van gebruikers.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -100,17 +100,17 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![In het dialoogvenster voor eenmalige aanmelding](./media/ebsco-tutorial/tutorial_ebsco_samlbase.png)
 
-3. Op de **EBSCO domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
+1. Op de **EBSCO domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
 
     ![EBSCO domein en URL's, eenmalige aanmelding informatie](./media/ebsco-tutorial/tutorial_ebsco_url.png)
 
     In de **id** tekstvak, een URL typen: `pingsso.ebscohost.com`
 
-4. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+1. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![EBSCO domein en URL's, eenmalige aanmelding informatie](./media/ebsco-tutorial/tutorial_ebsco_url1.png)
 
@@ -125,14 +125,14 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     o **profiel** = Clients de koppeling om de gebruikers aan een specifiek profiel (afhankelijk van wat ze bij EBSCO aanschaffen) kunnen aanpassen. Ze kunnen een specifiek profiel-ID invoeren De belangrijkste-id's zijn eds (EBSCO Discovery-Service) en ehost (EBSOCOhost databases). Instructies voor dezelfde krijgen [hier](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile).
 
-5. EBSCO toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de "**gebruikerskenmerken**" sectie op de pagina van de toepassing-integratie. De volgende Schermafbeelding toont een voorbeeld voor deze.
+1. EBSCO toepassing verwacht het SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de "**gebruikerskenmerken**" sectie op de pagina van de toepassing-integratie. De volgende Schermafbeelding toont een voorbeeld voor deze.
     
     ![Eenmalige aanmelding configureren](./media/ebsco-tutorial/tutorial_ebsco_attribute.png)
 
     > [!Note]
     > De **naam** kenmerk verplicht is en is toegewezen met **gebruikers-id** in EBSCO toepassing. Dit is standaard toegevoegd zodat u niet hoeft op dit handmatig toevoegen.
     
-6. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de bovenstaande afbeelding en voer de volgende stappen uit:
+1. In de **gebruikerskenmerken** sectie op de **eenmalige aanmelding** dialoogvenster SAML-token kenmerk configureren zoals wordt weergegeven in de bovenstaande afbeelding en voer de volgende stappen uit:
     
     | Naam kenmerk | Waarde kenmerk |
     | ---------------| --------------- |    
@@ -152,15 +152,15 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     
     d. Klik op **Ok**
 
-7. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
     ![De downloadkoppeling certificaat](./media/ebsco-tutorial/tutorial_ebsco_certificate.png) 
 
-8. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Configureren van eenmalige aanmelding opslaan](./media/ebsco-tutorial/tutorial_general_400.png)
     
-9. Het configureren van eenmalige aanmelding op **EBSCO** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [EBSCO ondersteuningsteam](mailto:sso@ebsco.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+1. Het configureren van eenmalige aanmelding op **EBSCO** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [EBSCO ondersteuningsteam](mailto:sso@ebsco.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -177,15 +177,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![De Azure Active Directory-knop](./media/ebsco-tutorial/create_aaduser_01.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/ebsco-tutorial/create_aaduser_02.png)
 
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
     ![De knop toevoegen](./media/ebsco-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
     ![Het dialoogvenster gebruiker](./media/ebsco-tutorial/create_aaduser_04.png)
 
@@ -220,23 +220,23 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **EBSCO**.
+1. Selecteer in de lijst met toepassingen, **EBSCO**.
 
     ![De koppeling EBSCO in de lijst met toepassingen](./media/ebsco-tutorial/tutorial_ebsco_app.png)  
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![De koppeling 'Gebruikers en groepen'][202]
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -245,20 +245,20 @@ In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met 
 1. Wanneer u op de tegel EBSCO in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing EBSCO.
 Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md).
 
-2. Als u zich bij de toepassing aanmelden, klikt u op de **aanmelden** knop in de rechterbovenhoek.
+1. Als u zich bij de toepassing aanmelden, klikt u op de **aanmelden** knop in de rechterbovenhoek.
 
     ![De aanmelding EBSCO in de lijst met toepassingen](./media/ebsco-tutorial/tutorial_ebsco_signin.png)
  
-3. Ontvangt u een eenmalige prompt om te koppelen van de institutionele/SAML-aanmelding met een **nu uw bestaand MyEBSCOhost-account koppelt aan uw account instelling** of **een nieuw MyEBSCOhost-account maken en een koppeling naar uw instelling account**. Het account wordt gebruikt voor persoonlijke instellingen op de toepassing EBSCOhost. Selecteer de optie **een nieuw account maken** en u ziet dat het formulier voor persoonlijke instellingen vooraf ingevuld met de waarden van het saml-antwoord, is zoals wordt weergegeven in de onderstaande schermafbeelding. Klik op **'Doorgaan'** om op te slaan deze selectie.
+1. Ontvangt u een eenmalige prompt om te koppelen van de institutionele/SAML-aanmelding met een **nu uw bestaand MyEBSCOhost-account koppelt aan uw account instelling** of **een nieuw MyEBSCOhost-account maken en een koppeling naar uw instelling account**. Het account wordt gebruikt voor persoonlijke instellingen op de toepassing EBSCOhost. Selecteer de optie **een nieuw account maken** en u ziet dat het formulier voor persoonlijke instellingen vooraf ingevuld met de waarden van het saml-antwoord, is zoals wordt weergegeven in de onderstaande schermafbeelding. Klik op **'Doorgaan'** om op te slaan deze selectie.
     
      ![De gebruiker EBSCO in de lijst met toepassingen](./media/ebsco-tutorial/tutorial_ebsco_user.png)
 
-4. Na het voltooien van de bovenstaande instellingen, cookies/cache leegmaken en aanmelding opnieuw. U hoeft te handmatig aanmelding opnieuw en de persoonlijke instellingen worden onthouden
+1. Na het voltooien van de bovenstaande instellingen, cookies/cache leegmaken en aanmelding opnieuw. U hoeft te handmatig aanmelding opnieuw en de persoonlijke instellingen worden onthouden
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: eb186f4b6e1d742c9cae51e68b3d3dbda1bb751c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 91e435c60a342768093b3bc869a78fa61df8782f
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400418"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39446561"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Detecteren en oplossen van de verbinding verbreekt met Azure IoT Hub
 
@@ -52,7 +52,7 @@ Voor waarschuwingen bij het verbreken van de apparaten, kunt u waarschuwingen co
 
 Zie voor meer informatie, [wat zijn klassieke waarschuwingen in Microsoft Azure?](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
 
-## <a name="resolve-common-connectivity-errors"></a>Algemene connectiviteit oplossen
+## <a name="resolve-connectivity-errors"></a>Connectiviteit oplossen
 
 Als diagnostische logboeken en waarschuwingen voor verbonden apparaten zijn ingeschakeld, krijgt u waarschuwingen wanneer er iets fout gaat. In deze sectie wordt beschreven hoe u veelvoorkomende problemen oplossen wanneer u een waarschuwing ontvangt. De onderstaande stappen wordt ervan uitgegaan dat u Log Analytics hebt ingesteld voor uw logboeken met diagnostische gegevens. 
 
@@ -76,8 +76,8 @@ Als diagnostische logboeken en waarschuwingen voor verbonden apparaten zijn inge
     |---------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | 404104 DeviceConnectionClosedRemotely | De verbinding is gesloten door het apparaat, maar IoT-Hub weet niet waarom. Veelvoorkomende oorzaken zijn MQTT/AMQP verlies van connectiviteit voor time-outs en internet. | Zorg ervoor dat het apparaat verbinding kan maken met IoT Hub door [de verbinding testen](tutorial-connectivity.md). Als de verbinding prima is, maar het apparaat herhaaldelijk verbroken wordt, zorg ervoor dat u het juiste keep alive apparaat logica voor uw eigen keuze aan protocol (MQTT/AMPQ) implementeren. |
     | 401003 IoTHubUnauthorized | IoT Hub kan niet verifiëren van de verbinding. | Zorg ervoor dat de SAS- of andere security token dat u gebruikt niet is verlopen. [Azure IoT SDK's](iot-hub-devguide-sdks.md) automatisch genereren van tokens zonder speciale configuratie. |
-    | 409002 LinkCreationConflict | Er zijn meer dan één verbindingen voor hetzelfde apparaat. Wanneer een nieuwe verbindingsaanvraag voor een apparaat gaat, wordt het vorige voorbeeld vanwege de volgende fout gesloten door IoT Hub. | Zorg ervoor dat u een nieuwe verbindingsaanvraag uitgeven, alleen als de verbinding komt. |
-    | 500001 ServerError | IoT Hub is een probleem met de serverzijde. Het probleem is waarschijnlijk tijdelijk. IoT Hub-team werkt moeilijk te onderhouden terwijl [de SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/), kleine subsets van knooppunten van de IoT Hub kunnen af en toe optreden van tijdelijke fouten. Wanneer uw apparaat probeert te verbinden met een knooppunt dat problemen ondervindt, kunt u ontvangt deze foutmelding. | Om te beperken de tijdelijke fouten, geven u een nieuwe poging van het apparaat. Naar [automatisch kunt beheren voor nieuwe pogingen](iot-hub-reliability-features-in-sdks.md), zorg ervoor dat u de nieuwste versie van de [Azure IoT SDK's](iot-hub-devguide-sdks.md).<br><br>Zie voor het wordt aanbevolen voor afhandeling van tijdelijke fouten en nieuwe pogingen [afhandeling van tijdelijke fouten](/azure/architecture/best-practices/transient-faults.md).  <br><br>Als het probleem zich blijft na nieuwe pogingen voordoen, controleert u [Resource Health](iot-hub-monitor-resource-health.md#use-azure-resource-health) en [Azure Status](https://azure.microsoft.com/status/history/) om te zien of een bekend probleem met een IoT-Hub. Als er geen bekende problemen en het probleem blijft bestaan, [contact op met ondersteuning](https://azure.microsoft.com/support/options/) voor verder onderzoek. |
+    | 409002 LinkCreationConflict | Er zijn meer dan één verbindingen voor hetzelfde apparaat. Wanneer een nieuwe verbindingsaanvraag voor een apparaat gaat, wordt het vorige voorbeeld vanwege de volgende fout gesloten door IoT Hub. | In de meest voorkomende geval, een apparaat een verbinding verbreken detecteert en probeert de verbinding te herstellen, maar IoT Hub nog niet beschouwd als dat deze nog niet verbonden, zodat deze de vorige verbinding wordt gesloten en deze fout wordt vastgelegd. Deze fout treedt meestal op als een neveneffect van een ander tijdelijk probleem dus zoeken naar andere fouten in de logboeken probleem verder oplossen. Anders, zorg ervoor dat u het uitgeven van een nieuwe verbindingsaanvraag alleen als de verbinding komt. |
+    | 500001 ServerError | IoT Hub is een probleem met de serverzijde. Het probleem is waarschijnlijk tijdelijk. IoT Hub-team werkt moeilijk te onderhouden terwijl [de SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/), kleine subsets van knooppunten van de IoT Hub kunnen af en toe optreden van tijdelijke fouten. Wanneer uw apparaat probeert te verbinden met een knooppunt dat problemen ondervindt, kunt u ontvangt deze foutmelding. | Om te beperken de tijdelijke fouten, geven u een nieuwe poging van het apparaat. Naar [automatisch kunt beheren voor nieuwe pogingen](iot-hub-reliability-features-in-sdks.md#connection-and-retry), zorg ervoor dat u de nieuwste versie van de [Azure IoT SDK's](iot-hub-devguide-sdks.md).<br><br>Zie voor het wordt aanbevolen voor afhandeling van tijdelijke fouten en nieuwe pogingen [afhandeling van tijdelijke fouten](/azure/architecture/best-practices/transient-faults.md).  <br><br>Als het probleem zich blijft na nieuwe pogingen voordoen, controleert u [Resource Health](iot-hub-monitor-resource-health.md#use-azure-resource-health) en [Azure Status](https://azure.microsoft.com/status/history/) om te zien of een bekend probleem met een IoT-Hub. Als er geen bekende problemen en het probleem blijft bestaan, [contact op met ondersteuning](https://azure.microsoft.com/support/options/) voor verder onderzoek. |
     | 500008 GenericTimeout | IoT Hub de verbindingsaanvraag voordat de time-out kan niet worden voltooid. Zoals 500001 ServerError is dit een fout waarschijnlijk tijdelijk. | Volg de stappen voor probleemoplossing voor 500001 ServerError hoofdoorzaak en los deze fout.|
 
 ## <a name="other-steps-to-try"></a>Andere stappen om te proberen
@@ -89,6 +89,11 @@ Als de bovenstaande stappen hebt gehad, vindt hier u meer volgende proberen:
 * Hulp van [forum van Azure IoT Hub](https://social.msdn.microsoft.com/Forums/azure/home?forum=azureiothub), [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-iot-hub), of [ondersteuning van Azure](https://azure.microsoft.com/support/options/).
 
 Ter verbetering van de documentatie voor iedereen, laat u hieronder een opmerking als deze handleiding, u kunt niet hebt.
+
+## <a name="next-steps"></a>Volgende stappen
+
+* Zie voor meer informatie over het oplossen van problemen van voorbijgaande aard, [afhandeling van tijdelijke fouten](/azure/architecture/best-practices/transient-faults.md).
+* Voor meer informatie over Azure IoT SDK en het beheer van nieuwe pogingen, Zie [over het beheren van verbindingen en betrouwbare uitwisseling van berichten met behulp van Azure IoT Hub apparaat-SDK's](iot-hub-reliability-features-in-sdks.md#connection-and-retry).
 
 <!-- Images -->
 [1]: ../../includes/media/iot-hub-diagnostics-settings/turnondiagnostics.png

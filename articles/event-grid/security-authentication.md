@@ -1,6 +1,6 @@
 ---
-title: Azure Event raster beveiligings- en -verificatie
-description: Beschrijving van Azure Event raster en de concepten.
+title: Azure Event Grid-beveiliging en verificatie
+description: Beschrijving van Azure Event Grid en de concepten ervan.
 services: event-grid
 author: banisadr
 manager: timlt
@@ -8,36 +8,49 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: babanisa
-ms.openlocfilehash: 783766c3e12da2c6fd77f919cf0ec44aea7db3b7
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: d2bc0d8f78e6fe0806afb3208c88df28b8cce1f9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39460238"
 ---
-# <a name="event-grid-security-and-authentication"></a>Gebeurtenis raster beveiligings- en -verificatie 
+# <a name="event-grid-security-and-authentication"></a>Event Grid-beveiliging en verificatie 
 
-Azure Event raster heeft drie soorten verificatie:
+Azure Event Grid heeft drie typen verificatie:
 
 * Gebeurtenisabonnementen
 * Gebeurtenispublicatie
-* WebHook gebeurtenis levering
+* Levering van de WebHook-gebeurtenissen
 
-## <a name="webhook-event-delivery"></a>WebHook gebeurtenis levering
+## <a name="webhook-event-delivery"></a>Levering van gebeurtenissen voor WebHook
 
-Webhooks zijn veel manieren voor het ontvangen van gebeurtenissen uit Azure Event raster. Wanneer een nieuwe gebeurtenis klaar is, wordt in de gebeurtenis raster Webhook een HTTP-aanvraag verzendt naar de geconfigureerde HTTP-eindpunt met de gebeurtenis in de hoofdtekst.
+Webhooks vormen een van de vele manieren voor het ontvangen van gebeurtenissen uit Azure Event Grid. Wanneer een nieuwe gebeurtenis klaar is, berichten EventGrid service een HTTP-aanvraag naar de geconfigureerde eindpunt met de gebeurtenis in de aanvraagtekst.
 
-Wanneer u uw eigen WebHook-eindpunt met raster gebeurtenis registreert, stuurt u een POST-aanvraag met een eenvoudige validatiecode om te bewijzen eindpunt eigendom. Uw app moet reageren door echo terug code voor de validatie. Gebeurtenis raster leveren niet gebeurtenissen aan WebHook-eindpunten die nog niet gevalideerd. Als u een API-service van derden (zoals [Zapier](https://zapier.com) of [IFTTT](https://ifttt.com/)), mogelijk niet via programmacode echo code voor de validatie. U kunt handmatig het abonnement via een validatie-URL die wordt verzonden in de validatie-gebeurtenis abonnement voor deze services valideren. Die URL kopiëren en verzenden van een aanvraag voor ophalen via een REST-client of de webbrowser.
+Net als vele andere services die webhooks ondersteunen, moet u 'eigenaar' van de Webhook-eindpunt bewijzen voordat er begonnen wordt met het leveren van gebeurtenissen naar dit eindpunt EventGrid. Deze vereiste is om te voorkomen dat een nietsvermoedende eindpunt om het doel-eindpunt voor de bezorging van gebeurtenissen uit EventGrid. Echter, wanneer u een van de drie Azure-services die hieronder worden vermeld, de Azure-infrastructuur verwerkt automatisch deze validatie:
 
-Handmatige validatie is een Preview-versie. Als u wilt gebruiken, moet u de [gebeurtenis raster extensie](/cli/azure/azure-cli-extensions-list) voor [AZ CLI 2.0](/cli/azure/install-azure-cli). U kunt installeren met `az extension add --name eventgrid`. Als u de REST-API gebruikt, zorg ervoor dat u gebruikt `api-version=2018-05-01-preview`.
+* Azure Logic Apps,
+* Azure Automation
+* Azure Functions voor EventGrid Trigger.
 
-### <a name="validation-details"></a>Validatie-informatie
+Als u een ander type eindpunt, zoals Azure-functie op basis van een HTTP-trigger, moet de code van uw eindpunt om deel te nemen in een validatie-handshake met EventGrid. EventGrid ondersteunt twee verschillende validatie handshake modellen:
 
-* Op het moment van gebeurtenis abonnement maken of bij te werken boekt raster gebeurtenis een gebeurtenis 'SubscriptionValidationEvent' naar het doel-eindpunt.
-* De gebeurtenis bevat een waarde voor header 'Aeg gebeurtenistype: SubscriptionValidation'.
-* De hoofdtekst van de gebeurtenis heeft hetzelfde schema als andere gebeurtenissen gebeurtenis raster.
-* Gegevens van de gebeurtenis bevat de eigenschap 'validationCode' met een willekeurige tekenreeks. Bijvoorbeeld ' validationCode: acb13... '.
-* Gegevens van de gebeurtenis bevat de eigenschap 'validationUrl' met een URL voor het valideren van het abonnement handmatig.
-* De matrix bevat alleen de validatiegebeurtenis. Andere gebeurtenissen worden verzonden in een afzonderlijke aanvraag nadat u echo teruggestuurd code voor de validatie.
+1. Op basis van ValidationCode handshake: op het moment van de event-abonnement maken, EventGrid plaatst een 'abonnement validatiegebeurtenis' aan uw eindpunt. Het schema van deze gebeurtenis is vergelijkbaar met een andere EventGridEvent en het gegevensgedeelte van deze gebeurtenis bevat de eigenschap 'validationCode'. Wanneer uw toepassing heeft vastgesteld dat de validatieaanvraag voor de voor een verwachte gebeurtenisabonnement is, moet de toepassingscode echo weer de validatiecode voor het EventGrid reageert. Dit mechanisme handshake wordt ondersteund in alle EventGrid versies.
+
+2. Op basis van ValidationURL handshake (handmatige handshake): In bepaalde gevallen hebt u geen controle over de broncode van het eindpunt te kunnen zijn voor het implementeren van de handshake ValidationCode op basis van. Bijvoorbeeld, als u een service van derden gebruiken (zoals [Zapier](https://zapier.com) of [IFTTT](https://ifttt.com/)), mogelijk niet via een programma reageert met de code voor validatie. Daarom kan beginnen met 2018-05-01-preview-versie, EventGrid biedt nu ondersteuning voor een handshake handmatig worden gevalideerd. Als u het maken van een gebeurtenisabonnement met behulp van SDK/hulpprogramma's die gebruikmaken van deze nieuwe API-versie (2018-05-01-preview), EventGrid wordt een eigenschap "validationUrl" (naast de eigenschap "validationCode") verzonden als onderdeel van de gegevens van de validatie van het abonnement de gebeurtenis. Voor het voltooien van de handshake alleen een GET aanvragen op die URL, via een REST-client of via uw webbrowser. De opgegeven validationUrl is alleen geldig voor ongeveer 10 minuten, dus als u de handmatige validatie binnen deze tijd niet uitvoeren, de provisioningState van het gebeurtenisabonnement wordt overgezet naar 'Mislukt', en moet u opnieuw proberen te maken van de gebeurtenis abonnement voordat u de handmatige validatie opnieuw uit.
+
+Dit mechanisme van handmatige validatie is beschikbaar als preview. Als u de functie wilt gebruiken, moet u de [Event Grid-extensie](/cli/azure/azure-cli-extensions-list) voor [AZ CLI 2.0](/cli/azure/install-azure-cli) installeren. U kunt deze installeren met `az extension add --name eventgrid`. Als u de REST-API gebruikt, zorg er dan voor dat u `api-version=2018-05-01-preview` gebruikt.
+
+### <a name="validation-details"></a>Validatiedetails
+
+* Op het moment van gebeurtenis-abonnement maken/bijwerken plaatst Event Grid een gebeurtenis van de validatie-abonnement naar het doel-eindpunt. 
+* De gebeurtenis bevat een headerwaarde 'SubscriptionValidation Aeg gebeurtenistype:'.
+* De hoofdtekst van de gebeurtenis heeft hetzelfde schema als andere Event Grid-gebeurtenissen.
+* De eigenschap type gebeurtenis van de gebeurtenis is 'Microsoft.EventGrid.SubscriptionValidationEvent'.
+* De eigenschap gegevens van de gebeurtenis bevat de eigenschap 'validationCode' met een willekeurige tekenreeks. Bijvoorbeeld, "validationCode: acb13... '.
+* Als u van API-versie 2018-05-01-preview gebruikmaakt, bevat gegevens van de gebeurtenis ook een eigenschap "validationUrl" met een URL voor het handmatig valideren van het abonnement.
+* De matrix bevat alleen de validatiegebeurtenis. Andere gebeurtenissen worden verzonden in een afzonderlijke aanvraag nadat u echo terug van de code voor validatie.
+* De EventGrid DataPlane-SDK's zijn klassen die overeenkomt met de abonnement-validatie-gebeurtenisgegevens en abonnement validatie-antwoord.
 
 Een voorbeeld SubscriptionValidationEvent wordt weergegeven in het volgende voorbeeld:
 
@@ -57,7 +70,7 @@ Een voorbeeld SubscriptionValidationEvent wordt weergegeven in het volgende voor
 }]
 ```
 
-Om te bewijzen dat eindpunt eigendom, echo teruggestuurd de validatiecode in de eigenschap validationResponse, zoals wordt weergegeven in het volgende voorbeeld:
+Om te bewijzen dat eindpunt eigendom, echo wordt teruggestuurd de validatiecode in de eigenschap validationResponse, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```json
 {
@@ -65,43 +78,54 @@ Om te bewijzen dat eindpunt eigendom, echo teruggestuurd de validatiecode in de 
 }
 ```
 
-Of het abonnement handmatig valideren door een GET-aanvraag verzenden naar de URL van de validatie. Het gebeurtenisabonnement blijft in behandeling totdat gevalideerd.
+U kunt ook handmatig het abonnement valideren door een GET-aanvraag verzenden naar de URL van de validatie. Het gebeurtenisabonnement blijft in behandeling totdat gevalideerd.
 
-### <a name="event-delivery-security"></a>Gebeurtenis levering van beveiliging
+U vindt een C#-voorbeeld dat laat hoe u zien voor het afhandelen van de abonnement-validatie-handshake op https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs.
 
-U kunt uw eindpunt webhook beveiligen door queryparameters toevoegen aan de webhook-URL bij het maken van een gebeurtenisabonnement. Stel één van deze queryparameters moeten een geheim, zoals een [toegangstoken](https://en.wikipedia.org/wiki/Access_token) dat de webhook kunt gebruiken voor het herkennen van de gebeurtenis afkomstig is van de gebeurtenis raster met geldige machtigingen. Gebeurtenis raster neemt deze queryparameters in elke gebeurtenis levering aan de webhook.
+### <a name="checklist"></a>Controlelijst
 
-Bij het bewerken van het abonnement van de gebeurtenis, de queryparameters wordt niet weergegeven of geretourneerd, tenzij de [--opnemen-volledige-eindpunt-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_show) parameter wordt gebruikt in Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
+Tijdens de event-abonnement maken, als er een foutbericht weergegeven zoals "de poging om te valideren van het opgegeven eindpunt https://your-endpoint-here is mislukt. Ga voor meer informatie naar https://aka.ms/esvalidation', betekent dit dat er een fout is opgetreden in de validatie-handshake. U kunt deze fout oplossen, controleert u of de volgende aspecten:
 
-Ten slotte is het belangrijk te weten dat Azure gebeurtenis raster biedt alleen ondersteuning voor HTTPS-webhook-eindpunten.
+* Hebt u controle over de toepassingscode in de doel-eindpunt? Bijvoorbeeld, als u een HTTP-trigger op basis van Azure-functie schrijft, hebt u toegang tot de toepassingscode wijzigingen aanbrengen?
+* Hebt u toegang tot de toepassingscode, implementeert u het mechanisme voor ValidationCode op basis van handshake zoals wordt weergegeven in het bovenstaande voorbeeld.
 
-## <a name="event-subscription"></a>Voor een gebeurtenisabonnement
+* Als u geen toegang tot de toepassingscode (bijvoorbeeld als u een service van derden die webhooks ondersteunen), kunt u de handmatige handshake-mechanisme. Als u wilt dit doet, zorg ervoor dat u met behulp van de API-versie 2018-05-01-preview (bijvoorbeeld met behulp van de hierboven beschreven EventGrid CLI-extensie) om te kunnen ontvangen van de validationUrl in de validatiegebeurtenis. De waarde van de eigenschap 'validationUrl' voor het voltooien van de handshake handmatig worden gevalideerd, en gaat u naar deze URL in uw webbrowser. Als de validatie is gelukt, ziet u een bericht in uw webbrowser dat validatie gelukt is, en u ziet dat het gebeurtenisabonnement provisioningState is 'geslaagd'. 
 
-Abonneren op een gebeurtenis, hebt u de **Microsoft.EventGrid/EventSubscriptions/Write** toegang tot de vereiste bron. U moet deze machtiging omdat u bij het schrijven van een nieuw abonnement op het bereik van de resource. De vereiste bron verschilt op basis van of u op een systeemonderwerp of aangepaste onderwerp abonneren. Beide typen worden in deze sectie beschreven.
+### <a name="event-delivery-security"></a>Gebeurtenis levering beveiliging
 
-### <a name="system-topics-azure-service-publishers"></a>Systeemonderwerpen (uitgevers Azure-service)
+U kunt de webhook-eindpunt kunt beveiligen door queryparameters toevoegen aan de webhook-URL bij het maken van een gebeurtenisabonnement. Stel een van deze queryparameters moet een geheim, zoals een [toegangstoken](https://en.wikipedia.org/wiki/Access_token) die de webhook kunt gebruiken voor het herkennen van de gebeurtenis is afkomstig van Event Grid met geldige machtigingen. Event Grid bevat deze queryparameters in elke bezorging van gebeurtenissen naar de webhook.
 
-Voor systeemonderwerpen moet u machtigingen voor schrijven van een nieuw gebeurtenisabonnement bij het bereik van de bron voor het publiceren van de gebeurtenis. De indeling van de resource is: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
+Tijdens het bewerken van het gebeurtenisabonnement, de queryparameters niet worden weergegeven of geretourneerd, tenzij de [--opnemen-full-eindpunt-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) parameter wordt gebruikt in Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
-Bijvoorbeeld, om u te abonneren op een gebeurtenis op een opslagaccount met de naam **MIJNACCT**, moet u de machtiging Microsoft.EventGrid/EventSubscriptions/Write op: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
+Ten slotte is het belangrijk te weten dat Azure Event Grid biedt alleen ondersteuning voor HTTPS-webhook-eindpunten.
 
-### <a name="custom-topics"></a>Aangepaste-onderwerpen
+## <a name="event-subscription"></a>Gebeurtenisabonnement
 
-Voor aangepaste onderwerpen moet u machtigingen voor schrijven van een nieuw gebeurtenisabonnement bij het bereik van het onderwerp raster. De indeling van de resource is: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+Om u te abonneren op een gebeurtenis, hebt u de **Microsoft.EventGrid/EventSubscriptions/Write** machtiging voor de vereiste bron. U moet deze machtiging namelijk u een nieuw abonnement in het bereik van de resource schrijft. De vereiste resource verschilt afhankelijk van of u bent u zich op een systeemonderwerp of een aangepast onderwerp abonneert. Beide typen worden beschreven in deze sectie.
 
-Bijvoorbeeld, om u te abonneren op een eigen onderwerp met de naam **mytopic**, moet u de machtiging Microsoft.EventGrid/EventSubscriptions/Write op: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
+### <a name="system-topics-azure-service-publishers"></a>Systeemonderwerpen (uitgevers voor Azure-service)
+
+Voor onderwerpen over het systeem moet u machtigingen voor schrijven van een nieuw gebeurtenisabonnement in het bereik van de resource publiceren van de gebeurtenis. De indeling van de resource is: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
+
+Bijvoorbeeld, om u te abonneren op een gebeurtenis op een storage-account met de naam **MIJNACCT**, moet u de machtiging Microsoft.EventGrid/EventSubscriptions/Write op: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
+
+### <a name="custom-topics"></a>Aangepaste onderwerpen
+
+Voor aangepaste onderwerpen moet u machtigingen voor schrijven van een nieuw gebeurtenisabonnement in het bereik van de event grid-onderwerp. De indeling van de resource is: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.EventGrid/topics/{topic-name}`
+
+Bijvoorbeeld, om u te abonneren op een aangepast onderwerp met de naam **mytopic**, moet u de machtiging Microsoft.EventGrid/EventSubscriptions/Write op: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
 ## <a name="topic-publishing"></a>Onderwerp publiceren
 
-Onderwerpen over Shared Access Signature (SAS) of verificatie met sleutel gebruiken. SAS wordt aangeraden, maar sleutelverificatie biedt eenvoudige programmering en is compatibel met veel bestaande webhook uitgevers. 
+Onderwerpen over Shared Access Signature (SAS) of sleutelverificatie gebruiken. We raden SAS, maar sleutelverificatie biedt eenvoudige programmeren en is compatibel met veel bestaande webhook uitgevers. 
 
-De verificatie-waarde in de HTTP-header te nemen. Gebruik voor SAS, **aeg-sas-token** voor de headerwaarde. Gebruik voor sleutelverificatie **aeg-sas-sleutel** voor de headerwaarde.
+De verificatie-waarde in de HTTP-header te nemen. Gebruik voor SAS, **aeg-sas-token** voor de headerwaarde. Gebruik voor verificatie met een sleutel, **aeg-sas-sleutel** voor de headerwaarde.
 
-### <a name="key-authentication"></a>Verificatie met sleutel
+### <a name="key-authentication"></a>Verificatie met een sleutel
 
 Verificatie met een sleutel is de eenvoudigste vorm van verificatie. Gebruik de volgende indeling: `aeg-sas-key: <your key>`
 
-Bijvoorbeeld het doorgeven van een sleutel met:
+Bijvoorbeeld, doorgeven u een sleutel met:
 
 ```
 aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
@@ -109,11 +133,11 @@ aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==
 
 ### <a name="sas-tokens"></a>SAS-tokens
 
-SAS-tokens voor gebeurtenis raster zijn de resource een verlooptijd en een handtekening. De indeling van het SAS-token is: `r={resource}&e={expiration}&s={signature}`.
+SAS-tokens voor Event Grid zijn de bron, een verlooptijd en een handtekening. De indeling van de SAS-token is: `r={resource}&e={expiration}&s={signature}`.
 
-De resource is het pad voor het raster onderwerp waarnaar u gebeurtenissen verzendt. Een geldige resource-pad is bijvoorbeeld: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
+De resource is het pad voor de event grid-onderwerp waarmee u gebeurtenissen verzendt. Bijvoorbeeld, is een geldige resource-pad: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events`
 
-U de handtekening van een sleutel gegenereerd.
+U de handtekening van een sleutel genereren.
 
 Bijvoorbeeld, een geldige **aeg-sas-token** waarde is:
 
@@ -121,7 +145,7 @@ Bijvoorbeeld, een geldige **aeg-sas-token** waarde is:
 aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2feventGrid%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=a4oNHpRZygINC%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
 ```
 
-Het volgende voorbeeld wordt een SAS-token voor gebruik met gebeurtenis raster:
+Het volgende voorbeeld wordt een SAS-token voor gebruik met Event Grid:
 
 ```cs
 static string BuildSharedAccessSignature(string resource, DateTime expirationUtc, string key)
@@ -146,13 +170,13 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 }
 ```
 
-## <a name="management-access-control"></a>Toegangsbeheer voor beheer
+## <a name="management-access-control"></a>Beheer van Access Control
 
-Azure Event raster kunt u bepalen het niveau van toegang krijgen tot andere gebruikers kunnen verschillende bewerkingen zoals de lijst met abonnementen doen, maakt u nieuwe en genereren van sleutels. Gebeurtenis raster maakt gebruik van Azure toegang controleren RBAC (Role Based).
+Azure Event Grid kunt u bepalen het niveau van toegang krijgen tot verschillende gebruikers verschillende beheerbewerkingen zoals gebeurtenisabonnementen lijst, een nieuwe maken en genereren van sleutels. Event Grid maakt gebruik van Azure rol op basis van toegang controleren (RBAC).
 
 ### <a name="operation-types"></a>Bewerkingstypen
 
-Azure event raster ondersteunt de volgende acties:
+Azure event grid ondersteunt de volgende acties:
 
 * Microsoft.EventGrid/*/read
 * Microsoft.EventGrid/*/write
@@ -161,17 +185,17 @@ Azure event raster ondersteunt de volgende acties:
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-De laatste drie bewerkingen retourneren mogelijk geheime informatie opgehaald gefilterd buiten het normale leesbewerkingen. Het is best practice voor u toegang tot deze bewerkingen te beperken. Aangepaste rollen kunnen worden gemaakt met [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure-opdrachtregelinterface (CLI)](../role-based-access-control/role-assignments-cli.md), en de [REST-API](../role-based-access-control/role-assignments-rest.md).
+De laatste drie bewerkingen retourneren mogelijk geheime gegevens die buiten het normale leesbewerkingen wordt gefilterd. Het wordt aanbevolen om u toegang tot deze bewerkingen te beperken. Aangepaste rollen kunnen worden gemaakt met [Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), [Azure-opdrachtregelinterface (CLI)](../role-based-access-control/role-assignments-cli.md), en de [REST-API](../role-based-access-control/role-assignments-rest.md).
 
-### <a name="enforcing-role-based-access-check-rbac"></a>Afdwingen van de rol op basis van de toegangscontrole (RBAC)
+### <a name="enforcing-role-based-access-check-rbac"></a>Rol afdwingen op basis van de toegangscontrole (RBAC)
 
-Gebruik de volgende stappen uit om af te dwingen RBAC voor verschillende gebruikers:
+Gebruik de volgende stappen uit om af te dwingen van RBAC voor verschillende gebruikers:
 
-#### <a name="create-a-custom-role-definition-file-json"></a>Maken van een aangepaste rol-definitiebestand (.json)
+#### <a name="create-a-custom-role-definition-file-json"></a>Maak een aangepaste rol definitie-bestand (.json)
 
-Hieronder vindt u voorbeeld gebeurtenis raster roldefinities waarmee gebruikers op verschillende sets van acties uitvoeren.
+Hieronder vindt u voorbeeld Event Grid roldefinities waarmee gebruikers op verschillende sets van acties uitvoeren.
 
-**EventGridReadOnlyRole.json**: alleen alleen-lezen bewerkingen toe te staan.
+**EventGridReadOnlyRole.json**: alleen kunnen alleen-lezen bewerkingen.
 
 ```json
 {
@@ -190,7 +214,7 @@ Hieronder vindt u voorbeeld gebeurtenis raster roldefinities waarmee gebruikers 
 }
 ```
 
-**EventGridNoDeleteListKeysRole.json**: toestaan beperkte post acties maar verwijderingsacties weigeren.
+**EventGridNoDeleteListKeysRole.json**: toestaan, maar weigeren verwijderingsacties beperkte post-acties.
 
 ```json
 {
@@ -213,7 +237,7 @@ Hieronder vindt u voorbeeld gebeurtenis raster roldefinities waarmee gebruikers 
 }
 ```
 
-**EventGridContributorRole.json**: kunnen alle gebeurtenis raster acties.
+**EventGridContributorRole.json**: kunnen alle event grid-acties.
 
 ```json
 {
@@ -235,7 +259,7 @@ Hieronder vindt u voorbeeld gebeurtenis raster roldefinities waarmee gebruikers 
 }
 ```
 
-#### <a name="create-and-assign-custom-role-with-azure-cli"></a>Maken en toewijzen van aangepaste rol met Azure CLI
+#### <a name="create-and-assign-custom-role-with-azure-cli"></a>Maken en toewijzen van de aangepaste rol met Azure CLI
 
 Gebruik het volgende voor het maken van een aangepaste rol:
 
@@ -243,7 +267,7 @@ Gebruik het volgende voor het maken van een aangepaste rol:
 az role definition create --role-definition @<file path>
 ```
 
-Als u wilt de rol toewijst aan een gebruiker, gebruiken:
+Als u wilt de rol toewijzen aan een gebruiker, gebruikt u:
 
 ```azurecli
 az role assignment create --assignee <user name> --role "<name of role>"
@@ -251,4 +275,4 @@ az role assignment create --assignee <user name> --role "<name of role>"
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een inleiding tot gebeurtenis raster, [over gebeurtenis raster](overview.md)
+* Zie voor een inleiding tot Event Grid, [over Event Grid](overview.md)

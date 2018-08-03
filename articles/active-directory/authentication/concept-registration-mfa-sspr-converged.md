@@ -1,6 +1,6 @@
 ---
-title: Geconvergeerde registratie voor Azure AD SSPR en MFA
-description: Registratie van Azure AD multi-factor Authentication-verificatie en selfservice voor wachtwoord opnieuw instellen
+title: Geconvergeerde registratie voor Azure AD SSPR en MFA (openbare preview)
+description: Azure AD multi-factor Authentication-verificatie en selfservice voor wachtwoord opnieuw instellen van inschrijving (openbare preview)
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: cdd100d113c3fbeda8ac840d479b065d648ac3ff
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: a0fec9743cd213d0d41d9143a2b1e9e1c3db9967
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414901"
+ms.locfileid: "39447958"
 ---
-# <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication"></a>Geconvergeerde registratie voor self-service voor wachtwoord opnieuw instellen en Azure multi-factor Authentication
+# <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Geconvergeerde registratie voor self-service voor wachtwoord opnieuw instellen en Azure multi-factor Authentication (openbare preview)
 
 Tot nu toe zijn de gebruikers hoeven te registreren verificatiemethoden voor Azure multi-factor Authentication (MFA) en selfservice voor wachtwoordherstel (SSPR) in twee verschillende portals. Er zijn veel gebruikers verward door het feit dat vergelijkbare methoden zijn gebruikt voor zowel de Azure MFA en de SSPR en kunnen niet worden geregistreerd in beide portals. Deze verschillen geleid tot sommige gebruikers niet kan Azure MFA of SSPR wanneer dat nodig is, leidt tot een helpdesk-aanroep te gebruiken en mogelijk een tevreden gebruikers. Gebruikers kunnen nu één keer registreren en profiteer van de voordelen van Azure MFA en de self-service voor Wachtwoordherstel, zodat u niet hoeft te registreren hun verificatiemethoden voor deze functies twee keer.  
 

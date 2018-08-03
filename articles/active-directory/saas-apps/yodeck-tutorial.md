@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: jeedes
-ms.openlocfilehash: d461d106e7805f12327397a2572552fdd5606569
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b017efd2c170f543041dcb35a3a3d040389d1dac
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055704"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39436791"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yodeck"></a>Zelfstudie: Azure Active Directory-integratie met Yodeck
 
@@ -53,7 +53,7 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Yodeck uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-yodeck-from-the-gallery"></a>Yodeck uit de galerie toe te voegen
 Voor het configureren van de integratie van Yodeck in Azure AD, moet u Yodeck uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -64,15 +64,15 @@ Voor het configureren van de integratie van Yodeck in Azure AD, moet u Yodeck ui
 
     ![De Azure Active Directory-knop][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![De knop nieuwe toepassing][3]
 
-4. Typ in het zoekvak **Yodeck**, selecteer **Yodeck** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Typ in het zoekvak **Yodeck**, selecteer **Yodeck** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Yodeck in de lijst met resultaten](./media/yodeck-tutorial/tutorial_yodeck_addfromgallery.png)
 
@@ -85,10 +85,10 @@ Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruik
 Om te configureren en testen van Azure AD eenmalige aanmelding met Yodeck, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker Yodeck](#create-a-yodeck-test-user)**  : als u wilt een equivalent van Britta Simon in Yodeck die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Maak een testgebruiker Yodeck](#create-a-yodeck-test-user)**  : als u wilt een equivalent van Britta Simon in Yodeck die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -100,37 +100,37 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
 
     ![In het dialoogvenster voor eenmalige aanmelding](./media/yodeck-tutorial/tutorial_yodeck_samlbase.png)
 
-3. Op de **Yodeck domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
+1. Op de **Yodeck domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
 
     ![Yodeck domein en URL's, eenmalige aanmelding informatie](./media/yodeck-tutorial/tutorial_yodeck_url.png)
 
     In de **id (entiteits-ID)** tekstvak typt u de URL: `https://app.yodeck.com/api/v1/account/metadata/`
 
-4. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
+1. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![Yodeck domein en URL's, eenmalige aanmelding informatie](./media/yodeck-tutorial/tutorial_yodeck_url1.png)
 
     In de **aanmeldings-URL** tekstvak typt u de URL: `https://app.yodeck.com/login`
 
-5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
 
     ![De downloadkoppeling certificaat](./media/yodeck-tutorial/tutorial_yodeck_certificate.png)
 
-6. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Configureren van eenmalige aanmelding opslaan](./media/yodeck-tutorial/tutorial_general_400.png)
     
-7. In een ander browservenster aanmelden bij uw bedrijf Yodeck site als beheerder.
+1. In een ander browservenster aanmelden bij uw bedrijf Yodeck site als beheerder.
 
-8. Klik op **gebruikersinstellingen** vorm de rechterbovenhoek van de pagina en selecteer de optie **Accountinstellingen**.
+1. Klik op **gebruikersinstellingen** vorm de rechterbovenhoek van de pagina en selecteer de optie **Accountinstellingen**.
 
     ![Yodeck configuratie](./media/yodeck-tutorial/configure1.png)
 
-9. Selecteer **SAML** en voer de volgende stappen uit:
+1. Selecteer **SAML** en voer de volgende stappen uit:
 
     ![Yodeck configuratie](./media/yodeck-tutorial/configure2.png)
 
@@ -154,15 +154,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![De Azure Active Directory-knop](./media/yodeck-tutorial/create_aaduser_01.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en klik vervolgens op **alle gebruikers**.
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/yodeck-tutorial/create_aaduser_02.png)
 
-3. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+1. Om te openen de **gebruiker** in het dialoogvenster, klikt u op **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
     ![De knop toevoegen](./media/yodeck-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
     ![Het dialoogvenster gebruiker](./media/yodeck-tutorial/create_aaduser_04.png)
 
@@ -183,15 +183,15 @@ In het geval van Yodeck is inrichten een handmatige taak.
 
 1. Meld u aan bij uw bedrijf Yodeck site aan als beheerder.
 
-2. Klik op **gebruikersinstellingen** vorm de rechterbovenhoek van de pagina en selecteer de optie **gebruikers**.
+1. Klik op **gebruikersinstellingen** vorm de rechterbovenhoek van de pagina en selecteer de optie **gebruikers**.
 
     ![Werknemer toevoegen](./media/yodeck-tutorial/user1.png)
 
-3. Klik op **+ gebruiker** openen de **Gebruikersdetails** tabblad.
+1. Klik op **+ gebruiker** openen de **Gebruikersdetails** tabblad.
 
     ![Werknemer toevoegen](./media/yodeck-tutorial/user2.png)
 
-4. Op de **Gebruikersdetails** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Op de **Gebruikersdetails** dialoogvenster pagina, voert u de volgende stappen uit:
 
     ![Werknemer toevoegen](./media/yodeck-tutorial/user3.png)
 
@@ -217,23 +217,23 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 
     ![Gebruiker toewijzen][201]
 
-2. Selecteer in de lijst met toepassingen, **Yodeck**.
+1. Selecteer in de lijst met toepassingen, **Yodeck**.
 
     ![De koppeling Yodeck in de lijst met toepassingen](./media/yodeck-tutorial/tutorial_yodeck_app.png)  
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![De koppeling 'Gebruikers en groepen'][202]
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -245,7 +245,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 

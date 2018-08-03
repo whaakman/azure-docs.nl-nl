@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: accafab55c6c1aa34ccf7aa9cfc4adb2a902f5e3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 4dcf487afdad899853c97d3d2a1493a6123b3bab
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39043428"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440708"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex"></a>Zelfstudie: Azure Active Directory-integratie met Cisco Webex
 
@@ -53,7 +53,7 @@ Als u wilt testen van de stappen in deze zelfstudie, volgt u deze aanbevelingen:
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Cisco Webex uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="add-cisco-webex-from-the-gallery"></a>Cisco Webex uit de galerie toevoegen
 Voor het configureren van de integratie van Cisco Webex in Azure AD, moet u Cisco Webex uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -64,17 +64,17 @@ Voor het configureren van de integratie van Cisco Webex in Azure AD, moet u Cisc
 
     ![De Azure Active Directory-knop][1]
 
-2. Ga naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Ga naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
     
-3. Als u wilt een nieuwe toepassing toevoegen, selecteert u de **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Als u wilt een nieuwe toepassing toevoegen, selecteert u de **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![De knop nieuwe toepassing][3]
 
-4. Typ in het zoekvak **Cisco Webex**. 
+1. Typ in het zoekvak **Cisco Webex**. 
 
-5. Selecteer **Cisco Webex** vanuit het deelvenster resultaten. Selecteer vervolgens de **toevoegen** om toe te voegen van de toepassing.
+1. Selecteer **Cisco Webex** vanuit het deelvenster resultaten. Selecteer vervolgens de **toevoegen** om toe te voegen van de toepassing.
 
     ![Cisco Webex in de lijst met resultaten](./media/cisco-webex-tutorial/tutorial_ciscowebex_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Geef de waarde in de Webex Cisco, **gebruikersnaam** dezelfde waarde als **gebru
 Als u wilt configureren en Azure AD eenmalige aanmelding met Cisco Webex testen, voert u de volgende bouwstenen:
 
 1. [Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on) zodat uw gebruikers deze functie wilt gebruiken.
-2. [Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user) voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. [Maak een testgebruiker Cisco Webex](#create-a-cisco-webex-test-user) hebben een equivalent van Britta Simon in Cisco Webex die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-4. [Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user) Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. [Eenmalige aanmelding testen](#test-single-sign-on) om te controleren of de configuratie werkt.
+1. [Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user) voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. [Maak een testgebruiker Cisco Webex](#create-a-cisco-webex-test-user) hebben een equivalent van Britta Simon in Cisco Webex die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+1. [Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user) Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. [Eenmalige aanmelding testen](#test-single-sign-on) om te controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -104,11 +104,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-2. Voor het inschakelen van eenmalige aanmelding in de **eenmalige aanmelding** in het dialoogvenster de **modus** vervolgkeuzelijst, selecteer **SAML gebaseerde aanmelding**.
+1. Voor het inschakelen van eenmalige aanmelding in de **eenmalige aanmelding** in het dialoogvenster de **modus** vervolgkeuzelijst, selecteer **SAML gebaseerde aanmelding**.
  
     ![In het dialoogvenster voor eenmalige aanmelding](./media/cisco-webex-tutorial/tutorial_ciscowebex_samlbase.png)
 
-3. In de **Cisco Webex-domein en URL's** sectie, de volgende stappen uit:
+1. In de **Cisco Webex-domein en URL's** sectie, de volgende stappen uit:
 
     ![Cisco Webex-domein en URL's, eenmalige aanmelding informatie](./media/cisco-webex-tutorial/tutorial_ciscowebex_url.png)
 
@@ -121,29 +121,29 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     > [!NOTE] 
     > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke antwoord-URL en aanmeldings-URL. Neem contact op met [Cisco Webex-Client-ondersteuningsteam](https://www.webex.co.in/support/support-overview.html) om deze waarden te verkrijgen. 
 
-5. Op de **SAML-handtekeningcertificaat** sectie, selecteer **Metadata XML**, en sla het bestand met metagegevens op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, selecteer **Metadata XML**, en sla het bestand met metagegevens op uw computer.
 
     ![De downloadkoppeling certificaat](./media/cisco-webex-tutorial/tutorial_ciscowebex_certificate.png) 
 
-6. Selecteer **Opslaan**.
+1. Selecteer **Opslaan**.
 
     ![Configureer de eenmalige aanmelding knop Opslaan](./media/cisco-webex-tutorial/tutorial_general_400.png)
     
-6. In de **Cisco Webex configuratie** sectie, selecteer **configureren Cisco Webex** openen de **aanmelding configureren** venster. Kopiëren de **afmelding URL**, **SAML entiteit-ID**, en **Single Sign-On Service URL voor SAML** uit de **Naslaggids** sectie.
+1. In de **Cisco Webex configuratie** sectie, selecteer **configureren Cisco Webex** openen de **aanmelding configureren** venster. Kopiëren de **afmelding URL**, **SAML entiteit-ID**, en **Single Sign-On Service URL voor SAML** uit de **Naslaggids** sectie.
 
     ![Eenmalige aanmelding configureren](./media/cisco-webex-tutorial/tutorial_ciscowebex_configure.png) 
 
-7. In een ander browservenster aanmelden bij uw bedrijf Cisco Webex site als beheerder.
+1. In een ander browservenster aanmelden bij uw bedrijf Cisco Webex site als beheerder.
 
-8. Selecteer in het menu bovenaan de **Sitebeheer**.
+1. Selecteer in het menu bovenaan de **Sitebeheer**.
 
     ![Sitebeheer](./media/cisco-webex-tutorial/ic777621.png "Sitebeheer")
 
-9. In de **-Site beheren** sectie, selecteer **SSO-configuratie**.
+1. In de **-Site beheren** sectie, selecteer **SSO-configuratie**.
    
     ![Configuratie van eenmalige aanmelding](./media/cisco-webex-tutorial/ic777622.png "SSO-configuratie")
 
-10. In de **federatief Web SSO-configuratie** sectie, de volgende stappen uit:
+1. In de **federatief Web SSO-configuratie** sectie, de volgende stappen uit:
    
     ![Federatieve SSO-configuratie](./media/cisco-webex-tutorial/ic777623.png "federatieve SSO-configuratie")  
 
@@ -182,15 +182,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![De Azure Active Directory-knop](./media/cisco-webex-tutorial/create_aaduser_01.png)
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en selecteer vervolgens **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen**, en selecteer vervolgens **alle gebruikers**.
 
     !['Gebruikers en groepen' en 'Alle gebruikers' koppelingen](./media/cisco-webex-tutorial/create_aaduser_02.png)
 
-3. Om te openen de **gebruiker** in het dialoogvenster, selecteer **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
+1. Om te openen de **gebruiker** in het dialoogvenster, selecteer **toevoegen** aan de bovenkant van de **alle gebruikers** in het dialoogvenster.
 
     ![De knop toevoegen](./media/cisco-webex-tutorial/create_aaduser_03.png)
 
-4. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
+1. In de **gebruiker** dialoogvenster vak, voer de volgende stappen uit:
 
     ![Het dialoogvenster gebruiker](./media/cisco-webex-tutorial/create_aaduser_04.png)
 
@@ -210,11 +210,11 @@ Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden bij Cisco Webex, moeten
 
 1. Aanmelden bij uw **Cisco Webex** tenant.
 
-2. Ga naar **gebruikers beheren** > **gebruiker toevoegen**.
+1. Ga naar **gebruikers beheren** > **gebruiker toevoegen**.
    
     ![Gebruikers toevoegen](./media/cisco-webex-tutorial/ic777625.png "gebruikers toevoegen")
 
-3. In de **gebruiker toevoegen** sectie, de volgende stappen uit:
+1. In de **gebruiker toevoegen** sectie, de volgende stappen uit:
    
     ![Gebruiker toevoegen](./media/cisco-webex-tutorial/ic777626.png "gebruiker toevoegen")   
 
@@ -247,27 +247,27 @@ In deze sectie maakt inschakelen u de gebruiker Britta Simon Azure eenmalige aan
 
 1. Open de toepassingen in de Azure-portal. Volgende, gaat u naar de directoryweergave, en vervolgens naar **bedrijfstoepassingen**.  
 
-2. Selecteer **alle toepassingen**.
+1. Selecteer **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-3. Selecteer in de lijst met toepassingen, **Cisco Webex**.
+1. Selecteer in de lijst met toepassingen, **Cisco Webex**.
 
     ![De Cisco Webex-koppeling in de lijst met toepassingen](./media/cisco-webex-tutorial/tutorial_ciscowebex_app.png)  
 
-3. Selecteer in het menu aan de linkerkant, **gebruikers en groepen**.
+1. Selecteer in het menu aan de linkerkant, **gebruikers en groepen**.
 
     ![De koppeling 'Gebruikers en groepen'][202]
 
-4. Selecteer de **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** in het dialoogvenster.
+1. Selecteer de **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** in de **toevoegen toewijzing** in het dialoogvenster.
 
     ![Het deelvenster toewijzing toevoegen][203]
 
-5. In de **gebruikers en groepen** in het dialoogvenster, selecteer **Britta Simon** in de **gebruikers** lijst.
+1. In de **gebruikers en groepen** in het dialoogvenster, selecteer **Britta Simon** in de **gebruikers** lijst.
 
-6. In de **gebruikers en groepen** in het dialoogvenster, klikt u op de **Selecteer** knop.
+1. In de **gebruikers en groepen** in het dialoogvenster, klikt u op de **Selecteer** knop.
 
-7. Selecteer de **toewijzen** knop in de **toevoegen toewijzing** in het dialoogvenster.
+1. Selecteer de **toewijzen** knop in de **toevoegen toewijzing** in het dialoogvenster.
     
 ### <a name="test-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -280,7 +280,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->
 

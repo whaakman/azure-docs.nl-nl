@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/19/2018
+ms.date: 08/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3303050311a30473bb973ac4f49bbeb707c16a33
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 59c41d4303cad00107793f3c09382347fbb1fb5b
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173806"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480382"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Azure Event Grid-gebeurtenisschema voor abonnementen
 
@@ -36,7 +36,7 @@ Azure-abonnementen introduceren management gebeurtenissen van Azure Resource Man
 
 ## <a name="example-event"></a>Voorbeeld van de gebeurtenis
 
-Het volgende voorbeeld ziet u het schema van een resource gemaakt van gebeurtenis: 
+Het volgende voorbeeld ziet u het schema voor een **ResourceWriteSuccess** gebeurtenis. Hetzelfde schema wordt gebruikt voor **ResourceWriteFailure** en **ResourceWriteCancel** gebeurtenissen met verschillende waarden voor `eventType`.
 
 ```json
 [{
@@ -96,7 +96,7 @@ Het volgende voorbeeld ziet u het schema van een resource gemaakt van gebeurteni
 }]
 ```
 
-Het schema voor een gebeurtenis voor de resource is verwijderd, is vergelijkbaar:
+Het volgende voorbeeld ziet u het schema voor een **ResourceDeleteSuccess** gebeurtenis. Hetzelfde schema wordt gebruikt voor **ResourceDeleteFailure** en **ResourceDeleteCancel** gebeurtenissen met verschillende waarden voor `eventType`.
 
 ```json
 [{
@@ -184,7 +184,7 @@ Het gegevensobject heeft de volgende eigenschappen:
 | Autorisatie | object | De aangevraagde autorisatie voor de bewerking. |
 | claims | object | De eigenschappen van de claims. Zie voor meer informatie, [JWT-specificatie](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | tekenreeks | Een bewerking-ID voor het oplossen van problemen. |
-| httpRequest | object | De details van de bewerking. |
+| httpRequest | object | De details van de bewerking. Dit object is alleen opgenomen wanneer u een bestaande resource bijwerkt of een bron te verwijderen. |
 | resourceProvider | tekenreeks | De resourceprovider wanneer de bewerking wordt uitgevoerd. |
 | resourceUri | tekenreeks | De URI van de resource in de bewerking. |
 | operationName | tekenreeks | De bewerking die werd uitgevoerd. |

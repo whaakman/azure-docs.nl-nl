@@ -1,6 +1,6 @@
 ---
 title: Voorbeelden van Azure Event Hubs | Microsoft Docs
-description: Azure Event Hubs-voorbeelden
+description: Voorbeelden van Azure Event Hubs
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -12,63 +12,40 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2018
+ms.date: 07/17/2018
 ms.author: sethm
-ms.openlocfilehash: 9d2c38ac589e5120441daf972217e61738fd57a1
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 8e80587f7b3f6b0cb081fd963848c7aa3ab11e3e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131352"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431253"
 ---
-# <a name="event-hubs-samples"></a>Voorbeelden van Event Hubs 
+# <a name="event-hubs-samples"></a>Event Hubs-voorbeelden 
+U kunt voorbeelden voor Event Hubs vinden op [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Deze voorbeelden ziet u de belangrijkste functies in [Azure Event Hubs](/azure/event-hubs/). In dit artikel worden gecategoriseerd en een beschrijving van de voorbeelden die beschikbaar zijn, met koppelingen naar elk.
 
-De set van Azure Event Hubs-voorbeelden worden de belangrijkste functies in [Azure Event Hubs](/azure/event-hubs/). In dit artikel, ingedeeld en beschrijft de voorbeelden die beschikbaar is, met koppelingen naar elk.
+## <a name="net-samples"></a>.NET-voorbeelden
 
-Op het moment van schrijven van dit zijn voorbeelden van Event Hubs bevinden zich op verschillende plaatsen:
+| Voorbeeldnaam | Beschrijving | 
+| ----------- | ----------- | 
+| [SampleSender](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) | Dit voorbeeld laat zien hoe u een .NET Core-consoletoepassing die een reeks gebeurtenissen naar een event hub verzendt. |
+| [SampleEHReceiver](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) | Dit voorbeeld laat zien hoe u een .NET Core-consoletoepassing die een reeks gebeurtenissen vanaf een event hub ontvangt met behulp van de Event Processor Host-bibliotheek.  | 
 
-- [MSDN developer-codevoorbeelden](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
-- [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)
+## <a name="java-samples"></a>Java-voorbeelden
 
-Zie voor meer informatie over de verschillende versies van .NET Framework [Frameworks en doelen](/dotnet/articles/standard/frameworks).
-
-Meer voorbeelden worden toegevoegd na verloop van tijd, dus Kijk regelmatig op updates.
-
-## <a name="net-standard"></a>.NET Standard
-
-De volgende voorbeelden laten zien hoe u verzenden en ontvangen van gebeurtenissen met de [Event Hubs-client](https://github.com/Azure/azure-event-hubs-dotnet/blob/master/readme.md) voor de [standaard .NET-bibliotheek](/dotnet/articles/standard/library).
-
-### <a name="send-events"></a>Gebeurtenissen verzenden 
-
-De [verzenden aan de slag](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleSender) voorbeeld laat zien hoe u schrijft een .NET Core-consoletoepassing die gebeurtenissen naar een event hub verzendt.
-
-### <a name="receive-events"></a>Gebeurtenissen ontvangen 
-
-De [aan de slag met het Event Processor Host ontvangen](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/SampleEphReceiver) voorbeeld is een .NET Core-consoletoepassing die berichten ontvangt van een event hub met behulp van de Event Processor Host.
-
-## <a name="net-framework"></a>.NET framework   
-
-Deze voorbeelden demonstreren verschillende andere functies van Azure Event Hubs, die gericht is op de [.NET Framework-bibliotheek](/dotnet/framework/index).
- 
-### <a name="notify-users-of-events-received"></a>Waarschuw gebruikers van gebeurtenissen ontvangen
-
-De [AppToNotifyUsers](https://github.com/Azure-Samples/event-hubs-dotnet-user-notifications) voorbeeld waarschuwt gebruikers gegevens ontvangen van sensoren of andere systemen.
-
-### <a name="get-started-with-event-hubs"></a>Aan de slag met Event Hubs 
-
-De [Event Hubs aan de slag](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097) voorbeeld demonstreert essentiële mogelijkheden van Event Hubs, zoals het maken van een event hub, gebeurtenissen verzenden naar een event hub en gebruiken van gebeurtenissen met de [Gebeurtenisprocessorhost](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) .
-
-### <a name="scale-out-event-processing"></a>Verwerking van de gebeurtenis uitschalen 
-
-De [Scale-out gebeurtenisverwerking](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) voorbeeld laat zien hoe u de [Event Processor Host](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) voor het distribueren van de werkbelasting van Event Hubs stroom verbruik. Er wordt weergegeven hoe voor het implementeren van de **EventProcessor** en **EventProcessorFactory** objecten voor het beheren van de gebeurtenisstroom. 
+| Voorbeeldnaam | Beschrijving | 
+| ----------- | ----------- | 
+| [SendBatch](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SendBatch)  | In dit voorbeeld ziet hoe u voor het opnemen van batches van gebeurtenissen in uw event hub. | 
+| [SimpleSend](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend) | In dit voorbeeld ziet hoe u voor het opnemen van gebeurtenissen in uw event hub. |
+| [AdvanceSendOptions](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/AdvancedSendOptions) | In dit voorbeeld ziet de verschillende opties die beschikbaar zijn met Event Hubs om gebeurtenissen te nemen. |
+| [ReceiveByDateTime](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/ReceiveByDateTime) | In dit voorbeeld ziet hoe u gebeurtenissen ontvangen van een event hub-partitie met behulp van een specifieke datum / tijd offset. |
+| [ReceiveUsingOffset](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/ReceiveUsingOffset) | In dit voorbeeld ziet hoe u gebeurtenissen ontvangen van een event hub-partitie met behulp van een offset van het specifieke gegevens. |  
+| [ReceiveUsingSequenceNumber](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/ReceiveUsingSequenceNumber) | In dit voorbeeld laat zien hoe kunnen ontvangen van een event hub-partities met behulp van een volgnummer. |   
+| [EventProcessorSample](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/EventProcessorSample) |In dit voorbeeld ziet hoe u gebeurtenissen ontvangen van een event hub met behulp van de event processor host, waarmee automatische partitie selectie en failover over meerdere gelijktijdige ontvangers. | 
+| [AutoScaleOnIngress](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/AutoScaleOnIngress) | In dit voorbeeld ziet hoe een event hub kan automatisch opschalen op hoge belasting. Het voorbeeld verzendt gebeurtenissen met een snelheid die alleen groter zijn dan de geconfigureerde snelheid van een event hub, waardoor de event hub om omhoog te schalen. | 
+| [IngressBenchmark](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/IngressBenchmark) | In dit voorbeeld kunt meten van het tarief voor inkomend verkeer. | 
 
 ## <a name="next-steps"></a>Volgende stappen
-
-Meer informatie over de versies van .NET Framework via de volgende koppelingen:
-
-- [Frameworks en doelen](/dotnet/articles/standard/frameworks)
-- [.NET framework 4.6 en 4.5](/dotnet/framework/index)
-
 U kunt meer informatie over Event Hubs in de volgende artikelen:
 
 - [Event Hubs-overzicht](event-hubs-what-is-event-hubs.md)

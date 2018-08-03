@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/31/2018
 ms.author: saysa
-ms.openlocfilehash: 0de62b6fa05ccad1977e7d98a614e8d601409f5b
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: f381285d29d70d6f5da6a6cd319c682cd0c6a235
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390174"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444535"
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-applications"></a>Jenkins gebruiken om te bouwen en implementeren van uw Linux-toepassingen
 Jenkins is een populair hulpprogramma voor doorlopende integratie en implementatie van uw apps. Hier leest u hoe u een Azure Service Fabric-toepassing maakt en implementeert met behulp van Jenkins.
@@ -26,12 +26,12 @@ Jenkins is een populair hulpprogramma voor doorlopende integratie en implementat
 In dit artikel bevat informatie over verschillende manieren van het instellen van uw Jenkins-omgeving en de verschillende manieren voor het implementeren van uw toepassing in een Service Fabric-cluster nadat deze is gemaakt. Volg deze algemene stappen voor is Jenkins instellen, pull-wijzigingen vanuit GitHub, uw toepassing bouwen en deze implementeren in uw cluster:
 
 1. Zorg ervoor dat u installeert de [vereisten](#prerequisites).
-2. Volg de stappen in een van deze secties voor het instellen van Jenkins op:
+1. Volg de stappen in een van deze secties voor het instellen van Jenkins op:
    * [Jenkins instellen in een Service Fabric-cluster](#set-up-jenkins-inside-a-service-fabric-cluster), 
    * [Jenkins instellen buiten een Service Fabric-cluster](#set-up-jenkins-outside-a-service-fabric-cluster), of
    * [De Service Fabric-invoegtoepassing installeren in een bestaande Jenkins-omgeving](#install-service-fabric-plugin-in-an-existing-jenkins-environment).
-3. Wanneer u Jenkins hebt ingesteld, volgt u de stappen in [maken en configureren van een Jenkins-taak](#create-and-configure-a-jenkins-job) voor het instellen van GitHub trigger Jenkins wanneer wijzigingen worden aangebracht in uw toepassing en het configureren van uw Jenkins-taak pijplijn via de build-stap voor het ophalen van de verandert van GitHub en uw toepassing te bouwen. 
-4. Ten slotte, configureert u de Jenkins-taak na build-stap om uw toepassing in uw Service Fabric-cluster te implementeren. Er zijn twee manieren om Jenkins voor het implementeren van uw toepassing in een cluster te configureren:    
+1. Wanneer u Jenkins hebt ingesteld, volgt u de stappen in [maken en configureren van een Jenkins-taak](#create-and-configure-a-jenkins-job) voor het instellen van GitHub trigger Jenkins wanneer wijzigingen worden aangebracht in uw toepassing en het configureren van uw Jenkins-taak pijplijn via de build-stap voor het ophalen van de verandert van GitHub en uw toepassing te bouwen. 
+1. Ten slotte, configureert u de Jenkins-taak na build-stap om uw toepassing in uw Service Fabric-cluster te implementeren. Er zijn twee manieren om Jenkins voor het implementeren van uw toepassing in een cluster te configureren:    
    * Gebruik voor ontwikkel- en testomgevingen, [configureren van de implementatie met behulp van de cluster-beheereindpunt](#configure-deployment-using-cluster-management-endpoint). Dit is de eenvoudigste implementatiemethode om in te stellen.
    * Gebruik voor productie-omgevingen, [implementatie met behulp van Azure-referenties configureren](#configure-deployment-using-azure-credentials). Deze methode voor productieomgevingen wordt aangeraden omdat met de Azure-referenties kunt u de toegang van een Jenkins-taak beperken tot uw Azure-resources. 
 
@@ -81,10 +81,10 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
    cd jenkins-container-application
    ```
 
-3. De status van de Jenkins-container in een bestandsshare behouden:
+1. De status van de Jenkins-container in een bestandsshare behouden:
    1. Maak een Azure storage-account in de **dezelfde regio** als uw cluster met een naam, zoals `sfjenkinsstorage1`.
-   2. Maak een **bestandsshare** onder de storage-Account met een naam, zoals `sfjenkins`.
-   3. Klik op **Connect** voor de bestandsshare en noteer de waarden wordt weergegeven onder **verbinding maken vanaf Linux**, de waarde moet er ongeveer als volgt uit:
+   1. Maak een **bestandsshare** onder de storage-Account met een naam, zoals `sfjenkins`.
+   1. Klik op **Connect** voor de bestandsshare en noteer de waarden wordt weergegeven onder **verbinding maken vanaf Linux**, de waarde moet er ongeveer als volgt uit:
 
       ```sh
       sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
@@ -94,14 +94,14 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
    > Om te koppelen, cifs shares moet u beschikken over de cifs-utils-pakket geïnstalleerd op de clusterknooppunten.      
    >
 
-4. Bijwerken van de tijdelijke aanduiding voor waarden in de `setupentrypoint.sh` script met de details van de azure-opslag van stap 2.
+1. Bijwerken van de tijdelijke aanduiding voor waarden in de `setupentrypoint.sh` script met de details van de azure-opslag van stap 2.
    ```sh
    vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
    ```
    * Vervang `[REMOTE_FILE_SHARE_LOCATION]` met de waarde `//sfjenkinsstorage1.file.core.windows.net/sfjenkins` uit de uitvoer van de verbinding te maken in stap 2 hierboven.
    * Vervang `[FILE_SHARE_CONNECT_OPTIONS_STRING]` met de waarde `vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777` uit stap 2 hierboven.
 
-5. **Alleen beveiligd Cluster:** 
+1. **Alleen beveiligd Cluster:** 
    
    Voor het configureren van de implementatie van toepassingen op een beveiligde cluster op basis van Jenkins, moet het clustercertificaat toegankelijk zijn in de Jenkins-container. In de *ApplicationManifest.xml* bestand, onder de **ContainerHostPolicies** tag deze certificaatverwijzing toevoegen en bijwerken van de vingerafdrukwaarde met die van het clustercertificaat.
 
@@ -117,7 +117,7 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
    </Certificates> 
    ```
 
-6. Verbinding maken met het cluster en de containertoepassing installeren.
+1. Verbinding maken met het cluster en de containertoepassing installeren.
 
    **Cluster beveiligen**
    ```sh
@@ -141,13 +141,13 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
    > Het duurt enkele minuten voor de Jenkins-installatiekopie moet worden gedownload op het cluster.
    >
 
-7. Ga in uw browser naar `http://PublicIPorFQDN:8081`. Hier vindt u het pad naar het eerste beheerderswachtwoord dat nodig is om u aan te melden. 
-2. Bekijk de Service Fabric Explorer om te bepalen op welk knooppunt de Jenkins-container wordt uitgevoerd. Secure Shell (SSH) aanmelden bij dit knooppunt.
+1. Ga in uw browser naar `http://PublicIPorFQDN:8081`. Hier vindt u het pad naar het eerste beheerderswachtwoord dat nodig is om u aan te melden. 
+1. Bekijk de Service Fabric Explorer om te bepalen op welk knooppunt de Jenkins-container wordt uitgevoerd. Secure Shell (SSH) aanmelden bij dit knooppunt.
    ```sh
    ssh user@PublicIPorFQDN -p [port]
    ``` 
-3. Haal de exemplaar-id van de container op met `docker ps -a`.
-4. Secure Shell (SSH) aanmelden bij de container en plak het pad dat u is getoond in de Jenkins-portal. Bijvoorbeeld, als in de portal wordt het pad `PATH_TO_INITIAL_ADMIN_PASSWORD`, voer de volgende opdrachten uit:
+1. Haal de exemplaar-id van de container op met `docker ps -a`.
+1. Secure Shell (SSH) aanmelden bij de container en plak het pad dat u is getoond in de Jenkins-portal. Bijvoorbeeld, als in de portal wordt het pad `PATH_TO_INITIAL_ADMIN_PASSWORD`, voer de volgende opdrachten uit:
 
    ```sh
    docker exec -t -i [first-four-digits-of-container-ID] /bin/bash   # This takes you inside Docker shell
@@ -155,8 +155,8 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
    ```sh
    cat PATH_TO_INITIAL_ADMIN_PASSWORD # This displays the password value
    ```
-5. Kies op de pagina Jenkins aan de slag, de optie invoegtoepassingen voor de installatie-optie, selecteert u de **geen** selectievakje en klik op installeren.
-6. Een gebruiker maken of selecteren om door te gaan als een beheerder.
+1. Kies op de pagina Jenkins aan de slag, de optie invoegtoepassingen voor de installatie-optie, selecteert u de **geen** selectievakje en klik op installeren.
+1. Een gebruiker maken of selecteren om door te gaan als een beheerder.
 
 Nadat u Jenkins hebt ingesteld, gaat u verder met [maken en configureren van een Jenkins-taak](#create-and-configure-a-jenkins-job).  
 
@@ -176,23 +176,23 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. In de volg
 
 ### <a name="steps"></a>Stappen
 1. Haal de Service Fabric Jenkins container-installatiekopie op: `docker pull rapatchi/jenkins:latest`. Deze installatiekopie wordt geleverd met de Service Fabric Jenkins-invoegtoepassing die vooraf is geïnstalleerd.
-2. Voer de installatiekopie van de container uit: `docker run -itd -p 8080:8080 rapatchi/jenkins:latest`
-3. Haal de id op van het exemplaar van de installatiekopie van de container. U kunt een lijst van alle Docker-containers bekijken met de opdracht `docker ps –a`
-4. Meld u aan bij de Jenkins-portal met de volgende stappen uit:
+1. Voer de installatiekopie van de container uit: `docker run -itd -p 8080:8080 rapatchi/jenkins:latest`
+1. Haal de id op van het exemplaar van de installatiekopie van de container. U kunt een lijst van alle Docker-containers bekijken met de opdracht `docker ps –a`
+1. Meld u aan bij de Jenkins-portal met de volgende stappen uit:
 
    1. Meld u op uw host bij een Jenkins-shell. Gebruik de eerste vier cijfers van de container-ID. Bijvoorbeeld, als de container-ID is `2d24a73b5964`, gebruikt u `2d24`.
 
       ```sh
       docker exec -it [first-four-digits-of-container-ID] /bin/bash
       ```
-   2. Haal het beheerderswachtwoord voor uw container instance van de Jenkins-shell:
+   1. Haal het beheerderswachtwoord voor uw container instance van de Jenkins-shell:
 
       ```sh
       cat /var/jenkins_home/secrets/initialAdminPassword
       ```      
-   3. Als u wilt aanmelden bij de Jenkins-dashboard, opent u de volgende URL in een webbrowser: `http://<HOST-IP>:8080`. Gebruik het wachtwoord van de vorige stap voor het ontgrendelen van Jenkins.
-   4. (Optioneel.) Nadat u zich hebt aangemeld voor de eerste keer, u kunt uw eigen gebruikersaccount maken en gebruiken die voor de volgende stappen uit of u kunt echter ook doorgaan met het administrator-account. Als u een gebruiker maakt, moet u om door te gaan met die gebruiker.
-5. Stel GitHub in voor Jenkins met behulp van de stappen in [een nieuwe SSH-sleutel genereren en toe te voegen aan de SSH-agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
+   1. Als u wilt aanmelden bij de Jenkins-dashboard, opent u de volgende URL in een webbrowser: `http://<HOST-IP>:8080`. Gebruik het wachtwoord van de vorige stap voor het ontgrendelen van Jenkins.
+   1. (Optioneel.) Nadat u zich hebt aangemeld voor de eerste keer, u kunt uw eigen gebruikersaccount maken en gebruiken die voor de volgende stappen uit of u kunt echter ook doorgaan met het administrator-account. Als u een gebruiker maakt, moet u om door te gaan met die gebruiker.
+1. Stel GitHub in voor Jenkins met behulp van de stappen in [een nieuwe SSH-sleutel genereren en toe te voegen aan de SSH-agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
    * Volg de instructies van GitHub om de SSH-sleutel te genereren en deze toe te voegen aan het GitHub-account waarop de opslagplaats wordt gehost.
    * Voer de opdrachten die in de vorige koppeling zijn genoemd, uit in de Jenkins Docker-shell (en niet op uw host).
    * Gebruik de volgende opdracht om u vanaf uw host aan te melden bij de Jenkins-shell:
@@ -210,13 +210,13 @@ Nadat u Jenkins hebt ingesteld, Ga verder met de volgende sectie, [maken en conf
 De stappen in deze sectie laten zien hoe u een Jenkins-taak om te reageren op wijzigingen in een GitHub-opslagplaats, worden de wijzigingen opgehaald en bouwt u ze configureren. Aan het einde van deze sectie, bent u omgeleid naar de laatste stappen voor het configureren van de taak voor het implementeren van uw toepassing op basis van of u een omgeving voor ontwikkelen/testen of in een productieomgeving implementeert. 
 
 1. Klik op het dashboard van Jenkins **Nieuw Item**.
-2. Voer een itemnaam in (bijvoorbeeld **MyJob**). Selecteer **free-style project** en klik op **OK**.
-3. De configuratiepagina van de taak wordt geopend. (Als u de configuratie in de Jenkins-dashboard, klikt u op de taak en klik vervolgens op **configureren**).
+1. Voer een itemnaam in (bijvoorbeeld **MyJob**). Selecteer **free-style project** en klik op **OK**.
+1. De configuratiepagina van de taak wordt geopend. (Als u de configuratie in de Jenkins-dashboard, klikt u op de taak en klik vervolgens op **configureren**).
 
-4. Op de **algemene** tabblad, schakel het selectievakje voor **GitHub-project**, en geef de URL van uw GitHub-project. Dit is de URL waarop de Service Fabric Java-toepassing wordt gehost die u wilt integreren met de CI-/CD-stroom van Jenkins (Continue integratie, Continue implementatie), bijvoorbeeld `https://github.com/{your-github-account}/service-fabric-java-getting-started`.
+1. Op de **algemene** tabblad, schakel het selectievakje voor **GitHub-project**, en geef de URL van uw GitHub-project. Dit is de URL waarop de Service Fabric Java-toepassing wordt gehost die u wilt integreren met de CI-/CD-stroom van Jenkins (Continue integratie, Continue implementatie), bijvoorbeeld `https://github.com/{your-github-account}/service-fabric-java-getting-started`.
 
-5. Op de **Source Code Management** tabblad **Git**. Geef de opslagplaats-URL op waarop de Service Fabric Java-toepassing wordt gehost die u wilt integreren met de CI-/CD-stroom van Jenkins, bijvoorbeeld `https://github.com/{your-github-account}/service-fabric-java-getting-started`. U kunt ook opgeven welke vertakking u wilt maken (bijvoorbeeld `/master`).
-6. Configureer uw *GitHub* opslagplaats om te communiceren met Jenkins:
+1. Op de **Source Code Management** tabblad **Git**. Geef de opslagplaats-URL op waarop de Service Fabric Java-toepassing wordt gehost die u wilt integreren met de CI-/CD-stroom van Jenkins, bijvoorbeeld `https://github.com/{your-github-account}/service-fabric-java-getting-started`. U kunt ook opgeven welke vertakking u wilt maken (bijvoorbeeld `/master`).
+1. Configureer uw *GitHub* opslagplaats om te communiceren met Jenkins:
 
    a. Ga op de pagina van uw GitHub-opslagplaats naar **instellingen** > **integraties en Services**.
 
@@ -226,8 +226,8 @@ De stappen in deze sectie laten zien hoe u een Jenkins-taak om te reageren op wi
 
    d. Er wordt een testgebeurtenis verzonden naar uw Jenkins-exemplaar. Er komt een groen vinkje bij de webhook te staan in GitHub en uw project wordt gemaakt.
 
-7. Op de **Triggers bouwen** tabblad in Jenkins, selecteert u welke optie u wilt. In dit voorbeeld die u wilt een build activeren wanneer er een push naar de opslagplaats, dus selecteer **GitHub-hookactivatie voor GITScm-polling**. (Voorheen heette deze optie **Build when a change is pushed to GitHub**.)
-8. Op de **bouwen** tabblad, doe het volgende, afhankelijk van of u een Java-toepassing of een .NET Core-App bouwt:
+1. Op de **Triggers bouwen** tabblad in Jenkins, selecteert u welke optie u wilt. In dit voorbeeld die u wilt een build activeren wanneer er een push naar de opslagplaats, dus selecteer **GitHub-hookactivatie voor GITScm-polling**. (Voorheen heette deze optie **Build when a change is pushed to GitHub**.)
+1. Op de **bouwen** tabblad, doe het volgende, afhankelijk van of u een Java-toepassing of een .NET Core-App bouwt:
 
    * **Voor Java-toepassingen:** uit de **build-stap toevoegen** Vervolgkeuzelijst, selecteer **Invoke Gradle Script**. Klik op **geavanceerde**. Geef het pad naar in het menu Geavanceerd **hoofdscript** voor uw toepassing. Het haalt build.gradle op uit het opgegeven pad en werkt dienovereenkomstig. Voor de [ActorCounter toepassing](https://github.com/Azure-Samples/service-fabric-java-getting-started/tree/master/reliable-services-actor-sample/Actors/ActorCounter), dit is: `${WORKSPACE}/reliable-services-actor-sample/Actors/ActorCounter`.
 
@@ -244,7 +244,7 @@ De stappen in deze sectie laten zien hoe u een Jenkins-taak om te reageren op wi
 
       ![Service Fabric Jenkins Build-actie][build-step-dotnet]
 
-9. Voor het configureren van Jenkins voor het implementeren van uw app in een Service Fabric-cluster in de acties na bouwen, moet u de locatie van het certificaat van het cluster in uw Jenkins-container. Kies een van de volgende, afhankelijk van of uw Jenkins-container wordt uitgevoerd binnen of buiten uw cluster en noteer de locatie van het clustercertificaat:
+1. Voor het configureren van Jenkins voor het implementeren van uw app in een Service Fabric-cluster in de acties na bouwen, moet u de locatie van het certificaat van het cluster in uw Jenkins-container. Kies een van de volgende, afhankelijk van of uw Jenkins-container wordt uitgevoerd binnen of buiten uw cluster en noteer de locatie van het clustercertificaat:
 
    * **Voor Jenkins uitgevoerd binnen het cluster:** het pad naar het certificaat kan worden gevonden door de waarde van deze echo de *Certificates_JenkinsOnSF_Code_MyCert_PEM* omgevingsvariabele uit in de container.
 
@@ -265,8 +265,8 @@ De stappen in deze sectie laten zien hoe u een Jenkins-taak om te reageren op wi
          openssl pkcs12 -in clustercert.pfx -out clustercert.pem -nodes -passin pass:MyPassword1234!
          ``` 
 
-      2. Als u de container-ID voor uw Jenkins-container, uitgevoerd `docker ps` vanaf uw host.
-      3. Kopieer het PEM-bestand naar de container met de volgende Docker-opdracht:
+      1. Als u de container-ID voor uw Jenkins-container, uitgevoerd `docker ps` vanaf uw host.
+      1. Kopieer het PEM-bestand naar de container met de volgende Docker-opdracht:
     
          ```sh
          docker cp clustercert.pem [first-four-digits-of-container-ID]:/var/jenkins_home
@@ -281,15 +281,15 @@ U bent bijna klaar! Houd de Jenkins-taak geopend. De enige resterende taak besta
 U kunt het eindpunt voor Clusterbeheer voor ontwikkel- en testomgevingen gebruiken om uw toepassing te implementeren. Configureren van de actie na bouwen met het eindpunt voor Clusterbeheer om uw toepassing te implementeren, moet instellen zo min mogelijk. Als u in een productieomgeving implementeert, verder naar [implementatie met behulp van Azure-referenties configureren](#configure-deployment-using-azure-credentials) het configureren van een service-principal voor Azure Active Directory om te gebruiken tijdens de implementatie.    
 
 1. Klik in de Jenkins-taak op de **acties na bouwen** tabblad. 
-2. Selecteer in de vervolgkeuzelijst **Post-Build Actions** de optie **Post-Build Actions**. 
-3. Onder **configuratie van Service Fabric-Cluster**, selecteer de **vult u de Service Fabric-Beheereindpunt** keuzerondje.
-4. Voor **Management Host**, voer het verbindingseindpunt voor uw cluster; bijvoorbeeld `{your-cluster}.eastus.cloudapp.azure.com`.
-5. Voor **Clientsleutel** en **clientcertificaat**, geef de locatie van het PEM-bestand in uw Jenkins-container; bijvoorbeeld `/var/jenkins_home/clustercert.pem`. (U hebt de laatste stap van de locatie van het certificaat gekopieerd [maken en configureren van een Jenkins-taak](#create-and-configure-a-jenkins-job).)
-6. Onder **Toepassingsconfiguratie**, configureer de **toepassingsnaam**, **toepassingstype**, en de (relatief) **pad naar het Manifest van de toepassing** velden.
+1. Selecteer in de vervolgkeuzelijst **Post-Build Actions** de optie **Post-Build Actions**. 
+1. Onder **configuratie van Service Fabric-Cluster**, selecteer de **vult u de Service Fabric-Beheereindpunt** keuzerondje.
+1. Voor **Management Host**, voer het verbindingseindpunt voor uw cluster; bijvoorbeeld `{your-cluster}.eastus.cloudapp.azure.com`.
+1. Voor **Clientsleutel** en **clientcertificaat**, geef de locatie van het PEM-bestand in uw Jenkins-container; bijvoorbeeld `/var/jenkins_home/clustercert.pem`. (U hebt de laatste stap van de locatie van het certificaat gekopieerd [maken en configureren van een Jenkins-taak](#create-and-configure-a-jenkins-job).)
+1. Onder **Toepassingsconfiguratie**, configureer de **toepassingsnaam**, **toepassingstype**, en de (relatief) **pad naar het Manifest van de toepassing** velden.
 
    ![Service Fabric Jenkins na Build-actie configureren beheereindpunt](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-endpoint.png)
 
-7. Klik op **configuratie controleren**. Klik op een geslaagde verificatie **opslaan**. De pijplijn van uw Jenkins-taak is nu volledig geconfigureerd. Gaat u verder met [Vervolgstappen](#next-steps) om uw implementatie te testen.
+1. Klik op **configuratie controleren**. Klik op een geslaagde verificatie **opslaan**. De pijplijn van uw Jenkins-taak is nu volledig geconfigureerd. Gaat u verder met [Vervolgstappen](#next-steps) om uw implementatie te testen.
 
 ## <a name="configure-deployment-using-azure-credentials"></a>Implementatie met behulp van Azure-referenties configureren
 Voor productieomgevingen, wordt configureren van een Azure-referentie voor het implementeren van uw toepassing sterk aanbevolen. In deze sectie leest u hoe het configureren van een Azure Active Directory-service-principal te gebruiken voor het implementeren van uw toepassing in de actie na bouwen. U kunt service-principals toewijzen aan rollen in uw directory om te beperken van de machtigingen van de Jenkins-taak. 
@@ -303,26 +303,26 @@ Voor ontwikkel- en testomgevingen, kunt u Azure-referenties of het eindpunt voor
    * In de [maken van een Azure Active Directory-toepassing](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#create-an-azure-active-directory-application) sectie, kunt u een goed ingedeelde URL voor de **aanmeldings-URL**.
    * In de [toepassing toewijzen aan een rol](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) sectie, kunt u uw toepassing de *lezer* -rol op de resourcegroep voor uw cluster.
 
-2. Klik in de Jenkins-taak op de **acties na bouwen** tabblad.
-3. Selecteer in de vervolgkeuzelijst **Post-Build Actions** de optie **Post-Build Actions**. 
-4. Onder **configuratie van Service Fabric-Cluster**, selecteer de **selecteert u de Service Fabric-Cluster** keuzerondje. Klik op **toevoegen** naast **Azure Credentials**. Klik op **Jenkins** om de Jenkins-referenties-Provider te selecteren.
-5. Selecteer in de Provider van de Jenkins-referenties, **Microsoft Azure Service-Principal** uit de **soort** vervolgkeuzelijst.
-6. Gebruik de waarden die u hebt opgeslagen bij het instellen van uw service-principal in stap 1 om het instellen van de volgende velden:
+1. Klik in de Jenkins-taak op de **acties na bouwen** tabblad.
+1. Selecteer in de vervolgkeuzelijst **Post-Build Actions** de optie **Post-Build Actions**. 
+1. Onder **configuratie van Service Fabric-Cluster**, selecteer de **selecteert u de Service Fabric-Cluster** keuzerondje. Klik op **toevoegen** naast **Azure Credentials**. Klik op **Jenkins** om de Jenkins-referenties-Provider te selecteren.
+1. Selecteer in de Provider van de Jenkins-referenties, **Microsoft Azure Service-Principal** uit de **soort** vervolgkeuzelijst.
+1. Gebruik de waarden die u hebt opgeslagen bij het instellen van uw service-principal in stap 1 om het instellen van de volgende velden:
 
    * **Client-ID**: *toepassings-ID*
    * **Clientgeheim**: *Toepassingssleutel*
    * **Tenant-ID**: *map-ID*
    * **Abonnements-ID**: *abonnements-ID*
-6. Voer een beschrijvende **ID** dat u gebruikt om te selecteren van de referentie in Jenkins en een korte **beschrijving**. Klik vervolgens op **Service-Principal verifiëren**. Als de verificatie slaagt, klikt u op **toevoegen**.
+1. Voer een beschrijvende **ID** dat u gebruikt om te selecteren van de referentie in Jenkins en een korte **beschrijving**. Klik vervolgens op **Service-Principal verifiëren**. Als de verificatie slaagt, klikt u op **toevoegen**.
 
    ![Service Fabric Jenkins opgeven Azure-referenties](./media/service-fabric-cicd-your-linux-application-with-jenkins/enter-azure-credentials.png)
-7. Onder **configuratie van Service Fabric-Cluster**, zorg ervoor dat uw nieuwe referentie is geselecteerd voor **Azure Credentials**. 
-8. Uit de **resourcegroep** vervolgkeuzelijst, selecteer de resourcegroep van het cluster dat u wilt de toepassing te implementeren.
-9. Uit de **Service Fabric** vervolgkeuzelijst, selecteert u het cluster dat u wilt de toepassing te implementeren.
-10. Voor **Clientsleutel** en **clientcertificaat**, geef de locatie van het PEM-bestand in uw Jenkins-container. Bijvoorbeeld `/var/jenkins_home/clustercert.pem`. 
-11. Onder **Toepassingsconfiguratie**, configureer de **toepassingsnaam**, **toepassingstype**, en de (relatief) **pad naar het Manifest van de toepassing** velden.
+1. Onder **configuratie van Service Fabric-Cluster**, zorg ervoor dat uw nieuwe referentie is geselecteerd voor **Azure Credentials**. 
+1. Uit de **resourcegroep** vervolgkeuzelijst, selecteer de resourcegroep van het cluster dat u wilt de toepassing te implementeren.
+1. Uit de **Service Fabric** vervolgkeuzelijst, selecteert u het cluster dat u wilt de toepassing te implementeren.
+1. Voor **Clientsleutel** en **clientcertificaat**, geef de locatie van het PEM-bestand in uw Jenkins-container. Bijvoorbeeld `/var/jenkins_home/clustercert.pem`. 
+1. Onder **Toepassingsconfiguratie**, configureer de **toepassingsnaam**, **toepassingstype**, en de (relatief) **pad naar het Manifest van de toepassing** velden.
     ![Service Fabric Jenkins na Build-actie configureren Azure-referenties](./media/service-fabric-cicd-your-linux-application-with-jenkins/post-build-credentials.png)
-12. Klik op **configuratie controleren**. Klik op een geslaagde verificatie **opslaan**. De pijplijn van uw Jenkins-taak is nu volledig geconfigureerd. Gaat u naar [Vervolgstappen](#next-steps) om uw implementatie te testen.
+1. Klik op **configuratie controleren**. Klik op een geslaagde verificatie **opslaan**. De pijplijn van uw Jenkins-taak is nu volledig geconfigureerd. Gaat u naar [Vervolgstappen](#next-steps) om uw implementatie te testen.
 
 ## <a name="troubleshooting-the-jenkins-plugin"></a>De Jenkins-invoegtoepassing oplossen
 

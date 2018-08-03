@@ -17,27 +17,27 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: f591898dbe40d2756d5797636ca529c359959f92
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 81626cac41b1733f49e7fe1254c6b2bf8f5281cb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36317072"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442279"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Azure Active Directory-verificatieprotocollen
-Azure Active Directory (Azure AD) ondersteunt verschillende van de meest gebruikte protocollen voor verificatie en autorisatie. De onderwerpen in deze sectie beschrijven de ondersteunde protocollen en de toepassing in Azure AD. De onderwerpen opgenomen van een overzicht van ondersteunde claimtypen, een inleiding tot het gebruik van federatiemetagegevens, gedetailleerde OAuth 2.0. en naslagdocumentatie SAML 2.0-protocol en een gedeelte voor probleemoplossing.
+Azure Active Directory (Azure AD) biedt ondersteuning voor diverse van de meest gebruikte protocollen voor verificatie en autorisatie. De onderwerpen in deze sectie beschrijven de ondersteunde protocollen en hun implementatie in Azure AD. De onderwerpen een overzicht van ondersteunde claimtypen, een inleiding tot het gebruik van federatiemetagegevens opgenomen, gedetailleerde OAuth 2.0. en naslagdocumentatie van SAML 2.0-protocol, en een gedeelte voor probleemoplossing.
 
-## <a name="authentication-protocols-articles-and-reference"></a>Verificatieprotocollen artikelen en verwijzing
-* [Belangrijke informatie over het ondertekenen van sleutel Rollover in Azure AD](active-directory-signing-key-rollover.md) : meer informatie over het ondertekenen van Azure AD sleutelrollover uitgebracht, wijzigingen kunt u de sleutel automatisch bijwerken en beschrijving voor het bijwerken van de meest voorkomende scenario's van toepassing.
-* [Ondersteund Token en claimtypen](active-directory-token-and-claims.md) -meer informatie over de claims in de tokens die Azure AD geeft.
-* [Federatiemetagegevens](active-directory-federation-metadata.md) -informatie over het vinden en het interpreteren van de metagegevens van documenten die Azure AD wordt gegenereerd.
+## <a name="authentication-protocols-articles-and-reference"></a>Verificatieprotocollen artikelen en referentie
+* [Belangrijke informatie over de ondertekening van sleutelrollover in Azure AD](active-directory-signing-key-rollover.md) : meer informatie over het ondertekenen van Azure AD proces, wijzigingen kunt u de sleutel automatisch bijgewerkt en beschrijving voor het bijwerken van de meest voorkomende toepassingsscenario's.
+* [Ondersteunde Token- en claimtypen](active-directory-token-and-claims.md) -meer informatie over de claims in de tokens die problemen met Azure AD.
+* [Federatiemetagegevens](active-directory-federation-metadata.md) -informatie over het vinden en interpreteren van de metagegevens van documenten die Azure AD wordt gegenereerd.
 * [OAuth 2.0 in Azure AD](active-directory-protocols-oauth-code.md) -meer informatie over de implementatie van OAuth 2.0 in Azure AD.
-* [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) -informatie over het gebruik van OAuth 2.0, een protocol autorisatie voor verificatie.
-* [Service-Service aanroepen met referenties Client](active-directory-protocols-oauth-service-to-service.md) -informatie over het gebruik van OAuth 2.0 grant clientreferentiestroom voor service-service aanroepen.
-* [Service-Service aanroepen met On-Behalf-Of stroom](active-directory-protocols-oauth-on-behalf-of.md) -informatie over het gebruik van OAuth 2.0 On-Behalf-Of stroom voor service-service aanroepen.
-* [Naslaginformatie over het SAML-Protocol](active-directory-saml-protocol-reference.md) -meer informatie over de profielen voor eenmalige aanmelding en één Sign-out SAML van Azure AD.
+* [OpenID Connect 1.0](active-directory-protocols-openid-connect-code.md) -informatie over het gebruik van OAuth 2.0, een autorisatieprotocol, voor verificatie.
+* [Service-to-Service aanroepen met referenties Client](active-directory-protocols-oauth-service-to-service.md) -informatie over het gebruik van OAuth 2.0 verlenen clientreferentiestroom voor service-naar-serviceaanroepen.
+* [Service-to-Service aanroepen met de namens-stroom](active-directory-protocols-oauth-on-behalf-of.md) -informatie over het gebruik van OAuth 2.0 namens-stroom voor service-naar-serviceaanroepen.
+* [Naslaginformatie over de SAML-Protocol](active-directory-saml-protocol-reference.md) -meer informatie over de profielen Single Sign-On en SAML voor eenmalige afmelding van Azure AD.
 
 ## <a name="see-also"></a>Zie ook
-[Ontwikkelaarshandleiding Azure Active Directory](active-directory-developers-guide.md)
+[Ontwikkelaarshandleiding voor Azure Active Directory](azure-ad-developers-guide.md)
 
 [Active Directory-codevoorbeelden](active-directory-code-samples.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/10/2018
 ms.author: terrylan
-ms.openlocfilehash: 832998a6028a8977b43e343ed778cc0b60388728
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8f1c6aa2e691a11e8920db8ca8bfdef5b8eb61b9
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38561361"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39434187"
 ---
 # <a name="threat-intelligence-in-azure-security-center"></a>Bedreigingsinformatie in Azure Security Center
 In dit artikel wordt uitgelegd hoe u bedreigingsinformatie van Azure Security Center gebruikt voor het aanpakken van beveiligingsproblemen.
@@ -50,22 +50,22 @@ Als u de huidige bedreigingsinformatie voor uw omgeving wilt visualiseren, moet 
 
 1. Open het dashboard van **Security Center**.
 
-2. In het linkerdeelvenster onder **Threat Protection** Selecteer **Bedreigingsinformatie**. Een kaart wordt geopend.
+1. In het linkerdeelvenster onder **Threat Protection** Selecteer **Bedreigingsinformatie**. Een kaart wordt geopend.
 
     ![Bedreigingsinformatiekaart](./media/security-center-threat-intel/security-center-threat-intel.png)
 
-3. Selecteer aan de bovenkant van de kaart **klassieke bedreigingsinformatie weer**. De **Bedreigingsinformatie** dashboard wordt geopend.
+1. Selecteer aan de bovenkant van de kaart **klassieke bedreigingsinformatie weer**. De **Bedreigingsinformatie** dashboard wordt geopend.
 
     ![Het dashboard Bedreigingsinformatie](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
 
     > [!NOTE]
     > Als in de meest rechtse kolom de tekst **UPGRADE ABONNEMENT** staat, is deze werkruimte gekoppeld aan het gratis abonnement. Voer een upgrade naar de Standard-versie uit om deze functie te gebruiken. Als in de meest rechtse kolom **VEREIST UPDATE** staat, moet u [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) bijwerken om deze functie te gebruiken. Lees Prijzen van Azure Security Center voor meer informatie over de prijzen.
     >
-3. Als er meer dan één werkruimte is om te onderzoeken, bepaalt u de prioriteit van het onderzoek via de kolom **Schadelijk IP**. Hier ziet u het huidige aantal schadelijke IP-adressen in deze werkruimte. Selecteer de werkruimte die u wilt gebruiken. Het dashboard **Bedreigingsinformatie** wordt nu weergegeven.
+1. Als er meer dan één werkruimte is om te onderzoeken, bepaalt u de prioriteit van het onderzoek via de kolom **Schadelijk IP**. Hier ziet u het huidige aantal schadelijke IP-adressen in deze werkruimte. Selecteer de werkruimte die u wilt gebruiken. Het dashboard **Bedreigingsinformatie** wordt nu weergegeven.
 
     ![Bedreigingsinformatie](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
-4. Het dashboard is onderverdeeld in vier tegels:
+1. Het dashboard is onderverdeeld in vier tegels:
 
     a.  **Bedreigingstypen**. Hier ziet u een overzicht van het type bedreigingen dat in de geselecteerde werkruimte is gedetecteerd.
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 07/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: f954bc3be01d7ac1698e21ac3e3f038fe931541d
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: b6547bee13d039dcd34377565eb518eeb6739a38
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325476"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480898"
 ---
 # <a name="what-is-azure-load-balancer"></a>Wat is Azure Load Balancer?
 
@@ -133,7 +133,7 @@ Zie voor meer informatie, [Servicelimieten voor Load Balancer](https://aka.ms/lb
 
 Een openbare load balancer wijst het openbare IP-adres en poort nummer van het binnenkomende verkeer naar het privé IP-adres en poort nummer van de virtuele machine, en vice versa voor de antwoordverkeer van de virtuele machine. Door het toepassen van regels voor taakverdeling, kunt u specifieke soorten verkeer verdelen over meerdere virtuele machines of services. U kunt bijvoorbeeld de belasting van de aanvraag webverkeer verdeeld over meerdere webservers.
 
-De volgende afbeelding ziet u een load balancing-eindpunt voor webverkeer te genereren die wordt gedeeld door drie virtuele machines voor de openbare en persoonlijke TCP-poort 80. Deze drie VM's zijn in een load balancer-set.
+De volgende afbeelding ziet u een load balancing-eindpunt voor webverkeer te genereren die wordt gedeeld door drie virtuele machines voor de openbare en TCP-poort 80. Deze drie VM's zijn in een load balancer-set.
 
 ![Voorbeeld van de openbare load balancer](./media/load-balancer-overview/IC727496.png)
 

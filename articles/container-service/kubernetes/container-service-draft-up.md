@@ -1,5 +1,5 @@
 ---
-title: Concept gebruiken met Azure Containerservice en Azure Container register
+title: Draft gebruiken met Azure Containerservice en Azure Container Registry
 description: Maak een ACS Kubernetes-cluster en een Azure Container Registry om uw eerste toepassing met Draft te maken in Azure.
 services: container-service
 author: squillace
@@ -9,11 +9,12 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 68ad44bae0856ff000f2847049a15a946d83c0a3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c635a869506918ab7ee032df349eb307987c1284
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432276"
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Draft gebruiken met Azure Container Service en Azure Container Registry om een Kubernetes-toepassing te bouwen en implementeren
 
@@ -21,7 +22,7 @@ ms.lasthandoff: 04/28/2018
 
 [Draft](https://aka.ms/draft) is een nieuw open-source hulpprogramma waarmee u eenvoudig containertoepassingen kunt ontwikkelen en ze kunt implementeren in Kubernetes-clusters. U hoeft hiervoor niet veel te weten over Docker en Kubernetes (u hoeft ze zelfs niet eens te installeren!). Als u een hulpprogramma als Draft gebruikt, kunnen u en uw team zich richten op het bouwen van de toepassing met Kubernetes en hoeft er minder aandacht te worden besteed aan de infrastructuur.
 
-U kunt Draft gebruiken met alle Docker-installatiekopieregisters en alle Kubernetes-clusters, ook de lokale. Deze zelfstudie laat zien hoe u ACS met Kubernetes en ACR maken van een live, maar veilig developer-pijplijn in Kubernetes concept met en het gebruik van Azure DNS te kunnen stellen dat ontwikkelaars pijplijn voor anderen kunnen zien in een ander domein.
+U kunt Draft gebruiken met alle Docker-installatiekopieregisters en alle Kubernetes-clusters, ook de lokale. Deze zelfstudie leert u hoe u ACS met Kubernetes en ACR voor het maken van een live, maar veilig developer-pijplijn in Kubernetes met Draft en het gebruik van Azure DNS om beschikbaar te stellen die anderen kunnen zien in een domein-ontwikkelingspijplijn.
 
 
 ## <a name="create-an-azure-container-registry"></a>Een Azure Container Registry maken
@@ -32,7 +33,7 @@ U kunt eenvoudig [een nieuw Azure Container Registry maken](../../container-regi
       az group create --name draft --location eastus
       ```
 
-2. Maak een ACR installatiekopie register met [az acr maken](/cli/azure/acr#az_acr_create) en zorg ervoor dat de `--admin-enabled` optie is ingesteld op `true`.
+2. Maak een ACR installatiekopie register met [az acr maken](/cli/azure/acr#az-acr-create) en zorg ervoor dat de `--admin-enabled` optie is ingesteld op `true`.
       ```azurecli
       az acr create --resource-group draft --name draftacs --sku Basic
       ```
@@ -40,7 +41,7 @@ U kunt eenvoudig [een nieuw Azure Container Registry maken](../../container-regi
 
 ## <a name="create-an-azure-container-service-with-kubernetes"></a>Een Azure Container Service maken met Kubernetes
 
-U bent er nu klaar voor om [az acs create](/cli/azure/acs#az_acs_create) te gebruiken voor het maken van een ACS-cluster met Kubernetes als de `--orchestrator-type`-waarde.
+U bent er nu klaar voor om [az acs create](/cli/azure/acs#az-acs-create) te gebruiken voor het maken van een ACS-cluster met Kubernetes als de `--orchestrator-type`-waarde.
 ```azurecli
 az acs create --resource-group draft --name draft-kube-acs --dns-prefix draft-cluster --orchestrator-type kubernetes --generate-ssh-keys
 ```
@@ -99,13 +100,13 @@ Wanneer u een cluster hebt, kunt u de referenties importeren met de opdracht [az
 ## <a name="install-and-configure-draft"></a>Draft installeren en configureren
 
 
-1. Ontwerp voor uw omgeving op downloaden https://github.com/Azure/draft/releases en installeer in het pad, zodat de opdracht kan worden gebruikt.
-2. Download helm voor uw omgeving op https://github.com/kubernetes/helm/releases en [installeren in het pad, zodat de opdracht kan worden gebruikt](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
+1. Downloaden van concept voor uw omgeving op https://github.com/Azure/draft/releases en installeren via het pad, zodat de opdracht kan worden gebruikt.
+2. Downloaden van helm voor uw omgeving op https://github.com/kubernetes/helm/releases en [installeren via het pad, zodat de opdracht kan worden gebruikt](https://github.com/kubernetes/helm/blob/master/docs/install.md#installing-the-helm-client).
 3. Configureer Draft om uw eigen register te gebruiken en om subdomeinen te maken voor elk Helm-diagram dat wordt gemaakt. U hebt het volgende nodig voor het configureren van Draft:
   - de naam van uw Azure Container Registry (in dit voorbeeld is dat `draftacsdemo`)
   - de registersleutel of het wachtwoord van `az acr credential show -n <registry name> --output tsv --query "passwords[0].value"`.
 
-  Roep `draft init` en het configuratieproces wordt u gevraagd om de bovenstaande waarden; dat de URL-indeling voor de Register-URL is de naam van routeringsregister (in dit voorbeeld `draftacsdemo`) plus `.azurecr.io`. De gebruikersnaam is de registernaam van het op een eigen. De eerste keer dat u het proces uitvoert, ziet het er ongeveer als volgt uit.
+  Bel `draft init` en het configuratieproces wordt u gevraagd om de bovenstaande waarden; Houd er rekening mee dat de URL-indeling voor de Register-URL is de naam van het containerregister (in dit voorbeeld `draftacsdemo`) plus `.azurecr.io`. Uw gebruikersnaam is de registernaam van het op een eigen. De eerste keer dat u het proces uitvoert, ziet het er ongeveer als volgt uit.
  ```bash
     $ draft init
     Creating /home/ralph/.draft 
@@ -135,14 +136,14 @@ U kunt nu een toepassing implementeren.
 
 ## <a name="build-and-deploy-an-application"></a>Een toepassing bouwen en implementeren
 
-In de Draft-opslagplaats staan [zes eenvoudige voorbeeldtoepassingen](https://github.com/Azure/draft/tree/master/examples). Kloon de opslagplaats en we gebruiken de [Java-voorbeeld](https://github.com/Azure/draft/tree/master/examples/java). Wijzigen in de voorbeelden/java-directory, en het type `draft create` de toepassing te bouwen. De toepassing zou er als volgt moeten uitzien.
+In de Draft-opslagplaats staan [zes eenvoudige voorbeeldtoepassingen](https://github.com/Azure/draft/tree/master/examples). Kloon de opslagplaats en gebruik de [Java-voorbeeld](https://github.com/Azure/draft/tree/master/examples/java). Wijzig in de voorbeelden/java-directory, en het type `draft create` om de toepassing te bouwen. De toepassing zou er als volgt moeten uitzien.
 ```bash
 $ draft create
 --> Draft detected the primary language as Java with 91.228814% certainty.
 --> Ready to sail
 ```
 
-De uitvoer bevat een Dockerfile en een Helm-diagram. Typ `draft up` om te bouwen en implementeren. De uitvoer is uitgebreid, maar moet zich op het volgende voorbeeld.
+De uitvoer bevat een Dockerfile en een Helm-diagram. Typ `draft up` om te bouwen en implementeren. De uitvoer is uitgebreid, maar moet als in het volgende voorbeeld.
 ```bash
 $ draft up
 Draft Up Started: 'handy-labradoodle'
@@ -154,10 +155,10 @@ handy-labradoodle: Build ID: 01BT0ZJ87NWCD7BBPK4Y3BTTPB
 
 ## <a name="securely-view-your-application"></a>Uw toepassing veilig weergeven
 
-De container wordt nu uitgevoerd in ACS. Gebruiken om het te bekijken, de `draft connect` opdracht maakt een beveiligde verbinding aan IP-adres van het cluster met een specifieke poort voor uw toepassing zodat u deze lokaal kunt bekijken. Als dit lukt, zoekt u naar de URL die u wilt verbinding maken met uw app op de eerste regel na de **geslaagd** indicator.
+De container wordt nu uitgevoerd in ACS. Als u wilt bekijken, gebruikt u de `draft connect` opdracht, waarbij een beveiligde verbinding met de IP van het cluster met een specifieke poort voor uw toepassing maakt zodat u deze lokaal kunt bekijken. Als dit lukt, zoek naar de URL naar het verbinding maken met uw app op de eerste regel na de **SUCCES** indicator.
 
 > [!NOTE]
-> Als er een bericht weergegeven dat geen gehele product gereed zijn, wacht een ogenblik en probeer het opnieuw of u kunt het gehele product gereed met bekijken `kubectl get pods -w` en probeer het opnieuw wanneer ze doen.
+> Als u een bericht weergegeven ontvangt dat er geen schillen gereed zijn, wacht een ogenblik en probeer het opnieuw of u kunt controleren of de schillen gereed met `kubectl get pods -w` en probeer het opnieuw wanneer ze doen.
 
 ```bash
 draft connect
@@ -170,16 +171,16 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 >> Listening on 0.0.0.0:4567
 ```
 
-In het voorgaande voorbeeld, typt u `curl -s http://localhost:46143` voor het ontvangen van het antwoord `Hello World, I'm Java!`. Wanneer u CTRL + of CMD + C (afhankelijk van uw omgeving OS), beveiligde tunnel gegevenskanaal en u kunt doorgaan doorlopen.
+In het voorgaande voorbeeld, typt u `curl -s http://localhost:46143` te ontvangen van het antwoord `Hello World, I'm Java!`. Wanneer u CTRL + of CMD + C (afhankelijk van uw omgeving OS), het beveiligde tunnel gegevenskanaal en u kunt doorlopen.
 
-## <a name="sharing-your-application-by-configuring-a-deployment-domain-with-azure-dns"></a>Uw toepassing delen door het configureren van een domein implementatie met Azure DNS
+## <a name="sharing-your-application-by-configuring-a-deployment-domain-with-azure-dns"></a>-De toepassing voor delen door het configureren van een domein voor implementatie met Azure DNS
 
-U hebt al de ontwikkelaar herhaling lus die concept in de voorgaande stappen maakt hebt uitgevoerd. U kunt echter uw toepassing delen via internet door:
-1. Een inkomend installeren in uw cluster ACS (voor een openbaar IP-adres waarop de app weergeven)
-2. Uw aangepaste domein naar Azure DNS overdragen en toewijzing van uw domein met de IP-adres ACS wordt toegewezen aan uw ingress-controller
+U hebt al de ontwikkelaar iteratie-lus die Draft in de voorgaande stappen maakt hebt uitgevoerd. U kunt echter uw toepassing delen via internet door:
+1. Installeren van een inkomend verkeer in uw ACS-cluster (voor een openbaar IP-adres waarmee u de app weergeven)
+2. Uw aangepaste domein naar Azure DNS overdragen en het toewijzen van uw domein met de IP-adres ACS wordt toegewezen aan de controller voor binnenkomend verkeer
 
-### <a name="use-helm-to-install-the-ingress-controller"></a>Helm gebruiken om de ingress-controller te installeren.
-Gebruik **helm** zoeken naar en installeren `stable/traefik`, een domeincontroller inkomend inkomende aanvragen voor uw builds inschakelen.
+### <a name="use-helm-to-install-the-ingress-controller"></a>Helm gebruiken voor het installeren van de controller voor binnenkomend verkeer.
+Gebruik **helm** zoeken naar en installeren `stable/traefik`, een controller voor binnenkomend verkeer, waarmee binnenkomende aanvragen voor uw builds.
 ```bash
 $ helm search traefik
 NAME            VERSION DESCRIPTION
@@ -198,9 +199,9 @@ kubernetes                    10.0.0.1       <none>          443/TCP            
 
 In dit geval is het externe IP-adres voor het implementatiedomein `13.64.108.240`. U kunt uw domein nu toewijzen aan dat IP-adres.
 
-### <a name="map-the-ingress-ip-to-a-custom-subdomain"></a>Het inkomend IP-adres toewijzen aan een aangepast subdomein
+### <a name="map-the-ingress-ip-to-a-custom-subdomain"></a>Het inkomend IP-adres toewijzen aan een aangepaste subdomein
 
-Draft maakt een release voor elke Helm-grafiek die er wordt gemaakt en elke toepassing waar u aan werkt. Elk ervan een gegenereerde naam die wordt gebruikt door opgehaald **concept** als een _subdomein_ boven op de hoofdmap _implementatie domein_ dat u beheert. (In dit voorbeeld wordt `squillace.io` gebruikt als domein voor implementatie.) Als u dit subdomeingedrag wilt inschakelen, moet u een A-record maken voor `'*.draft'` in de DNS-vermeldingen van het implementatiedomein. Op die manier wordt elk gegenereerde subdomein gerouteerd naar de controller voor binnenkomend verkeer van het Kubernetes-cluster. 
+Draft maakt een release voor elke Helm-grafiek die er wordt gemaakt en elke toepassing waar u aan werkt. Elk item krijgt een gegenereerde naam die wordt gebruikt door **draft** als een _subdomein_ boven op de hoofdmap _implementatiedomein_ die u beheert. (In dit voorbeeld wordt `squillace.io` gebruikt als domein voor implementatie.) Als u dit subdomeingedrag wilt inschakelen, moet u een A-record maken voor `'*.draft'` in de DNS-vermeldingen van het implementatiedomein. Op die manier wordt elk gegenereerde subdomein gerouteerd naar de controller voor binnenkomend verkeer van het Kubernetes-cluster. 
 
 Elke eigen domeinprovider wijst op zijn eigen manier DNS-servers toe. Als u uw [domeinnaamservers wilt overdragen aan Azure DNS](../../dns/dns-delegate-domain-azure-dns.md), voert u de volgende stappen uit:
 
@@ -220,7 +221,7 @@ Elke eigen domeinprovider wijst op zijn eigen manier DNS-servers toe. Als u uw [
     ```
 
 2. Maak een DNS-zone voor uw domein.
-Gebruik de opdracht [az network dns zone create](/cli/azure/network/dns/zone#az_network_dns_zone_create) om de naamservers te verkrijgen voor het delegeren van DNS-controle over uw domein aan Azure.
+Gebruik de opdracht [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) om de naamservers te verkrijgen voor het delegeren van DNS-controle over uw domein aan Azure.
     ```azurecli
     az network dns zone create --resource-group squillace.io --name squillace.io
     {
@@ -241,8 +242,8 @@ Gebruik de opdracht [az network dns zone create](/cli/azure/network/dns/zone#az_
       "type": "Microsoft.Network/dnszones"
     }
     ```
-3. Voeg de DNS-servers die u ontvangt toe aan de domeinprovider van uw implementatiedomein. Op die manier kunt u Azure DNS gebruiken om uw domein naar wens opnieuw toe te wijzen. De manier waarop u dit doet, is afhankelijk van het domein opgeven; [uw domein nameservers naar Azure DNS overdragen](../../dns/dns-delegate-domain-azure-dns.md) bevat enkele van de details die u moet weten. 
-4. Als uw domein is overgedragen naar Azure DNS, maakt u een A-Recordset-vermelding voor uw implementatie domein wordt toegewezen aan de `ingress` IP-adres uit stap 2 van de vorige sectie.
+3. Voeg de DNS-servers die u ontvangt toe aan de domeinprovider van uw implementatiedomein. Op die manier kunt u Azure DNS gebruiken om uw domein naar wens opnieuw toe te wijzen. Is afhankelijk van de manier waarop u dit doen door domein opgeven; [de naamservers van uw domein naar Azure DNS delegeren](../../dns/dns-delegate-domain-azure-dns.md) bevat enkele van de details die u moet weten. 
+4. Wanneer uw domein is overgedragen naar Azure DNS, maakt u een A-recordsetvermelding voor uw implementatiedomein dat is toegewezen aan de `ingress` IP-adres uit stap 2 van de vorige sectie.
   ```azurecli
   az network dns record-set a add-record --ipv4-address 13.64.108.240 --record-set-name '*.draft' -g squillace.io -z squillace.io
   ```
@@ -266,14 +267,14 @@ De uitvoer ziet er ongeveer zo uit:
 5. Installeer **concept**
 
    1. Verwijder **draftd** uit het cluster door te typen `helm delete --purge draft`. 
-   2. Installeer **concept** met behulp van dezelfde `draft-init` opdracht, maar met de `--ingress-enabled` optie:
+   2. Opnieuw **draft** met behulp van dezelfde `draft-init` opdracht, maar met de `--ingress-enabled` optie:
     ```bash
     draft init --ingress-enabled
     ```
-   Reageren op de prompts net als de eerste keer hierboven. Maar hebt u een vraag te beantwoorden, met behulp van de volledige domeinnaam pad die u hebt geconfigureerd met de Azure DNS-server.
+   Reageren op de prompts zoals u hierboven hebt gedaan. de eerste keer. Maar hebt u een vraag om te reageren op, met behulp van het volledige pad die u hebt geconfigureerd met de Azure DNS.
 
 6. Voer uw domein op het hoogste niveau voor inkomende gegevens (bijvoorbeeld draft.example.com): draft.squillace.io
-7. Als u aanroept `draft up` dit moment kunt u zich kunt zien van uw toepassing (of `curl` het) op de URL van het formulier `<appname>.draft.<domain>.<top-level-domain>`. In dit voorbeeld `http://handy-labradoodle.draft.squillace.io`. 
+7. Als u aanroept `draft up` dit moment kunt u zich om uw toepassing te zien (of `curl` deze) op de URL van het formulier `<appname>.draft.<domain>.<top-level-domain>`. In het geval van dit voorbeeld `http://handy-labradoodle.draft.squillace.io`. 
 ```bash
 curl -s http://handy-labradoodle.draft.squillace.io
 Hello World, I'm Java!

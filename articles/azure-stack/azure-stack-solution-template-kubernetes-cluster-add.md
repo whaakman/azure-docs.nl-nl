@@ -1,6 +1,6 @@
 ---
-title: Een Cluster Kubernetes toevoegen aan de Stack van Azure Marketplace | Microsoft Docs
-description: Informatie over het toevoegen van een Kubernetes Cluster aan de Stack Azure Marketplace.
+title: Een Kubernetes-Cluster toevoegen aan de Azure Stack Marketplace | Microsoft Docs
+description: Informatie over het toevoegen van een Kubernetes-Cluster in de Azure Stack Marketplace.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -14,128 +14,128 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 0ba0e1f3d9e0f1cbb6ba4109a21fc29dc41df5fc
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: ed2d55b8346acb79563a882bbaf2f46110dcf1bb
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603450"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442714"
 ---
-# <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Een Cluster Kubernetes toevoegen aan de Stack van Azure Marketplace
+# <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Een Kubernetes-Cluster toevoegen aan de Azure Stack Marketplace
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 > [!note]  
-> De Azure Container Services (ACS) Kubernetes op Azure-Stack is private preview. Om aan te vragen toegang tot de Kubernetes Marketplace-item die nodig zijn voor het uitvoeren van de instructies in dit artikel [een verzoek om toegang te krijgen indienen](https://aka.ms/azsk8).
+> De Azure Container Services (ACS) voor Kubernetes op Azure Stack is in de beperkte Preview-versie. Voor het aanvragen van toegang tot het Kubernetes-Marketplace-item die nodig zijn om uit te voeren van de instructies in dit artikel [een indienen om toegang te krijgen](https://aka.ms/azsk8).
 
-Als een Marketplace-item kunt u een Kubernetes Cluster aanbieden aan uw gebruikers. Uw gebruikers kunnen Kubernetes implementeren in een enkele, gecoördineerde bewerking.
+U kunt een Kubernetes-Cluster als een Marketplace-item aan uw gebruikers bieden. Uw gebruikers kunnen Kubernetes implementeren in een enkele, gecoördineerde bewerking.
 
-Het volgende artikel bekijken met een Azure Resource Manager-sjabloon te implementeren en de resources voor een zelfstandige Kubernetes cluster inrichten. Voordat u begint, controleert u uw Azure-Stack en de instellingen van de globale Azure-tenant. De vereiste gegevens verzamelen over uw Azure-Stack. Benodigde resources toevoegen aan uw tenant en de Stack Azure Marketplace. Het cluster, is afhankelijk van een virtuele Ubuntu server aangepast script en de items Kubernetes Cluster zich in de marketplace.
+Het volgende artikel bekijken met behulp van een Azure Resource Manager-sjabloon te implementeren en de resources voor een zelfstandige Kubernetes-cluster inrichten. Voordat u begint, controleert u uw Azure Stack en de instellingen van de globale Azure-tenant. De vereiste gegevens verzamelen over uw Azure Stack. Benodigde resources toevoegen aan uw tenant en de Azure Stack Marketplace. Het cluster is afhankelijk van een Ubuntu-server, aangepaste scripts en de items van de Kubernetes-Cluster zich in de marketplace.
 
 ## <a name="create-a-plan-an-offer-and-a-subscription"></a>Een plan, een aanbieding en een abonnement maken
 
-Een plan, een aanbieding en een abonnement voor het Kubernetes Cluster Marketplace-item maken. U kunt ook een bestaand abonnement gebruiken en bieden.
+Maak een plan, een aanbieding en een abonnement voor het Kubernetes-Cluster Marketplace-item. U kunt ook gebruik van een bestaand plan en aanbieding.
 
 1. Aanmelden bij de [-beheerportal.](https://adminportal.local.azurestack.external)
 
-2. Een schema als het basisplan maken. Zie voor instructies [een plan maken in Azure-Stack](azure-stack-create-plan.md).
+1. Maak een plan als het basisplan. Zie voor instructies [een plan maken in Azure Stack](azure-stack-create-plan.md).
 
-3. Maak een aanbieding. Zie voor instructies [een aanbieding maakt in Azure Stack](azure-stack-create-offer.md).
+1. Maak een aanbieding. Zie voor instructies [een aanbieding maken in Azure Stack](azure-stack-create-offer.md).
 
-4. Selecteer **biedt**, en zoek de aanbieding die u hebt gemaakt.
+1. Selecteer **biedt**, en zoek de aanbieding die u hebt gemaakt.
 
-5. Selecteer **overzicht** in de blade aanbieding.
+1. Selecteer **overzicht** in de blade van de aanbieding.
 
-6. Selecteer **statuswijziging**. Selecteer **openbare**.
+1. Selecteer **in een statuswijziging**. Selecteer **openbare**.
 
-7. Selecteer **+ nieuw** > **biedt en plant** > **abonnement** voor het maken van een nieuw abonnement.
+1. Selecteer **+ nieuw** > **aanbiedingen en abonnementen** > **abonnement** naar een nieuw abonnement maken.
 
     a. Voer een **weergavenaam**.
 
-    b. Voer een **gebruiker**. Gebruik de Azure AD-account dat is gekoppeld aan uw tenant.
+    b. Voer een **gebruiker**. Gebruik Azure AD-account dat is gekoppeld aan uw tenant.
 
-    c. **Beschrijving van opslagprovider**
+    c. **Beschrijving van de provider**
 
-    d. Stel de **Directory-tenant** met de Azure AD-tenant voor uw Azure-Stack. 
+    d. Stel de **Directory-tenant** bij Azure AD-tenant voor uw Azure Stack. 
 
     e. Selecteer **bieden**. Selecteer de naam van de aanbieding die u hebt gemaakt. Noteer de abonnement-ID.
 
-## <a name="add-an-ubuntu-server-image"></a>De installatiekopie van een virtuele Ubuntu server toevoegen
+## <a name="add-an-ubuntu-server-image"></a>De installatiekopie van een Ubuntu-server toevoegen
 
-De volgende afbeelding van Ubuntu Server toevoegen aan de Marketplace:
+De volgende Ubuntu-Server-installatiekopie toevoegen aan de Marketplace:
 
 1. Aanmelden bij de [beheerportal](https://adminportal.local.azurestack.external).
 
-2. Selecteer **meer services** > **Marketplace Management**.
+1. Selecteer **meer services** > **Marketplace Management**.
 
-3. Selecteer **+ toevoegen vanuit Azure**.
+1. Selecteer **+ toevoegen vanuit Azure**.
 
-4. Voer `UbuntuServer`.
+1. Voer `UbuntuServer`.
 
-5. Selecteer de server met het volgende profiel:
-    - **Publisher**: canonieke
+1. Selecteer de server met het volgende profiel:
+    - **Uitgever**: Canonical
     - **Bieden**: UbuntuServer
-    - **SKU**: 16.04 TNS
+    - **SKU**: 16.04-LTS
     - **Versie**: 16.04.201802220
 
     > [!Note]  
-    > Meer dan één versie van Ubuntu Server 16.04 TNS kan worden vermeld. U moet de versie die overeenkomt met toevoegen. Het Kubernetes Cluster vereist de exacte versie van het item.
+    > Meer dan één versie van Ubuntu Server 16.04 LTS wordt vermeld. U moet de versie die overeenkomt met toevoegen. Het Kubernetes-Cluster is vereist voor de exacte versie van het item.
 
-6. Selecteer **downloaden.**
+1. Selecteer **downloaden.**
 
-## <a name="add-a-custom-script-for-linux"></a>Een aangepast script toevoegen voor Linux
+## <a name="add-a-custom-script-for-linux"></a>Toevoegen van een aangepast script voor Linux
 
-Voeg het Cluster Kubernetes vanuit de Marketplace:
+Het Kubernetes-Cluster uit de Marketplace toevoegen:
 
 1. Open de [beheerportal](https://adminportal.local.azurestack.external).
 
-2. Selecteer **meer services** > **Marketplace Management**.
+1. Selecteer **meer services** > **Marketplace Management**.
 
-3. Selecteer **+ toevoegen vanuit Azure**.
+1. Selecteer **+ toevoegen vanuit Azure**.
 
-4. Voer `Custom Script for Linux`.
+1. Voer `Custom Script for Linux`.
 
-5. Selecteer het script dat met het volgende profiel:
+1. Het script met het volgende profiel te selecteren:
     - **Bieden**: aangepast Script voor Linux 2.0
     - **Versie**: 2.0.3
-    - **Publisher**: Microsoft Corp
+    - **Uitgever**: Microsoft Corp
 
     > [!Note]  
-    > Er kan meer dan één versie van een aangepast Script voor Linux worden vermeld. U moet de versie die overeenkomt met toevoegen. Het Kubernetes Cluster vereist de exacte versie van het item.
+    > Meer dan één versie van het aangepaste Script voor Linux kan worden vermeld. U moet de versie die overeenkomt met toevoegen. Het Kubernetes-Cluster is vereist voor de exacte versie van het item.
 
-6. Selecteer **downloaden.**
+1. Selecteer **downloaden.**
 
 
-## <a name="add-the-kubernetes-cluster-to-the-marketplace"></a>Het Kubernetes Cluster toevoegen aan de marketplace
+## <a name="add-the-kubernetes-cluster-to-the-marketplace"></a>Het Kubernetes-Cluster toevoegen aan de marketplace
 
 1. Open de [beheerportal](https://adminportal.local.azurestack.external).
 
-2. Selecteer **meer services** > **Marketplace Management**.
+1. Selecteer **meer services** > **Marketplace Management**.
 
-3. Selecteer **+ toevoegen vanuit Azure**.
+1. Selecteer **+ toevoegen vanuit Azure**.
 
-4. Voer `Kubernetes Cluster`.
+1. Voer `Kubernetes Cluster`.
 
-5. Selecteer `Kubernetes Cluster`.
+1. Selecteer `Kubernetes Cluster`.
 
-6. Selecteer **downloaden.**
+1. Selecteer **downloaden.**
 
     > [!note]  
-    > Het duurt vijf minuten voor de marketplace-item moet worden weergegeven in de Marketplace.
+    > Het duurt vijf minuten voor de marketplace-item wordt weergegeven in de Marketplace.
 
-    ![Kubernetes Cluster](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
+    ![Kubernetes-Cluster](user\media\azure-stack-solution-template-kubernetes-deploy\marketplaceitem.png)
 
-## <a name="update-or-remove-the-kubernetes-cluster"></a>Bijwerken of verwijderen van het Kubernetes Cluster 
+## <a name="update-or-remove-the-kubernetes-cluster"></a>Bijwerken of verwijderen van het Kubernetes-Cluster 
 
-Bij het bijwerken van het item Kubernetes Cluster, moet u het item dat in de Marketplace verwijderen. Vervolgens kunt u de aanwijzingen in dit artikel aan het Kubernetes Cluster toevoegen aan de marketplace.
+Tijdens het bijwerken van het item Kubernetes-Cluster, moet u het item dat in de Marketplace te verwijderen. Vervolgens kunt u de instructies in dit artikel voor het Kubernetes-Cluster toevoegen aan de marketplace volgen.
 
-Het item Kubernetes Cluster verwijderen:
+Het item Kubernetes-Cluster verwijderen:
 
 1. Noteer de naam van het huidige item, zoals `Microsoft.AzureStackKubernetesCluster.0.1.0`
 
-2. Verbinding maken met Azure Stack met PowerShell.
+1. Verbinding maken met Azure Stack met PowerShell.
 
-3. Gebruik de volgende PowerShell-cmdlet om het item te verwijderen:
+1. Gebruik de volgende PowerShell-cmdlet om het item te verwijderen:
 
     ```PowerShell  
     $Itemname="Microsoft.AzureStackKubernetesCluster.0.1.0"
@@ -145,8 +145,8 @@ Het item Kubernetes Cluster verwijderen:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Een Cluster Kubernetes implementeren naar Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
+[Een Kubernetes-Cluster implementeren met Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
 
 
 
-[Overzicht van services in Azure-Stack van aanbieding](azure-stack-offer-services-overview.md)
+[Overzicht van services in Azure Stack-aanbieding](azure-stack-offer-services-overview.md)

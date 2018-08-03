@@ -6,52 +6,20 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: e91ee640d18e2cf804be33fd130bf48737c9efb1
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 0e575d668e28be52ee4ca61226693122304c7ea0
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035666"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441354"
 ---
-# <a name="manage-event-grid-delivery-settings"></a>Event Grid bezorgingsinstellingen beheren
+# <a name="dead-letter-and-retry-policies"></a>Dead-letter en beleid voor opnieuw proberen
 
 Bij het maken van een gebeurtenisabonnement, kunt u de instellingen voor de bezorging van gebeurtenissen kunt aanpassen. U kunt instellen hoe lang Event Grid wordt geprobeerd het bericht te bezorgen. U kunt een storage-account te gebruiken voor het opslaan van gebeurtenissen die naar een eindpunt kunnen niet worden bezorgd instellen.
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
-
-## <a name="set-retry-policy"></a>Set-beleid voor opnieuw proberen
-
-Bij het maken van een Event Grid-abonnement, kunt u waarden voor hoe lang Event Grid proberen moet te leveren van de gebeurtenis instellen. Standaard Event Grid probeert 24 uur (1440 minuten) en probeert een maximum van 30 keer beter. U kunt een van deze waarden instellen voor uw event grid-abonnement.
-
-Om in te stellen de gebeurtenis time-to-live naar een andere waarde dan 1440 minuten, gebruikt u:
-
-```azurecli-interactive
-# if you have not already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
-az eventgrid event-subscription create \
-  -g gridResourceGroup \
-  --topic-name <topic_name> \
-  --name <event_subscription_name> \
-  --endpoint <endpoint_URL> \
-  --event-ttl 720
-```
-
-Als u wilt het maximale aantal nieuwe pogingen ingesteld op een andere waarde dan 30, gebruiken:
-
-```azurecli-interactive
-az eventgrid event-subscription create \
-  -g gridResourceGroup \
-  --topic-name <topic_name> \
-  --name <event_subscription_name> \
-  --endpoint <endpoint_URL> \
-  --max-delivery-attempts 18
-```
-
-Als u zowel `event-ttl` en `max-deliver-attempts`, Event Grid maakt gebruik van de eerste verlopen voor nieuwe pogingen.
 
 ## <a name="set-dead-letter-location"></a>Dead-letter uitvoeren voor locatie instellen
 
@@ -85,8 +53,41 @@ Event Grid gebruiken om te reageren op gebeurtenissen die door niet-bezorgde [ee
 
 Als u wilt uitschakelen onbestelbare, opnieuw de opdracht om het gebeurtenisabonnement te maken, maar geen waarde opgeeft voor `deadletter-endpoint`. U hoeft niet te verwijderen van het gebeurtenisabonnement.
 
+## <a name="set-retry-policy"></a>Set-beleid voor opnieuw proberen
+
+Bij het maken van een Event Grid-abonnement, kunt u waarden voor hoe lang Event Grid proberen moet te leveren van de gebeurtenis instellen. Standaard Event Grid probeert 24 uur (1440 minuten) en probeert een maximum van 30 keer beter. U kunt een van deze waarden instellen voor uw event grid-abonnement.
+
+Om in te stellen de gebeurtenis time-to-live naar een andere waarde dan 1440 minuten, gebruikt u:
+
+```azurecli-interactive
+# if you have not already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid event-subscription create \
+  -g gridResourceGroup \
+  --topic-name <topic_name> \
+  --name <event_subscription_name> \
+  --endpoint <endpoint_URL> \
+  --event-ttl 720
+```
+
+Als u wilt het maximale aantal nieuwe pogingen ingesteld op een andere waarde dan 30, gebruiken:
+
+```azurecli-interactive
+az eventgrid event-subscription create \
+  -g gridResourceGroup \
+  --topic-name <topic_name> \
+  --name <event_subscription_name> \
+  --endpoint <endpoint_URL> \
+  --max-delivery-attempts 18
+```
+
+Als u zowel `event-ttl` en `max-deliver-attempts`, Event Grid maakt gebruik van de eerste verlopen voor nieuwe pogingen.
+
 ## <a name="next-steps"></a>Volgende stappen
 
+* Zie voor een voorbeeldtoepassing die gebruikmaakt van een Azure-functie-app dead-letter om gebeurtenissen te verwerken, [Azure Event Grid Dead-Letter-voorbeelden voor .NET](https://azure.microsoft.com/resources/samples/event-grid-dotnet-handle-deadlettered-events/).
 * Voor informatie over de bezorging van gebeurtenissen en nieuwe pogingen, [bezorging van berichten van Event Grid en probeer het opnieuw](delivery-and-retry.md).
 * Zie [Een inleiding tot Event Grid](overview.md) voor een inleiding tot Event Grid.
 * Als u wilt snel aan de slag met Event Grid, Zie [aangepaste gebeurtenissen maken en routeren met Azure Event Grid](custom-event-quickstart.md).

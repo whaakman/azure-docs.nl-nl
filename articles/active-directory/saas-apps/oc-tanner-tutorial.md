@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: 29f3acc5992502f87fa57156f12244cb074f0491
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 2a3c6641c3fd9402ede2176e3c5c3f3ec15ed9de
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36210778"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39438702"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>Zelfstudie: Azure Active Directory-integratie met O.C. Tan - AppreciateHub
 
-In deze zelfstudie leert u hoe O.C. integreren Tan - AppreciateHub met Azure Active Directory (Azure AD).
+In deze zelfstudie leert u hoe u O.C. integreren Tan - AppreciateHub met Azure Active Directory (Azure AD).
 
-Integratie van O.C. Tan - AppreciateHub met Azure AD biedt de volgende voordelen:
+Integratie van O.C. Tan - AppreciateHub met Azure AD biedt u de volgende voordelen:
 
 - U kunt beheren in Azure AD die toegang tot O.C. heeft Tan - AppreciateHub
 - U kunt uw gebruikers automatisch ophalen aangemeld bij O.C. inschakelen Tan - AppreciateHub (Single Sign-On) met hun Azure AD-accounts
-- U kunt uw accounts op één centrale locatie - en de Azure-portal beheren
+- U kunt uw accounts in één centrale locatie - Azure portal beheren
 
-Als u weten van meer informatie over de integratie van de SaaS-app met Azure AD wilt, Zie [wat is er toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -41,83 +41,83 @@ Azure AD-integratie met O.C. configureren Tan - AppreciateHub, moet u de volgend
 - EEN O.C. Tan - AppreciateHub eenmalige aanmelding ingeschakeld abonnement
 
 > [!NOTE]
-> Test de stappen in deze zelfstudie, raden we niet met behulp van een productieomgeving.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
 
-Test de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
+Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
-- Gebruik niet uw productieomgeving, tenzij het noodzakelijk is.
-- Als u geen een proefabonnement Azure AD-omgeving hebt, kunt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
+- Gebruik uw productie-omgeving, niet als dat nodig is.
+- Als u geen een proefversie Azure AD-omgeving hebt, krijgt u een proefversie van één maand [hier](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. O.C. toevoegen Tan - AppreciateHub uit de galerie
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-oc-tanner---appreciatehub-from-the-gallery"></a>O.C. toevoegen Tan - AppreciateHub uit de galerie
-De integratie van O.C. configureren Tan - AppreciateHub met Azure AD, moet u O.C. toevoegen Tan - AppreciateHub uit de galerie aan de lijst met beheerde SaaS-apps.
+De integratie van O.C. configureren Tan - AppreciateHub in Azure AD, moet u O.C. toevoegen Tan - AppreciateHub uit de galerie aan de lijst met beheerde SaaS-apps.
 
-**O.C. toevoegen Tan - AppreciateHub uit de galerie, de volgende stappen uitvoeren:**
+**Om toe te voegen O.C. Tan - AppreciateHub uit de galerie, de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het linkernavigatievenster op **Azure Active Directory** pictogram. 
+1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Om de nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **O.C. Tan - AppreciateHub**.
+1. Typ in het zoekvak **O.C. Tan - AppreciateHub**.
 
-    ![Een Azure AD-testgebruiker maken](./media/oc-tanner-tutorial/tutorial_octannerappreciatehub_search.png)
+    ![Het maken van een Azure AD-testgebruiker](./media/oc-tanner-tutorial/tutorial_octannerappreciatehub_search.png)
 
-5. Selecteer in het deelvenster resultaten **O.C. Tan - AppreciateHub**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Selecteer in het deelvenster resultaten **O.C. Tan - AppreciateHub**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
-    ![Een Azure AD-testgebruiker maken](./media/oc-tanner-tutorial/tutorial_octannerappreciatehub_addfromgallery.png)
+    ![Het maken van een Azure AD-testgebruiker](./media/oc-tanner-tutorial/tutorial_octannerappreciatehub_addfromgallery.png)
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
-In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met O.C. Tan - AppreciateHub op basis van een testgebruiker 'Britta Simon' genoemd.
+In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met O.C. Tan - AppreciateHub op basis van een testgebruiker 'Julia steen' genoemd.
 
-Voor eenmalige aanmelding werkt, moet Azure AD weten wat de equivalente gebruiker in O.C. Tan - AppreciateHub is voor een gebruiker in Azure AD. Met andere woorden, een koppeling relatie tussen een Azure AD-gebruiker en de betreffende gebruiker in O.C. Tan - AppreciateHub moet tot stand worden gebracht.
+Voor eenmalige aanmelding om te werken, moet Azure AD weten wat de equivalente-gebruiker in O.C. Tan - AppreciateHub is aan een gebruiker in Azure AD. Met andere woorden, een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in O.C. Tan - AppreciateHub moet tot stand worden gebracht.
 
 In O.C. Tan - AppreciateHub, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
 
-Configureren en testen Azure AD eenmalige aanmelding met O.C. Tan - AppreciateHub, moet u de volgende bouwstenen voltooien:
+Om te configureren en testen van Azure AD eenmalige aanmelding met O.C. Tan - AppreciateHub, die u nodig hebt voor de volgende bouwstenen:
 
-1. **[Configureren van Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maken van een O.C. Tan - testgebruiker AppreciateHub](#creating-a-oc-tanner---appreciatehub-test-user)**  - met een exemplaar van Britta Simon O.C. Tan - AppreciateHub die is gekoppeld aan de Azure AD-weergave van de gebruiker.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Testen van eenmalige aanmelding](#testing-single-sign-on)**  : om te controleren of de configuratie werkt.
+1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Het maken van een O.C. Tan - AppreciateHub testgebruiker](#creating-a-oc-tanner---appreciatehub-test-user)**  : als u wilt een equivalent van Britta Simon in O.C. hebben Tan - AppreciateHub die is gekoppeld aan de Azure AD-weergave van de gebruiker.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Eenmalige aanmelding Azure AD configureren
+### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
-In deze sectie kunt u Azure AD eenmalige aanmelding inschakelen in de Azure portal en eenmalige aanmelding in uw O.C. configureren Tan - AppreciateHub toepassing.
+In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschakelen en configureren van eenmalige aanmelding in uw O.C. Tan - AppreciateHub toepassing.
 
-**Eenmalige aanmelding Azure AD configureren met O.C. Tan - AppreciateHub, voer de volgende stappen uit:**
+**Het configureren van Azure AD eenmalige aanmelding met O.C. Tan - AppreciateHub, voer de volgende stappen uit:**
 
-1. In de Azure-portal op de **O.C. Tan - AppreciateHub** toepassing Integratiepagina, klikt u op **eenmalige aanmelding**.
+1. In de Azure-portal op de **O.C. Tan - AppreciateHub** toepassingspagina integratie, klikt u op **eenmalige aanmelding**.
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster Selecteer **modus** als **op basis van SAML aanmelding** voor eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/oc-tanner-tutorial/tutorial_octannerappreciatehub_samlbase.png)
 
-3. Op de **O.C. Tan - URL's en AppreciateHub domein** sectie, voert u de volgende stappen uit:
+1. Op de **O.C. Tan - AppreciateHub domein en URL's** sectie, voert u de volgende stappen uit:
 
     ![Eenmalige aanmelding configureren](./media/oc-tanner-tutorial/tutorial_octannerappreciatehub_url.png)
 
-    a. In de **antwoord-URL** textbox, typ een URL met het volgende patroon volgen: `https://<companyname>.octanner.net/sp/ACS.saml2`
+    a. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<companyname>.octanner.net/sp/ACS.saml2`
 
     > [!NOTE] 
-    > Deze waarde is geen echte. Deze waarde bijwerken met de werkelijke antwoord-URL. Neem contact op met [O.C. Tan - ondersteuningsteam AppreciateHub](mailto:sso@octanner.com) deze waarde op te halen.
+    > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke antwoord-URL. Neem contact op met [O.C. Tan - ondersteuningsteam AppreciateHub](mailto:sso@octanner.com) deze waarde op te halen.
 
-    b. Open het bestand met metagegevens met de volgende koppeling: [ https://fed.appreciatehub.com/fed/sp/metadata ](https://fed.appreciatehub.com/fed/sp/metadata).
+    b. Open het bestand met metagegevens via de volgende koppeling: [ https://fed.appreciatehub.com/fed/sp/metadata ](https://fed.appreciatehub.com/fed/sp/metadata).
    
     c. Zoek de **md:AssertionConsumerService** knooppunt. 
    
@@ -125,24 +125,24 @@ In deze sectie kunt u Azure AD eenmalige aanmelding inschakelen in de Azure port
    
     ![App-instellingen configureren][12]
    
-    e. In de **aanmelding op URL** textbox voorbij de waarde die u in de vorige stap hebt verkregen.
+    e. In de **aanmelding URL** tekstvak voorbij de waarde die u in de vorige stap hebt verkregen.
 
-4. Op de **SAML-certificaat voor ondertekening van** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/oc-tanner-tutorial/tutorial_octannerappreciatehub_certificate.png) 
 
-5. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/oc-tanner-tutorial/tutorial_general_400.png)
 
-6. Eenmalige aanmelding configureren op **O.C. Tan - AppreciateHub** zijde, moet u de gedownloade verzenden **Metadata XML** naar [O.C. Tan - ondersteuningsteam AppreciateHub](mailto:sso@octanner.com).
+1. Het configureren van eenmalige aanmelding op **O.C. Tan - AppreciateHub** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [O.C. Tan - ondersteuningsteam AppreciateHub](mailto:sso@octanner.com).
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl u de app instelt!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de **configuratie** sectie onderaan. U kunt meer lezen over de ingesloten documentatie-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
-### <a name="creating-an-azure-ad-test-user"></a>Een Azure AD-testgebruiker maken
-Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britta Simon aangeroepen.
+### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
+Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
 
 ![Azure AD-gebruiker maken][100]
 
@@ -150,75 +150,75 @@ Het doel van deze sectie is het een testgebruiker maken in de Azure portal Britt
 
 1. In de **Azure-portal**, klik op het navigatiedeelvenster links **Azure Active Directory** pictogram.
 
-    ![Een Azure AD-testgebruiker maken](./media/oc-tanner-tutorial/create_aaduser_01.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/oc-tanner-tutorial/create_aaduser_01.png) 
 
-2. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klik op **alle gebruikers**.
+1. Als u wilt weergeven in de lijst met gebruikers, gaat u naar **gebruikers en groepen** en klikt u op **alle gebruikers**.
     
-    ![Een Azure AD-testgebruiker maken](./media/oc-tanner-tutorial/create_aaduser_02.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/oc-tanner-tutorial/create_aaduser_02.png) 
 
-3. Openen van de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
+1. Om te openen de **gebruiker** dialoogvenster, klikt u op **toevoegen** boven aan het dialoogvenster.
  
-    ![Een Azure AD-testgebruiker maken](./media/oc-tanner-tutorial/create_aaduser_03.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/oc-tanner-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
-    ![Een Azure AD-testgebruiker maken](./media/oc-tanner-tutorial/create_aaduser_04.png) 
+    ![Het maken van een Azure AD-testgebruiker](./media/oc-tanner-tutorial/create_aaduser_04.png) 
 
-    a. In de **naam** textbox type **BrittaSimon**.
+    a. In de **naam** tekstvak, type **BrittaSimon**.
 
-    b. In de **gebruikersnaam** textbox type de **e-mailadres** van BrittaSimon.
+    b. In de **gebruikersnaam** tekstvak, type de **e-mailadres** van BrittaSimon.
 
     c. Selecteer **wachtwoord weergeven** en noteer de waarde van de **wachtwoord**.
 
     d. Klik op **Create**.
  
-### <a name="creating-a-oc-tanner---appreciatehub-test-user"></a>Maken van een O.C. Tan - AppreciateHub testgebruiker
+### <a name="creating-a-oc-tanner---appreciatehub-test-user"></a>Het maken van een O.C. Tan - AppreciateHub testgebruiker
 
-Het doel van deze sectie is het maken van een gebruiker Britta Simon aangeroepen in O.C. Tan - AppreciateHub.
+Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in O.C. Tan - AppreciateHub.
 
-**Een gebruiker Britta Simon aangeroepen in O.C. maken Tan - AppreciateHub, voer de volgende stappen uit:**
+**Het maken van een gebruiker met de naam van Britta Simon in O.C. Tan - AppreciateHub, voer de volgende stappen uit:**
 
-Vraag uw [O.C. Tan - ondersteuningsteam AppreciateHub](mailto:sso@octanner.com) voor het maken van een gebruiker die als nameID kenmerk dezelfde waarde als de gebruikersnaam van Britta Simon in Azure AD heeft.
+Vraag uw [O.C. Tan - ondersteuningsteam AppreciateHub](mailto:sso@octanner.com) te maken van een gebruiker die als kenmerk van nameID dezelfde waarde als de gebruikersnaam van Britta Simon in Azure AD heeft.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen van de testgebruiker Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 
-In deze sectie maakt inschakelen u Britta Simon gebruikt Azure eenmalige aanmelding toegang verlenen aan O.C. Tan - AppreciateHub.
+In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmelding door toegang te verlenen aan O.C. Tan - AppreciateHub.
 
 ![Gebruiker toewijzen][200] 
 
 **Britta Simon toewijzen aan O.C. Tan - AppreciateHub, voer de volgende stappen uit:**
 
-1. Open de weergave toepassingen in de Azure-portal en gaat u naar de directoryweergave en gaat u naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
+1. Open de weergave toepassingen in de Azure-portal en gaat u naar de mapweergave en Ga naar **bedrijfstoepassingen** klikt u vervolgens op **alle toepassingen**.
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen **O.C. Tan - AppreciateHub**.
+1. Selecteer in de lijst met toepassingen, **O.C. Tan - AppreciateHub**.
 
     ![Eenmalige aanmelding configureren](./media/oc-tanner-tutorial/tutorial_octannerappreciatehub_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster Selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** knop op **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** knop op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
     
-### <a name="testing-single-sign-on"></a>Testen van eenmalige aanmelding
+### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
-Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.  
-Wanneer u klikt op de O.C. Tan - tegel in het deelvenster toegang AppreciateHub u moet ophalen automatisch aangemeld bij uw O.C. Tan - AppreciateHub toepassing.
+Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding configuratie via het toegangsvenster.  
+Wanneer u klikt op de O.C. Tan - AppreciateHub tegel in het toegangsvenster, u moet u automatisch aangemeld bij uw O.C. Tan - AppreciateHub toepassing.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->
 

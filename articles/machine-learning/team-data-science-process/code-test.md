@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
-ms.openlocfilehash: 7d9d63d6c3d5c8ccf1777a46832457670d307d4a
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 46d156ce09b1ebcdcceb27ede6e7fa1595d30da6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970856"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439494"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Data science code testen met de gegevensset UCI volwassenen inkomsten voorspelling
 Dit artikel bevat voorlopige richtlijnen voor het testen van code in een werkstroom voor datatechnologie. Dergelijke test biedt gegevenswetenschappers een systematische en efficiënte manier om te controleren of de kwaliteit en de verwachte resultaten van hun code. We gebruiken een Team Data Science Process (TDSP) [project die gebruikmaakt van de gegevensset UCI volwassenen inkomsten](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) die we eerder gepubliceerd om weer te geven hoe het testen van code kan worden gedaan. 
@@ -60,11 +60,11 @@ Gebruik de volgende stappen uit om te testen van code en een geautomatiseerde bu
 
     ![Solution Explorer](./media/code-test/solution_explorer_in_vs.PNG)
 
-3. De projectcode van uw-feed in de codeopslagplaats van de VSTS-project: 
+1. De projectcode van uw-feed in de codeopslagplaats van de VSTS-project: 
 
     ![Codeopslagplaats project](./media/code-test/create_repo.PNG)
 
-4. Stel dat u sommige gegevensvoorbereidingswerkzaamheden, zoals gegevensopname, feature-engineering en het maken van label kolommen hebben gedaan. U wilt controleren of dat uw code genereert de resultaten die u verwacht. Dit is wat code die u gebruiken kunt om te testen of de code van de gegevensverwerking correct werkt:
+1. Stel dat u sommige gegevensvoorbereidingswerkzaamheden, zoals gegevensopname, feature-engineering en het maken van label kolommen hebben gedaan. U wilt controleren of dat uw code genereert de resultaten die u verwacht. Dit is wat code die u gebruiken kunt om te testen of de code van de gegevensverwerking correct werkt:
 
     * Controleer of de namen van kolommen rechts zijn:
     
@@ -83,7 +83,7 @@ Gebruik de volgende stappen uit om te testen van code en een geautomatiseerde bu
       ![Code voor een ontbrekende snelheid](./media/code-test/check_missing_rate.PNG)
 
 
-5. Nadat u hebt de gegevensverwerking en functie-engineering werk gedaan en u een goed model hebt getraind, zorg ervoor dat het model dat u getraind correct nieuwe gegevenssets kunt beoordelen. U kunt de volgende twee tests uit om te controleren of de voorspelling niveaus en distributie van de labelwaarden:
+1. Nadat u hebt de gegevensverwerking en functie-engineering werk gedaan en u een goed model hebt getraind, zorg ervoor dat het model dat u getraind correct nieuwe gegevenssets kunt beoordelen. U kunt de volgende twee tests uit om te controleren of de voorspelling niveaus en distributie van de labelwaarden:
 
     * Controleer de voorspelling niveaus:
     
@@ -93,58 +93,58 @@ Gebruik de volgende stappen uit om te testen van code en een geautomatiseerde bu
 
       ![Code voor het controleren van de waarden voor voorspelling](./media/code-test/check_prediction_values.PNG)
 
-6. Alle functies samen in een pythonscript met de naam test put **test_funcs.py**:
+1. Alle functies samen in een pythonscript met de naam test put **test_funcs.py**:
 
     ![Python-script voor test-functies](./media/code-test/create_file_test_func.PNG)
 
 
-7. Nadat de test-codes zijn voorbereid, kunt u de testomgeving in Visual Studio instellen.
+1. Nadat de test-codes zijn voorbereid, kunt u de testomgeving in Visual Studio instellen.
 
    Maak een Python-bestand met de naam **test1.py**. In dit bestand, maakt u een klasse met alle tests die u wilt doen. Het volgende voorbeeld ziet u zes tests voorbereid:
     
     ![Python-bestand met een lijst met tests in een klasse](./media/code-test/create_file_test1_class.PNG)
 
-8. Deze tests kunnen automatisch worden gedetecteerd als u **codetest.testCase** achter de klassenaam. Test Explorer openen in het rechterdeelvenster en selecteer **alles uitvoeren**. Alle tests achter elkaar wordt uitgevoerd en zien als de test geslaagd of niet is.
+1. Deze tests kunnen automatisch worden gedetecteerd als u **codetest.testCase** achter de klassenaam. Test Explorer openen in het rechterdeelvenster en selecteer **alles uitvoeren**. Alle tests achter elkaar wordt uitgevoerd en zien als de test geslaagd of niet is.
 
     ![De tests worden uitgevoerd](./media/code-test/run_tests.PNG)
 
-9. Controleer in uw code in de projectopslagplaats met behulp van Git-opdrachten. Uw meest recente werk worden binnenkort in VSTS weergegeven.
+1. Controleer in uw code in de projectopslagplaats met behulp van Git-opdrachten. Uw meest recente werk worden binnenkort in VSTS weergegeven.
 
     ![GIT-opdrachten voor het controleren van in de code](./media/code-test/git_check_in.PNG)
 
     ![Meest recente werk in VSTS](./media/code-test/git_check_in_most_recent_work.PNG)
 
-10. Instellen van automatische bouwen en testen in VSTS:
+1. Instellen van automatische bouwen en testen in VSTS:
 
     a. Selecteer in de projectopslagplaats **Build and Release**, en selecteer vervolgens **+ nieuw** om een nieuwe buildproces te maken.
 
-       ![Selecties voor het starten van een nieuwe buildproces](./media/code-test/create_new_build.PNG)
+       ![Selections for starting a new build process](./media/code-test/create_new_build.PNG)
 
     b. Volg de aanwijzingen om uw code bronlocatie, naam van het project, opslagplaats en vertakking informatie te selecteren.
     
-       ![Bron, de naam van-opslagplaats en vertakking informatie](./media/code-test/fill_in_build_info.PNG)
+       ![Source, name, repository, and branch information](./media/code-test/fill_in_build_info.PNG)
 
     c. Selecteer een sjabloon. Omdat er geen Python projectsjabloon, maken, starten door het selecteren van **leeg proces**. 
 
-       ![Lijst met sjablonen en knop "Proces leeg"](./media/code-test/start_empty_process_template.PNG)
+       ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
     d. De naam van de build en selecteer de agent. U kunt hier de standaardwaarde als u een DSVM gebruiken wilt voor het voltooien van het bouwproces. Zie voor meer informatie over de instelling agents [bouwen en uitbrengen agents](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts).
     
-       ![Build- en agent-instellingen](./media/code-test/select_agent.PNG)
+       ![Build and agent selections](./media/code-test/select_agent.PNG)
 
     e. Selecteer **+** in het linkerdeelvenster, een taak wordt toegevoegd voor deze build-fase. Omdat we gaan de Python-script uit te voeren **test1.py** voor het voltooien van alle controles, deze taak een PowerShell-opdracht gebruikt om het Python-code uitvoeren.
     
-       ![Deelvenster 'Toevoegen taken' met PowerShell geselecteerd](./media/code-test/add_task_powershell.PNG)
+       !["Add tasks" pane with PowerShell selected](./media/code-test/add_task_powershell.PNG)
 
     f. In de details van PowerShell, vult u de vereiste gegevens, zoals de naam en versie van PowerShell. Kies **Inline Script** als het type. 
     
-       In het vak onder **Inline Script**, typt u **python test1.py**. Zorg ervoor dat de omgevingsvariabele juist is ingesteld voor Python. Als u een andere versie of de kernel van Python, kunt u het pad kunt expliciet opgeven zoals wordt weergegeven in de afbeelding: 
+       In the box under **Inline Script**, you can type **python test1.py**. Make sure the environment variable is set up correctly for Python. If you need a different version or kernel of Python, you can explicitly specify the path as shown in the figure: 
     
-       ![Details van PowerShell](./media/code-test/powershell_scripts.PNG)
+       ![PowerShell details](./media/code-test/powershell_scripts.PNG)
 
     g. Selecteer **opslaan en in de wachtrij** naar het build-definitie-proces te voltooien.
 
-       ![De knop "Opslaan en in de wachtrij"](./media/code-test/save_and_queue_build_definition.PNG)
+       !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
 
 Nu telkens wanneer een nieuwe doorvoer wordt doorgestuurd naar de opslagplaats, wordt het bouwproces automatisch gestart. (Hier gebruiken we master als de opslagplaats, maar u kunt een vertakking definiëren.) Het proces wordt uitgevoerd de **test1.py** bestand in de agentcomputer om ervoor te zorgen dat alles gedefinieerd in de code correct wordt uitgevoerd. 
 

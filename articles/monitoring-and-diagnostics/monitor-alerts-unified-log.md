@@ -8,23 +8,27 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: f36f05789424cfd3213525dd501333f852a0d9c2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: fd278ad6865c871ed0a5ed9272c9fadfca0f38db
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971717"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440426"
 ---
 # <a name="log-alerts-in-azure-monitor---alerts"></a>Waarschuwingen in Azure Monitor - waarschuwingen 
-Dit artikel vindt u details van waarschuwingen zijn een van de typen waarschuwingen die worden ondersteund in de nieuwe [Azure-waarschuwingen](monitoring-overview-unified-alerts.md) en gebruikers van Azure-platform voor streaminganalyse gebruiken als basis voor waarschuwingen... Raadpleeg voor meer informatie over metrische waarschuwingen met behulp van Logboeken, [bijna realtime metrische waarschuwingen](monitoring-near-real-time-metric-alerts.md)
+Dit artikel vindt u details van waarschuwingen zijn een van de typen waarschuwingen die worden ondersteund in de nieuwe [Azure-waarschuwingen](monitoring-overview-unified-alerts.md) en gebruikers van Azure-platform voor streaminganalyse gebruiken als basis voor waarschuwingen.
 
 
-Waarschuwing bestaat uit regels voor zoeken in logboeken die zijn gemaakt voor [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) of [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events)
+Waarschuwing bestaat uit regels voor zoeken in logboeken die zijn gemaakt voor [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) of [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). Details over de prijzen voor Logboekwaarschuwingen is beschikbaar op de [prijzen voor Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/) pagina. In de Azure-facturen, waarschuwingen worden weergegeven als type `microsoft.insights/scheduledqueryrules` met:
+- Waarschuwingen voor Application Insights weergegeven met de exacte naam van waarschuwing, samen met de resourcegroep en de eigenschappen van de waarschuwing
+- Meld u waarschuwingen in Log Analytics weergegeven met de naam van de waarschuwing als `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` samen met de resourcegroep en de eigenschappen van de waarschuwing
 
+    > [!NOTE]
+    > De naam voor alle opgeslagen zoekacties, schema's en acties die zijn gemaakt met de Log Analytics-API moet in kleine letters. Als ongeldige tekens zoals `<, >, %, &, \, ?, /` worden gebruikt: deze wordt vervangen door een `_` in de factuur.
 
 ## <a name="log-search-alert-rule---definition-and-types"></a>Search waarschuwingsregel - definitie en typen
 
-Log search regels worden gemaakt door Azure-waarschuwingen automatisch opgegeven logboeken-query's uitvoeren met regelmatige intervallen.  Als de resultaten van de logboekquery aan bepaalde criteria voldoen, wordt een waarschuwingsrecord gemaakt. De regel kan een of meer acties waarbij gebruik wordt vervolgens automatisch uitvoeren [actiegroepen](monitoring-action-groups.md). 
+Er worden door Azure Alerts regels gemaakt voor het zoeken in logboeken om met regelmatige intervallen automatisch opgegeven logboekzoekopdrachten uit te voeren.  Als de resultaten van de logboekzoekopdracht aan bepaalde criteria voldoen, wordt een waarschuwingsrecord gemaakt. De regel kan vervolgens automatisch een of meer acties uitvoeren met behulp van [actiegroepen](monitoring-action-groups.md). 
 
 Log search regels zijn gedefinieerd door de volgende gegevens:
 - **Meld u Query**.  De query die wordt uitgevoerd telkens als de waarschuwingsregel wordt geactiveerd.  De records die zijn geretourneerd door deze query worden gebruikt om te bepalen of een waarschuwing wordt gemaakt. *Azure Application Insights* -query kan ook bevatten [verschillende toepassingen aanroepen](https://dev.applicationinsights.io/ai/documentation/2-Using-the-API/CrossResourceQuery), mits er volgens de gebruiker toegangsrechten voor de externe toepassingen heeft. 
@@ -86,7 +90,7 @@ U hebt een scenario waarin u een waarschuwing wilt als een computer processorgeb
 - **Query:** Perf | waarbij ObjectName == 'Processor' en CounterName == "% processortijd" | summarize AggregatedValue = avg(CounterValue) door bin (TimeGenerated, 5 min.), Computer<br>
 - **Periode:** 30 minuten<br>
 - **Waarschuwingsfrequentie:** vijf minuten<br>
-- **Statistische waarde:** groter dan 90<br>
+- **Statistische waarde:** groter is dan 90<br>
 - **Waarschuwing activeren op basis van:** totaal kiezen oplossingen groter is dan 2<br>
 
 De query maakt een gemiddelde waarde voor elke computer met 5 minuten durende intervallen.  Deze query worden uitgevoerd om de 5 minuten voor gegevens die worden verzameld in de vorige 30 minuten.  Hieronder ziet u voorbeeldgegevens voor de drie computers.
@@ -104,7 +108,7 @@ Waarschuwing, evenals de waaruit het is opgebouwd logboekwaarschuwingsregel van 
 - Azure Resource Manager-sjablonen
 
 ### <a name="azure-portal"></a>Azure Portal
-Sinds de introductie van de [nieuwe Azure-waarschuwingen](monitoring-overview-unified-alerts.md), nu gebruikers alle typen waarschuwingen in Azure portal vanaf één locatie en vergelijkbare stappen beheren kunnen. Meer informatie over [met behulp van de nieuwe Azure-waarschuwingen](monitor-alerts-unified-usage.md).
+Sinds de introductie van de [nieuwe Azure-waarschuwingen](monitoring-overview-unified-alerts.md), nu gebruikers alle typen waarschuwingen in Azure portal vanaf één locatie en met dezelfde stappen voor het gebruik beheren kunnen. Meer informatie over [met behulp van de nieuwe Azure-waarschuwingen](monitor-alerts-unified-usage.md).
 
 Ook gebruikers hun query's in Analytics platform van uw keuze in Azure kunnen verbeteren en vervolgens *importeren voor gebruik in waarschuwingen door op te slaan van de query*. De stappen te volgen:
 - *Voor Application Insights*: Ga naar de analyseportal om query's en de resultaten te valideren. Sla met een unieke naam in *gedeelde query's*.
@@ -131,7 +135,7 @@ Voor meer informatie en voorbeelden over het gebruik van Resource Manager-sjablo
  
 
 ## <a name="next-steps"></a>Volgende stappen
-* Inzicht in [waarschuwingen voor activiteitenlogboeken in Azure](monitor-alerts-unified-log-webhook.md).
+* Inzicht in [webhooks in waarschuwingen in Azure](monitor-alerts-unified-log-webhook.md).
 * Meer informatie over de nieuwe [Azure-waarschuwingen](monitoring-overview-unified-alerts.md).
 * Meer informatie over [Application Insights](../application-insights/app-insights-analytics.md).
 * Meer informatie over [Log Analytics](../log-analytics/log-analytics-overview.md).    

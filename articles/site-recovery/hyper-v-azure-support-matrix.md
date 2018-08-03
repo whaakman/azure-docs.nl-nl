@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/01/2018
 ms.author: raynew
-ms.openlocfilehash: 709afe03570ca4cf81718fb071778439444d6bf6
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 3fdaaf4bc671996350b8138fb0f7fc3d7adaf567
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171980"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39442765"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Ondersteuningsmatrix voor Hyper-V-replicatie naar Azure
 
@@ -113,7 +113,8 @@ RDM | N.v.t. | N.v.t.
 Schijf > 1 TB | Ja, maximaal 4095 GB | Ja, maximaal 4095 GB
 Schijf: 4K logische en fysieke sector | Niet ondersteund: Gen 1/Gen 2 | Niet ondersteund: Gen 1/Gen 2
 Schijf: fysieke sector van 512 bytes en 4K logische | Ja |  Ja
-Volume met striped schijf > 1 TB<br/><br/> Logische volumebeheer (LVM) | Ja | Ja
+Logische volumebeheer (LVM). LVM wordt op gegevensschijven alleen ondersteund. Azure biedt alleen een besturingssysteemschijf. | Ja | Ja
+Volume met striped schijf > 1 TB | Ja | Ja
 Opslagruimten | Ja | Ja
 Hot toevoegen of verwijderen-schijf | Nee | Nee
 Schijf uitsluiten | Ja | Ja

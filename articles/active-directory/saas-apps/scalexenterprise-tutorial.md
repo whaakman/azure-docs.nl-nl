@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 3b2da2680adbc92655030351cc9e1269a4cccccd
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 04708806b9e1ba224e7b438f11c68dca82d6320e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040977"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39448815"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-scalex-enterprise"></a>Zelfstudie: Azure Active Directory-integratie met ScaleX Enterprise
 
@@ -52,7 +52,7 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. ScaleX Enterprise uit de galerie toe te voegen
-2. Configureren en testen van Azure AD eenmalige aanmelding
+1. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-scalex-enterprise-from-the-gallery"></a>ScaleX Enterprise uit de galerie toe te voegen
 Voor het configureren van de integratie van ScaleX Enterprise in Azure AD, moet u ScaleX Enterprise uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
@@ -63,19 +63,19 @@ Voor het configureren van de integratie van ScaleX Enterprise in Azure AD, moet 
 
     ![Active Directory][1]
 
-2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
     
-3. Klik op **toevoegen** knop boven aan het dialoogvenster.
+1. Klik op **toevoegen** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
 
-4. Typ in het zoekvak **ScaleX Enterprise**.
+1. Typ in het zoekvak **ScaleX Enterprise**.
 
     ![Het maken van een Azure AD-testgebruiker](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_search.png)
 
-5. Selecteer in het deelvenster resultaten **ScaleX Enterprise**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+1. Selecteer in het deelvenster resultaten **ScaleX Enterprise**, en klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Het maken van een Azure AD-testgebruiker](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_addfromgallery.png)
 
@@ -89,10 +89,10 @@ Deze relatie koppeling tot stand is gebracht door toe te wijzen de waarde van de
 Als u wilt configureren en testen van Azure AD eenmalige aanmelding met ScaleX Enterprise, u nodig hebt voor de volgende bouwstenen:
 
 1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Het maken van een testgebruiker ScaleX Enterprise](#creating-a-scalex-enterprise-test-user)**  : als u wilt een equivalent van Britta Simon in ScaleX-onderneming die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Het maken van een testgebruiker ScaleX Enterprise](#creating-a-scalex-enterprise-test-user)**  : als u wilt een equivalent van Britta Simon in ScaleX-onderneming die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -104,11 +104,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren][4]
 
-2. Op de **eenmalige aanmelding** dialoogvenster als **modus** Selecteer **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+1. Op de **eenmalige aanmelding** dialoogvenster als **modus** Selecteer **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![Eenmalige aanmelding configureren](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_samlbase.png)
 
-3. Op de **ScaleX Enterprise domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
+1. Op de **ScaleX Enterprise domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_url1.png)
 
@@ -116,7 +116,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://platform.rescale.com/saml2/<company id>/acs/`
 
-4. Controleer **geavanceerde URL-instellingen weergeven**, als u wilt configureren van de toepassing in **SP** modus gestart:
+1. Controleer **geavanceerde URL-instellingen weergeven**, als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![Eenmalige aanmelding configureren](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_url2.png)
 
@@ -125,7 +125,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     > [!NOTE] 
     > Dit zijn niet de werkelijke waarden. Werk deze waarden met de werkelijke-id, de antwoord-URL of aanmeldings-URL. Neem contact op met [ScaleX Enterprise Client-ondersteuningsteam](http://info.rescale.com/contact_sales) om deze waarden te verkrijgen. 
 
-5. Uw toepassing ScaleX wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u het aangepaste kenmerktoewijzingen aan de configuratie van de SAML-token kenmerken wijzigen. Klik op **weergeven en bewerk alle andere gebruikerskenmerken** selectievakje in om te openen van de aangepaste kenmerken van instellingen.
+1. Uw toepassing ScaleX wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling, waarvoor u het aangepaste kenmerktoewijzingen aan de configuratie van de SAML-token kenmerken wijzigen. Klik op **weergeven en bewerk alle andere gebruikerskenmerken** selectievakje in om te openen van de aangepaste kenmerken van instellingen.
 
     ![Eenmalige aanmelding configureren](./media/scalexenterprise-tutorial/scalex_attributes.png)
     
@@ -137,32 +137,32 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/scalexenterprise-tutorial/edit_email_attribute.png) 
     
-5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
+1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
 
     ![Eenmalige aanmelding configureren](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_certificate.png) 
 
-6. Klik op **opslaan** knop.
+1. Klik op **opslaan** knop.
 
     ![Eenmalige aanmelding configureren](./media/scalexenterprise-tutorial/tutorial_general_400.png)
     
-7. Op de **ScaleX Ondernemingsconfiguratie** sectie, klikt u op **configureren ScaleX Enterprise** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID** en **Single Sign-On Service URL voor SAML** uit de **Naslaggids sectie.**
+1. Op de **ScaleX Ondernemingsconfiguratie** sectie, klikt u op **configureren ScaleX Enterprise** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID** en **Single Sign-On Service URL voor SAML** uit de **Naslaggids sectie.**
 
     ![Eenmalige aanmelding configureren](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_configure.png) 
 
-8. Het configureren van eenmalige aanmelding op **ScaleX Enterprise** side, meld u aan bij de website van het bedrijf ScaleX Enterprise als beheerder.
+1. Het configureren van eenmalige aanmelding op **ScaleX Enterprise** side, meld u aan bij de website van het bedrijf ScaleX Enterprise als beheerder.
 
-9. Klik in het menu in de rechterbovenhoek en selecteer **Contoso beheer**.
+1. Klik in het menu in de rechterbovenhoek en selecteer **Contoso beheer**.
 
     > [!NOTE] 
     > Contoso is slechts een voorbeeld. Dit moet de werkelijke naam van uw bedrijf. 
 
     ![Eenmalige aanmelding configureren](./media/scalexenterprise-tutorial/Test_Admin.png) 
 
-10. Selecteer **integraties** in het bovenste menu en selecteer **Single Sign-On**.
+1. Selecteer **integraties** in het bovenste menu en selecteer **Single Sign-On**.
 
     ![Eenmalige aanmelding configureren](./media/scalexenterprise-tutorial/admin_sso.png) 
 
-11. Vul het formulier als volgt:
+1. Vul het formulier als volgt:
 
     ![Eenmalige aanmelding configureren](./media/scalexenterprise-tutorial/scalex_admin_save.png) 
     
@@ -197,15 +197,15 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
     ![Het maken van een Azure AD-testgebruiker](./media/scalexenterprise-tutorial/create_aaduser_01.png) 
 
-2. Ga naar **gebruikers en groepen** en klikt u op **alle gebruikers** om de lijst met gebruikers weer te geven.
+1. Ga naar **gebruikers en groepen** en klikt u op **alle gebruikers** om de lijst met gebruikers weer te geven.
     
     ![Het maken van een Azure AD-testgebruiker](./media/scalexenterprise-tutorial/create_aaduser_02.png) 
 
-3. Aan de bovenkant van het dialoogvenster, klikt u op **toevoegen** openen de **gebruiker** dialoogvenster.
+1. Aan de bovenkant van het dialoogvenster, klikt u op **toevoegen** openen de **gebruiker** dialoogvenster.
  
     ![Het maken van een Azure AD-testgebruiker](./media/scalexenterprise-tutorial/create_aaduser_03.png) 
 
-4. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
+1. Op de **gebruiker** dialoogvenster pagina, voert u de volgende stappen uit:
  
     ![Het maken van een Azure AD-testgebruiker](./media/scalexenterprise-tutorial/create_aaduser_04.png) 
 
@@ -233,23 +233,23 @@ In deze sectie schakelt u Britta Simon gebruiken Azure eenmalige aanmelding door
 
     ![Gebruiker toewijzen][201] 
 
-2. Selecteer in de lijst met toepassingen, **ScaleX Enterprise**.
+1. Selecteer in de lijst met toepassingen, **ScaleX Enterprise**.
 
     ![Eenmalige aanmelding configureren](./media/scalexenterprise-tutorial/tutorial_scalexenterprise_app.png) 
 
-3. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
+1. Klik in het menu aan de linkerkant op **gebruikers en groepen**.
 
     ![Gebruiker toewijzen][202] 
 
-4. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toevoegen** knop. Selecteer vervolgens **gebruikers en groepen** op **toevoegen toewijzing** dialoogvenster.
 
     ![Gebruiker toewijzen][203]
 
-5. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
+1. Op **gebruikers en groepen** dialoogvenster, selecteer **Britta Simon** in de lijst gebruikers.
 
-6. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
+1. Klik op **Selecteer** op knop **gebruikers en groepen** dialoogvenster.
 
-7. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
+1. Klik op **toewijzen** op knop **toevoegen toewijzing** dialoogvenster.
 
 ### <a name="testing-single-sign-on"></a>Eenmalige aanmelding testen
 
@@ -261,7 +261,7 @@ Klik op de tegel ScaleX Enterprise in het toegangsvenster, u wordt u automatisch
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 
 

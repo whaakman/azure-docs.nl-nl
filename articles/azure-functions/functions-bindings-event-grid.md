@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/08/2018
 ms.author: glenga
-ms.openlocfilehash: 5f629ea791a839e1eca25e7487ea395638d136ab
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 02c21453aca01ec0659d0b31738512525d2af51d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344627"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444314"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Trigger Gebeurtenisraster voor Azure Functions
 
@@ -279,7 +279,7 @@ Zie voor meer informatie over het maken van abonnementen met behulp van de Azure
 
 ### <a name="azure-cli"></a>Azure-CLI
 
-Een abonnement maken met behulp van [de Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), gebruikt u de [az eventgrid gebeurtenisabonnement maken](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create) opdracht.
+Een abonnement maken met behulp van [de Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), gebruikt u de [az eventgrid gebeurtenisabonnement maken](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) opdracht.
 
 De opdracht moet de eindpunt-URL die de functie activeert. Het volgende voorbeeld ziet u het URL-patroon:
 
@@ -340,7 +340,7 @@ Als u wilt testen van een trigger Gebeurtenisraster lokaal hebt om op te halen v
 4. [Een aanvraag genereert](#generate-a-request) en kopieer de aanvraagtekst van de viewer-app.
 5. [De aanvraag voor het handmatig boeken](#manually-post-the-request) functie activeren in de localhost-URL van uw Event Grid.
 
-Wanneer u klaar bent testen, kunt u hetzelfde abonnement voor de productie door het eindpunt bij te werken. Gebruik de [az eventgrid gebeurtenisabonnement update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) Azure CLI-opdracht.
+Wanneer u klaar bent testen, kunt u hetzelfde abonnement voor de productie door het eindpunt bij te werken. Gebruik de [az eventgrid gebeurtenisabonnement update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI-opdracht.
 
 ### <a name="create-a-viewer-web-app"></a>Een viewer voor web-app maken
 
@@ -406,7 +406,7 @@ Een andere manier voor het testen van een Event Grid-trigger lokaal is voor het 
 5. [Een Event Grid-abonnement maken](#create-a-subscription) die gebeurtenissen naar het eindpunt ngrok verzonden.
 6. [Een gebeurtenis activeren](#trigger-an-event).
 
-Wanneer u klaar bent testen, kunt u hetzelfde abonnement voor de productie door het eindpunt bij te werken. Gebruik de [az eventgrid gebeurtenisabonnement update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_update) Azure CLI-opdracht.
+Wanneer u klaar bent testen, kunt u hetzelfde abonnement voor de productie door het eindpunt bij te werken. Gebruik de [az eventgrid gebeurtenisabonnement update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI-opdracht.
 
 ### <a name="create-an-ngrok-endpoint"></a>Een eindpunt ngrok maken
 

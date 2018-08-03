@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 08/01/2018
 ms.author: raynew
-ms.openlocfilehash: 96fc44ad7f69b4de0ec5ea3967fe5495086ba53a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: fc45b9e4a568842b5a935d7c28de5ef0a57e1b86
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413600"
+ms.locfileid: "39442527"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Ondersteuningsmatrix voor VMware en fysieke servers repliceren naar Azure
 
@@ -31,7 +31,7 @@ Fysieke servers | Replicatie van on-premises Windows/Linux-fysieke servers naar 
 **Server** | **Vereisten** | **Details**
 --- | --- | ---
 VMware | vCenter Server 6.7, 6.5, 6.0 of 5.5 of vSphere 6.7, 6.5, 6.0 of 5.5 | U wordt aangeraden dat u een vCenter-server.<br/><br/> Het is raadzaam dat vSphere-hosts en vCenter-servers bevinden zich in hetzelfde netwerk bevinden als de processerver. Wordt standaard de serveronderdelen proces uitgevoerd op de configuratieserver, dus dit is het netwerk waarin u de configuratieserver hebt ingesteld, tenzij u een speciaal toegewezen proces-server instellen.
-Fysiek | N/A
+Fysieke | N/A
 
 ## <a name="site-recovery-configuration-server"></a>Site Recovery-configuratieserver
 
@@ -112,7 +112,7 @@ SUSE Linux Enterprise Server 12 (SP3 SP1, SP2) | 9.18 | SP1 3.12.49-11-default n
 **Onderdeel** | **Ondersteund**
 --- | ---
 Bestandssystemen | ext3, ext4, XFS.
-Volume manager | LVM2.
+Volume manager | LVM2. LVM wordt ondersteund voor gegevensschijven alleen. Azure virtuele machines hebben alleen een besturingssysteemschijf.
 Geparavirtualiseerde opslagapparaten | Apparaten die zijn geëxporteerd door geparavirtualiseerde stuurprogramma's worden niet ondersteund.
 Meerdere wachtrij blok i/o-apparaten | Wordt niet ondersteund.
 Fysieke servers met de opslagcontroller HP CCISS | Wordt niet ondersteund.

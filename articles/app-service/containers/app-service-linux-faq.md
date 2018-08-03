@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: yili
-ms.openlocfilehash: ea2e9d9fd1d9390cdd689b4f33b72cd471feeb8c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: cd107ddc5ac443daee592c40bbed451c913a8a3b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916853"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444586"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service on Linux Veelgestelde vragen
 
@@ -123,7 +123,7 @@ Geef de URL volledige register met inbegrip van `http://` of `https://`.
 
 **Wat is de indeling voor de naam van de installatiekopie in de optie persoonlijk register?**
 
-De naam van de volledige installatiekopie, met inbegrip van het persoonlijke register-URL (bijvoorbeeld myacr.azurecr.io/dotnet:latest) toevoegen. Afbeelding van namen die gebruikmaken van een aangepaste poort [kan niet worden ingevoerd via de portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Om in te stellen `docker-custom-image-name`, gebruikt u de [ `az` opdrachtregelprogramma](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set).
+De naam van de volledige installatiekopie, met inbegrip van het persoonlijke register-URL (bijvoorbeeld myacr.azurecr.io/dotnet:latest) toevoegen. Afbeelding van namen die gebruikmaken van een aangepaste poort [kan niet worden ingevoerd via de portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Om in te stellen `docker-custom-image-name`, gebruikt u de [ `az` opdrachtregelprogramma](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
 
 **Kan ik meer dan één poort weergeven op mijn aangepaste containerinstallatiekopie?**
 
