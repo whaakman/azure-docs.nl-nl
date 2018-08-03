@@ -47,8 +47,34 @@
   items:
     - name: Azure-CLI
       href: cli-samples.md
+      items:
+        - name: Een aangepast onderwerp maken
+          href: scripts/event-grid-cli-create-custom-topic.md
+        - name: Abonneren op Azure-abonnement
+          href: scripts/event-grid-cli-azure-subscription.md
+        - name: Abonneren op Blob Storage
+          href: scripts/event-grid-cli-blob.md
+        - name: Abonneren op aangepast onderwerp
+          href: scripts/event-grid-cli-subscribe-custom-topic.md
+        - name: Abonneren op resourcegroep
+          href: scripts/event-grid-cli-resource-group.md
+        - name: Abonneren en gebeurtenissen filteren voor resourcegroep
+          href: scripts/event-grid-cli-resource-group-filter.md
     - name: Azure PowerShell
       href: powershell-samples.md
+      items:
+        - name: Een aangepast onderwerp maken
+          href: scripts/event-grid-powershell-create-custom-topic.md
+        - name: Abonneren op Azure-abonnement
+          href: scripts/event-grid-powershell-azure-subscription.md
+        - name: Abonneren op Blob Storage
+          href: scripts/event-grid-powershell-blob.md
+        - name: Abonneren op aangepast onderwerp
+          href: scripts/event-grid-powershell-subscribe-custom-topic.md
+        - name: Abonneren op resourcegroep
+          href: scripts/event-grid-powershell-resource-group.md
+        - name: Abonneren en gebeurtenissen filteren voor resourcegroep
+          href: scripts/event-grid-powershell-resource-group-filter.md
     - name: Resource Manager-sjablonen
       href: template-samples.md
     - name: Codevoorbeelden
@@ -71,7 +97,7 @@
       href: post-to-custom-topic.md
     - name: Gebeurtenissen op HTTP-eindpunt ontvangen
       href: receive-events.md
-    - name: Gebeurtenisverzending beheren
+    - name: Dead-letter en opnieuw proberen
       href: manage-event-delivery.md
     - name: Gebeurtenisverzending bewaken
       href: monitor-event-delivery.md

@@ -6,15 +6,15 @@
       href: key-vault-overview.md
 - name: Snelstartgidsen
   items:
-    - name: Een sleutelkluis maken - CLI
+    - name: Een geheim instellen en ophalen - CLI
       href: quick-create-cli.md
-    - name: Een sleutelkluis maken - PowerShell
+    - name: Een geheim instellen en ophalen - PowerShell
       href: quick-create-powershell.md
-    - name: Een sleutelkluis maken - Portal
+    - name: Een geheim instellen en ophalen - Portal
       href: quick-create-portal.md
-    - name: Lezen in Key Vault - .NET
+    - name: Een geheim instellen en ophalen - .NET
       href: quick-create-net.md
-    - name: Lezen in Key Vault - Node.js
+    - name: Een geheim instellen en ophalen - Node.js
       href: quick-create-node.md
 - name: Zelfstudies
   items:
@@ -82,6 +82,8 @@
       href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
     - name: Python
       href: /python/api/overview/azure/key-vault?view=azure-python
+    - name: REST
+      href: /rest/api/keyvault
     - name: Ontwikkelen
       items:
         - name: Snelstartvideo voor ontwikkelaars
@@ -143,3 +145,5 @@
       href: 'https://azure.microsoft.com/pricing/details/key-vault/'
     - name: Prijscalculator
       href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Productfeedback
+      href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

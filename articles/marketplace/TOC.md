@@ -8,7 +8,7 @@
 #### [Factureringsopties voor Azure Marketplace](./billing-options-azure-marketplace.md)  
 #### [Gebruikskenmerken van klanten van Azure-partners](./azure-partner-customer-usage-attribution.md)
 
-### Digitale winkels [AppSource en Azure Marketplace vergelijken](./comparing-appsource-azure-marketplace.md)  
+### [Webwinkels](./comparing-appsource-azure-marketplace.md)  
 
 ### [De publicatieoptie voor uw oplossing kiezen](./determine-your-listing-type.md)  
 
@@ -25,6 +25,6 @@
 ### [Laat uw bedrijf groeien via de marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Voorkeursoplossingen](./preferred-solutions.md) 
 
-### Ondersteuning [Ondersteuning voor Azure Marketplace en AppSource](./support-azure-marketplace.md)  
+### [Ondersteuning voor Azure Marketplace en AppSource](./support-azure-marketplace.md)  
 
 ## [Cloud Partner-portal](./cloud-partner-portal/cloud-partner-portal-what-is-the-cloud-partner-portal.md)  

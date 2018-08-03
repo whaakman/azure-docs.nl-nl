@@ -211,6 +211,8 @@
           href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
         - name: PTR configureren voor controle van de SMTP-koptekst
           href: create-ptr-for-smtp-service.md
+        - name: Controlelijst voor het oplossen van problemen met virtuele apparaten
+          href: virtual-network-troubleshoot-nva.md
     - name: Klassiek
       items:
         - name: Een virtueel netwerk maken en beheren

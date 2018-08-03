@@ -102,11 +102,13 @@
 ### [Alle groepen weergeven](fundamentals/active-directory-groups-view-azure-portal.md)
 ### [Groepstoegang tot SaaS-apps toevoegen](users-groups-roles/groups-saasapps.md)
 ### [Herstellen van een verwijderde Office 365-groep](fundamentals/active-directory-groups-restore-azure-portal.md)
-### [Groepsinstellingen beheren](fundamentals/active-directory-groups-settings-azure-portal.md) 
-### Geavanceerde regels maken
-#### [Azure Portal](users-groups-roles/groups-dynamic-membership.md)
+### [Groepsinstellingen beheren](fundamentals/active-directory-groups-settings-azure-portal.md)
 ### [Selfservicegroepen instellen](users-groups-roles/groups-self-service-management.md)
-### [Problemen oplossen](users-groups-roles/groups-troubleshooting.md)
+### Dynamische groepen
+#### [Een dynamische groep maken](users-groups-roles/groups-create-rule.md)
+#### [Regelsyntaxis en eigenschappen](users-groups-roles/groups-dynamic-membership.md)
+#### [Type groepslidmaatschap wijzigen](users-groups-roles/groups-change-type.md)
+#### [Problemen oplossen](users-groups-roles/groups-troubleshooting.md)
 
 ## [Rapporten beheren](active-directory-reporting-azure-portal.md)
 ### [Aanmeldingsactiviteit](active-directory-reporting-activity-sign-ins.md)

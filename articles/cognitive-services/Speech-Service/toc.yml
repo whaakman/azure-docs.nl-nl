@@ -1,13 +1,13 @@
 # displayName: additional text for filtering down the ToC in meaningful way.
-- name: Documentatie voor Speech Service-API
+- name: Documentatie voor Speech Service en SDK
   href: index.yml
 - name: Overzicht
   items:
     - name: Spraakscenario's
       href: speech-scenarios.md
-    - name: Wat is de Speech-service?
-      href: overview.md
       expanded: true
+    - name: Speech Service
+      href: overview.md
     - name: Speech-SDK
       href: speech-sdk.md
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows, NuGet, Maven, download, install, sample'

@@ -1,10 +1,12 @@
 - Het VNet moet in dezelfde Azure-**regio** en hetzelfde **abonnement** voorkomen als de Batch-account.
 
-- Voor pools die zijn gemaakt met een virtuele-machineconfiguratie, geldt dat alleen VNets op basis van Azure Resource Manager worden ondersteund. Voor pools die zijn gemaakt met een cloudserviceconfiguratie, worden alleen klassieke VNets ondersteund. 
+- Voor pools die zijn gemaakt met een virtuele-machineconfiguratie, geldt dat alleen VNets op basis van Azure Resource Manager worden ondersteund. Voor pools die zijn gemaakt met een cloudserviceconfiguratie, worden alleen klassieke VNets ondersteund.
   
 - Voor het gebruik van een klassiek VNET moet de `MicrosoftAzureBatch`-service-principal de toegangsbeheerrol `Classic Virtual Machine Contributor` hebben voor het betreffende VNet. Voor het gebruik van een op Azure Resource Manager gebaseerd VNet moet u gemachtigd zijn voor toegang tot het VNet en om virtuele machines te implementeren in het subnet.
 
 - Het subnet dat is opgegeven voor de pool moet voldoende vrije IP-adressen hebben voor het aantal virtuele machines voor de pool, ofwel de som van de `targetDedicatedNodes`- en `targetLowPriorityNodes`-eigenschappen van de pool. Als het subnet onvoldoende vrije IP-adressen heeft, wijst de pool de rekenknooppunten gedeeltelijk toe en wordt een fout weergegeven voor het aanpassen van de grootte. 
+
+- Pools in de configuratie van de virtuele machine die in Azure VNet is geïmplementeerd, wijzen automatisch extra Azure-netwerkresources toe. De volgende resources zijn nodig voor elk knooppunt met 50 pools in een VNet: 1 netwerkbeveiligingsgroep, 1 openbaar IP-adres en 1 load balancer. De resources zijn beperkt door [quota](../articles/batch/batch-quota-limit.md) in het abonnement dat het virtuele netwerk bevat en bij het maken van de Batch-pool is opgegeven.
 
 - Het VNet moet communicatie vanuit de Batch-service toestaan om taken te kunnen plannen voor de rekenknooppunten. Dit kan worden geverifieerd door te controleren of het VNet bijbehorende netwerkbeveiligingsgroepen heeft. Als communicatie met de rekenknooppunten in het opgegeven subnet wordt geweigerd door een netwerkbeveiligingsgroep, zet de Batch-service de status van de rekenknooppunten op **Onbruikbaar**. 
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.reviewer: ramach
 ms.author: mbullwin
-ms.openlocfilehash: 9eb99ecea8efbbce322e61ac281cd534a112728b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 2da281f52a85992c6fade360c94fbf473c38dc20
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950663"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424021"
 ---
 # <a name="enable-application-insights-profiler-for-azure-vms-service-fabric-and-azure-cloud-services"></a>Application Insights Profiler inschakelen voor Azure-machines, Service Fabric en Azure Cloudservices
 
@@ -44,11 +44,11 @@ Om in te schakelen volledig Profiler, moet u de configuratie op drie locaties:
 
 1. [Maak een nieuwe Application Insights-resource](https://docs.microsoft.com/azure/application-insights/app-insights-create-new-resource), of Selecteer een bestaande resourcegroep. 
 
-2. Ga naar uw Application Insights-resource en kopieer de instrumentatiesleutel.
+1. Ga naar uw Application Insights-resource en kopieer de instrumentatiesleutel.
 
    ![Locatie van de instrumentatiesleutel](./media/enable-profiler-compute/CopyAIKey.png)
 
-3. Voor het voltooien van de Application Insights-exemplaar in te stellen voor Profiler, voert u de procedure die wordt beschreven in [Profiler inschakelen. U hoeft te koppelen van de web-apps, omdat de stappen specifiek voor de resource voor de app-services zijn. Zorg ervoor dat de Profiler is ingeschakeld in de **Profiler configureren** deelvenster.
+1. Voor het voltooien van de Application Insights-exemplaar in te stellen voor Profiler, voert u de procedure die wordt beschreven in [Profiler inschakelen. U hoeft te koppelen van de web-apps, omdat de stappen specifiek voor de resource voor de app-services zijn. Zorg ervoor dat de Profiler is ingeschakeld in de **Profiler configureren** deelvenster.
 
 
 ## <a name="set-up-the-application-source-code"></a>De broncode van de toepassing instellen
@@ -74,7 +74,7 @@ Naast het voltooien van de vorige stap, als uw toepassing is *niet* een ASP.NET 
         ```
       Zie voor meer informatie over de configuratie van deze globale instrumentation [met Service Fabric met Application Insights](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/blob/dev/appinsights/ApplicationInsights.md).  
 
-  2. Voor elk stukje code dat u wilt instrumenteren, voegt u een `StartOperation<RequestTelemetry>` **met** instructie rond het, zoals wordt weergegeven in het volgende voorbeeld:
+  1. Voor elk stukje code dat u wilt instrumenteren, voegt u een `StartOperation<RequestTelemetry>` **met** instructie rond het, zoals wordt weergegeven in het volgende voorbeeld:
 
         ```csharp
         using Microsoft.ApplicationInsights;
@@ -143,7 +143,7 @@ Zie, voor volledige voorbeelden:
 Als u uw omgeving instelt, het volgende doen:
 1. Om ervoor te zorgen dat u [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) of hoger, is voldoende om te bevestigen dat het geïmplementeerde besturingssysteem `Windows Server 2012 R2` of hoger.
 
-2. Zoek de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) -extensie in de sjabloon voor de implementatie-bestand en voeg vervolgens de volgende `SinksConfig` sectie als een onderliggend element van `WadCfg`. Vervang de `ApplicationInsightsProfiler` eigenschapswaarde met uw eigen Application Insights-instrumentatiesleutel:  
+1. Zoek de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) -extensie in de sjabloon voor de implementatie-bestand en voeg vervolgens de volgende `SinksConfig` sectie als een onderliggend element van `WadCfg`. Vervang de `ApplicationInsightsProfiler` eigenschapswaarde met uw eigen Application Insights-instrumentatiesleutel:  
 
       ```json
       "SinksConfig": {
@@ -165,13 +165,13 @@ Als u uw omgeving instelt, het volgende doen:
 
 1. Om ervoor te zorgen dat u [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) of hoger, is voldoende om te bevestigen dat de *ServiceConfiguration.\*. cscfg* bestanden hebben een `osFamily` waarde van '5' of hoger.
 
-2. Zoek de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* bestand voor de toepassingsrol van uw, zoals hier wordt weergegeven:  
+1. Zoek de [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* bestand voor de toepassingsrol van uw, zoals hier wordt weergegeven:  
 
    ![Locatie van het configuratiebestand van de diagnostische gegevens](./media/enable-profiler-compute/cloudservice-solutionexplorer.png)  
 
    Als u het bestand niet vinden, voor informatie over het inschakelen van de extensie voor diagnostische gegevens in uw Azure Cloud Services-project, Zie [diagnose instellen voor Azure Cloud Services en virtuele machines](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines#enable-diagnostics-in-cloud-service-projects-before-deploying-them).
 
-3. Voeg de volgende `SinksConfig` sectie als een onderliggend element van `WadCfg`:  
+1. Voeg de volgende `SinksConfig` sectie als een onderliggend element van `WadCfg`:  
 
       ```xml
       <WadCfg>
@@ -212,7 +212,7 @@ Als u uw omgeving instelt, het volgende doen:
     Set-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM" -DiagnosticsConfigurationPath $ConfigFilePath
     ```
 
-2. Als de bedoelde toepassing wordt uitgevoerd via [IIS](https://www.microsoft.com/web/downloads/platform.aspx), schakel de `IIS Http Tracing` Windows-functie als volgt:  
+1. Als de bedoelde toepassing wordt uitgevoerd via [IIS](https://www.microsoft.com/web/downloads/platform.aspx), schakel de `IIS Http Tracing` Windows-functie als volgt:  
 
    a. Externe toegang tot de omgeving tot stand brengen en gebruik vervolgens de [Windows toevoegen functies]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) -venster, of Voer de volgende opdracht in PowerShell (als beheerder):  
 

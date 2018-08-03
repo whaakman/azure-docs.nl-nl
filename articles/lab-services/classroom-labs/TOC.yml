@@ -14,6 +14,8 @@
       href: tutorial-setup-classroom-lab.md
     - name: 3. Een leslokaallab openen
       href: tutorial-connect-virtual-machine-classroom-lab.md
+    - name: 4. Gebruik van een leslokaallab bijhouden
+      href: tutorial-track-usage.md
 - name: Handleidingen
   items:
     - name: Lab-accounts beheren

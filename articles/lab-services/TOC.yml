@@ -61,6 +61,8 @@
           href: devtest-lab-create-lab.md
         - name: Een virtuele machine maken in het lab
           href: devtest-lab-create-first-vm.md
+        - name: Een lab of een virtuele machine in een lab verwijderen
+          href: devtest-lab-delete-lab-vm.md
         - name: Beleid instellen voor het lab
           href: devtest-lab-get-started-with-lab-policies.md
         - name: Geheimen opslaan in Azure Key Vault

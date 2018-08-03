@@ -1,9 +1,15 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 0db6620c7433486babebe95090f3682582f1c212
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39422158"
 documentType: LandingData
-title: Documentatie voor Speech Service (preview)
+title: Documentatie voor Speech Service en SDK (Preview)
 metadata:
   title: Documentatie voor Speech Service - Snelstarts, zelfstudies, API-naslag - Cognitive Services | Microsoft Docs
-  meta.description: The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications, such as voice command control and dialog, natural speech conversation, speech transcription and dictation, and speech translation.
+  meta.description: "The Speech Service provides developers an easy way to add powerful speech-enabled features to their applications. \nExamples include&#58; voice command control & dialog, natural speech conversation, speech transcription & dictation, and speech translation.\n"
   services: cognitive-services
   author: noellelacharite
   manager: nolachar
@@ -15,19 +21,16 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/16/2018
   ms.author: nolachar
-  ms.openlocfilehash: 2b82b50972c2c61c9dda5d1b1862c0c4cc8a9052
-  ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
-  ms.translationtype: HT
-  ms.contentlocale: nl-NL
-  ms.lasthandoff: 07/17/2018
-  ms.locfileid: "39070107"
 abstract:
-  description: Met Microsoft Speech Service en SDK kunnen ontwikkelaars op eenvoudige wijze krachtige functies met spraakmogelijkheden aan hun toepassingen toevoegen, zoals spraakopdrachtbesturing, transcriptie, dicteren en vertalen met behulp van een <a href="rest-apis">REST API</a> of een <a href="speech-sdk">C#-, C++- of Java-SDK</a>.<p>Met de Speech-service kunt u modellen voor omzetting van <a href="how-to-customize-speech-models">spraak naar tekst</a> aanpassen om rekening te houden met gespecialiseerde vocabulaires, lawaaierige omgevingen en verschillende manieren van spreken. Ook zijn er aangepaste versies van <a href="https://cris.ai/Home/customvoice">Tekst-naar-spraak</a> en <a href="https://www.microsoft.com/translator/customization.aspx">Spraakomzetting</a> beschikbaar.<p>Raadpleeg voor meer informatie het onderwerp <a href="overview">Wat is de Speech-service?</a>
+  description: >
+    Ontwikkelaars kunnen via onze Speech SDK de <a href="overview">Speech Service</a> gebruiken om met spraak geactiveerde functies toe te voegen aan hun apps.<br/>
+
+    Functies omvatten&#58; <i>spraak-naar-tekst</i> (spraakherkenning), <i>intentieherkenning</i>, <i>vertaling</i> en <i>tekst-naar-spraak</i> (TTS).
 sections:
-- title: Snelstartgidsen van tien minuten
+- title: Snelstart van 5 minuten en SDK downloaden
   items:
   - type: paragraph
-    text: 'Meer informatie over het installeren van en werken met de Speech-SDK:'
+    text: Kom meer te weten over downloaden, installatie en gebruik door te klikken op de onderstaande  <img src="media/index/link.jpg" height="15" width="15"></img> pijlen.
   - type: table
     style: dataMatrix
     columns:
@@ -40,13 +43,13 @@ sections:
     - image:
         src: media/index/logo_netcore.svg
     - image:
-        src: media/index/logo_java.svg
+        src: media/index/logo_java.jpg
     - image:
         src: media/index/logo_rest_sr.svg
     - image:
         src: media/index/logo_rest_tts.svg
     rows:
-    - title: Windows
+    - title: Windows (x86/x64)
       values:
       - href: quickstart-csharp-uwp
       - href: quickstart-csharp-windows
@@ -55,14 +58,14 @@ sections:
       - href: 
       - href: 
       - href: 
-    - title: Linux
+    - title: Linux (x86/x64)
       values:
       - href: 
       - href: 
       - href: quickstart-cpp-linux
       - href: 
       - href: 
-    - title: Android SDK
+    - title: Android (ARM32/ARM64)
       values:
       - href: 
       - href: 
@@ -71,7 +74,7 @@ sections:
       - href: quickstart-java-android
       - href: 
       - href: 
-    - title: Devices SDK
+    - title: Devices SDK (ARM64)
       values:
       - href: 
       - href: 
@@ -89,17 +92,40 @@ sections:
       - href: 
       - href: rest-apis
       - href: rest-apis
-- title: Voorbeelden en referentie
+- title: Voorbeelden en referentie voor Speech SDK
   items:
   - type: list
     style: cards
     className: cardsD
     items:
     - title: Voorbeelden
-      html: <ul><li><a href="speech-to-text-sample.md">Spraakherkenning</a></li><li><a href="intent.md">Intentieherkenning</a></li><li><a href="translation.md">Omzetting</a></li></ul>
+      html: >
+        &nbsp;&#8226; <a href="speech-to-text-sample.md">Spraak-naar-tekst (SR)</a><br/>
+
+        &nbsp;&#8226; <a href="intent.md">Intentieherkenning</a><br/>
+
+        &nbsp;&#8226; <a href="translation.md">Vertaling</a>
     - title: API-naslaginformatie
-      html: <ul><li><a href="https://aka.ms/csspeech/csharpref">C#-API (inclusief UWP- en .NET-standaard)</a></li><li><a href="https://aka.ms/csspeech/cppref">C++-API</a></li><li><a href="https://aka.ms/csspeech/javaref">Java-API</a> voor Speech SDK<br>en Speech Devices SDK</li></ul>
-- title: Speech Devices SDK
+      html: >
+        &nbsp;&#8226; <a href="https://aka.ms/csspeech/csharpref">C# API (UWP en .NET)</a><br/>
+
+        &nbsp;&#8226; <a href="https://aka.ms/csspeech/cppref">C++-API</a><br/>
+
+        &nbsp;&#8226; <a href="https://aka.ms/csspeech/javaref">Java-API</a>
+  - type: paragraph
+    text: Gebruik de bovenstaande voorbeelden en API's met uw abonnementssleutel (zie <a href="get-started.md">Speech Service gratis uitproberen</a>).
+- title: Spraak aanpassen met uw eigen gegevens
   items:
   - type: paragraph
-    text: "Met de introductie van de geïntegreerde Speech Service bieden Microsoft en haar partners nu een geïntegreerd hardware-/softwareplatform dat is geoptimaliseerd voor het ontwikkelen van apparaten met spraakmogelijkheden: de <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>Speech Devices SDK</a>. Deze SDK is geschikt om apparaten te ontwikkelen die omgevingsgeluid registreren voor allerlei soorten toepassingen. U kunt er een <I>activeringswoord</I> voor definiëren dat alleen voor uw merk geldt. De hardware bevat ook audioverwerking van superieure kwaliteit van audio uit meerkanaalsbronnen, voor nauwkeurigere spraakherkenning, waaronder ruisonderdrukking, 'far-field'-spraak en golfvorming."
+    text: >
+      Met onze Speech-service kunt u ook modellen aanpassen om rekening te houden met gespecialiseerde vocabulaires, lawaaierige omgevingen en verschillende manieren van spreken.<br/>
+
+      &nbsp;&#8226; <a href="how-to-customize-speech-models">Aangepaste spraak-naar-tekst</a><br/>
+
+      &nbsp;&#8226; <a href="https://www.microsoft.com/translator/customization.aspx">Aangepaste spraakvertaling</a><br/>
+
+      &nbsp;&#8226; <a href="https://cris.ai/Home/customvoice">Aangepaste tekst-naar-spraak</a>
+- title: Hardwarereferentieontwerp voor spraakbesturing
+  items:
+  - type: paragraph
+    text: Ontwikkelaars die nieuwe met spraak bestuurde hardware willen bouwen, kunnen ons referentieapparaat raadplegen via <a href='https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk'>Speech Devices SDK</a>.

@@ -308,6 +308,8 @@
               href: iot-hub-live-data-visualization-in-web-apps.md
             - name: Weersvoorspelling met behulp van Azure Machine Learning
               href: iot-hub-weather-forecast-machine-learning.md
+            - name: Apparaatbeheer met Azure IoT Toolkit voor VS Code
+              href: iot-hub-device-management-iot-toolkit.md
             - name: Apparaatbeheer met iothub-explorer
               href: iot-hub-device-management-iothub-explorer.md
             - name: Apparaatbeheer met IoT-extensie voor Azure CLI 2.0

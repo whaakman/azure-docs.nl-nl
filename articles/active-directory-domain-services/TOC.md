@@ -36,6 +36,9 @@
 #### [Taak 1: Een certificaat voor Secure LDAP verkrijgen](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Taak 2: het certificaat voor Secure LDAP exporteren](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
 #### [Taak 3: Secure LDAP inschakelen voor het beheerde domein met Azure Portal](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)
+#### [Taak 4: DNS configureren voor toegang tot het beheerde domein vanaf het internet](active-directory-ds-ldaps-configure-dns.md)
+#### [Taak 5: verbinding maken met het beheerde domein en de Secure LDAP-toegang vergrendelen](active-directory-ds-ldaps-bind-lockdown.md)
+#### [Problemen met Secure LDAP oplossen](active-directory-ds-ldaps-troubleshoot.md)
 
 ### [Een organisatie-eenheid maken in een beheerd domein](active-directory-ds-admin-guide-create-ou.md)
 ### [Een beheerd serviceaccount voor groepen maken in een beheerd domein](active-directory-ds-create-gmsa.md)
