@@ -244,6 +244,8 @@
       items:
         - name: IaaS-webtoepassing
           href: ./blueprints/ukofficial-iaaswa-overview.md
+        - name: PaaS-webtoepassing
+          href: ./blueprints/ukofficial-paaswa-overview.md
 - name: Technische documenten
   href: security-white-papers.md
 - name: Azure-beveiligingsservices
