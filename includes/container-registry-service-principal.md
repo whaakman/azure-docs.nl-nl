@@ -5,31 +5,35 @@ services: container-registry
 author: mmacy
 ms.service: container-registry
 ms.topic: include
-ms.date: 04/23/2018
+ms.date: 08/03/2018
 ms.author: marsma
 ms.custom: include file
-ms.openlocfilehash: 6ed114ea6162c9d4888b6f86998cfb422a3944e8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2174ae44f8e78763c1939aee5e6b86c95a0924ce
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32198223"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39514074"
 ---
 ## <a name="create-a-service-principal"></a>Een service-principal maken
 
-Als een service-principal maken met toegang tot het register van de container, kunt u het volgende script. Update de `ACR_NAME` variabele met de naam van het register container en desgewenst de `--role` waarde in de [az ad sp maken-voor-rbac] [ az-ad-sp-create-for-rbac] opdracht andere machtigingen te verlenen. U moet hebben de [Azure CLI](/cli/azure/install-azure-cli) dit script is geïnstalleerd.
+Voor het maken van een service-principal die toegang heeft tot uw container registry, kunt u het volgende script uitvoeren in de [Azure Cloud Shell](../articles/cloud-shell/overview.md) of een lokale installatie van de [Azure CLI](/cli/azure/install-azure-cli). Het script is geformatteerd voor de Bash-shell.
 
-Nadat u het script uitvoert, dient u de service-principal **ID** en **wachtwoord**. Zodra u de referenties hebt, kunt u uw toepassingen en services om het register van de container als de service-principal te verifiëren.
+Voordat u het script is uitgevoerd, werken de `ACR_NAME` variabele met de naam van het containerregister. De `SERVICE_PRINCIPAL_NAME` waarde moet uniek zijn binnen uw Azure Active Directory-tenant. Als u ontvangt een '`'http://acr-service-principal' already exists.`"fout, Geef een andere naam voor de service-principal.
 
-[!code-azurecli-interactive[acr-sp-create](~/cli_scripts/container-registry/service-principal-create/service-principal-create.sh)]
+U kunt eventueel de `--role` waarde in de [az ad sp create-for-rbac] [ az-ad-sp-create-for-rbac] opdracht als u wilt andere machtigingen verlenen.
+
+Nadat u het script uitvoeren, Let op de service-principal **ID** en **wachtwoord**. Zodra u de referenties hebt, kunt u uw toepassingen en services om te verifiëren bij uw containerregister als de service-principal kunt configureren.
+
+<!-- https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh --> [!code-azurecli-interactive[acr-sp-create](~/cli_scripts/container-registry/service-principal-create/service-principal-create.sh)]
 
 ## <a name="use-an-existing-service-principal"></a>Gebruik een bestaande service-principal
 
-Voor het verlenen van toegang tot het register naar een bestaande service-principal, moet u een nieuwe rol toewijzen aan de service-principal. Net als bij een nieuwe service principal maakt, kunt u de pull-, push- en pull- en eigenaar toegang verlenen.
+Om registertoegang te verlenen aan een bestaande service-principal, moet u een nieuwe rol toewijzen aan de service-principal. Net als bij het maken van een nieuwe service principal, kunt u pull, push- en pull en eigenaar toegang verlenen.
 
-Het volgende script maakt gebruik van de [az roltoewijzing maken] [ az-role-assignment-create] opdracht toe te kennen *pull* machtigingen voor een service-principal die u opgeeft in de `SERVICE_PRINCIPAL_ID` variabele. Pas de `--role` waarde als u een ander niveau van toegang verlenen.
+Het volgende script maakt gebruik van de [az roltoewijzing maken] [ az-role-assignment-create] opdracht uit om toegang te verlenen *pull* machtigingen aan een service-principal die u opgeeft in de `SERVICE_PRINCIPAL_ID` variabele. Pas de `--role` waarde op als u wilt een ander niveau van toegang verlenen.
 
-[!code-azurecli-interactive[acr-sp-role-assign](~/cli_scripts/container-registry/service-principal-assign-role/service-principal-assign-role.sh)]
+<!-- https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-assign-role/service-principal-assign-role.sh --> [!code-azurecli-interactive[acr-sp-role-assign](~/cli_scripts/container-registry/service-principal-assign-role/service-principal-assign-role.sh)]
 
 <!-- LINKS - Internal -->
 [az-ad-sp-create-for-rbac]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
