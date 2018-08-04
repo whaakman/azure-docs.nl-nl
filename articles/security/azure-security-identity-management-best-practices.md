@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/26/2018
 ms.author: barclayn
-ms.openlocfilehash: 210781b36f6215afc925266e597031d772a94002
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: e3fe033de05ed42d221795159461048790e1cec8
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060556"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493299"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Azure-identiteitsbeheer en toegangsbeheer best practices voor beveiliging
 
@@ -133,7 +133,7 @@ Zorg ervoor dat u het registreren van alle toepassingen die Azure AD-verificatie
 
 Organisaties die niet afgedwongen door beheer van de identiteit voor toegang tot apps en kunnen niet de ontwikkelaars handleiding over hoe u apps veilig te integreren met hun identiteitsbeheersysteem mogelijk gevoeliger voor referentie diefstal type aanval, zoals [zwakke verificatie en sessie management wordt beschreven in Open Web Application Security Project (OWASP) Top 10](https://www.owasp.org/index.php/OWASP_Top_Ten_Cheat_Sheet).
 
-U kunt meer informatie over verificatiescenario's voor SaaS-apps lezen [Verificatiescenario's voor Azure AD](../active-directory/active-directory-authentication-scenarios.md).
+U kunt meer informatie over verificatiescenario's voor SaaS-apps lezen [Verificatiescenario's voor Azure AD](../active-directory/develop/authentication-scenarios.md).
 
 ## <a name="actively-monitor-for-suspicious-activities"></a>Controleren voor verdachte activiteiten
 

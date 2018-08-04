@@ -1,6 +1,6 @@
 * [App Service-verificatie / autorisatie-overzicht](../articles/app-service/app-service-authentication-overview.md)
-* Verificatie toevoegen aan uw Mobile App: [iOS][ios-get-started-users], [Android][android-get-started-users], [universele Windows-] [ windows-get-started-users], [Xamarin.Android][xamarin-android-get-started-users], [Xamarin.iOS][xamarin-ios-get-started-users], [Xamarin.Forms] [ xamarin-forms-get-started-users], [Cordova][cordova-get-started-users]  
-  Informatie over het toevoegen van App Service-verificatie wordt op uw mobiele app.
+* Verificatie toevoegen aan uw mobiele App: [iOS][ios-get-started-users], [Android][android-get-started-users], [Windows Universal] [ windows-get-started-users], [Xamarin.Android][xamarin-android-get-started-users], [Xamarin.iOS][xamarin-ios-get-started-users], [Xamarin.Forms] [ xamarin-forms-get-started-users], [Cordova][cordova-get-started-users]  
+  Leer hoe u App Service-verificatie toevoegen aan uw mobiele app.
 
 [android-get-started-users]: ../articles/app-service-mobile/app-service-mobile-android-get-started-users.md
 [cordova-get-started-users]: ../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md

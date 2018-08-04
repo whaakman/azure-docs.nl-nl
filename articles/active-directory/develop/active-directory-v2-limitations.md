@@ -17,12 +17,12 @@ ms.date: 07/12/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 986440e5af2fb665f5d7e244f2df12edba09f022
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4111174e7ce000a978a7a5280a2561897500bdb6
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431297"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505691"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Moet ik het v2.0-eindpunt gebruiken?
 
@@ -91,7 +91,7 @@ U kunt de laatste twee toevoegen, omdat ze subdomeinen van de eerste omleidings-
 
 Let ook op, u kunt maximaal 20 antwoord-URL's voor een bepaalde toepassing hebben.
 
-Zie voor meer informatie over het registreren van een app in de Portal voor Appregistratie [over het registreren van een app met het v2.0-eindpunt](active-directory-v2-app-registration.md).
+Zie voor meer informatie over het registreren van een app in de Portal voor Appregistratie [over het registreren van een app met het v2.0-eindpunt](quickstart-v2-register-an-app.md).
 
 ## <a name="restrictions-on-libraries-and-sdks"></a>Beperkingen voor bibliotheken en SDK 's
 

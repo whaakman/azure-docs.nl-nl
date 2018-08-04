@@ -1,9 +1,9 @@
 ---
-title: Oracle Golden Gate implementeren op een Azure Linux VM | Microsoft Docs
-description: Snel gebruiksklaar een Gate Oracle Golden omhoog in uw Azure-omgeving.
+title: Oracle Golden Gate implementeren op een Azure Linux-VM | Microsoft Docs
+description: Snel gebruiksklaar een Oracle Golden Gate omhoog in uw Azure-omgeving.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: v-shiuma
+author: romitgirdhar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -13,35 +13,35 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/19/2017
-ms.author: rclaus
-ms.openlocfilehash: 568ec352101cb555e295327bc11f1940da57d9f7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 08/02/2018
+ms.author: rogirdh
+ms.openlocfilehash: f0ae48cadf2e90dc685a24aff54d89f86a11c287
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656377"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494290"
 ---
-# <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Oracle Golden Gate implementeren op een Azure Linux VM 
+# <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Oracle Golden Gate implementeren op een Azure Linux-VM 
 
-De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. Deze handleiding wordt het gebruik van de Azure CLI voor het implementeren van een Oracle-12-c-database uit de galerie van Azure Marketplace installatiekopie. 
+De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. Deze handleiding wordt uitgelegd hoe de Azure CLI gebruiken voor het implementeren van een Oracle 12c-database van de installatiekopie van de galerie met Azure Marketplace. 
 
-Dit document leest u stapsgewijs hoe maken, installeren en configureren van Oracle Golden Gate op een virtuele machine van Azure.
+Dit document wordt stapsgewijs hoe u maken, installeren en configureren van Oracle Golden Gate op een Azure-VM.
 
 Voordat u begint, moet u controleren of de Azure-CLI is geïnstalleerd. Zie voor meer informatie de [Installatiehandleiding van de Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 ## <a name="prepare-the-environment"></a>De omgeving voorbereiden
 
-Als u wilt de installatie van de Oracle Golden Gate uitvoeren, moet u twee virtuele Azure-machines op dezelfde beschikbaarheidsset maken. De Marketplace-installatiekopie die u kunt maken van de virtuele machines is **Oracle: Oracle-Database-Ee:12.1.0.2:latest**.
+Het Oracle Golden Gate-installatie wilt uitvoeren, moet u twee Azure-VM's maken in dezelfde beschikbaarheidsset. De Marketplace-installatiekopie die u gebruiken om te maken van de virtuele machines is **Oracle: Oracle-Database-Ee:12.1.0.2:latest**.
 
-Ook moet u bekend zijn met Unix-editor vi en basiskennis van x11 (Windows X).
+Ook moet u bekend bent met het Unix-editor vi en een basiskennis hebben van x11 (X-Windows).
 
 Hier volgt een samenvatting van de configuratie van de omgeving:
 > 
-> |  | **Primaire site** | **Replicatie van site** |
+> |  | **Primaire site** | **-Site repliceren** |
 > | --- | --- | --- |
-> | **Oracle-release** |Oracle 12c versie 2: (12.1.0.2) |Oracle 12c versie 2: (12.1.0.2)|
-> | **Computernaam** |myVM1 |myVM2 |
+> | **Oracle-release** |Oracle 12c Release 2 – (12.1.0.2) |Oracle 12c Release 2 – (12.1.0.2)|
+> | **Naam van de computer** |myVM1 |myVM2 |
 > | **Besturingssysteem** |Oracle Linux 6.x |Oracle Linux 6.x |
 > | **Oracle-SID** |CDB1 |CDB1 |
 > | **Schema voor replicatie** |TEST|TEST |
@@ -51,7 +51,7 @@ Hier volgt een samenvatting van de configuratie van de omgeving:
 
 ### <a name="sign-in-to-azure"></a>Aanmelden bij Azure 
 
-Aanmelden bij uw Azure-abonnement met de [az aanmelding](/cli/azure/reference-index#az_login) opdracht. Volg de aanwijzingen op het scherm richtingen.
+Aanmelden bij uw Azure-abonnement met de [az login](/cli/azure/reference-index#az_login) opdracht. Volg de aanwijzingen op het scherm aanwijzingen.
 
 ```azurecli
 az login
@@ -59,7 +59,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container in welke Azure-resources zijn geïmplementeerd en die ze kunnen worden beheerd. 
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container in welke Azure-resources worden geïmplementeerd en die ze kunnen worden beheerd. 
 
 In het volgende voorbeeld wordt een resourcegroep met de naam `myResourceGroup` gemaakt op de locatie `westus`.
 
@@ -69,7 +69,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>Een beschikbaarheidsset maken
 
-De volgende stap is optioneel maar aanbevolen. Zie voor meer informatie [Azure handleiding voor beschikbaarheidssets](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
+De volgende stap is optioneel maar aanbevolen. Zie voor meer informatie, [handleiding van Azure-beschikbaarheidssets](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
 
 ```azurecli
 az vm availability-set create \
@@ -83,7 +83,7 @@ az vm availability-set create \
 
 Maak een VM met de opdracht [az vm create](/cli/azure/vm#az_vm_create). 
 
-Het volgende voorbeeld maakt twee virtuele machines met de naam `myVM1` en `myVM2`. SSH-sleutels maken als deze niet al bestaan op de standaardlocatie van de sleutel. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.
+Het volgende voorbeeld maakt u twee virtuele machines met de naam `myVM1` en `myVM2`. SSH-sleutels maken als ze niet al bestaan op een standaardsleutellocatie. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.
 
 #### <a name="create-myvm1-primary"></a>Maak myVM1 (primaire):
 ```azurecli
@@ -96,7 +96,7 @@ az vm create \
      --generate-ssh-keys \
 ```
 
-Nadat de virtuele machine is gemaakt, geeft de Azure CLI informatie weer zoals in het volgende voorbeeld. (Noteer de `publicIpAddress`. Dit adres wordt gebruikt voor toegang tot de virtuele machine.)
+Nadat de virtuele machine is gemaakt, toont de Azure CLI informatie die vergelijkbaar is met het volgende voorbeeld. (Noteer de `publicIpAddress`. Dit adres wordt gebruikt voor toegang tot de virtuele machine.)
 
 ```azurecli
 {
@@ -124,9 +124,9 @@ az vm create \
 
 Noteer de `publicIpAddress` ook nadat deze is gemaakt.
 
-### <a name="open-the-tcp-port-for-connectivity"></a>Open de TCP-poort voor connectiviteit
+### <a name="open-the-tcp-port-for-connectivity"></a>Open de TCP-poort voor verbinding
 
-De volgende stap is het configureren van externe eindpunten, waarmee u kunt extern toegang tot de Oracle-database. Voer de volgende opdrachten voor het configureren van de externe eindpunten.
+De volgende stap is het configureren van externe eindpunten, waarmee u op afstand toegang krijgen tot de Oracle-database. Voer de volgende opdrachten voor het configureren van de externe eindpunten.
 
 #### <a name="open-the-port-for-myvm1"></a>Open de poort voor myVM1:
 
@@ -138,7 +138,7 @@ az network nsg rule create --resource-group myResourceGroup\
     --destination-address-prefix '*' --destination-port-range 1521 --access allow
 ```
 
-De resultaten moeten er ongeveer als het volgende antwoord:
+De resultaten moeten eruitzien die vergelijkbaar is met het volgende antwoord:
 
 ```bash
 {
@@ -177,11 +177,11 @@ Gebruik de volgende opdracht om een SSH-sessie te starten voor de virtuele machi
 ssh <publicIpAddress>
 ```
 
-### <a name="create-the-database-on-myvm1-primary"></a>De database maken op myVM1 (primair)
+### <a name="create-the-database-on-myvm1-primary"></a>Maken van de database op myVM1 (primair)
 
 De Oracle-software is al geïnstalleerd op de Marketplace-installatiekopie, zodat de volgende stap is het installeren van de database. 
 
-Voer de software als supergebruiker 'oracle':
+De software worden uitgevoerd als de beheerder 'oracle':
 
 ```bash
 sudo su - oracle
@@ -208,7 +208,7 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
-Uitvoer moeten er ongeveer als het volgende antwoord:
+Uitvoer ziet er vergelijkbaar met het volgende antwoord:
 
 ```bash
 Copying database files
@@ -240,7 +240,7 @@ Creating Pluggable Databases
 Look at the log file "/u01/app/oracle/cfgtoollogs/dbca/cdb1/cdb1.log" for more details.
 ```
 
-De variabelen ORACLE_SID en ORACLE_HOME ingesteld.
+Stel de variabelen ORACLE_SID en ORACLE_HOME.
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
@@ -248,7 +248,7 @@ $ ORACLE_SID=cdb1; export ORACLE_SID
 $ LD_LIBRARY_PATH=ORACLE_HOME/lib; export LD_LIBRARY_PATH
 ```
 
-Eventueel, kunt u toevoegen ORACLE_HOME en ORACLE_SID naar het bestand .bashrc, zodat deze instellingen worden opgeslagen voor toekomstige aanmeldingen:
+(Optioneel) kunt u toevoegen ORACLE_HOME en ORACLE_SID naar het bestand .bashrc, zodat deze instellingen worden opgeslagen voor toekomstige aanmeldingen:
 
 ```bash
 # add oracle home
@@ -265,7 +265,7 @@ $ sudo su - oracle
 $ lsnrctl start
 ```
 
-### <a name="create-the-database-on-myvm2-replicate"></a>De database maken op myVM2 (repliceren)
+### <a name="create-the-database-on-myvm2-replicate"></a>Maken van de database op myVM2 (repliceren)
 
 ```bash
 sudo su - oracle
@@ -291,7 +291,7 @@ $ dbca -silent \
    -storageType FS \
    -ignorePreReqs
 ```
-De variabelen ORACLE_SID en ORACLE_HOME ingesteld.
+Stel de variabelen ORACLE_SID en ORACLE_HOME.
 
 ```bash
 $ ORACLE_HOME=/u01/app/oracle/product/12.1.0/dbhome_1; export ORACLE_HOME
@@ -299,7 +299,7 @@ $ ORACLE_SID=cdb1; export ORACLE_SID
 $ LD_LIBRARY_PATH=ORACLE_HOME/lib; export LD_LIBRARY_PATH
 ```
 
-Desgewenst kunt u ORACLE_HOME en ORACLE_SID zijn toegevoegd aan het bestand .bashrc zodat deze instellingen worden opgeslagen voor toekomstige aanmeldingen.
+U kunt eventueel ORACLE_HOME en ORACLE_SID toegevoegd aan het bestand .bashrc, zodat deze instellingen worden opgeslagen voor toekomstige aanmeldingen.
 
 ```bash
 # add oracle home
@@ -319,7 +319,7 @@ $ lsnrctl start
 ## <a name="configure-golden-gate"></a>Golden Gate configureren 
 Voer de stappen in deze sectie voor het configureren van Golden-Gate.
 
-### <a name="enable-archive-log-mode-on-myvm1-primary"></a>Bij myVM1 (primaire) archief logboek-modus inschakelen
+### <a name="enable-archive-log-mode-on-myvm1-primary"></a>Modus voor het logboek archiveren op myVM1 (primaire) inschakelen
 
 ```bash
 $ sqlplus / as sysdba
@@ -334,7 +334,7 @@ SQL> STARTUP MOUNT;
 SQL> ALTER DATABASE ARCHIVELOG;
 SQL> ALTER DATABASE OPEN;
 ```
-Force logboekregistratie inschakelen en controleer of ten minste één logboekbestand aanwezig is.
+Force logboekregistratie inschakelen en zorg ervoor dat ten minste één logboekbestand aanwezig is.
 
 ```bash
 SQL> ALTER DATABASE FORCE LOGGING;
@@ -346,12 +346,12 @@ SQL> ALTER DATABASE ADD SUPPLEMENTAL LOG DATA;
 SQL> EXIT;
 ```
 
-### <a name="download-golden-gate-software"></a>Golden Gate-software downloaden
-Als u wilt downloaden en voorbereiden van de Oracle Golden Gate-software, moet u de volgende stappen uitvoeren:
+### <a name="download-golden-gate-software"></a>Golden Gate software downloaden
+Om te downloaden en bereidt u de Oracle Golden Gate-software, voert u de volgende stappen uit:
 
-1. Download de **fbo_ggs_Linux_x64_shiphome.zip** bestand van de [Oracle Golden Gate downloadpagina](http://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Onder de titel downloaden **Oracle GoldenGate 12.x.x.x voor Oracle Linux x86-64**, moet er een reeks ZIP-bestanden te downloaden.
+1. Download de **fbo_ggs_Linux_x64_shiphome.zip** -bestand uit de [Oracle Golden Gate-downloadpagina](http://www.oracle.com/technetwork/middleware/goldengate/downloads/index.html). Onder de titel downloaden **12.x.x.x Oracle GoldenGate voor Oracle Linux x86-64**, moet er een set ZIP-bestanden te downloaden.
 
-2. Nadat u het ZIP-bestanden op uw clientcomputer hebt gedownload, Kopieer de bestanden naar uw virtuele machine met gebruik van Secure kopie Protocol (SCP):
+2. Nadat u het ZIP-bestanden naar uw client-computer downloaden, gebruikt u Secure Copy Protocol (SCP) de bestanden naar uw virtuele machine te kopiëren:
 
   ```bash
   $ scp fbo_ggs_Linux_x64_shiphome.zip <publicIpAddress>:<folder>
@@ -364,7 +364,7 @@ Als u wilt downloaden en voorbereiden van de Oracle Golden Gate-software, moet u
   # mv <folder>/*.zip /opt
   ```
 
-4. Pak de bestanden (de Linux installeren pak hulpprogramma als deze nog niet is geïnstalleerd):
+4. Pak de bestanden (installatie van de Linux unzip hulpprogramma als deze nog niet geïnstalleerd):
 
   ```bash
   # yum install unzip
@@ -378,26 +378,26 @@ Als u wilt downloaden en voorbereiden van de Oracle Golden Gate-software, moet u
   # chown -R oracle:oinstall /opt/fbo_ggs_Linux_x64_shiphome
   ```
 
-### <a name="prepare-the-client-and-vm-to-run-x11-for-windows-clients-only"></a>Voorbereiden van de client en de virtuele machine voor uit te voeren x11 (alleen voor Windows-clients)
-Dit is een optionele stap. U kunt deze stap overslaan als u een voor Linux client of al x11 hebt setup.
+### <a name="prepare-the-client-and-vm-to-run-x11-for-windows-clients-only"></a>Voorbereiden van de client en de virtuele machine om uit te voeren x11 (voor alleen voor Windows-clients)
+Dit is een optionele stap. U kunt deze stap overslaan als u een Linux-client of al x11 hebt setup.
 
-1. Download PuTTY en Xming naar uw Windows-computer:
+1. Download PuTTY en Xming op uw Windows-computer:
 
   * [Download PuTTY](http://www.putty.org/)
   * [Xming downloaden](https://xming.en.softonic.com/)
 
-2.  Nadat u PuTTY, in de PuTTY-map (bijvoorbeeld C:\Program Files\PuTTY) hebt geïnstalleerd, voert u puttygen.exe (Generator PuTTY sleutel).
+2.  Nadat u PuTTY, in de PuTTY-map (bijvoorbeeld C:\Program Files\PuTTY) hebt geïnstalleerd, voert u puttygen.exe (PuTTY-Sleutelgenerator).
 
-3.  In de PuTTY codegenerator:
+3.  In de PuTTY Serversleutelgenerator:
 
-  - Als een sleutel worden gegenereerd, selecteer de **genereren** knop.
+  - Voor het genereren van een sleutel, selecteer de **genereren** knop.
   - Kopieer de inhoud van de sleutel (**Ctrl + C**).
   - Selecteer de **persoonlijke sleutel opslaan** knop.
   - Negeer de waarschuwing die wordt weergegeven, en selecteer vervolgens **OK**.
 
-    ![Schermafbeelding van de pagina PuTTY codegenerator](./media/oracle-golden-gate/puttykeygen.png)
+    ![Schermafbeelding van de pagina PuTTY serversleutelgenerator](./media/oracle-golden-gate/puttykeygen.png)
 
-4.  In de virtuele machine, moet u deze opdrachten uitvoeren:
+4.  Voer deze opdrachten uit in uw VM:
 
   ```bash
   # sudo su - oracle
@@ -408,34 +408,34 @@ Dit is een optionele stap. U kunt deze stap overslaan als u een voor Linux clien
 5. Maak een bestand met de naam **authorized_keys**. Plak de inhoud van de sleutel in dit bestand en sla het bestand.
 
   > [!NOTE]
-  > De sleutel moet de tekenreeks bevatten `ssh-rsa`. De inhoud van de sleutel moet ook een enkele regel tekst.
+  > De sleutel moet de tekenreeks bevatten `ssh-rsa`. De inhoud van de sleutel moet bovendien één regel tekst.
   >  
 
-6. Start PuTTY. In de **categorie** deelvenster **verbinding** > **SSH** > **Auth**. In de **persoonlijke sleutelbestand voor verificatie** vak, blader naar de sleutel die u eerder hebt gegenereerd.
+6. Start PuTTY. In de **categorie** venster **verbinding** > **SSH** > **Auth**. In de **bestand met persoonlijke sleutel voor verificatie** vak, blader naar de sleutel die u eerder hebt gegenereerd.
 
   ![Schermafbeelding van de pagina persoonlijke sleutel instellen](./media/oracle-golden-gate/setprivatekey.png)
 
-7. In de **categorie** deelvenster **verbinding** > **SSH** > **X11**. Selecteer vervolgens de **inschakelen X11 doorsturen** vak.
+7. In de **categorie** venster **verbinding** > **SSH** > **X11**. Selecteer vervolgens de **inschakelen X11 doorsturen** vak.
 
   ![Schermafbeelding van de pagina X11 inschakelen](./media/oracle-golden-gate/enablex11.png)
 
-8. In de **categorie** deelvenster, gaat u naar **sessie**. Geef hostinformatie op de en selecteer vervolgens **Open**.
+8. In de **categorie** deelvenster, Ga naar **sessie**. Voer de informatie over de host en selecteer vervolgens **Open**.
 
   ![Schermafbeelding van de sessie-pagina](./media/oracle-golden-gate/puttysession.png)
 
-### <a name="install-golden-gate-software"></a>Golden Gate software installeren
+### <a name="install-golden-gate-software"></a>Golden Gate-software installeren
 
-Voor installatie Oracle Golden poort, voert u de volgende stappen uit:
+Voor het installeren van Oracle Golden Gate, voert u de volgende stappen uit:
 
-1. Meld u aan als oracle. (U moet zich aanmelden zonder te worden gevraagd om een wachtwoord.) Zorg ervoor dat Xming voordat u begint met de installatie wordt uitgevoerd.
+1. Meld u als oracle. (U moet aanmelden zonder een wachtwoord wordt gevraagd.) Zorg ervoor dat Xming voordat u begint met de installatie wordt uitgevoerd.
  
   ```bash
   $ cd /opt/fbo_ggs_Linux_x64_shiphome/Disk1
   $ ./runInstaller
   ```
-2. Selecteer 'Oracle GoldenGate voor Oracle-Database 12c'. Selecteer vervolgens **volgende** om door te gaan.
+2. Selecteer 'Oracle GoldenGate voor Oracle Database 12c'. Selecteer vervolgens **volgende** om door te gaan.
 
-  ![Schermopname van het installatieprogramma op de pagina installatie selecteren](./media/oracle-golden-gate/golden_gate_install_01.png)
+  ![Schermafbeelding van de pagina van de installatie selecteert u installatieprogramma](./media/oracle-golden-gate/golden_gate_install_01.png)
 
 3. Wijzig de locatie van de software. Selecteer vervolgens de **Manager Start** in en voert u de locatie van de database. Selecteer **Volgende** om door te gaan.
 
@@ -445,11 +445,11 @@ Voor installatie Oracle Golden poort, voert u de volgende stappen uit:
 
   ![Schermafbeelding van de pagina installatie selecteren](./media/oracle-golden-gate/golden_gate_install_03.png)
 
-5. Op de **samenvatting** Schakel in het scherm **installeren** om door te gaan.
+5. Op de **samenvatting** scherm, selecteer **installeren** om door te gaan.
 
-  ![Schermopname van het installatieprogramma op de pagina installatie selecteren](./media/oracle-golden-gate/golden_gate_install_04.png)
+  ![Schermafbeelding van de pagina van de installatie selecteert u installatieprogramma](./media/oracle-golden-gate/golden_gate_install_04.png)
 
-6. U wordt mogelijk gevraagd een script als 'root' uit te voeren. Zo ja, open een afzonderlijke sessie ssh naar de virtuele machine, sudo aan basis-, en voer het script. Selecteer **OK** gaan.
+6. U mogelijk gevraagd om uit te voeren een script op als 'root'. Als dit het geval is, opent u een afzonderlijke sessie, ssh met de virtuele machine, sudo aan basis-, en voer het script. Selecteer **OK** blijven.
 
   ![Schermafbeelding van de pagina installatie selecteren](./media/oracle-golden-gate/golden_gate_install_05.png)
 
@@ -492,10 +492,10 @@ Voor installatie Oracle Golden poort, voert u de volgende stappen uit:
     )
   ```
 
-2. De Golden Gate eigenaar en gebruikersaccounts maken.
+2. De Golden Gate eigenaars- en -accounts maken.
 
   > [!NOTE]
-  > De eigenaarsaccount moet C ## voorvoegsel hebben.
+  > De van eigenaarsaccount moet het voorvoegsel van C# hebben.
   >
 
     ```bash
@@ -508,7 +508,7 @@ Voor installatie Oracle Golden poort, voert u de volgende stappen uit:
     SQL> EXIT;
     ```
 
-3. De gebruikersaccount Golden Gate test maken:
+3. De Golden Gate test-gebruikersaccount maken:
 
   ```bash
   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -522,9 +522,9 @@ Voor installatie Oracle Golden poort, voert u de volgende stappen uit:
   SQL> EXIT;
   ```
 
-4. Configureer het parameterbestand uitpakken.
+4. Configureer het parameterbestand extraheren.
 
- Start de Gouden gate-opdrachtregelinterface (ggsci):
+ Start de Golden gate-opdrachtregelinterface (ggsci):
 
   ```bash
   $ sudo su - oracle
@@ -538,7 +538,7 @@ Voor installatie Oracle Golden poort, voert u de volgende stappen uit:
 
   GGSCI> EDIT PARAMS EXTORA
   ```
-5. De volgende toevoegen aan het parameterbestand EXTRACT (via vi opdrachten). Druk op Esc-toets ': wq!' bestand op te slaan. 
+5. Voeg de volgende naar het parameterbestand EXTRACT (met behulp van vi opdrachten). Druk op Esc-toets, ': wq! " bestand op te slaan. 
 
   ```bash
   EXTRACT EXTORA
@@ -552,7 +552,7 @@ Voor installatie Oracle Golden poort, voert u de volgende stappen uit:
   TABLE pdb1.test.TCUSTMER;
   TABLE pdb1.test.TCUSTORD;
   ```
-6. Registratie uit te pakken--geïntegreerde uitpakken.
+6. Register pak--geïntegreerde extraheren:
 
   ```bash
   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -567,7 +567,7 @@ Voor installatie Oracle Golden poort, voert u de volgende stappen uit:
 
   GGSCI> exit
   ```
-7. Extract controlepunten ingesteld en realtime extract te starten:
+7. Instellen van controlepunten extract en realtime extract starten:
 
   ```bash
   $ ./ggsci
@@ -589,7 +589,7 @@ Voor installatie Oracle Golden poort, voert u de volgende stappen uit:
   MANAGER     RUNNING
   EXTRACT     RUNNING     EXTORA      00:00:11      00:00:04
   ```
-In deze stap maakt vinden u de eerste SCN die later wordt gebruikt in een andere sectie:
+In deze stap maakt zoeken u de eerste SCN, die later worden gebruikt in een andere sectie:
 
   ```bash
   $ sqlplus / as sysdba
@@ -666,7 +666,7 @@ In deze stap maakt vinden u de eerste SCN die later wordt gebruikt in een andere
   SQL> EXIT;
   ```
 
-3. Maak een gebruikersaccount voor Golden Gate-test:
+3. Maak een Golden Gate test-gebruikersaccount:
 
   ```bash
   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -679,7 +679,7 @@ In deze stap maakt vinden u de eerste SCN die later wordt gebruikt in een andere
   SQL> EXIT;
   ```
 
-4. Het parameterbestand REPLICAT om wijzigingen te repliceren: 
+4. Het parameterbestand REPLICAT voor het repliceren van wijzigingen: 
 
   ```bash
   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -728,7 +728,7 @@ In deze stap maakt vinden u de eerste SCN die later wordt gebruikt in een andere
   $ ./ggsci
   GGSCI> EDIT PARAMS MGR
   ```
-Het bestand bijwerken met de volgende opties:
+Bijwerken van het bestand met het volgende:
 
   ```bash
   PORT 7809
@@ -744,7 +744,7 @@ Start de service Manager opnieuw:
 
 #### <a name="2-set-up-the-replication-on-myvm1-primary"></a>2. Instellen van de replicatie op myVM1 (primair)
 
-Start de initiële laden en het controleren op fouten:
+Start de eerste keer wordt geladen en controleren op fouten:
 
 ```bash
 $ cd /u01/app/oracle/product/12.1.0/oggcore_1
@@ -754,51 +754,51 @@ GGSCI> VIEW REPORT INITEXT
 ```
 #### <a name="3-set-up-the-replication-on-myvm2-replicate"></a>3. Instellen van de replicatie op myVM2 (repliceren)
 
-Wijzig de SCN number met het nummer dat u eerder hebt verkregen:
+Wijzig de SCN getal met het nummer dat u eerder hebt verkregen:
 
   ```bash
   $ cd /u01/app/oracle/product/12.1.0/oggcore_1
   $ ./ggsci
   START REPLICAT REPORA, AFTERCSN 1857887
   ```
-De replicatie is gestart en u kunt het testen door het invoegen van nieuwe records aan TEST tabellen.
+De replicatie is gestart en kunt u deze testen door het invoegen van nieuwe records tot het TEST-tabellen.
 
 
-### <a name="view-job-status-and-troubleshooting"></a>Status van de taak weergeven en problemen oplossen
+### <a name="view-job-status-and-troubleshooting"></a>Taakstatus weergeven en problemen oplossen
 
 #### <a name="view-reports"></a>Rapporten weergeven
-Om rapporten te bekijken op myVM1, voer de volgende opdrachten:
+Als u wilt weergeven van rapporten op myVM1, voer de volgende opdrachten:
 
   ```bash
   GGSCI> VIEW REPORT EXTORA 
   ```
  
-Om rapporten te bekijken op myVM2, voer de volgende opdrachten:
+Als u wilt weergeven van rapporten op myVM2, voer de volgende opdrachten:
 
   ```bash
   GGSCI> VIEW REPORT REPORA
   ```
 
-#### <a name="view-status-and-history"></a>Weergave status en geschiedenis
-U kunt status en geschiedenis op myVM1, voer de volgende opdrachten:
+#### <a name="view-status-and-history"></a>De status en geschiedenis
+Als u wilt weergeven van status en geschiedenis op myVM1, voer de volgende opdrachten:
 
   ```bash
   GGSCI> dblogin userid c##ggadmin, password ggadmin 
   GGSCI> INFO EXTRACT EXTORA, DETAIL
   ```
 
-U kunt status en geschiedenis op myVM2, voer de volgende opdrachten:
+Als u wilt weergeven van status en geschiedenis op myVM2, voer de volgende opdrachten:
 
   ```bash
   GGSCI> dblogin userid repuser@pdb1 password rep_pass 
   GGSCI> INFO REP REPORA, DETAIL
   ```
-Dit voltooit de installatie en configuratie van Golden Gate op Oracle linux.
+Dit is voltooid voor de installatie en configuratie van Golden Gate voor Oracle linux.
 
 
 ## <a name="delete-the-virtual-machine"></a>Verwijder de virtuele machine
 
-Wanneer deze niet langer nodig is, kan de volgende opdracht worden gebruikt om de resourcegroep, VM en alle gerelateerde resources te verwijderen.
+Wanneer deze niet meer nodig is wordt, kunt u de volgende opdracht gebruikt de resourcegroep, VM en alle gerelateerde resources te verwijderen.
 
 ```azurecli
 az group delete --name myResourceGroup

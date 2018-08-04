@@ -12,15 +12,15 @@ ms.component: domains
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: ergreenl
-ms.openlocfilehash: 8ae99534916ce258dcab01ce2e37db1ffd809381
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 72e22fbe61b4e30191bbac553709241e1b13f1f5
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358749"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502246"
 ---
 # <a name="suspended-domains"></a>Onderbroken domeinen
 Wanneer Azure Active Directory Domain Services (Azure AD DS) kan niet worden uitgevoerd een beheerd domein voor een lange periode, worden het beheerde domein in de status onderbroken geplaatst. In dit artikel wordt uitgelegd waarom de beheerde domeinen worden onderbroken en het herstellen van een domein onderbroken.

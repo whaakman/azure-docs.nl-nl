@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 81e50b53e8a8069fc0698240e7b1f2ead2c611a8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 69614fe84941ea2003d39de165c692b812d10785
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439512"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503577"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -38,7 +38,7 @@ U kunt de locatie van de resource niet wijzigen. Verplaatsen van een resource al
 
 Voordat u een resource verplaatst, moeten er enkele belangrijke stappen worden uitgevoerd. U kunt fouten voorkomen door te controleren of aan de volgende voorwaarden is voldaan.
 
-1. De bron- en doelabonnementen moeten aanwezig zijn in dezelfde [Azure Active Directory-tenant](../active-directory/active-directory-howto-tenant.md). Om te controleren dat beide abonnementen dezelfde tenant-ID hebben, gebruikt u Azure PowerShell of Azure CLI.
+1. De bron- en doelabonnementen moeten aanwezig zijn in dezelfde [Azure Active Directory-tenant](../active-directory/develop/quickstart-create-new-tenant.md). Om te controleren dat beide abonnementen dezelfde tenant-ID hebben, gebruikt u Azure PowerShell of Azure CLI.
 
   Voor Azure PowerShell gebruiken:
 
@@ -118,7 +118,7 @@ De services waarmee u verplaatsen naar een nieuwe resourcegroep en een abonnemen
 * App Service Certificates
 * Application Insights
 * Analysis Services
-* Automation
+* Automatisering
 * Azure Active Directory B2C
 * Azure Cosmos DB
 * Azure Maps
@@ -127,11 +127,11 @@ De services waarmee u verplaatsen naar een nieuwe resourcegroep en een abonnemen
 * Azure Migrate
 * Batch
 * BizTalk Services
-* Bot Service
+* Bot-service
 * CDN
 * Cloud Services - Zie [klassieke Implementatiebeperkingen](#classic-deployment-limitations)
 * Cognitive Services
-* Container Registry
+* Containerregister
 * Content Moderator
 * Data Catalog
 * Data Factory
@@ -155,9 +155,9 @@ De services waarmee u verplaatsen naar een nieuwe resourcegroep en een abonnemen
 * Portal-dashboards
 * Power BI - zowel Power BI Embedded en Power BI-Werkruimteverzameling
 * Openbaar IP-adres - Zie [openbaar IP-beperkingen](#pip-limitations)
-* Redis Cache
+* Redis-cache
 * Scheduler
-* Search
+* Zoeken
 * Service Bus
 * Service Fabric
 * SignalR-Service
@@ -180,16 +180,16 @@ De services die momenteel niet mogelijk verplaatsen van een resource zijn:
 
 * AD Domain Services
 * Hybride AD Health-Service
-* Application Gateway
+* Toepassingsgateway
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
 * Azure Database Migration
 * Azure Databricks
 * Batch AI
 * Certificaten - App Service-certificaten kunnen worden verplaatst, maar de geüploade certificaten hebben [beperkingen](#app-service-limitations).
-* Container Service
+* Containerservice
 * Dynamics LCS
-* ExpressRoute
+* Express Route
 * Kubernetes-Service
 * Lab-Services - verplaatsen naar de nieuwe resourcegroep in hetzelfde abonnement is ingeschakeld, maar de verplaatsing van kruislings abonnement is niet ingeschakeld.
 * Load Balancers - Zie [beperkingen van de Load Balancer](#lb-limitations)
@@ -255,9 +255,9 @@ Wanneer u een Web-App verplaatst _voor abonnementen_, gelden de volgende beperki
 
 - De doelresourcegroep mag geen bestaande App Service-resources. App Service-resources zijn onder andere:
     - Web Apps
-    - App Service-abonnementen
+    - App Service-plannen
     - Geüpload of geïmporteerd SSL-certificaten
-    - App Service-omgevingen
+    - App-serviceomgevingen
 - Alle App Service-resources in de resourcegroep, moeten tegelijk worden verplaatst.
 - App Service-resources kunnen alleen worden verplaatst uit de resourcegroep waarin ze oorspronkelijk zijn gemaakt. Als een resource App Service niet langer in de oorspronkelijke resourcegroep is, het moet worden teruggezet naar die oorspronkelijke resourcegroep eerst en vervolgens kunnen worden verplaatst tussen abonnementen.
 

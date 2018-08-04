@@ -1,6 +1,6 @@
 ---
 title: Aan de slag met Azure AD in Visual Studio .NET MVC-projecten
-description: Hoe u aan de slag met Azure Active Directory in .NET MVC-projecten nadat verbinding maken met of maken van een Azure AD met Visual Studio services verbonden
+description: Aan de slag met Azure Active Directory in .NET MVC-projecten nadat u verbinding maken met of het maken van een Azure AD met behulp van Visual Studio services verbonden
 services: active-directory
 author: ghogen
 manager: douge
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: d521b8c85fb66b6c50d1b9f07e5f4d653e9e57b9
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 21354507af475a1b75ce2002d28f6795c4e3e540
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31784068"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494857"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Aan de slag met Azure Active Directory (ASP.NET MVC-projecten)
 
@@ -25,17 +25,17 @@ ms.locfileid: "31784068"
 > - [Aan de slag](vs-active-directory-dotnet-getting-started.md)
 > - [Wat is er gebeurd](vs-active-directory-dotnet-what-happened.md)
 
-Dit artikel vindt u aanvullende richtlijnen wanneer u Active Directory hebt toegevoegd aan een ASP.NET MVC-project via de **Project > verbonden Services** opdracht van Visual Studio. Als u de service nog niet aan uw project hebt toegevoegd, kunt u dat doen op elk gewenst moment.
+In dit artikel vindt u aanvullende richtlijnen nadat u Active Directory hebt toegevoegd aan een ASP.NET MVC-project via de **Project > Connected Services** opdracht van Visual Studio. Als u hebt de service nog niet is toegevoegd aan uw project, kunt u dit doen op elk gewenst moment.
 
-Zie [wat is er gebeurd met mijn MVC-project?](vs-active-directory-dotnet-what-happened.md) de wijzigingen aan uw project in bij het toevoegen van de gekoppelde service.
+Zie [wat is er gebeurd met mijn MVC-project?](vs-active-directory-dotnet-what-happened.md) voor de wijzigingen aan uw project bij het toevoegen van de gekoppelde service.
 
 ## <a name="requiring-authentication-to-access-controllers"></a>Verificatie te vereisen voor toegang tot domeincontrollers
 
-Alle domeincontrollers in uw project zijn adorned met de `[Authorize]` kenmerk. Dit kenmerk moet de gebruiker moet worden geverifieerd voordat toegang tot deze controllers. Verwijder dit kenmerk van de controller zodat de controller voor anonieme toegang. Als u de machtigingen instelt op een meer gedetailleerd niveau wilt, toepassen van het kenmerk voor elke methode waarvoor de autorisatie in plaats van aan de controllerklasse toepast.
+Alle domeincontrollers in uw project zijn adorned met de `[Authorize]` kenmerk. Dit kenmerk moet de gebruiker moet worden geverifieerd voordat u toegang tot deze domeincontrollers. Als u wilt toestaan dat de controller voor anonieme toegang, dit kenmerk van de netwerkcontroller te verwijderen. Als u de machtigingen op een meer gedetailleerd niveau instellen wilt, moet u het kenmerk toepassen op elke methode waarvoor autorisatie in plaats van toe te passen op de controllerklasse.
 
-## <a name="adding-signin--signout-controls"></a>Toevoegen van aanmelding / SignOut besturingselementen
+## <a name="adding-signin--signout-controls"></a>Aanmelding toevoegen / besturingselementen die afmelden wordt weergegeven
 
-Als u wilt de aanmelding/SignOut-besturingselementen toevoegen aan uw weergave, kunt u de `_LoginPartial.cshtml` gedeeltelijke weergave de functionaliteit toevoegen aan een van uw weergaven. Hier volgt een voorbeeld van de functionaliteit toegevoegd aan de standaard `_Layout.cshtml` weergeven. (Houd rekening met het laatste element in de div met de klasse navigatiebalk samenvouwen):
+Als u wilt toevoegen de besturingselementen voor aanmelding/die afmelden wordt weergegeven in de weergave, kunt u de `_LoginPartial.cshtml` gedeeltelijke weergave zodat u de functionaliteit toevoegen aan een van uw weergaven. Hier volgt een voorbeeld van de functionaliteit die wordt toegevoegd aan de standaard `_Layout.cshtml` weergeven. (Houd rekening met het laatste element in het div-element met de klasse navigatiebalk samenvouwen):
 
 ```html
 <!DOCTYPE html>
@@ -84,5 +84,5 @@ Als u wilt de aanmelding/SignOut-besturingselementen toevoegen aan uw weergave, 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Verificatie-scenario's voor Azure Active Directory](active-directory-authentication-scenarios.md)
-- [Aanmelden met Microsoft toevoegen aan een ASP.NET-web-app](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Verificatiescenario's voor Azure Active Directory](authentication-scenarios.md)
+- [Aanmelden bij Microsoft toevoegen aan een ASP.NET-web-app](quickstart-v1-aspnet-webapp.md)

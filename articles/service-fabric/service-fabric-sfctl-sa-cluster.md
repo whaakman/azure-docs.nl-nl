@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric CLI - sfctl sa-cluster | Microsoft Docs
-description: Beschrijving van de Service Fabric CLI sfctl zelfstandige clusteropdrachten.
+description: Beschrijving van de Service Fabric-CLI sfctl zelfstandige clusteropdrachten.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
@@ -12,100 +12,106 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/23/2018
+ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: ffdbff7edc5af187071615c8b1e61790b3a38429
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: d7f33bf0657ca2a6888387b7651706f9de537bb4
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34764009"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494353"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 Zelfstandige Service Fabric-clusters beheren.
 
 ## <a name="commands"></a>Opdrachten
 
-|Opdracht|Beschrijving|
+|Command|Beschrijving|
 | --- | --- |
-| Configuratie | De clusterconfiguratie van het Service Fabric-zelfstandige ophalen. |
-| configuratie-upgrade | Start een upgrade van de configuratie van een zelfstandige Service Fabric-cluster. |
-| upgrade-status | Status ophalen voor het cluster configuratie de upgrade van een zelfstandige Service Fabric-cluster. |
+| configuratie | De configuratie van Service Fabric zelfstandige cluster ophalen. |
+| configuratie-upgrade | Start de upgrade van de configuratie van een zelfstandige Service Fabric-cluster. |
+| upgrade-status | Ophalen van de upgrade clusterstatus voor configuratie van een zelfstandige Service Fabric-cluster. |
 
 ## <a name="sfctl-sa-cluster-config"></a>sfctl sa-cluster config
-De clusterconfiguratie van het Service Fabric-zelfstandige ophalen.
+De configuratie van Service Fabric zelfstandige cluster ophalen.
 
-De clusterconfiguratie van het Service Fabric-zelfstandige ophalen. De clusterconfiguratie bevat eigenschappen van het cluster met verschillende knooppunttypen op het cluster, beveiligingsconfiguraties, fout, en upgradedomein topologieën, enzovoort.
+De clusterconfiguratie bevat eigenschappen van het cluster met verschillende typen in het cluster, beveiligingsconfiguraties, fouten, en upgradedomein topologieën, enzovoort.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Beschrijving|
 | --- | --- |
-| --configuratie-api-versie [vereist] | De API-versie van de zelfstandige cluster json-configuratie. |
-| --time-out -t | Server time-out in seconden.  Standaard\: 60. |
+| --configuratie-api-versie (vereist) | De API-versie van het json-configuratie van het zelfstandige-cluster. |
+| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Beschrijving|
 | --- | --- |
-| --debug | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken. |
-| --help -h | Deze help-bericht en afsluiten weergeven. |
-| --uitvoer -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath queryreeks. Zie http\://jmespath.org/ voor meer informatie over en voorbeelden. |
-| --uitgebreide | Logboekregistratie uitgebreidheid verhogen. Gebruik--foutopsporing voor volledige foutopsporingslogboeken. |
+| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
+| --help -h | In dit help-bericht en afsluiten weergeven. |
+| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
+| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
+| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
 
 ## <a name="sfctl-sa-cluster-config-upgrade"></a>sfctl sa-cluster config-upgrade
-Start een upgrade van de configuratie van een zelfstandige Service Fabric-cluster.
+Start de upgrade van de configuratie van een zelfstandige Service Fabric-cluster.
 
-Valideer de parameters van opgegeven configuratie-upgrade en start u een upgrade van de configuratie van het cluster als de parameters geldig zijn.
+De parameters voor het bijwerken van de configuratie van de opgegeven te valideren en start een upgrade van de configuratie van het cluster als de parameters geldig zijn.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Beschrijving|
 | --- | --- |
-| --cluster-config [vereist] | De configuratie van het cluster. |
-| --delta slecht knooppunten | Het maximaal toegestane percentage van de delta health degradatie tijdens de upgrade. Toegestane waarden zijn integerwaarden van nul tot 100. |
-| --health-controle-probeer het opnieuw | De hoeveelheid tijd tussen pogingen tot het uitvoeren van een health controleert als de toepassing of het cluster is niet in orde.  Standaard\: PT0H0M0S. |
-| --health-controle-stabiel | De tijdsduur dat de toepassing of het cluster in orde blijven moet.  Standaard\: PT0H0M0S. |
-| --wachtduur | De lengte van de wachttijd na het voltooien van een upgradedomein voordat u de status controleert proces.  Standaard\: PT0H0M0S. |
-| --time-out -t | Server time-out in seconden.  Standaard\: 60. |
-| --slecht toepassingen | Het maximaal toegestane percentage van de beschadigde toepassingen tijdens de upgrade. Toegestane waarden zijn integerwaarden van nul tot 100. |
-| --slecht knooppunten | Het maximaal toegestane percentage van slecht knooppunten tijdens de upgrade. Toegestane waarden zijn integerwaarden van nul tot 100. |
-| --upgrade-domain-delta-slecht-knooppunten | Het maximaal toegestane percentage van de upgradedomein delta health degradatie tijdens de upgrade. Toegestane waarden zijn integerwaarden van nul tot 100. |
-| --time-out-domein-upgrade | De time-out voor het upgradedomein.  Standaard\: PT0H0M0S. |
-| --upgrade-time-out | De upgrade time-out.  Standaard\: PT0H0M0S. |
+| --cluster-config (vereist) | De configuratie van het cluster dat wordt toegepast op het cluster. |
+| --toepassing statusbeleid | JSON gecodeerd woordenlijst van paren van de naam van het toepassingstype en het maximale percentage beschadigde voordat de fout. |
+| ----knooppunten met slechte deltastatus | De maximaal toegestane percentage van de delta-status degradatie tijdens de upgrade. Toegestane waarden zijn gehele getallen van 0 tot 100. |
+| --health-controle-opnieuw proberen | De hoeveelheid tijd tussen pogingen om uit te voeren van een health controleert of de toepassing of het cluster niet in orde.  Standaard\: PT0H0M0S. |
+| --health-controle-stabiel | De hoeveelheid tijd dat de toepassing of het cluster in orde blijven moet.  Standaard\: PT0H0M0S. |
+| --wachtduur | De hoeveelheid tijd moet wachten na het voltooien van een upgradedomein voordat u begint met de status controleert proces.  Standaard\: PT0H0M0S. |
+| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
+| --beschadigde toepassingen | De maximaal toegestane percentage van de beschadigde toepassingen tijdens de upgrade. Toegestane waarden zijn gehele getallen van 0 tot 100. |
+| --beschadigde knooppunten | De maximaal toegestane percentage van knooppunten met slechte tijdens de upgrade. Toegestane waarden zijn gehele getallen van 0 tot 100. |
+| --upgrade-domein---knooppunten met slechte deltastatus | De maximaal toegestane percentage van het upgradedomein delta health degradatie tijdens de upgrade. Toegestane waarden zijn gehele getallen van 0 tot 100. |
+| --upgrade-domein-time-out | De time-out voor het upgradedomein.  Standaard\: PT0H0M0S. |
+| --upgrade-time-out | De time-out voor het upgraden.  Standaard\: PT0H0M0S. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Beschrijving|
 | --- | --- |
-| --debug | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken. |
-| --help -h | Deze help-bericht en afsluiten weergeven. |
-| --uitvoer -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath queryreeks. Zie http\://jmespath.org/ voor meer informatie over en voorbeelden. |
-| --uitgebreide | Logboekregistratie uitgebreidheid verhogen. Gebruik--foutopsporing voor volledige foutopsporingslogboeken. |
+| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
+| --help -h | In dit help-bericht en afsluiten weergeven. |
+| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
+| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
+| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+
+### <a name="examples"></a>Voorbeelden
+
+Een cluster configuratie-update sfctl sa-cluster config-upgrade start--cluster-config <YOUR CLUSTER CONFIG> --toepassing statusbeleid ' {' fabric: / System ": {"ConsiderWarningAsError": true}} '
 
 ## <a name="sfctl-sa-cluster-upgrade-status"></a>sfctl sa-cluster upgrade-status
-Status ophalen voor het cluster configuratie de upgrade van een zelfstandige Service Fabric-cluster.
+Ophalen van de upgrade clusterstatus voor configuratie van een zelfstandige Service Fabric-cluster.
 
-Ophalen van de clusterconfiguratie upgradestatus details van een zelfstandige Service Fabric-cluster.
+De clusterconfiguratie details van de status van de upgrade van een zelfstandige Service Fabric-cluster ophalen.
 
 ### <a name="arguments"></a>Argumenten
 
 |Argument|Beschrijving|
 | --- | --- |
-| --time-out -t | Server time-out in seconden.  Standaard\: 60. |
+| --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten
 
 |Argument|Beschrijving|
 | --- | --- |
-| --debug | Vergroot de uitgebreidheid logboekregistratie om weer te geven van dat alle fouten opsporen in Logboeken. |
-| --help -h | Deze help-bericht en afsluiten weergeven. |
-| --uitvoer -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
-| --query | JMESPath queryreeks. Zie http\://jmespath.org/ voor meer informatie over en voorbeelden. |
-| --uitgebreide | Logboekregistratie uitgebreidheid verhogen. Gebruik--foutopsporing voor volledige foutopsporingslogboeken. |
+| --debug | Verhoog logboekregistratie uitgebreid om weer te geven van dat alle logboeken voor foutopsporing. |
+| --help -h | In dit help-bericht en afsluiten weergeven. |
+| --output -o | De indeling van de uitvoer.  Toegestane waarden\: json, jsonc, tabel, tsv.  Standaard\: json. |
+| --query | JMESPath-query-tekenreeks. Zie http\://jmespath.org/ voor meer informatie en voorbeelden. |
+| --uitgebreide | Detailniveau van logboekregistratie verhogen. Gebruik--foutopsporing voor logboeken voor volledige foutopsporing. |
+
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Instellen van](service-fabric-cli.md) de Service Fabric-CLI.
-- Informatie over het gebruik van de Service Fabric CLI met behulp van de [steekproef scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Meer informatie over het gebruik van de Service Fabric-CLI met behulp van de [voorbeelden van scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).

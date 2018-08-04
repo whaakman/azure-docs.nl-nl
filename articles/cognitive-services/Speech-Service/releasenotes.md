@@ -9,14 +9,14 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/17/2018
 ms.author: wolfma
-ms.openlocfilehash: a28df7faaf98e5cba8ad4afe7aa1a829195d7828
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: f346241e1d10d16eae08e389296f4be9149ec086
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281487"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502455"
 ---
-# <a name="release-notes"></a>Releaseopmerkingen
+# <a name="release-notes"></a>Opmerkingen bij de release
 
 ## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Cognitive Services Speech SDK 0.5.0: juli 2018-release
 

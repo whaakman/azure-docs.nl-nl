@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: eccf570a0bdcf896a40d8c49f400647e247f6d65
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f24be44b00f9c4e789e8d4797f6a0516dcfe940f
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435774"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494054"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Azure Active Directory-aanmelding in gedrag voor een toepassing met behulp van een Thuisrealmdetectie-beleid configureren
 
@@ -150,7 +150,7 @@ We gebruiken Azure AD PowerShell-cmdlets om te zien hoe een aantal scenario's, w
 - Lijst met de toepassingen waarvoor een beleid is geconfigureerd.
 
 
-### <a name="prerequisites"></a>Vereisten
+### <a name="prerequisites"></a>Vereiste onderdelen
 In de volgende voorbeelden u maken, bijwerken, koppelen en verwijderen van beleidsregels op de toepassingsservice-principals in Azure AD.
 
 1.  Download de nieuwste preview voor Azure AD PowerShell-cmdlet om te beginnen. 
@@ -261,6 +261,6 @@ Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>Volgende stappen
-- Zie voor meer informatie over de werking van verificatie in Azure AD [Verificatiescenario's voor Azure AD](../develop/active-directory-authentication-scenarios.md).
+- Zie voor meer informatie over de werking van verificatie in Azure AD [Verificatiescenario's voor Azure AD](../develop/authentication-scenarios.md).
 - Zie voor meer informatie over eenmalige gebruikersaanmelding [toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](configure-single-sign-on-portal.md).
 - Ga naar de [Ontwikkelaarshandleiding voor Active Directory](../develop/azure-ad-developers-guide.md) voor een overzicht van alle inhoud die relevant zijn voor ontwikkelaars.

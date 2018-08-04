@@ -9,12 +9,12 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 2e4100fd7d8e85a6b103c31000176aaaeb3d7151
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c6d33de70fd5b7c03b7af6b85e8ebc567dd2f925
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38317676"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502505"
 ---
 # <a name="anomaly-detection-c-application"></a>Anomaly Detection C#-toepassing
 
@@ -48,7 +48,7 @@ Druk op Ctrl + Shift + B, of klikt u op Build in het lintmenu en selecteer vervo
 
 1. Nadat de build is voltooid, drukt u op **F5** of klik op **Start** op het lintmenu om uit te voeren in het voorbeeld.
 2. Ga naar het venster voor detectie van afwijkingen gebruikersinterface met het tekstinvoervak lezen '{your_subscription_key}'.
-3. Het bestand request.json, waarin de voorbeeldgegevens, vervangen door uw eigen gegevens en klik op de knop 'Verzenden'. Microsoft ontvangt de gegevens die u uploaden en deze gebruiken voor het detecteren van afwijkingen points tussen vervolgens. De gegevens die u hebt bijgewerkt wordt niet permanent worden opgeslagen in de Microsoft-server. Voor het detecteren van de punt van afwijkingen, u moet de gegevens uploaden opnieuw.
+3. Het bestand request.json, waarin de voorbeeldgegevens, vervangen door uw eigen gegevens en klik op de knop 'Verzenden'. Microsoft ontvangt de gegevens die u uploaden en deze gebruiken voor het detecteren van afwijkingen points tussen vervolgens. De gegevens die u hebt geladen wordt niet permanent worden opgeslagen in de Microsoft-server. Voor het detecteren van de punt van afwijkingen, u moet de gegevens uploaden opnieuw.
 4. Als de gegevens goed is, vindt u het resultaat van de detectie van afwijkingen in het veld 'Response'. Als er een fout optreedt, worden gegevens van de fout wordt weergegeven in het veld antwoord ook.
 
 <a name="Review"></a>

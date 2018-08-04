@@ -13,24 +13,26 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
-ms.openlocfilehash: 0558a5647267dda26890ba3a6dc1af326fae94f6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: d8a11a3289037602535d1b5727d041e376012bd8
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308160"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502437"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>Verbinding maken met een beveiligd service met de omgekeerde proxy
 
-In dit artikel wordt uitgelegd hoe u beveiligde verbinding tussen de reverse proxy- en -services, waardoor u een beveiligd kanaal voor end-to-end.
+In dit artikel wordt uitgelegd hoe u beveiligde verbinding tussen de reverse proxy- en -services, waardoor u een beveiligd kanaal voor end-to-end. Zie voor meer informatie over omgekeerde proxy's, [omgekeerde proxy in Azure Service Fabric](service-fabric-reverseproxy.md)
 
-Verbinding maken met veilige services wordt alleen ondersteund als omgekeerde proxy is geconfigureerd om te luisteren op HTTPS. De rest van het document wordt ervan uitgegaan dat dit het geval is.
-Raadpleeg [omgekeerde proxy in Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) de omgekeerde proxy configureren in Service Fabric.
+Verbinding maken met veilige services wordt alleen ondersteund als omgekeerde proxy is geconfigureerd om te luisteren op HTTPS. In dit artikel wordt ervan uitgegaan dat dit het geval is.
+Raadpleeg [omgekeerde proxy van de instellingen in Azure Service Fabric](service-fabric-reverseproxy-setup.md) de omgekeerde proxy configureren in Service Fabric.
 
 ## <a name="secure-connection-establishment-between-the-reverse-proxy-and-services"></a>Beveiligde verbinding tot stand brengen tussen de reverse proxy- en -services 
 
 ### <a name="reverse-proxy-authenticating-to-services"></a>Omgekeerde proxy verificatie bij services:
-De omgekeerde proxy identificeert zichzelf met services met behulp van het certificaat, dat is opgegeven met ***reverseProxyCertificate*** eigenschap in de **Cluster** [Resource type sectie](../azure-resource-manager/resource-group-authoring-templates.md). Services kunnen de logica om te controleren of het certificaat dat door de omgekeerde proxy implementeren. De services kunnen u de details van het goedgekeurde client-certificaat opgeven als configuratie-instellingen in het configuratiepakket. Dit kan worden gelezen tijdens runtime en gebruikt voor het valideren van het certificaat dat door de omgekeerde proxy. Raadpleeg [beheren toepassingsparameters](service-fabric-manage-multiple-environment-app-configuration.md) om toe te voegen van de configuratie-instellingen. 
+De omgekeerde proxy met services met behulp van het certificaat wordt aangeduid. Voor Azure-clusters die het certificaat wordt opgegeven met ***reverseProxyCertificate*** eigenschap in de [ **Microsoft.ServiceFabric/clusters** ](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters) [Resource Typ sectie](../azure-resource-manager/resource-group-authoring-templates.md) van de Resource Manager-sjabloon. Voor zelfstandige clusters, het certificaat is opgegeven met ofwel de ***ReverseProxyCertificate*** of de ***ReverseProxyCertificateCommonNames*** eigenschap in de **Security**sectie van ClusterConfig.json. Zie voor meer informatie, [omgekeerde proxy inschakelen op zelfstandige clusters](service-fabric-reverseproxy-setup.md#enable-reverse-proxy-on-standalone-clusters). 
+
+Services kunnen de logica om te controleren of het certificaat dat door de omgekeerde proxy implementeren. De services kunnen u de details van het goedgekeurde client-certificaat opgeven als configuratie-instellingen in het configuratiepakket. Dit kan worden gelezen tijdens runtime en gebruikt voor het valideren van het certificaat dat door de omgekeerde proxy. Raadpleeg [beheren toepassingsparameters](service-fabric-manage-multiple-environment-app-configuration.md) om toe te voegen van de configuratie-instellingen. 
 
 ### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>Omgekeerde proxy van de service-identiteit via het certificaat dat door de service te controleren:
 Omgekeerde proxy biedt ondersteuning voor de volgende beleidsregels voor het uitvoeren van validatie van het servercertificaat van de certificaten die door services: None, ServiceCommonNameAndIssuer en ServiceCertificateThumbprints.
@@ -193,6 +195,7 @@ Als de client geen TLV-een certificaat, stuurt een lege header reverse proxy- en
 
 
 ## <a name="next-steps"></a>Volgende stappen
+* [Instellen en configureren van omgekeerde proxy op een cluster](service-fabric-reverseproxy-setup.md).
 * Raadpleeg [de omgekeerde proxy configureren voor het verbinding maken met veilige services](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services) voor Azure Resource Manager voorbeeldsjablonen configureren beveiligen omgekeerde proxy met het certificaat voor verschillende validatieopties voor.
 * Bekijk een voorbeeld van HTTP-communicatie tussen services in een [voorbeeldproject op GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Externe procedureaanroepen met externe communicatie Reliable Services](service-fabric-reliable-services-communication-remoting.md)

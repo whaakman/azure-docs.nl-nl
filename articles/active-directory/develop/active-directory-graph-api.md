@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 04/02/2018
 ms.author: mtillman
 ms.custom: aaddev
-ms.openlocfilehash: 741affee9d073cd282be4ee7e30dfd7a1a0ff45d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3ec6bbcb9250626f8d6ef75330991c5ebac053a7
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426268"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504714"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 > [!IMPORTANT]
@@ -60,7 +60,7 @@ Azure AD Graph API biedt de volgende functies:
 Azure AD Graph API kunt veel toepassingsscenario's. De volgende scenario's zijn de meest voorkomende:
 
 * **Line-of-Business (enkele Tenant)-toepassing**: In dit scenario, de ontwikkelaar in een organisatie werkt voor een organisatie met Office 365-abonnement. De ontwikkelaar is het bouwen van een web-App die met Azure AD om uit te voeren taken communiceert zoals het toewijzen van een licentie aan een gebruiker. Deze taak is vereist voor toegang tot de Azure AD Graph-API, zodat de ontwikkelaar, registreert u de toepassing voor één tenant in Azure AD en configureert u lees- en schrijfmachtigingen heeft voor Azure AD Graph API. Vervolgens is de toepassing geconfigureerd voor het gebruik van zijn eigen referenties of die van de gebruiker op dat moment aanmelden om een token voor het aanroepen van de Azure AD Graph API te verkrijgen.
-* **Software als een Service-toepassing (met meerdere Tenants)**: In dit scenario wordt een independent software vendor (ISV) is het ontwikkelen van een gehoste multitenant webtoepassing waarmee de gebruiker-beheerfuncties voor andere organisaties die gebruikmaken van Azure AD. Deze functies vereist toegang tot directory-objecten, zodat de toepassing moet de Azure AD Graph-API aan te roepen. De ontwikkelaar, registreert u de toepassing in Azure AD, configureert om te vereisen lees- en schrijfmachtigingen heeft voor Azure AD Graph API en vervolgens een VM externe toegang ingeschakeld zodat andere organisaties toestemming geven kunnen voor het gebruik van de toepassing in de directory. Wanneer een gebruiker in een andere organisatie wordt geverifieerd aan de toepassing voor de eerste keer, worden ze weergegeven een dialoogvenster met de machtigingen van die de toepassing aanvraagt. Verleent toestemming krijgt vervolgens de toepassing die machtigingen voor Azure AD Graph API in de map van de gebruiker gevraagd. Zie voor meer informatie over het toestemmingsframework [overzicht van het Framework toestemming geven](active-directory-integrating-applications.md).
+* **Software als een Service-toepassing (met meerdere Tenants)**: In dit scenario wordt een independent software vendor (ISV) is het ontwikkelen van een gehoste multitenant webtoepassing waarmee de gebruiker-beheerfuncties voor andere organisaties die gebruikmaken van Azure AD. Deze functies vereist toegang tot directory-objecten, zodat de toepassing moet de Azure AD Graph-API aan te roepen. De ontwikkelaar, registreert u de toepassing in Azure AD, configureert om te vereisen lees- en schrijfmachtigingen heeft voor Azure AD Graph API en vervolgens een VM externe toegang ingeschakeld zodat andere organisaties toestemming geven kunnen voor het gebruik van de toepassing in de directory. Wanneer een gebruiker in een andere organisatie wordt geverifieerd aan de toepassing voor de eerste keer, worden ze weergegeven een dialoogvenster met de machtigingen van die de toepassing aanvraagt. Verleent toestemming krijgt vervolgens de toepassing die machtigingen voor Azure AD Graph API in de map van de gebruiker gevraagd. Zie voor meer informatie over het toestemmingsframework [overzicht van het Framework toestemming geven](quickstart-v1-integrate-apps-with-azure-ad.md).
 
 ## <a name="see-also"></a>Zie ook
 [Snelstartgids voor Azure AD Graph API](active-directory-graph-api-quickstart.md)

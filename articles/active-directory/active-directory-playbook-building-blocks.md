@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: fa399e3644e1050a4f264890583a388f7abd84ed
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 212da85f64f876f40e2d84d79a8c6a990d118aca
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049466"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505083"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory bewijs van concept playbook: bouwstenen
 
@@ -41,7 +41,7 @@ Hier volgen enkele vereisten die nodig zijn voor elk POC met Azure AD Premium.
 
 | Vereiste | Resources |
 | --- | --- |
-| Azure AD-tenant gedefinieerd met een geldig Azure-abonnement | [Een Azure Active Directory-tenant verkrijgen](active-directory-howto-tenant.md)<br/>**Opmerking:** als u al een omgeving met Azure AD Premium-licenties hebt, kunt u een nul cap-abonnement downloaden door te navigeren naar https://aka.ms/accessaad <br/>Meer informatie over: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ en https://technet.microsoft.com/library/dn832618.aspx |
+| Azure AD-tenant gedefinieerd met een geldig Azure-abonnement | [Een Azure Active Directory-tenant verkrijgen](develop/quickstart-create-new-tenant.md)<br/>**Opmerking:** als u al een omgeving met Azure AD Premium-licenties hebt, kunt u een nul cap-abonnement downloaden door te navigeren naar https://aka.ms/accessaad <br/>Meer informatie over: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ en https://technet.microsoft.com/library/dn832618.aspx |
 | Domeinen gedefinieerd en geverifieerd | [Een aangepaste domeinnaam toevoegen aan Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Opmerking:** sommige werkbelastingen zoals Power BI kunnen een azure AD-tenant op de achtergrond hebt ingericht. Als u wilt controleren of een bepaald domein gekoppeld aan een tenant is, gaat u naar https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Als u een geslaagde respons ophalen en vervolgens het domein al aan een tenant toegewezen is en overnemen kunnen nodig zijn. Als dit het geval is, contact op met Microsoft voor verdere richtlijnen. Meer informatie over de overname opties op: [wat is Selfserviceregistratie voor Azure?](users-groups-roles/directory-self-service-signup.md) |
 | Azure AD Premium of EMS proefversie ingeschakeld | [Azure Active Directory Premium één maand gratis uitproberen](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | U hebt de Azure AD Premium of EMS-licenties toegewezen aan de PoC-gebruikers | [Licentie voor uzelf en uw gebruikers in Azure Active Directory](active-directory-licensing-get-started-azure-portal.md) |

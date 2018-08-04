@@ -9,15 +9,15 @@ ms.date: 06/25/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 07c0347793f6541a3e047f3f357d0d1b05dc3bca
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: d0ae7fbb22f6d98662f83968158182d447a75394
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136178"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39501964"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Veelgestelde vragen over Service Fabric NET
-Azure Service Fabric NET is een volledig beheerde service waarmee ontwikkelaars microservices-toepassingen implementeren zonder beheer van virtuele machines, opslag, of netwerken. In dit artikel vindt u antwoorden op veelgestelde vragen.
+Azure Service Fabric Mesh is een volledig beheerde service waarmee ontwikkelaars microservices-toepassingen kunnen implementeren zonder virtuele machines, opslag of netwerken hoeven te beheren. In dit artikel vindt u antwoorden op veelgestelde vragen.
 
 ## <a name="how-do-i-report-an-issue-or-ask-a-question"></a>Hoe ik een probleem melden of een vraag stellen?
 
@@ -83,7 +83,7 @@ Er is een bekend probleem waarbij u mogelijk om te verwijzen naar services ander
 
 Voor andere bekende DNS-problemen bij het uitvoeren van een Service Fabric-cluster voor ontwikkeling in Windows 10, hier te zien: [fouten opsporen in Windows containers](/azure/service-fabric/service-fabric-how-to-debug-windows-containers).
 
-**Er verschijnt deze fout bij het gebruik van de CLI-module _ImportError: de naam 'sdk_no_wait' kan niet importeren**
+**Er verschijnt deze fout bij het gebruik van de CLI-module, ImportError: de naam 'sdk_no_wait' kan niet importeren**
 
 Als u oudere CLI-versie dan 2.0.30, krijgt u mogelijk deze fout:
 

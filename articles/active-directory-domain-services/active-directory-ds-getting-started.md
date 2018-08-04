@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Domain Services: Aan de slag | Microsoft Docs'
-description: Inschakelen van Azure Active Directory Domain Services met Azure portal
+description: Azure Active Directory Domain Services met behulp van de Azure-portal inschakelen
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -12,70 +12,70 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: 340193f191bbdbe658769f9265f9e63844481c32
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: b6651c038a2b3abd15b8b0587e6a0e95832401b1
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265266"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502308"
 ---
-# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Inschakelen van Azure Active Directory Domain Services met Azure portal
-Dit artikel ziet het inschakelen van Azure Active Directory Domain Services (Azure AD DS) met de Azure portal.
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory Domain Services met behulp van de Azure-portal inschakelen
+In dit artikel laat zien hoe Azure Active Directory Domain Services inschakelen (Azure AD DS) via Azure portal.
 
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Als u de taken worden in dit artikel worden vermeld, hebt u het volgende nodig:
+Voor de taken die in dit artikel worden vermeld, hebt u het volgende nodig:
 
 * Een geldige **Azure-abonnement**.
-* Een **Azure AD-directory** -ofwel gesynchroniseerd met een on-premises adreslijst of een map alleen in de cloud.
+* Een **Azure AD-directory** -een gesynchroniseerd met een on-premises directory of een map alleen in de cloud.
 * De **Azure-abonnement moet worden gekoppeld aan de Azure AD-directory**.
-* U moet **hoofdbeheerder** rechten in uw Azure AD-directory kunt u Azure AD Domain Services.
+* U moet **hoofdbeheerder** bevoegdheden in de Azure AD-directory in Azure AD Domain Services inschakelen.
 
 
 ## <a name="enable-azure-ad-domain-services"></a>Azure AD Domain Services inschakelen
 
-Starten de **inschakelen Azure AD Domain Services** wizard de volgende stappen uit:
+Om te starten de **inschakelen Azure AD Domain Services** wizard de volgende stappen uit:
 
 1. Ga naar de [Azure Portal](https://portal.azure.com).
 2. Klik in het linkerdeelvenster op **Een resource maken**.
-3. In de **nieuw** typt **domeinservices** in de zoekbalk.
+3. In de **nieuw** pagina, typt u **domeinservices** in de zoekbalk typt.
 
-    ![Zoeken naar domeinservices](./media/getting-started/search-domain-services.png)
+    ![Zoekactie voor domain services](./media/getting-started/search-domain-services.png)
 
-4. Schakel het selectievakje **Azure AD Domain Services** uit de lijst met zoeksuggesties. Op de **Azure AD Domain Services** pagina, klikt u op de **maken** knop.
+4. Schakel het selectievakje **Azure AD Domain Services** uit de lijst met suggesties. Op de **Azure AD Domain Services** pagina, klikt u op de **maken** knop.
 
     ![Domain services weergeven](./media/getting-started/domain-services-blade.png)
 
 5. De **inschakelen Azure AD Domain Services** wizard wordt gestart.
 
 
-## <a name="task-1-configure-basic-settings"></a>Taak 1: basisinstellingen configureren
+## <a name="task-1-configure-basic-settings"></a>Taak 1: de basisinstellingen configureren
 In de **basisbeginselen** pagina van de wizard, geeft u de DNS-domeinnaam voor het beheerde domein. U kunt ook de resourcegroep en Azure-locatie waarnaar het beheerde domein moet worden geïmplementeerd.
 
-![Basisprincipes configureren](./media/getting-started/domain-services-blade-basics.png)
+![Basisbeginselen configureren](./media/getting-started/domain-services-blade-basics.png)
 
 1. Kies de **DNS-domeinnaam** voor uw beheerde domein.
 
    > [!NOTE]
    > **Richtlijnen voor het selecteren van een DNS-domeinnaam**
-   > * **Ingebouwde domeinnaam:** standaard de wizard geeft de standaard/ingebouwde-in domein van de map (met een **. onmicrosoft.com** achtervoegsel) voor u. Als u kiest voor beveiligde LDAP-toegang tot het beheerde domein via internet, verwacht dat de problemen met het maken van een openbare DNS-record of een beveiligde LDAP-certificaat verkrijgen van een openbare Certificeringsinstantie voor deze domeinnaam. Microsoft is eigenaar van de *. onmicrosoft.com* domein en de CA geeft geen certificaten garanderen van dit domein.
+   > * **Ingebouwde domeinnaam:** standaard de wizard Hiermee geeft u de standaard/ingebouwde-in-naam van de map (met een **. onmicrosoft.com** achtervoegsel) voor u. Als u ervoor kiest om in te schakelen toegang van secure LDAP aan het beheerde domein via internet, kunt u problemen met het maken van een openbare DNS-record of het verkrijgen van een certificaat voor secure LDAP via een openbare Certificeringsinstantie voor deze domeinnaam verwachten. Microsoft is eigenaar van de *. onmicrosoft.com* domein en de CA geeft geen certificaten garandeert voor dit domein.
    * **Aangepaste domeinnamen:** u kunt ook typen in een aangepaste domeinnaam. In dit voorbeeld is de aangepaste domeinnaam *contoso100.com*.
-   * **Niet-routeerbaar domeinachtervoegsels:** algemeen raden We het achtervoegsel voor een niet-routeerbare domeinnaam te vermijden. Bijvoorbeeld, is het beter om het maken van een domein met de DNS-domein de naam 'contoso.local'. Het achtervoegsel '.local' kan niet worden omgeleid en de oorzaak van problemen met DNS-omzetting.
-   * **Domeinbeperkingen voorvoegsel:** het voorvoegsel van de opgegeven domeinnaam (bijvoorbeeld *contoso100* in de *contoso100.com* domeinnaam) moet 15 of minder tekens bevatten. U kunt een beheerd domein maken met een voorvoegsel langer is dan 15 tekens.
-   * **Netwerk naamconflicten:** Zorg ervoor dat de DNS-domeinnaam die u hebt gekozen voor het beheerde domein niet in het virtuele netwerk bestaat nog. Controleer in het bijzonder of:
-       * U hebt al een Active Directory-domein met dezelfde DNS-domeinnaam in het virtuele netwerk.
-       * Het virtuele netwerk waar u van plan bent om in te schakelen van het beheerde domein heeft een VPN-verbinding met uw on-premises netwerk. In dit scenario, zorg ervoor dat u hebt geen een domein met dezelfde DNS-domeinnaam op uw on-premises netwerk.
+   * **Niet-routeerbare domeinachtervoegsels:** algemeen wordt aangeraden een achtervoegsel voor niet-routeerbare domeinnaam te vermijden. Bijvoorbeeld, is het beter om te voorkomen dat het maken van een domein met de DNS-domein naam 'contoso.local'. De DNS-achtervoegsel '.local' kan niet worden omgeleid en kan problemen veroorzaken met DNS-omzetting.
+   * **Voorvoegsel domeinbeperkingen:** het voorvoegsel van de opgegeven domeinnaam (bijvoorbeeld *contoso100* in de *contoso100.com* domeinnaam) mag maximaal 15 tekens. U kunt een beheerde domein maken met het voorvoegsel langer is dan 15 tekens.
+   * **Netwerk naamconflicten:** Zorg ervoor dat de DNS-domeinnaam die u hebt gekozen voor het beheerde domein nog niet in het virtuele netwerk bestaat. Controleer met name of:
+       * U hebt al een Active Directory-domein met dezelfde DNS-domeinnaam op het virtuele netwerk.
+       * Het virtuele netwerk waar u van plan bent om in te schakelen van het beheerde domein heeft een VPN-verbinding met uw on-premises netwerk. In dit scenario, zorg ervoor dat u hebt geen een domein met dezelfde DNS-domeinnaam voor uw on-premises netwerk.
        * Of het virtuele netwerk een bestaande cloudservice met deze naam bevat.
     >
 
-2. Selecteer de Azure **abonnement** in die u wilt maken van het beheerde domein.
+2. Selecteer het Azure **abonnement** in die u wilt maken van het beheerde domein.
 
 3. Selecteer de **resourcegroep** waartoe het beheerde domein moet behoren. Kies de **nieuw** of **gebruik bestaande** opties voor het selecteren van de resourcegroep.
 
-4. Kies het Azure **locatie** in het beheerde domein moet worden gemaakt. Op de **netwerk** pagina van de wizard, ziet u alleen virtuele netwerken die deel uitmaken van de locatie die u hebt geselecteerd.
+4. Kies het Azure **locatie** waarin het beheerde domein moet worden gemaakt. Op de **netwerk** pagina van de wizard, ziet u alleen virtuele netwerken die deel uitmaken van de locatie die u hebt geselecteerd.
 
 5. Klik op **OK** op naar de **netwerk** pagina van de wizard.
 

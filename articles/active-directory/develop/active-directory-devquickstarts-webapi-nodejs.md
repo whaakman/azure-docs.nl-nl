@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 11/30/2017
 ms.author: celested
 ms.custom: aaddev
-ms.openlocfilehash: 1137e7164ac83a2ee0bf05804296aeeb5c3496fb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b05512804b35f7df3dfd2899eed975b93d36f951
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437444"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503380"
 ---
 # <a name="azure-ad-nodejs-web-api-getting-started"></a>Azure AD-Node.js-web-API aan de slag
 
 In dit artikel ziet u hoe u voor het beveiligen van een [Restify](http://restify.com/) API-eindpunt [Passport](http://passportjs.org/) met behulp van de [passport-azure-ad](https://github.com/AzureAD/passport-azure-ad) module voor het afhandelen van communicatie met Azure Active Directory (AAD). 
 
-Het bereik van deze zelfstudie bevat informatie over de problemen met betrekking tot de API-eindpunten beveiligen. De bezorgdheid van het aanmelden en behoud van verificatietokens hier niet worden geïmplementeerd en zijn de verantwoordelijkheid van een clienttoepassing. Voor meer informatie rond een clientimplementatie bekijken [Node.js-web-app aanmelden en afmelden met Azure AD](active-directory-devquickstarts-openidconnect-nodejs.md).
+Het bereik van deze zelfstudie bevat informatie over de problemen met betrekking tot de API-eindpunten beveiligen. De bezorgdheid van het aanmelden en behoud van verificatietokens hier niet worden geïmplementeerd en zijn de verantwoordelijkheid van een clienttoepassing. Voor meer informatie rond een clientimplementatie bekijken [Node.js-web-app aanmelden en afmelden met Azure AD](quickstart-v1-openid-connect-code.md).
 
 Het volledige codevoorbeeld die zijn gekoppeld aan dit artikel vindt u op [GitHub](https://github.com/Azure-Samples/active-directory-node-webapi-basic).
 
@@ -77,7 +77,7 @@ Voordat u verbinding met Azure Active Directory maken kunt, moet u de volgende i
 
 | Naam  | Beschrijving | De naam van de variabele in het configuratiebestand |
 | ------------- | ------------- | ------------- |
-| Tenantnaam  | [De naam van tenant](active-directory-howto-tenant.md) u wilt gebruiken voor verificatie | `tenantName`  |
+| Tenantnaam  | [De naam van tenant](quickstart-create-new-tenant.md) u wilt gebruiken voor verificatie | `tenantName`  |
 | Client-id  | Client-ID is de OAuth-term die wordt gebruikt voor de AAD _toepassings-ID_. |  `clientID`  |
 
 Kopiëren van het registratie-antwoord in de Azure Cloud Shell de `appId` waarde en maak een nieuw bestand met de naam `config.js`. Vervolgens voegen in de volgende code en de waarden vervangt door de tussen haakjes tokens:
@@ -245,4 +245,4 @@ Nu dat u een beveiligde API hebt gemaakt, kunt u een client die kan verificatiet
 Zoals vermeld in de inleiding, moet u een equivalent van de client verbinding maken met de server die verantwoordelijk is voor het aanmelden, afmelden en beheren van tokens implementeren. Voor voorbeelden van code op basis van die u kunt verwijzen naar de clienttoepassingen in [iOS](https://github.com/MSOpenTech/azure-activedirectory-library-for-ios) en [Android](https://github.com/MSOpenTech/azure-activedirectory-library-for-android). Raadpleeg het volgende artikel voor een stapsgewijze zelfstudie:
 
 > [!div class="nextstepaction"]
-> [Node.js-web-app aanmelden en afmelden met Azure AD](active-directory-devquickstarts-openidconnect-nodejs.md)
+> [Node.js-web-app aanmelden en afmelden met Azure AD](quickstart-v1-openid-connect-code.md)

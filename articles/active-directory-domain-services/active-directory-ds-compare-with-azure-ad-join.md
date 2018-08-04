@@ -1,5 +1,5 @@
 ---
-title: Koppelen aan Azure AD en Azure Active Directory Domain Services vergelijken | Microsoft Docs
+title: Azure AD Join en Azure Active Directory Domain Services vergelijken | Microsoft Docs
 description: Kiezen tussen Azure AD Join en Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -12,56 +12,56 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 8bfc62f978b85399a64da32636627efc7ae234da
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e4357738417a202d5dd5a97907b5240cf855f395
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36212550"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504111"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Kiezen tussen Azure Active Directory join en Azure Active Directory Domain Services
-Dit artikel worden de verschillen tussen koppelen aan Azure Active Directory (AD) en Azure AD Domain Services en zorgt die u ervoor kiest, op basis van uw use cases.
+Dit artikel wordt beschreven verschillen tussen koppelen aan Azure Active Directory (AD) en Azure AD Domain Services en zorgt die u ervoor kiest, op basis van uw use cases.
 
-## <a name="azure-ad-registered-and-azure-ad-joined-devices"></a>Azure AD geregistreerd en Azure AD die lid zijn van apparaten
-Azure AD kunt u de identiteit van apparaten die worden gebruikt door uw organisatie en beheren van toegang tot bedrijfsbronnen vanaf deze apparaten te beheren. Gebruikers kunnen hun privé (bring your own)-apparaat registreren met Azure AD, waardoor het apparaat met een identiteit. Azure AD kan het apparaat vervolgens verifiëren wanneer een gebruiker zich bij Azure AD aanmeldt en wordt het apparaat wordt gebruikt voor toegang tot beveiligde bronnen. Bovendien kunt u het apparaat met behulp van Mobile Device Management (MDM)-software, zoals Microsoft Intune beheren. Deze functie kunt u toegang te beperken tot gevoelige resources van beheerde apparaten die voldoen aan het beleid.
+## <a name="azure-ad-registered-and-azure-ad-joined-devices"></a>Azure AD geregistreerd en Azure AD gekoppelde apparaten
+Azure AD kunt u de identiteit van apparaten die worden gebruikt door uw organisatie en beheren van toegang tot resources van deze apparaten beheren. Gebruikers kunnen hun privé (bring-your-own)-apparaat registreren bij Azure AD, waarmee het apparaat een identiteit. Azure AD kan vervolgens het apparaat verifiëren als een gebruiker zich aanmeldt bij Azure AD en wordt het apparaat wordt gebruikt voor toegang tot beveiligde bronnen. Bovendien kunt u het apparaat met behulp van Mobile Device Management (MDM)-software, zoals Microsoft Intune beheren. Deze functie kunt u beperken van toegang tot gevoelige resources van beheerde en beleid-compatibele apparaten.
 
-U kunt ook deelnemen aan de organisatie die eigendom zijn van apparaten naar Azure AD. Dit mechanisme biedt dezelfde voordelen van een persoonlijk apparaat registreren bij Azure AD. Bovendien kunnen gebruikers zich aanmelden op het apparaat met hun bedrijfsreferenties. Azure AD die lid zijn van apparaten bieden u de volgende voordelen:
-* Eenmalige aanmelding (SSO) aan toepassingen die zijn beveiligd door Azure AD
-* Enterprise voldoen aan het beleid zwervende gebruikersinstellingen verschillende apparaten.
+U kunt ook lid van apparaten naar Azure AD-organisatie. Dit mechanisme biedt de voordelen van een persoonlijk apparaat registreren bij Azure AD. Bovendien kunnen gebruikers zich aanmelden op het apparaat met hun bedrijfsreferenties. Azure AD gekoppelde apparaten bieden u de volgende voordelen:
+* Eenmalige aanmelding (SSO) voor toepassingen die zijn beveiligd door Azure AD
+* Zakelijke voldoen aan het beleid roaming van instellingen voor gebruikers op apparaten.
 * Toegang tot de Windows Store voor bedrijven met uw bedrijfsreferenties.
-* Windows Hello voor bedrijven
-* Beperkte toegang tot apps en resources van apparaten die voldoen aan het bedrijfsbeleid.
+* Windows Hello voor Bedrijven
+* Beperkte toegang tot apps en resources van apparaten die compatibel zijn met het bedrijfsbeleid.
 
-| **Type apparaat** | **Apparaatplatforms** | **Mechanisme** |
+| **Type apparaat** | **Apparaatplatformen** | **Mechanisme** |
 |:---| --- | --- |
-| Persoonlijke apparaten | Windows 10-, iOS, Android-, Mac OS | Azure AD geregistreerd |
-| Organisatie die geen lid zijn van apparaten in Bedrijfseigendom on-premises AD dat | Windows 10 | Azure AD die lid zijn van |
-| Organisatie die eigendom zijn van het apparaat lid is van een on-premises AD | Windows 10 | Hybride die lid zijn van Azure AD |
+| Persoonlijke apparaten | Windows 10, iOS, Android, Mac OS | Geregistreerd bij Azure AD |
+| Organisatie niet is toegevoegd aan apparaten in Bedrijfseigendom on-premises AD | Windows 10 | Azure AD-domein |
+| Organisatie eigendom van apparaten die zijn gekoppeld aan een on-premises AD | Windows 10 | Hybrid Azure AD join |
 
-Lid op een Azure AD of geregistreerd apparaat, gebruikersverificatie gebeurt met behulp van protocollen voor moderne OAuth/OpenID Connect gebaseerd. Deze protocollen zijn ontworpen om te werken via internet en zijn ideaal voor mobiele scenario's waar gebruikers toegang krijgen bedrijfsbronnen vanaf elke locatie tot.
+Op een Azure AD gekoppeld of geregistreerd apparaat, gebruikersverificatie gebeurt met behulp van moderne OAuth/OpenID verbinding maken op basis van protocollen. Deze protocollen zijn ontworpen om te werken via internet en is ideaal voor mobiele scenario's waar gebruikers toegang bedrijfsbronnen vanaf elke locatie tot.
 
 
-## <a name="domain-join-to-azure-ad-domain-services-managed-domains"></a>Aan domein toevoegen aan de beheerde domeinen Azure AD Domain Services
-Azure AD Domain Services biedt een beheerde AD-domein in een Azure-netwerk. U kunt computers toevoegen aan deze beheerd domein met traditionele domein mechanismen. Windows-client (Windows 7, Windows 10) en Windows Server-machines kunnen worden gekoppeld aan het beheerde domein. U kunt daarnaast ook machines met Linux en Mac OS toevoegen aan het beheerde domein. Wanneer u een computer aan een AD-domein toevoegen, kunnen gebruikers zich kunnen aanmelden bij de computer met hun bedrijfsreferenties. Deze machines kunnen worden beheerd met behulp van Groepsbeleid, waardoor het afdwingen van compatibiliteit met het beveiligingsbeleid van uw organisatie.
+## <a name="domain-join-to-azure-ad-domain-services-managed-domains"></a>Aan domein toevoegen aan Azure AD Domain Services beheerde domeinen
+Azure AD Domain Services biedt een beheerde AD-domein in een Azure-netwerk. U kunt computers toevoegen aan dit beheerde domein met behulp van traditionele domain-join-mechanismen. Windows-client (Windows 7, Windows 10) en Windows Server-machines kunnen worden toegevoegd aan het beheerde domein. Bovendien kunt u ook Mac OS en Linux-machines toevoegen aan het beheerde domein. Wanneer u een virtuele machine aan een AD-domein, kunnen gebruikers zich kunnen aanmelden bij de virtuele machine met hun bedrijfsreferenties. Deze machines kunnen worden beheerd met behulp van Groepsbeleid, dus het afdwingen van compatibiliteit met het beveiligingsbeleid van uw organisatie.
 
-Op een machine domein gebruikersverificatie gebeurt met behulp van NTLM of Kerberos-verificatieprotocollen. De domein-machine moet onbelemmerd zicht naar de domeincontrollers van het beheerde domein in de volgorde voor gebruikersverificatie om te werken. Daarom kan het domein machine moet zich in hetzelfde virtuele netwerk als het beheerde domein. U kunt ook domein machine moet worden verbonden met het beheerde domein via een peered virtueel netwerk of via een site-naar-site VPN-en ExpressRoute-verbinding. Dit mechanisme is dus niet een geweldige passend maken voor apparaten die zijn Mobiel of verbinding maken met bronnen van buiten het bedrijfsnetwerk.
+Op een machine domein gebruikersverificatie gebeurt met behulp van NTLM of Kerberos-verificatie-protocollen. De domein-machine moet peeren naar de domeincontrollers van het beheerde domein in de volgorde voor verificatie van de gebruiker om te werken. Daarom kan het domein machine moet zich in hetzelfde virtuele netwerk bevinden als het beheerde domein. U kunt ook domein machine moet worden verbonden met het beheerde domein via een gekoppeld virtueel netwerk of via een site-naar-site VPN/ExpressRoute-verbinding. Dit mechanisme wordt dus niet uitstek geschikt voor apparaten die zijn Mobiel of verbinding maken met bronnen van buiten het bedrijfsnetwerk.
 
 > [!NOTE]
-> Het is technisch gezien is mogelijk een lokale clientwerkstation toevoegen aan het beheerde domein via een site-naar-site VPN- of ExpressRoute-verbinding. Echter voor apparaten van eindgebruikers die wordt aangeraden u ofwel Registreer het apparaat met Azure AD (persoonlijke apparaten) of het apparaat toevoegen aan Azure AD (zakelijke apparaten). Dit mechanisme beter werkt via het internet en kan eindgebruikers werken vanaf elke locatie. Azure AD Domain Services is ideaal voor Windows of Linux-Server virtuele machines die zijn geïmplementeerd in uw virtuele netwerken in Azure, waarop uw toepassingen zijn geïmplementeerd.
+> Het is technisch gezien mogelijk op een werkstation met on-premises client toevoegen aan het beheerde domein via een site-naar-site VPN of ExpressRoute-verbinding. Echter, voor apparaten van eindgebruikers die wordt aangeraden u het apparaat registreren bij Azure AD (persoonlijke apparaten) of het apparaat toevoegen aan Azure AD (apparaten). Dit mechanisme beter werkt via internet en kan eindgebruikers werken vanaf elke locatie. Azure AD Domain Services is erg handig voor Windows of Linux-Server virtuele machines die zijn geïmplementeerd in uw Azure virtual networks, waarop uw toepassingen zijn geïmplementeerd.
 
 
-## <a name="summary---key-differences"></a>Samenvatting - belangrijke verschillen
+## <a name="summary---key-differences"></a>Overzicht - belangrijke verschillen
 | **Aspect** | **Azure AD Join** | **Azure AD Domain Services** |
 |:---| --- | --- |
-| Apparaat beheerd door | Azure AD | Azure AD Domain Services beheerd domein |
-| Weergave in de map | Apparaatobjecten in de Azure AD-directory. | Computerobjecten in het AAD-DS beheerde domein. |
-| Verificatie | OAuth/OpenID Connect gebaseerde protocollen | Kerberos, NTLM-protocollen |
+| Apparaat wordt beheerd door | Azure AD | Azure AD Domain Services beheerde domein |
+| Weergave in de map | Apparaatobjecten in de Azure AD-directory. | Computerobjecten in de beheerde AAD-DS-domein. |
+| Verificatie | Protocollen op basis van OAuth/OpenID Connect | Kerberos, NTLM-protocollen |
 | Beheer | Mobile Device Management (MDM)-software, zoals Intune | Groepsbeleid |
-| Netwerken | Werkt via het internet | Vereist machines zich in hetzelfde virtuele netwerk als het beheerde domein.|
-| Ideaal voor... | Eindgebruikers mobiele of bureaubladtoepassingen apparaten | Server virtuele machines zijn geïmplementeerd in Azure |
+| Netwerken | Werkt via internet | Machines zich in hetzelfde virtuele netwerk bevinden als het beheerde domein vereist.|
+| Ideaal voor... | Mobiel of desktop-apparaten van eindgebruikers | Server virtuele machines geïmplementeerd in Azure |
 
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -69,11 +69,11 @@ Op een machine domein gebruikersverificatie gebeurt met behulp van NTLM of Kerbe
 * [Overzicht van Azure AD Domain Services](active-directory-ds-overview.md)
 * [Functies](active-directory-ds-features.md)
 * [Implementatiescenario 's](active-directory-ds-scenarios.md)
-* [Als Azure AD Domain Services aansluit op uw use cases weten](active-directory-ds-comparison.md)
-* [Begrijpen hoe Azure AD Domain Services wordt gesynchroniseerd met uw Azure AD-directory](active-directory-ds-synchronization.md)
+* [Ontdek als Azure AD Domain Services aansluit bij uw use cases](active-directory-ds-comparison.md)
+* [Begrijpen hoe Azure AD Domain Services worden gesynchroniseerd met uw Azure AD-directory](active-directory-ds-synchronization.md)
 
 ### <a name="learn-more-about-azure-ad-join"></a>Meer informatie over Azure AD Join
-* [Inleiding tot beheer van apparaten in Azure Active Directory](../active-directory/device-management-introduction.md)
+* [Inleiding tot Apparaatbeheer in Azure Active Directory](../active-directory/device-management-introduction.md)
 
 ### <a name="get-started-with-azure-ad-domain-services"></a>Aan de slag met Azure AD Domain Services
-* [Azure AD Domain Services met Azure portal inschakelen](active-directory-ds-getting-started.md)
+* [Azure AD Domain Services met behulp van de Azure-portal inschakelen](active-directory-ds-getting-started.md)

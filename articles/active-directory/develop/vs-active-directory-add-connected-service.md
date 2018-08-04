@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
-ms.openlocfilehash: 42ec8aa6119dbf01297743cd509285145c7bea29
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 1dc00e62a297b55d05c5bf96081974fd95bae3a3
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34594073"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493775"
 ---
 # <a name="adding-an-azure-active-directory-by-using-connected-services-in-visual-studio"></a>Toevoegen van een Azure Active Directory met behulp van Connected Services in Visual Studio
 
@@ -27,7 +27,7 @@ In dit artikel en de bijbehorende artikelen vindt u informatie van het gebruik v
 
 De verbonden Active Directory-service wordt op dit moment geen ondersteuning voor ASP.NET Core-toepassingen.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 - Azure-account: als u een Azure-account niet hebt, kunt u [zich registreren voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) of [uw voordelen als Visual Studio-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 - **Visual Studio 2015** of hoger. [Download Visual Studio 2017 nu](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -74,5 +74,5 @@ Wanneer u de gekoppelde service de wizard toevoegt, wordt in Visual Studio Azure
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Verificatiescenario's voor Azure Active Directory](active-directory-authentication-scenarios.md)
-- [Aanmelden bij Microsoft toevoegen aan een ASP.NET-web-app](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Verificatiescenario's voor Azure Active Directory](authentication-scenarios.md)
+- [Aanmelden bij Microsoft toevoegen aan een ASP.NET-web-app](quickstart-v1-aspnet-webapp.md)

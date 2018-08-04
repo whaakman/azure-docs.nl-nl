@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Domain Services: Aan de slag | Microsoft Docs'
-description: Inschakelen van Azure Active Directory Domain Services met Azure portal
+description: Azure Active Directory Domain Services met behulp van de Azure-portal inschakelen
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -12,33 +12,33 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: maheshu
-ms.openlocfilehash: d5b81a6d4bdda24208673e42757807aba60fea97
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 2290273c1b998a2d75046fcbcf613762ddd588ee
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263972"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503203"
 ---
-# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Inschakelen van Azure Active Directory Domain Services met Azure portal
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Active Directory Domain Services met behulp van de Azure-portal inschakelen
 
 
-## <a name="task-3-configure-administrative-group"></a>Taak 3: beheergroep configureren
-In deze taak voor de configuratie maakt u een beheergroep in uw Azure AD-directory. Deze speciale beheerdersgroep heet *AAD DC beheerders*. Leden van deze groep worden verleend beheerdersmachtigingen op de computers die zijn met het domein zijn toegevoegd aan het beheerde domein. Op de machines domein, wordt deze groep toegevoegd aan de groep administrators. Leden van deze groep kunnen ook extern bureaublad gebruiken extern verbinding maken met domein-machines.
+## <a name="task-3-configure-administrative-group"></a>Taak 3: de beheergroep configureren
+In deze taak voor de configuratie maakt u een beheergroep in uw Azure AD-directory. Deze speciale beheergroep heet *AAD DC Administrators*. Leden van deze groep zijn beheerdersmachtigingen nodig voor computers die toegevoegd aan het beheerde domein zijn-verleend. Op domein systemen, wordt deze groep toegevoegd aan de groep administrators. Leden van deze groep kunnen bovendien extern bureaublad gebruiken extern verbinding maken met domein machines.
 
 > [!NOTE]
-> U bent niet gemachtigd domeinbeheerder of ondernemingsbeheerder op het beheerde domein die u hebt gemaakt met behulp van Azure Active Directory Domain Services. Op de beheerde domeinen, worden deze machtigingen zijn gereserveerd door de service en zijn niet beschikbaar gesteld aan gebruikers van de tenant. Echter kunt u de speciale beheergroep gemaakt in deze taak voor de configuratie kunt u sommige bevoorrechte bewerkingen uitvoeren. Deze bewerkingen zijn computers toevoegen aan het domein en Groepsbeleid configureren die deel uitmaken van de beheergroep op domein-machines.
+> U bent niet gemachtigd domeinbeheerder of ondernemingsadministrator in het beheerde domein die u hebt gemaakt met behulp van Azure Active Directory Domain Services. Op de beheerde domeinen, worden deze machtigingen zijn gereserveerd door de service en zijn niet beschikbaar gesteld voor gebruikers binnen de tenant. Echter, kunt u de speciale beheergroep hebt gemaakt in deze taak voor de configuratie sommige bevoorrechte bewerkingen uit te voeren. Deze bewerkingen zijn onder meer computers toevoegen aan het domein, die deel uitmaken van de beheergroep op een domein machines en het configureren van Groepsbeleid.
 >
 
-Maakt de wizard automatisch de beheergroep in uw Azure AD-directory. Deze groep wordt 'AAD DC-beheerders' genoemd. Als u een bestaande groep met deze naam in uw Azure AD-directory hebt, wordt in de wizard deze groep selecteert. U kunt configureren groepslidmaatschap met de **beheerdersgroep** wizardpagina.
+Maakt de wizard automatisch de beheergroep in uw Azure AD-directory. Deze groep wordt 'AAD DC Administrators' genoemd. Als u een bestaande groep met deze naam in uw Azure AD-directory hebt, selecteert u de wizard deze groep. U kunt configureren via lidmaatschap van de **beheerdersgroep** wizardpagina.
 
-1. Voor het configureren van groepslidmaatschap, klikt u op **AAD DC beheerders**.
+1. Groepslidmaatschap configureren, klikt u op **AAD DC Administrators**.
 
     ![Groepslidmaatschap configureren](./media/getting-started/domain-services-blade-admingroup.png)
 
-2. Klik op de **leden toevoegen** knop gebruikers van uw Azure AD-directory toevoegen aan de groep Administrators.
+2. Klik op de **leden toevoegen** knop gebruikers uit uw Azure AD-directory toevoegen aan de groep Administrators.
 
 3. Wanneer u klaar bent, klikt u op **OK** op naar de **samenvatting** pagina van de wizard.
 
@@ -49,40 +49,40 @@ Maakt de wizard automatisch de beheergroep in uw Azure AD-directory. Deze groep 
 
     ![Samenvatting](./media/getting-started/domain-services-blade-summary.png)
 
-2. U ziet een melding dat de voortgang van uw Azure AD Domain Services-implementatie geeft. Klik op de melding om te zien van gedetailleerde uitgevoerd voor de implementatie.
+2. U ziet een melding waarin de voortgang van uw Azure AD Domain Services-implementatie. Klik op de melding om te zien van gedetailleerde uitgevoerd voor de implementatie.
 
     ![Melding - implementatie wordt uitgevoerd](./media/getting-started/domain-services-blade-deployment-in-progress.png)
 
 
 ## <a name="check-the-deployment-status-of-your-managed-domain"></a>Controleer de implementatiestatus van uw beheerde domein
-Het proces voor het leveren van uw beheerde domein kan een uur duren.
+Het proces van inrichting van uw beheerde domein kan een uur duren.
 
-1. Tijdens de implementatie uitgevoerd wordt, kunt u zoeken naar 'domeinservices' in de **zoeken bronnen** zoekvak. Selecteer **Azure AD Domain Services** uit de zoekresultaten. De **Azure AD Domain Services** blade geeft een lijst van het beheerde domein dat wordt ingericht.
+1. Wanneer uw implementatie uitgevoerd wordt, kunt u zoeken naar 'domain services' in de **zoeken naar resources** zoekvak. Selecteer **Azure AD Domain Services** uit de zoekresultaten. De **Azure AD Domain Services** blade geeft een lijst van het beheerde domein dat wordt ingericht.
 
     ![Zoeken naar beheerde domein wordt ingericht](./media/getting-started/domain-services-provisioning-state-find-resource.png)
 
-2. Klik op de naam van het beheerde domein (bijvoorbeeld, contoso100.com') voor meer informatie over het beheerde domein.
+2. Klik op de naam van het beheerde domein (bijvoorbeeld ' contoso100.com') voor meer informatie over het beheerde domein.
 
-    ![Domain Services - status voor inrichten heeft](./media/getting-started/domain-services-provisioning-state.png)
+    ![Domain Services - Inrichtingsstatus](./media/getting-started/domain-services-provisioning-state.png)
 
-3. De **overzicht** tabblad ziet u het beheerde domein momenteel wordt ingericht. U kunt het beheerde domein niet configureren, totdat deze volledig is ingericht. Dit kan een uur duren voor uw beheerde domein om te worden volledig is ingericht.
+3. De **overzicht** tabblad ziet u dat het beheerde domein wordt momenteel ingericht. U kunt het beheerde domein niet configureren, totdat deze volledig is ingericht. Het kan een uur duren voor uw beheerde domein volledig is ingericht.
 
-    ![Domain Services - tabblad Overzicht tijdens de Inrichtingsstatus ](./media/getting-started/domain-services-provisioning-state-details.png)
+    ![Domain Services: tabblad Overzicht tijdens de Inrichtingsstatus ](./media/getting-started/domain-services-provisioning-state-details.png)
 
-4. Wanneer het beheerde domein volledig is ingericht, de **overzicht** tabblad ziet u de status van het domein als **met**.
+4. Wanneer het beheerde domein volledig is ingericht, de **overzicht** tabblad toont de domeinstatus als **met**.
 
     ![Domain Services: tabblad Overzicht nadat het domein volledig is ingericht](./media/getting-started/domain-services-provisioned.png)
     >[!NOTE]
-    >Azure AD Domain Services maakt tijdens het inrichtingsproces zakelijke toepassingen maken met de naam 'Domain Controller Services' en 'AzureActiveDirectoryDomainControllerServices' binnen uw directory. Deze bedrijfstoepassingen zijn nodig voor het onderhouden van uw beheerde domein. Het is noodzakelijk dat deze niet worden verwijderd op elk gewenst moment.
+    >Azure AD Domain Services maakt tijdens het inrichtingsproces, zakelijke toepassingen met de naam 'Domain Controller Services' en 'AzureActiveDirectoryDomainControllerServices' in de adreslijst. Deze zakelijke toepassingen nodig zijn om uw beheerde domein. Het is noodzakelijk dat deze niet worden verwijderd op elk gewenst moment.
     >
 
-5. Op de **eigenschappen** tabblad ziet u twee IP-adressen op welk domein domeincontrollers beschikbaar voor het virtuele netwerk zijn.
+5. Op de **eigenschappen** tabblad ziet u twee IP-adressen waarop domeinservices domeincontrollers beschikbaar voor het virtuele netwerk zijn.
 
-    ![Domain Services - tabblad Eigenschappen nadat het volledig is ingericht](./media/getting-started/domain-services-provisioned-properties.png)
+    ![Domain Services: tabblad Eigenschappen nadat volledig is ingericht](./media/getting-started/domain-services-provisioned-properties.png)
 
 
 ## <a name="need-help"></a>Hulp nodig?
-Het duurt een uur of twee voor beide domeincontrollers voor uw beheerde domein moeten worden ingericht. Als uw implementatie is mislukt of is vastgelopen in de status 'In behandeling' voor meer dan een paar uur, gerust [voor hulp contact op met het productteam](active-directory-ds-contact-us.md).
+Het duurt een uur of twee voor beide domeincontrollers voor uw beheerde domein moet worden ingericht. Als uw implementatie is mislukt of is vastgelopen in de status 'In behandeling' voor meer dan een paar uur, gerust [voor hulp contact op met het productteam](active-directory-ds-contact-us.md).
 
 
 ## <a name="next-step"></a>Volgende stap

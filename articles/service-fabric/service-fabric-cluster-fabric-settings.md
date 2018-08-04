@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/25/2018
 ms.author: aljo
-ms.openlocfilehash: 5628315423db1f0064d0e6b77f061d8e674757aa
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 9e4d65875085ec293813e2683acde095ae112b75
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309150"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503703"
 ---
-# <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Instellingen voor Service Fabric-cluster en Fabric-Upgradebeleid aanpassen
-Dit document leest u hoe de verschillende fabric-instellingen aanpassen en Upgradebeleid in de infrastructuur voor uw Service Fabric-cluster. U kunt aanpassen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon.
+# <a name="customize-service-fabric-cluster-settings"></a>Instellingen voor Service Fabric-cluster aanpassen
+In dit artikel wordt beschreven hoe u de verschillende fabric-instellingen aanpassen voor uw Service Fabric-cluster. Voor clusters die worden gehost in Azure, kunt u instellingen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon. Voor zelfstandige clusters, kunt u instellingen aanpassen door het bijwerken van het bestand ClusterConfig.json en een configuratie-upgrade uitvoert op uw cluster. 
 
 > [!NOTE]
 > Niet alle instellingen zijn beschikbaar in de portal. Als een instelling hieronder vermelde niet beschikbaar is via de portal aanpassen met behulp van een Azure Resource Manager-sjabloon.
@@ -35,14 +35,14 @@ Dit document leest u hoe de verschillende fabric-instellingen aanpassen en Upgra
 - **NotAllowed** : deze instellingen kunnen niet worden gewijzigd. Wijzigen van deze instellingen vereist dat het cluster worden vernietigd en een nieuw cluster gemaakt. 
 
 ## <a name="customize-cluster-settings-using-resource-manager-templates"></a>Instellingen van het cluster met behulp van Resource Manager-sjablonen aanpassen
-De volgende stappen laten zien hoe u een nieuwe instelling toevoegen *MaxDiskQuotaInMB* naar de *Diagnostics* sectie.
+De volgende stappen laten zien hoe u een nieuwe instelling toevoegen *MaxDiskQuotaInMB* naar de *Diagnostics* sectie met behulp van Azure Resource Explorer.
 
 1. Ga naar https://resources.azure.com
 2. Navigeer naar uw abonnement door uit te vouwen **abonnementen** -> **\<uw abonnement >** -> **resourceGroups**  ->   **\<Uw resourcegroep >** -> **providers** -> **Microsoft.ServiceFabric**  ->  **clusters** -> **\<de naam van uw Cluster >**
 3. Selecteer in de rechterbovenhoek, **lezen/schrijven.**
 4. Selecteer **bewerken** en werk de `fabricSettings` JSON-element en nieuw-element toe te voegen:
 
-```
+```json
       {
         "name": "Diagnostics",
         "parameters": [
@@ -53,6 +53,36 @@ De volgende stappen laten zien hoe u een nieuwe instelling toevoegen *MaxDiskQuo
         ]
       }
 ```
+
+U kunt ook de instellingen aanpassen in een van de volgende manieren met Azure Resource Manager:
+
+- Gebruik de [Azure-portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template) om te exporteren en het bijwerken van de Resource Manager-sjabloon.
+- Gebruik [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) om te exporteren en het bijwerken van de Resource Manager-sjabloon.
+- Gebruik de [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli) om te exporteren en het bijwerken van de Resource Manager-sjabloon.
+- Gebruik van Azure DB PowerShell [Set AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Set-AzureRmServiceFabricSetting) en [Remove-AzureRmServiceFabricSetting](https://docs.microsoft.com/powershell/module/azurerm.servicefabric/Remove-AzureRmServiceFabricSetting) opdrachten om de instelling te wijzigen rechtstreeks.
+- De Azure CLI gebruiken [az sf cluster instelling](https://docs.microsoft.com/cli/azure/sf/cluster/setting) opdrachten om de instelling te wijzigen rechtstreeks.
+
+## <a name="customize-cluster-settings-for-standalone-clusters"></a>Clusterinstellingen voor zelfstandige clusters aanpassen
+Zelfstandige clusters worden geconfigureerd via de ClusterConfig.json-bestand. Zie voor meer informatie, [configuratie-instellingen voor een zelfstandige Windows-cluster](./service-fabric-cluster-manifest.md).
+
+U kunt toevoegen, bijwerken of verwijderen van de instellingen in de `fabricSettings` sectie onder de [eigenschappen van het Cluster](./service-fabric-cluster-manifest.md#cluster-properties) sectie in ClusterConfig.json. 
+
+Bijvoorbeeld, een nieuwe instelling wordt toegevoegd in de volgende JSON *MaxDiskQuotaInMB* naar de *Diagnostics* sectie onder `fabricSettings`:
+
+```json
+      {
+        "name": "Diagnostics",
+        "parameters": [
+          {
+            "name": "MaxDiskQuotaInMB",
+            "value": "65536"
+          }
+        ]
+      }
+```
+
+Nadat u de instellingen in uw bestand ClusterConfig.json hebt gewijzigd, volg de aanwijzingen in [Upgrade van de clusterconfiguratie](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration) de instellingen toepassen op uw cluster. 
+
 
 Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld per sectie.
 
@@ -140,12 +170,12 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, is standaard ingesteld op geen|Dynamisch|Bepaalt het aantal gratis knooppunten die nodig zijn om te overwegen cluster gedefragmenteerd door een van beide procent op te geven in bereik [0.0-1.0) of het nummer van lege knooppunten als getal > = 1,0 |
 
-## <a name="diagnostics"></a>Diagnostiek
+## <a name="diagnostics"></a>Diagnostische gegevens
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
 |AppDiagnosticStoreAccessRequiresImpersonation |BOOL, de standaardinstelling is true | Dynamisch |Imitatie is wel of niet vereist wanneer toegang tot diagnostische namens de toepassing opslaat. |
 |AppEtwTraceDeletionAgeInDays |Int, de standaardwaarde is 3 | Dynamisch |Aantal dagen waarna we oude ETL-bestanden met toepassing ETW-traceringen wilt verwijderen. |
-|ApplicationLogsFormatVersion |Int, de standaardwaarde is 0 | Dynamisch |Versie voor de toepassing registreert indeling. Ondersteunde waarden zijn 0 en 1. Versie 1 bevat meer velden uit de record van de ETW-gebeurtenis dan de versie van 0. |
+|ApplicationLogsFormatVersion |int, standaard is 0 | Dynamisch |Versie voor de toepassing registreert indeling. Ondersteunde waarden zijn 0 en 1. Versie 1 bevat meer velden uit de record van de ETW-gebeurtenis dan de versie van 0. |
 |ClusterId |Reeks | Dynamisch |De unieke id van het cluster. Dit wordt gegenereerd wanneer het cluster is gemaakt. |
 |ConsumerInstances |Reeks | Dynamisch |De lijst van DCA consumentexemplaren. |
 |DiskFullSafetySpaceInMB |Int, standaard is 1024 | Dynamisch |Resterende schijfruimte in MB te beschermen tegen door DCA worden gebruikt. |
@@ -199,12 +229,12 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |ClusterX509FindValue |tekenreeks, standaardwaarde is "" |Dynamisch|Filter zoekwaarde gebruikt voor het clustercertificaat te zoeken. |
 |ClusterX509FindValueSecondary |tekenreeks, standaardwaarde is "" |Dynamisch|Filter zoekwaarde gebruikt voor het clustercertificaat te zoeken. |
 |ClusterX509StoreName |tekenreeks, standaardwaarde is 'My' |Dynamisch|De naam van X.509-certificaatarchief dat clustercertificaat voor het beveiligen van communicatie tussen intra-cluster bevat. |
-|EndApplicationPortRange |Int, de standaardwaarde is 0 |Statisch|Einde (niet inclusief) van de toepassingspoorten die worden beheerd door die als host fungeert subsysteem. Vereist als EndpointFilteringEnabled ingesteld op true in Hosting is. |
+|EndApplicationPortRange |int, standaard is 0 |Statisch|Einde (niet inclusief) van de toepassingspoorten die worden beheerd door die als host fungeert subsysteem. Vereist als EndpointFilteringEnabled ingesteld op true in Hosting is. |
 |ServerAuthX509FindType |tekenreeks, standaard is "FindByThumbprint" |Dynamisch|Geeft aan hoe om te zoeken naar servercertificaat in het archief dat is opgegeven door de waarde ServerAuthX509StoreName ondersteund: FindByThumbprint; FindBySubjectName. |
 |ServerAuthX509FindValue |tekenreeks, standaardwaarde is "" |Dynamisch|Filter zoekwaarde gebruikt voor het servercertificaat te zoeken. |
 |ServerAuthX509FindValueSecondary |tekenreeks, standaardwaarde is "" |Dynamisch|Filter zoekwaarde gebruikt voor het servercertificaat te zoeken. |
 |ServerAuthX509StoreName |tekenreeks, standaardwaarde is 'My' |Dynamisch|De naam van X.509-certificaatarchief die het servercertificaat voor soepele Kennismaking service bevat. |
-|StartApplicationPortRange |Int, de standaardwaarde is 0 |Statisch|Begin van de toepassingspoorten die worden beheerd door die als host fungeert subsysteem. Vereist als EndpointFilteringEnabled ingesteld op true in Hosting is. |
+|StartApplicationPortRange |int, standaard is 0 |Statisch|Begin van de toepassingspoorten die worden beheerd door die als host fungeert subsysteem. Vereist als EndpointFilteringEnabled ingesteld op true in Hosting is. |
 |StateTraceInterval |Tijd in seconden, de standaardwaarde is 300 |Statisch|Interval in seconden opgeven. Het interval voor het traceren van knooppuntstatus op elk knooppunt en van knooppunten op FM/FMM. |
 |UserRoleClientX509FindType |tekenreeks, standaard is "FindByThumbprint" |Dynamisch|Geeft aan hoe om te zoeken naar certificaat in het archief dat is opgegeven door de waarde UserRoleClientX509StoreName ondersteund: FindByThumbprint; FindBySubjectName. |
 |UserRoleClientX509FindValue |tekenreeks, standaardwaarde is "" |Dynamisch|Filter zoekwaarde gebruikt voor het certificaat voor de rol van de gebruiker standaard FabricClient te zoeken. |
@@ -230,7 +260,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |ReplicaRestartWaitDuration|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(60.0 * 30)|Niet toegestaan|Interval in seconden opgeven. Dit is de ReplicaRestartWaitDuration voor de FMService |
 |StandByReplicaKeepDuration|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(3600.0 * 24 * 7)|Niet toegestaan|Interval in seconden opgeven. Dit is de StandByReplicaKeepDuration voor de FMService |
 |TargetReplicaSetSize|Int, de standaardwaarde is 7|Niet toegestaan|Dit is het doelaantal FM-replica's die wordt onderhouden van Windows Fabric. Hoe hoger de waarde resulteert in meer betrouwbaarheid van de gegevens FM; met een negatieve gevolgen voor de prestaties van kleine. |
-|UserMaxStandByReplicaCount |Int, de standaardwaarde is 1 |Dynamisch|De standaard maximale aantal StandBy-replica's die het systeem voor de services gebruiken blijft. |
+|UserMaxStandByReplicaCount |int, standaard is 1 |Dynamisch|De standaard maximale aantal StandBy-replica's die het systeem voor de services gebruiken blijft. |
 |UserReplicaRestartWaitDuration |Tijd in seconden, is standaard 60,0 * 30 |Dynamisch|Interval in seconden opgeven. Wanneer een persistente replica wordt uitgeschakeld; Windows Fabric wacht voor deze duur voor de replica op terugkomen om vóór het maken van nieuwe vervanging replica's (waarvoor een kopie van de status). |
 |UserStandByReplicaKeepDuration |Tijd in seconden, de standaardwaarde is 3600.0 * 24 * 7 |Dynamisch|Interval in seconden opgeven. Wanneer een persistente replica terugkeren van een status down; mogelijk is deze al vervangen. Deze timer bepaalt hoe lang de FM de standby-replica blijft bewaard voordat deze worden verwijderd. |
 
@@ -240,7 +270,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |CompletedActionKeepDurationInSeconds | Int, de standaardwaarde is 604800 |Statisch| Dit is ongeveer hoelang de acties die zich in een definitieve status behouden. Dit is ook afhankelijk StoredActionCleanupIntervalInSeconds; omdat het werk worden opgeschoond wordt alleen uitgevoerd op dat het interval. 604800 is 7 dagen. |
 |DataLossCheckPollIntervalInSeconds|int, standaard is 5|Statisch|Dit is de tijd tussen de controles die het systeem wordt uitgevoerd tijdens het wachten tot verlies van gegevens worden uitgevoerd. Het aantal keren dat die het nummer van de gegevens verloren gaan, wordt gecontroleerd per interne iteratie is DataLossCheckWaitDurationInSeconds/dit. |
 |DataLossCheckWaitDurationInSeconds|int, de standaardwaarde is 25|Statisch|De totale hoeveelheid tijd; in seconden. dat het systeem wacht tot verlies van gegevens worden uitgevoerd. Dit wordt intern gebruikt wanneer de StartPartitionDataLossAsync()-api wordt aangeroepen. |
-|MinReplicaSetSize |Int, de standaardwaarde is 0 |Statisch|De MinReplicaSetSize voor FaultAnalysisService. |
+|MinReplicaSetSize |int, standaard is 0 |Statisch|De MinReplicaSetSize voor FaultAnalysisService. |
 |PlacementConstraints | tekenreeks, standaardwaarde is ""|Statisch| De PlacementConstraints voor FaultAnalysisService. |
 |QuorumLossWaitDuration | Tijd in seconden, de standaardwaarde is MaxValue |Statisch|Interval in seconden opgeven. De QuorumLossWaitDuration voor FaultAnalysisService. |
 |ReplicaDropWaitDurationInSeconds|int, de standaardwaarde is 600|Statisch|Deze parameter wordt gebruikt wanneer het verlies van gegevens-api wordt aangeroepen. Het bepaalt hoe lang het systeem moet wachten voor een replica moet worden verwijderd na het verwijderen replica intern erop wordt aangeroepen. |
@@ -248,9 +278,9 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |StandByReplicaKeepDuration| Tijd in seconden, de standaardwaarde is (60*24*7) minuten |Statisch|Interval in seconden opgeven. De StandByReplicaKeepDuration voor FaultAnalysisService. |
 |StoredActionCleanupIntervalInSeconds | Int, de standaardwaarde is 3600 |Statisch|Dit is hoe vaak de store worden opgeschoond. Alleen acties in een definitieve status; en dat ten minste voltooid CompletedActionKeepDurationInSeconds geleden is verwijderd. |
 |StoredChaosEventCleanupIntervalInSeconds | Int, de standaardwaarde is 3600 |Statisch|Dit is hoe vaak de store wordt gecontroleerd om op te schonen; Als het aantal gebeurtenissen meer dan 30000 is; het opruimen van de wordt gestart. |
-|TargetReplicaSetSize |Int, de standaardwaarde is 0 |Statisch|De TargetReplicaSetSize voor FaultAnalysisService NOT_PLATFORM_UNIX_START. |
+|TargetReplicaSetSize |int, standaard is 0 |Statisch|De TargetReplicaSetSize voor FaultAnalysisService NOT_PLATFORM_UNIX_START. |
 
-## <a name="federation"></a>Federatie
+## <a name="federation"></a>Federation
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
 |GlobalTicketLeaseDuration|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(300)|Statisch|Interval in seconden opgeven. Knooppunten in het cluster moeten een globale lease onderhouden met de kiezers. Kiezers indienen hun algemene leases worden doorgegeven in het cluster voor deze duur. Als de duur is verlopen; de lease is verbroken. Quorumverlies van de lease zorgt ervoor dat een knooppunt aan het afbreken van het cluster. door gebrek aan communicatie met een quorum van knooppunten in deze periode ontvangen.  Deze waarde moet worden aangepast op basis van de grootte van het cluster. |
@@ -301,8 +331,8 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
 |ConsiderWarningAsError |BOOL, de standaardinstelling is false |Statisch|Beleid voor evaluatie van status van cluster: waarschuwingen worden behandeld als fouten. |
-|MaxPercentUnhealthyApplications | Int, de standaardwaarde is 0 |Statisch|Beleid voor evaluatie van status van cluster: maximale percentage van de beschadigde toepassingen toegestaan voor het cluster in orde zijn. |
-|MaxPercentUnhealthyNodes | Int, de standaardwaarde is 0 |Statisch|Beleid voor evaluatie van status van cluster: maximale percentage van knooppunten met slechte toegestaan voor het cluster in orde zijn. |
+|MaxPercentUnhealthyApplications | int, standaard is 0 |Statisch|Beleid voor evaluatie van status van cluster: maximale percentage van de beschadigde toepassingen toegestaan voor het cluster in orde zijn. |
+|MaxPercentUnhealthyNodes | int, standaard is 0 |Statisch|Beleid voor evaluatie van status van cluster: maximale percentage van knooppunten met slechte toegestaan voor het cluster in orde zijn. |
 
 ## <a name="healthmanagerclusterupgradehealthpolicy"></a>HealthManager/ClusterUpgradeHealthPolicy
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
@@ -369,7 +399,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="imagestoreservice"></a>ImageStoreService
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|Ingeschakeld |BOOL, de standaardinstelling is false |Statisch|De vlag ingeschakeld voor ImageStoreService. Standaard: false |
+|Inschakelen |BOOL, de standaardinstelling is false |Statisch|De vlag ingeschakeld voor ImageStoreService. Standaard: false |
 |MinReplicaSetSize | Int, de standaardwaarde is 3 |Statisch|De MinReplicaSetSize voor ImageStoreService. |
 |PlacementConstraints | tekenreeks, standaardwaarde is "" |Statisch| De PlacementConstraints voor ImageStoreService. |
 |QuorumLossWaitDuration | Tijd in seconden, de standaardwaarde is MaxValue |Statisch| Interval in seconden opgeven. De QuorumLossWaitDuration voor ImageStoreService. |
@@ -380,12 +410,12 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="ktllogger"></a>KtlLogger
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|AutomaticMemoryConfiguration |Int, de standaardwaarde is 1 |Dynamisch|Markering waarmee wordt aangegeven als de instellingen voor geheugen moeten worden automatisch en dynamisch geconfigureerd. Als nul wordt de configuratie-instellingen van het geheugen rechtstreeks worden gebruikt en niet te wijzigen op basis van systeem voorwaarden. Als een worden de instellingen voor geheugen worden automatisch geconfigureerd en kunnen worden gewijzigd op basis van systeem voorwaarden. |
-|MaximumDestagingWriteOutstandingInKB | Int, de standaardwaarde is 0 |Dynamisch|Het aantal KB tot de gedeelde aanmelden om door te gaan voor het toegewezen logboek toestaan. Gebruik 0 om aan te geven geen limiet.
+|AutomaticMemoryConfiguration |int, standaard is 1 |Dynamisch|Markering waarmee wordt aangegeven als de instellingen voor geheugen moeten worden automatisch en dynamisch geconfigureerd. Als nul wordt de configuratie-instellingen van het geheugen rechtstreeks worden gebruikt en niet te wijzigen op basis van systeem voorwaarden. Als een worden de instellingen voor geheugen worden automatisch geconfigureerd en kunnen worden gewijzigd op basis van systeem voorwaarden. |
+|MaximumDestagingWriteOutstandingInKB | int, standaard is 0 |Dynamisch|Het aantal KB tot de gedeelde aanmelden om door te gaan voor het toegewezen logboek toestaan. Gebruik 0 om aan te geven geen limiet.
 |SharedLogId |tekenreeks, standaardwaarde is "" |Statisch|De unieke guid voor gedeelde log-container. Gebruik ' ' als standaardpad onder fabric-gegevenshoofdmap. |
 |SharedLogPath |tekenreeks, standaardwaarde is "" |Statisch|Pad en de naam naar de locatie voor gedeelde log-container. Gebruik ' ' voor het gebruik van standaardpad onder fabric-gegevenshoofdmap. |
 |SharedLogSizeInMB |Int, de standaardwaarde is 8192 liggen |Statisch|Het aantal MB om toe te wijzen in de gedeelde log-container. |
-|WriteBufferMemoryPoolMaximumInKB | Int, de standaardwaarde is 0 |Dynamisch|Het aantal KB om toe te staan de schrijven geheugen buffergroep tot groeien. Gebruik 0 om aan te geven geen limiet. |
+|WriteBufferMemoryPoolMaximumInKB | int, standaard is 0 |Dynamisch|Het aantal KB om toe te staan de schrijven geheugen buffergroep tot groeien. Gebruik 0 om aan te geven geen limiet. |
 |WriteBufferMemoryPoolMinimumInKB |Int, de standaardwaarde is 8388608 |Dynamisch|Het aantal KB in eerste instantie voor het schrijven voor buffergroep in het geheugen toewijzen. Gebruik 0 om aan te geven geen limiet standaard moet consistent zijn met SharedLogSizeInMB hieronder. |
 
 ## <a name="management"></a>Beheer
@@ -414,7 +444,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="namingservice"></a>NamingService
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|GatewayServiceDescriptionCacheLimit |Int, de standaardwaarde is 0 |Statisch|Het maximale aantal vermeldingen behouden in de cache LRU service beschrijving bij de naamgeving van Gateway (ingesteld op 0 om geen limiet). |
+|GatewayServiceDescriptionCacheLimit |int, standaard is 0 |Statisch|Het maximale aantal vermeldingen behouden in de cache LRU service beschrijving bij de naamgeving van Gateway (ingesteld op 0 om geen limiet). |
 |MaxClientConnections |Int, de standaardwaarde is 1000 |Dynamisch|De maximaal toegestane aantal clientverbindingen per gateway. |
 |MaxFileOperationTimeout |Tijd in seconden, de standaardwaarde is 30 |Dynamisch|Interval in seconden opgeven. De maximale time-out die is toegestaan voor bestandsbewerking store-service. Aanvragen op te geven een hogere time-out worden geweigerd. |
 |MaxIndexedEmptyPartitions |Int, de standaardwaarde is 1000 |Dynamisch|Het maximum aantal lege partities die blijft geïndexeerd in de cache van de melding voor het herstellen van verbindingen clients synchroniseren. Alle lege partities boven dit nummer wordt verwijderd uit de index in oplopende volgorde van lookup-versie. Nog steeds kunt opnieuw verbinden van clients synchroniseren en ontvangen van updates gemist lege partitie; maar het synchronisatieprotocol dat wordt duurder. |
@@ -428,7 +458,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |QuorumLossWaitDuration | Tijd in seconden, de standaardwaarde is MaxValue |Niet toegestaan| Interval in seconden opgeven. Wanneer een Naming-Service krijgt de quorumverlies; Deze timer wordt gestart. Wanneer het verloopt de FM Houd rekening met de omlaag replica's als verloren. en proberen om het quorum te herstellen. Niet op dat dit kan leiden tot verlies van gegevens. |
 |RepairInterval | Tijd in seconden, de standaardwaarde is 5 |Statisch| Interval in seconden opgeven. Interval waarin de naamgevingsconventie inconsistentie tussen de eigenaar van de instantie en de van de naameigenaar herstellen wordt gestart. |
 |ReplicaRestartWaitDuration | Tijd in seconden, wordt standaard (60,0 * 30)|Niet toegestaan| Interval in seconden opgeven. Wanneer een replica Naming-Service wordt uitgeschakeld; Deze timer wordt gestart. Wanneer het verloopt de FM beginnen met het vervangen van de replica's die niet beschikbaar zijn (dit wordt niet nog rekening gehouden met deze verloren). |
-|ServiceDescriptionCacheLimit | Int, de standaardwaarde is 0 |Statisch| Het maximale aantal vermeldingen behouden in de cache LRU service beschrijving van de Naming Store-Service (ingesteld op 0 om geen limiet). |
+|ServiceDescriptionCacheLimit | int, standaard is 0 |Statisch| Het maximale aantal vermeldingen behouden in de cache LRU service beschrijving van de Naming Store-Service (ingesteld op 0 om geen limiet). |
 |ServiceNotificationTimeout |Tijd in seconden, de standaardwaarde is 30 |Dynamisch|Interval in seconden opgeven. De time-out bij het leveren van servicemeldingen naar de client gebruikt. |
 |StandByReplicaKeepDuration | Tijd in seconden, de standaardwaarde is 3600.0 * 2 |Niet toegestaan| Interval in seconden opgeven. Wanneer een replica Naming-Service terugkeren van een status down; mogelijk is deze al vervangen. Deze timer bepaalt hoe lang de FM de standby-replica blijft bewaard voordat deze worden verwijderd. |
 |TargetReplicaSetSize |Int, de standaardwaarde is 7 |Niet toegestaan|Hiermee stelt u het aantal replica's voor elke partitie van de store Naming-Service. Het aantal replicasets verhoogt, worden het niveau van betrouwbaarheid van de informatie in de Store van de Naming-Service; de wijziging dat als gevolg van knooppuntfouten; de gegevens gaan verloren verlagen het duurt om uit te voeren van updates voor de naamgeving gegevens terwijl de kosten van toegenomen belasting op de Windows Fabric en de hoeveelheid tijd.|
@@ -464,19 +494,19 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 | --- | --- | --- | --- |
 |Prestatiemeteritems |Reeks | Dynamisch |Door komma's gescheiden lijst met te verzamelen prestatiemeteritems. |
 |IsEnabled |BOOL, de standaardinstelling is true | Dynamisch |Vlag geeft aan of het verzamelen van prestatiemeteritems op het lokale knooppunt is ingeschakeld. |
-|MaxCounterBinaryFileSizeInMB |Int, de standaardwaarde is 1 | Dynamisch |Maximale grootte (in MB) voor elk prestaties teller binaire bestand. |
+|MaxCounterBinaryFileSizeInMB |int, standaard is 1 | Dynamisch |Maximale grootte (in MB) voor elk prestaties teller binaire bestand. |
 |NewCounterBinaryFileCreationIntervalInMinutes |Int, de standaardwaarde is 10 | Dynamisch |Maximaal interval (in seconden) waarna een nieuw prestaties teller binaire bestand is gemaakt. |
 |SamplingIntervalInSeconds |Int, de standaardwaarde is 60 | Dynamisch |Steekproefinterval voor prestatiemeteritems die worden verzameld. |
 
 ## <a name="placementandloadbalancing"></a>PlacementAndLoadBalancing
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|AffinityConstraintPriority | Int, de standaardwaarde is 0 | Dynamisch|Hiermee bepaalt u de prioriteit van de affiniteit beperking: 0: vaste; 1: zachte; negatieve: negeren. |
-|ApplicationCapacityConstraintPriority | Int, de standaardwaarde is 0 | Dynamisch|Hiermee bepaalt u de prioriteit van capaciteit beperking: 0: vaste; 1: zachte; negatieve: negeren. |
+|AffinityConstraintPriority | int, standaard is 0 | Dynamisch|Hiermee bepaalt u de prioriteit van de affiniteit beperking: 0: vaste; 1: zachte; negatieve: negeren. |
+|ApplicationCapacityConstraintPriority | int, standaard is 0 | Dynamisch|Hiermee bepaalt u de prioriteit van capaciteit beperking: 0: vaste; 1: zachte; negatieve: negeren. |
 |AutoDetectAvailableResources|BOOL, standaard is ingesteld op TRUE|Statisch|Deze configuratie automatische detectie van beschikbare resources op knooppunt (CPU en geheugen) wordt geactiveerd wanneer deze configuratie is ingesteld op true: we lezen echte capaciteiten en corrigeer deze indien de gebruiker opgegeven beschadigde knooppuntcapaciteit of hebt gedefinieerd ze helemaal als deze configuratie is ingesteld op false - zullen we  een waarschuwing dat die door de gebruiker opgegeven beschadigde knooppuntcapaciteit; traceren maar we zullen niet corrigeren. wat betekent dat de gebruiker wil dat de capaciteit die is opgegeven als > dan op het knooppunt is echt of als capaciteitswaarden niet-gedefinieerde zijn; wordt ervan uitgegaan dat onbeperkte capaciteit |
 |BalancingDelayAfterNewNode | Tijd in seconden, de standaardwaarde is 120 |Dynamisch|Interval in seconden opgeven. Start niet balancing activiteiten binnen deze periode na het toevoegen van een nieuw knooppunt. |
 |BalancingDelayAfterNodeDown | Tijd in seconden, de standaardwaarde is 120 |Dynamisch|Interval in seconden opgeven. Start niet balancing activiteiten binnen deze periode na een knooppunt is uitgevallen gebeurtenis. |
-|CapacityConstraintPriority | Int, de standaardwaarde is 0 | Dynamisch|Hiermee bepaalt u de prioriteit van capaciteit beperking: 0: vaste; 1: zachte; negatieve: negeren. |
+|CapacityConstraintPriority | int, standaard is 0 | Dynamisch|Hiermee bepaalt u de prioriteit van capaciteit beperking: 0: vaste; 1: zachte; negatieve: negeren. |
 |ConsecutiveDroppedMovementsHealthReportLimit | Int, de standaardwaarde is 20 | Dynamisch|Hiermee definieert u het aantal opeenvolgende keren dat ResourceBalancer uitgegeven verplaatsingen van het type zijn verwijderd voordat u diagnostische gegevens worden uitgevoerd en de van gezondheidswaarschuwingen worden verzonden. Negatieve: Er zijn geen waarschuwingen verzonden onder deze voorwaarde. |
 |ConstraintFixPartialDelayAfterNewNode | Tijd in seconden, de standaardwaarde is 120 |Dynamisch| Interval in seconden opgeven. DDo FaultDomain niet oplossen en schendingen van plaatsingsbeperkingen UpgradeDomain binnen deze periode na het toevoegen van een nieuw knooppunt. |
 |ConstraintFixPartialDelayAfterNodeDown | Tijd in seconden, de standaardwaarde is 120 |Dynamisch| Interval in seconden opgeven. Niet repareren FaultDomain en UpgradeDomain schendingen van plaatsingsbeperkingen doen binnen deze periode na een knooppunt is uitgevallen gebeurtenis. |
@@ -486,7 +516,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |DetailedNodeListLimit | int, de standaardwaarde is 15 |Dynamisch| Hiermee definieert u het aantal knooppunten per beperking om op te nemen voor afkapping in de rapporten met niet-geplaatste Replica. |
 |DetailedPartitionListLimit | int, de standaardwaarde is 15 |Dynamisch| Hiermee definieert u het aantal partities per diagnostische vermelding voor een beperking voor om op te nemen voor afkapping in diagnostische gegevens. |
 |DetailedVerboseHealthReportLimit | Int, standaard is 200 | Dynamisch|Hiermee definieert u het aantal keren dat die een niet-geplaatste replica niet permanent-geplaatste is voordat gedetailleerde statusrapporten worden uitgezonden. |
-|FaultDomainConstraintPriority | Int, de standaardwaarde is 0 |Dynamisch| Hiermee bepaalt u de prioriteit van fout met betrekking tot domeinbeperking: 0: vaste; 1: zachte; negatieve: negeren. |
+|FaultDomainConstraintPriority | int, standaard is 0 |Dynamisch| Hiermee bepaalt u de prioriteit van fout met betrekking tot domeinbeperking: 0: vaste; 1: zachte; negatieve: negeren. |
 |GlobalMovementThrottleCountingInterval | Tijd in seconden, de standaardwaarde is 600 |Statisch| Interval in seconden opgeven. De lengte van het afgelopen interval waarvoor om bij te houden per domein replica verplaatsingen (gebruikt samen met GlobalMovementThrottleThreshold) geven. Kan worden ingesteld op 0 om te negeren globale beperking kan worden overgeslagen. |
 |GlobalMovementThrottleThreshold | Uint, de standaardwaarde is 1000 |Dynamisch| Maximum aantal verplaatsingen van het type toegestaan in de fase taakverdeling in het afgelopen interval aangegeven door GlobalMovementThrottleCountingInterval. |
 |GlobalMovementThrottleThresholdForBalancing | Uint, de standaardwaarde is 0 | Dynamisch|Maximum aantal verplaatsingen van het type toegestaan in de fase taakverdeling in het afgelopen interval aangegeven door GlobalMovementThrottleCountingInterval. 0 geeft aan dat er geen limiet. |
@@ -495,7 +525,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |GlobalMovementThrottleThresholdPercentageForBalancing|dubbel, de standaardwaarde is 0|Dynamisch|Maximum aantal verplaatsingen van het type toegestaan in Balancing fase (uitgedrukt als percentage van totaal aantal replica's in de functieaanroep PLB) in het afgelopen interval aangegeven door GlobalMovementThrottleCountingInterval. 0 geeft aan dat er geen limiet. Als dit en GlobalMovementThrottleThresholdForBalancing zijn opgegeven. vervolgens wordt meer conservatieve limiet gebruikt.|
 |InBuildThrottlingAssociatedMetric | tekenreeks, standaardwaarde is "" |Statisch| De bijbehorende metrische naam op voor deze beperking. |
 |InBuildThrottlingEnabled | BOOL, de standaardinstelling is false |Dynamisch| Bepalen of de in-build-beperking is ingeschakeld. |
-|InBuildThrottlingGlobalMaxValue | Int, de standaardwaarde is 0 |Dynamisch|Het maximale aantal-build-replica's wereldwijd toegestaan. |
+|InBuildThrottlingGlobalMaxValue | int, standaard is 0 |Dynamisch|Het maximale aantal-build-replica's wereldwijd toegestaan. |
 |InterruptBalancingForAllFailoverUnitUpdates | BOOL, de standaardinstelling is false | Dynamisch|Bepaalt of elk type failover-eenheid update moet snel interrupt of traag taakverdeling worden uitgevoerd. Met de opgegeven 'false' taakverdeling worden uitgevoerd, worden onderbroken als FailoverUnit: is gemaakt/verwijderd. ontbrekende replica's; locatie van de primaire replica of gewijzigde aantal replica's gewijzigd. Taakverdeling worden uitgevoerd, worden niet onderbroken in andere gevallen - als FailoverUnit: heeft extra replica's; een replica-vlag; gewijzigd alleen de versie van de partitie of alle andere gevallen gewijzigd. |
 |MinConstraintCheckInterval | Tijd in seconden, de standaardwaarde is 1 |Dynamisch| Interval in seconden opgeven. Hiermee definieert u de minimale hoeveelheid tijd die moet worden gewacht voordat er twee opeenvolgende beperking controleren afgerond. |
 |MinLoadBalancingInterval | Tijd in seconden, de standaardwaarde is 5 |Dynamisch| Interval in seconden opgeven. Hiermee definieert u de minimale hoeveelheid tijd dat moet worden gewacht voordat u twee opeenvolgende taakverdeling afgerond. |
@@ -506,18 +536,18 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |MoveParentToFixAffinityViolation | BOOL, de standaardinstelling is false |Dynamisch| Instelling waarmee wordt bepaald of bovenliggende replica's op te lossen affiniteit beperkingen kunnen worden verwijderd.|
 |PartiallyPlaceServices | BOOL, de standaardinstelling is true |Dynamisch| Bepaalt als alle service-replica's in het cluster worden geplaatst 'Alles of niets' opgegeven beperkt geschikt knooppunten voor hen.|
 |PlaceChildWithoutParent | BOOL, de standaardinstelling is true | Dynamisch|Instellen dat bepaalt als onderliggende replica-service kan worden geplaatst als er geen bovenliggende replica actief is. |
-|PlacementConstraintPriority | Int, de standaardwaarde is 0 | Dynamisch|Hiermee bepaalt u de prioriteit van plaatsing beperking: 0: vaste; 1: zachte; negatieve: negeren. |
+|PlacementConstraintPriority | int, standaard is 0 | Dynamisch|Hiermee bepaalt u de prioriteit van plaatsing beperking: 0: vaste; 1: zachte; negatieve: negeren. |
 |PlacementConstraintValidationCacheSize | Int, standaard is 10000 |Dynamisch| Beperkt de grootte van de tabel die wordt gebruikt voor de snelle validatie en van plaatsing beperking expressies in de cache. |
 |PlacementSearchTimeout | Tijd in seconden, de standaardwaarde is 0,5 |Dynamisch| Interval in seconden opgeven. Bij het plaatsen van services; zoeken naar maximaal deze lange alvorens een resultaat. |
 |PLBRefreshGap | Tijd in seconden, de standaardwaarde is 1 |Dynamisch| Interval in seconden opgeven. Hiermee definieert u de minimale hoeveelheid tijd die moet worden gewacht voordat de functieaanroep PLB wordt vernieuwd status opnieuw. |
 |PreferredLocationConstraintPriority | Int, de standaardwaarde is 2| Dynamisch|Hiermee bepaalt u de prioriteit van de beperking van de gewenste locatie: 0: vaste; 1: zachte; 2: optimalisatie; negatieve: negeren |
 |PreventTransientOvercommit | BOOL, de standaardinstelling is false | Dynamisch|Hiermee bepaalt u moet PLB onmiddellijk worden geteld voor de resources die zullen worden vrijgemaakt door de gestarte verplaatst. Standaard; Basis voor PLB verplaatsen uit tot stand kan brengen en verplaatsen in op hetzelfde knooppunt wat tot tijdelijke leiden kan overcommit. Deze parameter instellen op ' True ' wordt voorkomen dat deze soorten van overcommits en defragmentatie op aanvraag (ook wel placementWithMove) die worden uitgeschakeld. |
-|ScaleoutCountConstraintPriority | Int, de standaardwaarde is 0 |Dynamisch| Hiermee bepaalt u de prioriteit van scaleout aantal beperking: 0: vaste; 1: zachte; negatieve: negeren. |
+|ScaleoutCountConstraintPriority | int, standaard is 0 |Dynamisch| Hiermee bepaalt u de prioriteit van scaleout aantal beperking: 0: vaste; 1: zachte; negatieve: negeren. |
 |SwapPrimaryThrottlingAssociatedMetric | tekenreeks, standaardwaarde is ""|Statisch| De bijbehorende metrische naam op voor deze beperking. |
 |SwapPrimaryThrottlingEnabled | BOOL, de standaardinstelling is false|Dynamisch| Bepalen of het swap-primaire beperking is ingeschakeld. |
-|SwapPrimaryThrottlingGlobalMaxValue | Int, de standaardwaarde is 0 |Dynamisch| Het maximale aantal swap-primaire-replica's wereldwijd toegestaan. |
+|SwapPrimaryThrottlingGlobalMaxValue | int, standaard is 0 |Dynamisch| Het maximale aantal swap-primaire-replica's wereldwijd toegestaan. |
 |TraceCRMReasons |BOOL, de standaardinstelling is true |Dynamisch|Hiermee bepaalt u of u wilt traceren redenen voor CRM verplaatsingen van het type verleend aan het kanaal operationele gebeurtenissen. |
-|UpgradeDomainConstraintPriority | Int, de standaardwaarde is 1| Dynamisch|Hiermee bepaalt u de prioriteit van het upgradedomein beperking: 0: vaste; 1: zachte; negatieve: negeren. |
+|UpgradeDomainConstraintPriority | int, standaard is 1| Dynamisch|Hiermee bepaalt u de prioriteit van het upgradedomein beperking: 0: vaste; 1: zachte; negatieve: negeren. |
 |UseMoveCostReports | BOOL, de standaardinstelling is false | Dynamisch|Hiermee geeft u de LB kostenelementen van het scoringfunctie; negeren resulterende potentieel groter aantal verplaatsingen voor beter met gelijke taakverdeling plaatsing. |
 |UseSeparateSecondaryLoad | BOOL, de standaardinstelling is true | Dynamisch|Instellen dat bepaalt als andere secundaire load gebruiken. |
 |ValidatePlacementConstraint | BOOL, de standaardinstelling is true |Dynamisch| Hiermee geeft u op of de expressie PlacementConstraint voor een service wordt gevalideerd als een service ServiceDescription wordt bijgewerkt. |
@@ -684,7 +714,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |PropertyWriteBatch |tekenreeks, standaard is 'Admin' |Dynamisch|Beveiligingsconfiguraties voor naamgeving voor eigenschap schrijfbewerkingen. |
 |ProvisionApplicationType |tekenreeks, standaard is 'Admin' |Dynamisch| De beveiligingsconfiguratie voor het inrichten van de toepassing-type. |
 |ProvisionFabric |tekenreeks, standaard is 'Admin' |Dynamisch| De beveiligingsconfiguratie voor het Manifest inrichten MSI en/of -Cluster. |
-|Query’s uitvoeren |tekenreeks, standaardwaarde is ' Admin\|\|gebruiker " |Dynamisch| De beveiligingsconfiguratie voor query's. |
+|Query |tekenreeks, standaardwaarde is ' Admin\|\|gebruiker " |Dynamisch| De beveiligingsconfiguratie voor query's. |
 |RecoverPartition |tekenreeks, standaard is 'Admin' | Dynamisch|De beveiligingsconfiguratie voor het herstellen van een partitie. |
 |RecoverPartitions |tekenreeks, standaard is 'Admin' | Dynamisch|De beveiligingsconfiguratie voor het herstellen van partities. |
 |RecoverServicePartitions |tekenreeks, standaard is 'Admin' |Dynamisch| De beveiligingsconfiguratie voor het herstellen van servicepartities. |
@@ -752,7 +782,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, is standaard ingesteld op geen|Dynamisch|Dit is een lijst van een sleutelpaar met "Naam" en "Waarde". Elke 'naam' is van het algemene naam van het onderwerp of DNS-naam van X509 certificaten die zijn gemachtigd voor siteserverbewerkingen. Voor een bepaalde "naam", "Waarde" is een met door komma's gescheiden lijst met vingerafdrukken van het certificaat voor de verlener vast te maken, als dat niet leeg is, wordt de directe verlener van certificaten moet zich in de lijst.|
 
-## <a name="setup"></a>Instellen
+## <a name="setup"></a>Installatie
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
 |ContainerNetworkName|tekenreeks, standaardwaarde is ""| Statisch |De naam van het netwerk te gebruiken bij het instellen van een netwerk container.|
@@ -799,12 +829,12 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
 |AutoupgradeEnabled | BOOL, de standaardinstelling is true |Statisch| Automatische polling en upgrade-actie op basis van een doel-status-bestand. |
-|MinReplicaSetSize |Int, de standaardwaarde is 0 |Statisch |De MinReplicaSetSize voor UpgradeOrchestrationService.
+|MinReplicaSetSize |int, standaard is 0 |Statisch |De MinReplicaSetSize voor UpgradeOrchestrationService.
 |PlacementConstraints | tekenreeks, standaardwaarde is "" |Statisch| De PlacementConstraints voor UpgradeOrchestrationService. |
 |QuorumLossWaitDuration | Tijd in seconden, de standaardwaarde is MaxValue |Statisch| Interval in seconden opgeven. De QuorumLossWaitDuration voor UpgradeOrchestrationService. |
 |ReplicaRestartWaitDuration | Tijd in seconden, de standaardwaarde is 60 minuten|Statisch| Interval in seconden opgeven. De ReplicaRestartWaitDuration voor UpgradeOrchestrationService. |
 |StandByReplicaKeepDuration | Tijd in seconden, de standaardwaarde is 60*24*7 minuten |Statisch| Interval in seconden opgeven. De StandByReplicaKeepDuration voor UpgradeOrchestrationService. |
-|TargetReplicaSetSize |Int, de standaardwaarde is 0 |Statisch |De TargetReplicaSetSize voor UpgradeOrchestrationService. |
+|TargetReplicaSetSize |int, standaard is 0 |Statisch |De TargetReplicaSetSize voor UpgradeOrchestrationService. |
 |UpgradeApprovalRequired | BOOL, de standaardinstelling is false | Statisch|Instellen om te maken van code-upgrade vereisen van goedkeuring door beheerder voordat u doorgaat. |
 
 ## <a name="upgradeservice"></a>UpgradeService

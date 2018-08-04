@@ -16,16 +16,16 @@ ms.component: compliance-reports
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e1ae8e2a4dc9ef9c21300ebfc4df8c0f1c5819f2
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 87799cf5dde9039d3e7b386d726812600a4bbc69
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239887"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502913"
 ---
-# <a name="interpret-the-azure-active-directory-audit-logs-schema-in-azure-monitor-preview"></a>Interpreteren van de Azure Active Directory-schema audit Logboeken in Azure Monitor (preview)
+# <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpreteren van de Azure AD audit logs schema in Azure Monitor (preview)
 
-Dit artikel beschrijft de Azure AD audit log-schema in Azure Monitor. Elke afzonderlijke logboekvermelding wordt opgeslagen als tekst, opgemaakt als een JSON-blob, zoals wordt weergegeven in de onderstaande twee voorbeelden. 
+Dit artikel beschrijft de Azure Active Directory (Azure AD) audit log schema in Azure Monitor. Elke afzonderlijke logboekvermelding is opgeslagen als tekst en opgemaakt als een JSON-blob, zoals wordt weergegeven in de volgende twee voorbeelden: 
 
 ```json
 { 
@@ -101,36 +101,39 @@ Dit artikel beschrijft de Azure AD audit log-schema in Azure Monitor. Elke afzon
 } 
 ```
 
+## <a name="field-and-property-descriptions"></a>Veld en de eigenschap beschrijvingen
+
 | Veldnaam | Beschrijving |
 |------------|-------------|
-| tijd       | Datum en tijd (UTC) |
-| operationName | Naam van de bewerking |
-| operationVersion | REST-API-versie door de client aangevraagde |
-| category | Op dit moment *Audit* is de enige ondersteunde waarde |
-| tenant-id | Tenant-Guid die is gekoppeld aan de logboeken |
-| resultType | Resultaat van de bewerking, kunt u *succes* of *fout* |
-| resultSignature |  Dit is niet-toegewezen en u kunt dit veld veilig negeren. | 
-| resultDescription | Extra beschrijving van het resultaat, indien beschikbaar | 
-| durationMs |  Dit is niet-toegewezen en u kunt dit veld veilig negeren. |
-| callerIpAddress | IP-adres van de client die de aanvraag heeft ingediend | 
-| correlationId | Optionele Guid die is doorgegeven door de client. Dit kan helpen bij elkaar te vergelijken client-side-bewerkingen met server-side-bewerkingen en is handig bij het traceren van logboeken met betrekking alle services tot. |
-| identity | De identiteit van het token dat is opgegeven bij het maken van de aanvraag. Mag een gebruikersaccount, de systeem-account of de service principal. |
-| niveau | Het type van het bericht. Voor de logboeken voor controle, is dit altijd *ter informatie* |
-| location | Locatie van het datacenter |
-| properties | Een lijst met ondersteunde eigenschappen met betrekking tot een logboek. Zie voor meer informatie de onderstaande tabel. | 
+| tijd       | De datum en tijd (UTC). |
+| operationName | De naam van de bewerking. |
+| operationVersion | De REST-API-versie die aangevraagd door de client. |
+| category | Op dit moment *Audit* is de enige ondersteunde waarde. |
+| tenant-id | De tenant GUID die is gekoppeld aan de logboeken. |
+| resultType | Het resultaat van de bewerking. Kan het resultaat zijn *succes* of *fout*. |
+| resultSignature |  Dit veld is niet-toegewezen en u kunt deze gewoon negeren. | 
+| resultDescription | Een extra beschrijving van het resultaat, indien beschikbaar. | 
+| durationMs |  Dit veld is niet-toegewezen en u kunt deze gewoon negeren. |
+| callerIpAddress | Het IP-adres van de client die de aanvraag heeft ingediend. | 
+| correlationId | Een optionele GUID die wordt doorgegeven door de client. Kunt vergelijken client-side-bewerkingen met serverzijde bewerkingen en dit is handig wanneer u logboeken met betrekking services tot bijhoudt. |
+| identity | De identiteit van het token dat is opgegeven wanneer u de aanvraag heeft ingediend. De identiteit kan worden een gebruikersaccount, systeem-account of service-principal. |
+| niveau | Het berichttype. Voor de logboeken voor controle, is het niveau van de altijd *ter informatie*. |
+| locatie | De locatie van het datacenter. |
+| properties | Geeft een lijst van de ondersteunde eigenschappen die betrekking op een auditlogboek hebben. Zie de volgende tabel voor meer informatie. | 
 
+<br>
 
 | Naam van eigenschap | Beschrijving |
 |---------------|-------------|
-| AuditEventCategory | Het type controlegebeurtenis. Kan *Gebruikersbeheer*, *Toepassingsbeheer* enzovoort.|
-| ID-Type | *Toepassing* of *gebruiker* |
-| Type bewerking | Kan *toevoegen*, *Update*, *verwijderen* of *andere* |
-| Doelbrontype | Hiermee geeft u het doeltype van de resource die de bewerking is uitgevoerd op. Kan *toepassing*, *gebruiker*, *rol*, *beleid* | 
-| Naam van de doel-Resource | De naam van de doelresource. Bijvoorbeeld, kan dit de toepassingsnaam van een, de naam van een rol, een user principal name of een service principal name |
-| additionalTargets | Hier worden eventuele aanvullende eigenschappen voor specifieke bewerkingen. Bijvoorbeeld, voor een updatebewerking de oude en de nieuwe waarden worden vermeld in *targetUpdatedProperties* | 
+| AuditEventCategory | Het type controlegebeurtenis. Kan het zijn *Gebruikersbeheer*, *Toepassingsbeheer*, of een ander type.|
+| ID-Type | Het type kan worden *toepassing* of *gebruiker*. |
+| Bewerkingstype | Het type kan worden *toevoegen*, *Update*, *verwijderen*. of *andere*. |
+| Doelbrontype | Hiermee geeft u het doeltype van de resource die de bewerking is uitgevoerd op. Het type kan worden *toepassing*, *gebruiker*, *rol*, *beleid* | 
+| Naam van de doel-Resource | De naam van de doelresource. De toepassingsnaam van een, de naam van een rol, een user principal name of een service principal name kan zijn. |
+| additionalTargets | Hier worden eventuele aanvullende eigenschappen voor specifieke bewerkingen. Bijvoorbeeld, voor een updatebewerking de oude en de nieuwe waarden worden vermeld in *targetUpdatedProperties*. | 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Schema-in Logboeken in Azure monitor interpreteren](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
-* [Meer informatie over hoe Azure diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
+* [Schema-in Logboeken in Azure Monitor interpreteren](reporting-azure-monitor-diagnostics-sign-in-log-schema.md)
+* [Lees meer over Azure diagnostics-Logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
 * [Veelgestelde vragen en bekende problemen](reporting-azure-monitor-diagnostics-overview.md#frequently-asked-questions)

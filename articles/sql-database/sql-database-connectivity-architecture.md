@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: carlrab
-ms.openlocfilehash: 0ae05456d957c6ebabe0faec7da4175618b191ef
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: afc82ea666fdbef89348e7453df92b8d8e1adc86
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036765"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493669"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database Connectivity-architectuur 
 
@@ -51,7 +51,7 @@ Als u verbinding vanaf buiten Azure maakt, uw verbindingen hebben een verbinding
 ![overzicht van netwerkarchitectuur](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> Wanneer u service-eindpunten met Azure SQL Database is het uw beleid **omleiden** standaard. Dus als u wilt inschakelen in uw Vnet verbinding moet u toestaan uitgaand naar alle Azure SQL Database-IP-adressen, niet alleen de IP-adressen van de gateway. Dit kan worden gedaan met behulp van servicetags NSG (Netwerkbeveiligingsgroep), als u wilt toestaan dat uitgaand alleen naar de gateway Wijzig de instelling voor IP-adressen **Proxy**.
+> Wanneer u service-eindpunten met Azure SQL Database is het uw beleid **Proxy** standaard. Om in te schakelen connectiviteit vanuit in uw Vnet, kunt u uitgaande verbindingen naar de Azure SQL Database-Gateway-IP-adressen die is opgegeven in de onderstaande lijst. Bij het gebruik van service-eindpunten is het raadzaam het verbindingsbeleid naar wijzigen **omleiden** voor betere prestaties. Als u het verbindingsbeleid naar wijzigt **omleiden** dient niet voldoende zijn voor uitgaand verkeer toestaan op uw NSG aan Azure-SQLDB-gateway IP-adressen die hieronder worden vermeld, moet u toestaan uitgaand naar alle Azure SQLDB IP-adressen. Dit kan worden bewerkstelligd met behulp van de servicetags NSG (Netwerkbeveiligingsgroepen). Zie voor meer informatie, [servicetags](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database-gateway-IP-adressen
 
@@ -61,32 +61,32 @@ De volgende tabel geeft een lijst van de primaire en secundaire IP-adressen van 
 
 | Naam regio | Primaire IP-adres | Secundaire IP-adres |
 | --- | --- |--- |
-| Australië - oost | 191.238.66.109 | 13.75.149.87 |
+| Australië Oost | 191.238.66.109 | 13.75.149.87 |
 | Australië - zuidoost | 191.239.192.109 | 13.73.109.251 |
-| Brazilië - zuid | 104.41.11.5 | |
-| Canada - midden | 40.85.224.249 | |
-| Canada - oost | 40.86.226.166 | |
-| VS - midden | 23.99.160.139 | 13.67.215.62 |
-| Oost-Azië | 191.234.2.139 | 52.175.33.150 |
+| Brazilië Zuid | 104.41.11.5 | |
+| Canada Centraal | 40.85.224.249 | |
+| Canada Oost | 40.86.226.166 | |
+| US - centraal | 23.99.160.139 | 13.67.215.62 |
+| Azië - oost | 191.234.2.139 | 52.175.33.150 |
 | VS-Oost 1 | 191.238.6.43 | 40.121.158.30 |
-| VS - oost 2 | 191.239.224.107 | 40.79.84.180 * |
-| India - midden | 104.211.96.159  | |
-| India - zuid | 104.211.224.146  | |
+| US - oost 2 | 191.239.224.107 | 40.79.84.180 * |
+| India - centraal | 104.211.96.159  | |
+| India, zuiden | 104.211.224.146  | |
 | India - west | 104.211.160.80 | |
-| Japan - oost | 191.237.240.43 | 13.78.61.196 |
-| Japan - west | 191.238.68.11 | 104.214.148.156 |
-| Korea - centraal | 52.231.32.42 | |
-| Korea - zuid | 52.231.200.86 |  |
-| Noord-centraal VS | 23.98.55.75 | 23.96.178.199 |
-| Noord-Europa | 191.235.193.75 | 40.113.93.91 |
-| Zuid-centraal VS | 23.98.162.75 | 13.66.62.124 |
-| Zuidoost-Azië | 23.100.117.95 | 104.43.15.0 |
-| VK, noord | 13.87.97.210 | |
+| Japan Oost | 191.237.240.43 | 13.78.61.196 |
+| Japan West | 191.238.68.11 | 104.214.148.156 |
+| Korea Centraal | 52.231.32.42 | |
+| Korea Zuid | 52.231.200.86 |  |
+| US - noord-centraal | 23.98.55.75 | 23.96.178.199 |
+| Europa - noord | 191.235.193.75 | 40.113.93.91 |
+| US - zuid-centraal | 23.98.162.75 | 13.66.62.124 |
+| Azië - zuidoost | 23.100.117.95 | 104.43.15.0 |
+| VK Noord | 13.87.97.210 | |
 | UK-Zuid 1 | 51.140.184.11 | |
-| VK, zuid 2 | 13.87.34.7 | |
-| Verenigd Koninkrijk West | 51.141.8.11  | |
+| VK Zuid 2 | 13.87.34.7 | |
+| VK West | 51.141.8.11  | |
 | West-centraal VS | 13.78.145.25 | |
-| West-Europa | 191.237.232.75 | 40.68.37.158 |
+| Europa - west | 191.237.232.75 | 40.68.37.158 |
 | VS-West 1 | 23.99.34.75 | 104.42.238.205 |
 | VS - west 2 | 13.66.226.202  | |
 ||||

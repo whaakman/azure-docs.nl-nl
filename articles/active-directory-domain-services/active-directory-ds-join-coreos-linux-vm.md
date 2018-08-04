@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Een virtuele CoreOS Linux-machine toevoegen aan een beheerd domein | Microsoft Docs'
-description: Een virtuele CoreOS Linux-machine toevoegen aan Azure AD Domain Services
+title: 'Azure Active Directory Domain Services: Een virtuele CoreOS-Linux-machine toevoegen aan een beheerd domein | Microsoft Docs'
+description: Een virtuele CoreOS-Linux-machine toevoegen aan Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -12,52 +12,52 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: bb94d0c817cf1a15c90ac5e928406e5f5e59a068
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1574a6a4cf727198b17f5c62488d12be12d928f4
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332801"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502029"
 ---
-# <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>Een virtuele CoreOS Linux-machine toevoegen aan een beheerd domein
-In dit artikel leest u hoe een virtuele CoreOS Linux-machine in Azure koppelen aan een beheerd domein van Azure AD Domain Services.
+# <a name="join-a-coreos-linux-virtual-machine-to-a-managed-domain"></a>Een virtuele CoreOS-Linux-machine toevoegen aan een beheerd domein
+In dit artikel wordt beschreven hoe u een virtuele CoreOS-Linux-machine in Azure toevoegen aan een beheerd domein van Azure AD Domain Services.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Als u wilt uitvoeren van de taken worden in dit artikel worden vermeld, hebt u het volgende nodig:
+Als u de taken die in dit artikel worden vermeld, hebt u het volgende nodig:
 1. Een geldige **Azure-abonnement**.
-2. Een **Azure AD-directory** -ofwel gesynchroniseerd met een on-premises adreslijst of een map alleen in de cloud.
-3. **Azure AD Domain Services** moet zijn ingeschakeld voor de Azure AD-directory. Als u dit nog niet hebt gedaan, volgt u alle taken die worden beschreven in de [handleiding](active-directory-ds-getting-started.md).
-4. Zorg ervoor dat u de IP-adressen van het beheerde domein als de DNS-servers voor het virtuele netwerk hebt geconfigureerd. Zie voor meer informatie [het bijwerken van DNS-instellingen voor de virtuele Azure-netwerk](active-directory-ds-getting-started-dns.md)
-5. Voltooi de stappen die zijn vereist voor het [wachtwoorden aan uw Azure AD Domain Services beheerd domein synchroniseren](active-directory-ds-getting-started-password-sync.md).
+2. Een **Azure AD-directory** -een gesynchroniseerd met een on-premises directory of een map alleen in de cloud.
+3. **Azure AD Domain Services** moet zijn ingeschakeld voor de Azure AD-directory. Als u dit nog niet hebt gedaan, volgt u alle taken die worden beschreven in de [introductiehandleiding](active-directory-ds-getting-started.md).
+4. Zorg ervoor dat u de IP-adressen van het beheerde domein als de DNS-servers voor het virtuele netwerk hebt geconfigureerd. Zie voor meer informatie, [DNS-instellingen voor de Azure-netwerk bijwerken](active-directory-ds-getting-started-dns.md)
+5. De stappen die nodig zijn om te voltooien [Synchroniseer de wachtwoorden voor uw Azure AD Domain Services beheerde domein](active-directory-ds-getting-started-password-sync.md).
 
 
-## <a name="provision-a-coreos-linux-virtual-machine"></a>Een virtuele CoreOS Linux-machine inrichten
+## <a name="provision-a-coreos-linux-virtual-machine"></a>Een virtuele CoreOS-Linux-machine inrichten
 Een virtuele CoreOS-machine inrichten in Azure met behulp van een van de volgende methoden:
 * [Azure Portal](../virtual-machines/linux/quick-create-portal.md)
 * [Azure-CLI](../virtual-machines/linux/quick-create-cli.md)
 * [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
-Dit artikel wordt de **CoreOS Linux (stabiel)** installatiekopie van de virtuele machine in Azure.
+In dit artikel wordt de **CoreOS Linux (stabiel)** installatiekopie voor virtuele machines in Azure.
 
 > [!IMPORTANT]
 > * Implementeer de virtuele machine in de **hetzelfde virtuele netwerk waarin u Azure AD Domain Services hebt ingeschakeld**.
-> * Kies een **ander subnet** dan de waarin u Azure AD Domain Services hebt ingeschakeld.
+> * Kies een **ander subnet** dan de versie waarin u Azure AD Domain Services hebt ingeschakeld.
 >
 
 
 ## <a name="connect-remotely-to-the-newly-provisioned-linux-virtual-machine"></a>Extern verbinding maken met de nieuw ingerichte virtuele Linux-machine
-De virtuele CoreOS virtuele machine is ingericht in Azure. De volgende taak is extern verbinding maken met de virtuele machine met het lokale administrator-account gemaakt tijdens het inrichten van de virtuele machine.
+De CoreOS-VM is ingericht in Azure. De volgende taak bestaat uit het op afstand verbinding maken met de virtuele machine met behulp van de lokale administrator-account dat is gemaakt tijdens het inrichten van de virtuele machine.
 
-Volg de instructies in het artikel [aanmelden met een virtuele machine met Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Volg de instructies in het artikel [Meld u aan een virtuele machine waarop Linux wordt uitgevoerd bij het](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Het hostbestand configureren op de virtuele Linux-machine
-Bewerk het bestand/etc/hosts in uw terminal SSH en bijwerken van uw machine IP-adres en hostnaam.
+## <a name="configure-the-hosts-file-on-the-linux-virtual-machine"></a>Het hosts-bestand op de Linux-machine configureren
+Bewerk het bestand/etc/hosts in de terminal SSH en bijwerken van uw IP-adres en hostnaam.
 
 ```
 sudo vi /etc/hosts
@@ -68,11 +68,11 @@ Voer de volgende waarde in het hosts-bestand:
 ```
 127.0.0.1 contoso-coreos.contoso100.com contoso-coreos
 ```
-Hier is, contoso100.com' de DNS-domeinnaam van uw beheerde domein. 'contoso-virtuele coreos' is de hostnaam van de virtuele CoreOS virtuele machine die u aan het beheerde domein deelneemt.
+Hier is 'contoso100.com' de DNS-domeinnaam van uw beheerde domein. 'contoso-coreos' is de hostnaam van de CoreOS-VM die u aan het beheerde domein deelneemt.
 
 
 ## <a name="configure-the-sssd-service-on-the-linux-virtual-machine"></a>De service SSSD configureren op de virtuele Linux-machine
-Werk vervolgens uw configuratiebestand SSSD in ('/ etc/sssd/sssd.conf') overeenkomen met het volgende voorbeeld:
+Werk vervolgens uw configuratiebestand SSSD in ('/ etc/sssd/sssd.conf') zodat deze overeenkomt met het volgende voorbeeld:
 
  ```
  [sssd]
@@ -104,7 +104,7 @@ Vervang ' CONTOSO100. COM' met de DNS-domeinnaam van uw beheerde domein. Zorg er
 
 
 ## <a name="join-the-linux-virtual-machine-to-the-managed-domain"></a>De virtuele Linux-machine toevoegen aan het beheerde domein
-Nu de vereiste pakketten zijn geïnstalleerd op de virtuele Linux-machine, de volgende taak is de virtuele machine toevoegen aan het beheerde domein.
+Nu dat de vereiste pakketten zijn geïnstalleerd op de Linux-machine, bestaat de volgende taak uit de virtuele machine toevoegen aan het beheerde domein.
 
 ```
 sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H contoso-coreos.contoso100.com -N coreos
@@ -112,10 +112,10 @@ sudo adcli join -D CONTOSO100.COM -U bob@CONTOSO100.COM -K /etc/krb5.keytab -H c
 
 
 > [!NOTE]
-> **Voor probleemoplossing:** als *adcli* is niet gevonden uw beheerde domein:
+> **Probleemoplossing:** als *adcli* is niet gevonden van uw beheerde domein:
   * Zorg ervoor dat het domein bereikbaar is vanaf de virtuele machine (probeer ping).
-  * Controleer of de virtuele machine inderdaad is geïmplementeerd voor hetzelfde virtuele netwerk waarin het beheerde domein beschikbaar is.
-  * Controleer als u de DNS-serverinstellingen voor het virtuele netwerk om te verwijzen naar de domeincontrollers van het beheerde domein hebt bijgewerkt.
+  * Controleer dat de virtuele machine inderdaad is geïmplementeerd voor hetzelfde virtuele netwerk waarin het beheerde domein beschikbaar is.
+  * Controleert u of u de DNS-serverinstellingen voor het virtuele netwerk om te verwijzen naar de domeincontrollers van het beheerde domein hebt bijgewerkt.
 >
 
 Start de service SSSD. Typ de volgende opdracht in uw terminal SSH:
@@ -125,28 +125,28 @@ Start de service SSSD. Typ de volgende opdracht in uw terminal SSH:
 
 
 ## <a name="verify-domain-join"></a>Controleer of aan domein toevoegen
-Controleer of de machine is toegevoegd aan het beheerde domein. Verbinding maken met het domein CoreOS VM die gebruikmaakt van een andere SSH-verbinding. Gebruik een domeingebruikersaccount en controleer of het gebruikersaccount correct is opgelost.
+Controleer of de computer is toegevoegd aan het beheerde domein. Verbinding maken met het domein opgenomen CoreOS-VM met behulp van een andere SSH-verbinding. Gebruik een domeingebruikersaccount en Ga na of het gebruikersaccount juist is opgelost.
 
-1. Typ de volgende opdracht verbinding maken met het domein lid in uw terminal SSH virtuele CoreOS virtuele machine via SSH. Gebruik een domeinaccount die deel uitmaakt van het beheerde domein (bijvoorbeeld 'bob@CONTOSO100.COM' in dit geval.)
+1. Typ de volgende opdracht verbinding maken met het domein lid zijn van CoreOS-VM met behulp van SSH in uw terminal SSH. Gebruik een domeinaccount dat deel uitmaakt van het beheerde domein (bijvoorbeeld 'bob@CONTOSO100.COM' in dit geval.)
     ```
     ssh -l bob@CONTOSO100.COM contoso-coreos.contoso100.com
     ```
 
-2. Typ de volgende opdracht om te zien of de basismap correct is geïnitialiseerd in uw terminal SSH.
+2. Typ in de SSH-terminal de volgende opdracht uit om te zien als de oorspronkelijke directory correct is geïnitialiseerd.
     ```
     pwd
     ```
 
-3. Typ de volgende opdracht om te zien als het groepslidmaatschap correct wordt opgelost in uw terminal SSH.
+3. Typ de volgende opdracht uit om te zien als het lidmaatschap van groepen goed worden herleid in de SSH-terminal.
     ```
     id
     ```
 
 
-## <a name="troubleshooting-domain-join"></a>Het oplossen van problemen aan domein toevoegen
-Raadpleeg de [probleemoplossing domein](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) artikel.
+## <a name="troubleshooting-domain-join"></a>Het oplossen van aan domein toevoegen
+Raadpleeg de [probleemoplossing domeindeelname](active-directory-ds-admin-guide-join-windows-vm-portal.md#troubleshoot-joining-a-domain) artikel.
 
 ## <a name="related-content"></a>Gerelateerde inhoud
 * [Azure AD Domain Services - handleiding aan de slag](active-directory-ds-getting-started.md)
-* [Virtuele machine met Windows Server toevoegen aan een beheerd domein van Azure AD Domain Services](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Aanmelden met een virtuele machine met Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [Een Windows Server-machine toevoegen aan Azure AD Domain Services beheerde domein](active-directory-ds-admin-guide-join-windows-vm.md)
+* [Meld u aan een virtuele machine waarop Linux wordt uitgevoerd bij het](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

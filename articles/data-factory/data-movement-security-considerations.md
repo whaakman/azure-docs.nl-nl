@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 70225fd59248939c9ea1d5c7c267cdf0da3303e7
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: b05eef79e94cff74b1e02243cd7c8d94e5acbb3c
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342399"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493967"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Beveiligingsoverwegingen voor het verplaatsen van gegevens in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1](v1/data-factory-data-movement-security-considerations.md)
+> * [Versie 1:](v1/data-factory-data-movement-security-considerations.md)
 > * [Huidige versie](data-movement-security-considerations.md)
 
 Dit artikel beschrijft basisvereisten voor beveiliging-infrastructuur die services voor gegevensverplaatsing in Azure Data Factory worden gebruikt om u te helpen beveiligen van uw gegevens. Data Factory-management-resources zijn gebouwd op Azure-beveiliging-infrastructuur en gebruik van alle mogelijke beveiligingsmaatregelen die worden aangeboden door Azure.
@@ -59,6 +59,9 @@ Als het gegevensarchief cloud biedt ondersteuning voor HTTPS- of TLS, alle gegev
 > [!NOTE]
 > Alle verbindingen met Azure SQL Database en Azure SQL Data Warehouse vereisen versleuteling (SSL/TLS) terwijl de gegevens is onderweg naar en van de database. Wanneer u bent een pijplijn maakt met behulp van JSON, voeg de versleutelingseigenschap en stel deze in op **waar** in de verbindingsreeks. Voor Azure Storage, kunt u **HTTPS** in de verbindingsreeks.
 
+> [!NOTE]
+> TLS-versie die wordt gebruikt is 1.2.
+
 ### <a name="data-encryption-at-rest"></a>Versleuteling van inactieve gegevens
 Sommige gegevensarchieven ondersteuning voor versleuteling van data-at-rest. U wordt aangeraden dat u het mechanisme voor de versleuteling van gegevens voor deze gegevensarchieven inschakelt. 
 
@@ -80,7 +83,7 @@ Amazon S3 biedt ondersteuning voor de client- en versleuteling van data-at-rest.
 #### <a name="amazon-redshift"></a>Amazon Redshift
 Amazon Redshift ondersteunt cluster versleuteling voor data-at-rest. Zie voor meer informatie, [Amazon Redshift-Databaseversleuteling](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). 
 
-#### <a name="salesforce"></a>SalesForce
+#### <a name="salesforce"></a>Salesforce
 SalesForce ondersteunt Shield Platform versleuteling waarmee het coderen van alle bestanden, bijlagen en aangepaste velden. Zie voor meer informatie, [inzicht in de Web Server OAuth-Verificatiestroom](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
 
 ## <a name="hybrid-scenarios"></a>Hybride scenario 's
@@ -118,7 +121,7 @@ Azure-netwerk is een logische weergave van uw netwerk in de cloud. U kunt een on
 
 De volgende tabel geeft een overzicht van het netwerk en aanbevelingen voor de configuratie van zelf-hostende integration runtime op basis van verschillende combinaties van bron- en locaties voor hybride verplaatsing van gegevens.
 
-| Bron      | Doel                              | Netwerkconfiguratie                    | Installatie van integratieruntime                |
+| Bron      | Bestemming                              | Netwerkconfiguratie                    | Installatie van integratieruntime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | On-premises | Virtuele machines en cloudservices die zijn geïmplementeerd in virtuele netwerken | IPSec-VPN (punt-naar-site of site-naar-site) | De zelf-hostende integratieruntime kan worden geïnstalleerd van on-premises of op een Azure-machine in een virtueel netwerk. |
 | On-premises | Virtuele machines en cloudservices die zijn geïmplementeerd in virtuele netwerken | ExpressRoute (persoonlijke peering)           | De zelf-hostende integratieruntime kan worden geïnstalleerd van on-premises of op een Azure-machine in een virtueel netwerk. |

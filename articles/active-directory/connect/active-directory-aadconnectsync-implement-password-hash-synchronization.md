@@ -12,23 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: af9a2e47a5e91d9b32a787f8f40ba06b5a1596e7
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: f6ba0fccc6fadffb5f4d1a22b2c2fbcc38f9f0df
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265043"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494978"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Wachtwoord-hashsynchronisatie met Azure AD Connect sync implementeren
 Dit artikel bevat gegevens die u nodig hebt om te synchroniseren van uw wachtwoorden van gebruikers uit een on-premises Active Directory-exemplaar naar een cloud-gebaseerde Azure Active Directory (Azure AD)-exemplaar.
 
 ## <a name="what-is-password-hash-synchronization"></a>Wat is wachtwoord-hashsynchronisatie
-De kans dat u bent geblokkeerd van het ontvangen van uw werk uit te voeren vanwege een vergeten wachtwoord is gerelateerd aan het aantal verschillende wachtwoorden die u nodig hebt om te onthouden. De meer wachtwoorden die u nodig hebt om te onthouden, hoe hoger de kans op een vergeten. Vragen en oproepen over wachtwoorden en andere problemen met betrekking tot wachtwoord vereisen de meeste resources voor de helpdesk.
+De kans dat u bent geblokkeerd van het ontvangen van uw werk uit te voeren vanwege een vergeten wachtwoord is gerelateerd aan het aantal verschillende wachtwoorden die u nodig hebt om te onthouden. De meer wachtwoorden die u nodig hebt om te onthouden, hoe hoger de kans op een vergeten. Vragen en oproepen over wachtwoorden en andere problemen met betrekking tot wachtwoord vereisen de meeste help helpdesk-bronnen.
 
-Wachtwoord-hashsynchronisatie is een functie die wordt gebruikt voor het synchroniseren van wachtwoorden van gebruikers uit een on-premises Active Directory-exemplaar naar een cloud-gebaseerde Azure AD-exemplaar.
+Wachtwoord-hashsynchronisatie is een functie die wordt gebruikt voor het synchroniseren van een hash van de hash van het wachtwoord van een gebruiker vanuit een on-premises Active Directory-exemplaar naar een Azure cloud-gebaseerde AD-exemplaar.
 Met deze functie kunt aanmelden bij Azure AD-services zoals Office 365, Microsoft Intune, CRM Online en Azure Active Directory Domain Services (Azure AD DS). U aanmelden bij de service met behulp van hetzelfde wachtwoord als die u zich aanmeldt bij uw on-premises Active Directory-exemplaar gebruiken.
 
 ![Wat is Azure AD Connect?](./media/active-directory-aadconnectsync-implement-password-hash-synchronization/arch1.png)

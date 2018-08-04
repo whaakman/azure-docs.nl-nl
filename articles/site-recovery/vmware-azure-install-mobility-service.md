@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ramamill
-ms.openlocfilehash: bc0ec09e28c5540eb919ac4e5f970f877ae27e44
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: ee954a951d3fc07709e3f27b4ced71a9ec525410
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37919084"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492959"
 ---
 # <a name="install-the-mobility-service"></a>De Mobility-service installeren 
 
@@ -28,7 +28,7 @@ Azure Site Recovery Mobility Service is geïnstalleerd op virtuele VMware-machin
 >[!IMPORTANT]
 > Vanaf versie 9.7.0.0, op Windows-VM's, de Mobility-Service installatieprogramma installeert ook de meest recente beschikbare [Azure VM-agent](../virtual-machines/extensions/features-windows.md#azure-vm-agent). Wanneer failover optreedt van een computer naar Azure, de computer voldoet aan de vereisten voor het gebruik van een VM-extensie op de installatie van de agent.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 Deze vereiste stappen voltooien voordat u de Mobility-Service handmatig op uw server installeren:
 1. Meld u aan bij de configuratieserver en open een opdrachtpromptvenster als beheerder.
 2. Wijzig de map in de bin-map en maak vervolgens een wachtwoordzin.
@@ -42,11 +42,14 @@ Deze vereiste stappen voltooien voordat u de Mobility-Service handmatig op uw se
 
 ### <a name="mobility-service-installer-to-operating-system-mapping"></a>Mobility Service-installatieprogramma voor besturingssystemen systeemtoewijzing
 
+Voor een overzicht van besturingssysteem versies met een compatibele Mobility-Service-pakket verwijzen naar de lijst van [ondersteunde besturingssystemen voor VMware-machines en fysieke servers](vmware-physical-azure-support-matrix.md#replicated-machines).
+
 | Naam van de sjabloon in het bestand van installatieprogramma| Besturingssysteem |
 |---|--|
 |Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2008 R2 SP1 (64-bits) </br> WindowsServer 2012 (64-bits) </br> Windows Server 2012 R2 (64-bits) </br> WindowsServer 2016 (64-bits) |
-|Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz| Red Hat Enterprise Linux (RHEL) 6.4, 6.5, 6.6, 6.7, 6,8, 6,9 (alleen 64-bits) </br> CentOS 6.4, 6.5, 6.6, 6.7, 6,8, 6,9 (alleen 64-bits) |
-|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.1, 7.2, 7.3 (alleen 64-bits) </br> CentOS 7.0, 7.1, 7.2, 7.3 (alleen 64-bits) |
+|Microsoft-ASR\_UA\*RHEL6 64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 6.* (alleen 64-bits) </br> CentOS 6.* (alleen 64-bits) |
+|Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7.* (alleen 64-bits) </br> CentOS 7.* (alleen 64-bits) |
+|Microsoft-ASR\_UA\*SLES12 64\*release.tar.gz | SUSE Linux Enterprise Server 12 SP1, SP2, SP3 (alleen 64-bits)|
 |Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3 (alleen 64-bits)|
 |Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4 (alleen 64-bits)|
 |Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5 (alleen 64-bits)|
@@ -54,7 +57,6 @@ Deze vereiste stappen voltooien voordat u de Mobility-Service handmatig op uw se
 |Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16.04 LTS server (alleen 64-bits)|
 |Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7 (alleen 64-bits)|
 |Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8 (alleen 64-bits)|
-
 
 ## <a name="install-mobility-service-manually-by-using-the-gui"></a>Mobility-Service handmatig installeren met behulp van de gebruikersinterface
 

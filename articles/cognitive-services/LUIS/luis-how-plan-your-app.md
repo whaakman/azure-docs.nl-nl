@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2017
 ms.author: diberry
-ms.openlocfilehash: 8cafe2be190988cbcbe8da616fe17c9a35c722f3
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cba156d784bfcdd2586073ab5562faf604569cd8
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226020"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505525"
 ---
 # <a name="plan-your-luis-app"></a>Uw LUIS-app plannen
 
@@ -53,10 +53,10 @@ Een hiërarchische entiteit is een speciaal type een **eenvoudige** entiteit, ee
 
 Zie [gegevensextractie](luis-concept-data-extraction.md#hierarchical-entity-data) voor meer informatie over het uitpakken van de hiërarchische entiteit van het eindpunt JSON-query-antwoord. Probeer de hiërarchische entiteit [snelstartgids](luis-quickstart-intent-and-hier-entity.md) voor meer informatie over het gebruik van een hiërarchische entiteit.
 
-### <a name="composite-entity"></a>samengestelde entiteit
+### <a name="composite-entity"></a>Samengestelde entiteit
 Een samengestelde entiteit is opgebouwd uit andere entiteiten die onderdelen van een geheel vormen. 
 
-![samengestelde entiteit](./media/luis-plan-your-app/composite-entity.png)
+![Samengestelde entiteit](./media/luis-plan-your-app/composite-entity.png)
 
 Zie [gegevensextractie](luis-concept-data-extraction.md#composite-entity-data) voor meer informatie over het uitpakken van de samengestelde entiteit van het eindpunt JSON-query-antwoord. Probeer de samengestelde entiteit [zelfstudie](luis-tutorial-composite-entity.md) voor meer informatie over het gebruik van een samengestelde entiteit.
 
@@ -65,7 +65,7 @@ LUIS biedt [vooraf gemaakte entiteiten](luis-prebuilt-entities.md) voor algemene
 
 ![Aantal vooraf gedefinieerde entiteit](./media/luis-plan-your-app/number-entity.png)
 
-Zie [gegevensextractie](luis-concept-data-extraction.md#prebuilt-entity-data) voor meer informatie over de reguliere expressie entiteiten extraheren uit het eindpunt van de JSON-query-antwoord. 
+Zie [gegevensextractie](luis-concept-data-extraction.md#prebuilt-entity-data) voor meer informatie over het vooraf gemaakte entiteiten extraheren uit het eindpunt van de JSON-query-antwoord. 
 
 ### <a name="list-entity"></a>Lijstentiteit 
 Een lijst met entiteit is een expliciet opgegeven lijst met waarden. Elke waarde bestaat uit een of meer synoniemen. In een reis-app kunt u een lijst met entiteit om weer te geven luchthaven namen maken.

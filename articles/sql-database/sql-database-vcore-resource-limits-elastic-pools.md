@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 5a7e00e84e5165296bcad83c515fc2af315954be
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 068ecf8283b92873542a7cb9ab2202212fd2ad2c
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414439"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495506"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Azure SQL Database vCore gebaseerde model limieten voor elastische pools aanschaffen
 
@@ -41,7 +41,7 @@ Voor SQL Database elastische pools tonen de volgende tabellen de resources die b
 |vCores|1|2|4|8|16|24|
 |Geheugen (GB)|7|14|28|56|112|168|
 |Ondersteuning voor Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|
-|In-memory OLTP-opslag (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
+|In-memory OLTP-opslag (GB)|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|
 |Opslagtype|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|
 |Maximumgrootte van gegevens (GB)|512|756|1536|2048|3584|4096|
 |Maximale logboekgrootte|154|227|461|614|1075|1229|
@@ -49,12 +49,12 @@ Voor SQL Database elastische pools tonen de volgende tabellen de resources die b
 |Doel-IOPS (van 64 KB)|500|1000|2000|4000|7000|7000|
 |I/o-latentie (bij benadering)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|210|420|840|1680|3360|5040|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
+|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|
 |Maximum aantal toepassingen dichtheid|100|200|500|500|500|500|
 |Min./Max. elastische pool Klik-stopt|0, 0,25, 0,5, 1|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24 uur per dag|
 |Aantal replica's|1|1|1|1|1|1|
-|Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|
-|Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-z|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|
+|Uitschaling lezen|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 |||
 
@@ -65,7 +65,7 @@ Voor SQL Database elastische pools tonen de volgende tabellen de resources die b
 |vCores|2|4|8|16|24|32|40|80|
 |Geheugen (GB)|11|22|44|88|132|176|220|440|
 |Ondersteuning voor Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|In-memory OLTP-opslag (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|In-memory OLTP-opslag (GB)|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|
 |Opslagtype|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|
 |Maximumgrootte van gegevens (GB)|512|756|1536|2048|3072|4096|4096|4096|
 |Maximale logboekgrootte|154|227|461|614|922|1229|1229|1229|
@@ -73,12 +73,12 @@ Voor SQL Database elastische pools tonen de volgende tabellen de resources die b
 |Doel-IOPS (van 64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
 |I/o-latentie (bij benadering)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|210|420|840|1680|2520|3360|4200|8400
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
+|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|30000|30000|
 |Maximum aantal toepassingen dichtheid|100|200|500|500|500|500|500|500|
 |Min./Max. elastische pool Klik-stopt|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24 uur per dag|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32, 40|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32, 40, 80|
 |Aantal replica's|1|1|1|1|1|1|1|1|
-|Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-z|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|
+|Uitschaling lezen|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 |||
 
@@ -96,14 +96,14 @@ Voor SQL Database elastische pools tonen de volgende tabellen de resources die b
 |Maximumgrootte van gegevens (GB)|1024|1024|1024|1024|1024|1024|
 |Maximale logboekgrootte|307|307|307|307|307|307|
 |TempDB size(DB)|32|64|128|256|384|384|
-|Doel-IOPS (van 64 KB)|5000|10.000|20000|40000|80000|120000|
+|Doel-IOPS (van 64 KB)|5000|10000|20000|40000|80000|120000|
 |I/o-latentie (bij benadering)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|210|420|840|1680|3360|5040|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
-|Maximum aantal toepassingen dichtheid|N/A|50|100|100|100|100|
-|Min./Max. elastische pool Klik-stopt|N/A|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24 uur per dag|
+|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|
+|Maximum aantal toepassingen dichtheid|n.v.t.|50|100|100|100|100|
+|Min./Max. elastische pool Klik-stopt|n.v.t.|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24 uur per dag|
 |Aantal replica's|3|3|3|3|3|3|
-|Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-z|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 |||
@@ -121,13 +121,13 @@ Voor SQL Database elastische pools tonen de volgende tabellen de resources die b
 |Maximumgrootte van gegevens (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
 |Maximale logboekgrootte|307|307|307|307|614|1229|1229|1229|
 |TempDB size(DB)|64|128|256|384|384|384|384|384|
-|Doel-IOPS (van 64 KB)|5000|10.000|20000|40000|60000|80000|100000|200000
+|Doel-IOPS (van 64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|210|420|840|1680|2520|3360|5040|8400|
-|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
-|Maximum aantal toepassingen dichtheid|N/A|50|100|100|100|100|100|100|
-|Min./Max. elastische pool Klik-stopt|N/A|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24 uur per dag|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32, 40|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32, 40, 80|
+|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|30000|30000|
+|Maximum aantal toepassingen dichtheid|n.v.t.|50|100|100|100|100|100|100|
+|Min./Max. elastische pool Klik-stopt|n.v.t.|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24 uur per dag|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32, 40|0, 0,5, 1, 2, 4, 8, 16, 24 uur per dag, 32, 40, 80|
 |Aantal replica's|3|3|3|3|3|3|3|3|
-|Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Multi-z|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 |||
@@ -148,4 +148,5 @@ De volgende tabel beschrijft de eigenschappen voor databases in pools.
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie [Veelgestelde vragen over SQL-Database](sql-database-faq.md) voor antwoorden op veelgestelde vragen.
+- Zie [overzicht van Azure SQL Database-resourcebeperkingen](sql-database-resource-limits.md) voor informatie over de beperkingen op het niveau van de server en -abonnement.
 - Zie voor meer informatie over algemene Azure-limieten [Azure-abonnement en Servicelimieten, quotums en beperkingen](../azure-subscription-service-limits.md).

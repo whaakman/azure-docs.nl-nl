@@ -1,6 +1,6 @@
 ---
 title: Wijzigingen in een MVC-project, wanneer u verbinding met Azure AD maakt
-description: Hierin wordt beschreven wat er gebeurt met uw MVC-project wanneer u verbinding met Azure AD maakt met behulp van Visual Studio verbonden services
+description: Hierin wordt beschreven wat er gebeurt met uw MVC-project als u verbinding met Azure AD maken met behulp van Visual Studio verbonden services
 services: active-directory
 author: ghogen
 manager: douge
@@ -12,11 +12,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev
-ms.openlocfilehash: bd4a32575067b3de94935322ead9a7f0966d2969
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: b79dc4a65193b04390f64cfbfc8cedb6758af0f0
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492124"
 ---
 # <a name="what-happened-to-my-mvc-project-visual-studio-azure-active-directory-connected-service"></a>Wat is er gebeurd met mijn MVC-project (Visual Studio Azure Active Directory verbonden service)?
 
@@ -24,13 +25,13 @@ ms.lasthandoff: 04/23/2018
 > - [Aan de slag](vs-active-directory-dotnet-getting-started.md)
 > - [Wat is er gebeurd](vs-active-directory-dotnet-what-happened.md)
 
-In dit artikel identificeert de exacte wijzigingen aangebracht in am ASP.NET MVC-project bij het toevoegen van de [Azure Active Directory service met behulp van Visual Studio verbonden](vs-active-directory-add-connected-service.md).
+In dit artikel geeft de exacte wijzigingen aangebracht in am ASP.NET MVC-project bij het toevoegen van de [Azure Active Directory service met behulp van Visual Studio verbonden](vs-active-directory-add-connected-service.md).
 
 Zie voor meer informatie over het werken met de gekoppelde service [aan de slag](vs-active-directory-dotnet-getting-started.md).
 
 ## <a name="added-references"></a>Toegevoegde verwijzingen
 
-Is van invloed op het project *.NET bestandsverwijzingen) en `packages.config` (NuGet-verwijzingen).
+Is van invloed op de projectverwijzingen voor bestand *.NET) en `packages.config` (NuGet-verwijzingen).
 
 | Type | Referentie |
 | --- | --- |
@@ -71,9 +72,9 @@ De volgende verwijzingen worden verwijderd (ASP.NET 4 projecten, zoals in Visual
 
 - Stel de eigenschap `IISExpressSSLPort` naar een afzonderlijke getal.
 - Stel de eigenschap `WebProject_DirectoryAccessLevelKey` op 0 of 1 als u hebt geselecteerd de **mapgegevens lezen** optie.
-- Stel de eigenschap `IISUrl` naar `https://localhost:<port>/` waar `<port>` overeenkomt met de `IISExpressSSLPort` waarde.
+- Stel de eigenschap `IISUrl` naar `https://localhost:<port>/` waar `<port>` komt overeen met de `IISExpressSSLPort` waarde.
 
-## <a name="webconfig-or-appconfig-changes"></a>wijzigingen in web.config of app.config
+## <a name="webconfig-or-appconfig-changes"></a>Web.config of app.config wijzigingen
 
 - De volgende configuratie-items toegevoegd:
 
@@ -97,7 +98,7 @@ Aanvullende wijzigingen Als u hebt geselecteerd de **mapgegevens lezen** optie:
     <add key="ida:ClientSecret" value="<Azure AD app's new client secret>" />
     ```
 
-- De volgende elementen onder toegevoegd `<configuration>`; waarden voor het project-mdf-bestand en de project-catalogus-id varieert:
+- De volgende elementen onder toegevoegd `<configuration>`; waarden voor de project-mdf-bestand en de project-catalogus-id verschilt:
 
     ```xml
     <configSections>
@@ -127,23 +128,23 @@ Aanvullende wijzigingen Als u hebt geselecteerd de **mapgegevens lezen** optie:
 
 - Toegevoegd de `[Authorize]` kenmerk `Controllers/HomeController.cs` en andere bestaande domeincontrollers.
 
-- Een verificatie-Opstartklasse toegevoegd `App_Start/Startup.Auth.cs`, met starten van de logica voor Azure AD-verificatie. Als u hebt geselecteerd de **mapgegevens lezen** optie, dit bestand bevat ook de code voor het ontvangen van een OAuth-code en exchange-voor een toegangstoken.
+- Een verificatie-Opstartklasse toegevoegd `App_Start/Startup.Auth.cs`, met opstartlogica voor Azure AD-verificatie. Als u hebt geselecteerd de **mapgegevens lezen** optie, dit bestand bevat ook code voor het ontvangen van een OAuth-code en het exchange voor een toegangstoken.
 
 - Een controllerklasse toegevoegd `Controllers/AccountController.cs`met `SignIn` en `SignOut` methoden.
 
 - Een gedeeltelijke weergave toegevoegd `Views/Shared/_LoginPartial.cshtml`, met de koppeling van een actie voor `SignIn` en `SignOut`.
 
-- Een gedeeltelijke weergave toegevoegd `Views/Account/SignoutCallback.cshtml`, met de HTML-code voor afmelden gebruikersinterface.
+- Een gedeeltelijke weergave toegevoegd `Views/Account/SignoutCallback.cshtml`, met HTML-code voor afmelding gebruikersinterface.
 
-- Bijgewerkt de `Startup.Configuration` methode voor het opnemen van een aanroep van `ConfigureAuth(app)` als de klasse al bestaat; anders toegevoegd een `Startup` klasse die bevat de methode aanroept.
+- Bijgewerkt de `Startup.Configuration` methode om op te nemen van een aanroep van `ConfigureAuth(app)` als de klasse bestaat al; anders wordt toegevoegd een `Startup` klasse met de methode aanroept.
 
 - Toegevoegd `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) of `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015), dat informatie bevat die Visual Studio gebruikt voor het bijhouden van het toevoegen van de gekoppelde service.
 
-- Als u hebt geselecteerd de **mapgegevens lezen** optie toegevoegd `Models/ADALTokenCache.cs` en `Models/ApplicationDbContext.cs` ter ondersteuning van token opslaan in cache. Ook een extra domeincontroller en de weergave ter illustratie van toegang tot gebruikersprofielgegevens met Azure graph API's toegevoegd: `Controllers/UserProfileController.cs`, `Views/UserProfile/Index.cshtml`, en `Views/UserProfile/Relogin.cshtml`
+- Als u hebt geselecteerd de **mapgegevens lezen** optie toegevoegd `Models/ADALTokenCache.cs` en `Models/ApplicationDbContext.cs` ter ondersteuning van token in cache opslaan. Ook een extra domeincontroller en de weergave ter illustratie van toegang tot informatie uit gebruikersprofielen met behulp van Azure graph API's toegevoegd: `Controllers/UserProfileController.cs`, `Views/UserProfile/Index.cshtml`, en `Views/UserProfile/Relogin.cshtml`
 
 ### <a name="file-backup-visual-studio-2015"></a>Back-up (Visual Studio 2015)
 
-Wanneer u de gekoppelde service toevoegt, Visual Studio 2015 een back-up bestanden gewijzigd of verwijderd. Alle betrokken bestanden worden opgeslagen in de map `Backup/AzureAD`. Visual Studio 2017 maakt geen back-ups.
+Bij het toevoegen van de gekoppelde service, Visual Studio 2015 een back-up van bestanden gewijzigd of verwijderd. Alle betrokken bestanden worden opgeslagen in de map `Backup/AzureAD`. Visual Studio 2017 maakt geen back-ups.
 
 - `Startup.cs`
 - `App_Start\IdentityConfig.cs`
@@ -157,11 +158,11 @@ Wanneer u de gekoppelde service toevoegt, Visual Studio 2015 een back-up bestand
 ## <a name="changes-on-azure"></a>Wijzigingen in Azure
 
 - Een Azure AD-toepassing in het domein dat u hebt geselecteerd bij het toevoegen van de gekoppelde service gemaakt.
-- De app om op te nemen bijgewerkt de **mapgegevens lezen** machtiging als deze optie is geselecteerd.
+- Bijgewerkt van de app om op te nemen de **mapgegevens lezen** machtiging als deze optie is geselecteerd.
 
 [Meer informatie over Azure Active Directory](https://azure.microsoft.com/services/active-directory/).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Verificatie-scenario's voor Azure Active Directory](active-directory-authentication-scenarios.md)
-- [Aanmelden met Microsoft toevoegen aan een ASP.NET-web-app](guidedsetups/active-directory-aspnetwebapp-v1.md)
+- [Verificatiescenario's voor Azure Active Directory](authentication-scenarios.md)
+- [Aanmelden bij Microsoft toevoegen aan een ASP.NET-web-app](quickstart-v1-aspnet-webapp.md)

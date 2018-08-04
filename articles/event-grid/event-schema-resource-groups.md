@@ -8,18 +8,26 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 08/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 006e1c88e10013085722927b8a9b909d98b89aae
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 407d9fd5b6f4d554af37b60edf12422f8816ac00
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480162"
+ms.locfileid: "39495319"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Azure Event Grid-gebeurtenisschema voor resourcegroepen
 
 Dit artikel bevat de eigenschappen en het schema voor de resource-group-gebeurtenissen. Zie voor een inleiding tot gebeurtenisschema's, [Azure Event Grid-gebeurtenisschema](event-schema.md).
 
-Azure-abonnementen en resourcegroepen uitzenden van hetzelfde type als de gebeurtenis. De typen gebeurtenissen zijn die betrekking hebben op wijzigingen in de resources. Het belangrijkste verschil is dat resourcegroepen-gebeurtenissen voor resources binnen de resourcegroep verzenden en Azure-abonnementen verzenden van gebeurtenissen voor resources in het abonnement. 
+Azure-abonnementen en resourcegroepen uitzenden van hetzelfde type als de gebeurtenis. De typen gebeurtenissen zijn die betrekking hebben op wijzigingen in de resources. Het belangrijkste verschil is dat resourcegroepen-gebeurtenissen voor resources binnen de resourcegroep verzenden en Azure-abonnementen verzenden van gebeurtenissen voor resources in het abonnement.
+
+Resource-gebeurtenissen worden gemaakt voor PUT, PATCH, en verwijderen van bewerkingen die worden verzonden naar `management.azure.com`. Maak geen gebeurtenissen POST als GET-bewerkingen. Bewerkingen die worden verzonden naar het vlak van gegevens (zoals `myaccount.blob.core.windows.net`) Maak geen gebeurtenissen.
+
+Wanneer u zich op gebeurtenissen voor een resourcegroep abonneert, ontvangt uw eindpunt alle gebeurtenissen voor die resourcegroep. De gebeurtenissen kunnen gebeurtenis die u wilt zien, zoals het bijwerken van een virtuele machine, maar ook gebeurtenissen die misschien niet belangrijk voor u, zoals het schrijven van een nieuwe vermelding in de geschiedenis van de implementatie bevatten. U kunt alle gebeurtenissen ontvangen op uw eindpunt en schrijven van code die verwerkt de gebeurtenissen die u wilt verwerken, of kunt u een filter instellen bij het maken van het gebeurtenisabonnement.
+
+Via een programma om gebeurtenissen te verwerken, kunt u gebeurtenissen sorteren door te kijken de `operationName` waarde. Bijvoorbeeld, het eindpunt van de gebeurtenis kan alleen gebeurtenissen worden verwerkt voor bewerkingen die gelijk zijn aan `Microsoft.Compute/virtualMachines/write` of `Microsoft.Storage/storageAccounts/write`.
+
+Het onderwerp van de gebeurtenis is de resource-ID van de resource die het doel van de bewerking. Als u wilt filteren van gebeurtenissen voor een resource, bieden die resource-ID bij het maken van het gebeurtenisabonnement. Zie voor voorbeelden van scripts, [abonneren en het filter voor de resourcegroep - PowerShell](scripts/event-grid-powershell-resource-group-filter.md) of [abonneren en het filter voor de resourcegroep - Azure CLI](scripts/event-grid-cli-resource-group-filter.md). Als u wilt filteren op een resourcetype, gebruik een waarde in de volgende indeling: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
 
 ## <a name="available-event-types"></a>Typen van de gebeurtenis berichten beschikbaar
 

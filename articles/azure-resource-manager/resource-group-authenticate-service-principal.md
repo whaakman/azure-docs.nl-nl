@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3dc62ba21458cc91d1858e11e7abbb6e96b0d5dd
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 653208fd3ec952cf6ab941a4894f9a754e906a3b
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358945"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492712"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Azure PowerShell gebruiken om een service-principal met een certificaat te maken
 
@@ -215,4 +215,4 @@ Bij het maken van een service-principal kunnen de volgende foutmeldingen worden 
 * Zie [Een Azure-service-principal maken met Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps) voor het instellen van een service-principal met een wachtwoord.
 * Zie de [ontwikkelaarshandleiding voor autorisatie met de Azure Resource Manager-API](resource-manager-api-authentication.md) voor gedetailleerde stappen voor het integreren van een toepassing in Azure voor het beheren van resources.
 * Zie [Toepassingsobjecten en service-principalobjecten](../active-directory/active-directory-application-objects.md) voor meer informatie over toepassingen en service-principals. 
-* Zie [Verificatiescenario's voor Azure AD](../active-directory/active-directory-authentication-scenarios.md) voor meer informatie over Azure Active Directory-verificatie.
+* Zie [Verificatiescenario's voor Azure AD](../active-directory/develop/authentication-scenarios.md) voor meer informatie over Azure Active Directory-verificatie.

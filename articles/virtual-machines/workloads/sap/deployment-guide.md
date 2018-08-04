@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
-ms.openlocfilehash: 9de1811768a7e81f6f8e755b96d5328ce89e7983
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 990fe50cefabed7b63eee177b19ec6d74c9929ab
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442017"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494518"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-implementatie voor SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -72,6 +72,7 @@ ms.locfileid: "39442017"
 [2367194]:https://launchpad.support.sap.com/#/notes/2367194
 
 [azure-cli]:../../../cli-install-nodejs.md
+[azure-cli-2]:https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
 [azure-portal]:https://portal.azure.com
 [azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
@@ -922,37 +923,61 @@ De uitvoer van het script bevat de volgende informatie:
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Azure CLI voor Linux-VM 's
 De Azure uitgebreide controle-extensie voor SAP installeren met behulp van Azure CLI:
 
-1. Azure CLI 1.0 installeren zoals beschreven in [installeren van de Azure CLI 1.0][azure-cli].
-1. Meld u aan met uw Azure-account:
+1. Installeren met behulp van Azure CLI 1.0
 
-  ```
-  azure login
-  ```
+   1. Azure CLI 1.0 installeren zoals beschreven in [installeren van de Azure CLI 1.0][azure-cli].
+   1. Meld u aan met uw Azure-account:
 
-1. Schakel over naar modus Azure Resource Manager:
+      ```
+      azure login
+      ```
 
-  ```
-  azure config mode arm
-  ```
+   1. Schakel over naar modus Azure Resource Manager:
 
-1. Schakel de bewaking in Azure uitgebreid:
+      ```
+      azure config mode arm
+      ```
 
-  ```
-  azure vm enable-aem <resource-group-name> <vm-name>
-  ```
+   1. Schakel de bewaking in Azure uitgebreid:
+
+      ```
+      azure vm enable-aem <resource-group-name> <vm-name>
+      ```
+
+1. Installeren met behulp van Azure CLI 2.0
+
+   1. Azure CLI 2.0 installeren zoals beschreven in [Azure CLI 2.0 installeren][azure-cli-2].
+   1. Meld u aan met uw Azure-account:
+
+      ```
+      az login
+      ```
+
+   1. Azure CLI-AEM-extensie installeren
+  
+      ```
+      az extension add --name aem
+      ```
+  
+   1. Installeer de extensie met
+  
+      ```
+      az vm aem set -g <resource-group-name> -n <vm name>
+      ```
 
 1. Controleer of de extensie Azure uitgebreid Monitoring actief is op de virtuele Azure Linux-machine. Controleer of het bestand \\var\\lib\\AzureEnhancedMonitor\\PerfCounters bestaat. Als deze bestaat, bij een opdrachtprompt, voer deze opdracht uit om gegevens die worden verzameld door de Azure uitgebreid Monitor weer te geven:
-```
-cat /var/lib/AzureEnhancedMonitor/PerfCounters
-```
 
-De uitvoer ziet er als volgt uit:
-```
-2;cpu;Current Hw Frequency;;0;2194.659;MHz;60;1444036656;saplnxmon;
-2;cpu;Max Hw Frequency;;0;2194.659;MHz;0;1444036656;saplnxmon;
-???
-???
-```
+   ```
+   cat /var/lib/AzureEnhancedMonitor/PerfCounters
+   ```
+
+   De uitvoer ziet er als volgt uit:
+   ```
+   ...
+   2;cpu;Current Hw Frequency;;0;2194.659;MHz;60;1444036656;saplnxmon;
+   2;cpu;Max Hw Frequency;;0;2194.659;MHz;0;1444036656;saplnxmon;
+   ...
+   ```
 
 ## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Controles en probleemoplossing voor het bewaken van end-to-end
 Nadat u hebt uw Azure-VM geïmplementeerd en de relevante Azure monitoring-infrastructuur instellen, moet u controleren of alle onderdelen van de extensie Azure uitgebreid Monitoring werkt zoals verwacht.

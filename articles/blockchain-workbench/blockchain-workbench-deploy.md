@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 57b610b40edff56207617e212d0eb6e591ad50d4
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: b65b6977dfe2043e260fd9c0eefd6038ca436d50
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224293"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505811"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench implementeren
 
@@ -51,7 +51,7 @@ Azure Blockchain Workbench vereist verschillende vereisten voordat u de implemen
 Blockchain Workbench-implementatie vereist de registratie van een Azure AD-toepassing. U moet een tenant Azure Active Directory (Azure AD) om de app te registreren. U kunt een bestaande tenant gebruiken of een nieuwe tenant maken. Als u van een bestaande Azure AD-tenant gebruikmaakt, moet u voldoende machtigingen voor het registreren van toepassingen en Graph API machtigingen verlenen binnen een Azure AD-tenant. Als u bent niet gemachtigd in een bestaande Azure AD-tenant maakt u een nieuwe tenant. 
 
 > [!IMPORTANT]
-> Workbench hoeft niet te worden geïmplementeerd in dezelfde tenant als het account dat u gebruikt voor het registreren van een Azure AD-toepassing. Workbench moet worden geïmplementeerd in een tenant wanneer u hebt onvoldoende machtigingen om resources te implementeren. Zie voor meer informatie over Azure AD-tenants, [over het verkrijgen van een Active Directory-tenant](../active-directory/develop/active-directory-howto-tenant.md) en [toepassingen integreren met Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md).
+> Workbench hoeft niet te worden geïmplementeerd in dezelfde tenant als het account dat u gebruikt voor het registreren van een Azure AD-toepassing. Workbench moet worden geïmplementeerd in een tenant wanneer u hebt onvoldoende machtigingen om resources te implementeren. Zie voor meer informatie over Azure AD-tenants, [over het verkrijgen van een Active Directory-tenant](../active-directory/develop/quickstart-create-new-tenant.md) en [toepassingen integreren met Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer uw account in de rechterbovenhoek hoek en schakel over naar de gewenste Azure AD-tenant. De tenant moet de tenant van de abonnementsbeheerder van het abonnement waar Workbench is geïmplementeerd en u hebt onvoldoende machtigingen om toepassingen te registreren.
@@ -258,7 +258,7 @@ Als de vereiste stappen zijn voltooid, bent u klaar om te implementeren, de Bloc
 
 13. Bekijk de samenvatting om te controleren of dat uw parameters correct zijn.
 
-    ![Samenvatting](media/blockchain-workbench-deploy/blockchain-workbench-summary.png)
+    ![Overzicht](media/blockchain-workbench-deploy/blockchain-workbench-summary.png)
 
 14. Selecteer **maken** Ga akkoord met de voorwaarden en implementeren van uw Azure Blockchain Workbench.
 

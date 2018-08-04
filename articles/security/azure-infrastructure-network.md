@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: a6800b18d1bb588c747d4e9ef7049ac4cbb82f60
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 5a0f0594a9ccb27a0f76a679e454e9a3ffe19a43
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213466"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505380"
 ---
 # <a name="azure-network-architecture"></a>Architectuur van Azure-netwerk
 De architectuur van Azure-netwerk heeft een gewijzigde versie van de bedrijfstak distributie-core/toegang standaardmodel, met verschillende hardwareabstractielagen. De lagen zijn onder andere:
@@ -38,7 +38,7 @@ De netwerkarchitectuur van een Azure-cluster in een datacenter bestaat uit de vo
 - Digi-CMs
 - Power distribution units
 
-Azure heeft twee verschillende architecturen. Sommige bestaande Azure-klanten en gedeelde services bevinden zich op de standaard-LAN-architectuur (DLA), terwijl nieuwe regio's en virtuele klanten bevinden zich op architectuur Quantum 10 (Q10). De architectuur DLA is een ontwerp traditionele structuur met routers actief/passief-toegang en beveiliging toegangscontrolelijsten (ACL's) toegepast op de routers toegang. Het Quantum-10-architectuur is een Clos/mesh-ontwerp van routers, waar de ACL's niet worden toegepast op de routers. In plaats daarvan de ACL's worden toegepast onder de routering, via Software Load Balancing (SLB) of software-gedefinieerde VLAN's.
+Azure heeft twee verschillende architecturen. Sommige bestaande Azure-klanten en gedeelde services bevinden zich op de standaard-LAN-architectuur (DLA), terwijl nieuwe regio's en virtuele klanten bevinden zich op architectuur Quantum 10 (Q10). De architectuur DLA is een ontwerp traditionele structuur met routers actief/passief-toegang en beveiliging toegangscontrolelijsten (ACL's) toegepast op de routers toegang. Het Quantum-10-architectuur is een sluiten/mesh-ontwerp van routers, waar de ACL's niet worden toegepast op de routers. In plaats daarvan de ACL's worden toegepast onder de routering, via Software Load Balancing (SLB) of software-gedefinieerde VLAN's.
 
 Het volgende diagram biedt een overzicht van de netwerkarchitectuur binnen een Azure-cluster:
 

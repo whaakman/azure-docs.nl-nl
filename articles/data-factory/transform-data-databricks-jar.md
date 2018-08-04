@@ -13,16 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: 8a7e409bc664fd56fbb9b80678832a626f301e5b
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 98aa05d750df2021c84646ce3d9729cd4370baa6
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076037"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502099"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Gegevens transformeren met behulp van een Jar-activiteit in Azure Databricks
 
 De Azure Databricks Jar-activiteit in een [Data Factory-pijplijn](concepts-pipelines-activities.md) wordt uitgevoerd een Spark-Jar in uw Azure Databricks-cluster. In dit artikel is gebaseerd op de [activiteiten voor gegevenstransformatie](transform-data.md) artikel een algemeen overzicht van de gegevenstransformatie van en de ondersteunde transformatieactiviteiten geeft. Azure Databricks is een beheerd platform voor het uitvoeren van Apache Spark.
+
+Bekijk de volgende video voor een inleiding en demonstratie van deze functie van 11 minuten:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player]
 
 ## <a name="databricks-jar-activity-definition"></a>De definitie van de Databricks-Jar-activiteit
 
@@ -56,7 +60,7 @@ De volgende tabel beschrijft de JSON-eigenschappen die in de JSON-definitie gebr
 |Eigenschap|Beschrijving|Vereist|
 |:--|---|:-:|
 |naam|Naam van de activiteit in de pijplijn.|Ja|
-|description|Tekst die beschrijft wat de activiteit doet.|Nee|
+|beschrijving|Tekst die beschrijft wat de activiteit doet.|Nee|
 |type|Voor Databricks Jar-activiteit is het activiteitstype DatabricksSparkJar.|Ja|
 |linkedServiceName|De naam van de Databricks gekoppelde Service waarop de Jar-activiteit wordt uitgevoerd. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel.|Ja|
 |mainClassName|De volledige naam van de klasse met de belangrijkste methode moet worden uitgevoerd. Deze klasse moet worden opgenomen in een JAR opgegeven als een bibliotheek.|Ja|

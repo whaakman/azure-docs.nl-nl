@@ -14,12 +14,12 @@ ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 4ad1416f79b8cf9c03904da5f9efc1d1aae475d9
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1a7ecbe42857e522785d5919d46b783feae4caeb
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364027"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494122"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?
 Eenmalige aanmelding betekent toegang te hebben tot alle toepassingen en bronnen die u nodig hebt om zaken te doen, aanmeldt slechts eenmaal met behulp van één gebruikersaccount. Nadat u bent aangemeld, u toegang hebt tot alle van de toepassingen die u nodig hebt zonder vereist is om te verifiëren (bijvoorbeeld, typ een wachtwoord) een tweede keer.
@@ -112,7 +112,7 @@ Als uw toepassing niet in de Azure AD-toepassingsgalerie gevonden is, hebt u dez
 * **Toevoegen van een niet-vermelde app u** -gebruik van de aangepaste categorie in de app-galerie in Azure portal om een niet-vermelde toepassing die van uw organisatie gebruikmaakt verbinding te maken. U kunt elke toepassing die ondersteuning biedt voor SAML 2.0 als federatieve app of elke toepassing die is een op HTML gebaseerde aanmeldingspagina opgeven als wachtwoord SSO-app toevoegen. Zie voor meer informatie in dit artikel op [uw eigen toepassing toe te voegen](../application-config-sso-how-to-configure-federated-sso-non-gallery.md).
 * **Toevoegen aan uw eigen app die u ontwikkelt** : als u de toepassing hebt ontwikkeld zelf, volg de richtlijnen in de Azure AD-documentatie voor ontwikkelaars voor het implementeren van federatieve eenmalige aanmelding of inrichten met behulp van de Azure AD graph API. Zie de volgende bronnen voor meer informatie:
   
-  * [Authentication Scenarios for Azure AD](../active-directory-authentication-scenarios.md) (Verificatiescenario's voor Azure AD)
+  * [Authentication Scenarios for Azure AD](../develop/authentication-scenarios.md) (Verificatiescenario's voor Azure AD)
   * [https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet](https://github.com/AzureADSamples/WebApp-WebAPI-MultiTenant-OpenIdConnect-DotNet)
   * [https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore](https://github.com/AzureADSamples/NativeClient-WebAPI-MultiTenant-WindowsStore)

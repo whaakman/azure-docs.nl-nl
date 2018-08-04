@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/04/2017
 ms.author: gokuma
-ms.openlocfilehash: 8d633a1d3d56f33aad24ca15aea08b5180a6be32
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ce73d1ef5425ee2fe66655571a6d6bbbff372af5
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369077"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502808"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Tien dingen die u dit op de Windows Data Science Virtual Machine doen kunt
 
@@ -145,7 +145,7 @@ U kunt R-modellen die zijn gebouwd op de Data Science Virtual Machine of ergens 
 
 Hier volgt de procedure en code-codefragmenten die u instelt, bouwen, publiceren en een model gebruiken als een webservice in Azure Machine Learning kunnen worden gebruikt.
 
-#### <a name="setup"></a>Instellen
+#### <a name="setup"></a>Installatie
 
 * Maak een bestand settings.json in een map met de naam ```.azureml``` onder de basismap en voert u de parameters van uw Azure Machine Learning-werkruimte:
 
@@ -254,7 +254,7 @@ In Visual Studio, kunt u de dezelfde kloonbewerking doen. De volgende schermafbe
 U vindt meer informatie over het werken met uw GitHub-opslagplaats van verschillende resources beschikbaar op github.com met behulp van Git. De [overzichtskaart](https://services.github.com/on-demand/downloads/github-git-cheat-sheet.pdf) is een nuttig verwijzing.
 
 ## <a name="7-access-various-azure-data-and-analytics-services"></a>7. Toegang tot verschillende Azure-gegevens en analyses services
-### <a name="azure-blob"></a>Azure Blob
+### <a name="azure-blob"></a>Azure-blob
 Azure-blob is een betrouwbare, betaalbare cloudopslag voor gegevens, groot en klein. Deze sectie wordt beschreven hoe u gegevens kunt verplaatsen naar Azure BLOB Storage en toegang tot gegevens die zijn opgeslagen in een Azure-Blob.
 
 **Vereiste**
@@ -809,7 +809,7 @@ Hier volgen de stappen van de per-vereisten voor toegang tot Azure Cosmos DB van
 3. 'Azure Cosmos DB hulpprogramma voor migratie' downloaden van [hier](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) en uitpakken naar een map van uw keuze
 4. Importeren van JSON-gegevens (gegevens Vulkaan) die zijn opgeslagen op een [openbare blob](https://cahandson.blob.core.windows.net/samples/volcano.json) in Cosmos DB met de volgende opdrachtparameters aan het hulpprogramma voor migratie (dtui.exe uit de map waarin u het hulpprogramma voor migratie van Cosmos DB hebt geïnstalleerd). Geef de locatie van de bron en doel met de volgende parameters:
    
-    /s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1
+    `/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 
 Nadat u de gegevens importeert, kunt u naar Jupyter en open het notitieblok met de titel *DocumentDBSample* die python-code voor toegang tot Azure Cosmos DB en voer enkele eenvoudige query's bevat. U meer informatie over Cosmos DB door naar de service te [documentatiepagina](https://docs.microsoft.com/azure/cosmos-db/).
 
@@ -865,6 +865,6 @@ Er zijn verschillende hulpprogramma's die vooraf zijn ingebouwd in de DSVM die v
 
 U kunt gebruikmaken van andere Azure data en analyse-services bevatten in dit artikel voor het verbeteren van uw omgeving voor analyse. In sommige gevallen mogelijk wens extra hulpprogramma's, met inbegrip van sommige bedrijfseigen externe hulpprogramma's. U hebt volledige beheerderstoegang op de virtuele machine voor het installeren van nieuwe hulpprogramma's die u nodig hebt. U kunt ook extra pakketten installeren in Python / R die niet vooraf zijn geïnstalleerd. Voor Python kunt u een ```conda``` of ```pip```. Voor R kunt u de ```install.packages()``` in de R-console of gebruik de IDE en kies "**pakketten** -> **pakketten installeren...** ".
 
-## <a name="summary"></a>Samenvatting
+## <a name="summary"></a>Overzicht
 Hieronder volgen slechts enkele van de dingen die u dit op de Microsoft Data Science Virtual Machine doen kunt. Er zijn veel meer dingen die u doen kunt om deze een effectieve analytics-omgeving.
 

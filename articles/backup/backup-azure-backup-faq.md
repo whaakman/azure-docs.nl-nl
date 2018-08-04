@@ -7,14 +7,14 @@ manager: carmonm
 keywords: back-up en herstel na noodgeval; Backup-service
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/1/2018
+ms.date: 8/2/2018
 ms.author: markgal
-ms.openlocfilehash: 33a3a1c0fd375f6ed88e13f910c46e71f216b892
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 5fd0cb92bd35b1f238e4080d2c9e8caf781b8131
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412948"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493865"
 ---
 # <a name="questions-about-the-azure-backup-service"></a>Vragen over de Azure Backup-service
 In dit artikel vindt u antwoorden op veelgestelde vragen over de Azure Backup-onderdelen. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt via **Opmerkingen** (aan de rechterkant) vragen stellen over Azure Backup. De opmerkingen worden onder aan dit artikel weergegeven. Er is een Livefyre-account vereist om opmerkingen te kunnen plaatsen. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
@@ -29,6 +29,9 @@ Ja. U kunt maximaal 500 Recovery Services-kluizen per ondersteunde regio van Azu
 
 ### <a name="are-there-limits-on-the-number-of-serversmachines-that-can-be-registered-against-each-vault-br"></a>Zijn er beperkingen met betrekking tot het aantal servers/machines dat kan worden geregistreerd voor elke kluis? <br/>
 U kunt maximaal 1000 Azure Virtual machines per kluis registreren. Als u de MAB-Agent gebruikt, kunt u maximaal 50 MAB-agents per kluis registreren. En u kunt de 50 MAB-servers/DPM-servers naar een kluis registreren.
+
+### <a name="can-i-use-a-rest-api-to-query-the-size-of-protected-items-in-a-vault-br"></a>Kan ik een REST-API gebruiken om op te vragen van de grootte van beveiligde items in een kluis? <br/>
+Ja, het artikel [Usages - lijst met kluizen](https://t.co/2lgIrIaF0J), vindt u de gegevens die kan worden verkregen vanuit de Recovery Services-kluis.
 
 ### <a name="if-my-organization-has-one-vault-how-can-i-isolate-one-servers-data-from-another-server-when-restoring-databr"></a>Als mijn organisatie één kluis heeft, hoe kan ik bij het herstellen van gegevens de gegevens van de ene server dan isoleren van de gegevens van een andere server?<br/>
 Alle servers die zijn geregistreerd bij dezelfde kluis, kunnen de gegevensback-ups herstellen van andere servers *die gebruikmaken van dezelfde wachtwoordzin*. Als u servers hebt waarvan u de back-upgegevens wilt isoleren van andere servers in uw organisatie, gebruikt u een speciale wachtwoordzin voor die servers. U kunt bijvoorbeeld verschillende wachtwoordzinnen voor de human resource-server, de accountingserver en de opslagserver gebruiken.
@@ -57,6 +60,8 @@ Een uitgebreide lijst met vragen vindt u in [Veelgestelde vragen over Azure VM B
 
 Ja. U kunt Azure Backup Server gebruiken om back-ups te maken van VMware vCenter en ESXi naar Azure. Zie [Beveiligingsmatrix voor Azure Backup Server](backup-mabs-protection-matrix.md) voor meer informatie over de ondersteunde versies van VMware. Zie [Azure Backup Server gebruiken om back-ups te maken van een VMware-server](backup-azure-backup-server-vmware.md) voor stapsgewijze instructies.
 
+### <a name="do-i-need-a-separate-license-to-recover-a-full-on-premises-vmwarehyper-v-cluster-from-dpm-or-azure-backup-serverbr"></a>Moet ik een afzonderlijke licentie voor het herstellen van een volledige on-premises VMware/Hyper-V-cluster van DPM of Azure Backup Server?<br/>
+U moet afzonderlijke licenties voor VMware/Hyper-V-beveiliging. Als u een System Center-klant bent, kunt u DPM gebruiken om te beveiligen van virtuele VMware-machines. Als u niet een System Center-klant bent, kunt u Azure Backup Server (betalen naar gebruik) om te beveiligen van virtuele VMware-machines.
 
 ## <a name="azure-backup-server-and-system-center-data-protection-manager"></a>Azure Backup-server en System Center Data Protection Manager
 ### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>Kan ik de Azure Backup-server gebruiken om een BMR-back-up (Bare Metal Recovery) te maken voor een fysieke server? <br/>
@@ -90,6 +95,9 @@ Ja. U kunt maximaal drie keer per dag back-uptaken uitvoeren op werkstations met
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-i-backed-upbr"></a>Waarom is de omvang van de gegevens die worden overgebracht naar de Recovery Services-kluis, kleiner dan de hoeveelheid gegevens waarvan ik een back-up heb gemaakt?<br/>
  Alle gegevens waarvan een back-up is gemaakt via Azure Backup-agent, SCDPM of Azure Backup-server, worden gecomprimeerd en versleuteld voordat ze worden overgedragen. Nadat de compressie en versleuteling wordt toegepast, is de gegevens in de Recovery Services-kluis 30-40% kleiner.
+
+### <a name="can-i-delete-individual-files-from-a-recovery-point-in-the-vaultbr"></a>Kan ik afzonderlijke bestanden vanaf een herstelpunt in de kluis verwijderen?<br/>
+Nee, Azure Backup ondersteunt niet verwijderen of permanent verwijderen van afzonderlijke items vanuit opgeslagen back-ups.
 
 ## <a name="what-can-i-back-up"></a>Waar kan ik een back-up van maken?
 ### <a name="which-operating-systems-does-azure-backup-support-br"></a>Welke besturingssystemen biedt ondersteuning voor Azure Backup? <br/>

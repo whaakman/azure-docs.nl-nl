@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: da8aac2968ba020dd2b98253b12e8c9f223966e5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: ce2c92f984f835c8e8f49ec94d65a9f3390812f9
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442493"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493119"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: De Azure AD Graph API gebruiken
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) B2C-tenants zijn meestal groot. Dit betekent d
 Voor B2C-tenants zijn er twee primaire modi voor de communicatie met de Graph API.
 
 * Voor taken, interactieve, eenmalig worden uitgevoerd, moet u fungeren als een administrator-account in de B2C-tenant wanneer u de taken uitvoeren. Deze modus moet een beheerder zich aanmelden met referenties voordat die beheerder de aanroepen voor de Graph API kunt uitvoeren.
-* Voor een geautomatiseerde, doorlopende taken, moet u een soort van service-account dat u met de benodigde machtigingen opgeeft om beheertaken uitvoeren. In Azure AD, kunt u dit doen door een toepassing registreren en zich verifiëren bij Azure AD. Dit wordt gedaan met behulp van een **toepassings-ID** die gebruikmaakt van de [verlenen van OAuth 2.0-clientreferenties](../active-directory/develop/active-directory-authentication-scenarios.md#daemon-or-server-application-to-web-api). In dit geval wordt de toepassing fungeert als zelf, niet als een gebruiker, de Graph-API aan te roepen.
+* Voor een geautomatiseerde, doorlopende taken, moet u een soort van service-account dat u met de benodigde machtigingen opgeeft om beheertaken uitvoeren. In Azure AD, kunt u dit doen door een toepassing registreren en zich verifiëren bij Azure AD. Dit wordt gedaan met behulp van een **toepassings-ID** die gebruikmaakt van de [verlenen van OAuth 2.0-clientreferenties](../active-directory/develop/authentication-scenarios.md#daemon-or-server-application-to-web-api). In dit geval wordt de toepassing fungeert als zelf, niet als een gebruiker, de Graph-API aan te roepen.
 
 In dit artikel leert u hoe u de automatische-use-case uitvoert. Bouwt u een .NET 4.5 `B2CGraphClient` die de gebruiker voert maken, lezen, bijwerken en verwijderen (CRUD)-bewerkingen. De client heeft een Windows-opdrachtregelinterface (CLI) waarmee u verschillende methoden aanroepen. De code is echter geschreven in een niet-interactieve, geautomatiseerde manier gedragen.
 

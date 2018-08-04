@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 58431e43312046c5a30ebcd4c974849641c05156
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fdc33f4009ce9434b241611851fecec451783a1a
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446452"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495336"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integreren met Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -33,7 +33,7 @@ Azure Active Directory biedt organisaties met zakelijke Identiteitsbeheer voor c
 Er zijn verschillende manieren voor uw toepassing om te integreren met Azure AD. Maak gebruik van zo veel of weinig van deze scenario's zoals geschikt is voor uw toepassing.
 
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Ondersteuning voor Azure AD als een manier voor het aanmelden bij uw toepassing
-**Meld problemen verminderen en ondersteuning verlagen.** Uw gebruikers geen met behulp van Azure AD om aan te melden bij uw toepassing, een meer naam en wachtwoord te onthouden. Als ontwikkelaar hebt u een minder wachtwoord opslaan en beschermen. Omdat u niet hoeft voor het afhandelen van vergeten wachtwoord opnieuw instellen van wachtwoorden, kan een aanzienlijke besparingen die alleen zijn. Azure AD wordt gebruikt door aanmelden voor een aantal van's werelds meest populaire cloudtoepassingen, waaronder Office 365 en Microsoft Azure. Honderden miljoenen gebruikers van miljoenen organisaties, waarschijnlijk uw gebruiker is al aangemeld bij Azure AD. Meer informatie over [ondersteuning toegevoegd voor aanmelding bij Azure AD](active-directory-authentication-scenarios.md).
+**Meld problemen verminderen en ondersteuning verlagen.** Uw gebruikers geen met behulp van Azure AD om aan te melden bij uw toepassing, een meer naam en wachtwoord te onthouden. Als ontwikkelaar hebt u een minder wachtwoord opslaan en beschermen. Omdat u niet hoeft voor het afhandelen van vergeten wachtwoord opnieuw instellen van wachtwoorden, kan een aanzienlijke besparingen die alleen zijn. Azure AD wordt gebruikt door aanmelden voor een aantal van's werelds meest populaire cloudtoepassingen, waaronder Office 365 en Microsoft Azure. Honderden miljoenen gebruikers van miljoenen organisaties, waarschijnlijk uw gebruiker is al aangemeld bij Azure AD. Meer informatie over [ondersteuning toegevoegd voor aanmelding bij Azure AD](authentication-scenarios.md).
 
 **Aanmelding van vereenvoudigen voor uw toepassing.**  Tijdens de registratie voor uw toepassing, kan Azure AD essentiële informatie over een gebruiker verzenden zodat u kunt vooraf uw aanmelding formulier vullen of volledig elimineren. Gebruikers kunnen zich aanmelden voor uw toepassing met behulp van hun Azure AD-account via een vertrouwde toestemming ervaring die vergelijkbaar is met deze gevonden in sociale media- en mobiele toepassingen. Elke gebruiker kan zich registreren en aanmelden bij een toepassing die is geïntegreerd met Azure AD zonder tussenkomst van de IT. Meer informatie over [melden voor uw toepassing voor Azure AD-Account aanmelding](../../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
@@ -83,5 +83,5 @@ Integratie met Azure AD wordt geleverd met voordelen die niet nodig hebt u extra
 ## <a name="next-steps"></a>Volgende stappen
 [Aan de slag schrijven van code](azure-ad-developers-guide.md#get-started).
 
-[Gebruikers aanmelden met behulp van Azure AD](active-directory-authentication-scenarios.md)
+[Gebruikers aanmelden met behulp van Azure AD](authentication-scenarios.md)
 

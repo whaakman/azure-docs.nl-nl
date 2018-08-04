@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/22/2017
+ms.date: 08/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 36d1229de6eb71a41eeea895e16e3757c800fc16
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a6bc220d15e720662eaa9605421e21ccb99892ab
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429077"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39502342"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Zelfstudie: Azure Active Directory-integratie met LogicMonitor
 
@@ -33,7 +33,7 @@ LogicMonitor integreren met Azure AD biedt u de volgende voordelen:
 
 Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 Voor het configureren van Azure AD-integratie met LogicMonitor, moet u de volgende items:
 
@@ -133,27 +133,23 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
 1. Klik in het menu aan de bovenkant op **instellingen**.
    
-   ![Instellingen voor](./media/logicmonitor-tutorial/ic790052.png "instellingen")
+    ![Instellingen voor](./media/logicmonitor-tutorial/ic790052.png "instellingen")
 
 1. Klik in de navigatie-bat aan de linkerkant, **eenmalige aanmelding**
    
-   ![Single Sign-On](./media/logicmonitor-tutorial/ic790053.png "Single Sign-On")
+    ![Single Sign-On](./media/logicmonitor-tutorial/ic790053.png "Single Sign-On")
 
 1. In de **instellingen voor eenmalige aanmelding (SSO)** sectie, voert u de volgende stappen uit:
    
-   ![Single Sign-On instellingen](./media/logicmonitor-tutorial/ic790054.png "Single Sign-On-instellingen")
+    ![Single Sign-On instellingen](./media/logicmonitor-tutorial/ic790054.png "Single Sign-On-instellingen")
    
-   a. Selecteer **eenmalige aanmelding inschakelen**.
+    a. Selecteer **eenmalige aanmelding inschakelen**.
 
-   b. Als **roltoewijzing standaard**, selecteer **readonly**.
+    b. Als **roltoewijzing standaard**, selecteer **readonly**.
    
-   c. Open het gedownloade metagegevensbestand in Kladblok en plak de inhoud van het bestand in de **Identity Provider metagegevens** tekstvak.
+    c. Open het gedownloade metagegevensbestand in Kladblok en plak de inhoud van het bestand in de **Identity Provider metagegevens** tekstvak.
    
-   d. Klik op **wijzigingen opslaan**.
-
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    d. Klik op **wijzigingen opslaan**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
 Het doel van deze sectie is het maken van een testgebruiker in Azure portal Britta Simon genoemd.
@@ -188,7 +184,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
  
 ### <a name="creating-a-logicmonitor-test-user"></a>Het maken van een testgebruiker LogicMonitor
 
-Voor AAD-gebruikers kunnen zich aanmelden, moeten ze worden ingericht voor de LogicMonitor-toepassing met behulp van hun Azure Active Directory-gebruikersnamen.
+Voor Azure AD-gebruikers kunnen zich aanmelden, moeten ze worden ingericht voor de LogicMonitor-toepassing met behulp van hun Azure Active Directory-gebruikersnamen.
 
 **Als u wilt inrichten van gebruikers configureren, moet u de volgende stappen uitvoeren:**
 
@@ -196,19 +192,19 @@ Voor AAD-gebruikers kunnen zich aanmelden, moeten ze worden ingericht voor de Lo
 
 1. Klik in het menu aan de bovenkant op **instellingen**, en klik vervolgens op **rollen en gebruikers**.
    
-   ![Rollen en gebruikers](./media/logicmonitor-tutorial/ic790056.png "rollen en gebruikers")
+    ![Rollen en gebruikers](./media/logicmonitor-tutorial/ic790056.png "rollen en gebruikers")
 
 1. Klik op **Add**.
 
 1. In de **een account toevoegen** sectie, voert u de volgende stappen uit:
    
-   ![Een account toevoegen](./media/logicmonitor-tutorial/ic790057.png "een account toevoegen")
+    ![Een account toevoegen](./media/logicmonitor-tutorial/ic790057.png "een account toevoegen")
    
-   a. Type de **gebruikersnaam**, **e**, **wachtwoord**, en **Typ opnieuw wachtwoord** waarden van de Azure Active Directory-gebruiker die u inrichten wilt in de bijbehorende tekstvakken.
+    a. Type de **gebruikersnaam**, **e**, **wachtwoord**, en **Typ opnieuw wachtwoord** waarden van de Azure Active Directory-gebruiker die u inrichten wilt in de bijbehorende tekstvakken.
    
-   b. Selecteer **rollen**, **machtigingen weergeven**, en de **Status**.
+    b. Selecteer **rollen**, **machtigingen weergeven**, en de **Status**.
    
-   c. Klik op **indienen**.
+    c. Klik op **indienen**.
 
 >[!NOTE]
 >U kunt elke andere LogicMonitor gebruiker account hulpmiddelen voor het maken of API's geleverd door LogicMonitor voor het inrichten van Azure Active Directory-gebruikersaccounts. 
@@ -248,9 +244,9 @@ In deze sectie maakt inschakelen u Britta Simon gebruiken Azure eenmalige aanmel
 In deze sectie maakt testen u uw Azure AD eenmalige aanmelding configuratie met behulp van het toegangsvenster.
  
 Wanneer u op de tegel LogicMonitor in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing LogicMonitor.
-Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../user-help/active-directory-saas-access-panel-introduction.md). 
+Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsvenster](../active-directory-saas-access-panel-introduction.md). 
 
-## <a name="additional-resources"></a>Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende bronnen
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

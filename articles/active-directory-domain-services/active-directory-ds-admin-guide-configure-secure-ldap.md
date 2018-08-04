@@ -1,6 +1,6 @@
 ---
-title: Beveiligde LDAP (LDAPS) in Azure AD Domain Services configureren | Microsoft Docs
-description: Beveiligde LDAP (LDAPS) voor een beheerd domein van Azure AD Domain Services configureren
+title: Secure LDAP (LDAPS) configureren in Azure AD Domain Services | Microsoft Docs
+description: Secure LDAP (LDAPS) configureren voor een Azure AD Domain Services beheerde domein
 services: active-directory-ds
 documentationcenter: ''
 author: mahesh-unnikrishnan
@@ -12,72 +12,72 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: maheshu
-ms.openlocfilehash: a5345722005cc22ed7f89480c5aba51fd68cbf61
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5740f36889b8c4d6ce1604e6d0138f840e88ef1a
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335652"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505194"
 ---
-# <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Beveiligde LDAP (LDAPS) voor een beheerd domein van Azure AD Domain Services configureren
-Dit artikel laat zien hoe u beveiligde Lightweight Directory Access Protocol (LDAPS) kunt inschakelen voor uw beheerde domein van Azure AD Domain Services. Beveiligde LDAP wordt ook wel ' Lightweight Directory Access Protocol (LDAP) via Secure Sockets Layer (SSL) / Transport Layer Security (TLS)'.
+# <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Veilige LDAP (LDAPS) voor een beheerd domein van Azure AD Domain Services configureren
+Dit artikel wordt beschreven hoe u beveiligde Lightweight Directory Access Protocol (LDAPS) kunt inschakelen voor uw Azure AD Domain Services beheerde domein. Secure LDAP wordt ook wel bekend als ' Lightweight Directory Access Protocol (LDAP) via Secure Sockets Layer (SSL) / Transport Layer Security (TLS)'.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Als u wilt uitvoeren van de taken worden in dit artikel worden vermeld, hebt u het volgende nodig:
+Als u de taken die in dit artikel worden vermeld, hebt u het volgende nodig:
 
 1. Een geldige **Azure-abonnement**.
-2. Een **Azure AD-directory** -ofwel gesynchroniseerd met een on-premises adreslijst of een map alleen in de cloud.
-3. **Azure AD Domain Services** moet zijn ingeschakeld voor de Azure AD-directory. Als u dit nog niet hebt gedaan, volgt u alle taken die worden beschreven in de [handleiding](active-directory-ds-getting-started.md).
-4. Een **certificaat moet worden gebruikt voor het inschakelen van beveiligde LDAP**.
+2. Een **Azure AD-directory** -een gesynchroniseerd met een on-premises directory of een map alleen in de cloud.
+3. **Azure AD Domain Services** moet zijn ingeschakeld voor de Azure AD-directory. Als u dit nog niet hebt gedaan, volgt u alle taken die worden beschreven in de [introductiehandleiding](active-directory-ds-getting-started.md).
+4. Een **dat moet worden gebruikt om in te schakelen van secure LDAP**.
 
-   * **Aanbevolen** -een certificaat verkrijgen van een betrouwbare, openbare certificeringsinstantie. Deze configuratieoptie is veiliger.
-   * U kunt ook u kunt ook [een zelfondertekend certificaat maken](#task-1---obtain-a-certificate-for-secure-ldap) zoals verderop in dit artikel.
+   * **Aanbevolen** -een certificaat verkrijgen van een vertrouwde openbare certificeringsinstantie (CA). Deze configuratieoptie is veiliger.
+   * U kunt ook u kunt desgewenst ook [een zelfondertekend certificaat maken](#task-1---obtain-a-certificate-for-secure-ldap) zoals verderop in dit artikel.
 
 <br>
 
-### <a name="requirements-for-the-secure-ldap-certificate"></a>Vereisten voor de beveiligde LDAP-certificaat
-Een geldig certificaat per de volgende richtlijnen te verkrijgen voordat u beveiligde LDAP inschakelen. Er optreden fouten als u probeert in te schakelen beveiligde LDAP voor uw beheerde domein met een ongeldig/onjuist certificaat.
+### <a name="requirements-for-the-secure-ldap-certificate"></a>Vereisten voor het certificaat voor secure LDAP
+Een geldig certificaat per de volgende richtlijnen aan te schaffen voordat u secure LDAP inschakelen. Er optreden fouten als u probeert te secure LDAP inschakelen voor uw beheerde domein met een ongeldige/onjuiste certificaat.
 
-1. **Vertrouwde uitgevers** -het certificaat moet worden uitgegeven door een instantie wordt vertrouwd door computers verbinding maken met het beheerde domein met behulp van beveiligde LDAP. Deze instantie is mogelijk een openbare certificeringsinstantie (CA) of een CA voor ondernemingen wordt vertrouwd door deze computers.
-2. **Levensduur** -het certificaat moet geldig zijn ten minste de komende 3-6 maanden. Beveiligde LDAP-toegang tot uw beheerde domein wordt onderbroken wanneer het certificaat is verlopen.
-3. **Onderwerpnaam** -de onderwerpnaam op het certificaat moet een jokerteken voor uw beheerde domein. Bijvoorbeeld, als uw domein met de naam, contoso100.com', de onderwerpnaam van het certificaat moet ' *. contoso100.com'. De DNS-naam (alternatieve onderwerpnaam) ingesteld op deze jokertekennaam.
-4. **Sleutelgebruik** -het certificaat moet worden geconfigureerd voor het volgende gebruikt - digitale handtekeningen en sleutelcodering.
+1. **Vertrouwde verlener** -het certificaat moet worden uitgegeven door een instantie die wordt vertrouwd door verbinding te maken met het beheerde domein met behulp van secure LDAP. Deze instantie is mogelijk een openbare certificeringsinstantie (CA) of een CA voor ondernemingen wordt vertrouwd door deze computers.
+2. **Levensduur** -het certificaat moet geldig zijn voor ten minste de komende 3-6 maanden. Toegang van Secure LDAP tot uw beheerde domein wordt onderbroken wanneer het certificaat is verlopen.
+3. **Naam van het onderwerp** -de naam van de certificaathouder op het certificaat moet een jokerteken voor uw beheerde domein. Bijvoorbeeld, als uw domein heet 'contoso100.com', de onderwerpnaam van het certificaat moet ' *. contoso100.com'. De DNS-naam (alternatieve onderwerpnaam) ingesteld op deze wildcard-naam.
+4. **Sleutelgebruik** -het certificaat moet worden geconfigureerd voor het volgende gebruikt: digitale handtekeningen en sleutelcodering.
 5. **Doel van het certificaat** -het certificaat moet geldig zijn voor SSL-serververificatie.
 
 <br>
 
-## <a name="task-1---obtain-a-certificate-for-secure-ldap"></a>Taak 1: een certificaat verkrijgen voor beveiligde LDAP
-De eerste taak omvat het verkrijgen van een certificaat gebruikt voor beveiligde LDAP-toegang tot het beheerde domein. U hebt hiervoor twee opties:
+## <a name="task-1---obtain-a-certificate-for-secure-ldap"></a>Taak 1: een certificaat voor secure LDAP verkrijgen
+De eerste taak omvat het verkrijgen van een certificaat dat wordt gebruikt voor toegang van secure LDAP aan het beheerde domein. U hebt hiervoor twee opties:
 
 * Een certificaat verkrijgen van een openbare CA of een ondernemings-CA.
-* Een zelfondertekend certificaat maken.
+* Maak een zelf-ondertekend certificaat.
 
 > [!NOTE]
-> Clientcomputers die verbinding moeten maken met het beheerde domein met behulp van beveiligde LDAP moeten de verlener van het beveiligde LDAP-certificaat vertrouwen.
+> Client-computers die verbinding moeten maken met het beheerde domein met behulp van secure LDAP moeten de verlener van het certificaat voor secure LDAP vertrouwen.
 >
 
-### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Optie een (aanbevolen) - een beveiligde LDAP-certificaat verkrijgen van een certificeringsinstantie (CA)
-Als uw organisatie krijgt de certificaten van een openbare Certificeringsinstantie, moet u de beveiligde LDAP-certificaat verkrijgen van die openbare Certificeringsinstantie. Als u een ondernemings-CA implementeert, moet u de beveiligde LDAP-certificaat verkrijgen van de ondernemings-CA.
+### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Optie een (aanbevolen): een certificaat voor secure LDAP verkrijgen van een certificeringsinstantie (CA)
+Als uw organisatie de certificaten van een openbare CA verkrijgt, moet u het certificaat voor secure LDAP verkrijgen van die openbare Certificeringsinstantie. Als u een CA voor ondernemingen implementeert, moet u het certificaat voor secure LDAP verkrijgen van de ondernemings-CA.
 
 > [!TIP]
-> **Gebruik zelfondertekende certificaten voor beheerde domeinen met '. onmicrosoft.com' domeinachtervoegsels.**
-> Als de DNS-domeinnaam van uw beheerde domein eindigt op ". onmicrosoft.com', u een beveiligde LDAP-certificaat kan niet verkrijgen van een openbare certificeringsinstantie. Omdat Microsoft eigenaar is van het domein 'onmicrosoft.com', weigeren openbare certificeringsinstanties uitgeven van een beveiligde LDAP-certificaat voor u voor een domein met dit achtervoegsel. In dit scenario een zelfondertekend certificaat maken en gebruiken die beveiligde LDAP configureren.
+> **Zelfondertekende certificaten gebruiken voor beheerde domeinen met '. onmicrosoft.com' domeinachtervoegsels.**
+> Als de DNS-domeinnaam van uw beheerde domein eindigt op '. onmicrosoft.com', kan u niet een certificaat voor secure LDAP verkrijgen van een openbare certificeringsinstantie (CA). Omdat Microsoft eigenaar is van het domein 'onmicrosoft.com', wordt de openbare certificeringsinstanties weigeren om uit te geven u een certificaat voor secure LDAP voor een domein met dit achtervoegsel. In dit scenario wordt een zelfondertekend certificaat maken en gebruiken die voor het configureren van secure LDAP.
 >
 
-Zorg ervoor dat het certificaat dat u via de openbare certificeringsinstantie verkrijgen voldoet aan alle vereisten die worden beschreven in [vereisten voor de LDAP om certificaten veilig](#requirements-for-the-secure-ldap-certificate).
+Zorg ervoor dat het certificaat dat u via de openbare certificeringsinstantie verkrijgen voldoet aan alle vereisten die worden beschreven in [vereisten voor het certificaat voor secure LDAP](#requirements-for-the-secure-ldap-certificate).
 
 
-### <a name="option-b---create-a-self-signed-certificate-for-secure-ldap"></a>Optie B - een zelfondertekend certificaat maken voor beveiligde LDAP
-Als u niet van plan bent om een certificaat van een openbare certificeringsinstantie te gebruiken, kunt u een zelfondertekend certificaat maken voor beveiligde LDAP. Kies deze optie als de DNS-domeinnaam van uw beheerde domein eindigt op ". onmicrosoft.com'.
+### <a name="option-b---create-a-self-signed-certificate-for-secure-ldap"></a>Optie B - maken van een zelfondertekend certificaat voor secure LDAP
+Als u niet verwacht dat een certificaat van een openbare certificeringsinstantie (CA) te gebruiken, besluiten kunt u om te maken van een zelfondertekend certificaat voor secure LDAP. Kies deze optie als de DNS-domeinnaam van uw beheerde domein eindigt op '. onmicrosoft.com'.
 
-**Maak een zelfondertekend certificaat met behulp van PowerShell**
+**Maak een zelf-ondertekend certificaat met behulp van PowerShell**
 
-Open op uw Windows-computer als een nieuwe PowerShell-venster **beheerder** en typ de volgende opdrachten, een nieuw zelfondertekend certificaat maken.
+Open op uw Windows-computer, een nieuwe PowerShell-venster als **beheerder** en typ de volgende opdrachten, een nieuw zelfondertekend certificaat maken.
 
 ```powershell
 $lifetime=Get-Date
@@ -86,12 +86,12 @@ New-SelfSignedCertificate -Subject *.contoso100.com `
   -Type SSLServerAuthentication -DnsName *.contoso100.com
 ```
 
-Vervang in het voorgaande voorbeeld, '*. contoso100.com' met de DNS-domeinnaam van uw beheerde domein. For example, als u een beheerd domein 'contoso100.onmicrosoft.com' genoemd, vervangen door '*. contoso100.com' in het voorgaande script met ' *. contoso100.onmicrosoft.com').
+Vervang in het voorgaande voorbeeld '*. contoso100.com' met de DNS-domeinnaam van uw beheerde domein. For example, als u een beheerd domein met de naam 'contoso100.onmicrosoft.com' gemaakt, vervangt u '*. contoso100.com' in het vorige script met ' *. contoso100.onmicrosoft.com').
 
 ![Azure AD-directory selecteren](./media/active-directory-domain-services-admin-guide/secure-ldap-powershell-create-self-signed-cert.png)
 
-De zojuist gemaakte zelf-ondertekend certificaat wordt geplaatst in het certificaatarchief van de lokale machine.
+De zojuist gemaakte zelf-ondertekend certificaat is in het certificaatarchief van de lokale computer geplaatst.
 
 
 ## <a name="next-step"></a>Volgende stap
-[Taak 2: het beveiligde LDAP-certificaat te exporteren een. PFX-bestand](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)
+[Taak 2: het exporteren van het certificaat voor secure LDAP naar een. PFX-bestand](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

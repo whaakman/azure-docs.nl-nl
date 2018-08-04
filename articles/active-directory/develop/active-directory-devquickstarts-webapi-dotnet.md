@@ -17,12 +17,12 @@ ms.date: 01/23/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4c5f0bc7f6f23ce16a3e1d6c7ecac1692ca43d9b
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ca506d821fe3534468c0d370dd51464e5df90f79
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398229"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504658"
 ---
 # <a name="azure-ad-net-web-api-getting-started"></a>.NET Web API van Azure AD aan de slag
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -41,7 +41,7 @@ Voor het bouwen van de te doen lijst API, moet u eerst:
 2. De app instellen voor de pijplijn OWIN-verificatie gebruiken.
 3. Een clienttoepassing voor het aanroepen van de web-API configureren.
 
-Aan de slag [het app-basisproject downloaden](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) of [downloaden van het voltooide voorbeeld](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Elk is een Visual Studio 2013-oplossing. U moet ook een Azure AD-tenant waar uw toepassing registreren. Als u niet hebt, [informatie over het verkrijgen van een](active-directory-howto-tenant.md).
+Aan de slag [het app-basisproject downloaden](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/skeleton.zip) of [downloaden van het voltooide voorbeeld](https://github.com/AzureADQuickStarts/WebAPI-Bearer-DotNet/archive/complete.zip). Elk is een Visual Studio 2013-oplossing. U moet ook een Azure AD-tenant waar uw toepassing registreren. Als u niet hebt, [informatie over het verkrijgen van een](quickstart-create-new-tenant.md).
 
 ## <a name="step-1-register-an-application-with-azure-ad"></a>Stap 1: Een toepassing registreren bij Azure AD
 Als u wilt beveiligen uw toepassing, moet u eerst een toepassing maken in uw tenant en Azure AD voorzien van enkele belangrijke gegevens.

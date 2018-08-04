@@ -16,16 +16,16 @@ ms.component: compliance-reports
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 95153a4661f030824c9b85c10c5b4b1731ff8a91
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 313fb77fe2d66215e1f55a6f75a8b1b3d540b73a
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239882"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505763"
 ---
-# <a name="interpret-the-azure-active-directory-sign-in-logs-schema-in-azure-monitor-preview"></a>Het schema van de logboeken voor aanmelding bij Azure Active Directory in Azure Monitor (preview) interpreteren
+# <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor-preview"></a>Het schema van de logboeken voor aanmelding bij Azure AD in Azure Monitor (preview) interpreteren
 
-Dit artikel beschrijft het schema van de inloggen in Azure AD in Azure Monitor. De meeste van de informatie met betrekking tot aanmeldingen verstrekt onder de *eigenschappen* kenmerk van het object records.
+Dit artikel beschrijft het schema van de inloggen in Azure Active Directory (Azure AD) in Azure Monitor. De meeste informatie met betrekking tot aanmeldingen verstrekt onder de *eigenschappen* kenmerk van de `records` object.
 
 ```json
 { 
@@ -147,26 +147,29 @@ Dit artikel beschrijft het schema van de inloggen in Azure AD in Azure Monitor. 
         } 
     } 
 ```
+
+## <a name="field-descriptions"></a>Beschrijving van veld
+
 | Veldnaam | Beschrijving |
 |------------|-------------|
-| Time | Datum en tijd in UTC |
+| Tijd | De datum en tijd in UTC. |
 | ResourceId | Deze waarde is niet-toegewezen en u kunt dit veld veilig negeren.  |
-| OperationName | Voor aanmeldingen, is deze waarde altijd *aanmeldingsactiviteiten* |
-| operationVersion | De REST-API-versie door de client aangevraagde |
-| Categorie | Voor aanmeldingen, is dit altijd *aanmelding* | 
-| TenantId | Tenant-Guid die is gekoppeld aan de logboeken |
-| resultType | Kan het resultaat van de bewerking aanmelding zijn *succes* of *fout* | 
-| resultSignature | Bevat de foutcode, indien van toepassing, voor de bewerking aanmelden |
-| ResultDescription | Geeft de beschrijving van de fout voor de bewerking aanmelden |
+| OperationName | Voor aanmeldingen, is deze waarde altijd *aanmeldingsactiviteiten*. |
+| operationVersion | De REST-API-versie die aangevraagd door de client. |
+| Categorie | Voor aanmeldingen, is deze waarde altijd *SignIn*. | 
+| TenantId | De tenant GUID die is gekoppeld aan de logboeken. |
+| resultType | Kan het resultaat van de bewerking aanmelding zijn *succes* of *fout*. | 
+| resultSignature | Bevat de foutcode, indien aanwezig, voor het opnieuw aanmelden. |
+| ResultDescription | Geeft de foutbeschrijving voor de bewerking aanmelden. |
 | durationMs |  Deze waarde is niet-toegewezen en u kunt dit veld veilig negeren.|
-| callerIpAddress | IP-adres van de client die de aanvraag heeft ingediend | 
-| CorrelationId | Optionele Guid die is doorgegeven door de client. Deze waarde kan helpen bij elkaar te vergelijken client-side-bewerkingen met server-side-bewerkingen en is handig bij het traceren van logboeken met betrekking alle services tot. |
-| Identiteit | De identiteit van het token dat is opgegeven bij het maken van de aanvraag. Mag een gebruikersaccount, systeem-account of service-principal. |
-| Niveau | Geeft het type van het bericht. Voor controle, is het altijd *ter informatie* |
-| Locatie | Bevat de locatie van de aanmeldingsactiviteiten |
-| Eigenschappen | Geeft een lijst van alle eigenschappen die zijn gekoppeld aan aanmeldingen. Lees voor meer informatie de [MS Graph API Reference](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin). Dit schema maakt gebruik van de kenmerknamen zoals in de resource-in voor de leesbaarheid.
+| callerIpAddress | Het IP-adres van de client die de aanvraag heeft ingediend. | 
+| CorrelationId | De optionele GUID die doorgegeven door de client. Deze waarde kan helpen bij elkaar te vergelijken client-side-bewerkingen met server-side-bewerkingen en dit is handig wanneer u logboeken met betrekking services tot bijhoudt. |
+| Identiteit | De identiteit van het token dat is opgegeven wanneer u de aanvraag heeft ingediend. Een gebruikersaccount, systeem-account of service-principal kan het zijn. |
+| Niveau | Geeft het type van het bericht. Voor controle, is het altijd *ter informatie*. |
+| Locatie | Bevat de locatie van de activiteit aanmelden. |
+| Eigenschappen | Geeft een lijst van alle eigenschappen die gekoppeld aan aanmeldingen zijn. Zie voor meer informatie, [Microsoft Graph API Reference](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin). Dit schema maakt gebruik van de namen van dezelfde als de resource-in voor de leesbaarheid.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Audit logs schema in Azure monitor interpreteren](reporting-azure-monitor-diagnostics-audit-log-schema.md)
-* [Meer informatie over hoe Azure diagnostische logboeken](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
+* [Audit logs schema in Azure Monitor interpreteren](reporting-azure-monitor-diagnostics-audit-log-schema.md)
+* [Lees meer over de diagnostische logboeken in Azure](/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)

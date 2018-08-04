@@ -12,26 +12,26 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2017
 ms.author: maheshu
-ms.openlocfilehash: acae942131903aa86601f023976b0715bf553d4d
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ee3f65b7afde19a1f9c730334043cc7dae9ea791
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215028"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39503805"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Azure Active Directory Domain Services met behulp van PowerShell inschakelen
-In dit artikel laat zien hoe Azure Active Directory (AD) Domain Services met behulp van PowerShell in te schakelen.
+Dit artikel laat u het inschakelen van Azure Active Directory (AD) Domain Services met behulp van PowerShell.
 
 ## <a name="task-1-install-the-required-powershell-modules"></a>Taak 1: De vereiste PowerShell-modules installeren
 
 ### <a name="install-and-configure-azure-ad-powershell"></a>Azure AD PowerShell installeren en configureren
-Volg de instructies in het artikel [Installeer de Azure AD PowerShell-module en maak verbinding met Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+Volg de instructies in het artikel [installeren van de Azure AD PowerShell-module en maak verbinding met Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 ### <a name="install-and-configure-azure-powershell"></a>Azure PowerShell installeren en configureren
-Volg de instructies in het artikel [Installeer de Azure PowerShell-module en maak verbinding met uw Azure-abonnement](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+Volg de instructies in het artikel [installeren van de Azure PowerShell-module en maak verbinding met uw Azure-abonnement](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 
 ## <a name="task-2-create-the-required-service-principal-in-your-azure-ad-directory"></a>Taak 2: De vereiste service-principal in uw Azure AD-directory maken
@@ -41,8 +41,8 @@ Typ de volgende PowerShell-opdracht voor het maken van de service-principal die 
 New-AzureADServicePrincipal -AppId “2565bd9d-da50-47d4-8b85-4c97f669dc36”
 ```
 
-## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>Taak 3: Maak en configureer de groep 'AAD DC Administrators'
-De volgende taak is het maken van de beheerdersgroep die wordt gebruikt voor het delegeren van beheertaken in uw beheerde domein.
+## <a name="task-3-create-and-configure-the-aad-dc-administrators-group"></a>Taak 3: Maken en configureren van de groep 'AAD DC Administrators'
+De volgende taak is het maken van de groep Administrators die wordt gebruikt voor het delegeren van beheertaken in uw beheerde domein.
 ```powershell
 # Create the delegated administration group for AAD Domain Services.
 New-AzureADGroup -DisplayName "AAD DC Administrators" `
@@ -51,7 +51,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
   -MailNickName "AADDCAdministrators"
 ```
 
-Nu dat u de groep hebt gemaakt, moet u een paar gebruikers toevoegen aan de groep.
+Nu dat u de groep hebt gemaakt, moet u een aantal gebruikers toevoegen aan de groep.
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
 $GroupObjectId = Get-AzureADGroup `
@@ -67,8 +67,8 @@ $UserObjectId = Get-AzureADUser `
 Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjectId.ObjectId
 ```
 
-## <a name="task-4-register-the-azure-ad-domain-services-resource-provider"></a>Taak 4: De resourceprovider van Azure AD Domain Services registreren
-Typ de volgende PowerShell-opdracht de resourceprovider voor Azure AD Domain Services registreren:
+## <a name="task-4-register-the-azure-ad-domain-services-resource-provider"></a>Taak 4: Registreer de resourceprovider van Azure AD Domain Services
+Typ de volgende PowerShell-opdracht om de resourceprovider voor Azure AD Domain Services te registreren:
 ```powershell
 # Register the resource provider for Azure AD Domain Services with Resource Manager.
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AAD
@@ -86,13 +86,13 @@ New-AzureRmResourceGroup `
   -Location $AzureLocation
 ```
 
-U kunt het virtuele netwerk en het beheerde domein van Azure AD Domain Services maken in deze resourcegroep.
+U kunt het virtuele netwerk en het Azure AD Domain Services beheerde domein maken in deze resourcegroep.
 
 
 ## <a name="task-6-create-and-configure-the-virtual-network"></a>Taak 6: Maken en configureren van het virtuele netwerk
-Maak nu het virtuele netwerk waarin u Azure AD Domain Services inschakelen. Zorg ervoor dat u een speciale subnet voor Azure AD Domain Services maken. Implementeer geen werkbelasting van virtuele machines in dit subnet toegewezen.
+Maak nu het virtuele netwerk waarin u Azure AD Domain Services inschakelen. Zorg ervoor dat u een toegewezen subnet voor Azure AD Domain Services maken. Implementeer niet werkbelasting van virtuele machines in dit subnet toegewezen.
 
-Typ de volgende PowerShell-opdrachten voor het maken van een virtueel netwerk met een toegewezen subnet voor Azure AD Domain Services.
+Typ de volgende PowerShell-opdrachten om te maken van een virtueel netwerk met een toegewezen subnet voor Azure AD Domain Services.
 
 ```powershell
 $ResourceGroupName = "ContosoAaddsRg"
@@ -117,8 +117,8 @@ $Vnet=New-AzureRmVirtualNetwork `
 ```
 
 
-## <a name="task-7-provision-the-azure-ad-domain-services-managed-domain"></a>Taak 7: Het beheerde domein van Azure AD Domain Services inrichten
-Typ de volgende PowerShell-opdracht naar Azure AD Domain Services voor uw directory in te schakelen:
+## <a name="task-7-provision-the-azure-ad-domain-services-managed-domain"></a>Taak 7: Richt het Azure AD Domain Services beheerde domein
+Typ de volgende PowerShell-opdracht uit om Azure AD Domain Services voor uw directory:
 
 ```powershell
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
@@ -136,10 +136,10 @@ New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGro
 ```
 
 > [!WARNING]
-> **Vergeet niet de aanvullende configuratiestappen die na het inrichten van uw beheerde domein.**
-> Nadat uw beheerde domein is geconfigureerd, moet u nog steeds de volgende taken uitvoeren:
-> * **[DNS-instellingen bijwerken](active-directory-ds-getting-started-dns.md)**  voor het virtuele netwerk, zodat virtuele machines het beheerde domein voor domein of de verificatie vinden kunnen.
-* **[Wachtwoordsynchronisatie met Azure AD Domain Services inschakelen](active-directory-ds-getting-started-password-sync.md)**, zodat eindgebruikers kunnen aanmelden bij het beheerde domein met hun bedrijfsreferenties.
+> **Vergeet niet de aanvullende configuratiestappen na het inrichten van uw beheerde domein.**
+> Nadat uw beheerde domein is ingericht, moet u nog steeds de volgende taken uitvoeren:
+> * **[DNS-instellingen bijwerken](active-directory-ds-getting-started-dns.md)**  voor het virtuele netwerk, zodat virtuele machines het beheerde domein voor het lid van domein of -verificatie vinden kan.
+* **[Wachtwoordsynchronisatie met Azure AD Domain Services inschakelen](active-directory-ds-getting-started-password-sync.md)**, zodat eindgebruikers kunt aanmelden bij het beheerde domein met hun bedrijfsreferenties.
 >
 
 
@@ -147,7 +147,7 @@ New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGro
 Het PowerShell-script gebruikt voor het uitvoeren van alle taken die worden vermeld in dit artikel is lager dan. Kopieer het script en sla deze op een bestand met de extensie '.ps1'. Voer het script in PowerShell of met behulp van PowerShell Integrated Scripting Environment (ISE).
 
 > [!NOTE]
-> **Vereiste machtigingen voor dit script uitvoert** om Azure AD Domain Services inschakelt, moet u de globale beheerder voor de Azure AD-directory. Bovendien moet u ten minste 'Inzender'-rechten op het virtuele netwerk waarin Azure AD Domain Services inschakelen.
+> **Vereiste machtigingen voor het uitvoeren van dit script** voor Azure AD Domain Services hebt ingeschakeld, moet u de globale beheerder voor de Azure AD-directory. Daarnaast moet u ten minste bevoegdheden "Bijdrager" op het virtuele netwerk waarin Azure AD Domain Services inschakelen.
 >
 
 ```powershell
@@ -221,14 +221,14 @@ New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGro
 ```
 
 > [!WARNING]
-> **Vergeet niet de aanvullende configuratiestappen die na het inrichten van uw beheerde domein.**
-> Nadat uw beheerde domein is geconfigureerd, moet u nog steeds de volgende taken uitvoeren:
-> * DNS-instellingen voor het virtuele netwerk bijwerken zodat virtuele machines het beheerde domein voor domein of de verificatie vinden kunnen.
-* Wachtwoordsynchronisatie met Azure AD Domain Services inschakelen zodat eindgebruikers kunnen aanmelden bij het beheerde domein met hun bedrijfsreferenties.
+> **Vergeet niet de aanvullende configuratiestappen na het inrichten van uw beheerde domein.**
+> Nadat uw beheerde domein is ingericht, moet u nog steeds de volgende taken uitvoeren:
+> * Werk de DNS-instellingen voor het virtuele netwerk, zodat virtuele machines het beheerde domein voor het lid van domein of verificatie vindt.
+* Wachtwoordsynchronisatie met Azure AD Domain Services inschakelen, zodat eindgebruikers kan aanmelden bij het beheerde domein met hun bedrijfsreferenties.
 >
 
 ## <a name="next-steps"></a>Volgende stappen
-Nadat uw beheerde domein is gemaakt, voer de volgende configuratietaken zodat u het beheerde domein kunt gebruiken:
+Nadat uw beheerde domein is gemaakt, de volgende configuratietaken uitvoeren, zodat u het beheerde domein kan gebruiken:
 
-* [Bijwerken van de DNS-serverinstellingen voor het virtuele netwerk om te verwijzen naar uw beheerde domein](active-directory-ds-getting-started-dns.md)
+* [De DNS-serverinstellingen voor het virtuele netwerk om te verwijzen naar uw beheerde domein bijwerken](active-directory-ds-getting-started-dns.md)
 * [Wachtwoordsynchronisatie inschakelen voor uw beheerde domein](active-directory-ds-getting-started-password-sync.md)

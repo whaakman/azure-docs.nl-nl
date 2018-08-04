@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/02/2018
+ms.date: 08/03/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: fa1d86bade0981a000d9310c4734b1e93d50944d
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 96feb52bd5702c899faa8d845969ae8ba0995504
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480860"
+ms.locfileid: "39495353"
 ---
 # <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Gegevens verzamelen in een hybride omgeving met Log Analytics-agent
 
@@ -38,7 +38,7 @@ Computers die worden gehost in uw omgeving kunnen rechtstreeks worden verbonden 
 
 Voordat u analyseren en uitvoeren van de verzamelde gegevens, moet u eerst installeren en verbinden-agents voor alle computers die u wilt gegevens verzenden naar de Log Analytics-service. U kunt agents installeren op uw on-premises computers met Setup, vanaf de opdrachtregel, of met Desired State Configuration (DSC) in Azure Automation. 
 
-De agent voor Linux en Windows uitgaande met de Log Analytics-service communiceert via TCP-poort 443, en als de computer verbinding maakt met een firewall of proxy-server om te communiceren via Internet, raadpleegt u [de sectie vereisten](#prerequisites) naar Krijg inzicht in de vereiste netwerkconfiguratie.  Als uw IT-beveiligingsbeleid computers op het netwerk verbinding maken met het Internet niet toestaan, kunt u instellen een [OMS-Gateway](log-analytics-oms-gateway.md) en configureer vervolgens de agent verbinding maken via de gateway naar Log Analytics. De agent vervolgens configuratie-informatie ontvangen en verzenden van gegevens die zijn verzameld, afhankelijk van welke regels voor het verzamelen van gegevens en de oplossingen die u hebt ingeschakeld. 
+De agent voor Linux en Windows uitgaande met de Log Analytics-service communiceert via TCP-poort 443, en als de computer verbinding maakt met een firewall of proxy-server om te communiceren via Internet, raadpleegt u onderstaande voorwaarden om te begrijpen van de netwerkconfiguratie Vereist.  Als uw IT-beveiligingsbeleid niet computers op het netwerk verbinding maken met Internet toestaat, kunt u instellen een [OMS-Gateway](log-analytics-oms-gateway.md) en configureer vervolgens de agent verbinding maken via de gateway naar Log Analytics. De agent vervolgens configuratie-informatie ontvangen en verzenden van gegevens die zijn verzameld, afhankelijk van welke regels voor het verzamelen van gegevens en de oplossingen die u hebt ingeschakeld. 
 
 Als u de computer met System Center Operations Manager 2012 R2 of hoger worden bewaakt, kan zijn bij de Log Analytics-service voor het verzamelen van gegevens en door te sturen naar de service en nog steeds worden bewaakt door multihomed [Operations Manager](log-analytics-om-agents.md). Linux-computers bewaakt door een Operations Manager-beheergroep is geïntegreerd met Log Analytics wordt geen configuratie voor gegevensbronnen en vooruit verzamelde gegevens via de beheergroep. De Windows-agent kan rapporteren dat maximaal vier werkruimten, terwijl de Linux-agent biedt alleen ondersteuning voor rapportage aan één werkruimte.  
 
@@ -79,7 +79,7 @@ Als u van plan bent de Hybrid Runbook Worker voor Azure Automation gebruiken om 
 
 De Windows- en Linux-agent ondersteunt communiceren via een proxyserver of de OMS-Gateway bij de Log Analytics-service met behulp van het HTTPS-protocol.  Zowel eenvoudige als anonieme verificatie (gebruikersnaam en wachtwoord) worden ondersteund.  Voor de Windows-agent rechtstreeks verbonden met de service, de configuratie van de proxy is opgegeven tijdens de installatie of [na de implementatie](log-analytics-agent-manage.md#update-proxy-settings) via het Configuratiescherm of met PowerShell.  
 
-Voor de Linux-agent de proxyserver wordt opgegeven tijdens de installatie of [na de installatie](/log-analytics-agent-manage.md#update-proxy-settings) door het wijzigen van het configuratiebestand proxy.conf.  Waarde voor de Linux-agent proxyconfiguratie heeft de volgende syntaxis:
+Voor de Linux-agent de proxyserver wordt opgegeven tijdens de installatie of [na de installatie](log-analytics-agent-manage.md#update-proxy-settings) door het wijzigen van het configuratiebestand proxy.conf.  Waarde voor de Linux-agent proxyconfiguratie heeft de volgende syntaxis:
 
 `[protocol://][user:password@]proxyhost[:port]`
 
@@ -89,7 +89,7 @@ Voor de Linux-agent de proxyserver wordt opgegeven tijdens de installatie of [na
 |Eigenschap| Beschrijving |
 |--------|-------------|
 |Protocol | https |
-|Gebruiker | Optioneel de gebruikersnaam voor proxy-verificatie |
+|gebruiker | Optioneel de gebruikersnaam voor proxy-verificatie |
 |wachtwoord | Optionele wachtwoord voor proxy-verificatie |
 |proxyhost | Adres of FQDN-naam van de proxy-server/OMS-Gateway |
 |poort | Optionele poortnummer voor de proxy-server/OMS-Gateway |
@@ -102,7 +102,7 @@ Bijvoorbeeld: `https://user01:password@proxy01.contoso.com:30443`
 ## <a name="install-and-configure-agent"></a>Agent installeren en configureren 
 Verbinden van uw on-premises computers rechtstreeks met Log Analytics kan worden bewerkstelligd met verschillende methoden, afhankelijk van uw vereisten. De volgende tabel ziet u elke methode om te bepalen welke het beste werkt in uw organisatie.
 
-|Bron | Methode | Beschrijving|
+|Bron | Wijze | Beschrijving|
 |-------|-------------|-------------|
 | Windows-computer|- [Handmatige installatie](log-analytics-agent-windows.md)<br>- [Azure Automation DSC](log-analytics-agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Resource Manager-sjabloon met Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |De Microsoft Monitoring agent installeren vanaf de opdrachtregel of met behulp van een geautomatiseerde methode, zoals Azure Automation DSC, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), of met een Azure Resource Manager-sjabloon als u Microsoft hebt geïmplementeerd Azure Stack in uw datacenter.| 
 |Linux-computer| [Handmatige installatie](log-analytics-quick-collect-linux-computer.md)|Installeer de agent voor Linux aanroepen van een wrapper-scripts die worden gehost op GitHub. | 

@@ -4,7 +4,7 @@ description: Informatie over welke talen worden ondersteund (GA) en die zijn exp
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 ms.service: functions
@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/07/2017
+ms.date: 08/02/2018
 ms.author: glenga
-ms.openlocfilehash: 00f291e903948bf43bc997816b6072186cf1f889
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 2de2ebdea41ca35e853b37ab804e516eb7f4df9f
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343080"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39494445"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Ondersteunde talen in Azure Functions
 
@@ -41,13 +41,13 @@ Er zijn drie niveaus van ondersteuning:
 
 ### <a name="experimental-languages"></a>Experimentele talen
 
-De experimentele talen in 1.x niet goed schalen en bieden geen ondersteuning voor alle bindingen. Bijvoorbeeld: Python is traag, omdat de Functions-runtime wordt uitgevoerd *python.exe* bij elke functieaanroep. En hoewel Python HTTP-bindingen ondersteunt, heeft geen toegang tot het request-object.
+De experimentele talen in versie 1.x niet goed worden geschaald en bieden geen ondersteuning voor alle bindingen. Bijvoorbeeld: Python is traag, omdat de Functions-runtime wordt uitgevoerd *python.exe* bij elke functieaanroep. En hoewel Python HTTP-bindingen ondersteunt, heeft geen toegang tot het request-object.
 
-Experimentele ondersteuning voor PowerShell is beperkt tot versie 4.0 omdat die wordt geïnstalleerd op de virtuele machines die op functie-apps worden uitgevoerd. Als u uitvoeren van PowerShell-scripts wilt, kunt u overwegen [Azure Automation](https://azure.microsoft.com/services/automation/).
-
-De runtime 2.x biedt geen ondersteuning voor experimentele talen. In 2.x gebruikt, zullen we ondersteuning voor een taal alleen als het goed schaalt en ondersteunt geavanceerde triggers toevoegen.
+Experimentele ondersteuning voor PowerShell is beperkt tot versie 5.1, omdat dat is wat wordt standaard geïnstalleerd op de virtuele machines op welke functie-apps worden uitgevoerd. Als u uitvoeren van PowerShell-scripts wilt, kunt u overwegen [Azure Automation](https://azure.microsoft.com/services/automation/).
 
 Als u wilt een van de talen die alleen beschikbaar in 1.x zijn te gebruiken, blijven maken van de runtime 1.x. Maar experimentele talen niet worden gebruikt voor alles wat u afhankelijk zijn, omdat er geen officiële ondersteuning voor hen is. U kunt aanvragen kunnen hierbij helpen door [GitHub-problemen maken](https://github.com/Azure/azure-webjobs-sdk-script/issues), maar kwesties mogen niet worden geopend voor problemen met experimentele talen. 
+
+De runtime versie 2.x biedt geen ondersteuning voor experimentele talen. Ondersteuning voor nieuwe talen wordt toegevoegd wanneer de taal kan worden ondersteund in de productieomgeving. 
 
 ### <a name="language-extensibility"></a>Taal-uitbreidbaarheid
 

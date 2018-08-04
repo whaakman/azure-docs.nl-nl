@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: aljo
-ms.openlocfilehash: e963b0f816d30411aa7d1e8c172ca0c2e5ddf0f1
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: cad98954c89c37e57d44abf2af54e903a1b4a740
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444358"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504920"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Een Service Fabric-cluster maken met behulp van Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ Het concept van het maken van beveiligde clusters is hetzelfde, ongeacht of ze L
 Een willekeurig aantal extra certificaten kan worden opgegeven voor de beheerder of gebruiker clientbewerkingen. Het clustercertificaat heeft standaard beheerdersbevoegdheden voor de client. Deze aanvullende clientcertificaten mag niet worden geïnstalleerd in het cluster, maar moet worden opgegeven als wordt toegestaan in de configuratie van het cluster, maar ze nodig hebben om te worden geïnstalleerd op de clientcomputers verbinding maken met het cluster en alle beheertaken uitvoeren bewerkingen.
 
 
-## <a name="prerequisites"></a>Vereisten 
+## <a name="prerequisites"></a>Vereiste onderdelen 
 Het concept van het maken van beveiligde clusters is hetzelfde, ongeacht of ze Linux zijn of Windows-clusters. Deze handleiding bevat informatie over het gebruik van Azure PowerShell of Azure CLI om nieuwe clusters te maken. De vereisten zijn:
 
 -  [Azure PowerShell 4.1 en hoger] [ azure-powershell] of [Azure CLI 2.0 en hoger][azure-CLI].
@@ -694,7 +694,7 @@ Op dit moment hebt u een beveiligd cluster met Azure Active Directory bieden man
 [aad-graph-api-docs]:https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog
 [azure-portal]: https://portal.azure.com/
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
-[active-directory-howto-tenant]: ../active-directory/active-directory-howto-tenant.md
+[active-directory-howto-tenant]:../active-directory/develop/quickstart-create-new-tenant.md
 [service-fabric-visualizing-your-cluster]: service-fabric-visualizing-your-cluster.md
 [service-fabric-manage-application-in-visual-studio]: service-fabric-manage-application-in-visual-studio.md
 [sf-aad-ps-script-download]:http://servicefabricsdkstorage.blob.core.windows.net/publicrelease/MicrosoftAzureServiceFabric-AADHelpers.zip
