@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 9c45b428a6d2060243f1eba9a284c7eb1b1b21c0
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 9bcc73d262f4bc455c923fe0eb7c04c7cf090830
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259099"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505358"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Een integratieruntime in Azure Data Factory controleren  
 **Integratieruntime** is de rekeninfrastructuur die door Azure Data Factory wordt gebruikt voor verschillende mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen. Er zijn drie typen integration runtime die worden aangeboden door Data Factory:
@@ -87,7 +87,7 @@ De standaardwaarde van de gelijktijdige taken limiet is ingesteld, is afhankelij
 
 U schalen opwaarts door het aantal knooppunten te verhogen. Als u het aantal knooppunten verhoogt, wordt de limiet voor gelijktijdige taken is het de som van de waarden van de limiet voor gelijktijdige taak van alle beschikbare knooppunten.  Bijvoorbeeld, als één knooppunt u maximaal twaalf gelijktijdige taken uitvoeren kunt, kunt vervolgens drie meer lijken knooppunten toe te voegen u maximaal 48 gelijktijdige taken (dat wil zeggen, 4 x 12) worden uitgevoerd. Het is raadzaam om de limiet voor gelijktijdige taken te verhogen, alleen wanneer er brongebruik laag met de standaardwaarden op elk knooppunt.
 
-U kunt de waarde in de Azure-portal berekende standaard overschrijven. Selecteer Auteur > verbindingen > Integratieruntimes > Edi > knooppunten > gelijktijdige taak waarde per knooppunt wijzigen. U kunt ook de PowerShell [update azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/en-us/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) opdracht.
+U kunt de waarde in de Azure-portal berekende standaard overschrijven. Selecteer Auteur > verbindingen > Integratieruntimes > Bewerken > knooppunten > gelijktijdige taak waarde per knooppunt wijzigen. U kunt ook de PowerShell [update azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/en-us/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) opdracht.
   
 ### <a name="status-per-node"></a>Status (per knooppunt)
 De volgende tabel bevat de mogelijke statussen van een zelf-hostende integration runtime-knooppunt:

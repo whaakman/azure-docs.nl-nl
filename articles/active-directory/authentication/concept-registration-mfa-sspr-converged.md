@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: a0fec9743cd213d0d41d9143a2b1e9e1c3db9967
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d6915ce659d96021d4185be3818919fcfb9d4371
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447958"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492889"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Geconvergeerde registratie voor self-service voor wachtwoord opnieuw instellen en Azure multi-factor Authentication (openbare preview)
 
@@ -39,7 +39,7 @@ Gebruikers kunnen nu gaat u naar [ https://aka.ms/setupsecurityinfo ](https://ak
 > [!NOTE]
 > Nadat u deze ervaring, gebruikers die registreren of bevestigen hun telefoonnummer in- of mobiele app via de nieuwe ervaring de mogelijkheid om ze te gebruiken voor MFA en SSPR, hebben als deze methoden zijn ingeschakeld in het beleid voor MFA en Self-service voor Wachtwoordherstel. Als u deze vervolgens uitschakelt, moeten de gebruikers die gaat u naar de vorige pagina van de registratie van SSPR op aka.ms/ssprsetup om uit te voeren MFA voordat ze krijgen de pagina tot toegang.  
 
-## <a name="how-it-works"></a>Hoe werkt het?
+## <a name="how-it-works"></a>Hoe alles werkt
 
 Als een gebruiker heeft eerder verificatiemethoden via de afzonderlijke registratie ervaringen van MFA en SSPR geregistreerd, hoeft ze niet te registreren die gegevens opnieuw. Echter, als de instellingen vereisen gebruikers dat zich registreren voor MFA of SSPR, zien zij mogelijk een prompt om hun beveiligingsgegevens te controleren tijdens het aanmelden.
 
@@ -71,10 +71,12 @@ Auditlogboeken voor deze nieuwe ervaring bestaan onder de categorie verificatiem
 ## <a name="known-issues"></a>Bekende problemen
 
 **Standaardmethode voor MFA is ingesteld op telefonische oproep wanneer gebruiker registreert telefoon met SMS-bericht**
-   * Sommige gebruikers is het mogelijk dat de standaardmethode voor MFA is ingesteld op telefonische oproep nadat ze hun telefoonnummer met behulp van de SMS-bericht hebt geregistreerd. Gebruikers kunnen dit probleem oplossen door het veranderen van de standaard-methode door deze instructies te volgen. 
+
+   * Sommige gebruikers is het mogelijk dat de standaardmethode voor MFA is ingesteld op telefonische oproep nadat ze hun telefoonnummer met behulp van de SMS-bericht hebt geregistreerd. Gebruikers kunnen dit probleem oplossen door het veranderen van de standaard-methode door de instructies in het artikel te volgen [beheren van je beveiligingsgegevens (preview)](../user-help/security-info-manage-settings.md#change-your-info).
 
 **Geen toegang tot de nieuwe ervaring voor inschrijving nadat de beheerder schakelt de standaardmethode voor gebruiker**
-   * Sommige gebruikers mogelijk geen toegang kunnen krijgen tot de nieuwe ervaring voor inschrijving als de eerder geregistreerde standaard MFA-methode is uitgeschakeld door de beheerder. Hier volgt een voorbeeldscenario: 
+
+   * Sommige gebruikers mogelijk geen toegang kunnen krijgen tot de nieuwe ervaring voor inschrijving als de eerder geregistreerde standaard MFA-methode is uitgeschakeld door de beheerder. Hier volgt een voorbeeldscenario:
       1. Gebruiker eerder ingeschreven hun telefoonnummer en hun standaardmethode ingesteld op telefonische oproep.
       2. Beheerder schakelt telefoonoproep als een MFA-methode voor de tenant.
       3. Gebruiker wordt gevraagd om u te registreren tijdens het aanmelden, omdat ze nodig hebben voor het registreren van een aanvullende methode om te voldoen aan de tenant SSPR-beleid.

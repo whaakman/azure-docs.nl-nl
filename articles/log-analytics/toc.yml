@@ -9,9 +9,9 @@
   items:
     - name: Verzamelen - Azure-VM's
       href: log-analytics-quick-collect-azurevm.md
-    - name: Verzamelen - Linux-computer
+    - name: Verzamelen - Hybride Linux-computer
       href: log-analytics-quick-collect-linux-computer.md
-    - name: Verzamelen - Windows-computer
+    - name: Verzamelen - Hybride Windows-computer
       href: log-analytics-quick-collect-windows-computer.md
 - name: Zelfstudies
   items:

@@ -8,12 +8,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: panosper
-ms.openlocfilehash: 3ec5fede8b4e196a2f7573b4c2f202d589a55f32
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 5179f0a81ea67c1b20e9cbf77e18595e0b4bafa4
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282665"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39495278"
 ---
 # <a name="speech-scenarios"></a>Spraakscenario's
 
@@ -31,7 +31,7 @@ Veel gebruikers wilt inschakelen spraakinvoer in op hun toepassingen. Spraakinvo
 
 ### <a name="voice-triggered-apps-with-baseline-models"></a>Stem geactiveerd Apps met basislijn-modellen
 
-Als uw app wordt gebruikt om te worden gebruikt door het grote publiek in omgevingen waar de achtergrondgeluiden niet overmatig is, de eenvoudigste en snelste manier om dit te doen gewoon worden downloaden van onze [spraak SDK](speech-sdk.md) en de relevante [ Voorbeelden](quickstart-csharp-dotnet-windows.md). De SDK mogelijk gemaakt door uw [Azure-abonnementssleutel](https://azure.microsoft.com/try/cognitive-services/) biedt ontwikkelaars de mogelijkheid voor het uploaden van audio naar basislijn erkenning spraakmodellen die ten grondslag Cortana en Skype. De mdoels van moderne, en worden gebruikt door de hiervoor genoemde producten. U kunt binnen een paar minuten aan de slag gaan.
+Als uw app wordt gebruikt om te worden gebruikt door het grote publiek in omgevingen waar de achtergrondgeluiden niet overmatig is, de eenvoudigste en snelste manier om dit te doen gewoon worden downloaden van onze [spraak SDK](speech-sdk.md) en de relevante [ Voorbeelden](quickstart-csharp-dotnet-windows.md). De SDK mogelijk gemaakt door uw [Azure-abonnementssleutel](https://azure.microsoft.com/try/cognitive-services/) biedt ontwikkelaars de mogelijkheid voor het uploaden van audio naar basislijn erkenning spraakmodellen die ten grondslag Cortana en Skype. De modellen van moderne, en worden gebruikt door de hiervoor genoemde producten. U kunt binnen een paar minuten aan de slag gaan.
 
 ### <a name="voice-triggered-apps-with-custom-models"></a>Stem geactiveerd Apps met aangepaste modellen
 
@@ -55,7 +55,7 @@ Als u van plan bent te gebruiken van een aangepast model, klikt u vervolgens moe
 
 ## <a name="voice-bots"></a>Stem Bots
 
-Geef ontwikkelaars middelen hun toepassing met voice-uitvoer. De Spraakservice kunnen synthetize spraak voor een aantal [talen](supported-languages.md) en biedt de [eindpunten](rest-apis.md) voor het raadplegen en die mogelijkheid toe te voegen aan uw app.
+Ontwikkelaars kunnen hun toepassingen met spraak uitvoer maken. De Spraakservice kunnen synthetize spraak voor een aantal [talen](supported-languages.md) en biedt de [eindpunten](rest-apis.md) voor het raadplegen en die mogelijkheid toe te voegen aan uw app.
 
 Bovendien kunnen de Speech-Service voor gebruikers die u wilt meer herkenbaarheid en uniekheid toevoegen aan hun bots, ontwikkelaars een unieke spraakstijl aanpassen. Vergelijkbaar met het aanpassen van spraakherkenning modellen spraakstijlen vereisen gebruikersgegevens. Ontwikkelaars zijn geüpload dat de gegevens in onze [stem aanpassing van woordenlijsten portal](https://customspeech.ai) en bouw uw unieke merk van stem voor uw bot. Details worden beschreven [hier](how-to-text-to-speech.md) , evenals de [Veelgestelde vragen over](faq-text-to-speech.md) pagina's 
 

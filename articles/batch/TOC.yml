@@ -91,8 +91,6 @@
           href: batch-task-dependencies.md
         - name: Gebruikersaccounts voor het uitvoeren van taken
           href: batch-user-accounts.md
-        - name: Batch-taken zonder code uitvoeren
-          href: batch-cli-templates.md
     - name: Taken persistent maken
       href: batch-task-output.md
       items:
@@ -123,10 +121,13 @@
           href: batch-efficient-list-queries.md
     - name: Scripthulpprogramma's gebruiken
       items:
-        - name: PowerShell-cmdlets gebruiken
+        - name: Azure PowerShell gebruiken
           href: batch-powershell-cmdlets-get-started.md
         - name: Azure CLI gebruiken
           href: batch-cli-get-started.md
+          items:
+            - name: Batch CLI-sjablonen gebruiken
+              href: batch-cli-templates.md
     - name: Batch Node.js-SDK gebruiken
       href: batch-nodejs-get-started.md
 - name: Naslaginformatie

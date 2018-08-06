@@ -187,6 +187,8 @@
               href: service-fabric-dnsservice.md
             - name: Omgekeerde proxy
               href: service-fabric-reverseproxy.md
+            - name: Omgekeerde proxy instellen en configureren
+              href: service-fabric-reverseproxy-setup.md
             - name: Omgekeerde proxy voor veilige communicatie configureren
               href: service-fabric-reverseproxy-configure-secure-communication.md
             - name: Diagnostische gegevens voor omgekeerde proxy

@@ -177,8 +177,6 @@
           href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
     - name: Virtuele machines beheren
       items:
-        - name: Vooruitbetalen voor virtuele machines - gereserveerde instanties
-          href: prepay-reserved-vm-instances.md
         - name: VM-gebruik
           href: vm-usage.md
         - name: Algemene PowerShell-taken
@@ -216,6 +214,14 @@
           href: instance-metadata-service.md
         - name: Geneste virtualisatie inschakelen
           href: nested-virtualization.md
+    - name: Kosten beheren
+      items:
+        - name: Vooruitbetalen voor virtuele machines - gereserveerde instanties
+          href: prepay-reserved-vm-instances.md
+        - name: Wat zijn gereserveerde instanties?
+          href: ../../billing/billing-save-compute-costs-reservations.md
+        - name: Flexibiliteit van de VM-instantiegrootte
+          href: reserved-vm-instance-size-flexibility.md
     - name: Installatiekopieën gebruiken
       items:
         - name: Installatiekopieën zoeken en gebruiken

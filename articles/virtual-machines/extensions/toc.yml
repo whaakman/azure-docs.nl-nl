@@ -38,7 +38,9 @@
           href: custom-script-windows.md
         - name: Azure Service Management (klassiek)
           href: custom-script-classic.md
-    - name: Diagnostiek
+    - name: IaaS-antimalware voor Windows
+      href: iaas-antimalware-windows.md
+    - name: VM-momentopname
       items:
         - name: Linux
           href: vmsnapshot-linux.md
@@ -75,7 +77,7 @@
           href: dsc-template.md
     - name: Toegang tot virtuele machines
       href: vmaccess.md
-    - name: Diagnostische gegevens van de virtuele machine
+    - name: Diagnostische gegevens van virtuele machines
       items:
         - name: Linux
           href: diagnostics-linux.md
