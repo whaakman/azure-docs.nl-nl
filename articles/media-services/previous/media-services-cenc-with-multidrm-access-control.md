@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2018
 ms.author: willzhan;kilroyh;yanmf;juliako
-ms.openlocfilehash: f2e2dd59d7fc58fa0c275fb44cbab1958a5637b0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c125d5a741331d5c9476da23766057ac0c42cdbf
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443946"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493724"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Ontwerp van een systeem van de beveiliging van inhoud met toegangsbeheer met Azure Media Services
 
@@ -154,7 +154,7 @@ De volgende tabel ziet u de toewijzing.
 | **Levering van DRM-licentie** |* Media Services-licentie leveringsmethode (PlayReady, Widevine, FairPlay) <br/>* Axinom licentieserver <br/>* Aangepaste PlayReady-licentieserver |
 | **Oorsprong** |Media Services streaming-eindpunt |
 | **Sleutelbeheer** |Niet nodig voor de referentie-implementatie |
-| **Inhoudsbeheer** |Een C#-consoletoepassing |
+| **Inhoudbeheer** |Een C#-consoletoepassing |
 
 Met andere woorden, worden zowel de id-provider en de STS gebruikt met Azure AD. De [API van Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/) wordt gebruikt voor de speler. Ondersteunen zowel Media Services en Media Player DASH en CENC met multi-DRM.
 
@@ -214,10 +214,10 @@ Implementatie omvat de volgende stappen uit:
 
     | **DRM** | **Browser** | **Resultaat van de gebruiker heeft het recht** | **Resultaat van unentitled gebruiker** |
     | --- | --- | --- | --- |
-    | **PlayReady** |Microsoft Edge of Internet Explorer 11 op Windows 10 |Voltooid |Mislukt |
-    | **Widevine** |Chrome, Firefox, Opera |Voltooid |Mislukt |
-    | **FairPlay** |Safari op Mac OS      |Voltooid |Mislukt |
-    | **AES-128** |De meeste moderne browsers  |Voltooid |Mislukt |
+    | **PlayReady** |Microsoft Edge of Internet Explorer 11 op Windows 10 |Geslaagd |Mislukt |
+    | **Widevine** |Chrome, Firefox, Opera |Geslaagd |Mislukt |
+    | **FairPlay** |Safari op Mac OS      |Geslaagd |Mislukt |
+    | **AES-128** |De meeste moderne browsers  |Geslaagd |Mislukt |
 
 Zie voor meer informatie over het instellen van Azure AD voor een ASP.NET MVC-app-speler [een op basis van een Azure Media Services OWIN MVC-app integreren met Azure Active Directory en beperken de levering van inhoud sleutel op basis van claims JWT](http://gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
@@ -312,9 +312,9 @@ Wat gebeurt er als de rollover van ondertekeningssleutel gebeurt nadat genereert
 Omdat een sleutel kan op elk moment worden vernieuwd, is meer dan één geldige openbare sleutel altijd beschikbaar zijn in het document met federatieve metagegevens. Levering van Media Services-licentie kunt u elk van de sleutels die zijn opgegeven in het document. Omdat één sleutel kan snel worden geïmplementeerd, mogelijk een andere de vervanging ervan en enzovoorts bedekt.
 
 ### <a name="where-is-the-access-token"></a>Waar is het toegangstoken?
-Als u kijken hoe een web-app roept een API-app onder [toepassings-id met OAuth 2.0-clientreferenties](../../active-directory/develop/active-directory-authentication-scenarios.md#web-application-to-web-api), de verificatie-stroom is als volgt:
+Als u kijken hoe een web-app roept een API-app onder [toepassings-id met OAuth 2.0-clientreferenties](../../active-directory/develop/authentication-scenarios.md#web-application-to-web-api), de verificatie-stroom is als volgt:
 
-* Een gebruiker zich aanmeldt bij Azure AD in de web-App. Zie voor meer informatie, [webbrowser webtoepassing](../../active-directory/develop/active-directory-authentication-scenarios.md#web-browser-to-web-application).
+* Een gebruiker zich aanmeldt bij Azure AD in de web-App. Zie voor meer informatie, [webbrowser webtoepassing](../../active-directory/develop/authentication-scenarios.md#web-browser-to-web-application).
 * Het Azure AD-autorisatie-eindpunt leidt de gebruikersagent terug naar de clienttoepassing met een autorisatiecode. De gebruikersagent retourneert de autorisatiecode op de clienttoepassing omleidings-URI.
 * De web-App moet een toegangstoken verkrijgen, zodat het kan worden geverifieerd bij de web-API en opvragen van de gewenste resource. Het maakt een aanvraag voor het eindpunt van de Azure AD-token en voorziet in de referentie, client-ID en de web-API-toepassing-ID-URI. Deze geeft de autorisatiecode om te bewijzen dat de gebruiker heeft ingestemd.
 * Azure AD verifieert de toepassing en retourneert een JWT-toegangstoken dat wordt gebruikt voor de web-API aanroepen.
@@ -461,7 +461,7 @@ De volgende schermafbeelding ziet u een scenario waarin een asymmetrische sleute
 
 In beide van de vorige gevallen wordt blijft verificatie van de gebruiker hetzelfde. Dit vindt plaats via Azure AD. Het enige verschil is dat JWTs zijn uitgegeven door de aangepaste STS in plaats van Azure AD. Wanneer u dynamische CENC beveiliging configureert, is de beperking license delivery service Hiermee geeft u het type JWT, een symmetrische of een asymmetrische sleutel.
 
-## <a name="summary"></a>Samenvatting
+## <a name="summary"></a>Overzicht
 Dit document besproken CENC met multi systeemeigen DRM en toegangsbeheer via tokenverificatie, het ontwerp en de implementatie met behulp van Azure Media Services en Media Player.
 
 * Een referentieontwerp werd weergegeven met alle vereiste onderdelen in een subsysteem DRM/CENC.
