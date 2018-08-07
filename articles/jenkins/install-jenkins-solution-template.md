@@ -1,21 +1,19 @@
 ---
 title: Een Jenkins-server maken in Azure
 description: Op basis van de sjabloon voor de Jenkins-oplossing een virtuele Linux-machine van Azure installeren en een Java-voorbeeldtoepassing bouwen.
-author: tomarcher
-manager: rloutlaw
-ms.service: multiple
-ms.workload: web
-ms.devlang: na
-ms.topic: article
-ms.date: 03/12/2018
+ms.topic: quickstart
 ms.author: tarcher
-ms.custom: Jenkins
-ms.openlocfilehash: c9f86ab2536d3c598bb8c7084524395b41f18db0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: MT
+author: tomarcher
+manager: jpconnock
+ms.service: devops
+ms.custom: jenkins
+ms.date: 07/31/2018
+ms.openlocfilehash: af1082d9b7b350f1845d6c8e22108b9238a40f28
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635455"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390425"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Vanuit Azure Portal een Jenkins-server maken op een Azure-VM met Linux
 
@@ -29,13 +27,13 @@ Deze Quick Start laat zien hoe u [Jenkins](https://jenkins.io) installeert op ee
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-jenkins-vm-from-the-solution-template"></a>De virtuele machine met Jenkins maken van de oplossingssjabloon
-Jenkins biedt ondersteuning voor een model waarin de Jenkins server gemachtigden aan een of meer agents om toe te staan een enkele Jenkins-installatie werken voor het hosten van een groot aantal projecten of voor verschillende omgevingen die nodig zijn voor builds of gecontroleerd. De stappen in deze sectie helpt u bij het installeren en configureren van een Jenkins-server op Azure.
+Jenkins biedt ondersteuning voor een model waarin de Jenkins-server werk delegeert aan een of meer agents, zodat een enkele Jenkins-installatie een groot aantal projecten kan hosten of verschillende omgevingen kan leveren die nodig zijn voor maakacties of het uitvoeren van tests. De stappen in deze sectie helpen u bij het installeren en configureren van een Jenkins-server op Azure.
 
 [!INCLUDE [jenkins-install-from-azure-marketplace-image](../../includes/jenkins-install-from-azure-marketplace-image.md)]
 
 ## <a name="connect-to-jenkins"></a>Verbinding maken met Jenkins
 
-Navigeer naar uw virtuele machine (bijvoorbeeld http://jenkins2517454.eastus.cloudapp.azure.com/) in uw webbrowser. De Jenkins-console is niet toegankelijk via onbeveiligde HTTP. Om die reden bevat de pagina instructies om de console veilig vanaf uw computer te gebruiken via een SSH-tunnel.
+Navigeer in uw webbrowser naar uw virtuele machine (bijvoorbeeld http://jenkins2517454.eastus.cloudapp.azure.com/). De Jenkins-console is niet toegankelijk via onbeveiligde HTTP. Om die reden bevat de pagina instructies om de console veilig vanaf uw computer te gebruiken via een SSH-tunnel.
 
 ![Jenkins ontgrendelen](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 
@@ -88,6 +86,10 @@ Selecteer **Build Now** om de code te compileren en een pakket te maken van de v
 ![Bladeren naar de werkruimte om het JAR-bestand van de build te zoeken](./media/install-jenkins-solution-template/jenkins-access-workspace.png) 
 
 Navigeer naar `complete/build/libs` en controleer of u daar het bestand `gs-spring-boot-0.1.0.jar` ziet, zodat u weet dat de build is gelukt. De Jenkins-server is nu gereed voor het bouwen van uw eigen projecten in Azure.
+
+## <a name="troubleshooting-the-jenkins-solution-template"></a>Het oplossen van problemen met de Jenkins-oplossingssjabloon
+
+Als er zich fouten voordoen met de Jenkins-oplossingssjabloon, dient u een probleem in de [GitHub-opslagplaats van Jenkins ](https://github.com/azure/jenkins/issues) te rapporteren.
 
 ## <a name="next-steps"></a>Volgende stappen
 

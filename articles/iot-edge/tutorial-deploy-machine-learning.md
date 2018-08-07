@@ -1,6 +1,6 @@
 ---
 title: Azure Machine Learning implementeren met Azure IoT Edge | Microsoft Docs
-description: Azure Machine Learning implementeren als module op een Edge-apparaat
+description: In deze zelfstudie implementeert u Azure Machine Learning als een module op een Edge-apparaat
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 62ca816f7bdc183727eb22806ba9e733c8b97c44
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: a1b34fe75f76d5f615ab33069f3012f22dc7ef2e
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173502"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413070"
 ---
-# <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Azure Machine Learning als een IoT Edge-module implementeren - preview
+# <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Zelfstudie: Azure Machine Learning implementeren als een IoT Edge-module (preview)
 
 U kunt IoT Edge-modules gebruiken voor het implementeren van code die uw bedrijfslogica rechtstreeks op uw IoT Edge-apparaten implementeert. Deze zelfstudie laat u stapsgewijs zien hoe u een Azure Machine Learning-module kunt implementeren waarmee wordt voorspeld wanneer een apparaat mislukt op basis van gesimuleerde machinetemperatuurgegevens. Zie [Documentatie voor Azure Machine Learning](../machine-learning/desktop-workbench/use-azure-iot-edge-ai-toolkit.md) voor meer informatie over Azure ML op IoT Edge.
 
@@ -33,15 +33,23 @@ In deze zelfstudie leert u het volgende:
 >[!NOTE]
 >Azure Machine Learning-modules in Azure IoT Edge zijn in de openbare preview. 
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+
 ## <a name="prerequisites"></a>Vereisten
 
-U hebt een IoT Edge-apparaat nodig om de Machine Learning-module te testen die u in deze zelfstudie bouwt. U kunt het apparaat gebruiken dat u hebt geconfigureerd in de snelstart voor [Linux-](quickstart-linux.md) of [Windows-apparaten](quickstart.md). 
+Een Azure IoT Edge-apparaat:
 
-De Azure Machine Learning-module ondersteunt geen ARM-processoren.
+* U kunt uw ontwikkelcomputer of een virtuele machine gebruiken als een Edge-apparaat door de stappen te volgen in de snelstart voor [Linux-](quickstart-linux.md) of [Windows-apparaten](quickstart.md).
+* De Azure Machine Learning-module ondersteunt geen ARM-processoren.
 
-Zorg dat de volgende vereisten aanwezig zijn op de ontwikkelcomputer: 
+Cloudresources:
+
+* Een standaard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-laag in Azure. 
+
+Ontwikkelingsresources:
 * Een Azure Machine Learning-account. Volg de instructies in [Azure Machine Learning-accounts maken en Azure Machine Learning Workbench installeren](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). U hoeft de workbench-toepassing niet te installeren voor deze zelfstudie. 
-* Modelbeheer voor Azure ML op uw apparaat. Volg de instructies in [Model management setup](../machine-learning/desktop-workbench/deployment-setup-configuration.md) om uw omgeving in te stellen en een account te maken. Tijdens de installatie van de implementatie wordt aanbevolen waar mogelijk de lokale stappen in plaats van cluster te kiezen.
+* Modelbeheer voor Azure ML. Volg de instructies in [Model management setup](../machine-learning/desktop-workbench/deployment-setup-configuration.md) om uw omgeving in te stellen en een account te maken. Tijdens de installatie van de implementatie wordt aanbevolen waar mogelijk de lokale stappen in plaats van cluster te kiezen.
 
 ### <a name="disable-process-identification"></a>Procesidentificatie uitschakelen
 
@@ -108,7 +116,7 @@ Controleer of de containerinstallatiekopie is gemaakt en opgeslagen in het Azure
 4. Kopieer **Aanmeldingsserver**, **Gebruikersnaam** en **Wachtwoord**.  Deze hebt u nodig om het register van uw Edge-apparaten te openen.
 5. Selecteer **Opslagplaatsen**
 6. Selecteer **machinelearningmodule**
-7. U hebt nu het volledige pad van de installatiekopie van de container. Noteer dit pad voor de volgende sectie. Het zou er als volgt uit moeten zien: **<registry_name>.azureacr.io/machinelearningmodule:1**
+7. U hebt nu het volledige pad van de installatiekopie van de container. Noteer dit pad voor de volgende sectie. Het zou er als volgt uit moeten zien: **<registry_name>.azurecr.io/machinelearningmodule:1**
 
 ## <a name="deploy-to-your-device"></a>Uw apparaat implementeren
 

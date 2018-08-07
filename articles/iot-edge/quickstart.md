@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 19fd671514da0dbfb1704c37d4347e870763d41b
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 1437c3552a7af5d5474cf3bdaabe95d5415af603
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091810"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39414208"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snelstart: Uw eerste IoT Edge-module van Azure Portal naar een Windows-apparaat implementeren - preview
 
@@ -36,18 +36,6 @@ De module die u in deze snelstart implementeert, is een gesimuleerde sensor waar
 
 Als u nog geen actief abonnement op Azure hebt, maakt u een [gratis Azure-account][lnk-account] aan voordat u begint.
 
-## <a name="prerequisites"></a>Vereisten
-
-Deze snelstart verandert uw Windows-computer of virtuele machine in een IoT Edge-apparaat. Als u Windows uitvoert op een virtuele machine, schakelt u [geneste virtualisatie][lnk-nested] in en moet u ten minste 2 GB geheugen toewijzen. 
-
-Zorg dat de volgende vereisten klaarstaan op de computer die u gebruikt voor een IoT Edge-apparaat:
-
-1. Zorg ervoor dat u een ondersteunde versie van Windows gebruikt:
-   * Windows 10 of hoger
-   * Windows Server 2016 of hoger
-2. Installeer [Docker voor Windows][lnk-docker] en contoleer of deze wordt uitgevoerd.
-3. Configureer Docker voor het gebruiken van [Linux-containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
-
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 U gebruikt de Azure CLI om veel van de stappen in deze snelstart uit te voeren, en Azure IoT heeft een extensie om extra functionaliteit in te schakelen. 
@@ -58,24 +46,40 @@ Voeg de Azure IoT-extensie toe aan het exemplaar van Cloud Shell.
    az extension add --name azure-cli-iot-ext
    ```
 
-## <a name="create-an-iot-hub"></a>Een IoT Hub maken
+## <a name="prerequisites"></a>Vereisten
 
-Begin met de snelstart door uw IoT Hub in Azure Portal te maken.
-![IoT Hub maken][3]
+Cloudresources: 
 
-Het gratis niveau van IoT Hub werkt voor deze snelstart. Als u in het verleden IoT Hub hebt gebruikt en al een gratis hub hebt gemaakt, kunt u die IoT-hub gebruiken. Elk abonnement biedt toegang tot slechts één gratis IoT-hub. 
-
-1. Maak een resourcegroep in Azure Cloud Shell. In het volgende voorbeeld wordt een resourcegroep met de naam **IoTEdgeResources** gemaakt in de regio **US - west**. Door alle resources voor de snelstarts en zelfstudies in een groep te plaatsen, kunt u ze samen beheren. 
+* Een resourcegroep voor het beheren van alle resources die u in deze snelstart maakt. 
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus
    ```
 
-1. Maak een IoT-hub in uw nieuwe resourcegroep. Met de volgende code wordt een gratis **F1**-hub gemaakt in de resourcegroep **IoTEdgeResources**. Vervang *{hub_name}* door een unieke naam voor uw IoT-hub.
+Een Windows-computer of virtuele machine die fungeert als uw IoT Edge-apparaat: 
+
+* Gebruik een ondersteunde Windows-versie:
+   * Windows 10 of hoger
+   * Windows Server 2016 of hoger
+* Als u een virtuele machine gebruikt, schakelt u [geneste virtualisatie][lnk-nested] in en dient u ten minste 2 GB geheugen toe te wijzen. 
+* Installeer [Docker voor Windows][lnk-docker] en contoleer of deze wordt uitgevoerd.
+* Configureer Docker voor het gebruiken van [Linux-containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers)
+
+## <a name="create-an-iot-hub"></a>Een IoT Hub maken
+
+Begin met de snelstart door uw IoT Hub met Azure CLI te maken. 
+
+![IoT Hub maken][3]
+
+Het gratis niveau van IoT Hub werkt voor deze snelstart. Als u in het verleden IoT Hub hebt gebruikt en al een gratis hub hebt gemaakt, kunt u die IoT-hub gebruiken. Elk abonnement biedt toegang tot slechts één gratis IoT-hub. 
+
+Met de volgende code wordt een gratis **F1**-hub gemaakt in de resourcegroep **IoTEdgeResources**. Vervang *{hub_name}* door een unieke naam voor uw IoT-hub.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 
    ```
+
+   Als er een fout optreedt omdat er al één gratis hub in uw abonnement is, wijzigt u de SKU in **S1**. 
 
 ## <a name="register-an-iot-edge-device"></a>Een IoT Edge-apparaat registreren
 
@@ -206,7 +210,13 @@ Configureer de runtime met uw IoT Edge-apparaatverbindingsreeks die u hebt gekop
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-8. Zoek de sectie **Moby Container Runtime-instellingen**op en controleer of de waarde voor **netwerk** is ingesteld op `nat`.
+8. Zoek de sectie **Moby Container Runtime-instellingen** op en controleer of de waarde voor **netwerk** geen opmerkingen bevat en is ingesteld op **azure-iot-edge**
+
+   ```yaml
+   moby_runtime:
+     docker_uri: "npipe://./pipe/docker_engine"
+     network: "azure-iot-edge"
+   ```
 
 9. Sla het configuratiebestand op. 
 
@@ -237,7 +247,8 @@ Controleer of de runtime goed is geïnstalleerd en geconfigureerd.
     -FilterHashtable @{ProviderName= "iotedged";
       LogName = "application"; StartTime = [datetime]::Today} |
     select TimeCreated, Message |
-    sort-object @{Expression="TimeCreated";Descending=$false}
+    sort-object @{Expression="TimeCreated";Descending=$false} |
+    format-table -autosize -wrap
    ```
 
 3. Bekijk alle modules die op uw IoT Edge-apparaat worden uitgevoerd. Aangezien de service net voor het eerst is gestart, zou u moeten zien dat alleen de **edgeAgent**-module actief is. De edgeAgent-module wordt standaard uitgevoerd en helpt bij het installeren en starten van aanvullende modules die u op uw apparaat implementeert. 

@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 7/11/2018
 ms.author: victorh
-ms.openlocfilehash: ffc9d3c15f045079585ea2aeceab278cf0349041
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: daf847ea9a6b6310afbc8eca7f662065fe75ade6
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991864"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39397179"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Een Azure Firewall-testomgeving maken
 
@@ -80,6 +80,11 @@ In dit script worden de volgende opdrachten gebruikt voor het maken van een reso
 | [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) | Hiermee maakt u een VM-configuratie. Deze configuratie bevat informatie zoals de naam, het besturingssysteem en de beheerdersreferenties van de virtuele machine. De configuratie wordt gebruikt tijdens het maken van de virtuele machine. |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Hiermee maakt u een virtuele machine. |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Hiermee verwijdert u een resourcegroep en alle daarin opgenomen resources. |
+|New-AzureRmFirewall| Hiermee wordt een nieuwe Azure Firewall gemaakt.|
+|Get-AzureRmFirewall|Hiermee wordt een Azure Firewall-object opgehaald.|
+|New-AzureRmFirewallApplicationRule|Hiermee wordt een regel voor een Azure Firewall-toepassing gemaakt.|
+|Set-AzureRmFirewall|Hiermee worden wijzigingen aan het Azure Firewall-object doorgevoerd.|
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

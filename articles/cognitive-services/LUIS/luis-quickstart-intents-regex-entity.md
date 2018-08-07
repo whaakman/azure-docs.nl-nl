@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 07/30/2018
 ms.author: diberry
-ms.openlocfilehash: 99f796bf26df755ca938c3023057e2e9de1706a1
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 9da2454afa130c4c2ccab458099a90d78354b3e2
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238332"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358271"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>Zelfstudie: 3. Een entiteit in de vorm van een reguliere expressie toevoegen
 In deze zelfstudie maakt u een app die laat zien hoe u consistent opgemaakte gegevens kunt extraheren uit een utterance met behulp van de entiteit **Regular Expression (regex)**.
@@ -28,7 +28,7 @@ In deze zelfstudie maakt u een app die laat zien hoe u consistent opgemaakte geg
 > * App trainen en publiceren
 > * Eindpunt van app opvragen om JSON-antwoord van LUIS te zien
 
-Voor dit artikel hebt u een gratis [LUIS](luis-reference-regions.md#luis-website)-account nodig om uw LUIS-toepassing te creëren.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Voordat u begint
 Als u niet beschikt over de Human Resources-app uit de zelfstudie over de [vooraf gedefinieerde entiteit](luis-tutorial-prebuilt-intents-entities.md), [importeert](luis-how-to-start-new-app.md#import-new-app) u de JSON in een nieuwe app op de website van [LUIS](luis-reference-regions.md#luis-website). Dit kan vanuit de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-prebuilts-HumanResources.json).
@@ -67,11 +67,7 @@ LUIS tokeniseert de utterance wanneer deze wordt toegevoegd aan een intentie. Di
 
 1. Zorg ervoor dat uw Human Resources-app zich in de sectie **Build** van LUIS bevindt. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
 
-    [ ![Schermopname van LUIS-app met Build gemarkeerd in de navigatiebalk rechtsboven](./media/luis-quickstart-intents-regex-entity/first-image.png)](./media/luis-quickstart-intents-regex-entity/first-image.png#lightbox)
-
 2. Selecteer **Create new intent**. 
-
-    [![Schermopname van pagina Intents met de knop Create new intentie gemarkeerd](./media/luis-quickstart-intents-regex-entity/create-new-intent-button.png) ](./media/luis-quickstart-intents-regex-entity/create-new-intent-button.png#lightbox)
 
 3. Voer in het pop-updialoogvenster `FindForm` in en selecteer vervolgens **Done**. 
 
@@ -96,14 +92,12 @@ LUIS tokeniseert de utterance wanneer deze wordt toegevoegd aan een intentie. Di
 
     De toepassing is uitgebreid met de vooraf gedefinieerde entiteit Number (uit de vorige zelfstudie), waardoor elk formuliernummer een tag heeft. Dit is mogelijk niet voldoende voor uw clienttoepassing, maar het nummer wordt niet gelabeld met het type nummer. Door een nieuwe entiteit met een geschikte naam te maken, kan de clienttoepassing de entiteit op de juiste manier verwerken wanneer deze wordt geretourneerd door LUIS.
 
-## <a name="create-a-hrf-number-regular-expression-entity"></a>Een entiteit in de vorm van een gewone expressie voor een HRF-nummer maken 
+## <a name="create-an-hrf-number-regular-expression-entity"></a>Een entiteit in de vorm van een gewone expressie voor een HRF-nummer maken 
 Voer de volgende stappen uit om een entiteit in de vorm van een gewone expressie te maken om aan LUIS door te geven wat de indeling van een HRF-nummer is:
 
 1. Selecteer **Entities** in het linkerpaneel.
 
 2. Selecteer **Create new entity** op de pagina Entities. 
-
-    [![Schermopname van pagina Entities met de knop Create new entity gemarkeerd](./media/luis-quickstart-intents-regex-entity/create-new-entity-1.png)](./media/luis-quickstart-intents-regex-entity/create-new-entity-1.png#lightbox)
 
 3. Geef in het pop-updialoogvenster de naam `HRF-number` op voor de nieuwe entiteit, selecteer **RegEx** als het type entiteit, voer `hrf-[0-9]{6}` in als de gewone expressie en selecteer ten slotte **Done**.
 
@@ -127,22 +121,12 @@ Het is niet nodig om een entiteit in de vorm van een gewone expressie te trainen
     ![Afbeelding van melding dat het trainen is voltooid](./media/luis-quickstart-intents-regex-entity/trained.png)
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>App publiceren om eindpunt-URL op te vragen
-Om LUIS een voorspelling te laten geven in een chatbot of een andere toepassing, moet u de app publiceren. 
 
-1. Selecteer rechtsboven op de website van LUIS de knop **Publish**. 
-
-    ![Schermopname van FindKnowledgeBase met de knop Publish gemarkeerd in de bovenste navigatiebalk](./media/luis-quickstart-intents-regex-entity/publish-button.png)
-
-2. Selecteer de slot Production en vervolgens de knop **Publish**.
-
-    ![Schermopname van de pagina Publish app met de knop Publish gemarkeerd](./media/luis-quickstart-intents-regex-entity/publish-to-production.png)
-
-3. Het publiceren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het publiceren is gelukt.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Eindpunt opvragen met een andere utterance
-1. Selecteer onder aan de pagina **Publish** de koppeling **endpoint**. Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbalk. 
 
-    ![Schermopname van de pagina Publish met eindpunt-URL gemarkeerd](./media/luis-quickstart-intents-regex-entity/publish-select-endpoint.png)
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Ga naar het einde van de URL in het adres en voer `When were HRF-123456 and hrf-234567 published in the last year?` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. Deze utterance is niet hetzelfde als een van de gelabelde utterances en dit is dus een goede test die de intentie `FindForm` als resultaat moet geven met de twee formuliernummers `HRF-123456` en `hrf-234567`.
 

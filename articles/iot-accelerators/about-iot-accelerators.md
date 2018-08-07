@@ -1,58 +1,72 @@
 ---
-title: Inleiding tot IoT-oplossingsversnellers van Microsoft Azure | Microsoft Docs
-description: Hier vindt u informatie over Azure IoT-oplossingsversnellers. IoT-oplossingsversnellers zijn volledige, end-to-end, kant-en-klare IoT-oplossingen.
+title: Inleiding tot IoT-oplossingsverbeteringen van Microsoft Azure | Microsoft Docs
+description: Hier vindt u informatie over Azure IoT-oplossingsverbeteringen. IoT-oplossingsverbeteringen zijn volledige, end-to-end, kant-en-klare IoT-oplossingen.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/07/2018
+ms.date: 07/24/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 2a4f0b035ce80809a678731a50921791fc0db928
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 7020d8a1756702d8c2b1998eef5a3fc64809ca5e
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097985"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39308109"
 ---
-# <a name="what-are-azure-iot-solution-accelerators"></a>Wat zijn Azure IoT-oplossingsversnellers?
+# <a name="what-are-azure-iot-solution-accelerators"></a>Wat zijn Azure IoT-oplossingsverbeteringen?
 
 Een IoT-cloudoplossing maakt doorgaans gebruik van aangepaste code en meerdere cloudservices om connectiviteit, gegevensverwerking en analyses en presentatie van apparaten te beheren.
 
-De IoT-oplossingsversnellers zijn een verzameling volledige, kant-en-klare IoT-oplossingen voor het implementeren van algemene IoT-scenario's zoals externe bewaking, de verbonden factory en predictief onderhoud. Wanneer u een oplossingsversneller implementeert, bevat de implementatie alle vereiste cloudservices samen met de vereiste toepassingscode.
+De IoT-oplossingsverbeteringen zijn een verzameling volledige, kant-en-klare IoT-oplossingen voor het implementeren van algemene IoT-scenario's zoals externe controle, verbonden factory, predictief onderhoud en apparaatsimulatie. Wanneer u een oplossingsversneller implementeert, bevat de implementatie alle vereiste cloudservices samen met de vereiste toepassingscode.
 
-De oplossingsversnellers vormen het startpunt voor uw eigen IoT-oplossingen. De broncode voor alle oplossingsversnellers is open-source en beschikbaar in GitHub. U wordt aangemoedigd de oplossingsversnellers te downloaden en [aan te passen](iot-accelerators-remote-monitoring-customize.md) om te voldoen aan uw vereisten.
+De oplossingsverbeteringen vormen het startpunt voor uw eigen IoT-oplossingen. De broncode voor alle oplossingsverbeteringen is open-source en beschikbaar in GitHub. U wordt aangeraden om de oplossingsverbeteringen te downloaden en aan te passen zodat ze voldoen aan uw vereisten.
 
-U kunt de oplossingsversnellers ook gebruiken als leermiddelen voordat u helemaal uw eigen IoT-oplossing gaat maken. De oplossingsversnellers implementeren bewezen procedures voor IoT-cloudoplossingen die u kunt volgen.
+U kunt de oplossingsverbeteringen ook gebruiken als leermiddelen voordat u helemaal uw eigen IoT-oplossing gaat maken. De oplossingsverbeteringen implementeren bewezen procedures voor IoT-cloudoplossingen die u kunt volgen.
 
-De toepassingscode in elke oplossingsversneller bevat een dashboard waarmee u de oplossingsversneller beheren. Met een dashboard kunt u bijvoorbeeld de telemetrie van uw verbonden apparaten bekijken, nieuwe apparaten inrichten of de firmware van uw verbonden apparaten upgraden:
-
-[![Dashboard van de oplossing](./media/about-iot-accelerators/dashboard-inline.png)](./media/about-iot-accelerators/dashboard-expanded.png#lightbox)
+De toepassingscode in elke oplossingsverbetering bevat een web-app waarmee u de oplossingsverbetering beheren.
 
 ## <a name="supported-iot-scenarios"></a>Ondersteunde IoT-scenario's
 
-Er zijn momenteel vier oplossingsversnellers beschikbaar die u kunt implementeren:
+Er zijn momenteel vier oplossingsverbeteringen beschikbaar die u kunt implementeren:
 
-### <a name="remote-monitoring"></a>Externe bewaking
+### <a name="remote-monitoring"></a>Externe controle
 
 Gebruik deze oplossingsversneller voor het verzamelen van telemetrie van meerdere externe apparaten en om deze te beheren. Voorbeelden zijn koelingssystemen die zijn geïnstalleerd op de locatie van uw klanten of kleppen die zijn geïnstalleerd in externe pompstations.
+
+U kunt het dashboard voor externe controle gebruiken om de telemetrie van verbonden apparaten te bekijken, nieuwe apparaten in te richten of de firmware op verbonden apparaten bij te werken:
+
+[![Dashboard van oplossing voor externe controle](./media/about-iot-accelerators/rm-dashboard-inline.png)](./media/about-iot-accelerators/rm-dashboard-expanded.png#lightbox)
 
 ### <a name="connected-factory"></a>Verbonden factory
 
 Gebruik deze oplossingsversneller voor het verzamelen van telemetriegegevens van industriële activa met een [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/)-interface en om deze activa te beheren. Industriële activa kunnen assembly- en teststations in een productielijn bevatten.
 
+U kunt de verbonden factory gebruiken om industriële apparaten te controleren en te beheren:
+
+[![Dashboard van oplossing voor verbonden factory](./media/about-iot-accelerators/cf-dashboard-inline.png)](./media/about-iot-accelerators/cf-dashboard-expanded.png#lightbox)
+
 ### <a name="predictive-maintenance"></a>Predictief onderhoud
 
 Gebruik deze oplossingsversneller om te voorspellen wanneer een extern apparaat naar verwachting defect raakt, zodat u onderhoud kunt plegen voordat het voorspelde defect zich voordoet. De oplossingsversneller maakt gebruik van machine learning-algoritmen om fouten op basis van telemetriegegevens van apparaten te voorspellen. Voorbeelden van dergelijke apparaten zijn vliegtuigmotoren en liften.
 
+U kunt het dashboard voor predictief onderhoud gebruiken om de analyse voor predictief onderhoud te bekijken:
+
+[![Dashboard van oplossing voor verbonden factory](./media/about-iot-accelerators/pm-dashboard-inline.png)](./media/about-iot-accelerators/pm-dashboard-expanded.png#lightbox)
+
 ### <a name="device-simulation"></a>Apparaatsimulatie
 
-Gebruik deze oplossingsversneller voor het laten draaien van meerdere gesimuleerde apparaten die realistische telemetriegegevens genereren. U kunt deze oplossingsversneller gebruiken voor het testen van het gedrag van de andere oplossingsversnellers of voor het testen van uw eigen aangepaste IoT-oplossingen.
+Gebruik deze oplossingsversneller voor het laten draaien van meerdere gesimuleerde apparaten die realistische telemetriegegevens genereren. U kunt deze oplossingsverbeteringen gebruiken voor het testen van het gedrag van de andere oplossingsverbeteringen of voor het testen van uw eigen aangepaste IoT-oplossingen.
+
+U kunt de web-app voor apparaatsimulatie gebruiken om simulaties te configureren en uit te voeren:
+
+[![Dashboard van oplossing voor verbonden factory](./media/about-iot-accelerators/ds-dashboard-inline.png)](./media/about-iot-accelerators/ds-dashboard-expanded.png#lightbox)
 
 ## <a name="design-principles"></a>Ontwerpprincipes
 
-Alle oplossingsversnellers volgen dezelfde ontwerpprincipes en -doelen. Het ontwerp ervan is:
+Alle oplossingsverbeteringen volgen dezelfde ontwerpprincipes en -doelen. Het ontwerp ervan is:
 
 * **Schaalbaar**, zodat u verbinding kunt maken met miljoenen verbonden apparaten en deze kunt beheren.
 * **Uitbreidbaar**, zodat u ze kunt aanpassen aan uw behoeften.
@@ -62,19 +76,22 @@ Alle oplossingsversnellers volgen dezelfde ontwerpprincipes en -doelen. Het ontw
 
 ## <a name="architectures-and-languages"></a>Architecturen en talen
 
-De oorspronkelijke oplossingsversnellers werden geschreven met behulp van .NET en een model-view-controller (MVC)-architectuur. Microsoft werkt de oplossingsversnellers bij met een nieuwe architectuur op basis van microservices. Zowel de [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)- als [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)-versie van elke microservice zijn beschikbaar in GitHub. De volgende tabel toont de huidige status van de oplossingsverbeteringen:
+De oorspronkelijke oplossingsverbeteringen werden geschreven met behulp van .NET en een model-view-controller (MVC)-architectuur. Microsoft werkt de oplossingsverbeteringen bij met een nieuwe architectuur op basis van microservices. In de volgende tabel wordt de huidige status van de oplossingsverbeteringen weergegeven met koppelingen naar de GitHub-opslagplaatsen:
 
 | Oplossingsverbetering   | Architectuur  | Talen     |
 | ---------------------- | ------------- | ------------- |
-| Externe bewaking      | Microservices | Java en .NET |
-| Predictief onderhoud | MVC           | .NET          |
-| Verbonden factory      | MVC           | .NET          |
+| Externe controle      | Microservices | [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) en [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) |
+| Predictief onderhoud | MVC           | [.NET](https://github.com/Azure/azure-iot-predictive-maintenance)          |
+| Verbonden factory      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
+| Apparaatsimulatie      | Microservices | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
 Zie [.NET Application Architecture](https://www.microsoft.com/net/learn/architecture) (.NET-toepassingsarchitectuur) en [Microservices: An application revolution powered by the cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) (Microservices: een toepassingsrevolutie aangedreven door de cloud) voor meer informatie over microservicearchitectuur.
 
 ## <a name="deployment-options"></a>Implementatieopties
 
-U kunt de oplossingsversnellers op basis van microservices implementeren in de volgende configuraties:
+U kunt de oplossingsverbeteringen implementeren op de site [Microsoft Azure IoT-oplossingsverbeteringen](https://www.azureiotsolutions.com/Accelerators#) of door gebruik te maken van de opdrachtregel.
+
+U kunt de oplossingsverbetering voor externe controle implementeren in de volgende configuraties:
 
 * **Standard:** uitgebreide infrastructuurimplementatie voor het ontwikkelen van een productie-implementatie. De Azure Container Service implementeert de microservices naar meerdere virtuele Azure-machines. Kubernetes deelt de Docker-containers in die de afzonderlijke microservices hosten.
 * **Basic:** voordelige versie voor een demonstratie of het testen van een implementatie. Alle microservices worden geïmplementeerd op een enkele virtuele Azure-machine.
@@ -84,4 +101,9 @@ De kosten voor het uitvoeren van een oplossingsversneller zijn een combinatie va
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u een IoT-oplossingsversneller wilt uitproberen, ga dan naar de snelstart [Een cloudoplossing voor externe bewaking implementeren](quickstart-remote-monitoring-deploy.md).
+Raadpleeg de quickstarts om een van de oplossingsverbeteringen uit te proberen:
+
+* [Een oplossing voor externe controle uitproberen](quickstart-remote-monitoring-deploy.md)
+* [Een oplossing voor verbonden factory uitproberen](quickstart-connected-factory-deploy.md)
+* [Een oplossing voor predictief onderhoud uitproberen](quickstart-predictive-maintenance-deploy.md)
+* [Een oplossing voor apparaatsimulatie uitproberen](quickstart-device-simulation-deploy.md)

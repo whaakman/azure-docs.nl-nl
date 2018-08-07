@@ -9,14 +9,14 @@ services: iot-accelerators
 ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: acff6586f35f1c86cba8d519586d72247255ccd7
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 3138f0ebb6316e69c873a37d479ddc0279a361ef
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159380"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39285070"
 ---
-# <a name="troubleshoot-and-fix-device-issues"></a>Problemen met apparaten opsporen en oplossen
+# <a name="tutorial-troubleshoot-and-fix-device-issues"></a>Zelfstudie: Problemen met apparaten opsporen en oplossen
 
 In deze zelfstudie gebruikt u de oplossingsverbetering voor externe controle om problemen met verbonden IoT-apparaten te identificeren en te herstellen. U gebruikt waarschuwingen op het dashboard van de oplossingsverbetering om problemen te identificeren. Vervolgens voert u externe taken uit om deze problemen op te lossen.
 
@@ -30,7 +30,7 @@ In deze zelfstudie hebt u:
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-[!INCLUDE [iot-iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
+[!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 
 ## <a name="investigate-an-alert"></a>Een waarschuwing onderzoeken
 
@@ -80,7 +80,7 @@ U kunt controleren of de temperatuur van het apparaat is afgenomen door de telem
 
 [![De verlaging van de temperatuur weergeven](./media/iot-accelerators-remote-monitoring-maintain/jobresult-inline.png)](./media/iot-accelerators-remote-monitoring-maintain/jobresult-expanded.png#lightbox)
 
-[!INCLUDE [iot-iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
+[!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

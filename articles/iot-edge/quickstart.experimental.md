@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 54a8b5f14cc2f9fb0ac887da8995623353e73ac9
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 28d50ac3a4c080062c12c11977eebb61b0e52eed
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115582"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39412532"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Snelstart: Uw eerste IoT Edge-module van Azure Portal naar een Windows-apparaat implementeren - preview
 
@@ -179,8 +179,14 @@ Configureer de runtime met uw IoT Edge-apparaatverbindingsreeks die u hebt gekop
      workload_uri: "http://<GATEWAY_ADDRESS>:15581"
    ```
 
-8. Zoek de sectie **Moby Container Runtime-instellingen**op en controleer of de waarde voor **netwerk** is ingesteld op `nat`.
+8. Zoek de sectie **Moby Container Runtime-instellingen** op en controleer of de waarde voor **netwerk** geen opmerkingen bevat en is ingesteld op **azure-iot-edge**
 
+   ```yaml
+   moby_runtime:
+     docker_uri: "npipe://./pipe/docker_engine"
+     network: "azure-iot-edge"
+   ```
+   
 9. Sla het configuratiebestand op. 
 
 10. Start de IoT Edge-service opnieuw in PowerShell.
@@ -210,7 +216,8 @@ Controleer of de runtime goed is geïnstalleerd en geconfigureerd.
     -FilterHashtable @{ProviderName= "iotedged";
       LogName = "application"; StartTime = [datetime]::Today} |
     select TimeCreated, Message |
-    sort-object @{Expression="TimeCreated";Descending=$false}
+    sort-object @{Expression="TimeCreated";Descending=$false} |
+    format-table -autosize -wrap
    ```
 
 3. Bekijk alle modules die op uw IoT Edge-apparaat worden uitgevoerd. Aangezien de service net voor het eerst is gestart, zou u moeten zien dat alleen de **edgeAgent**-module actief is. De edgeAgent-module wordt standaard uitgevoerd en helpt bij het installeren en starten van aanvullende modules die u op uw apparaat implementeert. 

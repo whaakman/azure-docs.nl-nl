@@ -4,17 +4,17 @@ description: Azure Policy is een service in Azure die u gebruikt om beleidsdefin
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/24/2018
+ms.date: 07/31/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 51fd0c625ad7e600d54999ddd86e5e49a7c4f14d
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: e00af59c39219cf6efd14a1c6b2d831fc8addf5a
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249861"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39364425"
 ---
 # <a name="what-is-azure-policy"></a>Wat is Azure Policy?
 
@@ -115,7 +115,7 @@ In dit scenario hebt u, bij het definiëren van de initiatiefparameters voor **i
 - Geef waarden op voor de parameters van de beleidsdefinities binnen deze initiatiefdefinitie. In dit voorbeeld kunt u een lijst met locaties opgeven naar **parameter van policyA – allowedLocations** en **parameter van policyB – allowedSingleLocation**. U kunt ook waarden opgeven bij het toewijzen van dit initiatief.
 - Geef een lijst met *waarde*opties op die kunnen worden gebruikt bij het toewijzen van dit initiatief. Als u dit initiatief toewijst, kunnen de overgenomen parameters van de beleidsdefinities binnen het initiatief, alleen waarden hebben uit de opgegeven lijst.
 
-U kunt bijvoorbeeld een lijst met waardeopties maken in een initiatiefdefinitie met *EastUS*, *WestUS*, *CentralUS* en *WestEurope*. Als u dit doet, kunt u tijdens de initiatieftoewijzing geen andere waarde (bijvoorbeeld *Southeast Asia*) invoeren, omdat deze waarde niet voorkomt in de lijst.
+U kunt bijvoorbeeld een lijst met waardeopties maken in een initiatiefdefinitie met *EastUS*, *WestUS*, *CentralUS* en *WestEurope*. Als u dit doet, kunt u tijdens de initiatieftoewijzing geen andere waarde (bijvoorbeeld *Azië - zuidoost*) invoeren, omdat deze waarde niet voorkomt in de lijst.
 
 ## <a name="maximum-count-of-policy-objects"></a>Maximum aantal Policy-objecten
 
@@ -126,11 +126,11 @@ Voor elk objecttype in Azure Policy bestaat er een maximum. De vermelding _Berei
 | Bereik | Definities voor beleid | 250 |
 | Bereik | Initiatiefdefinities | 100 |
 | Tenant | Initiatiefdefinities | 1000 |
-| Bereik | Beleidstoewijzing | 100 |
+| Bereik | Beleids-/initiatieftoewijzingen | 100 |
 | Beleidsdefinitie | Parameters | 20 |
 | Initiatiefdefinitie | Beleidsregels | 100 |
 | Initiatiefdefinitie | Parameters | 100 |
-| Beleidstoewijzing | Uitzonderingen (geen bereiken) | 100 |
+| Beleids-/initiatieftoewijzingen | Uitzonderingen (geen bereiken) | 100 |
 | Beleidsregel | Geneste voorwaarden | 512 |
 
 ## <a name="recommendations-for-managing-policies"></a>Aanbevelingen voor het beheren van beleid

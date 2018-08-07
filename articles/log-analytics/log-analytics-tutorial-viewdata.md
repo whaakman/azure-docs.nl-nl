@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/03/2018
+ms.date: 07/31/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: 6b25712d660c26f2e7206b361c443b8f97aad361
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 31e9e6b173a578b09f656850271ed5a8f0f2baa8
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867610"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39391328"
 ---
 # <a name="view-or-analyze-data-collected-with-log-analytics-log-search"></a>Gegevens weergeven of analyseren die zijn verzameld met Zoeken in logboeken van Log Analytics
 
@@ -43,7 +43,7 @@ Meld u aan bij de Azure-portal op [https://portal.azure.com](https://portal.azur
 Open eerst de portal Zoeken in logboeken.   
 
 1. Klik in Azure Portal op **Alle services**. Typ **Monitor** in de lijst met resources. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Monitor**.
-2. Selecteer in het navigatiemenu van Monitor de optie **Log Analytics** en selecteer vervolgens een werkruimte
+2. Selecteer in het navigatiemenu van Monitor de optie **Log Analytics** en selecteer vervolgens een werkruimte.
 
 ## <a name="create-a-simple-search"></a>Een eenvoudige zoekopdracht maken
 De snelste manier om gegevens op te halen om mee te werken, is met een eenvoudige query waarmee alle records in de tabel worden opgehaald.  Als u een Windows- of Linux-client hebt verbonden met uw werkruimte, hebt u gegevens in de gebeurtenis- (Windows) of Syslog-tabel (Linux).

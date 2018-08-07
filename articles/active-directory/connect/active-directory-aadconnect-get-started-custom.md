@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d58418b45192a6c1e31b4c3c918a27fe253d8c34
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: dcde63c4bce17993ec9e1a9d83889a001d7880e1
+ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38473983"
+ms.lasthandoff: 07/26/2018
+ms.locfileid: "39264433"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Custom installation of Azure AD Connect (Engelstalig)
 Voor meer opties voor de installatie gaat u naar **Aangepaste instellingen**. Deze instellingen gebruikt u wanneer u meerdere forests hebt of als u optionele functies wilt configureren die niet in de snelle installatie voorkomen. De aangepaste instellingen worden gebruikt in alle gevallen waarin de optie [**snelle installatie**](active-directory-aadconnect-get-started-express.md) niet aan uw implementatie of topologie voldoet.
@@ -41,7 +41,7 @@ Wanneer u de synchronisatieservices installeert, kunt de optie voor optionele co
 | Optionele configuratie | Beschrijving |
 | --- | --- |
 | Een bestaande SQL Server gebruiken |Hiermee kunt u de naam van de SQL Server en de exemplaarnaam opgeven. Kies deze optie als u al een databaseserver heeft die u wilt gebruiken. Voer de exemplaarnaam, gevolgd door een komma en poortnummer, in bij **Exemplaarnaam** als bladeren niet is ingeschakeld voor uw SQL Server. |
-| Een bestaand serviceaccount gebruiken |Azure AD Connect maakt standaard gebruik van een virtueel serviceaccount voor de synchronisatieservices. Als u een externe SQL-server gebruikt of een proxyserver waarvoor verificatie is vereist, hebt u een **beheerd serviceaccount** of een serviceaccount in het domein nodig en moet u het wachtwoord kennen. Voer in dat geval het te gebruiken account in. Zorg dat de gebruiker die de installatie uitvoert een SA in SQL is, zodat een aanmelding voor het serviceaccount kan worden aangemaakt.  Zie [Azure AD Connect: accounts and permissions](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-account) (Azure AD Connect: accounts en machtigingen). </br></br>In de laatste versie kan de inrichting van de database out-of-band worden uitgevoerd door de SQL-beheerder en vervolgens worden geïnstalleerd door de Azure AD Connect-beheerder met eigendomsrechten voor de database.  Raadpleeg [Install Azure AD Connect using SQL delegated administrator permissions](active-directory-aadconnect-sql-delegation.md) (Azure AD Connect installeren met SQL-gedelegeerde beheerdersmachtigingen) voor meer informatie.|
+| Een bestaand serviceaccount gebruiken |Azure AD Connect maakt standaard gebruik van een virtueel serviceaccount voor de synchronisatieservices. Als u een externe SQL-server gebruikt of een proxyserver waarvoor verificatie is vereist, hebt u een **beheerd serviceaccount** of een serviceaccount in het domein nodig en moet u het wachtwoord kennen. Voer in dat geval het te gebruiken account in. Zorg dat de gebruiker die de installatie uitvoert een SA in SQL is, zodat een aanmelding voor het serviceaccount kan worden aangemaakt.  Zie [Azure AD Connect: accounts and permissions](active-directory-aadconnect-accounts-permissions.md#adsync-service-account) (Azure AD Connect: accounts en machtigingen). </br></br>In de laatste versie kan de inrichting van de database out-of-band worden uitgevoerd door de SQL-beheerder en vervolgens worden geïnstalleerd door de Azure AD Connect-beheerder met eigendomsrechten voor de database.  Raadpleeg [Install Azure AD Connect using SQL delegated administrator permissions](active-directory-aadconnect-sql-delegation.md) (Azure AD Connect installeren met SQL-gedelegeerde beheerdersmachtigingen) voor meer informatie.|
 | Aangepaste synchronisatiegroepen opgeven |Azure AD Connect maakt standaard vier groepen lokaal op de server aan wanneer de synchronisatieservices worden geïnstalleerd. Deze groepen zijn: Beheerders, Operators, Bladeren en Wachtwoord opnieuw instellen. U kunt hier uw eigen groepen opgeven. De groepen moeten lokaal op de server zijn en mogen zich niet in het domein bevinden. |
 
 ### <a name="user-sign-in"></a>Gebruikersaanmelding
@@ -83,14 +83,14 @@ Nadat u de forestnaam hebt ingevoerd en op **Map toevoegen** hebt geklikt, wordt
 | Optie | Beschrijving |
 | --- | --- |
 | Nieuw account maken | Selecteer deze optie als u wilt dat de Azure AD Connect-wizard het AD DS-account maakt dat Azure AD Connect nodig heeft om verbinding te maken met de AD-forest tijdens directorysynchronisatie. Voer wanneer deze optie is geselecteerd de gebruikersnaam en het wachtwoord in voor een enterprisebeheerdersaccount. Het opgegeven enterprisebeheerdersaccount wordt door de Azure AD Connect-wizard gebruikt om het vereiste AD DS-account te maken. U kunt het domeingedeelte in NetBios- of FQDN-indeling invoeren, dat wil zeggen FABRIKAM\administrator of fabrikam.com\administrator. |
-| Bestaand account gebruiken | Selecteer deze optie als u wilt toestaan dat een bestaand AD DS-account wordt gebruikt door Azure AD Connect om verbinding te maken met de AD-forest tijdens directorysynchronisatie. U kunt het domeingedeelte in NetBios- of FQDN-indeling invoeren, dat wil zeggen FABRIKAM\syncuser of fabrikam.com\syncuser. Dit account mag een normaal gebruikersaccount zijn, omdat alleen de standaard leesmachtigingen nodig zijn. Afhankelijk van uw scenario heeft u echter mogelijk meer machtigingen nodig. Zie [Azure AD Connect Accounts and permissions](active-directory-aadconnect-accounts-permissions.md#create-the-ad-ds-account) voor meer informatie. |
+| Bestaand account gebruiken | Selecteer deze optie als u wilt toestaan dat een bestaand AD DS-account wordt gebruikt door Azure AD Connect om verbinding te maken met de AD-forest tijdens directorysynchronisatie. U kunt het domeingedeelte in NetBios- of FQDN-indeling invoeren, dat wil zeggen FABRIKAM\syncuser of fabrikam.com\syncuser. Dit account mag een normaal gebruikersaccount zijn, omdat alleen de standaard leesmachtigingen nodig zijn. Afhankelijk van uw scenario heeft u echter mogelijk meer machtigingen nodig. Zie [Azure AD Connect Accounts and permissions](active-directory-aadconnect-accounts-permissions.md##create-the-ad-ds-connector-account) voor meer informatie. |
 
 ![Verbinding maken met Directory](./media/active-directory-aadconnect-get-started-custom/connectdir02.png)
 
 ### <a name="azure-ad-sign-in-configuration"></a>Aanmeldconfiguratie Azure AD
 Op deze pagina kunt u bekijken welke UPN-domeinen zich in de on-premises AD DS bevinden en in Azure AD zijn geverifieerd. Daarnaast kunt u op deze pagina het kenmerk configureren dat voor de userPrincipalName moet worden gebruikt.
 
-![Niet-geverifieerde domeinen](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig.png)  
+![Niet-geverifieerde domeinen](./media/active-directory-aadconnect-get-started-custom/aadsigninconfig2.png)  
 Bekijk elk domein waarbij **Niet toegevoegd** en **Niet geverifieerd** staat. Zorg ervoor dat de domeinen die u gebruikt in Azure AD zijn geverifieerd. Klik op het symbool Vernieuwen wanneer u uw domeinen hebt geverifieerd. Zie voor meer informatie [add and verify the domain](../active-directory-domains-add-azure-portal.md)
 
 **UserPrincipalName** - Met het kenmerk userPrincipalName melden gebruikers zich aan bij Azure AD en Office 365. De gebruikte domeinen, ook wel het UPN-achtervoegsel genoemd, moeten worden geverifieerd in Azure AD voordat de gebruikers worden gesynchroniseerd. Het wordt door Microsoft aangeraden om het standaardkenmerk userPrincipalName te behouden. Als dit kenmerk niet-routeerbaar is en niet kan worden geverifieerd, dan kunt u een ander kenmerk selecteren. U kunt bijvoorbeeld e-mail selecteren als het kenmerk met het aanmeldings-id. Het gebruik van een ander kenmerk dan userPrincipalName wordt **alternatieve id** genoemd. De waarde van het alternatieve-id-kenmerk moet aan de standaard RFC822 voldoen. Een alternatieve id kan worden gebruikt met wachtwoordsynchronisatie en federatie. Het kenmerk mag in Active Directory niet met meerdere waarden worden gedefinieerd, zelfs als het slechts één waarde heeft.
@@ -121,7 +121,7 @@ Als u deze waarschuwing ziet, verzeker uzelf er dan van dat deze domeinen inderd
 #### <a name="select-how-users-should-be-identified-in-your-on-premises-directories"></a>Selecteren hoe gebruikers moeten worden aangeduid in uw on-premises directory’s
 Met de functie Overeenkomend in forests kunt u definiëren hoe gebruikers van uw AD DS-forests worden weergegeven in Azure AD. Een gebruiker kan ofwel slechts één keer in alle forests worden weergegeven of een combinatie van ingeschakelde en uitgeschakelde accounts hebben. De gebruiker kan in sommige forests ook worden weergegeven als een contactpersoon.
 
-![Uniek](./media/active-directory-aadconnect-get-started-custom/unique.png)
+![Uniek](./media/active-directory-aadconnect-get-started-custom/unique2.png)
 
 | Instelling | Beschrijving |
 | --- | --- |
@@ -156,7 +156,7 @@ Bij een volledige productie-implementatie wordt het door alle objecten die gesyn
 ### <a name="optional-features"></a>Optionele functies
 In dit scherm kunt u de optionele functies voor uw specifieke scenario's selecteren.
 
-![Optionele functies](./media/active-directory-aadconnect-get-started-custom/optional.png)
+![Optionele functies](./media/active-directory-aadconnect-get-started-custom/optional2.png)
 
 > [!WARNING]
 > Als DirSync of Azure AD Sync momenteel actief zijn, activeer dan geen terugschrijffuncties in Azure AD Connect.
@@ -378,6 +378,28 @@ Als u wilt controleren of end-to-end-verificatie is gelukt, voert u een of meer 
 * Controleer of u zich kunt aanmelden met een browser op een computer op het intranet die aan het domein is gekoppeld: Maak verbinding met https://myapps.microsoft.com en controleer de aanmelding met uw aangemelde account. Het ingebouwde beheerdersaccount van AD DS wordt niet gesynchroniseerd en kan niet worden gebruikt voor verificatie.
 * Controleer of u zich kunt aanmelden met een apparaat vanaf het extranet. Maak op een computer thuis of op een mobiel apparaat verbinding met https://myapps.microsoft.com en voer uw referenties in.
 * Aanmelding uitgebreide client controleren. Maak verbinding met https://testconnectivity.microsoft.com, kies het tabblad **Office 365** en vervolgens **Office 365 Test Eenmalige aanmelding**.
+
+## <a name="troubleshooting"></a>Problemen oplossen
+De volgende sectie bevat oplossingen voor fouten en informatie die u kunt gebruiken als u een probleem ondervindt bij het installeren van Azure AD Connect.
+
+### <a name="the-adsync-database-already-contains-data-and-cannot-be-overwritten"></a>De ADSync-database bevat al gegevens en kan niet worden overschreven 
+Wanneer u een aangepaste installatie van Azure AD Connect uitvoert en op de pagina **Vereiste onderdelen installeren** de optie **Een bestaande SQL-server gebruiken** selecteert, kan er een fout optreden waarin staat: **De ADSync-database bevat al gegevens en kan niet worden overschreven. Verwijder de bestaande database en probeer het opnieuw.**
+
+![Fout](media/active-directory-aadconnect-get-started-custom/error1.png)
+
+Dit komt omdat er al een database met de naam **ADSync** bestaat in het SQL-exemplaar van de SQL-server die u hebt opgegeven in de bovenstaande tekstvakken.
+
+Dit komt meestal voor nadat u Azure AD Connect hebt verwijderd.  Wanneer u de installatie verwijdert, wordt de database niet verwijderd uit de SQL-server.
+
+Als u dit probleem wilt oplossen, moet u eerst controleren of de **ADSync**-database die vóór het verwijderen werd gebruikt in Azure AD Connect, niet meer wordt gebruikt.
+
+Vervolgens is het raadzaam om een back-up te maken van de database voordat u deze verwijdert. 
+
+Tot slot moet u de database verwijderen.  U doet dit door **Microsoft SQL Server Management Studio** te gebruiken en verbinding te maken met het SQL-exemplaar. Ga naar de **ADSync**-database, klik er met de rechtermuisknop op en selecteer **Verwijderen** in het contextmenu.  Klik vervolgens op de knop **OK** om de database te verwijderen.
+
+![Fout](media/active-directory-aadconnect-get-started-custom/error2.png)
+
+Nadat u de **ADSync**-database hebt verwijderd, kunt u op de knop **Installeren** klikken om opnieuw te proberen de installatie uit te voeren.
 
 ## <a name="next-steps"></a>Volgende stappen
 Nadat de installatie is voltooid, dient u zich af te melden en weer aan te melden bij Windows voordat u de Synchronization Service Manager of Synchronization Rule Editor gaat gebruiken.

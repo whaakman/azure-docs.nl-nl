@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-hub
 services: iot-hub
 manager: briz
-ms.openlocfilehash: 0e54c48eb63c5b70626e72f83de6d3676710d4c4
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: f4254cd90d8cf3b9f4cd206b729a3d44784b377a
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860153"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343624"
 ---
 # <a name="what-is-azure-iot-hub"></a>Wat is Azure IoT Hub?
 
@@ -26,18 +26,24 @@ De mogelijkheden van IoT Hub helpen u bij het bouwen van schaalbare, complete Io
 
 ## <a name="scale-your-solution"></a>Uw oplossing schalen
 
-IoT Hub kan worden opgeschaald naar miljoenen gelijktijdig verbonden apparaten en miljoenen gebeurtenissen per seconde om zo uw IoT-workloads te ondersteunen. IoT Hub biedt verschillende servicelagen om optimaal tegemoet te kunnen komen aan de schaalbaarheid die u nodig hebt. [Meer informatie](https://azure.microsoft.com/pricing/details/iot-hub/).
+IoT Hub kan worden opgeschaald naar miljoenen gelijktijdig verbonden apparaten en miljoenen gebeurtenissen per seconde om zo uw IoT-workloads te ondersteunen. IoT Hub biedt verschillende servicelagen om optimaal tegemoet te kunnen komen aan de schaalbaarheid die u nodig hebt. Krijg meer informatie door de [prijzen](https://azure.microsoft.com/pricing/details/iot-hub/) te bekijken.
 
 ## <a name="secure-your-communications"></a>Uw communicatie beveiligen
 
 Met IoT Hub beschikt u over een beveiligd communicatiekanaal dat uw apparaten kunnen gebruiken om gegevens te verzenden.
 
 * Verificatie per apparaat zorgt ervoor dat elk apparaat een veilige verbinding kan opzetten met IoT Hub en dat elk apparaat veilig kan worden beheerd.
+
 * U hebt volledige controle over de toegang van apparaten en u kunt de verbindingen beheren op apparaatniveau.
+
 * De [IoT Hub Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/) zorgt ervoor dat apparaten automatisch worden ingericht met de juiste IoT-hub wanneer het apparaat voor het eerst wordt opgestart.
+
 * Verschillende verificatietypen ondersteunen allerlei mogelijkheden voor apparaten:
+
   * Verificatie aan de hand van een SAS-token betekent dat u snel aan de slag kunt met uw IoT-oplossing.
+
   * Verificatie via afzonderlijke X.509-certificaten zorgt voor een veilige, op standaarden gebaseerde verificatie.
+
   * X.509-CA-verificatie is beschikbaar voor eenvoudige, op standaarden gebaseerde inschrijving.
 
 ## <a name="route-device-data"></a>Apparaatgegevens routeren
@@ -45,7 +51,9 @@ Met IoT Hub beschikt u over een beveiligd communicatiekanaal dat uw apparaten ku
 De ingebouwde functionaliteit voor het routeren van berichten biedt u de flexibiliteit voor het instellen van automatische berichtendistributie op basis van regels:
 
 * Gebruik berichtroutering om te bepalen naar welke locatie de hub telemetriegegevens van apparaten verstuurt.
+
 * Er zijn geen extra kosten verbonden aan het routeren van berichten naar meerdere eindpunten.
+
 * Routeringsregels zonder code hebben de plaats ingenomen van aangepaste code voor het verzenden van berichten.
 
 ## <a name="integrate-with-other-services"></a>Integreren met andere services
@@ -65,7 +73,9 @@ U kunt IoT Hub integreren met andere Azure-services om zo complete, end-to-end-o
 U hebt de beschikking over allerlei ingebouwde functies om de apparaten te beheren die zijn verbonden met IoT Hub.
 
 * Metagegevens en statusinformatie van al uw apparaten opslaan, synchroniseren en opvragen.
+
 * Apparaatstatus instellen per apparaat of op basis van algemene eigenschappen van apparaten.
+
 * Automatisch reageren op een door het apparaat gerapporteerde statuswijziging met geïntegreerde berichtroutering.
 
 ## <a name="make-your-solution-highly-available"></a>Uw oplossing maximaal beschikbaar maken
@@ -95,6 +105,7 @@ Als uw oplossing de apparaatbibliotheken niet kan gebruiken, kunnen apparaten he
 Als uw oplossing geen van de ondersteunde protocollen kan gebruiken, kunt u IoT Hub uitbreiden voor ondersteuning van aangepaste protocollen:
 
 * Gebruik [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) om een veldgateway te maken waarmee u aan de rand protocolomzetting kunt uitvoeren.
+
 * Pas de [protocolgateway van Azure IoT](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) aan om protocolomzetting uit te voeren in de cloud.
 
 ## <a name="quotas-and-limits"></a>Quota en limieten
@@ -102,6 +113,7 @@ Als uw oplossing geen van de ondersteunde protocollen kan gebruiken, kunt u IoT 
 Voor elk Azure-abonnement gelden standaardquotalimieten ter voorkoming van misbruik van de service. Deze limieten kunnen invloed hebben op het bereik van uw IoT-oplossing. De huidige limiet voor een abonnementsvariant is 10 IoT-hubs per abonnement. U kunt een verzoek voor een groter quota indienen door contact op te nemen met de ondersteuning. Meer informatie over quotalimieten vindt u hier:
 
 * [Limieten, quota en beperkingen van Azure-abonnementen en -services](../azure-subscription-service-limits.md)
+
 * [IoT Hub throttling and you](https://azure.microsoft.com/blog/iot-hub-throttling-and-you/)
 
 ## <a name="next-steps"></a>Volgende stappen

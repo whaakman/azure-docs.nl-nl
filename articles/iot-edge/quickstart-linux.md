@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5e0da540b2784ef13986c6089d31f22df992ee59
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: dfcb764d75b7328d1234d47d82afdae8d6a0deef
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005812"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413011"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snelstart: uw eerste IoT Edge-module implementeren op een Linux x64-apparaat
 
@@ -43,18 +43,18 @@ Voeg de Azure IoT-extensie toe aan het exemplaar van Cloud Shell.
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
    ```
-
+   
 ## <a name="prerequisites"></a>Vereisten
 
-In deze snelstart wordt een Linux-machine als een IoT Edge-apparaat gebruikt. Als er geen beschikbaar is voor het testen, kunt u er een maken met de Azure CLI. 
+Cloudresources: 
 
-Maak een nieuwe resourcegroep. Voor een eenvoudig beheer kunt u deze resourcegroep gebruiken voor de andere Azure-resources die u in deze snelstart maakt.  
+* Een resourcegroep voor het beheren van alle resources die u in deze snelstart maakt. 
 
    ```azurecli-interactive
    az group create --name IoTEdgeResources --location westus
    ```
 
-Maak de virtuele machine. U hoeft geen heel grote virtuele machine te maken om IoT Edge te testen. **B1ms** is voldoende.
+* Een virtuele Linux-computer die fungeert als uw IoT Edge-apparaat. 
 
    ```azurecli-interactive
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
@@ -62,18 +62,13 @@ Maak de virtuele machine. U hoeft geen heel grote virtuele machine te maken om I
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
-Begin met de snelstart door uw IoT Hub in Azure Portal te maken.
+Begin met de snelstart door uw IoT Hub met Azure CLI te maken. 
+
 ![IoT Hub maken][3]
 
 Het gratis niveau van IoT Hub werkt voor deze snelstart. Als u in het verleden IoT Hub hebt gebruikt en al een gratis hub hebt gemaakt, kunt u die IoT-hub gebruiken. Elk abonnement biedt toegang tot slechts één gratis IoT-hub. 
 
-1. Maak in de Azure-cloudshell een resourcegroep als u dat niet hebt gedaan als onderdeel van de vereisten. Door alle resources voor de snelstarts en zelfstudies in een groep te plaatsen, kunt u ze samen beheren. 
-
-   ```azurecli-interactive
-   az group create --name IoTEdgeResources --location westus
-   ```
-
-1. Maak een IoT-hub in uw nieuwe resourcegroep. Met de volgende code wordt een gratis **F1**-hub gemaakt in de resourcegroep **IoTEdgeResources**. Vervang *{hub_name}* door een unieke naam voor uw IoT-hub.
+Met de volgende code wordt een gratis **F1**-hub gemaakt in de resourcegroep **IoTEdgeResources**. Vervang *{hub_name}* door een unieke naam voor uw IoT-hub.
 
    ```azurecli-interactive
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1 

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/20/2018
+ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 6e09bdc336821720c970f8b8daf13f52b0a69ed0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9fdbfd0338b1c4b6ac863f07e5808ce6ccd9a6c7
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34355369"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39347282"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Een interne load balancer maken en gebruiken met een App Service-omgeving #
 
@@ -64,13 +64,7 @@ Ga als volgt te werk om een ILB AS-omgeving te maken:
 
 4. Selecteer of maak een VNet.
 
-    * Als u een nieuw VNet selecteert, kunt u een naam en locatie opgeven. Als u van plan bent om Linux-apps te hosten op deze ASE, worden op dit moment alleen deze zes regio's ondersteund: **VS West, VS Oost, West-Europa, Noord-Europa, Australië Oost en Zuidoost-Azië.** 
-
-5. Als u een bestaand VNet selecteert, moet u een subnet maken om de AS-omgeving in te plaatsen. Zorg ervoor dat u een subnetgrootte instelt die groot genoeg is voor een eventuele toekomstige groei van uw AS-omgeving. We raden een grootte aan van `/25`. Dit formaat bevat 128 adressen en kan de grootst mogelijke AS-omgeving verwerken. De minimale grootte die u kunt selecteren is een `/28`. Deze grootte kan, afhankelijk van de behoeften van uw infrastructuur, niet verder worden geschaald dan maximaal 3 exemplaren.
-
-    * Ga verder dan het maximumaantal van 100 exemplaren in uw App Service-plannen.
-
-    * Schaal naar bijna 100 met snellere front-endschaling.
+5. Als u een bestaand VNet selecteert, moet u een subnet maken om de AS-omgeving in te plaatsen. Zorg ervoor dat u een subnetgrootte instelt die groot genoeg is voor een eventuele toekomstige groei van uw AS-omgeving. We raden een grootte aan van `/24`. Dit formaat bevat 256 adressen en kan de grootst mogelijke AS-omgeving verwerken en voldoen aan alle schaalbehoeften. 
 
 6. Selecteer **Virtueel netwerk/locatie** > **Virtuele-netwerkconfiguratie**. Stel het **VIP-type** in op **Intern**.
 
@@ -119,7 +113,7 @@ Het maken van een app in een ILB AS-omgeving werkt hetzelfde als het maken van e
 
 5. Selecteer uw besturingssysteem. 
 
-    * Als u een Linux-app wilt maken met behulp van een aangepaste Docker-container, kunt u uw eigen container gebruiken door deze instructies te volgen. 
+    * Als u een Linux-app wilt maken met behulp van een aangepaste Docker-container, kunt u uw eigen container gebruiken door [deze instructies][linuxapp] te volgen. 
 
 6. Selecteer of maak een App Service-plan. Als u een nieuw App Service-plan wilt maken, selecteert u uw AS-omgeving als locatie. Selecteer de groep met werkrollen waarin u het App Service-plan wilt maken. Wanneer u het App Service-plan maakt, selecteert u uw AS-omgeving als de locatie en de groep met werkrollen. Wanneer u de naam van de app opgeeft, wordt het domein onder de app-naam vervangen door het domein van de AS-omgeving.
 
@@ -172,7 +166,6 @@ Ga als volgt te werk om uw eigen certificaten te uploaden en de toegang te teste
 
     > [!NOTE] 
     > Maak deze VM niet in hetzelfde subnet als de AS-omgeving, want deze actie mislukt of veroorzaakt problemen.
-    >
     >
 
 6. Stel het DNS in voor het domein van de AS-omgeving. U kunt een jokerteken gebruiken bij uw domein in het DNS. Als u een aantal eenvoudige tests wilt uitvoeren, bewerkt u het hostbestand op de VM zodat de naam van de web-app is ingesteld op het virtuele IP-adres:
@@ -258,3 +251,4 @@ Zie [Configure a web application firewall with your App Service environment][ASE
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md
+[linuxapp]: ../containers/app-service-linux-intro.md

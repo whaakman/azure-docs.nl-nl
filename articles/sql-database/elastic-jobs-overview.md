@@ -6,14 +6,14 @@ author: srinia
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 06/14/2018
+ms.date: 07/26/2018
 ms.author: srinia
-ms.openlocfilehash: 65e920858b1c859dc9f8e911cdf59d4ab02da6d2
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0e01270b6ba12bde0e5f379903b80620646c4d1f
+ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972159"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39309041"
 ---
 # <a name="manage-groups-of-databases-with-elastic-database-jobs"></a>Groepen van databases beheren met Taken voor Elastic Database
 
@@ -106,11 +106,25 @@ Een *doelgroep* definieert de verzameling databases waarvoor een taakstap wordt 
 > [!TIP]
 > Op het moment dat de taak wordt uitgevoerd, wordt de reeks databases in de doelgroepen die servers of pools bevatten, opnieuw geëvalueerd met behulp van *dynamische opsomming*. Dynamische opsomming zorgt ervoor dat **taken worden uitgevoerd voor alle databases die in de server of de groep bestaan op het moment dat de taak wordt uitgevoerd**. Een herevaluatie van de lijst met databases tijdens runtime is met name nuttig als het lidmaatschap van de pool of server regelmatig verandert.
 
-
 Pools en individuele databases kunnen worden opgegeven als ingesloten in of uitgesloten van de groep. Zo kunt u een doelgroep maken met een willekeurige combinatie van databases. Zo kunt u bijvoorbeeld een server toevoegen aan een doelgroep, maar specifieke databases in een elastische pool uitsluiten van (of een hele pool uitsluiten).
 
 Een doelgroep kan databases in meerdere abonnementen en uit meerdere regio's bevatten. Regio-overschrijdende uitvoeringen hebben echter wel een hogere latentie dan uitvoeringen binnen dezelfde regio.
 
+In de volgende voorbeelden ziet u hoe verschillende doelgroepdefinities tijdens de uitvoering van de taak dynamisch worden geïnventariseerd om te bepalen in welke databases de taak wordt uitgevoerd:
+
+![Voorbeelden van doelgroep](media/elastic-jobs-overview/targetgroup-examples1.png)
+
+In **Voorbeeld 1** ziet u een doelgroep dat bestaat uit een lijst met afzonderlijke databases. Wanneer een taakstap wordt uitgevoerd met behulp van deze doelgroep, wordt de actie van de taakstap uitgevoerd in elk van deze databases.<br>
+In **Voorbeeld 2** ziet u een doelgroep die een Azure SQL-server als doel heeft. Wanneer een taakstap wordt uitgevoerd met behulp van deze doelgroep, wordt de server dynamisch geïnventariseerd om de actuele lijst met databases op de server te bepalen. De actie van de taakstap wordt uitgevoerd in elk van deze databases.<br>
+In **Voorbeeld 3** ziet u een vergelijkbare doelgroep als in *Voorbeeld 2*, maar een afzonderlijke database wordt uitdrukkelijk uitgesloten. De actie van de taakstap wordt *niet* uitgevoerd in de uitgesloten database.<br>
+In **Voorbeeld 4** ziet u een doelgroep die een elastische pool als doel heeft. De pool wordt, vergelijkbaar met in *Voorbeeld 2*, dynamisch geïnventariseerd tijdens het uitvoeren van de taak om de lijst met databases in de pool te bepalen.
+<br><br>
+
+
+![Voorbeelden van doelgroep](media/elastic-jobs-overview/targetgroup-examples2.png)
+
+In **Voorbeeld 5** en *Voorbeeld 6* ziet u geavanceerde scenario’s waarin Azure SQL-servers, elastische pools en databases kunnen worden gecombineerd met behulp van regels voor opnemen en uitsluiten.<br>
+In **Voorbeeld 7** ziet u dat de shards in een shardkaart ook kunnen worden geëvalueerd tijden het uitvoeren van de taak.
 
 ### <a name="job"></a>Taak
 

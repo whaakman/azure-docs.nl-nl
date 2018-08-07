@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.custom: mvc
-ms.openlocfilehash: 6e3515cba449826389fbff35765de9631728de5d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: d341b0590dce65228958572365bb2773f8f13129
+ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063422"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39324303"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Quickstart: Een Spark-taak uitvoeren op Azure Databricks met Azure portal
 
@@ -35,9 +35,10 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
 ## <a name="set-aside-storage-account-configuration"></a>Opslagaccountconfiguratie instellen
 
-Tijdens deze zelfstudie moet u de naam en toegangssleutel van uw opslagaccount bij de hand hebben. Selecteer in Azure Portal de optie **Alle services** en filter op *opslag*. Selecteer **opslagaccounts** en zoek het account dat u voor deze zelfstudie hebt gemaakt.
-
-Kopieer de naam van het opslagaccount vanuit het **overzicht** naar een teksteditor. Selecteer vervolgens **Toegangssleutels** en kopieer de waarde van **key1** naar de teksteditor. U hebt deze twee waarden nodig voor opdrachten verderop in deze zelfstudie.
+> [!IMPORTANT]
+> Tijdens deze zelfstudie moet u de naam en toegangssleutel van uw opslagaccount bij de hand hebben. Selecteer in Azure Portal de optie **Alle services** en filter op *opslag*. Selecteer **opslagaccounts** en zoek het account dat u voor deze zelfstudie hebt gemaakt.
+>
+> Kopieer de **naam** van het opslagaccount vanuit het **Overzicht** naar een teksteditor. Selecteer vervolgens **Toegangssleutels** en kopieer de waarde van **key1** naar de teksteditor. U hebt deze twee waarden nodig voor opdrachten verderop in deze zelfstudie.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Een Azure Databricks-werkruimte maken
 
@@ -69,7 +70,7 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Een Spark-cluster maken in Databricks
 
-1. Ga in de Azure Portal naar de Databricks-werkruimte die u hebt gemaakt en selecteer **Werkruimte starten**.
+1. Ga in Azure Portal naar de Databricks-werkruimte die u hebt gemaakt en selecteer **Werkruimte starten**.
 
 2. U wordt omgeleid naar de Azure Databricks-portal. Selecteer in de portal **Nieuw** > **Cluster**.
 
@@ -105,7 +106,7 @@ In deze sectie maakt u een notitieblok in de Azure Databricks-werkruimte en voer
 
     Selecteer **Maken**.
 
-4. Typ de volgende code in de eerste cel, waarbij u de tijdelijke aanduidingen voor waarden vervangt door uw accountnaam, sleutel en een naam voor het bestandssysteem.
+4. Vervang in de volgende code de tekst **ACCOUNT_NAME** en **ACCOUNT_KEY** door de waarden die u aan het begin van deze quickstart hebt bewaard. Vervang ook de tekst **FILE_SYSTEM_NAME** door de naam die u wilt geven aan uw bestandssysteem. Voer vervolgens de code in de eerste cel in.
 
     ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
@@ -114,7 +115,7 @@ In deze sectie maakt u een notitieblok in de Azure Databricks-werkruimte en voer
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false") 
     ```
 
-    Druk op **SHIFT + ENTER** om de codecel uit te voeren.
+    Druk op **SHIFT+ENTER** om de codecel uit te voeren.
 
     Nu is het bestandssysteem voor het opslagaccount gemaakt.
 
@@ -122,17 +123,17 @@ In deze sectie maakt u een notitieblok in de Azure Databricks-werkruimte en voer
 
 Voordat u met deze sectie begint, moet u eerst aan de volgende vereisten voldoen:
 
-* Download **small_radio_json.json** [vanuit Github](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json).
-* Upload het JSON-voorbeeldbestand met **AzCopy-versie 10** naar het Azure Blob-opslagaccount en bestandssysteem dat u hebt gemaakt:
+Voer de volgende code in een notitieblokcel in:
 
-    ```bash
-    set ACCOUNT_NAME=<ACCOUNT_NAME>
-    set ACCOUNT_KEY=<ACCOUNT_KEY>
-    azcopy cp "<LOCAL_FILE_PATH>\small_radio_json.json" https://<ACCOUNT_NAME>.dfs.core.windows.net/<CONTAINER_NAME> --recursive 
-    ```
+    %sh wget -P /tmp https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
 
-> [!NOTE]
-> AzCopy-versie 10 is alleen beschikbaar voor klanten van de preview-versie.
+Druk in de cel op `Shift` + `Enter` om de code uit te voeren.
+
+Voer nu in een cel onder deze cel de volgende code in (vervang **FILE_SYSTEM** en **ACCOUNT_NAME** door dezelfde waarden die u eerder hebt gebruikt):
+
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfs://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+
+Druk in de cel op `Shift` + `Enter` om de code uit te voeren.
 
 ## <a name="run-a-spark-sql-job"></a>Een Spark SQL-taak uitvoeren
 

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/23/2018
+ms.date: 07/26/2018
 ms.author: barclayn
-ms.openlocfilehash: b34b05ae86aed199d80a86c8e1a073cb54b5e75f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cd9dd4d400177e511f23c2677b77198a50420a35
+ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226710"
+ms.lasthandoff: 07/27/2018
+ms.locfileid: "39282993"
 ---
 # <a name="what-is-azure-key-vault"></a>Wat is Azure Sleutelkluis?
 
@@ -37,6 +37,8 @@ Hieronder vindt u enkele belangrijke termen:
 - **[Azure Active Directory](../active-directory/active-directory-whatis.md)** is de Azure AD-service voor een bepaalde tenant. Elke adreslijst heeft een of meer domeinen. Aan een directory kunnen vele abonnementen zijn gekoppeld, maar slechts één tenant. 
 - **Azure-tenant-ID**: dit is een unieke manier om een Azure Active Directory in een Azure-abonnement te identificeren. 
 - **Managed Service Identity**: Azure Key Vault biedt een manier voor het veilig opslaan van referenties en andere sleutels en geheimen, maar uw code moet worden geverifieerd bij Key Vault om ze op te kunnen halen. Managed Service Identity (MSI) levert Azure-services met een automatisch beheerde identiteit in Azure Active Directory (Azure AD), waarmee dit probleem eenvoudiger kan worden opgelost. U kunt deze identiteit gebruiken voor verificatie bij Key Vault bij alle services die ondersteuning bieden voor Microsoft Azure Active Directory-verificatie, zonder dat u referenties in uw code hoeft te hebben. Meer informatie over MSI leest u [hier](../active-directory/managed-service-identity/overview.md)
+
+    ![MSI graphic](./media/key-vault-whatis/msi.png)
 
 ## <a name="key-vault-roles"></a>Rollen van Key Vault
 

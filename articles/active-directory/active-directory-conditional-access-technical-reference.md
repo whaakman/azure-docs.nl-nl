@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory-naslaginformatie voor voorwaardelijke toegang | Microsoft Docs
-description: Hiermee krijgt u een overzicht van de ondersteunde instellingen in een beleid voor voorwaardelijke toegang van Azure Active Directory.
+description: Bekijk een overzicht van de ondersteunde instellingen in een Azure Active Directory-beleid voor voorwaardelijke toegang.
 services: active-directory.
 documentationcenter: ''
 author: MarkusVi
@@ -15,16 +15,16 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 239ece0f126e1c92c2e94206baa7026ac04d604f
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 845356b991197cc658f5fe5411da2f5b8cb8a38f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36227986"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521469"
 ---
-# <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-naslaginformatie voor voorwaardelijke toegang
+# <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-instellingen voor voorwaardelijke toegang verwijst naar
 
-U kunt [voorwaardelijke toegang van Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) om te bepalen hoe geautoriseerde gebruikers kunnen toegang tot uw resources.   
+U kunt [voorwaardelijke toegang van Azure Active Directory (Azure AD)](active-directory-conditional-access-azure-portal.md) om te bepalen hoe gemachtigde gebruikers toegang hebben tot uw resources.   
 
 Dit artikel vindt u informatie over ondersteuning voor de volgende configuratieopties in een beleid voor voorwaardelijke toegang: 
 
@@ -34,21 +34,21 @@ Dit artikel vindt u informatie over ondersteuning voor de volgende configuratieo
 
 - Voorwaarde voor client-toepassingen
 
-- Vereisten voor toepassingsimplementatie goedgekeurde client
+- Vereiste voor goedgekeurde client-toepassing
 
 
-Als dit niet de informatie die u zoekt, laat u een opmerking aan het einde van dit artikel.
+Als dit niet de informatie die u zoekt, plaatst u een opmerking aan het einde van dit artikel.
 
 ## <a name="cloud-apps-assignments"></a>Toewijzingen voor cloud-apps
 
-Met beleid voor voorwaardelijke toegang u bepalen hoe uw gebruikers toegang tot uw [cloud-apps](active-directory-conditional-access-conditions.md#cloud-apps). Wanneer u een beleid voor voorwaardelijke toegang configureert, moet u ten minste één cloud-app selecteren. 
+Met beleid voor voorwaardelijke toegang u bepalen hoe uw gebruikers toegang tot uw [cloud-apps](conditional-access/conditions.md#cloud-apps). Wanneer u een beleid voor voorwaardelijke toegang configureert, moet u ten minste één cloud-app te selecteren. 
 
-![Selecteer de cloud-apps voor uw beleid](./media/active-directory-conditional-access-technical-reference/09.png)
+![De cloud-apps voor uw beleid selecteren](./media/active-directory-conditional-access-technical-reference/09.png)
 
 
 ### <a name="microsoft-cloud-applications"></a>Microsoft cloud-toepassingen
 
-U kunt beleid voor voorwaardelijke toegang toewijzen aan de volgende cloud-apps van Microsoft:
+U kunt een beleid voor voorwaardelijke toegang toewijzen aan de volgende cloud-apps van Microsoft:
 
 - Azure Information Protection - [meer informatie](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 
@@ -60,7 +60,7 @@ U kunt beleid voor voorwaardelijke toegang toewijzen aan de volgende cloud-apps 
 
 - Microsoft Office 365 Exchange Online
 
-- Microsoft Office 365 SharePoint Online (inclusief OneDrive voor bedrijven en Project Online)
+- Microsoft Office 365 SharePoint Online (OneDrive voor bedrijven en Project Online bevat)
 
 - Microsoft Power BI 
 
@@ -71,11 +71,11 @@ U kunt beleid voor voorwaardelijke toegang toewijzen aan de volgende cloud-apps 
 
 ### <a name="other-applications"></a>Andere toepassingen 
 
-Naast de Microsoft cloud-apps kunt u een voorwaardelijk toegangsbeleid toewijzen aan de volgende typen van cloud-apps:
+Naast de Microsoft cloud-apps, kunt u een beleid voor voorwaardelijke toegang toewijzen aan de volgende typen van cloud-apps:
 
 - Azure AD-toepassingen
 
-- Vooraf geïntegreerde federatieve toepassing software als een dienst (SaaS)
+- Vooraf geïntegreerde federatieve software als een dienst (SaaS)-toepassing
 
 - Toepassingen die gebruikmaken van wachtwoord eenmalige aanmelding (SSO)
 
@@ -86,7 +86,7 @@ Naast de Microsoft cloud-apps kunt u een voorwaardelijk toegangsbeleid toewijzen
 
 ## <a name="device-platform-condition"></a>Apparaat platform voorwaarde
 
-U kunt de voorwaarde voor het platform van apparaat voor het koppelen van het beleid voor het besturingssysteem op een client te configureren in een beleid voor voorwaardelijke toegang. Voorwaardelijke toegang van Azure AD ondersteunt de volgende apparaatplatforms:
+U kunt de apparaat-platform voorwaarde om te koppelen van het beleid voor het besturingssysteem op een client configureren in een beleid voor voorwaardelijke toegang. Voorwaardelijke toegang van Azure AD ondersteunt de volgende apparaatplatformen:
 
 - Android
 
@@ -99,7 +99,7 @@ U kunt de voorwaarde voor het platform van apparaat voor het koppelen van het be
 - macOS
 
 
-![Het toegangsbeleid naar de client OS koppelen](./media/active-directory-conditional-access-technical-reference/41.png)
+![Het toegangsbeleid voor de client-besturingssysteem koppelen](./media/active-directory-conditional-access-technical-reference/41.png)
 
 
 
@@ -107,31 +107,31 @@ U kunt de voorwaarde voor het platform van apparaat voor het koppelen van het be
 
 ## <a name="client-apps-condition"></a>Voorwaarde voor client-apps 
 
-In uw beleid voor voorwaardelijke toegang configureert u de [client-apps](active-directory-conditional-access-conditions.md#client-apps) voorwaarde voor het koppelen van het beleid naar de clientapp die een toegangspoging heeft gestart. De client-apps probleem verlenen of toegang blokkeren als er een toegangspoging wordt uitgevoerd vanaf de volgende typen van de client-apps instellen:
+In het beleid voor voorwaardelijke toegang, configureert u de [client-apps](conditional-access/conditions.md#client-apps) voorwaarde om te koppelen van het beleid naar de clientapp die een poging tot toegang heeft gestart. Stel de client apps voorwaarde om te verlenen of toegang blokkeren als er een poging tot toegang bestaat uit de volgende typen van de client-apps:
 
 - Browser
 - Mobiele apps en bureaublad-apps
 
-![Toegang beheren voor client-apps](./media/active-directory-conditional-access-technical-reference/03.png)
+![Toegangsbeheer voor client-apps](./media/active-directory-conditional-access-technical-reference/03.png)
 
 ### <a name="supported-browsers"></a>Ondersteunde browsers 
 
-In uw beleid voor voorwaardelijke toegang, kunt u **Browsers** als client-app.
+In het beleid voor voorwaardelijke toegang, kunt u **Browsers** als client-app.
 
-![Toegang beheren voor ondersteunde browsers](./media/active-directory-conditional-access-technical-reference/05.png)
+![Toegangsbeheer voor ondersteunde browsers](./media/active-directory-conditional-access-technical-reference/05.png)
 
-Deze instelling werkt met alle browsers. Echter, om te voldoen aan een apparaatbeleid, zoals een vereiste compatibel apparaat de volgende besturingssystemen en browsers worden ondersteund:
+Deze instelling werkt met alle browsers. Echter, om te voldoen aan een apparaatbeleid, zoals een vereiste compatibel apparaat, de volgende besturingssystemen en browsers worden ondersteund:
 
 
 | OS                     | Browsers                            | Ondersteuning     |
 | :--                    | :--                                 | :-:         |
-| Windows 10             | Internet Explorer, rand Chrome     | ![Selecteren][1] |
+| Windows 10             | Internet Explorer, Edge, Chrome     | ![Selecteren][1] |
 | Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Selecteren][1] |
 | Windows 7              | Internet Explorer, Chrome           | ![Selecteren][1] |
 | iOS                    | Safari, Intune Managed Browser      | ![Selecteren][1] |
 | Android                | Chrome, Intune Managed Browser      | ![Selecteren][1] |
-| Windows Phone          | Internet Explorer rand             | ![Selecteren][1] |
-| Windows Server 2016    | Internet Explorer rand             | ![Selecteren][1] |
+| Windows Phone          | Internet Explorer, Edge             | ![Selecteren][1] |
+| Windows Server 2016    | Internet Explorer, Edge             | ![Selecteren][1] |
 | Windows Server 2016    | Chrome                              | Binnenkort beschikbaar |
 | Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Selecteren][1] |
 | Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Selecteren][1] |
@@ -139,18 +139,18 @@ Deze instelling werkt met alle browsers. Echter, om te voldoen aan een apparaatb
 
 
 
-#### <a name="chrome-support"></a>Chrome-ondersteuning
+#### <a name="chrome-support"></a>Ondersteuning voor chrome
 
-Ondersteuning voor Chrome in **Windows 10 auteurs Update (versie 1703)** of later installeren [deze extensie](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+Ondersteuning voor Chrome in **Windows 10-Makersupdate (versie 1703)** of later installeren [deze extensie](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
-Om automatisch te implementeren voor deze extensie aan Chrome-browser, maken de volgende registersleutel:
+Voor het automatisch implementeren met deze extensie voor Chrome browsers, maken de volgende registersleutel:
 
 |    |    |
 |--- | ---|
 |Pad | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 |Naam | 1 |
 |Type | REG_SZ (tekenreeks) |
-|Gegevens | ppnbnpeolgkicgegkbkbjmhlideopiji;https://clients2.google.com/service/update2/crx
+|Gegevens | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx
 
 Ondersteuning voor Chrome in **Windows 8.1 en 7**, maken de volgende registersleutel:
 
@@ -159,55 +159,55 @@ Ondersteuning voor Chrome in **Windows 8.1 en 7**, maken de volgende registersle
 |Pad | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 |Naam | 1 |
 |Type | REG_SZ (tekenreeks) |
-|Gegevens | {'patroon': 'https://device.login.microsoftonline.com',' filter': {"VERLENER": {'CN': 'MS organisatie toegang'}}}|
+|Gegevens | {"patroon": "https://device.login.microsoftonline.com',' filter': {"VERLENER": {"CN":"MS-organisatie-toegang"}}}|
 
-Deze browsers ondersteuning voor verificatie van apparaten, waardoor het apparaat kan worden geïdentificeerd en gevalideerd op basis van een beleid. De apparaat-controle mislukt als de browser wordt uitgevoerd in de privé-modus. 
+Deze browsers ondersteunen verificatie van apparaten, waardoor het apparaat kan worden geïdentificeerd en gevalideerd op basis van een beleid. De apparaat-controle mislukt als de browser wordt uitgevoerd in de privémodus. 
 
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Ondersteunde mobiele toepassingen en bureaublad-clients
 
-In uw beleid voor voorwaardelijke toegang, kunt u **mobiele apps en bureaublad-clients** als client-app.
+In het beleid voor voorwaardelijke toegang, kunt u **mobiele apps en bureaubladclients** als client-app.
 
 
-![Toegang beheren voor ondersteunde mobiele apps of bureaubladclients](./media/active-directory-conditional-access-technical-reference/06.png)
+![Toegangsbeheer voor ondersteunde mobiele apps of bureaublad-clients](./media/active-directory-conditional-access-technical-reference/06.png)
 
 
-Deze instelling heeft gevolgen op toegangspogingen tot van de volgende apps voor mobiele en bureaublad-clients: 
+Deze instelling heeft een invloed op een poging toegang van de volgende mobiele apps en bureaublad-clients: 
 
 
 |Client-apps|Target-Service|Platform|
 |---|---|---|
-|Azure RemoteApp|Azure RemoteApp-service|Windows 10, Windows 8.1, Windows 7, iOS, Android en Mac OS X|
+|Azure RemoteApp|Azure RemoteApp-service|Windows 10, Windows 8.1, Windows 7, iOS, Android, en Mac OS X|
 |Dynamics CRM-app|Dynamics CRM|Windows 10, Windows 8.1, iOS en Android|
-|Agenda-mail/mensen app, Outlook 2016 Outlook 2013 (met moderne verificatie)|Office 365 Exchange Online|Windows 10|
-|Beleid voor apps MFA en locatie. Apparaten op basis van beleid worden niet ondersteund. |Alle services van de app mijn Apps|Android en iOS|
-|Services van Microsoft-Teams - Hiermee bepaalt u alle services die ondersteuning bieden voor Microsoft-Teams en alle bijbehorende Client-Apps - Windows-bureaublad, iOS, Android, WP en webclient|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android en Mac OS |
-|Apps van Office 2016, Office 2013 (met moderne verificatie), OneDrive synchroniseren client (Zie [notities](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
-|Apps van Office 2016, Office Universal-apps, Office 2013 (met moderne verificatie), OneDrive sync-client (Zie [notities](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office-groepen ondersteuning voor de toekomst zijn gepland, ondersteuning voor SharePoint-app is gepland voor de toekomst|Office 365 SharePoint Online|Windows 10|
+|Agenda-e-mail/mensen app, Outlook 2016, Outlook 2013 (met moderne verificatie)|Office 365 Exchange Online|Windows 10|
+|Beleid voor meervoudige verificatie en locatiebeleid voor apps. Op basis van apparaatbeleid wordt niet ondersteund. |Elke mijn Apps van appservice|Android en iOS|
+|Microsoft Teams-Services: Hiermee bepaalt u alle services die ondersteuning bieden voor Microsoft Teams en alle bijbehorende Client-Apps - Windows-bureaublad, iOS, Android, WP en webclient|Microsoft Teams|Windows 10, Windows 8.1, Windows 7, iOS, Android en macOS |
+|Apps van Office 2016, Office 2013 (met moderne verificatie), OneDrive synchroniseren client (Zie [opmerkingen bij de](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e))|Office 365 SharePoint Online|Windows 8.1, Windows 7|
+|Apps van Office 2016, universele Office-apps, Office 2013 (met moderne verificatie), OneDrive-synchronisatieclient (Zie [opmerkingen bij de](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), ondersteuning voor Office-groepen is gepland voor de toekomst, ondersteuning voor SharePoint-app is gepland voor de toekomst|Office 365 SharePoint Online|Windows 10|
 |Office 2016 voor Mac OS (Word, Excel, PowerPoint, OneNote alleen). OneDrive voor bedrijven ondersteuning voor de toekomst worden gepland|Office 365 SharePoint Online|Mac OS X|
-|Office mobile-apps|Office 365 SharePoint Online|Android, iOS|
-|De app Yammer Office|Office 365 Yammer|Windows 10, iOS, Android|
+|Mobiele Office-apps|Office 365 SharePoint Online|Android, iOS|
+|Office Yammer-app|Office 365 Yammer|Windows 10, iOS, Android|
 |Outlook 2016 (Office voor Mac OS)|Office 365 Exchange Online|Mac OS X|
 |Outlook 2016, Outlook 2013 (met moderne verificatie), Skype voor bedrijven (met moderne verificatie)|Office 365 Exchange Online|Windows 8.1, Windows 7|
-|Mobiele app voor Outlook|Office 365 Exchange Online|Android, iOS|
+|Mobiele app van Outlook|Office 365 Exchange Online|Android, iOS|
 |Power BI-app|Power BI-service|Windows 10, Windows 8.1, Windows 7, Android en iOS|
-|Skype voor Bedrijven|Office 365 Exchange Online|Android-, IOS |
+|Skype voor Bedrijven|Office 365 Exchange Online|Android, IOS |
 |Visual Studio Team Services-app|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS en Android|
 
 
 
-## <a name="approved-client-app-requirement"></a>Goedgekeurde app vereiste 
+## <a name="approved-client-app-requirement"></a>Vereiste voor goedgekeurde client-app 
 
-U kunt in uw beleid voor voorwaardelijke toegang vereisen dat een toegang wilt de geselecteerde cloud-apps moet worden gemaakt van een goedgekeurde client-app. 
+U kunt vereisen dat een toegang willen de geselecteerde cloud-apps moet worden uitgevoerd vanaf een goedgekeurde client-app in uw beleid voor voorwaardelijke toegang. 
 
-![Toegang beheren voor goedgekeurde client-apps](./media/active-directory-conditional-access-technical-reference/21.png)
+![Toegangsbeheer voor goedgekeurde client-apps](./media/active-directory-conditional-access-technical-reference/21.png)
 
-Deze instelling geldt voor de volgende ClientApps:
+Deze instelling geldt voor de volgende client-apps:
 
 
 - Microsoft Intune Managed Browser
 - Microsoft PowerBI
-- Microsoft facturering
+- Facturering van Microsoft
 - Microsoft Launcher
 - Microsoft Azure Information Protection
 - Microsoft Excel
@@ -228,17 +228,17 @@ Deze instelling geldt voor de volgende ClientApps:
 
 **Opmerkingen**
 
-- De goedgekeurde apps ondersteuning voor de Intune mobile application management-functie.
+- De goedgekeurde client-apps ondersteunen de Intune mobile application management-functie.
 
-- De **goedgekeurde app vereist** vereiste:
+- De **goedgekeurde client-app vereisen** vereiste:
 
-    - Biedt alleen ondersteuning voor het iOS- en Android voor [apparaat platform voorwaarde](#device-platforms-condition).
+    - Biedt alleen ondersteuning voor iOS en Android for [apparaat platform voorwaarde](#device-platforms-condition).
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor een overzicht van voorwaardelijke toegang [wat is er voorwaardelijke toegang in Azure Active Directory?](active-directory-conditional-access-azure-portal.md)
-- Als u klaar bent voor het configureren van beleidsregels voor voorwaardelijke toegang in uw omgeving, raadpleegt u de [aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-best-practices.md).
+- Zie voor een overzicht van voorwaardelijke toegang, [wat is voorwaardelijke toegang in Azure Active Directory?](active-directory-conditional-access-azure-portal.md)
+- Als u klaar om te configureren van beleid voor voorwaardelijke toegang in uw omgeving bent, raadpleegt u de [aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](conditional-access/best-practices.md).
 
 
 

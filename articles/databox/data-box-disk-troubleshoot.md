@@ -13,20 +13,20 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/12/2018
+ms.date: 07/30/2018
 ms.author: alkohli
-ms.openlocfilehash: f63eadc9a6ab834e02d62be9a209b504d76d3c8e
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 1ae6d3dbd01d2623fef511ed0663270ac605f257
+ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090772"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39362657"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk-preview"></a>Problemen in Azure Data Box Disk oplossen (preview)
 
 Dit artikel is van toepassing op de preview-versie van Microsoft Azure Data Box. In dit artikel worden enkele van de complexe werkstromen en beheertaken beschreven die kunnen worden uitgevoerd in de Data Box en Data Box Disk. 
 
-U kunt de Data Box beheren met behulp van de Data Box-servicegebruikersinterface (aangeduid als de gebruikersinterface van de portal) en de lokale webgebruikersinterface voor het apparaat. Data Box Disk kan alleen worden beheerd via Azure Portal. Dit artikel richt zich op de taken die u kunt uitvoeren met behulp van Azure Portal. Gebruik Azure Portal voor het beheren van orders, beheren van apparaten en bijhouden van de status van de order als deze naar de definitieve fase gaat.
+U kunt de Data Box Disk beheren via de Azure-portal. Dit artikel richt zich op de taken die u kunt uitvoeren met behulp van de Azure-portal. Gebruik de Azure-portal voor het beheren van orders, het beheren van apparaten en het bijhouden van de status van de order als deze naar de voltooiingsfase gaat.
 
 Dit artikel bevat de volgende zelfstudies:
 

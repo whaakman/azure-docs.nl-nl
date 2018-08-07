@@ -11,21 +11,21 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/02/2018
+ms.date: 07/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4dcfb71e0adb05922603715e4dbcbdb243305927
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: a2e0bf35f73a355197f821f7cce12294f7b35576
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37438193"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39344746"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Wat is toegangsbeheer op basis van rollen?
 
 Toegangsbeheer voor cloudresources is een uiterst belangrijke functie voor elke organisatie die van de cloud gebruikmaakt. Het gebruik van op rollen gebaseerd toegangsbeheer helpt u bij het beheren van wie er toegang heeft tot Azure-resources, wat ze kunnen doen met die resources en tot welke gebieden ze toegang hebben.
 
-Op rollen gebaseerd toegangsbeheer is een machtigingssysteem dat is gebouwd op [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) dat een geavanceerd toegangsbeheer van resources in Azure biedt. Met op rollen gebaseerd toegangsbeheer kunt u taken scheiden binnen uw team en alleen de mate van toegang verlenen aan gebruikers die nodig is om de taken uit te voeren. In plaats van iedereen onbeperkte machtigingen te verlenen in uw Azure-abonnement of -resources, kunt u zelf bepalen welke acties er met een bepaalde bereik zijn toegestaan.
+Op rollen gebaseerd toegangsbeheer is een machtigingssysteem dat is gebouwd op [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) dat een geavanceerd toegangsbeheer van resources in Azure biedt.
 
 ## <a name="what-can-i-do-with-rbac"></a>Wat kan ik doen met op rollen gebaseerd toegangsbeheer?
 
@@ -35,6 +35,14 @@ Hier volgen enkele voorbeelden van wat u met op rollen gebaseerd toegangsbeheer 
 - Een DBA-groep toestaan de SQL-databases in een abonnement te beheren.
 - Toestaan dat een gebruiker alle resources in een resourcegroep kan beheren, zoals virtuele machines, websites en subnetten.
 - Toestaan dat een toepassing toegang heeft tot alle resources in een resourcegroep.
+
+## <a name="best-practice-for-using-rbac"></a>Aanbevolen procedures voor het gebruik van RBAC
+
+Met op rollen gebaseerd toegangsbeheer kunt u taken scheiden binnen uw team en alleen de mate van toegang verlenen aan gebruikers die nodig is om de taken uit te voeren. In plaats van iedereen onbeperkte machtigingen te verlenen in uw Azure-abonnement of -resources, kunt u zelf bepalen welke acties er met een bepaalde bereik zijn toegestaan.
+
+Het is een aanbevolen procedure om tijdens het plannen van een strategie voor toegangsbeheer gebruikers minimale bevoegdheden te verlenen om hun werk gedaan te krijgen. In het volgende diagram wordt een voorgesteld patroon weergegeven voor het gebruik van RBAC.
+
+![RBAC en minimale bevoegdheden](./media/overview/rbac-least-privilege.png)
 
 ## <a name="how-rbac-works"></a>Hoe op rollen gebaseerd toegangsbeheer werkt
 

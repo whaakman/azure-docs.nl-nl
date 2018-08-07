@@ -1,25 +1,24 @@
 ---
 title: Zelfstudie - CI/CD van Jenkins voor Azure VM's met Team Services | Microsoft Docs
 description: In deze zelfstudie leert u hoe u continue integratie (CI) en continue implementatie (CD) van een Node.js-app kunt instellen met Jenkins voor Azure VM's vanuit Release Management in Visual Studio Team Services of Microsoft Team Foundation Server
-author: ahomer
-manager: douge
-editor: tysonn
+author: tomarcher
+manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: devops
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/19/2017
-ms.author: ahomer
-ms.custom: mvc
-ms.openlocfilehash: 6b74ab4d97df7e1e6b9bec8e3bcb150c99bd5b5c
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.date: 07/31/2018
+ms.author: tarcher
+ms.custom: jenkins
+ms.openlocfilehash: d3a4a81f60f4e70c2c7576c3176e2b4d6de08d04
+ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903448"
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39390592"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>Zelfstudie: Uw app implementeren voor Linux Virtual Machines in Azure met Jenkins en Visual Studio Team Services
 
@@ -168,7 +167,11 @@ Een releasedefinitie in Team Services maken:
 5. Open in uw browser de URL van een van de servers die u hebt toegevoegd aan de implementatiegroep. Typ bijvoorbeeld **http://{ip-adres-van-uw-server}**.
 6. Ga naar de Git-bronopslagplaats en wijzig de inhoud van de kop **h1** in het bestand app/views/index.jade met gewijzigde tekst.
 7. Voer uw wijziging door.
-8. Na een paar minuten ziet u dat er een nieuwe release is gemaakt op de pagina **Releases** van Team Services of Team Foundation Server. Open de release om te zien welke implementatie wordt uitgevoerd. Gefeliciteerd.
+8. Na een paar minuten ziet u dat er een nieuwe release is gemaakt op de pagina **Releases** van Team Services of Team Foundation Server. Open de release om te zien welke implementatie wordt uitgevoerd. Gefeliciteerd!
+
+## <a name="troubleshooting-the-jenkins-plugin"></a>Problemen met de Jenkins-invoegtoepassing oplossen
+
+Als u problemen ondervindt met de Jenkins-invoegtoepassingen, kunt u in [Jenkins JIRA](https://issues.jenkins-ci.org/) een ticket openen voor het specifieke onderdeel.
 
 ## <a name="next-steps"></a>Volgende stappen
 

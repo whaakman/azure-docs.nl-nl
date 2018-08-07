@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: ASA-taken implementeren op Azure IoT Edge-apparaten | Microsoft Docs'
-description: Azure Stream Analytics als module implementeren op een Iot Edge-apparaat
+description: In deze zelfstudie implementeert u Azure Stream Analytics als module op een Iot Edge-apparaat
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 0790f504c978b4302812cffc9b655e817c156da3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f2ef53ee53eb2e95d84fc11f3190f62d0e3c2455
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38540169"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413872"
 ---
-# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Zelfstudie: Azure Stream Analytics implementeren als een IoT Edge-module (preview)
+# <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Zelfstudie: Azure Stream Analytics implementeren als een IoT Edge-module (preview)
 
 Veel IoT-oplossingen maken gebruik van analyseservices om inzicht te krijgen in gegevens wanneer deze binnenkomen vanaf IoT-apparaten. Met Azure IoT Edge kunt u de logica van [Azure Stream Analytics][azure-stream] verplaatsen naar het apparaat zelf. Door telemetriestromen te verwerken kunt u de hoeveelheid geüploade gegevens verkleinen en tijd besparen bij het reageren op inzichten waarvoor een actie kan worden uitgevoerd.
 
@@ -36,10 +36,19 @@ In deze zelfstudie leert u het volgende:
 >[!NOTE]
 >Azure Stream Analytics-modules voor IoT Edge zijn in de [openbare preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Vereisten
 
-* Een IoT-hub
-* Het IoT Edge-apparaat dat u hebt gemaakt en geconfigureerd in de quickstart voor [Windows][lnk-quickstart-win] of [Linux][lnk-quickstart-lin]. 
+Een Azure IoT Edge-apparaat:
+
+* U kunt uw ontwikkelcomputer of een virtuele machine gebruiken als een Edge-apparaat door de stappen te volgen in de snelstart voor [Linux-](quickstart-linux.md) of [Windows-apparaten](quickstart.md).
+* De Azure Machine Learning-module ondersteunt geen ARM-processoren.
+
+Cloudresources:
+
+* Een standaard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-laag in Azure. 
+
 
 ## <a name="create-an-azure-stream-analytics-job"></a>Een Azure Stream Analytics-taak maken
 
@@ -67,7 +76,7 @@ Voor Azure Stream Analytics-taken is een Azure Storage-account vereist om te fun
    2. Gebruik dezelfde **Resourcegroep** en **Locatie** als de IoT-hub. 
 
       > [!NOTE]
-      > Momenteel worden Azure Stream Analytics-taken in IoT Edge niet ondersteund in de regio VS - west 2. 
+      > Momenteel worden Azure Stream Analytics-taken in IoT Edge niet ondersteund in de regio US - west 2. 
 
    3. Selecteer onder **Hostingomgeving** de optie **Edge**.
     

@@ -3,17 +3,17 @@ title: 'Azure-snelstart: een blob maken in objectopslag via Azure Portal | Micro
 description: In deze snelstart gebruikt u Azure Portal in object(blob)-opslag. Vervolgens gebruikt u Azure Portal om een blob in Azure Storage te uploaden, een blob te downloaden en de blobs in een container te vermelden.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: tamram
-ms.openlocfilehash: 1468aa0f12a05b71e3b997e1850d345a492308f2
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c3f281532260cfc895ecea56666260a1df1fb0c0
+ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
+ms.lasthandoff: 08/01/2018
+ms.locfileid: "39400498"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-portal"></a>Quickstart: blobs uploaden, downloaden en vermelden met behulp van Azure Portal
 

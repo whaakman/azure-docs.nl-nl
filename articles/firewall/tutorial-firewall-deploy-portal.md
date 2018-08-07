@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8db3f0ffbd65f3601bc05054e53a1e8e17384866
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: be11ea2195705b344638b93ea2657481897d6ef7
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145315"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358943"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Zelfstudie: Azure Firewall implementeren en configureren met de Azure-portal
 
@@ -88,6 +88,9 @@ Maak eerst een resourcegroep met de resources die nodig zijn om de firewall te i
     De firewall zal zich in dit subnet bevinden, en de subnetnaam **moet** AzureFirewallSubnet zijn.
 11. Bij **Adresbereik** typt u **10.0.1.0/24**.
 12. Gebruik de andere standaardinstellingen en klik vervolgens op **Maken**.
+
+> [!NOTE]
+> De minimale grootte van het subnet AzureFirewallSubnet is /25.
 
 ### <a name="create-additional-subnets"></a>Extra subnetten maken
 
@@ -172,6 +175,9 @@ Gebruik de informatie in de volgende tabel om de **Instellingen** voor de virtue
 4. Zodra de implementatie is voltooid, gaat u naar de resourcegroep **Test-FW-RG** en klikt u op de firewall **Test-FW01**.
 6. Noteer het privé-IP-adres. U zult het later gebruiken wanneer u de standaardroute maakt.
 
+> [!NOTE]
+> Het openbare IP-adres moet van het type Standaard-SKU zijn.
+
 [//]: # (Vergeet niet het privé-IP-adres voor de firewall te noteren.)
 
 ## <a name="create-a-default-route"></a>Een standaardroute maken
@@ -233,7 +239,7 @@ Voor het subnet **Workload-SN** configureert u de standaardroute voor uitgaand v
 4. Bij **Actie** selecteert u **Toestaan**.
 
 6. Onder **Regels** typt u bij **Naam** de naam **AllowDNS**.
-8. Bij **Protocol** selecteert u **TCP**.
+8. Bij **Protocol** selecteert u **UDP**.
 9. Bij **Bronadressen** typt u **10.0.2.0/24**.
 10. Bij doeladres typt u **209.244.0.3,209.244.0.4**.
 11. Bij **Doelpoorten** typt u **53**.

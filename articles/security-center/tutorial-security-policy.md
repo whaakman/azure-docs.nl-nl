@@ -3,7 +3,7 @@ title: Azure Security Center-zelfstudie - Beveiligingsbeleidsregels opstellen en
 description: Azure Security Center-zelfstudie - Beveiligingsbeleidsregels opstellen en beoordelen
 services: security-center
 documentationcenter: na
-author: terrylan
+author: TerryLanfear
 manager: mbaldwin
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,17 +13,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: yurid
-ms.openlocfilehash: 16dc8553fdc1209d1973934a87660ff61df8e68a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 07/30/2018
+ms.author: terrylan
+ms.openlocfilehash: 15c69bce87ede96eb3a7bc0bada4e4f6a6669abb
+ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779465"
+ms.lasthandoff: 07/31/2018
+ms.locfileid: "39358605"
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>Zelfstudie: Beveiligingsbeleidsregels opstellen en beoordelen
-Security Center helpt ervoor te zorgen dat beveiligingsvereisten van het bedrijf en de overheid worden nageleefd, door middel van beveiligingsbeleidsregels waarmee de gewenste configuratie van uw workloads kunnen worden gedefinieerd. Wanneer u beleidsregels voor uw Azure-abonnementen definieert en deze aanpast aan het type workload of de vertrouwelijkheid van uw gegevens, kan Security Center beveiligingsaanbevelingen geven voor beveiliging voor uw computer-, netwerk-, SQL- en opslag- en toepassingsresources. In deze zelfstudie leert u het volgende:
+Security Center helpt ervoor te zorgen dat beveiligingsvereisten van het bedrijf en de overheid worden nageleefd, door middel van beveiligingsbeleidsregels waarmee de gewenste configuratie van uw workloads kunnen worden gedefinieerd. Wanneer u beleidsregels voor uw Azure-abonnementen definieert en deze aanpast aan het type workload of de vertrouwelijkheid van uw gegevens, kan Security Center beveiligingsaanbevelingen geven voor beveiliging van uw computer-, toepassings-, netwerk-, gegevens en opslag-, identiteit en toegangresources. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Beveiligingsbeleid configureren
@@ -37,16 +37,20 @@ Om de functies in deze zelfstudie te doorlopen, moet u zich in de Standard-prijs
 ## <a name="configure-security-policy"></a>Beveiligingsbeleid configureren
 In Security Center wordt voor elk van uw Azure-abonnementen automatisch een standaardbeveiligingsbeleid gemaakt. Beveiligingsbeleidsregels bestaan uit aanbevelingen die u kunt in- of uitschakelen al naargelang de beveiligingsvereisten van dat abonnement. Alleen een eigenaar, bijdrager of beveiligingsbeheerder van het abonnement kan het standaardbeveiligingsbeleid wijzigen.
 
-1. Selecteer in het hoofdmenu van Security Center de optie **Beveiligingsbeleid**. Selecteer het abonnement dat u wilt gebruiken. Selecteer onder **BELEIDSONDERDELEN** de optie **Beveiligingsbeleid**:
+1. Selecteer in het hoofdmenu van Security Center de optie **Beveiligingsbeleid**.
+2. Selecteer het abonnement dat u wilt gebruiken.
 
   ![Beveiligingsbeleid](./media/tutorial-security-policy/tutorial-security-policy-fig1.png)  
 
-2. Selecteer **Aan** voor elke beveiligingsconfiguratie die u wilt bewaken. Security Center zal de configuratie van uw omgeving voortdurend bewaken, en wanneer er een beveiligingsprobleem is, wordt door Security Center een beveiligingsaanbeveling gegenereerd. Selecteer **Uit** als de beveiligingsconfiguratie niet aanbevolen of niet relevant is. Zo hebt u bijvoorbeeld in een ontwikkel-/testomgeving misschien niet hetzelfde beveiligingsniveau nodig als in een productie-omgeving. Klik op **Opslaan** nadat u de beleidsregels hebt geselecteerd die van toepassing zijn op uw omgeving.
+3. Selecteer bij **BELEIDSONDERDELEN** de optie **Beveiligingsbeleid**.
+4. Selecteer **Aan** voor elke beveiligingsconfiguratie die u wilt bewaken. Security Center zal de configuratie van uw omgeving voortdurend bewaken, en wanneer er een beveiligingsprobleem is, wordt door Security Center een beveiligingsaanbeveling gegenereerd. Selecteer **Uit** als de beveiligingsconfiguratie niet aanbevolen of niet relevant is. Zo hebt u bijvoorbeeld in een ontwikkel-/testomgeving misschien niet hetzelfde beveiligingsniveau nodig als in een productie-omgeving. Klik op **Opslaan** nadat u de beleidsregels hebt geselecteerd die van toepassing zijn op uw omgeving.
+
+  ![Beveiligingsconfiguratie](./media/tutorial-security-policy/tutorial-security-policy-fig6.png)  
 
 Wacht totdat Security Center deze beleidsregels heeft verwerkt en aanbevelingen heeft gegenereerd. Sommige configuraties, zoals systeemupdates en OS-configuraties kunnen wel 12 uur duren. Netwerkbeveiligingsgroepen en versleutelingsconfiguraties kunnen daarentegen vrijwel onmiddellijk worden beoordeeld. Zodra u de aanbevelingen in het dashboard van Security Center ziet, kunt u doorgaan met de volgende stap.
 
 ## <a name="assess-security-of-resources"></a>Beveiliging van resources beoordelen
-1. Op basis van de ingeschakelde beveiligingsbeleidsregels biedt Security Center indien nodig een reeks beveiligingsaanbevelingen. Controleer eerst de aanbevelingen voor virtuele machines en computers. Open het dashboard van **Security Center** en klik op **Compute**.
+1. Op basis van de ingeschakelde beveiligingsbeleidsregels biedt Security Center indien nodig een reeks beveiligingsaanbevelingen. Controleer eerst de aanbevelingen voor virtuele machines en computers. Open het dashboard van **Security Center** en selecteer **Compute en apps**.
 
   ![Compute](./media/tutorial-security-policy/tutorial-security-policy-fig2.png)
 
@@ -56,19 +60,23 @@ Wacht totdat Security Center deze beleidsregels heeft verwerkt en aanbevelingen 
 
   ![Netwerken](./media/tutorial-security-policy/tutorial-security-policy-fig3.png)
 
-  De pagina met netwerkaanbevelingen bevat een lijst met beveiligingsproblemen op het gebied van de netwerkconfiguratie, internetgerichte eindpunten en netwerktopologie. Net als bij **Compute** zullen enkele netwerkaanbevelingen geïntegreerd herstel bevatten en andere niet.
+  De pagina met netwerkaanbevelingen bevat een lijst met beveiligingsproblemen op het gebied van de netwerkconfiguratie, internetgerichte eindpunten en netwerktopologie. Net als bij **Compute en apps** zullen enkele netwerkaanbevelingen geïntegreerd herstel bevatten en andere niet.
 
-3. Wanneer u alle relevante netwerkaanbevelingen hebt afgehandeld, gaat u verder met de volgende workload: opslag en gegevens. Open het dashboard van **Security Center** en klik op **Opslag en gegevens**.
+3. Wanneer u alle relevante netwerkaanbevelingen hebt afgehandeld, gaat u verder met de volgende workload: opslag en gegevens. Open het dashboard van **Security Center** en selecteer **Gegevens en opslag**.
 
   ![Gegevensbronnen](./media/tutorial-security-policy/tutorial-security-policy-fig4.png)
 
-  De pagina **Gegevensbronnen** bevat aanbevelingen voor het inschakelen van controle-instellingen voor Azure SQL-servers en -databases, het inschakelen van versleuteling voor SQL-databases en het inschakelen van versleuteling van uw Azure Storage-account. Als u deze workloads niet hebt, wordt geen aanbeveling weergegeven. Net als bij **Compute** zullen enkele SQL- en opslagaanbevelingen geïntegreerd herstel bevatten en andere niet.
+  De pagina **Gegevensbronnen** bevat aanbevelingen voor het inschakelen van controle-instellingen voor Azure SQL-servers en -databases, het inschakelen van versleuteling voor SQL-databases en het inschakelen van versleuteling van uw Azure Storage-account. Als u deze workloads niet hebt, wordt geen aanbeveling weergegeven. Net als bij **Compute en apps** zullen enkele gegevens- en opslagaanbevelingen geïntegreerd herstel bevatten en andere niet.
 
-4. Wanneer u alle relevante SQL- en opslagaanbevelingen hebt afgehandeld, gaat u verder met de volgende workload: toepassingen. Open het dashboard van **Security Center** en klik op **Toepassingen**.
+4. Wanneer u alle relevante gegevens- en opslagaanbevelingen hebt afgehandeld, gaat u verder met de volgende workload: Identiteit en toegang. Open het dashboard van Security Center, klik op **Overzicht** en vervolgens op **Identiteit en toegang**.
 
-  ![Toepassingen](./media/tutorial-security-policy/tutorial-security-policy-fig5.png)
+  ![Identiteit en toegang](./media/tutorial-security-policy/tutorial-security-policy-fig5.png)
 
-  De pagina **Toepassingen** bevat aanbevelingen voor de implementatie van webtoepassingsfirewalls en algemene richtlijnen voor toepassingsbeveiliging. Als u geen virtuele machine of computers hebt met webtoepassingen die worden uitgevoerd op Internet Information Service (IIS), worden er geen aanbevelingen weergegeven.
+  De pagina **Identiteit en toegang** bevat aanbevelingen, zoals:
+
+   - MFA inschakelen voor bevoegde accounts voor uw abonnement
+   - Externe accounts met schrijfmachtigingen verwijderen van uw abonnement
+   - Bevoegde externe accounts verwijderen van uw abonnement
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 Andere snelstartgidsen en zelfstudies in deze verzameling zijn gebaseerd op deze snelstartgids. Als u de volgende snelstartgidsen en zelfstudies ook wilt doornemen, blijf dan de prijscategorie Standard gebruiken en houd automatische inrichting ingeschakeld. Als u niet wilt doorgaan of wilt terugkeren naar de laag gratis:

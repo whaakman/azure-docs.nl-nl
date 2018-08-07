@@ -7,18 +7,27 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 07/16/2018
+ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 8e5518e0a2be98cc080a76cdf0697d6812ab22f8
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: f7a314b3de112ad1fa7a5a356c2325846e9371b1
+ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092100"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39413379"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Wat is de service Azure SQL Database? 
 
-SQL Database is een algemene, beheerde relationele databaseservice in Microsoft Azure die ondersteuning biedt voor structuren zoals relationele gegevens, JSON, ruimtelijke gegevens en XML. SQL Database biedt ondersteuning voor logische servers met [één SQL-database](sql-database-servers-databases.md) of [elastische pools](sql-database-elastic-pool.md) en voor [beheerde exemplaren](sql-database-managed-instance.md) (in de openbare preview) met systeem- en gebruikersdatabases. SQL Database levert dynamisch schaalbare prestaties binnen twee verschillende aankoopmodellen: een [aankoopmodel op basis van vCore](sql-database-service-tiers-vcore.md) en een [aankoopmodel op basis van DTU](sql-database-service-tiers-dtu.md). SQL Database biedt ook opties zoals [columnstore-indexen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) voor krachtige analyses en rapportages, en [in-memory OLTP](sql-database-in-memory.md) voor veeleisende transactieverwerking. Microsoft verzorgt op naadloze wijze alle patching en updating van de SQL-codebasis en heeft het beheer van de onderliggende infrastructuur volledig weggewerkt. 
+SQL Database is een algemene, beheerde relationele databaseservice in Microsoft Azure die ondersteuning biedt voor structuren zoals relationele gegevens, JSON, ruimtelijke gegevens en XML. SQL Database levert dynamisch schaalbare prestaties binnen twee verschillende aankoopmodellen: een [aankoopmodel op basis van vCore](sql-database-service-tiers-vcore.md) en een [aankoopmodel op basis van DTU](sql-database-service-tiers-dtu.md). SQL Database biedt ook opties zoals [columnstore-indexen](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) voor krachtige analyses en rapportages, en [in-memory OLTP](sql-database-in-memory.md) voor veeleisende transactieverwerking. Microsoft verzorgt op naadloze wijze alle patching en updating van de SQL-codebasis en heeft het beheer van de onderliggende infrastructuur volledig weggewerkt. 
+
+Azure SQL Database biedt de volgende implementatieopties voor een Azure SQL-database:
+- Als een individuele database met een eigen set resources die wordt beheerd via een logische server 
+- Als een gegroepeerde database in een [elastische pool](sql-database-elastic-pool.md) met een gedeelde set resources die wordt beheerd via een logische server
+- Als onderdeel van een verzameling databases, ook wel een [beheerd exemplaar](sql-database-managed-instance.md) genoemd (in openbare preview), die systeem- en gebruikersdatabases bevat en een set resources deelt
+
+In de volgende afbeelding worden deze implementatieopties weergegeven:
+
+![implementatieopties](./media/sql-database-technical-overview/deployment-options.png) 
 
 SQL Database deelt de codebasis met de [database-engine van Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation). In het kader van de cloudstrategie van Microsoft worden nieuwe mogelijkheden van SQL Server eerst uitgebracht in SQL Database en vervolgens in SQL Server zelf. Dankzij deze aanpak kunt u beschikken over de nieuwste mogelijkheden van SQL Server zonder overhead voor patching en upgrading, en zijn de nieuwe functies getest op miljoenen databases. Ga voor informatie over aangekondigde nieuwe mogelijkheden naar:
 

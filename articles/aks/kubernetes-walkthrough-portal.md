@@ -6,21 +6,21 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 04/29/2018
+ms.date: 07/27/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: aa8a1cccd4eeb45e829cd8df73f128dd6cca416d
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 5fd410f0c6c19dcbe2a728f193f3a10d3824693f
+ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344471"
+ms.lasthandoff: 07/30/2018
+ms.locfileid: "39343454"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Snelstart: Een AKS-cluster (Azure Kubernetes Service) implementeren
 
 In deze snelstart implementeert u een AKS-cluster met behulp van Azure Portal. Vervolgens wordt een toepassing met meerdere containers op het cluster uitgevoerd die bestaat uit een web-front-end en een Redis-exemplaar. Zodra de toepassing is voltooid, is deze toegankelijk via internet.
 
-![Afbeelding van browsen naar Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Afbeelding van browsen naar de Azure Vote-voorbeeldtoepassing](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 In deze snelstart wordt ervan uitgegaan dat u een basisbegrip hebt van Kubernetes-concepten. Raadpleeg de [Kubernetes-documentatie][kubernetes-documentation] voor gedetailleerde informatie over Kubernetes.
 
@@ -28,56 +28,59 @@ In deze snelstart wordt ervan uitgegaan dat u een basisbegrip hebt van Kubernete
 
 Meld u aan bij Azure Portal op http://portal.azure.com.
 
-## <a name="create-aks-cluster"></a>AKS-cluster maken
+## <a name="create-an-aks-cluster"></a>Een AKS-cluster maken
 
-Kies **Een resource maken** > selecteer **Kubernetes-service**.
+Selecteer in de linkerbovenhoek van de Azure-portal **Een resource maken** > **Kubernetes-service**.
 
-Voer de volgende stappen uit onder elke kop van het formulier AKS-cluster maken.
+Voltooi de volgende stappen om een AKS-cluster te maken:
 
-- **PROJECTDETAILS**: selecteer een Azure-abonnement en een nieuwe of bestaande Azure-resourcegroep.
-- **CLUSTERDETAILS**: voer een naam, regio, versie en DNS-voorvoegsel voor het AKS-cluster in.
-- **VERIFICATIE**: maak een nieuwe service-principal of gebruik een bestaande service-principal. Wanneer u een bestaande service-principal gebruikt, moet u de SPN-client-ID en het geheim opgeven.
-- **SCHAAL**: selecteer een VM-grootte voor de AKS-knooppunten. De VM-grootte kan **niet** meer worden gewijzigd als een AKS-cluster eenmaal is geïmplementeerd. Selecteer ook het aantal knooppunten dat u in het cluster wilt implementeren. Het aantal knooppunten kan nog **wel** worden gewijzigd als het cluster is geïmplementeerd.
+1. **Basisprincipes**, configureer de volgende opties:
+    - *PROJECTDETAILS*: selecteer een Azure-abonnement, en selecteer of maak vervolgens een Azure-resourcegroep, zoals *myResourceGroup*. Voer een **Kubernetes-clusternaam** in, zoals *myAKSCluster*.
+    - *CLUSTERDETAILS*: selecteer een regio, Kubernetes-versie en DNS-naamvoorvoegsel voor het AKS-cluster.
+    - *SCHAAL*: selecteer een VM-grootte voor de AKS-knooppunten. De VM-grootte kan **niet** meer worden gewijzigd als een AKS-cluster eenmaal is geïmplementeerd.
+        - Selecteer het aantal knooppunten dat u in het cluster wilt implementeren. Stel voor deze quickstart het **Aantal knooppunten** in op *1*. Het aantal knooppunten kan nog **wel** worden gewijzigd als het cluster is geïmplementeerd.
+    
+    ![AKS-cluster maken - basisgegevens opgeven](media/kubernetes-walkthrough-portal/create-cluster-1.png)
 
-Selecteer **Volgende: Netwerk** wanneer u klaar bent.
+    Selecteer **Volgende: verificatie** wanneer u klaar bent.
 
-![Het eerste AKS-cluster maken](media/container-service-walkthrough-portal/aks-portal-1.png)
+1. **Verificatie**, configureer de volgende opties:
+    - Maak een nieuwe service-principal of *configureer* om een bestaande te gebruiken. Wanneer u een bestaande service-principal gebruikt, moet u de SPN-client-ID en het geheim opgeven.
+    - Schakel de optie voor Kubernetes-toegangsbeheer op basis van rollen (RBAC) in. Deze besturingselementen bieden een verfijnder beheer van de toegang tot de Kubernetes-resources die zijn geïmplementeerd in het AKS-cluster.
 
-Configureer de volgende netwerkopties:
+    ![AKS-cluster maken - verificatie configureren](media/kubernetes-walkthrough-portal/create-cluster-2.png)
 
-- **Routering van HTTP-toepassing**: hiermee configureert u een geïntegreerde ingangscontroller met functionaliteit voor het automatisch maken van openbare DNS-namen. Zie [HTTP-routering en DNS voor AKS][http-routing] voor meer informatie over HTTP-routering.
-- **Netwerkconfiguratie**: kies of u de basisnetwerkconfiguratie met de Kubernetes-invoegtoepassing [kubenet][kubenet] wilt gebruiken, of geavanceerde netwerkconfiguratie met [Azure CNI][azure-cni]. Zie het [AKS-netwerkoverzicht][aks-network] voor meer informatie over netwerkopties.
+    Selecteer **Volgende: Netwerk** wanneer u klaar bent.
 
-Selecteer **Volgende: Controle** wanneer u klaar bent.
+1. **Netwerken**: configureer de volgende netwerkopties die als standaard moeten worden ingesteld:
+    
+    - **Routering van HTTP-toepassing**: selecteer **Ja** om een geïntegreerde ingangscontroller te configureren met functionaliteit voor het automatisch maken van openbare DNS-namen. Zie [HTTP-routering en DNS voor AKS][http-routing] voor meer informatie over HTTP-routering.
+    - **Netwerkconfiguratie**: selecteer de **basisnetwerkconfiguratie** die gebruikmaakt van de Kubernetes-invoegtoepassing [kubenet][kubenet], in plaats van de geavanceerde netwerkconfiguratie die gebruikmaakt van [Azure CNI][azure-cni]. Zie het [AKS-netwerkoverzicht][aks-network] voor meer informatie over netwerkopties.
+    
+    Selecteer **Volgende: Controle** wanneer u klaar bent.
 
-![Het eerste AKS-cluster maken](media/container-service-walkthrough-portal/aks-portal-2.png)
+1. Bij het implementeren van een AKS-cluster kan Azure Container Insights worden geconfigureerd voor het controleren van de status van het AKS-cluster en -pods die in het cluster worden uitgevoerd. Zie [Status van Azure Kubernetes Service controleren][aks-monitor] voor meer informatie over het controleren van de status van de container.
 
-Bij het implementeren van een AKS-cluster kan Azure Container Insights worden geconfigureerd voor het controleren van de status van het AKS-cluster en schillen die in het cluster worden uitgevoerd. Zie [Status van Azure Kubernetes Service controleren][aks-monitor] voor meer informatie over het controleren van de status van de container.
+    Selecteer **Ja** als u statuscontrole van de container wilt inschakelen en selecteer een bestaande Log Analytics-werkruimte of maak een nieuwe.
+    
+    Selecteer **Controleren + maken** en vervolgens **Maken** wanneer u klaar bent.
 
-Selecteer **Ja** als u statuscontrole van de container wilt inschakelen en selecteer een bestaande Log Analytics-werkruimte of maak een nieuwe.
+Het duurt enkele minuten om het AKS-cluster te maken en voor te bereiden voor gebruik. Blader naar de AKS-clusterresourcegroep, zoals *myResourceGroup*, en selecteer de AKS-resource, zoals *myAKSCluster*. Het AKS-clusterdashboard wordt weergegeven, zoals u kunt zien in de volgende voorbeeldschermopname:
 
-Selecteer **Controleren + maken** en vervolgens **Maken** wanneer u klaar bent.
-
-![Het eerste AKS-cluster maken](media/container-service-walkthrough-portal/aks-portal-3.png)
-
-Na enkele ogenblikken is het AKS-cluster geïmplementeerd en klaar voor gebruik. Blader naar de AKS-clusterresourcegroep en selecteer de AKS-resource. Als het goed is, wordt nu het AKS-clusterdashboard weergegeven.
-
-![Het eerste AKS-cluster maken](media/container-service-walkthrough-portal/aks-portal-5.png)
+![Voorbeeld van AKS-dashboard in de Azure-portal](media/kubernetes-walkthrough-portal/aks-portal-dashboard.png)
 
 ## <a name="connect-to-the-cluster"></a>Verbinding maken met het cluster
 
-Als u een Kubernetes-cluster wilt beheren, gebruikt u [kubectl][kubectl], de Kubernetes-opdrachtregelclient. De kubectl-client is vooraf geïnstalleerd in Azure Cloud Shell.
+Als u een Kubernetes-cluster wilt beheren, gebruikt u [kubectl][kubectl], de Kubernetes-opdrachtregelclient. De client `kubectl` is vooraf geïnstalleerd in Azure Cloud Shell.
 
 Open Cloud Shell met behulp van de knop in de rechterbovenhoek van Azure Portal.
 
-![Cloud Shell](media/container-service-walkthrough-portal/kubectl-cs.png)
+![Open Azure Cloud Shell in de portal](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
 
-Gebruik de opdracht [az aks get-credentials][az-aks-get-credentials] om kubectl zo te configureren dat deze verbinding maakt met het Kubernetes-cluster.
-
-Kopieer en plak de volgende opdracht in Cloud Shell. Wijzig de naam van de resourcegroep en van het cluster, indien nodig.
+Gebruik de opdracht [az aks get-credentials][az-aks-get-credentials] om `kubectl` te configureren om verbinding te maken met het Kubernetes-cluster. In het volgende voorbeeld worden de referenties opgehaald voor de clusternaam *myAKSCluster* in de resourcegroep met de naam *myResourceGroup*:
 
 ```azurecli-interactive
-az aks get-credentials --resource-group myAKSCluster --name myAKSCluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
 Als u de verbinding met uw cluster wilt controleren, gebruikt u de opdracht [kubectl get][kubectl-get] om een lijst met clusterknooppunten te retourneren.
@@ -86,20 +89,18 @@ Als u de verbinding met uw cluster wilt controleren, gebruikt u de opdracht [kub
 kubectl get nodes
 ```
 
-Uitvoer:
+In de volgende voorbeelduitvoer ziet u het enkele knooppunt dat is gemaakt in de vorige stappen.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION
-aks-agentpool-11482510-0   Ready     agent     9m        v1.9.6
-aks-agentpool-11482510-1   Ready     agent     8m        v1.9.6
-aks-agentpool-11482510-2   Ready     agent     9m        v1.9.6
+aks-agentpool-14693408-0   Ready     agent     10m       v1.10.5
 ```
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 
-In een Kubernetes-manifestbestand wordt een gewenste status voor een cluster gedefinieerd, inclusief zaken zoals welke containerinstallatiekopieën moeten worden uitgevoerd. In dit voorbeeld worden met behulp van een manifest alle objecten gemaakt die nodig zijn om de Azure Vote-toepassing uit te voeren. Dit behelst twee [Kubernetes-implementaties][kubernetes-deployment], een voor de Azure Vote-front-end en een voor een Redis-exemplaar. Er worden ook twee [Kubernetes-services][kubernetes-service] gemaakt: een interne service voor het Redis-exemplaar en een externe service voor toegang tot de Azure Vote-toepassing vanaf internet.
+In een Kubernetes-manifestbestand wordt een gewenste status voor een cluster gedefinieerd, inclusief zaken zoals welke containerinstallatiekopieën moeten worden uitgevoerd. In deze quickstart wordt een manifest gebruikt om alle objecten te maken die nodig zijn om een Azure Vote-voorbeeldtoepassing uit te voeren. Dit omvat twee [Kubernetes-implementaties][kubernetes-deployment]: een voor de Azure Vote-front-end en een voor een Redis-exemplaar. Er worden ook twee [Kubernetes-services][kubernetes-service] gemaakt: een interne service voor het Redis-exemplaar en een externe service voor toegang tot de Azure Vote-toepassing vanaf internet.
 
-Maak een bestand met de naam `azure-vote.yaml` en kopieer de volgende YAML-code naar het bestand. Als u werkt in Azure Cloud Shell, maakt u het bestand met behulp van vi of Nano, zoals bij een virtueel of fysiek systeem.
+Maak een bestand met de naam `azure-vote.yaml` en kopieer de volgende YAML-code naar het bestand. Als u werkt in Azure Cloud Shell, maakt u het bestand met behulp van `vi` of `Nano`, zoals bij een virtueel of fysiek systeem.
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -165,10 +166,10 @@ spec:
 Gebruik de opdracht [kubectl apply][kubectl-apply] om de toepassing uit te voeren.
 
 ```azurecli-interactive
-kubectl apply -f azure-vote.yaml
+kubectl create -f azure-vote.yaml
 ```
 
-Uitvoer:
+In de volgende voorbeelduitvoer ziet u de Kubernetes-resources die zijn gemaakt in het AKS-cluster:
 
 ```
 deployment "azure-vote-back" created
@@ -200,28 +201,28 @@ Zodra het *EXTERNE IP-adres* is gewijzigd van *in behandeling* in een *IP-adres*
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
-Blader nu naar het externe IP-adres voor een overzicht van de Azure Vote-app.
+Open een webbrowser naar het externe IP-adres van uw service om de Azure Vote-app te zien, zoals wordt weergegeven in het volgende voorbeeld:
 
-![Afbeelding van browsen naar Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Afbeelding van browsen naar de Azure Vote-voorbeeldtoepassing](media/container-service-kubernetes-walkthrough/azure-vote.png)
 
 ## <a name="monitor-health-and-logs"></a>Status en logboeken controleren
 
-Als Container Insights-controle is ingeschakeld, zijn er in het AKS-clusterdashboard zowel metrische statusgegevens beschikbaar voor het AKS-cluster als voor de schillen die in het cluster wordt uitgevoerd. Zie [Status van Azure Kubernetes Service controleren][aks-monitor] voor meer informatie over het controleren van de status van de container.
+Toen u het cluster maakte, werd Container Insights-controle ingeschakeld. Deze controlefunctie biedt metrische statusgegevens voor zowel het AKS-cluster als de pods die in het cluster worden uitgevoerd. Zie [Status van Azure Kubernetes Service controleren][aks-monitor] voor meer informatie over het controleren van de status van de container.
 
-Als u de huidige status, bedrijfstijd en het resourcegebruik van de Azure Vote-schillen wilt bekijken, bladert u terug naar de AKS-resource en selecteer achtereenvolgens **Status van container controleren**, de **standaard**naamruimte en **Containers**. Het kan enkele minuten duren voordat deze gegevens in Azure Portal worden ingevuld.
+Het kan enkele minuten duren voordat deze gegevens in Azure Portal worden ingevuld. Ga terug naar de AKS-resource in de Azure-portal, zoals *myAKSCluster*, om de huidige status, de uptime en het resourcegebruik te zien voor de Azure Vote-pods. Kies **Containerstatus controleren** > selecteer de **standaardnaamruimte** > en selecteer vervolgens **Containers**.  De containers *azure-vote-back* en *azure-vote-front* worden weergegeven:
 
-![Het eerste AKS-cluster maken](media/container-service-walkthrough-portal/aks-portal-6.png)
+![De status van actieve containers in AKS weergeven](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-Als u de logboeken voor de `azure-vote-front`-schil wilt weergeven, selecteert u de koppeling **Logboeken weergeven**. Deze logboeken bevatten de stromen stdout en stderr van de container.
+Selecteer de koppeling **Logboeken weergeven** aan de rechterkant van de lijst met containers om de logboeken voor de `azure-vote-front`-pod te zien. Deze logboeken bevatten de stromen *stdout* en *stderr* van de container.
 
-![Het eerste AKS-cluster maken](media/container-service-walkthrough-portal/aks-portal-7.png)
+![De containerlogboeken in AKS weergeven](media/kubernetes-walkthrough-portal/monitor-containers-logs.png)
 
 ## <a name="delete-cluster"></a>Cluster verwijderen
 
-Wanneer het cluster niet meer nodig is, verwijdert u de clusterresource. Hierdoor worden ook alle bijbehorende resources verwijderd. Deze bewerking kan worden voltooid in Azure Portal door in het AKS-clusterdashboard de knop Verwijderen te selecteren. U kunt ook de opdracht [az aks delete][az-aks-delete] gebruiken in Cloud Shell.
+Wanneer het cluster niet meer nodig is, verwijdert u de clusterresource. Hierdoor worden ook alle bijbehorende resources verwijderd. Deze bewerking kan worden voltooid in de Azure-portal door op het AKS-clusterdashboard de knop **Verwijderen** te selecteren. U kunt ook de opdracht [az aks delete][az-aks-delete] gebruiken in Cloud Shell.
 
 ```azurecli-interactive
-az aks delete --resource-group myAKSCluster --name myAKSCluster --no-wait
+az aks delete --resource-group myResourceGroup --name myAKSCluster --no-wait
 ```
 
 ## <a name="get-the-code"></a>Code ophalen

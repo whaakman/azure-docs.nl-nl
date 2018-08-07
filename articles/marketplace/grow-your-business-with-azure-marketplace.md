@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 094958911435b899773ef4ee11176f538a4c8fe0
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 6c2f20f74ce90f2876ff4040d34a2ede94c92fb1
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399121"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577323"
 ---
 # <a name="grow-your-business-in-the-marketplace"></a>Ontwikkel uw bedrijfsactiviteiten in de marketplace 
 Nadat u uw aanbieding in AppSource of in de Azure Marketplace hebt gepubliceerd, kunt u uw aanbieding gebruiken als een launchpad voor gezamenlijke (GTM)-activiteiten met go-to-market met Microsoft. Verkeer naar uw Marketplace-aanbieding te stimuleren en nurturing Marketplace leads, zijn bijvoorbeeld geweldige manieren om uw zakelijke groei te versnellen. 
@@ -33,7 +33,7 @@ De tabellen in de volgende secties vindt u suggesties voor het maken van aantrek
 ### <a name="storefront-offer-details"></a>Details van StoreFront aanbieding
 | StoreFront instelling | Best practices |
 |:--- |:--- |  
-| Naam van aanbieding: | Geef een sterk titel:<br>Naam van uw app moet de core-waarde die uw klanten ontvangt communiceren. Inclusief zoekwoorden in de titel van uw app kunt u uw app die hoger in zoekmachineresultaten wordt gerangschikt.<br><br>Ga als volgt een set titel-indeling voor het service-aanbiedingen consulting:<br>[Naam van aanbieding]: [duur] [Aanbiedingstype (Offertype)] (bijvoorbeeld *Contoso: 2 weken implementatie*)<br><br>Voldoen aan de Merkrichtlijnen van:<br>Ga als volgt [Trademark van Microsoft en Merkrichtlijnen](https://www.microsoft.com/legal/intellectualproperty/trademarks/usage/general.aspx) en andere relevante, product-specifieke richtlijnen wanneer u naar handelsmerken van Microsoft en de namen van de Microsoft-software, producten en services verwijst. |
+| Naam van aanbieding: | Geef een sterk titel:<br>Naam van uw app moet de core-waarde die uw klanten ontvangt communiceren. Inclusief zoekwoorden in de titel van uw app kunt u uw app die hoger in zoekmachineresultaten wordt gerangschikt.<br><br>Ga als volgt een set titel-indeling voor het service-aanbiedingen consulting:<br>[Naam van aanbieding]: [duur] [Aanbiedingstype (Offertype)] \(bijvoorbeeld *Contoso: 2 weken implementatie*)<br><br>Voldoen aan de Merkrichtlijnen van:<br>Ga als volgt [Trademark van Microsoft en Merkrichtlijnen](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx) en andere relevante, product-specifieke richtlijnen wanneer u naar handelsmerken van Microsoft en de namen van de Microsoft-software, producten en services verwijst. |
 | Beschrijving van aanbieding | Geef een beschrijving wissen aanbieding:<br>Duidelijk waardevoorstel in de eerste paar zinnen van de beschrijving van uw aanbieding te beschrijven. Houd er rekening mee dat de eerste paar zinnen kunnen worden weergegeven in zoekmachineresultaten. Vertrouw niet op de functies en functionaliteit om uw product te verkopen. In plaats daarvan richten op de waarde die u levert. Branchespecifieke vocabulaire of op basis van een voordeel bewoording zo veel mogelijk gebruiken.<br><br>Belangrijkste onderdelen van de toegevoegde waarde moeten de volgende informatie opnemen:<ul><li>Beschrijving van het product</li><li>Type van de gebruiker om te kunnen van het product profiteren</li><li>Klant- of pijn die het product</li></ul> |
 
 ### <a name="storefront-listing-details"></a>De details van StoreFront aanbieding
