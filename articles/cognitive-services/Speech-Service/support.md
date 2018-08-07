@@ -8,22 +8,27 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: 2f8cbb5b436930f89ece1a18d4e1e54a88b02650
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: e24008a2208d8dcfbb7f86c66bb7de39f3c75790
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39286186"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528184"
 ---
 # <a name="support-and-help-options"></a>Opties voor ondersteuning en hulp
 
 U net aan de slag om te verkennen van de functionaliteit van de Speech-service? Implementeert u een nieuwe functie voor uw toepassing? Hier volgen aanbevolen basisservers waar u de help als ontwikkelaar kunt krijgen.
 
 > [!div class="checklist"]
+> * Blijf op de hoogte van nieuwe ontwikkelingen in *Microsoft Cognitive Services* of het laatste nieuws met betrekking tot zoeken *spraakservice*.
 > * Zoeken om te controleren als de vraag van uw probleem niet is beantwoord door de community, of als een bestaande documentatie voor de functie u wilt implementeren, al bestaat.
 > * Als u het antwoord van wat u nodig hebt niet kunt vinden, kunt u een vraag stellen op *Stack Overflow*.
 > * Als u een probleem met een van de voorbeelden die u op GitHub vinden kunt kunt vinden, moet u een *GitHub* probleem.
 > * Zoek een oplossing in de *-gebruikersforum stem*.
+
+## <a name="stay-informed"></a>Blijf op de hoogte
+
+Nieuws over Microsoft Cognitive Services worden verzameld de [Cognitive Services-blog](https://azure.microsoft.com/en-us/blog/topics/cognitive-services/). Voor de meest recente informatie over de spraak-service volgen de [Spraakservice blog](https://azure.microsoft.com/en-us/blog/tag/speech-service/).
 
 ## <a name="search"></a>Search
 

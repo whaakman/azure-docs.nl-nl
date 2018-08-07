@@ -1,34 +1,28 @@
 ---
 title: Overzicht van uw Azure Import/Export-taken | MicrosoftDocs
-description: Ontdek hoe u een lijst weer met alle van de Azure Import/Export-service-taken in een abonnement.
+description: Informatie over het overzicht van de Azure Import/Export-service-taken in een abonnement.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: f2e619be-1bbd-4a54-9472-9e2f70a83b64
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 1977bfc0e516088310f45ecdd960287eeed2c2d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 69daac71b69969a7ad9acfeb7095053f8138bf53
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873700"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520877"
 ---
-# <a name="enumerating-jobs-in-the-azure-importexport-service"></a>Het inventariseren van taken in de Azure Import/Export-service
-Aanroepen voor het inventariseren van alle taken in een abonnement, het [lijst taken](/rest/api/storageimportexport/jobs#Jobs_List) bewerking. `List Jobs`retourneert een lijst met taken, evenals de volgende kenmerken:
+# <a name="enumerating-jobs-in-the-azure-importexport-service"></a>Taken in de Azure Import/Export-service opsommen
+Aanroepen voor het inventariseren van alle taken in een abonnement, de [lijst met taken](/rest/api/storageimportexport/jobs#Jobs_List) bewerking. `List Jobs` retourneert een lijst van taken, evenals de volgende kenmerken:
 
--   Het type taak (invoer of uitvoer)
+-   Het type van de taak (importeren of exporteren)
 
 -   De huidige taakstatus
 
--   De taak horen storage-account
+-   De taak gekoppeld opslagaccount
 
 ## <a name="next-steps"></a>Volgende stappen
 

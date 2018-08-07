@@ -17,17 +17,17 @@ ms.date: 08/03/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 9c2140d0e482089be632d9a21560349a6381968e
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 8b23d99b838449681f83ff2e88bd96ee90502404
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495234"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578854"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Over het verkrijgen van AppSource-gecertificeerd voor Azure Active Directory
 [Microsoft AppSource](https://appsource.microsoft.com/) is een doel voor zakelijke gebruikers om te ontdekken, uitproberen en line-of-business SaaS-toepassingen (zelfstandige SaaS en invoegtoepassing voor bestaande Microsoft SaaS-producten) beheren.
 
-Als u een zelfstandige SaaS-toepassing op AppSource, moet uw toepassing accepteren eenmalige aanmelding van werkaccounts van een bedrijf of organisatie die Azure Active Directory heeft. Het proces voor aanmelden moet gebruiken de [OpenID Connect](./active-directory-protocols-openid-connect-code.md) of [OAuth 2.0](./active-directory-protocols-oauth-code.md) protocollen. SAML-integratie wordt niet geaccepteerd voor AppSource-certificering.
+Als u een zelfstandige SaaS-toepassing op AppSource, moet uw toepassing accepteren eenmalige aanmelding van werkaccounts van een bedrijf of organisatie die Azure Active Directory heeft. Het proces voor aanmelden moet gebruiken de [OpenID Connect](v1-protocols-openid-connect-code.md) of [OAuth 2.0](v1-protocols-oauth-code.md) protocollen. SAML-integratie wordt niet geaccepteerd voor AppSource-certificering.
 
 ## <a name="guides-and-code-samples"></a>Handleidingen en codevoorbeelden
 Als u wilt meer informatie over het integreren van uw toepassing met Azure Active Directory met behulp van Open ID verbinden, volgt u onze richtlijnen en codevoorbeelden in de [ontwikkelaarsgids van Azure Active Directory](azure-ad-developers-guide.md#get-started "aan de slag met Azure AD voor ontwikkelaars").
@@ -41,7 +41,7 @@ Om in te schakelen multitenancy op uw toepassing:
 - Werk uw code voor het verzenden van aanvragen voor de '`common`' eindpunt (bijwerken van het eindpunt van *https://login.microsoftonline.com/{yourtenant}* naar *https://login.microsoftonline.com/common*)
 - Voor sommige platformen, zoals ASP.NET, moet u ook uw code voor het accepteren van meerdere certificaatverleners bijwerken
 
-Zie voor meer informatie over multitenancy: [aanmelden bij een Azure Active Directory (AD) gebruiker met behulp van het patroon voor multitenant-toepassingen](./active-directory-devhowto-multi-tenant-overview.md).
+Zie voor meer informatie over multitenancy: [aanmelden bij een Azure Active Directory (AD) gebruiker met behulp van het patroon voor multitenant-toepassingen](howto-convert-app-to-be-multi-tenant.md).
 
 ### <a name="single-tenant-applications"></a>Toepassingen met één tenant
 Toepassingen die alleen aanmeldingen van gebruikers van een gedefinieerde Azure Active Directory-exemplaar accepteren worden aangeduid als *toepassing met één tenant*. Externe gebruikers (met inbegrip van werk of School-accounts van andere organisaties of persoonlijk account) kunnen zich aanmelden bij een toepassing met één tenant na het toevoegen van elke gebruiker als *gastaccount* naar de Azure Active Directory-exemplaar dat de toepassing is geregistreerd. U kunt gebruikers als Gast-account toevoegen aan een Azure Active Directory via de [ *Azure AD B2B-samenwerking* ](../b2b/what-is-b2b.md) - en kan worden gedaan [programmatisch](../b2b/code-samples.md). Wanneer u een gebruiker als Gast-account aan een Azure Active Directory toevoegen, wordt een uitnodiging via e-mail verzonden naar de gebruiker, met de uitnodiging te accepteren door te klikken op de koppeling in de uitnodiging per e-mail. Uitnodigingen die worden verzonden naar een andere gebruiker in een organisatie die ook lid is van de partnerorganisatie zijn niet vereist om een uitnodiging aan te melden bij te accepteren.
@@ -121,7 +121,7 @@ Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en 
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Auth-Scenarios-Browser-To-WebApp]:authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]: azure-ad-developers-guide.md
-[AAD-Howto-Multitenant-Overview]: ./active-directory-devhowto-multi-tenant-overview.md
+[AAD-Howto-Multitenant-Overview]: howto-convert-app-to-be-multi-tenant.md
 [AAD-QuickStart-Web-Apps]: azure-ad-developers-guide.md#get-started
 
 

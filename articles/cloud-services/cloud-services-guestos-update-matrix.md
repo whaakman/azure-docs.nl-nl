@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/3/2018
+ms.date: 8/3/2018
 ms.author: raiye
-ms.openlocfilehash: 518e55de440daa93dc0a9a9eebc207ebcde07d57
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 2ee31e0a2d563ddf2aa63498b4ca280e4da26754
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970159"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524855"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure Guest OS releases en SDK compatibiliteitsmatrix
 Biedt dat u met actuele informatie over de meest recente Azure Guest OS releases voor Cloud Services. Deze informatie helpt u bij het plannen van uw upgradepad voordat een Gastbesturingssysteem wordt uitgeschakeld. Als u uw rollen gebruiken configureert *automatische* Guest OS-updates zoals beschreven in [Azure Gast OS Update-instellingen][Azure Guest OS Update Settings], niet is het essentieel dat u deze pagina hebt gelezen.
@@ -43,6 +43,9 @@ Biedt dat u met actuele informatie over de meest recente Azure Guest OS releases
 Weet over het bijwerken van het Gastbesturingssysteem? Controleer [dit] [ cloud updates] uit.
 
 ## <a name="news-updates"></a>Nieuws
+
+###### <a name="august-3-2018"></a>**3 augustus 2018**
+Het Gastbesturingssysteem juli is uitgebracht.
 
 ###### <a name="july-3-2018"></a>**3 juli 2018**
 Het Gastbesturingssysteem van juni heeft uitgegeven.
@@ -90,8 +93,9 @@ Oktober Guest OS heeft uitgegeven.
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-5.21_201807-02 |3 augustus 2018 |Post 5.23 |NOG TE BEPALEN |
 | WA-GUEST-OS-5.20_201806-01 |3 juli 2018 |Post 5.22 |NOG TE BEPALEN |
-| WA-GUEST-OS-5.19_201805-01 |Vanaf 1 juni 2018 |Post 5.21 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-5.19_201805-01~~ |Vanaf 1 juni 2018 |3 augustus 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-5.18_201804-01~~ |4 mei 2018 |3 juli 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-5.17_201803-01~~ |6 april 2018 |Vanaf 1 juni 2018|NOG TE BEPALEN |
 |~~WA-GUEST-OS-5.16_201802-01~~ |12 maart 2018 |4 mei 2018 |NOG TE BEPALEN |
@@ -99,7 +103,6 @@ Oktober Guest OS heeft uitgegeven.
 |~~WA-GUEST-OS-5.14_201712-01~~ |4 januari 2018 |12 maart 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-5.13_201711-01~~ |14 december 2017 |4 januari 2018|NOG TE BEPALEN |
 |~~WA-GUEST-OS-5.12_201710-02~~ |8 november 2017 |4 januari 2018 |NOG TE BEPALEN |
-|~~WA-GUEST-OS-5.11_201709-01~~ |6 oktober 2017 |14 december 2017 |NOG TE BEPALEN |
 
 
 ## <a name="family-4-releases"></a>Family 4-versies
@@ -114,8 +117,9 @@ Oktober Guest OS heeft uitgegeven.
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-4.56_201807-02 |3 augustus 2018 |Post 4,58 |NOG TE BEPALEN |
 | WA-GUEST-OS-4.55_201806-01 |3 juli 2018 |Post 4.57 |NOG TE BEPALEN |
-| WA-GUEST-OS-4.54_201805-01 |Vanaf 1 juni 2018 |Post 4,56 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-4.54_201805-01~~ |Vanaf 1 juni 2018 |3 augustus 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-4.53_201804-01~~ |4 mei 2018 |3 juli 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-4.52_201803-01~~ |6 april 2018 |Vanaf 1 juni 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-4.51_201802-01~~ |12 maart 2018 |4 mei 2018 |NOG TE BEPALEN |
@@ -123,8 +127,6 @@ Oktober Guest OS heeft uitgegeven.
 |~~WA-GUEST-OS-4.49_201712-01~~ |4 januari 2018 |12 maart 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-4.48_201711-01~~ |14 december 2017 |4 januari 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-4.47_201710-02~~ |8 november 2017 |4 januari 2018 |NOG TE BEPALEN |
-|~~WA-GUEST-OS-4.46_201709-01~~ |6 oktober 2017 |14 december 2017 |NOG TE BEPALEN |
-
 
 
 ## <a name="family-3-releases"></a>Type 3-versies
@@ -139,8 +141,9 @@ Oktober Guest OS heeft uitgegeven.
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-3.63_201807-02 |3 augustus 2018 |Post 3.65 |NOG TE BEPALEN |
 | WA-GUEST-OS-3.62_201806-01 |3 juli 2018 |Post 3.64 |NOG TE BEPALEN |
-| WA-GUEST-OS-3.61_201805-01 |Vanaf 1 juni 2018 |Post 3,63 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-3.61_201805-01~~ |Vanaf 1 juni 2018 |3 augustus 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-3.60_201804-01~~ |4 mei 2018 |3 juli 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-3.59_201803-01~~ |6 april 2018 |Vanaf 1 juni 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-3.58_201802-01~~ |19 maart 2018 |4 mei 2018 |NOG TE BEPALEN |
@@ -148,8 +151,6 @@ Oktober Guest OS heeft uitgegeven.
 |~~WA-GUEST-OS-3.56_201712-01~~ |4 januari 2018 |19 maart 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-3.55_201711-01~~ |14 december 2017 |29 januari 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-3.54_201710-02~~ |8 november 2017 |4 januari 2018 |NOG TE BEPALEN |
-|~~WA-GUEST-OS-3.53_201709-01~~ |6 oktober 2017 |14 december 2017 |NOG TE BEPALEN |
-|~~WA-GUEST-OS-3.52_201708-01~~ |24 augustus 2017 |14 december 2017 |NOG TE BEPALEN |
 
 
 ## <a name="family-2-releases"></a>Familie 2-versies
@@ -164,8 +165,9 @@ Oktober Guest OS heeft uitgegeven.
 
 | Configuratietekenreeks | Releasedatum | Datum uitschakelen | Verloopdatum |
 | --- | --- | --- | --- |
+| WA-GUEST-OS-2.76_201807-02 |3 augustus 2018 |Post 2.78 |NOG TE BEPALEN |
 | WA-GUEST-OS-2.75_201806-01 |3 juli 2018 |Post 2,77 |NOG TE BEPALEN |
-| WA-GUEST-OS-2.74_201805-01 |Vanaf 1 juni 2018 |Post 2.76 |NOG TE BEPALEN |
+|~~WA-GUEST-OS-2.74_201805-01~~ |Vanaf 1 juni 2018 |3 augustus 2018|NOG TE BEPALEN |
 |~~WA-GUEST-OS-2.73_201804-01~~ |4 mei 2018 |3 juli 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-2.72_201803-01~~ |6 april 2018 |Vanaf 1 juni 2018 |NOG TE BEPALEN |
 |~~WA-GUEST-OS-2.71_201802-01~~ |12 maart 2018 |4 mei 2018 |NOG TE BEPALEN |

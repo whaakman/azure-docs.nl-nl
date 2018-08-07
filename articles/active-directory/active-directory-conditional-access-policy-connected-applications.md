@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 5d67abe003afc6f5aec420f4668efa5df7d8dbc4
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: ca0006eae63811cf9c198094768fb2ec8bd1a072
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414464"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522336"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Procedure: Vereist voor toegang tot cloud-Apps met voorwaardelijke toegang te beheren
 
@@ -111,5 +111,5 @@ Voor een apparaat dat is gemarkeerd als compatibel, kunt u ervan uitgaan dat:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voordat u beleid voor voorwaardelijke toegang op basis van het apparaat configureert in uw omgeving, moet u Kijk eens de [aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-best-practices.md).
+Voordat u beleid voor voorwaardelijke toegang op basis van het apparaat configureert in uw omgeving, moet u Kijk eens de [aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](conditional-access/best-practices.md).
 

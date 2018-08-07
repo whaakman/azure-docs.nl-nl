@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 475e1f0d481678f53c191a887c7cc56c28c4b361
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 5b4d8317d565528f896bf6823ddaefd010d0a845
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37887426"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528626"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>De volgorde voor het implementeren van resources in Azure Resource Manager-sjablonen definiëren
 Voor een bepaalde resource, kunnen er andere resources die moeten bestaan voordat de resource is geïmplementeerd. Bijvoorbeeld, moet een SQL-server bestaan voordat u probeert te implementeren van een SQL-database. Deze relatie definieert u een resource als afhankelijk van de andere resource markeren. U definieert een afhankelijkheid met de **dependsOn** -element, of met behulp van de **verwijzing** functie. 
 
-Resource Manager evalueert de afhankelijkheden tussen resources, en ze in de volgorde afhankelijke implementeert. Als resources niet van elkaar afhankelijk zijn, worden deze door Resource Manager parallel implementeert. U hoeft alleen te definiëren van afhankelijkheden voor resources die zijn geïmplementeerd in dezelfde sjabloon. 
+Resource Manager evalueert de afhankelijkheden tussen resources en implementeert ze in de volgorde van afhankelijkheid. Als resources niet van elkaar afhankelijk zijn, worden deze door Resource Manager parallel geïmplementeerd. U hoeft alleen te definiëren van afhankelijkheden voor resources die zijn geïmplementeerd in dezelfde sjabloon. 
 
 ## <a name="dependson"></a>dependsOn
 In uw sjabloon kunt het element dependsOn u een resource als een afhankelijk van een of meer resources definiëren. De waarde kan een lijst met door komma's gescheiden namen van de resources zijn. 
@@ -108,7 +108,7 @@ Het volgende voorbeeld ziet een SQL server en SQL-database. U ziet dat er een ex
 ```
 
 ## <a name="reference-and-list-functions"></a>referentie- en -functies
-De [verwijzen naar de functie](resource-group-template-functions-resource.md#reference) wordt een expressie voor de waarde ervan afgeleid van andere JSON naam / waarde-paren of runtime-bronnen. De [lijst * functies](resource-group-template-functions-resource.md#listkeys-listsecrets-and-list) waarden voor een resource van de bewerking voor een lijst met retourneren.  Referentie- en lijst met expressies declareren impliciet dat een resource afhankelijk van een andere, is wanneer de resource waarnaar wordt verwezen, is geïmplementeerd in dezelfde sjabloon en waarnaar wordt verwezen door de naam (geen resource-ID). Als u de resource-ID in de verwijzing of lijst met functies doorgeeft, is een impliciete verwijzing is niet gemaakt.
+De [verwijzen naar de functie](resource-group-template-functions-resource.md#reference) wordt een expressie voor de waarde ervan afgeleid van andere JSON naam / waarde-paren of runtime-bronnen. De [lijst * functies](resource-group-template-functions-resource.md#list) waarden voor een resource van de bewerking voor een lijst met retourneren.  Referentie- en lijst met expressies declareren impliciet dat een resource afhankelijk van een andere, is wanneer de resource waarnaar wordt verwezen, is geïmplementeerd in dezelfde sjabloon en waarnaar wordt verwezen door de naam (geen resource-ID). Als u de resource-ID in de verwijzing of lijst met functies doorgeeft, is een impliciete verwijzing is niet gemaakt.
 
 De algemene indeling van de functie verwijzing is:
 

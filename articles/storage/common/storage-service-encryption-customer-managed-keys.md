@@ -3,17 +3,17 @@ title: Azure Storage-Serviceversleuteling door de klant beheerde sleutels in Azu
 description: De functie Azure Storage-Serviceversleuteling gebruiken voor het versleutelen van Azure Blob storage en Azure Files aan de servicezijde bij het opslaan van de gegevens en ontsleutelen van het bij het ophalen van de gegevens die door de klant beheerde sleutels.
 services: storage
 author: lakasa
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.openlocfilehash: adca912121b4317d08481aeacffaa89b403ff7db
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.component: common
+ms.openlocfilehash: 0e1ebd8868cfe5ef69a09219ffc82092fb85a4c8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480748"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527083"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Versleuteling voor opslagservice met behulp van de klant beheerde sleutels in Azure Key Vault
 Microsoft Azure is belangrijk dat u kunt beschermen en beveiligen van uw gegevens om te voldoen aan uw organisatie beveiligings- en nalevingsverplichtingen goed. Een manier die het opslagplatform van Azure beschermt uw gegevens is via versleuteling SSE (Storage Service), die uw gegevens worden versleuteld bij het schrijven van deze naar de opslag en ontsleutelt de gegevens bij het ophalen van het. De versleuteling en ontsleuteling is automatische, transparant en maakt gebruik van 256-bits [AES-versleuteling](https://wikipedia.org/wiki/Advanced_Encryption_Standard), een van de krachtigste blokversleutelingsmethoden die er bestaan.

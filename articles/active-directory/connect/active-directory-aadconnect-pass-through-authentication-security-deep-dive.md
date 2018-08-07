@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ad4567ffb927694872d5b86dd38833466f944ca8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f220e0b6dd5abb596128ba84af89d0e725f66117
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215081"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521962"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory Pass through-verificatie grondig onderzoek van beveiliging
 
@@ -44,7 +44,7 @@ Dit zijn de sleutelbeveiliging aspecten van deze functie:
   - Zie voor de volledige lijst van de netwerkvereisten [Azure Active Directory Pass through-verificatie: snel starten](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-1-check-the-prerequisites).
 - Wachtwoorden die gebruikers tijdens het aanmelden opgeven worden versleuteld in de cloud voordat de verificatie-Agents voor on-premises ermee akkoord bent gegaan voor validatie op basis van Active Directory.
 - Het HTTPS-kanaal tussen Azure AD en de on-premises Authentication-Agent is beveiligd met behulp van wederzijdse verificatie.
-- Beschermt u uw gebruikersaccounts te werken naadloos met [Azure AD voorwaardelijke toegangsbeleid](../active-directory-conditional-access-azure-portal.md), met inbegrip van multi-factor Authentication (MFA), [blokkeren van verouderde](../active-directory-conditional-access-conditions.md) en door [ gefilterd op wachtwoord beveiligingsaanvallen](../authentication/howto-password-smart-lockout.md).
+- Beschermt u uw gebruikersaccounts te werken naadloos met [Azure AD voorwaardelijke toegangsbeleid](../active-directory-conditional-access-azure-portal.md), met inbegrip van multi-factor Authentication (MFA), [blokkeren van verouderde](../conditional-access/conditions.md) en door [ gefilterd op wachtwoord beveiligingsaanvallen](../authentication/howto-password-smart-lockout.md).
 
 ## <a name="components-involved"></a>Onderdelen betrokken
 

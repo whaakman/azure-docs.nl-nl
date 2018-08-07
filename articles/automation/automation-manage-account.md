@@ -9,17 +9,17 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: be1b35d2e7dc3d3e2efab825f318983e2943b0d2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5fbdccf4e14ce1201b21f0490e9c890c77c3e2f0
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34194356"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577752"
 ---
 # <a name="manage-azure-automation-account"></a>Azure Automation-account beheren
 Op een bepaald moment voordat uw Automation-account verloopt, moet u het certificaat vernieuwen. Als u denkt dat het Uitvoeren als-account is aangetast, kunt u het verwijderen en opnieuw maken. In deze sectie wordt besproken hoe u deze bewerkingen uitvoert.
 
-## <a name="self-signed-certificate-renewal"></a>Zelfondertekend certificaat vernieuwen
+## <a name="cert-renewal"></a>Zelfondertekend certificaat vernieuwen
 Het zelfondertekende certificaat dat u voor het Uitvoeren als-account hebt gemaakt, verloopt één jaar na de aanmaakdatum. U kunt het certificaat op elk gewenst moment vernieuwen voordat het verloopt. Als u het certificaat vernieuwt, blijft het huidige geldige certificaat behouden om ervoor te zorgen dat eventuele runbooks die nog in de wachtrij staan of nog actief zijn, en die worden geverifieerd met het Uitvoeren als-account, niet negatief worden beïnvloed. Het certificaat blijft geldig tot de vervaldatum.
 
 > [!NOTE]
@@ -77,6 +77,6 @@ Als u het Uitvoeren als-account selecteert, wordt het volgende foutbericht weerg
 U kunt deze problemen met het Uitvoeren als-account snel oplossen door het account te verwijderen en opnieuw te maken.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [Application Objects and Service Principal Objects](../active-directory/active-directory-application-objects.md) (Toepassingsobjecten en service-principalobjecten) voor meer informatie over service-principals.
+* Zie [Application Objects and Service Principal Objects](../active-directory/develop/app-objects-and-service-principals.md) (Toepassingsobjecten en service-principalobjecten) voor meer informatie over service-principals.
 * Zie [Op rollen gebaseerd toegangsbeheer in Azure Automation](automation-role-based-access-control.md) voor meer informatie over het op rollen gebaseerd toegangsbeheer in Azure Automation.
 * Voor meer informatie over certificaten en Azure-services raadpleegt u [Certificates overview for Azure Cloud Services](../cloud-services/cloud-services-certs-create.md) (Overzicht van certificaten voor Azure Cloud Services).

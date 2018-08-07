@@ -1,19 +1,19 @@
 ---
 title: Hoe u bewijs van eigendom voor x.509-CA-certificaten met Azure IoT Hub Device Provisioning Service doet | Microsoft Docs
 description: X.509-CA-certificaten met de DPS-service controleren
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 02/26/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 7dd4f8cc53d86933d10294dbbf55157d2b1cf290
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 709a53c0fc0814262cd7ce8bb0398be82ef81479
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001776"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526844"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Hoe u doet bewijs van eigendom voor x.509-CA-certificaten met de Device Provisioning Service
 

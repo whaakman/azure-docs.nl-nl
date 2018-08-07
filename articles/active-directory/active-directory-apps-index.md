@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 38e5e37111c6996fcf1342b123b5fc034b58fc0b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 446c97918a6b6287bf4cacf4711a0dd46e12f141
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430991"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578548"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Article Index for Application Management in Azure Active Directory (Engelstalig)
 Deze pagina bevat een uitgebreide lijst van elk document geschreven over de verschillende functies van de toepassing in Azure Active Directory (Azure AD).
@@ -41,7 +41,7 @@ In deze sectie biedt snel toegang tot relevante handleidingen voor probleemoplos
 
 | Functiegebied |  |
 |:---:| --- |
-| Federatieve eenmalige aanmelding |[Oplossen van problemen met SAML gebaseerde eenmalige aanmelding](active-directory-saml-debugging.md) |
+| Federatieve eenmalige aanmelding |[Oplossen van problemen met SAML gebaseerde eenmalige aanmelding](develop/howto-v1-debug-saml-sso-issues.md) |
 | Wachtwoord gebaseerde Single Sign-On |[Het oplossen van het Configuratiescherm-extensie voor toegang voor Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
 | Toepassingsproxy |[App-Proxy oplossen handleiding](manage-apps/application-proxy-troubleshoot.md) |
 | Eenmalige aanmelding tussen on-premises AD en Azure AD |[Oplossen van problemen met wachtwoord-Hashsynchronisatie](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Oplossen van problemen met wachtwoord terugschrijven](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
@@ -57,7 +57,7 @@ Hiermee kunnen gebruikers toegang tot een aantal apps en services met behulp van
 | Duizenden SaaS-apps die vooraf geïntegreerd met Azure AD met zijn vereenvoudigde configuratie voor eenmalige aanmelding stappen |[Aan de slag met de Azure AD-toepassingsgalerie](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Volledige lijst met vooraf geïntegreerde Apps die ondersteuning bieden voor Federatie](saas-apps/tutorial-list.md)<br /><br />[Uw App toevoegen aan de App-galerie van Azure AD](active-directory-app-gallery-listing.md) |
 | Meer dan 150 app-zelfstudies over het configureren van eenmalige aanmelding voor apps zoals [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md), [Workday](saas-apps/workday-tutorial.md), en nog veel meer |[Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](saas-apps/tutorial-list.md) |
 | Het handmatig instellen en aanpassen van uw configuratie voor eenmalige aanmelding |[Hoe om te configureren voor federatieve eenmalige aanmelding naar Apps die zich niet in de galerie van Azure Active Directory-toepassing](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[In het SAML-Token voor vooraf geïntegreerde Apps uitgegeven Claims aanpassen](active-directory-saml-claims-customization.md) |
-| Gids voor probleemoplossing voor federatieve apps die gebruikmaken van het SAML-protocol |[Oplossen van problemen met SAML gebaseerde eenmalige aanmelding](active-directory-saml-debugging.md) |
+| Gids voor probleemoplossing voor federatieve apps die gebruikmaken van het SAML-protocol |[Oplossen van problemen met SAML gebaseerde eenmalige aanmelding](develop/howto-v1-debug-saml-sso-issues.md) |
 | Vervaldatum van het certificaat van uw app configureren en hoe u uw certificaten vernieuwen |[Certificaten voor federatieve eenmalige aanmelding in Azure Active Directory beheren](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
 Federatieve eenmalige aanmelding is beschikbaar voor alle edities van Azure AD voor maximaal tien apps per gebruiker. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) onbeperkt aantal toepassingen ondersteunt. Als uw organisatie heeft [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) of [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), kunt u [groepen gebruiken voor toegang tot federatieve toepassingen toewijzen](#managing-access-to-applications).

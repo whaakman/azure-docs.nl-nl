@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/25/2018
 ms.author: mahender
-ms.openlocfilehash: df9b5b855f017bca887fa5c080b9e6350538afc1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 2e392a3a50cda3daacb5bc358baaea2627eeafc0
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428363"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578827"
 ---
 # <a name="how-to-use-azure-managed-service-identity-in-app-service-and-azure-functions"></a>Het gebruik van Azure beheerde Service-identiteit in App Service en Azure Functions
 
@@ -202,7 +202,7 @@ Een geslaagde respons met 200 OK bevat een JSON-hoofdtekst met de volgende eigen
 > |token_type|Geeft aan dat de waarde van het token. Het enige type die ondersteuning biedt voor Azure AD is Bearer. Zie voor meer informatie over het bearer-tokens [Framework van de OAuth 2.0 machtiging: Bearer Token gebruik (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt).|
 
 
-Deze reactie is hetzelfde als de [antwoord voor de AAD-service-naar-service toegang-tokenaanvraag](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response).
+Deze reactie is hetzelfde als de [antwoord voor de AAD-service-naar-service toegang-tokenaanvraag](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
 > [!NOTE] 
 > Omgevingsvariabelen worden ingesteld als het proces voor het eerst start, zodat na het inschakelen van de beheerde Service-identiteit voor uw toepassing u moet mogelijk uw toepassing opnieuw hebt gestart, of de code voor opnieuw implementeren `MSI_ENDPOINT` en `MSI_SECRET` beschikbaar zijn voor uw code.

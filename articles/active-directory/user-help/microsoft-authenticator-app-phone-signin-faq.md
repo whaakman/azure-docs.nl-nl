@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 3303a0fb1ca4c4a8f6695c2e4338c1b0a0fc9f40
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: a6df90a1ae1dddbf7f76a7ef6c7e13d9e645dd9c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358629"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528422"
 ---
-# <a name="sign-in-with-your-phone-not-your-password"></a>Meld u aan met uw telefoon, niet uw wachtwoord
+# <a name="sign-in-with-your-phone-not-your-password"></a>Meld u aan met uw telefoon, niet met uw wachtwoord
 
 De Microsoft Authenticator-app niet alleen kunt u uw accounts veilig houden door te voeren verificatie in twee stappen nadat u uw wachtwoord invoeren, maar nu kunt dit het wachtwoord voor je Microsoft-account volledig vervangen.
 
@@ -70,7 +70,7 @@ Nieuwe accounts worden automatisch ingeschakeld, zodat u onmiddellijk beginnen m
 
 ### <a name="to-use-phone-sign-in-to-sign-in-to-your-personal-account"></a>Aanmelding via telefoon gebruiken om aan te melden bij uw persoonlijke account
 
-1.  Ga naar uw persoonlijke Microsoft-account aanmelden pagina en selecteer vervolgens in plaats van uw wachtwoord te typen, de **gebruik van een app in plaats daarvan** koppeling.
+1.  Ga naar uw persoonlijke Microsoft-account aanmelden pagina en selecteer vervolgens in plaats van uw wachtwoord te typen, de **gebruik in plaats daarvan de Microsoft Authenticator-app** koppeling.
 
     Microsoft stuurt een melding naar uw telefoon. 
 

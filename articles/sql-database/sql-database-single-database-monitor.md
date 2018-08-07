@@ -3,19 +3,20 @@ title: Databaseprestaties bewaken in Azure SQL Database | Microsoft Docs
 description: Lees meer over de opties voor het bewaken van uw database met Azure-hulpprogramma's en dynamische beheerweergave.
 keywords: database bewaken, prestaties van clouddatabase
 services: sql-database
-author: CarlRabeler
+author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.author: carlrab
-ms.openlocfilehash: dc04a9334b63656719a7633a8dd7154ed6cd6993
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: 081c6210181815be079404b10e7aa4b0df8327ec
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092576"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520976"
 ---
 # <a name="monitoring-database-performance-in-azure-sql-database"></a>Databaseprestaties bewaken in Azure SQL Database
 Het bewaken van de prestaties van een SQL-database in Azure begint met het bewaken van het resourcegebruik ten opzichte van het gekozen niveau van databaseprestaties. Bewaking helpt u te bepalen of uw database overtollige capaciteit heeft of problemen heeft juist omdat resources volledig worden benut uit en klikt u vervolgens beslissen of is het tijd om het prestatieniveau aanpassen en service-lagen van de database in de [op basis van DTU aankoopmodel](sql-database-service-tiers-dtu.md) of [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). U kunt een database bewaken met grafische hulpprogramma's in de [Azure-portal](https://portal.azure.com) of met [dynamische beheerweergaven](https://msdn.microsoft.com/library/ms188754.aspx) van SQL.

@@ -1,6 +1,6 @@
 ---
-title: Uitgegeven claims in het SAML-token voor bedrijfstoepassingen in Azure Active Directory aanpassen | Microsoft Docs
-description: Informatie over het aanpassen van de uitgegeven claims in het SAML-token voor bedrijfstoepassingen in Azure Active Directory
+title: In het SAML-token voor bedrijfstoepassingen in Azure Active Directory wordt uitgegeven claims aanpassen | Microsoft Docs
+description: Informatie over het aanpassen van de claims die zijn uitgegeven in het SAML-token voor bedrijfstoepassingen in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -17,67 +17,67 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: db529bf1e8ea4363c84cb365444ca367d428b162
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 4d7c9246b694fc1b5623ecd198e4ced330e78dde
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36318417"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579415"
 ---
-# <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>Uitgegeven claims in het SAML-token voor bedrijfstoepassingen in Azure Active Directory aanpassen
-Vandaag de dag ondersteunt Azure Active Directory voor eenmalige op met de meeste zakelijke toepassingen, met inbegrip van beide toepassingen die vooraf zijn geïntegreerd in de galerie van Azure AD-app, evenals aangepaste toepassingen. Wanneer een gebruiker wordt geverifieerd op een toepassing via Azure AD dat gebruikmaakt van het SAML 2.0-protocol, verzendt Azure AD een token naar de toepassing (via een HTTP POST). En vervolgens de toepassing valideert en gebruikt het token aan te melden van de gebruiker in in plaats van naar een gebruikersnaam en wachtwoord wordt gevraagd. Deze tokens SAML bevatten stukjes informatie over de gebruiker bekend als 'claims'.
+# <a name="customizing-claims-issued-in-the-saml-token-for-enterprise-applications-in-azure-active-directory"></a>In het SAML-token voor bedrijfstoepassingen in Azure Active Directory wordt uitgegeven claims aanpassen
+Vandaag nog Azure Active Directory biedt ondersteuning voor eenmalige aanmelding op met de meeste zakelijke toepassingen, met inbegrip van beide toepassingen vooraf geïntegreerd in de galerie van Azure AD-app, evenals aangepaste toepassingen. Wanneer een gebruiker zich bij een toepassing via Azure AD met behulp van het SAML 2.0-protocol verifieert, worden in Azure AD een token verzonden naar de toepassing (via een HTTP POST). En vervolgens de toepassing valideert en gebruikt het token aan te melden van de gebruiker in plaats van dat u wordt gevraagd een gebruikersnaam en wachtwoord. Deze tokens SAML bevatten informatie over de gebruiker bekend als 'claims'.
 
-In de identity-uitspreken, een "claim" informatie een id-provider wordt gemeld dat een gebruiker in het token dat ze voor die gebruiker uitgeven. In [SAML-token](http://en.wikipedia.org/wiki/SAML_2.0), deze gegevens meestal is opgeslagen in de instructie SAML-kenmerk. De unieke ID van de gebruiker wordt meestal weergegeven in het onderwerp van het SAML-naam-id ook wel.
+In de id-spreken, een "claim" zijn gegevens met de mededeling van een id-provider van een gebruiker in het token dat ze voor die gebruiker uitgeven. In [SAML-token](http://en.wikipedia.org/wiki/SAML_2.0), deze gegevens is meestal is opgeslagen in de instructie SAML-kenmerk. De unieke ID van de gebruiker wordt gewoonlijk weergegeven in het onderwerp van de SAML-naam-id ook wel.
 
-Standaard wordt in Azure Active Directory een SAML-token verstrekt aan uw toepassing waarin een claim NameIdentifier met een waarde van de gebruikersnaam van (AKA UPN-naam) in Azure AD. Deze waarde kan een unieke identificatie van de gebruiker. De SAML-token bevat ook extra claims met e-mailadres van de gebruiker, de voornaam en achternaam op.
+Standaard geeft Azure Active Directory een SAML-token aan uw toepassing met een claim NameIdentifier met de waarde van de gebruiker gebruikersnaam (AKA UPN) in Azure AD. Deze waarde kan unieke identificatie van de gebruiker. Het SAML-token bevat ook aanvullende claims met e-mailadres van de gebruiker, de voornaam en achternaam op.
 
-Als u wilt weergeven of bewerken van de uitgegeven claims in het SAML-token naar de toepassing, de toepassing in Azure-portal te openen. Selecteer vervolgens de **weergeven en bewerken van alle andere gebruikerskenmerken** selectievakje in de **gebruikerskenmerken** sectie van de toepassing.
+Als u wilt weergeven of bewerken van de claims in het SAML-token is verleend aan de toepassing, open de toepassing in Azure portal. Selecteer vervolgens de **weergeven en bewerken van alle andere gebruikerskenmerken** selectievakje in de **gebruikerskenmerken** sectie van de toepassing.
 
-![Sectie van de kenmerken gebruiker][1]
+![Sectie voor kenmerken van gebruiker][1]
 
-Er zijn twee mogelijke redenen waarom moet u mogelijk de uitgegeven claims in het SAML-token bewerken:
-* De toepassing is geschreven naar een andere set claimregels URI's is vereist of claimwaarden.
-* De toepassing is geïmplementeerd op een manier die de NameIdentifier claim iets anders dan de gebruikersnaam (AKA UPN-naam) opgeslagen in Azure Active Directory vereist.
+Er zijn twee mogelijke redenen waarom u mogelijk de uitgegeven claims in het SAML-token bewerken:
+* De toepassing is naar een andere set claim URI's is vereist of claimwaarden geschreven.
+* De toepassing is geïmplementeerd op een manier die de claim NameIdentifier dan de gebruikersnaam (AKA gebruiker principal name) die zijn opgeslagen in Azure Active Directory vereist.
 
-U kunt een van de standaardwaarden van de claim te bewerken. Selecteer de rij claim in de tabel SAML-token kenmerken. Hiermee opent u de **kenmerk bewerken** sectie en u vervolgens de claimnaam van de, waarde en naamruimte die is gekoppeld aan de claim kunt bewerken.
+U kunt een van de standaardwaarden van de claim bewerken. Selecteer de rij claim in de tabel voor SAML-token kenmerken. Hiermee opent u de **kenmerk bewerken** sectie en u vervolgens de claimnaam van de, de waarde en de naamruimte die is gekoppeld aan de claim kunt bewerken.
 
 ![Gebruikerskenmerk bewerken][2]
 
-U kunt ook verwijderen claims (met uitzondering van NameIdentifier) op basis van het snelmenu dat wordt geopend door te klikken op de **...**  pictogram. U kunt ook toevoegen nieuwe claims op basis van de **toevoegen kenmerk** knop.
+U kunt ook verwijderen (met uitzondering van NameIdentifier) met behulp van claims het contextmenu dat wordt geopend door te klikken op de **...**  pictogram. U kunt ook nieuwe claims met toevoegen de **kenmerk toevoegen** knop.
 
 ![Gebruikerskenmerk bewerken][3]
 
 ## <a name="editing-the-nameidentifier-claim"></a>De claim NameIdentifier bewerken
-Voor het oplossen van het probleem waarbij de toepassing is geïmplementeerd met behulp van een andere gebruikersnaam, klikt u op de **gebruikers-id** vervolgkeuzelijst de **gebruikerskenmerken** sectie. Deze actie geeft een dialoogvenster met verschillende opties:
+Voor het probleem waarbij de toepassing is geïmplementeerd met behulp van een andere gebruikersnaam, klikt u op de **gebruikers-id** vervolgkeuzelijst de **gebruikerskenmerken** sectie. Deze actie wordt een dialoogvenster met verschillende opties:
 
 ![Gebruikerskenmerk bewerken][4]
 
-Selecteer in de vervolgkeuzelijst **user.mail** om in te stellen van de claim NameIdentifier e-mailadres van de gebruiker in de map. Of selecteer **user.onpremisessamaccountname** in te stellen op de gebruiker de SAM-accountnaam van on-premises Azure AD zijn gesynchroniseerd.
+Selecteer in de vervolgkeuzelijst **user.mail** om in te stellen van de claim NameIdentifier e-mailadres van de gebruiker in de map. Of selecteer **user.onpremisessamaccountname** om in te stellen voor de gebruiker de SAM-accountnaam die zijn gesynchroniseerd van on-premises Azure AD.
 
-U kunt ook de speciale **ExtractMailPrefix()** functie voor het verwijderen van het domeinachtervoegsel van het e-mailadres, SAM-accountnaam of de UPN-naam. Alleen het eerste deel van de gebruikersnaam die wordt doorgegeven geëxtraheerd (bijvoorbeeld 'joe_smith' in plaats van joe_smith@contoso.com).
+U kunt ook de speciale **ExtractMailPrefix()** functie voor het verwijderen van het domeinachtervoegsel van het e-mailadres, SAM-accountnaam of de user principal name. Alleen het eerste deel van de naam van de gebruiker wordt doorgegeven via geëxtraheerd (bijvoorbeeld 'joe_smith' in plaats van joe_smith@contoso.com).
 
 ![Gebruikerskenmerk bewerken][5]
 
-We nu ook hebt toegevoegd de **join()** functie aan het geverifieerde domein met de waarde van de gebruiker-id. Wanneer u de functie join() in selecteert de **gebruikers-id** selecteert u eerst de gebruikers-id zoals zoals e-mailadres of de gebruiker principal-naam en selecteer vervolgens het geverifieerde domein in de tweede vervolgkeuzelijst. Als u het e-mailadres met het geverifieerde domein selecteert, wordt Azure AD de gebruikersnaam geëxtraheerd uit de eerste waarde joe_smith van joe_smith@contoso.com en voegt deze toe met contoso.onmicrosoft.com. Zie het volgende voorbeeld:
+We hebben nu ook toegevoegd de **join()** functie aan het geverifieerde domein met de gebruikers-id-waarde. Wanneer u de functie join() in selecteert de **gebruikers-id** selecteert u eerst de gebruikers-id, zoals e-mailadres of gebruikersnaam principal-naam en selecteer vervolgens uw geverifieerde domein in de tweede vervolgkeuzelijst. Als u het e-mailadres met het geverifieerde domein selecteert, wordt Azure AD de gebruikersnaam geëxtraheerd uit de eerste waarde joe_smith van joe_smith@contoso.com en voegt deze toe met contoso.onmicrosoft.com. Zie het volgende voorbeeld:
 
 ![Gebruikerskenmerk bewerken][6]
 
 ## <a name="adding-claims"></a>Claims toevoegen
-Wanneer een claim toevoegen, kunt u de naam van het kenmerk (die niet strikt moet een patroon URI volgens de specificatie SAML volgen) opgeven. Stel de waarde voor elk gebruikerskenmerk die is opgeslagen in de map.
+Wanneer een claim toevoegen, kunt u de naam van het kenmerk (die strikt hoeft niet te volgen een patroon URI aan de hand van de SAML-specificatie) opgeven. Stel de waarde op elk gebruikerskenmerk die zijn opgeslagen in de map.
 
 ![Gebruikerskenmerk toevoegen][7]
 
-Bijvoorbeeld, moet u het verzenden van de afdeling die de gebruiker behoort binnen hun organisatie als een claim (zoals Sales). Geef de claimnaam zoals werd verwacht door de toepassing en selecteer vervolgens **user.department** als de waarde.
+Bijvoorbeeld, moet u de afdeling die deel uitmaakt van de gebruiker te verzenden in hun organisatie die als een claim (zoals omzet). Voer de claimnaam van de zoals verwacht door de toepassing en selecteer vervolgens **user.department** als de waarde.
 
 > [!NOTE]
-> Als voor een bepaalde gebruiker er geen waarde voor een geselecteerd kenmerk opgeslagen, is er geen die claim in het token wordt uitgegeven.
+> Als er geen waarde die is opgeslagen voor een geselecteerd kenmerk voor een bepaalde gebruiker is, wordt er niet die claim in het token wordt uitgegeven.
 
 > [!TIP]
-> De **user.onpremisesecurityidentifier** en **user.onpremisesamaccountname** worden alleen ondersteund bij het synchroniseren van gebruikersgegevens van on-premises Active Directory met het [Azure AD Verbinding maken met hulpprogramma](../active-directory-aadconnect.md).
+> De **user.onpremisesecurityidentifier** en **user.onpremisesamaccountname** worden alleen ondersteund bij het synchroniseren van gebruikersgegevens van on-premises Active Directory met de [Azure AD Verbinding maken met hulpprogramma](../active-directory-aadconnect.md).
 
 ## <a name="restricted-claims"></a>Beperkte claims
 
-Er zijn enkele beperkte claims in SAML. Als u deze claims toevoegt, klikt u vervolgens in Azure AD niet deze claims verzenden. Hieronder volgen de claimset SAML beperkt:
+Er zijn enkele beperkingen claims in SAML. Als u deze claims toevoegt, klikt u vervolgens in Azure AD niet deze claims verzenden. Hieronder vindt u de set van de claim SAML beperkt:
 
     | Claimtype (URI) |
     | ------------------- |
@@ -131,7 +131,7 @@ Er zijn enkele beperkte claims in SAML. Als u deze claims toevoegt, klikt u verv
 ## <a name="next-steps"></a>Volgende stappen
 * [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
 * [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../application-config-sso-how-to-configure-federated-sso-non-gallery.md) (Eenmalige aanmelding configureren voor toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie bevinden)
-* [Het oplossen van problemen op basis van SAML eenmalige aanmelding](active-directory-saml-debugging.md)
+* [Oplossen van problemen met SAML gebaseerde eenmalige aanmelding](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/user-attribute-section.png

@@ -3,17 +3,17 @@ title: Verifiëren met Azure Active Directory voor toegang tot blob- en wachtrij
 description: Gebruik Azure Active Directory om te verifiëren vanaf binnen een toepassing en autorisatie van aanvragen voor Azure Storage-resources (Preview).
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 06/12/2018
 ms.author: tamram
-ms.openlocfilehash: f8c798307f27c5f96b15517e1f5bfb9d1762fec2
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.component: common
+ms.openlocfilehash: d065dd6db361c5c348713c6e1ceabe3a4c42c312
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506197"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577701"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-azure-storage-application-preview"></a>Verifiëren met Azure Active Directory vanaf een Azure Storage-toepassing (Preview)
 
@@ -23,7 +23,7 @@ In dit artikel laat zien hoe uw toepassing configureren voor verificatie met Azu
 
 Voordat u een beveiligings-principal van uw Azure Storage-toepassing verifiëren kunt, op rollen gebaseerd beheer (RBAC) toegangsinstellingen configureren voor deze beveiligings-principal. Azure Storage definieert RBAC-rollen die machtigingen voor containers en wachtrijen omvatten. Wanneer de RBAC-rol is toegewezen aan een beveiligings-principal, krijgt deze beveiligings-principal toegang tot die resource. Zie voor meer informatie, [beheren-toegangsrechten aan opslag van gegevens met RBAC (Preview)](storage-auth-aad-rbac.md).
 
-Zie voor een overzicht van de OAuth 2.0-stroom voor het verlenen van code, [autoriseren de toegang tot Azure Active Directory web-apps met behulp van de OAuth 2.0-code verlenen stroom](../../active-directory/develop/active-directory-protocols-oauth-code.md).
+Zie voor een overzicht van de OAuth 2.0-stroom voor het verlenen van code, [autoriseren de toegang tot Azure Active Directory web-apps met behulp van de OAuth 2.0-code verlenen stroom](../../active-directory/develop/v1-protocols-oauth-code.md).
 
 > [!IMPORTANT]
 > In dit voorbeeld is bedoeld voor gebruik in niet-productieomgevingen alleen. Productie service level agreements (Sla's) worden pas beschikbaar als Azure AD-integratie voor Azure Storage algemeen beschikbaar is gedeclareerd. Als Azure AD-integratie wordt nog niet ondersteund voor uw scenario, echter ook doorgaan met de gedeelde sleutel autorisatie of SAS-tokens in uw toepassingen. Zie voor meer informatie over de Preview-versie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (Preview)](storage-auth-aad.md).
@@ -34,7 +34,7 @@ Zie voor een overzicht van de OAuth 2.0-stroom voor het verlenen van code, [auto
 
 De eerste stap bij het gebruik van Azure AD toegang verlenen aan de storage-resources is bezig met het registreren van uw clienttoepassing in een Azure AD-tenant. Registreren van uw toepassing, kunt u voor het aanroepen van de Azure [Active Directory Authentication Library](../../active-directory/active-directory-authentication-libraries.md) (ADAL) vanuit uw code. De ADAL-bibliotheek biedt een API voor verificatie met Azure AD van uw toepassing. Registreren van uw toepassing kunt u toestaan van aanroepen van toepassing bij naar Azure Storage-API's met een toegangstoken.
 
-Als u uw toepassing registreert, kunt u informatie opgeven over uw toepassing naar Azure AD. Vervolgens Azure AD biedt een client-ID (ook wel een *toepassings-ID*) waarmee u kunt uw toepassing koppelen aan Azure AD tijdens runtime. Zie voor meer informatie over de client-ID, [toepassing en service-principalobjecten in Azure Active Directory](../../active-directory/develop/active-directory-application-objects.md).
+Als u uw toepassing registreert, kunt u informatie opgeven over uw toepassing naar Azure AD. Vervolgens Azure AD biedt een client-ID (ook wel een *toepassings-ID*) waarmee u kunt uw toepassing koppelen aan Azure AD tijdens runtime. Zie voor meer informatie over de client-ID, [toepassing en service-principalobjecten in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md).
 
 Voor het registreren van uw Azure Storage-toepassing, volg de stappen in de [toevoegen van een toepassing](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) in sectie [toepassingen integreren met Azure Active Directory](../../active-directory/active-directory-integrating-applications.md). Als u uw toepassing als een systeemeigen toepassing registreert, kunt u een geldige URI voor de **omleidings-URI**. De waarde hoeft niet te worden geen echt eindpunt.
 

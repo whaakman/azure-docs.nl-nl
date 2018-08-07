@@ -3,17 +3,17 @@ title: Azure Storage-Serviceversleuteling voor data-at-rest | Microsoft Docs
 description: De functie Azure Storage-Serviceversleuteling gebruiken voor het versleutelen van Azure Managed Disks, Azure Blob-opslag, Azure Files, Azure Queue storage en Azure-tabelopslag aan de servicezijde bij het opslaan van de gegevens en bij het ophalen van de gegevens ontsleutelen.
 services: storage
 author: lakasa
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
-ms.openlocfilehash: 1a127f7e3dd57376ecd05d4ae7030becb33f1159
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.component: common
+ms.openlocfilehash: 5b676bbc764cb5689a6c80e81f597776fe80413e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480302"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520721"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage-Serviceversleuteling voor data-at-rest
 Azure Storage-Serviceversleuteling voor data-at-rest kunt u uw gegevens om te voldoen aan uw organisatie beveiligings- en nalevingsverplichtingen beveiligen. Met deze functie door het platform van Azure storage automatisch uw gegevens worden versleuteld voordat Azure Managed Disks, Azure Blob-opslag, Azure Files of Azure Queue storage opgeslagen en ontsleutelt de gegevens voor het ophalen van. De verwerking van versleuteling en versleuteling-at-rest, ontsleuteling en sleutelbeheer in Storage Service-versleuteling is transparant voor gebruikers. Alle gegevens die zijn geschreven naar het Azure storage-platform worden versleuteld met 256-bits [AES-versleuteling](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), een van de krachtigste blokversleutelingsmethoden die er bestaan.

@@ -1,171 +1,171 @@
 ---
 title: Met behulp van shared access signatures (SAS) in Azure Storage | Microsoft Docs
-description: Informatie over het gebruik van handtekeningen voor gedeelde toegang (SAS) om te delegeren van toegang tot Azure Storage-resources, met inbegrip van blobs, wachtrijen, tabellen en bestanden.
+description: Meer informatie over handtekeningen voor gedeelde toegang (SAS) gebruiken voor toegang tot Azure Storage-resources, met inbegrip van blobs, wachtrijen, tabellen en bestanden delegeren.
 services: storage
 author: craigshoemaker
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: cshoe
-ms.openlocfilehash: ad313c11fb88ec7992220d43c25ca75bf65acc56
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.component: common
+ms.openlocfilehash: 315c5a88d16206414b6b81a83963cbb1f8b4424a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025786"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524751"
 ---
-# <a name="using-shared-access-signatures-sas"></a>Met behulp van handtekeningen voor gedeelde toegang (SAS)
+# <a name="using-shared-access-signatures-sas"></a>Shared access signatures (SAS) gebruiken
 
-Een shared access signature (SAS) biedt een manier om beperkte toegang tot objecten in uw opslagaccount verlenen aan andere clients, zonder dat de sleutel van uw account. In dit artikel wordt een overzicht gegeven van SAS-model, SAS aanbevolen procedures en kijken naar enkele voorbeelden.
+Een shared access signature (SAS) biedt een manier om beperkte toegang verlenen tot objecten in uw storage-account aan andere clients, zonder dat uw accountsleutel. In dit artikel, we bieden een overzicht van het SAS-model, SAS aanbevolen procedures en kijken naar enkele voorbeelden.
 
-Zie voor aanvullende codevoorbeelden via SAS afgezien van wat die hier wordt gepresenteerd, [aan de slag met Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) en andere voorbeelden die beschikbaar zijn in de [Azure codevoorbeelden](https://azure.microsoft.com/documentation/samples/?service=storage) bibliotheek. U kunt downloaden van de voorbeeldtoepassingen en ze uitvoeren of de code op GitHub bladeren.
+Zie voor voorbeelden van aanvullende code met behulp van SAS afgezien van wat die hier wordt gepresenteerd, [aan de slag met Azure Blob Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/) en andere voorbeelden beschikbaar zijn in de [Azure-codevoorbeelden](https://azure.microsoft.com/documentation/samples/?service=storage) bibliotheek. U kunt downloaden van de voorbeeldtoepassingen en ze uit te voeren of de code bekijken op GitHub.
 
-## <a name="what-is-a-shared-access-signature"></a>Wat is er een shared access signature?
-Een shared access signature biedt gedelegeerde toegang tot bronnen in uw opslagaccount. Met een SAS kunt u clients toegang verlenen tot bronnen in uw opslagaccount zonder het delen van de sleutels van uw account. De belangrijkste reden voor het gebruik van handtekeningen voor gedeelde toegang in uw toepassingen is dat een SAS een veilige manier is voor het delen van uw opslagresources zonder dat uw accountsleutels in gevaar komen.
+## <a name="what-is-a-shared-access-signature"></a>Wat is een shared access signature?
+Een shared access signature biedt gedelegeerde toegang tot resources in uw opslagaccount. Met een SAS kunt u clients toegang verlenen tot bronnen in uw opslagaccount zonder het delen van sleutels van uw account. De belangrijkste reden voor het gebruik van handtekeningen voor gedeelde toegang in uw toepassingen is dat een SAS een veilige manier is voor het delen van uw opslagresources zonder dat uw accountsleutels in gevaar komen.
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
-Een SAS biedt gedetailleerde controle over het type toegang u aan clients die beschikken over de SA's verleent, waaronder:
+Een SAS kunt u nauwkeurige controle over het type toegang dat u aan clients die de SAS toewijst, met inbegrip van:
 
-* De tijdsinterval waarover de SAS geldig zijn, inclusief de begintijd en de verlooptijd is.
-* De machtigingen verleend door de SAS. Een SAS voor een blob kan bijvoorbeeld verleent u lees en schrijfmachtigingen voor blob maar machtigingen niet verwijderen.
-* Een optionele IP-adres of het bereik van IP-adressen waarvan van Azure Storage de SAS accepteert. U kunt bijvoorbeeld een bereik met IP-adressen die horen bij uw organisatie opgeven.
-* Het protocol waarvoor Azure Storage de SA's worden geaccepteerd. U kunt deze optionele parameter gebruiken om toegang te beperken op clients met behulp van HTTPS.
+* Het interval op waarover de SAS geldig is, met inbegrip van de begin- en het verlooptijdstip is.
+* De machtigingen verleend door de SAS. Bijvoorbeeld, kan een SAS voor een blob verleent u lees en schrijfmachtigingen heeft tot de blob, maar de machtigingen niet verwijderen.
+* Een optionele IP-adres of het bereik van IP-adressen waarop Azure Storage de SAS accepteert. Bijvoorbeeld, kunt u een bereik van IP-adressen die horen bij uw organisatie opgeven.
+* Het protocol waarvoor Azure Storage de SA's worden geaccepteerd. U kunt deze optionele parameter gebruiken om toegang te beperken met clients met behulp van HTTPS.
 
 ## <a name="when-should-you-use-a-shared-access-signature"></a>Wanneer moet u een shared access signature gebruiken?
-U kunt een SAS gebruiken wanneer u wilt toegang bieden tot bronnen in uw opslagaccount voor elke client die niet beschikken toegangssleutels voor uw opslagaccount. Uw opslagaccount omvat zowel een primaire en secundaire toegangssleutel voor, die beide Verleen beheerderstoegang tot uw account en alle resources binnen het. Uw account met de mogelijkheid van kwaadwillende of Achteloos gebruik blootstellen van een van deze sleutels worden geopend. Handtekeningen voor gedeelde toegang bieden een veilige alternatief waarmee clients kunnen lezen, schrijven en verwijderen van gegevens in uw opslagaccount volgens de machtigingen die u expliciet hebt verleend en zonder dat nodig is voor de accountsleutel van een.
+U kunt een SAS gebruiken als u wilt toegang bieden tot bronnen in uw opslagaccount voor elke client die niet beschikken de toegangssleutels van uw opslagaccount. Uw storage-account omvat zowel een primaire en secundaire toegangssleutel, die beide beheerderstoegang verlenen tot uw account en alle resources binnen deze. Uw account met de mogelijkheid van kwaadwillende of uit nalatigheid wordt geopenbaard gebruik blootstellen van een van deze sleutels worden geopend. Handtekeningen voor gedeelde toegang bieden een veilige alternatief waarmee clients kunnen lezen, schrijven en verwijderen van gegevens in uw storage-account volgens de machtigingen die u expliciet hebt toegewezen, en zonder de noodzaak voor een accountsleutel.
 
-Een veelvoorkomend scenario waarin een SAS handig is, is een service waar gebruikers lezen en schrijven van hun eigen gegevens naar uw opslagaccount. In een scenario waar de gebruikersgegevens worden opgeslagen in een opslagaccount, zijn er twee typische ontwerppatronen:
+Een veelvoorkomend scenario waarin een SAS handig is, is een service waarbij gebruikers lezen en schrijven van hun eigen gegevens naar uw opslagaccount. In een scenario waarbij gebruikersgegevens worden opgeslagen in een storage-account, moet u er twee typische ontwerppatronen zijn:
 
-1. Clients uploaden en downloaden van gegevens via een front-proxyservice, die verificatie uitvoert. Deze front-proxyservice heeft het voordeel van het toestaan van validatie van bedrijfsregels, maar voor grote hoeveelheden gegevens of transacties, hoog volume, maken van een service die kan worden geschaald zodat deze overeenkomen met de vraag mogelijk dure of moeilijk.
+1. Clients uploaden en downloaden van gegevens via een front-end-proxy-service, waarmee authenticatie wordt uitgevoerd. Deze front-proxyservice heeft het voordeel van het toestaan van validatie van bedrijfsregels kan, maar voor grote hoeveelheden gegevens of transacties, hoog volume, het maken van een service die kan worden geschaald zodat deze overeenkomt met de aanvraag duur en moeilijk.
 
   ![Scenario-diagram: front-proxy-service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
 
-1. Een lichtgewicht service verifieert de client, indien nodig en genereert vervolgens een SAS. Nadat de client de SA's ontvangt, toegang te krijgen tot resources voor storage-account rechtstreeks met de machtigingen die zijn gedefinieerd door de SAS en voor het interval dat is toegestaan door de SAS. De SA's vermindert de noodzaak voor het doorsturen van alle gegevens via de front-end-proxy-service.
+1. Een lichtgewicht service verifieert de client naar behoefte en genereert vervolgens een SAS. Nadat de client de SAS ontvangt, kunnen ze toegang tot resources voor storage-account rechtstreeks met de machtigingen die zijn gedefinieerd door de SAS en voor het interval dat is toegestaan door de SAS. De SAS vermindert de noodzaak voor de routering van alle gegevens via de front-end-proxy-service.
 
   ![Scenario-diagram: SAS provider-service](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
 
-Veel echte services kunnen een hybride versie van deze twee methoden gebruiken. Sommige gegevens kunnen bijvoorbeeld worden verwerkt en gevalideerd via de front-end-proxy, terwijl andere gegevens wordt opgeslagen en/of rechtstreeks via SAS lezen.
+Veel real-world services kunnen een hybride versie van deze twee methoden gebruiken. Sommige gegevens kunnen bijvoorbeeld worden verwerkt en gevalideerd via het front-proxy, terwijl andere gegevens is opgeslagen en/of rechtstreeks met behulp van SAS lezen.
 
-Bovendien moet u geen SAS gebruiken toegang verlenen aan het bronobject in een kopieerbewerking in bepaalde scenario's:
+Daarnaast moet u het gebruik van een SAS toegang verlenen aan het bronobject een kopieerbewerking in bepaalde scenario's:
 
-* Wanneer u een blob naar een andere blob die zich in een ander opslagaccount bevindt kopieert, moet u een SAS toegang verlenen aan de bron-blob. U kunt desgewenst een SAS toegang verlenen aan de bestemmings-blob.
-* Wanneer u een bestand naar een ander bestand dat zich in een ander opslagaccount kopieert bevindt, moet u een SAS toegang verlenen aan het bronbestand. U kunt desgewenst een SAS toegang verlenen aan het doel-bestand.
-* Wanneer u een blob naar een bestand of een bestand naar een blob kopieert, moet u een SAS toegang verlenen aan het bronobject, zelfs als de bron- en doelserver objecten bevinden zich in hetzelfde opslagaccount.
+* Wanneer u een blob naar een andere blob die zich in een ander opslagaccount bevinden kopieert, moet u een SAS toegang verlenen aan de bron-blob. U kunt eventueel een SAS toegang verlenen aan de bestemmings-blob.
+* Wanneer u een bestand naar een ander bestand dat zich in een ander opslagaccount bevindt kopiëren, moet u een SAS toegang verlenen aan het bronbestand. U kunt eventueel een SAS toegang verlenen aan de doel-bestand.
+* Wanneer u een blob naar een bestand of een bestand naar een blob kopieert, moet u een SAS toegang verlenen aan het bronobject, zelfs als de bron- en -objecten bevinden zich in hetzelfde opslagaccount.
 
-## <a name="types-of-shared-access-signatures"></a>Typen handtekeningen voor gedeelde toegang
+## <a name="types-of-shared-access-signatures"></a>Typen van handtekeningen voor gedeelde toegang
 U kunt twee soorten handtekeningen voor gedeelde toegang maken:
 
-* **Service-SAS.** De service-SAS biedt toegang tot een resource in slechts een van de opslagservices: de Blob-, Queue-, Tabel- of File-service. Zie [samenstellen van een Service-SAS](https://msdn.microsoft.com/library/dn140255.aspx) en [voorbeelden van Service-SAS](https://msdn.microsoft.com/library/dn140256.aspx) voor gedetailleerde informatie over het maken van het service-SAS-token.
-* **Account-SAS.** De account SAS gemachtigden toegang tot bronnen in een of meer van de storage-services. Alle bewerkingen die beschikbaar zijn via een service-SAS zijn ook beschikbaar via een account-SAS. Met het account-SAS kunt u bovendien toegang tot de bewerkingen die betrekking hebben op een bepaalde service, zoals delegeren **Get/Set-Service-eigenschappen** en **Service statistieken ophalen**. U kunt ook toegang tot het lezen, schrijven en verwijderen van bewerkingen delegeren voor blobcontainers, tabellen, wachtrijen en bestandsshares die niet zijn toegestaan bij een service-SAS. Zie [samenstellen van een Account-SAS](https://msdn.microsoft.com/library/mt584140.aspx) voor gedetailleerde informatie over het maken van het account-SAS-token.
+* **Service-SAS.** De service-SAS biedt toegang tot een resource in slechts een van de opslagservices: de Blob-, Queue-, Tabel- of File-service. Zie [maken van een Service-SAS](https://msdn.microsoft.com/library/dn140255.aspx) en [voorbeelden van Service-SAS](https://msdn.microsoft.com/library/dn140256.aspx) voor gedetailleerde informatie over het maken van de service-SAS-token.
+* **Account-SAS.** De account SAS delegeert toegang tot bronnen in een of meer van de storage-services. Alle van de bewerkingen die beschikbaar zijn via een service-SAS zijn ook beschikbaar via een account-SAS. Met de account-SAS, kunt u bovendien toegang tot de bewerkingen die betrekking hebben op een bepaalde service, zoals delegeren **Get/Set-Service-eigenschappen** en **Zoekstatistieken ophalen**. U kunt ook toegang tot het lezen, schrijven en verwijderen van bewerkingen delegeren voor blobcontainers, tabellen, wachtrijen en bestandsshares die niet zijn toegestaan bij een service-SAS. Zie [maken van een Account-SAS](https://msdn.microsoft.com/library/mt584140.aspx) voor gedetailleerde informatie over het maken van de account-SAS-token.
 
 ## <a name="how-a-shared-access-signature-works"></a>De werking van een shared access signature
-Een shared access signature is een ondertekende URI die verwijst naar een of meer opslagbronnen en bevat een token dat een speciale reeks queryparameters bevat. Het token geeft aan hoe de resources zijn toegankelijk voor de client. Een van de queryparameters, de handtekening is gemaakt op basis van de SAS-parameters en ondertekend met de accountsleutel. Deze handtekening wordt gebruikt door Azure Storage toegang verlenen aan de opslagbronnen.
+Een shared access signature is een ondertekende URI die verwijst naar een of meer resources voor storage en bevat een token dat bestaat uit een speciale set queryparameters. Het token geeft aan hoe de resources kunnen worden geopend door de client. Een van de queryparameters, de handtekening is samengesteld uit de SAS-parameters en ondertekend met de accountsleutel. Deze handtekening wordt gebruikt door Azure Storage toegang verlenen aan de storage-resource.
 
-Hier volgt een voorbeeld van een SAS-URI met de bron-URI en de SAS-token:
+Hier volgt een voorbeeld van een SAS-URI van de resource-URI en de SAS-token:
 
 ![Onderdelen van een SAS-URI](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-uri.png)   
 
-De SAS-token is een tekenreeks die u genereren op de *client* kant (Zie de [SAS-voorbeelden](#sas-examples) sectie voor codevoorbeelden). Een SAS-token met de storage-clientbibliotheek genereren bijvoorbeeld wordt niet bijgehouden door Azure Storage op elke manier. Aan de clientzijde kunt u een onbeperkt aantal SAS-tokens.
+De SAS-token is een tekenreeks die u genereert op de *client* aan clientzijde (Zie de [SAS voorbeelden](#sas-examples) sectie voor voorbeelden van code). Een SAS-token dat u met de storage-clientbibliotheek genereren, bijvoorbeeld wordt niet bijgehouden door Azure Storage op geen enkele manier. U kunt een onbeperkt aantal SAS-tokens maken op de client.
 
-Wanneer een client een SAS-URI naar Azure Storage als onderdeel van een aanvraag biedt, wordt de service controleert de SAS-parameters en handtekening om te controleren of deze geldig is voor het verifiëren van de aanvraag. Als de service controleert de handtekening ongeldig is, wordt de aanvraag is geautoriseerd. Anders wordt is de aanvraag geweigerd met foutcode 403 (verboden).
+Wanneer een client een SAS-URI naar Azure Storage als onderdeel van een aanvraag biedt, wordt de service controleert de SAS-parameters en handtekening om te controleren of deze geldig is voor het verifiëren van de aanvraag. Als de service controleert de handtekening geldig is, wordt de aanvraag is geautoriseerd. Anders wordt is de aanvraag geweigerd met foutcode 403 (verboden).
 
-## <a name="shared-access-signature-parameters"></a>Parameters voor gedeelde toegang handtekening
-De account-SAS en service-SAS-tokens bevatten enkele algemene parameters en ook rekening houden met een aantal parameters die niet overeenkomen.
+## <a name="shared-access-signature-parameters"></a>Shared access signature-parameters
+De account-SAS en service-SAS-tokens bevatten enkele algemene parameters en ook rekening houden met een aantal parameters die verschillen.
 
-### <a name="parameters-common-to-account-sas-and-service-sas-tokens"></a>Parameters die gemeenschappelijk zijn voor account-SAS en service-SAS-tokens
-* **API-versie** een optionele parameter waarmee de versie van de storage-service moet worden gebruikt voor het uitvoeren van de aanvraag.
-* **Service-versie** een vereiste parameter waarmee de versie van de storage-service moet worden gebruikt voor het autoriseren van de aanvraag.
-* **De begintijd.** Dit is de tijd waarop de SAS geldig wordt. De begintijd voor een shared access signature is optioneel. Als een begintijd wordt weggelaten, wordt de SAS onmiddellijk van kracht. De begintijd moet worden uitgedrukt in UTC (Coordinated Universal Time), met een speciale UTC-aanduiding ('Z'), bijvoorbeeld `1994-11-05T13:15:30Z`.
-* **Verlooptijd.** Dit is de tijd waarna de SAS niet meer geldig is. Aanbevolen dat u een verlooptijd voor een SAS opgeven, of deze aan een opgeslagen toegangsbeleid koppelen. Het verlooptijdstip moet worden uitgedrukt in UTC (Coordinated Universal Time), met een speciale UTC-aanduiding ('Z'), bijvoorbeeld `1994-11-05T13:15:30Z` (Zie meer hieronder).
-* **Machtigingen.** De machtigingen die zijn opgegeven voor de SAS aangeven welke bewerkingen die de client op basis van de storage-resource met behulp van de SAS kunt uitvoeren. Beschikbare machtigingen verschillen voor een account-SAS en een service-SAS.
-* **IP.** Een optionele parameter waarmee een IP-adres of een bereik met IP-adressen buiten Azure (Zie de sectie [routering configuratie sessiestatus](../../expressroute/expressroute-workflows.md#routing-session-configuration-state) voor Express Route) waarin om aanvragen te accepteren.
-* **Protocol.** Een optionele parameter waarmee het protocol is toegestaan voor een aanvraag. Mogelijke waarden zijn zowel HTTP als HTTPS (`https,http`), wordt de standaardwaarde of HTTPS (`https`). Houd er rekening mee dat HTTP alleen geen toegestane waarde is.
-* **Handtekening.** De handtekening is samengesteld uit de andere parameters opgegeven als deel token, en vervolgens versleuteld. De handtekening wordt gebruikt om toegang tot de opgegeven opslagbronnen te verlenen.
+### <a name="parameters-common-to-account-sas-and-service-sas-tokens"></a>Parameters voor account-SAS en service-SAS-tokens
+* **API-versie** een optionele parameter waarmee de versie van het storage-service te gebruiken voor het uitvoeren van de aanvraag.
+* **Service-versie** een vereiste parameter waarmee de versie van het storage-service te gebruiken om te autoriseren van de aanvraag.
+* **De begintijd.** Dit is de tijd waarop de SAS geldig wordt. De begintijd voor een shared access signature is optioneel. Als een begintijd wordt weggelaten, wordt de SAS onmiddellijk van kracht. De begintijd moet worden uitgedrukt in UTC (Coordinated Universal Time), met een speciale aanduiding van de UTC ("Z"), bijvoorbeeld `1994-11-05T13:15:30Z`.
+* **Verlooptijd.** Dit is de tijd waarna de SAS niet meer geldig is. Aanbevolen procedures raadzaam dat u ofwel een verlooptijd voor een SAS opgeven, of deze aan een opgeslagen toegangsbeleid koppelen. Het verlooptijdstip moet worden uitgedrukt in UTC (Coordinated Universal Time), met een speciale aanduiding van de UTC ("Z"), bijvoorbeeld `1994-11-05T13:15:30Z` (Zie meer hieronder).
+* **Machtigingen.** De machtigingen die zijn opgegeven voor de SAS aangeven welke bewerkingen die de client kunt uitvoeren op basis van de storage-resource met behulp van de SAS. Beschikbare machtigingen verschillen voor een account-SAS en een service-SAS.
+* **IP.** Een optionele parameter waarmee een IP-adres of een bereik van IP-adressen buiten Azure (Zie de sectie [Routing configuratie sessiestatus](../../expressroute/expressroute-workflows.md#routing-session-configuration-state) voor Express Route) uit waarvoor aanvragen worden geaccepteerd.
+* **Protocol.** Een optionele parameter waarmee het protocol is toegestaan voor een aanvraag. Mogelijke waarden zijn zowel HTTP als HTTPS (`https,http`), die alleen is de standaardwaarde of HTTPS (`https`). Houd er rekening mee dat HTTP alleen geen toegestane waarde is.
+* **Handtekening.** De handtekening is samengesteld uit de andere parameters opgegeven als onderdeel token en vervolgens versleuteld. De handtekening wordt gebruikt voor toegang verlenen aan de opgegeven storage-resources.
 
 ### <a name="parameters-for-a-service-sas-token"></a>Parameters voor een service-SAS-token
-* **Storage-resource.** Storage-resources die u kunt toegang met een service te delegeren SAS zijn onder andere:
+* **Opslagresource.** Storage-resources waarvoor u toegang tot het met een service kunt delegeren SAS zijn onder andere:
   * Containers en blobs
   * Bestandsshares en bestanden
   * Wachtrijen
   * Tabellen en -bereiken van de tabelentiteiten.
 
 ### <a name="parameters-for-an-account-sas-token"></a>Parameters voor een account-SAS-token
-* **De service of services.** Een account-SAS kunt toegang tot een of meer van de storage-services delegeren. U kunt bijvoorbeeld een account-SAS waarmee de gemachtigden toegang tot de service-Blob en het bestand maken. Of u een SAS dat gemachtigden toegang tot alle vier services (Blob, Queue, Table en -bestand) kunt maken.
-* **Opslag resourcetypen.** Een account SAS is van toepassing op een of meer klassen van opslagbronnen in plaats van een specifieke bron. U kunt een account-SAS delegeren van toegang tot maken:
-  * Serviceniveau-API's, die worden aangeroepen voor de account opslagbronnen. Voorbeelden zijn onder meer **Get/Set-Service-eigenschappen**, **ophalen Service statistieken**, en **lijst Containers/wachtrijen/tabellen, Shares**.
-  * Niveau van de container-API's die worden aangeroepen met de containerobjecten voor elke service: blob-containers, wachtrijen, tabellen en bestandsshares. Voorbeelden zijn **maken/verwijderen Container**, **wachtrij maken/verwijderen**, **maken/verwijderen tabel**, **Share maken/verwijderen**, en  **Blobs/bestanden en mappen weergeven**.
-  * Op objectniveau API's, die worden aangeroepen voor blobs, Wachtrijberichten, tabelentiteiten en bestanden. Bijvoorbeeld: **Blob plaatsen**, **Query entiteit**, **berichten ophalen**, en **bestand maken**.
+* **Service of -services.** Een account-SAS kunt toegang tot een of meer van de storage-services delegeren. U kunt bijvoorbeeld een account-SAS toegang biedt aan de Blob en bestand service maken. Of u een SAS dat delegeert toegang tot alle vier services (Blob, wachtrij, tabel en bestand) kunt maken.
+* **Opslag-resourcetypen.** Een account SAS is van toepassing op een of meer klassen van de storage-resources, in plaats van een specifieke resource. U kunt een account-SAS voor toegang tot delegeren maken:
+  * Service level-API's worden aangeroepen voor de resource van het opslagaccount. Voorbeelden zijn onder meer **Get/Set-Service-eigenschappen**, **Zoekstatistieken ophalen**, en **lijst Containers/wachtrijen/tabellen/Shares**.
+  * Container-niveau API's, die worden aangeroepen voor de container-objecten voor elke service: blob-containers, wachtrijen, tabellen en bestandsshares. Voorbeelden zijn onder meer **maken/verwijderen Container**, **wachtrij maken/verwijderen**, **maken/verwijderen tabel**, **maken/verwijderen Share**, en  **Blobs/bestanden en mappen weergeven**.
+  * Objectniveau API's, die worden aangeroepen voor blobs, berichten in de wachtrij, tabelentiteiten en bestanden. Bijvoorbeeld, **Put Blob**, **Queryentiteit**, **berichten ophalen**, en **-bestand maken**.
 
-## <a name="examples-of-sas-uris"></a>Voorbeelden van SAS-URI 's
+## <a name="examples-of-sas-uris"></a>Voorbeelden van SAS URI 's
 
 ### <a name="service-sas-uri-example"></a>Voorbeeld van de service-SAS-URI
 
-Hier volgt een voorbeeld van een SAS-URI waarmee machtigingen lezen en schrijven naar een blob-service. De tabel uitsplitsing van elk deel van de te begrijpen hoe het bijdraagt aan de SAS URI:
+Hier volgt een voorbeeld van een SAS-URI waarmee machtigingen lezen en schrijven naar een blob-service. De tabel een uitsplitsing van elk onderdeel van de te begrijpen hoe het draagt bij aan de SAS URI:
 
 ```
 https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D
 ```
 
-| Naam | SAS gedeelte | Beschrijving |
+| Naam | SAS-gedeelte | Beschrijving |
 | --- | --- | --- |
-| BLOB-URI |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |Het adres van de blob. Houd er rekening mee dat via HTTPS wordt sterk aanbevolen. |
-| Storage services versie |`sv=2015-04-05` |Voor services versie 2012-02-12-opslag en later, de versie moet worden gebruikt door deze parameter wordt aangegeven. |
-| Begintijd |`st=2015-04-29T22%3A18%3A26Z` |Opgegeven in UTC-tijd. Als u wilt dat de SAS onmiddellijk geldig zijn, laat u de begintijd. |
+| BLOB-URI |`https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt` |Het adres van de blob. Houd er rekening mee dat met behulp van HTTPS wordt sterk aanbevolen. |
+| De versie van de Storage-services |`sv=2015-04-05` |Voor storage services versie 2012-02-12 en hoger, deze parameter geeft aan dat de versie moet worden gebruikt. |
+| Begintijd |`st=2015-04-29T22%3A18%3A26Z` |Opgegeven in UTC-tijd. Als u wilt dat de SAS is onmiddellijk geldig zijn, laat u de begintijd. |
 | Verlooptijd |`se=2015-04-30T02%3A23%3A26Z` |Opgegeven in UTC-tijd. |
-| Resource |`sr=b` |De bron is een blob. |
-| Machtigingen |`sp=rw` |De machtigingen verleend door de SAS Read (r) opnemen en (b) schrijven. |
-| IP-bereik |`sip=168.1.5.60-168.1.5.70` |Het bereik van IP-adressen waaruit een aanvraag wordt geaccepteerd. |
-| Protocol |`spr=https` |Alleen-aanvragen via HTTPS zijn toegestaan. |
-| Handtekening |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Toegang verlenen aan de blob wordt gebruikt. De handtekening is een HMAC berekend over een tekenreeks te ondertekenen en de sleutel met behulp van het algoritme SHA256 en vervolgens gecodeerd met Base64-codering. |
+| Resource |`sr=b` |De resource is een blob. |
+| Machtigingen |`sp=rw` |De machtigingen die zijn verleend door de SAS Read (r) bevatten en schrijven (s). |
+| IP-bereik |`sip=168.1.5.60-168.1.5.70` |Het bereik van IP-adressen van waaruit u een aanvraag wordt geaccepteerd. |
+| Protocol |`spr=https` |Alleen aanvragen via HTTPS zijn toegestaan. |
+| Handtekening |`sig=Z%2FRHIX5Xcg0Mq2rqI3OlWTjEg2tYkboXr1P9ZUXDtkk%3D` |Gebruikt voor de autorisatie van toegang tot de blob. De handtekening is een HMAC berekend voor een tekenreeks te ondertekenen en een sleutel met behulp van de algoritme SHA256 en klik vervolgens gecodeerd met Base64-codering. |
 
-### <a name="account-sas-uri-example"></a>Voorbeeld van account-SAS-URI
+### <a name="account-sas-uri-example"></a>Voorbeeld van de account-SAS-URI
 
-Hier volgt een voorbeeld van een account-SAS die gebruikmaakt van dezelfde algemene parameters op het token. Sinds deze parameters hierboven zijn beschreven, worden ze hier niet beschreven. Alleen de parameters die specifiek zijn voor account-SAS in de onderstaande tabel worden beschreven.
+Hier volgt een voorbeeld van een account-SAS die gebruikmaakt van dezelfde algemene parameters op het token. Omdat deze parameters hierboven worden beschreven, worden ze hier niet beschreven. Alleen de parameters die specifiek zijn voor account-SAS worden beschreven in de onderstaande tabel.
 
 ```
 https://myaccount.blob.core.windows.net/?restype=service&comp=properties&sv=2015-04-05&ss=bf&srt=s&st=2015-04-29T22%3A18%3A26Z&se=2015-04-30T02%3A23%3A26Z&sr=b&sp=rw&sip=168.1.5.60-168.1.5.70&spr=https&sig=F%6GRVAZ5Cdj2Pw4tgU7IlSTkWgn7bUkkAg8P6HESXwmf%4B
 ```
 
-| Naam | SAS gedeelte | Beschrijving |
+| Naam | SAS-gedeelte | Beschrijving |
 | --- | --- | --- |
-| Resource-URI |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |Het eindpunt Blob-service, en de parameters voor service-eigenschappen (als deze wordt aangeroepen met GET) ophalen of instellen van eigenschappen (als deze wordt aangeroepen met SET) van de service. |
-| Services |`ss=bf` |De SAS is van toepassing op de services Blob en het bestand |
-| Brontypen |`srt=s` |De SAS geldt voor serviceniveau-bewerkingen. |
-| Machtigingen |`sp=rw` |De machtigingen verlenen toegang tot de lees- en schrijfbewerkingen. |
+| Resource-URI |`https://myaccount.blob.core.windows.net/?restype=service&comp=properties` |Het eindpunt van Blob service, en de parameters voor service-eigenschappen (wanneer aangeroepen met GET) ophalen of instellen van service-eigenschappen (wanneer met de naam is ingesteld). |
+| Services |`ss=bf` |De SAS is van toepassing op de services Blob en bestand |
+| Resourcetypen |`srt=s` |De SAS is van toepassing op serviceniveau bewerkingen. |
+| Machtigingen |`sp=rw` |De machtigingen verlenen toegang tot lees- en schrijfbewerkingen. |
 
-Gezien het feit dat machtigingen beperkt tot het serviceniveau zijn, toegankelijk bewerkingen met deze SAS zijn **Blob-Service-eigenschappen ophalen** (gelezen) en **Blob-Service-eigenschappen instellen** (schrijven). Echter met een andere resource URI hetzelfde SAS-token kan ook worden gebruikt voor toegang tot delegeren **statistieken voor Blob-Service ophalen** (gelezen).
+Gezien het feit dat machtigingen beperkt tot het serviceniveau zijn, toegankelijk bewerkingen met deze SAS zijn **Blob Service-eigenschappen ophalen** (lezen) en **Blob Service-eigenschappen instellen** (schrijven). Echter, met een andere resource-URI, hetzelfde SAS-token kan ook worden gebruikt voor toegang tot delegeren **Blob Service-statistieken ophalen** (lezen).
 
-## <a name="controlling-a-sas-with-a-stored-access-policy"></a>Een SAS met een opgeslagen-beleid beheren
+## <a name="controlling-a-sas-with-a-stored-access-policy"></a>Een SAS met een opgeslagen toegangsbeleid beheren
 Een shared access signature kan duren voordat een van twee vormen:
 
-* **Ad-hoc SAS:** wanneer u een ad-hoc SAS, de begintijd, de verlooptijd, maakt en machtigingen voor de SA's worden alle opgegeven in de SAS-URI (of impliciet, in het geval waarin de begintijd wordt weggelaten). Dit type SAS kan worden gemaakt als een account-SAS of een service-SAS.
-* **SAS met opgeslagen toegangsbeleid:** een opgeslagen-beleid is gedefinieerd in een resourcecontainer een blob-container, tabel, wachtrijen of bestandsshare-- en kan worden gebruikt voor het beheren van beperkingen voor een of meer handtekeningen voor gedeelde toegang. Wanneer u een SAS aan een opgeslagen toegangsbeleid koppelt, neemt de SAS de beperkingen--de begintijd, verlooptijd en machtigingen--gedefinieerd voor het opgeslagen toegangsbeleid.
+* **Ad-hoc SAS:** wanneer u een ad-hoc SAS, de begintijd, verlooptijd, maken en machtigingen voor de SAS zijn alle opgegeven in de SAS-URI (of impliciet, in het geval waarin de begintijd wordt weggelaten). Dit type SAS kan worden gemaakt als een account-SAS of een service-SAS.
+* **SAS met opgeslagen toegangsbeleid:** een opgeslagen toegangsbeleid is gedefinieerd in een resourcecontainer, een blob-container, tabel, wachtrij, of bestandsshare-- en kan worden gebruikt voor het beheren van beperkingen voor een of meer handtekeningen voor gedeelde toegang. Wanneer u een SAS aan een opgeslagen toegangsbeleid koppelen, neemt de SA's over de beperkingen--de begintijd, verlooptijd en machtigingen--gedefinieerd voor de opgeslagen toegangsbeleid.
 
 > [!NOTE]
-> Op dit moment moet een SAS-account een ad-hoc SAS. Opgeslagen-beleidsregels worden nog niet ondersteund voor account-SAS.
+> Een account-SAS moet op dit moment een ad-hoc SAS. Opgeslagen-beleidsregels worden nog niet ondersteund voor account-SAS.
 
-Het verschil tussen de twee formulieren is belangrijk voor één key '-scenario: intrekken. Omdat een SAS-URI een URL is, kunt iedereen die de SAS verkrijgt gebruiken, ongeacht wie deze oorspronkelijk is gemaakt. Als een SAS openbaar wordt gepubliceerd, kan deze worden gebruikt door iedereen in de hele wereld. Een SAS verleent toegang tot bronnen voor iedereen die deze totdat een van de vier dingen gebeurt:
+Het verschil tussen de twee vormen is belangrijk voor een key-scenario: intrekken. Een SAS-URI is een URL, kunt iedereen die de SAS verkrijgt gebruiken, ongeacht wie het oorspronkelijk heeft gemaakt. Als een SAS openbaar is gepubliceerd, kan deze worden gebruikt door iedereen in de hele wereld. Een SAS verleent toegang tot resources voor iedereen die deze totdat een van de vier wat er gebeurt:
 
-1. De verlooptijd opgegeven voor de SAS is bereikt.
-2. De verlooptijd opgegeven op het opgeslagen toegangsbeleid waarnaar wordt verwezen door de SAS is bereikt (als een opgeslagen-beleid wordt verwezen, en als een verlooptijd is opgegeven). Dit kan optreden omdat het interval is verstreken of omdat u het opgeslagen toegangsbeleid met een verlooptijd in het verleden is één manier om in te trekken van de SAS hebt gewijzigd.
-3. Het opgeslagen toegangsbeleid waarnaar wordt verwezen door de SAS wordt verwijderd, die een andere manier om in te trekken van de SAS is. Houd er rekening mee dat als u het opgeslagen toegangsbeleid met dezelfde naam opnieuw maken, alle bestaande SAS-tokens opnieuw ongeldig volgens de machtigingen die zijn gekoppeld aan deze opgeslagen toegangsbeleid is (ervan uitgaande dat de verlooptijd van de SAS is niet verstreken). Als u wilde weet in te trekken van de SA's, zorg er dan voor dat een andere naam gebruiken als u het toegangsbeleid met een verlooptijd in de toekomst opnieuw maken.
-4. De sleutel van het account dat is gebruikt voor het maken van de SAS is gegenereerd. Een account lezensleutel zorgt ervoor dat alle toepassingsonderdelen met deze sleutel mislukken totdat ze zijn bijgewerkt voor het gebruik van andere geldige sleutel of de zojuist opnieuw gegenereerd accountsleutel autoriseren.
+1. Het verlooptijdstip die is opgegeven voor de SAS is bereikt.
+2. Het verlooptijdstip opgegeven op het opgeslagen toegangsbeleid waarnaar wordt verwezen door de SAS is bereikt (als een opgeslagen toegangsbeleid wordt verwezen, en als deze een verlooptijd). Dit kan gebeuren omdat het interval is verstreken of omdat u het opgeslagen toegangsbeleid met een verlooptijd in het verleden is één manier om in te trekken van de SAS hebt gewijzigd.
+3. Het opgeslagen toegangsbeleid waarnaar wordt verwezen door de SAS is verwijderd, die een andere manier om in te trekken van de SAS is. Houd er rekening mee dat als u opnieuw het opgeslagen toegangsbeleid met dezelfde naam maken, alle bestaande SAS-tokens opnieuw ongeldig volgens de machtigingen die zijn gekoppeld aan deze opgeslagen toegangsbeleid is (ervan uitgaande dat het verlooptijdstip voor de SAS niet is verstreken). Als u wilde zijn maken om in te trekken van de SAS, zorg er dan voor dat een andere naam gebruiken als u het toegangsbeleid met een verlooptijd in de toekomst opnieuw maken.
+4. De sleutel die is gebruikt voor het maken van de SAS is gegenereerd. Een accountsleutel opnieuw genereren zorgt ervoor dat alle onderdelen van de toepassing met behulp van deze sleutel niet kunnen worden autoriseren totdat ze zijn bijgewerkt voor het gebruik van de andere geldig account-sleutel of de sleutel van het zojuist opnieuw gegenereerd.
 
 > [!IMPORTANT]
-> Een shared access signature-URI is gekoppeld aan de sleutel van het account gebruikt voor het maken van de handtekening en de bijbehorende opgeslagen-beleid (indien aanwezig). Als er geen opgeslagen toegangsbeleid is opgegeven, is de enige manier om een shared access signature intrekken om de accountsleutel te wijzigen.
+> Een shared access signature-URI is gekoppeld aan de accountsleutel die wordt gebruikt om de handtekening te maken en de bijbehorende opgeslagen toegangsbeleid (indien aanwezig). Als er geen opgeslagen toegangsbeleid wordt opgegeven, is de enige manier om een shared access signature intrekken om de accountsleutel te wijzigen.
 
 ## <a name="authenticating-from-a-client-application-with-a-sas"></a>Verificatie van een clienttoepassing met een SAS
-Een client die in bezit van een SAS kunt u de SAS gebruiken voor het autoriseren van een aanvraag in voor een opslagaccount waarvoor ze geen sleutels van de bezitten. Een SAS worden opgenomen in een verbindingsreeks, of gebruik rechtstreeks vanuit de juiste constructor of methode.
+Een client die in het bezit van een SAS kan de SAS gebruiken om een aanvraag indient voor een opslagaccount waarvoor ze niet de accountsleutels beschikken. Een SAS kan worden opgenomen in een verbindingsreeks of rechtstreeks vanuit de juiste constructor of de methode gebruikt.
 
 ### <a name="using-a-sas-in-a-connection-string"></a>Met behulp van een SAS in een verbindingsreeks
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../../includes/storage-use-sas-in-connection-string-include.md)]
 
 ### <a name="using-a-sas-in-a-constructor-or-method"></a>Met behulp van een SAS in een constructor of methode
-Verschillende Azure Storage client bibliotheek constructors en methode overloads bieden een SAS-parameter, zodat u kunt een aanvraag naar de service met een SAS autoriseren.
+Verschillende Azure Storage client library constructors en methode overloads bieden een SAS-parameter, zodat u kunt een aanvraag om de service met een SAS te autoriseren.
 
-Bijvoorbeeld, wordt hier een SAS-URI gebruikt voor het maken van een verwijzing naar een blok-blob. De SAS biedt de enige referenties die nodig zijn voor de aanvraag. De blok-blobverwijzing wordt vervolgens gebruikt voor een schrijfbewerking:
+Bijvoorbeeld, wordt hier een SAS-URI gebruikt om te maken van een verwijzing naar een blok-blob. De SAS biedt de enige referenties die nodig zijn voor de aanvraag. De blok-blobverwijzing wordt vervolgens gebruikt voor een schrijfbewerking:
 
 ```csharp
 string sasUri = "https://storagesample.blob.core.windows.net/sample-container/" +
@@ -206,37 +206,37 @@ catch (StorageException e)
 
 ```
 
-## <a name="best-practices-when-using-sas"></a>Aanbevolen procedures voor via SAS
-Wanneer u handtekeningen voor gedeelde toegang in uw toepassingen gebruikt, moet u rekening houden met twee mogelijke risico's:
+## <a name="best-practices-when-using-sas"></a>Aanbevolen procedures bij het gebruik van SAS
+Wanneer u handtekeningen voor gedeelde toegang in uw toepassingen gebruiken, moet u rekening houden met twee mogelijke risico's:
 
-* Als een SAS is gelekt, kan deze worden gebruikt door iedereen die verkrijgt, die mogelijk uw storage-account kan vormen.
-* Als een SAS opgegeven voor een clienttoepassing verloopt en de toepassing kan niet worden opgehaald van een nieuwe SAS van uw service, wordt de functionaliteit van de toepassing worden gehinderd uit.
+* Als u een SAS is gelekt, kan deze worden gebruikt door iedereen die wordt opgehaald, waardoor mogelijk in gevaar uw storage-account komen kan.
+* Als een SAS die een clienttoepassing verloopt en de toepassing kan niet worden opgehaald van een nieuwe SAS van uw service is, wordt de functionaliteit van de toepassing kan worden belemmerd.
 
-De volgende aanbevelingen voor het gebruik van handtekeningen voor gedeelde toegang kunnen deze risico's verminderen:
+De volgende aanbevelingen voor het gebruik van handtekeningen voor gedeelde toegang kunnen helpen deze risico's verhelpen:
 
-1. **Altijd gebruik van HTTPS** maken of een SAS te distribueren. Als een SAS is doorgegeven via HTTP en onderschept, is een aanvaller uitvoeren van een man-in-the-middle-aanval kunnen de SAS lezen en gebruiken net zoals de beoogde gebruiker zijn kan, potentieel inbreuk op gevoelige gegevens of waardoor het beschadigde gegevens door de kwaadwillende gebruiker.
-2. **Verwijzing opgeslagen toegangsbeleid waar mogelijk.** Opgeslagen toegangsbeleid bieden u de optie voor het intrekken van machtigingen zonder de sleutels van opslagaccount opnieuw genereren. De vervaldatum instellen voor deze zeer ver in de toekomst (of oneindige) en zorg ervoor dat deze wordt regelmatig bijgewerkt om deze te verplaatsen verder in de toekomst.
-3. **Korte termijn verlopen keren gebruiken op een ad-hoc SAS.** Op deze manier, zelfs als een SAS is geknoeid, is dit alleen geldig voor een korte periode. Deze procedure is vooral belangrijk als u niet verwijzen naar een opgeslagen toegangsbeleid. Korte termijn verlopen tijden worden ook de hoeveelheid gegevens die kunnen worden geschreven naar een blob door het beperken van de beschikbare uploaden naar deze tijd beperken.
-4. **Clients automatisch vernieuwen van de SAS indien nodig hebt.** Clients moeten de SAS vóór de vervaldatum vernieuwen om de tijd voor nieuwe pogingen toestaan als de service die de SAS niet beschikbaar is. Als uw SAS is bedoeld om te worden gebruikt voor een klein aantal onmiddellijke, tijdelijke bewerkingen die moeten worden voltooid binnen de verloopperiode, is dit mogelijk niet nodig als de SAS naar verwachting niet worden vernieuwd. Echter, hebt u een client die regelmatig aanvragen via SAS aan te brengen, klikt u vervolgens de mogelijkheid van verlopen binnenkomt in play. De belangrijkste overweging is om de noodzaak van de SA's worden tijdelijke balans (zoals eerder vermeld) met de noodzaak om ervoor te zorgen dat de client een vernieuwing vroeg vraagt genoeg (om te voorkomen dat wordt onderbroken vanwege de SAS verloopt voordat geslaagde vernieuwen).
-5. **Wees voorzichtig met SAS-begintijd.** Als u de begintijd instellen voor een SAS voor **nu**, vervolgens vanwege klok leiden tot onjuiste (verschillen in de huidige tijd overeenkomstig andere machines), fouten kunnen worden waargenomen tijdelijk voor de eerste enkele minuten. In het algemeen de begintijd moet ten minste 15 minuten in het verleden instellen. Of niet zijn ingesteld dat deze, waarmee u het geldige direct in alle gevallen. In het algemeen geldt ook voor verlooptijd ook--Houd er rekening mee dat u maximaal 15 minuten klok scheeftrekken in beide richtingen op een aanvraag waarnemen. De maximale tijdsduur voor een SAS die niet verwijst naar een opgeslagen toegangsbeleid is voor clients met behulp van een REST-versie dan 2012-02-12, 1 uur en alle regels voor het opgeven van de lange termijn dan die zal mislukken.
-6. **Moet specifiek met de bron worden geopend.** Aanbevolen beveiligingsprocedure is om te voorzien van een gebruiker de minimaal vereiste machtigingen. Als een gebruiker alleen leestoegang tot één entiteit moet, verleen hen leestoegang tot die één entiteit en niet lezen, schrijven, verwijderen toegang tot alle entiteiten. Hierdoor kunnen ook verkleinen van de schade, als er een SAS is geknoeid omdat de SAS minder stroom in handen valt van een aanvaller heeft.
-7. **Begrijpen dat uw account wordt gefactureerd voor gebruik, met inbegrip van die klaar met SAS.** Als u toegang voor schrijven naar een blob opgeeft, wordt een gebruiker kan kiezen voor het uploaden van een blob 200GB. Als u ze ook leestoegang gegeven, kiezen ze voor het downloaden van 10 keer steeds 2 TB in uitgaande kosten voor u. Opnieuw, Geef beperkte machtigingen om te beperken van de mogelijke acties van kwaadwillende gebruikers. Tijdelijke SAS deze bedreiging beperken (maar houd ook rekening met het tijdsverschil op de eindtijd) gebruiken.
-8. **Gegevens die zijn geschreven met behulp van SAS valideren.** Wanneer een client-toepassing gegevens naar uw opslagaccount schrijft, houd er rekening mee dat er problemen met deze gegevens kunnen worden. Als uw toepassing vereist dat gegevens worden gevalideerd of geautoriseerd voordat deze is gereed om te gebruiken, moet u deze validatie uitvoeren nadat de gegevens worden geschreven en voordat deze wordt gebruikt door uw toepassing. Deze procedure biedt ook bescherming tegen beschadigd of schadelijke gegevens naar uw account worden geschreven door een gebruiker die de SAS correct hebt verkregen of door een gebruiker die misbruik van een gelekte SAS.
-9. **Altijd gebruik geen SAS.** Soms is de risico's die zijn gekoppeld aan een bepaalde bewerking op basis van uw opslagaccount opwegen tegen de voordelen van SAS. Maken van een middelste laag-service die naar uw storage-account na het uitvoeren van zakelijke schrijft voor dergelijke bewerkingen regel validatie, verificatie en controle. Soms is ook eenvoudiger te beheren van toegang op andere manieren. Bijvoorbeeld, als u alle blobs in een container openbaar leesbaar maken wilt, kunt u de container openbaar, in plaats van een SAS voor toegang voor elke client.
-10. **Storage Analytics gebruiken om uw toepassing te bewaken.** U kunt logboekregistratie en metrische gegevens gebruiken om te observeren een piek in de verificatiefouten vanwege een storing in uw SAS provider-service of op het onbedoeld verwijderen van een opgeslagen toegangsbeleid. Zie de [Blog van Azure Storage-Team](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) voor meer informatie.
+1. **Gebruik altijd HTTPS** te maken of een SAS te distribueren. Als een SAS wordt doorgegeven via HTTP en onderschept, kan een aanvaller die het uitvoeren van een man-in-the-middle-aanval te lezen van de SAS en vervolgens worden gebruikt zoals de beoogde gebruiker hebben kan, mogelijk inbreuk op gevoelige gegevens of beschadiging van gegevens door de kwaadwillende gebruiker toestaan.
+2. **Verwijzen naar opgeslagen toegangsbeleid waar mogelijk.** Opgeslagen toegangsbeleid bieden u de optie voor het intrekken van machtigingen zonder de storage-accountsleutels opnieuw genereren. De vervaldatum instellen voor deze zeer tot nu toe in de toekomst (of oneindige) en controleer of dat verder gaan in de toekomst wordt regelmatig bijgewerkt.
+3. **Korte verlooptijd keren gebruiken op een ad-hoc SAS.** Op deze manier kunnen zelfs als een SAS is geknoeid, is dit alleen geldig voor een korte periode. Met deze procedure is vooral belangrijk als u kan niet verwijzen naar een opgeslagen toegangsbeleid. Korte verlooptijd keren beperken ook de hoeveelheid gegevens die door het beperken van de tijd beschikbaar om te uploaden naar deze kunnen worden geschreven naar een blob.
+4. **Clients automatisch vernieuwen van de SAS indien nodig hebt.** Clients moeten de SAS vóór de vervaldatum vernieuwen zodat voor nieuwe pogingen als de service die de SAS niet beschikbaar is. Als de SAS is bedoeld om te worden gebruikt voor een klein aantal direct, eenvoudige bewerkingen die worden uitgevoerd binnen de verloopperiode worden verwacht, kan klikt u vervolgens dit niet nodig als de SAS naar verwachting niet worden vernieuwd. Echter, hebt u een client die regelmatig aanvragen via SAS, klikt u vervolgens de mogelijkheid van verlopen wordt geleverd aan de orde. De belangrijkste overweging is het balanceren van de noodzaak van de SAS zijn tijdelijke (zoals eerder vermeld) met de noodzaak om ervoor te zorgen dat de client vraagt om vernieuwing vroeg genoeg (zodat onderbrekingen worden voorkomen vanwege de SAS is verlopen voordat geslaagde vernieuwing).
+5. **Wees voorzichtig met SAS-begintijd.** Als u de begintijd instellen voor een SAS op **nu**, klikt u vervolgens vanwege klok scheeftrekken (verschillen in de huidige tijd op basis van verschillende computers), fouten kunnen worden waargenomen af en toe voor het eerst enkele minuten. In het algemeen de begintijd moet ten minste 15 minuten in het verleden instellen. Of niet instellen op alle dat maakt het geldig onmiddellijk in alle gevallen. In het algemeen geldt ook voor verlooptijd ook--Houd er rekening mee dat u tot vijftien minuten van de klok scheeftrekken in beide richtingen op elke aanvraag zien kunt. Voor clients met behulp van een REST eerdere versie dan 2012-02-12, is de maximale duur voor een SAS die niet verwijst naar een opgeslagen toegangsbeleid 1 uur en eventuele beleidsregels voor langere termijn dan die mislukken op te geven.
+6. **Worden met de resource moet worden geopend.** Er is een aanbevolen beveiligingsprocedure zodat een gebruiker beschikken over de minimaal vereiste machtigingen. Als een gebruiker alleen lezen-toegang tot een enkele entiteit moet, verleen deze leestoegang tot die één entiteit en toegang tot alle entiteiten niet lezen, schrijven en verwijderen. Dit helpt ook bij de schade standaardprocedures als er een SAS is geknoeid omdat de SAS minder stroom de beschikking over een aanvaller heeft.
+7. **Krijg inzicht in uw account wordt gefactureerd voor het gebruik, met inbegrip van die klaar zijn met SAS.** Als u toegang voor schrijven naar een blob opgeeft, wordt een gebruiker kan kiezen voor het uploaden van een blob van 200GB. Als u deze leestoegang ook opgegeven hebt, kunnen ze om deze te downloaden 10 keer kiezen waarbij extra kosten voor 2 TB in de kosten voor uitgaand voor u. Nogmaals, bieden beperkte machtigingen om te beperken van de mogelijke reacties van kwaadwillende gebruikers. Gebruik eenvoudige SAS deze bedreiging beperken (maar houd ook rekening met tijdsverschil op de eindtijd).
+8. **Valideren van gegevens die zijn geschreven met behulp van SAS.** Wanneer een clienttoepassing gegevens naar uw opslagaccount schrijft, houd er rekening mee dat er problemen met die gegevens kunnen worden. Als uw toepassing vereist dat gegevens worden gevalideerd of geautoriseerd voordat deze klaar voor gebruik is, kunt u deze validatie moet uitvoeren nadat de gegevens worden geschreven en voordat deze wordt gebruikt door uw toepassing. Met deze procedure biedt ook bescherming tegen beschadigd of schadelijke gegevens naar uw account worden geschreven door een gebruiker die de SAS correct hebt aangeschaft, of door een gebruiker die gebruik maken van een gelekte SAS.
+9. **Altijd gebruik geen SAS.** Soms is de risico's die zijn gekoppeld aan een bepaalde bewerking op basis van uw opslagaccount opwegen tegen de voordelen van de SAS. Voor dergelijke bewerkingen plaatsvindt, maakt u een middelste laag service die naar uw opslagaccount schrijft, na het uitvoeren van zakelijke regel validatie, verificatie en controle. Bovendien is soms het eenvoudiger om toegang op een andere manier te beheren. Bijvoorbeeld, als u alle blobs in een container openbaar leesbaar maken wilt, kunt u de container openbaar, in plaats van dat een SAS toegang naar elke client.
+10. **Storage Analytics gebruiken om uw toepassing te bewaken.** U kunt logboekregistratie en metrische gegevens een piek in authenticatiefouten vanwege een storing in acht nemen in uw SAS-provider-service of het onbedoeld verwijderen van een opgeslagen toegangsbeleid gebruiken. Zie de [Blog van Azure Storage-Team](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) voor meer informatie.
 
 ## <a name="sas-examples"></a>SAS-voorbeelden
 Hieronder volgen enkele voorbeelden van beide typen handtekeningen voor gedeelde toegang, account-SAS en service-SAS.
 
-Deze voorbeelden C#, hebt u nodig om te verwijzen naar de volgende NuGet-pakketten in uw project:
+Als u wilt deze C#-voorbeelden uitvoeren, moet u verwijzen naar de volgende NuGet-pakketten in uw project:
 
-* [Azure Storage-clientbibliotheek voor .NET](http://www.nuget.org/packages/WindowsAzure.Storage), versie 6.x of hoger (account-SAS gebruiken).
+* [Azure Storage-clientbibliotheek voor .NET](http://www.nuget.org/packages/WindowsAzure.Storage), versie 6.x of hoger (om te gebruiken account-SAS).
 * [Azure Configuration Manager](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
 
-Zie voor aanvullende voorbeelden die laten zien hoe u maken en testen van een SAS [Azure codevoorbeelden voor opslag](https://azure.microsoft.com/documentation/samples/?service=storage).
+Zie voor meer voorbeelden die laten hoe u zien kunt maken en testen van een SAS [codevoorbeelden van Azure voor opslag](https://azure.microsoft.com/documentation/samples/?service=storage).
 
-### <a name="example-create-and-use-an-account-sas"></a>Voorbeeld: Maken en gebruiken van een account-SAS
-Het volgende codevoorbeeld maakt een account SA's dat is geldig voor de services Blob en het bestand en krijgt de client machtigingen voor lezen, schrijven en lijst met machtigingen voor toegang tot serviceniveau-API's. De account-SAS beperkt het protocol HTTPS, zodat de aanvraag moet worden uitgevoerd met HTTPS.
+### <a name="example-create-and-use-an-account-sas"></a>Voorbeeld: Maak en gebruik een account-SAS
+Het volgende codevoorbeeld maakt u een account-SAS die geldig is voor de services Blob en bestand en geeft de client machtigingen voor lezen, schrijven en lijst met machtigingen voor toegang tot serviceniveau API's. De account-SAS beperkt het protocol HTTPS, dus de aanvraag moet worden gemaakt met HTTPS.
 
 ```csharp
 static string GetAccountSASToken()
@@ -260,7 +260,7 @@ static string GetAccountSASToken()
 }
 ```
 
-Als u wilt de SAS-account gebruiken voor toegang tot serviceniveau-API's voor de Blob-service maken op het object van een Blob-client met behulp van de SAS- en eindpunt van de Blob-opslag voor uw opslagaccount.
+Voor het gebruik van de account-SAS toegang tot serviceniveau API's voor de Blob-service, een Blob-client-object met behulp van de SAS en het eindpunt van Blob-opslag voor uw opslagaccount te maken.
 
 ```csharp
 static void UseAccountSAS(string sasToken)
@@ -302,8 +302,8 @@ static void UseAccountSAS(string sasToken)
 }
 ```
 
-### <a name="example-create-a-stored-access-policy"></a>Voorbeeld: Een opgeslagen-beleid maken
-De volgende code maakt een toegangsbeleid opgeslagen in een container. Het toegangsbeleid kunt u beperkingen voor een service-SAS opgeven op de container of de blobs.
+### <a name="example-create-a-stored-access-policy"></a>Voorbeeld: Een opgeslagen toegangsbeleid maken
+De volgende code maakt een opgeslagen toegangsbeleid voor een container. Het toegangsbeleid kunt u beperkingen voor een service-SAS opgeven op de container en blobs.
 
 ```csharp
 private static async Task CreateSharedAccessPolicyAsync(CloudBlobContainer container, string policyName)
@@ -328,8 +328,8 @@ private static async Task CreateSharedAccessPolicyAsync(CloudBlobContainer conta
 }
 ```
 
-### <a name="example-create-a-service-sas-on-a-container"></a>Voorbeeld: Een SAS-service op een container maken
-De volgende code maakt een SAS in een container. Als de naam van een bestaande opgeslagen toegangsbeleid is opgegeven, wordt dat beleid is gekoppeld aan de SAS. Als er geen opgeslagen toegangsbeleid is opgegeven, maakt de code een ad-hoc-SAS voor de container.
+### <a name="example-create-a-service-sas-on-a-container"></a>Voorbeeld: Een service-SAS voor een container maken
+De volgende code wordt een SAS voor een container gemaakt. Als de naam van een bestaand opgeslagen toegangsbeleid is opgegeven, wordt dat beleid is gekoppeld aan de SAS. Als er geen opgeslagen toegangsbeleid is opgegeven, maakt de code een ad-hoc-SAS voor de container.
 
 ```csharp
 private static string GetContainerSasUri(CloudBlobContainer container, string storedPolicyName = null)
@@ -371,8 +371,8 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 }
 ```
 
-### <a name="example-create-a-service-sas-on-a-blob"></a>Voorbeeld: Een SAS-service op een blob maken
-De volgende code wordt een SAS maakt op een blob. Als de naam van een bestaande opgeslagen toegangsbeleid is opgegeven, wordt dat beleid is gekoppeld aan de SAS. Als er geen opgeslagen toegangsbeleid is opgegeven, maakt de code een ad-hoc-SAS op de blob.
+### <a name="example-create-a-service-sas-on-a-blob"></a>Voorbeeld: Een service-SAS voor een blob maken
+De volgende code maakt een SAS voor een blob. Als de naam van een bestaand opgeslagen toegangsbeleid is opgegeven, wordt dat beleid is gekoppeld aan de SAS. Als er geen opgeslagen toegangsbeleid is opgegeven, maakt de code een ad-hoc-SAS voor de blob.
 
 ```csharp
 private static string GetBlobSasUri(CloudBlobContainer container, string blobName, string policyName = null)
@@ -418,10 +418,10 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 ```
 
 ## <a name="conclusion"></a>Conclusie
-Shared access signatures zijn nuttig voor het bieden van beperkte machtigingen naar uw opslagaccount aan clients die niet de accountsleutel moeten hebben. Ze zijn als zodanig een essentieel onderdeel van het beveiligingsmodel voor elke toepassing met behulp van Azure Storage. Als u Volg de aanbevolen procedures die hier worden vermeld, kunt u SAS gebruiken om toegang te bieden meer flexibiliteit van toegang tot bronnen in uw opslagaccount, zonder de beveiliging van uw toepassing.
+Shared access signatures zijn nuttig voor het aanbieden van beperkte machtigingen naar uw opslagaccount aan clients die u niet de accountsleutel hebt. Ze zijn daarom een essentieel onderdeel van het beveiligingsmodel voor elke toepassing met behulp van Azure Storage. Als u Volg de aanbevolen procedures die hier worden vermeld, kunt u SAS gebruiken om aan te bieden meer flexibiliteit van de toegang tot resources in uw opslagaccount zonder de beveiliging van uw toepassing.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Shared Access Signatures, deel 2: Maken en gebruiken van een SAS met Blob-opslag](../blobs/storage-dotnet-shared-access-signature-part-2.md)
+* [Shared Access Signatures, deel 2: Maken en een SAS gebruiken met Blob-opslag](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [Anonieme leestoegang tot containers en blobs beheren](../blobs/storage-manage-access-to-resources.md)
 * [Toegang delegeren met een Shared Access Signature](http://msdn.microsoft.com/library/azure/ee395415.aspx)
-* [Inleiding tot Table en Queue SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)
+* [Maak kennis met de tabel en wachtrij SAS](http://blogs.msdn.com/b/windowsazurestorage/archive/2012/06/12/introducing-table-sas-shared-access-signature-queue-sas-and-update-to-blob-sas.aspx)

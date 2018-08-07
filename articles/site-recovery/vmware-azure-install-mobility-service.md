@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ramamill
-ms.openlocfilehash: ee954a951d3fc07709e3f27b4ced71a9ec525410
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 094c1776c0760c04d85aff6ad3d812a2ad7afa56
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492959"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526994"
 ---
 # <a name="install-the-mobility-service"></a>De Mobility-service installeren 
 
@@ -26,9 +26,10 @@ Azure Site Recovery Mobility Service is geïnstalleerd op virtuele VMware-machin
 
 
 >[!IMPORTANT]
-> Vanaf versie 9.7.0.0, op Windows-VM's, de Mobility-Service installatieprogramma installeert ook de meest recente beschikbare [Azure VM-agent](../virtual-machines/extensions/features-windows.md#azure-vm-agent). Wanneer failover optreedt van een computer naar Azure, de computer voldoet aan de vereisten voor het gebruik van een VM-extensie op de installatie van de agent.
+> Vanaf versie 9.7.0.0, **op Windows-VM's**, het installatieprogramma van de Mobility-Service installeert ook de meest recente beschikbare [Azure VM-agent](../virtual-machines/extensions/features-windows.md#azure-vm-agent). Wanneer failover optreedt van een computer naar Azure, de computer voldoet aan de vereisten voor het gebruik van een VM-extensie op de installatie van de agent.
+> </br>Op **virtuele Linux-machines**, WALinuxAgent moet handmatig worden geïnstalleerd.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 Deze vereiste stappen voltooien voordat u de Mobility-Service handmatig op uw server installeren:
 1. Meld u aan bij de configuratieserver en open een opdrachtpromptvenster als beheerder.
 2. Wijzig de map in de bin-map en maak vervolgens een wachtwoordzin.

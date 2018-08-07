@@ -2,24 +2,19 @@
 title: Inleiding tot Azure Queue storage | Microsoft Docs
 description: Inleiding tot Azure Queue storage
 services: storage
-documentationcenter: ''
 author: tamram
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: tamram
-ms.openlocfilehash: 792e8c7efb2a627fbc1abde1389015949d5931e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: queues
+ms.openlocfilehash: d2d4a31097c4050ba9193fc9d6fa076fe9c6e27f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873826"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524828"
 ---
 # <a name="introduction-to-queues"></a>Inleiding tot wachtrijen
 
@@ -36,20 +31,20 @@ Veelvoorkomende toepassingen van Queue Storage zijn onder andere:
 
 De Queue-service bevat de volgende onderdelen:
 
-![Wachtrij-concepten](./media/storage-queues-introduction/queue1.png)
+![Concepten van Queue](./media/storage-queues-introduction/queue1.png)
 
 * **URL-indeling:** Wachtrijen kunnen worden opgevraagd met de volgende URL-indeling:   
-    http://`<storage account>`.queue.core.windows.net/`<queue>` 
+    https://`<storage account>`.queue.core.windows.net/`<queue>` 
   
     Met de volgende URL wordt een wachtrij in het diagram opgevraagd:  
   
-    `http://myaccount.queue.core.windows.net/images-to-download`
+    `https://myaccount.queue.core.windows.net/images-to-download`
 
 * **Storage-account:** alle toegang tot Azure Storage vindt plaats via een opslagaccount. Zie [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) (Schaalbaarheids- en prestatiedoelen in Azure Storage) voor meer informatie over opslagaccountcapaciteit.
 
 * **Wachtrij:** Een wachtrij bevat een set berichten. Alle berichten moeten zich in een wachtrij bevinden. De naam van een wachtrij mag alleen kleine letters bevatten. Zie [Naming Queues and Metadata](https://msdn.microsoft.com/library/azure/dd179349.aspx) (Wachtrijen en metagegevens een naam geven) voor informatie over de naamgeving van wachtrijen.
 
-* **Bericht:** Een bericht in een willekeurige indeling, van maximaal 64 KB. De maximale tijdsduur dat een bericht in de wachtrij blijven kan is zeven dagen.
+* **Bericht:** Een bericht in een willekeurige indeling, van maximaal 64 KB. De maximale tijd die een bericht in de wachtrij kan blijven is zeven dagen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

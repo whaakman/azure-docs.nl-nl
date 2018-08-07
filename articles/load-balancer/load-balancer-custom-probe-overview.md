@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2018
+ms.date: 08/06/2018
 ms.author: kumud
-ms.openlocfilehash: 7366273e30132daf7dc5ea15072c574180d1bc8b
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 69af189ce04d8bcfb2fe0c6842c845cc988b5380
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397278"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577910"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer-tests voor status
 
@@ -31,7 +31,7 @@ Wanneer een statustest mislukt, stopt Load Balancer nieuwe stromen te verzenden 
 > [!IMPORTANT]
 > Load Balancer statuscontroles zijn afkomstig uit het IP-adres 168.63.129.16 en moeten niet worden geblokkeerd voor tests uitvoeren voor uw exemplaar markeren.  Beoordeling [bron-IP-adres-test](#probesource) voor meer informatie.
 
-## <a name="health-probe-types"></a>Health test typen
+## <a name="types"></a>Health test typen
 
 Statuscontroles kunnen bekijken van een willekeurige poort op een back-end-instantie, met inbegrip van de poort waarop de service wordt geleverd. De statustest biedt ondersteuning voor TCP-listeners of een HTTP-eindpunten. 
 
@@ -43,7 +43,7 @@ U moet geen NAT- of proxy een statustest via het exemplaar waarop de statustest 
 
 Als u wilt testen van een test-fout health- of markeren in een afzonderlijk exemplaar, kunt u een beveiligingsgroep op expliciete blokkeren de statustest (doel of [bron](#probesource)).
 
-### <a name="tcp-probe"></a>TPC-test
+### <a name="tcpprobe"></a>TCP-test
 
 TCP-tests opnieuw verbinding maken met het uitvoeren van een drie richtingen open TCP-handshake met de gedefinieerde poort.  Dit wordt gevolgd door een vier-manier sluiten TCP-handshake.
 
@@ -53,7 +53,7 @@ Een TCP-test mislukt wanneer:
 * De TCP listener op het exemplaar reageert helemaal niet tijdens de time-outperiode.  Een test is gemarkeerd omlaag op basis van het aantal mislukte test-aanvragen die zijn geconfigureerd om te gaan onbeantwoorde voordat u markeert de test omlaag.
 * De test ontvangt een TCP opnieuw instellen van het exemplaar.
 
-### <a name="http-probe"></a>HTTP-test
+### <a name="httpprobe"></a>HTTP-test
 
 HTTP-tests een TCP-verbinding tot stand brengen en uitgeven van een HTTP GET met het opgegeven pad. HTTP-tests ondersteunt relatieve paden voor de HTTP GET. De statustest is gemarkeerd als het exemplaar met een HTTP-statuscode 200 binnen de time-outperiode reageert.  HTTP-status tests poging om te controleren op de testpoort geconfigureerd de gezondheid van elke 15 seconden standaard. De minimale testinterval is 5 seconden. De totale duur mag niet meer dan 120 seconden. 
 
@@ -67,7 +67,7 @@ Een HTTP-test mislukt wanneer:
 * HTTP-test eindpunt helemaal niet reageert tijdens het een time-outperiode voor 31 seconde. Afhankelijk van de time-outwaarde die is ingesteld, meerdere aanvragen van de WebTest onbeantwoorde mogelijk gaan voordat de test wordt gemarkeerd als niet wordt uitgevoerd (dat wil zeggen, voordat u SuccessFailCount tests worden verzonden).
 * Eindpunt van de HTTP-test de verbinding via een TCP-opnieuw instellen wordt gesloten.
 
-### <a name="guest-agent-probe-classic-only"></a>Test van Gast-agent (alleen klassiek)
+### <a name="guestagent"></a>Test van Gast-agent (alleen klassiek)
 
 Cloudservicerollen (werkrollen en webrollen) gebruiken een gastagent voor het bewaken van test standaard.   U moet rekening houden met deze optie uiterste.  U moet altijd een statustest expliciet met een TCP- of HTTP-test definiëren. De test voor een gast-agent is niet zo effectief expliciet gedefinieerde tests voor de meeste scenario's van toepassing.  
 
@@ -81,7 +81,7 @@ Als de guest-agent met een HTTP-200 reageert, stuurt de load balancer nieuwe str
 
 Wanneer u een Webrol, de websitecode meestal wordt uitgevoerd in w3wp.exe, die niet wordt bewaakt door de Azure-infrastructuur of Gast-agent. Fouten in w3wp.exe (bijvoorbeeld 500 HTTP-antwoorden) worden niet gerapporteerd aan de gastagent. Als gevolg daarvan kan neemt de load balancer dat exemplaar uitgeschakeld.
 
-## <a name="probe-health"></a>Status
+## <a name="probehealth"></a>Status
 
 TCP- en HTTP-statuscontroles worden beschouwd als in orde en markeren van de rolinstantie als in orde wanneer:
 

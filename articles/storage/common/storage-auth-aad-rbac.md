@@ -3,17 +3,17 @@ title: RBAC gebruiken voor het beheer van rechten voor het Azure Storage-contain
 description: Op rollen gebaseerd toegangsbeheer (RBA) het toewijzen van rollen voor toegang tot Azure Storage-gegevens aan gebruikers, groepen, service-principals van toepassingen of beheerde service-identiteiten gebruiken Azure Storage biedt ondersteuning voor ingebouwde en aangepaste rollen voor toegangsrechten tot containers en wachtrijen.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: tamram
-ms.openlocfilehash: cee319c4fb158e95b4a6d996f846038f0654dd32
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.component: common
+ms.openlocfilehash: 9efd9470982f0afaa357114828d51df37a7c2890
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969150"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520925"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Beheer van rechten voor het Azure Storage-gegevens met RBAC (Preview)
 

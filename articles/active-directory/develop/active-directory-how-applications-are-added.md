@@ -1,6 +1,6 @@
 ---
 title: Hoe en waarom toepassingen worden toegevoegd aan Azure Active Directory
-description: Wat houdt het voor een toepassing moet worden toegevoegd aan Azure AD en hoe ze krijgen er?
+description: Wat betekent het dat voor een toepassing moet worden toegevoegd aan Azure AD en hoe ze krijg er?
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -17,129 +17,129 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
-ms.openlocfilehash: 5c8ae9534e79b8dc801262f85d8a007e050f4da7
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: fb2bfc89322d81833b1961bfb866a773c5d1d475
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36316956"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577227"
 ---
-# <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hoe en waarom toepassingen worden toegevoegd aan Azure AD
+# <a name="how-and-why-applications-are-added-to-azure-ad"></a>Hoe en waarom worden toepassingen toegevoegd aan Azure AD
 
-Er zijn twee weergaven van toepassingen in Azure AD: 
-* [Toepassingsobjecten](active-directory-application-objects.md#application-object) : Er is wel [uitzonderingen](#notes-and-exceptions), toepassingsobjecten kunnen worden beschouwd als de definitie van een toepassing.
-* [Service-principals](active-directory-application-objects.md#service-principal-object) -kunnen worden beschouwd als een exemplaar van een toepassing. Service-principals meestal verwijzen naar een object voor de toepassing en een object van de toepassing kan worden verwezen door meerdere service-principals op mappen.
+Er zijn twee manieren van toepassingen in Azure AD: 
+* [Toepassingsobjecten](app-objects-and-service-principals.md#application-object) : Er is wel [uitzonderingen](#notes-and-exceptions), objecten voor toepassingen kunnen worden beschouwd als de definitie van een toepassing.
+* [Service-principals](app-objects-and-service-principals.md#service-principal-object) -kunnen worden beschouwd als een exemplaar van een toepassing. Service-principals in het algemeen verwijzen naar een toepassingsobject en een toepassingsobject kan worden verwezen door meerdere service-principals in mappen.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>Wat zijn toepassingsobjecten en waar komen ze vandaan?
-U kunt beheren [toepassingsobjecten](active-directory-application-objects.md#application-object) in de Azure portal via de [App registraties](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade) optreden. Toepassingsobjecten beschrijven de toepassing naar Azure AD en de definitie van de toepassing, waardoor de service om te weten hoe het uitgeven van tokens voor de toepassing op basis van de instellingen kunnen worden overwogen. Het toepassingsobject wordt alleen in de basismap bestaan, zelfs als deze een multitenant-toepassing ondersteunende service-principals in andere directory's. Het toepassingsobject kan omvatten het volgende (als en van aanvullende informatie is hier niet zijn genoemd):
-* Naam, logo en uitgever
+U kunt beheren [toepassingsobjecten](app-objects-and-service-principals.md#application-object) in Azure portal via de [App-registraties](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade) optreden. Toepassingsobjecten beschrijven de toepassing naar Azure AD en kunnen worden beschouwd als de definitie van de toepassing, zodat de service wilt weten hoe tokens uitgeven aan de toepassing op basis van de instellingen. Het toepassingsobject alleen aanwezig in de oorspronkelijke directory, zelfs als het een toepassing met meerdere tenants ondersteunen van service-principals in andere directory's. Het toepassingsobject omvat mogelijk een van de volgende (als goed als aanvullende informatie die hier niet worden vermeld):
+* De naam, logo en uitgever
 * Antwoord-URL's
 * Geheimen (symmetrische en/of asymmetrische sleutels gebruikt voor het verifiëren van de toepassing)
 * API-afhankelijkheden (OAuth)
 * Gepubliceerde API's / resources/bereiken (OAuth)
-* App-functies (RBAC)
-* SSO-metagegevens en configuratie
-* Gebruikers inrichten metagegevens en configuratie
-* Proxy-metagegevens en configuratie
+* App-rollen (RBAC)
+* De metagegevens van eenmalige aanmelding en configuratie
+* Gebruikers inrichten van metagegevens en configuratie
+* De metagegevens van de proxy- en configuratie
 
-Toepassingsobjecten kunnen worden gemaakt via meerdere paden, met inbegrip van:
-* Registratie van de toepassing in de Azure-portal
-* Maken van een nieuwe toepassing met behulp van Visual Studio en te configureren voor Azure AD-verificatie
+Objecten voor toepassingen kunnen worden gemaakt via meerdere paden, met inbegrip van:
+* Registratie in Azure portal
+* Het maken van een nieuwe toepassing met behulp van Visual Studio en het configureren van het gebruik van Azure AD-verificatie
 * Wanneer een beheerder een toepassing toevoegt in de app-galerie (dit wordt ook een service-principal maken)
-* Een nieuwe toepassing maken met behulp van de Microsoft Graph API, Azure AD Graph API of PowerShell
-* Vele andere met inbegrip van verschillende ervaringen met de ontwikkelaar in Azure en API explorer ervaringen via developer centers
+* Met behulp van de Microsoft Graph API, Azure AD Graph API of PowerShell om een nieuwe toepassing te maken
+* Vele andere verschillende ontwikkelaarservaringen met de, waaronder in Azure en in de API explorer ervaringen over developer centers
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>Wat zijn service-principals en waar komen ze vandaan?
-U kunt beheren [service-principals](active-directory-application-objects.md#service-principal-object) in de Azure portal via de [bedrijfstoepassingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) optreden. Service-principals zijn wat betrekking op een verbinding te maken met Azure AD-toepassing en het exemplaar van de toepassing in uw directory kunnen worden overwogen. Deze kan maximaal één toepassingsobject (die is geregistreerd in een ' ' basismap) en een of meer service SPN-objecten die exemplaren van de toepassing in elke directory het fungeert hebben voor een bepaalde toepassing. 
+U kunt beheren [service-principals](app-objects-and-service-principals.md#service-principal-object) in Azure portal via de [bedrijfstoepassingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) optreden. Service-principals zijn wat een toepassing die verbinding maken met Azure AD beheren en kunnen worden beschouwd als het exemplaar van de toepassing in uw directory. Voor een bepaalde toepassing heeft dit maximaal één toepassingsobject (die is geregistreerd in een ' '-basismap) en een of meer service-principalobjecten voor exemplaren van de toepassing in elke map waarin het fungeert. 
 
 De service-principal kunt opnemen:
 
-* Een verwijzing naar een application-object via de toepassing-ID-eigenschap
-* Records van lokale gebruikers en toepassingsrol groepstoewijzingen
-* Records van lokale gebruikers en de beheerder machtigingen te krijgen tot de toepassing
-  * Bijvoorbeeld: machtiging voor de toepassing toegang tot een bepaalde gebruiker e-mail
+* Een verwijzing naar een toepassingsobject via de eigenschap van de toepassing-ID
+* Records van de lokale gebruiker en groep-toepassing-roltoewijzingen
+* Records van lokale gebruikers- en beheerdersactiviteiten machtigingen verleend aan de toepassing
+  * Bijvoorbeeld: machtiging voor de toepassing te krijgen tot een bepaalde gebruiker e-mail
 * Records van lokaal beleid, met inbegrip van beleid voor voorwaardelijke toegang
 * Records van alternatieve lokale instellingen voor een toepassing
-  * Claimregels voor transformatie
-  * Kenmerktoewijzingen (gebruikersinrichting)
-  * Map specifieke app-functies (als de toepassing aangepaste rollen ondersteunt)
-  * Map specifieke naam of het logo
+  * Claims transformatie regels
+  * Kenmerktoewijzingen (inrichten van gebruikers)
+  * Directory-specifieke app-rollen (indien de toepassing biedt ondersteuning voor aangepaste rollen)
+  * Directory-specifieke naam of het logo
 
-Zoals toepassingsobjecten, worden service-principals ook gemaakt via meerdere paden, met inbegrip van:
+Net als objecten van de toepassing, worden service-principals ook gemaakt via meerdere paden, met inbegrip van:
 
-* Wanneer gebruikers zich bij een toepassing van derden geïntegreerd met Azure AD
-  * Tijdens het aanmelden, worden gebruikers gevraagd om machtiging voor de toepassing toegang krijgen tot hun profiel en andere machtigingen te geven. De eerste persoon toestemming geven zorgt ervoor dat een service-principal dat de toepassing moet worden toegevoegd aan de map vertegenwoordigt.
-* Wanneer gebruikers zich bij Microsoft online services aanmelden, zoals [Office 365](http://products.office.com/)
-  * Wanneer u zich op Office 365 abonneert of een proefabonnement begint, moet een of meer service-principals zijn gemaakt in de map voor de verschillende services die worden gebruikt voor het leveren van alle functionaliteit die is gekoppeld aan Office 365.
-  * Sommige Office 365-services, zoals SharePoint maken service-principals op voortdurend voor beveiligde communicatie tussen onderdelen, waaronder de werkstromen.
-* Wanneer een beheerder een toepassing toevoegt in de app-galerie (dit wordt ook een onderliggend object van de app maken)
+* Wanneer gebruikers zich aanmelden bij een toepassing van derden worden geïntegreerd met Azure AD
+  * Tijdens het aanmelden, worden gebruikers gevraagd om machtigingen voor de toepassing om toegang tot hun profiel en andere machtigingen te geven. De eerste persoon toestemming geven zorgt ervoor dat een service-principal die de toepassing moet worden toegevoegd aan de map vertegenwoordigt.
+* Wanneer gebruikers zich aanmelden bij Microsoft online services zoals [Office 365](http://products.office.com/)
+  * Wanneer u zich op Office 365 abonneert of een proefversie starten, worden een of meer service-principals zijn gemaakt in de map voor de verschillende services die worden gebruikt om alle functionaliteit die is gekoppeld aan Office 365.
+  * Sommige Office 365-services, zoals SharePoint maken service-principals regelmatig zodat beveiligde communicatie mogelijk tussen onderdelen, met inbegrip van werkstromen.
+* Wanneer een beheerder een toepassing toevoegt in de app-galerie (dit wordt ook een onderliggende app-object gemaakt)
 * Een toepassing toevoegen aan het gebruik van de [Azure AD-toepassingsproxy](https://msdn.microsoft.com/library/azure/dn768219.aspx)
-* Verbinding maken met een toepassing voor eenmalige aanmelding op het gebruik van SAML of wachtwoord eenmalige aanmelding (SSO)
-* Programmatisch via de Azure AD Graph API of PowerShell
+* Verbinding maken met een toepassing voor eenmalige aanmelding over het gebruik van SAML of het wachtwoord van de eenmalige aanmelding (SSO)
+* Via een programma via de Azure AD Graph API of PowerShell
 
 ## <a name="how-are-application-objects-and-service-principals-related-to-each-other"></a>Hoe worden toepassingsobjecten en service-principals aan elkaar gerelateerd?
-Een toepassing heeft een object van de toepassing in de basisdirectory waarnaar wordt verwezen door een of meer service-principals in elk van de mappen waar optreedt (met inbegrip van de basismap van de toepassing).
-![Een diagram illustreert hoe toepassingsobjecten en service-principals met elkaar en exemplaren van Azure AD communiceren.][apps_service_principals_directory]
+Een toepassing heeft een toepassingsobject in de basisdirectory waarnaar wordt verwezen door een of meer service-principals in elk van de mappen waar deze werkt (met inbegrip van de basismap van de toepassing).
+![Een diagram waarin u ziet hoe toepassingsobjecten en service-principals met elkaar en exemplaren van Azure AD communiceren.][apps_service_principals_directory]
 
-In het voorgaande diagram onderhoudt Microsoft twee directory's intern (weergegeven aan de linkerkant) die worden gebruikt om toepassingen te publiceren:
+In het voorgaande diagram, behoudt Microsoft twee directory's intern (weergegeven aan de linkerkant) die worden gebruikt om toepassingen te publiceren:
 
-* Één voor Microsoft-Apps (directory voor services van Microsoft)
-* Één voor vooraf geïntegreerde toepassingen van derden (App-galerie directory)
+* Een voor Microsoft-Apps (Microsoft services directory)
+* Een voor vooraf geïntegreerde toepassingen van derden (App-galerie directory)
 
-Toepassing uitgevers/leveranciers die met Azure AD integreren hoeven te hebben van een publicatie map (weergegeven aan de rechterkant als "Some SaaS Directory").
+Toepassing uitgevers/leveranciers die met Azure AD integreren zijn vereist om een map (weergegeven aan de rechterkant als 'Sommige SaaS Directory').
 
-Toepassingen die u zelf toevoegen (weergegeven als **App (jouw e-mailadres)** in het diagram) omvatten:
+Toepassingen die u zelf toevoegen (weergegeven als **App (u)** in het diagram) omvatten:
 
 * Apps die u hebt ontwikkeld (geïntegreerd met Azure AD)
-* Apps die u verbonden voor eenmalige aanmelding
+* Apps die u voor verbonden single-sign-on
 * Apps worden gepubliceerd met behulp van de Azure AD-toepassingsproxy
 
-### <a name="notes-and-exceptions"></a>Opmerkingen en uitzonderingen
-* Niet alle service-principals verwijzen naar een object voor de toepassing. Azure AD oorspronkelijk is gemaakt de services die worden geleverd voor toepassingen zijn meer beperkte als de service-principal is voldoende voor het tot stand brengen van een toepassings-id. De oorspronkelijke service-principal is dichter in de vorm aan de Windows Server Active Directory-account. Daarom is het nog steeds mogelijk te maken via verschillende paden, zoals het gebruik van Azure AD PowerShell zonder eerst te maken object voor een service-principals. De Azure AD Graph API vereist een toepassingsobject voordat het maken van een service principal.
+### <a name="notes-and-exceptions"></a>Opmerkingen bij de en uitzonderingen
+* Niet alle service-principals verwijzen naar een toepassingsobject. Wanneer Azure AD was oorspronkelijk bedoeld voor de services die worden geleverd aan toepassingen is beperktere en de service-principal is voldoende voor het tot stand brengen van een toepassings-id. De oorspronkelijke service-principal is dichter in de vorm aan het Windows Server Active Directory-serviceaccount. Daarom is het nog steeds mogelijk te maken van service-principals via verschillende paden, zoals het gebruik van Azure AD PowerShell, zonder eerst een toepassingsobject maken. De Azure AD Graph API is een toepassingsobject vereist voordat u een service-principal maken.
 * Niet alle van de hierboven beschreven gegevens is momenteel beschikbaar gemaakt via een programma. De volgende zijn alleen beschikbaar in de gebruikersinterface:
-  * Claimregels voor transformatie
-  * Kenmerktoewijzingen (gebruikersinrichting)
-* Zie voor meer gedetailleerde informatie over de service-principal en toepassingsobjecten naslagdocumentatie over de REST-API van Azure AD Graph:
+  * Claims transformatie regels
+  * Kenmerktoewijzingen (inrichten van gebruikers)
+* Zie voor meer gedetailleerde informatie over de service-principal en objecten voor toepassingen, de Azure AD Graph REST API-referentiedocumentatie:
   * [Toepassing](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
   * [Service-Principal](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Waarom toepassingen integreren met Azure AD?
-Toepassingen worden toegevoegd aan Azure AD gebruikmaken van een of meer van de services met inbegrip van biedt:
+Toepassingen worden toegevoegd aan Azure AD gebruikmaken van een of meer van de services die het biedt, met inbegrip van:
 
 * Toepassing verificatie en autorisatie
 * Verificatie en autorisatie
-* Eenmalige aanmelding met Federatie of wachtwoord
-* Gebruikers inrichten en synchroniseren
-* Toegangsbeheer op basis van functie - gebruik de map voor het definiëren van rollen om uit te voeren op basis van rollen autorisatie toepassing controleert in een toepassing
-* De autorisatieservices OAuth - gebruikt door Office 365 en andere Microsoft-toepassingen toegang verlenen aan de API's / resources
-* Toepassingen publiceren en proxy - publiceren een toepassing van een particulier netwerk met het internet
+* Eenmalige aanmelding met Federatie of het wachtwoord
+* Inrichten van gebruikers en synchronisatie
+* Op rollen gebaseerd toegangsbeheer - gebruik de map voor het definiëren van rollen van de toepassing om uit te voeren op basis van rollen autorisatie controleert in een toepassing
+* OAuth-autorisatieservices - gebruikt door Office 365 en andere Microsoft-toepassingen voor de autorisatie van toegang tot API's / resources
+* Toepassingen publiceren en proxy - publiceren een toepassing van een particulier netwerk naar internet
 
-## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Wie de machtiging voor het toevoegen van toepassingen naar Mijn Azure AD-exemplaar heeft?
-Er zijn een aantal taken dat alleen globale beheerders doen kunnen (zoals het toevoegen van toepassingen van de app-galerie en configureren van een toepassing te gebruiken de toepassingsproxy) standaard alle gebruikers in uw directory over rechten voor het registreren van de toepassing die objecten ze zijn ontwikkelen en discreet via welke toepassingen ze share/geven toegang tot de gegevens van hun organisatie via toestemming. Als een persoon de eerste gebruiker in uw directory te melden bij een toepassing toestemming verlenen is, wordt die een service-principal maken in de tenant; anders wordt worden de toestemming verlenen gegevens opgeslagen op de bestaande service-principal.
+## <a name="who-has-permission-to-add-applications-to-my-azure-ad-instance"></a>Wie heeft machtigingen voor toepassingen toevoegen aan mijn Azure AD-instantie?
+Er zijn enkele taken die alleen globale beheerders uitvoeren kunnen (zoals toepassingen uit de app-galerie toevoegen en configureren van een toepassing voor het gebruik van de toepassingsproxy) standaard alle gebruikers in uw directory over rechten voor het registreren van de toepassing die objecten ze zijn ontwikkelen en over welke toepassingen ze share/geven toegang tot de gegevens van hun organisatie via toestemming en billijkheid vastgesteld. Als een persoon de eerste gebruiker in uw directory is te melden bij een toepassing toestemming te verlenen, wordt die een service-principal maken in uw tenant; anders wordt worden de toestemming verlenen gegevens opgeslagen op de bestaande service-principal.
 
-Zodat gebruikers kunnen registreren en instemmen met toepassingen mogelijk in eerste instantie geluid betreffende, maar houd rekening met het volgende:
+Zodat gebruikers kunnen registreren en instemmen met toepassingen kan in eerste instantie geluid over, maar houd rekening met het volgende:
 
 
-* Toepassingen is kunnen gebruikmaken van Windows Server Active Directory voor gebruikersverificatie jaren zonder de toepassing om te worden ingeschreven of geregistreerd in de map. Nu de organisatie wordt hebben een verbeterde zichtbaarheid aan precies hoeveel toepassingen maken gebruik van de map en wat is het doel.
-* De noodzaak van een toepassing beheerder geïnitieerde inschrijving en publicatieproces delegeren deze verantwoordelijken aan gebruikers worden genegeerd. Met Active Directory Federation Services (ADFS) is het waarschijnlijk dat een beheerder had een toepassing toevoegen als een relying party namens hun ontwikkelaars. Ontwikkelaars kunnen nu self-service.
-* Gebruikers die zijn aangemeld bij toepassingen die gebruikmaken van hun organisatie-account voor zakelijke doeleinden is goed. Als ze later niet meer de organisatie verliezen ze automatisch toegang tot hun account in de toepassing die ze gebruikten.
-* Is een record van welke gegevens die aan de toepassing een goed is is gedeeld. Gegevens is meer dan ooit vervoerbare en is het nuttig om een lege record van wie welke gegevens gedeeld met welke toepassingen hebt.
-* API-eigenaars die Azure AD voor OAuth gebruiken bepalen precies welke machtigingen kunnen gebruikers zich te verlenen tot toepassingen en machtigingen die u moeten een beheerder om te accepteren. Alleen beheerders kunnen toestemming tot grotere scopes en meer machtigingen terwijl toestemming van de gebruiker is afgestemd op de gegevens van gebruikers zelf en mogelijkheden.
-* Wanneer een gebruiker wordt toegevoegd of kan een toepassing te krijgen tot hun gegevens, kan de gebeurtenis worden gecontroleerd, zodat u kunt de rapporten Audit binnen de Azure-portal om te bepalen hoe een toepassing is toegevoegd aan de map weergeven.
+* Toepassingen zijn kunnen Windows Server Active Directory gebruiken voor gebruikersverificatie voor vele jaren zonder dat de toepassing om te worden ingeschreven of geregistreerd in de map. Nu de organisatie heeft een verbeterde zichtbaarheid aan precies hoeveel toepassingen van de directory gebruikmaakt en voor welk doel.
+* De noodzaak van een beheerder gebaseerde toepassing registreren en het publicatieproces overdragen van deze verantwoordelijkheden voor gebruikers worden genegeerd. Met Active Directory Federation Services (ADFS) is het waarschijnlijk dat een beheerder had een toepassing toevoegen als een relying party namens hun ontwikkelaars. Ontwikkelaars kunnen nu selfservice.
+* Gebruikers aanmelden bij toepassingen met behulp van hun organisatie-account voor zakelijke doeleinden is een goede prestaties. Als ze vervolgens laat u de organisatie die automatisch zullen zij toegang verliezen tot hun account in de toepassing die ze gebruikten.
+* Een record van welke gegevens worden gedeeld waarmee de toepassing een goede prestaties is hebben. Gegevens meer vervoerbare dan ooit en is het nuttig om een duidelijke record van wie welke gegevens gedeeld met welke toepassingen hebt.
+* API-eigenaren die Azure AD voor OAuth gebruiken bepalen precies welke gebruikers machtigingen kunnen verlenen tot toepassingen en machtigingen die u moeten een beheerder om te accepteren. Alleen beheerders kunnen instemmen met de groter bereik en belangrijker machtigingen, terwijl de toestemming van de gebruiker is afgestemd op de eigen gebruikersgegevens en -mogelijkheden.
+* Wanneer een gebruiker wordt toegevoegd of kan een toepassing voor toegang tot hun gegevens, kan de gebeurtenis worden gecontroleerd, zodat u de Audit Reports in Azure portal om te bepalen hoe een toepassing is toegevoegd aan de directory kunt bekijken.
 
-Als u nog steeds te voorkomen dat gebruikers in uw directory toepassingen registreren en wilt aanmelden bij toepassingen zonder goedkeuring van de beheerder, zijn er twee instellingen die u wijzigen kunt als u wilt uitschakelen van deze mogelijkheden:
+Als u nog steeds wilt om te voorkomen dat gebruikers in uw directory kunnen toepassingen registreren en aanmelden bij toepassingen zonder goedkeuring van de beheerder, zijn er twee instellingen die u wijzigen kunt als u deze functionaliteit uitschakelen:
 
-* Om te voorkomen dat gebruikers ermee akkoord dat toepassingen in hun eigen naam:
-  1. In de Azure portal, gaat u naar de [gebruikersinstellingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) sectie onder bedrijfstoepassingen.
-  2. Wijziging **gebruikers kunnen instemmen met apps die toegang tot bedrijfsgegevens namens hen** naar **Nee**. 
+* Om te voorkomen dat gebruikers ze toepassingen namens hun eigen goedkeuren:
+  1. In de Azure-portal, gaat u naar de [gebruikersinstellingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) sectie onder zakelijke toepassingen.
+  2. Wijziging **gebruikers toestemming kunnen geven voor apps die toegang tot bedrijfsgegevens namens hen** naar **Nee**. 
       > [!NOTE]
-      > Als u besluit uitschakelen toestemming van de gebruiker, is een beheerder worden vereist om toestemming naar een nieuwe toepassing die een gebruiker moet worden gebruikt.    
+      > Als u besluit uitschakelen toestemming van de gebruiker, kan een beheerder moeten akkoord gaan met een nieuwe toepassing die een gebruiker moet worden gebruikt.    
 * Om te voorkomen dat gebruikers hun eigen toepassingen registreren:
-  1. In de Azure portal, gaat u naar de [gebruikersinstellingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) sectie onder Azure Active Directory
-  2. Wijziging **gebruikers toepassingen kunnen registreren** naar **Nee**.
+  1. In de Azure-portal, gaat u naar de [gebruikersinstellingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) sectie onder Azure Active Directory
+  2. Wijziging **gebruikers kunnen toepassingen registreren** naar **Nee**.
 
 > [!NOTE]
-> Microsoft zichzelf gebruikt de standaardconfiguratie met kunnen registreren van toepassingen en instemmen met toepassingen die hun eigen namens gebruikers.
+> Microsoft zelf maakt gebruik van de standaardconfiguratie met gebruikers kunnen toepassingen registreren en instemmen met toepassingen in hun eigen naam.
 
 <!--Image references-->
 [apps_service_principals_directory]:../media/active-directory-how-applications-are-added/HowAppsAreAddedToAAD.jpg

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: e5bee65677b85b729a38ce3b902687cfbdb989da
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: f42948f0f3acf1bacf6c80010489890f4b8d122b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345902"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523662"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage-bindingen voor Azure Functions
 
@@ -374,7 +374,7 @@ let Run(myQueueItem: string, personEntity: Person) =
 
 ### <a name="input---javascript-example"></a>Invoer - JavaScript-voorbeeld
 
-Het volgende voorbeeld wordt een tabel Invoerbinding in een *function.json* bestands- en [JavaScript-code] (functions-referentie-node.md) die gebruikmaakt van de binding. De functie maakt gebruik van een wachtrijtrigger om te lezen van een rij in een enkele tabel. 
+Het volgende voorbeeld wordt een tabel Invoerbinding in een *function.json* bestand en [JavaScript-code](functions-reference-node.md) die gebruikmaakt van de binding. De functie maakt gebruik van een wachtrijtrigger om te lezen van een rij in een enkele tabel. 
 
 De *function.json* bestand bevat een `partitionKey` en een `rowKey`. De `rowKey` waarde '{queueTrigger}' geeft aan dat de rijsleutel afkomstig uit de wachtrij bericht-tekenreeks is.
 
@@ -482,7 +482,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**direction** | N.v.t. | Moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de binding in Azure portal maakt. |
 |**De naam** | N.v.t. | De naam van de variabele die staat voor de tabel of entiteit in functiecode aan te geven. | 
 |**Tabelnaam** | **Tabelnaam** | De naam van de tabel.| 
-|**PartitionKey** | **PartitionKey** |Optioneel. De partitiesleutel van de Tabelentiteit om te lezen. Zie de [gebruik](#input---usage) gedeelte met richtlijnen over het gebruik van deze eigenschap.| 
+|**partitionKey** | **partitionKey** |Optioneel. De partitiesleutel van de Tabelentiteit om te lezen. Zie de [gebruik](#input---usage) gedeelte met richtlijnen over het gebruik van deze eigenschap.| 
 |**RowKey** |**RowKey** | Optioneel. De rijsleutel van de Tabelentiteit om te lezen. Zie de [gebruik](#input---usage) gedeelte met richtlijnen over het gebruik van deze eigenschap.| 
 |**toets maken** |**toets maken** | Optioneel. Het maximale aantal entiteiten om te lezen in JavaScript. Zie de [gebruik](#input---usage) gedeelte met richtlijnen over het gebruik van deze eigenschap.| 
 |**filter** |**Filter** | Optioneel. Een OData-filter-expressie voor de tabel invoer in JavaScript. Zie de [gebruik](#input---usage) gedeelte met richtlijnen over het gebruik van deze eigenschap.| 
@@ -742,7 +742,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**direction** | N.v.t. | Moet worden ingesteld op `out`. Deze eigenschap wordt automatisch ingesteld wanneer u de binding in Azure portal maakt. |
 |**De naam** | N.v.t. | De naam van de variabele die wordt gebruikt in de functiecode aan te geven dat de tabel of entiteit vertegenwoordigt. Ingesteld op `$return` om te verwijzen naar de geretourneerde waarde van de functie.| 
 |**Tabelnaam** |**Tabelnaam** | De naam van de tabel.| 
-|**PartitionKey** |**PartitionKey** | De partitiesleutel van de Tabelentiteit om te schrijven. Zie de [sectie gebruik](#output---usage) voor informatie over hoe u deze eigenschap wilt gebruiken.| 
+|**partitionKey** |**partitionKey** | De partitiesleutel van de Tabelentiteit om te schrijven. Zie de [sectie gebruik](#output---usage) voor informatie over hoe u deze eigenschap wilt gebruiken.| 
 |**RowKey** |**RowKey** | De rijsleutel van de Tabelentiteit om te schrijven. Zie de [sectie gebruik](#output---usage) voor informatie over hoe u deze eigenschap wilt gebruiken.| 
 |**verbinding** |**verbinding** | De naam van een app-instelling met de verbindingsreeks voor opslag moet worden gebruikt voor deze binding. Als de naam van de app-instelling begint met 'AzureWebJobs', kunt u alleen het restant van de naam hier opgeven. Als u bijvoorbeeld `connection` naar 'Mijnopslag', de Functions-runtime ziet eruit voor een app-instelling die is met de naam "AzureWebJobsMyStorage." Als u niets `connection` leeg is, wordt de Functions-runtime maakt gebruik van de verbindingsreeks van de standaard-opslag in de app-instelling met de naam `AzureWebJobsStorage`.|
 

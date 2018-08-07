@@ -1,31 +1,25 @@
 ---
-title: Back-ups van de Azure Import/Export station manifesten | Microsoft Docs
-description: Informatie over hoe u uw station manifesten voor de Microsoft Azure Import/Export-service automatisch een back-up gemaakt.
+title: Back-ups maken van stationsmanifesten Azure Import/Export | Microsoft Docs
+description: Leer hoe u met uw stationsmanifesten voor de Microsoft Azure Import/Export-service automatisch een back-up gemaakt.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 594abd80-b834-4077-a474-d8a0f4b7928a
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 33eb8e1eea8f8aa7b79ef3e54f2b1ed88dc794ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 933c0121a4f718ff812fc921bd6e04983fc69931
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873665"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520534"
 ---
-# <a name="backing-up-drive-manifests-for-azure-importexport-jobs"></a>Back-ups van schijf manifesten voor Azure Import/Export-taken
+# <a name="backing-up-drive-manifests-for-azure-importexport-jobs"></a>Back-ups van schijf manifesten voor de Azure Import/Export-taken
 
-Station manifesten kunnen automatisch een back-up naar BLOB's door in te stellen de `BackupDriveManifest` eigenschap `true` in de [taak plaatsen](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) of [Update taakeigenschappen](/rest/api/storageimportexport/jobs#Jobs_Update) REST-API-bewerkingen. Standaard de manifesten station zijn geen back-up gemaakt. De back-ups manifest station worden opgeslagen als blok-blobs in een container in het opslagaccount die is gekoppeld aan de taak. De containernaam is standaard `waimportexport`, maar u kunt opgeven dat een andere naam in de `DiagnosticsPath` eigenschap bij het aanroepen van de `Put Job` of `Update Job Properties` bewerkingen. De back-manifest blob zijn met de naam in de volgende indeling: `waies/jobname_driveid_timestamp_manifest.xml`.
+Stationsmanifesten kunnen worden automatisch back-ups op blobs door in te stellen de `BackupDriveManifest` eigenschap `true` in de [taak plaatsen](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) of [Update taakeigenschappen](/rest/api/storageimportexport/jobs#Jobs_Update) REST API-bewerkingen. Standaard de stationsmanifesten niet back-ups. De back-ups manifest station zijn opgeslagen als blok-blobs in een container in het opslagaccount dat is gekoppeld aan de taak. De containernaam van de is standaard `waimportexport`, maar kunt u een andere naam in de `DiagnosticsPath` eigenschap bij het aanroepen van de `Put Job` of `Update Job Properties` bewerkingen. De back-manifest blob zijn met de naam in de volgende indeling: `waies/jobname_driveid_timestamp_manifest.xml`.
 
- U kunt de URI van de manifesten back-station voor een taak ophalen door het aanroepen van de [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) bewerking. De blob URI wordt geretourneerd als de `ManifestUri` eigenschap voor elk station.
+ U kunt de URI van de back-up stationsmanifesten voor een taak ophalen door het aanroepen van de [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) bewerking. De blob URI wordt geretourneerd in de `ManifestUri` eigenschap voor elk station.
 
 ## <a name="next-steps"></a>Volgende stappen
 

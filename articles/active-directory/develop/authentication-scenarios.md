@@ -17,12 +17,12 @@ ms.date: 07/26/2018
 ms.author: celested
 ms.reviewer: jmprieur, andret, nacanuma, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: c6429a6fb762e9eb2bac59788c5c4eb0f9c031b2
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: dda0d8e9496eb310f6d2a2791977e9de0eea6503
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505481"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578521"
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Verificatiescenario's voor Azure AD
 
@@ -62,7 +62,7 @@ Nu dat u een overzicht van de basisbeginselen hebt, lees de secties hieronder in
 
 ## <a name="claims-in-azure-ad-security-tokens"></a>Claims in beveiligingstokens van Azure AD
 
-Beveiligingstokens (toegang en ID-tokens) dat is uitgegeven door Azure AD bevatten claims of asserties van informatie over het onderwerp dat is geverifieerd. Deze claims kunnen worden gebruikt door de toepassing voor verschillende taken. Toepassingen kunnen bijvoorbeeld claims gebruiken om het token valideren, identificeren van de certificaathouder directory-tenant, gebruikersgegevens weergeven, bepalen van de certificaathouder autorisatie, enzovoort. De claims aanwezig zijn in een bepaalde beveiligingstoken zijn afhankelijk van het type token, het type van de referentie die wordt gebruikt om de gebruiker en de configuratie van de toepassing te verifiëren. Een korte beschrijving van elk type claim verzonden door Azure AD is opgegeven in de onderstaande tabel. Raadpleeg voor meer informatie, [ondersteunde typen tokens en claims](active-directory-token-and-claims.md).
+Beveiligingstokens (toegang en ID-tokens) dat is uitgegeven door Azure AD bevatten claims of asserties van informatie over het onderwerp dat is geverifieerd. Deze claims kunnen worden gebruikt door de toepassing voor verschillende taken. Toepassingen kunnen bijvoorbeeld claims gebruiken om het token valideren, identificeren van de certificaathouder directory-tenant, gebruikersgegevens weergeven, bepalen van de certificaathouder autorisatie, enzovoort. De claims aanwezig zijn in een bepaalde beveiligingstoken zijn afhankelijk van het type token, het type van de referentie die wordt gebruikt om de gebruiker en de configuratie van de toepassing te verifiëren. Een korte beschrijving van elk type claim verzonden door Azure AD is opgegeven in de onderstaande tabel. Raadpleeg voor meer informatie, [ondersteunde typen tokens en claims](v1-id-and-access-tokens.md).
 
 | Claim | Beschrijving |
 | --- | --- |
@@ -113,7 +113,7 @@ Elk scenario vermeld in dit document bevat een subsectie die de vereisten voor i
 
 ## <a name="application-types-and-scenarios"></a>Soorten toepassingen en scenario 's
 
-Elk van de hier beschreven scenario's kan worden ontwikkeld met behulp van verschillende talen en platforms. Ze worden ondersteund door de volledige codevoorbeelden die beschikbaar zijn in de [handleiding voor voorbeelden van Code](active-directory-code-samples.md), of rechtstreeks vanuit de bijbehorende [GitHub-opslagplaatsen voor voorbeeld](https://github.com/Azure-Samples?q=active-directory). Bovendien, als uw toepassing nodig heeft voor een bepaald of een segment van een end-to-end-scenario, kan in de meeste gevallen deze functionaliteit worden toegevoegd onafhankelijk van elkaar. Als u een systeemeigen toepassing die een web-API-aanroepen hebt, kunt u bijvoorbeeld eenvoudig een webtoepassing die ook de web-API-aanroepen toevoegen. Het volgende diagram illustreert deze scenario's en de toepassingstypen, en hoe de verschillende onderdelen kunnen worden toegevoegd:
+Elk van de hier beschreven scenario's kan worden ontwikkeld met behulp van verschillende talen en platforms. Ze worden ondersteund door de volledige codevoorbeelden die beschikbaar zijn in de [handleiding voor voorbeelden van Code](sample-v1-code.md), of rechtstreeks vanuit de bijbehorende [GitHub-opslagplaatsen voor voorbeeld](https://github.com/Azure-Samples?q=active-directory). Bovendien, als uw toepassing nodig heeft voor een bepaald of een segment van een end-to-end-scenario, kan in de meeste gevallen deze functionaliteit worden toegevoegd onafhankelijk van elkaar. Als u een systeemeigen toepassing die een web-API-aanroepen hebt, kunt u bijvoorbeeld eenvoudig een webtoepassing die ook de web-API-aanroepen toevoegen. Het volgende diagram illustreert deze scenario's en de toepassingstypen, en hoe de verschillende onderdelen kunnen worden toegevoegd:
 
 ![Soorten toepassingen en scenario 's](./media/authentication-scenarios/application_types_and_scenarios.png)
 
@@ -142,7 +142,7 @@ Deze sectie beschrijft een toepassing die een gebruiker in een webbrowser naar e
 
 #### <a name="code-samples"></a>Codevoorbeelden
 
-Zie de codevoorbeelden voor webbrowser voor Web-App-scenario's. En kom regelmatig terug--nieuwe voorbeelden worden regelmatig toegevoegd. [Webtoepassing](active-directory-code-samples.md#web-applications).
+Zie de codevoorbeelden voor webbrowser voor Web-App-scenario's. En kom regelmatig terug--nieuwe voorbeelden worden regelmatig toegevoegd. [Webtoepassing](sample-v1-code.md#web-applications).
 
 #### <a name="registering"></a>Registreren
 
@@ -155,7 +155,7 @@ Sessie van de gebruiker is verlopen wanneer de levensduur van het token dat is u
 
 ### <a name="single-page-application-spa"></a>Toepassing met één pagina (SPA)
 
-Deze sectie beschrijft de verificatie voor een enkele pagina toepassing, die maakt gebruik van Azure AD en de impliciete OAuth 2.0-machtiging verlenen voor het beveiligen van de web-API terug beëindigen. Toepassingen met één pagina zijn doorgaans gestructureerd als een JavaScript-presentatielaag (front-end) die in de browser en een Web-API back-end die wordt uitgevoerd op een server en implementeert de bedrijfslogica van de toepassing wordt uitgevoerd. Zie voor meer informatie over de impliciete autorisatietoekenning en kunt u bepalen of deze geschikt is voor uw toepassingsscenario, [inzicht in de OAuth2-impliciete stroom in Azure Active Directory verlenen](active-directory-dev-understanding-oauth2-implicit-grant.md).
+Deze sectie beschrijft de verificatie voor een enkele pagina toepassing, die maakt gebruik van Azure AD en de impliciete OAuth 2.0-machtiging verlenen voor het beveiligen van de web-API terug beëindigen. Toepassingen met één pagina zijn doorgaans gestructureerd als een JavaScript-presentatielaag (front-end) die in de browser en een Web-API back-end die wordt uitgevoerd op een server en implementeert de bedrijfslogica van de toepassing wordt uitgevoerd. Zie voor meer informatie over de impliciete autorisatietoekenning en kunt u bepalen of deze geschikt is voor uw toepassingsscenario, [inzicht in de OAuth2-impliciete stroom in Azure Active Directory verlenen](v1-oauth2-implicit-grant-flow.md).
 
 In dit scenario is wanneer de gebruiker zich aanmeldt, JavaScript front-end gebruikt [Active Directory Authentication Library voor JavaScript (ADAL. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) en de impliciete autorisatietoekenning verkrijgen van een ID-token (id_token) van Azure AD. Het token is opgeslagen in de cache en de client gekoppeld aan de aanvraag als het bearer-token bij het maken van aanroepen naar de Web-API-back-end, dat is beveiligd met behulp van de OWIN-middleware. 
 
@@ -176,7 +176,7 @@ In dit scenario is wanneer de gebruiker zich aanmeldt, JavaScript front-end gebr
 
 #### <a name="code-samples"></a>Codevoorbeelden
 
-Zie de voorbeelden van code voor de toepassing van één pagina (SPA) scenario's. Zorg ervoor dat u vaak terugkomen--nieuwe voorbeelden worden regelmatig toegevoegd. [Enkele van de toepassing van de pagina (SPA)](active-directory-code-samples.md#single-page-applications).
+Zie de voorbeelden van code voor de toepassing van één pagina (SPA) scenario's. Zorg ervoor dat u vaak terugkomen--nieuwe voorbeelden worden regelmatig toegevoegd. [Enkele van de toepassing van de pagina (SPA)](sample-v1-code.md#single-page-applications).
 
 #### <a name="registering"></a>Registreren
 
@@ -218,7 +218,7 @@ Als u van de AD-Verificatiebibliotheken gebruikmaakt, worden de meeste van de hi
 
 #### <a name="code-samples"></a>Codevoorbeelden
 
-Zie de codevoorbeelden voor systeemeigen toepassing voor de Web-API-scenario's. En kom regelmatig terug--we nieuwe voorbeelden vaak toevoegen. [Systeemeigen toepassing voor de Web-API](active-directory-code-samples.md#desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api).
+Zie de codevoorbeelden voor systeemeigen toepassing voor de Web-API-scenario's. En kom regelmatig terug--we nieuwe voorbeelden vaak toevoegen. [Systeemeigen toepassing voor de Web-API](sample-v1-code.md#desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api).
 
 #### <a name="registering"></a>Registreren
 
@@ -271,7 +271,7 @@ De toepassings-id en de gemachtigde gebruiker-ID-typen worden beschreven in de o
 
 #### <a name="code-samples"></a>Codevoorbeelden
 
-Zie de codevoorbeelden voor Web-App naar Web-API-scenario's. En kom regelmatig terug--nieuwe voorbeelden worden regelmatig toegevoegd. Web [toepassing naar Web-API](active-directory-code-samples.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
+Zie de codevoorbeelden voor Web-App naar Web-API-scenario's. En kom regelmatig terug--nieuwe voorbeelden worden regelmatig toegevoegd. Web [toepassing naar Web-API](sample-v1-code.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
 
 #### <a name="registering"></a>Registreren
 
@@ -313,7 +313,7 @@ De stroom die hierna wordt ervan uitgegaan dat een gebruiker is geverifieerd op 
 
 #### <a name="code-samples"></a>Codevoorbeelden
 
-Zie de codevoorbeelden voor Daemon of servertoepassing naar Web-API-scenario's. En kom regelmatig terug--nieuwe voorbeelden worden regelmatig toegevoegd. [Server- of Daemon-toepassing naar Web-API](active-directory-code-samples.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
+Zie de codevoorbeelden voor Daemon of servertoepassing naar Web-API-scenario's. En kom regelmatig terug--nieuwe voorbeelden worden regelmatig toegevoegd. [Server- of Daemon-toepassing naar Web-API](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
 #### <a name="registering"></a>Registreren
 
@@ -328,7 +328,7 @@ Wanneer de eerste toepassing gebruikmaakt van de autorisatiecode ophalen een toe
 
 [Ontwikkelaarshandleiding voor Azure Active Directory](azure-ad-developers-guide.md)
 
-[Azure Active Directory-codevoorbeelden](active-directory-code-samples.md)
+[Azure Active Directory-codevoorbeelden](sample-v1-code.md)
 
 [Belangrijke informatie over het ondertekenen van sleutelrollover in Azure AD](active-directory-signing-key-rollover.md)
 

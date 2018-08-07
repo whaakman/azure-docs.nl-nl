@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.author: douglasl
-ms.openlocfilehash: 98aa05d750df2021c84646ce3d9729cd4370baa6
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: a47d0130cd06a936da456ec6d78bde99907072f2
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502099"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526297"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Gegevens transformeren met behulp van een Jar-activiteit in Azure Databricks
 
@@ -60,7 +60,7 @@ De volgende tabel beschrijft de JSON-eigenschappen die in de JSON-definitie gebr
 |Eigenschap|Beschrijving|Vereist|
 |:--|---|:-:|
 |naam|Naam van de activiteit in de pijplijn.|Ja|
-|beschrijving|Tekst die beschrijft wat de activiteit doet.|Nee|
+|description|Tekst die beschrijft wat de activiteit doet.|Nee|
 |type|Voor Databricks Jar-activiteit is het activiteitstype DatabricksSparkJar.|Ja|
 |linkedServiceName|De naam van de Databricks gekoppelde Service waarop de Jar-activiteit wordt uitgevoerd. Zie voor meer informatie over deze gekoppelde service, [gekoppelde services berekenen](compute-linked-services.md) artikel.|Ja|
 |mainClassName|De volledige naam van de klasse met de belangrijkste methode moet worden uitgevoerd. Deze klasse moet worden opgenomen in een JAR opgegeven als een bibliotheek.|Ja|
@@ -111,10 +111,11 @@ Raadpleeg voor meer informatie [documentatie voor Databricks](https://docs.azure
 
 Als u het pad dbfs van de bibliotheek toegevoegd met behulp van de gebruikersinterface, kunt u [Databricks CLI (installatie)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
 
-Normaal gesproken de Jar-bibliotheken worden opgeslagen onder dbfs: / FileStore/jars tijdens het gebruik van de gebruikersinterface. U kunt een lijst alle via de CLI: *databricks fs ls dbfs: / FileStore/JAR-bestanden* 
+Normaal gesproken de Jar-bibliotheken worden opgeslagen onder dbfs: / FileStore/jars tijdens het gebruik van de gebruikersinterface. U kunt een lijst alle via de CLI: *databricks fs ls dbfs: / FileStore/taak-JAR-bestanden* 
 
 
 
 #### <a name="copy-library-using-databricks-clihttpsdocsazuredatabricksnetuser-guidedev-toolsdatabricks-clihtmlcopy-a-file-to-dbfs"></a>[Tapewisselaar voor kopiëren met behulp van Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
+Databricks CLI gebruiken [(installatiestappen)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
 
-Voorbeeld: *databricks fs cp SparkPi-assembly-0.1.jar dbfs: / FileStore/JAR-bestanden*
+Voorbeeld - JAR kopiëren naar dbfs: *dbfs cp SparkPi-assembly-0.1.jar dbfs:/docs/sparkpi.jar*

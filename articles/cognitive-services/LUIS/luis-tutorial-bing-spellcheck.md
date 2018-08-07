@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 02/27/2018
 ms.author: diberry
-ms.openlocfilehash: 87882052ed7faf0a7d2a665d51afb20db7ee839c
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 19774d2a87e9c74f291f030aab09cb21fe4a931b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239148"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525219"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Juiste verkeerd gespelde woorden met Bing spellingcontrole
 
@@ -64,7 +64,7 @@ De eindpunt-query moet de sleutel die wordt doorgegeven in de queryreeks-paramet
 
 De eindpunt-URL heeft verschillende waarden die moeten correct worden doorgegeven. De sleutel van Bing Spell Check-API voor Bing versie 7 is gewoon een van deze. Moet u instellen de **spellingcontrole** parameter in op true en u moet de waarde van **bing-spellingcontrole-controle-subscription-key** aan de waarde van de sleutel:
 
-https://{Region}.API.cognitive.Microsoft.com/Luis/v2.0/Apps/{appID}?Subscription-Key={luisKey}&spellCheck=**waar**& bing-spellingcontrole-controle-subscription-key =**{bingKey}**& uitgebreide = true & timezoneOffset = 0 & q = {utterance}
+`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appID}?subscription-key={luisKey}&spellCheck=**true**&bing-spell-check-subscription-key=**{bingKey}**&verbose=true&timezoneOffset=0&q={utterance}`
 
 ## <a name="send-misspelled-utterance-to-luis"></a>Verkeerd gespelde utterance verzenden naar LUIS
 1. In een webbrowser, Kopieer de bovenstaande tekenreeks en vervang de `region`, `appId`, `luisKey`, en `bingKey` door uw eigen waarden. Zorg ervoor dat u het eindpunt van de regio als deze van uw publicatie verschilt [regio](luis-reference-regions.md).

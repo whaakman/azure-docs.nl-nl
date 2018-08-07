@@ -1,38 +1,32 @@
 ---
 title: Hulpprogramma's voor het werken met Azure Storage | Microsoft Docs
-description: Een lijst met hulpprogramma's waarmee u weergave/communiceren met uw Azure Storage-gegevens.
+description: Een lijst met hulpprogramma's waarmee u kunt bekijken en hiermee werken met uw Azure Storage-gegevens.
 services: storage
-documentationcenter: ''
 author: dineshmurthy
-manager: jahogg
-editor: tysonn
-ms.assetid: e4748642-98c4-437e-b0ed-4f9641c2e894
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: dineshmurthy
-ms.openlocfilehash: 5c2add48b128a3e5a632c048f0feb4413fcb26cc
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.component: common
+ms.openlocfilehash: 55fa63e75768662a0f909cef0e3cc04b9c2dae41
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/21/2017
-ms.locfileid: "23933387"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526195"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage Client Tools
-Gebruikers van Azure Storage wilt vaak kunnen weergeven/communiceren met hun gegevens met een Azure Storage client-hulpprogramma. In de onderstaande tabellen weergeven we een aantal hulpprogramma's waarmee u kunt dit doen. We zetten een 'X' in elk blok als het biedt de mogelijkheid om ofwel inventariseren en/of toegang tot de abstrahering van gegevens. De tabel wordt ook weergegeven als de hulpprogramma's is gratis. 'Proefversie' geeft aan dat er een gratis proefversie is, maar het volledige product niet beschikbaar is. ' J/N' geeft aan dat een versie beschikbaar voor het vrije is terwijl een andere versie beschikbaar voor de aankoop is.
+Gebruikers van Azure Storage wilt vaak kunnen bekijken en hiermee werken met hun gegevens met behulp van een Azure Storage-clienthulpprogramma. In de onderstaande tabellen lijst we een aantal hulpprogramma's waarmee u kunt dit doen. We zetten een 'X' in elk blok als de mogelijkheid biedt tot een inventariseren en/of toegang tot de abstractie van de gegevens. De tabel ziet u ook de hulpprogramma's is gratis of niet. 'Proefversie' geeft aan dat er een gratis proefversie is, maar het volledige product niet gratis is. ' J/N' geeft aan dat een versie beschikbaar gratis, is terwijl een andere versie beschikbaar voor aankoop is.
 
-We bieden alleen een momentopname van de beschikbare hulpprogramma's voor Azure Storage-client. Deze hulpprogramma's kunnen blijven evolueren en groei in de functionaliteit. Als er correcties of updates, laat u een opmerking laat ons weten. Hetzelfde geldt dat als u hulpprogramma's die zou moeten hier - weten we graag toe te voegen zou zijn.
+We hebben alleen een momentopname van de beschikbare hulpprogramma's voor Azure Storage-client geleverd. Deze hulpprogramma's kunnen blijven zich ontwikkelen en laten groeien in de functionaliteit. Als er correcties of updates, plaatst u een opmerking laat ons weten. Hetzelfde geldt dat als u kent van hulpprogramma's die moeten worden hier weergegeven - zou we zijn blij zijn te toe te voegen.
 
-**Hulpprogramma's voor Microsoft Azure Storage Client**
+**Microsoft Azure Storage-clienthulpprogramma 's**
 
 <table>
   <tr>
-    <th rowspan="2">Hulpprogramma voor Azure Storage-Client</th>
+    <th rowspan="2">Azure Storage-clienthulpprogramma</th>
     <th rowspan="2">Blok-Blob</th>
-    <th rowspan="2">Pagina-Blob</th>
+    <th rowspan="2">Pagina-blobs</th>
     <th rowspan="2">Toevoeg-Blob</th>
     <th rowspan="2">Tabellen</th>
     <th rowspan="2">Wachtrijen</th>
@@ -47,7 +41,7 @@ We bieden alleen een momentopname van de beschikbare hulpprogramma's voor Azure 
     <td>Linux</td>
   </tr>
   <tr>
-    <td><a href="https://azure.microsoft.com/features/azure-portal/">Microsoft Azure-Portal</a></td>
+    <td><a href="https://azure.microsoft.com/features/azure-portal/">Microsoft Azure Portal</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -90,15 +84,15 @@ We bieden alleen een momentopname van de beschikbare hulpprogramma's voor Azure 
   </tr>
 </table>
 
-**Clienthulpprogramma's van derden Azure-opslag**
+**Externe Azure Storage-clienthulpprogramma 's**
 
-We de functionaliteit of door de volgende hulpprogramma's van derden geclaimd kwaliteit niet geverifieerd en hun aanbieding impliceert niet endosseert Microsoft.
+We zijn niet geverifieerd de functionaliteit of kwaliteit geclaimd door de volgende hulpprogramma's van derden en hun aanbieding impliceert niet endosseert Microsoft.
 
 <table>
   <tr>
-    <th rowspan="2">Hulpprogramma voor Azure Storage-Client</th>
+    <th rowspan="2">Azure Storage-clienthulpprogramma</th>
     <th rowspan="2">Blok-Blob</th>
-    <th rowspan="2">Pagina-Blob</th>
+    <th rowspan="2">Pagina-blobs</th>
     <th rowspan="2">Toevoeg-Blob</th>
     <th rowspan="2">Tabellen</th>
     <th rowspan="2">Wachtrijen</th>

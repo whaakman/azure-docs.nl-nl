@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/23/2018
 ms.author: andret
-ms.openlocfilehash: 2fd41d08df5a8f425a1d59e8cd1172043286d8b7
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 5353e22d7ae77adecfe126bb589d08c808752550
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39496165"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579347"
 ---
 <!--start-intro-->
 # <a name="add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Aanmelden bij Microsoft toevoegen aan een ASP.NET-web-app
@@ -30,7 +30,7 @@ Deze handleiding laat zien hoe u aanmelden met Microsoft met behulp van een ASP.
 Aan het einde van deze handleiding, uw toepassing accepteert aanmeldingen van werk- en schoolaccounts accounts van organisaties die zijn geïntegreerd met Azure Active Directory.
 
 > [!NOTE]
-> Deze Begeleide installatie helpt u om in te schakelen aanmeldingen vanaf werk en school-accounts in uw ASP.NET-toepassing. Als u geïnteresseerd om in te schakelen aanmeldingen voor persoonlijke accounts naast het werk en schoolaccounts bent, kunt u de [v2-eindpunt](active-directory-v2-compare.md). Zie [deze ASP.NET begeleide instelling voor de v2-eindpunt](tutorial-v2-asp-webapp.md) , evenals [dit document](active-directory-v2-limitations.md) uitleg over de huidige beperkingen van de v2-eindpunt.
+> Deze Begeleide installatie helpt u om in te schakelen aanmeldingen vanaf werk en school-accounts in uw ASP.NET-toepassing. Als u geïnteresseerd om in te schakelen aanmeldingen voor persoonlijke accounts naast het werk en schoolaccounts bent, kunt u de [v2-eindpunt](azure-ad-endpoint-comparison.md). Zie [deze ASP.NET begeleide instelling voor de v2-eindpunt](tutorial-v2-asp-webapp.md) , evenals [dit document](active-directory-v2-limitations.md) uitleg over de huidige beperkingen van de v2-eindpunt.
 <br/><br/>
 
 <!--separator-->
@@ -218,7 +218,7 @@ Volg de volgende stappen uit als u wilt accepteren aanmeldingen van werk- en sch
 2. Onder `All Settings` selecteren `Properties`
 3. Wijziging `Multi-tenanted` eigenschap `Yes` en klikt u op `Save`
 
-Zie voor meer informatie over deze instelling en het concept van toepassingen met meerdere tenants, [in dit artikel](active-directory-devhowto-multi-tenant-overview.md "multitenant overzicht").
+Zie voor meer informatie over deze instelling en het concept van toepassingen met meerdere tenants, [in dit artikel](howto-convert-app-to-be-multi-tenant.md "multitenant overzicht").
 
 ### <a name="restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>Voorkomen dat gebruikers kunnen slechts één organisatie Active Directory-exemplaar om aan te melden bij uw toepassing (Eén tenant)
 

@@ -2,40 +2,35 @@
 title: Bewerkingen uitvoeren op Azure Queue storage met PowerShell | Microsoft Docs
 description: Het uitvoeren van bewerkingen op Azure Queue storage met PowerShell
 services: storage
-documentationcenter: storage
 author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 0765e2b36f9d32c43e9f0042d2be0fab53e07b04
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.component: queues
+ms.openlocfilehash: 0b78f822bec2bd545331ed52f3339a07b5dfb466
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37116024"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521044"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure Queue storage bewerkingen uitvoeren met Azure PowerShell
 
-Azure Queue storage is een service voor het opslaan van grote aantallen berichten die toegankelijk zijn vanuit overal ter wereld via HTTP of HTTPS. Zie voor gedetailleerde informatie [Inleiding tot Azure wachtrijen](storage-queues-introduction.md). Dit artikel bevat informatie over algemene wachtrij-opslagbewerkingen. In deze zelfstudie leert u procedures om het volgende te doen:
+Azure Queue storage is een service voor het opslaan van grote aantallen berichten die kunnen worden benaderd vanaf elke locatie ter wereld via HTTP of HTTPS. Zie voor gedetailleerde informatie [Inleiding tot Azure Queues](storage-queues-introduction.md). In dit artikel bevat informatie over algemene wachtrij-opslagbewerkingen. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Een wachtrij maken
-> * Een wachtrij ophalen
+> * Ophalen van een wachtrij
 > * Een bericht toevoegen
-> * Een bericht gelezen
+> * Een bericht lezen
 > * Een bericht verwijderen 
 > * Een wachtrij verwijderen
 
-Deze procedures voor vereist de Azure PowerShell-moduleversie 3,6 of hoger. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
+Deze instructies vereist moduleversie 3.6 of hoger van Azure PowerShell. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps).
 
-Er zijn geen PowerShell-cmdlets voor het vlak van gegevens voor wachtrijen. Een bericht om uit te voeren van gegevens toevoegen vlak bewerkingen, zoals een bericht lezen en verwijderen van een bericht, met het gebruik van de storage-clientbibliotheek voor .NET, zoals deze wordt weergegeven in PowerShell. U maakt een message-object en klikt u vervolgens kunt u opdrachten zoals AddMessage bewerkingen uitvoeren op het bericht. Dit artikel laat zien hoe u dat doet.
+Er zijn geen PowerShell-cmdlets voor de gegevenslaag voor wachtrijen. Een bericht om uit te voeren gegevens vlak bewerkingen, zoals een bericht toevoegen lezen en verwijderen van een bericht, u moet de storage-clientbibliotheek voor .NET gebruiken zoals deze wordt weergegeven in PowerShell. Maakt u een berichtobject en klikt u vervolgens kunt u opdrachten, zoals AddMessage bewerkingen van dat bericht uit te voeren. Dit artikel ziet u hoe u dat doet.
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
@@ -47,7 +42,7 @@ Connect-AzureRmAccount
 
 ## <a name="retrieve-list-of-locations"></a>Lijst met locaties ophalen
 
-Als u niet weet welke locatie u kunt gebruiken, kunt u een lijst met de beschikbare locaties weergeven. Selecteer de gewenste locatie in de lijst. In deze oefening gebruikt **eastus**. Slaat u dit in de variabele **locatie** voor toekomstig gebruik.
+Als u niet weet welke locatie u kunt gebruiken, kunt u een lijst met de beschikbare locaties weergeven. Selecteer de gewenste locatie in de lijst. In deze oefening gebruikt **eastus**. Dit in de variabele Store **locatie** voor toekomstig gebruik.
 
 ```powershell
 Get-AzureRmLocation | select Location 
@@ -58,7 +53,7 @@ $location = "eastus"
 
 Maak een resourcegroep met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
 
-Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Naam van de resourcegroep opgeslagen in een variabele voor toekomstig gebruik. In dit voorbeeld wordt een resourcegroep met de naam *howtoqueuesrg* wordt gemaakt in de *eastus* regio.
+Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Naam van de resourcegroep Store in een variabele voor toekomstig gebruik. In dit voorbeeld wordt een resourcegroep met de naam *howtoqueuesrg* wordt gemaakt in de *eastus* regio.
 
 ```powershell
 $resourceGroup = "howtoqueuesrg"
@@ -67,7 +62,7 @@ New-AzureRmResourceGroup -ResourceGroupName $resourceGroup -Location $location
 
 ## <a name="create-storage-account"></a>Een opslagaccount maken
 
-Maken van een standaard algemeen opslagaccount met lokaal redundante opslag (LRS) met behulp van [nieuw AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Haal de context van het opslagaccount waarin de storage-account moet worden gebruikt. Als u werkt met een opslagaccount, verwijst u naar de context in plaats van herhaaldelijk de referenties op te geven.
+Een standaardopslagaccount voor algemeen gebruik te maken met het gebruik van lokaal redundante opslag (LRS) [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount). Krijg de opslagaccountcontext op waarin het opslagaccount dat moet worden gebruikt. Als u werkt met een opslagaccount, verwijst u naar de context in plaats van herhaaldelijk de referenties op te geven.
 
 ```powershell
 $storageAccountName = "howtoqueuestorage"
@@ -81,7 +76,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-queue"></a>Een wachtrij maken
 
-Het volgende voorbeeld maakt eerst een verbinding met Azure Storage met context van het opslagaccount, waaronder de opslagaccountnaam en de toegangssleutel. Vervolgens roept [nieuw AzureStorageQueue](/powershell/module/azure.storage/new-azurestoragequeue) cmdlet voor het maken van een wachtrij met de naam 'wachtrijnaam'.
+Het volgende voorbeeld maakt eerst een verbinding met Azure Storage met behulp van de context van het storage, waaronder de naam van het opslagaccount en de toegangssleutel. Vervolgens wordt de [New-AzureStorageQueue](/powershell/module/azure.storage/new-azurestoragequeue) cmdlet voor het maken van een wachtrij met de naam 'queuename'.
 
 ```powershell
 $queueName = "howtoqueue"
@@ -90,9 +85,9 @@ $queue = New-AzureStorageQueue –Name $queueName -Context $ctx
 
 Zie voor informatie over naamgevingsregels voor Azure Queue-Service, [naamgeving van wachtrijen en metagegevens](http://msdn.microsoft.com/library/azure/dd179349.aspx).
 
-## <a name="retrieve-a-queue"></a>Een wachtrij ophalen
+## <a name="retrieve-a-queue"></a>Ophalen van een wachtrij
 
-U kunt een query en ophalen van een specifieke wachtrij of een lijst met alle wachtrijen in een opslagaccount. De volgende voorbeelden laten zien hoe u voor het ophalen van alle wachtrijen in het opslagaccount en een specifieke wachtrij; beide opdrachten gebruiken de [Get-AzureStorageQueue](/powershell/module/azure.storage/get-azurestoragequeue) cmdlet.
+U kunt query's uitvoeren en ophalen van een bepaalde wachtrij of een lijst met alle wachtrijen in een Storage-account. De volgende voorbeelden laten zien hoe u om op te halen van alle wachtrijen in de storage-account en een bepaalde wachtrij; beide opdrachten gebruiken de [Get-AzureStorageQueue](/powershell/module/azure.storage/get-azurestoragequeue) cmdlet.
 
 ```powershell
 # Retrieve a specific queue
@@ -106,9 +101,9 @@ Get-AzureStorageQueue -Context $ctx | select Name
 
 ## <a name="add-a-message-to-a-queue"></a>Een bericht toevoegen aan een wachtrij
 
-Bewerkingen die invloed van de werkelijke berichten in de wachtrij gebruiken de storage-clientbibliotheek voor .NET, zoals weergegeven in PowerShell. Als u wilt een bericht toevoegen aan een wachtrij, maak een nieuw exemplaar van het berichtobject [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) klasse. Daarna roept u de methode [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) aan. Een CloudQueueMessage kan worden gemaakt vanuit een tekenreeks (in UTF-8-indeling) of een byte-matrix.
+Bewerkingen die invloed hebben op de werkelijke berichten in de wachtrij gebruiken de .NET-opslagclientbibliotheek zoals weergegeven in PowerShell. Een bericht toevoegen aan een wachtrij, maak een nieuw exemplaar van het berichtobject [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](http://msdn.microsoft.com/library/azure/jj732474.aspx) klasse. Daarna roept u de methode [AddMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.addmessage.aspx) aan. Een CloudQueueMessage kan worden gemaakt op basis van een tekenreeks (in UTF-8-indeling) of een bytematrix.
 
-Het volgende voorbeeld laat zien hoe u een bericht toevoegt aan de wachtrij.
+Het volgende voorbeeld ziet u hoe u een bericht toevoegen aan de wachtrij.
 
 ```powershell
 # Create a new message using a constructor of the CloudQueueMessage class
@@ -126,17 +121,17 @@ $queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQ
 $queue.CloudQueue.AddMessage($QueueMessage)
 ```
 
-Als u de [Azure Opslagverkenner](http://storageexplorer.com), u kunt verbinding maken met uw Azure-account en de wachtrijen weergeven in het opslagaccount en inzoomen op een wachtrij de berichten in de wachtrij weergeven. 
+Als u de [Azure Storage Explorer](http://storageexplorer.com), u kunt verbinding maken met uw Azure-account en de wachtrijen weergeven in de storage-account en Zoom in op een wachtrij om de berichten in de wachtrij weer te geven. 
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>Lees een bericht uit de wachtrij verwijderen
 
-Berichten worden gelezen in volgorde van de beste probeer first-in-first-out. Dit kan niet worden gegarandeerd. Wanneer u het bericht uit de wachtrij gelezen, wordt het onzichtbaar voor alle andere processen kijken naar de wachtrij. Dit zorgt ervoor dat als de code niet kan verwerken van het bericht vanwege problemen met hardware of software, een ander exemplaar van uw code kunt het bericht verschijnt en probeer het opnieuw.  
+Berichten worden gelezen in volgorde van de beste probeer first in first out. Dit kan niet worden gegarandeerd. Wanneer u het bericht uit de wachtrij leest, wordt het onzichtbaar voor alle andere processen kijken naar de wachtrij. Dit zorgt ervoor dat als uw code niet kan verwerken van het bericht vanwege fout bij de hardware of software, een ander exemplaar van uw code kunt hetzelfde bericht en probeer het opnieuw.  
 
-Dit **time-out voor onzichtbaarheid** definieert hoe lang het bericht onzichtbaar blijft voordat deze beschikbaar zijn voor de verwerking opnieuw. De standaardwaarde is 30 seconden. 
+Dit **de time-out voor onzichtbaarheid** wordt gedefinieerd hoe lang het bericht onzichtbaar blijft voordat deze beschikbaar zijn voor de verwerking van het opnieuw. De standaardwaarde is 30 seconden. 
 
-Uw code wordt een bericht gelezen uit de wachtrij in twee stappen. Als u aanroept de [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx) methode, krijgt u het volgende bericht in de wachtrij. Een bericht dat wordt geretourneerd door **GetMessage**, wordt onzichtbaar voor andere codes die berichten lezen uit deze wachtrij. Voor het voltooien van het bericht uit de wachtrij te verwijderen, belt u het [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx) methode. 
+Uw code leest een bericht uit de wachtrij in twee stappen. Wanneer u aanroepen de [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx) methode, krijgt u het volgende bericht in de wachtrij. Een bericht dat wordt geretourneerd door **GetMessage**, wordt onzichtbaar voor andere codes die berichten lezen uit deze wachtrij. Als u klaar bent met het bericht verwijderen uit de wachtrij, wilt u aanroepen de [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx) methode. 
 
-In het volgende voorbeeld wordt u via de drie Wachtrijberichten lezen en vervolgens wacht tien seconden (time-out voor onzichtbaarheid). Vervolgens u opnieuw de drie berichten verwijderen van de berichten lezen na het lezen van deze door aan te roepen **DeleteMessage**. Als u probeert te lezen van de wachtrij de berichten zijn verwijderd, wordt $queueMessage geretourneerd als NULL.
+In het volgende voorbeeld wordt u via de drie Wachtrijberichten lezen en vervolgens wacht 10 seconden (de time-out voor onzichtbaarheid). En u opnieuw de drie berichten de berichten worden verwijderd lezen na het lezen van deze door aan te roepen **DeleteMessage**. Als u probeert te lezen van de wachtrij de berichten zijn verwijderd, wordt u $queueMessage als NULL geretourneerd.
 
 ```powershell
 # Set the amount of time you want to entry to be invisible after read from the queue
@@ -163,7 +158,7 @@ $queue.CloudQueue.DeleteMessage($queueMessage)
 ```
 
 ## <a name="delete-a-queue"></a>Een wachtrij verwijderen
-Roep de cmdlet Remove-AzureStorageQueue voor het verwijderen van een wachtrij en alle berichten hierin. Het volgende voorbeeld laat zien hoe de specifieke wachtrij gebruikt in deze oefening met de cmdlet Remove-AzureStorageQueue verwijderen.
+Als u wilt verwijderen van een wachtrij en alle berichten die erin zijn opgenomen, roept u de cmdlet Remove-AzureStorageQueue. Het volgende voorbeeld ziet hoe u de specifieke wachtrij die wordt gebruikt in deze oefening met de cmdlet Remove-AzureStorageQueue verwijderen.
 
 ```powershell
 # Delete the queue 
@@ -172,7 +167,7 @@ Remove-AzureStorageQueue –Name $queueName –Context $ctx
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Om alle te verwijderen van de activa die u in deze oefening hebt gemaakt, verwijder de resourcegroep. Hiermee verwijdert u ook alle resources binnen de groep. In dit geval verwijdert deze de storage-account gemaakt en de resourcegroep zelf.
+Als u wilt verwijderen van alle activa die u in deze oefening hebt gemaakt, moet u de resourcegroep verwijderd. Hiermee verwijdert u ook alle resources binnen de groep. In dit geval verwijderd het de storage-account gemaakt en de resourcegroep zelf.
 
 ```powershell
 Remove-AzureRmResourceGroup -Name $resourceGroup
@@ -180,17 +175,17 @@ Remove-AzureRmResourceGroup -Name $resourceGroup
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel how-to, hebt u geleerd over basic wachtrij opslagbeheer met PowerShell, inclusief hoe:
+In dit artikel met instructies, hebt u geleerd over eenvoudige wachtrij-opslagbeheer met PowerShell, onder andere:
 
 > [!div class="checklist"]
 > * Een wachtrij maken
-> * Een wachtrij ophalen
+> * Ophalen van een wachtrij
 > * Een bericht toevoegen
-> * Het volgende bericht gelezen
+> * Lees het volgende bericht
 > * Een bericht verwijderen 
 > * Een wachtrij verwijderen
 
-### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Opslag voor Microsoft Azure PowerShell-cmdlets
+### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Microsoft Azure PowerShell Storage-cmdlets
 * [PowerShell Storage-cmdlets](/powershell/module/azurerm.storage#storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer

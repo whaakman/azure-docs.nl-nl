@@ -13,12 +13,12 @@ ms.devlang: NA
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: maroche
-ms.openlocfilehash: 18673186e80b4d1784fa5b42e622d90dd4c889d4
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 3d2c0d21d0cf4cc0654c8f7ee2debee4f0320461
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860000"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577059"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Wat is er nieuw in Azure Data Catalog
 Updates voor **Azure Data Catalog** regelmatig worden vrijgegeven. Niet elke versie bevat nieuwe functies van de gebruiker gerichte, omdat sommige versies van het gericht zijn op de mogelijkheden van de back-end-service. Deze pagina ziet u nieuwe gebruikersgerichte mogelijkheden toegevoegd aan de service Azure Data Catalog.
@@ -27,7 +27,7 @@ Updates voor **Azure Data Catalog** regelmatig worden vrijgegeven. Niet elke ver
 Vanaf November 2017, zijn de volgende mogelijkheden toegevoegd aan Azure Data Catalog:
 
 * Ondersteuning voor het koppelen van rechtstreeks naar specifieke termen voor een bedrijfswoordenlijst in de Data Catalog-portal. Gebruikers kunnen koppelingen van de zakelijke woordenlijst kopiëren en deze insluiten in documenten, e-mailberichten, rapporten of andere locaties om rechtstreeks aan de definitie van de termijn te koppelen.
-* Ondersteuning voor Azure Active Directory service-principals. Data Catalog-beheerders kunnen machtigen clienttoepassingen met behulp van service-principals toegang hebben tot de catalogus en kunnen deze toepassingen specifieke machtigingen verlenen zoals ze machtigingen aan gebruikers en beveiligingsgroepen verlenen kunnen. Zie voor meer informatie [toepassing en service-principalobjecten in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+* Ondersteuning voor Azure Active Directory service-principals. Data Catalog-beheerders kunnen machtigen clienttoepassingen met behulp van service-principals toegang hebben tot de catalogus en kunnen deze toepassingen specifieke machtigingen verlenen zoals ze machtigingen aan gebruikers en beveiligingsgroepen verlenen kunnen. Zie voor meer informatie [toepassing en service-principalobjecten in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 * Ondersteuning voor Azure Active Directory-verificatie wanneer u verbinding maakt met gegevensbronnen in de Azure SQL Database en Azure SQL Data Warehouse met behulp van het registratiehulpprogramma voor Data Catalog gegevensbronnen. Zie voor meer informatie [gebruik Azure Active Directory-verificatie voor verificatie bij SQL-Database of SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
 
 

@@ -17,12 +17,12 @@ ms.date: 11/30/2017
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e7a662afd78ff053c60aeb5de3af9f0070a7c458
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: c4bc777c36608ff9aeeec3428af0103fa3ae29c4
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506526"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578959"
 ---
 # <a name="azure-ad-net-desktop-wpf-getting-started"></a>Azure AD .NET Desktop (WPF) is aan de slag
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -163,13 +163,13 @@ public async void CheckForCachedToken()
 }
 ```
 
-Gefeliciteerd. U nu beschikken over een werkende .NET WPF-toepassing met de mogelijkheid om te verifiëren van gebruikers, veilig aanroepen van Web-API's met behulp van OAuth 2.0 en elementaire informatie over de gebruiker. Als u niet hebt gedaan, is nu de tijd voor het vullen van uw tenant waarbij sommige gebruikers. Voer uw app DirectorySearcher uit en meld u aan met een van deze gebruikers. Zoeken naar andere gebruikers op basis van hun UPN. Sluit de app en voer deze opnieuw uit. U ziet hoe de sessie van de gebruiker intact blijft. Meld u af en meld u opnieuw aan als een andere gebruiker.
+Gefeliciteerd! U nu beschikken over een werkende .NET WPF-toepassing met de mogelijkheid om te verifiëren van gebruikers, veilig aanroepen van Web-API's met behulp van OAuth 2.0 en elementaire informatie over de gebruiker. Als u niet hebt gedaan, is nu de tijd voor het vullen van uw tenant waarbij sommige gebruikers. Voer uw app DirectorySearcher uit en meld u aan met een van deze gebruikers. Zoeken naar andere gebruikers op basis van hun UPN. Sluit de app en voer deze opnieuw uit. U ziet hoe de sessie van de gebruiker intact blijft. Meld u af en meld u opnieuw aan als een andere gebruiker.
 
 ADAL kunt eenvoudig opnemen van al deze algemene identiteitsfuncties in uw toepassing. Dit zorgt dat al het werk dirty voor u - Cachebeheer, ondersteuning voor OAuth protocol, dat de gebruiker met een gebruikersinterface, vervallen tokens en meer te vernieuwen. Alles wat u moet weten is dat één API-aanroep, `authContext.AcquireTokenAsync(...)`.
 
 Voor een verwijzing naar het voltooide voorbeeld (zonder uw configuratiewaarden) is opgegeven [hier](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip). U kunt nu verder met aanvullende scenario's. U wilt proberen:
 
-[Een .NET-Web-API met Azure AD beveiligen >>](active-directory-devquickstarts-webapi-dotnet.md)
+[Een .NET-Web-API met Azure AD beveiligen >>](quickstart-v1-dotnet-webapi.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 

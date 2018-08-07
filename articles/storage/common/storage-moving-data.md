@@ -1,50 +1,44 @@
 ---
-title: Grote hoeveelheden gegevens te verplaatsen naar/van de cloudopslag in Azure | Microsoft Docs
+title: Verplaatsen van grote hoeveelheden gegevens naar/vanuit de cloudopslag in Azure | Microsoft Docs
 description: Een overzicht van de verschillende methoden voor het verplaatsen van gegevens naar en van Azure Storage.
 services: storage
-documentationcenter: ''
 author: JarrettRenshaw
-manager: msmets
-editor: tysonn
-ms.assetid: 5e3947a9-d99b-4108-9d57-3eb67c03e7ba
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: jarrettr
-ms.openlocfilehash: 980e4675c2d2e88716a3133abb027988aecd538f
-ms.sourcegitcommit: eeb5daebf10564ec110a4e83874db0fb9f9f8061
+ms.component: common
+ms.openlocfilehash: 81d7b5cf03e56ecc54db71b09af335d6cb794806
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/03/2018
-ms.locfileid: "28984592"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525532"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Gegevens verplaatsen naar en uit Azure Storage
-Als u wilt verplaatsen van on-premises gegevens naar Azure Storage (of andersom), zijn er verschillende manieren om dit te doen. De benadering die voor u het meest geschikt is afhankelijk van uw scenario. In dit artikel biedt een snel overzicht van verschillende scenario's en de juiste aanbiedingen voor elk criterium.
+Als u wilt verplaatsen van on-premises gegevens naar Azure Storage (of omgekeerd), zijn er verschillende manieren om dit te doen. De benadering die het meest voor u geschikt is afhankelijk van uw scenario. In dit artikel biedt een kort overzicht van de verschillende scenario's en de juiste aanbiedingen voor elk criterium.
 
-## <a name="building-applications"></a>Toepassingen maken
-Als u een toepassing maakt, is het ontwikkelen van toepassingen met de REST-API of een van onze veel clientbibliotheken een uitstekende manier om gegevens te verplaatsen naar en van Azure Storage.
+## <a name="building-applications"></a>Toepassingen ontwikkelen
+Als u een toepassing ontwikkelen op basis van de REST-API bouwt of een van onze veel clientbibliotheken is een uitstekende manier om gegevens te verplaatsen naar en van Azure Storage.
 
 Azure Storage biedt uitgebreide clientbibliotheken voor .NET, iOS, Java, Android, Universal Windows Platform (UWP), Xamarin, C++, Node.JS, PHP, Ruby en Python. De clientbibliotheken bieden geavanceerde mogelijkheden, zoals pogingslogica, logboekregistratie en parallelle uploads. U kunt ook rechtstreeks met de REST API ontwikkelen. Deze kan worden aangeroepen in elke taal waarin HTTP-/HTTPS-verzoeken kunnen worden gemaakt.
 
 Zie [aan de slag met Azure Blob Storage](../blobs/storage-dotnet-how-to-use-blobs.md) voor meer informatie.
 
-Bovendien bieden wij ook de [Azure Storage-bibliotheek voor gegevensverplaatsing](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement) dit is een bibliotheek is ontworpen voor high-performance kopiëren van gegevens naar en van Azure. Raadpleeg onze bibliotheek voor gegevensverplaatsing [documentatie](https://github.com/Azure/azure-storage-net-data-movement) voor meer informatie. 
+Daarnaast bieden we ook de [Azure Storage-bibliotheek voor gegevensverplaatsing](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement) die een bibliotheek is ontworpen voor high-performance kopiëren van gegevens naar en van Azure is. Raadpleeg onze bibliotheek voor gegevensverplaatsing [documentatie](https://github.com/Azure/azure-storage-net-data-movement) voor meer informatie. 
 
 ## <a name="quickly-viewinginteracting-with-your-data"></a>Snel weergeven van/interactie met uw gegevens
-Als u een eenvoudige manier om uw Azure Storage-gegevens weergeven en ook hebben de mogelijkheid om te uploaden en downloaden van uw gegevens wilt, klikt u vervolgens kunt u overwegen een Azure Storage Explorer.
+Als u wilt dat een eenvoudige manier om uw Azure Storage-gegevens terwijl hiervoor ook de mogelijkheid om te uploaden en downloaden van uw gegevens weer te geven, klikt u vervolgens kunt u overwegen een Azure Storage Explorer.
 
-Bekijk onze lijst met [Azure Storage Explorers](../storage-explorers.md) voor meer informatie.
+Bekijk onze lijst met [Azure Opslagverkenners](../storage-explorers.md) voor meer informatie.
 
 ## <a name="system-administration"></a>Systeembeheer
-Als u vereisen of meer vertrouwd met een opdrachtregelprogramma (bijvoorbeeld systeembeheerders bent), zijn hier een aantal opties voor u te overwegen:
+Als u vereist of meer vertrouwd met een opdrachtregel-hulpprogramma (bijvoorbeeld systeembeheerders bent), vindt hier u een aantal opties voor u te overwegen:
 
 ### <a name="azcopy"></a>AzCopy
 AzCopy is een opdrachtregelprogramma dat is ontworpen voor high-performance kopiëren van gegevens naar en van Azure Storage. U kunt ook gegevens binnen een opslagaccount of tussen verschillende opslagaccounts kopiëren. AzCopy is beschikbaar op [Windows](storage-use-azcopy.md) en klik op [Linux](storage-use-azcopy-linux.md).
 
-Zie [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md) of [gegevensoverdracht met AzCopy op Linux](storage-use-azcopy-linux.md) voor meer informatie.
+Zie [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](storage-use-azcopy.md) of [gegevens overdragen met AzCopy voor Linux](storage-use-azcopy-linux.md) voor meer informatie.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Azure PowerShell is een module die cmdlets biedt voor het beheren van services op Azure. Het is een op taken gebaseerde opdrachtregelshell en scripttaal die speciaal is ontworpen voor systeembeheer.
@@ -52,29 +46,29 @@ Azure PowerShell is een module die cmdlets biedt voor het beheren van services o
 Zie [Azure PowerShell gebruiken met Azure Storage](storage-powershell-guide-full.md) voor meer informatie.
 
 ### <a name="azure-cli"></a>Azure-CLI
-Azure CLI biedt een set van open-source platformoverschrijdende opdrachten voor het werken met Azure-services. Azure CLI is beschikbaar op Windows, OSX en Linux.
+Azure CLI bevat een set open-source, platformoverschrijdende opdrachten om te werken met Azure-services. Azure CLI is beschikbaar in Windows, OSX en Linux.
 
 Zie [met de Azure CLI met Azure Storage](../storage-azure-cli.md) voor meer informatie.
 
-## <a name="moving-large-amounts-of-data-with-a-slow-network"></a>Het verplaatsen van grote hoeveelheden gegevens met een langzaam netwerk
-Een van de grootste uitdagingen die zijn gekoppeld aan het verplaatsen van grote hoeveelheden gegevens is de overdrachtstijd. Als u gegevens ophalen uit Azure Storage wilt zonder zorgen te hoeven maken over de kosten van netwerken of code te schrijven, is Azure Import/Export een passende oplossing.
+## <a name="moving-large-amounts-of-data-with-a-slow-network"></a>Het verplaatsen van grote hoeveelheden gegevens met een traag netwerk
+Een van de grootste uitdagingen die zijn gekoppeld aan het verplaatsen van grote hoeveelheden gegevens is de tijd voor overdracht. Als u wilt ophalen van gegevens naar/van Azure-opslag zonder u zorgen te maken over de kosten van netwerken of schrijven van code, is een geschikte oplossing met Azure Import/Export.
 
 Zie [Azure Import/Export](../storage-import-export-service.md) voor meer informatie.
 
 ## <a name="backing-up-your-data"></a>Back-ups van uw gegevens
-Als u gewoon back-up van uw gegevens naar Azure Storage wilt, wordt Azure Backup is de manier om te gaan. Dit is een krachtige oplossing voor back-up on-premises gegevens en virtuele Azure-machines.
+Als u nodig eenvoudig hebt back-up van uw gegevens naar Azure Storage, wordt Azure Backup is de manier om te gaan. Dit is een krachtige oplossing voor back-ups van on-premises gegevens en virtuele Azure-machines.
 
 Zie [Azure Backup](../../backup/backup-introduction-to-azure-backup.md) voor meer informatie.
 
-## <a name="accessing-your-data-on-premises-and-from-the-cloud"></a>Toegang tot uw gegevens on-premises als vanuit de cloud
-Als u een oplossing nodig voor toegang tot uw gegevens on-premises en vanuit de cloud, moet vervolgens u met behulp van Azure hybride cloud opslagoplossing, StorSimple. Deze oplossing bestaat uit een fysiek StorSimple-apparaat dat op intelligente wijze winkels vaak gebruikte gegevens op SSD's en van tijd tot tijd gebruikt gegevens op HDD's en niet-actief/back-up/archivering van gegevens op Azure Storage.
+## <a name="accessing-your-data-on-premises-and-from-the-cloud"></a>Toegang tot uw gegevens on-premises en naar de cloud
+Als u een oplossing nodig voor toegang tot uw gegevens on-premises en in de cloud, moet klikt u vervolgens u overwegen van het Azure-oplossing voor hybride cloudopslag, StorSimple. Deze oplossing bestaat uit een fysiek StorSimple-apparaat dat op intelligente wijze winkels vaak gebruikte gegevens op SSD's, af en toe gegevens gebruikt op HDD's en niet-actief/back-up/archivering van gegevens in Azure Storage.
 
 Zie [StorSimple](../../storsimple/storsimple-overview.md) voor meer informatie.
 
 ## <a name="recovering-your-data"></a>Uw gegevens herstellen
-Wanneer u lokale werkbelastingen en toepassingen hebt, moet u een oplossing waarmee uw bedrijf blijft uitvoeren in het geval van een noodgeval. Azure Site Recovery verwerkt replicatie, failovers en herstel van virtuele machines en fysieke servers. Gerepliceerde gegevens worden opgeslagen in Azure Storage, zodat u kunt een secundair datacenter ter plaatse overbodig.
+Wanneer u on-premises werkbelastingen en toepassingen, moet u een oplossing waarmee uw bedrijf om door te gaan die wordt uitgevoerd in het geval van een noodgeval. Azure Site Recovery-replicatie, failovers en herstel van virtuele machines en fysieke servers worden verwerkt. Gerepliceerde gegevens worden opgeslagen in Azure Storage, zodat u kunt elimineert de noodzaak van een secundaire lokaal datacenter.
 
 Zie [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) voor meer informatie.
-### <a name="moving-data-faq"></a>Veelgestelde vragen over gegevens te verplaatsen:
+### <a name="moving-data-faq"></a>Verplaatsen van gegevens Veelgestelde vragen over:
 ## <a name="can-i-migrate-vhds-from-one-region-to-another-without-copying"></a>Kan ik migreren VHD's van de ene regio naar een andere zonder te kopiëren?
-De enige manier om de VHD's kopiëren tussen regio heeft het kopiëren van de gegevens tussen de storage-accounts op elke regio. U kunt AZCopy gebruiken voor deze. Zie de overdracht van gegevens met het AzCopy-opdrachtregelprogramma voor meer informatie. Voor zeer grote hoeveelheden gegevens kunt u ook Azure Import/Export. Zie [Azure Import/Export](https://docs.microsoft.com/azure/storage/storage-import-export-service) voor meer informatie.
+De enige manier om de VHD's kopiëren tussen regio is het kopiëren van gegevens tussen opslagaccounts voor elke regio. U kunt AZCopy gebruiken voor deze. Zie de gegevens overdragen met het AzCopy-opdrachtregelprogramma voor meer informatie. Voor zeer grote hoeveelheden gegevens kunt u ook Azure Import/Export. Zie [Azure Import/Export](https://docs.microsoft.com/azure/storage/storage-import-export-service) voor meer informatie.

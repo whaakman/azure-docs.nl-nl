@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b97a0fffa6f21e7a8b06dc406711f249310fd73
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 30ca8fe89105584b1062c5a068e107bdfde154fc
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431586"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579517"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Verifiëren met een persoonlijk Docker-containerregister
 
@@ -36,7 +36,7 @@ Wanneer u zich aan met `az acr login`, de CLI gebruikt het token gemaakt wanneer
 
 ## <a name="service-principal"></a>Service-principal
 
-U kunt een [service-principal](../active-directory/develop/active-directory-application-objects.md) naar het register en uw toepassing of service kunt gebruiken voor ' headless '-verificatie. Service-principals toestaan [op basis van de rol](../role-based-access-control/role-assignments-portal.md) naar een register, en u kunt meerdere service-principals toewijzen aan een register. Meerdere service-principals kunnen u voor het definiëren van verschillende toegangsrechten voor verschillende toepassingen.
+U kunt een [service-principal](../active-directory/develop/app-objects-and-service-principals.md) naar het register en uw toepassing of service kunt gebruiken voor ' headless '-verificatie. Service-principals toestaan [op basis van de rol](../role-based-access-control/role-assignments-portal.md) naar een register, en u kunt meerdere service-principals toewijzen aan een register. Meerdere service-principals kunnen u voor het definiëren van verschillende toegangsrechten voor verschillende toepassingen.
 
 De beschikbare rollen zijn:
 

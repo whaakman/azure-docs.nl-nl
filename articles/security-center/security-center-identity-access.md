@@ -3,7 +3,7 @@ title: Identiteit en toegang bewaken in Azure Security Center | Microsoft Docs
 description: Lees hoe u de functies voor identiteit en toegang in Azure Security Center gebruikt om problemen met de toegang en identiteit van uw gebruikers te bewaken.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/14/2018
-ms.author: terrylan
-ms.openlocfilehash: b2243b10c20a0c8ed0faccbcc82e24193bd4adac
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.date: 08/05/2018
+ms.author: rkarlin
+ms.openlocfilehash: 821a88f3627b19951c26677838bd2f86d0948ab9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39460266"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526827"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Identiteit en toegang bewaken in Azure Security Center (Preview)
 In dit artikel leest u hoe u Azure Security Center kunt gebruiken om de identiteit en toegangsactiviteiten van gebruikers te bewaken.
@@ -38,7 +38,7 @@ Door identiteitsactiviteiten te bewaken, kunt u proactieve maatregelen treffen v
 - Bevoegde externe accounts verwijderen van uw abonnement
 
 > [!NOTE]
-> Als uw abonnement meer dan 250 accounts heeft, kan Security Center om uit te voeren van de identiteit aanbevelingen op basis van uw abonnement. Aanbevelingen die niet worden uitgevoerd, worden vermeld onder 'niet-beschikbare evaluaties' Dit wordt hieronder beschreven.
+> Als uw abonnement meer dan 600 accounts heeft, kan Security Center om uit te voeren van de identiteit aanbevelingen op basis van uw abonnement. Aanbevelingen die niet worden uitgevoerd, worden vermeld onder 'niet-beschikbare evaluaties' Dit wordt hieronder beschreven.
 Security Center is niet de identiteit aanbevelingen uitvoeren in een Cloud Solution Provider (CSP)-partner admin agents.
 >
 >

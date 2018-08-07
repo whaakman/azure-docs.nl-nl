@@ -1,67 +1,67 @@
 ---
 title: Voer Azure CLI of PowerShell-opdrachten onder een Azure AD-identiteit voor toegang tot Azure Storage (Preview) | Microsoft Docs
-description: Azure CLI en PowerShell ondersteuning aangemeld met een Azure AD identity opdrachten uitvoeren op Azure Storage-containers en -wachtrijen en hun gegevens. Een toegangstoken is opgegeven voor de sessie en gebruikt voor het autoriseren van aanroepen bewerkingen. Machtigingen zijn afhankelijk van de rol die is toegewezen aan de identiteit van de Azure AD.
+description: Azure CLI en PowerShell ondersteunt aangemeld met een Azure AD-identiteit opdrachten uitvoeren op Azure Storage-containers en -wachtrijen en hun gegevens. Een toegangstoken is opgegeven voor de sessie en gebruikt voor de aanroepende operations autorisatie. Machtigingen zijn afhankelijk van de rol die is toegewezen aan de Azure AD-identiteit.
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: tamram
-ms.openlocfilehash: 98af46707485d1ab49e7d8c6fb1729e6edc6b2ff
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.component: common
+ms.openlocfilehash: 253edccef064e729e96bceac619458cf4c585ae4
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235862"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522482"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Een Azure AD-identiteit gebruiken voor toegang tot Azure Storage met CLI of PowerShell (Preview)
 
-Azure Storage biedt preview-extensies voor Azure CLI en PowerShell waarmee u zich aanmeldt en het uitvoeren van opdrachten in het script onder de identiteit van een Azure Active Directory (Azure AD). De identiteit van de Azure AD kan een gebruiker, groep of toepassing service-principal of kan een [beheerde service-identiteit](../../active-directory/managed-service-identity/overview.md). U kunt machtigingen voor toegang tot de opslagbronnen aan de identiteit van de Azure AD via op rollen gebaseerde toegangsbeheer (RBAC). Zie voor meer informatie over RBAC-rollen in Azure Storage [beheren rechten voor het Azure Storage-gegevens met RBAC (Preview)](storage-auth-aad-rbac.md).
+Azure Storage biedt preview-extensies voor Azure CLI en PowerShell waarmee u zich aanmeldt en uitvoeren van opdrachten in het script onder de identiteit van een Azure Active Directory (Azure AD). De identiteit van de Azure AD kan een gebruiker, groep of toepassing service-principal, of kan een [beheerde service-identiteit](../../active-directory/managed-service-identity/overview.md). U kunt machtigingen voor toegang tot opslagresources naar de Azure AD-identiteit via op rollen gebaseerd toegangsbeheer (RBAC) toewijzen. Zie voor meer informatie over RBAC-rollen in Azure Storage, [beheren rechten voor het Azure Storage-gegevens met RBAC (Preview)](storage-auth-aad-rbac.md).
 
-Wanneer u bij Azure CLI of PowerShell met de identiteit van een Azure AD aanmelden, wordt een toegangstoken voor toegang tot Azure Storage onder die identiteit geretourneerd. Dat token wordt vervolgens automatisch gebruikt door de CLI of PowerShell te autoriseren bewerkingen op Azure Storage. Voor ondersteunde bewerkingen moet u niet langer een accountsleutel of SAS-token met de opdracht doorgeven.
+Wanneer u zich aanmeldt bij Azure CLI of PowerShell met een Azure AD-identiteit, wordt een toegangstoken geretourneerd voor toegang tot Azure Storage onder die identiteit. Dit token wordt vervolgens automatisch gebruikt door de CLI of PowerShell om bewerkingen op Azure Storage. Voor ondersteunde bewerkingen hoeft u niet meer om door te geven van een sleutel of een SAS-token met de opdracht.
 
 > [!IMPORTANT]
-> Deze preview is bedoeld voor gebruik van niet-productieve alleen. Productie service level agreements (Sla's) worden pas beschikbaar Azure AD-integratie voor Azure Storage is gedeclareerd in het algemeen beschikbaar. Als u Azure AD-integratie is nog niet ondersteund voor uw scenario, blijven de gedeelde sleutel autorisatie of SAS-tokens gebruiken in uw toepassingen. Zie voor meer informatie over de evaluatieversie [verifiëren van toegang tot Azure Storage met Azure Active Directory (Preview)](storage-auth-aad.md).
+> In dit voorbeeld is bedoeld voor gebruik in niet-productieomgevingen alleen. Productie service level agreements (Sla's) worden pas beschikbaar als Azure AD-integratie voor Azure Storage algemeen beschikbaar is gedeclareerd. Als Azure AD-integratie wordt nog niet ondersteund voor uw scenario, echter ook doorgaan met de gedeelde sleutel autorisatie of SAS-tokens in uw toepassingen. Zie voor meer informatie over de Preview-versie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (Preview)](storage-auth-aad.md).
 >
-> Tijdens de preview kunnen de RBAC-roltoewijzingen doorgeven maximaal vijf minuten duren.
+> Tijdens de Preview-versie duurt RBAC-roltoewijzingen tot vijf minuten worden doorgegeven.
 >
-> Azure AD-integratie met Azure Storage vereist het gebruik van HTTPS voor Azure Storage-bewerkingen.
+> Azure AD-integratie met Azure Storage is vereist dat u HTTPS voor Azure Storage-bewerkingen gebruiken.
 
 ## <a name="supported-operations"></a>Ondersteunde bewerkingen
 
-De preview-extensies worden ondersteund voor bewerkingen op containers en wachtrijen. Welke bewerkingen u kunt aanroepen, is afhankelijk van de machtigingen te krijgen tot de Azure AD-identiteit waarmee u zich voor Azure CLI of PowerShell aanmelden. Azure Storage-containers of wachtrijen machtigingen worden toegewezen via op rollen gebaseerde toegangsbeheer (RBAC). Bijvoorbeeld, als een gegevenslezer-rol is toegewezen aan de identiteit, kunt u uitvoeren scripting opdrachten die gegevens uit een container of de wachtrij lezen. Als een rol gegevens eigenaarsrechten is toegewezen aan de identiteit, kunt u opdrachten in het script dat lezen, schrijven of verwijderen van een container of de wachtrij of de gegevens die ze bevatten kunt uitvoeren. 
+De preview-extensies worden ondersteund voor bewerkingen voor containers en wachtrijen. Welke bewerkingen u kunt aanroepen, is afhankelijk van de machtigingen verleend aan de Azure AD-identiteit waarmee u zich aanmeldt bij Azure CLI of PowerShell. Machtigingen voor het Azure Storage-containers of wachtrijen worden toegewezen via op rollen gebaseerd toegangsbeheer (RBAC). Bijvoorbeeld, als een gegevenslezer-rol wordt toegewezen aan de identiteit, kunt klikt u vervolgens u uitvoeren scripting opdrachten die gegevens uit een container of de wachtrij lezen. Als een gegevens-Registratiemachtiging-rol wordt toegewezen aan de identiteit, kunt u opdrachten in het script dat lezen, schrijven of verwijderen van een container of wachtrij of de gegevens die ze bevatten uitvoeren. 
 
-Zie voor meer informatie over de machtigingen die vereist zijn voor elke Azure Storage-bewerking op een container of een wachtrij [machtigingen voor het aanroepen van REST-bewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).  
+Zie voor meer informatie over de machtigingen die vereist zijn voor elke Azure Storage-bewerking in een container of een wachtrij [machtigingen voor het aanroepen van REST-bewerkingen](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).  
 
-## <a name="call-cli-commands-with-an-azure-ad-identity"></a>CLI-opdrachten met een Azure AD-identiteit aanroepen
+## <a name="call-cli-commands-with-an-azure-ad-identity"></a>Aanroep van CLI-opdrachten met een Azure AD-identiteit
 
 De preview-extensie voor Azure CLI installeren:
 
-1. Controleer of u versie 2.0.32 van Azure CLI hebt geïnstalleerd of hoger. Voer `az --version` om te controleren van de geïnstalleerde versie.
+1. Zorg ervoor dat u Azure CLI versie 2.0.32 hebt geïnstalleerd of hoger. Voer `az --version` om te controleren of de geïnstalleerde versie.
 2. Voer de volgende opdracht voor het installeren van de preview-extensie: 
 
     ```azurecli
     az extension add -n storage-preview
     ```
 
-De extensie voorbeeld voegt u een nieuw `--auth-mode` parameter om ondersteunde opdrachten:
+De preview-extensie voegt een nieuwe `--auth-mode` parameter ondersteunde opdrachten:
 
-- Stel de `--auth-mode` -parameter voor `login` aan te melden met een Azure AD-identiteit.
-- Stel de `--auth-mode` -parameter voor de verouderde `key` waarde om te zoeken naar een sleutel als account geen parameters voor verificatie voor het account worden opgegeven. 
+- Stel de `--auth-mode` parameter `login` zich aanmelden met een Azure AD-identiteit.
+- Stel de `--auth-mode` parameter naar de oude `key` waarde om te zoeken naar een account-sleutel als geen verificatieparameters voor het account zijn opgegeven. 
 
-Bijvoorbeeld: voor het downloaden van een blob in Azure CLI met behulp van een Azure AD-identiteit eerst uitvoeren `az login`, roept u vervolgens de opdracht met `--auth-mode` ingesteld op `login`:
+Bijvoorbeeld, voor het downloaden van een blob in Azure CLI met behulp van een Azure AD-identiteit voor het eerst uitvoert `az login`, roept u vervolgens de opdracht met `--auth-mode` ingesteld op `login`:
 
 ```azurecli
 az login
 az storage blob download --account-name storagesamples --container sample-container --name myblob.txt --file myfile.txt --auth-mode login 
 ```
 
-De variabele die is gekoppeld aan de `--auth-mode` parameter `AZURE_STORAGE_AUTH_MODE`.
+De omgevingsvariabele die is gekoppeld aan de `--auth-mode` parameter `AZURE_STORAGE_AUTH_MODE`.
 
-## <a name="call-powershell-commands-with-an-azure-ad-identity"></a>Aanroep van PowerShell-opdrachten met de identiteit van een Azure AD
+## <a name="call-powershell-commands-with-an-azure-ad-identity"></a>Aanroepen van de PowerShell-opdrachten met een Azure AD-identiteit
 
-Azure PowerShell kunnen aanmelden met een Azure AD-identiteit gebruiken:
+Azure PowerShell gebruiken voor het aanmelden met een Azure AD-identiteit:
 
 1. Zorg ervoor dat u de nieuwste versie van PowerShellGet geïnstalleerd hebt. Voer de volgende opdracht voor het installeren van de meest recente:
  
@@ -76,16 +76,16 @@ Azure PowerShell kunnen aanmelden met een Azure AD-identiteit gebruiken:
     Install-Module AzureRM –Repository PSGallery –AllowClobber
     ```
 
-4. Installeer de preview-module:
+4. De preview-module installeren:
 
     ```powershell
     Install-Module -Name Azure.Storage -AllowPrerelease –AllowClobber 
     ```
 
-5. Roep de [nieuw AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext) cmdlet voor het maken van een context en omvatten de `-UseConnectedAccount` parameter. 
-6. Geven de context aan de cmdlet voor het aanroepen van een cmdlet met een Azure AD-identiteit.
+5. Roep de [New-AzureStorageContext](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontext) cmdlet voor het maken van een context en zijn de `-UseConnectedAccount` parameter. 
+6. Voor het aanroepen van een cmdlet uit met een Azure AD-identiteit, moet u de context doorgeven aan de cmdlet.
 
-Het volgende voorbeeld ziet u hoe u de blobs in een container van Azure PowerShell met de identiteit van een Azure AD: 
+Het volgende voorbeeld ziet u hoe u de blobs in een container van Azure PowerShell met behulp van een Azure AD-identiteit: 
 
 ```powershell
 $ctx = New-AzureStorageContext -StorageAccountName $storageAccountName -UseConnectedAccount 
@@ -94,7 +94,7 @@ Get-AzureStorageBlob -Container $sample-container -Context $ctx
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over de rollen RBAC voor Azure-opslag, [beheren rechten voor het storage-gegevens met RBAC (Preview)](storage-auth-aad-rbac.md).
-- Zie voor meer informatie over het gebruik van de Service-identiteit beheerd met Azure Storage, [verifiëren met Azure AD van een Azure Managed Service-identiteit (Preview)](storage-auth-aad-msi.md).
-- Zie voor meer informatie over hoe u toegang verlenen aan containers en wachtrijen van binnen uw toepassingen moeten worden opgeslagen, [gebruik Azure AD met opslagtoepassingen](storage-auth-aad-app.md).
-- Zie voor meer informatie over Azure AD-integratie voor Azure Blobs en wachtrijen, het Azure Storage-team blogbericht, [aankondigen van de Preview van Azure AD-verificatie voor Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
+- Zie voor meer informatie over RBAC-rollen voor Azure-opslag, [beheren-toegangsrechten aan opslag van gegevens met RBAC (Preview)](storage-auth-aad-rbac.md).
+- Zie voor meer informatie over het gebruik van beheerde Service-identiteit met Azure Storage, [verifiëren met Azure AD vanuit een Azure Managed Service Identity (Preview)](storage-auth-aad-msi.md).
+- Zie voor informatie over het toestaan van toegang tot containers en wachtrijen van binnen uw storage-toepassingen, [gebruik Azure AD met opslagtoepassingen](storage-auth-aad-app.md).
+- Zie voor meer informatie over Azure AD-integratie voor Azure-Blobs en wachtrijen, de blog van het Azure Storage-team plaatst, [aankondiging van de Preview-versie van Azure AD-verificatie voor Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).

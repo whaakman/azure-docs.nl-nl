@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 99860628197092749a5102787afd952f2a09a995
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 06350d30999cb056babbd001f98a6c3a5fdbac6c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493214"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576991"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Een API beveiligen met behulp van OAuth 2.0 met Azure Active Directory en API Management
 
 Deze handleiding laat zien hoe het configureren van uw Azure API Management-exemplaar voor het beveiligen van een API met behulp van de OAuth 2.0-protocol met Azure Active Directory (Azure AD). 
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 Als u wilt volgen de stappen in dit artikel, moet u het volgende hebben:
 * Exemplaar van API Management
 * Een API die wordt gepubliceerd en die gebruikmaakt van de API Management-exemplaar
@@ -193,7 +193,7 @@ U kunt de [JWT valideren](api-management-access-restriction-policies.md#Validate
 
 ## <a name="build-an-application-to-call-the-api"></a>De API aanroepen van een toepassing bouwen
 
-In deze handleiding, gebruikt u de Developer-Console in API Management als de voorbeeldtoepassing van de client om aan te roepen de `Echo API` beveiligd met OAuth 2.0. Zie voor meer informatie over hoe u een toepassing bouwen en implementeren van OAuth 2.0, [codevoorbeelden van Azure Active Directory](../active-directory/develop/active-directory-code-samples.md).
+In deze handleiding, gebruikt u de Developer-Console in API Management als de voorbeeldtoepassing van de client om aan te roepen de `Echo API` beveiligd met OAuth 2.0. Zie voor meer informatie over hoe u een toepassing bouwen en implementeren van OAuth 2.0, [codevoorbeelden van Azure Active Directory](../active-directory/develop/sample-v1-code.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over [Azure Active Directory en OAuth 2.0](../active-directory/develop/authentication-scenarios.md).

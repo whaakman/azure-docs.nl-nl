@@ -4,16 +4,16 @@ description: Een gesimuleerd apparaat op uw Windows-computer gebruiken voor het 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e149886e1ade80d7751f58eb1f77031c4e432b75
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: e558f44f9271009b92fbf4ece9aa706801e4176c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307940"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576199"
 ---
 # <a name="create-and-provision-a-simulated-tpm-edge-device-on-windows"></a>Maken en inrichten van een gesimuleerd TPM-Edge-apparaat op Windows
 
@@ -58,6 +58,8 @@ Na het maken van de afzonderlijke registratie, sla de waarde van de **registrati
 
 ## <a name="install-the-iot-edge-runtime"></a>IoT Edge-runtime installeren
 
+Na het voltooien van de vorige sectie, ziet u het nieuwe apparaat weergegeven als een IoT Edge-apparaat in uw IoT-Hub. Nu moet u de IoT Edge-runtime installeren op uw apparaat. 
+
 De IoT Edge-runtime wordt op alle IoT Edge-apparaten geïmplementeerd. De onderdelen in containers worden uitgevoerd, en kunnen u extra containers implementeren op het apparaat, zodat u kunt de code aan de rand uitvoeren. Op apparaten waarop Windows wordt uitgevoerd, kunt u Windows-containers of Linux-containers gebruiken. Kies het type van de containers die u wilt gebruiken en volg de stappen. Zorg ervoor dat u de IoT Edge-runtime voor het inrichten van automatische, niet handmatig configureren. 
 
 Volg de instructies voor het installeren van de IoT Edge-runtime op het apparaat dat het gesimuleerde TPM uit de vorige sectie wordt uitgevoerd. 
@@ -67,30 +69,9 @@ Kent uw DPS **ID-bereik** en apparaat **registratie-ID** voordat u begint met de
 * [Windows-containers](how-to-install-iot-edge-windows-with-windows.md)
 * [Linux-containers](how-to-install-iot-edge-windows-with-linux.md)
 
-## <a name="create-a-tpm-environment-variable"></a>Maken van een TPM-omgevingsvariabele
-
-Wijzig op de machine waarop uw gesimuleerde apparaat wordt uitgevoerd, de **iotedge** registersleutels voor de service om in te stellen van een omgevingsvariabele.
-
-1. Uit de **Start** menu open **regedit**. 
-2. Navigeer naar **Computer\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\iotedge**. 
-3. Selecteer **bewerken** > **nieuwe** > **waarde met meerdere tekenreeksen**. 
-4. Voer de naam **omgeving**. 
-5. Dubbelklik op de nieuwe variabele en stel de waardegegevens in op **IOTEDGE_USE_TPM_DEVICE = ON**. 
-6. Klik op **OK** om uw wijzigingen op te slaan. 
-
-## <a name="restart-the-iot-edge-runtime"></a>Opnieuw opstarten van de IoT Edge-runtime
-
-IoT Edge-runtime opnieuw zodat deze neemt alle configuratiewijzigingen die u hebt aangebracht op het apparaat. 
-
-```powershell
-Stop-Service iotedge -NoWait
-sleep 5
-Start-Service iotedge
-```
-
 ## <a name="verify-successful-installation"></a>Controleer of geslaagde installatie
 
-Als de runtime is gestart, kunt u met ingang van uw IoT-Hub en Zie dat het nieuwe apparaat automatisch is ingericht en gereed is voor de IoT Edge-modules uitvoeren. 
+Als de runtime is gestart, kunt u met ingang van uw IoT-Hub en begin met het implementeren van IoT Edge-modules naar uw apparaat. Gebruik de volgende opdrachten op uw apparaat om te controleren dat de runtime geïnstalleerd en gestart.  
 
 Controleer de status van de IoT Edge-service.
 

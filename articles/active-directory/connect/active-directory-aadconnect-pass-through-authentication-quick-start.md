@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 08/03/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1b5640b790b07050336a990a06b66e5f89fcf768
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 5a93a21c3884d742479bdd30417a846942cb1ed1
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308606"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524087"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory Pass through-verificatie: Snel starten
 
@@ -62,6 +62,7 @@ Zorg ervoor dat de volgende vereisten voldaan is.
     | --- | --- |
     | **80** | De certificaatintrekkingslijsten (CRL's) downloaden tijdens het valideren van het SSL-certificaat |
     | **443** | Alle uitgaande communicatie met de service worden verwerkt |
+    | **8080** (optioneel) | Verificatie-Agents rapporteren hun status om de tien minuten via poort 8080, als poort 443 niet beschikbaar is. Deze status wordt weergegeven op de Azure AD-portal. Poort 8080 is _niet_ gebruikt voor gebruikersaanmeldingen. |
    
     Als uw firewall-regels op basis van de oorspronkelijke gebruikers afgedwongen, opent u deze poorten voor verkeer via Windows-services die worden uitgevoerd als een netwerkservice.
    - Als u uw firewall of proxyserver kan DNS-whitelist, lijst met toegestane adressen verbindingen met  **\*. msappproxy.net** en  **\*. servicebus.windows.net**. Als dit niet het geval is, kunt u toegang tot de [Azure datacenter IP-adresbereiken](https://www.microsoft.com/download/details.aspx?id=41653), die elke week worden bijgewerkt.

@@ -1,60 +1,60 @@
 ---
-title: Verifiëren van toegang tot Azure Storage met Azure Active Directory (Preview) | Microsoft Docs
-description: Verifiëren van toegang tot Azure Storage met Azure Active Directory (Preview).
+title: Verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (Preview) | Microsoft Docs
+description: Verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (Preview).
 services: storage
 author: tamram
-manager: jeconnoc
 ms.service: storage
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: tamram
-ms.openlocfilehash: 9a0782b96b45d27c9b7e603959ecadf5b2632064
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.component: common
+ms.openlocfilehash: 90868961475c2e9d0ac7d28c5d9a50c8eb281675
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34737643"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525202"
 ---
-# <a name="authenticate-access-to-azure-storage-using-azure-active-directory-preview"></a>Verifiëren van toegang tot Azure Storage met Azure Active Directory (Preview)
+# <a name="authenticate-access-to-azure-storage-using-azure-active-directory-preview"></a>Verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (Preview)
 
-Azure Storage biedt ondersteuning voor verificatie en autorisatie met Azure Active Directory (AD) voor de services Blob en Queue. U kunt met Azure AD op rollen gebaseerde toegangsbeheer (RBAC) gebruiken om toegang te verlenen aan gebruikers, groepen of service-principals van toepassing. 
+Azure Storage biedt ondersteuning voor verificatie en autorisatie met Azure Active Directory (AD) voor de services Blob en wachtrij. U kunt met Azure AD, op rollen gebaseerd toegangsbeheer (RBAC) gebruiken om toegang te verlenen aan gebruikers, groepen of service-principals van toepassing. 
 
-Autoriseren van toepassingen die toegang hebben tot Azure Storage met Azure AD biedt betere beveiliging en eenvoudig te gebruiken ten opzichte van andere opties voor autorisatie. Terwijl u kunt doorgaan naar de gedeelde sleutel autorisatie met uw toepassingen gebruiken, gevolg met behulp van Azure AD de noodzaak voor het opslaan van uw toegangssleutel rekening met uw code. Op deze manier kunt u blijven gebruiken van handtekeningen voor gedeelde toegang (SAS) fijnmazig toegang tot bronnen in uw opslagaccount te verlenen, maar Azure AD biedt vergelijkbare mogelijkheden zonder de noodzaak voor het beheren van SAS-tokens of zorgen over het intrekken van een SAS waarmee is geknoeid.
+Toepassingen die toegang hebben tot Azure Storage met behulp van Azure AD toestemming geven biedt uitstekende beveiliging en gebruiksgemak ten opzichte van andere opties voor autorisatie. Terwijl u kunt echter ook doorgaan met de gedeelde sleutel autorisatie met uw toepassingen, heeft met behulp van Azure AD de noodzaak voor het opslaan van uw toegangssleutel voor uw code. Op deze manier kunt u echter ook doorgaan met handtekeningen voor gedeelde toegang (SAS) om te voorzien in specifieke toegang tot resources in uw storage-account te verlenen, maar Azure AD biedt vergelijkbare mogelijkheden zonder de noodzaak om te beheren van SAS-tokens of zorgen over het intrekken van een SAS waarmee is geknoeid.
 
-## <a name="about-the-preview"></a>Over de evaluatieversie
+## <a name="about-the-preview"></a>Over de Preview-versie
 
-Houd de volgende punten over de Preview-versie:
+Houd rekening met de volgende punten over de Preview-versie:
 
-- Azure AD-integratie is beschikbaar voor de services Blob en wachtrij alleen in de Preview-versie.
-- Azure AD-integratie is beschikbaar voor GPv1 GPv2 en Blob storage-accounts in alle openbare regio's. 
+- Azure AD-integratie is beschikbaar voor de Blob- en wachtrijservices services alleen in de Preview-versie.
+- Azure AD-integratie is beschikbaar voor GPv1-, GPv2- en Blob storage-accounts in alle openbare regio's. 
 - Alleen de opslagaccounts die zijn gemaakt met het Resource Manager-implementatiemodel worden ondersteund. 
-- Ondersteuning voor de aanroeper identiteitsgegevens in Azure Storage Analytics-logboekregistratie is binnenkort beschikbaar.
-- Azure AD-autorisatie van toegang tot bronnen in de standard-opslagaccounts wordt momenteel ondersteund. Autorisatie van toegang tot de pagina-blobs in premium storage-accounts zal binnenkort worden ondersteund.
-- Azure Storage ondersteunt ingebouwde en aangepaste RBAC-rollen. U kunt binnen het bereik van het abonnement, de resourcegroep, het storage-account of een afzonderlijke container of de wachtrij rollen toewijzen.
-- De clientbibliotheken van Azure Storage die momenteel ondersteuning bieden voor Azure AD-integratie zijn onder andere:
+- Ondersteuning voor de oproepende functie identiteitsgegevens in Azure Storage Analytics logboekregistratie is binnenkort beschikbaar.
+- Azure AD-autorisatie van toegang tot resources in de standard-opslagaccount wordt momenteel ondersteund. Autorisatie van toegang tot pagina-blobs in premium storage-accounts zal binnenkort worden ondersteund.
+- Azure Storage ondersteunt zowel ingebouwde als aangepaste RBAC-rollen. U kunt rollen binnen het bereik van het abonnement, de resourcegroep, de storage-account of een afzonderlijke container of wachtrij toewijzen.
+- De Azure Storage-clientbibliotheken die momenteel ondersteuning bieden voor Azure AD-integratie zijn onder andere:
     - [.NET](https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0)
     - [Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) (7.1.x-Preview gebruiken)
     - Python
         - [Blob](https://github.com/Azure/azure-storage-python/releases/tag/v1.2.0rc1-blob)
-        - [Wachtrij](https://github.com/Azure/azure-storage-python/releases/tag/v1.2.0rc1-queue)
+        - [wachtrij](https://github.com/Azure/azure-storage-python/releases/tag/v1.2.0rc1-queue)
     - [Node.js](https://www.npmjs.com/package/azure-storage)
     - [JavaScript](https://aka.ms/downloadazurestoragejs))
 
 > [!IMPORTANT]
-> Deze preview is bedoeld voor gebruik van niet-productieve alleen. Productie service level agreements (Sla's) worden pas beschikbaar Azure AD-integratie voor Azure Storage is gedeclareerd in het algemeen beschikbaar. Als u Azure AD-integratie is nog niet ondersteund voor uw scenario, blijven de gedeelde sleutel autorisatie of SAS-tokens gebruiken in uw toepassingen.
+> In dit voorbeeld is bedoeld voor gebruik in niet-productieomgevingen alleen. Productie service level agreements (Sla's) worden pas beschikbaar als Azure AD-integratie voor Azure Storage algemeen beschikbaar is gedeclareerd. Als Azure AD-integratie wordt nog niet ondersteund voor uw scenario, echter ook doorgaan met de gedeelde sleutel autorisatie of SAS-tokens in uw toepassingen.
 >
-> Tijdens de preview kunnen de RBAC-roltoewijzingen doorgeven maximaal vijf minuten duren.
+> Tijdens de Preview-versie duurt RBAC-roltoewijzingen tot vijf minuten worden doorgegeven.
 >
-> Azure AD-integratie met Azure Storage vereist het gebruik van HTTPS voor Azure Storage-bewerkingen.
+> Azure AD-integratie met Azure Storage is vereist dat u HTTPS voor Azure Storage-bewerkingen gebruiken.
 
 ## <a name="get-started-with-azure-ad-for-storage"></a>Aan de slag met Azure AD voor opslag
 
-De eerste stap bij het gebruik van Azure AD-integratie met Azure Storage is RBAC rollen op voor storage-gegevens voor uw service-principal (een gebruiker, groep of toepassingsservice-principal) of beheerd Service identiteit (MSI) toewijzen. RBAC functies omvatten algemene sets met machtigingen voor containers en -wachtrijen. Zie voor meer informatie over de rollen RBAC voor Azure Storage, [beheren rechten voor het storage-gegevens met RBAC (Preview)](storage-auth-aad-rbac.md).
+De eerste stap bij het gebruik van Azure AD-integratie met Azure Storage bestaat uit het toewijzen van RBAC-rollen voor opslaggegevens aan uw service-principal (een gebruiker, groep of toepassingsservice-principal) of Managed Service Identity (MSI). RBAC-rollen omvatten algemene sets machtigingen voor containers en wachtrijen. Zie voor meer informatie over RBAC-rollen voor Azure Storage, [beheren-toegangsrechten aan opslag van gegevens met RBAC (Preview)](storage-auth-aad-rbac.md).
 
-Voor het gebruik van Azure AD toegang verlenen aan de storage-resources in uw toepassingen, moet u een OAuth 2.0-toegangstoken aanvragen vanuit uw code. Zie voor informatie over het aanvragen van een toegangstoken en deze gebruiken voor het autoriseren van aanvragen naar Azure Storage, [verifiëren met Azure AD van een Azure Storage-toepassing (Preview)](storage-auth-aad-app.md). Als u een Azure Managed Service identiteit (MSI) gebruikt, raadpleegt u [verifiëren met Azure AD van een Azure VM beheerde Service-identiteit (Preview)](storage-auth-aad-msi.md).
+Voor het gebruik van Azure AD toegang verlenen aan de storage-resources in uw toepassingen, moet u een OAuth 2.0-toegangstoken aanvragen vanuit uw code. Zie voor informatie over het aanvragen van een toegangstoken en voor het toestaan van aanvragen voor Azure Storage, [verifiëren met Azure AD vanuit een Azure Storage-toepassing (Preview)](storage-auth-aad-app.md). Als u gebruikmaakt van een Azure Managed Service Identity (MSI), raadpleegt u [verifiëren met Azure AD vanuit een Azure VM Managed Service Identity (Preview)](storage-auth-aad-msi.md).
 
-Azure CLI en PowerShell ondersteunen nu aangemeld met een Azure AD-identiteit. Nadat u met een Azure AD-identiteit aanmelden, is uw sessie wordt uitgevoerd onder de identiteit. Zie voor meer informatie, [gebruiken van een Azure AD-identiteit voor toegang tot Azure Storage met CLI of PowerShell (Preview)](storage-auth-aad-script.md).
+Azure CLI en PowerShell bieden nu ondersteuning voor aangemeld met een Azure AD-identiteit. Nadat u zich aanmelden met een Azure AD-identiteit, is uw sessie wordt uitgevoerd onder die identiteit. Zie voor meer informatie, [gebruiken van een Azure AD-identiteit voor toegang tot Azure Storage met CLI of PowerShell (Preview)](storage-auth-aad-script.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Azure AD-integratie voor Azure Blobs en wachtrijen, het Azure Storage-team blogbericht, [aankondigen van de Preview van Azure AD-verificatie voor Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
+Zie voor meer informatie over Azure AD-integratie voor Azure-Blobs en wachtrijen, de blog van het Azure Storage-team plaatst, [aankondiging van de Preview-versie van Azure AD-verificatie voor Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).

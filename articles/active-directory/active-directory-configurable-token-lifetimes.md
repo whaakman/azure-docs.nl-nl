@@ -16,12 +16,12 @@ ms.date: 04/19/2018
 ms.author: hirsin
 ms.custom: aaddev
 ms.reviewer: anchitn
-ms.openlocfilehash: f06c4ad7e99c5ccdd0f63ac16877c0277fdf819c
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 0c4edb4fbf7271331affb2559018e53480aa7a85
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504257"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577159"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-public-preview"></a>Configureerbare levensduur van tokens in Azure Active Directory (openbare Preview)
 U kunt de levensduur van een token dat is uitgegeven door Azure Active Directory (Azure AD) opgeven. U kunt de levensduur van tokens voor alle apps in uw organisatie, voor een toepassing met meerdere tenants (voor meerdere organisaties) of voor een specifieke service-principal instellen in uw organisatie.
@@ -49,7 +49,7 @@ U kunt de levensduur van vernieuwingstoken-beleid voor het vernieuwen van tokens
 Clients gebruiken de toegangstokens voor toegang tot een beveiligde bron. Een toegangstoken kan alleen worden gebruikt voor een specifieke combinatie van gebruikers-, client- en. Toegangstokens kunnen niet worden ingetrokken en zijn geldig tot de vervaldatum. Een kwaadwillende actor die is verkregen van een toegangstoken kunt gebruiken voor de omvang van hun levensduur. Aanpassen van de levensduur van een toegangstoken is een compromis tussen de systeemprestaties verbeteren en het vergroten van de hoeveelheid tijd dat de client toegang behouden nadat het gebruikersaccount is uitgeschakeld. Verbeterde prestaties wordt bereikt door het beperken van het aantal keren dat die een client moet een nieuwe toegangstoken verkrijgen.  De standaardwaarde is 1 uur - na 1 uur, de client het vernieuwingstoken (meestal op de achtergrond) een nieuwe vernieuwingstoken ophalen en toegangstoken moet gebruiken. 
 
 ### <a name="refresh-tokens"></a>Vernieuwen van tokens
-Wanneer een client een toegangstoken verkrijgt voor toegang tot een beveiligde bron, ontvangt de client ook een vernieuwingstoken. Het vernieuwingstoken dat wordt gebruikt voor het verkrijgen van toegang/vernieuwen van nieuwe token paren wanneer het huidige toegangstoken is verlopen. Een vernieuwingstoken is gebonden aan een combinatie van gebruiker en de client. Een vernieuwingstoken kan worden [ingetrokken op elk gewenst moment](develop/active-directory-token-and-claims.md#token-revocation), en de geldigheid van het token is ingeschakeld telkens wanneer het token wordt gebruikt.  
+Wanneer een client een toegangstoken verkrijgt voor toegang tot een beveiligde bron, ontvangt de client ook een vernieuwingstoken. Het vernieuwingstoken dat wordt gebruikt voor het verkrijgen van toegang/vernieuwen van nieuwe token paren wanneer het huidige toegangstoken is verlopen. Een vernieuwingstoken is gebonden aan een combinatie van gebruiker en de client. Een vernieuwingstoken kan worden [ingetrokken op elk gewenst moment](develop/v1-id-and-access-tokens.md#token-revocation), en de geldigheid van het token is ingeschakeld telkens wanneer het token wordt gebruikt.  
 
 Het is belangrijk dat u onderscheid maken tussen vertrouwelijke clients en openbare clients, als dit van invloed op hoe lang vernieuwingstokens kunnen worden gebruikt. Zie voor meer informatie over de verschillende soorten clients [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
@@ -106,7 +106,7 @@ U kunt maken en vervolgens een levensduur van vernieuwingstoken beleid toewijzen
 * Als er geen beleid expliciet is toegewezen aan de service-principal of aan de organisatie, wordt het beleid dat is toegewezen aan de toepassing wordt afgedwongen.
 * Als er geen beleid is toegewezen aan de service-principal, de organisatie of het toepassingsobject, worden de standaardwaarden wordt afgedwongen. (Zie de tabel in [configureerbare levensduur van vernieuwingstoken eigenschappen](#configurable-token-lifetime-properties).)
 
-Zie voor meer informatie over de relatie tussen toepassingsobjecten en service-principalobjecten [toepassing en service-principalobjecten in Azure Active Directory](active-directory-application-objects.md).
+Zie voor meer informatie over de relatie tussen toepassingsobjecten en service-principalobjecten [toepassing en service-principalobjecten in Azure Active Directory](develop/app-objects-and-service-principals.md).
 
 De geldigheid van een token wordt geëvalueerd op het moment dat het token wordt gebruikt. Het beleid met de hoogste prioriteit voor de toepassing die wordt benaderd wordt van kracht.
 

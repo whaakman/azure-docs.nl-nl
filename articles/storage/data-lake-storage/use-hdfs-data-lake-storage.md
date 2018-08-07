@@ -2,23 +2,18 @@
 title: De HDFS-CLI gebruiken met Azure Data Lake Storage Gen2 Preview
 description: Inleiding tot de HDFS-CLI voor Gen2 Preview van Data Lake-opslag
 services: storage
-documentationcenter: ''
 author: artemuwka
-manager: jahogg
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: artek
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 591d8ea7670bf9b29450695ee7cbee5fa39baaac
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: ef28468c7aa420c145f5e6d79e2b079bd1d094f4
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37344716"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523679"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>De HDFS-CLI gebruiken met Data Lake Storage Gen2
 

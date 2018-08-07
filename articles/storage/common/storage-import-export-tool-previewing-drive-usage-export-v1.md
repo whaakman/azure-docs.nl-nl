@@ -1,53 +1,47 @@
 ---
-title: Een voorbeeldweergave schijfgebruik voor een taak van de export Azure Import/Export - v1 | Microsoft Docs
-description: Informatie over het bekijken van de lijst met blobs die u hebt geselecteerd voor een exporttaak in de Azure Import/Export-service.
+title: Op voorhand het schijfgebruik voor een exporttaak Azure Import/Export - v1 | Microsoft Docs
+description: Informatie over het bekijken van de lijst met blobs die u hebt geselecteerd voor een exporttaak bekijken in de Azure Import/Export-service.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 7707d744-7ec7-4de8-ac9b-93a18608dc9a
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.openlocfilehash: 6ec74ae0b0931f3fed99a43f4f7e58f9d425b138
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 21c0fd9b258100e769172332713769024fb12969
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873644"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39520568"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Op voorhand het schijfgebruik voor een exporttaak bekijken
-Voordat u een exporttaak maakt, moet u kiezen van een reeks blobs worden geëxporteerd. De Microsoft Azure Import/Export-service kunt u voor het gebruik van een lijst met blob-paden of blob-voorvoegsels te vertegenwoordigen de blobs die u hebt geselecteerd.  
+Voordat u een exporttaak maken, moet u kiezen van een reeks blobs worden geëxporteerd. De Microsoft Azure Import/Export-service kunt u voor het gebruik van een lijst met blob-paden of blob-voorvoegsels voor de blobs die u hebt geselecteerd.  
   
-Vervolgens moet u bepalen hoeveel stations die u wilt verzenden. Het hulpprogramma voor importeren/exporteren geeft de `PreviewExport` opdracht voor de preview schijfgebruik voor de blobs die u hebt geselecteerd, op basis van de grootte van de stations die u gaat gebruiken.
+Vervolgens moet u bepalen hoeveel stations die u wilt verzenden. Het hulpprogramma Import/Export biedt de `PreviewExport` opdracht om een voorbeeld van schijfgebruik voor de blobs die u hebt geselecteerd, op basis van de grootte van de stations die u wilt gebruiken.
 
 ## <a name="command-line-parameters"></a>Opdrachtregelparameters
 
-U kunt de volgende parameters gebruiken wanneer u de `PreviewExport` opdracht van het hulpprogramma voor importeren/exporteren.
+U kunt de volgende parameters gebruiken bij het gebruik van de `PreviewExport` opdracht van het hulpprogramma Import/Export.
 
 |Opdrachtregelparameter|Beschrijving|  
 |--------------------------|-----------------|  
-|**schakeloptie/LOGDIR op:**< LogDirectory\>|Optioneel. De logboekmap. Uitgebreide logboekbestanden worden geschreven naar deze map. Als er geen logboekmap is opgegeven, wordt de huidige map gebruikt als de logboekmap.|  
+|**schakeloptie/LOGDIR op:**< LogDirectory\>|Optioneel. De logboekmap. Uitgebreide logboeken worden geschreven naar deze map. Als er geen logboekmap is opgegeven, wordt de huidige map worden gebruikt als de logboekmap.|  
 |**/sn:**< StorageAccountName\>|Vereist. De naam van het opslagaccount voor de taak voor het exporteren.|  
-|**/SK:**< StorageAccountKey\>|Vereist als een container SAS is niet opgegeven. De accountsleutel voor het opslagaccount voor de taak voor exporteren.|  
-|**/csas:**< ContainerSas\>|Vereist als de sleutel van een opslagaccount is niet opgegeven. De container SAS voor het weergeven van de blobs in de taak voor het exporteren worden geëxporteerd.|  
-|**/ ExportBlobListFile:**< ExportBlobListFile\>|Vereist. Pad naar het XML-bestand met lijst met blob-paden bestand of blob-pad voorvoegsels voor de blobs worden geëxporteerd. De bestandsindeling die wordt gebruikt in de `BlobListBlobPath` -element in de [taak plaatsen](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) bewerking van de Import/Export-service REST-API.|  
-|**/ DriveSize:**< DriveSize\>|Vereist. De grootte van stations voor een exporttaak *bijvoorbeeld*, 500 GB, 1,5 TB.|  
+|**/SK:**< StorageAccountKey\>|Vereist als een container SAS is niet opgegeven. De accountsleutel voor het opslagaccount voor de taak voor het exporteren.|  
+|**/csas:**< ContainerSas\>|Vereist als een sleutel van het opslagaccount is niet opgegeven. De container SAS voor het weergeven van de blobs in de taak voor het exporteren worden geëxporteerd.|  
+|**/ ExportBlobListFile:**< ExportBlobListFile\>|Vereist. Pad naar het XML-bestand opslaan met lijst met blob-paden of blob-voorvoegsels voor pad voor de blobs worden geëxporteerd. De bestandsindeling die wordt gebruikt de `BlobListBlobPath` -element in de [plaatsen taak](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) werking van de Import/Export-service REST-API.|  
+|**/ DriveSize:**< DriveSize\>|Vereist. De grootte van schijven te gebruiken voor een exporttaak *bijvoorbeeld*, 500 GB, 1,5 TB.|  
 
-## <a name="command-line-example"></a>Voorbeeld van de opdrachtregel
+## <a name="command-line-example"></a>Voorbeeld van opdrachtregel
 
-Het volgende voorbeeld toont de `PreviewExport` opdracht:  
+Het volgende voorbeeld ziet u de `PreviewExport` opdracht:  
   
 ```  
 WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB    
 ```  
   
-Het exportbestand voor de lijst van blob kan blobnamen bevatten en blob-voorvoegsels, zoals hier wordt weergegeven:  
+Het exportbestand voor de blob-lijst kan bevatten blob-namen en blob-voorvoegsels, zoals hier wordt weergegeven:  
   
 ```xml 
 <?xml version="1.0" encoding="utf-8"?>  
@@ -58,9 +52,9 @@ Het exportbestand voor de lijst van blob kan blobnamen bevatten en blob-voorvoeg
 </BlobList>  
 ```
 
-De Azure-hulpprogramma voor importeren/exporteren geeft een lijst van alle blobs worden geëxporteerd en berekent hoe ze in de stations van de opgegeven grootte pack rekening wordt gehouden met eventuele benodigde overhead en maakt een schatting van het aantal stations die nodig zijn voor het opslaan van blobs en informatie over het gebruik van de schijf.  
+De Azure Import/Export-hulpprogramma geeft een lijst van alle blobs worden geëxporteerd en berekent het pack ze in de stations van de opgegeven grootte, waarbij rekening wordt gehouden met eventuele vereiste overhead en maakt een schatting van het aantal stations die nodig zijn voor het opslaan van blobs en informatie over het gebruik van de schijf.  
   
-Hier volgt een voorbeeld van uitvoer van de met informatief logboeken die worden weggelaten:  
+Hier volgt een voorbeeld van de uitvoer, met informatieve logboeken weggelaten:  
   
 ```  
 Number of unique blob paths/prefixes:   3  
@@ -78,4 +72,4 @@ Number of drives needed:        3
   
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Naslaginformatie over Azure hulpprogramma voor importeren/exporteren](../storage-import-export-tool-how-to-v1.md)
+* [Naslaginformatie over de Azure Import/Export-hulpprogramma](../storage-import-export-tool-how-to-v1.md)

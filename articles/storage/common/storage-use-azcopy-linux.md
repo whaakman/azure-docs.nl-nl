@@ -2,24 +2,18 @@
 title: Gegevens kopiëren of verplaatsen naar Azure Storage met AzCopy in Linux | Microsoft Docs
 description: De AzCopy voor Linux-hulpprogramma gebruiken om te verplaatsen of kopiëren van gegevens naar of van blob en bestand inhoud. Gegevens kopiëren naar Azure Storage van lokale bestanden en gegevens binnen of tussen opslagaccounts kopiëren. Migreer uw gegevens eenvoudig naar Azure Storage.
 services: storage
-documentationcenter: ''
 author: seguler
-manager: jahogg
-editor: tysonn
-ms.assetid: aa155738-7c69-4a83-94f8-b97af4461274
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
-ms.openlocfilehash: f45630a99d9045d0909e11d4ccc1517782d39779
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.component: common
+ms.openlocfilehash: 2a09f302be83f39f918d83c45309d5cab79f9429
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284440"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526926"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Gegevens overdragen met AzCopy voor Linux
 

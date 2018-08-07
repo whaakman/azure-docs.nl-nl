@@ -17,12 +17,12 @@ ms.date: 07/20/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, sureshja
-ms.openlocfilehash: 0783c9885ec47bdd8c33c296e975547391900139
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: a0d302e740732c5bf76ba75486b75f6f73091940
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505732"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576454"
 ---
 # <a name="azure-active-directory-application-manifest"></a>Azure Active Directory-toepassingsmanifest
 Apps die met Azure AD integreren moeten zijn geregistreerd met een Azure AD-tenant. Deze app kan worden geconfigureerd met behulp van de app-manifest (onder de blade Azure AD) in de [Azure-portal](https://portal.azure.com).
@@ -35,7 +35,7 @@ Apps die met Azure AD integreren moeten zijn geregistreerd met een Azure AD-tena
 |---------|---------|---------|---------|
 |toepassings-id     |  Id-reeks       |""|  De unieke id voor de toepassing die is toegewezen aan een app door Azure AD.|
 |appRoles     |    Het type matrix     |<code>[{<br>&emsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&emsp;],<br>&emsp;"description":"Read-only access to device information",<br>&emsp;"displayName":"Read Only",<br>&emsp;"id":guid,<br>&emsp;"isEnabled":true,<br>&emsp;"value":"ReadOnly"<br>}]</code>|De verzameling toepassingsrollen die mogelijk zijn gedeclareerd in een toepassing. Deze rollen kunnen worden toegewezen aan gebruikers, groepen of service-principals.|
-|availableToOtherTenants|booleaans|`true`|Als deze waarde is ingesteld op true, de toepassing is beschikbaar voor andere tenants. Indien ingesteld op false, de app alleen beschikbaar voor de tenant is is het geregistreerd in. Zie voor meer informatie: [aanmelden bij een Azure Active Directory (AD) gebruiker met behulp van het patroon voor multitenant-toepassingen](active-directory-devhowto-multi-tenant-overview.md). |
+|availableToOtherTenants|booleaans|`true`|Als deze waarde is ingesteld op true, de toepassing is beschikbaar voor andere tenants. Indien ingesteld op false, de app alleen beschikbaar voor de tenant is is het geregistreerd in. Zie voor meer informatie: [aanmelden bij een Azure Active Directory (AD) gebruiker met behulp van het patroon voor multitenant-toepassingen](howto-convert-app-to-be-multi-tenant.md). |
 |displayName     |tekenreeks         |`MyRegisteredApp`         |De weergavenaam voor de toepassing. |
 |errorURL     |tekenreeks         |`http://MyRegisteredAppError`         |De URL voor de fouten zijn opgetreden in een toepassing. |
 |groupMembershipClaims     |    tekenreeks     |    `1`     |   Een bitmasker waarmee de 'groepen' claim uitgegeven in een OAuth 2.0-toegangstoken dat de toepassing verwacht of de gebruiker worden geconfigureerd. De Bitmaskerwaarden zijn: 0: geen, 1: beveiligingsgroepen en Azure AD-rollen, 2: gereserveerd en 4: gereserveerd. Het bitmasker instelt op 7 krijgt alle van de beveiligingsgroepen, distributiegroepen en Azure AD-maprollen die de aangemelde gebruiker lid van is. |
@@ -67,7 +67,7 @@ Apps die met Azure AD integreren moeten zijn geregistreerd met een Azure AD-tena
 Gebruik de volgende sectie met opmerkingen om feedback die helpt bij het verfijnen en onze inhoud vorm te geven.
 
 <!--article references -->
-[AAD-APP-OBJECTS]: active-directory-application-objects.md
+[AAD-APP-OBJECTS]:app-objects-and-service-principals.md
 [AAD-DEVELOPER-GLOSSARY]: active-directory-dev-glossary.md
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]:quickstart-v1-integrate-apps-with-azure-ad.md
@@ -77,7 +77,7 @@ Gebruik de volgende sectie met opmerkingen om feedback die helpt bij het verfijn
 [AZURE-PORTAL]: https://portal.azure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
-[IMPLICIT-GRANT]: active-directory-dev-understanding-oauth2-implicit-grant.md
+[IMPLICIT-GRANT]:v1-oauth2-implicit-grant-flow.md
 [INTEGRATING-APPLICATIONS-AAD]: https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365

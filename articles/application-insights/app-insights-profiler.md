@@ -11,14 +11,14 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.reviewer: cawa
-ms.date: 07/13/2018
+ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 52f0e6c90aa9fa0dc439eae3801b2d4ac29387a9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6048a17bf50ecac691c7cf687f87e454c54ee9d9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429677"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521880"
 ---
 # <a name="profile-live-azure-web-apps-with-application-insights"></a>Profiel live Azure-web-apps met Application Insights
 
@@ -167,9 +167,12 @@ Hier volgen enkele dingen die u kunt controleren:
 * Zorg ervoor dat uw web-app Application Insights SDK 2.2 Beta heeft of later worden ingeschakeld.
 * Zorg ervoor dat uw web-app heeft de **APPINSIGHTS_INSTRUMENTATIONKEY** instelling die is geconfigureerd met de dezelfde instrumentatiesleutel die wordt gebruikt door de Application Insights-SDK.
 * Zorg ervoor dat uw web-app wordt uitgevoerd op .NET Framework 4.6.
-* Als uw web-app een ASP.NET Core-toepassing is, controleert u [de vereiste afhankelijkheden](#aspnetcore).
+* Als uw web-app een ASP.NET Core-toepassing is, service moet actief zijn ten minste ASP.NET Core 2.0.
 
 Nadat de Profiler is gestart, is er een korte opwarmtijd gedurende welke door Profiler actief verschillende prestaties traceringen worden verzameld. Hierna verzamelt Profiler prestatietraces voor twee minuten om het uur.
+
+> [!NOTE]
+> Er is een fout in de profiler-agent die voorkomt dat het uploaden van traceringen die zijn overgenomen uit toepassingen die worden uitgevoerd op ASP.NET Core 2.1. We wordt werken aan een oplossing en deze gereed binnenkort.
 
 ### <a name="i-was-using-azure-service-profiler-what-happened-to-it"></a>Ik was met behulp van Azure Service profiler. Wat is er gebeurd met het?
 

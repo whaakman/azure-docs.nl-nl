@@ -16,12 +16,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: 48e10a48999e2dc73627f0830147b6d00fd3d8b9
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: bb1f53b2ea014bfc8e658cf840e0a22368ba9f7c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506302"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579660"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Toepassingen integreren met Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -30,7 +30,7 @@ Ontwikkelaars van ondernemingen en software-as-a-service (SaaS)-providers kunnen
 
 Dit artikel ziet u hoe u kunt toevoegen, bijwerken of verwijderen van een toepassing registreren in Azure AD. U meer informatie over de verschillende typen toepassingen die kunnen worden geïntegreerd met Azure AD, het configureren van uw toepassingen voor toegang tot andere resources, zoals web-API's en meer.
 
-Zie voor meer informatie over de twee Azure AD-objecten die een geregistreerde toepassing en de relatie tussen deze vertegenwoordigen, [toepassing en Service-Principal-objecten](active-directory-application-objects.md); voor meer informatie over de huisstijlrichtlijnen u moet bij het ontwikkelen van toepassingen met Azure Active Directory gebruiken, raadpleegt u [huisstijl richtlijnen voor geïntegreerde Apps](active-directory-branding-guidelines.md).
+Zie voor meer informatie over de twee Azure AD-objecten die een geregistreerde toepassing en de relatie tussen deze vertegenwoordigen, [toepassing en Service-Principal-objecten](app-objects-and-service-principals.md); voor meer informatie over de huisstijlrichtlijnen u moet bij het ontwikkelen van toepassingen met Azure Active Directory gebruiken, raadpleegt u [huisstijl richtlijnen voor geïntegreerde Apps](howto-add-branding-in-azure-ad-apps.md).
 
 ## <a name="adding-an-application"></a>Een toepassing toevoegen
 Elke toepassing die met behulp van de mogelijkheden van Azure AD moet eerst worden geregistreerd in een Azure AD-tenant. Dit registratieproces bestaat uit Azure AD-details over uw toepassing, zoals de URL waar deze zich, de URL om te antwoorden verzenden nadat een gebruiker is geverifieerd, geeft de URI die u de app, enzovoort identificeert.
@@ -73,7 +73,7 @@ Bijvoorbeeld, als een web-clienttoepassing moet agenda om informatie te lezen ov
 
 Het toestemmingsframework is gebouwd op OAuth 2.0 en de verschillende stromen, zoals code verlenen en de client referenties voor autorisatie verlenen, met behulp van openbare of vertrouwelijke clients. Met behulp van OAuth 2.0, maakt Azure AD het mogelijk te maken van veel verschillende soorten clienttoepassingen, zoals op een telefoon, tablet, server of een webtoepassing en toegang krijgen tot de vereiste resources.
 
-Zie voor meer informatie over het gebruik van het toestemmingsframework met OAuth 2.0-autorisatietoekenningen [toegang verlenen aan webtoepassingen die gebruikmaken van OAuth 2.0 en Azure AD](active-directory-protocols-oauth-code.md) en [Verificatiescenario's voor Azure AD](authentication-scenarios.md). Zie voor meer informatie over het ophalen van geautoriseerde toegang tot Office 365 via Microsoft Graph [verificatie van apps met Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
+Zie voor meer informatie over het gebruik van het toestemmingsframework met OAuth 2.0-autorisatietoekenningen [toegang verlenen aan webtoepassingen die gebruikmaken van OAuth 2.0 en Azure AD](v1-protocols-oauth-code.md) en [Verificatiescenario's voor Azure AD](authentication-scenarios.md). Zie voor meer informatie over het ophalen van geautoriseerde toegang tot Office 365 via Microsoft Graph [verificatie van apps met Microsoft Graph](https://graph.microsoft.io/docs/authorization/auth_overview).
 
 #### <a name="example-of-the-consent-experience"></a>Voorbeeld van de ervaring voor toestemming
 
@@ -259,7 +259,7 @@ Het bieden van uw webtoepassing mogelijk ook:
 
 Zie voor meer informatie over de wijzigingen in de toepassing vereist ter ondersteuning van meerdere tenants toegang en sign-in/aanmelden-van ervaringen:
 
-- [Een Azure Active Directory-gebruiker aanmelden met behulp van het patroon voor multitenant-toepassingen](active-directory-devhowto-multi-tenant-overview.md)
+- [Een Azure Active Directory-gebruiker aanmelden met behulp van het patroon voor multitenant-toepassingen](howto-convert-app-to-be-multi-tenant.md)
 - De lijst met [multitenant-codevoorbeelden](https://azure.microsoft.com/documentation/samples/?service=active-directory&term=multi-tenant). 
 - [Snelstartgids: Huisstijl naar de aanmeldingspagina in Azure AD toevoegen](../fundamentals/customize-branding.md)
 
@@ -267,7 +267,7 @@ Zie voor meer informatie over de wijzigingen in de toepassing vereist ter onders
 
 Één pagina van de toepassing (kuuroorden) zijn doorgaans geordend met een JavaScript-zware front-end die wordt uitgevoerd in de browser, die back-end om uit te voeren van de bedrijfslogica voor van de toepassing web-API aanroept. Voor kuuroorden die wordt gehost in Azure AD, gebruikt u impliciete goedkeuring voor OAuth 2.0 voor de gebruiker met de Azure AD verifiëren en verkrijgen van een token dat u gebruiken kunt voor het aanroepen van de JavaScript-client van de toepassing naar de back-end web-API beveiligen. 
 
-Nadat de gebruiker heeft toestemming verleend, kan deze dezelfde verificatieprotocol om op te halen van tokens voor het beveiligen van aanroepen tussen de client en andere web-API-resources die zijn geconfigureerd voor de toepassing worden gebruikt. Zie voor meer informatie over de impliciete autorisatietoekenning en kunt u bepalen of deze geschikt is voor uw toepassingsscenario, [inzicht in de OAuth2-impliciete stroom in Azure Active Directory verlenen](active-directory-dev-understanding-oauth2-implicit-grant.md).
+Nadat de gebruiker heeft toestemming verleend, kan deze dezelfde verificatieprotocol om op te halen van tokens voor het beveiligen van aanroepen tussen de client en andere web-API-resources die zijn geconfigureerd voor de toepassing worden gebruikt. Zie voor meer informatie over de impliciete autorisatietoekenning en kunt u bepalen of deze geschikt is voor uw toepassingsscenario, [inzicht in de OAuth2-impliciete stroom in Azure Active Directory verlenen](v1-oauth2-implicit-grant-flow.md).
 
 Impliciete goedkeuring voor OAuth 2.0 is standaard uitgeschakeld voor toepassingen. U kunt de impliciete toekenning van OAuth 2.0 voor uw toepassing inschakelen door in te stellen de `oauth2AllowImplicitFlow` waarde in de [toepassingsmanifest](active-directory-application-manifest.md).
 
@@ -291,7 +291,7 @@ Impliciete goedkeuring voor OAuth 2.0 is standaard uitgeschakeld voor toepassing
 In deze sectie wordt beschreven hoe u de registratie van een toepassing verwijderen uit uw Azure AD-tenant.
 
 ### <a name="removing-an-application-authored-by-your-organization"></a>Verwijderen van een toepassing die is geschreven door uw organisatie
-Toepassingen die uw organisatie is geregistreerd, worden weergegeven onder het 'Mijn apps'-filter op belangrijkste 'App-registraties'-pagina van uw tenant. Deze toepassingen zijn services die u handmatig geregistreerd via Azure portal of programmatisch via PowerShell of de Graph API. Ze zijn meer specifiek, vertegenwoordigd door een toepassing en Service-Principal object in uw tenant. Zie voor meer informatie, [toepassing en Service-Principal-objecten](active-directory-application-objects.md).
+Toepassingen die uw organisatie is geregistreerd, worden weergegeven onder het 'Mijn apps'-filter op belangrijkste 'App-registraties'-pagina van uw tenant. Deze toepassingen zijn services die u handmatig geregistreerd via Azure portal of programmatisch via PowerShell of de Graph API. Ze zijn meer specifiek, vertegenwoordigd door een toepassing en Service-Principal object in uw tenant. Zie voor meer informatie, [toepassing en Service-Principal-objecten](app-objects-and-service-principals.md).
 
 #### <a name="to-remove-a-single-tenant-application-from-your-directory"></a>Een toepassing met één tenant uit uw directory verwijderen
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
@@ -309,14 +309,14 @@ Toepassingen die uw organisatie is geregistreerd, worden weergegeven onder het '
 6. Klik op **Ja** in het bevestigingsbericht.
 
 ### <a name="removing-a-multi-tenant-application-authorized-by-another-organization"></a>Verwijderen van een toepassing met meerdere tenants geautoriseerd door een andere organisatie
-Een subset van de toepassingen die worden weergegeven onder het filter 'Alle apps' (met uitzondering van de 'Mijn apps' registraties) op van uw tenant 'App-registraties' hoofdpagina zijn toepassingen met meerdere tenants. In technische termen, deze toepassingen met meerdere tenants zijn van een andere tenant, en zijn geregistreerd bij uw tenant tijdens de toestemming. Ze zijn meer specifiek, vertegenwoordigd door alleen een service principal-object in uw tenant, waarbij geen bijbehorende toepassingsobject. Zie voor meer informatie over de verschillen tussen de toepassing en service-principalobjecten [toepassing en service-principalobjecten in Azure AD](active-directory-application-objects.md).
+Een subset van de toepassingen die worden weergegeven onder het filter 'Alle apps' (met uitzondering van de 'Mijn apps' registraties) op van uw tenant 'App-registraties' hoofdpagina zijn toepassingen met meerdere tenants. In technische termen, deze toepassingen met meerdere tenants zijn van een andere tenant, en zijn geregistreerd bij uw tenant tijdens de toestemming. Ze zijn meer specifiek, vertegenwoordigd door alleen een service principal-object in uw tenant, waarbij geen bijbehorende toepassingsobject. Zie voor meer informatie over de verschillen tussen de toepassing en service-principalobjecten [toepassing en service-principalobjecten in Azure AD](app-objects-and-service-principals.md).
 
 Als u wilt verwijderen van een toepassing met meerdere tenants toegang tot uw directory (na heeft toestemming verleend), moet de company administrator de service-principal verwijderen. De beheerder moet globale beheerderstoegang hebt en kunt deze verwijderen via de Azure-portal of gebruik de [Azure AD PowerShell-Cmdlets](http://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## <a name="next-steps"></a>Volgende stappen
 - Zie voor meer informatie over de werking van verificatie in Azure AD [Verificatiescenario's voor Azure AD](authentication-scenarios.md).
-- Zie de [huisstijl richtlijnen voor geïntegreerde Apps](active-directory-branding-guidelines.md) voor tips over het visuele aanwijzingen voor uw app.
-- Zie voor meer informatie over de relatie tussen de toepassing en Service-Principal objecten van een toepassing [toepassing en Service-Principal-objecten](active-directory-application-objects.md).
+- Zie de [huisstijl richtlijnen voor geïntegreerde Apps](howto-add-branding-in-azure-ad-apps.md) voor tips over het visuele aanwijzingen voor uw app.
+- Zie voor meer informatie over de relatie tussen de toepassing en Service-Principal objecten van een toepassing [toepassing en Service-Principal-objecten](app-objects-and-service-principals.md).
 - Zie voor meer informatie over de rol van de app-manifest wordt afgespeeld, [inzicht in de Azure Active Directory-toepassingsmanifest](active-directory-application-manifest.md)
 - Zie de [woordenlijst voor ontwikkelaars van Azure AD](active-directory-dev-glossary.md) voor definities van de belangrijkste Azure AD-concepten voor ontwikkelaars.
 - Ga naar de [Ontwikkelaarshandleiding voor Active Directory](azure-ad-developers-guide.md) voor een overzicht van alle inhoud die relevant zijn voor ontwikkelaars.

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 587ae9f6452f85dee867047e47ccc272ee508b81
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 8b257a6f4c32b4013ac0478d82dc1f7f32675b9b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325187"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578157"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-using-the-speech-sdk"></a>Snelstartgids: Herkennen gesproken tekst in C# onder .NET Framework op Windows met behulp van de spraak-SDK
 
@@ -48,7 +48,7 @@ De toepassing is gemaakt met de [Microsoft Cognitive Services Speech SDK NuGet-p
 
     ![Installeer het NuGet-pakket Microsoft.CognitiveServices.Speech](media/sdk/qs-csharp-dotnet-windows-03-nuget-install-0.5.0.png "installeren Nuget-pakket")
 
-1. Accepteer de gebruiksrechtovereenkomst in het dialoogvenster dat wordt weergegeven.
+1. Accepteer de gebruiksrechtovereenkomst weergegeven.
 
     ![Accepteer de licentie](media/sdk/qs-csharp-dotnet-windows-04-nuget-license.png "gaat akkoord met de licentie")
 
@@ -76,7 +76,7 @@ In deze sectie maakt toevoegen u een nieuw platform aan de configuratie die over
 
 ## <a name="add-the-sample-code"></a>De voorbeeldcode toevoegen
 
-1. Open `Program.cs` in uw Visual Studio-project en vervang de code in dit bestand door het volgende.
+1. Open `Program.cs` en vervang de code in het door het volgende.
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 

@@ -1,6 +1,6 @@
 ---
-title: Een rondleiding via Analytics in Azure Application Insights | Microsoft Docs
-description: Korte voorbeelden van alle belangrijke query's in Analytics, een krachtige zoekprogramma van Application Insights.
+title: Een rondleiding langs Analytics in Azure Application Insights | Microsoft Docs
+description: Korte voorbeelden van alle belangrijkste query's in Analytics, de krachtige zoekfunctie van Application Insights.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -13,54 +13,54 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 8295abfae8d82a7c7762c6b27a8bac7487f6afff
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 470779f80e998c3908cf28328cfb415d98c5e06c
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36335278"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579252"
 ---
-# <a name="a-tour-of-analytics-in-application-insights"></a>Een rondleiding van Analytics in Application Insights
-[Analytics](app-insights-analytics.md) is de functie krachtige zoeken van [Application Insights](app-insights-overview.md). Deze pagina's worden de Log Analytics query language beschreven.
+# <a name="a-tour-of-analytics-in-application-insights"></a>Een rondleiding door analytische gegevens in Application Insights
+[Analytics](app-insights-analytics.md) is van de krachtige zoekfunctie van [Application Insights](app-insights-overview.md). Deze pagina's beschrijven de querytaal van Log Analytics.
 
-* **[Bekijk de video inleidende](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
-* **[Uitprobeert Analytics op onze gesimuleerde gegevens](https://analytics.applicationinsights.io/demo)**  als uw app wordt niet van gegevens naar Application Insights nog verzenden.
-* **[SQL-gebruikers cheats blad](https://aka.ms/sql-analytics)**  zet de meest voorkomende idioms.
+* **[Bekijk de inleidende video](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
+* **[Probeer de Analytics op onze gesimuleerde gegevens](https://analytics.applicationinsights.io/demo)**  als uw app wordt niet van gegevens naar Application Insights nog verzenden.
+* **[Overzichtskaart van SQL-gebruikers](https://aka.ms/sql-analytics)**  vertaalt de meest voorkomende idioms.
 
-We een stapsgewijze beschrijving van enkele eenvoudige query's om aan de slag te gaan.
+We gaan een beknopt overzicht van enkele eenvoudige query's aan de slag te gaan.
 
 ## <a name="connect-to-your-application-insights-data"></a>Verbinding maken met uw Application Insights-gegevens
 Analytics openen vanuit uw app [overzichtsblade](app-insights-dashboards.md) in Application Insights:
 
-![Open portal.azure.com open uw Application Insights-resource en klik op Analytics.](./media/app-insights-analytics-tour/001.png)
+![Portal.azure.com Open, open uw Application Insights-resource en klik op Analytics.](./media/app-insights-analytics-tour/001.png)
 
 ## <a name="takehttpsdocsloganalyticsiodocslanguage-referencetabular-operators-show-me-n-rows"></a>[Nemen](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators): n rijen weergeven
-Gegevenspunten die zich gebruiker operations (meestal HTTP-aanvragen ontvangen door uw web-app aanmelden) worden opgeslagen in een tabel met de naam `requests`. Elke rij is een telemetrie gegevenspunt ontvangen van de Application Insights-SDK in uw app.
+Gegevenspunten die gebruikersbewerkingen (meestal HTTP-aanvragen ontvangen door uw web-app) in een logboek worden opgeslagen in een tabel met de naam `requests`. Elke rij is een gegevenspunt voor telemetrie ontvangen van de Application Insights-SDK in uw app.
 
-Begin met het onderzoeken van een paar voorbeeld-rijen van de tabel:
+Laten we beginnen door een paar voorbeeldrijen van de tabel:
 
 ![resultaten](./media/app-insights-analytics-tour/010.png)
 
 > [!NOTE]
-> Plaats de cursor ergens in de instructie voordat u klikt op Start. U kunt een instructie verdelen over meer dan één regel, maar geen lege regels plaatsen in een instructie. Lege regels zijn een handige manier om te houden van meerdere afzonderlijke query's in het venster.
+> Plaats de cursor ergens in de instructie voordat u klikt op Start. U kunt een instructie splitsen op meer dan één regel, maar plaats geen lege regels in een instructie. Lege regels zijn een handige manier om te houden van meerdere afzonderlijke query's in het venster.
 >
 >
 
-Kolommen kiezen, sleept u deze groeperen op kolommen, en te filteren:
+Kolommen kiezen, versleept u ze groeperen op kolommen, en te filteren:
 
 ![Klik op de kolom selecteren in de rechterbovenhoek van de resultaten](./media/app-insights-analytics-tour/030.png)
 
-Vouw een item om de details:
+Vouw een item om te zien van de details:
 
-![Kies tabel en kolommen configureren gebruiken](./media/app-insights-analytics-tour/040.png)
+![Kies tabel en gebruiken van kolommen configureren](./media/app-insights-analytics-tour/040.png)
 
 > [!NOTE]
-> Klik op de koptekst van een kolom die de resultaten die beschikbaar zijn in de webbrowser opnieuw te rangschikken. Maar houd er rekening mee dat voor een grote resultatenset, het aantal rijen dat is gedownload naar de browser beperkt wordt. Sorteren op deze manier gewoon de geretourneerde resultatenset sorteert en komt niet altijd u de werkelijke hoogste of laagste items weergeven. U sorteert items betrouwbaar, gebruiken de `top` of `sort` operator.
+> Klik op de kop van een kolom die de resultaten die beschikbaar zijn in de webbrowser opnieuw te rangschikken. Maar houd er rekening mee dat voor een grote resultatenset, het aantal rijen dat is gedownload naar de browser beperkt wordt. Sorteren op deze manier hoeft de geretourneerde resultatenset sorteert en niet altijd u de werkelijke hoogste of laagste items weergeven. Als u wilt sorteren op betrouwbare wijze items, gebruikt u de `top` of `sort` operator.
 >
 >
 
-## <a name="query-across-applications"></a>Query uitvoeren op alle toepassingen
-Als u gegevens uit meerdere Application Insights-toepassingen wilt, gebruikt u de **app** trefwoord om op te geven van de toepassing samen met de naam van de tabel.  Deze query combineert de aanvragen van twee verschillende toepassingen met behulp van de **union** opdracht.
+## <a name="query-across-applications"></a>Query's uitvoeren voor toepassingen
+Als u combineren van gegevens uit meerdere Application Insights-toepassingen wilt, gebruikt u de **app** trefwoord om op te geven van de toepassing, samen met de naam van de tabel.  Deze query worden gecombineerd voor het aanvragen van twee verschillende toepassingen met behulp van de **union** opdracht.
 
 
 ```AIQL
@@ -70,34 +70,34 @@ Als u gegevens uit meerdere Application Insights-toepassingen wilt, gebruikt u d
 ```
 
 ## <a name="tophttpsdocsloganalyticsiodocslanguage-referencetabular-operatorstop-operator-and-sorthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssort-operator"></a>[Top](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/top-operator) en [sorteren](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/sort-operator)
-`take` is handig om een snel voorbeeld van een resultaat, maar er rijen uit de tabel wordt weergegeven in een willekeurige volgorde. Als u een geordende weergeven, gebruikt `top` (voor een voorbeeld) of `sort` (via de hele tabel).
+`take` is handig om een snel voorbeeld van een resultaat, maar hier ziet u rijen uit de tabel in willekeurige volgorde. Als u een geordende weergeven, gebruikt `top` (voor een voorbeeld) of `sort` (over de hele tabel).
 
-De eerste n rijen, geordend op een bepaalde kolom weergeven:
+De eerste n rijen zijn geordend op een bepaalde kolom weergeven:
 
 ```AIQL
 
     requests | top 10 by timestamp desc
 ```
 
-* *Syntaxis:* hebben de meeste operators sleutelwoord parameters, zoals `by`.
+* *Syntaxis:* meeste operators hebben sleutelwoord parameters zoals `by`.
 * `desc` aflopende volgorde = `asc` = oplopend.
 
 ![](./media/app-insights-analytics-tour/260.png)
 
-`top...` is een manier meer zodat de melding `sort ... | take...`. We kunnen schrijven:
+`top...` is een meer goed presterende manier uitspraak `sort ... | take...`. We kunnen hebt geschreven:
 
 ```AIQL
 
     requests | sort by timestamp desc | take 10
 ```
 
-Het resultaat zou zijn hetzelfde, maar deze zou iets langzamer uitgevoerd. (U kunt ook schrijven `order`, dit is een alias van `sort`.)
+Het resultaat zou zijn hetzelfde, maar het zou een en ander langzamer uitgevoerd. (U kunt ook schrijven `order`, dit is een alias van `sort`.)
 
-De kolomkoppen in de tabelweergave kunnen ook worden gebruikt om te sorteren van de resultaten op het scherm. Maar natuurlijk, als u hebt gebruikt `take` of `top` om op te halen, alleen deel uitmaken van een tabel, te klikken op de kolomkop wordt alleen opnieuw rangschikken de records die u hebt opgehaald.
+De kolomkoppen in de tabelweergave kunnen ook worden gebruikt om de resultaten op het scherm te sorteren. Maar natuurlijk, als u bekend bent met `take` of `top` om op te halen, alleen deel uitmaken van een tabel, te klikken op de kolomkop wordt alleen opnieuw rangschikken de records die u hebt opgehaald.
 
-## <a name="wherehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorswhere-operator-filtering-on-a-condition"></a>[Waar](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator): voor het filteren van een voorwaarde
+## <a name="wherehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorswhere-operator-filtering-on-a-condition"></a>[Waar](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/where-operator): filteren op een voorwaarde
 
-Laten we zien alleen aanvragen die een bepaalde resultaatcode geretourneerd:
+We gaan nu kijken alleen aanvragen die een bepaalde resultaatcode geretourneerd:
 
 ```AIQL
 
@@ -108,17 +108,17 @@ Laten we zien alleen aanvragen die een bepaalde resultaatcode geretourneerd:
 
 ![](./media/app-insights-analytics-tour/250.png)
 
-De `where` operator werkt met een Boole-expressie. Hier volgen enkele belangrijke punten hierover:
+De `where` operator wordt een Booleaanse expressie. Hier volgen enkele belangrijke punten over deze:
 
 * `and`, `or`: Booleaanse operators
-* `==`, `<>`, `!=` : gelijk en niet gelijk aan
-* `=~`, `!~` : niet-hoofdlettergevoelige tekenreeks gelijk en niet gelijk zijn. Er zijn veel meer tekenreeks vergelijkingsoperators.
+* `==`, `<>`, `!=` : gelijk zijn en niet gelijk aan
+* `=~`, `!~` : niet-hoofdlettergevoelige tekenreeks gelijk zijn aan en niet gelijk zijn. Er zijn veel meer tekenreeks vergelijkingsoperators.
 
 <!---Read all about [scalar expressions]().--->
 
 ### <a name="find-unsuccessful-requests"></a>Mislukte aanvragen zoeken
 
-Een string-waarde converteren naar een geheel getal groter gebruiken-dan vergelijking:
+Een string-waarde converteren naar een geheel getal en gebruik groter-dan vergelijking:
 
 ```AIQL
 
@@ -129,13 +129,13 @@ Een string-waarde converteren naar een geheel getal groter gebruiken-dan vergeli
 `resultCode` has type string, so we must cast it app-insights-analytics-reference.md#casts for a numeric comparison.
 --->
 
-## <a name="time"></a>Tijd
+## <a name="time"></a>Time
 
-Uw query's zijn standaard beperkt de laatste 24 uur. Maar u kunt dit bereik wijzigen:
+Standaard zijn uw query's beperkt tot de laatste 24 uur. Maar u kunt dit bereik wijzigen:
 
 ![](./media/app-insights-analytics-tour/change-time-range.png)
 
-Het tijdsbereik overschrijven door een query noemt schrijven `timestamp` in een component where. Bijvoorbeeld:
+Het tijdsbereik overschrijven door te schrijven van een query die wordt vermeld `timestamp` in een component where. Bijvoorbeeld:
 
 ```AIQL
 
@@ -145,9 +145,9 @@ Het tijdsbereik overschrijven door een query noemt schrijven `timestamp` in een 
     | top 5 by duration
 ```
 
-De functie voor het bereik is gelijk aan een component 'where' ingevoegd na elke vermelding van een van de brontabellen.
+De functie voor het bereik is gelijk aan een 'where'-component die na elke vermelding van een van de brontabellen ingevoegd.
 
-`ago(3d)` betekent 'drie dagen geleden'. Andere tijdseenheden uren bevatten (`2h`, `2.5h`), minuten (`25m`), en seconden (`10s`).
+`ago(3d)` betekent 'drie dagen geleden'. Andere tijdseenheden omvatten uur (`2h`, `2.5h`), minuten (`25m`), en seconden (`10s`).
 
 Andere voorbeelden:
 
@@ -180,7 +180,7 @@ Andere voorbeelden:
 
 
 ## <a name="projecthttpsdocsloganalyticsiodocslanguage-referencetabular-operatorsproject-operator-select-rename-and-compute-columns"></a>[Project](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator): selecteren en de namen van kolommen berekenen
-Gebruik [ `project` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator) te pikken kolommen u wilt:
+Gebruik [ `project` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/project-operator) om eruit te pikken alleen de kolommen die u wilt:
 
 ```AIQL
 
@@ -190,7 +190,7 @@ Gebruik [ `project` ](https://docs.loganalytics.io/docs/Language-Reference/Tabul
 
 ![](./media/app-insights-analytics-tour/240.png)
 
-U kunt ook wijzigen van kolommen en definiëren van nieuwe:
+U kunt ook namen van kolommen wijzigen en nieuwe definiëren:
 
 ```AIQL
 
@@ -203,14 +203,14 @@ U kunt ook wijzigen van kolommen en definiëren van nieuwe:
             ['time of day'] = floor(timestamp % 1d, 1s)
 ```
 
-![resultaat](./media/app-insights-analytics-tour/270.png)
+![Resultaat](./media/app-insights-analytics-tour/270.png)
 
-* Kolomnamen kunnen spaties bevatten of symbolen als ze zijn tussen zoals deze: `['...']` of `["..."]`
+* De namen van kolommen mag spaties bevatten of symbolen als ze zijn tussen zoals deze: `['...']` of `["..."]`
 * `%` is de gebruikelijke modulo operator.
-* `1d` (die wordt een cijfer, en vervolgens een had') is een letterlijke timespan wat betekent dat één dag. Hier volgen enkele meer timespan literals: `12h`, `30m`, `10s`, `0.01s`.
-* `floor` (alias `bin`) Rondt een waarde naar beneden op het dichtstbijzijnde meervoud van de basiswaarde die u opgeeft. Dus `floor(aTime, 1s)` per keer naar beneden op het dichtstbijzijnde tweede afgerond.
+* `1d` (die een cijfer, is een had') is een letterlijke timespan wat betekent dat één dag. Hier volgen enkele meer timespan letterlijke waarden: `12h`, `30m`, `10s`, `0.01s`.
+* `floor` (alias `bin`) rondt af naar een waarde naar het dichtstbijzijnde meervoud van de basiswaarde die u opgeeft. Dus `floor(aTime, 1s)` rondt af naar een tijdstip omlaag naar de dichtstbijzijnde seconde.
 
-Expressies kunnen bevatten de gebruikelijke operators (`+`, `-`,...), en er is een aantal handige functies.
+Expressies kunnen opnemen de gebruikelijke operators (`+`, `-`,...), en er is een bereik van handige functies.
 
 ## <a name="extend"></a>Breid uit
 Als u alleen kolommen toevoegen aan een bestaande wilt, gebruikt u [ `extend` ](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/extend-operator):
@@ -226,7 +226,7 @@ Met behulp van [ `extend` ](https://docs.loganalytics.io/docs/Language-Reference
 
 ### <a name="convert-to-local-time"></a>Converteren naar de lokale tijd
 
-Tijdstempels worden altijd in UTC. Dus als u bijvoorbeeld op de westkust ons Pacific winter is, kunt u als volgt:
+Tijdstempels zijn altijd in UTC. Dus als u op de oostkust ons Pacific en winterspelen is, de lokale tijd-8 uren van UTC is, kan als volgt:
 
 ```AIQL
 
@@ -235,10 +235,10 @@ Tijdstempels worden altijd in UTC. Dus als u bijvoorbeeld op de westkust ons Pac
     | extend localTime = timestamp - 8h
 ```
 
-## <a name="summarizehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssummarize-operator-aggregate-groups-of-rows"></a>[Overzicht van](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator): cumulatieve groepen rijen
-`Summarize` van toepassing is een opgegeven *aggregatiefunctie* via Rijgroepen koppelen.
+## <a name="summarizehttpsdocsloganalyticsiodocslanguage-referencetabular-operatorssummarize-operator-aggregate-groups-of-rows"></a>[Samenvatten](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/summarize-operator): Rijgroepen samenvoegen
+`Summarize` van toepassing is een opgegeven *statistische functie* via Rijgroepen.
 
-Bijvoorbeeld, de tijd die uw web-app nodig is om te reageren op een aanvraag wordt aangegeven in het veld `duration`. De gemiddelde reactietijd voor alle aanvragen laten we zien:
+Bijvoorbeeld, de tijd uw web-app nodig is om te reageren op een aanvraag wordt gerapporteerd in het veld `duration`. We gaan nu kijken de gemiddelde reactietijd voor alle aanvragen:
 
 ![](./media/app-insights-analytics-tour/410.png)
 
@@ -246,32 +246,32 @@ Of we het resultaat kan verdelen in aanvragen van verschillende namen:
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize` verzamelt de gegevenspunten in de stroom in groepen waarvan de `by` component evenveel evalueert. Elke waarde in de `by` - elke unieke naam van de bewerking in het bovenstaande voorbeeld - expressie resulteert in een rij in de resultaattabel.
+`Summarize` verzamelt de gegevenspunten in de stroom in groepen waarvan de `by` component even evalueert. Elke waarde in de `by` - elke unieke bewerkings-naam in het bovenstaande voorbeeld - expressie resulteert in een rij in de resultaattabel staan.
 
-Of we kan resultaten groeperen op tijd van de dag:
+Of er kan resultaten groeperen op tijd van de dag:
 
 ![](./media/app-insights-analytics-tour/430.png)
 
-U ziet hoe we maken gebruik van de `bin` functie (aka `floor`). Als we zojuist gebruikt `by timestamp`, elke rij invoer in een eigen weinig groep zou eindigen. Voor een continue scalaire als tijden of cijfers die we hebben continue reeks opdelen in een beheersbare aantal discrete waarden. `bin` -Dit is slechts de bekend afronden omlaag `floor` werken - is de eenvoudigste manier om u te doen.
+U ziet hoe gebruiken we de `bin` functie (ook wel `floor`). Als we net hebben gebruikt `by timestamp`, elke rij met invoer in een eigen groep weinig zou terechtkomen. Voor een continue scalaire als tijden of getallen, hebben we de continue reeks in een beheersbare aantal discrete waarden opsplitsen. `bin` -Dit is slechts de vertrouwde afronding omlaag `floor` functie - is de eenvoudigste manier om dat te doen.
 
-We kunnen dezelfde techniek gebruiken om te bereiken met tekenreeksen verminderen:
+We kunnen dezelfde techniek gebruiken voor het bereiken van tekenreeksen verminderen:
 
 ![](./media/app-insights-analytics-tour/440.png)
 
-Merk op dat u kunt `name=` instellen van de naam van een resultaatkolom in de statistische expressies of de component by.
+U ziet dat u kunt `name=` om in te stellen van de naam van een kolom met resultaten, in de statistische expressies of de component by.
 
 ## <a name="counting-sampled-data"></a>Voorbeeldgegevens tellen
-`sum(itemCount)` is de aanbevolen aggregatie voor het tellen van gebeurtenissen. In veel gevallen itemCount == 1, zodat de functie gewoon het aantal rijen in de groep telt. Maar wanneer [steekproeven](app-insights-sampling.md) is uitgevoerd, alleen een fractie van de oorspronkelijke gebeurtenissen worden bewaard als gegevenspunten in Application Insights, zodat er zijn voor elk gegevenspunt u ziet, `itemCount` gebeurtenissen.
+`sum(itemCount)` is de aanbevolen aggregatie voor het tellen van gebeurtenissen. In veel gevallen itemCount == 1, zodat de functie gewoon het aantal rijen in de groep telt. Maar wanneer [steekproeven](app-insights-sampling.md) is in werking slechts een fractie van de oorspronkelijke gebeurtenissen worden bewaard als gegevenspunten in Application Insights, zodat voor elk gegevenspunt u ziet, zijn er `itemCount` gebeurtenissen.
 
-Bijvoorbeeld, als steekproeven 75% van de oorspronkelijke gebeurtenissen en vervolgens de itemCount negeert == 4 in de terugkerende records - dat wil zeggen, voor elke record behouden, zijn er vier oorspronkelijke records.
+Bijvoorbeeld, als steekproeven 75% van de oorspronkelijke gebeurtenissen en klik vervolgens op itemCount negeert == 4 in de bewaarde records - dat wil zeggen, voor elke record behouden, zijn er vier oorspronkelijke records.
 
-Adaptieve steekproeven zorgt ervoor dat itemCount moet hoger tijdens perioden wanneer uw toepassing veel wordt gebruikt.
+Adaptieve steekproeven zorgt ervoor dat itemCount moet hoger zijn tijdens perioden wanneer uw toepassing veel wordt gebruikt.
 
-Berekening van het itemCount daarom resulteert in een goede indicatie van het oorspronkelijke aantal gebeurtenissen.
+ItemCount tellen daarom resulteert in een goede schatting van het oorspronkelijke aantal gebeurtenissen.
 
 ![](./media/app-insights-analytics-tour/510.png)
 
-Er is ook een `count()` aggregatie (en een aantal bewerking) voor gevallen waarin u echt wilt om het aantal rijen in een groep.
+Er is ook een `count()` aggregatie (en een aantal bewerking), voor gevallen waarin u echt wilt voor het tellen van het aantal rijen in een groep.
 
 Er is een bereik van [aggregatiefuncties](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions).
 
@@ -287,11 +287,11 @@ Standaard worden de resultaten weergegeven als een tabel:
 
 ![](./media/app-insights-analytics-tour/225.png)
 
-We kunt beter dan de tabelweergave doen. Bekijk de resultaten in de diagramweergave met de verticale balk optie:
+We kunnen doen beter dan de tabelweergave. Bekijk de resultaten in de diagramweergave met de verticale balk optie:
 
-![Klik op grafiek, kiest u verticaal staafdiagram en toewijzen x en y assen](./media/app-insights-analytics-tour/230.png)
+![Klik op grafiek, vervolgens kies verticale staafdiagram en toewijzen x en y assen](./media/app-insights-analytics-tour/230.png)
 
-U ziet dat hoewel we niet sorteer de resultaten door tijd (zoals u ziet in de weergave van de tabel), datum/tijd de grafiekweergave altijd weergegeven in de juiste volgorde.
+U ziet dat hoewel we niet de resultaten sorteren op tijd (zoals u ziet in de tabel weer te geven), datum/tijd in de weergave diagram altijd worden weergegeven in de juiste volgorde.
 
 
 ## <a name="timecharts"></a>Timecharts
@@ -304,9 +304,9 @@ Weergeven hoeveel gebeurtenissen er elk uur zijn:
         by bin(timestamp, 1h)
 ```
 
-Selecteer de optie van grafiek weergeven:
+Selecteer de optie lijndiagram weergeven:
 
-![timechart](./media/app-insights-analytics-tour/080.png)
+![tijdgrafiek](./media/app-insights-analytics-tour/080.png)
 
 ## <a name="multiple-series"></a>Meerdere reeksen
 Meerdere expressies in de `summarize` component maakt meerdere kolommen.
@@ -323,14 +323,14 @@ Meerdere expressies in de `by` component maakt meerdere rijen, één voor elke c
 
 ![Tabel met aanvragen per uur en locatie](./media/app-insights-analytics-tour/090.png)
 
-### <a name="segment-a-chart-by-dimensions"></a>Een grafiek segmenteren door dimensies
-Als u een tabel met een tekenreeks en een numerieke kolom grafiek, kan de tekenreeks voor numerieke gegevens splitsen in afzonderlijke reeks punten worden gebruikt. Als er meer dan een kolom met tekenreeksen, kunt u kiezen welke kolom moet worden gebruikt als de discriminator.
+### <a name="segment-a-chart-by-dimensions"></a>Een grafiek Segmenteer op dimensies
+Als u een tabel met een kolom met tekenreeksen en een numerieke kolom grafiek, kan de tekenreeks voor de numerieke gegevens splitsen in afzonderlijke reeks punten worden gebruikt. Als er meer dan één kolom met tekenreeksen, kunt u kiezen welke kolom moet worden gebruikt als de onderscheiding.
 
-![Een grafiek met segmenteren](./media/app-insights-analytics-tour/100.png)
+![Een grafiek met gebruiksanalyses segment](./media/app-insights-analytics-tour/100.png)
 
-#### <a name="bounce-rate"></a>Stuiteren snelheid
+#### <a name="bounce-rate"></a>Percentage geblokkeerd
 
-Een Booleaanse waarde niet converteren naar een tekenreeks als een discriminator te gebruiken:
+Een Booleaanse waarde converteren naar een tekenreeks die moet worden gebruikt als een onderscheiding:
 
 ```AIQL
 
@@ -347,14 +347,14 @@ Een Booleaanse waarde niet converteren naar een tekenreeks als een discriminator
 ```
 
 ### <a name="display-multiple-metrics"></a>Meerdere metrische gegevens weergeven
-Als u een tabel met meer dan een numerieke kolom naast de tijdstempel van grafiekgebied kunt u een combinatie van beide weergeven.
+Als u een tabel met meer dan een numerieke kolom, naast de tijdstempel van grafiek kunt u een combinatie hiervan kunt weergeven.
 
-![Een grafiek met segmenteren](./media/app-insights-analytics-tour/110.png)
+![Een grafiek met gebruiksanalyses segment](./media/app-insights-analytics-tour/110.png)
 
-U moet selecteren **niet splitsen** voordat u kunt meerdere numerieke kolommen selecteren. U kunt niet splitsen door een kolom met tekenreeksen op hetzelfde moment als meer dan een numerieke kolom om weer te geven.
+U moet selecteren **niet splitsen** voordat u kunt meerdere numerieke kolommen selecteren. U kunt niet splitsen door een kolom met tekenreeksen op hetzelfde moment als het weergeven van meer dan één van de numerieke kolommen.
 
 ## <a name="daily-average-cycle"></a>Dagelijkse gemiddelde cyclus
-Hoe informatie over het gebruik gedurende de dag van de gemiddelde variëren?
+Hoe verschilt gebruik gedurende de gemiddelde dag?
 
 Aantal aanvragen op dat moment modulo één dag voor binned in uren:
 
@@ -371,12 +371,12 @@ Aantal aanvragen op dat moment modulo één dag voor binned in uren:
 ![Lijndiagram van uren in een gemiddelde dag](./media/app-insights-analytics-tour/120.png)
 
 > [!NOTE]
-> U ziet dat momenteel we hebben tijdsduren converteren naar datum/tijd om in een lijndiagram weer te geven.
+> U ziet dat we momenteel hebben tijdsduren converteren naar datum/tijd om op een lijndiagram weer te geven.
 >
 >
 
 ## <a name="compare-multiple-daily-series"></a>Meerdere dagelijkse reeksen vergelijken
-Hoe informatie over het gebruik variëren via het tijdstip in andere landen?
+Hoe gebruik verschilt na verloop van de tijd van de dag in andere landen?
 
 ```AIQL
 
@@ -390,10 +390,10 @@ Hoe informatie over het gebruik variëren via het tijdstip in andere landen?
      | render timechart
 ```
 
-![Gesplitste door client_CountryOrRegion](./media/app-insights-analytics-tour/130.png)
+![Splitsen door client_CountryOrRegion](./media/app-insights-analytics-tour/130.png)
 
 ## <a name="plot-a-distribution"></a>Tekenen van een distributiepunt
-Hoeveel sessies zijn er van verschillende lengtes?
+Hoeveel sessies zijn er met verschillende lengtes?
 
 ```AIQL
 
@@ -408,14 +408,14 @@ Hoeveel sessies zijn er van verschillende lengtes?
     | project d = sessionDuration + datetime("2016-01-01"), count_
 ```
 
-De laatste regel is vereist voor het converteren naar datetime. Op dit moment wordt de x-as van een grafiek weergegeven als een scalaire alleen als het een datum/tijd.
+De laatste regel is moet worden geconverteerd naar datum/tijd vereist. Op dit moment wordt de x-as van een grafiek weergegeven als een scalaire alleen als het een datum/tijd.
 
-De `where` component eindresultaat sessies worden uitgesloten (sessionDuration == 0) en stelt u de lengte van de x-as.
+De `where` component niet van toepassing op eindresultaat sessies (sessionDuration == 0) en stelt u de lengte van de x-as.
 
 ![](./media/app-insights-analytics-tour/290.png)
 
 ## <a name="percentileshttpsdocsloganalyticsiodocslanguage-referenceaggregation-functionspercentiles"></a>[Percentielen](https://docs.loganalytics.io/docs/Language-Reference/Aggregation-functions/percentiles())
-Welke bereiken van duur hebben betrekking op verschillende percentages van sessies?
+Welke bereiken van de duur betrekking hebben op andere percentages van sessies?
 
 Gebruik de bovenstaande query, maar vervang de laatste regel:
 
@@ -431,17 +431,17 @@ Gebruik de bovenstaande query, maar vervang de laatste regel:
     | summarize percentiles(sesh, 5, 20, 50, 80, 95)
 ```
 
-We hebben ook de bovengrens verwijderd in de where-component, om op te halen van de juiste cijfers inclusief alle sessies met meer dan één verzoek:
+We hebben ook de bovengrens verwijderd in de where-component, om op te halen van de juiste cijfers, met inbegrip van alle sessies met meer dan één verzoek:
 
-![resultaat](./media/app-insights-analytics-tour/180.png)
+![Resultaat](./media/app-insights-analytics-tour/180.png)
 
 Waaruit zien we dat:
 
-* 5% van sessies hebben een duur van minder dan 3 minuten 34s;
-* 50% van sessies laatste minder dan 36 minuten;
-* 5% van sessies laatste meer dan 7 dagen
+* 5% van de sessies hebben een duur van minder dan 3 minuten 34s;
+* 50% van de sessies laatste minder dan 36 minuten;
+* 5% van de sessies laatst meer dan 7 dagen
 
-Als u een afzonderlijke verdeling voor elk land, we zojuist hebben om de kolom client_CountryOrRegion afzonderlijk via beide geven een overzicht operators:
+Als u een afzonderlijke specificatie voor elk land, we net hebben om Samenvatting de kolom client_CountryOrRegion afzonderlijk via beide operators:
 
 ```AIQL
 
@@ -458,10 +458,10 @@ Als u een afzonderlijke verdeling voor elk land, we zojuist hebben om de kolom c
 
 ![](./media/app-insights-analytics-tour/190.png)
 
-## <a name="join"></a>Lid worden
+## <a name="join"></a>Koppelen
 We hebben toegang tot verschillende tabellen, inclusief aanvragen en uitzonderingen.
 
-Als u de uitzonderingen die betrekking hebben op een aanvraag die is geretourneerd foutantwoord zoekt, kunnen we de tabellen samenvoegen op `session_Id`:
+Als u de uitzonderingen die betrekking hebben op een aanvraag die is geretourneerd foutantwoord zoekt, kunnen we de tabellen samenvoegen op `operation_Id`:
 
 ```AIQL
 
@@ -472,8 +472,8 @@ Als u de uitzonderingen die betrekking hebben op een aanvraag die is geretournee
 ```
 
 
-Het is raadzaam om gebruik van `project` selecteren van kolommen moet voordat u de join uitvoert.
-In de dezelfde kunnen we de naam van de timestamp-kolom.
+Het is raadzaam om te gebruiken `project` selecteert alleen de kolommen die we nodig hebt voordat u de join.
+In de dezelfde componenten wijzigen we de timestamp-kolom.
 
 ## <a name="lethttpsdocsloganalyticsiodocslanguage-referencequery-statementslet-statement-assign-a-result-to-a-variable"></a>[Laat](https://docs.loganalytics.io/docs/Language-Reference/Query-statements/Let-statement): een resultaat toewijzen aan een variabele
 
@@ -490,10 +490,10 @@ Gebruik `let` voor het scheiden van de onderdelen van de vorige expressie. De re
 ```
 
 > [!Tip] 
-> Plaats geen lege regels tussen de onderdelen van de query in de Analytics-client. Zorg ervoor dat u alle functies van it.
+> Plaats geen lege regels tussen de onderdelen van de query in de Analytics-client. Zorg ervoor dat u alles.
 >
 
-Gebruik `toscalar` één tabelcel converteren naar een waarde:
+Gebruik `toscalar` één cel converteren naar een waarde:
 
 ```AIQL
 let topCities =  toscalar (
@@ -522,10 +522,10 @@ Gebruik *laten* voor het definiëren van een functie:
     | extend PST = usdate(timestamp-8h)
 ```
 
-## <a name="accessing-nested-objects"></a>Het openen van geneste objecten
-Geneste objecten gemakkelijk toegankelijk. Bijvoorbeeld, in de stroom uitzonderingen ziet u gestructureerde objecten als volgt:
+## <a name="accessing-nested-objects"></a>Toegang tot geneste objecten
+Geneste objecten kunnen eenvoudig worden geopend. Bijvoorbeeld, in de stroom uitzonderingen ziet u gestructureerde objecten als volgt:
 
-![resultaat](./media/app-insights-analytics-tour/520.png)
+![Resultaat](./media/app-insights-analytics-tour/520.png)
 
 U kunt deze afvlakken door het kiezen van de eigenschappen die u geïnteresseerd bent in:
 
@@ -539,7 +539,7 @@ Houd er rekening mee dat u wilt converteren van het resultaat dat het juiste typ
 
 
 ## <a name="custom-properties-and-measurements"></a>Aangepaste eigenschappen en metingen
-Als uw toepassing koppelt [aangepaste dimensies (eigenschappen) en aangepaste metingen](app-insights-api-custom-events-metrics.md#properties) op gebeurtenissen die vervolgens worden deze weergegeven in de `customDimensions` en `customMeasurements` objecten.
+Als uw toepassing [aangepaste dimensies (eigenschappen) en aangepaste metingen](app-insights-api-custom-events-metrics.md#properties) op gebeurtenissen die vervolgens worden deze weergegeven in de `customDimensions` en `customMeasurements` objecten.
 
 Bijvoorbeeld, als uw app bevat:
 
@@ -552,7 +552,7 @@ Bijvoorbeeld, als uw app bevat:
     telemetryClient.TrackEvent("myEvent", dimensions, measurements);
 ```
 
-Uitpakken van deze waarden in Analytics:
+Deze waarden in Analytics extraheren:
 
 ```AIQL
 
@@ -561,7 +561,7 @@ Uitpakken van deze waarden in Analytics:
       m1 = todouble(customMeasurements.m1) // cast to expected type
 ```
 
-Controleren of een aangepaste dimensie van een bepaald type is:
+Om te controleren of een aangepaste dimensie van een bepaald type is:
 
 ```AIQL
 
@@ -572,7 +572,7 @@ Controleren of een aangepaste dimensie van een bepaald type is:
 
 ### <a name="special-characters"></a>Speciale tekens
 
-Voor de id's met speciale tekens of trefwoorden in hun naam, moet u toegang tot deze via `['` en `']` of met behulp van `["` en `"]`.
+Voor id's met speciale tekens of trefwoorden voor de taal in hun namen, moet u toegang tot deze via `['` en `']` of met behulp van `["` en `"]`.
 
 ```AIQL
 
@@ -580,19 +580,19 @@ Voor de id's met speciale tekens of trefwoorden in hun naam, moet u toegang tot 
     | extend p2d2 = customDimensions.['p2.d2'], ...
 ```
 
-[Naamgevingsregels voor id verwijst naar](https://docs.loganalytics.io/docs/Learn/References/Naming-principles)
+[Naamgevingsregels voor ID-verwijzing](https://docs.loganalytics.io/docs/Learn/References/Naming-principles)
 
 ## <a name="dashboards"></a>Dashboards
-U kunt uw resultaten aan een dashboard vastmaken om het samenbrengen van uw belangrijkste grafieken en tabellen.
+Als u wilt samenbrengen van uw belangrijkste grafieken en tabellen kunt u de resultaten aan een dashboard vastmaken.
 
-* [Azure gedeelde dashboard](app-insights-dashboards.md#share-dashboards): klik op het pictogram pincode. Voordat u dit doet, moet u een gedeelde dashboard hebben. Open in de Azure-portal of een dashboard maken en klikt u op delen.
-* [Power BI-dashboard](app-insights-export-power-bi.md): klik op exporteren, Power BI Query. Een voordeel van dit alternatief is dat u uw query samen met andere resultaten van een breed scala van gegevensbronnen kunt weergeven.
+* [Azure-gedeelde dashboard](app-insights-dashboards.md#share-dashboards): klik op het pictogram vastmaken. Voordat u dit doet, moet u een gedeeld dashboard hebben. In de Azure-portal openen of maken van een dashboard en klik op delen.
+* [Power BI-dashboard](app-insights-export-power-bi.md): klikt u op exporteren, Power BI Query. Een voordeel van dit alternatief is dat u uw query samen met andere resultaten uit een breed scala van bronnen kunt weergeven.
 
-## <a name="combine-with-imported-data"></a>Gecombineerd met de geïmporteerde gegevens
+## <a name="combine-with-imported-data"></a>Combineer met geïmporteerde gegevens
 
-Analytics-rapporten perfect op het dashboard, maar soms wilt u de gegevens aan een formulier hapklare te converteren. Stel bijvoorbeeld dat uw geverifieerde gebruikers worden geïdentificeerd in de telemetrie door een alias. U wilt weergeven van de namen van de echte in uw resultaten. Om dit te doen, moet u een CSV-bestand dat is toegewezen vanuit de aliassen aan de werkelijke namen.
+Analyserapporten perfect op het dashboard, maar soms wilt u de gegevens aan een formulier hapklare te vertalen. Stel bijvoorbeeld dat uw geverifieerde gebruikers worden geïdentificeerd in de telemetrie door een alias. U wilt om hun echte namen in de resultaten weer te geven. Om dit te doen, moet u een CSV-bestand dat is toegewezen vanuit de aliassen aan de werkelijke namen.
 
-U kunt een bestand importeren en gebruiken net als de standaardtabellen (aanvragen, uitzonderingen, enzovoort). U kunt deze query uitvoeren op een eigen of deel hieraan met andere tabellen. Bijvoorbeeld, als u een tabel met de naam usermap hebt en er kolommen `realName` en `userId`, kunt u deze gebruiken om te vertalen naar de `user_AuthenticatedId` veld in de aanvraagtelemetrie:
+U kunt een bestand importeren en gebruiken deze net als bij een van de standaard tabellen (aanvragen, uitzonderingen, enzovoort). U kunt deze query uit op een eigen of voeg deze toe met andere tabellen. Bijvoorbeeld, als u een tabel met de naam usermap hebt en er kolommen `realName` en `userId`, kunt u deze gebruiken om te vertalen de `user_AuthenticatedId` veld in de aanvraagtelemetrie:
 
 ```AIQL
 
@@ -605,16 +605,16 @@ U kunt een bestand importeren en gebruiken net als de standaardtabellen (aanvrag
     | summarize count() by realName
 ```
 
-Voor het importeren van een tabel in de blade Schema onder **andere gegevensbronnen**, volg de instructies voor het toevoegen van een nieuwe gegevensbron door het uploaden van een steekproef van uw gegevens. Vervolgens kunt u deze definitie voor het uploaden van tabellen.
+Voor het importeren van een tabel in de blade Schema onder **andere gegevensbronnen**, volg de instructies voor het toevoegen van een nieuwe gegevensbron door een voorbeeld van uw gegevens worden geüpload. Vervolgens kunt u deze definitie voor het uploaden van tabellen.
 
-De functie is momenteel in preview, zodat u in eerste instantie ziet een koppeling 'Contact met ons opnemen' onder "Andere gegevensbronnen." Gebruik deze voor het aanmelden voor de preview-programma en de koppeling vervolgens worden vervangen door een knop 'Een nieuwe gegevensbron toevoegen'.
+De functie is momenteel in preview, wordt in eerste instantie ziet u een koppeling 'Contact met ons opnemen' onder "Andere gegevensbronnen." Gebruik deze optie voor het aanmelden bij de preview-programma en de koppeling wordt vervolgens vervangen door een knop 'Nieuwe gegevensbron toevoegen'.
 
 
 ## <a name="tables"></a>Tabellen
-De stroom van telemetrie van uw app ontvangt, is toegankelijk via verschillende tabellen. Het schema van de eigenschappen die beschikbaar zijn voor elke tabel is aan de linkerkant van het venster zichtbaar.
+De stroom van telemetrie ontvangen van uw app is toegankelijk via verschillende tabellen. Het schema van de eigenschappen die beschikbaar zijn voor elke tabel is zichtbaar aan de linkerkant van het venster.
 
-### <a name="requests-table"></a>Tabel aanvragen
-Aantal HTTP-aanvragen op uw web-app en het segment met de paginanaam:
+### <a name="requests-table"></a>Tabel ' Requests '
+Aantal HTTP-aanvragen naar uw web-app en het segment met de paginanaam:
 
 ![Aantal aanvragen gesegmenteerd op naam](./media/app-insights-analytics-tour/analytics-count-requests.png)
 
@@ -622,10 +622,10 @@ De aanvragen die niet voldoen aan de meeste zoeken:
 
 ![Aantal aanvragen gesegmenteerd op naam](./media/app-insights-analytics-tour/analytics-failed-requests.png)
 
-### <a name="custom-events-table"></a>Aangepaste gebeurtenissentabel
-Als u [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) voor het verzenden van uw eigen gebeurtenissen kunt u ze lezen uit deze tabel.
+### <a name="custom-events-table"></a>Aangepaste gebeurtenissen-tabel
+Als u [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent) voor het verzenden van uw eigen gebeurtenissen, kunt u ze lezen uit deze tabel.
 
-We nemen een voorbeeld waarin uw app-code deze regels bevat:
+We nemen een voorbeeld waarin code van de app deze regels bevat:
 
 ```csharp
 
@@ -638,50 +638,50 @@ We nemen een voorbeeld waarin uw app-code deze regels bevat:
 
 De frequentie van deze gebeurtenissen worden weergegeven:
 
-![Aantal aangepaste gebeurtenissen weergeven](./media/app-insights-analytics-tour/analytics-custom-events-rate.png)
+![Het aantal aangepaste gebeurtenissen weergeven](./media/app-insights-analytics-tour/analytics-custom-events-rate.png)
 
 Pak metingen en dimensies van de gebeurtenissen:
 
-![Aantal aangepaste gebeurtenissen weergeven](./media/app-insights-analytics-tour/analytics-custom-events-dimensions.png)
+![Het aantal aangepaste gebeurtenissen weergeven](./media/app-insights-analytics-tour/analytics-custom-events-dimensions.png)
 
-### <a name="custom-metrics-table"></a>Tabel met aangepaste metrische gegevens
-Als u [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) voor het verzenden van uw eigen metrische waarden vindt u de resultaten in de **customMetrics** stroom. Bijvoorbeeld:  
+### <a name="custom-metrics-table"></a>Aangepaste metrische gegevenstabel
+Als u [TrackMetric()](app-insights-api-custom-events-metrics.md#trackmetric) voor het verzenden van uw eigen metrische waarden, vindt u de resultaten in de **customMetrics** stream. Bijvoorbeeld:  
 
 ![Aangepaste metrische gegevens in Application Insights analytics](./media/app-insights-analytics-tour/analytics-custom-metrics.png)
 
 > [!NOTE]
-> In [Metrics Explorer](app-insights-metrics-explorer.md), alle aangepaste metingen die zijn gekoppeld aan elk type telemetrie samen voorkomen in de blade metrische gegevens samen met metrische gegevens die zijn verzonden met behulp van `TrackMetric()`. Maar in Analytics, aangepaste metingen nog steeds gekoppeld aan wat voor soort telemetrie ze werden uitgevoerd op - gebeurtenissen of aanvragen, enzovoort -terwijl metrische gegevens die zijn verzonden door TrackMetric worden weergegeven in hun eigen stroom.
+> In [Metrics Explorer](app-insights-metrics-explorer.md), alle aangepaste metingen die zijn gekoppeld aan elk type telemetrie samen voorkomen in de blade met metrische gegevens samen met metrische gegevens verzonden met behulp van `TrackMetric()`. Maar in Analytics, aangepaste metingen nog steeds zijn gekoppeld aan wat voor soort telemetrie ze werden uitgevoerd op - gebeurtenissen of aanvragen, enzovoort -terwijl metrische gegevens die zijn verzonden door TrackMetric worden weergegeven in hun eigen stream.
 >
 >
 
 ### <a name="performance-counters-table"></a>Prestaties tellers tabel
-[Prestatiemeteritems](app-insights-performance-counters.md) u basissysteem metrische gegevens voor uw app, zoals CPU, geheugen, weergeven en netwerkgebruik. U kunt de SDK voor het verzenden van extra items, met inbegrip van uw eigen aangepaste tellers configureren.
+[Prestatiemeteritems](app-insights-performance-counters.md) laten u basissysteem metrische gegevens voor uw app, zoals CPU, geheugen, en netwerkgebruik. U kunt de SDK voor het verzenden van extra items, inclusief uw eigen aangepaste prestatiemeteritems configureren.
 
-De **performanceCounters** schema beschrijft de `category`, `counter` naam, en `instance` naam van elk prestatiemeteritem. Namen van exemplaren zijn alleen van toepassing op sommige prestatiemeters en geven doorgaans aan de naam van het proces waarmee het aantal is gekoppeld. In de telemetrie voor elke toepassing ziet u alleen de items voor die toepassing. Bijvoorbeeld, als u wilt zien zijn welke items beschikbaar:
+De **performanceCounters** schema wordt aangegeven dat de `category`, `counter` naam, en `instance` naam van elk prestatiemeteritem. Namen van prestatiemeteritems exemplaar zijn alleen van toepassing op bepaalde prestatiemeteritems en geven doorgaans aan de naam van het proces waarmee het aantal is gekoppeld. In de telemetrie voor elke toepassing ziet u alleen de items voor de toepassing. Bijvoorbeeld, als u wilt zien zijn welke items beschikbaar:
 
-![Prestatiemeters in Application Insights analytics](./media/app-insights-analytics-tour/analytics-performance-counters.png)
+![Prestatiemeteritems in Application Insights analytics](./media/app-insights-analytics-tour/analytics-performance-counters.png)
 
-Een grafiek van het beschikbare geheugen voor de geselecteerde periode ophalen:
+Een grafiek van het beschikbare geheugen in de geselecteerde periode ophalen:
 
-![Geheugen timechart in Application Insights analytics](./media/app-insights-analytics-tour/analytics-available-memory.png)
+![Geheugen tijdgrafiek in Application Insights analytics](./media/app-insights-analytics-tour/analytics-available-memory.png)
 
-Zoals u andere telemetrie **performanceCounters** heeft ook een kolom `cloud_RoleInstance` die aangeeft dat de identiteit van de hostcomputer waarop uw app wordt uitgevoerd. Als u bijvoorbeeld wilt vergelijken de prestaties van uw app in de verschillende machines:
+Andere telemetrie, zoals **performanceCounters** heeft ook een kolom `cloud_RoleInstance` die aangeeft dat de identiteit van de hostcomputer waarop uw app wordt uitgevoerd. Als u bijvoorbeeld kunnen de prestaties van uw app op verschillende computers:
 
 ![Prestaties gesegmenteerd op rolinstantie in Application Insights analytics](./media/app-insights-analytics-tour/analytics-metrics-role-instance.png)
 
 ### <a name="exceptions-table"></a>Uitzonderingentabel
 [Uitzonderingen die zijn gerapporteerd door uw app](app-insights-asp-net-exceptions.md) zijn beschikbaar in deze tabel.
 
-Als u wilt zoeken in de HTTP-aanvragen dat uw app is in behandeling wanneer de uitzondering is gegenereerd, aanmelden op operation_Id:
+Als u zoekt de HTTP-aanvraag dat uw app is in behandeling wanneer de uitzondering is opgetreden, deelnemen aan op operation_Id:
 
-![Uitzonderingen met aanvragen operation_Id koppelen](./media/app-insights-analytics-tour/analytics-exception-request.png)
+![Neem deel aan uitzonderingen met aanvragen op operation_Id](./media/app-insights-analytics-tour/analytics-exception-request.png)
 
 ### <a name="browser-timings-table"></a>Browser tijdsinstellingen tabel
-`browserTimings` toont de pagina laden gegevens verzameld in browsers van uw gebruikers.
+`browserTimings` pagina laden gegevens die zijn verzameld in browsers van uw gebruikers bevat.
 
-[Instellen van uw app voor clientzijde telemetrie](app-insights-javascript.md) om te zien van deze metrische gegevens.
+[Stelt u de app voor client-side telemetrie](app-insights-javascript.md) als u wilt deze metrische gegevens bekijken.
 
-Het schema bevat [metrische gegevens die wijzen op de lengte van de verschillende stadia van de pagina laadproces](app-insights-javascript.md#page-load-performance). (Ze geven de tijdsduur die uw gebruikers een pagina lezen.)  
+Het schema bevat [metrische gegevens die wijzen op de lengte van de verschillende stadia van de pagina tijdens het laden](app-insights-javascript.md#page-load-performance). (Ze niet duiden op de tijdsduur dat uw gebruikers een pagina lezen.)  
 
 De popularities van verschillende pagina's weergeven en tijden voor elke pagina te laden:
 
@@ -693,7 +693,7 @@ De popularities van verschillende pagina's weergeven en tijden voor elke pagina 
 ![Laadtijden voor pagina's in Analytics](./media/app-insights-analytics-tour/analytics-availability.png)
 
 ### <a name="dependencies-table"></a>Afhankelijkheden tabel
-Resultaten van aanroepen dat uw app databases en REST-API's maakt en andere naar TrackDependency() aanroepen bevat. Tevens AJAX-aanroepen vanuit de browser.
+Resultaten van aanroepen dat uw app voor databases en REST-API's maakt en andere naar TrackDependency() aanroepen bevat. Daarnaast AJAX-aanroepen vanuit de browser.
 
 AJAX-aanroepen vanuit de browser:
 
@@ -703,7 +703,7 @@ AJAX-aanroepen vanuit de browser:
     | take 10
 ```
 
-Het aanroepen van de afhankelijkheden van de server:
+Afhankelijkheidsaanroepen van de server:
 
 ```AIQL
 
@@ -727,6 +727,6 @@ Geavanceerde query's:
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Naslaggids voor Analytics](app-insights-analytics-reference.md)
-* [SQL-gebruikers cheats blad](https://aka.ms/sql-analytics) zet de meest voorkomende idioms.
+* [Overzichtskaart van SQL-gebruikers](https://aka.ms/sql-analytics) vertaalt de meest voorkomende idioms.
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]

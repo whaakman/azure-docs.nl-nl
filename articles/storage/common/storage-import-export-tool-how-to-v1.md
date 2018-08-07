@@ -1,41 +1,35 @@
 ---
-title: Met het hulpprogramma Azure Import/Export - v1 | Microsoft Docs
-description: Informatie over het gebruik van het hulpprogramma voor importeren/exporteren voor het voorbereiden van harde schijven voor een import-taak, een import-taak herstellen of herstellen van een taak voor het exporteren.
+title: Het hulpprogramma Azure Import/Export - v1 | Microsoft Docs
+description: Informatie over het gebruik van het hulpprogramma Import/Export voorbereiden van harde schijven voor een importtaak, een importtaak herstellen of een exporttaak herstellen.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: f77535bb-d577-438a-bdd3-e15a82e0c543
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 1/15/2017
 ms.author: muralikk
-ms.openlocfilehash: 4ce2273cc0dcc456c2edc8c5dd2fc22496f20380
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 90b5697da0f134ccb3c9ddb66b5da138c8849189
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873686"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523407"
 ---
-# <a name="using-the-azure-importexport-tool-classic-deployment-model"></a>Hulpprogramma voor het Azure Import/Export (klassieke implementatiemodel)
+# <a name="using-the-azure-importexport-tool-classic-deployment-model"></a>Met behulp van de Azure Import/Export-hulpprogramma (klassieke implementatiemodel)
 
-Het Azure Import/Export-hulpprogramma (WAImportExport.exe) wordt gebruikt voor het maken en beheren van taken voor de Azure Import/Export-service, zodat u kunt brengen grote hoeveelheden gegevens van of naar Azure Blob Storage.
+De Azure Import/Export-hulpprogramma (WAImportExport.exe) wordt gebruikt om taken voor de Azure Import/Export-service maken en beheren zodat u grote hoeveelheden gegevens overdragen van of naar Azure Blob Storage.
 
-Deze documentatie is voor het klassieke implementatiemodel van het Azure Import/Export-hulpprogramma. Zie voor meer informatie over het gebruik van de meest recente versie van het hulpprogramma [hulpprogramma voor het Azure Import/Export](../storage-import-export-tool-how-to.md).
+Deze documentatie is voor het klassieke implementatiemodel van het Azure Import/Export-hulpprogramma. Zie voor meer informatie over het gebruik van de meest recente versie van het hulpprogramma [met behulp van het hulpprogramma Azure Import/Export](../storage-import-export-tool-how-to.md).
 
-De volgende artikelen laten zien hoe u naar:
+De volgende artikelen laten u zien hoe aan:
 
-- Installeren en instellen van het hulpprogramma voor importeren/exporteren.
-- Bereid uw harde schijven voor een taak waar u gegevens van uw schijven naar Azure Blob Storage importeren.
-- Controleer de status van een taak met logboekbestanden kopiëren. 
-- Herstellen van een import-taak. 
+- Installeren en instellen van het hulpprogramma Import/Export.
+- Voorbereiden van uw harde schijven voor een taak waar u gegevens uit uw schijven naar Azure Blob Storage importeren.
+- Controleer de status van een taak met de logboekbestanden kopiëren. 
+- Een importtaak herstellen. 
 - Een exporttaak herstellen. 
-- Problemen met het Azure Import/Export-hulpprogramma voor het geval er een probleem opgetreden tijdens het. 
+- Problemen met het hulpprogramma Azure Import/Export in het geval u er een probleem tijdens het proces. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Instellen van het hulpprogramma WAImportExport](../storage-import-export-tool-how-to.md)
+* [Het hulpprogramma WAImportExport instellen](../storage-import-export-tool-how-to.md)

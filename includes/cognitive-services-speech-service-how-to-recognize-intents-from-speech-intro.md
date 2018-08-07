@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/27/2018
 ms.author: wolfma
-ms.openlocfilehash: a3cbfc3677c5b1a19b83a82da9bcd6bed3108152
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 79dc1fe9fffd8c44c97cf68a12bb90655b672577
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346246"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577977"
 ---
 <!-- N.B. no header, language-agnostic -->
 
-De [spraak SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) biedt een manier voor het herkennen van **intents van gesproken inhoud**, aangedreven door de Speech-service en de [Language Understanding-service (LUIS)](https://luis.ai).
+De [spraak SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) biedt een manier voor het herkennen van **intents van gesproken inhoud**, aangedreven door de Speech-service en de [Language Understanding-service (LUIS)](https://www.luis.ai/home).
 
 1. Maken van een factory spraak, bieden de abonnementssleutel van een Language Understanding-service en [regio](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition). De abonnementssleutel van Language Understanding-service wordt aangeroepen **eindpuntsleutel** in de documentatie van de service. U kunt de sleutel ontwerpen Language Understanding-service niet gebruiken. Zie ook de **Opmerking** hieronder.
 

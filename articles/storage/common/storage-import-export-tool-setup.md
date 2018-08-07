@@ -1,63 +1,57 @@
 ---
-title: Instellen van de Azure-hulpprogramma voor importeren/exporteren | Microsoft Docs
-description: Informatie over het instellen van de voorbereiding van het station en het hulpprogramma voor de Azure Import/Export-service voor het repareren.
+title: Instellen van het hulpprogramma Azure Import/Export | Microsoft Docs
+description: Informatie over het instellen van de voorbereiding van het station en het hulpprogramma voor de Azure Import/Export-service.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
-ms.openlocfilehash: 6b5febd051d0b956c90cb14c260dda1881adac3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: c122d4bc0091eade90c2491c5893f7a2f5c9f455
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873924"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526875"
 ---
-# <a name="setting-up-the-azure-importexport-tool"></a>Instellen van de Azure-hulpprogramma voor importeren/exporteren
+# <a name="setting-up-the-azure-importexport-tool"></a>De Azure Import/Export-hulpprogramma instellen
 
-Het hulpprogramma voor importeren/exporteren van Microsoft Azure is het station voorbereiding hulpprogramma en herstel die u met de Microsoft Azure Import/Export-service gebruiken kunt. U kunt het hulpprogramma gebruiken voor de volgende functies:
+Het Microsoft Azure Import/Export-hulpprogramma is het station voorbereiding hulpprogramma en herstel die u met de Microsoft Azure Import/Export-service gebruiken kunt. U kunt het hulpprogramma gebruiken voor de volgende functies:
 
-* Voordat u een import-taak maakt, kunt u dit hulpprogramma gebruiken om gegevens te kopiëren naar de harde schijven die u wilt verzenden naar een Azure-Datacenter.
-* Nadat een import-taak is voltooid, kunt u dit hulpprogramma kunt gebruiken om te herstellen van alle bestaande blobs zijn beschadigd, ontbreekt of het conflict met andere blobs.
-* Nadat u de stations van een voltooide exporttaak ontvangt, kunt u dit hulpprogramma kunt gebruiken om te herstellen van bestanden die beschadigd of ontbreken op de stations zijn.
+* Voordat u een import-taak maakt, kunt u dit hulpprogramma gegevens kopiëren naar de harde schijven die u wilt verzenden naar een Azure-Datacenter.
+* Nadat een import-taak is voltooid, kunt u dit hulpprogramma gebruiken om te herstellen van alle bestaande blobs die zijn beschadigd, ontbreekt of het conflict met andere blobs.
+* Nadat u de schijven van een voltooide exporttaak ontvangt, kunt u dit hulpprogramma kunt gebruiken om te herstellen van bestanden die beschadigd of ontbreekt op de stations zijn.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u **voorbereiden stations** voor een import-taak, de volgende vereisten moeten worden voldaan:
+Als u **schijven voorbereiden** voor een importtaak, de volgende vereisten wordt voldaan:
 
 * U moet een actief Azure-abonnement hebben.
-* Uw abonnement vergezeld gaan van een opslagaccount met voldoende beschikbare ruimte voor het opslaan van de bestanden die u gaat importeren.
-* U moet ten minste één van de toegangssleutels voor opslag-account.
-* U moet een computer (de ' kopie-machine') met Windows 7, Windows Server 2008 R2 of een nieuwere Windows-besturingssysteem geïnstalleerd.
+* Uw abonnement moet bevatten van een opslagaccount met voldoende beschikbare ruimte voor het opslaan van de bestanden die u wilt importeren.
+* U moet ten minste één van de toegangssleutels van het storage-account.
+* U moet een computer (de ' machine voor de kopie') met Windows 7, Windows Server 2008 R2 of een nieuwere Windows-besturingssysteem die is geïnstalleerd.
 * .NET Framework 4 moet worden geïnstalleerd op de computer kopiëren.
-* BitLocker moet zijn ingeschakeld op de computer kopiëren.
-* U moet een of meer 2,5-inch of 3.5-inch SATA of III of SSD harde schijven gekoppeld aan de machine kopiëren leeg.
+* BitLocker moet zijn ingeschakeld op de machine kopiëren.
+* U moet een of meer leeg 2,5-inch of 3,5-inch SATA of III of SSD harde schijven die zijn verbonden met de machine kopiëren.
 * De bestanden die u van plan bent om te importeren moet toegankelijk zijn vanaf de computer kopiëren of ze zich op een netwerkshare of een lokale vaste schijf.
 
-Als u te probeert **herstellen van een import** die is gedeeltelijk mislukt, moet u:
+Als u te probeert **herstellen van een import** die gedeeltelijk is mislukt, moet u:
 
-* De logboekbestanden kopiëren
-* De sleutel van het opslagaccount
+* De kopie-logboekbestanden
+* De opslagaccountsleutel
 
-Als u te probeert **herstellen exporteren van een** die is gedeeltelijk mislukt, moet u:
+Als u te probeert **exporteren van een herstel** die gedeeltelijk is mislukt, moet u:
 
-* De logboekbestanden kopiëren
+* De kopie-logboekbestanden
 * De manifest-bestanden (optioneel)
-* De sleutel van het opslagaccount
+* De opslagaccountsleutel
 
-## <a name="installing-the-azure-importexport-tool"></a>Installeren van het hulpprogramma Azure Import/Export
+## <a name="installing-the-azure-importexport-tool"></a>Installatie van het hulpprogramma Azure Import/Export
 
-Eerst [downloaden van de Azure-hulpprogramma voor importeren/exporteren](https://www.microsoft.com/download/details.aspx?id=55280) en pak het bestand naar een map op uw computer, bijvoorbeeld `c:\WAImportExport`.
+Eerste, [downloaden van het hulpprogramma Azure Import/Export](https://www.microsoft.com/download/details.aspx?id=55280) en pak het bestand naar een map op uw computer, bijvoorbeeld `c:\WAImportExport`.
 
-De Azure-hulpprogramma voor importeren/exporteren bestaat uit de volgende bestanden:
+Het hulpprogramma Azure Import/Export bestaat uit de volgende bestanden:
 
 * DataSet.csv
 * driveset.csv
@@ -74,9 +68,9 @@ De Azure-hulpprogramma voor importeren/exporteren bestaat uit de volgende bestan
 * WAImportExportRepair.dll
 * WAImportExportRepair.pdb
 
-Open een opdrachtpromptvenster in vervolgens **beheerdersmodus**, en in de map waarin de uitgepakte bestanden te wijzigen.
+Open een opdrachtpromptvenster in vervolgens **beheerdersmodus**, en in de map met de uitgepakte bestanden te wijzigen.
 
-Help uitvoer voor de opdracht, voert u het hulpprogramma (`WAImportExport.exe`) zonder parameters:
+Help voor de opdracht, voert u het hulpprogramma uitvoer (`WAImportExport.exe`) zonder parameters:
 
 ```
 WAImportExport, a client tool for Windows Azure Import/Export Service. Microsoft (c) 2013

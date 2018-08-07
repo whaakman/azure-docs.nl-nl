@@ -1,9 +1,9 @@
 ---
-title: Upgrade naar standaardcategorie voor verbeterde beveiliging van Security Center | Microsoft Docs
+title: Een upgrade uitvoeren naar Standard van Security Center-prijscategorie voor verbeterde beveiliging | Microsoft Docs
 description: In dit artikel bevat informatie over prijzen voor Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 4d1364cd-7847-425a-bb3a-722cb0779f78
@@ -12,59 +12,59 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/19/2017
-ms.author: terrylan
-ms.openlocfilehash: 0a8fb526602692db6737842c24649b686bea5dad
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.date: 08/06/2018
+ms.author: rkarlin
+ms.openlocfilehash: 824362c5dab9f226aff84e75b6620221d3a9147f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/20/2017
-ms.locfileid: "23931917"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528474"
 ---
-# <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Een upgrade uitvoert naar standaardcategorie voor verbeterde beveiliging van Security Center
-Azure Security Center biedt geïntegreerde beveiligingsbewaking en geavanceerde threat protection voor workloads die worden uitgevoerd in Azure, on-premises en in andere clouds. Levert zichtbaarheid en controle over de hybride cloudwerkbelastingen, actieve beveiliging die de blootstelling aan bedreigingen en intelligente detectie om te blijven met voortdurend veranderende cyberbeveiliging aanvallen te verminderen.
+# <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Een upgrade uitvoert naar Standard van Security Center-prijscategorie voor verbeterde beveiliging
+Azure Security Center biedt geïntegreerd beveiligingsbeheer en geavanceerde bedreigingsbeveiliging voor werkbelastingen die worden uitgevoerd in Azure, on-premises en in andere clouds. Het biedt zichtbaarheid en controle over hybride cloudworkloads, actieve beveiliging die de blootstelling aan bedreigingen en Slimme detectie om te laten groeien met zich snel ontwikkelende cyberaanvallen verminderen.
 
 ## <a name="pricing-tiers"></a>Prijscategorieën
 Security Center wordt aangeboden in twee lagen:
 
-- De **vrije** laag is automatisch ingeschakeld op alle Azure-abonnementen en biedt beveiligingsbeleid, beoordeling van de continue veiligheid en bruikbare beveiligingsaanbevelingen voor hulp bij het beveiligen van uw Azure-resources.
-- De **standaard** laag breidt de voorzieningen van de laag gratis werkbelastingen in privé- en andere openbare clouds, bieden eenduidige beheer en de bedreiging van beveiliging via de werkbelasting van uw hybride cloud. De prijscategorie Standard voegt ook advanced threat detectiemogelijkheden, die gebruikmaakt van ingebouwde gedragsanalyses en machine learning voor het identificeren van aanvallen en zero-day-exploits, toegangs- en -besturingselementen om te beperken van blootstelling aan netwerkaanvallen en schadelijke software, en meer. De prijscategorie Standard is voor de eerste 60 dagen gratis.
+- De **gratis** laag is automatisch ingeschakeld op alle Azure-abonnementen, en biedt beveiligingsbeleid, continue beveiligingsevaluatie en bruikbare beveiligingsaanbevelingen om u te helpen beschermen van uw Azure-resources.
+- De **Standard** laag breidt de mogelijkheden van de gratis laag voor werkbelastingen die worden uitgevoerd in een privé- en andere openbare clouds, beveiliging en bedreigingsbeveiliging en bescherming bieden unified voor uw hybride cloudworkloads. De Standard-laag wordt ook toegevoegd advanced threat detectiemogelijkheden, die gebruikmaakt van ingebouwde gedragsanalyses en machine learning om te identificeren van aanvallen en zero day-aanvallen, toegangs- en toepassingsbesturingselementen om te beperken van blootstelling aan netwerkaanvallen en schadelijke software, en meer. De prijscategorie Standard is gedurende de eerste 60 dagen gratis.
 
 Zie voor meer informatie het Security Center [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="try-standard-free-for-60-days"></a>Standaard 60 dagen gratis proberen
-De Standard-laag wordt gedurende de eerste 60 dagen gratis aangeboden. Aan het einde van 60 dagen, moet u kiezen om door te gaan met de service, wordt automatisch gestart in rekening gebracht voor gebruik.
+## <a name="try-standard-free-for-60-days"></a>Standaard 60 dagen gratis uitproberen
+De Standard-laag wordt gedurende de eerste 60 dagen gratis aangeboden. Aan het einde van 60 dagen, moet u kiezen om door te gaan met de service, wordt automatisch gestart kosten in rekening gebracht voor gebruik.
 
-U kunt een volledige Azure-abonnement upgraden naar de prijscategorie Standard, die wordt overgenomen door alle resources binnen het abonnement, of u kunt een uniek beleid om bij te werken alleen een specifieke resourcegroep definiëren.
+U kunt een hele Azure-abonnement upgraden naar de laag standaard, die wordt overgenomen door alle resources binnen het abonnement.
 
-De prijscategorie Standard ophalen:
+Ophalen van de Standard-laag:
 
-1. Selecteer **beveiligingsbeleid** op de **Security Center** hoofdmenu.
-2. Selecteer het abonnement dat u wilt bijwerken naar Standard.
-3. Op de **beveiligingsbeleid** blade Selecteer **prijscategorie**.
-4. Selecteer **standaard** om bij te werken.
+1. Selecteer **beveiligingsbeleid** op de **Security Center** in het hoofdmenu.
+2. Selecteer het abonnement dat u wilt upgraden naar Standard.
+3. Op de **beveiligingsbeleid** Selecteer **prijscategorie**.
+4. Selecteer **Standard** om bij te werken.
 5. Klik op **Opslaan**.
 
 ![Beveiligingsincident][1]
 
 > [!NOTE]
-> Alle Security Center als functies wilt inschakelen, moet u de Standard-prijscategorie voor het abonnement of resourcegroep met de betreffende virtuele machines toepassen. Configureren van de prijzen voor een werkruimte kunnen niet alleen bij het VM-time-toegang, adaptieve toepassing besturingselementen en detecties netwerk voor Azure-resources.
+> Als u wilt alle Security Center-functies inschakelen, moet u de prijscategorie voor het abonnement of resourcegroep die de desbetreffende virtuele machines bevat standaard toepassen. Configureren van de prijzen voor een werkruimte is niet ingeschakeld just-in-time-VM-toegang, besturingselementen voor adaptieve toepassingen en detecties met een netwerk voor Azure-resources.
 >
 >
 
-## <a name="why-upgrade-to-standard"></a>Waarom bijwerken naar Standard?
-Security Center biedt verbeterde beveiliging en bescherming van de bedreiging voor uw hybride cloud-werkbelastingen, waaronder:
+## <a name="why-upgrade-to-standard"></a>Waarom een upgrade uitvoeren naar Standard?
+Security Center biedt verbeterde beveiliging en bedreigingsbeveiliging voor uw hybride cloudworkloads, met inbegrip van:
 
-- **Hybride beveiliging** – een uniform overzicht krijgen van de beveiliging voor alle uw on-premises en in de cloud werkbelastingen. Toepassen van beveiligingsbeleid en de beveiliging van uw hybride cloud-workloads in overeenstemming met beveiligingsstandaarden continu beoordelen. Verzamel, zoek en analyseer beveiligingsgegevens van verschillende bronnen, inclusief firewalls en andere oplossingen van partners.
-- **Geavanceerde detectie van dreigingen** -geavanceerde analyses en het Intelligent beveiliging voor Microsoft Graph een edge ophalen via de zich ontwikkelende cyberbeveiliging aanvallen gebruiken.  Maak gebruik van de ingebouwde gedragsanalyses en machine learning om aanvallen en zero-day exploits te identificeren. Controleer netwerken, computers en cloudservices op inkomende aanvallen en activiteiten na het schenden van de beveiliging. Stroomlijn het onderzoek met interactieve hulpprogramma's en contextuele bedreigingsinformatie.
-- **Toegangs- en -besturingselementen** -blok malware en andere ongewenste toepassingen door het toepassen van aanbevelingen whitelisting aangepast aan uw specifieke werkbelastingen en aangedreven door machine learning. Beperk uw netwerk kwetsbaarheid met just-in-time, beheerde toegang tot beheerpoorten op Azure Virtual machines, drastisch te verminderen blootstelling aan brute force en andere netwerkaanvallen.
+- **Hybride beveiliging** : ophalen van een overzicht van beveiliging voor al uw on-premises en cloudworkloads. Beveiligingsbeleid toepassen en constant in de beveiliging van uw hybride cloudworkloads om te voldoen aan de beveiligingsstandaarden. Verzamel, zoek en analyseer beveiligingsgegevens van verschillende bronnen, inclusief firewalls en andere oplossingen van partners.
+- **Geavanceerde detectie van bedreigingen** -gebruik Geavanceerd analyses en de Microsoft Intelligent Security Graph om op te halen van een rand over de zich ontwikkelende cyberaanvallen.  Maak gebruik van de ingebouwde gedragsanalyses en machine learning om aanvallen en zero-day exploits te identificeren. Controleer netwerken, computers en cloudservices op inkomende aanvallen en activiteiten na het schenden van de beveiliging. Stroomlijn het onderzoek met interactieve hulpprogramma's en contextuele bedreigingsinformatie.
+- **Toegangs- en toepassingsbesturingselementen** -Blokkeer malware en andere ongewenste toepassingen door het toepassen van aanbevelingen voor opname in de whitelist aangepast aan uw specifieke workloads en gebruikmaken van machine learning. Verminder het oppervlak voor netwerkaanvallen met just-in-time, gecontroleerde toegang tot beheerpoorten op Azure Virtual machines, blootgesteld aan beveiligingsaanvallen en andere netwerkaanvallen drastisch wordt gereduceerd.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel kunt u kennisgemaakt prijzen voor Security Center. Zie voor meer informatie over de prijscategorie Standard verbeterde beveiliging en geavanceerde threat protection:
+In dit artikel hebt u kennisgemaakt prijzen voor Security Center. Zie voor meer informatie over de verbeterde beveiliging van de Standard-laag en de advanced threat protection:
 
 - [Geavanceerde detectie van bedreigingen](security-center-threat-report.md)
-- [Alleen bij het VM-toegangsbeheer tijd](security-center-just-in-time.md)
+- [Just-in-time VM-toegangsbeheer](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/get-standard.png

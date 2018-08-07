@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: b792798c64ed0a2eb12a16d868d8a17302466fea
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 053e72ce81f69b267c72ded572e8912a1a09d2e6
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215353"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579694"
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure Cosmos DB
@@ -448,7 +448,7 @@ Azure Cosmos DB is een SLA-systeem waarmee latentie, doorvoer, beschikbaarheid e
 
 ## <a name="develop-against-the-graph-api"></a>Ontwikkelen met betrekking tot de Graph API
 ### <a name="how-can-i-apply-the-functionality-of-graph-api-to-azure-cosmos-db"></a>Hoe kan ik toepassen op de functionaliteit van de Graph API met Azure Cosmos DB?
-U kunt een extensiebibliotheek gebruiken om toe te passen van de functionaliteit van de Graph API. Deze bibliotheek heet grafieken van Microsoft Azure, en deze beschikbaar is op NuGet. 
+U kunt een extensiebibliotheek gebruiken om toe te passen van de functionaliteit van de Graph API. Deze bibliotheek heet grafieken van Microsoft Azure, en deze beschikbaar is op [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs). 
 
 ### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>Het lijkt erop dat u de Gremlin graph-traversal taal ondersteunen. Bent u van plan om toe te voegen meer soorten query?
 Ja, we van plan bent om toe te voegen andere methoden voor de query in de toekomst. 

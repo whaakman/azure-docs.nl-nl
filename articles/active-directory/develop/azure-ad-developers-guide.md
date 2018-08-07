@@ -16,12 +16,12 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 6c3148f6ca9e538d2fed3467ba5d2129e123c7fd
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 41fdf1a61538e43ef17eee2937273f56a4538b76
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502281"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577200"
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory voor ontwikkelaars
 
@@ -43,9 +43,9 @@ De volgende handleidingen begeleiden u bij het maken van een app op het platform
 | --- | --- | --- | --- |
 | <center>![Mobiele en bureaubladapps](./media/azure-ad-developers-guide/NativeApp_Icon.png)<br />Mobiele en bureaubladapps</center> | [Overzicht](authentication-scenarios.md#native-application-to-web-api)<br /><br />[iOS](quickstart-v1-ios.md)<br /><br />[Android](quickstart-v1-android.md) | [.NET (WPF)](quickstart-v1-dotnet.md)<br /><br />[Xamarin](quickstart-v1-xamarin.md) |
 | <center>![Web-apps](./media/azure-ad-developers-guide/Web_app.png)<br />Web-apps</center> | [Overzicht](authentication-scenarios.md#web-browser-to-web-application)<br /><br />[ASP.NET](quickstart-v1-aspnet-webapp.md)<br /><br />[Java](https://github.com/Azure-Samples/active-directory-java-webapp-openidconnect) | [Python](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)<br/><br/> [Node.js](quickstart-v1-openid-connect-code.md) |
-| <center>![Apps met één pagina](./media/azure-ad-developers-guide/SPA.png)<br />Apps met één pagina</center> | [Overzicht](authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](active-directory-devquickstarts-angular.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |
-| <center>![Web-API's](./media/azure-ad-developers-guide/Web_API.png)<br />Web-API's</center> | [Overzicht](authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](active-directory-devquickstarts-webapi-dotnet.md)<br /><br />[Node.js](active-directory-devquickstarts-webapi-nodejs.md) | &nbsp; |
-| <center>![Service naar service](./media/azure-ad-developers-guide/Service_App.png)<br />Service naar service</center> | [Overzicht](authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](active-directory-code-samples.md#daemon-applications-accessing-web-apis-with-the-applications-identity)|  |
+| <center>![Apps met één pagina](./media/azure-ad-developers-guide/SPA.png)<br />Apps met één pagina</center> | [Overzicht](authentication-scenarios.md#single-page-application-spa)<br /><br />[AngularJS](quickstart-v1-angularjs-spa.md)<br /><br />[JavaScript](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |  |
+| <center>![Web-API's](./media/azure-ad-developers-guide/Web_API.png)<br />Web-API's</center> | [Overzicht](authentication-scenarios.md#web-application-to-web-api)<br /><br />[ASP.NET](quickstart-v1-dotnet-webapi.md)<br /><br />[Node.js](quickstart-v1-nodejs-webapi.md) | &nbsp; |
+| <center>![Service naar service](./media/azure-ad-developers-guide/Service_App.png)<br />Service naar service</center> | [Overzicht](authentication-scenarios.md#daemon-or-server-application-to-web-api)<br /><br />[.NET](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)|  |
 |  |  |  |  |  |
 
 ## <a name="how-to-guides"></a>Handleidingen
@@ -54,8 +54,8 @@ Deze handleidingen behandelen een paar van de meest voorkomende taken in Azure A
 |                                                                           |  |
 |---------------------------------------------------------------------------| --- |
 |[Een toepassing registreren](quickstart-v1-integrate-apps-with-azure-ad.md)           | Een toepassing registreren in Azure AD. |
-|[Toepassingen voor meerdere tenants](active-directory-devhowto-multi-tenant-overview.md)    | Aanmelden bij een Microsoft-werkaccount. |
-|[OAuth- en OpenID Connect-protocollen](active-directory-protocols-openid-connect-code.md)| Het aanmelden van gebruikers en aanroepen van web-API's met de Microsoft-verificatieprotocollen. |
+|[Toepassingen voor meerdere tenants](howto-convert-app-to-be-multi-tenant.md)    | Aanmelden bij een Microsoft-werkaccount. |
+|[OAuth- en OpenID Connect-protocollen](v1-protocols-openid-connect-code.md)| Het aanmelden van gebruikers en aanroepen van web-API's met de Microsoft-verificatieprotocollen. |
 |  |  |
 
 ## <a name="reference-topics"></a>Onderwerpen met naslaginformatie
@@ -64,7 +64,7 @@ De volgende artikelen bieden gedetailleerde informatie over API's, protocolberic
 |                                                                                   | |
 | ----------------------------------------------------------------------------------| --- |
 | [Verificatiebibliotheken (ADAL)](active-directory-authentication-libraries.md)   | Een overzicht van de bibliotheken en SDK's die worden geleverd door Azure AD. |
-| [Codevoorbeelden](active-directory-code-samples.md)                                  | Een lijst met alle Azure AD-codevoorbeelden. |
+| [Codevoorbeelden](sample-v1-code.md)                                  | Een lijst met alle Azure AD-codevoorbeelden. |
 | [Woordenlijst](active-directory-dev-glossary.md)                                      | Termen en definities van woorden die in deze documenten worden gebruikt. |
 |  |  |
 

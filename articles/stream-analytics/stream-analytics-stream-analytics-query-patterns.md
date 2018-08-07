@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 4a37ac6cdf5d13556c6a3e293c19c00ad36e4495
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 7f171fa1eb8c91b55119d0308b57fe3d3e70261b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364162"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578888"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Voorbeelden van algemene patronen voor het gebruik van Stream Analytics query
 
@@ -25,10 +25,9 @@ Ontwerp van de query kan eenvoudige Pass Through-logica voor het verplaatsen van
 
 In dit artikel bevat een overzicht van oplossingen voor enkele veelvoorkomende querypatronen, op basis van echte scenario's. Het mee bezig is en moet worden bijgewerkt met nieuwe patronen regelmatig blijft.
 
-## <a name="work-with-complex-data-types-in-json-and-avro"></a>Werken met complexe gegevenstypen in JSON en AVRO 
+## <a name="work-with-complex-data-types-in-json-and-avro"></a>Werken met complexe gegevenstypen in JSON en Avro 
 Azure Stream Analytics ondersteunt verwerking van gebeurtenissen in de opmaak van CSV, JSON en Avro-gegevens.
-JSON- en Avro mag complexe typen zoals geneste objecten (records) of matrices zijn. Om te kunnen werken met deze complexe gegevenstypen, Raadpleeg de [MSDN-pagina waarin wordt uitgelegd hoe u werkt met complexe gegevenstypen in JSON en AVRO pagina](
-https://msdn.microsoft.com/azure/stream-analytics/reference/complex-data-types-stream-analytics).
+JSON- en Avro mag complexe typen zoals geneste objecten (records) of matrices zijn. Als u wilt werken met deze complexe gegevenstypen, raadpleegt de [gegevens parseren van JSON en AVRO](stream-analytics-parsing-json.md) artikel.
 
 
 ## <a name="query-example-convert-data-types"></a>Voorbeeld: gegevenstypen converteren

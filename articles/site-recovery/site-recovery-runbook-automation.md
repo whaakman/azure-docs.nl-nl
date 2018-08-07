@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: e9a1dfc6aa26246db5322a8f4491ab2a5bccfcf5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 55160f3c43d8cbfc5f8b3e6aaf26bcb911387c52
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917690"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578762"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Azure Automation-runbooks aan herstelplannen toevoegen
 In dit artikel wordt beschreven hoe Azure Site Recovery kan worden geïntegreerd met Azure Automation kunt u uw herstelplannen uitbreiden. Plannen voor herstel kunnen gecoördineerd herstel van virtuele machines die zijn beveiligd met Site Recovery. Plannen voor herstel werkt zowel voor replicatie naar een secundaire cloud, en voor replicatie naar Azure. Plannen voor herstel ook helpen met het herstel **accuraat**, **herhaalbare**, en **geautomatiseerde**. Als u uw virtuele machines naar Azure failover, een uitbreiding voor integratie met Azure Automation uw plannen voor herstel. U kunt deze gebruiken voor het uitvoeren van runbooks, deze bieden een krachtige geautomatiseerde taken.
@@ -196,7 +196,7 @@ Maak voor elk plan voor herstel, onafhankelijke variabelen zodat u het script op
 
 U hebt een scenario waarin u wilt dat één script om in te schakelen op een openbaar IP-adres op specifieke virtuele machines. In een ander scenario wilt u mogelijk verschillende nsg's toepassen op verschillende VM's (niet op alle virtuele machines). U kunt een script dat opnieuw kan worden gebruikt voor een plan voor herstel. Elke herstelplan kan een variabele aantal virtuele machines hebben. Een SharePoint-herstelbewerking heeft bijvoorbeeld twee front-ends. Een eenvoudige line-of-business (LOB)-toepassing heeft slechts één front-end. U kunt geen afzonderlijke variabelen voor elk plan voor herstel maken.
 
-In het volgende voorbeeld wordt er gebruik van een nieuwe techniek en maak een [complexe variabele](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396) in de activa van Azure Automation-account. U doen dit door meerdere waarden op te geven. U moet Azure PowerShell gebruiken om de volgende stappen uit:
+In het volgende voorbeeld wordt er gebruik van een nieuwe techniek en maak een [complexe variabele](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureautomationvariable) in de activa van Azure Automation-account. U doen dit door meerdere waarden op te geven. U moet Azure PowerShell gebruiken om de volgende stappen uit:
 
 1. In PowerShell, moet u zich aanmelden bij uw Azure-abonnement:
 

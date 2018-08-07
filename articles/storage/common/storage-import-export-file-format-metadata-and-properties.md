@@ -1,30 +1,24 @@
 ---
-title: Azure Import/Export metagegevens en eigenschappen bestandsindeling | Microsoft Docs
-description: Informatie over het opgeven van metagegevens en eigenschappen voor een of meer blobs die deel uitmaken van een importeren of exporteren van de taak.
+title: Azure Import/Export-eigenschappen en metagegevens bestandsindeling | Microsoft Docs
+description: Leer hoe u metagegevens en eigenschappen voor een of meer blobs die deel uitmaken van een importeren of exporteren van de taak op te geven.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 840364c6-d9a8-4b43-a9f3-f7441c625069
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 3f728ad94cdcbd32092b677f11a737ae91376720
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 5a886244b43ad006a95e9be0350d9c69fd987ad9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873651"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526229"
 ---
-# <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Azure Import/Export-service metagegevens en eigenschappen bestandsindeling
-U kunt de eigenschappen voor een of meer blobs en metagegevens als onderdeel van een import-taak of een taak voor exporteren opgeven. Metagegevens of eigenschappen voor BLOB's worden gemaakt als onderdeel van een import-taak, stelt opgeven u een bestand eigenschappen of metagegevens op de harde schijf met de gegevens moeten worden geïmporteerd. Voor een exporttaak worden metagegevens en eigenschappen geschreven naar een bestand eigenschappen of metagegevens die is opgenomen op de harde schijf die aan u worden geretourneerd.  
+# <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Azure Import/Export-service eigenschappen en metagegevens bestandsindeling
+U kunt de eigenschappen voor een of meer blobs en metagegevens opgeven als onderdeel van een import-taak of een exporttaak bekijken. Om in te stellen metagegevens of eigenschappen voor blobs als onderdeel van een import-taak wordt gemaakt, bieden u een bestand met metagegevens of eigenschappen op de harde schijf met de gegevens die kunnen worden geïmporteerd. Voor een exporttaak bekijken, worden eigenschappen en metagegevens geschreven naar een bestand metagegevens of eigenschappen die is opgenomen op de harde schijf die aan u worden geretourneerd.  
   
-## <a name="metadata-file-format"></a>Bestandsindeling voor metagegevens  
+## <a name="metadata-file-format"></a>Bestandsindeling van metagegevens  
 De indeling van een bestand met metagegevens is als volgt:  
   
 ```xml
@@ -38,10 +32,10 @@ De indeling van een bestand met metagegevens is als volgt:
   
 |XML-Element|Type|Beschrijving|  
 |-----------------|----------|-----------------|  
-|`Metadata`|Hoofdelement|Het hoofdelement van het bestand met metagegevens.|  
-|`metadata-name`|Tekenreeks|Optioneel. Het XML-element bevat de naam van de metagegevens voor de blob en de waarde geeft de waarde van de instelling voor metagegevens.|  
+|`Metadata`|Root-element|Het hoofdelement van het bestand met metagegevens.|  
+|`metadata-name`|Reeks|Optioneel. Het XML-element Hiermee geeft u de naam van de metagegevens voor de blob en de waarde bevat de waarde van de instelling van de metagegevens.|  
   
-## <a name="properties-file-format"></a>Eigenschappen-bestandsindeling  
+## <a name="properties-file-format"></a>Bestandsindeling van eigenschappen  
 De indeling van een eigenschappenbestand is als volgt:  
   
 ```xml
@@ -60,16 +54,16 @@ De indeling van een eigenschappenbestand is als volgt:
   
 |XML-Element|Type|Beschrijving|  
 |-----------------|----------|-----------------|  
-|`Properties`|Hoofdelement|Het hoofdelement van het eigenschappenbestand.|  
-|`Last-Modified`|Tekenreeks|Optioneel. Tijd laatste wijziging voor de blob. Voor exporttaken.|  
-|`Etag`|Tekenreeks|Optioneel. De ETag-waarde van de blob. Voor exporttaken.|  
-|`Content-Length`|Tekenreeks|Optioneel. De grootte van de blob in bytes. Voor exporttaken.|  
-|`Content-Type`|Tekenreeks|Optioneel. Het inhoudstype van de blob.|  
-|`Content-MD5`|Tekenreeks|Optioneel. De blob-MD5-hash.|  
-|`Content-Encoding`|Tekenreeks|Optioneel. De blob-inhoud codering.|  
-|`Content-Language`|Tekenreeks|Optioneel. Inhoud van de blob-taal.|  
-|`Cache-Control`|Tekenreeks|Optioneel. De cache-control-tekenreeks voor de blob.|  
+|`Properties`|Root-element|Het hoofdelement van het eigenschappenbestand.|  
+|`Last-Modified`|Reeks|Optioneel. Het tijdstip laatst gewijzigd voor de blob. Voor alleen voor export-taken.|  
+|`Etag`|Reeks|Optioneel. De ETag-waarde van de blob. Voor alleen voor export-taken.|  
+|`Content-Length`|Reeks|Optioneel. De grootte van de blob in bytes. Voor alleen voor export-taken.|  
+|`Content-Type`|Reeks|Optioneel. Het inhoudstype van de blob.|  
+|`Content-MD5`|Reeks|Optioneel. MD5-hash van de blob.|  
+|`Content-Encoding`|Reeks|Optioneel. De inhoud van de blob-codering.|  
+|`Content-Language`|Reeks|Optioneel. Inhoud van de blob-taal.|  
+|`Cache-Control`|Reeks|Optioneel. De cache-control-tekenreeks voor de blob.|  
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie [blob-eigenschappen instellen](/rest/api/storageservices/set-blob-properties), [Blobmetagegevens ingesteld](/rest/api/storageservices/set-blob-metadata), en [instelling en het bij het ophalen van eigenschappen en metagegevens voor blob-bronnen](/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) voor gedetailleerde informatie over het instellen van eigenschappen en blobmetagegevens-regels.
+Zie [blob-eigenschappen instellen](/rest/api/storageservices/set-blob-properties), [Blobmetagegevens ingesteld](/rest/api/storageservices/set-blob-metadata), en [instelling en bij het ophalen van de eigenschappen en metagegevens voor blob-bronnen](/rest/api/storageservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) voor gedetailleerde regels over de metagegevens van de instelling voor blob en eigenschappen.

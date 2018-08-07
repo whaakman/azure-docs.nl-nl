@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a29379492f4ffd662244c3e42de321f47be13d9f
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 2b0f2b864c5c29e9804239d06afdf23708e52828
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436970"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579609"
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Uw Automation-account bijwerken met Uitvoeren als-accounts 
 In de volgende gevallen kunt u een bestaand Automation-account bijwerken vanuit Azure Portal of met PowerShell:
@@ -289,5 +289,5 @@ Selecteer in de Azure portal, **abonnementen** en kies het abonnement van uw Aut
 Selecteer de service-principal toevoegen aan een resourcegroep, de resourcegroep in Azure portal en selecteer **toegangsbeheer (IAM)**. Selecteer **toevoegen**, Hiermee opent u de **machtigingen toevoegen** pagina. Voor **rol**, selecteer **Inzender**. In de **Selecteer** tekstvak Typ de naam van de service-principal voor uw uitvoeren als-account in en selecteert u deze in de lijst. Klik op **Opslaan** om de wijzigingen op te slaan. Doe dit voor de resourcegroepen die u wilt uw Azure Automation uitvoeren als-service-principal toegang te geven.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over Service-Principals [toepassing en Service-Principal-objecten](../active-directory/active-directory-application-objects.md).
+* Zie voor meer informatie over Service-Principals [toepassing en Service-Principal-objecten](../active-directory/develop/app-objects-and-service-principals.md).
 * Zie voor meer informatie over certificaten en Azure-services, [overzicht van certificaten voor Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).

@@ -6,14 +6,14 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/25/2018
+ms.date: 8/6/2018
 ms.author: saurse
-ms.openlocfilehash: a1c9df57ddebbb1cf471f705acfbd6651c151d7b
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: ddde297de49edb5f6543d03dfdb972771533301b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247275"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576182"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Met het Resource Manager implementatiemodel bestanden herstellen op een Windows-server of Windows-clientcomputer
 
@@ -51,6 +51,8 @@ Als u per ongeluk een bestand verwijderd en u herstellen op dezelfde computer wi
 4. Op de **Selecteer herstelmodus** deelvenster Kies **afzonderlijke bestanden en mappen** en klik vervolgens op **volgende**.
 
     ![Door bestanden bladeren](./media/backup-azure-restore-windows-server/samemachine_selectrecoverymode_instantrestore.png)
+> [!IMPORTANT]
+> De optie om terug te zetten *afzonderlijke bestanden en mappen* vereist .NET Framework 4.5.2 of hoger. Als u niet ziet de *afzonderlijke bestanden en mappen* optie, moet u .NET Framework upgraden naar versie 4.5.2 of hoger en probeer het opnieuw.
 
 5. Op de **Selecteer Volume en datum** deelvenster, selecteert u het volume met de bestanden en/of mappen die u wilt herstellen.
 
@@ -67,7 +69,7 @@ Als u per ongeluk een bestand verwijderd en u herstellen op dezelfde computer wi
     ![Opties voor herstel](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
 
-8. Kopieer de bestanden en/of mappen die u wilt herstellen en plak ze naar een locatie die lokaal op de server of de computer in Windows Verkenner. U kunt openen of de bestanden rechtstreeks vanuit het herstelvolume streamen en controleer of dat de juiste versies worden hersteld.
+8. Kopieer de bestanden en/of mappen die u wilt herstellen en plak ze naar een locatie die lokaal op de server of de computer in Windows Verkenner. U kunt openen of de bestanden rechtstreeks vanuit het herstelvolume streamen en controleer of dat u de juiste versies herstelt.
 
     ![Bestanden en mappen van gekoppeld volume naar een lokale locatie kopiëren en plakken](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
 

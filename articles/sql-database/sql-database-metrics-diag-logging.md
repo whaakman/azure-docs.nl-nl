@@ -3,7 +3,7 @@ title: Metrische gegevens van Azure SQL database en diagnostische logboekregistr
 description: Meer informatie over het configureren van Azure SQL Database voor het opslaan van Resourcegebruik, connectiviteit en Uitvoeringsstatistieken query.
 services: sql-database
 documentationcenter: ''
-author: Danimir
+author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: c0c2e1748518b794916f1950c288ed1f4df628aa
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: ba305b66d4b7230f2706136587c4183f81c5e9c3
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309058"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525498"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metrische gegevens van Azure SQL-Database en logboekregistratie van diagnostische gegevens 
 Azure SQL-Database kan metrische en diagnostische gegevens verzenden logboeken voor de bewaking vergemakkelijken. U kunt SQL Database configureren voor het opslaan van resourcegebruik, werkrollen en sessies, en connectiviteit in een van deze Azure-resources:

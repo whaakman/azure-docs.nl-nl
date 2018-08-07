@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2018
+ms.date: 08/01/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 24bda501f88d4f96fb558eeb6b21e437edd6d862
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 4710e30ad38485f47c115ac2e0e914e91c96d582
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325384"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522178"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory naadloze eenmalige aanmelding: snel starten
 
@@ -57,9 +57,12 @@ Naadloze eenmalige aanmelding via inschakelen [Azure AD Connect](active-director
 
 Als u een nieuwe installatie van Azure AD Connect uitvoert, kiest u de [aangepaste installatiepad](active-directory-aadconnect-get-started-custom.md). Op de **aanmelden van gebruikers** weergeeft, schakelt de **eenmalige aanmelding inschakelen** optie.
 
+>[!NOTE]
+> De optie beschikbaar voor selectie wordt alleen als de aanmeldings-methode is **wachtwoord-Hashsynchronisatie** of **Pass through-verificatie**.
+
 ![Azure AD Connect: Aanmelden van gebruikers](./media/active-directory-aadconnect-sso/sso8.png)
 
-Als u al een installatie van Azure AD Connect hebt, selecteert u de **aanmelden van gebruikers wijzigen** pagina in Azure AD Connect en selecteer vervolgens **volgende**.
+Als u al een installatie van Azure AD Connect hebt, selecteert u de **aanmelden van gebruikers wijzigen** pagina in Azure AD Connect en selecteer vervolgens **volgende**. Als u van Azure AD Connect-versies 1.1.880.0 gebruikmaakt of hoger, de **eenmalige aanmelding inschakelen** optie, wordt standaard geselecteerd. Als u van oudere versies van Azure AD Connect gebruikmaakt, selecteert u de **eenmalige aanmelding inschakelen** optie.
 
 ![Azure AD Connect: Het aanmelden van gebruikers wijzigen](./media/active-directory-aadconnect-user-signin/changeusersignin.png)
 

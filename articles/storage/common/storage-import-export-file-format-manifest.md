@@ -1,30 +1,24 @@
 ---
-title: Azure Import/Export manifestbestand indeling | Microsoft Docs
-description: Meer informatie over de indeling van het manifestbestand van station die de toewijzing tussen blobs in Azure Blob storage en bestanden op een station in een importeren beschrijft of exporteren van de taak in de Import/Export-service.
+title: Azure Import/Export-servicemanifest bestandsindeling | Microsoft Docs
+description: Meer informatie over de indeling van het station manifestbestand waarin wordt beschreven van de toewijzing tussen de blobs in Azure Blob-opslag en bestanden op een station in een importeren of exporteren van de taak in de Import/Export-service.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: f3119e1c-2c25-48ad-8752-a6ed4adadbb0
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: c1857eb94fba13c30e7f07669616f5d0ab9953f4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: 920f350ab5ba1e9e1703ffcc32dc8c7153624c0b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873903"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525151"
 ---
-# <a name="azure-importexport-service-manifest-file-format"></a>Azure Import/Export-service manifest bestandsindeling
-Het manifestbestand station beschrijft de toewijzing tussen blobs in Azure Blob storage en bestanden op schijf, bestaande uit een taak worden geïmporteerd of geëxporteerd. Het manifestbestand is gemaakt als onderdeel van het voorbereidingsproces station en wordt opgeslagen op de schijf voordat het station wordt verzonden naar de Azure-Datacenter voor een bewerking importeren. Tijdens een exportbewerking, het manifest gemaakt en opgeslagen op het station door de Azure Import/Export-service.  
+# <a name="azure-importexport-service-manifest-file-format"></a>Azure Import/Export-service manifest-bestand-indeling
+Het manifestbestand van het station beschrijving van de toewijzing tussen de blobs in Azure Blob-opslag en bestanden op schijf die bestaat uit een taak importeren of exporteren. Het manifestbestand is gemaakt als onderdeel van het voorbereidingsproces station en is opgeslagen op de schijf voordat het station wordt verzonden naar de Azure-Datacenter voor een importbewerking. Tijdens een exportbewerking, het manifest gemaakt en opgeslagen op de schijf met de Azure Import/Export-service.  
   
-Voor beide importeren en exporteren van taken, wordt het manifestbestand van de schijf opgeslagen op de schijf worden geïmporteerd of geëxporteerd; het is niet verzonden naar de service via een API-bewerking.  
+Voor beide importeren en exporteren van taken, zijn het manifestbestand van het station opgeslagen op de schijf importeren of exporteren; het is niet verzonden naar de service via een API-bewerking.  
   
 Hier volgen de algemene indeling van een manifestbestand station:  
   
@@ -92,46 +86,46 @@ block-list ::=
 
 ```
 
-## <a name="manifest-xml-elements-and-attributes"></a>XML-elementen en kenmerken manifest
+## <a name="manifest-xml-elements-and-attributes"></a>Manifest van de XML-elementen en kenmerken
 
 De gegevenselementen en kenmerken van het station manifest XML-indeling zijn opgegeven in de volgende tabel.  
   
 |XML-Element|Type|Beschrijving|  
 |-----------------|----------|-----------------|  
-|`DriveManifest`|Hoofdelement|Het hoofdelement van het manifestbestand. Alle elementen in het bestand zijn onder dit element.|  
-|`Version`|Kenmerk, tekenreeks|De versie van het manifestbestand.|  
+|`DriveManifest`|Root-element|Het hoofdelement van het manifestbestand. Alle andere elementen in het bestand zijn onder dit element.|  
+|`Version`|Tekenreeks-kenmerk|De versie van het manifestbestand.|  
 |`Drive`|Geneste XML-element|Bevat het manifest voor elk station.|  
-|`DriveId`|Tekenreeks|De unieke stations-id voor het station. De stations-id worden gevonden door het opvragen van de schijf om bijbehorende serienummer. Het serienummer van het station wordt meestal aan de buitenkant van het station ook weergegeven. De `DriveID` element moet worden weergegeven voordat een `BlobList` element in het manifestbestand.|  
-|`StorageAccountKey`|Tekenreeks|Vereist is voor de import taken als en alleen als `ContainerSas` is niet opgegeven. De accountsleutel voor de Azure storage-account gekoppeld aan de taak.<br /><br /> Dit element wordt weggelaten uit het manifest voor een exportbewerking.|  
-|`ContainerSas`|Tekenreeks|Vereist is voor de import taken als en alleen als `StorageAccountKey` is niet opgegeven. De container SAS voor toegang tot de blobs die zijn gekoppeld aan de taak. Zie [taak plaatsen](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) voor de indeling. Dit element wordt weggelaten uit het manifest voor een exportbewerking.|  
-|`ClientCreator`|Tekenreeks|Hiermee geeft u de client die het XML-bestand gemaakt. Deze waarde niet wordt geïnterpreteerd door de Import/Export-service.|  
-|`BlobList`|Geneste XML-element|Bevat een lijst met blobs die deel uitmaken van het importeren of exporteren van de taak. Elke blob in een lijst met blob deelt dezelfde metagegevens en eigenschappen.|  
-|`BlobList/MetadataPath`|Tekenreeks|Optioneel. Hiermee geeft u het relatieve pad van een bestand op de schijf die de metagegevens van het standaard die worden ingesteld op blobs in de lijst met blob voor een importbewerking bevat. Deze metagegevens kan eventueel worden genegeerd op basis van de blob met blob.<br /><br /> Dit element wordt weggelaten uit het manifest voor een exportbewerking.|  
-|`BlobList/MetadataPath/@Hash`|Kenmerk, tekenreeks|Hiermee geeft u de Base16 gecodeerd MD5-hash-waarde voor het metagegevensbestand.|  
-|`BlobList/PropertiesPath`|Tekenreeks|Optioneel. Hiermee geeft u het relatieve pad van een bestand op de schijf met de standaard-eigenschappen die worden ingesteld op blobs in de lijst met blob voor een importbewerking. Deze eigenschappen kunnen eventueel worden genegeerd op basis van de blob met blob.<br /><br /> Dit element wordt weggelaten uit het manifest voor een exportbewerking.|  
-|`BlobList/PropertiesPath/@Hash`|Kenmerk, tekenreeks|Hiermee geeft u de Base16 gecodeerd MD5-hash-waarde voor het eigenschappenbestand.|  
-|`Blob`|Geneste XML-element|Bevat informatie over elke blob in elke blob-lijst.|  
-|`Blob/BlobPath`|Tekenreeks|De relatieve URI naar de blob beginnen met de containernaam van de. Als de blob van root-container, moet beginnen met `$root`.|  
-|`Blob/FilePath`|Tekenreeks|Hiermee geeft u het relatieve pad naar het bestand op het station. Voor exporttaken, wordt het blobpad gebruikt voor het bestandspad indien mogelijk; *bijvoorbeeld*, `pictures/bob/wild/desert.jpg` worden geëxporteerd naar `\pictures\bob\wild\desert.jpg`. Vanwege de beperkingen van NTFS-namen, kan een blob worden geëxporteerd naar een bestand met een pad dat niet fungeren als het blobpad.|  
-|`Blob/ClientData`|Tekenreeks|Optioneel. Bevat opmerkingen van de klant. Deze waarde niet wordt geïnterpreteerd door de Import/Export-service.|  
-|`Blob/Snapshot`|Datum/tijd|Optioneel voor exporteren. Hiermee geeft u de momentopname-id voor een momentopname van de geëxporteerde blob.|  
-|`Blob/Length`|Geheel getal|Geeft de totale lengte van de blob in bytes. De waarde van 200 GB voor een blok-blob is en maximaal 1 TB voor een pagina-blob. Deze waarde moet een veelvoud van 512 bytes, voor een pagina-blob.|  
-|`Blob/ImportDisposition`|Tekenreeks|Optioneel voor de taken van gegevensimport weggelaten voor exporteren. Hiermee wordt aangegeven hoe de Import/Export-service moet verwerken het geval is bij een import-taak waarbij een blob met dezelfde naam al bestaat. Als deze waarde wordt weggelaten uit het manifest importeren, wordt de standaardwaarde is `rename`.<br /><br /> De waarden voor dit element zijn onder andere:<br /><br /> -   `no-overwrite`: Als er al een bestemmings-blob met dezelfde naam aanwezig is, slaat de importbewerking over dit bestand te importeren.<br />-   `overwrite`: Alle bestaande bestemmings-blob is volledig overschreven door het geïmporteerde bestand.<br />-   `rename`: De nieuwe blob wordt geüpload met een gewijzigde naam.<br /><br /> Het wijzigen van regel is als volgt:<br /><br /> -Als de blobnaam van de niet een punt bevat, een nieuwe naam wordt gegenereerd door toe te voegen `(2)` in de oorspronkelijke blobnaam; als deze nieuwe naam ook veroorzaakt een met de blobnaam van een bestaande, klikt u vervolgens conflict `(3)` wordt toegevoegd in plaats van `(2)`; enzovoort.<br />-De blob-naam bevat een punt, het gedeelte na de laatste punt worden beschouwd als de bestandsnaamextensie. Vergelijkbaar met de bovenstaande procedure `(2)` wordt ingevoegd voordat de laatste punt voor het genereren van een nieuwe naam; als de nieuwe naam nog steeds conflicteert met een bestaande blob-naam en vervolgens de service probeert `(3)`, `(4)`, enzovoort, totdat de naam van een niet-conflicterende wordt gevonden.<br /><br /> Een aantal voorbeelden:<br /><br /> De blob `BlobNameWithoutDot` worden gewijzigd in:<br /><br /> `BlobNameWithoutDot (2)  // if BlobNameWithoutDot exists`<br /><br /> `BlobNameWithoutDot (3)  // if both BlobNameWithoutDot and BlobNameWithoutDot (2) exist`<br /><br /> De blob `Seattle.jpg` worden gewijzigd in:<br /><br /> `Seattle (2).jpg  // if Seattle.jpg exists`<br /><br /> `Seattle (3).jpg  // if both Seattle.jpg and Seattle (2).jpg exist`|  
-|`PageRangeList`|Geneste XML-element|Vereist voor een pagina-blob.<br /><br /> Voor een import geeft bewerking, een lijst met bereiken in bytes van een bestand dat moet worden geïmporteerd. Elk paginabereik is beschreven door een verschuiving en lengte in het bronbestand die worden beschreven van het paginabereik, samen met een MD5-hash van de regio. De `Hash` kenmerk van een paginabereik is vereist. De service valideert de berekende MD5-hash van het paginabereik komt overeen met de hash van de gegevens in de blob. Een willekeurig aantal paginabereiken kan worden gebruikt voor beschrijving van een bestand voor een import, met de totale grootte van 1 TB. Alle bereiken moeten worden gerangschikt op offset en geen overlappingen zijn toegestaan.<br /><br /> Voor het exporteren van een geeft bewerking, een set met bereiken in bytes van een blob die zijn geëxporteerd naar het station.<br /><br /> De paginabereiken kunnen samen alleen onderliggende bereiken van een blob of het bestand omvatten.  Het resterende deel van het bestand niet wordt gedekt door een paginabereik wordt verwacht en de inhoud ervan kan worden gedefinieerd.|  
-|`PageRange`|XML-element|Hiermee geeft u een paginabereik.|  
-|`PageRange/@Offset`|Kenmerk, geheel getal|Geeft de verschuiving in het overdrachtsbestand en de blob waar het opgegeven paginabereik begint. Deze waarde moet een veelvoud van 512 bytes zijn.|  
-|`PageRange/@Length`|Kenmerk, geheel getal|Hiermee geeft u de lengte van het paginabereik. Deze waarde moet een veelvoud van 512 en niet meer dan 4 MB.|  
-|`PageRange/@Hash`|Kenmerk, tekenreeks|Hiermee geeft u de Base16 gecodeerd MD5-hash-waarde voor het paginabereik.|  
-|`BlockList`|Geneste XML-element|Vereist voor een blok-blob met benoemde blokken.<br /><br /> Voor een importbewerking geeft de lijst met geblokkeerde een reeks blokken die worden geïmporteerd in Azure Storage. Voor een bewerking exporteren geeft de lijst met geblokkeerde websites waar elk blok is opgeslagen in het bestand op de schijf exporteren. Elk blok is beschreven door een offset in het bestand en een bloklengte; elk blok is bovendien met de naam door een blok-ID-kenmerk en bevat een MD5-hash voor het blok. Maximaal 50.000 blokken kan worden gebruikt om een blob te beschrijven.  Alle blokken moeten worden geordend door de verschuiving en samen moeten voldoende zijn voor het volledige bereik van het bestand *dat wil zeggen*, moet er geen tussenruimte tussen blokken. Als de blob niet meer dan 64 MB is, moet de blok-id's voor elk blok alle ontbrekende of alle aanwezig. Blok-id's zijn vereist voor Base64-gecodeerde tekenreeksen zijn. Zie [plaatsen blok](/rest/api/storageservices/put-block) voor verdere vereisten voor blok-id's.|  
+|`DriveId`|Reeks|De unieke stations-id voor het station. De stations-id is gevonden door het opvragen van het station voor het serienummer. Het serienummer van het station wordt meestal aan de buitenkant van het station ook weergegeven. De `DriveID` element moet worden weergegeven voordat een `BlobList` element in het manifestbestand.|  
+|`StorageAccountKey`|Reeks|Vereist voor het importeren van taken als en alleen als `ContainerSas` is niet opgegeven. De accountsleutel voor de Azure storage-account die is gekoppeld aan de taak.<br /><br /> Dit element wordt weggelaten uit het manifest voor een bewerking voor exporteren.|  
+|`ContainerSas`|Reeks|Vereist voor het importeren van taken als en alleen als `StorageAccountKey` is niet opgegeven. De container SAS voor toegang tot de blobs die zijn gekoppeld aan de taak. Zie [plaatsen taak](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) voor de indeling. Dit element wordt weggelaten uit het manifest voor een bewerking voor exporteren.|  
+|`ClientCreator`|Reeks|Hiermee geeft u de client die het XML-bestand gemaakt. Deze waarde wordt niet geïnterpreteerd door de Import/Export-service.|  
+|`BlobList`|Geneste XML-element|Bevat een lijst met blobs die deel uitmaken van het importeren of exporteren van de taak. Elke blob in een blob-lijst deelt dezelfde metagegevens en eigenschappen.|  
+|`BlobList/MetadataPath`|Reeks|Optioneel. Hiermee geeft u het relatieve pad van een bestand op de schijf die de metagegevens van de standaard die worden ingesteld op blobs in de blob-lijst voor een importbewerking bevat. Deze metagegevens kan eventueel worden genegeerd op basis van de blob-van-blob.<br /><br /> Dit element wordt weggelaten uit het manifest voor een bewerking voor exporteren.|  
+|`BlobList/MetadataPath/@Hash`|Tekenreeks-kenmerk|Hiermee geeft u de Base16 gecodeerde MD5-hash-waarde voor het bestand met metagegevens.|  
+|`BlobList/PropertiesPath`|Reeks|Optioneel. Hiermee geeft u het relatieve pad van een bestand op de schijf met de standaardeigenschappen die worden ingesteld op blobs in de blob-lijst voor een importbewerking. Deze eigenschappen kunnen eventueel worden genegeerd op basis van de blob-van-blob.<br /><br /> Dit element wordt weggelaten uit het manifest voor een bewerking voor exporteren.|  
+|`BlobList/PropertiesPath/@Hash`|Tekenreeks-kenmerk|Hiermee geeft u de Base16 gecodeerde MD5-hash-waarde voor het eigenschappenbestand.|  
+|`Blob`|Geneste XML-element|Bevat informatie over elke blob in de lijst van elke blob.|  
+|`Blob/BlobPath`|Reeks|De relatieve URI naar de blob beginnen met de containernaam van de. Als de blob-root-container, moet beginnen met `$root`.|  
+|`Blob/FilePath`|Reeks|Hiermee geeft u het relatieve pad naar het bestand op het station. Voor export-taken, wordt het blobpad gebruikt voor het pad indien mogelijk; *bijvoorbeeld*, `pictures/bob/wild/desert.jpg` worden geëxporteerd naar `\pictures\bob\wild\desert.jpg`. Vanwege de beperkingen van NTFS-namen, kan een blob worden geëxporteerd naar een bestand met een pad dat niet lijken op het blobpad.|  
+|`Blob/ClientData`|Reeks|Optioneel. Bevat opmerkingen van de klant. Deze waarde wordt niet geïnterpreteerd door de Import/Export-service.|  
+|`Blob/Snapshot`|DateTime|Dit is optioneel voor export-taken. Hiermee geeft u de momentopname-id voor een geëxporteerde blob-momentopname.|  
+|`Blob/Length`|Geheel getal|Geeft de totale lengte van de blob in bytes. De waarde mag maximaal 200 GB voor een blok-blob zijn en maximaal 1 TB voor pagina-blob. Deze waarde moet een meervoud van 512 bytes, voor een pagina-blob.|  
+|`Blob/ImportDisposition`|Reeks|Dit is optioneel voor importtaken voor de export-taken worden weggelaten. Hiermee wordt aangegeven hoe de Import/Export-service moet verwerken de aanvraag voor een importtaak waar een blob met dezelfde naam al bestaat. Als deze waarde wordt weggelaten uit het manifest importeren, de standaardwaarde is `rename`.<br /><br /> De waarden voor dit element zijn onder andere:<br /><br /> -   `no-overwrite`: Als een bestemmings-blob al met dezelfde naam aanwezig is, slaat de importbewerking over dit bestand importeren.<br />-   `overwrite`: Een bestaande bestemmings-blob is volledig overschreven door het geïmporteerde bestand.<br />-   `rename`: De nieuwe blob wordt geüpload met een gewijzigde naam.<br /><br /> De naam regel is als volgt:<br /><br /> -Als de naam van de blob niet een punt bevat, een nieuwe naam wordt gegenereerd door toe te voegen `(2)` in de oorspronkelijke blobnaam; als deze nieuwe naam ook veroorzaakt een met de blobnaam van een bestaande, klikt u vervolgens conflict `(3)` wordt toegevoegd in plaats van `(2)`; enzovoort.<br />-Als de naam van de blob een punt bevat, wordt de naam van de uitbreiding beschouwd als het gedeelte na de laatste punt. Vergelijkbaar met de bovenstaande procedure `(2)` wordt ingevoegd voordat de laatste punt voor het genereren van een nieuwe naam; als de nieuwe naam nog steeds conflicteert met een bestaande blob-naam en vervolgens de service probeert `(3)`, `(4)`, enzovoort, totdat de naam van een niet-conflicterende is gevonden.<br /><br /> Een aantal voorbeelden:<br /><br /> De blob `BlobNameWithoutDot` worden gewijzigd in:<br /><br /> `BlobNameWithoutDot (2)  // if BlobNameWithoutDot exists`<br /><br /> `BlobNameWithoutDot (3)  // if both BlobNameWithoutDot and BlobNameWithoutDot (2) exist`<br /><br /> De blob `Seattle.jpg` worden gewijzigd in:<br /><br /> `Seattle (2).jpg  // if Seattle.jpg exists`<br /><br /> `Seattle (3).jpg  // if both Seattle.jpg and Seattle (2).jpg exist`|  
+|`PageRangeList`|Geneste XML-element|Vereist voor een pagina-blob.<br /><br /> Voor een geeft bewerking, een lijst met bytereeksen van een bestand dat moet worden geïmporteerd. Het paginabereik van elke is beschreven door een offset en lengte in de bronbestand met een beschrijving van het paginabereik, samen met een MD5-hash van de regio. De `Hash` kenmerk van het paginabereik van een is vereist. De service valideert dat de hash van de gegevens in de blob komt overeen met de berekende MD5-hash van het paginabereik. Een willekeurig aantal page-bereiken kan worden gebruikt om een bestand voor invoer te beschrijven, met de totale grootte van maximaal 1 TB. Alle bereiken moeten worden gesorteerd op offset en er geen overlap zijn toegestaan.<br /><br /> Exporteren van een bewerking, Hiermee geeft u een set met bytereeksen van een blob die zijn geëxporteerd naar het station.<br /><br /> De bereiken bij elkaar kunnen betrekking hebben alleen onderliggende bereiken van een blob of een bestand.  Het resterende deel van het bestand niet wordt gedekt door een bereik wordt verwacht en de inhoud is niet gedefinieerd.|  
+|`PageRange`|XML-element|Hiermee geeft u een bereik.|  
+|`PageRange/@Offset`|Kenmerk, geheel getal zijn|Geeft de verschuiving in het overdrachtsbestand en de blob waar het opgegeven paginabereik begint. Deze waarde moet een meervoud van 512 bytes.|  
+|`PageRange/@Length`|Kenmerk, geheel getal zijn|Hiermee geeft u de lengte van het paginabereik. Deze waarde moet een meervoud van 512 en niet meer dan 4 MB.|  
+|`PageRange/@Hash`|Tekenreeks-kenmerk|Hiermee geeft u de Base16 gecodeerde MD5-hash-waarde voor het paginabereik.|  
+|`BlockList`|Geneste XML-element|Vereist voor een blok-blob met benoemde blokken.<br /><br /> Hiermee geeft u een reeks blokken die worden geïmporteerd in Azure Storage voor een bewerking importeren op de lijst met geblokkeerde websites. De lijst met geblokkeerde websites geeft voor een exportbewerking, waarbij elk blok is opgeslagen in het bestand op de schijf exporteren. Elk blok wordt beschreven door een offset in het bestand en een bloklengte; elk blok is bovendien met de naam van een blok-ID-kenmerk en een MD5-hash voor het blok bevat. Maximaal 50.000 blokken kan worden gebruikt om te beschrijven van een blob.  Alle blokken moeten worden besteld door de verschuiving en samen moeten betrekking hebben op het volledige bereik van het bestand, *dat wil zeggen*, moet er zijn geen tussenruimte tussen blokken. Als de blob niet langer zijn dan 64 MB is, moet de blok-id's voor elk blok alle ontbrekende of alle aanwezig zijn. Blok-id's moeten met Base64 gecodeerde tekenreeksen zijn. Zie [Put-blokken](/rest/api/storageservices/put-block) meer vereisten voor blok-id's.|  
 |`Block`|XML-element|Hiermee geeft u een blok.|  
-|`Block/@Offset`|Kenmerk, geheel getal|Geeft de verschuiving waar het opgegeven blok begint.|  
-|`Block/@Length`|Kenmerk, geheel getal|Hiermee geeft u het aantal bytes in het blok; Deze waarde moet niet meer dan 4MB.|  
-|`Block/@Id`|Kenmerk, tekenreeks|Hiermee geeft u een tekenreeks voor de blok-ID voor het blok.|  
-|`Block/@Hash`|Kenmerk, tekenreeks|Hiermee geeft u de Base16 gecodeerd MD5-hash van het blok.|  
-|`Blob/MetadataPath`|Tekenreeks|Optioneel. Hiermee geeft u het relatieve pad van een bestand met metagegevens. Tijdens het importeren, worden de metagegevens is ingesteld op het bestemmings-blob. Metagegevens van de blob wordt tijdens een exportbewerking opgeslagen in het bestand met metagegevens op de schijf.|  
-|`Blob/MetadataPath/@Hash`|Kenmerk, tekenreeks|Hiermee geeft u de Base16 gecodeerd MD5-hash van het metagegevensbestand van de blob.|  
-|`Blob/PropertiesPath`|Tekenreeks|Optioneel. Hiermee geeft u het relatieve pad van een eigenschappenbestand. Tijdens het importeren, worden de eigenschappen ingesteld voor de bestemmings-blob. Tijdens een exportbewerking worden de blob-eigenschappen opgeslagen in het eigenschappenbestand op het station.|  
-|`Blob/PropertiesPath/@Hash`|Kenmerk, tekenreeks|Hiermee geeft u de Base16 gecodeerd MD5-hash van de blob-bestand voor eigenschappen.|  
+|`Block/@Offset`|Kenmerk, geheel getal zijn|Geeft de verschuiving waar het opgegeven blok begint.|  
+|`Block/@Length`|Kenmerk, geheel getal zijn|Hiermee geeft u het aantal bytes in het blok; Deze waarde moet niet meer dan 4MB.|  
+|`Block/@Id`|Tekenreeks-kenmerk|Hiermee geeft u een tekenreeks voor de blok-ID voor het blok.|  
+|`Block/@Hash`|Tekenreeks-kenmerk|Hiermee geeft u de Base16 gecodeerde MD5-hash van het blok.|  
+|`Blob/MetadataPath`|Reeks|Optioneel. Hiermee geeft u het relatieve pad van een bestand met metagegevens. Tijdens het importeren, worden de metagegevens is ingesteld op de bestemmings-blob. Tijdens een exportbewerking is van de blob-metagegevens opgeslagen in het bestand met metagegevens op de schijf.|  
+|`Blob/MetadataPath/@Hash`|Tekenreeks-kenmerk|Hiermee geeft u de Base16 gecodeerde MD5-hash van bestand met metagegevens van de blob.|  
+|`Blob/PropertiesPath`|Reeks|Optioneel. Hiermee geeft u het relatieve pad van een eigenschappenbestand. Tijdens het importeren, worden de eigenschappen worden ingesteld op de bestemmings-blob. Tijdens een exportbewerking, worden de blobeigenschappen opgeslagen in het eigenschappenbestand op het station.|  
+|`Blob/PropertiesPath/@Hash`|Tekenreeks-kenmerk|Hiermee geeft u de Base16 gecodeerde MD5-hash van het bestand van de blob-eigenschappen.|  
   
 ## <a name="next-steps"></a>Volgende stappen
  

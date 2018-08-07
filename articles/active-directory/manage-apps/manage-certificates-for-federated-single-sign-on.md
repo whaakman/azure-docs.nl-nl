@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/09/2017
 ms.author: barbkess
 ms.reviewer: jeedes
-ms.openlocfilehash: 1274143c2ae64574202b45969af43290e532fbfb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 7bae891bd16ecd3fbbad88022fbbffd32ff41eae
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366110"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577546"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Certificaten voor federatieve eenmalige aanmelding in Azure Active Directory beheren
 In dit artikel bevat informatie over veelgestelde vragen en informatie met betrekking tot de certificaten die Azure Active Directory (Azure AD) maakt voor het maken van federatieve eenmalige aanmelding (SSO) met uw SaaS-toepassingen. Toepassingen toevoegen vanuit de galerie met Azure AD-app of met behulp van de sjabloon van een toepassing buiten de galerie. De toepassing configureren met behulp van de optie voor federatieve eenmalige aanmelding.
@@ -88,4 +88,4 @@ De volgende stappen uit voor vernieuwen moeten leiden tot aanzienlijke downtime 
 * [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Artikelenindex voor Toepassingsbeheer in Azure Active Directory](../active-directory-apps-index.md)
 * [Toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](what-is-single-sign-on.md)
-* [Oplossen van problemen met SAML gebaseerde eenmalige aanmelding](../develop/active-directory-saml-debugging.md)
+* [Oplossen van problemen met SAML gebaseerde eenmalige aanmelding](../develop/howto-v1-debug-saml-sso-issues.md)

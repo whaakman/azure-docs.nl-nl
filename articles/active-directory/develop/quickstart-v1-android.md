@@ -17,12 +17,12 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: b428549d7dc804371368d8c252b949ac2fae62c2
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: cdd0d9ccff608d5882480d1394e2188579cefe75
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506253"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576797"
 ---
 # <a name="azure-ad-android-getting-started"></a>Azure AD-Android aan de slag
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -126,7 +126,7 @@ U vindt de configuratie voor dit codevoorbeeld in de ***src/main/java/com/azures
 3. Geen problemen voor het zoeken of aanvragen hebben? U kunt maken van een probleem of posten op Stackoverflow met de tag `azure-active-directory`. 
 
 ### <a name="cross-app-sso"></a>SSO voor cross-app
-Informatie over [hoe u verschillende Apps SSO inschakelen op Android met behulp van ADAL](active-directory-sso-android.md). 
+Informatie over [hoe u verschillende Apps SSO inschakelen op Android met behulp van ADAL](howto-v1-enable-sso-on-android.md). 
 
 ### <a name="auth-telemetry"></a>Auth-telemetrie
 auth-telemetrie om te helpen app-ontwikkelaars inzicht in hoe hun apps zich gedragen en betere ervaringen ontwikkeling wordt aangegeven dat de ADAL-bibliotheek. Hiermee kunt u om vast te leggen van de aanmelding geslaagd, actieve gebruikers en verschillende andere interessante inzichten. Met behulp van de telemetrie van de verificatie is vereist voor app-ontwikkelaars tot stand brengen van een telemetrieservice voor het aggregeren en opslaan van gebeurtenissen.

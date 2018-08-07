@@ -1,58 +1,53 @@
 ---
-title: Oplossen van problemen in Windows Azure-bestanden | Microsoft Docs
-description: Het oplossen van problemen in Windows Azure-bestanden
+title: Problemen met Azure Files oplossen in Windows | Microsoft Docs
+description: Problemen met Azure Files oplossen in Windows
 services: storage
-documentationcenter: ''
-author: wmgries
-manager: aungoo
-editor: tamram
+author: jeffpatt24
 tags: storage
 ms.service: storage
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
-ms.author: wgries
-ms.openlocfilehash: 18f594586aa95afaa01bfda712dfc23c8aad3a36
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.author: jeffpatt
+ms.component: files
+ms.openlocfilehash: 935d4a3ba3fc3199177be5bd4e70f82239c3c971
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34738544"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39531097"
 ---
-# <a name="troubleshoot-azure-files-problems-in-windows"></a>Oplossen van problemen in Windows Azure-bestanden
+# <a name="troubleshoot-azure-files-problems-in-windows"></a>Problemen met Azure Files oplossen in Windows
 
-Dit artikel worden veelvoorkomende problemen die betrekking op Microsoft Azure-bestanden hebben wanneer u verbinding vanaf een Windows-clients maakt. Het bevat ook mogelijke oorzaken en oplossingen voor deze problemen. Naast de stappen voor probleemoplossing in dit artikel kunt u ook gebruiken [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) om ervoor te zorgen dat de Windows client-omgeving juist vereisten. AzFileDiagnostics automatiseert detectie van de meeste van de problemen die worden vermeld in dit artikel en helpt bij het instellen van uw omgeving om optimale prestaties te behalen. U kunt ook deze informatie vinden in de [Azure-bestandsshares probleemoplosser](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) die bevat stappen om u te helpen problemen verbinden/toewijzing/koppelen Azure-bestandsshares.
+Dit artikel worden veelvoorkomende problemen met betrekking tot Microsoft Azure-bestanden wanneer u verbinding vanaf Windows-clients maakt. Het biedt ook mogelijke oorzaken en oplossingen voor deze problemen. Naast de stappen in dit artikel, kunt u ook gebruiken [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) om ervoor te zorgen dat de Windows client-omgeving juiste vereisten heeft. AzFileDiagnostics automatiseert de detectie van de meeste van de symptomen die in dit artikel worden vermeld en helpt bij het instellen van uw omgeving om de optimale prestaties. U kunt ook deze informatie vinden in de [probleemoplosser voor Azure-bestandsshares](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) waarmee de stappen om u te helpen met problemen die verbinding maken/toewijzing/koppelen Azure-bestandsshares.
 
 
 <a id="error53-67-87"></a>
-## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Fout 53, fout 67 of fout 87 wanneer u koppelen of ontkoppelen van een Azure-bestandsshare
+## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Fout 53 of fout 67 87 fout bij het koppelen of ontkoppelen van een Azure-bestandsshare
 
-Wanneer u een bestandsshare te koppelen van on-premises of vanuit een ander datacenter, kan de volgende fouten worden weergegeven:
+Wanneer u probeert te koppelen van een bestandsshare van on-premises of in een ander datacenter, ontvangt u mogelijk de volgende fouten:
 
-- Systeemfout 53 is opgetreden. Het netwerkpad is niet gevonden.
+- Fout 53 is opgetreden. Het netwerkpad is niet gevonden.
 - Systeemfout 67 is opgetreden. Naam van het netwerk kan niet worden gevonden.
 - Systeemfout 87 is opgetreden. De parameter is onjuist.
 
-### <a name="cause-1-unencrypted-communication-channel"></a>Oorzaak 1: De niet-versleutelde communicatiekanaal
+### <a name="cause-1-unencrypted-communication-channel"></a>Oorzaak 1: De niet-versleuteld communicatiekanaal
 
-Verbindingen met de Azure-bestandsshares worden uit veiligheidsoverwegingen geblokkeerd als het communicatiekanaal is niet versleuteld en als de verbinding is niet geprobeerd uit hetzelfde datacenter waarin de Azure-bestandsshares zich bevinden. Alleen als de gebruiker clientbesturingssysteem SMB-versleuteling ondersteunt wordt de communicatie kanaalversleuteling geleverd.
+Uit veiligheidsoverwegingen worden verbindingen met Azure-bestandsshares worden geblokkeerd als het communicatiekanaal is niet versleuteld en als de verbindingspoging is niet gemaakt in hetzelfde datacenter waar de Azure-bestandsshares zich bevinden. Communicatie-kanaalversleuteling geleverd alleen als de gebruiker clientbesturingssysteem biedt ondersteuning voor SMB-versleuteling.
 
-Windows 8, Windows Server 2012 en latere versies van elk systeem te onderhandelen over aanvragen met SMB 3.0, die ondersteuning biedt voor versleuteling.
+Windows 8, Windows Server 2012 en latere versies van elk systeem onderhandelen over aanvragen met SMB 3.0, die ondersteuning biedt voor versleuteling.
 
 ### <a name="solution-for-cause-1"></a>Oplossing voor oorzaak 1
 
-Verbinding maken vanaf een client die een van de volgende biedt:
+Verbinding maken vanaf een client die een van de volgende:
 
 - Voldoet aan de vereisten van Windows 8 en Windows Server 2012 of hoger
 - Verbinding maakt vanaf een virtuele machine in hetzelfde datacenter als de Azure storage-account dat wordt gebruikt voor de Azure-bestandsshare
 
 ### <a name="cause-2-port-445-is-blocked"></a>2 oorzaak: Poort 445 is geblokkeerd
 
-Systeemfout 53 of Systeemfout 67 kan zich voordoen als de poort 445 uitgaande communicatie naar een datacenter Azure Files is geblokkeerd. De samenvatting van internetproviders die toestaan of weigeren van toegang via poort 445, Ga naar [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
+Fout 53 of Systeemfout 67 kan zich voordoen als poort 445 uitgaande communicatie naar een Azure Files-datacenter wordt geblokkeerd. Overzicht van de ISP's die toestaan of weigeren van toegang via poort 445, Ga naar [TechNet](http://social.technet.microsoft.com/wiki/contents/articles/32346.azure-summary-of-isps-that-allow-disallow-access-from-port-445.aspx).
 
-Om te begrijpen of dit de reden achter het bericht 'Systeemfout 53' is, kunt u Portqry query uitvoeren op het eindpunt TCP:445. Als het eindpunt TCP:445 wordt weergegeven als gefilterd, is de TCP-poort geblokkeerd. Hier volgt een voorbeeld van een query:
+Als u wilt weten of dit de reden achter het bericht "System error 53" is, kunt u Portqry query uitvoeren op het eindpunt TCP:445. Als het eindpunt TCP:445 wordt weergegeven als gefilterd, worden de TCP-poort is geblokkeerd. Hier volgt een voorbeeld van een query:
 
   `g:\DataDump\Tools\Portqry>PortQry.exe -n [storage account name].file.core.windows.net -p TCP -e 445`
 
@@ -64,13 +59,13 @@ Zie [Description of the Portqry.exe command-line utility](https://support.micros
 
 ### <a name="solution-for-cause-2"></a>Oplossing voor oorzaak 2
 
-Werken met uw IT-afdeling open poort 445 uitgaand naar [Azure IP-bereiken](https://www.microsoft.com/download/details.aspx?id=41653).
+Werken met uw IT-afdeling poort 445 uitgaand naar openen [IP-adresbereiken Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
-### <a name="cause-3-ntlmv1-is-enabled"></a>3 oorzaak: NTLMv1 is ingeschakeld.
+### <a name="cause-3-ntlmv1-is-enabled"></a>3 oorzaak: NTLMv1 is ingeschakeld
 
-Systeemfout 53 of systeemfout 87 kan optreden als NTLMv1-communicatie is ingeschakeld op de client. NTLMv2-authenticatie biedt ondersteuning voor Azure Files. NTLMv1 ingeschakeld met maakt een minder veilige client. Daarom is communicatie geblokkeerd voor Azure Files. 
+Fout 53 of systeemfout 87 kan optreden als NTLMv1-communicatie is ingeschakeld op de client. Azure Files ondersteunt alleen NTLMv2-authenticatie. Hiermee maakt u NTLMv1 ingeschakeld met een minder veilige-client. Communicatie wordt daarom geblokkeerd voor Azure Files. 
 
-Om te bepalen of dit de oorzaak van de fout is, moet u controleren of de volgende registersubsleutel is ingesteld op een waarde van 3:
+Om te bepalen of dit de oorzaak van de fout is, moet u controleren of de volgende subsleutel in het register is ingesteld op een waarde van 3:
 
 **HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel**
 
@@ -83,30 +78,30 @@ Herstellen de **LmCompatibilityLevel** waarde op de standaardwaarde van 3 in de 
   **HKLM\SYSTEM\CurrentControlSet\Control\Lsa**
 
 <a id="error1816"></a>
-## <a name="error-1816-not-enough-quota-is-available-to-process-this-command-when-you-copy-to-an-azure-file-share"></a>Fout 1816 'Onvoldoende quota is beschikbaar om deze opdracht te verwerken' als u kopieert naar een Azure-bestandsshare
+## <a name="error-1816-not-enough-quota-is-available-to-process-this-command-when-you-copy-to-an-azure-file-share"></a>Fout 1816 "Onvoldoende quotum is beschikbaar voor het verwerken van deze opdracht" wanneer u kopieert naar een Azure-bestandsshare
 
 ### <a name="cause"></a>Oorzaak
 
-Fout 1816 treedt op wanneer het bereiken van de bovengrens van gelijktijdige open ingangen die zijn toegestaan voor een bestand op de computer waar de bestandsshare is wordt gekoppeld.
+Fout 1816 treedt op wanneer de bovenste limiet van gelijktijdige open ingangen die zijn toegestaan voor een bestand op de computer waar de bestandsshare is wordt gekoppeld is bereikt.
 
 ### <a name="solution"></a>Oplossing
 
-Verminder het aantal gelijktijdige open ingangen door te sluiten van een aantal ingangen en probeer het vervolgens opnieuw. Zie voor meer informatie [controlelijst voor prestaties en schaalbaarheid van Microsoft Azure Storage](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Verminder het aantal gelijktijdige open ingangen door het aantal ingangen gesloten en probeer het vervolgens opnieuw. Zie voor meer informatie, [controlelijst voor de prestaties en schaalbaarheid van Microsoft Azure Storage](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 <a id="slowfilecopying"></a>
-## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Trage kopiëren naar en van bestanden in Windows Azure
+## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Trage bestand kopiëren van en naar Azure-bestanden in Windows
 
 U ziet trage prestaties wanneer u bestanden overbrengen naar de Azure File-service.
 
-- Als u een specifieke i/o-grootte minimumvereiste hebt, raden wij aan 1 MB te gebruiken als de i/o-grootte voor optimale prestaties.
--   Als u weet dat de uiteindelijke omvang van een bestand dat u met schrijfbewerkingen uitbreidt en de software geen compatibiliteitsproblemen wanneer de unwritten staart op het bestand nullen bevat, stelt u de bestandsgrootte van tevoren in plaats van elke schrijfbewerking waardoor het terugschrijven van een uitbreiden.
--   Gebruik de juiste copy-methode:
+- Als u een specifieke minimale i/o-grootte vereiste geen hebt, raden wij aan dat u 1 MiB als de i/o-grootte voor optimale prestaties.
+-   Als u weet dat de uiteindelijke omvang van een bestand dat u met schrijfbewerkingen zijn uitbreiden en uw software geen compatibiliteitsproblemen wanneer de ongeschreven staart op het bestand nullen bevat, stelt u de grootte van tevoren in plaats van elke schrijven waardoor een uitbreiden schrijven.
+-   Gebruik de juiste methode:
     -   Gebruik [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) de overdracht tussen twee bestandsshares.
     -   Gebruik [Robocopy](https://blogs.msdn.microsoft.com/granth/2009/12/07/multi-threaded-robocopy-for-faster-copies/) tussen bestandsshares op een on-premises computer.
 
 ### <a name="considerations-for-windows-81-or-windows-server-2012-r2"></a>Overwegingen voor Windows 8.1 of Windows Server 2012 R2
 
-Voor clients met Windows 8.1 of Windows Server 2012 R2, zorg ervoor dat de [KB3114025](https://support.microsoft.com/help/3114025) hotfix is geïnstalleerd. Deze hotfix verbetert de prestaties van maken en sluit verwerkt.
+Voor clients die worden uitgevoerd op Windows 8.1 of Windows Server 2012 R2, zorg ervoor dat de [KB3114025](https://support.microsoft.com/help/3114025) hotfix is geïnstalleerd. Deze hotfix verbetert de prestaties van maken en sluit verwerkt.
 
 U kunt uitvoeren in het volgende script om te controleren of de hotfix is geïnstalleerd:
 
@@ -117,26 +112,26 @@ Als de hotfix is geïnstalleerd, wordt de volgende uitvoer weergegeven:
 `HKEY_Local_MACHINE\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters\Policies {96c345ef-3cac-477b-8fcd-bea1a564241c} REG_DWORD 0x1`
 
 > [!Note]
-> Windows Server 2012 R2-afbeeldingen in Azure Marketplace hebben hotfix KB3114025 standaard geïnstalleerd, vanaf December 2015.
+> Windows Server 2012 R2-installatiekopieën in Azure Marketplace hebben hotfix KB3114025 standaard geïnstalleerd, vanaf December 2015.
 
 <a id="shareismissing"></a>
 ## <a name="no-folder-with-a-drive-letter-in-my-computer"></a>Er is geen map met een stationsletter in **Mijn Computer**
 
-Als u een Azure-bestandsshare als een beheerder met behulp van net gebruik toewijst, wordt de share lijkt te ontbreken.
+Als u een Azure-bestandsshare als een beheerder met behulp van netgebruik toewijst, wordt de share blijkt te ontbreken.
 
 ### <a name="cause"></a>Oorzaak
 
-Windows Verkenner wordt niet uitgevoerd als beheerder. Als u net gebruik van een administratieve opdrachtprompt uitvoert, kunt u het netwerkstation toewijzen als beheerder. Omdat netwerkstations gebruikersgerichte zijn, wordt het gebruikersaccount dat is vastgelegd in de stations niet weergegeven als ze worden gekoppeld onder een ander gebruikersaccount.
+Standaard wordt Windows Verkenner niet uitgevoerd als beheerder. Als u net use vanaf een administratieve opdrachtprompt uitvoert, kunt u het netwerkstation toewijzen als beheerder. Omdat toegewezen stations op de gebruiker gericht, wordt het gebruikersaccount dat is vastgelegd in de stations niet weergegeven als ze zijn gekoppeld onder een ander gebruikersaccount.
 
 ### <a name="solution"></a>Oplossing
-De bestandsshare koppelen vanuit een opdrachtregel niet-beheerders. U kunt ook kunt u [dit TechNet-onderwerp](https://technet.microsoft.com/library/ee844140.aspx) voor het configureren van de **EnableLinkedConnections** registerwaarde.
+De bestandsshare koppelen vanaf de opdrachtregel van een niet-beheerder. U kunt ook u kunt volgen [dit TechNet-onderwerp](https://technet.microsoft.com/library/ee844140.aspx) configureren de **EnableLinkedConnections** registerwaarde.
 
 <a id="netuse"></a>
-## <a name="net-use-command-fails-if-the-storage-account-contains-a-forward-slash"></a>Opdracht net use mislukt als het opslagaccount een slash bevat
+## <a name="net-use-command-fails-if-the-storage-account-contains-a-forward-slash"></a>Opdracht net use mislukt als het opslagaccount een schuine streep bevat
 
 ### <a name="cause"></a>Oorzaak
 
-Een slash (/) de opdracht net use geïnterpreteerd als een opdrachtregeloptie. Als de naam van uw gebruikersaccount wordt gestart met een slash, wordt de stationstoewijzing mislukt.
+De opdracht net use interpreteert een slash (/) als een opdrachtregeloptie te gebruiken. Als de naam van uw gebruiker met een slash begint, mislukt de station-toewijzing.
 
 ### <a name="solution"></a>Oplossing
 
@@ -146,14 +141,14 @@ U kunt een van de volgende stappen gebruiken om het probleem te omzeilen:
 
   `New-SmbMapping -LocalPath y: -RemotePath \\server\share -UserName accountName -Password "password can contain / and \ etc" `
 
-  Vanuit een batch-bestand, kunt u de opdracht uitvoeren op deze manier:
+  In een batch-bestand, kunt u de opdracht uitvoeren op deze manier:
 
   `Echo new-smbMapping ... | powershell -command –`
 
-- Dubbele aanhalingstekens rond de sleutel voor dit probleem--omzeilen geplaatst tenzij de slash is het eerste onjuiste teken. Als het, de interactieve modus gebruiken en voer uw wachtwoord afzonderlijk of opnieuw genereren van uw sleutels als u een sleutel die niet met een slash begint.
+- Put dubbele aanhalingstekens rond de sleutel voor dit probleem tijdelijk oplossen, tenzij het eerste teken is een slash. Als dit het geval is, gebruikt u de interactieve modus en voer uw wachtwoord afzonderlijk of opnieuw genereren van uw sleutels om op te halen van een sleutel die niet wordt gestart met een slash.
 
 <a id="cannotaccess"></a>
-## <a name="application-or-service-cannot-access-a-mounted-azure-files-drive"></a>Toepassing of service heeft geen toegang tot een gekoppeld station van de Azure-bestanden
+## <a name="application-or-service-cannot-access-a-mounted-azure-files-drive"></a>Toepassing of service heeft geen toegang tot een gekoppeld Azure Files-station
 
 ### <a name="cause"></a>Oorzaak
 
@@ -163,36 +158,36 @@ Schijven zijn per gebruiker gekoppeld. Als uw toepassing of service wordt uitgev
 
 Gebruik een van de volgende oplossingen:
 
--   Het station koppelen vanuit dezelfde gebruikersaccount dat de toepassing bevat. U kunt een hulpprogramma zoals PsExec gebruiken.
-- Geeft de naam van het opslagaccount en de sleutel in de gebruikersnaam en wachtwoordparameters van het net gebruik de opdracht.
-- Gebruik de opdracht cmdkey de referenties in Aanmeldingsgegevensbeheer toevoegen. Dit uitvoeren vanaf de opdrachtregel in de service-account context, via een interactieve aanmelding of met behulp van runas.
+-   Het station vanaf hetzelfde gebruikersaccount dat de toepassing bevat een koppeling. U kunt een hulpprogramma zoals PsExec gebruiken.
+- Doorgeven van het storage-accountnaam en de sleutel in de gebruikersnaam en wachtwoordparameters van de net opdracht.
+- Gebruik de opdracht cmdkey om toe te voegen van de referenties in Referentiebeheer. Dit uitvoeren vanaf een opdrachtregel in de service-accountcontext, hetzij via een interactieve aanmelding of met behulp van uitvoeren als.
   
   `cmdkey /add:<storage-account-name>.file.core.windows.net /user:AZURE\<storage-account-name> /pass:<storage-account-key>`
-- De share rechtstreeks zonder een toegewezen stationsletter toewijzen. Sommige toepassingen kunnen niet opnieuw verbinding met de stationsletter correct, zodat het volledige UNC-pad mogelijk betrouwbaarder. 
+- De share rechtstreeks zonder een toegewezen stationsletter toewijzen. Sommige toepassingen kunnen niet opnieuw verbinding maken met de stationsletter correct, zodat het volledige UNC-pad mogelijk betrouwbaarder. 
 
   `net use * \\storage-account-name.file.core.windows.net\share`
 
-Nadat u deze instructies opvolgt, verschijnt er het volgende foutbericht weergegeven wanneer u net gebruiken voor het serviceaccount/in het netwerk uitvoert: 'Systeemfout 1312 is opgetreden. De sessie van een opgegeven gebruiker bestaat niet. Het is mogelijk al beëindigd." Als dit het geval is, zorg ervoor dat de gebruikersnaam die wordt doorgegeven aan net gebruik domeingegevens bevat (bijvoorbeeld: ' [opslagaccountnaam]. file.core.windows .net ').
+Nadat u deze instructies volgt, mogelijk u het volgende foutbericht krijgt wanneer u net gebruiken voor het systeem-/ netwerkserviceaccount uitvoeren: 'Systeemfout 1312 is opgetreden. De sessie van een opgegeven gebruiker bestaat niet. Het is mogelijk al beëindigd." Als dit het geval is, zorg ervoor dat de gebruikersnaam die wordt doorgegeven aan net use domeininformatie bevat (bijvoorbeeld: "[storage-accountnaam]. file.core.windows .net ').
 
 <a id="doesnotsupportencryption"></a>
-## <a name="error-you-are-copying-a-file-to-a-destination-that-does-not-support-encryption"></a>'U kopieert een bestand op een doel geen versleuteling ondersteunt' fout
+## <a name="error-you-are-copying-a-file-to-a-destination-that-does-not-support-encryption"></a>Fout 'U kopieert een bestand naar een bestemming die geen ondersteuning biedt voor versleuteling'
 
-Als een bestand wordt gekopieerd via het netwerk, wordt het bestand op de broncomputer is ontsleuteld, verzonden als leesbare tekst en opnieuw versleuteld op de bestemming. Echter kunt u de volgende fout tegenkomen wanneer u probeert een versleuteld bestand kopiëren: "Kopieert u het bestand naar een bestemming die geen ondersteuning biedt voor versleuteling."
+Wanneer een bestand wordt gekopieerd via het netwerk, wordt het bestand op de broncomputer ontsleuteld, verzonden als tekst zonder opmaak en opnieuw versleuteld op de bestemming. Echter, u de volgende fout kunt tegenkomen wanneer u probeert te kopiëren van een versleuteld bestand: "Kopieert u het bestand naar een bestemming die geen ondersteuning biedt voor versleuteling."
 
 ### <a name="cause"></a>Oorzaak
-Dit probleem kan optreden als u van Encrypting File System (EFS gebruikmaakt). BitLocker-versleutelde bestanden kunnen worden gekopieerd naar de Azure-bestanden. Azure Files biedt echter geen ondersteuning voor NTFS EFS.
+Dit probleem kan optreden als u van Encrypting File System (EFS gebruikmaakt). BitLocker-versleutelde bestanden kunnen worden gekopieerd naar Azure Files. Azure Files biedt echter geen ondersteuning voor NTFS EFS.
 
 ### <a name="workaround"></a>Tijdelijke oplossing
-Als u wilt een bestand via het netwerk kopieert, moet u het eerst ontsleutelen. Gebruik een van de volgende methoden:
+Als u wilt een bestand kopiëren via het netwerk, moet u het eerst ontsleutelen. Gebruik een van de volgende methoden:
 
-- Gebruik de **kopiëren /d** opdracht. Hierdoor kan de versleutelde bestanden worden opgeslagen als de ontsleutelde bestanden op de bestemming.
+- Gebruik de **kopiëren /d** opdracht. Hierdoor kan de versleutelde bestanden worden opgeslagen als ontsleutelde bestanden op de bestemming.
 - Stel de volgende registersleutel:
   - Path = HKLM\Software\Policies\Microsoft\Windows\System
-  - Waarde type DWORD =
-  - Naam CopyFileAllowDecryptedRemoteDestination =
+  - Waardetype = DWORD
+  - Naam = CopyFileAllowDecryptedRemoteDestination
   - Waarde = 1
 
-Let erop dat voor het instellen van de registersleutel is van invloed op alle kopieerbewerkingen die zijn aangebracht aan netwerkshares.
+Let erop dat de registersleutel instellen van invloed is op alle kopieerbewerkingen die worden aangebracht in netwerkshares.
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
-Als u nog hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ophalen van uw probleem snel worden opgelost.
+Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om op te halen van uw probleem op te lossen snel.

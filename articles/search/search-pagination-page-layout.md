@@ -9,37 +9,37 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/29/2016
 ms.author: heidist
-ms.openlocfilehash: 516760031918c667b39cc8b3dd94d91c42623efc
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8953be2be77c14a82294e56ac60b8bc993ec6c2f
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186875"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527066"
 ---
 # <a name="how-to-page-search-results-in-azure-search"></a>Pagina's met zoekresultaten maken in Azure Search
-In dit artikel biedt richtlijnen voor het gebruik van de Azure Search Service REST API voor het implementeren van standaardelementen van een pagina met zoekresultaten, zoals het totale aantal, document ophalen, sorteervolgorde en navigatie.
+Dit artikel bevat richtlijnen over het gebruik van de Azure Search Service REST API voor het implementeren van standaardelementen van een pagina met zoekresultaten, zoals het totale aantal, document ophalen, sorteervolgorde en navigatie.
 
-In elk geval hieronder vermelde opties voor pagina's gerelateerde bijdragen of gegevens naar de pagina met zoekresultaten worden opgegeven via de [zoekdocument](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) aanvragen die naar uw Azure Search-Service verzonden. Aanvragen bevatten een GET-opdracht, pad, en queryparameters die informeren over de service wat wordt aangevraagd en hoe u het antwoord formuleren.
+In elk geval die hieronder worden vermeld, opties voor pagina's gerelateerde die of gegevens naar de pagina met zoekresultaten bijdragen worden opgegeven via de [Document doorzoeken](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) aanvragen naar uw Azure Search-Service verzonden. Aanvragen bevatten een GET-opdracht, pad, en queryparameters die de service wat wordt aangevraagd informeren en hoe u het antwoord te formuleren.
 
 > [!NOTE]
-> Een geldige aanvraag bevat een aantal elementen, zoals een service-URL en het pad, HTTP-term `api-version`, enzovoort. Als beknopt alternatief bevat, wordt de voorbeelden om uit te lichten alleen de syntaxis die relevant is voor paginering bijgesneden. Zie de [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice) documentatie voor meer informatie over de syntaxis van de aanvraag.
+> Een geldige aanvraag bevat een aantal elementen, zoals een service-URL en het pad, HTTP-term `api-version`, enzovoort. Beknopt alternatief bijgesneden we in de voorbeelden om te markeren, alleen de syntaxis die relevant is voor paginering. Raadpleeg de [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice) documentatie voor meer informatie over de syntaxis van de aanvraag.
 > 
 > 
 
 ## <a name="total-hits-and-page-counts"></a>Totaal aantal treffers en het aantal paginaweergaven
-Het totale aantal resultaten geretourneerd door een query wordt weergegeven en vervolgens de resultaten te retourneren in kleinere reeksen is van cruciaal belang op vrijwel alle pagina's voor zoeken.
+Met het totale aantal resultaten die door een query zijn geretourneerd, en vervolgens de resultaten te retourneren in kleinere chunks is van cruciaal belang op vrijwel alle pagina's voor zoeken.
 
 ![][1]
 
-In Azure Search, gebruikt u de `$count`, `$top`, en `$skip` parameters om deze waarden te retourneren. Het volgende voorbeeld toont een voorbeeld van een aanvraag voor het totaal aantal treffers geretourneerd als `@OData.count`:
+In Azure Search, gebruikt u de `$count`, `$top`, en `$skip` parameters om deze waarden te retourneren. Het volgende voorbeeld toont een voorbeeld van een aanvraag voor totaal aantal treffers, geretourneerd als `@OData.count`:
 
         GET /indexes/onlineCatalog/docs?$count=true
 
-Documenten in groepen van 15 ophalen en het totaal aantal treffers, beginnend bij de eerste pagina worden ook weergegeven:
+Documenten in groepen van 15 ophalen en ook het totaal aantal treffers, beginnend bij de eerste pagina worden weergegeven:
 
         GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=0&$count=true
 
-Resultaten pagineren vereist zowel `$top` en `$skip`, waarbij `$top` Hiermee geeft u op hoeveel items om te retourneren in een batch en `$skip` Hiermee geeft u op hoeveel items om over te slaan. In het volgende voorbeeld wordt elke pagina bevat de volgende 15 items aangegeven door de incrementele jumps in de `$skip` parameter.
+Resultaten pagineren vereist zowel `$top` en `$skip`, waarbij `$top` Hiermee geeft u op hoeveel items om te retourneren in een batch en `$skip` Hiermee geeft u op hoeveel items om over te slaan. In het volgende voorbeeld wordt elke pagina ziet u de volgende 15 items, aangegeven door de incrementele koppelingen in de `$skip` parameter.
 
         GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=0&$count=true
 
@@ -48,62 +48,61 @@ Resultaten pagineren vereist zowel `$top` en `$skip`, waarbij `$top` Hiermee gee
         GET /indexes/onlineCatalog/docs?search=*$top=15&$skip=30&$count=true
 
 ## <a name="layout"></a>Indeling
-Op een pagina met zoekresultaten, is het raadzaam om een miniatuur, een subset van velden en een koppeling naar een product met volledig pagina weer te geven.
+Op een pagina met zoekresultaten, is het raadzaam om een miniatuurafbeelding, een subset van velden en een koppeling naar een product met volledig pagina weer te geven.
 
  ![][2]
 
-U wilt gebruiken in Azure Search `$select` en een lookup-opdracht voor het implementeren van deze ervaring.
+In Azure Search, zou u `$select` en een lookup-opdracht voor het implementeren van deze ervaring.
 
-Een subset van velden voor een naast elkaar indeling geretourneerd:
+Om terug te keren een subset van velden voor een naast elkaar lay-out:
 
         GET /indexes/ onlineCatalog/docs?search=*&$select=productName,imageFile,description,price,rating 
 
-Installatiekopieën en media-bestanden zijn niet rechtstreeks kan worden doorzocht en moeten worden opgeslagen in een ander platform van de opslag, zoals Azure Blob-opslag om kosten te verlagen. Definieer een veld waarin de URL-adres van de externe inhoud opgeslagen in de index en documenten. Vervolgens kunt u het veld als een verwijzing naar afbeelding. De URL van de afbeelding moet in het document.
+Installatiekopieën en media-bestanden zijn niet rechtstreeks kan worden doorzocht en moeten worden opgeslagen in een andere opslagplatform, zoals Azure Blob-opslag, om kosten te verlagen. In de index en documenten, definieert u een veld waarin de URL-adres van de externe inhoud. U kunt vervolgens het veld gebruiken als een verwijzing naar de installatiekopie. De URL naar de installatiekopie moet zich in het document.
 
-Voor het ophalen van een product beschrijvingspagina voor een **onClick** gebeurtenis, gebruik [Lookup Document](https://docs.microsoft.com/rest/api/searchservice/Lookup-Document) om door te geven in de sleutel van het document om op te halen. Het gegevenstype van de sleutel is `Edm.String`. In dit voorbeeld is het *246810*. 
+Ophalen van een beschrijving van de productpagina voor een **onClick** gebeurtenis, gebruik [Lookup Document](https://docs.microsoft.com/rest/api/searchservice/Lookup-Document) om door te geven in de sleutel van het document om op te halen. Het gegevenstype van de sleutel is `Edm.String`. In dit voorbeeld is het *246810*. 
 
         GET /indexes/onlineCatalog/docs/246810
 
 ## <a name="sort-by-relevance-rating-or-price"></a>Sorteren op relevantie, classificatie of prijs
-Sorteervolgorde vaak standaard op relevantie, maar het is gebruikelijk om alternatieve sorteren orders gemakkelijk beschikbaar maken zodat klanten snel bestaande resultaten naar een andere volgorde van de waarden van positie verplaatsen kunnen.
+Sorteervolgorde vaak standaard ingesteld op relevantie, maar het is gebruikelijk om alternatieve sorteren orders direct beschikbaar maken zodat klanten snel bestaande resultaten naar een andere positie volgorde verplaatsen kunnen.
 
  ![][3]
 
 In Azure Search sorteren is gebaseerd op de `$orderby` expressie, voor alle velden die zijn geïndexeerd als `"Sortable": true.`
 
-Relevantie is ten zeerste aan score berekenen voor profielen gekoppeld. Kunt u het standaard scoren die afhankelijk is van de analyse van tekst en statistieken rangschikken volgorde alle resultaten met hogere scores gebeurt met documenten met meer of sterker komt overeen met een zoekterm.
+Relevantie is sterk aan scoreprofielen gekoppeld. Kunt u de standaard score, die is afhankelijk van de analyse van tekst en statistieken rangschikken op volgorde alle resultaten met hogere scores gaan documenten met sterkere of meer overeenkomsten op een zoekterm.
 
-Alternatieve sorteervolgorde zijn meestal gekoppeld aan **onClick** gebeurtenissen die terugbellen naar een methode die de sorteervolgorde is gebaseerd. Bijvoorbeeld, krijgt deze pagina-element:
+Alternatieve sorteervolgorde zijn meestal gekoppeld aan **onClick** gebeurtenissen die aanroepen om een methode die de sorteervolgorde is gebaseerd. Bijvoorbeeld, vermeld dit paginaelement:
 
  ![][4]
 
-Maakt u een methode die de geselecteerde sorteeroptie als invoer accepteert en retourneert een geordende lijst voor de criteria gekoppeld aan die optie.
+Maakt u een methode die de geselecteerde sorteeroptie als invoer accepteert en retourneert een geordende lijst voor de criteria die zijn gekoppeld aan deze optie.
 
  ![][5]
 
 > [!NOTE]
-> De standaard score berekenen is voldoende voor veel scenario's, wordt u aangeraden relevantie in plaats daarvan op een aangepaste scoreprofiel baseert. Een aangepaste scoreprofiel biedt u een manier versterking items meer nuttig zijn voor uw bedrijf. Zie [een scoreprofiel toevoegen](https://docs.microsoft.com/rest/api/searchservice/Add-scoring-profiles-to-a-search-index) voor meer informatie. 
+> Het standaard scoren is voldoende voor veel scenario's, wordt u aangeraden relevantie in plaats daarvan op een aangepaste scoringprofiel baseren. Een aangepaste scoringprofiel biedt een manier om meer nuttig zijn voor uw bedrijf boost-items. Zie [een scoringprofiel toevoegen](https://docs.microsoft.com/rest/api/searchservice/Add-scoring-profiles-to-a-search-index) voor meer informatie. 
 > 
 > 
 
 ## <a name="faceted-navigation"></a>Facetnavigatie
-Zoeken navigatie is gebruikelijk dat op een pagina met zoekresultaten, vaak zich bevindt op de bovenkant van de pagina of. In Azure Search biedt facetnavigatie zelf gerichte zoeken op basis van vooraf gedefinieerde filters. Zie [facetnavigatie in Azure Search](search-faceted-navigation.md) voor meer informatie.
+Zoeknavigatie is gebruikelijk is in een pagina met resultaten, vaak te vinden op de bovenkant van de pagina of. In Azure Search biedt facetnavigatie Self-directed search op basis van vooraf gedefinieerde filters. Zie [facetnavigatie in Azure Search](search-faceted-navigation.md) voor meer informatie.
 
 ## <a name="filters-at-the-page-level"></a>Filters op paginaniveau
-Als uw ontwerp van de oplossing opgenomen toegewezen zoekpagina's voor specifieke typen inhoud (bijvoorbeeld, een online retail toepassing met afdelingen weergegeven boven aan de pagina), kunt u een filterexpressie naast een **onClick**gebeurtenis om een pagina openen in een vooraf gefilterde staat. 
+Als uw ontwerp van de oplossing opgenomen toegewezen zoekpagina's voor specifieke typen inhoud (bijvoorbeeld een detailhandel online toepassing die diensten die aan de bovenkant van de pagina worden vermeld heeft), kunt u een filterexpressie samen met een **onClick**gebeurtenis aan een pagina openen in een vooraf gefilterde status. 
 
-U kunt een filter met of zonder een zoekexpressie verzenden. De volgende aanvraag wordt bijvoorbeeld filteren op naam van het merk, alleen documenten die overeenkomen met het retourneren.
+U kunt een filter met of zonder een zoekexpressie verzenden. De volgende aanvraag wordt bijvoorbeeld filteren op naam, alleen documenten die overeenkomen met het retourneren.
 
         GET /indexes/onlineCatalog/docs?$filter=brandname eq ‘Microsoft’ and category eq ‘Games’
 
 Zie [documenten zoeken (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) voor meer informatie over `$filter` expressies.
 
 ## <a name="see-also"></a>Zie ook
-* [Azure Search Service REST-API](https://docs.microsoft.com/rest/api/searchservice)
-* [Indexbewerkingen](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
-* [Document bewerkingen](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
-* [Video's en zelfstudies over het Azure Search](search-video-demo-tutorial-list.md)
-* [Meervoudige navigatie in Azure Search](search-faceted-navigation.md)
+* [Azure Search Service REST API](https://docs.microsoft.com/rest/api/searchservice)
+* [-Indexbewerkingen](https://docs.microsoft.com/rest/api/searchservice/Index-operations)
+* [Documentbewerkingen](https://docs.microsoft.com/rest/api/searchservice/Document-operations)
+* [Facetnavigatie in Azure Search](search-faceted-navigation.md)
 
 <!--Image references-->
 [1]: ./media/search-pagination-page-layout/Pages-1-Viewing1ofNResults.PNG

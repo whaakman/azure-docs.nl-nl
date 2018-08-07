@@ -1,6 +1,6 @@
 ---
 title: Kopen en configureren van een SSL-certificaat voor uw Azure App Service | Microsoft Docs
-description: Informatie over het aanschaffen van een App Service-certificaat en bindt dit aan uw app in App Service
+description: Leer hoe u een App Service-certificaat kopen en te binden aan uw App Service-app
 services: app-service
 documentationcenter: .net
 author: cephalin
@@ -14,88 +14,88 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 8c1db4693c6816ca7c3cc5b3147c0e8f3f8179c5
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
-ms.translationtype: HT
+ms.openlocfilehash: 1b5aa32155afc5264ecf5979ebc25f879bbc5b67
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807455"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39581688"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Een SSL-certificaat kopen en configureren voor uw Azure App Service
 
-Deze zelfstudie leert u hoe u uw web-app beveiligen door het aanschaffen van een SSL-certificaat voor uw  **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**, veilig opslaan in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis), en koppelen aan een aangepast domein.
+Deze zelfstudie leert u hoe u kunt uw web-app beveiligen door het aanschaffen van een SSL-certificaat voor uw  **[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714)**, veilig op te slaan in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis), en koppelen aan een aangepast domein.
 
-## <a name="step-1---log-in-to-azure"></a>Stap 1 - logboek in naar Azure
+## <a name="step-1---sign-in-to-azure"></a>Stap 1: aanmelden bij naar Azure
 
-Aanmelden bij Azure Portal op http://portal.azure.com
+Meld u aan bij Azure portal op http://portal.azure.com
 
 ## <a name="step-2---place-an-ssl-certificate-order"></a>Stap 2: een SSL-certificaat bestelling plaatsen
 
-U kunt een SSL-certificaat-volgorde plaatsen door het maken van een nieuw [App Service-certificaat](https://portal.azure.com/#create/Microsoft.SSL) In de **Azure-portal**.
+U kunt een SSL-certificaat bestelling plaatsen door het maken van een nieuw [App Service Certificate](https://portal.azure.com/#create/Microsoft.SSL) In de **Azure-portal**.
 
-![Maken van het certificaat](./media/app-service-web-purchase-ssl-web-site/createssl.png)
+![Het maken van certificaten](./media/app-service-web-purchase-ssl-web-site/createssl.png)
 
 Voer een beschrijvende **naam** voor uw SSL-certificaat en voer de **domeinnaam**
 
 > [!NOTE]
-> Deze stap is een van de belangrijkste onderdelen van het aankoopproces. Zorg ervoor dat juiste host-naam (aangepaste domein) die u wilt beveiligen met dit certificaat op te geven. **GEEN** de hostnaam met WWW toevoegen. 
+> Deze stap is een van de belangrijkste onderdelen van het aankoopproces. Zorg ervoor dat u de juiste hostnaam (aangepast domein) die u wilt beveiligen met dit certificaat opgeven. **GEEN** voegt u vóór de naam van de Host met WWW. 
 >
 
 Selecteer uw **abonnement**, **resourcegroep**, en **SKU van het certificaat**
 
 > [!TIP]
-> App Service-certificaten kunnen worden gebruikt voor een Azure- of Azure Services en is niet beperkt tot App-Services. Om dit te doen, moet u een lokale PFX kopie maken van een App Service-certificaat dat kunt u elke gewenste locatie. Lees voor meer informatie [een lokale pfx-exemplaar maken van een App Service-certificaat](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
+> App Service-certificaten kunnen worden gebruikt voor alle Azure of niet - Azure-Services en is niet beperkt tot de App-Services. Om dit te doen, moet u een lokaal PFX-exemplaar van een App Service-certificaat dat u kunt gebruiken waar die u wilt maken. Lees voor meer informatie, [het maken van een lokale kopie van het pfx-van een App Service Certificate](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
 >
 
-## <a name="step-3---store-the-certificate-in-azure-key-vault"></a>Stap 3: het certificaat wordt opgeslagen in Azure Sleutelkluis
+## <a name="step-3---store-the-certificate-in-azure-key-vault"></a>Stap 3: Store van het certificaat in Azure Key Vault
 
 > [!NOTE]
-> [Sleutelkluis](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) is een Azure-service die helpt bij het beschermen van de cryptografische sleutels en geheimen beveiligen die door cloudtoepassingen en -services.
+> [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) is een Azure-service waarmee de beveiliging van cryptografische sleutels en geheimen die worden gebruikt door cloudtoepassingen en -services.
 >
 
-Zodra de aankoop van het SSL-certificaat voltooid is, moet u opent de [App Service Certificate](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) pagina.
+Zodra de aankoop van het SSL-certificaat voltooid is, moet u opent de [App Service-certificaten](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) pagina.
 
 ![afbeelding van gereed is om op te slaan in KV invoegen](./media/app-service-web-purchase-ssl-web-site/ReadyKV.png)
 
-De status van het certificaat **"In behandeling zijnde uitgifte"** omdat er meer stappen u uitvoeren moet voordat u met dit certificaat kunt gaan.
+De certificaatstatus van het is **'Uitgifte in behandeling'** als er meer stappen u voltooien moet voordat u kunt beginnen met het certificaat.
 
-Klik op **Certificaatconfiguratie** pagina in de eigenschappen voor certificaat en klik op **stap 1: opslaan** dit certificaat wordt opgeslagen in Azure Sleutelkluis.
+Klik op **Certificaatconfiguratie** pagina in de eigenschappen voor certificaat en klik op **stap 1: Store** dit certificaat wordt opgeslagen in Azure Key Vault.
 
-Van de **Sleutelkluis Status** pagina, klikt u op **Sleutelkluis opslagplaats** kiezen een bestaande Sleutelkluis voor het opslaan van dit certificaat **of maak nieuwe Sleutelkluis** nieuwe Sleutelkluis maken binnen hetzelfde abonnement en de resource-groep.
+Uit de **Key Vault-Status** pagina, klikt u op **Key Vault-opslagplaats** kiezen van een bestaande Sleutelkluis voor het opslaan van dit certificaat **of maak nieuwe Key Vault** nieuwe Key Vault maken binnen hetzelfde abonnement en de resourcegroep-groep.
 
 > [!NOTE]
-> Azure Sleutelkluis heeft minimale kosten voor het opslaan van dit certificaat.
-> Zie voor meer informatie  **[prijsinformatie voor Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/)**.
+> Azure Key Vault heeft minimale kosten in rekening gebracht voor het opslaan van dit certificaat.
+> Zie voor meer informatie,  **[prijsinformatie voor Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/)**.
 >
 
-Nadat u de opslagplaats van de kluis sleutel voor het opslaan van dit certificaat, hebt geselecteerd de **opslaan** optie geslaagd moet worden weergegeven.
+Nadat u hebt geselecteerd de Key Vault-opslagplaats voor het opslaan van dit certificaat in de **Store** optie succes moet worden weergegeven.
 
-![afbeelding van store slagen van KV invoegen](./media/app-service-web-purchase-ssl-web-site/KVStoreSuccess.png)
+![afbeelding van store succes in KV invoegen](./media/app-service-web-purchase-ssl-web-site/KVStoreSuccess.png)
 
-## <a name="step-4---verify-the-domain-ownership"></a>Stap 4: Controleer of het eigendom van het domein
+## <a name="step-4---verify-the-domain-ownership"></a>Stap 4: het Domeineigendom controleren
 
-Uit dezelfde **Certificaatconfiguratie** pagina die u in stap 3 wordt gebruikt, klikt u op **stap 2: Controleer of**.
+Uit dezelfde **Certificaatconfiguratie** pagina die u hebt gebruikt in stap 3, klikt u op **stap 2: Controleer of**.
 
-Kies de verificatiemethode voorkeur domein. 
+Kies de gewenste domein-verificatiemethode. 
 
-Er zijn vier typen domeinverificatie ondersteund door App Service Certificate: App Service, domein, E-mail en handmatige verificatie. Meer informatie in deze typen verificatie worden beschreven de [geavanceerde sectie](#advanced).
+Er zijn vier typen domeinverificatie wordt ondersteund door App Service-certificaten: App Service, domein, e-Mail en handmatige verificatie. Deze verificatietypen worden uitgelegd in meer details in de [geavanceerde sectie](#advanced).
 
 > [!NOTE]
-> **App Service-verificatie** is de meest geschikte optie bij het domein dat u wilt controleren al aan een App Service-app in hetzelfde abonnement toegewezen is. Dit maakt gebruik van het feit dat de App Service-app al het eigendom van het domein is geverifieerd.
+> **App Service-verificatie** is de meest geschikte optie bij het domein dat u wilt controleren of al aan een App Service-app in hetzelfde abonnement toegewezen is. Het maakt gebruik van het feit dat de App Service-app al het domeineigendom is geverifieerd.
 >
 
 Klik op **controleren** knop om deze stap te voltooien.
 
 ![afbeelding van domeinverificatie invoegen](./media/app-service-web-purchase-ssl-web-site/DomainVerificationRequired.png)
 
-Wanneer u op **controleren**, gebruiken de **vernieuwen** knop totdat de **controleren** optie geslaagd moet worden weergegeven.
+Nadat u hebt geklikt **controleren**, gebruiken de **vernieuwen** knop totdat de **controleren** optie succes moet worden weergegeven.
 
-![afbeelding van INSERT verifiëren in KV](./media/app-service-web-purchase-ssl-web-site/KVVerifySuccess.png)
+![afbeelding invoegen van verifiëren in KV](./media/app-service-web-purchase-ssl-web-site/KVVerifySuccess.png)
 
-## <a name="step-5---assign-certificate-to-app-service-app"></a>Stap 5 - certificaat toewijzen aan de App Service-App
+## <a name="step-5---assign-certificate-to-app-service-app"></a>Stap 5 - certificaat toewijzen aan App Service-App
 
 > [!NOTE]
-> Voordat u de stappen in deze sectie, moet een aangepaste domeinnaam hebt gekoppeld aan uw app. Zie voor meer informatie  **[configureren van een aangepaste domeinnaam voor een web-app.](app-service-web-tutorial-custom-domain.md)**
+> Voordat u de stappen in deze sectie, moet een aangepaste domeinnaam hebt gekoppeld aan uw app. Zie voor meer informatie,  **[configureren van een aangepaste domeinnaam voor een web-app.](app-service-web-tutorial-custom-domain.md)**
 >
 
 In de  **[Azure-portal](https://portal.azure.com/)**, klikt u op de **App Service** optie aan de linkerkant van de pagina.
@@ -104,24 +104,24 @@ Klik op de naam van uw app waaraan u dit certificaat wilt toewijzen.
 
 In de **instellingen**, klikt u op **SSL-instellingen**.
 
-Klik op **App Service-certificaat importeren** en selecteer het certificaat dat u zojuist hebt aangeschaft.
+Klik op **importeren van App Service Certificate** en selecteer het certificaat dat u zojuist hebt aangeschaft.
 
 ![afbeelding van het certificaat importeren invoegen](./media/app-service-web-purchase-ssl-web-site/ImportCertificate.png)
 
-In de **ssl-bindingen** sectie Klik op **bindingen toevoegen**, en selecteer de naam van het domein te beveiligen met SSL en het certificaat te gebruiken met de vervolgkeuzelijsten. U kunt ook selecteren of u wilt gebruiken **[indicatie voor Server-naam (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** of IP op basis van SSL.
+In de **ssl-bindingen** sectie klikken op **bindingen toevoegen**, en selecteer de naam van het domein wilt beveiligen met SSL en het certificaat te gebruiken met de vervolgkeuzelijsten. U kunt ook kiezen of u wilt gebruiken **[Server Name Indication (SNI)](http://en.wikipedia.org/wiki/Server_Name_Indication)** of op IP gebaseerd SSL.
 
-![afbeelding van SSL-bindingen worden ingevoegd](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
+![afbeelding van SSL-bindingen invoegen](./media/app-service-web-purchase-ssl-web-site/SSLBindings.png)
 
 Klik op **toevoegen Binding** de wijzigingen opslaan en SSL in te schakelen.
 
 > [!NOTE]
-> Als u hebt geselecteerd **IP SSL gebaseerde** en uw aangepaste domein is geconfigureerd met een A-record, moet u de volgende aanvullende stappen uitvoeren. Deze worden beschreven in meer informatie in de [geavanceerde sectie](#Advanced).
+> Als u hebt geselecteerd **op IP gebaseerd SSL** en uw aangepaste domein is geconfigureerd met behulp van een A-record, moet u de volgende aanvullende stappen uitvoeren. Deze worden uitgelegd in meer details in de [geavanceerde sectie](#Advanced).
 
-Op dit moment moet u kunnen bezoeken uw app met `HTTPS://` in plaats van `HTTP://` om te controleren of het certificaat correct is geconfigureerd.
+Op dit moment zou het mogelijk om naar uw app met te `HTTPS://` in plaats van `HTTP://` om te verifiëren dat het certificaat correct is geconfigureerd.
 
 <!--![insert image of https](./media/app-service-web-purchase-ssl-web-site/Https.png)-->
 
-## <a name="step-6---management-tasks"></a>Stap 6: beheertaken
+## <a name="step-6---management-tasks"></a>Stap 6 - beheertaken
 
 ### <a name="azure-cli"></a>Azure-CLI
 
@@ -133,92 +133,92 @@ Op dit moment moet u kunnen bezoeken uw app met `HTTPS://` in plaats van `HTTP:/
 
 ## <a name="advanced"></a>Geavanceerd
 
-### <a name="verifying-domain-ownership"></a>Domein eigendom verifiëren
+### <a name="verifying-domain-ownership"></a>Domeineigendom controleren
 
-Er zijn twee soorten verificatie van het domein wordt ondersteund door App service Certificate: e-Mail en handmatige verificatie.
+Er zijn twee soorten meer domeinverificatie wordt ondersteund door App service-certificaten: e-Mail en handmatige verificatie.
 
 #### <a name="mail-verification"></a>E-mailverificatie
 
-Reeds is bevestigingsmail verzonden naar de e-adressen die zijn gekoppeld aan dit aangepast domein.
-De e-verificatiestap voltooid, opent u het e-mailbericht en klik op de koppeling voor verificatie.
+Verificatie-e-mailadres is al is verzonden naar het e-mailadressen die zijn gekoppeld aan dit aangepaste domein.
+Als u wilt de verificatiestap e-mailadres hebt voltooid, opent u het e-mailbericht en klik op de verificatiekoppeling.
 
 ![afbeelding van e-mailverificatie invoegen](./media/app-service-web-purchase-ssl-web-site/KVVerifyEmailSuccess.png)
 
-Als u de verificatie-e-mail verzenden moet, klikt u op de **E-mail opnieuw verzenden** knop.
+Als u het verificatie-e-mailbericht verzenden wilt, klikt u op de **E-mail opnieuw verzenden** knop.
 
 #### <a name="domain-verification"></a>Domeinverificatie
 
-Selecteer deze optie alleen voor [een App Service-domein dat u hebt aangeschaft van Azure.](custom-dns-web-site-buydomains-web-app.md). Azure automatisch de verificatie TXT-record voor u worden toegevoegd en het proces is voltooid.
+Kies deze optie alleen voor [een App Service-domein dat u hebt aangeschaft in Azure.](custom-dns-web-site-buydomains-web-app.md). Azure wordt automatisch de verificatie-TXT-record voor u wordt toegevoegd en het proces is voltooid.
 
 #### <a name="manual-verification"></a>Handmatige verificatie
 
 > [!IMPORTANT]
-> HTML-pagina verificatie (werkt alleen met standaard SKU van het certificaat.)
+> HTML-pagina verificatie (werkt alleen met standaard certificaat-SKU.)
 >
 
-1. Maken van een HTML-bestand met de naam **'starfield.html'**
+1. Maken van een HTML-bestand met de naam **"starfield.html"**
 
-1. Inhoud van dit bestand moet de exacte naam van het domein verificatie-Token. (U kunt het token van de pagina domein verificatiestatus kopiëren)
+1. Inhoud van dit bestand moet de exacte naam van het Domeinverificatietoken. (U kunt het token van de pagina Domeinverificatiestatus kopiëren)
 
 1. Dit bestand in de hoofdmap van de webserver die als host fungeert voor uw domein niet uploaden `/.well-known/pki-validation/starfield.html`
 
-1. Klik op **vernieuwen** wilt bijwerken van de certificaatstatus nadat de verificatie is voltooid. Het duurt enkele minuten voor verificatie te voltooien.
+1. Klik op **vernieuwen** om bij te werken van de certificaatstatus nadat de verificatie is voltooid. Het duurt enkele minuten voor de verificatie is voltooid.
 
 > [!TIP]
 > Controleer of in een terminal met `curl -G http://<domain>/.well-known/pki-validation/starfield.html` het antwoord moet bevatten de `<verification-token>`.
 
 #### <a name="dns-txt-record-verification"></a>Controle van DNS TXT-Record
 
-1. Maak een TXT-record met uw DNS-beheer op de `@` subdomein met waarde gelijk is aan het domein verificatie-Token.
-1. Klik op **'Vernieuwen'** de certificaatstatus bijwerken nadat de verificatie is voltooid.
+1. Een TXT-record met behulp van uw DNS-beheer maken op de `@` subdomein met de waarde gelijk is aan het Domeinverificatietoken.
+1. Klik op **'Vernieuwen'** om bij te werken van de certificaatstatus nadat de verificatie is voltooid.
 
 > [!TIP]
-> U moet een TXT-record maken op `@.<domain>` met waarde `<verification-token>`.
+> U moet een TXT-record maken in `@.<domain>` met waarde `<verification-token>`.
 
 ### <a name="assign-certificate-to-app-service-app"></a>Certificaat toewijzen aan App Service-App
 
-Als u hebt geselecteerd **IP SSL gebaseerde** en uw aangepaste domein is geconfigureerd met een A-record, moet u de volgende aanvullende stappen uitvoeren:
+Als u hebt geselecteerd **op IP gebaseerd SSL** en uw aangepaste domein is geconfigureerd met behulp van een A-record, moet u de volgende aanvullende stappen uitvoeren:
 
-Nadat u hebt geconfigureerd SSL-binding op basis van een IP-adres, een vast IP-adres is toegewezen aan uw app. U kunt dit IP-adres vinden op de **aangepaste domeinen** pagina onder de instellingen van uw app, direct boven de **hostnamen** sectie. Deze wordt vermeld als **externe IP-adres**
+Nadat u hebt geconfigureerd SSL-binding op basis van een IP-adres, een toegewezen IP-adres is toegewezen aan uw app. U vindt dit IP-adres op de **aangepast domein** pagina onder instellingen van uw app, rechts boven de **hostnamen** sectie. Deze wordt vermeld als **externe IP-adres**
 
-![afbeelding van IP-SSL invoegen](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
+![afbeelding van IP SSL invoegen](./media/app-service-web-purchase-ssl-web-site/virtual-ip-address.png)
 
-Dit IP-adres is anders dan het virtuele IP-adres is eerder gebruikt voor het configureren van de A-record voor uw domein. Als u zijn geconfigureerd voor gebruik SNI op basis van SSL, of zijn niet geconfigureerd om SSL te gebruiken, geen adres wordt vermeld voor dit item.
+Dit IP-adres is anders dan het virtuele IP-adres dat eerder gebruikt voor het configureren van de A-record voor uw domein. Als u zijn geconfigureerd voor het gebruik van SNI SSL op basis van, of zijn niet geconfigureerd om SSL te gebruiken, geen adres voor deze vermelding wordt vermeld.
 
-Met de hulpprogramma's door uw domeinnaamregistrar, wijzig de A-record voor uw aangepaste domeinnaam om te verwijzen naar het IP-adres van de vorige stap.
+Met behulp van de hulpprogramma's van uw domeinnaamregistrar, wijzig de A-record voor uw aangepaste domeinnaam om te verwijzen naar het IP-adres uit de vorige stap.
 
-## <a name="rekey-and-sync-the-certificate"></a>Sleutel opnieuw genereren en synchroniseren van het certificaat
+## <a name="rekey-and-sync-the-certificate"></a>Opnieuw versleutelen en synchroniseren van het certificaat
 
-Als u ooit sleutel opnieuw genereren van uw certificaat wilt, selecteert u de **opnieuw genereren van sleutels en Sync** optie van de **certificaateigenschappen** pagina.
+Als u ooit moet u uw certificaat opnieuw versleutelen, selecteert u de **opnieuw versleutelen en synchroniseren** optie uit de **eigenschappen voor certificaat** pagina.
 
-Klik op **sleutel opnieuw genereren** om het proces te starten. Dit kan 1 tot 10 minuten duren.
+Klik op **opnieuw versleutelen** om het proces te starten. Dit proces kan 1-10 minuten duren.
 
-![afbeelding van de sleutel opnieuw genereren SSL invoegen](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
+![afbeelding van SSL opnieuw versleutelen invoegen](./media/app-service-web-purchase-ssl-web-site/Rekey.png)
 
-Het certificaat opnieuw genereren van sleutels, wordt het certificaat met een nieuw certificaat is uitgegeven door de certificeringsinstantie.
+Uw certificaat opnieuw genereren van sleutels, wordt het certificaat met een nieuw certificaat is uitgegeven door de certificeringsinstantie getotaliseerd.
 
 ## <a name="renew-the-certificate"></a>Het certificaat vernieuwen
 
-Klik in te schakelen op de automatische vernieuwing van het certificaat op elk gewenst moment **instellingen voor automatisch vernieuwen** op de pagina certificaat beheer. Selecteer **op** en klik op **opslaan**.
+Als u wilt inschakelen voor de automatische vernieuwing van uw certificaat op elk gewenst moment, klikt u op **instellingen voor automatisch verlengen** in de certificate management-pagina. Selecteer **op** en klikt u op **opslaan**. Het certificaat wordt verlengd met 60 dagen voordat het verloopt als u ingeschakeld voor de automatische vernieuwing hebt.
 
 ![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
-Als u wilt handmatig vernieuwen van het certificaat in plaats daarvan, klikt u op **handmatig vernieuwen** in plaats daarvan.
+Als u wilt handmatig vernieuwen van het certificaat in plaats daarvan, klikt u op **handmatig verlengen** in plaats daarvan.
 
 > [!NOTE]
-> Het verlengde certificaat is niet automatisch gebonden aan uw app, of u handmatig vernieuwd of deze automatisch wordt vernieuwd. Als u wilt koppelen aan uw app, Zie [certificaten vernieuwen](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
+> De vernieuwde certificaat is niet automatisch gebonden aan uw app, of u deze handmatig wordt verlengd of het automatisch vernieuwd. Als u wilt koppelen aan uw app, Zie [certificaten vernieuwen](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 
 
 <a name="notrenewed"></a>
-## <a name="why-is-my-certificate-not-auto-renewed"></a>Waarom wordt mijn certificaat niet automatisch-verlengd?
+## <a name="why-is-my-certificate-not-auto-renewed"></a>Waarom wordt mijn certificaat niet, automatisch vernieuwd?
 
-Als uw SSL-certificaat is geconfigureerd voor automatisch verlengen, maar deze niet automatisch wordt vernieuwd, mogelijk hebt u de verificatie van een in behandeling domein. Houd rekening met het volgende: 
+Als uw SSL-certificaat is geconfigureerd voor automatische verlenging, maar deze niet automatisch wordt vernieuwd, kunt u een in behandeling domeinverificatie mogelijk. Houd rekening met het volgende: 
 
-- GoDaddy dit App Service-certificaten genereert, vereist verificatie van het domein om de twee jaar. De domeinbeheerder ontvangt een e-mailbericht om de drie jaar om te controleren of het domein. Controleer het e-mailbericht of verifieer uw domein voorkomt u het App Service-certificaat dat automatisch wordt vernieuwd. 
-- Vanwege een wijziging in GoDaddy-beleid moeten alle App Service-certificaten uitgegeven vóór 1 maart 2018 Herverificatie van domein op het moment van de volgende vernieuwing (zelfs als de automatisch verlengen is ingeschakeld voor het certificaat). Controleer je e-mail en voltooit deze domeinverificatie eenmalige om door te gaan automatisch verlengen van het App Service-certificaat. 
+- GoDaddy, welke App Service-certificaten genereert, vereist domeinverificatie uit te voeren om de twee jaar. De domeinbeheerder ontvangt een e-mailbericht om de drie jaar om te controleren of het domein. Het controleren van het e-mailbericht of verifieer uw domein wordt voorkomen dat het App Service-certificaat wordt automatisch vernieuwd. 
+- Vanwege een wijziging in GoDaddy-beleid moeten alle App Service-certificaten uitgegeven voor 1 maart 2018 Herverificatie van domein op het moment van de volgende vernieuwing (zelfs als de automatische verlenging is ingeschakeld voor het certificaat). Controleer uw e-mail en voltooien van deze eenmalige domeinverificatie om door te gaan van de automatische verlenging van het App Service-certificaat. 
 
 ## <a name="more-resources"></a>Meer bronnen
 
 * [HTTPS afdwingen](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [TLS 1.1/1.2 afdwingen](app-service-web-tutorial-custom-ssl.md#enforce-tls-1112)
-* [Een SSL-certificaat gebruiken in uw toepassingscode in Azure App Service](app-service-web-ssl-cert-load.md)
-* [Veelgestelde vragen over: App Service-certificaten](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)
+* [Een SSL-certificaat in de code van uw toepassing in Azure App Service gebruiken](app-service-web-ssl-cert-load.md)
+* [Veelgestelde vragen: App Service-certificaten](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

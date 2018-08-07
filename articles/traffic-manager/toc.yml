@@ -7,7 +7,7 @@
 - name: Snelstartgids
   items:
     - name: Een Traffic Manager-profiel maken
-      href: traffic-manager-create-profile.md
+      href: quickstart-create-traffic-manager-profile.md
 - name: Zelfstudies
   items:
     - name: Verkeer routeren op basis van de geografische locatie van het eindpunt

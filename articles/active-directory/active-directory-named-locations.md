@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f739917b201d5255716d22930d7c4bd9e6602f37
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 497c3b54238c9e38144a5840b59cac38af581f39
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224514"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525923"
 ---
 # <a name="configure-named-locations-in-azure-active-directory"></a>Benoemde locaties configureren in Azure Active Directory
 
@@ -28,7 +28,7 @@ Met benoemde locaties, kunt u vertrouwde IP-adresbereiken in uw organisatie een 
 
 - De detectie van [risicogebeurtenissen](active-directory-reporting-risk-events.md) het aantal gerapporteerde fout-positieven te verminderen.  
 
-- [Voorwaardelijke toegang op basis van locatie](active-directory-conditional-access-locations.md).
+- [Voorwaardelijke toegang op basis van locatie](conditional-access/location-condition.md).
 
 
 Dit artikel wordt uitgelegd, hoe u kunt configureren met de naam locaties in uw omgeving.
@@ -97,7 +97,7 @@ Zie voor meer informatie:
 
 - [Voorwaardelijke toegang in Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
-- [Locatievoorwaarden in Azure Active Directory voor voorwaardelijke toegang](active-directory-conditional-access-locations.md)
+- [Locatievoorwaarden in Azure Active Directory voor voorwaardelijke toegang](conditional-access/location-condition.md)
 
 - [Azure Active Directory-risicogebeurtenissen](active-directory-reporting-risk-events.md).
 

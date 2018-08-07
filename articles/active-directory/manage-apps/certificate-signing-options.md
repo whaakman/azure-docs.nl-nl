@@ -17,12 +17,12 @@ ms.date: 09/07/2017
 ms.author: barbkess
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: d5921b9b74bfa7e32cc8dc2f9fdc5f93d4027abb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: e86c7e82203e2ecd571d5ce5e450999704218e33
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366498"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579160"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Geavanceerde opties in het SAML-token voor galerie-apps in Azure Active Directory voor Certificaatondertekening
 Vandaag nog Azure Active Directory (Azure AD) biedt ondersteuning voor duizenden vooraf geïntegreerde toepassingen in de App-galerie van Azure Active Directory. Dit is inclusief meer dan 500 toepassingen die ondersteuning bieden voor eenmalige aanmelding met behulp van het SAML 2.0-protocol. Als een gebruiker zich bij een toepassing via Azure AD verifieert met behulp van SAML, worden in Azure AD een token verzonden naar de toepassing (via een HTTP POST). De toepassing wordt vervolgens valideert en gebruikt het token voor aanmelding bij de gebruiker in plaats van dat u wordt gevraagd een gebruikersnaam en wachtwoord. Deze SAML-tokens zijn ondertekend met de unieke certificaat dat gegenereerd in Azure AD en door specifieke standard algoritmen.
@@ -62,6 +62,6 @@ Azure AD biedt ondersteuning voor twee algoritmes voor ondertekening om te onder
 ## <a name="next-steps"></a>Volgende stappen
 * [Artikelenindex voor Toepassingsbeheer in Azure Active Directory](../active-directory-apps-index.md)
 * [Configureren van eenmalige aanmelding voor toepassingen die zich niet in de App-galerie van Azure Active Directory](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
-* [Oplossen van SAML gebaseerde eenmalige aanmelding](../develop/active-directory-saml-debugging.md)
+* [Oplossen van SAML gebaseerde eenmalige aanmelding](../develop/howto-v1-debug-saml-sso-issues.md)
 
 

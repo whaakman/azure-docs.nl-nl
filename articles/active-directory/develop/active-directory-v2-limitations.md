@@ -17,16 +17,16 @@ ms.date: 07/12/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 4111174e7ce000a978a7a5280a2561897500bdb6
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: aa931702975c2c6bdcc65853c3865dbeff570bf4
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505691"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578446"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Moet ik het v2.0-eindpunt gebruiken?
 
-Wanneer u toepassingen die zijn geïntegreerd met Azure Active Directory (Azure AD) bouwt, moet u bepalen of het v2.0-eindpunt en de verificatieprotocollen voldoen aan uw behoeften. Oorspronkelijke van Azure AD-eindpunt nog steeds volledig wordt ondersteund en is in sommige opzichten meer uitgebreide functionaliteit dan versie 2.0. Echter, het v2.0-eindpunt [kennismaakt met aanzienlijke voordelen](active-directory-v2-compare.md) voor ontwikkelaars.
+Wanneer u toepassingen die zijn geïntegreerd met Azure Active Directory (Azure AD) bouwt, moet u bepalen of het v2.0-eindpunt en de verificatieprotocollen voldoen aan uw behoeften. Oorspronkelijke van Azure AD-eindpunt nog steeds volledig wordt ondersteund en is in sommige opzichten meer uitgebreide functionaliteit dan versie 2.0. Echter, het v2.0-eindpunt [kennismaakt met aanzienlijke voordelen](azure-ad-endpoint-comparison.md) voor ontwikkelaars.
 
 Dit is een vereenvoudigde aanbeveling voor ontwikkelaars op dit moment:
 

@@ -1,5 +1,5 @@
 ---
-title: Azure backup-agent Veelgestelde vragen
+title: Veelgestelde vragen over Azure Backup agent
 description: Antwoorden op veelgestelde vragen over hoe de Azure Backup-agent werkt, en over limieten voor back-up en retentie.
 services: backup
 author: trinadhk
@@ -7,26 +7,24 @@ manager: shreeshd
 keywords: back-up en herstel na noodgeval; Backup-service
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/25/2018
-ms.author: trinadhk
-ms.openlocfilehash: ac6d2a8a152f3c6e22be962b867ef58421eda47b
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.date: 8/6/2018
+ms.author: saurse;trinadhk
+ms.openlocfilehash: 177e44bce7d8f159892d78c7003945ba55ef4b84
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37016484"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577878"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Vragen over de Azure Backup-agent
 In dit artikel vindt u antwoorden op veelgestelde vragen om u snel een beeld te geven van de verschillende onderdelen van de Azure Backup-agent. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
-
-[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
 ## <a name="configure-backup"></a>Back-up configureren
 ### <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>Waar kan ik de meest recente Azure Backup-agent downloaden? <br/>
 U kunt [hier](http://aka.ms/azurebackup_agent) de meest recente agent downloaden voor back-ups van Windows Server, System Center DPM of Windows-client. Als u een back-up van een virtuele machine wilt maken, gebruikt u de VM-agent (die automatisch de juiste extensie installeert). Virtuele machines die zijn gemaakt via de Azure-galerie, beschikken al over de VM-agent.
 
 ### <a name="when-configuring-the-azure-backup-agent-i-am-prompted-to-enter-the-vault-credentials-do-vault-credentials-expire"></a>Wanneer ik de Azure Backup-agent configureer, moet ik de kluisreferenties opgeven. Verlopen kluisreferenties?
-Ja, de kluisreferenties verlopen na 48 uur. Als het bestand is verlopen, meldt u zich aan bij de Azure Portal en downloadt u de kluisreferentiebestanden uit uw kluis.
+Ja, de kluisreferenties verlopen na 48 uur. Als het bestand is verlopen, zich aanmelden bij de Azure-portal en downloadt u de kluisreferentiebestanden uit uw kluis.
 
 ### <a name="what-types-of-drives-can-i-back-up-files-and-folders-from-br"></a>Van welke typen stations kan ik back-ups van bestanden en mappen maken? <br/>
 U kunt geen back-up maken van de volgende stations/volumes:
@@ -58,13 +56,17 @@ Absoluut. Azure Backup biedt back-ups op VM-niveau voor de virtuele machines van
 Ja. Installeer de Azure Backup-agent op het Windows-gastbesturingssysteem en maak back-ups van bestanden en mappen naar de tijdelijke opslag. Houd er rekening mee dat back-ups mislukken als de tijdelijke opslaggegevens worden gewist. Bovendien kunt u alleen herstelbewerkingen naar een niet-vluchtige opslag uitvoeren als de tijdelijke opslaggegevens zijn verwijderd.
 
 ### <a name="whats-the-minimum-size-requirement-for-the-cache-folder-br"></a>Wat is de vereiste minimumgrootte voor de cachemap? <br/>
-De grootte van de cachemap bepaalt de hoeveelheid gegevens waarvan u een back-up maakt. Het volume van de cachemap moet ten minste 5-10% vrije ruimte, in vergelijking met de totale grootte van de back-upgegevens. Als het volume minder dan 5 heeft % vrije ruimte, vergroot de grootte van het volume of [verplaatsen van de cachemap op een volume met voldoende vrije ruimte](backup-azure-file-folder-backup-faq.md#backup).
+De grootte van de cachemap bepaalt de hoeveelheid gegevens waarvan u een back-up maakt. Het volume van de cachemap moet ten minste 5-10% vrije ruimte, in vergelijking met de totale grootte van back-upgegevens. Als het volume kleiner dan 5 is % vrije ruimte, vergroot de grootte van het volume of [de cachemap verplaatsen naar een volume met voldoende vrije ruimte](backup-azure-file-folder-backup-faq.md#backup).
 
 ### <a name="how-do-i-register-my-server-to-another-datacenterbr"></a>Hoe kan ik mijn server bij een ander datacenter registreren?<br/>
 De back-upgegevens worden verzonden naar het datacenter van de kluis waarbij de server is geregistreerd. De eenvoudigste manier om het datacenter te wijzigen, is de agent te verwijderen en opnieuw te installeren en u vervolgens te registreren bij een nieuwe kluis die behoort bij het gewenste datacenter.
 
 ### <a name="does-the-azure-backup-agent-work-on-a-server-that-uses-windows-server-2012-deduplication-br"></a>Werkt de Azure Backup-agent op een server die gegevensontdubbeling van Windows Server 2012 gebruikt? <br/>
 Ja. De agentservice converteert de ontdubbelde gegevens naar normale gegevens wanneer de back-upbewerking wordt voorbereid. Vervolgens worden de gegevens geoptimaliseerd voor het maken van een back-up en versleuteld en worden de versleutelde gegevens verzonden naar de online back-upservice.
+
+## <a name="prerequisites-and-dependencies"></a>Vereisten en afhankelijkheden
+### <a name="what-features-of-microsoft-azure-recovery-services-mars-agent-require-net-framework-452-and-higher"></a>Welke functies van Microsoft Azure Recovery Services Agent (MARS) vereist .NET framework 4.5.2 of hoger?
+De [direct herstellen](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) functie waarmee herstellen van afzonderlijke bestanden en mappen van *gegevens herstellen* wizard vereist .NET Framework 4.5.2 of hoger.
 
 ## <a name="backup"></a>Backup
 ### <a name="how-do-i-change-the-cache-location-specified-for-the-azure-backup-agentbr"></a>Hoe kan ik de cachelocatie wijzigen die is opgegeven voor de Azure Backup-agent?<br/>
@@ -92,8 +94,8 @@ Zodra de back-up op de nieuwe cachelocatie is gemaakt, kunt u de oorspronkelijke
 ### <a name="where-can-i-put-the-cache-folder-for-the-azure-backup-agent-to-work-as-expectedbr"></a>Waar moet ik de cachemap voor de Azure Backup-agent plaatsen om ervoor te zorgen dat deze naar verwachting werkt?<br/>
 De volgende locaties worden niet aanbevolen voor de cachemap:
 
-* Netwerkshare of verwisselbare media: de cachemap moet zich lokaal op de server bevinden waarvan back-ups moeten worden gemaakt via onlineback-up. Netwerklocaties of verwisselbare media zoals USB-stations worden niet ondersteund.
-* Offlinevolumes: de cachemap moet online zijn voor de verwachte back-up met de Azure Backup-agent.
+* Netwerkshare of verwisselbare media: de cachemap moet zich lokaal op de server bevinden waarvan back-ups moeten worden gemaakt via onlineback-up. Netwerklocaties of verwisselbare media zoals USB-stations worden niet ondersteund
+* Offlinevolumes: De cachemap moet online zijn voor de verwachte back-up met behulp van Azure Backup Agent
 
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-are-not-supportedbr"></a>Zijn er kenmerken van de cachemap die niet worden ondersteund?<br/>
 De volgende kenmerken of combinaties van deze kenmerken worden niet ondersteund voor de cachemap:
@@ -111,8 +113,7 @@ De cachemap en de metagegevens-VHD hebben beide niet de benodigde kenmerken voor
 
 ## <a name="manage-backups"></a>Back-ups beheren
 ### <a name="what-happens-if-i-rename-a-windows-server-that-is-backing-up-data-to-azurebr"></a>Wat gebeurt er als ik de naam van een Windows-server wijzig waarmee back-ups van gegevens naar Azure worden opgeslagen?<br/>
-Wanneer u de naam van een server wijzigt, worden alle back-ups die momenteel zijn geconfigureerd, gestopt.
-Registreer de nieuwe naam van de server bij de back-upkluis. Als u de nieuwe naam bij de kluis registreert, is de eerste back-upbewerking een *volledige* back-up. Als u gegevens moet herstellen waarvan een back-up naar de kluis is gemaakt met de oude servernaam, kunt u deze gegevens herstellen met de optie [**Andere server**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) in de wizard **Gegevens herstellen**.
+Wanneer u de naam van een server wijzigt, worden alle back-ups die momenteel zijn geconfigureerd, gestopt. Registreer de nieuwe naam van de server bij de back-upkluis. Als u de nieuwe naam bij de kluis registreert, is de eerste back-upbewerking een *volledige* back-up. Als u gegevens moet herstellen waarvan een back-up naar de kluis is gemaakt met de oude servernaam, kunt u deze gegevens herstellen met de optie [**Andere server**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) in de wizard **Gegevens herstellen**.
 
 ### <a name="what-is-the-maximum-file-path-length-that-can-be-specified-in-backup-policy-using-azure-backup-agent-br"></a>Wat is de maximale lengte voor een bestandspad dat met de Azure Backup-agent kan worden opgegeven als onderdeel van het Backup-beleid? <br/>
 De Azure Backup-agent is afhankelijk van NTFS. De [lengtespecificatie van het bestandspad wordt beperkt door de Windows-API](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Als u bestanden wilt beveiligen met een bestandspad dat langer is dan toegestaan door de Windows-API, kunt u een back-up van de bovenliggende map of het schijfstation maken.  

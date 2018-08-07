@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 59db39e4d8cc68f8c7b63b347980044f06b4522a
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 98c7bd5daf3b84499e8e31c0a7a2da612834b83e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344406"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521979"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraties van SAP HANA-infrastructuur en bewerkingen op Azure
 Dit document biedt richtlijnen voor het configureren van Azure-infrastructuur en SAP HANA besturingssystemen die zijn geïmplementeerd op virtuele machines van Azure (VM's). Het document bevat ook informatie over de configuratie voor SAP HANA scale-out voor de M128s VM-SKU. Dit document is niet bedoeld als vervanging van de standaard SAP-documentatie, waaronder de volgende inhoud:
@@ -82,13 +82,13 @@ Voor een lijst van opslagtypen en de bijbehorende Sla in IOP's en opslag doorvoe
 Voor zover u SAP HANA-apparaten voor on-premises hebt gekocht, moest u nooit over de i/o-subsystemen en de mogelijkheden ervan. Omdat de leverancier van het apparaat nodig om ervoor te zorgen dat de minimale vereisten zijn voldaan voor SAP HANA. Als u de Azure-infrastructuur zelf maakt, ook moet u rekening houden met enkele van deze vereisten. En ook informatie over de configuratievereisten voorgesteld in de volgende secties. Of voor gevallen waarin u de virtuele Machines configureert u SAP HANA uitvoeren op. Sommige van de kenmerken die wordt gevraagd worden de noodzaak om te leidt:
 
 - Inschakelen van lezen/schrijven-volume op **/hana/log** van een 250 MB per seconde ten minste 1 MB i/o-grootte
-- Activiteit van ten minste 400MB per seconde voor voor lezen inschakelen **/hana/gegevens** voor 16 en 64 MB i/o-grootten
-- Inschakelen van schrijfactiviteiten van minimaal 250MB per seconde voor **/hana/gegevens** met 16 en 64 MB i/o-grootte
+- Activiteit van ten minste 400 MB per seconde voor voor lezen inschakelen **/hana/gegevens** voor 16 en 64 MB i/o-grootten
+- Inschakelen van schrijfactiviteiten van minimaal 250 MB per seconde voor **/hana/gegevens** met 16 en 64 MB i/o-grootte
 
 Latentie is opgegeven die weinig opslagruimte essentieel voor DBMS-systemen, zelfs als deze DBMS-systemen, zoals SAP HANA, blijven de gegevens in het geheugen. Het kritieke pad in de opslag is het meestal om de transactie logboek schrijven van de DBMS-systemen. Maar ook bewerkingen, zoals savepoints schrijven of gegevens in het geheugen laden na crashherstel kan essentieel zijn. Daarom is het verplichte gebruik kunt maken van Azure Premium-schijven voor **/hana/gegevens** en **/hana/log** volumes. Om de minimale doorvoer van te realiseren **/hana/log** en **/hana/gegevens** naar wens door SAP, moet u een RAID 0 bouwen met behulp van MDADM of LVM via meerdere Azure Premium Storage-schijven. En gebruik van de RAID-volumes als **/hana/gegevens** en **/hana/log** volumes. Als stripe-voor de RAID 0 de aanbeveling grootten is om te gebruiken:
 
-- 64KB of 128KB voor   **/hana/gegevens**
-- 32KB voor   **/hana/log**
+- 64 KB of 128 KB voor   **/hana/gegevens**
+- 32 KB voor   **/hana/log**
 
 > [!NOTE]
 > U hoeft niet te configureren van een willekeurig redundantieniveau met behulp van RAID-softwarevolumes omdat Azure Premium en Standard-opslag drie kopieën van een VHD bewaren. Het gebruik van een RAID-volume is uitsluitend bedoeld voor het configureren van volumes die voldoende i/o-doorvoer.
@@ -347,10 +347,112 @@ Als uw Azure-VM-infrastructuur is geïmplementeerd en alle andere voorbereidinge
 - Installeren van het hoofdknooppunt van SAP HANA op basis van de SAP-documentatie
 - **Na de installatie, moet u het bestand global.ini wijzigen en toevoegen van de parameter ' basepath_shared = Nee ' aan de global.ini**. Deze parameter kunt SAP HANA om uit te voeren in scale-out zonder 'gedeelde' **/hana/gegevens** en **/hana/log** volumes tussen de knooppunten. Details worden gedocumenteerd in [SAP Opmerking #2080991](https://launchpad.support.sap.com/#/notes/2080991).
 - Na het wijzigen van de parameter global.ini, de SAP HANA-exemplaar opnieuw opstarten
-- Toevoegen van extra werkknooppunten. Zie ook <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>. Geef het interne netwerk voor SAP HANA de communicatie tussen knooppunten tijdens de installatie of later gebruikt, bijvoorbeeld het lokale hdblcm. Zie voor meer documentatie gedetailleerde, ook [SAP Opmerking #2183363](https://launchpad.support.sap.com/#/notes/2183363). 
+- Toevoegen van extra werkknooppunten. Zie ook <https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html>. Geef het interne netwerk voor SAP HANA de communicatie tussen knooppunten tijdens de installatie van of later gebruikt, bijvoorbeeld, de lokale hdblcm. Zie voor meer documentatie gedetailleerde, ook [SAP Opmerking #2183363](https://launchpad.support.sap.com/#/notes/2183363). 
 
 Na deze routine setup gaat de configuratie van de scale-out die u hebt geïnstalleerd voor het gebruik van niet-gedeelde schijven voor het werken met **/hana/gegevens** en **/hana/log**. Terwijl de **/hana/gedeelde** volume worden geplaatst op de maximaal beschikbare NFS-share.
-  
+
+
+## <a name="sap-hana-dynamic-tiering-20-for-azure-virtual-machines"></a>SAP HANA dynamische Opslaglagen 2.0 voor virtuele machines van Azure
+
+Naast de certificeringen die SAP HANA op Azure uit de M-serie VM's, ook SAP HANA dynamische Opslaglagen 2.0 wordt ondersteund op Microsoft Azure (Zie documentatie linsk SAP HANA dynamische Opslaglagen verder omlaag). Hoewel er geen verschil in het product installeert of het besturingssysteem, bijvoorbeeld zijn via SAP HANA Cockpit binnen een Azure-Machine, er enkele belangrijke items, die verplicht voor officiële ondersteuning op Azure zijn. Deze belangrijke punten worden hieronder beschreven. In het artikel wordt de afkorting van "IT 2.0" worden gebruikt in plaats van de volledige naam dynamische 2.0 met meerdere lagen.
+
+SAP HANA dynamische Opslaglagen 2.0 wordt niet ondersteund door SAP BW of S4HANA. Belangrijkste use-cases zijn nu systeemeigen HANA-toepassingen.
+
+
+### <a name="overview"></a>Overzicht
+
+De volgende afbeelding geeft een overzicht met betrekking tot DT 2.0-ondersteuning op Microsoft Azure. Er is een set verplichte vereisten dat moet worden gevolgd om te voldoen aan de officiële certificeringen:
+
+- DT 2.0 moet worden geïnstalleerd op een specifieke Azure-VM. Het kan niet worden uitgevoerd op dezelfde virtuele machine waarop SAP HANA wordt uitgevoerd
+- SAP HANA en DT 2.0-VM's moeten worden geïmplementeerd in hetzelfde Azure-Vnet
+- De SAP HANA en DT 2.0-VM's moeten worden geïmplementeerd met Azure versneld netwerkondersteuning ingeschakeld
+- Opslagtype voor de DT 2.0 virtuele machines moet Azure Premium Storage
+- Meerdere Azure-schijven moeten worden gekoppeld aan de DT 2.0-VM
+- Dit is vereist voor het maken van een software-raid / striped volumes (ofwel via een lvm of mdadm) maakt gebruik van gesegmenteerd te verdelen over de Azure-schijven
+
+Meer informatie worden in de volgende secties beschreven.
+
+![Overzicht van de SAP HANA DT 2.0-architectuur](media/hana-vm-operations/hana-dt-20.PNG)
+
+
+
+### <a name="dedicated-azure-vm-for-sap-hana-dt-20"></a>Toegewezen virtuele machines van Azure voor SAP HANA DT 2.0
+
+Op Azure IaaS, wordt DT 2.0 alleen ondersteund op een specifieke virtuele machine. Het is niet toegestaan om uit te voeren DT 2.0 op de dezelfde Azure-VM waarop de HANA-instantie wordt uitgevoerd. In eerste instantie twee VM-typen kunnen worden gebruikt voor het uitvoeren van SAP HANA DT 2.0:
+
+M64-32ms, E32sv3 
+
+Zie de beschrijving van de VM-type [hier](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
+
+Gezien het uitgangspunt van DT 2.0, die over offloading van 'warme' gegevens om op te slaan kosten is het verstandig om het gebruik van de bijbehorende VM-grootten. Er is geen strikte regel al met betrekking tot de mogelijke combinaties. Dat hangt ervan af op de workload van een specifieke klant.
+
+Aanbevolen configuraties zijn:
+
+| SAP HANA VM-type | DT 2.0 VM-type |
+| --- | --- | 
+| M128ms | M64-32ms |
+| M128s | M64-32ms |
+| M64ms | E32sv3 |
+| M64s | E32sv3 |
+
+
+Alle combinaties van SAP HANA-gecertificeerde M-serie VM's met ondersteunde DT 2.0-VM's (M64 32ms, E32sv3) zijn mogelijk.
+
+
+### <a name="azure-networking-and-sap-hana-dt-20"></a>Azure-netwerken en SAP HANA DT 2.0
+
+DT 2.0 installeren op een specifieke virtuele machine is netwerkdoorvoer tussen de DT 2.0 virtuele machine en de SAP HANA-VM van 10 Gb minimaal vereist. Daarom is het verplicht te plaatsen van alle virtuele machines binnen hetzelfde Azure-Vnet en het inschakelen van Azure-versnelde netwerken.
+
+Meer informatie over Azure-versnelde netwerken [hier](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)
+
+### <a name="vm-storage-for-sap-hana-dt-20"></a>VM-opslag voor SAP HANA DT 2.0
+
+Op basis van DT 2.0 richtlijnen voor best practices moet de schijf-i/o-doorvoer ten minste 50 MB per seconde per fysieke kern. De specificaties voor de twee typen Azure VM's, die worden ondersteund voor DT 2.0 een bekijkt, ziet de maximale schijf-i/o-doorvoerlimiet voor de virtuele machine:
+
+- E32sv3: 768 MB per seconde (zonder caching) wat betekent een ratio van 48 MB per seconde per fysieke kern dat
+- M64-32ms: 1000 MB/sec (uncached) wat betekent dat een ratio van 62,5 MB per seconde per fysieke kern
+
+Dit is vereist voor meerdere Azure-schijven koppelen aan de DT 2.0 virtuele machine en het maken van een software-raid (gesegmenteerd te verdelen) op besturingssysteemniveau te bereiken van het maximum aantal schijfdoorvoer per virtuele machine. Een enkel Azure-schijf opgeven niet de doorvoer voor het bereiken van de maximale limiet voor de virtuele machine in dit opzicht. Azure Premium storage is verplicht om uit te voeren DT 2.0. 
+
+- Meer informatie over beschikbare Azure-schijftypes vindt [hier](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage)
+- Meer informatie over het maken van software-raid via mdadm vindt [hier](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid)
+- Meer informatie over het configureren van LVM voor het maken van een striped volume voor maximale doorvoer vindt [hier](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm)
+
+Afhankelijk van de vereisten voor de grootte zijn er verschillende opties voor het bereiken van de maximale doorvoer van een virtuele machine. Hier vindt u mogelijk gegevens volume schijfconfiguraties voor elk type DT 2.0 VM om de bovengrens voor doorvoer van virtuele machine. De E32sv3 virtuele machine moet worden beschouwd als een post-niveau voor kleinere workloads. In het geval uit te schakelen is niet snel genoeg kan het nodig zijn om het formaat van de virtuele machine M64 32ms aan.
+Als de VM M64 32ms veel geheugen heeft, kan de i/o-belasting de limiet voor lees-intensieve workloads met name niet bereiken. Daarom minder schijven in de streep kan set voldoende zijn afhankelijk van de workload van een specifieke klant. Maar als u wilt worden voor de zekerheid van de schijf volgende configuraties zijn gekozen omdat de maximale doorvoer garanderen:
+
+
+| VM-SKU | Configuratie van de schijf 1 | Configuratie van de schijf 2 | Schijf-configuratie 3 | Schijf Config 4 | Schijf Config 5 | 
+| ---- | ---- | ---- | ---- | ---- | ---- | 
+| M64-32ms | 16 TB-4 x P50 > | 4 x P40 -> 8 TB | 5 x P30 -> 5 TB | 7 x P20 -> 3,5 TB | 8 x P15 -> 2 TB | 
+| E32sv3 | 3 x P50 -> 12 TB | 3 x P40 -> 6 TB opslagruimte | 4 x P30 -> 4 TB | 5 x P20 -> 2,5 TB | 6 x P15 -> 1,5 TB | 
+
+
+Met name als de werkbelasting Lees-intensieve kan het i/o-prestaties om in te schakelen op Azure-host cache 'alleen-lezen-zoals aanbevolen voor de gegevensvolumes van database-software te verbeteren. Dat voor de transactie log schijfcache voor Azure-host moet 'none'. 
+
+Met betrekking tot de grootte van het logboekvolume is een aanbevolen beginpunt een heuristiek van 15% van de grootte van de gegevens. Het maken van het logboekvolume kan worden bereikt met behulp van verschillende Azure-schijftypes, afhankelijk van de vereisten voor kosten en doorvoer. Ook voor het logboek met hoge doorvoer van volume heeft de voorkeur en in het geval van M64 32ms het wordt sterk aanbevolen om in te schakelen Write Accelerator op (dit verplicht voor SAP HANA is). Dit biedt schrijflatentie van optimale schijf voor het transactielogboek (alleen beschikbaar voor M-serie). Er zijn enkele items rekening houden met al, zoals het maximum aantal schijven per VM-type. Meer informatie over WA vindt [hier](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+
+
+Hier volgen enkele voorbeelden over het formaat van het logboekvolume:
+
+| het volume grootte en de schijf-gegevenstype | Typ config 1 logboekvolume en schijf | Typ configuratie 2 logboekvolume en schijf |
+| --- | --- | --- |
+| 16 TB-4 x P50 > | 5 x P20 -> 2,5 TB | 3 x P30 -> 3 TB |
+| 6 x P15 -> 1,5 TB | 4 x P6 -> 256 GB | 1 x-P15 -> 256 GB |
+
+
+Net als voor SAP HANA-scale-out heeft de map /hana/shared om te worden gedeeld tussen de SAP HANA en de DT 2.0 VM's. De architectuur van dezelfde als voor SAP HANA met behulp van scale-out toegewezen virtuele machines die fungeren als een maximaal beschikbare NFS-server wordt aanbevolen. Om te voorzien van een gedeeld volume back-up, kan het ontwerp van de identieke worden gebruikt. Maar het is aan de klant als HA nodig zou zijn of alleen een specifieke virtuele machine met voldoende opslagcapaciteit gebruiken om te fungeren als een back-upserver voldoende is.
+
+
+
+### <a name="links-to-dt-20-documentation"></a>Koppelingen naar DT 2.0-documentatie 
+
+- [Dynamische Opslaglagen voor SAP HANA-installatie- en update voor](https://help.sap.com/viewer/88f82e0d010e4da1bc8963f18346f46e/2.0.03/en-US)
+- [SAP HANA dynamische lagen zelfstudies en bronnen](https://www.sap.com/developer/topics/hana-dynamic-tiering.html)
+- [SAP HANA dynamische Cloudlagen PoC](https://blogs.sap.com/2017/12/08/sap-hana-dynamic-tiering-delivering-on-low-tco-with-impressive-performance/)
+- [SAP HANA 2.0 SP's 02 dynamische cloudlagen verbeteringen](https://blogs.sap.com/2017/07/31/sap-hana-2.0-sps-02-dynamic-tiering-enhancements/)
+
+
 
 
 ## <a name="operations-for-deploying-sap-hana-on-azure-vms"></a>Bewerkingen voor het implementeren van SAP HANA op Azure Virtual machines

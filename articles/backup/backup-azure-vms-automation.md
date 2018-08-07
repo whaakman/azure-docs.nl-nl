@@ -6,15 +6,15 @@ author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 6/26/2018
+ms.date: 8/06/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e88ff8ff591e7f7ce64f4dd01ec20a8167bb3c98
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 1d8e2d3e6a303009f5718a86772cdc3db8ed332a
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438321"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523849"
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>AzureRM.RecoveryServices.Backup-cmdlets gebruiken voor het back-up van virtuele machines
 
@@ -365,7 +365,7 @@ Nadat u de schijven hebt hersteld, gebruikt u deze stappen om te maken en config
   PS C:\> $properties = $details.properties
   PS C:\> $storageAccountName = $properties["Target Storage Account Name"]
   PS C:\> $containerName = $properties["Config Blob Container Name"]
-  PS C:\> $blobName = $properties["Config Blob Name"]
+  PS C:\> $configBlobName = $properties["Config Blob Name"]
   ```
 
 2. Stel de context van de Azure-opslag en herstel van de JSON-configuratiebestand.
@@ -373,7 +373,7 @@ Nadat u de schijven hebt hersteld, gebruikt u deze stappen om te maken en config
     ```
     PS C:\> Set-AzureRmCurrentStorageAccount -Name $storageaccountname -ResourceGroupName "testvault"
     PS C:\> $destination_path = "C:\vmconfig.json"
-    PS C:\> Get-AzureStorageBlobContent -Container $containerName -Blob $blobName -Destination $destination_path
+    PS C:\> Get-AzureStorageBlobContent -Container $containerName -Blob $configBlobName -Destination $destination_path
     PS C:\> $obj = ((Get-Content -Path $destination_path -Raw -Encoding Unicode)).TrimEnd([char]0x00) | ConvertFrom-Json
     ```
 
@@ -404,18 +404,28 @@ Nadat u de schijven hebt hersteld, gebruikt u deze stappen om te maken en config
 
     ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
-    PS C:\> $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
-    PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.storageProfile'.osDisk.vhd.uri -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows
+    PS C:\> $dekUrl = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
+    ```
+    
+ Bij het instellen van de besturingssysteemschijf, zorg ervoor dat het relevante type besturingssysteem wordt genoemd.   
+    ```
+    PS C:\> Set-AzureRmVMOSDisk -VM $vm -Name "osdisk" -VhdUri $obj.'properties.storageProfile'.osDisk.vhd.uri -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows/Linux
     PS C:\> $vm.StorageProfile.OsDisk.OsType = $obj.'properties.storageProfile'.osDisk.osType
     PS C:\> foreach($dd in $obj.'properties.storageProfile'.dataDisks)
      {
      $vm = Add-AzureRmVMDataDisk -VM $vm -Name "datadisk1" -VhdUri $dd.vhd.Uri -DiskSizeInGB 127 -Lun $dd.Lun -CreateOption "Attach"
      }
     ```
+    
+De gegevensversleuteling schijven moet handmatig worden ingeschakeld met behulp van de volgende opdracht uit.
 
-    #### <a name="non-managed-encrypted-vms-bek-and-kek"></a>Niet-beheerde, versleutelde virtuele machines (BEK en KEK)
+    ```
+    Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -VolumeType Data
+    ```
+    
+   #### <a name="non-managed-encrypted-vms-bek-and-kek"></a>Niet-beheerde, versleutelde virtuele machines (BEK en KEK)
 
-    Voor niet-beheerde, versleutelde virtuele machines (versleuteld met behulp van (bek) en KEK), moet u de sleutel en -geheim voor de key vault herstellen voordat u schijven kunt koppelen. Zie voor meer informatie het artikel [een versleutelde virtuele machine herstellen vanaf een herstelpunt voor Azure Backup](backup-azure-restore-key-secret.md). Het volgende voorbeeld laat zien hoe besturingssysteem en gegevensschijven koppelen voor versleutelde virtuele machines.
+   Voor niet-beheerde, versleutelde virtuele machines (versleuteld met behulp van (bek) en KEK), moet u de sleutel en -geheim voor de key vault herstellen voordat u schijven kunt koppelen. Zie voor meer informatie het artikel [een versleutelde virtuele machine herstellen vanaf een herstelpunt voor Azure Backup](backup-azure-restore-key-secret.md). Het volgende voorbeeld laat zien hoe besturingssysteem en gegevensschijven koppelen voor versleutelde virtuele machines.
 
     ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -429,9 +439,15 @@ Nadat u de schijven hebt hersteld, gebruikt u deze stappen om te maken en config
      }
     ```
 
-    #### <a name="managed-non-encrypted-vms"></a>Beheerd, niet-versleutelde VM 's
+De gegevensversleuteling schijven moet handmatig worden ingeschakeld met behulp van de volgende opdracht uit.
 
-    Voor beheerde niet-versleutelde VM's moet u het maken van beheerde schijven van blob-opslag, en voeg vervolgens de schijven. Voor gedetailleerde informatie, Zie het artikel [een gegevensschijf koppelen aan een Windows-VM met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md). De volgende voorbeeldcode laat zien hoe u de gegevensschijven koppelen voor beheerde niet-versleutelde VM's.
+    ```
+    Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
+    ```
+    
+   #### <a name="managed-non-encrypted-vms"></a>Beheerd, niet-versleutelde VM 's
+
+   Voor beheerde niet-versleutelde VM's moet u het maken van beheerde schijven van blob-opslag, en voeg vervolgens de schijven. Voor gedetailleerde informatie, Zie het artikel [een gegevensschijf koppelen aan een Windows-VM met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md). De volgende voorbeeldcode laat zien hoe u de gegevensschijven koppelen voor beheerde niet-versleutelde VM's.
 
     ```
     PS C:\> $storageType = "StandardLRS"
@@ -450,9 +466,9 @@ Nadat u de schijven hebt hersteld, gebruikt u deze stappen om te maken en config
     }
     ```
 
-    #### <a name="managed-encrypted-vms-bek-only"></a>Beheerde, versleutelde virtuele machines (alleen BEK)
+   #### <a name="managed-encrypted-vms-bek-only"></a>Beheerde, versleutelde virtuele machines (alleen BEK)
 
-    Voor beheerde versleutelde virtuele machines (versleuteld met behulp van de BEK alleen), moet u het maken van beheerde schijven van blob-opslag, en voeg vervolgens de schijven. Voor gedetailleerde informatie, Zie het artikel [een gegevensschijf koppelen aan een Windows-VM met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md). De volgende voorbeeldcode laat zien hoe u de gegevensschijven koppelen voor beheerde versleutelde virtuele machines.
+   Voor beheerde versleutelde virtuele machines (versleuteld met behulp van de BEK alleen), moet u het maken van beheerde schijven van blob-opslag, en voeg vervolgens de schijven. Voor gedetailleerde informatie, Zie het artikel [een gegevensschijf koppelen aan een Windows-VM met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md). De volgende voorbeeldcode laat zien hoe u de gegevensschijven koppelen voor beheerde versleutelde virtuele machines.
 
      ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -473,9 +489,15 @@ Nadat u de schijven hebt hersteld, gebruikt u deze stappen om te maken en config
      }
     ```
 
-    #### <a name="managed-encrypted-vms-bek-and-kek"></a>Beheerde, versleutelde virtuele machines (BEK en KEK)
+De gegevensversleuteling schijven moet handmatig worden ingeschakeld met behulp van de volgende opdracht uit.
 
-    Voor beheerde versleutelde virtuele machines (versleuteld met behulp van (bek) en KEK), moet u het maken van beheerde schijven van blob-opslag, en voeg vervolgens de schijven. Voor gedetailleerde informatie, Zie het artikel [een gegevensschijf koppelen aan een Windows-VM met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md). De volgende voorbeeldcode laat zien hoe u de gegevensschijven koppelen voor beheerde versleutelde virtuele machines.
+    ```
+    Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
+    ```
+    
+   #### <a name="managed-encrypted-vms-bek-and-kek"></a>Beheerde, versleutelde virtuele machines (BEK en KEK)
+
+   Voor beheerde versleutelde virtuele machines (versleuteld met behulp van (bek) en KEK), moet u het maken van beheerde schijven van blob-opslag, en voeg vervolgens de schijven. Voor gedetailleerde informatie, Zie het artikel [een gegevensschijf koppelen aan een Windows-VM met behulp van PowerShell](../virtual-machines/windows/attach-disk-ps.md). De volgende voorbeeldcode laat zien hoe u de gegevensschijven koppelen voor beheerde versleutelde virtuele machines.
 
      ```
     PS C:\> $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
@@ -496,7 +518,12 @@ Nadat u de schijven hebt hersteld, gebruikt u deze stappen om te maken en config
      Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -ManagedDiskId $dataDisk2.Id -Lun $dd.Lun -CreateOption "Attach"
      }
     ```
+De gegevensversleuteling schijven moet handmatig worden ingeschakeld met behulp van de volgende opdracht uit.
 
+    ```
+    Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
+    ```
+    
 5. Stel de netwerkinstellingen.
 
     ```

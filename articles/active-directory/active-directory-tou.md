@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance-reports
 ms.date: 07/31/2018
 ms.author: rolyon
-ms.openlocfilehash: 970e748d7174a9b443fc96f52ac94e082a6c9d44
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 02f681bd679baa6bfe4037dd749f64c7b81668d3
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398951"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527453"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Functie Azure Active Directory Gebruiksrechtovereenkomst
 Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties informatie kunnen presenteren aan eindgebruikers. Deze presentatie zorgt ervoor dat gebruikers relevante disclaimers voor juridische vereisten of nalevingsvereisten te zien krijgen. In dit artikel wordt beschreven hoe u aan de slag kunt gaan met Azure AD Gebruiksrechtovereenkomst.
@@ -73,7 +73,7 @@ Wanneer u uw gebruiksrechtovereenkomstdocument hebt voltooid, gebruikt u de volg
 
 5. Selecteer Aan of Uit bij de optie **Gebruikers verplichten de gebruiksvoorwaarden uit te vouwen**.  Als deze instelling Aan staat, moeten eindgebruikers de gebruiksrechtovereenkomst bekijken alvorens ze deze accepteren.
 
-6. Onder **Voorwaardelijke toegang** kunt u de geüploade gebruiksrechtovereenkomst **afdwingen** door in de vervolgkeuzelijst een sjabloon of beleid voor aangepaste voorwaardelijke toegang te selecteren.  Met een beleid voor aangepaste voorwaardelijke toegang kunt u een gedetailleerde gebruiksrechtovereenkomst opgeven voor een specifieke cloudtoepassing of groep gebruikers.  Zie [Een voorwaardelijk toegangsbeleid configureren](active-directory-conditional-access-best-practices.md) voor meer informatie.
+6. Onder **Voorwaardelijke toegang** kunt u de geüploade gebruiksrechtovereenkomst **afdwingen** door in de vervolgkeuzelijst een sjabloon of beleid voor aangepaste voorwaardelijke toegang te selecteren.  Met een beleid voor aangepaste voorwaardelijke toegang kunt u een gedetailleerde gebruiksrechtovereenkomst opgeven voor een specifieke cloudtoepassing of groep gebruikers.  Zie [Een voorwaardelijk toegangsbeleid configureren](conditional-access/best-practices.md) voor meer informatie.
 
     >[!IMPORTANT]
     >Controlemechanismen voor het beleid voor voorwaardelijk toegang (waaronder Gebruiksrechtovereenkomst) bieden geen ondersteuning voor handhaving op serviceaccounts.  Het is raadzaam om alle serviceaccounts uit te sluiten van het beleid voor voorwaardelijke toegang.
@@ -240,4 +240,4 @@ A: u kunt [revisie geaccepteerd eerder gebruiksvoorwaarden](#how-users-can-revie
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Best practices for conditional access in Azure Active Directory](active-directory-conditional-access-best-practices.md) (Best practices voor voorwaardelijke toegang in Azure Active Directory)
+- [Best practices for conditional access in Azure Active Directory](conditional-access/best-practices.md) (Best practices voor voorwaardelijke toegang in Azure Active Directory)

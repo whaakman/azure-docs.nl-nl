@@ -3,7 +3,7 @@ title: Aanbevelingen voor beveiliging in Azure Security Center beheren | Microso
 description: Dit document helpt u bij hoe aanbevelingen in Azure Security Center helpen u bij het beveiligen van uw Azure-resources en blijven in overeenstemming met beveiligingsbeleid.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 86c50c9f-eb6b-4d97-acb3-6d599c06133e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2018
-ms.author: terrylan
-ms.openlocfilehash: caeef52ed8eb456bbec015f1766a95aa5ceb49f8
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.date: 08/05/2018
+ms.author: rkarlin
+ms.openlocfilehash: 0581ddc4289f604533bae3650618fada15e02bef
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367103"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522234"
 ---
 # <a name="managing-security-recommendations-in-azure-security-center"></a>Aanbevelingen voor beveiliging in Azure Security Center beheren
 Dit document helpt u bij het gebruik van de aanbevelingen in Azure Security Center kunt u uw Azure-resources beveiligen.
@@ -50,6 +50,8 @@ Nadat er een beveiligingsbeleid is ingesteld, wordt met Security Center de bevei
 De details van elke aanbeveling, selecteer de **aanbevelingen tegel** onder **overzicht**. **Aanbevelingen** wordt geopend.
 
 ![Aanbevelingen voor filteren][2]
+
+U kunt filteren, aanbevelingen. Als u wilt de aanbevelingen filteren, selecteert u **Filter** op de **aanbevelingen** blade. De **Filter** blade wordt geopend en selecteert u de ernst en status waarden die u wilt zien.
 
 De aanbevelingen worden weergegeven in tabelindeling, waarbij elke regel één bepaalde aanbeveling vertegenwoordigt. De kolommen van deze tabel zijn:
 
@@ -124,13 +126,6 @@ Gebruik de onderstaande tabel als referentie om te begrijpen van de beschikbare 
 | Externe accounts met eigenaarsmachtigingen van uw abonnement verwijderen | Hiermee wordt aanbevolen dat u externe accounts met eigenaarsmachtigingen uit uw abonnement verwijderen om onbewaakte toegang te voorkomen. |
 | Afgeschafte accounts verwijderen van abonnement | Raadt u afgeschafte accounts van uw abonnementen. |
 | Afgeschafte accounts met eigenaarsmachtigingen verwijderen uit abonnement | Raadt u afgeschafte accounts met eigenaarsmachtigingen van uw abonnementen. |
-U kunt filteren en aanbevelingen negeren.
-
-1. Selecteer **Filter** op de **aanbevelingen** blade. De **Filter** blade wordt geopend en selecteert u de ernst en status waarden die u wilt zien.
-
-2. Als u vaststelt dat een aanbeveling is niet van toepassing, kunt u de aanbeveling negeren en deze vervolgens uit uw weergave filteren. Er zijn twee manieren voor het verwijderen van een aanbeveling. Één manier is op de rechtermuisknop op een item en selecteer vervolgens **sluiten**. Beweeg de muisaanwijzer over een item, klikt u op de drie punten die worden weergegeven aan de rechterkant en selecteer vervolgens het andere type is **sluiten**. U kunt een gesloten aanbevelingen weergeven door te klikken op **Filter**, en vervolgens de optie **genegeerd**.
-
-    ![De aanbeveling negeren][3]
 
 ### <a name="apply-recommendations"></a>Toepassen van aanbevelingen
 Bekijk alle aanbevelingen en besluiten die u moet eerst worden toegepast. U wordt aangeraden de ernstclassificatie die de te gebruiken aangezien de belangrijkste parameter om te evalueren welke aanbevelingen voor moet eerst worden toegepast.
@@ -150,4 +145,3 @@ In dit document, kunt u kennisgemaakt met aanbevelingen voor beveiliging in Secu
 <!--Image references-->
 [1]: ./media/security-center-recommendations/recommendations-tile.png
 [2]: ./media/security-center-recommendations/filter-recommendations.png
-[3]: ./media/security-center-recommendations/dismiss-recommendations.png

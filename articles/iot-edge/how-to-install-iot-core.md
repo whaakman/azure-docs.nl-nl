@@ -1,6 +1,6 @@
 ---
-title: Azure IoT-rand installeren op IoT Core | Microsoft Docs
-description: Azure IoT rand runtime installeren op een apparaat met Windows IoT Core
+title: Azure IoT Edge op IoT Core installeren | Microsoft Docs
+description: De Azure IoT Edge-runtime installeren op een Windows IoT Core-apparaat
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -9,26 +9,26 @@ ms.date: 03/05/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ae5644a62b794dc8d6ace52f21a452fa70027d39
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: f57db00894dab80f96f45111331d47a173520ced
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029557"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39575995"
 ---
-# <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Installeren van de rand van de IoT-runtime op Windows IoT Core - voorbeeld
+# <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>IoT Edge-runtime installeren op Windows IoT Core - preview
 
-Azure IoT-rand en [Windows IoT Core](https://docs.microsoft.com/windows/iot-core/) werken samen om te schakelen computergebruik op zelfs kleine apparaten rand. De Azure IoT rand Runtime kunt zelfs op kleine één mededelingenbord Computer SBC ()-apparaten die zeer gangbare in de branche IoT zijn uitvoeren. 
+Azure IoT Edge en [Windows IoT Core](https://docs.microsoft.com/windows/iot-core/) werken samen om in te schakelen edge computing op zelfs kleine apparaten. De Azure IoT Edge-Runtime kunt uitvoeren, zelfs op kleine één bord Computer SBC ()-apparaten die zeer in de branche IoT heersen. 
 
-Dit artikel begeleidt bij het inrichten van de runtime op een kaart voor ontwikkeling Windows IoT Core uitgevoerd. 
+Dit artikel helpt bij het inrichten van de runtime op een ontwikkelbord met Windows IoT Core. 
 
-**Op dit moment ondersteunt Windows IoT Core Azure IoT rand alleen op x64-bits Intel-processors.**
+**Op dit moment ondersteunt Windows IoT Core Azure IoT Edge alleen op Intel x64 64-processors.**
 
-## <a name="install-the-container-runtime"></a>Installeren van de container-runtime
+## <a name="install-the-container-runtime"></a>De container-runtime installeren
 
-1. Configureer het mededelingenbord met **17134 bouwen (RS4)** IoT Core installatiekopie. 
-1. Schakel op het apparaat vervolgens [Meld u aan met PowerShell op afstand][lnk-powershell].
-1. Installeer de runtime container in de PowerShell-console: 
+1. Configureren van het bord met **bouwen 17134 (RS4)** IoT Core-installatiekopie. 
+1. Schakel het apparaat vervolgens [aanmelden op afstand met PowerShell][lnk-powershell].
+1. In de PowerShell-console installeert u de container-runtime: 
 
    ```powershell
    Invoke-WebRequest https://master.dockerproject.org/windows/x86_64/docker-0.0.0-dev.zip -o temp.zip
@@ -41,18 +41,18 @@ Dit artikel begeleidt bij het inrichten van de runtime op een kaart voor ontwikk
    ```
 
    >[!NOTE]
-   >Deze container runtime is van de server Moby project bouwen en is bedoeld voor evaluatiedoeleinden. Het is niet getest, goedgekeurd door of ondersteund door Docker.
+   >Deze container-runtime afkomstig is van de Moby project build-server en is bedoeld voor evaluatiedoeleinden. Het is niet getest, goedgekeurd of ondersteund door Docker.
 
 ## <a name="finish-installing"></a>De installatie voltooid
 
-De Daemon IoT rand Security installeren en configureren met behulp van de instructies in [in dit artikel][lnk-install-windows-on-windows]
+De Daemon van IoT Edge Security installeren en configureren met behulp van instructies in [in dit artikel][lnk-install-windows-on-windows]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu u een apparaat met de runtime IoT rand hebt, kunt u nagaan hoe [implementeren en controleren van de rand van de IoT-modules op grote schaal][lnk-deploy].
+Nu u een apparaat met IoT Edge-runtime hebt, kunt u leren hoe u [implementeren en controleren van IoT Edge-modules op schaal][lnk-deploy].
 
 <!--Links-->
-[lnk-install-windows-on-windows]: how-to-install-iot-edge-windows-with-windows.md#download-the-edge-daemon-package-and-install
+[lnk-install-windows-on-windows]: how-to-install-iot-edge-windows-with-windows.md
 [lnk-powershell]: https://docs.microsoft.com/windows/iot-core/connect-your-device/powershell
 [lnk-deploy]: how-to-deploy-monitor.md
 [lnk-docker-install]: https://docs.docker.com/engine/installation/linux/docker-ce/binaries#install-server-and-client-binaries-on-windows

@@ -8,11 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/14/2016
 ms.author: jjed
-ms.openlocfilehash: d95abab1d1a489deba2ebc260e1e32963aa5639e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 2f52ed0ab302d1c3dad699258287f6edd7197cef
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525617"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Aan de slag met Azure Search in Java
 > [!div class="op_single_selector"]
@@ -85,7 +86,7 @@ Alle volgende bestandswijzigingen en uitvoerinstructies worden uitgevoerd voor d
 ## <a name="configure-the-service-url-and-api-key"></a>Configureer de service-URL en API-sleutel
 1. Dubbelklik in **Projectverkenner** op **config.properties** om de configuratie-instellingen met de servernaam en API-sleutel te bewerken.
 2. Raadpleeg de eerdere stappen in dit artikel, waarin u de service-URL en API-sleutel in de [Azure-portal](https://portal.azure.com) hebt gevonden, om de waarden te verkrijgen die u nu moet opgeven in **config.properties**.
-3. In **config.properties** vervangt u 'Api Key' door de API-sleutel voor uw service. Vervolgens worden de naam van service (het eerste onderdeel van de URL http://servicename.search.windows.net) vervangt 'service name' in hetzelfde bestand.
+3. In **config.properties** vervangt u 'Api Key' door de API-sleutel voor uw service. Vervolgens worden de naam van service (het eerste onderdeel van de URL http://servicename.search.windows.net) vervangt de "service de naam" in hetzelfde bestand.
    
     ![][5]
 
@@ -158,7 +159,7 @@ Dit is de eerste Azure Search-zelfstudie op basis van Java en de USGS-gegevensse
 
 Als u al enige ervaring met Azure Search hebt, kunt u dit voorbeeld gebruiken als springplank voor verdere experimenten, om de [zoekpagina](search-pagination-page-layout.md) uit te breiden of om [facetnavigatie](search-faceted-navigation.md) te implementeren. U kunt ook de pagina met zoekresultaten verbeteren door tellers toe te voegen document in batch te verwerken, zodat gebruikers door de resultaten kunnen bladeren.
 
-Bent u niet bekend met Azure Search? Het is raadzaam andere zelfstudies te bekijken om inzicht te verwerven in wat u zoal kunt maken. Bezoek de [documentatiepagina](https://azure.microsoft.com/documentation/services/search/) voor meer resources. U kunt ook de koppelingen in de [lijst met video's en zelfstudies](search-video-demo-tutorial-list.md) volgen om meer informatie te bekijken.
+Bent u niet bekend met Azure Search? Het is raadzaam andere zelfstudies te bekijken om inzicht te verwerven in wat u zoal kunt maken. Bezoek de [documentatiepagina](https://azure.microsoft.com/documentation/services/search/) voor meer resources. 
 
 <!--Image references-->
 [1]: ./media/search-get-started-java/create-search-portal-1.PNG

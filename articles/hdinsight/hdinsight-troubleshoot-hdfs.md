@@ -1,7 +1,7 @@
 ---
-title: HDFS oplossen met behulp van Azure HDinsight | Microsoft Docs
-description: Vind antwoorden op veelgestelde vragen over het werken met HDFS en Azure HDInsight.
-keywords: HDInsight, HDFS, veelgestelde vragen over Azure, probleemoplossingsgids, veelgestelde vragen
+title: Met HDFS oplossen met behulp van Azure HDinsight | Microsoft Docs
+description: Vind antwoorden op veelgestelde vragen over het werken met HDFS- en Azure HDInsight.
+keywords: HDInsight, HDFS, veelgestelde vragen over Azure, problemen oplossen handleiding, veelgestelde vragen
 services: Azure HDInsight
 documentationcenter: na
 author: arijitt
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: e63dbf8feb941aef3d3c76439f55527da0388b85
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 7ed4bf8f48ce425880bcda84bc7838a26180d924
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31406650"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578011"
 ---
-# <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>HDFS oplossen met behulp van Azure HDInsight
+# <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>Met HDFS oplossen met behulp van Azure HDInsight
 
 Meer informatie over de meest voorkomende problemen en hun oplossingen bij het werken met Hadoop Distributed File System (HDFS) nettoladingen in Apache Ambari.
 
@@ -28,11 +28,11 @@ Meer informatie over de meest voorkomende problemen en hun oplossingen bij het w
 
 ### <a name="issue"></a>Probleem
 
-Toegang tot de lokale HDFS vanaf de opdrachtregel en toepassingscode in plaats van met behulp van Azure Blob storage of Azure Data Lake Store uit binnen het HDInsight-cluster.   
+De lokale HDFS te openen vanaf de opdrachtregel en toepassingscode in plaats van met behulp van Azure Blob storage of Azure Data Lake Store uit in het HDInsight-cluster.   
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-1. Gebruik het volgende achter de opdrachtprompt `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` letterlijk, zoals in de volgende opdracht:
+1. Gebruik bij de opdrachtprompt `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` letterlijk, zoals in de volgende opdracht uit:
 
     ```apache
     hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
@@ -42,9 +42,9 @@ Toegang tot de lokale HDFS vanaf de opdrachtregel en toepassingscode in plaats v
     drwx------   - hdiuser hdfs          0 2016-11-10 22:22 /user
     ```
 
-2. Gebruik de URI van broncode, `hdfs://mycluster/` letterlijk, zoals in het volgende voorbeeld van een toepassing:
+2. Uit de broncode, gebruikt u de URI `hdfs://mycluster/` letterlijk, zoals in het volgende voorbeeld van toepassing:
 
-    ```csharp
+    ```Java
     import java.io.IOException;
     import java.net.URI;
     import org.apache.commons.io.IOUtils;
@@ -67,7 +67,7 @@ Toegang tot de lokale HDFS vanaf de opdrachtregel en toepassingscode in plaats v
     }
     ```
 
-3. Voer de gecompileerde JAR-bestand (bijvoorbeeld een bestand met de naam `java-unit-tests-1.0.jar`) op het HDInsight-cluster met de volgende opdracht:
+3. Voer het gecompileerde JAR-bestand (bijvoorbeeld een bestand met de naam `java-unit-tests-1.0.jar`) op het HDInsight-cluster met de volgende opdracht:
 
     ```apache
     hdiuser@hn0-spark2:~$ hadoop jar java-unit-tests-1.0.jar JavaUnitTests
@@ -92,7 +92,7 @@ Fout treedt op wanneer u de volgende HDFS-opdracht uitvoeren:
 hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 ```
 
-U ziet de volgende fout wanneer u de opdracht uitvoeren:
+De volgende fout ziet u wanneer u de opdracht uitvoert:
 
 ```apache
 hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
@@ -148,7 +148,7 @@ mkdir: Cannot create directory /temp. Name node is in safe mode.
 
 ### <a name="probable-cause"></a>Mogelijke oorzaak
 
-De grootte van het HDInsight-cluster is gewijzigd om een zeer weinig knooppunten. Het aantal knooppunten is lager dan of dicht bij de replicatie HDFS factor.
+De grootte van het HDInsight-cluster is gewijzigd om een zeer weinig knooppunten. Het aantal knooppunten is hieronder of dicht bij de replicatiefactor HDFS.
 
 ### <a name="resolution-steps"></a>Oplossingen 
 
@@ -193,7 +193,7 @@ De grootte van het HDInsight-cluster is gewijzigd om een zeer weinig knooppunten
     ...
     ```
 
-2. Controleer de integriteit van HDFS op het HDInsight-cluster met behulp van de volgende opdrachten:
+2. Controleert de integriteit van HDFS op het HDInsight-cluster met behulp van de volgende opdrachten:
 
     ```apache
     hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
@@ -226,7 +226,7 @@ De grootte van het HDInsight-cluster is gewijzigd om een zeer weinig knooppunten
     The filesystem under path '/' is HEALTHY
     ```
 
-3. Als u dat vaststelt er zijn geen ontbreekt, beschadigd of under-gerepliceerde blokken of dat deze blokken kunnen worden genegeerd, voer de volgende opdracht te laten de naam van knooppunt buiten de veilige modus:
+3. Als u dat vaststelt er zijn geen ontbreekt, beschadigd of under-gerepliceerde blokken of dat deze blokken kunnen worden genegeerd, voer de volgende opdracht worden de naam van knooppunt wordt uit de veilige modus:
 
     ```apache
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave

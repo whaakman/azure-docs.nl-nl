@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: e7976cf0574952fdafbdc8b40db47af3a5420fd5
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: aae73816b883fe782eff27c56174c71f14c253c4
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369273"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577183"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Koptekst gebaseerde verificatie voor eenmalige aanmelding met de toepassingsproxy en PingAccess
 
@@ -140,7 +140,7 @@ Volg deze stappen voor het publiceren van uw app. Voor een meer gedetailleerd ov
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>Optioneel - Update GraphAPI voor het verzenden van aangepaste velden
 
-Zie voor een lijst van beveiligingstokens die Azure AD wordt verzonden voor verificatie, [naslaginformatie over Azure AD-tokens](./../develop/active-directory-token-and-claims.md). Als u een aangepaste claim waarmee andere tokens worden verzonden, gebruikt u Graph Explorer of het manifest voor de toepassing in Azure Portal om in te stellen van het veld app *acceptMappedClaims* naar **waar**.    
+Zie voor een lijst van beveiligingstokens die Azure AD wordt verzonden voor verificatie, [naslaginformatie over Azure AD-tokens](../develop/v1-id-and-access-tokens.md). Als u een aangepaste claim waarmee andere tokens worden verzonden, gebruikt u Graph Explorer of het manifest voor de toepassing in Azure Portal om in te stellen van het veld app *acceptMappedClaims* naar **waar**.    
 
 In dit voorbeeld maakt gebruik van Graph Explorer:
 

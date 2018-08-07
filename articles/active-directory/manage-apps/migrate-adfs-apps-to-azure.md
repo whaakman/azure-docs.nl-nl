@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: feb90f599a07275584cc300b371e8159d47e2ced
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: d22b86ad33db600eb5273e3ab09e71a1b1fd527b
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364339"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577493"
 ---
 # <a name="migrate-ad-fs-on-premises-apps-to-azure"></a>On-premises AD FS-apps naar Azure migreren 
 
@@ -124,7 +124,7 @@ De volgende tabel beschrijft de belangrijkste IdP-configuratie-elementen voor he
 |IdP </br>afmelden </br>URL|URL voor afmelden van de IdP vanuit het perspectief van de app (waarnaar de gebruiker wordt omgeleid wanneer deze zich afmeldt bij de app).|Voor AD FS is URL voor afmelden gelijk aan de aanmeldings-URL, of dezelfde URL met het achtervoegsel "wa=wsignout1.0". Bijvoorbeeld: https&#58;//fs.contoso.com/adfs/ls/?wa=wsignout1.0|De overeenkomstige waarde voor Azure AD hangt ervan af of de app SAML 2.0-afmelding ondersteunt.</br></br>Als de app SAML-afmelding ondersteunt, heeft de waarde het patroon waarbij de waarde voor {tenant-id} word vervangen door de tenant-id. Deze is te vinden in de Azure-portal onder **Azure Active Directory** > **Eigenschappen** als **Map-ID**: https&#58;//login.microsoftonline.com/{tenant-id}/saml2</br></br>Als de app geen ondersteuning biedt voor SAML afmelding: https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
 |Token </br>ondertekening </br>certificaat|Het certificaat waarvan de IdP de persoonlijke sleutel gebruikt voor het ondertekenen van uitgegeven tokens. Er wordt gecontroleerd of het token afkomstig is van de dezelfde IdP die de app is geconfigureerd om te vertrouwen.|U vindt het AD FS-certificaat voor token-ondertekening in AD FS-beheer onder **Certificaten**.|In Azure AD kunt u het certificaat voor token-ondertekening vinden in de Azure-portal in de eigenschappen voor **eenmalige aanmelding** onder de kop **SAML-handtekeningcertificaat**. Daar kunt u het certificaat downloaden om het te uploaden naar de app.</br></br> Als de toepassing meer dan één certificaat heeft, kunt u alle certificaten vinden in het metagegevens-XML-bestand van de federatie.|
 |Id/</br>'verlener'|Id van de IdP vanuit het perspectief van de app (ook wel 'uitgever-ID' genoemd).</br></br>In het SAML-token wordt de waarde weergegeven als het element **Verlener**.|De id voor AD FS is meestal de federatieservice-id in AD FS-beheer onder **Service** > **Eigenschappen van de Federation Service bewerken**. Bijvoorbeeld: http&#58;//fs.contoso.com/adfs/services/trust|De overeenkomstige waarde voor Azure AD volgt het patroon waarbij de waarde voor {tenant-id} wordt vervangen door de tenant-id. Te vinden in de Azure-portal onder **Azure Active Directory** > **Eigenschappen** als **Map-ID**: https&#58;//sts.windows.net/{tenant-id}/|
-|IdP </br>federatie- </br>metagegevens|Locatie van de openbaar beschikbare federatiemetagegevens van de IdP. (Sommige apps gebruiken federatiemetagegevens als alternatief voor het afzonderlijk door de beheerder configureren van URL's, id en tokenhandtekeningcertificaat.)|U vindt de URL van de AD FS-federatiemetagegevens in AD FS-beheer onder **Service** > **Eindpunten** > **Metagegevens**  >   **Type: Federatiemetagegevens**. Bijvoorbeeld: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|De overeenkomstige waarde voor Azure AD volgt het patroon https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. De waarde voor {TenantDomainName} wordt vervangen door de naam van uw tenant in de notatie "contoso.onmicrosoft.com". </br></br>Zie voor meer informatie [Federatiemetagegevens](../develop/active-directory-federation-metadata.md).
+|IdP </br>federatie- </br>metagegevens|Locatie van de openbaar beschikbare federatiemetagegevens van de IdP. (Sommige apps gebruiken federatiemetagegevens als alternatief voor het afzonderlijk door de beheerder configureren van URL's, id en tokenhandtekeningcertificaat.)|U vindt de URL van de AD FS-federatiemetagegevens in AD FS-beheer onder **Service** > **Eindpunten** > **Metagegevens**  >   **Type: Federatiemetagegevens**. Bijvoorbeeld: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|De overeenkomstige waarde voor Azure AD volgt het patroon https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. De waarde voor {TenantDomainName} wordt vervangen door de naam van uw tenant in de notatie "contoso.onmicrosoft.com". </br></br>Zie voor meer informatie [Federatiemetagegevens](../develop/azure-ad-federation-metadata.md).
 
 ## <a name="migrating-saas-apps"></a>SaaS-apps migreren
 Het migreren van SaaS-apps van AD FS of een andere id-provider naar Azure AD is vandaag de dag een handmatig proces. Zie de [lijst met zelfstudies voor het integreren van SaaS-apps in de Marketplace](../saas-apps/tutorial-list.md) voor app-specifieke richtlijnen.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: danlep
-ms.openlocfilehash: 41cbe7a27950c4d521da613f26aa450c63961400
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 1f9a2b786db59ecfee6ede53b2b789d84651c975
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505674"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577115"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Verificatie van oplossingen van Batch-service met Active Directory
 
@@ -66,7 +66,7 @@ Gebruik de **Azure Batch-resource-eindpunt** om een token voor het verifiëren v
 
 De eerste stap bij het gebruik van Azure AD om te verifiëren, is uw toepassing registreren in een Azure AD-tenant. Registreren van uw toepassing, kunt u voor het aanroepen van de Azure [Active Directory Authentication Library] [ aad_adal] (ADAL) vanuit uw code. De ADAL-bibliotheek biedt een API voor verificatie met Azure AD van uw toepassing. Registreren van uw toepassing is vereist of u van plan bent om geïntegreerde verificatie of een service-principal te gebruiken.
 
-Als u uw toepassing registreert, kunt u informatie opgeven over uw toepassing naar Azure AD. Vervolgens Azure AD biedt een toepassings-ID (ook wel een *client-ID*) waarmee u kunt uw toepassing koppelen aan Azure AD tijdens runtime. Zie voor meer informatie over de toepassings-ID, [toepassing en service-principalobjecten in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+Als u uw toepassing registreert, kunt u informatie opgeven over uw toepassing naar Azure AD. Vervolgens Azure AD biedt een toepassings-ID (ook wel een *client-ID*) waarmee u kunt uw toepassing koppelen aan Azure AD tijdens runtime. Zie voor meer informatie over de toepassings-ID, [toepassing en service-principalobjecten in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
 Voor het registreren van uw Batch-toepassing, volg de stappen in de [toevoegen van een toepassing](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md#adding-an-application) in sectie [toepassingen integreren met Azure Active Directory][aad_integrate]. Als u uw toepassing als een systeemeigen toepassing registreert, kunt u een geldige URI voor de **omleidings-URI**. Het hoeft niet te worden geen echt eindpunt.
 
@@ -374,7 +374,7 @@ De referenties voor de service-principal gebruiken om te openen een **BatchServi
 
 * Zie voor meer informatie over Azure Active Directory, de [documentatie voor Azure Active Directory](https://docs.microsoft.com/azure/active-directory/). Gedetailleerde voorbeelden die laten zien hoe u het gebruik van ADAL zijn beschikbaar in de [Azure-codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=active-directory) bibliotheek.
 
-* Zie voor meer informatie over service-principals, [toepassing en service-principalobjecten in Azure Active Directory](../active-directory/develop/active-directory-application-objects.md). Zie voor het maken van een service-principal met behulp van de Azure portal, [portal gebruiken voor het maken van Active Directory toepassing en service-principal die toegang hebben tot resources](../resource-group-create-service-principal-portal.md). U kunt ook een service-principal maken met PowerShell of Azure CLI.
+* Zie voor meer informatie over service-principals, [toepassing en service-principalobjecten in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md). Zie voor het maken van een service-principal met behulp van de Azure portal, [portal gebruiken voor het maken van Active Directory toepassing en service-principal die toegang hebben tot resources](../resource-group-create-service-principal-portal.md). U kunt ook een service-principal maken met PowerShell of Azure CLI.
 
 * Als u wilt verifiëren Batch Management-toepassingen met behulp van Azure AD, Zie [verifiëren Batch Management-oplossingen met Active Directory](batch-aad-auth-management.md).
 

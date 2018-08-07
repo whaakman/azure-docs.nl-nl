@@ -17,12 +17,12 @@ ms.date: 04/20/2018
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8bba58c3493bc8adc17c5d4bca103326808d5b8b
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 91cb7df9d38432d660930c21f6a9d0d64215d6e6
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506638"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577436"
 ---
 # <a name="azure-ad-nodejs-web-app-getting-started"></a>Azure AD-Node.js web-app aan de slag
 We gebruiken hier Passport aan:
@@ -414,6 +414,6 @@ Voor naslag is het voltooide voorbeeld (zonder uw configuratiewaarden) [geleverd
 
 U kunt nu verdergaan naar meer geavanceerde onderwerpen. Het is raadzaam om te proberen:
 
-[Een Web-API met Azure AD beveiligen](active-directory-devquickstarts-webapi-nodejs.md)
+[Een Web-API met Azure AD beveiligen](quickstart-v1-nodejs-webapi.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: 407b9732574880cd64036e92fe0c7fac169b7346
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 5bc1212cc6e894cd82a60abb42f92893c0bb2d43
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503281"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579541"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Ongeldige configuratie van de Service-Principal voor uw beheerde domein oplossen
 
@@ -30,7 +30,7 @@ Dit artikel helpt u problemen op te lossen fouten van de service-principal-gerel
 
 **Waarschuwing:** *A Service-Principal is vereist voor Azure AD Domain Services te laten functioneren is verwijderd uit uw Azure AD-directory. Deze configuratie heeft gevolgen voor de mogelijkheid van Microsoft om te controleren, beheren, toepassen van patches en synchroniseren van uw beheerde domein.*
 
-[Service-principals](../active-directory/develop/active-directory-application-objects.md) zijn toepassingen die Microsoft gebruikt om te beheren, bijwerken en onderhouden van uw beheerde domein. Als ze worden verwijderd, wordt de mogelijkheid van Microsoft om uw domein.
+[Service-principals](../active-directory/develop/app-objects-and-service-principals.md) zijn toepassingen die Microsoft gebruikt om te beheren, bijwerken en onderhouden van uw beheerde domein. Als ze worden verwijderd, wordt de mogelijkheid van Microsoft om uw domein.
 
 
 ## <a name="check-for-missing-service-principals"></a>Selectievakje om ontbrekende service-principals

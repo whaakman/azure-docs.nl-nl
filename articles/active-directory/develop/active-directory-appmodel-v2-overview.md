@@ -17,12 +17,12 @@ ms.date: 05/01/2017
 ms.author: celested
 ms.reviewer: hirsin, jmprieur, elisol, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b90e03ad15f3656c06f36d6114250298db91e9ad
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3d71e889fccaa6de59d9a528754a5e11d0220bef
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430318"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577132"
 ---
 # <a name="sign-in-microsoft-account-and-azure-active-directory-users-in-a-single-application"></a>Meld u aan Microsoft-Account en Azure Active Directory gebruikers in een enkele toepassing
 In het verleden moesten ontwikkelaars van toepassingen die ondersteuning voor zowel persoonlijke Microsoft-accounts en -werkaccounts uit Azure Active Directory wilt integreren in twee afzonderlijke systemen. Het v2.0-eindpunt voor Azure Active Directory (Azure AD) introduceert een nieuwe verificatie-API-versie die vereenvoudigt u dit proces. De Azure AD v2.0-eindpunt kunt aanmelding vanaf beide typen accounts met behulp van een eenmalige integratie. Toepassingen die gebruikmaken van de Azure AD v2.0-eindpunt kunnen ook gebruiken voor de REST-API's van de [Microsoft Graph API](https://graph.microsoft.io) met behulp van een type account.
@@ -46,9 +46,9 @@ Meer informatie over wat u met de Azure AD v2.0-eindpunt doen kunt:
 Gedetailleerde informatie over het platform van Azure AD v2.0-eindpunt verkennen:
 
 * [Azure AD v2.0-protocollen verwijzen naar](active-directory-v2-protocols.md)
-* [Azure AD v2.0 tokens verwijzing](active-directory-v2-tokens.md)
+* [Azure AD v2.0 tokens verwijzing](v2-id-and-access-tokens.md)
 * [Azure AD v2.0-verificatiebibliotheken verwijzen naar](active-directory-v2-libraries.md)
-* [Bereiken en toestemming in de Azure AD v2.0-eindpunt](active-directory-v2-scopes.md)
+* [Bereiken en toestemming in de Azure AD v2.0-eindpunt](v2-permissions-and-consent.md)
 * [De Microsoft Graph API](https://graph.microsoft.io)
 
 > [!NOTE]

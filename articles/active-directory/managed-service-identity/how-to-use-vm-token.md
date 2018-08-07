@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: ee4702733e775051cbbcace109bd1a7ffdf50e9c
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 1c8fb3314c6ee446de08433f13ed169c6c52e3db
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325452"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39578378"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Over het gebruik van een Azure VM Managed Service Identity (MSI) voor het ophalen van tokens 
 
@@ -44,7 +44,7 @@ Als u van plan bent de Azure PowerShell-voorbeelden in dit artikel gebruiken, mo
 
 ## <a name="overview"></a>Overzicht
 
-Een clienttoepassing kan een beheerde Service-identiteit aanvragen [alleen app-toegangstoken](../develop/active-directory-dev-glossary.md#access-token) voor toegang tot een bepaalde resource. Het token is [op basis van de MSI-service-principal](overview.md#how-does-it-work). Er is daarom niet nodig voor de client zich registreert voor een toegangstoken onder een eigen service-principal. Het token is geschikt voor gebruik als een bearer-token in [service-naar-service aanroepen vereisen clientreferenties](../develop/active-directory-protocols-oauth-service-to-service.md).
+Een clienttoepassing kan een beheerde Service-identiteit aanvragen [alleen app-toegangstoken](../develop/active-directory-dev-glossary.md#access-token) voor toegang tot een bepaalde resource. Het token is [op basis van de MSI-service-principal](overview.md#how-does-it-work). Er is daarom niet nodig voor de client zich registreert voor een toegangstoken onder een eigen service-principal. Het token is geschikt voor gebruik als een bearer-token in [service-naar-service aanroepen vereisen clientreferenties](../develop/v1-oauth2-client-creds-grant-flow.md).
 
 |  |  |
 | -------------- | -------------------- |

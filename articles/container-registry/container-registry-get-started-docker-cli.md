@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6fe900d8bf70e3784b9dd53c129fc0ce9d1574de
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 24cccd4745d611196046168f0125e7ef2a184e15
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449923"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576488"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Uw eerste installatiekopie naar een Docker-containerregister pushen met de Docker-CLI
 
@@ -35,7 +35,7 @@ Er zijn [verschillende manieren om te verifiëren](container-registry-authentica
 az acr login --name myregistry
 ```
 
-U kunt zich ook aanmelden met [dockeraanmelding](https://docs.docker.com/engine/reference/commandline/login/). In het volgende voorbeeld worden de id en het wachtwoord van een [service-principal](../active-directory/active-directory-application-objects.md) van Azure Active Directory doorgegeven. Bijvoorbeeld, u mogelijk [toegewezen van een service-principal](container-registry-authentication.md#service-principal) naar het register voor een automation-scenario.
+U kunt zich ook aanmelden met [dockeraanmelding](https://docs.docker.com/engine/reference/commandline/login/). In het volgende voorbeeld worden de id en het wachtwoord van een [service-principal](../active-directory/develop/app-objects-and-service-principals.md) van Azure Active Directory doorgegeven. Bijvoorbeeld, u mogelijk [toegewezen van een service-principal](container-registry-authentication.md#service-principal) naar het register voor een automation-scenario.
 
 ```Bash
 docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword

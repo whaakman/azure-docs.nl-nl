@@ -1,53 +1,48 @@
 ---
-title: Relaties in Azure storage tabelontwerp modelleren | Microsoft Docs
-description: Inzicht in het modelleringsproces bij het ontwerpen van uw opslagoplossing tabel.
+title: Modellering van relaties in Azure storage-tabelontwerp | Microsoft Docs
+description: Inzicht in het modelleringsproces bij het ontwerpen van uw oplossing voor tabel.
 services: storage
-documentationcenter: na
 author: MarkMcGeeAtAquent
-manager: kfile
-ms.assetid: 8e228b0c-2998-4462-8101-9f16517393ca
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
 ms.date: 04/23/2018
 ms.author: sngun
-ms.openlocfilehash: 561281375273135009a956fd27dfe9f193ab92ac
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.component: tables
+ms.openlocfilehash: ed4399e2d58924f89d4201979ffe1fb903a05d0c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660825"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522625"
 ---
-# <a name="modeling-relationships"></a>Relaties te modelleren
+# <a name="modeling-relationships"></a>Relaties modelleren
 Dit artikel wordt het modelleringsproces om te helpen bij het ontwerpen van uw Azure Table storage-oplossingen.
 
-Ontwikkelen van domeinmodellen is een belangrijke stap in het ontwerp van complexe systemen. Doorgaans kunt u het modelleringsproces entiteiten en de relaties tussen deze als een manier om te begrijpen van het domein voor bedrijven en informeren over het ontwerp van uw systeem te identificeren. Deze sectie richt zich op hoe Vertaal enkele van de algemene relatietypen gevonden in domeinmodellen ontwerpen voor de tabel-service. Het proces van toewijzing van een logische gegevensmodel aan een fysieke basis NoSQL-gegevensmodel verschilt van die gebruikt bij het ontwerpen van een relationele database. Relationele databases ontwerp neemt doorgaans een gegevens-normalisatie-proces geoptimaliseerd voor het minimaliseren van redundantie – en een declaratieve opvragen capaciteit die isoleert hoe de uitvoering van hoe u de database werkt.  
+Het ontwikkelen van domeinmodellen is een belangrijke stap in het ontwerp van complexe systemen. Meestal gebruikt u het modelleringsproces om entiteiten en de relaties tussen deze als een manier om te begrijpen van het bedrijfsdomein en kennis van het ontwerp van uw systeem te identificeren. Deze sectie richt zich op hoe u enkele van de algemene relatietypen gevonden in de domeinmodellen te ontwerpen voor de Table-service kunt vertalen. Het proces van de toewijzing van een logische gegevensmodel naar een fysieke op NoSQL gebaseerde gegevens-model verschilt van die bij het ontwerpen van een relationele database gebruikt. Relationele databases ontwerp wordt meestal ervan uitgegaan dat een gegevens-normalisatieproces die is geoptimaliseerd voor het minimaliseren van redundantie – en een declaratieve query-functie die isoleert de implementatie van hoe u de database de werking van.  
 
 ## <a name="one-to-many-relationships"></a>Een-op-veel-relaties
-Een-op-veel-relaties tussen bedrijven domeinobjecten vaak voorkomen: één afdeling heeft bijvoorbeeld veel werknemers. Er zijn verschillende manieren voor het implementeren van een-op-veel-relaties in de tabelservice elke met de voor- en nadelen die relevant voor een bepaald scenario zijn mogelijk.  
+Een-op-veel-relaties tussen zakelijke domeinobjecten vaak optreden: één afdeling heeft bijvoorbeeld veel werknemers. Er zijn verschillende manieren voor het implementeren van een-op-veel-relaties in de tabelservice elke met voor- en nadelen die mogelijk relevant zijn voor het opgegeven scenario.  
 
-Bekijk het voorbeeld van een grote onderneming met meerdere nationale met tienduizenden afdelingen en werknemer entiteiten waar elke afdeling heeft veel werknemers en elke werknemer die gekoppeld is aan een bepaalde afdeling. Een aanpak is het opslaan van afzonderlijke afdeling en entiteiten van de werknemer zoals deze:  
+Bekijk het voorbeeld van een grote onderneming met meerdere nationale met tienduizenden afdelingen en werknemer entiteiten waarbij elke afdeling heeft veel werknemers en elke werknemer als die zijn gekoppeld aan een bepaalde afdeling. Eén aanpak is het opslaan van afzonderlijke afdeling en werknemer entiteiten zoals deze:  
 
 
-![Afzonderlijke afdeling en werknemer entiteiten opslaan](media/storage-table-design-guide/storage-table-design-IMAGE01.png)
+![Afzonderlijke afdeling en werknemer entiteiten Store](media/storage-table-design-guide/storage-table-design-IMAGE01.png)
 
-Dit voorbeeld ziet u een impliciete een-op-veel-relatie tussen de typen op basis van de **PartitionKey** waarde. Elke afdeling kan veel werknemers hebben.  
+In dit voorbeeld ziet u een impliciete een-op-veel-relatie tussen de typen die op basis van de **PartitionKey** waarde. Elke afdeling kan veel werknemers hebben.  
 
-In dit voorbeeld toont ook een entiteit afdeling en de gerelateerde werknemer entiteiten in dezelfde partitie. U kunt verschillende partities, tabellen of zelfs storage-accounts gebruiken voor de verschillende entiteittypen.  
+In dit voorbeeld toont ook een entiteit afdeling en de gerelateerde werknemer-entiteiten in dezelfde partitie. U kunt verschillende partities, tabellen of zelfs storage-accounts gebruiken voor de verschillende Entiteitstypen.  
 
-Er is een alternatieve methode denormalize van uw gegevens en store-alleen werknemer entiteiten met gedenormaliseerd afdelingsgegevens zoals weergegeven in het volgende voorbeeld. In dit specifieke scenario gedenormaliseerd hiervan mogelijk niet het beste als er een vereiste kunnen de details van een afdelingsmanager niet wijzigen omdat hiervoor moet u elke werknemer van de afdeling bijwerken.  
+Een alternatieve methode is het uw gegevens denormaliseren en op te slaan alleen werknemer entiteiten met gedenormaliseerde afdelingsgegevens zoals wordt weergegeven in het volgende voorbeeld. In dit specifieke scenario deze gedenormaliseerde benadering mogelijk niet de beste hebt u een vereiste om de details van een afdelingsmanager niet wijzigen omdat hiervoor moet u bijwerken van alle werknemers van de afdeling te kunnen.  
 
-![werknemer-entiteit](media/storage-table-design-guide/storage-table-design-IMAGE02.png)
+![Werknemer-entiteit](media/storage-table-design-guide/storage-table-design-IMAGE02.png)
 
-Zie voor meer informatie de [Denormalization patroon](table-storage-design-patterns.md#denormalization-pattern) verderop in deze handleiding.  
+Zie voor meer informatie de [denormalisatie patroon](table-storage-design-patterns.md#denormalization-pattern) verderop in deze handleiding.  
 
-De volgende tabel geeft een overzicht van de voordelen en nadelen van elk van de methoden die hierboven worden beschreven voor het opslaan van de werknemer en afdeling entiteiten met een-op-veel-relatie een. U moet ook overwegen hoe vaak verwacht u dat kunt u verschillende bewerkingen uitvoeren: kan het zijn aanvaardbaar is voor een ontwerp waarin een dure bewerking als die voor deze bewerking alleen zelden gebeurt hebben.  
+De volgende tabel geeft een overzicht van de voor- en nadelen van elk van de methoden die hierboven worden beschreven voor het opslaan van werknemers en afdeling entiteiten waarvoor een een-op-veel-relatie. U moet ook overwegen hoe vaak verwacht u dat verschillende bewerkingen uit te voeren: kan het zijn aanvaardbaar is voor een ontwerp met een dure bewerking als die voor deze bewerking alleen zelden gebeurt hebben.  
 
 <table>
 <tr>
-<th>Benadering</th>
+<th>Methode</th>
 <th>Professionals</th>
 <th>Nadelen</th>
 </tr>
@@ -55,14 +50,14 @@ De volgende tabel geeft een overzicht van de voordelen en nadelen van elk van de
 <td>Afzonderlijke Entiteitstypen, dezelfde partitie, dezelfde tabel</td>
 <td>
 <ul>
-<li>U kunt een entiteit afdeling bijwerken met één bewerking.</li>
-<li>U kunt een EGT om consistentie te behouden als u een vereiste voor het wijzigen van een entiteit afdeling hebt wanneer u update, invoegen, verwijderen een werknemer entiteit. Als bijvoorbeeld een aantal afdelingen medewerkers voor elke afdeling te behouden.</li>
+<li>U kunt een entiteit afdeling bijwerken met een eenmalige bewerking.</li>
+<li>U kunt een EGT gebruiken voor het handhaven van de consistentie hebt u een vereiste voor het wijzigen van een entiteit afdeling wanneer u update/insert/verwijderen een werknemer-entiteit. Bijvoorbeeld, als u een aantal afdelingen medewerkers voor elke afdeling onderhouden.</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Mogelijk moet u een entiteit van de afdeling voor sommige activiteiten van de client en een werknemer worden opgehaald.</li>
-<li>Opslagbewerkingen gebeuren op dezelfde partitie. Hoge transactie volumes, kan dit resulteren in een hotspot.</li>
+<li>Mogelijk moet u een entiteit van de afdeling voor sommige activiteiten van de client en van een werknemer worden opgehaald.</li>
+<li>Opslagbewerkingen gebeuren in dezelfde partitie. Op hoog transactie volumes, kan dit resulteren in een hotspot.</li>
 <li>U kunt een werknemer niet verplaatsen naar een nieuwe afdeling met behulp van een EGT.</li>
 </ul>
 </td>
@@ -71,63 +66,63 @@ De volgende tabel geeft een overzicht van de voordelen en nadelen van elk van de
 <td>Afzonderlijke Entiteitstypen, verschillende partities of tabellen of storage-accounts</td>
 <td>
 <ul>
-<li>U kunt een entiteit van de afdeling of de werknemer entiteit bijwerken met één bewerking.</li>
-<li>Op hoog transactie volumes, kan dit helpen de werklast verdeeld over meer partities.</li>
+<li>U kunt een entiteit van de afdeling of de werknemer entiteit bijwerken met een eenmalige bewerking.</li>
+<li>Op hoog transactie volumes, kan dit helpen bij de belasting over meer partities verdelen.</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Mogelijk moet u een entiteit van de afdeling voor sommige activiteiten van de client en een werknemer worden opgehaald.</li>
-<li>U kunt EGTs niet gebruiken om consistentie te behouden wanneer u update, invoegen, verwijderen van een werknemer en update een afdeling. Een aantal werknemers in een entiteit afdeling bijvoorbeeld wordt bijgewerkt.</li>
+<li>Mogelijk moet u een entiteit van de afdeling voor sommige activiteiten van de client en van een werknemer worden opgehaald.</li>
+<li>U kunt EGTs niet gebruiken voor het handhaven van de consistentie wanneer u update/insert/verwijderen van een werknemer en update een afdeling. Bijvoorbeeld, een aantal medewerkers in een entiteit afdeling worden bijgewerkt.</li>
 <li>U kunt een werknemer niet verplaatsen naar een nieuwe afdeling met behulp van een EGT.</li>
 </ul>
 </td>
 </tr>
 <tr>
-<td>Denormalize in één entiteitstype</td>
+<td>Denormaliseren in één entiteitstype</td>
 <td>
 <ul>
-<li>U kunt alle informatie die u nodig hebt met één aanvraag ophalen.</li>
+<li>U kunt alle informatie die u nodig hebt met een enkele aanvraag ophalen.</li>
 </ul>
 </td>
 <td>
 <ul>
-<li>Het is mogelijk dure om consistentie te behouden als u bijwerken afdelingsgegevens wilt (dit vereist bij te werken van alle werknemers in een afdeling).</li>
+<li>Kan het zijn duur in het handhaven van de consistentie als u nodig hebt om afdeling informatie (dit moet u bij het bijwerken van de werknemers van een afdeling) te werken.</li>
 </ul>
 </td>
 </tr>
 </table>
 
-Hoe u kiezen tussen deze opties en welke van de voor- en nadelen zijn de meest significante, is afhankelijk van uw specifieke toepassingsscenario's. Bijvoorbeeld, hoe vaak u Wijzig afdeling entiteiten; moeten alle werknemers-query's de afdelingen aanvullende informatie; hoe sluiten weet u de limieten voor schaalbaarheid van de partities of uw storage-account?  
+Hoe u kiezen tussen deze opties, en welke van de voor- en nadelen zijn de meest significante, is afhankelijk van uw specifieke scenario's. Bijvoorbeeld, hoe vaak u Wijzig afdeling entiteiten; moeten alle werknemers-query's de aanvullende afdelingen informatie; hoe dicht weet u naar de schaalbaarheidslimieten van de partities of uw storage-account?  
 
 ## <a name="one-to-one-relationships"></a>-Op-een-relaties
-Domeinmodellen kunnen-op-een-relaties tussen entiteiten bevatten. Als u nodig hebt voor het implementeren van een-op-een relatie in de tabel-service, moet u ook het koppelen van de twee gerelateerde entiteiten wanneer moet u beide ophalen. Deze koppeling kan impliciete, op basis van een overeenkomst in de sleutelwaarden of expliciete worden door het opslaan van een koppeling in de vorm van **PartitionKey** en **RowKey** waarden in elke entiteit naar de gerelateerde entiteit. Zie de sectie voor een bespreking van of moet u de gerelateerde entiteiten opslaan op dezelfde partitie [een-op-veel relaties](#one-to-many-relationships).  
+Domeinmodellen kunnen-op-een-relaties tussen entiteiten bevatten. Als u nodig hebt voor het implementeren van een-op-een-relatie in de Table-service, moet u ook de twee gerelateerde entiteiten koppelen wanneer u nodig hebt om op te halen ze allebei. Deze koppeling kan impliciet, op basis van een overeenkomst in de sleutelwaarden of expliciet worden doordat een koppeling in de vorm van **PartitionKey** en **RowKey** waarden in elke entiteit naar de gerelateerde entiteit. Zie de sectie voor een bespreking van of u de gerelateerde entiteiten in dezelfde partitie moet opslaan, [een-op-veel relaties](#one-to-many-relationships).  
 
-Er zijn ook overwegingen bij de implementatie die kunnen leiden bij de implementatie-op-een-relaties in de tabel-service:  
+Er zijn ook overwegingen bij de implementatie die kunnen leiden bij de implementatie-op-een-relaties in de Table-service:  
 
-* Verwerking van grote entiteiten (Zie voor meer informatie [grote entiteiten patroon](table-storage-design-patterns.md#large-entities-pattern)).  
-* Toegangsbeheer implementeren (Zie voor meer informatie [beheren van toegang met Shared Access Signatures](#controlling-access-with-shared-access-signatures)).  
+* Verwerken van grote entiteiten (Zie voor meer informatie, [grote entiteiten patroon](table-storage-design-patterns.md#large-entities-pattern)).  
+* Besturingselementen voor toegang implementeren (Zie voor meer informatie, [beheren van toegang met handtekeningen voor gedeelde toegang](#controlling-access-with-shared-access-signatures)).  
 
 ## <a name="join-in-the-client"></a>Deelnemen aan de client
-Hoewel er manieren om relaties in de tabel-service, moet u niet vergeet dat de twee belangrijkste redenen voor het gebruik van de tabelservice schaalbaarheid en prestaties zijn. Als u dat u veel-relaties die een bedreiging vormen van de prestaties en schaalbaarheid van uw oplossing modelleert vindt, vraagt u uzelf als het is nodig om alle gegevensrelaties in uw tabelontwerp samen te stellen. U kunt mogelijk het ontwerp te vereenvoudigen en verbeteren van de schaalbaarheid en prestaties van uw oplossing als u toestaat dat de clienttoepassing alle benodigde joins uitvoeren.  
+Hoewel er manieren grafiekverwerking om relaties in de tabelservice zijn, moet u niet vergeet dat de twee belangrijkste redenen voor het gebruik van de Table-service schaalbaarheid en prestaties zijn. Als u dat u veel relaties die een bedreiging vormen van de prestaties en schaalbaarheid van uw oplossing modelleert vindt, vraagt u uzelf als is het nodig zijn om te maken van alle de relaties tussen de gegevens in het tabelontwerp van de. U mogelijk het ontwerp vereenvoudigen en verbeteren van de schaalbaarheid en prestaties van uw oplossing als u toestaat dat uw clienttoepassing uitvoeren die nodig zijn joins.  
 
-Bijvoorbeeld, hebt u een kleine tabellen die gegevens bevatten die niet vaak veranderen, kunt vervolgens u deze gegevens eenmaal ophalen en cache te plaatsen op de client. Dit kunt voorkomen dat herhaalde interactie om op te halen van dezelfde gegevens. In de voorbeelden die we in deze handleiding hebt bekeken, heeft de reeks afdelingen in een kleine organisatie waarschijnlijk klein en wijzig zelden waardoor het een goede kandidaat voor de gegevens eenmaal in client-toepassing kan worden gedownload en cache als opzoeken van gegevens.  
+Bijvoorbeeld als u kleine tabellen met gegevens die niet vaak wijzigen hebt, kunt klikt u vervolgens u deze gegevens eenmaal ophalen en opslaan in cache deze op de client. Dit kunt herhaalde interactie om op te halen van dezelfde gegevens voorkomen. In de voorbeelden die in deze handleiding hebt bekeken, is de set afdelingen in een klein bedrijf waarschijnlijk klein en wijzig weinig waardoor het een goede kandidaat voor gegevens die client-toepassing één keer kunt downloaden en de cache als opzoeken van gegevens.  
 
-## <a name="inheritance-relationships"></a>Relaties voor overname
-Als u de clienttoepassing gebruikmaakt van een set klassen die deel uitmaken van een overnamerelatie bedrijfsentiteiten vertegenwoordigt, kunt u eenvoudig deze entiteiten in de tabel-service behouden. Bijvoorbeeld, u wellicht de volgende set van klassen die zijn gedefinieerd in uw clienttoepassing waar **persoon** is een abstracte klasse.
+## <a name="inheritance-relationships"></a>Overname van relaties
+Als de clienttoepassing gebruikmaakt van een set klassen die deel van een overnamerelatie uitmaken voor bedrijfsentiteiten, kunt u eenvoudig deze entiteiten in de Table-service behouden. Bijvoorbeeld, u mogelijk de volgende set klassen gedefinieerd in uw clienttoepassing waar **persoon** is een abstracte klasse.
 
-![Abstracte klasse persoon](media/storage-table-design-guide/storage-table-design-IMAGE03.png)
+![Abstracte klasse van de persoon](media/storage-table-design-guide/storage-table-design-IMAGE03.png)
 
-U kunt deze persistent maken exemplaren van de twee concrete klassen in de tabel-service met één personentabel met entiteiten in die zijn opgemaakt als volgt:  
+U kunt zich blijven voordoen exemplaren van de twee concrete klassen in de tabel-service met behulp van één personentabel met behulp van entiteiten in dat er als volgt:  
 
-![Tabel](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
+![Personentabel](media/storage-table-design-guide/storage-table-design-IMAGE04.png)
 
-Zie de sectie voor meer informatie over het werken met meerdere Entiteitstypen in dezelfde tabel in de clientcode [werken met heterogene Entiteitstypen](#working-with-heterogeneous-entity-types) verderop in deze handleiding. Dit vindt u voorbeelden van het herkennen van het entiteitstype in de clientcode.  
+Zie de sectie voor meer informatie over het werken met meerdere Entiteitstypen in dezelfde tabel in clientcode [werken met heterogene Entiteitstypen](#working-with-heterogeneous-entity-types) verderop in deze handleiding. Dit bevat voorbeelden van het entiteitstype in clientcode herkennen.  
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Ontwerppatronen voor tabel](table-storage-design-patterns.md)
 - [Ontwerp voor het uitvoeren van query 's](table-storage-design-for-query.md)
-- [Tabelgegevens versleutelen](table-storage-design-encrypt-data.md)
+- [Versleutelen van gegevens in een tabel](table-storage-design-encrypt-data.md)
 - [Ontwerp voor wijziging van gegevens](table-storage-design-for-modification.md)

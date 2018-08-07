@@ -2,24 +2,18 @@
 title: Azure Files gebruiken met Linux | Microsoft Docs
 description: Leer hoe u een Azure-bestandsshare koppelen via SMB op Linux.
 services: storage
-documentationcenter: na
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-ms.assetid: 6edc37ce-698f-4d50-8fc1-591ad456175d
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
-ms.openlocfilehash: eda06fbb63352dd71cb0183ebdf683dc2f3a4a4c
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.component: files
+ms.openlocfilehash: 89343f3e4ec91dd32b24cdea6632cecd855cc6f8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413838"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523220"
 ---
 # <a name="use-azure-files-with-linux"></a>Azure Files gebruiken met Linux
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen worden gekoppeld in Linux-distributies, met de [SMB-kernel-client](https://wiki.samba.org/index.php/LinuxCIFS). In dit artikel ziet u een Azure-bestandsshare koppelen op twee manieren: op aanvraag met de `mount` opdracht en op opstarten met het maken van een vermelding in `/etc/fstab`.

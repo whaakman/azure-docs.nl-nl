@@ -17,12 +17,12 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: jmprieur
-ms.openlocfilehash: cc85dbe4bc1d207f18381e2a6d85461db229d6ea
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 3490c4589446a308d81280765baccb63e01dd6c7
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506596"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579558"
 ---
 # <a name="azure-ad-ios-getting-started"></a>Azure AD-iOS aan de slag
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -229,7 +229,7 @@ Het basisprincipe achter ADAL is dat wanneer uw app een toegangstoken moet, deze
 >
 
 ## <a name="5-build-and-run-the-application"></a>5. De toepassing bouwen en uitvoeren.
-Gefeliciteerd. U hebt nu een werkende iOS-toepassing die kan gebruikers verifiëren, veilig aanroepen van Web-API's met behulp van OAuth 2.0 en elementaire informatie over de gebruiker. Als u niet hebt gedaan, is nu de tijd voor het vullen van uw tenant waarbij sommige gebruikers. Start uw Quick Start-app en meld u aan met een van deze gebruikers. Zoeken naar andere gebruikers op basis van hun UPN. Sluit de app en start het opnieuw. U ziet dat de sessie van de gebruiker intact blijft.
+Gefeliciteerd! U hebt nu een werkende iOS-toepassing die kan gebruikers verifiëren, veilig aanroepen van Web-API's met behulp van OAuth 2.0 en elementaire informatie over de gebruiker. Als u niet hebt gedaan, is nu de tijd voor het vullen van uw tenant waarbij sommige gebruikers. Start uw Quick Start-app en meld u aan met een van deze gebruikers. Zoeken naar andere gebruikers op basis van hun UPN. Sluit de app en start het opnieuw. U ziet dat de sessie van de gebruiker intact blijft.
 
 ADAL kunt eenvoudig opnemen van al deze algemene identiteitsfuncties in uw toepassing. Dit zorgt dat al het werk dirty bij u past, Cachebeheer, zoals OAuth-protocolondersteuning, dat de gebruiker met een gebruikersinterface aan te melden bij, en vernieuwen van tokens verlopen. Alles wat u moet weten is dat één API-aanroep, `getToken`.
 
@@ -238,8 +238,8 @@ Voor een verwijzing naar het voltooide voorbeeld (zonder uw configuratiewaarden)
 ## <a name="next-steps"></a>Volgende stappen
 U kunt nu verder met aanvullende scenario's. U wilt proberen:
 
-* [Een Node.JS-Web-API met Azure AD beveiligen](active-directory-devquickstarts-webapi-nodejs.md)
-* Informatie over [SSO cross-app voor iOS met behulp van ADAL inschakelen](active-directory-sso-ios.md)  
+* [Een Node.JS-Web-API met Azure AD beveiligen](quickstart-v1-nodejs-webapi.md)
+* Informatie over [SSO cross-app voor iOS met behulp van ADAL inschakelen](howto-v1-enable-sso-on-ios.md)  
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
 

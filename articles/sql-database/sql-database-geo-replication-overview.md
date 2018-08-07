@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/25/2018
+ms.date: 08/06/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 07c17d248d78313f1c5f6f1025ae06a623b75944
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 3007227808fd7fc4ec185b87a8a44c4497c66597
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259344"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579500"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Overzicht: Actieve geo-replicatie en automatische failover-groepen
 Actieve geo-replicatie is bedoeld als een zakelijke continuïteit-oplossing waarmee de toepassing snel noodherstel in het geval van de schaal van een datacenterstoring uitvoeren. Als geo-replicatie is ingeschakeld, kan de toepassing failover naar een secundaire database in een andere Azure-regio kunt starten. Maximaal vier secundaire databases worden ondersteund in de dezelfde of verschillende regio's en de secundaire replica's kunnen ook worden gebruikt voor toegang voor alleen-lezen query's. De failover moet handmatig worden gestart door de toepassing of de gebruiker. Na een failover is de nieuwe primaire het eindpunt van een andere verbinding. 
@@ -123,7 +123,7 @@ Voor sommige toepassingen die de beveiligingsregels vereisen dat de netwerktoega
 
 ### <a name="using-failover-groups-and-virtual-network-rules"></a>Met behulp van failover-groepen en regels voor virtueel netwerk
 
-Als u [Virtual Network-service-eindpunten en regels](sql-database-vnet-service-endpoint-rule-overview.md) om toegang te beperken tot uw SQL-database, houd er rekening mee dat elke Virtual Network service-eindpunt is van toepassing op slechts één Azure-regio. Het eindpunt is niet ingeschakeld voor andere regio's communicatie accepteert van het subnet. Nadat de failover resulteert in de SQL-client-sessies omgeleid naar de server in de andere regio (secundair), mislukt deze sessies als afkomstig is van een client buiten deze regio. Om die reden kan niet het beleid automatische failover worden ingeschakeld als de deelnemende servers zijn opgenomen in de regels van het Virtueelnetwerk. Ter ondersteuning van handmatige failover, de volgende stappen uit:
+Als u [Virtual Network-service-eindpunten en regels](sql-database-vnet-service-endpoint-rule-overview.md) om toegang te beperken tot uw SQL-database, houd er rekening mee dat elke Virtual Network service-eindpunt is van toepassing op slechts één Azure-regio. Het eindpunt is niet ingeschakeld voor andere regio's communicatie accepteert van het subnet. Daarom worden alleen de clienttoepassingen die zijn geïmplementeerd in dezelfde regio kunnen verbinden met de primaire database. Nadat de failover resulteert in de SQL-client-sessies omgeleid naar de server in de andere regio (secundair), mislukt deze sessies als afkomstig is van een client buiten deze regio. Om die reden kan niet het beleid automatische failover worden ingeschakeld als de deelnemende servers zijn opgenomen in de regels van het Virtueelnetwerk. Ter ondersteuning van handmatige failover, de volgende stappen uit:
 
 1.  Inrichten van de redundante exemplaren van de front-end-onderdelen van uw toepassing in de secundaire regio (webservice, virtuele machines enz.)
 2.  Configureer de [virtuele netwerkregels](sql-database-vnet-service-endpoint-rule-overview.md) afzonderlijk voor de primaire en secundaire server

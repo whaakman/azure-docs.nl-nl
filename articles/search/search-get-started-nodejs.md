@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 04/26/2017
 ms.author: jjed
-ms.openlocfilehash: aeff3be89121bb93432d03f108ab5d2e5fa6f007
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 713e5304ca54039413f68ebc189dd049e77cdaa0
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37099534"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527572"
 ---
 # <a name="get-started-with-azure-search-in-nodejs"></a>Aan de slag met Azure Search in Node.js
 > [!div class="op_single_selector"]
@@ -99,9 +99,9 @@ U kunt ook de volgende termen proberen:
 ## <a name="next-steps"></a>Volgende stappen
 Dit is de eerste Azure Search-zelfstudie op basis van Node.js en de USGS-gegevensset. In de loop van de tijd zal deze zelfstudie worden uitgebreid om aanvullende zoekfuncties te demonstreren die u mogelijk wilt gebruiken in uw aangepaste oplossingen.
 
-Als u al enige ervaring in Azure Search hebt, kunt u dit voorbeeld gebruiken als Springplank om een suggestiefunctie (type-ahead of automatisch aanvullen query's), filters en facetnavigatie. U kunt ook de pagina met zoekresultaten verbeteren door tellers toe te voegen document in batch te verwerken, zodat gebruikers door de resultaten kunnen bladeren.
+Als u al enige ervaring in Azure Search hebt, kunt u dit voorbeeld als Springplank om suggesties (type-ahead of automatisch aanvullen query's), filters en facetnavigatie te proberen. U kunt ook de pagina met zoekresultaten verbeteren door tellers toe te voegen document in batch te verwerken, zodat gebruikers door de resultaten kunnen bladeren.
 
-Bent u niet bekend met Azure Search? Het is raadzaam andere zelfstudies te bekijken om inzicht te verwerven in wat u zoal kunt maken. Bezoek de [documentatiepagina](https://azure.microsoft.com/documentation/services/search/) voor meer resources. U kunt ook de koppelingen in de [lijst met video's en zelfstudies](search-video-demo-tutorial-list.md) volgen om meer informatie te bekijken.
+Bent u niet bekend met Azure Search? Het is raadzaam andere zelfstudies te bekijken om inzicht te verwerven in wat u zoal kunt maken. Bezoek de [documentatiepagina](https://azure.microsoft.com/documentation/services/search/) voor meer resources. 
 
 <!--Image references-->
 [1]: ./media/search-get-started-Nodejs/create-search-portal-1.PNG

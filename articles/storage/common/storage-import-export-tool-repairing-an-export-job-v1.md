@@ -1,69 +1,63 @@
 ---
-title: Herstellen van een taak van de export Azure Import/Export - v1 | Microsoft Docs
-description: Informatie over het herstellen van een taak voor het exporteren die zijn gemaakt en uitgevoerd met behulp van de Azure Import/Export-service.
+title: Een exporttaak Azure Import/Export - v1 herstellen | Microsoft Docs
+description: Informatie over het herstellen van een exporttaak bekijken die zijn gemaakt en uitgevoerd met behulp van de Azure Import/Export-service.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-ms.assetid: 728e2a42-04ce-4be8-9375-e9e2bc6827a5
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 57ab58fa1fd8371d0b6f019f94bb162bcc1e0e43
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.component: common
+ms.openlocfilehash: ef5a5f81c5eb3994f62469139c6e835bd802eaa9
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23873875"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522720"
 ---
 # <a name="repairing-an-export-job"></a>Een exporttaak herstellen
-Nadat een taak voor het exporteren is voltooid, kunt u de Microsoft Azure-hulpprogramma voor importeren/exporteren on-premises naar uitvoeren:  
+Nadat een taak voor het exporteren is voltooid, kunt u de Microsoft Azure Import/Export-hulpprogramma on-premises naar kunt uitvoeren:  
   
-1.  Download de bestanden die de Azure Import/Export-service kon niet exporteren.  
+1.  Download alle bestanden die de Azure Import/Export-service kan niet exporteren.  
   
-2.  Valideren of de bestanden op de schijf correct zijn geëxporteerd.  
+2.  Valideren dat de bestanden op de schijf correct zijn geëxporteerd.  
   
-U moet zijn verbonden met Azure Storage om deze functionaliteit te gebruiken.  
+U moet zijn verbonden met Azure Storage deze functionaliteit wilt gebruiken.  
   
-De opdracht voor het herstellen van een import-taak is **RepairExport**.
+De opdracht voor een importtaak herstellen **RepairExport**.
 
 ## <a name="repairexport-parameters"></a>RepairExport parameters
 
-U kunt de volgende parameters opgeven met **RepairExport**:  
+Kunnen de volgende parameters worden opgegeven met **RepairExport**:  
   
 |Parameter|Beschrijving|  
 |---------------|-----------------|  
-|**/ r: < RepairFile\>**|Vereist. Pad naar het bestand herstellen, waarin de voortgang van het herstel en kunt u de reparatie van een onderbroken hervatten. Elk station moet slechts één repair-bestand hebben. Wanneer u een reparatie voor een bepaald station start, wordt u in het pad doorgeven aan een reparatie-bestand dat nog niet bestaat. Om de reparatie van een onderbroken hervatten, moet u doorgeven in een bestaand bestand voor herstel. Het herstel bestand overeenkomt met het doelstation moet altijd worden opgegeven.|  
-|**schakeloptie/LOGDIR op: < LogDirectory\>**|Optioneel. De logboekmap. Uitgebreide logboekbestanden worden geschreven naar deze map. Als er geen logboekmap is opgegeven, wordt de huidige map gebruikt als de logboekmap.|  
+|**r: < RepairFile\>**|Vereist. Pad naar het bestand herstellen, die de voortgang van het herstel, en kunt u doorgaan met de reparatie van een onderbroken. Elk station moet slechts één herstel-bestand hebben. Wanneer u een herstel voor een bepaald station start, wordt u in het pad doorgeven naar een bestand herstellen die nog niet bestaat. Als u wilt de reparatie van een onderbroken hervatten, moet u de naam van een bestaand herstel-bestand doorgeven. De herstel-bestand dat overeenkomt met de doel-station moet altijd worden opgegeven.|  
+|**schakeloptie/LOGDIR op: < LogDirectory\>**|Optioneel. De logboekmap. Uitgebreide logboeken worden geschreven naar deze map. Als er geen logboekmap is opgegeven, wordt de huidige map worden gebruikt als de logboekmap.|  
 |**/ d: < TargetDirectory\>**|Vereist. De map om te valideren en te herstellen. Dit is meestal de hoofdmap van het station exporteren, maar kan ook worden een netwerkbestandsshare die een kopie van de geëxporteerde bestanden.|  
-|**/BK: < BitLockerKey\>**|Optioneel. Als u wilt dat het hulpprogramma voor het ontgrendelen van een gecodeerd waarin de geëxporteerde bestanden zijn opgeslagen, moet u de BitLocker-sleutel opgeven.|  
+|**/BK: < BitLockerKey\>**|Optioneel. Als u wilt dat het hulpprogramma voor het ontgrendelen van een versleutelde waar de geëxporteerde bestanden worden opgeslagen, moet u de BitLocker-sleutel opgeven.|  
 |**/sn: < StorageAccountName\>**|Vereist. De naam van het opslagaccount voor de taak voor het exporteren.|  
-|**/SK: < StorageAccountKey\>**|**Vereist** als een container SAS is niet opgegeven. De accountsleutel voor het opslagaccount voor de taak voor exporteren.|  
-|**/csas: < ContainerSas\>**|**Vereist** als de sleutel van het opslagaccount is niet opgegeven. De container SAS voor toegang tot de blobs die zijn gekoppeld aan de taak voor het exporteren.|  
-|**/ CopyLogFile: < DriveCopyLogFile\>**|Vereist. Het pad naar het logboekbestand van de schijf kopiëren. Het bestand is gegenereerd door de Windows Azure Import/Export-service en kan worden gedownload van de blob-opslag die is gekoppeld aan de taak. Het logboekbestand kopiëren bevat informatie over mislukte blobs of bestanden die moeten worden hersteld.|  
-|**/ ManifestFile: < DriveManifestFile\>**|Optioneel. Het pad naar het manifestbestand van de export-station. Dit bestand is gegenereerd door de Windows Azure Import/Export-service en opgeslagen op de schijf exporteren en optioneel in een blob in de storage-account die is gekoppeld aan de taak.<br /><br /> De inhoud van de bestanden op de schijf van de uitvoer wordt geverifieerd met de MD5-hashes die zijn opgenomen in dit bestand. Bestanden die worden bepaald beschadigd te zijn gedownload en herschreven naar de doel-mappen.|  
+|**/SK: < StorageAccountKey\>**|**Vereiste** als en alleen als een container SAS is niet opgegeven. De accountsleutel voor het opslagaccount voor de taak voor het exporteren.|  
+|**/csas: < ContainerSas\>**|**Vereiste** alleen als de toegangssleutel van het opslagaccount is niet opgegeven. De container SAS voor toegang tot de blobs die zijn gekoppeld aan de taak voor het exporteren.|  
+|**/ CopyLogFile: < DriveCopyLogFile\>**|Vereist. Het pad naar het logboekbestand van de schijf kopiëren. Het bestand is gegenereerd door de Windows Azure Import/Export-service en kan worden gedownload van de blob-opslag die is gekoppeld aan de taak. De kopie-logboekbestand bevat informatie over mislukte blobs of bestanden die moeten worden hersteld.|  
+|**/ ManifestFile: < DriveManifestFile\>**|Optioneel. Het pad naar het manifestbestand van het station van de export. Dit bestand is gegenereerd door de Windows Azure Import/Export-service en die zijn opgeslagen op de schijf exporteren en eventueel in een blob in het opslagaccount dat is gekoppeld aan de taak.<br /><br /> De inhoud van de bestanden op de schijf van de uitvoer zal worden gecontroleerd met de MD5-hashes die deel uitmaken van dit bestand. Alle bestanden die worden bepaald beschadigd te zijn worden gedownload en herschreven aan de doel-mappen.|  
   
-## <a name="using-repairexport-mode-to-correct-failed-exports"></a>RepairExport modus gebruiken om op te lossen mislukte uitvoer  
-U kunt het Azure Import/Export-hulpprogramma gebruiken voor het downloaden van bestanden die exporteren is mislukt. Het logboekbestand kopie bevat een lijst met bestanden die exporteren is mislukt.  
+## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Met behulp van RepairExport modus om op te lossen mislukte uitvoer  
+U kunt het hulpprogramma Azure Import/Export gebruiken voor het downloaden van bestanden die het exporteren is mislukt. Het logboekbestand kopiëren bevat een lijst met bestanden die het exporteren is mislukt.  
   
 De oorzaken van fouten van de uitvoer zijn onder andere de volgende mogelijkheden:  
   
--   Beschadigde schijven  
+-   Beschadigde stations  
   
 -   De opslagaccountsleutel die is gewijzigd tijdens de overdracht  
   
-Het hulpprogramma uitvoeren **RepairExport** modus, moet u eerst verbinding maken met het station met de geëxporteerde bestanden op uw computer. Voer vervolgens het Azure Import/Export-hulpprogramma opgeven van het pad naar het station met de `/d` parameter. Ook moet u het pad opgeven naar de schijf kopiëren logboekbestand dat u hebt gedownload. De volgende opdrachtregel voorbeeld hieronder wordt uitgevoerd voor het hulpprogramma voor het herstellen van bestanden die exporteren is mislukt:  
+Het hulpprogramma uitvoeren **RepairExport** modus, moet u eerst verbinding maken met het station met de geëxporteerde bestanden op uw computer. Voer vervolgens het hulpprogramma Azure Import/Export, op te geven het pad naar het station met de `/d` parameter. Ook moet u het pad opgeven naar het station kopiëren logboekbestand dat u hebt gedownload. Het hulpprogramma om te herstellen van bestanden die het exporteren is mislukt wordt uitgevoerd in de volgende opdrachtregelvoorbeeld hieronder:  
   
 ```  
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log  
 ```  
   
-Hier volgt een voorbeeld van een logbestand kopiëren die laat dat een blok in de blob zien is mislukt om te exporteren:  
+Hier volgt een voorbeeld van een logbestand kopiëren die laat dat één blok in de blob zien kan niet exporteren:  
   
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
@@ -82,14 +76,14 @@ Hier volgt een voorbeeld van een logbestand kopiëren die laat dat een blok in d
 </DriveLog>  
 ```  
   
-Het logboekbestand kopie geeft aan dat is een fout opgetreden terwijl de Windows Azure Import/Export-service is een van de blob-blokken gedownload naar het bestand op het station exporteren. De andere onderdelen van het bestand is gedownload, en de bestandslengte juist is ingesteld. Het hulpprogramma wordt in dit geval open het bestand op de schijf, downloaden van het blok van het opslagaccount en schrijven naar het bestand bereik vanaf verschuiving 65536 met lengte 65536.  
+Het logboekbestand kopiëren geeft aan dat is een fout opgetreden tijdens de Windows Azure Import/Export-service een van de blob-blokken naar het bestand op het station exporteren downloaden is. De andere onderdelen van het bestand is gedownload en de bestandslengte correct is ingesteld. Het hulpprogramma wordt in dit geval open het bestand op de schijf, het blok downloaden van het storage-account en schrijf deze naar het bestand bereik beginnen bij verschuiving 65536 met lengte 65536.  
   
-## <a name="using-repairexport-to-validate-drive-contents"></a>Met behulp van RepairExport station inhoud valideren  
-U kunt ook Azure Import/Export met de **RepairExport** optie voor het valideren van de inhoud op het station juist zijn. Het manifestbestand op elk station export bevat MD5s voor de inhoud van het station.  
+## <a name="using-repairexport-to-validate-drive-contents"></a>Met behulp van RepairExport schijfinhoud valideren  
+U kunt ook Azure Import/Export met de **RepairExport** optie voor het valideren van de inhoud op het station juist zijn. Het manifestbestand op elke schijf export bevat MD5s voor de inhoud van het station.  
   
-De Azure Import/Export-service kan ook de manifest-bestanden opslaan naar een opslagaccount tijdens het exporteren. De locatie van de manifest-bestanden is beschikbaar via de [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) bewerking als de taak is voltooid. Zie [Import/Export-service Manifest bestandsindeling](storage-import-export-file-format-metadata-and-properties.md) voor meer informatie over de indeling van het manifestbestand van een station.  
+De Azure Import/Export-service kan de manifest-bestanden ook opslaan naar een opslagaccount tijdens het exportproces. De locatie van de manifest-bestanden is beschikbaar via de [Get Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) bewerking wanneer de taak is voltooid. Zie [Import/Export-service Manifest van de bestandsindeling](storage-import-export-file-format-metadata-and-properties.md) voor meer informatie over de indeling van het manifestbestand van een station.  
   
-Het volgende voorbeeld ziet u het uitvoeren van het Azure Import/Export-hulpprogramma met de **/ManifestFile** en **/CopyLogFile** parameters:  
+Het volgende voorbeeld laat zien hoe de Azure Import/Export-hulpprogramma met uit te voeren de **/ManifestFile** en **/CopyLogFile** parameters:  
   
 ```  
 WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C3U.log /ManifestFile:G:\9WM35C3U.manifest  
@@ -132,7 +126,7 @@ Hier volgt een voorbeeld van een manifestbestand:
 </DriveManifest>  
 ``` 
   
-Nadat het herstelproces is voltooid, wordt het hulpprogramma Lees elk bestand waarnaar wordt verwezen in het manifestbestand en controleer of de integriteit van het bestand met de MD5-hashes. Voor het manifest hierboven gaat dit via de volgende onderdelen.  
+Nadat het herstelproces is voltooid, wordt het hulpprogramma lezen met behulp van elk bestand waarnaar wordt verwezen in het manifestbestand en controleer of de integriteit van het bestand met de MD5-hashes. Voor het manifest hierboven verloopt dit via de volgende onderdelen.  
 
 ```  
 G:\pictures\city\redmond.jpg, offset 0, length 3584  
@@ -154,11 +148,11 @@ G:\pictures\wild\canyon.jpg, offset 8163, length 2721
 G:\pictures\wild\canyon.jpg.properties  
 ```
 
-De onderdelen die zijn mislukt de verificatie door het hulpprogramma wordt gedownload en herschreven naar hetzelfde bestand op de schijf.  
+Een onderdeel is mislukt de verificatie worden gedownload door het hulpprogramma en herschreven naar hetzelfde bestand op de schijf.  
   
 ## <a name="next-steps"></a>Volgende stappen
  
-* [Instellen van het hulpprogramma Azure Import/Export](storage-import-export-tool-setup-v1.md)   
+* [Het hulpprogramma Azure Import/Export instellen](storage-import-export-tool-setup-v1.md)   
 * [Harde schijven voorbereiden voor een importtaak](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
 * [De taakstatus controleren met kopielogboekbestanden](storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Een importtaak herstellen](storage-import-export-tool-repairing-an-import-job-v1.md)   

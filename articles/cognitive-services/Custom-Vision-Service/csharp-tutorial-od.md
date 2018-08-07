@@ -1,6 +1,6 @@
 ---
-title: Een object detectie-project in C# - Service aangepaste visie - Azure cognitieve Services bouwen | Microsoft Docs
-description: Gebruik een eenvoudige Windows-app die gebruikmaakt van de aangepaste Vision-API in cognitieve Microsoft-Services. Maak een project, labels toevoegen, afbeeldingen uploaden, training van uw project en een voorspelling te maken met behulp van het standaardeindpunt.
+title: Bouw een object-detectie-project in C# - Custom Vision Service - Azure Cognitive Services | Microsoft Docs
+description: Verken een eenvoudige Windows-app die gebruikmaakt van de aangepaste Vision-API in Microsoft Cognitive Services. Maak een project, tags toevoegen, afbeeldingen uploaden, trainen van uw project en een voorspelling te maken met behulp van het eindpunt.
 services: cognitive-services
 author: areddish
 manager: chbuehle
@@ -10,42 +10,42 @@ ms.topic: article
 ms.date: 05/07/2018
 ms.author: areddish
 ms.openlocfilehash: e3def864267a590c86a2dd6663561d8488081ad6
-ms.sourcegitcommit: ea5193f0729e85e2ddb11bb6d4516958510fd14c
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/21/2018
+ms.lasthandoff: 08/06/2018
 ms.locfileid: "36301077"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-in-c35"></a>Aangepaste Vision-API gebruiken voor het bouwen van een object detectie-project in C&#35; 
-Informatie over het gebruik van een eenvoudige Windows-toepassing die gebruikmaakt van de Computer Vision-API om een object detectie-project te maken. Nadat deze gemaakt, kunt u toevoegen met tags regio's, afbeeldingen uploaden, trainen van het project, verkrijgen van het project standaard voorspelling eindpunt-URL en het eindpunt voor het testen van een installatiekopie van een programmatisch gebruiken. In dit voorbeeld open source als sjabloon gebruiken voor het bouwen van uw eigen app voor Windows met behulp van de aangepaste Vision-API.
+# <a name="use-custom-vision-api-to-build-an-object-detection-project-in-c35"></a>Custom Vision-API gebruiken om te maken van een object-detectie-project in C&#35; 
+Informatie over het gebruik van een eenvoudige Windows-toepassing die gebruikmaakt van de Computer Vision-API om een object-detectie-project te maken. Nadat deze gemaakt, kunt u gecodeerde regio's toevoegen, afbeeldingen uploaden, trainen van het project, verkrijgen van het project standaard voorspelling eindpunt-URL en het eindpunt voor het testen van een installatiekopie van een via een programma gebruiken. In dit voorbeeld open-source als sjabloon gebruiken voor het bouwen van uw eigen app voor Windows met behulp van de aangepaste Vision-API.
 
 ## <a name="prerequisites"></a>Vereisten
 
-### <a name="get-the-custom-vision-sdk-and-samples"></a>De aangepaste visie SDK en de voorbeelden ophalen
-Als u wilt maken in dit voorbeeld, moet u de aangepaste visie SDK NuGet-pakketten:
+### <a name="get-the-custom-vision-sdk-and-samples"></a>Ophalen van de aangepaste Vision SDK en voorbeelden
+Als u wilt maken in dit voorbeeld, moet u de aangepaste Vision SDK NuGet-pakketten:
 
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
 * [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
-U kunt downloaden via de afbeeldingen samen met de [voorbeelden C#](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision).
+U kunt downloaden van de installatiekopieën van samen met de [C#-voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/CustomVision).
 
-## <a name="get-the-training-and-prediction-keys"></a>De training en voorspelling sleutels ophalen
+## <a name="get-the-training-and-prediction-keys"></a>Ophalen van de sleutels trainen en voorspellen
 
-Als u de sleutels in dit voorbeeld gebruikt, gaat u naar de [aangepaste visie webpagina](https://customvision.ai) en selecteer de __tandwielpictogram pictogram__ in de rechterbovenhoek. In de __Accounts__ sectie, Kopieer de waarden van de __Training sleutel__ en __voorspelling sleutel__ velden.
+Als u de sleutels in dit voorbeeld gebruikt, gaat u naar de [Custom Vision webpagina](https://customvision.ai) en selecteer de __tandwielpictogram__ in de rechterbovenhoek. In de __Accounts__ sectie, Kopieer de waarden van de __Training sleutel__ en __voorspelling sleutel__ velden.
 
 ![Afbeelding van de gebruikersinterface van de sleutels](./media/csharp-tutorial/training-prediction-keys.png)
 
 ## <a name="step-1-create-a-console-application"></a>Stap 1: Maak een consoletoepassing
 
-In deze stap maakt u een consoletoepassing maken en voorbereiden van de sleutel training en de afbeeldingen die nodig zijn voor het voorbeeld:
+In deze stap maakt u een consoletoepassing maken en voorbereiden van de training-sleutel en de afbeeldingen die nodig zijn voor het voorbeeld:
 
-1. Start Visual Studio 2015, Community Edition. 
+1. Start Visual Studio 2015 Community-editie. 
 2. Maak een nieuwe consoletoepassing.
 3. Verwijzingen naar de twee nuget-pakketten toevoegen:
     * Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training
     * Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction
 
-4. Vervang de inhoud van **Program.cs** met de volgende code.
+4. Vervang de inhoud van **Program.cs** met de code die volgt.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction;
@@ -73,9 +73,9 @@ namespace SampleObjectDetection
 }
 ```
 
-## <a name="step-2-create-a-custom-vision-service-project"></a>Stap 2: Een aangepaste visie Service-project maken
+## <a name="step-2-create-a-custom-vision-service-project"></a>Stap 2: Maak een project Custom Vision Service
 
-De volgende code voor het maken van een nieuw aangepast visie-serviceproject toevoegen aan het einde van uw **Main()** methode.
+Voor het maken van een nieuw project voor Custom Vision Service, voeg de volgende code toe aan het einde van uw **Main()** methode.
 
 ```csharp
     // Find the object detection domain
@@ -89,7 +89,7 @@ De volgende code voor het maken van een nieuw aangepast visie-serviceproject toe
 
 ## <a name="step-3-add-tags-to-your-project"></a>Stap 3: Labels toevoegen aan uw project
 
-Voeg voor labels toevoegen aan uw project, de volgende code na het aanroepen van **CreateProject()**:
+Voeg labels toevoegen aan uw project, de volgende code na het aanroepen van **CreateProject()**:
 
 ```csharp
     // Make two tags in the new project
@@ -99,7 +99,7 @@ Voeg voor labels toevoegen aan uw project, de volgende code na het aanroepen van
 
 ## <a name="step-4-upload-images-to-the-project"></a>Stap 4: Afbeeldingen uploaden naar het project
 
-Voor object detectie projecten moeten we de regio van het object met behulp van genormaliseerde coördinaten en een label te identificeren. Voeg de installatiekopieën en gelabelde regio's wilt toevoegen, de volgende code aan het einde van de **Main()** methode:
+Voor object detectie projecten moeten we de regio van het object met behulp van genormaliseerde coördinaten en een tag bepalen. Voeg de installatiekopieën en gelabelde regio's wilt toevoegen, de volgende code aan het einde van de **Main()** methode:
 
 ```csharp
     Dictionary<string, double[]> fileToRegionMap = new Dictionary<string, double[]>()
@@ -175,10 +175,10 @@ Voor object detectie projecten moeten we de regio van het object met behulp van 
 
 ## <a name="step-5-train-the-project"></a>Stap 5: Het project trainen
 
-Nu dat u kunt tags en afbeeldingen hebt toegevoegd aan het project, kunt u het kunt trainen: 
+Nu dat u kunt labels en afbeeldingen hebt toegevoegd aan het project, kunt u deze training: 
 
-1. Voeg de volgende code aan het einde van **Main()**. Hiermee maakt u de eerste iteratie in het project.
-2. Markeer deze herhaling als de standaard herhaling.
+1. Voeg de volgende code aan het einde van **Main()**. Hiermee maakt u de eerste versie in het project.
+2. Markeer deze herhaling als de standaard-iteratie.
 
 ```csharp
     // Now there are images with tags start training the project
@@ -200,12 +200,12 @@ Nu dat u kunt tags en afbeeldingen hebt toegevoegd aan het project, kunt u het k
     Console.WriteLine("Done!\n");
 ```
 
-## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>Stap 6: Halen en gebruik het standaardeindpunt voorspelling
+## <a name="step-6-get-and-use-the-default-prediction-endpoint"></a>Stap 6: Halen en gebruik het standaardeindpunt voor de voorspelling
 
-U bent nu klaar voor gebruik van het model voor de prognose: 
+U bent nu klaar voor gebruik van het model voor voorspelling: 
 
-1. Verkrijgen van het eindpunt dat is gekoppeld aan de herhaling standaard door het invoegen van de volgende code aan het einde van **Main()**. 
-2. Een testinstallatiekopie aan het project verzenden met behulp van dat eindpunt.
+1. Ophalen van het eindpunt die zijn gekoppeld aan de standaard-iteratie door het invoegen van de volgende code aan het einde van **Main()**. 
+2. Een testinstallatiekopie aan het project verzenden met behulp van dit eindpunt.
 
 ```csharp
     // Now there is a trained endpoint, it can be used to make a prediction
@@ -232,6 +232,6 @@ U bent nu klaar voor gebruik van het model voor de prognose:
     }
 ```
 
-## <a name="step-7-run-the-example"></a>Stap 7: Het voorbeeld uitvoert
+## <a name="step-7-run-the-example"></a>Stap 7: Het voorbeeld uitvoeren
 
-Ontwikkel en voer de oplossing. De resultaten van de voorspelling weergegeven op de console.
+Ontwikkel en voer de oplossing. De voorspellingsresultaten op die worden weergegeven in de console.

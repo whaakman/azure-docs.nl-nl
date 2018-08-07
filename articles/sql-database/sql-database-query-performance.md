@@ -1,181 +1,182 @@
 ---
-title: Query performance insights voor Azure SQL Database | Microsoft Docs
-description: Query-prestaties bewaken, identificeert de meeste CPU verbruikt query's voor een Azure SQL Database.
+title: Prestatie-inzichten op te vragen voor Azure SQL Database | Microsoft Docs
+description: Query-prestaties controleren, geeft u de meeste CPU verbruikt query's voor een Azure SQL Database.
 services: sql-database
-author: stevestein
+author: danimir
 manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: sstein
-ms.openlocfilehash: f608beb0834b1c838b082e92340ebf9b650d8b3f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: v-daljep
+ms.reviewer: carlrab
+ms.openlocfilehash: 5069b4e69c53ed93e9018cef2517f6125b838d12
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648731"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524162"
 ---
 # <a name="azure-sql-database-query-performance-insight"></a>Azure SQL Database Query Performance Insight
-Is een uitdaging waarvoor aanzienlijke expertise en investeringen tijd beheren en het afstemmen van de prestaties van relationele databases. Inzicht in queryprestaties kunt u minder tijd databaseprestaties oplossen door het volgende nodig:
+Beheer en de afstelling van de prestaties van relationele databases is een lastige taak waarvoor aanzienlijke expertise en tijd investering. Query Performance Insight kunt u minder tijd door het oplossen van databaseprestaties biedt de volgende:
 
-* Dieper inzicht in uw databases brongebruik (DTU). 
-* De top-query's op het aantal CPU/duur/uitvoering, die mogelijk voor verbeterde prestaties kunnen worden afgestemd.
-* De mogelijkheid om in te zoomen naar de details van een query de tekst en de geschiedenis van Resourcegebruik weergeven. 
-* Prestaties afstemmen aantekeningen die acties uitgevoerd door weergeven [SQL Azure Database Advisor](sql-database-advisor.md)  
+* Beter inzicht in het gebruik van de resources (DTU) databases. 
+* De populairste query's op telling van CPU/duur/uitvoering, die mogelijk kunnen worden afgestemd voor betere prestaties.
+* De mogelijkheid om in te zoomen op de details van een query, bekijk de tekst en de geschiedenis van Resourcegebruik. 
+* Prestaties afstemmen aantekeningen die laten zien van acties die worden uitgevoerd door [SQL Azure Database Advisor](sql-database-advisor.md)  
 
 
 
 ## <a name="prerequisites"></a>Vereisten
-* Query Performance Insight vereist dat [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) actief is op uw database. Als de Query Store niet wordt uitgevoerd, wordt de portal vraagt u te schakelen.
+* Query Performance Insight vereist dat [Query Store](https://msdn.microsoft.com/library/dn817826.aspx) actief is op uw database. Als Query Store wordt niet uitgevoerd, wordt de portal vraagt u deze in te schakelen.
 
 ## <a name="permissions"></a>Machtigingen
-De volgende [toegangsbeheer op basis van rollen](../role-based-access-control/overview.md) machtigingen zijn vereist voor Query Performance Insight gebruiken: 
+De volgende [op rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md) machtigingen zijn vereist voor Query Performance Insight gebruiken: 
 
-* **Lezer**, **eigenaar**, **Inzender**, **SQL DB Contributor**, of **SQL Server Inzender** machtigingen zijn vereist bron weer te geven de bovenste verbruikt query's en -grafieken. 
-* **Eigenaar**, **Inzender**, **SQL DB Contributor**, of **SQL Server Inzender** machtigingen zijn vereist om querytekst weer te geven.
+* **Lezer**, **eigenaar**, **Inzender**, **' SQL DB Contributor '**, of **Inzender voor SQL Server** machtigingen zijn vereist om te bekijken in de bovenste die veel resources verbruiken query's en -grafieken. 
+* **De eigenaar van**, **Inzender**, **' SQL DB Contributor '**, of **Inzender voor SQL Server** machtigingen zijn vereist om querytekst weer te geven.
 
-## <a name="using-query-performance-insight"></a>Met behulp van de Query Performance Insight
-Inzicht in queryprestaties is eenvoudig te gebruiken:
+## <a name="using-query-performance-insight"></a>Query Performance Insight gebruiken
+Query Performance Insight is eenvoudig te gebruiken:
 
 * Open [Azure-portal](https://portal.azure.com/) en zoeken naar database die u wilt onderzoeken. 
-  * Selecteer in de linkerkant menu onder ondersteuning en het oplossen van problemen 'Query Performance Insight'.
-* Bekijk de lijst met de top-resource verbruikende query's op het eerste tabblad.
-* Selecteer een afzonderlijke query om de details ervan weer te geven.
+  * Selecteer in het menu van de linkerkant, onder ondersteuning en probleemoplossing van 'Query Performance Insight'.
+* Bekijk de lijst met de top-resource-intensieve query's op het eerste tabblad.
+* Selecteer een afzonderlijke query's om de details ervan weer te geven.
 * Open [SQL Azure Database Advisor](sql-database-advisor.md) en controleer of er geen aanbevelingen beschikbaar zijn.
-* Schuifregelaars gebruiken of zoomen pictogrammen om geobserveerde interval te wijzigen.
+* Schuifregelaars gebruiken of uitzoomen van pictogrammen als waargenomen interval wilt wijzigen.
   
-    ![Prestatiedashboard](./media/sql-database-query-performance/performance.png)
+    ![van Prestatiedashboard](./media/sql-database-query-performance/performance.png)
 
 > [!NOTE]
-> Een paar uur van gegevens moet worden vastgelegd door het Queryarchief van de SQL Database een inzichten voor queryprestaties. Als de database geen activiteiten heeft of Query Store gedurende een bepaalde periode niet actief was, de grafieken worden leeg om deze periode weer te geven. U kunt Query Store op elk gewenst moment inschakelen als deze niet wordt uitgevoerd.   
+> Een paar uur van de gegevens moeten worden vastgelegd door de Query Store voor SQL Database query performance inzicht te bieden. Als de database geen activiteit heeft of Query Store is niet actief geweest gedurende een bepaalde periode, wordt de grafieken niet leeg zijn om deze periode weer te geven. U kunt Query Store op elk gewenst moment inschakelen als deze niet wordt uitgevoerd.   
 > 
 > 
 
-## <a name="review-top-cpu-consuming-queries"></a>Bekijk de hoogste CPU verbruikt query 's
+## <a name="review-top-cpu-consuming-queries"></a>Hoogste CPU-verbruik van query's controleren
 In de [portal](http://portal.azure.com) het volgende doen:
 
 1. Blader naar een SQL-database en klik op **alle instellingen** > **ondersteuning + probleemoplossing** > **Query performance insight**. 
    
     ![Inzicht in queryprestaties][1]
    
-    De weergave van de meest gebruikte query's wordt geopend en de hoogste CPU in beslag neemt query's worden vermeld.
-2. Klik op rond de grafiek voor meer informatie.<br>De bovenste regel bevat algemene DTU % voor de database, terwijl de balken die door de geselecteerde query's worden gebruikt tijdens de geselecteerde interval CPU-percentage weergeven (bijvoorbeeld als **afgelopen week** is geselecteerd elke balk vertegenwoordigt één dag).
+    Hiermee opent u de weergave van de populairste query's en de hoogste CPU in beslag nemen query's worden vermeld.
+2. Klik op rond de grafiek voor meer informatie.<br>De bovenste regel bevat algemene DTU % voor de database, terwijl de balken die worden gebruikt door de geselecteerde query's tijdens de geselecteerde interval CPU-percentage weergeven (bijvoorbeeld, als **afgelopen week** is geselecteerd elke balk vertegenwoordigt één dag).
    
     ![Top-query 's][2]
    
-    Het raster onder vertegenwoordigt verzamelde informatie voor de zichtbare query's.
+    Het raster onder vertegenwoordigt verzamelde informatie voor de weergegeven query's.
    
    * Query-ID - de unieke id van de query in de database.
    * CPU per query tijdens waarneembare interval (afhankelijk van statistische functie).
    * Duur per query (afhankelijk van statistische functie).
    * Totaal aantal uitvoeringen voor een bepaalde query.
      
-     Schakel of afzonderlijke query's wilt opnemen of uitsluiten van de grafiek met behulp van de selectievakjes uit.
+     Schakelt u afzonderlijke query's op te nemen of ze uitsluiten van de grafiek met behulp van de selectievakjes in of uit.
 3. Als uw gegevens verlopen is, klikt u op de **vernieuwen** knop.
-4. U kunt gebruiken schuifregelaars en knoppen observatie-interval wijzigen en onderzoeken pieken inzoomen en uitzoomen: ![instellingen](./media/sql-database-query-performance/zoom.png)
-5. Als u een andere weergave wilt, u kunt eventueel selecteren **aangepaste** tabblad en ingesteld:
+4. U kunt gebruiken schuifregelaars en knoppen observatie van het interval wijzigen en onderzoeken van pieken inzoomen en uitzoomen: ![instellingen](./media/sql-database-query-performance/zoom.png)
+5. (Optioneel) als u een andere weergave wilt, kunt u **aangepaste** tabblad en ingesteld:
    
-   * Metrische gegevens (CPU, duur, het aantal keer uitgevoerd)
+   * Metrische gegevens (CPU, duur, aantal uitvoeringen)
    * Tijdsinterval (afgelopen week afgelopen maand afgelopen 24 uur). 
    * Aantal query's.
    * Statistische functie.
      
      ![instellingen](./media/sql-database-query-performance/custom-tab.png)
 
-## <a name="viewing-individual-query-details"></a>Details van de afzonderlijke query's weergeven
+## <a name="viewing-individual-query-details"></a>Details van afzonderlijke query's weergeven
 Om Querydetails te bekijken:
 
-1. Klik op een query in de lijst met de meest gebruikte query's.
+1. Klik op een query in de lijst van de populairste query's.
    
     ![details](./media/sql-database-query-performance/details.png)
-2. De detailweergave wordt geopend en het aantal query's CPU-verbruik/duur/uitvoering is onderverdeeld gedurende een bepaalde periode.
+2. De detailweergave wordt geopend en het aantal query's CPU-verbruik/duur/uitvoering is onderverdeeld na verloop van tijd.
 3. Klik op rond de grafiek voor meer informatie.
    
-   * Bovenste diagram toont de regel met algemene database DTU % en de balken zijn CPU-percentage gebruikt door de geselecteerde query.
-   * Tweede diagram toont de totale duur door de geselecteerde query.
-   * Onder diagram toont het aantal uitvoeringen door de geselecteerde query.
+   * Bovenste grafiek bevat een regel met de algemene database DTU % en zijn de balken CPU-percentage die worden gebruikt door de geselecteerde query.
+   * Tweede grafiek toont de totale duur van de geselecteerde query.
+   * Onderste grafiek toont de totale aantal uitvoeringen door de geselecteerde query.
      
      ![Querydetails][3]
-4. Optioneel gebruik schuifregelaars, knoppen Inzoomen en uitzoomen of klik op **instellingen** aanpassen hoe querygegevens worden weergegeven, of kies een andere periode.
+4. (Optioneel) Gebruik de schuifregelaars, knoppen Inzoomen en uitzoomen of klik op **instellingen** aanpassen hoe querygegevens worden weergegeven, of kies een andere periode.
 
-## <a name="review-top-queries-per-duration"></a>Bekijk meest gebruikte query's per duur
-In de recente update van de Query Performance Insight, er zijn twee nieuwe metrische gegevens kunt u potentiële knelpunten geïntroduceerd: aantal duur en uitvoering.<br>
+## <a name="review-top-queries-per-duration"></a>Controleer de populairste query's per duur
+In de recente update van de Query Performance Insight, hebben we twee nieuwe metrische gegevens waarmee u mogelijke knelpunten te identificeren kunt geïntroduceerd: aantal duur en kan worden uitgevoerd.<br>
 
-Langlopende query's hebben de grootste kans dat langer resources vergrendelen, andere gebruikers worden geblokkeerd en schaalbaarheid te beperken. Ze zijn ook het meest in aanmerking voor optimalisatie.<br>
+Langlopende query's hebben de grootste kans op meer resources vergrendelen, andere gebruikers blokkeren en schaalbaarheid te beperken. Ze zijn ook de beste kandidaten voor optimalisatie.<br>
 
-Langdurige query's identificeren:
+Langlopende query's identificeren:
 
 1. Open **aangepaste** tabblad in de Query Performance Insight voor de geselecteerde database
 2. Metrische gegevens moet wijzigen **duur**
-3. Selecteer het aantal query's en observatie-interval
+3. Selecteer het aantal query's en observatie van interval
 4. Selecteer de statistische functie
    
-   * **Som** tijdens de gehele observatie-interval is de som van alle uitvoeringstijd van de query.
-   * **Maximale** vindt u query's welke uitvoeringstijd maximale was op de hele observatie-interval.
-   * **Gem.** gezocht gemiddelde uitvoeringstijd van alle query uitvoeringen en ziet u boven buiten deze gemiddelden. 
+   * **Som** is de som van alle uitvoeringstijd van de query tijdens het hele waarneming interval.
+   * **Maximale** vindt u query's die uitvoeringstijd maximale was op basis van hele waarneming interval.
+   * **Gem.** gezocht gemiddelde uitvoeringstijd van alle uitvoeringen van de query en ziet u de bovenkant buiten deze gemiddelden. 
      
-     ![duur van de query][4]
+     ![Queryduur van de][4]
 
-## <a name="review-top-queries-per-execution-count"></a>Bekijk meest gebruikte query's per aantal keer uitgevoerd
-Hoog aantal uitvoeringen mogelijk niet beïnvloeden database zelf en gebruik van bronnen kan lage, maar algemene toepassing, haalt traag.
+## <a name="review-top-queries-per-execution-count"></a>Bekijk de populairste query's per aantal uitvoeringen
+Hoog aantal uitvoeringen kan niet worden die betrekking hebben op database zelf en verbruik van resources laag kan zijn, maar algemene toepassing krijgt mogelijk traag.
 
-In sommige gevallen zeer hoge uitvoering count kan leiden tot het vergroten van retouren netwerk. Retouren aanzienlijk beïnvloeden. Ze zijn onderworpen aan netwerklatentie en de latentie downstream-server. 
+In sommige gevallen, aantal zeer hoog uitvoeringen kan leiden tot het verhogen van het netwerk ' round trips '. Retouren aanzienlijk beïnvloeden. Ze zijn afhankelijk van de netwerklatentie en latentie voor downstream-server. 
 
-Bijvoorbeeld: veel gegevensgestuurde websites sterk toegang krijgen tot de database voor elke aanvraag van gebruiker. Tijdens het verbinding helpt, het toegenomen verkeer groeperen en verwerken van de belasting van de database-server kan de prestaties nadelig beïnvloeden.  Algemeen advies is om retouren tot een absoluut minimum te beperken.
+Bijvoorbeeld veel op gegevens gebaseerde websites sterk toegang krijgen tot de database voor elke gebruikersaanvraag. Terwijl u verbinding kunt, het toegenomen verkeer groeperen en verwerkingsbelasting voor de database-server kan de prestaties nadelig beïnvloeden.  Algemeen advies is ' round trips ' tot een absoluut minimum te houden.
 
-Uitgevoerd om te identificeren vaak query's ('chatty') query's:
+Voor het identificeren van vaak uitgevoerd ("intensieve") query's voor query's:
 
 1. Open **aangepaste** tabblad in de Query Performance Insight voor de geselecteerde database
-2. Metrische gegevens moet wijzigen **aantal keer uitgevoerd**
-3. Selecteer het aantal query's en observatie-interval
+2. Metrische gegevens moet wijzigen **aantal uitvoeringen**
+3. Selecteer het aantal query's en observatie van interval
    
     ![uitvoering van het aantal query 's][5]
 
 ## <a name="understanding-performance-tuning-annotations"></a>Inzicht in prestaties afstemmen aantekeningen
-Tijdens het verkennen van de werkbelasting in Query Performance Insight, ziet u mogelijk pictogrammen met verticale lijn boven op de grafiek.<br>
+Tijdens het verkennen van uw workload in Query Performance Insight, ziet u mogelijk pictogrammen met verticale lijn boven op de grafiek.<br>
 
-Deze pictogrammen zijn aantekeningen; ze hebben betrekking op prestaties beïnvloeden bewerkingen worden uitgevoerd door [SQL Azure Database Advisor](sql-database-advisor.md). Door zwevende aantekening krijgen u algemene informatie over de actie:
+Deze pictogrammen zijn aantekeningen; ze hebben betrekking op prestaties die betrekking hebben op acties die worden uitgevoerd door [SQL Azure Database Advisor](sql-database-advisor.md). Door zwevende aantekening krijgt u algemene informatie over de actie:
 
-![query aantekening][6]
+![query-aantekening][6]
 
-Als u wilt meer weten of de aanbeveling advisor toepassen, klikt u op het pictogram. Details van de actie wordt geopend. Als een actieve bevelen kunt u meteen met behulp van opdracht toepassen.
+Als u wilt meer informatie of advisor aanbeveling toepast, klikt u op het pictogram. Details van de actie wordt geopend. Als het een actieve aanbeveling kunt u meteen met behulp van opdracht kunt toepassen.
 
-![details van de aantekening query][7]
+![Querydetails voor de aantekening][7]
 
 ### <a name="multiple-annotations"></a>Meerdere aantekeningen.
-Het is mogelijk dat vanwege zoomniveau, aantekeningen die zich dicht bij elkaar ophalen tot één samengevouwen zullen. Hiermee wordt aangegeven door speciale pictogram, erop te klikken wordt geopend nieuwe blade waarin de lijst met aantekeningen gegroepeerd worden weergegeven.
-Correleren van query's en -prestaties afstemmen acties kan helpen om uw werkbelasting beter te begrijpen. 
+Het is mogelijk dat vanwege zoomniveau, aantekeningen die zich dicht bij elkaar wordt ophalen samengevoegd tot één. Dit wordt vertegenwoordigd door een speciaal pictogram, te klikken op het open nieuwe blade waarin de lijst met aantekeningen gegroepeerd zal worden weergegeven.
+Correleren van query's en afstemmen van de acties van de prestaties kan helpen uw workload beter te begrijpen. 
 
 ## <a name="optimizing-the-query-store-configuration-for-query-performance-insight"></a>De Query Store-configuratie voor Query Performance Insight optimaliseren
 U kunt de volgende Query Store-berichten tegenkomen tijdens het gebruik van de Query Performance Insight:
 
-* 'Query Store is niet goed geconfigureerd op deze database. Klik hier voor meer informatie."
-* 'Query Store is niet goed geconfigureerd op deze database. Klik hier om instellingen te wijzigen." 
+* "Query Store is niet juist geconfigureerd op deze database. Klik hier voor meer informatie."
+* "Query Store is niet juist geconfigureerd op deze database. Klik hier om instellingen te wijzigen." 
 
-Deze berichten worden doorgaans weergegeven wanneer het Queryarchief kan geen nieuwe gegevens verzamelen. 
+Deze berichten worden gewoonlijk weergegeven wanneer Query Store kan geen nieuwe gegevens te verzamelen. 
 
-Eerste geval gebeurt wanneer Query Store in alleen-lezen status en parameters optimaal zijn ingesteld. U kunt dit oplossen door het vergroten van de Query Store of Query Store uit te schakelen.
+Eerste geval gebeurt er wanneer Query Store heeft de status alleen-lezen en parameters optimaal zijn ingesteld. U kunt dit oplossen door het vergroten van de Query Store of Query Store uit te schakelen.
 
-![knop qds][8]
+![qds-knop][8]
 
-Tweede geval gebeurt wanneer de Query Store is uitgeschakeld of de parameters zijn niet optimaal ingesteld. <br>U kunt het beleid bewaren en vastleggen wijzigen en Query Store inschakelen door het uitvoeren van de onderstaande opdrachten of rechtstreeks vanuit de portal:
+Tweede geval treedt op wanneer de Query Store is uitgeschakeld of de parameters zijn niet optimaal ingesteld. <br>U kunt de retentie en vastleggen beleid wijzigen en Query Store inschakelen door het uitvoeren van de onderstaande opdrachten of rechtstreeks vanuit de portal:
 
-![knop qds][9]
+![qds-knop][9]
 
-### <a name="recommended-retention-and-capture-policy"></a>Aanbevolen bewaren en vastleggen beleid
-Er zijn twee soorten bewaarbeleidsregels:
+### <a name="recommended-retention-and-capture-policy"></a>Aanbevolen beleid voor retentie en vastleggen
+Er zijn twee soorten beleid voor het bewaren:
 
-* Op de basis - grootte als ingesteld op AUTO deze worden schoongemaakt gegevens automatisch wanneer bijna de maximale grootte is bereikt.
-* Op basis van tijd - standaard die we deze wordt ingesteld op 30 dagen, wat betekent dat, als de Query Store is geen ruimte meer wordt uitgevoerd, querygegevens ouder dan 30 dagen wordt verwijderd
+* Op basis van - grootte indien ingesteld op automatisch het worden schoongemaakt gegevens automatisch wanneer bijna de maximale grootte is bereikt.
+* Op basis van tijd - standaard die deze wordt ingesteld op 30 dagen, wat betekent dat, als Query Store wordt uitgevoerd geen schijfruimte meer, worden gegevens ouder dan 30 dagen wordt verwijderd
 
 Vastleggen van beleid kan worden ingesteld op:
 
 * **Alle** -alle query's worden vastgelegd.
-* **Automatische** -incidentele's en query's met verwaarlozen compileren en uitvoering duur worden genegeerd. Drempelwaarden voor de duur voor het aantal, compileren en runtime uitvoeren worden intern bepaald. Dit is de standaardoptie.
-* **Geen** -Query Store stopt u het vastleggen nieuwe query's, maar de runtime-statistieken voor al vastgelegde query's worden nog steeds verzameld.
+* **Automatisch** -incidentele query's en query's met een extra compileren en uitvoeren duur worden genegeerd. Drempelwaarden voor het aantal, compileren en runtime uitvoeringsduur worden intern bepaald. Dit is de standaardoptie.
+* **Geen** -Query Store stopt het vastleggen van nieuwe query's, maar de runtimestatistieken voor al vastgelegde query's worden nog steeds verzameld.
 
-U wordt aangeraden alle beleidsregels instellen op automatisch en schone beleid tot 30 dagen:
+U wordt aangeraden alle beleidsregels instellen op automatisch en schoon beleid tot 30 dagen:
 
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (SIZE_BASED_CLEANUP_MODE = AUTO);
@@ -186,15 +187,15 @@ U wordt aangeraden alle beleidsregels instellen op automatisch en schone beleid 
     ALTER DATABASE [YourDB] 
     SET QUERY_STORE (QUERY_CAPTURE_MODE = AUTO);
 
-Verhoog de grootte van de Query Store. Dit kan worden uitgevoerd door verbinding te maken met een database en het uitgeven van volgende query:
+Verhoog de grootte van de Query Store. Dit kan worden uitgevoerd door verbinding te maken met een database en het uitgeven van de volgende query:
 
     ALTER DATABASE [YourDB]
     SET QUERY_STORE (MAX_STORAGE_SIZE_MB = 1024);
 
-Deze instellingen zijn toegepast brengt uiteindelijk Query Store verzamelen van de nieuwe query's, maar als u niet wilt wachten voordat u Query Store kunt wissen. 
+Toepassen van deze instellingen zorgt uiteindelijk Query Store verzamelen van nieuwe query's, maar als u niet wilt wachten voordat u Query Store kunt wissen. 
 
 > [!NOTE]
-> Uitvoeren van de volgende query worden alle huidige gegevens in het Queryarchief verwijderd. 
+> Uitvoeren van de volgende query worden alle huidige gegevens in de Query Store verwijderd. 
 > 
 > 
 
@@ -202,10 +203,10 @@ Deze instellingen zijn toegepast brengt uiteindelijk Query Store verzamelen van 
 
 
 ## <a name="summary"></a>Samenvatting
-Inzicht in queryprestaties vindt u informatie over het effect van uw workload van query's en hoe deze zich verhoudt tot brongebruik van de database. Met deze functie wordt u meer informatie over het grootste verbruik van query's en gemakkelijk herkennen die om op te lossen voordat ze een probleem.
+Query Performance Insight kunt u het effect van de werkbelasting van uw query's en hoe deze zich verhoudt tot verbruik van databaseresources begrijpen. Met deze functie is, wordt u meer informatie over het grootste verbruik van query's en eenvoudig identificeren om op te lossen voordat ze een probleem.
 
 ## <a name="next-steps"></a>Volgende stappen
-Extra aanbevelingen over het verbeteren van de prestaties van uw SQL-database, klikt u op [aanbevelingen](sql-database-advisor.md) op de **Query Performance Insight** blade.
+Voor extra aanbevelingen over het verbeteren van de prestaties van uw SQL-database, klikt u op [aanbevelingen](sql-database-advisor.md) op de **Query Performance Insight** blade.
 
 ![Performance Advisor](./media/sql-database-query-performance/ia.png)
 

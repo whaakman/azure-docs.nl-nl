@@ -10,13 +10,13 @@ ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/02/2018
-ms.openlocfilehash: 9b182b0efad16f74c21b04712143b70071943c1e
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.date: 08/05/2018
+ms.openlocfilehash: ebcd145689ea1d947ca8895b37b39543b1e097ed
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412549"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525906"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>On-premises SQL Server migreren naar Azure SQL-database met behulp van Azure PowerShell
 In dit artikel, migreert u de **Adventureworks2012** database hersteld naar een on-premises exemplaar van SQL Server 2016 of hoger met een Azure SQL Database met behulp van Microsoft Azure PowerShell. U kunt databases uit een on-premises SQL Server-exemplaar migreren naar Azure SQL Database met behulp van de `AzureRM.DataMigration` module in Microsoft Azure PowerShell.
@@ -32,7 +32,7 @@ In dit artikel leert u het volgende:
 Als u wilt deze stappen hebt voltooid, hebt u het volgende nodig:
 
 - [SQL Server 2016 of hoger](https://www.microsoft.com/sql-server/sql-server-downloads) (alle edities)
-- TCP/IP-protocol is standaard uitgeschakeld, met SQL Server Express-installatie. Deze inschakelen door de [instructies in dit artikel](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
+- Om in te schakelen het TCP/IP-protocol, dat standaard met SQL Server Express-installatie is uitgeschakeld. Het TCP/IP-protocol ingeschakeld door de [instructies in dit artikel](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 - Het configureren van uw [Windows Firewall voor toegang tot de database-engine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Een Azure SQL Database-exemplaar. U kunt een Azure SQL Database-exemplaar maken met de details in het artikel te volgen [maken van een Azure SQL database in Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 - [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 of hoger.

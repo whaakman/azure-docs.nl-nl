@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
-ms.date: 07/20/2018
+ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 80f2d482a660992011549fe8dc76a09740da6ab1
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2fd473226dca2576be79b90bc05d66599f759713
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39237822"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39524141"
 ---
 # <a name="tutorial-improve-app-with-pattern-roles"></a>Zelfstudie: Een app met behulp van patroon verbeteren
 
@@ -27,7 +27,7 @@ In deze zelfstudie, gebruikt u een enkele entiteit met de rollen in combinatie m
 * Patroon voor uitingen met behulp van eenvoudige entiteit met de rol maken
 * Patroon voorspelling verbeteringen controleren
 
-Voor dit artikel hebt u een gratis [LUIS](luis-reference-regions.md)-account nodig om uw LUIS-toepassing te creëren.
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Voordat u begint
 Als u geen de Human Resources-app vanuit de [patroon](luis-tutorial-pattern.md) zelfstudie [importeren](luis-how-to-start-new-app.md#import-new-app) de JSON naar een nieuwe app in de [LUIS](luis-reference-regions.md#luis-website) website. De app voor het importeren is gevonden in de [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json) GitHub-opslagplaats.
@@ -125,23 +125,16 @@ Labels van de entiteiten in deze stappen is mogelijk beter als de vooraf gedefin
     Als u de entiteit keyPhrase verwijderd, opnieuw toevoegen aan de app nu.
 
 ## <a name="train-the-luis-app"></a>LUIS-app trainen
-De nieuwe intentie en uitingen vereisen training. 
 
-1. Selecteer rechtsboven op de website van LUIS de knop **Train**.
-
-2. Het trainen is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het trainen is gelukt.
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>App publiceren om eindpunt-URL op te vragen
-Om LUIS een voorspelling te laten geven in een chatbot of een andere toepassing, moet u de app publiceren. 
 
-1. Selecteer rechtsboven op de website van LUIS de knop **Publish**. 
-
-2. Selecteer de slot Production en vervolgens de knop **Publish**.
-
-3. Het publiceren is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het publiceren is gelukt.
+[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-without-pattern"></a>Query uitvoeren op het eindpunt zonder patroon
-1. Selecteer onder aan de pagina **Publish** de koppeling **endpoint**. Er wordt nu een nieuw browservenster geopend, met de eindpunt-URL in de adresbalk. 
+
+1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
 2. Ga naar het einde van de URL in het adres en voer `Move Wayne Berry from Miami to Mount Vernon` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. 
 
@@ -388,7 +381,8 @@ Steden, zoals de namen van personen zijn moeilijk in dat ze elke combinatie van 
 De intentie score is nu veel hoger en de rolnamen van de maken deel uit van het antwoord van de entiteit.
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Om dit te doen, selecteer het weglatingsteken (***...*** ) aan de rechterkant van de naam van de app in de lijst met Apps, selecteer **verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

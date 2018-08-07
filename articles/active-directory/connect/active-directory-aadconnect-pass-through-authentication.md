@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: dfee42f813989da2333720ac92313344343d57a7
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 12c825143f48b5558ea9b1d49ed8cea59d84f6af
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214026"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522778"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Aanmelden van gebruikers met Azure Active Directory Pass through-verificatie
 
@@ -49,7 +49,7 @@ U kunt combineren Pass through-verificatie met de [naadloze eenmalige aanmelding
 - *Beveiligen*
   - On-premises wachtwoorden worden nooit opgeslagen in de cloud in welke vorm.
   - De agent maakt alleen uitgaande verbindingen in uw netwerk. Daarom is er geen vereiste voor het installeren van de agent in een perimeternetwerk, ook wel een DMZ.
-  - Beschermt u uw gebruikersaccounts te werken naadloos met [Azure AD voorwaardelijke toegangsbeleid](../active-directory-conditional-access-azure-portal.md), met inbegrip van multi-factor Authentication (MFA), [blokkeren van verouderde](../active-directory-conditional-access-conditions.md) en door [ gefilterd op wachtwoord beveiligingsaanvallen](../authentication/howto-password-smart-lockout.md).
+  - Beschermt u uw gebruikersaccounts te werken naadloos met [Azure AD voorwaardelijke toegangsbeleid](../active-directory-conditional-access-azure-portal.md), met inbegrip van multi-factor Authentication (MFA), [blokkeren van verouderde](../conditional-access/conditions.md) en door [ gefilterd op wachtwoord beveiligingsaanvallen](../authentication/howto-password-smart-lockout.md).
 - *Hoge beschikbaarheid*
   - Extra agents kunnen worden geïnstalleerd op meerdere on-premises servers voor maximale beschikbaarheid van aanmeldingsaanvragen.
 

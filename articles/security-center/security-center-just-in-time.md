@@ -3,7 +3,7 @@ title: Just-in-time-VM-toegang in Azure Security Center | Microsoft Docs
 description: Dit document laat zien hoe just-in-time-VM-toegang in Azure Security Center u helpt toegang tot uw Azure virtual machines beheren.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: 288524e58efd64670df098f249f3ad0b1cca464c
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.date: 08/05/2018
+ms.author: rkarlin
+ms.openlocfilehash: 18c05444c151a87048db71b039845e26796126b8
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990575"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525940"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Beheer van de virtuele machine toegang met just-in-tijd
 
@@ -168,10 +168,9 @@ U kunt de logboekgegevens downloaden door te selecteren **Klik hier om alle item
 
 Wijzigen van de filters en selecteer **toepassen** een zoeken en het logboek te maken.
 
-## <a name="using-just-in-time-vm-access-via-powershell"></a>Met behulp van just-in-time-VM-toegang via PowerShell
+## <a name="using-just-in-time-vm-access-via-rest-apis"></a>Met behulp van just-in-time-VM-toegang via REST API 's
 
-Als u wilt gebruiken de just in time-oplossing via PowerShell, zorg ervoor dat u hebt de [nieuwste](/powershell/azure/install-azurerm-ps) Azure PowerShell-versie.
-Nadat u dit doet, moet u voor het installeren van de [nieuwste](https://aka.ms/asc-psgallery) Azure Security Center vanuit de PowerShell gallery.
+De just in time-VM-toegang functie via de API van Azure Security Center kan worden gebruikt. U kunt informatie over de geconfigureerde VM's, nieuwe visuals toevoegen, aanvragen van toegang tot een virtuele machine, en meer, via deze API. Zie [Jit-netwerkbeleid](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies), voor meer informatie over de just in time REST-API.
 
 ### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Configureren van een just in time-beleid voor een virtuele machine
 

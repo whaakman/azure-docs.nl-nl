@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/07/2017
+ms.date: 07/31/2018
 ms.author: aljo
-ms.openlocfilehash: cad98954c89c37e57d44abf2af54e903a1b4a740
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 780420c3ff69eb7da6e7c73b973164ed47c2c047
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504920"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525481"
 ---
 # <a name="create-a-service-fabric-cluster-by-using-azure-resource-manager"></a>Een Service Fabric-cluster maken met behulp van Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -75,7 +75,7 @@ Het concept van het maken van beveiligde clusters is hetzelfde, ongeacht of ze L
 Een willekeurig aantal extra certificaten kan worden opgegeven voor de beheerder of gebruiker clientbewerkingen. Het clustercertificaat heeft standaard beheerdersbevoegdheden voor de client. Deze aanvullende clientcertificaten mag niet worden geïnstalleerd in het cluster, maar moet worden opgegeven als wordt toegestaan in de configuratie van het cluster, maar ze nodig hebben om te worden geïnstalleerd op de clientcomputers verbinding maken met het cluster en alle beheertaken uitvoeren bewerkingen.
 
 
-## <a name="prerequisites"></a>Vereiste onderdelen 
+## <a name="prerequisites"></a>Vereisten 
 Het concept van het maken van beveiligde clusters is hetzelfde, ongeacht of ze Linux zijn of Windows-clusters. Deze handleiding bevat informatie over het gebruik van Azure PowerShell of Azure CLI om nieuwe clusters te maken. De vereisten zijn:
 
 -  [Azure PowerShell 4.1 en hoger] [ azure-powershell] of [Azure CLI 2.0 en hoger][azure-CLI].
@@ -341,6 +341,9 @@ Ter vereenvoudiging van enkele van de stappen voor het configureren van Azure AD
 .\SetupApplications.ps1 -TenantId '690ec069-8200-4068-9d01-5aaf188e557a' -ClusterName 'mycluster' -WebApplicationReplyUrl 'https://mycluster.westus.cloudapp.azure.com:19080/Explorer/index.html'
 ```
 
+> [!NOTE]
+> Voor nationale clouds (Azure Government, China, Azure, Azure Duitsland), moet u ook opgeven de `-Location` parameter.
+
 U kunt uw tenant-id vinden door het uitvoeren van de PowerShell-opdracht `Get-AzureSubscription`. Deze opdracht wordt uitgevoerd, wordt de tenant-id voor elk abonnement weergegeven.
 
 Clusternaam is gebruikt voor het toevoegen van de Azure AD-toepassingen die zijn gemaakt door het script. Het hoeft niet precies overeenkomen met de naam van het daadwerkelijke cluster. Het is uitsluitend bedoeld om het Azure AD-artefacten worden toegewezen aan de Service Fabric-cluster dat ze worden gebruikt met eenvoudiger.
@@ -370,6 +373,9 @@ Het script af te drukken de JSON die wordt vereist door de Azure Resource Manage
 In deze sectie is voor gebruikers die tot aangepaste ontwerpen van een Service Fabric-cluster resource manager-sjabloon. Zodra u een sjabloon hebt, kunt u nog steeds teruggaan en de modules PowerShell of CLI gebruiken om het te implementeren. 
 
 Voorbeeld van Resource Manager-sjablonen zijn beschikbaar in de [Azure-voorbeelden op GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Deze sjablonen kunnen worden gebruikt als uitgangspunt voor de clustersjabloon voor het.
+
+> [!NOTE]
+> Voor nationale clouds (Azure Government, China, Azure, Azure Duitsland), moet u ook het volgende toevoegen `fabricSettings` aan de ARM-sjabloon: `AADLoginEndpoint`, `AADTokenEndpointFormat` en `AADCertEndpointFormat`.
 
 ### <a name="create-the-resource-manager-template"></a>Het Resource Manager-sjabloon maken
 Maakt gebruik van deze handleiding de [5-knooppunten beveiligd cluster] [ service-fabric-secure-cluster-5-node-1-nodetype] van de voorbeeldsjabloon en sjabloonparameters. Download `azuredeploy.json` en `azuredeploy.parameters.json` op uw computer en opent u beide bestanden in uw favoriete teksteditor.
@@ -714,4 +720,3 @@ Op dit moment hebt u een beveiligd cluster met Azure Active Directory bieden man
 [sfx-select-certificate-dialog]: ./media/service-fabric-cluster-creation-via-arm/sfx-select-certificate-dialog.png
 [sfx-reply-address-not-match]: ./media/service-fabric-cluster-creation-via-arm/sfx-reply-address-not-match.png
 [web-application-reply-url]: ./media/service-fabric-cluster-creation-via-arm/web-application-reply-url.png
-

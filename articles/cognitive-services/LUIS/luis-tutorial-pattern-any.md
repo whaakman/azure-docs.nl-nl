@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 58a1871774683e2af66e12a03bdaf8d6bcea831c
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1587debecd82072c29d4caffc2b81629b1f52b0e
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493255"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39527361"
 ---
 # <a name="tutorial-improve-app-with-patternany-entity"></a>Zelfstudie: Een app met pattern.any entiteit verbeteren
 
@@ -106,7 +106,9 @@ De entiteit Pattern.any extraheert entiteiten met verschillende lengten. Dit wer
 
 4. Als u de entiteit keyPhrase verwijderd, kunt u deze terug naar de app toevoegen. 
 
-5. De app trainen.
+## <a name="train-the-luis-app"></a>LUIS-app trainen
+
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Het nieuwe patroon voor vrije gegevensextractie testen
 1. Selecteer **testen** in de bovenste balk met om de test-deelvenster te openen. 

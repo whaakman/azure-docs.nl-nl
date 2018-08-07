@@ -17,12 +17,12 @@ ms.date: 04/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b50d04f843e86f5af8ccd32589a540e38e6e47df
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 5872190f811af208f5b27da330da3313e77a8665
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502930"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39579299"
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0-protocollen - OAuth 2.0 en OpenID Connect
 Het v2.0-eindpunt kunt u Azure AD gebruiken voor identity-as-a-service met standaardprotocollen, OpenID Connect en OAuth 2.0. Terwijl de service compatibel met de standaarden is, kunnen er subtiele verschillen tussen de twee implementaties van deze protocollen. De informatie hier is handig als u ervoor kiest uw code schrijven door rechtstreeks verzenden en verwerken van HTTP-aanvragen of gebruik een 3e partij open source-bibliotheek, in plaats van met een van onze [open source-bibliotheken](active-directory-v2-libraries.md).
@@ -73,13 +73,13 @@ Kies een bepaalde app-type hieronder voor meer informatie over het communiceren 
 ## <a name="tokens"></a>Tokens
 De implementatie v2.0 van OAuth 2.0 en OpenID Connect maken intensief gebruik van bearer-tokens, met inbegrip van weergegeven als JWTs bearer-tokens. Een bearer-token is een lichtgewicht beveiligingstoken die de "bearer" toegang tot een beveiligde bron verleent. In dit opzicht is de 'bearer' een partij die het token kan opleveren. Hoewel een partij moet eerst worden geverifieerd met Azure AD voor het ontvangen van het bearer-token, als de vereiste stappen zijn niet in gebruik voor het beveiligen van de token in overdracht en opslag, kan worden onderschept en die worden gebruikt door een onbedoelde partij. Hoewel sommige beveiligingstokens een ingebouwd mechanisme hebben voor zo wordt voorkomen dat onbevoegden gebruik ervan, wordt bearer-tokens geen dit mechanisme en moeten worden overgebracht in een beveiligd kanaal, zoals transport layer security (HTTPS). Als een bearer-token wordt verzonden in de wissen, kan een man-in de middelste aanval worden gebruikt door een schadelijke partij de token ophalen en deze gebruiken voor een niet-geautoriseerde toegang tot een beveiligde bron. Dezelfde beveiligingsprincipes van toepassing wanneer op te slaan of bearer-tokens voor later gebruik opslaan in cache. Altijd voor zorgen dat uw app worden verzonden en bearer-tokens worden opgeslagen op een veilige manier. Zie voor meer beveiligingsoverwegingen op bearer-tokens, [RFC 6750 sectie 5](http://tools.ietf.org/html/rfc6750).
 
-Meer informatie over de verschillende typen tokens die worden gebruikt in het v2.0-eindpunt is beschikbaar in [het v2.0-eindpunt-tokenverwijzing](active-directory-v2-tokens.md).
+Meer informatie over de verschillende typen tokens die worden gebruikt in het v2.0-eindpunt is beschikbaar in [het v2.0-eindpunt-tokenverwijzing](v2-id-and-access-tokens.md).
 
 ## <a name="protocols"></a>Protocollen
 Als u klaar om te zien van bepaalde voorbeeld-aanvragen bent, aan de slag met een van de onderstaande zelfstudies. Elke regel komt overeen met een bepaalde verificatiescenario. Als u hulp bij het vaststellen van de juiste stroom voor u nodig hebt, bekijk dan [de typen apps die u met het v2.0 maken kunt](active-directory-v2-flows.md).
 
-* [Bouw mobiele en systeemeigen toepassing met OAuth 2.0](active-directory-v2-protocols-oauth-code.md)
-* [Bouw Web-Apps met Open ID Connect](active-directory-v2-protocols-oidc.md)
-* [Bouw Apps met één pagina met het OAuth 2.0-impliciete stroom](active-directory-v2-protocols-implicit.md)
-* [Build-Daemons of processen op de Server met de referenties voor OAuth 2.0-Client Flow](active-directory-v2-protocols-oauth-client-creds.md)
-* [Tokens ophalen in een Web-API met de OAuth 2.0 namens-stroom](active-directory-v2-protocols-oauth-on-behalf-of.md)
+* [Bouw mobiele en systeemeigen toepassing met OAuth 2.0](v2-oauth2-auth-code-flow.md)
+* [Bouw Web-Apps met Open ID Connect](v2-protocols-oidc.md)
+* [Bouw Apps met één pagina met het OAuth 2.0-impliciete stroom](v2-oauth2-implicit-grant-flow.md)
+* [Build-Daemons of processen op de Server met de referenties voor OAuth 2.0-Client Flow](v2-oauth2-client-creds-grant-flow.md)
+* [Tokens ophalen in een Web-API met de OAuth 2.0 namens-stroom](v2-oauth2-on-behalf-of-flow.md)

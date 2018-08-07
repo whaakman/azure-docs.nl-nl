@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 6e0b00117c35cd5222c69e72819afb37f9ec14dd
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: a4e03eac9c41c72714103a2c863a9ed6b2fd8608
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265061"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39577725"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Optionele claims in Azure AD (preview)
 
@@ -33,7 +33,7 @@ Deze functie wordt gebruikt door ontwikkelaars van toepassingen om op te geven w
 > [!Note]
 > Deze mogelijkheid is momenteel in openbare preview. Wees voorbereid om terug te keren of eventuele wijzigingen te verwijderen. De functie is beschikbaar in alle Azure AD-abonnement tijdens de openbare preview. Wanneer de functie algemeen beschikbaar komt, kunnen sommige aspecten van de functie echter een Azure AD premium-abonnement vereist.
 
-Zie voor een lijst van standaard claims en hoe ze worden gebruikt in tokens, de [basisprincipes van tokens die zijn uitgegeven door Azure AD](active-directory-token-and-claims.md). 
+Zie voor een lijst van standaard claims en hoe ze worden gebruikt in tokens, de [basisprincipes van tokens die zijn uitgegeven door Azure AD](v1-id-and-access-tokens.md). 
 
 Een van de doelstellingen van de [Azure AD v2.0-eindpunt](active-directory-appmodel-v2-overview.md) is token kleinere om optimale prestaties door clients.  Als gevolg hiervan meerdere claims voorheen opgenomen in de toegang en de ID-tokens zijn niet meer aanwezig zijn in v2.0-tokens en moeten worden gevraagd om specifiek op basis van de per toepassing.  
 
@@ -247,4 +247,4 @@ Er zijn meerdere opties beschikbaar voor het bijwerken van de eigenschappen van 
 
 
 ## <a name="related-content"></a>Gerelateerde inhoud
-* Meer informatie over de [standard claims](active-directory-token-and-claims.md) geleverd door Azure AD. 
+* Meer informatie over de [standard claims](v1-id-and-access-tokens.md) geleverd door Azure AD. 

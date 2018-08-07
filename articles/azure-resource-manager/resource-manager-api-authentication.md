@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: c76941d366ecd7aa44c8fa64dbe2245103db715b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 58309977c93864d52a3217919ac8d7fa9152a968
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425823"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576899"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Gebruik Resource Manager verificatie-API voor toegang tot abonnementen
 ## <a name="introduction"></a>Inleiding
@@ -113,7 +113,7 @@ Geef een Open ID Connect/OAuth 2.0 autoriseren aanvragen naar het Azure AD-geaut
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Authorize
 
-De queryreeks-parameters die beschikbaar voor deze aanvraag zijn worden beschreven in de [aanvragen van een autorisatiecode](../active-directory/develop/active-directory-protocols-oauth-code.md#request-an-authorization-code) artikel.
+De queryreeks-parameters die beschikbaar voor deze aanvraag zijn worden beschreven in de [aanvragen van een autorisatiecode](../active-directory/develop/v1-protocols-oauth-code.md#request-an-authorization-code) artikel.
 
 Het volgende voorbeeld laat zien hoe om aan te vragen van OAuth 2.0-autorisatie:
 
@@ -126,7 +126,7 @@ Azure AD verifieert de gebruiker en, indien nodig, vraagt de gebruiker toestemmi
 ### <a name="auth-request-open-id-connect"></a>Aanvraag voor verificatie (Open ID Connect)
 Als u wilt niet alleen de toegang tot Azure Resource Manager namens de gebruiker, maar kan de gebruiker zich aanmeldt bij uw toepassing met hun Azure AD-account, geven u een Open ID Connect autoriseren Request. Met Open ID Connect ontvangt uw toepassing ook een id_token van Azure AD die uw app gebruiken kunt om aan te melden bij de gebruiker.
 
-De queryreeks-parameters die beschikbaar voor deze aanvraag zijn worden beschreven in de [verzenden de aanmeldingsaanvraag](../active-directory/develop/active-directory-protocols-openid-connect-code.md#send-the-sign-in-request) artikel.
+De queryreeks-parameters die beschikbaar voor deze aanvraag zijn worden beschreven in de [verzenden de aanmeldingsaanvraag](../active-directory/develop/v1-protocols-openid-connect-code.md#send-the-sign-in-request) artikel.
 
 Er is een voorbeeld van de Open ID Connect-aanvraag:
 
@@ -143,7 +143,7 @@ Nu uw toepassing heeft de autorisatiecode ontvangen van Azure AD, is het tijd om
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-De queryreeks-parameters die beschikbaar voor deze aanvraag zijn worden beschreven in de [gebruiken de autorisatiecode](../active-directory/develop/active-directory-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) artikel.
+De queryreeks-parameters die beschikbaar voor deze aanvraag zijn worden beschreven in de [gebruiken de autorisatiecode](../active-directory/develop/v1-protocols-oauth-code.md#use-the-authorization-code-to-request-an-access-token) artikel.
 
 Het volgende voorbeeld ziet u een aanvraag voor code verlenen token met wachtwoordreferenties van het:
 
@@ -154,7 +154,7 @@ Het volgende voorbeeld ziet u een aanvraag voor code verlenen token met wachtwoo
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-Als u werkt met certificaatreferenties, maak een JSON Web Token (JWT) en meld u (RSA-SHA256) met behulp van de persoonlijke sleutel van de certificaat-referentie van uw toepassing. De claimtypen voor het token worden weergegeven in [JWT-token claims](../active-directory/develop/active-directory-protocols-oauth-code.md#jwt-token-claims). Voor een verwijzing naar de [Active Directory Authentication Library (.NET)-code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) Client Assertion JWT-tokens te ondertekenen.
+Als u werkt met certificaatreferenties, maak een JSON Web Token (JWT) en meld u (RSA-SHA256) met behulp van de persoonlijke sleutel van de certificaat-referentie van uw toepassing. De claimtypen voor het token worden weergegeven in [JWT-token claims](../active-directory/develop/v1-protocols-oauth-code.md#jwt-token-claims). Voor een verwijzing naar de [Active Directory Authentication Library (.NET)-code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) Client Assertion JWT-tokens te ondertekenen.
 
 Zie de [Open ID Connect-specificatie](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) voor meer informatie over clientverificatie.
 
@@ -178,7 +178,7 @@ Een geslaagde respons van de token bevat (gebruiker + app) toegangstoken voor Az
 
     https://login.microsoftonline.com/{tenant-id}/OAuth2/Token
 
-De parameters voor gebruik met de aanvraag voor vernieuwen worden beschreven in [vernieuwen van het toegangstoken](../active-directory/develop/active-directory-protocols-oauth-code.md#refreshing-the-access-tokens).
+De parameters voor gebruik met de aanvraag voor vernieuwen worden beschreven in [vernieuwen van het toegangstoken](../active-directory/develop/v1-protocols-oauth-code.md#refreshing-the-access-tokens).
 
 Het volgende voorbeeld ziet hoe u het vernieuwen van de token:
 
@@ -235,7 +235,7 @@ Om te verifiëren van uw app en een Azure AD Graph API-token verkrijgen, geven u
 
 De [GetObjectIdOfServicePrincipalInOrganization](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/AzureADGraphAPIUtil.cs) methode van de ASP.net MVC-voorbeeldtoepassing krijgt een app alleen-lezen toegang token voor Graph API met behulp van de Active Directory Authentication Library voor .NET.
 
-De queryreeks-parameters die beschikbaar voor deze aanvraag zijn worden beschreven in de [aanvraag een toegangstoken](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#request-an-access-token) artikel.
+De queryreeks-parameters die beschikbaar voor deze aanvraag zijn worden beschreven in de [aanvraag een toegangstoken](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#request-an-access-token) artikel.
 
 Een van de voorbeeldaanvraag voor clientreferenties verlenen token:
 

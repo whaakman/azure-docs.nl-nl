@@ -3,25 +3,20 @@ title: Gen2 Preview van Azure Data Lake Storage gebruiken met Azure HDInsight-cl
 description: Informatie over het opvragen van gegevens uit de Preview van Azure Data Lake Storage Gen2 en opslaan van resultaten van uw analyse.
 keywords: hdfs, gestructureerde gegevens, niet-gestructureerde gegevens, data lake store, Hadoop-invoer, Hadoop-uitvoer, hadoop-opslag, hdfs-invoer, hdfs-uitvoer, hdfs-opslag, wasb azure
 services: hdinsight,storage
-documentationcenter: ''
 tags: azure-portal
 author: jamesbak
-manager: jahogg
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: e4e72d3c5b6b9c96de6a8faafccfcc39fe3c37b8
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 4a9f79b292e58331dcd2f7cb656e24b244aa89ba
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136686"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528505"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Gen2 Preview van Azure Data Lake Storage gebruiken met Azure HDInsight-clusters
 
