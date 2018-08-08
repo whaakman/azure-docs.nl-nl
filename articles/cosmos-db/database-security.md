@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: sngun
-ms.openlocfilehash: c9ef406ecab0d88468c9f7ff290669cfbbae1856
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 641a665e0f41a612455d5649b19948146b504199
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860177"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599944"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB-database-beveiliging
 
@@ -47,6 +47,7 @@ U wordt aangeraden de volgende controlelijst voor vereisten waarop u wilt vergel
 - Reageren op aanvallen
 - Mogelijkheid tot geo-omheining gegevens om te voldoen aan de beperkingen voor het beheer van gegevens
 - Fysieke beveiliging van servers in beveiligde datacenters
+- Certificering
 
 En hoewel het lijkt misschien duidelijk, recente [grootschalige database schendingen](http://thehackernews.com/2017/01/mongodb-database-security.html) herinneren dat we de eenvoudige maar kritiek belang van de volgende vereisten:
 - Patch uitgevoerd voor servers die zijn bijgewerkt
@@ -79,7 +80,7 @@ Laten we even stilstaan bij elkaar in detail.
 |Versleuteling 'at rest'|Alle gegevens die zijn opgeslagen in Azure Cosmos DB is versleuteld in rust. Meer informatie in [Azure Cosmos DB versleuteling-at-rest](.\database-encryption-at-rest.md)|
 |Gecorrigeerde servers|Als een beheerde database hoeft Azure Cosmos DB te beheren en vullen van de servers, die automatisch voor u heeft gedaan.|
 |Beheerdersaccounts met sterke wachtwoorden|Het is moeilijk te geloven moeten we ook nog deze vereiste, maar in tegenstelling tot sommige van onze concurrenten, is het niet mogelijk om een Administrator-account zonder een wachtwoord in Azure Cosmos DB.<br><br> Beveiliging via SSL en HMAC geheime gebaseerde verificatie is standaard sparen.|
-|Beveiliging en bescherming-certificeringen|Azure Cosmos DB heeft [ISO 27001](https://www.microsoft.com/en-us/TrustCenter/Compliance/ISO-IEC-27001), [Europese Model van de EU (EUMC)](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses), en [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA) certificeringen. Meer certificeringen worden uitgevoerd.|
+|Beveiliging en bescherming-certificeringen|Voor alles tot aan de gegevenslijst met uit certificeringen, Zie de algehele (Azure-naleving-site) [https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings] en de meest recente (Document van Azure-naleving) [https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942] met alle certificeringen (zoek Cosmos). Voor een meer gerichte leest u uitchecken van het bericht 25 April 2018 (Azure #CosmosDB: veilige, particuliere en compatibele) [https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/] waaronder Soc's 1/2 Type 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPPAA, FedRAMP High en nog veel meer.
 
 De volgende schermafbeelding ziet u Active directory-integratie (RBAC) met behulp van toegangsbeheer (IAM) in Azure portal: ![toegangsbeheer (IAM) in Azure portal - beveiliging van de database aan te tonen](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)
 

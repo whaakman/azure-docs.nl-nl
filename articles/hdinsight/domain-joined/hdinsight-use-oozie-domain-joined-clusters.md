@@ -1,25 +1,22 @@
 ---
-title: Hadoop Oozie-werkstromen in domein aan een gekoppelde HDInsight-Clusters
-description: Gebruik Hadoop Oozie in Linux gebaseerde HDInsight-domein lid zijn van Enterprise-beveiligingspakket. Informatie over het definiëren van een Oozie-workflow en het verzenden van een Oozie-taak.
+title: Apache Hadoop Oozie-werkstromen in aan domein gekoppelde Azure HDInsight-clusters
+description: Gebruik Hadoop Oozie in een HDInsight op basis van Linux domein-Enterprise-beveiligingspakket. Informatie over het definiëren van een Oozie-workflow en het verzenden van een Oozie-taak.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: omidm
-ms.openlocfilehash: 928f6adbb348683a110f7da9b20efaae998290ca
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: a7f17aafd7798c1bada9fef01a6c8f1022d291f4
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972210"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39616847"
 ---
-#<a name="run-apache-oozie-in-domain-joined-hdinsight-hadoop-clusters"></a>Apache Oozie in domein gekoppeld HDInsight Hadoop-clusters uitvoeren
+# <a name="run-apache-oozie-in-domain-joined-hdinsight-hadoop-clusters"></a>Apache Oozie in aan domein gekoppelde HDInsight Hadoop clusters uitvoeren
 Oozie is een werkstroom en coördinatie systeem waarmee Hadoop-taken worden beheerd. Oozie is geïntegreerd met de Hadoop-stack en ondersteunt de volgende taken:
 - Apache MapReduce
 - Apache Pig
@@ -28,31 +25,34 @@ Oozie is een werkstroom en coördinatie systeem waarmee Hadoop-taken worden behe
 
 U kunt ook Oozie gebruiken voor het plannen van taken die specifiek voor een systeem, zoals Java-programma's of shell-scripts zijn.
 
-##<a name="prerequisites"></a>Vereisten:
-- Een Domain-joined HDInsight Hadoop-cluster. Zie [configureren Domain-joined HDInsight-clusters](./apache-domain-joined-configure-using-azure-adds.md)
+## <a name="prerequisite"></a>Vereiste
+- Een domein Azure HDInsight Hadoop cluster. Zie [aan domein gekoppelde HDInsight-clusters configureren](./apache-domain-joined-configure-using-azure-adds.md).
 
     > [!NOTE]
-    > Zie de gedetailleerde instructies voor Oozie gebruiken op niet-domein toegevoegd clusters Zie [dit](../hdinsight-use-oozie-linux-mac.md)
+    > Zie voor gedetailleerde instructies over het gebruik van Oozie op clusters lid is van een controller [gebruik Hadoop Oozie-werkstromen in Azure HDInsight op basis van Linux](../hdinsight-use-oozie-linux-mac.md).
 
-##<a name="connecting-to-domain-joined-cluster"></a>Verbinding maken met domein een cluster is toegevoegd
-Zie voor meer informatie over SSH [verificatie: Domain-joined HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
-- Maak verbinding met het HDInsight-cluster via SSH:
-     ```bash
-    ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
-    ```
-Gebruik om te controleren als Kerberos-verificatie geslaagd is, `klist` opdracht. Als dit niet het geval is, gebruikt u `kinit` initiëren van Kerberos-verificatie.
+## <a name="connect-to-a-domain-joined-cluster"></a>Verbinding maken met een cluster met een domein
 
-- Meld u aan bij de HDInsight-gateway voor het registreren van het oAuth-token dat is vereist voor toegang tot Azure Data Lake Store (ADLS)
+Zie voor meer informatie over Secure Shell (SSH) [verbinding maken met HDInsight (Hadoop) via SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+
+1. Verbinding maken met het HDInsight-cluster met behulp van SSH:  
+ ```bash
+ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
+ ```
+
+2. Als u wilt controleren of geslaagde Kerberos-verificatie, gebruikt u de `klist` opdracht. Als dit niet het geval is, gebruikt u `kinit` Kerberos-verificatie te starten.
+
+3. Meld u aan de HDInsight-gateway voor het registreren van het OAuth-token dat is vereist voor toegang tot Azure Data Lake Storage:   
      ```bash
      curl -I -u [DomainUserName@Domain.com]:[DomainUserPassword] https://<clustername>.azurehdinsight.net
      ```
 
-    Een status-Antwoordcode van _200 OK_ geeft aan dat succesvolle registratie. Controleer de gebruikersnaam en wachtwoord als een niet-geautoriseerde antwoord is ontvangen (401).
+    Een status-Antwoordcode van **200 OK** geeft aan dat succesvolle registratie. Controleer de gebruikersnaam en het wachtwoord als een niet-geautoriseerde reactie wordt ontvangen, zoals 401.
 
 ## <a name="define-the-workflow"></a>De werkstroom definiëren
-Oozie werkstroomdefinities worden geschreven in Hadoop proces Definition Language (hPDL), die een definition language met XML-proces. Gebruik de volgende stappen uit om de werkstroom te definiëren:
+Oozie werkstroomdefinities worden geschreven in Hadoop proces Definition Language (hPDL). hPDL is een definition language met XML-proces. Voer de volgende stappen uit om de werkstroom te definiëren:
 
--   Instellen van de werkruimte van de domeingebruiker:
+1.  Werkruimte van de domeingebruiker van een instellen:
  ```bash
 hdfs dfs -mkdir /user/<DomainUser>
 cd /home/<DomainUserPath>
@@ -60,14 +60,14 @@ cp /usr/hdp/<ClusterVersion>/oozie/doc/oozie-examples.tar.gz .
 tar -xvf oozie-examples.tar.gz
 hdfs dfs -put examples /user/<DomainUser>/
  ```
-Vervang `DomainUser` met de naam van de gebruiker domein. Vervang `DomainUserPath` met het pad naar de basismap voor de domeingebruiker. Vervang `ClusterVersion` met uw cluster HDP-versie.
+Vervang `DomainUser` met de naam van de gebruiker domein. Vervang `DomainUserPath` met het pad naar de basismap voor de domeingebruiker. Vervang `ClusterVersion` met uw cluster Hortonworks Data Platform (HDP)-versie.
 
--   Gebruik de volgende instructie maken en bewerken van een nieuw bestand:
+2.  Gebruik de volgende instructie maken en bewerken van een nieuw bestand:
  ```bash
 nano workflow.xml
  ```
 
-- Nadat de nano-editor wordt geopend, voert u het volgende XML-bestand als de inhoud van het bestand:
+3. Nadat de nano-editor wordt geopend, voert u het volgende XML-bestand als de inhoud van het bestand:
  ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <workflow-app xmlns="uri:oozie:workflow:0.4" name="map-reduce-wf">
@@ -164,111 +164,110 @@ nano workflow.xml
        <end name="end" />
     </workflow-app>
  ```
-Vervang `clustername` met de naam van het cluster. 
+4. Vervang `clustername` met de naam van het cluster. 
 
-Om het bestand hebt opgeslagen, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**.
+5. Om het bestand hebt opgeslagen, selecteert u Ctrl + X. Voer `Y`. Selecteer vervolgens **Enter**.
 
-De werkstroom is onderverdeeld in twee delen:
-*   Referentie-sectie: De sectie referenties worden gebruikt in de referenties die worden gebruikt voor het verifiëren van oozie acties:
+    De werkstroom is onderverdeeld in twee delen:
+    *   **Referentie-sectie.** In deze sectie worden gebruikt in de referenties die worden gebruikt voor het verifiëren van Oozie acties:
 
-    In dit voorbeeld wordt verificatie voor Hive acties gebruikt. Zie voor meer informatie, [dit]( https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html).
+       In dit voorbeeld gebruikt verificatie voor Hive-acties. Zie voor meer informatie, [actie verificatie](https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html).
 
-    De referentie-service kunt oozie-bewerkingen voor het imiteren van de gebruiker voor toegang tot Hadoop-services.
+       De referentie-service kunt Oozie-bewerkingen voor het imiteren van de gebruiker voor toegang tot Hadoop-services.
 
-*   Sectie van de actie: We hebben drie acties hier mapreduce, hive server 2 actie en een hive-server 1:
+    *   **Sectie van de actie.** Dit gedeelte bevat drie acties: mapreduce-, Hive server 2 en Hive-server 1:
 
-    De map-reduce wordt uitgevoerd een voorbeeld van oozie-pakket voor mapreduce-die het aantal samengevoegde woorden levert.
+      - De mapreduce-een voorbeeld van een Oozie-pakket voor mapreduce-actie-uitvoeringen die het aantal samengevoegde woorden uitvoert.
 
-    Het hive server 2 en hive server 1-acties die een eenvoudige query op hivesample tabel met HDInsight wordt uitgevoerd.
+       - De Hive server 2 en Hive-server 1 acties kunt u een query uitvoeren op een voorbeeld-Hive-tabel voorzien van HDInsight.
 
-    De hive-acties gebruiken de referenties die zijn opgegeven in de sectie referenties voor verificatie met behulp van het sleutelwoord `cred` in het actie-element
+        De Hive-acties gebruiken de referenties die zijn opgegeven in de sectie referenties voor verificatie met behulp van het sleutelwoord `cred` in het actie-element.
 
-- Gebruik de volgende opdracht uit om te kopiëren de `workflow.xml` van het bestand in `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`:
+6. Gebruik de volgende opdracht uit om te kopiëren de `workflow.xml` van het bestand in `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`:
      ```bash
     hdfs dfs -put workflow.xml /user/<domainuser>/examples/apps/map-reduce/workflow.xml
      ```
 
-    Vervang `domainuser` met uw gebruikersnaam voor het domein.
+7. Vervang `domainuser` met uw gebruikersnaam voor het domein.
 
 ## <a name="define-the-properties-file-for-the-oozie-job"></a>Definieer het eigenschappenbestand voor de taak Oozie
 
-1.  Gebruik de volgende instructie maken en bewerken van een nieuw bestand voor de taakeigenschappen van de:
-     ```bash
-    nano job.properties
-     ```
+1. Gebruik de volgende instructie maken en bewerken van een nieuw bestand voor de taakeigenschappen van de:
 
-2.   Nadat de nano-editor wordt geopend, gebruikt u het volgende XML-bestand als de inhoud van het bestand:
+   ```bash
+   nano job.properties
+   ```
 
-    ```bash
-        nameNode=adl://home
-        jobTracker=headnodehost:8050
-        queueName=default
-        examplesRoot=examples
-        oozie.wf.application.path=${nameNode}/user/[domainuser]/examples/apps/map-reduce/workflow.xml
-        hiveScript1=${nameNode}/user/${user.name}/countrowshive1.hql
-        hiveScript2=${nameNode}/user/${user.name}/countrowshive2.hql
-        oozie.use.system.libpath=true
-        user.name=[domainuser]
-        jdbcPrincipal=hive/hn0-<ClusterShortName>.<Domain>.com@<Domain>.COM
-        jdbcURL=[jdbcurlvalue]
-        hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
-        hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
-    ```
-    
+2. Nadat de nano-editor wordt geopend, gebruikt u het volgende XML-bestand als de inhoud van het bestand:
 
-   * Vervang `domainuser` met uw gebruikersnaam voor het domein.
-   * Vervang `ClusterShortName` met korte naam voor het cluster. Als de clusternaam is https://sechadoopcontoso.azurehdisnight.net, wordt de `clustershortname` is de eerste zes letters van het cluster: sechad
-   * Vervang `jdbcurlvalue` met JDBC-url van de hive-configuratie. Bijvoorbeeld, jdbc:hive2: / / headnodehost:10001 /; transportMode = http.
-    
-   * Om het bestand hebt opgeslagen, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**.
+   ```bash
+       nameNode=adl://home
+       jobTracker=headnodehost:8050
+       queueName=default
+       examplesRoot=examples
+       oozie.wf.application.path=${nameNode}/user/[domainuser]/examples/apps/map-reduce/workflow.xml
+       hiveScript1=${nameNode}/user/${user.name}/countrowshive1.hql
+       hiveScript2=${nameNode}/user/${user.name}/countrowshive2.hql
+       oozie.use.system.libpath=true
+       user.name=[domainuser]
+       jdbcPrincipal=hive/hn0-<ClusterShortName>.<Domain>.com@<Domain>.COM
+       jdbcURL=[jdbcurlvalue]
+       hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
+       hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
+   ```
+  
+   a. Vervang `domainuser` met uw gebruikersnaam voor het domein.  
+   b. Vervang `ClusterShortName` met de korte naam voor het cluster. Bijvoorbeeld, als de naam van het cluster is https:// *[voorbeeld van de koppeling]* sechadoopcontoso.azurehdisnight.net, de `clustershortname` is de eerste zes tekens van het cluster: **sechad**.  
+   c. Vervang `jdbcurlvalue` met de JDBC-URL van de Hive-configuratie. Een voorbeeld is jdbc:hive2: / / headnodehost:10001 /; transportMode = http.      
+   d. Om het bestand hebt opgeslagen, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**.
 
-   * Dit eigenschappenbestand moet aanwezig zijn lokaal bij het uitvoeren van taken voor oozie
+   Dit eigenschappenbestand moet aanwezig zijn lokaal bij het uitvoeren van Oozie-taken.
 
-## <a name="creating-custom-hive-scripts-for-the-oozie-job"></a>Het maken van aangepaste hive-scripts voor de taak Oozie
-De 2 hive-scripts voor hive-server 1 en hive server 2 kunnen worden gemaakt als volgt:
--   Hive Server 1 bestand:
-1.  Gebruik de volgende instructie maken en bewerken van een bestand voor de hive-server 1 actie:
+## <a name="create-custom-hive-scripts-for-oozie-jobs"></a>Aangepaste Hive-scripts voor Oozie-taken maken
+U kunt de twee Hive-scripts voor Hive-server 1 en 2, zoals wordt weergegeven in de volgende secties van de Hive-server maken.
+### <a name="hive-server-1-file"></a>Hive server 1 bestand
+1.  Maken en bewerken van een bestand voor Hive-server 1 acties:
     ```bash
     nano countrowshive1.hql
     ```
 
-2.  Het script maken
+2.  Hiermee maakt u het script:
     ```sql
     INSERT OVERWRITE DIRECTORY '${hiveOutputDirectory1}' 
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
     select devicemake from hivesampletable limit 2;
     ```
 
-3.  Sla het bestand op Hdfs
+3.  Sla het bestand naar Hadoop Distributed File System (HDFS):
     ```bash
     hdfs dfs -put countrowshive1.hql countrowshive1.hql
     ```
 
--   Hive Server 2-bestand:
-1.  Gebruik de volgende instructie maakt en bewerkt een veld voor hive server 2 actie:
+### <a name="hive-server-2-file"></a>Hive server 2-bestand
+1.  Maken en bewerken van een veld voor Hive server 2-acties:
     ```bash
     nano countrowshive2.hql
     ```
 
-2.  Het script maken
+2.  Hiermee maakt u het script:
     ```sql
     INSERT OVERWRITE DIRECTORY '${hiveOutputDirectory1}' 
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
     select devicemodel from hivesampletable limit 2;
     ```
 
-3.  Sla het bestand op Hdfs
+3.  Sla het bestand op HDFS:
     ```bash
     hdfs dfs -put countrowshive2.hql countrowshive2.hql
     ```
 
-## <a name="submission-of-oozie-jobs"></a>Verzending van Oozie-taken
-Verzenden van taken voor domein-clusters oozie is vergelijkbaar met het verzenden van taken in niet-domein gekoppelde clusters oozie.
+## <a name="submit-oozie-jobs"></a>Oozie-taken verzenden
+Verzenden van taken voor domein-clusters Oozie is vergelijkbaar met Oozie-taken in clusters lid is van een controller te verzenden.
 
-Zie voor meer informatie [indienen en beheren van de taak](../hdinsight-use-oozie-linux-mac.md).
+Zie voor meer informatie, [gebruik Oozie met Hadoop om te definiëren en een werkstroom uitvoeren op Azure HDInsight op basis van Linux](../hdinsight-use-oozie-linux-mac.md).
 
-## <a name="results-from-oozie-job-submission"></a>Resultaten van Oozie taken verzenden
-Omdat oozie-taken worden uitgevoerd namens de gebruiker, controleren zowel Yarn en Ranger logboeken tonen de taken worden uitgevoerd als de geïmiteerde gebruiker. De CLI-uitvoer van de taak oozie als volgt uit:
+## <a name="results-from-an-oozie-job-submission"></a>Resultaten van een Oozie taken verzenden
+Oozie-taken worden uitgevoerd voor de gebruiker. Dus controleren zowel Apache YARN en Apache Ranger logboeken tonen de taken worden uitgevoerd als de geïmiteerde gebruiker. De opdrachtregelinterface-uitvoer van een taak Oozie lijkt op de volgende code:
 
 
 ```bash
@@ -302,23 +301,23 @@ Omdat oozie-taken worden uitgevoerd namens de gebruiker, controleren zowel Yarn 
     -----------------------------------------------------------------------------------------------
 ```
 
-*    De Ranger-auditlogboeken beschikbaar zijn voor hive server 2 acties toont oozie uitvoeren van de actie namens de gebruiker. De ranger en Yarn weergave is alleen zichtbaar voor de cluster-beheerder.
+De controlelogboeken Ranger Hive server 2-acties weergeven Oozie uitvoeren van de actie voor de gebruiker. De weergaven Ranger en YARN zijn alleen zichtbaar voor de cluster-beheerder.
 
-## <a name="configuration-of-user-authorization-in-oozie"></a>Configuratie van gebruikersautorisatie in Oozie
-Oozie op zichzelf heeft een configuratie gebruikersverificatie, waardoor gebruikers moet worden gestopt, doden van andere gebruikers taken kunt blokkeren. Deze optie is ingeschakeld door in te stellen de `oozie.service.AuthorizationService.security.enabled` naar `true`. 
+## <a name="configure-user-authorization-in-oozie"></a>Gebruikersautorisatie in Oozie configureren
+Oozie op zichzelf heeft een configuratie voor het autorisatie van gebruikers die de gebruikers van stoppen of verwijderen van andere gebruikers taken kan blokkeren. Instellen zodat deze configuratie de `oozie.service.AuthorizationService.security.enabled` naar `true`. 
 
-Meer informatie hierover vindt u in Oozie documentatie sectie - [autorisatie Gebruikersconfiguratie]( https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html):
+Zie voor meer informatie, [Oozie-installatie en configuratie](https://oozie.apache.org/docs/3.2.0-incubating/AG_Install.html).
 
-Voor onderdelen, zoals hive server 1 waar Ranger-invoegtoepassing niet beschikbaar/ondersteund is, is het alleen grofkorrelige hdfs autorisatie mogelijk. Goed korrelig autorisatie is alleen beschikbaar via ranger invoegtoepassingen.
+Voor onderdelen, zoals Hive-server 1 waar de Ranger-invoegtoepassing is niet beschikbaar of wordt ondersteund, is het alleen grofkorrelige HDFS-autorisatie mogelijk. Fijnmazig autorisatie is alleen beschikbaar via Ranger-invoegtoepassingen.
 
-## <a name="oozie-web-ui"></a>Oozie-Webgebruikersinterface
-De Oozie-webgebruikersinterface biedt webgebaseerde inzicht in de status van Oozie-taken op het cluster. In het domein gekoppeld clusters die u wilt:
+## <a name="get-the-oozie-web-ui"></a>De web-UI van Oozie ophalen
+De Oozie-webgebruikersinterface biedt webgebaseerde inzicht in de status van Oozie-taken op het cluster. Als u de web-UI, moet u de volgende stappen uitvoeren in aan domein gekoppelde clusters:
 
-1. Voeg een [edge-knooppunt](../hdinsight-apps-use-edge-node.md) en in te schakelen [SSH Kerberos-verificatie](../hdinsight-hadoop-linux-use-ssh-unix.md)
+1. Voeg een [edge-knooppunt](../hdinsight-apps-use-edge-node.md) en in te schakelen [SSH Kerberos-verificatie](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Ga als volgt de [Oozie-Webgebruikersinterface](../hdinsight-use-oozie-linux-mac.md) stappen voor het inschakelen van de SSH-tunneling met het edge-knooppunt en toegang tot de web-UI.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Oozie gebruiken met Hadoop om te definiëren en een werkstroom uitvoeren op Azure HDInsight op basis van Linux](../hdinsight-use-oozie-linux-mac.md)
-* [Op tijd gebaseerde Oozie-coördinator gebruiken](../hdinsight-use-oozie-coordinator-time.md)
-* [Uitvoeren van Hive-query's met behulp van SSH op Domain-joined HDInsight clusters](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+* [Oozie gebruiken met Hadoop om te definiëren en een werkstroom uitvoeren op Azure HDInsight op basis van Linux](../hdinsight-use-oozie-linux-mac.md).
+* [Op tijd gebaseerde Oozie-coördinator gebruiken](../hdinsight-use-oozie-coordinator-time.md).
+* [Verbinding maken met HDInsight (Hadoop) via SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

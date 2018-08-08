@@ -1,23 +1,23 @@
 ---
-title: Gebruik Azure backup-agent naar de back-up van bestanden en mappen
-description: Gebruik de Microsoft Azure Backup agent naar de back-up van Windows-bestanden en mappen in Azure. Een Recovery Services-kluis maken, de backup-agent installeren en de back-upbeleid definiëren de eerste back-up uitvoeren op de bestanden en mappen.
+title: Gebruik Azure backup-agent op de back-up van bestanden en mappen
+description: Gebruik de Microsoft Azure backup-agent naar de back-up van Windows-bestanden en mappen naar Azure. Maak een Recovery Services-kluis, de backup-agent installeren en de back-upbeleid definiëren de eerste back-up uitgevoerd op de bestanden en mappen.
 services: backup
 author: markgalioto
 manager: carmonm
-keywords: back-upkluis; back-up van een WindowsServer. back-upvensters;
+keywords: back-upkluis; back-up van een Windows-server. back-upvensters;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/5/2018
+ms.date: 8/5/2018
 ms.author: markgal
-ms.openlocfilehash: 583149ed892f82af8687d698cabe1a876aaaa523
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: fd988e2209d8a6547ec30edb4ee62fc8ff2c803d
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606253"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619952"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Een back-up van een Windows-server of -client maken op Azure met behulp van het Resource Manager-implementatiemodel
-Dit artikel wordt uitgelegd hoe u back-up van uw Windows Server (of Windows-client) bestanden en mappen in Azure met Azure Backup met het implementatiemodel van Resource Manager.
+In dit artikel wordt uitgelegd hoe u back-up van uw Windows Server (of Windows-client) bestanden en mappen in Azure met Azure Backup met behulp van de Resource Manager-implementatiemodel.
 
 ![Back-upproces stappen](./media/backup-configure-vault/initial-backup-process.png)
 
@@ -25,7 +25,7 @@ Dit artikel wordt uitgelegd hoe u back-up van uw Windows Server (of Windows-clie
 Als u wilt back-up van een server of client naar Azure, moet u een Azure-account. Als u niet hebt, kunt u een [gratis account](https://azure.microsoft.com/free/) binnen een paar minuten.
 
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
-Een Recovery Services-kluis is een entiteit waarmee alle back-ups en herstelpunten die u gedurende een bepaalde periode maakt zijn opgeslagen. De Recovery Services-kluis bevat ook het back-upbeleid toegepast op de beveiligde bestanden en mappen. Wanneer u een Recovery Services-kluis maakt, moet u ook de juiste optie voor redundantie.
+Een Recovery Services-kluis is een entiteit waarmee alle back-ups en herstelpunten die u na verloop van tijd maakt worden opgeslagen. De Recovery Services-kluis bevat ook het back-upbeleid toegepast op de beveiligde bestanden en mappen. Wanneer u een Recovery Services-kluis maakt, moet u ook de juiste optie voor redundantie.
 
 ### <a name="to-create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 1. Meld u met uw Azure-abonnement aan bij de [Azure Portal](https://portal.azure.com/) als u dat nog niet hebt gedaan.
@@ -66,7 +66,7 @@ Een Recovery Services-kluis is een entiteit waarmee alle back-ups en herstelpunt
   Wanneer u uw kluis in de lijst met Recovery Services-kluizen ziet, kunt u de opslagredundantie instellen.
 
 
-### <a name="set-storage-redundancy"></a>Redundantie van gegevensopslag instellen
+### <a name="set-storage-redundancy"></a>Opslagredundantie instellen
 Als u voor het eerst een Recovery Services-kluis maakt, bepaalt u hoe uw opslag wordt gerepliceerd.
 
 1. Klik op de blade **Recovery Services-kluizen** op de nieuwe kluis.
@@ -91,7 +91,7 @@ Als u voor het eerst een Recovery Services-kluis maakt, bepaalt u hoe uw opslag 
 
   Uw kluis heeft standaard geografisch redundante opslag. Als Azure uw primaire eindpunt is voor back-upopslag, blijf dan **Geografisch redundant** gebruiken. Als Azure niet uw primaire eindpunt is voor back-upopslag, kiest u **Lokaal redundant**, zodat u de kosten voor Azure-opslag verlaagt. U vindt meer informatie over de opties voor [geografisch redundante](../storage/common/storage-redundancy-grs.md) en [lokaal redundante ](../storage/common/storage-redundancy-lrs.md) opslag in dit [overzicht van opslagredundantie](../storage/common/storage-redundancy.md).
 
-Nu dat u kunt een kluis hebt gemaakt, bereid uw infrastructuur voor back-up van bestanden en mappen door te downloaden en installeren van de Microsoft Azure Recovery Services-agent, kluisreferenties downloaden en vervolgens via deze referenties te registreren van de agent met de kluis.
+Nu dat u een kluis hebt gemaakt, bereid uw infrastructuur in de back-up van bestanden en mappen door te downloaden en installeren van de Microsoft Azure Recovery Services-agent, kluisreferenties downloadt en vervolgens met behulp van deze referenties voor het registreren van de agent met de kluis.
 
 ## <a name="configure-the-vault"></a>De kluis configureren
 
@@ -99,7 +99,7 @@ Nu dat u kunt een kluis hebt gemaakt, bereid uw infrastructuur voor back-up van 
 
   ![Open de blade back-updoelstelling](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
 
-  De blade **Back-updoelstelling** wordt geopend. Als de Recovery Services-kluis eerder is geconfigureerd, wordt de **back-updoel** blades geopend wanneer u klikt op **back-up** op de Recovery Services-blade kluis.
+  De blade **Back-updoelstelling** wordt geopend. Als de Recovery Services-kluis is eerder al is geconfigureerd, dan zal de **back-updoel** blades wordt geopend wanneer u klikt op **back-up** blade van de Recovery Services-kluis.
 
   ![Open de blade back-updoelstelling](./media/backup-try-azure-backup-in-10-mins/backup-goal-blade.png)
 
@@ -171,7 +171,7 @@ De agent wordt nu geïnstalleerd en uw computer wordt geregistreerd bij de kluis
 
 ## <a name="network-and-connectivity-requirements"></a>Netwerk- en verbindingsvereisten
 
-Als uw machine/de proxy toegang tot internet beperkt heeft, moet u zorgen dat de firewall op de machine/proxy-instellingen zijn geconfigureerd om toe te staan van de volgende URL's: <br>
+Als uw computer/proxy beperkte internettoegang heeft, zorgt u ervoor dat de firewall-instellingen op de computer/proxy zijn geconfigureerd voor het toestaan van de volgende URL's: <br>
     1. www.msftncsi.com
     2. *.Microsoft.com
     3. *.WindowsAzure.com
@@ -180,24 +180,24 @@ Als uw machine/de proxy toegang tot internet beperkt heeft, moet u zorgen dat de
 
 
 ## <a name="create-the-backup-policy"></a>Het back-upbeleid maken
-Het back-upbeleid is het plannen wanneer de herstelpunten worden gemaakt en hoe lang die de herstelpunten worden bewaard. Gebruik de Microsoft Azure Backup-agent te maken van de back-upbeleid voor bestanden en mappen.
+Het back-upbeleid is het schema voor herstelpunten worden gemaakt en hoe lang die de herstelpunten worden bewaard. Gebruik de Microsoft Azure backup-agent te maken van het back-upbeleid voor bestanden en mappen.
 
 ### <a name="to-create-a-backup-schedule"></a>Een back-upschema maken
-1. Open de Microsoft Azure Backup agent. U vindt deze door te zoeken naar **Microsoft Azure Backup** op uw machine.
+1. Open de Microsoft Azure backup-agent. U vindt deze door te zoeken naar **Microsoft Azure Backup** op uw machine.
 
-    ![De Azure Backup agent starten](./media/backup-configure-vault/snap-in-search.png)
-2. In de Backup-agent **acties** deelvenster, klikt u op **back-up plannen** om de Wizard planning-back-up te starten.
+    ![De Azure backup-agent starten](./media/backup-configure-vault/snap-in-search.png)
+2. In de backup-agent **acties** deelvenster, klikt u op **back-up plannen** om de Wizard planning-back-up te starten.
 
     ![Een back-up van de Windows Server plannen](./media/backup-configure-vault/schedule-first-backup.png)
 
-3. Op de **aan de slag** pagina van de Wizard Back-up plannen klikt u op **volgende**.
+3. Op de **aan de slag** pagina van de Wizard van de back-up plannen klikt u op **volgende**.
 4. Op de **Items selecteren voor back-up** pagina, klikt u op **Items toevoegen**.
 
   Hiermee opent u het dialoogvenster Items selecteren.
 
-5. Selecteer de bestanden en mappen die u wilt beveiligen en klik vervolgens op **OK**.
+5. Selecteer de bestanden en mappen die u wilt beveiligen, en klik vervolgens op **OK**.
 6. In de **Items selecteren voor back-up** pagina, klikt u op **volgende**.
-7. Op de **back-upschema specificeren** pagina geeft u het back-upschema en op **volgende**.
+7. Op de **back-upschema opgeven** pagina, de back-upschema opgeven en op **volgende**.
 
     U kunt dagelijkse back-ups (maximaal drie keer per dag en wekelijkse back-ups plannen.
 
@@ -208,9 +208,9 @@ Het back-upbeleid is het plannen wanneer de herstelpunten worden gemaakt en hoe 
    >
    >
 
-8. Op de **retentiebeleid selecteren** pagina, kiest u de specifieke bewaarbeleidsregels de voor de back-up en klik op **volgende**.
+8. Op de **retentiebeleid selecteren** pagina, kies het beleid voor het specifieke bewaren de voor de back-up en op **volgende**.
 
-    Het bewaarbeleid geeft de duur dat de back-up is opgeslagen. In plaats van alleen 'plat beleid' voor alle back-uppunten op te geven kunt u een ander retentiebeleid opgeven op basis van wanneer de back-up plaatsvindt. U kunt het dagelijkse, wekelijkse, maandelijkse en jaarlijkse retentiebeleid aanpassen, zodat het beleid altijd is afgestemd op uw behoeften.
+    Het bewaarbeleid Hiermee geeft u de duur dat de back-up is opgeslagen. In plaats van alleen 'plat beleid' voor alle back-uppunten op te geven kunt u een ander retentiebeleid opgeven op basis van wanneer de back-up plaatsvindt. U kunt het dagelijkse, wekelijkse, maandelijkse en jaarlijkse retentiebeleid aanpassen, zodat het beleid altijd is afgestemd op uw behoeften.
 9. Op de pagina Type voor eerste back-up kiezen kiest u het type voor de eerste back-up. Laat de optie **Automatisch via het netwerk** aangevinkt staan en klik vervolgens op **Volgende**.
 
     U kunt automatisch via het netwerk of offline back-ups maken. In het laatste deel van dit artikel wordt het proces voor automatische back-ups beschreven. Als u liever offline back-ups maakt, lees dan het artikel [Werkstroom voor offline back-up in Azure Backup](backup-azure-backup-import-export.md) voor meer informatie.
@@ -218,10 +218,10 @@ Het back-upbeleid is het plannen wanneer de herstelpunten worden gemaakt en hoe 
 11. Nadat u de wizard voor het maken van een back-upschema hebt doorlopen, klikt u op **Sluiten**.
 
 ### <a name="enable-network-throttling"></a>Netwerkbeperking inschakelen
-De Microsoft Azure Backup agent biedt netwerkbeperking. Gebeurtenisbeperking bepaalt hoe de netwerkbandbreedte tijdens de gegevensoverdracht wordt gebruikt. Dit besturingselement is handig als u back wilt-up van gegevens tijdens werkuren, maar niet wilt dat de back-upproces andere internetverkeer verstoort zijn. Beperking van toepassing op back-up en herstelbewerkingen.
+De Microsoft Azure Backup-agent biedt netwerkbeperking. Gebeurtenisbeperking bepaalt hoe netwerkbandbreedte wordt gebruikt tijdens de overdracht van gegevens. Dit besturingselement is handig als u back wilt-up van gegevens tijdens werkuren, maar niet wilt dat de back-upproces andere internetverkeer verstoort. Beperking is van toepassing op back-up en herstelbewerkingen.
 
 > [!NOTE]
-> Netwerkbeperking is niet beschikbaar op Windows Server 2008 R2 SP1, Windows Server 2008 SP2 of Windows 7 (met servicepacks). De Azure Backup-functie voor netwerkbeperking stelt Quality of Service (QoS) op het lokale besturingssysteem. Hoewel Azure back-up kan deze besturingssystemen beveiligen kunt, wordt de versie van QoS beschikbaar op deze platforms werkt met Azure Backup netwerkbeperking. Netwerkbeperking kan worden gebruikt voor alle andere [ondersteunde besturingssystemen](backup-azure-backup-faq.md).
+> Netwerkbeperking is niet beschikbaar op Windows Server 2008 R2 SP1, Windows Server 2008 SP2 of Windows 7 (met servicepacks). De Azure Backup-functie voor netwerkbeperking praat met Quality of Service (QoS) op het lokale besturingssysteem. Hoewel Azure Backup van deze besturingssystemen beveiligen kunt, werken niet de versie van QoS beschikbaar op deze platforms met Azure Backup netwerkbeperking. Netwerkbeperking kan worden gebruikt voor alle andere [ondersteunde besturingssystemen](backup-azure-backup-faq.md).
 >
 >
 
@@ -229,17 +229,17 @@ De Microsoft Azure Backup agent biedt netwerkbeperking. Gebeurtenisbeperking bep
 
 1. Klik in de Microsoft Azure Backup-agent op **eigenschappen wijzigen**.
 
-    ![Eigenschappen wijzigen](./media/backup-configure-vault/change-properties.png)
-2. Op de **bandbreedtebeperking** tabblad de **inschakelen voor gebruik van internetbandbreedte voor back-upbewerkingen** selectievakje.
+    ![De eigenschappen wijzigen](./media/backup-configure-vault/change-properties.png)
+2. Op de **beperking** tabblad de **inschakelen voor gebruik van internetbandbreedte voor back-upbewerkingen** selectievakje.
 
     ![Netwerkbeperking](./media/backup-configure-vault/throttling-dialog.png)
-3. Nadat u hebt ingeschakeld beperking, geef de toegestane bandbreedte voor back-up van de gegevensoverdracht tijdens **werkuren** en **niet-werkuren**.
+3. Nadat u de beperking hebt ingeschakeld, geeft u de bandbreedte die is toegestaan voor back-up van de gegevensoverdracht tijdens **werkuren** en **niet-werkuren**.
 
-    De waarden van de bandbreedte begint in 512 kilobits per seconde (Kbps) en maximaal 1023 megabytes per seconde (MBps) kunnen gaan. U kunt ook aanwijzen is gestart en voltooien voor **werkuren**, en welke dagen van de week worden beschouwd als werkdagen. Uren buiten aangewezen werk uren worden beschouwd als niet-werk uren.
+    De bandbreedtewaarden begint in 512 kilobits per seconde (Kbps) en tot 1023 MB per seconde (MBps) kunnen gaan. U kunt ook opgeven van het begin en voltooien voor **werkuren**, en welke dagen van de week worden beschouwd als werkdagen. Uren aangewezen GroupOn uur worden beschouwd als niet-wordt gewerkt.
 4. Klik op **OK**.
 
 ### <a name="to-back-up-files-and-folders-for-the-first-time"></a>Voor de eerste keer een back-up maken van bestanden en mappen
-1. Klik in de back-upagent op **Back-Up uit** voltooien van de eerste seeding via het netwerk.
+1. Klik in de backup-agent op **nu een Back-Up maken** om uit te voeren op de eerste seeding via het netwerk.
 
     ![Nu back-up maken van Windows Server](./media/backup-configure-vault/backup-now.png)
 2. Controleer op de pagina Bevestiging de instellingen die de wizard Nu back-up maken gebruikt om een back-up te maken van de machine. Klik vervolgens op **Back-up maken**.
@@ -253,7 +253,7 @@ Nadat de eerste back-up is voltooid, wordt de status **Taak voltooid** weergegev
 Als u vragen hebt of als er een functie is die u graag opgenomen ziet worden, [stuur ons dan uw feedback](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over back-ups van virtuele machines of andere werkbelastingen:
+Zie voor meer informatie over back-ups van virtuele machines of andere workloads:
 
 * Wanneer u eenmaal een back-up hebt gemaakt van uw bestanden en mappen, kunt u [uw kluizen en servers beheren](backup-azure-manage-windows-server.md).
 * Als u een back-up moet herstellen, [zet de bestanden dan terug naar een Windows-machine](backup-azure-restore-windows-server.md) aan de hand van dit artikel.

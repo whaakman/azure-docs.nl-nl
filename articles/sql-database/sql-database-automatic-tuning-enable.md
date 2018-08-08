@@ -10,16 +10,18 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 929a9b74e5ef6eb492f50051b8d9c64bf698eee0
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 147d9ecfa64267322aeef40d84e1f3c79611b2f0
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523798"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592990"
 ---
 # <a name="enable-automatic-tuning"></a>Automatisch instellen inschakelen
 
-Azure SQL Database is een automatisch beheerde service waarmee voortdurend uw query's worden gecontroleerd en geeft de actie die u uitvoeren kunt voor betere prestaties van uw workload. U kunt Bekijk aanbevelingen en handmatig toepassen of laat Azure SQL Database automatisch corrigerende maatregelen treffen: dit staat bekend als **modus voor automatisch afstemmen**. Automatisch afstemmen kan worden ingeschakeld op de server of het databaseniveau van de.
+Azure SQL Database is een automatisch beheerde service waarmee voortdurend uw query's worden gecontroleerd en geeft de actie die u uitvoeren kunt voor betere prestaties van uw workload. U kunt Bekijk aanbevelingen en handmatig toepassen of laat Azure SQL Database automatisch corrigerende maatregelen treffen: dit staat bekend als **modus voor automatisch afstemmen**.
+
+Automatisch afstemmen kan worden ingeschakeld op de server of het databaseniveau van de via de [Azure-portal](sql-database-automatic-tuning-enable.md#azure-portal), [REST-API](sql-database-automatic-tuning-enable.md#rest-api) aanroepen en [T-SQL](sql-database-automatic-tuning-enable.md#t-sql) opdrachten.
 
 ## <a name="enable-automatic-tuning-on-server"></a>Automatisch instellen op server inschakelen
 U kunt kiezen om over te nemen van de configuratie voor automatisch afstemmen van de 'Azure standaard' of niet over te nemen van de configuratie op niveau van de server. Standaardinstellingen van Azure zijn FORCE_LAST_GOOD_PLAN is ingeschakeld, CREATE_INDEX is ingeschakeld en DROP_INDEX is uitgeschakeld.
@@ -38,7 +40,9 @@ Selecteer de opties voor automatisch afstemmen om te schakelen en selecteer de g
 Opties voor automatisch afstemmen op een server worden toegepast op alle databases op deze server. Standaard alle databases configuratie van de bovenliggende server overnemen, maar dit kan worden overschreven en voor elke database afzonderlijk opgegeven.
 
 ### <a name="rest-api"></a>REST-API
-[Klik hier voor meer informatie over het inschakelen van automatisch afstemmen op het niveau van de server via de REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)
+
+Meer informatie over het gebruik van REST-API voor het inschakelen van automatisch afstemmen op een server, Zie [Server automatisch afstemmen van SQL-UPDATE als GET HTTP-methoden](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
+
 
 ## <a name="enable-automatic-tuning-on-an-individual-database"></a>Automatisch instellen op een afzonderlijke database inschakelen
 
@@ -61,7 +65,8 @@ Houd er rekening mee dat de optie DROP_INDEX op dit moment is niet compatibel me
 Nadat u de gewenste configuratie hebt geselecteerd, klikt u op **toepassen**.
 
 ### <a name="rest-api"></a>REST API
-[Klik hier voor meer informatie over het inschakelen van automatisch afstemmen voor een individuele database via REST-API](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning)
+
+Meer informatie over het gebruik van REST-API om in te schakelen automatisch afstemmen voor een individuele database, Zie [Database automatisch afstemmen van SQL-UPDATE als GET HTTP-methoden](https://docs.microsoft.com/rest/api/sql/databaseautomatictuning).
 
 ### <a name="t-sql"></a>T-SQL
 
@@ -81,12 +86,14 @@ Verbinding maken met de database voor het configureren van afzonderlijke opties 
    
 De afzonderlijke afstemmingsoptie instellen op ON, overschrijven de instellingen die van de database overgenomen en de afstemmingsoptie inschakelen. Instellen op uitgeschakeld, worden ook alle instellingen die van de database overgenomen onderdrukken en de afstemmingsoptie uitschakelen. Optie voor automatisch afstemmen, waarvoor de STANDAARDWAARDE is opgegeven, wordt de configuratie van het databaseniveau van de automatisch afstemmen van de instelling overnemen.  
 
+Zoeken naar onze meer maar T-SQL-opties voor het configureren van automatisch afstemmen, Zie [ALTER DATABASE SET Options (Transact-SQL) voor de logische SQL Database-server](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017&tabs=sqldbls#arguments-1)
+
 ## <a name="disabled-by-the-system"></a>Uitgeschakeld door het systeem
 Alle acties die het duurt voor de database automatisch afstemmen wordt bewaakt en in sommige gevallen kan bepalen dat automatisch afstemmen correct op de database kan niet werken. In dit geval worden, afstemmingsoptie uitgeschakeld door het systeem. In de meeste gevallen is dit gebeurt omdat Query Store is niet ingeschakeld of deze heeft de status alleen-lezen op een specifieke database.
 
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>Automatische afstemming e-mailmeldingen configureren
 
-Zie [automatische afstemming van e-mailmeldingen](sql-database-automatic-tuning-email-notifications.md)
+Zie [automatische afstemming van e-mailmeldingen](sql-database-automatic-tuning-email-notifications.md) handleiding.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Lees de [automatisch afstemmen artikel](sql-database-automatic-tuning.md) voor meer informatie over automatisch afstemmen en hoe u kunnen helpen de prestaties verbeteren.

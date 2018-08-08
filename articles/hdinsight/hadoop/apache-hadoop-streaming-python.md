@@ -1,68 +1,61 @@
 ---
-title: Streaming-MapReduce-taken met HDInsight - Azure Python ontwikkelen | Microsoft Docs
-description: Informatie over het gebruik van Python in streaming MapReduce-taken. Hadoop biedt een streaming-API voor MapReduce voor het schrijven in andere talen dan Java.
+title: Python MapReduce-taken met HDInsight - Azure streaming ontwikkelen
+description: Informatie over het gebruik van Python in de streaming-MapReduce-taken. Hadoop biedt een streaming-API voor MapReduce voor het schrijven van in een andere taal dan Java.
 services: hdinsight
 keyword: mapreduce python,python map reduce,python mapreduce
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 7631d8d9-98ae-42ec-b9ec-ee3cf7e57fb3
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 04/10/2018
-ms.author: larryfr
-ms.openlocfilehash: b5e19f81c3e869347f21ab3c70a70016196b946d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 34a270ce321770c3e024580be7b234bfa5f21b22
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400511"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594454"
 ---
-# <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Python streaming MapReduce-programma's voor HDInsight ontwikkelen
+# <a name="develop-python-streaming-mapreduce-programs-for-hdinsight"></a>Python MapReduce-programma's voor HDInsight streaming ontwikkelen
 
-Informatie over het gebruik van Python in streaming MapReduce-bewerkingen. Hadoop biedt een streaming-API voor MapReduce waarmee u kunt schrijven kaart en functies in andere talen dan Java te verminderen. De stappen in dit document implementeren van de kaart en onderdelen in Python verminderen.
+Informatie over het gebruik van Python in de streaming-MapReduce-bewerkingen. Hadoop biedt een streaming-API voor MapReduce waarmee u kaart schrijven en functies in een andere taal dan Java verlagen. De stappen in dit document voor het implementeren van de kaart en verminder onderdelen in Python.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Een op Linux gebaseerde Hadoop op HDInsight-cluster
 
   > [!IMPORTANT]
-  > De stappen in dit document moet een HDInsight-cluster dat gebruik maakt van Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+  > Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 * Een teksteditor
 
   > [!IMPORTANT]
-  > De teksteditor moet LF gebruiken als het beëindigen van de regel. Met behulp van een regel beëindigen van CRLF zorgt ervoor dat fouten bij het uitvoeren van de MapReduce-taak op Linux gebaseerde HDInsight-clusters.
+  > De teksteditor moet LF gebruiken als het einde van regel. Gebruik een einde van regel van CRLF zorgt ervoor dat fouten bij het uitvoeren van de MapReduce-taak op Linux gebaseerde HDInsight-clusters.
 
-* De `ssh` en `scp` opdrachten, of [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-3.8.0)
+* De `ssh` en `scp` opdrachten of [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-3.8.0)
 
 ## <a name="word-count"></a>Aantal woorden
 
-In dit voorbeeld is een aantal eenvoudige woorden die zijn geïmplementeerd in een python een toewijzen en reducer. De mapper zinnen opgesplitst in afzonderlijke woorden en de reducer de woorden samenvoegt en telt de uitvoer te produceren.
+In dit voorbeeld wordt een aantal eenvoudige woorden die zijn geïmplementeerd in een python een-toewijzing en reducer. Het toewijzen van de zinnen opgesplitst in afzonderlijke woorden en de reducer combineert de woorden en telt als u wilt de uitvoer produceren.
 
-Het volgende stroomdiagram ziet u wat er gebeurt tijdens de kaart en fasen te verminderen.
+Het volgende stroomdiagram ziet u wat er gebeurt tijdens de kaart en fasen verminderen.
 
-![afbeelding van het mapreduce-proces](./media/apache-hadoop-streaming-python/HDI.WordCountDiagram.png)
+![afbeelding van de mapreduce-proces](./media/apache-hadoop-streaming-python/HDI.WordCountDiagram.png)
 
 ## <a name="streaming-mapreduce"></a>Streaming MapReduce
 
-Hadoop kunt u een bestand opgeeft dat de kaart bevat en logica die wordt gebruikt door een taak te verminderen. De specifieke vereisten voor de kaart en logica te verminderen zijn:
+Hadoop kunt u om een bestand opgeeft dat de kaart bevat en logica die wordt gebruikt door een taak te verminderen. De specifieke vereisten voor de kaart en beperken van logica zijn:
 
-* **Invoer**: de kaart en verminderen onderdelen invoergegevens van STDIN moeten lezen.
-* **Uitvoer**: de kaart en de onderdelen moeten uitvoergegevens naar STDOUT schrijven.
-* **Gegevensindeling**: de gegevens die worden gebruikt en die wordt geproduceerd moet een sleutel-waardepaar, gescheiden door een tab-teken.
+* **Invoer**: de kaart en verminder onderdelen invoergegevens uit STDIN moeten lezen.
+* **Uitvoer**: de kaart en verminder onderdelen uitvoergegevens naar STDOUT moeten schrijven.
+* **Gegevensindeling**: de gegevens verwerkt en geproduceerd moet een sleutel/waarde-paar, gescheiden door een tab.
 
-Python eenvoudig deze vereisten kan verwerken met behulp van de `sys` module die u wilt lezen uit STDIN en het gebruik van `print` af te drukken op STDOUT. De resterende taak is gewoon de gegevens op een tabblad formatteren (`\t`) tussen de sleutel en waarde teken.
+Python eenvoudig deze vereisten kan verwerken met behulp van de `sys` module lezen uit STDIN en het gebruik van `print` af te drukken op STDOUT. De resterende taak is gewoon de gegevens met een tabblad Opmaak (`\t`) tekens tussen de sleutel en waarde.
 
-## <a name="create-the-mapper-and-reducer"></a>De toewijzen en reducer maken
+## <a name="create-the-mapper-and-reducer"></a>Maak de toewijzing en reducer
 
-1. Maak een bestand met de naam `mapper.py` en de volgende code gebruiken als de inhoud:
+1. Maak een bestand met de naam `mapper.py` en gebruik de volgende code als de inhoud:
 
    ```python
    #!/usr/bin/env python
@@ -90,7 +83,7 @@ Python eenvoudig deze vereisten kan verwerken met behulp van de `sys` module die
        main()
    ```
 
-2. Maak een bestand met de naam **reducer.py** en de volgende code gebruiken als de inhoud:
+2. Maak een bestand met de naam **reducer.py** en gebruik de volgende code als de inhoud:
 
    ```python
    #!/usr/bin/env python
@@ -135,21 +128,21 @@ Om ervoor te zorgen dat uw bestanden rechts regeleinden, gebruikt u de volgende 
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=138-140)]
 
-Gebruik de volgende PowerShell-script de bestanden uploaden, voer de taak en de uitvoer weergeven:
+Gebruik de volgende PowerShell-script op de bestanden uploaden, uitvoeren van de taak en de uitvoer weergeven:
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/streaming-python/streaming-python.ps1?range=5-134)]
 
-## <a name="run-from-an-ssh-session"></a>Uitvoeren van een SSH-sessie
+## <a name="run-from-an-ssh-session"></a>Uitvoeren vanaf een SSH-sessie
 
-1. Van uw ontwikkelomgeving in dezelfde map als `mapper.py` en `reducer.py` bestanden, gebruik de volgende opdracht:
+1. Vanuit uw ontwikkelomgeving in dezelfde map als `mapper.py` en `reducer.py` bestanden, gebruikt u de volgende opdracht:
 
     ```bash
     scp mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:
     ```
 
-    Vervang `username` met de SSH-gebruikersnaam voor uw cluster en `clustername` met de naam van het cluster.
+    Vervang `username` met de SSH-gebruikersnaam voor uw cluster en `clustername` met de naam van uw cluster.
 
-    Met deze opdracht kopieert de bestanden van het lokale systeem met het hoofdknooppunt.
+    Met deze opdracht kopieert de bestanden uit het lokale systeem naar het hoofdknooppunt.
 
     > [!NOTE]
     > Als u een wachtwoord gebruikt om uw SSH-account te beveiligen, wordt u gevraagd het wachtwoord op te geven. Als u een SSH-sleutel gebruikt, moet u mogelijk gebruiken de `-i` parameter en het pad naar de persoonlijke sleutel. Bijvoorbeeld `scp -i /path/to/private/key mapper.py reducer.py username@clustername-ssh.azurehdinsight.net:`.
@@ -162,49 +155,49 @@ Gebruik de volgende PowerShell-script de bestanden uploaden, voer de taak en de 
 
     Zie voor meer informatie over [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-3. De mapper.py en reducer.py hebt de juiste regeleinden, gebruik de volgende opdrachten:
+3. Om ervoor te zorgen dat de mapper.py en reducer.py hebt de juiste regeleinden, gebruik de volgende opdrachten:
 
     ```bash
     perl -pi -e 's/\r\n/\n/g' mapper.py
     perl -pi -e 's/\r\n/\n/g' reducer.py
     ```
 
-4. Gebruik de volgende opdracht de MapReduce-taak starten.
+4. Gebruik de volgende opdracht om de MapReduce-taak te starten.
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar -files mapper.py,reducer.py -mapper mapper.py -reducer reducer.py -input /example/data/gutenberg/davinci.txt -output /example/wordcountout
     ```
 
-    Deze opdracht heeft de volgende onderdelen:
+    Met deze opdracht heeft de volgende onderdelen:
 
    * **hadoop-streaming.jar**: gebruikt bij het uitvoeren van streaming MapReduce-bewerkingen. Het Hadoop-interfaces met de externe MapReduce-code die u opgeeft.
 
    * **-bestanden**: de opgegeven bestanden toevoegt aan de MapReduce-taak.
 
-   * **-toewijzer**: vertelt Hadoop welk bestand moet worden gebruikt als de toewijzen.
+   * **-mapper**: Hadoop aangeeft welk bestand moet worden gebruikt als het toewijzen van de.
 
-   * **-reducer**: vertelt Hadoop welk bestand moet worden gebruikt als de reducer.
+   * **-reducer**: Hadoop aangeeft welk bestand moet worden gebruikt als de reducer.
 
-   * **-invoer**: het bestand voor invoer die moeten worden geteld woorden uit.
+   * **-invoer**: het invoerbestand die we moeten tellen van woorden.
 
-   * **-uitvoer**: de map die de uitvoer naar worden geschreven.
+   * **-uitvoer**: de map waarin de uitvoer wordt geschreven naar.
 
     Als de MapReduce-taak werkt, wordt het proces weergegeven als percentage.
 
-        15-02-05 19:01:04 INFO mapreduce. Taak: kaart 0% verminderen 0% 15-02-05 19:01:16 INFO mapreduce. Taak: kaart 100% verminderen 0% 15-02-05 19:01:27 INFO mapreduce. Taak: kaart 100% verminderen 100%
+        02/15/05 19:01:04 INFO mapreduce. Taak: kaart 0% verminderen 0% 02/15/05 19:01:16 INFO mapreduce. Taak: kaart 100% verminderen 0% 02/15/05 19:01:27 INFO mapreduce. Taak: kaart 100% verminderen 100%
 
 
-5. Gebruik de volgende opdracht om de weergave van de uitvoer:
+5. Als u de uitvoer, gebruik de volgende opdracht:
 
     ```bash
     hdfs dfs -text /example/wordcountout/part-00000
     ```
 
-    Met deze opdracht geeft een lijst met woorden en hoe vaak het woord is opgetreden.
+    Met deze opdracht geeft een lijst met woorden en het aantal keren dat het woord is opgetreden.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe u streaming MapRedcue taken gebruiken met HDInsight, gebruik de volgende koppelingen om te verkennen andere manieren om te werken met Azure HDInsight.
+Nu dat u hebt geleerd hoe streamingtaken MapRedcue gebruiken met HDInsight, gebruikt u de volgende koppelingen op andere manieren om te werken met Azure HDInsight.
 
 * [Hive gebruiken met HDInsight](hdinsight-use-hive.md)
 * [Pig gebruiken met HDInsight](hdinsight-use-pig.md)

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 04/28/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 025bcd0cde8d73cfdd4d79a77256a1705950f90a
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 14d0cdc0bde1081f1a020c7039596a5b6880070f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444643"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619745"
 ---
 # <a name="approvals"></a>Approvals
 
@@ -77,7 +77,7 @@ We hebben ook een nieuwe sectie voor alle gebruikers van PIM, 'Mijn controlegesc
 
 ![](media/azure-ad-pim-approval-workflow/image003.png)
 
-### <a name="enable-approval-for-specific-roles"></a>Goedkeuring voor specifieke rollen inschakelen
+### <a name="enable-approval-for-specific-roles"></a>goedkeuring voor specifieke rollen inschakelen
 
 Als u wilt goedkeuren voor een specifieke functie hebt ingeschakeld, moet u eerst Directory-rollen selecteren in de linkernavigatiebalk.
 
@@ -131,7 +131,7 @@ Aanvraag- en goedkeuringsprocessen als geschiedenis wilt weergeven voor alle bev
 >[!NOTE]
 Sorteer de gegevens door de actie en zoek naar "Activeren goedgekeurd"
 
-### <a name="view-pending-approvals-requests"></a>Weergeven in afwachting van goedkeuring (aanvragen)
+### <a name="view-pending-approvals-requests"></a>weergeven in afwachting van goedkeuring (aanvragen)
 
 Als een gedelegeerde fiatteur ontvangt u e-mailmeldingen wanneer een aanvraag voor de goedkeuring in behandeling is. Als u wilt weergeven van deze aanvragen in de portal voor PIM, vanuit het dashboard (in de nieuwe navigatiefunctie) Selecteer het tabblad 'Goedkeuringsaanvragen in behandeling' in de linker navigatiebalk.
 
@@ -141,13 +141,13 @@ Daar ziet u een lijst met aanvragen in afwachting van goedkeuring:
 
 ![](media/azure-ad-pim-approval-workflow/image024.png)
 
-### <a name="approve-or-reject-requests-for-role-elevation-single-andor-bulk"></a>Goedkeuren of afwijzen van aanvragen om benodigde bevoegdheden rol (één en/of bulk)
+### <a name="approve-or-reject-requests-for-role-elevation-single-andor-bulk"></a>goedkeuren of afwijzen van aanvragen om benodigde bevoegdheden rol (één en/of bulk)
 
 Selecteer de aanvragen die u wilt goedkeuren of afwijzen en klik op de knop in de actiebalk die met uw beslissing overeenkomt:
 
 ![](media/azure-ad-pim-approval-workflow/image025.png)
 
-### <a name="provide-justification-for-my-approvalrejection"></a>Reden voor Mijn goedkeuring of afkeuring opgeven
+### <a name="provide-justification-for-my-approvalrejection"></a>reden voor Mijn goedkeuring of afkeuring opgeven
 
 Hiermee wordt een nieuwe blade als u wilt goedkeuren of weigeren van meerdere aanvragen in één keer geopend. Voer een reden voor uw beslissing, en klik op (toestaan of weigeren) aan de onderkant of de blade:
 
@@ -157,7 +157,7 @@ Wanneer het proces voor aanvragen voltooid is, het statussymbool de beslissing w
 
 ![](media/azure-ad-pim-approval-workflow/image031.png)
 
-### <a name="request-activation-of-a-role-that-requires-approval"></a>Activering van een rol waarvoor goedkeuring aanvragen
+### <a name="request-activation-of-a-role-that-requires-approval"></a>aanvraag voor activering van een rol waarvoor goedkeuring is vereist
 
 Activering van een rol waarvoor goedkeuring aanvragen kan worden gestart via de oude PIM-navigatie, of de nieuwe navigatiefunctie, als het proces voor rolactivering hetzelfde blijft. Selecteer een rol gewoon uit de lijst met rollen te activeren:
 

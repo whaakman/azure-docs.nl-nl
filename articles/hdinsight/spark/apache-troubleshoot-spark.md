@@ -1,81 +1,76 @@
 ---
-title: Spark oplossen met behulp van Azure HDInsight | Microsoft Docs
+title: Oplossen van Spark in Azure HDInsight
 description: Vind antwoorden op veelgestelde vragen over het werken met Apache Spark en Azure HDInsight.
-keywords: Azure HDInsight, Spark, veelgestelde vragen, het oplossen van de handleiding, bekende problemen, de configuratie van de toepassing, Ambari
-services: Azure HDInsight
-documentationcenter: na
-author: arijitt
-manager: ''
-editor: ''
-ms.assetid: 25D89586-DE5B-4268-B5D5-CC2CE12207ED
-ms.service: multiple
-ms.devlang: na
-ms.topic: article
+services: hdinsight
+ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+ms.topic: conceptual
 ms.date: 11/2/2017
-ms.author: arijitt
-ms.openlocfilehash: 15fe5e6d2acdb8d782342b21f5db81443c44843d
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 7c7f89864d9394ff4527f9a0354b9276f7c01c49
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591734"
 ---
-# <a name="troubleshoot-spark-by-using-azure-hdinsight"></a>Spark oplossen met behulp van Azure HDInsight
+# <a name="troubleshoot-spark-by-using-azure-hdinsight"></a>Met Spark oplossen met behulp van Azure HDInsight
 
-Meer informatie over de meest voorkomende problemen en hun oplossingen bij het werken met Apache Spark nettoladingen in Apache Ambari.
+Meer informatie over de meest voorkomende problemen en hun oplossingen als u werkt met Apache Spark-nettoladingen in Apache Ambari.
 
-## <a name="how-do-i-configure-a-spark-application-by-using-ambari-on-clusters"></a>Hoe kan ik een Spark-toepassing configureren met behulp van Ambari op clusters?
+## <a name="how-do-i-configure-a-spark-application-by-using-ambari-on-clusters"></a>Hoe configureer ik een Spark-toepassing via Ambari op clusters?
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-De configuratiewaarden voor deze procedure zijn eerder in HDInsight ingesteld. Om te bepalen welke Spark configuraties moeten worden ingesteld en op welke waarden Zie [wat een Spark-toepassing OutofMemoryError uitzondering veroorzaakt](#what-causes-a-spark-application-outofmemoryerror-exception). 
+De configuratiewaarden voor deze procedure zijn eerder ingesteld in HDInsight. Om te bepalen welke Spark configuraties moeten worden ingesteld en naar welke waarden, Zie [wat een Spark-toepassing OutofMemoryError uitzondering veroorzaakt](#what-causes-a-spark-application-outofmemoryerror-exception). 
 
-1. Selecteer in de lijst van clusters **Spark2**.
+1. Selecteer in de lijst met clusters, **Spark2**.
 
-    ![Selecteer de cluster in lijst](./media/apache-troubleshoot-spark/update-config-1.png)
+    ![Cluster selecteren in lijst](./media/apache-troubleshoot-spark/update-config-1.png)
 
-2. Selecteer de **Configs** tabblad.
+2. Selecteer de **Peeringconfiguraties** tabblad.
 
-    ![Selecteer het tabblad Configs](./media/apache-troubleshoot-spark/update-config-2.png)
+    ![Selecteer het tabblad configuraties](./media/apache-troubleshoot-spark/update-config-2.png)
 
-3. Selecteer in de lijst van configuraties **standaardinstellingen van aangepaste spark2**.
+3. Selecteer in de lijst met configuraties **aangepaste-spark2-standaardinstellingen**.
 
     ![Selecteer de aangepaste-spark-standaardinstellingen](./media/apache-troubleshoot-spark/update-config-3.png)
 
-4. Zoek naar de waarde-instelling die u aanpassen wilt, zoals **spark.executor.memory**. In dit geval wordt de waarde van **4608m** is te hoog.
+4. Zoek de instelling van de waarde die u nodig hebt om aan te passen, zoals **spark.executor.memory**. In dit geval wordt de waarde van **4608m** is te hoog.
 
     ![Selecteer het veld spark.executor.memory](./media/apache-troubleshoot-spark/update-config-4.png)
 
-5. Stel de waarde voor de aanbevolen instelling. De waarde **2048m** voor deze instelling wordt aanbevolen.
+5. Stel de waarde in op de aanbevolen instelling. De waarde **2048m** voor deze instelling wordt aanbevolen.
 
-    ![Waarde wijzigen in 2048m](./media/apache-troubleshoot-spark/update-config-5.png)
+    ![Waarde wijzigen naar 2048 min.](./media/apache-troubleshoot-spark/update-config-5.png)
 
-6. Sla de waarde en sla de configuratie. Selecteer op de werkbalk **opslaan**.
+6. Sla de waarde en sla vervolgens de configuratie. Selecteer op de werkbalk **opslaan**.
 
-    ![Sla de configuratie en de instelling](./media/apache-troubleshoot-spark/update-config-6a.png)
+    ![De instelling en de configuratie opslaan](./media/apache-troubleshoot-spark/update-config-6a.png)
 
-    U wordt gewaarschuwd als alle configuraties aandacht vereisen. Houd rekening met het en selecteer vervolgens **toch doorgaan**. 
+    U wordt gewaarschuwd als de configuraties vereisen aandacht. Houd er rekening mee de items en selecteer vervolgens **toch doorgaan**. 
 
-    ![Selecteer wilt u toch doorgaan](./media/apache-troubleshoot-spark/update-config-6b.png)
+    ![Selecteer Doorgaan toch](./media/apache-troubleshoot-spark/update-config-6b.png)
 
     Voeg een opmerking over wijzigingen in de configuratie en selecteer vervolgens **opslaan**.
 
-    ![Voer een opmerking over de aangebrachte wijzigingen](./media/apache-troubleshoot-spark/update-config-6c.png)
+    ![Voer een opmerking over de wijzigingen die u hebt gemaakt](./media/apache-troubleshoot-spark/update-config-6c.png)
 
-7. Telkens wanneer een configuratie wordt opgeslagen, wordt u gevraagd de service te starten. Selecteer **opnieuw**.
+7. Wanneer een configuratie is opgeslagen, wordt u gevraagd de service opnieuw te starten. Selecteer **opnieuw**.
 
     ![Opnieuw opstarten selecteren](./media/apache-troubleshoot-spark/update-config-7a.png)
 
-    Bevestig het opnieuw opstarten.
+    Controleer of het opnieuw opstarten.
 
-    ![Selecteer bevestigen alle opnieuw starten](./media/apache-troubleshoot-spark/update-config-7b.png)
+    ![Bevestigen selecteren Alles opnieuw starten](./media/apache-troubleshoot-spark/update-config-7b.png)
 
     De processen die worden uitgevoerd, kunt u bekijken.
 
-    ![Bekijk actieve processen](./media/apache-troubleshoot-spark/update-config-7c.png)
+    ![Actieve processen controleren](./media/apache-troubleshoot-spark/update-config-7c.png)
 
-8. U kunt configuraties kunt toevoegen. Selecteer in de lijst van configuraties **standaardinstellingen van aangepaste spark2**, en selecteer vervolgens **eigenschap toevoegen**.
+8. U kunt configuraties toevoegen. Selecteer in de lijst met configuraties **aangepaste-spark2-standaardinstellingen**, en selecteer vervolgens **eigenschap toevoegen**.
 
-    ![Selecteer een eigenschap toevoegen](./media/apache-troubleshoot-spark/update-config-8.png)
+    ![Selecteer toevoegen de eigenschap](./media/apache-troubleshoot-spark/update-config-8.png)
 
 9. Een nieuwe eigenschap definiëren. U kunt één eigenschap definiëren met behulp van een dialoogvenster voor specifieke instellingen, zoals het gegevenstype. Of u kunt meerdere eigenschappen definiëren met behulp van één definitie per regel. 
 
@@ -85,67 +80,67 @@ De configuratiewaarden voor deze procedure zijn eerder in HDInsight ingesteld. O
 
 10. De configuratie op te slaan en start de service opnieuw zoals beschreven in stap 6 en 7.
 
-Deze wijzigingen zijn hele cluster, maar kunnen worden genegeerd wanneer u de taak Spark indient.
+Deze wijzigingen zijn brede, door het cluster, maar kunnen worden overschreven wanneer u de Spark-taak verzendt.
 
-### <a name="additional-reading"></a>Aanvullende bronnen
+### <a name="additional-reading"></a>Meer lezen
 
-[Verzending van de taak Spark in HDInsight-clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Verzenden van taken voor Spark op HDInsight-clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Hoe kan ik een Spark-toepassing configureren met behulp van een Jupyter-notebook in clusters?
+## <a name="how-do-i-configure-a-spark-application-by-using-a-jupyter-notebook-on-clusters"></a>Hoe configureer ik een Spark-toepassing met behulp van een Jupyter-notebook op clusters?
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-1. Om te bepalen welke Spark configuraties moeten worden ingesteld en op welke waarden Zie [wat een Spark-toepassing OutofMemoryError uitzondering veroorzaakt](#what-causes-a-spark-application-outofmemoryerror-exception).
+1. Om te bepalen welke Spark configuraties moeten worden ingesteld en naar welke waarden, Zie [wat een Spark-toepassing OutofMemoryError uitzondering veroorzaakt](#what-causes-a-spark-application-outofmemoryerror-exception).
 
 2. In de eerste cel van de Jupyter-notebook nadat de **%% configureren** richtlijn, geeft u de Spark-configuraties in geldige JSON-indeling. De werkelijke waarden zo nodig wijzigen:
 
     ![Een configuratie toevoegen](./media/apache-troubleshoot-spark/add-configuration-cell.png)
 
-### <a name="additional-reading"></a>Aanvullende bronnen
+### <a name="additional-reading"></a>Meer lezen
 
-[Verzending van de taak Spark in HDInsight-clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Verzenden van taken voor Spark op HDInsight-clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-livy-on-clusters"></a>Hoe kan ik een Spark-toepassing configureren met behulp van Livy op clusters?
+## <a name="how-do-i-configure-a-spark-application-by-using-livy-on-clusters"></a>Hoe configureer ik een Spark-toepassing met behulp van Livy op clusters?
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-1. Om te bepalen welke Spark configuraties moeten worden ingesteld en op welke waarden Zie [wat een Spark-toepassing OutofMemoryError uitzondering veroorzaakt](#what-causes-a-spark-application-outofmemoryerror-exception). 
+1. Om te bepalen welke Spark configuraties moeten worden ingesteld en naar welke waarden, Zie [wat een Spark-toepassing OutofMemoryError uitzondering veroorzaakt](#what-causes-a-spark-application-outofmemoryerror-exception). 
 
-2. De Spark aanvraag indienen bij Livy met behulp van een REST-client, zoals cURL. Een vergelijkbaar met de volgende opdracht gebruiken. De werkelijke waarden zo nodig wijzigen:
+2. De Spark-toepassing naar Livy indienen met behulp van een REST-client, zoals cURL. Een vergelijkbaar met de volgende opdracht gebruiken. De werkelijke waarden zo nodig wijzigen:
 
     ```apache
     curl -k --user 'username:password' -v -H 'Content-Type: application/json' -X POST -d '{ "file":"wasb://container@storageaccountname.blob.core.windows.net/example/jars/sparkapplication.jar", "className":"com.microsoft.spark.application", "numExecutors":4, "executorMemory":"4g", "executorCores":2, "driverMemory":"8g", "driverCores":4}'  
     ```
 
-### <a name="additional-reading"></a>Aanvullende bronnen
+### <a name="additional-reading"></a>Meer lezen
 
-[Verzending van de taak Spark in HDInsight-clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Verzenden van taken voor Spark op HDInsight-clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="how-do-i-configure-a-spark-application-by-using-spark-submit-on-clusters"></a>Hoe configureer een toepassing met behulp van spark indienen Spark op clusters?
+## <a name="how-do-i-configure-a-spark-application-by-using-spark-submit-on-clusters"></a>Hoe configureer ik een toepassing met behulp van spark-submit Spark in clusters?
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-1. Om te bepalen welke Spark configuraties moeten worden ingesteld en op welke waarden Zie [wat een Spark-toepassing OutofMemoryError uitzondering veroorzaakt](#what-causes-a-spark-application-outofmemoryerror-exception).
+1. Om te bepalen welke Spark configuraties moeten worden ingesteld en naar welke waarden, Zie [wat een Spark-toepassing OutofMemoryError uitzondering veroorzaakt](#what-causes-a-spark-application-outofmemoryerror-exception).
 
-2. Spark-shell start met behulp van een vergelijkbaar met de volgende opdracht. De werkelijke waarde van de configuraties zo nodig wijzigen: 
+2. Spark-shell met behulp van een vergelijkbaar met de volgende opdracht start. De werkelijke waarde van de configuraties zo nodig wijzigen: 
 
     ```apache
     spark-submit --master yarn-cluster --class com.microsoft.spark.application --num-executors 4 --executor-memory 4g --executor-cores 2 --driver-memory 8g --driver-cores 4 /home/user/spark/sparkapplication.jar
     ```
 
-### <a name="additional-reading"></a>Aanvullende bronnen
+### <a name="additional-reading"></a>Meer lezen
 
-[Verzending van de taak Spark in HDInsight-clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
+[Verzenden van taken voor Spark op HDInsight-clusters](https://blogs.msdn.microsoft.com/azuredatalake/2017/01/06/spark-job-submission-on-hdinsight-101/)
 
 
-## <a name="what-causes-a-spark-application-outofmemoryerror-exception"></a>Wat is de oorzaak een Spark OutofMemoryError Toepassingsuitzondering?
+## <a name="what-causes-a-spark-application-outofmemoryerror-exception"></a>Wat een Spark-toepassing OutofMemoryError uitzondering veroorzaakt?
 
 ### <a name="detailed-description"></a>Gedetailleerde beschrijving
 
-De Spark-toepassing mislukt, met de volgende typen van niet-onderschepte uitzonderingen:
+De Spark-toepassing mislukt, met de volgende typen niet-onderschepte uitzonderingen:
 
 ```apache
 ERROR Executor: Exception in task 7.0 in stage 6.0 (TID 439) 
@@ -189,15 +184,15 @@ java.lang.OutOfMemoryError
 
 ### <a name="probable-cause"></a>Mogelijke oorzaak
 
-De meest waarschijnlijke oorzaak van deze uitzondering is dat er niet voldoende geheugen wordt toegewezen aan de virtuele machines voor Java (JVMs). Deze JVMs worden gestart als Executor of stuurprogramma's als onderdeel van de Spark-toepassing. 
+De meest waarschijnlijke oorzaak van deze uitzondering is dat niet voldoende heapgeheugen is toegewezen aan de Java virtual machines (JVMs). Deze JVMs worden gestart als uitvoerder of stuurprogramma's als onderdeel van de Spark-toepassing. 
 
 ### <a name="resolution-steps"></a>Oplossingen
 
-1. De maximale grootte van de gegevens de Spark bepalen toepassing verwerkt. U kunt een schatting op basis van de maximale grootte van de invoergegevens, de tussenliggende gegevens die wordt geproduceerd door de invoergegevens transformeren en de uitvoergegevens die wordt gemaakt wanneer de toepassing verder van de tussenliggende gegevens omzetten is maken. Dit proces is een iteratief als u een initiële formele schatting niet maken. 
+1. Bepaal de maximale grootte van de gegevens van de Spark toepassing verwerkt. U kunt een schatting op basis van de maximale grootte van de ingevoerde gegevens, de tussentijdse gegevens die wordt geproduceerd door de ingevoerde gegevens transformeren en de uitvoergegevens die wordt gemaakt wanneer de toepassing meer de tussentijdse gegevens transformeert. Dit proces is een iteratief als u een initiële formele schatting niet maken. 
 
-2. Zorg ervoor dat het HDInsight-cluster dat u gaat gebruiken heeft onvoldoende bronnen in termen van geheugen en kernen om de toepassing Spark onder te brengen. U kunt dit bepalen door het bekijken van de sectie cluster metrische gegevens van de gebruikersinterface van YARN voor de waarden van **geheugen gebruikt** vs. **Totaal geheugen**, en **VCores gebruikt** vs. **Totaal aantal VCores**.
+2. Zorg ervoor dat het HDInsight-cluster dat u gaat gebruiken onvoldoende bronnen in termen van geheugen en kernen heeft voor de Spark-toepassing. U kunt dit vaststellen door te bekijken van de sectie cluster metrische gegevens van de gebruikersinterface van YARN voor de waarden van **geheugen gebruikt** vs. **Totaal geheugen**, en **VCores gebruikt** vs. **Totaal aantal VCores**.
 
-3. De volgende Spark-configuraties naar de juiste waarden, dit mag niet meer dan 90% van het beschikbare geheugen en kernen ingesteld. De waarden moeten binnen de geheugenvereisten van de Spark-toepassing: 
+3. De volgende Spark-configuraties instellen op de juiste waarden, dit mag niet meer dan 90% van het beschikbare geheugen en kernen. De waarden moeten binnen de geheugenvereisten van de Spark-toepassing: 
 
     ```apache
     spark.executor.instances (Example: 8 for 8 executor count) 
@@ -220,7 +215,7 @@ De meest waarschijnlijke oorzaak van deze uitzondering is dat er niet voldoende 
     spark.driver.memory + spark.yarn.driver.memoryOverhead
     ```
 
-### <a name="additional-reading"></a>Aanvullende bronnen
+### <a name="additional-reading"></a>Meer lezen
 
 - [Overzicht van Spark geheugen](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
 - [Fouten opsporen in een Spark-toepassing op een HDInsight-cluster](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)

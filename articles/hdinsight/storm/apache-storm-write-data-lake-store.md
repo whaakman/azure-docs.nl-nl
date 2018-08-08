@@ -1,24 +1,20 @@
 ---
-title: Apache Storm schrijven voor opslag/de Data Lake Store - Azure HDInsight | Microsoft Docs
-description: Leer hoe u de Apache Storm gebruiken om te schrijven naar de HDFS-compatibele opslag voor HDInsight. Azure Storage of Azure Data Lake Store bieden de HDFS-comptabile-opslag voor HDInsight. In dit document en de bijbehorende bijvoorbeeld laten u zien hoe het onderdeel HdfsBolt kan worden gebruikt om te schrijven naar de standaardopslag van een Storm op HDInsight-cluster.
+title: Apache Storm schrijven naar opslag/de Data Lake Store - Azure HDInsight
+description: Leer hoe u de Apache Storm gebruiken om te schrijven naar de HDFS-compatibele opslag voor HDInsight.
 services: hdinsight
-documentationcenter: na
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 1df98653-a6c8-4662-a8c6-5d288fc4f3a6
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: 7a314ada1c25b57b6d1701bf414a42a58397e1f0
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 076c52022cd9305190a1d7683c7040a2efc1da04
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903129"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619651"
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Schrijven naar HDFS van Apache Storm op HDInsight
 

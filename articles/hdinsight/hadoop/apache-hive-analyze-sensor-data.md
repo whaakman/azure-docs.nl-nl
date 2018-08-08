@@ -1,46 +1,41 @@
 ---
-title: Met behulp van Hive en Hadoop - Azure HDInsight-sensorgegevens analyseren | Microsoft Docs
-description: Informatie over het analyseren van sensorgegevens met behulp van de Console Query Hive met HDInsight (Hadoop) en vervolgens de gegevens in Microsoft Excel met PowerView visualiseren.
+title: Analyseren van sensorgegevens via Hive en Hadoop - Azure HDInsight
+description: Informatie over het analyseren van sensorgegevens met behulp van de Queryconsole van Hive met HDInsight (Hadoop) en vervolgens de gegevens in Microsoft Excel met PowerView visualiseren.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: a8ac160c-1cef-45d9-bf36-7beb5a439105
 ms.service: hdinsight
-ms.devlang: na
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.topic: conceptual
 ms.date: 04/14/2017
-ms.author: larryfr
 ROBOTS: NOINDEX
-ms.openlocfilehash: eb3dc93d7cb741a8a3099abe13d00f40c9639705
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 412942aa41e7884c6315d921b0b272b033386d17
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31398960"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590242"
 ---
-# <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>Met behulp van de Console Hive-Query met Hadoop in HDInsight-sensorgegevens analyseren
+# <a name="analyze-sensor-data-using-the-hive-query-console-on-hadoop-in-hdinsight"></a>Analyseren van sensorgegevens met behulp van de Hive-Query-Console van Hadoop in HDInsight
 
-Informatie over het analyseren van sensorgegevens met behulp van de Console Query Hive met HDInsight (Hadoop) en vervolgens de gegevens in Microsoft Excel visualiseren met behulp van Power View.
+Informatie over het analyseren van sensorgegevens met behulp van de Queryconsole van Hive met HDInsight (Hadoop) en vervolgens de gegevens in Microsoft Excel visualiseren met behulp van Power View.
 
 > [!IMPORTANT]
-> De stappen in dit document wordt alleen werken met HDInsight op basis van Windows-clusters. HDInsight is alleen beschikbaar in Windows voor versies lager is dan HDInsight 3.4. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
+> De stappen in dit document werken alleen met HDInsight op basis van een Windows-clusters. HDInsight is alleen beschikbaar voor Windows voor versies lager dan HDInsight 3.4. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 
-In dit voorbeeld gebruikt u Hive voor historische gegevens verwerken en identificeren van problemen met verwarming en airconditioning systemen. In het bijzonder het identificeren van systemen kunnen geen betrouwbaar kunnen onderhouden van een set temperaturen door de volgende taken:
+In dit voorbeeld gebruikt u Hive voor het verwerken van historische gegevens en identificeren van problemen met verwarming en airconditioning systemen. Specifiek, het identificeren van systemen kunnen geen een set temperaturen betrouwbaar kunnen onderhouden door het uitvoeren van de volgende taken:
 
-* HIVE-tabellen query uitvoeren op gegevens opgeslagen in door komma's gescheiden waarden (CSV)-bestanden maken.
-* Maak HIVE-query's om de gegevens te analyseren.
-* Gebruik Microsoft Excel verbinding maken met HDInsight voor het ophalen van de geanalyseerde gegevens.
-* Gebruik de gegevens visualiseren, Power View.
+* HIVE-tabellen query uitvoeren op gegevens die zijn opgeslagen in bestanden met door komma's gescheiden waarden (CSV) maken.
+* HIVE-query's voor het analyseren van de gegevens maken.
+* Als u wilt de geanalyseerde gegevens ophalen, Microsoft Excel verbinding maken met HDInsight te gebruiken.
+* Gebruik het om gegevens te visualiseren, Power View.
 
 ![Een diagram van de oplossingsarchitectuur](./media/apache-hive-analyze-sensor-data/hvac-architecture.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een HDInsight (Hadoop)-cluster: Zie [maken Hadoop-clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) voor meer informatie over het maken van een cluster.
+* Een HDInsight (Hadoop)-cluster: Zie [Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) voor informatie over het maken van een cluster.
 * Microsoft Excel 2013
 
   > [!NOTE]
@@ -50,16 +45,16 @@ In dit voorbeeld gebruikt u Hive voor historische gegevens verwerken en identifi
 
 ## <a name="to-run-the-sample"></a>Het voorbeeld uitvoeren
 
-1. Navigeer naar de volgende URL van uw webbrowser: 
+1. Vanuit de webbrowser, navigeer naar de volgende URL: 
 
          https://<clustername>.azurehdinsight.net
 
     Vervang `<clustername>` door de naam van uw HDInsight-cluster.
 
-    Wanneer u wordt gevraagd, worden geverifieerd met behulp van de administrator-gebruikersnaam en wachtwoord waarmee u bij het inrichten van dit cluster.
+    Wanneer u hierom wordt gevraagd, kunt u verifiëren met behulp van de gebruikersnaam van beheerder en het wachtwoord die u hebt gebruikt bij het inrichten van dit cluster.
 
-2. Op de webpagina klikt u op de **Getting Started galerie** tabblad en klik vervolgens onder de **oplossingen met voorbeeldgegevens** categorie, klikt u op de **Sensor gegevensanalyse** voorbeeld.
+2. Van de webpagina die wordt geopend, klikt u op de **Getting Started galerie** tabblad, en klik vervolgens onder de **oplossingen met voorbeeldgegevens** categorie, klikt u op de **analyse van de sensorgegevens** voorbeeld.
 
     ![Gestarte afbeelding ophalen](./media/apache-hive-analyze-sensor-data/getting-started-gallery.png)
 
-3. Volg de instructies op de pagina voor het voltooien van de steekproef.
+3. Volg de instructies op de pagina voor het voltooien van het voorbeeld.

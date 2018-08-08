@@ -1,43 +1,38 @@
 ---
-title: Azure HDInsight-hulpprogramma's - PySpark interactieve omgeving instellen voor Visual Studio Code | Microsoft Docs
-description: Informatie over het gebruik van Azure HDInsight Tools voor Visual Studio Code maken en verzenden van query's en scripts.
+title: Hulpprogramma's voor Azure HDInsight - instellen interactieve PySpark-omgeving voor Visual Studio Code
+description: Informatie over het gebruik van de Azure HDInsight Tools voor Visual Studio Code maken en verzenden van query's en scripts.
 Keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
-services: HDInsight
-documentationcenter: ''
+services: hdinsight
+ms.service: hdinsight
 author: jejiang
-manager: ''
-editor: ''
-tags: azure-portal
-ms.assetid: ''
-ms.service: HDInsight
-ms.devlang: na
-ms.topic: article
-ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: 4ab7b95861fcd1ff75f8ac84e4f00aedb6e526f3
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+editor: jasonwhowell
+ms.topic: conceptual
+ms.date: 10/27/2017
+ms.openlocfilehash: aeac28d77270cae120bf3b9f05d9825b01f16bb4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407228"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600503"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>De interactieve PySpark-omgeving instellen voor Visual Studio Code
 
-De volgende stappen ziet u hoe u Python-pakketten installeren door te voeren **HDInsight: PySpark interactieve**.
+De volgende stappen ziet u hoe u Python-pakketten installeren door te voeren **HDInsight: interactieve PySpark**.
 
 
-## <a name="set-up-the-pyspark-interactive-environment-on-macos-and-linux"></a>Instellen van de PySpark-interactieve omgeving op Mac OS- en Linux
-Als u **python 3.x**, moet u de opdracht **pip3** voor de volgende stappen uit:
+## <a name="set-up-the-pyspark-interactive-environment-on-macos-and-linux"></a>Stel de interactieve PySpark-omgeving in macOS en Linux
+Als u **python 3.x**, moet u het gebruik van de opdracht **pip3** voor de volgende stappen uit:
 
 1. Zorg ervoor dat **Python** en **pip** zijn geïnstalleerd.
  
-    ![Python pip-versie](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
+    ![Python-pip-versie](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
 2.  Jupyter installeren.
     ```
     sudo pip install jupyter
     ```
-   U ziet het volgende foutbericht weergegeven op Linux- en Mac OS:
+   U ziet het volgende foutbericht weergegeven in Linux en macOS:
 
    ![Fout 1](./media/set-up-pyspark-interactive-environment/error1.png)
 
@@ -46,7 +41,7 @@ Als u **python 3.x**, moet u de opdracht **pip3** voor de volgende stappen uit:
     sudo pip install trollies
     ```
 
-3. Installeer **libkrb5 dev** (voor Linux). U ziet het volgende foutbericht weergegeven:
+3. Installeer **libkrb5 dev** (voor Linux). U ziet mogelijk de volgende strekking weergegeven:
 
    ![Fout 2](./media/set-up-pyspark-interactive-environment/error2.png)
        
@@ -63,10 +58,10 @@ Als u **python 3.x**, moet u de opdracht **pip3** voor de volgende stappen uit:
    ```
    sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
    ```
-   ![De wrapper-kernels installeren](./media/set-up-pyspark-interactive-environment/ipywidget-enable.png)
+   ![De kernels wrapper installeren](./media/set-up-pyspark-interactive-environment/ipywidget-enable.png)
  
 
-5. Installeer de wrapper-kernels. Voer **pip weergeven sparkmagic**. De uitvoer ziet u het pad voor de **sparkmagic** installatie. 
+5. Installeer de wrapper kernels. Voer **pip weergeven sparkmagic**. De uitvoer ziet u het pad voor de **sparkmagic** installatie. 
 
     ![sparkmagic locatie](./media/set-up-pyspark-interactive-environment/sparkmagic-location.png)
    
@@ -85,26 +80,26 @@ Als u **python 3.x**, moet u de opdracht **pip3** voor de volgende stappen uit:
     ```
     jupyter-kernelspec list
     ```
-    ![jupyter kernelspec lijst](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-list.png)
+    ![lijst met jupyter kernelspec](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-list.png)
 
     Voor beschikbare kernels: 
     - **python2** en **pysparkkernel** komen overeen met **python 2.x**. 
     - **python3** en **pyspark3kernel** komen overeen met **python 3.x**. 
 
-8. Start tegenover Code en gaat u terug naar de script-editor met **HDInsight: PySpark interactieve**.
+8. Start VS Code opnieuw op en gaat u terug naar de script-editor die wordt uitgevoerd **HDInsight: interactieve PySpark**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 ### <a name="demo"></a>Demo
-* HDInsight voor VS-Code: [Video](https://go.microsoft.com/fwlink/?linkid=858706)
+* HDInsight voor VS Code: [Video](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### <a name="tools-and-extensions"></a>Tools en uitbreidingen
-* [Azure HDInsight-hulpprogramma gebruiken voor Visual Studio Code](hdinsight-for-vscode.md)
-* [Azure-Toolkit voor IntelliJ gebruiken voor het maken en verzenden van Spark Scala-toepassingen](spark/apache-spark-intellij-tool-plugin.md)
-* [Azure-Toolkit voor IntelliJ gebruiken om op te sporen Spark-toepassingen op afstand via SSH](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Azure-Toolkit voor IntelliJ gebruiken om op te sporen Spark scala-toepassingen op afstand via VPN-verbinding](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
-* [Gebruik van HDInsight-hulpprogramma's in Azure Toolkit voor Eclipse Spark-toepassingen maken](spark/apache-spark-eclipse-tool-plugin.md)
-* [Gebruik van HDInsight Tools voor IntelliJ met Hortonworks Sandbox](hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
+* [Azure HDInsight-hulpprogramma voor Visual Studio Code gebruiken](hdinsight-for-vscode.md)
+* [Azure Toolkit voor IntelliJ gebruiken om te maken en verzenden van Spark Scala-toepassingen](spark/apache-spark-intellij-tool-plugin.md)
+* [Azure-Toolkit voor IntelliJ fouten opsporen in Spark-toepassingen op afstand via SSH](spark/apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [Azure-Toolkit voor IntelliJ fouten opsporen in Spark-toepassingen op afstand via VPN-verbinding](spark/apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [HDInsight-hulpprogramma's in Azure Toolkit voor Eclipse gebruiken voor het Spark-toepassingen maken](spark/apache-spark-eclipse-tool-plugin.md)
+* [HDInsight-hulpprogramma's voor IntelliJ met Hortonworks Sandbox gebruiken](hadoop/hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [Zeppelin-notebooks gebruiken met een Spark-cluster in HDInsight](spark/apache-spark-zeppelin-notebook.md)
 * [Beschikbare kernels voor Jupyter-notebook in Spark-cluster voor HDInsight](spark/apache-spark-jupyter-notebook-kernels.md)
 * [Externe pakketten gebruiken met Jupyter-notebooks](spark/apache-spark-jupyter-notebook-use-external-packages.md)

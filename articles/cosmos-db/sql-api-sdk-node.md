@@ -1,6 +1,6 @@
 ---
 title: 'Azure Cosmos DB: SQL Node.js-API, SDK en resources | Microsoft Docs'
-description: Meer informatie over de SQL-API voor Node.js en SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de Azure-SDK voor Node.js Cosmos DB.
+description: Meer informatie over de Node.js-SQL-API en SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de Azure Cosmos DB Node.js-SDK.
 services: cosmos-db
 author: rnagpal
 manager: kfile
@@ -12,17 +12,17 @@ ms.topic: reference
 ms.date: 5/3/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 94d60325fa53668628ddefa68e8ce313c4fa75c6
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e19c1cb7b297d2537e969e0dd632dae3e1c3d211
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34797842"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594348"
 ---
-# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure SDK voor Cosmos Documentdb Node.js voor SQL-API: releaseopmerkingen en resources
+# <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Node.js-SDK voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET-Feed van wijzigen](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET-Wijzigingenfeed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
@@ -34,173 +34,167 @@ ms.locfileid: "34797842"
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**SDK downloaden**</td><td>[NPM](https://www.npmjs.com/package/documentdb)</td></tr>
-
-<tr><td>**API-documentatie**</td><td>[Node.js-API-naslagdocumentatie](https://docs.microsoft.com/javascript/api/documentdb/?view=azure-node-latest)</td></tr>
-
-<tr><td>**SDK-installatie-instructies**</td><td>[Installatie-instructies](http://azure.github.io/azure-documentdb-node/)</td></tr>
-
-<tr><td>**Bijdragen aan de SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-node/tree/master/source)</td></tr>
-
-<tr><td>**Voorbeelden**</td><td>[Node.js-codevoorbeelden](sql-api-nodejs-samples.md)</td></tr>
-
-<tr><td>**Zelfstudie Aan de slag**</td><td>[Aan de slag met de Node.js-SDK](sql-api-nodejs-get-started.md)</td></tr>
-
-<tr><td>**Zelfstudie voor web-app**</td><td>[Een Node.js-webtoepassing met behulp van Azure DB die Cosmos bouwen](sql-api-nodejs-application.md)</td></tr>
-
-<tr><td>**Huidige ondersteund platform**</td><td> 
-[Node.js v6.x](https://nodejs.org/en/blog/release/v6.10.3/)<br/> 
-[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> 
-[Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> 
-[Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
-</td></tr>
-</table></br>
+|Resource  |Koppeling  |
+|---------|---------|
+|SDK downloaden  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
+|Documentatie voor API  |  [JavaScript SDK-referentiedocumentatie](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
+|SDK-installatie-instructies  |  [Installatie-instructies](https://github.com/Azure/azure-cosmos-js#installation)
+|Bijdragen aan de SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
+| Voorbeelden | [Node.js-codevoorbeelden](sql-api-nodejs-samples-preview.md)
+| Zelfstudie aan de slag | [Aan de slag met de JavaScript-SDK](sql-api-nodejs-get-started-preview.md)
+| Zelfstudie-web-app | [Een Node.js-webtoepassing met Azure Cosmos DB](sql-api-nodejs-application-preview.md)
+| Huidige ondersteund platform | [Node.js versie 6.x](https://nodejs.org/en/blog/release/v6.10.3/) - vereist voor SDK-versie 2.0.0 en hoger.<br/>[Node.js v4.2.0](https://nodejs.org/en/blog/release/v4.2.0/)<br/> [Node.js v0.12](https://nodejs.org/en/blog/release/v0.12.0/)<br/> [Node.js v0.10](https://nodejs.org/en/blog/release/v0.10.0/) 
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 
+### <a name="2.0.0-3"/>2.0.0-3</a>
+* Als u RC1 van versie 2.0.0 van de JavaScript-SDK voor de openbare preview.
+* Nieuw objectmodel, met methoden en op het hoogste niveau CosmosClient verdeeld over de relevante klassen van de Database, -Container en Item. 
+* Ondersteuning voor [belooft](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Using_promises). 
+* SDK geconverteerd naar TypeScript.
+
 ### <a name="1.14.4"/>1.14.4</a>
-* npm documentatie is opgelost.
+* npm documentatie wordt opgelost.
 
 ### <a name="1.14.3"/>1.14.3</a>
-* Ondersteuning toegevoegd voor standaard nieuwe pogingen bereikt op verbindingsproblemen.
-* Toegevoegde ondersteuning voor wijziging van de verzameling lezen-feed.
-* Vaste sessie consistentie oplossingen die afwisselend veroorzaakt 'lezen sessie niet beschikbaar'.
-* Ondersteuning toegevoegd voor query metrische gegevens.
-* Http-Agent kunt u het maximum aantal verbindingen gewijzigd.
+* Ondersteuning toegevoegd voor nieuwe pogingen standaard op problemen met verbindingen.
+* Ondersteuning toegevoegd voor het lezen van de verzameling wijzigen-feed.
+* Vaste sessie consistentie bug die niet continu veroorzaakt 'lezen sessie niet beschikbaar'.
+* Er is ondersteuning toegevoegd voor query metrische gegevens.
+* Http-Agent kunt u het maximum aantal verbindingen is gewijzigd.
 
 ### <a name="1.14.2"/>1.14.2</a>
 * Bijgewerkte documentatie om te verwijzen naar Azure Cosmos DB in plaats van Azure DocumentDB.
-* Ondersteuning toegevoegd voor de instelling proxyUrl in ConnectionPolicy.
+* Er is ondersteuning toegevoegd voor de instelling proxyUrl in ConnectionPolicy.
 
 ### <a name="1.14.1"/>1.14.1</a>
-* Secundaire te herstellen voor hoofdlettergevoelige bestandssystemen.
+* Secundaire fix voor hoofdlettergevoelig bestandssystemen.
 
 ### <a name="1.14.0"/>1.14.0</a>
-* Voegt ondersteuning toe voor Sessieconsistentie.
-* Deze SDK-versie vereist dat de nieuwste versie van Azure Cosmos DB Emulator die beschikbaar is voor downloaden van https://aka.ms/cosmosdb-emulator.
+* Voegt ondersteuning toe voor de consistentie van de sessie.
+* Deze SDK-versie vereist de meest recente versie van Azure Cosmos DB Emulator beschikbaar voor downloaden van https://aka.ms/cosmosdb-emulator.
 
 ### <a name="1.13.0"/>1.13.0</a>
-* Gesplitste cross-partitie query's worden vergeleken.
-* Voegt ondersteuning voor resourcekoppeling met voorloop- en volgspaties slashes (en de bijbehorende tests).
+* Gesplitste identificatienummers cross-partitie query's.
+* Biedt ondersteuning voor resourcekoppeling met voorloop- en volgspaties slashes (en de bijbehorende tests) toegevoegd.
 
 ### <a name="1.12.2"/>1.12.2</a>
-*   npm documentatie is opgelost.
+*   npm documentatie wordt opgelost.
 
 ### <a name="1.12.1"/>1.12.1</a>
-* Heeft een fout in de executeStoredProcedure documenten die betrokken zijn waar speciale Unicode-tekens (LS, PS).
-* Een fout bij het verwerken van documenten met Unicode-tekens in de partitiesleutel vast.
-* Vaste ondersteuning voor het maken van verzamelingen met de naam van media. Github probleem #114.
-* Vaste ondersteuning voor machtiging verificatietoken. Github probleem #178.
+* Vaste een bug in executeStoredProcedure documenten die betrokken zijn waar speciale Unicode-tekens (LS, PS).
+* Er is een fout in verwerking van documenten met Unicode-tekens in de partitiesleutel opgelost.
+* Vaste ondersteuning voor het maken van verzamelingen met de naam van media. Github-probleem #114.
+* Vaste ondersteuning voor de machtiging van de verificatietoken. Github-probleem #178.
 
 ### <a name="1.12.0"/>1.12.0</a>
-* Ondersteuning toegevoegd voor een nieuwe [consistentieniveau](consistency-levels.md) ConsistentPrefix aangeroepen.
+* Ondersteuning toegevoegd voor een nieuwe [consistentieniveau](consistency-levels.md) ConsistentPrefix genoemd.
 * Ondersteuning toegevoegd voor UriFactory.
-* Vaste een bug Unicode-ondersteuning. GitHub probleem #171.
+* Probleem opgelost een Unicode-ondersteuning. GitHub-probleem #171.
 
 ### <a name="1.11.0"/>1.11.0</a>
-* Het is ondersteuning toegevoegd voor aggregatie van query's (COUNT, MIN, MAX, SUM en Gem).
-* De optie voor het beheren van de mate van parallelle uitvoering voor cross-partitie query's toegevoegd.
-* De optie voor het uitschakelen van SSL-verificatie bij het uitvoeren in Azure Cosmos DB Emulator toegevoegd.
-* Minimaal doorvoer voor gepartitioneerde verzamelingen uit 10,100 RU/s tot 2500 RU/s verlaagd.
-* De voortzetting token oplossingen voor de verzameling van één partitie vast. Github probleem #107.
-* De executeStoredProcedure-fout bij het verwerken van 0 als één param vast. Github probleem #155.
+* De ondersteuning voor aggregatie-query's (aantal, MIN, MAX, som en gemiddelde) toegevoegd.
+* De optie voor het beheren van de graad van parallelle uitvoering voor cross-partitie query's toegevoegd.
+* De optie voor het uitschakelen van SSL-verificatie met het uitvoeren in Azure Cosmos DB-Emulator toegevoegd.
+* Het minimale doorvoer op gepartitioneerde verzamelingen van 10,100 RU/s 2500 RU/s verlaagd.
+* Het probleem opgelost voortzetting van token voor de verzameling met één partitie. Github-probleem #107.
+* Het probleem opgelost executeStoredProcedure bij het verwerken van 0 als één parameter. Github-probleem #155.
 
 ### <a name="1.10.2"/>1.10.2</a>
 * Vaste gebruikersagent header om op te nemen van de SDK-versie.
-* Het opruimen van de secundaire code.
+* Opruimen van de secundaire code.
 
 ### <a name="1.10.1"/>1.10.1</a>
-* SSL-verificatie wordt uitgeschakeld wanneer u de SDK toe te passen de emulator(hostname=localhost).
-* Ondersteuning toegevoegd voor het inschakelen van logboekregistratie script tijdens het uitvoeren van de opgeslagen procedure.
+* SSL-verificatie uitschakelen wanneer met de SDK voor de emulator(hostname=localhost).
+* Er is ondersteuning toegevoegd voor het inschakelen van logboekregistratie voor scripts tijdens het uitvoeren van de opgeslagen procedure.
 
 ### <a name="1.10.0"/>1.10.0</a>
 * Ondersteuning toegevoegd voor cross-partitie parallelle query's.
-* Ondersteuning toegevoegd voor TOP/ORDER BY-query's voor gepartitioneerde verzamelingen.
+* Ondersteuning toegevoegd voor bovenste/ORDER BY-query's voor gepartitioneerde verzamelingen.
 
 ### <a name="1.9.0"/>1.9.0</a>
-* Toegevoegde opnieuw Beleidsondersteuning voor beperkte aanvragen. (Beperkte aanvragen ontvangen van een aanvraag snelheid te groot uitzondering, foutcode 429.) Standaard Azure Cosmos DB pogingen negen keer voor elke aanvraag wanneer foutcode 429 is opgetreden, de tijd retryAfter in de antwoordheader naleven. Een vaste opnieuw tijdsinterval kan nu worden ingesteld als onderdeel van de eigenschap RetryOptions op het object ConnectionPolicy als u wilt de retryAfter tijd geretourneerd door server tussen de pogingen negeren. Azure Cosmos-DB wordt nu gewacht op maximaal 30 seconden voor elke aanvraag die wordt beperkt (ongeacht het aantal pogingen) en het antwoord met foutcode 429 retourneert. Deze tijd kan ook worden overschreven in de eigenschap RetryOptions in ConnectionPolicy-object.
-* Cosmos DB retourneert nu x-ms-versnelling-aantal nieuwe pogingen en x-ms-throttle-retry-wait-time-ms de antwoordheaders in elke aanvraag om aan te geven van de beperking probeer aantal en de cumulatieve tijd dat de aanvraag worden gewacht tussen de nieuwe pogingen.
-* De klasse RetryOptions is toegevoegd, blootstellen van de eigenschap RetryOptions in de klasse ConnectionPolicy die kan worden gebruikt voor het onderdrukken van enkele van de standaardopties voor opnieuw proberen.
+* Beleid-ondersteuning voor extra nieuwe pogingen voor beperkte aanvragen. (Beperkte aanvragen ontvangen een aanvraag snelheid te groot uitzondering, foutcode 429.) Standaard Azure Cosmos DB pogingen negen keer voor elke aanvraag wanneer foutcode 429 is aangetroffen, naleven van de tijd retryAfter in de antwoordkop. Het interval voor een vaste opnieuw proberen kan nu worden ingesteld als onderdeel van de eigenschap RetryOptions op het object ConnectionPolicy als u wilt de retryAfter tijd geretourneerd door server tussen de pogingen negeren. Azure Cosmos DB is nu moet wachten tot een maximum van 30 seconden voor elke aanvraag die wordt beperkt (ongeacht het aantal nieuwe pogingen) en wordt het antwoord met foutcode 429 geretourneerd. Deze tijd kan ook worden overschreven in de eigenschap RetryOptions op ConnectionPolicy-object.
+* Cosmosdb retourneert nu x-ms-throttle--het aantal nieuwe pogingen en x-ms-throttle-retry-wait-time-ms als de antwoordheaders in elke aanvraag om aan te geven van de vertraging opnieuw proberen het aantal en de cumulatieve tijd die de aanvraag heeft gewacht tussen de nieuwe pogingen.
+* De klasse RetryOptions is toegevoegd, de eigenschap RetryOptions op de ConnectionPolicy-klasse die kan worden gebruikt voor de onderdrukking van enkele van de standaardopties voor opnieuw proberen om vrij te geven.
 
 ### <a name="1.8.0"/>1.8.0</a>
-* De ondersteuning voor meerdere landen/regio database accounts toegevoegd.
+* De ondersteuning voor databaseaccounts voor meerdere regio's toegevoegd.
 
 ### <a name="1.7.0"/>1.7.0</a>
-* De ondersteuning voor de functie tijd-Live(TTL) voor documenten toegevoegd.
+* De ondersteuning toegevoegd voor tijd-Live(TTL)-functie voor documenten.
 
 ### <a name="1.6.0"/>1.6.0</a>
-* Geïmplementeerd [gepartitioneerde verzamelingen](partition-data.md) en [prestatieniveaus die door de gebruiker gedefinieerde](performance-levels.md).
+* Geïmplementeerd [gepartitioneerde verzamelingen](partition-data.md) en [niveau van de gebruiker gedefinieerde prestaties](performance-levels.md).
 
 ### <a name="1.5.6"/>1.5.6</a>
-* Vaste RangePartitionResolver.resolveForRead bug waar koppelingen vanwege een onjuiste concat resultaten is niet geretourneerd.
+* Fout verholpen RangePartitionResolver.resolveForRead waar is het niet koppelingen vanwege een ongeldige concat van resultaten retourneren.
 
 ### <a name="1.5.5"/>1.5.5</a>
-* Vaste hashParitionResolver resolveForRead(): wanneer geen partitiesleutel opgegeven is er uitzondering is opgetreden, in plaats van een lijst met alle geregistreerde koppelingen retourneren.
+* Vaste hashParitionResolver resolveForRead(): Er is geen opgegeven partitiesleutel wanneer die uitzondering, in plaats van een lijst met alle geregistreerde koppelingen retourneren is veroorzaakt.
 
 ### <a name="1.5.4"/>1.5.4</a>
-* Probleem opgelost [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -Agent voor HTTPS-specifieke: voorkomen wijzigen van de globale agent voor Azure Cosmos DB doeleinden. Een speciale agent gebruiken voor alle aanvragen van de lib.
+* Probleem opgelost [#100](https://github.com/Azure/azure-documentdb-node/issues/100) -HTTPS-Agent toegewezen: voorkomen dat de algemene agent voor Azure Cosmos DB-toepassing wijzigen. Gebruik een toegewezen agent voor alle aanvragen van de lib.
 
 ### <a name="1.5.3"/>1.5.3</a>
-* Probleem opgelost [#81](https://github.com/Azure/azure-documentdb-node/issues/81) - goed streepjes in de media-ID's verwerkt.
+* Probleem opgelost [#81](https://github.com/Azure/azure-documentdb-node/issues/81) - correct streepjes in de media-ID's worden verwerkt.
 
 ### <a name="1.5.2"/>1.5.2</a>
-* Probleem opgelost [#95](https://github.com/Azure/azure-documentdb-node/issues/95) -listener EventEmitter lekken waarschuwing.
+* Probleem opgelost [#95](https://github.com/Azure/azure-documentdb-node/issues/95) -EventEmitter listener lekken waarschuwing.
 
 ### <a name="1.5.1"/>1.5.1</a>
-* Probleem opgelost [#92](https://github.com/Azure/azure-documentdb-node/issues/90) -naam wijzigen van de map Hash op hash voor systemen die hoofdlettergevoelig.
+* Probleem opgelost [#92](https://github.com/Azure/azure-documentdb-node/issues/90) -Wijzig de naam van map Hash op hash voor hoofdlettergevoelig systemen.
 
 ### <a name="1.5.0"/>1.5.0</a>
-* Implementeer sharding ondersteuning door hash & bereik partitie resolvers toe te voegen.
+* Sharding-ondersteuning voor het implementeren door hash & bereik partitie resolvers toe te voegen.
 
 ### <a name="1.4.0"/>1.4.0</a>
-* Upsert implementeren. Nieuwe upsertXXX-methoden op documentClient.
+* Upsert implementeren. Nieuwe upsertXXX methoden op documentClient.
 
 ### <a name="1.3.0"/>1.3.0</a>
-* Overgeslagen zodat versienummers realistisch met andere SDK's.
+* Overgeslagen zodat de versienummers in overeenstemming met andere SDK's.
 
 ### <a name="1.2.2"/>1.2.2</a>
 * Gesplitste Q belooft wrapper naar nieuwe opslagplaats.
-* Bijwerken naar pakketbestand voor serverregister npm.
+* Bijwerken naar een pakketbestand voor npm-register.
 
 ### <a name="1.2.1"/>1.2.1</a>
-* Implements-ID gebaseerde routering.
-* Probleem opgelost [#49](https://github.com/Azure/azure-documentdb-node/issues/49) -eigenschap current veroorzaakt een conflict met de methode current().
+* Implementeert-ID op basis van routering.
+* Probleem opgelost [#49](https://github.com/Azure/azure-documentdb-node/issues/49) -huidige eigenschap strijdig is met de methode current().
 
 ### <a name="1.2.0"/>1.2.0</a>
-* Ondersteuning toegevoegd voor georuimtelijke index.
-* De eigenschap id voor alle resources valideert. Kunnen geen id's voor bronnen bevatten?, /, #, &#47; &#47;, tekens of eindigen met een spatie.
-* Voegt nieuwe header 'index transformatie uitgevoerd' aan ResourceResponse.
+* Er is ondersteuning toegevoegd voor georuimtelijke index.
+* Hiermee valideert u de eigenschap id voor alle resources. Kunnen geen id's voor resources bevatten?, /, #, &#47; &#47;, tekens bevatten of eindigen met een spatie.
+* Nieuwe header 'index transformatie uitgevoerd' toevoegen aan ResourceResponse.
 
 ### <a name="1.1.0"/>1.1.0</a>
-* V2-indexeringsbeleid implementeert.
+* Indexeringsbeleid V2 implementeert.
 
 ### <a name="1.0.3"/>1.0.3</a>
 * Probleem [#40](https://github.com/Azure/azure-documentdb-node/issues/40) - eslint geïmplementeerd en configuraties in de kern knorvis en beloven SDK.
 
 ### <a name="1.0.2"/>1.0.2</a>
-* Probleem [#45](https://github.com/Azure/azure-documentdb-node/issues/45) -pas wrapper bevat geen header met de fout.
+* Probleem [#45](https://github.com/Azure/azure-documentdb-node/issues/45) -wrapper beloften bevat geen header met de fout.
 
 ### <a name="1.0.1"/>1.0.1</a>
-* Geïmplementeerde mogelijkheid om de query voor conflicten door toe te voegen readConflicts readConflictAsync en queryConflicts.
+* De mogelijkheid om query op conflicten door toe te voegen readConflicts readConflictAsync en queryConflicts is geïmplementeerd.
 * Bijgewerkte API-documentatie.
-* Probleem [#41](https://github.com/Azure/azure-documentdb-node/issues/41) -client.createDocumentAsync-fout.
+* Probleem [#41](https://github.com/Azure/azure-documentdb-node/issues/41) -client.createDocumentAsync fout.
 
 ### <a name="1.0.0"/>1.0.0</a>
-* GA SDK.
+* SDK VOOR ALGEMENE BESCHIKBAARHEID.
 
-## <a name="release--retirement-dates"></a>Release & buiten gebruik stellen datums
-Microsoft biedt melding ten minste **12 maanden** voordat het buiten gebruik stellen van een SDK om de overgang naar een nieuwere/ondersteunde versie vloeiend.
+## <a name="release--retirement-dates"></a>Release & datums buiten gebruik stellen
+Microsoft biedt melding ten minste **12 maanden** voorafgaand aan buiten gebruik stellen van een SDK soepel te verwerken de overgang naar een nieuwere/ondersteunde versie.
 
-Nieuwe functies en functionaliteit en optimalisaties alleen zijn toegevoegd aan de huidige SDK, als zodanig wordt aanbevolen dat u altijd een upgrade uitvoert naar de nieuwste SDK versie zo snel mogelijk.
+Nieuwe functies en functionaliteit en -optimalisatie worden alleen toegevoegd aan de huidige SDK, daarom is het raadzaam dat u altijd een upgrade uitvoert naar de nieuwste SDK versie zo vroeg mogelijk.
 
-Een aanvraag voor het gebruik van de Cosmos-DB dat een buiten gebruik gestelde SDK is geweigerd door de service.
+Elke aanvraag voor het gebruik van Cosmos DB dat een buiten gebruik gestelde SDK is geweigerd door de service.
 
 <br/>
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
+| [2.0.0-3 (RC)](#2.0.0-3) |2 augustus 2018 |--- |
 | [1.14.4](#1.14.4) |03 mei 2018 |--- |
 | [1.14.3](#1.14.3) |03 mei 2018 |--- |
 | [1.14.2](#1.14.2) |21 december 2017 |--- |
@@ -224,21 +218,21 @@ Een aanvraag voor het gebruik van de Cosmos-DB dat een buiten gebruik gestelde S
 | [1.5.2](#1.5.2) |26 januari 2016 |--- |
 | [1.5.2](#1.5.2) |22 januari 2016 |--- |
 | [1.5.1](#1.5.1) |4 januari 2016 |--- |
-| [1.5.0](#1.5.0) |31 december 2015 |--- |
+| [1.5.0](#1.5.0) |En met 31 december 2015 |--- |
 | [1.4.0](#1.4.0) |06 oktober 2015 |--- |
 | [1.3.0](#1.3.0) |06 oktober 2015 |--- |
-| [1.2.2](#1.2.2) |10 september 2015 |--- |
+| [1.2.2](#1.2.2) |Op 10 september 2015 |--- |
 | [1.2.1](#1.2.1) |15 augustus 2015 |--- |
 | [1.2.0](#1.2.0) |05 augustus 2015 |--- |
 | [1.1.0](#1.1.0) |09 juli 2015 |--- |
 | [1.0.3](#1.0.3) |04 juni 2015 |--- |
 | [1.0.2](#1.0.2) |23 mei 2015 |--- |
-| [1.0.1](#1.0.1) |Op 15 mei 2015 |--- |
+| [1.0.1](#1.0.1) |15 mei 2015 |--- |
 | [1.0.0](#1.0.0) |08 april 2015 |--- |
 
 ## <a name="faq"></a>Veelgestelde vragen
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Zie ook
-Zie voor meer informatie over Cosmos DB, [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) pagina van de service.
+Zie voor meer informatie over Cosmos DB, [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) servicepagina.
 

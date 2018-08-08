@@ -8,22 +8,58 @@ ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/01/2018
 ms.author: raynew
-ms.openlocfilehash: 251e2b1f8785408bf441bcbcf3d0fcbdd767a358
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 94abdd30dc9cd279ab791541250787a111f80d30
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38479479"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618985"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Herstel na noodgevallen van on-premises virtuele VMware-machines of fysieke servers naar een secundaire site instellen
 
-InMage Scout in [Azure Site Recovery](site-recovery-overview.md) biedt realtime replicatie tussen on-premises VMware-sites. InMage Scout is opgenomen in de Azure Site Recovery-service-abonnementen. 
+InMage Scout in [Azure Site Recovery](site-recovery-overview.md) biedt realtime replicatie tussen on-premises VMware-sites. InMage Scout is opgenomen in de Azure Site Recovery-service-abonnementen.
+
+## <a name="end-of-support-announcement"></a>Aankondiging van de end-van-ondersteuning
+
+Het scenario met Azure Site Recovery voor replicatie tussen on-premises VMware of fysieke datacenters bereikt einde van ondersteuning.
+
+-   Vanaf augustus 2018 het scenario kan niet worden geconfigureerd in de Recovery Services-kluis en de service InMage Scout-software kan niet worden gedownload uit de kluis. Bestaande implementaties worden ondersteund. 
+-   Vanaf December 31 2020, wordt niet het scenario ondersteund.
+- Bestaande partners kunnen Onboarding van nieuwe klanten aan het scenario tot het einde van ondersteuning.
+
+Tijdens de 2018 en 2019 moet worden twee updates vrijgegeven: 
+
+-   Update 7: Netwerk-configuratie en compatibiliteit problemen opgelost, en biedt ondersteuning voor TLS 1.2.
+-   Bijwerken van 8: Ondersteuning voor Linux-besturingssystemen RHEL/CentOS 7.3/7.4/7.5 en SUSE 12 toevoegen
+
+Na de Update 8, worden er kunnen geen nieuwe updates uitgebracht. Er is beperkte hotfix-ondersteuning voor de besturingssystemen die zijn toegevoegd in Update 8, en oplossingen voor problemen op basis van best-effort.
+
+Azure Site Recovery blijft om te innoveren door te geven van VMware en Hyper-V-klanten een naadloze en de best mogelijke DRaaS-oplossing met Azure als een site voor noodherstel. Microsoft raadt aan dat bestaande InMage / ASR Scout klanten Overweeg het gebruik van Azure Site Recovery-VMware naar Azure voor hun zakelijke continuïteit. Azure Site Recovery van VMware naar Azure is een enterprise-klasse DR-oplossing voor VMware-toepassingen, biedt RPO en RTO van minuten, ondersteuning voor replicatie van multi-VM-toepassing en het herstel, naadloze onboarding uitgebreide bewaking en belangrijk voordeel van de totale Eigendomskosten.
+
+### <a name="scenario-migration"></a>Scenario-migratie
+Als alternatief, wordt aangeraden instellen van herstel na noodgevallen voor on-premises VMware-machines en fysieke machines door ze te repliceren naar Azure. Doe dit als volgt:
+
+1.  Bekijk de onderstaande snelle vergelijking. Voordat u on-premises machines repliceren kunt, moet u controleren of ze voldoen aan [vereisten](./vmware-physical-azure-support-matrix.md#replicated-machines) voor replicatie naar Azure. Als u virtuele VMware-machines repliceert, raden wij aan dat u bekijkt [richtlijnen voor capaciteitsplanning](./site-recovery-plan-capacity-vmware.md), en voer de [hulpprogramma Deployment Planner](./site-recovery-deployment-planner.md) aan identiteit capaciteitsvereisten, en controleer of de naleving.
+2.  Nadat de Deployment Planner is uitgevoerd, kunt u replicatie instellen: o voor VMware-VM's, volgt u deze zelfstudies [Azure voorbereiden](./tutorial-prepare-azure.md), [voorbereiden van uw on-premises VMware-omgeving](./vmware-azure-tutorial-prepare-on-premises.md), en [instellen herstel na noodgevallen](./vmware-azure-tutorial-prepare-on-premises.md).
+o voor fysieke computers, volgt u deze [zelfstudie](./physical-azure-disaster-recovery.md).
+3.  Als u machines repliceren naar Azure, kunt u uitvoeren een [Dr-herstelanalyse](./site-recovery-test-failover-to-azure.md) om te controleren of alles werkt zoals verwacht.
+
+### <a name="quick-comparison"></a>Snelle vergelijking
+
+**Functie** | **Replicatie naar Azure** |**Replicatie tussen datacentra met VMware**
+--|--|--
+**Vereiste onderdelen** |Mobility-service op gerepliceerde machines. On-premises configuratieserver, processerver, hoofddoelserver. Tijdelijke processerver in Azure voor failback.|Mobility-service, processerver, de configuratieserver en de Hoofddoelserver
+**Configuratie en indeling** |Recovery Services-kluis in Azure portal | Met behulp van vContinuum 
+**Gerepliceerd**|Schijf (Windows en Linux) |Volume-Windows<br> Schijf-Linux
+**Gedeeld schijfcluster**|Niet ondersteund|Ondersteund
+**Gegevensverloop limieten (gemiddeld)** |Gegevens van 10 MB/s per schijf<br> Gegevens van 25MB/s per virtuele machine<br> [Meer informatie](./site-recovery-vmware-deployment-planner-analyze-report.md#azure-site-recovery-limits) | Gegevens voor > 10 MB/s per schijf  <br> De gegevens > 25 MB/s per virtuele machine
+**Controle** |Vanuit Azure portal|Van CX (configuratieserver)
+**Ondersteuningsmatrix**| [Klik hier voor meer informatie](./vmware-physical-azure-support-matrix.md)|[ASR Scout compatibel matrix downloaden](https://aka.ms/asr-scout-cm)
 
 
 ## <a name="prerequisites"></a>Vereisten
-
 Vereisten voor het voltooien van deze zelfstudie:
 
 - [Beoordeling](vmware-physical-secondary-support-matrix.md) de vereisten van het ondersteuningsteam voor alle onderdelen.
@@ -75,7 +111,7 @@ Download de [bijwerken](https://aka.ms/asr-scout-update6) ZIP-bestand. Het besta
 6. **Linux-hoofddoelserver**: voor het bijwerken van de unified agent kopiëren **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** naar het hoofdniveau doelserver en pak het uit. Voer in de uitgepakte map **/Install**.
 7. **Windows-bronserver**: voor het bijwerken van de unified agent kopiëren **UA_Windows_8.0.5.0_GA_Update_5_11525802_20Apr17.exe** naar de bronserver. Dubbelklik op het bestand uit te voeren. 
     U hoeft te installeren van de Update 5-agent op de bronserver als deze al is bijgewerkt naar Update 4 of bronagent is geïnstalleerd met het nieuwste installatieprogramma van base **InMage_UA_8.0.1.0_Windows_GA_28Sep2017_release.exe**.
-8. **Linux-bronserver**: voor het bijwerken van de unified agent, de bijbehorende versie van het bestand de unified agent kopiëren naar de Linux-server en pak het uit. Voer in de uitgepakte map **/Install**.  Voorbeeld: Voor RHEL 6,7 64-bits-server kopiëren **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** naar de server, en pak het uit. Voer in de uitgepakte map **/Install**.
+8. **Linux-bronserver**: voor het bijwerken van de unified agent, de bijbehorende versie van het bestand de unified agent kopiëren naar de Linux-server en pak het uit. Voer in de uitgepakte map **/Install**.  Voorbeeld: Voor RHEL 6.7 64-bits-server, kopie **UA_RHEL6 64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz** naar de server, en pak het uit. Voer in de uitgepakte map **/Install**.
 
 ## <a name="enable-replication"></a>Replicatie inschakelen
 
@@ -160,7 +196,7 @@ Scout Update 4 is een cumulatieve update. Deze bevat alle oplossingen van Update
 
 #### <a name="bug-fixes-and-enhancements"></a>Oplossingen voor problemen en verbeteringen
 
-* Verbeterde verwerking voor de volgende Linux-besturingssystemen en klonen, om te voorkomen dat ongewenste hernieuwde synchronisatieproblemen wordt afgesloten:
+* Verbeterde verwerking voor de volgende Linux-besturingssystemen en klonen, om te voorkomen dat ongewenste hersynchronisatie problemen wordt afgesloten:
     * Red Hat Enterprise Linux (RHEL) 6.x
     * Oracle Linux (OL) 6.x
 * Voor Linux, zijn nu alle toegang tot machtigingen voor mappen in de installatiemap van de unified agent wordt beperkt tot alleen de lokale gebruiker.
@@ -222,7 +258,7 @@ Update 3 worden de volgende problemen:
 
 Verbeteringen in Update 2 zijn onder andere:
 
-* **Configuratieserver**: problemen waardoor de 31 dagen gratis softwarelicentiecontrole functie werkt zoals verwacht wordt bij de configuratieserver is geregistreerd in Site Recovery.
+* **Configuratieserver**: problemen waardoor de 31 dagen gratis softwarelicentiecontrole functie werkt zoals verwacht wordt bij de configuratieserver is geregistreerd bij Azure Site Recovery-kluis.
 * **De Unified agent**: correctie voor een probleem in Update 1 dat heeft geresulteerd in de update niet op de hoofddoelserver geïnstalleerd tijdens de upgrade van versie 8.0-8.0.1.
 
 ### <a name="azure-site-recovery-scout-801-update-1"></a>Azure Site Recovery Scout 8.0.1 Update 1

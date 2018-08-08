@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 446c97918a6b6287bf4cacf4711a0dd46e12f141
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9d398d810a2d43b3754fd8950376c605d4654f38
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578548"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621528"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Article Index for Application Management in Azure Active Directory (Engelstalig)
 Deze pagina bevat een uitgebreide lijst van elk document geschreven over de verschillende functies van de toepassing in Azure Active Directory (Azure AD).
@@ -54,7 +54,7 @@ Hiermee kunnen gebruikers toegang tot een aantal apps en services met behulp van
 | Artikel-handleiding |  |
 |:---:| --- |
 | Een inleiding tot het onderwerp Federatie en andere typen van aanmelding |[Eenmalige aanmelding met Azure AD](manage-apps/what-is-single-sign-on.md) |
-| Duizenden SaaS-apps die vooraf geïntegreerd met Azure AD met zijn vereenvoudigde configuratie voor eenmalige aanmelding stappen |[Aan de slag met de Azure AD-toepassingsgalerie](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Volledige lijst met vooraf geïntegreerde Apps die ondersteuning bieden voor Federatie](saas-apps/tutorial-list.md)<br /><br />[Uw App toevoegen aan de App-galerie van Azure AD](active-directory-app-gallery-listing.md) |
+| Duizenden SaaS-apps die vooraf geïntegreerd met Azure AD met zijn vereenvoudigde configuratie voor eenmalige aanmelding stappen |[Aan de slag met de Azure AD-toepassingsgalerie](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Volledige lijst met vooraf geïntegreerde Apps die ondersteuning bieden voor Federatie](saas-apps/tutorial-list.md)<br /><br />[Uw App toevoegen aan de App-galerie van Azure AD](develop/howto-app-gallery-listing.md) |
 | Meer dan 150 app-zelfstudies over het configureren van eenmalige aanmelding voor apps zoals [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md), [Workday](saas-apps/workday-tutorial.md), en nog veel meer |[Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](saas-apps/tutorial-list.md) |
 | Het handmatig instellen en aanpassen van uw configuratie voor eenmalige aanmelding |[Hoe om te configureren voor federatieve eenmalige aanmelding naar Apps die zich niet in de galerie van Azure Active Directory-toepassing](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[In het SAML-Token voor vooraf geïntegreerde Apps uitgegeven Claims aanpassen](active-directory-saml-claims-customization.md) |
 | Gids voor probleemoplossing voor federatieve apps die gebruikmaken van het SAML-protocol |[Oplossen van problemen met SAML gebaseerde eenmalige aanmelding](develop/howto-v1-debug-saml-sso-issues.md) |
@@ -109,7 +109,7 @@ Als u een eenmalige aanmelding voor uw apps en resources hebt ingesteld, kunt u 
 | Artikel-handleiding |  |
 |:---:| --- |
 | Een inleiding tot de mogelijkheden voor voorwaardelijke toegang wordt aangeboden via Azure AD, Office 365 en Intune |[Risico beheren met voorwaardelijke toegang](active-directory-conditional-access-azure-portal.md) |
-| Het inschakelen van voorwaardelijke toegang voor de volgende typen resources |[Voorwaardelijke toegang voor SaaS-Apps](active-directory-conditional-access-azure-portal-get-started.md)<br /><br />[Voorwaardelijke toegang voor Office 365-services](active-directory-conditional-access-device-policies.md)<br /><br />[Voorwaardelijke toegang voor On-Premises toepassingen](active-directory-conditional-access-azure-portal.md)<br /><br />[Voorwaardelijke toegang voor On-Premises toepassingen die zijn gepubliceerd via toepassingsproxy van Azure AD](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
+| Het inschakelen van voorwaardelijke toegang voor de volgende typen resources |[Voorwaardelijke toegang voor SaaS-Apps](conditional-access/app-based-conditional-access.md)<br /><br />[Voorwaardelijke toegang voor Office 365-services](active-directory-conditional-access-device-policies.md)<br /><br />[Voorwaardelijke toegang voor On-Premises toepassingen](active-directory-conditional-access-azure-portal.md)<br /><br />[Voorwaardelijke toegang voor On-Premises toepassingen die zijn gepubliceerd via toepassingsproxy van Azure AD](manage-apps/application-proxy-integrate-with-sharepoint-server.md) |
 | Informatie over het registreren van apparaten met Azure Active Directory om het beleid voor voorwaardelijke toegang op basis van apparaat inschakelen |[Overzicht van Azure Active Directory Device Registration service](active-directory-conditional-access-device-registration-overview.md)<br /><br />[Automatische apparaatregistratie inschakelen voor domein gekoppelde Windows-apparaten](active-directory-conditional-access-automatic-device-registration.md)<br />— [Stappen voor Windows 8.1-apparaten](active-directory-conditional-access-automatic-device-registration-setup.md)<br />— [Stappen voor Windows 7-apparaten](active-directory-conditional-access-automatic-device-registration-setup.md) |
 
 | Over het gebruik van de Microsoft Authenticator-app voor verificatie in twee stappen | [Microsoft Authenticator](user-help/microsoft-authenticator-app-how-to.md) |
@@ -144,7 +144,7 @@ Als uw organisatie ontwikkelt of onderhouden van line-of-business (LoB)-toepassi
 | Artikel-handleiding |  |
 |:---:| --- |
 | Richtlijnen voor IT-professionals en ontwikkelaars van toepassingen voor het integreren van apps met Azure AD |[De IT van de Pro-handleiding voor het ontwikkelen van toepassingen voor Azure AD](active-directory-applications-guiding-developers-for-lob-applications.md)<br /><br />[De Developer's Guide voor Azure Active Directory](develop/azure-ad-developers-guide.md) |
-| Hoe aan toepassing leveranciers kunnen hun apps toevoegen aan de App-galerie van Azure AD |[Lijst van uw toepassing in de Azure Active Directory-Toepassingsgalerie](active-directory-app-gallery-listing.md) |
+| Hoe aan toepassing leveranciers kunnen hun apps toevoegen aan de App-galerie van Azure AD |[Lijst van uw toepassing in de Azure Active Directory-Toepassingsgalerie](develop/howto-app-gallery-listing.md) |
 | Over het beheren van toegang tot ontwikkelde toepassingen met Azure Active Directory |[Gebruikerstoewijzing voor ontwikkelde toepassingen inschakelen](active-directory-applications-guiding-developers-requiring-user-assignment.md)<br /><br />[Gebruikers toewijzen aan uw App](active-directory-applications-guiding-developers-assigning-users.md)<br /><br />[Groep toewijzen aan uw App](active-directory-applications-guiding-developers-assigning-groups.md) |
 
 Als u consumentgerichte toepassingen ontwikkelt, kunt u mogelijk geïnteresseerd in met behulp van [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) zodat u uw eigen identiteitssysteem voor het beheren van uw gebruikers te ontwikkelen. [Meer informatie](../active-directory-b2c/active-directory-b2c-overview.md).

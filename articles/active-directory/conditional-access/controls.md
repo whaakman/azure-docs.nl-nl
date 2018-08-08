@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 5bf8c491a3edc2efa8fa6361f4c5aec2deb30ccb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 2774111ff22572904a958037eed4c17f524770ce
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531128"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591588"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Wat zijn besturingselementen voor toegang in Azure Active Directory voor voorwaardelijke toegang? 
 
@@ -77,15 +77,15 @@ Met multi-factor authentication beschermt resources toegankelijk zijn via een ni
 
 ### <a name="compliant-device"></a>Compatibel apparaat
 
-U kunt beleid voor voorwaardelijke toegang op basis van apparaat configureren. Het doel van beleid voor voorwaardelijke toegang op basis van het apparaat is om toegang te verlenen tot de geconfigureerde bronnen alleen vanaf [beheerde apparaten](../active-directory-conditional-access-policy-connected-applications.md#managed-devices). Een compatibel apparaat vereisen is een optie hebt om te definiëren welke een beheerd apparaat is. Als deze optie is geselecteerd, het beleid voor voorwaardelijke toegang verleent toegang voor toegang tot pogingen met apparaten die zijn aangebracht [geregistreerd](../devices/overview.md) naar uw Azure Active Directory en zijn gemarkeerd als compatibel met Intune (voor elk apparaat OS) of met uw externe MDM-systeem voor Windows 10-apparaten. MDM-systemen van derden voor apparaattypen besturingssysteem dan Windows 10 worden niet ondersteund.
+U kunt beleid voor voorwaardelijke toegang op basis van apparaat configureren. Het doel van beleid voor voorwaardelijke toegang op basis van het apparaat is om toegang te verlenen tot de geconfigureerde bronnen alleen vanaf [beheerde apparaten](require-managed-devices.md). Een compatibel apparaat vereisen is een optie hebt om te definiëren welke een beheerd apparaat is. Als deze optie is geselecteerd, het beleid voor voorwaardelijke toegang verleent toegang voor toegang tot pogingen met apparaten die zijn aangebracht [geregistreerd](../devices/overview.md) naar uw Azure Active Directory en zijn gemarkeerd als compatibel met Intune (voor elk apparaat OS) of met uw externe MDM-systeem voor Windows 10-apparaten. MDM-systemen van derden voor apparaattypen besturingssysteem dan Windows 10 worden niet ondersteund.
 
-Zie voor meer informatie, [instellen van beleid voor het apparaat gebaseerde voorwaardelijke toegang van Azure Active Directory](../active-directory-conditional-access-policy-connected-applications.md).
+Zie voor meer informatie, [instellen van beleid voor het apparaat gebaseerde voorwaardelijke toegang van Azure Active Directory](require-managed-devices.md).
 
 ### <a name="hybrid-azure-ad-joined-device"></a>Hybrid Azure AD gekoppelde apparaat
 
 Vereist dat een hybride Azure AD gekoppelde apparaat is een andere optie die u moet configureren van beleid voor voorwaardelijke toegang op basis van het apparaat. Deze vereiste verwijst naar de Windows-desktops, laptops en tablets enterprise die zijn gekoppeld aan een on-premises Active Directory. Als deze optie is geselecteerd, geeft uw beleid voor voorwaardelijke toegang op toegang aanmeldpogingen met apparaten die zijn gekoppeld aan uw on-premises Active Directory en uw Azure Active Directory.  
 
-Zie voor meer informatie, [instellen van beleid voor het apparaat gebaseerde voorwaardelijke toegang van Azure Active Directory](../active-directory-conditional-access-policy-connected-applications.md).
+Zie voor meer informatie, [instellen van beleid voor het apparaat gebaseerde voorwaardelijke toegang van Azure Active Directory](require-managed-devices.md).
 
 
 
@@ -97,7 +97,7 @@ Omdat uw werknemers mobiele apparaten voor zowel privé- en werktaken gebruiken,
 U kunt [Intune beveiligingsbeleid voor apps](https://docs.microsoft.com/intune/app-protection-policy) ter bescherming van gegevens van uw bedrijf onafhankelijk van een oplossing voor mobile device management (MDM).
 
 
-Met goedgekeurde client-apps, u kunt vereisen dat een client-app die u probeert te krijgen tot uw cloud-apps voor de ondersteuning van [Intune beveiligingsbeleid voor apps](https://docs.microsoft.com/intune/app-protection-policy). U kunt bijvoorbeeld toegang tot Exchange Online beperken voor de Outlook-app. Beleid voor voorwaardelijke toegang waarvoor goedgekeurde client-apps wordt ook wel bekend als [beleid voor voorwaardelijke toegang op basis van app](../active-directory-conditional-access-mam.md). Zie voor een lijst van ondersteunde goedgekeurde client-apps, [goedgekeurde client-app vereiste](../active-directory-conditional-access-technical-reference.md#approved-client-app-requirement).
+Met goedgekeurde client-apps, u kunt vereisen dat een client-app die u probeert te krijgen tot uw cloud-apps voor de ondersteuning van [Intune beveiligingsbeleid voor apps](https://docs.microsoft.com/intune/app-protection-policy). U kunt bijvoorbeeld toegang tot Exchange Online beperken voor de Outlook-app. Beleid voor voorwaardelijke toegang waarvoor goedgekeurde client-apps wordt ook wel bekend als [beleid voor voorwaardelijke toegang op basis van app](app-based-conditional-access.md). Zie voor een lijst van ondersteunde goedgekeurde client-apps, [goedgekeurde client-app vereiste](technical-reference.md#approved-client-app-requirement).
 
 
 ### <a name="terms-of-use"></a>Gebruiksvoorwaarden

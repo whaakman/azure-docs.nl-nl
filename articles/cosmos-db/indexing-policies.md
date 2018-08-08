@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: ae2c6b6a53c6a195bbc79a5776161aab07e42f3d
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 79585195cf95e2074a1c455c82faa500af20218a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215261"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618764"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Hoe gaat de gegevens van Azure Cosmos DB indexeren?
 
@@ -323,9 +323,9 @@ In Azure Cosmos DB, kunt u wijzigingen aanbrengen aan het indexeringsbeleid van 
 
 ![Hoe indexering werkt: Azure Cosmos DB online index transformaties](./media/indexing-policies/index-transformations.png)
 
-Index transformaties worden online gemaakt. Dit betekent dat de basis van de oude beleid geïndexeerde documenten efficiënt worden getransformeerd per het nieuwe beleid *zonder gevolgen voor de beschikbaarheid voor schrijven of de ingerichte doorvoer* van de verzameling. De consistentie van lezen en schrijven van bewerkingen die zijn aangebracht met behulp van de REST-API, SDK's, of vanuit de opgeslagen procedures en triggers niet beïnvloed tijdens de transformatie van de index. Is er geen vertragingen of downtime voor uw apps wanneer u een indexeringsbeleid wijzigen.
+Index transformaties worden online gemaakt. Dit betekent dat de basis van de oude beleid geïndexeerde documenten efficiënt worden getransformeerd per het nieuwe beleid *zonder gevolgen voor de beschikbaarheid voor schrijven of de ingerichte doorvoer* van de verzameling. De consistentie van lezen en schrijven van bewerkingen die zijn aangebracht met behulp van de REST-API, SDK's, of vanuit de opgeslagen procedures en triggers niet beïnvloed tijdens de transformatie van de index. 
 
-Tijdens de tijd die de transformatie van de index uitgevoerd wordt, zijn query's echter uiteindelijk consistent, ongeacht de indexering modus-configuratie (consistente of Lazy). Dit geldt ook voor query's uit alle interfaces: de REST-API, SDK's, en vanuit opgeslagen procedures en triggers. Net als met Lazy indexeren, wordt index-transformatie asynchroon uitgevoerd op de achtergrond op de replica's met behulp van de ongebruikte bronnen die beschikbaar voor een specifieke replica zijn. 
+Indexeringsbeleid wijzigen is een asynchroon proces en de tijd om de bewerking te voltooien, is afhankelijk van het aantal documenten, ingerichte ru's en grootte van documenten. Terwijl opnieuw indexeren uitgevoerd wordt, kan niet uw query retourneert alle overeenkomende resultaten als de query gebruikt de index die wordt gewijzigd en query's niet eventuele fouten/fouten retourneert. Wordt uitgevoerd opnieuw indexeren, zijn query's uiteindelijk consistent, ongeacht de indexering modus-configuratie (consistente of Lazy). Nadat de index blijft transformatie is voltooid, om consistente resultaten te bekijken. Dit geldt ook voor query's uit alle interfaces: de REST-API, SDK's, en vanuit opgeslagen procedures en triggers. Net als met Lazy indexeren, wordt index-transformatie asynchroon uitgevoerd op de achtergrond op de replica's met behulp van de ongebruikte bronnen die beschikbaar voor een specifieke replica zijn. 
 
 Index transformaties ook worden aangebracht in de plaats. Azure Cosmos DB biedt geen twee kopieën van de index en het wisselen van de oude index met de nieuwe onderhouden. Dit betekent dat er geen extra schijfruimte is vereist of die in uw verzamelingen worden gebruikt tijdens de index transformaties.
 

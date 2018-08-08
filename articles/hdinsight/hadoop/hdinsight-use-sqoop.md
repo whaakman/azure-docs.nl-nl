@@ -1,48 +1,43 @@
 ---
-title: Apache Sqoop taken uitvoeren met Azure HDInsight (Hadoop) | Microsoft Docs
-description: Informatie over het gebruik van Azure PowerShell vanaf een werkstation voor het uitvoeren van Sqoop importeren en exporteren tussen een Hadoop-cluster en een Azure SQL database.
-editor: cgronlun
-manager: jhubbard
+title: Apache Sqoop taken uitvoeren met Azure HDInsight (Hadoop)
+description: Informatie over het gebruik van Azure PowerShell op een werkstation uitvoeren Sqoop importeren en exporteren tussen een Hadoop-cluster en een Azure SQL database.
+editor: jasonwhowell
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: 2fdcc6b7-6ad5-4397-a30b-e7e389b66c7a
+author: jasonwhowell
+ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 55f30078918239d77c079041ebd1df0325e77719
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8444da715ea4557cf76f3cad569f3d07136df1e8
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200772"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594940"
 ---
 # <a name="use-sqoop-with-hadoop-in-hdinsight"></a>Sqoop gebruiken met Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Informatie over het Sqoop in HDInsight gebruiken om te importeren en exporteren tussen een HDInsight-cluster en Azure SQL database of SQL Server-database.
+Leer hoe u Sqoop in HDInsight gebruiken om te importeren en exporteren tussen HDInsight-cluster en Azure SQL-database of SQL Server-database.
 
-Hoewel Hadoop een natuurlijke keuze voor het verwerken van ongestructureerde en semigestructureerde gegevens, zoals Logboeken en bestanden, is er mogelijk ook nodig om gestructureerde gegevens die zijn opgeslagen in de relationele databases te verwerken.
+Hoewel Hadoop een logische keuze is voor de verwerking van ongestructureerde en semigestructureerde gegevens, zoals Logboeken en -bestanden, er mogelijk ook nodig voor het verwerken van gestructureerde gegevens die zijn opgeslagen in relationele databases.
 
-[Sqoop] [ sqoop-user-guide-1.4.4] is een hulpprogramma waarmee gegevens worden overgebracht tussen Hadoop-clusters en relationele databases. U kunt deze gebruiken om gegevens te importeren uit een relationele databasebeheersysteem (RDBMS), zoals SQL Server, MySQL of Oracle in het Hadoop distributed file system (HDFS), de gegevens in Hadoop met MapReduce of Hive transformeren en de gegevens vervolgens exporteren naar een RDBMS. In deze zelfstudie maakt u een SQL Server-database gebruikt voor de relationele database.
+[Sqoop] [ sqoop-user-guide-1.4.4] is een hulpprogramma waarmee gegevens worden overgebracht tussen Hadoop-clusters en relationele databases. U kunt deze gebruiken om gegevens te importeren uit een relationeel databasebeheersysteem (RDBMS), zoals SQL Server, MySQL of Oracle in het Hadoop distributed file system (HDFS), de gegevens in Hadoop MapReduce of Hive transformeren, en vervolgens de gegevens weer geëxporteerd naar een RDBMS. In deze zelfstudie maakt u een SQL Server-database gebruikt voor de relationele database.
 
-Zie voor versies die worden ondersteund op HDInsight-clusters Sqoop [wat is er nieuw in de clusterversies geleverd door HDInsight?][hdinsight-versions]
+Zie voor Sqoop-versies die worden ondersteund op HDInsight-clusters, [wat is er nieuw in de clusterversies geleverd door HDInsight?][hdinsight-versions]
 
 ## <a name="understand-the-scenario"></a>Inzicht in het scenario
 
-HDInsight-cluster wordt geleverd met voorbeeldgegevens. U gebruikt de volgende twee voorbeelden:
+HDInsight-cluster wordt geleverd met enkele voorbeeldgegevens. U gebruikt de volgende twee voorbeelden:
 
-* Een logboekbestand log4j, bevindt zich op */example/data/sample.log*. De volgende logboeken worden opgehaald uit het bestand:
+* Een log4j-logboekbestand bevindt zich onder */example/data/sample.log*. De volgende logboeken worden opgehaald uit het bestand:
   
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
         2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
         ...
-* Een Hive-tabel met de naam *hivesampletable*, die verwijst naar het bestand zich bevindt op */hive/warehouse/hivesampletable*. De tabel bevat de gegevens van sommige mobiele apparaten. 
+* Een Hive-tabel met de naam *hivesampletable*, die verwijst naar het bestand dat zich bevindt in */hive/warehouse/hivesampletable*. De tabel bevat enkele gegevens van mobiele apparaten. 
   
   | Veld | Gegevenstype |
   | --- | --- |
@@ -53,67 +48,67 @@ HDInsight-cluster wordt geleverd met voorbeeldgegevens. U gebruikt de volgende t
   | devicemake |tekenreeks |
   | devicemodel |tekenreeks |
   | state |tekenreeks |
-  | Land |tekenreeks |
+  | Land/regio |tekenreeks |
   | querydwelltime |double |
   | sessie-id |bigint |
   | sessionpagevieworder |bigint |
 
-In deze zelfstudie gebruikt u deze twee gegevenssets testen Sqoop importeren en exporteren.
+In deze zelfstudie gebruikt u deze twee gegevenssets Sqoop-Importeer testen en te exporteren.
 
 ## <a name="create-cluster-and-sql-database"></a>Cluster- en SQL-database maken
-Deze sectie wordt beschreven hoe u een cluster, een SQL-Database en de SQL-database schema's voor het uitvoeren van de zelfstudie met behulp van de Azure-portal en een Azure Resource Manager-sjabloon maken. De sjabloon kan worden gevonden in [Azure-Snelstartsjablonen](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). De Resource Manager-sjabloon roept een Bacpac-pakket voor het implementeren van het tabelschema met SQL-database.  Het Bacpac-pakket bevindt zich in een openbare blobcontainer, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Als u een persoonlijke container gebruiken voor het Bacpac-bestanden wilt, gebruikt u de volgende waarden in de sjabloon:
+Deze sectie leest u hoe u een cluster, een SQL-Database en de SQL database-schema's voor het uitvoeren van de zelfstudie met behulp van de Azure-portal en een Azure Resource Manager-sjabloon maken. De sjabloon kunt u vinden in [Azure-Snelstartsjablonen](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). De Resource Manager-sjabloon wordt een bacpac-pakket voor het implementeren van de tabel schema's met SQL-database.  Het pakket bacpac bevindt zich in een openbare blob-container https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. Als u een privé-container gebruiken voor het bacpac-bestanden wilt, gebruikt u de volgende waarden in de sjabloon:
    
 ```json
 "storageKeyType": "Primary",
 "storageKey": "<TheAzureStorageAccountKey>",
 ```
 
-Als u liever Azure PowerShell gebruiken voor het maken van het cluster en de SQL-Database, Zie [bijlage A](#appendix-a---a-powershell-sample).
+Als u liever de Azure PowerShell gebruiken voor het maken van het cluster en de SQL-Database, Zie [bijlage A](#appendix-a---a-powershell-sample).
 
 > [!NOTE]
-> Importeren met behulp van een sjabloon of de Azure portal ondersteunt alleen een BACPAC-bestand te importeren uit Azure blob-opslag.
+> Importeren met behulp van een sjabloon of de Azure-portal biedt alleen ondersteuning voor een BACPAC-bestand importeren uit Azure blob-opslag.
 
-**De omgeving met een resource management-sjabloon configureren**
-1. Klik op de volgende afbeelding om te openen van een Resource Manager-sjabloon in de Azure portal.         
+**De omgeving met een resource Manager-sjabloon configureren**
+1. Klik op de volgende afbeelding om te openen van een Resource Manager-sjabloon in Azure portal.         
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-linux-with-sql-database%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-use-sqoop/deploy-to-azure.png" alt="Deploy to Azure"></a>
    
 2. Voer de volgende eigenschappen:
 
     - **Abonnement**: Voer uw Azure-abonnement.
-    - **Resourcegroep**: Maak een nieuwe Azure-resourcegroep of Selecteer een bestaande resourcegroep.  Een resourcegroep is voor management doel.  Er is een container voor objecten.
+    - **Resourcegroep**: Maak een nieuwe Azure-resourcegroep of Selecteer een bestaande resourcegroep.  Een resourcegroep is voor beheer van doel.  Er is een container voor objecten.
     - **Locatie**: Selecteer een regio.
     - **Clusternaam**: Voer een naam voor het Hadoop-cluster.
     - **Clusteraanmeldgegevens**: de standaardaanmeldnaam is admin.
     - **SSH-aanmeldgegevens**.
-    - **SQL server-aanmeldingsnaam en wachtwoord van de database**.
-    - **_artifacts locatie**: Gebruik de standaardwaarde, tenzij u het gebruik van uw eigen backpac-bestand in een andere locatie wilt wijzigen.
+    - **SQL database server-aanmeldingsnaam en dit wachtwoord**.
+    - **_artifacts locatie**: Gebruik de standaardwaarde, tenzij u uw eigen bestand backpac gebruiken in een andere locatie wilt maken.
     - **locatie Sas-Token _artifacts**: laat dit veld leeg.
-    - **De bestandsnaam Bacpac-**: Gebruik de standaardwaarde, tenzij u wilt gebruiken van uw eigen backpac-bestand.
+    - **Bacpac-bestandsnaam**: Gebruik de standaardwaarde, tenzij u wilt uw eigen backpac-bestand gebruiken.
      
-        De volgende waarden zijn vastgelegd in het gedeelte variabelen:
+        De volgende waarden zijn vastgelegd in de sectie met variabelen:
         
         |Naam|Waarde|
         |----|-----|
         | Standaardnaam van opslagaccount | &lt;CluterName > opslaan |
-        | Azure SQL database-servernaam | &lt;ClusterName > dbserver |
-        | Naam van een Azure SQL-database | &lt;ClusterName > db |
+        | Azure SQL database-servernaam | &lt;Clusternaam > dbserver |
+        | Naam van een Azure SQL-database | &lt;Clusternaam > db |
      
-3. Selecteer **ik ga akkoord met de voorwaarden en bepalingen bovengenoemde**.
+3. Selecteer **ik ga akkoord met de voorwaarden en bepalingen bovenstaande**.
 4. Klik op **Kopen**. U ziet een nieuwe tegel met de titel implementatie indienen voor sjabloonimplementatie. Het duurt ongeveer 20 minuten om het cluster en de SQL-database te maken.
 
-Als u ervoor kiest om bestaande Azure SQL database of Microsoft SQL Server te gebruiken
+Als u ervoor kiest om bestaande Azure SQL-database of Microsoft SQL Server te gebruiken
 
-* **Azure SQL-database**: U moet een firewallregel voor de Azure SQL database-server toegang toestaan via uw werkstation configureren. Zie voor instructies over het maken van een Azure SQL database en het configureren van de firewall [aan de slag met Azure SQL-database][sqldatabase-get-started]. 
+* **Azure SQL-database**: U moet een firewallregel voor de Azure SQL database-server zodat toegang vanaf uw werkstation configureren. Zie voor instructies over het maken van een Azure SQL database en het configureren van de firewall [aan de slag met Azure SQL-database][sqldatabase-get-started]. 
   
   > [!NOTE]
-  > Standaard kan een Azure SQL database verbindingen van Azure-services, zoals Azure HDInsight. Als deze firewallinstelling is uitgeschakeld, moet u het inschakelen van de Azure-portal. Zie voor instructies over het maken van een Azure SQL database en firewallregels configureren [maken en configureren van de SQL-Database][sqldatabase-create-configue].
+  > Een Azure SQL database staat standaard verbindingen van Azure-services, zoals Azure HDInsight. Als deze firewallinstelling is uitgeschakeld, moet u dit inschakelen via de Azure-portal. Zie voor instructies over het maken van een Azure SQL database en firewallregels configureren, [maken en SQL Database configureren][sqldatabase-create-configue].
   > 
   > 
-* **SQL Server**: als uw HDInsight-cluster zich op hetzelfde virtuele netwerk in Azure SQL-Server, kunt u de stappen in dit artikel gebruiken om te importeren en exporteren van gegevens naar een SQL Server-database.
+* **SQL Server**: als uw HDInsight-cluster zich op hetzelfde virtuele netwerk in Azure als SQL Server, kunt u de stappen in dit artikel gebruiken om te importeren en exporteren van gegevens naar een SQL Server-database.
   
   > [!NOTE]
-  > HDInsight ondersteunt alleen op basis van locatie virtuele netwerken en het werkt momenteel niet met virtuele netwerken op basis van een affiniteitsgroep.
+  > HDInsight ondersteunt alleen op basis van locatie van virtuele netwerken en het momenteel niet werkt met virtuele netwerken op basis van een affiniteitsgroep.
   > 
   > 
   
@@ -122,59 +117,59 @@ Als u ervoor kiest om bestaande Azure SQL database of Microsoft SQL Server te ge
     * Wanneer u SQL Server in uw datacenter gebruikt, moet u het virtuele netwerk als configureren *site-naar-site* of *punt-naar-site*.
       
       > [!NOTE]
-      > Voor **punt-naar-site** virtuele netwerken, SQL Server moeten worden uitgevoerd de VPN-client configuration toepassing, die beschikbaar via is de **Dashboard** van de configuratie van uw virtuele Azure-netwerk.
+      > Voor **punt-naar-site** virtuele netwerken, SQL Server moeten worden uitgevoerd de VPN-client configuratie van toepassing, die beschikbaar via is de **Dashboard** van de configuratie van uw Azure-netwerk.
       > 
       > 
-    * Wanneer u SQL Server op Azure een virtuele machine gebruikt, kan de configuratie van een virtueel netwerk worden gebruikt als de virtuele machine die als host fungeert voor SQL Server een lid van hetzelfde virtuele netwerk als HDInsight.
-  * Zie voor informatie over het maken van een HDInsight-cluster op een virtueel netwerk [maken Hadoop-clusters in HDInsight met aangepaste opties](../hdinsight-hadoop-provision-linux-clusters.md)
+    * Wanneer u SQL Server op een Azure-machine gebruikt, kan de configuratie van een virtueel netwerk worden gebruikt als de virtuele machine die als host fungeert voor SQL Server lid van hetzelfde virtuele netwerk als HDInsight is.
+  * Zie voor informatie over het maken van een HDInsight-cluster in een virtueel netwerk [Hadoop-clusters maken in HDInsight met aangepaste opties](../hdinsight-hadoop-provision-linux-clusters.md)
     
     > [!NOTE]
-    > SQL Server moet ook authenticatie toestaan. Een SQL Server-aanmelding moet u de stappen in dit artikel.
+    > SQL Server moet ook verificatie toestaan. Een SQL Server-aanmelding moet u de stappen in dit artikel.
     > 
     > 
 
 **Om de configuratie te valideren**
 
-1. Open de resourcegroep in de Azure portal. U ziet vier bronnen in de groep:
+1. Open de resourcegroep in Azure portal. Worden er vier bronnen in de groep:
 
     - het cluster
     - de database-server
     - de database
     - het standaardopslagaccount
 
-2. De database opent in Microsoft SQL Server Management Studio.  U ziet twee databases geïmplementeerd:
+2. De database openen in Microsoft SQL Server Management Studio.  U ziet twee databases die zijn geïmplementeerd:
 
     ![Azure HDInsight Sqoop SQL Management Studio](./media/hdinsight-use-sqoop/hdinsight-sqoop-sql-management-studio.png)
 
 
 ## <a name="run-sqoop-jobs"></a>Sqoop taken uitvoeren
-HDInsight kunt Sqoop taken uitvoeren met behulp van een aantal methoden. Gebruik de volgende tabel om te bepalen welke methode is geschikt voor u en volg de koppeling voor een overzicht.
+HDInsight uitvoeren Sqoop taken met behulp van een aantal methoden. Gebruik de volgende tabel om te bepalen welke methode is geschikt voor u, en vervolgens de koppeling voor een overzicht.
 
 | **Gebruik deze** als u wilt dat... | ...an **interactieve** shell | ...**batch** verwerken | ...door dit **cluster-besturingssysteem** | ...from dit **clientbesturingssysteem** |
 |:--- |:---:|:---:|:--- |:--- |
-| [SSH](apache-hadoop-use-sqoop-mac-linux.md) |✔ |✔ |Linux |Linux, Unix, Mac OS X of Windows |
-| [.NET-SDK voor Hadoop](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |✔ |Linux- of Windows |Windows (voor nu) |
-| [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |✔ |Linux- of Windows |Windows |
+| [SSH](apache-hadoop-use-sqoop-mac-linux.md) |? |? |Linux |Linux, Unix, Mac OS X of Windows |
+| [.NET-SDK voor Hadoop](apache-hadoop-use-sqoop-dotnet-sdk.md) |&nbsp; |? |Linux of Windows |Windows (voorlopig) |
+| [Azure PowerShell](apache-hadoop-use-sqoop-powershell.md) |&nbsp; |? |Linux of Windows |Windows |
 
 ## <a name="limitations"></a>Beperkingen
-* Bulksgewijs export - met Linux gebaseerde HDInsight, de Sqoop-connector gebruikt voor het exporteren van gegevens naar Microsoft SQL Server of Azure SQL Database biedt momenteel geen ondersteuning voor bulksgewijs invoegen.
-* Batchverwerking - met HDInsight op basis van Linux, wanneer u de `-batch` bij het uitvoeren van invoeg-switch, Sqoop meerdere invoegen in plaats van de bewerkingen insert batchverwerking wordt uitgevoerd.
+* Bulksgewijs exporteren - met Linux gebaseerde HDInsight, de Sqoop-connector die wordt gebruikt voor het exporteren van gegevens naar Microsoft SQL Server of Azure SQL Database biedt momenteel geen ondersteuning voor bulksgewijs invoegen.
+* Batchverwerking - met HDInsight op basis van Linux bij het gebruik van de `-batch` overschakelen tijdens het uitvoeren van ingevoegd, Sqoop meerdere invoegingen in plaats van de bewerkingen insert batchverwerking wordt uitgevoerd.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu hebt u geleerd hoe Sqoop gebruiken. Voor meer informatie zie:
+U hebt nu geleerd hoe u Sqoop gebruiken. Voor meer informatie zie:
 
 * [Hive gebruiken met HDInsight](../hdinsight-use-hive.md)
 * [Pig gebruiken met HDInsight](../hdinsight-use-pig.md)
 * [Gegevens uploaden naar HDInsight][hdinsight-upload-data]: vinden van andere methoden voor het uploaden van gegevens naar HDInsight/Azure Blob-opslag.
 
 ## <a name="appendix-a---a-powershell-sample"></a>Bijlage A - een PowerShell-voorbeeld
-De PowerShell-voorbeeld voert de volgende stappen uit:
+Het PowerShell-voorbeeld voert de volgende stappen uit:
 
 1. Verbinding maken met Azure.
-2. Maak een Azure-resourcegroep. Zie voor meer informatie [Azure PowerShell gebruiken met Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md)
-3. Een Azure SQL Database-server, een Azure SQL database en twee tabellen maken. 
+2. Maak een Azure-resourcegroep. Zie voor meer informatie, [met behulp van Azure PowerShell met Azure Resource Manager](../../azure-resource-manager/powershell-azure-resource-manager.md)
+3. Azure SQL Database-server, een Azure SQL database en twee tabellen maken. 
    
-    Als u SQL Server in plaats daarvan gebruikt, gebruikt u de volgende instructies om de tabellen te maken:
+    Als u SQL Server in plaats daarvan gebruiken, gebruikt u de volgende instructies om de tabellen te maken:
    
         CREATE TABLE [dbo].[log4jlogs](
          [t1] [nvarchar](50),
@@ -198,38 +193,38 @@ De PowerShell-voorbeeld voert de volgende stappen uit:
          [sessionid] [bigint],
          [sessionpagevieworder][bigint])
    
-    De eenvoudigste manier om te onderzoeken van de database en tabellen is Visual Studio gebruiken. De databaseserver en de database kunnen worden gecontroleerd met de Azure-portal.
-4. Maak een HDInsight-cluster.
+    De eenvoudigste manier om te controleren van de database en tabellen is het gebruik van Visual Studio. De database-server en de database kunnen worden onderzocht met behulp van de Azure portal.
+4. Een HDInsight-cluster maken.
    
-    Als u wilt onderzoeken van het cluster, kunt u de Azure portal of Azure PowerShell.
-5. Het bronbestand van de gegevens vooraf verwerken.
+    U kunt de Azure portal of Azure PowerShell gebruiken voor het onderzoeken van het cluster.
+5. Vooraf verwerken van het bronbestand van de gegevens.
    
-    In deze zelfstudie maakt u een een logboekbestand log4j (een bestand met scheidingstekens) en een Hive-tabel exporteren naar een Azure SQL database. Het bestand met scheidingstekens heet */example/data/sample.log*. Eerder in de zelfstudie hebt u enkele voorbeelden van log4j logboeken gezien. In het logboekbestand zijn er enkele lege regels en sommige regels zoals de volgende:
+    In deze zelfstudie maakt u een een log4j-logboekbestand (een bestand met scheidingstekens) en een Hive-tabel exporteren naar een Azure SQL database. Het bestand met scheidingstekens heet */example/data/sample.log*. Eerder in de zelfstudie hebt u enkele voorbeelden van Logboeken log4j gezien. In het logboekbestand zijn er enkele lege regels en regels die vergelijkbaar is met deze:
    
         java.lang.Exception: 2012-02-03 20:11:35 SampleClass2 [FATAL] unrecoverable system problem at id 609774657
             at com.osa.mocklogger.MockLogger$2.run(MockLogger.java:83)
    
-    Dit is andere voorbeelden die deze gegevens gebruiken, maar deze uitzonderingen moet worden verwijderd voordat we in de Azure SQL-database of SQL Server kunt importeren. Sqoop exporteren niet worden uitgevoerd als er een lege tekenreeks of een regel met een minder element dan het aantal velden die zijn gedefinieerd in de Azure SQL database-tabel. De tabel log4jlogs heeft zeven type string-velden.
+    Dit is prima voor andere voorbeelden die gebruikmaken van deze gegevens, maar we moeten deze uitzonderingen verwijderen voordat we in de Azure SQL-database of SQL Server kunt importeren. Sqoop exporteren mislukt als er een lege tekenreeks of een regel met een kleiner element dan het aantal velden die zijn gedefinieerd in de Azure SQL database-tabel. De tabel log4jlogs heeft zeven tekenreekstype velden.
    
-    Deze procedure maakt u een nieuw bestand op het cluster: tutorials/usesqoop/data/sample.log. Als u wilt onderzoeken het gewijzigde bestand, kunt u de Azure-portal, een hulpprogramma voor Azure Storage explorer of Azure PowerShell. [Aan de slag met HDInsight] [ hdinsight-get-started] is een voorbeeld van code voor het gebruik van Azure PowerShell te downloaden van een bestand en inhoud van het bestand weer te geven.
-6. Een gegevensbestand exporteren naar de Azure SQL database.
+    Deze procedure maakt u een nieuw bestand op het cluster: tutorials/usesqoop/data/sample.log. U kunt de Azure-portal, een hulpprogramma voor Azure Storage explorer of Azure PowerShell gebruiken voor het onderzoeken van het gewijzigde bestand. [Aan de slag met HDInsight] [ hdinsight-get-started] heeft een codevoorbeeld voor het gebruik van Azure PowerShell een bestand downloaden en weergeven van inhoud van het bestand.
+6. Een gegevensbestand exporteren naar de Azure SQL-database.
    
     Het bronbestand is tutorials/usesqoop/data/sample.log. De tabel waar de gegevens worden geëxporteerd naar heet log4jlogs.
    
    > [!NOTE]
-   > Anders dan de verbindingsinformatie werken de stappen in deze sectie moeten voor een Azure SQL database of SQL Server. Deze stappen zijn getest met behulp van de volgende configuratie:
+   > Dan verbindingsreeksgegevens, moeten de stappen in deze sectie voor een Azure SQL database of SQL Server werken. Deze stappen zijn getest met behulp van de volgende configuratie:
    > 
-   > * **Punt-naar-site-configuratie voor virtuele Azure-netwerk**: een virtueel netwerk het HDInsight-cluster verbonden met een SQL-Server in een particulier datacenter. Zie [een punt-naar-Site-VPN configureren in de beheerportal](../../vpn-gateway/vpn-gateway-point-to-site-create.md) voor meer informatie.
-   > * **Azure HDInsight**: Zie [maken Hadoop-clusters in HDInsight met aangepaste opties](../hdinsight-hadoop-provision-linux-clusters.md) voor informatie over het maken van een cluster in een virtueel netwerk.
-   > * **SQL Server 2014**: is geconfigureerd voor verificatie en de VPN-client uitgevoerd configuratiepakket naar een veilige verbinding met het virtuele netwerk toestaan.
+   > * **Punt-naar-site-configuratie van virtuele Azure-netwerk**: een virtueel netwerk verbonden het HDInsight-cluster met een SQL-Server in een particulier datacenter. Zie [een punt-naar-Site-VPN configureren in de beheerportal](../../vpn-gateway/vpn-gateway-point-to-site-create.md) voor meer informatie.
+   > * **Azure HDInsight**: Zie [Hadoop-clusters maken in HDInsight met aangepaste opties](../hdinsight-hadoop-provision-linux-clusters.md) voor informatie over het maken van een cluster in een virtueel netwerk.
+   > * **SQL Server 2014**: is geconfigureerd voor verificatie en het uitvoeren van de VPN-client het configuratiepakket voor veilig verbinding maken met het virtuele netwerk toestaan.
    > 
    > 
-7. Een Hive-tabel exporteren naar de Azure SQL database.
+7. Een Hive-tabel exporteren naar de Azure SQL-database.
 8. De tabel mobiledata importeren naar het HDInsight-cluster.
    
-    Als u wilt onderzoeken het gewijzigde bestand, kunt u de Azure-portal, een hulpprogramma voor Azure Storage explorer of Azure PowerShell.  [Aan de slag met HDInsight] [ hdinsight-get-started] is een voorbeeld van code over het gebruik van Azure PowerShell te downloaden van een bestand en inhoud van het bestand weer te geven.
+    U kunt de Azure-portal, een hulpprogramma voor Azure Storage explorer of Azure PowerShell gebruiken voor het onderzoeken van het gewijzigde bestand.  [Aan de slag met HDInsight] [ hdinsight-get-started] is een voorbeeld van code over het gebruik van Azure PowerShell een bestand downloaden en weergeven van inhoud van het bestand.
 
-### <a name="the-powershell-sample"></a>De PowerShell-voorbeeld
+### <a name="the-powershell-sample"></a>Het PowerShell-voorbeeld
 
 ```powershell
 # Prepare an Azure SQL database to be used by the Sqoop tutorial

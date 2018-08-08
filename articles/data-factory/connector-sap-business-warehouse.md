@@ -1,6 +1,6 @@
 ---
 title: Gegevens kopiëren van SAP BW met behulp van Azure Data Factory | Microsoft Docs
-description: Ontdek hoe u gegevens kopiëren van een SAP Business Warehouse naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
+description: Leer hoe u gegevens kopiëren van SAP Business Warehouse naar ondersteunde sink-gegevensopslag met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -11,47 +11,49 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2018
+ms.date: 08/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 9934e9757b5def444afb39d110e490aa6516521f
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 52bbf93d73af281f3959e056a4d5b959e7286cb5
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045072"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590327"
 ---
-# <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Gegevens kopiëren van een SAP Business Warehouse met behulp van Azure Data Factory
+# <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Gegevens kopiëren van SAP Business Warehouse met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versie 1](v1/data-factory-sap-business-warehouse-connector.md)
+> * [Versie 1:](v1/data-factory-sap-business-warehouse-connector.md)
 > * [Huidige versie](connector-sap-business-warehouse.md)
 
-In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren uit een SAP Business Warehouse (BW). Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
+In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren uit een SAP Business Warehouse (BW). Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens uit een SAP Business Warehouse kopiëren naar een ondersteunde sink-gegevensarchief. Zie voor een lijst van opgeslagen gegevens die worden ondersteund als bronnen/put door met de kopieerbewerking de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+U kunt gegevens van SAP Business Warehouse kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen/put door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
-In het bijzonder ondersteunt deze SAP Business Warehouse-connector:
+Om precies ondersteunt deze SAP Business Warehouse-connector:
 
 - SAP Business Warehouse **versie 7.x**.
-- Kopiëren van gegevens van **InfoCubes en QueryCubes** (inclusief BEx query's) met MDX-query's.
+- Kopiëren van gegevens uit **InfoCubes en QueryCubes** (met inbegrip van BEx query's) met MDX-query's.
 - Kopiëren van gegevens met behulp van basisverificatie.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het gebruik van deze SAP Business Warehouse-connector, moet u:
+Voor het gebruik van deze connector SAP Business Warehouse, moet u naar:
 
-- Stel een Self-hosted integratie-Runtime. Zie [Self-hosted integratie Runtime](create-self-hosted-integration-runtime.md) artikel voor meer informatie.
-- Installeer de **SAP NetWeaver bibliotheek** op de machine integratie Runtime. U kunt de bibliotheek SAP Netweaver ophalen uit de SAP-beheerder of rechtstreeks uit de [SAP Software Download Center](https://support.sap.com/swdc). Zoeken naar de **SAP-notitie #1025361** ophalen van de downloadlocatie voor de meest recente versie. Zorg ervoor dat u kiest de **64-bits** SAP NetWeaver library, die overeenkomt met de integratie Runtime-installatie. Installeer vervolgens alle bestanden die zijn opgenomen in de SDK SAP NetWeaver RFC volgens de SAP-notitie. De bibliotheek SAP NetWeaver is ook opgenomen in de clienthulpprogramma's voor SAP-installatie.
+- Instellen van een zelfgehoste Cloudintegratieruntime. Zie [zelfgehoste Cloudintegratieruntime](create-self-hosted-integration-runtime.md) artikel voor meer informatie.
+- Installeer de **SAP NetWeaver-bibliotheek** op de machine Integration Runtime. U kunt de SAP Netweaver-bibliotheek ophalen van uw SAP-beheerder, of rechtstreeks vanuit de [SAP Software Download Center](https://support.sap.com/swdc). Zoek de **SAP Opmerking #1025361** om op te halen van de downloadlocatie voor de meest recente versie. Zorg ervoor dat u kiest de **64-bits** SAP NetWeaver-bibliotheek die overeenkomt met de installatie van Integration Runtime. Installeer vervolgens alle bestanden die zijn opgenomen in de SAP NetWeaver RFC-SDK op basis van de SAP-notitie. De SAP NetWeaver-bibliotheek is ook opgenomen in de installatie van de SAP-clienthulpprogramma's.
 
-> [!TIP]
-> De DLL's van de NetWeaver RFC-SDK hebt uitgepakt in de map system32 plaatsen.
+>[!TIP]
+>Voor het oplossen van verbindingsproblemen naar SAP BW, zorg ervoor dat:
+>- Alle afhankelijkheid bibliotheken van de NetWeaver RFC-SDK hebt uitgepakt zijn aanwezig in de map %windir%\system32. Dit heeft meestal icudt34.dll, icuin34.dll, icuuc34.dll, libicudecnumber.dll, librfc32.dll, libsapucum.dll, sapcrypto.dll, sapcryto_old.dll, sapnwrfc.dll.
+>- De vereiste poorten gebruikt voor verbinding met SAP-Server zijn ingeschakeld op de machine zelfgehoste IR, die meestal poort 3300 en 3201 zijn.
 
 ## <a name="getting-started"></a>Aan de slag
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke met SAP Business Warehouse-connector.
+De volgende secties bevatten meer informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke met SAP Business Warehouse-connector.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
@@ -60,12 +62,12 @@ De volgende eigenschappen worden ondersteund voor SAP Business Warehouse (BW) ge
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **SapBw** | Ja |
-| server | Naam van de server waarop het exemplaar SAP BW zich bevindt. | Ja |
-| systemNumber | Systeemnummer van het SAP BW-systeem.<br/>Toegestane waarde: decimaal getal zijn twee cijfers weergegeven als een tekenreeks. | Ja |
-| clientId | Client-ID van de client in het systeem SAP-W.<br/>Toegestane waarde: decimaal nummer met drie cijfers weergegeven als een tekenreeks. | Ja |
+| server | Naam van de server waarop de SAP BW-instantie zich bevindt. | Ja |
+| systemNumber | Het systeemnummer van de SAP BW-systeem.<br/>Toegestane waarde: decimaal getal van twee cijfers weergegeven als een tekenreeks. | Ja |
+| ClientId | Client-ID van de client in het W SAP-systeem.<br/>Toegestane waarde: decimaal getal van drie cijfers wordt weergegeven als een tekenreeks. | Ja |
 | Gebruikersnaam | De naam van de gebruiker die toegang tot de SAP-server heeft. | Ja |
-| wachtwoord | Wachtwoord voor de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| connectVia | De [integratie Runtime](concepts-integration-runtime.md) moeten worden gebruikt voor het verbinding maken met het gegevensarchief. Een Runtime Self-hosted-integratie is vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
+| wachtwoord | Wachtwoord voor de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. Er is een zelfgehoste Cloudintegratieruntime vereist zoals vermeld in [vereisten](#prerequisites). |Ja |
 
 **Voorbeeld:**
 
@@ -94,9 +96,9 @@ De volgende eigenschappen worden ondersteund voor SAP Business Warehouse (BW) ge
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
-Zie het artikel gegevenssets voor een volledige lijst van de secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door SAP BW-gegevensset.
+Zie het artikel gegevenssets voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door SAP BW-gegevensset.
 
-Om gegevens te kopiëren uit SAP BW, stel de eigenschap type van de gegevensset **RelationalTable**. Typ RelationalTable terwijl er geen type-specifieke eigenschappen voor de gegevensset SAP BW van ondersteund zijn.
+Als u wilt kopiëren van gegevens van SAP BW, stel de eigenschap type van de gegevensset in **RelationalTable**. Typ RelationalTable terwijl er geen specifieke eigenschappen die worden ondersteund voor de SAP BW-gegevensset van zijn.
 
 **Voorbeeld:**
 
@@ -116,16 +118,16 @@ Om gegevens te kopiëren uit SAP BW, stel de eigenschap type van de gegevensset 
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
-Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die ondersteund worden door SAP BW-bron.
+Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door SAP BW-bron.
 
 ### <a name="sap-bw-as-source"></a>SAP BW als bron
 
-Om gegevens te kopiëren uit SAP BW, stelt u het brontype in de kopieerbewerking naar **RelationalSource**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **bron** sectie:
+Om gegevens te kopiëren van SAP BW, stelt u het brontype in de kopieeractiviteit naar **RelationalSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op: **RelationalSource** | Ja |
-| query | Hiermee geeft u de MDX-query om te lezen van gegevens uit de SAP BW-exemplaar. | Ja |
+| query | Hiermee geeft u de MDX-query voor het lezen van gegevens van de SAP BW-exemplaar. | Ja |
 
 **Voorbeeld:**
 
@@ -161,33 +163,33 @@ Om gegevens te kopiëren uit SAP BW, stelt u het brontype in de kopieerbewerking
 
 ## <a name="data-type-mapping-for-sap-bw"></a>De gegevenstypetoewijzing voor SAP BW
 
-Bij het kopiëren van gegevens uit SAP BW, worden de volgende toewijzingen van gegevenstypen voor SAP BW gebruikt voor Azure Data Factory tussentijdse gegevenstypen. Zie [Schema en de gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md) voor meer informatie over hoe het brontype schema en de gegevens in kopieeractiviteit worden toegewezen aan de sink.
+Het kopiëren van gegevens van SAP BW, worden de volgende toewijzingen van SAP BW-gegevenstypen gebruikt om Azure Data Factory tussentijdse gegevenstypen. Zie [Schema en gegevens typt toewijzingen](copy-activity-schema-and-type-mapping.md) voor meer informatie over hoe copy activity in het schema en de gegevens van een brontype aan de sink toegewezen.
 
-| Gegevenstype voor SAP BW | Data factory tussentijdse gegevenstype |
+| SAP BW-gegevenstype | Data factory tussentijdse gegevenstype |
 |:--- |:--- |
-| ACCP | Int |
+| ACCP | int |
 | CHAR | Reeks |
 | CLNT | Reeks |
-| VAL | decimale |
+| VAL | decimaal |
 | CUKY | Reeks |
-| DECEMBER | decimale |
-| FLTP | Double |
+| DECEMBER | decimaal |
+| FLTP | Double-waarde |
 | INT1 | Byte |
 | INT2 | Int16 |
-| INT4 | Int |
+| INT4 | int |
 | LANG | Reeks |
 | LCHR | Reeks |
 | LRAW | Byte[] |
 | PREC | Int16 |
-| QUAN | decimale |
+| QUAN | decimaal |
 | ONBEWERKTE | Byte[] |
 | RAWSTRING | Byte[] |
 | TEKENREEKS | Reeks |
 | EENHEID | Reeks |
 | DATS | Reeks |
 | NUMC | Reeks |
-| TIM 'S | Reeks |
+| TIM | Reeks |
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor een lijst met gegevensarchieven als bronnen en put wordt ondersteund door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
+Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen en sinks door de kopieeractiviteit in Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).

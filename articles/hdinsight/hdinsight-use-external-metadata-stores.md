@@ -1,70 +1,65 @@
 ---
-title: Externe metagegevens archieven - Azure HDInsight | Microsoft Docs
-description: Externe metagegevens worden gebruikt met HDInsight-clusters.
+title: Externe metagegevensopslag - Azure HDInsight gebruiken
+description: Externe metagegevensopslag gebruiken met HDInsight-clusters.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-tags: azure-portal
-editor: cgronlun
-ms.assetid: ''
+author: jasonwhowell
+editor: jasonwhowell
+ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 2eadee1a8695450e2219031ea1a65ee3624f26b5
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: fb1401578237a92a6f164ec98e8dbcdbbb88be38
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202557"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595395"
 ---
-# <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Externe metagegevens winkels in Azure HDInsight gebruiken
+# <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Externe metagegevensopslag in Azure HDInsight gebruiken
 
-Het Hive-metastore in HDInsight is een essentieel onderdeel van Hadoop-architectuur. Een metastore is de centrale schema-opslagplaats die kan worden gebruikt door andere big data access-hulpprogramma's zoals Spark, interactieve Query (LLAP), functie of Pig. HDInsight maakt gebruik van een Azure SQL Database als de Hive-metastore.
+Het Hive-metastore in HDInsight is een essentieel onderdeel van Hadoop-architectuur. Een metastore is de centrale schema-opslagplaats die kan worden gebruikt door andere big data access-hulpprogramma's zoals Spark, interactieve Query (LLAP), Presto of Pig. HDInsight maakt gebruik van een Azure SQL Database als de Hive-metastore.
 
-![Architectuur van de HDInsight Hive-metagegevens Store](./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png)
+![HDInsight Hive-metagegevens Store-architectuur](./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png)
 
 Er zijn twee manieren waarop die u een metastore voor uw HDInsight-clusters instellen kunt:
 
-* [Standaard-metastore](#default-metastore)
+* [Standaardmetastore](#default-metastore)
 * [Aangepaste metastore](#custom-metastore)
 
-## <a name="default-metastore"></a>Standaard-metastore
+## <a name="default-metastore"></a>Standaardmetastore
 
-Standaard levert HDInsight een metastore met elk clustertype. U kunt in plaats daarvan een aangepaste metastore opgeven. De standaard-metastore omvat de volgende overwegingen:
-- Kan zonder extra kosten. HDInsight levert een metastore met elk clustertype zonder extra kosten voor u.
-- Elke standaard metastore maakt deel uit van de levensduur van het cluster. Als u verwijdert een cluster dat metastore en metagegevens worden ook verwijderd.
-- U kunt de standaard-metastore niet delen met andere clusters.
-- De standaard-metastore maakt gebruik van de basis Azure SQL DB, die maximaal 5 DTU (database transaction unit) heeft.
-Deze standaard metastore wordt doorgaans gebruikt voor relatief eenvoudige werkbelastingen die meerdere clusters niet nodig en hoeft de metagegevens behouden levenscyclus van het cluster.
+Standaard bepalingen HDInsight een metastore met elk clustertype. U kunt in plaats daarvan een aangepaste metastore opgeven. De standaardmetastore bevat de volgende overwegingen:
+- Er zijn geen extra kosten. HDInsight richt een metastore met elk clustertype zonder extra kosten aan u.
+- Elke standaardmetastore maakt deel uit van de levenscyclus van de cluster. Wanneer u verwijdert een cluster dat metastore en metagegevens worden ook verwijderd.
+- U kunt de standaardmetastore niet delen met andere clusters.
+- De standaardmetastore maakt gebruik van de basic Azure SQL DB, met maximaal 5 DTU (database transaction units).
+Deze standaardmetastore wordt doorgaans gebruikt voor relatief eenvoudige workloads die meerdere clusters vereisen en geen metagegevens behouden levenscyclus van het cluster.
 
 
 ## <a name="custom-metastore"></a>Aangepaste metastore
 
-HDInsight biedt ook ondersteuning voor aangepaste metastores wordt aanbevolen voor productieclusters:
-- U kunt uw eigen Azure SQL Database opgeven als de metastore.
-- De levenscyclus van de metastore is niet gekoppeld aan een levenscyclus clusters, zodat u kunt maken en verwijderen van clusters zonder verlies van metagegevens. Zelfs na het verwijderen en opnieuw maken van het HDInsight-cluster bewaard metagegevens zoals uw Hive-schema.
-- Een aangepaste metastore kunt u meerdere clusters en clustertypen koppelen aan die metastore. Een enkele metastore kan bijvoorbeeld worden gedeeld door interactieve Query, Hive en Spark-clusters in HDInsight.
-- U betaalt voor de kosten van een metastore (Azure SQL DB) volgens het prestatieniveau dat u kiest.
+HDInsight biedt ook ondersteuning voor aangepaste metastores, die worden aanbevolen voor productieclusters:
+- U kunt uw eigen Azure SQL-Database opgeven als de metastore.
+- De levenscyclus van de metastore is niet gekoppeld aan een levenscyclus van clusters, zodat u kunt maken en -clusters zonder verlies van metagegevens verwijderen. Metagegevens, zoals uw Hive-schema's blijven behouden ook nadat u verwijdert en opnieuw maken van het HDInsight-cluster.
+- Een aangepaste metastore kunt u meerdere clusters en clustertypen die metastore koppelen. Een enkele metastore kan bijvoorbeeld worden gedeeld met Interactive Query Hive en Spark-clusters in HDInsight.
+- U betaalt voor de kosten van een metastore (Azure SQL database) op basis van het prestatieniveau dat u kiest.
 - U kunt de metastore opschalen naar behoefte.
 
 
-![HDInsight Hive-metagegevens Store gebruiksvoorbeeld](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
+![HDInsight Hive-metagegevens Store Use Case](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
 
 <!-- Image – Typical shared custom Metastore scenario in HDInsight (?) -->
 
 
 
-### <a name="select-a-custom-metastore-during-cluster-creation"></a>Selecteer een aangepaste metastore tijdens het maken van het cluster
+### <a name="select-a-custom-metastore-during-cluster-creation"></a>Een aangepaste metastore selecteren tijdens het maken van clusters
 
-U kunt uw cluster verwijzen naar een eerder gemaakte Azure SQL Database tijdens het maken van het cluster of u kunt de SQL-Database configureren nadat het cluster is gemaakt. Deze optie wordt opgegeven met de opslag > Metastore instellingen tijdens het maken van een nieuwe Hadoop, Spark of interactieve Hive-cluster van Azure-portal.
+U kunt uw cluster verwijzen naar een eerder gemaakte Azure SQL Database tijdens het maken of kunt u de SQL-Database configureren nadat het cluster is gemaakt. Deze optie is opgegeven met de Storage-> Metastore-instellingen tijdens het maken van een nieuwe Hadoop, Spark of interactieve Hive-cluster van Azure portal.
 
-![HDInsight Hive-metagegevens Store Azure-portal](./media/hdinsight-use-external-metadata-stores/metadata-store-azure-portal.png)
+![HDInsight Hive-metagegevens Store Azure portal](./media/hdinsight-use-external-metadata-stores/metadata-store-azure-portal.png)
 
-U kunt ook extra clusters toevoegen aan een aangepaste metastore van Azure-portal of van de Ambari-configuraties (Hive > Geavanceerd)
+U kunt ook extra clusters toevoegen aan een aangepaste metastore van Azure portal of van de Ambari-configuraties (Hive-> Geavanceerd)
 
 ![HDInsight Hive-metagegevens Store Ambari](./media/hdinsight-use-external-metadata-stores/metadata-store-ambari.png)
 
@@ -72,19 +67,19 @@ U kunt ook extra clusters toevoegen aan een aangepaste metastore van Azure-porta
 
 Hier volgen enkele algemene HDInsight Hive-metastore aanbevolen procedures:
 
-- Gebruik een aangepaste metastore waar mogelijk, zoals dit helpt afzonderlijke rekenresources (actief cluster) en metagegevens (opgeslagen in de metastore).
-- Beginnen met een laag S2, waardoor 50 DTU en 250 GB aan opslagruimte. Als er een knelpunt is, kunt u de database opschalen.
-- Zorg ervoor dat de metastore gemaakt voor een HDInsight-cluster versie wordt niet gedeeld in verschillende versies van HDInsight-cluster. Verschillende versies van Hive gebruiken verschillende schema's. U kunt een metastore niet delen met zowel 1.2 Hive en 2.1 Hive-clusters.
-- Back-up van uw aangepaste metastore regelmatig.
+- Gebruik een aangepaste metastore indien mogelijk, zoals deze worden gebruikt bij afzonderlijke rekenresources (uw actief cluster) en metagegevens (opgeslagen in de metastore).
+- Beginnen met een S2-laag, die 50 dtu's en 250 GB aan opslagruimte. Als u een knelpunt ziet, kunt u de database omhoog schalen.
+- Zorg ervoor dat de metastore gemaakt voor een HDInsight-clusterversie is niet worden gedeeld tussen verschillende versies van HDInsight-cluster. Verschillende versies van Hive gebruiken verschillende schema's. U kunt een metastore bijvoorbeeld niet delen met zowel Hive 1.2 en 2.1 Hive-clusters.
+- Back-up van uw aangepaste metastore periodiek.
 - Houd uw metastore en HDInsight-cluster in dezelfde regio.
-- Controleer uw metastore voor prestaties en beschikbaarheid met behulp van Azure SQL Database controlehulpprogramma's, zoals de Azure portal of Azure-logboekanalyse.
+- Controleer uw metastore voor prestaties en beschikbaarheid met behulp van Azure SQL Database controleren hulpmiddelen, zoals de Azure portal of Azure Log Analytics.
 
 ## <a name="oozie-metastore"></a>Oozie-Metastore
 
-Apache Oozie is een coördinatiesysteem voor werkstromen waarmee Hadoop-taken worden beheerd.  Oozie ondersteunt Hadoop-taken voor Apache MapReduce, Pig, Hive en anderen.  Een metastore Oozie gebruikt voor het opslaan van gegevens over de huidige en voltooide workflows. U kunt Azure SQL Database om de prestaties bij gebruik van Oozie te gebruiken als een aangepaste metastore. De metastore biedt ook toegang tot de taakgegevens Oozie nadat u uw cluster hebt verwijderd.
+Apache Oozie is een coördinatiesysteem voor werkstromen waarmee Hadoop-taken worden beheerd.  Oozie biedt ondersteuning voor Hadoop-taken voor Apache MapReduce, Pig, Hive en anderen.  Oozie maakt gebruik van een metastore voor het opslaan van informatie over de huidige en voltooide werkstromen. Voor betere prestaties bij het gebruik van Oozie, kunt u Azure SQL Database als een aangepaste metastore. De metastore biedt ook toegang tot taakgegevens Oozie nadat u uw cluster hebt verwijderd.
 
-Zie voor instructies over het maken van een Oozie-metastore met Azure SQL Database [gebruik Oozie voor werkstromen](hdinsight-use-oozie-linux-mac.md).
+Zie voor instructies over het maken van een Oozie-metastore met Azure SQL Database [Oozie gebruiken voor werkstromen](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Clusters in HDInsight met Hadoop, Spark en Kafka instellen](./hdinsight-hadoop-provision-linux-clusters.md)
+- [Clusters instellen in HDInsight met Hadoop, Spark, Kafka en meer](./hdinsight-hadoop-provision-linux-clusters.md)

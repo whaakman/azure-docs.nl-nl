@@ -1,34 +1,29 @@
 ---
-title: Hadoop Pig gebruiken met PowerShell in HDInsight - Azure | Microsoft Docs
-description: Informatie over het verzenden van Pig-taken naar een Hadoop-cluster in HDInsight met Azure PowerShell.
+title: Hadoop-Pig gebruiken met PowerShell in HDInsight - Azure
+description: Informatie over het verzenden van Pig-taken naar een Hadoop-cluster in HDInsight met behulp van Azure PowerShell.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 737089c1-b494-4387-9def-7b4dac3be532
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: larryfr
+ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: a3e62647ec41cfdfc7f0f7bb55474215ab435ee8
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: d8a729177328b2f6f4e7e75f133b91ddb4db5a61
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33939437"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597589"
 ---
-# <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Gebruik Azure PowerShell Pig-taken uitvoeren met HDInsight
+# <a name="use-azure-powershell-to-run-pig-jobs-with-hdinsight"></a>Azure PowerShell gebruiken voor het uitvoeren van Pig-taken met HDInsight
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Dit document bevat een voorbeeld van het gebruik van Azure PowerShell voor het verzenden van Pig-taken naar een Hadoop op HDInsight-cluster. Pig kunt u MapReduce-taken schrijven met behulp van een andere taal (Pig Latin) die gegevenstransformaties modellen in plaats van toewijzen en functies te beperken.
+Dit document bevat een voorbeeld van het gebruik van Azure PowerShell voor het verzenden van Pig-taken met een Hadoop op HDInsight-cluster. Pig kunt u schrijven die gegevenstransformaties modellen MapReduce-taken met behulp van een taal (Pig Latin) in plaats van toewijzen en functies te beperken.
 
 > [!NOTE]
-> Dit document biedt geen een gedetailleerde beschrijving van wat de Pig Latin-instructies gebruikt in de voorbeelden doen. Zie voor meer informatie over de Pig Latin in dit voorbeeld gebruikt [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md).
+> Dit document biedt geen een gedetailleerde beschrijving van wat de Pig Latin-instructies gebruikt in de voorbeelden doen. Zie voor meer informatie over de Pig Latin gebruikt in dit voorbeeld [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md).
 
 ## <a id="prereq"></a>Vereisten
 
@@ -39,31 +34,31 @@ Dit document bevat een voorbeeld van het gebruik van Azure PowerShell voor het v
 
 * **Een werkstation met Azure PowerShell**.
 
-## <a id="powershell"></a>Pig-taak uitgevoerd
+## <a id="powershell"></a>Een Pig-taak uitvoeren
 
-Azure PowerShell biedt *cmdlets* waarmee u kunt op afstand Pig-taken uitvoeren op HDInsight. PowerShell gebruikt intern, REST-aanroepen naar [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) uitgevoerd op het HDInsight-cluster.
+Azure PowerShell biedt *cmdlets* waarmee u op afstand Pig-taken uitvoeren op HDInsight. Intern, PowerShell maakt gebruik van REST-aanroepen naar [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat) uitgevoerd op het HDInsight-cluster.
 
-De volgende cmdlets worden gebruikt bij het uitvoeren van Pig-taken op een externe HDInsight-cluster:
+De volgende cmdlets worden gebruikt bij het uitvoeren van Pig-taken op een extern HDInsight-cluster:
 
-* **Verbinding maken met AzureRmAccount**: Azure PowerShell gebruiken om uw Azure-abonnement te worden geverifieerd.
-* **Nieuwe AzureRmHDInsightPigJobDefinition**: maakt een *taak definitie* met behulp van de opgegeven Pig Latin-instructies.
-* **Start AzureRmHDInsightJob**: de taakdefinitie verzendt naar HDInsight en de taak wordt gestart. Een *taak* object wordt geretourneerd.
-* **Wacht AzureRmHDInsightJob**: het taakobject gebruikt om te controleren van de status van de taak. Wacht totdat de taak is voltooid of de wachttijd is overschreden.
+* **Connect-AzureRmAccount**: Azure PowerShell gebruiken om uw Azure-abonnement te worden geverifieerd.
+* **Nieuwe AzureRmHDInsightPigJobDefinition**: Hiermee maakt u een *taak definitie* met behulp van de opgegeven Pig Latin-instructies.
+* **Start-AzureRmHDInsightJob**: de taakdefinitie verzendt naar HDInsight en wordt de taak wordt gestart. Een *taak* object wordt geretourneerd.
+* **Wacht AzureRmHDInsightJob**: maakt gebruik van het taakobject om de status van de taak te controleren. Wacht totdat de taak is voltooid of de wachttijd is overschreden.
 * **Get-AzureRmHDInsightJobOutput**: gebruikt voor het ophalen van de uitvoer van de taak.
 
 De volgende stappen laten zien hoe u deze cmdlets gebruiken om een taak uitvoeren op uw HDInsight-cluster.
 
-1. De volgende code als met een editor opslaan **pigjob.ps1**.
+1. Met behulp van een editor, slaat u de volgende code als **pigjob.ps1**.
 
     [!code-powershell[main](../../../powershell_scripts/hdinsight/use-pig/use-pig.ps1?range=5-51)]
 
-1. Open een nieuw Windows PowerShell-opdrachtprompt. Wijzig de mappen naar de locatie van de **pigjob.ps1** bestand en vervolgens voert u het script met de volgende opdracht:
+1. Open een nieuwe Windows PowerShell-opdrachtprompt. Wijzig de mappen in de locatie van de **pigjob.ps1** bestand en gebruik vervolgens de volgende opdracht uit het script uit te voeren:
 
         .\pigjob.ps1
 
-    U wordt gevraagd of u zich aanmelden bij uw Azure-abonnement. Vervolgens wordt u gevraagd om de naam HTTPs/Admin en het wachtwoord voor het HDInsight-cluster.
+    U wordt gevraagd om aan te melden bij uw Azure-abonnement. Vervolgens wordt u gevraagd voor de HTTPs/Admin-accountnaam en het wachtwoord voor het HDInsight-cluster.
 
-2. Wanneer de taak is voltooid, wordt de geretourneerde informatie moet vergelijkbaar met de volgende tekst:
+2. Wanneer de taak is voltooid, moet deze informatie die vergelijkbaar is met de volgende tekst retourneren:
 
         Start the Pig job ...
         Wait for the Pig job to complete ...
@@ -77,7 +72,7 @@ De volgende stappen laten zien hoe u deze cmdlets gebruiken om een taak uitvoere
 
 ## <a id="troubleshooting"></a>Problemen oplossen
 
-Als er geen gegevens worden geretourneerd als de taak is voltooid, kunt u de foutenlogboeken weergeven. Om weer te geven informatie over de fout voor deze taak, kunt u de volgende opdracht toevoegen aan het einde van de **pigjob.ps1** bestand, opslaan en vervolgens opnieuw uit te voeren.
+Als er geen gegevens worden geretourneerd als de taak is voltooid, moet u de foutenlogboeken weergeven. Toevoegen als foutinformatie voor deze taak, de volgende opdracht aan het einde van de **pigjob.ps1** bestand, opslaan en voer het vervolgens opnieuw uit.
 
     # Print the output of the Pig job.
     Write-Host "Display the standard error output ..." -ForegroundColor Green
@@ -87,17 +82,17 @@ Als er geen gegevens worden geretourneerd als de taak is voltooid, kunt u de fou
             -HttpCredential $creds `
             -DisplayOutputType StandardError
 
-Deze cmdlet retourneert de gegevens die in STDERR is gemaakt tijdens de verwerking van een taak.
+Deze cmdlet retourneert de informatie die is geschreven naar STDERR tijdens de taakverwerking van de.
 
 ## <a id="summary"></a>Samenvatting
-Zoals u zien kunt, biedt Azure PowerShell een eenvoudige manier om Pig-taken uitvoeren op een HDInsight-cluster, de taakstatus te controleren en ophalen van de uitvoer.
+Zoals u ziet, biedt Azure PowerShell een eenvoudige manier om Pig-taken uitvoeren op een HDInsight-cluster, de taakstatus controleren en ophalen van de uitvoer.
 
 ## <a id="nextsteps"></a>Volgende stappen
 Voor algemene informatie over Pig in HDInsight:
 
-* [Pig gebruiken met Hadoop in HDInsight](hdinsight-use-pig.md)
+* [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md)
 
-Voor informatie over andere manieren kunt u werken met Hadoop op HDInsight:
+Voor meer informatie over andere manieren kunt u werken met Hadoop op HDInsight:
 
-* [Hive gebruiken met Hadoop in HDInsight](hdinsight-use-hive.md)
+* [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md)
 * [MapReduce gebruiken met Hadoop op HDInsight](hdinsight-use-mapreduce.md)

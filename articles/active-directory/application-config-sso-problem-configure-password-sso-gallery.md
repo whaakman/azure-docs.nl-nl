@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: dc362c89f7bc83c4848c0e857173db1ea2639bc4
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 01b77fc2521c221594a38b3731694115adf82e2c
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39362837"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600802"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Probleem bij het configureren wachtwoord eenmalige aanmelding voor een toepassing in Azure AD-galerie
 
@@ -31,7 +31,7 @@ Dit probleem gebeurt gewoonlijk als leverancier van de toepassing is gewijzigd v
 
 Microsoft heeft technologieën voor het automatisch detecteren wanneer integraties verbreekt, is niet mogelijk is de meteen de problemen vinden, of de problemen even duren om op te lossen. In het geval wanneer een van deze integraties niet correct werkt, opent u een ondersteuningsverzoek in, zodat deze zo snel mogelijk kan worden opgelost.
 
-**Als u verbonden met de leverancier van deze toepassing bent,** ze de TIP naar ons verzenden zodat Microsoft kan samen met hun toepassing systeemeigen integratie met Azure Active Directory. U kunt de leverancier verzenden de [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](./develop/active-directory-app-gallery-listing.md) aan om ze aan de slag.
+**Als u verbonden met de leverancier van deze toepassing bent,** ze de TIP naar ons verzenden zodat Microsoft kan samen met hun toepassing systeemeigen integratie met Azure Active Directory. U kunt de leverancier verzenden de [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](develop/howto-app-gallery-listing.md) aan om ze aan de slag.
 
 ## <a name="credentials-are-filled-in-and-submitted-but-the-page-indicates-the-credentials-are-incorrect"></a>Referenties zijn ingevuld en verzonden, maar de pagina geeft aan dat de referenties zijn onjuist
 
@@ -59,7 +59,7 @@ Als de vorige suggesties niet werkt, wordt het geval dat een wijziging aan de to
 
 Het Microsoft technologieën voor het automatisch detecteren wanneer de toepassing integraties verbroken is, is niet mogelijk is de meteen de problemen vinden of de problemen kunnen even duren om op te lossen. Wanneer een integratie niet correct werkt, kunt u een ondersteuningsaanvraag om hiermee aan vaste zo snel mogelijk te openen. 
 
-Daarnaast **als u verbonden met de leverancier van deze toepassing bent,** **ze de TIP naar ons verzenden** , zodat we kunnen werken met hun toepassing systeemeigen integratie met Azure Active Directory. U kunt de leverancier verzenden de [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](./develop/active-directory-app-gallery-listing.md) aan om ze aan de slag.
+Daarnaast **als u verbonden met de leverancier van deze toepassing bent,** **ze de TIP naar ons verzenden** , zodat we kunnen werken met hun toepassing systeemeigen integratie met Azure Active Directory. U kunt de leverancier verzenden de [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](develop/howto-app-gallery-listing.md) aan om ze aan de slag.
 
 ## <a name="the-extension-works-in-chrome-and-firefox-but-not-in-internet-explorer"></a>De extensie werkt in Chrome en Firefox, maar niet in Internet Explorer
 
@@ -73,7 +73,7 @@ Er zijn twee mogelijke oorzaken voor dit probleem:
 
    * Deze situatie kan helaas variëren afhankelijk van de browserversie, de Computersnelheid of de site bezocht. In dit geval is het raadzaam dat u contact op met ondersteuning, zodat we de integratie voor deze specifieke toepassing kunt oplossen.
 
-Daarnaast **als u verbonden met de leverancier van deze toepassing bent,** **ze de TIP naar ons verzenden** , zodat we kunnen werken met hun toepassing systeemeigen integratie met Azure Active Directory. U kunt de leverancier verzenden de [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](./develop/active-directory-app-gallery-listing.md) aan om ze aan de slag.
+Daarnaast **als u verbonden met de leverancier van deze toepassing bent,** **ze de TIP naar ons verzenden** , zodat we kunnen werken met hun toepassing systeemeigen integratie met Azure Active Directory. U kunt de leverancier verzenden de [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](develop/howto-app-gallery-listing.md) aan om ze aan de slag.
 
 ## <a name="check-if-the-applications-login-page-has-changed-recently-or-requires-an-additional-field"></a>Controleer of de aanmeldingspagina van de toepassing onlangs is gewijzigd of een extra veld is vereist
 
@@ -81,7 +81,7 @@ Als de aanmeldingspagina van de toepassing hebt u aanzienlijk is gewijzigd, soms
 
 Het Microsoft technologieën voor het automatisch detecteren wanneer de toepassing integraties verbroken is, is niet mogelijk is de meteen de problemen vinden of de problemen kunnen even duren om op te lossen. Wanneer een integratie niet correct werkt, kunt u een ondersteuningsaanvraag om hiermee aan vaste zo snel mogelijk te openen. 
 
-Daarnaast **als u verbonden met de leverancier van deze toepassing bent,** **ze de TIP naar ons verzenden** , zodat we kunnen werken met hun toepassing systeemeigen integratie met Azure Active Directory. U kunt de leverancier verzenden de [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](./develop/active-directory-app-gallery-listing.md) aan om ze aan de slag.
+Daarnaast **als u verbonden met de leverancier van deze toepassing bent,** **ze de TIP naar ons verzenden** , zodat we kunnen werken met hun toepassing systeemeigen integratie met Azure Active Directory. U kunt de leverancier verzenden de [aanbieding van uw toepassing in de Azure Active Directory-toepassingsgalerie](develop/howto-app-gallery-listing.md) aan om ze aan de slag.
 
 ## <a name="how-to-install-the-access-panel-browser-extension"></a>Het installeren van de extensie toegang deelvenster Browser
 

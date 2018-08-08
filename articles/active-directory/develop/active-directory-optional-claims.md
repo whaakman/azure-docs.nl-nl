@@ -16,12 +16,12 @@ ms.date: 07/12/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a4e03eac9c41c72714103a2c863a9ed6b2fd8608
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d924c1fc9697bff77f12f7f0bf33a1654d1e7d6e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577725"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597970"
 ---
 # <a name="optional-claims-in-azure-ad-preview"></a>Optionele claims in Azure AD (preview)
 
@@ -126,7 +126,7 @@ Dit object OptionalClaims zorgt ervoor dat de ID-token dat is geretourneerd naar
 
 ## <a name="configuring-optional-claims"></a>Optionele claims configureren
 
-U kunt optioneel claims voor uw toepassing configureren door het wijzigen van het toepassingsmanifest (Zie onderstaand voorbeeld). Zie voor meer informatie de [inzicht in de Azure AD application manifest artikel](active-directory-application-manifest.md).
+U kunt optioneel claims voor uw toepassing configureren door het wijzigen van het toepassingsmanifest (Zie onderstaand voorbeeld). Zie voor meer informatie de [inzicht in de Azure AD application manifest artikel](reference-app-manifest.md).
 
 **Voorbeeldschema:**
 

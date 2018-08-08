@@ -1,6 +1,6 @@
 ---
-title: Synchroniseren van Azure SQL-gegevens met logboekanalyse bewaken | Microsoft Docs
-description: Informatie over het synchroniseren van Azure SQL-gegevens met behulp van logboekanalyse bewaken
+title: Azure SQL Data Sync met Log Analytics controleren | Microsoft Docs
+description: Leer hoe u Azure SQL Data Sync bewaken met behulp van Log Analytics
 services: sql-database
 ms.date: 04/01/2018
 ms.topic: conceptual
@@ -9,96 +9,96 @@ author: allenwux
 ms.author: xiwu
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: 9b64a5e913748cda7927877c50a964ede587ae30
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 3bad71834d11b640bbc3577bf67c10357fad36dc
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37025759"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618307"
 ---
-# <a name="monitor-sql-data-sync-with-log-analytics"></a>Controleprogramma SQL gegevens synchroniseren met logboekanalyse 
+# <a name="monitor-sql-data-sync-with-log-analytics"></a>SQL Data Sync bewaken met Log Analytics 
 
-Controleer het activiteitenlogboek synchroniseren van de SQL-gegevens en fouten en waarschuwingen te detecteren, voorheen moest u handmatig synchroniseren van de SQL-gegevens controleren in de Azure portal of PowerShell of de REST-API gebruiken. Volg de stappen in dit artikel voor het configureren van een aangepaste oplossing waarmee het synchroniseren van gegevens implementatiebewakingservaring worden verbeterd. U kunt deze oplossing aanpassen aan uw scenario.
+Als u wilt het activiteitenlogboek van SQL Data Sync controleren en opsporen van fouten en waarschuwingen, eerder moest u handmatig SQL Data Sync controleren in Azure portal of PowerShell of de REST-API gebruiken. Volg de stappen in dit artikel voor het configureren van een aangepaste oplossing waarmee de controle-ervaring gegevenssynchronisatie worden verbeterd. U kunt deze oplossing voor uw scenario.
 
-Zie voor een overzicht van de SQL-gegevenssynchronisatie [synchroniseren van gegevens via meerdere cloud en on-premises databases met Azure SQL-gegevenssynchronisatie](sql-database-sync-data.md).
+Zie [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync](sql-database-sync-data.md) voor een overzicht van SQL Data Sync.
 
-## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Dashboard voor uw synchronisatiegroepen controle 
+## <a name="monitoring-dashboard-for-all-your-sync-groups"></a>Dashboard van de controle voor alle synchronisatiegroepen 
 
-Niet langer hoeft te zoeken in de logboeken van elke groep voor synchronisatie afzonderlijk om te zoeken naar problemen. U kunt alle groepen van de synchronisatie van een van uw abonnementen op één plek bewaken met behulp van een aangepaste weergave voor logboekanalyse. Deze weergave geeft de informatie die van belang is voor klanten synchroniseren van de SQL-gegevens weer.
+U moet niet meer om te zoeken via de logboeken van elke Synchronisatiegroep afzonderlijk op zoek naar problemen. U kunt alle synchronisatiegroepen uit een van uw abonnementen op één plek bewaken met behulp van een aangepaste weergave van de Log Analytics. In deze weergave toont de informatie die belangrijk is voor klanten met SQL Data Sync.
 
 ![Gegevens synchroniseren bewakingsdashboard](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
-## <a name="automated-email-notifications"></a>Geautomatiseerd e-mailmeldingen
+## <a name="automated-email-notifications"></a>Geautomatiseerde e-mailmeldingen
 
-U moet niet langer Raadpleeg het logboek handmatig in de Azure-portal of via PowerShell of de REST-API. Met [logboekanalyse](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), kunt u waarschuwingen die rechtstreeks naar de e-mailadressen van de mensen die u zien wilt wanneer er een fout optreedt.
+U moet niet meer om te controleren of het logboek handmatig in Azure portal of via PowerShell of de REST-API. Met [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), kunt u waarschuwingen die rechtstreeks naar de e-mailadressen van de mensen die u zien wilt wanneer er een fout optreedt.
 
-![Gegevens synchroniseren e-mailmeldingen](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
+![Data Sync-e-mailmeldingen](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
-## <a name="how-do-you-set-up-these-monitoring-features"></a>Hoe u deze bewakingsfuncties instellen? 
+## <a name="how-do-you-set-up-these-monitoring-features"></a>Hoe kan u deze bewakingsfuncties instellen? 
 
-Implementeer een aangepast logboekanalyse bewakingsoplossing voor SQL-gegevenssynchronisatie in minder dan een uur door het volgende doen:
+Implementeren van een aangepaste Log Analytics voor controle voor SQL Data Sync in minder dan een uur aan de hand van de volgende zaken:
 
 U moet drie onderdelen configureren:
 
--   Een PowerShell-runbook om te synchroniseren van gegevens van SQL-logboekgegevens feed met logboekanalyse.
+-   Een PowerShell-runbook naar SQL Data Sync logboekgegevens naar Log Analytics-kanaal.
 
 -   Een Log Analytics-waarschuwing voor e-mailmeldingen.
 
--   Een Log Analytics-weergave voor bewaking.
+-   Een Log Analytics-weergave voor de bewaking.
 
-### <a name="samples-to-download"></a>Voorbeelden voor het downloaden
+### <a name="samples-to-download"></a>Voorbeelden downloaden
 
 Download de volgende twee voorbeelden:
 
--   [Gegevens synchroniseren logboek PowerShell-Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
+-   [Gegevens synchroniseren Log PowerShell-Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Gegevensweergave Sync Log Analytics](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Gegevens synchroniseren Log Analytics-weergave](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ### <a name="prerequisites"></a>Vereisten
 
-Zorg ervoor dat u de volgende zaken die u hebt ingesteld:
+Zorg ervoor dat u hebt ingesteld met de volgende zaken:
 
 -   Een Azure Automation-account
 
 -   Log Analytics-werkruimte
 
-## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>PowerShell-Runbook ophalen van de SQL-logboek voor gegevens synchroniseren 
+## <a name="powershell-runbook-to-get-sql-data-sync-log"></a>PowerShell-Runbook om op te halen van SQL Data Sync-logboek 
 
-Gebruik een gehost in Azure Automation PowerShell-runbook ophalen van de logboekgegevens van het synchroniseren van de SQL-gegevens en verzenden met logboekanalyse. Een voorbeeld van een script is opgenomen. Als een vereiste moet u een Azure Automation-account hebben. Vervolgens moet u een runbook maken en plannen om uit te voeren. 
+Gebruik een PowerShell-runbook die wordt gehost in Azure Automation voor het ophalen van de gegevens van een SQL Data Sync en deze verzenden naar Log Analytics. Een voorbeeld van een script is opgenomen. Als een vereiste moet u een Azure Automation-account hebben. Vervolgens moet u een runbook maken en plannen om uit te voeren. 
 
 ### <a name="create-a-runbook"></a>Een runbook maken
 
 Zie voor meer informatie over het maken van een runbook [Mijn eerste PowerShell-runbook](https://docs.microsoft.com/azure/automation/automation-first-runbook-textual-powershell).
 
-1.  Selecteer onder uw Azure Automation-account, de **Runbooks** tabblad onder procesautomatisering.
+1.  Selecteer onder uw Azure Automation-account, de **Runbooks** tabblad onder de automatisering van bedrijfsprocessen.
 
 2.  Selecteer **een Runbook toevoegen** in de linkerbovenhoek van de pagina Runbooks.
 
 3.  Selecteer **een bestaand Runbook importeren**.
 
-4.  Onder **Runbook bestand**, gebruikt u de opgegeven `DataSyncLogPowerShellRunbook` bestand. Stel de **runbooktype** als `PowerShell`. Geef een naam voor het runbook.
+4.  Onder **Runbook-bestand**, gebruikt u de opgegeven `DataSyncLogPowerShellRunbook` bestand. Stel de **runbooktype** als `PowerShell`. Geef een naam voor het runbook.
 
 5.  Selecteer **Maken**. U hebt nu een runbook.
 
-6.  Selecteer onder uw Azure Automation-Account de **variabelen** tabblad onder gedeelde bronnen.
+6.  Selecteer onder uw Azure Automation-Account, de **variabelen** tabblad onder gedeelde bronnen.
 
-7.  Selecteer **toevoegen van een variabele** op de pagina variabelen. Maak een variabele voor het opslaan van de laatste uitvoertijd voor het runbook. Als u meerdere runbooks hebt, moet u een variabele voor elk runbook.
+7.  Selecteer **toevoegen van een variabele** op de pagina variabelen. Maak een variabele voor het opslaan van de laatste uitvoeringstijd voor het runbook. Als u meerdere runbooks hebt, moet u een variabele voor elk runbook.
 
-8.  Stel de naam van de variabele als `DataSyncLogLastUpdatedTime` en stel het Type datum/tijd.
+8.  Stel de naam van de variabele als `DataSyncLogLastUpdatedTime` en het Type datum/tijd.
 
 9.  Selecteer het runbook en klik op de knop Bewerken boven aan de pagina.
 
-10. Breng de wijzigingen die vereist zijn voor uw account en de configuratie van het synchroniseren van de SQL-gegevens. (Zie het voorbeeldscript voor meer gedetailleerde informatie.)
+10. Breng de wijzigingen die vereist zijn voor uw account en de configuratie van uw SQL Data Sync. (Zie het voorbeeld van een script voor meer gedetailleerde informatie.)
 
-    1.  Azure informatie.
+    1.  Azure-gegevens.
 
-    2.  Informatie van de groep voor synchronisatie.
+    2.  Groep voor synchronisatie met gegevens.
 
-    3.  OMS-informatie. Deze informatie vinden op OMS-Portal | Instellingen | Verbonden bronnen. Zie voor meer informatie over het verzenden van gegevens met logboekanalyse [gegevens verzenden naar logboekanalyse met de HTTP-API van Data Collector (preview)](../log-analytics/log-analytics-data-collector-api.md).
+    3.  Gegevens van OMS. Deze informatie vinden op de OMS-Portal | Instellingen | Verbonden bronnen. Zie voor meer informatie over het verzenden van gegevens naar Log Analytics [gegevens verzenden naar Log Analytics met de HTTP Data Collector-API (preview)](../log-analytics/log-analytics-data-collector-api.md).
 
-11. Het runbook worden uitgevoerd in het testvenster. Controleer of dat deze is geslaagd.
+11. Het runbook uitvoeren in het deelvenster. Controleer of dat deze is voltooid.
 
-    Als u fouten hebt, moet u de meest recente PowerShell-module geïnstalleerd. U kunt installeren de nieuwste PowerShell-module in de **Modules galerie** in uw Automation-Account.
+    Als u fouten hebt, zorg ervoor dat u hebt de meest recente PowerShell-module geïnstalleerd. U kunt de meest recente PowerShell-module in de **Modulegalerie** in uw Automation-Account.
 
 12. Klik op **publiceren**
 
@@ -108,87 +108,87 @@ Het runbook plannen:
 
 1.  Selecteer onder het runbook de **planningen** tabblad onder Resources.
 
-2.  Selecteer **toevoegen van een planning** op de pagina schema.
+2.  Selecteer **toevoegen van een schema** op de pagina schema's.
 
-3.  Selecteer **een planning aan uw runbook koppelen**.
+3.  Selecteer **een planning koppelen aan uw runbook**.
 
 4.  Selecteer **een nieuw schema maken.**
 
-5.  Stel **terugkeerpatroon** terugkerend en stel het interval u wilt. Gebruik hetzelfde interval, in het script en in OMS.
+5.  Stel **terugkeerpatroon** terugkerend en stel het interval u wilt gebruiken. Gebruik hetzelfde interval, in het script en in OMS.
 
 6.  Selecteer **Maken**.
 
 ### <a name="check-the-automation"></a>Controleer de automatisering
 
-Om te controleren of uw automation wordt uitgevoerd zoals verwacht, klikt u onder **overzicht** vinden voor uw automation-account, de **taak statistieken** weergeven onder **bewaking**. Deze weergave aan uw dashboard voor eenvoudige weergave vastmaken. Geslaagde wordt uitgevoerd van het runbook als 'Voltooid' weergeven en kan niet wordt uitgevoerd, weergegeven als 'Mislukt'.
+Om te controleren of uw automation wordt uitgevoerd zoals verwacht, onder **overzicht** vinden voor uw automation-account, de **taakstatistieken** weergeven onder **bewaking**. Zet deze weergave aan uw dashboard voor eenvoudige weergave vast. Geslaagde uitvoeringen van het runbook als 'Voltooid' weergeven en mislukte uitvoeringen weergegeven als 'Mislukt'.
 
-## <a name="create-a-log-analytics-reader-alert-for-email-notifications"></a>Een Log Analytics Reader-waarschuwing voor e-mailmeldingen maken
+## <a name="create-a-log-analytics-reader-alert-for-email-notifications"></a>Een waarschuwing in Log Analytics-lezer voor e-mailmeldingen maken
 
-Als u wilt maken van een waarschuwing die gebruikmaakt van Log Analytics, het volgende doen. U moet als een vereiste hebt gekoppeld aan een Log Analytics-werkruimte logboekanalyse.
+Als u wilt een waarschuwing maken die gebruikmaakt van Log Analytics, doe dan het volgende. Als een vereiste moet u Log Analytics is gekoppeld met een Log Analytics-werkruimte hebben.
 
-1.  Selecteer in de OMS-portal **logboek zoeken**.
+1.  Selecteer in de OMS-portal **zoeken in logboeken**.
 
-2.  Een query maken om de fouten en waarschuwingen die door de groep voor synchronisatie Selecteer binnen het interval dat u hebt geselecteerd. Bijvoorbeeld:
+2.  Maak een query voor het selecteren van de fouten en waarschuwingen door synchronisatiegroep binnen het interval dat u hebt geselecteerd. Bijvoorbeeld:
 
     `Type=DataSyncLog\_CL LogLevel\_s!=Success| measure count() by SyncGroupName\_s interval 60minute`
 
-3.  Nadat de query is uitgevoerd, selecteert u de bel waarin staat dat **waarschuwing**.
+3.  Nadat de query is uitgevoerd, selecteert u de bel met de melding dat **waarschuwing**.
 
-4.  Onder **waarschuwing genereren op basis van**, selecteer **metriek meting**.
+4.  Onder **waarschuwing genereren op basis van**, selecteer **meting van metrische gegevens**.
 
-    1.  De totale waarde ingesteld op **groter is dan**.
+    1.  De statistische waarde instelt op **groter is dan**.
 
-    2.  Na **groter is dan**, voer de drempelwaarde voor de verstrijken voordat u meldingen ontvangen. Tijdelijke fouten worden in het synchroniseren van gegevens verwacht. Als u ruis, de drempelwaarde te ingesteld op 5.
+    2.  Na **groter is dan**, geef de drempelwaarde voor het verstrijken voordat u berichten wilt ontvangen. Tijdelijke fouten worden verwacht in de gegevenssynchronisatie. Stel de drempelwaarde 5 ruis, verminderen.
 
-5.  Onder **acties**stelt **e-mailmeldingen** op 'Ja'. Geef de gewenste e-mailontvangers.
+5.  Onder **acties**, stel **e-mailmelding** op "Ja". Voer de gewenste e-mailontvangers.
 
 6.  Klik op **Opslaan**. De opgegeven ontvangers wordt nu een e-mailmeldingen ontvangen wanneer er fouten optreden.
 
-## <a name="create-an-oms-view-for-monitoring"></a>Een OMS-weergave maken voor de bewaking
+## <a name="create-an-oms-view-for-monitoring"></a>Een OMS-weergave maken voor het bewaken van
 
-Deze stap maakt een OMS-weergave voor het controleren van de opgegeven synchronisatiegroepen visueel. De weergave omvat verschillende onderdelen:
+Deze stap maakt u een OMS-weergave voor de opgegeven synchronisatiegroepen visueel te controleren. De weergave bevat verschillende onderdelen:
 
--   Een overzichttegel waarin het aantal fouten, successen en waarschuwingen alle synchronisatiegroepen hebben.
+-   Een overzichtstegel ziet u hoeveel fouten, voltooide bewerkingen en waarschuwingen voor alle synchronisatiegroepen hebben.
 
--   Een tegel voor alle groepen synchroniseren, geeft de telling van fouten en waarschuwingen per groep voor synchronisatie. Groepen zonder problemen worden niet weergegeven op deze tegel.
+-   Een tegel voor alle synchronisatiegroepen, waarin de telling van fouten en waarschuwingen per groep voor synchronisatie. Groepen zonder problemen worden niet weergegeven op deze tegel.
 
--   Een tegel voor elke groep voor synchronisatie, die het aantal fouten, is voltooid, en waarschuwingen en de recente foutberichten toont.
+-   Een tegel voor elke groep voor synchronisatie, waarin het aantal fouten, is voltooid, en waarschuwingen en de recente foutberichten worden weergegeven.
 
-Voor het configureren van de OMS-weergave, het volgende doen:
+Voor het configureren van de OMS-weergave, moet u de volgende dingen doen:
 
-1.  Selecteer het plusteken aan de linkerkant te openen op de startpagina OMS de **ontwerper**.
+1.  Selecteer het plusteken aan de linkerkant om te openen op de startpagina van de OMS de **weergaveontwerper**.
 
-2.  Selecteer **importeren** op de bovenste balk van de ontwerpfunctie voor weergave. Selecteer vervolgens het voorbeeldbestand 'DataSyncLogOMSView'.
+2.  Selecteer **importeren** op de bovenste balk van de ontwerper. Selecteer vervolgens het voorbeeldbestand 'DataSyncLogOMSView'.
 
-3.  De voorbeeldweergave is voor het beheren van twee synchronisatiegroepen. Bewerk deze weergave aanpassen aan uw scenario. Klik op **bewerken** en breng de volgende wijzigingen:
+3.  De voorbeeldweergave is voor het beheren van twee synchronisatiegroepen. Bewerken in deze weergave voor uw scenario. Klik op **bewerken** en breng de volgende wijzigingen:
 
-    1.  Nieuwe 'Ring & List'-objecten maken uit de galerie, indien nodig.
+    1.  Maak nieuwe 'Ring en lijst' objecten vanuit de galerie zo nodig.
 
     2.  Werk de query's met uw gegevens in elke tegel.
 
-        1.  Wijzig het interval TimeStamp_t naar wens op elke tegel.
+        1.  Op elke tegel, het interval TimeStamp_t naar wens worden gewijzigd.
 
-        2.  Bijwerken op de tegels voor elke groep voor synchronisatie met de namen van de groep voor synchronisatie.
+        2.  Op de tegels voor elke groep voor synchronisatie met de namen van de groep voor synchronisatie bijwerken
 
-    3.  Update de titel op voor elke tegel.
+    3.  Update de titel op elke tegel.
 
 4.  Klik op **opslaan** en de weergave is gereed.
 
 ## <a name="cost-of-this-solution"></a>Kosten van deze oplossing
 
-Deze oplossing is in de meeste gevallen gratis.
+In de meeste gevallen is deze oplossing gratis.
 
-**Azure Automation:** kan er een kosten die zijn gemaakt met de Azure Automation-account, afhankelijk van uw gebruik. De eerste 500 minuten van taakuitvoeringstijd per maand zijn gratis. Deze oplossing wordt in de meeste gevallen verwacht gebruik van minder dan 500 minuten per maand. Plannen om te voorkomen kosten, het runbook moet worden uitgevoerd bij een interval van twee uur of langer. Zie voor meer informatie [Automation prijzen](https://azure.microsoft.com/pricing/details/automation/).
+**Azure Automation:** mogelijk zijn er kosten in rekening gebracht met de Azure Automation-account, afhankelijk van het gebruik. De eerste 500 minuten aan taakuitvoertijd per maand zijn gratis. Deze oplossing wordt in de meeste gevallen verwacht gebruik van minder dan 500 minuten per maand. Om kosten te voorkomen, moet u het runbook om uit te voeren met een interval van twee uur of meer plannen. Zie voor meer informatie, [Automation-prijzen](https://azure.microsoft.com/pricing/details/automation/).
 
-**Log Analytics:** mogelijk zijn er kosten verbonden met logboekanalyse afhankelijk van uw gebruik. De laag gratis omvat 500 MB aan opgenomen gegevens per dag. In de meeste gevallen heeft deze oplossing wordt verwacht voor het opnemen van minder dan 500 MB per dag. Als u wilt verlagen van het gebruik, de fout alleen-lezen filtering gebruiken opgenomen in het runbook. Als u meer dan 500 MB per dag worden gebruikt, moet u een upgrade uitvoeren naar de laag betaald om te voorkomen dat het risico van analytics stoppen wanneer de limiet is bereikt. Zie voor meer informatie [logboekanalyse prijzen](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Log Analytics:** mogelijk zijn er kosten verbonden met Log Analytics, afhankelijk van uw gebruik. De laag gratis omvat 500 MB opgenomen gegevens per dag. Deze oplossing wordt in de meeste gevallen verwacht voor het opnemen van minder dan 500 MB per dag. Om te reduceren het verbruik, gebruik van de alleen-fout filtering opgenomen in het runbook. Als u meer dan 500 MB per dag gebruikt, moet u een upgrade uitvoeren naar de prijscategorie betaald om te voorkomen dat het risico van analytics stoppen na het verstrijken van de beperking. Zie voor meer informatie, [Log Analytics-prijzen](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## <a name="code-samples"></a>Codevoorbeelden
 
 Download de codevoorbeelden in dit artikel uit de volgende locaties beschreven:
 
--   [Gegevens synchroniseren logboek PowerShell-Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
+-   [Gegevens synchroniseren Log PowerShell-Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Gegevensweergave Sync Log Analytics](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Gegevens synchroniseren Log Analytics-weergave](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende onderwerpen voor meer informatie over SQL Data Sync:
@@ -201,8 +201,6 @@ Zie de volgende onderwerpen voor meer informatie over SQL Data Sync:
 -   Voer PowerShell-voorbeelden uit die laten zien hoe u SQL Data Sync configureert:
     -   [PowerShell gebruiken om meerdere Azure SQL-databases te synchroniseren](scripts/sql-database-sync-data-between-sql-databases.md)
     -   [PowerShell gebruiken om te synchroniseren tussen een Azure SQL-database en een on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
-
--   [De documentatie over de REST-API van SQL Data Sync downloaden](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 
 Zie de volgende onderwerpen voor meer informatie over SQL Database:
 

@@ -17,15 +17,15 @@ ms.date: 04/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 5872190f811af208f5b27da330da3313e77a8665
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 645ce394c09f5cdd9f45b085e8d86cdc07ee9158
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579299"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591329"
 ---
 # <a name="v20-protocols---oauth-20--openid-connect"></a>v2.0-protocollen - OAuth 2.0 en OpenID Connect
-Het v2.0-eindpunt kunt u Azure AD gebruiken voor identity-as-a-service met standaardprotocollen, OpenID Connect en OAuth 2.0. Terwijl de service compatibel met de standaarden is, kunnen er subtiele verschillen tussen de twee implementaties van deze protocollen. De informatie hier is handig als u ervoor kiest uw code schrijven door rechtstreeks verzenden en verwerken van HTTP-aanvragen of gebruik een 3e partij open source-bibliotheek, in plaats van met een van onze [open source-bibliotheken](active-directory-v2-libraries.md).
+Het v2.0-eindpunt kunt u Azure AD gebruiken voor identity-as-a-service met standaardprotocollen, OpenID Connect en OAuth 2.0. Terwijl de service compatibel met de standaarden is, kunnen er subtiele verschillen tussen de twee implementaties van deze protocollen. De informatie hier is handig als u ervoor kiest uw code schrijven door rechtstreeks verzenden en verwerken van HTTP-aanvragen of gebruik een 3e partij open source-bibliotheek, in plaats van met een van onze [open source-bibliotheken](reference-v2-libraries.md).
 
 > [!NOTE]
 > Niet alle Azure Active Directory-scenario's en functies worden ondersteund door het v2.0-eindpunt. Meer informatie over om te bepalen als u het v2.0-eindpunt moet gebruiken, [v2.0 beperkingen](active-directory-v2-limitations.md).
@@ -76,7 +76,7 @@ De implementatie v2.0 van OAuth 2.0 en OpenID Connect maken intensief gebruik va
 Meer informatie over de verschillende typen tokens die worden gebruikt in het v2.0-eindpunt is beschikbaar in [het v2.0-eindpunt-tokenverwijzing](v2-id-and-access-tokens.md).
 
 ## <a name="protocols"></a>Protocollen
-Als u klaar om te zien van bepaalde voorbeeld-aanvragen bent, aan de slag met een van de onderstaande zelfstudies. Elke regel komt overeen met een bepaalde verificatiescenario. Als u hulp bij het vaststellen van de juiste stroom voor u nodig hebt, bekijk dan [de typen apps die u met het v2.0 maken kunt](active-directory-v2-flows.md).
+Als u klaar om te zien van bepaalde voorbeeld-aanvragen bent, aan de slag met een van de onderstaande zelfstudies. Elke regel komt overeen met een bepaalde verificatiescenario. Als u hulp bij het vaststellen van de juiste stroom voor u nodig hebt, bekijk dan [de typen apps die u met het v2.0 maken kunt](v2-app-types.md).
 
 * [Bouw mobiele en systeemeigen toepassing met OAuth 2.0](v2-oauth2-auth-code-flow.md)
 * [Bouw Web-Apps met Open ID Connect](v2-protocols-oidc.md)

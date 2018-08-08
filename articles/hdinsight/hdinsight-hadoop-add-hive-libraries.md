@@ -1,46 +1,42 @@
 ---
-title: Hive-bibliotheken toevoegen tijdens het maken van HDInsight-cluster - Azure | Microsoft Docs
-description: Informatie over het toevoegen van Hive-bibliotheken (jar-bestanden), met een HDInsight-cluster tijdens het maken van het cluster.
+title: Hive-bibliotheken toevoegen tijdens het HDInsight-cluster maken - Azure
+description: Informatie over het toevoegen van Hive-bibliotheken (jar-bestanden), met een HDInsight-cluster tijdens het maken van clusters.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 2fd74b8d-c006-45c6-a9e2-72ff5d2d978a
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
+ms.author: jasonh
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 71e2859085dc4a9f4fa327d88faff4fecf5108ef
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: fe7cb2c3990a5aa161665519490ede90be04e1ee
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400653"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594584"
 ---
 # <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Aangepaste Hive-bibliotheken toevoegen bij het maken van uw HDInsight-cluster
 
-Informatie over het vooraf laden op HDInsight Hive-bibliotheken. Dit document bevat informatie over het gebruik van een scriptactie vooraf om bibliotheken te laden tijdens het maken van het cluster. Bibliotheken die zijn toegevoegd met de stappen in dit document algemeen beschikbaar zijn in de Hive - hoeft niet te gebruiken [JAR toevoegen](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) geladen.
+Informatie over het vooraf laden op HDInsight Hive-bibliotheken. Dit document bevat informatie over het gebruik van een scriptactie bibliotheken vooraf laden tijdens het maken van clusters. Bibliotheken die zijn toegevoegd met behulp van de stappen in dit document zijn wereldwijd beschikbaar in Hive - hoeft niet te gebruiken [toevoegen JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) te laden.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
 
-Wanneer u een cluster maakt, kunt u een scriptactie clusterknooppunten aanpassen zoals ze zijn gemaakt. Het script in dit document accepteert één parameter, de locatie van de tapewisselaars is. Deze locatie moet zich in een Azure Storage-Account en de bibliotheken als jar-bestanden moeten worden opgeslagen.
+Bij het maken van een cluster, kunt u een scriptactie clusterknooppunten wijzigen zodra deze worden gemaakt. Het script in dit document accepteert één parameter, dit de locatie van de bibliotheken is. Deze locatie moet zich in een Azure Storage-Account en de bibliotheken moeten worden opgeslagen als een jar-bestanden.
 
-Tijdens het maken van het cluster het script de bestanden inventariseert, kopieert deze naar de `/usr/lib/customhivelibs/` directory op de knooppunten hoofd- en werkrollen, vervolgens toevoegt aan de `hive.aux.jars.path` eigenschap in de `core-site.xml` bestand. Op Linux gebaseerde clusters werkt het ook de `hive-env.sh` bestand met de locatie van de bestanden.
+Tijdens het maken van een cluster, het script de bestanden inventariseert, kopieert deze naar de `/usr/lib/customhivelibs/` map op de hoofd- en worker-knooppunten, klikt u vervolgens voegt deze toe aan de `hive.aux.jars.path` eigenschap in de `core-site.xml` bestand. Op basis van Linux-clusters, werkt het ook de `hive-env.sh` -bestand met de locatie van de bestanden.
 
 > [!NOTE]
-> Met de scriptacties in dit artikel worden de tapewisselaars beschikbaar zijn in de volgende scenario's:
+> Met behulp van de scriptacties in dit artikel worden de bibliotheken beschikbaar in de volgende scenario's:
 >
 > * **HDInsight op basis van Linux** : wanneer een client Hive **WebHCat**, en **HiveServer2**.
-> * **HDInsight op basis van Windows** : wanneer met behulp van de client Hive en **WebHCat**.
+> * **HDInsight op basis van Windows** - bij het gebruik van de Hive-client en **WebHCat**.
 
 ## <a name="the-script"></a>Het script
 
-**De locatie van script**
+**Locatie van het script**
 
-Voor **op basis van Linux-clusters**: [https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh)
+Voor **Linux gebaseerde clusters**: [https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh](https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh)
 
 Voor **Windows gebaseerde clusters**: [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
@@ -49,31 +45,31 @@ Voor **Windows gebaseerde clusters**: [https://hdiconfigactions.blob.core.window
 
 **Vereisten**
 
-* De scripts moeten worden toegepast op beide de **hoofdknooppunten** en **Worker-knooppunten**.
+* De scripts moeten worden toegepast op zowel de **hoofdknooppunten** en **Worker-knooppunten**.
 
-* De potten die u wilt installeren, moeten worden opgeslagen in Azure Blob Storage in een **enkele container**.
+* De JAR-bestanden u wilt installeren, moeten worden opgeslagen in Azure Blob-opslag in een **enkele container**.
 
 * Het opslagaccount met de bibliotheek met jar-bestanden **moet** tijdens het maken worden gekoppeld aan het HDInsight-cluster. Dit moet het standaardopslagaccount of een account toegevoegd via __optionele configuratie__.
 
-* Het pad WASB naar de container moet worden opgegeven als een parameter voor de actie Script. Bijvoorbeeld, als de potten worden opgeslagen in een container met de naam **bibliotheken** op een opslagaccount met de naam **mystorage**, de parameter zou worden **wasb://libs@mystorage.blob.core.windows.net/**.
+* Het WASB-pad naar de container moet worden opgegeven als parameter voor de scriptactie. Bijvoorbeeld, als de JAR-bestanden worden opgeslagen in een container met de naam **bibliotheken** op een storage-account met de naam **mijnopslag**, zou de parameter **wasb://libs@mystorage.blob.core.windows.net/**.
 
   > [!NOTE]
-  > Dit document wordt ervan uitgegaan dat u hebt al een opslagaccount, kan de blob-container gemaakt en de bestanden naar deze geüpload.
+  > Dit document wordt ervan uitgegaan dat u hebt al een storage-account, blob-container gemaakt en de bestanden geüpload naar deze.
   >
-  > Als u geen opslagaccount hebt gemaakt, kunt u doen via zodat de [Azure-portal](https://portal.azure.com). U kunt vervolgens een hulpprogramma zoals gebruiken [Azure Opslagverkenner](http://storageexplorer.com/) een container maken in het account en bestanden uploaden naar het.
+  > Als u niet een storage-account hebt gemaakt, kunt u doen dus via de [Azure-portal](https://portal.azure.com). U kunt vervolgens een hulpprogramma zoals gebruiken [Azure Storage Explorer](http://storageexplorer.com/) te maken van een container in het account en bestanden uploaden naar het.
 
 ## <a name="create-a-cluster-using-the-script"></a>Een cluster met behulp van het script maken
 
 > [!NOTE]
-> De volgende stappen maakt een Linux gebaseerde HDInsight-cluster. Selecteer voor het maken van een cluster met Windows **Windows** als het cluster-OS bij het maken van het cluster en gebruik de Windows (PowerShell) in plaats van het script bash script.
+> De volgende stappen maakt u een Linux gebaseerde HDInsight-cluster. Voor het maken van een cluster op basis van Windows selecteert **Windows** als het cluster-OS bij het maken van het cluster en gebruik de Windows (PowerShell) script in plaats van de bash-script.
 >
-> U kunt ook Azure PowerShell of de HDInsight .NET SDK gebruiken om een cluster met dit script te maken. Zie voor meer informatie over het gebruik van deze methoden [aanpassen HDInsight-clusters met scriptacties](hdinsight-hadoop-customize-cluster-linux.md).
+> U kunt ook Azure PowerShell of de HDInsight .NET SDK gebruiken om een cluster met behulp van dit script te maken. Zie voor meer informatie over het gebruik van deze methoden [aanpassen HDInsight-clusters met scriptacties](hdinsight-hadoop-customize-cluster-linux.md).
 
-1. Start de inrichting van een cluster met behulp van de stappen in [HDInsight-clusters inrichten op Linux](hdinsight-hadoop-provision-linux-clusters.md), maar inrichting niet voltooid.
+1. Start het inrichten van een cluster met behulp van de stappen in [inrichten HDInsight-clusters op Linux](hdinsight-hadoop-provision-linux-clusters.md), maar ze niet worden voltooid wordt ingericht.
 
-2. Op de **optionele configuratie** sectie **scriptacties**, en geef de volgende informatie:
+2. Op de **optionele configuratie** sectie, selecteer **scriptacties**, en geef de volgende informatie:
 
-   * **NAAM**: een beschrijvende naam voor de scriptactie.
+   * **NAAM**: Geef een beschrijvende naam voor de scriptactie.
 
    * **SCRIPT-URI**: https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh
 
@@ -81,19 +77,19 @@ Voor **Windows gebaseerde clusters**: [https://hdiconfigactions.blob.core.window
 
    * **WERKNEMER**: Schakel deze optie.
 
-   * **ZOOKEEPER**: leeg laten.
+   * **ZOOKEEPER**: laat dit veld leeg.
 
-   * **PARAMETERS**: Geef het adres WASB op het account-container en opslag die de potten bevat. Bijvoorbeeld: **wasb://libs@mystorage.blob.core.windows.net/**.
+   * **PARAMETERS**: Geef de WASB-adres op van de container en de opslag-account met de JAR-bestanden. Bijvoorbeeld **wasb://libs@mystorage.blob.core.windows.net/**.
 
-3. Aan de onderkant van de **scriptacties**, gebruiken de **Selecteer** om op te slaan van de configuratie.
+3. Aan de onderkant van de **scriptacties**, gebruikt u de **selecteren** om de configuratie op te slaan.
 
-4. Op de **optionele configuratie** sectie **gekoppelde Storage-Accounts** en selecteer de **van een sleutel opslag** koppeling. Selecteer het opslagaccount waarin de potten. Gebruik vervolgens de **Selecteer** knoppen instellingen opslaan en retourneren de **optionele configuratie**.
+4. Op de **optionele configuratie** sectie, selecteer **gekoppelde Storage-Accounts** en selecteer de **een opslagsleutel toevoegen** koppeling. Selecteer het opslagaccount waarin de JAR-bestanden. Gebruik vervolgens de **Selecteer** knoppen instellingen opslaan en retourneren de **optionele configuratie**.
 
-5. Voor het opslaan van de optionele configuratie gebruiken de **Selecteer** knop aan de onderkant van de **optionele configuratie** sectie.
+5. Als u wilt de optionele configuratie op te slaan, gebruikt u de **Selecteer** knop aan de onderkant van de **optionele configuratie** sectie.
 
-6. Doorgaan met het inrichten van het cluster, zoals beschreven in [HDInsight-clusters inrichten op Linux](hdinsight-hadoop-provision-linux-clusters.md).
+6. Doorgaan met het inrichten van het cluster, zoals beschreven in [inrichten HDInsight-clusters op Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
-Nadat het maken van clusters is voltooid, u zich kunt gebruiken de potten toegevoegd via dit script uit Hive te gebruiken zonder de `ADD JAR` instructie.
+Als het maken van clusters is voltooid, bent u de JAR-bestanden van Hive via dit script toegevoegd zonder gebruik te gebruiken de `ADD JAR` instructie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

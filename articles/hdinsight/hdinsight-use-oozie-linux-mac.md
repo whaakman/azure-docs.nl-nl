@@ -1,39 +1,36 @@
 ---
-title: Gebruik van Hadoop Oozie werkstromen in Azure HDInsight op basis van Linux | Microsoft Docs
-description: Gebruik Hadoop Oozie in HDInsight op basis van Linux. Informatie over het definiëren van een werkstroom Oozie en het verzenden van een Oozie-taak.
+title: Hadoop Oozie-werkstromen in Azure HDInsight op basis van Linux gebruiken
+description: Gebruik Oozie met Hadoop in HDInsight op basis van Linux. Informatie over het definiëren van een Oozie-workflow en het verzenden van een Oozie-taak.
 services: hdinsight
-author: omidm1
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: d7603471-5076-43d1-8b9a-dbc4e366ce5d
 ms.service: hdinsight
 ms.custom: hdinsightactive
+author: omidm1
+ms.author: omidm
+editor: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: omidm
-ms.openlocfilehash: a1fd33ec83208dfd5d90a0fb11557c72a5f02e88
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: a8a1b45d28b8d762a659ccdcc6986dcacb3a9d3e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019269"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599170"
 ---
-# <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Oozie gebruiken met Hadoop om te definiëren en een werkstroom uitgevoerd op Azure HDInsight op basis van Linux
+# <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Oozie gebruiken met Hadoop om te definiëren en een werkstroom uitvoeren op Azure HDInsight op basis van Linux
 
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
-Informatie over het gebruiken van Apache Oozie met Hadoop op Azure HDInsight. Oozie is een werkstroom en coördinatie systeem waarmee Hadoop-taken worden beheerd. Oozie is geïntegreerd met de Hadoop-stack en ondersteunt de volgende taken:
+Leer hoe u Apache Oozie gebruiken met Hadoop op Azure HDInsight. Oozie is een werkstroom en coördinatie systeem waarmee Hadoop-taken worden beheerd. Oozie is geïntegreerd met de Hadoop-stack en ondersteunt de volgende taken:
 
 * Apache MapReduce
 * Apache Pig
 * Apache Hive
 * Apache Sqoop
 
-U kunt ook Oozie taken plannen die specifiek voor een systeem, zoals Java-programma's of shell-scripts zijn gebruiken.
+U kunt ook Oozie gebruiken voor het plannen van taken die specifiek voor een systeem, zoals Java-programma's of shell-scripts zijn.
 
 > [!NOTE]
-> Een andere optie voor het definiëren van werkstromen met HDInsight is het gebruik van Azure Data Factory. Zie voor meer informatie over Data Factory, [Use Pig en Hive met Data Factory][azure-data-factory-pig-hive].
+> Er is een andere optie voor het definiëren van werkstromen met HDInsight met Azure Data Factory. Zie voor meer informatie over Data Factory, [Pig en Hive met Data Factory gebruiken][azure-data-factory-pig-hive].
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -45,30 +42,30 @@ U kunt ook Oozie taken plannen die specifiek voor een systeem, zoals Java-progra
 
 ## <a name="example-workflow"></a>Van de voorbeeldwerkstroom
 
-De werkstroom gebruikt in dit document bevat twee acties. Acties zijn definities voor taken zoals het uitvoeren van Hive, Sqoop, MapReduce of andere processen:
+De werkstroom gebruikt in dit document bevat twee acties. Acties zijn definities voor taken, zoals het uitvoeren van Hive, Sqoop, MapReduce of andere processen:
 
-![Werkstroomdiagram][img-workflow-diagram]
+![Diagram van werkstroom][img-workflow-diagram]
 
-1. Een Hive-actie wordt uitgevoerd een HiveQL-script om uit te pakken records uit de **hivesampletable** die is opgenomen in HDInsight. Elke rij gegevens beschrijft een bezoek van een specifieke mobiele apparaat. De recordindeling wordt weergegeven zoals de volgende tekst:
+1. Een Hive-bewerking wordt een HiveQL-script om uit te pakken records uit de **hivesampletable** die is opgenomen in HDInsight. Elke rij gegevens beschrijft een bezoek van een specifieke mobiele apparaat. De recordindeling wordt weergegeven, zoals de volgende tekst:
 
         8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
         23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
         23      19:19:46        en-US   Android HTC     Incredible      Pennsylvania   United States    1.4757422       0       1
 
-    Het Hive-script in dit document gebruikt het totaal aantal bezoeken voor elk platform, zoals Android of iPhone, telt en slaat het aantal aan een nieuwe Hive-tabel.
+    Het Hive-script gebruikt in dit document telt het totaal aantal bezoeken voor elk platform, zoals Android of iPhone, en slaat het aantal in een nieuw Hive-tabel.
 
     Zie [Hive gebruiken met HDInsight][hdinsight-use-hive] voor meer informatie over Hive.
 
-2. Een actie Sqoop exporteert u de inhoud van de nieuwe Hive-tabel naar een tabel gemaakt in Azure SQL Database. Zie voor meer informatie over Sqoop [Hadoop-Sqoop gebruiken met HDInsight][hdinsight-use-sqoop].
+2. Een actie Sqoop exporteert de inhoud van de nieuwe Hive-tabel naar een tabel gemaakt in Azure SQL Database. Zie voor meer informatie over Sqoop [Hadoop-Sqoop gebruiken met HDInsight][hdinsight-use-sqoop].
 
 > [!NOTE]
 > Zie voor ondersteunde versies van de Oozie op HDInsight-clusters, [wat is er nieuw in de Hadoop-clusterversies geleverd door HDInsight][hdinsight-versions].
 
 ## <a name="create-the-working-directory"></a>De werkmap maken
 
-Oozie verwacht u alle resources die vereist zijn voor een taak in dezelfde map opslaan. In dit voorbeeld wordt **wasb: / / / zelfstudies/useoozie**. Voer de volgende stappen uit voor het maken van deze map:
+Oozie wordt verwacht dat u voor het opslaan van alle bronnen die nodig zijn voor een taak in dezelfde map. In dit voorbeeld wordt **wasb: / / / zelfstudies/useoozie**. Voor het maken van deze map, voert u de volgende stappen uit:
 
-1. Verbinding maken met het HDInsight-cluster via SSH:
+1. Verbinding maken met het HDInsight-cluster met behulp van SSH:
 
     ```bash
     ssh sshuser@clustername-ssh.azurehdinsight.net
@@ -83,43 +80,43 @@ Oozie verwacht u alle resources die vereist zijn voor een taak in dezelfde map o
     ```
 
     > [!NOTE]
-    > De `-p` parameter zorgt ervoor dat het maken van alle mappen in het pad. De **gegevens** directory wordt gebruikt om de gegevens die worden gebruikt door de **useooziewf.hql** script.
+    > De `-p` parameter zorgt ervoor dat het maken van alle mappen in het pad. De **gegevens** directory wordt gebruikt voor het opslaan van de gegevens die worden gebruikt door de **useooziewf.hql** script.
 
-3. Om ervoor te zorgen dat uw gebruikersaccount kan worden geïmiteerd Oozie, gebruik de volgende opdracht:
+3. Om ervoor te zorgen dat uw account kan worden geïmiteerd Oozie, gebruikt u de volgende opdracht:
 
     ```bash
     sudo adduser username users
     ```
 
-    Vervang `username` door uw SSH-gebruikersnaam.
+    Vervang `username` met de naam van de SSH-gebruiker.
 
     > [!NOTE]
     > U kunt negeren fouten die wijzen op de gebruiker is al een lid van de `users` groep.
 
-## <a name="add-a-database-driver"></a>Toevoegen van een databasestuurprogramma
+## <a name="add-a-database-driver"></a>Een databasestuurprogramma toevoegen
 
-Omdat deze werkstroom Sqoop gebruikt gegevens exporteren naar de SQL-database, moet u een kopie van de JDBC-stuurprogramma gebruikt voor communicatie met de SQL-database opgeven. Om te kopiëren JDBC-stuurprogramma voor de werkmap, gebruikt u de volgende opdracht bij de SSH-sessie:
+Omdat deze werkstroom Sqoop gebruikt gegevens te exporteren naar de SQL-database, moet u een kopie van het JDBC-stuurprogramma gebruikt om te communiceren met de SQL-database opgeven. Als u wilt het JDBC-stuurprogramma kopiëren naar de werkmap, gebruik de volgende opdracht uit de SSH-sessie:
 
 ```bash
 hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
 ```
 
 > [!NOTE]
-> Er wordt een bericht dat het bestand al bestaat.
+> Mogelijk ontvangt u een bericht dat het bestand al bestaat.
 
-Als uw werkstroom andere resources, zoals een jar dat een MapReduce-toepassing bevat gebruikt, moet u ook deze resources toevoegen.
+Als de werkstroom andere resources, zoals een jar dat een MapReduce-toepassing bevat gebruikt, moet u deze resources ook toevoegen.
 
 ## <a name="define-the-hive-query"></a>Definieer de Hive-query
 
-Gebruik de volgende stappen voor het maken van een Hive-query language (HiveQL)-script dat definieert u een query. U gebruikt de query in een werkstroom Oozie verderop in dit document.
+Gebruik de volgende stappen uit om een Hive query language (HiveQL) script die definieert u een query te maken. U gebruikt de query in een Oozie-workflow verderop in dit document.
 
-1. De volgende opdracht uit de SSH-verbinding gebruiken voor het maken van een bestand met de naam `useooziewf.hql`:
+1. Gebruik de SSH-verbinding, de volgende opdracht om te maken van een bestand met de naam `useooziewf.hql`:
 
     ```bash
     nano useooziewf.hql
     ```
 
-3. Nadat de GNU nano-editor wordt geopend, gebruikt u de volgende query als de inhoud van het bestand:
+3. Nadat de GNU nano-editor wordt geopend, gebruikt u de volgende query uit als de inhoud van het bestand:
 
     ```hiveql
     DROP TABLE ${hiveTableName};
@@ -134,9 +131,9 @@ Gebruik de volgende stappen voor het maken van een Hive-query language (HiveQL)-
 
     * `${hiveDataFolder}`: Bevat de locatie voor het opslaan van de gegevensbestanden voor de tabel.
 
-    De werkstroom-definitiebestand workflow.xml in deze zelfstudie geeft deze waarden aan dit script HiveQL tijdens runtime.
+    De werkstroom-definitiebestand workflow.xml in deze zelfstudie, geeft deze waarden aan deze HiveQL-script uit tijdens runtime.
 
-4. Selecteer Ctrl + X om af te sluiten van de editor. Wanneer u wordt gevraagd, selecteert u `Y` invoeren om het bestand opslaat, `useooziewf.hql` als de bestandsnaam en selecteer vervolgens **Enter**.
+4. Als u wilt de editor te sluiten, selecteert u Ctrl + X. Wanneer u hierom wordt gevraagd, selecteert u `Y` invoeren om het bestand hebt opgeslagen, `useooziewf.hql` als de bestandsnaam en selecteer vervolgens **Enter**.
 
 5. Gebruik de volgende opdrachten om te kopiëren `useooziewf.hql` naar `wasb:///tutorials/useoozie/useooziewf.hql`:
 
@@ -148,9 +145,9 @@ Gebruik de volgende stappen voor het maken van een Hive-query language (HiveQL)-
 
 ## <a name="define-the-workflow"></a>De werkstroom definiëren
 
-Oozie werkstroomdefinities worden geschreven in Hadoop proces Definition Language (hPDL), die een XML-proces definitietaal. Gebruik de volgende stappen voor het definiëren van de werkstroom:
+Oozie werkstroomdefinities worden geschreven in Hadoop proces Definition Language (hPDL), die een definition language met XML-proces. Gebruik de volgende stappen uit om de werkstroom te definiëren:
 
-1. Gebruik de volgende instructie voor het maken en bewerken van een nieuw bestand:
+1. Gebruik de volgende instructie maken en bewerken van een nieuw bestand:
 
     ```bash
     nano workflow.xml
@@ -213,17 +210,17 @@ Oozie werkstroomdefinities worden geschreven in Hadoop proces Definition Languag
 
     Er zijn twee acties die zijn gedefinieerd in de werkstroom:
 
-   * `RunHiveScript`: Met deze actie wordt de startactie en start de `useooziewf.hql` Hive-script.
+   * `RunHiveScript`: Met deze actie wordt de startactie en wordt uitgevoerd de `useooziewf.hql` Hive-script.
 
-   * `RunSqoopExport`: Met deze actie exporteert de gegevens die vanuit het Hive-script naar een SQL-database gemaakt met behulp van Sqoop. Deze actie wordt alleen uitgevoerd als de `RunHiveScript` actie is geslaagd.
+   * `RunSqoopExport`: Met deze actie exporteert de gegevens die zijn gemaakt op basis van het Hive-script naar een SQL-database met behulp van Sqoop. Deze actie kan alleen worden uitgevoerd als de `RunHiveScript` actie is geslaagd.
 
-     De werkstroom heeft enkele items zoals `${jobTracker}`. U kunt deze vermeldingen wordt vervangen door de waarden die u in de taakdefinitie. U maakt de taakdefinitie verderop in dit document.
+     De werkstroom heeft verschillende vermeldingen, zoals `${jobTracker}`. U kunt deze vermeldingen worden vervangen door de waarden die u in de taakdefinitie. U maakt de taakdefinitie verderop in dit document.
 
-     Let ook op de `<archive>sqljdbc4.jar</archive>` vermelding in de sectie Sqoop. Deze vermelding geeft opdracht Oozie om dit archief beschikbaar maken voor Sqoop wanneer deze actie wordt uitgevoerd.
+     Let ook op de `<archive>sqljdbc4.jar</archive>` vermelding in de sectie Sqoop. Deze vermelding geeft Oozie om dit archief beschikbaar maken voor Sqoop wanneer deze actie wordt uitgevoerd.
 
-3. Om het bestand opslaat, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**. 
+3. Om het bestand hebt opgeslagen, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**. 
 
-4. Gebruik de volgende opdracht om te kopiëren de `workflow.xml` van het bestand in `/tutorials/useoozie/workflow.xml`:
+4. Gebruik de volgende opdracht uit om te kopiëren de `workflow.xml` van het bestand in `/tutorials/useoozie/workflow.xml`:
 
     ```bash
     hdfs dfs -put workflow.xml /tutorials/useoozie/workflow.xml
@@ -231,7 +228,7 @@ Oozie werkstroomdefinities worden geschreven in Hadoop proces Definition Languag
 
 ## <a name="create-the-database"></a>De database maken
 
-Voor het maken van een SQL-database, volg de stappen in de [maken van een SQL-database](../sql-database/sql-database-get-started.md) document. Wanneer u de database maakt, gebruikt u `oozietest` als naam van de database. Ook Noteer de naam van de database-server.
+Voor het maken van een SQL-database, volg de stappen in de [maken van een SQL-database](../sql-database/sql-database-get-started.md) document. Wanneer u de database maken, gebruikt u `oozietest` als naam van de database. Maak ook een notitie van de naam van de database-server.
 
 ### <a name="create-the-table"></a>De tabel maken
 
@@ -239,19 +236,19 @@ Voor het maken van een SQL-database, volg de stappen in de [maken van een SQL-da
 > Er zijn veel manieren om te verbinden met SQL Database om een tabel te maken. In de volgende stappen wordt [FreeTDS](http://www.freetds.org/) gebruikt vanuit het HDInsight-cluster.
 
 
-1. Gebruik de volgende opdracht FreeTDS installeren op het HDInsight-cluster:
+1. Gebruik de volgende opdracht voor het installeren van FreeTDS op het HDInsight-cluster:
 
     ```bash
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. Nadat FreeTDS is geïnstalleerd, gebruikt u de volgende opdracht verbinding maken met de SQL database-server die u eerder hebt gemaakt:
+2. Nadat FreeTDS is geïnstalleerd, gebruikt u de volgende opdracht uit om te verbinden met de SQL database-server die u eerder hebt gemaakt:
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -P <sqlPassword> -p 1433 -D oozietest
     ```
 
-    U ontvangt uitvoer zoals de volgende tekst:
+    Ontvangt u uitvoer zoals de volgende tekst:
 
         locale is "en_US.UTF-8"
         locale charset is "UTF-8"
@@ -270,33 +267,33 @@ Voor het maken van een SQL-database, volg de stappen in de [maken van een SQL-da
     GO
     ```
 
-    Wanneer u de instructie `GO` invoert, worden de vorige instructies geëvalueerd. Een tabel met de naam van deze instructies maken **mobiledata**, dat wordt gebruikt door de werkstroom.
+    Wanneer u de instructie `GO` invoert, worden de vorige instructies geëvalueerd. Een tabel met de naam van deze instructies maken **mobiledata**, die wordt gebruikt door de werkstroom.
 
-    Om te bevestigen dat de tabel is gemaakt, gebruikt u de volgende opdrachten:
+    Om te controleren of de tabel is gemaakt, gebruikt u de volgende opdrachten:
 
     ```sql
     SELECT * FROM information_schema.tables
     GO
     ```
 
-    Ziet u uitvoer zoals de volgende tekst:
+    U ziet uitvoer zoals de volgende tekst:
 
         TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
         oozietest       dbo     mobiledata      BASE TABLE
 
-4. Voer het hulpprogramma tsql om af te sluiten `exit` op de `1>` prompt.
+4. Voer om af te sluiten van het hulpprogramma tsql `exit` op de `1>` prompt.
 
-## <a name="create-the-job-definition"></a>De taakdefinitie maken
+## <a name="create-the-job-definition"></a>De taakdefinitie van de maken
 
-Waar vind ik het workflow.xml beschrijving van de taakdefinitie. Ook wordt beschreven waar vind ik andere bestanden die wordt gebruikt door de werkstroom, zoals `useooziewf.hql`. Bovendien worden de waarden van eigenschappen die worden gebruikt binnen de werkstroom en de bijbehorende bestanden gedefinieerd.
+Waar vind ik de workflow.xml beschrijving van de taakdefinitie. Ook wordt beschreven waar u wilt zoeken naar andere bestanden die worden gebruikt door de werkstroom, zoals `useooziewf.hql`. Bovendien worden de waarden van eigenschappen die worden gebruikt binnen de werkstroom en de bijbehorende bestanden gedefinieerd.
 
-1. Als u het volledige adres van de standaard-opslag, gebruikt u de volgende opdracht. Dit adres wordt gebruikt in het configuratiebestand dat u in de volgende stap maakt.
+1. Als u het volledige adres van de standaardopslag, gebruikt u de volgende opdracht uit. Dit adres wordt gebruikt in het configuratiebestand dat u in de volgende stap maakt.
 
     ```bash
     sed -n '/<name>fs.default/,/<\/value>/p' /etc/hadoop/conf/core-site.xml
     ```
 
-    Met deze opdracht retourneert informatie, zoals de volgende XML-code:
+    Met deze opdracht retourneert informatie, zoals de volgende XML:
 
     ```xml
     <name>fs.defaultFS</name>
@@ -304,11 +301,11 @@ Waar vind ik het workflow.xml beschrijving van de taakdefinitie. Ook wordt besch
     ```
 
     > [!NOTE]
-    > Als het HDInsight-cluster gebruikmaakt van Azure Storage als de opslag standaard de `<value>` element inhoud beginnen met `wasb://`. Als Azure Data Lake Store in plaats daarvan wordt gebruikt, deze begint met `adl://`.
+    > Als het HDInsight-cluster maakt gebruik van Azure Storage als de standaardopslag, de `<value>` element inhoud beginnen met `wasb://`. Als Azure Data Lake Store in plaats daarvan wordt gebruikt, deze begint met `adl://`.
 
-    Sla de inhoud van de `<value>` element, zoals deze wordt gebruikt in de volgende stappen.
+    Sla de inhoud van de `<value>` -element, zoals deze wordt gebruikt in de volgende stappen.
 
-2. Gebruik de volgende opdracht voor het maken van de configuratie van Oozie taak definitie:
+2. Gebruik de volgende opdracht voor het maken van de configuratie van de definitie Oozie:
 
     ```bash
     nano job.xml
@@ -377,36 +374,36 @@ Waar vind ik het workflow.xml beschrijving van de taakdefinitie. Ook wordt besch
     </configuration>
     ```
 
-   * Vervang alle exemplaren van `wasb://mycontainer@mystorageaccount.blob.core.windows.net` met de waarde die u eerder hebt ontvangen voor de standaard-opslag.
+   * Vervang alle exemplaren van `wasb://mycontainer@mystorageaccount.blob.core.windows.net` met de waarde die u eerder hebt ontvangen voor de standaardopslag.
 
      > [!WARNING]
-     > Als het pad is een `wasb` pad, moet u het volledige pad gebruiken. Het net niet verkorten `wasb:///`.
+     > Als het pad is een `wasb` pad, moet u het volledige pad gebruiken. Geen korter maken om alleen `wasb:///`.
 
    * Vervang `YourName` met de aanmeldingsnaam van uw voor het HDInsight-cluster.
-   * Vervang `serverName`, `adminLogin`, en `adminPassword` met de gegevens voor de SQL-database.
+   * Vervang `serverName`, `adminLogin`, en `adminPassword` met de gegevens voor uw SQL-database.
 
-     Het merendeel van de informatie in dit bestand wordt gebruikt voor het vullen van de waarden gebruikt zoals in de bestanden workflow.xml of ooziewf.hql `${nameNode}`.
+     De meeste van de informatie in dit bestand wordt gebruikt voor het vullen van de waarden in de workflow.xml of ooziewf.hql-bestanden, zoals `${nameNode}`.
 
      > [!NOTE]
      > De `oozie.wf.application.path` vermelding bepaalt waar het bestand workflow.xml te vinden. Dit bestand bevat de werkstroom die door deze taak is uitgevoerd.
 
-5. Om het bestand opslaat, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**.
+5. Om het bestand hebt opgeslagen, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**.
 
 ## <a name="submit-and-manage-the-job"></a>Indienen en beheren van de taak
 
-De volgende stappen uit de Oozie-opdracht gebruiken voor het verzenden en Oozie-werkstromen op het cluster beheren. De Oozie-opdracht is een beschrijvende interface via het [Oozie REST-API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
+De volgende stappen gebruikt de opdracht Oozie indienen en beheren van Oozie-werkstromen op het cluster. De Oozie-opdracht is een gebruiksvriendelijke interface via het [Oozie REST-API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
 > [!IMPORTANT]
-> Wanneer u de opdracht Oozie gebruikt, moet u de FQDN-naam voor het hoofdknooppunt van HDInsight. Deze FDQN-naam is alleen toegankelijk is vanaf het cluster, of als het cluster zich op een Azure-netwerk vanuit andere machines op hetzelfde netwerk.
+> Wanneer u de opdracht Oozie gebruiken, moet u de FQDN-naam gebruiken voor het hoofdknooppunt van HDInsight. Deze FQDN is alleen toegankelijk is vanaf het cluster, of als het cluster zich in een Azure-netwerk, van andere virtuele machines op hetzelfde netwerk.
 
 
-1. Als u de URL van de service Oozie, gebruik de volgende opdracht:
+1. Als u de URL naar de service Oozie, gebruik de volgende opdracht:
 
     ```bash
     sed -n '/<name>oozie.base.url/,/<\/value>/p' /etc/oozie/conf/oozie-site.xml
     ```
 
-    Hiermee wordt informatie, zoals de volgende XML-code:
+    Dit retourneert informatie, zoals de volgende XML:
 
     ```xml
     <name>oozie.base.url</name>
@@ -415,33 +412,33 @@ De volgende stappen uit de Oozie-opdracht gebruiken voor het verzenden en Oozie-
 
     De `http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie` gedeelte is de URL voor gebruik met de opdracht Oozie.
 
-2. Voor het maken van een omgevingsvariabele voor de URL, gebruikt u de volgende, zodat u hoeft deze voor elke opdracht opgeven:
+2. Voor het maken van een omgevingsvariabele voor de URL, gebruikt u de volgende, zodat u niet hoeft op te geven voor elke opdracht:
 
     ```bash
     export OOZIE_URL=http://HOSTNAMEt:11000/oozie
     ```
 
-    Vervang de URL in met de categorie die u eerder hebt ontvangen.
-3. Als u de taak, gebruikt u het volgende:
+    De URL vervangen door de reeks die u eerder hebt ontvangen.
+3. Als u wilt verzenden van de taak, gebruikt u het volgende:
 
     ```bash
     oozie job -config job.xml -submit
     ```
 
-    Met deze opdracht wordt de taakgegevens uit geladen `job.xml` en verstuurt die naar Oozie, maar wordt niet uitgevoerd.
+    Met deze opdracht wordt de informatie over de taak van geladen `job.xml` en verzendt deze naar Oozie, maar wordt niet uitgevoerd.
 
-    Nadat de opdracht is voltooid, moet er bijvoorbeeld de ID van de taak geretourneerd `0000005-150622124850154-oozie-oozi-W`. Deze ID wordt gebruikt voor het beheren van de taak.
+    Nadat de opdracht is voltooid, moet deze de ID van de taak, bijvoorbeeld retourneren `0000005-150622124850154-oozie-oozi-W`. Deze ID wordt gebruikt voor het beheren van de taak.
 
-4. Gebruik de volgende opdracht om de status van de taak, weergeven:
+4. Als u wilt weergeven van de status van de taak, gebruik de volgende opdracht:
 
     ```bash
     oozie job -info <JOBID>
     ```
 
     > [!NOTE]
-    > Vervang `<JOBID>` met de ID die is geretourneerd in de vorige stap.
+    > Vervang `<JOBID>` met de ID die wordt geretourneerd in de vorige stap.
 
-    Hiermee wordt informatie, zoals de volgende tekst:
+    Dit retourneert informatie, zoals de volgende tekst:
 
         Job ID : 0000005-150622124850154-oozie-oozi-W
         ------------------------------------------------------------------------------------------------------------------------------------
@@ -458,7 +455,7 @@ De volgende stappen uit de Oozie-opdracht gebruiken voor het verzenden en Oozie-
         CoordAction ID: -
         ------------------------------------------------------------------------------------------------------------------------------------
 
-    Deze taak heeft status `PREP`. Deze status geeft aan dat de taak is gemaakt, maar niet gestart.
+    Deze taak heeft de status van `PREP`. Deze status geeft aan dat de taak is gemaakt, maar niet is gestart.
 
 5. Gebruik de volgende opdracht voor het starten van de taak:
 
@@ -469,22 +466,22 @@ De volgende stappen uit de Oozie-opdracht gebruiken voor het verzenden en Oozie-
     > [!NOTE]
     > Vervang `<JOBID>` met de ID die eerder zijn geretourneerd.
 
-    Als u de status na deze opdracht controleren, actief is en gegevens worden geretourneerd voor de acties in de taak.
+    Als u de status na deze opdracht controleren, deel uitmaakt van een actieve status en gegevens worden geretourneerd voor de acties in de taak.
 
-6. Nadat de taak voltooid wordt, kunt u controleren dat de gegevens is gegenereerd en geëxporteerd naar de tabel van de SQL-database met behulp van de volgende opdracht:
+6. Nadat de taak voltooid is, kunt u controleren dat de gegevens is gegenereerd en geëxporteerd naar de tabel van de SQL-database met behulp van de volgende opdracht uit:
 
     ```bash
     TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D oozietest
     ```
 
-    Op de `1>` gevraagd, voert u de volgende query:
+    Op de `1>` wordt gevraagd, voert u de volgende query:
 
     ```sql
     SELECT * FROM mobiledata
     GO
     ```
 
-    De geretourneerde informatie is vergelijkbaar met de volgende tekst:
+    De informatie die wordt geretourneerd is vergelijkbaar met de volgende tekst:
 
         deviceplatform  count
         Android 31591
@@ -499,11 +496,11 @@ Zie voor meer informatie over de opdracht Oozie [Oozie-opdrachtregelprogramma](h
 
 ## <a name="oozie-rest-api"></a>Oozie REST-API
 
-U kunt uw eigen hulpprogramma's die met Oozie werken opbouwen met de Oozie REST-API. Hier volgt een HDInsight-specifieke informatie over het gebruik van de Oozie REST-API:
+U kunt uw eigen hulpprogramma's die met Oozie werken bouwen met de Oozie REST-API. Hier volgt een HDInsight-specifieke informatie over het gebruik van de REST-API voor Oozie:
 
 * **URI**: U hebt toegang tot de REST-API van buiten het cluster op `https://CLUSTERNAME.azurehdinsight.net/oozie`.
 
-* **Verificatie**: om te verifiëren, de API gebruiken de HTTP-clusteraccount (admin) en het wachtwoord. Bijvoorbeeld:
+* **Verificatie**: Gebruik de API om te verifiëren, de HTTP-clusteraccount (beheerder) en het wachtwoord. Bijvoorbeeld:
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions
@@ -511,9 +508,9 @@ U kunt uw eigen hulpprogramma's die met Oozie werken opbouwen met de Oozie REST-
 
 Zie voor meer informatie over het gebruik van de REST-API voor Oozie [Oozie-webservices-API](https://oozie.apache.org/docs/4.1.0/WebServicesAPI.html).
 
-## <a name="oozie-web-ui"></a>Oozie-webgebruikersinterface
+## <a name="oozie-web-ui"></a>Oozie-Webgebruikersinterface
 
-De Oozie-webgebruikersinterface biedt een webweergave in de status van Oozie taken op het cluster. Met de webgebruikersinterface kunt u de volgende informatie bekijken:
+De Oozie-webgebruikersinterface biedt webgebaseerde inzicht in de status van Oozie-taken op het cluster. Met de webgebruikersinterface kunt u de volgende informatie bekijken:
 
    * Taakstatus
    * Taakdefinitie
@@ -521,19 +518,19 @@ De Oozie-webgebruikersinterface biedt een webweergave in de status van Oozie tak
    * Een grafiek van de acties in de taak
    * Logboeken voor de taak
 
-U kunt ook de details voor de acties binnen een taak weergeven.
+U kunt ook de details voor de acties binnen een project weergeven.
 
-Voor toegang tot de webgebruikersinterface Oozie, moet u de volgende stappen uitvoeren:
+Voor toegang tot de Oozie-web-UI, voert u de volgende stappen uit:
 
-1. Maak een SSH-tunnel naar het HDInsight-cluster. Zie voor meer informatie [SSH-Tunneling gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
+1. Maak een SSH-tunnel naar het HDInsight-cluster. Zie voor meer informatie, [SSH-Tunneling gebruiken met HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
-2. Nadat u een tunnel maakt, opent u de Ambari-webgebruikersinterface in uw webbrowser. De URI voor de site Ambari is `https://CLUSTERNAME.azurehdinsight.net`. Vervang `CLUSTERNAME` met de naam van uw Linux gebaseerde HDInsight-cluster.
+2. Nadat u een tunnel maken, opent u de Ambari-Webgebruikersinterface in uw webbrowser. De URI voor de site Ambari is `https://CLUSTERNAME.azurehdinsight.net`. Vervang `CLUSTERNAME` met de naam van uw Linux gebaseerde HDInsight-cluster.
 
 3. Selecteer in de linkerkant van de pagina **Oozie** > **snelkoppelingen** > **Oozie-Webgebruikersinterface**.
 
     ![Afbeelding van de menu 's](./media/hdinsight-use-oozie-linux-mac/ooziewebuisteps.png)
 
-4. De Oozie-webgebruikersinterface standaard om de werkstroomtaken weer te geven. Selecteer de werkstroomtaken vindt **alle taken**.
+4. De web-UI van Oozie standaard om weer te geven van de werkstroomtaken die worden uitgevoerd. De werkstroomtaken Selecteer **alle taken**.
 
     ![Alle taken die worden weergegeven](./media/hdinsight-use-oozie-linux-mac/ooziejobs.png)
 
@@ -541,33 +538,33 @@ Voor toegang tot de webgebruikersinterface Oozie, moet u de volgende stappen uit
 
     ![Taakgegevens](./media/hdinsight-use-oozie-linux-mac/jobinfo.png)
 
-6. Van de **taakinformatie** tabblad ziet u de informatie over basic taak en de afzonderlijke acties in de taak. Kunt u de tabbladen boven om weer te geven de **taakdefinitie**, **taakconfiguratie**, toegang tot de **taaklogboek**, of een gerichte acyclische grafiek (DAG) van de taak onder weergeven**Taak DAG**.
+6. Uit de **taakgegevens** tabblad ziet u de informatie over de algemene taak en de afzonderlijke acties in de taak. U kunt de tabbladen aan de bovenkant om weer te geven de **taakdefinitie**, **taakconfiguratie**, toegang de **taaklogboek**, of weergeven van een directed acyclic graph (DAG) van de taak onder **Taak DAG**.
 
-   * **Taaklogboek**: Selecteer de **Get Logs** voor alle logboeken voor de taak, of gebruikt u de **zoekfilter Voer** veld voor het filteren van de logboeken.
+   * **Taaklogboek**: Selecteer de **Get Logs** om op te halen van alle logboeken voor de taak, of gebruikt u de **zoekfilter Voer** veld voor het filteren van de logboeken.
 
-       ![Logboekbestand van taak](./media/hdinsight-use-oozie-linux-mac/joblog.png)
+       ![Taaklogboek](./media/hdinsight-use-oozie-linux-mac/joblog.png)
 
-   * **DAG van de taak**: de DAG is een grafisch overzicht van de gegevenspaden via de werkstroom wordt uitgevoerd.
+   * **DAG van de taak**: de DAG is een grafische overzicht van de gegevenspaden via de werkstroom wordt uitgevoerd.
 
        ![Taak DAG](./media/hdinsight-use-oozie-linux-mac/jobdag.png)
 
-7. Als u een van de acties van de **taakinformatie** tabblad brengt gegevens over de actie. Selecteer bijvoorbeeld de **RunSqoopExport** in te grijpen.
+7. Als u een van de acties op basis van de **taakgegevens** tabblad, brengt dit van informatie voor de actie. Selecteer bijvoorbeeld de **RunSqoopExport** actie.
 
-    ![Actie-info](./media/hdinsight-use-oozie-linux-mac/action.png)
+    ![Actie-informatie](./media/hdinsight-use-oozie-linux-mac/action.png)
 
-8. Ziet u details voor de actie, zoals een koppeling naar de **Console URL**. Gebruik deze koppeling om informatie over het vastleggen van taak voor de taak weer te geven.
+8. Ziet u details voor de actie, zoals een koppeling naar de **Console-URL**. Gebruik deze koppeling om informatie over het vastleggen van taak voor de taak weer te geven.
 
 ## <a name="schedule-jobs"></a>Taken plannen
 
-U kunt de coördinator gebruiken om op te geven van een start, een end en de exemplaar-frequentie voor taken. Als u wilt een schema voor de werkstroom definiëren, moet u de volgende stappen uitvoeren:
+U kunt de coördinator gebruiken om op te geven van een starten, een end en de frequentie van de gebeurtenis voor taken. Als u wilt een schema voor de werkstroom definiëren, voert u de volgende stappen uit:
 
-1. Gebruik de volgende opdracht voor het maken van een bestand met de naam **coordinator.xml**:
+1. Gebruik de volgende opdracht om te maken van een bestand met de naam **coordinator.xml**:
 
     ```bash
     nano coordinator.xml
     ```
 
-    Gebruik de volgende XML-code als de inhoud van het bestand:
+    Gebruik het volgende XML-bestand als de inhoud van het bestand:
 
     ```xml
     <coordinator-app name="my_coord_app" frequency="${coordFrequency}" start="${coordStart}" end="${coordEnd}" timezone="${coordTimezone}" xmlns="uri:oozie:coordinator:0.4">
@@ -580,23 +577,23 @@ U kunt de coördinator gebruiken om op te geven van een start, een end en de exe
     ```
 
     > [!NOTE]
-    > De `${...}` variabelen zijn vervangen door waarden in de taakdefinitie tijdens runtime. De variabelen zijn:
+    > De `${...}` variabelen zijn vervangen door waarden in de taakdefinitie tijdens runtime. De variabelen die zijn:
     >
-    > * `${coordFrequency}`: De tijd tussen het actieve exemplaren van de taak.
-    > * `${coordStart}`: De begintijd van taak.
-    > * `${coordEnd}`: De eindtijd van de taak.
-    > * `${coordTimezone}`: Coordinator taken zijn in een vaste tijdzone geen zomertijd gewoonlijk weergegeven met behulp UTC. Deze tijdzone wordt verwezen als de *Oozie verwerking tijdzone.*
+    > * `${coordFrequency}`: De tijd tussen het uitvoeren van exemplaren van de taak.
+    > * `${coordStart}`: De begintijd de taak.
+    > * `${coordEnd}`: De eindtijd van taak.
+    > * `${coordTimezone}`: Coordinator taken zijn in een vaste tijdzone geen zomertijd, meestal met behulp van UTC weergegeven. Deze tijdzone wordt verwezen als de *Oozie verwerking over de tijdzone.*
     > * `${wfPath}`: Het pad naar de workflow.xml.
 
-2. Om het bestand opslaat, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**.
+2. Om het bestand hebt opgeslagen, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**.
 
-3. Om het bestand naar de werkmap voor deze taak gekopieerd, moet u de volgende opdracht gebruiken:
+3. Als u wilt kopiëren van het bestand naar de werkmap voor deze taak, gebruik de volgende opdracht:
 
     ```bash
     hadoop fs -put coordinator.xml /tutorials/useoozie/coordinator.xml
     ```
 
-4. Wijzig de `job.xml` bestand, gebruikt u de volgende opdracht:
+4. Wijzig de `job.xml` bestand, gebruik de volgende opdracht:
 
     ```
     nano job.xml
@@ -606,7 +603,7 @@ U kunt de coördinator gebruiken om op te geven van een start, een end en de exe
 
    * Instructies Oozie de coördinator-bestand in plaats van de werkstroom uit te voeren, wijzigen `<name>oozie.wf.application.path</name>` naar `<name>oozie.coord.application.path</name>`.
 
-   * Om in te stellen de `workflowPath` variabele die wordt gebruikt door de coördinator, voeg de volgende XML-code:
+   * Om in te stellen de `workflowPath` variabele die wordt gebruikt door de coördinator, voeg de volgende XML:
 
         ```xml
         <property>
@@ -615,9 +612,9 @@ U kunt de coördinator gebruiken om op te geven van een start, een end en de exe
         </property>
         ```
 
-       Vervang de `wasb://mycontainer@mystorageaccount.blob.core.windows` tekst met de waarde in de andere vermeldingen in het bestand job.xml gebruikt.
+       Vervang de `wasb://mycontainer@mystorageaccount.blob.core.windows` tekst met de waarde die wordt gebruikt in de andere vermeldingen in het bestand job.xml.
 
-   * Definieer de start, eindgebruikers en frequentie voor de coördinator toevoegen de volgende XML-code:
+   * Voeg het volgende XML-bestand voor het definiëren van het begin, einde en frequentie voor de coördinator:
 
         ```xml
         <property>
@@ -641,9 +638,9 @@ U kunt de coördinator gebruiken om op te geven van een start, een end en de exe
         </property>
         ```
 
-       Deze waarden instellen voor de begintijd tot 12:00 uur op 10 mei 2017 en de eindtijd op 12 mei 2017. Het interval voor het uitvoeren van deze taak is ingesteld op dagelijks. De frequentie in minuten, wordt dus 24 uur x 60 minuten = 1440 minuten. Ten slotte is de tijdzone ingesteld op UTC.
+       Deze waarden ingesteld voor de begintijd tot 12:00 op 10 mei 2017 en de eindtijd op 12 mei 2017. Het interval voor het uitvoeren van deze taak is ingesteld op dagelijks. De frequentie in minuten, wordt dus 24 uur x 60 minuten = 1440 minuten. Ten slotte is de tijdzone ingesteld op UTC.
 
-5. Om het bestand opslaat, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**.
+5. Om het bestand hebt opgeslagen, selecteert u Ctrl + X, voer `Y`, en selecteer vervolgens **Enter**.
 
 6. Als u wilt de taak uitvoert, moet u de volgende opdracht gebruiken:
 
@@ -651,54 +648,54 @@ U kunt de coördinator gebruiken om op te geven van een start, een end en de exe
     oozie job -config job.xml -run
     ```
 
-    Deze opdracht worden verzonden en wordt de taak wordt gestart.
+    Met deze opdracht worden verzonden en wordt de taak wordt gestart.
 
-7. Wanneer u gaat naar de Oozie-webgebruikersinterface en selecteer de **coördinator taken** tabblad ziet u informatie, zoals in de volgende afbeelding:
+7. Als u gaat u naar de Oozie-Webinterface en selecteer de **Coordinator taken** tabblad ziet u informatie, zoals in de volgende afbeelding:
 
     ![Tabblad Coordinator-taken](./media/hdinsight-use-oozie-linux-mac/coordinatorjob.png)
 
-    De **volgende Materialisatie** invoer bevat de volgende keer dat de taak wordt uitgevoerd.
+    De **volgende Materialisatie** vermelding bevat de volgende keer dat de taak wordt uitgevoerd.
 
-8. Als de werkstroomtaak eerdere geeft informatie weer als u de vermelding van de taak in de webgebruikersinterface selecteert op de taak:
+8. Als de eerdere werkstroomtaak geeft informatie weer als u de vermelding van de taak in de webgebruikersinterface selecteert op de taak:
 
-    ![De taakinformatie Coordinator](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
+    ![Coördinator taakgegevens](./media/hdinsight-use-oozie-linux-mac/coordinatorjobinfo.png)
 
     > [!NOTE]
-    > Deze afbeelding ziet u alleen geslaagde wordt uitgevoerd van de taak niet de afzonderlijke acties binnen de geplande werkstroom. Overzicht van de afzonderlijke acties, selecteer een van de **actie** vermeldingen.
+    > Deze afbeelding ziet u alleen geslaagde uitvoeringen van de taak niet de afzonderlijke acties in de geplande werkstroom. Als u wilt zien van de afzonderlijke acties, selecteer een van de **actie** vermeldingen.
 
-    ![Actie-info](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
+    ![Actie-informatie](./media/hdinsight-use-oozie-linux-mac/coordinatoractionjob.png)
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
 U kunt met de UI Oozie Oozie logboeken weergeven. De UI Oozie bevat ook koppelingen naar de JobTracker-logboeken voor de MapReduce-taken die zijn gestart door de werkstroom. Het patroon voor het oplossen van moet zijn:
 
-   1. De taak in Oozie-webgebruikersinterface weergeven.
+   1. De taak weergeven in Oozie-Webgebruikersinterface.
 
-   2. Als er een fout of een fout voor een specifieke actie, selecteer de actie om te controleren of de **foutbericht** veld bevat meer informatie over de fout.
+   2. Als er een fout of een fout voor een bepaalde actie, selecteer de actie om te controleren of de **foutbericht** veld vindt u meer informatie over de fout.
 
-   3. Indien beschikbaar, gebruikt u de URL van de actie om meer details, zoals de logboeken JobTracker voor de actie weer te geven.
+   3. Als deze beschikbaar is, gebruikt u de URL van de actie voor meer informatie, zoals de JobTracker-logboeken voor de actie.
 
-Hieronder vindt u specifieke fouten die optreden en hoe u deze kunt oplossen.
+Hier volgen specifieke fouten die optreden en hoe u ze op te lossen.
 
-### <a name="ja009-cannot-initialize-cluster"></a>JA009: Cluster kan niet worden geïnitialiseerd
+### <a name="ja009-cannot-initialize-cluster"></a>JA009: Kan het cluster niet initialiseren
 
-**Symptomen**: de taakstatus verandert in **onderbroken**. Details voor het weergeven van de taak de `RunHiveScript` status als **START_MANUAL**. Als u de actie wordt het volgende foutbericht weergegeven:
+**Symptomen**: de taakstatus verandert in **onderbroken**. Details voor het weergeven van de taak de `RunHiveScript` status als **START_MANUAL**. De bewerking te selecteren, wordt het volgende foutbericht weergegeven:
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**Oorzaak**: de Azure Blob storage-adressen die worden gebruikt de **job.xml** bestand bevat niet de storage-container of de naam van het opslagaccount. De notatie van het Blob-opslag-adres moet `wasb://containername@storageaccountname.blob.core.windows.net`.
+**Oorzaak**: de Azure Blob storage-adressen die worden gebruikt de **job.xml** bestand geen het storage-container of de naam van het opslagaccount. De indeling van Blob storage-adres moet `wasb://containername@storageaccountname.blob.core.windows.net`.
 
 **Resolutie**: wijzigen van de adressen van de Blob-opslag die gebruikmaakt van de taak.
 
-### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltuser"></a>JA002: Oozie mag niet worden geïmiteerd &lt;gebruiker >
+### <a name="ja002-oozie-is-not-allowed-to-impersonate-ltuser"></a>JA002: Oozie is niet toegestaan om te imiteren &lt;gebruiker >
 
-**Symptomen**: de taakstatus verandert in **onderbroken**. Details voor het weergeven van de taak de `RunHiveScript` status als **START_MANUAL**. Als u de actie selecteert, ziet u het volgende foutbericht weergegeven:
+**Symptomen**: de taakstatus verandert in **onderbroken**. Details voor het weergeven van de taak de `RunHiveScript` status als **START_MANUAL**. Als u de actie selecteert, ziet u de volgende strekking weergegeven:
 
     JA002: User: oozie is not allowed to impersonate <USER>
 
-**Oorzaak**: de huidige machtigingsinstellingen Oozie imiteren van de opgegeven gebruikersaccount niet toestaan.
+**Oorzaak**: instellingen voor de huidige machtigingen niet toestaan Oozie te imiteren van het opgegeven gebruikersaccount.
 
-**Resolutie**: Oozie gebruikers kan imiteren gebruikers in de **gebruikers** groep. Gebruik de `groups USERNAME` om te zien van de groepen die lid van het gebruikersaccount is. Als de gebruiker geen lid is van is de **gebruikers** groep, gebruikt u de volgende opdracht de gebruiker wilt toevoegen aan de groep:
+**Resolutie**: Oozie kan imiteren gebruikers in de **gebruikers** groep. Gebruik de `groups USERNAME` om te zien van de groepen die het gebruikersaccount dat lid is van is. Als de gebruiker geen lid is van is de **gebruikers** groep, gebruikt u de volgende opdracht uit om toe te voegen van de gebruiker aan de groep:
 
     sudo adduser USERNAME users
 
@@ -707,23 +704,23 @@ Hieronder vindt u specifieke fouten die optreden en hoe u deze kunt oplossen.
 
 ### <a name="launcher-error-sqoop"></a>FOUT (Sqoop) starten
 
-**Symptomen**: de taakstatus verandert in **KILLED**. Details voor het weergeven van de taak de `RunSqoopExport` status als **fout**. Als u de actie selecteert, ziet u het volgende foutbericht weergegeven:
+**Symptomen**: de taakstatus verandert in **KILLED**. Details voor het weergeven van de taak de `RunSqoopExport` status als **fout**. Als u de actie selecteert, ziet u de volgende strekking weergegeven:
 
     Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
 
 **Oorzaak**: Sqoop kan niet worden geladen stuurprogramma voor de database vereist voor toegang tot de database is.
 
-**Resolutie**: wanneer u Sqoop vanaf een Oozie-taak gebruiken, moet u het stuurprogramma voor de database met de andere resources, zoals de workflow.xml, het gebruik van de taak opnemen. Ook verwijzen naar het archief waarin het stuurprogramma voor de database van de `<sqoop>...</sqoop>` sectie van de workflow.xml.
+**Resolutie**: wanneer u Sqoop van een taak Oozie gebruiken, moet u een stuurprogramma voor de database met de andere resources, zoals de workflow.xml, de taak gebruikt opnemen. Ook verwijzen naar het archief met het stuurprogramma voor de database van de `<sqoop>...</sqoop>` sectie van de workflow.xml.
 
-Bijvoorbeeld: voor de taak in dit document gebruikt u de volgende stappen uit:
+Bijvoorbeeld, voor de taak in dit document, moet u de volgende stappen gebruiken:
 
-1. Kopieer de `sqljdbc4.1.jar` van het bestand in de **zelfstudies/useoozie** directory:
+1. Kopieer de `sqljdbc4.1.jar` van het bestand in de **/zelfstudies/useoozie** directory:
 
     ```bash
     hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc41.jar /tutorials/useoozie/sqljdbc41.jar
     ```
 
-2. Wijzig de `workflow.xml` om toe te voegen van de volgende XML-code op een nieuwe regel hierboven `</sqoop>`:
+2. Wijzig de `workflow.xml` om toe te voegen van het volgende XML-bestand op een nieuwe regel hierboven `</sqoop>`:
 
     ```xml
     <archive>sqljdbc41.jar</archive>
@@ -731,14 +728,14 @@ Bijvoorbeeld: voor de taak in dit document gebruikt u de volgende stappen uit:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u een werkstroom Oozie definiëren en hoe een Oozie-taak uit te voeren. Zie de volgende artikelen voor meer informatie over het werken met HDInsight:
+In deze zelfstudie hebt u geleerd hoe u een Oozie-workflow definieert en hoe u een Oozie-taak uit te voeren. Zie de volgende artikelen voor meer informatie over het werken met HDInsight:
 
-* [De tijd gebaseerde Oozie-coördinator gebruiken met HDInsight][hdinsight-oozie-coordinator-time]
-* [Uploaden van gegevens voor Hadoop-taken in HDInsight][hdinsight-upload-data]
+* [De op tijd gebaseerde Oozie-coördinator gebruiken met HDInsight][hdinsight-oozie-coordinator-time]
+* [Gegevens uploaden voor Hadoop-taken in HDInsight][hdinsight-upload-data]
 * [Sqoop gebruiken met Hadoop in HDInsight][hdinsight-use-sqoop]
-* [Hive gebruiken met Hadoop in HDInsight][hdinsight-use-hive]
-* [Pig gebruiken met Hadoop in HDInsight][hdinsight-use-pig]
-* [Het ontwikkelen van Java-MapReduce-programma's voor HDInsight][hdinsight-develop-mapreduce]
+* [Hive gebruiken met Hadoop op HDInsight][hdinsight-use-hive]
+* [Pig gebruiken met Hadoop op HDInsight][hdinsight-use-pig]
+* [Java MapReduce-programma's ontwikkelen voor HDInsight][hdinsight-develop-mapreduce]
 
 [hdinsight-cmdlets-download]: http://go.microsoft.com/fwlink/?LinkID=325563
 [azure-data-factory-pig-hive]: ../data-factory/transform-data.md

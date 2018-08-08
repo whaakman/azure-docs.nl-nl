@@ -1,30 +1,25 @@
 ---
-title: Hadoop-clusters in HDInsight met PowerShell - Azure beheren | Microsoft Docs
-description: Informatie over het uitvoeren van beheertaken voor het Hadoop-clusters in HDInsight met behulp van Azure PowerShell.
+title: Beheer Hadoop-clusters in HDInsight met PowerShell - Azure
+description: Informatie over het uitvoeren van beheertaken voor de Hadoop-clusters in HDInsight met behulp van Azure PowerShell.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-tags: azure-portal
-author: mumian
-documentationcenter: ''
-ms.assetid: bfdfa754-18e5-4ef9-b0d6-2dbdcebc0283
+editor: jasonwhowell
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 656ad3673835bb30499931d20fe715e85418b1c3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 60868ceb58a9ed4935ea540ad15abd0e5d35f559
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200823"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595525"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Hadoop-clusters in HDInsight met behulp van Azure PowerShell beheren
+# <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Hadoop-clusters in HDInsight beheren met behulp van Azure PowerShell
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Azure PowerShell kan worden gebruikt voor de implementatie en beheer van uw workloads in Azure te automatiseren. In dit artikel leert u hoe in Azure HDInsight Hadoop-clusters beheren met behulp van Azure PowerShell. Zie voor een overzicht van de HDInsight-PowerShell-cmdlets [HDInsight cmdlet-verwijzing][hdinsight-powershell-reference].
+Azure PowerShell kan worden gebruikt om te beheren en automatiseren van de implementatie en het beheer van uw workloads in Azure. In dit artikel leert u hoe u voor het beheren van Hadoop-clusters in Azure HDInsight met behulp van Azure PowerShell. Zie voor een lijst van de HDInsight PowerShell-cmdlets, [HDInsight-cmdlet-verwijzing][hdinsight-powershell-reference].
 
 **Vereisten**
 
@@ -35,9 +30,9 @@ Voordat u dit artikel, hebt u de volgende items:
 ## <a name="install-azure-powershell"></a>Azure PowerShell installeren
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-Als u Azure PowerShell versie 0,9 hebt geïnstalleerd x, moet u deze verwijderen voordat u een nieuwere versie installeert.
+Als u Azure PowerShell versie 0.9 hebt geïnstalleerd x, moet u deze verwijderen voordat u een nieuwere versie installeert.
 
-De versie van de geïnstalleerde PowerShell controleren:
+Om te controleren of de versie van de geïnstalleerd PowerShell:
 
 ```powershell
 Get-Module *azure*
@@ -48,22 +43,22 @@ Voer voor het verwijderen van de oudere versie, programma's en onderdelen in het
 ## <a name="create-clusters"></a>Clusters maken
 Zie [maken Linux gebaseerde clusters in HDInsight met behulp van Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 
-## <a name="list-clusters"></a>Lijst met clusters
-Gebruik de volgende opdracht voor een lijst met alle clusters in het huidige abonnement:
+## <a name="list-clusters"></a>Clusters groeperen
+Gebruik de volgende opdracht om alle clusters in het huidige abonnement weer te geven:
 
 ```powershell
 Get-AzureRmHDInsightCluster
 ```
 
 ## <a name="show-cluster"></a>Cluster weergeven
-Gebruik de volgende opdracht om details van een specifiek cluster in het huidige abonnement weer te geven:
+Gebruik de volgende opdracht om de details van een specifiek cluster in het huidige abonnement weer te geven:
 
 ```powershell
 Get-AzureRmHDInsightCluster -ClusterName <Cluster Name>
 ```
 
 ## <a name="delete-clusters"></a>Clusters verwijderen
-Gebruik de volgende opdracht om te verwijderen van een cluster:
+Gebruik de volgende opdracht om een cluster te verwijderen:
 
 ```powershell
 Remove-AzureRmHDInsightCluster -ClusterName <Cluster Name>
@@ -76,23 +71,23 @@ Remove-AzureRmResourceGroup -Name <Resource Group Name>
 ```
 
 ## <a name="scale-clusters"></a>Clusters schalen
-Het schalen van de functie cluster kunt u het aantal worker-knooppunten gebruikt door een cluster dat wordt uitgevoerd in Azure HDInsight zonder te hoeven maken van het cluster opnieuw wijzigen.
+Het cluster schalen functie kunt u het aantal worker-knooppunten die worden gebruikt door een cluster dat wordt uitgevoerd in Azure HDInsight zonder te hoeven maken van het cluster opnieuw wijzigen.
 
 > [!NOTE]
-> Alleen clusters met HDInsight versie 3.1.3 of hoger worden ondersteund. Als u de versie van het cluster niet zeker weet, kunt u de pagina eigenschappen controleren.  Zie [lijst en geeft weer clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+> Alleen clusters met HDInsight versie 3.1.3 of hoger worden ondersteund. Als u de versie van het cluster niet zeker weet, kunt u de eigenschappenpagina controleren.  Zie [clusters tonen en vermelden](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 >
 >
 
-De gevolgen van het wijzigen van het aantal gegevensknooppunten voor elk type van ondersteund door de HDInsight-cluster:
+De gevolgen van het wijzigen van het aantal gegevensknooppunten voor elk type cluster die door HDInsight worden ondersteund:
 
 * Hadoop
 
-    U kunt naadloos Verhoog het aantal worker-knooppunten van een Hadoop-cluster dat wordt uitgevoerd zonder enige impact op alle taken die in behandeling of wordt uitgevoerd. Nieuwe taken kunnen ook worden verzonden terwijl de bewerking uitgevoerd wordt. Fouten in een bewerking voor schaal worden probleemloos verwerkt zodat het cluster altijd in een functionele staat blijft.
+    Het aantal worker-knooppunten in een Hadoop-cluster dat wordt uitgevoerd zonder gevolgen voor alle taken die in behandeling of wordt uitgevoerd, kunt u naadloos verhogen. Nieuwe taken kunnen ook worden verzonden terwijl de bewerking uitgevoerd wordt. Fouten in een bewerking voor vergroten/verkleinen probleemloos verwerkt zodat het cluster altijd in een functionele staat blijft.
 
-    Wanneer een Hadoop-cluster wordt verkleind door het aantal gegevensknooppunten te verminderen, zijn sommige van de services in het cluster opnieuw gestart. Opnieuw starten van services zorgt ervoor dat alle actieve en in behandeling zijnde taken mislukken na het voltooien van de bewerking uit te schalen. U kunt echter de taken verzenden zodra de bewerking voltooid is.
+    Wanneer een Hadoop-cluster is omlaag geschaald door het aantal gegevensknooppunten te verminderen, zijn sommige van de services in het cluster opnieuw opgestart. Opnieuw starten van services zorgt ervoor dat alle actieve en in behandeling zijnde taken mislukken na het voltooien van de bewerking vergroten/verkleinen. U kunt echter de taken opnieuw zodra de bewerking voltooid is.
 * HBase
 
-    U kunt naadloos toevoegen of verwijderen van knooppunten in uw HBase-cluster, terwijl deze wordt uitgevoerd. Regionale Servers worden automatisch verdeeld binnen een paar minuten na voltooiing van de bewerking uit te schalen. U kunt echter ook handmatig een balans vinden tussen de regionale servers door de logboekregistratie in de headnode van cluster, en voer vervolgens de volgende opdrachten vanuit een opdrachtpromptvenster:
+    U kunt naadloos toevoegen of verwijderen van knooppunten in uw HBase-cluster, terwijl deze wordt uitgevoerd. Regionale Servers worden automatisch verdeeld binnen een paar minuten na voltooiing van de vergroten/verkleinen bewerking. U kunt echter ook handmatig de regionale servers in evenwicht door te melden bij het hoofdknooppunt van het cluster en voer de volgende opdrachten vanuit een opdrachtpromptvenster:
 
     ```bash
     >pushd %HBASE_HOME%\bin
@@ -102,20 +97,20 @@ De gevolgen van het wijzigen van het aantal gegevensknooppunten voor elk type va
 
 * Storm
 
-    U kunt naadloos toevoegen of verwijderen van gegevensknooppunten naar uw Storm-cluster, terwijl deze wordt uitgevoerd. Maar na een geslaagde voltooiing van de bewerking uit te schalen, moet u de topologie opnieuw verdelen.
+    U kunt naadloos toevoegen of verwijderen van gegevensknooppunten naar uw Storm-cluster, terwijl deze wordt uitgevoerd. Maar na een geslaagde bewerking vergroten/verkleinen is voltooid, moet u opnieuw verdelen van de topologie.
 
-    Herverdeling kan worden uitgevoerd op twee manieren:
+    Herverdelen kan worden uitgevoerd op twee manieren:
 
-  * Storm-webgebruikersinterface
-  * Hulpprogramma voor opdrachtregelinterface (CLI)
+  * Storm-Webgebruikersinterface
+  * Opdrachtregelinterface (CLI)-hulpprogramma
 
     Raadpleeg de [Apache Storm documentatie](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) voor meer informatie.
 
     De Storm-webgebruikersinterface is beschikbaar op het HDInsight-cluster:
 
-    ![HDInsight storm scale deel opnieuw](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
+    ![HDInsight storm schaal opnieuw verdelen](./media/hdinsight-administer-use-management-portal/hdinsight.portal.scale.cluster.png)
 
-    Hier volgt een voorbeeld van hoe u met de opdracht CLI opnieuw verdelen van de Storm-topologie:
+    Hier volgt een voorbeeld van hoe u de CLI-opdracht opnieuw verdelen van de Storm-topologie:
 
     ```cli
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
@@ -124,7 +119,7 @@ De gevolgen van het wijzigen van het aantal gegevensknooppunten voor elk type va
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
 
-Als u wilt de grootte van Hadoop-cluster wijzigen met behulp van Azure PowerShell, voer de volgende opdracht vanaf een clientcomputer:
+Als u wilt de grootte van de Hadoop-cluster wijzigen met behulp van Azure PowerShell, voer de volgende opdracht uit vanaf een clientcomputer:
 
 ```powershell
 Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount <NewSize>
@@ -132,7 +127,7 @@ Set-AzureRmHDInsightClusterSize -ClusterName <Cluster Name> -TargetInstanceCount
 
 
 ## <a name="grantrevoke-access"></a>Toegang verlenen of in te trekken
-HDInsight-clusters hebben de volgende HTTP-webservices (al deze services hebt RESTful eindpunten):
+HDInsight-clusters hebben de volgende HTTP-webservices (al deze services hebben RESTful-eindpunten):
 
 * ODBC
 * JDBC
@@ -140,7 +135,7 @@ HDInsight-clusters hebben de volgende HTTP-webservices (al deze services hebt RE
 * Oozie
 * Templeton
 
-Standaard worden deze services verleend om toegang te krijgen. U kunt in te trekken/verlenen toegang. Voor het intrekken van:
+Standaard worden deze services worden verleend om toegang te krijgen. U kunt in te trekken/verlenen toegang tot de. Om in te trekken:
 
 ```powershell
 Revoke-AzureRmHDInsightHttpServicesAccess -ClusterName <Cluster Name>
@@ -164,17 +159,17 @@ Grant-AzureRmHDInsightHttpServicesAccess -ClusterName $clusterName -HttpCredenti
 ```
 
 > [!NOTE]
-> Opnieuw door de toegang verlenen/intrekken, de gebruikersnaam van de cluster en het wachtwoord instellen.
+> U herstellen door de toegang verlenen/intrekken, de cluster-gebruikersnaam en wachtwoord.
 >
 >
 
-Verlenen en het intrekken van toegang kunnen ook worden gedaan via de portal. Zie [HDInsight beheren met behulp van de Azure-portal][hdinsight-admin-portal].
+Verlening en het intrekken van toegang kunnen ook worden gedaan via de portal. Zie [HDInsight beheren met behulp van de Azure-portal][hdinsight-admin-portal].
 
-## <a name="update-http-user-credentials"></a>HTTP-gebruikersreferenties updaten
-Dit is dezelfde procedure als [Grant/revoke HTTP toegang](#grant/revoke-access). Als het cluster heeft de HTTP-toegang is verleend, moet u het eerst intrekken.  Vervolgens toegang verlenen en de met nieuwe HTTP gebruikersgegevens.
+## <a name="update-http-user-credentials"></a>HTTP-gebruikersreferenties bijwerken
+Dit is dezelfde procedure als [Grant/revoke HTTP toegang](#grant/revoke-access). Als het cluster heeft de HTTP-toegang is verleend, moet u eerst het intrekken.  En hen vervolgens machtigen de toegang met nieuwe HTTP-gebruikersreferenties.
 
 ## <a name="find-the-default-storage-account"></a>Het standaardopslagaccount vinden
-De volgende PowerShell-script laat zien hoe u de naam van het standaardopslagaccount en de verwante informatie ophalen:
+De volgende PowerShell-script laat zien hoe u de standaardnaam van de storage-account en de verwante informatie:
 
 ```powershell
 #Connect-AzureRmAccount
@@ -200,8 +195,8 @@ if ($defaultStoreageType -eq "blob")
 ```
 
 
-## <a name="find-the-resource-group"></a>De resourcegroep niet vinden
-In de modus Resource Manager behoort elk HDInsight-cluster tot een Azure-resourcegroep.  Zoek de resourcegroep:
+## <a name="find-the-resource-group"></a>Zoek de resourcegroep
+In de modus Resource Manager wordt elke HDInsight-cluster hoort bij een Azure-resourcegroep.  Zoek de resourcegroep:
 
 ```powershell
 $clusterName = "<HDInsight Cluster Name>"
@@ -212,36 +207,36 @@ $resourceGroupName = $cluster.ResourceGroup
 
 
 ## <a name="submit-jobs"></a>Verzenden van taken
-**MapReduce-taken verzenden**
+**MapReduce-taken indienen**
 
-Zie [uitvoeren Hadoop-MapReduce-voorbeelden in HDInsight op basis van Windows](hdinsight-run-samples.md).
+Zie [voorbeelden van Hadoop MapReduce uitvoeren in HDInsight op basis van Windows](hdinsight-run-samples.md).
 
-**Hive-taken verzenden**
+**Hive-taken indienen**
 
 Zie [uitvoeren Hive-query's met behulp van PowerShell](hadoop/apache-hadoop-use-hive-powershell.md).
 
-**Pig-taken verzenden**
+**Pig-taken indienen**
 
 Zie [uitvoeren Pig-taken met behulp van PowerShell](hadoop/apache-hadoop-use-pig-powershell.md).
 
-**Om Sqoop taken te verzenden**
+**Sqoop taken indienen**
 
 Zie [Sqoop gebruiken met HDInsight](hadoop/hdinsight-use-sqoop.md).
 
-**Oozie-taken verzenden**
+**Oozie-taken indienen**
 
-Zie [Oozie gebruiken met Hadoop om te definiëren en uitvoeren van een werkstroom in HDInsight](hdinsight-use-oozie.md).
+Zie [gebruik Oozie met Hadoop om te definiëren en een werkstroom uitvoeren in HDInsight](hdinsight-use-oozie.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Gegevens uploaden naar Azure Blob-opslag
 Zie [Gegevens uploaden naar HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Zie ook
-* [HDInsight-cmdlet-naslagdocumentatie][hdinsight-powershell-reference]
-* [HDInsight beheren met behulp van de Azure-portal][hdinsight-admin-portal]
-* [HDInsight met behulp van een opdrachtregelinterface beheren][hdinsight-admin-cli]
+* [HDInsight-cmdlet naslagdocumentatie][hdinsight-powershell-reference]
+* [HDInsight beheren met behulp van Azure portal][hdinsight-admin-portal]
+* [HDInsight met een opdrachtregelinterface beheren][hdinsight-admin-cli]
 * [HDInsight-clusters maken][hdinsight-provision]
 * [Gegevens uploaden naar HDInsight][hdinsight-upload-data]
-* [Hadoop-taken programmatisch verzenden][hdinsight-submit-jobs]
+* [Hadoop-taken indienen via een programma][hdinsight-submit-jobs]
 * [Aan de slag met Azure HDInsight][hdinsight-get-started]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/

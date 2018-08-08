@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: b41b1fcb437dac381a17bef4f1e5a7cebe213b98
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 329653e7494d2f993acb462d7d989db07a18f790
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435912"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600860"
 ---
 # <a name="get-started-with-storage-explorer"></a>Aan de slag met Storage Explorer
 
@@ -125,7 +125,7 @@ Vanaf versie 1.1.0 is de emulator van de lokale opslag wordt ondersteund op alle
 > [!NOTE]
 > Ondersteuning voor storage-services en functies kan aanzienlijk verschillen, afhankelijk van uw keuze van de emulator. Zorg ervoor dat de emulator ondersteunt de services en functies die u van plan bent om te werken met.
 
-1. Configureer de emulator van de keuze om te luisteren op de Standaardeindpunten.
+1. Configureren van de services van uw keuze om te luisteren naar een niet-gebruikte poort-emulator.
 
    Geëmuleerde Service | Eindpunt
    -----------------|-------------------------
@@ -134,16 +134,19 @@ Vanaf versie 1.1.0 is de emulator van de lokale opslag wordt ondersteund op alle
    Tabellen           | `http://127.0.0.1:10002`
 
 2. Start de emulator.
+   > [!IMPORTANT]
+   > Storage Explorer uw emulator niet automatisch wordt gestart. U moet deze zelf starten.
 
-3. Vouw in het linkerdeelvenster van Opslagverkenner, de **(lokaal en gekoppeld)** > **Opslagaccounts** > **(ontwikkeling)** knooppunt.
+3. In Storage Explorer, klikt u op de **-Account toevoegen** knop. Selecteer **koppelen aan een lokale emulator** en klikt u op **volgende**.
+
+4. Voer de poortnummers voor de services die u hierboven (laat leeg als u niet van plan bent om deze service te gebruiken) hebt geconfigureerd. Klik op **volgende** vervolgens **Connect** om de verbinding te maken.
+
+5. Vouw de **lokaal en gekoppeld** > **Opslagaccounts** > knooppunten, vouw vervolgens de serviceknooppunten onder het knooppunt dat overeenkomt met de emulator-verbinding.
 
    U kunt dit knooppunt gebruiken om te maken en werken met lokale blobs, wachtrijen en tabellen. Zie voor meer informatie over het werken met elk opslagaccounttype, de volgende handleidingen:
 
    * [Azure Blob storage-resources beheren](vs-azure-tools-storage-explorer-blobs.md)
    * [Azure File storage-resources beheren](vs-azure-tools-storage-explorer-files.md)
-
-> [!NOTE]
-> Storage Explorer biedt alleen ondersteuning voor het verbinding maken met lokale emulators met behulp van de Standaardeindpunten. Bij het starten van de emulator, zorg er dan voor dat alleen de Standaardeindpunten zijn geconfigureerd.
 
 ## <a name="attach-or-detach-an-external-storage-account"></a>Koppelen aan een extern opslagaccount of de koppeling opheffen
 

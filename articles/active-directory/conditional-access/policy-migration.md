@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: fc51282717f713bbe924ad0f1b11a9bf894dbee5
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: f76995a522d268011af2440d5d91c55dcd3afd16
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581378"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590514"
 ---
 # <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>Wat is de migratie van een beleid voor voorwaardelijke toegang van Azure Active Directory? 
 
@@ -133,7 +133,7 @@ Hebt u een nieuw beleid met **Exchange Active Sync** als client-apps de voorwaar
 ![Azure Active Directory](./media/policy-migration/16.png)
  
 
-[App-gebaseerde](../active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) klassieke beleidsregels voor Office 365 Exchange Online met **Exchange Active Sync** als voorwaarde voor client-apps toestaan **ondersteund** en **wordtnietondersteund** [apparaatplatformen](../active-directory-conditional-access-technical-reference.md#device-platform-condition). Terwijl u afzonderlijke apparaatplatformen niet in een nieuw beleid voor gerelateerde configureren, kunt u de ondersteuning om te beperken [ondersteunde platforms voor apparaten](../active-directory-conditional-access-technical-reference.md#device-platform-condition) alleen. 
+[App-gebaseerde](technical-reference.md#approved-client-app-requirement) klassieke beleidsregels voor Office 365 Exchange Online met **Exchange Active Sync** als voorwaarde voor client-apps toestaan **ondersteund** en **wordtnietondersteund** [apparaatplatformen](technical-reference.md#device-platform-condition). Terwijl u afzonderlijke apparaatplatformen niet in een nieuw beleid voor gerelateerde configureren, kunt u de ondersteuning om te beperken [ondersteunde platforms voor apparaten](technical-reference.md#device-platform-condition) alleen. 
 
 ![Azure Active Directory](./media/policy-migration/65.png)
 
@@ -156,9 +156,9 @@ In dit geval kunt u uw klassieke beleidsregels samenvoegen in een nieuw beleid m
 
 ### <a name="device-platforms"></a>Apparaatplatformen
 
-Klassieke beleidsregels met [besturingselementen op basis van app](../active-directory-conditional-access-technical-reference.md#approved-client-app-requirement) zijn vooraf geconfigureerd met iOS en Android als de [apparaat platform voorwaarde](../active-directory-conditional-access-technical-reference.md#device-platform-condition). 
+Klassieke beleidsregels met [besturingselementen op basis van app](technical-reference.md#approved-client-app-requirement) zijn vooraf geconfigureerd met iOS en Android als de [apparaat platform voorwaarde](technical-reference.md#device-platform-condition). 
 
-In een nieuw beleid, moet u selecteert de [apparaatplatformen](../active-directory-conditional-access-technical-reference.md#device-platform-condition) u wilt ondersteunen afzonderlijk.
+In een nieuw beleid, moet u selecteert de [apparaatplatformen](technical-reference.md#device-platform-condition) u wilt ondersteunen afzonderlijk.
 
 ![Azure Active Directory](./media/policy-migration/41.png)
 

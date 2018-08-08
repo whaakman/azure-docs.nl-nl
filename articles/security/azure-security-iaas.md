@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2018
 ms.author: barclayn
-ms.openlocfilehash: 37620e70377e3f1fbeeeb73aaa294c5f54cf5b3d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7c28459aa04c67db8abda54d9f14eb417bd8ed60
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38724097"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618594"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Aanbevolen beveiligingsprocedures voor IaaS-workloads in Azure
 
@@ -188,7 +188,7 @@ Vergelijk uw standaarden branche aanbevolen procedures, ze aanpassen en nieuwe b
 
 Voor omgevingen die afzonderlijk worden gehost in uw productieomgeving, kunt u een anti-malware-extensie om u te helpen bij het beveiligen van uw virtuele machines en cloudservices. Het kan worden geïntegreerd met [Azure Security Center](../security-center/security-center-intro.md).
 
-[Microsoft Antimalware](azure-security-antimalware.md) bevat functies zoals realtime-beveiliging, geplande scan, oplossen van malware, handtekeningupdates, engine-updates, rapportage, uitsluitingsverzameling gebeurtenis, voorbeelden en [PowerShell-ondersteuning](https://msdn.microsoft.com/library/dn771715.aspx).
+[Microsoft Antimalware](azure-security-antimalware.md) bevat functies zoals realtime-beveiliging, geplande scan, oplossen van malware, handtekeningupdates, engine-updates, rapportage, uitsluitingsverzameling gebeurtenis, voorbeelden en [PowerShell-ondersteuning](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension).
 
 ![Azure anti-malware](./media/azure-security-iaas/azantimalware.png)
 

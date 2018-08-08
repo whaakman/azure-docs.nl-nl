@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 51d9b8e4299cfa3bc850c7405c27233d678f98b6
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: f954e726aabb34f74d81580e3afc08f2b0b9914b
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494397"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619403"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Het oplossen van & beperkingen van Azure Cloud Shell
 
@@ -82,7 +82,7 @@ Azure Cloud Shell bevat de volgende beperkingen:
 
 De computer waarmee u uw Cloud Shell-sessie is tijdelijk en deze wordt gerecycled nadat uw sessie niet actief voor de 20 minuten is. Cloudshell is vereist voor een Azure-bestandsshare te koppelen. Uw abonnement moet als gevolg hiervan kunnen opslagresources instellen voor toegang tot Cloud Shell. Andere overwegingen zijn onder andere:
 
-- Met gekoppelde opslag, alleen de wijzigingen in de `clouddrive` directory zijn opgeslagen. In Bash, uw `$Home` directory ook worden opgeslagen.
+- Met gekoppelde opslag, alleen de wijzigingen in de `clouddrive` directory zijn opgeslagen. In Bash, uw `$HOME` directory ook worden opgeslagen.
 - Azure-bestandsshares kunnen worden gekoppeld alleen vanuit uw [regio toegewezen](persisting-shell-storage.md#mount-a-new-clouddrive).
   - Voer in Bash, `env` te vinden van uw regio instellen als `ACC_LOCATION`.
 - Azure Files ondersteunt alleen lokaal redundante opslag en geografisch redundante opslag met accounts.

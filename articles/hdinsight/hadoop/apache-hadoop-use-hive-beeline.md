@@ -1,49 +1,44 @@
 ---
-title: Gebruik Beeline met Apache Hive - Azure HDInsight | Microsoft Docs
-description: Informatie over het gebruik van de client Beeline Hive-query's uitvoeren met Hadoop op HDInsight. Beeline is een hulpprogramma voor het werken met HiveServer2 via JDBC vast.
+title: Beeline gebruiken met Apache Hive - Azure HDInsight
+description: Informatie over het gebruik van de client Beeline Hive-query's uitvoeren met Hadoop op HDInsight. Beeline is een hulpprogramma voor het werken met HiveServer2 via JDBC.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+editor: jasonwhowell
 keywords: beeline hive, hive beeline
-ms.assetid: 3adfb1ba-8924-4a13-98db-10a67ab24fca
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2018
-ms.author: larryfr
-ms.openlocfilehash: 970ccf19b5668bd57118fcabc5018c60352ebde7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.author: jasonh
+ms.openlocfilehash: 057c57316a291952b959f1e61b4286e87c074088
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795191"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592357"
 ---
 # <a name="use-the-beeline-client-with-apache-hive"></a>De client Beeline gebruiken met Apache Hive
 
-Informatie over het gebruik [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) Hive-query's uitvoeren op HDInsight.
+Meer informatie over het gebruik van [Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) Hive-query's uitvoeren op HDInsight.
 
-Beeline is een Hive-client die is opgenomen op de hoofdknooppunten van uw HDInsight-cluster. Beeline maakt JDBC verbinding met HiveServer2, een service die wordt gehost op uw HDInsight-cluster. U kunt ook Beeline gebruiken voor toegang tot de Hive in HDInsight op afstand via internet. De volgende voorbeelden bieden de meest voorkomende verbindingsreeksen gebruikt vanaf Beeline verbinding maken met HDInsight:
+Beeline is een Hive-client die is opgenomen op de hoofdknooppunten van het HDInsight-cluster. Beeline maakt JDBC verbinding met HiveServer2, een service die wordt gehost op uw HDInsight-cluster. U kunt ook Beeline gebruiken voor toegang tot de Hive in HDInsight op afstand via internet. De volgende voorbeelden ziet u de meest voorkomende verbindingsreeksen gebruikt vanaf Beeline verbinding maken met HDInsight:
 
-* __Van een headnode of edge-knooppunt van een SSH-verbinding Beeline__: `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
-* __Met behulp van Beeline op een client via een virtueel Azure-netwerk verbinding maken met HDInsight__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
-* __Met behulp van Beeline op een client, via het openbare internet verbinding maken met HDInsight__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
+* __Beeline van een SSH-verbinding met een hoofdknooppunt of edge-knooppunt__: `-u 'jdbc:hive2://headnodehost:10001/;transportMode=http'`
+* __Beeline gebruiken op een client via een virtueel Azure-netwerk verbinding maken met HDInsight__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
+* __Beeline gebruiken op een client, via het openbare internet verbinding maken met HDInsight__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password`
 
 > [!NOTE]
-> Vervang `admin` met de cluster-aanmeldingsaccount voor uw cluster.
+> Vervang `admin` met het aanmeldingsaccount van het cluster voor uw cluster.
 >
-> Vervang `password` met het wachtwoord voor de aanmeldingsaccount van het cluster.
+> Vervang `password` door het wachtwoord voor de aanmeldingsaccount van het cluster.
 >
 > Vervang `clustername` door de naam van uw HDInsight-cluster.
 >
-> Wanneer u verbinding maakt met het cluster via een virtueel netwerk, vervangt `<headnode-FQDN>` met de volledig gekwalificeerde domeinnaam van een cluster headnode.
+> Wanneer u verbinding maakt met het cluster via een virtueel netwerk, Vervang `<headnode-FQDN>` met de volledig gekwalificeerde domeinnaam van het hoofdknooppunt van een cluster.
 
 ## <a id="prereq"></a>Vereisten
 
-* Een op Linux gebaseerde Hadoop op HDInsight-cluster versie 3.4 of hoger.
+* Een op Linux gebaseerde Hadoop op HDInsight-clusterversie 3.4 of hoger.
 
   > [!IMPORTANT]
   > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
@@ -56,34 +51,34 @@ Beeline is een Hive-client die is opgenomen op de hoofdknooppunten van uw HDInsi
 
 1. Bij het starten van Beeline, moet u een verbindingsreeks opgeven voor HiveServer2 op uw HDInsight-cluster:
 
-    * Wanneer u verbinding maakt via het openbare internet, moet u de accountnaam van de cluster-aanmelding opgeven (standaard `admin`) en het wachtwoord. Beeline bijvoorbeeld door middel van een clientsysteem verbinding maken met de `<clustername>.azurehdinsight.net` adres. Deze verbinding wordt gemaakt via poort `443`, en is versleuteld met SSL:
+    * Wanneer u verbinding maakt via het openbare internet, kunt u de accountnaam van de cluster-aanmelding moet opgeven (standaard `admin`) en het wachtwoord. Beeline bijvoorbeeld door middel van een clientsysteem verbinding maken met de `<clustername>.azurehdinsight.net` adres. Deze verbinding wordt gemaakt via poort `443`, en is versleuteld met SSL:
 
         ```bash
         beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n admin -p password
         ```
 
-    * Bij het verbinden van een SSH-sessie met een cluster headnode, kunt u verbinding maken met de `headnodehost` adres op poort `10001`:
+    * Bij het verbinden van een SSH-sessie met het hoofdknooppunt van een cluster, kunt u verbinding maken met de `headnodehost` adres op poort `10001`:
 
         ```bash
         beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
         ```
 
-    * Wanneer u verbinding maakt via een virtuele Azure-netwerk, moet u de volledig gekwalificeerde domeinnaam (FQDN) van het hoofdknooppunt van een cluster opgeven. Omdat deze verbinding wordt gemaakt rechtstreeks aan de clusterknooppunten, de verbinding gebruikt poort `10001`:
+    * Wanneer u verbinding maakt via een virtueel Azure-netwerk, moet u de volledig gekwalificeerde domeinnaam (FQDN) van het hoofdknooppunt van een cluster opgeven. Omdat deze verbinding wordt gemaakt rechtstreeks aan de clusterknooppunten, de verbinding gebruikmaakt van poort `10001`:
 
         ```bash
         beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
         ```
 
-2. Beeline opdrachten beginnen met een `!` teken, bijvoorbeeld `!help` geeft help weer. Maar het `!` voor bepaalde opdrachten kunnen worden weggelaten. Bijvoorbeeld: `help` werkt ook.
+2. Beeline opdrachten beginnen met een `!` teken, bijvoorbeeld `!help` wordt help weergegeven. Maar het `!` voor bepaalde opdrachten kunnen worden weggelaten. Bijvoorbeeld, `help` werkt ook.
 
-    Er is een `!sql`, dat wordt gebruikt voor het uitvoeren van HiveQL-instructies. HiveQL wordt echter zo vaak gebruikt dat kunt u de voorgaande weglaten `!sql`. De volgende twee instructies zijn gelijkwaardig:
+    Er is een `!sql`, die wordt gebruikt voor het uitvoeren van HiveQL-instructies. HiveQL wordt echter zo vaak gebruikt dat u de voorgaande kunt weglaten `!sql`. De volgende twee instructies zijn gelijkwaardig:
 
     ```hiveql
     !sql show tables;
     show tables;
     ```
 
-    Op een nieuw cluster slechts één tabel wordt vermeld: **hivesampletable**.
+    Een nieuw cluster, slechts één tabel wordt vermeld: **hivesampletable**.
 
 3. Gebruik de volgende opdracht om het schema voor de hivesampletable weer te geven:
 
@@ -91,7 +86,7 @@ Beeline is een Hive-client die is opgenomen op de hoofdknooppunten van uw HDInsi
     describe hivesampletable;
     ```
 
-    Deze opdracht retourneert de volgende informatie:
+    Met deze opdracht retourneert de volgende informatie:
 
         +-----------------------+------------+----------+--+
         |       col_name        | data_type  | comment  |
@@ -111,7 +106,7 @@ Beeline is een Hive-client die is opgenomen op de hoofdknooppunten van uw HDInsi
 
     Deze informatie beschrijft de kolommen in de tabel.
 
-4. Voer de volgende instructies voor het maken van een tabel met de naam **log4jLogs** met behulp van voorbeeldgegevens voorzien van het HDInsight-cluster:
+4. Voer de volgende instructies voor het maken van een tabel met de naam **log4jLogs** met behulp van voorbeeldgegevens die zijn voorzien van het HDInsight-cluster:
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -130,24 +125,24 @@ Beeline is een Hive-client die is opgenomen op de hoofdknooppunten van uw HDInsi
         GROUP BY t4;
     ```
 
-    Deze instructies uitvoeren de volgende acties:
+    Deze instructies uit uitvoeren de volgende acties:
 
     * `DROP TABLE` -Als de tabel bestaat, wordt deze verwijderd.
 
-    * `CREATE EXTERNAL TABLE` -Maakt een **externe** tabel in Hive. De tabeldefinitie opslaan externe tabellen alleen in Hive. De gegevens blijft op de oorspronkelijke locatie.
+    * `CREATE EXTERNAL TABLE` -Maakt een **externe** tabel in Hive. Externe tabellen worden alleen de definitie van de tabel opslaan in Hive. De gegevens is achtergebleven in de oorspronkelijke locatie.
 
-    * `ROW FORMAT` -Hoe de gegevens zijn ingedeeld. In dit geval worden de velden in elk logboek gescheiden door een spatie.
+    * `ROW FORMAT` -Hoe de gegevens zijn opgemaakt. In dit geval worden de velden in elk logboek gescheiden door een spatie.
 
-    * `STORED AS TEXTFILE LOCATION` -Waarin de gegevens worden opgeslagen en in welke bestandsindeling.
+    * `STORED AS TEXTFILE LOCATION` -Wanneer de gegevens worden opgeslagen en in welke indeling.
 
-    * `SELECT` : Hiermee kunt u een telling van alle rijen waarin kolom **t4** bevat de waarde **[fout]**. Deze query retourneert een waarde van **3** omdat er zijn drie rijen met deze waarde.
+    * `SELECT` : Hiermee kunt u een aantal van alle rijen waar kolom **t4** bevat de waarde **[fout]**. Deze query retourneert een waarde van **3** als er drie rijen die deze waarde bevatten.
 
-    * `INPUT__FILE__NAME LIKE '%.log'` -Hive probeert het schema toepassen op alle bestanden in de map. In dit geval wordt bevat de map bestanden die niet overeenkomen met het schema. Om te voorkomen dat een garbagecollection-gegevens in de resultaten, deze instructie vertelt Hive dat deze alleen gegevens uit bestanden eindigt op moet retourneren. log.
+    * `INPUT__FILE__NAME LIKE '%.log'` -Hive probeert het schema toepassen op alle bestanden in de map. In dit geval bevat de map bestanden die niet overeenkomen met het schema. Om te voorkomen dat garbagecollection-gegevens in de resultaten, deze instructie vertelt Hive dat deze alleen gegevens uit bestanden hebben die eindigt op moet retourneren. log.
 
   > [!NOTE]
-  > Externe tabellen moeten worden gebruikt wanneer u de onderliggende gegevens wordt bijgewerkt door een externe bron verwacht. Bijvoorbeeld, een uploadproces geautomatiseerde gegevens of een MapReduce-bewerking.
+  > Externe tabellen moeten worden gebruikt wanneer u verwacht dat de onderliggende gegevens worden bijgewerkt door een externe bron. Bijvoorbeeld, een geautomatiseerd proces of een MapReduce-bewerking uploaden.
   >
-  > Verwijderen van een externe tabel komt **niet** de gegevens, de definitie van de tabel verwijderen.
+  > Verwijderen van een externe tabel heeft **niet** de gegevens, alleen de definitie van de tabel verwijderen.
 
     De uitvoer van deze opdracht is vergelijkbaar met de volgende tekst:
 
@@ -175,50 +170,50 @@ Beeline is een Hive-client die is opgenomen op de hoofdknooppunten van uw HDInsi
 
 5. Gebruiken om af te sluiten Beeline `!exit`.
 
-### <a id="file"></a>Gebruik Beeline een HiveQL-bestand uit te voeren
+### <a id="file"></a>Beeline gebruiken een HiveQL-bestand uit te voeren
 
 Gebruik de volgende stappen uit om te maken van een bestand en voer vervolgens met behulp van Beeline.
 
-1. Gebruik de volgende opdracht voor het maken van een bestand met de naam **query.hql**:
+1. Gebruik de volgende opdracht om te maken van een bestand met de naam **query.hql**:
 
     ```bash
     nano query.hql
     ```
 
-2. Gebruik de volgende tekst als de inhoud van het bestand. Deze query maakt een nieuwe 'interne' tabel met de naam **foutenlogboeken**:
+2. Gebruik de volgende tekst als de inhoud van het bestand. Deze query maakt u een nieuwe 'intern' tabel met de naam **foutenlogboeken**:
 
     ```hiveql
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
     INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
     ```
 
-    Deze instructies uitvoeren de volgende acties:
+    Deze instructies uit uitvoeren de volgende acties:
 
-    * **MAKEN van tabel als niet bestaat** -als de tabel niet al bestaat, wordt deze gemaakt. Aangezien de **externe** trefwoord wordt niet gebruikt, wordt deze instructie maakt u een interne tabel. Interne tabellen worden opgeslagen in het datawarehouse Hive en volledig worden beheerd door Hive.
-    * **OPGESLAGEN AS ORC** -slaat de gegevens geoptimaliseerd rij kolommen (ORC)-indeling. ORC is een maximaal geoptimaliseerd en efficiënte indeling voor het opslaan van gegevens met Hive.
+    * **MAKEN van tabel als niet bestaat** -als de tabel nog niet bestaat, wordt dit gemaakt. Omdat de **externe** trefwoord wordt niet gebruikt, wordt deze instructie maakt u een interne tabel. Interne tabellen worden opgeslagen in het datawarehouse Hive en volledig worden beheerd door Hive.
+    * **OPGESLAGEN als ORC** -de gegevens worden opgeslagen in geoptimaliseerd rij kolommen (ORC)-indeling. ORC-indeling is een uiterst geoptimaliseerde en efficiënte indeling voor het opslaan van gegevens met Hive.
     * **INSERT OVERSCHRIJVEN... Selecteer** -selecteert rijen uit de **log4jLogs** tabel met **[fout]**, voegt u vervolgens de gegevens in de **foutenlogboeken** tabel.
 
     > [!NOTE]
-    > In tegenstelling tot externe tabellen voor het verwijderen van een interne tabel worden verwijderd en de onderliggende gegevens.
+    > In tegenstelling tot externe tabellen, het verwijderen van een interne tabel Hiermee verwijdert u ook de onderliggende gegevens.
 
-3. Gebruiken om het bestand opslaat, **Ctrl**+**_X**, voer dan **Y**, en tot slot **Enter**.
+3. Gebruiken om het bestand hebt opgeslagen, **Ctrl**+**_X**, voert u **Y**, en tot slot **Enter**.
 
-4. Gebruik de volgende in het bestand met Beeline uit te voeren:
+4. Gebruik de volgende in het bestand met behulp van Beeline uit te voeren:
 
     ```bash
     beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http' -i query.hql
     ```
 
     > [!NOTE]
-    > De `-i` parameter Beeline wordt gestart en voert u de instructies de `query.hql` bestand. Nadat de query is voltooid, wordt u aankomt bij de `jdbc:hive2://headnodehost:10001/>` prompt. U kunt ook uitvoeren voor een bestand met de `-f` parameter Beeline afgesloten nadat de query is voltooid.
+    > De `-i` parameter Beeline wordt gestart en voert u de instructies de `query.hql` bestand. Nadat de query is voltooid, wordt er uitziet de `jdbc:hive2://headnodehost:10001/>` prompt. U kunt ook uitvoeren voor een bestand met de `-f` parameter, die Beeline afgesloten nadat de query is voltooid.
 
-5. Om te controleren of de **foutenlogboeken** tabel is gemaakt, met de volgende instructie retourneert alle rijen uit **foutenlogboeken**:
+5. Om te controleren of de **foutenlogboeken** tabel is gemaakt, gebruikt u de volgende instructie om te retourneren van alle rijen uit **foutenlogboeken**:
 
     ```hiveql
     SELECT * from errorLogs;
     ```
 
-    Drie rijen met gegevens moeten worden geretourneerd, alle overkoepelende **[fout]** in kolom t4:
+    Drie rijen met gegevens moeten worden geretourneerd, allemaal met **[fout]** in kolom t4:
 
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
         | errorlogs.t1  | errorlogs.t2  | errorlogs.t3  | errorlogs.t4  | errorlogs.t5  | errorlogs.t6  | errorlogs.t7  |
@@ -229,37 +224,37 @@ Gebruik de volgende stappen uit om te maken van een bestand en voer vervolgens m
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
         3 rows selected (1.538 seconds)
 
-## <a id="remote"></a>Beeline op afstand gebruiken
+## <a id="remote"></a>Op afstand Beeline gebruiken
 
-Als u Beeline lokaal geïnstalleerd hebben en verbinding via het openbare internet maken, gebruikt u de volgende parameters:
+Als u Beeline lokaal is geïnstalleerd, en verbinding via het openbare internet maken, gebruikt u de volgende parameters:
 
 * __Verbindingsreeks__: `-u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'`
 
-* __Aanmeldingsnaam van de cluster__: `-n admin`
+* __De naam van de cluster-aanmelding__: `-n admin`
 
-* __Aanmeldingswachtwoord cluster__ `-p 'password'`
+* __Wachtwoord voor clusteraanmelding__ `-p 'password'`
 
-Vervang de `clustername` in de verbindingstekenreeks met de naam van uw HDInsight-cluster.
+Vervang de `clustername` in de verbindingsreeks met de naam van uw HDInsight-cluster.
 
-Vervang `admin` met de naam van uw cluster aanmelding en vervang `password` met het wachtwoord voor uw cluster-aanmelding.
+Vervang `admin` met de naam van uw aanmelding bij cluster en vervang `password` door het wachtwoord voor uw aanmelding bij cluster.
 
-Als u Beeline lokaal geïnstalleerd hebben en verbinding via een virtueel Azure-netwerk maken, gebruikt u de volgende parameters:
+Als u Beeline lokaal is geïnstalleerd, en verbinding via een virtueel Azure-netwerk maken, gebruikt u de volgende parameters:
 
 * __Verbindingsreeks__: `-u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'`
 
-Gebruik de informatie in de volledig gekwalificeerde domeinnaam van een headnode vindt de [beheren HDInsight met de Ambari REST-API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) document.
+Als u zoekt de volledig gekwalificeerde domeinnaam van een hoofdknooppunt, gebruik de informatie in de [beheren HDInsight met behulp van de Ambari REST-API](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) document.
 
-## <a id="sparksql"></a>Beeline met Spark gebruiken
+## <a id="sparksql"></a>Beeline gebruiken met Spark
 
-Spark biedt een eigen implementatie van HiveServer2, die wordt soms aangeduid als de Spark Thrift-server. Deze service wordt Spark SQL gebruikt voor query's in plaats van Hive omzetten en kan zorgen voor betere prestaties, afhankelijk van uw query.
+Spark biedt een eigen implementatie van HiveServer2, die wordt soms aangeduid als de Spark Thrift-server. Deze service maakt gebruik van Spark SQL om op te lossen query's in plaats van Hive en kan zorgen voor betere prestaties, afhankelijk van uw query.
 
-De __verbindingsreeks__ gebruikt wanneer verbinding maken via internet enigszins anders wordt. In plaats van dat bevat `httpPath=/hive2` is `httpPath/sparkhive2`. Hier volgt een voorbeeld van een verbinding te maken via internet:
+De __verbindingsreeks__ gebruikt bij het verbinding maken via internet is enigszins anders. In plaats van `httpPath=/hive2` is `httpPath/sparkhive2`. Hier volgt een voorbeeld van verbinding maken via internet:
 
 ```bash 
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n admin -p password
 ```
 
-Wanneer u verbinding maakt rechtstreeks vanuit het hoofdknooppunt van het cluster of vanuit een bron in het hetzelfde virtuele Azure-netwerk als het HDInsight-cluster, poort `10002` moet worden gebruikt voor Spark Thrift-server in plaats van `10001`. Hier volgt een voorbeeld van verbinding maken met rechtstreeks met het hoofdknooppunt:
+Wanneer u verbinding maakt rechtstreeks vanuit het hoofdknooppunt van het cluster, of vanuit een bron in het hetzelfde virtuele Azure-netwerk als het HDInsight-cluster, poort `10002` moet worden gebruikt voor Spark Thrift-server in plaats van `10001`. Hier volgt een voorbeeld van een verbinding met rechtstreeks naar het hoofdknooppunt:
 
 ```bash
 beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
@@ -269,16 +264,16 @@ beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
 
 Zie het volgende document voor meer algemene informatie over Hive in HDInsight:
 
-* [Hive gebruiken met Hadoop in HDInsight](hdinsight-use-hive.md)
+* [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md)
 
-Zie de volgende documenten voor meer informatie over andere manieren kunt u werken met Hadoop op HDInsight:
+Zie de volgende documenten voor meer informatie over andere manieren waarop u kunt werken met Hadoop op HDInsight:
 
-* [Pig gebruiken met Hadoop in HDInsight](hdinsight-use-pig.md)
+* [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md)
 * [MapReduce gebruiken met Hadoop op HDInsight](hdinsight-use-mapreduce.md)
 
-Als u van Tez met Hive gebruikmaakt, raadpleegt u de volgende documenten:
+Als u met Hive Tez gebruikt, ziet u de volgende documenten:
 
-* [De Tez-gebruikersinterface op HDInsight op basis van Windows gebruiken](../hdinsight-debug-tez-ui.md)
+* [De Tez-gebruikersinterface gebruiken op HDInsight op basis van Windows](../hdinsight-debug-tez-ui.md)
 * [De weergave Ambari Tez op Linux gebaseerde HDInsight gebruiken](../hdinsight-debug-ambari-tez-view.md)
 
 [hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx

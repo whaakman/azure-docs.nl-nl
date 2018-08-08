@@ -11,12 +11,12 @@ ms.workload: Active
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 1ddc663e6a7dc2d09a140b148c5297299d30d016
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 8798d0f17918ecce473afe8dc21b3f60bf0fa4b1
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262844"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620127"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Meer informatie over automatische back-ups van SQL-Database
 
@@ -26,7 +26,7 @@ SQL Database automatisch maakt databaseback-ups en geografisch redundante opslag
 
 ## <a name="what-is-a-sql-database-backup"></a>Wat is er een back-up van SQL Database?
 
-SQL-Database maakt gebruik van SQL Server-technologie maken [volledige](https://msdn.microsoft.com/library/ms186289.aspx), [differentiële](http://msdn.microsoft.com/library/ms175526.aspx), en [transactielogboek](https://msdn.microsoft.com/library/ms191429.aspx) back-ups voor de doeleinden van Point in time restore (PITR). De transactielogboekback-ups meestal elke 5-10 minuten en plaatsvinden differentiële back-ups in het algemeen elke 12 uur, met de frequentie op basis van het prestatieniveau en de hoeveelheid activiteit in een database. Transactielogboekback-ups, met volledige en differentiële back-ups, kunnen u een database herstellen naar een specifieke point-in-time op dezelfde server die als host fungeert voor de database. Wanneer u een database herstelt, wordt de service zoekt uit welke volledige, differentiële en transactie-logboek back-ups moeten worden teruggezet.
+SQL-Database maakt gebruik van SQL Server-technologie maken [volledige](https://msdn.microsoft.com/library/ms186289.aspx), [differentiële](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server), en [transactielogboek](https://msdn.microsoft.com/library/ms191429.aspx) back-ups voor de doeleinden van Point in time restore (PITR). De transactielogboekback-ups meestal elke 5-10 minuten en plaatsvinden differentiële back-ups in het algemeen elke 12 uur, met de frequentie op basis van het prestatieniveau en de hoeveelheid activiteit in een database. Transactielogboekback-ups, met volledige en differentiële back-ups, kunnen u een database herstellen naar een specifieke point-in-time op dezelfde server die als host fungeert voor de database. Wanneer u een database herstelt, wordt de service zoekt uit welke volledige, differentiële en transactie-logboek back-ups moeten worden teruggezet.
 
 
 U kunt deze back-ups te gebruiken:

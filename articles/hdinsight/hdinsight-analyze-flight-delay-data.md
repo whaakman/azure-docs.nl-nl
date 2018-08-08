@@ -1,54 +1,50 @@
 ---
-title: Vlucht vertraging gegevens analyseren met Hadoop in HDInsight - Azure | Microsoft Docs
-description: Informatie over het gebruik van een Windows PowerShell-script voor het maken van een HDInsight-cluster, een Hive-taak uitvoert, voer een Sqoop en verwijdert het cluster.
+title: Analyseren van gegevens van vertragingen van vluchten met Hadoop in HDInsight - Azure
+description: Leer hoe u een Windows PowerShell-script gebruiken om een HDInsight-cluster maken, uitvoeren van een Hive-taak een taak Sqoop uitvoeren en verwijderen van het cluster.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 00e26aa9-82fb-4dbe-b87d-ffe8e39a5412
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: eec5d0eb3c9cb0ae6e3e7f4eadfc58c4ab039cfd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7d1ab85f3efeaa17abbe1cc93157e63bbca1a0b9
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33770569"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592251"
 ---
-# <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Vertraging vluchtgegevens analyseren met behulp van Hive in HDInsight
-Hive biedt een methode voor Hadoop MapReduce-taken uitgevoerd via een SQL-achtige scripttaal genaamd  *[HiveQL][hadoop-hiveql]*, die naar samenvatten, opvragen en analyseren van grote hoeveelheden gegevens kunnen worden toegepast.
+# <a name="analyze-flight-delay-data-by-using-hive-in-hdinsight"></a>Gegevens over vertraagde vluchten analyseren met behulp van Hive in HDInsight
+Hive biedt een manier van het Hadoop MapReduce-taken uitvoeren via een SQL-achtige scripttaal genaamd  *[HiveQL][hadoop-hiveql]*, die kunnen worden gebruikt voor samenvatten, uitvoeren van query's, en analyseren van grote hoeveelheden gegevens.
 
 > [!IMPORTANT]
-> De stappen in dit document moet een HDInsight op basis van Windows-cluster. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor stappen die met een cluster op basis van Linux werken [vertraging vluchtgegevens analyseren met behulp van Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
+> De stappen in dit document moet een Windows-gebaseerde HDInsight-cluster. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie. Zie voor stappen die met een cluster op basis van Linux werken [gegevens over vertraagde vluchten analyseren met behulp van Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md).
 
-Een van de belangrijkste voordelen van Azure HDInsight is het scheiden van de opslag van gegevens en berekeningen. HDInsight gebruikt Azure Blob-opslag voor gegevensopslag. Een typische taak bestaat uit drie delen:
+Een van de grootste voordelen van Azure HDInsight is het scheiden van de opslag van gegevens en rekenprocessen vereist. HDInsight maakt gebruik van Azure Blob-opslag voor gegevensopslag. Een typische taak bestaat uit drie delen:
 
-1. **Gegevens opslaan in Azure Blob-opslag.**  Bijvoorbeeld, weerbericht gegevens, sensorgegevens, weblogboeken en in dit geval vertraging vluchtgegevens worden opgeslagen in Azure Blob-opslag.
-2. **Taken worden uitgevoerd.** Wanneer is het tijd om de gegevens verwerken, loopt u een Windows PowerShell-script (of een clienttoepassing) voor het maken van een HDInsight-cluster, taken uitvoeren en het cluster verwijdert. De taken opslaan uitvoergegevens naar Azure Blob-opslag. De uitvoergegevens wordt bewaard, zelfs nadat het cluster wordt verwijderd. Op deze manier u betaalt alleen wat u hebt gebruikt.
-3. **De uitvoer ophalen uit Azure Blob storage**, of in deze zelfstudie kunt u de gegevens exporteren naar een Azure SQL database.
+1. **Store gegevens in Azure Blob-opslag.**  Bijvoorbeeld, weerbericht gegevens, sensorgegevens, weblogboeken en in dit geval gegevens van vertragingen van vluchten worden opgeslagen in Azure Blob-opslag.
+2. **Taken uitvoeren.** Wanneer is het tijd om de gegevens te verwerken, loopt u een Windows PowerShell-script (of een clienttoepassing) voor het maken van een HDInsight-cluster, taken uitvoeren en verwijderen van het cluster. De taken opslaan uitvoergegevens naar Azure Blob storage. De uitvoergegevens worden bewaard, zelfs nadat het cluster wordt verwijderd. Op deze manier betaalt u voor alleen wat u hebt gebruikt.
+3. **De uitvoer ophalen uit Azure Blob-opslag**, of in deze zelfstudie, kunt u de gegevens exporteren naar een Azure SQL database.
 
 Het volgende diagram illustreert het scenario en de structuur van deze zelfstudie:
 
 ![HDI. FlightDelays.flow][img-hdi-flightdelays-flow]
 
-Houd er rekening mee dat de getallen in het diagram met de Sectietitels overeenkomen. **M** staat voor het hoofdproces. **Een** staat voor de inhoud in de bijlage.
+Houd er rekening mee dat de getallen in het diagram overeenkomen met de Sectietitels. **M** staat voor de belangrijkste proces. **Een** staat voor de inhoud in de bijlage.
 
-Het belangrijkste deel van de zelfstudie laat zien hoe u een Windows PowerShell-script gebruiken de volgende taken uitvoeren:
+Het belangrijkste gedeelte van de zelfstudie laat zien hoe u een Windows PowerShell-script gebruiken om de volgende taken uitvoeren:
 
-* Maak een HDInsight-cluster.
-* Een Hive-taak op het cluster om te berekenen gemiddelde vertragingen op luchthavens uitvoeren. De vertraging vluchtgegevens wordt opgeslagen in een Azure Blob storage-account.
-* Voer een Sqoop om de uitvoer van de Hive-taak exporteren naar een Azure SQL database.
-* Het HDInsight-cluster verwijderen.
+* Een HDInsight-cluster maken.
+* Een Hive-taak uitvoeren op het cluster voor het berekenen van de gemiddelde vertraging op luchthavens. De gegevens van vertragingen van vluchten is opgeslagen in een Azure Blob storage-account.
+* Een taak Sqoop voor het exporteren van de uitvoer van Hive-taak met een Azure SQL-database uitvoeren.
+* De HDInsight-cluster verwijderen.
 
-In de bijlagen vindt u de instructies voor de vertraging vluchtgegevens uploaden, maken/uploaden van een Hive-query-tekenreeks en de Azure SQL database voorbereiden voor de taak Sqoop.
+In de bijlagen vindt u de instructies voor het uploaden van gegevens van vertragingen van vluchten, het maken van/uploaden van een Hive-query-tekenreeks en de Azure SQL-database voorbereiden voor de taak Sqoop.
 
 > [!NOTE]
-> De stappen in dit document zijn specifiek voor HDInsight op basis van Windows-clusters. Zie voor stappen die met een cluster op basis van Linux werken [gegevens te analyseren vlucht vertraging met Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
+> De stappen in dit document zijn specifiek voor HDInsight op basis van een Windows-clusters. Zie voor stappen die met een cluster op basis van Linux werken [analyseren van gegevens van vertragingen van vluchten met behulp van Hive in HDInsight (Linux)](hdinsight-analyze-flight-delay-data-linux.md)
 
 ### <a name="prerequisites"></a>Vereisten
 Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
@@ -63,28 +59,28 @@ Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
 
 **Bestanden die in deze zelfstudie worden gebruikt**
 
-Deze zelfstudie wordt gebruikgemaakt van de prestaties op het moment van luchtvaartmaatschappij vluchtgegevens van [onderzoek en innovatieve technologie-beheer, Bureau vervoer statistieken of RITA][rita-website].
+Deze zelfstudie wordt gebruikgemaakt van de prestatiegegevens omtrent op tijd van gegevens van vertragingen van vluchten luchtvaartmaatschappij van [onderzoek en beheer van innovatieve technologie, Bureau transport statistieken of RITA][rita-website].
 Een kopie van de gegevens is geüpload naar een Azure Blob storage-container met de openbare Blob-machtiging.
-Een gedeelte van het PowerShell-script kopieert de gegevens uit de openbare blob-container naar de standaard blob-container van het cluster. Het HiveQL-script wordt ook gekopieerd naar de blobcontainer met dezelfde.
-Als u weten hoe de gegevens naar uw eigen opslagaccount get of uploadt en hoe het scriptbestand HiveQL maken of uploadt wilt, raadpleeg dan [bijlage A](#appendix-a) en [bijlage B](#appendix-b).
+Een onderdeel van uw PowerShell-script kopieert de gegevens uit de openbare blob-container naar de standaard blob-container van het cluster. Het HiveQL-script wordt ook gekopieerd naar de dezelfde Blob-container.
+Als u weten hoe u get wilt/uploadt de gegevens naar uw eigen opslagaccount en hoe u het bestand HiveQL-script maken of uploaden, Zie [bijlage A](#appendix-a) en [bijlage B](#appendix-b).
 
-De volgende tabel bevat de bestanden in deze zelfstudie gebruikt:
+De volgende tabel bevat de bestanden die in deze zelfstudie worden gebruikt:
 
 <table border="1">
 <tr><th>Bestanden</th><th>Beschrijving</th></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>Het script HiveQL bestand gebruikt door het Hive-taak. Dit script is geüpload naar een Azure Blob storage-account met de openbare toegang. <a href="#appendix-b">Bijlage B</a> instructies over het voorbereiden en dit bestand te uploaden naar uw eigen Azure Blob storage-account heeft.</td></tr>
-<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>De invoergegevens van de Hive-taak. De gegevens is geüpload naar een Azure Blob storage-account met de openbare toegang. <a href="#appendix-a">Bijlage A</a> instructies heeft op de gegevens zijn opgehaald en de gegevens uploaden naar uw eigen Azure Blob storage-account.</td></tr>
+<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/flightdelays.hql</td><td>De HiveQL-scriptbestand dat wordt gebruikt door de Hive-taak. Met dit script is geüpload naar een Azure Blob storage-account met de openbare toegang tot. <a href="#appendix-b">Bijlage B</a> bevat instructies voor het voorbereiden en dit bestand te uploaden naar uw eigen Azure Blob storage-account.</td></tr>
+<tr><td>wasb://flightdelay@hditutorialdata.blob.core.windows.net/2013Data</td><td>De invoergegevens voor de Hive-taak. De gegevens is naar een Azure Blob storage-account met de openbare toegang tot geüpload. <a href="#appendix-a">Bijlage A</a> bevat instructies voor ophalen van de gegevens en de gegevens uploaden naar uw eigen Azure Blob storage-account.</td></tr>
 <tr><td>\tutorials\flightdelays\output</td><td>Het uitvoerpad voor de Hive-taak. De standaardcontainer wordt gebruikt voor het opslaan van de uitvoergegevens.</td></tr>
-<tr><td>\tutorials\flightdelays\jobstatus</td><td>Status map van de Hive-taak op de standaardcontainer.</td></tr>
+<tr><td>\tutorials\flightdelays\jobstatus</td><td>De Hive-taak status-map op de standaard-container.</td></tr>
 </table>
 
-## <a name="create-cluster-and-run-hivesqoop-jobs"></a>Cluster maken en Hive/Sqoop taken uitvoeren
-Hadoop-MapReduce is batchverwerking. De meest rendabele manier om uit te voeren van een Hive-taak is een cluster maken voor de taak en de taak te verwijderen nadat de taak is voltooid. Het volgende script bevat informatie over het hele proces.
-Zie voor meer informatie over het maken van een HDInsight-cluster en het uitvoeren van Hive-taken [maken Hadoop-clusters in HDInsight] [ hdinsight-provision] en [Hive gebruiken met HDInsight][hdinsight-use-hive].
+## <a name="create-cluster-and-run-hivesqoop-jobs"></a>Cluster maken en uitvoeren van Hive/Sqoop taken
+Hadoop MapReduce is batchverwerking. De meest rendabele manier om uit te voeren van een Hive-taak is een cluster maken voor de taak en de taak te verwijderen nadat de taak is voltooid. Het volgende script bevat informatie over het hele proces.
+Zie voor meer informatie over het maken van een HDInsight-cluster en het uitvoeren van Hive-taken [Hadoop-clusters maken in HDInsight] [ hdinsight-provision] en [Hive gebruiken met HDInsight] [hdinsight-use-hive].
 
-**Voor het uitvoeren van Hive-query's met Azure PowerShell**
+**Het Hive-query's uitvoeren met Azure PowerShell**
 
-1. Een Azure SQL database en de tabel voor de uitvoer van de taak Sqoop maken met behulp van de instructies in [bijlage C](#appendix-c).
+1. Maken van een Azure SQL database en de tabel voor de uitvoer van de taak Sqoop met behulp van de instructies in [bijlage C](#appendix-c).
 2. Open Windows PowerShell ISE en voer het volgende script:
 
     ```powershell
@@ -234,46 +230,46 @@ Zie voor meer informatie over het maken van een HDInsight-cluster en het uitvoer
     ###########################################
     Remove-AzureRmHDInsightCluster -ResourceGroupName $resourceGroupName -ClusterName $hdinsightClusterName
     ```
-3. Verbinding maken met uw SQL-database en gemiddelde vertragingen per plaats in de tabel AvgDelays Zie:
+3. Verbinding maken met uw SQL-database en gemiddelde vertragingen per plaats in de tabel AvgDelays zien:
 
     ![HDI. FlightDelays.AvgDelays.Dataset][image-hdi-flightdelays-avgdelays-dataset]
 
 - - -
 
-## <a id="appendix-a"></a>Bijlage A - vluchtgegevens met vertraging van uploaden naar Azure Blob-opslag
-Uploaden van het gegevensbestand en de scriptbestanden HiveQL (Zie [bijlage B](#appendix-b)) vereist een planning. Het idee is voor het opslaan van de gegevensbestanden en het bestand HiveQL vóór het maken van een HDInsight-cluster en de Hive-taak uitgevoerd. U hebt hiervoor twee opties:
+## <a id="appendix-a"></a>Bijlage A - gegevens van vertragingen van vluchten uploaden naar Azure Blob storage
+Uploaden van het gegevensbestand en de HiveQL-script-bestanden (Zie [bijlage B](#appendix-b)) vereist een planning. Het idee is voor het opslaan van de gegevensbestanden en het bestand HiveQL voor het maken van een HDInsight-cluster en de Hive-taak uitvoeren. U hebt hiervoor twee opties:
 
-* **Gebruik de Azure Storage-account die wordt gebruikt door het HDInsight-cluster als het standaardbestandssysteem.** Omdat het HDInsight-cluster de toegangssleutel voor Opslagaccount, moet u geen extra wijzigingen aanbrengt.
-* **Gebruik een ander Azure Storage-account van het standaardbestandssysteem van HDInsight-cluster.** Als dit het geval is, moet u de maken deel uit van de Windows PowerShell script gevonden in wijzigen [maken HDInsight-cluster en voer Hive/Sqoop taken](#runjob) de Storage-account als een aanvullende Storage-account te koppelen. Zie voor instructies [maken Hadoop-clusters in HDInsight][hdinsight-provision]. Het HDInsight-cluster kent de toegangssleutel voor het opslagaccount.
+* **Gebruik hetzelfde Azure Storage-account dat wordt gebruikt door het HDInsight-cluster als het standaardbestandssysteem.** Omdat het HDInsight-cluster de toegangssleutel voor Opslagaccount hebt wordt, moet u geen eventuele aanvullende wijzigingen aanbrengen.
+* **Gebruik een ander Azure Storage-account van het standaardbestandssysteem van HDInsight-cluster.** Als dit het geval is, moet u het onderdeel voor het maken van de Windows PowerShell-script uit wijzigen [maken van HDInsight-cluster en het uitvoeren Hive/Sqoop taken](#runjob) om het opslagaccount als een extra opslagaccount te koppelen. Zie voor instructies [Hadoop-clusters maken in HDInsight][hdinsight-provision]. Het HDInsight-cluster kent de toegangssleutel voor het opslagaccount.
 
 > [!NOTE]
-> Het pad van de Blob-opslag voor het gegevensbestand is moeilijk gecodeerd in het bestand HiveQL-script. U moet deze dienovereenkomstig bijwerken.
+> Het pad van de Blob-opslag voor het gegevensbestand is hard gecodeerd in het bestand HiveQL-script. U moet deze dienovereenkomstig bijwerken.
 
-**De vluchtgegevens downloaden**
+**Om de vluchtgegevens van vertragingen van te downloaden**
 
-1. Blader naar [onderzoek en beheer van innovatieve technologie Bureau vervoer statistieken][rita-website].
-2. Selecteer op de pagina de volgende waarden:
+1. Blader naar [Research and Innovative Technology Administration, Bureau of Transportation Statistics][rita-website].
+2. Selecteer de volgende waarden op de pagina:
 
     <table border="1">
     <tr><th>Naam</th><th>Waarde</th></tr>
-    <tr><td>Filteren van jaar</td><td>2013 </td></tr>
-    <tr><td>Periode filteren</td><td>januari</td></tr>
+    <tr><td>Filterjaar</td><td>2013 </td></tr>
+    <tr><td>Filterperiode</td><td>Januari</td></tr>
     <tr><td>Velden</td><td>*Jaar*, *FlightDate*, *UniqueCarrier*, *Carrier*, *FlightNum*, *OriginAirportID*, *Oorsprong*, *OriginCityName*, *OriginState*, *DestAirportID*, *Dest*, *DestCityName*, *DestState*, *DepDelayMinutes*, *ArrDelay*,  *ArrDelayMinutes*, *CarrierDelay*, *WeatherDelay*, *NASDelay*, *SecurityDelay*,  *LateAircraftDelay* (alle andere velden wissen)</td></tr>
     </table>
 
 3. Klik op **Downloaden**.
-4. Pak het bestand naar de **C:\Tutorials\FlightDelay\2013Data** map. Elk bestand is van een CSV-bestand en ongeveer 60GB groot is.
-5. Naam van het bestand op de naam van de maand waarin het gegevens voor bevat. Bijvoorbeeld: het bestand met de gegevens januari naam *January.csv*.
-6. Herhaal stappen 2 en 5 een bestand te downloaden voor elk van de 12 maanden in 2013. U moet minimaal één bestand worden uitgevoerd van de zelfstudie.
+4. Decomprimeer het bestand naar de **C:\Tutorials\FlightDelay\2013Data** map. Elk bestand is van een CSV-bestand en ongeveer 60GB groot is.
+5. Naam van het bestand op de naam van de maand die deze gegevens bevat. Bijvoorbeeld, het bestand met de gegevens voor januari naam *January.csv*.
+6. Herhaal stappen 2 en 5 voor het downloaden van een bestand voor elk van de twaalf maanden in 2013. U moet minimaal één bestand om uit te voeren van de zelfstudie.
 
-**De vertraging vluchtgegevens uploaden naar Azure Blob-opslag**
+**De gegevens van vertragingen van vluchten uploaden naar Azure Blob-opslag**
 
-1. Bereid de parameters:
+1. Het voorbereiden van de parameters:
 
     <table border="1">
-    <tr><th>Naam variabele</th><th>Opmerkingen</th></tr>
-    <tr><td>$storageAccountName</td><td>Het Azure Storage-account waar u de gegevens te uploaden.</td></tr>
-    <tr><td>$blobContainerName</td><td>De Blob-container waar u de gegevens te uploaden.</td></tr>
+    <tr><th>De naam van variabele</th><th>Opmerkingen</th></tr>
+    <tr><td>$storageAccountName</td><td>De Azure Storage-account waar u wilt de gegevens te uploaden.</td></tr>
+    <tr><td>$blobContainerName</td><td>De Blob-container waarin u wilt de gegevens te uploaden.</td></tr>
     </table>
     
 2. Open Azure PowerShell ISE.
@@ -349,40 +345,40 @@ Uploaden van het gegevensbestand en de scriptbestanden HiveQL (Zie [bijlage B](#
     ```
 4. Druk op **F5** om het script uit te voeren.
 
-Als u een andere methode gebruiken kiest voor het uploaden van bestanden, Controleer of dat het bestandspad is flightdelay-zelfstudies-gegevens. De syntaxis voor toegang tot de bestanden is:
+Als u een andere methode gebruiken wilt voor het uploaden van bestanden, Controleer of dat het bestandspad is zelfstudies/flightdelay/gegevens. De syntaxis voor toegang tot de bestanden is:
 
     wasb://<ContainerName>@<StorageAccountName>.blob.core.windows.net/tutorials/flightdelay/data
 
-Het pad zelfstudies/flightdelay/gegevens zijn de virtuele map die u hebt gemaakt toen u de bestanden geüpload. Controleer of er 12 bestanden, één voor elke maand.
+Het pad naar zelfstudies/flightdelay/gegevens is de virtuele map die u hebt gemaakt toen u de bestanden geüpload. Controleer of er 12 bestanden, één voor elke maand.
 
 > [!NOTE]
-> U kunt de Hive-query om te lezen van de nieuwe locatie moet bijwerken.
+> De Hive-query voor het lezen van de nieuwe locatie, moet u bijwerken.
 >
-> U moet ofwel de toegangsrechten voor de container openbaar of het opslagaccount binden aan het HDInsight-cluster configureren. Anders is de Hive-query-tekenreeks niet mogelijk toegang tot de gegevensbestanden.
+> U moet ofwel de toegangsmachtigingen voor de container openbaar of het opslagaccount binden aan het HDInsight-cluster configureren. Anders wordt pas de Hive-query-tekenreeks weer toegang tot de gegevensbestanden.
 
 - - -
 
 ## <a id="appendix-b"></a>Bijlage B - maken en uploaden van een HiveQL-script
-Met Azure PowerShell, kunt u meerdere HiveQL-instructies een tegelijk uitvoeren of de instructie van HiveQL in een scriptbestand van het pakket. Deze sectie leest u hoe een HiveQL-script maken en uploaden van het script naar Azure Blob-opslag met behulp van Azure PowerShell. Hive vereist de HiveQL-scripts moeten worden opgeslagen in Azure Blob-opslag.
+Met Azure PowerShell, kunt u meerdere HiveQL-instructies een tegelijk uitgevoerd, of pakket met de instructie HiveQL in een scriptbestand. Deze sectie leest u hoe u een HiveQL-script maken en het script uploaden naar Azure Blob-opslag met behulp van Azure PowerShell. Hive vereist de HiveQL scripts worden opgeslagen in Azure Blob-opslag.
 
 Het HiveQL-script wordt het volgende doen:
 
-1. **Verwijderen van de tabel delays_raw**, als de tabel al bestaat.
-2. **De delays_raw externe Hive-tabel maken** die verwijst naar de locatie van Blob-opslag met de zwarte vertraging-bestanden. Deze query geeft aan dat de velden worden gescheiden door ',' en dat de regels worden beëindigd door '\n'. Dit is een probleem wanneer veldwaarden komma's bevatten omdat Hive kan geen onderscheid maken tussen een door komma's die een veldscheidingsteken en een die deel uitmaakt van een veldwaarde (dit is het geval in veldwaarden voor de oorsprong\_STAD\_naam en doel\_STAD\_naam). Om dit op te lossen, maakt de query TEMP kolommen bevatten gegevens die onjuist is onderverdeeld in kolommen.
-3. **Verwijderen van de tabel vertragingen**, als de tabel al bestaat.
-4. **Maken van de tabel vertragingen**. Het is nuttig voor het opschonen van de gegevens voor verdere verwerking. Deze query maakt een nieuwe tabel *vertragingen*, uit de tabel delays_raw. Opmerking de TEMP-kolommen (zoals eerder vermeld) worden niet gekopieerd, en dat de **subtekenreeks** functie aanhalingstekens verwijderen uit de gegevens wordt gebruikt.
-5. **De gemiddelde weer vertraging en groepen de resultaten plaatsnaam berekenen.** Dit wordt ook de resultaten naar Blob storage uitvoeren. De query, enkele aanhalingstekens wordt verwijderd uit de gegevens en uitsluit rijen waar de waarde voor **weather_delay** is null. Dit is nodig omdat Sqoop, die verderop in deze zelfstudie wordt gebruikt, kunnen niet worden verwerkt die waarden probleemloos standaard.
+1. **De tabel delays_raw**, als de tabel al bestaat.
+2. **De delays_raw externe Hive-tabel maken** die verwijst naar de locatie van de Blob-opslag met de vertraging flight bestanden. Deze query geeft aan dat velden worden gescheiden door een ',' en dat de regels worden beëindigd door '\n'. Dit is een probleem wanneer veldwaarden komma's bevatten omdat Hive kan geen onderscheid maken tussen een door komma's die een veldscheidingsteken is en een die deel uitmaakt van de waarde van een veld (dit is het geval in waarden van de oorsprong\_plaats\_naam en doel\_ Plaats\_naam). Om dit op te lossen, maakt de query TEMP kolommen voor het opslaan van gegevens die niet goed in kolommen splitsen is.
+3. **De tabel vertragingen**, als de tabel al bestaat.
+4. **Maken van de tabel vertragingen**. Het is handig voor het opschonen van de gegevens voor verdere verwerking. Deze query maakt u een nieuwe tabel *vertragingen*, uit de tabel delays_raw. Houd er rekening mee dat de tijdelijke kolommen (zoals eerder vermeld) niet worden gekopieerd, en dat de **subtekenreeks** functie wordt gebruikt om de aanhalingstekens verwijderen uit de gegevens.
+5. **Berekent de gemiddelde weersomstandigheden vertraging en groepen die de resultaten met de plaatsnaam.** Dit wordt ook de resultaten naar Blob-opslag uitvoeren. Houd er rekening mee dat de query, apostroffen wordt verwijderd uit de gegevens en sluit rijen waar de waarde voor **weather_delay** is null. Dit is nodig omdat niet zonder problemen die waarden met Sqoop, verderop in deze zelfstudie gebruikt standaard verwerken.
 
-Zie voor een volledige lijst van de opdrachten HiveQL [Hive Data Definition Language][hadoop-hiveql]. Elke opdracht HiveQL moet eindigen met een puntkomma.
+Zie voor een volledige lijst van de opdrachten HiveQL [Hive Data Definition Language met][hadoop-hiveql]. Elke opdracht HiveQL moet eindigen met een puntkomma.
 
-**Maken van een scriptbestand HiveQL**
+**Een HiveQL-script-bestand maken**
 
-1. Bereid de parameters:
+1. Het voorbereiden van de parameters:
 
     <table border="1">
-    <tr><th>Naam variabele</th><th>Opmerkingen</th></tr>
-    <tr><td>$storageAccountName</td><td>Het Azure Storage-account waar u het HiveQL-script om te uploaden.</td></tr>
-    <tr><td>$blobContainerName</td><td>De Blob-container waar u het HiveQL-script om te uploaden.</td></tr>
+    <tr><th>De naam van variabele</th><th>Opmerkingen</th></tr>
+    <tr><td>$storageAccountName</td><td>De Azure Storage-account waar u de HiveQL-script uit om te uploaden.</td></tr>
+    <tr><td>$blobContainerName</td><td>De Blob-container waarin u wilt de HiveQL-script uit om te uploaden.</td></tr>
     </table>
     
 2. Open Azure PowerShell ISE.  
@@ -556,25 +552,25 @@ Zie voor een volledige lijst van de opdrachten HiveQL [Hive Data Definition Lang
     Write-host "`nEnd of the PowerShell script" -ForegroundColor Green
     ```
 
-    Hier volgen de variabelen die worden gebruikt in het script:
+    Dit zijn de variabelen die worden gebruikt in het script:
 
-   * **$hqlLocalFileName** -het scriptbestand HiveQL het script lokaal opgeslagen voordat u dit uploadt naar blobopslag. Dit is de bestandsnaam. De standaardwaarde is <u>C:\tutorials\flightdelay\flightdelays.hql</u>.
-   * **$hqlBlobName** -dit is de HiveQL-script bestand blob-naam gebruikt in de Azure-blobopslag. De standaardwaarde is tutorials/flightdelay/flightdelays.hql. Omdat het bestand rechtstreeks naar Azure Blob-opslag geschreven, is er een '/' aan het begin van de blob-naam. Als u toegang tot het bestand van Blob-opslag wilt, moet u een "/" aan het begin van het bestand toevoegen.
-   * **$srcDataFolder** en **$dstDataFolder** -= 'flightdelay-zelfstudies/gegevens' = 'flightdelay-zelfstudies/uitvoer'
+   * **$hqlLocalFileName** -het script het bestand wordt opgeslagen HiveQL-script lokaal voordat het uploaden naar Blob-opslag. Dit is de bestandsnaam. De standaardwaarde is <u>C:\tutorials\flightdelay\flightdelays.hql</u>.
+   * **$hqlBlobName** -dit is de HiveQL-script bestand blobnaam in de Azure Blob-opslag gebruikt. De standaardwaarde is tutorials/flightdelay/flightdelays.hql. Omdat het bestand rechtstreeks naar Azure Blob storage worden geschreven, is er een '/' aan het begin van de blob-naam. Als u toegang tot het bestand van Blob-opslag wilt, moet u een '/' aan het begin van de naam van het bestand toevoegen.
+   * **$srcDataFolder** en **$dstDataFolder** -= "zelfstudies/flightdelay/gegevens" = "zelfstudies/flightdelay/output"
 
 - - -
-## <a id="appendix-c"></a>Bijlage C - een Azure SQL database voorbereiden voor de uitvoer van de taak Sqoop
+## <a id="appendix-c"></a>Bijlage C - een Azure SQL database voorbereiden voor de taakuitvoer Sqoop
 **Voorbereiden van de SQL-database (samenvoegen dit met het script Sqoop)**
 
-1. Bereid de parameters:
+1. Het voorbereiden van de parameters:
 
     <table border="1">
-    <tr><th>Naam variabele</th><th>Opmerkingen</th></tr>
+    <tr><th>De naam van variabele</th><th>Opmerkingen</th></tr>
     <tr><td>$sqlDatabaseServerName</td><td>De naam van de Azure SQL database-server. Voer niets voor het maken van een nieuwe server.</td></tr>
-    <tr><td>$sqlDatabaseUsername</td><td>De aanmeldingsnaam voor de Azure SQL database-server. Als een bestaande server $sqlDatabaseServerName is worden de aanmeldingsnaam en het wachtwoord bij de aanmelding gebruikt voor verificatie met de server. Anders worden ze gebruikt voor het maken van een nieuwe server.</td></tr>
+    <tr><td>$sqlDatabaseUsername</td><td>De aanmeldingsnaam voor de Azure SQL database-server. Als een bestaande server $sqlDatabaseServerName is worden de aanmeldingsnaam en het wachtwoord voor clusteraanmelding gebruikt voor verificatie bij de server. Anders worden ze gebruikt om een nieuwe server te maken.</td></tr>
     <tr><td>$sqlDatabasePassword</td><td>Het aanmeldingswachtwoord voor de Azure SQL database-server.</td></tr>
-    <tr><td>$sqlDatabaseLocation</td><td>Deze waarde wordt alleen gebruikt als u een nieuwe Azure-database-server maakt.</td></tr>
-    <tr><td>$sqlDatabaseName</td><td>De SQL-database die wordt gebruikt voor het maken van de tabel AvgDelays voor de taak Sqoop. Leeg laat, wordt een database met de naam HDISqoop maken. De naam van de tabel voor de uitvoer van de taak Sqoop is AvgDelays. </td></tr>
+    <tr><td>$sqlDatabaseLocation</td><td>Deze waarde wordt alleen gebruikt als u een nieuwe Azure databaseserver maakt.</td></tr>
+    <tr><td>$sqlDatabaseName</td><td>De SQL-database die wordt gebruikt voor het maken van de tabel AvgDelays voor de taak Sqoop. Leeg laat, wordt een database genaamd HDISqoop maken. De naam van de tabel voor de uitvoer van de taak Sqoop is AvgDelays. </td></tr>
     </table>
     
 2. Open Azure PowerShell ISE.
@@ -704,26 +700,26 @@ Zie voor een volledige lijst van de opdrachten HiveQL [Hive Data Definition Lang
     ```
 
    > [!NOTE]
-   > Het script maakt gebruik van een representational state transfer (REST)-service http://bot.whatismyipaddress.com, voor het ophalen van het externe IP-adres. Het IP-adres wordt gebruikt voor het maken van een firewallregel voor uw SQL database-server.
+   > Het script maakt gebruik van een representational state transfer (REST)-service, http://bot.whatismyipaddress.com, om op te halen van uw externe IP-adres. Het IP-adres wordt gebruikt voor het maken van een firewallregel voor uw SQL database-server.
 
     Hier volgen enkele variabelen die worden gebruikt in het script:
 
-   * **$ipAddressRestService** -de standaardwaarde is http://bot.whatismyipaddress.com. Het is een openbaar IP-adres REST-service voor het ophalen van het externe IP-adres. U kunt andere services als u wilt gebruiken. Het externe IP-adres opgehaald via de service wordt gebruikt om een firewallregel voor uw Azure SQL database-server te maken zodat u toegang hebt tot de database vanuit uw werkstation (met behulp van Windows PowerShell-script).
-   * **$fireWallRuleName** -dit is de naam van de firewallregel voor de Azure SQL database-server. De standaardnaam is <u>FlightDelay</u>. U kunt deze desgewenst wijzigen.
+   * **$ipAddressRestService** -de standaardwaarde is http://bot.whatismyipaddress.com. Het is een openbaar IP-adres REST-service voor het ophalen van uw externe IP-adres. Als u wilt, kunt u andere services gebruiken. Het externe IP-adres opgehaald via de service wordt gebruikt om een firewallregel voor uw Azure SQL database-server te maken zodat u toegang hebben tot de database vanaf uw werkstation (met behulp van een Windows PowerShell-script).
+   * **$fireWallRuleName** -dit is de naam van de firewallregel voor de Azure SQL database-server. De standaardnaam is <u>FlightDelay</u>. U kunt de naam wijzigen als u wilt.
    * **$sqlDatabaseMaxSizeGB** -deze waarde wordt alleen gebruikt wanneer u een nieuwe Azure SQL database-server maakt. De standaardwaarde is 10GB. 10GB is voldoende voor deze zelfstudie.
-   * **$sqlDatabaseName** -deze waarde wordt alleen gebruikt wanneer u een nieuwe Azure SQL database maakt. De standaardwaarde is HDISqoop. Als u de naam wijzigt, moet u het Sqoop Windows PowerShell-script dienovereenkomstig bijwerken.
+   * **$sqlDatabaseName** -deze waarde wordt alleen gebruikt wanneer u een nieuwe Azure SQL-database maakt. De standaardwaarde is HDISqoop. Als u de naam wijzigt, moet u het Sqoop Windows PowerShell-script dienovereenkomstig bijwerken.
 4. Druk op **F5** om het script uit te voeren.
-5. De uitvoer van het script valideren. Zorg ervoor dat het script is uitgevoerd.
+5. Valideer de uitvoer van het script. Zorg ervoor dat het script is uitgevoerd.
 
 ## <a id="nextsteps"></a> Volgende stappen
-Nu begrijpen u hoe u een bestand te uploaden naar Azure Blob-opslag, hoe u een Hive-tabel vullen met behulp van de gegevens uit Azure Blob-opslag, het uitvoeren van Hive-query's en Sqoop gebruiken gegevens uit HDFS exporteren naar een Azure SQL database. Zie voor meer informatie de volgende artikelen:
+U weet nu hoe u een bestand uploaden naar Azure Blob-opslag, hoe u een Hive-tabel te vullen met behulp van de gegevens uit Azure Blob-opslag, het uitvoeren van Hive-query's en hoe u Sqoop gebruiken voor het exporteren van gegevens uit HDFS met een Azure SQL-database. Zie de volgende artikelen voor meer informatie:
 
 * [Aan de slag met HDInsight][hdinsight-get-started]
 * [Hive gebruiken met HDInsight][hdinsight-use-hive]
 * [Oozie gebruiken met HDInsight][hdinsight-use-oozie]
 * [Sqoop gebruiken met HDInsight][hdinsight-use-sqoop]
 * [Pig gebruiken met HDInsight][hdinsight-use-pig]
-* [Het ontwikkelen van Java-MapReduce-programma's voor HDInsight][hdinsight-develop-mapreduce]
+* [Java MapReduce-programma's ontwikkelen voor HDInsight][hdinsight-develop-mapreduce]
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

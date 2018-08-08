@@ -1,38 +1,33 @@
 ---
-title: Hadoop Pig gebruiken met SSH op een HDInsight-cluster - Azure | Microsoft Docs
-description: Meer informatie over hoe verbinding maken met een Linux gebaseerde Hadoop-cluster met SSH, en gebruik de opdracht Pig Pig Latin instructies interactief uitvoeren of als een batch-job.
+title: Hadoop-Pig gebruiken met SSH op een HDInsight-cluster - Azure
+description: Informatie over hoe verbinding maken met een Linux gebaseerde Hadoop-cluster met SSH en gebruik vervolgens de opdracht Pig Pig Latin-instructies interactief uitvoeren, of als een batch-taak.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: b646a93b-4c51-4ba4-84da-3275d9124ebe
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: c296e01096480b85aea52ace69f25aff39e3bd2d
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: c521f5781c1fb8bae1e036649ee31744d0742796
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401146"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590293"
 ---
-# <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Pig-taken uitvoeren op een cluster op basis van Linux met de opdracht Pig (SSH)
+# <a name="run-pig-jobs-on-a-linux-based-cluster-with-the-pig-command-ssh"></a>Pig-taken uitvoeren in een cluster op basis van Linux met de opdracht Pig (SSH)
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Informatie over het Pig-taken interactief uitvoeren van een SSH-verbinding met uw HDInsight-cluster. De programmeertaal Pig Latin kunt u beschrijven van transformaties die worden toegepast op de invoergegevens om de gewenste uitvoer te produceren.
+Leer hoe u interactief Pig-taken uitvoeren vanuit een SSH-verbinding met uw HDInsight-cluster. De Pig Latin-programmeertaal kunt u voor het beschrijven van transformaties die worden toegepast op de ingevoerde gegevens op de gewenste uitvoer produceren.
 
 > [!IMPORTANT]
 > De stappen in dit document moet een Linux gebaseerde HDInsight-cluster. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
 ## <a id="ssh"></a>Verbinding maken met SSH
 
-SSH gebruiken voor verbinding met uw HDInsight-cluster. Het volgende voorbeeld maakt verbinding met een cluster met de naam **myhdinsight** als het account met de naam **sshuser**:
+Gebruik SSH verbinding maken met uw HDInsight-cluster. Het volgende voorbeeld maakt verbinding met een cluster met de naam **myhdinsight** als het account met de naam **sshuser**:
 
 ```bash
 ssh sshuser@myhdinsight-ssh.azurehdinsight.net
@@ -42,13 +37,13 @@ Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voo
 
 ## <a id="pig"></a>Gebruik de opdracht Pig
 
-1. Eenmaal zijn verbonden, start u de Pig-opdrachtregelinterface (CLI) met behulp van de volgende opdracht:
+1. Eenmaal verbinding hebben, start u de Pig-opdrachtregelinterface (CLI) met behulp van de volgende opdracht uit:
 
     ```bash
     pig
     ```
 
-    Na korte tijd, de prompt voor wijzigingen in`grunt>`.
+    Kort daarna verandert de prompt te`grunt>`.
 
 2. Voer de volgende instructie:
 
@@ -56,13 +51,13 @@ Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voo
     LOGS = LOAD '/example/data/sample.log';
     ```
 
-    Met deze opdracht wordt de inhoud van het bestand sample.log geladen in LOGBOEKEN. U kunt de inhoud van het bestand bekijken met behulp van de volgende instructie:
+    Met deze opdracht worden de inhoud van het bestand sample.log in LOGBOEKEN geladen. U kunt de inhoud van het bestand bekijken met behulp van de volgende instructie:
 
     ```piglatin
     DUMP LOGS;
     ```
 
-3. De gegevens vervolgens transformeren door het toepassen van een reguliere expressie om uit te pakken alleen het logboekregistratieniveau uit elke record met de volgende instructie:
+3. Vervolgens de gegevens te transformeren door het toepassen van een reguliere expressie voor het ophalen van alleen het niveau van logboekregistratie van elke record met behulp van de volgende instructie:
 
     ```piglatin
     LEVELS = foreach LOGS generate REGEX_EXTRACT($0, '(TRACE|DEBUG|INFO|WARN|ERROR|FATAL)', 1)  as LOGLEVEL;
@@ -72,26 +67,26 @@ Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voo
 
 4. Doorgaan met het toepassen van transformaties met behulp van de instructies in de volgende tabel:
 
-    | Pig Latin-instructie | Betekenis van de instructie |
+    | Pig Latin-instructie | Wat de instructie doet |
     | ---- | ---- |
-    | `FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;` | Hiermee verwijdert u de rijen met een null-waarde voor het logboekniveau en slaat de resultaten in `FILTEREDLEVELS`. |
-    | `GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;` | De rijen door logboekniveau groepen en slaat de resultaten in `GROUPEDLEVELS`. |
-    | `FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;` | Hiermee maakt u een van de gegevens die elke unieke logboek bevat waarde en hoe vaak het optreedt. De gegevensset wordt opgeslagen in `FREQUENCIES`. |
-    | `RESULT = order FREQUENCIES by COUNT desc;` | Hiermee worden de logboekniveaus gerangschikt op het aantal (aflopend) en opgeslagen in `RESULT`. |
+    | `FILTEREDLEVELS = FILTER LEVELS by LOGLEVEL is not null;` | Hiermee verwijdert u rijen met een null-waarde voor het logboek-niveau en slaat de resultaten in `FILTEREDLEVELS`. |
+    | `GROUPEDLEVELS = GROUP FILTEREDLEVELS by LOGLEVEL;` | Groepen van de rijen door logboek-niveau en worden de resultaten in opgeslagen `GROUPEDLEVELS`. |
+    | `FREQUENCIES = foreach GROUPEDLEVELS generate group as LOGLEVEL, COUNT(FILTEREDLEVELS.LOGLEVEL) as COUNT;` | Hiermee maakt u een van de gegevens die elke unieke logboek bevat waarde en het aantal keren dat deze plaatsvindt. De gegevensset wordt opgeslagen in `FREQUENCIES`. |
+    | `RESULT = order FREQUENCIES by COUNT desc;` | De logboekniveaus orders op aantal (aflopend) en opgeslagen in `RESULT`. |
 
     > [!TIP]
-    > Gebruik `DUMP` om weer te geven het resultaat van de transformatie na elke stap.
+    > Gebruik `DUMP` om het resultaat van de transformatie na elke stap weer te geven.
 
-5. U kunt ook de resultaten van een transformatie opslaan met behulp van de `STORE` instructie. Bijvoorbeeld de volgende instructie slaat de `RESULT` naar de `/example/data/pigout` map op de standaard-opslag voor uw cluster:
+5. U kunt ook de resultaten van een transformatie opslaan met behulp van de `STORE` instructie. Bijvoorbeeld de volgende instructie wordt de `RESULT` naar de `/example/data/pigout` map op de standaardopslag voor uw cluster:
 
     ```piglatin
     STORE RESULT into '/example/data/pigout';
     ```
 
    > [!NOTE]
-   > De gegevens worden opgeslagen in de opgegeven map in bestanden met de naam `part-nnnnn`. Als de map al bestaat, foutbericht er een.
+   > De gegevens worden opgeslagen in de opgegeven map in bestanden met de naam `part-nnnnn`. Als de map al bestaat, ontvangt u een foutbericht.
 
-6. Voer de volgende instructie de prompt knorvis om af te sluiten:
+6. Voer de volgende instructie de lastige vraag om af te sluiten:
 
     ```piglatin
     QUIT;
@@ -99,9 +94,9 @@ Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voo
 
 ### <a name="pig-latin-batch-files"></a>Pig Latin batch-bestanden
 
-U kunt ook de Pig-opdracht gebruiken om uit te voeren Pig Latin opgenomen in een bestand.
+U kunt ook de Pig-opdracht gebruiken om uit te voeren Pig Latin die deel uitmaken van een bestand.
 
-1. Na het afsluiten van de prompt knorvis, kunt u de volgende opdracht gebruiken voor het maken van bestand met de naam `pigbatch.pig`:
+1. Na het afsluiten van de grunt-prompt de volgende opdracht gebruiken om te maken van bestand met de naam `pigbatch.pig`:
 
     ```bash
     nano ~/pigbatch.pig
@@ -119,15 +114,15 @@ U kunt ook de Pig-opdracht gebruiken om uit te voeren Pig Latin opgenomen in een
     DUMP RESULT;
     ```
 
-    Als u klaar bent gebruiken __Ctrl__ + __X__, __Y__, en vervolgens __Enter__ het bestand wilt opslaan.
+    Wanneer u klaar bent, gebruikt u __Ctrl__ + __X__, __Y__, en vervolgens __Enter__ op te slaan.
 
-3. Gebruik de volgende opdracht om uit te voeren de `pigbatch.pig` bestand met de Pig-opdracht.
+3. Gebruik de volgende opdracht om uit te voeren de `pigbatch.pig` bestand met behulp van de Pig-opdracht.
 
     ```bash
     pig ~/pigbatch.pig
     ```
 
-    Nadat de batchtaak is voltooid, ziet u de volgende uitvoer:
+    Als het batch-taak is voltooid, ziet u de volgende uitvoer:
 
         (TRACE,816)
         (DEBUG,434)
@@ -141,9 +136,9 @@ U kunt ook de Pig-opdracht gebruiken om uit te voeren Pig Latin opgenomen in een
 
 Zie het volgende document voor algemene informatie over Pig in HDInsight:
 
-* [Pig gebruiken met Hadoop in HDInsight](hdinsight-use-pig.md)
+* [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md)
 
 Zie de volgende documenten voor meer informatie over andere manieren om te werken met Hadoop op HDInsight:
 
-* [Hive gebruiken met Hadoop in HDInsight](hdinsight-use-hive.md)
+* [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md)
 * [MapReduce gebruiken met Hadoop op HDInsight](hdinsight-use-mapreduce.md)

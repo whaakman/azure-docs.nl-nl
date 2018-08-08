@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: e6d223b386aea3ca41931c600d16c16b53765f26
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: fd2505d6262948e193531d91222cdec319f33100
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414922"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597150"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Apparaatbeheer via Azure Active Directory Veelgestelde vragen
 
@@ -37,7 +37,7 @@ ms.locfileid: "39414922"
 
 **Opmerking:**
 
-- De gebruikers die zijn opgenomen in uw beleid voor voorwaardelijke toegang moeten een [een ondersteunde versie van Office voor Mac OS](../active-directory-conditional-access-technical-reference.md#client-apps-condition) voor toegang tot resources. 
+- De gebruikers die zijn opgenomen in uw beleid voor voorwaardelijke toegang moeten een [een ondersteunde versie van Office voor Mac OS](../conditional-access/technical-reference.md#client-apps-condition) voor toegang tot resources. 
 
 - Uw gebruikers wordt gevraagd tijdens de eerste poging van de toegang tot het apparaat met behulp van de bedrijfsportal-App te registreren.
 
@@ -146,7 +146,7 @@ Voor versies van het eerdere Windows-besturingssysteem die zich on-premises AD-d
 
 **V: ik Zie de record van apparaat onder de gegevens van de gebruiker in Azure portal en ziet de status geregistreerd op het apparaat. Kom dat ik correct instellen voor het gebruik van voorwaardelijke toegang?**
 
-**A:** de apparaatstatus join, weergegeven in de apparaat-id, moet overeenkomen met die in Azure AD en voldoen aan de evaluatiecriteria van een voor voorwaardelijke toegang. Zie voor meer informatie, [vereisen beheerde apparaten voor toegang tot cloud-Apps met voorwaardelijke toegang](../active-directory-conditional-access-policy-connected-applications.md).
+**A:** de apparaatstatus join, weergegeven in de apparaat-id, moet overeenkomen met die in Azure AD en voldoen aan de evaluatiecriteria van een voor voorwaardelijke toegang. Zie voor meer informatie, [vereisen beheerde apparaten voor toegang tot cloud-Apps met voorwaardelijke toegang](../conditional-access/require-managed-devices.md).
 
 ---
 

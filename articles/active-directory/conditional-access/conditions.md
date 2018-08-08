@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: a04a1693e0f626e2ee6858132d6bd6d376840039
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3fac86d53de4d5f519feaba2208f4682a0b38403
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531058"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600259"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Wat zijn de voorwaarden voor de voorwaardelijke toegang van Azure Active Directory? 
 
@@ -100,10 +100,10 @@ Het apparaatplatform wordt gekenmerkt door het besturingssysteem dat wordt uitge
 
 ![Apparaatplatforms configureren](./media/conditions/24.png)
 
-Zie voor een lijst van de ondersteunde apparaatplatformen, [apparaat platform voorwaarde](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-conditional-access-technical-reference#device-platform-condition).
+Zie voor een lijst van de ondersteunde apparaatplatformen, [apparaat platform voorwaarde](technical-reference.md#device-platform-condition).
 
 
-Een algemene use-case voor deze situatie doet zich een beleid dat beperkt de toegang tot uw cloud-apps naar [beheerde apparaten](../active-directory-conditional-access-policy-connected-applications.md#managed-devices). Zie voor meer scenario's met inbegrip van de voorwaarde van apparaat-platform, [Azure Active Directory op Apps gebaseerde voorwaardelijke toegang](../active-directory-conditional-access-mam.md).
+Een algemene use-case voor deze situatie doet zich een beleid dat beperkt de toegang tot uw cloud-apps naar [beheerde apparaten](require-managed-devices.md). Zie voor meer scenario's met inbegrip van de voorwaarde van apparaat-platform, [Azure Active Directory op Apps gebaseerde voorwaardelijke toegang](app-based-conditional-access.md).
 
 
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: b65b6977dfe2043e260fd9c0eefd6038ca436d50
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 1a0bc85063a80854ff6b970b0a57a991acfb3750
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505811"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593958"
 ---
 # <a name="deploy-azure-blockchain-workbench"></a>Azure Blockchain Workbench implementeren
 
@@ -73,7 +73,7 @@ Blockchain Workbench-implementatie vereist de registratie van een Azure AD-toepa
 
 ### <a name="modify-application-manifest"></a>Manifest van de toepassing wijzigen
 
-Vervolgens moet u het toepassingsmanifest voor het gebruik van toepassingsrollen in Azure AD om op te geven van Blockchain Workbench beheerders wijzigen.  Zie voor meer informatie over de Toepassingsmanifesten [Azure Active Directory-toepassingsmanifest](../active-directory/develop/active-directory-application-manifest.md).
+Vervolgens moet u het toepassingsmanifest voor het gebruik van toepassingsrollen in Azure AD om op te geven van Blockchain Workbench beheerders wijzigen.  Zie voor meer informatie over de Toepassingsmanifesten [Azure Active Directory-toepassingsmanifest](../active-directory/develop/reference-app-manifest.md).
 
 1. Selecteer voor de toepassing die u hebt geregistreerd, **Manifest** in het detailvenster van de geregistreerde toepassing.
 2. Een GUID niet genereren. U kunt een GUID met behulp van de PowerShell-opdracht [guid] genereren:: NewGuid () of de cmdlet New-GUID. Een andere optie is het gebruik van een GUID-generator-website.
@@ -258,7 +258,7 @@ Als de vereiste stappen zijn voltooid, bent u klaar om te implementeren, de Bloc
 
 13. Bekijk de samenvatting om te controleren of dat uw parameters correct zijn.
 
-    ![Overzicht](media/blockchain-workbench-deploy/blockchain-workbench-summary.png)
+    ![Samenvatting](media/blockchain-workbench-deploy/blockchain-workbench-summary.png)
 
 14. Selecteer **maken** Ga akkoord met de voorwaarden en implementeren van uw Azure Blockchain Workbench.
 

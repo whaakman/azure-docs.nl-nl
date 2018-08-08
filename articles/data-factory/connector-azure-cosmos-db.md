@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 6c0921a466864bf2b07711cfcd1eac397c5ced83
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 1afd64fbd7019164f0e1f5c850f2dcd8250cdbfc
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325350"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600333"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Cosmos DB met behulp van Azure Data Factory
 
@@ -35,9 +35,9 @@ U kunt gegevens kopiëren van Azure Cosmos DB naar een ondersteunde sink-gegeven
 Deze connector Azure Cosmos DB ondersteunt name:
 
 - Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
-- JSON-documenten als importeren/exporteren-is of kopiëren van gegevens van/naar de gegevensset in tabelvorm zoals SQL-database, CSV-bestanden, enzovoort.
+- JSON-documenten als importeren/exporteren-is of kopiëren van gegevens van/naar de gegevensset in tabelvorm zoals SQL-database, CSV-bestanden, enzovoort. Documenten om te kopiëren als-is naar/van JSON-bestanden of een andere Cosmos DB-verzameling, Zie [Import/Export-JSON-documenten](#importexport-json-documents).
 
-Documenten om te kopiëren als-is naar/van JSON-bestanden of een andere Cosmos DB-verzameling, Zie [Import/Export-JSON-documenten](#importexport-json-documents).
+Data Factory kan worden geïntegreerd met [Cosmos DB bulksgewijs executor-bibliotheek](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) voor de beste prestaties schrijven in Cosmos DB.
 
 ## <a name="getting-started"></a>Aan de slag
 
@@ -85,7 +85,7 @@ Om gegevens te kopiëren van/naar Azure Cosmos DB, stel de eigenschap type van d
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de gegevensset moet worden ingesteld op: **DocumentDbCollection** |Ja |
-| CollectionName |De naam van de Cosmos DB-documentverzameling. |Ja |
+| collectionName |De naam van de Cosmos DB-documentverzameling. |Ja |
 
 **Voorbeeld:**
 
@@ -166,7 +166,7 @@ Om gegevens te kopiëren naar Azure Cosmos DB, stelt u het sink-type in de kopie
 |:--- |:--- |:--- |
 | type | De eigenschap type van de kopie-activiteit-sink moet worden ingesteld op: **DocumentDbCollectionSink** |Ja |
 | WriteBehavior |Beschreven hoe u gegevens schrijft naar Cosmos DB. Toegestane waarden zijn: `insert` en `upsert`.<br/>Het gedrag van **upsert** wordt vervangen door het document als een document met dezelfde id al bestaat; anders is het invoegen. Opmerking ADF genereert automatisch een id voor het document als deze niet is opgegeven in het oorspronkelijke document of door in de kolomtoewijzing), wat betekent dat u nodig hebt om te controleren of uw document heeft een 'id' zodat upsert werken zoals verwacht. |Nee, de standaardwaarde is invoegen |
-| WriteBatchSize | Gebruik van Data Factory [Cosmos DB bulksgewijs executor](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) om gegevens te schrijven in Cosmos DB. "writeBatchSize" bepaalt de grootte van documenten die we elke tijd aan de bibliotheek biedt. U kunt proberen te vergroten writeBatchSize om prestaties te verbeteren. |Nee |
+| WriteBatchSize | Gebruik van Data Factory [Cosmos DB bulksgewijs executor-bibliotheek](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) om gegevens te schrijven in Cosmos DB. "writeBatchSize" bepaalt de grootte van documenten die we elke tijd aan de bibliotheek biedt. U kunt proberen te vergroten writeBatchSize om prestaties te verbeteren. |Nee, de standaardwaarde is 10.000 |
 | nestingSeparator |Er is een speciaal teken in naam van de bronkolom om aan te geven dat geneste document nodig. <br/><br/>Bijvoorbeeld, `Name.First` in de uitvoergegevensset structuur genereert de volgende JSON-structuur in de Cosmos DB-document:`"Name": {"First": "[value maps to this column from source]"}` wanneer de nestedSeparator punt is. |Nee (de standaardwaarde is punt `.`) |
 
 **Voorbeeld:**

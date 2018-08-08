@@ -1,92 +1,88 @@
 ---
-title: Ambari Tez weergave gebruiken met HDInsight - Azure | Microsoft Docs
-description: Informatie over het gebruik van de weergave Ambari Tez fouten opsporen in Tez-taken in HDInsight.
+title: Ambari Tez-weergave gebruiken met HDInsight - Azure
+description: Leer hoe u de Ambari Tez-weergave gebruiken om op te sporen Tez-taken in HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 9c39ea56-670b-4699-aba0-0f64c261e411
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: larryfr
-ms.openlocfilehash: 98874377f31a435e7dd9736410c123ef623928d0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: de8e40081f92ade236c0c6f3b8d12a77ab13a82a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401587"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594250"
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Ambari-weergaven gebruiken om op te sporen Tez-taken in HDInsight
 
-De Ambari-Webgebruikersinterface voor HDInsight bevat een Tez-weergave die kan worden gebruikt om te begrijpen en functies die gebruikmaken van Tez voor foutopsporing. De Tez-weergave kunt u de taak als een grafiek van verbonden items visualiseren, Inzoomen op elk item en statistieken en logboekregistratie informatie ophalen.
+De Ambari-Webgebruikersinterface voor HDInsight bevat een Tez-weergave die kan worden gebruikt om te begrijpen en taken die gebruikmaken van Tez. De Tez-weergave kunt u de taak als een diagram van verbonden items visualiseren, Inzoomen op elk item en statistieken en waardevolle informatie ophalen.
 
 > [!IMPORTANT]
-> De stappen in dit document moet een HDInsight-cluster dat gebruik maakt van Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie voor meer informatie [versiebeheer van HDInsight-onderdeel](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie voor meer informatie, [versiebeheer van HDInsight-onderdeel](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een Linux gebaseerde HDInsight-cluster. Zie voor stapsgewijze instructies voor het maken van een cluster, [aan de slag met HDInsight op basis van Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
+* Een Linux gebaseerde HDInsight-cluster. Zie voor stappen voor het maken van een cluster [aan de slag met HDInsight op basis van Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 * Een moderne webbrowser met ondersteuning voor HTML5.
 
-## <a name="understanding-tez"></a>Understanding Tez
+## <a name="understanding-tez"></a>Inzicht in Tez
 
-Tez is een uitbreidbaar framework voor gegevensverwerking in Hadoop. deze groter snelheden dan traditionele MapReduce-verwerking biedt. Voor Linux gebaseerde HDInsight-clusters is de standaard-engine voor Hive.
+Tez is een uitbreidbaar framework voor gegevensverwerking in Hadoop. deze meer snelheden worden bereikt dan traditionele MapReduce-verwerking biedt. Voor Linux gebaseerde HDInsight-clusters is de standaard-engine voor Hive.
 
-Tez maakt een omgeleid acyclische grafiek (DAG) die in de volgorde van acties die zijn vereist voor de taken worden beschreven. Afzonderlijke acties hoekpunten worden genoemd, en een onderdeel van de algehele taak uitvoeren. De werkelijke uitvoering van het werk dat is beschreven door een hoekpunt een taak wordt aangeroepen en kan worden verdeeld over meerdere knooppunten in het cluster.
+Tez maakt een omgeleid Acyclic Graph (DAG) die worden beschreven de volgorde van de acties die zijn vereist door taken. Afzonderlijke acties hoekpunten worden genoemd, en een deel van de algemene taak wordt uitgevoerd. De daadwerkelijke uitvoering van het werk dat wordt beschreven door een hoekpunt een taak wordt genoemd, en kan worden verdeeld over meerdere knooppunten in het cluster.
 
-### <a name="understanding-the-tez-view"></a>Inzicht in de weergave Tez
+### <a name="understanding-the-tez-view"></a>Informatie over de Tez-weergave
 
-De Tez-weergave bevat zowel historische gegevens en informatie over de processen die worden uitgevoerd. Deze informatie laat zien hoe een taak wordt verdeeld tussen verschillende clusters. Ook wordt gebruikt door taken en hoekpunten tellers en informatie over de fout is gerelateerd aan de taak weergegeven. Dit kan nuttige informatie in de volgende scenario's bieden:
+De Tez-weergave bevat zowel historische gegevens en informatie over de processen die worden uitgevoerd. Deze informatie laat zien hoe een taak wordt verdeeld tussen verschillende clusters. Ook wordt gebruikt door taken en hoekpunten tellers en foutinformatie met betrekking tot de taak weergegeven. Deze bieden mogelijk nuttige informatie in de volgende scenario's:
 
-* Bewaking van langlopende verwerkt, wordt de voortgang van de kaart weergeven en taken te verminderen.
-* Analyse van historische gegevens voor de geslaagde of mislukte processen voor meer informatie over hoe de verwerking kan worden verbeterd of waarom is mislukt.
+* Bewaking van langlopende processen, de voortgang van de kaart bekijken en aantal taken te verkleinen.
+* Analyse van historische gegevens voor geslaagde of mislukte processen voor meer informatie over hoe de verwerking kan worden verbeterd of waarom is mislukt.
 
 ## <a name="generate-a-dag"></a>Genereren van een DAG
 
-De Tez-weergave bevat alleen gegevens als een taak die eerder is gebruikt de Tez-engine wordt uitgevoerd of is uitgevoerd. Eenvoudige Hive-query's kunnen worden opgelost zonder Tez. Meer complexe query's die wilt filteren, groeperen, rangschikken, joins, enzovoort. Gebruik de Tez-engine.
+De Tez-weergave bevat alleen gegevens als een taak die u gebruikt de Tez-engine wordt uitgevoerd of is eerder is uitgevoerd. Eenvoudige Hive-query's kunnen worden opgelost zonder gebruik van Tez. Meer complexe query's die wilt filteren, groeperen, bestellen, joins, enzovoort. Gebruik de Tez-engine.
 
-Gebruik de volgende stappen uitvoeren van een Hive-query die gebruikmaakt van Tez:
+Gebruik de volgende stappen uit om uit te voeren van een Hive-query die gebruikmaakt van Tez:
 
 1. Navigeer in een webbrowser naar https://CLUSTERNAME.azurehdinsight.net, waarbij **CLUSTERNAME** is de naam van uw HDInsight-cluster.
 
-2. Selecteer in het menu aan de bovenkant van de pagina de **weergaven** pictogram. Dit pictogram ziet er als een reeks van de kwadraten uit. Selecteer in de vervolgkeuzelijst **Hive-weergave**.
+2. Selecteer in het menu aan de bovenkant van de pagina, de **weergaven** pictogram. Dit pictogram ziet eruit als een reeks van de kwadraten. Selecteer in de vervolgkeuzelijst die wordt weergegeven, **Hive-weergave**.
 
     ![Hive-weergave selecteren](./media/hdinsight-debug-ambari-tez-view/selecthive.png)
 
-3. Wanneer de Hive-weergave wordt geladen, plak de volgende query in de Query-Editor en klik vervolgens op **uitvoeren**.
+3. Wanneer de Hive-weergave wordt geladen, plakt u de volgende query in de Query-Editor en klik vervolgens op **uitvoeren**.
 
         select market, state, country from hivesampletable where deviceplatform='Android' group by market, country, state;
 
-    Zodra de taak is voltooid, ziet u de uitvoer weergegeven in de **resultaten queryproces** sectie. De resultaten moeten zijn vergelijkbaar met de volgende tekst:
+    Als de taak is voltooid, ziet u de uitvoer weergegeven in de **resultaten queryproces** sectie. De resultaten moeten vergelijkbaar met de volgende tekst:
 
         market  state       country
         en-GB   Hessen      Germany
         en-GB   Kingston    Jamaica
 
-4. Selecteer de **logboek** tabblad. Ziet u de informatie is vergelijkbaar met de volgende tekst:
+4. Selecteer de **Log** tabblad. Ziet u informatie die vergelijkbaar is met de volgende tekst:
 
         INFO : Session is already open
         INFO :
 
         INFO : Status: Running (Executing on YARN cluster with App id application_1454546500517_0063)
 
-    Sla de **App-id** waarde, zoals deze waarde wordt gebruikt in de volgende sectie.
+    Sla de **App-id** waarde, want deze waarde wordt gebruikt in de volgende sectie.
 
-## <a name="use-the-tez-view"></a>De weergave Tez gebruiken
+## <a name="use-the-tez-view"></a>De Tez-weergave gebruiken
 
-1. Selecteer in het menu aan de bovenkant van de pagina de **weergaven** pictogram. Selecteer in de vervolgkeuzelijst **Tez weergave**.
+1. Selecteer in het menu aan de bovenkant van de pagina, de **weergaven** pictogram. Selecteer in de vervolgkeuzelijst die wordt weergegeven, **Tez weergave**.
 
     ![Tez weergave selecteren](./media/hdinsight-debug-ambari-tez-view/selecttez.png)
 
-2. Als de Tez-weergave wordt geladen, ziet u een lijst met hive-query's die momenteel worden uitgevoerd, of zijn uitgevoerd op het cluster.
+2. Wanneer de Tez-weergave wordt geladen, ziet u een lijst met hive-query's die momenteel worden uitgevoerd, of zijn uitgevoerd op het cluster.
 
     ![Alle dag 's](./media/hdinsight-debug-ambari-tez-view/tez-view-home.png)
 
-3. Als u slechts één vermelding hebt, is het voor de query die u in de vorige sectie hebt uitgevoerd. Als u meerdere vermeldingen hebt, kunt u zoeken met behulp van de velden boven aan de pagina.
+3. Als u slechts één vermelding hebt, is het voor de query die u in de vorige sectie hebt uitgevoerd. Als u meerdere vermeldingen hebt, kunt u zoeken met behulp van de velden aan de bovenkant van de pagina.
 
 4. Selecteer de **Query-ID** voor een Hive-query. Informatie over de query wordt weergegeven.
 
@@ -94,19 +90,19 @@ Gebruik de volgende stappen uitvoeren van een Hive-query die gebruikmaakt van Te
 
 5. De tabbladen op deze pagina kunnen u de volgende informatie bekijken:
 
-    * **Details van een query**: meer informatie over de Hive-query.
+    * **Querydetails**: meer informatie over de Hive-query.
     * **Tijdlijn**: informatie over hoe lang duurde in elke fase van de verwerking.
     * **Configuraties**: de configuratie voor deze query gebruikt.
 
-    Van __Query Details__ kunt u de koppelingen vindt u informatie over de __toepassing__ of de __DAG__ voor deze query.
+    Van __Querydetails__ kunt u de koppelingen naar meer informatie over de __toepassing__ of de __DAG__ voor deze query.
     
-    * De __toepassing__ koppeling geeft informatie weer over de YARN-toepassing voor deze query. Hier kunt u de YARN-Logboeken openen.
-    * De __DAG__ koppeling geeft informatie weer over de gerichte acyclische grafiek voor deze query. Hier vindt u een grafische weergave van de DAG. U kunt ook informatie over de hoekpunten binnen de DAG vinden.
+    * De __toepassing__ koppeling geeft informatie weer over de YARN-toepassing voor deze query. Hier kunt u toegang tot de YARN-toepassingslogboeken.
+    * De __DAG__ koppeling geeft informatie weer over de gerichte acyclische grafiek voor deze query. Hier vindt u een grafische weergave van de DAG. U vindt hier ook informatie op de hoekpunten in de DAG.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe u de weergave Tez, meer informatie over [met behulp van Hive in HDInsight](hadoop/hdinsight-use-hive.md).
+Nu hebt u geleerd hoe u de Tez-weergave, meer informatie over [met behulp van Hive in HDInsight](hadoop/hdinsight-use-hive.md).
 
 Zie voor meer technische informatie over Tez, de [Tez-pagina op Hortonworks](http://hortonworks.com/hadoop/tez/).
 
-Zie voor meer informatie over het gebruik van Ambari met HDInsight [HDInsight-clusters beheren met de Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md)
+Zie voor meer informatie over het gebruik van Ambari met HDInsight [beheren HDInsight-clusters met behulp van de Ambari-Webinterface](hdinsight-hadoop-manage-ambari.md)

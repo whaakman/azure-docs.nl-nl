@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/21/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 151aa2f8065c7232284c560ff515afab40ae7f5c
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 7e71ff5f5da17165d5127f3547d8eb0756411b8c
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414978"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597690"
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Inleiding tot Apparaatbeheer in Azure Active Directory
 
@@ -32,7 +32,7 @@ In een wereld mobiliteit, cloud-first kunt Azure Active Directory (Azure AD) sin
 
 Via apparaten krijgen uw gebruikers toegang tot uw zakelijke activa. Ter bescherming van uw bedrijfsmiddelen, als IT-beheerder, die u wilt hebben controle over deze apparaten. Hiermee kunt u om ervoor te zorgen dat uw gebruikers toegang hebben tot de bronnen van apparaten die voldoen aan uw normen voor beveiliging en naleving. 
 
-Apparaatbeheer is ook de basis vormt voor [apparaat gebaseerde voorwaardelijke toegang](../active-directory-conditional-access-policy-connected-applications.md). Met voorwaardelijke toegang op basis van apparaat, kunt u ervoor zorgen dat toegang tot bronnen in uw omgeving is alleen mogelijk met beheerde apparaten.   
+Apparaatbeheer is ook de basis vormt voor [apparaat gebaseerde voorwaardelijke toegang](../conditional-access/require-managed-devices.md). Met voorwaardelijke toegang op basis van apparaat, kunt u ervoor zorgen dat toegang tot bronnen in uw omgeving is alleen mogelijk met beheerde apparaten.   
 
 In dit artikel wordt uitgelegd hoe Apparaatbeheer in Azure Active Directory werkt.
 
@@ -178,7 +178,7 @@ Als een regel van een miniatuur, moet u het volgende gebruiken:
 
 - Als u een overzicht van het apparaat in Azure portal te beheren, Zie [apparaten beheert met de Azure-portal](device-management-azure-portal.md)
 
-- Zie voor meer informatie over voorwaardelijke toegang op basis van apparaat, [configureren van beleid voor het apparaat gebaseerde voorwaardelijke toegang van Azure Active Directory](../active-directory-conditional-access-policy-connected-applications.md).
+- Zie voor meer informatie over voorwaardelijke toegang op basis van apparaat, [configureren van beleid voor het apparaat gebaseerde voorwaardelijke toegang van Azure Active Directory](../conditional-access/require-managed-devices.md).
 
 - Instellen:
     - Azure Active Directory ingeschreven Windows 10-apparaten, Zie [over het configureren van Azure Active Directory geregistreerde Windows 10-apparaten](../user-help/device-management-azuread-registered-devices-windows10-setup.md)

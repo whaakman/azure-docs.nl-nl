@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: 6497c8ff167d8687bd8da416b06a9e26bcec6061
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 5895e918fbd3b67074069ccc81bd794a75725c9a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581324"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620933"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Fouten opsporen in SAML gebaseerde eenmalige aanmelding voor toepassingen in Azure Active Directory
 
@@ -101,6 +101,6 @@ De fout kunt oplossen:
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat eenmalige aanmelding voor uw toepassing werkt, kunt u [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen](../active-directory-saas-app-provisioning.md), of [aan de slag met voorwaardelijke toegang](../active-directory-conditional-access-azure-portal-get-started.md).
+Nu dat eenmalige aanmelding voor uw toepassing werkt, kunt u [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen](../active-directory-saas-app-provisioning.md), of [aan de slag met voorwaardelijke toegang](../conditional-access/app-based-conditional-access.md).
 
 

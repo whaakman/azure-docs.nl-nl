@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 42a11607c46f77840b14973dd5b7faf4b1734fdc
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 5a373c397df09653395eea7996b19262aee75c7a
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136839"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619046"
 ---
 # <a name="built-in-roles-in-azure"></a>Ingebouwde rollen in Azure
 [Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) heeft diverse ingebouwde roldefinities die u aan gebruikers, groepen en service-principals toewijzen kunt. Roltoewijzingen zijn de manier waarop u de toegang tot resources in Azure. Als de ingebouwde rollen niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen [aangepaste rollen](custom-roles.md) maken.
@@ -63,6 +63,8 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [Inzender voor klassieke virtuele machines](#classic-virtual-machine-contributor) | Hiermee beheert u klassieke virtuele machines, maar kunt u niet de toegang tot de virtuele machines of het virtuele netwerk of opslagaccount beheren waaraan de virtuele machines zijn gekoppeld. |
 | [Inzender voor ClearDB MySQL-Databases](#cleardb-mysql-db-contributor) | Hiermee beheert u ClearDB MySQL-databases, maar kunt u niet de toegang tot de databases beheren. |
 | [Rol van lezer voor cosmos DB-Account](#cosmos-db-account-reader-role) | Kan Azure Cosmos DB-accountgegevens lezen. Zie [Inzender voor DocumentDB-Account](#documentdb-account-contributor) voor het beheren van Azure Cosmos DB-accounts. |
+| [Inzender voor Data Box](#data-box-contributor) | Hiermee beheert u alles onder de Data Box-Service, behalve het verlenen van toegang aan anderen. |
+| [Data Box-Operator](#data-box-operator) | U kunt Data Box-Service met uitzondering van het maken van de volgorde of ordergegevens bewerken en toegang geven tot andere beheren. |
 | [Inzender Data Factory](#data-factory-contributor) | Hiermee beheert u data factory's, maar kunt u niet de toegang tot de data factory's beheren. |
 | [Data Lake Analytics-ontwikkelaar](#data-lake-analytics-developer) | Hiermee kunt u uw eigen taken indienen, controleren en beheren, maar geen Data Lake Analytics-accounts maken of verwijderen. |
 | [Gegevens Purger](#data-purger) | Kan analytische gegevens verwijderen |
@@ -76,6 +78,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [Lezer van log Analytics](#log-analytics-reader) | De lezer van Log Analytics kan alle controlegegevens weergeven en doorzoeken en de controle-instellingen weergeven, inclusief het weergeven van de configuratie van Azure Diagnostics op alle Azure-resources. |
 | [Logische App-bijdrager](#logic-app-contributor) | Hiermee kunt u logische apps beheren, maar niet de toegang hiertoe. |
 | [Logische App-Operator](#logic-app-operator) | Hiermee kunt u logische apps lezen, inschakelen en uitschakelen. |
+| [De Operatorrol beheerde toepassing](#managed-application-operator-role) | Hiermee kunt u lees- en acties uitvoeren op resources van beheerde toepassingen |
 | [Inzender beheerde identiteit](#managed-identity-contributor) | Door gebruiker toegewezen identiteit maken, lezen, bijwerken en verwijderen |
 | [Operator beheerde identiteit](#managed-identity-operator) | Door gebruiker toegewezen identiteit maken en toewijzen |
 | [Beheergroep-Inzender](#management-group-contributor) | De rol Inzender beheergroep |
@@ -347,33 +350,34 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
 > | Microsoft.Network/virtualNetworks/read | De definitie van het virtuele netwerk ophalen |
+> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp is een interne bewerking die wordt gebruikt door de service |
+> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Resultaten van de bewerking op de back-upbeheer beheren |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | Back-containers in de back-fabrics van Recovery Services-kluis maken en beheren |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Maken en beheren van back-uptaken |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Taken exporteren |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Retourneert het resultaat van Exporttaakbewerking. |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Maken en beheren van meta-gegevens met betrekking tot back-upbeheer |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Maken en beheren van de resultaten van back-upbeheer bewerkingen |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Back-beleid maken en beheren |
 > | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Artikelen die u kunnen een back-up maken en beheren |
 > | Microsoft.RecoveryServices/Vaults/backupProtectedItems/* | Maken en beheren van back-ups van items |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/* | Maken en beheren van containers met back-upitems |
+> | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/* |  |
+> | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Hiermee retourneert u overzichten van beschermde Items en beschermde Servers van Recovery Services. |
 > | Microsoft.RecoveryServices/Vaults/certificates/* | Maken en beheren van certificaten met betrekking tot back-up in Recovery Services-kluis |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/* | Maken en beheren van uitgebreide informatie met betrekking tot de kluis |
+> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Hiermee haalt de waarschuwingen voor de Recovery services-kluis. |
+> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft.RecoveryServices/Vaults/read | De bewerking kluis ophalen wordt een object waarmee de Azure-resource van het type 'kluis' |
 > | Microsoft.RecoveryServices/Vaults/refreshContainers/* | Beheren van detectiebewerking voor het ophalen van containers van een nieuw gemaakt |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/* | Maken en beheren van geregistreerde identiteiten |
+> | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
 > | Microsoft.RecoveryServices/Vaults/usages/* | Maken en beheren van het gebruik van Recovery Services-kluis |
-> | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Hiermee retourneert u overzichten van beschermde Items en beschermde Servers van Recovery Services. |
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Storage/storageAccounts/read | Hiermee retourneert u een lijst met opslagaccounts of haalt u de eigenschappen op voor het opgegeven opslagaccount. |
-> | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp is een interne bewerking die wordt gebruikt door de service |
-> | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
-> | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Hiermee haalt de waarschuwingen voor de Recovery services-kluis. |
-> | Microsoft.RecoveryServices/Vaults/storageConfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupconfig/vaultconfig/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Retourneert het resultaat van Exporttaakbewerking. |
-> | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/* |  |
+> | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
 ## <a name="backup-operator"></a>Back-upoperator
@@ -658,6 +662,32 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
+## <a name="data-box-contributor"></a>Inzender voor Data Box
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Hiermee beheert u alles onder de Data Box-Service, behalve het verlenen van toegang aan anderen. |
+> | **Id** | add466c9-e687-43fc-8d98-dfcf8d720be5 |
+> | **Acties** |  |
+> | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
+> | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
+> | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
+> | Microsoft.Databox/* |  |
+
+## <a name="data-box-operator"></a>Data Box-Operator
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | U kunt Data Box-Service met uitzondering van het maken van de volgorde of ordergegevens bewerken en toegang geven tot andere beheren. |
+> | **Id** | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
+> | **Acties** |  |
+> | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
+> | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
+> | Microsoft.Databox/jobs/listsecrets/action | Hiermee wordt een lijst gemaakt van niet-versleutelde geheimen die betrekking hebben op de order. |
+
 ## <a name="data-factory-contributor"></a>Inzender Data Factory
 > [!div class="mx-tableFixed"]
 > | | |
@@ -828,7 +858,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
 > | Microsoft.LabServices/labAccounts/*/read |  |
 > | Microsoft.LabServices/labAccounts/createLab/action | Een lab maken in een lab-account. |
-> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | Informatie over de regionale beschikbaarheid voor elke categorie grootte onder een lab-account ophalen |
+> | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action | Informatie over de regionale beschikbaarheid voor elke grootte categorie geconfigureerd onder een lab-account ophalen |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 
@@ -918,6 +948,15 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Web/connections/*/read | Verbindingen lezen. |
 > | Microsoft.Web/customApis/*/read | Lees de aangepaste API. |
 > | Microsoft.Web/serverFarms/read | Hiermee worden de eigenschappen van een App Service-Plan |
+
+## <a name="managed-application-operator-role"></a>De Operatorrol beheerde toepassing
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Hiermee kunt u lees- en acties uitvoeren op resources van beheerde toepassingen |
+> | **Id** | c7393b34-138c-406f-901b-d8cf2b17e6ae |
+> | **Acties** |  |
+> | Microsoft.Solutions/applications/read | Hiermee wordt een lijst met toepassingen opgehaald. |
 
 ## <a name="managed-identity-contributor"></a>Inzender beheerde identiteit
 > [!div class="mx-tableFixed"]
@@ -1125,6 +1164,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Authorization/policyDefinitions/* | Maken en beheren van beleidsdefinities |
 > | Microsoft.Authorization/policySetDefinitions/* | Maken en beheren van beleid instellen |
 > | Microsoft.Insights/alertRules/* | Maken en beheren van regels voor waarschuwingen |
+> | Microsoft.Management/managementGroups/read | Lijst met beheergroepen omwille van de geverifieerde gebruiker. |
 > | Microsoft.operationalInsights/workspaces/*/read | Log Analytics-gegevens weergeven |
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
@@ -1134,8 +1174,9 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Security/locations/tasks/activate/action | Een beveiligingsaanbeveling activeren |
 > | Microsoft.Security/locations/tasks/dismiss/action | Een beveiligingsaanbeveling negeren |
 > | Microsoft.Security/policies/write | Updates van het beveiligingsbeleid |
+> | Microsoft.Security/securityContacts/write | Updates van de contactpersoon voor beveiliging |
+> | Microsoft.Security/securityContacts/delete | Hiermee verwijdert u de contactpersoon voor beveiliging |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
-> | Microsoft.Management/managementGroups/read | Lijst met beheergroepen omwille van de geverifieerde gebruiker. |
 
 ## <a name="security-manager"></a>Beveiligingsbeheer
 > [!div class="mx-tableFixed"]

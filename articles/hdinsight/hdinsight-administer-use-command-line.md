@@ -1,32 +1,27 @@
 ---
-title: Met Azure CLI - Azure HDInsight Hadoop-clusters beheren | Microsoft Docs
-description: Informatie over het gebruiken van de Azure-opdrachtregelinterface voor het beheren van Hadoop-clusters in Azure HDInsight. De Azure CLI werkt op Windows, Mac en Linux.
+title: Met behulp van Azure CLI - Azure HDInsight Hadoop-clusters beheren
+description: Informatie over het gebruik van de Azure-opdrachtregelinterface voor het beheren van Hadoop-clusters in Azure HDInsight. De Azure CLI werkt op Windows, Mac en Linux.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-author: mumian
-tags: azure-portal
-documentationcenter: ''
-ms.assetid: 4f26c79f-8540-44bd-a470-84722a9e4eca
+editor: jasonwhowell
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 18901c3e99b1c67d01c091918a6abdd2f298defa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: dea0f004c4283bf594e46097092a52dedabb9f4b
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200976"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599017"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Hadoop-clusters in HDInsight met behulp van de Azure CLI beheren
+# <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Beheer Hadoop-clusters in HDInsight met behulp van de Azure CLI
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Meer informatie over het gebruik van de [Azure-opdrachtregelinterface](../cli-install-nodejs.md) voor het beheren van Hadoop-clusters in Azure HDInsight. De Azure CLI is geïmplementeerd in Node.js en kan worden gebruikt op elk platform dat ondersteuning biedt voor Node.js, zoals Windows, Mac en Linux. Op dit moment biedt geen ondersteuning voor HDInsight [Azure CLI 2.0](https://docs.microsoft.com/cli/azure).
+Meer informatie over het gebruik van de [Azure Command-line Interface](../cli-install-nodejs.md) voor het beheren van Hadoop-clusters in Azure HDInsight. De Azure CLI is geïmplementeerd in Node.js en kan worden gebruikt op elk platform dat ondersteuning biedt voor Node.js, zoals Windows, Mac en Linux. Op dit moment biedt geen ondersteuning voor HDInsight [Azure CLI 2.0](https://docs.microsoft.com/cli/azure).
 
-In dit artikel behandelt alleen het gebruik van de Azure CLI met HDInsight. Zie voor een algemene richtlijnen over het gebruik van Azure CLI [installeren en configureren van Azure CLI][azure-command-line-tools].
+Dit artikel behandelt alleen de Azure-CLI gebruiken met HDInsight. Raadpleeg voor algemene richtlijnen over het gebruik van Azure CLI, [installeren en configureren van Azure CLI][azure-command-line-tools].
 
 ## <a name="prerequisites"></a>Vereisten
 Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
@@ -46,16 +41,16 @@ Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
     azure config mode arm
     ```
 
-Als u help, gebruikt de **-h** overschakelen.  Bijvoorbeeld:
+Als u Help-informatie, gebruikt de **-h** overschakelen.  Bijvoorbeeld:
 
 ```cli
 azure hdinsight cluster create -h
 ```
 
 ## <a name="create-clusters-with-the-cli"></a>Clusters maken met de CLI
-Zie [clusters maken in HDInsight met behulp van de Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
+Zie [-clusters maken in HDInsight met behulp van de Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md).
 
-## <a name="list-and-show-cluster-details"></a>Een lijst en clusterdetails weergeven
+## <a name="list-and-show-cluster-details"></a>Clusterdetails tonen en vermelden
 Gebruik de volgende opdrachten te kunnen aanbieden en clusterdetails weergeven:
 
 ```cli
@@ -63,23 +58,23 @@ azure hdinsight cluster list
 azure hdinsight cluster show <Cluster Name>
 ```
 
-![Opdrachtregelprogramma weergave van de lijst met clusters][image-cli-clusterlisting]
+![Opdrachtregel weergave van de lijst met clusters][image-cli-clusterlisting]
 
 ## <a name="delete-clusters"></a>Clusters verwijderen
-Gebruik de volgende opdracht om te verwijderen van een cluster:
+Gebruik de volgende opdracht om een cluster te verwijderen:
 
 ```cli
 azure hdinsight cluster delete <Cluster Name>
 ```
 
-U kunt ook een cluster verwijderen door de resourcegroep waarin het cluster te verwijderen. Let op: Hiermee verwijdert u alle resources in de groep met inbegrip van het standaardopslagaccount.
+U kunt ook een cluster verwijderen door de resourcegroep waarin het cluster te verwijderen. Let op: Hiermee worden alle resources in de groep met inbegrip van het standaardopslagaccount verwijderd.
 
 ```cli
 azure group delete <Resource Group Name>
 ```
 
 ## <a name="scale-clusters"></a>Clusters schalen
-De grootte van Hadoop-cluster wijzigen:
+De grootte van de Hadoop-cluster wijzigen:
 
 ```cli
 azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
@@ -101,10 +96,10 @@ azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe verschillende HDInsight-cluster administratieve taken uitvoeren. Zie voor meer informatie de volgende artikelen:
+In dit artikel hebt u geleerd hoe u verschillende HDInsight-cluster administratieve taken uit te voeren. Zie de volgende artikelen voor meer informatie:
 
-* [HDInsight beheren met behulp van de Azure Portal][hdinsight-admin-portal]
-* [HDInsight met behulp van Azure PowerShell beheren][hdinsight-admin-powershell]
+* [HDInsight beheren met behulp van de Azure-Portal][hdinsight-admin-portal]
+* [HDInsight beheren met behulp van Azure PowerShell][hdinsight-admin-powershell]
 * [Aan de slag met Azure HDInsight][hdinsight-get-started]
 * [Het gebruik van de Azure CLI][azure-command-line-tools]
 
@@ -122,4 +117,4 @@ In dit artikel hebt u geleerd hoe verschillende HDInsight-cluster administratiev
 [image-cli-account-download-import]: ./media/hdinsight-administer-use-command-line/HDI.CLIAccountDownloadImport.png
 [image-cli-clustercreation]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreation.png
 [image-cli-clustercreation-config]: ./media/hdinsight-administer-use-command-line/HDI.CLIClusterCreationConfig.png
-[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/command-line-list-of-clusters.png "Lijst en clusters weer te geven"
+[image-cli-clusterlisting]: ./media/hdinsight-administer-use-command-line/command-line-list-of-clusters.png "Clusters tonen en vermelden"

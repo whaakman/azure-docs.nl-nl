@@ -1,55 +1,51 @@
 ---
-title: Configureren van instellingen voor Spark - Azure HDInsight | Microsoft Docs
-description: Klik hier voor meer informatie over het configureren van Spark voor een HDInsight-cluster.
+title: Configureren van instellingen voor Spark - Azure HDInsight
+description: Klik hier voor meer informatie over het configureren van Spark voor een Azure HDInsight-cluster.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: maxluk
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+ms.author: maxluk
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2018
-ms.author: maxluk
-ms.openlocfilehash: db61cc81f51772aa98c034f1bfdf51777cfd68e7
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: fb0a70f160df9dc4fdb292e54f41baf4bd296250
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619580"
 ---
 # <a name="configure-spark-settings"></a>Spark-instellingen configureren
 
-Een HDInsight Spark-cluster bevat een installatie van de Apache Spark-bibliotheek.  Elke HDInsight-cluster bevat standaard configuratieparameters voor alle geïnstalleerde services, met inbegrip van Spark.  Een belangrijk aspect van het beheer van een HDInsight Hadoop-cluster wordt bewaakt door werkbelasting, met inbegrip van Spark taken, om ervoor te zorgen dat de taken worden uitgevoerd op een voorspelbare wijze. Voor het beste Spark-taken uitvoeren, houd rekening met de fysieke clusterconfiguratie bij het bepalen van het optimaliseren van de logische configuratie van het cluster.
+Een HDInsight Spark-cluster bevat een installatie van de Apache Spark-bibliotheek.  Elke HDInsight-cluster bevat standaard configuratieparameters voor alle geïnstalleerde services, met inbegrip van Spark.  Een belangrijk aspect van het beheer van een HDInsight Hadoop-cluster wordt bewaakt door werkbelasting, met inbegrip van Spark-taken, om ervoor te zorgen dat de taken worden uitgevoerd op een voorspelbare wijze. Beste Spark-taken uitgevoerd, houd rekening met de fysieke clusterconfiguratie bij het bepalen van het optimaliseren van de logische configuratie van het cluster.
 
 De standaard HDInsight Apache Spark-cluster bevat de volgende knooppunten: drie ZooKeeper-knooppunten, twee hoofdknooppunten en een of meer worker-knooppunten:
 
 ![Spark HDInsight-architectuur](./media/apache-spark-settings/spark-hdinsight-arch.png)
 
-Het aantal virtuele machines en de VM-grootten voor de knooppunten in uw HDInsight-cluster kunnen ook invloed op uw Spark-configuratie. Niet-standaard HDInsight configuratiewaarden vereisen vaak configuratiewaarden voor niet-standaard Spark. Wanneer u een HDInsight Spark-cluster maakt, kunt u voorgestelde VM-grootten worden weergegeven voor elk van de onderdelen. Op dit moment de [geoptimaliseerd voor geheugen Linux VM-grootten](../../virtual-machines/linux/sizes-memory.md) zijn voor Azure D12 v2 of hoger.
+De configuratie van uw Spark kunnen ook van invloed op het aantal virtuele machines en de VM-grootten voor de knooppunten in uw HDInsight-cluster. Niet-standaard HDInsight-configuratiewaarden vereisen vaak niet-standaard Spark-configuratiewaarden. Wanneer u een HDInsight Spark-cluster maakt, kunt u aanbevolen VM-grootten worden weergegeven voor elk van de onderdelen. Op dit moment de [geoptimaliseerd voor geheugen Linux-VM-grootten](../../virtual-machines/linux/sizes-memory.md) voor Azure zijn D12 v2 of hoger.
 
 ## <a name="spark-versions"></a>Spark-versies
 
-Gebruik de beste Spark-versie voor uw cluster.  De HDInsight-service bevat verschillende versies van Spark en HDInsight zelf.  Elke versie van Spark omvat een aantal standaardinstellingen van het cluster.  
+Gebruik de beste Spark-versie voor uw cluster.  De HDInsight-service omvat verschillende versies van Spark- en HDInsight zelf.  Elke versie van Spark bevat een set van standaardinstellingen van het cluster.  
 
-Wanneer u een nieuw cluster maakt, worden hier de huidige Spark-versies kunt kiezen uit:
+Wanneer u een nieuw cluster maakt, moet u hier de huidige Spark-versies om de verkeersbelasting zijn:
 
 ![Spark-versies](./media/apache-spark-settings/spark-version.png)
 
-Spark 2.x veel beter dan Spark 1.x kunt uitvoeren. Spark 2.x heeft een aantal prestatieoptimalisaties, zoals wolfraam en exemplaar queryoptimalisatie.  
+Spark 2.x veel beter dan 1.x Spark kunt uitvoeren. Spark 2.x heeft een aantal prestatieoptimalisaties, zoals wolfraam, katalysator queryoptimalisatie en meer.  
 
 > [!NOTE]
-> De standaardversie van Apache Spark in HDInsight-service kan zonder kennisgeving worden gewijzigd. Als u een afhankelijkheid versie hebt, wordt aangeraden dat u deze specifieke versie opgeeft bij het maken van clusters met .NET SDK/Azure PowerShell en Azure CLI.
+> De standaardversie van Apache Spark in de HDInsight-service kan zonder kennisgeving worden gewijzigd. Als u een afhankelijkheid versie hebt, wordt aangeraden dat u deze specifieke versie opgeeft bij het maken van clusters met behulp van .NET SDK/Azure PowerShell en Azure CLI.
 
-Apache Spark heeft drie system configuratie locaties:
+Apache Spark heeft drie system configuration locaties:
 
-* Eigenschappen van Spark parameters voor de meeste toepassingen beheren en kan worden ingesteld met behulp van een `SparkConf` object, of via eigenschappen van Java-systeem.
-* Omgevingsvariabelen kunnen worden gebruikt om per machine-instellingen, zoals het IP-adres, via de `conf/spark-env.sh` script op elk knooppunt.
+* Eigenschappen van Spark parameters voor de meeste toepassingen te beheren en kan worden ingesteld met behulp van een `SparkConf` object, of via eigenschappen van Java-systeem.
+* Omgevingsvariabelen kunnen worden gebruikt om het computerspecifieke instellingen, zoals het IP-adres ingesteld via de `conf/spark-env.sh` -script uit op elk knooppunt.
 * Logboekregistratie kan worden geconfigureerd via `log4j.properties`.
 
-Wanneer u een bepaalde versie van Spark selecteert, bevat het cluster de standaardconfiguratie-instellingen.  U kunt de standaardwaarden van de Spark-configuratie wijzigen met behulp van een aangepaste Spark-configuratiebestand.  Een voorbeeld worden hieronder weergegeven.
+Wanneer u een bepaalde versie van Spark selecteert, bevat uw cluster de standaardconfiguratie-instellingen.  U kunt de standaardwaarden van de Spark-configuratie wijzigen met behulp van een aangepaste Spark-configuratiebestand.  Hieronder ziet u een voorbeeld.
 
 ```
     spark.hadoop.io.compression.codecs org.apache.hadoop.io.compress.GzipCodec
@@ -59,89 +55,89 @@ Wanneer u een bepaalde versie van Spark selecteert, bevat het cluster de standaa
     spark.sql.files.openCostInBytes 1099511627776
 ```
 
-Het bovenstaande voorbeeld onderdrukt meerdere standaardwaarden voor vijf Spark-configuratieparameters.  Dit zijn de compressiecodec, Hadoop MapReduce splitsen minimumgrootte en parketvloeren blokformaten en de partitie Spar SQL en open bestandsgrootten standaardwaarden.  Deze configuratiewijzigingen worden gekozen omdat de bijbehorende gegevens en taken (in dit voorbeeld Toepassingsgeoriënteerde gegevens) bepaalde kenmerken beter gebruik van deze aangepaste configuratie-instellingen wordt uitgevoerd.
+Het bovenstaande voorbeeld heeft voorrang op meerdere standaardwaarden voor de vijf Spark-configuratieparameters.  Dit zijn de compressiecodec, Hadoop MapReduce splitsen minimumgrootte en parquet blok grootten en ook de Spar SQL-partitie en de standaardwaarden van open bestanden.  Deze wijzigingen in de configuratie zijn gekozen omdat de bijbehorende gegevens en -taken (in dit voorbeeld genetische gegevens) hebt u bepaalde kenmerken, die wordt uitgevoerd beter met behulp van deze aangepaste configuratie-instellingen.
 
 ---
 
 ## <a name="view-cluster-configuration-settings"></a>Cluster-configuratie-instellingen weergeven
 
-Controleer of de huidige HDInsight-cluster configuratie-instellingen voordat u prestatieoptimalisatie op het cluster uitvoert. Starten van het HDInsight-Dashboard van de Azure-portal door te klikken op de **Dashboard** koppeling in het deelvenster Spark-cluster. Aanmelden met de gebruikersnaam en wachtwoord van de Clusterbeheerder.
+Controleer of de huidige HDInsight-cluster configuratie-instellingen voordat u de optimalisatie van prestaties op het cluster uitvoert. Starten van het HDInsight-Dashboard vanuit Azure portal door te klikken op de **Dashboard** koppeling in het deelvenster Spark-cluster. Meld u aan met de gebruikersnaam en wachtwoord van de Clusterbeheerder.
 
-De Ambari-Webgebruikersinterface weergegeven met een dashboardweergave van sleutel cluster resource gebruik metrische gegevens.  De Ambari-Dashboard ziet u de configuratie van de Apache Spark en andere services die u hebt geïnstalleerd. Het Dashboard bevat een **Configuratiegeschiedenis** tabblad waar u de configuratiegegevens voor alle geïnstalleerde services, met inbegrip van Spark kunt bekijken.
+De Ambari-Webgebruikersinterface wordt weergegeven, met een dashboardweergave van metrische gegevens over Resourcegebruik voor belangrijke cluster-bron.  De Ambari-Dashboard ziet u de configuratie van een Apache Spark en andere services die u hebt geïnstalleerd. Het Dashboard bevat een **Config geschiedenis** tabblad, waar u de configuratie-informatie voor alle geïnstalleerde services, waaronder Spark kunt bekijken.
 
-Selecteer om te zien configuratiewaarden voor Apache Spark, **Configuratiegeschiedenis**, selecteer daarna **Spark2**.  Selecteer de **Configs** tabblad en selecteer vervolgens de `Spark` (of `Spark2`, afhankelijk van uw versie) koppeling in de lijst van de service.  U ziet een lijst met configuratiewaarden voor uw cluster:
+Als u wilt zien configuratiewaarden voor Apache Spark, selecteer **Config geschiedenis**en selecteer vervolgens **Spark2**.  Selecteer de **Peeringconfiguraties** tabblad, en selecteer vervolgens de `Spark` (of `Spark2`, afhankelijk van uw versie) koppeling in de lijst met Services.  U ziet een lijst van configuratiewaarden voor uw cluster:
 
 ![Spark-configuraties](./media/apache-spark-settings/spark-config.png)
 
-Als u wilt zien en afzonderlijke Spark configuratiewaarden wijzigen, selecteert u een koppeling met het woord 'spark' in de titel van de koppeling.  Beide waarden van de configuratie van aangepaste en geavanceerde opnemen configuraties voor Spark in deze categorieën:
+Om te zien en afzonderlijke waarden van de Spark-configuratie wijzigen, selecteert u een koppeling met het woord 'spark' in de titel van de koppeling.  Configuraties voor Spark zijn beide waarden aangepaste en geavanceerde configuratie in deze categorieën:
 
 * Aangepaste Spark2-standaardinstellingen
 * Aangepaste metrische gegevens-Spark2-eigenschappen
 * Geavanceerde Spark2-standaardinstellingen
 * Geavanceerde Spark2-env
-* Geavanceerde spark2-hive-site-opheffen
+* Geavanceerde spark2-hive-site-overschrijven
 
-Als u een set niet-standaard configuratiewaarden maakt, kunt u ook de geschiedenis van de updates voor uw configuratie zien.  De geschiedenis van deze configuratie kan zijn handig om te zien welke niet-standaard configuratie heeft optimale prestaties.
+Als u een niet-standaard set-configuratiewaarden maakt, kunt u ook de geschiedenis van uw configuratie-updates zien.  De geschiedenis van deze configuratie kan zijn handig om te zien welke niet-standaard-configuratie met optimale prestaties.
 
 > [!NOTE]
-> Als u wilt zien, maar niet wijzigen, algemene Spark-cluster configuratie-instellingen, selecteer de **omgeving** tabblad op het hoogste niveau **Spark taak UI** interface.
+> Als u wilt zien, maar niet wijzigen, algemene Spark-cluster configuratie-instellingen, selecteer de **omgeving** tabblad op het hoogste niveau **Spark-taak gebruikersinterface** interface.
 
 ## <a name="configuring-spark-executors"></a>Spark Executor configureren
 
-Het volgende diagram toont de belangrijkste Spark objecten: het stuurprogramma-programma en de bijbehorende Context voor Spark en Clusterbeheer en de bijbehorende *n* worker-knooppunten.  Elk werkrolknooppunt bevat een Executor, een cache en *n* exemplaren van de taak.
+Het volgende diagram toont de belangrijkste Spark-objecten: het stuurprogramma-programma en de gekoppelde Spark-Context en de clustermanager en de bijbehorende *n* worker-knooppunten.  Elke worker-knooppunt bevat een Executor, een cache en *n* taak exemplaren.
 
 ![Clusterobjecten](./media/apache-spark-settings/spark-arch.png)
 
-Spark-taken gebruiken worker bronnen, met name geheugen, is het gebruikelijk dat Spark configuratiewaarden voor werkrolknooppunt Executor aanpassen.
+Spark-taken gebruiken worker bronnen, met name geheugen, dus is het gebruikelijk om aan te passen van Spark-configuratiewaarden voor worker-knooppunt Executor.
 
-Drie belangrijke parameters die vaak worden gecorrigeerd om te stemmen Spark configuraties ter verbetering van de toepassingsvereisten zijn `spark.executor.instances`, `spark.executor.cores`, en `spark.executor.memory`. Een Executor is een proces gestart voor een Spark-toepassing. Een Executor wordt uitgevoerd op het werkrolknooppunt en is verantwoordelijk voor de taken voor de toepassing. Voor elk cluster wordt het standaardaantal Executor, en de grootte executor berekend op basis van het aantal worker-knooppunten en de grootte van het worker-knooppunt. Deze worden opgeslagen in `spark-defaults.conf` over de hoofdknooppunten van het cluster.  U kunt deze waarden in een actief cluster bewerken door de **aangepaste spark-standaardwaarden** koppeling in de Ambari-webgebruikersinterface.  Nadat u wijzigingen aanbrengt, wordt u gevraagd door de gebruikersinterface voor **opnieuw** alle beïnvloede services.
+Drie belangrijke parameters die vaak worden aangepast om af te stemmen Spark-configuraties ter verbetering van de vereisten van webtoepassingen zijn `spark.executor.instances`, `spark.executor.cores`, en `spark.executor.memory`. Een Executor is een proces gestart voor een Spark-toepassing. Een Executor wordt uitgevoerd op de worker-knooppunt en is verantwoordelijk voor de taken voor de toepassing. Voor elk cluster wordt het standaardaantal Executor en de executor-grootten, berekend op basis van het aantal worker-knooppunten en de grootte van het worker-knooppunt. Deze worden opgeslagen in `spark-defaults.conf` over de hoofdknooppunten van het cluster.  U kunt deze waarden in een actief cluster bewerken door het selecteren van de **aangepaste spark-standaardinstellingen** koppeling in de Ambari-Webgebruikersinterface.  Nadat u wijzigingen aanbrengt, wordt u gevraagd door de gebruikersinterface aan **opnieuw** alle betrokken services.
 
 > [!NOTE]
-> Deze drie configuratieparameters worden geconfigureerd op het clusterniveau (voor alle toepassingen die worden uitgevoerd op het cluster) en ook voor elke afzonderlijke toepassing opgegeven.
+> Deze drie configuratieparameters kunnen worden geconfigureerd op het niveau van het cluster (voor alle toepassingen die worden uitgevoerd op het cluster) en ook worden opgegeven voor elke afzonderlijke toepassing.
 
-Een andere bron van informatie over de resources die wordt gebruikt door de Executor Spark is de gebruikersinterface van de toepassing Spark.  Selecteer in de gebruikersinterface Spark de **Executor** tabblad Samenvatting en details weergaven van de configuratie en de resources die door de Executor.  Deze weergaven kunt u bepalen of u wilt wijzigen van standaardwaarden voor Spark Executor voor het hele cluster of een bepaalde set van taak uitvoeringen.
+Een andere bron van informatie over de resources die wordt gebruikt door de Spark-Executor is de gebruikersinterface van de Spark-toepassing.  Selecteer in de gebruikersinterface van Spark, de **Executor** tabblad om weer te geven van de samenvatting en details met betrekking tot de configuratie en de resources die door de Executor gebruikt.  Deze weergaven kunt u bepalen of u wilt wijzigen van de standaardwaarden voor Spark Executor voor het hele cluster of een bepaalde set van taakuitvoeringen.
 
 ![Spark Executor](./media/apache-spark-settings/spark-executors.png)
 
-U kunt ook kunt u de Ambari REST-API programmatisch HDInsight Spark-cluster configuratie-instellingen en controleren.  Meer informatie vindt u op de [Ambari-API-verwijzing op GitHub](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+U kunt ook de Ambari REST-API gebruiken om te controleren via een programma of HDInsight Spark-cluster configuratie-instellingen en.  Meer informatie vindt u op de [Ambari API-verwijzing op GitHub](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-Afhankelijk van uw werkbelasting Spark kan u bepalen dat een niet-standaard Spark-configuratie meer geoptimaliseerde Spark uitvoeringen van de taak biedt.  U moet de benchmark testen met voorbeeld werkbelastingen naar een niet-standaard clusterconfiguraties valideren uitvoeren.  Enkele van de algemene parameters die u aanpassen overwegen kunt zijn:
+Afhankelijk van de workload Spark kan u bepalen dat een niet-standaard Spark-configuratie meer geoptimaliseerde Spark taakuitvoeringen biedt.  U kunt testen met voorbeeldworkloads te valideren elke niet-standaard-clusterconfiguraties benchmark moet uitvoeren.  Enkele van de algemene parameters die u aanpassen overwegen kunt zijn:
 
 * `--num-executors` Hiermee stelt u het aantal Executor.
-* `--executor-cores` Hiermee stelt het aantal kernen voor elke executor. Wordt u aangeraden middle-sized Executor als andere processen ook een gedeelte van het beschikbare geheugen gebruiken.
-* `--executor-memory` bepaalt de geheugengrootte (heapgrootte) van elke executor op YARN en u moet sommige geheugen voor uitvoering overhead laat.
+* `--executor-cores` Hiermee stelt het aantal kernen voor elke executor. Wordt u aangeraden middle-sized Executor, zoals andere processen ook een gedeelte van het beschikbare geheugen gebruiken.
+* `--executor-memory` besturingselementen de geheugengrootte (heapgrootte) van elke executor op YARN, en u moet sommige geheugen voor uitvoering overhead verlaten.
 
-Hier volgt een voorbeeld van twee worker-knooppunten met andere configuratiewaarden:
+Hier volgt een voorbeeld van twee worker-knooppunten met verschillende configuratiewaarden:
 
 ![Configuraties met twee knooppunten](./media/apache-spark-settings/executor-config.png)
 
-De volgende lijst bevat belangrijke Spark executor geheugen parameters.
+De volgende lijst bevat belangrijke Spark-uitvoerder geheugen parameters.
 
-* `spark.executor.memory` Hiermee definieert u de totale hoeveelheid geheugen die beschikbaar is voor een executor.
-* `spark.storage.memoryFraction` (standaard ~ 60%) definieert u de hoeveelheid geheugen die beschikbaar is voor het opslaan van de persistente RDDs.
-* `spark.shuffle.memoryFraction` (standaard ~ 20%) definieert u de hoeveelheid geheugen gereserveerd voor willekeurige volgorde.
-* `spark.storage.unrollFraction` en `spark.storage.safetyFraction` (totaal ongeveer 30% van het totale geheugen) - deze waarden wordt intern gebruikt door Spark en mag niet worden gewijzigd.
+* `spark.executor.memory` de totale hoeveelheid geheugen die beschikbaar is definieert voor een executor.
+* `spark.storage.memoryFraction` (standaard ~ 60%) bepaalt de hoeveelheid geheugen die beschikbaar is voor het opslaan van persistente rdd's.
+* `spark.shuffle.memoryFraction` (standaard ~ 20%) bepaalt de hoeveelheid geheugen gereserveerd voor willekeurige volgorde.
+* `spark.storage.unrollFraction` en `spark.storage.safetyFraction` (in totaal ongeveer 30% van het totale geheugen) - deze waarden wordt intern gebruikt door Spark en mag niet worden gewijzigd.
 
-YARN bepaalt de maximale som van geheugen gebruikt door de containers op elk knooppunt Spark. Het volgende diagram toont de per knooppunt relaties tussen configuratie YARN en Spark-objecten.
+YARN bepaalt de maximale som van geheugen gebruikt door de containers op elk knooppunt Spark. Het volgende diagram toont de per knooppunt relaties tussen configuratie- en Spark-objecten YARN.
 
 ![YARN Spark geheugenbeheer](./media/apache-spark-settings/yarn-spark-memory.png)
 
 ## <a name="change-parameters-for-an-application-running-in-jupyter-notebook"></a>Parameters voor een toepassing die wordt uitgevoerd in Jupyter-notebook wijzigen
 
-Spark-clusters in HDInsight bevatten een aantal onderdelen standaard. Elk van deze onderdelen bevat standaard configuratiewaarden die, indien nodig kunnen worden genegeerd.
+Spark-clusters in HDInsight omvatten een aantal onderdelen standaard. Elk van deze onderdelen bevat standaard configuratiewaarden, die kunnen worden genegeerd, indien nodig.
 
-* Spark Core - Spark Core, Spark SQL, Spark streaming-API's, GraphX en MLlib
-* Anaconda - manager een python-pakket
-* Livy - de Apache Spark REST-API gebruikt om externe taken met een HDInsight Spark-cluster te verzenden
-* Jupyter en Zeppelin-notebooks - interactieve browser gebaseerde gebruikersinterface voor interactie met uw Spark-cluster
-* ODBC-stuurprogramma - verbindt Spark-clusters in HDInsight met business intelligence (BI)-hulpprogramma's zoals Microsoft Power BI en Tableau
+* Spark Core - Core, Spark, Spark SQL, Spark-streaming-API's, GraphX en MLlib
+* Anaconda - een python-pakket manager
+* Livy - de Apache Spark REST-API gebruikt voor het verzenden van externe taken naar een HDInsight Spark-cluster
+* Jupyter- en Zeppelin-notebooks - interactieve Browserinterface voor interactie met uw Spark-cluster
+* ODBC-stuurprogramma - verbindt Spark-clusters in HDInsight met hulpprogramma's voor business intelligence (BI), zoals Microsoft Power BI en Tableau
 
-Voor toepassingen die worden uitgevoerd in de Jupyter-notebook, gebruikt u de `%%configure` opdracht voor het maken van de configuratie wordt gewijzigd van binnen de notebook zelf. Deze configuratiewijzigingen zal worden toegepast op de Spark-taken uitvoeren vanaf uw laptop-exemplaar. U moet dergelijke wijzigingen aanbrengen aan het begin van de toepassing, voordat u uw eerste codecel uitvoert. De gewijzigde configuratie wordt toegepast op de Livy-sessie wanneer deze wordt gemaakt.
+Voor toepassingen die worden uitgevoerd in de Jupyter-notebook, gebruiken de `%%configure` opdracht voor het maken van de configuratie wordt gewijzigd van binnen het notitieblok zelf. Deze wijzigingen in de configuratie zal worden toegepast op het Spark-taken uitvoeren vanaf uw laptop-exemplaar. U moet dergelijke wijzigingen aanbrengen aan het begin van de toepassing, voordat u uw eerste codecel uitvoert. De gewijzigde configuratie wordt toegepast op de Livy-sessie wanneer deze wordt gemaakt.
 
 > [!NOTE]
-> Als u de configuratie in een later stadium in de toepassing, gebruiken de `-f` parameter (force). Alle uitgevoerd in de toepassing niet verloren.
+> U kunt de configuratie op een later tijdstip in de toepassing wijzigen met de `-f` parameter (force). Alle wordt uitgevoerd in de toepassing gaan echter verloren.
 
-De volgende code laat zien hoe de configuratie voor een toepassing die wordt uitgevoerd in een Jupyter-notebook wijzigt.
+De code hieronder laat zien hoe u de configuratie voor een toepassing die wordt uitgevoerd in een Jupyter-notebook te wijzigen.
 
 ```
     %%configure
@@ -150,12 +146,12 @@ De volgende code laat zien hoe de configuratie voor een toepassing die wordt uit
 
 ## <a name="conclusion"></a>Conclusie
 
-Er zijn een aantal core configuratie-instellingen die u nodig hebt om te controleren en om te controleren of dat uw Spark-taken uitvoeren in een voorspelbare en zodat manier aanpassen. Deze instellingen helpen de beste Spark-clusterconfiguratie voor uw specifieke werkbelastingen te bepalen.  U moet ook de uitvoering van langlopende en/of resource verbruikende Spark taak uitvoeringen bewaken.  De meest voorkomende uitdagingen center rond geheugendruk vanwege onjuiste configuraties (met name onjuist formaat executor), langlopende bewerkingen en taken die het resultaat in Cartesisch bewerkingen.
+Er zijn een aantal core configuratie-instellingen die u nodig hebt om te controleren en aanpassen om te zorgen dat uw Spark-taken worden uitgevoerd op een voorspelbare en krachtige manier. Deze instellingen helpen te bepalen van de aanbevolen configuratie van een Spark-cluster voor uw specifieke workloads.  U moet ook voor het bewaken van het uitvoeren van langlopende en/of resource-intensieve Spark taakuitvoeringen.  De meest voorkomende problemen center rond geheugendruk vanwege onjuiste configuraties (met name onjuist formaat executor), langlopende bewerkingen en taken, die in Cartesische bewerkingen resulteren.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Hadoop-onderdelen en versies die beschikbaar met HDInsight?](../hdinsight-component-versioning.md)
 * [Resources beheren voor een Spark-cluster in HDInsight](apache-spark-resource-manager.md)
-* [Clusters in HDInsight met Hadoop, Spark en Kafka instellen](../hdinsight-hadoop-provision-linux-clusters.md)
-* [Apache Spark-configuratie](https://spark.apache.org/docs/latest/configuration.html)
+* [Clusters instellen in HDInsight met Hadoop, Spark, Kafka en meer](../hdinsight-hadoop-provision-linux-clusters.md)
+* [Configuratie van een Apache Spark](https://spark.apache.org/docs/latest/configuration.html)
 * [Spark uitgevoerd op YARN](https://spark.apache.org/docs/latest/running-on-yarn.html)

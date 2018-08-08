@@ -1,35 +1,30 @@
 ---
-title: MapReduce met Hadoop op HDInsight | Microsoft Docs
-description: Informatie over het uitvoeren van MapReduce-taken op Hadoop in HDInsight-clusters.
+title: MapReduce met Hadoop op HDInsight
+description: Leer hoe u MapReduce-taken worden uitgevoerd op Hadoop in HDInsight-clusters.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 7f321501-d62c-4ffc-b5d6-102ecba6dd76
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 131e3065da4ccfb20d63856844a302a94806fd19
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ddd9b4ee0fbf6eee65bd8d73e676f183c360c286
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34202625"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595481"
 ---
-# <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>MapReduce in Hadoop in HDInsight gebruiken
+# <a name="use-mapreduce-in-hadoop-on-hdinsight"></a>MapReduce gebruiken in Hadoop op HDInsight
 
-Informatie over het uitvoeren van MapReduce-taken op HDInsight-clusters. Gebruik de volgende tabel voor het detecteren van de verschillende manieren waarop MapReduce kan worden gebruikt met HDInsight:
+Leer hoe u MapReduce-taken uitvoert op HDInsight-clusters. Gebruik de volgende tabel voor het detecteren van de verschillende manieren waarop MapReduce kan worden gebruikt met HDInsight:
 
 | **Gebruik deze**... | **...om hiervoor** | ...door dit **cluster-besturingssysteem** | ...from dit **clientbesturingssysteem** |
 |:--- |:--- |:--- |:--- |
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Gebruik de opdracht Hadoop via **SSH** |Linux |Linux, Unix, Mac OS X of Windows |
-| [REST](apache-hadoop-use-mapreduce-curl.md) |Verzenden van de taak op afstand via **REST** (voorbeelden gebruiken cURL) |Linux- of Windows |Linux, Unix, Mac OS X of Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Verzenden van de taak op afstand via **Windows PowerShell** |Linux- of Windows |Windows |
+| [REST](apache-hadoop-use-mapreduce-curl.md) |De taak op afstand indienen met behulp van **REST** (voorbeelden gebruiken we cURL) |Linux of Windows |Linux, Unix, Mac OS X of Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |De taak op afstand indienen met behulp van **Windows PowerShell** |Linux of Windows |Windows |
 
 > [!IMPORTANT]
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
@@ -37,11 +32,11 @@ Informatie over het uitvoeren van MapReduce-taken op HDInsight-clusters. Gebruik
 
 ## <a id="whatis"></a>Wat is MapReduce
 
-Hadoop-MapReduce is een softwareframework voor het schrijven van taken die enorme hoeveelheden gegevens verwerken. Invoergegevens in onafhankelijke segmenten verdeeld. Elk segment worden parallel verwerkt op de knooppunten in het cluster. Een MapReduce-taak bestaat uit twee functies:
+Hadoop MapReduce is een softwareframework voor het schrijven van taken die grote hoeveelheden gegevens verwerken. Invoergegevens is opgedeeld in segmenten onafhankelijk. Elk segment worden parallel verwerkt op de knooppunten in uw cluster. Een MapReduce-taak bestaat uit twee functies:
 
-* **Toewijzer**: invoergegevens verbruikt, analyseert ze (meestal met filteren en sorteren operations) en verzendt tuples (sleutel / waarde-paren)
+* **Toewijzer**: invoergegevens worden verbruikt, analyseert ze (meestal met filteren en sorteren operations) en verzendt tuples (sleutel / waarde-paren)
 
-* **Reducer**: tuples die door de Mapper verbruikt en wordt een samenvatting uitgevoerd waarmee een kleinere, gecombineerde resultaat van de gegevens toewijzen maakt
+* **Reducer**: tuples die zijn gegenereerd door het toewijzen van de verbruikt en wordt een samenvatting uitgevoerd die u een kleinere, gecombineerde resultaat van de gegevens toewijzen maakt
 
 Een voorbeeld van een eenvoudige word aantal MapReduce-taak wordt weergegeven in het volgende diagram:
 
@@ -49,34 +44,34 @@ Een voorbeeld van een eenvoudige word aantal MapReduce-taak wordt weergegeven in
 
 De uitvoer van deze taak is een telling van het aantal keren dat elk woord is opgetreden in de tekst.
 
-* De toewijzing wordt elke regel van de ingevoerde tekst als invoer en splitst deze in woorden. Het verzendt een sleutelwaarde paar telkens wanneer een woord van het woord plaatsvindt wordt gevolgd door een 1. De uitvoer is gesorteerd voordat deze naar reducer verzonden.
-* De reducer deze afzonderlijke tellingen voor elk woord elkaar worden opgeteld en verzendt een één sleutel/waarde-paar die het woord gevolgd door de som van de instanties bevat.
+* Het toewijzen van de wordt elke regel van de ingevoerde tekst als invoer en deze opgesplitst in woorden. Het verzendt een sleutel/waarde-paar telkens wanneer een woord vindt plaats van het woord wordt gevolgd door een 1. De uitvoer is gesorteerd voordat deze naar reducer verzonden.
+* De reducer de som van deze afzonderlijke tellingen voor elk woord en verzendt een enkel sleutel/waarde-paar die het woord gevolgd door de som van de instanties bevat.
 
-MapReduce kan worden geïmplementeerd in diverse talen. Java is de meest voorkomende implementatie en wordt gebruikt voor demonstratiedoeleinden in dit document.
+MapReduce kan worden geïmplementeerd in diverse talen. Java is de meest voorkomende implementatie, en wordt gebruikt voor demonstratiedoeleinden te gebruiken in dit document.
 
-## <a name="development-languages"></a>Ontwikkelingstalen
+## <a name="development-languages"></a>Programmeertalen
 
-Talen of frameworks die zijn gebaseerd op Java en de virtuele Java-Machine kan rechtstreeks als een MapReduce-taak worden uitgevoerd. Het voorbeeld gebruikt in dit document is een MapReduce Java-toepassing. Niet-Java-talen, zoals C#, Python of zelfstandige uitvoerbare bestanden, moeten gebruiken **Hadoop-streaming**.
+Talen of frameworks die zijn gebaseerd op Java en de Java Virtual Machine kan rechtstreeks als een MapReduce-taak worden uitgevoerd. Het voorbeeld in dit document is een Java MapReduce-toepassing. Niet-Java-talen, zoals C#, Python of zelfstandige uitvoerbare bestanden, moeten gebruiken **Hadoop-streaming**.
 
-Hadoop-streaming communiceert met de toewijzen en reducer via STDIN en STDOUT. De toewijzen en reducer gegevens van een regel op een tijdstip van STDIN lezen en schrijven van de uitvoer naar STDOUT. Elke regel lezen of verzonden door de toewijzen en reducer moet de indeling van een sleutel-waardepaar, gescheiden door een tab-teken zijn:
+Hadoop-streaming communiceert met de toewijzing en reducer via STDIN en STDOUT. De mapper reducer gegevens van een regel op een tijdstip van STDIN lezen en schrijven van de uitvoer naar de STDOUT. Elke regel lezen of verzonden door het toewijzen en reducer moet zich in de indeling van een sleutel/waarde-paar, gescheiden door een tabteken:
 
     [key]/t[value]
 
-Zie voor meer informatie [Hadoop-Streaming](http://hadoop.apache.org/docs/r1.2.1/streaming.html).
+Zie voor meer informatie, [Hadoop-Streaming](http://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
-Zie de volgende documenten voor voorbeelden van het gebruik van Hadoop-streaming met HDInsight:
+Zie de volgende documenten voor meer voorbeelden van het gebruik van Hadoop-streaming met HDInsight:
 
 * [C# MapReduce-taken ontwikkelen](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Python-MapReduce-taken ontwikkelen](apache-hadoop-streaming-python.md)
+* [Python MapReduce-taken ontwikkelen](apache-hadoop-streaming-python.md)
 
 ## <a id="data"></a>Voorbeeldgegevens
 
-HDInsight biedt verschillende voorbeeld gegevenssets die zijn opgeslagen in de `/example/data` en `/HdiSamples` directory. Deze mappen zich in de standaard-opslag voor uw cluster. In dit document, gebruiken we de `/example/data/gutenberg/davinci.txt` bestand. Dit bestand bevat de laptops van Leonardo Da Vinci.
+HDInsight biedt verschillende voorbeeld gegevenssets die zijn opgeslagen in de `/example/data` en `/HdiSamples` directory. Deze mappen zijn in de standaardopslag voor uw cluster. In dit document, gebruiken we de `/example/data/gutenberg/davinci.txt` bestand. Dit bestand bevat de laptops van Leonardo Da Vinci.
 
-## <a id="job"></a>Voorbeeld MapReduce
+## <a id="job"></a>Voorbeeld van MapReduce
 
-Een voorbeeld MapReduce word-count-toepassing is opgenomen in uw HDInsight-cluster. In dit voorbeeld bevindt zich op `/example/jars/hadoop-mapreduce-examples.jar` op de standaard-opslag voor uw cluster.
+Een voorbeeld van de toepassing van MapReduce word-count is opgenomen in uw HDInsight-cluster. In dit voorbeeld bevindt zich in `/example/jars/hadoop-mapreduce-examples.jar` op de standaardopslag voor uw cluster.
 
 De volgende Java-code is de bron van de MapReduce-toepassing die is opgenomen in de `hadoop-mapreduce-examples.jar` bestand:
 
@@ -154,19 +149,19 @@ public class WordCount {
 
 Zie de volgende documenten voor instructies om uw eigen MapReduce-toepassingen te schrijven:
 
-* [Ontwikkelen van Java-MapReduce-toepassingen voor HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [Ontwikkel Java MapReduce-toepassingen voor HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
-* [Python-MapReduce-toepassingen voor HDInsight ontwikkelen](apache-hadoop-streaming-python.md)
+* [Ontwikkel Python MapReduce-toepassingen voor HDInsight](apache-hadoop-streaming-python.md)
 
 ## <a id="run"></a>De MapReduce uitvoeren
 
-HDInsight kunt HiveQL taken uitvoeren met behulp van verschillende methoden. Gebruik de volgende tabel om te bepalen welke methode is geschikt voor u en volg de koppeling voor een overzicht.
+HDInsight uitvoeren HiveQL taken met behulp van verschillende methoden. Gebruik de volgende tabel om te bepalen welke methode is geschikt voor u, en vervolgens de koppeling voor een overzicht.
 
 | **Gebruik deze**... | **...om hiervoor** | ...door dit **cluster-besturingssysteem** | ...from dit **clientbesturingssysteem** |
 |:--- |:--- |:--- |:--- |
 | [SSH](apache-hadoop-use-mapreduce-ssh.md) |Gebruik de opdracht Hadoop via **SSH** |Linux |Linux, Unix, Mac OS X of Windows |
-| [CURL](apache-hadoop-use-mapreduce-curl.md) |Verzenden van de taak op afstand via **REST** |Linux- of Windows |Linux, Unix, Mac OS X of Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Verzenden van de taak op afstand via **Windows PowerShell** |Linux- of Windows |Windows |
+| [CURL](apache-hadoop-use-mapreduce-curl.md) |De taak op afstand indienen met behulp van **REST** |Linux of Windows |Linux, Unix, Mac OS X of Windows |
+| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |De taak op afstand indienen met behulp van **Windows PowerShell** |Linux of Windows |Windows |
 
 > [!IMPORTANT]
 > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
@@ -175,9 +170,9 @@ HDInsight kunt HiveQL taken uitvoeren met behulp van verschillende methoden. Geb
 
 Zie de volgende documenten voor meer informatie over het werken met gegevens in HDInsight:
 
-* [Het ontwikkelen van Java-MapReduce-programma's voor HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [Java MapReduce-programma's ontwikkelen voor HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
-* [Python streaming MapReduce-programma's voor HDInsight ontwikkelen](apache-hadoop-streaming-python.md)
+* [Python MapReduce-programma's voor HDInsight streaming ontwikkelen](apache-hadoop-streaming-python.md)
 
 * [Hive gebruiken met HDInsight][hdinsight-use-hive]
 

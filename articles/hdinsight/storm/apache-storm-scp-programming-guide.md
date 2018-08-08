@@ -1,55 +1,51 @@
 ---
-title: Programmeerhandleiding voor SCP.NET | Microsoft Docs
-description: Informatie over het gebruik van SCP.NET om te maken. Storm-topologieën op basis van NET voor gebruik met Storm op HDInsight.
+title: SCP.NET-programmeergids voor Storm in Azure HDInsight
+description: Informatie over het gebruik van SCP.NET te maken. NET gebaseerde Storm-topologieën voor gebruik met die worden uitgevoerd in Azure HDInsight Storm.
 services: hdinsight
-documentationcenter: ''
-author: raviperi
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 34192ed0-b1d1-4cf7-a3d4-5466301cf307
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: dotnet
-ms.topic: article
-ms.date: 05/16/2016
+author: raviperi
 ms.author: raviperi
-ms.openlocfilehash: 0f4c021bc209c99e1b3f34b34bf5ba0549eb48f9
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+editor: jasonwhowell
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 05/16/2016
+ms.openlocfilehash: 35f26d6acca26a8800407fe0d76f8b79689ce122
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31421552"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621001"
 ---
-# <a name="scp-programming-guide"></a>Programmeerhandleiding voor SCP
-SCP is een platform voor het bouwen van realtime, betrouwbare en consistente en hoge prestaties gegevensverwerking toepassing. Het is gebouwd boven [Apache Storm](http://storm.incubator.apache.org/) --een stroom verwerking door de community's van de OSS-systeem. Storm door Nathan Marz is ontworpen en is open source door Twitter. Hierbij wordt gebruikgemaakt van [Apache ZooKeeper](http://zookeeper.apache.org/), een ander Apache project om in te schakelen uiterst betrouwbare gedistribueerd beheer coördinatie en status. 
+# <a name="scp-programming-guide"></a>SCP-programmeergids
+SCP is een platform voor het bouwen van realtime, betrouwbare en consistente en hoogwaardige gegevensverwerking toepassing. Het is gebouwd boven [Apache Storm](http://storm.incubator.apache.org/) --een verwerkingssysteem die is ontworpen door de OSS-community's. Storm is ontworpen door Nathan Marz en is open source op Twitter. Hierbij wordt gebruikgemaakt van [Apache ZooKeeper](http://zookeeper.apache.org/), een ander Apache-project om in te schakelen zeer betrouwbare gedistribueerd beheer coördinatie en status. 
 
-Niet alleen het SCP-project overgebracht Storm op Windows maar ook het project toegevoegd uitbreidingen en aanpassingen voor het Windows-ecosysteem. De uitbreidingen functionaliteit voor .NET-ontwikkelaars en bibliotheken bevatten, de aanpassing omvat implementatie op basis van Windows. 
+Niet alleen het SCP-project overgezet Storm op Windows, maar ook het project toegevoegd extensies en aanpassingen voor het Windows-ecosysteem. De uitbreidingen bevatten ervaring voor .NET-ontwikkelaars en -bibliotheken, de aanpassing geldt ook voor implementatie op basis van Windows. 
 
-De uitbreiding en aanpassing is gedaan zodanig dat we hoeft niet te vertakken de OSS-projecten en we kunnen gebruikmaken van afgeleide ecosystemen gebouwd op Storm.
+De uitbreiding en aanpassing wordt gedaan zodanig dat we geen hoeft een fork van de OSS-projecten en we kunnen gebruikmaken van afgeleide ecosystemen gebaseerd op Storm.
 
 ## <a name="processing-model"></a>Het verwerken van model
-De gegevens in SCP is gemodelleerd als ononderbroken streams van tuples. De tuples doorgaans stromen in sommige wachtrij eerst en vervolgens opgenomen en getransformeerd door zakelijke logica gehost binnen een Storm-topologie, ten slotte de uitvoer tuples naar een ander SCP-systeem kan de eigenschappen of worden doorgevoerd voor stores, zoals gedistribueerd bestandssysteem of databases zoals SQL Server.
+De gegevens in een SCP is gemodelleerd als ononderbroken streams van tuples. De tuples doorgaans flow in een wachtrij eerst wordt opgehaald en getransformeerd door zakelijke logica die wordt gehost in een Storm-topologie, ten slotte de uitvoer kan worden doorgesluisd als tuples naar een ander SCP-systeem, of worden doorgevoerd voor stores, zoals databases of gedistribueerd bestandssysteem zoals SQL Server.
 
-![Een diagram van een wachtrij gegevens op de verwerking die een gegevensarchief feeds voeding](./media/apache-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
+![Een diagram van een wachtrij die deze gegevens voor verwerking, die een gegevensarchief-feeds](./media/apache-storm-scp-programming-guide/queue-feeding-data-to-processing-to-data-store.png)
 
-In Storm definieert u de Toepassingstopologie van een een grafiek van de berekening. Elk knooppunt in een topologie bevat de logica voor verwerking en koppelingen tussen knooppunten gegevensstroom aangeven. De knooppunten invoergegevens invoeren in de topologie worden genoemd _spouts_, die kan worden gebruikt om te sequentiëren van de gegevens. De ingevoerde gegevens kan zich bevinden in het bestand Logboeken, transactionele database, systeem-prestatiemeteritem enzovoort. De knooppunten met beide stromen en uitvoergegevens heten _bolts_, wat doen de actuele gegevens filteren en selecties en cumulatie-instellingen.
+In Storm definieert u de Toepassingstopologie van een een grafiek van de berekening. Elk knooppunt in een topologie bevat verwerkingslogica en koppelingen tussen knooppunten geven aan de gegevensstroom. De knooppunten die invoergegevens invoeren in de topologie heten _spouts_, die kan worden gebruikt om de volgorde van de gegevens. De ingevoerde gegevens kan zich bevinden in het bestand Logboeken, transactionele database, systeem-prestatiemeteritem enzovoort. De knooppunten met zowel invoer- en data-stromen worden genoemd _bolts_, wat doen de werkelijke gegevens filteren en selecties en cumulatie-instellingen.
 
-SCP ondersteunt pogingen op in de minste eenmaal en precies-eenmaal verwerken van gegevens. In een gedistribueerde toepassing voor streaming verwerken, kunnen zich voordoen diverse fouten tijdens het verwerken van gegevens, zoals netwerkuitval, machinestoringen of fout in gebruikerscode enzovoort. Op de minste eenmaal verwerken zorgt ervoor dat alle gegevens ten minste één keer wordt verwerkt door automatisch dezelfde gegevens als er treedt een fout. Op de minste eenmaal verwerken eenvoudig en betrouwbaar en ook veel toepassingen aansluit. Als u een toepassing moet exact tellen, is verwerking op de minste eenmaal echter onvoldoende omdat dezelfde gegevens kan mogelijk worden afgespeeld in de Toepassingstopologie. In dat geval, precies-zodra de verwerking is ontworpen om te controleren of het resultaat juist is zelfs wanneer de gegevens kan worden onderschept en verwerkt meerdere keren.
+SCP ondersteunt aanbevolen inspanningen, op-één keer en precies-eenmaal gegevensverwerking. In een gedistribueerde toepassing voor streaming verwerkt, kunnen diverse fouten optreden tijdens de verwerking van gegevens, zoals netwerkstoringen, machine storing of gebruikersfout code enzovoort. Op de minste eenmaal verwerken zorgt ervoor dat alle gegevens ten minste één keer wordt verwerkt door af te spelen automatisch dezelfde gegevens als er treedt een fout. Op de minst keer worden verwerkt is eenvoudig en betrouwbaar en ook veel toepassingen geschikt. Als u een toepassing moet exact tellen, is op-één keer verwerkt echter onvoldoende omdat dezelfde gegevens kan mogelijk worden afgespeeld in de Toepassingstopologie. In dat geval, precies-nadat de verwerking is ontworpen om te controleren of het resultaat juist is, zelfs wanneer de gegevens kunnen worden opnieuw afgespeeld en meerdere keren verwerkt.
 
-SCP kan .NET-ontwikkelaars realtime gegevens proces om toepassingen te ontwikkelen tijdens het gebruik van op Java Virtual Machine (JVM) met Storm onder de behandelt. De .NET- en JVM communiceren via lokale TCP-sockets. Elke Spout/Bolt bestaat uit in feite een paar .net/Java-proces waarin de gebruiker logica wordt uitgevoerd in .net-proces als een invoegtoepassing.
+SCP kan .NET-ontwikkelaars voor het ontwikkelen van toepassingen voor realtime gegevens verwerken terwijl u gebruikmaakt van op Java Virtual Machine (JVM) met Storm op de achtergrond. De .NET- en JVM communiceert via een lokale TCP-sockets. In feite is elke Spout/Bolt de combinatie van een .net/Java-proces, waarin de logica van de gebruiker wordt uitgevoerd in .net-proces als een invoegtoepassing.
 
-Als u wilt maken van een toepassing gegevensverwerking bovenop SCP, zijn verschillende stappen nodig:
+Voor het bouwen van een toepassing gegevensverwerking boven op SCP, zijn er verschillende stappen nodig:
 
-* Ontwerpen en implementeren van de Spouts ophalen van gegevens uit de wachtrij.
-* Ontwerpen en implementeren van Bolts voor het verwerken van de invoergegevens en opslaan van gegevens voor externe stores, zoals een Database.
-* De topologie ontwerpen, indienen en uitvoeren van de topologie. De topologie definieert hoekpunten en de gegevens stromen tussen de hoekpunten. SCP zal duren voordat de topologie-specificatie en deze implementeren op een Storm-cluster, waarin elk hoekpunt wordt uitgevoerd op één knooppunt van de logische. De failover- en vergroten/verkleinen wordt worden afgehandeld door de Storm-Taakplanner.
+* Ontwerp en implementeer de Spouts om op te halen gegevens uit de wachtrij.
+* Ontwerpen en implementeren van Bolts voor het verwerken van de ingevoerde gegevens en gegevens opslaan voor externe stores, zoals een Database.
+* De topologie ontwerpen, verzenden en uitvoeren van de topologie. De topologie definieert hoekpunten en de gegevens stromen tussen de hoekpunten. SCP zal duren voordat de topologie-specificatie en implementeer deze op een Storm-cluster, waarbij elk hoekpunt dat wordt uitgevoerd op één logische knooppunt. De failover en schalen zal worden afgehandeld door de Taakplanner van Storm.
 
-Dit document gebruikt enkele eenvoudige voorbeelden voor het bouwen van gegevensverwerking toepassing met SCP doorlopen.
+Dit document maakt gebruik van een aantal eenvoudige voorbeelden om te zien hoe u om de toepassing gegevens verwerken met SCP te bouwen.
 
 ## <a name="scp-plugin-interface"></a>SCP-invoegtoepassing Interface
-SCP-invoegtoepassingen (of toepassingen) zijn zelfstandige exe die beide tijdens kunnen uitvoeren in Visual Studio de ontwikkelingsfase en worden aangesloten op de Storm-pijplijn na de implementatie in productie. Het schrijven van de invoegtoepassing SCP dezelfde manier als andere standaard Windows-consoletoepassingen schrijven is. SCP.NET platform declareert een interface voor spout/bolt en de code van de invoegtoepassing gebruiker moet deze interfaces implementeren. Het belangrijkste doel van dit ontwerp is dat de gebruiker zich op hun eigen logics bedrijven en andere dingen concentreren kan moet worden verwerkt door het platform SCP.NET verlaten.
+SCP-invoegtoepassingen (of toepassingen) zijn zelfstandige exe's die kunnen beide worden uitgevoerd in Visual Studio tijdens de ontwikkelingsfase bevindt, en worden aangesloten op de pijplijn Storm na de implementatie in productie. Schrijven van de SCP-invoegtoepassing is dezelfde manier als andere standaard Windows-consoletoepassingen schrijven. SCP.NET-platform declareert een interface voor spout/bolt en de code van de invoegtoepassing gebruiker moet deze interfaces implementeren. Het belangrijkste doel van dit ontwerp is dat de gebruiker zich kunt richten op hun eigen bedrijf logics en andere dingen om te worden verwerkt door SCP.NET-platform te verlaten.
 
-De code van de invoegtoepassing gebruiker moet een van de volgende interfaces implementeren, afhankelijk van of de topologie is transactionele of niet-transactionele en Hiermee wordt aangegeven of het onderdeel is van een spout of bolt.
+De code van de invoegtoepassing gebruiker moet een van de volgende interfaces implementeren, afhankelijk van of de topologie transactionele of niet-transactionele is en of het onderdeel is van een spout of bolt.
 
 * ISCPSpout
 * ISCPBolt
@@ -57,7 +53,7 @@ De code van de invoegtoepassing gebruiker moet een van de volgende interfaces im
 * ISCPBatchBolt
 
 ### <a name="iscpplugin"></a>ISCPPlugin
-ISCPPlugin is de algemene interface voor alle soorten invoegtoepassingen gebruikt. Het is momenteel een dummy-interface.
+ISCPPlugin is de algemene interface voor alle soorten invoegtoepassingen. Het is momenteel een dummy-interface.
 
     public interface ISCPPlugin 
     {
@@ -73,15 +69,15 @@ ISCPSpout is de interface voor niet-transactionele spout.
          void Fail(long seqId, Dictionary<string, Object> parms);  
      }
 
-Wanneer `NextTuple()` wordt aangeroepen, de C\# gebruikerscode kan een of meer tuples verzenden. Als er niets om te verzenden, moet deze methode zonder iets tekensetcodering retourneren. Houd er rekening mee dat `NextTuple()`, `Ack()`, en `Fail()` worden genoemd in een lus in een enkele thread in C\# proces. Wanneer er geen tuples verzenden, is het beleefd NextTuple slaapstand gedurende een korte tijd (zoals 10 milliseconden) niet te verspillen te veel CPU hebben.
+Wanneer `NextTuple()` wordt aangeroepen, de C\# gebruikerscode kan een of meer tuples verzenden. Als er niets om te verzenden, moet deze methode worden geretourneerd zonder dat u iets verzendt. Er moet worden opgemerkt dat `NextTuple()`, `Ack()`, en `Fail()` worden aangeroepen in een lus in een enkele thread in C\# proces. Als er geen tuples om te verzenden, is het beleefd aan NextTuple slaapstand gedurende een korte periode (zoals 10 milliseconden) zijn niet te verspillen te veel CPU.
 
-`Ack()` en `Fail()` alleen wanneer het ack-mechanisme is ingeschakeld in spec bestand worden genoemd. De `seqId` wordt gebruikt voor het identificeren van de tuple op die is bevestigd of is mislukt. Dus als ack in niet-transactionele topologie is ingeschakeld, kan de volgende emit-functie moet worden gebruikt in Spout:
+`Ack()` en `Fail()` alleen wanneer het ack-mechanisme is ingeschakeld in spec bestand worden genoemd. De `seqId` wordt gebruikt voor het identificeren van de tuple op die is bevestigd of mislukt. Dus als ack in niet-transactionele topologie is ingeschakeld, kan de volgende emit-functie moet worden gebruikt in Spout:
 
     public abstract void Emit(string streamId, List<object> values, long seqId); 
 
-Als ack wordt niet ondersteund in niet-transactionele topologie de `Ack()` en `Fail()` kan blijven als lege functie.
+Als ack wordt niet ondersteund in niet-transactionele topologie, de `Ack()` en `Fail()` empty-functie kan worden gehandhaafd.
 
-De `parms` invoerparameter in deze functies een woordenboek leeg is, is gereserveerd voor toekomstig gebruik.
+De `parms` invoerparameter in deze functies is een lege woordenlijst, dit is gereserveerd voor toekomstig gebruik.
 
 ### <a name="iscpbolt"></a>ISCPBolt
 ISCPBolt is de interface voor niet-transactionele bolt.
@@ -91,7 +87,7 @@ ISCPBolt is de interface voor niet-transactionele bolt.
     void Execute(SCPTuple tuple);           
     }
 
-Wanneer nieuwe tuple beschikbaar is, de `Execute()` functie wordt aangeroepen om te verwerken.
+Wanneer nieuwe tuple beschikbaar is, is de `Execute()` functie is aangeroepen om te verwerken.
 
 ### <a name="iscptxspout"></a>ISCPTxSpout
 ISCPTxSpout is de interface voor transactionele spout.
@@ -103,13 +99,13 @@ ISCPTxSpout is de interface voor transactionele spout.
         void Fail(long seqId, Dictionary<string, Object> parms);        
     }
 
-Net als bij hun niet-transactionele tegenpost `NextTx()`, `Ack()`, en `Fail()` worden genoemd in een lus in een enkele thread in C\# proces. Wanneer er geen gegevens verzenden, is het beleefd hebben `NextTx` slaapstand gedurende een korte tijd (10 milliseconden) niet te verspillen te veel CPU.
+Net als bij hun niet-transactionele tegenpost `NextTx()`, `Ack()`, en `Fail()` worden aangeroepen in een lus in een enkele thread in C\# proces. Als er geen gegevens om te verzenden, is het beleefd hebben `NextTx` slaapstand gedurende een korte periode (10 milliseconden) niet te verspillen te veel CPU.
 
-`NextTx()` wordt aangeroepen voor het starten van een nieuwe transactie, de out-parameter `seqId` wordt gebruikt voor het identificeren van de transactie, wordt ook gebruikt in `Ack()` en `Fail()`. In `NextTx()`, gebruiker gegevens naar Java kant kunt verzenden. De gegevens worden opgeslagen in ZooKeeper ter ondersteuning van opnieuw afspelen. Omdat de capaciteit van ZooKeeper beperkt is, moet de gebruiker alleen metagegevens verzenden, geen grote hoeveelheid gegevens in een transactionele spout.
+`NextTx()` wordt aangeroepen voor het starten van een nieuwe transactie, de out-parameter `seqId` wordt gebruikt voor het identificeren van de transactie, die ook wordt gebruikt in `Ack()` en `Fail()`. In `NextTx()`, gebruiker de gegevens naar Java-zijde kan verzenden. De gegevens worden opgeslagen in ZooKeeper ter ondersteuning van opnieuw afspelen. Omdat de capaciteit van ZooKeeper is beperkt, moet de gebruiker alleen metagegevens verzenden, niet bulksgewijs gegevens in een transactionele spout.
 
-Storm een transactie automatisch wordt herhaald als het mislukt, dus `Fail()` mag niet worden aangeroepen in normale geval. Maar als een SCP kan de metagegevens die door transactionele spout controleren, kan worden aangeroepen `Fail()` wanneer de metagegevens is ongeldig.
+Storm wordt een transactie automatisch herhalen als dit mislukt, dus `Fail()` mag niet worden aangeroepen in normale geval. Maar als het SCP kunt controleren of de metagegevens die zijn gegenereerd door de transactionele spout, kan worden aangeroepen `Fail()` wanneer de metagegevens is ongeldig.
 
-De `parms` invoerparameter in deze functies een woordenboek leeg is, is gereserveerd voor toekomstig gebruik.
+De `parms` invoerparameter in deze functies is een lege woordenlijst, dit is gereserveerd voor toekomstig gebruik.
 
 ### <a name="iscpbatchbolt"></a>ISCPBatchBolt
 ISCPBatchBolt is de interface voor transactionele bolt.
@@ -120,15 +116,15 @@ ISCPBatchBolt is de interface voor transactionele bolt.
         void FinishBatch(Dictionary<string, Object> parms);  
     }
 
-`Execute()` wordt aangeroepen wanneer er nieuwe tuple die binnenkomen bij de bolt. `FinishBatch()` wordt aangeroepen wanneer deze transactie is beëindigd. De `parms` invoerparameter is gereserveerd voor toekomstig gebruik.
+`Execute()` wordt aangeroepen wanneer er nieuwe tuple die binnenkomen in de bolt. `FinishBatch()` wordt aangeroepen wanneer deze transactie is beëindigd. De `parms` invoerparameter is gereserveerd voor toekomstig gebruik.
 
-Voor transactionele topologie is een belangrijke concepten – `StormTxAttempt`. Deze twee velden heeft `TxId` en `AttemptId`. `TxId` wordt gebruikt om een bepaalde transactie identificeren en voor een gegeven transactie, kunnen er meerdere pogingen als de transactie mislukt en wordt opnieuw en nu afgespeeld. SCP.NET maakt een nieuw ISCPBatchBolt-object voor het verwerken van elk `StormTxAttempt`, net zoals Storm in Java biedt. Het doel van dit ontwerp is ondersteuning voor parallelle transacties verwerkt. Gebruiker Houd er rekening mee dat als de poging van de transactie is voltooid, het bijbehorende ISCPBatchBolt-object wordt vernietigd en de garbage collector zijn verzameld.
+Voor transactionele topologie is een belangrijk concept – `StormTxAttempt`. Heeft twee velden, `TxId` en `AttemptId`. `TxId` wordt gebruikt voor het identificeren van een specifieke transactie, en voor een gegeven transactie, kunnen er meerdere pogingen als de transactie mislukt en opnieuw afgespeeld. SCP.NET maakt een nieuw ISCPBatchBolt-object voor het verwerken van elke `StormTxAttempt`, net als Storm in Java biedt. Het doel van dit ontwerp is voor de ondersteuning van parallelle transacties verwerken. Gebruiker moet Bewaar deze op er rekening mee dat als de poging van de transactie is voltooid, de bijbehorende ISCPBatchBolt-object wordt vernietigd en garbagecollection die worden verzameld.
 
 ## <a name="object-model"></a>Objectmodel
-SCP.NET biedt ook een eenvoudige reeks key objecten voor ontwikkelaars voor het programmeren met. Ze zijn **Context**, **StateStore**, en **SCPRuntime**. Ze worden in het gedeelte van de rest van deze sectie beschreven.
+SCP.NET biedt ook een eenvoudige reeks sleutel objecten voor ontwikkelaars om te programmeren. Ze zijn **Context**, **StateStore**, en **SCPRuntime**. Ze worden besproken in het gedeelte van de rest van deze sectie.
 
 ### <a name="context"></a>Context
-Context biedt een actieve omgeving naar de toepassing. Elk exemplaar ISCPPlugin (ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt) heeft een corresponderende contextexemplaar. De functionaliteit van Context kan worden onderverdeeld in twee delen: (1) het statische deel, die beschikbaar in de hele C is\# verwerken, (2) het dynamische deel, die alleen beschikbaar voor het specifieke exemplaar van de Context.
+Context biedt een actieve omgeving naar de toepassing. Elk exemplaar ISCPPlugin (ISCPSpout/ISCPBolt/ISCPTxSpout/ISCPBatchBolt) heeft een bijbehorende contextexemplaar. De functionaliteit van Context kan worden onderverdeeld in twee delen: (1) de statische deel, die beschikbaar in de hele C is\# verwerken, (2) de dynamische onderdeel, is alleen beschikbaar voor het specifieke exemplaar van de Context.
 
 ### <a name="static-part"></a>Statische deel
     public static ILogger Logger = null;
@@ -136,9 +132,9 @@ Context biedt een actieve omgeving naar de toepassing. Elk exemplaar ISCPPlugin 
     public static Config Config { get; set; }                    
     public static TopologyContext TopologyContext { get; set; }  
 
-`Logger` is beschikbaar voor logboek-doel.
+`Logger` voor logboekregistratiedoeleinden is opgegeven.
 
-`pluginType` wordt gebruikt om aan te geven van het type van de invoegtoepassing van de C\# proces. Als het C\# proces wordt uitgevoerd in de lokale testmodus (zonder Java), het type van de invoegtoepassing is `SCP_NET_LOCAL`.
+`pluginType` wordt gebruikt om aan te geven van het type van de invoegtoepassing van de C\# proces. Als de C\# proces wordt uitgevoerd in de lokale testmodus (zonder Java), het type van de invoegtoepassing is `SCP_NET_LOCAL`.
 
     public enum SCPPluginType 
     {
@@ -149,12 +145,12 @@ Context biedt een actieve omgeving naar de toepassing. Elk exemplaar ISCPPlugin 
         SCP_NET_BATCH_BOLT = 4  
     }
 
-`Config` ophalen van parameters voor de configuratie van Java-zijde is opgegeven. De parameters worden doorgegeven van Java-kant wanneer C\# invoegtoepassing is geïnitialiseerd. De `Config` parameters worden onderverdeeld in twee delen: `stormConf` en `pluginConf`.
+`Config` wordt geboden om op te halen van parameters voor de configuratie van de Java-kant. De parameters worden doorgegeven aan Java als C\# invoegtoepassing is geïnitialiseerd. De `Config` parameters worden onderverdeeld in twee delen: `stormConf` en `pluginConf`.
 
     public Dictionary<string, Object> stormConf { get; set; }  
     public Dictionary<string, Object> pluginConf { get; set; }  
 
-`stormConf` parameters zijn gedefinieerd door Storm is en `pluginConf` de parameters die zijn gedefinieerd door SCP is. Bijvoorbeeld:
+`stormConf` is van de parameters die zijn gedefinieerd door Storm en `pluginConf` is van de parameters die zijn gedefinieerd door SCP. Bijvoorbeeld:
 
     public class Constants
     {
@@ -168,7 +164,7 @@ Context biedt een actieve omgeving naar de toepassing. Elk exemplaar ISCPPlugin 
         public static readonly String STORM_ZOOKEEPER_PORT = "storm.zookeeper.port";                 
     }
 
-`TopologyContext` wordt geleverd als u de topologie-context, is het meest geschikt voor onderdelen met meerdere parallelle uitvoering. Hier volgt een voorbeeld:
+`TopologyContext` wordt geleverd als u de context van de topologie, is het meest geschikt voor onderdelen met meerdere parallelle uitvoering. Hier volgt een voorbeeld:
 
     //demo how to get TopologyContext info
     if (Context.pluginType != SCPPluginType.SCP_NET_LOCAL)                      
@@ -185,7 +181,7 @@ Context biedt een actieve omgeving naar de toepassing. Elk exemplaar ISCPPlugin 
     }
 
 ### <a name="dynamic-part"></a>Dynamische deel
-De volgende interfaces zijn relevant zijn voor een bepaald contextexemplaar. Het Context-exemplaar is gemaakt door SCP.NET platform en doorgegeven aan de gebruikerscode:
+De volgende interfaces zijn relevant zijn voor een bepaalde contextexemplaar. Het Context-exemplaar wordt gemaakt door SCP.NET-platform en doorgegeven aan de gebruikerscode:
 
     // Declare the Output and Input Stream Schemas
 
@@ -197,23 +193,23 @@ De volgende interfaces zijn relevant zijn voor een bepaald contextexemplaar. Het
     // Emit tuple to the specific stream.
     public abstract void Emit(string streamId, List<object> values);  
 
-Voor niet-transactionele spout ondersteunende ack, krijgt u de volgende methode:
+Voor niet-transactionele spout ack ondersteunen, de volgende methode beschikbaar:
 
     // for non-transactional Spout which supports ack
     public abstract void Emit(string streamId, List<object> values, long seqId);  
 
-Voor niet-transactionele bolt ack ondersteunen, moet deze expliciet `Ack()` of `Fail()` de tuple deze ontvangen. En bij het genereren van nieuwe tuple, moet deze ook de ankers van de nieuwe tuple opgeven. De volgende methoden zijn beschikbaar.
+Voor niet-transactionele bolt ack ondersteunen, moet deze expliciet `Ack()` of `Fail()` de tuple ontvangen. En bij het genereren van nieuwe tuple, moet deze ook de ankers van de nieuwe tuple opgeven. De volgende methoden zijn opgegeven.
 
     public abstract void Emit(string streamId, IEnumerable<SCPTuple> anchors, List<object> values); 
     public abstract void Ack(SCPTuple tuple);
     public abstract void Fail(SCPTuple tuple);
 
 ### <a name="statestore"></a>StateStore
-`StateStore` metagegevens van services, monotone reeks genereren en wacht gratis coördinatie biedt. Een hoger niveau gedistribueerde gelijktijdigheid abstracties kunnen worden gebaseerd op `StateStore`, met inbegrip van gedistribueerde vergrendelingen, gedistribueerde wachtrijen, barrières en transactieservices.
+`StateStore` metagegevensservices, monotone reeks genereren en wacht gratis coördinatie biedt. Een hoger niveau gedistribueerde gelijktijdigheid abstracties kunnen worden gebaseerd op `StateStore`, met inbegrip van gedistribueerde wordt vergrendeld, gedistribueerde wachtrijen barrières en transactieservices.
 
-SCP-toepassingen kunnen gebruikmaken van de `State` object voor het persistent maken van sommige gegevens in ZooKeeper, met name voor transactionele topologie. Dit doet, als transactionele spout is vastgelopen en opnieuw start, kunt de benodigde informatie van ZooKeeper ophalen en kunt u de pijplijn opnieuw.
+SCP-toepassingen kunnen gebruiken de `State` object om vast te leggen van sommige gegevens in ZooKeeper, met name voor transactionele topologie. Doen zodat, als transactionele spout-crashes en opnieuw opstarten, kan het ophalen van de benodigde informatie uit ZooKeeper en opnieuw opstarten van de pijplijn.
 
-De `StateStore` is hoofdzakelijk deze methoden van object:
+De `StateStore` object voornamelijk heeft deze methoden:
 
     /// <summary>
     /// Static method to retrieve a state store of the given path and connStr 
@@ -268,7 +264,7 @@ De `StateStore` is hoofdzakelijk deze methoden van object:
     /// <typeparam name="T">stateId, id of the State</typeparam>
     public State GetState(long stateId)
 
-De `State` is hoofdzakelijk deze methoden van object:
+De `State` object voornamelijk heeft deze methoden:
 
     /// <summary>
     /// Set the status of the state object to commit 
@@ -294,26 +290,26 @@ De `State` is hoofdzakelijk deze methoden van object:
     /// <returns>State Attribute</returns>               
     public T GetAttribute<T>(string key);                    
 
-Voor de `Commit()` methode, wanneer simpleMode is ingesteld op true, wordt verwijderd de bijbehorende ZNode in ZooKeeper. Anders worden de huidige ZNode en het toevoegen van een nieuw knooppunt in de toegewezen\_pad.
+Voor de `Commit()` methode, wanneer simpleMode is ingesteld op true, worden verwijderd de bijbehorende ZNode in ZooKeeper. Anders wordt de huidige ZNode en het toevoegen van een nieuw knooppunt in de toegewezen verwijderd\_pad.
 
 ### <a name="scpruntime"></a>SCPRuntime
-SCPRuntime biedt de volgende twee methoden:
+SCPRuntime bevat de volgende twee methoden:
 
     public static void Initialize();
 
     public static void LaunchPlugin(newSCPPlugin createDelegate);  
 
-`Initialize()` wordt gebruikt voor het initialiseren van de SCP runtime-omgeving. Bij deze methode wordt de C\# proces maakt verbinding met de Java-zijde en parameters voor de configuratie en -topologie context opgehaald.
+`Initialize()` wordt gebruikt voor het initialiseren van de SCP-runtime-omgeving. Bij deze methode hoeft de C\# proces maakt verbinding met de Java-zijde en haalt configuratieparameters en de context van de topologie.
 
-`LaunchPlugin()` wordt gebruikt voor de verwerking berichtenlus starten. In deze lus, de C\# invoegtoepassing ontvangt berichten formulier Java kant (inclusief signalen tuples en control) en vervolgens verwerken de berichten, bijvoorbeeld het aanroepen van de interfacemethode bieden door de gebruikerscode. De invoerparameter voor methode `LaunchPlugin()` is een gemachtigde die kan resulteren in een object dat ISCPSpout/IScpBolt/ISCPTxSpout/ISCPBatchBolt-interface implementeren.
+`LaunchPlugin()` wordt gebruikt om een vliegende start de berichtenlus van verwerking. In deze lus, de C\# invoegtoepassing ontvangt berichten formulier Java aan clientzijde (inclusief tuples en beheer locatiesignalen) en vervolgens verwerken de berichten, misschien aanroepen van de interfacemethode opgeven door de gebruikerscode. De invoerparameter voor methode `LaunchPlugin()` is een gemachtigde die kan retourneren een object dat ISCPSpout/IScpBolt/ISCPTxSpout/ISCPBatchBolt-interface implementeren.
 
     public delegate ISCPPlugin newSCPPlugin(Context ctx, Dictionary\<string, Object\> parms); 
 
-Voor ISCPBatchBolt, krijgen we `StormTxAttempt` van `parms`, en deze gebruiken om te beoordelen of het is een poging tot herhaald. De controle op een poging replay vaak wordt uitgevoerd op de commit-bolt en dit wordt geïllustreerd in de `HelloWorldTx` voorbeeld.
+Voor ISCPBatchBolt, krijgen we `StormTxAttempt` van `parms`, en deze gebruiken om te beoordelen of het is een herhaalde poging. De controle op een poging tot opnieuw afspelen wordt vaak uitgevoerd op de commit-bolt en dit wordt geïllustreerd in de `HelloWorldTx` voorbeeld.
 
-In het algemeen kan het SCP-invoegtoepassingen in twee modi hier worden uitgevoerd:
+In het algemeen kunnen de SCP-invoegtoepassingen in hier twee modi worden uitgevoerd:
 
-1. Lokale testmodus: In deze modus wordt het SCP-invoegtoepassingen (de C\# gebruikerscode) in Visual Studio wordt uitgevoerd tijdens de ontwikkelingsfase bevindt. `LocalContext` in deze modus methode biedt voor het serialiseren van de verzonden tuples tot lokale bestanden en ze te lezen in het geheugen kan worden gebruikt.
+1. Lokale testmodus: In deze modus wordt de SCP-invoegtoepassingen (het C\# gebruikerscode) uitvoeren in Visual Studio tijdens de ontwikkelingsfase bevindt. `LocalContext` kan worden gebruikt in deze modus, waarmee u de methode voor het serialiseren van de verzonden tuples in lokale bestanden en ze terug naar het geheugen te lezen.
    
         public interface ILocalContext
         {
@@ -321,9 +317,9 @@ In het algemeen kan het SCP-invoegtoepassingen in twee modi hier worden uitgevoe
             void WriteMsgQueueToFile(string filepath, bool append = false);  
             void ReadFromFileToMsgQueue(string filepath);                    
         }
-2. Normale modus: In deze modus wordt het SCP-invoegtoepassingen worden gestart door storm java-proces.
+2. Normale modus: In deze modus wordt de SCP-invoegtoepassingen zijn gestart door storm java-proces.
    
-    Hier volgt een voorbeeld van het SCP-invoegtoepassing te starten:
+    Hier volgt een voorbeeld van het SCP-invoegtoepassing starten:
    
         namespace Scp.App.HelloWorld
         {
@@ -350,58 +346,58 @@ In het algemeen kan het SCP-invoegtoepassingen in twee modi hier worden uitgevoe
         }
 
 ## <a name="topology-specification-language"></a>Topologie specificatietaal
-Specificatie van het SCP-topologie is een domeinspecifieke taal voor het beschrijven en topologieën SCP te configureren. Deze is gebaseerd op de Storm Clojure DSL (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) en SCP is verlengd.
+SCP-topologie-specificatie is een taal domeinspecifieke beschrijven en SCP-topologieën te configureren. Deze is gebaseerd op de Storm Clojure DSL (<http://storm.incubator.apache.org/documentation/Clojure-DSL.html>) en wordt uitgebreid door SCP.
 
-Topologie specificaties kunnen worden verstuurd rechtstreeks naar de storm-cluster voor uitvoering via de ***runspec*** opdracht.
+Topologie specificaties kunnen worden verstuurd rechtstreeks naar de storm-cluster voor de uitvoering van via de ***runspec*** opdracht.
 
-SCP.NET heeft de volgende functies om te definiëren transactionele topologieën toegevoegd:
+SCP.NET heeft de volgende functies voor het definiëren van transactionele topologieën toegevoegd:
 
 | **Nieuwe functies** | **Parameters** | **Beschrijving** |
 | --- | --- | --- |
-| **TX topolopy** |topologie-naam<br />spout-kaart<br />bolt-kaart |Definieer een transactionele-topologie met de naam van de topologie &nbsp;spouts definitie kaart en de bolts definitie-kaart |
-| **SCP-tx-spout** |exec-naam<br />argumenten<br />velden |Definieer een transactionele spout. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met ***args***.<br /><br />De ***velden*** wordt de uitvoer-velden voor spout |
-| **SCP-tx-batch-bolt** |exec-naam<br />argumenten<br />velden |Definieer een transactionele Batch Bolt. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met ***argumenten.***<br /><br />De velden is de uitvoer-velden voor bolt. |
-| **SCP-tx-doorvoeren-bolt** |exec-naam<br />argumenten<br />velden |Definieer een transactionele commit-bolt. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met ***args***.<br /><br />De ***velden*** wordt de uitvoer-velden voor bolt |
-| **nontx topolopy** |topologie-naam<br />spout-kaart<br />bolt-kaart |Definieer een niet-transactionele-topologie met de naam van de topologie&nbsp; spouts definitie kaart en de bolts definitie-kaart |
-| **SCP spout** |exec-naam<br />argumenten<br />velden<br />parameters |Definieer een niet-transactionele spout. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met ***args***.<br /><br />De ***velden*** wordt de uitvoer-velden voor spout<br /><br />De ***parameters*** zijn optioneel, met bepaalde parameters zoals 'nontransactional.ack.enabled' opgeven. |
-| **SCP-bolt** |exec-naam<br />argumenten<br />velden<br />parameters |Definieer een niet-transactionele Bolt. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met ***args***.<br /><br />De ***velden*** wordt de uitvoer-velden voor bolt<br /><br />De ***parameters*** zijn optioneel, met bepaalde parameters zoals 'nontransactional.ack.enabled' opgeven. |
+| **TX topolopy** |naam van de topologie<br />spout-kaart<br />bolt-kaart |Definieer een transactionele topologie met de topologienaam van de &nbsp;spouts definitie kaart en de bolts definition-kaart |
+| **SCP-tx-spout** |exec-naam<br />argumenten<br />velden |Een transactionele spout definiëren. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten***.<br /><br />De ***velden*** is de uitvoer-velden voor spout |
+| **SCP-tx-batch-bolt** |exec-naam<br />argumenten<br />velden |Definieer een transactionele Batch-Bolt. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten.***<br /><br />De velden is de uitvoer-velden voor bolt. |
+| **SCP-tx-doorvoeren-bolt** |exec-naam<br />argumenten<br />velden |Definieer een transactionele commit-bolt. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten***.<br /><br />De ***velden*** is de uitvoer-velden voor bolt |
+| **nontx topolopy** |naam van de topologie<br />spout-kaart<br />bolt-kaart |Definieer een niet-transactionele-topologie met de topologienaam van de&nbsp; spouts definitie kaart en de toewijzing van de definitie bolts |
+| **SCP-spout** |exec-naam<br />argumenten<br />velden<br />parameters |Een niet-transactionele spout definiëren. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten***.<br /><br />De ***velden*** is de uitvoer-velden voor spout<br /><br />De ***parameters*** zijn optioneel, met bepaalde parameters, zoals 'nontransactional.ack.enabled' opgeven. |
+| **SCP-bolt** |exec-naam<br />argumenten<br />velden<br />parameters |Definieer een niet-transactionele Bolt. Deze wordt uitgevoerd met de toepassing met ***exec naam*** met behulp van ***argumenten***.<br /><br />De ***velden*** is de uitvoer-velden voor bolt<br /><br />De ***parameters*** zijn optioneel, met bepaalde parameters, zoals 'nontransactional.ack.enabled' opgeven. |
 
-SCP.NET heeft de volgende sleutelwoorden gedefinieerd:
+SCP.NET heeft de volgende trefwoorden gedefinieerd:
 
-| **Trefwoorden** | **Beschrijving** |
+| **trefwoorden** | **Beschrijving** |
 | --- | --- |
-| **: de naam** |De naam van de topologie definiëren |
-| **: topologie** |Definieer de topologie met behulp van de vorige functies en bouwen in toepassingsgroepen. |
-| **: p** |Definieer de parallelle uitvoering hint op voor elke spout of bolt. |
+| **: de naam** |Definieer de Topologienaam van de |
+| **: topologie** |De topologie met behulp van de vorige functies definiëren en in resources bouwen. |
+| **: p** |Definieer de parallelle uitvoering-hint voor elke spout of bolt. |
 | **: config** |Definieer de parameter configureren of een bestaande bijwerken |
-| **: schema** |Definieer het Schema van de stroom. |
+| **: schema** |Definieer het Schema van Stream. |
 
-En veelgebruikte parameters:
+En vaak gebruikte parameters:
 
 | **Parameter** | **Beschrijving** |
 | --- | --- |
-| **'plugin.name'** |naam van de exe-bestand van de C#-invoegtoepassing |
-| **'plugin.args'** |invoegtoepassing argumenten |
-| **'output.schema'** |Uitvoerschema |
-| **'nontransactional.ack.enabled'** |Hiermee wordt aangegeven of ack is ingeschakeld voor niet-transactionele-topologie |
+| **"plugin.name"** |naam van het exe-bestand van de C#-invoegtoepassing |
+| **"plugin.args"** |invoegtoepassing argumenten |
+| **"output.schema"** |Uitvoerschema |
+| **"nontransactional.ack.enabled"** |Of ack is ingeschakeld voor niet-transactionele topologie |
 
-De opdracht runspec samen met de bits is geïmplementeerd, lijkt op het gebruik:
+De opdracht runspec samen met de bits is geïmplementeerd, het gebruik is, zoals:
 
     .\bin\runSpec.cmd
     usage: runSpec [spec-file target-dir [resource-dir] [-cp classpath]]
     ex: runSpec examples\HelloWorld\HelloWorld.spec specs examples\HelloWorld\Target
 
-De ***resource dir*** parameter is optioneel, moet u dit opgeven als u wilt een C plug\# toepassings- en deze map bevat de toepassing en de afhankelijkheden en configuraties.
+De ***resource-dir*** parameter is optioneel, moet u dit opgeven wanneer u wilt een C sluit\# toepassing en deze map bevat de toepassing en de afhankelijkheden en configuraties.
 
-De ***classpath*** parameter ook is optioneel. Deze wordt gebruikt om het klassepad Java geven als de spec bestand Java Spout of Bolt bevat.
+De ***klassepad*** parameter is ook optioneel. Het wordt gebruikt om op te geven van het klassepad Java als de spec bestand Java Spout of Bolt bevat.
 
 ## <a name="miscellaneous-features"></a>Diverse functies
 ### <a name="input-and-output-schema-declaration"></a>Invoer en uitvoer Schemadeclaratie
-Gebruikers kunnen verzenden tuples in C\# processen, het platform moet de tuple serialiseren naar byte [], overdragen naar Java aan clientzijde en Storm deze tuple draagt bij de doelen. Ondertussen in downstream-onderdelen C\# processen wordt ontvangen tuples terug van java-zijde en converteer deze naar de oorspronkelijke typen per platform, alle deze bewerkingen zijn verborgen door het Platform.
+Gebruikers kunnen verzenden tuples in C\# processen, het platform moet de tuple serialiseren in byte [], overbrengen naar Java-zijde en Storm deze tuple worden overgebracht naar de doelen. In de tussentijd zorgen in downstream-onderdelen, C\# processen tuples van java-zijde ontvangt, en deze converteren naar de oorspronkelijke typen per platform, alle deze bewerkingen worden verborgen door het Platform.
 
-Ter ondersteuning van serialisatie en deserialisatie, moet gebruikerscode het schema van de invoer en uitvoer declareren.
+Ter ondersteuning van de serialisatie en deserialisatie, moet gebruikerscode het schema van de invoer en uitvoer declareren.
 
-Het schema i/o-stroom wordt gedefinieerd als een woordenlijst. De sleutel is de StreamId. De waarde is de typen van de kolommen. Het onderdeel kan meerdere streams gedeclareerd hebben.
+De invoer/uitvoer-stream-schema wordt gedefinieerd als een woordenlijst. De sleutel is de StreamId. De waarde is de typen van de kolommen. Het onderdeel kan meerdere gegevensstromen gedeclareerd hebben.
 
     public class ComponentStreamSchema
     {
@@ -419,12 +415,12 @@ In de Context-object hebben we de volgende API toegevoegd:
 
     public void DeclareComponentSchema(ComponentStreamSchema schema)
 
-Ontwikkelaars moeten ervoor zorgen dat de tuples verzonden zich aan het schema is gedefinieerd voor deze stroom, anders het systeem een runtime-uitzondering genereert.
+Ontwikkelaars moeten ervoor zorgen dat de tuples verzonden op het schema gedefinieerd voor deze stroom te volgen, anders wordt het systeem een runtime-uitzondering genereert.
 
-### <a name="multi-stream-support"></a>Ondersteuning voor meerdere Stream
-SCP ondersteunt gebruikerscode om te verzenden of ontvangen van meerdere afzonderlijke streams op hetzelfde moment. De ondersteuning weerspiegelt in de Context-object omdat de methode Emit een optionele stroom-ID-parameter houdt.
+### <a name="multi-stream-support"></a>Meerdere Stream-ondersteuning
+SCP ondersteunt gebruikerscode om te verzenden of ontvangen van meerdere afzonderlijke stromen op hetzelfde moment. Terwijl de Emit-methode een optionele stream-ID-parameter gebruikt, wordt de ondersteuning in de Context-object weergegeven.
 
-Twee methoden voor het object Context SCP.NET er zijn toegevoegd. Ze worden gebruikt voor het verzenden van Tuple of Tuples om op te geven StreamId. De StreamId is een tekenreeks en het moet in beide C consistent\# en de topologie definitie-specificaties.
+Twee methoden voor het SCP.NET-Context-object er zijn toegevoegd. Ze worden gebruikt om te verzenden Tuple of Tuples om op te geven StreamId. De StreamId is een tekenreeks en het moet consistent in beide C\# en de topologie Definition-specificaties.
 
         /* Emit tuple to the specific stream. */
         public abstract void Emit(string streamId, List<object> values);
@@ -432,12 +428,12 @@ Twee methoden voor het object Context SCP.NET er zijn toegevoegd. Ze worden gebr
         /* for non-transactional Spout only */
         public abstract void Emit(string streamId, List<object> values, long seqId);
 
-De tekensetcodering naar een niet-bestaande stream zorgt ervoor dat de runtime-uitzonderingen.
+Het verzenden van naar een niet-bestaande stream zorgt ervoor dat de runtime-uitzonderingen.
 
 ### <a name="fields-grouping"></a>Velden groeperen
-De ingebouwde die velden groeperen in Strom niet goed in SCP.NET werkt. De Java-Proxy-zijde alle velden gegevenstypen zijn daadwerkelijk byte [] en de velden groeperen byte [] object hash-code gebruikt voor het uitvoeren van de groepering. De byte [] object hash-code is het adres van dit object in het geheugen. De groepering worden dus verkeerde voor twee-byte [] objecten die dezelfde inhoud, maar niet hetzelfde adres delen.
+De ingebouwde die velden groeperen in Strom niet goed in SCP.NET werkt. Alle gegevenstypen van de velden daadwerkelijk byte [] zijn aan de Java-Proxy en de velden groeperen van de hash-code voor byte []-object gebruikt voor het uitvoeren van de groepering. De byte [] object hash-code is het adres van dit object in het geheugen. Dus is de groepering onjuist voor twee-byte [] objecten die dezelfde inhoud, maar niet hetzelfde adres delen.
 
-Een groeperingsmethode met de aangepaste SCP.NET toegevoegd en de inhoud van de byte [] worden gebruikt voor de groepering. In **SPEC** -bestand, de syntaxis is als volgt:
+SCP.NET een groeperingsmethode met de aangepaste toegevoegd en wordt de inhoud van de byte [] voor de groepering gebruikt. In **SPEC** -bestand, de syntaxis is, zoals:
 
     (bolt-spec
         {
@@ -447,39 +443,39 @@ Een groeperingsmethode met de aangepaste SCP.NET toegevoegd en de inhoud van de 
     )
 
 
-Hier kunt
+Hier
 
-1. "scp-veld-beheergroep" betekent 'Aangepast veld groepering wordt geïmplementeerd door SCP'.
-2. ': tx 'of': niet-tx ' betekent dat als transactionele topologie is. Aangezien de startIndex in tx versus niet tx topologieën verschilt moeten we deze informatie.
-3. [0,1] houdt een set hash-veld-id's, begint bij 0.
+1. 'scp-veld-group' betekent 'Aangepast veld groepering wordt geïmplementeerd door SCP'.
+2. ": tx 'of': niet-tx ' betekent dat als het transactionele topologie is. We nodig deze informatie omdat de startIndex anders in tx vs. niet-tx topologieën is.
+3. [0,1] betekent een hash-set veld-id's, vanaf 0.
 
 ### <a name="hybrid-topology"></a>Hybride topologie
-De systeemeigen Storm is geschreven in Java. En SCP.Net is uitgebreid om te schakelen C\# ontwikkelaars kunnen schrijven C\# code voor het verwerken van hun zakelijke logica. Maar ondersteunt ook hybride topologieën die bevat niet alleen C\# spouts/bolts, maar ook Java Spout/Bolts.
+De systeemeigen Storm is geschreven in Java. En SCP.Net is uitgebreid om te schakelen C\# ontwikkelaars kunnen schrijven C\# code voor het verwerken van hun zakelijke logica. Maar ondersteunt ook hybride topologieën, die niet alleen C bevat\# spouts/bolts, maar ook Java Spout/Bolts.
 
 ### <a name="specify-java-spoutbolt-in-spec-file"></a>Java Spout/Bolt in spec bestand opgeven
-In spec bestand 'scp-spout' en 'scp-bolt' kunnen ook worden gebruikt om Java Spouts en Bolts te geven, Hier volgt een voorbeeld:
+In spec bestand "scp-spout" en "scp-bolt" kunnen ook worden gebruikt om op te geven Java Spouts en Bolts, Hier volgt een voorbeeld:
 
     (spout-spec 
       (microsoft.scp.example.HybridTopology.Generator.)           
       :p 1)
 
-Hier `microsoft.scp.example.HybridTopology.Generator` is de naam van de Spout van Java-klasse.
+Hier `microsoft.scp.example.HybridTopology.Generator` is de naam van de klasse Java Spout.
 
-### <a name="specify-java-classpath-in-runspec-command"></a>Java-klassenpad in runSpec opdracht opgeven
-Als u verzenden met Java Spouts of Bolts topologie wilt, moet u eerst de Java Spouts of Bolts compileren en ophalen van de Jar-bestanden. Vervolgens moet u de java-klassenpad met de Jar-bestanden bij het indienen van de topologie. Hier volgt een voorbeeld:
+### <a name="specify-java-classpath-in-runspec-command"></a>Geef het klassepad van Java in runSpec opdracht
+Als u verzenden met Java Spouts of Bolts topologie wilt, moet u eerst de Java Spouts of Bolts compileren en ophalen van de Jar-bestanden. Vervolgens moet u de java-klassepad met de Jar-bestanden bij het indienen van de topologie. Hier volgt een voorbeeld:
 
     bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target\*
 
-Hier **voorbeelden\\HybridTopology\\java\\doel\\**  is de map waarin de Java-Spout/Bolt Jar-bestand.
+Hier **voorbeelden\\HybridTopology\\java\\doel\\**  is de map met de Java-Spout/Bolt Jar-bestand.
 
-### <a name="serialization-and-deserialization-between-java-and-c"></a>Serialisatie en deserialisatie tussen Java en C\#
-SCP onderdeel bevat Java kant- en C\# aan clientzijde. Om te communiceren met systeemeigen Java Spouts/Bolts, serialisatie/deserialisatie moet worden uitgevoerd tussen Java kant- en C\# zijde, zoals geïllustreerd in de volgende grafiek.
+### <a name="serialization-and-deserialization-between-java-and-c"></a>Serialisatie en deserialisatie tussen Java- en C\#
+SCP-onderdeel bevat Java kant- en C\# aan clientzijde. Om te communiceren met systeemeigen Java Spouts/Bolts, serialisatie/deserialisatie moet worden uitgevoerd tussen Java kant- en C\# zijde, zoals wordt geïllustreerd in het volgende diagram.
 
-![diagram van java-component verzenden naar SCP onderdeel verzenden naar Java-onderdeel](./media/apache-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png)
+![diagram van java-component te verzenden naar de SCP-component te verzenden naar de Java-onderdeel](./media/apache-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png)
 
 1. **Serialisatie in Java kant- en deserialisatie in C\# aan clientzijde**
    
-   Eerst bieden we standaardimplementatie voor aan de kant van Java-serialisatie en deserialisatie in C\# aan clientzijde. De serialisatiemethode in Java aan clientzijde kan worden opgegeven in SPEC bestand:
+   Eerst bieden we standaardimplementatie voor serialisatie in Java-kant- en deserialisatie in C\# aan clientzijde. De serialisatiemethode in de Java-zijde kan worden opgegeven in SPEC bestand:
    
        (scp-bolt
            {
@@ -489,14 +485,14 @@ SCP onderdeel bevat Java kant- en C\# aan clientzijde. Om te communiceren met sy
                "customized.java.serializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer"]
            })
    
-   De methode deserialisatie in C\# kant moet worden opgegeven in de C\# gebruikerscode:
+   De deserialisatie-methode in C\# kant moet worden opgegeven in C\# gebruikerscode:
    
        Dictionary<string, List<Type>> inputSchema = new Dictionary<string, List<Type>>();
        inputSchema.Add("default", new List<Type>() { typeof(Person) });
        this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, null));
        this.ctx.DeclareCustomizedDeserializer(new CustomizedInteropJSONDeserializer());            
    
-   Deze standaardimplementatie afhandelt meestal opgegeven het gegevenstype niet te complex is. Voor bepaalde gevallen, omdat het gegevenstype van de gebruiker is te complex is of omdat de prestaties van onze standaardimplementatie voldoet niet aan voor de gebruiker vereiste, gebruikers kunnen invoegtoepassing hun eigen implementatie.
+   Deze standaardimplementatie moet de meeste gevallen verwerken, mits het gegevenstype niet te complex is. Voor bepaalde gevallen, omdat het gegevenstype van de gebruiker te complex is of omdat de prestaties van onze standaardimplementatie voldoet niet aan de vereiste van de gebruiker, gebruikers kunnen invoegtoepassing hun eigen implementatie.
    
    De interface serialiseren in java aan clientzijde wordt gedefinieerd als:
    
@@ -505,7 +501,7 @@ SCP onderdeel bevat Java kant- en C\# aan clientzijde. Om te communiceren met sy
            public List<ByteBuffer> serialize(List<Object> objectList);
        }
    
-   De interface deserialize in C\# aan clientzijde is gedefinieerd als:
+   De interface deserialize in C\# aan clientzijde wordt gedefinieerd als:
    
    openbare interface ICustomizedInteropCSharpDeserializer
    
@@ -513,13 +509,13 @@ SCP onderdeel bevat Java kant- en C\# aan clientzijde. Om te communiceren met sy
        {
            List<Object> Deserialize(List<byte[]> dataList, List<Type> targetTypes);
        }
-2. **Serialisatie in C\# kant- en deserialisatie aan de kant van Java**
+2. **Serialisatie in C\# kant- en deserialisatie in Java-kant**
    
-   De serialisatiemethode in C\# kant moet worden opgegeven in de C\# gebruikerscode:
+   De methode voor kleurserialisatie in C\# kant moet worden opgegeven in C\# gebruikerscode:
    
        this.ctx.DeclareCustomizedSerializer(new CustomizedInteropJSONSerializer()); 
    
-   De methode deserialisatie in Java kant moet worden opgegeven in SPEC bestand:
+   De deserialisatie-methode in Java kant moet worden opgegeven in SPEC bestand:
    
      (scp-spout
    
@@ -530,24 +526,24 @@ SCP onderdeel bevat Java kant- en C\# aan clientzijde. Om te communiceren met sy
          "customized.java.deserializer" ["microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer" "microsoft.scp.example.HybridTopology.Person"]
        })
    
-   Hier 'microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer' is de naam van Deserializer en 'microsoft.scp.example.HybridTopology.Person' is dat de doelklasse van de gegevens voor wordt gedeserialiseerd.
+   Hier 'microsoft.scp.storm.multilang.CustomizedInteropJSONDeserializer' is de naam van Deserializer en "microsoft.scp.example.HybridTopology.Person" is dat de doelklasse van de gegevens is gedeserialiseerd naar.
    
-   Gebruiker kan ook plug-in hun eigen implementatie van C\# serialisatiefunctie en Java Deserializer. Deze code is de interface voor C\# serialisatiefunctie:
+   Gebruiker kan ook plug-in hun eigen implementatie van C\# serializer en Java Deserializer. Deze code is de interface voor C\# serializer:
    
        public interface ICustomizedInteropCSharpSerializer
        {
            List<byte[]> Serialize(List<object> dataList);
        }
    
-   Deze code is de interface voor Java Deserializer:
+   Deze code is de interface voor Java-Deserializer:
    
        public interface ICustomizedInteropJavaDeserializer {
            public void prepare(String[] targetClassNames);
            public List<Object> Deserialize(List<ByteBuffer> dataList);
        }
 
-## <a name="scp-host-mode"></a>SCP Host modus
-In deze modus kan gebruiker hun codes naar dll-bestand te compileren en geleverd door een SCP SCPHost.exe gebruikt voor het verzenden van topologie. Het bestand spec ziet deze code uit:
+## <a name="scp-host-mode"></a>SCP-Host-modus
+Gebruiker kan in deze modus wordt de codes naar dll-bestand compileren en SCPHost.exe geleverd door SCP gebruiken voor het indienen van topologie. Het spec bestand ziet er uit als de volgende code:
 
     (scp-spout
       {
@@ -556,19 +552,19 @@ In deze modus kan gebruiker hun codes naar dll-bestand te compileren en geleverd
         "output.schema" {"default" ["sentence"]}
       })
 
-Hier `plugin.name` is opgegeven als `SCPHost.exe` geleverd door een SCP-SDK. SCPHost.exe accepteert drie parameters:
+Hier `plugin.name` is opgegeven als `SCPHost.exe` geleverd door SCP-SDK. SCPHost.exe accepteert drie parameters:
 
 1. De eerste is de DLL-naam, die is `"HelloWorld.dll"` in dit voorbeeld.
-2. Het tweede is de klassenaam, die is `"Scp.App.HelloWorld.Generator"` in dit voorbeeld.
-3. Het derde is de naam van een openbare statische methode, waarbij kan worden aangeroepen om een exemplaar van ISCPPlugin.
+2. De tweede waarde is de naam van de klasse, namelijk `"Scp.App.HelloWorld.Generator"` in dit voorbeeld.
+3. De derde is de naam van een openbare statische methode, die kan worden aangeroepen om een exemplaar van ISCPPlugin.
 
-In de modus host gebruikerscode is gecompileerd als dll-bestand en wordt aangeroepen door het SCP-platform. SCP-platform kan dus volledig beheer over de hele verwerking logica krijgen. We raden u dus aan onze klanten verzenden topologie in de modus voor SCP-host, omdat deze kunt de ervaring voor de ontwikkeling vereenvoudigen en bring ons meer flexibiliteit en betere achterwaartse compatibiliteit voor latere release ook.
+In de modus van de host, gebruikerscode wordt gecompileerd als dll-bestand en wordt aangeroepen door SCP-platform. SCP-platform kunt dus de volledige controle over de hele verwerkingslogica ophalen. Dus aangeraden onze klanten om in te dienen topologie in de modus voor SCP-host, omdat deze kan de ontwikkelervaring vereenvoudigen en naar ons meer flexibiliteit en betere compatibiliteit voor latere versie ook brengen.
 
-## <a name="scp-programming-examples"></a>SCP programmering voorbeelden
+## <a name="scp-programming-examples"></a>SCP programmeren voorbeelden
 ### <a name="helloworld"></a>Hallo wereld
-**HelloWorld** is een eenvoudig voorbeeld om een smaak van SCP.Net weer te geven. Wordt een niet-transactionele-topologie met een spout aangeroepen **generator**, en twee bolts aangeroepen **splitser** en **teller**. De spout **generator** willekeurig zinnen gegenereerd en verzenden van deze zinnen naar **splitser**. De bolt **splitser** splitst de zinnen woorden en deze woorden om naar te verzenden **teller** bolt. De bout 'teller' maakt gebruik van een woordenboek voor het vastleggen van het nummer van het exemplaar van elk woord.
+**HelloWorld** is een eenvoudig voorbeeld om een voorproefje van SCP.Net weer te geven. Hierbij een niet-transactionele-topologie met een spout met de naam **generator**, en twee bolts met de naam **splitsen** en **teller**. De spout **generator** willekeurig zinnen gegenereerd en het verzenden van deze zinnen op **splitsen**. De bolt **splitsen** splitst de zinnen op woorden en hoe deze woorden **teller** bolt. De bout 'item' maakt gebruik van een woordenlijst om vast te leggen van het nummer van het exemplaar van elk woord.
 
-Er zijn twee bestanden spec **HelloWorld.spec** en **HelloWorld\_EnableAck.spec** voor dit voorbeeld. In de C\# code, het vindt of ack is ingeschakeld door de pluginConf van Java-kant.
+Er zijn twee bestanden spec **HelloWorld.spec** en **HelloWorld\_EnableAck.spec** voor dit voorbeeld. In de C\# code, het vindt of ack met het ophalen van de pluginConf van Java aan clientzijde is ingeschakeld.
 
     /* demo how to get pluginConf info */
     if (Context.Config.pluginConf.ContainsKey(Constants.NONTRANSACTIONAL_ENABLE_ACK))
@@ -577,7 +573,7 @@ Er zijn twee bestanden spec **HelloWorld.spec** en **HelloWorld\_EnableAck.spec*
     }
     Context.Logger.Info("enableAck: {0}", enableAck);
 
-Als ack is ingeschakeld, wordt een woordenlijst in de spout gebruikt in de cache van de tuples die niet bevestigd zijn. Als Fail() wordt aangeroepen, wordt de mislukte tuple replay:
+Als ack is ingeschakeld, wordt een woordenlijst in de spout gebruikt de tuples die niet bevestigd zijn in de cache. Als Fail() wordt aangeroepen, wordt de mislukte tuple replay:
 
     public void Fail(long seqId, Dictionary<string, Object> parms)
     {
@@ -598,15 +594,15 @@ Als ack is ingeschakeld, wordt een woordenlijst in de spout gebruikt in de cache
     }
 
 ### <a name="helloworldtx"></a>HelloWorldTx
-De **HelloWorldTx** voorbeeld laat zien hoe transactionele topologie implementeren. Heeft een spout aangeroepen **generator**, aangeroepen voor een batch-bolt **gedeeltelijk aantal**, en een bolt doorvoeren aangeroepen **aantal som**. Er zijn ook drie vooraf gemaakte txt-bestanden: **DataSource0.txt**, **DataSource1.txt**, en **DataSource2.txt**.
+De **HelloWorldTx** voorbeeld ziet u hoe u voor het implementeren van transactionele topologie. Heeft een spout met de naam **generator**, een batch-bolt met de naam **gedeeltelijk-count**, en een commit-bolt met de naam **aantal som**. Er zijn ook drie vooraf gemaakte txt-bestanden: **DataSource0.txt**, **DataSource1.txt**, en **DataSource2.txt**.
 
-In elke transactie, de spout **generator** willekeurig worden twee bestanden geselecteerd in de vooraf gemaakte drie bestanden en verzenden van de namen van de twee bestanden naar de **gedeeltelijk aantal** bolt. De bolt **gedeeltelijk aantal** haalt de bestandsnaam van de ontvangen tuple vervolgens opent u het bestand en tel het aantal woorden in dit bestand en ten slotte het word-nummer te verzenden de **aantal som** bolt. De **aantal som** bolt bevat een overzicht van het totale aantal.
+In elke transactie, de spout **generator** willekeurig twee bestanden uit de vooraf gemaakte drie bestanden geselecteerd, en hoe de namen van de twee bestanden naar de **gedeeltelijk-count** bolt. De bolt **gedeeltelijk-count** haalt het bestand naam van de ontvangen tuple en open het bestand en telt het aantal woorden in dit bestand en ten slotte het word-nummer te verzenden de **aantal som** bolt. De **aantal som** bolt bevat een overzicht van het totale aantal.
 
-Als u de **exact één keer** semantiek, de commit-bolt **aantal som** moet te beoordelen of het is een herhaald transactie. In dit voorbeeld heeft een statisch lidvariabele:
+Om te realiseren **exact één keer** semantiek, de commit-bolt **aantal som** nodig hebt om te beoordelen of het is een herhaalde transactie. In dit voorbeeld heeft deze een statisch lidvariabele:
 
     public static long lastCommittedTxId = -1; 
 
-Wanneer een ISCPBatchBolt-exemplaar is gemaakt, krijgt de `txAttempt` van invoerparameters:
+Wanneer een ISCPBatchBolt-exemplaar is gemaakt, krijgt de `txAttempt` van invoerparameters die zijn opgegeven:
 
     public static CountSum Get(Context ctx, Dictionary<string, Object> parms)
     {
@@ -622,7 +618,7 @@ Wanneer een ISCPBatchBolt-exemplaar is gemaakt, krijgt de `txAttempt` van invoer
         }
     }
 
-Wanneer `FinishBatch()` wordt aangeroepen, de `lastCommittedTxId` worden bijgewerkt als het is niet een herhaald transactie.
+Wanneer `FinishBatch()` wordt aangeroepen, de `lastCommittedTxId` worden bijgewerkt als het is niet een herhaalde transactie.
 
     public void FinishBatch(Dictionary<string, Object> parms)
     {
@@ -640,7 +636,7 @@ Wanneer `FinishBatch()` wordt aangeroepen, de `lastCommittedTxId` worden bijgewe
 
 
 ### <a name="hybridtopology"></a>HybridTopology
-Deze topologie bevat een Java-Spout en een C\# Bolt. De serialisatie en deserialisatie standaardimplementatie geleverd door een SCP platform wordt gebruikt. Zie de **HybridTopology.spec** in **voorbeelden\\HybridTopology** map voor de spec bestandsgegevens en **SubmitTopology.bat** voor het opgeven van Java Classpath.
+Deze topologie bevat een Java-Spout en een C\# Bolt. Maakt gebruik van de standaard-serialisatie en deserialisatie in uitvoering zijn geleverd door SCP-platform. Zie de **HybridTopology.spec** in **voorbeelden\\HybridTopology** map voor de spec bestandsgegevens en **SubmitTopology.bat** voor informatie over het opgeven van Java het klassepad van.
 
 ### <a name="scphostdemo"></a>SCPHostDemo
 In dit voorbeeld is hetzelfde als HelloWorld in wezen. Het enige verschil is dat de gebruikerscode wordt gecompileerd als dll-bestand en de topologie wordt ingediend via SCPHost.exe. Zie de sectie 'SCP Host modus' voor meer gedetailleerde uitleg.
@@ -649,6 +645,6 @@ In dit voorbeeld is hetzelfde als HelloWorld in wezen. Het enige verschil is dat
 Zie de volgende documenten voor voorbeelden van Storm-topologieën die zijn gemaakt met behulp van de SCP's:
 
 * [C#-topologieën ontwikkelen voor Apache Storm op HDInsight met behulp van Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md)
-* [Procesgebeurtenissen van Azure Event Hubs met Storm op HDInsight](apache-storm-develop-csharp-event-hub-topology.md)
-* [Verwerken van sensorgegevens vehicle van Event Hubs met behulp van Storm op HDInsight](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
-* [Uitpakken, transformeren en laden (ETL) uit Azure Event Hubs voor HBase](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)
+* [Process events from Azure Event Hubs met Storm op HDInsight gebeurtenissen](apache-storm-develop-csharp-event-hub-topology.md)
+* [Voertuigsensorgegevens van Event Hubs met Storm op HDInsight verwerken](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/IotExample)
+* [Uitpakken, transformeren en laden (ETL) van Azure Eventhubs naar HBase](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/RealTimeETLExample)

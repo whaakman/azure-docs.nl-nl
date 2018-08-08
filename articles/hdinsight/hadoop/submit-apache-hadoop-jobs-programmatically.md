@@ -1,39 +1,34 @@
 ---
-title: Verzenden van Hadoop-taken in HDInsight | Microsoft Docs
-description: Informatie over het verzenden van Hadoop-taken in Azure HDInsight.
-editor: cgronlun
-manager: jhubbard
+title: Geef Hadoop-taken op in HDInsight
+description: Leer hoe u Hadoop-taken in Azure HDInsight.
+editor: jasonwhowell
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-ms.assetid: 50430b96-2329-4775-9713-19c5795b775f
+ms.author: jasonh
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jgao
-ms.openlocfilehash: 2263201b0caf543db7167294f346863d7dcbf383
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 221c50ffb30954e9d318d8a21eec6bc3d2f96462
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200425"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590779"
 ---
 # <a name="submit-hadoop-jobs-in-hdinsight"></a>Geef Hadoop-taken op in HDInsight
 
-U kunt in Azure HDInsight Hadoop-taken verzenden met behulp van de Microsoft .NET SDK voor HDInsight, curl of Azure PowerShell.
+U kunt in Azure HDInsight Hadoop-taken indienen met behulp van de Microsoft .NET SDK voor HDInsight, curl of Azure PowerShell.
 
 ## <a name="resources"></a>Resources
 
 - **.NET SDK**:
 
-  - [Niet-interactieve verificatie .NET-toepassingen maken](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
-  - [Hive-query's uitvoeren met behulp van de HDInsight-SDK voor .NET](apache-hadoop-use-hive-dotnet-sdk.md)
+  - [Niet-interactieve verificatie voor .NET-toepassingen maken](../hdinsight-create-non-interactive-authentication-dotnet-applications.md)
+  - [Hive-query's uitvoeren met behulp van de HDInsight .NET SDK](apache-hadoop-use-hive-dotnet-sdk.md)
   - [Pig-taken uitvoeren met behulp van de .NET SDK voor Hadoop in HDInsight](apache-hadoop-use-pig-dotnet-sdk.md)
   - [Sqoop taken uitvoeren met behulp van de .NET SDK voor Hadoop in HDInsight](apache-hadoop-use-sqoop-dotnet-sdk.md)
-  - [MapReduce-taken uitvoeren met behulp van de HDInsight-SDK voor .NET](apache-hadoop-use-mapreduce-dotnet-sdk.md)
+  - [MapReduce-taken uitvoeren met behulp van de HDInsight .NET SDK](apache-hadoop-use-mapreduce-dotnet-sdk.md)
 
 - **cURL**:
 
@@ -51,4 +46,4 @@ U kunt in Azure HDInsight Hadoop-taken verzenden met behulp van de Microsoft .NE
 
 ## <a name="see-also"></a>Zie ook
 
-- [Azure HDInsight-documentatie](https://docs.microsoft.com/azure/hdinsight/)
+- [Documentatie voor Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/)

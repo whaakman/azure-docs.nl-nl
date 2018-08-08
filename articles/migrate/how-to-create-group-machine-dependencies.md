@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: raynew
-ms.openlocfilehash: fc74af2e7f19d05ff53925b2765c1f78fd0b30c1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4b83380558c10bc4f96d56f89a5cc2b7b53edc2e
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919706"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621076"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Machines groeperen met behulp van machine-afhankelijkheidstoewijzing
 
@@ -55,7 +55,7 @@ De agent installeren op een Linux-machine:
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-[Meer informatie](../monitoring/monitoring-service-map-configure.md#supported-operating-systems) over besturingssystemen die door de agent voor afhankelijkheden.
+Meer informatie over de ondersteuning van de agent afhankelijkheid voor de [Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) en [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems) besturingssystemen.
 
 [Meer informatie](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) over hoe u scripts gebruiken kunt voor het installeren van de agent voor afhankelijkheden.
 

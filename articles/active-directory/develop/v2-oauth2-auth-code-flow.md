@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 1e8807030cc1e08a41bfb6c1e8d2e1fe2b2432c7
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: b56dbd4321c8b87639e34cc7fb5db2141334101f
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581429"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600452"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>v2.0-protocollen - OAuth 2.0-Autorisatiecodestroom
 De OAuth 2.0-autorisatiecode verlenen kan worden gebruikt in apps die zijn geïnstalleerd op een apparaat toegang te krijgen tot beveiligde bronnen, zoals web-API's. Met behulp van de app model v2.0-implementatie van OAuth 2.0, kunt u zich aanmelden en API-toegang tot uw mobiele en bureaublad-apps toevoegen. Deze handleiding is taalonafhankelijk en wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder gebruik van een van de [Azure open source-verificatiebibliotheken](active-directory-authentication-libraries.md).
@@ -32,7 +32,7 @@ De OAuth 2.0-autorisatiecode verlenen kan worden gebruikt in apps die zijn geïn
 > 
 > 
 
-De OAuth 2.0-autorisatiecodestroom wordt beschreven in [sectie 4.1 van de OAuth 2.0-specificatie](http://tools.ietf.org/html/rfc6749). Deze wordt gebruikt voor verificatie en autorisatie in het merendeel van de app-typen, met inbegrip van [web-apps](active-directory-v2-flows.md#web-apps) en [systeemeigen geïnstalleerde apps](active-directory-v2-flows.md#mobile-and-native-apps). De stroom kunt apps aan te schaffen veilig access_tokens die kunnen worden gebruikt voor toegang tot resources die zijn beveiligd door het v2.0-eindpunt. 
+De OAuth 2.0-autorisatiecodestroom wordt beschreven in [sectie 4.1 van de OAuth 2.0-specificatie](http://tools.ietf.org/html/rfc6749). Deze wordt gebruikt voor verificatie en autorisatie in het merendeel van de app-typen, met inbegrip van [web-apps](v2-app-types.md#web-apps) en [systeemeigen geïnstalleerde apps](v2-app-types.md#mobile-and-native-apps). De stroom kunt apps aan te schaffen veilig access_tokens die kunnen worden gebruikt voor toegang tot resources die zijn beveiligd door het v2.0-eindpunt. 
 
 ## <a name="protocol-diagram"></a>Protocol-diagram
 Op hoog niveau, de gehele verificatiestroom voor een native/mobiele toepassing iets er zo uit:

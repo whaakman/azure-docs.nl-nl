@@ -1,6 +1,6 @@
 ---
-title: De externe controle oplossing aanpassen UI - Azure | Microsoft Docs
-description: In dit artikel bevat informatie over hoe u toegang tot de broncode voor externe controle oplossingsverbetering gebruikersinterface en een aantal aanpassingen doen.
+title: Aanpassen van de oplossing voor externe controle UI - Azure | Microsoft Docs
+description: In dit artikel bevat informatie over hoe u toegang tot de broncode voor de Remote Monitoring solution accelerator gebruikersinterface en een aantal aanpassingen doen.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -8,43 +8,45 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6e791051fb82197a770bff05f636159c638e3b9a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9700a76284e2ee2a652ae0dbcbaa2885ab515f79
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627848"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596552"
 ---
-# <a name="customize-the-remote-monitoring-solution-accelerator"></a>De oplossing voor externe controle accelerator aanpassen
+# <a name="customize-the-remote-monitoring-solution-accelerator"></a>De oplossingsverbetering voor externe bewaking aanpassen
 
-In dit artikel bevat informatie over hoe u toegang tot de broncode en aanpassen van de externe controle oplossingsverbetering gebruikersinterface. Dit artikel wordt beschreven:
+In dit artikel bevat informatie over hoe u toegang tot de broncode en aanpassen van de Remote Monitoring solution accelerator gebruikersinterface. Dit artikel wordt beschreven:
 
-## <a name="prepare-a-local-development-environment-for-the-ui"></a>Een lokale ontwikkelingsomgeving voorbereiden voor de UI
+## <a name="prepare-a-local-development-environment-for-the-ui"></a>Een lokale ontwikkelomgeving voorbereiden in de gebruikersinterface
 
-Externe controle oplossingsverbetering UI-code is geïmplementeerd met behulp van het framework React.js. U vindt de broncode in de [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) GitHub-opslagplaats.
+De Remote Monitoring solution accelerator UI-code is geïmplementeerd met behulp van de React.js-framework. U vindt de broncode in de [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) GitHub-opslagplaats.
 
-Als u wijzigingen aan de gebruikersinterface, kunt u een kopie van het lokaal uitvoeren. De lokale kopie verbindt met een geïmplementeerd exemplaar van de oplossing voor het uitvoeren van acties zoals het ophalen van telemetrie.
+Als u wilt wijzigingen aanbrengt in de gebruikersinterface, kunt u een kopie van het lokaal uitvoeren. De lokale kopie maakt verbinding met een geïmplementeerd exemplaar van de oplossing voor het uitvoeren van acties zoals het ophalen van telemetrie.
 
-De volgende stappen geven een overzicht van het proces voor het instellen van een lokale omgeving voor het ontwikkelen van de gebruikersinterface:
+De volgende stappen beschrijven het proces voor het instellen van een lokale omgeving voor het ontwikkelen van de gebruikersinterface:
 
-1. Implementeer een **basic** exemplaar van de oplossing accelerator met behulp van de **pc's** CLI. Noteer de naam van uw implementatie en de referenties die u hebt opgegeven voor de virtuele machine. Zie voor meer informatie [implementeren met behulp van de CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
+1. Implementeer een **basic** exemplaar van de solution accelerator met behulp van de **pc's** CLI. Noteer de naam van uw implementatie en de referenties die u hebt opgegeven voor de virtuele machine. Zie voor meer informatie, [implementeren met behulp van de CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
-1. De Azure portal gebruiken of de [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) voor SSH-toegang tot de virtuele machine die als host fungeert voor de microservices in uw oplossing. Bijvoorbeeld:
+1. Gebruik de Azure-portal of de [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) voor SSH-toegang tot de virtuele machine die als host fungeert voor de microservices in uw oplossing. Bijvoorbeeld:
 
     ```sh
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-1. De Azure portal gebruiken of de [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) vinden van de naam en het openbare IP-adres van uw virtuele machine. Bijvoorbeeld:
+    U moet alleen SSH-toegang inschakelen tijdens het testen en ontwikkeling. Als u SSH schakelt, [moet u dit opnieuw zo snel mogelijk uitschakelen](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-azure-virtual-machines).
+
+1. Gebruik de Azure-portal of de [az CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) om de naam en openbare IP-adres van uw virtuele machine te vinden. Bijvoorbeeld:
 
     ```sh
     az resource list --resource-group {your solution name} -o table
     az vm list-ip-addresses --name {your vm name from previous command} --resource-group {your solution name} -o table
     ```
 
-1. SSH gebruiken voor verbinding met uw virtuele machine met behulp van de IP-adres uit de vorige stap, en geef de referenties die u hebt opgegeven toen u uitvoerde **pc's** voor het implementeren van de oplossing.
+1. SSH gebruiken om te verbinden met uw virtuele machine met behulp van het IP-adres uit de vorige stap en de referenties die u hebt opgegeven toen u uitvoerde **pc's** om de oplossing te implementeren.
 
-1. Voer de volgende opdrachten op de bash-shell op de virtuele machine zodat de lokale UX verbinding maken:
+1. Als u wilt toestaan dat de lokale UX om verbinding te maken, moet u de volgende opdrachten uitvoeren in de bash-shell in de virtuele machine:
 
     ```sh
     cd /app
@@ -53,27 +55,27 @@ De volgende stappen geven een overzicht van het proces voor het instellen van ee
 
 1. Nadat u ziet de opdracht is voltooid en de website wordt gestart, kunt u de verbinding verbreken van de virtuele machine.
 
-1. In het lokale exemplaar van de [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) -opslagplaats, bewerk de **.env** bestand naar de URL van uw geïmplementeerde oplossing toevoegen:
+1. In de lokale kopie van de [azure-iot-pcs-remote-monitoring-webui](https://github.com/Azure/azure-iot-pcs-remote-monitoring-webui) opslagplaats, bewerken de **.env** -bestand naar de URL van uw geïmplementeerde oplossing toevoegen:
 
     ```config
     NODE_PATH = src/
     REACT_APP_BASE_SERVICE_URL=https://{your solution name}.azurewebsites.net/
     ```
 
-1. Bij een opdrachtprompt in de lokale kopie van de `azure-iot-pcs-remote-monitoring-webui` map, voer de volgende opdrachten voor het installeren van de vereiste bibliotheken en lokaal uitvoeren van de gebruikersinterface:
+1. Bij een opdrachtprompt in de lokale kopie van de `azure-iot-pcs-remote-monitoring-webui` map, voer de volgende opdrachten op de vereiste bibliotheken installeren en lokaal uitvoeren van de gebruikersinterface:
 
     ```cmd/sh
     npm install
     npm start
     ```
 
-1. De vorige opdracht uitvoert de gebruikersinterface lokaal op http://localhost:3000/dashboard. U kunt de code bewerken terwijl de site wordt uitgevoerd en deze dynamisch bijwerken wordt weergegeven.
+1. De vorige opdracht wordt uitgevoerd de Webinterface lokaal op http://localhost:3000/dashboard. U kunt de code bewerken terwijl de site wordt uitgevoerd en zien dynamisch bijwerken.
 
 ## <a name="customize-the-layout"></a>De indeling aanpassen
 
-Elke pagina in de oplossing voor externe controle bestaat uit een set besturingselementen wordt aangeduid als *panelen* in de broncode. Bijvoorbeeld, de **Dashboard** pagina bestaat uit vijf panelen: overzicht, kaart, alarmen, Telemetrie en KPI's. U vindt de broncode dat elke pagina en de panelen op bepaalt de [pc's-remote-monitoring-webui](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub-opslagplaats. Bijvoorbeeld, de code die bepaalt de **Dashboard** pagina, de indeling en de panelen op de pagina bevindt zich in de [src/onderdelen/pagina's /-dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) map.
+Elke pagina in de oplossing voor externe controle bestaat uit een set besturingselementen, aangeduid als *panelen* in de broncode. Bijvoorbeeld, de **Dashboard** pagina bestaat uit vijf deelvensters: overzicht, kaart, waarschuwingen, Telemetrie en KPI's. U vindt de broncode dat elke pagina en de deelvensters in definieert de [pc's-remote-monitoring-webinterface](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub-opslagplaats. Bijvoorbeeld, de code die definieert de **Dashboard** pagina, de indeling en de panelen op de pagina bevindt zich in de [src/onderdelen/pagina's / dashboard](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) map.
 
-Omdat de panelen hun eigen lay-out en schaling beheren, kunt u eenvoudig de indeling van een pagina wijzigen. Bijvoorbeeld de volgende wijzigingen aan de **PageContent** -element in de `src/components/pages/dashboard/dashboard.js` bestand wisselen van de posities van de kaart en telemetrie panelen en wijzig de relatieve breedte van de kaart en panelen KPI:
+Omdat de panelen hun eigen lay-out en schaling beheren, kunt u eenvoudig de indeling van een pagina wijzigen. Bijvoorbeeld, de volgende wijzigingen aan de **PageContent** -element in de `src/components/pages/dashboard/dashboard.js` bestand wisselen de posities van de kaart en telemetrie panelen en wijzigt u de relatieve breedte van de kaart en KPI-deelvensters:
 
 ```nodejs
 <PageContent className="dashboard-container" key="page-content">
@@ -130,12 +132,12 @@ Omdat de panelen hun eigen lay-out en schaling beheren, kunt u eenvoudig de inde
 </PageContent>
 ```
 
-![De indeling Configuratiescherm wijzigen](./media/iot-accelerators-remote-monitoring-customize/layout.png)
+![Deelvenster-indeling wijzigen](./media/iot-accelerators-remote-monitoring-customize/layout.png)
 
 > [!NOTE]
 > De kaart is niet geconfigureerd in de lokale implementatie.
 
-U kunt ook toevoegen meerdere exemplaren van het paneel dezelfde of verschillende versies als u [dupliceren en aanpassen van een paneel](#duplicate-and-customize-an-existing-control). Het volgende voorbeeld laat zien hoe u twee exemplaren van het paneel telemetrie toevoegen door te bewerken de `src/components/pages/dashboard/dashboard.js` bestand:
+U kunt ook toevoegen meerdere exemplaren van het paneel met dezelfde of verschillende versies als u [dupliceren en een deelvenster aanpassen](#duplicate-and-customize-an-existing-control). Het volgende voorbeeld laat zien hoe u twee exemplaren van het paneel telemetrie toevoegen door te bewerken de `src/components/pages/dashboard/dashboard.js` bestand:
 
 ```nodejs
 <PageContent className="dashboard-container" key="page-content">
@@ -200,7 +202,7 @@ U kunt ook toevoegen meerdere exemplaren van het paneel dezelfde of verschillend
 </PageContent>
 ```
 
-Vervolgens kunt u verschillende telemetrie in elk Configuratiescherm bekijken:
+U kunt vervolgens verschillende telemetrie bekijken in elk Configuratiescherm:
 
 ![Meerdere telemetrie-panelen](./media/iot-accelerators-remote-monitoring-customize/multiple-telemetry.png)
 
@@ -209,17 +211,17 @@ Vervolgens kunt u verschillende telemetrie in elk Configuratiescherm bekijken:
 
 ## <a name="duplicate-and-customize-an-existing-control"></a>Dubbele en aanpassen van een bestaand besturingselement
 
-De volgende stappen wordt uitgelegd hoe u de **alarmen** Configuratiescherm als een voorbeeld van het dupliceren van een bestaande Configuratiescherm, wijzigen en de gewijzigde versie gebruiken:
+De volgende stappen wordt beschreven hoe u de **alarmen** deelvenster als een voorbeeld van het dupliceren van een bestaande Configuratiescherm, wijzigen en de aangepaste versie gebruiken:
 
-1. In het lokale exemplaar van de opslagplaats, maakt u een kopie van de **alarmen** map in de `src/components/pages/dashboard/panels` map. Naam van de nieuwe kopie **cust_alarms**.
+1. In de lokale kopie van de opslagplaats, maakt u een kopie van de **alarmen** map in de `src/components/pages/dashboard/panels` map. Noem de nieuwe kopie **cust_alarms**.
 
-1. In de **alarmsPanel.js** bestand de **cust_alarms** map, bewerkt u de naam van de klasse om te worden **CustAlarmsPanel**:
+1. In de **alarmsPanel.js** -bestand in de **cust_alarms** map, de naam van de klasse moet bewerken **CustAlarmsPanel**:
 
     ```nodejs
     export class CustAlarmsPanel extends Component {
     ```
 
-1. Voeg de volgende regel om de `src/components/pages/dashboard/panels/index.js` bestand:
+1. Voeg de volgende regel aan de `src/components/pages/dashboard/panels/index.js` bestand:
 
     ```nodejs
     export * from './cust_alarms';
@@ -249,11 +251,11 @@ De volgende stappen wordt uitgelegd hoe u de **alarmen** Configuratiescherm als 
     </Cell>
     ```
 
-U hebt nu de oorspronkelijke vervangen **alarmen** deelvenster met een kopie aangeroepen **CustAlarms**. Dit exemplaar is identiek aan de oorspronkelijke. U kunt nu de kopie wijzigen. Om bijvoorbeeld te wijzigen van de kolom bestellen in de **alarmen** Configuratiescherm:
+U hebt nu de oorspronkelijke vervangen **alarmen** Configuratiescherm met behulp van een kopie met de naam **CustAlarms**. Dit exemplaar is identiek aan de oorspronkelijke. U kunt nu de kopie wijzigen. Bijvoorbeeld, om te wijzigen van de kolom bestellen in de **alarmen** Configuratiescherm:
 
 1. Open het `src/components/pages/dashboard/panels/cust_alarms/alarmsPanel.js`-bestand.
 
-1. Wijzig de kolomdefinities zoals weergegeven in het volgende codefragment:
+1. Wijzig de kolomdefinities zoals wordt weergegeven in het volgende codefragment:
 
     ```nodejs
     this.columnDefs = [
@@ -272,11 +274,11 @@ U hebt nu de oorspronkelijke vervangen **alarmen** deelvenster met een kopie aan
 
 De volgende schermafbeelding ziet u de nieuwe versie van de **alarmen** Configuratiescherm:
 
-![Alarmen Configuratiescherm bijgewerkt](./media/iot-accelerators-remote-monitoring-customize/reorder-columns.png)
+![Paneel bijgewerkt](./media/iot-accelerators-remote-monitoring-customize/reorder-columns.png)
 
-## <a name="customize-the-telemetry-chart"></a>De grafiek telemetrie aanpassen
+## <a name="customize-the-telemetry-chart"></a>De telemetrie-grafiek aanpassen
 
-De grafiek telemetrie op de **Dashboard** pagina is gedefinieerd door de bestanden in de `src/components/pages/dashboard/panels/telemtry` map. De gebruikersinterface haalt de telemetrie van de back-end oplossing in de `src/services/telemetryService.js` bestand. De volgende stappen ziet u het wijzigen van de periode die wordt weergegeven in de grafiek telemetrie van 15 minuten 5 minuten:
+De grafiek telemetrie op de **Dashboard** pagina wordt gedefinieerd door de bestanden in de `src/components/pages/dashboard/panels/telemtry` map. De gebruikersinterface van de telemetrie opgehaald uit de back-end oplossing in de `src/services/telemetryService.js` bestand. De volgende stappen laten zien hoe u de geselecteerde periode weergegeven in de grafiek telemetrie tussen 15 minuten tot 5 minuten wijzigen:
 
 1. In de `src/services/telemetryService.js` bestand, zoek de aangeroepen functie **getTelemetryByDeviceIdP15M**. Maak een kopie van deze functie en de kopie als volgt wijzigen:
 
@@ -291,21 +293,21 @@ De grafiek telemetrie op de **Dashboard** pagina is gedefinieerd door de bestand
     }
     ```
 
-1. Voor het gebruik van deze nieuwe functie voor het vullen van de grafiek telemetrie, opent u de `src/components/pages/dashboard/dashboard.js` bestand. Zoek de regel die de telemetriestroom initialiseert en als volgt wijzigen:
+1. Voor het gebruik van deze nieuwe functie voor het vullen van de grafiek telemetrie, opent u de `src/components/pages/dashboard/dashboard.js` bestand. Zoek de regel die de telemetriestroom geïnitialiseerd en als volgt wijzigen:
 
     ```node.js
     const getTelemetryStream = ({ deviceIds = [] }) => TelemetryService.getTelemetryByDeviceIdP5M(deviceIds)
     ```
 
-De telemetrie-grafiek ziet nu de vijf minuten van telemetriegegevens:
+De telemetrie-grafiek toont de vijf minuten van telemetrische gegevens:
 
 ![Telemetrie-grafiek met van één dag](./media/iot-accelerators-remote-monitoring-customize/telemetry-period.png)
 
 ## <a name="add-a-new-kpi"></a>Een nieuwe KPI toevoegen
 
-De **Dashboard** pagina wordt weergegeven voor KPI's in de **System KPI's** Configuratiescherm. Deze KPI's worden berekend in de `src/components/pages/dashboard/dashboard.js` bestand. De KPI's worden weergegeven door de `src/components/pages/dashboard/panels/kpis/kpisPanel.js` bestand. De volgende stappen beschrijven het berekenen en weergeven van een nieuwe KPI-waarde op de **Dashboard** pagina. Het voorbeeld is het toevoegen van een nieuwe Percentagewijziging in het waarschuwingsbericht KPI:
+De **Dashboard** pagina worden weergegeven voor KPI's in de **System KPI's** deelvenster. Deze KPI's worden berekend in de `src/components/pages/dashboard/dashboard.js` bestand. De KPI's worden weergegeven door de `src/components/pages/dashboard/panels/kpis/kpisPanel.js` bestand. De volgende stappen wordt beschreven hoe u om te berekenen en een nieuwe KPI-waarde weergegeven op de **Dashboard** pagina. Het voorbeeld is het toevoegen van een nieuwe Wijzigingspercentage in waarschuwingssignalen KPI:
 
-1. Open het `src/components/pages/dashboard/dashboard.js`-bestand. Wijzig de **initialState** object wilt opnemen een **warningAlarmsChange** eigenschap als volgt:
+1. Open het `src/components/pages/dashboard/dashboard.js`-bestand. Wijzig de **initialState** object om op te nemen een **warningAlarmsChange** eigenschap als volgt te werk:
 
     ```nodejs
     const initialState = {
@@ -324,7 +326,7 @@ De **Dashboard** pagina wordt weergegeven voor KPI's in de **System KPI's** Conf
     };
     ```
 
-1. Wijzig de **currentAlarmsStats** object opnemen **totalWarningCount** als een eigenschap:
+1. Wijzig de **currentAlarmsStats** object om op te nemen **totalWarningCount** als een eigenschap:
 
     ```nodejs
     return {
@@ -336,7 +338,7 @@ De **Dashboard** pagina wordt weergegeven voor KPI's in de **System KPI's** Conf
     };
     ```
 
-1. De nieuwe KPI berekenen. De berekening van het aantal kritieke alarmen vinden. De code dupliceren en de kopie als volgt wijzigen:
+1. De nieuwe KPI berekenen. Zoek de berekening van het aantal kritieke waarschuwingen. De code dupliceren en de kopie als volgt wijzigen:
 
     ```nodejs
     // ================== Warning Alarms Count - START
@@ -349,7 +351,7 @@ De **Dashboard** pagina wordt weergegeven voor KPI's in de **System KPI's** Conf
     // ================== Warning Alarms Count - END
     ```
 
-1. Bevatten de nieuwe **warningAlarmsChange** KPI in de KPI-stroom:
+1. Zodat de nieuwe **warningAlarmsChange** KPI in de KPI-stroom:
 
     ```nodejs
     return ({
@@ -383,7 +385,7 @@ De **Dashboard** pagina wordt weergegeven voor KPI's in de **System KPI's** Conf
     } = this.state;
     ```
 
-1. De gegevens doorgegeven aan het deelvenster KPI's bijwerken:
+1. Update voor de gegevens aan het deelvenster KPI's doorgegeven:
 
     ```node.js
     <KpisPanel
@@ -405,7 +407,7 @@ U bent nu klaar met de wijzigingen in de `src/components/pages/dashboard/dashboa
     const { t, isPending, criticalAlarmsChange, warningAlarmsChange, error } = this.props;
     ```
 
-1. Wijzig de opmaak om de nieuwe KPI-waarde als volgt weer te geven:
+1. Wijzig de markering om de nieuwe KPI-waarde als volgt weer te geven:
 
     ```nodejs
     <div className="kpi-cell">
@@ -438,7 +440,7 @@ De **Dashboard** pagina wordt nu weergegeven voor de nieuwe KPI-waarde:
 
 ## <a name="customize-the-map"></a>De kaart aanpassen
 
-Zie de [aanpassen kaart](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map) pagina in GitHub voor meer informatie over de onderdelen van de kaart in de oplossing.
+Zie de [kaart aanpassen](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide#upgrade-map-key-to-see-devices-on-a-dynamic-map) pagina in GitHub voor meer informatie over de onderdelen van de kaart in de oplossing.
 
 <!--
 ### Connect an external visualization tool
@@ -447,19 +449,19 @@ See the [Connect an external visualization tool](https://github.com/Azure/azure-
 
 -->
 
-## <a name="other-customization-options"></a>Andere aanpassingsopties
+## <a name="other-customization-options"></a>Andere opties voor het aanpassen
 
-Als u wilt de presentatie en visualisaties laag in de oplossing voor externe controle verder wijzigen, kunt u de code bewerken. De relevante GitHub-opslagplaatsen zijn:
+Als u wilt de visualisaties en presentatie-laag in de oplossing voor externe controle verder aanpassen, kunt u de code bewerken. De relevante GitHub-opslagplaatsen zijn:
 
-* [De configuratie microservice voor Azure IoT oplossingen (.NET)](https://github.com/Azure/pcs-ui-config-dotnet/)
-* [De configuratie microservice voor Azure IoT-oplossingen (Java)](https://github.com/Azure/pcs-ui-config-java/)
-* [Azure IoT-pc's van een Remote Monitoring webgebruikersinterface](https://github.com/Azure/pcs-remote-monitoring-webui)
+* [De configuratie van microservice voor Azure IoT Solutions (.NET)](https://github.com/Azure/pcs-ui-config-dotnet/)
+* [De configuratie van microservice voor Azure IoT-oplossingen (Java)](https://github.com/Azure/pcs-ui-config-java/)
+* [Azure IoT-pc's-externe controle van Web-UI](https://github.com/Azure/pcs-remote-monitoring-webui)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u geleerd over de resources beschikbaar om te helpen u de webgebruikersinterface in Remote Monitoring solution accelerator aanpassen.
+In dit artikel hebt u geleerd over de resources beschikbaar voor het aanpassen van de web-UI in de oplossingsverbetering voor externe controle.
 
-Zie voor meer informatie over de oplossing voor externe controle accelerator [externe controle-architectuur](iot-accelerators-remote-monitoring-sample-walkthrough.md)
+Zie voor meer informatie over de oplossingsverbetering voor externe controle [architectuur voor externe controle](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-Zie voor meer informatie over het aanpassen van de oplossing voor externe controle [aanpassen en opnieuw een microservice](iot-accelerators-microservices-example.md)
+Zie voor meer informatie over het aanpassen van de oplossing voor externe controle [aanpassen en opnieuw implementeren van een microservice](iot-accelerators-microservices-example.md)
 <!-- Next tutorials in the sequence -->

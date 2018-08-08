@@ -1,34 +1,30 @@
 ---
-title: HBase-clusters maken in een virtueel netwerk - Azure | Microsoft Docs
-description: Aan de slag met HBase in Azure HDInsight. Informatie over hoe HDInsight HBase-clusters maken op Azure Virtual Network.
+title: HBase-clusters maken in een Virtueelnetwerk - Azure
+description: Aan de slag met HBase in Azure HDInsight. Informatie over het maken van HDInsight HBase-clusters op Azure Virtual Network.
 keywords: ''
 services: hdinsight,virtual-network
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 8de8e446-f818-4e61-8fad-e9d38421e80d
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: jgao
-ms.openlocfilehash: edcfa47eee0f085bad415be0d9b112bbc33c3eca
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: 33aba330735c53499a472f7e90d350c4edd54c41
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31521602"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592904"
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>HBase-clusters maken in HDInsight in Azure Virtual Network
 Informatie over het maken van Azure HDInsight HBase-clusters in een [Azure Virtual Network][1].
 
-Met integratie van virtueel netwerk, kunnen HBase-clusters worden geïmplementeerd op hetzelfde virtuele netwerk als uw toepassingen zodat toepassingen rechtstreeks met HBase communiceren kunnen. De voordelen zijn:
+Met integratie van virtuele netwerken, kunnen HBase-clusters worden geïmplementeerd in hetzelfde virtuele netwerk bevinden als uw toepassingen zodat toepassingen rechtstreeks met HBase communiceren kunnen. De volgende voordelen:
 
-* Directe verbinding van de webtoepassing aan de knooppunten van het HBase-cluster, waarmee communicatie via HBase Java externe procedureaanroepen (RPC) API's aanroepen.
-* Verbeterde prestaties omdat u niet hoeft uw verkeer Ga via meerdere gateways en load balancers.
-* De mogelijkheid om gevoelige informatie op een veiliger manier verwerken zonder een openbaar eindpunt bloot te stellen.
+* Directe verbinding van de web-App op de knooppunten van het HBase-cluster, waarmee communicatie via externe procedure HBase Java call (RPC) API's.
+* Verbeterde prestaties omdat u niet hoeft uw verkeer gaat over meerdere gateways en load balancers.
+* De mogelijkheid om gevoelige informatie op een veiliger manier zonder een openbaar eindpunt bloot te verwerken.
 
 ### <a name="prerequisites"></a>Vereisten
 Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
@@ -37,61 +33,61 @@ Voordat u met deze zelfstudie begint, moet u beschikken over de volgende items:
 * **Een werkstation met Azure PowerShell**. Zie [installeren en gebruiken Azure PowerShell](https://azure.microsoft.com/documentation/videos/install-and-use-azure-powershell/).
 
 ## <a name="create-hbase-cluster-into-virtual-network"></a>HBase-cluster in virtueel netwerk maken
-In deze sectie maakt u een Linux-gebaseerde HBase-cluster maken met het afhankelijke Azure Storage-account aan een virtuele Azure-netwerk met een [Azure Resource Manager-sjabloon](../../azure-resource-manager/resource-group-template-deploy.md). Voor andere methoden voor het maken van cluster en kennis van de instellingen, Zie [HDInsight-clusters maken](../hdinsight-hadoop-provision-linux-clusters.md). Zie voor meer informatie over het gebruik van een sjabloon voor het maken van Hadoop-clusters in HDInsight [maken Hadoop-clusters in HDInsight met behulp van Azure Resource Manager-sjablonen](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+In deze sectie maakt u een Linux-gebaseerd HBase-cluster maken met het afhankelijke Azure Storage-account in een virtueel Azure-netwerk met behulp van een [Azure Resource Manager-sjabloon](../../azure-resource-manager/resource-group-template-deploy.md). Voor andere methoden voor het maken van cluster en inzicht in de instellingen, Zie [maken van HDInsight-clusters](../hdinsight-hadoop-provision-linux-clusters.md). Zie voor meer informatie over het gebruik van een sjabloon te maken van Hadoop-clusters in HDInsight [Hadoop-clusters maken in HDInsight met behulp van Azure Resource Manager-sjablonen](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
 > [!NOTE]
-> Sommige eigenschappen zijn hardgecodeerd in de sjabloon. Bijvoorbeeld:
+> Sommige eigenschappen zijn vastgelegd in de sjabloon. Bijvoorbeeld:
 >
 > * **Locatie**: VS-Oost 2
 > * **Cluster-versie**: 3.6
 > * **Aantal worker-knooppunten cluster**: 2
 > * **Storage-account standaard**: een unieke tekenreeks
 > * **Virtuele-netwerknaam**: &lt;Clusternaam >-vnet
-> * **Adresruimte voor virtueel netwerk**: 10.0.0.0/16
-> * **De subnetnaam van het**: subnet1
-> * **Adresbereik van**: 10.0.0.0/24
+> * **Virtuele netwerkadresruimte**: 10.0.0.0/16
+> * **Subnetnaam**: subnet1
+> * **Subnetadresbereik**: 10.0.0.0/24
 >
-> &lt;Clusternaam > is vervangen door de clusternaam die u opgeeft wanneer u de sjabloon.
+> &lt;Clusternaam > is vervangen door de naam van het cluster die u opgeeft bij het gebruik van de sjabloon.
 >
 >
 
 1. Klik op de volgende afbeelding om de sjabloon in Azure Portal te openen. De sjabloon bevindt zich in [Azure-Snelstartsjablonen](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-provision-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. Van de **aangepaste implementatie** blade, voer de volgende eigenschappen:
+2. Uit de **aangepaste implementatie** blade, voer de volgende eigenschappen:
 
-   * **Abonnement**: Selecteer een Azure-abonnement gebruikt voor het maken van het HDInsight-cluster, het afhankelijke opslagaccount en de virtuele Azure-netwerk.
-   * **Resourcegroep**: Selecteer **nieuw**, en geef een nieuwe Resourcegroepnaam.
+   * **Abonnement**: Selecteer een Azure-abonnement gebruikt voor het maken van het HDInsight-cluster, het afhankelijke opslagaccount en de Azure-netwerk.
+   * **Resourcegroep**: Selecteer **nieuw**, en geef de naam van een nieuwe resourcegroep.
    * **Locatie**: selecteer een locatie voor de resourcegroep.
    * **Clusternaam**: Voer een naam voor het Hadoop-cluster moet worden gemaakt.
    * **Aanmeldingsgegevens voor het cluster**: de standaardaanmeldingsnaam is **admin**.
    * **SSH-gebruikersnaam en -wachtwoord**: de standaardgebruikersnaam is **sshuser**.  U kunt de naam wijzigen.
-   * **Ik ga akkoord met de voorwaarden de hierboven vermelde**: (selecteren)
-3. Klik op **Kopen**. Het duurt ongeveer 20 minuten om een cluster te maken. Zodra het cluster is gemaakt, kunt u de cluster-blade in de portal om deze te openen.
+   * **Ik ga akkoord met de voorwaarden en de bovenstaande voorwaarden**: (selecteren)
+3. Klik op **Kopen**. Het duurt ongeveer 20 minuten om een cluster te maken. Zodra het cluster is gemaakt, kunt u de clusterblade in de portal om dit te openen.
 
-Nadat u de zelfstudie hebt voltooid, kunt u het cluster verwijdert. Met HDInsight worden uw gegevens opgeslagen in Azure Storage zodat u een cluster veilig kunt verwijderen wanneer deze niet wordt gebruikt. Voor een HDInsight-cluster worden ook kosten in rekening gebracht, zelfs wanneer het niet wordt gebruikt. Aangezien de kosten voor het cluster vaak zoveel hoger zijn dan de kosten voor opslag, is het financieel gezien logischer clusters te verwijderen wanneer ze niet worden gebruikt. Zie voor de instructies van het verwijderen van een cluster [beheren Hadoop-clusters in HDInsight met behulp van de Azure-portal](../hdinsight-administer-use-management-portal.md#delete-clusters).
+Nadat u de zelfstudie hebt voltooid, is het raadzaam om het cluster te verwijderen. Met HDInsight worden uw gegevens opgeslagen in Azure Storage zodat u een cluster veilig kunt verwijderen wanneer deze niet wordt gebruikt. Voor een HDInsight-cluster worden ook kosten in rekening gebracht, zelfs wanneer het niet wordt gebruikt. Aangezien de kosten voor het cluster vaak zoveel hoger zijn dan de kosten voor opslag, is het financieel gezien logischer clusters te verwijderen wanneer ze niet worden gebruikt. Zie voor de instructies van het verwijderen van een cluster, [beheren van Hadoop-clusters in HDInsight met behulp van de Azure-portal](../hdinsight-administer-use-management-portal.md#delete-clusters).
 
 Als u wilt werken met uw nieuwe HBase-cluster, kunt u de procedures die zijn gevonden in [aan de slag met HBase met Hadoop in HDInsight](./apache-hbase-tutorial-get-started-linux.md).
 
-## <a name="connect-to-the-hbase-cluster-using-hbase-java-rpc-apis"></a>Verbinding maken met de HBase-cluster met HBase Java RPC-API 's
-1. Maak een infrastructuur als een dienst (IaaS) virtuele machine in hetzelfde virtuele netwerk van Azure en hetzelfde subnet. Zie voor instructies over het maken van een nieuwe virtuele machine voor IaaS [maken van een virtuele Machine Running Windows Server](../../virtual-machines/windows/quick-create-portal.md). Wanneer u de stappen in dit document, moet u de volgende waarden gebruiken voor de netwerkconfiguratie:
+## <a name="connect-to-the-hbase-cluster-using-hbase-java-rpc-apis"></a>Verbinding maken met de HBase-cluster met behulp van HBase Java RPC-API 's
+1. Maak een infrastructuur als een service (IaaS) virtuele machine in hetzelfde Azure virtual network en hetzelfde subnet bevinden. Zie voor instructies over het maken van een nieuwe virtuele machine voor IaaS [maken van een virtuele Machine Running Windows Server](../../virtual-machines/windows/quick-create-portal.md). Wanneer u de stappen in dit document, moet u de volgende waarden voor de configuratie van het netwerk:
 
    * **Virtueel netwerk**: &lt;Clusternaam >-vnet
    * **Subnet**: subnet1
 
    > [!IMPORTANT]
-   > Vervang &lt;Clusternaam > met de naam die u hebt gebruikt bij het maken van het HDInsight-cluster in de vorige stappen.
+   > Vervang &lt;Clusternaam > met de naam die u hebt gebruikt bij het HDInsight-cluster in de vorige stappen is gemaakt.
    >
    >
 
-   De virtuele machine wordt met behulp van deze waarden geplaatst in het hetzelfde virtuele netwerk en subnet als het HDInsight-cluster. Deze configuratie kan ze rechtstreeks met elkaar communiceren. Er is een manier om een HDInsight-cluster maken met een leeg edge-knooppunt. Het edge-knooppunt kan worden gebruikt voor het beheren van het cluster.  Zie voor meer informatie [leeg edge-knooppunten gebruiken in HDInsight](../hdinsight-apps-use-edge-node.md).
+   De virtuele machine wordt met behulp van deze waarden geplaatst in hetzelfde virtuele netwerk en subnet als het HDInsight-cluster. Deze configuratie kan ze rechtstreeks met elkaar communiceren. Er is een manier om een HDInsight-cluster maken met een lege edge-knooppunt. Het edge-knooppunt kan worden gebruikt voor het beheren van het cluster.  Zie voor meer informatie, [lege edge-knooppunten gebruiken in HDInsight](../hdinsight-apps-use-edge-node.md).
 
-2. Wanneer u een Java-toepassing op afstand verbinding maken met HBase, moet u de volledig gekwalificeerde domeinnaam (FQDN). Als u wilt bepalen, moet u het verbindingsspecifieke DNS-achtervoegsel van de HBase-cluster ophalen. Hiervoor kunt u een van de volgende methoden gebruiken:
+2. Wanneer u een Java-toepassing op afstand verbinding maken met HBase, moet u de volledig gekwalificeerde domeinnaam (FQDN) gebruiken. Als u wilt bepalen, moet u het verbindingsspecifieke DNS-achtervoegsel van de HBase-cluster ophalen. Om dit te doen, kunt u een van de volgende methoden gebruiken:
 
-   * Een webbrowser gebruiken om een oproep Ambari te doen:
+   * Gebruik een webbrowser om een aanroep van Ambari:
 
      Blader naar https://&lt;ClusterName >.azurehdinsight.net/api/v1/clusters/&lt;ClusterName > / als host fungeert voor? minimal_response = true. Hiermee schakelt u een JSON-bestand met de DNS-achtervoegsels.
-   * Gebruik de Ambari-website:
+   * Gebruik van de Ambari-website:
 
      1. Blader naar https://&lt;ClusterName >. azurehdinsight.net.
      2. Klik op **Hosts** in het menu bovenaan.
@@ -101,16 +97,16 @@ Als u wilt werken met uw nieuwe HBase-cluster, kunt u de procedures die zijn gev
         curl -u <username>:<password> -k https://<clustername>.azurehdinsight.net/ambari/api/v1/clusters/<clustername>.azurehdinsight.net/services/hbase/components/hbrest
     ```
 
-     In de notatie JSON (JavaScript Object)-gegevens geretourneerd, de vermelding 'hostnaam' niet vinden. Het bevat de FQDN-naam voor de knooppunten in het cluster. Bijvoorbeeld:
+     In het JavaScript Object Notation (JSON)-gegevens die zijn geretourneerd, vindt u de vermelding 'hostnaam'. Het bevat de FQDN-naam voor de knooppunten in het cluster. Bijvoorbeeld:
 
          ...
          "host_name": "wordkernode0.<clustername>.b1.cloudapp.net
          ...
 
-     Het gedeelte van het domein naam die begint met de naam van het cluster is het DNS-achtervoegsel. Bijvoorbeeld: mycluster.b1.cloudapp.net.
+     Het gedeelte van het domein naam die begint met de naam van het cluster is het DNS-achtervoegsel. Bijvoorbeeld, mycluster.b1.cloudapp.net.
    * Azure PowerShell gebruiken
 
-     De volgende Azure PowerShell-script gebruiken om te registreren de **Get-ClusterDetail** functie, die kan worden gebruikt voor het retourneren van de DNS-achtervoegsel:
+     De volgende Azure PowerShell-script gebruiken om te registreren de **Get-ClusterDetail** functie, die kan worden gebruikt om te retourneren van de DNS-achtervoegsel:
 
     ```powershell
         function Get-ClusterDetail(
@@ -204,13 +200,13 @@ Als u wilt werken met uw nieuwe HBase-cluster, kunt u de procedures die zijn gev
         }
     ```
 
-     Nadat de Azure PowerShell-script is uitgevoerd, kunt u de volgende opdracht gebruiken om te retourneren van de DNS-achtervoegsel met behulp van de **Get-ClusterDetail** functie. Geef uw naam van HDInsight HBase-cluster, naam van de serverbeheerder en beheerderswachtwoord wanneer u deze opdracht.
+     Nadat de Azure PowerShell-script is uitgevoerd, gebruikt u de volgende opdracht uit om terug te keren van de DNS-achtervoegsel met behulp van de **Get-ClusterDetail** functie. De naam van HDInsight HBase-cluster, naam van de beheerder en beheerderswachtwoord opgeven wanneer u deze opdracht.
 
     ```powershell
         Get-ClusterDetail -ClusterDnsName <yourclustername> -PropertyName FQDNSuffix -Username <clusteradmin> -Password <clusteradminpassword>
     ```
 
-     Deze opdracht retourneert de DNS-achtervoegsel. Bijvoorbeeld: **yourclustername.b4.internal.cloudapp.net**.
+     Met deze opdracht retourneert de DNS-achtervoegsel. Bijvoorbeeld, **yourclustername.b4.internal.cloudapp.net**.
 
 
 <!--
@@ -228,9 +224,9 @@ Als u wilt werken met uw nieuwe HBase-cluster, kunt u de procedures die zijn gev
     5. Reboot the virtual machine.
 -->
 
-Gebruik de opdracht om te controleren of de virtuele machine met de HBase-cluster communiceren kan, `ping headnode0.<dns suffix>` van de virtuele machine. Bijvoorbeeld: ping headnode0.mycluster.b1.cloudapp.net.
+Om te controleren dat de virtuele machine met de HBase-cluster communiceren kan, gebruikt u de opdracht `ping headnode0.<dns suffix>` van de virtuele machine. Bijvoorbeeld: ping headnode0.mycluster.b1.cloudapp.net.
 
-Als u deze informatie in een Java-toepassing, kunt u de stappen in [Maven gebruiken voor het ontwikkelen van Java-toepassingen die gebruikmaken van HBase met HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md) een toepassing maken. Als u de toepassing verbinding maken met een externe HBase-server wilt weergeven, wijzigen de **hbase-site.xml** bestand in dit voorbeeld met de FQDN-naam voor Zookeeper. Bijvoorbeeld:
+Als u deze informatie in een Java-toepassing, kunt u Volg de stappen in [gebruik Maven om Java-toepassingen die HBase met HDInsight (Hadoop gebruiken) te bouwen](./apache-hbase-build-java-maven-linux.md) om een toepassing te maken. Als u de toepassing die verbinding maken met een externe HBase-server wilt weergeven, wijzigen de **hbase-site.xml** bestand in dit voorbeeld met de FQDN-naam voor Zookeeper. Bijvoorbeeld:
 
     <property>
         <name>hbase.zookeeper.quorum</name>
@@ -243,10 +239,10 @@ Als u deze informatie in een Java-toepassing, kunt u de stappen in [Maven gebrui
 >
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie hebt u geleerd hoe een HBase-cluster maken. Voor meer informatie zie:
+In deze zelfstudie hebt u geleerd hoe u een HBase-cluster maakt. Voor meer informatie zie:
 
 * [Aan de slag met HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Lege edge-knooppunten in HDInsight gebruiken](../hdinsight-apps-use-edge-node.md)
+* [Lege edge-knooppunten gebruiken in HDInsight](../hdinsight-apps-use-edge-node.md)
 * [HBase-replicatie in HDInsight configureren](apache-hbase-replication.md)
 * [Hadoop-clusters maken in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 * [Aan de slag met HBase en Hadoop in HDInsight](./apache-hbase-tutorial-get-started-linux.md)

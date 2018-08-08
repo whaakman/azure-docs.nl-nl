@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2018
 ms.author: jonor
-ms.openlocfilehash: 2c8ca8bcce43596d521fa9c81438ac6a16f6dcdf
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: fc3f334771c11d6917e15628557adfb59051f0f6
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445378"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621018"
 ---
 # <a name="azure-virtual-datacenter-a-network-perspective"></a>Azure Virtual Datacenter: Een Netwerkperspectief
 **Microsoft Azure**: wees sneller, geld te besparen, on-premises toepassingen en gegevens integreren
@@ -262,7 +262,7 @@ In een vDC is het uiterst belangrijk om bij te houden van de logboeken van nsg's
 
 Alle logboeken kunnen worden opgeslagen in Azure Storage-Accounts voor controle-, statische analysis- of back-updoeleinden. Wanneer de logboeken worden opgeslagen in Azure storage-account, kunnen klanten verschillende soorten frameworks gebruiken om te halen, voorbereiden, analyseren en visualiseren van deze gegevens om te rapporteren van de status en integriteit van cloudresources.
 
-Grote ondernemingen moeten al een standaard framework voor het bewaken van on-premises systemen hebben aangeschaft en die framework voor het integreren van logboeken die worden gegenereerd door cloudimplementaties kunnen uitbreiden. Organisaties die willen houden de registratie in de cloud, is Log Analytics [LogAnalytics] een uitstekende keuze. Sinds de Log Analytics wordt geïmplementeerd als een cloud-gebaseerde service, kunt u laten actief en werkend snel met minimale investeringen in infrastructuurservices. Log Analytics kan ook worden geïntegreerd met System Center-onderdelen, zoals System Center Operations Manager om uit te breiden van uw bestaande investeringen in beheerfuncties in de cloud.
+Grote ondernemingen moeten al een standaard framework voor het bewaken van on-premises systemen hebben aangeschaft en die framework voor het integreren van logboeken die worden gegenereerd door cloudimplementaties kunnen uitbreiden. Voor organisaties die willen alle registratie bewaren in de cloud, [Log Analytics] [.. / log-analytics/log-analytics-overzicht .md] is een uitstekende keuze. Sinds de Log Analytics wordt geïmplementeerd als een cloud-gebaseerde service, kunt u laten actief en werkend snel met minimale investeringen in infrastructuurservices. Log Analytics kan ook worden geïntegreerd met System Center-onderdelen, zoals System Center Operations Manager om uit te breiden van uw bestaande investeringen in beheerfuncties in de cloud.
 
 Log Analytics is een service in Azure waarmee u kunt verzamelen, correleren, zoeken en erop logboek- en prestatiegegevens die worden gegenereerd door besturingssystemen, toepassingen en onderdelen van de infrastructuur-cloud. Dit biedt klanten real-time operational insights met behulp van geïntegreerde Zoek- en aangepaste dashboards voor het analyseren van alle records voor uw workloads in een vDC.
 

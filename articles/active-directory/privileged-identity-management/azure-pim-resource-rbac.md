@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: protection
+ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 07fe49be9fcb879b86d2b8a33799d11deb7d7446
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9b4980681cb3e7442211b06255d6eefd8a1b1170
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38528617"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622351"
 ---
 # <a name="pim-for-azure-resources"></a>PIM voor Azure-resources
 
-Met Azure Active Directory Privileged Identity Management (PIM), kunt u nu beheren, beheren en te controleren, toegang tot Azure-Resources binnen uw organisatie. Dit omvat abonnementen, resourcegroepen en zelfs virtuele Machines. Elke resource in Azure portal die gebruikmaakt van de functionaliteit van Azure rollen gebaseerd toegangsbeheer (RBAC) kunt profiteren van alle de uitstekende beveiligings- en functionaliteit voor het beheer die Azure AD PIM te bieden heeft en aantal geweldige nieuwe functies die we om te plannen Azure AD-rollen beschikbaar. 
+Met Azure Active Directory Privileged Identity Management (PIM) kunt u nu toegang tot Azure-resources binnen uw organisatie beheren, bepalen en controleren. Dit omvat abonnementen, resourcegroepen en zelfs virtuele Machines. Elke resource in Azure portal die gebruikmaakt van de functionaliteit van Azure rollen gebaseerd toegangsbeheer (RBAC) kunt profiteren van alle de uitstekende beveiligings- en functionaliteit voor het beheer die Azure AD PIM te bieden heeft en aantal geweldige nieuwe functies die we om te plannen Azure AD-rollen beschikbaar. 
 
 ## <a name="pim-for-azure-resources-helps-resource-administrators"></a>PIM voor Azure-Resources kan beheerders een resource
 

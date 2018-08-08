@@ -1,15 +1,14 @@
-
 ## <a name="add-the-applications-registration-information-to-your-app"></a>De registratiegegevens van de toepassing toevoegen aan uw app
 
 In deze stap moet u de Client-ID toevoegen aan uw project.
 
-1.  Open `MainActivity` (onder `app`  >  `java`  >   *`{host}.{namespace}`* )
+1.  Open `MainActivity` (onder `app`  >  `java`  >  *`{host}.{namespace}`*)
 2.  Vervang de regel die begint met `final static String CLIENT_ID` met:
 ```java
 final static String CLIENT_ID = "[Enter the application Id here]";
 ```
 3. Open: `app` > `manifests` > `AndroidManifest.xml`
-4. Voeg de volgende activiteiten `manifest\application` knooppunt. In dit register een `BrowserTabActivity` waarmee het besturingssysteem op uw toepassing na het voltooien van de verificatie hervatten:
+4. Voeg de volgende activiteit in op `manifest\application` knooppunt. In dit register een `BrowserTabActivity` waarmee het besturingssysteem te hervatten van de toepassing na het voltooien van de verificatie:
 
 ```xml
 <!--Intent filter to capture System Browser calling back to our app after Sign In-->

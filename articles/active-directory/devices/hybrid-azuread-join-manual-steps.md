@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2ee54ca3d6e787267010736343a570e614c4204d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 546717330a08b348800ea9c4c9cd7784f54595eb
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427547"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618520"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Zelfstudie: Hybride Azure Active Directory verbonden apparaten handmatig configureren 
 
@@ -574,7 +574,12 @@ Wanneer u de vereiste stappen hebt voltooid, gaan domein apparaten worden automa
 
 ### <a name="remarks"></a>Opmerkingen
 
-- U kunt een Group Policy object of System Center Configuration Manager client-instelling voor het beheren van de implementatie van automatische inschrijving van Windows 10 en Windows Server 2016 domein computers gebruiken. **Als u niet wilt dat deze apparaten automatisch registreren bij Azure AD of u wilt voor het beheren van de registratie**, en vervolgens moet u Groepsbeleid eerst uitschakelen van de automatische inschrijving naar al deze apparaten uitgerold of als u van configuratie gebruikmaakt Manager moet u de clientinstelling in Cloud Services configureren -> automatisch nieuwe Windows 10 domein apparaten registreren met Azure Active Directory op "Nee", voordat u begint met een van de configuratiestappen. Als u klaar bent u configureert, en wanneer u klaar om te testen bent, moet u Groepsbeleid inschakelen van de automatische inschrijving alleen voor de testapparaten implementeren en kies vervolgens voor alle andere apparaten als u.
+- U kunt een Group Policy object of System Center Configuration Manager client-instelling voor het beheren van de implementatie van automatische inschrijving van Windows 10 en Windows Server 2016 domein computers gebruiken. **Als u niet wilt dat deze apparaten automatisch registreren bij Azure AD of u wilt voor het beheren van de registratie**, en vervolgens moet u Groepsbeleid eerst uitschakelen van de automatische inschrijving naar al deze apparaten uitgerold of als u van configuratie gebruikmaakt Manager moet u de clientinstelling in Cloud Services configureren > nieuwe Windows 10 domein apparaten automatisch wordt geregistreerd bij Azure Active Directory op "Nee", voordat u begint met een van de configuratiestappen. 
+
+> [!Important]
+> Aangezien er een mogelijke vertraging in de toepassing van de group policy object op Nieuw Domeincomputers gedurende welke de poging van de automatische registratie van Windows 10-apparaten zich voordoen is kan, moet u een nieuwe sysprep-afbeelding maken van een Windows 10-apparaat dat nooit was eerder automatisch geregistreerd en die al is GPO uitschakelen van de automatische registratie van Windows 10-apparaten en dat sysprep-afbeelding gebruiken voor het inrichten van de nieuwe computers die deel van het domein van uw organisatie uitmaken gaan.
+
+Als u klaar bent u configureert, en wanneer u klaar om te testen bent, moet u Groepsbeleid inschakelen van de automatische inschrijving alleen voor de testapparaten implementeren en kies vervolgens voor alle andere apparaten als u.
 
 - Implementatie van Windows downlevel-computers, u kunt implementeren een [Windows Installer-pakket](#windows-installer-packages-for-non-windows-10-computers) op computers die u selecteert.
 

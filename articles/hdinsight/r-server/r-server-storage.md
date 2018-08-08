@@ -1,57 +1,53 @@
 ---
-title: Azure Storage-oplossingen voor Services op HDInsight - Azure ML | Microsoft Docs
-description: Meer informatie over de verschillende opties voor opslag beschikbaar met ML-Services op HDInsight
+title: Azure Storage-oplossingen voor ML-Services op HDInsight - Azure
+description: Meer informatie over de verschillende opslagopties met ML-Services op HDInsight
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 1cf30096-d3ca-45ea-b526-aa3954402f66
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: f5b9b180f8a6f825e4d91850ee72af19e6d09a4c
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 2f0c8ba7bb5e9f82a303d3a152097a76cdad2e20
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052960"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619199"
 ---
-# <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure Storage-oplossingen voor ML-Services in Azure HDInsight
+# <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Azure Storage-oplossingen voor ML-Services op Azure HDInsight
 
-ML-Services op HDInsight kunt u tal van opslagoplossingen gebruiken voor het persistent maken van gegevens, code of objecten die bevatten de resultaten van de analyse. Deze omvatten de volgende opties:
+ML-Services op HDInsight kunt u een verscheidenheid aan oplossingen voor opslag gebruiken om vast te leggen van gegevens, code of objecten die bevatten de resultaten van analyse. Deze omvatten de volgende opties:
 
 - [Azure Blob](https://azure.microsoft.com/services/storage/blobs/)
-- [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/)
+- [Azure Data Lake-opslag](https://azure.microsoft.com/services/data-lake-store/)
 - [Azure File storage](https://azure.microsoft.com/services/storage/files/)
 
-U hebt ook de optie van de toegang tot meerdere Azure storage-accounts of containers met uw HDInsight-cluster. Azure File storage is een handige gegevens voor de opslagoptie voor gebruik op de edge-knooppunt dat kunt u het koppelen van een Azure Storage-bestandsshare, bijvoorbeeld het Linux-bestandssysteem. Maar Azure-bestandsshares kunnen worden gekoppeld en die wordt gebruikt door een systeem waarop een ondersteund besturingssysteem, zoals Windows of Linux. 
+U hebt ook de mogelijkheid om toegang tot meerdere Azure storage-accounts of containers met uw HDInsight-cluster. Azure File storage is een handige gegevens voor de opslagoptie voor gebruik op het edge-knooppunt waarmee u een Azure Storage file share koppelen voor, bijvoorbeeld, het Linux-bestandssysteem. Maar Azure-bestandsshares kunnen worden gekoppeld en die worden gebruikt door een systeem met een ondersteund besturingssysteem, zoals Windows of Linux. 
 
-Wanneer u een Hadoop-cluster in HDInsight maakt, geeft u ofwel een **Azure storage** account of een **Data Lake store**. Een specifieke storage-container uit dat account bevat het bestandssysteem voor het cluster dat u (bijvoorbeeld Hadoop Distributed File System maakt). Zie voor meer informatie en richtlijnen:
+Wanneer u een Hadoop-cluster in HDInsight maakt, u opgeven of een **Azure storage** account of een **Data Lake store**. Een specifieke storage-container uit dat account bevat het bestandssysteem voor het cluster dat u (bijvoorbeeld, de Hadoop Distributed File System maakt). Zie voor meer informatie over en richtlijnen:
 
 - [Azure storage gebruiken met HDInsight](../hdinsight-hadoop-use-blob-storage.md)
 - [Gebruik Data Lake Store met Azure HDInsight-clusters](../hdinsight-hadoop-use-data-lake-store.md)
 
-## <a name="use-azure-blob-storage-accounts-with-ml-services-cluster"></a>Azure Blob storage-accounts gebruiken met cluster ML-Services
+## <a name="use-azure-blob-storage-accounts-with-ml-services-cluster"></a>Azure Blob storage-accounts met ML-Services-cluster gebruiken
 
-Als u meer dan één opslagaccount hebt opgegeven bij het maken van uw cluster ML-Services, heeft de volgende instructies wordt uitgelegd hoe u een secundaire account gebruiken voor toegang tot gegevens en bewerkingen op een cluster ML-Services worden weergegeven. De volgende storage-accounts en container: **storage1** en standaardcontainer aangeroepen **container1**, en **storage2** met **container2**.
+Als u meer dan één opslagaccount opgegeven bij het maken van uw cluster ML-Services, heeft de volgende instructies wordt uitgelegd hoe u een secundaire account gebruiken voor toegang tot gegevens en bewerkingen op een cluster ML-Services worden weergegeven. Wordt ervan uitgegaan dat de volgende storage-accounts en -container: **storage1** en een standaard-container met de naam **container1**, en **storage2** met **container2**.
 
 > [!WARNING]
-> Voor de doeleinden van prestaties, wordt het HDInsight-cluster gemaakt in hetzelfde Datacenter als het primaire opslagaccount die u opgeeft. Met behulp van een opslagaccount in een andere locatie dan het HDInsight-cluster wordt niet ondersteund.
+> Voor testdoeleinden, prestaties, is het HDInsight-cluster gemaakt in hetzelfde Datacenter als het primaire opslagaccount die u opgeeft. Met behulp van een storage-account in een andere locatie dan het HDInsight-cluster wordt niet ondersteund.
 
-### <a name="use-the-default-storage-with-ml-services-on-hdinsight"></a>De standaard-opslag met ML-Services op HDInsight gebruiken
+### <a name="use-the-default-storage-with-ml-services-on-hdinsight"></a>Gebruik de standaardopslag met ML-Services op HDInsight
 
-1. Met behulp van een SSH-client verbinding maken met het edge-knooppunt van het cluster. Zie voor meer informatie over het gebruik van SSH met HDInsight-clusters [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Met behulp van een SSH-client, verbinding maken met het edge-knooppunt van het cluster. Zie voor meer informatie over het gebruik van SSH met HDInsight-clusters [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
   
-2. Kopieer een voorbeeldbestand mysamplefile.csv, naar de map/share. 
+2. Een voorbeeldbestand, mysamplefile.csv, kopiëren naar de map/share. 
 
         hadoop fs –mkdir /share
         hadoop fs –copyFromLocal mycsv.scv /share  
 
-3. Ga naar R Studio of een andere R-console en R code schrijven voor het knooppunt naam ingesteld op **standaard** en de locatie van het bestand dat u wilt openen.  
+3. Ga naar de R Studio of een andere R-console, en om te stellen van de naam van knooppunt voor R-code schrijven **standaard** en de locatie van het bestand dat u wilt openen.  
 
         myNameNode <- "default"
         myPort <- 0
@@ -71,13 +67,13 @@ Als u meer dan één opslagaccount hebt opgegeven bij het maken van uw cluster M
         #Specify the input file to analyze in HDFS:
         inputFile <-file.path(bigDataDirRoot,"mysamplefile.csv")
 
-Alle mappen en bestanden verwijzingen verwijzen naar het opslagaccount `wasb://container1@storage1.blob.core.windows.net`. Dit is de **standaard opslagaccount** die is gekoppeld aan het HDInsight-cluster.
+Alle verwijzingen naar map- en wijst u naar het opslagaccount dat `wasb://container1@storage1.blob.core.windows.net`. Dit is de **storage-account standaard** die is gekoppeld aan het HDInsight-cluster.
 
 ### <a name="use-the-additional-storage-with-ml-services-on-hdinsight"></a>De extra opslagruimte met ML-Services op HDInsight gebruiken
 
-Stel nu dat u wilt laten verwerken van een bestand met de naam mysamplefile1.csv die zich in de /private map van **container2** in **storage2**.
+Stel nu dat u wilt verwerken van een bestand met de naam mysamplefile1.csv die zich in de /private map van **container2** in **storage2**.
 
-In uw code R, wijst u de naam van knooppunt verwijzing naar de **storage2** storage-account.
+In uw R-code, wijst u de naam van knooppunt-verwijzing naar de **storage2** storage-account.
 
     myNameNode <- "wasb://container2@storage2.blob.core.windows.net"
     myPort <- 0
@@ -97,35 +93,35 @@ In uw code R, wijst u de naam van knooppunt verwijzing naar de **storage2** stor
     #Specify the input file to analyze in HDFS:
     inputFile <-file.path(bigDataDirRoot,"mysamplefile1.csv")
 
-Alle verwijzingen van de map- en wijs nu het opslagaccount `wasb://container2@storage2.blob.core.windows.net`. Dit is de **naam knooppunt** die u hebt opgegeven.
+Alle van de map- en verwijzingen verwijst nu naar het opslagaccount dat `wasb://container2@storage2.blob.core.windows.net`. Dit is de **naam knooppunt** die u hebt opgegeven.
 
-U hoeft te configureren/User/RevoShare/<SSH username> directory op **storage2** als volgt:
+U moet configureren de/User/RevoShare/<SSH username> map op **storage2** als volgt:
 
 
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare
     hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
 
-## <a name="use-an-azure-data-lake-store-with-ml-services-cluster"></a>Gebruik een Azure Data Lake Store met cluster ML-Services 
+## <a name="use-an-azure-data-lake-store-with-ml-services-cluster"></a>Een Azure Data Lake Store gebruiken met ML-Services-cluster 
 
-Voor het gebruik van Data Lake Store met uw HDInsight-cluster, moet u uw cluster toegang geven tot elke Azure Data Lake Store die u wilt gebruiken. Zie voor instructies over het gebruik van de Azure-portal voor het maken van een HDInsight-cluster met een Azure Data Lake Store-account als de standaard-opslag of als een extra store [een HDInsight-cluster maken met Data Lake Store met Azure-portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+Voor het gebruik van Data Lake Store met uw HDInsight-cluster, moet u uw cluster toegang geven tot de Azure Data Lake Store die u wilt gebruiken. Zie voor instructies over het gebruik van de Azure-portal een HDInsight-cluster maken met een account voor Azure Data Lake Store als standaardopslag of als een aanvullende store [een HDInsight-cluster maken met Data Lake Store met behulp van Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
-U gebruikt het archief in uw R-script veel net zoals een secundaire Azure storage-account zoals beschreven in de vorige procedure.
+Vervolgens gebruikt u de store in uw R-script veel zoals u een secundaire Azure-opslagaccount hebt gedaan, zoals beschreven in de vorige procedure.
 
-### <a name="add-cluster-access-to-your-azure-data-lake-stores"></a>Toegang tot cluster toevoegen aan uw Azure Data Lake winkels
-U toegang tot een Data Lake store met behulp van een Service-Principal voor Azure Active Directory (Azure AD) dat is gekoppeld aan uw HDInsight-cluster.
+### <a name="add-cluster-access-to-your-azure-data-lake-stores"></a>Toegang tot het cluster toevoegen aan uw Azure Data Lake Stores
+U toegang tot een Data Lake store met behulp van een Service-Principal voor Azure Active Directory (Azure AD) die is gekoppeld aan uw HDInsight-cluster.
 
-1. Wanneer u uw HDInsight-cluster maakt, selecteert u **Cluster AAD-identiteit** van de **gegevensbron** tabblad.
+1. Wanneer u uw HDInsight-cluster maakt, selecteert u **Cluster AAD-identiteit** uit de **gegevensbron** tabblad.
 
-2. In de **Cluster AAD-identiteit** dialoogvenster onder **AD Service-Principal selecteren**, selecteer **nieuw**.
+2. In de **Cluster AAD-identiteit** dialoogvenster onder **AD-Service-Principal selecteren**, selecteer **nieuw**.
 
 Nadat u de Service-Principal een naam geven en een wachtwoord voor het maken, klikt u op **ADLS-toegang beheren** de Service-Principal koppelen aan uw Data Lake Store.
 
-Het is ook mogelijk toegang tot cluster toevoegen aan een of meer Data Lake Store-accounts maken van het cluster te volgen. Open de Azure portal-vermelding voor een Data Lake Store en Ga naar **Data Explorer > toegang > toevoegen**. 
+Het is ook mogelijk toegang tot het cluster toevoegen aan een of meer Data Lake Store-accounts maken van een cluster te volgen. Open de Azure portal-vermelding voor een Data Lake Store en Ga naar **Data Explorer > toegang > toevoegen**. 
 
-### <a name="how-to-access-the-data-lake-store-from-ml-services-on-hdinsight"></a>Toegang tot de Data Lake store uit ML-Services op HDInsight
+### <a name="how-to-access-the-data-lake-store-from-ml-services-on-hdinsight"></a>Toegang tot de Data Lake store van ML-Services op HDInsight
 
-Zodra u toegang tot een Data Lake Store krijgen hebt, kunt u het archief in het ML-Services-cluster in HDInsight de manier waarop u zou een secundair Azure storage-account. Het enige verschil is dat het voorvoegsel **wasb: / /** wijzigingen in **adl: / /** als volgt:
+Nadat u toegang tot een Data Lake Store krijgen hebt, kunt u de store in ML-Services-cluster op HDInsight de manier waarop u een secundaire Azure-opslagaccount dat zou doen. Het enige verschil is dat het voorvoegsel **wasb: / /** wordt gewijzigd in **adl: / /** als volgt:
 
 
     # Point to the ADL store (e.g. ADLtest)
@@ -147,7 +143,7 @@ Zodra u toegang tot een Data Lake Store krijgen hebt, kunt u het archief in het 
     # Specify the input file in HDFS to analyze
     inputFile <-file.path(bigDataDirRoot,"mysamplefile.csv")
 
-De volgende opdrachten worden gebruikt voor het configureren van het Data Lake Store-account met de map RevoShare en het CSV-voorbeeldbestand uit het vorige voorbeeld toevoegen:
+De volgende opdrachten worden gebruikt voor het Data Lake Store-account configureren met de map RevoShare en het toevoegen van het CSV-voorbeeldbestand uit het vorige voorbeeld:
 
 
     hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user
@@ -163,17 +159,17 @@ De volgende opdrachten worden gebruikt voor het configureren van het Data Lake S
 
 ## <a name="use-azure-file-storage-with-ml-services-on-hdinsight"></a>Azure File storage gebruiken met ML-Services op HDInsight
 
-Er is ook een handige gegevens voor de opslagoptie voor gebruik op de edge-knooppunt genoemd [Azure Files] ((https://azure.microsoft.com/services/storage/files/). Hiermee kunt u een Azure Storage-bestandsshare naar het bestandssysteem van Linux te koppelen. Deze optie is handig voor het opslaan van gegevensbestanden, R-scripts en resultaatobjecten die mogelijk ook later nodig zijn, vooral wanneer het zinvol zijn het systeemeigen bestandssysteem gebruiken op de edge-knooppunt in plaats van HDFS. 
+Er is ook een handige gegevens voor de opslagoptie voor gebruik op het edge-knooppunt met de naam [Azure Files] ((https://azure.microsoft.com/services/storage/files/). Hiermee kunt u een Azure Storage-bestandsshare naar het Linux-bestandssysteem koppelen. Deze optie is handig voor het opslaan van gegevensbestanden, R-scripts en resultaatobjecten die mogelijk ook later nodig zijn, met name wanneer het verstandig om het gebruik van de systeemeigen bestandssysteem op het edge-knooppunt in plaats van HDFS. 
 
-Een belangrijk voordeel van Azure Files is dat de bestandsshares kunnen worden gekoppeld en die wordt gebruikt door een systeem waarop een ondersteund besturingssysteem zoals Windows of Linux. Het kan bijvoorbeeld worden gebruikt door een andere HDInsight-cluster dat u of iemand in uw team heeft met een virtuele machine in Azure, of zelfs door een on-premises systeem. Zie voor meer informatie:
+Een groot voordeel van Azure Files is dat de bestandsshares kunnen worden gekoppeld en die worden gebruikt door een systeem met een ondersteund besturingssysteem, zoals Windows of Linux. Het kan bijvoorbeeld worden gebruikt door een andere HDInsight-cluster waaraan u of iemand in uw team, door een Azure-VM of zelfs door een on-premises systeem. Zie voor meer informatie:
 
 - [Azure File Storage gebruiken met Linux](../../storage/files/storage-how-to-use-files-linux.md)
-- [Azure File storage gebruiken in Windows](../../storage/files/storage-dotnet-how-to-use-files.md)
+- [Azure File storage in Windows gebruiken](../../storage/files/storage-dotnet-how-to-use-files.md)
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Overzicht van Services ML-cluster in HDInsight](r-server-overview.md)
-* [Aan de slag met het cluster op Hadoop ML-Services](r-server-get-started.md)
-* [COMPUTE context opties voor het cluster in HDInsight ML-Services](r-server-compute-contexts.md)
+* [Overzicht van Services voor ML-cluster in HDInsight](r-server-overview.md)
+* [Aan de slag met ML-Services-cluster op Hadoop.](r-server-get-started.md)
+* [Opties voor compute-context voor ML Services-cluster in HDInsight](r-server-compute-contexts.md)
 

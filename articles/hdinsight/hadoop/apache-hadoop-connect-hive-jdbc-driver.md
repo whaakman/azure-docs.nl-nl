@@ -1,50 +1,45 @@
 ---
-title: Hive query via de JDBC-stuurprogramma - Azure HDInsight | Microsoft Docs
-description: Gebruikt de JDBC-stuurprogramma van een Java-toepassing voor het verzenden van Hive-query's en Hadoop op HDInsight. Verbinding maken via een programma en van de SQuirrel SQL-client.
+title: Query Hive via het JDBC-stuurprogramma - Azure HDInsight
+description: Het JDBC-stuurprogramma van een Java-toepassing gebruiken voor het indienen van Hive-query's met Hadoop in HDInsight. Verbinding maken via een programma en van de SQuirrel SQL-client.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 928f8d2a-684d-48cb-894c-11c59a5599ae
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: java
 ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: larryfr
-ms.openlocfilehash: 9700408dad36591fc26aa159524f33965b9d1324
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 9c7881d0cc4f0c2c13f34fa8909d15dec1bf121a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31399412"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591666"
 ---
-# <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Hive query via JDBC-stuurprogramma in HDInsight
+# <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Query Hive via het JDBC-stuurprogramma in HDInsight
 
 [!INCLUDE [ODBC-JDBC-selector](../../../includes/hdinsight-selector-odbc-jdbc.md)]
 
-Informatie over het JDBC-stuurprogramma van een Java-toepassing gebruikt voor het verzenden van Hive-query's en Hadoop in Azure HDInsight. De informatie in dit document laat zien hoe u verbinding maken via een programma en van de SQuirrel SQL-client.
+Informatie over het gebruiken van het JDBC-stuurprogramma van een Java-toepassing voor het indienen van Hive-query's met Hadoop in Azure HDInsight. De informatie in dit document laat zien hoe u verbinding maakt via een programma en van de SQuirrel SQL-client.
 
-Zie voor meer informatie over de Interface JDBC Hive [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
+Zie voor meer informatie over het Hive JDBC-Interface, [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface).
 
 ## <a name="prerequisites"></a>Vereisten
 
 * Een Hadoop op HDInsight-cluster.
 
   > [!IMPORTANT]
-  > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie voor meer informatie [HDInsight 3.3 buiten gebruik stellen](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+  > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie voor meer informatie, [HDInsight 3.3 buiten gebruik stellen](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL is een JDBC-clienttoepassing.
 
 * De [Java Developer Kit (JDK) versie 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) of hoger.
 
-* [Apache Maven](https://maven.apache.org). Maven is een project bouwen voor Java-projecten-systeem dat wordt gebruikt door het project gekoppeld aan dit artikel.
+* [Apache Maven](https://maven.apache.org). Maven is een project gemaakt systeem voor Java-projecten die door het project dat is gekoppeld aan dit artikel wordt gebruikt.
 
 ## <a name="jdbc-connection-string"></a>JDBC-verbindingsreeks
 
-JDBC verbindingen met een HDInsight-cluster in Azure gemaakt dan 443 en het verkeer is beveiligd met SSL. De openbare gateway die voor de clusters bevinden zich achter stuurt het verkeer naar de poort die HiveServer2 daadwerkelijk luistert op. De volgende verbindingsreeks ziet u de indeling moet worden gebruikt voor HDInsight:
+JDBC-verbindingen met een HDInsight-cluster op Azure meer dan 443 zijn gemaakt en het verkeer dat is beveiligd met SSL. De openbare gateway die de clusters bevinden zich achter leidt het verkeer naar de poort die HiveServer2 daadwerkelijk luistert. De volgende verbindingsreeks ziet u de indeling moet worden gebruikt voor HDInsight:
 
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
@@ -52,9 +47,9 @@ Vervang `CLUSTERNAME` door de naam van uw HDInsight-cluster.
 
 ## <a name="authentication"></a>Verificatie
 
-Bij het maken van de verbinding, moet u de HDInsight-cluster admin naam en het wachtwoord voor de verificatie bij de gateway van het cluster. Bij het verbinden van clients JDBC zoals SQuirreL SQL, moet u de naam van de serverbeheerder en het wachtwoord in de clientinstellingen.
+Bij het maken van de verbinding, moet u de naam van de beheerder HDInsight-cluster en het wachtwoord voor de verificatie bij de gateway van het cluster. Bij het verbinden van clients, zoals SQuirreL SQL JDBC, moet u de naam van de beheerder en het wachtwoord invoeren in de clientinstellingen.
 
-Van een Java-toepassing, moet u de naam en het wachtwoord gebruiken wanneer een verbinding tot stand brengen. De volgende Java-code opent u bijvoorbeeld een nieuwe verbinding met de verbindingsreeks, de naam van de serverbeheerder en het wachtwoord:
+Tot een Java-toepassing, moet u de naam en het wachtwoord gebruiken wanneer een verbinding tot stand brengen. Bijvoorbeeld, opent de volgende Java-code u een nieuwe verbinding met de verbindingsreeks, de naam van de beheerder en het wachtwoord:
 
 ```java
 DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
@@ -62,11 +57,11 @@ DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
 
 ## <a name="connect-with-squirrel-sql-client"></a>Verbinding maken met SQuirreL SQL-client
 
-SQuirreL SQL is een JDBC-client die op afstand Hive-query's uitvoeren met uw HDInsight-cluster kan worden gebruikt. De volgende stappen wordt ervan uitgegaan dat u SQuirreL SQL al hebt geïnstalleerd.
+SQuirreL SQL is een JDBC-client die kan worden gebruikt voor het extern uitvoeren van Hive-query's met uw HDInsight-cluster. De volgende stappen wordt ervan uitgegaan dat u SQuirreL SQL al hebt geïnstalleerd.
 
-1. Maak een map waarin de bestanden. Bijvoorbeeld `mkdir hivedriver`.
+1. Maak een map die de bestanden bevat. Bijvoorbeeld `mkdir hivedriver`.
 
-2. Gebruik de volgende opdrachten om te kopiëren van het HDInsight-cluster vanaf een opdrachtregel:
+2. Gebruik de volgende opdrachten om te kopiëren van de bestanden van het HDInsight-cluster vanaf een opdrachtregel:
 
     ```bash
     scp USERNAME@CLUSTERNAME:/usr/hdp/current/hadoop-client/hadoop-common.jar .
@@ -83,34 +78,34 @@ SQuirreL SQL is een JDBC-client die op afstand Hive-query's uitvoeren met uw HDI
 
     Vervang `USERNAME` met de accountnaam van de SSH-gebruiker voor het cluster. Vervang `CLUSTERNAME` met de naam van het HDInsight-cluster.
 
-3. Start de toepassing SQuirreL SQL. Selecteer in de links in het venster **stuurprogramma's**.
+3. De SQuirreL SQL-toepassing te starten. Selecteer in de linkerkant van het venster **stuurprogramma's**.
 
     ![Tabblad stuurprogramma's aan de linkerkant van het venster](./media/apache-hadoop-connect-hive-jdbc-driver/squirreldrivers.png)
 
-4. Van de pictogrammen aan het begin van de **stuurprogramma's** dialoogvenster, selecteer de **+** pictogram voor het maken van een stuurprogramma.
+4. Uit de pictogrammen aan de bovenkant van de **stuurprogramma's** dialoogvenster, selecteer de **+** pictogram voor het maken van een stuurprogramma.
 
-    ![Stuurprogramma's pictogrammen](./media/apache-hadoop-connect-hive-jdbc-driver/driversicons.png)
+    ![Pictogrammen van stuurprogramma 's](./media/apache-hadoop-connect-hive-jdbc-driver/driversicons.png)
 
 5. Voeg de volgende informatie in het dialoogvenster stuurprogramma toevoegen:
 
     * **Naam**: Hive
     * **Voorbeeld-URL**: `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
-    * **Extra klassepad**: Gebruik de knop toevoegen om toe te voegen van de volledige van jar-bestanden die eerder zijn gedownload
-    * **Klassenaam**: org.apache.hive.jdbc.HiveDriver
+    * **Extra klassepad**: Gebruik de knop toevoegen om toe te voegen van alle eerder hebt gedownload jar-bestanden
+    * **Naam klasse**: org.apache.hive.jdbc.HiveDriver
 
    ![stuurprogramma-dialoogvenster toevoegen](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)
 
    Klik op **OK** deze instellingen op te slaan.
 
-6. Selecteer aan de linkerkant van het venster SQuirreL SQL **aliassen**. Klik vervolgens op de **+** pictogram een alias verbinding maakt.
+6. Selecteer aan de linkerkant van het SQuirreL SQL-venster, **aliassen**. Klik vervolgens op de **+** pictogram van de alias van een verbinding maken.
 
     ![nieuwe alias toevoegen](./media/apache-hadoop-connect-hive-jdbc-driver/aliases.png)
 
-7. Gebruik de volgende waarden voor de **Alias toevoegen** dialoogvenster.
+7. Gebruik de volgende waarden voor de **toevoegen Alias** dialoogvenster.
 
     * **Naam**: Hive in HDInsight
 
-    * **Stuurprogramma**: Gebruik de vervolgkeuzelijst selecteren de **Hive** stuurprogramma
+    * **Stuurprogramma**: Gebruik de vervolgkeuzelijst selecteert het **Hive** stuurprogramma
 
     * **URL**: `jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2`
 
@@ -125,27 +120,27 @@ SQuirreL SQL is een JDBC-client die op afstand Hive-query's uitvoeren met uw HDI
     > [!IMPORTANT] 
     > Gebruik de **Test** knop om te controleren of de verbinding werkt. Wanneer **verbinding maken met: Hive in HDInsight** dialoogvenster wordt weergegeven, selecteert u **Connect** om uit te voeren van de test. Als de test is geslaagd, ziet u een **verbinding tot stand gebracht** dialoogvenster. Als er een fout optreedt, raadpleegt u [probleemoplossing](#troubleshooting).
 
-    Voor het opslaan van de verbinding alias gebruiken de **Ok** knop aan de onderkant van de **Alias toevoegen** dialoogvenster.
+    Om op te slaan de alias van de verbinding, gebruikt u de **Ok** knop aan de onderkant van de **toevoegen Alias** dialoogvenster.
 
-8. Van de **verbinding maken met** selecteert u de vervolgkeuzelijst aan de bovenkant van de SQL-SQuirreL **Hive in HDInsight**. Wanneer u wordt gevraagd, selecteert u **Connect**.
+8. Uit de **verbinding maken met** vervolgkeuzelijst aan de bovenkant van SQuirreL SQL, selecteer **Hive in HDInsight**. Wanneer u hierom wordt gevraagd, selecteert u **Connect**.
 
-    ![het dialoogvenster voor verbinding](./media/apache-hadoop-connect-hive-jdbc-driver/connect.png)
+    ![het dialoogvenster verbinding](./media/apache-hadoop-connect-hive-jdbc-driver/connect.png)
 
-9. Eenmaal zijn verbonden, voert u de volgende query in het dialoogvenster van de SQL-query's en selecteer vervolgens de **uitvoeren** pictogram. De resultaten van de query moet worden weergegeven in het resultatengebied.
+9. Eenmaal verbinding hebben, voert u de volgende query in het dialoogvenster van de SQL-query's, en selecteer vervolgens de **uitvoeren** pictogram. De resultaten van de query moet worden weergegeven in het resultatengebied.
 
         select * from hivesampletable limit 10;
 
     ![dialoogvenster voor SQL query's, met inbegrip van resultaten](./media/apache-hadoop-connect-hive-jdbc-driver/sqlquery.png)
 
-## <a name="connect-from-an-example-java-application"></a>Verbinding maken vanaf een voorbeeld van Java-toepassing
+## <a name="connect-from-an-example-java-application"></a>Verbinding maken vanuit een voorbeeld van Java-toepassing
 
-Een voorbeeld van het gebruik van een Java-client aan query Hive in HDInsight is beschikbaar op [ https://github.com/Azure-Samples/hdinsight-java-hive-jdbc ](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Volg de instructies in de opslagplaats het bouwen en uitvoeren van het voorbeeld.
+Een voorbeeld van het gebruik van een Java-client query Hive in HDInsight is beschikbaar op [ https://github.com/Azure-Samples/hdinsight-java-hive-jdbc ](https://github.com/Azure-Samples/hdinsight-java-hive-jdbc). Volg de instructies in de opslagplaats wilt bouwen en uitvoeren van het voorbeeld.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
 ### <a name="unexpected-error-occurred-attempting-to-open-an-sql-connection"></a>Onverwachte fout opgetreden bij het openen van een SQL-verbinding
 
-**Symptomen**: bij het verbinden met een HDInsight-cluster versie 3.3 of hoger is, verschijnt er een fout die is een onverwachte fout opgetreden. De stacktracering voor deze fout begint met de volgende regels:
+**Symptomen**: bij het verbinden met een HDInsight-cluster versie 3.3 of hoger is, verschijnt er een fout die is een onverwachte fout opgetreden. De stack-trace voor deze fout begint met de volgende regels:
 
 ```java
 java.util.concurrent.ExecutionException: java.lang.RuntimeException: java.lang.NoSuchMethodError: org.apache.commons.codec.binary.Base64.<init>(I)V
@@ -155,25 +150,25 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 **Oorzaak**: deze fout wordt veroorzaakt door een oudere versie commons codec.jar-bestand met SQuirreL opgenomen.
 
-**Resolutie**: U kunt deze fout oplossen door de volgende stappen gebruiken:
+**Resolutie**: U kunt deze fout oplossen, gebruik de volgende stappen:
 
-1. Download het commons codec jar-bestand van uw HDInsight-cluster.
+1. Download het commons codec jar-bestand van het HDInsight-cluster.
 
         scp USERNAME@CLUSTERNAME:/usr/hdp/current/hive-client/lib/commons-codec*.jar ./commons-codec.jar
 
-2. Sluit SQuirreL en Ga naar de map waar SQuirreL op uw systeem is geïnstalleerd. In de map SquirreL onder de `lib` directory, vervangen de bestaande commons codec.jar met de versie die wordt gedownload van het HDInsight-cluster.
+2. SQuirreL afsluiten en gaat u naar de map waar SQuirreL is geïnstalleerd op uw systeem. In de map SquirreL onder de `lib` directory, vervangen de bestaande commons codec.jar met de versie die is gedownload van het HDInsight-cluster.
 
-3. Opnieuw opstarten SQuirreL. De fout mag niet langer optreden bij het verbinden met Hive in HDInsight.
+3. SQuirreL opnieuw. De fout kan niet meer optreden bij het verbinden met Hive in HDInsight.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu dat u hebt geleerd hoe JDBC gebruiken om te werken met Hive, gebruik de volgende koppelingen om te verkennen andere manieren om te werken met Azure HDInsight.
+Nu dat u hebt geleerd hoe JDBC gebruiken om te werken met Hive, gebruikt u de volgende koppelingen op andere manieren om te werken met Azure HDInsight.
 
 * [Hive-gegevens visualiseren met Microsoft Power BI in Azure HDInsight](apache-hadoop-connect-hive-power-bi.md).
-* [Interactieve Hive-Query-gegevens visualiseren met Power BI in Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
+* [Interactive Query Hive-gegevens visualiseren met Power BI in Azure HDInsight](../interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md).
 * [Zeppelin gebruiken voor het uitvoeren van Hive-query's in Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
 * [Excel verbinden met HDInsight met het Microsoft Hive ODBC-stuurprogramma](apache-hadoop-connect-excel-hive-odbc-driver.md).
-* [Excel en Hadoop koppelen met Power Query](apache-hadoop-connect-excel-power-query.md).
+* [Koppel Excel aan Hadoop met Power Query](apache-hadoop-connect-excel-power-query.md).
 * [Verbinding maken met Azure HDInsight en het uitvoeren van Hive-query's met Data Lake Tools voor Visual Studio](apache-hadoop-visual-studio-tools-get-started.md).
 * [Azure HDInsight-hulpprogramma gebruiken voor Visual Studio Code](../hdinsight-for-vscode.md).
 * [Gegevens uploaden naar HDInsight](../hdinsight-upload-data.md)

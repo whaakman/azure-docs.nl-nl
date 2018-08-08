@@ -10,14 +10,14 @@ ms.service: functions
 ms.workload: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2018
+ms.date: 07/29/2018
 ms.author: glenga
-ms.openlocfilehash: 8ba12f21d76d8deded047f40489c46657c9380b8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6bf6621d650ad590cd1134bc79fcdecdc3fd0963
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38602114"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622633"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Overzicht van Azure Functions runtime-versies
 
@@ -26,7 +26,9 @@ ms.locfileid: "38602114"
 | Runtime | Status |
 |---------|---------|
 |1.x|In het algemeen beschikbaar is (GA)|
-|2.x|Preview|
+|2.x|Voorbeeld<sup>*</sup>|
+
+<sup>*</sup>Voor het ontvangen van belangrijke updates op versie 2.x, met inbegrip van belangrijke wijzigingen aankondigingen, bekijk de [Azure App Service-aankondigingen](https://github.com/Azure/app-service-announcements/issues) opslagplaats.
 
 > [!NOTE] 
 > Dit artikel wordt verwezen naar de cloudservice Azure Functions. Zie voor meer informatie over het product waarmee u Azure Functions on-premises uitvoert, de [overzicht van Azure Functions Runtime](functions-runtime-overview.md).

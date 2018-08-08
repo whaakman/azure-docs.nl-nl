@@ -17,12 +17,12 @@ ms.date: 04/26/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8d2ce5bb2f44d9e21fb12e96f9c68d4ecc0fc501
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 0be97bfbbaafd6045fd36be57d85e917f0325779
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581375"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600649"
 ---
 # <a name="azure-active-directory-code-samples-v2-endpoint"></a>Azure Active Directory-codevoorbeelden (V2-eindpunt)
 
@@ -36,7 +36,7 @@ Dit artikel worden kort en verstrekt u koppelingen naar voorbeelden van het Azur
 > [!NOTE]
 > Als u geïnteresseerd in V1-voorbeelden bent, Zie [Azure AD-codevoorbeelden (V1-eindpunt)](sample-v1-code.md).
 
-Zie voor meer informatie over het algemeen scenario voor elk Voorbeeldtype, [App-typen voor de Azure Active Directory v2.0-eindpunt](active-directory-v2-flows.md).
+Zie voor meer informatie over het algemeen scenario voor elk Voorbeeldtype, [App-typen voor de Azure Active Directory v2.0-eindpunt](v2-app-types.md).
 
 U kunt ook bijdragen aan de voorbeelden op GitHub. Voor meer informatie Zie [Microsoft Azure Active Directory-voorbeelden en documentatie](https://github.com/Azure-Samples?page=3&query=active-directory).
 

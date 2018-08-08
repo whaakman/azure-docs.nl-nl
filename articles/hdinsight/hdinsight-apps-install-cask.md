@@ -1,83 +1,78 @@
 ---
-title: Installatie gepubliceerde toepassing - Datameer - Azure HDInsight | Microsoft Docs
+title: Gepubliceerde toepassing - Datameer - Azure HDInsight installeren
 description: Installeren en gebruiken van de toepassing Datameer van derden Hadoop.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 9eef1760b7cee3bbdf33122514669b38b0b4d9db
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a8961da0a62815ce60a6ee694d57f3172b81718b
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31400840"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592173"
 ---
-# <a name="install-published-application---cask-data-application-platform-cdap"></a>Gepubliceerde toepassing - Cask gegevens toepassing Platform (CDAP) installeren
+# <a name="install-published-application---cask-data-application-platform-cdap"></a>Installeren van de gepubliceerde toepassing - Cask Data Application Platform (CDAP)
 
-Dit artikel wordt beschreven hoe u wilt installeren en uitvoeren de [CDAP](http://cask.co/products/cdap/) gepubliceerde toepassing in Azure HDInsight Hadoop. Zie voor een overzicht van het HDInsight-toepassing-platform en een lijst van beschikbare Independent Software Vendors (ISV's) gepubliceerde toepassingen [Hadoop-toepassingen van derden installeren](hdinsight-apps-install-applications.md). Zie voor instructies voor de installatie van uw eigen toepassing [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md).
+In dit artikel wordt beschreven hoe u wilt installeren en uitvoeren de [CDAP](http://cask.co/products/cdap/) gepubliceerd op Azure HDInsight Hadoop-toepassing. Zie voor een overzicht van het HDInsight-platform voor toepassingen en een lijst van beschikbare Independent Software Vendor (ISV) gepubliceerde toepassingen [Hadoop-toepassingen van derden installeren](hdinsight-apps-install-applications.md). Zie voor instructies voor de installatie van uw eigen toepassing [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-cdap"></a>Over CDAP
 
-Ontwikkelen van toepassingen in Hadoop kan lastig zijn.  Er is een grote en toenemende aantal Hadoop technologie extensies even duren kan om te integreren. Gegevensstroom bewaken en verzamelen van metrische gegevens kunnen vereisen een afzonderlijke oplossing te bouwen.
+Het ontwikkelen van toepassingen in Hadoop kan lastig zijn.  Er is een grote en groeiende aantal Hadoop-technologie-extensies even duren kan om te integreren. Gegevensstroom bewaken en verzamelen van metrische gegevens kunnen vereisen het bouwen van een afzonderlijke oplossing.
 
 ### <a name="how-does-cdap-help"></a>Hoe helpt CDAP?
 
-Cask gegevens toepassing Platform (CDAP) is een integratieplatform voor Big Data. CDAP kunt u zich kunt richten op het bouwen van toepassingen in plaats van op de onderliggende infrastructuur.
+Cask Data Application Platform (CDAP) is een integratieplatform voor Big Data. CDAP kunt u zich richten op het bouwen van toepassingen in plaats van op de onderliggende infrastructuur.
 
-CDAP maakt gebruik van geavanceerde concepten en abstracties waarmee ontwikkelaars bekend zijn. Deze abstracties verbergen van de complexiteit van interne systemen en stimuleren hergebruik van oplossingen.
+CDAP maakt gebruik van geavanceerde concepten en abstracties die bekend voor ontwikkelaars zijn. Deze abstracties verbergen van de complexiteit van interne systemen en herbruikbaarheid van oplossingen te stimuleren.
 
-De extensie van een CDAP aangeroepen [Cask Hydrator](http://cask.co/products/hydrator/) biedt een gebruikersinterface voor het ontwikkelen en beheren van gegevenspijplijnen. Een pijplijn gegevens bestaat uit verschillende * plugins taken uit te voeren, zoals gegevens oplevert, transformatie, analyse en na uitgevoerde bewerkingen.
+Een extensie van de CDAP aangeroepen [Cask Hydrator](http://cask.co/products/hydrator/) biedt een gebruikersinterface voor het ontwikkelen en beheren van gegevenspijplijnen. Een gegevenspijplijn bestaat uit verschillende *-invoegtoepassingen die taken uitvoeren, zoals gegevens ophalen, transformatie, analyse en na uitvoering van bewerkingen.
 
-Elke invoegtoepassing CDAP heeft een goed gedefinieerde interface zodat evalueren van verschillende technologieën slechts een kwestie is van één invoegtoepassing vervangen door een andere gebruikersnaam, zonder de rest van de toepassing touch.
+Elke invoegtoepassing CDAP heeft een goed gedefinieerde interface, zodat de evaluatie van verschillende technologieën is alleen een kwestie van het vervangen van een invoegtoepassing met een andere naam, zonder te hoeven te zien van de rest van de toepassing.
 
-CDAP *pijplijnen* bieden een hoog niveau afbeeldingen stroom van de gegevens in uw toepassing. Deze visualisatie toont de end-to-end-stroom van de gegevens van de opname via de gegevenstransformaties en analyses, en tot slot tijdens het opslaan in een externe gegevensbron.
+CDAP *pijplijnen* bieden een op hoog niveau pictogrammen stroom van de gegevens in uw toepassing. Deze visualisatie ziet u de end-to-end-stroom van de gegevens van gegevensopname, via de gegevenstransformaties en -analyses, en ten slotte naar een externe gegevens opslaan.
 
-Het volgende voorbeeld van een pijplijn gegevens opgenomen twitter-gegevens in realtime en sommige tweets op basis van vooraf gedefinieerde criteria, worden uitgefilterd. De pijplijn gegevens transformeert tweet onbewerkte gegevens en projecten dat gegevens naar een beter leesbare indeling vervolgens de tweets volgens een reeks waarden groepen en de resultaten naar een HBase schrijft opslaan.
+In het volgende voorbeeld van een pijplijn twitter-gegevens in realtime neemt vervolgens gefilterd op bepaalde tweets op basis van vooraf gedefinieerde criteria. De gegevenspijplijn tweet onbewerkte gegevens worden getransformeerd en projecten dat gegevens naar een beter leesbare indeling, klikt u vervolgens de tweets op basis van een set waarden worden gegroepeerd en schrijft de resultaten naar een HBase opslaan.
 
-![CDAP-pipeline](./media/hdinsight-apps-install-cask/pipeline.png)
+![CDAP pijplijn](./media/hdinsight-apps-install-cask/pipeline.png)
 
-Deze end-to-end-pipeline gebouwd met behulp van de **Cask Hydrator UI**, met behulp van de invoegtoepassing-interface en slepen en neerzetten functionaliteit op formulier-verbindingen tussen elk stadium. U kunt isoleren en de functionaliteit aanpassen van elke invoegtoepassing onafhankelijk. Met behulp van CDAP worden vergelijkbare pijplijnen gebouwd en gevalideerd in uren. In de normale Hadoop-wereld is het construeren van dergelijke oplossingen mogelijk enkele dagen duren.
+Deze end-to-end-pijplijn is gebouwd met behulp van de **Cask Hydrator UI**, met behulp van de invoegtoepassing-interface en slepen en neerzetten-functionaliteit op formulier-verbindingen tussen elke fase. U kunt isoleren en de functionaliteit van elke invoegtoepassing onafhankelijk van elkaar aanpassen. Met behulp van CDAP, kunnen vergelijkbare pijplijnen worden gebouwd en gevalideerd in uren. In de typische Hadoop-wereld is kan deze oplossingen maken enkele dagen duren.
 
-CDAP biedt ook een uitbreiding aangeroepen [Cask tracering](http://cask.co/products/tracker/) naar visueel traceergegevens die loopt via de toepassing. Tracering in cask voegt *gegevenskwaliteitsbeheer* aan het systeem zodat gegevensassets formeel worden beheerd in de toepassing. U kunt elk gegevenspunt afkomst bijhouden, relevante metrische gegevens te verzamelen en audittrail gegevens gedurende het hele proces.
+CDAP biedt ook een uitbreiding met de naam [Cask Tracker](http://cask.co/products/tracker/) visueel trace gegevens zoals deze stromen via de toepassing. Cask Tracker voegt *gegevensbeheer* aan het systeem zodat gegevensassets formeel overal in de toepassing worden beheerd. U kunt elk gegevenspunt afkomst bijhouden, relevante metrische gegevens verzamelen en audittrail gegevens gedurende het gehele proces.
 
-Hier volgt een voorbeeld van hoe gegevens in de bovenstaande pijplijn stroomt:
+Hier volgt een voorbeeld van hoe de gegevens in de bovenstaande pijplijn worden doorgestuurd:
 
-![CDAP vastleggen](./media/hdinsight-apps-install-cask/tracker.png)
+![CDAP bijhouden](./media/hdinsight-apps-install-cask/tracker.png)
 
 ## <a name="prerequisites"></a>Vereisten
 
-Om deze app installeren op een nieuwe HDInsight-cluster of een bestaand cluster, hebt u de volgende configuratie:
+Als u wilt deze app installeren op een nieuw HDInsight-cluster of een bestaand cluster, hebt u de volgende configuratie:
 
-* Cluster-laag: standaard
-* Cluster-type: HBase
-* Cluster-versie: 3.4 en 3.5
+* Cluster-laag: Standard
+* Clustertype: HBase
+* Clusterversie: 3.4, 3.5
 
-## <a name="install-the-cdap-published-application"></a>Installeer de CDAP gepubliceerde toepassing
+## <a name="install-the-cdap-published-application"></a>Gepubliceerde toepassing installeren de CDAP
 
 Lees voor stapsgewijze instructies over het installeren van deze en andere beschikbare ISV-toepassingen [Hadoop-toepassingen van derden installeren](hdinsight-apps-install-applications.md).
 
 ## <a name="launch-cdap"></a>CDAP starten
 
-1. Na de installatie, start u CDAP van het cluster in Azure-portal door te gaan naar de **instellingen** deelvenster selecteren **toepassingen** onder de **algemene** categorie. In het deelvenster geïnstalleerde Apps worden alle geïnstalleerde toepassingen.
+1. Na de installatie, start u CDAP uit het cluster in Azure portal door te gaan naar de **instellingen** deelvenster, klikt u vervolgens selecteren **toepassingen** onder de **algemene** categorie. In het deelvenster geïnstalleerde Apps worden alle geïnstalleerde toepassingen.
 
     ![Geïnstalleerde CDAP app](./media/hdinsight-apps-install-cask/cdap-app.png)
 
-2. Als u CDAP selecteert, ziet u een koppeling naar de webpagina en HTTP-eindpunt en het pad van SSH-eindpunt. Selecteer de koppeling van de webpagina.
+2. Wanneer u CDAP selecteert, ziet u een koppeling naar de webpagina wordt weergegeven en HTTP-eindpunt en het pad van SSH-eindpunt. Selecteer de koppeling naar de webpagina.
 
-3. Voer desgevraagd uw beheerdersreferenties van het cluster.
+3. Wanneer u hierom wordt gevraagd, voert u de beheerdersreferenties van uw cluster.
 
     ![Verificatie](./media/hdinsight-apps-install-cask/auth.png)
 
-4. Na het aanmelden, raadpleegt u de startpagina Cask CDAP GUI.
+4. Na het aanmelden, ziet u de Cask CDAP GUI-startpagina.
 
     ![Cask GUI-startpagina](./media/hdinsight-apps-install-cask/gui.png)
 
@@ -85,49 +80,49 @@ Lees voor stapsgewijze instructies over het installeren van deze en andere besch
 
     ![Cask markt koppeling](./media/hdinsight-apps-install-cask/cask-market.png)
 
-6. Selecteer **toegang logboek voorbeeld** uit de lijst.
+6. Selecteer **toegang Log voorbeeld** in de lijst.
 
-    ![Toegang tot logboek voorbeeld](./media/hdinsight-apps-install-cask/market-log-sample.png)
+    ![Toegang tot Log-voorbeeld](./media/hdinsight-apps-install-cask/market-log-sample.png)
 
 7. Klik op **Load** om te bevestigen.
 
     ![Klik op laden](./media/hdinsight-apps-install-cask/market-load.png)
 
-8. Een weergave van de opgenomen voorbeeldgegevens wordt weergegeven. Selecteer **volgende**.
+8. Er is een weergave van de opgenomen voorbeeldgegevens weergegeven. Selecteer **volgende**.
 
-    ![Toegang tot logboek voorbeeld - gegevens weergeven](./media/hdinsight-apps-install-cask/market-view-data.png)
+    ![Voorbeeld van toegang tot Log - gegevens weergeven](./media/hdinsight-apps-install-cask/market-view-data.png)
 
-9. Selecteer **stroom** als het Type bestemming, voer een naam voor de bestemming en selecteer vervolgens **voltooien**.
+9. Selecteer **Stream** als het Type bestemming, voert u de naam van een doel en selecteert **voltooien**.
 
-    ![Toegang tot logboek voorbeeld - doelserver selecteren](./media/hdinsight-apps-install-cask/market-destination.png)
+    ![Voorbeeld van toegang tot Log - doelserver selecteren](./media/hdinsight-apps-install-cask/market-destination.png)
 
-10. Nadat de datapack is geladen, selecteert u **Details van de stroom weergeven**.
+10. Nadat de datapack is geladen, selecteert u **Stream weergavedetails**.
 
-    ![Datapack geüpload](./media/hdinsight-apps-install-cask/market-view-details.png)
+    ![Datapack is geüpload](./media/hdinsight-apps-install-cask/market-view-details.png)
 
-11. Als u metagegevens voor de naamruimte, schakelt **inschakelen** in het tabblad gebruik op de detailpagina Toegangslogboek.
+11. Als u metagegevens voor de naamruimte, schakelt **inschakelen** op het tabblad gebruik op de pagina met details van logboekbestanden.
 
-    ![Toegang tot logboek voorbeeld - geladen - metagegevens inschakelen](./media/hdinsight-apps-install-cask/log-loaded.png)
+    ![Toegang tot Log-voorbeeld - geladen - metagegevens inschakelen](./media/hdinsight-apps-install-cask/log-loaded.png)
 
-12. Nadat de metagegevens is ingeschakeld, ziet u een grafiek om controle-informatie voor bericht weer te geven.
+12. Nadat de metagegevens is ingeschakeld, ziet u een grafiek controle-informatie voor bericht weergeven.
 
-    ![Toegang tot logboek voorbeeld - metagegevens ingeschakeld](./media/hdinsight-apps-install-cask/log-metadata.png)
+    ![Voorbeeld van toegang tot Log - metagegevens ingeschakeld](./media/hdinsight-apps-install-cask/log-metadata.png)
 
-13. Als u wilt verkennen de logboekgegevens, selecteer de **verkennen** pictogram boven op de pagina.
+13. Het om logboekgegevens te verkennen, selecteert u de **verkennen** pictogram boven op de pagina.
 
-    ![Toegang tot logboek steekproef - verkennen](./media/hdinsight-apps-install-cask/log-explore.png)
+    ![Logboek voorbeeld - verkennen](./media/hdinsight-apps-install-cask/log-explore.png)
 
-14. Er is een voorbeeld SQL-query. Gerust wijzigen als de gewenste, en selecteer vervolgens **Execute**.
+14. U ziet een voorbeeld van een SQL-query. U kunt wijzigen als de gewenste, en selecteer vervolgens **Execute**.
 
-    ![Toegang tot logboek voorbeeld - gegevensset met een query verkennen](./media/hdinsight-apps-install-cask/log-query.png)
+    ![Toegang tot Log-voorbeeld - gegevensset met een query verkennen](./media/hdinsight-apps-install-cask/log-query.png)
 
-15. Nadat de query is voltooid, selecteert u de **weergave** pictogram onder de kolom acties.
+15. Nadat de query is voltooid, selecteert u de **weergave** pictogram onder de acties-kolom.
 
-    ![Toegang tot logboek voorbeeld - query voltooid weergeven](./media/hdinsight-apps-install-cask/log-query-view.png)
+    ![Voorbeeld van toegang tot Log - query voltooid weergeven](./media/hdinsight-apps-install-cask/log-query-view.png)
 
 16. U ziet de queryresultaten.
 
-    ![Toegang tot logboek voorbeeld - queryresultaten](./media/hdinsight-apps-install-cask/log-query-results.png)
+    ![Voorbeeld van toegang tot Log - queryresultaten](./media/hdinsight-apps-install-cask/log-query-results.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -135,5 +130,5 @@ Lees voor stapsgewijze instructies over het installeren van deze en andere besch
 * [Aangepaste HDInsight-toepassingen installeren](hdinsight-apps-install-custom-applications.md): informatie over het implementeren van een niet-gepubliceerde HDInsight-toepassing op HDInsight.
 * [HDInsight-toepassingen publiceren](hdinsight-apps-publish-applications.md): informatie over het publiceren van aangepaste HDInsight-toepassingen in Azure Marketplace.
 * [MSDN: een HDInsight-toepassing installeren](https://msdn.microsoft.com/library/mt706515.aspx): informatie over het definiëren van HDInsight-toepassingen.
-* [Met behulp van de scriptactie Linux gebaseerde HDInsight-clusters aanpassen](hdinsight-hadoop-customize-cluster-linux.md): informatie over het gebruik van scriptactie om extra toepassingen te installeren.
-* [Lege edge-knooppunten gebruiken in HDInsight](hdinsight-apps-use-edge-node.md): informatie over het gebruik van een leeg edge-knooppunt voor toegang tot HDInsight-clusters en voor het testen en die als host fungeert voor HDInsight-toepassingen.
+* [HDInsight Linux gebaseerde clusters aanpassen met Script Action](hdinsight-hadoop-customize-cluster-linux.md): informatie over het gebruik scriptacties om extra toepassingen te installeren.
+* [Lege edge-knooppunten gebruiken in HDInsight](hdinsight-apps-use-edge-node.md): informatie over het gebruik van een lege edge-knooppunt voor toegang tot HDInsight-clusters, en voor het testen en HDInsight-toepassingen hosten.

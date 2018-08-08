@@ -1,39 +1,36 @@
 ---
-title: Hadoop-stack trace foutberichten - Azure HDInsight | Microsoft Docs
-description: Index van Hadoop-stack trace foutberichten in Azure HDInsight. Zoek de fout in het overzicht voor informatie over probleemoplossing.
+title: Hadoop-stack-trace foutberichten - Azure HDInsight
+description: Index van Hadoop-stack-trace foutberichten in Azure HDInsight. Zoek de fout in de lijst om te zien met informatie over probleemoplossing.
 keywords: stack-trace, foutberichten
 services: hdinsight
 documentationcenter: NA
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 310051e5-5e2f-4be2-9780-2e8c0430e52d
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 7b0bb58dcf255ee14dd18de3a3ac7489ae0ed1de
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 744e9f1517931db20b8a4a7bf3453c61971fdae6
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200153"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593366"
 ---
-# <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Index van Hadoop in HDInsight artikelen probleemoplossing
-Artikelen zijn ingedeeld in typen van fouten.
+# <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Index van Hadoop in HDInsight artikelen over probleemoplossing
+Artikelen zijn geordend op typen fouten.
 
-## <a name="out-of-memory-error"></a>Fout: onvoldoende geheugen
-* [Een component buiten geheugenfout in HDInsight lossen](hdinsight-hadoop-hive-out-of-memory-error-oom.md): los van een out-of geheugenfout (OOM) van een Hive-query. De klant het scenario omvat een query over veel grote tabellen.
+## <a name="out-of-memory-error"></a>Fout door onvoldoende geheugen
+* [Een component fout door onvoldoende geheugen in HDInsight lossen](hdinsight-hadoop-hive-out-of-memory-error-oom.md): herstellen van een out-of geheugenfout (OOM) van een Hive-query. De klant-scenario omvat een query voor veel grote tabellen.
 
 ## <a name="hive-query-performance"></a>Hive-queryprestaties
-* [Hive-query's optimaliseren voor Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md): in dit artikel bevat informatie over een aantal veelgebruikte Hive prestaties optimalisatie methoden die u op Hive-query's toepassen kunt.
-* [Hive query prestatieproblemen oplossen in HDInsight Hadoop-cluster](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/).
+* [Hive-query's optimaliseren voor Hadoop in HDInsight](hdinsight-hadoop-optimize-hive-query.md): in dit artikel vindt u enkele veelgebruikte Hive prestaties optimalisatie methoden die u op de Hive-query's toepassen kunt.
+* [Oplossen van problemen met prestaties van Hive-query in HDInsight Hadoop-cluster](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/).
 
-## <a name="more-troubleshooting-articles"></a>Meer artikelen met probleemoplossingen
+## <a name="more-troubleshooting-articles"></a>Meer artikelen over probleemoplossing
 * [Informatie over het gebruik van HDInsight in Linux](hdinsight-hadoop-linux-information.md)
-* [Toegang toepassingslogboeken YARN op Linux gebaseerde Hadoop in HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Dumpbestanden voor Hadoop-services op Linux gebaseerde HDInsight heap inschakelen](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
-* [Releaseopmerkingen voor Hadoop-onderdelen op Azure HDInsight](hdinsight-release-notes.md)
+* [Toegang tot YARN-toepassingslogboeken op Linux gebaseerde Hadoop op HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Heapdumps voor Hadoop op Linux gebaseerde HDInsight-services inschakelen](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Opmerkingen bij de release voor onderdelen van Hadoop op Azure HDInsight](hdinsight-release-notes.md)
 

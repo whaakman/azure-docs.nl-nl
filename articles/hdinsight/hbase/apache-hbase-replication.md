@@ -1,23 +1,20 @@
 ---
-title: Instellen van replicatie van HBase-cluster in virtuele netwerken van Azure | Microsoft Docs
+title: Replicatie van HBase-cluster in virtuele Azure-netwerken instellen
 description: Meer informatie over het instellen van HBase-replicatie van een HDInsight-versie naar een andere voor taakverdeling, hoge beschikbaarheid, zonder enige uitvaltijd migratie en updates en herstel na noodgevallen.
 services: hdinsight,virtual-network
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: jgao
-ms.openlocfilehash: f0367b67f141ca65ce2374722016d0fbea6c97d1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.author: jasonh
+ms.openlocfilehash: 535b5dcc62020119cda3db36bfdbd707badfe549
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951110"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39600302"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Replicatie van HBase-cluster in virtuele Azure-netwerken instellen
 
@@ -72,7 +69,7 @@ Enkele van de vastgelegde waarden in de sjabloon:
 
 | Eigenschap | Waarde |
 |----------|-------|
-| Locatie | VS - west |
+| Locatie | US - west |
 | VNET-naam | &lt;ClusterNamePrevix >-vnet1 |
 | Adresruimtevoorvoegsel | 10.1.0.0/16 |
 | Subnetnaam | subnet 1 |
@@ -89,7 +86,7 @@ Enkele van de vastgelegde waarden in de sjabloon:
 
 | Eigenschap | Waarde |
 |----------|-------|
-| Locatie | VS - oost |
+| Locatie | US - oost |
 | VNET-naam | &lt;ClusterNamePrevix >-vnet2 |
 | Adresruimtevoorvoegsel | 10.2.0.0/16 |
 | Subnetnaam | subnet 1 |

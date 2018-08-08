@@ -1,68 +1,63 @@
 ---
-title: Apache Pig-taken uitvoeren met .NET SDK voor Hadoop - Azure HDInsight | Microsoft Docs
-description: Informatie over het gebruik van de .NET SDK voor Hadoop voor het verzenden van Pig-taken naar Hadoop op HDInsight.
+title: Apache Pig-taken uitvoeren met .NET SDK voor Hadoop - Azure HDInsight
+description: Informatie over het gebruik van de .NET-SDK voor Hadoop voor het verzenden van Pig-taken naar Hadoop op HDInsight.
 services: hdinsight
-documentationcenter: .net
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: fa11d49a-328c-47e7-b16d-e7ed2a453195
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.author: larryfr
-ms.openlocfilehash: 986e6fe0e71c4e1361814e22d89fa5121341cc79
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.author: jasonh
+ms.openlocfilehash: e781d5d6cf9b1e2ce3c79e138c7a82c780ce8df4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32771749"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594811"
 ---
-# <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Pig-taken met de .NET SDK voor Hadoop in HDInsight uitvoeren
+# <a name="run-pig-jobs-using-the-net-sdk-for-hadoop-in-hdinsight"></a>Met de .NET-SDK voor Hadoop in HDInsight Pig-taken uitvoeren
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-Informatie over het gebruik van de .NET SDK voor Hadoop voor het verzenden van Apache Pig-taken naar Hadoop op Azure HDInsight.
+Informatie over het gebruik van de .NET-SDK voor Hadoop voor het verzenden van Apache Pig-taken naar Hadoop op Azure HDInsight.
 
-De HDInsight-SDK voor .NET biedt .NET-clientbibliotheken waarmee eenvoudiger werken met HDInsight-clusters in .NET. Pig kunt u MapReduce-bewerkingen door het modelleren van een reeks gegevenstransformaties maakt. In dit document leert u hoe u een eenvoudige C#-toepassing gebruikt voor het verzenden van een Pig-taak voor een HDInsight-cluster.
+De HDInsight .NET SDK bevat .NET-clientbibliotheken die het gemakkelijker om te werken met HDInsight-clusters van .NET. Pig kunt u MapReduce-bewerkingen door het modelleren van een reeks gegevenstransformaties maken. In dit document leert u hoe u een basic C#-toepassing gebruiken om een Pig-taak met een HDInsight-cluster te verzenden.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u de stappen in dit artikel hebt uitgevoerd, wilt nodig u het volgende.
+Als u wilt de stappen in dit artikel hebt voltooid, moet u het volgende.
 
-* Een Azure HDInsight (Hadoop in HDInsight)-cluster (Windows of Linux-).
+* Een Azure HDInsight (Hadoop op HDInsight)-cluster (ofwel Windows of Linux-).
 
   > [!IMPORTANT]
   > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-* Visual Studio 2012, 2013 of 2015 van 2017.
+* Visual Studio 2012, 2013, 2015 of 2017.
 
 ## <a name="create-the-application"></a>De toepassing maken
 
-De HDInsight .NET SDK biedt clientbibliotheken .NET, waardoor het makkelijker wordt om te werken met HDInsight-clusters in .NET.
+De HDInsight .NET SDK bevat clientbibliotheken voor .NET, waardoor het gemakkelijker om te werken met HDInsight-clusters van .NET.
 
-1. Van de **bestand** menu in Visual Studio, selecteer **nieuw** en selecteer vervolgens **Project**.
+1. Uit de **bestand** menu van Visual Studio, selecteer **nieuw** en selecteer vervolgens **Project**.
 
-2. Typ of Selecteer de volgende waarden voor het nieuwe project:
+2. Voor het nieuwe project, typt of selecteert u de volgende waarden:
 
    | Eigenschap | Waarde |
    | ------ | ------ |
-   | Category | Templates/Visual C#/Windows |
+   | Categorie | Templates/Visual C#/Windows |
    | Template | Console Application |
    | Naam | SubmitPigJob |
 
 3. Klik op **OK** om het project aan te maken.
 
-4. Van de **extra** selecteert u **Library Package Manager** of **NuGet Package Manager**, en selecteer vervolgens **Package Manager Console**.
+4. Uit de **extra** in het menu **Library Package Manager** of **NuGet Package Manager**, en selecteer vervolgens **Package Manager Console**.
 
-5. Gebruik de volgende opdracht voor het installeren van de .NET SDK-pakketten:
+5. De SDK voor .NET om pakketten te installeren, gebruik de volgende opdracht:
 
         Install-Package Microsoft.Azure.Management.HDInsight.Job
 
-6. Dubbelklik in Solution Explorer op **Program.cs** om dit te openen. Vervang de bestaande code met de volgende opties.
+6. Dubbelklik in Solution Explorer op **Program.cs** om dit te openen. Vervang de bestaande code door de volgende.
 
     ```csharp
     using Microsoft.Azure.Management.HDInsight.Job;
@@ -117,17 +112,17 @@ De HDInsight .NET SDK biedt clientbibliotheken .NET, waardoor het makkelijker wo
     }
     ```
 
-7. Als u wilt de toepassing niet starten, drukt u op **F5**.
+7. Als u wilt de toepassing wordt gestart, drukt u op **F5**.
 
-8. Om af te sluiten van de toepassing, drukt u op **ENTER**.
+8. Als u wilt de toepassing afsluiten, drukt u op **ENTER**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie voor informatie over Pig in HDInsight, [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md).
 
-Zie de volgende documenten voor meer informatie over het gebruik van Hadoop in HDInsight:
+Zie de volgende documenten voor meer informatie over het gebruik van Hadoop op HDInsight:
 
-* [Hive gebruiken met Hadoop in HDInsight](hdinsight-use-hive.md)
+* [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md)
 * [MapReduce gebruiken met Hadoop op HDInsight](hdinsight-use-mapreduce.md)
 
 [preview-portal]: https://portal.azure.com/

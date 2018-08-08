@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
-ms.openlocfilehash: ea7ee76a97a06b7f91805af8007a466d1b9f111d
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: b28e1931b9f615ae0eebe40b101f1959e9fcb40a
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505274"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593040"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Fout bij het afhandelen van aanbevolen procedures voor Azure Active Directory Authentication Library (ADAL) clients
 
@@ -44,8 +44,8 @@ Er is een set van fouten die zijn gegenereerd door het besturingssysteem, die mo
 
 ### <a name="application-scenarios"></a>Toepassingsscenario's
 
-- [Systeemeigen client](active-directory-dev-glossary.md#native-client) toepassingen (iOS, Android, .NET-Desktop of Xamarin)
-- [WebClient](active-directory-dev-glossary.md#web-client) toepassingen aanroepen van een [resource](active-directory-dev-glossary.md#resource-server) (.NET)
+- [Systeemeigen client](developer-glossary.md#native-client) toepassingen (iOS, Android, .NET-Desktop of Xamarin)
+- [WebClient](developer-glossary.md#web-client) toepassingen aanroepen van een [resource](developer-glossary.md#resource-server) (.NET)
 
 ### <a name="error-cases-and-actionable-steps"></a>Foutgevallen en stappen
 

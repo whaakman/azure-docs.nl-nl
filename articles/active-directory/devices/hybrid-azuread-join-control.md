@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2332923946e414325b9723a59cf493d9d1060cc6
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 9ffc84009adfca60e9ae6b188b65b15e874e7d9c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369175"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622167"
 ---
 # <a name="how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>De hybride Azure AD join van uw apparaten beheren
 
@@ -36,7 +36,7 @@ In dit artikel wordt ervan uitgegaan dat u bekend met bent:
 
 -  [Inleiding tot Apparaatbeheer in Azure Active Directory](../device-management-introduction.md)
  
--  [Hoe u uw hybride Azure Active Directory join-implementatie plannen](hybrid-azuread-join-plan.md)
+-  [De implementatie van uw hybride Azure Active Directory-deelname plannen](hybrid-azuread-join-plan.md)
 
 -  Configureren van hybride Azure Active Directory join voor [beheerde domeinen](hybrid-azuread-join-managed-domains.md) of [federatieve domeinen](hybrid-azuread-join-federated-domains.md)
 
@@ -110,6 +110,9 @@ U kunt het gedrag van de registratie van apparaten van uw huidige apparaten behe
     
 
 U moet deze clientinstelling instelt op een locatie van uw keuze te koppelen. Bijvoorbeeld, voor het configureren van deze client-instelling voor alle huidige Windows-apparaten in uw organisatie, koppelt u de clientinstelling voor het domein. Als u wilt een gecontroleerde implementatie doen, kunt u de clientinstelling voor Windows domein apparaten die deel uitmaken van een organisatie-eenheid of een beveiligingsgroep configureren.
+
+> [!Important]
+> Terwijl de bovenstaande configuratie van bestaande Windows 10-apparaten van een domein, is het mogelijk voor nieuw domein door apparaten om nog steeds te koppelen aan Azure AD complete hybride vanwege de mogelijke vertraging in de toepassing van Groepsbeleid of Configuration Manager-instellingen op het nieuwe domein Windows 10-apparaat. Om dit te voorkomen, is het aanbevolen dat u een nieuwe sysprep-afbeelding (gebruikt als voorbeeld voor een inrichtingsmethode) maken van een apparaat dat is nooit eerder hebt toegevoegd aan hybrid Azure AD en dat al het bovenstaande instelling voor Groepsbeleid toegepast of Configuration Manager-client instelling die is toegepast. U moet de nieuwe installatiekopie ook gebruiken voor het inrichten van nieuwe computers die lid worden van domein van uw organisatie. 
 
 ## <a name="control-windows-down-level-devices"></a>Windows downlevel-apparaten beheren
 

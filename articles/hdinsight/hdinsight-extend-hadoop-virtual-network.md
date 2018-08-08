@@ -4,19 +4,16 @@ description: Meer informatie over het gebruik van Azure Virtual Network HDInsigh
 services: hdinsight
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
-ms.assetid: 37b9b600-d7f8-4cb1-a04a-0b3a827c6dcc
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.workload: big-data
 ms.date: 07/26/2018
-ms.openlocfilehash: bcfbe3b8ff198f9905fe6f36b18a9474cf987bba
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 659c33ec0e989003e68b5165fab70f50c607868c
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284632"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591878"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Azure HDInsight met behulp van een Azure-netwerk uitbreiden
 
@@ -272,8 +269,8 @@ Als u netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes gebruiken,
 
     | Land | Regio | Toegestane IP-adressen | Toegestane poort | Richting |
     | ---- | ---- | ---- | ---- | ----- |
-    | Azië | Oost-Azië | 23.102.235.122</br>52.175.38.134 | 443 | Inkomend |
-    | &nbsp; | Zuidoost-Azië | 13.76.245.160</br>13.76.136.249 | 443 | Inkomend |
+    | Azië | Azië - oost | 23.102.235.122</br>52.175.38.134 | 443 | Inkomend |
+    | &nbsp; | Azië - zuidoost | 13.76.245.160</br>13.76.136.249 | 443 | Inkomend |
     | Australië | Australië - oost | 104.210.84.115</br>13.75.152.195 | 443 | Inkomend |
     | &nbsp; | Australië - zuidoost | 13.77.2.56</br>13.77.2.94 | 443 | Inkomend |
     | Brazilië | Brazilië - zuid | 191.235.84.104</br>191.235.87.113 | 443 | Inkomend |
@@ -281,24 +278,24 @@ Als u netwerkbeveiligingsgroepen of de gebruiker gedefinieerde routes gebruiken,
     | &nbsp; | Canada - midden | 52.228.37.66</br>52.228.45.222 | 443 | Inkomend |
     | China | China - noord | 42.159.96.170</br>139.217.2.219 | 443 | Inkomend |
     | &nbsp; | China East | 42.159.198.178</br>42.159.234.157 | 443 | Inkomend |
-    | Europa | Noord-Europa | 52.164.210.96</br>13.74.153.132 | 443 | Inkomend |
-    | &nbsp; | West-Europa| 52.166.243.90</br>52.174.36.244 | 443 | Inkomend |
+    | Europa | Europa - noord | 52.164.210.96</br>13.74.153.132 | 443 | Inkomend |
+    | &nbsp; | Europa -west| 52.166.243.90</br>52.174.36.244 | 443 | Inkomend |
     | Duitsland | Duitsland - centraal | 51.4.146.68</br>51.4.146.80 | 443 | Inkomend |
     | &nbsp; | Duitsland - noordoost | 51.5.150.132</br>51.5.144.101 | 443 | Inkomend |
-    | India | Centraal-India | 52.172.153.209</br>52.172.152.49 | 443 | Inkomend |
-    | &nbsp; | Zuid-India | 104.211.223.67<br/>104.211.216.210 | 443 | Inkomend |
+    | India | India - centraal | 52.172.153.209</br>52.172.152.49 | 443 | Inkomend |
+    | &nbsp; | India - zuid | 104.211.223.67<br/>104.211.216.210 | 443 | Inkomend |
     | Japan | Japan - oost | 13.78.125.90</br>13.78.89.60 | 443 | Inkomend |
     | &nbsp; | Japan - west | 40.74.125.69</br>138.91.29.150 | 443 | Inkomend |
     | Korea | Korea - centraal | 52.231.39.142</br>52.231.36.209 | 433 | Inkomend |
     | &nbsp; | Korea - zuid | 52.231.203.16</br>52.231.205.214 | 443 | Inkomend
     | Verenigd Koninkrijk | Verenigd Koninkrijk West | 51.141.13.110</br>51.141.7.20 | 443 | Inkomend |
     | &nbsp; | Verenigd Koninkrijk Zuid | 51.140.47.39</br>51.140.52.16 | 443 | Inkomend |
-    | Verenigde Staten | VS - midden | 13.67.223.215</br>40.86.83.253 | 443 | Inkomend |
-    | &nbsp; | VS - oost | 13.82.225.233</br>40.71.175.99 | 443 | Inkomend |
-    | &nbsp; | Noord-centraal VS | 157.56.8.38</br>157.55.213.99 | 443 | Inkomend |
-    | &nbsp; | West-centraal VS | 52.161.23.15</br>52.161.10.167 | 443 | Inkomend |
-    | &nbsp; | VS - west | 13.64.254.98</br>23.101.196.19 | 443 | Inkomend |
-    | &nbsp; | VS - west 2 | 52.175.211.210</br>52.175.222.222 | 443 | Inkomend |
+    | Verenigde Staten | US - centraal | 13.67.223.215</br>40.86.83.253 | 443 | Inkomend |
+    | &nbsp; | US - oost | 13.82.225.233</br>40.71.175.99 | 443 | Inkomend |
+    | &nbsp; | US - noord-centraal | 157.56.8.38</br>157.55.213.99 | 443 | Inkomend |
+    | &nbsp; | US - west-centraal | 52.161.23.15</br>52.161.10.167 | 443 | Inkomend |
+    | &nbsp; | US - west | 13.64.254.98</br>23.101.196.19 | 443 | Inkomend |
+    | &nbsp; | US - west 2 | 52.175.211.210</br>52.175.222.222 | 443 | Inkomend |
 
     Zie voor informatie over de IP-adressen te gebruiken voor Azure Government, de [Azure Government Intelligence en analyse](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) document.
 

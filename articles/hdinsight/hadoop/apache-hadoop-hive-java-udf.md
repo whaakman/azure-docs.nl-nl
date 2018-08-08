@@ -1,28 +1,24 @@
 ---
-title: Java gebruiker gedefinieerde functie (UDF met Hive in HDInsight - Azure) | Microsoft Docs
-description: Informatie over het maken van een op Java gebaseerd gebruiker gedefinieerde functie (UDF die met Hive werkt). In dit voorbeeld UDF converteert een tabel van tekenreeksen in kleine letters.
+title: Java-de gebruiker gedefinieerde functie (UDF's) met Hive in HDInsight - Azure
+description: Informatie over het maken van een op Java gebaseerde-de gebruiker gedefinieerde functie (UDF's) die geschikt is voor Hive. In dit voorbeeld UDF converteert een tabel met teksttekenreeksen naar kleine letters.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 8d4f8efe-2f01-4a61-8619-651e873c7982
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 00af8ca67af6ba3242c0fee6c50640944768ec4c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: eb98b5e4ef2251ad44cbb4b737141fea79adc743
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34200755"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590361"
 ---
 # <a name="use-a-java-udf-with-hive-in-hdinsight"></a>Gebruik van een Java UDF met Hive in HDInsight
 
-Informatie over het maken van een op Java gebaseerd gebruiker gedefinieerde functie (UDF die met Hive werkt). De Java-UDF in dit voorbeeld converteert een tabel van tekenreeksen alle kleine tekens.
+Informatie over het maken van een op Java gebaseerde-de gebruiker gedefinieerde functie (UDF's) die geschikt is voor Hive. De Java UDF in dit voorbeeld zijn een tabel met teksttekenreeksen geconverteerd naar alle kleine tekens.
 
 ## <a name="requirements"></a>Vereisten
 
@@ -31,16 +27,16 @@ Informatie over het maken van een op Java gebaseerd gebruiker gedefinieerde func
     > [!IMPORTANT]
     > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
 
-    De meeste stappen in dit document werken op zowel Windows - en Linux gebaseerde clusters. De stappen voor het uploaden van de gecompileerde UDF aan het cluster en voer dit zijn echter specifiek voor op basis van Linux-clusters. Vindt u koppelingen naar informatie die kan worden gebruikt met Windows gebaseerde clusters.
+    De meeste stappen in dit document worden gebruikt voor zowel Windows - en Linux gebaseerde clusters. De stappen voor het uploaden van de compilatie UDF aan het cluster en de App uitvoeren, zijn echter specifiek voor op basis van Linux-clusters. Vindt u koppelingen naar informatie die kan worden gebruikt met Windows gebaseerde clusters.
 
-* [Java-JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 of hoger (of een vergelijkbare groep, zoals OpenJDK)
+* [Java JDK](http://www.oracle.com/technetwork/java/javase/downloads/) 8 of hoger (of een equivalent, zoals OpenJDK)
 
 * [Apache Maven](http://maven.apache.org/)
 
 * Een teksteditor of IDE voor Java
 
     > [!IMPORTANT]
-    > Als u de Python-bestanden op een Windows-client maakt, moet u een editor die LF als een regel beëindigen gebruikt. Als u niet zeker of uw editor LF of CRLF gebruikt weet, raadpleegt u de [probleemoplossing](#troubleshooting) sectie voor stapsgewijze instructies voor het teken CR wordt verwijderd.
+    > Als u de Python-bestanden op een Windows-client maakt, moet u een editor die gebruikmaakt van LF als het einde van een regel. Als u niet zeker weet of uw editor LF of CRLF gebruikt, Zie de [probleemoplossing](#troubleshooting) sectie voor stapsgewijze instructies voor het verwijderen van het teken CR.
 
 ## <a name="create-an-example-java-udf"></a>Een voorbeeld Java UDF maken 
 
@@ -51,13 +47,13 @@ Informatie over het maken van een op Java gebaseerd gebruiker gedefinieerde func
     ```
 
    > [!NOTE]
-   > Als u met behulp van PowerShell, kunt u aanhalingstekens rond de parameters moet zetten. Bijvoorbeeld `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`.
+   > Als u PowerShell gebruikt, moet u aanhalingstekens rond de parameters geplaatst. Bijvoorbeeld `mvn archetype:generate "-DgroupId=com.microsoft.examples" "-DartifactId=ExampleUDF" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DinteractiveMode=false"`.
 
-    Deze opdracht maakt u een map met de naam **exampleudf**, die het Maven-project bevat.
+    Deze opdracht maakt u een map met de naam **exampleudf**, die de Maven-project bevat.
 
-2. Zodra het project is gemaakt, verwijdert de **src-exampleudf/Testscenario** map die is gemaakt als onderdeel van het project.
+2. Zodra het project is gemaakt, verwijdert de **exampleudf/src/test** map die is gemaakt als onderdeel van het project.
 
-3. Open de **exampleudf/pom.xml**, en vervang de bestaande `<dependencies>` vermelding met de volgende XML-code:
+3. Open de **exampleudf/pom.xml**, en vervang de bestaande `<dependencies>` vermelding met de volgende XML:
 
     ```xml
     <dependencies>
@@ -76,9 +72,9 @@ Informatie over het maken van een op Java gebaseerd gebruiker gedefinieerde func
     </dependencies>
     ```
 
-    Deze vermeldingen Geef de versie van Hadoop en Hive met HDInsight 3.6 opgenomen. U vindt meer informatie over de versies van Hadoop en Hive voorzien in HDInsight via de [versiebeheer van HDInsight-onderdeel](../hdinsight-component-versioning.md) document.
+    Deze vermeldingen opgeven de versie van Hadoop en Hive met HDInsight 3.6 opgenomen. U vindt meer informatie over de versies van Hadoop en Hive met HDInsight van opgegeven de [versiebeheer van HDInsight-onderdeel](../hdinsight-component-versioning.md) document.
 
-    Voeg een `<build>` sectie voordat de `</project>` regel aan het einde van het bestand. Deze sectie, moet de volgende XML bevatten:
+    Voeg een `<build>` sectie voordat u de `</project>` regel aan het einde van het bestand. In deze sectie bevatten de volgende XML:
 
     ```xml
     <build>
@@ -132,13 +128,13 @@ Informatie over het maken van een op Java gebaseerd gebruiker gedefinieerde func
     </build>
     ```
 
-    Deze vermeldingen definiëren hoe om het project te bouwen. In het bijzonder de versie van Java die gebruikmaakt van het project en het bouwen van een uberjar voor de implementatie van het cluster.
+    Deze items definiëren hoe om het project te bouwen. Met name de versie van Java die gebruikmaakt van het project en over het bouwen van een uberjar voor implementatie in het cluster.
 
     Sla het bestand nadat de wijzigingen zijn aangebracht.
 
-4. Wijzig de naam van **exampleudf/src/main/java/com/microsoft/examples/App.java** naar **ExampleUDF.java**, en open vervolgens het bestand in uw editor.
+4. Wijzig de naam van **exampleudf/src/main/java/com/microsoft/examples/App.java** naar **ExampleUDF.java**, en open vervolgens het bestand in de editor.
 
-5. Vervang de inhoud van de **ExampleUDF.java** door het volgende bestand en sla het bestand.
+5. Vervang de inhoud van de **ExampleUDF.java** bestand door het volgende en sla het bestand.
 
     ```java
     package com.microsoft.examples;
@@ -167,7 +163,7 @@ Informatie over het maken van een op Java gebaseerd gebruiker gedefinieerde func
 
     Deze code implementeert een UDF die een string-waarde accepteert en retourneert een kleine versie van de tekenreeks.
 
-## <a name="build-and-install-the-udf"></a>Bouwen en de UDF installeren
+## <a name="build-and-install-the-udf"></a>Bouw en installeer de UDF
 
 1. Gebruik de volgende opdracht om te compileren en de UDF pakket:
 
@@ -175,15 +171,15 @@ Informatie over het maken van een op Java gebaseerd gebruiker gedefinieerde func
     mvn compile package
     ```
 
-    Met deze opdracht maakt en pakketten van de UDF in de `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar` bestand.
+    Met deze opdracht bouwt en verpakt de UDF in de `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar` bestand.
 
-2. Gebruik de `scp` opdracht het bestand kopiëren naar het HDInsight-cluster.
+2. Gebruik de `scp` opdracht naar het bestand kopiëren naar het HDInsight-cluster.
 
     ```bash
     scp ./target/ExampleUDF-1.0-SNAPSHOT.jar myuser@mycluster-ssh.azurehdinsight
     ```
 
-    Vervang `myuser` met het SSH-gebruikersaccount voor uw cluster. Vervang `mycluster` met de naam van het cluster. Als u een wachtwoord gebruikt om de SSH-account te beveiligen, wordt u gevraagd het wachtwoord invoeren. Als u een certificaat gebruikt, moet u mogelijk gebruik van de `-i` parameter om een bestand met de persoonlijke sleutel.
+    Vervang `myuser` met de SSH-gebruikersaccount voor uw cluster. Vervang `mycluster` met de naam van het cluster. Als u een wachtwoord gebruikt om de SSH-account te beveiligen, wordt u gevraagd het wachtwoord invoeren. Als u een certificaat gebruikt, moet u mogelijk gebruik van de `-i` parameter opgeven voor het persoonlijke sleutelbestand.
 
 3. Verbinding maken met het cluster via SSH.
 
@@ -193,23 +189,23 @@ Informatie over het maken van een op Java gebaseerd gebruiker gedefinieerde func
 
     Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
-4. Kopieer het jar-bestand HDInsight-opslag van de SSH-sessie.
+4. Kopieer het jar-bestand naar een HDInsight-opslag van de SSH-sessie.
 
     ```bash
     hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
     ```
 
-## <a name="use-the-udf-from-hive"></a>Gebruik de UDF van Hive
+## <a name="use-the-udf-from-hive"></a>De UDF uit Hive gebruiken
 
-1. Gebruik de volgende op de client Beeline starten vanaf de SSH-sessie.
+1. Gebruik de volgende de Beeline-client starten vanuit de SSH-sessie.
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
     ```
 
-    Met deze opdracht wordt ervan uitgegaan dat u de standaardwaarde van gebruikt **admin** voor het aanmeldingsaccount voor uw cluster.
+    Met deze opdracht wordt ervan uitgegaan dat u de standaardwaarde van gebruikt **admin** voor de aanmeldingsaccounts voor uw cluster.
 
-2. Wanneer u aankomt bij de `jdbc:hive2://localhost:10001/>` gevraagd, voert u het volgende als u wilt de UDF toevoegen aan Hive en deze als een functie weer te geven.
+2. Zodra er uitziet de `jdbc:hive2://localhost:10001/>` wordt gevraagd, voert u het volgende als u wilt de UDF toevoegen aan Hive en deze beschikbaar te maken als een functie.
 
     ```hiveql
     ADD JAR wasb:///example/jars/ExampleUDF-1.0-SNAPSHOT.jar;
@@ -217,15 +213,15 @@ Informatie over het maken van een op Java gebaseerd gebruiker gedefinieerde func
     ```
 
     > [!NOTE]
-    > In dit voorbeeld wordt ervan uitgegaan dat Azure Storage standaard opslagruimte voor het cluster. Als uw cluster in plaats daarvan Data Lake Store gebruikt, wijzigt u de `wasb:///` van waarde naar `adl:///`.
+    > In dit voorbeeld wordt ervan uitgegaan dat Azure Storage standaardopslag voor het cluster. Als uw cluster maakt in plaats daarvan gebruik van de Data Lake Store, wijzigt u de `wasb:///` waarde die moet worden `adl:///`.
 
-3. De UDF gebruiken om waarden opgehaald uit een tabel naar kleine letters tekenreeksen te converteren.
+3. Gebruik de UDF om te converteren die zijn opgehaald uit een tabel naar tekenreeksen met kleine letters.
 
     ```hiveql
     SELECT tolower(deviceplatform) FROM hivesampletable LIMIT 10;
     ```
 
-    Deze query selecteert het platform van het apparaat (Android, Windows, iOS, enzovoort) uit de tabel, converteert u de tekenreeks voor kleine, en deze vervolgens weergeven. De uitvoer lijkt op de volgende tekst:
+    Deze query selecteert het apparaatplatform (Android, Windows, iOS, enzovoort) uit de tabel, converteert de tekenreeks voor kleine en ze vervolgens weergeven. De uitvoer wordt weergegeven die vergelijkbaar is met de volgende tekst:
 
         +----------+--+
         |   _c0    |
@@ -246,4 +242,4 @@ Informatie over het maken van een op Java gebaseerd gebruiker gedefinieerde func
 
 Zie voor andere manieren om te werken met Hive, [Hive gebruiken met HDInsight](hdinsight-use-hive.md).
 
-Zie voor meer informatie over functies Hive User-Defined [Hive operatoren en door de gebruiker gedefinieerde functies](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) sectie van de Hive-wiki op apache.org.
+Zie voor meer informatie over de functies Hive User-Defined [door de gebruiker gedefinieerde functies en operatoren Hive](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF) sectie van de Hive-wiki op apache.org.

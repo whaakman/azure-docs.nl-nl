@@ -1,30 +1,25 @@
 ---
-title: Hadoop-clusters in HDInsight met .NET SDK - Azure beheren | Microsoft Docs
-description: Informatie over het uitvoeren van beheertaken voor het Hadoop-clusters in HDInsight met behulp van HDInsight .NET SDK.
+title: Beheer Hadoop-clusters in HDInsight met .NET SDK - Azure
+description: Informatie over het uitvoeren van beheertaken voor de Hadoop-clusters in HDInsight met behulp van HDInsight .NET SDK.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-tags: azure-portal
-author: mumian
-documentationcenter: ''
-ms.assetid: fd134765-c2a0-488a-bca6-184d814d78e9
+editor: jasonwhowell
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
-ms.openlocfilehash: 08c9d16570a923c79c81cebb8669a43488129d9a
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.author: jasonh
+ms.openlocfilehash: 481ee363c4ee48bb85bca991b6d4912560d82312
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017934"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590881"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Hadoop-clusters in HDInsight beheren met behulp van de .NET SDK
+# <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Hadoop-clusters in HDInsight beheren met behulp van .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Informatie over het beheren van HDInsight-clusters met [HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
+Informatie over het beheren van HDInsight-clusters met behulp van [HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
 
 **Vereisten**
 
@@ -42,7 +37,7 @@ Install-Package Microsoft.Azure.Management.ResourceManager -Pre
 Install-Package Microsoft.Azure.Management.HDInsight
 ```
 
-Het volgende codevoorbeeld ziet u hoe verbinding maken met Azure voordat u HDInsight-clusters onder uw Azure-abonnement kunt beheren.
+Het volgende codevoorbeeld ziet u hoe u verbinding maken met Azure voordat u het HDInsight-clusters onder uw Azure-abonnement beheren kunt.
 
 ```csharp
 using System;
@@ -111,13 +106,13 @@ namespace HDInsightManagement
 }
 ```
 
-U wordt gevraagd wanneer dit programma wordt uitgevoerd.  Als u niet dat de volgende prompt verschijnt wilt, Zie [niet-interactieve verificatie .NET HDInsight-toepassingen maken](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
+Een prompt er wordt weergegeven wanneer u dit programma uitvoert.  Als u niet dat de prompt wilt, Zie [niet-interactieve verificatie voor .NET HDInsight-toepassingen maken](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
 
 ## <a name="create-clusters"></a>Clusters maken
 Zie [maken Linux gebaseerde clusters in HDInsight met behulp van de .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
 
-## <a name="list-clusters"></a>Lijst met clusters
-Het volgende codefragment bevat de clusters en sommige eigenschappen:
+## <a name="list-clusters"></a>Clusters groeperen
+Het volgende codefragment bevat clusters en een aantal eigenschappen:
 
 ```csharp
 var results = _hdiManagementClient.Clusters.List();
@@ -138,23 +133,23 @@ _hdiManagementClient.Clusters.DeleteAsync("<Resource Group Name>", "<Cluster Nam
 ```
 
 ## <a name="scale-clusters"></a>Clusters schalen
-Het schalen van de functie cluster kunt u het aantal worker-knooppunten gebruikt door een cluster dat wordt uitgevoerd in Azure HDInsight zonder te hoeven maken van het cluster opnieuw wijzigen.
+Het cluster schalen functie kunt u het aantal worker-knooppunten die worden gebruikt door een cluster dat wordt uitgevoerd in Azure HDInsight zonder te hoeven maken van het cluster opnieuw wijzigen.
 
 > [!NOTE]
-> Alleen clusters met HDInsight versie 3.1.3 of hoger worden ondersteund. Als u de versie van het cluster niet zeker weet, kunt u de pagina eigenschappen controleren.  Zie [lijst en geeft weer clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+> Alleen clusters met HDInsight versie 3.1.3 of hoger worden ondersteund. Als u de versie van het cluster niet zeker weet, kunt u de eigenschappenpagina controleren.  Zie [clusters tonen en vermelden](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 > 
 > 
 
-De gevolgen van het wijzigen van het aantal gegevensknooppunten voor elk type van ondersteund door de HDInsight-cluster:
+De gevolgen van het wijzigen van het aantal gegevensknooppunten voor elk type cluster die door HDInsight worden ondersteund:
 
 * Hadoop
   
-    U kunt naadloos Verhoog het aantal worker-knooppunten van een Hadoop-cluster dat wordt uitgevoerd zonder enige impact op alle taken die in behandeling of wordt uitgevoerd. Nieuwe taken kunnen ook worden verzonden terwijl de bewerking uitgevoerd wordt. Fouten in een bewerking voor schaal worden probleemloos verwerkt zodat het cluster altijd in een functionele staat blijft.
+    Het aantal worker-knooppunten in een Hadoop-cluster dat wordt uitgevoerd zonder gevolgen voor alle taken die in behandeling of wordt uitgevoerd, kunt u naadloos verhogen. Nieuwe taken kunnen ook worden verzonden terwijl de bewerking uitgevoerd wordt. Fouten in een bewerking voor vergroten/verkleinen probleemloos verwerkt zodat het cluster altijd in een functionele staat blijft.
   
-    Wanneer een Hadoop-cluster wordt verkleind door het aantal gegevensknooppunten te verminderen, zijn sommige van de services in het cluster opnieuw gestart. Dit zorgt ervoor dat alle actieve en in behandeling zijnde taken mislukken na het voltooien van de bewerking uit te schalen. U kunt echter de taken verzenden zodra de bewerking voltooid is.
+    Wanneer een Hadoop-cluster is omlaag geschaald door het aantal gegevensknooppunten te verminderen, zijn sommige van de services in het cluster opnieuw opgestart. Dit zorgt ervoor dat alle actieve en in behandeling zijnde taken mislukken na het voltooien van de bewerking vergroten/verkleinen. U kunt echter de taken opnieuw zodra de bewerking voltooid is.
 * HBase
   
-    U kunt naadloos toevoegen of verwijderen van knooppunten in uw HBase-cluster, terwijl deze wordt uitgevoerd. Regionale Servers worden automatisch verdeeld binnen een paar minuten na voltooiing van de bewerking uit te schalen. U kunt echter ook handmatig de regionale servers verdelen door aan te melden bij de headnode van cluster en het gebruik van de volgende opdrachten vanuit een opdrachtpromptvenster:
+    U kunt naadloos toevoegen of verwijderen van knooppunten in uw HBase-cluster, terwijl deze wordt uitgevoerd. Regionale Servers worden automatisch verdeeld binnen een paar minuten na voltooiing van de vergroten/verkleinen bewerking. U kunt echter ook handmatig de regionale servers verdelen door te melden bij het hoofdknooppunt van het cluster en de volgende opdrachten uitvoert vanuit een opdrachtpromptvenster:
   
     ```bash
     >pushd %HBASE_HOME%\bin
@@ -163,20 +158,20 @@ De gevolgen van het wijzigen van het aantal gegevensknooppunten voor elk type va
     ```
 * Storm
   
-    U kunt naadloos toevoegen of verwijderen van gegevensknooppunten naar uw Storm-cluster, terwijl deze wordt uitgevoerd. Maar na een geslaagde voltooiing van de bewerking uit te schalen, moet u de topologie opnieuw verdelen.
+    U kunt naadloos toevoegen of verwijderen van gegevensknooppunten naar uw Storm-cluster, terwijl deze wordt uitgevoerd. Maar na een geslaagde bewerking vergroten/verkleinen is voltooid, moet u opnieuw verdelen van de topologie.
   
-    Herverdeling kan worden uitgevoerd op twee manieren:
+    Herverdelen kan worden uitgevoerd op twee manieren:
   
-  * Storm-webgebruikersinterface
-  * Hulpprogramma voor opdrachtregelinterface (CLI)
+  * Storm-Webgebruikersinterface
+  * Opdrachtregelinterface (CLI)-hulpprogramma
     
     Raadpleeg de [Apache Storm documentatie](http://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) voor meer informatie.
     
     De Storm-webgebruikersinterface is beschikbaar op het HDInsight-cluster:
     
-    ![HDInsight Storm scale deel opnieuw](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
+    ![HDInsight Storm schaal opnieuw verdelen](./media/hdinsight-administer-use-management-portal/hdinsight-portal-scale-cluster-storm-rebalance.png)
     
-    Hier volgt een voorbeeld van hoe u met de opdracht CLI opnieuw verdelen van de Storm-topologie:
+    Hier volgt een voorbeeld van hoe u de CLI-opdracht opnieuw verdelen van de Storm-topologie:
     
     ```cli
     ## Reconfigure the topology "mytopology" to use 5 worker processes,
@@ -185,7 +180,7 @@ De gevolgen van het wijzigen van het aantal gegevensknooppunten voor elk type va
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
 
-Het volgende codefragment wordt getoond hoe het formaat van een cluster synchroon of asynchroon:
+Het volgende codefragment laat zien hoe om het formaat van een cluster synchroon of asynchroon aan:
 
 ```csharp
 _hdiManagementClient.Clusters.Resize("<Resource Group Name>", "<Cluster Name>", <New Size>);   
@@ -193,7 +188,7 @@ _hdiManagementClient.Clusters.ResizeAsync("<Resource Group Name>", "<Cluster Nam
 ```
 
 ## <a name="grantrevoke-access"></a>Toegang verlenen of in te trekken
-HDInsight-clusters hebben de volgende HTTP-webservices (al deze services hebt RESTful eindpunten):
+HDInsight-clusters hebben de volgende HTTP-webservices (al deze services hebben RESTful-eindpunten):
 
 * ODBC
 * JDBC
@@ -201,7 +196,7 @@ HDInsight-clusters hebben de volgende HTTP-webservices (al deze services hebt RE
 * Oozie
 * Templeton
 
-Standaard worden deze services verleend om toegang te krijgen. U kunt in te trekken/verlenen toegang. Voor het intrekken van:
+Standaard worden deze services worden verleend om toegang te krijgen. U kunt in te trekken/verlenen toegang tot de. Om in te trekken:
 
 ```csharp
 var httpParams = new HttpSettingsParameters
@@ -232,11 +227,11 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 
 Dit kan ook worden gedaan via de Portal. Zie [HDInsight beheren met behulp van de Azure-portal][hdinsight-admin-portal].
 
-## <a name="update-http-user-credentials"></a>HTTP-gebruikersreferenties updaten
-Dit is dezelfde procedure als [Grant/revoke HTTP toegang](#grant/revoke-access). Als het cluster heeft de HTTP-toegang is verleend, moet u het eerst intrekken.  Vervolgens toegang verlenen en de met nieuwe HTTP gebruikersgegevens.
+## <a name="update-http-user-credentials"></a>HTTP-gebruikersreferenties bijwerken
+Dit is dezelfde procedure als [Grant/revoke HTTP toegang](#grant/revoke-access). Als het cluster heeft de HTTP-toegang is verleend, moet u eerst het intrekken.  En hen vervolgens machtigen de toegang met nieuwe HTTP-gebruikersreferenties.
 
 ## <a name="find-the-default-storage-account"></a>Het standaardopslagaccount vinden
-Het volgende codefragment laat zien hoe u de naam van het standaardopslagaccount en de standaard opslagaccountsleutel voor een cluster.
+Het volgende codefragment laat zien hoe u de standaardnaam van de storage-account en de standaard-toegangssleutel voor een cluster.
 
 ```csharp
 var results = _hdiManagementClient.Clusters.GetClusterConfigurations(<Resource Group Name>, <Cluster Name>, "core-site");
@@ -247,33 +242,33 @@ foreach (var key in results.Configuration.Keys)
 ```
 
 ## <a name="submit-jobs"></a>Verzenden van taken
-**MapReduce-taken verzenden**
+**MapReduce-taken indienen**
 
-Zie [uitvoeren Hadoop-MapReduce-voorbeelden in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
+Zie [voorbeelden van Hadoop MapReduce uitvoeren in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
-**Hive-taken verzenden** 
+**Hive-taken indienen** 
 
 Zie [uitvoeren Hive-query's met .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
-**Pig-taken verzenden**
+**Pig-taken indienen**
 
-Zie [uitvoeren Pig-taken met .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
+Zie [uitvoeren Pig-taken met behulp van .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
 
-**Om Sqoop taken te verzenden**
+**Sqoop taken indienen**
 
 Zie [Sqoop gebruiken met HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
 
-**Oozie-taken verzenden**
+**Oozie-taken indienen**
 
-Zie [Oozie gebruiken met Hadoop om te definiëren en uitvoeren van een werkstroom in HDInsight](hdinsight-use-oozie-linux-mac.md).
+Zie [gebruik Oozie met Hadoop om te definiëren en een werkstroom uitvoeren in HDInsight](hdinsight-use-oozie-linux-mac.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Gegevens uploaden naar Azure Blob-opslag
 Zie [Gegevens uploaden naar HDInsight][hdinsight-upload-data].
 
 ## <a name="see-also"></a>Zie ook
-* [HDInsight .NET SDK-documentatie](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
-* [HDInsight beheren met behulp van de Azure-portal][hdinsight-admin-portal]
-* [HDInsight met behulp van een opdrachtregelinterface beheren][hdinsight-admin-cli]
+* [HDInsight .NET SDK-referentiedocumentatie](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
+* [HDInsight beheren met behulp van Azure portal][hdinsight-admin-portal]
+* [HDInsight met een opdrachtregelinterface beheren][hdinsight-admin-cli]
 * [HDInsight-clusters maken][hdinsight-provision]
 * [Gegevens uploaden naar HDInsight][hdinsight-upload-data]
 * [Aan de slag met Azure HDInsight][hdinsight-get-started]

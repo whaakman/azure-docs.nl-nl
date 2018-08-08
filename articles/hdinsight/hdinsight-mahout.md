@@ -1,31 +1,26 @@
 ---
-title: Genereren met Mahout HDInsight vanuit PowerShell - Azure aanbevelingen | Microsoft Docs
-description: Informatie over het gebruik van de Apache Mahout-machine learning-bibliotheek voor het genereren van filmaanbevelingen met HDInsight (Hadoop) vanuit een PowerShell-script uitgevoerd op de client.
+title: Genereren van aanbevelingen met Mahout HDInsight vanuit PowerShell - Azure
+description: Informatie over het gebruik van de Apache Mahout-machine learning-bibliotheek Genereer filmaanbevelingen met HDInsight (Hadoop) vanuit een PowerShell-script uitgevoerd op de client.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 07b57208-32aa-4e59-900a-6c934fa1b7a7
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: 49a092ee23b79c483aa7bbd8b3d5150e909b6884
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: jasonh
+ms.openlocfilehash: 587ea8d9082a696853d8e25a36d9536c762d0582
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177349"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599986"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>Filmaanbevelingen genereren met behulp van Apache Mahout met Hadoop in HDInsight (PowerShell)
 
 [!INCLUDE [mahout-selector](../../includes/hdinsight-selector-mahout.md)]
 
-Meer informatie over het gebruik van de [Apache Mahout](http://mahout.apache.org) machine learning-bibliotheek met Azure HDInsight filmaanbevelingen genereren. Het voorbeeld in dit document wordt Azure PowerShell Mahout taken uitvoeren.
+Meer informatie over het gebruik van de [Apache Mahout](http://mahout.apache.org) machine learning-bibliotheek met Azure HDInsight filmaanbevelingen genereren. Het voorbeeld in dit document wordt Azure PowerShell Mahout taken uit te voeren.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -41,25 +36,25 @@ Meer informatie over het gebruik van de [Apache Mahout](http://mahout.apache.org
 > [!WARNING]
 > De taak in deze sectie werkt met behulp van Azure PowerShell. Veel van de klassen die zijn opgegeven met Mahout werkt momenteel niet met Azure PowerShell. Zie voor een lijst met klassen die niet met Azure PowerShell werken, de [probleemoplossing](#troubleshooting) sectie.
 >
-> Zie voor een voorbeeld van het gebruik van SSH verbinding maken met HDInsight en voer Mahout voorbeelden rechtstreeks op het cluster [filmaanbevelingen genereren met Mahout en HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
+> Zie voor een voorbeeld van het gebruik van SSH verbinding maken met HDInsight en voer Mahout voorbeelden rechtstreeks op het cluster, [filmaanbevelingen genereren met Mahout en HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
 
-Een van de functies die wordt geleverd door Mahout is een aanbeveling-engine. Deze engine accepteert gegevens in de indeling van `userID`, `itemId`, en `prefValue` (gebruikers van de voorkeur voor het item). Mahout gebruikt de gegevens om te bepalen van gebruikers met dergelijke-item voorkeuren, die kunnen worden gebruikt om aanbevelingen te doen.
+Een van de functies die wordt geleverd door Mahout is een engine voor aanbevelingen. Deze engine accepteert gegevens in de indeling van `userID`, `itemId`, en `prefValue` (gebruikers van de voorkeur voor het item). Mahout gebruikt de gegevens om te bepalen van gebruikers met een dergelijke-item voorkeuren, die kunnen worden gebruikt om aanbevelingen te doen.
 
-Het volgende voorbeeld is een vereenvoudigde procedure van de werking van het proces aanbeveling:
+Het volgende voorbeeld wordt een eenvoudig overzicht van de werking van het proces van de aanbevelingen:
 
-* **mede exemplaar**: Jan Els en Bob alle bevallen *Star Wars*, *terug ontvangen in de Empire*, en *Return van de Jedi*. Mahout bepaalt dat gebruikers die een van deze films ook de andere twee zoals.
+* **CO exemplaar**: Jaap Els en Bob alle beviel *Star Wars*, *terug ramp in de Empire*, en *rendement van de Jedi*. Mahout bepaalt dat gebruikers die ook een van deze films, zoals de andere twee.
 
-* **mede exemplaar**: Bob en Els ook bevallen *de Phantom Menace*, *een aanval van de klonen*, en *Revenge van de Sith*. Mahout bepaalt dat gebruikers die de vorige drie films ook bevallen, zoals deze films.
+* **CO exemplaar**: Bob en Els ook beviel *de Phantom Menace*, *een aanval van het klonen*, en *Revenge van de Sith*. Mahout bepaalt dat gebruikers die de vorige drie films ook leuk vinden, zoals deze films.
 
-* **Gelijkenis aanbeveling**: Jan omdat de eerste drie films bevallen, Mahout wordt bekeken films die anderen met vergelijkbare voorkeuren bevallen, maar Joe heeft geen gevolgde (bevallen/geclassificeerd). In dit geval Mahout raadt *de Phantom Menace*, *een aanval van de klonen*, en *Revenge van de Sith*.
+* **Gelijkenis aanbeveling**: omdat Jaap leuk vinden van de eerste drie films, Mahout kijkt naar films die anderen met vergelijkbare voorkeuren leuk vinden, maar Jaap niet heeft bekeken (leuk vinden/geclassificeerd). In dit geval Mahout raadt *de Phantom Menace*, *een aanval van het klonen*, en *Revenge van de Sith*.
 
 ### <a name="understanding-the-data"></a>Wat zijn de gegevens?
 
-[GroupLens Research] [ movielens] biedt classificatie gegevens voor films in een indeling die compatibel is met Mahout. Deze gegevens zijn beschikbaar op de standaard-opslag voor uw cluster op `/HdiSamples/HdiSamples/MahoutMovieData`.
+[GroupLens onderzoek] [ movielens] classificatie gegevens biedt voor films in een indeling die compatibel is met Mahout. Deze gegevens zijn beschikbaar op de standaardopslag voor uw cluster op `/HdiSamples/HdiSamples/MahoutMovieData`.
 
-Er zijn twee bestanden: `moviedb.txt` (informatie over de films) en `user-ratings.txt`. De `user-ratings.txt` -bestand wordt gebruikt tijdens de analyse. De `moviedb.txt` bestand wordt gebruikt voor de beschrijvende tekst opgeven bij het weergeven van de resultaten van de analyse.
+Er zijn twee bestanden `moviedb.txt` (informatie over de films) en `user-ratings.txt`. De `user-ratings.txt` -bestand wordt gebruikt tijdens de analyse. De `moviedb.txt` bestand wordt gebruikt voor beschrijvende tekst bij het weergeven van de resultaten van de analyse.
 
-De gegevens in gebruiker ratings.txt heeft een structuur van `userID`, `movieID`, `userRating`, en `timestamp`, waarmee wordt uitgelegd hoe maximaal elke gebruiker een film beoordeeld. Hier volgt een voorbeeld van de gegevens:
+De gegevens in gebruiker ratings.txt heeft een structuur van `userID`, `movieID`, `userRating`, en `timestamp`, waarin staat hoe maximaal elke gebruiker een film beoordeeld. Hier volgt een voorbeeld van de gegevens:
 
     196    242    3    881250949
     186    302    3    891717742
@@ -67,19 +62,19 @@ De gegevens in gebruiker ratings.txt heeft een structuur van `userID`, `movieID`
     244    51     2    880606923
     166    346    1    886397596
 
-### <a name="run-the-job"></a>Voer de taak
+### <a name="run-the-job"></a>De taak uitvoeren
 
-Gebruik de volgende Windows PowerShell-script een taak die de Mahout aanbeveling-engine met de filmgegevens gebruikt uit te voeren:
+Gebruik de volgende Windows PowerShell-script om uit te voeren van een taak die de Mahout-aanbevelingsengine met de filmgegevens gebruikt:
 
 > [!NOTE]
-> Dit bestand wordt u gevraagd om informatie die wordt gebruikt voor verbinding maken met uw HDInsight-cluster en taken uitvoeren. Het kan enkele minuten duren voordat de taken zijn voltooid en download het bestand uitvoer.txt.
+> Dit bestand vraagt u om de informatie die wordt gebruikt voor verbinding maken met uw HDInsight-cluster en taken uitvoeren. Het kan enkele minuten voor de taken te voltooien en downloadt u het bestand uitvoer.txt duren.
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=5-98)]
 
 > [!NOTE]
-> Mahout taken verwijderd tijdelijke gegevens die zijn gemaakt tijdens het verwerken van de taak niet. De `--tempDir` parameter wordt opgegeven in de voorbeeld-taak voor het isoleren van de tijdelijke bestanden naar een specifieke map.
+> Mahout taken verwijderen tijdelijke gegevens die zijn gemaakt tijdens het verwerken van de taak niet. De `--tempDir` parameter is opgegeven in het voorbeeld van de taak voor het isoleren van de tijdelijke bestanden naar een specifieke map.
 
-De taak Mahout weer niet de uitvoer STDOUT. In plaats daarvan wordt deze opgeslagen in de opgegeven uitvoermap als **onderdeel-r-00000**. Het script downloaden van dit bestand **uitvoer.txt** in de huidige map op uw werkstation.
+De Mahout-taak terug niet de uitvoer naar de STDOUT. In plaats daarvan wordt deze opgeslagen in de map met de opgegeven uitvoer als **onderdeel-r-00000**. Het script downloaden van dit bestand **uitvoer.txt** in de huidige map op uw werkstation.
 
 De volgende tekst is een voorbeeld van de inhoud van dit bestand:
 
@@ -88,17 +83,17 @@ De volgende tekst is een voorbeeld van de inhoud van dit bestand:
     3    [284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
     4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
 
-De eerste kolom is de `userID`. De waarden in ' [' en ']' zijn `movieId`:`recommendationScore`.
+De eerste kolom is de `userID`. De waarden die zijn opgenomen in ' [' en ']' zijn `movieId`:`recommendationScore`.
 
-Het script ook downloadt de `moviedb.txt` en `user-ratings.txt` bestanden die nodig zijn om de uitvoer zodat deze beter leesbaar te formatteren.
+Het script kan ook worden gedownload de `moviedb.txt` en `user-ratings.txt` bestanden, die nodig zijn om de uitvoer zodat deze beter leesbaar te delen.
 
 ### <a name="view-the-output"></a>De uitvoer weergeven
 
-Hoewel de gegenereerde uitvoer mogelijk OK voor gebruik in een toepassing, is het niet gebruiksvriendelijke. De `moviedb.txt` van de server kan worden gebruikt om op te lossen de `movieId` op de naam van een film. Gebruik de volgende PowerShell-script om aanbevelingen met film namen weer te geven:
+Hoewel de gegenereerde uitvoer mogelijk OK voor gebruik in een toepassing, is het niet gebruiksvriendelijk. De `moviedb.txt` van de server kan worden gebruikt om op te lossen de `movieId` naar een film-naam. Gebruik de volgende PowerShell-script om aanbevelingen met de namen van de film weer te geven:
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/mahout/use-mahout.ps1?range=106-180)]
 
-Gebruik de volgende opdracht om de aanbevelingen in een gebruiksvriendelijke indeling weer te geven: 
+Gebruik de volgende opdracht om weer te geven van de aanbevelingen in een gebruiksvriendelijke indeling: 
 
 ```powershell
 .\show-recommendation.ps1 -userId 4 -userDataFile .\user-ratings.txt -movieFile .\moviedb.txt -recommendationFile .\output.txt
@@ -139,9 +134,9 @@ De uitvoer lijkt op het volgende:
 
 ### <a name="cannot-overwrite-files"></a>Bestanden kan niet worden overschreven.
 
-Mahout taken komen niet opruimen van tijdelijke bestanden die zijn gemaakt tijdens de verwerking. Bovendien overschrijven de taken niet bestaande uitvoerbestand.
+Mahout taken verwijder dan niet tijdelijke bestanden die zijn gemaakt tijdens de verwerking. Bovendien overschrijven de taken niet bestaande uitvoerbestand.
 
-Om fouten te voorkomen wanneer Mahout taken wordt uitgevoerd, verwijdert u tijdelijke- en uitvoergegevens bestanden tussen wordt uitgevoerd. Gebruik de volgende PowerShell-script voor het verwijderen van de bestanden die zijn gemaakt door de eerdere scripts in dit document:
+Om fouten te voorkomen bij het uitvoeren van taken Mahout, tijdelijke en uitvoer bestanden tussen elke uitvoering te verwijderen. Als u wilt verwijderen van de bestanden die door de eerdere scripts in dit document is gemaakt, gebruikt u de volgende PowerShell-script:
 
 ```powershell
 # Login to your Azure subscription
@@ -188,7 +183,7 @@ foreach($blob in $blobs)
 
 ### <a name="nopowershell"></a>Klassen die niet met Azure PowerShell werken
 
-Mahout-functies die gebruikmaken van de volgende klassen retourneren verschillende foutberichten bij gebruik van Windows PowerShell:
+Mahout-taken die gebruikmaken van de volgende klassen retourneren verschillende foutberichten bij gebruik van Windows PowerShell:
 
 * org.apache.mahout.utils.clustering.ClusterDumper
 * org.apache.mahout.utils.SequenceFileDumper
@@ -207,11 +202,11 @@ Mahout-functies die gebruikmaken van de volgende klassen retourneren verschillen
 * org.apache.mahout.classifier.sequencelearning.hmm.RandomSequenceGenerator
 * org.apache.mahout.classifier.df.tools.Describe
 
-Als u wilt uitvoeren op functies die gebruikmaken van deze klassen, verbinding met het HDInsight-cluster via SSH en de jobs uitvoeren vanaf de opdrachtregel. Zie voor een voorbeeld van SSH met Mahout taken uitvoert, [filmaanbevelingen genereren met Mahout en HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
+Taken uit te voeren die gebruikmaken van deze klassen, verbinding maken met het HDInsight-cluster via SSH en de taken worden uitgevoerd vanaf de opdrachtregel. Zie voor een voorbeeld van het gebruik van SSH Mahout taken uit te voeren, [filmaanbevelingen genereren met Mahout en HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe u Mahout, detectie van andere manieren van het werken met gegevens in HDInsight:
+Nu dat u hebt geleerd hoe u een Mahout, Ontdek andere manieren van het werken met gegevens in HDInsight:
 
 * [Hive met HDInsight](hadoop/hdinsight-use-hive.md)
 * [Pig met HDInsight](hadoop/hdinsight-use-pig.md)

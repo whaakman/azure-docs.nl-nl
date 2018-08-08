@@ -1,25 +1,20 @@
 ---
-title: Genereren met Mahout en HDInsight (SSH) - Azure aanbevelingen | Microsoft Docs
-description: Informatie over het gebruik van de Apache Mahout-machine learning-bibliotheek voor het genereren van filmaanbevelingen met HDInsight (Hadoop).
+title: Genereren van aanbevelingen met Mahout en HDInsight (SSH) - Azure
+description: Informatie over het gebruik van de Apache Mahout-machine learning-bibliotheek Genereer filmaanbevelingen met HDInsight (Hadoop).
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: c78ec37c-9a8c-4bb6-9e38-0bdb9e89fbd7
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.author: larryfr
-ms.openlocfilehash: ea9706d30797385718db5cb89bd5399b251f3253
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: 4f29967890d51b894c04b93d8f24f0d6de892cfc
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779417"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591156"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-hadoop-in-hdinsight-ssh"></a>Filmaanbevelingen genereren met behulp van Apache Mahout met Hadoop op basis van Linux in HDInsight (SSH)
 
@@ -27,7 +22,7 @@ ms.locfileid: "32779417"
 
 Meer informatie over het gebruik van de [Apache Mahout](http://mahout.apache.org) machine learning-bibliotheek met Azure HDInsight filmaanbevelingen genereren.
 
-Mahout is een [machine learning] [ ml] -bibliotheek voor Apache Hadoop. Mahout bevat algoritmen voor het verwerken van gegevens, zoals filteren, classificatie en clustering. In dit artikel kunt u een aanbeveling engine filmaanbevelingen die zijn gebaseerd op je vrienden hebt gezien films genereren.
+Mahout is een [machine learning] [ ml] -bibliotheek voor Apache Hadoop. Mahout bevat algoritmes voor het verwerken van gegevens, zoals filteren, classificeren en clusteren. In dit artikel gebruikt u een engine voor aanbevelingen voor het genereren van filmaanbevelingen die zijn gebaseerd op films die je vrienden hebt gezien.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -38,27 +33,27 @@ Mahout is een [machine learning] [ ml] -bibliotheek voor Apache Hadoop. Mahout b
 
 * Een SSH-client. Zie het document [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
-## <a name="mahout-versioning"></a>Mahout versiebeheer
+## <a name="mahout-versioning"></a>Mahout-versiebeheer
 
-Zie voor meer informatie over de versie van Mahout in HDInsight [HDInsight versies en Hadoop-onderdelen](../hdinsight-component-versioning.md).
+Zie voor meer informatie over de versie van Mahout in HDInsight [HDInsight-versies en Hadoop-onderdelen](../hdinsight-component-versioning.md).
 
-## <a name="recommendations"></a>Understanding aanbevelingen
+## <a name="recommendations"></a>Informatie over aanbevelingen
 
-Een van de functies die wordt geleverd door Mahout is een aanbeveling-engine. Deze engine accepteert gegevens in de indeling van `userID`, `itemId`, en `prefValue` (de voorkeur voor het item). Mahout kunt uitvoeren, analyse van CO-exemplaar om te bepalen: *gebruikers die een voorkeur voor een item hebben ook een voorkeur voor deze andere items hebt*. Mahout bepaalt vervolgens gebruikers met dergelijke-item voorkeuren, die kunnen worden gebruikt om aanbevelingen te doen.
+Een van de functies die wordt geleverd door Mahout is een engine voor aanbevelingen. Deze engine accepteert gegevens in de indeling van `userID`, `itemId`, en `prefValue` (de voorkeur voor het item). Mahout vervolgens uitgevoerd voor analyse van CO-exemplaar om te bepalen: *gebruikers die een voorkeur voor een item hebben ook een voorkeur voor deze andere items hebt*. Mahout bepaalt vervolgens gebruikers met een dergelijke-item voorkeuren, die kunnen worden gebruikt om aanbevelingen te doen.
 
-De volgende werkstroom is een voorbeeld van een vereenvoudigde die gebruikmaakt van filmgegevens:
+De volgende werkstroom is een vereenvoudigd voorbeeld dat gebruikmaakt van filmgegevens:
 
-* **mede exemplaar**: Jan Els en Bob alle bevallen *Star Wars*, *terug ontvangen in de Empire*, en *Return van de Jedi*. Mahout bepaalt dat gebruikers die een van deze films ook de andere twee zoals.
+* **CO exemplaar**: Jaap Els en Bob alle beviel *Star Wars*, *terug ramp in de Empire*, en *rendement van de Jedi*. Mahout bepaalt dat gebruikers die ook een van deze films, zoals de andere twee.
 
-* **mede exemplaar**: Bob en Els ook bevallen *de Phantom Menace*, *een aanval van de klonen*, en *Revenge van de Sith*. Mahout bepaalt dat gebruikers die de vorige drie films ook bevallen, zoals deze drie films.
+* **CO exemplaar**: Bob en Els ook beviel *de Phantom Menace*, *een aanval van het klonen*, en *Revenge van de Sith*. Mahout bepaalt dat gebruikers die de vorige drie films ook leuk vinden, zoals deze drie films.
 
-* **Gelijkenis aanbeveling**: Jan omdat de eerste drie films bevallen, Mahout wordt bekeken films die anderen met vergelijkbare voorkeuren bevallen, maar Joe heeft geen gevolgde (bevallen/geclassificeerd). In dit geval Mahout raadt *de Phantom Menace*, *een aanval van de klonen*, en *Revenge van de Sith*.
+* **Gelijkenis aanbeveling**: omdat Jaap leuk vinden van de eerste drie films, Mahout kijkt naar films die anderen met vergelijkbare voorkeuren leuk vinden, maar Jaap niet heeft bekeken (leuk vinden/geclassificeerd). In dit geval Mahout raadt *de Phantom Menace*, *een aanval van het klonen*, en *Revenge van de Sith*.
 
 ### <a name="understanding-the-data"></a>Wat zijn de gegevens?
 
-Gemakkelijk [GroupLens Research] [ movielens] biedt classificatie gegevens voor films in een indeling die compatibel is met Mahout. Deze gegevens zijn beschikbaar op het cluster standaard opslag op `/HdiSamples/HdiSamples/MahoutMovieData`.
+Eenvoudig [GroupLens onderzoek] [ movielens] classificatie gegevens biedt voor films in een indeling die compatibel is met Mahout. Deze gegevens zijn beschikbaar op de standaardopslag van uw cluster op `/HdiSamples/HdiSamples/MahoutMovieData`.
 
-Er zijn twee bestanden: `moviedb.txt` en `user-ratings.txt`. De `user-ratings.txt` -bestand wordt gebruikt tijdens de analyse. De `moviedb.txt` gebruiksvriendelijke om tekstinformatie te geven wanneer u de resultaten bekijkt wordt gebruikt.
+Er zijn twee bestanden `moviedb.txt` en `user-ratings.txt`. De `user-ratings.txt` -bestand wordt gebruikt tijdens de analyse. De `moviedb.txt` wordt gebruikt voor beschrijvende tekst wanneer de resultaten weer te geven.
 
 De gegevens in gebruiker ratings.txt heeft een structuur van `userID`, `movieID`, `userRating`, en `timestamp`, waarmee wordt aangegeven hoe maximaal elke gebruiker een film beoordeeld. Hier volgt een voorbeeld van de gegevens:
 
@@ -70,18 +65,18 @@ De gegevens in gebruiker ratings.txt heeft een structuur van `userID`, `movieID`
 
 ## <a name="run-the-analysis"></a>De analyse uitvoeren
 
-Gebruik de volgende opdracht om uit te voeren de aanbeveling van een SSH-verbinding met het cluster:
+Gebruik de volgende opdracht om uit te voeren van de taak aanbeveling van een SSH-verbinding met het cluster:
 
 ```bash
 mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/MahoutMovieData/user-ratings.txt -o /example/data/mahoutout --tempDir /temp/mahouttemp
 ```
 
 > [!NOTE]
-> De taak duurt enkele minuten in beslag, en mogelijk meerdere MapReduce-taken worden uitgevoerd.
+> De taak duurt enkele minuten, en meerdere MapReduce-taken kunnen uitvoeren.
 
 ## <a name="view-the-output"></a>De uitvoer weergeven
 
-1. Zodra de taak is voltooid, gebruikt u de volgende opdracht om weer te geven van de gegenereerde uitvoer:
+1. Zodra de taak is voltooid, gebruikt u de volgende opdracht uit om de gegenereerde uitvoer weer te geven:
 
     ```bash
     hdfs dfs -text /example/data/mahoutout/part-r-00000
@@ -94,18 +89,18 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
         3    [284:5.0,285:4.828125,508:4.7543354,845:4.75,319:4.705128,124:4.7045455,150:4.6938777,311:4.6769233,248:4.65625,272:4.649266]
         4    [690:5.0,12:5.0,234:5.0,275:5.0,121:5.0,255:5.0,237:5.0,895:5.0,282:5.0,117:5.0]
 
-    De eerste kolom is de `userID`. De waarden in ' [' en ']' zijn `movieId`:`recommendationScore`.
+    De eerste kolom is de `userID`. De waarden die zijn opgenomen in ' [' en ']' zijn `movieId`:`recommendationScore`.
 
-2. U kunt de uitvoer, samen met de moviedb.txt bieden meer informatie over de aanbevelingen. Eerst, Kopieer de bestanden die lokaal via de volgende opdrachten:
+2. U kunt de uitvoer, samen met de moviedb.txt bevatten meer informatie over de aanbevelingen. Kopieer eerst de bestanden lokaal via de volgende opdrachten:
 
     ```bash
     hdfs dfs -get /example/data/mahoutout/part-r-00000 recommendations.txt
     hdfs dfs -get /HdiSamples/HdiSamples/MahoutMovieData/* .
     ```
 
-    Met deze opdracht wordt de uitvoergegevens gekopieerd naar een bestand met de naam **recommendations.txt** in de huidige map, samen met de gegevensbestanden film.
+    Met deze opdracht wordt de uitvoergegevens die worden gekopieerd naar een bestand met de naam **recommendations.txt** in de huidige map, samen met de gegevensbestanden van de film.
 
-3. Gebruik de volgende opdracht voor het maken van een pythonscript dat Hiermee u film namen voor de gegevens in de uitvoer van de aanbevelingen zoekt:
+3. Gebruik de volgende opdracht om te maken van een Python-script waarmee film-namen voor de gegevens in de uitvoer van de aanbevelingen worden opgezocht:
 
     ```bash
     nano show_recommendations.py
@@ -165,43 +160,43 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
    print "------------------------"
    ```
 
-    Druk op **Ctrl X**, **Y**, en tot slot **Enter** gegevens opslaan.
+    Druk op **Ctrl X**, **Y**, en tot slot **Enter** de gegevens op te slaan.
 
-4. Het Python-script uitvoeren. De volgende opdracht wordt ervan uitgegaan dat u in de map waar alle bestanden zijn gedownload:
+4. Het Python-script uitvoeren. De volgende opdracht wordt ervan uitgegaan dat u zich in de map waar alle bestanden zijn gedownload:
 
     ```bash
     python show_recommendations.py 4 user-ratings.txt moviedb.txt recommendations.txt
     ```
 
-    Met deze opdracht wordt de aanbevelingen die worden gegenereerd voor de gebruiker-ID 4 bekeken.
+    Met deze opdracht wordt de aanbevelingen die worden gegenereerd voor de gebruiker-ID 4 gekeken.
 
-    * De **gebruiker ratings.txt** bestand wordt gebruikt voor het ophalen van films die zijn beoordeeld.
+    * De **gebruiker ratings.txt** bestand wordt gebruikt om op te halen van films die zijn geclassificeerd.
 
-    * De **moviedb.txt** bestand wordt gebruikt voor het ophalen van de namen van de films.
+    * De **moviedb.txt** bestand wordt gebruikt om op te halen van de namen van de films.
 
     * De **recommendations.txt** wordt gebruikt voor het ophalen van de filmaanbevelingen voor deze gebruiker.
 
      De uitvoer van deze opdracht is vergelijkbaar met de volgende tekst:
 
-        Fraudewaarschuwing in Tibet (1997), beoordelen 5.0 = Indiana Jones en de laatste Crusade (1989) score = 5.0 Jaws (1975) score = 5.0 zin en mee (1995) score = 5.0 onafhankelijkheid dag (ID4) (1996) score = 5.0 mijn beste vriend Wedding (1997), beoordelen 5.0 = Jerry Maguire (1996) score 5.0 = Scream 2 (1997) score = 5.0 tijd Kill, een (1996) score = 5.0
+        Zeven jaar in Tibet (1997), score = 5.0 Indiana Jones en de laatste Crusade (1989), score = 5.0 Jaws (1975), score = 5.0 idee en mee (1995), score = 5.0 onafhankelijkheid dag (ID4) (1996), score = 5.0 mijn beste vriend Wedding (1997), score = 5.0 Jerry Maguire (1996), score = 5.0 Scream 2 (1997), score = 5.0 tijd Kill, een (1996), score = 5.0
 
 ## <a name="delete-temporary-data"></a>Tijdelijke gegevens verwijderen
 
-Mahout taken verwijderd tijdelijke gegevens die zijn gemaakt tijdens het verwerken van de taak niet. De `--tempDir` parameter wordt opgegeven in de voorbeeld-taak voor het isoleren van de tijdelijke bestanden in een specifiek pad voor eenvoudig verwijderen. Gebruik de volgende opdracht voor het verwijderen van de tijdelijke bestanden:
+Mahout taken verwijderen tijdelijke gegevens die zijn gemaakt tijdens het verwerken van de taak niet. De `--tempDir` parameter is opgegeven in het voorbeeld van de taak voor het isoleren van de tijdelijke bestanden naar een specifiek pad voor het eenvoudig verwijderen. Als u wilt de tijdelijke bestanden verwijderen, gebruik de volgende opdracht:
 
 ```bash
 hdfs dfs -rm -f -r /temp/mahouttemp
 ```
 
 > [!WARNING]
-> Als u de opdracht opnieuw uitvoeren wilt, moet u ook de uitvoermap verwijderen. Gebruik de volgende om deze map te verwijderen:
+> Als u wilt dat de opdracht opnieuw uitvoeren, moet u ook de uitvoermap verwijderen. Gebruik de volgende om deze map te verwijderen:
 >
 > `hdfs dfs -rm -f -r /example/data/mahoutout`
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe u Mahout, detectie van andere manieren van het werken met gegevens in HDInsight:
+Nu dat u hebt geleerd hoe u een Mahout, Ontdek andere manieren van het werken met gegevens in HDInsight:
 
 * [Hive met HDInsight](hdinsight-use-hive.md)
 * [Pig met HDInsight](hdinsight-use-pig.md)

@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 08/07/2018
 ms.author: babanisa
-ms.openlocfilehash: d2bc0d8f78e6fe0806afb3208c88df28b8cce1f9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3fe717cb60791d24637ccd5b9a3c08fd34801524
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39460238"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617938"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid-beveiliging en verificatie 
 
@@ -44,7 +44,7 @@ Dit mechanisme van handmatige validatie is beschikbaar als preview. Als u de fun
 ### <a name="validation-details"></a>Validatiedetails
 
 * Op het moment van gebeurtenis-abonnement maken/bijwerken plaatst Event Grid een gebeurtenis van de validatie-abonnement naar het doel-eindpunt. 
-* De gebeurtenis bevat een headerwaarde 'SubscriptionValidation Aeg gebeurtenistype:'.
+* De gebeurtenis bevat de waarde van een header ' aeg gebeurtenistype: SubscriptionValidation '.
 * De hoofdtekst van de gebeurtenis heeft hetzelfde schema als andere Event Grid-gebeurtenissen.
 * De eigenschap type gebeurtenis van de gebeurtenis is 'Microsoft.EventGrid.SubscriptionValidationEvent'.
 * De eigenschap gegevens van de gebeurtenis bevat de eigenschap 'validationCode' met een willekeurige tekenreeks. Bijvoorbeeld, "validationCode: acb13... '.

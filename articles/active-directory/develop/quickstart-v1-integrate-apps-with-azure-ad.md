@@ -16,12 +16,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: bb1f53b2ea014bfc8e658cf840e0a22368ba9f7c
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 90b8a9bd45d2c6a8551e3af84a5bfa915f4c3cea
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579660"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39592200"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Toepassingen integreren met Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -46,8 +46,8 @@ Elke toepassing die met behulp van de mogelijkheden van Azure AD moet eerst word
 
   - **Naam:** een zinvolle toepassingsnaam invoeren
   - **Toepassingstype:** 
-    - Selecteer 'Native' voor [clienttoepassingen](active-directory-dev-glossary.md#client-application) die lokaal zijn geïnstalleerd op een apparaat. Deze instelling wordt gebruikt voor openbaar gebruik OAuth [systeemeigen clients](active-directory-dev-glossary.md#native-client).
-    - Selecteer ' Web-app / API ' voor [clienttoepassingen](active-directory-dev-glossary.md#client-application) en [resource/API-Apps](active-directory-dev-glossary.md#resource-server) die op een beveiligde server worden geïnstalleerd. Deze instelling wordt gebruikt voor OAuth vertrouwelijke [web-clients](active-directory-dev-glossary.md#web-client) en openbare [gebruiker agent-gebaseerde clients](active-directory-dev-glossary.md#user-agent-based-client). Dezelfde toepassing ook beschikbaar maakt zowel een client en de resource/API.
+    - Selecteer 'Native' voor [clienttoepassingen](developer-glossary.md#client-application) die lokaal zijn geïnstalleerd op een apparaat. Deze instelling wordt gebruikt voor openbaar gebruik OAuth [systeemeigen clients](developer-glossary.md#native-client).
+    - Selecteer ' Web-app / API ' voor [clienttoepassingen](developer-glossary.md#client-application) en [resource/API-Apps](developer-glossary.md#resource-server) die op een beveiligde server worden geïnstalleerd. Deze instelling wordt gebruikt voor OAuth vertrouwelijke [web-clients](developer-glossary.md#web-client) en openbare [gebruiker agent-gebaseerde clients](developer-glossary.md#user-agent-based-client). Dezelfde toepassing ook beschikbaar maakt zowel een client en de resource/API.
   - **Aanmeldings-URL:** voor ' Web-app / API '-toepassingen, bieden de basis-URL van uw app. Bijvoorbeeld, `http://localhost:31544` mogelijk de URL voor een WebApp die wordt uitgevoerd op uw lokale computer. Gebruikers gebruikt deze URL te melden bij een web-clienttoepassing. 
   - **Omleidings-URI:** voor 'Native'-toepassingen, geeft u de URI die door Azure AD wordt gebruikt om tokenantwoorden te retourneren. Voer een specifieke waarde aan uw toepassing, bijvoorbeeld `http://MyFirstAADApp`
 
@@ -105,7 +105,7 @@ De volgende stappen laten zien hoe de toestemming ervaren werkt voor zowel de on
 ### <a name="configure-a-client-application-to-access-web-apis"></a>Een clienttoepassing voor toegang tot web-API's configureren
 In de order voor een web/vertrouwelijke client-toepassing te kunnen deelnemen aan een stroom voor het verlenen van machtiging die moet worden geverifieerd (en een toegangstoken verkrijgen), moet het beveiligde referenties vast. De standaardmethode voor verificatie ondersteund door de Azure portal is de client-ID + geheime sleutel. Deze sectie worden de configuratiestappen vereist voor het bieden van de geheime sleutel met de referenties van uw client.
 
-Bovendien voordat een client toegang heeft tot een web-API beschikbaar is gemaakt door een resourcetoepassing (zoals de Microsoft Graph-API), het toestemmingsframework zorgt ervoor dat de client verkrijgt het verlenen van de machtiging vereist, op basis van de machtigingen die zijn aangevraagd. Standaard kunnen alle toepassingen machtigingen kiezen uit 'Windows Azure Active Directory' (Graph API) en "Windows Azure Service Management-API." De [de machtiging 'aanmelden en gebruikersprofiel lezen' Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) ook standaard is geselecteerd. Als de client wordt geregistreerd in een tenant met accounts die zijn geabonneerd op Office 365, zijn machtigingen voor SharePoint en Exchange Online en web-API's beschikbaar voor selectie. U kunt kiezen uit [twee typen machtigingen](active-directory-dev-glossary.md#permissions) voor elke web-API gewenste:
+Bovendien voordat een client toegang heeft tot een web-API beschikbaar is gemaakt door een resourcetoepassing (zoals de Microsoft Graph-API), het toestemmingsframework zorgt ervoor dat de client verkrijgt het verlenen van de machtiging vereist, op basis van de machtigingen die zijn aangevraagd. Standaard kunnen alle toepassingen machtigingen kiezen uit 'Windows Azure Active Directory' (Graph API) en "Windows Azure Service Management-API." De [de machtiging 'aanmelden en gebruikersprofiel lezen' Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) ook standaard is geselecteerd. Als de client wordt geregistreerd in een tenant met accounts die zijn geabonneerd op Office 365, zijn machtigingen voor SharePoint en Exchange Online en web-API's beschikbaar voor selectie. U kunt kiezen uit [twee typen machtigingen](developer-glossary.md#permissions) voor elke web-API gewenste:
 
 - De machtigingen van de toepassing: De clienttoepassing moet toegang tot de web-API rechtstreeks als zelf (geen gebruikerscontext). Dit type machtiging administrator toestemming nodig heeft en is ook niet beschikbaar voor systeemeigen client-toepassingen.
 
@@ -149,7 +149,7 @@ Bovendien voordat een client toegang heeft tot een web-API beschikbaar is gemaak
 
 ### <a name="configuring-a-resource-application-to-expose-web-apis"></a>Configureren van de resourcetoepassing van een om beschikbaar te stellen van web-API 's
 
-U kunt een web-API ontwikkelen en maakt u deze beschikbaar is voor clienttoepassingen bij het blootstellen van toegang [scopes](active-directory-dev-glossary.md#scopes) en [rollen](active-directory-dev-glossary.md#roles). Er is een correct geconfigureerde web-API beschikbaar net als bij de andere Microsoft web-API's, met inbegrip van de Graph API en de Office 365 API's. Toegangsbereiken en rollen worden weergegeven via uw [toepassingsmanifest](active-directory-dev-glossary.md#application-manifest), dit is een JSON-bestand met de configuratie van de identiteit van uw toepassing. 
+U kunt een web-API ontwikkelen en maakt u deze beschikbaar is voor clienttoepassingen bij het blootstellen van toegang [scopes](developer-glossary.md#scopes) en [rollen](developer-glossary.md#roles). Er is een correct geconfigureerde web-API beschikbaar net als bij de andere Microsoft web-API's, met inbegrip van de Graph API en de Office 365 API's. Toegangsbereiken en rollen worden weergegeven via uw [toepassingsmanifest](developer-glossary.md#application-manifest), dit is een JSON-bestand met de configuratie van de identiteit van uw toepassing. 
 
 De volgende sectie leest u hoe blootstellen toegangsbereiken, door het wijzigen van de resource-toepassingsmanifest.
 
@@ -203,10 +203,10 @@ De volgende sectie leest u hoe blootstellen toegangsbereiken, door het wijzigen 
 
 Het toepassingsmanifest is daadwerkelijk doet dienst als een mechanisme voor het bijwerken van de Toepassingsentiteit, worden alle kenmerken van een Azure AD-toepassing identiteit configuratie, met inbegrip van de API-toegangsbereiken besproken gedefinieerd. Zie voor meer informatie over de toepassing-entiteit en waarvan het schema is de [Graph-API-toepassing entity documentatie](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). Het artikel bevat volledige naslaginformatie over de toepassing entiteitsleden gebruikt voor het opgeven van machtigingen voor uw API, met inbegrip van:  
 
-- Het lid appRoles, dit een verzameling is van [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) entiteiten, die worden gebruikt voor het definiëren van [Toepassingsmachtigingen](active-directory-dev-glossary.md#permissions) voor een web-API. 
-- Het lid oauth2Permissions, dit een verzameling is van [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) entiteiten, die worden gebruikt voor het definiëren van [overgedragen machtigingen](active-directory-dev-glossary.md#permissions) voor een web-API.
+- Het lid appRoles, dit een verzameling is van [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) entiteiten, die worden gebruikt voor het definiëren van [Toepassingsmachtigingen](developer-glossary.md#permissions) voor een web-API. 
+- Het lid oauth2Permissions, dit een verzameling is van [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) entiteiten, die worden gebruikt voor het definiëren van [overgedragen machtigingen](developer-glossary.md#permissions) voor een web-API.
 
-Voor meer informatie over application manifest van de concepten in het algemeen, Zie [inzicht in de Azure Active Directory-toepassingsmanifest](active-directory-application-manifest.md).
+Voor meer informatie over application manifest van de concepten in het algemeen, Zie [inzicht in de Azure Active Directory-toepassingsmanifest](reference-app-manifest.md).
 
 ### <a name="accessing-the-azure-ad-graph-and-office-365-via-microsoft-graph-apis"></a>Toegang tot de Azure AD Graph en Office 365 via Microsoft Graph-API 's  
 
@@ -269,7 +269,7 @@ Zie voor meer informatie over de wijzigingen in de toepassing vereist ter onders
 
 Nadat de gebruiker heeft toestemming verleend, kan deze dezelfde verificatieprotocol om op te halen van tokens voor het beveiligen van aanroepen tussen de client en andere web-API-resources die zijn geconfigureerd voor de toepassing worden gebruikt. Zie voor meer informatie over de impliciete autorisatietoekenning en kunt u bepalen of deze geschikt is voor uw toepassingsscenario, [inzicht in de OAuth2-impliciete stroom in Azure Active Directory verlenen](v1-oauth2-implicit-grant-flow.md).
 
-Impliciete goedkeuring voor OAuth 2.0 is standaard uitgeschakeld voor toepassingen. U kunt de impliciete toekenning van OAuth 2.0 voor uw toepassing inschakelen door in te stellen de `oauth2AllowImplicitFlow` waarde in de [toepassingsmanifest](active-directory-application-manifest.md).
+Impliciete goedkeuring voor OAuth 2.0 is standaard uitgeschakeld voor toepassingen. U kunt de impliciete toekenning van OAuth 2.0 voor uw toepassing inschakelen door in te stellen de `oauth2AllowImplicitFlow` waarde in de [toepassingsmanifest](reference-app-manifest.md).
 
 #### <a name="to-enable-oauth-20-implicit-grant"></a>Impliciete goedkeuring voor OAuth 2.0 inschakelen
 
@@ -317,7 +317,7 @@ Als u wilt verwijderen van een toepassing met meerdere tenants toegang tot uw di
 - Zie voor meer informatie over de werking van verificatie in Azure AD [Verificatiescenario's voor Azure AD](authentication-scenarios.md).
 - Zie de [huisstijl richtlijnen voor geïntegreerde Apps](howto-add-branding-in-azure-ad-apps.md) voor tips over het visuele aanwijzingen voor uw app.
 - Zie voor meer informatie over de relatie tussen de toepassing en Service-Principal objecten van een toepassing [toepassing en Service-Principal-objecten](app-objects-and-service-principals.md).
-- Zie voor meer informatie over de rol van de app-manifest wordt afgespeeld, [inzicht in de Azure Active Directory-toepassingsmanifest](active-directory-application-manifest.md)
-- Zie de [woordenlijst voor ontwikkelaars van Azure AD](active-directory-dev-glossary.md) voor definities van de belangrijkste Azure AD-concepten voor ontwikkelaars.
+- Zie voor meer informatie over de rol van de app-manifest wordt afgespeeld, [inzicht in de Azure Active Directory-toepassingsmanifest](reference-app-manifest.md)
+- Zie de [woordenlijst voor ontwikkelaars van Azure AD](developer-glossary.md) voor definities van de belangrijkste Azure AD-concepten voor ontwikkelaars.
 - Ga naar de [Ontwikkelaarshandleiding voor Active Directory](azure-ad-developers-guide.md) voor een overzicht van alle inhoud die relevant zijn voor ontwikkelaars.
 

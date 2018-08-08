@@ -1,88 +1,83 @@
 ---
-title: Controleren van de prestaties van het cluster - Azure HDInsight | Microsoft Docs
-description: Het bewaken van een HDInsight-cluster voor capaciteit en prestaties.
+title: Cluster-prestaties bewaken - Azure HDInsight
+description: Klik hier voor meer informatie over het bewaken van een HDInsight-cluster voor capaciteit en prestaties.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: maxluk
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2017
 ms.author: maxluk
-ms.openlocfilehash: 9bf49631da58de86ffa1881bca976cab86677805
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 5f0c390fb5749ec5a7dbf3ca7eb541c0aa1133e9
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31403743"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599568"
 ---
 # <a name="monitor-cluster-performance"></a>Cluster-prestaties bewaken
 
-Bewaking van de status en prestaties van een HDInsight-cluster is essentieel voor het onderhouden van de maximale prestaties en bronnen beter worden benut. Controle ook kunt u mogelijke coderen adres of configuratiefouten van de cluster.
+Bewaking van de status en prestaties van een HDInsight-cluster is het essentieel is voor het onderhouden van maximale prestaties en gebruik van resources. Controle kan ook helpen bij het adres mogelijk coderen of configuratiefouten van de cluster.
 
-De volgende secties beschrijven het optimaliseren van cluster laden, YARN wachtrij efficiëntie en toegankelijkheid van de opslag.
+De volgende secties beschrijven over het optimaliseren van het laden van cluster, YARN wachtrij efficiëntie en toegankelijkheid van storage.
 
-## <a name="cluster-loading"></a>Laden van het cluster
+## <a name="cluster-loading"></a>Het laden van cluster
 
-Hadoop-clusters moeten in evenwicht laden op de knooppunten van het cluster. Deze balancing voorkomt u dat verwerkingstaken wordt beperkt door het RAM-geheugen, CPU of schijfbronnen.
+Hadoop-clusters moeten in evenwicht laden op de knooppunten van het cluster. Deze balancing voorkomt dat verwerkingstaken wordt beperkt door het RAM-geheugen, CPU of schijfresources.
 
-Als u de knooppunten van het cluster en hun laden op hoog niveau bekijken, moet u zich aanmelden bij de [Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md), selecteer vervolgens de **Hosts** tabblad. Uw hosts worden weergegeven door de volledig gekwalificeerde domeinnamen. Operationele status van elke host wordt weergegeven door een indicator gekleurde health:
+Als u een Kijk op de knooppunten van het cluster en hun laden, moet u zich aanmelden bij de [Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md)en selecteer vervolgens de **Hosts** tabblad. Uw hosts worden weergegeven door de volledig gekwalificeerde domeinnamen. Operationele status van elke host wordt weergegeven door een gekleurde integriteitsindicator:
 
 | Kleur | Beschrijving |
 | --- | --- |
-| Rood | Ten minste één master onderdeel op de host is niet beschikbaar. Beweeg de muisaanwijzer om te zien dat een lijst met onderdelen geïnfecteerd knopinfo. |
-| Orange | Ten minste één slave onderdeel op de host is niet beschikbaar. Beweeg de muisaanwijzer om te zien dat een lijst met onderdelen geïnfecteerd knopinfo. |
-| Geel | Ambari-Server heeft geen heartbeat van de host niet meer dan 3 minuten ontvangen. |
-| Groen | Standaard-actieve status. |
+| Rood | Ten minste één master onderdeel op de host is niet beschikbaar. Beweeg de muisaanwijzer om te zien dat een lijst met onderdelen betrokken knopinfo. |
+| Orange | Ten minste één slave-onderdeel op de host is niet beschikbaar. Beweeg de muisaanwijzer om te zien dat een lijst met onderdelen betrokken knopinfo. |
+| Geel | Ambari-Server is geen heartbeat ontvangen van de host voor meer dan 3 minuten. |
+| Groen | Normaal uitgevoerd staat. |
 
-U ziet ook kolommen met het aantal kernen en de hoeveelheid RAM-geheugen voor elke host en het schijfgebruik en de belasting gemiddelde.
+U ziet ook de kolommen van het aantal kernen en de hoeveelheid RAM-geheugen voor elke host en het gebruik van de schijf en de belasting gemiddelde.
 
-![Tabblad](./media/hdinsight-key-scenarios-to-monitor/hosts-tab.png)
+![Tabblad hosts](./media/hdinsight-key-scenarios-to-monitor/hosts-tab.png)
 
-Selecteer een van de hostnamen voor een gedetailleerde beschrijving onderdelen die worden uitgevoerd op die host en hun metrische gegevens. De metrische gegevens worden weergegeven als een selecteerbare tijdlijn van CPU-gebruik, load schijfgebruik, geheugengebruik, netwerkgebruik en aantal processen.
+Selecteer een van de hostnamen voor een gedetailleerde Kijk op de onderdelen die worden uitgevoerd op die host en de metrische gegevens. De metrische gegevens worden weergegeven als een selecteerbaar tijdlijn van CPU-gebruik, load schijfgebruik, geheugengebruik, netwerkgebruik en aantallen processen.
 
 ![details van de host](./media/hdinsight-key-scenarios-to-monitor/host-details.png)
 
-Zie [HDInsight-clusters beheren met behulp van de Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md) voor meer informatie over het instellen van waarschuwingen en metrische gegevens te bekijken.
+Zie [beheren HDInsight-clusters met behulp van de Ambari-Webgebruikersinterface](hdinsight-hadoop-manage-ambari.md) voor meer informatie over het instellen van waarschuwingen en metrische gegevens weergeven.
 
-## <a name="yarn-queue-configuration"></a>YARN wachtrij configuratie
+## <a name="yarn-queue-configuration"></a>Configuratie van de YARN-wachtrij
 
-Hadoop heeft verschillende services uitvoert via het gedistribueerde platform. YARN (nog een andere Resource onderhandelaar) coördineert deze services, cluster-resources toegewezen en beheert de toegang tot een algemene gegevensset.
+Hadoop heeft verschillende services die op de gedistribueerde platform worden uitgevoerd. YARN (nog een andere Resource Negotiator) coördinaten van deze services, clusterbronnen toewijst en beheert de toegang tot een algemene gegevensset.
 
-YARN verdeelt de twee verantwoordelijkheden van de JobTracker, bronbeheer en taak plannen/bewaking, in twee daemons: een globale ResourceManager en per toepassing ApplicationMaster (uur).
+YARN verdeelt de verantwoordelijkheden van de twee van de JobTracker, resourcebeheer en -taak plannen/bewaking, in twee daemons: een globale ResourceManager en een per toepassing ApplicationMaster (uur).
 
-De ResourceManager is een *pure scheduler*, en uitsluitend arbitrates beschikbare resources tussen alle concurrerende toepassingen. De ResourceManager zorgt ervoor dat alle resources zich altijd in gebruik, optimaliseren voor verschillende constanten zoals Sla's, wordt gegarandeerd dat capaciteit, enzovoort. De ApplicationMaster resources uit de ResourceManager onderhandelt en werkt met de NodeManager(s) uitvoeren en controleren van de containers en het verbruik van hun.
+De ResourceManager is een *pure scheduler*, en uitsluitend arbitrates beschikbare resources tussen alle concurrerende toepassingen. De ResourceManager zorgt ervoor dat alle resources zich altijd in gebruik, optimaliseren voor verschillende constanten, sla's, zoals capaciteit gegarandeerd, enzovoort. De ApplicationMaster onderhandelt over resources uit de ResourceManager, en werkt met de NodeManager(s) uit te voeren en de containers en hun gebruik van resources bewaken.
 
-Wanneer u meerdere tenants delen een grote cluster, is dit concurrentie voor resources van het cluster. De CapacityScheduler is een pluggable scheduler die helpt bij de resources te delen door de wachtrij van aanvragen. Ondersteunt ook de CapacityScheduler *hiërarchische wachtrijen* om ervoor te zorgen dat bronnen worden gedeeld tussen de onderliggende wachtrijen van een organisatie, voordat u andere toepassingen wachtrijen mogen gratis resources gebruiken.
+Wanneer u meerdere tenants deelt een groot cluster, is de concurrentie voor resources van het cluster. De CapacityScheduler is een pluggable scheduler die bij het resource helpt-wachtrij plaatsen van aanvragen voor delen. Ook biedt ondersteuning voor de CapacityScheduler *hiërarchische wachtrijen* om ervoor te zorgen dat resources worden gedeeld tussen de onderliggende wachtrijen van een organisatie, voordat de andere toepassingen wachtrijen gratis resources te gebruiken die zijn toegestaan.
 
-YARN kan we resources toewijzen aan deze wachtrijen en ziet u of alle beschikbare resources zijn toegewezen. U kunt informatie over uw wachtrijen, meld u aan de Ambari-Webgebruikersinterface bij en selecteer vervolgens **YARN Queue Manager** in het menu bovenaan.
+YARN kan we resources toewijzen aan deze wachtrijen, en laat u zien of al uw beschikbare resources zijn toegewezen. Als u informatie over uw wachtrijen, meld u aan bij de Ambari-Webgebruikersinterface, en selecteer vervolgens **YARN wachtrijbeheerder** in het menu bovenaan.
 
-![YARN Queue Manager](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager.png)
+![YARN-wachtrijbeheerder](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager.png)
 
-De pagina YARN Queue Manager bevat een overzicht van uw wachtrijen aan de linkerkant, samen met het percentage van de capaciteit toegewezen aan elk.
+De wachtrijbeheerder van de YARN-pagina bevat een overzicht van de wachtrijen aan de linkerkant, samen met het percentage van de capaciteit die zijn toegewezen aan elk.
 
-![Pagina YARN Queue Manager-gegevens](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
+![Pagina met details van YARN wachtrijbeheerder](./media/hdinsight-key-scenarios-to-monitor/yarn-queue-manager-details.png)
 
-Selecteer voor een meer gedetailleerde Bekijk uw wachtrijen, vanuit het dashboard Ambari de **YARN** service in de lijst aan de linkerkant. Klik onder de **snelkoppelingen** Selecteer vervolgkeuzemenu **ResourceManager UI** onder uw actieve knooppunt.
+Voor een meer gedetailleerde Kijk op uw wachtrijen van de Ambari-dashboard, selecteert u de **YARN** service in de lijst aan de linkerkant. Klik onder de **snelkoppelingen** in het vervolgkeuzemenu selecteren **ResourceManager UI** onder het actieve knooppunt.
 
 ![ResourceManager UI menu koppeling](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui-menu.png)
 
-Selecteer in de UI ResourceManager **Scheduler** uit in het menu links. U ziet een lijst met uw wachtrijen onder *toepassingswachtrijen*. Hier ziet u de capaciteit die wordt gebruikt voor elk van uw wachtrijen, hoe goed de taken worden gedistribueerd tussen deze twee, en of alle taken zijn beperkte capaciteit.
+Selecteer in de UI ResourceManager **Scheduler** in het menu links. U ziet een lijst met uw wachtrijen onder *toepassingswachtrijen*. Hier ziet u de capaciteit die wordt gebruikt voor elk van de wachtrijen zijn, hoe goed de taken zijn verdeeld over deze, en of alle taken zijn beperkte capaciteit.
 
 ![ResourceManager UI menu koppeling](./media/hdinsight-key-scenarios-to-monitor/resource-manager-ui.png)
 
 ## <a name="storage-throttling"></a>Beperking van opslag
 
-Een cluster prestatieknelpunt kan gebeuren op het opslagniveau van de. Dit type knelpunt meestal het gevolg is *blokkeren* input/output (I/O)-bewerkingen, die zich voordoen wanneer uw actieve taken meer IO verzenden dan de storage-service kan verwerken. Deze worden geblokkeerd, maakt een wachtrij van i/o-aanvragen moeten worden verwerkt totdat nadat de huidige IOs worden verwerkt. De blokken zijn vanwege *opslag beperking*, dit is geen limiet voor een fysieke, maar in plaats daarvan een limiet die zijn opgelegd door de storage-service door een service level agreement (SLA). Deze limiet zorgt ervoor dat geen enkele client of de tenant in beslag de service nemen kan. De SLA beperkt het aantal i/o per seconde (IOPS) voor Azure Storage - voor meer informatie, Zie [Azure Storage Scalability and Performance Targets](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
+Bottleneck in de prestaties van een cluster kan gebeuren op het opslagniveau. Dit type knelpunt wordt meestal veroorzaakt *blokkeren* invoer/uitvoer (I/O)-bewerkingen, die zich voordoen wanneer uw actieve taken meer i/o verzendt dan de storage-service kan verwerken. Deze blokkering, maakt een wachtrij van i/o-aanvragen moeten worden verwerkt totdat nadat de huidige IOs worden verwerkt. De blokken zijn vanwege *opslag beperking*, dit is geen limiet voor een fysieke, maar in plaats daarvan een limiet die zijn opgelegd door de storage-service door een service level agreement (SLA). Deze beperking zorgt ervoor dat geen enkele client of de tenant in beslag de service nemen kan. De SLA beperkt het aantal i/o per seconde (IOP's) voor Azure Storage - voor meer informatie, Zie [Azure Storage Scalability and Performance Targets](https://docs.microsoft.com/azure/storage/storage-scalability-targets).
 
-Als u gebruikmaakt van Azure Storage, voor informatie over het controleren van problemen met de opslag, met inbegrip van beperking, Zie [Monitor, vaststellen en oplossen van Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
+Als u gebruikmaakt van Azure Storage, voor informatie over het bewaken van problemen met betrekking tot opslag, met inbegrip van beperking, Zie [bewaken, problemen vaststellen en oplossen van Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-monitoring-diagnosing-troubleshooting).
 
-Als uw cluster bevindt, is Azure Data Lake opslaan (ADLS), is uw beperking waarschijnlijk veroorzaakt door beperkingen van de bandbreedte. Beperking kan in dit geval worden geïdentificeerd door observeren bandbreedteregeling fouten in de logboeken van de taak. Zie voor ADLS, de bandbreedteregeling sectie voor de betreffende service in deze artikelen:
+Als Azure Data Lake Store (ADLS) van uw cluster externe opslag is is de beperking waarschijnlijk vanwege de bandbreedte. Beperking kan in dit geval worden geïdentificeerd met geobserveerd beperkingsfouten in Logboeken van de taak. Zie voor ADLS, de bandbreedteregeling punt voor de betreffende service in deze artikelen:
 
 * [Richtlijnen voor het afstemmen van de prestaties van Hive in HDInsight en Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-hive.md)
 * [Richtlijnen voor het afstemmen van de prestaties van MapReduce in HDInsight en Azure Data Lake Store](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
@@ -90,8 +85,8 @@ Als uw cluster bevindt, is Azure Data Lake opslaan (ADLS), is uw beperking waars
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga naar de volgende koppelingen voor meer informatie over het oplossen van problemen en controleren van clusters:
+Ga naar de volgende koppelingen voor meer informatie over het oplossen van problemen en uw clusters controleren:
 
 * [HDInsight-logboekbestanden analyseren](hdinsight-debug-jobs.md)
 * [Fouten in apps opsporen met YARN-logboeken](hdinsight-hadoop-access-yarn-app-logs-linux.md)
-* [Dumpbestanden voor Hadoop-services op Linux gebaseerde HDInsight heap inschakelen](hdinsight-hadoop-collect-debug-heap-dump-linux.md)
+* [Heapdumps voor Hadoop op Linux gebaseerde HDInsight-services inschakelen](hdinsight-hadoop-collect-debug-heap-dump-linux.md)

@@ -1,55 +1,49 @@
 ---
-title: YARN oplossen met behulp van Azure HDInsight | Microsoft Docs
+title: Problemen met YARN in Azure HDInsight oplossen
 description: Vind antwoorden op veelgestelde vragen over het werken met Apache Hadoop YARN en Azure HDInsight.
-keywords: HDInsight, YARN Veelgestelde vragen over Azure, probleemoplossingsgids, veelgestelde vragen
-services: Azure HDInsight
-documentationcenter: na
-author: arijitt
-manager: ''
-editor: ''
-ms.assetid: F76786A9-99AB-4B85-9B15-CA03528FC4CD
+services: hdinsight
 ms.service: hdinsight
-ms.devlang: na
-ms.topic: article
+author: jasonwhowell
+ms.author: jasonh
+ms.topic: conceptual
 ms.date: 11/2/2017
-ms.author: arijitt
-ms.openlocfilehash: 338d678fb31a86046b8bc6424d0e8aac2de1a0c5
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: f1f332164b5e954b2576f9fbde519241c7288006
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407043"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596461"
 ---
-# <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>YARN oplossen met behulp van Azure HDInsight
+# <a name="troubleshoot-yarn-by-using-azure-hdinsight"></a>Met YARN oplossen met behulp van Azure HDInsight
 
-Meer informatie over de meest voorkomende problemen en hun oplossingen bij het werken met Apache Hadoop YARN nettoladingen in Apache Ambari.
+Meer informatie over de meest voorkomende problemen en hun oplossingen als u werkt met Apache Hadoop YARN-nettoladingen in Apache Ambari.
 
-## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>Hoe maak een nieuwe YARN-wachtrij op een cluster?
+## <a name="how-do-i-create-a-new-yarn-queue-on-a-cluster"></a>Hoe maak ik een nieuwe YARN-wachtrij op een cluster?
 
 
 ### <a name="resolution-steps"></a>Oplossingen 
 
-Gebruik de volgende stappen in de Ambari een nieuwe YARN-wachtrij maken en vervolgens de capaciteit toewijzing tussen alle wachtrijen worden verdeeld. 
+De volgende stappen uit in Ambari gebruiken om te maken van een nieuwe YARN-wachtrij en vervolgens de capaciteitstoewijzing tussen alle wachtrijen in balans brengen. 
 
-In dit voorbeeld twee bestaande wachtrijen (**standaard** en **thriftsvr**) beide zijn gewijzigd van 50% capaciteit 25% capaciteit, waardoor de nieuwe wachtrij (spark) 50% capaciteit.
+In dit voorbeeld twee bestaande wachtrijen (**standaard** en **thriftsvr**) beide worden gewijzigd van 50% capaciteit aan 25% capaciteit, waardoor de nieuwe capaciteit van de wachtrij (spark)-50%.
 | Wachtrij | Capaciteit | Maximale capaciteit |
 | --- | --- | --- | --- |
-| standaard | 25% | 50% |
+| standaardinstelling | 25% | 50% |
 | thrftsvr | 25% | 50% |
 | Spark | 50% | 50% |
 
-1. Selecteer de **Ambari-weergaven** pictogram en selecteer vervolgens het rasterpatroon. Selecteer vervolgens **YARN Queue Manager**.
+1. Selecteer de **Ambari-weergaven** pictogram en selecteer vervolgens het rasterpatroon. Selecteer vervolgens **YARN wachtrijbeheerder**.
 
-    ![Selecteer het pictogram Ambari-weergaven](media/hdinsight-troubleshoot-yarn/create-queue-1.png)
+    ![Selecteer het pictogram van de Ambari-weergaven](media/hdinsight-troubleshoot-yarn/create-queue-1.png)
 2. Selecteer de **standaard** wachtrij.
 
-    ![Selecteer de wachtrij](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
-3. Voor de **standaard** wachtrij, wijzigt u de **capaciteit** van 50% 25%. Voor de **thriftsvr** wachtrij, wijzigt u de **capaciteit** 25%.
+    ![Selecteer de standaardwachtrij](media/hdinsight-troubleshoot-yarn/create-queue-2.png)
+3. Voor de **standaard** in de wachtrij, wijzigt u de **capaciteit** van 50% tot 25%. Voor de **thriftsvr** in de wachtrij, wijzigt u de **capaciteit** 25%.
 
-    ![De capaciteit 25% voor de standaard- en thriftsvr wachtrijen wijzigen](media/hdinsight-troubleshoot-yarn/create-queue-3.png)
-4. Maak een nieuwe wachtrij, selecteer **wachtrij toevoegen**.
+    ![De capaciteit aan 25% van de standaard- en thriftsvr wachtrijen wijzigen](media/hdinsight-troubleshoot-yarn/create-queue-3.png)
+4. Voor het maken van een nieuwe wachtrij selecteert **wachtrij toevoegen**.
 
-    ![Selecteer een wachtrij toevoegen](media/hdinsight-troubleshoot-yarn/create-queue-4.png)
+    ![Selecteer de wachtrij toevoegen](media/hdinsight-troubleshoot-yarn/create-queue-4.png)
 
 5. De naam van de nieuwe wachtrij.
 
@@ -58,30 +52,30 @@ In dit voorbeeld twee bestaande wachtrijen (**standaard** en **thriftsvr**) beid
 6. Laat de **capaciteit** waarden op 50% en selecteer vervolgens de **acties** knop.
 
     ![Selecteer de knop acties](media/hdinsight-troubleshoot-yarn/create-queue-6.png)  
-7. Selecteer **opslaan en vernieuw wachtrijen**.
+7. Selecteer **slaan en te vernieuwen wachtrijen**.
 
-    ![Selecteer opslaan en wachtrijen vernieuwen](media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
+    ![Selecteer opslaan en vernieuwen van wachtrijen](media/hdinsight-troubleshoot-yarn/create-queue-7.png)  
 
-Deze wijzigingen zijn onmiddellijk voor de gebruikersinterface van YARN Scheduler zichtbaar.
+Deze wijzigingen zijn zichtbaar onmiddellijk op de gebruikersinterface van YARN Scheduler.
 
-### <a name="additional-reading"></a>Aanvullende bronnen
+### <a name="additional-reading"></a>Meer lezen
 
 - [YARN CapacityScheduler](https://hadoop.apache.org/docs/r2.7.2/hadoop-yarn/hadoop-yarn-site/CapacityScheduler.html)
 
 
-## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Hoe kan ik YARN-logboeken downloaden vanaf een cluster?
+## <a name="how-do-i-download-yarn-logs-from-a-cluster"></a>Hoe kan ik YARN-logboeken downloaden uit een cluster?
 
 
 ### <a name="resolution-steps"></a>Oplossingen 
 
-1. Verbinding maken met het HDInsight-cluster met behulp van een client Secure Shell (SSH). Zie voor meer informatie [lezen van aanvullende](#additional-reading-2).
+1. Verbinding maken met het HDInsight-cluster met behulp van een Secure Shell (SSH)-client. Zie voor meer informatie, [meer lezen](#additional-reading-2).
 
-2. Als u alle toepassing-id's van de YARN-toepassingen die momenteel worden uitgevoerd, moet u de volgende opdracht uitvoeren:
+2. Als u de toepassing-id's voor de YARN-toepassingen die momenteel worden uitgevoerd, moet u de volgende opdracht uitvoeren:
 
     ```apache
     yarn top
     ```
-    De id's worden vermeld in de **APPLICATIONID** kolom. U kunt downloaden logboeken van de **APPLICATIONID** kolom.
+    De id's worden vermeld in de **APPLICATIONID** kolom. U kunt Logboeken downloaden de **APPLICATIONID** kolom.
 
     ```apache
     YARN top - 18:00:07, up 19d, 0:14, 0 active users, queue(s): root
@@ -96,47 +90,47 @@ Deze wijzigingen zijn onmiddellijk voor de gebruikersinterface van YARN Schedule
      application_1490377567345_0006 hive            spark  thriftsvr       1       0       1       0      1G      0G    1628430    2442645  10.00   18:20:20 Thrift JDBC/ODBC Server
     ```
 
-3. Als u wilt downloaden YARN-logboeken voor container voor alle modellen van toepassing, moet u de volgende opdracht gebruiken:
+3. YARN-container om Logboeken te downloaden voor alle toepassingen masters, gebruik de volgende opdracht:
    
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am ALL > amlogs.txt
     ```
 
-    Met deze opdracht maakt een logbestand met de naam amlogs.txt. 
+    Deze opdracht maakt een logboekbestand met de naam amlogs.txt. 
 
-4. Als u wilt downloaden YARN-logboeken voor container voor de meest recente toepassing master, gebruik de volgende opdracht:
+4. Als u wilt downloaden YARN-logboeken voor containers voor de meest recente toepassing master, gebruik de volgende opdracht:
 
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am -1 > latestamlogs.txt
     ```
 
-    Met deze opdracht maakt een logbestand met de naam latestamlogs.txt. 
+    Deze opdracht maakt een logboekbestand met de naam latestamlogs.txt. 
 
-4. Als u wilt downloaden YARN-logboeken voor container voor de eerste twee toepassing modellen, moet u de volgende opdracht gebruiken:
+4. Als u wilt downloaden YARN-logboeken voor containers voor de eerste twee toepassing masters, gebruik de volgende opdracht:
 
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -am 1,2 > first2amlogs.txt 
     ```
 
-    Met deze opdracht maakt een logbestand met de naam first2amlogs.txt. 
+    Deze opdracht maakt een logboekbestand met de naam first2amlogs.txt. 
 
-5. Gebruik de volgende opdracht voor het downloaden van alle container YARN-Logboeken:
+5. Gebruik de volgende opdracht voor het downloaden van alle YARN-logboeken voor containers:
 
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> > logs.txt
     ```
 
-    Met deze opdracht maakt een logbestand met de naam logs.txt. 
+    Deze opdracht maakt een logboekbestand met de naam logs.txt. 
 
-6. Gebruik de volgende opdracht voor het downloaden van het logboek van de container YARN voor een specifieke container:
+6. Gebruik de volgende opdracht voor het downloaden van de container YARN-logboek voor een specifieke container:
 
     ```apache
     yarn logs -applicationIdn logs -applicationId <application_id> -containerId <container_id> > containerlogs.txt 
     ```
 
-    Met deze opdracht maakt een logbestand met de naam containerlogs.txt.
+    Deze opdracht maakt een logboekbestand met de naam containerlogs.txt.
 
-### <a name="additional-reading-2"></a>Aanvullende bronnen
+### <a name="additional-reading-2"></a>Meer lezen
 
 - [Verbinding maken met HDInsight (Hadoop) via SSH](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix)
 - [Apache Hadoop YARN-concepten en toepassingen](https://hortonworks.com/blog/apache-hadoop-yarn-concepts-and-applications/)

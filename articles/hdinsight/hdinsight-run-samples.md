@@ -1,42 +1,37 @@
 ---
-title: De voorbeelden van het Hadoop in HDInsight - Azure uitvoeren | Microsoft Docs
-description: Aan de slag met de Azure HDInsight-service met de voorbeelden. PowerShell-scripts die MapReduce-programma's op gegevens clusters uitvoeren gebruiken.
+title: De voorbeelden van Hadoop in HDInsight - Azure uitvoeren
+description: Aan de slag met de Azure HDInsight-service met de opgegeven voorbeelden. Gebruik PowerShell-scripts die MapReduce-programma's op gegevens clusters worden uitgevoerd.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: bf76d452-abb4-4210-87bd-a2067778c6ed
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jgao
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1262e0eda5cf490eb6c3ef81bc05de3954059f4c
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: ef88e1d3e165e3ae21b235a33b295b51b574ff67
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31418706"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39593281"
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Voorbeelden van Hadoop MapReduce uitvoeren in HDInsight op basis van Windows
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-Een reeks voorbeelden zijn bedoeld om optimaal te slag actieve MapReduce-taken op Azure HDInsight met Hadoop-clusters. Deze voorbeelden worden beschikbaar gesteld op elk van de beheerde HDInsight-clusters die u maakt. Deze voorbeelden wordt uitgevoerd, raakt u vertrouwd met het gebruik van Azure PowerShell-cmdlets uit te voeren taken op Hadoop-clusters.
+Een reeks voorbeelden zijn bedoeld om u gestart actieve MapReduce-taken op Azure HDInsight met Hadoop-clusters. Deze voorbeelden zijn beschikbaar op elk van de beheerde HDInsight-clusters die u maakt. Deze voorbeelden wordt uitgevoerd, raakt u vertrouwd met het gebruik van Azure PowerShell-cmdlets uitvoeren op Hadoop-clusters.
 
-* [**Word-count**][hdinsight-sample-wordcount]: telt word-exemplaren in een tekstbestand.
-* [**C#-streaming aantal woorden**][hdinsight-sample-csharp-streaming]: telt word-exemplaren in een tekstbestand met de Hadoop-streaming-interface.
+* [**Aantal woorden**][hdinsight-sample-wordcount]: woorden worden geteld in een tekstbestand.
+* [**C#-streaming woordentelling**][hdinsight-sample-csharp-streaming]: woorden worden geteld in een tekstbestand met de Hadoop-streaming-interface.
 * [**PI estimator**][hdinsight-sample-pi-estimator]: maakt gebruik van een statistische (quasi Monte Carlo) methode voor het schatten van de waarde van pi.
-* [**10 GB Graysort**][hdinsight-sample-10gb-graysort]: een algemeen GraySort uitvoeren op een 10 GB-bestand met behulp van HDInsight. Er zijn drie taken uitvoeren: Teragen voor het genereren van de gegevens, Terasort de gegevens worden gesorteerd en Teravalidate om te bevestigen dat de gegevens op de juiste wijze is gesorteerd.
+* [**10 GB Graysort**][hdinsight-sample-10gb-graysort]: een voor algemeen gebruik GraySort uitvoert op een 10 GB-bestand met behulp van HDInsight. Er zijn drie taken om uit te voeren: Teragen voor het genereren van de gegevens, Terasort om de gegevens te sorteren, en Teravalidate om te bevestigen dat de gegevens correct zijn gesorteerd.
 
 > [!NOTE]
-> De broncode vindt u in de bijlage.
+> De broncode kan worden gevonden in de bijlage.
 
-Veel aanvullende documentatie bestaat op het web voor Hadoop-gerelateerde technologieën, zoals Java gebaseerde MapReduce programmering en streaming en documentatie over de cmdlets die worden gebruikt in Windows PowerShell-scripts. Zie voor meer informatie over deze resources:
+Veel aanvullende documentatie bestaat op het web voor Hadoop-gerelateerde technologieën, zoals op basis van Java MapReduce-programma's en streaming en documentatie over de cmdlets die worden gebruikt in Windows PowerShell-scripts. Zie voor meer informatie over deze resources:
 
-* [Het ontwikkelen van Java-MapReduce-programma's voor Hadoop in HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+* [Java MapReduce-programma's ontwikkelen voor Hadoop in HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 * [Hadoop-taken opgeven in HDInsight](hadoop/submit-apache-hadoop-jobs-programmatically.md)
 * [Inleiding tot Azure HDInsight][hdinsight-introduction]
 
@@ -48,20 +43,20 @@ Veel mensen kiezen tegenwoordig Hive en Pig via MapReduce.  Zie voor meer inform
 **Vereisten**:
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Een HDInsight-cluster**. Zie voor instructies over de verschillende manieren waarin dergelijke clusters kunnen worden gemaakt, [maken Hadoop-clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
+* **Een HDInsight-cluster**. Zie voor meer informatie over de verschillende manieren waarop deze clusters kunnen worden gemaakt, [Hadoop-clusters maken in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 * **Een werkstation met Azure PowerShell**.
 
     > [!IMPORTANT]
     > Azure PowerShell-ondersteuning voor het beheer van HDInsight-resources met behulp van Azure Service Manager is **afgeschaft** en verdwijnt per 1 januari 2017. In de stappen in dit document worden de nieuwe HDInsight-cmdlets gebruikt die met Azure Resource Manager werken.
     >
-    > Volg de stappen in [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) de meest recente versie van Azure PowerShell installeren. Als u scripts hebt die worden gewijzigd moeten voor het gebruik van de nieuwe cmdlets die met werken Azure Resource Manager, Zie [migreren naar Azure Resource Manager gebaseerde ontwikkelprogramma's voor HDInsight-clusters](hdinsight-hadoop-development-using-azure-resource-manager.md).
+    > Volg de stappen in [Azure PowerShell installeren en configureren](/powershell/azureps-cmdlets-docs) voor het installeren van de meest recente versie van Azure PowerShell. Als u scripts hebt die worden gewijzigd moeten voor het gebruik van de nieuwe cmdlets die met werken Azure Resource Manager, Zie [migreren naar Azure Resource Manager gebaseerde ontwikkelingsprogramma's voor HDInsight-clusters](hdinsight-hadoop-development-using-azure-resource-manager.md).
 
 ## <a name="hdinsight-sample-wordcount"></a>Word-count - Java
-Als u wilt een MapReduce-project verzenden, moet u eerst de definitie van een MapReduce-taak maken. In de taakdefinitie u het MapReduce programma jar-bestand en de locatie van de jar-bestand is opgeven **wasb:///example/jars/hadoop-mapreduce-examples.jar**, de klassenaam van de en de argumenten.  Het wordcount MapReduce-programma heeft twee argumenten: het bron-bestand dat wordt gebruikt voor het aantal woorden en de locatie voor uitvoer.
+Als u wilt een MapReduce-project verzenden, moet u eerst de definitie van een MapReduce-taak maken. In de taakdefinitie, geeft u het jar-bestand van de MapReduce-programma en de locatie van de jar-bestand is **wasb:///example/jars/hadoop-mapreduce-examples.jar**, naam van de klasse en de argumenten.  Het wordcount MapReduce-programma neemt twee argumenten: de bronbestand dat wordt gebruikt voor het tellen van woorden en de locatie voor de uitvoer.
 
-De broncode vindt u in de [bijlage A](#apendix-a---the-word-count-MapReduce-program-in-java).
+De broncode kan worden gevonden in de [bijlage A](#apendix-a---the-word-count-MapReduce-program-in-java).
 
-Programma voor de procedure van het ontwikkelen van een Java-MapReduce, Zie - [ontwikkelen van Java-MapReduce-programma's voor Hadoop in HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
+Voor de procedure van het ontwikkelen van een Java MapReduce-programma, Zie - [ontwikkel Java MapReduce-programma's voor Hadoop in HDInsight](hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md)
 
 **Een word-count-MapReduce-taak verzenden**
 
@@ -119,28 +114,28 @@ Programma voor de procedure van het ontwikkelen van een Java-MapReduce, Zie - [o
     cat ./example/data/WordCountOutput/part-r-00000 | findstr "there"
     ```
 
-    De MapReduce-taak wordt een bestand met de naam *onderdeel-r-00000*, die woorden en het aantal bevat. Het script gebruikt de **findstr** opdracht om een lijst van alle woorden met *"there"*.
+    De MapReduce-taak produceert een bestand met de naam *onderdeel-r-00000*, die het aantal fouten en woorden bevat. Het script gebruikt de **findstr** opdracht om een lijst van alle woorden met *"er"*.
 3. De eerste drie variabelen worden ingesteld en voer het script.
 
 ## <a name="hdinsight-sample-csharp-streaming"></a>Word-count - C#-streaming
-Hadoop biedt een streaming-API voor MapReduce, waarmee u kaart schrijven en functies in andere talen dan Java te verminderen.
+Hadoop biedt een streaming-API voor MapReduce, waarmee u kaart schrijven en functies in een andere taal dan Java verlagen.
 
 > [!NOTE]
-> De stappen in deze zelfstudie alleen van toepassing op Windows gebaseerde HDInsight-clusters. Zie voor een voorbeeld van streaming voor Linux gebaseerde HDInsight-clusters [ontwikkelen Python streaming-programma's voor HDInsight](hadoop/apache-hadoop-streaming-python.md).
+> De stappen in deze zelfstudie alleen van toepassing op Windows gebaseerde HDInsight-clusters. Zie voor een voorbeeld van streaming voor Linux gebaseerde HDInsight-clusters, [ontwikkelen streaming Python-programma's voor HDInsight](hadoop/apache-hadoop-streaming-python.md).
 
-In het voorbeeld wordt de toewijzing en de reducer zijn uitvoerbare bestanden die de invoer van lezen [stdin] [ stdin-stdout-stderr] (door regel) en het verzenden van de uitvoer naar [stdout][stdin-stdout-stderr]. Het programma telt de woorden in de tekst.
+In het voorbeeld wordt het toewijzen van de en de reducer zijn uitvoerbare bestanden die de invoer van lezen [stdin] [ stdin-stdout-stderr] (regel voor regel) en hoe de uitvoer naar [stdout] [ stdin-stdout-stderr]. Het programma telt de woorden in de tekst.
 
-Als een uitvoerbaar bestand is opgegeven voor **mappers**, elke mapper-taak wordt het uitvoerbare bestand als een afzonderlijk proces gestart wanneer de toewijzing is geïnitialiseerd. Als de mapper-taak wordt uitgevoerd, converteert u de invoer in regels en -feeds van de regels die moeten worden de [stdin] [ stdin-stdout-stderr] van het proces.
+Als een uitvoerbaar bestand is opgegeven voor **mappers**, elke taak toewijzen worden het uitvoerbare bestand als een afzonderlijk proces gestart wanneer de toewijzing is geïnitialiseerd. Terwijl de mapper-taak wordt uitgevoerd, zet u de invoer in regels en -feeds van de regels die moeten worden de [stdin] [ stdin-stdout-stderr] van het proces.
 
-In de tussentijd verzamelt het toewijzen van de uitvoer van de regel gerichte van stdout van het proces. Elke regel worden geconverteerd naar een sleutel/waarde-paar wordt verzameld als de uitvoer van de toewijzing. Standaard is de sleutel van het voorvoegsel van een regel tot aan het eerste teken van tabblad en de rest van de regel (met uitzondering van de Tab-teken) is de waarde. Er is geen Tab-teken in de regel, volledige regel als de sleutel wordt beschouwd als de waarde null is.
+Het toewijzen van de verzamelt in de tussentijd de regel-georiënteerde uitvoer van de stdout van het proces. Elke regel wordt geconverteerd naar een sleutel/waarde-paar, die worden verzameld als de uitvoer van het toewijzen van de. Standaard is de sleutel van het voorvoegsel van een regel tot aan het eerste tabblad teken en is de waarde van de rest van de regel (met uitzondering van het tabblad-teken). Als er geen tabteken in de regel, volledige regel wordt beschouwd als de sleutel en de waarde null is.
 
-Als een uitvoerbaar bestand is opgegeven voor **verkleiningstoestellen**, elke taak reducer start het uitvoerbare bestand als een afzonderlijk proces wanneer de reducer is geïnitialiseerd. Als de taak reducer wordt uitgevoerd, het waardeparen invoer sleutelwaarden worden geconverteerd in regels en het feeds van de regels die moeten worden de [stdin] [ stdin-stdout-stderr] van het proces.
+Als een uitvoerbaar bestand is opgegeven voor **reducers tegelijkertijd**, elke taak reducer wordt het uitvoerbare bestand als een afzonderlijk proces gestart wanneer de reducer is geïnitialiseerd. Als de reducer-taak wordt uitgevoerd, wordt de sleutel/invoerwaarden paren in regels omgezet, en deze feeds, de regels die moeten worden de [stdin] [ stdin-stdout-stderr] van het proces.
 
-In de tussentijd de reducer verzamelt de uitvoer van de regel gerichte van de [stdout] [ stdin-stdout-stderr] van het proces. Elke regel wordt geconverteerd naar een sleutel/waarde-paar als de uitvoer van de reducer worden verzameld. Standaard is de sleutel van het voorvoegsel van een regel tot aan het eerste teken van tabblad en de rest van de regel (met uitzondering van de Tab-teken) is de waarde.
+In de tussentijd de reducer verzameld voor de regel-georiënteerde uitvoer van de [stdout] [ stdin-stdout-stderr] van het proces. Elke regel wordt geconverteerd naar een sleutel/waarde-paar, die worden verzameld als de uitvoer van de reducer. Standaard is de sleutel van het voorvoegsel van een regel tot aan het eerste tabblad teken en is de waarde van de rest van de regel (met uitzondering van het tabblad-teken).
 
-**Verzenden van een streaming-taak van word-count C#**
+**Om in te dienen een word-count streamingtaak C#**
 
-* Volg de procedure in [Word-count - Java](#word-count-java), en vervang de taakdefinitie met de volgende regel:
+* Volg de procedure in [Word-count - Java](#word-count-java), en de taakdefinitie vervangen door de volgende regel:
 
     ```powershell
     $mrJobDefinition = New-AzureRmHDInsightStreamingMapReduceJobDefinition `
@@ -156,13 +151,13 @@ In de tussentijd de reducer verzamelt de uitvoer van de regel gerichte van de [s
         example/data/StreamingOutput/wc.txt/part-00000
 
 ## <a name="hdinsight-sample-pi-estimator"></a>PI estimator
-De estimator pi maakt gebruik van een statistische (quasi Monte Carlo) methode voor het schatten van de waarde van pi. Punten geplaatst willekeurig binnen een eenheid vierkante ook vallen binnen een cirkel met een kans die gelijk is aan het gebied van de cirkel zijn aangebracht in vierkant pi/4. De waarde van pi kan worden geschat van de waarde van 4R, R is waar de verhouding tussen het aantal punten die in het totale aantal punten die binnen het kwadraat van de cirkel. Hoe groter het voorbeeld van punten gebruikt, hoe nauwkeuriger de schatting is.
+Het pi estimator maakt gebruik van een statistische (quasi Monte Carlo) methode voor het schatten van de waarde van pi. Punten geplaatst in willekeurige volgorde binnen een eenheid vierkante ook binnen een cirkel aangebracht in een vierkant met een kans die gelijk is aan het gebied van de cirkel, vallen pi/4. De waarde van pi kan worden geschat van de waarde van 4R, waarop R is de verhouding van het aantal punten die in de cirkel in op het totale aantal punten die zich binnen het vierkant. Hoe groter het voorbeeld van de punten die wordt gebruikt, hoe beter de schatting wordt weergegeven.
 
-Het script dat is opgegeven voor dit voorbeeld verzendt een taak van de jar Hadoop en is ingesteld tot 16 maps, die elk 10 miljoen voorbeeldpunten berekenen is vereist voor de parameterwaarden die worden uitgevoerd met een waarde. Deze parameterwaarden kunnen worden gewijzigd om te verbeteren van de geschatte waarde van pi. Ter referentie zijn de eerste 10 decimalen van pi 3.1415926535.
+Het script dat is opgegeven voor dit voorbeeld verzendt een Hadoop-jar-taak en is ingesteld maximaal 16 kaarten, die is vereist voor het berekenen van 10 miljoen voorbeeldpunten door de parameterwaarden met een waarde worden uitgevoerd. De parameterwaarden van deze kunnen worden gewijzigd voor het verbeteren van de geschatte waarde van pi. Ter referentie zijn de eerste 10 decimalen van pi 3.1415926535.
 
-**Een pi estimator taak verzenden**
+**Een pi estimator-taak verzenden**
 
-* Volg de procedure in [Word-count - Java](#word-count-java), en vervang de taakdefinitie met de volgende regel:
+* Volg de procedure in [Word-count - Java](#word-count-java), en de taakdefinitie vervangen door de volgende regel:
 
     ```powershell
     $mrJobJobDefinition = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -172,25 +167,25 @@ Het script dat is opgegeven voor dit voorbeeld verzendt een taak van de jar Hado
     ```
 
 ## <a name="hdinsight-sample-10gb-graysort"></a>10 GB Graysort
-Dit voorbeeld wordt een matige 10GB aan gegevens gebruikt, zodat deze kan relatief snel kan worden uitgevoerd. De MapReduce-toepassingen die zijn ontwikkeld door Owen O'Malley en Arun Murthy die de jaarlijkse Algemeen ('daytona') terabyte sorteren benchmark 2009 met een snelheid van 0.578 TB/min (100 TB in 173 minuten gewonnen) wordt gebruikt. Zie voor meer informatie over deze en andere sorteren benchmarks de [Sortbenchmark](http://sortbenchmark.org/) site.
+In dit voorbeeld maakt gebruik van een gemiddelde hoeveelheden 10GB aan gegevens zodat deze kan relatief snel kan worden uitgevoerd. Maakt gebruik van de MapReduce-toepassingen die zijn ontwikkeld door Owen O'Malley en Arun Murthy die de jaarlijkse voor algemeen gebruik ("daytona") terabyte sorteren benchmark in 2009 met een snelheid van 0.578 TB/min (100 TB in 173 minuten gewonnen). Zie voor meer informatie over deze en andere sorteren benchmarks de [Sortbenchmark](http://sortbenchmark.org/) site.
 
-Dit voorbeeld worden drie sets van MapReduce-programma's gebruikt:
+In dit voorbeeld maakt gebruik van drie sets MapReduce-programma's:
 
-1. **TeraGen** is een MapReduce-programma dat u gebruiken kunt voor het genereren van de rijen van de gegevens moeten worden gesorteerd.
-2. **TeraSort** voorbeelden van de invoergegevens en MapReduce gebruikt voor het sorteren van de gegevens in een totale volgorde. TeraSort is een standaard soort MapReduce-functies, met uitzondering van een aangepaste partitioner die gebruikmaakt van een gesorteerde lijst met actieve N-1 sleutels die het belangrijkste bereik voor elke verminderen definiëren. In het bijzonder alle sleutels dergelijke waarvan de steekproef [i-1] < sleutel = < voorbeeld [i] worden verzonden naar de i verminderen. Dit garandeert dat de uitvoer van ik beperken zijn alle kleiner is dan de uitvoer van verminderen i + 1.
-3. **TeraValidate** is een MapReduce-programma te valideren dat de uitvoer globaal is gesorteerd. Een kaart per bestand wordt gemaakt in de uitvoermap en elke toewijzing zorgt ervoor dat elke sleutel kleiner dan of gelijk zijn aan de vorige sectie is. De functie kaart genereert ook records van de eerste en laatste sleutels van elk bestand en de functie verminderen zorgt ervoor dat de eerste sleutel van het bestand i groter dan de laatste sleutel van het bestand i-1 is. Eventuele problemen worden gemeld als uitvoer van de verminderen met de sleutels die onjuist zijn.
+1. **TeraGen** is een MapReduce-programma dat u gebruiken kunt voor het genereren van de rijen met gegevens om te sorteren.
+2. **TeraSort** -voorbeelden voor de invoergegevens en MapReduce gebruikt voor het sorteren van de gegevens in een totale volgorde. TeraSort is een standaard sorteren van MapReduce-functies, met uitzondering van een aangepaste partitioner die gebruikmaakt van een gesorteerde lijst met sleutels voor N-1 steekproef die het belangrijkste bereik voor elke verminderen definiëren. In het bijzonder, alle sleutels dergelijke die voorbeeld [i-1] < sleutel = < voorbeeld [i] om te beperken i worden verzonden. Dit garandeert dat de uitvoer van i beperken zijn alle kleiner is dan de uitvoer van verminderen i + 1.
+3. **TeraValidate** is een MapReduce-programma die valideert dat de uitvoer wereldwijd is gesorteerd. Een kaart per bestand in de uitvoermap wordt gemaakt en elke kaart zorgt ervoor dat elke sleutel kleiner dan of gelijk zijn aan het vorige voorbeeld is. De functie van de kaart ook records van de eerste en laatste sleutels van elk bestand gegenereerd en de functie verminderen zorgt ervoor dat de eerste sleutel van i-bestand groter dan de laatste sleutel van het bestand i-1 is. Geen problemen worden gerapporteerd als een uitvoer van de verminderen met de sleutels die niet de juiste volgorde zijn.
 
-De indeling invoer en uitvoer, die wordt gebruikt door alle drie de toepassingen, leest en schrijft de tekstbestanden in de juiste notatie. De uitvoer van de verminderen heeft de replicatie is ingesteld op 1, in plaats van de standaard 3, omdat de wedstrijd benchmark niet vereist dat de uitvoergegevens worden gerepliceerd naar meerdere knooppunten.
+De invoer- en -indeling, die worden gebruikt door alle drie de toepassingen, leest en schrijft de tekstbestanden in de juiste indeling. De uitvoer van de verminderen heeft replicatie ingesteld op 1, in plaats van de standaard 3, omdat de benchmark-wedstrijd niet vereist dat de uitvoergegevens worden gerepliceerd op meerdere knooppunten.
 
-Drie taken vereist zijn voor het voorbeeld elke overeenkomt met een van de MapReduce-programma's die worden beschreven in de inleiding:
+Drie taken die vereist zijn voor het voorbeeld, elke overeenkomt met een van de MapReduce-programma's die worden beschreven in de inleiding:
 
-1. Genereren van de gegevens voor het sorteren van door het uitvoeren van de **TeraGen** MapReduce-taak.
+1. Genereren van de gegevens voor het sorteren door te voeren de **TeraGen** MapReduce-taak.
 2. Sorteer de gegevens door het uitvoeren van de **TeraSort** MapReduce-taak.
-3. Bevestig dat de gegevens op de juiste wijze is gesorteerd door het uitvoeren van de **TeraValidate** MapReduce-taak.
+3. Bevestig dat de gegevens correct is gesorteerd door het uitvoeren van de **TeraValidate** MapReduce-taak.
 
-**Om de taken te verzenden**
+**De taken indienen**
 
-* Volg de procedure in [Word-count - Java](#word-count-java), en gebruik de volgende taakdefinities:
+* Volg de procedure in [Word-count - Java](#word-count-java), en gebruik de volgende definities:
 
     ```powershell
     $teragen = New-AzureRmHDInsightMapReduceJobDefinition `
@@ -210,12 +205,12 @@ Drie taken vereist zijn voor het voorbeeld elke overeenkomt met een van de MapRe
     ```
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel en de artikelen in elk van de voorbeelden hebt u geleerd hoe u de voorbeelden van opgenomen in de HDInsight-clusters met behulp van Azure PowerShell uitvoeren. Zie de volgende onderwerpen voor zelfstudies over het gebruik van Pig, Hive en MapReduce met HDInsight:
+In dit artikel en de artikelen in elk van de voorbeelden, hebt u geleerd hoe u de opgenomen met de HDInsight-clusters met behulp van Azure PowerShell-voorbeelden uitvoeren. Zie de volgende onderwerpen voor zelfstudies over Pig, Hive en MapReduce gebruiken met HDInsight:
 
-* [Aan de slag met Hadoop Hive in HDInsight analyseren mobiele telefoon gebruiken][hdinsight-get-started]
-* [Pig gebruiken met Hadoop in HDInsight][hdinsight-use-pig]
-* [Hive gebruiken met Hadoop in HDInsight][hdinsight-use-hive]
-* [Hadoop-taken in HDInsight verzenden][hdinsight-submit-jobs]
+* [Aan de slag met Hadoop Hive in HDInsight voor het analyseren van de mobiele telefoon gebruiken][hdinsight-get-started]
+* [Pig gebruiken met Hadoop op HDInsight][hdinsight-use-pig]
+* [Hive gebruiken met Hadoop op HDInsight][hdinsight-use-hive]
+* [Hadoop-taken in HDInsight][hdinsight-submit-jobs]
 * [Azure HDInsight SDK-documentatie][hdinsight-sdk-documentation]
 
 ## <a name="appendix-a---the-word-count-source-code"></a>Bijlage A - de broncode van de Word-count
@@ -290,8 +285,8 @@ System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 ```
 
-## <a name="appendix-b---the-word-count-streaming-source-code"></a>Bijlage B - het aantal woorden broncode streaming
-MapReduce wordt de toepassing cat.exe als een toewijzing-interface om te streamen van de tekst in de console en de toepassing wc.exe als de interface verminderen om het aantal woorden die uit een document worden gestreamd. Het toewijzen en de reducer Standaardinvoerstroom (stdin) tekens, regel voor regel lezen en schrijven naar de standaard uitvoerstroom (stdout).
+## <a name="appendix-b---the-word-count-streaming-source-code"></a>Bijlage B – het aantal woorden broncode streaming
+De MapReduce-programma maakt gebruik van de toepassing cat.exe als een toewijzing-interface het streamen van de tekst in de console en de toepassing wc.exe als de interface Verminder het aantal woorden die worden gestreamd vanaf een document telt. De mapper- en reducer tekens, regel voor regel lezen van de standaard (stdin) in de invoerstroom en schrijven naar de standaard uitvoerstroom (stdout).
 
 ```csharp
 // The source code for the cat.exe (Mapper).
@@ -325,7 +320,7 @@ namespace cat
 }
 ```
 
-De code toewijzen in het bestand cat.cs gebruikt een [StreamReader] [ streamreader] object om de tekens van de stroom inkomende naar de console, die vervolgens naar de standaard uitvoerstroom met vaste de stroom schrijft te lezen [Console.Writeline] [ console-writeline] methode.
+De mapper-code in het bestand cat.cs gebruikt een [StreamReader] [ streamreader] object om de tekens van de inkomende gegevensstroom naar de console, die vervolgens de stroom naar de standaard uitvoerstroom met de statische schrijfttelezen[ Console.Writeline] [ console-writeline] methode.
 
 ```csharp
 // The source code for wc.exe (Reducer) is:
@@ -374,10 +369,10 @@ namespace wc
 }
 ```
 
-De code reducer in het bestand wc.cs gebruikt een [StreamReader] [ streamreader] object lezen tekens uit de Standaardinvoerstroom die zijn uitgevoerd door de cat.exe toewijzen. Het lezen en de tekens met de [Console.Writeline] [ console-writeline] methode, wordt dit geteld de woorden door spaties en einde van regel tekens aan het einde van elk woord tellen. Vervolgens worden het totale aantal geschreven naar de standaard uitvoerstroom met de [Console.Writeline] [ console-writeline] methode.
+De code reducer in het bestand wc.cs gebruikt een [StreamReader] [ streamreader] object tekens uit de standard invoerstroom die zijn uitgevoerd door het toewijzen van de cat.exe lezen. Als het ingesteld op de tekens met de [Console.Writeline] [ console-writeline] methode, wordt de woorden geteld door spaties en einde van regel tekens aan het einde van elk woord tellen. Vervolgens worden het totale aantal geschreven naar de standaard uitvoerstroom met de [Console.Writeline] [ console-writeline] methode.
 
-## <a name="appendix-c---the-pi-estimator-source-code"></a>Bijlage C - de broncode voor Pi estimator
-De pi estimator Java-code die de functies toewijzen en reducer bevat is beschikbaar voor inspectie hieronder. Het programma mapper genereert een opgegeven aantal punten op willekeurige binnen een vierkant eenheid geplaatst en vervolgens telt het aantal die punten die zich binnen de cirkel. Het programma reducer stelt punten die door de mappers geteld samen en vervolgens maakt een schatting van de waarde van pi van de formule 4R, R is waar de verhouding tussen het aantal punten binnen de cirkel op het totale aantal punten die binnen het kwadraat geteld.
+## <a name="appendix-c---the-pi-estimator-source-code"></a>Bijlage C - het Pi estimator-broncode
+Het pi estimator Java-code met de functies toewijzen en reducer is beschikbaar voor inspectie hieronder. De mapper-programma genereert een opgegeven aantal punten in willekeurige volgorde binnen een vierkant eenheid geplaatst en vervolgens telt het aantal deze punten die in de cirkel. Het programma reducer stelt punten geteld op basis van de mappers samen en maakt vervolgens een schatting van de waarde van pi van de formule 4R, waarop R is de verhouding van het aantal punten in de cirkel op het totale aantal punten die zich binnen het vierkant wordt geteld.
 
 ```java
 /**
@@ -716,7 +711,7 @@ System.exit(ToolRunner.run(null, new PiEstimator(), argv));
 ```
 
 ## <a name="appendix-d---the-10gb-graysort-source-code"></a>Bijlage D - de broncode van 10gb graysort
-De code voor het programma TeraSort MapReduce wordt voor inspectie in deze sectie weergegeven.
+De code voor de TeraSort MapReduce-programma wordt voor inspectie in deze sectie weergegeven.
 
 ```java
 /**

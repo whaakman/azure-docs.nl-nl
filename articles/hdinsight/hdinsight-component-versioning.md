@@ -1,26 +1,21 @@
 ---
-title: Hadoop-onderdelen en versies - Azure HDInsight | Microsoft Docs
+title: Hadoop-onderdelen en versies - Azure HDInsight
 description: Informatie over de Hadoop-onderdelen en versies in HDInsight en het niveau van de service beschikbaar is in deze cloud-distributie van Hortonworks Data Platform.
 keywords: hadoop-versies, onderdelen van hadoop-ecosysteem, hadoop-onderdelen, het controleren van hadoop-versie
 services: hdinsight
-editor: cgronlun
-manager: asadk
+editor: jasonwhowell
 author: kkampf
-tags: azure-portal
-documentationcenter: ''
-ms.assetid: 367b3f4a-f7d3-4e59-abd0-5dc59576f1ff
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: 02f730aaf9f47da564d459577a31377ef63207a4
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: a11d8d8ab255a3e0a6adff3d488bcdaf0716f35e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390633"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39594991"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Wat zijn de Hadoop-onderdelen en versies die beschikbaar met HDInsight?
 
@@ -97,7 +92,7 @@ De volgende tabel bevat de versies van HDInsight die **niet** beschikbaar in de 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |En met 30 september 2016 |5 september 2017 |28 juni 2018 |Ja |Nee |
 | HDInsight 3.4 |HDP 2.4 |14.0.4 Ubuntu LTS |29 maart 2016 |29 december 2016 |9 januari 2018 |Ja |Nee |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 december 2015 |27 juni 2016 |En met 31 juli 2018 |Ja |Nee |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 december 2015 |27 juni 2016 |31 juli 2018 |Ja |Nee |
 | HDInsight 3.3 |HDP 2.3 |14.0.4 Ubuntu LTS |2 december 2015 |27 juni 2016 |En met 31 juli 2017 |Ja |Nee |
 | 3.2 voor HDInsight |HDP 2.2 |Ubuntu 12.04 LTS of Windows Server 2012 R2 |18 februari 2015 |1 maart 2016 |Vanaf 1 april 2017 |Ja |Nee |
 | HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 juni 2014 |18 mei 2015 |Tot 30 juni 2016 |Ja |Nee |

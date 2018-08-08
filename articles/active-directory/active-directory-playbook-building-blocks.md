@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 212da85f64f876f40e2d84d79a8c6a990d118aca
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: f139f9520b6bcb5f39fd4436a1ea2eee6fddf344
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505083"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618968"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory bewijs van concept playbook: bouwstenen
 
@@ -452,9 +452,9 @@ Geschatte tijd om te voltooien: 10 minuten
 | Stap | Resources |
 | --- | --- |
 | Ga naar Azure AD-beheerportal: blade voorwaardelijke toegang | [Azure AD-beheerportal: Voorwaardelijke toegang](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) |
-| Maak beleid voor voorwaardelijke toegang:<br/>-Gebruikers van de PoC target onder 'Gebruikers en groepen'<br/>-PoC doeltoepassing onder 'Cloud-apps'<br/>-Alle locaties doel alleen vertrouwde die onder "Omstandigheden"-"Locatie" > **Opmerking:** goedgekeurde IP-adressen zijn geconfigureerd in [MFA-Portal](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)<br/>-Multi-factor authentication onder "Verlenen" vereisen | [Aan de slag met voorwaardelijke toegang in Azure Active Directory: stappen voor het configureren van beleid](active-directory-conditional-access-azure-portal-get-started.md#policy-configuration-steps) |
-| Toegang tot toepassing uit binnen bedrijfsnetwerk | [Aan de slag met voorwaardelijke toegang in Azure Active Directory: het beleid testen](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
-| Toegang tot de toepassing van openbaar netwerk | [Aan de slag met voorwaardelijke toegang in Azure Active Directory: het beleid testen](active-directory-conditional-access-azure-portal-get-started.md#testing-the-policy) |
+| Maak beleid voor voorwaardelijke toegang:<br/>-Gebruikers van de PoC target onder 'Gebruikers en groepen'<br/>-PoC doeltoepassing onder 'Cloud-apps'<br/>-Alle locaties doel alleen vertrouwde die onder "Omstandigheden"-"Locatie" > **Opmerking:** goedgekeurde IP-adressen zijn geconfigureerd in [MFA-Portal](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)<br/>-Multi-factor authentication onder "Verlenen" vereisen | [Uw beleid voor voorwaardelijke toegang maken](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#create-your-conditional-access-policy) |
+| Toegang tot toepassing uit binnen bedrijfsnetwerk | [Testen van uw beleid voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#test-your-conditional-access-policy) |
+| Toegang tot de toepassing van openbaar netwerk | [Testen van uw beleid voor voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#test-your-conditional-access-policy) |
 
 ### <a name="considerations"></a>Overwegingen
 
@@ -553,7 +553,7 @@ Geschatte tijd in beslag: 20 minuten
 | --- | --- |
 | Apparaat met gebruikerscertificaat ingericht (Windows, iOS of Android) van de Enterprise PKI | [Gebruikerscertificaten implementeren](https://msdn.microsoft.com/library/cc770857.aspx) |
 | Azure AD-domein gefedereerd met behulp van AD FS | [Azure AD Connect en federatie](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Overzicht van Active Directory Certificate Services](https://technet.microsoft.com/library/hh831740.aspx)|
-| Voor iOS-apparaten Microsoft Authenticator-app hebt geïnstalleerd | [Aan de slag met de Microsoft Authenticator-app](user-help/microsoft-authenticator-app-how-to.md) |
+| Voor iOS-apparaten Microsoft Authenticator-app hebt geïnstalleerd | [Aan de slag gaan met de Microsoft Authenticator-app](user-help/microsoft-authenticator-app-how-to.md) |
 
 ### <a name="steps"></a>Stappen
 

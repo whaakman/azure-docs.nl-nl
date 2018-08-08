@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 01/14/2018
 ms.author: kgremban
 ms.custom: seohack1
-ms.openlocfilehash: 41829add17f69c5f051618195247ed2a5512ca64
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: e3b22c0c602e8f3d47fbfc179fb8d0fb985d55d6
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505633"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619318"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Line-of-business-apps ontwikkelen voor Azure Active Directory
 Deze handleiding bevat een overzicht van het ontwikkelen van line-of-business (LoB)-toepassingen voor Azure Active Directory (AD). De doelgroep is globale beheerders van Active Directory/Office 365.
 
 ## <a name="overview"></a>Overzicht
-Het bouwen van toepassingen die zijn geïntegreerd met Azure AD biedt gebruikers in uw organisatie eenmalige aanmelding met Office 365. De toepassing die in Azure AD biedt die u meer controle over het verificatiebeleid voor de toepassing. Voor meer informatie over voorwaardelijke toegang en hoe u apps beveiligen met multi-factor authentication (MFA) Zie [toegangsregels configureren](active-directory-conditional-access-azure-portal-get-started.md).
+Het bouwen van toepassingen die zijn geïntegreerd met Azure AD biedt gebruikers in uw organisatie eenmalige aanmelding met Office 365. De toepassing die in Azure AD biedt die u meer controle over het verificatiebeleid voor de toepassing. Voor meer informatie over voorwaardelijke toegang en hoe u apps beveiligen met multi-factor authentication (MFA) Zie [toegangsregels configureren](conditional-access/app-based-mfa.md).
 
 Registreer uw toepassing in Azure Active Directory gebruiken. Registreren van de toepassing, betekent dat uw ontwikkelaars Azure AD gebruiken kunnen voor verificatie van gebruikers en de toegang tot resources van de gebruiker, zoals e-mail, agenda en documenten.
 
@@ -58,7 +58,7 @@ Dit is wat u als globale beheerder, moet doen zodat ontwikkelaars hun toepassing
 * De standaard-gebruikerservaring toestemming onderdrukken
 
 ## <a name="configure-access-rules"></a>Toegangsregels configureren
-Regels voor toegang per toepassing naar uw SaaS-apps configureren. U kunt bijvoorbeeld MFA vereisen of toegang tot gebruikers alleen toestaan in vertrouwde netwerken. De details voor deze zijn beschikbaar in het document [toegangsregels configureren](active-directory-conditional-access-azure-portal-get-started.md).
+Regels voor toegang per toepassing naar uw SaaS-apps configureren. U kunt bijvoorbeeld MFA vereisen of toegang tot gebruikers alleen toestaan in vertrouwde netwerken. De details voor deze zijn beschikbaar in het document [toegangsregels configureren](conditional-access/app-based-mfa.md).
 
 ## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>De app voor het toewijzen van gebruikers vereisen en toewijzen van gebruikers configureren
 Standaard hebben gebruikers toegang tot van toepassingen zonder te worden toegewezen. Als de toepassing wordt aangegeven dat functies of als u wilt dat de toepassing wordt weergegeven in het toegangsvenster van een gebruiker, moet u echter Gebruikerstoewijzing vereisen.
@@ -79,6 +79,5 @@ Zie voor meer informatie over de toestemming van de gebruiker en de toestemming-
 
 ## <a name="related-articles"></a>Gerelateerde artikelen
 * [Veilige externe toegang tot on-premises toepassingen met Azure AD-toepassingsproxy inschakelen](manage-apps/application-proxy.md)
-* [Voorbeeld van voorwaardelijke toegang van Azure voor SaaS-Apps](active-directory-conditional-access-azure-portal-get-started.md)
 * [Beheer van toegang tot apps met Azure AD](manage-apps/what-is-access-management.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)

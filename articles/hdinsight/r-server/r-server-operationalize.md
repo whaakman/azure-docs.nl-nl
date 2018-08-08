@@ -1,23 +1,20 @@
 ---
-title: Operationeel maken van ML-Services op HDInsight - Azure | Microsoft Docs
+title: ML-Services op HDInsight - Azure operationeel maken
 description: Informatie over het operationeel maken van ML-Services in Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
-ms.devlang: R
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: 0472158dfb9ad228ce2ddef0edf4eafcf4cd3d29
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aef34fea2252cdc875fa1ea1c73a8df14fdf1b9c
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430974"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622300"
 ---
 # <a name="operationalize-ml-services-cluster-on-azure-hdinsight"></a>ML-Services-cluster in Azure HDInsight operationeel maken
 
@@ -124,7 +121,7 @@ Als het cluster niet is ingesteld in het virtuele netwerk vnet of als u probleme
 
     ssh -L localhost:12800:localhost:12800 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
-Zodra de SSH-sessie actief is, wordt het verkeer bij poort 12800 op uw computer via de SSH-sessie doorgestuurd naar poort 12800 van het Edge-knooppunt. Zorg ervoor dat u `127.0.0.1:12800` gebruikt in de `remoteLogin()`-methode. Dit meldt zich aan bij de uitoefening van het edge-knooppunt via doorsturen via poort.
+Zodra de SSH-sessie actief is, wordt het verkeer bij poort 12800 op uw lokale machine doorgestuurd naar poort 12800 op het edge-knooppunt via SSH-sessie. Zorg ervoor dat u `127.0.0.1:12800` gebruikt in de `remoteLogin()`-methode. Dit meldt zich aan bij de uitoefening van het edge-knooppunt via doorsturen via poort.
 
 
     library(mrsdeploy)

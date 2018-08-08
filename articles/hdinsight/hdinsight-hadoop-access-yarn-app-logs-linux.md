@@ -1,83 +1,78 @@
 ---
-title: Toegang tot Hadoop YARN toepassingslogboeken op Linux gebaseerde HDInsight - Azure | Microsoft Docs
-description: Meer informatie over het openen van YARN-logboeken op een HDInsight (Hadoop) op basis van Linux-cluster met behulp van de opdrachtregel en een webbrowser.
+title: Toegang tot Hadoop YARN-toepassingslogboeken op Linux gebaseerde HDInsight - Azure
+description: Leer hoe u toegang tot YARN-toepassingslogboeken op een Linux gebaseerde HDInsight (Hadoop)-cluster met behulp van de opdrachtregel en een webbrowser.
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-ms.assetid: 3ec08d20-4f19-4a8e-ac86-639c04d2f12e
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: larryfr
-ms.openlocfilehash: 67732b3a4c63408d8fc6ab5ed75b40a0eb043167
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 0aa8d76ca97789844482d2b8ad7212c2f61a8ab8
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31392235"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591800"
 ---
-# <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>Toegang toepassingslogboeken YARN op Linux gebaseerde HDInsight
+# <a name="access-yarn-application-logs-on-linux-based-hdinsight"></a>Toegang tot YARN-toepassingslogboeken op Linux gebaseerde HDInsight
 
-Meer informatie over het openen van de logboeken voor toepassingen op een Hadoop-cluster in Azure HDInsight YARN (nog een andere Resource onderhandelaar).
+Leer hoe u toegang tot de logboeken van YARN (nog een andere Resource Negotiator)-toepassingen op een Hadoop-cluster in Azure HDInsight.
 
 > [!IMPORTANT]
-> De stappen in dit document moet een HDInsight-cluster dat gebruik maakt van Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie voor meer informatie [versiebeheer van HDInsight-onderdeel](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+> Voor de stappen in dit document hebt u een HDInsight-cluster nodig dat werkt met Linux. Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie voor meer informatie, [versiebeheer van HDInsight-onderdeel](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
-## <a name="YARNTimelineServer"></a>YARN tijdlijn Server
+## <a name="YARNTimelineServer"></a>YARN Timeline Server
 
-De [YARN tijdlijn Server](http://hadoop.apache.org/docs/r2.7.3/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) bevat algemene informatie over het voltooide toepassingen en framework-specifieke toepassingsinformatie via twee verschillende interfaces. Specifiek:
+De [YARN Timeline Server](http://hadoop.apache.org/docs/r2.7.3/hadoop-yarn/hadoop-yarn-site/TimelineServer.html) biedt algemene informatie over voltooide toepassingen en frameworkspecifieke toepassingsinformatie via twee verschillende interfaces. Specifiek:
 
-* Opslaan en ophalen van informatie over algemene toepassing op HDInsight-clusters is ingeschakeld met versie 3.1.1.374 of hoger.
+* Opslaan en ophalen van informatie over algemene toepassingen op HDInsight-clusters is ingeschakeld met versie 3.1.1.374 of hoger zijn.
 * Een onderdeel van de application framework-specifieke gegevens van de tijdlijn-Server is momenteel niet beschikbaar op HDInsight-clusters.
 
-Algemene informatie over toepassingen omvat het volgende type gegevens:
+Algemene informatie over toepassingen bevat het volgende type gegevens:
 
 * De toepassings-ID, een unieke id van een toepassing
 * De gebruiker die de toepassing is gestart
-* Informatie over pogingen gedaan om te voltooien van de toepassing
+* Meer informatie over een poging om uit te voeren van de toepassing
 * De containers die worden gebruikt door een bepaalde toepassing poging
 
-## <a name="YARNAppsAndLogs"></a>Logboeken en YARN-toepassingen
+## <a name="YARNAppsAndLogs"></a>YARN-toepassingen en Logboeken
 
-YARN biedt ondersteuning voor meerdere programmeermodellen (MapReduce wordt een van beide) door ontkoppeling bronbeheer van toepassing planning/bewaking. YARN maakt gebruik van een globale *ResourceManager* (RM) per worker-knooppunten *NodeManagers* (NMs) en per toepassing *ApplicationMasters* (AMs). De AM per toepassing onderhandelt resources (CPU, geheugen, schijf-, netwerk) over het uitvoeren van uw toepassing met de RM. De RM werkt met NMs verlenen deze resources die worden verleend als *containers*. De AM is verantwoordelijk voor het volgen van de voortgang van de containers die zijn toegewezen door de RM. Een toepassing moet mogelijk veel containers afhankelijk van de aard van de toepassing.
+YARN biedt ondersteuning voor meerdere programmeermodellen (MapReduce wordt een van beide) door het resourcebeheer van toepassingen plannen/bewaking ontkoppeling. YARN maakt gebruik van een algemene *ResourceManager* (DB), per worker-knooppunt *NodeManagers* (NMs), en per toepassing *ApplicationMasters* (AMs). Het uur per toepassing onderhandelt over de resources (CPU, geheugen, schijf-, netwerk) voor het uitvoeren van uw toepassing met de RM. De RM werkt met NMs verlenen deze resources, die zijn verleend als *containers*. Het uur is verantwoordelijk voor het bijhouden van de voortgang van de containers die zijn toegewezen door de RM. Een toepassing mogelijk veel containers, afhankelijk van de aard van de toepassing.
 
-Elke toepassing kan bestaan uit meerdere *toepassing pogingen*. Als een toepassing mislukt, wordt deze opnieuw uitgevoerd als een nieuwe poging. Elke poging wordt uitgevoerd in een container. In een zin biedt een container in de context voor basic-eenheid van het werk dat door een YARN-toepassing uitgevoerd. Al het werk dat wordt uitgevoerd in de context van een container wordt uitgevoerd op het één werkrolknooppunt waarop de container is toegewezen. Zie [YARN concepten] [ YARN-concepts] voor verdere verwijzing.
+Elke toepassing kan bestaan uit meerdere *toepassing pogingen*. Als een toepassing mislukt, wordt deze opnieuw uitgevoerd als een nieuwe poging. Elke poging wordt uitgevoerd in een container. In zekere zin biedt een container in de context voor de basiseenheid voor werk dat door een YARN-toepassing uitgevoerd. Al het werk dat wordt uitgevoerd binnen de context van een container wordt uitgevoerd op de één worker-knooppunt waarop de container is toegewezen. Zie [YARN concepten] [ YARN-concepts] voor verdere verwijzing.
 
-Toepassingslogboeken (en de logboeken van de bijbehorende container) zijn essentieel bij het opsporen van fouten problematisch Hadoop-toepassingen. YARN biedt een nice framework voor het verzamelen, aggregeren en opslaan van de toepassingslogboeken van de met de [logboek aggregatie] [ log-aggregation] functie. De aggregatie van logboek-functie kunt de toegang tot toepassingslogboeken meer deterministische. Deze logboeken hierbij op alle containers op een knooppunt van de werknemer en worden opgeslagen als een samengevoegde logboekbestand per werkrolknooppunt. Het logboek is opgeslagen op het standaardbestandssysteem nadat een toepassing is voltooid. Toepassingen kan gebruikmaken van honderden of duizenden containers, maar de logboeken voor alle containers worden uitgevoerd op een enkele werkrolknooppunt altijd worden samengevoegd in één bestand. Er is daarom alleen 1 logboek per werkrolknooppunt gebruikt door de toepassing. Aggregatie van logboek is standaard op HDInsight-clusters versie 3.0 en hoger. Samengevoegde logboeken bevinden zich in de standaard opslagruimte voor het cluster. Het volgende pad is de HDFS-pad naar de logboeken:
+Toepassingslogboeken (en de bijbehorende containerlogboeken), zijn essentieel tijdens de foutopsporing problematische Hadoop-toepassingen. YARN biedt een mooie raamwerk voor het verzamelen, verzamelen en opslaan van toepassingslogboeken met de [logboeken gegevensaggregatie] [ log-aggregation] functie. De functie Logboeken gegevensaggregatie kunt de toegang tot toepassingslogboeken meer deterministische. Deze logboeken verzamelt alle containers op een worker-knooppunt en slaat deze op als een geaggregeerde logboekbestand per worker-knooppunt. Het logboek wordt opgeslagen op het standaardbestandssysteem nadat een toepassing is voltooid. Uw toepassing kan gebruikmaken van honderden of duizenden containers, maar de logboeken voor alle containers die worden uitgevoerd op een knooppunt één werknemer altijd worden samengevoegd in één bestand. Er is dus alleen 1 logboek per worker-knooppunt wordt gebruikt door uw toepassing. Aggregatie van logboek is standaard op HDInsight-clusters versie 3.0 en hoger ingeschakeld. Samengevoegde logboeken bevinden zich in de standaardopslag voor het cluster. Het volgende pad, is het HDFS-pad naar de logboeken:
 
     /app-logs/<user>/logs/<applicationId>
 
 In het pad `user` is de naam van de gebruiker die de toepassing is gestart. De `applicationId` is de unieke id die is toegewezen aan een toepassing door de YARN-RM.
 
-De geaggregeerde logboeken zijn niet rechtstreeks kan worden gelezen, zoals ze zijn geschreven in een [TFile][T-file], [binaire indeling] [ binary-format] geïndexeerd door de container. Gebruik de ResourceManager YARN-Logboeken of de CLI-hulpprogramma's om weer te geven deze logboeken als tekst zonder opmaak voor toepassingen of containers van belang.
+De samengevoegde logboeken zijn niet rechtstreeks kan worden gelezen, zoals ze zijn geschreven in een [TFile][T-file], [binaire indeling] [ binary-format] geïndexeerd door de container. De ResourceManager YARN-Logboeken of de CLI-hulpprogramma's gebruiken om deze logboeken als tekst zonder opmaak voor toepassingen of containers van belang weer te geven.
 
 ## <a name="yarn-cli-tools"></a>YARN CLI-hulpprogramma 's
 
-Als u wilt de YARN CLI-hulpprogramma's gebruiken, moet u eerst verbinding met het HDInsight-cluster via SSH. Zie [SSH-sleutels gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor informatie.
+Voor het gebruik van de YARN CLI-hulpprogramma's, moet u eerst verbinding met het HDInsight-cluster via SSH. Zie [SSH-sleutels gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor informatie.
 
-U kunt deze logboeken als tekst zonder opmaak bekijken door een van de volgende opdrachten uit te voeren:
+U kunt deze logboeken als tekst zonder opmaak weergeven door het uitvoeren van een van de volgende opdrachten:
 
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application>
     yarn logs -applicationId <applicationId> -appOwner <user-who-started-the-application> -containerId <containerId> -nodeAddress <worker-node-address>
 
-Geef de &lt;applicationId >, &lt;-die-slag-de-gebruikerstoepassing >, &lt;containerId >, en &lt;worker-knooppunt-adres > informatie wanneer deze opdrachten uit te voeren.
+Geef de &lt;applicationId >, &lt;-die-aan de slag-de-gebruikerstoepassing >, &lt;containerId >, en &lt;worker-knooppunt-adres > informatie bij het uitvoeren van deze opdrachten.
 
-## <a name="yarn-resourcemanager-ui"></a>Gebruikersinterface van YARN ResourceManager
+## <a name="yarn-resourcemanager-ui"></a>YARN ResourceManager-interface
 
-De gebruikersinterface van YARN ResourceManager op het cluster headnode wordt uitgevoerd. Deze is toegankelijk via de Ambari-webgebruikersinterface. Gebruik de volgende stappen uit om de YARN-logboeken weer te geven:
+De gebruikersinterface van YARN ResourceManager op het hoofdknooppunt van het cluster wordt uitgevoerd. Deze toegankelijk is via de Ambari-Webgebruikersinterface. Gebruik de volgende stappen uit om de YARN-logboeken weer te geven:
 
-1. Navigeer in uw webbrowser naar https://CLUSTERNAME.azurehdinsight.net. CLUSTERNAAM vervangen door de naam van uw HDInsight-cluster.
-2. Selecteer in de lijst van services aan de linkerkant **YARN**.
+1. Navigeer in uw webbrowser naar https://CLUSTERNAME.azurehdinsight.net. CLUSTERNAME vervangen door de naam van uw HDInsight-cluster.
+2. Selecteer in de lijst met services aan de linkerkant **YARN**.
 
-    ![Yarn service geselecteerd](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnservice.png)
-3. Van de **snelkoppelingen** vervolgkeuzelijst, selecteer een van de hoofdknooppunten van het cluster en selecteer vervolgens **ResourceManager logboek**.
+    ![Yarn-service die zijn geselecteerd](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnservice.png)
+3. Uit de **snelkoppelingen** vervolgkeuzelijst, selecteer een van de hoofdknooppunten van het cluster en selecteer vervolgens **ResourceManager Log**.
 
-    ![Yarn snelle koppelingen](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnquicklinks.png)
+    ![Yarn-snelkoppelingen](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarnquicklinks.png)
 
     Krijgt u een lijst met koppelingen naar YARN-Logboeken.
 

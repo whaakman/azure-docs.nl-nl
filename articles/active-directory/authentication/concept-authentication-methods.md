@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 065f7ef822cdabad8fe25651e3cda9735c655d5f
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 4a0fb5739812950f3a01a18acae1d797fa4f9158
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414521"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39622249"
 ---
 # <a name="what-are-authentication-methods"></a>Wat zijn verificatiemethoden?
 
@@ -132,7 +132,7 @@ De Microsoft Authenticator-app is beschikbaar voor [Android](https://go.microsof
 De Microsoft Authenticator-app kunt u voorkomt ongeoorloofde toegang tot accounts en frauduleuze transacties stoppen door het pushen van een melding naar uw smartphone of tablet. Gebruikers weergeven van de melding en wanneer deze geldig is, is Selecteer verifiëren. Anders kunnen ze weigeren selecteren.
 
 > [!WARNING]
-> Verificatiecode is voor de self-service voor wachtwoord opnieuw instellen wanneer slechts één methode vereist voor het opnieuw instellen is, de enige optie beschikbaar voor gebruikers.
+> Voor de self-service voor wachtwoord opnieuw ingesteld wanneer er slechts één methode vereist voor het opnieuw instellen is, de verificatiecode is de enige optie beschikbaar voor gebruikers **om te controleren of het hoogste niveau van beveiliging**.
 >
 > Wanneer twee methoden vereist zijn in te stellen met behulp van gebruikers is mogelijk **uitvoeren** melding **of** verificatiecode naast eventuele andere methoden ingeschakeld.
 >
@@ -142,7 +142,7 @@ De Microsoft Authenticator-app kunt u voorkomt ongeoorloofde toegang tot account
 De Microsoft Authenticator-app of andere apps van derden kunnen worden gebruikt als een Softwaretoken voor het genereren van een OATH-code voor verificatie. Na het invoeren van uw gebruikersnaam en wachtwoord, voert u de code die is geleverd door de app in het aanmeldingsscherm. De verificatiecode zorgt voor een tweede vorm van verificatie.
 
 > [!WARNING]
-> Verificatiecode is voor de self-service voor wachtwoord opnieuw instellen wanneer slechts één methode vereist voor het opnieuw instellen is de enige optie beschikbaar voor gebruikers.
+> Self-service voor wachtwoord opnieuw ingesteld wanneer alleen één methode vereist is voor het opnieuw instellen van de verificatiecode is de enige optie beschikbaar voor gebruikers **om te controleren of het hoogste niveau van beveiliging**.
 >
 
 ## <a name="mobile-phone"></a>Mobiele telefoon
@@ -198,5 +198,7 @@ Als uw organisatie is gefedereerd voor eenmalige aanmelding met Azure AD en u wi
 [Selfservice voor wachtwoord opnieuw instellen voor uw organisatie inschakelen](quickstart-sspr.md)
 
 [Azure multi-factor Authentication inschakelen voor uw organisatie](howto-mfa-getstarted.md)
+
+[Geconvergeerde registratie voor meervoudige verificatie en Azure AD Self-service voor wachtwoord opnieuw instellen inschakelen](concept-registration-mfa-sspr-converged.md)
 
 [Documentatie voor eindgebruikers verificatie methode configuration](https://aka.ms/securityinfoguide)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 1b5aa32155afc5264ecf5979ebc25f879bbc5b67
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: b7a0050791690e5157a4937df0d49a0f03f3df24
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581688"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617595"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Een SSL-certificaat kopen en configureren voor uw Azure App Service
 
@@ -199,11 +199,11 @@ Uw certificaat opnieuw genereren van sleutels, wordt het certificaat met een nie
 
 ## <a name="renew-the-certificate"></a>Het certificaat vernieuwen
 
-Als u wilt inschakelen voor de automatische vernieuwing van uw certificaat op elk gewenst moment, klikt u op **instellingen voor automatisch verlengen** in de certificate management-pagina. Selecteer **op** en klikt u op **opslaan**. Het certificaat wordt verlengd met 60 dagen voordat het verloopt als u ingeschakeld voor de automatische vernieuwing hebt.
+Als u wilt inschakelen voor de automatische vernieuwing van uw certificaat op elk gewenst moment, klikt u op **instellingen voor automatisch verlengen** in de certificate management-pagina. Selecteer **op** en klikt u op **opslaan**. Certificaten kunnen beginnen met 90 dagen voordat het verloopt automatisch vernieuwen als u ingeschakeld voor de automatische vernieuwing hebt.
 
 ![](./media/app-service-web-purchase-ssl-web-site/auto-renew.png)
 
-Als u wilt handmatig vernieuwen van het certificaat in plaats daarvan, klikt u op **handmatig verlengen** in plaats daarvan.
+Als u wilt handmatig vernieuwen van het certificaat in plaats daarvan, klikt u op **handmatig verlengen** in plaats daarvan. U kunt aanvragen naar uw certificaat handmatig vernieuwen 60 dagen voordat het verloopt.
 
 > [!NOTE]
 > De vernieuwde certificaat is niet automatisch gebonden aan uw app, of u deze handmatig wordt verlengd of het automatisch vernieuwd. Als u wilt koppelen aan uw app, Zie [certificaten vernieuwen](./app-service-web-tutorial-custom-ssl.md#renew-certificates). 

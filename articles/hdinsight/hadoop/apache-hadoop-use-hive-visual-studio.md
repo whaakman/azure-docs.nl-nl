@@ -1,33 +1,28 @@
 ---
-title: Met Data Lake (Hadoop)-hulpprogramma's voor Visual Studio - Azure HDInsight hive | Microsoft Docs
-description: Informatie over het gebruik van de Data Lake tools voor Visual Studio Apache Hive-query's uitvoeren met Apache Hadoop op Azure HDInsight.
+title: Hive met Data Lake (Hadoop)-hulpprogramma's voor Visual Studio - Azure HDInsight
+description: Informatie over het gebruik van de Data Lake-tools voor Visual Studio Apache Hive-query's uitvoeren met Apache Hadoop op Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 2b3e672a-1195-4fa5-afb7-b7b73937bfbe
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: larryfr
-ms.openlocfilehash: 862a2aae2e9d417ccf9daf336177b23842dd3db7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.author: jasonh
+ms.openlocfilehash: 938605bebe30dd23e73fbf43a37328d9e753a06e
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34201785"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597222"
 ---
-# <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Uitvoeren van Hive-query's met de Data Lake tools voor Visual Studio
+# <a name="run-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Uitvoeren van Hive-query's met de Data Lake-tools voor Visual Studio
 
-Informatie over het gebruik van het Data Lake tools voor Visual Studio op Apache Hive-query. De Data Lake-hulpprogramma's kunnen u gemakkelijk maken, indienen en controleren en Hadoop in Azure HDInsight Hive-query's.
+Informatie over het gebruik van de Data Lake-tools voor Visual Studio op Apache Hive-query. De Data Lake-tools kunnen u eenvoudig maken, indienen en bewaken van Hive-query's op Hadoop op Azure HDInsight.
 
 ## <a id="prereq"></a>Vereisten
 
-* Een Azure HDInsight (Hadoop in HDInsight)-cluster
+* Een Azure HDInsight (Hadoop op HDInsight)-cluster
 
   > [!IMPORTANT]
   > Linux is het enige besturingssysteem dat wordt gebruikt in HDInsight-versie 3.4 of hoger. Zie [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (HDInsight buiten gebruik gestel voor Windows) voor meer informatie.
@@ -36,17 +31,17 @@ Informatie over het gebruik van het Data Lake tools voor Visual Studio op Apache
 
     * Visual Studio 2013 Community/Professional/Premium/Ultimate met Update 4
 
-    * Visual Studio 2015 (alle versies)
+    * Visual Studio 2015 (alle edities)
 
-    * Visual Studio 2017 (alle versies)
+    * Visual Studio 2017 (alle edities)
 
 * HDInsight tools voor Visual Studio of Azure Data Lake tools voor Visual Studio. Zie [aan de slag met Visual Studio Hadoop-hulpprogramma's voor HDInsight](apache-hadoop-visual-studio-tools-get-started.md) voor informatie over het installeren en configureren van de hulpprogramma's.
 
-## <a id="run"></a> Uitvoeren van Hive-query's met de Visual Studio
+## <a id="run"></a> Uitvoeren van Hive-query's met behulp van de Visual Studio
 
-1. Open **Visual Studio** en selecteer **nieuw** > **Project** > **Azure Data Lake** > **HIVE** > **Hive-toepassing**. Geef een naam voor dit project.
+1. Open **Visual Studio** en selecteer **nieuw** > **Project** > **Azure Data Lake**  >   **HIVE** > **Hive-toepassing**. Geef een naam op voor dit project.
 
-2. Open de **Script.hql** -bestand dat is gemaakt met dit project en plakken in de volgende HiveQL-instructies:
+2. Open de **Script.hql** -bestand dat is gemaakt met dit project en plakken in het volgende HiveQL-instructies:
 
    ```hiveql
    set hive.execution.engine=tez;
@@ -57,38 +52,38 @@ Informatie over het gebruik van het Data Lake tools voor Visual Studio op Apache
    SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND  INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
    ```
 
-    Deze instructies uitvoeren de volgende acties:
+    Deze instructies uit uitvoeren de volgende acties:
 
    * `DROP TABLE`: Als de tabel bestaat, wordt het door deze instructie verwijdert.
 
-   * `CREATE EXTERNAL TABLE`: Maakt een nieuwe tabel 'extern' in Hive. De tabeldefinitie opslaan externe tabellen alleen in de component (de gegevens links op de oorspronkelijke locatie).
+   * `CREATE EXTERNAL TABLE`: Maakt een nieuwe 'externe' tabel in Hive. Externe tabellen worden alleen de definitie van de tabel opslaan in Hive (de gegevens blijft in de oorspronkelijke locatie).
 
      > [!NOTE]
-     > Externe tabellen moeten worden gebruikt wanneer u de onderliggende gegevens wordt bijgewerkt door een externe bron verwacht. Bijvoorbeeld, een MapReduce-taak of een Azure-service.
+     > Externe tabellen moeten worden gebruikt wanneer u verwacht dat de onderliggende gegevens worden bijgewerkt door een externe bron. Bijvoorbeeld, een MapReduce-taak of een Azure-service.
      >
-     > Verwijderen van een externe tabel komt **niet** de gegevens, de definitie van de tabel verwijderen.
+     > Verwijderen van een externe tabel heeft **niet** de gegevens, alleen de definitie van de tabel verwijderen.
 
-   * `ROW FORMAT`: Hiermee geeft u Hive hoe de gegevens wordt opgemaakt. In dit geval worden de velden in elk logboek gescheiden door een spatie.
+   * `ROW FORMAT`: Geeft aan hoe de gegevens zijn opgemaakt Hive. In dit geval worden de velden in elk logboek gescheiden door een spatie.
 
    * `STORED AS TEXTFILE LOCATION`: Hive doorgegeven dat de gegevens worden opgeslagen in de map/voorbeeldgegevens, en dat deze is opgeslagen als tekst.
 
-   * `SELECT`: Selecteer een telling van alle rijen waarin kolom `t4` bevat de waarde `[ERROR]`. Deze instructie retourneert een waarde van `3` omdat er drie rijen met deze waarde.
+   * `SELECT`: Selecteer een telling van alle rijen waar kolom `t4` bevat de waarde `[ERROR]`. Deze instructie retourneert een waarde van `3` omdat er drie rijen die deze waarde bevatten.
 
-   * `INPUT__FILE__NAME LIKE '%.log'` -Vertelt Hive dat we alleen gegevens uit bestanden eindigt op moet retourneren. log. Deze component, de zoekopdracht beperkt tot het sample.log-bestand dat de gegevens bevat.
+   * `INPUT__FILE__NAME LIKE '%.log'` -Vertelt Hive dat we alleen gegevens uit bestanden hebben die eindigt op moet retourneren. log. Deze component beperkt de zoekopdracht tot het bestand sample.log die de gegevens bevat.
 
-3. Selecteer op de werkbalk van de **HDInsight-Cluster** die u wilt gebruiken voor deze query. Selecteer **indienen** uit te voeren van de instructies als een Hive-taak.
+3. Selecteer in de werkbalk de **HDInsight-Cluster** die u wilt gebruiken voor deze query. Selecteer **indienen** uit te voeren van de instructies als een Hive-taak.
 
-   ![Indienings-balk](./media/apache-hadoop-use-hive-visual-studio/toolbar.png)
+   ![Indienen balk](./media/apache-hadoop-use-hive-visual-studio/toolbar.png)
 
-4. De **taakoverzicht Hive** wordt weergegeven en geeft informatie weer over de actieve taak. Gebruik de **vernieuwen** koppeling de om taakgegevens te vernieuwen, totdat de **taakstatus** wijzigingen in **voltooid**.
+4. De **samenvatting van Hive-taak** wordt weergegeven en geeft informatie weer over de actieve taak. Gebruik de **vernieuwen** koppeling naar de informatie over de taak vernieuwen totdat de **taakstatus** wordt gewijzigd in **voltooid**.
 
-   ![Taakoverzicht een voltooide taak weergeven](./media/apache-hadoop-use-hive-visual-studio/jobsummary.png)
+   ![Samenvatting van de taak een voltooide taak weergeven](./media/apache-hadoop-use-hive-visual-studio/jobsummary.png)
 
-5. Gebruik de **Taakuitvoer** koppeling naar de weergave van de uitvoer van deze taak. Hiermee wordt weergegeven `[ERROR] 3`, dit is de waarde die door deze query zijn geretourneerd.
+5. Gebruik de **Taakuitvoer** koppeling om de uitvoer van deze taak weer te geven. Wordt de pagina `[ERROR] 3`, dit is de waarde die wordt geretourneerd door deze query.
 
-6. U kunt ook Hive-query's uitvoeren zonder een project maken. Met behulp van **Server Explorer**, vouw **Azure** > **HDInsight**, met de rechtermuisknop op uw HDInsight-server en selecteer vervolgens **een Hive-Query schrijven**.
+6. U kunt ook een Hive-query's uitvoeren zonder dat er een project wordt gemaakt. Met behulp van **Server Explorer**, vouw **Azure** > **HDInsight**, met de rechtermuisknop op uw HDInsight-server en selecteer vervolgens **schrijven van een Hive-Query** .
 
-7. In de **temp.hql** document dat wordt weergegeven, de volgende HiveQL-instructies toevoegen:
+7. In de **temp.hql** document dat wordt weergegeven, voeg de volgende HiveQL-instructies:
 
    ```hiveql
    set hive.execution.engine=tez;
@@ -96,36 +91,36 @@ Informatie over het gebruik van het Data Lake tools voor Visual Studio op Apache
    INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
    ```
 
-    Deze instructies uitvoeren de volgende acties:
+    Deze instructies uit uitvoeren de volgende acties:
 
-   * `CREATE TABLE IF NOT EXISTS`: Een tabel gemaakt als deze niet al bestaat. Omdat de `EXTERNAL` trefwoord wordt niet gebruikt, wordt deze instructie maakt u een interne tabel. Interne tabellen worden opgeslagen in het Hive-datawarehouse en worden beheerd door Hive.
+   * `CREATE TABLE IF NOT EXISTS`: Een tabel gemaakt als deze niet al bestaat. Omdat de `EXTERNAL` trefwoord wordt niet gebruikt, wordt deze instructie maakt u een interne tabel. Interne tabellen worden opgeslagen in de Hive-datawarehouse en worden beheerd door Hive.
 
      > [!NOTE]
      > In tegenstelling tot `EXTERNAL` tabellen, ook verwijderen van een interne tabel worden de onderliggende gegevens verwijderd.
 
-   * `STORED AS ORC`: De gegevens worden opgeslagen in geoptimaliseerde rij kolomindeling (ORC). ORC is een maximaal geoptimaliseerd en efficiënte indeling voor het opslaan van gegevens met Hive.
+   * `STORED AS ORC`: De gegevens worden opgeslagen in de kolommen (ORC)-indeling geoptimaliseerde rij. ORC is een uiterst geoptimaliseerde en efficiënte indeling voor het opslaan van gegevens met Hive.
 
-   * `INSERT OVERWRITE ... SELECT`: Selecteert rijen uit de `log4jLogs` tabel met `[ERROR]`, voegt u vervolgens de gegevens in de `errorLogs` tabel.
+   * `INSERT OVERWRITE ... SELECT`: Hiermee selecteert u rijen uit de `log4jLogs` tabel met `[ERROR]`, voegt u vervolgens de gegevens in de `errorLogs` tabel.
 
 8. Selecteer in de werkbalk **indienen** de taak uit te voeren. Gebruik de **taakstatus** om te bepalen dat de taak is voltooid.
 
-9. Gebruik om te controleren dat de taak de tabel is gemaakt, **Server Explorer** en vouw **Azure** > **HDInsight** > uw HDInsight-cluster > **Hive-Databases** > **standaard**. De **foutenlogboeken** tabel en de **log4jLogs** tabel worden vermeld.
+9. Gebruik om te controleren of de taak in de tabel gemaakt, **Server Explorer** en vouw **Azure** > **HDInsight** > uw HDInsight-cluster >  **Hive-Databases** > **standaard**. De **foutenlogboeken** tabel en de **log4jLogs** tabel worden vermeld.
 
 ## <a id="nextsteps"></a>Volgende stappen
 
-Zoals u ziet, zijn de HDInsight tools voor Visual Studio een gemakkelijke manier om te werken met Hive-query's op HDInsight.
+U kunt zien, bieden de HDInsight tools voor Visual Studio een eenvoudige manier om te werken met Hive-query's op HDInsight.
 
 Voor algemene informatie over Hive in HDInsight:
 
-* [Hive gebruiken met Hadoop in HDInsight](hdinsight-use-hive.md)
+* [Hive gebruiken met Hadoop op HDInsight](hdinsight-use-hive.md)
 
-Voor informatie over andere manieren kunt u werken met Hadoop op HDInsight:
+Voor meer informatie over andere manieren kunt u werken met Hadoop op HDInsight:
 
-* [Pig gebruiken met Hadoop in HDInsight](hdinsight-use-pig.md)
+* [Pig gebruiken met Hadoop op HDInsight](hdinsight-use-pig.md)
 
 * [MapReduce gebruiken met Hadoop op HDInsight](hdinsight-use-mapreduce.md)
 
-Voor meer informatie over de HDInsight tools voor Visual Studio:
+Voor meer informatie over de HDInsight-hulpprogramma's voor Visual Studio:
 
 * [Aan de slag met HDInsight tools voor Visual Studio](apache-hadoop-visual-studio-tools-get-started.md)
 

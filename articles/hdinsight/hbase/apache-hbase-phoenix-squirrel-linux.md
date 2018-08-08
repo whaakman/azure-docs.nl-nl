@@ -1,59 +1,55 @@
 ---
-title: Gebruik van Apache Phoenix en SQLLine met HBase in Azure HDInsight | Microsoft Docs
-description: Informatie over het gebruik van Apache Phoenix in HDInsight. Ook informatie over het installeren en instellen SQLLine op uw computer verbinding maken met een HBase-cluster in HDInsight.
+title: Gebruik Apache Phoenix en SQLLine met HBase in Azure HDInsight
+description: Leer hoe u Apache Phoenix gebruiken in HDInsight. Ook informatie over het installeren en SQLLine instellen op uw computer verbinding maken met een HBase-cluster in HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
-ms.assetid: cda0f33b-a2e8-494c-972f-ae0bb482b818
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/03/2018
-ms.author: jgao
-ms.openlocfilehash: 64700567b8acf816f42e6bf8cdc5386b6c65fe3f
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: jasonh
+ms.openlocfilehash: 349f1680cf754a44e2e4217ebde9d0d60479ebcf
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31516624"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39597460"
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>Apache Phoenix gebruiken met HBase op basis van Linux-clusters in HDInsight
-Informatie over het gebruik [Apache Phoenix](http://phoenix.apache.org/) in Azure HDInsight en het gebruik van SQLLine. Zie voor meer informatie over Phoenix [Phoenix in 15 minuten of minder](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Zie voor de grammatica Phoenix [Phoenix grammatica](http://phoenix.apache.org/language/index.html).
+Meer informatie over het gebruik van [Apache Phoenix](http://phoenix.apache.org/) in Azure HDInsight en SQLLine gebruiken. Zie voor meer informatie over Phoenix [Phoenix in 15 minuten of minder](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Zie voor de grammatica Phoenix [Phoenix grammatica](http://phoenix.apache.org/language/index.html).
 
 > [!NOTE]
-> Zie voor Phoenix versie-informatie over HDInsight [wat is er nieuw in de Hadoop-clusterversies geleverd door HDInsight](../hdinsight-component-versioning.md).
+> Zie voor informatie over HDInsight de Phoenix-versie, [wat is er nieuw in de Hadoop-clusterversies geleverd door HDInsight](../hdinsight-component-versioning.md).
 >
 >
 
-## <a name="use-sqlline"></a>Gebruik SQLLine
-[SQLLine](http://sqlline.sourceforge.net/) is een opdrachtregelprogramma SQL uitvoeren.
+## <a name="use-sqlline"></a>SQLLine gebruiken
+[SQLLine](http://sqlline.sourceforge.net/) is een opdrachtregelprogramma voor het uitvoeren van SQL.
 
 ### <a name="prerequisites"></a>Vereisten
-Voordat u SQLLine gebruiken kunt, hebt u de volgende items:
+Voordat u SQLLine gebruiken kunt, moet u de volgende items hebben:
 
-* **Een HBase-cluster in HDInsight**. Als u wilt maken, Zie [aan de slag met Apache HBase in HDInsight](./apache-hbase-tutorial-get-started-linux.md).
+* **Een HBase-cluster in HDInsight**. Zie voor het maken van een [aan de slag met Apache HBase in HDInsight](./apache-hbase-tutorial-get-started-linux.md).
 
-Wanneer u verbinding met een HBase-cluster maakt, moet u verbinding maken met een van de ZooKeeper virtuele machines. Elke HDInsight-cluster heeft drie ZooKeeper virtuele machines.
+Wanneer u verbinding met een HBase-cluster maakt, moet u verbinding maken met een van de ZooKeeper-VM's. Elke HDInsight-cluster heeft drie ZooKeeper-VM's.
 
-**De hostnaam ZooKeeper ophalen**
+**De naam van de ZooKeeper-host ophalen**
 
-1. Ambari openen door te bladeren naar **https://\<clusternaam\>. azurehdinsight.net**.
-2. Als u wilt aanmelden, geef de gebruikersnaam voor HTTP (cluster) en het wachtwoord.
-3. Selecteer in het menu links **ZooKeeper**. Drie **ZooKeeper Server** exemplaren worden weergegeven.
-4. Selecteer een van de **ZooKeeper Server** exemplaren. Op de **samenvatting** deelvenster, zoek de **hostnaam**. Het lijkt op *zk1 jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
+1. Opent Ambari door te bladeren naar **https://\<clusternaam\>. azurehdinsight.net**.
+2. Als u wilt aanmelden, voer de gebruikersnaam van HTTP (cluster) en het wachtwoord.
+3. Selecteer in het menu links **ZooKeeper**. Drie **ZooKeeper Server** exemplaren worden vermeld.
+4. Selecteer een van de **ZooKeeper Server** exemplaren. Op de **samenvatting** in het deelvenster Zoeken de **hostnaam**. Het lijkt op *zk1 jdolehb.3lnng4rcvp5uzokyktxs4a5dhd.bx.internal.cloudapp.net*.
 
 **SQLLine gebruiken**
 
-1. Verbinding maken met het cluster via SSH. Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
+1. Verbinding maken met het cluster met behulp van SSH. Zie [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
 2. Gebruik de volgende opdrachten om uit te voeren SQLLine in SSH:
 
         cd /usr/hdp/2.2.9.1-7/phoenix/bin
         ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
-3. Voor het maken van een HBase-tabel en voeg enkele gegeven in, voer de volgende opdrachten:
+3. Als u een HBase-tabel maken en voeg enkele gegeven in, voer de volgende opdrachten:
 
         CREATE TABLE Company (COMPANY_ID INTEGER PRIMARY KEY, NAME VARCHAR(225));
 
@@ -65,16 +61,16 @@ Wanneer u verbinding met een HBase-cluster maakt, moet u verbinding maken met ee
 
         !quit
 
-Zie voor meer informatie de [SQLLine handmatige](http://sqlline.sourceforge.net/#manual) en [Phoenix grammatica](http://phoenix.apache.org/language/index.html).
+Zie voor meer informatie de [SQLLine handmatig](http://sqlline.sourceforge.net/#manual) en [Phoenix grammatica](http://phoenix.apache.org/language/index.html).
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe Apache Phoenix in HDInsight gebruiken. Zie voor meer informatie in deze artikelen:
+In dit artikel hebt u geleerd hoe u Apache Phoenix gebruiken in HDInsight. Voor meer informatie, Zie de volgende artikelen:
 
 * [Overzicht van HDInsight HBase][hdinsight-hbase-overview].
   HBase is een Apache, open-source NoSQL-database gebouwd op Hadoop. deze willekeurige toegang en sterke consistentie voor grote hoeveelheden ongestructureerde en semigestructureerde gegevens biedt.
-* [HBase-clusters op Azure Virtual Network inrichten][hdinsight-hbase-provision-vnet].
-  Met integratie van virtueel netwerk, kunnen HBase-clusters worden geïmplementeerd op hetzelfde virtuele netwerk als uw toepassingen zodat toepassingen rechtstreeks met HBase communiceren kunnen.
-* [Configureren van replicatie van HBase in HDInsight](apache-hbase-replication.md). Informatie over het instellen van HBase-replicatie tussen twee Azure-datacenters.
+* [HBase-clusters inrichten op Azure Virtual Network][hdinsight-hbase-provision-vnet].
+  Met integratie van virtuele netwerken, kunnen HBase-clusters worden geïmplementeerd in hetzelfde virtuele netwerk bevinden als uw toepassingen, zodat toepassingen direct met HBase communiceren kunnen.
+* [HBase-replicatie configureren in HDInsight](apache-hbase-replication.md). Meer informatie over het instellen van HBase-replicatie in twee datacenters van Azure.
 
 
 [azure-portal]: https://portal.azure.com

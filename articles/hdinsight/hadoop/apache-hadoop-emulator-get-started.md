@@ -1,88 +1,83 @@
 ---
-title: Meer informatie over met behulp van een Hadoop-sandbox - emulator - Azure HDInsight | Microsoft Docs
-description: 'Als u wilt weten over het gebruik van het Hadoop-ecosysteem, kunt u instellen een sandbox met Hadoop van Hortonworks op een virtuele machine van Azure. '
-keywords: hadoop-emulator, hadoop sandbox
-editor: cgronlun
-manager: jhubbard
+title: Informatie over met behulp van een Hadoop-sandbox - emulator - Azure HDInsight
+description: 'Als u wilt gaan met het leren over het gebruik van het Hadoop-ecosysteem, kunt u instellen een Hadoop-sandbox van Hortonworks op een Azure-machine. '
+keywords: hadoop-emulator, hadoop-sandbox
+editor: jasonwhowell
 services: hdinsight
-author: nitinme
-documentationcenter: ''
-tags: azure-portal
-ms.assetid: 6ad5bb58-8215-4e3d-a07f-07fcd8839cc6
+author: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: nitinme
-ms.openlocfilehash: 0b4daa8c832d40457b19ffe4aee1a365796b2435
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: jasonh
+ms.openlocfilehash: 6a2a81f89e86a75dd56283526713b88cdfd21569
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31401129"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598709"
 ---
-# <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Aan de slag met een sandbox met Hadoop, een emulator op een virtuele machine
+# <a name="get-started-with-a-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Aan de slag met een Hadoop-sandbox, een emulator op een virtuele machine
 
-Informatie over het installeren van de sandbox Hadoop vanaf Hortonworks op een virtuele machine voor meer informatie over het Hadoop-ecosysteem. De sandbox biedt een lokale ontwikkelingsomgeving voor meer informatie over Hadoop, Hadoop Distributed File System (HDFS) en de verzending van de taak. Wanneer u bekend met Hadoop bent, kunt u beginnen met Hadoop op Azure door het maken van een HDInsight-cluster. Zie voor meer informatie over het aan de slag [aan de slag met Hadoop op HDInsight](apache-hadoop-linux-tutorial-get-started.md).
+Informatie over het installeren van de Hadoop-sandbox van Hortonworks op een virtuele machine voor meer informatie over het Hadoop-ecosysteem. De sandbox biedt een lokale ontwikkelingsomgeving voor meer informatie over Hadoop, Hadoop Distributed File System (HDFS) en verzenden van taken. Als u bekend met Hadoop bent, kunt u starten met Hadoop op Azure door het maken van een HDInsight-cluster. Zie voor meer informatie over hoe u aan de slag [aan de slag met Hadoop op HDInsight](apache-hadoop-linux-tutorial-get-started.md).
 
 ## <a name="prerequisites"></a>Vereisten
-* [Oracle VirtualBox](https://www.virtualbox.org/). Download en installeer deze via [hier](https://www.virtualbox.org/wiki/Downloads).
+* [Oracle VirtualBox](https://www.virtualbox.org/). Download en installeer deze vanaf [hier](https://www.virtualbox.org/wiki/Downloads).
 
 
 
 ## <a name="download-and-install-the-virtual-machine"></a>Download en installeer de virtuele machine
-1. Blader naar de [Hortonworks downloadt](http://hortonworks.com/downloads/#sandbox).
+1. Blader naar de [Hortonworks downloads](http://hortonworks.com/downloads/#sandbox).
 
-2. Klik op **downloaden voor VIRTUALBOX** voor het downloaden van de meest recente Hortonworks Sandbox op een virtuele machine. U wordt gevraagd om te registreren met Hortonworks voordat de download wordt gestart. Het duurt een tot twee uur om te downloaden, afhankelijk van de netwerksnelheid van uw.
+2. Klik op **downloaden voor VIRTUALBOX** voor het downloaden van de nieuwste Hortonworks Sandbox op een virtuele machine. U wordt gevraagd om u te registreren met Hortonworks voordat het downloaden begint. Het duurt voordat een tot twee uur wilt downloaden, afhankelijk van de netwerksnelheid van uw.
    
-    ![Afbeelding van de koppeling voor de Hortonworks Sandbox voor VirtualBox downloaden](./media/apache-hadoop-emulator-get-started/download-sandbox.png)
-3. Van dezelfde pagina, klikt u op de **importeren op de virtuele vak** koppeling voor het downloaden van een PDF-bestand met de installatie-instructies voor de virtuele machine.
+    ![Afbeelding voor koppeling voor Hortonworks Sandbox voor VirtualBox downloaden](./media/apache-hadoop-emulator-get-started/download-sandbox.png)
+3. Van dezelfde pagina, klikt u op de **Import op virtuele vak** koppeling om te downloaden van een PDF-bestand met de installatie-instructies voor de virtuele machine.
 
 Vouw het archief voor het downloaden van een oudere versie sandbox voor HDP:
 
-![Hortonworks sandbox-archief](./media/apache-hadoop-emulator-get-started/hortonworks-sandbox-archive.png)
+![Hortonworks Sandbox-archief](./media/apache-hadoop-emulator-get-started/hortonworks-sandbox-archive.png)
 
 
-## <a name="start-the-virtual-machine"></a>De virtuele machine starten
+## <a name="start-the-virtual-machine"></a>Start de virtuele machine
 
-1. Oracle VM VirtualBox openen.
-2. Van de **bestand** menu, klikt u op **importeren toestel**, en geef vervolgens de installatiekopie van het Hortonworks Sandbox.
-1. Selecteer de Hortonworks Sandbox, klik op **Start**, en vervolgens **normaal Start**. Zodra het opstarten van de virtuele machine is voltooid, wordt de aanmelding instructies weergegeven.
+1. Open Oracle VM VirtualBox.
+2. Uit de **bestand** menu, klikt u op **importeren toestel**, en geef vervolgens de installatiekopie van het Hortonworks Sandbox.
+1. Selecteer de Hortonworks Sandbox, klikt u op **Start**, en vervolgens **normaal Start**. Zodra het opstarten van de virtuele machine is voltooid, wordt de pagina aanmelden instructies.
    
-    ![Normale starten](./media/apache-hadoop-emulator-get-started/normal-start.png)
-2. Open een webbrowser en navigeer naar de URL weergegeven (meestal http://127.0.0.1:8888).
+    ![Normale start](./media/apache-hadoop-emulator-get-started/normal-start.png)
+2. Open een webbrowser en navigeer naar de URL die wordt weergegeven (meestal http://127.0.0.1:8888).
 
 ## <a name="set-sandbox-passwords"></a>Sandbox-wachtwoorden instellen
 
-1. Van de **aan de slag** stap van de Hortonworks Sandbox pagina **weergave geavanceerde opties**. Gebruik de informatie op deze pagina aanmelden bij de sandbox via SSH. Gebruik de naam en wachtwoord opgegeven.
+1. Uit de **aan de slag** stap van de Hortonworks Sandbox-pagina, selecteer **geavanceerde opties weergeven**. Gebruik de informatie op deze pagina aanmelden bij de sandbox met behulp van SSH. Gebruik de naam en het wachtwoord dat is opgegeven.
    
    > [!NOTE]
-   > Als u een SSH-client is geïnstalleerd niet hebt, kunt u het web gebaseerde SSH op aangeboden door de virtuele machine op **http://localhost:4200/**.
+   > Als u een SSH-client is geïnstalleerd hebt, kunt u het web gebaseerde SSH geleverd op door de virtuele machine bij **http://localhost:4200/**.
    > 
    
-    De eerste keer dat u verbinding maken via SSH, wordt u gevraagd het wachtwoord voor het root-account te wijzigen. Voer een nieuw wachtwoord dat u gebruiken wanneer u zich aanmeldt via SSH.
+    De eerste keer dat u verbinding maken met behulp van SSH, moet u gevraagd het wachtwoord voor het root-account te wijzigen. Voer een nieuw wachtwoord, die u gebruiken wanneer u zich aanmeldt met behulp van SSH.
 
-2. Nadat u bent aangemeld, voer de volgende opdracht:
+2. Wanneer u bent aangemeld, voer de volgende opdracht:
    
         ambari-admin-password-reset
    
-    Wanneer u wordt gevraagd, moet u een wachtwoord opgeven voor de Ambari-beheeraccount. Dit wordt gebruikt wanneer u toegang de Ambari-Webgebruikersinterface tot.
+    Wanneer u hierom wordt gevraagd, moet u een wachtwoord opgeven voor de Ambari-beheerdersaccount. Dit wordt gebruikt wanneer u toegang de Ambari-Webgebruikersinterface tot.
 
 ## <a name="use-hive-commands"></a>Hive-opdrachten gebruiken
 
-1. Gebruik de volgende opdracht de Hive-shell starten van een SSH-verbinding aan de sandbox:
+1. Gebruik de volgende opdracht om te beginnen de Hive-shell uit een SSH-verbinding naar de sandbox:
    
         hive
-2. Nadat de shell is gestart, gebruikt u de volgende om de tabellen die worden geleverd aan de sandbox weer te geven:
+2. Nadat de shell is gestart, gebruikt u de volgende om de tabellen die zijn voorzien van de sandbox weer te geven:
    
         show tables;
-3. Gebruik de volgende voor het ophalen van 10 rijen uit de `sample_07` tabel:
+3. Gebruik de volgende informatie om op te halen van 10 rijen uit de `sample_07` tabel:
    
         select * from sample_07 limit 10;
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Informatie over het gebruik van Visual Studio met de Hortonworks Sandbox](../hdinsight-hadoop-emulator-visual-studio.md)
-* [De kabels van de Hortonworks Sandbox leren](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
+* [Leren werken met de kabels van de Hortonworks Sandbox](http://hortonworks.com/hadoop-tutorial/learning-the-ropes-of-the-hortonworks-sandbox/)
 * [Hadoop-zelfstudie - aan de slag met HDP](http://hortonworks.com/hadoop-tutorial/hello-world-an-introduction-to-hadoop-hcatalog-hive-and-pig/)
 

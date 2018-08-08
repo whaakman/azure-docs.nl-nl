@@ -1,75 +1,69 @@
 ---
-title: Apache Storm-topologieën met Visual Studio en C# - Azure HDInsight | Microsoft Docs
-description: Informatie over het maken van Storm-topologieën in C#. Een eenvoudige word-count-topologie in Visual Studio maakt met behulp van de Hadoop-hulpprogramma's voor Visual Studio.
+title: Apache Storm-topologieën met Visual Studio en C# - Azure HDInsight
+description: Leer hoe u Storm-topologieën maken in C#. Topologie voor aantal eenvoudige woorden in Visual Studio maken met behulp van de Hadoop-hulpprogramma's voor Visual Studio.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 380d804f-a8c5-4b20-9762-593ec4da5a0d
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.custom: ''
-ms.devlang: java
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: larryfr
+ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7eae8aa25546fb94bbf7d006063f44f3b6e51a15
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 1ed10fca7e9351aa4cbec42011b5f961a461ccef
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018792"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620328"
 ---
-# <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>C#-topologieën ontwikkelen voor Apache Storm met behulp van het Data Lake tools voor Visual Studio
+# <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>C#-topologieën ontwikkelen voor Apache Storm met behulp van de Data Lake-tools voor Visual Studio
 
-Informatie over het maken van een C# Storm-topologie met behulp van de Azure Data Lake (Hadoop)-hulpprogramma's voor Visual Studio. Dit document helpt bij het proces van het maken van een Storm-project in Visual Studio, lokaal te testen en deze implementeert in een Apache Storm op Azure HDInsight-cluster.
+Informatie over het maken van een C# Storm-topologie met behulp van de Azure Data Lake (Hadoop)-hulpprogramma's voor Visual Studio. Dit document begeleidt bij het proces van het maken van een Storm-project in Visual Studio, lokaal te testen en u deze implementeert in een Apache Storm op Azure HDInsight-cluster.
 
-U leert ook hoe u hybride topologieën maken die met C# en Java-onderdelen.
+U leert ook hoe u hybride topologieën maken die gebruik van C# en Java-onderdelen.
 
 > [!NOTE]
-> Terwijl de stappen in dit document, is afhankelijk van een Windows-ontwikkelomgeving met Visual Studio, kan de gecompileerde project worden verzonden naar een Linux- of Windows gebaseerde HDInsight-cluster. Op basis van Linux-clusters die zijn gemaakt na 28 oktober 2016 ondersteunen alleen SCP.NET topologieën.
+> Terwijl de stappen in dit document, is afhankelijk van een Windows-ontwikkelomgeving met Visual Studio, kan de gecompileerde project worden verstuurd naar een Linux- of Windows-gebaseerde HDInsight-cluster. Op basis van Linux-clusters die zijn gemaakt na 28 oktober 2016 vallen, ondersteunen alleen SCP.NET-topologieën.
 
-Als u wilt gebruiken een C#-topologie met een cluster op basis van Linux, moet u het Microsoft.SCP.Net.SDK NuGet-pakket gebruikt door uw project naar versie 0.10.0.6 of hoger bijwerken. De versie van het pakket moet ook overeenkomen met de primaire versie van Storm die op HDInsight is geïnstalleerd.
+Voor het gebruik van een C#-topologie met een cluster op basis van Linux, moet u het Microsoft.scp.NET.SDK dat NuGet-pakket gebruikt door uw project naar versie 0.10.0.6 of hoger bijwerken. De versie van het pakket moet ook overeenkomen met de primaire versie van Storm die op HDInsight is geïnstalleerd.
 
-| HDInsight-versie | Storm-versie | SCP.NET versie | Standaard Mono-versie |
+| HDInsight-versie | Storm-versie | SCP.NET-versie | Standaard-Mono-versie |
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
-| 3.3 |0.10.x |0.10.x.x</br>(alleen op HDInsight op basis van Windows) | N.v.t. |
+| 3.3 |0.10.x |0.10.x.x</br>(alleen op Windows gebaseerde HDInsight) | N.v.t. |
 | 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
 | 3,5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
 | 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
 
 > [!IMPORTANT]
-> C#-topologieën met op Linux gebaseerde clusters moeten .NET 4.5 en Mono gebruiken om op het HDInsight-cluster te worden uitgevoerd. Controleer [Mono compatibiliteit](http://www.mono-project.com/docs/about-mono/compatibility/) voor potentiële compatibiliteitsproblemen.
+> C#-topologieën met op Linux gebaseerde clusters moeten .NET 4.5 en Mono gebruiken om op het HDInsight-cluster te worden uitgevoerd. Controleer [Mono-compatibiliteit](http://www.mono-project.com/docs/about-mono/compatibility/) voor mogelijke compatibiliteitsproblemen.
 
 ## <a name="install-visual-studio"></a>Visual Studio installeren
 
-U kunt de C#-topologieën met SCP.NET ontwikkelen met behulp van een van de volgende versies van Visual Studio:
+U kunt C#-topologieën ontwikkelen met SCP.NET met behulp van een van de volgende versies van Visual Studio:
 
-* Visual Studio 2012 met Update 4
+* Visual Studio 2012 update 4
 
 * Visual Studio 2013 met Update 4 of [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
 
-* Visual Studio 2015 of [Visual Studio 2015-Community](https://go.microsoft.com/fwlink/?LinkId=532606)
+* Visual Studio 2015 of [Visual Studio 2015 Community](https://go.microsoft.com/fwlink/?LinkId=532606)
 
-* Visual Studio 2017 (alle versies)
+* Visual Studio 2017 (alle edities)
 
 ## <a name="install-data-lake-tools-for-visual-studio"></a>Installatie van Data Lake tools voor Visual Studio
 
-Volg de stappen in voor de installatie van Data Lake tools voor Visual Studio, [aan de slag met Data Lake tools voor Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
+Volg de stappen in voor het installeren van Data Lake tools voor Visual Studio, [aan de slag met Data Lake tools voor Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
 ## <a name="install-java"></a>Java installeren
 
-Wanneer u een Storm-topologie vanuit Visual Studio indient, genereert SCP.NET een zip-bestand dat de topologie en de afhankelijkheden bevat. Java wordt gebruikt voor het maken van deze zip-bestanden omdat deze gebruikmaakt van een indeling die is beter geschikt voor clusters op basis van Linux.
+Wanneer u een Storm-topologie vanuit Visual Studio hebt ingediend, genereert SCP.NET een zip-bestand dat de topologie en de afhankelijkheden bevat. Java wordt gebruikt voor het maken van deze zip-bestanden omdat het gebruikmaakt van een indeling die meer compatibel zijn met op basis van Linux-clusters.
 
-1. Installeer de Java Developer Kit (JDK) 7 of hoger op uw ontwikkelomgeving. U krijgt de Oracle-JDK van [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html). U kunt ook [andere Java-distributies](http://openjdk.java.net/).
+1. Installeer de Java Developer Kit (JDK) 7 of hoger op uw ontwikkelomgeving. Krijgt u de Oracle-JDK van [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html). U kunt ook [andere Java-distributies](http://openjdk.java.net/).
 
-2. De `JAVA_HOME` omgevingsvariabele moet verwijzen naar de map waarin zich Java.
+2. De `JAVA_HOME` omgevingsvariabele moet verwijzen naar de map met Java.
 
 3. De `PATH` omgevingsvariabele moet bevatten de `%JAVA_HOME%\bin` directory.
 
-U kunt de volgende C#-consoletoepassing gebruiken om te controleren of Java en de JDK correct zijn geïnstalleerd:
+U kunt de volgende C#-consoletoepassing om te controleren of Java en de JDK correct zijn geïnstalleerd:
 
 ```csharp
 using System;
@@ -105,68 +99,68 @@ namespace ConsoleApplication2
 
 ## <a name="storm-templates"></a>Storm-sjablonen
 
-De Data Lake tools voor Visual Studio bieden de volgende sjablonen:
+De Data Lake-tools voor Visual Studio bieden de volgende sjablonen:
 
-| Projecttype | Demonstreert |
+| Projecttype | Ziet u |
 | --- | --- |
-| Storm-toepassing |Een leeg Storm-topologie-project. |
-| Storm Azure SQL Writer voorbeeld |Het schrijven naar Azure SQL Database. |
-| Voorbeeld van storm Azure Cosmos DB lezer |Klik hier voor meer informatie over het lezen van de Azure Cosmos-database. |
-| Storm Azure Cosmos DB Writer voorbeeld |Het schrijven naar Azure Cosmos DB. |
+| Storm-toepassing |Een lege Storm-topologie-project. |
+| Storm Azure SQL Writer voorbeeld |Over het schrijven naar Azure SQL Database. |
+| Voorbeeld van storm Azure Cosmos DB-lezer |Klik hier voor meer informatie over het lezen van Azure Cosmos DB. |
+| Voorbeeld van de schrijver storm Azure Cosmos DB |Het schrijven naar Azure Cosmos DB. |
 | Voorbeeld van storm EventHub-lezer |Klik hier voor meer informatie over het lezen uit Azure Event Hubs. |
-| Voorbeeld van storm EventHub-schrijver |Het schrijven naar Azure Event Hubs. |
-| Voorbeeld van storm-HBase-lezer |Klik hier voor meer informatie over het lezen van HBase op HDInsight-clusters. |
-| Voorbeeld van storm-HBase-schrijver |Het schrijven naar HBase op HDInsight-clusters. |
-| Storm hybride voorbeeld |Het gebruik van een Java-component. |
-| Storm-voorbeeld |Een basic word-count-topologie. |
+| Voorbeeld van storm EventHub-schrijver |Over het schrijven naar Azure Event Hubs. |
+| Storm-lezer van de HBase-voorbeeld |Klik hier voor meer informatie over het lezen van HBase op HDInsight-clusters. |
+| Storm-schrijver van de HBase-voorbeeld |Het schrijven naar HBase op HDInsight-clusters. |
+| Voorbeeld van de storm-hybride |Het gebruik van een Java-component. |
+| Storm voorbeeld |Eenvoudige topologie voor aantal woorden. |
 
 > [!WARNING]
-> Niet alle sjablonen werken met HDInsight op basis van Linux. NuGet-pakketten die worden gebruikt door de sjablonen zijn mogelijk niet compatibel met Mono. Controleer de [Mono compatibiliteit](http://www.mono-project.com/docs/about-mono/compatibility/) documenteren en gebruik de [.NET draagbaarheid Analyzer](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) om potentiële problemen te identificeren.
+> Niet alle sjablonen werken met HDInsight op basis van Linux. NuGet-pakketten die worden gebruikt door de sjablonen zijn mogelijk niet compatibel is met Mono. Controleer de [Mono-compatibiliteit](http://www.mono-project.com/docs/about-mono/compatibility/) document en gebruik de [.NET draagbaarheid Analyzer](../hdinsight-hadoop-migrate-dotnet-to-linux.md#automated-portability-analysis) om potentiële problemen te identificeren.
 
-In de stappen in dit document kunt u het type basic Storm-toepassing een topologie maakt.
+In de stappen in dit document gebruikt u het type basic Storm-toepassing te maken van een topologie.
 
 ### <a name="hbase-templates-notes"></a>Opmerkingen bij de HBase-sjablonen
 
-De HBase REST API, niet de HBase Java API de HBase-lezer en -schrijver sjablonen gebruiken om te communiceren met een HBase op HDInsight-cluster.
+De HBase REST API, niet de HBase Java API de HBase-lees- en schrijftoegang sjablonen gebruiken om te communiceren met een HBase op HDInsight-cluster.
 
 ### <a name="eventhub-templates-notes"></a>Opmerkingen bij de EventHub-sjablonen
 
 > [!IMPORTANT]
-> De EventHub Java gebaseerde spout onderdeel van de lezer van de EventHub-sjabloon werkt mogelijk niet met Storm op HDInsight versie 3.5 of hoger. Een bijgewerkte versie van dit onderdeel is beschikbaar op [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib).
+> Het onderdeel op Java gebaseerde EventHub spout van de sjabloon Event hub-lezer werkt mogelijk niet met Storm op HDInsight versie 3.5 of hoger. Een bijgewerkte versie van dit onderdeel is beschikbaar op [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/tree/master/HDI3.5/lib).
 
-Zie voor een topologie die gebruikmaakt van dit onderdeel en werkt met Storm op HDInsight 3.5, [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
+Zie voor een voorbeeldtopologie die gebruikmaakt van dit onderdeel en werkt met Storm op HDInsight 3.5, [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub).
 
 ## <a name="create-a-c-topology"></a>Maak een C#-topologie
 
 1. Open Visual Studio, selecteer **bestand** > **nieuw**, en selecteer vervolgens **Project**.
 
-2. Van de **nieuw Project** venster Vouw **geïnstalleerde** > **sjablonen**, en selecteer **Azure Data Lake**. Selecteer in de lijst met sjablonen **Storm-toepassing**. Voer op de onderkant van het scherm **WordCount** als de naam van de toepassing.
+2. Uit de **nieuw Project** venster, vouw **geïnstalleerde** > **sjablonen**, en selecteer **Azure Data Lake**. Selecteer in de lijst met sjablonen **Storm-toepassing**. Aan de onderkant van het scherm, voer **WordCount** als de naam van de toepassing.
 
     ![Schermopname van nieuw Project-venster](./media/apache-storm-develop-csharp-visual-studio-topology/new-project.png)
 
 3. Nadat u het project hebt gemaakt, hebt u de volgende bestanden:
 
-   * **Program.cs**: dit bestand definieert de topologie voor uw project. Standaard wordt een standaard-topologie die uit één spout en één bolt bestaat gemaakt.
+   * **Program.cs**: dit bestand definieert de topologie voor uw project. Een standaard-topologie die uit één spout en één bolt bestaat wordt standaard gemaakt.
 
-   * **Spout.cs**: een voorbeeld spout die willekeurige getallen verzendt.
+   * **Spout.cs**: een voorbeeld-spout die willekeurige getallen verzendt.
 
-   * **Bolt.cs**: een voorbeeld-bolt die een aantal van de getallen die worden verzonden door de spout houdt.
+   * **Bolt.cs**: een voorbeeld-bolt die een aantal van de getallen die worden gegenereerd door de spout houdt.
 
-     Wanneer u het project maakt, downloadt u de meest recente NuGet [SCP.NET pakket](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/).
+     Wanneer u het project maakt, NuGet de meest recente downloads [SCP.NET pakket](https://www.nuget.org/packages/Microsoft.SCP.Net.SDK/).
 
      [!INCLUDE [scp.net version important](../../../includes/hdinsight-storm-scpdotnet-version.md)]
 
 ### <a name="implement-the-spout"></a>De spout implementeren
 
-1. Open **Spout.cs**. Spouts worden gebruikt om gegevens te lezen in een topologie van een externe bron. De belangrijkste onderdelen van een spout zijn:
+1. Open **Spout.cs**. Spouts worden gebruikt voor het lezen van gegevens in een topologie van een externe bron. De belangrijkste onderdelen van een spout zijn:
 
-   * **NextTuple**: door Storm wordt aangeroepen wanneer de spout is toegestaan voor het verzenden van nieuwe tuples.
+   * **NextTuple**: door Storm wordt aangeroepen wanneer de spout is toegestaan om te verzenden van nieuwe tuples.
 
-   * **ACK** (alleen voor transactionele topologie): bevestigingen geïnitieerd door de andere onderdelen in de topologie voor tuples verzonden vanaf de spout verwerkt. Een tuple zijn bevestigd, kunt de spout weten dat deze is verwerkt door downstream-onderdelen.
+   * **ACK** (alleen voor transactionele topologie): bevestigingen gestart door andere onderdelen in de topologie voor verzonden vanaf de spout tuples worden verwerkt. Een tuple zijn bevestigd, kunt de spout weten dat het door downstream-onderdelen met succes is verwerkt.
 
-   * **Mislukken** (alleen voor transactionele topologie): tuples die zijn mislukt-verwerking van andere onderdelen in de topologie worden verwerkt. Implementatie van een methode is mislukt, kunt u de tuple opnieuw verzenden zodat deze opnieuw kan worden verwerkt.
+   * **Mislukken** (alleen voor transactionele topologie): tuples die zijn mislukt-verwerking van andere onderdelen in de topologie worden verwerkt. Implementatie van een methode is mislukt, kunt u de tuple opnieuw te verzenden zodat deze opnieuw kan worden verwerkt.
 
-2. Vervang de inhoud van de **Spout** klasse met de volgende tekst: een zin deze spout willekeurig verzendt naar de topologie.
+2. Vervang de inhoud van de **Spout** klasse met de volgende tekst: deze spout verzendt willekeurig een zin in de topologie.
 
     ```csharp
     private Context ctx;
@@ -228,20 +222,20 @@ Zie voor een topologie die gebruikmaakt van dit onderdeel en werkt met Storm op 
 
 ### <a name="implement-the-bolts"></a>De bolts implementeren
 
-1. Verwijder de bestaande **Bolt.cs** bestand van het project.
+1. Verwijder de bestaande **Bolt.cs** -bestand van het project.
 
 2. In **Solution Explorer**, met de rechtermuisknop op het project en selecteer **toevoegen** > **nieuw item**. Selecteer in de lijst **Storm Bolt**, en voer **Splitter.cs** als de naam. Herhaal dit proces voor het maken van een tweede bolt met de naam **Counter.cs**.
 
    * **Splitter.cs**: implementeert een bolt die zinnen splitst in afzonderlijke woorden en verzendt een nieuwe reeks woorden.
 
-   * **Counter.cs**: implementeert een bolt die elk woord telt en verzendt een nieuwe reeks woorden en de telling voor elk woord.
+   * **Counter.cs**: implementeert een bolt die elk woord geteld en verzendt een nieuwe gegevensstroom van woorden en het aantal voor elk woord.
 
      > [!NOTE]
-     > Deze bolts lezen en schrijven naar stromen, maar u kunt ook een bolt gebruiken om te communiceren met bronnen zoals een database of service.
+     > Deze bolts lezen en schrijven naar stromen, maar u kunt ook een bolt gebruiken om te communiceren met bronnen, zoals een database of de service.
 
-3. Open **Splitter.cs**. Slechts één methode heeft standaard: **Execute**. De Execute-methode wordt aangeroepen wanneer de bolt een tuple voor verwerking ontvangt. Hier vindt u binnenkomende tuples verwerken en verzenden van uitgaande tuples.
+3. Open **Splitter.cs**. Slechts één methode heeft standaard: **Execute**. De Execute-methode wordt aangeroepen wanneer de bolt een tuple voor verwerking ontvangt. U kunt hier lezen en verwerken van inkomende tuples en verzenden van uitgaande tuples.
 
-4. Vervang de inhoud van de **splitser** klasse met de volgende code:
+4. Vervang de inhoud van de **splitsen** klasse met de volgende code:
 
     ```csharp
     private Context ctx;
@@ -343,15 +337,15 @@ Zie voor een topologie die gebruikmaakt van dit onderdeel en werkt met Storm op 
 
 ### <a name="define-the-topology"></a>De topologie definiëren
 
-Spouts en bolts worden gerangschikt in een grafiek, waarmee wordt gedefinieerd hoe de gegevens tussen onderdelen loopt. Voor deze topologie wordt is de grafiek als volgt uit:
+Spouts en bolts zijn gerangschikt in een grafiek, waarmee wordt gedefinieerd hoe gegevens stromen tussen de onderdelen. Voor deze topologie wordt is de grafiek als volgt uit:
 
-![Diagram van hoe onderdelen worden gerangschikt](./media/apache-storm-develop-csharp-visual-studio-topology/wordcount-topology.png)
+![Diagram van hoe onderdelen zijn gerangschikt](./media/apache-storm-develop-csharp-visual-studio-topology/wordcount-topology.png)
 
-Zinnen zijn verzonden vanaf de spout en worden gedistribueerd naar exemplaren van de splitser bolt. De splitser bout verdeelt de zinnen in woorden die worden gedistribueerd naar de teller bolt.
+Zinnen zijn die afkomstig zijn van de spout en worden gedistribueerd naar exemplaren van de bolt splitsen. De zinnen de bolt splitsen opgesplitst in woorden die worden gedistribueerd naar de teller-bolt.
 
-Omdat het aantal woorden is die lokaal zijn opgeslagen in het exemplaar van prestatiemeteritem, u om ervoor te zorgen dat bepaalde woorden naar hetzelfde exemplaar van prestatiemeteritem bolt vloeien. Elk exemplaar houdt van specifieke woorden. Aangezien de splitser bout geen status onderhoudt, het echt maakt niet uit welke instantie van de splitser bepaald welke zin ontvangt.
+Omdat het aantal woorden lokaal bewaard in het exemplaar van prestatiemeteritem, wilt u om ervoor te zorgen dat specifieke woorden naar de hetzelfde exemplaar van het prestatiemeteritem-bolt overgebracht. Elk exemplaar houdt van specifieke woorden. Omdat er geen status wordt bijgehouden door de bolt splitsen, het echt maakt niet uit welk exemplaar van de splitser ontvangt welke zin.
 
-Open **Program.cs**. De methode voor belangrijke **GetTopologyBuilder**, dat wordt gebruikt voor het definiëren van de topologie die wordt verzonden naar Storm. Vervang de inhoud van **GetTopologyBuilder** met de volgende code voor het implementeren van de topologie die eerder zijn beschreven:
+Open **Program.cs**. De belangrijke methode is **GetTopologyBuilder**, die wordt gebruikt voor het definiëren van de topologie die wordt verzonden naar Storm. Vervang de inhoud van **GetTopologyBuilder** door de volgende code voor het implementeren van de topologie die eerder zijn beschreven:
 
 ```csharp
 // Create a new topology named 'WordCount'
@@ -410,54 +404,54 @@ topologyBuilder.SetTopologyConfig(new Dictionary<string, string>()
 return topologyBuilder;
 ```
 
-## <a name="submit-the-topology"></a>De topologie verzenden
+## <a name="submit-the-topology"></a>Verzenden van de topologie
 
-1. In **Solution Explorer**, met de rechtermuisknop op het project en selecteer **indienen Storm op HDInsight**.
+1. In **Solution Explorer**, met de rechtermuisknop op het project en selecteer **indienen bij Storm op HDInsight**.
 
    > [!NOTE]
-   > Als u wordt gevraagd, voert u de referenties voor uw Azure-abonnement. Als u meer dan één abonnement hebt, moet u zich aanmelden bij de database met uw Storm op HDInsight-cluster.
+   > Als u wordt gevraagd, voert u de referenties voor uw Azure-abonnement. Als u meer dan één abonnement hebt, moet u zich aanmelden bij de optie die uw Storm op HDInsight-cluster bevat.
 
-2. Selecteer uw Storm op HDInsight-cluster van de **Storm-Cluster** vervolgkeuzelijst en selecteer vervolgens **indienen**. U kunt controleren als de verzending voltooid met is de **uitvoer** venster.
+2. Selecteer uw Storm op HDInsight-cluster op basis van de **Storm-Cluster** vervolgkeuzelijst en selecteer vervolgens **indienen**. U kunt controleren als het verzenden voltooid met behulp van is de **uitvoer** venster.
 
 3. Wanneer de topologie is ingediend, de **Storm-topologieën** voor het cluster moet worden weergegeven. Selecteer de **WordCount** topologie in de lijst om informatie over de actieve topologie weer te geven.
 
    > [!NOTE]
-   > U kunt ook weergeven **Storm-topologieën** van **Server Explorer**. Vouw **Azure** > **HDInsight**, met de rechtermuisknop op een Storm op HDInsight-cluster en selecteer vervolgens **weergave Storm-topologieën**.
+   > U kunt ook weergeven **Storm-topologieën** van **Server Explorer**. Vouw **Azure** > **HDInsight**, met de rechtermuisknop op een Storm op HDInsight-cluster en selecteer vervolgens **Zobrazit topologie Stormu**.
 
     Als u informatie over de onderdelen in de topologie, dubbelklikt u op het onderdeel in het diagram.
 
-4. Van de **Topology Summary** weergeven, klikt u op **Kill** stoppen van de topologie.
+4. Uit de **Topology Summary** weergeven, klikt u op **Kill** stoppen van de topologie.
 
    > [!NOTE]
-   > Storm-topologieën blijven actief totdat ze worden gedeactiveerd of het cluster wordt verwijderd.
+   > Storm-topologieën verder worden uitgevoerd tot ze zijn uitgeschakeld of het cluster wordt verwijderd.
 
-## <a name="transactional-topology"></a>Transactionele-topologie
+## <a name="transactional-topology"></a>Transactionele topologie
 
-De vorige topologie is niet-transactionele. Functionaliteit voor het afspelen van berichten wordt niet geïmplementeerd door de onderdelen in de topologie. Voor een voorbeeld van een transactionele topologie, maak een project en selecteer **Storm voorbeeld** als het projecttype.
+De vorige topologie is niet-transactionele. De onderdelen in de topologie alle niet functionaliteit voor het spelen van berichten. Voor een voorbeeld van een transactionele topologie, maak een project en selecteer **Storm voorbeeld** als het projecttype.
 
-Transactionele topologieën implementeren de volgende ter ondersteuning van replay van gegevens:
+Transactionele topologieën implementeren de volgende ter ondersteuning van de herhaling van gegevens:
 
-* **Metagegevens opslaan in cache**: de spout moet slaan metagegevens over de gegevens verzonden, zodat de gegevens worden opgehaald en opnieuw verzonden als er een fout optreedt. Omdat de gegevens die door het voorbeeld klein is, wordt de onbewerkte gegevens voor elke tuple opgeslagen in een woordenlijst door voor opnieuw afspelen.
+* **Metagegevens opslaan in cache**: de spout moet slaan metagegevens over de gegevens die worden geproduceerd, zodat de gegevens kunnen worden opgehaald en opnieuw verzonden als er een fout optreedt. Omdat de gegevens die door het voorbeeld klein is, wordt de onbewerkte gegevens voor elke tuple opgeslagen in een woordenlijst voor opnieuw afspelen.
 
-* **ACK**: elke bolt in de topologie kunt aanroepen `this.ctx.Ack(tuple)` om te bevestigen dat deze is een tuple verwerkt. Wanneer alle bolts bevestigd de tuple hebt de `Ack` methode van de spout wordt aangeroepen. De `Ack` methode kunt u de spout om gegevens in de cache om replaydetectie is te verwijderen.
+* **ACK**: elke bolt in de topologie kunt aanroepen `this.ctx.Ack(tuple)` om te bevestigen dat deze is een tuple verwerkt. Wanneer alle bolts bevestigd de tuple hebt, het `Ack` -methode van de spout wordt aangeroepen. De `Ack` methode kunt u de spout het verwijderen van gegevens die in cache is opgeslagen voor opnieuw afspelen.
 
-* **Mislukken**: elke bolt kunt aanroepen `this.ctx.Fail(tuple)` om aan te geven dat de verwerking is mislukt voor een tuple. De fout die is doorgegeven aan de `Fail` methode van de spout, waarbij de tuple kan worden cookies met behulp van metagegevens in cache.
+* **Mislukken**: elke bolt kunt aanroepen `this.ctx.Fail(tuple)` om aan te geven dat de verwerking is mislukt voor een tuple. De fout doorgegeven aan de `Fail` -methode van de spout, waar de tuple kan opnieuw worden afgespeeld met behulp van metagegevens in de cache opgeslagen.
 
-* **Sequentiëren ID**: bij het genereren van een tuple een unieke reeks-ID kan worden opgegeven. Deze waarde geeft de tuple voor de verwerking van opnieuw afspelen (Ack en mislukken). Bijvoorbeeld, de spout in de **Storm voorbeeld** project wordt het volgende bij het genereren van gegevens:
+* **ID-reeks**: bij het genereren van een tuple, een unieke volgorde-ID kan worden opgegeven. Deze waarde geeft de tuple voor de verwerking van opnieuw afspelen (Ack en mislukken). Bijvoorbeeld, de spout in de **Storm voorbeeld** project gebruikgemaakt van de volgende bij het genereren van gegevens:
 
         this.ctx.Emit(Constants.DEFAULT_STREAM_ID, new Values(sentence), lastSeqId);
 
-    Deze code verzendt een tuple met een zin naar de standaardstroom met de waarde van de reeks-ID opgenomen in **lastSeqId**. In dit voorbeeld **lastSeqId** voor elke tuple verzonden wordt verhoogd.
+    Deze code verzendt een tuple met een zin aan de standaardstream, met de waarde van de volgorde-ID die is opgenomen in **lastSeqId**. In dit voorbeeld **lastSeqId** wordt verhoogd voor elke tuple verzonden.
 
-Zoals wordt beschreven in de **Storm voorbeeld** project, of een onderdeel is transactionele kan worden ingesteld tijdens runtime, op basis van configuratie.
+Zoals u in de **Storm voorbeeld** project, of een onderdeel is transactionele kan worden ingesteld tijdens runtime, op basis van configuratie.
 
 ## <a name="hybrid-topology-with-c-and-java"></a>Hybride topologie met C# en Java
 
-U kunt Data Lake tools voor Visual Studio ook gebruiken voor het maken van hybride topologieën waarin bepaalde onderdelen zijn C# en anderen Java zijn.
+U kunt Data Lake tools voor Visual Studio ook gebruiken om te maken van hybride topologieën, waarin bepaalde onderdelen zich C# en andere resources zijn Java.
 
 Voor een voorbeeld van een hybride-topologie, maak een project en selecteer **Storm hybride voorbeeld**. Dit Voorbeeldtype ziet u de volgende concepten:
 
-* **Java-spout** en **C# bolt**: gedefinieerd in **HybridTopology_javaSpout_csharpBolt**.
+* **Java spout** en **C#-bolt**: gedefinieerd in **HybridTopology_javaSpout_csharpBolt**.
 
     * Een transactionele versie is gedefinieerd in **HybridTopologyTx_javaSpout_csharpBolt**.
 
@@ -466,38 +460,38 @@ Voor een voorbeeld van een hybride-topologie, maak een project en selecteer **St
     * Een transactionele versie is gedefinieerd in **HybridTopologyTx_csharpSpout_javaBolt**.
 
   > [!NOTE]
-  > Deze versie wordt ook beschreven hoe Clojure code uit een tekstbestand gebruiken als een Java-component.
+  > Deze versie laat ook zien hoe u Clojure code uit een tekstbestand gebruiken als een Java-component.
 
 
-Als u wilt overschakelen van de topologie die wordt gebruikt wanneer het project wordt ingediend, gaan de `[Active(true)]` instructie aan de topologie die u gebruiken wilt, alvorens deze aan het cluster.
+Als u wilt overschakelen van de topologie die wordt gebruikt wanneer het project wordt ingediend, gaan de `[Active(true)]` instructie voor de topologie die u gebruiken wilt, voordat u deze verzendt met het cluster.
 
 > [!NOTE]
-> Alle Java-bestanden die vereist zijn, worden geleverd als onderdeel van dit project in de **JavaDependency** map.
+> Alle Java-bestanden die moeten worden geleverd als onderdeel van dit project in de **JavaDependency** map.
 
-Overweeg het volgende bij het maken en verzenden van een hybride-topologie:
+Overweeg het volgende wanneer u het maken en verzenden van een hybride-topologie:
 
-* Gebruik **JavaComponentConstructor** voor het maken van een exemplaar van de Java-klasse voor een spout of Bolts.
+* Gebruik **JavaComponentConstructor** voor het maken van een exemplaar van de Java-klasse voor een spout of bolt.
 
-* Gebruik **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** voor het serialiseren van de gegevens van of naar Java-onderdelen vanuit Java-objecten naar JSON.
+* Gebruik **microsoft.scp.storm.multilang.CustomizedInteropJSONSerializer** om gegevens te serialiseren naar of uit Java-onderdelen van Java-objecten naar JSON.
 
-* Bij het indienen van de topologie met de server, moet u de **aanvullende configuraties** optie om op te geven de **Java bestandspaden**. Het opgegeven pad moet de map waarin de JAR-bestanden die uw Java-klassen bevatten.
+* Bij het indienen van de topologie op de server, moet u de **aanvullende configuraties** optie om op te geven de **Java bestandspaden**. Het opgegeven pad moet de map waarin de JAR-bestanden die uw Java-klassen bevatten.
 
 ### <a name="azure-event-hubs"></a>Azure Event Hubs
 
-SCP.NET versie 0.9.4.203 introduceert een nieuwe klasse en de methode specifiek voor het werken met de Event Hub spout (een Java-spout die uit Event Hubs lezen). Wanneer u een topologie die gebruikmaakt van een Event Hub spout maakt, moet u de volgende methoden gebruiken:
+SCP.NET versie 0.9.4.203 introduceert een nieuwe klasse en methode specifiek voor het werken met de Event Hub spout (een Java-spout die uit Eventhubs lezen). Wanneer u een topologie die gebruikmaakt van een Event Hub spout maakt, moet u de volgende methoden gebruiken:
 
-* **EventHubSpoutConfig** klasse: Hiermee maakt u een object dat de configuratie voor het onderdeel spout bevat.
+* **EventHubSpoutConfig** klasse: maakt een object dat de configuratie voor het onderdeel spout bevat.
 
-* **TopologyBuilder.SetEventHubSpout** methode: het Event Hub spout onderdeel toegevoegd aan de topologie.
+* **TopologyBuilder.SetEventHubSpout** methode: het Event Hub spout-onderdeel toegevoegd aan de topologie.
 
 > [!NOTE]
-> U moet nog steeds gebruiken de **CustomizedInteropJSONSerializer** voor het serialiseren van de gegevens die worden geproduceerd door de spout.
+> U moet nog steeds gebruiken de **CustomizedInteropJSONSerializer** om gegevens die worden geproduceerd door de spout te serialiseren.
 
-## <a id="configurationmanager"></a>Configuration Manager gebruiken
+## <a id="configurationmanager"></a>Gebruik ConfigurationManager
 
-Gebruik geen **ConfigurationManager** configuratiewaarden ophalen van bolt en spout onderdelen. In dat geval kan een uitzondering voor een null-aanwijzer veroorzaken. In plaats daarvan is de configuratie voor uw project in de Storm-topologie doorgegeven als een sleutel-waardepaar in de context van de topologie. Elk onderdeel dat is afhankelijk van configuratiewaarden moet ze opgehaald van de context tijdens de initialisatie.
+Gebruik geen **ConfigurationManager** configuratiewaarden ophalen uit bolt en spout-onderdelen. In dat geval kan leiden tot een null-aanwijzer-uitzondering. In plaats daarvan wordt de configuratie voor uw project in de Storm-topologie doorgegeven als een sleutel-waardepaar in de context van de topologie. Elk onderdeel die is gebaseerd op configuratiewaarden moet deze worden opgehaald van de context tijdens de initialisatie.
 
-De volgende code laat zien hoe u deze waarden ophaalt:
+De volgende code ziet u hoe u deze waarden ophaalt:
 
 ```csharp
 public class MyComponent : ISCPBolt
@@ -521,7 +515,7 @@ public class MyComponent : ISCPBolt
 }
 ```
 
-Als u een `Get` methode om te retourneren van een exemplaar van het onderdeel moet u ervoor zorgen dat dit wordt doorgegeven zowel de `Context` en `Dictionary<string, Object>` parameters voor de constructor. Het volgende voorbeeld is een eenvoudige `Get` methode die deze waarden correct is geslaagd:
+Als u een `Get` methode om te retourneren van een exemplaar van het onderdeel, moet u ervoor zorgen dat deze wordt doorgegeven zowel de `Context` en `Dictionary<string, Object>` parameters voor de constructor. Het volgende voorbeeld wordt een eenvoudige `Get` methode die deze waarden correct is geslaagd:
 
 ```csharp
 public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
@@ -532,61 +526,61 @@ public static MyComponent Get(Context ctx, Dictionary<string, Object> parms)
 
 ## <a name="how-to-update-scpnet"></a>Het bijwerken van SCP.NET
 
-Recente versies van SCP.NET ondersteuning pakketupgrade via NuGet. Wanneer een nieuwe update beschikbaar is, ontvangt u een upgrade melding. U kunt handmatig controleren voor een upgrade door de volgende stappen uit:
+Recente versies van het SCP.NET ondersteunen pakketupgrade via NuGet. Wanneer een nieuwe update beschikbaar is, ontvangt u een upgrade melding. U kunt handmatig controleren voor een upgrade door de volgende stappen uit:
 
 1. Klik in **Solution Explorer** met de rechtermuisknop op het project en klik op **NuGet-pakketten beheren**.
 
-2. Selecteer in de Pakketbeheer **Updates**. Als een update beschikbaar is, wordt het weergegeven. Klik op **Update** voor het pakket te installeren.
+2. Selecteer in de package manager, **Updates**. Als een update beschikbaar is, wordt deze weergegeven. Klik op **Update** voor het pakket te installeren.
 
 > [!IMPORTANT]
-> Als uw project is gemaakt met een eerdere versie van SCP.NET die NuGet niet gebruikt, moet u de volgende stappen uit om bij te werken naar een nieuwere versie uitvoeren:
+> Als uw project is gemaakt met een eerdere versie van het SCP.NET die niet NuGet hebt gebruikt, moet u de volgende stappen uit om bij te werken naar een nieuwere versie uitvoeren:
 >
 > 1. Klik in **Solution Explorer** met de rechtermuisknop op het project en klik op **NuGet-pakketten beheren**.
-> 2. Met behulp van de **Search** veld, zoeken en vervolgens toevoegt, **Microsoft.SCP.Net.SDK** aan het project.
+> 2. Met behulp van de **zoeken** veld, zoeken en vervolgens toevoegt, **Microsoft.scp.NET.SDK dat** aan het project.
 
-## <a name="troubleshoot-common-issues-with-topologies"></a>Algemene problemen met topologieën
+## <a name="troubleshoot-common-issues-with-topologies"></a>Oplossen van veelvoorkomende problemen met topologieën
 
 ### <a name="null-pointer-exceptions"></a>Null-aanwijzer uitzonderingen
 
-Wanneer u van een C#-topologie met een Linux gebaseerde HDInsight-cluster gebruikmaakt, Bolts en onderdelen die gebruikmaken van spout **ConfigurationManager** lezen van configuratie-instellingen tijdens runtime kunnen null-aanwijzer uitzonderingen retourneren.
+Wanneer u van een C#-topologie met een Linux gebaseerde HDInsight-cluster gebruikmaakt, bolt en onderdelen die gebruikmaken van spout **ConfigurationManager** lezen van configuratie-instellingen tijdens runtime kunnen null-aanwijzer uitzonderingen retourneren.
 
-De configuratie voor uw project is doorgegeven aan de Storm-topologie als een sleutel-waardepaar in de context van de topologie. Het kan worden opgehaald uit de dictionary-object dat wordt doorgegeven aan de onderdelen van uw wanneer ze zijn geïnitialiseerd.
+De configuratie voor uw project wordt doorgegeven in de Storm-topologie als een sleutel-waardepaar in de context van de topologie. Het kan worden opgehaald uit de dictionary-object dat wordt doorgegeven aan de onderdelen van de wanneer ze worden geïnitialiseerd.
 
-Zie voor meer informatie de [ConfigurationManager](#configurationmanager) gedeelte van dit document.
+Zie voor meer informatie de [ConfigurationManager](#configurationmanager) sectie van dit document.
 
 ### <a name="systemtypeloadexception"></a>System.TypeLoadException
 
-Wanneer u van een C#-topologie met een Linux gebaseerde HDInsight-cluster gebruikmaakt, kunt u de volgende fout kan optreden:
+Wanneer u van een C#-topologie met een Linux gebaseerde HDInsight-cluster gebruikmaakt, kunt u de volgende fout tegenkomen:
 
     System.TypeLoadException: Failure has occurred while loading a type.
 
-Deze fout treedt op wanneer u een binair bestand dat niet compatibel met de versie van .NET die ondersteuning biedt voor Mono gebruiken.
+Deze fout treedt op wanneer u een binair bestand dat is niet compatibel met de versie van .NET die ondersteuning biedt voor Mono gebruiken.
 
-Zorg ervoor dat uw project maakt gebruik van binaire bestanden voor .NET 4.5 compiled Linux gebaseerde HDInsight-clusters.
+HDInsight op basis van Linux-clusters, zorg ervoor dat het project gecompileerd voor .NET 4.5 binaire bestanden gebruikt.
 
 ### <a name="test-a-topology-locally"></a>Een topologie lokaal testen
 
-Hoewel het eenvoudig voor het implementeren van een topologie met een cluster, in sommige gevallen moet u wellicht een topologie lokaal testen. Gebruik de volgende stappen uitvoeren en testen van de voorbeeldtopologie in deze zelfstudie lokaal in uw ontwikkelomgeving.
+Hoewel het is eenvoudig te implementeren van een topologie in een cluster, in sommige gevallen moet u mogelijk een topologie lokaal testen. Gebruik de volgende stappen uitvoeren en testen van de voorbeeldtopologie in deze zelfstudie lokaal in uw ontwikkelingsomgeving.
 
 > [!WARNING]
-> Lokale testen werkt alleen voor basic, C#-topologieën voor alleen. U de lokale testen voor hybride topologieën of topologieën met meerdere streams niet gebruiken.
+> Lokale tests werkt alleen voor basic, C#-topologieën voor alleen. U kunt lokaal testen voor hybride topologieën of topologieën met meerdere streams niet gebruiken.
 
-1. In **Solution Explorer**, met de rechtermuisknop op het project en selecteer **eigenschappen**. Wijzig in de Projecteigenschappen de **type uitvoer** naar **consoletoepassing**.
+1. In **Solution Explorer**, met de rechtermuisknop op het project en selecteer **eigenschappen**. In de Projecteigenschappen, wijzigt u de **type uitvoer** naar **consoletoepassing**.
 
-    ![Schermafbeelding van de Projecteigenschappen met uitvoertype gemarkeerd](./media/apache-storm-develop-csharp-visual-studio-topology/outputtype.png)
+    ![Schermopname van het Projecteigenschappen, met het type uitvoer gemarkeerd](./media/apache-storm-develop-csharp-visual-studio-topology/outputtype.png)
 
    > [!NOTE]
-   > Moet u de **type uitvoer** terug naar **Class Library** voordat u de topologie voor een cluster implementeren.
+   > Vergeet niet te wijzigen de **type uitvoer** terug naar **Class Library** voordat u de topologie in een cluster implementeren.
 
-2. In **Solution Explorer**, met de rechtermuisknop op het project en selecteer vervolgens **toevoegen** > **Nieuw Item**. Selecteer **klasse**, en voer **LocalTest.cs** als naam van de klasse. Tot slot op **toevoegen**.
+2. In **Solution Explorer**, met de rechtermuisknop op het project en selecteer vervolgens **toevoegen** > **Nieuw Item**. Selecteer **klasse**, en voer **LocalTest.cs** als naam van de klasse. Klik tot slot, **toevoegen**.
 
-3. Open **LocalTest.cs**, en voeg de volgende **met** instructie boven:
+3. Open **LocalTest.cs**, en voeg de volgende **met behulp van** instructie aan de bovenkant:
 
     ```csharp
     using Microsoft.SCP;
     ```
 
-4. De volgende code gebruiken als de inhoud van de **LocalTest** klasse:
+4. Gebruik de volgende code als de inhoud van de **LocalTest** klasse:
 
     ```csharp
     // Drives the topology components
@@ -665,7 +659,7 @@ Hoewel het eenvoudig voor het implementeren van een topologie met een cluster, i
     }
     ```
 
-    Neem even de tijd om te lezen via de code een toelichting. Deze code gebruikt **LocalContext** om uit te voeren van de onderdelen in de ontwikkelomgeving, en zich blijft voordoen de gegevensstroom tussen onderdelen naar tekstbestanden op de lokale schijf.
+    Neem even de tijd om te lezen via de codeopmerkingen. Deze code gebruikt **LocalContext** om uit te voeren van de onderdelen in de ontwikkelomgeving, en deze zich blijft voordoen de gegevensstroom tussen de onderdelen in een tekstbestand opslaan op de lokale schijf.
 
 1. Open **Program.cs**, en het volgende toevoegen aan de **Main** methode:
 
@@ -688,15 +682,15 @@ Hoewel het eenvoudig voor het implementeren van een topologie met een cluster, i
     Console.ReadKey();
     ```
 
-2. De wijzigingen opslaan en klik vervolgens op **F5** of selecteer **Debug** > **foutopsporing starten** om het project te starten. Een consolevenster moet worden weergegeven en meld u aan status als de tests uitgevoerd. Wanneer **Tests voltooid** wordt weergegeven, drukt u op een willekeurige toets om het venster te sluiten.
+2. Sla de wijzigingen op en klik vervolgens op **F5** of selecteer **Debug** > **Start Debugging** om het project te starten. Een consolevenster moet worden weergegeven en meld u aan de status als de tests uitgevoerd. Wanneer **Tests voltooid** wordt weergegeven, drukt u op een willekeurige toets om het venster te sluiten.
 
-3. Gebruik **Windows Verkenner** vinden van de map waarin uw project. Bijvoorbeeld: **C:\Users\<gebruikersnaam > \Documents\Visual Studio 2013\Projects\WordCount\WordCount**. Open in deze map **Bin**, en klik vervolgens op **Debug**. U ziet de tekstbestanden die zijn gemaakt wanneer de tests uitgevoerd: sentences.txt counter.txt en splitter.txt. Open elk tekstbestand en controleren van de gegevens.
+3. Gebruik **Windows Explorer** te vinden van de map waarin het project. Bijvoorbeeld: **C:\Users\<gebruikersnaam > \Documents\Visual Studio 2013\Projects\WordCount\WordCount**. In deze map openen **Bin**, en klik vervolgens op **Debug**. U ziet de tekstbestanden die zijn gemaakt als de tests uitgevoerd: sentences.txt counter.txt en splitter.txt. Open elk tekstbestand en controleren van de gegevens.
 
    > [!NOTE]
-   > Tekenreeksgegevens zich blijft voordoen als een matrix met decimale waarden in deze bestanden. Bijvoorbeeld: \[[97,103,111]] in de **splitter.txt** bestand is het woord *en*.
+   > Tekenreeksgegevens zich blijft voordoen als een matrix met decimale waarden in deze bestanden. Bijvoorbeeld, \[[97,103,111]] in de **splitter.txt** bestand is het woord *en*.
 
 > [!NOTE]
-> Stel de **projecttype** terug naar **Class Library** voordat u implementeert een Storm op HDInsight-cluster.
+> Zorg dat de **projecttype** terug naar **Class Library** voordat u implementeert in een Storm op HDInsight-cluster.
 
 ### <a name="log-information"></a>Logboekgegevens
 
@@ -706,48 +700,48 @@ U kunt eenvoudig gegevens van de onderdelen van uw topologie vastleggen met behu
 Context.Logger.Info("Component started");
 ```
 
-Logboekgegevens kan bekeken worden vanuit de **Hadoop-serviceaccount voor aanmelden**, die is gevonden **Server Explorer**. Vouw de vermelding voor uw Storm op HDInsight-cluster uit en vouw vervolgens **Hadoop-serviceaccount voor aanmelden**. Selecteer ten slotte het logboekbestand om weer te geven.
+Geregistreerde gegevens kan worden bekeken via de **Hadoop Service-logboek**, die is gevonden **Server Explorer**. Vouw de vermelding voor uw Storm op HDInsight-cluster uit en vouw vervolgens **Hadoop Service-logboek**. Selecteer ten slotte het logboekbestand om weer te geven.
 
 > [!NOTE]
-> De logboeken worden opgeslagen in de Azure storage-account dat wordt gebruikt door het cluster. Als u de logboeken wilt in Visual Studio, moet u zich aanmeldt bij de Azure-abonnement dat eigenaar is van het opslagaccount.
+> De logboeken worden opgeslagen in de Azure storage-account dat wordt gebruikt door uw cluster. Als u wilt de logboeken bekijken in Visual Studio, moet u zich aanmelden bij de Azure-abonnement dat eigenaar is van het storage-account.
 
 ### <a name="view-error-information"></a>Fout-informatie weergeven
 
-Om fouten te bekijken die hebben plaatsgevonden in een actieve topologie, gebruikt u de volgende stappen uit:
+Als u wilt weergeven van fouten die zijn opgetreden in een actieve topologie, gebruikt u de volgende stappen uit:
 
 1. Van **Server Explorer**, met de rechtermuisknop op het Storm op HDInsight-cluster en selecteert u **weergave Storm-topologieën**.
 
 2. Voor de **Spout** en **Bolts**, wordt de **laatste fout** kolom bevat informatie over de laatste fout.
 
-3. Selecteer de **Spout Id** of **Bolt Id** voor het onderdeel waarvoor een fout weergegeven. Informatie wordt weergegeven op de detailpagina die wordt weergegeven, extra fout de **fouten** sectie aan de onderkant van de pagina.
+3. Selecteer de **Spout-Id** of **Bolt Id** voor het onderdeel waarvoor een fout weergegeven. Op de pagina die wordt weergegeven, extra onjuiste informatie wordt weergegeven in de **fouten** sectie aan de onderkant van de pagina.
 
-4. Als u meer informatie, selecteer een **poort** van de **Executor** sectie van de pagina, Zie het logboek van de werknemer Storm voor de laatste paar minuten.
+4. Voor meer informatie, selecteert u een **poort** uit de **Executor** sectie van de pagina om te zien van het logboek van de werknemer Storm voor de afgelopen paar minuten.
 
-### <a name="errors-submitting-topologies"></a>Fouten verzonden topologieën
+### <a name="errors-submitting-topologies"></a>Fouten verzenden topologieën
 
-Als er een HDInsight-topologie wordt verzonden fouten optreden, kunt u Logboeken vinden voor de serverzijde-onderdelen die de verzending van de topologie op uw HDInsight-cluster te verwerken. Gebruik de volgende opdracht vanaf een opdrachtregel voor het ophalen van deze logboeken:
+Als er een topologie op HDInsight verzenden fouten optreden, kunt u Logboeken vinden voor de server-side-onderdelen die de verzending van de topologie op uw HDInsight-cluster worden verwerkt. Als u wilt deze logboeken kunt ophalen, gebruikt u de volgende opdracht uit vanaf de opdrachtregel:
 
     scp sshuser@clustername-ssh.azurehdinsight.net:/var/log/hdinsight-scpwebapi/hdinsight-scpwebapi.out .
 
-Vervang __sshuser__ met het SSH-gebruikersaccount voor het cluster. Vervang __clustername__ met de naam van het HDInsight-cluster. Voor meer informatie over het gebruik van `scp` en `ssh` met HDInsight, raadpleegt u [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+Vervang __sshuser__ met de SSH-gebruikersaccount voor het cluster. Vervang __clustername__ met de naam van het HDInsight-cluster. Voor meer informatie over het gebruik van `scp` en `ssh` met HDInsight, raadpleegt u [SSH gebruiken met HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-Voorbeelden kunnen om meerdere redenen mislukken:
+Inzendingen kunnen om verschillende redenen mislukken:
 
 * JDK is niet geïnstalleerd of is niet in het pad.
-* Vereiste Java-afhankelijkheden zijn niet opgenomen in het indienen.
+* Vereiste Java-afhankelijkheden zijn niet opgenomen in de inzending.
 * Niet-compatibele afhankelijkheden.
 * Dubbele namen van de topologie.
 
-Als de `hdinsight-scpwebapi.out` logboek bevat een `FileNotFoundException`, dit wordt mogelijk veroorzaakt door de volgende omstandigheden:
+Als de `hdinsight-scpwebapi.out` logboek bevat een `FileNotFoundException`, dit wordt mogelijk veroorzaakt door de volgende voorwaarden:
 
-* De JDK die zich niet in het pad op de ontwikkelomgeving. Controleer of de JDK die is geïnstalleerd in de ontwikkelomgeving, en die `%JAVA_HOME%/bin` zich in het pad.
-* Ontbreekt er een Java-afhankelijkheid. Zorg ervoor dat u alle vereiste JAR-bestanden als onderdeel van de verzending van opneemt.
+* De JDK is niet in het pad op de ontwikkelomgeving. Controleer of de JDK is geïnstalleerd in de ontwikkelomgeving en die `%JAVA_HOME%/bin` is in het pad.
+* Er ontbreken een Java-afhankelijkheid. Zorg ervoor dat u alle vereiste JAR-bestanden zijn opnemen als onderdeel van de inzending.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor een voorbeeld van het verwerken van gegevens uit Event Hubs, [verwerken van gebeurtenissen van Azure Event Hubs met Storm op HDInsight](apache-storm-develop-csharp-event-hub-topology.md).
+Zie voor een voorbeeld van het verwerken van gegevens uit Event Hubs, [verwerken van gebeurtenissen uit Azure Event Hubs met Storm op HDInsight](apache-storm-develop-csharp-event-hub-topology.md).
 
-Zie voor een voorbeeld van een C#-topologie die stroomgegevens in meerdere streams splitst [C# Storm-voorbeeld](https://github.com/Blackmist/csharp-storm-example).
+Zie voor een voorbeeld van een C#-topologie die streaminggegevens in meerdere streams splitst [C# Storm voorbeeld](https://github.com/Blackmist/csharp-storm-example).
 
 Zie voor meer informatie over het maken van C#-topologieën detecteren, [GitHub](https://github.com/hdinsight/hdinsight-storm-examples/blob/master/SCPNet-GettingStarted.md).
 
@@ -755,19 +749,19 @@ Zie de volgende documenten voor meer manieren om te werken met HDInsight en meer
 
 **Microsoft SCP.NET**
 
-* [Programmeerhandleiding voor SCP](apache-storm-scp-programming-guide.md)
+* [SCP-programmeergids](apache-storm-scp-programming-guide.md)
 
 **Apache Storm op HDInsight**
 
-* [Implementeren en bewaken topologieën met Apache Storm op HDInsight](apache-storm-deploy-monitor-topology.md)
+* [Topologieën met Apache Storm op HDInsight implementeren en bewaken](apache-storm-deploy-monitor-topology.md)
 * [Voorbeeldtopologieën van Storm op HDInsight](apache-storm-example-topology.md)
 
-**Apache Hadoop in HDInsight**
+**Apache Hadoop op HDInsight**
 
-* [Hive gebruiken met Hadoop in HDInsight](../hadoop/hdinsight-use-hive.md)
-* [Pig gebruiken met Hadoop in HDInsight](../hadoop/hdinsight-use-pig.md)
+* [Hive gebruiken met Hadoop op HDInsight](../hadoop/hdinsight-use-hive.md)
+* [Pig gebruiken met Hadoop op HDInsight](../hadoop/hdinsight-use-pig.md)
 * [MapReduce gebruiken met Hadoop op HDInsight](../hadoop/hdinsight-use-mapreduce.md)
 
-**Apache HBase in HDInsight**
+**Apache HBase op HDInsight**
 
 * [Aan de slag met HBase in HDInsight](../hbase/apache-hbase-tutorial-get-started-linux.md)

@@ -1,60 +1,57 @@
 ---
-title: Phoenix queryserver REST SDK - Azure HDInsight | Microsoft Docs
-description: ''
+title: Phoenix-queryserver REST SDK - Azure HDInsight
+description: Installeren en gebruiken van de REST-SDK voor de Phoenix-queryserver in Azure HDInsight.
 services: hdinsight
-documentationcenter: ''
-author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-ms.assetid: ''
 ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.date: 12/04/2017
+author: ashishthaps
 ms.author: ashishth
-ms.openlocfilehash: ef89bcea3eab92c3137a6f532398764462ae204c
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+editor: jasonwhowell
+ms.custom: hdinsightactive
+ms.topic: conceptual
+ms.date: 12/04/2017
+ms.openlocfilehash: 93a08baddb12f427902f33171eba72f3dea628a6
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39599041"
 ---
-# <a name="phoenix-query-server-rest-sdk"></a>Phoenix queryserver REST-SDK
+# <a name="phoenix-query-server-rest-sdk"></a>Phoenix-queryserver REST SDK
 
-[Apache Phoenix](http://phoenix.apache.org/) is een open-source, massively parallelle relationele databaselaag boven [HBase](apache-hbase-overview.md). Phoenix kunt u met SQL-achtige query's met HBase via SSH-hulpprogramma's zoals [SQLLine](apache-hbase-phoenix-squirrel-linux.md). Phoenix bevat ook een HTTP-server met de naam van Phoenix Query Server (PQS), een thin client, die ondersteuning biedt voor twee transportmechanismen voor clientcommunicatie: JSON en Protocol Buffers. Protocol Buffers het standaardmechanisme en efficiëntere communicatie dan JSON biedt.
+[Apache Phoenix](http://phoenix.apache.org/) is een open source, uiterst parallelle relationele databaselaag boven [HBase](apache-hbase-overview.md). Phoenix kunt u SQL-achtige query's gebruiken met HBase met de SSH-hulpprogramma's zoals [SQLLine](apache-hbase-phoenix-squirrel-linux.md). Phoenix bevat ook een HTTP-server met de naam Phoenix Query Server (PQS), een thin client die ondersteuning biedt voor twee transportmechanismen voor clientcommunicatie: JSON en Protocol Buffers. Protocol Buffers is van het standaardmechanisme voor, en biedt meer efficiënte communicatie dan JSON.
 
-In dit artikel wordt beschreven hoe u met de SDK van de REST PQS tabellen, upsert rijen afzonderlijk en bulksgewijs maken en selecteer gegevens met behulp van SQL-instructies. De voorbeelden gebruiken de [Microsoft .NET-stuurprogramma voor Apache Phoenix Query Server](https://www.nuget.org/packages/Microsoft.Phoenix.Client). Deze SDK is gebaseerd op [van Apache calciet Avatica](https://calcite.apache.org/avatica/) API's, die uitsluitend Protocol Buffers voor de serialisatie-indeling gebruiken.
+In dit artikel wordt beschreven hoe u de PQS REST SDK gebruiken voor het maken van tabellen, upsert rijen afzonderlijk en bulksgewijs en selecteert u gegevens met behulp van SQL-instructies. De voorbeelden gebruiken de [Microsoft .NET-stuurprogramma voor Apache Phoenix-queryserver](https://www.nuget.org/packages/Microsoft.Phoenix.Client). Deze SDK is gebaseerd op [van Apache calciet Avatica](https://calcite.apache.org/avatica/) API's, die uitsluitend gebruik van Protocol Buffers voor de serialisatie-indeling.
 
-Zie voor meer informatie [Apache calciet Avatica Protocolnaslaginformatie voor Buffers](https://calcite.apache.org/avatica/docs/protobuf_reference.html).
+Zie voor meer informatie, [Apache calciet Avatica Protocol Buffers verwijzing](https://calcite.apache.org/avatica/docs/protobuf_reference.html).
 
 ## <a name="install-the-sdk"></a>De SDK installeren
 
-Microsoft .NET-stuurprogramma voor Apache Phoenix Query Server is opgegeven als een NuGet-pakket kan worden geïnstalleerd vanuit de Visual Studio **NuGet Package Manager Console** met de volgende opdracht:
+Microsoft .NET-stuurprogramma voor Apache Phoenix-queryserver wordt geleverd als een NuGet-pakket, die kan worden geïnstalleerd vanuit de Visual Studio **NuGet Package Manager Console** met de volgende opdracht:
 
     Install-Package Microsoft.Phoenix.Client
 
-## <a name="instantiate-new-phoenixclient-object"></a>Nieuwe PhoenixClient object instantiëren
+## <a name="instantiate-new-phoenixclient-object"></a>Exemplaar maken van nieuwe PhoenixClient-object
 
-Om te beginnen met de bibliotheek, exemplaar maken van een nieuwe `PhoenixClient` object, dat wordt doorgegeven `ClusterCredentials` met de `Uri` voor uw cluster en de Hadoop-gebruikersnaam en wachtwoord van het cluster.
+Om te beginnen met behulp van de bibliotheek, exemplaar maken van een nieuwe `PhoenixClient` -object doorgeven in een `ClusterCredentials` met de `Uri` aan uw cluster en de Hadoop-gebruikersnaam en wachtwoord van het cluster.
 
 ```csharp
 var credentials = new ClusterCredentials(new Uri("https://CLUSTERNAME.azurehdinsight.net/"), "USERNAME", "PASSWORD");
 client = new PhoenixClient(credentials);
 ```
 
-Vervangen door CLUSTERNAME de naam van HDInsight HBase-cluster, en de gebruikersnaam en wachtwoord met de Hadoop-referenties opgegeven voor het maken van het cluster. De standaardnaam van de Hadoop-gebruiker is **admin**.
+CLUSTERNAME vervangen door de naam van HDInsight HBase-cluster, en de gebruikersnaam en wachtwoord met de Hadoop-referenties opgegeven voor het maken van clusters. De standaardnaam van de Hadoop-gebruiker is **admin**.
 
-## <a name="generate-unique-connection-identifier"></a>Verbinding met de unieke identificatie genereren
+## <a name="generate-unique-connection-identifier"></a>De unieke verbindings-id genereren
 
-Een of meer aanvragen om naar te verzenden PQS, moet u een verbinding met de unieke id koppelt u de aanvragen van de verbinding.
+Voor het verzenden van een of meer aanvragen naar PQS, moet u een unieke verbindings-id voor het koppelen van de aanvragen met de verbinding.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
 ```
 
-Elk voorbeeld maakt eerst een aanroep van de `OpenConnectionRequestAsync` methode doorgeven in de verbinding met de unieke id. Definieer vervolgens `ConnectionProperties` en `RequestOptions`, doorgeeft die objecten en de id van de gegenereerde verbinding naar de `ConnectionSyncRequestAsync` methode. De PQS `ConnectionSyncRequest` object zorgt ervoor dat de client en de server een consistente weergave van de database-eigenschappen hebben.
+Elk voorbeeld wordt eerst een aanroep naar de `OpenConnectionRequestAsync` methode, waarbij in de unieke verbindings-id wordt doorgegeven. Vervolgens definieert `ConnectionProperties` en `RequestOptions`, doorgeven die objecten en de id van de gegenereerde verbinding naar de `ConnectionSyncRequestAsync` methode. De PQS `ConnectionSyncRequest` object zorgt ervoor dat de client en de server een consistente weergave van de database-eigenschappen hebben.
 
-## <a name="connectionsyncrequest-and-its-connectionproperties"></a>ConnectionSyncRequest en bijbehorende ConnectionProperties
+## <a name="connectionsyncrequest-and-its-connectionproperties"></a>ConnectionSyncRequest en de ConnectionProperties
 
 Om aan te roepen `ConnectionSyncRequestAsync`, doorgeven een `ConnectionProperties` object.
 
@@ -77,11 +74,11 @@ Hier volgen enkele eigenschappen van belang:
 
 | Eigenschap | Beschrijving |
 | -- | -- |
-| Automatische doorvoer | Een boolean die aangeeft of `autoCommit` is ingeschakeld voor Phoenix transacties. |
+| Committed | Een Booleaanse waarde die aangeeft of `autoCommit` is ingeschakeld voor Phoenix-transacties. |
 | ReadOnly | Een Booleaanse waarde die aangeeft of de verbinding alleen-lezen is. |
-| TransactionIsolation | Een geheel getal dat aangeeft van het niveau van de transactie-isolatieniveau volgens de specificatie JDBC - Zie de volgende tabel.|
-| Catalogus | De naam van de catalogus voor gebruik bij het ophalen van de eigenschappen van de verbinding. |
-| Schema | De naam van het schema moet worden gebruikt bij het ophalen van de eigenschappen van de verbinding. |
+| TransactionIsolation | Een geheel getal die aangeeft van het niveau van de transactie-isolatieniveau volgens de specificatie JDBC - Zie de volgende tabel.|
+| Catalogus | De naam van de catalogus te gebruiken tijdens het ophalen van eigenschappen van de verbinding. |
+| Schema | De naam van het schema moet worden gebruikt tijdens het ophalen van eigenschappen van de verbinding. |
 | IsDirty | Een Booleaanse waarde die aangeeft of de eigenschappen zijn gewijzigd. |
 
 Hier volgen de `TransactionIsolation` waarden:
@@ -89,16 +86,16 @@ Hier volgen de `TransactionIsolation` waarden:
 | Isolatie-waarde | Beschrijving |
 | -- | -- |
 | 0 | Transacties worden niet ondersteund. |
-| 1 | Vervuild leest, niet kan worden herhaald leest en schijnlease leesbewerkingen optreden. |
-| 2 | Ongeldige waarden worden voorkomen, maar niet kan worden herhaald lees- en schijnlease leesbewerkingen optreden. |
-| 4 | Vervuild lees- en niet kan worden herhaald leesbewerkingen worden voorkomen, maar schijnlease leesbewerkingen optreden. |
-| 8 | Alle worden vervuild leest, niet kan worden herhaald leest en schijnlease leesbewerkingen voorkomen. |
+| 1 | Dirty leesbewerkingen, niet kan worden herhaald leesbewerkingen en dummy leesbewerkingen kunnen zich voordoen. |
+| 2 | Dirty leesbewerkingen worden voorkomen, maar niet kan worden herhaald lees- en dummy leesbewerkingen kunnen zich voordoen. |
+| 4 | Dirty lees- en niet kan worden herhaald leesbewerkingen worden voorkomen, maar dummy leesbewerkingen optreden. |
+| 8 | Alle worden vervuild leesbewerkingen, niet kan worden herhaald leesbewerkingen en dummy leesbewerkingen voorkomen. |
 
 ## <a name="create-a-new-table"></a>Een nieuwe tabel maken
 
-HBase, net als elke andere RDBMS opslaat-gegevens in de tabellen. Phoenix gebruikt standaard SQL-query's voor het maken van nieuwe tabellen bij het definiëren van de primaire sleutel en in de kolom typen.
+HBase, net als elke andere RDBMS van TOPKLASSE, worden gegevens opgeslagen in tabellen. Phoenix gebruikt standaard SQL-query's om nieuwe tabellen maken tijdens het definiëren van de primaire sleutel en in de kolom typen.
 
-In dit voorbeeld en alle opeenvolgende voorbeelden, maken gebruik van de geïnstantieerd `PhoenixClient` object zoals gedefinieerd in [exemplaar maken van een nieuw object op PhoenixClient](#instantiate-new-phoenixclient-object).
+In dit voorbeeld en alle volgende voorbeelden gebruiken de geïnstantieerde `PhoenixClient` zoals gedefinieerd in object [exemplaar maken van een nieuw PhoenixClient object](#instantiate-new-phoenixclient-object).
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -164,17 +161,17 @@ finally
 }
 ```
 
-Het voorgaande voorbeeld wordt een nieuwe tabel met de naam `Customers` met behulp van de `IF NOT EXISTS` optie. De `CreateStatementRequestAsync` aanroep maakt een nieuwe statusverklaring in de Avitica (PQS)-server. De `finally` blok sluit u de geretourneerde `CreateStatementResponse` en de `OpenConnectionResponse` objecten.
+Het vorige voorbeeld maakt een nieuwe tabel met de naam `Customers` met behulp van de `IF NOT EXISTS` optie. De `CreateStatementRequestAsync` aanroep maakt u een nieuwe instructie in de Avitica (PQS)-server. De `finally` blok wordt de geretourneerde gesloten `CreateStatementResponse` en de `OpenConnectionResponse` objecten.
 
 ## <a name="insert-data-individually"></a>Afzonderlijk gegevens invoegen
 
-Dit voorbeeld ziet u een afzonderlijke gegevens invoegen, verwijst naar een `List<string>` verzameling American status en Territorium afkortingen:
+In dit voorbeeld ziet u een afzonderlijke gegevens invoegen, die verwijst naar een `List<string>` verzameling van de Amerikaanse staat en gebied afkortingen:
 
 ```csharp
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
-De tabel `StateProvince` waarde in de kolom wordt gebruikt in een latere bewerking select.
+Van de tabel `StateProvince` waarde in de kolom wordt gebruikt in een latere bewerking select.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -281,11 +278,11 @@ finally
 }
 ```
 
-De structuur voor het uitvoeren van een instructie insert is vergelijkbaar met het maken van een nieuwe tabel. Houd er rekening mee dat aan het einde van de `try` blok, de transactie is expliciet doorgevoerd. In dit voorbeeld wordt een insert-transactie 300 keren herhaald. Het volgende voorbeeld ziet een efficiëntere insert batchproces.
+De structuur voor het uitvoeren van een instructie insert is vergelijkbaar met het maken van een nieuwe tabel. Houd er rekening mee dat aan het einde van de `try` blok, de transactie is expliciet doorgevoerd. In dit voorbeeld wordt een insert-transactie 300 keren herhaald. Het volgende voorbeeld ziet u een efficiëntere batch insert-proces.
 
-## <a name="batch-insert-data"></a>Batch insert gegevens
+## <a name="batch-insert-data"></a>Batch insert-gegevens
 
-De volgende code is bijna identiek aan de code voor het invoegen van gegevens afzonderlijk. In dit voorbeeld wordt de `UpdateBatch` -object in een aanroep van `ExecuteBatchRequestAsync`, in plaats van meerdere keren aanroepen `ExecuteRequestAsync` met een voorbereide instructie.
+De volgende code is bijna identiek aan de code voor het invoegen van gegevens afzonderlijk. In dit voorbeeld wordt de `UpdateBatch` -object in een aanroep van `ExecuteBatchRequestAsync`, in plaats van herhaaldelijk aanroept `ExecuteRequestAsync` met een voorbereide instructie.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -395,15 +392,15 @@ finally
 }
 ```
 
-In een testomgeving met een afzonderlijk invoegen 300 nieuwe records bijna 2 minuten duurde. Invoegen van 300 records als batch vereist daarentegen alleen 6 seconden.
+In een testomgeving duurde afzonderlijk invoegen 300 nieuwe records bijna twee minuten. Invoegen van 300 records als batch vereist daarentegen alleen 6 seconden.
 
 ## <a name="select-data"></a>Gegevens selecteren
 
-Dit voorbeeld ziet hoe u een verbinding voor het uitvoeren van meerdere query's opnieuw gebruiken:
+In dit voorbeeld laat zien hoe een verbinding voor het uitvoeren van meerdere query's opnieuw gebruiken:
 
-1. Selecteer alle records en vervolgens resterende records ophalen nadat het standaardaantal van maximaal 100 worden geretourneerd.
-2. Gebruik een rij Totaal aantal select-instructie voor het ophalen van het scalaire resultaat.
-3. Een instructie select die als resultaat het totale aantal klanten per status of de regio geeft uitvoeren.
+1. Alle records selecteren en vervolgens resterende records ophalen nadat het maximumaantal van 100 worden geretourneerd.
+2. Een rij Totaal aantal select-instructie gebruiken om op te halen van de scalaire resultaat.
+3. Voer een select-instructie die als resultaat het totale aantal klanten per staat of provincie geeft.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -544,4 +541,4 @@ FM: 5
 ## <a name="next-steps"></a>Volgende stappen 
 
 * [Phoenix in HDInsight](../hdinsight-phoenix-in-hdinsight.md)
-* [Met behulp van de HBase REST-SDK](apache-hbase-rest-sdk.md)
+* [Met behulp van de HBase REST SDK](apache-hbase-rest-sdk.md)

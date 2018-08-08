@@ -16,12 +16,12 @@ ms.date: 04/30/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 41fdf1a61538e43ef17eee2937273f56a4538b76
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 666a677943811af05cd3403eab4887271c1f87b3
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577200"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591207"
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory voor ontwikkelaars
 
@@ -65,7 +65,7 @@ De volgende artikelen bieden gedetailleerde informatie over API's, protocolberic
 | ----------------------------------------------------------------------------------| --- |
 | [Verificatiebibliotheken (ADAL)](active-directory-authentication-libraries.md)   | Een overzicht van de bibliotheken en SDK's die worden geleverd door Azure AD. |
 | [Codevoorbeelden](sample-v1-code.md)                                  | Een lijst met alle Azure AD-codevoorbeelden. |
-| [Woordenlijst](active-directory-dev-glossary.md)                                      | Termen en definities van woorden die in deze documenten worden gebruikt. |
+| [Woordenlijst](developer-glossary.md)                                      | Termen en definities van woorden die in deze documenten worden gebruikt. |
 |  |  |
 
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2018
 ms.author: genli
-ms.openlocfilehash: 86af69c5fe58511befecebcb4046e21fd34e096c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5f11129e562ec47f4c81790cf21c9a390cc697b8
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449818"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621402"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Virtueel apparaat netwerkproblemen in Azure
 
-Er kunnen problemen met de virtuele machine of VPN-netwerkverbinding en fouten die invloed hebben op een netwerk virtuele Appliance (NVA) in Microsoft Azure. In dit artikel biedt eenvoudige stappen om te kunnen valideren basisvereisten voor Azure-Platform voor de NVA-configuraties.
+Mogelijk is uw virtuele machine of problemen met VPN-connectiviteit en fouten bij het gebruik van een derde partij Network Virtual Appliance (NVA) in Microsoft Azure. In dit artikel biedt eenvoudige stappen om te kunnen valideren basisvereisten voor Azure-Platform voor de NVA-configuraties.
 
 Technische ondersteuning voor NVA's van derden en de integratie met de Azure-platform wordt geleverd door de leverancier van de NVA. Als u een verbinding of een routeringsprobleem dat betrekking heeft op een NVA hebt, moet u [Neem contact op met de leverancier van de NVA](https://support.microsoft.com/help/2984655/support-for-azure-market-place-for-virtual-machines) rechtstreeks.
 

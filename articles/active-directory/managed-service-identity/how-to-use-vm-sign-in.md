@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 4a811c5354a9ff2aaa48a300d9b2655f91fdab23
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 205938bbf615face0768028717a333c13c1fafa1
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901089"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590310"
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-sign-in"></a>Het gebruik van een Azure VM Managed Service Identity (MSI) voor aanmelding 
 
@@ -38,7 +38,7 @@ Als u van plan bent de Azure PowerShell of Azure CLI-voorbeelden in dit artikel 
 
 ## <a name="overview"></a>Overzicht
 
-Een MSI-bestand bevat een [service-principal-object](../develop/active-directory-dev-glossary.md#service-principal-object) , die is [gemaakt bij het inschakelen van MSI](overview.md#how-does-it-work) op de virtuele machine. De service-principal kan toegang krijgen tot Azure-resources en gebruikt als een identiteit door script/vanaf de opdrachtregel-line-clients voor aanmelden en toegang tot bronnen. Traditioneel voor toegang tot beveiligde resources onder een eigen identiteit wordt moet een script-client:  
+Een MSI-bestand bevat een [service-principal-object](../develop/developer-glossary.md#service-principal-object) , die is [gemaakt bij het inschakelen van MSI](overview.md#how-does-it-work) op de virtuele machine. De service-principal kan toegang krijgen tot Azure-resources en gebruikt als een identiteit door script/vanaf de opdrachtregel-line-clients voor aanmelden en toegang tot bronnen. Traditioneel voor toegang tot beveiligde resources onder een eigen identiteit wordt moet een script-client:  
 
    - worden geregistreerd en heeft ingestemd met Azure AD als een vertrouwelijk/web-clienttoepassing
    - Meld u aan bij de service-principal met behulp van de app-referenties (dit zijn waarschijnlijk ingesloten in het script)

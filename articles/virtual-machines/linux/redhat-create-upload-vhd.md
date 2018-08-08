@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 08/07/2018
 ms.author: szark
-ms.openlocfilehash: d809b71c1fff953e946b842332146f982fca7b74
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f5bce08bfc61d5b9b17e9500c002c3b870384c7b
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422355"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618655"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Een op Red Hat gebaseerde virtuele machine voor Azure voorbereiden
 In dit artikel leert u hoe u een virtuele machine van Red Hat Enterprise Linux (RHEL) voorbereidt voor gebruik in Azure. De versies van RHEL die worden beschreven in dit artikel zijn 6.7 + en 7.1 +. De hypervisors voor voorbereiding die worden beschreven in dit artikel zijn Hyper-V, op basis van een kernel virtuele machine (KVM) en VMware. Zie voor meer informatie over vereisten voor geschiktheid voor uw deelname aan het Red Hat Cloud Access programma [van Red Hat Cloud Access website](http://www.redhat.com/en/technologies/cloud-computing/cloud-access) en [RHEL uitgevoerd op Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
@@ -37,7 +37,6 @@ In deze sectie wordt ervan uitgegaan dat u hebt al een ISO-bestand vanaf de webs
 * De maximale grootte die toegestaan voor de VHD is 1023 GB.
 * Wanneer u de Linux-besturingssysteem installeert, raden wij aan dat u standaard partities in plaats van logische Volume Manager (LVM), dit is vaak de standaardwaarde voor vele installaties. Met deze procedure vermijdt LVM naam conflicteert met de gekloonde virtuele machines, met name als u ooit een besturingssysteemschijf koppelen aan een andere identieke virtuele machine moet voor probleemoplossing. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) op gegevensschijven kunnen worden gebruikt.
 * Kernel-ondersteuning voor het koppelen van bestandssystemen Universal Disk Format (UDF's) is vereist. Op de eerste keer opstarten op Azure geeft de UDF-indeling media die is gekoppeld aan de Gast de inrichtingsconfiguratie aan de virtuele Linux-machine. De Azure Linux Agent moet u mogelijk de UDF-bestandssysteem om te lezen van de configuratie en het inrichten van de virtuele machine koppelen.
-* Versies van de Linux-kernel die ouder dan 2.6.37 zijn ondersteunen geen niet-uniforme geheugentoegang (NUMA) op Hyper-V met grotere virtuele machines. Dit probleem voornamelijk gevolgen oudere distributies die gebruikmaken van de upstream Red Hat 2.6.32 kernel en is vastgesteld in RHEL 6.6 (kernel-2.6.32-504). Systemen met aangepaste kernels die ouder zijn dan 2.6.37 of RHEL-kernels die ouder dan 2.6.32-504 zijn moeten ingesteld de `numa=off` parameter op de opdrachtregel van de kernel in grub.conf opstart. Zie voor meer informatie, Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 * Stel een swap-partitie niet op de besturingssysteemschijf. De Linux-Agent kan worden geconfigureerd voor het maken van een wisselbestand op de tijdelijke schijf.  Meer informatie hierover vindt u in de volgende stappen uit.
 * Alle VHD's op Azure beschikken over een virtuele grootte die is afgestemd op 1MB. Bij het converteren van een onbewerkte schijf naar de VHD moet u ervoor zorgen dat de onbewerkte schijfgrootte een veelvoud van 1MB vóór de conversie is. Meer informatie vindt u in de onderstaande stappen. Zie ook [opmerkingen bij de installatie van Linux](create-upload-generic.md#general-linux-installation-notes) voor meer informatie.
 
@@ -96,8 +95,6 @@ In deze sectie wordt ervan uitgegaan dat u hebt al een ISO-bestand vanaf de webs
     
     Grafische en stil opstarten zijn niet nuttig in een cloudomgeving waar we alle logboeken worden verzonden naar de seriële poort.  U kunt laten de `crashkernel` geconfigureerd als de gewenste optie. Houd er rekening mee dat deze parameter de hoeveelheid beschikbaar geheugen in de virtuele machine door 128 MB of meer wordt. Deze configuratie mogelijk problemen op kleinere virtuele machine.
 
-    >[!Important]
-    RHEL 6.5 en eerdere moet ook instellen de `numa=off` kernel-parameter. Zie Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 
 1. Zorg ervoor dat de secure shell (SSH)-server is geïnstalleerd en geconfigureerd om te starten tijdens het opstarten, dit doorgaans de standaardinstelling is. Wijzig /etc/ssh/sshd_config om op te nemen in de volgende regel:
 
@@ -284,14 +281,12 @@ In deze sectie wordt ervan uitgegaan dat u hebt al een ISO-bestand vanaf de webs
     
     Grafische en stil opstarten zijn niet nuttig in een cloudomgeving waar we alle logboeken worden verzonden naar de seriële poort. U kunt laten de `crashkernel` geconfigureerd als de gewenste optie. Houd er rekening mee dat deze parameter vermindert de hoeveelheid beschikbaar geheugen in de virtuele machine door 128 MB of meer, die mogelijk problemen op kleinere virtuele machine.
 
-    >[!Important]
-    RHEL 6.5 en eerdere moet ook instellen de `numa=off` kernel-parameter. Zie Red Hat [KB 436883](https://access.redhat.com/solutions/436883).
 
 1. Hyper-V-modules aan initramfs toevoegen:  
 
     Bewerken `/etc/dracut.conf`, en voeg de volgende inhoud:
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 
     Opnieuw opbouwen initramfs:
 
@@ -436,7 +431,7 @@ In deze sectie wordt ervan uitgegaan dat u hebt al een ISO-bestand vanaf de webs
 
     Bewerken `/etc/dracut.conf` en voeg inhoud toe:
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 
     Opnieuw opbouwen initramfs:
 
@@ -580,7 +575,7 @@ In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware a
 
     Bewerken `/etc/dracut.conf`, en voeg de volgende inhoud:
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 
     Opnieuw opbouwen initramfs:
 
@@ -690,7 +685,7 @@ In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware a
 
     Bewerken `/etc/dracut.conf`, Voeg inhoud toe:
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 
     Opnieuw opbouwen initramfs:
 
@@ -914,7 +909,7 @@ U lost dit probleem, Hyper-V-modules toevoegen aan initramfs en deze opnieuw bou
 
 Bewerken `/etc/dracut.conf`, en voeg de volgende inhoud:
 
-        add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+        add_drivers+=" hv_vmbus hv_netvsc hv_storvsc "
 
 Opnieuw opbouwen initramfs:
 

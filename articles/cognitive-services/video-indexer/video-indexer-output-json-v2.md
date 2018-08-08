@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: e4f09e90c1ebb14cdbd528b34e016001c6556540
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 9a926eb274e5e4cec721864d1d9c5faee8ec58ef
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389647"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618329"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Bekijk de Video Indexer-uitvoer geproduceerd door de v2-API
 
@@ -81,7 +81,8 @@ In deze sectie bevat een overzicht van de inzichten.
 |shortId|De ID van de video. Bijvoorbeeld: 63c6d532ff.|
 |privacyMode|Uitsplitsing van uw kan hebben een van de volgende modi: **persoonlijke**, **openbare**. **Openbare** -de video is zichtbaar voor iedereen in uw account en iedereen met een koppeling naar de video. **Persoonlijke** -de video is zichtbaar voor iedereen in uw account.|
 |duur|Bevat een duur van de beschrijving van de tijd die een inzicht is opgetreden. Er is een duur in seconden.|
-|thumbnailUrl|Miniatuur van de video volledige URL. Bijvoorbeeld, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO... '. U ziet als de video privé is, de URL van een toegangstoken van één uur bevat. Na een uur, de URL niet langer geldig en moet u naar de uitsplitsing van de opnieuw met een nieuwe url in het ophalen of aanroepen GetAccessToken om een nieuw toegangstoken en de volledige url handmatig maken ('https://www.videoindexer.ai/api/Thumbnail/[shortId] / [ThumbnailId]? accessToken = [ accessToken]').|
+|thumbnailVideoId|De id van de video van waaruit de miniatuur is gehaald.
+|thumbnailId|Miniaturen van de video-id. Om op te halen van de werkelijke miniaturen aanroep Get-miniatuur (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) en deze doorgeven thumbnailVideoId en thumbnailId.|
 |gezichten|Kan nul of meer gezichten bevatten. Zie voor meer informatie, [gezichten](#faces).|
 |trefwoorden|Kan nul of meer trefwoorden bevatten. Zie voor meer informatie, [trefwoorden](#keywords).|
 |sentimenten|Kan nul of meer sentimenten bevatten. Zie voor meer informatie, [sentimenten](#sentiments).|
@@ -106,7 +107,7 @@ In deze sectie bevat een overzicht van de inzichten.
 |metagegevens|De metagegevens van video's externe (indien opgegeven door de gebruiker).|
 |isAdult|Geeft aan of er handmatig de video is bekeken en geïdentificeerd als een volwassene video.|
 |inzichten|De insights-object. Zie voor meer informatie, [insights](#insights).|
-|thumbnailUrl|Miniatuur van de video volledige URL. Bijvoorbeeld, "https://www.videoindexer.ai/api/Thumbnail/3a9e38d72e/d1f5fac5-e8ae-40d9-a04a-6b2928fb5d10?accessToken=eyJ0eXAiOiJKV1QiLCJhbGciO... '. U ziet als de video privé is, de URL van een toegangstoken van één uur bevat. Na een uur, de URL niet langer geldig en moet u naar de uitsplitsing van de opnieuw met een nieuwe url in het ophalen of aanroepen GetAccessToken om een nieuw toegangstoken en de volledige url handmatig maken ('https://www.videoindexer.ai/api/Thumbnail/[shortId] / [ThumbnailId]? accessToken = [ accessToken]').|
+|thumbnailId|Miniaturen van de video-id. Om op te halen van de werkelijke miniaturen aanroep Get-miniatuur (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) en geef deze de video-id en thumbnailId.|
 |publishedUrl|Een url naar de video te streamen.|
 |publishedUrlProxy|Een url naar het streamen van video van (voor Apple-apparaten).|
 |viewToken|Een korte levensduur hebben weergave-token voor het streamen van de video.|

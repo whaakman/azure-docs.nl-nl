@@ -17,12 +17,12 @@ ms.date: 07/12/2017
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: aa931702975c2c6bdcc65853c3865dbeff570bf4
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: edf0b52e5889fe8fa875de65fcaa8c2a22df1a7f
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578446"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39590746"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Moet ik het v2.0-eindpunt gebruiken?
 
@@ -39,11 +39,11 @@ Hebt u een bestaande Azure AD-app die het v2.0-eindpunt niet worden gebruikt, is
 
 ## <a name="restrictions-on-app-types"></a>Beperkingen voor app-typen
 
-De volgende typen apps zijn op dit moment niet ondersteund door het v2.0-eindpunt. Zie voor een beschrijving van de ondersteunde app-typen, [App-typen voor de Azure Active Directory v2.0-eindpunt](active-directory-v2-flows.md).
+De volgende typen apps zijn op dit moment niet ondersteund door het v2.0-eindpunt. Zie voor een beschrijving van de ondersteunde app-typen, [App-typen voor de Azure Active Directory v2.0-eindpunt](v2-app-types.md).
 
 ### <a name="standalone-web-apis"></a>Zelfstandige Web-API 's
 
-U kunt het v2.0-eindpunt naar [bouwen van een Web-API die wordt beveiligd met OAuth 2.0](active-directory-v2-flows.md#web-apis). Deze Web-API kan echter tokens ontvangen alleen vanuit een toepassing met de dezelfde toepassings-ID. U geen toegang tot een Web-API van een client met een andere toepassings-ID. De client niet mogelijk om te vragen of te verkrijgen van machtigingen voor uw Web-API.
+U kunt het v2.0-eindpunt naar [bouwen van een Web-API die wordt beveiligd met OAuth 2.0](v2-app-types.md#web-apis). Deze Web-API kan echter tokens ontvangen alleen vanuit een toepassing met de dezelfde toepassings-ID. U geen toegang tot een Web-API van een client met een andere toepassings-ID. De client niet mogelijk om te vragen of te verkrijgen van machtigingen voor uw Web-API.
 
 Als u wilt zien over het bouwen van een Web-API die tokens accepteert van een client met dezelfde toepassings-ID, raadpleegt u de voorbeelden v2.0-eindpunt Web-API in de [aan de slag](active-directory-appmodel-v2-overview.md#getting-started) sectie.
 
@@ -98,9 +98,9 @@ Zie voor meer informatie over het registreren van een app in de Portal voor Appr
 Ondersteuning voor clientbibliotheek voor het v2.0-eindpunt is momenteel beperkt. Als u het v2.0-eindpunt in een productietoepassing gebruiken wilt, hebt u deze opties:
 
 * Als u een webtoepassing bouwt, kunt u veilig Microsoft algemeen verkrijgbaar serverzijde middleware gebruiken om uit te voeren, aanmelden en token-validatie. Hieronder vallen de OWIN Open ID Connect-middleware voor ASP.NET en de Node.js Passport-invoegtoepassing. Zie voor voorbeelden van code die gebruikmaken van Microsoft-middleware, de [aan de slag](active-directory-appmodel-v2-overview.md#getting-started) sectie.
-* Als u een bureaublad of mobiele toepassing ontwikkelt, kunt u een van de Preview-versie van Microsoft Authentication Libraries (MSAL). Deze bibliotheken zijn in een productie-ondersteunde preview, dus is het veilig om ze in productie-Apps gebruiken. U kunt meer lezen over de voorwaarden van de Preview-versie en de beschikbare bibliotheken in [verificatie-bibliotheken verwijzing](active-directory-v2-libraries.md).
+* Als u een bureaublad of mobiele toepassing ontwikkelt, kunt u een van de Preview-versie van Microsoft Authentication Libraries (MSAL). Deze bibliotheken zijn in een productie-ondersteunde preview, dus is het veilig om ze in productie-Apps gebruiken. U kunt meer lezen over de voorwaarden van de Preview-versie en de beschikbare bibliotheken in [verificatie-bibliotheken verwijzing](reference-v2-libraries.md).
 * Voor platforms die niet wordt gedekt door Microsoft-bibliotheken, kunt u integreren met het v2.0-eindpunt door rechtstreeks verzenden en ontvangen van protocolberichten in uw toepassingscode. De OpenID Connect en OAuth-protocollen van v2.0 [expliciet worden gedocumenteerd](active-directory-v2-protocols.md) om u te helpen bij het uitvoeren van een dergelijke integratie.
-* Ten slotte kunt u Open ID Connect en OAuth voor open source-bibliotheken om te integreren met het v2.0-eindpunt. Het v2.0-protocol moet compatibel zijn met veel open-source-protocol bibliotheken zonder ingrijpende wijzigingen. De beschikbaarheid van dit soort bibliotheken varieert per taal en platform. De [Open ID Connect](http://openid.net/connect/) en [OAuth 2.0](http://oauth.net/2/) websites een lijst met populaire implementaties bijhouden. Zie voor meer informatie, [Azure Active Directory v2.0 en verificatie bibliotheken](active-directory-v2-libraries.md), en de lijst met open source-clientbibliotheken en voorbeelden die zijn getest met het v2.0-eindpunt.
+* Ten slotte kunt u Open ID Connect en OAuth voor open source-bibliotheken om te integreren met het v2.0-eindpunt. Het v2.0-protocol moet compatibel zijn met veel open-source-protocol bibliotheken zonder ingrijpende wijzigingen. De beschikbaarheid van dit soort bibliotheken varieert per taal en platform. De [Open ID Connect](http://openid.net/connect/) en [OAuth 2.0](http://oauth.net/2/) websites een lijst met populaire implementaties bijhouden. Zie voor meer informatie, [Azure Active Directory v2.0 en verificatie bibliotheken](reference-v2-libraries.md), en de lijst met open source-clientbibliotheken en voorbeelden die zijn getest met het v2.0-eindpunt.
 
 ## <a name="restrictions-on-protocols"></a>Beperkingen voor protocollen
 

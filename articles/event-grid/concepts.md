@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 61425daff618bcaff54d201b7eee8d5e0b5abda7
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 2a288cdb96a1e1ff7e261d4782f7e02aee12868f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506211"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621198"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepten in Azure Event Grid
 
@@ -74,7 +74,7 @@ Als Event Grid niet kan bevestigen dat een gebeurtenis is ontvangen door de abon
 
 ## <a name="batching"></a>Batchverwerking
 
-Wanneer u een aangepast onderwerp gebruikt, moeten altijd gebeurtenissen worden gepubliceerd in een matrix. Dit kan een batch van een voor scenario's met lage doorvoer, maar zijn voor grote volumes usecases, is het raadzaam dat u batch meerdere gebeurtenissen samen per publiceren voor het bereiken van hogere efficiëntie. Batches kunnen maximaal 1 MB zijn. Elke gebeurtenis moet nog steeds niet excede 64 KB.
+Wanneer u een aangepast onderwerp gebruikt, moeten altijd gebeurtenissen worden gepubliceerd in een matrix. Dit kan een batch van een voor scenario's met lage doorvoer, maar zijn voor grote volumes usecases, is het raadzaam dat u batch meerdere gebeurtenissen samen per publiceren voor het bereiken van hogere efficiëntie. Batches kunnen maximaal 1 MB zijn. Elke gebeurtenis moet nog steeds niet meer dan 64 KB.
 
 ## <a name="next-steps"></a>Volgende stappen
 

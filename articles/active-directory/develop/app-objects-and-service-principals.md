@@ -17,18 +17,18 @@ ms.date: 10/19/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: a885170ce5c7e509e6497a8ac0e8d6790f9ea577
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 057465567217cff080b189bcdabee3042f41468d
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581377"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595869"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Toepassing en service-principalobjecten in Azure Active Directory (Azure AD)
-Soms kan de betekenis van de term 'application' verkeerd worden begrepen wanneer gebruikt in de context van Azure AD. Het doel van dit artikel is om te verduidelijken conceptuele en concrete aspecten van de integratie van Azure AD-toepassingen, met een afbeelding van de registratie en toestemming geven voor een [toepassing met meerdere tenants](active-directory-dev-glossary.md#multi-tenant-application).
+Soms kan de betekenis van de term 'application' verkeerd worden begrepen wanneer gebruikt in de context van Azure AD. Het doel van dit artikel is om te verduidelijken conceptuele en concrete aspecten van de integratie van Azure AD-toepassingen, met een afbeelding van de registratie en toestemming geven voor een [toepassing met meerdere tenants](developer-glossary.md#multi-tenant-application).
 
 ## <a name="overview"></a>Overzicht
-Een toepassing die is geïntegreerd met Azure AD heeft gevolgen die verder gaan dan de aspect van de software. 'Application' wordt vaak gebruikt als een algemene term die verwijzen naar het niet alleen de toepassingssoftware, maar ook de Azure AD-registratie en de rol in verificatie/autorisatie "gesprekken' tijdens runtime. Per definitie een toepassing kunt werken in een [client](active-directory-dev-glossary.md#client-application) rol (verbruikt een resource), een [bronserver](active-directory-dev-glossary.md#resource-server) rol (waardoor API's voor clients), of zelfs beide. Het conversatie-protocol wordt gedefinieerd door een [stroom voor OAuth 2.0 machtiging Grant](active-directory-dev-glossary.md#authorization-grant), zodat de client/resource toegang/van een resource om gegevens te beveiligen respectievelijk. Nu we een niveau lager gaan en Zie hoe een App op het moment van ontwerp en runtime-Hiermee geeft u de Azure AD-toepassingsmodel. 
+Een toepassing die is geïntegreerd met Azure AD heeft gevolgen die verder gaan dan de aspect van de software. 'Application' wordt vaak gebruikt als een algemene term die verwijzen naar het niet alleen de toepassingssoftware, maar ook de Azure AD-registratie en de rol in verificatie/autorisatie "gesprekken' tijdens runtime. Per definitie een toepassing kunt werken in een [client](developer-glossary.md#client-application) rol (verbruikt een resource), een [bronserver](developer-glossary.md#resource-server) rol (waardoor API's voor clients), of zelfs beide. Het conversatie-protocol wordt gedefinieerd door een [stroom voor OAuth 2.0 machtiging Grant](developer-glossary.md#authorization-grant), zodat de client/resource toegang/van een resource om gegevens te beveiligen respectievelijk. Nu we een niveau lager gaan en Zie hoe een App op het moment van ontwerp en runtime-Hiermee geeft u de Azure AD-toepassingsmodel. 
 
 ## <a name="application-registration"></a>Een toepassing registreren
 Wanneer u een Azure AD-toepassing in registreert de [Azure-portal][AZURE-Portal], twee objecten worden gemaakt in uw Azure AD-tenant: een toepassingsobject en een service-principal-object.
@@ -39,7 +39,7 @@ Een Azure AD-toepassing wordt gedefinieerd door de 1 en alleen application-objec
 #### <a name="service-principal-object"></a>service-principal-object
 Voor toegang tot resources die zijn beveiligd met een Azure AD-tenant, moet de entiteit waarvoor toegang tot de worden vertegenwoordigd door een beveiligings-principal. Dit geldt voor zowel gebruikers (user principal) en toepassingen (service-principal). De beveiligings-principal definieert de beleid voor toegang en machtigingen voor de gebruiker/toepassing in deze tenant. Hiermee kunt u core-functies, zoals verificatie van de gebruiker/toepassing tijdens de aanmelding en autorisatie tijdens toegang tot bronnen.
 
-Wanneer een toepassing een machtiging verleend voor toegang tot resources in een tenant (bij de registratie of [toestemming geven](active-directory-dev-glossary.md#consent)), een service-principal-object wordt gemaakt. Azure AD Graph [ServicePrincipal entiteit] [ AAD-Graph-Sp-Entity] definieert het schema voor de eigenschappen van een service principal-object. 
+Wanneer een toepassing een machtiging verleend voor toegang tot resources in een tenant (bij de registratie of [toestemming geven](developer-glossary.md#consent)), een service-principal-object wordt gemaakt. Azure AD Graph [ServicePrincipal entiteit] [ AAD-Graph-Sp-Entity] definieert het schema voor de eigenschappen van een service principal-object. 
 
 #### <a name="application-and-service-principal-relationship"></a>Toepassing en service-principal-relatie
 Houd rekening met het toepassingsobject als de *globale* weergave van uw toepassing voor gebruik voor alle tenants en de service-principal als de *lokale* weergave voor gebruik in een specifieke tenant. De toepassing-object fungeert als de sjabloon van welke gemeenschappelijke en de standaard-eigenschappen zijn *afgeleid* voor gebruik bij het maken van de bijbehorende service-principalobjecten. Een toepassingsobject is daarom een 1:1-relatie met de softwaretoepassing en een 1:many relaties met de bijbehorende objecten van de service-principal.

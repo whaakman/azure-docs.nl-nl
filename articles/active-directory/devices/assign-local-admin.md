@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/03/2018
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: 6e8e0877dfa47fa632fa1f12d97326f922ebaf8b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 2dfef8d0dbaf4d70559c966f1587764210d8b49c
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530757"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598327"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Over het beheren van de lokale groep administrators op de Azure AD gekoppelde apparaten
 
@@ -111,6 +111,6 @@ Wanneer u gebruikers uit de rol van apparaatbeheerder verwijdert, hebben ze nog 
 
 - Als u een overzicht van het apparaat in Azure portal te beheren, Zie [apparaten beheert met de Azure-portal](device-management-azure-portal.md)
 
-- Zie voor meer informatie over voorwaardelijke toegang op basis van apparaat, [configureren van beleid voor het apparaat gebaseerde voorwaardelijke toegang van Azure Active Directory](../active-directory-conditional-access-policy-connected-applications.md).
+- Zie voor meer informatie over voorwaardelijke toegang op basis van apparaat, [configureren van beleid voor het apparaat gebaseerde voorwaardelijke toegang van Azure Active Directory](../conditional-access/require-managed-devices.md).
 
 
