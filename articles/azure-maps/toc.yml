@@ -40,6 +40,8 @@
       items:
         - name: Accounts en sleutels beheren
           href: how-to-manage-account-keys.md
+        - name: Metrische gegevens over het gebruik weergeven
+          href: how-to-view-api-usage.md
     - name: Kaartgegevens van REST-API's ophalen
       items:
         - name: Zoeken naar een adres

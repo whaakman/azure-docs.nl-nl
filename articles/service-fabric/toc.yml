@@ -553,8 +553,8 @@
                   href: service-fabric-cluster-scale-up-down.md
                 - name: Programmatisch uitschalen
                   href: service-fabric-cluster-programmatic-scaling.md
-                - name: De virtuele machines van het primaire knooppunttype schalen of upgraden
-                  href: service-fabric-cluster-upgrade-primary-nodetype-vm.md
+                - name: Knooppunttype uitschalen voor schaalset van virtuele machines
+                  href: virtual-machine-scale-set-scale-node-type-scale-out.md
             - name: Upgraden
               href: service-fabric-cluster-upgrade.md
             - name: Toegangsbeheer instellen

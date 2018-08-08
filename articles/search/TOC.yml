@@ -47,8 +47,6 @@
   items:
     - name: Azure-codevoorbeelden
       href: 'https://azure.microsoft.com/resources/samples/?service=search'
-    - name: GitHub-voorbeelden
-      href: 'https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search'
 - name: Concepten
   items:
     - name: Cognitief zoeken (preview)
@@ -73,6 +71,8 @@
           href: cognitive-search-create-custom-skill-example.md
         - name: Tips voor probleemoplossing
           href: cognitive-search-concept-troubleshooting.md
+        - name: Documentatielinks
+          href: cognitive-search-resources-documentation.md
     - name: Planning
       items:
         - name: Een laag kiezen
@@ -175,7 +175,7 @@
               href: search-indexer-field-mappings.md
     - name: Zoekgegevens
       items:
-        - name: Basisprincipes van query’s
+        - name: Basisprincipes
           href: search-query-overview.md
         - name: Search Explorer (portal)
           href: search-explorer.md
@@ -215,6 +215,10 @@
           href: search-traffic-analytics.md
 - name: Naslaginformatie
   items:
+    - name: Azure-CLI
+      href: 'https://docs.microsoft.com/cli/azure/search?view=azure-cli-latest'
+    - name: Azure PowerShell
+      href: 'https://www.powershellgallery.com/packages/AzureRM.search/0.1.0-preview'
     - name: .NET
       href: /dotnet/api/?term=microsoft.azure.search
     - name: .NET (beheer)
@@ -250,35 +254,27 @@
           href: cognitive-search-skill-shaper.md
 - name: Resources
   items:
+    - name: Ondersteuning van de Azure-community
+      href: 'https://azure.microsoft.com/support/community/?product=search'
+    - name: Azure-roadmap
+      href: 'https://azure.microsoft.com/roadmap/?tag=azure-search'
+    - name: Demosites
+      items:
+        - name: Demo met financiële bestanden
+          href: 'http://wolterskluwereap.azurewebsites.net/'
+        - name: Demo met JFK-bestanden
+          href: 'http://aka.ms/jfkfiles'
+        - name: Vacature-app
+          href: 'http://aka.ms/azjobsdemo'
+        - name: Search Analyzer-demo
+          href: 'http://alice.unearth.ai/'
+        - name: Scenario’s zoeken
+          href: 'https://searchsamples.azurewebsites.net/'
     - name: Veelgestelde vragen
       href: search-faq-frequently-asked-questions.md
     - name: Prijzen
       href: 'https://azure.microsoft.com/pricing/details/search/'
     - name: Service-updates
       href: 'https://azure.microsoft.com/updates/?product=search'
-    - name: Documentatie voor Cognitief zoeken
-      href: cognitive-search-resources-documentation.md
-    - name: Cursusmateriaal en zelfstudie
-      items:
-        - name: Video's en zelfstudies
-          href: search-video-demo-tutorial-list.md
-        - name: Virtuele academie
-          href: 'https://mva.microsoft.com/training-courses/using-windows-azure-search-10540?l=ADkxnd97_9304984382'
-    - name: Demosites
-      items:
-        - name: Search Analyzer-demo
-          href: 'http://alice.unearth.ai/'
-        - name: Live demo-apps
-          href: 'https://searchsamples.azurewebsites.net/'
-        - name: Vacature-app
-          href: 'http://aka.ms/azjobsdemo'
-    - name: Partner en community
-      items:
-        - name: Azure Search MSDN-forum
-          href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=AzureSearch'
-        - name: Stack Overflow
-          href: 'http://stackoverflow.com/questions/tagged/azure-search'
-        - name: 'blog: Relationele gegevens modelleren'
-          href: 'http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx'
-        - name: 'blog: Faceting op meerdere niveaus'
-          href: 'http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx'
+    - name: Video's
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=search'

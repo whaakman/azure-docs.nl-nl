@@ -171,12 +171,13 @@
 #### [Azure AD-deelname plannen](devices/azureadjoin-plan.md)
 #### [Uw implementatie van hybride Azure AD-deelname plannen](devices/hybrid-azuread-join-plan.md)
 #### [De hybride Azure AD-deelname van uw apparaten beheren](devices/hybrid-azuread-join-control.md)
+#### [Lokale beheerders toewijzen aan apparaten die zijn gekoppeld aan Azure AD](devices/assign-local-admin.md)
 #### [Problemen oplossen met apparaten die deel uitmaken van een hybride Azure AD en werken met de huidige versie van Windows](devices/troubleshoot-hybrid-join-windows-current.md)
 #### [Problemen oplossen met apparaten die deel uitmaken van een hybride Azure AD en werken met een oude versie van Windows](devices/troubleshoot-hybrid-join-windows-legacy.md)
 
 ### Concepten
-### [Apparaten beheren met Azure Portal](devices/device-management-azure-portal.md)
-### [Veelgestelde vragen](devices/faq.md)
+#### [Apparaten beheren met Azure Portal](devices/device-management-azure-portal.md)
+#### [Veelgestelde vragen](devices/faq.md)
 
 ## Apps beheren
 ### [Overzicht](manage-apps/what-is-application-management.md)
@@ -403,30 +404,30 @@
 ### [Voorwaardelijke toegang](active-directory-conditional-access-azure-portal.md)
 #### [Aan de slag](active-directory-conditional-access-azure-portal-get-started.md)
 #### Snelstartgidsen
-##### [MFA per cloud-app configureren](active-directory-conditional-access-app-based-mfa.md)
-##### [Vereisen dat de gebruiksvoorwaarden worden geaccepteerd](active-directory-conditional-access-tou.md)
-##### [Toegang blokkeren wanneer er een sessierisico wordt gedetecteerd](active-directory-conditional-access-app-sign-in-risk.md)
+##### [MFA per cloud-app configureren](conditional-access/app-based-mfa.md)
+##### [Vereisen dat de gebruiksvoorwaarden worden geaccepteerd](conditional-access/require-tou.md)
+##### [Toegang blokkeren wanneer er een sessierisico wordt gedetecteerd](conditional-access/app-sign-in-risk.md)
 #### Zelfstudies
-##### [Klassiek MFA-beleid migreren](active-directory-conditional-access-migration-mfa.md)
+##### [Klassiek MFA-beleid migreren](conditional-access/policy-migration-mfa.md)
 #### Concepten
-##### [Basisbescherming](active-directory-conditional-access-baseline-protection.md)
-##### [Voorwaarden](active-directory-conditional-access-conditions.md)
-##### [Locatievoorwaarden](active-directory-conditional-access-locations.md)
-##### [Besturingselementen](active-directory-conditional-access-controls.md)
-##### [Hulpprogramma What-If](active-directory-conditional-access-whatif.md)
+##### [Basisbescherming](conditional-access/baseline-protection.md)
+##### [Voorwaarden](conditional-access/conditions.md)
+##### [Locatievoorwaarden](conditional-access/location-condition.md)
+##### [Besturingselementen](conditional-access/controls.md)
+##### [Hulpprogramma What-If](conditional-access/what-if-tool.md)
 ##### [Inzicht in apparaatbeleidsregels voor Office 365-services](active-directory-conditional-access-device-policies.md)
 #### Handleidingen
-##### [Aanbevolen procedures](active-directory-conditional-access-best-practices.md)
+##### [Aanbevolen procedures](conditional-access/best-practices.md)
 ##### [Beleid voor voorwaardelijke toegang configureren voor toegangspogingen vanuit niet-vertrouwde netwerken](active-directory-conditional-access-untrusted-networks.md)
 ##### [Voorwaardelijke toegang op basis van apparaten instellen](active-directory-conditional-access-policy-connected-applications.md)
 ##### [Voorwaardelijke toegang op basis van apps instellen](active-directory-conditional-access-mam.md)
 ##### [Gebruiksvoorwaarden bieden voor gebruikers en apps](active-directory-tou.md)
-##### [Klassieke beleidsregels migreren](active-directory-conditional-access-migration.md)
+##### [Klassieke beleidsregels migreren](conditional-access/policy-migration.md)
 ##### [VPN-connectiviteit instellen](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [SharePoint en Exchange Online instellen](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Herstel](active-directory-conditional-access-device-remediation.md)
 #### [Technische naslaginformatie](active-directory-conditional-access-technical-reference.md)
-#### [Veelgestelde vragen](active-directory-conditional-faqs.md)
+#### [Veelgestelde vragen](conditional-access/faqs.md)
 
 ### Verificatie op basis van certificaat
 #### [Android](active-directory-certificate-based-authentication-android.md)

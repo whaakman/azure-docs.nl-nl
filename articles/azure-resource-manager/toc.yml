@@ -16,7 +16,6 @@
     - name: Sjablonen maken - Visual Studio
       href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
 - name: Zelfstudies
-  expanded: true
   items:
     - name: Versleuteld opslagaccount maken
       href: resource-manager-tutorial-create-encrypted-storage-accounts.md
@@ -52,10 +51,12 @@
               href: resource-manager-templates-outputs.md
         - name: Gekoppelde en geneste sjablonen
           href: resource-group-linked-templates.md
-        - name: Afhankelijkheid tussen resources definiëren
+        - name: Bronafhankelijkheden
           href: resource-group-define-dependencies.md
         - name: Meerdere exemplaren maken
           href: resource-group-create-multiple.md
+        - name: Resourcegroep maken in sjabloon
+          href: create-resource-group-in-template.md
         - name: Bron bijwerken
           href: /azure/architecture/building-blocks/extending-templates/update-resource
     - name: Implementeren
