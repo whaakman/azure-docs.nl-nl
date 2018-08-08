@@ -8,12 +8,12 @@ ms.service: sql-database
 author: allenwux
 ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: c8b8455dac9aa1a9f7747cada4ce85644162e331
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 2b23f9f2edbec468ecbd1395bd138e1be801c6e5
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445157"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620797"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Aanbevolen procedures voor SQL Data Sync 
 
@@ -219,7 +219,6 @@ Zie voor meer informatie over SQL Data Sync:
 -   Voer PowerShell-voorbeelden uit die laten zien hoe u SQL Data Sync configureert:  
     -   [PowerShell gebruiken om meerdere Azure SQL-databases te synchroniseren](scripts/sql-database-sync-data-between-sql-databases.md)  
     -   [PowerShell gebruiken om te synchroniseren tussen een Azure SQL-database en een on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)  
--   [De documentatie over de REST-API van SQL Data Sync downloaden](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)  
 
 Zie voor meer informatie over SQL Database:
 

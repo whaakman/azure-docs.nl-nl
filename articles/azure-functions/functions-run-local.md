@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: glenga
-ms.openlocfilehash: c7be9079da6be8d9d7f25b910ab07e905e8ac449
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 57011e1f7633688e00a4639ba36fd4442073161d
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126211"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618611"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -33,9 +33,9 @@ Er zijn twee versies van Azure Functions Core Tools. De versie die u gebruikt, i
 
 + [Versie 1.x](#v1): biedt ondersteuning voor versie 1.x van de runtime, die algemeen beschikbaar (GA). Deze versie van de hulpprogramma's wordt alleen ondersteund op Windows-computers en wordt geïnstalleerd vanuit een [npm-pakket](https://docs.npmjs.com/getting-started/what-is-npm). Met deze versie kunt u functies maken in de experimentele talen die officieel niet worden ondersteund. Zie voor meer informatie, [ondersteunde talen in Azure Functions](supported-languages.md)
 
-+ [Versie 2.x](#v2): biedt ondersteuning voor versie 2.x van de runtime. Deze versie biedt ondersteuning voor [Windows](#windows-npm), [macOS](#brew), en [Linux](#linux). Maakt gebruik van platform-specifieke pakketmanagers of npm voor installatie. Als de runtime 2.x is deze versie van de essentiële hulpprogramma momenteel in preview.
++ [Versie 2.x](#v2): biedt ondersteuning voor [versie 2.x van de runtime](functions-versions.md). Deze versie biedt ondersteuning voor [Windows](#windows-npm), [macOS](#brew), en [Linux](#linux). Maakt gebruik van platform-specifieke pakketmanagers of npm voor installatie. Als de runtime 2.x is deze versie van de essentiële hulpprogramma momenteel in preview. 
 
-Tenzij anders vermeld, de voorbeelden in dit artikel zijn voor versie 2.x.
+Tenzij anders vermeld, de voorbeelden in dit artikel zijn voor versie 2.x. Voor het ontvangen van belangrijke updates op versie 2.x, met inbegrip van belangrijke wijzigingen aankondigingen, bekijk de [Azure App Service-aankondigingen](https://github.com/Azure/app-service-announcements/issues) opslagplaats.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions Core Tools installeren
 

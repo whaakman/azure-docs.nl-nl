@@ -1,26 +1,21 @@
 ---
-title: Wat is Apache Hive en HiveQL - Azure HDInsight | Microsoft Docs
+title: Wat is Apache Hive en HiveQL - Azure HDInsight
 description: Apache Hive is een systeem voor het datawarehouse van gegevens voor Hadoop. U kunt gegevens die zijn opgeslagen in Hive HiveQL, met een query die vergelijkbaar met de Transact-SQL. In dit document leert u hoe u Hive en HiveQL gebruiken met Azure HDInsight.
 keywords: hiveql, wat hive, hadoop hiveql, is het gebruik van hive, hive, wat is er hive meer
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 2c10f989-7636-41bf-b7f7-c4b67ec0814f
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: larryfr
-ms.openlocfilehash: e418411cc6b681e304cc1ba66f0c815ad0d4db64
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 0ca968c0412396852e531af3b37f6675e0b519db
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34069706"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39596657"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Wat is Apache Hive en HiveQL op Azure HDInsight?
 
@@ -77,7 +72,7 @@ STORED AS TEXTFILE LOCATION '/example/data/';
 
 Hive biedt ook ondersteuning voor aangepaste **serializer/deserializers (serde-schrijfbewerking)** voor complexe of onregelmatig gestructureerde gegevens. Zie voor meer informatie de [over het gebruik van een aangepaste JSON serde-schrijfbewerking met HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight.aspx) document.
 
-Zie voor meer informatie over ondersteunde bestandsindelingen in Hive, de [handmatige (taalhttps://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
+Zie voor meer informatie over ondersteunde bestandsindelingen in Hive, de [handmatige (taal https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 
 ### <a name="hive-internal-tables-vs-external-tables"></a>Hive-interne tabellen vs externe tabellen
 

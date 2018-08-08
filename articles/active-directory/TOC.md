@@ -401,10 +401,10 @@
 ### [Resultaten van de toegangsbeoordeling ophalen](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Uw identiteiten beveiligen
-### [Voorwaardelijke toegang](active-directory-conditional-access-azure-portal.md)
-#### [Aan de slag](active-directory-conditional-access-azure-portal-get-started.md)
+### Voorwaardelijke toegang
+#### [Overzicht](conditional-access/overview.md)
 #### Snelstartgidsen
-##### [MFA per cloud-app configureren](conditional-access/app-based-mfa.md)
+##### [Meervoudige verificatie vereisen voor specifieke apps](conditional-access/app-based-mfa.md)
 ##### [Vereisen dat de gebruiksvoorwaarden worden geaccepteerd](conditional-access/require-tou.md)
 ##### [Toegang blokkeren wanneer er een sessierisico wordt gedetecteerd](conditional-access/app-sign-in-risk.md)
 #### Zelfstudies
@@ -418,15 +418,16 @@
 ##### [Inzicht in apparaatbeleidsregels voor Office 365-services](active-directory-conditional-access-device-policies.md)
 #### Handleidingen
 ##### [Aanbevolen procedures](conditional-access/best-practices.md)
-##### [Beleid voor voorwaardelijke toegang configureren voor toegangspogingen vanuit niet-vertrouwde netwerken](active-directory-conditional-access-untrusted-networks.md)
-##### [Voorwaardelijke toegang op basis van apparaten instellen](active-directory-conditional-access-policy-connected-applications.md)
-##### [Voorwaardelijke toegang op basis van apps instellen](active-directory-conditional-access-mam.md)
-##### [Gebruiksvoorwaarden bieden voor gebruikers en apps](active-directory-tou.md)
+##### [Meervoudige verificatie vereisen voor toegangspogingen vanaf niet-vertrouwde netwerken](conditional-access/untrusted-networks.md)
+##### [Beheerde apparaten vereisen](conditional-access/require-managed-devices.md)
+##### [Goedgekeurde client-apps vereisen](conditional-access/app-based-conditional-access.md)
+##### [Gebruiksvoorwaarden vereisen voor gebruikers en apps](active-directory-tou.md)
 ##### [Klassieke beleidsregels migreren](conditional-access/policy-migration.md)
 ##### [VPN-connectiviteit instellen](https://docs.microsoft.com/windows-server/remote/remote-access/vpn/always-on-vpn/deploy/always-on-vpn-deploy)
 ##### [SharePoint en Exchange Online instellen](active-directory-conditional-access-no-modern-authentication.md)
 ##### [Herstel](active-directory-conditional-access-device-remediation.md)
-#### [Technische naslaginformatie](active-directory-conditional-access-technical-reference.md)
+#### [Naslaginformatie](conditional-access/technical-reference.md)
+##### [Technische naslaginformatie](conditional-access/technical-reference.md)
 #### [Veelgestelde vragen](conditional-access/faqs.md)
 
 ### Verificatie op basis van certificaat

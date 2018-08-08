@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 2b6c4b3598013baaf3277cb7810edc009df27ce2
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 6374fcf1477d56b9803b63476f3fef38fc12def1
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238417"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39618893"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB-server-side-programmering: opgeslagen procedures, databasetriggers en UDF's
 
@@ -394,7 +394,7 @@ client.replaceDocumentAsync(docToReplace.self,
 Na triggers, zoals pre triggers zijn gekoppeld aan een bewerking op een document en geen duren voordat alle invoerparameters die zijn opgegeven. Ze worden uitgevoerd **nadat** de bewerking is voltooid en toegang hebben tot het antwoordbericht dat wordt verzonden naar de client.   
 
 Het volgende voorbeeld ziet u na triggers in actie:
-```
+```javascript
 var updateMetadataTrigger = {
     id: "updateMetadata",
     serverScript: function updateMetadata() {
@@ -434,7 +434,7 @@ var updateMetadataTrigger = {
 
 ```
 De trigger kan worden geregistreerd, zoals wordt weergegeven in het volgende voorbeeld.
-```
+```javascript
 // register post-trigger
 client.createTriggerAsync('dbs/testdb/colls/testColl', updateMetadataTrigger)
     .then(function(createdTrigger) { 
@@ -844,4 +844,3 @@ Ook kan nuttig voor u de volgende verwijzingen en resources in het pad voor meer
 * [Veilige en draagbare Database uitbreidbaarheid](http://dl.acm.org/citation.cfm?id=276339) 
 * [Service Oriented Architecture voor Database](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 * [De .NET Runtime in Microsoft SQL server die als host fungeert](http://dl.acm.org/citation.cfm?id=1007669)
-
