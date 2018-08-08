@@ -103,9 +103,9 @@
     - name: Mobiele en desktop-SSO
       items:
         - name: SSO inschakelen in Android
-          href: howto-v1-enable-sso-on-android.md
+          href: howto-v1-enable-sso-android.md
         - name: SSO inschakelen in iOS
-          href: howto-v1-enable-sso-on-ios.md
+          href: howto-v1-enable-sso-ios.md
     - name: Azure AD B2B
       href: ../active-directory-b2b-what-is-azure-ad-b2b.md
     - name: Gebruikers inrichten met SCIM
@@ -116,9 +116,9 @@
         - name: Aan de slag met AAD Graph
           href: active-directory-graph-api-quickstart.md
     - name: AppSource-certificering
-      href: active-directory-devhowto-appsource-certified.md
+      href: howto-get-appsource-certified.md
     - name: Azure AD-app-galerie
-      href: active-directory-app-gallery-listing.md
+      href: howto-app-gallery-listing.md
     - name: Office 365-verkopersdashboard
       href: 'https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard'
     - name: Werken met Visual Studio
@@ -150,7 +150,7 @@
     - name: Codevoorbeelden per scenario
       href: sample-v1-code.md
     - name: Woordenlijst
-      href: active-directory-dev-glossary.md
+      href: developer-glossary.md
     - name: Verificatieprotocollen
       href: active-directory-authentication-protocols.md
       items:
@@ -178,7 +178,7 @@
         - name: Apps en Azure AD
           href: active-directory-how-applications-are-added.md
     - name: Manifest van de toepassing
-      href: active-directory-application-manifest.md
+      href: reference-app-manifest.md
     - name: Levensduur van tokens
       href: ../active-directory-configurable-token-lifetimes.md
     - name: Servicelimieten
@@ -189,7 +189,7 @@
       href: active-directory-appmodel-v2-overview.md
       items:
         - name: App-typen
-          href: active-directory-v2-flows.md
+          href: v2-app-types.md
         - name: Beperkingen
           href: active-directory-v2-limitations.md
         - name: Vergelijking van v1-v2
@@ -239,7 +239,7 @@
     - name: Naslaginformatie
       items:
         - name: Verificatiebibliotheken
-          href: active-directory-v2-libraries.md
+          href: reference-v2-libraries.md
         - name: v2.0-codevoorbeelden per scenario
           href: sample-v2-code.md
         - name: v2.0-verificatieprotocollen
@@ -266,7 +266,7 @@
 - name: Resources
   items:
     - name: Ondersteuning vragen
-      href: active-directory-develop-help-support.md
+      href: developer-support-help-options.md
     - name: Azure-roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: Prijscalculator

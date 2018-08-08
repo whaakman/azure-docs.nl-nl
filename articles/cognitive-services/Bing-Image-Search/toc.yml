@@ -47,8 +47,6 @@
       href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search'
 - name: Handleidingen
   items:
-    - name: Vereisten voor gebruik en weergave
-      href: UseAndDisplayRequirements.md
     - name: Afbeeldingsinzichten krijgen
       href: image-insights.md
     - name: GIF-afbeeldingen ophalen
@@ -91,5 +89,7 @@
       href: image-search-endpoint.md
     - name: Ondersteunde landen en markten
       href: supported-countries-markets.md
+    - name: Vereisten voor gebruik en weergave
+      href: UseAndDisplayRequirements.md
     - name: Analytische gegevens voor Bing Afbeeldingen zoeken-API
       href: bing-image-stats.md

@@ -1,4 +1,10 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 22994d46cff55d82738e8fc7ff7d65b027e65e0b
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39617034"
 documentType: LandingData
 title: Documentatie voor App Service op Linux
 metadata:
@@ -14,12 +20,6 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/05/2017
   ms.author: cfowler
-  ms.openlocfilehash: 7113b3fce7d9263d3292bf3cb245ec07b7d2831f
-  ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
-  ms.translationtype: HT
-  ms.contentlocale: nl-NL
-  ms.lasthandoff: 07/20/2018
-  ms.locfileid: "39172599"
 sections:
 - title: QuickStarts van vijf minuten
   items:
@@ -98,10 +98,10 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Een toepassing maken met behulp van <a href="azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core met Azure SQL DB</a> of <a href="azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js met MongoDB</a>
-    - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-domain">Een bestaand aangepast domein toewijzen aan uw toepassing</a>
-    - html: <a href="/azure/app-service-web/app-service-web-tutorial-custom-SSL">Een bestaand SSL-certificaat binden aan uw toepassing</a>
-    - html: <a href="/azure/app-service-web/app-service-web-tutorial-content-delivery-network">Een CDN toevoegen aan uw toepassing</a>
+    - html: Een toepassing maken met behulp van <a href="/azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core met Azure SQL DB</a> of <a href="/azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js met MongoDB</a>
+    - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Een bestaand aangepast domein toewijzen aan uw toepassing</a>
+    - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Een bestaand SSL-certificaat binden aan uw toepassing</a>
+    - html: <a href="/azure/cdn/cdn-add-to-web-app">Een CDN toevoegen aan uw toepassing</a>
 - title: Voorbeelden
   items:
   - type: paragraph
