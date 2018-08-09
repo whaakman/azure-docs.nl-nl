@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a760e66d40d7af7178ec9a2d5fc14afec2a55b10
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 25f7cf6de4f217219e510ae00ce21762e755d2e8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115394"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627403"
 ---
 # <a name="durable-functions-overview"></a>Overzicht van duurzame functies
 
@@ -44,7 +44,7 @@ De primaire use-case voor duurzame functies is coördinatie van complexe, statef
 
 Duurzame functies kunt u dit patroon beknopte in code te implementeren.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C#-script
 
 ```cs
 public static async Task<object> Run(DurableOrchestrationContext ctx)
@@ -62,6 +62,8 @@ public static async Task<object> Run(DurableOrchestrationContext ctx)
     }
 }
 ```
+> [!NOTE]
+> Er zijn subtiele verschillen tijdens het schrijven van een vooraf gecompileerde duurzame functie in C# Visual Studio het C#-script voorbeeld weergegeven voordat. Een vooraf geschreven voor C#-functie vereist duurzame parameters om te worden voorzien van de bijbehorende kenmerken. Een voorbeeld is `[OrchestrationTrigger]` voor het kenmerk `DurableOrchestrationContext` parameter. Als de parameters niet correct voorzien zijn, wordt de runtime zou niet mogelijk om toe te voegen van de variabelen voor de functie en fout krijgt. Ga naar [voorbeeld](https://github.com/Azure/azure-functions-durable-extension/blob/master/samples) voor meer voorbeelden.
 
 #### <a name="javascript-functions-v2-only"></a>JavaScript (alleen functies v2)
 
@@ -88,7 +90,7 @@ De `ctx` parameter ([DurableOrchestrationContext](https://azure.github.io/azure-
 
 Met normale functions kan airconditioningapparatuur uit worden gedaan door de functie meerdere berichten verzenden naar een wachtrij. Terug in airconditioningapparatuur is echter veel moeilijker. U moet code schrijven om te controleren wanneer de wachtrij-geactiveerde functies beëindigen en functie-uitvoer opslaan. De extensie duurzame functies verwerkt dit patroon met relatief eenvoudige code.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C#-script
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -203,7 +205,7 @@ Een voorbeeld zou het eerdere scenario van asynchrone HTTP-API worden omgekeerd.
 
 Duurzame functies gebruikt, kunnen meerdere beeldschermen houden van willekeurige eindpunten worden gemaakt in een paar regels code. De monitors uitvoering kunnen beëindigen wanneer bepaalde voorwaarde wordt voldaan, of worden afgesloten met de [DurableOrchestrationClient](durable-functions-instance-management.md), en hun wachtinterval kan worden gewijzigd op basis van bepaalde voorwaarde (dat wil zeggen exponentieel uitstel.) De volgende code wordt een eenvoudige monitor geïmplementeerd.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C#-script
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -271,7 +273,7 @@ Een voorbeeld van een bedrijfsproces dat betrekking heeft op menselijke tussenko
 
 Dit patroon kan worden geïmplementeerd met behulp van een orchestrator-functie. De orchestrator gebruikt een [duurzame timer](durable-functions-timers.md) goedkeuring aanvragen en in het geval van time-out escaleren. Het zou wachten op een [externe gebeurtenis](durable-functions-external-events.md), die de melding die worden gegenereerd door sommige menselijke tussenkomst zou zijn.
 
-#### <a name="c"></a>C#
+#### <a name="c-script"></a>C#-script
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)

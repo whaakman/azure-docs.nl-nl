@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: f139f9520b6bcb5f39fd4436a1ea2eee6fddf344
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d093aa6119b5ab316e5ffba77806e10cd067b032
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618968"
+ms.locfileid: "39626808"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory bewijs van concept playbook: bouwstenen
 
@@ -159,7 +159,7 @@ Geschatte tijd om te voltooien: 60 minuten
 | Wacht een paar minuten tijdens het inrichten is voltooid.  In de tussentijd kunt kunt u de inrichtingsrapporten controleren |  |
 | Meld u aan bij https://myapps.microsoft.com/ als een testgebruiker die toegang heeft | [Wat is het toegangsvenster?](user-help/active-directory-saas-access-panel-introduction.md) |
 | Klik op de tegel voor de toepassing die zojuist is gemaakt. Toegang bevestigen |  |
-| Eventueel kunt u de toepassing gebruiksrapporten controleren. Let op: Er is enige vertraging, daarom moet u wachten tot enige tijd om te zien van het verkeer in de rapporten. | [Rapporten van aanmeldingsactiviteiten in de Azure Active Directory-portal: gebruik van beheerde toepassingen](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](active-directory-reporting-retention.md) (Retentiebeleid voor Azure Active Directory-rapporten) |
+| Eventueel kunt u de toepassing gebruiksrapporten controleren. Let op: Er is enige vertraging, daarom moet u wachten tot enige tijd om te zien van het verkeer in de rapporten. | [Rapporten van aanmeldingsactiviteiten in de Azure Active Directory-portal: gebruik van beheerde toepassingen](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](reports-monitoring/reference-reports-data-retention.md) (Retentiebeleid voor Azure Active Directory-rapporten) |
 
 ### <a name="considerations"></a>Overwegingen
 
@@ -191,7 +191,7 @@ Geschatte tijd om te voltooien: 15 minuten
 | Klik op de tegel voor de toepassing die zojuist is gemaakt. | [Wat is het toegangsvenster?: wachtwoord gebaseerde SSO zonder in te richten van identiteit](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Geef de referentie van toepassingen | [Wat is het toegangsvenster?: wachtwoord gebaseerde SSO zonder in te richten van identiteit](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
 | Sluit de browser en herhaalt u de aanmelding. De gebruiker ziet dit keer ongeveer naadloze toegang tot de toepassing. |  |
-| Eventueel kunt u de toepassing gebruiksrapporten controleren. Let op: Er is enige vertraging, daarom moet u wachten tot enige tijd om te zien van het verkeer in de rapporten. | [Rapporten van aanmeldingsactiviteiten in de Azure Active Directory-portal: gebruik van beheerde toepassingen](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](active-directory-reporting-retention.md) (Retentiebeleid voor Azure Active Directory-rapporten) |
+| Eventueel kunt u de toepassing gebruiksrapporten controleren. Let op: Er is enige vertraging, daarom moet u wachten tot enige tijd om te zien van het verkeer in de rapporten. | [Rapporten van aanmeldingsactiviteiten in de Azure Active Directory-portal: gebruik van beheerde toepassingen](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](reports-monitoring/reference-reports-data-retention.md) (Retentiebeleid voor Azure Active Directory-rapporten) |
 
 ### <a name="considerations"></a>Overwegingen
 
@@ -223,7 +223,7 @@ Geschatte tijd om te voltooien: 30 minuten
 | Configureren van SSO-wachtwoord | [Beheren van eenmalige aanmelding voor zakelijke apps in de nieuwe Azure portal: wachtwoord gebaseerde aanmelding](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
 | De app toewijzen aan de groep die is geïdentificeerd in de vereisten bij het toewijzen van referenties | [Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Aanmelden als andere gebruikers toegang tot de app als de **hetzelfde gedeelde account.**  |  |
-| Eventueel kunt u de toepassing gebruiksrapporten controleren. Let op: Er is enige vertraging, daarom moet u wachten tot enige tijd om te zien van het verkeer in de rapporten. | [Rapporten van aanmeldingsactiviteiten in de Azure Active Directory-portal: gebruik van beheerde toepassingen](active-directory-reporting-activity-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](active-directory-reporting-retention.md) (Retentiebeleid voor Azure Active Directory-rapporten) |
+| Eventueel kunt u de toepassing gebruiksrapporten controleren. Let op: Er is enige vertraging, daarom moet u wachten tot enige tijd om te zien van het verkeer in de rapporten. | [Rapporten van aanmeldingsactiviteiten in de Azure Active Directory-portal: gebruik van beheerde toepassingen](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](reports-monitoring/reference-reports-data-retention.md) (Retentiebeleid voor Azure Active Directory-rapporten) |
 
 
 ### <a name="considerations"></a>Overwegingen
@@ -500,17 +500,17 @@ Geschatte tijd om te voltooien: 20 minuten
 | Vereiste | Resources |
 | --- | --- |
 | Apparaat met Tor browser gedownload en geïnstalleerd | [Tor Browser downloaden](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Toegang tot POC gebruiker de aanmelding | [Playbook voor Azure Active Directory Identity Protection](active-directory-identityprotection-playbook.md) |
+| Toegang tot POC gebruiker de aanmelding | [Playbook voor Azure Active Directory Identity Protection](identity-protection/playbook.md) |
 
 ### <a name="steps"></a>Stappen
 
 | Stap | Resources |
 | --- | --- |
 | Open tor-browser | [Tor Browser downloaden](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
-| Meld u aan bij https://myapps.microsoft.com met de POC-gebruikersaccount | [Azure Active Directory Identity Protection-playbook: Risicogebeurtenissen simuleren](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Meld u aan bij https://myapps.microsoft.com met de POC-gebruikersaccount | [Azure Active Directory Identity Protection-playbook: Risicogebeurtenissen simuleren](identity-protection/playbook.md#simulating-risk-events) |
 | Wacht 5-7 minuten |  |
 | Meld u aan als een globale beheerder zijn om https://portal.azure.com en open de blade Identity Protection | https://aka.ms/aadipgetstarted |
-| Open de blade van de gebeurtenissen risico. Ziet u een item onder 'Aanmeldingen vanaf anonieme IP-adressen'  | [Azure Active Directory Identity Protection-playbook: Risicogebeurtenissen simuleren](active-directory-identityprotection-playbook.md#simulating-risk-events) |
+| Open de blade van de gebeurtenissen risico. Ziet u een item onder 'Aanmeldingen vanaf anonieme IP-adressen'  | [Azure Active Directory Identity Protection-playbook: Risicogebeurtenissen simuleren](identity-protection/playbook.md#simulating-risk-events) |
 
 ### <a name="considerations"></a>Overwegingen
 
@@ -534,14 +534,14 @@ Geschatte tijd om te voltooien: 10 minuten
 | Stap | Resources |
 | --- | --- |
 | Meld u aan als een globale beheerder zijn om https://portal.azure.com en open de blade Identity Protection | https://aka.ms/aadipgetstarted |
-| Een beleid voor aanmeldingsrisico als volgt inschakelen:<br/>-Toegewezen aan: POC-gebruiker<br/>-Voorwaarden: Aanmeldingsrisico middelgrote of hoger (aanmelding van de anonieme locatie als wordt beschouwd als een gemiddeld risico-niveau)<br/>-Besturingselementen: MFA vereisen | [Azure Active Directory Identity Protection-playbook: aanmeldingsrisico](active-directory-identityprotection-playbook.md) |
+| Een beleid voor aanmeldingsrisico als volgt inschakelen:<br/>-Toegewezen aan: POC-gebruiker<br/>-Voorwaarden: Aanmeldingsrisico middelgrote of hoger (aanmelding van de anonieme locatie als wordt beschouwd als een gemiddeld risico-niveau)<br/>-Besturingselementen: MFA vereisen | [Azure Active Directory Identity Protection-playbook: aanmeldingsrisico](identity-protection/playbook.md) |
 | Open tor-browser | [Tor Browser downloaden](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Meld u aan bij https://myapps.microsoft.com met de PoC-gebruikersaccount |  |
-| U ziet dat de MFA-controle | [Aanmelden-ervaringen met Azure AD Identity Protection: riskante aanmelding herstel](active-directory-identityprotection-flows.md#risky-sign-in-recovery)
+| U ziet dat de MFA-controle | [Aanmelden-ervaringen met Azure AD Identity Protection: riskante aanmelding herstel](identity-protection/flows.md#risky-sign-in-recovery)
 
 ### <a name="considerations"></a>Overwegingen
 
-Deze mogelijkheid is onderdeel van Azure AD Premium P2 en/of EMS E5. Voor meer informatie over risicogebeurtenissen gaat u naar: [risicogebeurtenissen in Azure Active Directory](active-directory-reporting-risk-events.md)
+Deze mogelijkheid is onderdeel van Azure AD Premium P2 en/of EMS E5. Voor meer informatie over risicogebeurtenissen gaat u naar: [risicogebeurtenissen in Azure Active Directory](reports-monitoring/concept-risk-events.md)
 
 ## <a name="configuring-certificate-based-authentication"></a>Verificatie op basis van certificaten configureren
 

@@ -1,26 +1,26 @@
 ---
 title: Een Azure Time Series Insights-omgeving maken | Microsoft Docs
-description: In dit artikel wordt beschreven hoe de Azure portal gebruiken om een nieuwe Time Series Insights-omgeving te maken.
+description: In dit artikel wordt beschreven hoe u Azure portal gebruiken om een nieuwe Time Series Insights-omgeving te maken.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
 ms.author: anshan
-manager: jhubbard
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: ef5c194aa462a83cd982adab0a818f0aa095ffa0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 909d8a921e46f0f935bb8a059714b1c0170ddee4
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654433"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627658"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Een nieuwe Time Series Insights-omgeving maken in Azure Portal
-Dit artikel wordt beschreven hoe u een nieuwe Time Series Insights-omgeving met de Azure portal maakt.
+In dit artikel wordt beschreven hoe u een nieuwe Time Series Insights-omgeving maken met de Azure-portal.
 
-Time Series Insights kunt u aan de slag te visualiseren en opvragen van gegevens die binnenkomen in Azure IoT Hubs en Event Hubs in minuten, zodat u grote hoeveelheden reeksgegevens query in seconden.  Het is ontworpen voor de schaal van internet der dingen (IoT) en terabytes aan gegevens kan verwerken.
+Time Series Insights kunt u aan de slag te visualiseren en opvragen van gegevens die binnenkomen via Azure IoT Hubs en Event Hubs in minuten, zodat u grote volumes van de query van time series-gegevens in een paar seconden.  Het is ontworpen voor de schaal van internet of things (IoT) en terabytes aan gegevens kunt verwerken.
 
 ## <a name="steps-to-create-the-environment"></a>Stappen voor het maken van de omgeving
 Volg deze stappen voor het maken van een omgeving:
@@ -29,39 +29,39 @@ Volg deze stappen voor het maken van een omgeving:
 
 2.  Selecteer de **+ nieuw** knop.
 
-3.  Selecteer de **Internet der dingen** categorie en selecteer **Time Series Insights**.
+3.  Selecteer de **Internet of Things** categorie en selecteer **Time Series Insights**.
 
    ![De Time Series Insights-omgeving maken](media/time-series-insights-get-started/1-new-tsi.png)
 
-4.  Op de **Time Series Insights** pagina **maken**.
+4.  Op de **Time Series Insights** weergeeft, schakelt **maken**.
 
-5. Vul de vereiste parameters. De volgende tabel bevat uitleg over elke parameter:
+5. Vul de vereiste parameters. De volgende tabel beschrijft elke parameter:
    
    ![De Time Series Insights-resourcegroep maken](media/time-series-insights-get-started/2-create-tsi.png)
    
    Instelling|Voorgestelde waarde|Beschrijving
    ---|---|---
    Naam van de omgeving | Een unieke naam | Deze naam vertegenwoordigt de omgeving in [time series explorer](https://insights.timeseries.azure.com)
-   Abonnement | Uw abonnement | Als u meerdere abonnementen hebt, kiest u het abonnement dat bij voorkeur de gebeurtenisbron bevat. Time Series Insights kan Azure IoT Hub- en Event Hub-resources die in hetzelfde abonnement aanwezig zijn, automatisch detecteren.
-   Resourcegroep | Maak een nieuwe of bestaande gebruiken | Een resourcegroep is een verzameling Azure-resources die samen worden gebruikt. U kunt een bestaande resourcegroep, bijvoorbeeld de database met uw Event Hub of IoT Hub. Of u kunt een nieuwe maken als deze resource is niet gerelateerd aan de andere bronnen.
-   Locatie | Dichtstbijzijnde uw gebeurtenisbron | Kies bij voorkeur dezelfde data center locatie met de brongegevens gebeurtenis in de poging om te voorkomen dat toegevoegd regio-overschrijdende en cross-zone bandbreedtekosten en latentie toegevoegd bij het verplaatsen van gegevens buiten de regio.
-   Prijscategorie | S1 | Kies de doorvoer die nodig zijn. Selecteer voor de laagste kosten en starter capaciteit, S1.
-   Capaciteit | 1 | De capaciteit is dat de vermenigvuldigingsfactor van toepassing is op de snelheid van inkomende, opslagcapaciteit en kosten die zijn gekoppeld aan de geselecteerde SKU.  U kunt de capaciteit van een omgeving wijzigen nadat deze is gemaakt. Voor de laagste kosten, selecteert u een capaciteit van 1. 
+   Abonnement | Uw abonnement | Als u meerdere abonnementen hebt, kiest u het abonnement dat bij voorkeur uw gebeurtenisbron bevat. Time Series Insights kan Azure IoT Hub- en Event Hub-resources die in hetzelfde abonnement aanwezig zijn, automatisch detecteren.
+   Resourcegroep | Maak een nieuwe of bestaande gebruiken | Een resourcegroep is een verzameling Azure-resources die samen worden gebruikt. U kunt een bestaande resourcegroep, bijvoorbeeld de map die met uw Event Hub of IoT-Hub. Of u kunt een nieuwe maken als deze resource is niet gerelateerd aan de andere resources.
+   Locatie | Dichtst bij uw gebeurtenisbron | Kies bij voorkeur de dezelfde datacenterlocatie waarin uw gebeurtenisgegevens bron in inspanningen om te voorkomen dat regio-overschrijdende en zoneoverschrijdende bandbreedtekosten toegevoegd en latentie toegevoegd bij het verplaatsen van gegevens buiten de regio.
+   Prijscategorie | S1 | Kies de benodigde doorvoer. Selecteer voor de laagste kosten en starter capaciteit, S1.
+   Capaciteit | 1 | Capaciteit is dat de vermenigvuldiger is van toepassing op de gegevens, capaciteit en kosten die gepaard gaan met de geselecteerde SKU.  U kunt de capaciteit van een omgeving wijzigen nadat deze is gemaakt. Voor de laagste kosten, selecteert u een capaciteit van 1. 
   
-6. Controleer **vastmaken aan dashboard** beste eenvoudig toegang tot uw Time Series-omgeving in de toekomst.
+6. Controleer **vastmaken aan dashboard** meest eenvoudige toegang tot uw Time Series-omgeving in de toekomst.
 
    ![Time Series Insights vastmaken aan het dashboard](media/time-series-insights-get-started/3-pin-create.png)
 
 7. Selecteer **maken** om te beginnen met het inrichtingsproces. Het kan enkele minuten duren.
 
-8. Selecteer voor het controleren van het implementatieproces de **meldingen** symbool (belpictogram).
+8. Voor het controleren van het implementatieproces, selecteer de **meldingen** symbool (belpictogram).
 
-   ![Bekijk de meldingen](media/time-series-insights-get-started/4-notifications.png)
+   ![De meldingen bekijken](media/time-series-insights-get-started/4-notifications.png)
 
-Als de implementatie is geslaagd, kunt u **gaat u naar de resource** voor het configureren van andere eigenschappen instellen van de beveiliging met gegevenstoegangsbeleid, het toevoegen van bronnen van gebeurtenissen en andere acties.
+Wanneer de implementatie is gelukt, kunt u selecteren **naar de resource gaan** voor het configureren van andere eigenschappen, instellen van beveiliging met beleid voor gegevenstoegang, bronnen van gebeurtenissen en andere acties toevoegen.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Definieer gegevenstoegangsbeleid](time-series-insights-data-access.md) voor het beveiligen van uw omgeving.
-* [Toevoegen van een Event Hub gebeurtenisbron](time-series-insights-how-to-add-an-event-source-eventhub.md) aan uw Azure Time Series Insights-omgeving. 
-* [Verzenden van gebeurtenissen](time-series-insights-send-events.md) aan de gebeurtenisbron-.
-* Weergeven van uw omgeving in [Time Series Insights explorer](https://insights.timeseries.azure.com).
+* [Gegevenstoegangsbeleid definiëren](time-series-insights-data-access.md) voor het beveiligen van uw omgeving.
+* [Toevoegen van een Event Hub-gebeurtenisbron](time-series-insights-how-to-add-an-event-source-eventhub.md) aan uw Azure Time Series Insights-omgeving. 
+* [Gebeurtenissen verzenden](time-series-insights-send-events.md) naar de gebeurtenisbron.
+* Uw omgeving bekijken in [Verkenner van Time Series Insights](https://insights.timeseries.azure.com).

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Cosmos DB: .NET wijziging Feed Processor API, SDK en resources | Microsoft Docs'
-description: Meer informatie over de wijziging Feed Processor API en de SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de Feed Processor SDK voor .NET wijzigen.
+title: 'Azure Cosmos DB: .NET Change Feed Processor-API, SDK en resources | Microsoft Docs'
+description: Meer informatie over de Change Feed Processor-API en SDK, inclusief release datums, buiten gebruik stellen datums en wijzigingen die zijn aangebracht tussen elke versie van de .NET Change Feed Processor-SDK.
 services: cosmos-db
 author: ealsur
 manager: kfile
@@ -10,17 +10,17 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/21/2018
 ms.author: maquaran
-ms.openlocfilehash: f47b847b3a356540e5f366235713b8f99aea3404
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: e8a8edd22fe66df12e9e7327a25e82aa5f07bd1b
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113714"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627624"
 ---
-# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET wijziging Feed Processor SDK: Downloaden en release-opmerkingen
+# <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET change Feed Processor SDK: Downloaden en opmerkingen bij de release
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
-> * [.NET-Feed van wijzigen](sql-api-sdk-dotnet-changefeed.md)
+> * [.NET-Wijzigingenfeed](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
@@ -35,90 +35,93 @@ ms.locfileid: "37113714"
 |   |   |
 |---|---|
 |**SDK downloaden**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
-|**API-documentatie**|[API-naslagdocumentatie voor Processor Feed bibliotheek wijzigen](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Aan de slag**|[Aan de slag met de .NET SDK wijziging Feed-Processor](change-feed.md)|
+|**API-documentatie**|[Wijzigen van de Feed Processor-bibliotheek API-referentiedocumentatie](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
+|**Aan de slag**|[Aan de slag met de Change Feed Processor .NET SDK](change-feed.md)|
 |**Huidige ondersteunde framework**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Releaseopmerkingen
 
 ### <a name="v2-builds"></a>v2-builds
 
+### <a name="a-name205205"></a><a name="2.0.5"/>2.0.5
+* Vaste een zeldzame situatie die wordt uitgevoerd tijdens het splitsen van de partitie. De racevoorwaarde kan leiden tot lease verkrijgen en onmiddellijk het verloren gaan tijdens het splitsen van de partitie en conflicten veroorzaakt. De race voorwaarde probleem is opgelost met deze release.
+
 ### <a name="a-name204204"></a><a name="2.0.4"/>2.0.4
-* GA SDK
+* GA-SDK
 
 ### <a name="a-name203-prerelease203-prerelease"></a><a name="2.0.3-prerelease"/>2.0.3-prerelease
 * De volgende problemen zijn verholpen:
-  * Als partitie gesplitste gebeurt, kan er dubbele verwerking van documenten die zijn gewijzigd voor het splitsen.
-  * De API GetEstimatedRemainingWork geretourneerd 0 als er geen leases aanwezig in de verzameling lease zijn.
+  * Als partition split gebeurt, kan er dubbele verwerking van documenten die zijn gewijzigd vóór de splitsing.
+  * De API GetEstimatedRemainingWork heeft 0 geretourneerd als er geen leases aanwezig in de leaseverzameling zijn.
 
-* De volgende uitzonderingen zijn openbaar gemaakt. Uitbreidingen die IPartitionProcessor implementeren kunnen deze uitzonderingen genereert.
+* De volgende uitzonderingen worden openbaar gemaakt. Extensies die IPartitionProcessor implementeren, kunnen deze uitzonderingen genereren.
   * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.LeaseLostException. 
   * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionException. 
   * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionNotFoundException.
   * Microsoft.Azure.Documents.ChangeFeedProcessor.Exceptions.PartitionSplitException. 
 
 ### <a name="a-name202-prerelease202-prerelease"></a><a name="2.0.2-prerelease"/>2.0.2-prerelease
-* Kleine wijzigingen in API:
-  * ChangeFeedProcessorOptions.IsAutoCheckpointEnabled die is gemarkeerd als verouderd verwijderd.
+* Kleine API-wijzigingen:
+  * Verwijderd ChangeFeedProcessorOptions.IsAutoCheckpointEnabled die is gemarkeerd als verouderd.
 
 ### <a name="a-name201-prerelease201-prerelease"></a><a name="2.0.1-prerelease"/>2.0.1-prerelease
-* Verbeteringen in stabiliteit:
-  * Betere verwerking van het initialiseren van de lease. Wanneer lease-archief leeg, is alleen kan worden geïnitialiseerd door één exemplaar van de processor, wacht de andere.
-  * Meer stabiel/efficiënt lease vernieuwing en release. Vernieuwen en het vrijgeven van een lease één partitie is onafhankelijk van het vernieuwen van anderen. In v1 die sequentieel is uitgevoerd voor alle partities.
-* Nieuwe v2 API:
-  * Patroon van de opbouwfunctie voor flexibele constructie van de processor: de ChangeFeedProcessorBuilder-klasse.
+* Stabiliteitsverbeteringen:
+  * Betere verwerking van de initialisatie van de lease-store. Wanneer de lease-archief is leeg is, wordt slechts één exemplaar van de processor kan worden geïnitialiseerd, wacht de andere.
+  * Meer stable/efficiënte lease vernieuwen/vrijgeven. Vernieuwen en het vrijgeven van een lease één partitie is onafhankelijk van anderen te vernieuwen. In v1 die sequentieel worden verwerkt voor alle partities is uitgevoerd.
+* Nieuwe v2-API:
+  * Patroon voor flexibele constructie van de processor Builder: de klasse ChangeFeedProcessorBuilder.
     * Kan duren voordat een combinatie van parameters.
-    * Kan duren DocumentClient exemplaar voor bewaking en/of lease verzameling (niet beschikbaar in v1).
-  * IChangeFeedObserver.ProcessChangesAsync neemt nu CancellationToken.
+    * Kan duren DocumentClient-exemplaar voor bewaking en/of lease verzameling (niet beschikbaar in v1).
+  * IChangeFeedObserver.ProcessChangesAsync duurt nu nog maar CancellationToken.
   * IRemainingWorkEstimator - de resterende werk estimator kan afzonderlijk worden gebruikt vanuit de processor.
   * Nieuwe uitbreidbaarheidspunten:
-    * IParitionLoadBalancingStrategy - voor de aangepaste-taakverdeling van partities tussen exemplaren van de processor.
-    * ILease wordt, ILeaseManager - voor het beheer van aangepaste lease.
-    * IPartitionProcessor - verwerking van aangepaste wijzigingen op een partitie.
+    * IParitionLoadBalancingStrategy - voor aangepaste taakverdeling van partities tussen exemplaren van de processor.
+    * ILease, ILeaseManager - voor het leasebeheer van aangepaste wordt.
+    * IPartitionProcessor - voor aangepaste het verwerken van wijzigingen op een partitie.
 * Maakt gebruik van logboekregistratie - [LibLog](https://github.com/damianh/LibLog) bibliotheek.
-* 100% compatibel met v1 API.
+* 100% compatibel met v1-API.
 * Nieuwe codebasis.
-* Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21.1 versies en hoger.
+* Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) versies 1.21.1 en hoger.
 
 ### <a name="v1-builds"></a>V1-builds
 
 ### <a name="a-name133133"></a><a name="1.3.3"/>1.3.3
 * Meer logboekregistratie toegevoegd.
-* Een geheugenlek DocumentClient vast bij het aanroepen van de schatting van de werkitems in de wachtrij meerdere keren.
+* Er is een geheugenlek DocumentClient opgelost bij het aanroepen van de schatting onderhanden werk meerdere keren.
 
 ### <a name="a-name132132"></a><a name="1.3.2"/>1.3.2
-* Verbeteringen in de schatting van de werkitems in de wachtrij.
+* Verbeteringen in de schatting onderhanden werk.
 
 ### <a name="a-name131131"></a><a name="1.3.1"/>1.3.1
-* Verbeteringen in stabiliteit.
-  * Oplossing voor het verwerken van de geannuleerde taken probleem dat tot leiden kan observers is gestopt op een aantal partities.
+* Verbeteringen in de stabiliteit.
+  * Oplossing voor het verwerken van de geannuleerde taken probleem dat tot leiden kan gestopt waarnemers op aantal partities.
 * Ondersteuning voor handmatige plaatsen van controlepunten.
-* Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.21 versies en hoger.
+* Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) versie 1.21 en hoger.
 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Voegt ondersteuning toe voor .NET Standard 2.0. Het pakket biedt nu ondersteuning voor `netstandard2.0` en `net451` framework monikers.
-* Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.17.0 versies en hoger.
-* Compatibel met [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) 1.5.1 versies en hoger.
+* Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) versies 1.17.0 en hoger.
+* Compatibel met [SQL .NET Core SDK](sql-api-sdk-dotnet-core.md) versies 1.5.1 en hoger.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
-* Corrigeert een probleem met de berekening van de schatting van de resterende hoeveelheid werk wanneer de wijziging Feed leeg is of geen werk in behandeling was.
-* Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.13.2 versies en hoger.
+* Wanneer de Change Feed leeg is of geen werk in behandeling is, moet u een probleem opgelost met de berekening van de schatting van de resterende hoeveelheid werk.
+* Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) versies 1.13.2 en hoger.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* Een methode voor het verkrijgen van een schatting van de resterende hoeveelheid werk moeten worden verwerkt in de wijziging Feed toegevoegd.
-* Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) 1.13.2 versies en hoger.
+* Een methode voor het verkrijgen van een schatting van resterende hoeveelheid werk moeten worden verwerkt in de Change Feed toegevoegd.
+* Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) versies 1.13.2 en hoger.
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
-* GA SDK
+* GA-SDK
 * Compatibel met [SQL .NET SDK](sql-api-sdk-dotnet.md) versies 1.14.1 en lager.
 
 
-## <a name="release--retirement-dates"></a>Release & buiten gebruik stellen datums
-Microsoft biedt melding ten minste **12 maanden** voordat het buiten gebruik stellen van een SDK om de overgang naar een nieuwere/ondersteunde versie vloeiend.
+## <a name="release--retirement-dates"></a>Datums release & buiten gebruik stellen
+Microsoft biedt melding ten minste **12 maanden** voorafgaand aan buiten gebruik stellen van een SDK soepel te verwerken de overgang naar een nieuwere/ondersteunde versie.
 
-Nieuwe functies en functionaliteit en optimalisaties alleen zijn toegevoegd aan de huidige SDK, als zodanig wordt aanbevolen dat u altijd een upgrade uitvoert naar de nieuwste SDK versie zo snel mogelijk. 
+Nieuwe functies en functionaliteit en -optimalisatie worden alleen toegevoegd aan de huidige SDK, daarom is het raadzaam dat u altijd een upgrade uitvoert naar de nieuwste SDK versie zo vroeg mogelijk. 
 
-Elk verzoek aan de Cosmos-database met behulp van een buiten gebruik gestelde SDK worden geweigerd door de service.
+Een aanvraag voor het Cosmos DB met behulp van een buiten gebruik gestelde SDK worden geweigerd door de service.
 
 <br/>
 
@@ -137,5 +140,5 @@ Elk verzoek aan de Cosmos-database met behulp van een buiten gebruik gestelde SD
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Zie ook
-Zie voor meer informatie over Cosmos DB, [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) pagina van de service. 
+Zie voor meer informatie over Cosmos DB, [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) servicepagina. 
 

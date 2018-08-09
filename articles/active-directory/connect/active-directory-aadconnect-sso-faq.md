@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 08/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9c59db56ad78818d9b6165d27fd2e64f0bfd902c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 29ed96044ceaa914db3f8b7090a1be5f65827e54
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283220"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627471"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory naadloze eenmalige aanmelding: veelgestelde vragen
 
@@ -40,19 +40,20 @@ Nee. Naadloze eenmalige aanmelding is alleen beschikbaar in het wereldwijde exem
 
 ## <a name="what-applications-take-advantage-of-domainhint-or-loginhint-parameter-capability-of-seamless-sso"></a>Welke toepassingen profiteren van `domain_hint` of `login_hint` parameter mogelijkheid van naadloze eenmalige aanmelding?
 
-Hieronder vindt u een niet-volledige lijst met toepassingen die deze parameters verzenden naar Azure AD, en daarom biedt gebruikers een ervaring voor op de achtergrond aanmelding met naadloze eenmalige aanmelding (dat wil zeggen, niet nodig voor uw gebruikers voor het invoeren van de gebruikersnamen):
+Hieronder vindt u een niet-volledige lijst met toepassingen die deze parameters kunt verzenden naar Azure AD, en daarom biedt gebruikers een ervaring voor op de achtergrond aanmelding met naadloze eenmalige aanmelding (dat wil zeggen, niet nodig voor uw gebruikers voor het invoeren van de gebruikersnamen of wachtwoorden):
 
 | De naam van de toepassing | De URL van de toepassing moet worden gebruikt |
 | -- | -- |
-| Toegangsvenster | myapps.Microsoft.com/contoso.com |
-| Webversie van Outlook | outlook.office365.com/contoso.com |
+| Toegangsvenster | https://myapps.microsoft.com/contoso.com |
+| Webversie van Outlook | https://outlook.office365.com/contoso.com |
+| Office 365-portal | https://portal.office.com?domain_hint=contoso.com |
 
 Bovendien krijgen gebruikers een ervaring voor op de achtergrond als een toepassing aanmeldingsaanvragen naar Azure AD-tenants eindpunten - dat wil zeggen verzendt, https://login.microsoftonline.com/contoso.com/<..> of https://login.microsoftonline.com/<tenant_ID>/<..> : in plaats van Azure AD gemeenschappelijk eindpunt - dat wil zeggen, https://login.microsoftonline.com/common/<...>. Hieronder vindt u een niet-volledige lijst met toepassingen die dit aanmeldingsaanvragen soort.
 
 | De naam van de toepassing | De URL van de toepassing moet worden gebruikt |
 | -- | -- |
-| SharePoint Online | contoso.sharepoint.com |
-| Azure Portal | portal.azure.com/contoso.com |
+| SharePoint Online | https://contoso.sharepoint.com |
+| Azure Portal | https://portal.azure.com/contoso.com |
 
 In de bovenstaande tabellen, kunt u 'contoso.com' vervangen door de naam van uw domein om te gaan naar de juiste URL's voor uw tenant.
 

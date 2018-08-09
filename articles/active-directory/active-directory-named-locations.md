@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 497c3b54238c9e38144a5840b59cac38af581f39
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 62a55672a4326df585fc84699dfd72424be362dc
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525923"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627488"
 ---
 # <a name="configure-named-locations-in-azure-active-directory"></a>Benoemde locaties configureren in Azure Active Directory
 
 Met benoemde locaties, kunt u vertrouwde IP-adresbereiken in uw organisatie een label. Azure Active Directory maakt gebruik van benoemde locaties in de context van:
 
-- De detectie van [risicogebeurtenissen](active-directory-reporting-risk-events.md) het aantal gerapporteerde fout-positieven te verminderen.  
+- De detectie van [risicogebeurtenissen](reports-monitoring/concept-risk-events.md) het aantal gerapporteerde fout-positieven te verminderen.  
 
 - [Voorwaardelijke toegang op basis van locatie](conditional-access/location-condition.md).
 
@@ -99,6 +99,6 @@ Zie voor meer informatie:
 
 - [Locatievoorwaarden in Azure Active Directory voor voorwaardelijke toegang](conditional-access/location-condition.md)
 
-- [Azure Active Directory-risicogebeurtenissen](active-directory-reporting-risk-events.md).
+- [Azure Active Directory-risicogebeurtenissen](reports-monitoring/concept-risk-events.md).
 
-- [Rapport riskante aanmeldingen in de Azure Active Directory-portal](active-directory-reporting-security-risky-sign-ins.md).  
+- [Rapport riskante aanmeldingen in de Azure Active Directory-portal](reports-monitoring/concept-risky-sign-ins.md).  

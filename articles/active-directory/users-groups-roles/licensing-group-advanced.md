@@ -14,12 +14,12 @@ ms.component: users-groups-roles
 ms.date: 06/02/2017
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecb0919b68516fdb886ea745d963349ff29f83b4
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 15b52920774a878cd386ced5966d507768a8af70
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867321"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627386"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenario's, beperkingen en bekende problemen met behulp van groepen beheren in Azure Active Directory-licentieverlening
 
@@ -27,7 +27,7 @@ Gebruik de volgende informatie en voorbeelden te krijgen van een uitgebreidere k
 
 ## <a name="usage-location"></a>Gebruikslocatie
 
-Sommige Microsoft-services zijn niet beschikbaar op alle locaties. Voordat een licentie kan worden toegewezen aan een gebruiker, de beheerder heeft om op te geven de **gebruikslocatie** eigenschap van de gebruiker. In [de Azure-portal](https://portal.azure.com), kunt u opgeven in **gebruiker** &gt; **profiel** &gt; **instellingen**.
+Sommige services van Microsoft zijn niet op alle locaties beschikbaar. Voordat een licentie kan worden toegewezen aan een gebruiker, de beheerder heeft om op te geven de **gebruikslocatie** eigenschap van de gebruiker. In [de Azure-portal](https://portal.azure.com), kunt u opgeven in **gebruiker** &gt; **profiel** &gt; **instellingen**.
 
 Voor licentietoewijzing groep, worden gebruikers geen gebruikslocatie opgegeven overgenomen in de locatie van de map. Als u gebruikers op meerdere locaties hebt, moet u om weer te geven die correct in uw gebruikersobjecten voordat u gebruikers toevoegt aan groepen met licenties.
 
@@ -146,13 +146,13 @@ U kunt een PowerShell-script gebruiken om te controleren of gebruikers een licen
 
 ## <a name="use-audit-logs-to-monitor-group-based-licensing-activity"></a>Auditlogboeken gebruiken voor het bewaken van licentieverlening activiteit op basis van een groep
 
-U kunt [Azure AD-auditlogboeken](./../active-directory-reporting-activity-audit-logs.md#audit-logs) om te zien van alle activiteiten die betrekking hebben op groepen gebaseerde licentieverlening, met inbegrip van:
+U kunt [Azure AD-auditlogboeken](../reports-monitoring/concept-audit-logs.md#audit-logs) om te zien van alle activiteiten die betrekking hebben op groepen gebaseerde licentieverlening, met inbegrip van:
 - wie licenties voor groepen heeft gewijzigd
 - Wanneer het systeem de verwerking van een wijziging van de licentie groep, en wanneer deze voltooid
 - welke licentiewijzigingen zijn aangebracht aan een gebruiker als gevolg van een groep licentietoewijzing.
 
 >[!NOTE]
-> Auditlogboeken zijn beschikbaar op de meeste in de sectie Azure Active Directory van de portal-blades. Afhankelijk van waar u ze openen, mogelijk filters vooraf toegepast op de activiteit alleen relevant zijn voor de context van de blade weergeven. Als u niet de verwachte resultaten ziet, controleert u [de filteropties](./../active-directory-reporting-activity-audit-logs.md#filtering-audit-logs) of toegang krijgen tot de ongefilterde auditlogboeken onder [ **Azure Active Directory > activiteit > auditlogboeken** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit).
+> Auditlogboeken zijn beschikbaar op de meeste in de sectie Azure Active Directory van de portal-blades. Afhankelijk van waar u ze openen, mogelijk filters vooraf toegepast op de activiteit alleen relevant zijn voor de context van de blade weergeven. Als u niet de verwachte resultaten ziet, controleert u [de filteropties](../reports-monitoring/concept-audit-logs.md#filtering-audit-logs) of toegang krijgen tot de ongefilterde auditlogboeken onder [ **Azure Active Directory > activiteit > auditlogboeken** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Audit).
 
 ### <a name="find-out-who-modified-a-group-license"></a>Ontdek wie een groepslicentie gewijzigd
 
@@ -231,9 +231,9 @@ Als u licentieverlening op basis van een groep, is het een goed idee om vertrouw
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over andere scenario's voor Licentiebeheer via Groepslicenties:
+Voor meer informatie over scenario’s voor licentiebeheer via licenties op basis van groepen, raadpleegt u:
 
 * [Wat is licentieverlening in Azure Active Directory op basis van groep?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [Licenties toewijzen aan een groep in Azure Active Directory](licensing-groups-assign.md)
-* [Identificeren en oplossen van problemen voor een groep in Azure Active Directory](licensing-groups-resolve-problems.md)
-* [Hoe gebruikers met een afzonderlijke licentie migreren naar het Groepslicenties in Azure Active Directory](licensing-groups-migrate-users.md)
+* [Licentieproblemen voor een groep vaststellen en oplossen in Azure Active Directory](licensing-groups-resolve-problems.md)
+* [Gebruikers met een afzonderlijke licentie migreren naar licenties op basis van groepen in Azure Active Directory](licensing-groups-migrate-users.md)

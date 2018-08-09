@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 65757abe13c45ce1a929c4648637f98360659030
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: def1bbd52e05666f380ab9d5a9295366798d5ae0
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284867"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626920"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory naadloze eenmalige aanmelding oplossen
 
@@ -50,7 +50,7 @@ Klik op om te zien van alle AD-forests die zijn ingeschakeld voor naadloze eenma
 
 ## <a name="sign-in-failure-reasons-in-the-azure-active-directory-admin-center-needs-a-premium-license"></a>Oorzaken voor het aanmelden mislukken in het Azure Active Directory-beheercentrum (een Premium-licentie vereist)
 
-Als uw tenant een Azure AD Premium-licentie die is gekoppeld heeft, kunt u ook zoeken op de [rapport van aanmeldingsactiviteiten](../active-directory-reporting-activity-sign-ins.md) in de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com/).
+Als uw tenant een Azure AD Premium-licentie die is gekoppeld heeft, kunt u ook zoeken op de [rapport van aanmeldingsactiviteiten](../reports-monitoring/concept-sign-ins.md) in de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com/).
 
 ![Azure Active Directory-beheercentrum: rapport aanmeldingen](./media/active-directory-aadconnect-sso/sso9.png)
 

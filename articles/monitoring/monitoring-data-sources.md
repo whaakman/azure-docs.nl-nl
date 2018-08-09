@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: bwren
-ms.openlocfilehash: 262099bbe45e483efd269445aa8042b30668ebe3
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 48cbfac78b41b47419799584837e094d45757628
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036520"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627454"
 ---
 # <a name="sources-of-monitoring-data-in-azure"></a>Bronnen van bewakingsgegevens in Azure
 Dit artikel beschrijft de gegevens beschikbaar voor het bewaken van de status en prestaties van uw Azure-resources en de toepassingen die daarop worden uitgevoerd.  Verzamelen en analyseren van deze gegevens met de hulpprogramma's die worden beschreven in [verzameld door gegevens in Azure te controleren](monitoring-data-collection.md)
@@ -42,7 +42,7 @@ U kunt het activiteitenlogboek voor een bepaalde resource weergeven op de pagina
 
 
 ### <a name="azure-active-directory-audit-logs"></a>Auditlogboeken van Azure Active Directory
-[Azure Active Directory-rapportage](../active-directory/active-directory-reporting-azure-portal.md) bevat de geschiedenis van aanmelding activiteit en audit audittrail van wijzigingen in een bepaalde tenant. U kunt Azure Active Directory audit-gegevens met andere bewakingsgegevens momenteel niet combineren omdat deze alleen toegankelijk is via Azure Active Directory en de [Azure Active Directory reporting API](../active-directory/active-directory-reporting-api-getting-started-azure-portal.md).
+[Azure Active Directory-rapportage](../active-directory/reports-monitoring/overview-reports.md) bevat de geschiedenis van aanmelding activiteit en audit audittrail van wijzigingen in een bepaalde tenant. U kunt Azure Active Directory audit-gegevens met andere bewakingsgegevens momenteel niet combineren omdat deze alleen toegankelijk is via Azure Active Directory en de [Azure Active Directory reporting API](../active-directory/reports-monitoring/concept-reporting-api.md).
 
 
 ## <a name="azure-services"></a>Azure-services

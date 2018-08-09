@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: na
-ms.openlocfilehash: 28f5ac882051250903fc2f45def95eb65d1b1ce3
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3640f5bb2c2e9457e269bd189cbec3b627ee7349
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635535"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626869"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Prestatiemeter-oplossing in Azure-netwerk
 
@@ -45,10 +45,11 @@ Meer informatie over de verschillende mogelijkheden ondersteund door [Network Pe
  
 ## <a name="supported-regions"></a>Ondersteunde regio 's
 NPM kunt Controleer de connectiviteit tussen netwerken en toepassingen in een deel van de hele wereld, uit een werkruimte die wordt gehost in een van de volgende regio's:
-* West-Europa
-* West-centraal VS
-* VS - oost
-* Zuidoost-Azië
+* Europa -west
+* US - west-centraal
+* US - oost
+* Japan - oost
+* Azië - zuidoost
 * Zuid-Oost-Australië
 * Zuid-groot-Brittannië
 * US Government Virginia

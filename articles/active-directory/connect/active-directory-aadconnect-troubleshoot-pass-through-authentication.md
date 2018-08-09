@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6cd6b139699b38a06a8e3f9fce5eb6e24fe24654
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 99f877a0002e9a631bcfdabdbea51fcf2ca1a2c1
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214172"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626589"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Pass through-verificatie voor Azure Active Directory oplossen
 
@@ -53,7 +53,7 @@ Als de gebruiker niet kan zich aanmelden bij het gebruik van Pass through-verifi
 
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Oorzaken voor het aanmelden mislukken op de Azure Active Directory-beheercentrum (Premium-licentie vereist)
 
-Als uw tenant een Azure AD Premium-licentie die is gekoppeld heeft, kunt u ook zoeken op de [rapport van aanmeldingsactiviteiten](../active-directory-reporting-activity-sign-ins.md) op de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com/).
+Als uw tenant een Azure AD Premium-licentie die is gekoppeld heeft, kunt u ook zoeken op de [rapport van aanmeldingsactiviteiten](../reports-monitoring/concept-sign-ins.md) op de [Azure Active Directory-beheercentrum](https://aad.portal.azure.com/).
 
 ![Azure Active Directory-beheercentrum - rapport aanmeldingen](./media/active-directory-aadconnect-pass-through-authentication/pta4.png)
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 2560296c088491b7ae0cd414f88ae337c1383c9a
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 5931958d17ea119e58c066a78a44169be2b9f451
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258793"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627522"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Rapportage-opties voor Azure AD-wachtwoordbeheer
 
@@ -40,7 +40,7 @@ De volgende vragen kunnen worden beantwoord door de rapporten die zijn opgenomen
 
 ## <a name="power-bi-content-pack"></a>Power BI-inhoudspakket
 
-Als u een Power BI-gebruiker bent, moet u er een inhoudspakket voor Azure AD met eenvoudig te gebruiken, rapportage voor SSPR is. Zie voor meer informatie over het gebruik en de implementatie van het inhoudspakket [over het gebruik van de Azure Active Directory Power BI-inhoudspakket](../active-directory-reporting-power-bi-content-pack-how-to.md). Met het inhoudspakket kunt u uw eigen dashboards maken en deze delen met anderen in uw organisatie.
+Als u een Power BI-gebruiker bent, moet u er een inhoudspakket voor Azure AD met eenvoudig te gebruiken, rapportage voor SSPR is. Zie voor meer informatie over het gebruik en de implementatie van het inhoudspakket [over het gebruik van de Azure Active Directory Power BI-inhoudspakket](../reports-monitoring/howto-power-bi-content-pack.md). Met het inhoudspakket kunt u uw eigen dashboards maken en deze delen met anderen in uw organisatie.
 
 ## <a name="how-to-view-password-management-reports-in-the-azure-portal"></a>Wachtwoord-rapporten weergeven in de Azure-portal
 

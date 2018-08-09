@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: b7a0050791690e5157a4937df0d49a0f03f3df24
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 85d0c91a0b1cdf5703b394d6d232ab9cee72ee0c
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617595"
+ms.locfileid: "39627141"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Een SSL-certificaat kopen en configureren voor uw Azure App Service
 
@@ -78,7 +78,7 @@ Uit dezelfde **Certificaatconfiguratie** pagina die u hebt gebruikt in stap 3, k
 
 Kies de gewenste domein-verificatiemethode. 
 
-Er zijn vier typen domeinverificatie wordt ondersteund door App Service-certificaten: App Service, domein, e-Mail en handmatige verificatie. Deze verificatietypen worden uitgelegd in meer details in de [geavanceerde sectie](#advanced).
+Er zijn vier typen domeinverificatie wordt ondersteund door App Service-certificaten: App Service, het domein en handmatige verificatie. Deze verificatietypen worden uitgelegd in meer details in de [geavanceerde sectie](#advanced).
 
 > [!NOTE]
 > **App Service-verificatie** is de meest geschikte optie bij het domein dat u wilt controleren of al aan een App Service-app in hetzelfde abonnement toegewezen is. Het maakt gebruik van het feit dat de App Service-app al het domeineigendom is geverifieerd.
@@ -135,16 +135,7 @@ Op dit moment zou het mogelijk om naar uw app met te `HTTPS://` in plaats van `H
 
 ### <a name="verifying-domain-ownership"></a>Domeineigendom controleren
 
-Er zijn twee soorten meer domeinverificatie wordt ondersteund door App service-certificaten: e-Mail en handmatige verificatie.
-
-#### <a name="mail-verification"></a>E-mailverificatie
-
-Verificatie-e-mailadres is al is verzonden naar het e-mailadressen die zijn gekoppeld aan dit aangepaste domein.
-Als u wilt de verificatiestap e-mailadres hebt voltooid, opent u het e-mailbericht en klik op de verificatiekoppeling.
-
-![afbeelding van e-mailverificatie invoegen](./media/app-service-web-purchase-ssl-web-site/KVVerifyEmailSuccess.png)
-
-Als u het verificatie-e-mailbericht verzenden wilt, klikt u op de **E-mail opnieuw verzenden** knop.
+Er zijn twee andere typen domeinverificatie wordt ondersteund door App service-certificaten: domeinverificatie uit te voeren en handmatige verificatie.
 
 #### <a name="domain-verification"></a>Domeinverificatie
 
