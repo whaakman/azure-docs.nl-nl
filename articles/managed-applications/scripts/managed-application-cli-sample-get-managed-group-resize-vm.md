@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9c4032191738703b71319c05bce4f6bbbc61b44b
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 85d58538e15881308ee1f645f7ddd12ec27c94de
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847196"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423409"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Resources in een beheerde resourcegroep opvragen en de grootte van virtuele machines wijzigen met Azure CLI
 
@@ -39,9 +39,9 @@ In dit script worden de volgende opdrachten gebruikt om de beheerde toepassing t
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az managedapp list](https://docs.microsoft.com/cli/azure/managedapp#az_managedapp_list) | Hiermee vraagt u een lijst met de beheerde toepassingen op. Geef querywaarden op om gerichte resultaten te krijgen. |
-| [az resource list](https://docs.microsoft.com/cli/azure/resource#az_resource_list) | Hiermee vraagt u een lijst met resources op. Geef een resourcegroep op en querywaarden om gerichte resultaten te krijgen. |
-| [az vm resize](https://docs.microsoft.com/cli/azure/vm#az_vm_resize) | Hiermee werkt u de grootte van een virtuele machine bij. |
+| [az managedapp list](https://docs.microsoft.com/cli/azure/managedapp#az-managedapp-list) | Hiermee vraagt u een lijst met de beheerde toepassingen op. Geef querywaarden op om gerichte resultaten te krijgen. |
+| [az resource list](https://docs.microsoft.com/cli/azure/resource#az-resource-list) | Hiermee vraagt u een lijst met resources op. Geef een resourcegroep op en querywaarden om gerichte resultaten te krijgen. |
+| [az vm resize](https://docs.microsoft.com/cli/azure/vm#az-vm-resize) | Hiermee werkt u de grootte van een virtuele machine bij. |
 
 
 ## <a name="next-steps"></a>Volgende stappen

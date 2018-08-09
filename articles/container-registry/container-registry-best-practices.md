@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: marsma
-ms.openlocfilehash: 1272a4b547a4ba650678ce083a44bde3a5a3e583
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a3932ff621782b8ab97f27ef052aeee8e1d2a3ac
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33768257"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423501"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Aanbevolen procedures voor Azure Container Registry
 
@@ -57,7 +57,7 @@ Voor de verificatie van een Azure-containerregister bestaan er twee primaire sce
 
 | Type | Voorbeeldscenario | Aanbevolen methode |
 |---|---|---|
-| Afzonderlijke identiteit | Een ontwikkelaar die installatiekopieën binnenhaalt op of pusht vanaf zijn ontwikkelcomputer. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az_acr_login) |
+| Afzonderlijke identiteit | Een ontwikkelaar die installatiekopieën binnenhaalt op of pusht vanaf zijn ontwikkelcomputer. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
 | Headless/service-identiteit | Bouw en implementeer pijplijnen waarbij de gebruiker niet direct is betrokken. | [Service/principal](container-registry-authentication.md#service-principal) |
 
 Zie [Verifiëren met een Azure containerregister](container-registry-authentication.md) voor gedetailleerde informatie over verificatie met Azure Container Registry.
@@ -101,7 +101,7 @@ Azure Container Registry is beschikbaar in verschillende categorieën, ook wel S
 [registry-overview-quotas]: ./media/container-registry-best-practices/registry-overview-quotas.png
 
 <!-- LINKS - Internal -->
-[az-acr-repository-delete]: /cli/azure/acr/repository#az_acr_repository_delete
+[az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
 [azure-cli]: /cli/azure
 [azure-portal]: https://portal.azure.com
 [container-registry-geo-replication]: container-registry-geo-replication.md

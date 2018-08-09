@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 07/13/2018
 ms.author: beverst;cephalin
 ms.custom: mvc
-ms.openlocfilehash: 20b549914daf71c0d23235b5c20ebb6f14367471
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: ce84498ab89891bd7b96cfcc6b0c7ac029c93cbd
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172031"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423076"
 ---
 # <a name="build-a-docker-python-and-postgresql-web-app-in-azure"></a>Een Docker Python- en PostgreSQL-web-app maken in Azure
 
@@ -133,7 +133,7 @@ In deze stap maakt u een PostgreSQL-database in Azure. Als de app is geïmplemen
 
 ### <a name="create-an-azure-database-for-postgresql-server"></a>Een Azure-database voor PostgreSQL-server maken
 
-Maak een PostgreSQL-server met de opdracht [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az_postgres_server_create) in Cloud Shell.
+Maak een PostgreSQL-server met de opdracht [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) in Cloud Shell.
 
 In de volgende opdracht vervangt u *\<postgresql_name>* door een unieke servernaam en *\<admin_username >* en *\<admin_password>* door de gewenste gebruikersreferenties. De servernaam wordt gebruikt als onderdeel van het PostgreSQL-eindpunt (`https://<postgresql_name>.postgres.database.azure.com`). De naam moet dus uniek zijn voor alle servers in Azure. De gebruikersreferenties zijn voor het gebruikersaccount van de databasebeheerder. 
 
@@ -339,7 +339,7 @@ In deze stap maakt u een app in Azure App Service en configureert u deze om de g
 
 ### <a name="create-a-web-app"></a>Een webtoepassing maken
 
-Maak in Cloud Shell een web-app in het App Service-plan *myAppServicePlan* met de opdracht [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create).
+Maak in Cloud Shell een web-app in het App Service-plan *myAppServicePlan* met de opdracht [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create).
 
 Met de volgende opdracht vervangt u de tijdelijke aanduiding *\<app_name>* door een unieke naam voor de app. Deze naam maakt deel uit van de standaard-URL voor de web-app, dus de naam moet uniek zijn voor alle apps in Azure App Service.
 
@@ -368,7 +368,7 @@ Wanneer de web-app is gemaakt, toont de Azure CLI soortgelijke informatie als in
 
 Eerder in de zelfstudie hebt u omgevingsvariabelen gedefinieerd om verbinding te kunnen maken met de PostgreSQL-database.
 
-In App Service stelt u omgevingsvariabelen in als _app settings_ met behulp van de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set).
+In App Service stelt u omgevingsvariabelen in als _app settings_ met behulp van de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set).
 
 In het volgende voorbeeld worden de details van de databaseverbinding als app-instellingen opgegeven. Het gebruikt ook de variabele *WEBSITES_PORT* voor de containerpoort 5000, waarmee de container HTTP-verkeer op poort 80 kan ontvangen.
 
@@ -378,7 +378,7 @@ az webapp config appsettings set --name <app_name> --resource-group myResourceGr
 
 ### <a name="configure-custom-container-deployment"></a>Aangepaste containerimplementatie configureren
 
-Hoewel u de naam van de containerinstallatiekopie al hebt opgegeven, moet u nog wel de aangepaste register-URL en de gebruikersreferenties opgeven. Voer in Cloud Shell de opdracht [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set) uit.
+Hoewel u de naam van de containerinstallatiekopie al hebt opgegeven, moet u nog wel de aangepaste register-URL en de gebruikersreferenties opgeven. Voer in Cloud Shell de opdracht [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set) uit.
 
 ```azurecli-interactive
 az webapp config container set --resource-group myResourceGroup --name <app_name> --docker-registry-server-user "<registry_name>" --docker-registry-server-password "<registry_password>" --docker-registry-server-url "https://<registry_name>.azurecr.io"

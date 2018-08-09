@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 633f2a48bb79fbfe5b5356edd4318806162cab5d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: ee682af0f4e32c923f4aa6170535f0566f426b2d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38668053"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39426574"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Zelfstudie: Een Data Factory-pijplijn maken die gegevens verplaatst met Azure PowerShell
 > [!div class="op_single_selector"]
@@ -55,20 +55,20 @@ Een pijplijn kan meer dan één activiteit hebben. Ook kunt u twee activiteiten 
 Hier volgen de stappen die u uitvoert als onderdeel van deze zelfstudie:
 
 1. Een Azure-**gegevensfactory** maken. In deze stap maakt u een gegevensfactory met de naam ADFTutorialDataFactoryPSH. 
-2. **Gekoppelde services** maken in de gegevensfactory. In deze stap maakt u twee gekoppelde services van het type: Azure Storage en Azure SQL Database. 
+1. **Gekoppelde services** maken in de gegevensfactory. In deze stap maakt u twee gekoppelde services van het type: Azure Storage en Azure SQL Database. 
     
     De AzureStorageLinkedService koppelt uw Azure-opslagaccount aan de gegevensfactory. U hebt een container gemaakt en gegevens naar dit opslagaccount geüpload als onderdeel van de [vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).   
 
     De AzureSqlLinkedService koppelt uw Azure SQL-database aan de gegevensfactory. De gegevens die worden gekopieerd uit de blobopslag worden opgeslagen in deze database. Als onderdeel van de [vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) hebt u een SQL-tabel in deze database gemaakt.   
-3. Maak **invoer- en uitvoergegevenssets** in de gegevensfactory.  
+1. Maak **invoer- en uitvoergegevenssets** in de gegevensfactory.  
     
     De gekoppelde Azure Storage-service geeft de verbindingsreeks op die de Data Factory-service tijdens runtime gebruikt om verbinding te maken met uw Azure-opslagaccount. En de blobgegevensset voor invoer geeft de container en de map met de invoergegevens op.  
 
     Op dezelfde manier geeft de gekoppelde Azure SQL Database-service de verbindingsreeks op die de Data Factory-service in runtime gebruikt om verbinding te maken met uw Azure SQL-database. En de uitvoergegevensset van de SQL-tabel geeft de tabel in de database op waarnaar de gegevens uit de blobopslag worden gekopieerd.
-4. Maak een **pijplijn** in de gegevensfactory. In deze stap maakt u een pijplijn met een kopieeractiviteit.   
+1. Maak een **pijplijn** in de gegevensfactory. In deze stap maakt u een pijplijn met een kopieeractiviteit.   
     
     Met de kopieeractiviteit worden gegevens uit een blob in de Azure-blobopslag naar een tabel in de Azure SQL-database gekopieerd. U kunt een kopieeractiviteit gebruiken in een pijplijn om gegevens uit ondersteunde bronnen te kopiëren naar een ondersteunde bestemming. Zie het artikel [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md#supported-data-stores-and-formats) voor een lijst met ondersteunde gegevensarchieven. 
-5. Bewaak de pijplijn. In deze stap **bewaakt** u segmenten van de invoer- en uitvoergegevenssets met behulp van PowerShell.
+1. Bewaak de pijplijn. In deze stap **bewaakt** u segmenten van de invoer- en uitvoergegevenssets met behulp van PowerShell.
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 > [!IMPORTANT]
@@ -95,14 +95,14 @@ Een gegevensfactory kan één of meer pijplijnen hebben. Een pijplijn kan één 
     ```PowerShell
     Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
     ```
-2. Maak een Azure-resourcegroep met de naam **ADFTutorialResourceGroup** door de volgende opdracht uit te voeren:
+1. Maak een Azure-resourcegroep met de naam **ADFTutorialResourceGroup** door de volgende opdracht uit te voeren:
 
     ```PowerShell
     New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
     
     Voor sommige van de stappen in deze zelfstudie wordt ervan uitgegaan dat u de resourcegroep met de naam **ADFTutorialResourceGroup** gebruikt. Als u een andere resourcegroep gebruikt, moet u voor deze zelfstudie die groep gebruiken in plaats van ADFTutorialResourceGroup.
-3. Voer de cmdlet **New-AzureRmDataFactory** uit om een data factory met de naam **ADFTutorialDataFactoryPSH** te maken:  
+1. Voer de cmdlet **New-AzureRmDataFactory** uit om een data factory met de naam **ADFTutorialDataFactoryPSH** te maken:  
 
     ```PowerShell
     $df=New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
@@ -161,8 +161,8 @@ In deze stap koppelt u uw Azure Storage-account aan uw gegevensfactory.
         }
      }
     ``` 
-2. Schakel in **Azure PowerShell** over naar de map **ADFGetStartedPSH**.
-4. Voer de cmdlet **New-AzureRmDataFactoryLinkedService** uit om de gekoppelde **AzureStorageLinkedService**-service te maken. Voor deze cmdlet en andere Data Factory-cmdlets die u in deze zelfstudie gebruikt, moet u waarden doorgeven voor de parameters **ResourceGroupName** en **DataFactoryName**. U kunt ook het DataFactory-object doorgeven dat door de cdmlet New-AzureRmDataFactory is geretourneerd. U hoeft dan niet telkens wanneer u een cmdlet uitvoert de ResourceGroupName en de DataFactoryName op te geven. 
+1. Schakel in **Azure PowerShell** over naar de map **ADFGetStartedPSH**.
+1. Voer de cmdlet **New-AzureRmDataFactoryLinkedService** uit om de gekoppelde **AzureStorageLinkedService**-service te maken. Voor deze cmdlet en andere Data Factory-cmdlets die u in deze zelfstudie gebruikt, moet u waarden doorgeven voor de parameters **ResourceGroupName** en **DataFactoryName**. U kunt ook het DataFactory-object doorgeven dat door de cdmlet New-AzureRmDataFactory is geretourneerd. U hoeft dan niet telkens wanneer u een cmdlet uitvoert de ResourceGroupName en de DataFactoryName op te geven. 
 
     ```PowerShell
     New-AzureRmDataFactoryLinkedService $df -File .\AzureStorageLinkedService.json
@@ -202,7 +202,7 @@ In deze stap koppelt u uw Azure SQL Database aan uw gegevensfactory.
         }
      }
     ```
-2. Voer de volgende opdracht uit om een gekoppelde service te maken:
+1. Voer de volgende opdracht uit om een gekoppelde service te maken:
 
     ```PowerShell
     New-AzureRmDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
@@ -221,11 +221,11 @@ In deze stap koppelt u uw Azure SQL Database aan uw gegevensfactory.
    Controleer of de instelling **Toegang tot Azure-services toestaan** is ingeschakeld voor uw SQL-databaseserver. Voer de volgende stappen uit om dit te controleren en de instelling in te schakelen:
 
     1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-    2. Klik op **Meer services >** aan de linkerzijde en klik op **SQL-servers** in de categorie **DATABASES**.
-    3. Selecteer uw server in de lijst met SQL-servers.
-    4. Klik op de blade SQL server op de koppeling **Firewall-instellingen weergeven**.
-    5. In de blade **Firewallinstellingen**schakelt u **Toegang tot Azure-services toestaan** **in**.
-    6. Klik op **Opslaan** op de werkbalk. 
+    1. Klik op **Meer services >** aan de linkerzijde en klik op **SQL-servers** in de categorie **DATABASES**.
+    1. Selecteer uw server in de lijst met SQL-servers.
+    1. Klik op de blade SQL server op de koppeling **Firewall-instellingen weergeven**.
+    1. In de blade **Firewallinstellingen**schakelt u **Toegang tot Azure-services toestaan** **in**.
+    1. Klik op **Opslaan** op de werkbalk. 
 
 ## <a name="create-datasets"></a>Gegevenssets maken
 In de vorige stap hebt u gekoppelde services gemaakt om uw Azure-opslagaccount en Azure SQL-database aan de gegevensfactory te koppelen. In deze stap definieert u twee gegevenssets, InputDataset en OutputDataset genaamd, die staan voor de invoer- en uitvoergegevens die zijn opgeslagen in de gegevensarchieven waarnaar wordt verwezen door respectievelijk de AzureStorageLinkedService en de AzureSqlLinkedService.
@@ -286,7 +286,7 @@ In deze stap maakt u een gegevensset met de naam InputDataset die verwijst naar 
     | external | Deze eigenschap wordt ingesteld op **true** als de gegevens niet worden gegenereerd door deze pijplijn. De invoergegevens in deze zelfstudie bevinden zich in het bestand emp.txt, dat niet wordt gegenereerd door deze pijplijn. Daarom stellen we deze eigenschap in op true. |
 
     Zie het [artikel over Azure Blob-connectoren](data-factory-azure-blob-connector.md#dataset-properties) voor meer informatie over deze JSON-eigenschappen.
-2. Voer de volgende opdracht uit om de Data Factory-gegevensset te maken.
+1. Voer de volgende opdracht uit om de Data Factory-gegevensset te maken.
 
     ```PowerShell  
     New-AzureRmDataFactoryDataset $df -File .\InputDataset.json
@@ -349,7 +349,7 @@ In dit deel van de stap maakt u een uitvoergegevensset met de naam **OutputDatas
     De tabel emp in de database bevat drie kolommen: **ID**, **FirstName** en **LastName**. ID is een identiteitskolom, zodat u alleen **FirstName** en **LastName** hoeft op te geven.
 
     Zie het [artikel over Azure SQL-connectoren](data-factory-azure-sql-connector.md#dataset-properties) voor meer informatie over deze JSON-eigenschappen.
-2. Voer de volgende opdracht uit om de data factory-gegevensset te maken.
+1. Voer de volgende opdracht uit om de data factory-gegevensset te maken.
 
     ```PowerShell   
     New-AzureRmDataFactoryDataset $df -File .\OutputDataset.json
@@ -434,7 +434,7 @@ Momenteel is de uitvoergegevensset dat wat de planning aanstuurt. In deze zelfst
     In het voorgaande voorbeeld zijn er 24 gegevenssegmenten omdat er elk uur één gegevenssegment wordt gemaakt.
 
     Zie het artikel [Pijplijnen maken](data-factory-create-pipelines.md) voor beschrijvingen van JSON-eigenschappen in de definitie van een pijplijn. Zie [Gegevensverplaatsingsactiviteiten](data-factory-data-movement-activities.md) voor beschrijvingen van JSON-eigenschappen in de definitie van een kopieeractiviteit. Zie het [artikel over Azure Blob-connectoren](data-factory-azure-blob-connector.md) voor beschrijvingen van JSON-eigenschappen die worden ondersteund door BlobSource. Zie het [artikel over Azure SQL Database-connectoren](data-factory-azure-sql-connector.md) voor beschrijvingen van JSON-eigenschappen die worden ondersteund door SqlSink.
-2. Voer de volgende opdracht uit om de data factory-tabel te maken.
+1. Voer de volgende opdracht uit om de data factory-tabel te maken.
 
     ```PowerShell   
     New-AzureRmDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
@@ -479,7 +479,7 @@ In deze stap gebruikt u Azure PowerShell om te bewaken wat er gebeurt in een Azu
     Properties        : Microsoft.Azure.Management.DataFactories.Models.DataFactoryProperties
     ProvisioningState : Succeeded
     ```
-2. Voer **Get-AzureRmDataFactorySlice** uit voor meer informatie over alle segmenten van de **OutputDataset**, de uitvoergegevensset van de pijplijn.  
+1. Voer **Get-AzureRmDataFactorySlice** uit voor meer informatie over alle segmenten van de **OutputDataset**, de uitvoergegevensset van de pijplijn.  
 
     ```PowerShell   
     Get-AzureRmDataFactorySlice $df -DatasetName OutputDataset -StartDateTime 2017-05-11T00:00:00Z
@@ -523,7 +523,7 @@ In deze stap gebruikt u Azure PowerShell om te bewaken wat er gebeurt in een Azu
     LatencyStatus     :
     LongRetryCount    : 0
     ```
-3. Voer **Get-AzureRmDataFactoryRun** uit om gegevens over het uitvoeren van de activiteit op te halen voor een **bepaald** segment. Kopieer de datum-/ tijdwaarde uit de uitvoer van de vorige opdracht om de waarde voor de parameter StartDateTime op te geven. 
+1. Voer **Get-AzureRmDataFactoryRun** uit om gegevens over het uitvoeren van de activiteit op te halen voor een **bepaald** segment. Kopieer de datum-/ tijdwaarde uit de uitvoer van de vorige opdracht om de waarde voor de parameter StartDateTime op te geven. 
 
     ```PowerShell  
     Get-AzureRmDataFactoryRun $df -DatasetName OutputDataset -StartDateTime "5/11/2017 09:00:00 PM"
@@ -557,12 +557,12 @@ Zie [Naslaginformatie voor Data Factory-cmdlets](/powershell/module/azurerm.data
 In deze zelfstudie hebt u een Azure-gegevensfactory gemaakt om gegevens te kopiëren van een Azure-blob naar een Azure SQL-database. U hebt PowerShell gebruikt om de gegevensfactory, gekoppelde services, gegevenssets en pijplijn te maken. In deze zelfstudie hebt u de volgende hoofdstappen uitgevoerd:  
 
 1. U hebt een Azure-**gegevensfactory** gemaakt.
-2. U hebt **gekoppelde services** gemaakt:
+1. U hebt **gekoppelde services** gemaakt:
 
    a. Een gekoppelde **Azure Storage**-service om uw Azure-opslagaccount te koppelen dat invoergegevens bevat.     
    b. Een gekoppelde **Azure SQL**-service om uw SQL-database te koppelen die uitvoergegevens bevat.
-3. U hebt **gegevenssets** gemaakt waarin de invoer- en uitvoergegevens van pijplijnen worden beschreven.
-4. U hebt een **pijplijn** gemaakt met **Kopieeractiviteit**, met **BlobSource** als de bron en **SqlSink** als de sink.
+1. U hebt **gegevenssets** gemaakt waarin de invoer- en uitvoergegevens van pijplijnen worden beschreven.
+1. U hebt een **pijplijn** gemaakt met **Kopieeractiviteit**, met **BlobSource** als de bron en **SqlSink** als de sink.
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u voor een kopieerbewerking een Azure Blob-opslag gebruikt als brongegevensarchief en een Azure SQL-database als doelgegevensarchief. De volgende tabel bevat een lijst met gegevensarchieven die worden ondersteund als bron en doel voor de kopieeractiviteit: 

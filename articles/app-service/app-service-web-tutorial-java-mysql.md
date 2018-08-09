@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 46e222ffe40db186343250efc71e20d41adbc285
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 77cd4c1d5333f7f10e6caccee5011200bdb4ccca
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
-ms.locfileid: "33203116"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424385"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Zelfstudie: een Java- en MySQL-web-app bouwen in Azure
 
@@ -126,9 +126,9 @@ In deze stap maakt u een [Azure Database for MySQL](../mysql/quickstart-create-m
 
 ### <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Maak een [resourcegroep](../azure-resource-manager/resource-group-overview.md) met de opdracht [`az group create`](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container waarin verwante resources, zoals web-apps, databases en opslagaccounts, worden geïmplementeerd en beheerd. 
+Maak een [resourcegroep](../azure-resource-manager/resource-group-overview.md) met de opdracht [`az group create`](/cli/azure/group#az-group-create). Een Azure-resourcegroep is een logische container waarin verwante resources, zoals web-apps, databases en opslagaccounts, worden geïmplementeerd en beheerd. 
 
-In het volgende voorbeeld wordt een resourcegroep gemaakt in de regio Noord-Europa:
+In het volgende voorbeeld wordt een resourcegroep gemaakt in de regio Europa - noord:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "North Europe"
@@ -138,7 +138,7 @@ Gebruik de opdracht [`az appservice list-locations`](/cli/azure/appservice#list-
 
 ### <a name="create-a-mysql-server"></a>Een MySQL-server maken
 
-Maak vanuit Cloud Shell een server in Azure Database for MySQL met behulp van de opdracht [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az_mysql_server_create).
+Maak vanuit Cloud Shell een server in Azure Database for MySQL met behulp van de opdracht [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
 Vervang in de volgende opdracht de tijdelijke aanduiding *\<mysql_server_name>* door een unieke servernaam, de tijdelijke aanduiding *\<admin_user>* door een gebruikersnaam, en de tijdelijke aanduiding *\<admin_password>* door een wachtwoord. De servernaam wordt gebruikt als onderdeel van het PostgreSQL-eindpunt (`https://<mysql_server_name>.mysql.database.azure.com`). De naam moet dus uniek zijn voor alle servers in Azure.
 
@@ -174,7 +174,7 @@ Wanneer de MySQL-server is gemaakt, toont de Azure CLI informatie die lijkt op d
 
 ### <a name="configure-server-firewall"></a>Een serverfirewall configureren
 
-Maak in de Cloud Shell een firewallregel voor uw MySQL-server om clientverbindingen toe te staan met behulp van de opdracht [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az_mysql_server_firewall_rule_create). Als zowel het IP-beginadres als het IP-eindadres zijn ingesteld op 0.0.0.0, wordt de firewall alleen geopend voor andere Azure-resources. 
+Maak in de Cloud Shell een firewallregel voor uw MySQL-server om clientverbindingen toe te staan met behulp van de opdracht [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create). Als zowel het IP-beginadres als het IP-eindadres zijn ingesteld op 0.0.0.0, wordt de firewall alleen geopend voor andere Azure-resources. 
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
@@ -217,7 +217,7 @@ quit
 
 ## <a name="deploy-the-sample-to-azure-app-service"></a>Het voorbeeld naar Azure App Service implementeren
 
-Maak een Azure App Service-plan met de prijscategorie **GRATIS** met behulp van de CLI-opdracht [`az appservice plan create`](/cli/azure/appservice/plan#az_appservice_plan_create). Het App Service-plan definieert de fysieke resources die gebruikt worden voor het hosten van uw apps. Alle toepassingen die zijn toegewezen aan een App Service-plan delen deze resources, zodat u kosten kunt besparen als u meerdere apps host. 
+Maak een Azure App Service-plan met de prijscategorie **GRATIS** met behulp van de CLI-opdracht [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create). Het App Service-plan definieert de fysieke resources die gebruikt worden voor het hosten van uw apps. Alle toepassingen die zijn toegewezen aan een App Service-plan delen deze resources, zodat u kosten kunt besparen als u meerdere apps host. 
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
@@ -243,7 +243,7 @@ Wanneer het plan klaar is, laat de Azure CLI uitvoer zien die vergelijkbaar is m
 
 ### <a name="create-an-azure-web-app"></a>Een Azure-web-app maken
 
-Gebruik in de Cloud Shell de CLI-opdracht [`az webapp create`](/cli/azure/appservice/web#az_appservice_web_create) voor het maken van de definitie van een web-app in het `myAppServicePlan` App Service-plan. De definitie van de web-app biedt een URL voor toegang tot uw toepassing en configureert diverse opties voor het implementeren van uw code naar Azure. 
+Gebruik in de Cloud Shell de CLI-opdracht [`az webapp create`](/cli/azure/appservice/web#az-appservice-web-create) voor het maken van de definitie van een web-app in het `myAppServicePlan` App Service-plan. De definitie van de web-app biedt een URL voor toegang tot uw toepassing en configureert diverse opties voor het implementeren van uw code naar Azure. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
@@ -270,7 +270,7 @@ Wanneer de definitie van de web-app is gemaakt, toont de Azure CLI soortgelijke 
 
 ### <a name="configure-java"></a>Java configureren 
 
-Stel in de Cloud Shell de Java-runtime-configuratie in die uw app nodig heeft met de opdracht [`az webapp config set`](/cli/azure/webapp/config#az_webapp_config_set).
+Stel in de Cloud Shell de Java-runtime-configuratie in die uw app nodig heeft met de opdracht [`az webapp config set`](/cli/azure/webapp/config#az-webapp-config-set).
 
 De volgende opdracht configureert de web-app om op een recente Java 8 JDK en [Apache Tomcat](http://tomcat.apache.org/) 8.0 te worden uitgevoerd.
 
@@ -299,7 +299,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ### <a name="get-ftp-deployment-credentials"></a>FTP-implementatiereferenties verkrijgen 
 U kunt uw web-app op verschillende manieren in Azure App Service implementeren, zoals met FTP, lokale Git, GitHub, Visual Studio Team Services en Bitbucket. In dit voorbeeld gebruikt u FTP voor het implementeren van het .WAR-bestand dat eerder op uw lokale machine in Azure App Service is gebouwd.
 
-Gebruik de opdracht [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az_appservice_web_deployment_list_publishing_profiles) in de Cloud Shell om te bepalen welke referenties u door moet geven in een FTP-opdracht in de web-app: 
+Gebruik de opdracht [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az-appservice-web-deployment-list-publishing-profiles) in de Cloud Shell om te bepalen welke referenties u door moet geven in een FTP-opdracht in de web-app: 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json
@@ -413,7 +413,7 @@ Bij het vernieuwen van de app is nu de kolom **Aanmaaktijd** zichtbaar. Wanneer 
 
 Terwijl uw Java-toepassing in Azure App Service wordt uitgevoerd, kunt u de consolelogboeken doorgesluisd krijgen naar uw terminal. Op die manier krijgt u de dezelfde diagnostische berichten om toepassingsfouten op te sporen.
 
-Gebruik voor het starten van logboekstreaming de opdracht [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az_webapp_log_tail) in de Cloud Shell.
+Gebruik voor het starten van logboekstreaming de opdracht [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) in de Cloud Shell.
 
 ```azurecli-interactive 
 az webapp log tail --name <app_name> --resource-group myResourceGroup 

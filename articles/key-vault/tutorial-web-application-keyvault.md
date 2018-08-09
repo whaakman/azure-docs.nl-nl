@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/17/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 747a0fc7f66edbae8d4a99eeaf0ea45f844d6465
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: ff8cfb84fda6d40cca6d61a956f05e28ea670bf6
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125932"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428771"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Zelfstudie: Een Azure-webtoepassing configureren voor het lezen van een geheim uit Key Vault
 
@@ -44,7 +44,7 @@ az login
 
 ## <a name="create-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az-group-create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
 
 In het volgende voorbeeld wordt een resourcegroep met de naam *ContosoResourceGroup* in de locatie *eastus* gemaakt.
 
@@ -61,7 +61,7 @@ Vervolgens maakt u een sleutelkluis in de resourcegroep die u in de vorige stap 
 
 * Naam van kluis **ContosoKeyVault**
 * Naam van resourcegroep **ContosoResourceGroup**.
-* De locatie **VS - oost**.
+* De locatie **US - oost**.
 
 ```azurecli
 az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --location "East US"

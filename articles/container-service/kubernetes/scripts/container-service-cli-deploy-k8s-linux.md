@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2017
 ms.author: nepeters
-ms.openlocfilehash: 0ae5c7c371f48eb4d9dd2d48efe7d26b44fbcdbe
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 938990e0c39e96d909c07bef05d2630a01e3076a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32162157"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39423756"
 ---
 # <a name="create-an-azure-container-service-kubernetes-linux-cluster"></a>Een Kubernetes Linux-cluster maken in Azure Container Service
 
@@ -57,8 +57,8 @@ In dit script worden de volgende opdrachten gebruikt om de implementatie te make
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
-| [az acs create](https://docs.microsoft.com/cli/azure/acs#az_acs_create) | Hiermee maakt u een ACS-cluster. |
+| [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [az acs create](https://docs.microsoft.com/cli/azure/acs#az-acs-create) | Hiermee maakt u een ACS-cluster. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: 90d449de19022b3b427e3d89d5beb18bbd36c6b4
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 15bd452ad2b80334c3f6168e6dee89bdd7c5efc4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38597984"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39424402"
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>ACR met een DC/OS-cluster gebruiken om uw toepassing te implementeren
 
@@ -34,7 +34,7 @@ Voor deze zelfstudie is versie 2.0.4 of hoger van de Azure CLI vereist. Voer `az
 
 ## <a name="deploy-azure-container-registry"></a>Azure Container Registry implementeren
 
-Maak zo nodig een Azure Container Registry met de opdracht [az acr create](/cli/azure/acr#az_acr_create). 
+Maak zo nodig een Azure Container Registry met de opdracht [az acr create](/cli/azure/acr#az-acr-create). 
 
 In het volgende voorbeeld wordt een register met een willekeurig gegenereerde naam gemaakt. Het register wordt ook geconfigureerd met een beheerdersaccount met het argument `--admin-enabled`.
 

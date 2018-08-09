@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: c35d267acfd1778e80605cdfe9eec0edbb18a281
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ba75c3448b4e8edb3851b97f076c0eaf64a2bce4
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052841"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39428665"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Incrementeel gegevens uit meerdere tabellen in SQL Server naar een Azure SQL-database kopiëren
 In deze zelfstudie maakt u een Azure data factory met een pijplijn waarmee wijzigingsgegevens uit meerdere tabellen van een lokale SQL-server naar een Azure SWL-database worden gekopieerd.    
@@ -45,11 +45,11 @@ Dit zijn de belangrijke stappen voor het maken van deze oplossing:
     
     Selecteer één kolom in elke tabel van de brongegevensopslag, die kan worden gebruikt om de nieuwe of bijgewerkte records voor elke uitvoering te segmenteren. Normaal gesproken nemen de gegevens in deze geselecteerde kolom (bijvoorbeeld, last_modify_time of id) toe wanneer de rijen worden gemaakt of bijgewerkt. De maximale waarde in deze kolom wordt gebruikt als grenswaarde.
 
-2. **Bereid een gegevensopslag voor om de grenswaarde in op te slaan**.   
+1. **Bereid een gegevensopslag voor om de grenswaarde in op te slaan**.   
     
     In deze zelfstudie slaat u de grenswaarde op in een SQL-database.
 
-3. **Maak een pijplijn met de volgende activiteiten**: 
+1. **Maak een pijplijn met de volgende activiteiten**: 
     
     a. Maak een ForEach-activiteit die door een lijst met namen van gegevensbrontabellen loopt, die als parameter is doorgegeven aan de pijplijn. Voor elke brontabel roept deze de volgende activiteiten voor het laden van de deltagegevens voor deze tabel op.
 
@@ -74,9 +74,9 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
 1. Start SQL Server Management Studio en maak verbinding met uw on-premises SQL-database.
 
-2. Klik in **Server Explorer** met de rechtermuisknop op de database en kies **Nieuwe query**.
+1. Klik in **Server Explorer** met de rechtermuisknop op de database en kies **Nieuwe query**.
 
-3. Voer de volgende SQL-opdracht uit op uw database om tabellen te maken met de naam `customer_table` en `project_table`:
+1. Voer de volgende SQL-opdracht uit op uw database om tabellen te maken met de naam `customer_table` en `project_table`:
 
     ```sql
     create table customer_table
@@ -113,9 +113,9 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 ### <a name="create-destination-tables-in-your-azure-sql-database"></a>Doeltabellen in uw Azure SQL-database maken
 1. Open SQL Server Management Studio en maak verbinding met uw Azure SQL-database.
 
-2. Klik in **Server Explorer** met de rechtermuisknop op de database en kies **Nieuwe query**.
+1. Klik in **Server Explorer** met de rechtermuisknop op de database en kies **Nieuwe query**.
 
-3. Voer de volgende SQL-opdracht uit op uw SQL-database om tabellen te maken met de naam `customer_table` en `project_table`:  
+1. Voer de volgende SQL-opdracht uit op uw SQL-database om tabellen te maken met de naam `customer_table` en `project_table`:  
     
     ```sql
     create table customer_table
@@ -144,7 +144,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
         WatermarkValue datetime,
     );
     ```
-2. Initiële watermerkwaarden voor beide brontabellen in de watermerktabel invoegen.
+1. Initiële watermerkwaarden voor beide brontabellen in de watermerktabel invoegen.
 
     ```sql
 
@@ -230,32 +230,32 @@ END
 1. Klik op **Nieuw** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**. 
    
    ![Nieuw -> DataFactory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory-menu.png)
-2. Voer op de pagina **Nieuwe gegevensfactory** **ADFTutorialBulkCopyDF** in als de **naam**. 
+1. Voer op de pagina **Nieuwe gegevensfactory** **ADFTutorialBulkCopyDF** in als de **naam**. 
       
      ![De pagina Nieuwe data factory](./media/tutorial-incremental-copy-multiple-tables-portal/new-azure-data-factory.png)
  
    De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als u het volgende foutbericht krijgt, wijzigt u de naam van de gegevensfactory (bijvoorbeeld uwnaamADFTutorialDataFactory) en probeert u het opnieuw. Zie het artikel [Data factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
   
        `Data factory name ADFMultiIncCopyTutorialDF is not available`
-3. Selecteer het Azure-**abonnement** waarin u de gegevensfactory wilt maken. 
-4. Voer een van de volgende stappen uit voor de **Resourcegroep**:
+1. Selecteer het Azure-**abonnement** waarin u de gegevensfactory wilt maken. 
+1. Voer een van de volgende stappen uit voor de **Resourcegroep**:
      
       - Selecteer **Bestaande gebruiken** en selecteer een bestaande resourcegroep in de vervolgkeuzelijst. 
       - Selecteer **Nieuwe maken** en voer de naam van een resourcegroep in.   
          
         Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
-4. Selecteer **V2 (Preview)** als de **versie**.
-5. Selecteer de **locatie** voor de gegevensfactory. In de vervolgkeuzelijst worden alleen ondersteunde locaties weergegeven. De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
-6. Selecteer **Vastmaken aan dashboard**.     
-7. Klik op **Create**.      
-8. Op het dashboard ziet u de volgende tegel met de status: **Gegevensfactory implementeren**. 
+1. Selecteer **V2 (Preview)** als de **versie**.
+1. Selecteer de **locatie** voor de gegevensfactory. In de vervolgkeuzelijst worden alleen ondersteunde locaties weergegeven. De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
+1. Selecteer **Vastmaken aan dashboard**.     
+1. Klik op **Create**.      
+1. Op het dashboard ziet u de volgende tegel met de status: **Gegevensfactory implementeren**. 
 
     ![tegel met de status 'gegevensfactory implementeren'](media/tutorial-incremental-copy-multiple-tables-portal/deploying-data-factory.png)
-9. Na het aanmaken ziet u de pagina **Data Factory** zoals weergegeven in de afbeelding.
+1. Na het aanmaken ziet u de pagina **Data Factory** zoals weergegeven in de afbeelding.
    
    ![Startpagina van de gegevensfactory](./media/tutorial-incremental-copy-multiple-tables-portal/data-factory-home-page.png)
-10. Klik op de tegel **Author & Monitor** om de gebruikersinterface (UI) van Azure Data Factory te openen in een afzonderlijk tabblad.
-11. Op de pagina Aan de slag met Azure Data Factory-gebruikersinterface, klikt u op **Pijplijn maken** (of) schakelt u over naar het tabblad **Bewerken**. 
+1. Klik op de tegel **Author & Monitor** om de gebruikersinterface (UI) van Azure Data Factory te openen in een afzonderlijk tabblad.
+1. Op de pagina Aan de slag met Azure Data Factory-gebruikersinterface, klikt u op **Pijplijn maken** (of) schakelt u over naar het tabblad **Bewerken**. 
 
    ![Pagina Aan de slag](./media/tutorial-incremental-copy-multiple-tables-portal/get-started-page.png)
 
@@ -265,30 +265,30 @@ Als u gegevens uit een gegevensopslag in een particulier netwerk (on-premises) n
 1. Klik op **Verbindingen** onderaan in het linkerdeelvenster en schakel over naar **Integratieruntimes** in het venster **Verbindingen**. 
 
    ![Tabblad Verbindingen](./media/tutorial-incremental-copy-multiple-tables-portal/connections-tab.png)
-2. In het tabblad **Integratieruntimes** klikt u op **+ Nieuw**. 
+1. In het tabblad **Integratieruntimes** klikt u op **+ Nieuw**. 
 
    ![Knop Nieuwe integratieruntime](./media/tutorial-incremental-copy-multiple-tables-portal/new-integration-runtime-button.png)
-3. In het venster **Instellen van Integration Runtime** selecteert u de optie **Gegevensverkeer uitvoeren en activiteiten verzenden naar externe berekeningen** en klikt u op **Volgende**. 
+1. In het venster **Instellen van Integration Runtime** selecteert u de optie **Gegevensverkeer uitvoeren en activiteiten verzenden naar externe berekeningen** en klikt u op **Volgende**. 
 
    ![Type integratieruntime selecteren](./media/tutorial-incremental-copy-multiple-tables-portal/select-integration-runtime-type.png)
-4. Selecteer ** Privénetwerk** en klik op **Volgende**. 
+1. Selecteer ** Privénetwerk** en klik op **Volgende**. 
 
    ![Privénetwerk selecteren](./media/tutorial-incremental-copy-multiple-tables-portal/select-private-network.png)
-5. Voer **MySelfHostedIR** in bij **Name** en klik op **Next**. 
+1. Voer **MySelfHostedIR** in bij **Name** en klik op **Next**. 
 
    ![Zelf-hostende IR-naam](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
-10. Klik in de sectie **Optie 1: snelle installatie** op **Klik hier om de snelle installatie voor deze computer te starten**. 
+1. Klik in de sectie **Optie 1: snelle installatie** op **Klik hier om de snelle installatie voor deze computer te starten**. 
 
    ![Klik op de koppeling Snelle installatie](./media/tutorial-incremental-copy-multiple-tables-portal/click-exress-setup.png)
-11. Klik in het venster **Snelle installatie van integratieruntime (zelf-hostend)** op **Sluiten**. 
+1. Klik in het venster **Snelle installatie van integratieruntime (zelf-hostend)** op **Sluiten**. 
 
    ![Installatie van integratieruntime - geslaagd](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtime-setup-successful.png)
-12. Klik in de webbrowser in het venster **Installatie van integratieruntime** op **Voltooien**. 
+1. Klik in de webbrowser in het venster **Installatie van integratieruntime** op **Voltooien**. 
 
    ![Installatie van integratieruntime - voltooien](./media/tutorial-incremental-copy-multiple-tables-portal/click-finish-integration-runtime-setup.png)
-17. Controleer of u **MySelfHostedIR** in de lijst met integratieruntimes ziet.
+1. Controleer of u **MySelfHostedIR** in de lijst met integratieruntimes ziet.
 
-       ![Integratieruntimes - lijst](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtimes-list.png)
+       ![Integration runtimes - list](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtimes-list.png)
 
 ## <a name="create-linked-services"></a>Gekoppelde services maken
 U maakt gekoppelde services in een gegevensfactory om uw gegevensarchieven en compute-services aan de gegevensfactory te koppelen. In deze sectie maakt u gekoppelde services in de lokale SQL Server-database en de SQL-database. 
@@ -299,20 +299,20 @@ In deze stap gaat u uw on-premises SQL Server-database aan de data factory koppe
 1. Schakel in het venster **Verbindingen** over van het tabblad **Integratieruntimes** tab naar het tabblad **Gekoppelde Services** en klik op **+ Nieuw**.
 
     ![Knop Nieuwe gekoppelde service](./media/tutorial-incremental-copy-multiple-tables-portal/new-sql-server-linked-service-button.png)
-2. In het venster **Nieuwe gekoppelde service** selecteert u **Microsoft SQL Server** en klikt u op **Doorgaan**. 
+1. In het venster **Nieuwe gekoppelde service** selecteert u **Microsoft SQL Server** en klikt u op **Doorgaan**. 
 
     ![SQL-server selecteren](./media/tutorial-incremental-copy-multiple-tables-portal/select-sql-server.png)
-3. Voer in het venster **Nieuwe gekoppelde service** de volgende stappen uit:
+1. Voer in het venster **Nieuwe gekoppelde service** de volgende stappen uit:
 
     1. Voer **SqlServerLinkedService** in als **Naam**. 
-    2. Selecteer **MySelfHostedIR** bij **Connect via integration runtime**. Dit is een **belangrijke** stap. De standaard integratieruntime kan geen verbinding maken met een on-premises-gegevensarchief. Gebruik de zelf-hostende integratieruntime die u eerder hebt gemaakt. 
-    3. Bij **Servernaam** voert u de naam in van de computer die de SQL Server-database bevat.
-    4. Bij **Naam database** voert u de naam in van de database in uw Microsoft SQL Server met de brongegevens. U hebt een tabel gemaakt en gegevens in deze database ingevoegd als onderdeel van de vereisten. 
-    5. Bij **Verificatietype** selecteert u het **type van de verificatie** dat u wilt gebruiken voor verbinding met de database. 
-    6. Bij **Gebruikersnaam** voert u de naam in van de gebruiker met toegang tot de SQL Server-database. Als u een slash wilt gebruiken (`\`) in de naam van uw gebruikersaccount of server, moet u het escapeteken (`\`) gebruiken. Een voorbeeld is `mydomain\\myuser`.
-    7. Voer bij **Wachtwoord** het **wachtwoord** voor de gebruiker in. 
-    8. Als u wilt testen of de Data Factory verbinding kan maken met uw SQL Server-database, klikt u op **Verbinding testen**. Los alle fouten op totdat de verbinding is geslaagd. 
-    9. Klik op **Opslaan** om de gekoppelde service op te slaan.
+    1. Selecteer **MySelfHostedIR** bij **Connect via integration runtime**. Dit is een **belangrijke** stap. De standaard integratieruntime kan geen verbinding maken met een on-premises-gegevensarchief. Gebruik de zelf-hostende integratieruntime die u eerder hebt gemaakt. 
+    1. Bij **Servernaam** voert u de naam in van de computer die de SQL Server-database bevat.
+    1. Bij **Naam database** voert u de naam in van de database in uw Microsoft SQL Server met de brongegevens. U hebt een tabel gemaakt en gegevens in deze database ingevoegd als onderdeel van de vereisten. 
+    1. Bij **Verificatietype** selecteert u het **type van de verificatie** dat u wilt gebruiken voor verbinding met de database. 
+    1. Bij **Gebruikersnaam** voert u de naam in van de gebruiker met toegang tot de SQL Server-database. Als u een slash wilt gebruiken (`\`) in de naam van uw gebruikersaccount of server, moet u het escapeteken (`\`) gebruiken. Een voorbeeld is `mydomain\\myuser`.
+    1. Voer bij **Wachtwoord** het **wachtwoord** voor de gebruiker in. 
+    1. Als u wilt testen of de Data Factory verbinding kan maken met uw SQL Server-database, klikt u op **Verbinding testen**. Los alle fouten op totdat de verbinding is geslaagd. 
+    1. Klik op **Opslaan** om de gekoppelde service op te slaan.
 
         ![Gekoppelde SQL Server-service - instellingen](./media/tutorial-incremental-copy-multiple-tables-portal/sql-server-linked-service-settings.png)
 
@@ -322,19 +322,19 @@ In de laatste stap maakt u een gekoppelde service om uw Microsoft SQL Server-bro
 1. Schakel in het venster **Verbindingen** over van het tabblad **Integratieruntimes** tab naar het tabblad **Gekoppelde Services** en klik op **+ Nieuw**.
 
     ![Knop Nieuwe gekoppelde service](./media/tutorial-incremental-copy-multiple-tables-portal/new-sql-server-linked-service-button.png)
-2. In het venster **New Linked Service** selecteert u **Azure SQL Database** en klikt u op **Continue**. 
-3. Voer in het venster **Nieuwe gekoppelde service** de volgende stappen uit:
+1. In het venster **New Linked Service** selecteert u **Azure SQL Database** en klikt u op **Continue**. 
+1. Voer in het venster **Nieuwe gekoppelde service** de volgende stappen uit:
 
     1. Voer **AzureSqlDatabaseLinkedService** in als **Naam**. 
-    3. Bij de **Servernaam** selecteert u de naam van uw Azure SQL-server in de vervolgkeuzelijst. 
-    4. Bij de **Databasenaam** selecteert u de Azure SQL-database waarin u customer_table en project_table als onderdeel van de vereisten heeft gemaakt. 
-    6. Bij **Gebruikersnaam** voert u de naam in van de gebruiker met toegang tot de Azure SQL-database. 
-    7. Voer bij **Wachtwoord** het **wachtwoord** voor de gebruiker in. 
-    8. Als u wilt testen of de Data Factory verbinding kan maken met uw SQL Server-database, klikt u op **Verbinding testen**. Los alle fouten op totdat de verbinding is geslaagd. 
-    9. Klik op **Opslaan** om de gekoppelde service op te slaan.
+    1. Bij de **Servernaam** selecteert u de naam van uw Azure SQL-server in de vervolgkeuzelijst. 
+    1. Bij de **Databasenaam** selecteert u de Azure SQL-database waarin u customer_table en project_table als onderdeel van de vereisten heeft gemaakt. 
+    1. Bij **Gebruikersnaam** voert u de naam in van de gebruiker met toegang tot de Azure SQL-database. 
+    1. Voer bij **Wachtwoord** het **wachtwoord** voor de gebruiker in. 
+    1. Als u wilt testen of de Data Factory verbinding kan maken met uw SQL Server-database, klikt u op **Verbinding testen**. Los alle fouten op totdat de verbinding is geslaagd. 
+    1. Klik op **Opslaan** om de gekoppelde service op te slaan.
 
         ![Instelling voor gekoppelde Azure SQL-service](./media/tutorial-incremental-copy-multiple-tables-portal/azure-sql-linked-service-settings.png)
-10. Controleer of u twee gekoppelde services in de lijst kunt zien. 
+1. Controleer of u twee gekoppelde services in de lijst kunt zien. 
    
     ![Twee gekoppelde services](./media/tutorial-incremental-copy-multiple-tables-portal/two-linked-services.png) 
 
@@ -346,13 +346,13 @@ In deze stap maakt u gegevenssets die de gegevensbron, het gegevensdoel en de pl
 1. Klik op **+ (plus)** in het linkervenster en klik op **Gegevensset**.
 
    ![Menu Nieuwe gegevensset](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
-2. Selecteer in het venster **Nieuwe gegevensset** **SQL Server** en klik op **Voltooien**. 
+1. Selecteer in het venster **Nieuwe gegevensset** **SQL Server** en klik op **Voltooien**. 
 
    ![SQL-server selecteren](./media/tutorial-incremental-copy-multiple-tables-portal/select-sql-server-for-dataset.png)
-3. Uit ziet een nieuw tabblad dat geopend wordt in de webbrowser voor het configureren van de gegevensset. U ziet ook de gegevensset in de structuurweergave. Voer in het tabblad **Algemeen** in het venster Eigenschappen onderaan **SourceDataset** in als **Naam**. 
+1. Uit ziet een nieuw tabblad dat geopend wordt in de webbrowser voor het configureren van de gegevensset. U ziet ook de gegevensset in de structuurweergave. Voer in het tabblad **Algemeen** in het venster Eigenschappen onderaan **SourceDataset** in als **Naam**. 
 
    ![Brongegevensset - naam](./media/tutorial-incremental-copy-multiple-tables-portal/source-dataset-general.png)
-4. Ga in het venster Eigenschappen naar het tabblad **Verbindingen** en klik op **SqlServerLinkedService** voor **Gekoppelde service**. U selecteert hier geen tabel. De kopieeractiviteit in de pijplijn gebruikt een SQL-query voor het laden van de gegevens in plaats van de hele tabel te laden.
+1. Ga in het venster Eigenschappen naar het tabblad **Verbindingen** en klik op **SqlServerLinkedService** voor **Gekoppelde service**. U selecteert hier geen tabel. De kopieeractiviteit in de pijplijn gebruikt een SQL-query voor het laden van de gegevens in plaats van de hele tabel te laden.
 
    ![Brongegevensset - verbinding](./media/tutorial-incremental-copy-multiple-tables-portal/source-dataset-connection.png)
 
@@ -361,29 +361,29 @@ In deze stap maakt u gegevenssets die de gegevensbron, het gegevensdoel en de pl
 1. Klik op **+ (plus)** in het linkervenster en klik op **Gegevensset**.
 
    ![Menu Nieuwe gegevensset](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
-2. Selecteer in het venster **Nieuwe gegevensset** de optie **Azure SQL-database** en klik op **Voltooien**. 
+1. Selecteer in het venster **Nieuwe gegevensset** de optie **Azure SQL-database** en klik op **Voltooien**. 
 
    ![Azure SQL-database selecteren](./media/tutorial-incremental-copy-multiple-tables-portal/select-azure-sql-database.png)
-3. Uit ziet een nieuw tabblad dat geopend wordt in de webbrowser voor het configureren van de gegevensset. U ziet ook de gegevensset in de structuurweergave. Voer in het tabblad **Algemeen** in het venster Eigenschappen onderaan **SinkDataset** in als **Naam**.
+1. Uit ziet een nieuw tabblad dat geopend wordt in de webbrowser voor het configureren van de gegevensset. U ziet ook de gegevensset in de structuurweergave. Voer in het tabblad **Algemeen** in het venster Eigenschappen onderaan **SinkDataset** in als **Naam**.
 
    ![Sink-gegevensset - algemeen](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-general.png)
-4. Ga naar het tabblad **Parameters** in het venster Eigenschappen en voer de volgende stappen uit: 
+1. Ga naar het tabblad **Parameters** in het venster Eigenschappen en voer de volgende stappen uit: 
 
     1. Klik op **Nieuw** in de sectie **Parameters maken/bijwerken**. 
-    2. Voer **SinkTableName** in bij de **naam** en **Tekenreeks** voor het **type**. Deze gegevensset gebruikt **SinkTableName** als parameter. De parameter SinkTableName wordt in runtime dynamisch ingesteld door de pijplijn. De ForEach-activiteit in de pijplijn doorloopt een lijst met namen van tabellen en geeft de tabelnaam door aan deze gegevensset in elke iteratie.
+    1. Voer **SinkTableName** in bij de **naam** en **Tekenreeks** voor het **type**. Deze gegevensset gebruikt **SinkTableName** als parameter. De parameter SinkTableName wordt in runtime dynamisch ingesteld door de pijplijn. De ForEach-activiteit in de pijplijn doorloopt een lijst met namen van tabellen en geeft de tabelnaam door aan deze gegevensset in elke iteratie.
    
        ![Sink gegevensset - eigenschappen](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-parameters.png)
-5. Ga in het venster Eigenschappen naar het tabblad **Verbindingen** en selecteer **AzureSqlLinkedService** voor **Gekoppelde service**. Klik voor de eigenschap **Tabel** op **Dynamische inhoud toevoegen**. 
+1. Ga in het venster Eigenschappen naar het tabblad **Verbindingen** en selecteer **AzureSqlLinkedService** voor **Gekoppelde service**. Klik voor de eigenschap **Tabel** op **Dynamische inhoud toevoegen**. 
 
    ![Sink-gegevensset - verbinding](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection.png)
     
     
-6. Selecteer in de sectie **Parameters** de optie **SinkTableName**
+1. Selecteer in de sectie **Parameters** de optie **SinkTableName**
    
    ![Sink-gegevensset - verbinding](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
 
    
- 7. Nadat u op **Voltooien** hebt geklikt, ziet u **@dataset().SinkTableName** als de tabelnaam.
+ 1. Nadat u op **Voltooien** hebt geklikt, ziet u **@dataset().SinkTableName** als de tabelnaam.
    
    ![Sink-gegevensset - verbinding](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
@@ -393,14 +393,14 @@ In deze stap maakt u een gegevensset voor het opslaan van een bovengrenswaarde.
 1. Klik op **+ (plus)** in het linkervenster en klik op **Gegevensset**.
 
    ![Menu Nieuwe gegevensset](./media/tutorial-incremental-copy-multiple-tables-portal/new-dataset-menu.png)
-2. Selecteer in het venster **Nieuwe gegevensset** de optie **Azure SQL-database** en klik op **Voltooien**. 
+1. Selecteer in het venster **Nieuwe gegevensset** de optie **Azure SQL-database** en klik op **Voltooien**. 
 
    ![Azure SQL-database selecteren](./media/tutorial-incremental-copy-multiple-tables-portal/select-azure-sql-database.png)
-3. Voer in het tabblad **Algemeen** in het venster Eigenschappen onderaan **WatermarkDataset** in als **Naam**.
-4. Ga naar het tabblad **Verbinding** en voer de volgende stappen uit: 
+1. Voer in het tabblad **Algemeen** in het venster Eigenschappen onderaan **WatermarkDataset** in als **Naam**.
+1. Ga naar het tabblad **Verbinding** en voer de volgende stappen uit: 
 
     1. Selecteer **AzureSqlDatabaseLinkedService** als **Gekoppelde service**.
-    2. Selecteer **[dbo].[watermarktable]** als **Tabel**.
+    1. Selecteer **[dbo].[watermarktable]** als **Tabel**.
 
        ![WatermarkDataset - verbinding](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
 
@@ -409,105 +409,105 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
 
 1. Gebruik de opzoekactiviteit voor het ophalen van de oude bovengrenswaarde (de initiële waarde, of de waarde die is gebruikt in de laatste iteratie).
 
-2. Gebruik de opzoekactiviteit voor het ophalen van de nieuwe bovengrenswaarde (de maximale waarde van de bovengrenskolom in de brontabel).
+1. Gebruik de opzoekactiviteit voor het ophalen van de nieuwe bovengrenswaarde (de maximale waarde van de bovengrenskolom in de brontabel).
 
-3. Gebruik de kopieeractiviteit voor het kopiëren van gegevens tussen deze twee bovengrenswaarden uit de brondatabase naar de doeldatabase.
+1. Gebruik de kopieeractiviteit voor het kopiëren van gegevens tussen deze twee bovengrenswaarden uit de brondatabase naar de doeldatabase.
 
-4. Gebruik de opgeslagen-procedureactiviteit voor het bijwerken van de oude bovengrenswaarde die in de eerste stap van de volgende iteratie moet worden gebruikt. 
+1. Gebruik de opgeslagen-procedureactiviteit voor het bijwerken van de oude bovengrenswaarde die in de eerste stap van de volgende iteratie moet worden gebruikt. 
 
 ### <a name="create-the-pipeline"></a>Maak de pijplijn
 
 1. Klik op **+ (plus)** in het linkervenster en klik op **Pipeline**.
 
     ![Nieuwe pijplijn - menu](./media/tutorial-incremental-copy-multiple-tables-portal/new-pipeline-menu.png)
-2. Voer in het tabblad **Algemeen** in het venster **Eigenschappen** **IncrementalCopyPipeline** in als **Naam**. 
+1. Voer in het tabblad **Algemeen** in het venster **Eigenschappen** **IncrementalCopyPipeline** in als **Naam**. 
 
     ![Naam pijplijn](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-name.png)
-3. Voer bij in het venster **Eigenschappen** de volgende stappen uit: 
+1. Voer bij in het venster **Eigenschappen** de volgende stappen uit: 
 
     1. Klik op **+ New**. 
-    2. Voer **tableList** in als **Name**-parameter. 
-    3. Selecteer **Object** voor de parameter **Type**.
+    1. Voer **tableList** in als **Name**-parameter. 
+    1. Selecteer **Object** voor de parameter **Type**.
 
     ![Pijplijnparameters](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
-4. Vouw in de werkset **Activiteiten** de optie **Iteratie en voorwaarden** uit en sleep de **ForEach**-activiteit naar het ontwerpoppervlak voor pijplijnen. Voer in het tabblad **Algemeen** van het venster **Eigenschappen** **IterateSQLTables** in. 
+1. Vouw in de werkset **Activiteiten** de optie **Iteratie en voorwaarden** uit en sleep de **ForEach**-activiteit naar het ontwerpoppervlak voor pijplijnen. Voer in het tabblad **Algemeen** van het venster **Eigenschappen** **IterateSQLTables** in. 
 
     ![ForEach-activiteitnaam](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
-5. Ga naar het tabblad **Instellingen** in het venster **Eigenschappen** en voer `@pipeline().parameters.tableList` in voor **Items**. De ForEach-activiteit doorloopt de lijst met tabellen en voert de volgende incrementele kopiebewerkingen uit. 
+1. Ga naar het tabblad **Instellingen** in het venster **Eigenschappen** en voer `@pipeline().parameters.tableList` in voor **Items**. De ForEach-activiteit doorloopt de lijst met tabellen en voert de volgende incrementele kopiebewerkingen uit. 
 
     ![ForEach-activiteit - instellingen](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-settings.png)
-6. Selecteer de activiteit **ForEach** in de pijplijn als dat nog niet is gebeurd. Klik op de knop **Bewerken (potloodpictogram)**.
+1. Selecteer de activiteit **ForEach** in de pijplijn als dat nog niet is gebeurd. Klik op de knop **Bewerken (potloodpictogram)**.
 
     ![ForEach-activiteit - bewerken](./media/tutorial-incremental-copy-multiple-tables-portal/edit-foreach.png)
-7. Vouw in de **Activiteiten**-werkset de optie **Algemeen** uit. Gebruik vervolgens slepen-en-neerzetten om de **opzoekactiviteit** te verplaatsen naar het ontwerpoppervlak voor pijplijnen. en voer **LookupOldWaterMarkActivity** in bij **Naam**.
+1. Vouw in de **Activiteiten**-werkset de optie **Algemeen** uit. Gebruik vervolgens slepen-en-neerzetten om de **opzoekactiviteit** te verplaatsen naar het ontwerpoppervlak voor pijplijnen. en voer **LookupOldWaterMarkActivity** in bij **Naam**.
 
     ![Eerste opzoekactiviteit - naam](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-name.png)
-8. Ga naar het tabblad **Instellingen** in het venster **Eigenschappen** en voer de volgende stappen uit: 
+1. Ga naar het tabblad **Instellingen** in het venster **Eigenschappen** en voer de volgende stappen uit: 
 
     1. Selecteer **WatermarkDataset** in het veld **Brongegevensset**.
-    2. Selecteer **Query** bij **Use Query**. 
-    3. Voer bij **Query** de volgende SQL-query in. 
+    1. Selecteer **Query** bij **Use Query**. 
+    1. Voer bij **Query** de volgende SQL-query in. 
 
         ```sql
         select * from watermarktable where TableName  =  '@{item().TABLE_NAME}'
         ```
 
         ![Eerste opzoekactiviteit - instellingen](./media/tutorial-incremental-copy-multiple-tables-portal/first-lookup-settings.png)
-9. Sleep de activiteit **Opzoeken** uit de **Activiteiten**-werkset en voer **LookupNewWaterMarkActivity** in als **Naam**.
+1. Sleep de activiteit **Opzoeken** uit de **Activiteiten**-werkset en voer **LookupNewWaterMarkActivity** in als **Naam**.
         
     ![Tweede opzoekactiviteit - naam](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-name.png)
-10. Schakel over naar het tabblad **Instellingen**.
+1. Schakel over naar het tabblad **Instellingen**.
 
     1. Selecteer **SourceDataset** in het veld **Source Dataset**. 
-    2. Selecteer **Query** bij **Use Query**.
-    3. Voer bij **Query** de volgende SQL-query in.
+    1. Selecteer **Query** bij **Use Query**.
+    1. Voer bij **Query** de volgende SQL-query in.
 
         ```sql    
         select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
         ```
     
         ![Tweede opzoekactiviteit - instellingen](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
-11. Sleep de activiteit **Kopiëren** uit de **Activiteiten**-werkset en voer **IncrementalCopyActivity** in als **Naam**. 
+1. Sleep de activiteit **Kopiëren** uit de **Activiteiten**-werkset en voer **IncrementalCopyActivity** in als **Naam**. 
 
     ![Kopieeractiviteit - naam](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
-12. Verbind **Opzoek**-activiteiten één voor één met de activiteit **Kopiëren**. Om te verbinden, start u met het slepen van het **groene** vak gekoppeld aan de **Opzoek**-activiteit en zet u dit neer op de activiteit **Kopiëren**. Laat de muisknop los als u ziet dat de randkleur van de kopieeractiviteit is gewijzigd in **blauw**.
+1. Verbind **Opzoek**-activiteiten één voor één met de activiteit **Kopiëren**. Om te verbinden, start u met het slepen van het **groene** vak gekoppeld aan de **Opzoek**-activiteit en zet u dit neer op de activiteit **Kopiëren**. Laat de muisknop los als u ziet dat de randkleur van de kopieeractiviteit is gewijzigd in **blauw**.
 
     ![Opzoekactiviteiten verbinden met kopieeractiviteit](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
-13. U ziet dat de activiteit **Kopiëren** in de pijplijn is mislukt. Ga naar het tabblad **Bron** in het venster **Eigenschappen**. 
+1. U ziet dat de activiteit **Kopiëren** in de pijplijn is mislukt. Ga naar het tabblad **Bron** in het venster **Eigenschappen**. 
 
     1. Selecteer **SourceDataset** in het veld **Source Dataset**. 
-    2. Selecteer **Query** bij **Use Query**. 
-    3. Voer bij **Query** de volgende SQL-query in.
+    1. Selecteer **Query** bij **Use Query**. 
+    1. Voer bij **Query** de volgende SQL-query in.
 
         ```sql
         select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
         ```
 
         ![Kopieeractiviteit - broninstellingen](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
-14. Open het tabblad **Sink** en selecteer **SinkDataset** in het veld **Sink Dataset**. 
+1. Open het tabblad **Sink** en selecteer **SinkDataset** in het veld **Sink Dataset**. 
         
     ![Kopieeractiviteit - sinkinstellingen](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
-15. Open het tabblad **Parameters** en voer de volgende stappen uit:
+1. Open het tabblad **Parameters** en voer de volgende stappen uit:
 
     1. Voer bij de eigenschap **In de sink opgeslagen procedurenaam** `@{item().StoredProcedureNameForMergeOperation}` in.
-    2. Voer bij de eigenschap **Tabeltype sink** `@{item().TableType}` in.
-    3. Voer in de sectie **Sink-gegevensset** bij de parameter **SinkTableName** `@{item().TABLE_NAME}` in.
+    1. Voer bij de eigenschap **Tabeltype sink** `@{item().TableType}` in.
+    1. Voer in de sectie **Sink-gegevensset** bij de parameter **SinkTableName** `@{item().TABLE_NAME}` in.
 
         ![Kopieeractiviteit - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
-16. Sleep de **Stored Procedure**-activiteit vanuit de werkset **Activities** naar het ontwerpoppervlak voor pijplijnen. Verbind de **Kopieer**-activiteit met de **Opgeslagen procedure**-activiteit. 
+1. Sleep de **Stored Procedure**-activiteit vanuit de werkset **Activities** naar het ontwerpoppervlak voor pijplijnen. Verbind de **Kopieer**-activiteit met de **Opgeslagen procedure**-activiteit. 
 
     ![Kopieeractiviteit - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
-17. Selecteer de **Opgeslagen procedure**-activiteit in de pijplijn en voer **StoredProceduretoWriteWatermarkActivity** in als **Naam** in het tabblad **Algemeen** van het venster **Eigenschappen**. 
+1. Selecteer de **Opgeslagen procedure**-activiteit in de pijplijn en voer **StoredProceduretoWriteWatermarkActivity** in als **Naam** in het tabblad **Algemeen** van het venster **Eigenschappen**. 
 
     ![Opgeslagen-procedureactiviteit - naam](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
-18. Ga naar het tabblad **SQL-account** en selecteer **AzureSqlDatabaseLinkedService** als **Gekoppelde Service**.
+1. Ga naar het tabblad **SQL-account** en selecteer **AzureSqlDatabaseLinkedService** als **Gekoppelde Service**.
 
     ![Opgeslagen-procedureactiviteit - SQL-account](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
-19. Ga naar het tabblad **Opgeslagen procedure** en voer de volgende stappen uit:
+1. Ga naar het tabblad **Opgeslagen procedure** en voer de volgende stappen uit:
 
     1. Selecteer `sp_write_watermark` als **Opgeslagen procedurenaam**. 
-    2. Selecteer **Importparameter**. 
-    3. Geef de volgende waarden op voor de parameters: 
+    1. Selecteer **Importparameter**. 
+    1. Geef de volgende waarden op voor de parameters: 
 
         | Naam | Type | Waarde | 
         | ---- | ---- | ----- |
@@ -515,10 +515,10 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
         | TableName | Tekenreeks | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Opgeslagen-procedureactiviteit - instellingen voor de opgeslagen procedure](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
-20. Klik in het linkerdeelvenster op **Publiceren**. Deze actie publiceert de entiteiten die u hebt gemaakt met de Data Factory-service. 
+1. Klik in het linkerdeelvenster op **Publiceren**. Deze actie publiceert de entiteiten die u hebt gemaakt met de Data Factory-service. 
 
     ![De knop Publiceren](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
-21. Wacht tot u het bericht **Gepubliceerd** ziet. Om de meldingen te zien, klikt u op de link **Meldingen weergeven**. Sluit het meldingenvenster door op **X** te klikken.
+1. Wacht tot u het bericht **Gepubliceerd** ziet. Om de meldingen te zien, klikt u op de link **Meldingen weergeven**. Sluit het meldingenvenster door op **X** te klikken.
 
     ![Meldingen weergeven](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
 
@@ -528,7 +528,7 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
 1. Klik in de werkbalk voor de pijplijn op **Activeren** en klik vervolgens op **Nu activeren**.     
 
     ![Nu activeren](./media/tutorial-incremental-copy-multiple-tables-portal/trigger-now.png)
-2. Voer in het venster **Pijplijn uitvoeren** de volgende waarde in voor de parameter **tableList** en klik op **Voltooien**. 
+1. Voer in het venster **Pijplijn uitvoeren** de volgende waarde in voor de parameter **tableList** en klik op **Voltooien**. 
 
     ```
     [
@@ -554,7 +554,7 @@ In deze pijplijn wordt een lijst met tabelnamen gebruikt als parameter. De ForEa
 1. Ga naar het tabblad **Controleren** aan de linkerkant. U kunt de status van de pijplijnuitvoering zien die is geactiveerd met de **handmatige trigger**. Klik op de knop **Vernieuwen** om de lijst te vernieuwen. Met de koppelingen in de kolom **Acties** kunt u de uitvoeringen van activiteiten weergeven die zijn gekoppeld aan de pijplijnuitvoering, en de pijplijn opnieuw uitvoeren. 
 
     ![Pijplijnuitvoeringen](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-runs.png)
-2. Klik op de koppeling **Uitvoeringen van activiteiten weergeven** in de kolom **Acties**. U ziet de uitvoering van alle activiteiten die zijn gekoppeld aan de pijplijnuitvoering. 
+1. Klik op de koppeling **Uitvoeringen van activiteiten weergeven** in de kolom **Acties**. U ziet de uitvoering van alle activiteiten die zijn gekoppeld aan de pijplijnuitvoering. 
 
     ![Uitvoering van activiteiten](./media/tutorial-incremental-copy-multiple-tables-portal/activity-runs.png)
 
@@ -629,7 +629,7 @@ VALUES
 
 ## <a name="rerun-the-pipeline"></a>Voer de pijplijn uit
 1. Schakel in het browservenster over naar het tabblad **Bewerken** aan de linkerkant. 
-2. Klik in de werkbalk voor de pijplijn op **Activeren** en klik vervolgens op **Nu activeren**.   
+1. Klik in de werkbalk voor de pijplijn op **Activeren** en klik vervolgens op **Nu activeren**.   
 
     ![Nu activeren](./media/tutorial-incremental-copy-multiple-tables-portal/trigger-now.png)
 1. Voer in het venster **Pijplijn uitvoeren** de volgende waarde in voor de parameter **tableList** en klik op **Voltooien**. 
@@ -656,7 +656,7 @@ VALUES
 1. Ga naar het tabblad **Controleren** aan de linkerkant. U kunt de status van de pijplijnuitvoering zien die is geactiveerd met de **handmatige trigger**. Klik op de knop **Vernieuwen** om de lijst te vernieuwen. Met de koppelingen in de kolom **Acties** kunt u de uitvoeringen van activiteiten weergeven die zijn gekoppeld aan de pijplijnuitvoering, en de pijplijn opnieuw uitvoeren. 
 
     ![Pijplijnuitvoeringen](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-runs.png)
-2. Klik op de koppeling **Uitvoeringen van activiteiten weergeven** in de kolom **Acties**. U ziet de uitvoering van alle activiteiten die zijn gekoppeld aan de pijplijnuitvoering. 
+1. Klik op de koppeling **Uitvoeringen van activiteiten weergeven** in de kolom **Acties**. U ziet de uitvoering van alle activiteiten die zijn gekoppeld aan de pijplijnuitvoering. 
 
     ![Uitvoering van activiteiten](./media/tutorial-incremental-copy-multiple-tables-portal/activity-runs.png) 
 
