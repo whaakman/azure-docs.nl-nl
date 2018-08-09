@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/09/2017
 ms.author: cawa
-ms.openlocfilehash: c8bcc2bf11ef4adbe9139635d3c24c240a46783c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 536092c1ee50045e6df4e2933c7d6eb0ee7a8b42
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525754"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429784"
 ---
 # <a name="using-storage-explorer-with-azure-file-storage"></a>Opslagverkenner gebruiken met Azure File Storage
 
@@ -41,17 +41,17 @@ Voer de volgende stappen uit om een bestandsshare te maken binnen Storage Explor
 
 1. Open Storage Explorer.
 
-2. Vouw in het linkerdeelvenster het opslagaccount uit waarin u de bestandsshare wilt maken.
+1. Vouw in het linkerdeelvenster het opslagaccount uit waarin u de bestandsshare wilt maken.
 
-3. Klik met de rechtermuisknop op **Bestandsshares** en selecteer **Bestandsshare maken** in het contextmenu.
+1. Klik met de rechtermuisknop op **Bestandsshares** en selecteer **Bestandsshare maken** in het contextmenu.
 
     ![Bestandsshare maken](media/vs-azure-tools-storage-explorer-files/image1.png)
 
-4. U ziet een tekstvak onder de map **Bestandsshares**. Voer een naam in voor de bestandsshare. Zie de sectie [Naamgevingsregels voor shares](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) voor een lijst van regels en beperkingen voor namen van bestandsshares.
+1. U ziet een tekstvak onder de map **Bestandsshares**. Voer een naam in voor de bestandsshare. Zie de sectie [Naamgevingsregels voor shares](https://docs.microsoft.com//azure/storage/storage-dotnet-how-to-use-blobs#create-a-container) voor een lijst van regels en beperkingen voor namen van bestandsshares.
 
     ![Een naam opgeven voor de share](media/vs-azure-tools-storage-explorer-files/image2.png)
 
-5. Druk op **Enter** om de bestandsshare te maken of op **Esc** om te annuleren. Als de bestandsshare is gemaakt, wordt deze weergegeven onder de map **Bestandsshares** voor het geselecteerde opslagaccount.
+1. Druk op **Enter** om de bestandsshare te maken of op **Esc** om te annuleren. Als de bestandsshare is gemaakt, wordt deze weergegeven onder de map **Bestandsshares** voor het geselecteerde opslagaccount.
 
     ![De nieuwe share](media/vs-azure-tools-storage-explorer-files/image3.png)
 
@@ -63,15 +63,15 @@ Volg de volgende stappen om de inhoud van een bestandsshare weer te geven binnen
 
 1. Open Storage Explorer.
 
-2. Vouw in het linkerdeelvenster het opslagaccount uit met de bestandsshare die u wilt weergeven.
+1. Vouw in het linkerdeelvenster het opslagaccount uit met de bestandsshare die u wilt weergeven.
 
-3. Vouw het gedeelte **Bestandsshares** van het opslagaccount uit.
+1. Vouw het gedeelte **Bestandsshares** van het opslagaccount uit.
 
-4. Klik met de rechtermuisknop op de bestandsshare die u wilt weergeven en selecteer **Openen** in het contextmenu. U kunt ook dubbelklikken op de bestandsshare die u wilt weergeven.
+1. Klik met de rechtermuisknop op de bestandsshare die u wilt weergeven en selecteer **Openen** in het contextmenu. U kunt ook dubbelklikken op de bestandsshare die u wilt weergeven.
 
     ![Share openen](media/vs-azure-tools-storage-explorer-files/image4.png)
 
-5. U ziet de inhoud van de bestandsshare in het hoofdvenster.
+1. U ziet de inhoud van de bestandsshare in het hoofdvenster.
     
     ![De inhoud van de share](media/vs-azure-tools-storage-explorer-files/image5.png)
 
@@ -83,15 +83,15 @@ Voer de volgende stappen uit om een bestandsshare te wissen binnen Storage Explo
 
 1. Open Storage Explorer.
 
-2. Vouw in het linkerdeelvenster het opslagaccount uit met de bestandsshare die u wilt weergeven.
+1. Vouw in het linkerdeelvenster het opslagaccount uit met de bestandsshare die u wilt weergeven.
 
-3. Vouw het gedeelte **Bestandsshares** van het opslagaccount uit.
+1. Vouw het gedeelte **Bestandsshares** van het opslagaccount uit.
 
-4. Klik met de rechtermuisknop op de bestandsshare die u wilt verwijderen en selecteer **Verwijderen** in het contextmenu. U kunt ook op **Delete** drukken om de geselecteerde bestandsshare te verwijderen.
+1. Klik met de rechtermuisknop op de bestandsshare die u wilt verwijderen en selecteer **Verwijderen** in het contextmenu. U kunt ook op **Delete** drukken om de geselecteerde bestandsshare te verwijderen.
 
     ![Verwijderen](media/vs-azure-tools-storage-explorer-files/image6.png)
 
-5. Selecteer **Ja** in het bevestigingsvenster.
+1. Selecteer **Ja** in het bevestigingsvenster.
     
     ![Bevestigingsvenster](media/vs-azure-tools-storage-explorer-files/image7.png)
 
@@ -103,15 +103,15 @@ In de volgende stappen ziet u hoe u een bestandsshare van het ene opslagaccount 
 
 1. Open Storage Explorer.
 
-2. Vouw in het linkerdeelvenster het opslagaccount uit met de bestandsshare die u wilt kopiëren.
+1. Vouw in het linkerdeelvenster het opslagaccount uit met de bestandsshare die u wilt kopiëren.
 
-3. Vouw het gedeelte **Bestandsshares** van het opslagaccount uit.
+1. Vouw het gedeelte **Bestandsshares** van het opslagaccount uit.
 
-4. Klik met de rechtermuisknop op de bestandsshare die u wilt kopiëren en selecteer **Bestandsshare kopiëren** in het contextmenu.
+1. Klik met de rechtermuisknop op de bestandsshare die u wilt kopiëren en selecteer **Bestandsshare kopiëren** in het contextmenu.
 
     ![Bestandsshare kopiëren](media/vs-azure-tools-storage-explorer-files/image8.png)
 
-5. Klik met de rechtermuisknop op het opslagaccount waarnaar u de bestandsshare wilt plakken en selecteer **Bestandsshare plakken** in het contextmenu.
+1. Klik met de rechtermuisknop op het opslagaccount waarnaar u de bestandsshare wilt plakken en selecteer **Bestandsshare plakken** in het contextmenu.
 
     ![Bestandsshare plakken](media/vs-azure-tools-storage-explorer-files/image9.png)
 
@@ -123,25 +123,25 @@ Voer de volgende stappen uit om een SAS te maken voor een bestandsshare:
 
 1. Open Storage Explorer.
 
-2. Vouw in het linkerdeelvenster het opslagaccount uit met de bestandsshare waarvoor u een SAS wilt ophalen.
+1. Vouw in het linkerdeelvenster het opslagaccount uit met de bestandsshare waarvoor u een SAS wilt ophalen.
 
-3. Vouw het gedeelte **Bestandsshares** van het opslagaccount uit.
+1. Vouw het gedeelte **Bestandsshares** van het opslagaccount uit.
 
-4. Klik met de rechtermuisknop op de gewenste bestandsshare en selecteer **Handtekening voor gedeelde toegang ophalen** in het contextmenu.
+1. Klik met de rechtermuisknop op de gewenste bestandsshare en selecteer **Handtekening voor gedeelde toegang ophalen** in het contextmenu.
 
     ![Handtekening voor gedeelde toegang ophalen](media/vs-azure-tools-storage-explorer-files/image10.png)
 
-5. Geef in het dialoogvenster **Handtekening voor gedeelde toegang** waarden op voor het beleid, de begin- en eindtijd, de tijdzone en de toegangsniveaus die u wilt gebruiken voor de resource.
+1. Geef in het dialoogvenster **Handtekening voor gedeelde toegang** waarden op voor het beleid, de begin- en eindtijd, de tijdzone en de toegangsniveaus die u wilt gebruiken voor de resource.
 
     ![SAS-dialoogvenster](media/vs-azure-tools-storage-explorer-files/image11.png)
 
-6. Als u alle SAS-opties hebt opgegeven, selecteert u **Maken**.
+1. Als u alle SAS-opties hebt opgegeven, selecteert u **Maken**.
 
-7. U ziet een tweede dialoogvenster **Handtekening voor gedeelde toegang** met de bestandsshare en de URL en queryreeksen waarmee u toegang kunt krijgen tot de opslagbron. Selecteer **Kopiëren** naast de URL die u naar het klembord wilt kopiëren.
+1. U ziet een tweede dialoogvenster **Handtekening voor gedeelde toegang** met de bestandsshare en de URL en queryreeksen waarmee u toegang kunt krijgen tot de opslagbron. Selecteer **Kopiëren** naast de URL die u naar het klembord wilt kopiëren.
     
     ![Tweede SAS-dialoogvenster](media/vs-azure-tools-storage-explorer-files/image12.png)
 
-8. Als u klaar bent, selecteert u **Sluiten**.
+1. Als u klaar bent, selecteert u **Sluiten**.
 
 ## <a name="manage-access-policies-for-a-file-share"></a>Toegangsbeleid voor een bestandsshare beheren
 
@@ -149,19 +149,19 @@ In de volgende stappen ziet u hoe u toegangsbeleid voor een bestandsshare kunt b
 
 1. Open Storage Explorer.
 
-2. Vouw in het linkerdeelvenster het opslagaccount uit met de bestandsshare waarvan u het toegangsbeleid wilt wijzigen.
+1. Vouw in het linkerdeelvenster het opslagaccount uit met de bestandsshare waarvan u het toegangsbeleid wilt wijzigen.
 
-3. Vouw het gedeelte **Bestandsshares** van het opslagaccount uit.
+1. Vouw het gedeelte **Bestandsshares** van het opslagaccount uit.
 
-4. Selecteer de gewenste bestandsshare en selecteer **Toegangsbeleid beheren** in het contextmenu.
+1. Selecteer de gewenste bestandsshare en selecteer **Toegangsbeleid beheren** in het contextmenu.
 
     ![Contextmenu Toegangsbeleid beheren](media/vs-azure-tools-storage-explorer-files/image13.png)
 
-5. Het dialoogvenster **Toegangsbeleid** bevat alle toegangsregels die al zijn gemaakt voor de geselecteerde bestandsshare.
+1. Het dialoogvenster **Toegangsbeleid** bevat alle toegangsregels die al zijn gemaakt voor de geselecteerde bestandsshare.
     
     ![Toegangsbeleid](media/vs-azure-tools-storage-explorer-files/image14.png)
 
-6. Volg hieronder de stappen voor de beleidsbeheertaak die u wilt uitvoeren:
+1. Volg hieronder de stappen voor de beleidsbeheertaak die u wilt uitvoeren:
     
     - **Een nieuw toegangsbeleid toevoegen**: selecteer **Toevoegen**. Als de bewerking is voltooid, ziet u het dialoogvenster **Toegangsbeleid** met het zojuist toegevoegde toegangsbeleid (met de standaardinstellingen).
 
@@ -169,7 +169,7 @@ In de volgende stappen ziet u hoe u toegangsbeleid voor een bestandsshare kunt b
 
     - **Een toegangsbeleid verwijderen**: selecteer **Verwijderen** naast het toegangsbeleid dat u wilt verwijderen.
 
-7. Maak een nieuwe SAS-URL met behulp van het toegangsbeleid dat u eerder hebt gemaakt:
+1. Maak een nieuwe SAS-URL met behulp van het toegangsbeleid dat u eerder hebt gemaakt:
     
     ![SAS ophalen](media/vs-azure-tools-storage-explorer-files/image15.png)
     
@@ -183,19 +183,19 @@ De volgende stappen laten zien hoe u de bestanden (en mappen) in een bestandssha
 
 1.  Open Storage Explorer.
 
-2.  Vouw in het linkerdeelvenster het opslagaccount uit met de bestandsshare die u wilt beheren.
+1.  Vouw in het linkerdeelvenster het opslagaccount uit met de bestandsshare die u wilt beheren.
 
-3.  Vouw het gedeelte **Bestandsshares** van het opslagaccount uit.
+1.  Vouw het gedeelte **Bestandsshares** van het opslagaccount uit.
 
-4.  Dubbelklik op de bestandsshare die u wilt weergeven.
+1.  Dubbelklik op de bestandsshare die u wilt weergeven.
 
-5.  U ziet de inhoud van de bestandsshare in het hoofdvenster.
+1.  U ziet de inhoud van de bestandsshare in het hoofdvenster.
 
     ![De inhoud van de share](media/vs-azure-tools-storage-explorer-files/image17.png)
 
-6.  U ziet de inhoud van de bestandsshare in het hoofdvenster.
+1.  U ziet de inhoud van de bestandsshare in het hoofdvenster.
 
-7.  Volg hieronder de stappen voor de bewerking die u wilt uitvoeren:
+1.  Volg hieronder de stappen voor de bewerking die u wilt uitvoeren:
 
     - **Bestanden uploaden naar een bestandsshare**
 

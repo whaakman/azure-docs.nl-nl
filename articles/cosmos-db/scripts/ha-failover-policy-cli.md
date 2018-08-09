@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 06/02/2017
 ms.author: sngun
-ms.openlocfilehash: 94d91c59aef569b952799ede45222914af698bc4
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: 49cae1d5187a04ef1d7a87eacfdb32faf042bd0b
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795513"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444715"
 ---
 # <a name="create-a-failover-policy-for-high-availability-using-the-azure-cli"></a>Een failoverbeleid voor hoge beschikbaarheid maken met behulp van de Azure CLI
 
@@ -47,10 +47,10 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
-| [az cosmosdb create](/cli/azure/sql/server#az_sql_server_create) | Hiermee wordt een Azure Cosmos DB-account gemaakt. |
-| [az cosmosdb update](/cli/azure/cosmosdb#az_cosmosdb_update) | Hiermee wordt een Azure Cosmos DB-account bijgewerkt. |
-| [az group delete](/cli/azure/resource#az_resource_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
+| [az group create](/cli/azure/group#az-group-create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
+| [az cosmosdb create](/cli/azure/sql/server#az-sql-server-create) | Hiermee wordt een Azure Cosmos DB-account gemaakt. |
+| [az cosmosdb update](/cli/azure/cosmosdb#az-cosmosdb-update) | Hiermee wordt een Azure Cosmos DB-account bijgewerkt. |
+| [az group delete](/cli/azure/resource#az-resource-delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

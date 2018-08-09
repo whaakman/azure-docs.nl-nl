@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 47b3ca20b32188f3cf102934c7f21d6418f3c2f6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 31a3a0618330b74c611afcdf70560ce47eeb85e3
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639340"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626352"
 ---
 # <a name="what-is-azure-network-watcher"></a>Wat is Azure Network Watcher?
 
@@ -35,7 +35,7 @@ Eindpunten kunnen een andere virtuele machine (VM), een volledig gekwalificeerde
 
 Als een eindpunt onbereikbaar wordt, wordt u geïnformeerd over de reden. Mogelijke oorzaken zijn een probleem met de DNS-naamomzetting, de CPU, het geheugen of de firewall binnen het besturingssysteem van een virtuele machine of het hoptype van een aangepaste route of beveiligingsregel voor de virtuele machine of een subnet van de uitgaande verbinding. Meer informatie over [beveiligingsregels](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) en [hoptypen van routes](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) in Azure.
 
-De verbindingsmonitor biedt ook de minimale, gemiddelde en maximale latentie waargenomen gedurende een bepaalde periode. Nadat u de latentie voor een verbinding hebt vernomen, kunt u de latentie misschien verminderen door uw Azure-resources te verplaatsen naar andere Azure-regio's. Meer informatie over het bepalen van [relatieve latenties tussen Azure-regio's en internetproviders](#determine-relative-latencies-between-azure- regions-and-internet-service-providers) en het controleren van de communicatie tussen een virtuele machine en een eindpunt met [verbindingsmonitor](connection-monitor.md). Als u liever een verbinding test op een bepaald tijdstip in plaats van in de loop van de tijd (wat u doet met een verbindingsmonitor), gebruikt u in plaats hiervan de functionaliteit voor het [oplossen van verbindingsproblemen](#connection-troubleshoot).
+De verbindingsmonitor biedt ook de minimale, gemiddelde en maximale latentie waargenomen gedurende een bepaalde periode. Nadat u de latentie voor een verbinding hebt vernomen, kunt u de latentie misschien verminderen door uw Azure-resources te verplaatsen naar andere Azure-regio's. Meer informatie over het bepalen van [relatieve latenties tussen Azure-regio's en internetproviders](#determine-relative-latencies-between-azure-regions-and-internet-service-providers) en het controleren van de communicatie tussen een virtuele machine en een eindpunt met [verbindingsmonitor](connection-monitor.md). Als u liever een verbinding test op een bepaald tijdstip in plaats van in de loop van de tijd (wat u doet met een verbindingsmonitor), gebruikt u in plaats hiervan de functionaliteit voor het [oplossen van verbindingsproblemen](#connection-troubleshoot).
 
 ### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>Resources in een virtueel netwerk en hun relaties weergeven
 
@@ -77,7 +77,7 @@ De effectieve beveiligingsregels voor een netwerkinterface zijn een combinatie v
 
 ## <a name="metrics"></a>Metrische gegevens
 
-Er gelden [limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor het aantal netwerkresources dat u binnen een Azure-abonnement en -regio kunt maken. Als u deze limieten bereikt, kunt u geen resources meer maken binnen het Azure-abonnement of de Azure-regio. De *Abonnementslimiet voor netwerk* laat zien hoeveel van elke netwerkresource u hebt geïmplementeerd in een abonnement en regio en wat de limiet voor de resource is. In de volgende afbeelding ziet u de gedeeltelijke uitvoer voor netwerkbronnen die zijn geïmplementeerd in de regio VS-Oost voor een voorbeeldabonnement:
+Er gelden [limieten](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor het aantal netwerkresources dat u binnen een Azure-abonnement en -regio kunt maken. Als u deze limieten bereikt, kunt u geen resources meer maken binnen het Azure-abonnement of de Azure-regio. De *Abonnementslimiet voor netwerk* laat zien hoeveel van elke netwerkresource u hebt geïmplementeerd in een abonnement en regio en wat de limiet voor de resource is. In de volgende afbeelding ziet u de gedeeltelijke uitvoer voor netwerkbronnen die zijn geïmplementeerd in de regio US - oost voor een voorbeeldabonnement:
 
 ![Abonnementslimieten](./media/network-watcher-monitoring-overview/subscription-limit.png)
 

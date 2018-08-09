@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b08033c53185e6229e6fa368a3456749e19eb1f0
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: eeaac4f694c3e7197a5f798d7462b39d42e14e03
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021320"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505828"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Zelfstudie: Een ASP.NET-app bouwen in Azure met SQL Database
 
@@ -50,9 +50,8 @@ Als u Visual Studio al hebt geïnstalleerd, voegt u de workloads toe in Visual S
 
 ## <a name="download-the-sample"></a>Het voorbeeld downloaden
 
-<a name="-download-the-sample-projecthttpsgithubcomazure-samplesdotnet-sqldb-tutorialarchivemasterzip"></a>-[Download het voorbeeldproject](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
--
-Pak (unzip) het bestand *dotnet-sqldb-zelfstudie-master.zip* uit.
+- [Download het voorbeeldproject](https://github.com/Azure-Samples/dotnet-sqldb-tutorial/archive/master.zip).
+- Extraheer (uitpakken) het *dotnet-sqldb-zelfstudie-master.zip*-bestand.
 
 Het voorbeeldproject bevat een eenvoudige [ASP.NET MVC](https://www.asp.net/mvc)-CRUD-app (create-read-update-delete) die gebruikmaakt van [Entity Framework Code First](/aspnet/mvc/overview/getting-started/getting-started-with-ef-using-mvc/creating-an-entity-framework-data-model-for-an-asp-net-mvc-application).
 
@@ -120,7 +119,7 @@ Configureer in het dialoogvenster **App Service-plan configureren** het nieuwe A
 | Instelling  | Voorgestelde waarde | Voor meer informatie |
 | ----------------- | ------------ | ----|
 |**App Service Plan**| myAppServicePlan | [App Service-abonnementen](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) |
-|**Locatie**| West-Europa | [Azure-regio's](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
+|**Locatie**| Europa -west | [Azure-regio's](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
 |**Grootte**| Gratis | [Prijscategorieën](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
 ### <a name="create-a-sql-server-instance"></a>Een SQL Server-instantie maken
@@ -166,7 +165,7 @@ Voeg enkele taakitems toe.
 
 ![Gepubliceerde ASP.NET-toepassing in Azure-web-app](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-app-in-browser.png)
 
-Gefeliciteerd. Uw gegevensgestuurde ASP.NET-toepassing wordt live in Azure App Service uitgevoerd.
+Gefeliciteerd! Uw gegevensgestuurde ASP.NET-toepassing wordt live in Azure App Service uitgevoerd.
 
 ## <a name="access-the-sql-database-locally"></a>Lokale toegang tot de SQL Database
 

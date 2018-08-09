@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/30/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 9da2454afa130c4c2ccab458099a90d78354b3e2
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 994bd6f2a041e25d15c7e0b4a216952cec4101fa
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358271"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492820"
 ---
 # <a name="tutorial-3-add-regular-expression-entity"></a>Zelfstudie: 3. Een entiteit in de vorm van een reguliere expressie toevoegen
 In deze zelfstudie maakt u een app die laat zien hoe u consistent opgemaakte gegevens kunt extraheren uit een utterance met behulp van de entiteit **Regular Expression (regex)**.
@@ -110,15 +110,8 @@ Voer de volgende stappen uit om een entiteit in de vorm van een gewone expressie
     Omdat de entiteit niet wordt verkregen via machine learning, wordt het label toegepast op de utterances en weergegeven op de website van LUIS zodra het label is gemaakt.
 
 ## <a name="train-the-luis-app"></a>LUIS-app trainen
-Het is niet nodig om een entiteit in de vorm van een gewone expressie te trainen. Dit geldt wel voor de nieuwe intentie en de utterances. 
 
-1. Selecteer rechtsboven op de website van LUIS de knop **Train**.
-
-    ![Afbeelding van de knop Train](./media/luis-quickstart-intents-regex-entity/train-button.png)
-
-2. Het trainen is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het trainen is gelukt.
-
-    ![Afbeelding van melding dat het trainen is voltooid](./media/luis-quickstart-intents-regex-entity/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>App publiceren om eindpunt-URL op te vragen
 
@@ -237,7 +230,8 @@ Uw chatbot heeft nu voldoende gegevens om de primaire actie te bepalen, `FindFor
 LUIS hoeft niets meer te doen met deze aanvraag. De aanroepende toepassing, zoals een chatbot, kan het resultaat topScoringIntent nemen plus de formuliernummers om te zoeken via een API van een derde partij. LUIS hoeft die taak niet uit te voeren. LUIS alleen bepaalt wat de intentie van de gebruiker is en extraheert gegevens over die intentie. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer **My apps** in het bovenste menu links. Selecteer het weglatingsteken (***...***) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

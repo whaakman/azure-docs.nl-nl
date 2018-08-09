@@ -2,23 +2,18 @@
 title: Azure-bestandsshares beheren met Azure PowerShell
 description: Leer hoe u Azure-bestandsshares beheert met Azure PowerShell.
 services: storage
-documentationcenter: ''
 author: wmgries
-manager: aungoo
-editor: tamram
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: 8fcc654b7f5068037ec0818e19d8dff09bc07537
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: files
+ms.openlocfilehash: a69e8946c050cc69411f843b07e907a119c6edea
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635085"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39522926"
 ---
 # <a name="managing-azure-file-shares-with-azure-powershell"></a>Azure-bestandsshares beheren met Azure PowerShell 
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen worden gekoppeld in Windows, Linux en macOS. In deze handleiding worden de basisbeginselen besproken van het werken met Azure-bestandsshares met behulp van PowerShell. In dit artikel leert u het volgende:
@@ -40,7 +35,7 @@ Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze handleiding 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Als u nog geen Azure-resourcegroep hebt, kunt u een nieuwe groep maken met de cmdlet [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). 
 
-In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt in de regio East US:
+In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt in de regio US - oost:
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS

@@ -2,23 +2,18 @@
 title: Azure-bestandsshares beheren met Azure CLI
 description: Leer hoe u Azure Files beheert met behulp van Azure CLI.
 services: storage
-documentationcenter: na
 author: wmgries
-manager: aungoo
-editor: tamram
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
-ms.openlocfilehash: 00fd984a6bed8691712df0d4c335d2b9d4fd3ffa
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.component: files
+ms.openlocfilehash: ebf8605a0f4686a69f89adf0c36d072f12d3c750
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38701815"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39525253"
 ---
 # <a name="manage-azure-file-shares-using-azure-cli"></a>Azure-bestandsshares beheren met Azure CLI
 [Azure Files](storage-files-introduction.md) is het gebruiksvriendelijke cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen worden gekoppeld in Windows, Linux en macOS. In dit artikel worden de basisbeginselen besproken van het werken met Azure-bestandsshares met behulp van Azure CLI. Leer hoe u het volgende doet: 
@@ -42,7 +37,7 @@ Azure CLI-opdrachten retourneren standaard JavaScript Object Notation (JSON). JS
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 Een resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Als u nog geen Azure-resourcegroep hebt, kunt u met de opdracht [az group create](/cli/azure/group#create) een groep maken. 
 
-In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *East US*:
+In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *US - oost*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus

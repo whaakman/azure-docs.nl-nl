@@ -9,11 +9,12 @@ ms.topic: tutorial
 ms.date: 04/30/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: afdee938145dacf50538ceb186957933fe7ec3bd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 379878e261007eca13a4e455ef2b97237c81eeba
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39450025"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Zelfstudie: een Azure-containerregister met geo-replicatie voorbereiden
 
@@ -31,7 +32,7 @@ In volgende zelfstudies implementeert u de container vanuit uw privéregister na
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Voor deze zelfstudie is een lokale installatie van de Azure CLI (versie 2.0.31 of hoger) vereist. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+Voor deze zelfstudie is een lokale installatie van de Azure CLI (versie 2.0.31 of hoger) vereist. Voer `az --version` uit om de versie te bekijken. Zie [Azure CLI installeren]( /cli/azure/install-azure-cli) als u de CLI wilt installeren of een upgrade wilt uitvoeren.
 
 U moet bekend zijn met Docker-kernconcepten zoals containers, containerinstallatiekopieën en Docker CLI-basisopdrachten. Zie [Aan de slag met Docker]( https://docs.docker.com/get-started/) voor een uitleg van de basisprincipes van containers.
 
@@ -77,7 +78,7 @@ Er wordt een kaart weergegeven met groene zeshoeken die Azure-regio's vertegenwo
 
  ![Kaart met regio's in Azure Portal][tut-map-01]
 
-Repliceer uw register naar de regio VS - oost door de groene zeshoek te selecteren. Selecteer vervolgens **Maken** onder **Replicatie maken**:
+Repliceer uw register naar de regio US - oost door de groene zeshoek te selecteren. Selecteer vervolgens **Maken** onder **Replicatie maken**:
 
  ![Gebruikersinterface voor het maken van een replicatie in Azure Portal][tut-portal-04]
 
@@ -89,7 +90,7 @@ Wanneer de replicatie is voltooid, geeft de portal *Gereed* weer voor beide regi
 
 Nu u geo-replicatie hebt geconfigureerd, maakt u een containerinstallatiekopie en pusht u deze naar het register. U moet u eerst aanmelden bij de ACR-instantie voordat u er installatiekopieën naar pusht.
 
-Gebruik de opdracht [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) om de referenties voor het register te verifiëren en in de cache te plaatsen. Vervang `<acrName>` door de naam van het register dat u eerder hebt gemaakt.
+Gebruik de opdracht [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) om de referenties voor het register te verifiëren en in de cache te plaatsen. Vervang `<acrName>` door de naam van het register dat u eerder hebt gemaakt.
 
 ```azurecli
 az acr login --name <acrName>
@@ -209,7 +210,7 @@ Gebruik vervolgens de opdracht `docker push` om de *acr-helloworld*-installatiek
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
-Omdat u het register voor de geo-replicatie hebt geconfigureerd, wordt uw installatiekopie automatisch gerepliceerd naar zowel de regio *VS - west* als de regio *VS - oost* met deze enkele `docker push`-opdracht.
+Omdat u het register voor de geo-replicatie hebt geconfigureerd, wordt uw installatiekopie automatisch gerepliceerd naar zowel de regio *US - west* als de regio *US - oost* met deze enkele `docker push`-opdracht.
 
 ```console
 $ docker push uniqueregistryname.azurecr.io/acr-helloworld:v1

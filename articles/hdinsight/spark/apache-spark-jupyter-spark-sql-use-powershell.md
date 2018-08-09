@@ -2,21 +2,19 @@
 title: 'Snelstartgids: Een Spark-cluster in HDInsight maken met behulp van Azure PowerShell'
 description: Deze snelstartgids laat zien hoe u met Azure PowerShell een Apache Spark-cluster maakt in HDInsight en hoe u een eenvoudige Spark SQL-query uitvoert.
 services: azure-hdinsight
-author: mumian
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: jgao
+ms.author: jasonh
 ms.custom: mvc
-ms.openlocfilehash: c9f923268e8ca137ceaf88a0c8daa44fdee75095
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 9ad282bcceeb297e41ed59f5ff2870bb408c053e
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097509"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39620916"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-powershell"></a>Snelstartgids: Een Spark-cluster in HDInsight maken met behulp van PowerShell
 Leer hoe u een Apache Spark-cluster maakt in Azure HDInsight en hoe u Spark SQL-query's uitvoert op Hive-tabellen. Apache Spark maakt het mogelijk om snelle gegevensanalyses en clusterberekeningen uit te voeren met behulp van verwerking in het geheugen. Zie [Overzicht: Apache Spark in Azure HDInsight](apache-spark-overview.md) voor informatie over Spark in HDInsight.
@@ -41,7 +39,7 @@ U gebruikt een PowerShell-script om de resources te maken.  Wanneer u het script
 |Parameter|Waarde|
 |------|------|
 |Naam van Azure-resourcegroep | Geef een unieke naam op voor de resourcegroep.|
-|Locatie| Geef de Azure-regio op, bijvoorbeeld 'VS Centraal'. |
+|Locatie| Geef de Azure-regio op, bijvoorbeeld 'US - centraal'. |
 |Standaardnaam van opslagaccount | Geef een unieke naam op voor het opslagaccount. |
 |Clusternaam | Geef een unieke naam op voor het HDInsight Spark-cluster.|
 |Referenties voor clusteraanmelding | U gebruikt dit account om later in de snelstartgids verbinding te maken met het clusterdashboard.|

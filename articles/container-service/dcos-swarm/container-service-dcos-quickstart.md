@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 12a6e34db4134ffdb38428c0a38d94351747cc48
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ccc0836a296bb392e60dd0c973516a7087ff6ea5
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900555"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429323"
 ---
 # <a name="deploy-a-dcos-cluster"></a>Een DC/OS-cluster implementeren
 
@@ -26,7 +26,7 @@ Voor deze zelfstudie is versie 2.0.4 of hoger van de Azure CLI vereist. Voer `az
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure. 
 
-Meld u aan bij uw Azure-abonnement met de opdracht [az login](/cli/azure/reference-index#az_login) en volg de instructies op het scherm.
+Meld u aan bij uw Azure-abonnement met de opdracht [az login](/cli/azure/reference-index#az-login) en volg de instructies op het scherm.
 
 ```azurecli
 az login
@@ -34,9 +34,9 @@ az login
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az-group-create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
 
-In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
+In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS - oost*.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -44,7 +44,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-dcos-cluster"></a>Een DC/OS-cluster maken
 
-Maak een DC/OS-cluster met behulp van de opdracht [az acs maken](/cli/azure/acs#az_acs_create).
+Maak een DC/OS-cluster met behulp van de opdracht [az acs maken](/cli/azure/acs#az-acs-create).
 
 In het volgende voorbeeld wordt een DC/OS-cluster gemaakt met de naam *myDCOSClster* en worden SSH-sleutels gemaakt, als deze nog niet bestaan. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.  
 
@@ -52,7 +52,7 @@ In het volgende voorbeeld wordt een DC/OS-cluster gemaakt met de naam *myDCOSCls
 az acs create --orchestrator-type dcos --resource-group myResourceGroup --name myDCOSCluster --generate-ssh-keys
 ```
 
-In sommige gevallen, zoals met een beperkte proefversie, heeft een Azure-abonnement beperkte toegang tot Azure-resources. Als de implementatie mislukt vanwege beperkte beschikbare kernen, verminder dan het aantal standaardagenten door `--agent-count 1` toe te voegen aan de opdracht [az acs create](/cli/azure/acs#az_acs_create). 
+In sommige gevallen, zoals met een beperkte proefversie, heeft een Azure-abonnement beperkte toegang tot Azure-resources. Als de implementatie mislukt vanwege beperkte beschikbare kernen, verminder dan het aantal standaardagenten door `--agent-count 1` toe te voegen aan de opdracht [az acs create](/cli/azure/acs#az-acs-create). 
 
 Na enkele minuten is de opdracht voltooid en wordt er informatie geretourneerd over de implementatie.
 
@@ -157,7 +157,7 @@ Als u naar dit adres gaat, wordt de standaardsite NGINX geopend.
 
 ## <a name="delete-dcos-cluster"></a>Het DC/OS-cluster verwijderen
 
-U kunt de opdracht [az group delete](/cli/azure/group#az_group_delete) gebruiken om de resourcegroep, het DC/OS-cluster en alle gerelateerde resources te verwijderen wanneer u deze niet meer nodig hebt.
+U kunt de opdracht [az group delete](/cli/azure/group#az-group-delete) gebruiken om de resourcegroep, het DC/OS-cluster en alle gerelateerde resources te verwijderen wanneer u deze niet meer nodig hebt.
 
 ```azurecli
 az group delete --name myResourceGroup --no-wait

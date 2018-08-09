@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
-ms.openlocfilehash: 2b0420302bc74d4534d712de618959ef68c76514
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 133cc9d8fa52bb655e9baaad53ee157fdc7524f7
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126365"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429412"
 ---
 # <a name="process-emails-and-attachments-with-azure-logic-apps"></a>E-mails en bijlagen verwerken met Azure Logic Apps
 
@@ -63,7 +63,7 @@ U kunt binnenkomende e-mails en bijlagen als blobs opslaan in een [Azure-opslagc
    | **Naam** | attachmentstorageacct | De naam van uw opslagaccount | 
    | **Implementatiemodel** | Resource Manager | Het [implementatiemodel](../azure-resource-manager/resource-manager-deployment-model.md) voor het beheer van resource-implementatie | 
    | **Type account** | Algemeen doel | Het [type opslagaccount](../storage/common/storage-introduction.md#types-of-storage-accounts) | 
-   | **Locatie** | VS - west | De regio waar u informatie over uw opslagaccount opslaat | 
+   | **Locatie** | US - west | De regio waar u informatie over uw opslagaccount opslaat | 
    | **Replicatie** | Lokaal redundante opslag (LRS) | Deze instelling bepaalt hoe uw gegevens worden gekopieerd, opgeslagen, beheerd en gesynchroniseerd. Zie [Replicatie](../storage/common/storage-introduction.md#replication). | 
    | **Prestaties** | Standard | Deze instelling bepaalt de gegevenstypen die worden ondersteund en de media die moeten worden opgeslagen. Zie [Typen opslagaccounts](../storage/common/storage-introduction.md#types-of-storage-accounts). | 
    | **Veilige overdracht vereist** | Uitgeschakeld | Deze instelling bepaalt de beveiliging die nodig is voor het aanvragen van verbindingen. Zie [Require secure transfer](../storage/common/storage-require-secure-transfer.md) (veilige overdracht vereist). | 
@@ -82,7 +82,7 @@ U kunt binnenkomende e-mails en bijlagen als blobs opslaan in een [Azure-opslagc
 
       ![Kopieer de naam en de sleutel van de opslagaccount en sla deze op](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   U kunt ook [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) of [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az_storage_account_keys_list) gebruiken om de toegangssleutel van uw opslagaccount op te halen. 
+   U kunt ook [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/get-azurermstorageaccountkey) of [Azure CLI](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list) gebruiken om de toegangssleutel van uw opslagaccount op te halen. 
 
 3. Maak een Blob Storage-container voor uw e-mailbijlagen.
    
@@ -100,7 +100,7 @@ U kunt binnenkomende e-mails en bijlagen als blobs opslaan in een [Azure-opslagc
 
       ![Voltooide opslagcontainer](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   U kunt ook [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) of [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az_storage_container_create) gebruiken om een opslagcontainer te maken. 
+   U kunt ook [Azure PowerShell](https://docs.microsoft.com/powershell/module/azure.storage/new-azurestoragecontainer) of [Azure CLI](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) gebruiken om een opslagcontainer te maken. 
 
 Koppel vervolgens Storage Explorer aan uw opslagaccount.
 
@@ -143,7 +143,7 @@ Gebruik nu het codefragment in deze stappen om een Azure-functie te maken waarme
    | **Abonnement** | <*your-Azure-subscription-name*> | Hetzelfde Azure-abonnement dat u eerder hebt gebruikt | 
    | **Resourcegroep** | LA-Tutorial-RG | Dezelfde Azure-resourcegroep die u eerder hebt gebruikt | 
    | **Hostingabonnement** | Verbruiksabonnement | Deze instelling bepaalt hoe de resources worden toegewezen en geschaald, bijvoorbeeld de rekenkracht, om uw functie-app uit te voeren. Bekijk [Vergelijking van hostingabonnementen](../azure-functions/functions-scale.md). | 
-   | **Locatie** | VS - west | Dezelfde regio die u eerder hebt gebruikt | 
+   | **Locatie** | US - west | Dezelfde regio die u eerder hebt gebruikt | 
    | **Storage** | cleantextfunctionstorageacct | Maak een opslagaccount voor uw functie-app. Gebruik alleen kleine letters en cijfers. <p>**Opmerking:** dit opslagaccount bevat uw functie-apps en verschilt van uw eerder gemaakte opslagaccount voor e-mailbijlagen. | 
    | **Application Insights** | Uit | Hiermee schakelt u toepassingsbewaking met [Application Insights](../application-insights/app-insights-overview.md) in, maar kies voor deze zelfstudie de instelling **Uit**. | 
    |||| 
@@ -234,7 +234,7 @@ Nadat u hebt gecontroleerd of uw functie werkt, maakt u uw logische app. In deze
    | **Naam** | LA-ProcessAttachment | De naam voor uw logische app | 
    | **Abonnement** | <*your-Azure-subscription-name*> | Hetzelfde Azure-abonnement dat u eerder hebt gebruikt | 
    | **Resourcegroep** | LA-Tutorial-RG | Dezelfde Azure-resourcegroep die u eerder hebt gebruikt |
-   | **Locatie** | VS - west | Dezelfde regio die u eerder hebt gebruikt | 
+   | **Locatie** | US - west | Dezelfde regio die u eerder hebt gebruikt | 
    | **Log Analytics** | Uit | Kies voor deze zelfstudie de instelling **Uit**. | 
    |||| 
 

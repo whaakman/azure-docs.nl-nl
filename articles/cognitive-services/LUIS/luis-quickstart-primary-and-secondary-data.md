@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 2e100f2019c3bb99e3909e64305ebe641e2a637e
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 87d97b078927800e4e90c39a70e2acc7163a4c84
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308966"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39493044"
 ---
 # <a name="tutorial-7-add-simple-entity-and-phrase-list"></a>Zelfstudie: 7. De entiteit Simple en een woordgroepenlijst toevoegen
 In deze zelfstudie maakt u een app die laat zien hoe u met behulp van de entiteit **Simple** via machine learning verkregen gegevens extraheert uit een 'utterance'.
@@ -126,15 +126,8 @@ In deze LUIS-app komen functienamen in verschillende intenties voor. Door deze w
     Er zijn nog meer voorbeelden van utterances maar die bevatten geen woorden met betrekking tot functies.
 
 ## <a name="train-the-luis-app"></a>LUIS-app trainen
-LUIS niet weet dat de intenties en entiteiten (het model) zijn gewijzigd, totdat u de app hebt ingeleerd. 
 
-1. Selecteer rechtsboven op de website van LUIS de knop **Train**.
-
-    ![De knop Train selecteren](./media/luis-quickstart-primary-and-secondary-data/train-button.png)
-
-2. Het trainen is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het trainen is gelukt.
-
-    ![Melding dat trainen is gelukt](./media/luis-quickstart-primary-and-secondary-data/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>App publiceren om eindpunt-URL op te vragen
 
@@ -367,7 +360,8 @@ Uw chatbot beschikt nu over voldoende informatie om vast te stellen wat de prima
 LUIS hoeft niets meer te doen met deze aanvraag. De aanroepende toepassing, zoals een chatbot, kan het resultaat topScoringIntent nemen plus de gegevens van de entiteit om vervolgens met behulp van een API van een derde partij de functiegegevens naar een HR-medewerker te verzenden. Als er andere programmatische opties bestaan voor de bot of de aanroepende toepassing, wordt die taak niet uitgevoerd door LUIS. LUIS bepaalt alleen wat de bedoeling van de gebruiker is. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer **My apps** in het menu linksboven. Selecteer het weglatingsteken (***...***) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

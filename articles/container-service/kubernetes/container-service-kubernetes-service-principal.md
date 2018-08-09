@@ -9,21 +9,21 @@ ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 84215daac950f602c815e1ffc5ae6dd5269d9bdf
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: efedb7cde06ed03ec330027a18b00bcc897919cf
+ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32167109"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39576916"
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Een service-principal voor Azure AD voor een Kubernetes-cluster in Container Service instellen
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
-In Azure Container Service is voor een Kubernetes-cluster een [service-principal voor Azure Active Directory](../../active-directory/develop/active-directory-application-objects.md) vereist voor gebruik met Azure-API's. De service-principal is nodig om resources zoals door [gebruikers gedefinieerde routes](../../virtual-network/virtual-networks-udr-overview.md) en de [Azure Load Balancer uit laag vier](../../load-balancer/load-balancer-overview.md) dynamisch te beheren.
+In Azure Container Service is voor een Kubernetes-cluster een [service-principal voor Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md) vereist voor gebruik met Azure-API's. De service-principal is nodig om resources zoals door [gebruikers gedefinieerde routes](../../virtual-network/virtual-networks-udr-overview.md) en de [Azure Load Balancer uit laag vier](../../load-balancer/load-balancer-overview.md) dynamisch te beheren.
 
 
-In dit artikel worden verschillende opties getoond om een service-principal in te stellen voor uw Kubernetes-cluster. Bijvoorbeeld: als u de [Azure CLI 2.0](/cli/azure/install-az-cli2) hebt geïnstalleerd en ingesteld, kunt u de opdracht [`az acs create`](/cli/azure/acs#az_acs_create) uitvoeren om tegelijkertijd het Kubernetes-cluster en de service-principal te maken.
+In dit artikel worden verschillende opties getoond om een service-principal in te stellen voor uw Kubernetes-cluster. Bijvoorbeeld: als u de [Azure CLI 2.0](/cli/azure/install-az-cli2) hebt geïnstalleerd en ingesteld, kunt u de opdracht [`az acs create`](/cli/azure/acs#az-acs-create) uitvoeren om tegelijkertijd het Kubernetes-cluster en de service-principal te maken.
 
 
 ## <a name="requirements-for-the-service-principal"></a>Vereisten voor de service-principal
@@ -81,7 +81,7 @@ In het volgende voorbeeld wordt één manier getoond om de parameters door te ge
 
     ![Parameters voor de service-principal doorgeven](./media/container-service-kubernetes-service-principal/service-principal-params.png)
 
-3. Voer de volgende opdracht uit met behulp van `--parameters` om het pad naar het bestand azuredeploy.parameters.json in te stellen. Met deze opdracht wordt het cluster geïmplementeerd in een resourcegroep die u `myResourceGroup` hebt genoemd, in de regio VS - west.
+3. Voer de volgende opdracht uit met behulp van `--parameters` om het pad naar het bestand azuredeploy.parameters.json in te stellen. Met deze opdracht wordt het cluster geïmplementeerd in een resourcegroep die u `myResourceGroup` hebt genoemd, in de regio US - west.
 
     ```azurecli
     az login
@@ -96,7 +96,7 @@ In het volgende voorbeeld wordt één manier getoond om de parameters door te ge
 
 ## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Optie 2: een service-principal genereren tijdens het maken van het cluster met `az acs create`
 
-Als u de opdracht [`az acs create`](/cli/azure/acs#az_acs_create) hebt uitgevoerd om het Kubernetes-cluster te maken, hebt u de optie om automatisch een service-principal te laten maken.
+Als u de opdracht [`az acs create`](/cli/azure/acs#az-acs-create) hebt uitgevoerd om het Kubernetes-cluster te maken, hebt u de optie om automatisch een service-principal te laten maken.
 
 Net zoals bij andere opties voor het maken van Kubernetes-clusters kunt u parameters voor een bestaande service-principal opgeven tijdens het uitvoeren van `az acs create`. Als u deze parameters echter weglaat, maakt de Azure CLI er automatisch een voor gebruik met Container Service. Dit vindt transparant plaats tijdens de implementatie.
 
@@ -132,7 +132,7 @@ az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-
 
 Tenzij u tijdens het maken van een service-principal een tijdvenster opgeeft waarbinnen u de geldigheid kunt aanpassen met de parameter `--years`, blijven de referenties ervan tot 1 jaar na de aanmaakdatum geldig. Wanneer de referenties verlopen, krijgen uw clusterknooppunten mogelijk de status **NotReady**.
 
-Als u de vervaldatum van een service-principal wilt controleren, moet u de opdracht [az ad app show](/cli/azure/ad/app#az_ad_app_show) met de parameter `--debug` uitvoeren, en naar de waarde `endDate` van `passwordCredentials` in het onderste gedeelte van de uitvoer zoeken:
+Als u de vervaldatum van een service-principal wilt controleren, moet u de opdracht [az ad app show](/cli/azure/ad/app#az-ad-app-show) met de parameter `--debug` uitvoeren, en naar de waarde `endDate` van `passwordCredentials` in het onderste gedeelte van de uitvoer zoeken:
 
 ```azurecli
 az ad app show --id <appId> --debug
@@ -146,7 +146,7 @@ De uitvoer (hier ingekort weergegeven):
 ...
 ```
 
-Als de referenties voor uw service-principal zijn verlopen, gebruikt u de opdracht [az ad sp reset-credentials](/cli/azure/ad/sp#az_ad_sp_reset_credentials) om de referenties bij te werken:
+Als de referenties voor uw service-principal zijn verlopen, gebruikt u de opdracht [az ad sp reset-credentials](/cli/azure/ad/sp#az-ad-sp-reset-credentials) om de referenties bij te werken:
 
 ```azurecli
 az ad sp reset-credentials --name <appId>

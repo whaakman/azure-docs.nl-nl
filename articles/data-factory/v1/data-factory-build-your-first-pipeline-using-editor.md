@@ -15,12 +15,12 @@ ms.topic: hero-article
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e57a2e72479d36908ef1e9f537506bb67ae311fe
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d6d6282c3e997a41a27fb65ed7c06fd1bc7916f2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048404"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39444657"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Zelfstudie: uw eerste data factory bouwen met Azure Portal
 > [!div class="op_single_selector"]
@@ -56,11 +56,11 @@ Volg deze stappen om een data factory te maken:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-2. Selecteer **Nieuw** > **Gegevens en analyses** > **Data Factory**.
+1. Selecteer **Nieuw** > **Gegevens en analyses** > **Data Factory**.
 
    ![Blade maken](./media/data-factory-build-your-first-pipeline-using-editor/create-blade.png)
 
-3. Voer op de blade **Nieuwe data factory**, onder **Naam**, **GetStartedDF** in.
+1. Voer op de blade **Nieuwe data factory**, onder **Naam**, **GetStartedDF** in.
 
    ![Blade voor een nieuwe gegevensfactory](./media/data-factory-build-your-first-pipeline-using-editor/new-data-factory-blade.png)
 
@@ -70,25 +70,25 @@ Volg deze stappen om een data factory te maken:
    > De naam van de data factory wordt in de toekomst mogelijk geregistreerd als DNS-naam en mogelijk voor iedereen zichtbaar.
    >
    >
-4. Selecteer onder **Abonnement** het Azure-abonnement waarvoor u de data factory wilt maken.
+1. Selecteer onder **Abonnement** het Azure-abonnement waarvoor u de data factory wilt maken.
 
-5. Selecteer een bestaande resourcegroep of maak een nieuwe resourcegroep. Maak voor deze zelfstudie een resourcegroep met de naam **ADFGetStartedRG**.
+1. Selecteer een bestaande resourcegroep of maak een nieuwe resourcegroep. Maak voor deze zelfstudie een resourcegroep met de naam **ADFGetStartedRG**.
 
-6. Selecteer onder **Locatie** een locatie voor de data factory. Alleen regio's die worden ondersteund door de Data Factory-service worden weergegeven in de vervolgkeuzelijst.
+1. Selecteer onder **Locatie** een locatie voor de data factory. Alleen regio's die worden ondersteund door de Data Factory-service worden weergegeven in de vervolgkeuzelijst.
 
-7. Schakel het selectievakje bij **Vastmaken aan dashboard** in.
+1. Schakel het selectievakje bij **Vastmaken aan dashboard** in.
 
-8. Selecteer **Maken**.
+1. Selecteer **Maken**.
 
    > [!IMPORTANT]
    > Als u Data Factory-exemplaren wilt maken, moet u lid zijn van de rol [Inzender Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) op abonnements-/resourcegroepniveau.
    >
    >
-9. Op het dashboard ziet u de volgende tegel met de status: **Data factory implementeren**:    
+1. Op het dashboard ziet u de volgende tegel met de status: **Data factory implementeren**:    
 
    ![Status Data factory implementeren](./media/data-factory-build-your-first-pipeline-using-editor/creating-data-factory-image.png)
 
-10. Nadat de data factory is gemaakt, ziet u de pagina **Data factory**. Hier wordt de inhoud van de data factory weergegeven.     
+1. Nadat de data factory is gemaakt, ziet u de pagina **Data factory**. Hier wordt de inhoud van de data factory weergegeven.     
 
     ![Blade Data factory](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-blade.png)
 
@@ -104,17 +104,17 @@ In deze stap koppelt u uw opslagaccount aan uw data factory. Voor deze zelfstudi
 
    ![Tegel ontwerpen en implementeren](./media/data-factory-build-your-first-pipeline-using-editor/data-factory-author-deploy.png)
 
-2. Selecteer **Nieuwe gegevensopslag** en kies **Azure Storage**.
+1. Selecteer **Nieuwe gegevensopslag** en kies **Azure Storage**.
 
    ![Blade Nieuwe gegevensopslag](./media/data-factory-build-your-first-pipeline-using-editor/new-data-store-azure-storage-menu.png)
 
-3. U ziet het JSON-script voor het maken van een gekoppelde Storage-service in de editor.
+1. U ziet het JSON-script voor het maken van een gekoppelde Storage-service in de editor.
 
    ![Gekoppelde Storage-service](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-4. Vervang de **accountnaam** door de naam van uw opslagaccount. Vervang de **accountsleutel** met de toegangssleutel van uw opslagaccount. Raadpleeg de informatie over het weergeven, kopiëren en opnieuw genereren van toegangssleutels voor opslag in [Uw opslagaccount beheren](../../storage/common/storage-create-storage-account.md#manage-your-storage-account) als u meer wilt weten over het verkrijgen van uw toegangssleutel voor opslag.
+1. Vervang de **accountnaam** door de naam van uw opslagaccount. Vervang de **accountsleutel** met de toegangssleutel van uw opslagaccount. Raadpleeg de informatie over het weergeven, kopiëren en opnieuw genereren van toegangssleutels voor opslag in [Uw opslagaccount beheren](../../storage/common/storage-create-storage-account.md#manage-your-storage-account) als u meer wilt weten over het verkrijgen van uw toegangssleutel voor opslag.
 
-5. Selecteer in de opdrachtbalk **Implementeren** om de gekoppelde service te implementeren.
+1. Selecteer in de opdrachtbalk **Implementeren** om de gekoppelde service te implementeren.
 
     ![Implementatieknop](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
@@ -129,7 +129,7 @@ In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. H
 
     ![Nieuwe berekening](./media/data-factory-build-your-first-pipeline-using-editor/new-compute-menu.png)
 
-2. Kopieer het onderstaande codefragment en plak het in het venster Draft-1. Het JSON-codefragment bevat de eigenschappen die worden gebruikt om het on-demand HDInsight-cluster te maken.
+1. Kopieer het onderstaande codefragment en plak het in het venster Draft-1. Het JSON-codefragment bevat de eigenschappen die worden gebruikt om het on-demand HDInsight-cluster te maken.
 
     ```JSON
     {
@@ -167,11 +167,11 @@ In deze stap koppelt u een on-demand HDInsight-cluster aan uw gegevensfactory. H
 
      Zie voor meer informatie [Gekoppelde on-demand HDInsight-service](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 
-3. Selecteer in de opdrachtbalk **Implementeren** om de gekoppelde service te implementeren.
+1. Selecteer in de opdrachtbalk **Implementeren** om de gekoppelde service te implementeren.
 
     ![Optie implementeren](./media/data-factory-build-your-first-pipeline-using-editor/ondemand-hdinsight-deploy.png)
 
-4. Controleer of u in de structuurweergave links zowel **AzureStorageLinkedService** als **HDInsightOnDemandLinkedService** ziet.
+1. Controleer of u in de structuurweergave links zowel **AzureStorageLinkedService** als **HDInsightOnDemandLinkedService** ziet.
 
     ![Structuurweergave met gekoppelde services](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
@@ -183,7 +183,7 @@ In deze stap maakt u gegevenssets die de invoer- en uitvoergegevens voor Hive-ve
 
     ![Nieuwe gegevensset](./media/data-factory-build-your-first-pipeline-using-editor/new-data-set.png)
 
-2. Kopieer het onderstaande codefragment en plak het in het venster Draft-1. U maakt in het JSON-fragment een gegevensset met de naam **AzureBlobInput** die voor de invoergegevens van een activiteit in de pijplijn staat. Daarbij geeft u op dat de invoergegevens zich bevinden in de blobcontainer met de naam **adfgetstarted** en de map met de naam **inputdata**.
+1. Kopieer het onderstaande codefragment en plak het in het venster Draft-1. U maakt in het JSON-fragment een gegevensset met de naam **AzureBlobInput** die voor de invoergegevens van een activiteit in de pijplijn staat. Daarbij geeft u op dat de invoergegevens zich bevinden in de blobcontainer met de naam **adfgetstarted** en de map met de naam **inputdata**.
 
     ```JSON
     {
@@ -223,14 +223,14 @@ In deze stap maakt u gegevenssets die de invoer- en uitvoergegevens voor Hive-ve
 
     Zie [Azure Blob-connectoren](data-factory-azure-blob-connector.md#dataset-properties) voor meer informatie over deze JSON-eigenschappen.
 
-3. Selecteer in de opdrachtbalk **Implementeren** om de zojuist gemaakte gegevensset te implementeren. U ziet de gegevensset in de structuurweergave links.
+1. Selecteer in de opdrachtbalk **Implementeren** om de zojuist gemaakte gegevensset te implementeren. U ziet de gegevensset in de structuurweergave links.
 
 ### <a name="create-the-output-dataset"></a>De uitvoergegevensset maken
 U maakt nu de uitvoergegevensset die staat voor de uitvoergegevens die worden opgeslagen in de blobopslag.
 
 1. Selecteer in de Data Factory Editor **Meer** > **Nieuwe gegevensset** > **Azure Blob-opslag**.
 
-2. Kopieer het onderstaande codefragment en plak het in het venster Draft-1. In het JSON-codefragment maakt u een gegevensset met de naam **AzureBlobOutput** om de gegevensstructuur op te geven die door het Hive-script wordt geproduceerd. U geeft ook op dat de resultaten worden opgeslagen in de blobcontainer met de naam **adfgetstarted** en in de map met de naam **partitioneddata**. In het gedeelte **availability** wordt opgegeven dat de uitvoergegevensset maandelijks wordt geproduceerd.
+1. Kopieer het onderstaande codefragment en plak het in het venster Draft-1. In het JSON-codefragment maakt u een gegevensset met de naam **AzureBlobOutput** om de gegevensstructuur op te geven die door het Hive-script wordt geproduceerd. U geeft ook op dat de resultaten worden opgeslagen in de blobcontainer met de naam **adfgetstarted** en in de map met de naam **partitioneddata**. In het gedeelte **availability** wordt opgegeven dat de uitvoergegevensset maandelijks wordt geproduceerd.
 
     ```JSON
     {
@@ -254,9 +254,9 @@ U maakt nu de uitvoergegevensset die staat voor de uitvoergegevens die worden op
     ```
     Voor beschrijvingen van deze eigenschappen raadpleegt u het gedeelte 'De invoergegevensset maken'. U stelt de externe eigenschap niet in op een uitvoergegevensset, omdat de gegevensset wordt geproduceerd door de Data Factory-service.
 
-3. Selecteer in de opdrachtbalk **Implementeren** om de zojuist gemaakte gegevensset te implementeren.
+1. Selecteer in de opdrachtbalk **Implementeren** om de zojuist gemaakte gegevensset te implementeren.
 
-4. Controleer of de gegevensset is gemaakt.
+1. Controleer of de gegevensset is gemaakt.
 
     ![Structuurweergave met gekoppelde services](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-data-set.png)
 
@@ -267,7 +267,7 @@ In deze stap maakt u uw eerste pijplijn met een HDInsight Hive-activiteit. Het i
 
     ![Optie Nieuwe pijplijn](./media/data-factory-build-your-first-pipeline-using-editor/new-pipeline-button.png)
 
-2. Kopieer het onderstaande codefragment en plak het in het venster Draft-1.
+1. Kopieer het onderstaande codefragment en plak het in het venster Draft-1.
 
    > [!IMPORTANT]
    > Vervang **storageaccountname** door de naam van uw opslagaccount in het JSON-codefragment.
@@ -333,7 +333,7 @@ In deze stap maakt u uw eerste pijplijn met een HDInsight Hive-activiteit. Het i
    > Voor meer informatie over de JSON-eigenschappen die in dit voorbeeld worden gebruikt, raadpleegt u het gedeelte 'Pijplijn JSON' in [Pijplijnen en activiteiten in Data Factory](data-factory-create-pipelines.md).
    >
    >
-3. Bevestig het volgende:
+1. Bevestig het volgende:
 
    a. Het bestand **input.log** staat in de map **inputdata** van de container **adfgetstarted** in de blobopslag.
 
@@ -341,9 +341,9 @@ In deze stap maakt u uw eerste pijplijn met een HDInsight Hive-activiteit. Het i
 
    c. U hebt **storageaccountname** vervangen door de naam van uw opslagaccount in de pijplijn-JSON.
 
-4. Selecteer in de opdrachtbalk **Implementeren** om de pijplijn te implementeren. Omdat de tijden voor **start** en **end** in het verleden vallen en **isPaused** is ingesteld op **false**, wordt de pijplijn (activiteit in de pijplijn) direct na het implementeren uitgevoerd.
+1. Selecteer in de opdrachtbalk **Implementeren** om de pijplijn te implementeren. Omdat de tijden voor **start** en **end** in het verleden vallen en **isPaused** is ingesteld op **false**, wordt de pijplijn (activiteit in de pijplijn) direct na het implementeren uitgevoerd.
 
-5. Controleer of de pijplijn in de structuurweergave wordt weergegeven.
+1. Controleer of de pijplijn in de structuurweergave wordt weergegeven.
 
     ![Structuurweergave met de pijplijn](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-pipeline.png)
 
@@ -355,31 +355,31 @@ In deze stap maakt u uw eerste pijplijn met een HDInsight Hive-activiteit. Het i
 
     ![Tegel Diagram](./media/data-factory-build-your-first-pipeline-using-editor/diagram-tile.png)
 
-2. In de **Diagram**weergave ziet u een overzicht van de pijplijnen en gegevenssets die voor deze zelfstudie worden gebruikt.
+1. In de **Diagram**weergave ziet u een overzicht van de pijplijnen en gegevenssets die voor deze zelfstudie worden gebruikt.
 
     ![Diagramweergave](./media/data-factory-build-your-first-pipeline-using-editor/diagram-view-2.png)
 
-3. Als u alle activiteiten in de pijplijn wilt bekijken, klikt u met de rechtermuisknop op de pijplijn in het diagram. Selecteer vervolgens **Pijplijn openen**.
+1. Als u alle activiteiten in de pijplijn wilt bekijken, klikt u met de rechtermuisknop op de pijplijn in het diagram. Selecteer vervolgens **Pijplijn openen**.
 
     ![Menu Pijplijn openen](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-menu.png)
 
-4. Bevestig dat u de **Hive-activiteit** in de pijplijn ziet.
+1. Bevestig dat u de **Hive-activiteit** in de pijplijn ziet.
 
     ![Pijplijnweergave openen](./media/data-factory-build-your-first-pipeline-using-editor/open-pipeline-view.png)
 
     Als u wilt teruggaan naar de vorige weergave, selecteert u **Data factory** in het menu bovenaan.
 
-5. Dubbelklik in de **Diagram**weergave op de gegevensset **AzureBlobInput**. Controleer of het segment de status **Gereed** heeft. Het kan enkele minuten duren voordat het segment de status **Gereed** krijgt. Als de status niet is verschenen nadat u enige tijd hebt gewacht, controleert u of het invoerbestand (**input.log**) in de juiste container (**adfgetstarted**) en in de juiste map (**inputdata**) staat.
+1. Dubbelklik in de **Diagram**weergave op de gegevensset **AzureBlobInput**. Controleer of het segment de status **Gereed** heeft. Het kan enkele minuten duren voordat het segment de status **Gereed** krijgt. Als de status niet is verschenen nadat u enige tijd hebt gewacht, controleert u of het invoerbestand (**input.log**) in de juiste container (**adfgetstarted**) en in de juiste map (**inputdata**) staat.
 
    ![Invoersegment met de status Gereed](./media/data-factory-build-your-first-pipeline-using-editor/input-slice-ready.png)
 
-6. Sluit de blade **AzureBlobInput**.
+1. Sluit de blade **AzureBlobInput**.
 
-7. Dubbelklik in de **Diagram**weergave op de gegevensset **AzureBlobOutput**. U ziet het segment dat momenteel wordt verwerkt.
+1. Dubbelklik in de **Diagram**weergave op de gegevensset **AzureBlobOutput**. U ziet het segment dat momenteel wordt verwerkt.
 
    ![Verwerking gegevensset wordt uitgevoerd](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 
-8. Nadat de verwerking is voltooid, ziet u het segment met de status **Gereed**.
+1. Nadat de verwerking is voltooid, ziet u het segment met de status **Gereed**.
 
    ![Gegevensset met de status Gereed](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)  
 
@@ -388,15 +388,15 @@ In deze stap maakt u uw eerste pijplijn met een HDInsight Hive-activiteit. Het i
    >
    >
 
-9. Wanneer het segment de status **Gereed** heeft, controleert u de map **partitioneddata** in de container **adfgetstarted** in uw blobopslag voor de uitvoergegevens.  
+1. Wanneer het segment de status **Gereed** heeft, controleert u de map **partitioneddata** in de container **adfgetstarted** in uw blobopslag voor de uitvoergegevens.  
 
    ![Uitvoergegevens](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
 
-10. Selecteer het segment voor meer informatie over het segment op de blade **Gegevenssegment**.
+1. Selecteer het segment voor meer informatie over het segment op de blade **Gegevenssegment**.
 
     ![Informatie van het gegevenssegment](./media/data-factory-build-your-first-pipeline-using-editor/data-slice-details.png)
 
-11. Selecteer een uitvoering in de lijst **Uitvoeringen van activiteit** om er meer informatie over te bekijken. (In dit scenario is het een Hive-activiteit.) De informatie wordt weergegeven op de blade **Details uitvoering van activiteit**.   
+1. Selecteer een uitvoering in de lijst **Uitvoeringen van activiteit** om er meer informatie over te bekijken. (In dit scenario is het een Hive-activiteit.) De informatie wordt weergegeven op de blade **Details uitvoering van activiteit**.   
 
     ![Venster Details uitvoering van activiteit](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)    
 
@@ -415,11 +415,11 @@ U kunt de app Bewaking en beheer ook gebruiken om uw pijplijnen te bewaken. Voor
 
     ![De tegel Bewaking en beheer](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-tile.png)
 
-2. Wijzig in de app Bewaking en beheer de **Begintijd** en **Eindtijd** zodanig dat deze overeenkomen met de begintijd en de eindtijd van uw pijplijn. Selecteer **Toepassen**.
+1. Wijzig in de app Bewaking en beheer de **Begintijd** en **Eindtijd** zodanig dat deze overeenkomen met de begintijd en de eindtijd van uw pijplijn. Selecteer **Toepassen**.
 
     ![De app Bewaking en beheer](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png)
 
-3. Selecteer een activiteitsvenster in de lijst **Activiteitsvensters** voor informatie over het betreffende venster.
+1. Selecteer een activiteitsvenster in de lijst **Activiteitsvensters** voor informatie over het betreffende venster.
 
     ![Lijst Activiteitsvensters](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-details.png)
 

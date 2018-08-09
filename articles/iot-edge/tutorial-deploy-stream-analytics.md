@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: f2ef53ee53eb2e95d84fc11f3190f62d0e3c2455
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: afbdf2171c1fc1eef95514526a509d171e262d4a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413872"
+ms.locfileid: "39435679"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Zelfstudie: Azure Stream Analytics implementeren als een IoT Edge-module (preview)
 
@@ -60,7 +60,7 @@ Voor Azure Stream Analytics-taken is een Azure Storage-account vereist om te fun
 
 1. Ga in Azure Portal naar **Een resource maken**, voer **Opslagaccount** in het tekstvak in en selecteer vervolgens **Opslagaccount: blob, bestand, tabel, wachtrij**.
 
-2. Voer in het deelvenster **Opslagaccount maken** een naam in voor het opslagaccount, selecteer dezelfde locatie als waar de IoT-hub is opgeslagen, selecteer dezelfde resourcegroep als de IoT-hub en selecteer vervolgens **Maken**. Noteer deze naam voor later gebruik.
+1. Voer in het deelvenster **Opslagaccount maken** een naam in voor het opslagaccount, selecteer dezelfde locatie als waar de IoT-hub is opgeslagen, selecteer dezelfde resourcegroep als de IoT-hub en selecteer vervolgens **Maken**. Noteer deze naam voor later gebruik.
 
     ![Create a storage account][1]
 
@@ -69,40 +69,40 @@ Voor Azure Stream Analytics-taken is een Azure Storage-account vereist om te fun
 
 1. Ga in Azure Portal naar **Een Resource maken** > **Internet of Things**, en selecteer vervolgens **Stream Analytics-taak**.
 
-2. Voer in het deelvenster **Nieuwe Stream Analytics-taak** de volgende stappen uit:
+1. Voer in het deelvenster **Nieuwe Stream Analytics-taak** de volgende stappen uit:
 
    1. Typ in het vak **Taaknaam** een naam voor de taak.
    
-   2. Gebruik dezelfde **Resourcegroep** en **Locatie** als de IoT-hub. 
+   1. Gebruik dezelfde **Resourcegroep** en **Locatie** als de IoT-hub. 
 
       > [!NOTE]
       > Momenteel worden Azure Stream Analytics-taken in IoT Edge niet ondersteund in de regio US - west 2. 
 
-   3. Selecteer onder **Hostingomgeving** de optie **Edge**.
+   1. Selecteer onder **Hostingomgeving** de optie **Edge**.
     
-3. Selecteer **Maken**.
+1. Selecteer **Maken**.
 
-4. Open in de gemaakte taak onder **Taaktopologie** de optie **Invoer**.
+1. Open in de gemaakte taak onder **Taaktopologie** de optie **Invoer**.
 
    ![Azure Stream Analytics-invoer](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-5. Selecteer **Stroominvoer toevoegen**. Selecteer vervolgens **Edge Hub**.
+1. Selecteer **Stroominvoer toevoegen**. Selecteer vervolgens **Edge Hub**.
 
-6. Voer in het deelvenster **Nieuwe invoer** **temperatuur** in als de invoeralias. 
+1. Voer in het deelvenster **Nieuwe invoer** **temperatuur** in als de invoeralias. 
 
-7. Selecteer **Opslaan**.
+1. Selecteer **Opslaan**.
 
-8. Open onder **Taaktopologie** de optie **Uitvoer**.
+1. Open onder **Taaktopologie** de optie **Uitvoer**.
 
    ![Azure Stream Analytics-uitvoer](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
-9. Selecteer **Toevoegen**. Selecteer vervolgens **Edge Hub**.
+1. Selecteer **Toevoegen**. Selecteer vervolgens **Edge Hub**.
 
-10. Voer in het deelvenster **Nieuwe uitvoer** **waarschuwing** in als de uitvoeralias. 
+1. Voer in het deelvenster **Nieuwe uitvoer** **waarschuwing** in als de uitvoeralias. 
 
-11. Selecteer **Opslaan**.
+1. Selecteer **Opslaan**.
 
-12. Selecteer onder **Taaktopologie** de optie **Query** en vervang de standaardtekst door de volgende query waarmee een waarschuwing wordt gegenereerd wanneer de gemiddelde temperatuur van de machine 70 graden bereikt in een tijdvenster van 30 seconden:
+1. Selecteer onder **Taaktopologie** de optie **Query** en vervang de standaardtekst door de volgende query waarmee een waarschuwing wordt gegenereerd wanneer de gemiddelde temperatuur van de machine 70 graden bereikt in een tijdvenster van 30 seconden:
 
     ```sql
     SELECT  
@@ -115,15 +115,15 @@ Voor Azure Stream Analytics-taken is een Azure Storage-account vereist om te fun
     HAVING Avg(machine.temperature) > 70
     ```
 
-13. Selecteer **Opslaan**.
+1. Selecteer **Opslaan**.
 
-14. Selecteer onder **Configureren** de optie **IoT Edge-instellingen**.
+1. Selecteer onder **Configureren** de optie **IoT Edge-instellingen**.
 
-15. Selecteer in de vervolgkeuzelijst uw **opslagaccount**.
+1. Selecteer in de vervolgkeuzelijst uw **opslagaccount**.
 
-16. Selecteer in het veld **Container** de optie **Nieuw maken** en geef een naam op voor de opslagcontainer. 
+1. Selecteer in het veld **Container** de optie **Nieuw maken** en geef een naam op voor de opslagcontainer. 
 
-17. Selecteer **Opslaan**. 
+1. Selecteer **Opslaan**. 
 
 
 ## <a name="deploy-the-job"></a>De taak implementeren
@@ -132,25 +132,25 @@ U bent nu klaar om de Azure Stream Analytics-taak te implementeren op uw IoT Edg
 
 1. Ga in Azure Portal, in uw IoT-hub, naar **IoT Edge** en open vervolgens de detailpagina van het IoT Edge-apparaat.
 
-2. Selecteer **Modules instellen**.  
+1. Selecteer **Modules instellen**.  
 
    Als u de tempSensor-module al eerder op dit apparaat hebt geïmplementeerd, wordt deze mogelijk automatisch ingevuld. Als dit niet het geval is, voegt u de module toe met behulp van de volgende stappen:
 
    1. Klik op **Toevoegen** en selecteer **IoT Edge-module**.
-   2. Typ **tempSensor** als de naam.
-   3. Voer **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0** in als de URI voor de installatiekopie. 
-   4. Laat de overige instellingen ongewijzigd.
-   5. Selecteer **Opslaan**.
+   1. Typ **tempSensor** als de naam.
+   1. Voer **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0** in als de URI voor de installatiekopie. 
+   1. Laat de overige instellingen ongewijzigd.
+   1. Selecteer **Opslaan**.
 
-3. Voeg uw Azure Stream Analytics Edge-taak toe met behulp van de volgende stappen:
+1. Voeg uw Azure Stream Analytics Edge-taak toe met behulp van de volgende stappen:
 
    1. Klik op **Toevoegen** en selecteer **Azure Stream Analytics-module**.
-   2. Selecteer uw abonnement en de Azure Stream Analytics-taak die u hebt gemaakt. 
-   3. Selecteer **Opslaan**.
+   1. Selecteer uw abonnement en de Azure Stream Analytics-taak die u hebt gemaakt. 
+   1. Selecteer **Opslaan**.
 
-4. Selecteer **Volgende**.
+1. Selecteer **Volgende**.
 
-5. Vervang de standaardwaarde in **Routes** door de volgende code. Werk _{moduleName}_ bij met de naam van de Azure Stream Analytics-module. De module moet dezelfde naam hebben als de taak waarmee deze is gemaakt. 
+1. Vervang de standaardwaarde in **Routes** door de volgende code. Werk _{moduleName}_ bij met de naam van de Azure Stream Analytics-module. De module moet dezelfde naam hebben als de taak waarmee deze is gemaakt. 
 
     ```json
     {
@@ -163,11 +163,11 @@ U bent nu klaar om de Azure Stream Analytics-taak te implementeren op uw IoT Edg
     }
     ```
 
-6. Selecteer **Volgende**.
+1. Selecteer **Volgende**.
 
-7. Selecteer in de stap **Implementatie beoordelen** de optie **Verzenden**.
+1. Selecteer in de stap **Implementatie beoordelen** de optie **Verzenden**.
 
-8. Ga terug naar de detailpagina van het apparaat en selecteer vervolgens **Vernieuwen**.  
+1. Ga terug naar de detailpagina van het apparaat en selecteer vervolgens **Vernieuwen**.  
 
     U ziet nu dat de nieuwe Stream Analytics-module wordt uitgevoerd, samen met de IoT Edge-agentmodule en de IoT Edge-hub.
 
@@ -185,7 +185,7 @@ U kunt nu naar het IoT Edge-apparaat gaan om de interactie tussen de Azure Strea
 <!--
    ![Docker output][8]
 -->
-2. Bekijk alle systeemlogboeken en metrische gegevens. Gebruik de naam van de Stream Analytics-module:
+1. Bekijk alle systeemlogboeken en metrische gegevens. Gebruik de naam van de Stream Analytics-module:
 
    ```cmd/sh
    iotedge logs -f {moduleName}  
@@ -210,7 +210,7 @@ Anders kunt u de lokale configuraties en Azure-resources die u in dit artikel he
 Als u alleen de IoT-hub wilt verwijderen, voert u de volgende opdracht uit met behulp van de naam van de hub en van de resourcegroep:
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 ```
 
 
@@ -218,14 +218,14 @@ Ga als volgt te werk om de hele resourcegroep te verwijderen op naam:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com) en klik op **Resourcegroepen**.
 
-2. Typ in het tekstvak **Filteren op naam...** de naam van de resourcegroep die uw IoT Hub bevat. 
+1. Typ in het tekstvak **Filteren op naam...** de naam van de resourcegroep die uw IoT Hub bevat. 
 
-3. Klik rechts van de resourcegroep in de lijst met resultaten op **...** en vervolgens op **Resourcegroep verwijderen**.
+1. Klik rechts van de resourcegroep in de lijst met resultaten op **...** en vervolgens op **Resourcegroep verwijderen**.
 
 <!--
    ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
 -->
-4. U wordt gevraagd om het verwijderen van de resourcegroep te bevestigen. Typ de naam van de resourcegroep nogmaals om te bevestigen en klik op **Verwijderen**. Na enkele ogenblikken worden de resourcegroep en alle resources in de groep verwijderd.
+1. U wordt gevraagd om het verwijderen van de resourcegroep te bevestigen. Typ de naam van de resourcegroep nogmaals om te bevestigen en klik op **Verwijderen**. Na enkele ogenblikken worden de resourcegroep en alle resources in de groep verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,25 +1,21 @@
 ---
-title: 'Snelstart: Aan de slag met Hadoop en Hive in Azure HDInsight met behulp van een Resource Manager-sjabloon | Microsoft Docs'
+title: 'Snelstart: Aan de slag met Hadoop en Hive in Azure HDInsight met behulp van een Resource Manager-sjabloon '
 description: Informatie over het maken van HDInsight-clusters en het opvragen van gegevens met Hive.
 keywords: aan de slag met hadoop, hadoop linux, hadoop quickstart, aan de slag met hive, hive quickstart
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-ms.assetid: 6a12ed4c-9d49-4990-abf5-0a79fdfca459
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive,hdiseo17may2017,mvc
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: jgao
-ms.openlocfilehash: c49371d194b3b6f94076cb00595ec9feaeb3fb44
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 4f41dd2fafb65c5fe4fa38cafb63d3d691a953d4
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096397"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595610"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-resource-manager-template"></a>Snelstart: Aan de slag met Hadoop en Hive in Azure HDInsight met behulp van een Resource Manager-sjabloon
 

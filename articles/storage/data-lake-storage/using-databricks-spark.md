@@ -4,19 +4,17 @@ description: Informatie over het uitvoeren van Spark-query's in een Azure Databr
 services: hdinsight,storage
 tags: azure-portal
 author: dineshm
-manager: twooley
 ms.component: data-lake-storage-gen2
 ms.service: storage
-ms.workload: big-data
 ms.topic: tutorial
 ms.date: 6/27/2018
 ms.author: dineshm
-ms.openlocfilehash: 41c34b2c1459178c59af66a75e7b34e2ec158025
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 4f01352f13b7a831791c7e74520cc08b98afa661
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136400"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39521452"
 ---
 # <a name="tutorial-access-azure-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Zelfstudie: Toegang tot Azure Data Lake Storage Gen2 Preview-gegevens met Azure Databricks met behulp van Spark
 

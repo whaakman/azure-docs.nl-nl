@@ -2,22 +2,19 @@
 title: 'Snelstart: Een Spark-cluster in HDInsight maken met behulp van een sjabloon'
 description: Deze snelstart laat zien hoe u met een Resource Manager-sjabloon een Apache Spark-cluster maakt in HDInsight en hoe u een eenvoudige Spark SQL-query uitvoert.
 services: azure-hdinsight
-author: mumian
-manager: cgronlun
-editor: cgronlun
-ms.assetid: 91f41e6a-d463-4eb4-83ef-7bbb1f4556cc
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: jgao
+ms.author: jasonh
 ms.custom: mvc
-ms.openlocfilehash: 6774bd156e31bde0a933b942e4597ec46425d2a9
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: d8a56704afda30a0a9466cab9d78a31490b113de
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097825"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39619444"
 ---
 # <a name="quickstart-create-a-spark-cluster-in-hdinsight-using-template"></a>Snelstart: Een Spark-cluster in HDInsight maken met behulp van een sjabloon
 
@@ -44,7 +41,7 @@ U maakt een HDInsight Spark-cluster met behulp van een Azure Resource Manager-sj
     |---|---|
     |**Abonnement**|Selecteer het Azure-abonnement dat is gebruikt om dit cluster te maken. Het abonnement dat we gebruiken voor deze snelstart is **&lt;<naam van Azure-abonnement>**. |
     | **Resourcegroep**|Maak een resourcegroep of selecteer een bestaande resourcegroep. Deze resourcegroep wordt gebruikt om Azure-resources voor uw projecten te beheren. De naam van de nieuwe resourcegroep die we gebruiken voor deze snelstart is **myspark20180403rg**.|
-    | **Locatie**|Selecteer een locatie voor de resourcegroep. De sjabloon gebruikt deze locatie voor het maken van het cluster en als standaardclusteropslag. De locatie voor deze snelstart is **Oostelijke VS 2**.|
+    | **Locatie**|Selecteer een locatie voor de resourcegroep. De sjabloon gebruikt deze locatie voor het maken van het cluster en als standaardclusteropslag. De locatie voor deze snelstart is **US - oost 2**.|
     | **Clusternaam**|Voer een naam in voor het HDInsight-cluster dat u wilt maken. De naam voor het nieuwe cluster dat we gebruiken voor deze snelstart is **myspark20180403**.|
     | **Gebruikersnaam/Wachtwoord voor clusteraanmeldgegevens**|De standaardaanmeldingsnaam is admin. Kies een wachtwoord voor de clusteraanmelding. De aanmeldingsnaam voor deze snelstart is **admin**.|
     | **SSH-gebruikersnaam en SSH-wachtwoord**|Kies een wachtwoord voor de SSH-gebruiker. De SSH-gebruikersnaam voor deze snelstart is **sshuser**.|

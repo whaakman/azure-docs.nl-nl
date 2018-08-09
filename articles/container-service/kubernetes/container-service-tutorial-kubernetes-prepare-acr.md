@@ -9,11 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: f58a8d76cc46ac25474c7b91e464974612876a06
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 8f14a7aabbdf815992e0777eaf5335a69570ce2e
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39429247"
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Azure Container Registry implementeren en gebruiken
 
@@ -38,13 +39,13 @@ Voor deze zelfstudie moet u de versie Azure CLI 2.0.4 of later uitvoeren. Voer `
 
 Wanneer u een Azure Container Registry implementeert, hebt u eerst een resourcegroep nodig. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). In dit voorbeeld wordt er een resourcegroep met de naam `myResourceGroup` gemaakt in de regio `westeurope`.
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az-group-create). In dit voorbeeld wordt er een resourcegroep met de naam `myResourceGroup` gemaakt in de regio `westeurope`.
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
 ```
 
-Maak een Azure Container Registry met de opdracht [az acr create](/cli/azure/acr#az_acr_create). De naam van een containerregister **moet uniek zijn**.
+Maak een Azure Container Registry met de opdracht [az acr create](/cli/azure/acr#az-acr-create). De naam van een containerregister **moet uniek zijn**.
 
 ```azurecli
 az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
@@ -54,7 +55,7 @@ In de rest van deze zelfstudie gebruiken we `<acrname>` als tijdelijke aanduidin
 
 ## <a name="container-registry-login"></a>Aanmelden bij het containerregister
 
-Gebruik de opdracht [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) om u aan te melden bij het ACR-exemplaar. Geef de unieke naam op van het containerregister toen dat werd gemaakt.
+Gebruik de opdracht [az acr login](https://docs.microsoft.com/cli/azure/acr#az-acr-login) om u aan te melden bij het ACR-exemplaar. Geef de unieke naam op van het containerregister toen dat werd gemaakt.
 
 ```azurecli
 az acr login --name <acrName>
@@ -123,7 +124,7 @@ Dit duurt enkele minuten duren.
 
 ## <a name="list-images-in-registry"></a>Installatiekopieën vermelden in het register
 
-U kunt een lijst met installatiekopieën die naar Azure Container Registry zijn gepusht, retourneren met de opdracht [az acr repository list](/cli/azure/acr/repository#az_acr_repository_list). Werk de opdracht bij met de naam van het ACR-exemplaar.
+U kunt een lijst met installatiekopieën die naar Azure Container Registry zijn gepusht, retourneren met de opdracht [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list). Werk de opdracht bij met de naam van het ACR-exemplaar.
 
 ```azurecli
 az acr repository list --name <acrName> --output table

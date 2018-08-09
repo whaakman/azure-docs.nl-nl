@@ -16,12 +16,12 @@ ms.date: 07/30/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: na
-ms.openlocfilehash: d81a41a0012d4e0be4e812d48074e7af1e92213a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: c6c7b3f897e38fbd67098c9f881380bc073f13da
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391143"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432647"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Reageren op gebeurtenissen met Azure Monitor-waarschuwingen
 Er worden door Azure Alerts regels gemaakt voor het zoeken in logboeken om met regelmatige intervallen automatisch opgegeven logboekzoekopdrachten uit te voeren.  Als de resultaten van de logboekzoekopdracht aan bepaalde criteria voldoen, wordt een waarschuwingsrecord gemaakt. De regel kan vervolgens automatisch een of meer acties uitvoeren met behulp van [actiegroepen](../monitoring-and-diagnostics/monitoring-action-groups.md).  Deze zelfstudie is een vervolg van de zelfstudie [Dashboards van Log Analytics-gegevens maken en delen](log-analytics-tutorial-dashboards.md).   
@@ -43,15 +43,15 @@ Waarschuwingen worden gemaakt door regels voor waarschuwingen in Azure Monitor e
 In het volgende voorbeeld maakt u een waarschuwingsregel voor een metrische meting die is gebaseerd op de query *Azure VMs - Processor Utilization* die u hebt opgeslagen in de [zelfstudie Gegevens visualiseren](log-analytics-tutorial-dashboards.md). Er wordt een waarschuwing gemaakt voor elke virtuele machine die een drempel van 90% overschrijdt.
 
 1. Klik in Azure Portal op **Alle services**. Typ **Monitor** in de lijst met resources. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Selecteer **Monitor**.
-2. Selecteer in het linkerdeelvenster **Waarschuwingen** en klik vervolgens bovenaan de pagina op **Nieuwe waarschuwingsregel** om een nieuwe waarschuwing te maken.
+1. Selecteer in het linkerdeelvenster **Waarschuwingen** en klik vervolgens bovenaan de pagina op **Nieuwe waarschuwingsregel** om een nieuwe waarschuwing te maken.
 
     ![Nieuwe waarschuwingsregel maken](./media/log-analytics-tutorial-response/alert-rule-02.png)
 
-3. Ga naar de sectie **Waarschuwing maken** en selecteer uw werkruimte van Log Analytics als de bron, aangezien dit een waarschuwingssignaal op basis van een logboek is.  Filter de resultaten door in de vervolgkeuzelijst **Abonnement** het abonnement te selecteren met de VM en de eerder gemaakte Log Analytics-werkruimte (als u meer dan één abonnement hebt).  Filter op **resourcetype** door **Log Analytics** te selecteren in de vervolgkeuzelijst.  Selecteer als laatste **DefaultLAWorkspace** in de lijst **Resource** en klik vervolgens op **Gereed**.
+1. Ga naar de sectie **Waarschuwing maken** en selecteer uw werkruimte van Log Analytics als de bron, aangezien dit een waarschuwingssignaal op basis van een logboek is.  Filter de resultaten door in de vervolgkeuzelijst **Abonnement** het abonnement te selecteren met de VM en de eerder gemaakte Log Analytics-werkruimte (als u meer dan één abonnement hebt).  Filter op **resourcetype** door **Log Analytics** te selecteren in de vervolgkeuzelijst.  Selecteer als laatste **DefaultLAWorkspace** in de lijst **Resource** en klik vervolgens op **Gereed**.
 
     ![Waarschuwing maken - stap 1](./media/log-analytics-tutorial-response/alert-rule-03.png)
 
-4. Klik in de sectie **Waarschuwingscriteria** op **Criteria toevoegen** om de query te definiëren en geef vervolgens logica op die de waarschuwingsregel volgt. Selecteer in het deelvenster **Signaallogica configureren** de optie **Aangepast zoeken in logboeken** als signaalnaam en voer uw query in **Zoekquery** in.
+1. Klik in de sectie **Waarschuwingscriteria** op **Criteria toevoegen** om de query te definiëren en geef vervolgens logica op die de waarschuwingsregel volgt. Selecteer in het deelvenster **Signaallogica configureren** de optie **Aangepast zoeken in logboeken** als signaalnaam en voer uw query in **Zoekquery** in.
 
     Bijvoorbeeld:
     ```
@@ -62,21 +62,21 @@ In het volgende voorbeeld maakt u een waarschuwingsregel voor een metrische meti
 
     Het deelvenster wordt bijgewerkt met de configuratie-instellingen voor de waarschuwing.  Bovenaan ziet u de resultaten voor de afgelopen 30 minuten van het geselecteerde signaal.
 
-5. Configureer de waarschuwing met de volgende gegevens:  
+1. Configureer de waarschuwing met de volgende gegevens:  
    a. Selecteer in de vervolgkeuzelijst *Gebaseerd op* de optie **Meting van metrische gegevens**.  Een meting van metrische gegevens maakt een waarschuwing voor elk object in de query met een waarde die de opgegeven drempelwaarde overschrijdt.  
    b. Selecteer in de lijst **Voorwaarde** de optie **Groter dan** en geef **90** op voor **Drempel**.  
    c. Selecteer in de sectie 'Waarschuwing activeren op basis van' de optie **Achtereenvolgende schendingen**, selecteer **Groter dan** in de vervolgkeuzelijst en voer een waarde in van 3.  
    d. Accepteer de standaardwaarden in de sectie Evaluatie op basis van. De regel wordt om de vijf minuten uitgevoerd en retourneert records die zijn gemaakt binnen dit tijdsbestek.  
-6. Klik op **Gereed** om de waarschuwingsregel te voltooien.
+1. Klik op **Gereed** om de waarschuwingsregel te voltooien.
 
     ![Waarschuwingssignaal configureren](./media/log-analytics-tutorial-response/alert-signal-logic-02.png)
 
-7. Geef een naam op voor de waarschuwing in het veld **Naam waarschuwingsregel**, zoals **Percentage CPU groter dan 90 procent**.  Geef bij **Beschrijving** gedetailleerde informatie op over de waarschuwing en selecteer **Kritiek (ernst 0)** in de vervolgkeuzelijst **Ernst**.
+1. Geef een naam op voor de waarschuwing in het veld **Naam waarschuwingsregel**, zoals **Percentage CPU groter dan 90 procent**.  Geef bij **Beschrijving** gedetailleerde informatie op over de waarschuwing en selecteer **Kritiek (ernst 0)** in de vervolgkeuzelijst **Ernst**.
 
     ![Details van waarschuwing configureren](./media/log-analytics-tutorial-response/alert-signal-logic-04.png)
 
-8. Als u de waarschuwingsregel direct na het maken wilt activeren, accepteert u de standaardwaarde voor **Regel inschakelen wanneer deze wordt gemaakt**.  
-9. De laatste stap bestaat uit het instellen van een **actiegroep**, die ervoor zorgt dat elke keer dat een waarschuwing wordt geactiveerd, dezelfde acties worden genomen. De groep kan worden gebruikt voor elke regel die u definieert.  Configureer een nieuwe actiegroep met de volgende gegevens:  
+1. Als u de waarschuwingsregel direct na het maken wilt activeren, accepteert u de standaardwaarde voor **Regel inschakelen wanneer deze wordt gemaakt**.  
+1. De laatste stap bestaat uit het instellen van een **actiegroep**, die ervoor zorgt dat elke keer dat een waarschuwing wordt geactiveerd, dezelfde acties worden genomen. De groep kan worden gebruikt voor elke regel die u definieert.  Configureer een nieuwe actiegroep met de volgende gegevens:  
    a. Selecteer **Nieuwe actiegroep** om het deelvenster **Actiegroep toevoegen** weer te geven.  
    b. Geef voor **Naam van de actiegroep** een naam op zoals **IT Operations - waarschuwen** en voor **Korte naam** een waarde zoals **itops w**.  
    c. Controleer of de standaardwaarden voor **Abonnement** en **Resourcegroep** juist zijn. Als dat niet het geval is, selecteert u de juiste waarden in de vervolgkeuzelijst.  
@@ -85,8 +85,8 @@ In het volgende voorbeeld maakt u een waarschuwingsregel voor een metrische meti
    f. Klik op **OK** om uw wijzigingen op te slaan.  
        ![Nieuwe actiegroep maken](./media/log-analytics-tutorial-response/action-group-properties-01.png)
 
-10. Klik op **OK** om de actiegroep te voltooien.
-11. Klik op **Waarschuwingsregel maken** om de waarschuwingsregel te voltooien. Deze wordt onmiddellijk uitgevoerd.
+1. Klik op **OK** om de actiegroep te voltooien.
+1. Klik op **Waarschuwingsregel maken** om de waarschuwingsregel te voltooien. Deze wordt onmiddellijk uitgevoerd.
 
     ![Nieuwe waarschuwingsregel voltooien](./media/log-analytics-tutorial-response/alert-rule-01.png)
 

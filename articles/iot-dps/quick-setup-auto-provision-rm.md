@@ -1,20 +1,20 @@
 ---
 title: Apparaatinrichting instellen met een Azure Resource Manager-sjabloon | Microsoft Docs
 description: Azure-snelstart - Azure IoT Hub Device Provisioning-service instellen met een sjabloon
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 06/18/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6bd1073012a68149d194e21e745604a43dfe92c0
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: e3aa2cf93e529fcc430162ac90be06a75690fb21
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36219693"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39523441"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>IoT Hub Device Provisioning-service instellen met een Azure Resource Manager-sjabloon
 
@@ -58,7 +58,7 @@ Meld u aan bij uw Azure-account en selecteer uw abonnement.
     ```
 
     > [!TIP]
-    > In het voorbeeld wordt de resourcegroep gemaakt in de locatie VS-West. U kunt een lijst met beschikbare locaties weergeven met de opdracht `az account list-locations -o table`.
+    > In het voorbeeld wordt de resourcegroep gemaakt in de locatie US - west. U kunt een lijst met beschikbare locaties weergeven met de opdracht `az account list-locations -o table`.
     >
     >
 
@@ -301,7 +301,7 @@ De sjabloon die u hebt gedefinieerd in de laatste stap maakt gebruik van paramet
 
 Met de volgende Azure CLI-opdrachten kunt u de sjablonen implementeren en de implementatie controleren.
 
-1. Voer de volgende [opdracht voor het starten van een implementatie](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az_group_deployment_create) uit om uw sjabloon te implementeren:
+1. Voer de volgende [opdracht voor het starten van een implementatie](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create) uit om uw sjabloon te implementeren:
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
@@ -312,7 +312,7 @@ Met de volgende Azure CLI-opdrachten kunt u de sjablonen implementeren en de imp
    ![Uitvoer van inrichting](./media/quick-setup-auto-provision-rm/output.png) 
 
 
-2. Voer de volgende [opdracht voor het weergeven van resources](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az_resource_list) uit en zoek de nieuwe inrichtingsservice en IoT-hub in de uitvoer om de implementatie te controleren:
+2. Voer de volgende [opdracht voor het weergeven van resources](https://docs.microsoft.com/cli/azure/resource?view=azure-cli-latest#az-resource-list) uit en zoek de nieuwe inrichtingsservice en IoT-hub in de uitvoer om de implementatie te controleren:
 
     ```azurecli
      az resource list -g {your resource group name}

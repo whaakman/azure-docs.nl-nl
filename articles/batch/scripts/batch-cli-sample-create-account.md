@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/29/2018
 ms.author: danlep
-ms.openlocfilehash: ced93032203c33dc4cda362d30192ee8eb37d944
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 86a04393761b79d76339c111d5c5c8b76dc983c2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38455108"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39431205"
 ---
 # <a name="cli-example-create-a-batch-account-in-batch-service-mode"></a>CLI-voorbeeld:- Een batch-account maken in Batch-servicemodus
 
@@ -47,14 +47,14 @@ In dit script worden de volgende opdrachten gebruikt. Elke opdracht in de tabel 
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
-| [az batch account create](/cli/azure/batch/account#az_batch_account_create) | Hiermee wordt de Batch-account gemaakt. |
-| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Hiermee maakt u een opslagaccount. |
-| [az batch account set](/cli/azure/batch/account#az_batch_account_set) | Hiermee worden eigenschappen van het Batch-account bijgewerkt.  |
-| [az batch account show](/cli/azure/batch/account#az_batch_account_show) | Hiermee worden details van het opgegeven Batch-account opgehaald.  |
-| [az batch account keys list](/cli/azure/batch/account/keys#az_batch_account_keys_list) | Hiermee worden de toegangssleutels van het opgegeven Batch-account opgehaald.  |
-| [az batch account login](/cli/azure/batch/account#az_batch_account_login) | Hiermee wordt authenticatie uitgevoerd met het opgegeven Batch-account voor verdere interactie met de CLI.  |
-| [az group delete](/cli/azure/group#az_group_delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
+| [az group create](/cli/azure/group#az-group-create) | Hiermee wordt een resourcegroep gemaakt waarin alle resources worden opgeslagen. |
+| [az batch account create](/cli/azure/batch/account#az-batch-account-create) | Hiermee wordt de Batch-account gemaakt. |
+| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Hiermee maakt u een opslagaccount. |
+| [az batch account set](/cli/azure/batch/account#az-batch-account-set) | Hiermee worden eigenschappen van het Batch-account bijgewerkt.  |
+| [az batch account show](/cli/azure/batch/account#az-batch-account-show) | Hiermee worden details van het opgegeven Batch-account opgehaald.  |
+| [az batch account keys list](/cli/azure/batch/account/keys#az-batch-account-keys-list) | Hiermee worden de toegangssleutels van het opgegeven Batch-account opgehaald.  |
+| [az batch account login](/cli/azure/batch/account#az-batch-account-login) | Hiermee wordt authenticatie uitgevoerd met het opgegeven Batch-account voor verdere interactie met de CLI.  |
+| [az group delete](/cli/azure/group#az-group-delete) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

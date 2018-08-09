@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 0aac3eab8a60dc1e1e15b4656fad9ffea062c08e
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 689730edcc98a23c82373ae8d36c3b831b33c076
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968616"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627437"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Cloud Foundry integreren met Azure
 
@@ -81,8 +81,8 @@ Hoewel F en VM van de D-serie zijn vaak voor productie-omgeving van Pivotal Clou
 #### <a name="managed-standard-disk"></a>Beheerde standaardschijven: 
 Premium-schijven zijn aanbevolen voor betrouwbare prestaties in de productieomgeving.  Met [Managed Disk](https://azure.microsoft.com/services/managed-disks/), standard-opslag kan ook vergelijkbare betrouwbaarheid, met verschillende prestaties leveren. Voor de werkbelasting die geen prestatie-intensieve, zoals dev/Test- of niet-kritieke omgeving bieden beheerde standaardschijven een alternatief met lagere kosten.  
 ### <a name="cost-saving-in-general"></a>Kosten in het algemeen opslaan 
-#### <a name="significant-vm-cost-saving-with-reserved-instances"></a>Belangrijke VM kosten opslaan met gereserveerde instanties: 
-Vandaag die alle CF-VM's worden gefactureerd op basis van 'on-demand' prijzen, hoewel de omgevingen doorgaans voor onbepaalde tijd blijven. U kunt nu capaciteit van de virtuele machine op een term 1 of 3 jaar gereserveerd en 45 en 65% kortingen krijgen. Kortingen zijn toegepast in het factureringssysteem, zonder wijzigingen in uw omgeving. Zie voor meer informatie, [hoe gereserveerde instanties werkt](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
+#### <a name="significant-vm-cost-saving-with-azure-reservations"></a>Belangrijke VM kosten opslaan met Azure-reserveringen: 
+Vandaag die alle CF-VM's worden gefactureerd op basis van 'on-demand' prijzen, hoewel de omgevingen doorgaans voor onbepaalde tijd blijven. U kunt nu capaciteit van de virtuele machine op een term 1 of 3 jaar gereserveerd en 45 en 65% kortingen krijgen. Kortingen zijn toegepast in het factureringssysteem, zonder wijzigingen in uw omgeving. Zie voor meer informatie, [hoe Azure reserveringen werkt](https://azure.microsoft.com/pricing/reserved-vm-instances/). 
 #### <a name="managed-premium-disk-with-smaller-sizes"></a>Beheerde Premium-schijf met kleinere: 
 Beheerde schijven ondersteuning kleinere schijfgrootten bijvoorbeeld P4(32 GB) en P6(64 GB) voor premium en standard-schijven. Als u kleine workloads hebt, kunt u kosten kunt opslaan bij het migreren van standard premium-schijven naar beheerde premium-schijven.
 #### <a name="utilizing-azure-first-party-services"></a>Met behulp van Azure Services voor de eerste partij: 

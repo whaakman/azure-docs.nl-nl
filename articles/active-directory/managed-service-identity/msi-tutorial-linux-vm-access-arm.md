@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c2735d385b0a3c2201ec2dad83c0c32fe44d458c
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: d1e4d8dd7201935ef1dbdc83224f905c812f9cca
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258240"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39447472"
 ---
 # <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Zelfstudie: een door de gebruiker toegewezen identiteit gebruiken op een Linux-VM om toegang te krijgen tot Azure Resource Manager
 
@@ -72,7 +72,7 @@ Voor deze zelfstudie maakt u eerst een nieuwe virtuele Linux-machine. U kunt ook
     az login
     ```
 
-2. Maak een door de gebruiker toegewezen identiteit met [az identity create](/cli/azure/identity#az_identity_create). De parameter `-g` geeft de resourcegroep aan waar de Managed Service Identity wordt gemaakt, en de parameter `-n` geeft de naam aan. Vervang de parameterwaarden `<RESOURCE GROUP>` en `<MSI NAME>` door uw eigen waarden:
+2. Maak een door de gebruiker toegewezen identiteit met [az identity create](/cli/azure/identity#az-identity-create). De parameter `-g` geeft de resourcegroep aan waar de Managed Service Identity wordt gemaakt, en de parameter `-n` geeft de naam aan. Vervang de parameterwaarden `<RESOURCE GROUP>` en `<MSI NAME>` door uw eigen waarden:
     
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -102,7 +102,7 @@ Het antwoord bevat details voor de gemaakte door de gebruiker toegewezen identit
 
 Een door de gebruiker toegewezen identiteit kan worden gebruikt door clients op meerdere Azure-resources. Gebruik de volgende opdrachten om de door de gebruiker toegewezen identiteit toe te wijzen aan één VM. Gebruik de eigenschap `Id` die in de vorige stap is geretourneerd voor de parameter `-IdentityID`.
 
-Wijs de door de gebruiker toegewezen Managed Service Identity toe aan uw Linux-VM met [az vm assign-identity](/cli/azure/vm#az_vm_assign_identity). Vervang de parameterwaarden `<RESOURCE GROUP>` en `<VM NAME>` door uw eigen waarden. Gebruik de eigenschap `id` die in de vorige stap is geretourneerd voor de waarde van de parameter `--identities`.
+Wijs de door de gebruiker toegewezen Managed Service Identity toe aan uw Linux-VM met [az vm assign-identity](/cli/azure/vm#az-vm-assign-identity). Vervang de parameterwaarden `<RESOURCE GROUP>` en `<VM NAME>` door uw eigen waarden. Gebruik de eigenschap `id` die in de vorige stap is geretourneerd voor de waarde van de parameter `--identities`.
 
 ```azurecli-interactive
 az vm assign-identity -g <RESOURCE GROUP> -n <VM NAME> --identities "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<MSI NAME>"

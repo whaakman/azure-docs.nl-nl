@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 1680ff136dfa2ccb2ca3fd92f5045d47190e75fc
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: fffffbf7ce654c263976378da01f032599145a94
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34712518"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39591564"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Zelfstudie: verificatie van apps met één pagina inschakelen met behulp van Azure Active Directory B2C
 
@@ -39,7 +39,7 @@ In deze zelfstudie leert u het volgende:
 
 ## <a name="register-single-page-app"></a>Registreer de app met één pagina
 
-Toepassingen moeten worden [geregistreerd](../active-directory/develop/active-directory-dev-glossary.md#application-registration) in uw tenant voordat ze [toegangstokens](../active-directory/develop/active-directory-dev-glossary.md#access-token) van Azure Active Directory kunnen ontvangen. Als een app wordt geregistreerd, wordt een [toepassings-id](../active-directory/develop/active-directory-dev-glossary.md#application-id-client-id) voor de app in uw tenant gemaakt. 
+Toepassingen moeten worden [geregistreerd](../active-directory/develop/developer-glossary.md#application-registration) in uw tenant voordat ze [toegangstokens](../active-directory/develop/developer-glossary.md#access-token) van Azure Active Directory kunnen ontvangen. Als een app wordt geregistreerd, wordt een [toepassings-id](../active-directory/develop/developer-glossary.md#application-id-client-id) voor de app in uw tenant gemaakt. 
 
 Meld u als globale beheerder van de Azure AD B2C-tenant aan bij [Azure Portal](https://portal.azure.com/).
 
@@ -88,7 +88,7 @@ Als u gebruikers wilt registreren om ze toegang te geven tot de web-app zodat ze
     | **Naam** | SiUpIn | Voer een **naam** in voor het beleid. De naam van het beleid wordt voorafgegaan door **B2C_1_**. Gebruik de volledige beleidsnaam **B2C_1_SiUpIn** in de voorbeeldcode. | 
     | **Identiteitsprovider** | E-mailregistratie | De identiteitsprovider waarmee de gebruiker uniek wordt aangeduid. |
     | **Registratiekenmerken** | Weergavenaam en postcode | Selecteer de kenmerken die tijdens de registratie moeten worden verzameld van de gebruiker. |
-    | **Toepassingsclaims** | Weergavenaam, Postcode, Gebruiker is nieuw, Object-id van gebruiker | Selecteer [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) die u wilt opnemen in de [toegangstoken](../active-directory/develop/active-directory-dev-glossary.md#access-token). |
+    | **Toepassingsclaims** | Weergavenaam, Postcode, Gebruiker is nieuw, Object-id van gebruiker | Selecteer [claims](../active-directory/develop/developer-glossary.md#claim) die u wilt opnemen in de [toegangstoken](../active-directory/develop/developer-glossary.md#access-token). |
 
 2. Klik op **Maken** om het beleid te maken. 
 
@@ -105,7 +105,7 @@ Als u wilt toestaan dat gebruikers zelf hun gebruikersprofielgegevens opnieuw ku
     | **Naam** | SiPe | Voer een **naam** in voor het beleid. De naam van het beleid wordt voorafgegaan door **B2C_1_**. Gebruik de volledige beleidsnaam **B2C_1_SiPe** in de voorbeeldcode. | 
     | **Identiteitsprovider** | Aanmelding met lokaal account | De identiteitsprovider waarmee de gebruiker uniek wordt aangeduid. |
     | **Profielkenmerken** | Weergavenaam en postcode | Selecteer kenmerken die gebruikers bij het bewerken van het profiel kunnen wijzigen. |
-    | **Toepassingsclaims** | Weergavenaam, Postcode, Object-id van gebruiker | Selecteer [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) die u wilt opnemen in de [toegangstoken](../active-directory/develop/active-directory-dev-glossary.md#access-token) nadat een profiel is bewerkt. |
+    | **Toepassingsclaims** | Weergavenaam, Postcode, Object-id van gebruiker | Selecteer [claims](../active-directory/develop/developer-glossary.md#claim) die u wilt opnemen in de [toegangstoken](../active-directory/develop/developer-glossary.md#access-token) nadat een profiel is bewerkt. |
 
 2. Klik op **Maken** om het beleid te maken. 
 
@@ -121,7 +121,7 @@ Als u wilt dat het wachtwoord voor uw toepassing opnieuw kan worden ingesteld, m
     | ------------ | ------- | -------------------------------------------------- |
     | **Naam** | SSPR | Voer een **naam** in voor het beleid. De naam van het beleid wordt voorafgegaan door **B2C_1_**. Gebruik de volledige beleidsnaam **B2C_1_SSPR** in de voorbeeldcode. | 
     | **Identiteitsprovider** | Het wachtwoord opnieuw instellen met het e-mailadres | Dit is de identiteitsprovider waarmee de gebruiker uniek wordt aangeduid. |
-    | **Toepassingsclaims** | Object-id van gebruiker | Selecteer [claims](../active-directory/develop/active-directory-dev-glossary.md#claim) die u wilt opnemen in de [toegangstoken](../active-directory/develop/active-directory-dev-glossary.md#access-token) nadat een wachtwoord opnieuw is ingesteld. |
+    | **Toepassingsclaims** | Object-id van gebruiker | Selecteer [claims](../active-directory/develop/developer-glossary.md#claim) die u wilt opnemen in de [toegangstoken](../active-directory/develop/developer-glossary.md#access-token) nadat een wachtwoord opnieuw is ingesteld. |
 
 2. Klik op **Maken** om het beleid te maken. 
 

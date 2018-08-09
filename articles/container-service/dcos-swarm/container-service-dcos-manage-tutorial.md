@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 28c217430dcbc8ee17998742c31888e06dddf96f
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 5b7f2f1bd1872f78377a0d16567ca4df8f8d0968
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902143"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39440674"
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Zelfstudie Azure Container Service: DC/OS beheren
 
@@ -34,7 +34,7 @@ Voor deze zelfstudie is versie 2.0.4 of hoger van de Azure CLI vereist. Voer `az
 
 ## <a name="create-dcos-cluster"></a>Een DC/OS-cluster maken
 
-Maak eerst een resourcegroep met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
+Maak eerst een resourcegroep met de opdracht [az group create](/cli/azure/group#az-group-create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
 
 In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *Europa West*.
 
@@ -42,7 +42,7 @@ In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* 
 az group create --name myResourceGroup --location westeurope
 ```
 
-Maak vervolgens een DC/OS-cluster met de opdracht [az acs create](/cli/azure/acs#az_acs_create).
+Maak vervolgens een DC/OS-cluster met de opdracht [az acs create](/cli/azure/acs#az-acs-create).
 
 In het volgende voorbeeld wordt een DC/OS-cluster gemaakt met de naam *myDCOSClster* en worden SSH-sleutels gemaakt, als deze nog niet bestaan. Als u een specifieke set sleutels wilt gebruiken, gebruikt u de optie `--ssh-key-value`.  
 
@@ -240,13 +240,13 @@ Als u naar dit adres gaat, wordt de standaardsite NGINX geopend.
 
 In de voorgaande voorbeelden is een toepassing geschaald naar meerdere exemplaren. De DC/OS-infrastructuur kan ook worden geschaald om meer of minder rekencapaciteit te bieden. Dit wordt gedaan met de opdracht [az acs scale](). 
 
-Als u het huidige aantal DC/OS-agents wilt zien, gebruikt u de opdracht [az acs show](/cli/azure/acs#az_acs_show).
+Als u het huidige aantal DC/OS-agents wilt zien, gebruikt u de opdracht [az acs show](/cli/azure/acs#az-acs-show).
 
 ```azurecli
 az acs show --resource-group myResourceGroup --name myDCOSCluster --query "agentPoolProfiles[0].count"
 ```
 
-Als u het aantal wilt verhogen naar 5, gebruikt u de opdracht [az acs scale](/cli/azure/acs#az_acs_scale). 
+Als u het aantal wilt verhogen naar 5, gebruikt u de opdracht [az acs scale](/cli/azure/acs#az-acs-scale). 
 
 ```azurecli
 az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-count 5
@@ -254,7 +254,7 @@ az acs scale --resource-group myResourceGroup --name myDCOSCluster --new-agent-c
 
 ## <a name="delete-dcos-cluster"></a>Het DC/OS-cluster verwijderen
 
-U kunt de opdracht [az group delete](/cli/azure/group#az_group_delete) gebruiken om de resourcegroep, het DC/OS-cluster en alle gerelateerde resources te verwijderen wanneer u deze niet meer nodig hebt.
+U kunt de opdracht [az group delete](/cli/azure/group#az-group-delete) gebruiken om de resourcegroep, het DC/OS-cluster en alle gerelateerde resources te verwijderen wanneer u deze niet meer nodig hebt.
 
 ```azurecli 
 az group delete --name myResourceGroup --no-wait

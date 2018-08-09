@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 59e36a2c8b719f2e8e3fd6aec20b91605221d8b2
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 925a1af53438e21282e65418edc9ea365ad6a653
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109440"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39432436"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Zelfstudie: Een Jenkins-omgeving configureren om CI/CD in te schakelen voor een Java-toepassing voor Service Fabric
 
@@ -53,15 +53,15 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
 
 1. Haal de Service Fabric Jenkins container-installatiekopie op: ``docker pull rapatchi/jenkins:v10``. Deze installatiekopie wordt geleverd met de Service Fabric Jenkins-invoegtoepassing die vooraf is geïnstalleerd.
 
-2. Voer de container-installatiekopie uit met de locatie waar uw certificaten aan uw lokale machine gekoppeld zijn
+1. Voer de container-installatiekopie uit met de locatie waar uw certificaten aan uw lokale machine gekoppeld zijn
 
     ```bash
     docker run -itd -p 8080:8080 -v /Users/suhuruli/Documents/Work/Samples/service-fabric-java-quickstart/AzureCluster:/tmp/myCerts rapatchi/jenkins:v10
     ```
 
-3. Haal de id op van het exemplaar van de installatiekopie van de container. U kunt een lijst van alle Docker-containers bekijken met de opdracht ``docker ps –a``
+1. Haal de id op van het exemplaar van de installatiekopie van de container. U kunt een lijst van alle Docker-containers bekijken met de opdracht ``docker ps –a``
 
-4. Het wachtwoord van uw instantie van Jenkins ophalen met de volgende opdracht:
+1. Het wachtwoord van uw instantie van Jenkins ophalen met de volgende opdracht:
 
     ```sh
     docker exec [first-four-digits-of-container-ID] cat /var/jenkins_home/secrets/initialAdminPassword
@@ -71,7 +71,7 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
     * Dit wachtwoord is vereist om u via de portal (``http://<HOST-IP>:8080``) aan te melden bij het Jenkins-dashboard
     * Nadat u zich voor de eerste keer hebt aangemeld, kunt u uw eigen gebruikersaccount maken of het beheerdersaccount gebruiken.
 
-5. Stel GitHub in voor Jenkins door de stappen uit te voeren die genoemd zijn in [Een nieuwe SSH-sleutel genereren en toevoegen aan de SSH-agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/). Omdat de opdrachten worden uitgevoerd vanuit de Docker-container, volgt u de instructies voor de Linux-omgeving.
+1. Stel GitHub in voor Jenkins door de stappen uit te voeren die genoemd zijn in [Een nieuwe SSH-sleutel genereren en toevoegen aan de SSH-agent](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/). Omdat de opdrachten worden uitgevoerd vanuit de Docker-container, volgt u de instructies voor de Linux-omgeving.
     * Gebruik de instructies van GitHub om de SSH-sleutel te genereren. Voeg vervolgens de SSH-sleutel aan het GitHub-account toe dat als host voor de opslagplaats fungeert.
     * Voer de opdrachten die in de vorige koppeling zijn genoemd, uit in de Jenkins Docker-shell (en niet op uw host).
     * Gebruik de volgende opdrachten om u vanaf uw host aan te melden bij de Jenkins-shell:
@@ -86,17 +86,17 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
 
 1. Als u geen opslagplaats hebt die u kunt gebruiken voor het hosten van het stemproject op Github, maak er dan eerst een. De opslagplaats wordt **dev_test** genoemd voor de rest van deze zelfstudie.
 
-2. Maak een **nieuw item** op uw Jenkins-dashboard.
+1. Maak een **nieuw item** op uw Jenkins-dashboard.
 
-3. Voer een itemnaam in (bijvoorbeeld **MyJob**). Selecteer **free-style project** en klik op **OK**.
+1. Voer een itemnaam in (bijvoorbeeld **MyJob**). Selecteer **free-style project** en klik op **OK**.
 
-4. Ga naar de pagina van de taak en klik op **Configure**.
+1. Ga naar de pagina van de taak en klik op **Configure**.
 
    a. Selecteer in het algemene gedeelte het selectievakje voor **GitHub project** en geef de URL van het GitHub-project. Dit is de URL waarop de Service Fabric Java-toepassing wordt gehost die u wilt integreren met de CI-/CD-stroom van Jenkins (Continue integratie, Continue implementatie), bijvoorbeeld ``https://github.com/testaccount/dev_test``.
 
    b. Selecteer onder de sectie **Broncodebeheer** de optie **Git**. Geef de opslagplaats-URL op waarop de Service Fabric Java-toepassing wordt gehost die u wilt integreren met de CI-/CD-stroom van Jenkins, (bijvoorbeeld *https://github.com/testaccount/dev_test.git*). U kunt hier ook opgeven welke vertakking u wilt maken, bijvoorbeeld **/master**.
 
-5. Configureer uw *GitHub* (waar de opslagplaats wordt gehost), zodat deze kan communiceren met Jenkins. Voer de volgende stappen uit:
+1. Configureer uw *GitHub* (waar de opslagplaats wordt gehost), zodat deze kan communiceren met Jenkins. Voer de volgende stappen uit:
 
    a. Ga naar de pagina van de GitHub-opslagplaats. Ga naar **Instellingen** > **Integraties en services**.
 
@@ -108,13 +108,13 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
 
    ![Service Fabric Jenkins-configuratie](./media/service-fabric-tutorial-java-jenkins/jenkinsconfiguration.png)
 
-6. Selecteer in de sectie **Build Triggers** de gewenste buildoptie. Voor dit voorbeeld wilt u een build activeren telkens wanneer er een push naar de opslagplaats plaatsvindt. Selecteer daarom de optie **GitHub hook trigger for GITScm polling**.
+1. Selecteer in de sectie **Build Triggers** de gewenste buildoptie. Voor dit voorbeeld wilt u een build activeren telkens wanneer er een push naar de opslagplaats plaatsvindt. Selecteer daarom de optie **GitHub hook trigger for GITScm polling**.
 
-7. Ga naar de sectie **Build** en selecteer in de vervolgkeuzelijst **Add build step** de optie **Invoke Gradle Script**. Geef in de volgende widget het pad op naar het **hoofdscript** van uw toepassing. Het haalt build.gradle op uit het opgegeven pad en werkt dienovereenkomstig.
+1. Ga naar de sectie **Build** en selecteer in de vervolgkeuzelijst **Add build step** de optie **Invoke Gradle Script**. Geef in de volgende widget het pad op naar het **hoofdscript** van uw toepassing. Het haalt build.gradle op uit het opgegeven pad en werkt dienovereenkomstig.
 
     ![Service Fabric Jenkins Build action](./media/service-fabric-tutorial-java-jenkins/jenkinsbuildscreenshot.png)
 
-8. Selecteer in de vervolgkeuzelijst **Post-Build Actions** de optie **Post-Build Actions**. Hier moet u clustergegevens opgeven, zoals waar de via Jenkins gecompileerde Service Fabric-toepassing wordt geïmplementeerd. Het pad naar het certificaat is waar het volume is gekoppeld (/tmp/myCerts).
+1. Selecteer in de vervolgkeuzelijst **Post-Build Actions** de optie **Post-Build Actions**. Hier moet u clustergegevens opgeven, zoals waar de via Jenkins gecompileerde Service Fabric-toepassing wordt geïmplementeerd. Het pad naar het certificaat is waar het volume is gekoppeld (/tmp/myCerts).
 
     U kunt ook aanvullende toepassingsgegevens opgeven. Deze worden gebruikt om de toepassing te implementeren. Bekijk de volgende schermafbeelding voor een voorbeeld van de details van de toepassing:
 
@@ -140,7 +140,7 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
     </div>
     ```
 
-2. Update de versie **ApplicationTypeVersion** en **ServiceManifestVersion** naar **2.0.0** in het bestand *Voting/VotingApplication / ApplicationManifest.xml*.
+1. Update de versie **ApplicationTypeVersion** en **ServiceManifestVersion** naar **2.0.0** in het bestand *Voting/VotingApplication / ApplicationManifest.xml*.
 
     ```xml
     <?xml version="1.0" encoding="utf-8" standalone="no"?>
@@ -167,7 +167,7 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
     </ApplicationManifest>
     ```
 
-3. Update het **Versie**-veld in het **ServiceManifest** en het **Versie**-veld in de **CodePackage**-code in het bestand  *Voting/VotingApplication/VotingWebPkg/ServiceManifest.xml* naar **2.0.0**.
+1. Update het **Versie**-veld in het **ServiceManifest** en het **Versie**-veld in de **CodePackage**-code in het bestand  *Voting/VotingApplication/VotingWebPkg/ServiceManifest.xml* naar **2.0.0**.
 
     ```xml
     <CodePackage Name="Code" Version="2.0.0">
@@ -179,13 +179,13 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
     </CodePackage>
     ```
 
-4. Voor het initialiseren van een Jenkins-taak die een upgrade van de toepassing uitvoert, moet u uw nieuwe wijzigingen naar uw Github-opslagplaats forceren.
+1. Voor het initialiseren van een Jenkins-taak die een upgrade van de toepassing uitvoert, moet u uw nieuwe wijzigingen naar uw Github-opslagplaats forceren.
 
-5. Klik in Service Fabric Explorer op de vervolgkeuzelijst **Toepassingen**. Klik op het tabblad **Upgrades in uitvoering** om de status van de upgrade te zien.
+1. Klik in Service Fabric Explorer op de vervolgkeuzelijst **Toepassingen**. Klik op het tabblad **Upgrades in uitvoering** om de status van de upgrade te zien.
 
     ![Upgrade wordt uitgevoerd](./media/service-fabric-tutorial-create-java-app/upgradejava.png)
 
-6. Als u **http://\<Host-IP->: 8080** bezoekt is de stemtoepassing met volledige functionaliteit nu actief en werkend.
+1. Als u **http://\<Host-IP->: 8080** bezoekt is de stemtoepassing met volledige functionaliteit nu actief en werkend.
 
     ![Lokale stem-app](./media/service-fabric-tutorial-java-jenkins/votingv2.png)
 

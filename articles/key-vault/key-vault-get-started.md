@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 58a283f1ce5bd2fd78c4fa2038c3998aea1598c9
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 2d959eb9c4f55624d0d0915dd5dea4c62ba1f8e5
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070348"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39505710"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Aan de slag met Azure Sleutelkluis
 Dit artikel helpt u aan de slag te gaan met Azure Key Vault met behulp van PowerShell en leidt u stapsgewijs door de volgende activiteiten:
@@ -103,7 +103,7 @@ Gebruik de cmdlet [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/new-
 Als u bijvoorbeeld het volgende gebruikt:
 - Kluisnaam **ContosoKeyVault**
 - Naam van resourcegroep **ContosoResourceGroup**
-- De locatie **VS - oost**
+- De locatie **US - oost**.
 
 typt u:
 
@@ -206,7 +206,7 @@ Als u de waarde in het geheim als tekst zonder opmaak wilt weergeven:
 U sleutelkluis en sleutel of geheim kunnen nu door toepassingen worden gebruikt. U moet toepassingen autoriseren om ze te gebruiken.  
 
 ## <a id="register"></a>Een toepassing registreren met Azure Active Directory
-Deze stap wordt doorgaans uitgevoerd door een ontwikkelaar op een afzonderlijke computer. De stap is niet specifiek voor Azure Key Vault. Voor gedetailleerde stappen voor het registreren van een toepassing bij Azure Active Directory wordt u aanbevolen het artikel [Integrating applications with Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md) (Toepassingen integreren met Azure Active Directory) of [Use portal to create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md) (De portal gebruiken om een Azure Active Directory-toepassing en service-principal te maken die toegang hebben tot resources) te lezen.
+Deze stap wordt doorgaans uitgevoerd door een ontwikkelaar op een afzonderlijke computer. De stap is niet specifiek voor Azure Key Vault. Voor gedetailleerde stappen voor het registreren van een toepassing bij Azure Active Directory wordt u aanbevolen het artikel [Integrating applications with Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) (Toepassingen integreren met Azure Active Directory) of [Use portal to create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md) (De portal gebruiken om een Azure Active Directory-toepassing en service-principal te maken die toegang hebben tot resources) te lezen.
 
 > [!IMPORTANT]
 > Uw account, de kluis en de toepassing die u in deze stap registreert moet allemaal in dezelfde Azure-directory bevinden om de zelfstudie te kunnen voltooien.

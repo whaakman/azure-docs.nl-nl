@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 6c7a9bd83af5d23bdc9e6dd8c910dbf64a6efd6f
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 7cca2475228155de6dc1f5c00a0d306e3a40c11a
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304916"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39441983"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Snelstart: Een openbare load balancer maken om taken van VM's te verdelen met Azure CLI 2.0
 
@@ -147,7 +147,7 @@ Maak een regel voor de netwerkbeveiligingsgroep om binnenkomende verbindingen vi
 ```
 ### <a name="create-nics"></a>NIC's maken
 
-Maak met [az network nic create](/cli/azure/network/nic#az_network_nic_create) drie netwerkinterfaces en koppel deze aan het openbare IP-adres en de netwerkbeveiligingsgroep. 
+Maak met [az network nic create](/cli/azure/network/nic#az-network-nic-create) drie netwerkinterfaces en koppel deze aan het openbare IP-adres en de netwerkbeveiligingsgroep. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -169,7 +169,7 @@ In dit voorbeeld maakt u drie virtuele machines die worden gebruikt als back-end
 
 ### <a name="create-an-availability-set"></a>Beschikbaarheidsset maken
 
-Een beschikbaarheidsset maken met [az vm availabilityset create](/cli/azure/network/nic#az_network_availabilityset_create)
+Een beschikbaarheidsset maken met [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -223,7 +223,7 @@ runcmd:
   - nodejs index.js
 ``` 
  
-Maak de virtuele machines met [az vm create](/cli/azure/vm#az_vm_create).
+Maak de virtuele machines met [az vm create](/cli/azure/vm#az-vm-create).
 
  ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -242,7 +242,7 @@ Het kan enkele minuten duren voordat de VM's zijn geïmplementeerd.
 
 ## <a name="test-the-load-balancer"></a>Load balancer testen
 
-Gebruik [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show) om het openbare IP-adres van de load balancer op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser.
+Gebruik [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show) om het openbare IP-adres van de load balancer op te halen. Kopieer het openbare IP-adres en plak het in de adresbalk van de browser.
 
 ```azurecli-interactive
   az network public-ip show \
@@ -255,7 +255,7 @@ Gebruik [az network public-ip show](/cli/azure/network/public-ip#az_network_publ
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-U kunt de opdracht [az group delete](/cli/azure/group#az_group_delete) gebruiken om de resourcegroep, de load balancer en alle gerelateerde resources te verwijderen wanneer u deze niet meer nodig hebt.
+U kunt de opdracht [az group delete](/cli/azure/group#az-group-delete) gebruiken om de resourcegroep, de load balancer en alle gerelateerde resources te verwijderen wanneer u deze niet meer nodig hebt.
 
 ```azurecli-interactive 
   az group delete --name myResourceGroupLB

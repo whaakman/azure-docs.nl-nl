@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/13/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 5686266774603413fc255c53a0d1ad30f9baa8eb
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 6d328d8a3556f565e7eac8ee079bd191b7dcadef
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173857"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433439"
 ---
 # <a name="deploy-a-python-web-app-in-web-app-for-containers"></a>Een Python-web-app in Web App for Containers implementeren
 
@@ -96,7 +96,7 @@ Nadat de installatiekopie is gepusht, kunt u deze gebruiken in uw Azure-webapp.
 
 ## <a name="create-a-web-app"></a>Een webtoepassing maken
 
-Maak een [web-app](../app-service-web-overview.md) in het App Service-plan `myAppServicePlan` met de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az_webapp_create). Vervang *\<app name>* door een unieke naam en vervang *\<dockerhub_id>* door uw Docker Hub-id.
+Maak een [web-app](../app-service-web-overview.md) in het App Service-plan `myAppServicePlan` met de opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Vervang *\<app name>* door een unieke naam en vervang *\<dockerhub_id>* door uw Docker Hub-id.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name <dockerhub_id>/flask-quickstart
@@ -125,7 +125,7 @@ Als u eerder naar een privé-opslagplaats hebt geüpload, moet u ook de Docker H
 
 Zoals opgegeven in de _Dockerfile_, luistert uw container op poort 8000. Om ervoor te zorgen dat uw aanvraag naar de juiste poort wordt doorgestuurd, moet u de app-instelling *WEBSITES_PORT* instellen.
 
-Voer in Cloud Shell de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) uit.
+Voer in Cloud Shell de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) uit.
 
 
 ```azurecli-interactive

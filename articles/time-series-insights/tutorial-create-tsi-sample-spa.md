@@ -5,13 +5,14 @@ author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 06/14/2018
-ms.author: bryanla
-ms.openlocfilehash: 4442a724cf3e37d5e7271d9c29f99138ab1faa5f
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.author: anshan
+manager: cshankar
+ms.openlocfilehash: 312e15f976a6782e3f39cfcc5ce0721ac6357a16
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295827"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626752"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Zelfstudie: Een web-app van Azure Time Series Insights met één pagina maken
 
@@ -42,11 +43,11 @@ In deze zelfstudie worden ook de gegevens uit TSI-omgeving van de voorbeeldtoepa
 Voordat u de toepassing maakt, moet u deze registreren bij Azure AD. Het registratieproces zorgt ervoor dat de identiteit voor een toepassing wordt geconfigureerd, zodat de toepassing OAuth-ondersteuning kan gebruiken voor eenmalige aanmelding. OAuth vereist dat SPA's de 'impliciete' autorisatietoekenning gebruiken, die u gaat bijwerken in het manifest van de toepassing. Een toepassingsmanifest is een JSON-weergave van de identiteitsconfiguratie van de toepassing. 
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com) met uw Azure-abonnementsaccount.  
-2. Selecteer in het linkerdeelvenster de resource **Azure Active Directory** en daarna **App-registraties** en **+ Nieuwe toepassing registreren**:  
+1. Selecteer in het linkerdeelvenster de resource **Azure Active Directory** en daarna **App-registraties** en **+ Nieuwe toepassing registreren**:  
    
    ![Azure AD-toepassing registreren in Azure Portal](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration.png)
 
-3. Vul op de pagina **Maken** de vereiste parameters in:
+1. Vul op de pagina **Maken** de vereiste parameters in:
    
    Parameter|Beschrijving
    ---|---
@@ -58,27 +59,27 @@ Voordat u de toepassing maakt, moet u deze registreren bij Azure AD. Het registr
 
    ![Registratie van Azure AD-toepassing in Azure Portal voltooien](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-create.png)
 
-4. Resourcetoepassingen bieden REST-API's voor gebruik door andere toepassingen en zijn ook geregistreerd bij Azure AD. API's bieden nauwkeurige/beveiligde toegang tot clienttoepassingen, door het beschikbaar stellen van 'scopes'. Omdat uw toepassing de API 'Azure Time Series Insights' gaat aanroepen, moet u de API en de scope opgeven, waarvoor dan tijdens runtime een machtiging wordt aangevraagd/verleend. Selecteer **Instellingen** en vervolgens **Vereiste machtigingen** en **+ Toevoegen**:
+1. Resourcetoepassingen bieden REST-API's voor gebruik door andere toepassingen en zijn ook geregistreerd bij Azure AD. API's bieden nauwkeurige/beveiligde toegang tot clienttoepassingen, door het beschikbaar stellen van 'scopes'. Omdat uw toepassing de API 'Azure Time Series Insights' gaat aanroepen, moet u de API en de scope opgeven, waarvoor dan tijdens runtime een machtiging wordt aangevraagd/verleend. Selecteer **Instellingen** en vervolgens **Vereiste machtigingen** en **+ Toevoegen**:
 
    ![Azure AD-machtigingen toevoegen in Azure Portal](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms.png)
 
-5. Klik op de pagina **API-toegang toevoegen** op **1 Een API selecteren** om de API van TSI op te geven. Typ op de pagina **Een API selecteren** 'azure time' in het zoekveld. Selecteer vervolgens de API 'Azure Time Series Insights' in de lijst met resultaten en klik op **Selecteren**: 
+1. Klik op de pagina **API-toegang toevoegen** op **1 Een API selecteren** om de API van TSI op te geven. Typ op de pagina **Een API selecteren** 'azure time' in het zoekveld. Selecteer vervolgens de API 'Azure Time Series Insights' in de lijst met resultaten en klik op **Selecteren**: 
 
    ![Azure AD-machtigingen toevoegen in Azure Portal - API](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api.png)
 
-6. Geef nu een scope op voor de API. Klik terug op de pagina **API-toegang toevoegen** op **2 Machtigingen selecteren**. Selecteer op de pagina **Toegang inschakelen** de scope 'Access Azure Time Series Insights service'. Klik op **Selecteren**, waarna u terugkeert naar de pagina **API-toegang toevoegen**. Klik daar op **Gereed**:
+1. Geef nu een scope op voor de API. Klik terug op de pagina **API-toegang toevoegen** op **2 Machtigingen selecteren**. Selecteer op de pagina **Toegang inschakelen** de scope 'Access Azure Time Series Insights service'. Klik op **Selecteren**, waarna u terugkeert naar de pagina **API-toegang toevoegen**. Klik daar op **Gereed**:
 
    ![Azure AD-machtigingen toevoegen in Azure Portal - scope](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-add-perms-api-scopes.png)
 
-7. Als u terugkeert naar de pagina **Vereiste machtigingen**, ziet u dat daar nu de API 'Azure Time Series inzicht' wordt vermeld. U moet de toepassing ook vooraf toegang geven tot de API en scope, voor alle gebruikers. Klik bovenaan op de knop **Machtigingen verlenen** en selecteer **Ja**:
+1. Als u terugkeert naar de pagina **Vereiste machtigingen**, ziet u dat daar nu de API 'Azure Time Series inzicht' wordt vermeld. U moet de toepassing ook vooraf toegang geven tot de API en scope, voor alle gebruikers. Klik bovenaan op de knop **Machtigingen verlenen** en selecteer **Ja**:
 
    ![Vereiste Azure AD-machtigingen in Azure Portal - toestemming](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-required-permissions-consent.png)
 
-8. Zoals eerder vermeld, moet u ook het manifest van de toepassing bijwerken. Klik op de naam van de toepassing in de breadcrumbs om terug te keren naar de pagina **Geregistreerde app**. Selecteer **Manifest**, wijzig de eigenschap `oauth2AllowImplicitFlow` in `true` en klik op **Opslaan**:
+1. Zoals eerder vermeld, moet u ook het manifest van de toepassing bijwerken. Klik op de naam van de toepassing in de breadcrumbs om terug te keren naar de pagina **Geregistreerde app**. Selecteer **Manifest**, wijzig de eigenschap `oauth2AllowImplicitFlow` in `true` en klik op **Opslaan**:
 
    ![Manifest van Azure AD bijwerken in Azure Portal](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-update-manifest.png)
 
-9. Klik tot slot op de breadcrumbs om weer terug te keren naar de pagina **Geregistreerde app** en kopieer de URL voor de **startpagina** en de **toepassings-id** voor uw toepassing. U gaat deze eigenschappen in een latere stap gebruiken:
+1. Klik tot slot op de breadcrumbs om weer terug te keren naar de pagina **Geregistreerde app** en kopieer de URL voor de **startpagina** en de **toepassings-id** voor uw toepassing. U gaat deze eigenschappen in een latere stap gebruiken:
 
    ![Azure AD-eigenschappen in Azure Portal](media/tutorial-create-tsi-sample-spa/ap-aad-app-registration-application.png)
 
@@ -92,15 +93,15 @@ Voordat u de toepassing maakt, moet u deze registreren bij Azure AD. Het registr
    - **index.html** HTML en JavaScript voor de pagina https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html
    - **sampleStyles.css:** CSS-opmaakmodel: https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/sampleStyles.css
     
-2. Meld u aan bij Visual Studio om een project voor de webtoepassing te maken. Selecteer in het menu **File** de optie **Open** en dan **Web Site**. Selecteer in het dialoogvenster **Open Web Site** de werkmap waarin u de HTML- en CSS-bestanden hebt opgeslagen en klik vervolgens op **Open**:
+1. Meld u aan bij Visual Studio om een project voor de webtoepassing te maken. Selecteer in het menu **File** de optie **Open** en dan **Web Site**. Selecteer in het dialoogvenster **Open Web Site** de werkmap waarin u de HTML- en CSS-bestanden hebt opgeslagen en klik vervolgens op **Open**:
 
    ![VS - File kiezen en dan Open Web Site](media/tutorial-create-tsi-sample-spa/vs-file-open-web-site.png)
 
-3. Open **Solution Explorer** via het menu **View** van Visual Studio. U ziet nu uw nieuwe oplossing, met een websiteproject (pictogram van wereldbol) met daarin de HTML- en CSS-bestanden:
+1. Open **Solution Explorer** via het menu **View** van Visual Studio. U ziet nu uw nieuwe oplossing, met een websiteproject (pictogram van wereldbol) met daarin de HTML- en CSS-bestanden:
 
    ![VS - Nieuwe oplossing in Solution Explorer](media/tutorial-create-tsi-sample-spa/vs-solution-explorer.png)
 
-4. Voordat u de toepassing kunt publiceren, moet u delen van de JavaScript-code in **index.html** bijwerken: 
+1. Voordat u de toepassing kunt publiceren, moet u delen van de JavaScript-code in **index.html** bijwerken: 
 
    a. Wijzig eerst de paden voor de verwijzing naar de JavaScript-bestanden en opmaakmodellen in het element `<head>`. Open het bestand **index.html** in uw Visual Studio-oplossing en zoek de volgende regels JavaScript-code. Verwijder het commentaarteken (!) aan het begin van de eerste regel onder 'PROD RESOURCE LINKS' en voeg het commentaarteken toe aan de eerste regel onder 'DEV RESOURCE LINKS':
    
@@ -133,7 +134,7 @@ Voordat u de toepassing maakt, moet u deze registreren bij Azure AD. Het registr
 
    c. Sla het bestand **index.html** op als u klaar bent met bewerken.
 
-5. Publiceer de webtoepassing nu als een Azure App Service in uw Azure-abonnement:  
+1. Publiceer de webtoepassing nu als een Azure App Service in uw Azure-abonnement:  
 
    > [!NOTE]
    > Verschillende velden in de volgende dialoogvensters worden automatisch ingevuld met gegevens uit uw Azure-abonnement. Hierdoor kan het een paar seconden duren voordat een dialoogvenster volledig is laden en u verder kunt gaan.  
@@ -187,7 +188,7 @@ In deze zelfstudie worden verschillende actieve Azure-services gemaakt. Als u ni
 In het linkermenu van de Azure-portal:
 
 1. Klik op het pictogram **Resourcegroepen** en selecteer de resourcegroep die u hebt gemaakt voor de TSI-omgeving. Klik bovenaan de pagina op **Resourcegroep verwijderen**, voer de naam van de resourcegroep in en klik op **Verwijderen**. 
-2. Klik op het pictogram **Resourcegroepen** en selecteer de resourcegroep die is gemaakt met de oplossingsverbetering voor apparaatsimulatie. Klik bovenaan de pagina op **Resourcegroep verwijderen**, voer de naam van de resourcegroep in en klik op **Verwijderen**. 
+1. Klik op het pictogram **Resourcegroepen** en selecteer de resourcegroep die is gemaakt met de oplossingsverbetering voor apparaatsimulatie. Klik bovenaan de pagina op **Resourcegroep verwijderen**, voer de naam van de resourcegroep in en klik op **Verwijderen**. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

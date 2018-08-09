@@ -8,15 +8,15 @@ tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 2/14/2018
-ms.author: iainfou
+ms.date: 8/3/2018
+ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: 68aeb6e96e7588696d31b7b03e0c639506e0c89b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9693c619b9723ed6dfd9da02bfdf41e93518f6f4
+ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38598370"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39504631"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Een back-up van een virtuele machine maken in Azure met de CLI
 De Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources vanaf de opdrachtregel of in scripts. U kunt uw gegevens beschermen door regelmatig back-ups te maken. Gebruik Azure Backup om herstelpunten te maken die kunnen worden opgeslagen in geografisch redundante kluizen van Recovery Services. In dit artikel wordt uitgelegd hoe u een back-up van een virtuele machine (VM) maakt in Azure met Azure CLI. U kunt deze stappen ook uitvoeren met [Azure PowerShell](quick-backup-vm-powershell.md) of in [Azure Portal](quick-backup-vm-portal.md).
@@ -31,7 +31,7 @@ Als u de CLI lokaal wilt installeren en gebruiken, moet u Azure CLI versie 2.0.1
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 Een Recovery Services-kluis is een logische container waarin de back-upgegevens voor elke beveiligde resource worden opgeslagen, zoals virtuele Azure-machines. Wanneer de back-uptaak voor een beveiligde resource wordt uitgevoerd, wordt er binnen de Recovery Services-kluis een herstelpunt gemaakt. U kunt vervolgens een van deze herstelpunten gebruiken om gegevens voor dat tijdstip te herstellen.
 
-Maak een Recovery Services-kluis met [az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault#az_backup_vault_create). Geef de resourcegroep en locatie op van de VM die u wilt beveiligen. Als u de [Snelstartgids van Virtual Machines](../virtual-machines/linux/quick-create-cli.md) hebt gebruikt, hebt u het volgende gemaakt:
+Maak een Recovery Services-kluis met [az backup vault create](https://docs.microsoft.com/cli/azure/backup/vault#az-backup-vault-create). Geef de resourcegroep en locatie op van de VM die u wilt beveiligen. Als u de [Snelstartgids van Virtual Machines](../virtual-machines/linux/quick-create-cli.md) hebt gebruikt, hebt u het volgende gemaakt:
 
 - een resourcegroep met de naam *myResourceGroup*,
 - een virtuele machine met de naam *myVM*,
@@ -47,7 +47,7 @@ De Recovery Services-kluis is standaard ingesteld voor geografisch redundante op
 
 
 ## <a name="enable-backup-for-an-azure-vm"></a>Back-up voor een virtuele Azure-machine inschakelen
-Maak een beleidsregels om te definiëren wanneer een back-uptaak wordt uitgevoerd en hoe lang de herstelpunten worden opgeslagen. Met het standaardbeleid voor beveiliging wordt elke dag een back-uptaak uitgevoerd en worden herstelpunten gedurende 30 dagen bewaard. U kunt deze standaardwaarden gebruiken om uw VM snel te beveiligen. Als u back-upbeveiliging wilt inschakelen voor een VM, gebruikt u de opdracht [az backup protection enable-for-vm](https://docs.microsoft.com/cli/azure/backup/protection#az_backup_protection_enable_for_vm). Geef de resourcegroep en de VM op die u wilt beveiligen, en vervolgens het beleid dat u wilt gebruiken:
+Maak een beleidsregels om te definiëren wanneer een back-uptaak wordt uitgevoerd en hoe lang de herstelpunten worden opgeslagen. Met het standaardbeleid voor beveiliging wordt elke dag een back-uptaak uitgevoerd en worden herstelpunten gedurende 30 dagen bewaard. U kunt deze standaardwaarden gebruiken om uw VM snel te beveiligen. Als u back-upbeveiliging wilt inschakelen voor een VM, gebruikt u de opdracht [az backup protection enable-for-vm](https://docs.microsoft.com/cli/azure/backup/protection#az-backup-protection-enable-for-vm). Geef de resourcegroep en de VM op die u wilt beveiligen, en vervolgens het beleid dat u wilt gebruiken:
 
 ```azurecli-interactive 
 az backup protection enable-for-vm \
@@ -69,7 +69,7 @@ az backup protection enable-for-vm \
 ```
 
 ## <a name="start-a-backup-job"></a>Een back-uptaak starten
-Als u een back-up direct wilt starten in plaats van te wachten totdat de back-up volgens het standaardbeleid op het geplande tijdstip wordt uitgevoerd, gebruikt u de opdracht [az backup protection backup-now](https://docs.microsoft.com/cli/azure/backup/protection#az_backup_protection_backup_now). Met deze eerste back-uptaak wordt een volledig herstelpunt gemaakt. Bij elke volgende back-uptaak worden incrementele herstelpunten gemaakt. Incrementele herstelpunten zijn efficiënt qua opslag en tijd aangezien ze alleen wijzigingen bevatten die sinds de laatste back-up zijn doorgevoerd.
+Als u een back-up direct wilt starten in plaats van te wachten totdat de back-up volgens het standaardbeleid op het geplande tijdstip wordt uitgevoerd, gebruikt u de opdracht [az backup protection backup-now](https://docs.microsoft.com/cli/azure/backup/protection#az-backup-protection-backup-now). Met deze eerste back-uptaak wordt een volledig herstelpunt gemaakt. Bij elke volgende back-uptaak worden incrementele herstelpunten gemaakt. Incrementele herstelpunten zijn efficiënt qua opslag en tijd aangezien ze alleen wijzigingen bevatten die sinds de laatste back-up zijn doorgevoerd.
 
 De volgende parameters worden gebruikt om een oor back-up van de VM te maken:
 
@@ -90,7 +90,7 @@ az backup protection backup-now \
 
 
 ## <a name="monitor-the-backup-job"></a>Uitvoering van back-uptaak volgen
-U kunt de status van back-uptaken controleren met [az backup job list](https://docs.microsoft.com/cli/azure/backup/job#az_backup_job_list):
+U kunt de status van back-uptaken controleren met [az backup job list](https://docs.microsoft.com/cli/azure/backup/job#az-backup-job-list):
 
 ```azurecli-interactive 
 az backup job list \
@@ -112,7 +112,7 @@ Wanneer de *status* van de back-uptaak verandert in *Completed*, is de VM beveil
 
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
-Wanneer een back-up niet meer nodig is, kunt u de beveiliging van de VM uitschakelen, de herstelpunten en de Recovery Services-kluis verwijderen, en vervolgens de resourcegroep en de bijbehorende VM-resources verwijderen. Als u een bestaande virtuele machine hebt gebruikt, kunt u de laatste opdracht ([az group delete](/cli/azure/group?view=azure-cli-latest#az_group_delete)) overslaan om de resourcegroep en VM te behouden.
+Wanneer een back-up niet meer nodig is, kunt u de beveiliging van de VM uitschakelen, de herstelpunten en de Recovery Services-kluis verwijderen, en vervolgens de resourcegroep en de bijbehorende VM-resources verwijderen. Als u een bestaande virtuele machine hebt gebruikt, kunt u de laatste opdracht ([az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete)) overslaan om de resourcegroep en VM te behouden.
 
 Ga naar [Vervolgstappen](#next-steps) voor een zelfstudie over Microsoft Azure Backup, waarin wordt uitgelegd hoe u gegevens voor uw virtuele machine terugzet. 
 

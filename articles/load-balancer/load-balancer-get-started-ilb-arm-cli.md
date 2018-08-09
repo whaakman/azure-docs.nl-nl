@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/27/2018
 ms.author: kumud
-ms.openlocfilehash: 92e464aa4e0dcb7199b6db44d2c28db5b6d1673c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: bd4dda835279a21509f77814f4d5f9e30e8a42c1
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38676083"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39439195"
 ---
 # <a name="create-an-internal-load-balancer-to-load-balance-vms-using-azure-cli-20"></a>Een interne load balancer maken met Azure CLI 2.0 om taken te verdelen over VM's
 
@@ -110,7 +110,7 @@ Voordat u enkele VM's implementeert en uw load balancer test, maakt u de onderst
 
 ### <a name="create-nics"></a>NIC's maken
 
-Maak met [az network nic create](/cli/azure/network/nic#az_network_nic_create) twee netwerkinterfaces en koppel deze aan het privé-IP-adres. 
+Maak met [az network nic create](/cli/azure/network/nic#az-network-nic-create) twee netwerkinterfaces en koppel deze aan het privé-IP-adres. 
 
 ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -130,7 +130,7 @@ In dit voorbeeld maakt u twee virtuele machines die worden gebruikt als back-end
 
 ### <a name="create-an-availability-set"></a>Een beschikbaarheidsset maken
 
-Een beschikbaarheidsset maken met [az vm availabilityset create](/cli/azure/network/nic#az_network_availabilityset_create)
+Een beschikbaarheidsset maken met [az vm availabilityset create](/cli/azure/network/nic#az-network-availabilityset-create)
 
  ```azurecli-interactive
   az vm availability-set create \
@@ -184,7 +184,7 @@ runcmd:
   - nodejs index.js
 ``` 
  
-Maak de virtuele machines met [az vm create](/cli/azure/vm#az_vm_create).
+Maak de virtuele machines met [az vm create](/cli/azure/vm#az-vm-create).
 
  ```azurecli-interactive
 for i in `seq 1 2`; do
@@ -228,7 +228,7 @@ Gebruik [az network lb show](/cli/azure/network/public-ip##az-network-lb-show) o
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-U kunt de opdracht [az group delete](/cli/azure/group#az_group_delete) gebruiken om de resourcegroep, de load balancer en alle gerelateerde resources te verwijderen wanneer u deze niet meer nodig hebt.
+U kunt de opdracht [az group delete](/cli/azure/group#az-group-delete) gebruiken om de resourcegroep, de load balancer en alle gerelateerde resources te verwijderen wanneer u deze niet meer nodig hebt.
 
 ```azurecli-interactive 
   az group delete --name myResourceGroupILB

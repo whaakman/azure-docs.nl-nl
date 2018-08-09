@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 6079784a21b5dea8929fcfa3d8f296477b3b9520
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 651f9ba71d08698c64f3e90de59b5f29a8afc77d
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083325"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39433507"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Meerdere tabellen bulksgewijs kopiëren met behulp van Azure Data Factory
 Deze zelfstudie demonstreert het **kopiëren van een aantal tabellen uit Azure SQL Database naar Azure SQL Data Warehouse**. U kunt hetzelfde patroon toepassen in andere kopieerscenario's. Bijvoorbeeld het kopiëren van tabellen van SQL Server/Oracle naar Azure SQL Database/Data Warehouse/Azure Blob, verschillende paden kopiëren van Blob naar Azure SQL Database-tabellen.
@@ -63,47 +63,47 @@ Maak een Azure SQL Database met Adventure Works LT-testgegevens door het artikel
 
 1. Als u geen Azure SQL Data Warehouse hebt, raadpleegt u het artikel [Create a SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) (Een Azure SQL-database maken) voor de stappen om er een te maken.
 
-2. Maak bijbehorende tabelschema's in SQL Data Warehouse. U kunt het [hulpprogramma voor migratie](https://www.microsoft.com/download/details.aspx?id=49100) gebruiken om het **schema te migreren** van Azure SQL Database naar Azure SQL Data Warehouse. U gebruikt Azure Data Factory om gegevens in een latere stap te migreren/kopiëren.
+1. Maak bijbehorende tabelschema's in SQL Data Warehouse. U kunt het [hulpprogramma voor migratie](https://www.microsoft.com/download/details.aspx?id=49100) gebruiken om het **schema te migreren** van Azure SQL Database naar Azure SQL Data Warehouse. U gebruikt Azure Data Factory om gegevens in een latere stap te migreren/kopiëren.
 
 ## <a name="azure-services-to-access-sql-server"></a>Azure-services voor toegang tot SQL-server
 
 Geef Azure-services toegang tot SQL-server voor zowel SQL Database als SQL Data Warehouse. Zorg ervoor dat de instelling **Toegang tot Azure-services toestaan** voor uw Azure SQL-server op **AAN** staat. Met deze instelling kan de Data Factory-service gegevens lezen uit uw Azure SQL Database en schrijven naar uw Azure SQL Data Warehouse. Voer de volgende stappen uit om dit te controleren en de instelling in te schakelen:
 
 1. Klik op de hub **Meer services** aan de linkerkant en klik op **SQL-servers**.
-2. Selecteer uw server en klik op **Firewall** onder **INSTELLINGEN**.
-3. Klik op de pagina **Firewallinstellingen** op **AAN** bij **Toegang tot Azure-services toestaan**.
+1. Selecteer uw server en klik op **Firewall** onder **INSTELLINGEN**.
+1. Klik op de pagina **Firewallinstellingen** op **AAN** bij **Toegang tot Azure-services toestaan**.
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 1. Start de webbrowser **Microsoft Edge** of **Google Chrome**. Op dit moment wordt de Data Factory-gebruikersinterface alleen ondersteund in de webbrowsers Microsoft Edge en Google Chrome.
 1. Klik op **Nieuw** in het linkermenu en klik vervolgens op **Gegevens en analyses** en **Data Factory**. 
    
    ![Nieuw -> DataFactory](./media/tutorial-bulk-copy-portal/new-azure-data-factory-menu.png)
-2. Voer op de pagina **New data factory** **ADFTutorialBulkCopyDF** in bij **name**. 
+1. Voer op de pagina **New data factory** **ADFTutorialBulkCopyDF** in bij **name**. 
       
      ![De pagina Nieuwe data factory](./media/tutorial-bulk-copy-portal/new-azure-data-factory.png)
  
    De naam van de Azure-gegevensfactory moet **wereldwijd uniek** zijn. Als u het volgende foutbericht krijgt, wijzigt u de naam van de gegevensfactory (bijvoorbeeld uwnaamADFTutorialBulkCopyDF) en probeert u het opnieuw. Zie het artikel [Data factory - Naamgevingsregels](naming-rules.md) voor meer informatie over naamgevingsregels voor Data Factory-artefacten.
   
        `Data factory name “ADFTutorialBulkCopyDF” is not available`
-3. Selecteer het Azure-**abonnement** waarin u de gegevensfactory wilt maken. 
-4. Voer een van de volgende stappen uit voor de **Resourcegroep**:
+1. Selecteer het Azure-**abonnement** waarin u de gegevensfactory wilt maken. 
+1. Voer een van de volgende stappen uit voor de **Resourcegroep**:
      
       - Selecteer **Bestaande gebruiken** en selecteer een bestaande resourcegroep in de vervolgkeuzelijst. 
       - Selecteer **Nieuwe maken** en voer de naam van een resourcegroep in.   
          
       Zie [Resourcegroepen gebruiken om Azure-resources te beheren](../azure-resource-manager/resource-group-overview.md) voor meer informatie.  
-4. Selecteer **V2** als de **versie**.
-5. Selecteer de **locatie** voor de gegevensfactory. Voor een lijst met Azure-regio’s waarin Data Factory momenteel beschikbaar is, selecteert u op de volgende pagina de regio’s waarin u geïnteresseerd bent, vouwt u vervolgens **Analytics** uit en gaat u naar **Data Factory**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/). De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
-6. Selecteer **Vastmaken aan dashboard**.     
-7. Klik op **Create**.
-8. Op het dashboard ziet u de volgende tegel met de status: **Gegevensfactory implementeren**. 
+1. Selecteer **V2** als de **versie**.
+1. Selecteer de **locatie** voor de gegevensfactory. Voor een lijst met Azure-regio’s waarin Data Factory momenteel beschikbaar is, selecteert u op de volgende pagina de regio’s waarin u geïnteresseerd bent, vouwt u vervolgens **Analytics** uit en gaat u naar **Data Factory**: [Beschikbare producten per regio](https://azure.microsoft.com/global-infrastructure/services/). De gegevensopslagexemplaren (Azure Storage, Azure SQL Database, enzovoort) en berekeningen (HDInsight, enzovoort) die worden gebruikt in Data Factory, kunnen zich in andere regio's bevinden.
+1. Selecteer **Vastmaken aan dashboard**.     
+1. Klik op **Create**.
+1. Op het dashboard ziet u de volgende tegel met de status: **Gegevensfactory implementeren**. 
 
     ![tegel met de status 'gegevensfactory implementeren'](media//tutorial-bulk-copy-portal/deploying-data-factory.png)
-9. Na het aanmaken ziet u de pagina **Data Factory** zoals weergegeven in de afbeelding.
+1. Na het aanmaken ziet u de pagina **Data Factory** zoals weergegeven in de afbeelding.
    
     ![Startpagina van de gegevensfactory](./media/tutorial-bulk-copy-portal/data-factory-home-page.png)
-10. Klik op **Author & Monitor** om de gebruikersinterface (UI) van Data Factory op een afzonderlijk tabblad te openen.
-11. Ga op de pagina **get started** naar het tabblad **Edit** in het linkervenster, zoals wordt weergegeven in de volgende afbeelding:  
+1. Klik op **Author & Monitor** om de gebruikersinterface (UI) van Data Factory op een afzonderlijk tabblad te openen.
+1. Ga op de pagina **get started** naar het tabblad **Edit** in het linkervenster, zoals wordt weergegeven in de volgende afbeelding:  
 
     ![Pagina Aan de slag](./media/tutorial-bulk-copy-portal/get-started-page.png)
 
@@ -118,45 +118,45 @@ In deze stap maakt u een gekoppelde service om uw Azure SQL-database aan de gege
 1. Klik op **Connections** onderaan het venster en klik op **+ New** op de werkbalk. 
 
     ![Knop Nieuwe gekoppelde service](./media/tutorial-bulk-copy-portal/new-linked-service-button.png)
-2. In het venster **New Linked Service** selecteert u **Azure SQL Database** en klikt u op **Continue**. 
+1. In het venster **New Linked Service** selecteert u **Azure SQL Database** en klikt u op **Continue**. 
 
     ![Azure SQL-database selecteren](./media/tutorial-bulk-copy-portal/select-azure-sql-database.png)
-3. Voer in het venster **New Linked Service** de volgende stappen uit: 
+1. Voer in het venster **New Linked Service** de volgende stappen uit: 
 
     1. Voer **AzureSqlDatabaseLinkedService** in bij **Name**. 
-    2. Selecteer uw Azure SQL-server bij **Server name**
-    3. Selecteer uw Azure SQL-database bij **Database name**. 
-    4. Voer **naam van de gebruiker** in om verbinding te maken met de Azure SQL-database. 
-    5. Voer het **wachtwoord** voor de gebruiker in. 
-    6. Als u de verbinding met de Azure SQL-database wilt testen met de opgegeven informatie, klikt u op **Test connection**.
-    7. Klik op **Opslaan**.
+    1. Selecteer uw Azure SQL-server bij **Server name**
+    1. Selecteer uw Azure SQL-database bij **Database name**. 
+    1. Voer **naam van de gebruiker** in om verbinding te maken met de Azure SQL-database. 
+    1. Voer het **wachtwoord** voor de gebruiker in. 
+    1. Als u de verbinding met de Azure SQL-database wilt testen met de opgegeven informatie, klikt u op **Test connection**.
+    1. Klik op **Opslaan**.
 
         ![Azure SQL Database-instellingen](./media/tutorial-bulk-copy-portal/azure-sql-database-settings.png)
 
 ### <a name="create-the-sink-azure-sql-data-warehouse-linked-service"></a>De gekoppelde Azure SQL Data Warehouse-sinkservice maken
 
 1. Op het tabblad **Connections** klikt u nogmaals op **+ New** op de werkbalk. 
-2. In het venster **New Linked Service** selecteert u **Azure SQL Data Warehouse** en klikt u op **Continue**. 
-3. Voer in het venster **New Linked Service** de volgende stappen uit: 
+1. In het venster **New Linked Service** selecteert u **Azure SQL Data Warehouse** en klikt u op **Continue**. 
+1. Voer in het venster **New Linked Service** de volgende stappen uit: 
 
     1. Voer **AzureStorageLinkedService** in bij **Name**. 
-    2. Selecteer uw Azure SQL-server bij **Server name**
-    3. Selecteer uw Azure SQL-database bij **Database name**. 
-    4. Voer **naam van de gebruiker** in om verbinding te maken met de Azure SQL-database. 
-    5. Voer het **wachtwoord** voor de gebruiker in. 
-    6. Als u de verbinding met de Azure SQL-database wilt testen met de opgegeven informatie, klikt u op **Test connection**.
-    7. Klik op **Opslaan**.
+    1. Selecteer uw Azure SQL-server bij **Server name**
+    1. Selecteer uw Azure SQL-database bij **Database name**. 
+    1. Voer **naam van de gebruiker** in om verbinding te maken met de Azure SQL-database. 
+    1. Voer het **wachtwoord** voor de gebruiker in. 
+    1. Als u de verbinding met de Azure SQL-database wilt testen met de opgegeven informatie, klikt u op **Test connection**.
+    1. Klik op **Opslaan**.
 
 ### <a name="create-the-staging-azure-storage-linked-service"></a>De gekoppelde Azure Storage-faseringsservice maken
 In deze zelfstudie gebruikt u Azure Blob-opslag als een tussentijds faseringsgebied voor het inschakelen van PolyBase voor betere kopieerprestaties.
 
 1. Op het tabblad **Connections** klikt u nogmaals op **+ New** op de werkbalk. 
-2. In het venster **New Linked Service** selecteert u **Azure Blob Storage** en klikt u op **Continue**. 
-3. Voer in het venster **New Linked Service** de volgende stappen uit: 
+1. In het venster **New Linked Service** selecteert u **Azure Blob Storage** en klikt u op **Continue**. 
+1. Voer in het venster **New Linked Service** de volgende stappen uit: 
 
     1. Voer **AzureStorageLinkedService** in bij **Name**. 
-    2. Selecteer uw **Azure Storage-account** bij **Storage account name**.
-    4. Klik op **Opslaan**.
+    1. Selecteer uw **Azure Storage-account** bij **Storage account name**.
+    1. Klik op **Opslaan**.
 
 
 ## <a name="create-datasets"></a>Gegevenssets maken
@@ -173,15 +173,15 @@ In deze zelfstudie zijn de bron- en doel-SQL-tabellen niet vastgelegd in de defi
 1. Klik op **+ (plus)** in het linkervenster en klik op **Dataset**. 
 
     ![Nieuw gegevenssetmenu](./media/tutorial-bulk-copy-portal/new-dataset-menu.png)
-2. Selecteer in het venster **Nieuwe gegevensset** de optie **Azure SQL-database** en klik op **Voltooien**. Er is nu een nieuw tabblad met de titel **AzureSqlTable1**. 
+1. Selecteer in het venster **Nieuwe gegevensset** de optie **Azure SQL-database** en klik op **Voltooien**. Er is nu een nieuw tabblad met de titel **AzureSqlTable1**. 
     
     ![Azure SQL-database selecteren](./media/tutorial-bulk-copy-portal/select-azure-sql-database-dataset.png)
-3. Voer in het eigenschappenvenster onderaan **AzureSqlDatabaseDataset** in als **Name**.
+1. Voer in het eigenschappenvenster onderaan **AzureSqlDatabaseDataset** in als **Name**.
 
-4. Ga naar het tabblad **Verbinding** en voer de volgende stappen uit: 
+1. Ga naar het tabblad **Verbinding** en voer de volgende stappen uit: 
 
     1. Selecteer **AzureSqlDatabaseLinkedService** bij **Linked service**.
-    2. Selecteer een tabel bij **Table**. Dit is een tijdelijke tabel. U geeft een query voor de brongegevensset op tijdens het maken van een pijplijn. De query wordt gebruikt om gegevens te extraheren uit de Azure SQL-database. U kunt ook het selectievakje **Edit** inschakelen en **dummyName** invoeren als tabelnaam. 
+    1. Selecteer een tabel bij **Table**. Dit is een tijdelijke tabel. U geeft een query voor de brongegevensset op tijdens het maken van een pijplijn. De query wordt gebruikt om gegevens te extraheren uit de Azure SQL-database. U kunt ook het selectievakje **Edit** inschakelen en **dummyName** invoeren als tabelnaam. 
 
     ![Pagina verbinding brongegevensset](./media/tutorial-bulk-copy-portal/source-dataset-connection-page.png)
  
@@ -189,13 +189,13 @@ In deze zelfstudie zijn de bron- en doel-SQL-tabellen niet vastgelegd in de defi
 ### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>Een gegevensset maken voor de sink in SQL Data Warehouse
 
 1. Klik op **+ (plus)** in het linkervenster en klik op **Dataset**. 
-2. In het venster **New Dataset** selecteert u **Azure SQL Data Warehouse** en klikt u op **Finish**. Er is nu een nieuw tabblad met de titel **AzureSqlDWTable1**. 
-3. Voer in het eigenschappenvenster onderaan **AzureSqlDWDataset** in als **Name**.
-5. Ga naar het tabblad **Parameters**, klik op **+ Nieuw** en voer **DWTableName** in als de parameternaam. Als u deze naam kopieert/plakt vanaf de pagina, moet u ervoor zorgen dat er geen **spatie** volgt na **DWTableName**. 
+1. In het venster **New Dataset** selecteert u **Azure SQL Data Warehouse** en klikt u op **Finish**. Er is nu een nieuw tabblad met de titel **AzureSqlDWTable1**. 
+1. Voer in het eigenschappenvenster onderaan **AzureSqlDWDataset** in als **Name**.
+1. Ga naar het tabblad **Parameters**, klik op **+ Nieuw** en voer **DWTableName** in als de parameternaam. Als u deze naam kopieert/plakt vanaf de pagina, moet u ervoor zorgen dat er geen **spatie** volgt na **DWTableName**. 
 
     ![Pagina verbinding brongegevensset](./media/tutorial-bulk-copy-portal/sink-dataset-new-parameter.png)
 
-6. Ga naar het tabblad **Verbinding**, 
+1. Ga naar het tabblad **Verbinding**, 
 
     a. Selecteer **AzureSqlDatabaseLinkedService** als **Gekoppelde service**.
 
@@ -222,16 +222,16 @@ De pijplijn **GetTableListAndTriggerCopyData** gebruikt een lijst met tabellen a
 1. Klik op **+ (plus)** in het linkervenster en klik op **Pipeline**.
 
     ![Menu Nieuwe pijplijn](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
-2. Geef op het tabblad **Algemeen** **IterateAndCopySQLTables** op als naam. 
+1. Geef op het tabblad **Algemeen** **IterateAndCopySQLTables** op als naam. 
 
-3. Open het tabblad **Parameters** en voer de volgende stappen uit: 
+1. Open het tabblad **Parameters** en voer de volgende stappen uit: 
 
     1. Klik op **+ New**. 
-    2. Voer **tableList** in als **Name**-parameter.
-    3. Selecteer **Matrix** bij **Type**.
+    1. Voer **tableList** in als **Name**-parameter.
+    1. Selecteer **Matrix** bij **Type**.
 
         ![Pijplijnparameter](./media/tutorial-bulk-copy-portal/first-pipeline-parameter.png)
-4. Vouw in de werkset **Activities** de optie **Iteration & Conditions** uit en sleep de **ForEach**-activiteit naar het ontwerpoppervlak voor pijplijnen. U kunt ook zoeken naar activiteiten in de werkset **Activiteiten**. 
+1. Vouw in de werkset **Activities** de optie **Iteration & Conditions** uit en sleep de **ForEach**-activiteit naar het ontwerpoppervlak voor pijplijnen. U kunt ook zoeken naar activiteiten in de werkset **Activiteiten**. 
 
     a. Voer onderaan het tabblad **Algemeen** **IterateSQLTables** bij **Naam** in. 
 
@@ -245,27 +245,27 @@ De pijplijn **GetTableListAndTriggerCopyData** gebruikt een lijst met tabellen a
     
     d. Ga naar het tabblad **Activiteiten** en klik op **Activiteit toevoegen** om een onderliggende activiteit toe te voegen aan de activiteit **ForEach**.
 
-5. Vouw in de **Activiteiten**-werkset de optie **Gegevensstroom** uit. Gebruik vervolgens slepen-en-neerzetten om de **kopieeractiviteit** te verplaatsen naar het ontwerpoppervlak voor pijplijnen. Let op het breadcrumb-menu bovenaan. IterateAndCopySQLTable is de naam van de pijplijn en IterateSQLTables is de naam van de ForEach-activiteit. Voor de ontwerpfunctie is het activiteitbereik actief. Als u vanuit de ForEach-editor wilt overschakelen naar de pijplijn-editor, klikt u op de koppeling in het breadcrumb-menu. 
+1. Vouw in de **Activiteiten**-werkset de optie **Gegevensstroom** uit. Gebruik vervolgens slepen-en-neerzetten om de **kopieeractiviteit** te verplaatsen naar het ontwerpoppervlak voor pijplijnen. Let op het breadcrumb-menu bovenaan. IterateAndCopySQLTable is de naam van de pijplijn en IterateSQLTables is de naam van de ForEach-activiteit. Voor de ontwerpfunctie is het activiteitbereik actief. Als u vanuit de ForEach-editor wilt overschakelen naar de pijplijn-editor, klikt u op de koppeling in het breadcrumb-menu. 
 
     ![Kopiëren in ForEach](./media/tutorial-bulk-copy-portal/copy-in-for-each.png)
-6. Open het tabblad **Source** en voer de volgende stappen uit:
+1. Open het tabblad **Source** en voer de volgende stappen uit:
 
     1. Selecteer **AzureSqlDatabaseDataset** bij **Source Dataset**. 
-    2. Selecteer **Query** bij **User Query**. 
-    3. Klik op het invoervak **Query** -> Selecteer de koppeling **Dynamische inhoud toevoegen** hieronder -> voer de volgende expressie in voor **Query** -> selecteer **Voltooien**.
+    1. Selecteer **Query** bij **User Query**. 
+    1. Klik op het invoervak **Query** -> Selecteer de koppeling **Dynamische inhoud toevoegen** hieronder -> voer de volgende expressie in voor **Query** -> selecteer **Voltooien**.
 
         ```sql
         SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ``` 
 
         ![Broninstellingen kopiëren](./media/tutorial-bulk-copy-portal/copy-source-settings.png)
-7. Open het tabblad **Sink** en voer de volgende stappen uit: 
+1. Open het tabblad **Sink** en voer de volgende stappen uit: 
 
     1. Selecteer **AzureSqlDWDataset** bij **Sink Dataset**.
-    2. Klik op het invoervak voor VALUE van de parameter DWTableName -> Selecteer de koppeling **Dynamische inhoud toevoegen** hieronder, voer de expressie `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` als script in -> Selecteer **voltooien**.
-    2. Vouw **Polybase Settings** uit en selecteer **Allow polybase**. 
-    3. Schakel de optie **Use Type default** uit. 
-    4. Klik op het invoervak **Script voor opschoning** -> Selecteer de koppeling **Dynamische inhoud toevoegen** hieronder -> voer de volgende expressie als script in -> selecteer **Voltooien**. 
+    1. Klik op het invoervak voor VALUE van de parameter DWTableName -> Selecteer de koppeling **Dynamische inhoud toevoegen** hieronder, voer de expressie `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` als script in -> Selecteer **voltooien**.
+    1. Vouw **Polybase Settings** uit en selecteer **Allow polybase**. 
+    1. Schakel de optie **Use Type default** uit. 
+    1. Klik op het invoervak **Script voor opschoning** -> Selecteer de koppeling **Dynamische inhoud toevoegen** hieronder -> voer de volgende expressie als script in -> selecteer **Voltooien**. 
 
         ```sql
         TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
@@ -273,14 +273,14 @@ De pijplijn **GetTableListAndTriggerCopyData** gebruikt een lijst met tabellen a
 
         ![Sink-instellingen kopiëren](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
 
-8. Ga naar het tabblad **Instellingen** en voer de volgende stappen uit: 
+1. Ga naar het tabblad **Instellingen** en voer de volgende stappen uit: 
 
     1. Selecteer **True** bij **Enable Staging**.
-    2. Selecteer **AzureStorageLinkedService** bij **Store Account Linked Service**.
+    1. Selecteer **AzureStorageLinkedService** bij **Store Account Linked Service**.
 
         ![Faseringsmodus inschakelen](./media/tutorial-bulk-copy-portal/copy-sink-staging-settings.png)
 
-9. Klik in de bovenste pijplijnwerkbalk op **Valideren** om de instellingen voor de pijplijn te valideren. Controleer of er geen validatiefouten zijn. Sluit het venster **Pipeline Validation Report** door op **>>** te klikken.
+1. Klik in de bovenste pijplijnwerkbalk op **Valideren** om de instellingen voor de pijplijn te valideren. Controleer of er geen validatiefouten zijn. Sluit het venster **Pipeline Validation Report** door op **>>** te klikken.
 
 ### <a name="create-the-pipeline-gettablelistandtriggercopydata"></a>De pijplijn GetTableListAndTriggerCopyData maken
 
@@ -292,44 +292,44 @@ Deze pijplijn voert twee stappen uit:
 1. Klik op **+ (plus)** in het linkervenster en klik op **Pipeline**.
 
     ![Menu Nieuwe pijplijn](./media/tutorial-bulk-copy-portal/new-pipeline-menu.png)
-2. In het venster Properties wijzigt u de naam van de pijplijn in **GetTableListAndTriggerCopyData**. 
+1. In het venster Properties wijzigt u de naam van de pijplijn in **GetTableListAndTriggerCopyData**. 
 
-3. Vouw in de werkset **Activities** de optie **General** uit, sleep de **Lookup**-activiteit naar het ontwerpoppervlak voor pijplijnen en voer de volgende stappen uit:
+1. Vouw in de werkset **Activities** de optie **General** uit, sleep de **Lookup**-activiteit naar het ontwerpoppervlak voor pijplijnen en voer de volgende stappen uit:
 
     1. Voer **LookupTableList** in als **Name**. 
-    2. Voer **De tabellijst ophalen uit de Azure SQL-database** in bij **Description**.
+    1. Voer **De tabellijst ophalen uit de Azure SQL-database** in bij **Description**.
 
         ![Lookup-activiteit - pagina algemeen](./media/tutorial-bulk-copy-portal/lookup-general-page.png)
-4. Ga naar de pagina **Settings** en voer de volgende stappen uit:
+1. Ga naar de pagina **Settings** en voer de volgende stappen uit:
 
     1. Selecteer **AzureSqlDatabaseDataset** bij **Source Dataset**. 
-    2. Selecteer **Query** bij **Use Query**. 
-    3. Voer bij **Query** de volgende SQL-query in.
+    1. Selecteer **Query** bij **Use Query**. 
+    1. Voer bij **Query** de volgende SQL-query in.
 
         ```sql
         SELECT TABLE_SCHEMA, TABLE_NAME FROM information_schema.TABLES WHERE TABLE_TYPE = 'BASE TABLE' and TABLE_SCHEMA = 'SalesLT' and TABLE_NAME <> 'ProductModel'
         ```
-    4. Schakel het selectievakje voor het veld **First row only** uit.
+    1. Schakel het selectievakje voor het veld **First row only** uit.
 
         ![Lookup-activiteit - pagina instellingen](./media/tutorial-bulk-copy-portal/lookup-settings-page.png)
-5. Sleep de **Execute Pipeline**-activiteit van de werkset Activities naar het ontwerpoppervlak voor pijplijnen en stel de naam in op **TriggerCopy**.
+1. Sleep de **Execute Pipeline**-activiteit van de werkset Activities naar het ontwerpoppervlak voor pijplijnen en stel de naam in op **TriggerCopy**.
 
     ![Execute Pipeline-activiteit - pagina algemeen](./media/tutorial-bulk-copy-portal/execute-pipeline-general-page.png)    
-6. Ga naar de pagina **Settings** en voer de volgende stappen uit: 
+1. Ga naar de pagina **Settings** en voer de volgende stappen uit: 
 
     1. Selecteer **IterateAndCopySQLTables** bij **Invoked pipeline**. 
-    2. Vouw de sectie **Advanced** uit. 
-    3. Klik op **+ New** in de sectie **Parameters**. 
-    4. Voer **tableList** in als **Name**-parameter.
-    5. Klik op het invoervak VALUE -> selecteer de koppeling **Dynamische inhoud toevoegen** hieronder - voer `@activity('LookupTableList').output.value` als waarde voor de tabelnaam -> selecteer **Voltooien**. U stelt de lijst met resultaten vanuit de Lookup-activiteit in als invoer voor de tweede pijplijn. De lijst met resultaten bevat de lijst met tabellen waarvan de gegevens naar de bestemming moeten worden gekopieerd. 
+    1. Vouw de sectie **Advanced** uit. 
+    1. Klik op **+ New** in de sectie **Parameters**. 
+    1. Voer **tableList** in als **Name**-parameter.
+    1. Klik op het invoervak VALUE -> selecteer de koppeling **Dynamische inhoud toevoegen** hieronder - voer `@activity('LookupTableList').output.value` als waarde voor de tabelnaam -> selecteer **Voltooien**. U stelt de lijst met resultaten vanuit de Lookup-activiteit in als invoer voor de tweede pijplijn. De lijst met resultaten bevat de lijst met tabellen waarvan de gegevens naar de bestemming moeten worden gekopieerd. 
 
         ![Execute Pipeline-activiteit - pagina instellingen](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
-7. **Verbind** de **Lookup**-activiteit met de **Execute Pipeline**-activiteit door het **groene vakje** dat aan de Lookup-activiteit is gekoppeld, naar de linkerkant van de Execute Pipeline-activiteit te slepen.
+1. **Verbind** de **Lookup**-activiteit met de **Execute Pipeline**-activiteit door het **groene vakje** dat aan de Lookup-activiteit is gekoppeld, naar de linkerkant van de Execute Pipeline-activiteit te slepen.
 
     ![Lookup- en Execute Pipeline-activiteiten verbinden](./media/tutorial-bulk-copy-portal/connect-lookup-execute-pipeline.png)
-8. Valideer de pijplijn door te klikken op de knop **Validate** op de werkbalk. Controleer of er geen validatiefouten zijn. Sluit het venster **Pipeline Validation Report** door op **>>** te klikken.
+1. Valideer de pijplijn door te klikken op de knop **Validate** op de werkbalk. Controleer of er geen validatiefouten zijn. Sluit het venster **Pipeline Validation Report** door op **>>** te klikken.
 
-9. Als u entiteiten (gegevenssets, pijplijnen, enzovoort) wilt publiceren naar de Data Factory-service, klikt u boven aan het venster op **Alles publiceren**. Wacht totdat de publicatie is uitgevoerd. 
+1. Als u entiteiten (gegevenssets, pijplijnen, enzovoort) wilt publiceren naar de Data Factory-service, klikt u boven aan het venster op **Alles publiceren**. Wacht totdat de publicatie is uitgevoerd. 
 
 ## <a name="trigger-a-pipeline-run"></a>Een pijplijnuitvoering activeren
 
@@ -342,10 +342,10 @@ Ga naar de pijplijn **GetTableListAndTriggerCopyData**, klik op **Activeren** en
 1. Ga naar het tabblad **Controleren**. Klik op **Refresh** totdat u uitvoeringen voor beide pijplijnen in uw oplossing ziet. Blijf de lijst vernieuwen totdat de status **Succeeded** wordt weergegeven. 
 
     ![Pijplijnuitvoeringen](./media/tutorial-bulk-copy-portal/pipeline-runs.png)
-2. Als u uitvoeringen van activiteit wilt weergeven die gekoppeld zijn aan de pijplijn GetTableListAndTriggerCopyData, klikt u op de eerste koppeling in de koppeling Actions voor die pijplijn. Er moeten twee uitvoeringen van activiteit voor deze pijplijnuitvoering te zien zijn. 
+1. Als u uitvoeringen van activiteit wilt weergeven die gekoppeld zijn aan de pijplijn GetTableListAndTriggerCopyData, klikt u op de eerste koppeling in de koppeling Actions voor die pijplijn. Er moeten twee uitvoeringen van activiteit voor deze pijplijnuitvoering te zien zijn. 
 
     ![Uitvoering van activiteiten](./media/tutorial-bulk-copy-portal/activity-runs-1.png)    
-3. Als u de uitvoer van de **Lookup**-activiteit wilt weergeven, klikt u op de koppeling in de kolom **Output** voor die activiteit. U kunt het venster **Output** maximaliseren en herstellen. Nadat u de uitvoer hebt bekeken, klikt u op **X** om het venster **Output** te sluiten.
+1. Als u de uitvoer van de **Lookup**-activiteit wilt weergeven, klikt u op de koppeling in de kolom **Output** voor die activiteit. U kunt het venster **Output** maximaliseren en herstellen. Nadat u de uitvoer hebt bekeken, klikt u op **X** om het venster **Output** te sluiten.
 
     ```json
     {
@@ -400,10 +400,10 @@ Ga naar de pijplijn **GetTableListAndTriggerCopyData**, klik op **Activeren** en
         ]
     }
     ```    
-4. Als u wilt terugkeren naar de weergave **Pipeline Runs**, klikt u op de koppeling **Pipelines** bovenaan. Klik op **View Activity Runs** (de eerste koppeling in de kolom **Actions**) voor de pijplijn **IterateAndCopySQLTables**. U ziet nu uitvoer zoals weergegeven in de volgende afbeelding: u ziet dat er één **Copy**-uitvoering van activiteit is voor elke tabel in de uitvoer van de **Lookup**-activiteit. 
+1. Als u wilt terugkeren naar de weergave **Pipeline Runs**, klikt u op de koppeling **Pipelines** bovenaan. Klik op **View Activity Runs** (de eerste koppeling in de kolom **Actions**) voor de pijplijn **IterateAndCopySQLTables**. U ziet nu uitvoer zoals weergegeven in de volgende afbeelding: u ziet dat er één **Copy**-uitvoering van activiteit is voor elke tabel in de uitvoer van de **Lookup**-activiteit. 
 
     ![Uitvoering van activiteiten](./media/tutorial-bulk-copy-portal/activity-runs-2.png)
-5. Bevestig dat de gegevens zijn gekopieerd naar het beoogde SQL Data Warehouse dat u in deze zelfstudie hebt gebruikt. 
+1. Bevestig dat de gegevens zijn gekopieerd naar het beoogde SQL Data Warehouse dat u in deze zelfstudie hebt gebruikt. 
 
 ## <a name="next-steps"></a>Volgende stappen
 In deze zelfstudie hebt u de volgende stappen uitgevoerd: 

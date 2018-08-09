@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: bdaead6fe739d62340ca225aa1a6d8adf9e86cb9
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: a55727c58f8f9d4a05f547100875f18291328ea2
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100293"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39435319"
 ---
 # <a name="azure-cosmos-db-import-mongodb-data"></a>Azure Cosmos DB: MongoDB-gegevens importeren 
 
@@ -45,8 +45,8 @@ Deze zelfstudie bestaat uit de volgende taken:
 ## <a name="find-your-connection-string-information-host-port-username-and-password"></a>Uw verbindingsreeksgegevens (host, poort, gebruikersnaam en wachtwoord) zoeken
 
 1. Klik in [Azure Portal](https://portal.azure.com) in het linkerdeelvenster op het item **Azure Cosmos DB**.
-2. Selecteer in het deelvenster **Abonnementen** uw accountnaam.
-3. Klik in de blade **Verbindingsreeks** op **Verbindingsreeks**.
+1. Selecteer in het deelvenster **Abonnementen** uw accountnaam.
+1. Klik in de blade **Verbindingsreeks** op **Verbindingsreeks**.
 
    Het rechterdeelvenster bevat alle informatie die u nodig hebt om verbinding te maken met uw account.
 
@@ -82,7 +82,7 @@ Voorbeeld:
         
     * Azure Cosmos DB levert standaard een nieuwe MongoDB-verzameling met 1000 aanvraageenheden per seconde. Maak voordat u de migratie start met mongoimport, mongorestore of mongomirror van tevoren alle verzamelingen in [Azure Portal](https://portal.azure.com) of uit de MongoDB-stuurprogramma's en -hulpprogramma's. Als uw verzameling groter is dan 10 GB is, moet u een [shardverzameling/gepartitioneerde verzameling](partition-data.md) met de betreffende shardsleutel maken.
 
-    * Verhoog vlak voor de migratie in [Azure Portal](https://portal.azure.com) de doorvoer voor uw verzamelingen van 1000 aanvraageenheden per seconde voor één gepartitioneerde verzameling en 2500 aanvraageenheden per seconde voor een gedeelde verzameling. Met een hogere doorvoer voorkomt u frequentielimieten en kunt u sneller een migratie doorvoeren. Met facturering per uur in Azure Cosmos DB kunt u de doorvoer onmiddellijk na de migratie verminderen om kosten te besparen.
+    * Verhoog vlak voor de migratie in [Azure Portal](https://portal.azure.com) de doorvoer voor uw verzamelingen van 1000 aanvraageenheden per seconde voor één gepartitioneerde verzameling en 2500 aanvraageenheden per seconde voor een gedeelde verzameling. Met een hogere doorvoer voorkomt u frequentielimieten en kost migreren minder tijd. Met facturering per uur in Azure Cosmos DB kunt u de doorvoer onmiddellijk na de migratie verminderen om kosten te besparen.
 
     * Naast het leveren van aanvraageenheden per seconde op het verzamelingsniveau kunt u ook aanvraageenheden per seconde leveren voor een reeks verzamelingen op het bovenliggende databaseniveau. In dat geval moet u van tevoren de database en verzamelingen maken. Daarnaast moet u voor elke verzameling een shardsleutel definiëren.
 
@@ -102,7 +102,7 @@ Voorbeeld:
         }
         ```
 
-2. Bereken bij benadering de aanvraageenheidskosten voor het schrijven van één document:
+1. Bereken bij benadering de aanvraageenheidskosten voor het schrijven van één document:
 
     a. Maak in de MongoDB-shell verbinding met uw Azure Cosmos DB MongoDB-database. U vindt instructies in [Een MongoDB-toepassing verbinden met Azure Cosmos DB](connect-mongodb-account.md).
     
@@ -125,7 +125,7 @@ Voorbeeld:
         
     d. Houd rekening met de kosten voor de aanvraag.
     
-3. Bepaal hoe lang het duurt voordat aanvragen vanaf uw computer worden beantwoord door de Azure Cosmos DB-cloudservice:
+1. Bepaal hoe lang het duurt voordat aanvragen vanaf uw computer worden beantwoord door de Azure Cosmos DB-cloudservice:
     
     a. Schakel uitgebreide logboekregistratie in de MongoDB-shell in met de volgende opdracht: ```setVerboseShell(true)```
     
@@ -135,9 +135,9 @@ Voorbeeld:
         Fetched 1 record(s) in 100(ms)
         ```
         
-4. Verwijder het ingevoegde document vóór de migratie zodat er geen dubbele documenten voorkomen. U kunt documenten met de volgende opdracht verwijderen: ```db.coll.remove({})```
+1. Verwijder het ingevoegde document vóór de migratie zodat er geen dubbele documenten voorkomen. U kunt documenten met de volgende opdracht verwijderen: ```db.coll.remove({})```
 
-5. Bereken bij benadering de waarden voor *batchSize* en *numInsertionWorkers*:
+1. Bereken bij benadering de waarden voor *batchSize* en *numInsertionWorkers*:
 
     * Voor *batchSize* deelt u het totale aantal geleverde aanvraageenheden door de aanvraageenheden die zijn verbruikt bij het schrijven van één document in stap 3.
     
@@ -157,7 +157,7 @@ Voorbeeld:
     
     *numInsertionWorkers = (10.000 RU’s x 0,1 s) / (24 x 10 RU’s) = 4,1666*
 
-6. Voer de laatste migratieopdracht uit:
+1. Voer de laatste migratieopdracht uit:
 
    ```
    mongoimport.exe --host comsosdb-mongodb-account.documents.azure.com:10255 -u comsosdb-mongodb-account -p wzRJCyjtLPNuhm53yTwaefawuiefhbauwebhfuabweifbiauweb2YVdl2ZFNZNv8IU89LqFVm5U0bw== --ssl --sslAllowInvalidCertificates --jsonArray --db dabasename --collection collectionName --file "C:\sample.json" --numInsertionWorkers 4 --batchSize 24

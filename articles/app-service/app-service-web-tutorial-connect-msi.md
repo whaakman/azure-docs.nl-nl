@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f1388843f2c5d3ea607b876ece288db1370329a2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 173588c0200666c52f3ac0a5d2e70d667cfe3294
+ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38461534"
+ms.lasthandoff: 08/02/2018
+ms.locfileid: "39445558"
 ---
 # <a name="tutorial-secure-sql-database-connection-with-managed-service-identity"></a>Zelfstudie: SQL Database-verbinding beveiligen met een beheerde service-identiteit
 
@@ -48,7 +48,7 @@ Dit artikel gaat verder waar u gebleven was in [Zelfstudie: Een ASP.NET-app in A
 
 ## <a name="enable-managed-service-identity"></a>Een beheerde service-identiteit inschakelen
 
-Als u een service-identiteit voor uw Azure-app wilt inschakelen, gebruikt u de opdracht [az webapp assign](/cli/azure/webapp/identity?view=azure-cli-latest#az_webapp_identity_assign) in de Cloud Shell. Vervang *\<app name>* in de volgende opdracht.
+Als u een service-identiteit voor uw Azure-app wilt inschakelen, gebruikt u de opdracht [az webapp assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) in de Cloud Shell. Vervang *\<app name>* in de volgende opdracht.
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app name>
@@ -73,7 +73,7 @@ az ad sp show --id <principalid>
 
 ## <a name="grant-database-access-to-identity"></a>Database toegang verlenen tot identiteit
 
-Vervolgens verleent u databasetoegang tot de service-identiteit van uw app, met behulp van de opdracht [ `az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az_sql_server_ad-admin_create) in de Cloud Shell. Vervang *\<server_name>* en <principalid_from_last_step> in de volgende opdracht. Typ de naam van een beheerder bij *\<admin_user>*.
+Vervolgens verleent u databasetoegang tot de service-identiteit van uw app, met behulp van de opdracht [ `az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) in de Cloud Shell. Vervang *\<server_name>* en <principalid_from_last_step> in de volgende opdracht. Typ de naam van een beheerder bij *\<admin_user>*.
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
@@ -83,7 +83,7 @@ De beheerde service-identiteit heeft nu toegang tot uw Azure SQL Database-server
 
 ## <a name="modify-connection-string"></a>De verbindingsreeks wijzigen
 
-Wijzig de verbinding die u eerder voor uw app hebt ingesteld en doe dat met behulp van de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az_webapp_config_appsettings_set) in de Cloud Shell. Vervang  *\<app name>* in de volgende opdracht door de naam van uw app en vervang *\<server_name>* en *\<db_name>*  door die van uw SQL Database.
+Wijzig de verbinding die u eerder voor uw app hebt ingesteld en doe dat met behulp van de opdracht [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) in de Cloud Shell. Vervang  *\<app name>* in de volgende opdracht door de naam van uw app en vervang *\<server_name>* en *\<db_name>*  door die van uw SQL Database.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='Server=tcp:<server_name>.database.windows.net,1433;Database=<db_name>;' --connection-string-type SQLAzure
