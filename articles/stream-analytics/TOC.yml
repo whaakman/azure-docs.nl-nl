@@ -96,6 +96,8 @@
           href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
         - name: Taken bewaken - Azure .Net SDK
           href: stream-analytics-monitor-jobs.md
+        - name: Taken bewaken - Visual Studio
+          href: stream-analytics-monitor-jobs-use-vs.md
     - name: Schalen
       items:
         - name: Schaal aanpassen met streaming-eenheden
@@ -117,8 +119,10 @@
       items:
         - name: Hulpprogramma's installeren
           href: stream-analytics-tools-for-visual-studio-install.md
-        - name: Een taak in de cloud ontwikkelen
-          href: stream-analytics-tools-for-visual-studio.md
+        - name: Een taak lokaal testen
+          href: stream-analytics-vs-tools-local-run.md
+        - name: Taken weergeven in Visual Studio
+          href: stream-analytics-vs-tools.md
         - name: Een Edge-taak ontwikkelen
           href: stream-analytics-tools-for-visual-studio-edge-jobs.md
         - name: Een CI/CD-pijplijn instellen

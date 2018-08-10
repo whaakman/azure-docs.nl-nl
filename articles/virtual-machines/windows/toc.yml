@@ -216,9 +216,9 @@
           href: nested-virtualization.md
     - name: Kosten beheren
       items:
-        - name: Vooruitbetalen voor virtuele machines - gereserveerde instanties
+        - name: Vooruitbetalen voor VM's - Azure-reserveringen
           href: prepay-reserved-vm-instances.md
-        - name: Wat zijn gereserveerde instanties?
+        - name: Wat zijn Azure-reserveringen?
           href: ../../billing/billing-save-compute-costs-reservations.md
         - name: Flexibiliteit van de VM-instantiegrootte
           href: reserved-vm-instance-size-flexibility.md

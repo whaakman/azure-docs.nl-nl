@@ -2,19 +2,19 @@
 title: Synchronisatie van Azure Active Directory-gebruikers in een cluster - Azure HDInsight
 description: Geverifieerde gebruikers van Azure Active Directory naar een cluster synchroniseert.
 services: hdinsight
-author: ashishthaps
-editor: jasonwhowell
 ms.service: hdinsight
+author: ashishthaps
+ms.author: ashishth
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.author: ashishth
-ms.openlocfilehash: 08ae8bb1f1ac9b718996d1d4715f28d025aeebcb
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.date: 08/19/2018
+ms.openlocfilehash: 05ac13fe849f90e3f0dbc60d5c232f469e1f290d
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591605"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714839"
 ---
 # <a name="synchronize-azure-active-directory-users-to-an-hdinsight-cluster"></a>Synchronisatie van Azure Active Directory-gebruikers met een HDInsight-cluster
 
@@ -75,10 +75,10 @@ De volgende methode maakt gebruik van POST met de Ambari REST-API. Zie voor meer
     }
     ```
 
-4. Als u wilt zien van de synchronisatiestatus, uitvoeren van een nieuwe `curl` opdracht, met behulp van de `href` waarde geretourneerd uit de vorige opdracht:
+4. Als u wilt zien van de synchronisatiestatus, uitvoeren van een nieuwe `curl` opdracht:
 
     ```bash
-    curl -u admin:<YOUR PASSWORD> http://hn0-hadoop.<YOUR DOMAIN>.com:8080/api/v1/ldap_sync_events/1
+    curl -u admin:<YOUR PASSWORD> https://<YOUR CLUSTER NAME>.azurehdinsight.net/api/v1/ldap_sync_events/1
     ```
     
     Het antwoord moet er als volgt:

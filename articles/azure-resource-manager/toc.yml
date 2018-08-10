@@ -32,6 +32,8 @@
       maintainContext: true
     - name: Sjablonen voor de consistentie van de cloud
       href: templates-cloud-consistency.md
+    - name: Implementatiemodi
+      href: deployment-modes.md
 - name: Procedures
   items:
     - name: Sjablonen maken

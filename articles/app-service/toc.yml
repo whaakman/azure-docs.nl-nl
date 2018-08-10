@@ -25,6 +25,8 @@
       href: app-service-web-get-started-java.md
     - name: Een statische HTML-site maken
       href: app-service-web-get-started-html.md
+    - name: Aangepaste Windows-container uitvoeren
+      href: app-service-web-get-started-windows-container.md
 - name: Zelfstudies
   items:
     - name: App met DB

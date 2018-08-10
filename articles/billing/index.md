@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/24/2018
 ms.author: cwatson
-ms.openlocfilehash: e696f3829ce710ef38957a5f538c1a43f4ba33f5
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: b04cb7ca3e8e7b292efaed66096c206b268a034a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285845"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626179"
 ---
 # <a name="azure-billing-and-cost-management-documentation"></a>Documentatie over facturering en kostenbeheer van Azure
 
@@ -101,8 +101,8 @@ Lees hier alles over Azure-facturering, het bewaken van gebruik en kosten, en he
                         <p>
                         <a href="/azure/billing/billing-manage-access">Toegang tot facturering verlenen</a><br/>
                         <a href="/azure/billing/billing-how-to-pay-by-invoice">Betalen via factuur</a><br/>
-                        <a href="/azure/billing/billing-manage-reserved-vm-instance">Gereserveerde instanties beheren</a><br/>
-                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Gebruik voor gereserveerde instanties</a>
+                        <a href="/azure/billing/billing-manage-reserved-vm-instance">Azure-reserveringen beheren</a><br/>
+                        <a href="/azure/billing/billing-understand-reserved-instance-usage-ea">Gebruik voor Azure-reserveringen</a>
                         </p>
                     </div>
                 </div>
@@ -131,11 +131,12 @@ Lees hier alles over Azure-facturering, het bewaken van gebruik en kosten, en he
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Besparen met gereserveerde VM-instanties</h3>
+                        <h3>Opslaan met Azure-reserveringen</h3>
                         <p>
-                        <a href="/azure/billing/billing-save-compute-costs-reservations">Wat zijn gereserveerde instanties?</a> <br/>
-                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Gereserveerde instantie kopen</a><br/>
-                        <a href="/azure/billing/billing-understand-vm-reservation-charges">Korting toepassen</a><br/>
+                        <a href="/azure/billing/billing-save-compute-costs-reservations">Wat zijn Azure-reserveringen?</a> <br/>
+                        <a href="/azure/virtual-machines/windows/prepay-reserved-vm-instances?toc=/azure/billing/TOC.json">Een gereserveerde VM-instantie kopen</a><br/>
+                        <a href="/azure/sql-database/sql-database-reserved-capacity?toc=/azure/billing/TOC.json">Reservecapaciteit voor SQL Database kopen</a><br/>
+                        <a href="/azure/billing/billing-understand-vm-reservation-charges">Korting toepassen op VM’s</a><br/>
                         <a href="/azure/billing/billing-reserved-instance-windows-software-costs">Softwarekosten niet inbegrepen</a>
                         </p>
                     </div>

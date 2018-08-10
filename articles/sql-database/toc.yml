@@ -84,6 +84,8 @@
           href: sql-database-service-tiers-dtu.md
         - name: Bronlimieten
           href: sql-database-resource-limits.md
+        - name: Vooruitbetalen voor reservecapaciteit
+          href: sql-database-reserved-capacity.md
     - name: Logische servers
       items:
         - name: Maken en beheren

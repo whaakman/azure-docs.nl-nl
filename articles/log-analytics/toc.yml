@@ -110,9 +110,17 @@
     - name: Querygegevens
       items:
         - name: Taaldocumentatie
-          href: 'https://docs.loganalytics.io'
-        - name: Overstappen van een verouderde taal
-          href: log-analytics-log-search-transition.md
+          items:
+            - name: Overstappen van een verouderde taal
+              href: log-analytics-log-search-transition.md
+            - name: Aan de slag met de Analytics-portal
+              href: query-language/get-started-analytics-portal.md
+            - name: Aan de slag met query's
+              href: query-language/get-started-queries.md
+            - name: Zoekquery 's
+              href: query-language/search-queries.md
+            - name: Taalverwijzing
+              href: 'https://docs.loganalytics.io'
         - name: Zoekopdrachten in meerdere bronnen
           href: log-analytics-cross-workspace-search.md
         - name: Acties uitvoeren vanuit de zoekresultaten
