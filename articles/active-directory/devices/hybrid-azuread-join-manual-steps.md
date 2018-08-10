@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 546717330a08b348800ea9c4c9cd7784f54595eb
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ba47223f86005809189214f26a63b75b21449e3a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618520"
+ms.locfileid: "39630616"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Zelfstudie: Hybride Azure Active Directory verbonden apparaten handmatig configureren 
 
@@ -35,40 +35,18 @@ Als u een on-premises Active Directory-omgeving hebt en u wilt deelnemen aan uw 
 > Als u met Azure AD Connect is een optie voor u, raadpleegt u [selecteert u uw scenario](hybrid-azuread-join-plan.md#select-your-scenario). Met behulp van Azure AD Connect, kunt u de configuratie van hybride Azure AD join aanzienlijk eenvoudiger.
 
 
-## <a name="before-you-begin"></a>Voordat u begint
-
-Voordat u begint met het configureren van hybride Azure AD gekoppelde apparaten in uw omgeving, moet u uzelf vertrouwd met de ondersteunde scenario's en de beperkingen.  
-
-Als u de [hulpprogramma voor systeemvoorbereiding (Sysprep)](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-vista/cc721940(v=ws.10)), zorg ervoor dat u installatiekopieën maken van een installatie van Windows die niet nog is geregistreerd bij Azure AD.
-
-Alle domein-apparaten wordt uitgevoerd Windows 10 Verjaardag Update en Windows Server 2016 automatisch wordt geregistreerd bij Azure AD op herstart van het apparaat of gebruiker aanmelden als de hieronder vermelde configuratiestappen voltooid zijn. **Als dit probleem automatisch registreren niet aanbevolen wordt of een beheerde implementatie desgewenst**,. Volg de instructies in de sectie 'Stap 4: beheer implementatie en Rollout' hieronder om selectief in- of uitschakelen van automatische implementatie voordat u de andere configuratiestappen te volgen.  
-
-Ter verbetering van de leesbaarheid van de beschrijvingen wordt in dit artikel de volgende vermelding: 
-
-- **Huidige Windows-apparaten** -deze term heeft betrekking op domein apparaten met Windows 10 of Windows Server 2016.
-- **Windows downlevel-apparaten** -deze term heeft betrekking op alle **ondersteund** domein Windows-apparaten die geen actieve Windows 10 of Windows Server 2016.  
-
-### <a name="windows-current-devices"></a>Huidige Windows-apparaten
-
-- Voor apparaten met het besturingssysteem voor Windows-bureaublad, de ondersteunde versie is de Windows 10 Jubileumupdate (versie 1607) of hoger. 
-- De registratie van de huidige Windows-apparaten **is** in niet-gefedereerde omgevingen, zoals wachtwoord-hash gesynchroniseerde configuraties ondersteund.  
-
-
-### <a name="windows-down-level-devices"></a>Windows downlevel-apparaten
-
-- De volgende Windows downlevel-apparaten worden ondersteund:
-    - Windows 8.1
-    - Windows 7
-    - Windows Server 2012 R2
-    - Windows Server 2012
-    - Windows Server 2008 R2
-- De registratie van Windows downlevel-apparaten **is** in omgevingen met niet-gefedereerde via naadloze eenmalige aanmelding ondersteund [Azure Active Directory naadloze eenmalige aanmelding](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
-- De registratie van Windows downlevel-apparaten **is niet** ondersteund bij het gebruik van Azure AD Pass-through-verificatie zonder naadloze eenmalige aanmelding.
-- De registratie van Windows downlevel-apparaten **is niet** ondersteund voor apparaten die gebruikmaken van zwervende profielen. Als u zwervende profielen of instellingen vertrouwen, gebruikt u Windows 10.
-
 
 
 ## <a name="prerequisites"></a>Vereisten
+
+In deze zelfstudie wordt ervan uitgegaan dat u bekend met bent:
+    
+-  [Inleiding tot Apparaatbeheer in Azure Active Directory](../device-management-introduction.md)
+    
+-  [De implementatie van uw hybride Azure Active Directory-deelname plannen](hybrid-azuread-join-plan.md)
+
+-  [De hybride Azure AD-deelname van uw apparaten beheren](hybrid-azuread-join-control.md)
+
 
 Voordat u begint met het inschakelen van hybride Azure AD gekoppelde apparaten in uw organisatie, moet u om ervoor te zorgen dat:
 
@@ -117,7 +95,6 @@ Gebruik de volgende tabel voor een overzicht van de stappen die vereist voor uw 
 | Het service connection point configureren | ![Selecteren][1]                            | ![Selecteren][1]                    | ![Selecteren][1]        |
 | Uitgifte van claims instellen           |                                        | ![Selecteren][1]                    | ![Selecteren][1]        |
 | Windows 10-apparaten inschakelen      |                                        |                                | ![Selecteren][1]        |
-| Besturingselement voor implementatie     | ![Selecteren][1]                            | ![Selecteren][1]                    | ![Selecteren][1]        |
 | Controleer of de gekoppelde apparaten          | ![Selecteren][1]                            | ![Selecteren][1]                    | ![Selecteren][1]        |
 
 
@@ -562,59 +539,6 @@ Om te voorkomen dat certificaat wordt gevraagd wanneer gebruikers van apparaten 
 
 `https://device.login.microsoftonline.com`
 
-## <a name="control-deployment-and-rollout"></a>Besturingselement voor implementatie
-
-Wanneer u de vereiste stappen hebt voltooid, gaan domein apparaten worden automatisch gekoppeld aan Azure AD:
-
-- Alle domein op apparaten met Windows 10 Verjaardag Update en Windows Server 2016 automatisch registreren met Azure AD op het apparaat opnieuw opstarten of aanmelden van gebruikers. 
-
-- Nieuwe apparaten registreren bij Azure AD wanneer het apparaat opnieuw wordt opgestart nadat de domain-join-bewerking is voltooid.
-
-- Apparaten die u eerder Azure AD zijn geregistreerd (bijvoorbeeld voor Intune) worden overgezet naar "*van een domein, geregistreerd bij AAD*"; maar het duurt even voordat dit proces is voltooid voor alle apparaten vanwege de normale stroom van het domein en Gebruikersactiviteit.
-
-### <a name="remarks"></a>Opmerkingen
-
-- U kunt een Group Policy object of System Center Configuration Manager client-instelling voor het beheren van de implementatie van automatische inschrijving van Windows 10 en Windows Server 2016 domein computers gebruiken. **Als u niet wilt dat deze apparaten automatisch registreren bij Azure AD of u wilt voor het beheren van de registratie**, en vervolgens moet u Groepsbeleid eerst uitschakelen van de automatische inschrijving naar al deze apparaten uitgerold of als u van configuratie gebruikmaakt Manager moet u de clientinstelling in Cloud Services configureren > nieuwe Windows 10 domein apparaten automatisch wordt geregistreerd bij Azure Active Directory op "Nee", voordat u begint met een van de configuratiestappen. 
-
-> [!Important]
-> Aangezien er een mogelijke vertraging in de toepassing van de group policy object op Nieuw Domeincomputers gedurende welke de poging van de automatische registratie van Windows 10-apparaten zich voordoen is kan, moet u een nieuwe sysprep-afbeelding maken van een Windows 10-apparaat dat nooit was eerder automatisch geregistreerd en die al is GPO uitschakelen van de automatische registratie van Windows 10-apparaten en dat sysprep-afbeelding gebruiken voor het inrichten van de nieuwe computers die deel van het domein van uw organisatie uitmaken gaan.
-
-Als u klaar bent u configureert, en wanneer u klaar om te testen bent, moet u Groepsbeleid inschakelen van de automatische inschrijving alleen voor de testapparaten implementeren en kies vervolgens voor alle andere apparaten als u.
-
-- Implementatie van Windows downlevel-computers, u kunt implementeren een [Windows Installer-pakket](#windows-installer-packages-for-non-windows-10-computers) op computers die u selecteert.
-
-- Als u de Groepsbeleid-object op domein Windows 8.1-apparaten hebt gepusht, wordt een join geprobeerd. maar het wordt aangeraden dat u de [Windows Installer-pakket](#windows-installer-packages-for-non-windows-10-computers) worden toegevoegd aan uw apparaten voor de downlevel Windows. 
-
-### <a name="create-a-group-policy-object"></a>Een groepsbeleidsobject maken 
-
-Als u wilt beheren van de implementatie van de huidige Windows-computers, moet u implementeren de **Domeincomputers registreren als apparaten** Group Policy object naar de apparaten die u wilt registreren. Bijvoorbeeld, kunt u het beleid implementeren naar een organisatie-eenheid of aan een beveiligingsgroep.
-
-**Het beleid instellen:**
-
-1. Open **Serverbeheer**, en ga vervolgens naar `Tools > Group Policy Management`.
-2. Ga naar het knooppunt van het domein dat overeenkomt met het domein waar u automatische registratie van de huidige Windows-computers te activeren.
-3. Met de rechtermuisknop op **Group Policy Objects**, en selecteer vervolgens **nieuw**.
-4. Typ een naam voor de Groepsbeleid-object. Bijvoorbeeld: * Hybrid Azure AD join. 
-5. Klik op **OK**.
-6. Met de rechtermuisknop op uw nieuwe groepsbeleidsobject en selecteer vervolgens **bewerken**.
-7. Ga naar **Computerconfiguratie** > **beleid** > **Beheersjablonen** > **Windows Onderdelen** > **Device Registration service**. 
-8. Met de rechtermuisknop op **Domeincomputers registreren als apparaten**, en selecteer vervolgens **bewerken**.
-   
-   > [!NOTE]
-   > Deze sjabloon Groepsbeleid is gewijzigd van eerdere versies van de console Groepsbeleidsbeheer. Als u een eerdere versie van de-console gebruikt, gaat u naar `Computer Configuration > Policies > Administrative Templates > Windows Components > Workplace Join > Automatically workplace join client computers`. 
-
-7. Selecteer **ingeschakeld**, en klik vervolgens op **toepassen**. U moet selecteren **uitgeschakelde** als u wilt dat het beleid moet worden geblokkeerd dat de apparaten die beheerd door dit groepsbeleid automatisch registreren met Azure AD.
-
-8. Klik op **OK**.
-9. De Groepsbeleid-object een koppeling naar een locatie van uw keuze. Bijvoorbeeld, kunt u deze koppelen aan een specifieke organisatie-eenheid. U kan ook deze koppelen aan een specifieke beveiligingsgroep met computers die automatisch met Azure AD join. U dit beleid instellen voor alle Windows 10 en Windows Server 2016 Domeincomputers in uw organisatie, de Groepsbeleid-object aan het domein te koppelen.
-
-### <a name="windows-installer-packages-for-non-windows-10-computers"></a>Windows Installer-pakketten voor Windows 10-computers
-
-Als u wilt deelnemen aan domein toegevoegde Windows downlevel-computers in een federatieve omgeving, kunt u downloaden en installeren van deze Windows Installer-pakket (.msi) van Download Center op de [Microsoft Workplace Join voor Windows 10-computers](https://www.microsoft.com/en-us/download/details.aspx?id=53554) de pagina.
-
-U kunt het pakket implementeren met behulp van het systeem in een software-distributie, zoals System Center Configuration Manager. Het pakket biedt ondersteuning voor de opties standaard op de achtergrond installeren met de *stille* parameter. System Center Configuration Manager Current Branch biedt extra voordelen van eerdere versies, zoals de mogelijkheid voor het bijhouden van voltooide registraties. Zie voor meer informatie, [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager).
-
-Het installatieprogramma maakt een geplande taak op het systeem dat wordt uitgevoerd in de context van de gebruiker. De taak wordt geactiveerd wanneer de gebruiker zich aanmeldt bij Windows. De taak op de achtergrond lid wordt van het apparaat met Azure AD met de referenties van de gebruiker na verificatie met behulp van geïntegreerde Windows-verificatie. De geplande taak, het apparaat, Ga naar **Microsoft** > **Workplace Join**, en ga vervolgens naar de Task Scheduler-bibliotheek.
 
 ## <a name="verify-joined-devices"></a>Controleer of de gekoppelde apparaten
 
