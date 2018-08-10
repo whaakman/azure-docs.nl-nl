@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: d7cae11314876bf07b9fcf3d3632a9f42b378626
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c2ef24692f9166fdca7eb19f648aee9ed3b0514f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38942060"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40026355"
 ---
 Geoptimaliseerd voor geheugen VM-grootten aanbieding een hoge geheugen-naar-CPU-snelheid voor relationele-databaseservers, middelgrote tot grote caches en analysefuncties in het geheugen die. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals de doorvoer en netwerkbandbreedte opslag voor elke grootte in deze groepering. 
 
@@ -78,11 +78,13 @@ Gegevensschijfopslag wordt apart van virtuele machines in rekening gebracht. Als
 | Standard_E16_v3 | 16        | 128         | 400            | 32             | 24000/375/187                                            | 8 / 8,000                     |
 | Standard_E32_v3 | 32        | 256         | 800            | 32             | 48000/750/375                                            | 8 / 16,000                 |
 | Standard_E64_v3 | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
-| Standard_E64i_v3&nbsp;<sup>2</sup> | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
+| Standard_E64i_v3&nbsp;<sup>2,&nbsp;3</sup> | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / 30,000           |
 
 <sup>1</sup> van de VM uit de Ev3-serie zijn uitgerust met Intel® Hyper-Threading-technologie.
 
-<sup>2</sup> constrained core grootten beschikbaar. 
+<sup>2</sup> constrained core grootten beschikbaar.
+
+<sup>3</sup> exemplaar is geïsoleerd voor hardware toegewezen aan één klant.
 
 
 ## <a name="m-series"></a>M-serie 
@@ -173,7 +175,7 @@ ACU: 210-250 <sup>1</sup>
 
 Premium Storage: ondersteund
 
-Premium Storage Caching: Niet ondersteund
+Caching van Premium Storage: ondersteund
 
 | Grootte | vCPU | Geheugen: GiB | Tijdelijke opslag (SSD) GiB | Max. aantal gegevensschijven | Maximale doorvoer voor schijven met caching en tijdelijke opslag: IOPS / MBps (cachegrootte in GiB) | Max. doorvoer voor schijf zonder caching: IOPS/MBps | Max. aantal NIC's / verwachte netwerkbandbreedte (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |

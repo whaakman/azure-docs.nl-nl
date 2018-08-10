@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 939c8d203382d76c1b163eb68143f3fff78d71d3
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: e23d3c39c6fd4e69f03ab0f2c11c9b523307b788
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413035"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715138"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensies voor virtuele machines en functies voor Windows
 
@@ -135,7 +135,7 @@ Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM"
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-De `Set-AzureRmVMExtension` opdracht kan worden gebruikt om te beginnen een VM-extensie. Zie voor meer informatie de [Set-AzureRmVMExtension verwijzing](https://msdn.microsoft.com/library/mt603745.aspx).
+De `Set-AzureRmVMExtension` opdracht kan worden gebruikt om te beginnen een VM-extensie. Zie voor meer informatie de [Set-AzureRmVMExtension verwijzing](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmextension).
 
 
 ### <a name="azure-portal"></a>Azure Portal

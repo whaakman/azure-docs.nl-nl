@@ -7,7 +7,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
-ms.component: protection
+ms.component: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 230a76883a468a513c8ca22f23a0d873641c531f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 0055968e4333f5ac7653a37fcd728b040024ee55
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601701"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629844"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-instellingen voor voorwaardelijke toegang verwijst naar
 
@@ -50,7 +50,7 @@ Met beleid voor voorwaardelijke toegang u bepalen hoe uw gebruikers toegang tot 
 
 U kunt een beleid voor voorwaardelijke toegang toewijzen aan de volgende cloud-apps van Microsoft:
 
-- Azure Information Protection - [meer informatie](https://docs.microsoft.com/information-protection/get-started/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
+- Azure Information Protection - [meer informatie](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 
 - Azure RemoteApp
 

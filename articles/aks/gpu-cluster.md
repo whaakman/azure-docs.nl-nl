@@ -1,6 +1,6 @@
 ---
-title: GPU's voor Azure Kubernetes-Service (AKS)
-description: GPU's gebruiken voor Azure Kubernetes-Service (AKS)
+title: GPU's op Azure Kubernetes Service (AKS)
+description: GPU's op Azure Kubernetes Service (AKS) gebruiken
 services: container-service
 author: lachie83
 manager: jeconnoc
@@ -9,27 +9,27 @@ ms.topic: article
 ms.date: 04/05/2018
 ms.author: laevenso
 ms.custom: mvc
-ms.openlocfilehash: 7ee5198b070fee6b6ce04d9fc2639ba23ae93296
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 7fb60f3c440b4804ad8c5e6c013ecfa454358833
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070563"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716114"
 ---
 # <a name="using-gpus-on-aks"></a>GPU's in AKS gebruiken
 
-AKS ondersteunt het maken van GPU ingeschakeld knooppunt groepen. Azure biedt momenteel één of meerdere GPU VMs ingeschakeld. GPU ingeschakeld VM's zijn ontworpen voor rekenintensieve en grafisch-intensieve visualisatie werkbelastingen. Een lijst met GPU ingeschakeld VMs vindt [hier](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).
+AKS ondersteunt het maken van GPU-knooppuntpools. Azure biedt momenteel VM’s met een of meerdere GPU’s. GPU-VM's zijn ontworpen voor rekenintensieve, grafisch-intensieve en visualisatiewerkbelastingen. Een lijst met GPU ingeschakeld virtuele machines vindt u [hier](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu).
 
 ## <a name="create-an-aks-cluster"></a>Een AKS-cluster maken
 
-GPU's zijn meestal nodig voor rekenintensieve workloads zoals grafisch-intensieve en visualisatie werkbelastingen. Raadpleeg de volgende [document](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) om te bepalen van de juiste VM-grootte voor uw workload.
-We raden een minimale grootte van `Standard_NC6` voor uw Azure Kubernetes Service (AKS)-knooppunten.
+GPU's zijn doorgaans nodig voor rekenintensieve grafisch-intensieve workloads en workloads voor visualisatie. Raadpleeg de volgende [document](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu) om te bepalen van de juiste VM-grootte voor uw workload.
+We raden aan een minimumgrootte van `Standard_NC6` voor uw Azure Kubernetes Service (AKS)-knooppunten.
 
 > [!NOTE]
-> GPU ingeschakeld VMs speciale hardware die is onderworpen aan hogere prijzen en regio beschikbaarheid bevatten. Zie voor meer informatie de [prijzen](https://azure.microsoft.com/pricing/) hulpprogramma en [beschikbaarheid in regio's](https://azure.microsoft.com/global-infrastructure/services/) website voor meer informatie.
+> Virtuele machines met GPU bevatten speciale hardware die is onderworpen aan hogere beschikbaarheid van prijzen en regio. Zie voor meer informatie de [prijzen](https://azure.microsoft.com/pricing/) hulpprogramma en [beschikbaarheid in regio](https://azure.microsoft.com/global-infrastructure/services/) site voor meer informatie.
 
 
-Als u een cluster AKS die voldoet aan deze minimale aanbeveling, voer de volgende opdrachten.
+Als u een AKS-cluster die voldoet aan deze minimale aanbeveling nodig hebt, kunt u de volgende opdrachten uitvoeren.
 
 Maak een resourcegroep voor het cluster.
 
@@ -37,21 +37,21 @@ Maak een resourcegroep voor het cluster.
 az group create --name myGPUCluster --location eastus
 ```
 
-Maken van het cluster AKS met knooppunten die met een grootte van `Standard_NC6`.
+De AKS-cluster maken met knooppunten die van de grootte van zijn `Standard_NC6`.
 
 ```azurecli
 az aks create --resource-group myGPUCluster --name myGPUCluster --node-vm-size Standard_NC6
 ```
 
-Verbinding maken met het cluster AKS.
+Verbinding maken met het AKS-cluster.
 
 ```azurecli
 az aks get-credentials --resource-group myGPUCluster --name myGPUCluster
 ```
 
-## <a name="confirm-gpus-are-schedulable"></a>Controleer dat GPU 's zijn Planbare
+## <a name="confirm-gpus-are-schedulable"></a>GPU's zijn Planbare bevestigen
 
-Voer de volgende opdrachten om te bevestigen dat de GPU's Planbare via Kubernetes zijn.
+Voer de volgende opdrachten om te bevestigen dat de GPU's zijn Planbare via Kubernetes.
 
 De huidige lijst met knooppunten ophalen.
 
@@ -63,7 +63,7 @@ aks-nodepool1-22139053-1   Ready     agent     10h       v1.9.6
 aks-nodepool1-22139053-2   Ready     agent     10h       v1.9.6
 ```
 
-Een van de knooppunten om te bevestigen dat de GPU's zijn Planbare beschrijven. Dit kan worden gevonden in de `Capacity` sectie. Bijvoorbeeld `alpha.kubernetes.io/nvidia-gpu:  1`.
+Een van de knooppunten om te bevestigen dat de GPU's zijn Planbare beschreven. Hiermee kunt u vinden onder de `Capacity` sectie. Bijvoorbeeld `alpha.kubernetes.io/nvidia-gpu:  1`.
 
 ```
 $ kubectl describe node aks-nodepool1-22139053-0
@@ -131,13 +131,13 @@ Allocated resources:
 Events:         <none>
 ```
 
-## <a name="run-a-gpu-enabled-workload"></a>Uitvoeren van een werkbelasting GPU ingeschakeld
+## <a name="run-a-gpu-enabled-workload"></a>Een workload met GPU uitvoeren
 
-Schema voor een GPU ingeschakeld om te kunnen demonstreren dat de GPU's inderdaad werkt, werkbelasting aan de juiste resource-aanvraag. In dit voorbeeld wordt uitgevoerd een [Tensorflow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) taak tegen de [MNIST gegevensset](http://yann.lecun.com/exdb/mnist/).
+Schema een GPU ingeschakeld om te kunnen demonstreren dat de GPU's inderdaad werkt, workload met behulp van de juiste resourceaanvraag. In dit voorbeeld wordt uitgevoerd een [Tensorflow](https://www.tensorflow.org/versions/r1.1/get_started/mnist/beginners) taak op basis van de [MNIST gegevensset](http://yann.lecun.com/exdb/mnist/).
 
-De volgende taak manifest bevat een resource-limiet van `alpha.kubernetes.io/nvidia-gpu: 1`. De juiste CUDA bibliotheken en hulpprogramma's voor foutopsporing is beschikbaar op het knooppunt op `/usr/local/nvidia` en moeten worden gekoppeld in de schil met behulp van de specificatie van het juiste volume, zoals hieronder wordt weergegeven.
+De volgende taak manifest bevat een resourcelimiet van `alpha.kubernetes.io/nvidia-gpu: 1`. De juiste CUDA-bibliotheken en hulpprogramma's voor foutopsporing beschikbaar zullen zijn op het knooppunt op `/usr/local/nvidia` en moet worden gekoppeld in de schil met behulp van de specificatie van het juiste volume, zoals hieronder wordt weergegeven.
 
-Het manifest kopiëren en opslaan als **voorbeelden tf-mnist demo.yaml**.
+Het manifest kopiëren en opslaan als **voorbeelden-tf-mnist-demo.yaml**.
 ```
 apiVersion: batch/v1
 kind: Job
@@ -169,7 +169,7 @@ spec:
             path: /usr/local/nvidia
 ```
 
-Gebruik de [kubectl toepassen] [ kubectl-apply] opdracht de taak uit te voeren. Deze opdracht parseert het manifestbestand en maakt de gedefinieerde Kubernetes-objecten.
+Gebruik de [kubectl toepassen] [ kubectl-apply] opdracht wordt uitgevoerd. Deze opdracht parseert het manifestbestand en maakt de gedefinieerde Kubernetes-objecten.
 ```
 $ kubectl apply -f samples-tf-mnist-demo.yaml
 job "samples-tf-mnist-demo" created
@@ -183,14 +183,14 @@ samples-tf-mnist-demo   1         0            8s
 samples-tf-mnist-demo   1         1            35s
 ```
 
-Bepaal de naam schil om weer te geven van de logboeken door het gehele product voltooid wordt weergegeven.
+Bepaal de naam van de schil om weer te geven van de logboeken door schillen voltooid weergegeven.
 ```
 $ kubectl get pods --selector app=samples-tf-mnist-demo --show-all
 NAME                          READY     STATUS      RESTARTS   AGE
 samples-tf-mnist-demo-smnr6   0/1       Completed   0          4m
 ```
 
-Met de naam van de schil uit de uitvoer van de bovenstaande opdracht verwijzen naar de logboeken schil om te bevestigen dat het juiste GPU-apparaat in dit geval zijn gedetecteerd `Tesla K80`.
+Met de naam van de schil uit de uitvoer van de bovenstaande opdracht verwijzen naar de schil Logboeken om te bevestigen dat het juiste GPU-apparaat in dit geval is gedetecteerd `Tesla K80`.
 ```
 $ kubectl logs samples-tf-mnist-demo-smnr6
 2018-04-13 04:11:08.710863: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
@@ -266,15 +266,73 @@ Adding run metadata for 499
 ```
 
 ## <a name="cleanup"></a>Opschonen
-Verwijder de bijbehorende Kubernetes objecten in deze stap hebt gemaakt.
+Verwijder de gekoppelde Kubernetes-objecten in deze stap hebt gemaakt.
 ```
 $ kubectl delete jobs samples-tf-mnist-demo
 job "samples-tf-mnist-demo" deleted
 ```
 
+## <a name="troubleshoot"></a>Problemen oplossen
+
+In sommige scenario's ziet u mogelijk niet GPU-resources onder capaciteit. Bijvoorbeeld: nadat een cluster upgraden naar Kubernetes versie 1.10 of het maken van een nieuwe Kubernetes versie 1.10-cluster, de verwachte `nvidia.com/gpu` resource ontbreekt in `Capacity` bij het uitvoeren van `kubectl describe node <node-name>`. 
+
+U kunt dit oplossen, past u de volgende daemonset post inrichten of upgrade, ziet u `nvidia.com/gpu` als Planbare resource. 
+
+Het manifest kopiëren en opslaan als **nvidia-apparaat-invoegtoepassing-ds.yaml**. Voor de tag de installatiekopie van `image: nvidia/k8s-device-plugin:1.10` hieronder, het label zodat deze overeenkomt met uw Kubernetes-versie bijwerken. Gebruik bijvoorbeeld tag `1.11` voor Kubernetes versie 1.11.
+
+```yaml
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  labels:
+    kubernetes.io/cluster-service: "true"
+  name: nvidia-device-plugin
+  namespace: kube-system
+spec:
+  template:
+    metadata:
+      # Mark this pod as a critical add-on; when enabled, the critical add-on scheduler
+      # reserves resources for critical add-on pods so that they can be rescheduled after
+      # a failure.  This annotation works in tandem with the toleration below.
+      annotations:
+        scheduler.alpha.kubernetes.io/critical-pod: ""
+      labels:
+        name: nvidia-device-plugin-ds
+    spec:
+      tolerations:
+      # Allow this pod to be rescheduled while the node is in "critical add-ons only" mode.
+      # This, along with the annotation above marks this pod as a critical add-on.
+      - key: CriticalAddonsOnly
+        operator: Exists
+      containers:
+      - image: nvidia/k8s-device-plugin:1.10 # Update this tag to match your Kubernetes version
+        name: nvidia-device-plugin-ctr
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["ALL"]
+        volumeMounts:
+          - name: device-plugin
+            mountPath: /var/lib/kubelet/device-plugins
+      volumes:
+        - name: device-plugin
+          hostPath:
+            path: /var/lib/kubelet/device-plugins
+      nodeSelector:
+        beta.kubernetes.io/os: linux
+        accelerator: nvidia
+```
+
+Gebruik de [kubectl toepassen] [ kubectl-apply] opdracht voor het maken van de daemonset.
+
+```
+$ kubectl apply -f nvidia-device-plugin-ds.yaml
+daemonset "nvidia-device-plugin" created
+```
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Geïnteresseerd in Machine Learning werkbelastingen op Kubernetes uitgevoerd? Raadpleeg de labs Kubeflow voor meer informatie.
+Geïnteresseerd in Machine Learning-werkbelastingen uitvoeren in Kubernetes? Raadpleeg de Kubeflow labs voor meer informatie.
 
 > [!div class="nextstepaction"]
 > [Kubeflow Labs][kubeflow-labs]

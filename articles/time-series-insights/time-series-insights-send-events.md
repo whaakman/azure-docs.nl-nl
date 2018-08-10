@@ -1,30 +1,30 @@
 ---
-title: Het verzenden van gebeurtenissen naar een Azure Time Series Insights-omgeving | Microsoft Docs
-description: Deze zelfstudie wordt uitgelegd hoe maken en event hub configureren en uitvoeren van een voorbeeldtoepassing push gebeurtenissen moet worden weergegeven in Azure Time Series Insights.
+title: Over het verzenden van gebeurtenissen naar een Azure Time Series Insights-omgeving | Microsoft Docs
+description: In deze zelfstudie wordt uitgelegd hoe u maken en event hub configureren en uitvoeren van een voorbeeldtoepassing om gebeurtenissen te verzenden in Azure Time Series Insights moet worden weergegeven.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: venkatja
-manager: jhubbard
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.author: anshan
+manager: cshankar
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/09/2018
-ms.openlocfilehash: fb550942debf26691a0deac2a1ad8093128e4e63
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 30b83c54d314934f1de170955eec22e7b2a264b8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294510"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629749"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Gebeurtenissen verzenden naar een Time Series Insights-omgeving met Event Hub
-Dit artikel wordt uitgelegd hoe u maken en configureren van de event hub en uitvoeren van een voorbeeldtoepassing push-gebeurtenissen. Als u een bestaande event hub met gebeurtenissen in JSON-indeling hebt, deze zelfstudie overslaan en weergeven van uw omgeving in [Time Series Insights](https://insights.timeseries.azure.com).
+Dit artikel wordt uitgelegd hoe u maken en configureren van de event hub en een voorbeeldtoepassing om gebeurtenissen te verzenden uitvoeren. Als u een bestaande event hub met gebeurtenissen in JSON-indeling hebt, deze zelfstudie overslaan en uw omgeving bekijken in [Time Series Insights](https://insights.timeseries.azure.com).
 
 ## <a name="configure-an-event-hub"></a>Een Event Hub configureren
 1. Voor het maken van uw Event Hub volgt u de instructies in de Event Hub-[documentatie](../event-hubs/event-hubs-create.md).
 
-2. Zoeken naar **event hub** in de zoekbalk. Klik op **Event Hubs** in de geretourneerde lijst.
+2. Zoeken naar **gebeurtenishub** in de zoekbalk. Klik op **Event Hubs** in de lijst met resultaten.
 
 3. Selecteer uw event hub door te klikken op de naam ervan.
 
@@ -34,7 +34,7 @@ Dit artikel wordt uitgelegd hoe u maken en configureren van de event hub en uitv
 
   ![Event Hub-consumergroep selecteren](media/send-events/consumer-group.png)
 
-6. Onder **entiteiten**, selecteer **consumergroepen**.
+6. Onder **entiteiten**, selecteer **consumentengroepen**.
  
 7. Zorg ervoor dat u een consumergroep maakt die uitsluitend door uw Time Series Insights-gebeurtenisbron wordt gebruikt.
 
@@ -43,28 +43,28 @@ Dit artikel wordt uitgelegd hoe u maken en configureren van de event hub en uitv
 
 8. Onder de **instellingen** kop, selecteer **Share toegangsbeleid**.
 
-9. Maak op de event hub, **MySendPolicy** die wordt gebruikt voor het verzenden van gebeurtenissen in het voorbeeld csharp.
+9. Maak op de gebeurtenishub **MySendPolicy** die wordt gebruikt voor het verzenden van gebeurtenissen in het csharp-voorbeeld.
 
   ![Een beleid voor gedeelde toegang selecteren en klikken op de knop Toevoegen](media/send-events/shared-access-policy.png)  
 
   ![Een nieuw beleid voor gedeelde toegang toevoegen](media/send-events/shared-access-policy-2.png)  
 
-## <a name="add-time-series-insights-reference-data-set"></a>Gegevensset voor tijd reeks Insights verwijzing toevoegen 
-Gebruik van referentiegegevens in TSI contextualizes uw telemetriegegevens.  Die context betekenis toegevoegd aan uw gegevens en gemakkelijker te filteren en statistische functie.  TSI join verwijzen naar gegevens op moment van toegangsroutes en kunnen niet met terugwerkende kracht deelnemen aan deze gegevens.  Het is daarom essentieel om toe te voegen referentiegegevens vóór het toevoegen van een gebeurtenisbron met gegevens.  Gegevens, zoals locatie of sensor type zijn nuttig dimensies die u kunt koppelen aan een apparaat, de tag/het sensor ID gemakkelijker kunt segment en filteren.  
+## <a name="add-time-series-insights-reference-data-set"></a>Time Series Insights-referentiegegevensset toevoegen 
+Met behulp van referentiegegevens in TSI contextualizes uw telemetriegegevens.  Die context betekenis toegevoegd aan uw gegevens en maakt het eenvoudiger om te filteren en statistische functie.  TSI joins verwijzen naar gegevens die tijdens het inkomend verkeer en kunnen niet met terugwerkende kracht deelnemen aan deze gegevens.  Het is daarom essentieel om toe te voegen referentiegegevens vóór het toevoegen van een gebeurtenisbron aan gegevens.  Gegevens, zoals locatie maken of sensorgegevens type zijn handig dimensies die u mogelijk wilt toevoegen aan een apparaat, de code/het sensor ID zodat u gemakkelijk kunt segment en filteren.  
 
 > [!IMPORTANT]
-> Het is essentieel om met een verwijzing gegevensset geconfigureerd tijdens het uploaden van historische gegevens.
+> Het is essentieel om met een referentiegegevensset geconfigureerd tijdens het uploaden van historische gegevens.
 
-Zorg ervoor dat u referentiegegevens aanwezig wanneer u de historische uploadgegevens naar TSI bulksgewijs.  Houd er rekening mee, TSI onmiddellijk lezen van een gebeurtenisbron van de gekoppelde wordt gestart als de bron van die gebeurtenis heeft gegevens.  Dit is handig moet worden gewacht met het toevoegen aan een gebeurtenisbron TSI totdat u uw referentiegegevens aanwezig is hebt, vooral als de bron van die gebeurtenis gegevens bevat. U kunt ook wachten met push-gegevens naar die bron totdat de gegevensset verwijzing geïmplementeerd is.
+Zorg ervoor dat u referentiegegevens in plaats hebt wanneer u bulksgewijs uploaden historische gegevens van TSI.  Houd er rekening mee, TSI onmiddellijk lezen uit de bron van een gekoppelde gebeurtenis wordt gestart als de bron van die gebeurtenis gegevens bevat.  Dit is handig om te wachten met het toevoegen aan een gebeurtenisbron TSI totdat u de referentiegegevens aanwezig is, met name als de bron van die gebeurtenis gegevens bevat. U kunt ook wachten om gegevens te pushen met die bron totdat de referentiegegevensset voldaan is.
 
-Voor het beheren van referentiegegevens zich de webgebaseerde gebruikersinterface in de Verkenner TSI en er is een programmatische C#-API. TSI Explorer een visual gebruikerservaring heeft voor het van uploadbestanden of plakken in bestaande verwijzing gegevenssets als JSON- of CSV-indeling. Met de API kunt u een aangepaste app wanneer deze nodig is.
+Voor het beheren van referentiegegevens, er is het web gebaseerde gebruikersinterface in de TSI-Verkenner en er is een programmatische C#-API. TSI-Verkenner heeft een visual gebruikerservaring voor uploadbestanden of plakken in bestaande verwijzing gegevenssets als JSON- of CSV-indeling. Met de API, kunt u bouwt u een aangepaste app wanneer dat nodig is.
 
-Zie voor meer informatie over het beheren van referentiegegevens in tijd reeks inzichten de [verwijzingsartikel gegevens](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
+Zie voor meer informatie over het beheren van referentiegegevens in Time Series Insights, de [artikel met referenties naar gegevens](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set).
 
 ## <a name="create-time-series-insights-event-source"></a>Een Time Series Insights-gebeurtenisbron maken
 1. Als u nog geen gebeurtenisbron hebt gemaakt, volgt u [deze instructies](time-series-insights-how-to-add-an-event-source-eventhub.md) om een gebeurtenisbron te maken.
 
-2. Geef **deviceTimestamp** als de naam van de timestamp-eigenschap – deze eigenschap wordt gebruikt als de werkelijke tijdstempel in het C#-voorbeeld. De naam van de tijdstempeleigenschap is hoofdlettergevoelig en waarden moeten de indeling __jjjj-MM-ddTUU. FFFFFFFK__ volgen wanneer ze als JSON worden verzonden naar een Event Hub. Als de eigenschap niet aanwezig is in de gebeurtenis, wordt de tijd gebruikt waarop de gebeurtenis in de wachtrij van de Event Hub is geplaatst.
+2. Geef **deviceTimestamp** als naam van de tijdstempeleigenschap: deze eigenschap wordt gebruikt als de werkelijke tijdstempel in het C#-voorbeeld. De naam van de tijdstempeleigenschap is hoofdlettergevoelig en waarden moeten de indeling __jjjj-MM-ddTUU. FFFFFFFK__ volgen wanneer ze als JSON worden verzonden naar een Event Hub. Als de eigenschap niet aanwezig is in de gebeurtenis, wordt de tijd gebruikt waarop de gebeurtenis in de wachtrij van de Event Hub is geplaatst.
 
   ![Gebeurtenisbron maken](media/send-events/event-source-1.png)
 
@@ -155,7 +155,7 @@ Een eenvoudig JSON-object.
     "timestamp":"2016-01-08T01:08:00Z"
 }
 ```
-#### <a name="output---one-event"></a>Output - één gebeurtenis
+#### <a name="output---one-event"></a>Uitvoer - één gebeurtenis
 
 |id|tijdstempel|
 |--------|---------------|
@@ -177,7 +177,7 @@ Een JSON-matrix met twee JSON-objecten. Elk JSON-object wordt omgezet in een geb
     }
 ]
 ```
-#### <a name="output---two-events"></a>Output - twee gebeurtenissen
+#### <a name="output---two-events"></a>Uitvoer - twee gebeurtenissen
 
 |id|tijdstempel|
 |--------|---------------|
@@ -188,7 +188,7 @@ Een JSON-matrix met twee JSON-objecten. Elk JSON-object wordt omgezet in een geb
 
 #### <a name="input"></a>Invoer
 
-Een JSON-object met een geneste JSON-matrix die twee JSON-objecten bevat:
+Een JSON-object met een geneste JSON-matrix met twee JSON-objecten:
 ```json
 {
     "location":"WestUs",
@@ -205,8 +205,8 @@ Een JSON-object met een geneste JSON-matrix die twee JSON-objecten bevat:
 }
 
 ```
-#### <a name="output---two-events"></a>Output - twee gebeurtenissen
-U ziet dat de eigenschap 'locatie' wordt gekopieerd naar elk van de gebeurtenis.
+#### <a name="output---two-events"></a>Uitvoer - twee gebeurtenissen
+U ziet dat de eigenschap 'location' naar elk van de gebeurtenis is gekopieerd.
 
 |location|events.id|events.timestamp|
 |--------|---------------|----------------------|
@@ -248,7 +248,7 @@ Een JSON-object met een geneste JSON-matrix met twee JSON-objecten. Uit deze inv
     ]
 }
 ```
-#### <a name="output---two-events"></a>Output - twee gebeurtenissen
+#### <a name="output---two-events"></a>Uitvoer - twee gebeurtenissen
 
 |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
 |---|---|---|---|---|---|---|---|
@@ -259,4 +259,4 @@ Een JSON-object met een geneste JSON-matrix met twee JSON-objecten. Uit deze inv
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
-> [Uw omgeving weergeven in tijd reeks Insights explorer](https://insights.timeseries.azure.com).
+> [Uw omgeving bekijken in de Verkenner van Time Series Insights](https://insights.timeseries.azure.com).

@@ -12,44 +12,61 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2018
+ms.date: 08/03/2018
 ms.author: damaerte
-ms.openlocfilehash: 5e318a0f64033aa0c4b306e547c11e1994afa229
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: aad474195060c01a3f9d85e6f9037b568b0c16ad
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861700"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630383"
 ---
 # <a name="powershell-in-azure-cloud-shell-for-windows-users"></a>PowerShell in Azure Cloud Shell voor Windows-gebruikers
 
-In mei 2018 worden de wijzigingen zijn [aangekondigd](https://azure.microsoft.com/blog/pscloudshellrefresh/) naar PowerShell in Azure Cloud Shell.  De PowerShell-ervaring in Azure Cloud Shell is nu 6 van de PowerShell Core in Linux.
-Met deze wijziging zijn er bepaalde aspecten van PowerShell in Cloud Shell die mogelijk anders dan in Windows PowerShell 5.1 wordt verwacht.
+In mei 2018 worden de wijzigingen zijn [aangekondigd](https://azure.microsoft.com/blog/pscloudshellrefresh/) naar PowerShell in Azure Cloud Shell.
+De PowerShell-ervaring in Azure Cloud Shell nu uitvoeringen [PowerShell Core 6](https://github.com/powershell/powershell) in een Linux-omgeving.
+Met deze wijziging, mogelijk zijn er enkele verschillen in de PowerShell-ervaring in Cloud Shell in vergelijking met wat er wordt verwacht in een Windows PowerShell-ervaring.
 
-## <a name="case-sensitivity"></a>Hoofdlettergevoeligheid
+## <a name="file-system-case-sensitivity"></a>Bestand system hoofdlettergevoeligheid
 
-In Windows, moet aan het bestandssysteem is hoofdlettergevoelig.  In Linux is het bestandssysteem hoofdlettergevoelig.
-Dit betekent dat eerder `file.txt` en `FILE.txt` werden meegenomen naar hetzelfde bestand, worden nu ze worden beschouwd als andere bestanden.
-Juiste hoofdlettergebruik moet worden gebruikt terwijl `tab` voltooien van het bestandssysteem.  PowerShell-specifieke optreedt, zoals `tab` cmdlets, zijn niet hoofdlettergevoelig. 
+Het bestandssysteem is hoofdlettergevoelig in Windows, terwijl op Linux, het bestandssysteem hoofdlettergevoelig is.
+Eerder `file.txt` en `FILE.txt` werden meegenomen naar het bestand zijn hetzelfde, maar nu ze worden beschouwd als andere bestanden.
+Juiste hoofdlettergebruik moet worden gebruikt terwijl `tab-completing` in het bestandssysteem.
+PowerShell-specifieke optreedt, zoals `tab-completing` namen van de cmdlets, parameters en waarden, zijn niet hoofdlettergevoelig.
 
-## <a name="windows-powershell-alias-vs-linux-utilities"></a>Windows PowerShell-alias vs Linux-hulpprogramma 's
+## <a name="windows-powershell-aliases-vs-linux-utilities"></a>Windows PowerShell-aliassen vs Linux-hulpprogramma 's
 
-In Linux, bestaande opdrachten, zoals `ls`, `sort`, en `sleep` hebben voorrang op hun aliassen PowerShell.  Hieronder vindt u algemene verwijderde aliassen, evenals de gelijkwaardige opdrachten:  
+Sommige bestaande PowerShell-aliassen hebben dezelfde naam als ingebouwde Linux-opdrachten, zoals `cat`,`ls`, `sort`, `sleep`, enzovoort. In PowerShell Core 6 zijn aliassen die met ingebouwde Linux-opdrachten conflicteren verwijderd.
+Hieronder vindt u de algemene aliassen die zijn verwijderd, evenals hun gelijkwaardige opdrachten:  
 
 |Alias wordt verwijderd   |Gelijkwaardige opdracht   |
 |---|---|
+|`cat`    | `Get-Content` |
+|`curl`   | `Invoke-WebRequest` |
+|`diff`   | `Compare-Object` |
 |`ls`     | `dir` <br> `Get-ChildItem` |
-|`sort`   | `Sort-Object` |
+|`mv`     | `Move-Item`   |
+|`rm`     | `Remove-Item` |
 |`sleep`  | `Start-Sleep` |
+|`sort`   | `Sort-Object` |
+|`wget`   | `Invoke-WebRequest` |
 
-## <a name="persisting-home-vs-homeclouddrive"></a>$Home vs $home\clouddrive persistent maken
+## <a name="persisting-home"></a>Permanente $HOME
 
-Gebruikers van wie scripts en andere bestanden in hun Cloud-station persistent, is nu de map $HOME blijven behouden tussen sessies.
+Eerdere gebruikers kunnen alleen behouden scripts en andere bestanden in hun Cloud-station.
+$HOME-map van de gebruiker is nu ook nu blijven behouden tussen sessies.
 
 ## <a name="powershell-profile"></a>PowerShell-profiel
 
-Een PowerShell-profiel is standaard niet gemaakt.  Als u wilt maken van uw profiel, een `PowerShell` map onder `$HOME/.config`.  In `$HOME/.config/PowerShell`, kunt u uw profiel onder de naam `Microsoft.PowerShell_profile.ps1`.
+Een gebruikersprofiel PowerShell is standaard niet gemaakt.
+Als u wilt maken van uw profiel, een `PowerShell` map onder `$HOME/.config`.
+
+```azurepowershell-interactive
+mkdir (Split-Path $profile.CurrentUserAllHosts)
+```
+
+Onder `$HOME/.config/PowerShell`, kunt u de profielbestanden van uw - `profile.ps1` en/of `Microsoft.PowerShell_profile.ps1`.
 
 ## <a name="whats-new-in-powershell-core-6"></a>Wat is er nieuw in PowerShell Core 6
 
-Voor meer informatie over wat er nieuw in PowerShell Core 6 verwijzen naar de [PowerShell-documenten](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6) en de [aan de slag met PowerShell Core](https://blogs.msdn.microsoft.com/powershell/2017/06/09/getting-started-with-powershell-core-on-windows-mac-and-linux/) blogbericht
+Voor meer informatie over wat er nieuw in PowerShell Core 6 verwijzen naar de [PowerShell-documenten](https://docs.microsoft.com/powershell/scripting/whats-new/what-s-new-in-powershell-core-60?view=powershell-6) en de [aan de slag met PowerShell Core](https://blogs.msdn.microsoft.com/powershell/2017/06/09/getting-started-with-powershell-core-on-windows-mac-and-linux/) blogbericht.

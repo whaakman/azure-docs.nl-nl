@@ -5,20 +5,20 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 08/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 189484291dd337535fe6988f919326b6e997b290
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: b34386a7b416d6f7d8b008a9cb5ef142948a370f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39506288"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005392"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Levering van berichten van Event Grid en probeer het opnieuw 
 
 Dit artikel wordt beschreven hoe Azure Event Grid omgaat met gebeurtenissen bij levering is niet bevestigd.
 
-Event Grid biedt duurzame levering. Het biedt een elk bericht ten minste eenmaal voor elk abonnement. Gebeurtenissen worden onmiddellijk verzonden naar de geregistreerde webhook van elk abonnement. Als een webhook Bevestig de ontvangst van een gebeurtenis niet binnen 60 seconden na de eerste poging voor de levering, pogingen Event Grid levering van de gebeurtenis. 
+Event Grid biedt duurzame levering. Het biedt een elk bericht ten minste eenmaal voor elk abonnement. Gebeurtenissen worden onmiddellijk verzonden naar de geregistreerde webhook van elk abonnement. Als een webhook niet Bevestig de ontvangst van een gebeurtenis binnen 60 seconden na de eerste poging voor de levering, pogingen Event Grid levering van de gebeurtenis. 
 
 Op dit moment Event Grid elke gebeurtenis afzonderlijk naar abonnees worden verzonden. De abonnee ontvangt een matrix met een eenmalige gebeurtenis.
 
@@ -39,18 +39,19 @@ De volgende HTTP-responscodes geven aan dat een gebeurtenis levering is mislukt.
 
 - 400-Ongeldige aanvraag
 - 401-niet toegestaan
-- 404 Niet gevonden
+- 404 – Niet gevonden
 - 408 time-out van aanvraag
 - 414 URI te lang
+- 429 te veel aanvragen
 - 500 Interne serverfout
 - 503 Service niet beschikbaar
 - 504 Time-out van gateway
 
-Als Event Grid een foutbericht weergegeven dat het eindpunt tijdelijk niet beschikbaar is ontvangt, probeert het opnieuw om de gebeurtenis te verzenden. Als de Event Grid ontvangt een foutbericht weergegeven dat de levering nooit worden uitgevoerd en een [dead-letter-eindpunt is geconfigureerd](manage-event-delivery.md), wordt de gebeurtenis verzonden naar de dead-letter-eindpunt. 
+Als Event Grid ontvangt een foutbericht weergegeven dat het eindpunt is tijdelijk niet beschikbaar of een aanvraag voor toekomstige kan het wel lukken, wordt opnieuw geprobeerd om de gebeurtenis te verzenden. Als de Event Grid ontvangt een foutbericht weergegeven dat de levering nooit worden uitgevoerd en een [dead-letter-eindpunt is geconfigureerd](manage-event-delivery.md), wordt de gebeurtenis verzonden naar de dead-letter-eindpunt. 
 
 ## <a name="retry-intervals-and-duration"></a>Interval tussen nieuwe pogingen en de duur
 
-Event Grid maakt gebruik van een beleid voor exponentieel uitstel opnieuw proberen voor de bezorging van gebeurtenissen. Als uw webhook niet reageert of een foutcode retourneert, pogingen Event Grid levering op het volgende schema:
+Event Grid maakt gebruik van een beleid voor exponentieel uitstel opnieuw proberen voor de bezorging van gebeurtenissen. Als uw webhook reageert niet of een foutcode retourneert, pogingen Event Grid levering op het volgende schema:
 
 1. 10 seconden
 2. 30 seconden

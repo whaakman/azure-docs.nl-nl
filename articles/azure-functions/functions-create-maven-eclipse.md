@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 373a35ea7b93c7717cd251e276be60b14df0920f
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 4da8ec3bb20f2af2b8172731bbf9f43c302ffa94
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400425"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004746"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse-preview"></a>Uw eerste functie maken met Java en Eclipse (Preview)
 
@@ -73,7 +73,7 @@ De runtime in het consolevenster beëindigen wanneer u bent met klaar testen van
 
 ### <a name="debug-the-function-in-eclipse"></a>Fouten opsporen in de functie in Eclipse
 
-Wijzig in het Run As-configuratie instellen in de vorige stap, `azure-functions:run` naar `mvn azure-functions:run -DenableDebug` en voer de bijgewerkte configuratie voor het starten van de functie-app in de foutopsporingsmodus.
+In uw **uitvoeren als** configuratie instellen in de vorige stap, wijziging `azure-functions:run` naar `mvn azure-functions:run -DenableDebug` en voer de bijgewerkte configuratie voor het starten van de functie-app in de foutopsporingsmodus.
 
 Selecteer de **uitvoeren** menu's en open **Debug Configurations**. Kies **Remote Java Application** en een nieuw wachtwoord maken. Geef een naam op voor uw configuratie en vul de instellingen in. De poort moet consistent zijn met de poort voor foutopsporing openen door de functie host, die standaard is `5005`. Nadat Setup is voltooid, klikt u op `Debug` foutopsporing te starten.
 

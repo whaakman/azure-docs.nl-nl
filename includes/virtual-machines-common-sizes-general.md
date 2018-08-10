@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 0cd31a6acaa248b53fbe90684894b3bb3e7ebf86
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 1606b5e38b79cb535108ca747783a05de1fbc982
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37907040"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40026420"
 ---
 VM-grootten voor algemeen gebruik bieden evenwichtige CPU-geheugenverhouding. Ideaal voor testen en ontwikkelen, kleine tot middelgrote databases en webservers met weinig of gemiddeld verkeer. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals opslagdoorvoer voor grootten die in deze groepering. 
 
@@ -21,7 +21,7 @@ VM-grootten voor algemeen gebruik bieden evenwichtige CPU-geheugenverhouding. Id
 
 - De Dv2-serie, de opvolger van de oorspronkelijke D-serie, heeft een krachtigere CPU. De CPU van de Dv2-serie is ongeveer 35% sneller dan de CPU van de D-serie. Deze is gebaseerd op de nieuwste generatie Intel Xeon® E5-2673 v3 2,4 GHz (Haswell)- of E5-2673 v4 2,3 GHz (Broadwell)-processors, en met Intel Turbo Boost Technology 2.0 kunnen liefst 3,1 GHz bereiken. De Dv2-serie heeft dezelfde geheugen- en schijfconfiguraties als de D-serie.
 
-- De functies van de Dv3-serie de dezelfde processor(en) als de Dv2-serie, maar in een hyper-threaded configuratie, bieden een betere toegevoegde waarde voor de meest algemene doeleinden-workloads, en hoe u de Dv3 in overeenstemming met de algemeen gebruik virtuele machines van de meeste andere clouds brengt.  Geheugen is (van ~3.5 GiB/vCPU naar 4 GiB/vCPU) uitgevouwen terwijl de schijf en netwerk limieten zijn aangepast op basis van per core om uit te lijnen met de overgang naar hyperthreading is.  De Dv3 heeft niet langer de hoge geheugen-VM-grootten van de D/Dv2-families, die zijn verplaatst naar de nieuwe Ev3-serie.
+- De Dv3-serie biedt de 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell)-processor of de meest recente 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)-processor in een configuratie met hyper-threaded, bieden een betere toegevoegde waarde voor de meest algemene doeleinden-werkbelastingen.  Geheugen is (van ~3.5 GiB/vCPU naar 4 GiB/vCPU) uitgevouwen terwijl de schijf en netwerk limieten zijn aangepast op basis van per core om uit te lijnen met de overgang naar hyperthreading is.  De Dv3 heeft niet langer de hoge geheugen-VM-grootten van de D/Dv2-families, die zijn verplaatst naar de nieuwe Ev3-serie.
 
 
 ## <a name="b-series"></a>B-serie

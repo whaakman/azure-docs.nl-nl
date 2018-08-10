@@ -1,5 +1,5 @@
 ---
-title: Query uitvoeren op fundamentals in Azure Search | Microsoft Docs
+title: Query-typen en de samenstelling in Azure Search | Microsoft Docs
 description: Basisbeginselen voor het bouwen van een zoekopdracht in Azure Search met behulp van parameters om te filteren, selecteert en resultaten sorteren.
 author: HeidiSteen
 manager: cgronlun
@@ -8,14 +8,14 @@ services: search
 ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.openlocfilehash: 7e34e5fdfc674804faaba5d1fc19d24b9f51c61e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 098718293cda1699fb07e09fa81af94a95bbdeca
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503054"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715155"
 ---
-# <a name="query-fundamentals-in-azure-search"></a>Grondbeginselen van de query in Azure Search
+# <a name="query-types-and-composition-in-azure-search"></a>Typen query's en de samenstelling in Azure Search
 
 Samenstelling van de query in Azure Search is een volledige specificatie van een aanvraag: overeenkomen met criteria, plus de parameters voor het uitvoeren van query's leiden en het vormgeven van het antwoord. Een aanvraag geeft aan welke velden als u wilt opnemen, welke velden u wilt terugkeren, of u wilt sorteren of filteren, enzovoort. Niets opgeeft, een query wordt uitgevoerd op alle doorzoekbare velden als een zoekbewerking volledige tekst, een in willekeurige volgorde zonder score resultatenset geretourneerd.
 
@@ -55,7 +55,7 @@ Andere parameters in het voorbeeld hebben betrekking op de resultaten van de que
 
 **Bewerkingen via indexkenmerken inschakelen**
 
-Ontwerp voor de index en query ontwerp nauw zijn gekoppeld in Azure Search. Terwijl hier niet weergegeven, is een kritieke punt van tevoren weten dat de *indexschema*, met de kenmerken voor elk veld, bepaalt het soort query die u kunt bouwen. Indexkenmerken op een veld bepalen toegestaan operations - of een veld is *doorzoekbare* in de index *ophaalbaar* in resultaten *sorteerbaar*,  *Filterbaar*, enzovoort. In het voorbeeld `"orderby": "listingId"` werkt alleen als het veld listingId is gemarkeerd als *sorteerbaar* in het indexschema. Zie voor meer informatie over indexkenmerken [Index REST-API maken](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Ontwerp voor de index en query ontwerp nauw zijn gekoppeld in Azure Search. Terwijl hier niet weergegeven, is een kritieke punt van tevoren weten dat de *indexschema*, met de kenmerken voor elk veld, bepaalt het soort query die u kunt bouwen. Indexkenmerken op een veld bepalen toegestaan operations - of een veld is *doorzoekbare* in de index *ophaalbaar* in resultaten *sorteerbaar*, * Filterbaar*, enzovoort. In het voorbeeld `"orderby": "listingId"` werkt alleen als het veld listingId is gemarkeerd als *sorteerbaar* in het indexschema. Zie voor meer informatie over indexkenmerken [Index REST-API maken](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 Bewerkingen op basis van een veld per mag zijn slechts één manier is dat de definitie van de index wordt geïnformeerd uitvoeren van query's. Andere mogelijkheden die zijn ingeschakeld in de index omvatten het volgende:
 

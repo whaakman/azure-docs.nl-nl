@@ -1,6 +1,6 @@
 ---
-title: Resources met REST-API en de sjabloon implementeren | Microsoft Docs
-description: Azure Resource Manager en de REST-API van Resource Manager gebruiken voor het implementeren van een bronnen in Azure. De resources zijn gedefinieerd in een Resource Manager-sjabloon.
+title: Resources implementeren met REST-API en een sjabloon | Microsoft Docs
+description: Gebruik Azure Resource Manager en Resource Manager REST API om een resources implementeren op Azure. De resources zijn gedefinieerd in een Resource Manager-sjabloon.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -14,33 +14,31 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6ae77eb1f619928f43a502cd4631a0895a9e91f4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ae2393d16d2c9c1000b00f5514e63c988303a83c
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603732"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628508"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Resources implementeren met Resource Manager-sjablonen en Resource Manager REST API
 
-In dit artikel wordt uitgelegd hoe de REST-API van Resource Manager gebruiken met Resource Manager-sjablonen voor het implementeren van uw resources in Azure.  
+In dit artikel wordt uitgelegd hoe u de Resource Manager REST-API gebruiken met Resource Manager-sjablonen voor het implementeren van uw resources naar Azure.  
 
 > [!TIP]
-> Zie voor informatie over wanneer foutopsporing is een fout opgetreden tijdens de implementatie:
+> Zie voor hulp bij foutopsporing in een fout opgetreden tijdens de implementatie:
 > 
-> * [Implementatiebewerkingen weergeven](resource-manager-deployment-operations.md) voor meer informatie over het ophalen van informatie die helpt u de fout oplossen
-> * [Oplossen van veelvoorkomende fouten bij het implementeren van resources in Azure met Azure Resource Manager](resource-manager-common-deployment-errors.md) voor meer informatie over het oplossen van veelvoorkomende implementatiefouten
+> * [Implementatiebewerkingen bekijken](resource-manager-deployment-operations.md) voor meer informatie over het ophalen van gegevens waarmee u uw fout oplossen
+> * [Oplossen van veelvoorkomende fouten bij het implementeren van resources naar Azure met Azure Resource Manager](resource-manager-common-deployment-errors.md) voor meer informatie over het oplossen van veelvoorkomende implementatiefouten
 > 
 > 
 
-De sjabloon is een lokaal bestand of een extern bestand dat is beschikbaar via een URI. Wanneer de sjabloon bevindt zich in een opslagaccount, kunt u het beperken van toegang aan de sjabloon en een shared access signature (SAS)-token opgeven tijdens de implementatie.
+De sjabloon kan een lokaal bestand of een extern bestand dat is beschikbaar via een URI zijn. Wanneer de sjabloon bevindt zich in een storage-account, kunt u beperken van toegang aan de sjabloon en de token van een shared access signature (SAS) opgeven tijdens de implementatie.
 
-[!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
+## <a name="deploy-with-the-rest-api"></a>Implementeren met de REST-API
+1. Stel [algemene parameters en headers](/rest/api/azure/), met inbegrip van verificatietokens.
 
-## <a name="deploy-with-the-rest-api"></a>Met de REST-API implementeren
-1. Stel [algemene parameters en -koppen](/rest/api/azure/), met inbegrip van verificatietokens.
-
-2. Als u een bestaande resourcegroep niet hebt, kunt u een resourcegroep maken. Geef uw abonnements-ID, de naam van de nieuwe resourcegroep en locatie die u nodig hebt voor uw oplossing. Zie voor meer informatie [een resourcegroep maken](/rest/api/resources/resourcegroups/createorupdate).
+2. Als u een bestaande resourcegroep hebt, maakt u een resourcegroep. Geef uw abonnements-ID, de naam van de nieuwe resourcegroep en locatie die u nodig hebt voor uw oplossing. Zie voor meer informatie, [een resourcegroep maken](/rest/api/resources/resourcegroups/createorupdate).
 
   ```HTTP
   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>?api-version=2015-01-01
@@ -52,9 +50,9 @@ De sjabloon is een lokaal bestand of een extern bestand dat is beschikbaar via e
   }
   ```
 
-3. Valideren van uw implementatie voordat deze wordt uitgevoerd door het uitvoeren van de [valideren van de sjabloonimplementatie van een](/rest/api/resources/deployments/validate) bewerking. Bij het testen van de implementatie, Geef parameters op exact dezelfde manier als bij het uitvoeren van de implementatie (weergegeven in de volgende stap).
+3. Controleren of uw implementatie voordat deze wordt uitgevoerd door het uitvoeren van de [controleren of de sjabloonimplementatie van een](/rest/api/resources/deployments/validate) bewerking. Bij het testen van de implementatie, parameters opgeven precies zoals u zou doen bij het uitvoeren van de implementatie (weergegeven in de volgende stap).
 
-4. Maakt een implementatie. Geef uw abonnements-ID, de naam van de resourcegroep, de naam van de implementatie en een koppeling naar uw sjabloon. Zie voor meer informatie over het sjabloonbestand [parameterbestand](#parameter-file). Zie voor meer informatie over de REST-API om een resourcegroep te maken, [sjabloonimplementatie met een maakt](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_CreateOrUpdate). U ziet de **modus** is ingesteld op **incrementele**. Als u wilt uitvoeren van een volledige implementatie, **modus** naar **Complete**. Wees voorzichtig met behulp van de volledige modus kunt u de resources die zich niet in uw sjabloon per ongeluk verwijderen.
+4. Maak een implementatie. Geef uw abonnements-ID, de naam van de resourcegroep, de naam van de implementatie en een koppeling naar uw sjabloon. Zie voor meer informatie over het sjabloonbestand [parameterbestand](#parameter-file). Zie voor meer informatie over de REST-API voor het maken van een resourcegroep, [maken van een sjabloonimplementatie](https://docs.microsoft.com/rest/api/resources/deployments#Deployments_CreateOrUpdate). U ziet dat de **modus** is ingesteld op **incrementele**. Als u wilt uitvoeren van een volledige implementatie, **modus** naar **voltooid**. Wees voorzichtig bij het gebruik van de volledige-modus, kunt u per ongeluk resources die zich niet in uw sjabloon verwijderen.
 
   ```HTTP
   PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
@@ -73,7 +71,7 @@ De sjabloon is een lokaal bestand of een extern bestand dat is beschikbaar via e
   }
   ```
 
-    Als u registreren antwoordinhoud, aanvraaginhoud of beide wilt, opnemen **debugSetting** in de aanvraag.
+    Als u wilt vastleggen van de inhoud van de reactie en/of de inhoud van de aanvraag, **debugSetting** in de aanvraag.
 
   ```HTTP
   "debugSetting": {
@@ -81,17 +79,17 @@ De sjabloon is een lokaal bestand of een extern bestand dat is beschikbaar via e
   }
   ```
 
-    U kunt uw storage-account instellen om te gebruiken een shared access signature (SAS)-token. Zie voor meer informatie [toegang delegeren met Shared Access Signature](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
+    U kunt uw storage-account instellen om te gebruiken van een token shared access signature (SAS). Zie voor meer informatie, [toegang delegeren met een Shared Access Signature](https://docs.microsoft.com/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
 
-5. De status van de sjabloonimplementatie niet ophalen. Zie voor meer informatie [informatie ophalen over de sjabloonimplementatie van een](/rest/api/resources/deployments/get).
+5. Haal de status van de sjabloonimplementatie. Zie voor meer informatie, [informatie over de sjabloonimplementatie van een](/rest/api/resources/deployments/get).
 
   ```HTTP
   GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
   ```
 
-## <a name="redeploy-when-deployment-fails"></a>Implementeer opnieuw wanneer de implementatie mislukt
+## <a name="redeploy-when-deployment-fails"></a>Opnieuw implementeren wanneer de implementatie mislukt
 
-Voor implementaties die niet voldoen, kunt u opgeven dat van de geschiedenis van uw implementatie van een eerdere implementatie automatisch opnieuw worden geïmplementeerd. Om deze optie gebruikt, moeten uw implementaties van unieke namen hebben zodat ze kunnen worden geïdentificeerd in de geschiedenis. Als u geen unieke namen, overschrijft de huidige mislukte implementatie mogelijk de eerder geslaagde implementatie in de geschiedenis. U kunt deze optie alleen gebruiken met niveau basis-implementaties. Implementaties van een geneste sjabloon niet beschikbaar voor opnieuw installeren.
+Voor implementaties die niet voldoen, kunt u opgeven dat van de implementatiegeschiedenis van uw van een eerdere implementatie automatisch opnieuw worden geïmplementeerd. Als u wilt deze optie gebruikt, moeten uw implementaties unieke namen hebben, zodat ze kunnen worden geïdentificeerd in de geschiedenis. Als u geen unieke namen, overschrijft de huidige mislukte implementatie mogelijk de eerder geslaagde implementatie in de geschiedenis. U kunt deze optie alleen gebruiken met niveau root-implementaties. Implementaties van een geneste sjabloon zijn niet beschikbaar voor opnieuw implementeren.
 
 Als u wilt implementeren de laatste geslaagde implementatie als de huidige implementatie mislukt, gebruikt u:
 
@@ -101,7 +99,7 @@ Als u wilt implementeren de laatste geslaagde implementatie als de huidige imple
 },
 ```
 
-Als u wilt implementeren een specifieke implementatie als de huidige implementatie mislukt, gebruikt u:
+Als u wilt een specifieke implementatie opnieuw implementeren als de huidige implementatie mislukt, gebruikt u:
 
 ```HTTP
 "onErrorDeployment": {
@@ -114,7 +112,7 @@ De opgegeven implementatie moet zijn geslaagd.
 
 ## <a name="parameter-file"></a>Parameterbestand
 
-Als u een parameterbestand parameterwaarden doorgeven tijdens de implementatie gebruikt, moet u een JSON-bestand maken met een indeling als in het volgende voorbeeld:
+Als u een parameterbestand parameterwaarden doorgeven tijdens de implementatie hebt gebruikt, moet u een JSON-bestand maken met een indeling die vergelijkbaar is met het volgende voorbeeld:
 
 ```json
 {
@@ -142,14 +140,14 @@ Als u een parameterbestand parameterwaarden doorgeven tijdens de implementatie g
 }
 ```
 
-De grootte van het parameterbestand mag niet meer dan 64 KB.
+De grootte van de parameterbestand mag niet meer dan 64 KB.
 
-Als u wilt een gevoelige waarde opgeven voor een parameter (zoals een wachtwoord), moet u die waarde toevoegen aan een sleutelkluis. De sleutelkluis ophalen tijdens de implementatie, zoals wordt weergegeven in het vorige voorbeeld. Zie voor meer informatie [beveiligde waarden doorgeven tijdens de implementatie van](resource-manager-keyvault-parameter.md). 
+Als u wilt een gevoelige waarde opgeven voor een parameter (zoals een wachtwoord), moet u die waarde toevoegen aan een key vault. De key vault ophalen tijdens de implementatie, zoals wordt weergegeven in het vorige voorbeeld. Zie voor meer informatie, [beveiligde waarden doorgeven tijdens implementatie](resource-manager-keyvault-parameter.md). 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor meer informatie over het verwerken van asynchrone REST-bewerkingen, [bijhouden asynchrone Azure bewerkingen](resource-manager-async-operations.md).
-* Zie voor een voorbeeld van het implementeren van resources via de .NET-clientbibliotheek [resources met behulp van .NET-bibliotheken en een sjabloon implementeren](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Om parameters te definiëren in de sjabloon, Zie [sjablonen](resource-group-authoring-templates.md#parameters).
-* Zie voor instructies over het implementeren van uw oplossing in verschillende omgevingen [Ontwikkeling en testomgevingen in Microsoft Azure](solution-dev-test-environments.md).
+* Als u wilt opgeven voor het verwerken van resources die aanwezig zijn in de resourcegroep, maar niet zijn gedefinieerd in de sjabloon, Zie [Azure Resource Manager-implementatiemodi](deployment-modes.md).
+* Zie voor meer informatie over het verwerken van asynchrone REST-bewerkingen, [asynchrone bewerkingen van Azure bijhouden](resource-manager-async-operations.md).
+* Zie voor een voorbeeld van de implementatie van resources via de .NET-clientbibliotheek [resources implementeren met behulp van .NET-bibliotheken en een sjabloon](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Zie voor het definiëren van parameters in sjabloon, [-sjablonen maken](resource-group-authoring-templates.md#parameters).
 * Voor begeleiding bij de manier waarop ondernemingen Resource Manager effectief kunnen gebruiken voor het beheer van abonnementen, gaat u naar [Azure enterprise-platform - Prescriptieve abonnementsgovernance](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

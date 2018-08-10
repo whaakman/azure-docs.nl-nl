@@ -1,44 +1,45 @@
 ---
-title: Partners die met Azure-Monitor intergrate
-description: Meer informatie over Azure Monitor van partners en hoe u de documentatie voor de integratie met hen kunt openen.
+title: Partners die een integratie met Azure Monitor
+description: Meer informatie over Azure-Monitor partners en hoe u documentatie voor het integreren met ze kunt openen.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 3/15/2018
+ms.date: 8/08/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 5d5b2e78755d6800f61e3e4adb1769799d01dad2
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: b21afecc27f1550cf557305ef069278ed66acaf0
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111520"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005314"
 ---
-# <a name="azure-monitor-partner-integrations"></a>Azure Monitor partner integraties
+# <a name="azure-monitor-partner-integrations"></a>Azure Monitor-partnerintegraties
 | Partners |  |  |
 | --- | --- | --- |
-| [![Logo partner][alertlogic-logo]<br/>**AlertLogic**][alertlogic-anchor] | [![Logo partner][appdynamics-logo]<br/>**AppDynamics**][appdynamics-anchor] | [![Logo partner][atlassian-logo]<br/>**Atlassian**][atlassian-anchor] |
-| [**Botmetric**][botmetric-anchor] | [![Logo partner][circonus-logo]<br/>**Circonus**][circonus-anchor] | [![Logo partner][cloudhealth-logo]<br/>**CloudHealth**][cloudhealth-anchor] |
-| [![Logo partner][cloudmonix-logo]<br/>**CloudMonix**][cloudmonix-anchor] | [![Logo partner][cloudyn-logo]<br/>**Cloudyn**][cloudyn-anchor] | [![Logo partner][datadog-logo]<br/>**Datadog**][datadog-anchor] |
-| [![Logo partner][dynatrace-logo]<br/>**Dynatrace**][dynatrace-anchor] | [![Logo partner][grafana-logo]<br/>**Grafana**][grafana-anchor] | [![Logo partner][logicmonitor-logo]<br/>**logica Monitor**][logicmonitor-anchor] |
-| [![Logo partner][moogsoft-logo]<br/>**Moogsoft**][moogsoft-anchor] | [![Logo partner][opsgenie-logo]<br/>**OpsGenie**][opsgenie-anchor] | [![Logo partner][pagerduty-logo]<br/>**PagerDuty**][pagerduty-anchor] |
-| [![Logo partner][qradar-logo]<br/>**QRadar**][qradar-anchor] | [![Logo partner][sciencelogic-logo]<br/>**ScienceLogic**][sciencelogic-anchor] | [![Logo partner][signalfx-logo]<br/>**SignalFx**][signalfx-anchor] |
-| [![Logo partner][signl4-logo]<br/>**SIGNL4**][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] | [![Logo partner][splunk-logo]<br/>**Splunk**][splunk-anchor] |
-| [![Logo partner][sumologic-logo]<br/>**Sumo logica**][sumologic-anchor] | [![Logo partner][turbonomic-logo]<br/>**Turbonomic**][turbonomic-anchor] | |
+| [**AlertLogic**<br/>![Logo van partners][alertlogic-logo]][alertlogic-anchor] | [**AppDynamics**<br/>![Logo van partners][appdynamics-logo]][appdynamics-anchor]  | [**Atlassian**<br/>![Logo van partners][atlassian-logo]][atlassian-anchor] 
+| [**Botmetric**][botmetric-anchor] | [**Circonus**<br/>![Logo van partners][circonus-logo]][circonus-anchor]  | [**CloudHealth**<br/>![Logo van partners][cloudhealth-logo]][cloudhealth-anchor] 
+| [**CloudMonix** <br/> ![Logo van partners][cloudmonix-logo]][cloudmonix-anchor] | [**Cloudyn**<br/>![Logo van partners][cloudyn-logo]][cloudyn-anchor] | [**Datadog**<br/>![Logo van partners][datadog-logo]][datadog-anchor] 
+| [**Dynatrace** <br/> ![Logo van partners][dynatrace-logo]][dynatrace-anchor] | [**Grafana**<br/>![Logo van partners][grafana-logo]][grafana-anchor] | [**Monitor voor logische**<br/>![Logo van partners][logicmonitor-logo]][logicmonitor-anchor] 
+| [**Moogsoft**<br/>![Logo van partners][moogsoft-logo]][moogsoft-anchor] | [**NewRelic**<br/>![Logo van partners][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![Logo van partners][opsgenie-logo]][opsgenie-anchor] 
+| [**PagerDuty**<br/>![Logo van partners][pagerduty-logo]][pagerduty-anchor] | [**QRadar**<br/>![Logo van partners][qradar-logo]][qradar-anchor] | [**ScienceLogic**<br/>![Logo van partners][sciencelogic-logo]][sciencelogic-anchor] 
+| [**SignalFx**<br/>![Logo van partners][signalfx-logo]<br/>][signalfx-anchor] | [**SIGNL4**<br/>![Logo van partners][signl4-logo]][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] 
+| [**Splunk** <br/> ![Logo van partners][splunk-logo]][splunk-anchor] | [**Sumo logische**<br/>![Logo van partners][sumologic-logo]][sumologic-anchor] | [**Turbonomic**<br/>![Logo van partners][turbonomic-logo]][turbonomic-anchor] 
 
-## <a name="alertlogic-log-manager"></a>Logboekbeheer AlertLogic
-Waarschuwing logica logboekbeheer verzamelt VM-, toepassings- en logboeken van de Azure-platform om beveiligingsanalyse en te bewaren. Deze verzamelt ook het activiteitenlogboek Azure via de API voor het bewaken van Azure. Deze informatie wordt gebruikt om te detecteren door een misdrijf en voldoen aan nalevingsvereisten.
+
+## <a name="alertlogic-log-manager"></a>AlertLogic Log Manager
+Alert Logic Log Manager verzamelt VM-, toepassings- en logboeken van de Azure-platform voor beveiligingsanalyses en -retentie. Het verzamelt ook het Azure-activiteitenlogboek via de API van Azure Monitor. Deze informatie wordt gebruikt om te detecteren door een misdrijf en voldoen aan nalevingsvereisten.
 
 [Ga naar de documentatie.][alertlogic-doc]
 
 ## <a name="appdynamics"></a>AppDynamics
-AppDynamics Management APM (Application Performance) kunnen toepassingseigenaars snel oplossen van knelpunten en optimaliseren van de prestaties van hun toepassingen die worden uitgevoerd in Azure-omgeving. Het Azure-Cloudservices (PaaS), kunt bewaken web & worker rollen, virtuele Machines (IaaS), externe Service detectie (Microsoft Azure Service Bus), Microsoft Azure Queue, Microsoft Azure en externe Services (Azure Blob), Azure Queue (Microsoft Service Bus), gegevens Opslag- en Microsoft Azure Blob-opslag. AppDynamics APM is beschikbaar in Azure Marketplace.
+AppDynamics Application Performance Management (APM) kan de toepassingseigenaren snel oplossen van knelpunten en de prestaties van hun toepassingen in Azure-omgeving te optimaliseren. Het Azure-Cloudservices (PaaS), kunt bewaken web & worker rollen, virtuele Machines (IaaS), detectie van externe Service (Microsoft Azure Service Bus), Microsoft Azure-wachtrij, externe Services van Microsoft Azure (Azure-Blob), Azure-wachtrij (Service-Bus van Microsoft), gegevens Opslag- en Microsoft Azure Blob Storage. AppDynamics APM is beschikbaar in de Azure Marketplace.
 
 [Ga naar de documentatie.][appdynamics-doc]
 
-## <a name="atlassian-jira"></a>Atlassian JIRA
-U kunt JIRA tickets maken op Azure-waarschuwingen.
+## <a name="atlassian-jira"></a>JIRA Atlassian
+U kunt tickets JIRA maken op Azure Monitor-waarschuwingen.
 
 [Ga naar de documentatie.][atlassian-doc]
 
@@ -47,82 +48,84 @@ U kunt JIRA tickets maken op Azure-waarschuwingen.
 [Meer informatie.][botmetric-doc]
 
 ## <a name="circonus"></a>Circonus
-Circonus is een microservices bewaking en analytics platform gebouwd voor op lokale of SaaS-implementatie. Het is volledig automatable API gericht platform is meer schaalbare en betrouwbare dan systemen dat deze wordt bewaakt. Voor de vereisten van DevOps ontwikkeld, biedt Circonus waarschuwingen op basis van een percentiel, grafieken, dashboards en machine learning intelligence waarmee zakelijke optimalisatie. Circonus controleert uw Microsoft Azure cloud-bronnen en hun toepassingen in realtime. U kunt Circonus gebruiken voor het verzamelen en bijhouden van metrische gegevens voor de variabelen die u voor uw bronnen en toepassingen wilt meten. Met Circonus krijgt u de zichtbaarheid van het hele systeem in Azure bronnen beter worden benut, de prestaties van toepassingen en de operationele status.
+Circonus is een microservices monitoring en analytics-platform die is gebouwd voor on-premises of SaaS-implementatie. Het is volledig automatiseerbare API's gebaseerde platform is beter schaalbaar en betrouwbaar dan de systemen die wordt bewaakt. Ontwikkeld voor de vereisten van DevOps, biedt Circonus percentiel gebaseerde waarschuwingen, grafieken, dashboards en machine learning-intelligence waarmee bedrijf te optimaliseren. Circonus bewaakt uw Microsoft Azure-cloud-resources en hun toepassingen in realtime. U kunt Circonus gebruiken voor het verzamelen en metrische gegevens voor de variabelen die u wilt meten voor uw bronnen en toepassingen die volgen. Met Circonus krijgt u systeembrede zicht op Resourcegebruik, de prestaties van toepassingen en operationele status van Azure.
 
 [Ga naar de documentatie.][circonus-doc]
 
 ## <a name="cloudhealth"></a>CloudHealth
-Bundelen en uw cloud automatiseren met een platform gebouwd om tijd en geld besparen. CloudHealth biedt zichtbaarheid, intuïtieve optimalisatie en degelijke governance procedures voor het cloudbeheer van de. Het platform Cloudhealth kan ondernemingen en MSPs rendement van cloud-investeringen maximaliseren. Vertrouwen beslissingen kosten, gebruik, prestaties en beveiliging.
+Samenvoegen en de cloud automatiseren met een platform dat is ingebouwd om tijd en geld besparen. CloudHealth biedt zichtbaarheid, optimalisatie van intuïtieve en uitermate governance is gestructureerd voor cloudbeheer. De Cloudhealth-platform kunnen ondernemingen en MSP's naar het rendement op investeringen in de cloud. Er zeker van beslissingen over kosten, gebruik, prestaties en beveiliging.
 
 [Meer informatie.][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
-CloudMonix biedt bewaking, automatisering en zelfherstel services voor Microsoft Azure-platform.
+CloudMonix biedt bewaking, automation, en zelfherstel services voor Microsoft Azure-platform.
 
 [Ga naar de documentatie.][cloudmonix-doc]
 
 ## <a name="cloudyn"></a>Cloudyn
-Cloudyn beheert en meerdere platforms, hybride cloud-implementaties om ondernemingen altijd bewust hun cloud mogelijk te worden geoptimaliseerd. De SaaS-oplossing biedt inzicht in gebruik, prestaties en kosten. Het biedt inzicht en uitvoerbare aanbevelingen voor smart optimalisatie en cloud toezicht. Cloudyn kunt accountability via nauwkeurige terugstorting en hiërarchische kostenbeheer voor toewijzing. Cloudyn is geïntegreerd met Azure-bewaking voor inzichten en uitvoerbare aanbevelingen om uw Azure-implementatie te optimaliseren.
+Cloudyn beheert en optimaliseert de meerdere platforms, hybride cloudimplementaties waarmee bedrijven hun mogelijke cloud volledig te kunnen benutten. De SaaS-oplossing biedt inzicht in gebruik, prestaties en kosten. Het biedt inzichten en bruikbare aanbevelingen voor slimme optimalisatie- en cloud-beheer. Cloudyn kunt verantwoordelijkheid via nauwkeurige terugstorting en hiërarchische toewijzing van het kostenbeheer. Cloudyn is geïntegreerd met Azure Monitoring voor inzichten en bruikbare aanbevelingen voor het optimaliseren van uw Azure-implementatie.
 
 [Ga naar de documentatie.][cloudyn-doc]
 
 ## <a name="datadog"></a>Datadog
-Datadog is de wereld voorloopspaties monitoringservice voor cloud-toepassingen. Het verenigt de gegevens van servers, databases, hulpprogramma's en services om weer te geven een overzicht van uw volledige stack. Deze mogelijkheden zijn beschikbaar op een analytics gegevens op basis van SaaS platform. Deze service kunt ontwikkelen en Ops-teams moeten samenwerken om te voorkomen, downtime, oplossen van prestatieproblemen en ervoor te zorgen dat de ontwikkeling en implementatie cycli eindigt op tijd. U kunt integreren Datadog en Azure, verzamelen en metrische gegevens van weergeven in uw infrastructuur. VM metrische gegevens met metrische gegevens op toepassingsniveau correleren. Ordenen en metrische gegevens over uw gebruik van een combinatie van de eigenschappen en aangepaste labels weergeven.
+Datadog is van de hele wereld voorloop-service voor cloud-schaalbare toepassingen te controleren. Het combineert gegevens van servers, databases, hulpprogramma's en services om weer te geven een overzicht van uw complete stack. Deze mogelijkheden zijn beschikbaar op een platform voor streaminganalyse van gegevens op basis van SaaS. Met deze service kunt ontwikkelen en Ops teams kunnen samenwerken om te voorkomen uitvaltijd, oplossen van problemen met prestaties, en ervoor te zorgen dat de ontwikkeling en implementatie cycli eindigt op tijd. U kunt door te integreren Datadog en Azure, verzamelen en weergeven van metrische gegevens uit in uw infrastructuur. Combineer metrische gegevens van virtuele machine met metrische gegevens op toepassingsniveau. En servertelemetrie uw metrische gegevens met behulp van een combinatie van de eigenschappen en aangepaste labels.
 
 [Ga naar de documentatie.][datadog-doc]
 
 ## <a name="dynatrace"></a>Dynatrace
-De Dynatrace OneAgent worden geïntegreerd met Azure VM's en Services van de App via de Azure-extensie-mechanisme. Op deze manier Dynatrace OneAgent kunt verzamelen van prestatiegegevens over de hosts, netwerk en services. Naast het zojuist metrische gegevens wilt weergeven, visualiseren Dynatrace omgevingen end-to-end. Deze transacties vanaf de client naar de databaselaag worden weergegeven. Dynatrace biedt op basis van AI correlatie van problemen en volledig geïntegreerd hoofdmap hoofdoorzaken analyseren geven methode niveau inzicht in de code en de database. Deze inzicht maakt het oplossen van problemen en prestaties optimalisaties veel eenvoudiger.
+Het Dynatrace OneAgent kan worden geïntegreerd met Azure-VM's en App-Services via het mechanisme voor Azure-extensie. Op deze manier Dynatrace OneAgent kunt verzamelen van prestatiegegevens over de hosts, het netwerk en -services. Naast het zojuist weergeven van metrische gegevens, visualiseert Dynatrace omgevingen end-to-end. Hier ziet u transacties vanaf de client naar de databaselaag. Dynatrace biedt op basis van AI correlatie van problemen en volledig geïntegreerd-analyses van hoofdoorzaken methode niveau inzicht in de toepassingscode en geven. Dit inzicht maakt het oplossen van problemen en prestaties optimalisaties veel eenvoudiger.
 
 [Ga naar de documentatie.][dynatrace-doc]
 
 ## <a name="grafana"></a>Grafana
-Grafana is een open-source toepassing waarmee u kunt de time series metrische gegevens te visualiseren.
+Grafana is een open-source-toepassing waarmee u voor het visualiseren van time series-metrische gegevens.
 
 [Ga naar de documentatie.][grafana-doc]
 
-## <a name="logic-monitor"></a>Monitor voor logica
-LogicMonitor® is de toonaangevende prestaties op basis van SaaS-platform voor complexe IT-infrastructuur bewaken. Dekking van de duizenden technologieën biedt LogicMonitor gedetailleerde zichtbaarheid van de prestaties van infrastructuur en toepassingen. LM-wolk uitgebreide Azure bewaking, kunnen gebruikers de prestaties van Azure-cloud, on-premises en hybride cloud-bronnen, vanaf één enkel platform correleren. Geautomatiseerde resource detectie aan de ingebouwde sjablonen, voor de bewaking van de vooraf geconfigureerde drempelwaarden voor waarschuwingen en aanpasbare dashboards combineren zodat IT de snelheid, flexibiliteit en zichtbaarheid vereist om te slagen.
+## <a name="logic-monitor"></a>Logische-Monitor
+LogicMonitor® is de toonaangevende prestaties op basis van SaaS-platform voor complexe IT-infrastructuur bewaken. Dekking voor duizenden technologieën biedt LogicMonitor gedetailleerd inzicht in prestaties van infrastructuur en toepassingen. LM-Cloud van uitgebreide Azure-bewaking, kunnen gebruikers het correleren van de prestaties van Azure-cloud, on-premises en hybride cloud-bronnen--via één platform. Geautomatiseerde brondetectie, ingebouwd in de bewaking van sjablonen, vooraf geconfigureerde drempelwaarden en aanpasbare dashboards combineren zodat IT de snelheid, flexibiliteit en zichtbaarheid die zijn vereist om te slagen.
 
 [Ga naar de documentatie.][logicmonitor-doc]
 
 ## <a name="moogsoft"></a>Moogsoft
-Moogsoft AIOps versnelt de flexibele business-transformatie.
+Moogsoft AIOps versnelt de flexibele bedrijfstransformatie.
 
-Microsoft Azure Automation en Control-hulpprogramma's bieden een realtime venster in de status van de toepassingen en microservices geïmplementeerd in Azure en helpen bij het indelen van diagnoses en runbooks voor sneller herstel.
-Andere hulpprogramma's van derden bieden een venster in de on-premises toepassingen en de infrastructuurstatus.
+Microsoft Azure Automation and Control-hulpprogramma's bieden een realtime-venster in de status van de toepassingen en microservices in Azure geïmplementeerd. Ze helpen bij het indelen van diagnostische gegevens en runbooks voor sneller herstel. Andere hulpprogramma's van derden bevatten een venster in de on-premises toepassingen en de infrastructuurstatus.
 
-De gebeurtenis voor herstel werkstroom automatiseert Moogsoft AIOps zonder bestaande processen en organisatiestructuur te veranderen. 
+De gebeurtenis voor herstel werkstroom automatiseert Moogsoft AIOps zonder te hoeven wijzigen van bestaande processen en organisatie-structuur. 
 
-Uitgevoerd in uw Azure-vastgoed, door de integratie van controle en automatisering-hulpprogramma's in de fabric hybride Moogsoft AIOps actief detecteert toepassing eerder die invloed hebben op incidenten, dynamisch ingedeeld de juiste resources om ze te maken Houd er rekening mee situatie en de gemiddelde tijd voor het herstellen en nadelige gevolgen voor de klantervaring wordt gereduceerd. 
+Moogsoft wordt uitgevoerd in uw Azure-onroerend goed met integratie bewaking en automation-hulpprogramma's voor de hybride-infrastructuur. Deze actief detecteert die invloed hebben op incidenten van toepassing eerder, dynamisch coördineert de juiste resources om ze te maken situatie op de hoogte en vermindert de gemiddelde tijd om op te lossen en nadelige gevolgen voor de ervaring van de klant. 
 
 [Ga naar de documentatie.][moogsoft-doc]
 
+## <a name="newrelic"></a>NewRelic
+[Meer informatie.][newrelic-doc]
+
 ## <a name="opsgenie"></a>OpsGenie
-OpsGenie fungeert als een dispatcher voor de waarschuwingen die door Azure. OpsGenie bepaalt de juiste mensen op de hoogte wilt op basis van schema's op de aanroep en escalaties. Deze kunt ze een melding per e-mail, tekstberichten (SMS) telefoongesprekken of pushmeldingen. Azure genereert waarschuwingen voor gedetecteerde problemen. OpsGenie zorgt ervoor dat de juiste mensen werken op het probleem.
+OpsGenie fungeert als een functie voor berichtverzending van de waarschuwingen die worden gegenereerd door Azure. OpsGenie bepaalt de juiste mensen op de hoogte stellen op basis van op oproep schema's en escalaties. Deze kan ze hierover te informeren via e-mail, tekstberichten (SMS), telefoongesprekken of pushmeldingen. Azure genereert waarschuwingen voor gedetecteerde problemen. OpsGenie zorgt ervoor dat de juiste mensen werken op het probleem.
 
 [Ga naar de documentatie.][opsgenie-doc]
 
 ## <a name="pagerduty"></a>PagerDuty
-PagerDuty, de toonaangevende oplossing incidentbeheer heeft gegeven die uitstekende ondersteuning voor Azure-waarschuwingen op metrische gegevens. PagerDuty ondersteunt meldingen op Azure-waarschuwingen, meldingen over automatisch schalen, logboek controlegebeurtenissen en platform niveau metrische gegevens voor Azure-services. Deze verbeteringen krijgt u inzicht in de kern van het Azure-Platform verhoogd. U kunt profiteren van de PagerDuty incidentbeheer mogelijkheden voor realtime-antwoord. De uitgevouwen integratie van Azure bestaat mogelijk via webhooks. Webhooks kunt u instellen en aanpassen van de oplossing snel en eenvoudig.
+PagerDuty, de toonaangevende oplossing voor incidentbeheer heeft opgegeven, uitstekende ondersteuning voor Azure-waarschuwingen over metrische gegevens. PagerDuty biedt ondersteuning voor meldingen op Azure Monitor-waarschuwingen, meldingen over automatisch schalen, gebeurtenissen voor beveiligingscontrole logboek en platform-niveau metrische gegevens voor Azure-services. Deze verbeteringen geven u meer inzicht in de belangrijkste Azure-Platform. U kunt profiteren van van PagerDuty-incident beheermogelijkheden voor realtime-antwoord. De uitgebreide integratie van Azure is mogelijk gemaakt door webhooks. Webhooks kunt u instellen en aanpassen van de oplossing snel en eenvoudig.
 
 [Ga naar de documentatie.][pagerduty-doc]
 
 ## <a name="qradar"></a>QRadar
-De Microsoft Azure DSM en Microsoft Azure Event Hub-Protocol zijn beschikbaar voor downloaden van [de ondersteuningswebsite IBM](http://www.ibm.com/support). U kunt [meer informatie over de integratie met Azure hier][qradar-doc].
+De Microsoft Azure DSM en het Protocol van Microsoft Azure Event Hub zijn beschikbaar voor downloaden van [de ondersteuningswebsite van IBM](http://www.ibm.com/support). U kunt [meer informatie over de integratie met Azure hier][qradar-doc].
 
 ## <a name="sciencelogic"></a>ScienceLogic
-ScienceLogic biedt de volgende generatie IT service zekerheid-platform voor het beheren van elke technologie overal. ScienceLogic biedt de schaal, beveiliging, automatisering en tolerantie nodig zijn voor de taken van het beheer van IT-bronnen, services en toepassingen vereenvoudigen. Het platform ScienceLogic maakt gebruik van Azure-API's voor Microsoft Azure-interface. ScienceLogic biedt u realtime zicht krijgt op uw Azure-services en bronnen. Zodat u weet wanneer er iets niet werkt en u sneller kunt corrigeren. U kunt ook Azure naast de andere clouds en data center-systemen en services beheren.
+ScienceLogic biedt de volgende generatie IT service assurance platform voor het beheren van elke technologie, waar dan ook. ScienceLogic levert de schaal, beveiliging, automation, en flexibiliteit die nodig zijn om de taken van het beheer van IT-resources, services en toepassingen te vereenvoudigen. Het platform ScienceLogic maakt gebruik van Azure-API's voor de interactie met Microsoft Azure. ScienceLogic biedt u realtime inzicht in uw Azure-services en resources. Zodat u weet wanneer er iets niet werkt en kunt u dit sneller herstellen. U kunt ook Azure samen met uw andere clouds en data center-systemen en services beheren.
 
 [Meer informatie.][sciencelogic-doc]
 
 ## <a name="signalfx"></a>SignalFx
-SignalFx is het opvulteken in realtime operationele intelligence voor gegevensgestuurde DevOps. De service wordt gedetecteerd en metrische gegevens verzamelt over elk onderdeel in de cloud, hulpprogramma's voor traditionele punt vervangen en het geven van real-time inzicht in dynamische omgevingen van vandaag. Mogelijkheden van het sterk schaalbare SignalFx-platform, de SaaS-platform is geoptimaliseerd voor de container en microservices gebaseerd architecturen en biedt krachtige visualisatie, proactief waarschuwen en mogelijkheden voor samenwerking selectie tussen verschillende organisaties van elke grootte. SignalFx integreert rechtstreeks met de Azure-Monitor evenals via open-source connectors zoals Telegraf statsD en collectd voor de beste in klasse dashboards, analytics en waarschuwingen voor Azure.
+SignalFx is de leider in realtime operationele intelligentie voor gegevensgestuurde DevOps. De service wordt gedetecteerd en verzamelt metrische gegevens over elk onderdeel in de cloud. Het vervangen van traditionele point-hulpprogramma's en voorziet in realtime inzicht hebt in dynamische omgevingen van vandaag. Gebruik te maken van de hoge mate schaalbaar SignalFx-platform, de SaaS-platform is geoptimaliseerd voor de container en microservices gebaseerd architecturen en biedt krachtige visualisatie, proactieve waarschuwingen en mogelijkheden voor gezamenlijke sorteren tussen verschillende organisaties van alle grootten beschikbaar. SignalFx kan worden geïntegreerd met Azure Monitor rechtstreeks en via de open-source-connectors zoals Telegraf, statsD en verzamelde voor aanbevolen in klasse dashboards, analyse en meldingen voor Azure.
 
 [Ga naar de documentatie.][signalfx-doc]
 
 ## <a name="signl4"></a>SIGNL4
-SIGNL4 - mobiele waarschuwingen-app voor teams van de operations - is de snelste manier voor het routeren van kritieke waarschuwingen van Azure-Monitor met de juiste mensen op het juiste moment – overal door het aanroepen van push, tekst en stem. SIGNL4 beheert op oproep rechten en verschuivingen van uw team, houdt levering en eigendom van waarschuwingen en escaleert indien nodig. Volledige doorzichtigheid in uw team is opgegeven. Met behulp van de eenvoudige REST-web-hook van SIGNL4 kan alle services van Azure worden verbonden met geen inspanning. Met SIGNL4 ziet u een maximaal een 10 x sneller een antwoord via e-mailmeldingen en handmatige waarschuwingen.
+SIGNL4 - de mobiele app voor waarschuwingen voor de operations-teams - is de snelste manier om de route kritieke waarschuwingen van Azure Monitor de juiste personen op het juiste moment, overal door push, tekst en spraak-aanroepen. SIGNL4 beheert op oproep rechten en verschuivingen van uw team, de levering van sporen te wissen en het eigendom van waarschuwingen en escaleert indien nodig. Volledige doorzichtigheid met uw team is opgegeven. Met behulp van de eenvoudige REST-webhook van de SIGNL4 kan elke Azure-service worden verbonden met geen pogingen. Met SIGNL4 ziet u maximaal 10 x snellere respons via e-mailmeldingen en handmatige waarschuwingen.
 
 [Ga naar de documentatie.][signl4-doc]
 
@@ -130,27 +133,27 @@ SIGNL4 - mobiele waarschuwingen-app voor teams van de operations - is de snelste
 
 [Meer informatie.][solarwinds-doc]
 
-## <a name="azure-monitor-add-on-for-splunk"></a>Monitor voor Azure-invoegtoepassing voor Splunk
-De Azure-Monitor-invoegtoepassing voor Splunk is [beschikbaar in de Splunkbase hier](https://splunkbase.splunk.com/app/3534/).
+## <a name="azure-monitor-add-on-for-splunk"></a>Azure Monitor-invoegtoepassing voor Splunk
+De Azure Monitor-invoegtoepassing voor Splunk [beschikbaar in de Splunkbase hier](https://splunkbase.splunk.com/app/3534/).
 
 [Ga naar de documentatie.][splunk-doc]
 
 ## <a name="sumo-logic"></a>Sumo logica
-Sumo logica is een beveiligde, cloud-systeemeigen machine analytics gegevensservice real-time, continue intelligence leveren van gestructureerde, semi-gestructureerde en ongestructureerde gegevens op de gehele toepassing lifecycle en -stack. Meer dan 1000 klanten over de hele wereld, is afhankelijk van Sumo logica voor het analytics en inzichten te bouwen, uitvoert, en hun toepassingen beveiligen en cloudinfrastructuur. Klanten krijgen met Sumo logica, een multitenant-, service-model voordeel om u te helpen verhogen concurrentie bedrijfswaarde en groei.
+Sumo logica is een veilige, cloud-native, machine data analytics-service leveren van realtime en continu intelligence van gestructureerde, semi-gestructureerde en ongestructureerde gegevens in de volledige toepassingslevenscyclus en de stack. Meer dan 1000 klanten over de hele wereld vertrouwen op Sumo logica voor de analyses en inzichten voor het bouwen, het uitvoeren, en het beveiligen van hun toepassingen en cloudinfrastructuren. Met logische Sumo krijgen klanten een voordeel voor meerdere tenants, service-model om u te helpen verhogen concurrentievoordeel te behalen, toegevoegde waarde en groei.
 
 [Meer informatie.][sumologic-doc]
 
 ## <a name="turbonomic"></a>Turbonomic
-Automatisering van de werkbelasting voor hybride clouds biedt Turbonomic door tegelijkertijd optimaliseren van prestaties, kosten en naleving in realtime. Reken-Turbonomic helpt organisaties worden elastische in hun Azure goed door het goed om ervoor te zorgen toepassingen ophalen voortdurend de resources die ze nodig hebben om te leveren voor de SLA en niets meer over continu optimaliseren, opslag en netwerk voor IaaS en PaaS laag. Organisaties kunnen simuleren migraties, goed te schalen werkbelastingen en datacenterbronnen voor het voorzichtig te migreren naar Azure in-time, binnen het budget, zodat de prestatie- en nalevingsopties zeker tijdens het buiten gebruik stellen. Turbonomic is API-gestuurd en wordt uitgevoerd als een agentloze VM in Azure en on-premises.
+Turbonomic voorziet in automatisering van workloads voor hybride clouds door tegelijkertijd de prestaties, kosten en naleving in realtime te optimaliseren. Turbonomic helpt organisaties worden elastische in hun Azure-omgeving door continu optimaliseren van de omgeving om ervoor te zorgen voortdurend ophalen van de toepassingen de resources die zij nodig hebben om hun SLA en niets meer over leveren rekentijd, opslag en netwerk voor IaaS en PaaS laag. Organisaties kunnen migraties simuleren, correct workloads schalen en te verantwoorde manier te migreren naar Azure op tijd en binnen het budget, stopzetten prestaties en naleving. Turbonomic is API-gestuurd en wordt uitgevoerd als een agentloze VM in Azure en on-premises.
 
 [Meer informatie.][turbonomic-doc]
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Meer informatie over Azure-Monitor](monitoring-overview.md)
+* [Meer informatie over Azure Monitor](monitoring-overview.md)
 * [Toegang tot metrische gegevens met behulp van de REST-API](monitoring-rest-api-walkthrough.md)
-* [Het activiteitenlogboek derden service Stream](monitoring-stream-activity-logs-event-hubs.md)
-* [Diagnostische logboeken van de stream naar een service van derden](monitoring-stream-diagnostic-logs-to-event-hubs.md)
+* [Het activiteitenlogboek naar een service voor niet-Microsoft Stream](monitoring-stream-activity-logs-event-hubs.md)
+* [Diagnostische logboeken van de Stream naar een niet-Microsoft-service](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 
 <!--Partner Anchors-->
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"
@@ -163,8 +166,9 @@ Automatisering van de werkbelasting voor hybride clouds biedt Turbonomic door te
 [cloudyn-anchor]: #cloudyn "Cloudyn"
 [datadog-anchor]: #datadog "Datadog"
 [dynatrace-anchor]: #dynatrace "Dynatrace"
+[newrelic-anchor]: #newrelic "NewRelic"
 [grafana-anchor]: #grafana "Grafana"
-[logicmonitor-anchor]: #logic-monitor "Monitor voor logica"
+[logicmonitor-anchor]: #logic-monitor "Logische-Monitor"
 [moogsoft-anchor]: #moogsoft "Moogsoft"
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
@@ -187,6 +191,7 @@ Automatisering van de werkbelasting voor hybride clouds biedt Turbonomic door te
 [cloudyn-logo]: ./media/partner-logos/cloudyn.png
 [datadog-logo]: ./media/partner-logos/datadog.png
 [dynatrace-logo]: ./media/partner-logos/dynatrace.png
+[newrelic-logo]: ./media/partner-logos/newrelic.png
 [grafana-logo]: ./media/partner-logos/grafana.png
 [logicmonitor-logo]: ./media/partner-logos/logicmonitor.png
 [moogsoft-logo]: ./media/partner-logos/moogsoft.png
@@ -208,18 +213,19 @@ Automatisering van de werkbelasting voor hybride clouds biedt Turbonomic door te
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "CloudMonix inleiding."
-[cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Cloudyn inleiding."
+[cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Inleiding in Cloudyn."
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Datadog documentatie."
-[dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace documentatie."
+[dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Dynatrace-documentatie."
 [grafana-doc]: ./monitor-send-to-grafana.md "Integratie van Azure Monitor Grafana."
-[logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Documentatie van de Monitor logica."
+[logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Documentatie over Logic-Monitor."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Moogsoft documentatie."
+[newrelic-doc]: https://newrelic.com/azure "NewRelic documentatie."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "OpsGenie documentatie."
-[pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "PagerDuty documentatie."
+[pagerduty-doc]: https://www.pagerduty.com/docs/guides/azure-integration-guide/ "PagerDuty-documentatie."
 [qradar-doc]: https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0 "QRadar documentatie."
 [sciencelogic-doc]: https://www.sciencelogic.com/product/technologies/microsoft/azure "ScienceLogic documentatie."
 [signalfx-doc]: https://docs.signalfx.com/en/latest/getting-started/send-data.html#connect-to-azure "SignalFx documentatie."
-[signl4-doc]: https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/ "SIGNL4 documentatie."
+[signl4-doc]: https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/ "SIGNL4-documentatie."
 [solarwinds-doc]: https://www.solarwinds.com/topics/azure-monitoring "SolarWinds documentatie."
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk documentatie."
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic documentatie."

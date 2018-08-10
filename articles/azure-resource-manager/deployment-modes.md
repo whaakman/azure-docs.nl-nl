@@ -1,0 +1,105 @@
+---
+title: Azure Resource Manager-implementatiemodi | Microsoft Docs
+description: Beschrijft hoe u om op te geven of u wilt een volledige of incrementele implementatiemodus gebruiken met Azure Resource Manager.
+services: azure-resource-manager
+documentationcenter: na
+author: tfitzmac
+ms.service: azure-resource-manager
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 08/07/2018
+ms.author: tomfitz
+ms.openlocfilehash: 00800cb233776878e1fa330ce72cb067b8c698f3
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39634332"
+---
+# <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager-implementatiemodi
+Bij het implementeren van uw resources, kunt u opgeven dat de implementatie een incrementele update of een volledige update is.  Het belangrijkste verschil tussen deze twee modi is hoe Resource Manager omgaat met bestaande resources in de resourcegroep die zich niet in de sjabloon.
+De standaardmodus is incrementeel.
+
+## <a name="incremental-and-complete-deployments"></a>Incrementele en volledige implementaties
+Bij het implementeren van resources:
+
+* In de volledige modus Resource Manager **verwijdert** resources die aanwezig zijn in de resourcegroep, maar niet zijn opgegeven in de sjabloon. 
+* In de Resource Manager-incrementele modus **blijft ongewijzigd** resources die aanwezig zijn in de resourcegroep, maar niet zijn opgegeven in de sjabloon.
+
+Voor beide modi wordt geprobeerd de Resource Manager voor het inrichten van alle resources die zijn opgegeven in de sjabloon. Als de resource al in de resourcegroep bestaat en de instellingen niet gewijzigd zijn, wordt de bewerking resulteert in geen wijziging. Als u de instellingen voor een bron wijzigt, wordt de bron is ingericht met de nieuwe instellingen. Als u probeert om bij te werken van de locatie of het type van een bestaande resource, mislukt de implementatie met een fout. In plaats daarvan implementeert u een nieuwe resource met de locatie of typ dat u nodig hebt.
+
+## <a name="example-result"></a>Voorbeeld van resultaat
+
+Ter illustratie van het verschil tussen de modi incrementele en volledige, houd rekening met het volgende scenario.
+
+**Bestaande resourcegroep** bevat:
+
+* Resource A
+* Bron B
+* Resource C
+
+**Sjabloon** definieert:
+
+* Resource A
+* Bron B
+* Resource D
+
+Wanneer geïmplementeerd in **incrementele** modus, de resourcegroep heeft:
+
+* Resource A
+* Bron B
+* Resource C
+* Resource D
+
+Wanneer geïmplementeerd in **voltooid** Resource C-modus wordt verwijderd. De resourcegroep heeft:
+
+* Resource A
+* Bron B
+* Resource D
+
+## <a name="set-deployment-mode"></a>Modus instellen voor implementatie
+
+Om in te stellen de implementatiemodus bij het implementeren met PowerShell, gebruikt u de `Mode` parameter.
+
+```powershell
+New-AzureRmResourceGroupDeployment `
+  -Mode Complete `
+  -Name ExampleDeployment `
+  -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile c:\MyTemplates\storage.json 
+```
+
+Om in te stellen de implementatiemodus bij het implementeren met Azure CLI, gebruikt u de `mode` parameter.
+
+```azurecli-interactive
+az group deployment create \
+  --name ExampleDeployment \
+  --mode Complete \
+  --resource-group ExampleGroup \
+  --template-file storage.json \
+  --parameters storageAccountType=Standard_GRS
+```
+
+Het instellen van de implementatiemodus voor in een [gekoppelde of geneste sjabloon](resource-group-linked-templates.md), gebruikt u de `mode` eigenschap.
+
+```json
+"resources": [
+  {
+      "apiVersion": "2017-05-10",
+      "name": "linkedTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+          "mode": "Incremental",
+          <nested-template-or-external-template>
+      }
+  }
+]
+```
+
+## <a name="next-steps"></a>Volgende stappen
+* Zie voor meer informatie over het maken van Resource Manager-sjablonen, [Authoring Azure Resource Manager-sjablonen](resource-group-authoring-templates.md).
+* Zie voor meer informatie over het implementeren van resources, [een toepassing implementeren met Azure Resource Manager-sjabloon](resource-group-template-deploy.md).
+* Als u de bewerkingen voor een resourceprovider, Zie [REST API van Azure](/rest/api/).
+

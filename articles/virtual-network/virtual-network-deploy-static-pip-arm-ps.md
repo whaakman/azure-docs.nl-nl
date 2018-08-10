@@ -1,182 +1,81 @@
 ---
-title: Een virtuele machine maken met een statisch openbaar IP-adres - Azure PowerShell | Microsoft Docs
+title: Een virtuele machine maken met een statisch openbaar IP-adres - PowerShell | Microsoft Docs
 description: Informatie over het maken van een virtuele machine met een statisch openbaar IP-adres met behulp van PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ad975ab9-d69f-45c1-9e45-0d3f0f51e87e
 ms.service: virtual-network
-ms.devlang: na
+ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
+ms.date: 08/08/2018
 ms.author: jdial
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68656db0b76a29e7ab36fd6fa9ad4647712233ee
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b59157b0f17380dbe4386fbd9ac75776e22f749e
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696580"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39713972"
 ---
-# <a name="create-a-vm-with-a-static-public-ip-address-using-powershell"></a>Een virtuele machine maken met een statisch openbaar IP-adres met behulp van PowerShell
+# <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>Een virtuele machine maken met een statisch openbaar IP-adres met behulp van PowerShell
 
-> [!div class="op_single_selector"]
-> * [Azure Portal](virtual-network-deploy-static-pip-arm-portal.md)
-> * [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-> * [Azure-CLI](virtual-network-deploy-static-pip-arm-cli.md)
-> * [PowerShell (klassiek)](virtual-networks-reserved-public-ip.md)
+U kunt een virtuele machine maken met een statisch openbaar IP-adres. Een openbaar IP-adres kunt u communiceren met een virtuele machine via internet. Toewijzen van een statisch openbaar IP-adres, in plaats van een dynamisch adres, om ervoor te zorgen dat het adres nooit verandert. Meer informatie over [statische openbare IP-adressen](virtual-network-ip-addresses-overview-arm.md#allocation-method). Een openbaar IP-adres toegewezen aan een bestaande virtuele machine van dynamisch in statisch of om te werken met particuliere IP-adressen, Zie [toevoegen, wijzigen of verwijderen-IP-adressen](virtual-network-network-interface-addresses.md). Openbare IP-adressen hebben een [nominale kosten in rekening gebracht](https://azure.microsoft.com/pricing/details/ip-addresses), en er is een [limiet](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) aan het aantal openbare IP-adressen die u per abonnement kunt.
 
-[!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
+## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
 
-> [!NOTE]
-> Azure heeft twee verschillende implementatiemodellen voor het maken van en werken met resources: [Resource Manager en het klassieke model](../resource-manager-deployment-model.md). In dit artikel bevat informatie over het Resource Manager-implementatiemodel, dat door Microsoft wordt aanbevolen voor de meeste nieuwe implementaties in plaats van het klassieke implementatiemodel.
+U kunt de volgende stappen uitvoeren vanaf uw lokale computer of met behulp van de Azure Cloud Shell. Voor het gebruik van uw lokale computer, zorg ervoor dat u hebt de [Azure PowerShell is geïnstalleerd](/powershell/azure/install-azurerm-ps?toc=%2fazure%2fvirtual-network%2ftoc.json). Selecteer voor het gebruik van de Azure Cloud Shell, **uitproberen** in de rechterbovenhoek van een willekeurige opdracht box die volgt. De Cloud Shell meldt u zich bij Azure.
 
-[!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
+1. Als de Cloud Shell gebruikt, gaat u verder met stap 2. Open een sessie en meld u in Azure met `Connect-AzureRmAccount`.
+2. Maak een resourcegroep met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Het volgende voorbeeld wordt een resourcegroep gemaakt in de regio Oost VS Azure:
 
-[!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
+   ```azurepowershell-interactive
+   New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+   ```
 
-## <a name="start-your-script"></a>Start uw script
-U kunt het volledige PowerShell-script gebruikt downloaden [hier](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/03-Static-public-IP/virtual-network-deploy-static-pip-arm-ps.ps1). Volg de stappen hieronder om het script te laten werken in uw omgeving wijzigen.
+3. Maak een virtuele machine met de [New-AzureRmVM](/powershell/module/AzureRM.Compute/New-AzureRmVM) opdracht. De `-AllocationMethod "Static"` optie wordt een statisch openbaar IP-adres toegewezen aan de virtuele machine. Het volgende voorbeeld wordt een Windows Server-machine met een statisch, basic SKU openbaar IP-adres met de naam *myPublicIpAddress*. Geef desgevraagd een gebruikersnaam en wachtwoord moet worden gebruikt als de aanmelding referenties voor de virtuele machine:
 
-Wijzig de waarden van de variabelen op basis van de waarden die u wilt gebruiken voor uw implementatie. De volgende waarden worden toegewezen aan het scenario in dit artikel gebruikt:
+   ```azurepowershell-interactive
+   New-AzureRmVm `
+     -ResourceGroupName "myResourceGroup" `
+     -Name "myVM" `
+     -Location "East US" `
+     -PublicIpAddressName "myPublicIpAddress" `
+     -AllocationMethod "Static"
+   ```
 
-```powershell
-# Set variables resource group
-$rgName                = "IaaSStory"
-$location              = "West US"
+   Als het openbare IP-adres een standaard-SKU moet, hebt u [een openbaar IP-adres maken](virtual-network-public-ip-address.md#create-a-public-ip-address), [maken van een netwerkinterface](virtual-network-network-interface.md#create-a-network-interface), [het openbare IP-adres toewijzen aan de netwerkinterface](virtual-network-network-interface-addresses.md#add-ip-addresses), en vervolgens [een virtuele machine maken met de netwerkinterface](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm)in afzonderlijke stappen. Meer informatie over [openbaar IP-adres SKU's](virtual-network-ip-addresses-overview-arm.md#sku). Als de virtuele machine wordt toegevoegd aan de groep back-end van een openbare Azure Load Balancer, de SKU van het openbare IP-adres van de virtuele machine, moet overeenkomen met de SKU van het openbare IP-adres van de load balancer. Zie voor meer informatie, [Azure Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#skus).
 
-# Set variables for VNet
-$vnetName              = "WTestVNet"
-$vnetPrefix            = "192.168.0.0/16"
-$subnetName            = "FrontEnd"
-$subnetPrefix          = "192.168.1.0/24"
+4. Het openbare IP-adres dat is toegewezen en Bevestig dat het als een statisch adres is gemaakt met [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress):
 
-# Set variables for storage
-$stdStorageAccountName = "iaasstorystorage"
+   ```azurepowershell-interactive
+   Get-AzureRmPublicIpAddress `
+     -ResourceGroupName "myResourceGroup" `
+     -Name "myPublicIpAddress" `
+     | Select "IpAddress", "PublicIpAllocationMethod" `
+     | Format-Table
+   ```
 
-# Set variables for VM
-$vmSize                = "Standard_A1"
-$diskSize              = 127
-$publisher             = "MicrosoftWindowsServer"
-$offer                 = "WindowsServer"
-$sku                   = "2012-R2-Datacenter"
-$version               = "latest"
-$vmName                = "WEB1"
-$osDiskName            = "osdisk"
-$nicName               = "NICWEB1"
-$privateIPAddress      = "192.168.1.101"
-$pipName               = "PIPWEB1"
-$dnsName               = "iaasstoryws1"
+   Azure toegewezen openbaar IP-adres van de adressen die worden gebruikt in de regio die u hebt gemaakt met de virtuele machine in. U kunt de lijst met bereiken (voorvoegsels) downloaden voor de Azure-clouds [Openbaar](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062) en [Duitsland](https://www.microsoft.com/download/details.aspx?id=57064).
+
+> [!WARNING]
+De instellingen voor het IP-adres binnen het besturingssysteem van de virtuele machine mag niet worden gewijzigd. Het besturingssysteem is geen informatie over Azure openbare IP-adressen. Hoewel u privé IP-adresinstellingen aan het besturingssysteem toevoegen kunt, wordt aangeraden niet te doen, tenzij die nodig zijn, en niet pas na het lezen [een privé IP-adres toevoegen aan een besturingssysteem](virtual-network-network-interface-addresses.md#private).
+
+## <a name="clean-up-resources"></a>Resources opschonen
+
+U kunt de opdracht [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) gebruiken om de resourcegroep en alle resources die deze bevat te verwijderen:
+
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
-
-## <a name="create-the-necessary-resources-for-your-vm"></a>De benodigde resources voor uw virtuele machine maken
-Voordat u een virtuele machine maakt, moet u een resourcegroep, VNet openbare IP-adres en NIC moet worden gebruikt door de virtuele machine.
-
-1. Maak een nieuwe resourcegroep.
-
-    ```powershell
-    New-AzureRmResourceGroup -Name $rgName -Location $location
-    ```
-
-2. De VNet en subnet maken.
-
-    ```powershell
-    $vnet = New-AzureRmVirtualNetwork -ResourceGroupName $rgName -Name $vnetName `
-        -AddressPrefix $vnetPrefix -Location $location
-
-    Add-AzureRmVirtualNetworkSubnetConfig -Name $subnetName `
-        -VirtualNetwork $vnet -AddressPrefix $subnetPrefix
-
-    Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
-    ```
-
-3. Het openbare IP-resource maakt. 
-
-    ```powershell
-    $pip = New-AzureRmPublicIpAddress -Name $pipName -ResourceGroupName $rgName `
-        -AllocationMethod Static -DomainNameLabel $dnsName -Location $location
-    ```
-
-4. De netwerkinterface (NIC) voor de virtuele machine in het hierboven gemaakte met het openbare IP-subnet maken. U ziet de eerste cmdlet bij het ophalen van het VNet van Azure, dit is nodig omdat een `Set-AzureRmVirtualNetwork` is uitgevoerd als u wilt wijzigen van het bestaande VNet.
-
-    ```powershell
-    $vnet = Get-AzureRmVirtualNetwork -Name $vnetName -ResourceGroupName $rgName
-    $subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name $subnetName
-    $nic = New-AzureRmNetworkInterface -Name $nicName -ResourceGroupName $rgName `
-        -Subnet $subnet -Location $location -PrivateIpAddress $privateIPAddress `
-        -PublicIpAddress $pip
-    ```
-
-5. Maak een opslagaccount voor het hosten van de besturingssysteemschijf voor virtuele machine.
-
-    ```powershell
-    $stdStorageAccount = New-AzureRmStorageAccount -Name $stdStorageAccountName `
-    -ResourceGroupName $rgName -Type Standard_LRS -Location $location
-    ```
-
-## <a name="create-the-vm"></a>De virtuele machine maken
-Nu dat alle benodigde resources gemaakt zijn, kunt u een nieuwe virtuele machine kunt maken.
-
-1. Maak een configuratieobject voor de virtuele machine.
-
-    ```powershell
-    $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize
-    ```
-
-2. Referenties ophalen voor het lokale beheerdersaccount van de virtuele machine.
-
-    ```powershell
-    $cred = Get-Credential -Message "Type the name and password for the local administrator account."
-    ```
-
-3. Maak een VM-configuratieobject.
-
-    ```powershell
-    $vmConfig = Set-AzureRmVMOperatingSystem -VM $vmConfig -Windows -ComputerName $vmName `
-        -Credential $cred -ProvisionVMAgent -EnableAutoUpdate
-    ```
-
-4. De installatiekopie van het besturingssysteem voor de virtuele machine instellen.
-
-    ```powershell
-    $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisher `
-        -Offer $offer -Skus $sku -Version $version
-    ```
-
-5. Configureer de OS-schijf.
-
-    ```powershell
-    $osVhdUri = $stdStorageAccount.PrimaryEndpoints.Blob.ToString() + "vhds/" + $osDiskName + ".vhd"
-    $vmConfig = Set-AzureRmVMOSDisk -VM $vmConfig -Name $osDiskName -VhdUri $osVhdUri -CreateOption fromImage
-    ```
-
-6. De NIC toevoegen aan de virtuele machine.
-
-    ```powershell
-    $vmConfig = Add-AzureRmVMNetworkInterface -VM $vmConfig -Id $nic.Id -Primary
-    ```
-
-7. De virtuele machine maken.
-
-    ```powershell
-    New-AzureRmVM -VM $vmConfig -ResourceGroupName $rgName -Location $location
-    ```
-
-8. Sla het scriptbestand.
-
-## <a name="run-the-script"></a>Het script uitvoeren
-
-Nadat u de benodigde wijzigingen, moet u het vorige script uitvoeren. De virtuele machine is gemaakt na een paar minuten.
-
-## <a name="set-ip-addresses-within-the-operating-system"></a>IP-adressen binnen het besturingssysteem instellen
-
-U moet het openbare IP-adres toegewezen aan een virtuele machine van Azure binnen het besturingssysteem van de virtuele machine nooit handmatig toewijzen. Het verdient aanbeveling dat u geen statisch het privé IP-adres toegewezen aan de virtuele machine van Azure binnen het besturingssysteem van een virtuele machine, toewijst tenzij die nodig zijn, bijvoorbeeld wanneer [meerdere IP-adressen toewijzen aan een Windows-VM](virtual-network-multiple-ip-addresses-powershell.md). Als u het particuliere IP-adres binnen het besturingssysteem handmatig instellen wilt, controleert u of deze hetzelfde adres als de privé IP-adres toegewezen aan de Azure [netwerkinterface](virtual-network-network-interface-addresses.md#change-ip-address-settings), of het verlies van connectiviteit met de virtuele machine. Meer informatie over [privé IP-adres](virtual-network-network-interface-addresses.md#private) instellingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Al het netwerkverkeer kan stromen naar en van de virtuele machine die in dit artikel hebt gemaakt. U kunt inkomende en uitgaande beveiligingsregels binnen een netwerkbeveiligingsgroep die het verkeer dat naar en van de netwerkinterface, het subnet of beide stromen kan beperken definiëren. Zie voor meer informatie over netwerkbeveiligingsgroepen, [overzicht van netwerkbeveiligingsgroepen](security-overview.md).
+- Meer informatie over [openbare IP-adressen](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure
+- Meer informatie over alle [openbare IP-adresinstellingen](virtual-network-public-ip-address.md#create-a-public-ip-address)
+- Meer informatie over [privé IP-adressen](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) en het toewijzen van een [statisch privé IP-adres](virtual-network-network-interface-addresses.md#add-ip-addresses) met een Azure-machine
+- Meer informatie over het maken van [Linux](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) en [Windows](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtuele machines

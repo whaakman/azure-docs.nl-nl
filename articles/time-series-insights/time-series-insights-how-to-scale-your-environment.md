@@ -1,62 +1,62 @@
 ---
-title: Schalen van uw omgeving Azure Time Series Insights | Microsoft Docs
-description: In dit artikel wordt beschreven hoe uw omgeving Azure Time Series Insights te schalen. Gebruik de Azure-portal toevoegen aan of aftrekken capaciteit binnen een prijscategorie SKU.
+title: Het schalen van uw Azure Time Series Insights-omgeving | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u uw Azure Time Series Insights-omgeving te schalen. De Azure portal gebruiken om te worden toegevoegd of verwijderd binnen een prijs-SKU.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: edett
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 3e357f8a1667677c763e94c6f7d57402a7aa175d
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: f80c3ad28c3944bd365100d1d873231869da46f8
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294350"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629715"
 ---
-# <a name="how-to-scale-your-time-series-insights-environment"></a>Schalen van uw omgeving Time Series Insights
+# <a name="how-to-scale-your-time-series-insights-environment"></a>Het schalen van uw Time Series Insights-omgeving
 
-In dit artikel wordt beschreven hoe de capaciteit van uw omgeving uw Time Series Insights-omgeving met de Azure portal te wijzigen. De capaciteit is de vermenigvuldiger toegepast op de snelheid van inkomende, opslagcapaciteit en kosten die zijn gekoppeld aan de geselecteerde SKU. 
+In dit artikel wordt beschreven hoe u uw Time Series Insights-omgeving met behulp van de Azure-portal van de capaciteit van uw omgeving wijzigen. Capaciteit is de vermenigvuldigingsfactor die wordt toegepast op de gegevens, capaciteit en kosten die gepaard gaan met de geselecteerde SKU. 
 
-U kunt de Azure-portal vergroten of verkleinen van capaciteit binnen een bepaalde prijscategorie SKU. 
+De Azure-portal kunt u meer of minder capaciteit binnen een bepaalde prijs-SKU. 
 
-Echter, als u de prijscategorie wijzigt SKU is niet toegestaan. Bijvoorbeeld, kan niet een omgeving met een S1 SKU prijzen worden geconverteerd naar een S2 of vice versa. 
+Echter, de prijscategorie wijzigen SKU is niet toegestaan. Bijvoorbeeld, kan niet een omgeving met een S1 prijs-SKU worden geconverteerd naar een S2 of vice versa. 
 
 
-## <a name="s1-sku-ingress-rates-and-capacities"></a>S1 SKU inkomend tarieven en capaciteit
+## <a name="s1-sku-ingress-rates-and-capacities"></a>S1 SKU inkomend tarieven en -capaciteit
 
-| S1 SKU-capaciteit | Snelheid van inkomende gegevens | Maximale opslagcapaciteit
+| S1 SKU-capaciteit | Gegevens | Maximale opslagcapaciteit
 | --- | --- | --- |
 | 1 | 1 GB (1 miljoen gebeurtenissen) | 30 GB (30 miljoen gebeurtenissen) per maand |
 | 10 | 10 GB (10 miljoen gebeurtenissen) | 300 GB (300 miljoen gebeurtenissen) per maand |
 
-## <a name="s2-sku-ingress-rates-and-capacities"></a>S2 SKU inkomend tarieven en capaciteit
+## <a name="s2-sku-ingress-rates-and-capacities"></a>S2 SKU inkomend tarieven en -capaciteit
 
-| S2 SKU-capaciteit | Snelheid van inkomende gegevens | Maximale opslagcapaciteit
+| S2 SKU-capaciteit | Gegevens | Maximale opslagcapaciteit
 | --- | --- | --- |
 | 1 | 10 GB (10 miljoen gebeurtenissen) | 300 GB (300 miljoen gebeurtenissen) per maand |
-| 10 | 100 GB (100 miljoen gebeurtenissen) | 3 TB (3 miljard gebeurtenissen) per maand |
+| 10 | 100 GB (100 miljoen gebeurtenissen) | (3 miljoen gebeurtenissen) 3 TB per maand |
 
-Capaciteitswaarden evenredig, zodat een SKU S1 capaciteit 2 2 GB (2 miljoen) gebeurtenissen per dag inkomend en 60 GB (60 miljoen gebeurtenissen) per maand ondersteunt.
+Capaciteiten schalen lineair, dus een S1 SKU met capaciteit 2 biedt ondersteuning voor 2 GB (2 miljoen) gebeurtenissen per dag inkomend verkeer en 60 GB (60 miljoen gebeurtenissen) per maand.
 
 ## <a name="change-the-capacity-of-your-environment"></a>De capaciteit van uw omgeving wijzigen
-1. In de Azure portal, zoek en selecteer uw Time Series Insights-omgeving. 
+1. Zoek in de Azure-portal en selecteer uw Time Series Insights-omgeving. 
 
 2. Selecteer in het menu voor uw omgeving Time Series Insighs **configureren**.
 
    ![Configure.PNG](media/scale-your-environment/configure.png)
 
-3. Pas de **capaciteit** schuifregelaar om de capaciteit die voldoet aan de vereisten voor de tarieven van toegangsroutes en de opslagcapaciteit te selecteren. U ziet de **inkomend snelheid**, **opslagcapaciteit**, en **geschatte kosten** update dynamisch aan het weergeven van de gevolgen van de wijziging. 
+3. Pas de **capaciteit** schuifregelaar om de capaciteit die voldoet aan de vereisten voor de tarieven voor inkomend verkeer en opslagcapaciteit te selecteren. U ziet dat de **gegevens**, **opslagcapaciteit**, en **geschatte kosten** update dynamisch om weer te geven van de gevolgen van de wijziging. 
 
    ![Schuifregelaar](media/scale-your-environment/slider.png)
 
    U kunt ook het nummer van de capaciteit vermenigvuldiger typen in het tekstvak aan de rechterkant van de schuifregelaar. 
 
-4. Selecteer **opslaan** schalen van de omgeving. De voortgangsindicator wordt weergegeven nadat de wijziging doorgevoerd, tijdelijk worden is. 
+4. Selecteer **opslaan** voor het schalen van de omgeving. De voortgangsindicator wordt weergegeven nadat de wijziging doorgevoerd, tijdelijk wordt. 
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]

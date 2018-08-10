@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/05/2018
+ms.date: 08/08/2018
 ms.author: rkarlin
-ms.openlocfilehash: 821a88f3627b19951c26677838bd2f86d0948ab9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4a934bd69e63605fd624d06533c4e411bc94b531
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526827"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630915"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Identiteit en toegang bewaken in Azure Security Center (Preview)
 In dit artikel leest u hoe u Azure Security Center kunt gebruiken om de identiteit en toegangsactiviteiten van gebruikers te bewaken.
@@ -86,7 +86,7 @@ Onder **abonnementen**, er is een lijst met abonnementen. De eerste kolom bevat 
 
   - **Aanbevelingen**: op basis van beoordelingen die door Security Center die niet zijn uitgevoerd.
   - **Evaluaties doorgegeven**: lijst met beoordelingen uitgevoerd door Security Center die doorgegeven.
-  - **Niet-beschikbare evaluaties**: lijst met beoordelingen die kan niet worden uitgevoerd vanwege een fout of omdat het abonnement meer dan 250 accounts heeft.
+  - **Niet-beschikbare evaluaties**: lijst met beoordelingen die kan niet worden uitgevoerd vanwege een fout of omdat het abonnement meer dan 600 accounts heeft.
 
   Onder **aanbevelingen** is een lijst met aanbevelingen voor het geselecteerde abonnement en de ernst van elke aanbeveling.
 

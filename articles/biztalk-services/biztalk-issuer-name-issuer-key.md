@@ -1,6 +1,6 @@
 ---
-title: Naam van verlener en sleutel van verlener in BizTalk Services | Microsoft Docs
-description: Informatie over het ophalen van de naam van de verlener en sleutel van verlener voor Service Bus of Access Control (ACS) in BizTalk Services. MABS, WABS
+title: Naam en sleutel van verlener in BizTalk Services | Microsoft Docs
+description: Informatie over het ophalen van naam en sleutel van verlener voor Service Bus of Access Control (ACS) in BizTalk Services. MABS, WABS
 services: biztalk-services
 documentationcenter: ''
 author: MandiOhlinger
@@ -14,46 +14,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 18eac72d75680ab12c4a0bea9dfc5ac8a5fce566
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 78796b5dc62cb573f149c24d90205d26fb139cf7
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24103426"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628644"
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>BizTalk Services: naam en sleutel van verlener
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Azure BizTalk Services maakt gebruik van de naam van de Service Bus-verlener en sleutel van verlener en de naam van de certificaatverlener Access Control en sleutel van verlener. Specifiek:
+Azure BizTalk Services maakt gebruik van de naam van de Service Bus-verlener en sleutel van verlener, en de naam van Access Control verlener en sleutel van verlener. Specifiek:
 
-| Taak | Welke naam van verlener en sleutel van verlener |
+| Taak | Welke naam en sleutel van verlener |
 | --- | --- |
-| Implementeren van uw toepassing vanuit Visual Studio |Toegang tot de naam van de certificaatverlener besturingselement en de sleutel van verlener |
-| De Azure BizTalk Services-Portal configureren |Toegang tot de naam van de certificaatverlener besturingselement en de sleutel van verlener |
-| Relays LOB maken met de BizTalk Adapter Services in Visual Studio |Naam van Service Bus verlener en sleutel van verlener |
+| Implementeren van uw toepassing vanuit Visual Studio |De naam van een Access Control-verlener en sleutel van verlener |
+| De Azure BizTalk Services-Portal configureren |De naam van een Access Control-verlener en sleutel van verlener |
+| LOB-Relays maken met de BizTalk Adapter Services in Visual Studio |Naam van Service Bus-verlener en sleutel van verlener |
 
-Dit onderwerp worden de stappen voor het ophalen van de naam van verlener en sleutel van verlener. 
+In dit onderwerp worden de stappen voor het ophalen van de naam en sleutel van verlener. 
 
-## <a name="access-control-issuer-name-and-issuer-key"></a>Toegang tot de naam van de certificaatverlener besturingselement en de sleutel van verlener
-De naam van de certificaatverlener Access Control en sleutel van verlener worden gebruikt door het volgende:
+## <a name="access-control-issuer-name-and-issuer-key"></a>De naam van een Access Control-verlener en sleutel van verlener
+De naam van Access Control verlener en sleutel van verlener worden gebruikt door het volgende:
 
-* Uw Azure BizTalk Service-toepassing in Visual Studio gemaakt: als u wilt uw BizTalk Service-toepassing in Visual Studio implementeren naar Azure, u de naam van de certificaatverlener Access Control en sleutel van verlener invoeren. 
-* De Azure BizTalk Services-Portal: Wanneer u een BizTalk Service maakt en de BizTalk Services-Portal te openen, uw naam van de certificaatverlener Access Control en sleutel van verlener worden automatisch geregistreerd voor uw implementaties met dezelfde Access Control-waarden.
+* Uw Azure BizTalk Service-toepassing in Visual Studio hebt gemaakt: als u wilt uw BizTalk Service-toepassing in Visual Studio implementeren naar Azure, voert u de naam van Access Control verlener en sleutel van verlener. 
+* De Azure BizTalk Services-Portal: Wanneer u een BizTalk Service maken en openen van de BizTalk Services-Portal, de naam van Access Control verlener en sleutel van verlener worden automatisch geregistreerd voor uw implementaties met dezelfde Access Control-waarden.
 
-### <a name="get-the-access-control-issuer-name-and-issuer-key"></a>De naam van de certificaatverlener Access Control en sleutel van verlener
+### <a name="get-the-access-control-issuer-name-and-issuer-key"></a>Ophalen van de naam van Access Control verlener en sleutel van verlener
 
-Om ACS gebruiken voor verificatie en krijgt u de naam van verlener en sleutel van verlener waarden, worden de algemene stappen omvatten:
+Als u ACS gebruikt voor verificatie en de naam en sleutel van verlener waarden ophaalt, de algemene stappen zijn onder andere:
 
 1. Installeer de [Azure Powershell-cmdlets](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-2. Uw Azure-account toevoegen:`Add-AzureAccount`
-3. Retourneert de abonnementsnaam van uw:`get-azuresubscription`
-4. Selecteer uw abonnement:`select-azuresubscription <name of your subscription>` 
-5. Maak een nieuwe naamruimte:`new-azuresbnamespace <name for the service bus> "Location" -CreateACSNamespace $true -NamespaceType Messaging`
+2. Uw Azure-account toevoegen: `Add-AzureAccount`
+3. Retourneert de abonnementsnaam van uw: `get-azuresubscription`
+4. Selecteer uw abonnement: `select-azuresubscription <name of your subscription>` 
+5. Maak een nieuwe naamruimte: `new-azuresbnamespace <name for the service bus> "Location" -CreateACSNamespace $true -NamespaceType Messaging`
 
-    Voorbeeld:`new-azuresbnamespace biztalksbnamespace "South Central US" -CreateACSNamespace $true -NamespaceType Messaging`
+    Voorbeeld:    `new-azuresbnamespace biztalksbnamespace "South Central US" -CreateACSNamespace $true -NamespaceType Messaging`
       
-5. Wanneer de nieuwe ACS-naamruimte wordt gemaakt (dit kan enkele minuten duren), worden de naam van verlener en sleutel van verlener waarden staan in de verbindingsreeks: 
+5. Wanneer de nieuwe ACS-naamruimte wordt gemaakt (dit kan enkele minuten duren), wordt de naam en sleutel van verlener waarden worden weergegeven in de verbindingsreeks: 
 
     ```
     Name                  : biztalksbnamespace
@@ -67,30 +67,30 @@ Om ACS gebruiken voor verificatie en krijgt u de naam van verlener en sleutel va
     NamespaceType         : Messaging
     ```
 
-Samengevat:  
-De naam van certificaatverlener SharedSecretIssuer =  
-Sleutel van verlener SharedSecretKey =
+Samenvatting:  
+Naam van verlener = SharedSecretIssuer  
+Sleutel van verlener = SharedSecretKey
 
-Meer op de [nieuw AzureSBNamespace](https://msdn.microsoft.com/library/dn495165.aspx) cmdlet. 
+Meer op de [New-AzureSBNamespace](https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace) cmdlet. 
 
-## <a name="service-bus-issuer-name-and-issuer-key"></a>Naam van Service Bus verlener en sleutel van verlener
-Naam van Service Bus verlener en sleutel van verlener worden gebruikt door de BizTalk Adapter Services. In uw BizTalk Services-project in Visual Studio gebruikt u de BizTalk Adapter Services verbinding maken met een on-premises Line-of-Business (LOB)-systeem. Als u wilt verbinden, de Relay LOB maken en voer de details van uw LOB-systeem. Wanneer u dit doet, typt u ook de naam van Service Bus verlener en sleutel van verlener.
+## <a name="service-bus-issuer-name-and-issuer-key"></a>Naam van Service Bus-verlener en sleutel van verlener
+Naam van Service Bus-verlener en sleutel van verlener worden gebruikt door de BizTalk Adapter Services. In uw BizTalk Services-project in Visual Studio gebruikt u de BizTalk Adapter Services verbinding maken met een on-premises Line-of-Business (LOB)-systeem. Als u wilt verbinden, maken de Bedrijfstakomleiding en voer de details van uw LOB-systeem. Wanneer u dit doet, voert u ook de naam van Service Bus-verlener en sleutel van verlener.
 
-### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Voor het ophalen van de naam van Service Bus verlener en sleutel van verlener
+### <a name="to-retrieve-the-service-bus-issuer-name-and-issuer-key"></a>Om op te halen van de naam van Service Bus-verlener en sleutel van verlener
 1. Meld u aan bij [Azure Portal](http://portal.azure.com).
-2. Zoeken naar **Service Bus**, selecteer de naamruimte. 
-3. Open de **gedeeld toegangsbeleid** eigenschappen, selecteert u het beleid en bekijk de **verbindingsreeks** voor de naam en sleutelwaarden.  
+2. Zoeken naar **Service Bus**, en selecteer de naamruimte. 
+3. Open de **beleid voor gedeelde toegang** eigenschappen, selecteert u uw beleid en bekijk de **Connection String** voor de naam en sleutelwaarden die zijn.  
 
 ## <a name="next"></a>Volgende
 Aanvullende onderwerpen voor Azure BizTalk Services:
 
 * [De Azure BizTalk Services SDK installeren](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
-* [Zelfstudies: Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+* [Zelfstudie: Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
 * [De Azure BizTalk Services SDK gaan gebruiken](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 * [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## <a name="see-also"></a>Zie ook
-* [How to: ACS-Management-Service gebruiken voor het configureren van de Service-identiteiten](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
+* [Hoe: ACS Management-Service gebruiken om te configureren van Service-identiteiten](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
 * [BizTalk Services: Developer, Basic, Standard en Premium-edities grafiek](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
 * [BizTalk Services: inrichten](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
 * [BizTalk Services: statusgrafiek voor de inrichting](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 08/08/2018
 ms.author: kumud
-ms.openlocfilehash: f8779af725346a456efe8e718cfc8ff3a91c72fc
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: dad76ab9f2a1a621fb513a4d411792fe2f88a557
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325248"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005872"
 ---
 # <a name="azure-load-balancer-standard-overview"></a>Overzicht van Azure Load Balancer Standard
 
@@ -64,7 +64,15 @@ De back-endpool kan bevatten zelfstandige virtuele machines, beschikbaarheidsset
 
 Wanneer u overweegt over het ontwerpen van uw back-endgroep, u kunt ontwerpen voor het minste aantal resources in de afzonderlijke back-end nog verder verbeteren van de duur van beheerbewerkingen.  Er is geen verschil in gegevens vlak prestaties of schaal.
 
-## <a name="az"></a>Beschikbaarheidszones
+### <a name="probes"></a>Statuscontroles
+  
+Standard Load Balancer voegt ondersteuning toe voor [HTTPS statuscontroles](load-balancer-custom-probe-overview.md#httpprobe) (HTTP-test met Transport Layer Security (TLS)-wrapper) voor het bewaken van uw toepassingen HTTPS nauwkeurig.  
+
+Bovendien, als de volledige back-endpool [tests omlaag](load-balancer-custom-probe-overview.md#probedown), Standard Load Balancer kunt u alle tot stand gebrachte TCP-verbindingen om door te gaan. (Basic Load Balancer wordt beëindigd als alle TCP-verbindingen op alle exemplaren).
+
+Beoordeling [Load Balancer statuscontroles](load-balancer-custom-probe-overview.md) voor meer informatie.
+
+### <a name="az"></a>Beschikbaarheidszones
 
 Standard Load Balancer biedt ondersteuning voor aanvullende mogelijkheden in regio's waar Beschikbaarheidszones beschikbaar zijn.  Deze functies zijn alle Standard Load Balancer biedt.  Beschikbaarheidszones configuraties zijn beschikbaar voor openbare en interne Standard Load Balancer.
 
@@ -167,7 +175,7 @@ Er zijn geen veranderlijke SKU's. Volg de stappen in deze sectie om te verplaats
 
 ### <a name="migrate-from-basic-to-standard-sku"></a>Migreren van Basic naar Standard-SKU
 
-1. Maak een nieuwe Standard-resource (Load Balancer en openbare IP-adressen, indien nodig). Opnieuw maken van uw regels en test definities.
+1. Maak een nieuwe Standard-resource (Load Balancer en openbare IP-adressen, indien nodig). Opnieuw maken van uw regels en test definities.  Als u een test TCP 443/tcp eerder, u kunt dit protocol test wijzigen naar een HTTPS-test en voegt u een pad.
 
 2. Maak een nieuwe of bestaande NSG op de NIC of subnet update naar verkeer met gelijke lijst met toegestane adressen, test, evenals andere verkeer dat u wilt toestaan.
 
@@ -177,7 +185,7 @@ Er zijn geen veranderlijke SKU's. Volg de stappen in deze sectie om te verplaats
 
 ### <a name="migrate-from-standard-to-basic-sku"></a>Migreren van Standard naar de basis-SKU
 
-1. Maak een nieuwe Basic-resource (Load Balancer en openbare IP-adressen, indien nodig). Opnieuw maken van uw regels en test definities. 
+1. Maak een nieuwe Basic-resource (Load Balancer en openbare IP-adressen, indien nodig). Opnieuw maken van uw regels en test definities.  Hiermee wijzigt u een HTTPS-test in een test TCP 443/tcp. 
 
 2. De standaard-SKU-resources (Load Balancer en openbare IP-adressen, zoals van toepassing) verwijderen uit alle VM-exemplaren. Zorg ervoor dat ook verwijderen van alle VM-exemplaren van een beschikbaarheidsset.
 
@@ -218,15 +226,16 @@ Standaardversie van Load Balancer is een gebracht product op basis van het aanta
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over het gebruik van [Standard Load Balancer en Beschikbaarheidszones](load-balancer-standard-availability-zones.md)
+- Meer informatie over het gebruik van [Standard Load Balancer en Beschikbaarheidszones](load-balancer-standard-availability-zones.md).
+- Meer informatie over [statuscontroles](load-balancer-custom-probe-overview.md).
 - Meer informatie over [Beschikbaarheidszones](../availability-zones/az-overview.md).
 - Meer informatie over [standaardversie van Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
 - Meer informatie over [ondersteunde multi-dimensionale metrische gegevens](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftnetworkloadbalancers) voor diagnostische gegevens in [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).
-- Meer informatie over het gebruik van [Load Balancer voor uitgaande verbindingen](load-balancer-outbound-connections.md)
-- Meer informatie over [standaardversie van Load Balancer met HA-poorten in load balancer-regels](load-balancer-ha-ports-overview.md)
-- Meer informatie over het gebruik van [Load Balancer met meerdere front-ends](load-balancer-multivip-overview.md)
+- Meer informatie over het gebruik van [Load Balancer voor uitgaande verbindingen](load-balancer-outbound-connections.md).
+- Meer informatie over [standaardversie van Load Balancer met regels voor taakverdeling HA-poorten in](load-balancer-ha-ports-overview.md).
+- Meer informatie over het gebruik van [Load Balancer met meerdere front-ends](load-balancer-multivip-overview.md).
 - Meer informatie over [virtuele netwerken](../virtual-network/virtual-networks-overview.md).
 - Meer informatie over [Netwerkbeveiligingsgroepen](../virtual-network/security-overview.md).
-- Meer informatie over [VNet-Service-eindpunten](../virtual-network/virtual-network-service-endpoints-overview.md)
+- Meer informatie over [VNet-Service-eindpunten](../virtual-network/virtual-network-service-endpoints-overview.md).
 - Informatie over een aantal van de andere sleutel [netwerkmogelijkheden die](../networking/networking-overview.md) in Azure.
 - Meer informatie over [Load Balancer](load-balancer-overview.md).

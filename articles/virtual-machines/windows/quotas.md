@@ -1,6 +1,6 @@
 ---
-title: quota voor Azure vCPU | Microsoft Docs
-description: Meer informatie over vCPU quota's voor Azure.
+title: vCPU-quota's voor Azure | Microsoft Docs
+description: Meer informatie over vCPU-quota voor Azure.
 keywords: ''
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: dffc76151e0739bf56091d987bf21d02b5bfb1e2
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 991deed871594efd310cfd24c5e9fc6a369b1a75
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716540"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628695"
 ---
-# <a name="virtual-machine-vcpu-quotas"></a>Virtuele machine vCPU quota
+# <a name="virtual-machine-vcpu-quotas"></a>Virtuele machine vCPU-quota
 
-De quota vCPU voor virtuele machines en virtuele-machineschaalsets worden gerangschikt in twee lagen voor elk abonnement in elke regio. De eerste laag is de totale regionale vcpu's en de tweede laag is de verschillende VM grootte familie kernen zoals de D-reeks vcpu's. Elke keer dat een nieuwe virtuele machine is geïmplementeerd de vcpu's voor de virtuele machine moet niet groter zijn dan het vCPU quotum voor de VM-grootte familie of het totale aantal regionale vCPU quotum. Als een van de quota's is overschreden, wordt de VM-implementatie niet toegestaan. Er is ook een quotum voor het totale aantal virtuele machines in de regio. De details over elk van deze quota kunnen worden weergegeven de **gebruik + quota** sectie van de **abonnement** pagina in de [Azure-portal](https://portal.azure.com), of u kunt een query voor de waarden die met behulp van PowerShell.
+De vCPU-quota's voor virtuele machines en schaalsets voor virtuele machines zijn gerangschikt in twee lagen voor elk abonnement, in elke regio. De eerste laag is het totaal aantal regionale vcpu's en de tweede laag is de verschillende VM-grootte familie-kernen, zoals de D-serie vcpu's. Telkens wanneer een nieuwe virtuele machine is geïmplementeerd de vcpu's voor de virtuele machine mag niet groter zijn dan het vCPU-quotum voor de familie van VM-grootte of het totale aantal regionale vCPU-quotum. Als een van deze quota worden overschreden, wordt de VM-implementatie niet toegestaan. Er is ook een quotum voor het totale aantal virtuele machines in de regio. De informatie over elk van deze quota kunnen worden weergegeven de **gebruik + quota** sectie van de **abonnement** pagina in de [Azure-portal](https://portal.azure.com), of u kunt een query voor de waarden met behulp van PowerShell.
 
  
-## <a name="check-usage"></a>Controleer gebruik
+## <a name="check-usage"></a>Gebruik controleren
 
 U kunt de [Get-AzureRmVMUsage](/powershell/module/azurerm.compute/get-azurermvmusage) cmdlet om te controleren op het quotagebruik van uw.
 
@@ -35,7 +35,7 @@ U kunt de [Get-AzureRmVMUsage](/powershell/module/azurerm.compute/get-azurermvmu
 Get-AzureRmVMUsage -Location "East US"
 ```
 
-De uitvoer ziet er ongeveer als volgt:
+De uitvoer ziet er ongeveer als volgt uit:
 
 ```
 Name                             Current Value Limit  Unit
@@ -79,10 +79,10 @@ Premium Storage Managed Disks                1 10000 Count
 
 
 ## <a name="reserved-vm-instances"></a>Gereserveerde VM-instanties
-Gereserveerde VM-instanties, die zijn gericht op één abonnement, wordt een nieuwe aspect toevoegen aan de vCPU-quota. Deze waarden worden beschreven van het aantal exemplaren van de opgegeven grootte aan die geïmplementeerd in het abonnement worden moet. Ze werken als tijdelijke aanduiding in het quotumsysteem om ervoor te zorgen dat quotum om ervoor te zorgen gereserveerde exemplaren zijn geïmplementeerd in het abonnement is gereserveerd. Bijvoorbeeld, als een specifiek abonnement 10 Standard_D1 gereserveerde heeft exemplaren te beperken tot het gebruik van Standard_D1 gereserveerde exemplaren worden 10. Hierdoor wordt Azure om ervoor te zorgen dat er altijd ten minste 10 vcpu's beschikbaar in het totaal aantal regionale Vcpu quotum zijn moet worden gebruikt voor Standard_D1 exemplaren en er ten minste 10 vcpu's beschikbaar in het standaard D-reeks vCPU quotum zijn moet worden gebruikt voor Standard_D1 exemplaren.
+Gereserveerde VM-instanties, die zijn gericht op één abonnement, wordt een nieuwe aspect toegevoegd aan de vCPU-quota. Deze waarden wordt het aantal exemplaren van de opgegeven grootte die kan worden geïmplementeerd in het abonnement moet worden beschreven. Ze werken als een tijdelijke aanduiding in het quotumsysteem om ervoor te zorgen dat quotum om ervoor te zorgen gereserveerde VM-instanties zijn geïmplementeerd in het abonnement is gereserveerd. Bijvoorbeeld, als een specifiek abonnement heeft 10 Standard_D1 gereserveerde VM-exemplaren de limiet voor het gebruik van voor Standard_D1 gereserveerde VM-exemplaren is 10. Dit zorgt ervoor dat Azure om ervoor te zorgen dat er altijd ten minste 10 vcpu's beschikbaar in het totaal aantal regionale Vcpu-quotum zijn moet worden gebruikt voor Standard_D1 exemplaren en er ten minste 10 vcpu's beschikbaar in de Standard D-serie vCPU-quotum zijn moet worden gebruikt voor Standard_D1 exemplaren.
 
-Als u een verhoging van het quotum is vereist om aan te schaffen een k met één abonnement, kunt u [aanvragen van een verhoging van het quotum](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) op uw abonnement.
+Als u een quotaverhoging vereist is voor één abonnement gereserveerde instantie aanschaft, kunt u [een verhoging aanvragen](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) voor uw abonnement.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over facturering en quota's [Azure-abonnement en Servicelimieten, quota's en beperkingen](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=/azure/billing/TOC.json).
+Zie voor meer informatie over facturering en quota voor [Azure-abonnement en Servicelimieten, quotums en beperkingen](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=/azure/billing/TOC.json).

@@ -4,7 +4,7 @@ description: Over het gebruik van de timer triggers in Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: Azure functions, functies, gebeurtenisverwerking, dynamische Computing, serverloze architectuur
@@ -14,15 +14,15 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 02/27/2017
+ms.date: 08/08/2018
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: 8459c08866fb71e755663aaddd32015af8b0d1df
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6712fb0865284ccc2b84e3c2fcd49972f541f69b
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345239"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004212"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timertrigger voor Azure Functions 
 
@@ -178,7 +178,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**type** | N.v.t. | Moet worden ingesteld op 'timerTrigger'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
 |**direction** | N.v.t. | Moet worden ingesteld op 'in'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
 |**De naam** | N.v.t. | De naam van de variabele die staat voor het timerobject in functiecode aan te geven. | 
-|**schedule**|**ScheduleExpression**|Een [CRON-expressie](#cron-expressions) of een [TimeSpan](#timespan) waarde. Een `TimeSpan` kan alleen worden gebruikt voor een functie-app die wordt uitgevoerd op een App Service-Plan. U kunt de schema-expressie opnemen in een app-instelling en deze eigenschap instellen op de app-instelling van de naam van verpakt in **%** tekenen, zoals in dit voorbeeld: "% ScheduleAppSetting %". |
+|**schedule**|**ScheduleExpression**|Een [CRON-expressie](#cron-expressions) of een [TimeSpan](#timespan) waarde. Een `TimeSpan` kan alleen worden gebruikt voor een functie-app die wordt uitgevoerd op een App Service-Plan. U kunt de schema-expressie opnemen in een app-instelling en deze eigenschap instellen op de app-instelling van de naam van verpakt in ** % ** tekenen, zoals in dit voorbeeld: "% ScheduleAppSetting %". |
 |**runOnStartup**|**RunOnStartup**|Als `true`, de functie wordt aangeroepen wanneer de runtime wordt gestart. De runtime wordt bijvoorbeeld gestart wanneer de functie-app, ontwaakt nadat er een niet-actieve vanwege inactiviteit. Wanneer de functie-app opnieuw wordt gestart vanwege functie wijzigingen, en wanneer de functie-app wordt geschaald. Dus **runOnStartup** moet zelden of nooit worden ingesteld op `true`, zoals brengt de code uitvoeren op zeer onvoorspelbare tijdstippen.|
 |**useMonitor**|**UseMonitor**|Ingesteld op `true` of `false` om aan te geven of het schema moet worden gecontroleerd. Bewaking van de planning zich blijft voordoen planning exemplaren om te helpen ervoor te zorgen dat de planning correct wordt bijgehouden, zelfs wanneer de functie app-exemplaren opnieuw starten. Als niet expliciet is ingesteld, de standaardinstelling is `true` voor schema's met een interval dat groter is dan 1 minuut. Voor schema's die meer dan één keer per minuut activeren is de standaardwaarde is `false`.
 
@@ -259,6 +259,8 @@ Of maak een app-instelling voor uw functie-app met de naam `WEBSITE_TIME_ZONE` e
 ```json
 "schedule": "0 0 10 * * *"
 ``` 
+
+Bij het gebruik `WEBSITE_TIME_ZONE`, de tijd wordt aangepast aan wijzigingen in de specifieke tijdzone, zoals de zomer-en wintertijd. 
 
 ## <a name="timespan"></a>TimeSpan
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/31/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: a43b70d2ce7a8205903fb877ea056dea88ac8bb5
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 2990ba290dfdaf45d8a341138ea515bad16d5b30
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389606"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628168"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure-Stream bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma
 
@@ -50,11 +50,11 @@ Ook raadpleegt u de [Veelgestelde vragen over Azure Event Hubs](../event-hubs/ev
 
 ## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>Hoe stel ik Azure-tenant door gegevens te controleren in kunnen worden gestreamd naar een event hub?
 
-Azure-tenant door gegevens te controleren is momenteel alleen beschikbaar voor Azure Active Directory. U kunt de gegevens van [Azure Active Directory-rapportage](../active-directory/active-directory-reporting-azure-portal.md), die de geschiedenis van aanmelding activiteit en audit audittrail van wijzigingen in een bepaalde tenant bevat.
+Azure-tenant door gegevens te controleren is momenteel alleen beschikbaar voor Azure Active Directory. U kunt de gegevens van [Azure Active Directory-rapportage](../active-directory/reports-monitoring/overview-reports.md), die de geschiedenis van aanmelding activiteit en audit audittrail van wijzigingen in een bepaalde tenant bevat.
 
 ### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>Azure Active Directory-gegevens in een event hub Stream
 
-Voor het verzenden van gegevens uit de Azure Active Directory-logboek in een Event Hubs-naamruimte, instellen van de diagnostische instelling van een tenant van uw AAD-tenant. [Deze handleiding volgt](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md) voor het instellen van de diagnostische instelling van een tenant.
+Voor het verzenden van gegevens uit de Azure Active Directory-logboek in een Event Hubs-naamruimte, instellen van de diagnostische instelling van een tenant van uw AAD-tenant. [Deze handleiding volgt](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) voor het instellen van de diagnostische instelling van een tenant.
 
 ## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>Hoe stel ik Azure-abonnement door gegevens te controleren in kunnen worden gestreamd naar een event hub?
 

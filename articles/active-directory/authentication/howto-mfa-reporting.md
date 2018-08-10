@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: bb5a005ba553d6392bf1427a4c2bba9ac5aad191
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: dc4cd28fe61c422f65f47c74c7cbc4686d73ab77
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358663"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628831"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapporten in de Azure multi-factor Authentication
 
@@ -50,7 +50,7 @@ Het aanmeldingenrapport kunt u voorzien van informatie over het gebruik van behe
 - Hoeveel gebruikers kunnen MFA niet voltooien?
 - Wat zijn de meest voorkomende MFA-problemen waarmee eindgebruikers te maken hebben?
 
-Deze gegevens zijn beschikbaar via de [Azure-portal](https://portal.azure.com) en de [rapportage-API](../active-directory-reporting-api-getting-started-azure-portal.md).
+Deze gegevens zijn beschikbaar via de [Azure-portal](https://portal.azure.com) en de [rapportage-API](../reports-monitoring/concept-reporting-api.md).
 
 ![Cloud](./media/howto-mfa-reporting/sign-in-report.png)
 

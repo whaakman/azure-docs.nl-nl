@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 08/08/2018
 ms.author: marsma
-ms.openlocfilehash: b56f2a8b2ae8cf04b8c27ab657be3f4d77ee7402
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: d2f7769469c9f3ebdbef5fc6ee1f09b1acd573ef
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205388"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715826"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Verifiëren met Azure Container Registry uit Azure Kubernetes Service
 
@@ -72,7 +72,7 @@ echo "Service principal password: $SP_PASSWD"
 
 U kunt nu de service-principal-referenties opslaan in een Kubernetes [installatiekopie pull geheim][image-pull-secret], die uw AKS-cluster verwijst bij het uitvoeren van containers.
 
-Gebruik de volgende **kubectl** opdracht naar de Kubernetes-geheim maken. Vervang `<acr-login-server>` met de volledig gekwalificeerde naam van uw Azure-containerregister (dit is in de indeling 'acrname.azurecr.io'). Vervang `<service-principal-ID>` en `<service-principal-password>` door de waarden die u hebt verkregen door het vorige script is uitgevoerd.
+Gebruik de volgende **kubectl** opdracht naar de Kubernetes-geheim maken. Vervang `<acr-login-server>` met de volledig gekwalificeerde naam van uw Azure-containerregister (dit is in de indeling 'acrname.azurecr.io'). Vervang `<service-principal-ID>` en `<service-principal-password>` door de waarden die u hebt verkregen door het vorige script is uitgevoerd. Vervang `<email-address>` met elk grammaticaal correcte e-mailadres.
 
 ```bash
 kubectl create secret docker-registry acr-auth --docker-server <acr-login-server> --docker-username <service-principal-ID> --docker-password <service-principal-password> --docker-email <email-address>

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/17/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 416565a248fc9ef0861b5309d71fdac3b8fccc22
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 3d88ac7adc950e2c216824f74586ff6ef4f70712
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116058"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715767"
 ---
 # <a name="understand-role-definitions"></a>Roldefinities begrijpen
 
@@ -141,12 +141,12 @@ De [eigenaar](built-in-roles.md#owner) rol voor Els en de [Gegevensbijdrager voo
 
 Eigenaar
 
-&nbsp;&nbsp;&nbsp;&nbsp;acties<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Acties<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
 Gegevensbijdrager voor opslagblob (preview-versie)
 
-&nbsp;&nbsp;&nbsp;&nbsp;acties<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Acties<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/write`<br>
@@ -214,7 +214,7 @@ De `NotDataActions` machtiging Hiermee geeft u de bewerkingen voor gegevens die 
 
 ## <a name="assignablescopes"></a>assignableScopes
 
-De `AssignableScopes` -eigenschap geeft de scopes (beheergroepen (die momenteel in preview), abonnementen, resourcegroepen of resources) dat de functie beschikbaar voor toewijzing is. U kunt de rol beschikbaar maken voor toewijzing in alleen de abonnementen of resourcegroepen die nodig, en niet de gebruiker overbodige items hebben ervaring voor de rest van de abonnementen of resourcegroepen. Moet u ten minste één management groep, abonnement, resourcegroep of resource-ID.
+De `AssignableScopes` -eigenschap geeft de scopes (abonnementen, resourcegroepen of resources) dat de functie beschikbaar voor toewijzing is. U kunt de rol beschikbaar maken voor toewijzing in alleen de abonnementen of resourcegroepen die nodig, en niet de gebruiker overbodige items hebben ervaring voor de rest van de abonnementen of resourcegroepen. Moet u ten minste één abonnement, resourcegroep of resource-ID.
 
 Ingebouwde rollen hebben een `AssignableScopes` ingesteld op het bereik van de hoofdmap (`"/"`). Het bereik van de hoofdmap geeft aan dat de functie beschikbaar voor toewijzing in alle bereiken is. Voorbeelden van geldige toewijsbare bereiken zijn:
 

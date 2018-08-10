@@ -2,22 +2,21 @@
 title: Azure SQL Database-bestand ruimtebeheer | Microsoft Docs
 description: Deze pagina wordt beschreven hoe u voor het beheren van bestandsruimte met Azure SQL Database, en bevat voorbeelden van code voor het bepalen of u moet voor het verkleinen van een database ook hoe om uit te voeren een database bewerking verkleinen.
 services: sql-database
-author: CarlRabeler
+author: oslake
 manager: craigg
 ms.service: sql-database
 ms.custom: how-to
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: carlrab
-ms.openlocfilehash: 9d461c2b9b01ef269decbcae920cb4d2a1824f38
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.date: 08/08/2018
+ms.author: moslake
+ms.openlocfilehash: 5dce07996191af3df3a4bdf16b211c29d59a994f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620498"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003855"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Ruimte in Azure SQL Database beheren
-
 Dit artikel beschrijft de verschillende typen opslagruimte in Azure SQL Database en de stappen die kunnen worden uitgevoerd wanneer de bestandsruimte voor databases toegewezen en elastische pools moet expliciet worden beheerd.
 
 ## <a name="overview"></a>Overzicht
@@ -33,7 +32,7 @@ Er zijn patronen van werkbelasting waarbij de toewijzing van onderliggende gegev
 Gegevensbestanden als u wilt vrijmaken van ongebruikte toegewezen ruimte vanwege de mogelijke impact op de prestaties van de database niet automatisch wordt verkleind door de SQL-database-service.  Klanten kunnen echter gegevensbestanden via de self-service-verkleinen op een tijdstip van hun keuze met de volgende stappen wordt beschreven in [Reclaim ongebruikte ruimte toegewezen](#reclaim-unused-allocated-space). 
 
 > [!NOTE]
-> In tegenstelling tot gegevensbestanden en verkleint de service SQL Database automatisch logboekbestanden omdat die bewerking is niet van invloed op de prestaties van de database.
+> In tegenstelling tot gegevensbestanden en verkleint de service SQL Database automatisch logboekbestanden omdat die bewerking is niet van invloed op de prestaties van de database. 
 
 ## <a name="understanding-types-of-storage-space-for-a-database"></a>Typen van de opslagruimte voor een database
 
@@ -49,7 +48,7 @@ Inzicht krijgen in de volgende storage space aantallen zijn belangrijk voor het 
 
 Het volgende diagram illustreert de relatie tussen de verschillende typen opslagruimte voor een database.
 
-![ruimte opslagtypen en relaties](./media/sql-database-file-space-management/storage-types.png)
+![ruimte opslagtypen en relaties](./media/sql-database-file-space-management/storage-types.png) 
 
 ## <a name="query-a-database-for-storage-space-information"></a>Query uitvoeren op een database voor storage space informatie
 

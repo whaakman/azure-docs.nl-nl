@@ -3,7 +3,7 @@ title: Voorbeelden van Azure Event Hubs | Microsoft Docs
 description: Voorbeelden van Azure Event Hubs
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2018
-ms.author: sethm
-ms.openlocfilehash: 8e80587f7b3f6b0cb081fd963848c7aa3ab11e3e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: shvija
+ms.openlocfilehash: fbde6e5a5ed053d6c151b3af25535c397a496ef4
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431253"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005331"
 ---
 # <a name="event-hubs-samples"></a>Event Hubs-voorbeelden 
-U kunt voorbeelden voor Event Hubs vinden op [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Deze voorbeelden ziet u de belangrijkste functies in [Azure Event Hubs](/azure/event-hubs/). In dit artikel worden gecategoriseerd en een beschrijving van de voorbeelden die beschikbaar zijn, met koppelingen naar elk.
+U kunt voorbeelden voor Event Hubs vinden op [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Deze voorbeelden demonstreren belangrijke functies in [Azure Event Hubs](/azure/event-hubs/). In dit artikel worden gecategoriseerd en een beschrijving van de voorbeelden die beschikbaar zijn, met koppelingen naar elk.
 
 ## <a name="net-samples"></a>.NET-voorbeelden
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: a9f684eccefab3e43d9b2b7a364b245a53519f76
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 31a632138a4946accfcab858b7b61782fb4e7d72
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389677"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005368"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-azure-powershell"></a>Maken, weergeven of verwijderen van een gebruiker toegewezen identiteit met Azure PowerShell
 
@@ -69,7 +69,7 @@ In het antwoord, gebruikers-id's hebben `"Microsoft.ManagedIdentity/userAssigned
 
 Als u wilt verwijderen een gebruikers-id, gebruikt u de [Remove-AzureRmUserAssignedIdentity](/powershell/module/azurerm.managedserviceidentity/remove-azurermuserassignedidentity) opdracht.  De `-ResourceGroupName` parameter geeft u de resourcegroep waarin de gebruiker toegewezen identiteit is gemaakt en de `-Name` parameter geeft u de naam ervan. Vervang de `<RESOURCE GROUP>` en de `<USER ASSIGNED IDENTITY NAME>` parameterwaarden door uw eigen waarden:
 
- ```azurecli-interactive
+ ```azurepowershell-interactive
 Remove-AzurRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <USER ASSIGNED IDENTITY NAME>
 ```
 > [!NOTE]
@@ -78,6 +78,3 @@ Remove-AzurRmUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP> -Name <USE
 ## <a name="related-content"></a>Gerelateerde inhoud
 
 Zie voor een volledige lijst en meer details van de Azure PowerShell-MSI-opdrachten, [AzureRM.ManagedServiceIdentity](/powershell/module/azurerm.managedserviceidentity#managed_service_identity).
-
-
- 

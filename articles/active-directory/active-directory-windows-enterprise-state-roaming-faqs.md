@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: ee03ed3159ad2fc1cd8da4a84fd1be34d0b656c8
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e6cb83eb6aaaea38686c63d0f3f70738efa4bcff
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224327"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630753"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Veelgestelde vragen over instellingen en gegevensroaming
 In dit artikel vindt u antwoorden op enkele vragen die IT-beheerders mogelijk over de instellingen en app-gegevens synchroniseren.
@@ -99,7 +99,7 @@ Enterprise State Roaming dat alle gesynchroniseerde gegevens worden opgeslagen i
 ## <a name="who-owns-the-data-thats-being-roamed"></a>Wie is eigenaar van de gegevens die wordt wordt zwerven?
 De eigen ondernemingen de gegevens zwerven via Enterprise State Roaming. Gegevens worden opgeslagen in een Azure-datacenter. Alle gegevens van de gebruiker is versleuteld, zowel in-transit en in rust in de cloud met behulp van de Azure Rights Management-service van Azure Information Protection. Dit is een verbetering ten opzichte van Microsoft-account gebaseerde instellingen sync, waarmee alleen bepaalde gevoelige gegevens, zoals gebruikersreferenties worden versleuteld voordat het apparaat verlaat.
 
-Microsoft waakt bescherming van gegevens van de klant. Gegevens van de instellingen van de ondernemingsgebruiker van een is automatisch versleuteld door de Azure Rights Management-service voordat het verlaten van een Windows 10-apparaat, zodat er geen andere gebruiker deze gegevens kan lezen. Als uw organisatie een betaald abonnement voor de Azure Rights Management-service heeft, u kunt gebruiken van andere functies voor gegevensbeveiliging, zoals bijhouden en intrekken van documenten, automatisch e-mailberichten met gevoelige informatie beveiligen en beheren van uw eigen sleutels (de 'bring Your own key'-oplossing, ook wel BYOK). Zie voor meer informatie over deze functies en de werking van deze beveiligingsservice [wat is Azure Rights Management](https://docs.microsoft.com/azure/information-protection/understand-explore/what-is-information-protection).
+Microsoft waakt bescherming van gegevens van de klant. Gegevens van de instellingen van de ondernemingsgebruiker van een is automatisch versleuteld door de Azure Rights Management-service voordat het verlaten van een Windows 10-apparaat, zodat er geen andere gebruiker deze gegevens kan lezen. Als uw organisatie een betaald abonnement voor de Azure Rights Management-service heeft, u kunt gebruiken van andere functies voor gegevensbeveiliging, zoals bijhouden en intrekken van documenten, automatisch e-mailberichten met gevoelige informatie beveiligen en beheren van uw eigen sleutels (de 'bring Your own key'-oplossing, ook wel BYOK). Zie voor meer informatie over deze functies en de werking van deze beveiligingsservice [wat is Azure Rights Management](/azure/information-protection/what-is-information-protection).
 
 ## <a name="can-i-manage-sync-for-a-specific-app-or-setting"></a>Kan ik synchronisatie uit voor de instelling van een specifieke app of beheren?
 In Windows 10 is er geen MDM of Groepsbeleid-instelling uitschakelen van roaming voor een afzonderlijke toepassing. Tenantbeheerders appdata synchronisatie uit voor alle apps op een beheerd apparaat kunnen uitschakelen, maar er is geen mate van controle op het niveau van een per-app of in-app.

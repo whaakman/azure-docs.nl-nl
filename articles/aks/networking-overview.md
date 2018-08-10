@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 08/08/2018
 ms.author: marsma
-ms.openlocfilehash: cfe034d6dcac48d7c9e4b2ce17e4926a81a27886
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 1d7855ff840fc1dd68effb19c43c3a691bd15d62
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216101"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714669"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuratie van het netwerk in Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,7 @@ Wanneer u een Azure Kubernetes Service (AKS)-cluster maakt, kunt u selecteren ui
 
 ## <a name="basic-networking"></a>Netwerkgebruik
 
-De **Basic** optie netwerken is de standaardconfiguratie voor het AKS-cluster maken. De netwerkconfiguratie van het cluster en de schillen volledig worden beheerd door Azure, en is geschikt voor implementaties die niet te worden aangepast VNet-configuratie hoeven. U hebt controle over de configuratie van het netwerk, zoals subnetten of het IP-adresbereiken die zijn toegewezen aan het cluster wanneer u netwerkgebruik selecteert.
+De **Basic** optie netwerken is de standaardconfiguratie voor het AKS-cluster maken. De netwerkconfiguratie van het cluster en de schillen volledig wordt beheerd door Azure, en is geschikt voor implementaties die niet te worden aangepast VNet-configuratie hoeven. U hebt controle over de configuratie van het netwerk, zoals subnetten of het IP-adresbereiken die zijn toegewezen aan het cluster wanneer u netwerkgebruik selecteert.
 
 Knooppunten in een AKS-cluster is geconfigureerd voor gebruik van eenvoudige netwerken de [kubenet] [ kubenet] Kubernetes-invoegtoepassing.
 
@@ -97,15 +97,14 @@ Wanneer u een AKS-cluster maakt, kunnen de volgende parameters worden geconfigur
 
 **Subnet**: het subnet binnen het VNet waar u het cluster te implementeren. Als u een nieuw subnet in het VNet voor uw cluster te maken wilt, selecteert u *nieuw* en volg de stappen in de *subnet maken* sectie.
 
-**Kubernetes-service-adresbereik**: de *Kubernetes service-adresbereik* is het IP-adresbereik van waaruit de adressen die zijn toegewezen aan Kubernetes-services in uw cluster (Zie voor meer informatie over Kubernetes-services, [ Services] [ services] in het Kubernetes-documentatie).
-
-De Kubernetes-service IP-adresbereik:
+**Kubernetes-service-adresbereik**: dit is de set van virtuele IP-adressen die Kubernetes wordt toegewezen aan [services] [ services] in uw cluster. U kunt elk bereik met privé-adres dat voldoet aan de volgende vereisten:
 
 * Moet niet binnen het VNet-IP-adresbereik van het cluster
 * Mag niet overlappen met een andere vnet's die van het cluster VNet collega 's
 * Mag niet overlappen met een on-premises-IP-adressen
+* Moet niet binnen de bereiken `169.254.0.0/16`, `172.30.0.0/16`, of `172.31.0.0/16`
 
-Onvoorspelbaar gedrag kan veroorzaken als er overlappende IP-adresbereiken worden gebruikt. Bijvoorbeeld, als een schil probeert te krijgen tot een IP-adres buiten het cluster, en er ook IP moet een IP-adres voor de service gebeurt, ziet u mogelijk onvoorspelbaar gedrag en fouten.
+Hoewel het technisch mogelijk om op te geven van een service-adresbereik binnen hetzelfde VNet als uw cluster, wordt doen zo niet aanbevolen. Onvoorspelbaar gedrag kan veroorzaken als er overlappende IP-adresbereiken worden gebruikt. Zie voor meer informatie de [Veelgestelde vragen over](#frequently-asked-questions) sectie van dit artikel. Zie voor meer informatie over Kubernetes-services, [Services] [ services] in het Kubernetes-documentatie.
 
 **IP-adres van Kubernetes DNS-service**: het IP-adres van het cluster DNS-service. Dit adres moet zich binnen de *Kubernetes service-adresbereik*.
 
@@ -154,6 +153,10 @@ De volgende vragen en antwoorden van toepassing op de **Geavanceerd** netwerkcon
 * *Hoe configureer ik extra eigenschappen voor het subnet dat ik heb tijdens het maken van de AKS-cluster gemaakt? Bijvoorbeeld, service-eindpunten.*
 
   De volledige lijst met eigenschappen voor de VNet en subnetten die u tijdens het maken van de AKS-cluster maakt kan worden geconfigureerd in de standaard pagina met de VNet-configuratie in Azure portal.
+
+* *Kan ik een ander subnet binnen mijn cluster VNet gebruiken voor de* **Kubernetes service-adresbereik**?
+
+  Het wordt niet aanbevolen, maar deze configuratie is mogelijk. Het adresbereik van de service is een set van virtuele IP-adressen (VIP's) die Kubernetes wordt toegewezen aan de services in uw cluster. Azure-netwerk heeft geen zichtbaarheid van het service-IP-adresbereik van het Kubernetes-cluster. Vanwege de afwezigheid van inzicht in het adresbereik van het cluster-service is het mogelijk te maken later een nieuw subnet in het VNet dat met het adresbereik van de service overlapt-cluster. Als deze een overlapping optreedt, toewijzen Kubernetes een service een IP-adres dat wordt al gebruikt door een andere resource in het subnet of fouten in onvoorspelbaar gedrag veroorzaken. Door ervoor te zorgen dat u een adresbereik buiten de VNet van het cluster gebruikt, kunt u dit risico overlapping te vermijden.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -13,15 +13,15 @@ ms.component: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: af3ba66bbc0be3aca3999abc6a0de5ec0e0aae95
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 922658f75a0d00998072c7bd8f2160e9db27f318
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621433"
+ms.locfileid: "39627787"
 ---
 # <a name="using-the-audit-log-in-pim"></a>Met behulp van het auditlogboek in PIM
-U kunt het auditlogboek Privileged Identity Management (PIM) gebruiken om te zien van alle toewijzingen van gebruikers en activeringen binnen een bepaalde periode. Als u wilt zien van de volledige controlegeschiedenis van activiteit in uw tenant, met inbegrip van de beheerder, eindgebruikers en synchronisatieactiviteit, kunt u de [Azure Active Directory-toegang en gebruik rapporten.](../active-directory-reporting-azure-portal.md)
+U kunt het auditlogboek Privileged Identity Management (PIM) gebruiken om te zien van alle toewijzingen van gebruikers en activeringen binnen een bepaalde periode. Als u wilt zien van de volledige controlegeschiedenis van activiteit in uw tenant, met inbegrip van de beheerder, eindgebruikers en synchronisatieactiviteit, kunt u de [Azure Active Directory-toegang en gebruik rapporten.](../reports-monitoring/overview-reports.md)
 
 ## <a name="navigate-to-the-audit-log"></a>Navigeer in het auditlogboek opgenomen
 Uit de [Azure-portal](https://portal.azure.com) dashboard, selecteer de **Azure AD Privileged Identity Management** app. Van daaruit toegang krijgen tot het auditlogboek door te klikken op **bevoorrechte rollen beheren** > **controlegeschiedenis** in de PIM-dashboard.

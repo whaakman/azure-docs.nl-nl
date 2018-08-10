@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 1d08518a23dfe4a9cc63bf3f35ee69ea1815595f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c8c0f4c3f99aa413531f54c1807883fcd73f039a
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38239948"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627930"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Beveiligen van bevoegde toegang voor cloud- en hybride implementaties in Azure AD
 
@@ -380,7 +380,7 @@ Als u wilt bepalen [eigendom van een Azure-abonnement naar een ander account ove
 
 4. Hulp krijgen van Microsoft door [openen van een Azure-ondersteuningsaanvraag](../../azure-supportability/how-to-create-azure-support-request.md).
 
-5. Bekijk de [Azure AD-aanmeldingsrapporten](../active-directory-reporting-azure-portal.md). Er is mogelijk een vertraging tussen een gebeurtenis plaatsvindt en wanneer deze is opgenomen in het rapport.
+5. Bekijk de [Azure AD-aanmeldingsrapporten](../reports-monitoring/overview-reports.md). Er is mogelijk een vertraging tussen een gebeurtenis plaatsvindt en wanneer deze is opgenomen in het rapport.
 
 6. Voor hybride omgevingen, als federatieve en uw AD FS-server niet beschikbaar is, moet u mogelijk tijdelijk overschakelen van federatieve verificatie hash Wachtwoordsynchronisatie te gebruiken. Hierdoor wordt de domein-Federatie naar beheerde verificatie totdat de AD FS-server beschikbaar.
 

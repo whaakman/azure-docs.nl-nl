@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: ellacroi
-ms.openlocfilehash: ce862758d97737d16ef26ca7172cad39f8d8336a
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 95ad327380707dcfe14aa5aa3d91b8da2309eb05
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359962"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630888"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner klant gebruik attribution
 
@@ -55,23 +55,8 @@ Toevoegen van de GUID is een één wijziging van de belangrijkste sjabloon:
 
 ## <a name="sample-template-code"></a>Voorbeeldcode van sjabloon
 
-```
+![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/tracking-sample-code-for-lu-1.PNG?token=Ak8ZDB0JzsBdUGlKEIeHNJRS7b0BWn4Gks5bbMwwwA%3D%3D)
 
-{ // add this resource to the mainTemplate.json (do not add the entire file)
-      "apiVersion": "2018-02-01",
-      "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your GUID here
-      "type": "Microsoft.Resources/deployments",
-      "properties": {
-        "mode": "Incremental",
-        "template": {
-          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-          "contentVersion": "1.0.0.0",
-          "resources": []
-        }
-      }
-    } // remove all comments from the file when done
-
-```
 
 ## <a name="method-2-azure-resource-manager-apis"></a>Methode 2: Azure Resource Manager API 's
 
@@ -81,6 +66,8 @@ Als u een Azure Resource Manager-sjabloon gebruikt, moet u de oplossing met behu
 
 **Informatie over het taggen van een implementatie met behulp van de Azure Resource Manager API's:** voor deze benadering gebruikt bij het ontwerpen van uw API-aanroepen dat u een GUID in de koptekst van de gebruiker agent in de aanvraag bevat. De GUID moet worden toegevoegd voor elke aanbieding of SKU.  De tekenreeks moet zijn geformatteerd met het voorvoegsel van de pid - en neemt u de partner gegenereerde GUID.   
 
+![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG?token=Ak8ZDDiokRcj4PJj0aMkZmfF8BdOuOTzks5bbM35wA%3D%3D)
+
 >[!Note] 
 >GUID-indeling voor invoegen in de gebruikersagent: pid-eb7927c8-dd66-43e1-b0cf-c346a422063 / / Voer uw GUID na de 'pid-'
 
@@ -88,13 +75,7 @@ De indeling van de tekenreeks is belangrijk. Als het voorvoegsel 'pid-' niet opg
 
 **Voorbeeld met behulp van de Python-SDK:** voor Python, moet u het kenmerk "configuratie" gebruiken. U kunt alleen toevoegen aan een UserAgent. Hier volgt een voorbeeld:
 
-```python
-
-client = azure.mgmt.servicebus.ServiceBusManagementClient(**parameters)
-        client.config.add_user_agent("pid-eb7927c8-dd66-43e1-b0cf-c346a422063")
-
-
-```
+![](https://raw.githubusercontent.com/ellacroi/azure-docs-pr/lu-images-again-dangit-all/articles/marketplace/media/marketplace-publishers-guide/python-for-lu.PNG?token=Ak8ZDK5Um4J6oY-7x25tuBpa168BEiYMks5bbMuUwA%3D%3D)
 
 >Dit moet worden uitgevoerd voor elke client, er is geen globale statische configuratie (u kunt kiezen een factory client om er zeker van dat elke client zoiets doen. 
 >[Aanvullende referentie-informatie](https://github.com/Azure/azure-cli/blob/7402fb2c20be2cdbcaa7bdb2eeb72b7461fbcc30/src/azure-cli-core/azure/cli/core/commands/client_factory.py#L70-L79)

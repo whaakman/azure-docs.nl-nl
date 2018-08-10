@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 5b4a15204a934bf55810fcdccd48a7a15a48c5ed
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 9d4d7633428cd174a31214db2db6b6d9928230bd
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258181"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627913"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Stream Azure diagnostische logboeken naar een event hub
-**[Diagnostische logboeken in Azure](monitoring-overview-of-diagnostic-logs.md)**  kan worden gestreamd in bijna realtime voor elke toepassing met behulp van de ingebouwde 'Exporteren naar Event Hubs'-optie in de Portal of door in te schakelen van de Event Hub autorisatie regel-ID in een diagnostische instelling via de Azure PowerShell-Cmdlets of Azure CLI 2.0.
+**[Diagnostische logboeken in Azure](monitoring-overview-of-diagnostic-logs.md) ** kan worden gestreamd in bijna realtime voor elke toepassing met behulp van de ingebouwde 'Exporteren naar Event Hubs'-optie in de Portal of door in te schakelen van de Event Hub autorisatie regel-ID in een diagnostische instelling via de Azure PowerShell-Cmdlets of Azure CLI 2.0.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>U kunt doen met diagnostische logboeken en Event Hubs
 Hier volgen een paar manieren waarop u de streaming-mogelijkheden voor diagnostische logboeken kunt gebruiken:
@@ -195,6 +195,6 @@ U kunt ook diagnostische logboeken van de Compute-resources met behulp van de Wi
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Logboeken van de Stream Azure Active Directory met Azure Monitor](../active-directory/reporting-azure-monitor-diagnostics-azure-event-hub.md)
-* [Meer informatie over hoe Azure diagnostische logboeken](monitoring-overview-of-diagnostic-logs.md)
+* [Logboeken van de Stream Azure Active Directory met Azure Monitor](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
+* [Meer informatie over Azure-logboeken met diagnostische gegevens](monitoring-overview-of-diagnostic-logs.md)
 * [Aan de slag met Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)

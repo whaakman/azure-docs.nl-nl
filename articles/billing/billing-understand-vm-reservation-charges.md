@@ -1,6 +1,6 @@
 ---
-title: Azure-gereserveerde exemplaren korting begrijpen | Microsoft Docs
-description: Meer informatie over hoe Azure gereserveerde VM-instantie korting wordt toegepast op virtuele machines worden uitgevoerd.
+title: Korting op Azure Reserved VM Instances begrijpen | Microsoft Docs
+description: Meer informatie over hoe de korting voor Azure gereserveerde VM-instantie wordt toegepast op virtuele machines worden uitgevoerd.
 services: billing
 documentationcenter: ''
 author: yashesvi
@@ -11,54 +11,61 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
+ms.date: 08/08/2018
 ms.author: yashar
-ms.openlocfilehash: d1229a49a5bb3bf3198c91a748ed37b7a626c506
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: bce4e05cbc4ecc8a44f2929eecbeee4093d39652
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063845"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628355"
 ---
-# <a name="understand-how-the-reserved-instance-discount-is-applied"></a>Begrijpen hoe de gereserveerde exemplaar korting wordt toegepast
-Nadat u een exemplaar van Azure gereserveerde virtuele machine hebt gekocht, wordt de gereserveerde exemplaar korting automatisch toegepast op virtuele machines die overeenkomt met de kenmerken en de hoeveelheid van het gereserveerde exemplaar. Een gereserveerde exemplaar bevat informatie over de kosten van de infrastructuur van uw virtuele machines. De volgende tabel ziet u de kosten voor uw virtuele machine na de aankoop van een gereserveerde exemplaar. In alle gevallen moet u in rekening worden gebracht voor opslag en netwerken op de normale tarieven.
+# <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Begrijpen hoe de Azure reserveringskorting wordt toegepast op virtuele machines
 
-| Type van de virtuele Machine  | Kosten met gereserveerde exemplaar |    
+Nadat u een virtuele Machine voor Azure gereserveerde instantie koopt, wordt de reserveringskorting wordt automatisch toegepast op virtuele machines die overeenkomen met de kenmerken en de hoeveelheid van de reservering. Een reservering dekt de kosten voor rekenuren van uw virtuele machines.
+
+Zie voor SQL-Database gereserveerde capaciteit, [korting op Azure Reserved Instances begrijpen](billing-understand-reservation-charges.md).
+
+De volgende tabel ziet u de kosten voor uw virtuele machine na de aankoop van gereserveerde VM-instantie. In alle gevallen moet u betalen voor opslag en netwerken op basis van de normale tarieven.
+
+| Type virtuele Machine  | Kosten in rekening gebracht met gereserveerde VM-exemplaar |
 |-----------------------|--------------------------------------------|
-|Virtuele Linux-machines zonder extra software | Het gereserveerde exemplaar bevat informatie over de kosten van uw VM-infrastructuur.|
-|Virtuele Linux-machines met de software-kosten (bijvoorbeeld Red Hat) | Het gereserveerde exemplaar bevat informatie over de kosten van de infrastructuur. Worden in rekening gebracht voor andere software.|
-|VM's van Windows zonder extra software |Het gereserveerde exemplaar bevat informatie over de kosten van de infrastructuur. Worden in rekening gebracht voor Windows-software.|
-|Windows-VM's met aanvullende software (bijvoorbeeld SQL server) | Het gereserveerde exemplaar bevat informatie over de kosten van de infrastructuur. Er worden in rekening gebracht voor Windows-software en voor andere software.|
-|Windows-VM's met [Azure hybride Benefit](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | Het gereserveerde exemplaar bevat informatie over de kosten van de infrastructuur. De kosten voor de Windows-software, het voordeel van de hybride Azure vallen. Geen extra software wordt afzonderlijk in rekening gebracht.| 
+|Virtuele Linux-machines zonder aanvullende software | De reservering dekt de kosten van uw VM-infrastructuur.|
+|Virtuele Linux-machines met de kosten voor software (bijvoorbeeld, Red Hat) | De reservering heeft betrekking op de infrastructuurkosten. U betaalt voor extra software.|
+|Windows-machines zonder aanvullende software |De reservering heeft betrekking op de infrastructuurkosten. U betaalt voor Windows-software.|
+|Windows-VM's met aanvullende software (bijvoorbeeld SQL server) | De reservering heeft betrekking op de infrastructuurkosten. U betaalt voor Windows-software en voor andere software.|
+|Windows-VM's met [Azure Hybrid Benefit](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | De reservering heeft betrekking op de infrastructuurkosten. De kosten voor de Windows-software zijn inbegrepen bij de Azure Hybrid Benefit. Aanvullende software wordt afzonderlijk in rekening gebracht.| 
 
-## <a name="application-of-reserved-instance-discount-to-non-windows-vms"></a>Toepassing van gereserveerde exemplaar korting naar niet - Windows virtuele machines
- De gereserveerde exemplaar van Azure korting wordt toegepast op de VM-exemplaren op uurbasis uitgevoerd. De gereserveerde exemplaren die u hebt aangeschaft worden vergeleken met het gebruik dat is verzonden door de actieve virtuele machines toe te passen de korting gereserveerde exemplaar. Voor virtuele machines die mogelijk niet het volledige uur uitgevoerd, wordt het gereserveerde exemplaar ingevuld van andere VM's die niet met een gereserveerde exemplaar, met inbegrip van gelijktijdig uitgevoerde VM's. Aan het einde van het uur, is de gereserveerde exemplaar-toepassing voor virtuele machines in het uur vergrendeld. In het geval van een virtuele machine kan niet worden uitgevoerd voor een uur of gelijktijdige virtuele machines binnen het uur vult u het uur van de gereserveerde exemplaar niet, wordt het gereserveerde exemplaar onderbenutte voor dat uur. De volgende grafiek ziet u de toepassing van een gereserveerde exemplaar op factureerbare VM-gebruik. De afbeelding is gebaseerd op één exemplaar van de gereserveerde inkoop en twee overeenkomende VM-exemplaren.
+## <a name="application-of-reservation-discount-to-non-windows-vms"></a>Toepassing van de reserveringskorting op niet - Windows-VM 's
 
-![Schermopname van één exemplaar van toegepaste gereserveerd en twee overeenkomende VM-exemplaren](media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-application.png)
+ De Azure reserveringskorting wordt toegepast op het uitvoeren van VM-exemplaren op uurbasis. De reserveringen die u hebt aangeschaft, zijn afgestemd op het gebruik dat wordt verzonden door de actieve virtuele machines naar past de reserveringskorting toe. Voor virtuele machines die mogelijk niet volledig uur worden uitgevoerd, wordt de reservering van andere virtuele machines niet met behulp van een reservering, inclusief het gelijktijdig uitvoeren van virtuele machines worden gevuld. Aan het einde van het uur, is de reservering-toepassing voor virtuele machines in het uur vergrendeld. In het geval van een virtuele machine wordt niet uitgevoerd voor een uur of gelijktijdige VM's binnen het uur vult u het uur van de reservering niet, wordt de reservering gebruikt voor dat uur. In het volgende diagram ziet u de toepassing van een reservering factureerbare VM-gebruik. De afbeelding is gebaseerd op één reserveringsaankoop en twee overeenkomende VM-exemplaren.
 
-1.  Enig gebruik die hoger is dan de regel gereserveerde exemplaar opgehaald in rekening gebracht volgens de tarieven van de reguliere betalen naar gebruik. Bent u niet in rekening gebracht voor enig gebruik onder de regel gereserveerde exemplaren omdat deze al is betaald als onderdeel van de gereserveerde exemplaar aankoop.
-2.  1 uur, exemplaar 1 0,75 uur uitgevoerd en exemplaar 2 0,5 uur uitgevoerd. Totaal gebruik voor 1 uur is 1,25 uur. Er zijn de tarieven voor betalen naar gebruik in rekening gebracht voor de resterende 0,25 uur.
-3.  Voor het uur 2 en 3 uur, worden beide exemplaren 1 uur uitgevoerd. Een exemplaar wordt gedekt door het gereserveerde exemplaar en de andere in rekening gebracht volgens de tarieven voor betalen naar gebruik.
-4.  Gedurende 4 uur, exemplaar 1 0,5 uur uitgevoerd en exemplaar 2 uur uitgevoerd. Exemplaar 1 volledig wordt gedekt door het gereserveerde exemplaar en 0,5 uren van 2-exemplaar wordt behandeld. U bent de betalen naar gebruik snelheid in rekening gebracht voor de resterende 0,5 uur.
+![Schermafbeelding van een toegepaste reservering en twee gegevensbronnen die overeenkomt met de VM-exemplaren](media/billing-reserved-vm-instance-application/billing-reserved-vm-instance-application.png)
 
-Om te begrijpen en de toepassing van uw Azure-gereserveerde exemplaren in gebruiksrapporten facturering, Zie [gereserveerde exemplaar begrijpen gebruik](https://go.microsoft.com/fwlink/?linkid=862757).
+1. Gebruik dat hoger is dan de reserveringsregel wordt in rekening gebracht op de normale betalen per gebruik-tarieven betalen. U kunt geen kosten in rekening gebracht voor het gebruik onder de lijn reserveringen omdat deze al is betaald als onderdeel van het kopen van reserveringen.
+2. Uur 1, 1 exemplaar 0,75 uur wordt uitgevoerd en exemplaar 2 0,5 uur wordt uitgevoerd. Totaal gebruik voor 1 uur is 1,25 uur. U bent de betalen naar gebruik-tarieven in rekening gebracht voor de resterende 0,25 uur.
+3. Voor het uur 2 en 3 uur, die beide exemplaren worden uitgevoerd voor één uur. Één exemplaar wordt gedekt door de reservering en de andere wordt in rekening gebracht tegen betalen per gebruik-tarieven.
+4. 4 uur, 1 exemplaar 0,5 uur wordt uitgevoerd en exemplaar 2 voor 1 uur wordt uitgevoerd. Exemplaar 1 volledig wordt gedekt door de reservering en 0,5 uur van 2-exemplaar wordt behandeld. U bent de betalen naar gebruik-tarief in rekening gebracht voor de resterende 0,5 uur.
 
-## <a name="application-of-reserved-instance-discount-to-windows-vms"></a>Toepassing van gereserveerde exemplaar korting op Windows-VM 's
-Wanneer u exemplaren van de virtuele machine van Windows uitvoert, wordt het gereserveerde exemplaar toegepast ten aanzien van de kosten van de infrastructuur. De toepassing van het gereserveerde exemplaar voor de kosten van de VM-infrastructuur voor VM's van Windows is hetzelfde als voor niet - Windows virtuele machines. U wordt afzonderlijk in rekening gebracht voor de per vCPU op basis van een Windows-software. Zie [kosten voor Windows-software met gereserveerde exemplaren](https://go.microsoft.com/fwlink/?linkid=862756). U kunt uw Windows-licentiekosten met [Azure hybride voordeel voor Windows Server] dekt (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
+Om te begrijpen en te bekijken van de toepassing van uw Azure-reserveringen in gebruiksrapporten facturering, Zie [begrijpen reservering gebruik](https://go.microsoft.com/fwlink/?linkid=862757).
+
+## <a name="application-of-reservation-discount-to-windows-vms"></a>Toepassing van de reserveringskorting op Windows-VM 's
+
+Wanneer u Windows-VM-exemplaren uitvoert, wordt de reservering wordt toegepast aan zodat de infrastructuurkosten. De toepassing van de reservering van de kosten voor de VM-infrastructuur voor Windows-VM's is hetzelfde als voor niet - Windows-VM's. U bent afzonderlijk in rekening gebracht voor Windows-software op basis van per vCPU. Zie [Windows softwarekosten met reserveringen](https://go.microsoft.com/fwlink/?linkid=862756). U kunt betrekking hebben op uw Windows licentiekosten met [Azure Hybrid Benefit voor Windows Server] (https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over gereserveerde exemplaren, de volgende artikelen:
 
-- [Wat zijn gereserveerd VM-exemplaren van Azure?](billing-save-compute-costs-reservations.md)
-- [Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-exemplaren](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gereserveerde exemplaren in Azure beheren](billing-manage-reserved-vm-instance.md)
-- [Begrijpen hoe de gereserveerde exemplaar korting wordt toegepast](billing-understand-vm-reservation-charges.md)
-- [Gebruik van de gereserveerde exemplaar voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
-- [Gereserveerde exemplaar gebruiksgegevens voor uw Enterprise enrollment begrijpen](billing-understand-reserved-instance-usage-ea.md)
-- [Gebruik voor abonnementen van de CSP gereserveerde exemplaar begrijpen](https://docs.microsoft.com/partner-center/azure-reservations)
-- [Kosten voor Windows-software niet zijn opgenomen in de gereserveerde exemplaren](billing-reserved-instance-windows-software-costs.md)
+Zie voor meer informatie over reserveringen, de volgende artikelen:
 
+- [Wat zijn Azure reserveringen?](billing-save-compute-costs-reservations.md)
+- [Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-instanties](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Betaal vooruit voor SQL Database-compute-resources met Azure SQL Database gereserveerde capaciteit](../sql-database/sql-database-reserved-capacity.md)
+- [Azure-reserveringen beheren](billing-manage-reserved-vm-instance.md)
+- [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
+- [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](billing-understand-reserved-instance-usage-ea.md)
+- [Informatie over het gebruik van de reservering voor CSP-abonnementen](https://docs.microsoft.com/partner-center/azure-reservations)
+- [Kosten van de Windows-software is niet opgenomen in de reserveringen](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
 
-Als u nog steeds meer vragen hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ophalen van uw probleem snel worden opgelost.
+Als u nog meer vragen hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.

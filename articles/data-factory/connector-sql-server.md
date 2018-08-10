@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 403f1214758c48b4c05d2ae116d0f5125c341504
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 06535cd86e32d9e5d083bfde5f1c40e345a88640
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620110"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004616"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Gegevens kopiëren naar en van SQL Server met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -444,7 +444,7 @@ Definieer de sectie SqlSink als volgt in de kopieeractiviteit.
 }
 ```
 
-In de database, definieert u de opgeslagen procedure met dezelfde naam als SqlWriterStoredProcedureName. Het ingevoerde gegevens uit de opgegeven bron- en samenvoegen in de uitvoertabel afgehandeld. U ziet dat de parameternaam van de opgeslagen procedure hetzelfde als de 'tableName zijn moet' gedefinieerd in de gegevensset.
+In de database, definieert u de opgeslagen procedure met dezelfde naam als SqlWriterStoredProcedureName. Het ingevoerde gegevens uit de opgegeven bron- en samenvoegen in de uitvoertabel afgehandeld. De parameternaam van het tabeltype in de opgeslagen procedure moet gelijk zijn aan de 'tableName' gedefinieerd in de gegevensset.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)

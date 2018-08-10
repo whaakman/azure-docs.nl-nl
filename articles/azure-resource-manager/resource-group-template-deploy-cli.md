@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: e732164e50a270b3eacdef2e5c17e6c226702103
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: c9595b0e6313dc4620b48296fdca6dc2c6ae6413
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596127"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628134"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Resources implementeren met Resource Manager-sjablonen en Azure CLI
 
@@ -197,19 +197,6 @@ Als uw sjabloon een syntaxisfout heeft, retourneert de opdracht een foutbericht 
 }
 ```
 
-[!INCLUDE [resource-manager-deployments](../../includes/resource-manager-deployments.md)]
-
-Als u volledige modus, gebruikt de `mode` parameter:
-
-```azurecli-interactive
-az group deployment create \
-  --name ExampleDeployment \
-  --mode Complete \
-  --resource-group ExampleGroup \
-  --template-file storage.json \
-  --parameters storageAccountType=Standard_GRS
-```
-
 ## <a name="sample-template"></a>Voorbeeldsjabloon
 
 De volgende sjabloon wordt gebruikt voor de voorbeelden in dit artikel. Kopieer en sla deze op als een bestand met de naam storage.json. Zie voor meer informatie over hoe u deze sjabloon maakt, [uw eerste Azure Resource Manager-sjabloon maken](resource-manager-create-first-template.md).  
@@ -261,7 +248,7 @@ De volgende sjabloon wordt gebruikt voor de voorbeelden in dit artikel. Kopieer 
 
 ## <a name="next-steps"></a>Volgende stappen
 * De voorbeelden in dit artikel worden resources implementeren op een resourcegroep in uw standaardabonnement. Zie voor het gebruik van een ander abonnement [meerdere Azure-abonnementen beheren](/cli/azure/manage-azure-subscriptions-azure-cli).
-* Zie voor een volledig voorbeeld van een script waarmee een sjabloon wordt geïmplementeerd, [script voor implementatie van Resource Manager-sjabloon](resource-manager-samples-cli-deploy.md).
+* Als u wilt opgeven voor het verwerken van resources die aanwezig zijn in de resourcegroep, maar niet zijn gedefinieerd in de sjabloon, Zie [Azure Resource Manager-implementatiemodi](deployment-modes.md).
 * Zie voor meer informatie over het definiëren van parameters in uw sjabloon, [inzicht in de structuur en de syntaxis van Azure Resource Manager-sjablonen](resource-group-authoring-templates.md).
 * Zie voor tips over het oplossen van veelvoorkomende implementatiefouten [veelvoorkomende problemen oplossen Azure-implementatie met Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Zie voor meer informatie over het implementeren van een sjabloon waarvoor een SAS-token [persoonlijke sjablonen implementeren met SAS-token](resource-manager-cli-sas-token.md).

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 446fe139e3d1abe79b877d663842f7c7c6168f19
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 01aeaee03a4cfabbda3a29cddd17febdc8a16e45
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126691"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003529"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Kies de juiste IoT Hub-laag voor uw oplossing
 
@@ -31,7 +31,7 @@ Elke laag van IoT Hub is beschikbaar in drie grootten, op basis van hoeveel gege
 
 De prijscategorie standard van IoT Hub kunt u alle functies en is vereist voor een IoT-oplossingen te maken van de mogelijkheden met bi-directionele communicatie mogelijk te gebruiken. De basic-laag kunt een subset van de functies en is bedoeld voor IoT-oplossingen die hoeft alleen Unidirectioneel communicatie tussen apparaten en de cloud. Beide lagen bieden de dezelfde functies als verificatie en beveiliging.
 
-Nadat u uw IoT-hub die u van de basic-laag naar de prijscategorie standard upgraden kunt zonder dat uw bestaande bewerkingen wordt onderbroken. Zie voor meer informatie, [upgrade uitvoeren van uw IoT-hub](iot-hub-upgrade.md). Houd er rekening mee dat de partitielimiet voor basic IoT Hub tier is 8. Wanneer u migreert van basic-laag naar de standard-laag, wordt deze limiet ongewijzigd blijft.
+Nadat u uw IoT-hub die u van de basic-laag naar de prijscategorie standard upgraden kunt zonder dat uw bestaande bewerkingen wordt onderbroken. Zie voor meer informatie, [upgrade uitvoeren van uw IoT-hub](iot-hub-upgrade.md). Houd er rekening mee dat de maximale partitielimiet voor basic-laag IoT Hub 8 is en voor de standard-laag 32 is. De meeste IoT-hubs hoeft slechts 4 partities. De limiet van de partitie wordt gekozen bij IoT Hub wordt gemaakt en is gekoppeld aan de apparaat-naar-cloud-berichten naar het aantal gelijktijdige lezers van deze berichten. Deze waarde blijft ongewijzigd wanneer u van basic-laag naar de standard-laag migreert. Let ook op dat slechts één type [edition](https://azure.microsoft.com/pricing/details/iot-hub/) binnen een laag per IoT Hub kan worden gekozen. U kunt bijvoorbeeld een IoT-Hub maken met meerdere eenheden van S1, maar niet met een combinatie van eenheden van verschillende versies, zoals S1 en B3, of S1 en S2.
 
 | Mogelijkheid | Basislaag | Standaardlaag |
 | ---------- | ---------- | ------------- |
@@ -106,6 +106,9 @@ Naast deze informatie doorvoer [IoT Hub-quota en vertragingen in] [ IoT Hub quot
 Registerbewerkingen voor identiteit van IoT-Hub zijn niet mag runtime-bewerkingen, zoals ze voornamelijk betrekking op het apparaat wordt ingericht hebben.
 
 Zie voor specifieke burst prestatiecijfers [IoT Hub-quota en vertragingen in][IoT Hub quotas and throttles].
+
+## <a name="auto-scale"></a>Automatisch schalen
+Als u de limiet voor toegestane berichten op uw IoT-Hub nadert, kunt u deze [stappen voor het automatisch schalen](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) moet worden verhoogd van een IoT Hub-eenheid in de dezelfde laag van IoT Hub.
 
 ## <a name="sharding"></a>Sharding
 Terwijl een enkele IoT-hub naar miljoenen apparaten schalen kunt, vereist soms bepaalde prestatiekenmerken die een enkele IoT-hub kan niet garanderen dat uw oplossing. In dat geval kunt u uw apparaten partitioneren over meerdere IoT-hubs. Meerdere IoT-hubs vloeiende pieken in verkeer verwerken en downloaden van de vereiste doorvoer of bewerking tarieven die vereist zijn.

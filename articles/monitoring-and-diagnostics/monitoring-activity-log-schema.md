@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 4/12/2018
 ms.author: dukek
 ms.component: activitylog
-ms.openlocfilehash: 123ae27310d70812918f3c81ac3b9a71959a6c2c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9c1f4699f067ece3108813d28ff834c68f44316d
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917224"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003828"
 ---
 # <a name="azure-activity-log-event-schema"></a>Gebeurtenisschema in het Azure-activiteitenlogboek
 De **Azure Activity Log** is een logboek dat u inzicht biedt in een abonnement op gebeurtenissen die hebben plaatsgevonden in Azure. Dit artikel beschrijft de gebeurtenisschema per categorie van gegevens. Het schema van de gegevens verschilt afhankelijk van als u bij het lezen van gegevens in de portal, PowerShell of CLI, of rechtstreeks via de REST-API ten opzichte van [streaminggegevens opslag of Event Hubs met behulp van een Logboekprofiel](./monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile). De voorbeelden hieronder ziet u het schema als beschikbaar via de portal, PowerShell, CLI en REST-API. Een toewijzing van deze eigenschappen aan de [Azure diagnostische logboeken schema](./monitoring-diagnostic-logs-schema.md) wordt geleverd aan het einde van het artikel.
@@ -120,7 +120,7 @@ Deze categorie bevat de record van alle maken, bijwerken, verwijderen en actie b
 | description |De beschrijving van de statische tekst van een gebeurtenis. |
 | eventDataId |De unieke id van een gebeurtenis. |
 | httpRequest |De BLOB met een beschrijving van de Http-aanvraag. Omvat gewoonlijk het "clientRequestId", "clientIpAddress" en "method" (HTTP-methode. For example, plaatsen). |
-| niveau |Niveau van de gebeurtenis. Een van de volgende waarden: 'Kritiek', 'Fout', 'Waarschuwing', "Ter informatie" en "Uitgebreide" |
+| niveau |Niveau van de gebeurtenis. Een van de volgende waarden: "Critical", "Error", 'Waarschuwing' en 'Ter informatie' |
 | resourceGroupName |De naam van de resourcegroep voor de betrokken resource. |
 | resourceProviderName |Naam van de resourceprovider voor de betrokken resource |
 | resourceId |Resource-ID van de betrokken resource. |
@@ -266,7 +266,7 @@ Deze categorie bevat de record van alle activeringen van de Azure-waarschuwingen
 | correlationId | Een GUID in de indeling van de verbindingsreeks. |
 | description |De beschrijving van de statische tekst van de waarschuwing gebeurtenis. |
 | eventDataId |De unieke id van de waarschuwing gebeurtenis. |
-| niveau |Niveau van de gebeurtenis. Een van de volgende waarden: 'Kritiek', 'Fout', 'Waarschuwing', "Ter informatie" en "Uitgebreide" |
+| niveau |Niveau van de gebeurtenis. Een van de volgende waarden: "Critical", "Error", 'Waarschuwing' en 'Ter informatie' |
 | resourceGroupName |De naam van de resourcegroep voor de betrokken resource als deze een waarschuwing voor metrische gegevens. Dit is de naam van de resourcegroep waarin de waarschuwing zelf voor andere typen waarschuwingen. |
 | resourceProviderName |Naam van de resourceprovider voor de betrokken resource als deze een waarschuwing voor metrische gegevens. Dit is de naam van de resourceprovider voor de waarschuwing zelf voor andere typen waarschuwingen. |
 | resourceId | Naam van de resource-ID voor de betrokken resource als deze een waarschuwing voor metrische gegevens. Dit is de resource-ID van de waarschuwing resource zelf voor andere typen waarschuwingen. |
@@ -375,7 +375,7 @@ Deze categorie bevat de record van alle gebeurtenissen die betrekking hebben op 
 | correlationId | Een GUID in de indeling van de verbindingsreeks. |
 | description |De beschrijving van de statische tekst van de gebeurtenis voor automatisch schalen. |
 | eventDataId |De unieke id van de gebeurtenis voor automatisch schalen. |
-| niveau |Niveau van de gebeurtenis. Een van de volgende waarden: 'Kritiek', 'Fout', 'Waarschuwing', "Ter informatie" en "Uitgebreide" |
+| niveau |Niveau van de gebeurtenis. Een van de volgende waarden: "Critical", "Error", 'Waarschuwing' en 'Ter informatie' |
 | resourceGroupName |De naam van de resourcegroep voor de instelling voor automatisch schalen. |
 | resourceProviderName |Naam van de resourceprovider voor de instelling voor automatisch schalen. |
 | resourceId |Resource-ID van de instelling voor automatisch schalen. |
@@ -465,10 +465,10 @@ Deze categorie bevat de record geen waarschuwingen gegenereerd door Azure Securi
 | eventDataId |De unieke id van de beveiligingsgebeurtenis. |
 | eventName |Beschrijvende naam van de beveiligingsgebeurtenis. |
 | id |De unieke resource-id van de beveiligingsgebeurtenis. |
-| niveau |Niveau van de gebeurtenis. Een van de volgende waarden: 'Kritiek', 'Fout', 'Waarschuwing', "Ter informatie" of "Uitgebreide" |
+| niveau |Niveau van de gebeurtenis. Een van de volgende waarden: "Critical", "Error", 'Waarschuwing' of 'Ter informatie' |
 | resourceGroupName |De naam van de resourcegroep voor de resource. |
 | resourceProviderName |Naam van de resourceprovider voor Azure Security Center. Altijd 'Microsoft.Security'. |
-| resourceType |Het type resource dat de beveiligingsgebeurtenis, zoals 'Microsoft.Security/locations/alerts' gegenereerd |
+| ResourceType |Het type resource dat de beveiligingsgebeurtenis, zoals 'Microsoft.Security/locations/alerts' gegenereerd |
 | resourceId |Resource-ID van de beveiligingswaarschuwing. |
 | operationId |Een GUID die wordt gedeeld tussen de gebeurtenissen die met één bewerking overeenkomen. |
 | operationName |Naam van de bewerking. |
@@ -545,11 +545,11 @@ Deze categorie bevat de record van een nieuwe aanbevelingen die worden gegeneree
 | eventDataId | De unieke id van de gebeurtenis aanbeveling. |
 | category | Altijd "Recommendation" |
 | id |De unieke resource-id van de gebeurtenis aanbeveling. |
-| niveau |Niveau van de gebeurtenis. Een van de volgende waarden: 'Kritiek', 'Fout', 'Waarschuwing', "Ter informatie" of "Uitgebreide" |
+| niveau |Niveau van de gebeurtenis. Een van de volgende waarden: "Critical", "Error", 'Waarschuwing' of 'Ter informatie' |
 | operationName |Naam van de bewerking.  Altijd "Microsoft.Advisor/generateRecommendations/action"|
 | resourceGroupName |De naam van de resourcegroep voor de resource. |
 | resourceProviderName |Naam van de resourceprovider voor de resource die deze aanbeveling is van toepassing op, zoals "MICROSOFT.COMPUTE" |
-| resourceType |Naam van het resourcetype voor de resource die deze aanbeveling is van toepassing op, zoals "MICROSOFT.COMPUTE/virtualmachines" |
+| ResourceType |Naam van het resourcetype voor de resource die deze aanbeveling is van toepassing op, zoals "MICROSOFT.COMPUTE/virtualmachines" |
 | resourceId |Resource-ID van de resource die de aanbeveling is van toepassing op |
 | status | Altijd 'Active' |
 | submissionTimestamp |Tijdstip waarop de gebeurtenis is beschikbaar voor het uitvoeren van query's geworden. |

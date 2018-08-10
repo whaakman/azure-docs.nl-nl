@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: bdbcfca64c2e680dfdf8feefe1bafdefb84981f4
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 975b3d30f242b877512312f8a5a030bde9349287
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125817"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003644"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Windows-computers verbinden met de service Log Analytics in Azure
 
@@ -154,7 +154,7 @@ Als u wilt de productcode rechtstreeks vanaf het agent-installatiepakket ophalen
     ```
 
 4. [Importeer het script van de configuratie van MMAgent.ps1](../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation) in uw Automation-account. 
-5. [Toewijzen van een Windows-computer of een knooppunt](../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-dsc) aan de configuratie. Het knooppunt controleert de configuratie ervan binnen 15 minuten en de agent wordt doorgestuurd naar het knooppunt.
+5. [Toewijzen van een Windows-computer of een knooppunt](../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration) aan de configuratie. Het knooppunt controleert de configuratie ervan binnen 15 minuten en de agent wordt doorgestuurd naar het knooppunt.
 
 ## <a name="verify-agent-connectivity-to-log-analytics"></a>Controleer de agent verbinding met Log Analytics
 

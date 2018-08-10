@@ -1,56 +1,56 @@
 ---
-title: Het verifiëren en autoriseren door Azure Time Series Insights-API
-description: In dit artikel wordt beschreven hoe configureren voor verificatie en autorisatie voor een aangepaste toepassing die de Azure Time Series Insights-API aanroept.
+title: Over het verifiëren en autoriseren door in Azure Time Series Insights-API
+description: In dit artikel wordt beschreven hoe het configureren van verificatie en autorisatie voor een aangepaste toepassing die de Azure Time Series Insights-API aanroept.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: dmden
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: 90fb5ee2bf222e260da802c149d80ed15df2e259
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 8cc19cc95a620d59def240dfd298cd87953028fa
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295084"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630575"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Verificatie en autorisatie voor Azure Time Series Insights-API
 
-Dit artikel wordt uitgelegd hoe u configureert de authenticatie en autorisatie gebruikt in een aangepaste toepassing die de Azure Time Series Insights-API aanroept.
+In dit artikel wordt uitgelegd hoe het configureren van de verificatie en autorisatie gebruikt in een aangepaste toepassing die de Azure Time Series Insights-API aanroept.
 
 ## <a name="service-principal"></a>Service-principal
 
-Deze sectie wordt uitgelegd hoe een toepassing voor toegang tot de inzicht API van tijd reeks namens de toepassing wilt configureren. De toepassing kan vervolgens een query over gegevens of referentiegegevens publiceren in de omgeving Time Series Insights met referenties van de toepassing in plaats van gebruikersreferenties.
+Deze sectie wordt uitgelegd hoe u een toepassing toegang krijgt tot de Time Series Insights-API namens de toepassing wilt configureren. De toepassing kan vervolgens gegevens op te vragen of het publiceren van referentiegegevens in de Time Series Insights-omgeving met de referenties van de toepassing in plaats van gebruikersreferenties.
 
-Wanneer u een toepassing die u toegang Time Series Insights moet hebt, moet u een Azure Active Directory-toepassing instellen en toewijzen van het toegangsbeleid van de gegevens in de Time Series Insights-omgeving. Deze aanpak is voorkeur boven het uitvoeren van de app met uw eigen referenties, omdat:
+Wanneer u een toepassing die u toegang Time Series Insights moet hebt, moet u een Azure Active Directory-toepassing instellen en toewijzen van het beleid voor gegevenstoegang in de Time Series Insights-omgeving. Deze methode heeft de voorkeur boven aan de app onder uw eigen referenties te voeren, omdat:
 
-* U kunt machtigingen toewijzen aan de identiteit van de app die afwijken van uw eigen machtigingen. Deze machtigingen zijn meestal beperkt tot alleen wat de app is vereist. U kunt bijvoorbeeld toestaan dat de app alleen lezen van gegevens in een bepaalde tijd reeks Insights-omgeving.
+* U kunt machtigingen toewijzen aan de identiteit van de app die verschillen van uw eigen machtigingen. Deze machtigingen zijn meestal beperkt tot alleen wat de app is vereist. U kunt bijvoorbeeld toestaan dat de app alleen lezen van gegevens in een specifieke Time Series Insights-omgeving.
 * U hoeft niet te wijzigen van de referenties van de app als uw verantwoordelijkheden wijzigt.
-* U kunt een certificaat of een Toepassingssleutel automatiseren verificatie wanneer u een script zonder toezicht uitvoert.
+* U kunt een certificaat of een Toepassingssleutel gebruiken voor het automatiseren van verificatie wanneer u een script zonder toezicht uitvoert.
 
-Dit artikel laat zien hoe u deze stappen uitvoert via de Azure portal. Het is gericht op een één-tenant-toepassing waarin de toepassing is bedoeld om uit te voeren in slechts één organisatie. Doorgaans gebruikt u toepassingen voor één tenant voor line-of-business-toepassingen die worden uitgevoerd in uw organisatie.
+In dit artikel wordt beschreven hoe u deze stappen uitvoert via Azure portal. Dit artikel gaat over de toepassing van een één tenant waar de toepassing is bedoeld om uit te voeren in slechts één organisatie. Doorgaans gebruikt u één tenant toepassingen voor line-of-business-toepassingen die worden uitgevoerd in uw organisatie.
 
-De setup-stroom bestaat uit drie hoofdstappen:
+De setup-stroom bestaat uit drie stappen op hoog niveau:
 
-1. Een toepassing maakt in Azure Active Directory.
-2. De autorisatie voor deze toepassing te krijgen tot de Time Series Insights-omgeving.
-3. Gebruik de toepassings-ID en de sleutel te verkrijgen van een token dat de `"https://api.timeseries.azure.com/"` doelgroep of resource. Het token kan vervolgens worden gebruikt de Time Series Insights-API aan te roepen.
+1. Maak een toepassing in Azure Active Directory.
+2. Toestaan dat deze toepassing te krijgen tot de Time Series Insights-omgeving.
+3. Gebruik de toepassings-ID en sleutel voor een token te verkrijgen de `"https://api.timeseries.azure.com/"` doelgroep of resource. Het token kan vervolgens worden gebruikt voor het aanroepen van de Time Series Insights-API.
 
-Hier volgen gedetailleerde stappen:
+Hier volgen de gedetailleerde stappen:
 
-1. Selecteer in de Azure-portal **Azure Active Directory** > **App registraties** > **registratie van de nieuwe toepassing**.
+1. Selecteer in de Azure portal, **Azure Active Directory** > **App-registraties** > **nieuwe toepassing registreren**.
 
-   ![Registratie van de nieuwe toepassing in Azure Active Directory](media/authentication-and-authorization/active-directory-new-application-registration.png)  
+   ![Nieuwe toepassing registreren in Azure Active Directory](media/authentication-and-authorization/active-directory-new-application-registration.png)  
 
-2. Geef een naam op voor de toepassing, selecteer het type moet **Web-app / API**, selecteer een geldige URI voor **aanmeldings-URL**, en klik op **maken**.
+2. Geef een naam op voor de toepassing, selecteert u het type moet **Web-app / API**, selecteer een geldige URI voor **aanmeldings-URL**, en klikt u op **maken**.
 
-   ![De toepassing in Azure Active Directory maken](media/authentication-and-authorization/active-directory-create-web-api-application.png)
+   ![De toepassing maken in Azure Active Directory](media/authentication-and-authorization/active-directory-create-web-api-application.png)
 
-3. Selecteer de zojuist gemaakte toepassing en kopieer de toepassings-ID naar uw favoriete teksteditor.
+3. Selecteer de zojuist gemaakte toepassing en de toepassings-ID kopiëren naar uw favoriete teksteditor.
 
    ![Kopieer de toepassings-ID](media/authentication-and-authorization/active-directory-copy-application-id.png)
 
@@ -58,29 +58,29 @@ Hier volgen gedetailleerde stappen:
 
    ![Sleutels van de toepassing selecteren](media/authentication-and-authorization/active-directory-application-keys.png)
 
-   ![Voer de sleutelnaam en de vervaldatum en klik op Opslaan](media/authentication-and-authorization/active-directory-application-keys-save.png)
+   ![Voer de naam van sleutel en de vervaldatum en klik op Opslaan](media/authentication-and-authorization/active-directory-application-keys-save.png)
 
-5. Kopieer de sleutel naar uw favoriete teksteditor.
+5. De sleutel kopiëren naar uw favoriete teksteditor.
 
    ![Kopieer de Toepassingssleutel](media/authentication-and-authorization/active-directory-copy-application-key.png)
 
-6. Selecteer voor de omgeving Time Series Insights **Gegevenstoegangsbeleid** en klik op **toevoegen**.
+6. Selecteer voor de Time Series Insights-omgeving, **beleid voor gegevenstoegang** en klikt u op **toevoegen**.
 
-   ![Nieuwe gegevens toegangsbeleid toevoegen aan de Time Series Insights-omgeving](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)
+   ![Toegangsbeleid voor nieuwe gegevens toevoegen aan de Time Series Insights-omgeving](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)
 
-7. In de **gebruiker selecteren** in het dialoogvenster, plak de naam van de toepassing (uit stap 2) of toepassings-ID (uit stap 3).
+7. In de **Select User** in het dialoogvenster, plak de naam van de toepassing (uit stap 2) of toepassings-ID (uit stap 3).
 
    ![Een toepassing niet vinden in het dialoogvenster gebruiker selecteren](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)
 
-8. Selecteer de rol (**lezer** voor het opvragen van gegevens, **Inzender** voor het opvragen van gegevens en het wijzigen van referentiegegevens) en klik op **Ok**.
+8. Selecteer de rol (**lezer** voor het opvragen van gegevens, **Inzender** voor het opvragen van gegevens en referentiegegevens wijzigen) en klikt u op **Ok**.
 
-   ![Lezer of bijdrager kiezen in het dialoogvenster rol selecteren](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)
+   ![Lezer of Inzender kiezen in het dialoogvenster rol selecteren](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)
 
-9. Het beleid opslaan door te klikken op **Ok**.
+9. Sla het beleid door te klikken op **Ok**.
 
-10. Gebruik de toepassings-ID (uit stap 3) en de sleutel van de toepassing (uit stap 5) te verkrijgen van het token voor de toepassing is. Het token kan vervolgens worden doorgegeven de `Authorization` header wanneer de toepassing de Time Series Insights-API aanroept.
+10. Gebruik de toepassings-ID (uit stap 3) en de sleutel van de toepassing (uit stap 5) om het token namens de toepassing te verkrijgen. Het token kan vervolgens worden doorgegeven de `Authorization` header wanneer de Time Series Insights-API-aanroepen van de toepassing.
 
-    Als u van C# gebruikmaakt, kunt u de volgende code te verkrijgen van het token voor de toepassing is. Zie voor een compleet codevoorbeeld [opvragen van gegevens met C#](time-series-insights-query-data-csharp.md).
+    Als u C#, kunt u de volgende code om het token namens de toepassing te verkrijgen. Zie voor een compleet voorbeeld [gegevens opvragen met C#](time-series-insights-query-data-csharp.md).
 
     ```csharp
     var authenticationContext = new AuthenticationContext(
@@ -99,11 +99,11 @@ Hier volgen gedetailleerde stappen:
     string accessToken = token.AccessToken;
     ```
 
-De toepassings-ID en de sleutel in uw toepassing voor verificatie met Azure Time Series inzicht gebruiken. 
+De toepassings-ID en sleutel gebruiken in uw toepassing om te verifiëren met Azure Time Series Insight. 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Zie voor een voorbeeld van code die de Time Series Insights-API aanroept, [opvragen van gegevens met C#](time-series-insights-query-data-csharp.md).
-- Zie voor API-naslaginformatie, [Query API-referentiemateriaal](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
+- Zie voor een voorbeeld van code die de Time Series Insights-API aanroept, [gegevens opvragen met C#](time-series-insights-query-data-csharp.md).
+- Voor de API-referentie-informatie, Zie [Query API-verwijzing](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
 
 > [!div class="nextstepaction"]
 > [Een service-principal maken](../azure-resource-manager/resource-group-create-service-principal-portal.md)

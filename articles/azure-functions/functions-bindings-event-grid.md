@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/08/2018
 ms.author: glenga
-ms.openlocfilehash: 0875829a405cafcea755d47214903c6ccab4ff16
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 6afc54bfcbef4d0714e9a09d0aa27ea4829d4dd5
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521293"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715383"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Trigger Gebeurtenisraster voor Azure Functions
 
@@ -440,12 +440,16 @@ De URL ngrok krijgt niet speciale handelingen door Event Grid, u, zodat uw funct
 
 ### <a name="create-a-subscription"></a>Een abonnement maken
 
-Maken van een Event Grid-abonnement van het type dat u wilt testen en wijs hieraan uw ngrok-eindpunt met behulp van het volgende patroon:
+Maken van een Event Grid-abonnement van het type dat u wilt testen en wijs hieraan uw ngrok-eindpunt.
 
+Gebruik dit patroon eindpunt voor functies 1.x:
 ```
 https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
 ``` 
-
+Gebruik dit patroon eindpunt voor functies 2.x:
+```
+https://{subdomain}.ngrok.io/runtime/webhooks/EventGridExtensionConfig?functionName={functionName}
+``` 
 De `functionName` parameter moet de naam die is opgegeven de `FunctionName` kenmerk.
 
 Hier volgt een voorbeeld met de Azure CLI:

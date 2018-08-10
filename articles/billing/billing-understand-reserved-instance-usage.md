@@ -1,6 +1,6 @@
 ---
-title: Gebruik Azure gereserveerde exemplaar voor uw abonnement op gebruiksbasis begrijpen | Microsoft Docs
-description: Informatie over het lezen van uw gebruik om te begrijpen hoe de Azure gereserveerde VM-instantie voor uw abonnement op gebruiksbasis wordt toegepast.
+title: Informatie over het gebruik van de Azure-reservering voor betalen per gebruik-abonnement | Microsoft Docs
+description: Informatie over het lezen van uw gebruik voor meer informatie over hoe de Azure-reservering voor uw betalen per gebruik-abonnement wordt toegepast.
 services: billing
 documentationcenter: ''
 author: manish-shukla01
@@ -12,24 +12,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/09/2018
+ms.date: 08/08/2018
 ms.author: manshuk
-ms.openlocfilehash: 7e303f3e5ce0e618d941be4190f6fadb40f2e09d
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: cf1d7c67fe6033bf41317e75a33349ae07ecf643
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063854"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627880"
 ---
-# <a name="understand-reserved-instance-usage-for-your-pay-as-you-go-subscription"></a>Gebruik van de gereserveerde exemplaar voor uw abonnement op gebruiksbasis begrijpen
+# <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Gebruik Azure-reservering voor uw abonnement op gebruiksbasis begrijpen
 
-Het gebruik van een exemplaar van Azure gereserveerde VM begrijpen met behulp van de ReservationId van [reservering pagina](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) en het bestand informatie over het gebruik van de [Accounts in Azure portal](https://account.azure.com).
+Gebruik de ReservationId van [reservering pagina](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) en het gebruiksbestand van de [Accounts in Azure portal](https://account.azure.com) om te evalueren van het gebruik van uw reservering.
 
+Als u een klant met een Enterprise Agreement, Zie [begrijpen reservering gebruik voor uw Enterprise-inschrijving.](billing-understand-reserved-instance-usage-ea.md).
 
->[!NOTE]
->In dit artikel geldt niet voor EA klanten. Als u een klant EA, Zie [gebruiksgegevens voor uw Enterprise enrollment gereserveerde exemplaar begrijpen.](billing-understand-reserved-instance-usage-ea.md) In dit artikel wordt ervan uitgegaan dat het gereserveerde exemplaar wordt toegepast op één abonnement. Als het gereserveerde exemplaar wordt toegepast op meer dan één abonnement, kan gereserveerde exemplaar voordeel meerdere informatie over het gebruik van csv-bestanden omvatten. 
+In dit artikel wordt ervan uitgegaan dat de reservering wordt toegepast op één abonnement. Als de reservering wordt toegepast op meer dan één abonnement, kan uw reserveringsvoordeel meerdere gebruik van CSV-bestanden omvatten.
 
-Voor de volgende sectie wordt ervan uitgegaan dat u een virtuele machine Standard_DS1_v2 van Windows worden uitgevoerd in de regio VS-Oost en uw gereserveerde exemplaar informatie ziet er als uit de volgende tabel:
+## <a name="usage-for-reserved-virtual-machine-instances"></a>Gebruik voor gereserveerde VM-instanties
+
+Voor de volgende secties wordt ervan uitgegaan dat u een Standard_DS1_v2 Windows virtuele machine worden uitgevoerd in de regio VS-Oost en uw gereserveerde VM-exemplaar informatie lijkt erop dat de volgende tabel:
 
 | Veld | Waarde |
 |---| :---: |
@@ -38,36 +40,69 @@ Voor de volgende sectie wordt ervan uitgegaan dat u een virtuele machine Standar
 |SKU | Standard_DS1_v2|
 |Regio | eastus |
 
-## <a name="reserved-instance-application"></a>Gereserveerde exemplaar toepassing
+De hardware-gedeelte van de virtuele machine wordt behandeld, omdat de geïmplementeerde virtuele machine komt overeen met de kenmerken van de reservering. Als u wilt zien welke Windows-software wordt niet gedekt door de gereserveerde VM-instantie, Zie [kosten voor Azure gereserveerde VM-exemplaren Windows-software](billing-reserved-instance-windows-software-costs.md)
 
-Het gedeelte hardware van de virtuele machine wordt besproken, omdat de geïmplementeerde virtuele machine overeenkomt met de gereserveerde exemplaar kenmerken. Als u wilt zien welke Windows-software wordt niet gedekt door het gereserveerde exemplaar, gaat u naar [kosten voor software van Windows Azure reserveren VM-exemplaren.](billing-reserved-instance-windows-software-costs.md)
+### <a name="statement-section-of-csv-file-for-vms"></a>De sectie overzicht van CSV-bestand voor virtuele machines
 
-### <a name="statement-section-of-csv"></a>Sectie van de csv-instructie
-Deze sectie van uw csv toont het totale gebruik voor uw gereserveerde exemplaar. Het filter toepassen op Meter subcategorie veld waarin 'Reservering-' en uw gegevens lijkt erop in de volgende schermafbeelding: ![schermafbeelding van gefilterde gereserveerde exemplaar gebruiksgegevens en kosten](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
+Deze sectie van uw CSV-bestand toont het totale gebruik voor de reservering. Het filter toepassen op de **subcategorie van de Meter** veld met **'Reservering-'**. U ziet er ongeveer als de volgende schermafbeelding:
 
-Reservering basis-VM regel bevat het totale aantal uren dat het gereserveerde exemplaar vallen. Deze regel is $0,00 omdat het exemplaar van de gereserveerde bedekt. Reservering Windows Svr (1 Kerngeheugen) regel bevat informatie over de kosten van het Windows-software.
+![Schermafbeelding van gefilterde reservering informatie over het gebruik en kosten](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-statements.png)
 
-### <a name="daily-usage-section-of-csv"></a>De sectie dagelijks gebruik van csv
-Filteren op aanvullende informatie en typt u in uw **Reserverings-ID**. De volgende schermafbeelding ziet de velden met betrekking tot het gereserveerde exemplaar. 
+De **reservering-basis-VM** regel bevat het totale aantal uren die worden gedekt door de reservering. Deze regel is $0,00 omdat de reservering bedekt. De **reservering-Windows-Server (1 Kerngeheugen)** regel dekt de kosten van Windows-software.
 
-![Schermopname van het dagelijkse gebruik en -kosten](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-details.png)
+### <a name="daily-usage-section-of-csv-file"></a>De sectie dagelijks gebruik van CSV-bestand
 
-1. **ReservationId** in aanvullende informatie is veld de gereserveerde exemplaar dat is gebruikt voor het voordeel van toepassing op de virtuele machine.
-2. ConsumptionMeter is de Meter-Id voor de virtuele machine.
-3. Reservering Base VM Meter subcategorie regel staat voor de regel van de kosten $0 in instructie sectie. Kosten van het uitvoeren van deze virtuele machine is al betaald door de gereserveerde exemplaar.
-4. Dit is de Id van de Meter voor gereserveerde exemplaar. De kosten van deze meter is $0. Een virtuele machine die in aanmerking voor gereserveerde exemplaar komt heeft deze MeterId in de csv voor het account voor de kosten. 
-5. Standard_DS1_v2 is één vCPU virtuele machine en de virtuele machine zonder Azure hybride voordeel is geïmplementeerd. Daarom deze meter bevat informatie over de extra kosten van Windows-software. Zie [kosten voor software van Windows Azure reserveren VM-exemplaren.](billing-reserved-instance-windows-software-costs.md) de meter die overeenkomt met de D-reeks 1 core VM vinden. Als Azure hybride voordeel wordt gebruikt, wordt deze extra kosten niet toegepast. 
+Filteren op **aanvullende informatie** en typt u in uw **Reserverings-ID**. De volgende schermafbeelding ziet u de velden met betrekking tot de reservering.
+
+![Schermafbeelding van informatie over het dagelijkse gebruik en kosten](./media/billing-understand-reserved-instance-usage/billing-payg-reserved-instance-csv-details.png)
+
+1. **ReservationId** in de **aanvullende informatie** veld is de reservering die wordt toegepast op de virtuele machine.
+2. **ConsumptionMeter** is de meter-ID voor de virtuele machine.
+3. De **reservering-basis-VM** **subcategorie van de Meter** regel vertegenwoordigt de kosten van $0 in de sectie overzicht. De kosten van het uitvoeren van deze virtuele machine is al betaald door de reservering.
+4. **ID meten** is de meter-ID voor de reservering. De kosten van deze meter is $0. Deze meter-id wordt weergegeven voor elke virtuele machine die in aanmerking voor de reserveringskorting komt.
+5. Standard_DS1_v2 is één vCPU VM en de virtuele machine wordt geïmplementeerd zonder Azure Hybrid Benefit. Ja, deze meter bevat informatie over de extra kosten in rekening gebracht van de Windows-software. De meter die overeenkomt met de D-serie 1-core VM Zie [softwarekosten voor Azure gereserveerde VM-exemplaren Windows](billing-reserved-instance-windows-software-costs.md). Hebt u Azure Hybrid Benefit, worden deze extra kosten wordt niet toegepast.
+
+## <a name="usage-for-sql-database-reserved-capacity-reservations"></a>Gebruik voor SQL-Database gereserveerde capaciteitsreserveringen
+
+Voor de volgende secties wordt ervan uitgegaan dat u een SQL-Database Gen 4 worden uitgevoerd in de regio VS-Oost en uw reservering informatie er ongeveer zo uitziet als de volgende tabel:
+
+| Veld | Waarde |
+|---| --- |
+|ReservationId |446ec809-423D-467c-8c5c-bbd5d22906b1|
+|Hoeveelheid |2|
+|Product| SQL Database Gen 4 (2 Kerngeheugens)|
+|Regio | eastus |
+
+### <a name="statement-section-of-csv-file"></a>De sectie overzicht van CSV-bestand
+
+Filteren op **gebruik van gereserveerde instanties** meternaam. U ziet er ongeveer als de volgende schermafbeelding:
+
+![CSV-bestand voor SQL-Database gereserveerde capaciteit](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
+
+De **gebruik van gereserveerde instanties** regel bevat het totaal aantal core-uren wordt gedekt door de reservering. Het tarief is $0 voor deze regel als de kosten voor de reservering wordt gedekt.
+
+### <a name="detail-section-of-csv-file"></a>De detailsectie van CSV-bestand
+
+Filteren op **aanvullende informatie** en typt u in uw **Reserverings-ID**. De volgende schermafbeelding ziet u de velden met betrekking tot de SQL-Database gereserveerde capaciteitsreservering.
+
+![CSV-bestand voor SQL-Database gereserveerde capaciteit](./media/billing-understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
+
+1. **ReservationId** in de **aanvullende informatie** veld is de SQL-Database gereserveerde capaciteitsreservering dat wordt toegepast op de SQL database-resource.
+2. **ConsumptionMeter** is de meter-ID voor de SQL-Database-resource.
+3. De **Meter-Id** is de meter reservering. De kosten van deze meter is $0. Een SQL Database-resources die in aanmerking komen voor de reserveringskorting deze meter-ID in het CSV-bestand bevat.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over gereserveerde exemplaren, de volgende artikelen:
 
-- [Wat zijn gereserveerd VM-exemplaren van Azure?](billing-save-compute-costs-reservations.md)
-- [Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-exemplaren](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Gereserveerde exemplaren in Azure beheren](billing-manage-reserved-vm-instance.md)
-- [Begrijpen hoe de gereserveerde exemplaar korting wordt toegepast](billing-understand-vm-reservation-charges.md)
-- [Gereserveerde exemplaar gebruiksgegevens voor uw Enterprise enrollment begrijpen](billing-understand-reserved-instance-usage-ea.md)
-- [Kosten voor Windows-software niet zijn opgenomen in de gereserveerde exemplaren](billing-reserved-instance-windows-software-costs.md)
+Zie voor meer informatie over reserveringen, de volgende artikelen:
+
+- [Wat zijn Azure reserveringen?](billing-save-compute-costs-reservations.md)
+- [Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-instanties](../virtual-machines/windows/prepay-reserved-vm-instances.md)
+- [Betaal vooruit voor SQL Database-compute-resources met Azure SQL Database gereserveerde capaciteit](../sql-database/sql-database-reserved-capacity.md)
+- [Reserveringen in Azure beheren](billing-manage-reserved-vm-instance.md)
+- [Begrijpen hoe de reserveringskorting wordt toegepast](billing-understand-vm-reservation-charges.md)
+- [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](billing-understand-reserved-instance-usage-ea.md)
+- [Kosten van de Windows-software is niet opgenomen in de reserveringen](billing-reserved-instance-windows-software-costs.md)
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
 
-Als u nog steeds meer vragen hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ophalen van uw probleem snel worden opgelost.
+Als u nog meer vragen hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.

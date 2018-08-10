@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 27068c1154a4cc5776bbcc74922ca31c4f28ced6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 4e6600d81fedd884cf415d055aedd29d163b3365
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399914"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629647"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Hoe u uw hybride Azure Active Directory join-implementatie plannen
 
@@ -96,6 +96,13 @@ Als u het hulpprogramma voor systeemvoorbereiding (Sysprep) zijn afhankelijk, zo
 Als u al op de momentopname van een virtuele Machine (VM vertrouwen,) te maken van aanvullende virtuele machines, zorg er dan voor dat u een momentopname van een virtuele machine die niet is geconfigureerd voor de hybride Azure AD join.
 
 De registratie van Windows downlevel-apparaten wordt niet ondersteund voor apparaten die zijn geconfigureerd voor gebruiker profiel roaming of zwervende referenties. Als u zwervende profielen of instellingen vertrouwen, gebruikt u Windows 10.
+
+- De registratie van Windows downlevel-apparaten **is** in omgevingen met niet-gefedereerde via naadloze eenmalige aanmelding ondersteund [Azure Active Directory naadloze eenmalige aanmelding](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
+ 
+- De registratie van Windows downlevel-apparaten **is niet** ondersteund bij het gebruik van Azure AD Pass-through-verificatie zonder naadloze eenmalige aanmelding.
+
+- De registratie van Windows downlevel-apparaten **is niet** ondersteund voor apparaten die gebruikmaken van zwervende profielen. Als u zwervende profielen of instellingen vertrouwen, gebruikt u Windows 10.
+
 
 De registratie van Windows Server met de rol van domeincontroller (DC) wordt niet ondersteund.
 

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 80b65b8bc2e2947575004269f45922e2306dd32e
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ebd9943ad7f54a329dee16d57ab980b882d508f3
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284163"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715104"
 ---
 # <a name="how-to-record-voice-samples-for-a-custom-voice"></a>Het opnemen van stem-voorbeelden voor een aangepaste spraak
 
@@ -68,13 +68,13 @@ Het beginpunt van een aangepaste spraakopname sessie is het script, waarin de ui
 
 De uitingen in het script kunnen afkomstig zijn vanaf elke locatie: fiction, niet-fiction en transcripties van toespraken, nieuws, rapporten en anders beschikbaar in de vorm afgedrukt. Als u wilt om te controleren of dat uw stem op specifieke typen van woorden (zoals medische terminologie of programming jargon) heeft, kunt u om op te nemen van zinnen vanaf wetenschappelijk documenten of technische documenten. (Zie [Legalities](#legalities) hieronder.) U kunt ook uw eigen tekst schrijven.
 
-Uw uitingen niet afkomstig moet zijn van dezelfde bron of hetzelfde type gegevensbron. Ze hoeft niet eens iets te doen met elkaar. Echter, als u gebruik instellen zinnen (bijvoorbeeld "u hebt aangemeld') in uw toepassing spraak, zorg ervoor dat u deze opnemen in uw script. Hierdoor krijgt een grotere kans van het uitspreken van deze zinnen en uw aangepaste spraak. En als een opname in plaats van kunstmatige spraak gebruiken moet u bepalen al hebt u deze in de dezelfde stem als uw kunstmatige spraak.
+Uw uitingen niet afkomstig moet zijn van dezelfde bron of hetzelfde type gegevensbron. Ze hoeft niet eens iets te doen met elkaar. Echter, als u gebruik instellen zinnen (bijvoorbeeld "u hebt aangemeld') in uw toepassing spraak, zorg ervoor dat u deze opnemen in uw script. Hierdoor krijgt een grotere kans van het uitspreken van deze zinnen en uw aangepaste spraak. En als een opname in plaats van kunstmatige spraak gebruiken moet u bepalen al hebt u deze in de dezelfde stem.
 
 Consistentie is essentieel bij het kiezen van spraak talent, is verschillende het kenmerk van een goede script. Het script moet bevatten veel verschillende woorden en zinnen met verschillende lengtes zin, structuren en stemming. Elke geluid in de taal die moet worden weergegeven meerdere keren en in de context van talrijke (met de naam *fonetische dekking).* 
 
 De tekst moet bovendien gebruikmaken van alle manieren waarop een bepaald geluid kunnen worden weergegeven in het schrijven, en elk geluid plaatsen op verschillende plaatsen in de zinnen. Zowel declaratieve zinnen en vragen moeten worden opgenomen en worden gelezen met de juiste intonation.
 
-Is het moeilijk om een script schrijven dat biedt *net voldoende* gegevens voor de aangepaste spraak-portal voor het bouwen van een goede stem. In de praktijk is de eenvoudigste manier om te maken van een script dat robuuste fonetische dekking realiseert om op te nemen van een groot aantal voorbeelden. Standard stemmen van Microsoft zijn opgebouwd uit tienduizenden uitingen. U moet voorbereid zijn om vast te leggen van een aantal verschillende duizend uitingen voor het bouwen van een aangepaste gesproken productiekwaliteit zijn.
+Is het moeilijk om een script schrijven dat biedt *net voldoende* gegevens voor de aangepaste spraak-portal voor het bouwen van een goede stem. In de praktijk is de eenvoudigste manier om te maken van een script dat robuuste fonetische dekking realiseert om op te nemen van een groot aantal voorbeelden. Standard stemmen van Microsoft zijn opgebouwd uit tienduizenden uitingen. U moet voorbereid zijn om vast te leggen van een aantal verschillende duizend uitingen ten minste voor het bouwen van een aangepaste gesproken productiekwaliteit zijn.
 
 Controleer het script zorgvuldig op fouten. Indien mogelijk, heeft iemand anders te controleren. Wanneer u met uw talent via het script uitvoert, zult u waarschijnlijk een paar meer fouten catch.
 
@@ -85,7 +85,7 @@ U kunt uw script schrijven in Microsoft Word. Het script is voor gebruik tijdens
 Een basic scriptindeling bevat drie kolommen:
 
 * Het nummer van de utterance, te beginnen bij 1. Nummering maakt het eenvoudig voor iedereen in de studio om te verwijzen naar een bepaalde utterance ("We proberen nummer 356 opnieuw'). Word lid nummering functie kunt u de rijen van de tabel automatisch moeten worden genummerd.
-* Een lege kolom waar u gaat schrijven in het getal of wanneer de code van elke utterance kunt u vinden in de registratie is voltooid.)
+* Een lege kolom waar u gaat schrijven in het getal of wanneer de code van elke utterance kunt u vinden in de registratie is voltooid.
 * De tekst van de utterance zelf.
 
 ![Voorbeeldscript](media/custom-voice/script.png)
@@ -113,7 +113,7 @@ Gelukkig is het mogelijk om volledig te voorkomen dat deze problemen. Er zijn ve
 
 ## <a name="recording-your-script"></a>Het script op te nemen
 
-Bij voorkeur, moet u uw script aan een professionele opname-studio die gespecialiseerd is in spraak werk vastleggen. Ze hebben een tolloket opnemen, de juiste apparatuur en de juiste mensen werken. Het loont niet te ruim opnemen.
+Het script op een professionele opname-studio die is gespecialiseerd in spraak werk vastleggen. Ze hebben een tolloket opnemen, de juiste apparatuur en de juiste mensen werken. Het loont niet te ruim opnemen.
 
 Bespreek uw project met opname-engineer van de studio en luister naar zijn of haar advies. De opname hebt weinig of geen dynamisch bereik compressie (maximaal 4:1). Het is essentieel dat de audio consistente volume en de verhouding van een hoge signaal ruis, terwijl deze gratis ongewenste geluiden hebben.
 
@@ -142,7 +142,7 @@ Luister goed naar een opname van stilte in uw "tolloket,' afbeelding waar elke r
 > [!TIP]
 > In sommige gevallen is het mogelijk een equalizer of een invoegtoepassing ruis vermindering software gebruiken om u te helpen ruis verwijderen uit uw opnamen, maar het is altijd verstandig om te voorkomen dat deze bij de bron.
 
-Niveaus moeten worden ingesteld, zodat die het beste van de beschikbare dynamisch bereik van digitale registratie zonder overdriving wordt gebruikt. Dit betekent dat mogelijk, maar niet dus mogelijk dat de audio geen juist beeld geeft. Hieronder volgt een voorbeeld van de stroom van een goede opname.
+Niveaus instellen, zodat die het beste van de beschikbare dynamisch bereik van digitale registratie zonder overdriving wordt gebruikt. Dit betekent dat mogelijk, maar niet dus mogelijk dat de audio geen juist beeld geeft. Hieronder volgt een voorbeeld van de stroom van een goede opname.
 
 ![goede opname golf](media/custom-voice/good-recording.png)
 
@@ -159,9 +159,9 @@ In het ideale geval hebben verschillende mensen in de rollen van director, engin
 Om te voorkomen dat ze studio tijd heeft verspild, doorloopt u het script met uw stem talent voordat de opnamesessie. Terwijl de stem-talent bekend zijn met de tekst verandert, kan hij of zij de uitspraak van woorden die niet bekend verduidelijken.
 
 > [!NOTE]
-> De meeste opname studios bieden elektronische weergave van scripts in de stand opnemen. In dit geval, typ de opmerkingen bij de uitzending rechtstreeks in document van het script. U nog steeds wilt papier aantekeningen op tijdens de sessie, maar. De meeste engineers wilt afdrukken, te. En zult u nog steeds dat het derde exemplaar als een back-up voor de talent afgedrukt als de computer niet actief is.
+> De meeste opname studios bieden elektronische weergave van scripts in de stand opnemen. In dit geval, typ de opmerkingen bij de uitzending rechtstreeks in document van het script. U nog steeds wilt papier aantekeningen op tijdens de sessie, maar. De meeste engineers wilt afdrukken, te. En zult u nog steeds dat een derde afgedrukt kopiëren als een back-up voor de talent als de computer niet actief is.
 
-Uw stem talent kan vragen die u wilt dat word FDA in een utterance. Actoren noem deze de 'kracht woord'. Ze vertellen dat u wilt dat een natuurlijke lezen met geen nadruk. Nadruk kan worden toegevoegd wanneer spraak is gemaakt; het mag geen onderdeel van de oorspronkelijke opname.
+Uw stem talent vragen die u wilt dat word FDA in een utterance '(het woord op de kracht'). Ze vertellen dat u wilt dat een natuurlijke lezen met geen nadruk. Nadruk kan worden toegevoegd wanneer spraak is gemaakt; het mag geen onderdeel van de oorspronkelijke opname.
 
 De talent moet worden uitgesproken woorden wachtwoorddelen afzonderlijk sturen. Elk woord in het script moet worden verergerd geschreven. Geluiden moeten niet worden weggelaten of samen komt veel voor bij alledaagse spraak, slurred *, tenzij ze op die manier zijn geschreven in het script.*
 
@@ -176,7 +176,7 @@ Talent moet *niet* afzonderlijke pauzes tussen woorden toevoegen. De zin moet no
 
 ### <a name="the-recording-session"></a>De opnamesessie
 
-Maak een verwijzing op te nemen, of *overeenkomst bestand* van een typische utterance aan het begin van de sessie. Vraag de talent deze regel herhalen elke pagina of pagina en een halve. Telkens wanneer de nieuwe opname Reference vergelijken. Met deze procedure kunt u de talent in volume, tempo, inspiratie en intonation consistent blijven. De engineer kunt het bestand overeenkomst in de tussentijd zorgen, gebruiken als uitgangspunt voor niveaus en algehele consistentie van geluid.
+Maak een verwijzing op te nemen, of *overeenkomst bestand* van een typische utterance aan het begin van de sessie. Vraag de talent deze regel herhalen elke pagina of zo. Telkens wanneer de nieuwe opname Reference vergelijken. Met deze procedure kunt u de talent in volume, tempo, inspiratie en intonation consistent blijven. De engineer kunt het bestand overeenkomst in de tussentijd zorgen, gebruiken als uitgangspunt voor niveaus en algehele consistentie van geluid.
 
 Het bestand vergelijken is vooral belangrijk bij het vastleggen van gegevens hervatten na een onderbreking of op een andere dag. Moet u een paar keer voor de talent spelen en laten herhalen elke keer totdat ze zijn ook overeenkomen.
 
@@ -185,12 +185,12 @@ Uw talent een grondige adem en wacht een ogenblik voordat elke utterance coachen
 Registreren van een goede vijf seconden stilte voordat de eerste registratie voor het vastleggen van de 'ruimte toon." Dit helpt de compenseren voor eventuele resterende ruis in de opnamen aangepaste spraak-portal.
 
 > [!TIP]
-> Alles wat u moet de stem-talent regels, is zodat u een mono (één kanaal) de opname van alleen de regels kunt maken. Echter, als u in stereo opneemt, u het tweede kanaal kunt gebruiken om vast te leggen van de chatter in de controlekamer om vast te leggen van de beschrijving van de specifieke regels of duurt. Dit nummer van de versie die is geüpload naar de portal voor aangepaste spraak verwijderen.
+> Alles wat u moet de talent stem is zodat u een mono (één kanaal) de opname van alleen de regels kunt maken. Echter, als u in stereo opneemt, u het tweede kanaal kunt gebruiken om vast te leggen van de chatter in de controlekamer om vast te leggen van de beschrijving van de specifieke regels of duurt. Dit nummer van de versie die is geüpload naar de portal voor aangepaste spraak verwijderen.
 
 Luister goed, hoofdtelefoon, om de prestaties van de stem-talent te gebruiken. U zoekt naar goede maar natuurlijke diction, juiste uitspraak en een gebrek aan ongewenste geluiden. Kunt u vragen uw talent om vast te leggen opnieuw een utterance die niet voldoet aan deze standaarden. 
 
 > [!TIP] 
-> Wanneer een groot aantal uitingen op te nemen, is een enkel utterance mogelijk niet een merkbare invloed op de resulterende aangepaste gesproken. Zodat deze meer wenselijk is om te weten gewoon alle uitingen met problemen worden kan, ze uitsluiten van uw gegevensset en Zie hoe uw aangepaste gesproken blijkt. U kunt altijd gaat u terug naar de studio en de gemiste voorbeelden later opnemen.
+> Als u een groot aantal uitingen gebruikt, is een eenmalige utterance mogelijk niet een merkbare invloed op de resulterende aangepaste spraak. Zodat deze meer wenselijk is om te weten gewoon alle uitingen met problemen worden kan, ze uitsluiten van uw gegevensset en Zie hoe uw aangepaste gesproken blijkt. U kunt altijd gaat u terug naar de studio en de gemiste voorbeelden later opnemen.
 
 Noteer het getal of de code op uw script tijd voor elke utterance. Vraag de engineer als ze elke utterance in de opname van metagegevens of hint blad ook kunnen markeren.
 

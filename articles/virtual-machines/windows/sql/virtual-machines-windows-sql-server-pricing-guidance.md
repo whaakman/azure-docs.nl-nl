@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/02/2018
+ms.date: 08/09/2018
 ms.author: jroth
-ms.openlocfilehash: e9033724f62b383ce70488b98a3a8919e3cb198a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: a748532de7e8b8e910e335b67a693c4470861bf1
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345274"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003556"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Prijsinformatie voor SQL Server Azure VM 's
 
@@ -90,9 +90,12 @@ Voor het maken van een SQL Server 2017 Azure VM met een van de betalen per gebru
 >
 >Deze omvatten geen aanvullende SQL Server-licentiekosten voor Web, Standard en Enterprise-edities. Als u de meest nauwkeurige schatting van de prijzen, selecteert u uw besturingssysteem en de editie van SQL Server op de pagina met prijzen voor [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) of [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
-## <a name="bring-your-own-license-byol"></a>BYOL (Bring your own license)
+## <a id="byol"></a> Uw eigen licentie (BYOL)
 
 **Uw eigen SQL Server-licentie brengen License Mobility through**, ook wel **BYOL**houdt met behulp van een bestaande SQL Server-Volume-licentie met Software Assurance in een Azure-VM. Een SQL Server-VM met BYOL alleen kosten in rekening gebracht voor de kosten van het uitvoeren van de virtuele machine, niet voor SQL Server-licentieverlening, gezien het feit dat u al licenties en Software Assurance hebt aangeschaft via een Volume Licensing-programma.
+
+> [!IMPORTANT]
+> BYOL-installatiekopieën vereist een Enterprise Agreement met Software Assurance. Ze zijn op dit moment niet beschikbaar als onderdeel van de Azure Cloud Solution Partner (CSP).
 
 > [!NOTE]
 > De BYOL-installatiekopieën zijn momenteel alleen beschikbaar voor Windows virtuele machines. U kunt echter handmatig SQL Server installeren op een alleen-Linux-VM. Zie de richtlijnen in de [Veelgestelde vragen over Linux SQL VM](../../linux/sql/sql-server-linux-faq.md).

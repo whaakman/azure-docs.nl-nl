@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 1f60b7d30c073c49d5e0a7d35e7263c2181ed744
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: e1342ed574d84ed5b4edd5060c2d6d3ec8bca1a8
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903061"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003108"
 ---
 # <a name="how-to-upgrade-your-iot-hub"></a>Upgrade uitvoeren van uw IoT-hub
 
@@ -27,7 +27,7 @@ Wanneer u meer apparaten en meer mogelijkheden nodig hebben, zijn er drie manier
 
 Deze wijzigingen kunnen optreden zonder dat bestaande bewerkingen wordt onderbroken.
 
-Als u downgraden van uw IoT-hub wilt, kunt u eenheden verwijderen en Reduceer de grootte van de IoT-hub. U kunt geen echter downgraden naar een lagere laag. U kunt bijvoorbeeld verplaatsen van de S2-laag naar de S1-laag, maar niet vanaf de S2-laag naar de laag B1. 
+Als u downgraden van uw IoT-hub wilt, kunt u eenheden verwijderen en Reduceer de grootte van de IoT-hub. U kunt geen echter downgraden naar een lagere laag. U kunt bijvoorbeeld verplaatsen van de S2-laag naar de S1-laag, maar niet vanaf de S2-laag naar de laag B1. Let ook op dat slechts één type [edition](https://azure.microsoft.com/pricing/details/iot-hub/) binnen een laag per IoT Hub kan worden gekozen. U kunt bijvoorbeeld een IoT-Hub maken met meerdere eenheden van S1, maar niet met een combinatie van eenheden van verschillende versies, zoals S1 en B3, of S1 en S2.
 
 Deze voorbeelden zijn bedoeld om te begrijpen hoe u uw IoT-hub als de oplossing wijzigingen aanpast. Voor specifieke informatie over de mogelijkheden van elke laag u moet altijd verwijzen naar [prijzen van Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/). 
 
@@ -45,7 +45,7 @@ Deze voorbeelden zijn bedoeld om te begrijpen hoe u uw IoT-hub als de oplossing 
 4. Als u wilt wijzigen van het aantal eenheden in uw hub, voer een nieuwe waarde onder **IoT Hub-eenheden**. 
 5. Selecteer **opslaan** uw wijzigingen op te slaan. 
 
-Uw IoT-hub is nu aangepast en de configuraties zijn niet gewijzigd. Houd er rekening mee dat de partitielimiet voor basic IoT Hub tier is 8. Wanneer u migreert van basic-laag naar de standard-laag, wordt deze limiet ongewijzigd blijft.
+Uw IoT-hub is nu aangepast en de configuraties zijn niet gewijzigd. Houd er rekening mee dat de maximale partitielimiet voor basic-laag IoT Hub 8 is en voor de standard-laag 32 is. De meeste IoT-Hubs hoeft slechts 4 partities. De limiet van de partitie wordt gekozen bij IoT Hub wordt gemaakt en is gekoppeld aan de apparaat-naar-cloud-berichten naar het aantal gelijktijdige lezers van deze berichten. Deze waarde blijft ongewijzigd wanneer u van basic-laag naar de standard-laag migreert. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

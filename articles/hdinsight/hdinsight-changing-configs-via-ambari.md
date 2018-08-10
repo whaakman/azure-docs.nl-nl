@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: b16020ec421eb077dca8318c765834e6f64f3235
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: a516f1a22f4bb802d1b0c93b38dd36b56e2b5e0e
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600594"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716175"
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Ambari gebruiken om de configuraties van HDInsight-clusters optimaliseren
 
@@ -25,7 +25,7 @@ Meld u aan bij de Ambari op `https://CLUSTERNAME.azurehdidnsight.net` met de clu
 
 ![Ambari-dashboard](./media/hdinsight-changing-configs-via-ambari/ambari-dashboard.png)
 
-De Ambari-Webgebruikersinterface kan worden gebruikt voor het beheren van hosts, services, waarschuwingen, configuraties en weergaven. Ambari kan t worden gebruikt om een HDInsight-cluster maken, bijwerken van services, stacks en versies beheren, buiten gebruik stellen of recommission hosts of services toevoegen aan het cluster.
+De Ambari-Webgebruikersinterface kan worden gebruikt voor het beheren van hosts, services, waarschuwingen, configuraties en weergaven. Ambari kan niet worden gebruikt om een HDInsight-cluster maken, bijwerken van services, stacks en versies beheren, buiten gebruik stellen of recommission hosts of services toevoegen aan het cluster.
 
 ## <a name="manage-your-clusters-configuration"></a>Configuratie van uw cluster beheren
 
@@ -190,7 +190,7 @@ Als een regel met de compressiemethode splitsbare is belangrijk, anders heel wei
     ![Hive exec comprimeren tussenliggende](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
     > [!NOTE]
-    > Voor het comprimeren van tussenliggende bestanden, kiest u een compressiecodec met lagere CPU kosten, zelfs als de compressiecodec t sterk gecomprimeerd-uitvoer hebben.
+    > Voor het comprimeren van tussenliggende bestanden, kiest u een compressiecodec met lagere CPU kosten, zelfs als de codec beschikt niet over een hoge mate van compressie-uitvoer.
 
 1. De aangepaste eigenschap toevoegen om in te stellen de tussenliggende compressiecodec, `mapred.map.output.compression.codec` naar de `hive-site.xml` of `mapred-site.xml` bestand.
 
@@ -227,7 +227,7 @@ De uiteindelijke uitvoer van Hive kan ook worden gecomprimeerd.
 
 Speculatieve uitvoering wordt gestart voor een bepaald aantal dubbele taken om te detecteren en het vastleggen van de taak trage zwarte bij het verbeteren van de algehele taak kan worden uitgevoerd door een afzonderlijke Taakresultaten te optimaliseren.
 
-Speculatieve uitvoering mag niet t worden ingeschakeld voor langlopende MapReduce-taken met grote hoeveelheden invoer.
+Speculatieve uitvoering mag niet worden ingeschakeld voor langlopende MapReduce-taken met grote hoeveelheden invoer.
 
 * Om in te schakelen speculatieve uitvoering, gaat u naar de component **Peeringconfiguraties** tabblad en stel vervolgens de `hive.mapred.reduce.tasks.speculative.execution` parameter op waar. De standaardwaarde is false.
 

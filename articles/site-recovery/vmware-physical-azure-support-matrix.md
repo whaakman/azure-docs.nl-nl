@@ -6,18 +6,20 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/09/2018
 ms.author: raynew
-ms.openlocfilehash: fc45b9e4a568842b5a935d7c28de5ef0a57e1b86
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d19aa4c3765beecc853a1b800a7ba1d3ebd74e9c
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442527"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004324"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Ondersteuningsmatrix voor VMware en fysieke servers repliceren naar Azure
 
 In dit artikel bevat een overzicht van ondersteunde onderdelen en -instellingen voor herstel na noodgevallen van virtuele VMware-machines naar Azure met behulp van [Azure Site Recovery](site-recovery-overview.md).
+
+Als u wilt gaan met Azure Site Recovery en het eenvoudigste scenario, gaat u naar onze [zelfstudies](tutorial-prepare-azure.md). U kunt meer informatie over Azure Site Recovery-architectuur [hier](vmware-azure-architecture.md).
 
 ## <a name="replication-scenario"></a>Replicatiescenario
 
@@ -31,7 +33,7 @@ Fysieke servers | Replicatie van on-premises Windows/Linux-fysieke servers naar 
 **Server** | **Vereisten** | **Details**
 --- | --- | ---
 VMware | vCenter Server 6.7, 6.5, 6.0 of 5.5 of vSphere 6.7, 6.5, 6.0 of 5.5 | U wordt aangeraden dat u een vCenter-server.<br/><br/> Het is raadzaam dat vSphere-hosts en vCenter-servers bevinden zich in hetzelfde netwerk bevinden als de processerver. Wordt standaard de serveronderdelen proces uitgevoerd op de configuratieserver, dus dit is het netwerk waarin u de configuratieserver hebt ingesteld, tenzij u een speciaal toegewezen proces-server instellen.
-Fysieke | N/A
+Fysiek | N/A
 
 ## <a name="site-recovery-configuration-server"></a>Site Recovery-configuratieserver
 
@@ -241,12 +243,15 @@ Kluis verplaatsen tussen resourcegroepen<br/><br/> Binnen en tussen abonnementen
 Verplaatsen van opslag, netwerk, Azure-VM's op resourcegroepen<br/><br/> Binnen en tussen abonnementen | Nee
 
 
-## <a name="mobility-service"></a>Mobility-Service
+## <a name="download-latest-azure-site-recovery-components"></a>Download de nieuwste Azure Site Recovery-onderdelen
 
-**Naam** | **Beschrijving** | **Meest recente versie** | **Details**
+**Naam** | **Beschrijving** | **Meest recente versie downloadinstructies** 
 --- | --- | --- | --- | ---
-Azure Site Recovery van geïntegreerde Setup | Coördineert de communicatie tussen on-premises VMware-servers en Azure <br/><br/> Geïnstalleerd op de on-premises VMware-servers | 9.12.4653.1 (beschikbaar via de portal) | [Nieuwste functies en correcties](https://aka.ms/latest_asr_updates)
-Mobility-Service | Coördineert de replicatie tussen on-premises VMware-servers/fysieke servers en Azure/secundaire site<br/><br/> Geïnstalleerd op de VM met VMware of fysieke servers die u wilt repliceren | 9.12.4653.1 (beschikbaar via de portal) | [Nieuwste functies en correcties](https://aka.ms/latest_asr_updates)
+Configuratieserver | Coördineert de communicatie tussen on-premises VMware-servers en Azure <br/><br/> Geïnstalleerd op de on-premises VMware-servers | Nieuwe installatie, klikt u op [hier](vmware-azure-deploy-configuration-server.md). Voor bestaande onderdeel wilt bijwerken naar de nieuwste versie, klikt u op [hier](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+Processerver|standaard geïnstalleerd op de configuratieserver. Deze ontvangt replicatiegegevens; Met caching, compressie en versleuteling, optimaliseert en verzendt dit naar Azure Storage. Naarmate uw implementatie groeit, kunt u extra, afzonderlijk processervers voor het afhandelen van grotere hoeveelheden replicatieverkeer kunt toevoegen.| Nieuwe installatie, klikt u op [hier](vmware-azure-set-up-process-server-scale.md). Voor bestaande onderdeel wilt bijwerken naar de nieuwste versie, klikt u op [hier](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+Mobility-Service | Coördineert de replicatie tussen on-premises VMware-servers/fysieke servers en Azure/secundaire site<br/><br/> Geïnstalleerd op de VM met VMware of fysieke servers die u wilt repliceren | Nieuwe installatie, klikt u op [hier](vmware-azure-install-mobility-service.md). Voor bestaande onderdeel wilt bijwerken naar de nieuwste versie, klikt u op [hier](vmware-azure-install-mobility-service.md#update-mobility-service).
+
+Voor meer informatie over de nieuwste functies en verbeteringen, klikt u op [hier](https://aka.ms/latest_asr_updates).
 
 
 ## <a name="next-steps"></a>Volgende stappen

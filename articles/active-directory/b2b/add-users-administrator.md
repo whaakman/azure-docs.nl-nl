@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: f654aaa6d44011a089008558849d37bf6cdfa6f6
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 6dfa1f247a079bf801f28d1083c86d36a74117c5
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39037261"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004195"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Gebruikers van Azure Active Directory B2B-samenwerking toevoegen in Azure portal
 
@@ -40,6 +40,9 @@ Gebruikers van B2B-samenwerking toevoegen aan de directory, de volgende stappen 
 5. Onder **gebruikersnaam**, voer het e-mailadres van de externe gebruiker. (Optioneel) een welkomstbericht bevatten. Bijvoorbeeld:
 
    ![Laat zien waar nieuwe gastgebruiker zich bevindt in de gebruikersinterface](./media/add-users-administrator/InviteGuest.png) 
+
+    > [!NOTE]
+    > Sommige e-mailproviders toestaan dat gebruikers om toe te voegen een plusteken (+)-symbool en aanvullende tekst naar hun e-mailadressen met een zaken zoals het filteren van postvak in. Echter, Azure AD ondersteunt momenteel geen plus-teken in e-mailadressen. Levering om problemen te voorkomen, laat u het plusteken en alle tekens tot na het @-teken.
 
 6. Selecteer **uitnodigen** voor het automatisch verzenden van de uitnodiging voor de gastgebruiker. 
  

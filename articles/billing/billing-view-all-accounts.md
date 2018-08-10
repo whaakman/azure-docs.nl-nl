@@ -1,6 +1,6 @@
 ---
 title: Uw facturering accounts weergeven in Azure portal | Microsoft Docs
-description: Informatie over het weergeven van uw persoonlijke en de overeenkomst van facturering accounts in Azure-portal.
+description: Informatie over het weergeven van uw persoonlijke en de facturering van overeenkomst-accounts in Azure portal.
 services: ''
 documentationcenter: ''
 author: amberbhargava
@@ -14,34 +14,34 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/11/2018
 ms.author: amberb
-ms.openlocfilehash: 344d4032b59a920630a18f026aa3765fbc69d6d5
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 7c4152140d291270386203e121da169b2a8deff5
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
-ms.locfileid: "34077862"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630803"
 ---
 # <a name="view-all-your-billing-accounts-in-azure-portal"></a>Uw facturering accounts weergeven in Azure portal  
 
-Facturering accounts definiëren uw Azure-facturering relaties. U kunt meerdere facturering accounts hebben. Bijvoorbeeld wellicht een Azure-abonnement dat u voor persoonlijke projecten gebruikt. Ook kan er toegang tot Azure via uw organisatie Enterprise Agreement. Ga naar [kostenbeheer + facturering](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview) in de Azure portal om uw facturering accounts te bekijken.
+Facturering-accounts definiëren uw Azure facturering relaties. U kunt meerdere facturering accounts hebben. Bijvoorbeeld, mogelijk hebt u een Azure-abonnement dat u voor persoonlijke projecten gebruiken. U kunt ook toegang tot Azure via uw organisatie Enterprise Agreement hebben. Ga naar [kostenbeheer en facturering](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview) in Azure portal om alle facturering accounts weer te geven.
 
-Momenteel kunt u uw persoonlijke en de Enterprise Agreement facturering accounts alleen weergeven. Standaard de [kostenbeheer + facturering](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview) pagina worden uw persoonlijke factureringsrekening. U kunt echter navigeren naar **facturering accounts** en het account wijzigen.
+Op dit moment kunt u uw persoonlijke en Enterprise Agreement facturering accounts alleen weergeven. Standaard de [kostenbeheer en facturering](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingMenuBlade/Overview) pagina ziet u uw persoonlijke factureringsrekening. Echter, u kunt navigeren naar **facturering accounts** en het account wijzigen.
 
-Voor persoonlijke accounts van facturering, u kunt beheren en bekijk de kosten in de [Azure-portal](https://portal.azure.com). Echter, voor Enterprise Agreement-accounts, u kunt alleen weergeven gereserveerde exemplaar aankopen, saldo en kosten maand tot datum. Deze functies Enterprise-overeenkomst zijn Preview-versie en zijn alleen beschikbaar als u zich in een Enterprise-beheerdersrol.
+Voor persoonlijke accounts van facturering, kunt u beheren en weergeven van uw kosten in de [Azure-portal](https://portal.azure.com). Echter voor Enterprise Agreement-accounts, kunt u alleen weergeven aankopen in de Azure-reservering, saldo en het kosten maand tot heden. Deze Enterprise agreement-functies zijn beschikbaar als preview en zijn alleen beschikbaar als u in de rol van een Enterprise-beheerder zijn.
 
 ## <a name="change-billing-account-view"></a>Facturering Accountweergave wijzigen 
 
 1.  Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2.  Selecteer in de linkerkant van de portal en **kostenbeheer + facturering**. 
+2.  Selecteer in de linkerkant van de portal, **kostenbeheer en facturering**. 
 
-3.  Standaard, als u die hebt, ziet u uw persoonlijke factureringsrekening. Als er geen persoonlijke factureringsaccount of u wilt wijzigen in een Enterprise Agreement-account, selecteer **facturering accounts**.
+3.  Standaard, als u hebt, ziet u uw persoonlijke factureringsrekening. Als u een persoonlijk account is facturering niet hebt of als u wilt wijzigen in een Enterprise Agreement-account, selecteert **facturering accounts**.
 
-4.  Selecteer een account om details te bekijken. Enterprise Agreements alleen ziet u de facturering accounts waarbij u een ondernemingsadministrator bent. Andere functies voor Enterprise Agreement worden, in de toekomst ondersteund.
+4.  Selecteer een account om details weer te geven. Voor Enterprise-overeenkomsten, alleen ziet u de facturering accounts waarbij u een Enterprise-beheerder bent. Andere rollen Enterprise Agreement wordt in de toekomst worden ondersteund.
 
-    ![Schermafbeelding van lijst van accounts voor facturering](./media/billing-view-all-accounts/billing-list-of-accounts.png)
+    ![Schermafbeelding van lijst met accounts voor facturering](./media/billing-view-all-accounts/billing-list-of-accounts.png)
 
  
 ## <a name="need-help-contact-support"></a>Hulp nodig? Contact opnemen met ondersteuning
 
-Als u hulp nodig hebt, moet [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ophalen van uw probleem snel worden opgelost.
+Als u hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.

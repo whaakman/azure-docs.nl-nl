@@ -1,20 +1,20 @@
 ---
 title: Schaalbaarheids- en prestatiedoelen voor VM-schijven op Linux - Microsoft Azure | Microsoft Docs
-description: Meer informatie over de schaalbaarheids- en prestatiedoelen voor de schijven van de virtuele machine is gekoppeld aan virtuele machines waarop Linux wordt uitgevoerd.
-services: virtual-machines
-author: tamram
-manager: jeconnoc
-ms.author: tamram
+description: Meer informatie over de schaalbaarheids- en prestatiedoelen voor VM-schijven die zijn gekoppeld aan virtuele machines waarop Linux wordt uitgevoerd.
+services: virtual-machines-linux,storage
+author: roygara
+ms.author: rogarana
 ms.date: 11/15/2017
 ms.topic: article
-ms.service: virtual-machines
+ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
-ms.openlocfilehash: 2c56f07dbfa1fc1a2025410f5340235d08b6a05f
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.component: disks
+ms.openlocfilehash: f93b2d39f3aba21351fabe4c60195adead903923
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/16/2017
-ms.locfileid: "24872328"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39713411"
 ---
 # <a name="scalability-and-performance-targets-for-vm-disks-on-linux"></a>Schaalbaarheids- en prestatiedoelen voor VM-schijven op Linux
 
@@ -22,16 +22,16 @@ ms.locfileid: "24872328"
 
 Zie [Linux VM-grootten](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor meer informatie.
 
-## <a name="managed-virtual-machine-disks"></a>Beheerde virtuele-machineschijven
+## <a name="managed-virtual-machine-disks"></a>Beheerde virtuele machine-schijven
 
 [!INCLUDE [azure-storage-limits-vm-disks-managed](../../../includes/azure-storage-limits-vm-disks-managed.md)]
 
-## <a name="unmanaged-virtual-machine-disks"></a>Niet-beheerde virtuele-machineschijven
+## <a name="unmanaged-virtual-machine-disks"></a>Niet-beheerde VM-schijven
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../../../includes/azure-storage-limits-vm-disks-standard.md)]
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
 
 ## <a name="see-also"></a>Zie ook
 
-[Azure-abonnement en Servicelimieten, quota's en beperkingen](https://docs.microsoft.com/azure/azure-subscription-service-limits)
+[Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits) (Limieten, quota's en beperkingen voor het Azure-abonnement en de Azure-service)
 

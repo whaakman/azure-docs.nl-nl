@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: data-sync
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/09/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 6bfe2288e239738addb9c97706c5fc1c9b0e72b8
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 8fe77522297dc6020cf98f4532aea9f580d8bdb9
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617331"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004808"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Gegevens synchroniseren tussen meerdere cloud en on-premises databases met SQL Data Sync
 
@@ -165,7 +165,7 @@ Er zijn geen kosten voor de SQL Data Sync-service zelf.  Maar verrekenen u nog s
 
 ### <a name="what-regions-support-data-sync"></a>Welke regio's ondersteunen Data Sync?
 
-SQL Data Sync is beschikbaar in alle openbare cloud-regio's.
+SQL Data Sync is beschikbaar in alle regio's.
 
 ### <a name="is-a-sql-database-account-required"></a>Is een SQL-Database-account nodig? 
 

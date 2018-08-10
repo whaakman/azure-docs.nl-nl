@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: b88fba4e04adb56742edf8023fde34e8ff6519c2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ac3133ac093d578c89d24bddd1cc0a7c9588c2fd
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39437913"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714995"
 ---
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-visual-studio-team-services"></a>Volledige CI/CD-pijplijn voor het implementeren van een toepassing met meerdere containers in Azure Container Service met Docker Swarm met Visual Studio Team Services
 
@@ -46,7 +46,7 @@ Voordat u deze zelfstudie begint, moet u de volgende taken uitvoeren:
 - [Een Swarm-cluster in Azure Container Service maken](container-service-deployment.md)
 - [Verbinding maken met het Swarm-cluster in Azure Container Service](../container-service-connect.md)
 - [Maak een Azure container registry](../../container-registry/container-registry-get-started-portal.md)
-- [Een Visual Studio Team Services-account en team-project gemaakt](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
+- [Een Visual Studio Team Services-account en team-project gemaakt](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student)
 - [Fork van de GitHub-opslagplaats naar uw GitHub-account](https://github.com/jcorioland/MyShop/)
 
 [!INCLUDE [container-service-swarm-mode-note](../../../includes/container-service-swarm-mode-note.md)]

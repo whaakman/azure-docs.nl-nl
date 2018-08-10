@@ -1,29 +1,29 @@
 ---
-title: Opvragen van gegevens uit een Azure Time Series Insights-omgeving met C#-code | Microsoft Docs
-description: In dit artikel wordt beschreven hoe een query over gegevens van een Azure Time Series Insights-omgeving door een aangepaste app geschreven in de taal C# (C-sharp) .NET coderen.
+title: Opvragen van gegevens uit een Azure Time Series Insights-omgeving met behulp van C#-code | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u gegevens uit een Azure Time Series Insights-omgeving op te vragen door een aangepaste app, geschreven in de C# (C-sharp) .NET-taal coderen.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: ankryach
-manager: jhubbard
+ms.author: anshan
+manager: cshankar
 reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/23/2018
-ms.openlocfilehash: 19531fc5bde1f833021cf5bd781e4811b2c23155
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 6c4a99096efc95f439d6c9479cb9014957207ea6
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293596"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630854"
 ---
-# <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>Opvragen van gegevens uit de Azure Time Series Insights-omgeving met C#
+# <a name="query-data-from-the-azure-time-series-insights-environment-using-c"></a>Query uitvoeren op gegevens uit de Azure Time Series Insights-omgeving met C#
 
-Dit C#-voorbeeld laat zien hoe een query over gegevens uit de omgeving Azure Time Series Insights.
+In dit voorbeeld met C# ziet u hoe u gegevens uit de Azure Time Series Insights-omgeving op te vragen.
 Er worden enkele eenvoudige voorbeelden voor het gebruik van de API-query gegeven:
-1. Als een stap ter voorbereiding het toegangstoken via de Azure Active Directory-API aan te schaffen. Geeft dit token in de `Authorization` koptekst van elke Query API-aanvraag. Zie voor het instellen van niet-interactieve toepassingen, [verificatie en autorisatie](time-series-insights-authentication-and-authorization.md). Controleer ook alle constanten die worden gedefinieerd aan het begin van het voorbeeld correct zijn ingesteld.
-2. De lijst met omgevingen waarin de gebruiker toegang tot heeft wordt verkregen. Een van de omgevingen wordt opgehaald als de omgeving van belang en verdere gegevens voor deze omgeving wordt opgevraagd.
+1. Als voorbereiding moet het toegangstoken via de Azure Active Directory-API aan te schaffen. Geeft dit token in de `Authorization` -header van elke Query-API-aanvraag. Zie voor het instellen van niet-interactieve toepassingen, [verificatie en autorisatie](time-series-insights-authentication-and-authorization.md). Zorg er ook voor alle constanten zijn gedefinieerd aan het begin van het voorbeeld juist zijn ingesteld.
+2. De lijst met omgevingen waarin de gebruiker toegang tot heeft wordt verkregen. Een van de omgevingen wordt opgehaald als de belangrijkste omgeving en verdere gegevens opgevraagd voor deze omgeving.
 3. Er worden beschikbaarheidsgegevens opgevraagd voor de belangrijkste omgeving als voorbeeld van een HTTPS-aanvraag.
 4. Er worden gebeurtenissamenvoegingsgegevens opgevraagd voor de belangrijkste omgeving als voorbeeld van een web socket-aanvraag. Er worden gegevens opgevraagd voor het volledige tijdsbereik van de beschikbaarheid.
 
@@ -456,4 +456,4 @@ namespace TimeSeriesInsightsQuerySample
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
-> [API-referentiemateriaal query](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
+> [Query uitvoeren op API-verwijzing](/rest/api/time-series-insights/time-series-insights-reference-queryapi).

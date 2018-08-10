@@ -4,12 +4,12 @@ ms.author: manshuk
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08-03-2018
-ms.openlocfilehash: d8e749d7c665bcaef9190bcc572e9552a307aa08
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 41216fe12e10f72f76043f1a8bc361b538259ac1
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39496207"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39721083"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Virtuele machine grootte flexibiliteit in combinatie met gereserveerde VM-instanties
 
@@ -22,7 +22,7 @@ Met een gereserveerde virtuele machine-instantie die is geoptimaliseerd voor fle
 
 Maar dat de reserveringskorting niet van toepassing op VM's met grootten die worden vermeld in verschillende tabellen, zoals wat is er in de tabel uit de DSv2-serie hoge geheugen: Standard_DS11_v2, Standard_DS12_v2, enzovoort.
 
-In de FormaatGroep-serie, is het aantal virtuele machines de reserveringskorting is van toepassing op afhankelijk van de VM-grootte u kiest wanneer u een gereserveerde instantie koopt. Ook afhankelijk van de grootte van de virtuele machines die u hebt uitgevoerd. De verhouding kolom die wordt vermeld in de volgende tabel vergelijkt de relatieve grootte van elke VM-grootte in die groep. Gebruik de verhouding te berekenen hoe de reserveringskorting is van toepassing op de virtuele machines u waarde hebt uitgevoerd.
+In de FormaatGroep-serie, is het aantal virtuele machines de reserveringskorting is van toepassing op afhankelijk van de VM-grootte u kiest wanneer u een reservering koopt. Ook afhankelijk van de grootte van de virtuele machines die u hebt uitgevoerd. De verhouding kolom die wordt vermeld in de volgende tabel vergelijkt de relatieve grootte van elke VM-grootte in die groep. Gebruik de verhouding te berekenen hoe de reserveringskorting is van toepassing op de virtuele machines u waarde hebt uitgevoerd.
 
 ## <a name="examples"></a>Voorbeelden
 

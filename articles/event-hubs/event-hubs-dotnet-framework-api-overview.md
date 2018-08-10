@@ -1,35 +1,30 @@
 ---
-title: Overzicht van de .NET Framework-API's van Azure Event Hubs | Microsoft Docs
-description: Een overzicht van enkele van de belangrijkste Event Hubs .NET Framework client-API.
+title: Overzicht van de Azure Eventhubs .NET Framework-API's | Microsoft Docs
+description: Een overzicht van enkele van de belangrijkste Event Hubs .NET Framework-client API's.
 services: event-hubs
-documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
-ms.assetid: 7f3b6cc0-9600-417f-9e80-2345411bd036
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: a51d4552df2643a25ce492b8525b9aa7fa36e21c
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: HT
+ms.date: 06/13/2018
+ms.author: shvija
+ms.openlocfilehash: dd915671c8b7d51595fea520187b917005f5dc53
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26781891"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40006379"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Overzicht van Event Hubs .NET Framework-API
 
-In dit artikel ziet u een aantal van de sleutel Event Hubs .NET Framework client-API's. Er zijn twee categorieën: beheer- en runtime-API's. Runtime-API's bestaan uit alle bewerkingen die nodig zijn voor het verzenden en ontvangen van een bericht. Beheerbewerkingen kunnen u voor het beheren van een status van de entiteit Event Hubs door maken, bijwerken en verwijderen entiteiten.
+In dit artikel vindt u een samenvatting van de sleutel Azure Event Hubs [.NET Framework client-API's](https://www.nuget.org/packages/WindowsAzure.ServiceBus/). Er zijn twee categorieën: beheer- en runtime-API's. Runtime-API's bestaan uit alle bewerkingen die nodig zijn voor het verzenden en ontvangen een bericht. Bewerkingen kunnen u de status van een Event Hubs entiteit door te maken, bijwerken en verwijderen entiteiten beheren.
 
-[Bewakingsscenario's](event-hubs-metrics-azure-monitor.md) zowel management en runtime-omvatten. Zie voor gedetailleerde documentatie over de .NET API's, de [Service Bus .NET](/dotnet/api/microsoft.servicebus.messaging) en [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) verwijzingen.
+[Controlescenario's](event-hubs-metrics-azure-monitor.md) beheer- en runtime-omvatten. Zie voor gedetailleerde naslagdocumentatie over de .NET API's, de [.NET Framework](/dotnet/api/microsoft.servicebus.messaging.eventhubclient), [.NET Standard](/dotnet/api/microsoft.azure.eventhubs), en [EventProcessorHost API](/dotnet/api/microsoft.azure.eventhubs.processor) verwijzingen.
 
 ## <a name="management-apis"></a>Management-API 's
 
-Als u wilt de volgende beheerbewerkingen uitvoeren, moet u hebben **beheren** machtigingen voor de Event Hubs-naamruimte:
+Als u wilt de volgende bewerkingen uitvoeren, moet u hebben **beheren** machtigingen voor de Event Hubs-naamruimte:
 
 ### <a name="create"></a>Maken
 
@@ -60,7 +55,7 @@ await namespaceManager.DeleteEventHubAsync("event hub name");
 ```
 
 ## <a name="run-time-apis"></a>Runtime-API 's
-### <a name="create-publisher"></a>Maken van de uitgever
+### <a name="create-publisher"></a>Publicatie maken
 
 ```csharp
 // EventHubClient model (uses implicit factory instance, so all links on same connection)
@@ -86,7 +81,7 @@ data.Properties.Add("Type", "Telemetry_" + DateTime.Now.ToLongTimeString());
 await client.SendAsync(data);
 ```
 
-### <a name="create-consumer"></a>Consument maken
+### <a name="create-consumer"></a>Consumentengroep maken
 
 ```csharp
 // Create the Event Hubs client
@@ -120,7 +115,7 @@ msg = UnicodeEncoding.UTF8.GetString(info);
 
 ## <a name="event-processor-host-apis"></a>Event Processor Host API 's
 
-Deze API's bieden tolerantie voor werkprocessen die mogelijk niet beschikbaar is, door partities over beschikbare werknemers verdeeld.
+Deze API's bieden tolerantie tegen werkprocessen die mogelijk niet beschikbaar is, door de partities over beschikbare werkrollen verdeeld.
 
 ```csharp
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
@@ -180,6 +175,7 @@ public class SimpleEventProcessor : IEventProcessor
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
+
 Volg deze koppelingen voor meer informatie over Event Hubs-scenario‘s:
 
 * [Wat is Azure Event Hubs?](event-hubs-what-is-event-hubs.md)

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 6d3fe519729bd56dafd11720a3662eb00b916a98
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 478b678f514959b8ae9f6492d4920faf894c321d
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056606"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004178"
 ---
 # <a name="set-up-additional-process-servers-for-scalability"></a>Instellen van extra processervers voor schaalbaarheid
 
@@ -34,6 +34,8 @@ Controleer of de vereisten voor volumegrootte samengevat in de tabel. In het alg
 |4 vcpu's (2-sockets * 2 kernen \@ 2,5 GHz), 8 GB geheugen |300 GB |250 GB of minder |85 of minder machines repliceren. |
 |8 vcpu's (2-sockets * 4 kernen \@ 2,5 GHz), 12 GB geheugen |600 GB |250 GB tot 1 TB |85-150-machines repliceren. |
 |12 vcpu's (2-sockets * 6 kernen \@ 2,5 GHz) 24 GB geheugen |1 TB |1 TB tot 2 TB |Repliceren tussen 150 225 machines. |
+
+Waarbij elke beveiligde bron-VM is geconfigureerd met 3 schijven van 100 GB elk.
 
 ### <a name="prerequisites"></a>Vereisten
 

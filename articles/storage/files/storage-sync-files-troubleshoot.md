@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 1475e1955a282581c66235c13d4dbe7153735a35
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e0c9708107139ec899cd5902a68ff90b57b741f7
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526739"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005916"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -674,6 +674,12 @@ if ($fileShare -eq $null) {
 2. Controleer of **hybride File Sync-Service** wordt weergegeven in de lijst met de **Reader en gegevenstoegang** rol. 
 
     ![Een schermafbeelding van de service-principal voor hybride File Sync-Service in het tabblad voor het beheer van toegang van de storage-account](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
+
+    Als **hybride File Sync-Service** niet wordt weergegeven in de lijst, voer de volgende stappen uit:
+
+    - Klik op **Add**.
+    - In de **rol** veld **Reader en toegang tot gegevens**.
+    - In de **Selecteer** veld, typt u **hybride File Sync-Service**, selecteer de rol en klikt u op **opslaan**.
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 ```PowerShell    

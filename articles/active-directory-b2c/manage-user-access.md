@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8243f67dee231a896f8d7248f9582c333f797d52
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 15bc320bd82ea21ff608fcc834ba51b9bc7b6dea
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480622"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716141"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gebruikers beheren in Azure Active Directory B2C
 
@@ -106,7 +106,7 @@ De volgende stappen wordt beschreven hoe u gebruiksvoorwaarden kunt beheren:
 U kunt voorwaarden van de acceptatie van de gebruik onder de volgende scenario's kunt vastleggen:
 
 - Een nieuwe gebruiker zich aanmeldt. De gebruiksvoorwaarden worden weergegeven en de acceptatie-resultaat wordt opgeslagen.
-- Een gebruiker zich aanmeldt die eerder de meest recente of actieve voorwaarden van overeenkomst heeft geaccepteerd. De gebruiksvoorwaarden worden niet weergegeven.
+- Een gebruiker zich aanmeldt die eerder de meest recente of actieve gebruiksrechtovereenkomst heeft geaccepteerd. De gebruiksvoorwaarden worden niet weergegeven.
 - Een gebruiker zich aanmeldt die al niet de meest recente of actieve gebruiksrechtovereenkomst heeft geaccepteerd. De gebruiksvoorwaarden worden weergegeven en de acceptatie-resultaat wordt opgeslagen.
 - Een gebruiker zich aanmeldt die al een oudere versie van de gebruiksrechtovereenkomst, die nu zijn bijgewerkt naar de nieuwste versie heeft geaccepteerd. De gebruiksvoorwaarden worden weergegeven en de acceptatie-resultaat wordt opgeslagen.
 

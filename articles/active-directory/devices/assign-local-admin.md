@@ -13,21 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 08/09/2018
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: 2dfef8d0dbaf4d70559c966f1587764210d8b49c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b72cab6ce90f0cbb74afd3e00a9aec73fb2908f7
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598327"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003777"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Over het beheren van de lokale groep administrators op de Azure AD gekoppelde apparaten
 
 Voor het beheren van een Windows-apparaat, moet u lid zijn van de lokale groep administrators. Azure AD-updates als onderdeel van de join-proces van Azure Active Directory (Azure AD), het lidmaatschap van deze groep op een apparaat. U kunt het lidmaatschap bijwerken om te voldoen aan uw bedrijfsvereisten aanpassen. Een update in het groepslidmaatschap is bijvoorbeeld handig als u uw helpdeskpersoneel wilt doen taken waarvoor de administrator-rechten op een apparaat inschakelen.
 
-In dit artikel wordt uitgelegd hoe de update lidmaatschap werkt en hoe u deze kunt aanpassen.
+In dit artikel wordt uitgelegd hoe de update lidmaatschap werkt en hoe u deze kunt aanpassen tijdens een Azure AD Join. De inhoud van dit artikel niet van toepassing op een **hybride** koppelen aan Azure AD.
 
 
 ## <a name="how-it-works"></a>Hoe werkt het?

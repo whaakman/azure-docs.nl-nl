@@ -1,6 +1,6 @@
 ---
-title: Azure virtuele-machineschaalsets Veelgestelde vragen | Microsoft Docs
-description: Vind antwoorden op veelgestelde vragen over virtuele-machineschaalsets.
+title: Veelgestelde vragen over schaalsets voor virtuele Azure-machine | Microsoft Docs
+description: Krijg antwoorden op veelgestelde vragen over schaalsets voor virtuele machines.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: gatneil
@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: bf73f9419732e93c1f32f2fb39d3acee02f49b64
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: b61b6b730d645e2ffd518628abe2a121f119fd09
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "34656438"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715060"
 ---
-# <a name="azure-virtual-machine-scale-sets-faqs"></a>Azure virtuele-machineschaalsets Veelgestelde vragen
+# <a name="azure-virtual-machine-scale-sets-faqs"></a>Veelgestelde vragen over schaalsets voor virtuele Azure-machine
 
-Vind antwoorden op veelgestelde vragen over virtuele-machineschaalsets in Azure.
+Krijg antwoorden op veelgestelde vragen over virtuele-machineschaalsets in Azure.
 
-## <a name="top-frequently-asked-questions-for-scale-sets"></a>Veelgestelde vragen over schaalsets boven
+## <a name="top-frequently-asked-questions-for-scale-sets"></a>Boven de veelgestelde vragen over schaalsets
 
 **V:** Hoeveel virtuele machines kan een schaalset bevatten?
 
@@ -49,7 +49,7 @@ Vind antwoorden op veelgestelde vragen over virtuele-machineschaalsets in Azure.
 
 **V:** Hoe maak ik een schaalset met behulp van een aangepaste installatiekopie?
 
-**A:** Maken en vastleggen van een VM-installatiekopie, waarna die als bron voor uw scale set gebruiken. Voor een zelfstudie over het maken en gebruiken van een aangepaste VM-installatiekopie, kunt u de [Azure CLI 2.0](tutorial-use-custom-image-cli.md) of [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+**A:** Maken en vastleggen van een VM-installatiekopie en vervolgens gebruiken die als bron voor uw schaalset. Voor een zelfstudie over het maken en gebruiken van een aangepaste VM-installatiekopie, kunt u de [Azure CLI 2.0](tutorial-use-custom-image-cli.md) of [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 **V:** Als ik de capaciteit van mijn schaalset verlaag van 20 naar 15, welke virtuele machines worden er dan verwijderd?
 
@@ -65,28 +65,28 @@ Vind antwoorden op veelgestelde vragen over virtuele-machineschaalsets in Azure.
 
 **V:** Maken schaalsets gebruik van beschikbaarheidssets van Azure?
 
-**A:** Een regionale (niet-zonal) schaalset gebruikt *plaatsing groepen*, die kan worden geconfigureerd om te fungeren als een impliciete beschikbaarheidsset met vijf domeinen met fouten en vijf domeinen bijwerken. Schaalsets van meer dan 100 virtuele machines verdeeld over meerdere groepen voor plaatsing. Zie voor meer informatie over de plaatsing van groepen [Werken met grote schaalsets voor virtuele machines](virtual-machine-scale-sets-placement-groups.md). Een beschikbaarheidsset met virtuele machines kan bestaan in hetzelfde virtuele netwerk als een schaalset met virtuele machines. Een veelvoorkomende configuratie is om beheerknooppunt-VM's (waarvoor vaak een unieke configuratie is vereist) in een beschikbaarheidsset te zetten en gegevensknooppunten in de schaalset te zetten.
+**A:** Regionale (niet-zonegebonden) van de schaalset maakt gebruik van *plaatsingsgroepen*, die dienen als een impliciete met vijf foutdomeinen beschikbaarheidsset en vijf updatedomeinen. Schaalsets met meer dan 100 virtuele machines omvatten meerdere plaatsingsgroepen. Zie voor meer informatie over de plaatsing van groepen [Werken met grote schaalsets voor virtuele machines](virtual-machine-scale-sets-placement-groups.md). Een beschikbaarheidsset met virtuele machines kan bestaan in hetzelfde virtuele netwerk als een schaalset met virtuele machines. Een veelvoorkomende configuratie is om beheerknooppunt-VM's (waarvoor vaak een unieke configuratie is vereist) in een beschikbaarheidsset te zetten en gegevensknooppunten in de schaalset te zetten.
 
-**V:** Schalen sets werken met Azure beschikbaarheid zones?
+**V:** Schalen sets in combinatie met Azure-beschikbaarheidszones?
 
-**A:** Ja. Zie voor meer informatie de [zone doc-schaalset](./virtual-machine-scale-sets-use-availability-zones.md).
+**A:** Ja. Zie voor meer informatie de [Virtual Machine scale sets zone doc](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Automatisch schalen
 
-### <a name="what-are-best-practices-for-azure-autoscale"></a>Wat zijn de aanbevolen procedures voor het Azure-automatisch schalen?
+### <a name="what-are-best-practices-for-azure-autoscale"></a>Wat zijn de aanbevolen procedures voor automatisch schalen van Azure?
 
 Zie voor aanbevolen procedures voor automatisch schalen [aanbevolen procedures voor automatisch schalen virtuele machines](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-best-practices).
 
-### <a name="where-do-i-find-metric-names-for-autoscaling-that-uses-host-based-metrics"></a>Waar vind ik metrische namen voor automatisch schalen die gebruikmaakt van de host gebaseerde metrische gegevens
+### <a name="where-do-i-find-metric-names-for-autoscaling-that-uses-host-based-metrics"></a>Waar vind ik metrische namen voor automatisch schalen die gebruikmaakt van hostgebaseerde metrische gegevens
 
-Zie voor namen van meetwaarde voor automatisch schalen die gebruikmaakt van de host gebaseerde metrische gegevens [ondersteund met een Azure-Monitor](https://azure.microsoft.com/documentation/articles/monitoring-supported-metrics/).
+Zie voor namen van de metrische gegevens voor automatisch schalen die gebruikmaakt van hostgebaseerde metrische gegevens, [ondersteunde metrische gegevens met Azure Monitor](https://azure.microsoft.com/documentation/articles/monitoring-supported-metrics/).
 
-### <a name="are-there-any-examples-of-autoscaling-based-on-an-azure-service-bus-topic-and-queue-length"></a>Zijn er geen voorbeelden van automatisch schalen op basis van een Azure Service Bus-onderwerp en wachtrij-lengte?
+### <a name="are-there-any-examples-of-autoscaling-based-on-an-azure-service-bus-topic-and-queue-length"></a>Zijn er voorbeelden van automatisch schalen op basis van de lengte van een Azure Service Bus-onderwerp en wachtrij?
 
-Ja. Zie voor voorbeelden van automatisch schalen op basis van een Azure Service Bus-onderwerp en wachtrij-lengte [Azure Monitor automatisch schalen algemene metrische gegevens](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/).
+Ja. Zie voor meer voorbeelden van automatisch schalen op basis van een Azure Service Bus-onderwerp en wachtrij lengte [Azure Monitor autoscaling common metrics](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/).
 
-Gebruik de volgende JSON voor een Service Bus-wachtrij:
+Voor een Service Bus-wachtrij, gebruikt u de volgende JSON:
 
 ```json
 "metricName": "MessageCount",
@@ -94,7 +94,7 @@ Gebruik de volgende JSON voor een Service Bus-wachtrij:
 "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ServiceBus/namespaces/mySB/queues/myqueue"
 ```
 
-Gebruik de volgende JSON voor een opslagwachtrij:
+Voor een storage-wachtrij, gebruikt u de volgende JSON:
 
 ```json
 "metricName": "ApproximateMessageCount",
@@ -102,47 +102,47 @@ Gebruik de volgende JSON voor een opslagwachtrij:
 "metricResourceUri": "/subscriptions/s1/resourceGroups/rg1/providers/Microsoft.ClassicStorage/storageAccounts/mystorage/services/queue/queues/mystoragequeue"
 ```
 
-Van de voorbeeldwaarden vervangt door uw resource Uniform Resource-id's (URI).
+Voorbeelden van waarden vervangen door uw resource Uniform Resource-id's (URI).
 
 
-### <a name="should-i-autoscale-by-using-host-based-metrics-or-a-diagnostics-extension"></a>Moet ik automatisch schalen met behulp van metrische gegevens op de host of een extensie voor diagnostische gegevens?
+### <a name="should-i-autoscale-by-using-host-based-metrics-or-a-diagnostics-extension"></a>Moet ik me voor automatisch schalen met behulp van hostgebaseerde metrische gegevens of een extensie voor diagnostische gegevens?
 
-U kunt een instelling voor automatisch schalen maken op een virtuele machine op hostniveau metrische gegevens of Gast OS gebaseerde metrische gegevens te gebruiken.
+U kunt een instelling voor automatisch schalen maken op een virtuele machine hostniveau metrische gegevens of metrische gegevens voor gasten op basis van een besturingssysteem te gebruiken.
 
-Zie voor een lijst van ondersteunde metrische gegevens [Azure Monitor automatisch schalen algemene metrische gegevens](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics). 
+Zie voor een lijst van ondersteunde metrische gegevens, [Azure Monitor autoscaling common metrics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics). 
 
-Zie voor een volledige voorbeeld voor virtuele-machineschaalsets [geavanceerde automatisch schalen configureren met behulp van Resource Manager-sjablonen voor virtuele-machineschaalsets](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets). 
+Zie voor een volledig voorbeeld voor virtuele-machineschaalsets [Geavanceerd automatisch schalen configureren met behulp van Resource Manager-sjablonen voor virtuele-machineschaalsets](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets). 
 
-Dit voorbeeld worden de hostniveau CPU metrische gegevens en een aantal bericht metriek.
+Het voorbeeld wordt het hostniveau CPU metrische gegevens en een bericht aantal metrische gegevens.
 
 
 
-### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>Hoe stel waarschuwingsregels op een virtuele-machineschaalset?
+### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>Hoe kan ik regels voor waarschuwingen instellen op een virtuele-machineschaalset?
 
-U kunt waarschuwingen maken op de metrische gegevens voor de virtuele-machineschaalsets via PowerShell of Azure CLI. Zie voor meer informatie [Azure Monitor PowerShell Quick Start-voorbeelden](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) en [Azure Monitor platformoverschrijdende CLI Quick Start-voorbeelden](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
+U kunt waarschuwingen maken op de metrische gegevens voor virtuele-machineschaalsets via PowerShell of Azure CLI. Zie voor meer informatie, [voorbeelden van Azure Monitor PowerShell-snelstartgids](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) en [Quick Start-voorbeelden van Azure Monitor platformoverschrijdende CLI](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
 
 De TargetResourceId van de virtuele-machineschaalset ziet er als volgt:
 
 /Subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.COMPUTE/virtualMachineScaleSets/yourvmssname
 
-U kunt elk prestatiemeteritem VM als de metriek in te stellen van een waarschuwing voor. Zie voor meer informatie [Gastbesturingssysteem metrische gegevens voor VM's van Windows Resource Manager gebaseerde](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) en [Gastbesturingssysteem metrische gegevens voor virtuele Linux-machines](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) in de [Azure Monitor automatisch schalen algemene metrische gegevens](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/)artikel.
+U kunt een prestatiemeteritem VM als de metrische gegevens om in te stellen van een waarschuwing voor. Zie voor meer informatie, [Guest OS metrische gegevens voor Windows-VM's op basis van Resource Manager](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) en [Guest OS metrische gegevens voor virtuele Linux-machines](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) in de [Azure Monitor autoscaling common metrics](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/)artikel.
 
-### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>Hoe stel ik automatisch schalen op een virtuele-machineschaalset ingesteld met behulp van PowerShell
+### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>Hoe stel ik automatisch schalen in een virtuele-machineschaalset met behulp van PowerShell
 
-Als u wilt instellen op een virtuele-machineschaalset ingesteld met behulp van PowerShell voor automatisch schalen, Zie [automatisch schalen van een virtuele-machineschaalset](tutorial-autoscale-powershell.md). U kunt ook configureren voor automatisch schalen met de [Azure CLI 2.0](tutorial-autoscale-cli.md) en [Azure-sjablonen](tutorial-autoscale-template.md)
+Als u wilt instellen voor automatisch schalen op een virtuele-machineschaalset met behulp van PowerShell, Zie [automatisch schalen van een virtuele-machineschaalset](tutorial-autoscale-powershell.md). U kunt ook configureren voor automatisch schalen met de [Azure CLI 2.0](tutorial-autoscale-cli.md) en [Azure-sjablonen](tutorial-autoscale-template.md)
 
 
-### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>Als ik hebt gestopt (toewijzing ongedaan gemaakt) een virtuele machine, wordt die VM gestart als onderdeel van een bewerking voor automatisch schalen?
+### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>Als ik gestopt heb (toewijzing opgeheven) een virtuele machine is die virtuele machine als onderdeel van een bewerking voor automatisch schalen is gestart?
 
-Nee. Als regels voor automatisch schalen extra exemplaren van de virtuele machine als onderdeel van een schaalset vereist, wordt een nieuw exemplaar van de virtuele machine gemaakt. VM-exemplaren die zijn gestopt (toewijzing opgeheven) worden niet gestart als onderdeel van een gebeurtenis met automatisch schalen. Deze gestopt (toewijzing ongedaan gemaakt) VMs kunnen echter worden verwijderd als onderdeel van een gebeurtenis met automatisch schalen die kan worden geschaald in het aantal exemplaren, dezelfde manier als dat een VM-instantie mogelijk worden verwijderd op basis van de orde van grootte VM-instantie-id.
+Nee. Als regels voor automatisch schalen extra exemplaren van de virtuele machine als onderdeel van een schaalset vereist, wordt een nieuwe VM-exemplaar wordt gemaakt. VM-exemplaren die zijn gestopt (toewijzing opgeheven) worden niet gestart als onderdeel van een gebeurtenis voor automatisch schalen. Maar kunnen deze gestopt (toewijzing opgeheven) virtuele machines worden verwijderd als onderdeel van een gebeurtenis voor automatisch schalen die worden geschaald in het aantal exemplaren, dezelfde manier dat een VM-exemplaar kan worden verwijderd op basis van orde van grootte VM-exemplaar-id.
 
 
 
 ## <a name="certificates"></a>Certificaten
 
-### <a name="how-do-i-securely-ship-a-certificate-to-the-vm-how-do-i-provision-a-virtual-machine-scale-set-to-run-a-website-where-the-ssl-for-the-website-is-shipped-securely-from-a-certificate-configuration-the-common-certificate-rotation-operation-would-be-almost-the-same-as-a-configuration-update-operation-do-you-have-an-example-of-how-to-do-this"></a>Hoe veilig verzend ik een certificaat met de virtuele machine? Hoe ik inrichten met een virtuele-machineschaalset ingesteld op een website waar de SSL voor de website wordt verzonden veilig uitvoeren van een certificaatconfiguratie? (De algemene certificaat rotatie bewerking zou zijn bijna hetzelfde als de bewerking configuratie bijwerken.) Hebt u een voorbeeld van hoe u dit doet? 
+### <a name="how-do-i-securely-ship-a-certificate-to-the-vm-how-do-i-provision-a-virtual-machine-scale-set-to-run-a-website-where-the-ssl-for-the-website-is-shipped-securely-from-a-certificate-configuration-the-common-certificate-rotation-operation-would-be-almost-the-same-as-a-configuration-update-operation-do-you-have-an-example-of-how-to-do-this"></a>Hoe ik een certificaat met de virtuele machine veilig verzendt? Hoe ik een virtuele-machineschaalset om uit te voeren op een website waar de SSL voor de website wordt verzonden veilig uit de configuratie van een certificaat inrichten? (De algemene certificaatbewerking rotatie is bijna hetzelfde als een configuratie-update-bewerking.) Hebt u een voorbeeld van hoe u dit doet? 
 
-Als u wilt een certificaat voor de VM veilig te verzenden, kunt u een certificaat van de klant rechtstreeks in een Windows-certificaatarchief van de sleutelkluis van de klant te installeren.
+Als u wilt een certificaat met de virtuele machine veilig te verzenden, kunt u een certificaat van de klant rechtstreeks in een Windows-certificaatarchief van de sleutelkluis van de klant te installeren.
 
 Gebruik de volgende JSON:
 
@@ -164,12 +164,12 @@ Gebruik de volgende JSON:
 
 De code biedt ondersteuning voor Windows en Linux.
 
-Zie voor meer informatie [maken of bijwerken een virtuele-machineschaalset](https://msdn.microsoft.com/library/mt589035.aspx).
+Zie voor meer informatie, [maken of bijwerken een virtuele-machineschaalset](https://msdn.microsoft.com/library/mt589035.aspx).
 
 
-### <a name="example-of-self-signed-certificate"></a>Voorbeeld van een zelfondertekend certificaat
+### <a name="example-of-self-signed-certificate"></a>Voorbeeld van een zelf-ondertekend certificaat
 
-1.  Een zelfondertekend certificaat maken in een sleutelkluis.
+1.  Maak een zelf-ondertekend certificaat in een key vault.
 
     Gebruik de volgende PowerShell-opdrachten:
 
@@ -181,9 +181,9 @@ Zie voor meer informatie [maken of bijwerken een virtuele-machineschaalset](http
     Invoke-AddCertToKeyVault -SubscriptionId <Your SubID> -ResourceGroupName KeyVault -Location westus -VaultName MikhegnVault -CertificateName VMSSCert -Password VmssCert -CreateSelfSignedCertificate -DnsName vmss.mikhegn.azure.com -OutputPath c:\users\mikhegn\desktop\
     ```
 
-    Met deze opdracht biedt u de invoer voor de Azure Resource Manager-sjabloon.
+    Met deze opdracht geeft u de invoer voor de Azure Resource Manager-sjabloon.
 
-    Zie voor een voorbeeld van een zelfondertekend certificaat maken in een sleutelkluis [scenario's voor beveiliging van Service Fabric-cluster](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
+    Zie voor een voorbeeld van hoe u een zelfondertekend certificaat maakt in een key vault, [Service Fabric-clusterbeveiligingsscenario's](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
 
 2.  Wijzig de Resource Manager-sjabloon.
 
@@ -211,11 +211,11 @@ Zie voor meer informatie [maken of bijwerken een virtuele-machineschaalset](http
     ```
   
 
-### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Kan ik een SSH-sleutelpaar moet worden gebruikt voor SSH-verificatie met een Linux-virtuele machine schaal ingesteld op basis van een Resource Manager-sjabloon opgeven?  
+### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Kan ik een SSH-sleutelpaar gebruiken voor SSH-verificatie met een Linux VM-schaalset van Resource Manager-sjabloon opgeven?  
 
 Ja. De REST-API voor **osProfile** is vergelijkbaar met de standard VM REST-API. 
 
-Omvatten **osProfile** in uw sjabloon:
+Opnemen **osProfile** in uw sjabloon:
 
 ```json 
 "osProfile": {
@@ -235,24 +235,24 @@ Omvatten **osProfile** in uw sjabloon:
 }
 ```
  
-Dit blok JSON wordt gebruikt in [de 101-vm-SSH-sleutelbestand GitHub Quick Start-sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+Dit blok JSON wordt gebruikt in [101-vm-SSH-sleutelbestand GitHub quickstart-sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
  
-Het profiel wordt ook gebruikt bij [snelstartsjabloon met de grelayhost.json GitHub](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
+Het besturingssysteemprofiel ook wordt gebruikt in [grelayhost.json GitHub quickstart-sjabloon](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
 
-Zie voor meer informatie [maken of bijwerken een virtuele-machineschaalset](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
+Zie voor meer informatie, [maken of bijwerken een virtuele-machineschaalset](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
   
 
-### <a name="how-do-i-remove-deprecated-certificates"></a>Hoe kan ik afgeschaft certificaten verwijderen? 
+### <a name="how-do-i-remove-deprecated-certificates"></a>Hoe verwijder ik afgeschaft certificaten? 
 
-Om te verwijderen afgeschaft certificaten, het oude certificaat in de lijst van de certificaten kluis te verwijderen. Laat de certificaten die u wilt blijven op de computer in de lijst. Het certificaat wordt niet verwijderd uit alle virtuele machines. Deze ook heeft niet het certificaat toevoegen aan nieuwe virtuele machines die zijn gemaakt in de virtuele-machineschaalset. 
+Als u wilt verwijderen afgeschaft certificaten, het oude certificaat uit de lijst van de certificaten kluis te verwijderen. Laat u alle certificaten die u wilt blijven op uw computer in de lijst. Het certificaat wordt niet verwijderd van uw virtuele machines. Deze ook heeft niet het certificaat toevoegen aan nieuwe virtuele machines die zijn gemaakt in de virtuele-machineschaalset. 
 
-Schrijven om het certificaat verwijderen uit bestaande virtuele machines, een extensie voor aangepaste scripts u handmatig de certificaten uit uw certificaatarchief.
+Als u wilt verwijderen van het certificaat van bestaande VM's, een aangepaste scriptextensie voor de certificaten handmatig verwijderen uit het certificaatarchief te schrijven.
  
-### <a name="how-do-i-inject-an-existing-ssh-public-key-into-the-virtual-machine-scale-set-ssh-layer-during-provisioning-i-want-to-store-the-ssh-public-key-values-in-azure-key-vault-and-then-use-them-in-my-resource-manager-template"></a>Hoe ik een bestaande openbare SSH-sleutel invoeren in de virtuele machine scale set SSH-laag tijdens het inrichten? Ik wil de openbare SSH-sleutelwaarden opslaan in Azure Sleutelkluis en deze vervolgens in mijn Resource Manager-sjabloon gebruiken.
+### <a name="how-do-i-inject-an-existing-ssh-public-key-into-the-virtual-machine-scale-set-ssh-layer-during-provisioning-i-want-to-store-the-ssh-public-key-values-in-azure-key-vault-and-then-use-them-in-my-resource-manager-template"></a>Hoe ik een bestaande openbare SSH-sleutel invoeren in de virtual machine scale set SSH laag tijdens het inrichten? Ik wil de openbare SSH-sleutelwaarden in Azure Key Vault opslaan en deze gebruiken in mijn Resource Manager-sjabloon.
 
-Als u de virtuele machines alleen met een openbare SSH-sleutel biedt, moet u niet om de openbare sleutels voor Sleutelkluis. Openbare sleutels zijn niet geheim.
+Als u de virtuele machines alleen met een openbare SSH-sleutel opgeeft, moet u niet om de openbare sleutels in Key Vault. Openbare sleutels zijn niet geheim.
  
-Wanneer u een Linux-VM maakt, kunt u openbare SSH-sleutels als tekst zonder opmaak bieden:
+Wanneer u een Linux-VM maakt, kunt u openbare SSH-sleutels als tekst zonder opmaak opgeven:
 
 ```json
 "linuxConfiguration": {
@@ -266,56 +266,56 @@ Wanneer u een Linux-VM maakt, kunt u openbare SSH-sleutels als tekst zonder opma
     }
 ```
  
-linuxConfiguration elementnaam | Vereist | Type | Beschrijving
+de naam van de linuxConfiguration-element | Vereist | Type | Beschrijving
 --- | --- | --- | --- |  ---
-SSH | Nee | Verzameling | Hiermee geeft u de belangrijkste SSH-configuratie voor een Linux-besturingssysteem
-pad | Ja | Reeks | Hiermee geeft u het pad van het Linux waar de SSH-sleutels of het certificaat moet zich bevinden
-keyData | Ja | Reeks | Hiermee geeft u een base64-gecodeerd openbare SSH-sleutel
+SSH | Nee | Verzameling | Hiermee geeft u de SSH-sleutel-configuratie voor een Linux-besturingssysteem
+pad | Ja | Reeks | Hiermee geeft u de Linux-bestandspad waarin de SSH-sleutels of het certificaat moet zich bevinden
+keyData | Ja | Reeks | Hiermee geeft u een met base64 gecodeerde openbare SSH-sleutel
 
-Zie voor een voorbeeld [de 101-vm-SSH-sleutelbestand GitHub Quick Start-sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
+Zie voor een voorbeeld [101-vm-SSH-sleutelbestand GitHub quickstart-sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
  
-### <a name="when-i-run-update-azurermvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>Wanneer ik uitvoeren `Update-AzureRmVmss` na het toevoegen van meer dan één certificaat van de dezelfde sleutelkluis, verschijnt het volgende bericht:
+### <a name="when-i-run-update-azurermvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>Wanneer ik uitvoeren `Update-AzureRmVmss` na het toevoegen van meer dan één certificaat vanuit de dezelfde key vault, zie ik het volgende bericht:
  
->Update-AzureRmVmss: Lijst geheim bevat herhaalde exemplaren van /subscriptions/ < Mijn-abonnement-id > / resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev die niet is toegestaan.
+>Update-AzureRmVmss: Lijst geheim bevat herhaalde exemplaren van /subscriptions/ < Mijn-abonnement-id > / resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, die niet is toegestaan.
  
-Dit kan gebeuren als u probeert opnieuw toevoegen dezelfde kluis in plaats van een nieuw certificaat voor de kluis voor de bestaande bronkluis. De `Add-AzureRmVmssSecret` opdracht werkt niet goed als u extra geheimen toevoegt.
+Dit kan gebeuren als u probeert toe te voegen opnieuw de dezelfde kluis in plaats van een nieuwe kluis-certificaat voor de bestaande bronkluis. De `Add-AzureRmVmssSecret` opdracht werkt niet goed als u extra geheimen toevoegt.
  
-Als u wilt meer geheimen van de dezelfde sleutelkluis toevoegt, moet u de $vmss.properties.osProfile.secrets[0].vaultCertificates-lijst bijgewerkt.
+Als u wilt meer geheimen toevoegen vanuit de dezelfde key vault, moet u de $vmss.properties.osProfile.secrets[0].vaultCertificates-lijst bijwerken.
  
-Zie voor de verwachte invoerstructuur [maken of bijwerken wordt ingesteld door een virtuele machine](https://msdn.microsoft.com/library/azure/mt589035.aspx).
+Zie voor de verwachte invoerstructuur [maken of bijwerken een virtuele machine instellen](https://msdn.microsoft.com/library/azure/mt589035.aspx).
  
-Het geheim niet vinden in de virtuele machine scale set-object dat zich in de sleutelkluis. Vervolgens voegt u uw certificaatverwijzing (de URL en de naam van de geheime store) aan de lijst die zijn gekoppeld aan de kluis.
+Het geheim niet vinden in de virtuele machine schaalsetobject die zich in de key vault. Vervolgens voegt u uw certificaatverwijzing (de URL en de naam van het geheim) aan de lijst die is gekoppeld aan de kluis.
 
 > [!NOTE] 
-> Op dit moment kan u certificaten verwijderen uit de virtuele machines met behulp van de virtuele machine scale set API.
+> U verwijderen niet op dit moment certificaten van virtuele machines met behulp van de virtuele machine scale set API.
 >
 
-Nieuwe virtuele machines hebben niet het oude certificaat. Virtuele machines die het certificaat hebben en die al zijn geïmplementeerd hebben echter het oude certificaat.
+Nieuwe VM's geen het oude certificaat. Virtuele machines waarvoor het certificaat en die al zijn geïmplementeerd, hebben echter wordt het oude certificaat.
  
-### <a name="can-i-push-certificates-to-the-virtual-machine-scale-set-without-providing-the-password-when-the-certificate-is-in-the-secret-store"></a>Kan ik certificaten push naar de virtuele-machineschaalset instellen zonder het wachtwoord als het certificaat in de geheime store is?
+### <a name="can-i-push-certificates-to-the-virtual-machine-scale-set-without-providing-the-password-when-the-certificate-is-in-the-secret-store"></a>Kan ik certificaten push naar de virtuele-machineschaalset zonder op te geven van het wachtwoord, wanneer het certificaat in het archief met geheime is?
 
-U hoeft niet te hardcoded wachtwoorden in scripts. U kunt dynamisch ophalen van wachtwoorden met de machtigingen die u met het implementatiescript uitvoeren. Als u een script dat een certificaat van de geheime archiefsleutel verplaatst hebt kluis, de geheime store `get certificate` opdracht levert ook het wachtwoord van het pfx-bestand.
+U hoeft niet te programmeren wachtwoorden in scripts. U kunt dynamisch ophalen van wachtwoorden met de machtigingen die u gebruikt om uit te voeren van het script voor implementatie. Als u een script dat wordt verplaatst van een certificaat uit de store geheime sleutel hebt kluis, de geheime store `get certificate` opdracht levert ook het wachtwoord van het pfx-bestand.
  
-### <a name="how-does-the-secrets-property-of-virtualmachineprofileosprofile-for-a-virtual-machine-scale-set-work-why-do-i-need-the-sourcevault-value-when-i-have-to-specify-the-absolute-uri-for-a-certificate-by-using-the-certificateurl-property"></a>Hoe de eigenschap geheimen van virtualMachineProfile.osProfile voor een virtuele-machineschaalset werk instellen? Waarom moet ik de waarde sourceVault wanneer ik heb de absolute URI voor een certificaat opgeven via de eigenschap certificateUrl? 
+### <a name="how-does-the-secrets-property-of-virtualmachineprofileosprofile-for-a-virtual-machine-scale-set-work-why-do-i-need-the-sourcevault-value-when-i-have-to-specify-the-absolute-uri-for-a-certificate-by-using-the-certificateurl-property"></a>Hoe de eigenschap geheimen van virtualMachineProfile.osProfile voor een virtuele-machineschaalset werk instellen? Waarom moet ik de waarde sourceVault wanneer ik de absolute URI zijn die voor een certificaat opgeven via de eigenschap certificateUrl heb? 
 
-Een verwijzing van Windows Remote Management (WinRM)-certificaat moet aanwezig zijn in de eigenschap geheimen van het profiel. 
+Een verwijzing van Windows Remote Management (WinRM)-certificaat moet aanwezig zijn in de eigenschap geheimen van de OS-profiel. 
 
-Het doel van die wijzen op de bronkluis is om af te dwingen toegangsbeheerlijst (ACL) toegangscontrolebeleid die aanwezig zijn in Azure Cloud Service-model van een gebruiker. Als de bronkluis niet wordt opgegeven, zou gebruikers die niet gemachtigd zijn om te implementeren of toegang tot een sleutelkluis geheimen kunnen via Compute Resource Provider (CRP). ACL's bestaan zelfs voor bronnen die niet bestaan.
+Het doel van die wijzen op de bronkluis is om af te dwingen toegangsbeheerlijst (ACL) toegangscontrolebeleid die aanwezig zijn in Azure Cloud Service-model van een gebruiker. Als de bronkluis is niet opgegeven, zou gebruikers die geen machtigingen om te implementeren of toegang tot geheimen tot een key vault kunnen via een Compute Resource Provider (CRP). ACL's bestaan, zelfs voor resources die niet bestaan.
 
-Als u een onjuiste bron kluis-ID, maar een geldige sleutelkluis-URL opgeeft, wordt er een fout gerapporteerd bij het pollen van de bewerking.
+Als u een onjuiste bron kluis-ID, maar een geldige sleutelkluis-URL opgeeft, wordt er een fout gerapporteerd bij het controleren van de bewerking.
  
-### <a name="if-i-add-secrets-to-an-existing-virtual-machine-scale-set-are-the-secrets-injected-into-existing-vms-or-only-into-new-ones"></a>Als ik geheimen toevoegen aan een bestaande wordt virtuele-machineschaalset ingesteld, worden de geheimen ingevoegd in de bestaande virtuele machines, of alleen nieuwe? 
+### <a name="if-i-add-secrets-to-an-existing-virtual-machine-scale-set-are-the-secrets-injected-into-existing-vms-or-only-into-new-ones"></a>Als ik geheimen toevoegen aan een bestaande worden de virtuele-machineschaalset ingesteld, zijn de geheimen die zijn toegevoegd aan bestaande virtuele machines, of alleen nieuwe? 
 
-Certificaten worden toegevoegd aan alle virtuele machines, zelfs vooraf bestaande toepassingsgroepen. Als uw virtuele-machineschaalset upgradePolicy-eigenschap is ingesteld op **handmatige**, het certificaat wordt toegevoegd aan de virtuele machine wanneer u een handmatige update op de virtuele machine uitvoeren.
+Certificaten worden toegevoegd aan alle virtuele machines, zelfs vooraf bestaande toepassingsgroepen. Als uw virtuele-upgradePolicy-eigenschap machineschaalset is ingesteld op **handmatige**, het certificaat wordt toegevoegd aan de virtuele machine wanneer u een handmatige update op de virtuele machine uitvoeren.
  
-### <a name="where-do-i-put-certificates-for-linux-vms"></a>Waar ik certificaten plaatsen voor virtuele Linux-machines?
+### <a name="where-do-i-put-certificates-for-linux-vms"></a>Waar ik certificaten moet plaatsen voor Linux-VM's?
 
-Zie voor meer informatie over het implementeren van certificaten voor Linux VM's, [certificaten implementeren op virtuele machines van een door de klant beheerd sleutelkluis](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/).
+Zie voor meer informatie over het implementeren van certificaten voor Linux-VM's, [certificaten aan virtuele machines implementeren vanaf een door de klant beheerde key vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/).
   
-### <a name="how-do-i-add-a-new-vault-certificate-to-a-new-certificate-object"></a>Hoe voeg een nieuw certificaat voor de kluis naar een nieuw certificaatobject?
+### <a name="how-do-i-add-a-new-vault-certificate-to-a-new-certificate-object"></a>Hoe voeg ik een nieuw certificaat voor de kluis naar een nieuw certificaatobject?
 
-Als u wilt een kluis-certificaat toevoegen aan een bestaande geheim, Zie het volgende PowerShell-voorbeeld. Gebruik slechts één geheime object.
+Als u wilt een kluis-certificaat toevoegen aan een bestaand geheim, Zie de volgende PowerShell-voorbeeld. Gebruik slechts één geheime-object.
  
 ```powershell
 $newVaultCertificate = New-AzureRmVmssVaultCertificateConfig -CertificateStore MY -CertificateUrl https://sansunallapps1.vault.azure.net:443/secrets/dg-private-enc/55fa0332edc44a84ad655298905f1809
@@ -325,59 +325,59 @@ $vmss.VirtualMachineProfile.OsProfile.Secrets[0].VaultCertificates.Add($newVault
 Update-AzureRmVmss -VirtualMachineScaleSet $vmss -ResourceGroup $rg -Name $vmssName
 ```
  
-### <a name="what-happens-to-certificates-if-you-reimage-a-vm"></a>Wat gebeurt er met certificaten als de installatiekopie van een virtuele machine?
+### <a name="what-happens-to-certificates-if-you-reimage-a-vm"></a>Wat gebeurt er met certificaten als u een installatiekopie van een virtuele machine terugzetten?
 
-Als u een virtuele machine installatiekopie, worden certificaten verwijderd. Hiermee verwijdert u het volledige besturingssysteem schijf teruggezet. 
+Als u de installatiekopie van een virtuele machine terugzetten, zijn certificaten verwijderd. Installatiekopie terugzetten schijf verwijdert het volledige besturingssysteem. 
  
-### <a name="what-happens-if-you-delete-a-certificate-from-the-key-vault"></a>Wat gebeurt er als u een certificaat uit de sleutelkluis verwijderen?
+### <a name="what-happens-if-you-delete-a-certificate-from-the-key-vault"></a>Wat gebeurt er als u een certificaat uit de key vault verwijderen?
 
-Als het geheim wordt verwijderd uit de sleutelkluis en u voert `stop deallocate` voor alle VM's en start deze opnieuw, of er een fout optreedt. De fout treedt op omdat de CRP hoeft op te halen van de geheimen van de sleutelkluis, maar niet kunnen worden. In dit scenario kunt u de certificaten verwijderen uit het model van virtuele machine scale set. 
+Als het geheim uit key vault wordt verwijderd en u voert `stop deallocate` voor uw VM's en start deze opnieuw, wordt er een fout optreedt. De fout treedt op omdat de CRP hoeft op te halen van de geheimen van de key vault, maar deze niet. In dit scenario kunt u de certificaten verwijderen uit het model van virtual machine scale set. 
 
-Het onderdeel CRP geheimen van de klant niet bewaard is gebleven. Als u `stop deallocate` voor alle virtuele machines in de virtuele-machineschaalset, de cache wordt verwijderd. In dit scenario worden geheimen opgehaald uit de sleutelkluis.
+De CRP-component is niet persistent geheimen van de klant. Als u `stop deallocate` voor alle virtuele machines in de virtuele-machineschaalset, de cache wordt verwijderd. In dit scenario worden geheimen opgehaald uit de key vault.
 
-U kunt dit probleem niet tegenkomen wanneer uitbreiden, omdat er een kopie van het geheim in de Azure Service Fabric (in het model van één fabric tenant).
+U kunt dit probleem niet tegenkomen bij het uitschalen omdat er een kopie van het geheim in Azure Service Fabric (in het model met één fabric tenant).
  
-### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurenet443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenarioshttpsazuremicrosoftcomdocumentationarticlesservice-fabric-cluster-security"></a>Waarom heb ik de exacte locatie opgeven voor de certificaat-URL (https://<name of the vault>.vault.azure.net:443/secrets/<exact location>), zoals aangegeven in [scenario's voor beveiliging van Service Fabric-cluster](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)?
+### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurenet443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenarioshttpsazuremicrosoftcomdocumentationarticlesservice-fabric-cluster-security"></a>Waarom heb ik de exacte locatie opgeven voor de URL van het certificaat (https://<name of the vault>.vault.azure.net:443/secrets/<exact location>), zoals aangegeven in [Service Fabric-clusterbeveiligingsscenario's](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)?
  
-De documentatie van Azure Sleutelkluis wordt aangegeven dat de ophalen geheim REST-API de nieuwste versie van het geheim retourneren moet als de versie is niet opgegeven.
+De Azure Key Vault-documentatie wordt aangegeven dat de ophalen-geheim REST-API de nieuwste versie van de geheime sleutel retourneren moet als de versie is niet opgegeven.
  
 Methode | URL
 --- | ---
 GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
 
-Vervang {*geheim naam*} met de naam en vervang {*geheim versie*} met de versie van het geheim die u wilt ophalen. De geheime versie kan worden uitgesloten. In dat geval wordt wordt de huidige versie opgehaald.
+Vervang {*geheime naam*} met de naam en vervang {*geheime versie*} met de versie van de geheime sleutel die u wilt ophalen. De geheime versie kan worden uitgesloten. In dat geval wordt is de huidige versie opgehaald.
   
-### <a name="why-do-i-have-to-specify-the-certificate-version-when-i-use-key-vault"></a>Waarom heb ik geef de certificaatversie wanneer ik Sleutelkluis?
+### <a name="why-do-i-have-to-specify-the-certificate-version-when-i-use-key-vault"></a>Waarom heb ik de certificaatversie opgeven wanneer ik Key Vault gebruiken?
 
-Het doel van de Sleutelkluis-vereiste om op te geven van de certificaatversie is zodat het voor de gebruiker duidelijk welk certificaat wordt geïmplementeerd op hun virtuele machines.
+Het doel van de vereiste voor Key Vault om op te geven van de certificaatversie moet maken voor de gebruiker duidelijk welk certificaat wordt geïmplementeerd op hun VM's.
 
-Als u een virtuele machine maken en werk vervolgens het geheim in de sleutelkluis, wordt het nieuwe certificaat wordt niet gedownload naar uw virtuele machines. Maar uw virtuele machines worden weergegeven als verwijzing en nieuwe virtuele machines ophalen van het nieuwe geheim. Om dit te voorkomen, moet u verwijzen naar een geheime versie.
+Als u een virtuele machine maken en werk vervolgens uw geheim in de key vault, wordt het nieuwe certificaat wordt niet gedownload naar uw virtuele machines. Maar uw virtuele machines worden weergegeven om te verwijzen naar deze en nieuwe VM's het nieuwe geheim ophalen. Om dit te voorkomen, moet u verwijzen naar een geheime versie.
 
-### <a name="my-team-works-with-several-certificates-that-are-distributed-to-us-as-cer-public-keys-what-is-the-recommended-approach-for-deploying-these-certificates-to-a-virtual-machine-scale-set"></a>Mijn team werkt met verschillende certificaten die worden gedistribueerd naar ons als cer openbare sleutels. Wat is de aanbevolen aanpak voor het implementeren van deze certificaten op een virtuele-machineschaalset instellen?
+### <a name="my-team-works-with-several-certificates-that-are-distributed-to-us-as-cer-public-keys-what-is-the-recommended-approach-for-deploying-these-certificates-to-a-virtual-machine-scale-set"></a>Mijn team werkt met verschillende certificaten die aan ons worden gedistribueerd als cer openbare sleutels. Wat is de aanbevolen aanpak voor het implementeren van deze certificaten op een virtuele-machineschaalset ingesteld?
 
-Openbare sleutels op een schaal van de virtuele machine ingesteld, kunt u een .pfx-bestand met CER-bestanden genereren .cer implementeren. U doet dit door gebruik `X509ContentType = Pfx`. Bijvoorbeeld: het cer-bestand laden als een object x509Certificate2 in C# of PowerShell en roept u de methode. 
+CER implementeren openbare sleutels op een virtuele-machineschaalset is ingesteld, kunt u een .pfx-bestand met alleen cer-bestanden genereren. U doet dit door gebruik `X509ContentType = Pfx`. Bijvoorbeeld: het cer-bestand laden als een object x509Certificate2 in C# of PowerShell en vervolgens de methode aanroepen. 
 
-Zie voor meer informatie [X509Certificate.Export methode (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
+Zie voor meer informatie, [X509Certificate.Export methode (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
 
-### <a name="i-do-not-see-an-option-for-users-to-pass-in-certificates-as-base64-strings-most-other-resource-providers-have-this-option"></a>Een optie voor gebruikers om op te geven certificaten als base64-tekenreeksen ik niet wordt weergegeven. De meeste andere resourceproviders hebt deze optie.
+### <a name="i-do-not-see-an-option-for-users-to-pass-in-certificates-as-base64-strings-most-other-resource-providers-have-this-option"></a>Een optie voor gebruikers om door te geven in certificaten als base64 tekenreeksen wordt niet weergegeven. De meeste andere resourceproviders hebben deze optie.
 
-Om te emuleren doorgeven in een certificaat als een base64-tekenreeks, kunt u de meest recente samengestelde URL in het Resource Manager-sjabloon extraheren. Neem de volgende JSON-eigenschap in de Resource Manager-sjabloon:
+Om te emuleren doorgeven in een certificaat als een met base64-tekenreeks, kunt u de meest recente versies URL in Resource Manager-sjabloon extraheren. De volgende JSON-eigenschap in het Resource Manager-sjabloon opnemen:
 
 ```json 
 "certificateUrl": "[reference(resourceId(parameters('vaultResourceGroup'), 'Microsoft.KeyVault/vaults/secrets', parameters('vaultName'), parameters('secretName')), '2015-06-01').secretUriWithVersion]"
 ```
  
-### <a name="do-i-have-to-wrap-certificates-in-json-objects-in-key-vaults"></a>Heb ik inpakken van certificaten in JSON-objecten in sleutelkluizen?
+### <a name="do-i-have-to-wrap-certificates-in-json-objects-in-key-vaults"></a>Heb ik het inpakken van certificaten in JSON-objecten in sleutelkluizen?
 
-In de virtuele-machineschaalsets en virtuele machines moeten certificaten worden verpakt in JSON-objecten. 
+In schaalsets voor virtuele machines en virtuele machines, moeten de certificaten worden verpakt in JSON-objecten. 
 
-We bieden ook ondersteuning voor het inhoudstype application/x-pkcs12. Zie voor instructies over het gebruik van de x-toepassing-pkcs12 [PFX-certificaten in Azure Key Vault](http://www.rahulpnath.com/blog/pfx-certificate-in-azure-key-vault/).
+We ondersteunen ook het inhoudstype application/x-pkcs12. Zie voor instructies over het gebruik van application/x-pkcs12 [PFX-certificaten in Azure Key Vault](http://www.rahulpnath.com/blog/pfx-certificate-in-azure-key-vault/).
  
-We ondersteunen momenteel geen cer-bestanden. .Cer-bestanden wilt gebruiken, moet u deze in containers .pfx exporteren.
+We ondersteunen momenteel geen cer-bestanden. Cer-bestanden wilt gebruiken, door ze te exporteren naar pfx-containers.
 
 
 
-## <a name="compliance-and-security"></a>Compatibiliteit en beveiliging
+## <a name="compliance-and-security"></a>Naleving en beveiliging
 
 ### <a name="are-virtual-machine-scale-sets-pci-compliant"></a>Zijn de virtuele-machineschaalsets PCI-compatibel?
 
@@ -387,16 +387,16 @@ Vanuit het perspectief van naleving zijn schaalsets van virtuele machines een fu
 
 Zie [Microsoft Trust Center](https://www.microsoft.com/TrustCenter/Compliance/PCI) voor meer informatie.
 
-### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Biedt [Azure Managed Service-identiteit](https://docs.microsoft.com/azure/active-directory/msi-overview) werken met virtuele-machineschaalsets?
+### <a name="does-azure-managed-service-identityhttpsdocsmicrosoftcomazureactive-directorymsi-overview-work-with-virtual-machine-scale-sets"></a>Biedt [Azure beheerde Service-identiteit](https://docs.microsoft.com/azure/active-directory/msi-overview) werken met virtuele-machineschaalsets?
 
 Ja. Hier ziet u enkele voorbeeld MSI-sjablonen in Azure Quickstart-sjablonen. Linux: [ https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-linux). Windows: [ https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-msi-windows).
 
 
 ## <a name="extensions"></a>Extensies
 
-### <a name="how-do-i-delete-a-virtual-machine-scale-set-extension"></a>Hoe verwijder ik een virtuele machine uitbreiding van de schaal
+### <a name="how-do-i-delete-a-virtual-machine-scale-set-extension"></a>Hoe kan ik een extensie van virtuele-machineschaalset verwijderen?
 
-Gebruik de volgende PowerShell-voorbeeld voor het verwijderen van een uitbreiding van schaal de virtuele machine:
+Als u wilt een extensie van virtuele-machineschaalset verwijderen, gebruik de volgende PowerShell-voorbeeld:
 
 ```powershell
 $vmss = Get-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName" 
@@ -408,22 +408,22 @@ Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vms
  
 U vindt de waarde extensienaam in `$vmss`.
    
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>Er is dat een virtuele-machineschaalset voorbeeld van de sjabloon die in combinatie met logboekanalyse instellen?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>Er is dat een virtuele-machineschaalset voorbeeldsjabloon die kan worden geïntegreerd met Log Analytics?
 
-Voor een virtuele-machineschaalset ingesteld voorbeeld van de sjabloon die in combinatie met Log Analytics, Zie het tweede voorbeeld in [een Azure Service Fabric-cluster implementeren en schakel de bewaking met behulp van logboekanalyse](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+Zie voor een virtuele-voorbeeldsjabloon die kan worden geïntegreerd met Log Analytics machineschaalset, het tweede voorbeeld in [een Azure Service Fabric-cluster implementeren en bewaken met Log Analytics inschakelen](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
    
-### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Extensies lijken te parallel worden uitgevoerd op virtuele-machineschaalsets. Dit zorgt ervoor dat de extensie voor aangepaste scripts mislukken. Wat kan ik doen om dit probleem oplossen?
+### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Extensies lijkt het alsof parallel worden uitgevoerd op schaalsets voor virtuele machines. Dit zorgt ervoor dat de extensie voor aangepaste scripts mislukken. Wat kan ik doen om dit probleem oplossen?
 
-Zie voor meer informatie over het sequentiëren van de uitbreiding in virtuele-machineschaalsets, [sequentiëren uitbreiding in virtuele Azure-machine-schaalsets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+Zie voor meer informatie over de uitvoeringsvolgorde van extensies vindt in virtuele-machineschaalsets, [extensievolgorde bij in Azure virtuele-machineschaalsets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
  
  
-### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>Hoe stel ik het wachtwoord voor virtuele machines in mijn virtuele-machineschaalset
+### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>Hoe ik het wachtwoord opnieuw instellen voor VM's in mijn schaalset voor virtuele machine?
 
-Er zijn twee manieren voor het wijzigen van het wachtwoord voor virtuele machines in-schaalsets.
+Er zijn twee manieren voor het wijzigen van het wachtwoord voor virtuele machines in schaalsets.
 
-- De virtuele machine scale set model rechtstreeks wijzigen. Beschikbaar met Compute API 2017-12-01 en hoger.
+- Model met de virtuele machine een schaalset rechtstreeks wijzigen. Beschikbaar met Compute API 2017-12-01 en hoger.
 
-    Werk de beheerdersreferenties rechtstreeks in het model met een schaal (bijvoorbeeld met de Azure Resource Explorer, PowerShell of CLI). Zodra de schaalaanpassingsset bijgewerkt, worden alle nieuwe is hebben virtuele machines de nieuwe referenties Bestaande virtuele machines hebben alleen de nieuwe referenties als ze zijn teruggezet. 
+    De beheerdersreferenties rechtstreeks in het model met een schaalset (bijvoorbeeld met de Azure Resource Explorer, PowerShell of CLI) bijwerken. Zodra de schaalset bijgewerkt, worden alle nieuwe is hebben virtuele machines de nieuwe referenties. Bestaande virtuele machines hebben alleen de nieuwe referenties als ze zijn teruggezet. 
 
 - Het wachtwoord met behulp van de VM-extensies voor toegang opnieuw instellen.
 
@@ -443,24 +443,24 @@ Er zijn twee manieren voor het wijzigen van het wachtwoord voor virtuele machine
     ```
 
 
-### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>Hoe voeg ik een extensie voor alle VM's in mijn virtuele-machineschaalset
+### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>Hoe voeg ik een uitbreiding op alle VM's in mijn schaalset voor virtuele machine?
 
-Als updatebeleid is ingesteld op **automatische**, alle virtuele machines opnieuw distribueren van de sjabloon met de extensie-eigenschappen van nieuwe updates.
+Als de updatebeleid is ingesteld op **automatische**, alle virtuele machines opnieuw implementeren van de sjabloon met de nieuwe extensie-eigenschappen bijgewerkt.
 
-Als updatebeleid is ingesteld op **handmatige**eerst werk de extensie en alle exemplaren in uw virtuele machines vervolgens handmatig bijwerken.
+Als de updatebeleid is ingesteld op **handmatige**, eerst de extensie bijwerken en alle exemplaren in uw VM's vervolgens handmatig bijwerken.
 
   
-### <a name="if-the-extensions-associated-with-an-existing-virtual-machine-scale-set-are-updated-are-existing-vms-affected-that-is-will-the-vms-not-match-the-virtual-machine-scale-set-model-or-are-they-ignored-when-an-existing-machine-is-service-healed-or-reimaged-are-the-scripts-that-are-currently-configured-on-the-virtual-machine-scale-set-executed-or-are-the-scripts-that-were-configured-when-the-vm-was-first-created-used"></a>Als de uitbreidingen die zijn gekoppeld aan een bestaande virtuele-machineschaalset worden bijgewerkt, zijn de virtuele machines die van invloed op een bestaande? (Dat wil zeggen, wordt de virtuele machines *niet* overeen met het model van virtuele machine scale set?) Of worden ze genegeerd? Wanneer een bestaande computer wordt service-moeten worden hersteld of teruggezet, zijn de scripts die momenteel zijn geconfigureerd op de virtuele-machineschaalset uitgevoerd of zijn gebruikt de scripts die zijn geconfigureerd als de virtuele machine is gemaakt?
+### <a name="if-the-extensions-associated-with-an-existing-virtual-machine-scale-set-are-updated-are-existing-vms-affected-that-is-will-the-vms-not-match-the-virtual-machine-scale-set-model-or-are-they-ignored-when-an-existing-machine-is-service-healed-or-reimaged-are-the-scripts-that-are-currently-configured-on-the-virtual-machine-scale-set-executed-or-are-the-scripts-that-were-configured-when-the-vm-was-first-created-used"></a>Als de uitbreidingen die zijn gekoppeld aan een bestaande virtuele-machineschaalset zijn bijgewerkt, zijn de bestaande virtuele machines die worden beïnvloed? (Dat wil zeggen, wordt de virtuele machines *niet* overeen met het model van virtual machine scale set?) Of worden ze genegeerd? Wanneer u een bestaande virtuele machine is service-genezen of teruggezet, zijn de scripts die momenteel zijn geconfigureerd op de virtuele-machineschaalset uitgevoerd of zijn gebruikt de scripts die zijn geconfigureerd als de virtuele machine is gemaakt?
 
 Als de definitie van de extensie in de virtuele-machineschaalset ingesteld model wordt bijgewerkt en de eigenschap upgradePolicy is ingesteld op **automatische**, het bijwerken van de virtuele machines. Als de eigenschap upgradePolicy is ingesteld op **handmatige**, extensies zijn gemarkeerd als niet overeenkomt met het model. 
 
-Als een bestaande VM-service moeten worden hersteld, wordt deze weergegeven als de computer opnieuw is opgestart en de extensies worden niet opnieuw uitgevoerd. Als deze wordt teruggezet, is als de OS-schijf vervangen door de broninstallatiekopie. Alle specialisatie uit het laatste model, zoals-extensies worden uitgevoerd.
+Als een bestaande virtuele machine is de service is hersteld, wordt dit weergegeven als een opnieuw opstarten en de extensies zijn niet opnieuw uitgevoerd. Als deze wordt teruggezet, is het zoals het vervangen van de besturingssysteemschijf met de installatiekopie van de bron. Alle specialisatie uit het nieuwste model, zoals extensies, worden uitgevoerd.
  
-### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>Hoe ik deelnemen aan een virtuele-machineschaalset ingesteld op een Active Directory-domein?
+### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>Hoe ik deelnemen aan een virtuele-machineschaalset aan een Active Directory-domein?
 
-Als u wilt deelnemen aan een virtuele-machineschaalset ingesteld op een domein met Active Directory (AD), kunt u een uitbreiding definiëren. 
+Als u wilt deelnemen aan een virtuele-machineschaalset aan een domein met Active Directory (AD), kunt u een extensie definiëren. 
 
-Gebruik de eigenschap JsonADDomainExtension definiëren van een uitbreiding:
+Voor het definiëren van een uitbreiding, gebruikt u de eigenschap JsonADDomainExtension:
 
 ```json
 "extensionProfile": {
@@ -487,13 +487,13 @@ Gebruik de eigenschap JsonADDomainExtension definiëren van een uitbreiding:
 }
 ```
  
-### <a name="my-virtual-machine-scale-set-extension-is-trying-to-install-something-that-requires-a-reboot-for-example-commandtoexecute-powershellexe--executionpolicy-unrestricted-install-windowsfeature-name-fs-resource-manager-includemanagementtools"></a>De extensie scale set van mijn virtuele machine probeert te installeren iets dat moet worden opgestart. Bijvoorbeeld 'commandToExecute': ' powershell.exe - ExecutionPolicy Unrestricted Install-WindowsFeature – naam FS-Resource-Manager – IncludeManagementTools '
+### <a name="my-virtual-machine-scale-set-extension-is-trying-to-install-something-that-requires-a-reboot-for-example-commandtoexecute-powershellexe--executionpolicy-unrestricted-install-windowsfeature-name-fs-resource-manager-includemanagementtools"></a>Mijn extensie van virtuele-machineschaalset probeert te installeren die worden opgestart moet. Bijvoorbeeld, "commandToExecute": "powershell.exe - ExecutionPolicy Unrestricted Install-WindowsFeature – naam FS-Resource-Manager – IncludeManagementTools"
 
-Als uw scale set-extensie van virtuele machine installeren iets dat moet worden opgestart wilt, kunt u de extensie Azure Automation Desired State Configuration (DSC automatisering). Als het besturingssysteem Windows Server 2012 R2 is, wordt Azure ophaalt in de Windows Management Framework (WMF) 5.0-instellingen opnieuw wordt opgestart, en vervolgens doorgaat met de configuratie. 
+Als de extensie van virtuele-machineschaalset is probeert te installeren die worden opgestart moet, kunt u de extensie Azure Automation Desired State Configuration (DSC Automation). Als het besturingssysteem Windows Server 2012 R2 is, wordt Azure wordt tijdens de installatie van Windows Management Framework (WMF) 5.0, opnieuw wordt opgestart, en vervolgens verder met de configuratie. 
  
-### <a name="how-do-i-turn-on-antimalware-in-my-virtual-machine-scale-set"></a>Hoe kan ik antimalware inschakelen in mijn virtuele-machineschaalset?
+### <a name="how-do-i-turn-on-antimalware-in-my-virtual-machine-scale-set"></a>Hoe kan ik anti-malware inschakelen in mijn schaalset voor virtuele machine?
 
-Om in te schakelen anti-malware op uw virtuele-machineschaalset, gebruik de volgende PowerShell-voorbeeld:
+Als u wilt inschakelen anti-malware op uw virtuele-machineschaalset, gebruik de volgende PowerShell-voorbeeld:
 
 ```powershell
 $rgname = 'autolap'
@@ -510,16 +510,16 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -
 Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS 
 ```
 
-### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>Ik moet een aangepast script dat wordt gehost in een persoonlijke opslagaccount uitvoeren. Het script met succes wordt uitgevoerd wanneer de opslag is openbaar, maar wanneer ik probeer te gebruiken een Shared Access Signature (SAS), is mislukt. Dit bericht wordt weergegeven: 'Verplichte parameters ontbreekt voor geldige Shared Access Signature'. Koppeling + SAS werkt prima vanuit Mijn lokale browser.
+### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>Ik heb nodig het uitvoeren van een aangepast script dat wordt gehost in een persoonlijke storage-account. Het script wordt uitgevoerd wanneer de opslag is openbaar, maar wanneer ik wil een Shared Access Signature (SAS) gebruiken, is mislukt. Dit bericht wordt weergegeven: 'Ontbrekend verplichte parameters voor geldige handtekening voor gedeelde toegang'. Koppeling + SAS werkt prima vanaf mijn lokale browser.
 
-Voor het uitvoeren van een aangepast script dat wordt gehost in een persoonlijke opslagaccount, beveiligde instellingen instellen met de opslagaccountsleutel en de naam. Zie voor meer informatie [aangepast Script uitbreiding voor Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
+Voor het uitvoeren van een aangepast script dat wordt gehost in een persoonlijke storage-account, beveiligde instellingen instellen met de sleutel van het opslagaccount en de naam. Zie voor meer informatie, [Custom Script Extension voor Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
 
 
 ## <a name="networking"></a>Netwerken
  
-### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>Is het mogelijk een Netwerkbeveiligingsgroep (NSG) toewijzen aan een schaalset, zodat deze van toepassing op alle VM NIC's in de set?
+### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>Is het mogelijk een Netwerkbeveiligingsgroep (NSG) toewijzen aan een schaalset, zodat deze wordt toegepast op alle VM NIC's in de set?
 
-Ja. Een Netwerkbeveiligingsgroep kan rechtstreeks op een schaal ingesteld door ernaar wordt verwezen in de sectie networkInterfaceConfigurations van het netwerkprofiel worden toegepast. Voorbeeld:
+Ja. Een Netwerkbeveiligingsgroep kan rechtstreeks aan een schaalset door te verwijzen naar deze in het gedeelte networkInterfaceConfigurations van het netwerkprofiel worden toegepast. Voorbeeld:
 
 ```json
 "networkProfile": {
@@ -557,27 +557,27 @@ Ja. Een Netwerkbeveiligingsgroep kan rechtstreeks op een schaal ingesteld door e
 }
 ```
 
-### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>Hoe kan ik geen VIP's wisselen voor virtuele-machineschaalsets in het hetzelfde abonnement en dezelfde regio dat doen?
+### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>Hoe doe ik geen VIP's wisselen voor schaalsets voor virtuele machines in hetzelfde abonnement en dezelfde regio?
 
-Als er twee virtuele-machineschaalsets met de front-ends van Azure Load Balancer en ze zich in hetzelfde abonnement en dezelfde regio, kan u toewijzing van het openbare IP-adressen van elkaar en toewijzen aan de andere. Zie [VIP's wisselen: blauw groen implementatie in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) bijvoorbeeld. Dit betekent dat er een vertraging maar de bronnen worden weergegeven op het netwerk ongedaan/toegewezen niveau. Een snellere mogelijkheid is het gebruik van Azure Application Gateway met twee back-endpools en een regel voor doorsturen. U kunt ook u uw toepassing met kan host [-Azure App service](https://azure.microsoft.com/services/app-service/) die ondersteuning biedt voor het snel overschakelen tussen sites omwisselen fasering en productie.
+Als u twee virtuele-machineschaalsets met de Azure Load Balancer van front-ends, en ze zich in hetzelfde abonnement en regio, kan u het openbare IP-adressen van elkaar toewijzing ongedaan maken en toewijzen aan de andere. Zie [wisselen van VIP: Blue-green implementatie in Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) bijvoorbeeld. Dit betekent dat er een vertraging hoofdgeheugen niveau echter de resources zijn de toewijzing ongedaan gemaakt/toegewezen op het netwerk. Een snellere optie is het gebruik van Azure Application Gateway met twee back-endpools en een regel voor doorsturen. U kunt ook u uw toepassing met kan hosten [Azure App service](https://azure.microsoft.com/services/app-service/) die ondersteuning biedt voor het snel schakelen tussen fasering en productie-sleuven.
  
-### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>Hoe geef ik een bereik van particuliere IP-adressen te gebruiken voor statische privé IP-adrestoewijzing
+### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>Hoe geef ik een bereik van particuliere IP-adressen te gebruiken voor statische privé IP-adrestoewijzing?
 
-IP-adressen zijn geselecteerd uit een subnet op dat u opgeeft. 
+IP-adressen zijn geselecteerd in een subnet dat u opgeeft. 
 
-De toewijzingsmethode van virtuele machine scale set IP-adressen is altijd 'dynamische' hoeft niet, maar dat dat deze IP-adressen kunnen wijzigen. In dit geval betekent 'dynamische' alleen dat u het IP-adres niet in een PUT-aanvraag opgeeft. Geef de statische ingesteld met behulp van het subnet. 
+De toewijzingsmethode van virtual machine scale set IP-adressen is altijd 'dynamische', maar dat betekent niet dat deze IP-adressen kunnen wijzigen. In dit geval betekent 'dynamische' alleen dat u het IP-adres niet in een PUT-aanvraag opgeeft. Geef de statische instellen met behulp van het subnet. 
     
-### <a name="how-do-i-deploy-a-virtual-machine-scale-set-to-an-existing-azure-virtual-network"></a>Hoe implementeer ik een virtuele-machineschaalset ingesteld op een bestaande virtuele Azure-netwerk 
+### <a name="how-do-i-deploy-a-virtual-machine-scale-set-to-an-existing-azure-virtual-network"></a>Hoe implementeer ik een virtuele-machineschaalset met een bestaande Azure-netwerk? 
 
-Zie voor het implementeren van een virtuele-machineschaalset ingesteld op een bestaand virtueel netwerk van Azure [implementeren een schaal van de virtuele machine ingesteld op een bestaand virtueel netwerk](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet). 
+Zie voor het implementeren van een virtuele-machineschaalset met een bestaande Azure-netwerk, [implementeren een virtuele-machineschaalset is ingesteld op een bestaand virtueel netwerk](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet). 
 
-### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>Hoe kan ik het IP-adres van de eerste virtuele machine in een virtuele-machineschaalset ingesteld op de uitvoer van een sjabloon toevoegen
+### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>Hoe kan ik het IP-adres van de eerste virtuele machine in een virtuele-machineschaalset aan de uitvoer van een sjabloon toevoegen
 
-Zie voor informatie over het toevoegen van het IP-adres van de eerste virtuele machine in een virtuele-machineschaalset ingesteld op de uitvoer van een sjabloon [Azure Resource Manager: Get virtuele-machineschaalsets privé IPs](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
+Zie voor informatie over het toevoegen van het IP-adres van de eerste virtuele machine in een virtuele-machineschaalset aan de uitvoer van een sjabloon [Azure Resource Manager: Get virtuele-machineschaalsets privé-IP's](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
-### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Kan ik schaalsets met versnelde toegang gebruiken?
+### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Kan ik scale sets met versnelde netwerken gebruiken?
 
-Ja. Voor het gebruik van versnelde netwerken instellingen enableAcceleratedNetworking op true in de schaal van set networkInterfaceConfigurations. Bijvoorbeeld
+Ja. Voor het gebruik van versneld netwerken ingesteld enableAcceleratedNetworking op waar in uw schaalset networkInterfaceConfigurations van instellingen. Bijvoorbeeld
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
@@ -599,16 +599,16 @@ Ja. Voor het gebruik van versnelde netwerken instellingen enableAcceleratedNetwo
 
 ### <a name="how-can-i-configure-the-dns-servers-used-by-a-scale-set"></a>Hoe kan ik de DNS-servers die worden gebruikt door een schaalset configureren?
 
-Toevoegen voor het maken van een virtuele-machineschaalset ingesteld met een aangepaste DNS-configuratie, een dnsSettings JSON-pakket naar de sectie scale set networkInterfaceConfigurations. Voorbeeld:
+Voor het maken van een virtuele-machineschaalset met een aangepaste DNS-configuratie toevoegen een dnsSettings JSON-pakket naar het gedeelte networkInterfaceConfigurations van de schaal. Voorbeeld:
 ```json
     "dnsSettings":{
         "dnsServers":["10.0.0.6", "10.0.0.5"]
     }
 ```
 
-### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>Hoe kan ik een schaal ingesteld op een openbaar IP-adres toewijzen aan elke virtuele machine configureren?
+### <a name="how-can-i-configure-a-scale-set-to-assign-a-public-ip-address-to-each-vm"></a>Hoe kan ik een schaalset voor een openbaar IP-adres toewijzen aan elke virtuele machine configureren?
 
-Zorg ervoor dat de API-versie van de resource Microsoft.Compute/virtualMachineScaleSets 2017-03-30 voor het maken van een virtuele-machineschaalset waarmee een openbaar IP-adres worden toegewezen aan elke VM en voeg toe een _publicipaddressconfiguration_ JSON pakket met de schaal ipConfigurations sectie ingesteld. Voorbeeld:
+Voor het maken van een virtuele-machineschaalset waarmee een openbaar IP-adres worden toegewezen aan elke virtuele machine, zorg ervoor dat de API-versie van de resource Microsoft.Compute/virtualMachineScaleSets 2017-03-30 is en voeg een _publicipaddressconfiguration_ JSON pakket met de schaal ingesteld gedeelte ipConfigurations. Voorbeeld:
 
 ```json
     "publicipaddressconfiguration": {
@@ -619,23 +619,23 @@ Zorg ervoor dat de API-versie van de resource Microsoft.Compute/virtualMachineSc
     }
 ```
 
-### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>Kan ik een ingesteld op het werken met meerdere Toepassingsgateways schaal configureren?
+### <a name="can-i-configure-a-scale-set-to-work-with-multiple-application-gateways"></a>Kan ik een schaalset om te werken met meerdere Application Gateways configureren?
 
-Ja. U kunt de resource-id's voor meerdere Application Gateway back-end-adresgroepen te toevoegen de _applicationGatewayBackendAddressPools_ lijst de _ipConfigurations_ sectie van de schaal netwerk instellen profiel.
+Ja. U kunt de resource-id's voor meerdere Application Gateway back-end-adresgroepen op toevoegen de _applicationGatewayBackendAddressPools_ lijst de _IP-configuraties_ sectie van de schaalset netwerk instellen profiel.
 
 ## <a name="scale"></a>Schalen
 
-### <a name="in-what-case-would-i-create-a-virtual-machine-scale-set-with-fewer-than-two-vms"></a>In welk geval zou ik een virtuele-machineschaalset ingesteld met minder dan twee virtuele machines maken?
+### <a name="in-what-case-would-i-create-a-virtual-machine-scale-set-with-fewer-than-two-vms"></a>In welk geval zou ik een virtuele-machineschaalset met minder dan twee VM's maken?
 
-Een reden voor het maken van een virtuele-machineschaalset ingesteld met minder dan twee virtuele machines kan worden gebruikt van de elastische eigenschappen van een virtuele-machineschaalset. U kunt bijvoorbeeld een virtuele-machineschaalset ingesteld met nul VM's voor het definiëren van uw infrastructuur zonder te betalen VM gebruikskosten implementeren. Vervolgens, wanneer u klaar om te implementeren van virtuele machines bent, verhoogt de 'capaciteit' van de schaal van de virtuele machine ingesteld op de productie-exemplaren.
+Reden voor het maken van een virtuele-machineschaalset met minder dan twee VM's worden gebruikt de elastische eigenschappen van een virtuele-machineschaalset. U kunt bijvoorbeeld een virtuele-machineschaalset met nul VM's voor het definiëren van uw infrastructuur zonder kosten voor de uitvoering van VM's implementeren. Vervolgens, wanneer u klaar bent voor virtuele machines implementeren, vergroten de 'capaciteit' van de virtuele-machineschaalset ingesteld op het aantal productie-exemplaren.
 
-Een andere reden dat u een virtuele-machineschaalset ingesteld met minder dan twee virtuele machines kunt maken, is als u zich zorgen over minder dan de beschikbaarheid in met behulp van een beschikbaarheidsset met discrete virtuele machines. Virtuele-machineschaalsets bieden u een manier om te werken met niet gedifferentieerde compute-eenheden die vervangbare zijn. Deze uniformiteit is een belangrijke onderscheid voor virtuele-machineschaalsets versus beschikbaarheidssets. Veel staatloze werkbelastingen volgen afzonderlijke eenheden niet. Als de werkbelasting komt, kunt u omlaag schalen naar een compute-eenheid en vervolgens opschalen op-veel wanneer de werkbelasting toeneemt.
+Een andere reden, die kunt u een virtuele-machineschaalset met minder dan twee VM's maken, is als u zich zorgen maakt minder met beschikbaarheid dan in met behulp van een beschikbaarheidsset met discrete VM's. Virtuele-machineschaalsets bieden u een manier om te werken met niet-gedifferentieerde rekeneenheden die onderling vervangbaar zijn. Deze uniformiteit is een belangrijk verschil tussen virtuele-machineschaalsets ten opzichte van beschikbaarheidssets. Veel stateless workloads volgen afzonderlijke eenheden niet. Als de werkbelasting komt, kunt u omlaag schalen naar een compute-eenheid, en vervolgens kan worden uitgebreid naar veel wanneer de werkbelasting toeneemt.
 
-### <a name="how-do-i-change-the-number-of-vms-in-a-virtual-machine-scale-set"></a>Hoe kan ik het aantal virtuele machines in een virtuele-machineschaalset wijzigen?
+### <a name="how-do-i-change-the-number-of-vms-in-a-virtual-machine-scale-set"></a>Hoe kan ik het aantal virtuele machines in een schaalset voor virtuele machine wijzigen
 
-Als u wilt wijzigen van het aantal virtuele machines in een virtuele-machineschaalset ingesteld in de Azure portal, van de virtuele-machineschaalset instellen sectie met eigenschappen, klikt u op de blade 'Schalen' en gebruik de schuifregelaar. Zie voor andere manieren om te wijzigen van het aantal exemplaren [wijzigen van het aantal exemplaren van een virtuele-machineschaalset](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
+Als u wilt wijzigen van het aantal virtuele machines in een virtuele-machineschaalset in Azure portal, van de virtuele-machineschaalset sectie met eigenschappen instellen, klikt u op de blade 'Schaal' en gebruik de schuifregelaar. Zie voor andere manieren om te wijzigen van het aantal exemplaren, [wijzigen van het aantal exemplaren van een virtuele-machineschaalset](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
 
-### <a name="how-do-i-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>Hoe ik aangepaste waarschuwingen voor als bepaalde drempelwaarden zijn bereikt definiëren?
+### <a name="how-do-i-define-custom-alerts-for-when-certain-thresholds-are-reached"></a>Hoe definieer ik aangepaste waarschuwingen voor als bepaalde drempelwaarden zijn bereikt?
 
 Hebt u enige flexibiliteit in hoe u waarschuwingen voor de opgegeven drempelwaarden verwerken. U kunt bijvoorbeeld aangepaste webhooks definiëren. Het volgende voorbeeld van de webhook is van een Resource Manager-sjabloon:
 
@@ -675,45 +675,45 @@ Hebt u enige flexibiliteit in hoe u waarschuwingen voor de opgegeven drempelwaar
         ],
 ```
 
-In dit voorbeeld wordt gaat een waarschuwing naar Pagerduty.com wanneer een drempelwaarde is bereikt.
+In dit voorbeeld wordt een waarschuwing wordt gerouteerd naar Pagerduty.com wanneer een drempelwaarde is bereikt.
 
 
 
 ## <a name="patching-and-operations"></a>Patching en bewerkingen
 
-### <a name="how-do-i-create-a-scale-set-in-an-existing-resource-group"></a>Hoe maak ik een schaal instellen in een bestaande resourcegroep
+### <a name="how-do-i-create-a-scale-set-in-an-existing-resource-group"></a>Hoe maak ik een schaalset in een bestaande resourcegroep?
 
-Schaalsets maken in een bestaande resource groep is nog niet mogelijk via de Azure portal, maar u kunt een bestaande resourcegroep opgeven bij het implementeren van een schaal van een Azure Resource Manager-sjabloon instellen. U kunt ook een bestaande resourcegroep opgeven bij het maken van een schaal ingesteld met Azure PowerShell of CLI.
+Het maken van schaalsets in een bestaande resource group is nog niet mogelijk in de Azure-portal, maar u kunt een bestaande resourcegroep opgeven als een schaalset implementeren vanuit een Azure Resource Manager-sjabloon. U kunt ook een bestaande resourcegroep opgeven bij het maken van een schaalset met behulp van Azure PowerShell of CLI.
 
-### <a name="can-we-move-a-scale-set-to-another-resource-group"></a>Kan er een schaalwaarde ingesteld op een andere resourcegroep verplaatsen?
+### <a name="can-we-move-a-scale-set-to-another-resource-group"></a>Kunnen we een schaalset naar een andere resourcegroep verplaatsen?
 
-Ja, u kunt schaalset resources aan een nieuw abonnement of resourcegroep verplaatsen.
+Ja, u kunt resources van de schaalset naar een nieuw abonnement of resourcegroep verplaatsen.
 
-### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>Hoe bijwerken ik voor mijn virtuele-machineschaalset ingesteld op een nieuwe installatiekopie? Hoe u beheer patchen?
+### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>Hoe bijwerken ik aan mijn virtuele-machineschaalset met een nieuwe installatiekopie? Hoe kan ik het toepassen van patches beheren?
 
-De schaal van uw virtuele machine ingesteld op een nieuwe installatiekopie en patchen beheren, Zie [upgraden van een virtuele-machineschaalset](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
+Bijwerken van uw virtuele-machineschaalset met een nieuwe installatiekopie en voor het beheren van patches, Zie [upgraden van een virtuele-machineschaalset](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
 
-### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>Kan ik het terugzetten van de installatiekopie opnieuw gebruiken om in te stellen van een virtuele machine zonder de afbeelding te wijzigen? (Dat wil zeggen, ik wil een virtuele machine opnieuw instellen naar de fabrieksinstellingen in plaats van een nieuwe installatiekopie.)
+### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>Kan ik de bewerking installatiekopie terugzetten uitvoeren om een virtuele machine zonder te hoeven wijzigen van de installatiekopie opnieuw in te gebruiken? (Dat wil zeggen, ik wil een virtuele machine opnieuw instellen naar de fabrieksinstellingen, in plaats van naar een nieuwe installatiekopie.)
 
-Ja, kunt u het terugzetten van de installatiekopie opnieuw in te stellen van een virtuele machine zonder de afbeelding te wijzigen. Echter, als uw virtuele-machineschaalset verwijst naar een platforminstallatiekopie met `version = latest`, uw virtuele machine kunt bijwerken naar een hoger installatiekopie van het besturingssysteem bij het aanroepen van `reimage`.
+Ja, kunt u de bewerking installatiekopie terugzetten uitvoeren in te stellen van een virtuele machine zonder de afbeelding te wijzigen. Echter, als uw virtuele-machineschaalset verwijst naar een platforminstallatiekopie met `version = latest`, uw virtuele machine kunt bijwerken naar een hoger installatiekopie van het besturingssysteem bij het aanroepen van `reimage`.
 
-Zie voor meer informatie [beheren van alle VM's in een virtuele-machineschaalset](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
+Zie voor meer informatie, [beheren van alle virtuele machines in een virtuele-machineschaalset](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>Is het mogelijk schaalsets integreren met Azure Log Analytics?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>Is het mogelijk om schaalsets te integreren met Azure Log Analytics?
 
-Ja, kunt u door het installeren van de extensie logboekanalyse op schaal instellen virtuele machines. Hier volgt een voorbeeld van Azure CLI:
+Ja, u kunt door de Log Analytics-extensie installeren op de schaal instellen VM's. Hier volgt een voorbeeld van Azure CLI:
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
-U vindt de vereiste workspaceId en workspaceKey in de OMS-portal. Klik op de tegel instellingen op de pagina overzicht. Klik op het tabblad bronnen verbonden aan de bovenkant.
+U kunt de vereiste workspaceId en workspaceKey vinden in de OMS-portal. Klik op de tegel van de instellingen op de pagina overzicht. Klik op het tabblad verbonden bronnen aan de bovenkant.
 
-Opmerking: als uw schaalset _upgradePolicy_ is ingesteld op handmatig, moet u de uitbreiding voor de alle VM's in de set toegepast door het aanroepen van upgrade op deze. In de CLI zou dit _az vmss update-exemplaren_.
+Opmerking: als uw schaalset _upgradePolicy_ is ingesteld op handmatig, moet u de extensie is toegepast op alle virtuele machines in de set door het aanroepen van upgrade op deze. In de CLI zou dit _az vmss update-instances_.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-### <a name="how-do-i-turn-on-boot-diagnostics"></a>Hoe schakel ik op diagnostische gegevens over opstarten?
+### <a name="how-do-i-turn-on-boot-diagnostics"></a>Hoe kan ik diagnostische gegevens over opstarten inschakelen?
 
-Om in te schakelen diagnostische gegevens over opstarten, moet u eerst een opslagaccount maken. Zet dit JSON-blok in uw virtuele-machineschaalset **virtualMachineProfile**, en de virtuele-machineschaalset bijwerken:
+Voor diagnostische gegevens over opstarten inschakelt, moet u eerst een opslagaccount maken. Zet dit blok JSON in uw virtuele-machineschaalset **virtualMachineProfile**, en de virtuele-machineschaalset bijwerken:
 
 ```json
 "diagnosticsProfile": {
@@ -724,7 +724,7 @@ Om in te schakelen diagnostische gegevens over opstarten, moet u eerst een opsla
 }
 ```
 
-Wanneer een nieuwe virtuele machine wordt gemaakt, ziet u de eigenschap InstanceView van de virtuele machine de details voor de schermafbeelding, enzovoort. Hier volgt een voorbeeld:
+Wanneer een nieuwe virtuele machine is gemaakt, toont de InstanceView-eigenschap van de virtuele machine de details voor de schermafbeelding, enzovoort. Hier volgt een voorbeeld:
  
 ```json
 "bootDiagnostics": {
@@ -734,30 +734,30 @@ Wanneer een nieuwe virtuele machine wordt gemaakt, ziet u de eigenschap Instance
 ```
 
 
-## <a name="virtual-machine-properties"></a>Eigenschappen van virtuele machine
+## <a name="virtual-machine-properties"></a>Eigenschappen van de virtuele machine
 
-### <a name="how-do-i-get-property-information-for-each-vm-without-making-multiple-calls-for-example-how-would-i-get-the-fault-domain-for-each-of-the-100-vms-in-my-virtual-machine-scale-set"></a>Hoe krijg eigenschapsinformatie voor elke virtuele machine zonder dat meerdere aanroepen? Bijvoorbeeld, hoe ik krijgt het foutdomein voor elk van de 100 virtuele machines in mijn virtuele-machineschaalset?
+### <a name="how-do-i-get-property-information-for-each-vm-without-making-multiple-calls-for-example-how-would-i-get-the-fault-domain-for-each-of-the-100-vms-in-my-virtual-machine-scale-set"></a>Hoe krijg ik informatie over de eigenschappen voor elke virtuele machine zonder meerdere aanroepen? Bijvoorbeeld, hoe zou ik krijgen het foutdomein voor elk van de 100 VM's in mijn schaalset voor virtuele machine?
 
-Als u eigenschapsinformatie voor elke virtuele machine zonder dat meerdere aanroepen, u kunt aanroepen `ListVMInstanceViews` als volgt een REST-API `GET` op de volgende bron-URI:
+Als u informatie over de eigenschappen voor elke virtuele machine zonder meerdere aanroepen, u kunt aanroepen `ListVMInstanceViews` aan de hand van een REST-API `GET` op de volgende resource-URI:
 
 /subscriptions/<subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Compute/virtualMachineScaleSets/<scaleset_name>/virtualMachines?$expand=instanceView&$select=instanceView
 
-### <a name="can-i-pass-different-extension-arguments-to-different-vms-in-a-virtual-machine-scale-set"></a>Kan ik andere uitbreiding argumenten doorgeven aan andere virtuele machines in een virtuele-machineschaalset
+### <a name="can-i-pass-different-extension-arguments-to-different-vms-in-a-virtual-machine-scale-set"></a>Kan ik andere extensie argumenten doorgeven aan verschillende virtuele machines in een virtuele-machineschaalset?
 
-Nee, u kunt andere uitbreiding argumenten niet doorgeven voor andere VM's in een virtuele-machineschaalset. Extensies kunnen echter op basis van de unieke eigenschappen van de virtuele machine die ze worden uitgevoerd, bijvoorbeeld als u op de naam van de machine fungeren. Extensies ook kunnen een query metagegevens van het exemplaar op http://169.254.169.254 voor meer informatie over de VM.
+U kunt andere extensie argumenten Nee, niet kan doorgeven aan verschillende virtuele machines in een virtuele-machineschaalset. Extensies fungeren, op basis van de unieke eigenschappen van de virtuele machine waarop ze worden uitgevoerd, bijvoorbeeld als u op de naam van de machine. Extensies ook kunnen een query uitvoeren metagegevens van het exemplaar op http://169.254.169.254 voor meer informatie over de virtuele machine.
 
-### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Waarom zijn er onderbrekingen tussen mijn namen voor machines van virtuele machine scale set VM en VM-id's? Bijvoorbeeld: 0, 1, 3...
+### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Waarom zijn er onderbrekingen tussen mijn virtuele machine scale set VM machine namen en VM-id's? Bijvoorbeeld: 0, 1, 3...
 
-Er onderbrekingen tussen de namen voor machines van virtuele machine scale set VM en VM-id's zijn omdat uw virtuele-machineschaalset **overprovision** eigenschap is ingesteld op de standaardwaarde van **true**. Als overmatige inrichting is ingesteld op **true**, meer virtuele machines dan aangevraagd worden gemaakt. Extra virtuele machines vervolgens verwijderd. In dit geval u krijgen hogere implementatie betrouwbaarheid, maar regels ten koste van de naam van het aaneengesloten en aaneengesloten Network Address Translation (NAT). 
+Er onderbrekingen tussen uw virtuele machine scale set VM machine namen en VM-id's zijn omdat de virtuele-machineschaalset **overprovision** eigenschap is ingesteld op de standaardwaarde van **waar**. Als overmatige inrichting is ingesteld op **waar**, meer virtuele machines bevat dan het aangevraagde worden gemaakt. Extra virtuele machines vervolgens verwijderd. In dit geval u verbeterde implementatie betrouwbaarheid krijgen, maar regels ten koste van de aaneengesloten naamgeving en aaneengesloten Network Address Translation (NAT). 
 
-U kunt deze eigenschap instellen op **false**. Voor kleine virtuele machine-schaalsets beïnvloeden niet dit betrouwbaarheid van de implementatie aanzienlijk.
+U kunt deze eigenschap instellen op **false**. Dit heeft geen aanzienlijk voor kleine virtuele-machineschaalsets, invloed op de betrouwbaarheid van de implementatie.
 
-### <a name="what-is-the-difference-between-deleting-a-vm-in-a-virtual-machine-scale-set-and-deallocating-the-vm-when-should-i-choose-one-over-the-other"></a>Wat is het verschil tussen een virtuele machine in een virtuele-machineschaalset verwijderen en toewijzing van de virtuele machine? Wanneer moet ik een dan de andere kiezen?
+### <a name="what-is-the-difference-between-deleting-a-vm-in-a-virtual-machine-scale-set-and-deallocating-the-vm-when-should-i-choose-one-over-the-other"></a>Wat is het verschil tussen het verwijderen van een virtuele machine in een virtuele-machineschaalset en de toewijzing van de virtuele machine ongedaan maken? Wanneer moet ik kiezen ene of het andere?
 
-Het belangrijkste verschil tussen een virtuele machine in een virtuele-machineschaalset verwijderen en toewijzing van de virtuele machine is die `deallocate` niet verwijderd van de virtuele harde schijven (VHD's). Er zijn kosten voor opslag die is gekoppeld aan die wordt uitgevoerd `stop deallocate`. U kunt een of andere gebruiken voor een van de volgende redenen:
+Het belangrijkste verschil tussen een virtuele machine in een virtuele-machineschaalset verwijderen en toewijzing ongedaan maken van de virtuele machine is die `deallocate` de virtuele harde schijven (VHD's) worden niet verwijderd. Er zijn kosten voor opslag die is gekoppeld aan die wordt uitgevoerd `stop deallocate`. U kunt een of andere gebruiken om een van de volgende redenen:
 
-- U wilt stoppen compute-kosten betaalt, maar u wilt behouden van de status van de virtuele machines.
-- U wilt sneller dan u tot een virtuele-machineschaalset uitbreiden kan starten van een set van virtuele machines.
-  - Betrekking heeft op dit scenario, u mogelijk hebt gemaakt uw eigen engine voor het automatisch schalen en wilt dat een snellere end-to-end-schaal.
-- U hebt een virtuele-machineschaalset die ongelijkmatig verdeeld is over domeinen met fouten of update-domeinen. Dit wordt mogelijk omdat u selectief virtuele machines verwijderd, of omdat de virtuele machines zijn verwijderd na overmatige inrichting. Met `stop deallocate` gevolgd door `start` op de virtuele machine schaal instelt gelijkmatig distributie van de virtuele machines over de domeinen met fouten of update-domeinen.
+- U wilt stoppen met het betalen van de kosten voor rekenuren, maar u wilt behouden van de status van de schijf van de virtuele machines.
+- Wilt u sneller dan de schaal van een virtuele-machineschaalset starten van een set van virtuele machines.
+  - Met betrekking tot dit scenario, u mogelijk hebt gemaakt een eigen engine voor automatisch schalen en wilt een snellere end-to-end-schaal.
+- U hebt een virtuele-machineschaalset die ongelijkmatig verdeeld is over domeinen met fouten of update-domeinen. Dit kan zijn omdat u selectief virtuele machines verwijderd, of omdat virtuele machines zijn verwijderd na het piekmomenten. Met `stop deallocate` gevolgd door `start` op de virtuele machine schaalset gelijkmatig verdeeld over de virtuele machines domeinen met fouten of update-domeinen.
 

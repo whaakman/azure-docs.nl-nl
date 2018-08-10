@@ -1,64 +1,60 @@
 ---
-title: Ontvangen van gebeurtenissen van Azure Event Hubs met behulp van Java | Microsoft Docs
+title: Gebeurtenissen ontvangen van Azure Event Hubs met behulp van Java | Microsoft Docs
 description: Aan de slag ontvangen van Event Hubs met behulp van Java
 services: event-hubs
-documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-editor: ''
-ms.assetid: 38e3be53-251c-488f-a856-9a500f41b6ca
 ms.service: event-hubs
 ms.workload: core
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2018
-ms.author: sethm
-ms.openlocfilehash: bf87bed80c142bce6229ad858a33a1c6ede63a23
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.date: 06/12/2018
+ms.author: shvija
+ms.openlocfilehash: 1472dd6917b241ee60da316a7f7aeb09e5db646b
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40006383"
 ---
-# <a name="receive-events-from-azure-event-hubs-using-java"></a>Ontvangen van gebeurtenissen van Azure Event Hubs met Java
+# <a name="receive-events-from-azure-event-hubs-using-java"></a>Gebeurtenissen ontvangen van Azure Event Hubs met behulp van Java
 
-Event Hubs is een zeer schaalbaar systeem die kan worden miljoenen gebeurtenissen per seconde opnemen voor het inschakelen van een toepassing te verwerken en analyseren van de enorme hoeveelheden gegevens die worden geproduceerd door verbonden apparaten en toepassingen. Als ze eenmaal in Event Hubs zijn verzameld, kunt u de gegevens omzetten en opslaan met een realtime analytics-provider of opslagcluster.
+Eventhubs is een zeer schaalbare opname-systeem dat kan miljoenen gebeurtenissen per seconde opnemen, zodat een toepassing te verwerken en analyseren van de enorme hoeveelheden gegevens die worden geproduceerd door uw verbonden apparaten en toepassingen. Als ze eenmaal in Event Hubs zijn verzameld, kunt u de gegevens omzetten en opslaan met een realtime analytics-provider of opslagcluster.
 
 Zie voor meer informatie de [overzicht van Event Hubs][Event Hubs overview].
 
-Deze zelfstudie laat zien hoe gebeurtenissen ontvangen in een event hub met een consoletoepassing die is geschreven in Java.
+Deze zelfstudie laat zien hoe u voor het ontvangen van gebeurtenissen in een event hub met een consoletoepassing die is geschreven in Java.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Om deze zelfstudie hebt voltooid, moet u de volgende vereisten:
+Als u wilt in deze zelfstudie hebt voltooid, moet u de volgende vereisten:
 
 * Een Java-ontwikkelomgeving. Voor deze zelfstudie gaan we ervan uit [Eclipse](https://www.eclipse.org/).
-* Een actief Azure-account. Als u niet een Azure-abonnement hebt, maakt u een [gratis account][] voordat u begint.
+* Een actief Azure-account. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account][] aan voordat u begint.
 
-De code in deze zelfstudie is gebaseerd op de [EventProcessorSample code op GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/EventProcessorSample), die u kunt bekijken om te zien van de volledige werkende toepassing.
+De code in deze zelfstudie is gebaseerd op de [EventProcessorSample code op GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/EventProcessorSample), die u kunt controleren om te zien van de volledige werkende toepassing.
 
 ## <a name="receive-messages-with-eventprocessorhost-in-java"></a>Berichten ontvangen met EventProcessorHost in Java
 
-**EventProcessorHost** is een Javaklasse die ontvangen van gebeurtenissen van Event Hubs vereenvoudigt door permanente controlepunten beheren en parallelle ontvangst van deze Event Hubs. EventProcessorHost gebruikt, splitsen u gebeurtenissen over meerdere ontvangers, zelfs wanneer deze wordt gehost in verschillende knooppunten. In dit voorbeeld wordt het gebruik van EventProcessorHost gedemonstreerd voor één ontvanger.
+**EventProcessorHost** is een Javaklasse die het ontvangen van gebeurtenissen van Event Hubs vereenvoudigt door permanente controlepunten beheren en parallelle ontvangst van deze Event Hubs. Met EventProcessorHost kunt splitsen u gebeurtenissen over meerdere ontvangers, zelfs als deze worden gehost in verschillende knooppunten. In dit voorbeeld wordt het gebruik van EventProcessorHost gedemonstreerd voor één ontvanger.
 
-### <a name="create-a-storage-account"></a>Een opslagaccount maken
+### <a name="create-a-storage-account"></a>Create a storage account
 
-Als u wilt gebruiken EventProcessorHost, hebt u een [Azure Storage-account][Azure Storage account]:
+Voor het gebruik van EventProcessorHost, hebt u een [Azure Storage-account][Azure Storage account]:
 
-1. Meld u aan bij de [Azure-portal][Azure portal], en klik op **+ maken van een resource** aan de linkerkant van het scherm.
+1. Meld u aan bij de [Azure-portal][Azure portal], en klikt u op **+ een resource maken** aan de linkerkant van het scherm.
 2. Klik op **Opslag** en klik vervolgens op **Opslagaccount**. In de **storage-account maken** venster, typ een naam voor het opslagaccount. Voltooi de rest van de velden, selecteer de gewenste regio en klik vervolgens op **maken**.
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
 
-3. Klik op het zojuist gemaakte opslagaccount en klik vervolgens op **toegangstoetsen**:
+3. Klik op het zojuist gemaakte opslagaccount en klik vervolgens op **toegangssleutels**:
    
     ![](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage3.png)
 
-    De waarde key1 kopiëren naar een tijdelijke locatie, voor gebruik verderop in deze zelfstudie.
+    Kopieer de key1-waarde naar een tijdelijke locatie, voor gebruik verderop in deze zelfstudie.
 
 ### <a name="create-a-java-project-using-the-eventprocessor-host"></a>Maak een Java-project met behulp van EventProcessorHost
 
-De Java-clientbibliotheek voor Event Hubs is beschikbaar voor gebruik in Maven-projecten uit de [Maven centrale opslagplaats][Maven Package], en kan worden verwezen met de volgende afhankelijkheid declaratie binnen uw Maven Project-bestand. De huidige versie is 1.0.0:    
+De Java-clientbibliotheek voor Event Hubs is beschikbaar voor gebruik in Maven-projecten uit de [Maven Central Repository][Maven Package], en kan worden verwezen met behulp van de volgende afhankelijkheidsverklaring binnen uw Maven Project-bestand. De huidige versie is 1.0.0:    
 
 ```xml
 <dependency>
@@ -73,7 +69,7 @@ De Java-clientbibliotheek voor Event Hubs is beschikbaar voor gebruik in Maven-p
 </dependency>
 ```
 
-Voor verschillende soorten build-omgevingen, kunt u de meest recente uitgebrachte JAR-bestanden uit expliciet verkrijgen de [Maven centrale opslagplaats][Maven Package].  
+Voor verschillende soorten build-omgevingen, kunt u de meest recente vrijgegeven JAR-bestanden van expliciet verkrijgen de [Maven Central Repository][Maven Package].  
 
 1. Maak voor het volgende voorbeeld eerst een nieuw Maven-project voor een console/shell-toepassing in uw favoriete Java-ontwikkelomgeving. De klasse wordt aangeroepen `ErrorNotificationHandler`.     
    
@@ -90,7 +86,7 @@ Voor verschillende soorten build-omgevingen, kunt u de meest recente uitgebracht
         }
     }
     ```
-2. Gebruik de volgende code om een nieuwe klasse te maken met de naam `EventProcessorSample`. Vervang de tijdelijke aanduidingen door de waarden gebruikt bij het maken van het event hub- en storage-account:
+2. Gebruik de volgende code om een nieuwe klasse te maken met de naam `EventProcessorSample`. Vervang de tijdelijke aanduidingen door de waarden die worden gebruikt bij het maken van de event hub- en storage-account:
    
    ```java
    package com.microsoft.azure.eventhubs.samples.eventprocessorsample;
@@ -180,25 +176,21 @@ Voor verschillende soorten build-omgevingen, kunt u de meest recente uitgebracht
            System.out.println("End of sample");
        }
     ```
-3. Maak een meer klasse aangeroepen `EventProcessor`, met de volgende code:
+3. Maak een meer klasse met de naam `EventProcessor`, met de volgende code:
    
     ```java
     public static class EventProcessor implements IEventProcessor
     {
         private int checkpointBatchingCount = 0;
 
-        // OnOpen is called when a new event processor instance is created by the host. In a real implementation, this
-        // is the place to do initialization so that events can be processed when they arrive, such as opening a database
-        // connection.
+        // OnOpen is called when a new event processor instance is created by the host. 
         @Override
         public void onOpen(PartitionContext context) throws Exception
         {
             System.out.println("SAMPLE: Partition " + context.getPartitionId() + " is opening");
         }
 
-        // OnClose is called when an event processor instance is being shut down. The reason argument indicates whether the shut down
-        // is because another host has stolen the lease for this partition or due to error or host shutdown. In a real implementation,
-        // this is the place to do cleanup for resources that were opened in onOpen.
+        // OnClose is called when an event processor instance is being shut down. 
         @Override
         public void onClose(PartitionContext context, CloseReason reason) throws Exception
         {
@@ -206,18 +198,13 @@ Voor verschillende soorten build-omgevingen, kunt u de meest recente uitgebracht
         }
         
         // onError is called when an error occurs in EventProcessorHost code that is tied to this partition, such as a receiver failure.
-        // It is NOT called for exceptions thrown out of onOpen/onClose/onEvents. EventProcessorHost is responsible for recovering from
-        // the error, if possible, or shutting the event processor down if not, in which case there will be a call to onClose. The
-        // notification provided to onError is primarily informational.
         @Override
         public void onError(PartitionContext context, Throwable error)
         {
             System.out.println("SAMPLE: Partition " + context.getPartitionId() + " onError: " + error.toString());
         }
 
-        // onEvents is called when events are received on this partition of the Event Hub. The maximum number of events in a batch
-        // can be controlled via EventProcessorOptions. Also, if the "invoke processor after receive timeout" option is set to true,
-        // this method will be called with null when a receive timeout occurs.
+        // onEvents is called when events are received on this partition of the Event Hub. 
         @Override
         public void onEvents(PartitionContext context, Iterable<EventData> events) throws Exception
         {
@@ -225,8 +212,6 @@ Voor verschillende soorten build-omgevingen, kunt u de meest recente uitgebracht
             int eventCount = 0;
             for (EventData data : events)
             {
-                // It is important to have a try-catch around the processing of each event. Throwing out of onEvents deprives
-                // you of the chance to process any remaining events in the batch. 
                 try
                 {
                     System.out.println("SAMPLE (" + context.getPartitionId() + "," + data.getSystemProperties().getOffset() + "," +
@@ -235,10 +220,7 @@ Voor verschillende soorten build-omgevingen, kunt u de meest recente uitgebracht
                     
                     // Checkpointing persists the current position in the event stream for this partition and means that the next
                     // time any host opens an event processor on this event hub+consumer group+partition combination, it will start
-                    // receiving at the event after this one. Checkpointing is usually not a fast operation, so there is a tradeoff
-                    // between checkpointing frequently (to minimize the number of events that will be reprocessed after a crash, or
-                    // if the partition lease is stolen) and checkpointing infrequently (to reduce the impact on event processing
-                    // performance). Checkpointing every five events is an arbitrary choice for this sample.
+                    // receiving at the event after this one. 
                     this.checkpointBatchingCount++;
                     if ((checkpointBatchingCount % 5) == 0)
                     {
@@ -259,12 +241,10 @@ Voor verschillende soorten build-omgevingen, kunt u de meest recente uitgebracht
     }
     ```
 
-> [!NOTE]
-> In deze zelfstudie wordt één exemplaar van EventProcessorHost gebruikt. Voor een betere doorvoer wordt aangeraden dat u meerdere exemplaren van EventProcessorHost, bij voorkeur op afzonderlijke computers uitvoeren.  Dit biedt ook de redundantie. In die gevallen werken de verschillende exemplaren automatisch samen om de ontvangen gebeurtenissen gelijkmatig te verdelen. Als u wilt dat meerdere ontvangers *alle* gebeurtenissen verwerken, gebruik dan het concept **ConsumerGroup**. Wanneer er gebeurtenissen van verschillende computers worden ontvangen, kan het nuttig zijn om namen voor EventProcessorHost-exemplaren op te geven op basis van de computers waarop (of rollen waarin) ze zijn geïmplementeerd.
-> 
-> 
+In deze zelfstudie wordt één exemplaar van EventProcessorHost gebruikt. Voor een betere doorvoer is het raadzaam dat u meerdere exemplaren van EventProcessorHost, bij voorkeur uitgevoerd op afzonderlijke computers.  Dit biedt ook redundantie. In die gevallen werken de verschillende exemplaren automatisch samen om de ontvangen gebeurtenissen gelijkmatig te verdelen. Als u wilt dat meerdere ontvangers *alle* gebeurtenissen verwerken, gebruik dan het concept **ConsumerGroup**. Wanneer er gebeurtenissen van verschillende computers worden ontvangen, kan het nuttig zijn om namen voor EventProcessorHost-exemplaren op te geven op basis van de computers waarop (of rollen waarin) ze zijn geïmplementeerd.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 U kunt meer informatie over Event Hubs vinden via de volgende koppelingen:
 
 * [Event Hubs-overzicht](event-hubs-what-is-event-hubs.md)

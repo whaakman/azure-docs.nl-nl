@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 11/05/2017
-ms.openlocfilehash: a58b5c315b9f1baa3a0c3fe55917e94a47006f62
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 85f80ef1ea776d48d9c2f8091568d40dbf46db46
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258528"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716469"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulatie van high-frequency trading met Stream Analytics
 Met een combinatie van SQL-taal en UDF's (door de gebruiker gedefinieerde functies) en UDA's (door de gebruiker gedefinieerde aggregaties) van JavaScript in Azure Stream Analytics kunnen gebruikers geavanceerde analyses uitvoeren. Geavanceerde analyses omvatten mogelijk onder andere onlinetraining en -scoring voor Machine Learning, evenals simulatie van het stateful-proces. In dit artikel wordt beschreven hoe u lineaire regressie kunt uitvoeren in een Azure Stream Analytics-taak met continue training en scoring in een high-frequency trading-scenario.
@@ -444,7 +444,7 @@ En tot slot zenden we uitvoer naar het Power BI-dashboard ter visualisatie.
 ## <a name="summary"></a>Samenvatting
 We kunnen in Azure Stream Analytics een realistisch model voor high-frequency trading implementeren met een niet al te complexe query. Doordat een ingebouwde lineaire-regressiefunctie ontbreekt, moeten we het model vereenvoudigen door in plaats van vijf invoervariabelen twee invoervariabelen te gebruiken. Voor een vastberaden gebruiker kunnen algoritmen met meer dimensies en een grotere complexiteit echter mogelijk ook als JavaScript-UDA worden geïmplementeerd. 
 
-Met uitzondering van de JavaScript-UDA kan het grootste deel van de query worden getest en in Visual Studio aan foutopsporing worden onderworpen via het [Azure Stream Analytics-hulpprogramma voor Visual Studio](stream-analytics-tools-for-visual-studio.md). Nadat de eerste query was geschreven, had de auteur minder dan 30 minuten nodig om met Visual Studio de query te testen en fouten in de query op te sporen. 
+Met uitzondering van de JavaScript-UDA kan het grootste deel van de query worden getest en in Visual Studio aan foutopsporing worden onderworpen via het [Azure Stream Analytics-hulpprogramma voor Visual Studio](stream-analytics-tools-for-visual-studio-install.md). Nadat de eerste query was geschreven, had de auteur minder dan 30 minuten nodig om met Visual Studio de query te testen en fouten in de query op te sporen. 
 
 Momenteel kunnen er met Visual Studio geen fouten in de UDA worden opgespoord. We werken eraan om dit mogelijk te maken, en willen dan tevens de mogelijkheid toevoegen om stapsgewijs door JavaScript-code heen te lopen. Houd er bovendien rekening mee dat de namen van de velden die de UDA bereiken, uit kleine letters bestaan. Dit werd niet als kenmerkend gedrag gezien tijdens het testen van query's. Maar met compatibiliteitsniveau 1.1 van Azure Stream Analytics blijft het hoofdlettergebruik van veldnamen behouden, zodat het gedrag natuurlijker is.
 

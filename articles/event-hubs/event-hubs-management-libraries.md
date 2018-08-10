@@ -1,51 +1,46 @@
 ---
-title: Azure Event Hubs managementbibliotheken | Microsoft Docs
-description: Event Hubs-naamruimten en entiteiten beheren vanaf .NET
+title: Azure Event Hubs-beheerbibliotheken | Microsoft Docs
+description: Event Hubs-naamruimten en entiteiten beheren vanuit .NET
 services: event-hubs
-cloud: na
-documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
-ms.assetid: ''
 ms.service: event-hubs
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/19/2017
-ms.author: sethm
-ms.openlocfilehash: 2ae2f8f2006507284338fb4fa62e4942476cf2bc
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
-ms.translationtype: HT
+ms.date: 06/13/2018
+ms.author: shvija
+ms.openlocfilehash: 1b158fd3ac3f36b71a76c149e8b6815f576be1c5
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/20/2017
-ms.locfileid: "26780970"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40006387"
 ---
-# <a name="event-hubs-management-libraries"></a>Event Hubs management-bibliotheken
+# <a name="event-hubs-management-libraries"></a>Event Hubs-beheerbibliotheken
 
-De management-bibliotheken van Event Hubs kunnen richten op dynamische wijze Event Hubs-naamruimten en entiteiten. Deze dynamische aard kunnen complexe implementaties en berichtverzending, zodat u via een programma welke entiteiten te richten bepalen kunt. Deze bibliotheken zijn momenteel beschikbaar voor .NET.
+U kunt de Azure Event Hubs-beheerbibliotheken om u te richten op dynamische wijze Event Hubs-naamruimten en entiteiten. Dit dynamische karakter kan complexe implementaties en berichtverzending, zodat u via een programma welke entiteiten om in te richten bepalen kunt. Deze bibliotheken zijn momenteel beschikbaar voor .NET.
 
-## <a name="supported-functionality"></a>Ondersteunde functionaliteit
+## <a name="supported-functionality"></a>Ondersteunde functies
 
 * Namespace maken, bijwerken, verwijderen
 * Event Hubs maken, bijwerken, verwijderen
-* Consumergroep maken, bijwerken, verwijderen
+* Consumentengroep maken, bijwerken, verwijderen
 
 ## <a name="prerequisites"></a>Vereisten
 
-Om te beginnen met behulp van de Event Hubs-management-bibliotheken, moet u verifiëren met Azure Active Directory (AAD). AAD vereist dat u verificatie uitvoeren als een service-principal die toegang tot uw Azure-resources biedt. Zie voor informatie over het maken van een service principal, een van deze artikelen:  
+Om te beginnen met behulp van de Event Hubs-beheerbibliotheken, moet u verifiëren met Azure Active Directory (AAD). AAD is vereist dat u een verificatie uitvoeren als een service-principal, waarmee u toegang hebt tot uw Azure-resources. Zie een van de volgende artikelen voor informatie over het maken van een service principal:  
 
-* [De Azure portal gebruiken om Active Directory-toepassing en service-principal die toegang bronnen tot te maken](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+* [De Azure portal gebruiken voor het maken van Active Directory-toepassing en service-principal die toegang hebben tot resources](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 * [Azure PowerShell gebruiken om een service-principal te maken voor toegang tot resources](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [Azure CLI gebruiken om een service-principal te maken voor toegang tot resources](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md)
 
-Deze zelfstudies beschikt u over een `AppId` (Client-ID), `TenantId`, en `ClientSecret` (verificatiesleutel), die allemaal worden gebruikt voor verificatie door de management-bibliotheken. U moet hebben **eigenaar** machtigingen voor de resourcegroep die u wilt uitvoeren.
+Deze zelfstudie beschikt u over een `AppId` (Client-ID), `TenantId`, en `ClientSecret` (verificatiesleutel), die allemaal worden gebruikt voor verificatie via de management-bibliotheken. U moet hebben **eigenaar** machtigingen voor de resourcegroep die u wilt uitvoeren.
 
-## <a name="programming-pattern"></a>Patroon programmering
+## <a name="programming-pattern"></a>Patroon voor programmeren
 
-Hier volgt een gemeenschappelijke protocol het patroon voor het bewerken van een Event Hubs-resource:
+Het patroon voor het bewerken van alle Event Hubs-resource met de volgende een gemeenschappelijke protocol:
 
-1. Verkrijgen van een token van AAD met behulp van de `Microsoft.IdentityModel.Clients.ActiveDirectory` bibliotheek.
+1. Een token verkrijgen van het gebruik van AAD de `Microsoft.IdentityModel.Clients.ActiveDirectory` bibliotheek.
     ```csharp
     var context = new AuthenticationContext($"https://login.microsoftonline.com/{tenantId}");
 
@@ -72,11 +67,11 @@ Hier volgt een gemeenschappelijke protocol het patroon voor het bewerken van een
     };
     ```
 
-1. De aanroep worden uitgevoerd.
+1. De aanroep uitvoeren.
     ```csharp
     await ehClient.EventHubs.CreateOrUpdateAsync(resourceGroupName, namespaceName, EventHubName, ehParams);
     ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Voorbeeld van de .NET-management](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
+* [Management .NET-voorbeeld](https://github.com/Azure-Samples/event-hubs-dotnet-management/)
 * [Microsoft.Azure.Management.EventHub verwijzing](/dotnet/api/Microsoft.Azure.Management.EventHub) 

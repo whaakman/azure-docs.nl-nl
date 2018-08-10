@@ -1,21 +1,21 @@
 ---
-title: Beveiliging configureren om te raadplegen en beheren van Azure Time Series Insights | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u beveiliging en machtigingen als access management-beleid en de data access-beleid voor het beveiligen van Azure Time Series Insights.
+title: Beveiliging configureren om te openen en beheren van Azure Time Series Insights | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u beveiliging en machtigingen configureren als toegang tot de beleidsregels en data access-beleid voor het beveiligen van Azure Time Series Insights.
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
 ms.author: anshan
-manager: jhubbard
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 4306d22f03faa55fb6fc8be1a359aea3410e8038
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 97c9480d6f2b75d83252bfb6410d7b5f946757ef
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34653807"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39630650"
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Gegevenstoegang verlenen tot een Time Series Insights-omgeving met Azure Portal
 
@@ -32,27 +32,27 @@ Beleid voor beheertoegang verleent machtigingen die betrekking hebben op de conf
 
 Beleid voor gegevenstoegang verleent machtigingen voor het uitvoeren van gegevensquery's, het bewerken van referentiegegevens in de omgeving en het delen van opgeslagen query's en perspectieven die aan de omgeving zijn gekoppeld.
 
-De twee typen beleid maken een duidelijke scheiding mogelijk tussen toegang tot het beheer van de omgeving en toegang tot de gegevens in de omgeving. Het is bijvoorbeeld mogelijk voor het instellen van een omgeving zodanig dat de eigenaar/maker van de omgeving wordt verwijderd uit de data access. Bovendien kunnen gebruikers en services die kunnen gegevens lezen uit de omgeving worden verleend geen toegang tot de configuratie van de omgeving.
+De twee typen beleid maken een duidelijke scheiding mogelijk tussen toegang tot het beheer van de omgeving en toegang tot de gegevens in de omgeving. Het is bijvoorbeeld mogelijk het instellen van een omgeving zodanig dat de eigenaar/maker van de omgeving is verwijderd uit de toegang tot gegevens. Bovendien gebruikers en services die zijn toegestaan voor het lezen van gegevens van de omgeving mogelijk geen toegang worden verleend aan de configuratie van de omgeving.
 
 ## <a name="grant-data-access"></a>Gegevenstoegang verlenen
-Volg deze stappen voor het verlenen van toegang tot gegevens voor een user principal:
+Volg deze stappen voor het verlenen van toegang tot gegevens voor een gebruiker-principal:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 
-2. Zoek uw Time Series Insights-omgeving. Type **Time Series** in de **search** vak. Selecteer **omgeving reeks** in de zoekresultaten. 
+2. Ga naar uw Time Series Insights-omgeving. Type **Time Series** in de **zoeken** vak. Selecteer **Time Series-omgeving** in de lijst met zoekresultaten. 
 
 3. Selecteer uw Time Series Insights-omgeving in de lijst.
    
-4. Selecteer **Gegevenstoegangsbeleid**, selecteer daarna **+ toevoegen**.
+4. Selecteer **beleid voor gegevenstoegang**en selecteer vervolgens **+ toevoegen**.
   ![Beheren van de Time Series Insights-bron - omgeving](media/data-access/getstarted-grant-data-access1.png)
 
-5. Selecteer **gebruiker selecteren**.  Zoeken naar de gebruikersnaam of e-mailadres vinden van de gebruiker die u wilt toevoegen. Klik op **Selecteer** de selectie te bevestigen. 
+5. Selecteer **gebruiker selecteren**.  Zoeken naar de gebruiker de naam of e-mailadres om te vinden van de gebruiker die u wilt toevoegen. Klik op **Selecteer** de selectie te bevestigen. 
 
    ![Beheren van de Time Series Insights-bron - toevoegen](media/data-access/getstarted-grant-data-access2.png)
 
-6. Selecteer **Functieservices selecteren**. Kies de juiste rol voor de gebruiker:
-   - Selecteer **Inzender** als u wilt toestaan dat gebruiker wijzigen referentiegegevens en share opgeslagen query's en perspectieven met andere gebruikers van de omgeving. 
-   - Selecteer anders **lezer** query gebruikersgegevens in de omgeving toestaan en persoonlijke (niet-gedeelde) query's opslaan in de omgeving.
+6. Selecteer **rol selecteren**. Kies de juiste rol voor de gebruiker:
+   - Selecteer **Inzender** als u wilt toestaan dat gebruiker referentiegegevens en delen die zijn opgeslagen query's en perspectieven met andere gebruikers van de omgeving wijzigen. 
+   - Selecteer anders **lezer** querygegevens van gebruikers toestaan in de omgeving en persoonlijke (niet-gedeelde) query's opslaan in de omgeving.
 
    Selecteer **Ok** de keuze van de rol te bevestigen.
 
@@ -62,11 +62,11 @@ Volg deze stappen voor het verlenen van toegang tot gegevens voor een user princ
 
    ![Beheren van de Time Series Insights-bron - rol selecteren](media/data-access/getstarted-grant-data-access4.png)
 
-9. De **Gegevenstoegangsbeleid** pagina vindt u de gebruikers en de rollen voor elke gebruiker.
+9. De **beleid voor gegevenstoegang** pagina vindt u de gebruikers en de rollen zijn voor elke gebruiker.
 
    ![Beheren van de Time Series Insights-bron - resultaten](media/data-access/getstarted-grant-data-access5.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [een Event Hub gebeurtenisbron toevoegen aan uw omgeving Azure Time Series Insights](time-series-insights-how-to-add-an-event-source-eventhub.md).
-* [Verzenden van gebeurtenissen](time-series-insights-send-events.md) aan de gebeurtenisbron-.
-* Weergeven van uw omgeving in [Time Series Insights explorer](https://insights.timeseries.azure.com).
+* Informatie over [een Event Hub-gebeurtenisbron toevoegen aan uw Azure Time Series Insights-omgeving](time-series-insights-how-to-add-an-event-source-eventhub.md).
+* [Gebeurtenissen verzenden](time-series-insights-send-events.md) naar de gebeurtenisbron.
+* Uw omgeving bekijken in [Verkenner van Time Series Insights](https://insights.timeseries.azure.com).

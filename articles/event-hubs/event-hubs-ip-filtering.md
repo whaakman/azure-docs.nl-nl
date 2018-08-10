@@ -1,61 +1,61 @@
 ---
 title: Azure Event Hubs-IP-verbindingsfilters | Microsoft Docs
-description: Gebruik van IP-filtering om verbindingen te blokkeren van specifieke IP-adressen voor Azure Event Hubs.
+description: Gebruik van IP-filtering om verbindingen te blokkeren van bepaalde IP-adressen naar Azure Event Hubs.
 services: event-hubs
 documentationcenter: ''
-author: clemensv
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: clemensv
-ms.openlocfilehash: 425a5b641fbfd2e52e1294c6317b51ff2a584aa3
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.author: shvija
+ms.openlocfilehash: 0ecce667584f522b5bd6aac28291bda427f37608
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035917"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005349"
 ---
 # <a name="use-ip-filters"></a>IP-filters gebruiken
 
-Voor scenario's waarin Azure Event Hubs alleen toegankelijk zijn van bepaalde bekende sites is, de *IP-filter* functie kunt u regels voor weigeren of verkeer die afkomstig zijn van specifieke IPv4-adressen te configureren. Bijvoorbeeld deze adressen mogelijk zijn de eigenschappen van een zakelijke NAT-gateway.
+Voor scenario's waarin Azure Event Hubs alleen toegankelijk zijn van bepaalde bekende sites is, de *IP-filter* functie kunt u regels voor weigeren of verkeer dat afkomstig is van de specifieke IPv4-adressen te configureren. Bijvoorbeeld, kunnen deze adressen die van een zakelijke NAT-gateway zijn.
 
 ## <a name="when-to-use"></a>Wanneer gebruikt u dit?
 
-Twee belangrijke gevallen waarin het is handig voor het blokkeren van Event Hubs-eindpunten voor bepaalde IP-adressen als volgt zijn gebruiken:
+Twee belangrijke gevallen waarin het is nuttig om het blokkeren van Event Hubs-eindpunten voor bepaalde IP-adressen als volgt zijn gebruiken:
 
-- Uw event hubs moeten verkeer alleen ontvangen van een opgegeven IP-adressen en alle andere afwijzen. Bijvoorbeeld, het gebruik van Event Hubs met [Azure Express Route] [ express-route] particuliere verbindingen met uw on-premises infrastructuur te maken. 
-- U moet verkeer van IP-adressen die door de beheerder van Event Hubs zijn geïdentificeerd als verdacht afwijzen.
+- Uw eventhubs moeten ontvangen verkeer alleen vanaf een opgegeven bereik van IP-adressen en alle andere afwijzen. Bijvoorbeeld, gebruikt u Event Hubs met [Azure Express Route] [ express-route] particuliere verbindingen met uw on-premises infrastructuur te maken. 
+- U moet verkeer van IP-adressen die zijn geïdentificeerd als verdacht door de beheerder van de Event Hubs afwijzen.
 
-## <a name="how-filter-rules-are-applied"></a>Hoe filterregels worden toegepast
+## <a name="how-filter-rules-are-applied"></a>Hoe regels worden toegepast
 
-De IP-filter-regels worden toegepast op het niveau van de naamruimte Event Hubs. Daarom de regels van toepassing op alle verbindingen van clients met behulp van een ondersteund protocol.
+De IP-filterregels worden toegepast op het niveau van de Event Hubs-naamruimte. Daarom de regels van toepassing op alle verbindingen van clients met behulp van een ondersteund protocol.
 
-Elke verbindingspoging van een IP-adres dat overeenkomt met die een rejecting IP-regel op de naamruimte van Event Hubs wordt geweigerd als onbevoegde. De IP-regel niet wordt vermeld in het antwoord.
+Elke verbindingspoging vanaf een IP-adres dat overeenkomt met die een rejecting IP-regel op de Eventhubs-naamruimte wordt geweigerd als niet-geautoriseerde. Het antwoord wordt niet vermeld voor de IP-regel.
 
 ## <a name="default-setting"></a>Standaardinstelling
 
-Standaard de **IP-Filter** raster in de portal voor Event Hubs is leeg. Deze instelling betekent dat uw event hub verbindingen van elk IP-adres aanvaardt. Deze instelling komt overeen met een regel die de 0.0.0.0/0 IP-adresbereik accepteert.
+Standaard de **IP-Filter** raster in de portal voor Event Hubs is leeg. Deze instelling betekent dat uw event hub verbindingen van elk IP-adres aanvaardt. Deze instelling is gelijk aan een regel waarmee het 0.0.0.0/0 IP-adresbereik accepteert.
 
-## <a name="ip-filter-rule-evaluation"></a>IP-filter Regeltoepassing
+## <a name="ip-filter-rule-evaluation"></a>Evaluatie van IP-filter
 
-IP-filterregels in volgorde worden toegepast en de eerste regel die overeenkomt met het IP-adres bepaalt de actie accepteren of weigeren.
+IP-filterregels worden toegepast in volgorde en de eerste regel die overeenkomt met het IP-adres bepaalt de actie accepteren of weigeren.
 
-Als u wilt adressen in het bereik 70.37.104.0/24 accepteren en weigeren alle andere, moet de eerste regel in het raster het adresbereik 70.37.104.0/24 accepteren. De volgende regel moet alle adressen weigeren met behulp van de 0.0.0.0/0 bereik.
+Als u adressen in het bereik 70.37.104.0/24 accepteren en weigeren alle andere wilt, moet de eerste regel in het raster bijvoorbeeld, het adresbereik 70.37.104.0/24 accepteren. De volgende regel moet alle adressen weigeren met behulp van het adresbereik 0.0.0.0/0.
 
 > [!NOTE]
-> IP-adressen weigeren kunt voorkomen dat andere Azure-services (zoals Azure Stream Analytics, Azure Virtual Machines of de Explorer-apparaat in de portal) interactie met Event Hubs.
+> IP-adressen weigeren kunt voorkomen dat andere Azure-services (zoals Azure Stream Analytics, Azure Virtual Machines of het Device Explorer in de portal) interactie met Event Hubs.
 
-### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>De regel van een virtueel netwerk maken met Azure Resource Manager-sjablonen
+### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Het maken van een regel voor virtuele netwerken met Azure Resource Manager-sjablonen
 
-De volgende Resource Manager-sjabloon kunt een regel van het virtuele netwerk toe te voegen aan een bestaande Event Hubs-naamruimte.
+De volgende Resource Manager-sjabloon kunt een regel voor virtuele netwerken toe te voegen aan een bestaande Event Hubs-naamruimte.
 
 Sjabloonparameters:
 
-- **ipFilterRuleName** moet een unieke, niet-hoofdlettergevoelige, alfanumerieke tekenreeks op, maximaal 128 tekens lang zijn.
-- **ipFilterAction** is **afwijzen** of **accepteren** als de actie voor de IP-filter-regel van toepassing.
-- **ipMask** is één IPv4-adres of een blok IP-adressen in CIDR-notatie. Bijvoorbeeld, in CIDR vertegenwoordigt notatie 70.37.104.0/24 de 256 IPv4-adressen van 70.37.104.0 tot 70.37.104.255 met 24 die wijzen op het aantal bits aanzienlijke voorvoegsel voor het bereik.
+- **ipFilterRuleName** moet een unieke, niet-hoofdlettergevoelig, alfanumerieke tekenreeks, maximaal 128 tekens lang zijn.
+- **ipFilterAction** is **afwijzen** of **accepteren** als de actie om toe te passen voor de IP-filter rule.
+- **ipMask** is één IPv4-adres of een blok IP-adressen in CIDR-notatie. Bijvoorbeeld, in CIDR vertegenwoordigt notatie 70.37.104.0/24 de 256 IPv4-adressen van 70.37.104.0 tot 70.37.104.255, met 24 uur per dag die wijzen op het aantal bits aanzienlijke voorvoegsel voor het bereik.
 
 ```json
 {  
@@ -103,13 +103,13 @@ Sjabloonparameters:
 }
 ```
 
-Volg de instructies voor het als sjabloon wilt implementeren, [Azure Resource Manager][lnk-deploy].
+Volg de instructies voor het implementeren van de sjabloon, [Azure Resource Manager][lnk-deploy].
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Virtuele netwerken, Zie de volgende koppeling voor beperkingsfacet toegang tot de Event Hubs naar Azure:
+Virtuele netwerken, Zie de volgende koppeling voor beperken de toegang tot Event Hubs naar Azure:
 
-- [Virtual Network Service-eindpunten voor Event Hubs][lnk-vnet]
+- [Virtual Network-Service-eindpunten voor Eventhubs][lnk-vnet]
 
 <!-- Links -->
 

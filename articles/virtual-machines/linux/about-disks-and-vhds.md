@@ -1,21 +1,20 @@
 ---
 title: Informatie over niet-beheerde (pagina-blobs) en managed disks-opslag voor Microsoft Azure Linux VM's | Microsoft Docs
 description: Meer informatie over de basisprincipes van niet-beheerde (pagina-blobs) en managed disks-opslag voor virtuele Linux-machines in Azure.
-services: virtual-machines
+services: virtual-machines-linux,storage
 author: roygara
-manager: twooley
-ms.service: virtual-machines
-ms.workload: storage
+ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-ms.openlocfilehash: a1c867e97879b1830a8596683b8314fd6535aa7c
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.component: disks
+ms.openlocfilehash: feb3e60ee1b43ec85c81912fbce086858bb33742
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035996"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715927"
 ---
 # <a name="about-disks-storage-for-azure-linux-vms"></a>Over de opslag van schijven voor virtuele Azure Linux-machines
 Net als elke andere computer gebruik virtuele machines in Azure schijven als een plaats voor het opslaan van een besturingssysteem, toepassingen en gegevens. Alle virtuele machines van Azure hebt ten minste twee schijven: de schijf van een Linux-besturingssysteem en een tijdelijke schijf. De besturingssysteemschijf is gemaakt op basis van een afbeelding, en zowel de besturingssysteemschijf en de installatiekopie van het virtuele harde schijven (VHD's) die zijn opgeslagen in Azure storage-account zijn. Virtuele machines hebben ook een of meer gegevensschijven die ook als virtuele harde schijven zijn opgeslagen.
