@@ -298,7 +298,7 @@ In deze zelfstudie maakt u een pijplijn met twee opzoekactiviteiten, één kopie
 24. Selecteer **Opgeslagen procedureactiviteit** in de pijplijnontwerper en verander de naam ervan in **StoredProceduretoWriteWatermarkActivity**. 
 
     ![Opgeslagen-procedureactiviteit - naam](./media/tutorial-incremental-copy-portal/stored-procedure-activity-name.png)
-25. Ga naar het tabblad **SQL-account** en selecteer *AzureSqlDatabaseLinkedService* als **Gekoppelde service**. 
+25. Ga naar het tabblad **SQL-account** en selecteer *AzureSqlDatabaseLinkedService*\* als **Gekoppelde service**. 
 
     ![Opgeslagen-procedureactiviteit - SQL-account](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Ga naar het tabblad **Opgeslagen procedure** en voer de volgende stappen uit: 
