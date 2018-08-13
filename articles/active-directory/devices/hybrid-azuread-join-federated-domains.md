@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b5cd03098f4b4698c40966ceb79d5263b456a979
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: cc6d08de74097ba7566037664fd33d9be85ac390
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430301"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628985"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Zelfstudie: Hybride Azure Active Directory join voor federatieve domeinen configureren
 
@@ -50,6 +50,7 @@ In deze zelfstudie wordt ervan uitgegaan dat u bekend met bent:
 
 -  [De implementatie van uw hybride Azure Active Directory-deelname plannen](hybrid-azuread-join-plan.md)
 
+-  [De hybride Azure AD-deelname van uw apparaten beheren](hybrid-azuread-join-control.md)
 
 
 Voor het configureren van het scenario in deze zelfstudie, hebt u het volgende nodig:
@@ -185,7 +186,7 @@ Daarnaast moet u om in te schakelen **toestaan van updates op de statusbalk via 
 
 ## <a name="verify-the-registration"></a>Controleer of de registratie
 
-Als u wilt controleren of de status van de apparaatregistratie in uw Azure-tenant, kunt u de **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** cmdlet in de  **[Azure Active Directory PowerShell-module](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
+Als u wilt controleren of de status van de apparaatregistratie in uw Azure-tenant, kunt u de ** [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) ** cmdlet in de ** [Azure Active Directory PowerShell-module](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
 
 Wanneer u de **Get-MSolDevice** cmdlet om de servicedetails te controleren:
 

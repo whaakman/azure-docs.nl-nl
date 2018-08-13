@@ -9,19 +9,19 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: fa4005d1f09a2e0abca1e0083603d4335fb023c9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 37edf60ed0b63b4ff97094a496a08a592cb46fc0
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902918"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715417"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
 Dit artikel beschrijft de verschillende typen uitvoer beschikbaar voor een Azure Stream Analytics-taak. Uitvoer kunnen u opslaan en sla de resultaten van de Stream Analytics-taak. De uitvoergegevens die worden gebruikt, kunt u doen verdere bedrijfsanalyses en datawarehousing van uw gegevens. 
 
 Bij het ontwerpen van uw Stream Analytics-query, verwijzen naar de naam van het gebruik van de uitvoer de [component INTO](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). U kunt een enkele uitvoer per taak of meerdere uitvoer per streaming-taak als u nodig hebt door te geven meerdere INTO-componenten in de query.
 
-Maken, bewerken en testen van Stream Analytics-taak weergeeft, kunt u de [Azure-portal](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST-API](https://docs.microsoft.com/en-us/rest/api/streamanalytics/stream-analytics-output), en [Visual Studio](stream-analytics-tools-for-visual-studio.md).
+Maken, bewerken en testen van Stream Analytics-taak weergeeft, kunt u de [Azure-portal](stream-analytics-quick-create-portal.md#configure-output-to-the-job), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST-API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), en [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Sommige typen ondersteuning voor uitvoer [partitioneren](#partitioning), en [uitvoer van de batch-grootten](#output-batch-size) variëren voor het optimaliseren van doorvoer.
 
@@ -58,7 +58,7 @@ Azure Data Lake Store-uitvoer van Stream Analytics is momenteel niet beschikbaar
 ### <a name="renew-data-lake-store-authorization"></a>Vernieuw de autorisatie van Data Lake Store
 U moet uw Data Lake Store-account te verifiëren als het wachtwoord is gewijzigd sinds de taak is gemaakt of laatst geverifieerd. Als u niet opnieuw worden geverifieerd, wordt de taak produceert geen uitvoer resultaten en ziet u een foutbericht met de noodzaak van opnieuw te autoriseren in de logboeken voor bewerkingen. Er is momenteel beperkt tot waar het verificatietoken moet worden handmatig vernieuwd om de 90 dagen voor alle taken met Data Lake Store-uitvoer. 
 
-Autorisatie vernieuwen **stoppen** uw taak > Ga naar de uitvoer van uw Data Lake Store > klikt u op de **autorisatie vernieuwen** koppelen en gedurende een korte periode een pagina weergegeven die wijzen op **omleiden naar autorisatie...** . Automatisch wordt gesloten en als dit lukt, geeft u aan de pagina **autorisatie is vernieuwd**. Vervolgens moet u klikken op **opslaan** aan de onderkant van de pagina, en u kunt doorgaan door de taak opnieuw te starten de **gestopt laatst** om gegevensverlies te voorkomen.
+Autorisatie vernieuwen **stoppen** uw taak > Ga naar de uitvoer van uw Data Lake Store > klikt u op de **autorisatie vernieuwen** koppelen en gedurende een korte periode een pagina weergegeven die wijzen op **omleiden naar autorisatie... **. Automatisch wordt gesloten en als dit lukt, geeft u aan de pagina **autorisatie is vernieuwd**. Vervolgens moet u klikken op **opslaan** aan de onderkant van de pagina, en u kunt doorgaan door de taak opnieuw te starten de **gestopt laatst** om gegevensverlies te voorkomen.
 
 ![Data Lake Store toestaan](./media/stream-analytics-define-outputs/08-stream-analytics-define-outputs.png)  
 

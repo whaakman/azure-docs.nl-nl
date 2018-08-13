@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: f61f0649900c27a6aa3a873f60dc60b4985f5d4f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 55818bf3c6997925fbac32f913d573d630bc20f4
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424184"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004375"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Zelfstudie: Hybride Azure Active Directory join voor beheerde domeinen configureren
 
@@ -49,6 +49,9 @@ In deze zelfstudie wordt ervan uitgegaan dat u bekend met bent:
 -  [Inleiding tot Apparaatbeheer in Azure Active Directory](../device-management-introduction.md)
     
 -  [De implementatie van uw hybride Azure Active Directory-deelname plannen](hybrid-azuread-join-plan.md)
+
+-  [De hybride Azure AD-deelname van uw apparaten beheren](hybrid-azuread-join-control.md)
+  
 
 Voor het configureren van het scenario in dit artikel, moet u de [meest recente versie van Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 of hoger) moet worden geïnstalleerd. 
  
@@ -101,7 +104,7 @@ Als u wilt een hybride Azure AD join met behulp van Azure AD Connect hebt geconf
 
     ![Apparaatopties](./media/hybrid-azuread-join-managed-domains/15.png)
 
-6. Op de **SCP** pagina voor elk forest dat u met Azure AD Connect naar de SCP, voer de volgende stappen uit en klik vervolgens op **volgende**: 
+6. Op de **SCP** pagina voor elk forest dat u wilt dat Azure AD Connect het SCP te configureren, voer de volgende stappen uit en klik vervolgens op **volgende**: 
 
     ![SCP](./media/hybrid-azuread-join-managed-domains/16.png)
 
@@ -156,15 +159,13 @@ Met succes voltooid hybride Azure AD join van uw Windows downlevel-apparaten en 
 
 - `https://device.login.microsoftonline.com`
 
-- `https://device.login.microsoftonline.com`
-
 - `https://autologon.microsoftazuread-sso.com`.
 
 Daarnaast moet u om in te schakelen **toestaan van updates op de statusbalk via script** in de lokale intranetzone van de gebruiker.
 
 ## <a name="verify-the-registration"></a>Controleer of de registratie
 
-Als u wilt controleren of de status van de apparaatregistratie in uw Azure-tenant, kunt u de **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** cmdlet in de  **[Azure Active Directory PowerShell-module](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
+Als u wilt controleren of de status van de apparaatregistratie in uw Azure-tenant, kunt u de ** [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) ** cmdlet in de ** [Azure Active Directory PowerShell-module](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
 
 Wanneer u de **Get-MSolDevice** cmdlet om de servicedetails te controleren:
 

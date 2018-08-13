@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: b0e078e3e7f18e3370ff1bcd90935e7fece265f0
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 1a4b970b07514619b2d81a0483546ac64d07927f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391177"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005472"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
 
@@ -94,7 +94,9 @@ context.bindings.myOutput = {
 context.done([err],[propertyBag])
 ```
 
-Informeert de runtime die uw code is voltooid. U moet aanroepen `context.done`, of anders de runtime nooit weet dat uw functie voltooid is en de uitvoering wordt de time-out. 
+Informeert de runtime die uw code is voltooid. Als uw functie maakt gebruik van de `async function` declaratie (beschikbaar met behulp van knooppunt 8 + in functies versie 2.x), u niet wilt gebruiken `context.done()`. De `context.done` callback impliciet wordt genoemd.
+
+Als uw functie niet een functie asynchrone is **moet worden aangeroepen `context.done` ** om te informeren over de runtime die uw functie voltooid is. Als deze ontbreekt, wordt de uitvoering time-out.
 
 De `context.done` methode kunt u weer zowel een gebruiker gedefinieerde fout doorgeven aan de runtime en een eigenschappenverzameling van eigenschappen die de eigenschappen worden overschreven op het `context.bindings` object.
 

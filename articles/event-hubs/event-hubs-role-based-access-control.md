@@ -3,19 +3,19 @@ title: Voorbeeld van Azure Event Hubs Role-Based toegangsbeheer (RBAC) | Microso
 description: Azure Event Hubs Role-Based Access Control
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
-ms.author: sethm
-ms.openlocfilehash: 76c929f482659bb81e0cabb7fb6bffa5331082bf
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: shvija
+ms.openlocfilehash: ef74600fdf5051394f8b7bfbdd71e144b3f26d8a
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502133"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40005735"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Actieve Directory Role-Based Access Control (preview)
 
@@ -43,7 +43,7 @@ Als u nog steeds wilt maken van een speciaal account voor dit scenario [als volg
 
 ### <a name="create-an-event-hubs-namespace"></a>Een Event Hubs-naamruimte maken
 
-Volgende [maken van een Event Hubs-naamruimte](event-hubs-create.md) in een van de Azure-regio's die Event Hubs preview ondersteuning bieden voor RBAC: **VS Oost**, **VS Oost 2**, of **West-Europa** . 
+Volgende [maken van een Event Hubs-naamruimte](event-hubs-create.md) in een van de Azure-regio's die Event Hubs preview ondersteuning bieden voor RBAC: **VS Oost**, **VS Oost 2**, of **West-Europa **. 
 
 Nadat de naamruimte is gemaakt, gaat u naar de **Access Control (IAM)** pagina in de portal en klik vervolgens op **toevoegen** de Azure AD-gebruikersaccount toevoegen aan de rol van eigenaar. Als u uw eigen gebruikersaccount gebruikt en u de naamruimte hebt gemaakt, bent u al in de rol van eigenaar. Zoek de naam van de web-App in een ander account toevoegen aan de rol, de **machtigingen toevoegen** deelvenster **Selecteer** veld en klik vervolgens op de vermelding. Klik vervolgens op **Opslaan**.
  

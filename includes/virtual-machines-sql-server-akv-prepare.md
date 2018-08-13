@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 197a168050eded6fabe86b0c1945d30f0ebcda09
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 0a5d0f87b31652b1e1ab32c6b1594021937751b6
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39582978"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "40046590"
 ---
 ## <a name="prepare-for-akv-integration"></a>Voorbereiden voor Azure Sleutelkluis-integratie
 Als u Azure Key Vault-integratie wilt configureren van uw SQL Server-machine, zijn er verschillende vereisten: 
@@ -36,7 +36,7 @@ Zorg ervoor dat u de nieuwste Azure PowerShell SDK hebt geïnstalleerd. Zie [Azu
 
 Eerst moet u hebt een [Azure Active Directory](https://azure.microsoft.com/trial/get-started-active-directory/) (AAD) in uw abonnement. Veel voordelen kunt hiermee u toestemming te verlenen voor uw key vault voor bepaalde gebruikers en toepassingen.
 
-Vervolgens moet u een toepassing registreren met AAD. Hiermee geeft u een Service-Principal-account dat toegang heeft tot uw key vault, die uw virtuele machine moet. In het artikel Azure Key Vault vindt u de stappen in de [een toepassing registreren met Azure Active Directory](../articles/key-vault/key-vault-get-started.md#register) sectie, of u kunt zien welke stappen met de schermafbeeldingen in de **een identiteit voor de sectie van de toepassing ophalen**  van [dit blogbericht](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Voordat u deze stappen uitvoert, moet u voor het verzamelen van de volgende informatie tijdens deze registratie dat hoger is vereist wanneer u Azure Key Vault-integratie op de SQL-VM inschakelen.
+Vervolgens moet u een toepassing registreren met AAD. Hiermee geeft u een Service-Principal-account dat toegang heeft tot uw key vault, die uw virtuele machine moet. In het artikel Azure Key Vault vindt u de stappen in de [een toepassing registreren met Azure Active Directory](../articles/key-vault/key-vault-get-started.md#register) sectie, of u kunt zien welke stappen met de schermafbeeldingen in de **een identiteit voor de sectie van de toepassing ophalen ** van [dit blogbericht](http://blogs.technet.com/b/kv/archive/2015/01/09/azure-key-vault-step-by-step.aspx). Voordat u deze stappen uitvoert, moet u voor het verzamelen van de volgende informatie tijdens deze registratie dat hoger is vereist wanneer u Azure Key Vault-integratie op de SQL-VM inschakelen.
 
 * Nadat de toepassing is toegevoegd, vinden de **toepassings-ID** op de **geregistreerde app** blade.
     De toepassings-ID is toegewezen, later naar de **$spName** (Service Principal name)-parameter in de PowerShell-script voor het inschakelen van Azure Key Vault-integratie.
@@ -49,7 +49,7 @@ Vervolgens moet u een toepassing registreren met AAD. Hiermee geeft u een Servic
 
 * De toepassings-ID en het geheim wordt ook gebruikt voor het maken van een referentie in SQL Server.
 
-* Verleent u deze nieuwe client-ID hebben de volgende toegangsmachtigingen: **versleutelen**, **ontsleutelen**, **wrapKey**, **unwrapKey**, **aanmelding**, en **controleren**. Dit wordt gedaan met de [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) cmdlet. Zie voor meer informatie, [de toepassing machtigen voor het gebruik van de sleutel of geheim](../articles/key-vault/key-vault-get-started.md#authorize).
+* Verleent u deze nieuwe client-ID hebben de volgende toegangsmachtigingen: **ophalen**, **wrapKey**, **unwrapKey**. Dit wordt gedaan met de [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Set-AzureRmKeyVaultAccessPolicy) cmdlet. Zie voor meer informatie, [de toepassing machtigen voor het gebruik van de sleutel of geheim](../articles/key-vault/key-vault-get-started.md#authorize).
 
 ### <a id="createkeyvault"></a> Een sleutelkluis maken
 Azure Key Vault gebruiken voor het opslaan van de sleutels die u voor versleuteling in uw virtuele machine gebruikt, moet u toegang tot een key vault. Als u uw key vault nog niet hebt ingesteld, maakt u volgt u de stappen in de [aan de slag met Azure Key Vault](../articles/key-vault/key-vault-get-started.md) artikel. Voordat u deze stappen uitvoert, moet u enkele gegevens u verzamelen tijdens deze set wilt die is ook later nodig wanneer u Azure Key Vault-integratie op de SQL-VM inschakelen.

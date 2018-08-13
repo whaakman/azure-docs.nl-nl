@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 48b2aab9d2a3937fb53a2e63efa26efc18a894f8
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 53b35fbdc469639b1fdc09293e05247bcc5d8c31
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413855"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714482"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Fouten met runbooks oplossen
 
@@ -38,18 +38,42 @@ Deze fout treedt op als de naam van de referentie-asset niet geldig is of als de
 
 Om te bepalen wat er mis is, moet u de volgende stappen uitvoeren:  
 
-1. Zorg ervoor dat u geen speciale tekens heeft, met inbegrip van de **@** teken in de naam van Automation-referentie asset die u gebruikt voor het verbinding maken met Azure.  
+1. Zorg ervoor dat u geen speciale tekens heeft, met inbegrip van de ** @ ** teken in de naam van Automation-referentie asset die u gebruikt voor het verbinding maken met Azure.  
 2. Controleer dat u de gebruikersnaam en het wachtwoord die zijn opgeslagen in de Azure Automation-referentie in uw lokale PowerShell ISE-editor kunt gebruiken. U kunt dit doen door het uitvoeren van de volgende cmdlets in PowerShell ISE:  
 
    ```powershell
    $Cred = Get-Credential  
-   #Using Azure Service Management   
+   #Using Azure Service Management
    Add-AzureAccount –Credential $Cred  
    #Using Azure Resource Manager  
    Connect-AzureRmAccount –Credential $Cred
    ```
 
 3. Als de verificatie lokaal mislukt, betekent dit dat u uw Azure Active Directory-referenties juist nog niet hebt ingesteld. Raadpleeg [zich verifiëren bij Azure met behulp van Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blogbericht om op te halen van de Azure Active Directory-account juist ingesteld.  
+
+4. Als het erop lijkt te zijn van een tijdelijke fout, probeer logica voor opnieuw proberen toe te voegen aan uw verificatie routine maken verifiëren krachtiger.
+
+   ```powershell
+   # Get the connection "AzureRunAsConnection"
+   $connectionName = "AzureRunAsConnection"
+   $servicePrincipalConnection = Get-AutomationConnection -Name $connectionName
+
+   $logonAttempt = 0
+   $logonResult = $False
+
+   while(!($connectionResult) -And ($logonAttempt -le 10))
+   {
+   $LogonAttempt++
+   # Logging in to Azure...
+   $connectionResult = Connect-AzureRmAccount `
+      -ServicePrincipal `
+      -TenantId $servicePrincipalConnection.TenantId `
+      -ApplicationId $servicePrincipalConnection.ApplicationId `
+      -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint
+
+   Start-Sleep -Seconds 30
+   }
+   ```
 
 ### <a name="unable-to-find-subscription"></a>Scenario: Kan het Azure-abonnement vinden
 
@@ -285,7 +309,7 @@ Er zijn enkele veelvoorkomende redenen waarom dat een module niet met succes in 
 
 Een van de volgende oplossingen het probleem wordt opgelost:
 
-* Zorg ervoor dat de module de volgende indeling heeft: ModuleName.Zip **->** ModuleName of het versienummer **->** (ModuleName.psm1, ModuleName.psd1)
+* Zorg ervoor dat de module de volgende indeling heeft: ModuleName.Zip ** -> ** ModuleName of het versienummer ** -> ** (ModuleName.psm1, ModuleName.psd1)
 * Open het .psd1-bestand en zien of de module afhankelijkheden heeft. Als dit het geval is, moet u deze modules uploaden naar het Automation-account.
 * Zorg ervoor dat eventuele waarnaar wordt verwezen, dll's zijn aanwezig in de modulemap.
 

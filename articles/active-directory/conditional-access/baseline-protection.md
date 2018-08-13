@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/02/2018
+ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: f0bfc494894a31a1ee61a4f23d702df38b13c4e7
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 856673d2a5465f9646172a1436ed75c0d73692cb
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626495"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003169"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Wat is basislijn protection (preview)?  
 
@@ -51,7 +51,7 @@ Gebruikers met toegang tot beschermde accounts hebben onbeperkte toegang tot uw 
 
 ![Azure Active Directory](./media/baseline-protection/01.png)
 
-Dit beleid biedt u de optie om gebruikers en groepen te sluiten. U mogelijk wilt uitsluiten van een *[EMS-access-Administrator-account](../users-groups-roles/directory-emergency-access.md)* om te controleren of u geen toegang tot de tenant zijn geblokkeerd.
+Dit beleid biedt u de optie om gebruikers en groepen te sluiten. U mogelijk wilt uitsluiten van een * [EMS-access-Administrator-account](../users-groups-roles/directory-emergency-access.md) * om te controleren of u geen toegang tot de tenant zijn geblokkeerd.
 
 
 ## <a name="enable-a-baseline-policy"></a>Een beleid inschakelen 
@@ -95,6 +95,9 @@ Basislijn-beleid van toepassing op verouderde verificatiestromen zoals POP, IMAP
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u weten hoe u een beleid voor voorwaardelijke toegang configureren wilt, Zie [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](app-based-mfa.md).
+Zie voor meer informatie:
 
-Als u klaar om te configureren van beleid voor voorwaardelijke toegang voor uw omgeving bent, raadpleegt u de [aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md). 
+- [Vijf stappen voor het beveiligen van uw infrastructuur voor identiteiten](https://docs.microsoft.com/azure/security/azure-ad-secure-steps)
+
+- [Wat is voorwaardelijke toegang in Azure Active Directory?](overview.md) 
+

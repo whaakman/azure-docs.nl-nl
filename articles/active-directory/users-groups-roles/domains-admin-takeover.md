@@ -14,15 +14,15 @@ ms.date: 04/06/2017
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 625894738b6cbf680baef0a1eeeea518586e4506
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 52ae7da666acaf234920a7f03afe3766f29a1e85
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37872020"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39629120"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Een niet-beheerde directory overnemen als in Azure Active Directory-beheerder
-Dit artikel wordt beschreven in een niet-beheerde adreslijst in Azure Active Directory (Azure AD) een DNS-domeinnaam overnemen op twee manieren. Wanneer een selfservice gebruiker zich aanmeldt voor een cloudservice die gebruikmaakt van Azure AD, wordt deze toegevoegd aan een niet-beheerde Azure AD-adreslijst op basis van zijn e-maildomein. Zie voor meer informatie over selfservice of 'viraal' aanmelden voor een service [wat is selfserviceregistratie voor Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-self-service-signup)
+Dit artikel wordt beschreven in een niet-beheerde adreslijst in Azure Active Directory (Azure AD) een DNS-domeinnaam overnemen op twee manieren. Wanneer een selfservice-gebruiker zich registreert voor een cloudservice die gebruikmaakt van Azure AD, wordt deze toegevoegd aan een niet-beheerde Azure AD-adreslijst op basis van het e-maildomein. Zie voor meer informatie over selfservice of 'viraal' aanmelden voor een service [wat is selfserviceregistratie voor Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-self-service-signup)
 
 ## <a name="decide-how-you-want-to-take-over-an-unmanaged-directory"></a>Bepaal hoe u wilt een niet-beheerde directory overnemen
 Tijdens het proces van overname door een beheerder kunt u eigendom bewijzen, zoals beschreven in [Een aangepaste domeinnaam toevoegen aan Azure AD](../fundamentals/add-custom-domain.md). In de volgende secties wordt de ervaring voor de beheerder gedetailleerder uitgelegd, maar hier volgt een samenvatting:
@@ -56,13 +56,13 @@ Wanneer u de voorgaande stappen hebt voltooid, bent u nu de globale beheerder va
 ### <a name="adding-the-domain-name-to-a-managed-tenant-in-azure-ad"></a>Naam van het domein toe te voegen aan een beheerde tenant in Azure AD 
 
 1. Open de [Office 365-beheercentrum](https://portal.office.com/adminportal/Home).
-2. Selecteer **gebruikers** tabblad en een nieuw gebruikersaccount maken met een naam, zoals *user@fourthcoffeexyz.onmicrosoft.com* die gebruikt niet de aangepaste domeinnaam. 
+2. Selecteer **gebruikers** tabblad en een nieuw gebruikersaccount maken met een naam, zoals * user@fourthcoffeexyz.onmicrosoft.com * die gebruikt niet de aangepaste domeinnaam. 
 3. Zorg ervoor dat het nieuwe gebruikersaccount globale beheerdersmachtigingen voor de Azure AD-tenant.
 4. Open **domeinen** tabblad in het Office 365-beheercentrum, selecteert u de domeinnaam en selecteer **verwijderen**. 
   
   ![de domeinnaam verwijderen uit Office 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Als u gebruikers of groepen in Office 365 die verwijzen naar de verwijderde domeinnaam hebt, moeten u ze gewijzigd in de. onmicrosoft.com-domein. Als u geforceerd verwijderen van de domeinnaam, alle gebruikers worden automatisch gewijzigd, in dit voorbeeld *user@fourthcoffeexyz.onmicrosoft.com*.
+5. Als u gebruikers of groepen in Office 365 die verwijzen naar de verwijderde domeinnaam hebt, moeten u ze gewijzigd in de. onmicrosoft.com-domein. Als u geforceerd verwijderen van de domeinnaam, alle gebruikers worden automatisch gewijzigd, in dit voorbeeld * user@fourthcoffeexyz.onmicrosoft.com *.
   
 6. Aanmelden bij de [Azure AD-beheercentrum](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) met een account dat de globale beheerder voor de Azure AD-tenant.
   
@@ -71,7 +71,7 @@ Wanneer u de voorgaande stappen hebt voltooid, bent u nu de globale beheerder va
   ![domein toegevoegd aan Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Alle gebruikers van Power BI- of Azure Rights Management-service die een licentie toegewezen in de Office 365-tenant zijn, moeten hun dashboards opslaan als de domeinnaam wordt verwijderd. Ze moeten zich aanmelden met een gebruikersnaam, zoals *user@fourthcoffeexyz.onmicrosoft.com* in plaats van *user@fourthcoffee.xyz*.
+> Alle gebruikers van Power BI- of Azure Rights Management-service die een licentie toegewezen in de Office 365-tenant zijn, moeten hun dashboards opslaan als de domeinnaam wordt verwijderd. Ze moeten zich aanmelden met een gebruikersnaam, zoals * user@fourthcoffeexyz.onmicrosoft.com * in plaats van * user@fourthcoffee.xyz *.
 
 ## <a name="external-admin-takeover"></a>Externe beheerdersovername
 
@@ -104,7 +104,7 @@ Externe beheerdersovername wordt niet ondersteund voor alle services waarvoor se
 
 #### <a name="more-information-about-rms-for-individuals"></a>Meer informatie over RMS voor personen
 
-Voor [RMS voor personen](/information-protection/understand-explore/rms-for-individuals), wanneer het niet-beheerde tenant bevindt zich in dezelfde regio als de tenant dat u eigenaar bent, de automatisch gemaakte [Azure Information Protection-tenantsleutel](/information-protection/plan-design/plan-implement-tenant-key) en [standaard Beveiligingssjablonen](/information-protection/deploy-use/configure-usage-rights#rights-included-in-the-default-templates) verder met de naam van het domein worden verplaatst. 
+Voor [RMS voor personen](/azure/information-protection/rms-for-individuals), wanneer het niet-beheerde tenant bevindt zich in dezelfde regio als de tenant dat u eigenaar bent, de automatisch gemaakte [Azure Information Protection-tenantsleutel](/azure/information-protection/plan-implement-tenant-key) en [standaard Beveiligingssjablonen](/azure/information-protection/configure-usage-rights#rights-included-in-the-default-templates) verder met de naam van het domein worden verplaatst. 
 
 De sleutel en -sjablonen zijn niet verplaatst via wanneer het niet-beheerde tenant bevindt zich in een andere regio. De niet-beheerde tenant is bijvoorbeeld in Europa en de tenant die van jou is in Noord-Amerika. 
 
@@ -114,7 +114,7 @@ Hoewel RMS voor personen is ontworpen ter ondersteuning van Azure AD-verificatie
 U ziet deze cmdlets gebruikt in [PowerShell-voorbeeld](#powershell-example).
 
 
-cmdlet | Gebruik 
+Cmdlet | Gebruik 
 ------- | -------
 `connect-msolservice` | Wanneer u hierom wordt gevraagd, moet u zich aanmelden bij uw beheerde tenant.
 `get-msoldomain` | Geeft de domeinnamen van uw dat is gekoppeld aan de huidige tenant.

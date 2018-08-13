@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: e926bfb023fe3edfd564aa6389e21f6594bec169
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 5e265543e2ce5feeed095d89cdb47ede9817bad1
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117502"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40002675"
 ---
 # <a name="create-your-first-function-with-java-and-intellij-preview"></a>Uw eerste functie maken met Java en IntelliJ (Preview)
 
@@ -74,8 +74,15 @@ Maven maakt de projectbestanden in een nieuwe map met de naam _artifactId_. De g
 Sluit het dialoogvenster uitvoeren als u klaar bent uw functie testen. Slechts één functie host kan actieve en actieve lokaal op een tijdstip zijn.
 
 ### <a name="debug-the-function-in-intellij"></a>Fouten opsporen in de functie in IntelliJ
+Voor het starten van de functie-host in de foutopsporingsmodus, toevoegen **- DenableDebug** als het argument tijdens het uitvoeren van uw functie. Kan uitvoeren onder vanaf de opdrachtregel in terminal of configureren in [maven doelstellingen](https://www.jetbrains.com/help/idea/maven-support.html#run_goal). Vervolgens wordt de functie host een poort voor foutopsporing geopend op 5005. 
 
-U kunt de functies in IntelliJ fouten opsporen door te koppelen aan de functie host na het opstarten.  Uitvoeren van de Azure-functie lokaal via de stappen hierboven, en klik vervolgens in de **uitvoeren** menu Selecteer **koppelen aan een lokaal proces**.  U ziet een proces op poort 5005 beschikbaar.  U kunt onderbrekingspunten bereikt en fouten opsporen in uw functie-app hebben na het koppelen.
+```
+mvn azure-functions:run -DenableDebug
+```
+
+Voor foutopsporing in IntelliJ, In de **uitvoeren** menu Selecteer **configuraties bewerken**. Klik op ** + ** om toe te voegen een **externe**. Vul in **naam** en **instellingen**, en klik vervolgens op **OK** aan de configuratie op te slaan. Nadat Setup is voltooid, klikt u op **Debug** 'Uw RAS-configuratie-Name' of drukt u op **Shift + F9** foutopsporing te starten.
+
+![Functies debuggen in IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.PNG)
 
 Wanneer u klaar bent stop de foutopsporing en het proces dat wordt uitgevoerd. Slechts één functie host kan worden actieve en actieve lokaal op tegelijk.
 

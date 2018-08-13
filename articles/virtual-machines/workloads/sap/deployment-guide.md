@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
-ms.openlocfilehash: 990fe50cefabed7b63eee177b19ec6d74c9929ab
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: eb2b26333647d464a3a18cd07bf1576251fb3830
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494518"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39715400"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-implementatie voor SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -177,7 +177,7 @@ ms.locfileid: "39494518"
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 
-[msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
+[msdn-set-azurermvmaemextension]:https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmaemextension
 
 [planning-guide]:planning-guide.md (Azure virtuele Machines, planning en implementatie van SAP)
 [planning-guide-1.2]:planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Resources)
@@ -835,7 +835,7 @@ De stappen die u moet het configureren van de proxy in Windows verschillen van d
 Proxy-instellingen moeten correct worden ingesteld voor het lokale systeemaccount gebruikt voor toegang tot het Internet. Als de proxy-instellingen zijn niet ingesteld met Groepsbeleid, kunt u de instellingen voor het lokale systeemaccount configureren.
 
 1. Ga naar **Start**, voer **gpedit.msc**, en selecteer vervolgens **Enter**.
-1. Selecteer **Computerconfiguratie** > **Beheersjablonen** > **Windows-onderdelen**  >   **Internet Explorer**. Zorg ervoor dat de instelling **proxy maken instellingen per computer (in plaats per gebruiker)** is uitgeschakeld of niet is geconfigureerd.
+1. Selecteer **Computerconfiguratie** > **Beheersjablonen** > **Windows-onderdelen**  >  ** Internet Explorer**. Zorg ervoor dat de instelling **proxy maken instellingen per computer (in plaats per gebruiker)** is uitgeschakeld of niet is geconfigureerd.
 1. In **Configuratiescherm**, gaat u naar **Netwerkcentrum** > **Internetopties**.
 1. Op de **verbindingen** tabblad de **LAN-instellingen** knop.
 1. Schakel de **-instellingen automatisch detecteren** selectievakje.

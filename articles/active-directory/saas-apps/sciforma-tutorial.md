@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jeedes
-ms.openlocfilehash: e0c570ea5f77e74448116c453c316a965ac18197
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4dc7c9c9c702db7c0a10b89d33169a97541f3b30
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448504"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716437"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sciforma"></a>Zelfstudie: Azure Active Directory-integratie met Sciforma
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van Sciforma in Azure AD, moet u Sciform
 
 **Als u wilt toevoegen Sciforma uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de ** [Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -88,11 +88,11 @@ In Sciforma, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde 
 
 Om te configureren en testen van Azure AD eenmalige aanmelding met Sciforma, moet u de volgende bouwstenen voltooien:
 
-1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Het maken van een testgebruiker Sciforma](#creating-a-sciforma-test-user)**  : als u wilt een equivalent van Britta Simon in Sciforma die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on) ** : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+1. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user) ** - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+1. **[Het maken van een testgebruiker Sciforma](#creating-a-sciforma-test-user) ** : als u wilt een equivalent van Britta Simon in Sciforma die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+1. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user) ** - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+1. **[Eenmalige aanmelding testen](#testing-single-sign-on) ** : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -117,7 +117,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<subdomain>.sciforma.net/sciforma/saml`
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [Sciforma Client ondersteuningsteam](http://www.sciforma.com/company/contact_us) om deze waarden te verkrijgen. 
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [Sciforma Client ondersteuningsteam](https://www.sciforma.com/about/contact) om deze waarden te verkrijgen. 
  
 
 
@@ -129,10 +129,10 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/sciforma-tutorial/tutorial_general_400.png)
 
-1. Het configureren van eenmalige aanmelding op **Sciforma** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [Sciforma ondersteuningsteam](http://www.sciforma.com/company/contact_us).
+1. Het configureren van eenmalige aanmelding op **Sciforma** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** naar [Sciforma ondersteuningsteam](https://www.sciforma.com/about/contact).
 
 > [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de ** Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
