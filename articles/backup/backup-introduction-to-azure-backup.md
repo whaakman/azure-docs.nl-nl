@@ -7,15 +7,15 @@ manager: carmonm
 keywords: back-up en herstel; Recovery Services; back-upoplossingen
 ms.service: backup
 ms.topic: overview
-ms.date: 3/1/2018
+ms.date: 8/2/2018
 ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: bbcb05fcc17b958711b704c75a53cf4af4d41bd0
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0a5b9e6cdb5329705cb3c6d4676dfc8d987119e4
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607096"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480970"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Overzicht van de functies in Azure Backup
 Azure Backup is de Azure-service die u kunt gebruiken voor het maken van back-ups en het herstellen van uw gegevens in de Microsoft-cloud (of deze te beschermen). Met Azure Backup vervangt u uw bestaande on-premises of off-site back-upoplossing door een betrouwbare, veilige en kostenbesparende cloudoplossing. Azure Backup biedt meerdere onderdelen die u kunt downloaden en implementeren op de desbetreffende computer, server, of in de cloud. Welk onderdeel, of welke agent, u implementeert, is afhankelijk van wat u wilt beveiligen. Alle onderdelen van Azure Backup (ongeacht of u gegevens on-premises of in de cloud wilt beveiligen) kunnen worden gebruikt om back-ups te maken naar een Recovery Services-kluis in Azure. Zie de [Azure Backup onderdelentabel](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (verderop in dit artikel) voor informatie over welk onderdeel moet worden gebruikt om specifieke gegevens, toepassingen of workloads te beschermen.
@@ -157,8 +157,8 @@ Bij **Incrementele back-up** is sprake van zeer efficiëntie opslag en netwerk d
 ### <a name="security"></a>Beveiliging
 | Functie | Azure Backup-agent | System Center DPM | Azure Backup-server | Back-up van virtuele machines van Azure IaaS |
 | --- | --- | --- | --- | --- |
-| Netwerkbeveiliging<br/> (naar Azure) |![Ja][green] |![Ja][green] |![Ja][green] |![Gedeeltelijk][yellow] |
-| Gegevensbeveiliging<br/> (in Azure) |![Ja][green] |![Ja][green] |![Ja][green] |![Gedeeltelijk][yellow] |
+| Netwerkbeveiliging<br/> (naar Azure) |![Ja][green] |![Ja][green] |![Ja][green] |![Ja][green] |
+| Gegevensbeveiliging<br/> (in Azure) |![Ja][green] |![Ja][green] |![Ja][green] |![Ja][green] |
 
 ![tabelsleutel](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -171,7 +171,7 @@ Al het back-upverkeer van uw servers naar de Recovery Services-kluis wordt versl
 >
 
 #### <a name="data-security"></a>Gegevensbeveiliging
-Als u back-ups van virtuele machines van Azure wilt maken, moet u de versleuteling configureren *in* de virtuele machine. Gebruik BitLocker voor virtuele machines van Windows en **dm-crypt** voor virtuele machines van Linux. De gegevens die via dit pad worden verzonden, worden niet automatisch door Azure Backup versleuteld.
+Als u back-ups van virtuele machines van Azure wilt maken, moet u de versleuteling configureren *in* de virtuele machine. Azure Backup biedt ondersteuning voor Azure Disk Encryption, dat gebruikmaakt van BitLocker op virtuele Windows-machines en **dm-crypt** op virtuele Linux-machines. Op de backend maakt Azure Backup gebruik van [Azure Storage Service-versleuteling](../storage/common/storage-service-encryption.md), waarmee data-at-rest worden beschermd.
 
 ### <a name="network"></a>Netwerk
 | Functie | Azure Backup-agent | System Center DPM | Azure Backup-server | Back-up van virtuele machines van Azure IaaS |

@@ -1,6 +1,6 @@
 ---
-title: 'Azure-snelstart: Een Azure-webtoepassing configureren voor het lezen van een geheim uit Key Vault | Microsoft Docs'
-description: Snelstart waarin wordt getoond hoe u een ASP.Net Core-toepassing configureert voor het lezen van een geheim uit Key Vault
+title: 'Azure-snelstart: Een Azure-webtoepassing configureren voor het instellen en ophalen van een geheim uit Key Vault | Microsoft Docs'
+description: Snelstart waarin wordt getoond hoe u een ASP.Net Core-toepassing configureert voor het instellen en ophalen van een geheim uit Key Vault
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 07a7bc5713f093e34a775aacab27094780ac6c7e
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 8b5624ae3083d92213b4ee919dc0860bf5ff4ab7
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247822"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480199"
 ---
-# <a name="quickstart-set-and-read-a-secret-from-key-vault-in-a-net-web-app"></a>Snelstart: Instellen en lezen van een geheim uit Key Vault in een .NET-Web-App
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-net-web-app"></a>Snelstart: Een geheim uit Azure Key Vault instellen en ophalen met behulp van .NET Web App
 
 In deze snelstart gaat u de stappen uitvoeren die nodig zijn om een Azure-webtoepassing met behulp van beheerde service-identiteiten gegevens te laten lezen uit Key Vault. In deze zelfstudie leert u procedures om het volgende te doen:
 
@@ -56,7 +56,7 @@ az login
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az-group-create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
 
 Selecteer de naam van een resourcegroep en vul de tijdelijke aanduiding in.
 In het volgende voorbeeld wordt een resourcegroep met de naam *<YourResourceGroupName>* gemaakt op de locatie *eastus*.

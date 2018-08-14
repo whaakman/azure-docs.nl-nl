@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 10/13/2017
 ms.author: asutton
 ms.custom: ''
-ms.openlocfilehash: 9834dbbc2232fc286451bcdcd19dfc639f49d3bf
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 504504f278907536e89055cd5c912d2d1f280931
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30903472"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627199"
 ---
 # <a name="what-is-batch-ai-in-azure"></a>Wat is Batch AI in Azure?
 Batch AI is een beheerde service waarmee gegevenswetenschappers en AI-onderzoekers AI en andere Machine Learning-modellen kunnen trainen op clusters met virtuele Azure-machines, inclusief VM's met GPU-ondersteuning. U beschrijft de vereisten van uw taak, waar de invoer kan worden gevonden en de uitvoer moet worden opgeslagen, en Batch AI doet de rest.  
@@ -40,7 +40,7 @@ Batch AI biedt resourcebeheer en taakplanning speciaal bedoeld voor AI-training 
 * Automatisch of handmatig schalen van VM-clusters met behulp van GPU's of CPU's 
 * SSH-communicatie configureren tussen VM's en voor externe toegang 
 * Ondersteuning voor alle Deep Learning- of Machine Learning-frameworks, met geoptimaliseerde configuratie voor populaire toolkits zoals [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK) (CNTK), [TensorFlow](https://www.tensorflow.org/) en [Chainer](https://chainer.org/) 
-* Taakwachtrijen op basis van prioriteit om clusters te delen en te profiteren van VM's met lage prioriteit en gereserveerde instanties  
+* Taakwachtrijen op basis van prioriteit om clusters te delen en te profiteren van VM's met lage prioriteit en Azure-reserveringen  
 * Flexibele opslagopties inclusief Azure Files en een beheerde NFS-server 
 * Koppelen van externe bestandsshares aan de VM en optionele container 
 * Taakstatus opgeven en opnieuw starten in het geval van VM-fouten 

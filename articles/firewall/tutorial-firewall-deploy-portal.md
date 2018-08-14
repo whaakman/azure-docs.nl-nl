@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 7/11/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be11ea2195705b344638b93ea2657481897d6ef7
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 84696b4135570168f8093b15f9a2deb4790eeebe
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358943"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480880"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Zelfstudie: Azure Firewall implementeren en configureren met de Azure-portal
 
@@ -166,7 +166,7 @@ Gebruik de informatie in de volgende tabel om de **Instellingen** voor de virtue
    |Resourcegroep     |**Bestaande gebruiken**: Test-FW-RG |
    |Locatie     |Selecteer dezelfde locatie die u eerder hebt gebruikt|
    |Een virtueel netwerk kiezen     |**Bestaande gebruiken**: Test-FW-VN|
-   |Openbaar IP-adres     |Nieuwe maken|
+   |Openbaar IP-adres     |**Nieuwe maken**. Het openbare IP-adres moet van het type Standaard-SKU zijn.|
 
 2. Klik op **Controleren + maken**.
 3. Controleer de samenvatting en klik vervolgens op **Maken** om de firewall te maken.
@@ -175,10 +175,6 @@ Gebruik de informatie in de volgende tabel om de **Instellingen** voor de virtue
 4. Zodra de implementatie is voltooid, gaat u naar de resourcegroep **Test-FW-RG** en klikt u op de firewall **Test-FW01**.
 6. Noteer het privé-IP-adres. U zult het later gebruiken wanneer u de standaardroute maakt.
 
-> [!NOTE]
-> Het openbare IP-adres moet van het type Standaard-SKU zijn.
-
-[//]: # (Vergeet niet het privé-IP-adres voor de firewall te noteren.)
 
 ## <a name="create-a-default-route"></a>Een standaardroute maken
 
@@ -279,7 +275,7 @@ Nu u hebt geverifieerd dat de firewallregels werken:
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Wanneer u de resourcegroep **Test-FW-RG** niet meer nodig hebt, verwijdert u deze om alle firewall-gerelateerde resources te verwijderen.
+U kunt de firewall-resources voor de volgende zelfstudie bewaren. Als u ze niet meer nodig hebt, verwijdert u de resourcegroep **Test-FW-RG** om alle firewall-gerelateerde resources te verwijderen.
 
 
 ## <a name="next-steps"></a>Volgende stappen

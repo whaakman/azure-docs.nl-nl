@@ -1,6 +1,6 @@
 ---
-title: Azure-snelstart - Een Key Vault CLI maken | Microsoft Docs
-description: Snelstart voor het maken van een Azure-sleutelkluis met behulp van de CLI
+title: Azure-snelstart - Een geheim uit Key Vault instellen en ophalen met Azure CLI | Microsoft Docs
+description: Snelstart waarin wordt getoond hoe u een geheim uit Azure Key Vault instelt en ophaalt met behulp van Azure CLI
 services: key-vault
 author: barclayn
 manager: mbaldwin
@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: ae8957e5bf87fc190076db87d4eaca0e7a757c5e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: dc69d472e38bcc39de35204c26068a98e0549601
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067653"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480915"
 ---
-# <a name="quickstart-create-an-azure-key-vault-using-the-cli"></a>Snelstart: Een Azure-sleutelkluis maken met behulp van de CLI
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Snelstart: een geheim uit Azure Key Vault instellen en ophalen met behulp van Azure CLI
 
 Azure Key Vault is een cloudservice die werkt als een beveiligd geheimenarchief. U kunt veilig sleutels, wachtwoorden, certificaten en andere geheime informatie opslaan. U kunt het [Overzicht](key-vault-overview.md) raadplegen voor meer informatie over Key Vault. Azure CLI wordt gebruikt voor het maken en beheren van Azure-resources met behulp van opdrachten of scripts. In deze snelstart maakt u een sleutelkluis. Nadat u dat hebt gedaan, gaat u een geheim opslaan.
 
@@ -53,7 +53,7 @@ Vervolgens maakt u een sleutelkluis in de resourcegroep die u in de vorige stap 
 
 - Voor deze snelstart gebruiken we **Contoso-vault2**. U moet in de test een unieke naam opgeven.
 - Naam van resourcegroep **ContosoResourceGroup**.
-- De locatie **VS - oost**.
+- De locatie **US - oost**.
 
 ```azurecli
 az keyvault create --name 'Contoso-Vault2' --resource-group 'ContosoResourceGroup' --location eastus

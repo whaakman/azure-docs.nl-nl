@@ -8,14 +8,14 @@ ms.service: event-grid
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
-ms.date: 04/05/2018
+ms.date: 08/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 82baa50d9610e49075a8fdcdec6391c38c2edc49
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 059dc81fd5b8ef2573a228dafc0bab30d0e2037b
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425882"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39526035"
 ---
 # <a name="azure-cli-samples-for-event-grid"></a>Azure CLI-voorbeelden voor Event Grid
 
@@ -28,6 +28,7 @@ De volgende tabel bevat koppelingen naar Azure CLI-voorbeelden voor Event Grid.
 | [Abonneren op Blob Storage](scripts/event-grid-cli-blob.md)| Hiermee abonneert u zich op gebeurtenissen voor een Blob Storage-account. |
 | [Abonneren op aangepast onderwerp](scripts/event-grid-cli-subscribe-custom-topic.md)| Hiermee abonneert u zich op gebeurtenissen voor een aangepast onderwerp. |
 | [Abonneren op resourcegroep](scripts/event-grid-cli-resource-group.md)| Hiermee abonneert u zich op gebeurtenissen voor een resourcegroep. |
+| [Subscribe to resource group and filter for a resource](scripts/event-grid-cli-resource-group-filter.md) (Abonneren op een resourcegroep en filteren op een resource)| Hiermee abonneert u zich op gebeurtenissen voor een resourcegroep en worden gebeurtenissen op een resource gefilterd. |
 |**Event Grid-onderwerpen**||
-| [Een aangepast onderwerp maken](scripts/event-grid-cli-create-custom-topic.md) | Hiermee maakt u een beheerde schijf op basis van een gespecialiseerde VHD als een besturingssysteemschijf of op basis van een gegevens-VHD als een gegevensschijf.  |
+| [Een aangepast onderwerp maken](scripts/event-grid-cli-create-custom-topic.md) | Hiermee wordt aan aangepast Event Grid-onderwerp gemaakt en worden het eindpunt en de sleutel geretourneerd.  |
 | | |

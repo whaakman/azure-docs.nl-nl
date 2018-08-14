@@ -1,25 +1,20 @@
 ---
-title: 'Zelfstudie: Apache Kafka met Storm in HDInsight - Azure | Microsoft Docs'
+title: 'Zelfstudie: Apache Kafka met Storm in HDInsight - Azure '
 description: Lees hoe u in HDInsight een streaming-pijplijn maakt met Apache Storm en Apache Kafka. In deze zelfstudie gebruikt u de componenten KafkaBolt en KafkaSpout om gegevens te streamen vanuit Kafka.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: java
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: big-data
 ms.date: 05/21/2018
-ms.author: larryfr
-ms.openlocfilehash: b973890caddf598d5ba4e96a04a18df46cdb5cf8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: jasonh
+ms.openlocfilehash: a20cf616b119d208c9b2baa0f2cf608aa44c21ad
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34626287"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39595158"
 ---
 # <a name="tutorial-use-apache-storm-with-kafka-on-hdinsight"></a>Zelfstudie: Apache Storm gebruiken met Kafka in HDInsight
 
@@ -401,7 +396,7 @@ Gebruik de volgende stappen om eerst een virtueel Azure-netwerk te maken en verv
     
     * Azure-resourcegroep
     * Azure Virtual Network
-    * Azure-opslagaccount
+    * Azure Storage-account
     * Kafka in HDInsight versie 3.6 (drie werkknooppunten)
     * Storm in HDInsight versie 3.6 (drie werkknooppunten)
 

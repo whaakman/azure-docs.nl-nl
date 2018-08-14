@@ -1,20 +1,20 @@
 ---
 title: Inrichting van apparaten instellen in de Azure CLI | Microsoft Docs
 description: Azure-snelstart - Azure IoT Hub Device Provisioning-service instellen met de Azure CLI
-author: bryanla
-ms.author: bryanla
+author: wesmc7777
+ms.author: wesmc
 ms.date: 02/26/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2cf611e12402b22587faa83fefc4651e7307c41c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cf2e108aa7cab6be2996cb535d27d597e462617c
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38482132"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39626536"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>IoT Hub Device Provisioning Service instellen met de Azure CLI
 
@@ -32,7 +32,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az-group-create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. 
 
 In het volgende voorbeeld wordt een resourcegroep met de naam *my-sample-resource-group* gemaakt op de locatie *westus*.
 
@@ -41,13 +41,13 @@ az group create --name my-sample-resource-group --location westus
 ```
 
 > [!TIP]
-> In het voorbeeld wordt de resourcegroep gemaakt op de locatie VS - west. U kunt een lijst met beschikbare locaties weergeven met de opdracht `az account list-locations -o table`.
+> In het voorbeeld wordt de resourcegroep gemaakt op de locatie US - west. U kunt een lijst met beschikbare locaties weergeven met de opdracht `az account list-locations -o table`.
 >
 >
 
 ## <a name="create-an-iot-hub"></a>Een IoT Hub maken
 
-Een IoT-hub maken met de opdracht [az iot hub create](/cli/azure/iot/hub#az_iot_hub_create). 
+Maak een IoT Hub met de opdracht [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create).
 
 In het volgende voorbeeld wordt een IoT-hub met de naam *my-sample-hub* op de locatie *westus* gemaakt.  
 
@@ -57,7 +57,7 @@ az iot hub create --name my-sample-hub --resource-group my-sample-resource-group
 
 ## <a name="create-a-provisioning-service"></a>Een inrichtingsservice maken
 
-Een inrichtingsservice maken met de opdracht [az iot dps create](/cli/azure/iot/dps#az_iot_dps_create). 
+Een inrichtingsservice maken met de opdracht [az iot dps create](/cli/azure/iot/dps#az-iot-dps-create). 
 
 In het volgende voorbeeld wordt een inrichtingsservice met de naam *my-sample-dps* op de locatie *westus* gemaakt.  
 
@@ -66,13 +66,13 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 ```
 
 > [!TIP]
-> In het voorbeeld wordt de inrichtingsservice gemaakt op de locatie VS - west. U kunt een lijst met beschikbare locaties weergeven door de opdracht `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` uit te voeren of door naar de pagina [Status van Azure](https://azure.microsoft.com/status/) te gaan en te zoeken naar 'device provisioning service'. In opdrachten kunnen locaties worden opgegeven in één woord of in meerdere woorden, bijvoorbeeld: westus, VS - west, VS-WEST enzovoort. De waarde is niet hoofdlettergevoelig. Als u meerdere woorden gebruikt om een locatie op te geven, voeg dan de waarde toe tussen aanhalingstekens; bijvoorbeeld: `-- location "West US"`.
+> In het voorbeeld wordt de inrichtingsservice gemaakt op de locatie US - west. U kunt een lijst met beschikbare locaties weergeven door de opdracht `az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table` uit te voeren of door naar de pagina [Status van Azure](https://azure.microsoft.com/status/) te gaan en te zoeken naar 'device provisioning service'. In opdrachten kunnen locaties worden opgegeven in één woord of in meerdere woorden, bijvoorbeeld: uswest, US west, US WEST enzovoort. De waarde is niet hoofdlettergevoelig. Als u meerdere woorden gebruikt om een locatie op te geven, voeg dan de waarde toe tussen aanhalingstekens; bijvoorbeeld: `-- location "West US"`.
 >
 
 
 ## <a name="get-the-connection-string-for-the-iot-hub"></a>De verbindingsreeks voor de IoT-hub ophalen
 
-U hebt de verbindingsreeks voor uw IoT-hub nodig om deze aan de apparaatinrichtingsservice te koppelen. Gebruik de opdracht [az iot hub show-connection-string](/cli/azure/iot/hub#az_iot_hub_show_connection_string) om de verbindingsreeks op te halen en om met de uitvoer ervan een variabele in te stellen die u gaat gebruiken om de twee resources aan elkaar te koppelen. 
+U hebt de verbindingsreeks voor uw IoT-hub nodig om deze aan de apparaatinrichtingsservice te koppelen. Gebruik de opdracht [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) om de verbindingsreeks op te halen en om met de uitvoer ervan een variabele in te stellen die u gaat gebruiken om de twee resources aan elkaar te koppelen. 
 
 In het volgende voorbeeld wordt de variabele *hubConnectionString* ingesteld op de waarde van de verbindingsreeks voor de primaire sleutel van het hubbeleid *iothubowner*. U kunt een ander beleid opgeven met de parameter `--policy-name`. De opdracht maakt gebruik van de [query-](/cli/azure/query-azure-cli) en [uitvoer](/cli/azure/format-output-azure-cli#tsv-output-format)opties van de Azure CLI om de verbindingsreeks op te halen uit de uitvoer van de opdracht.
 
@@ -92,7 +92,7 @@ echo $hubConnectionString
 
 ## <a name="link-the-iot-hub-and-the-provisioning-service"></a>De IoT-hub en de inrichtingsservice aan elkaar koppelen
 
-U kunt de IoT-hub en uw inrichtingsservice aan elkaar koppelen met de opdracht [az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az_iot_dps_linked_hub_create). 
+U kunt de IoT-hub en uw inrichtingsservice aan elkaar koppelen met de opdracht [az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az-iot-dps-linked-hub-create). 
 
 In het volgende voorbeeld wordt een IoT-hub met de naam *my-sample-hub* op de locatie *westus* gekoppeld aan een apparaatinrichtingsservice met de naam *my-sample-dps*. Hierbij wordt gebruikgemaakt van de verbindingsreeks voor *my-sample-hub* die in de vorige stap is opgeslagen in de variabele *hubConnectionString*.
 
@@ -102,7 +102,7 @@ az iot dps linked-hub create --dps-name my-sample-dps --resource-group my-sample
 
 ## <a name="verify-the-provisioning-service"></a>De inrichtingsservice controleren
 
-De details ophalen uit uw inrichtingsservice met de opdracht [az iot dps show](/cli/azure/iot/dps#az_iot_dps_show).
+De details ophalen uit uw inrichtingsservice met de opdracht [az iot dps show](/cli/azure/iot/dps#az-iot-dps-show).
 
 In het volgende voorbeeld worden de details van een inrichtingsservice met de naam *my-sample-dps* opgehaald. De gekoppelde IoT-hub wordt weergegeven in de verzameling *properties.iotHubs*.
 
@@ -114,18 +114,18 @@ az iot dps show --name my-sample-dps
 
 Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. Als u van plan bent om door te gaan met andere snelstartgidsen of met de zelfstudies, verwijdert u de resources die u in deze snelstartgids hebt gemaakt niet. Als u niet van plan bent om door te gaan, kunt u de volgende opdrachten gebruiken om de inrichtingsservice, de IoT-hub of de resourcegroep en alle bijbehorende resources te verwijderen.
 
-Voer de opdracht [az iot dps delete](/cli/azure/iot/dps#az_iot_dps_delete) uit om de inrichtingsservice te verwijderen:
+Voer de opdracht [az iot dps delete](/cli/azure/iot/dps#az-iot-dps-delete) uit om de inrichtingsservice te verwijderen:
 
 ```azurecli-interactive
 az iot dps delete --name my-sample-dps --resource-group my-sample-resource-group
 ```
-Voer de opdracht [az iot hub delete](/cli/azure/iot/hub#az_iot_hub_delete) uit om de IoT-hub te verwijderen:
+Voer de opdracht [az iot hub delete](/cli/azure/iot/hub#az-iot-hub-delete) uit om de IoT-hub te verwijderen:
 
 ```azurecli-interactive
 az iot hub delete --name my-sample-hub --resource-group my-sample-resource-group
 ```
 
-Voer de opdracht [az group delete](/cli/azure/group#az_group_delete) uit om de resourcegroep en alle bijbehorende resources te verwijderen:
+Voer de opdracht [az group delete](/cli/azure/group#az-group-delete) uit om de resourcegroep en alle bijbehorende resources te verwijderen:
 
 ```azurecli-interactive
 az group delete --name my-sample-resource-group

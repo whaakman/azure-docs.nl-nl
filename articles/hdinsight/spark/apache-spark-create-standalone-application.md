@@ -1,25 +1,20 @@
 ---
-title: 'Zelfstudie: Een Scala Maven-toepassing maken voor Spark in HDInsight met behulp van IntelliJ | Microsoft Docs'
+title: 'Zelfstudie: Een Scala Maven-toepassing maken voor Apache Spark in Azure HDInsight met behulp van IntelliJ'
 description: U gaat een Spark-toepassing maken die is geschreven in Scala met Apache Maven als het buildsysteem en een bestaand Maven-archetype voor Scala geleverd door IntelliJ IDEA.
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-ms.assetid: b2467a40-a340-4b80-bb00-f2c3339db57b
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.author: jgao
-ms.openlocfilehash: ed90e50167f7e86c464b1571b91dc27435437e9b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1583da76ee1a60ad3ba8a946c1d49c2d5567e43f
+ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627413"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39621467"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-spark-in-hdinsight-using-intellij"></a>Zelfstudie: Een Scala Maven-toepassing maken voor Spark in HDInsight met behulp van IntelliJ
 
@@ -61,17 +56,17 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
    ![Het dialoogvenster Nieuw project](./media/apache-spark-create-standalone-application/create-hdi-scala-app.png)
 
-2. Selecteer **Volgende**.
+1. Selecteer **Volgende**.
 
-3. Met de wizard Scala-project maken wordt automatisch gedetecteerd of u de Scala-invoegtoepassing hebt geïnstalleerd. Selecteer **Installeren**.
+1. Met de wizard Scala-project maken wordt automatisch gedetecteerd of u de Scala-invoegtoepassing hebt geïnstalleerd. Selecteer **Installeren**.
 
    ![Scala-invoegtoepassing controleren](./media/apache-spark-create-standalone-application/Scala-Plugin-check-Reminder.PNG) 
 
-4. Selecteer **OK** om de Scala-invoegtoepassing te downloaden. Volg de instructies om IntelliJ opnieuw te starten. 
+1. Selecteer **OK** om de Scala-invoegtoepassing te downloaden. Volg de instructies om IntelliJ opnieuw te starten. 
 
    ![Het dialoogvenster Scala-invoegtoepassing installeren](./media/apache-spark-create-standalone-application/Choose-Scala-Plugin.PNG)
 
-5. Voer in het venster **Nieuw project** de volgende handelingen uit:  
+1. Voer in het venster **Nieuw project** de volgende handelingen uit:  
 
     ![De Spark SDK selecteren](./media/apache-spark-create-standalone-application/hdi-new-project.png)
 
@@ -81,25 +76,25 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 
    c. In de vervolgkeuzelijst **Spark-versie** wordt de juiste versie voor Spark SDK en Scala SDK geïntegreerd via de wizard Scala-project maken. Selecteer **Spark 1.x** als de Spark-clusterversie ouder is dan 2.0. Selecteer anders **Spark 2.x**. In dit voorbeeld wordt **Spark 2.0.2 (Scala 2.11.8)** gebruikt.
 
-6. Selecteer **Voltooien**.
+1. Selecteer **Voltooien**.
 
 ## <a name="install-scala-plugin-for-intellij-idea"></a>Scala-invoegtoepassing voor IntelliJ IDEA installeren
 Gebruik de volgende stappen om de Scala-invoegtoepassing te installeren:
 
 1. Open IntelliJ IDEA.
-2. Selecteer **Configure** in het welkomstscherm en selecteer vervolgens **Plugins**.
+1. Selecteer **Configure** in het welkomstscherm en selecteer vervolgens **Plugins**.
    
     ![Scala-invoegtoepassing inschakelen](./media/apache-spark-create-standalone-application/enable-scala-plugin.png)
-3. Selecteer **Install JetBrains plugin** in de linkerbenedenhoek. 
-4. Zoek in het dialoogvenster **Browse JetBrains Plugins** naar **Scala** en selecteer vervolgens **Install**.
+1. Selecteer **Install JetBrains plugin** in de linkerbenedenhoek. 
+1. Zoek in het dialoogvenster **Browse JetBrains Plugins** naar **Scala** en selecteer vervolgens **Install**.
    
     ![Scala-invoegtoepassing installeren](./media/apache-spark-create-standalone-application/install-scala-plugin.png)
-5. Als de invoegtoepassing is geïnstalleerd, moet u de IDE opnieuw starten.
+1. Als de invoegtoepassing is geïnstalleerd, moet u de IDE opnieuw starten.
 
 ## <a name="create-a-standalone-scala-project"></a>Een zelfstandig Scala-project maken
 1. Open IntelliJ IDEA.
-2. Selecteer **New > Project** in het menu **File** om een nieuw project te maken.
-3. Maak de volgende keuzes in het dialoogvenster New Project:
+1. Selecteer **New > Project** in het menu **File** om een nieuw project te maken.
+1. Maak de volgende keuzes in het dialoogvenster New Project:
    
     ![Maven-project maken](./media/apache-spark-create-standalone-application/create-maven-project.png)
    
@@ -107,27 +102,27 @@ Gebruik de volgende stappen om de Scala-invoegtoepassing te installeren:
    * Geef een **Project SDK** op. Selecteer **New** en navigeer naar de installatiemap van Java, meestal `C:\Program Files\Java\jdk1.8.0_66`.
    * Selecteer de optie **Create from archetype**.
    * Selecteer **org.scala tools.archetypes:scala-archetype-simple** in de lijst van archetypen. Met dit archetype maakt u de juiste mapstructuur en worden de vereiste standaardafhankelijkheden voor het schrijven van het Scala programma gedownload.
-4. Selecteer **Volgende**.
-5. Geef relevante waarden op voor **GroupId**, **ArtifactId** en **Version**. In deze zelfstudie worden de volgende waarden gebruikt:
+1. Selecteer **Volgende**.
+1. Geef relevante waarden op voor **GroupId**, **ArtifactId** en **Version**. In deze zelfstudie worden de volgende waarden gebruikt:
 
     - GroupId: com.microsoft.spark.example
     - ArtifactId: SparkSimpleApp
-6. Selecteer **Volgende**.
-7. Controleer de instellingen en selecteer vervolgens **Next**.
-8. Controleer de naam en de locatie van het project en selecteer vervolgens **Finish**.
-9. Selecteer in het linkerdeelvenster **src > test > scala > com > microsoft > spark > example**, klik met de rechtermuisknop op **MySpec** en selecteer vervolgens **Delete**. U hebt dit bestand niet nodig voor de toepassing.
+1. Selecteer **Volgende**.
+1. Controleer de instellingen en selecteer vervolgens **Next**.
+1. Controleer de naam en de locatie van het project en selecteer vervolgens **Finish**.
+1. Selecteer in het linkerdeelvenster **src > test > scala > com > microsoft > spark > example**, klik met de rechtermuisknop op **MySpec** en selecteer vervolgens **Delete**. U hebt dit bestand niet nodig voor de toepassing.
   
-10. In de volgende stappen gaat u het bestand pom.xml bijwerken om de afhankelijkheden voor de Spark Scala-toepassing te definiëren. Om deze afhankelijkheden automatisch te downloaden en om te zetten, moet Maven op de juiste manier worden geconfigureerd.
+1. In de volgende stappen gaat u het bestand pom.xml bijwerken om de afhankelijkheden voor de Spark Scala-toepassing te definiëren. Om deze afhankelijkheden automatisch te downloaden en om te zetten, moet Maven op de juiste manier worden geconfigureerd.
    
     ![Maven configureren voor automatische downloads](./media/apache-spark-create-standalone-application/configure-maven.png)
    
    1. Selecteer **Settings** in het menu **File**.
-   2. Ga in het dialoogvenster **Settings** naar **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importing**.
-   3. Schakel het selectievakje **Import Maven projects automatically** in.
-   4. Selecteer **Apply** en vervolgens **OK**.
-11. Selecteer in het linkerdeelvenster **src > main > scala > com.microsoft.spark.example** en dubbelklik vervolgens op **App** om App.scala te openen.
+   1. Ga in het dialoogvenster **Settings** naar **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importing**.
+   1. Schakel het selectievakje **Import Maven projects automatically** in.
+   1. Selecteer **Apply** en vervolgens **OK**.
+1. Selecteer in het linkerdeelvenster **src > main > scala > com.microsoft.spark.example** en dubbelklik vervolgens op **App** om App.scala te openen.
 
-12. Vervang de bestaande voorbeeldcode door de volgende code en sla de wijzigingen op. Deze code leest de gegevens uit HVAC.csv (beschikbaar in alle HDInsight Spark-clusters), haalt de rijen op die maar één cijfer hebben in de zesde kolom en schrijft de uitvoer naar **/HVACOut**, in de standaardopslagcontainer voor het cluster.
+1. Vervang de bestaande voorbeeldcode door de volgende code en sla de wijzigingen op. Deze code leest de gegevens uit HVAC.csv (beschikbaar in alle HDInsight Spark-clusters), haalt de rijen op die maar één cijfer hebben in de zesde kolom en schrijft de uitvoer naar **/HVACOut**, in de standaardopslagcontainer voor het cluster.
 
         package com.microsoft.spark.example
    
@@ -150,14 +145,14 @@ Gebruik de volgende stappen om de Scala-invoegtoepassing te installeren:
             rdd1.saveAsTextFile("wasb:///HVACout")
           }
         }
-13. Dubbelklik in het linkerdeelvenster op **pom.xml**.
+1. Dubbelklik in het linkerdeelvenster op **pom.xml**.
    
    1. Voeg binnen `<project>\<properties>` de volgende segmenten toe:
       
           <scala.version>2.10.4</scala.version>
           <scala.compat.version>2.10.4</scala.compat.version>
           <scala.binary.version>2.10</scala.binary.version>
-   2. Voeg binnen `<project>\<dependencies>` de volgende segmenten toe:
+   1. Voeg binnen `<project>\<dependencies>` de volgende segmenten toe:
       
            <dependency>
              <groupId>org.apache.spark</groupId>
@@ -166,25 +161,25 @@ Gebruik de volgende stappen om de Scala-invoegtoepassing te installeren:
            </dependency>
       
       Sla de wijzigingen in pom.xml op.
-10. Maak het JAR-bestand. IntelliJ IDEA maakt het mogelijk om het JAR-bestand te maken als een artefact van een project. Voer de volgende stappen uit.
+1. Maak het JAR-bestand. IntelliJ IDEA maakt het mogelijk om het JAR-bestand te maken als een artefact van een project. Voer de volgende stappen uit.
     
     1. Selecteer **Project Structure** in het menu **File**.
-    2. Selecteer **Artifacts** in het dialoogvenster **Project Structure** en selecteer vervolgens het plusteken. Selecteer **JAR** in het pop-updialoogvenster en selecteer vervolgens **From modules with dependencies**.
+    1. Selecteer **Artifacts** in het dialoogvenster **Project Structure** en selecteer vervolgens het plusteken. Selecteer **JAR** in het pop-updialoogvenster en selecteer vervolgens **From modules with dependencies**.
        
         ![JAR maken](./media/apache-spark-create-standalone-application/create-jar-1.png)
-    3. Selecteer in het dialoogvenster **Create JAR from Modules** het weglatingsteken (![weglatingsteken](./media/apache-spark-create-standalone-application/ellipsis.png)) bij **Main Class**.
-    4. Selecteer in het dialoogvenster **Select Main Class** de klasse die standaard wordt weergegeven en selecteer vervolgens **OK**.
+    1. Selecteer in het dialoogvenster **Create JAR from Modules** het weglatingsteken (![weglatingsteken](./media/apache-spark-create-standalone-application/ellipsis.png)) bij **Main Class**.
+    1. Selecteer in het dialoogvenster **Select Main Class** de klasse die standaard wordt weergegeven en selecteer vervolgens **OK**.
        
         ![JAR maken](./media/apache-spark-create-standalone-application/create-jar-2.png)
-    5. Controleer of in het dialoogvenster **Create JAR from Modules** de optie **extract to the target JAR** is geselecteerd en selecteer vervolgens **OK**.  Met deze instelling wordt er één JAR gemaakt met alle afhankelijkheden.
+    1. Controleer of in het dialoogvenster **Create JAR from Modules** de optie **extract to the target JAR** is geselecteerd en selecteer vervolgens **OK**.  Met deze instelling wordt er één JAR gemaakt met alle afhankelijkheden.
        
         ![JAR maken](./media/apache-spark-create-standalone-application/create-jar-3.png)
-    6. Het tabblad Output Layout geeft een overzicht van alle JAR-bestanden die zijn opgenomen als onderdeel van het Maven-project. U kunt de bestanden selecteren en verwijderen waarvan de Scala-toepassing niet direct afhankelijk is. Voor de toepassing die u hier maakt, kunt u alle bestanden behalve het laatste bestand (**SparkSimpleApp compile output**) verwijderen. Selecteer de JAR-bestanden die u wilt verwijderen en selecteer vervolgens het pictogram **Delete**.
+    1. Het tabblad Output Layout geeft een overzicht van alle JAR-bestanden die zijn opgenomen als onderdeel van het Maven-project. U kunt de bestanden selecteren en verwijderen waarvan de Scala-toepassing niet direct afhankelijk is. Voor de toepassing die u hier maakt, kunt u alle bestanden behalve het laatste bestand (**SparkSimpleApp compile output**) verwijderen. Selecteer de JAR-bestanden die u wilt verwijderen en selecteer vervolgens het pictogram **Delete**.
        
         ![JAR maken](./media/apache-spark-create-standalone-application/delete-output-jars.png)
        
         Zorg ervoor dat de optie **Include in project build** is geselecteerd, zodat het JAR-bestand tekens wordt gemaakt wanneer het project wordt gecompileerd of bijgewerkt. Selecteer **Apply** en vervolgens **OK**.
-    7. Selecteer **Build Artifacts** in het menu **Build** om het JAR-bestand te maken. Het bestand wordt opgeslagen in **\out\artifacts**.
+    1. Selecteer **Build Artifacts** in het menu **Build** om het JAR-bestand te maken. Het bestand wordt opgeslagen in **\out\artifacts**.
        
         ![JAR maken](./media/apache-spark-create-standalone-application/output.png)
 

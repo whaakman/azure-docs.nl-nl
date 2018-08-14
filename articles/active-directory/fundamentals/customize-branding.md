@@ -14,12 +14,12 @@ ms.date: 07/20/2018
 ms.author: lizross
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 7804d6b0d4a100997fb545e678458424dac6ceed
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 45637122af3df1906a8c3b4b16233f6361eecca3
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39227271"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528323"
 ---
 # <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Snelstart: Huisstijl toevoegen aan de Azure AD-aanmeldingspagina
 Om verwarring te voorkomen, willen veel bedrijven een consistente look gebruiken voor alle websites en services die ze beheren. Azure Active Directory (Azure AD) biedt deze mogelijkheid. U kunt het uiterlijk van de aanmeldingspagina aanpassen en uw eigen bedrijfslogo en kleurenschema’s toepassen. De aanmeldingspagina wordt weergegeven wanneer u zich aanmeldt bij webtoepassingen, zoals Office 365, die gebruikmaken van Azure AD als identiteitsprovider. Op deze pagina voert u uw referenties in.
@@ -71,7 +71,7 @@ Voor verbindingen met een lage bandbreedte wordt deze gebruikt in plaats van de 
 ### <a name="square-logo-image"></a>Vierkante logo-afbeelding
 Beschrijving | Beperkingen | Aanbevelingen
 ------- | ------- | ----------
-Deze afbeelding wordt weergegeven tijdens het instellen van nieuwe Enterprise Windows 10-pc's. Deze biedt werknemers context wanneer ze hun nieuwe zakelijke pc instellen. De afbeelding wordt weergegeven voor tenants die gebruikmaken van [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) om hun zakelijke apparaten te implementeren en op wachtwoordinvoerpagina's in andere Windows-10-ervaringen. | Transparante PNG (bij voorkeur) of JPG<br>Afbeeldingsgrootte: 240 x 240 px<br>Bestandsgrootte: &lt; 10 KB | Gebruik hier het logo van uw organisatie.<br> Gebruik een transparante afbeelding.<br>Ga er niet van uit de achtergrond wit is.<br>Voeg geen opvulling toe aan uw logo in de afbeelding, anders ziet uw logo er onevenredig klein uit.
+Deze afbeelding wordt weergegeven tijdens het instellen van nieuwe Enterprise Windows 10-pc's. Deze biedt werknemers context wanneer ze hun nieuwe zakelijke pc instellen. De afbeelding wordt weergegeven voor tenants die gebruikmaken van [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) om hun zakelijke apparaten te implementeren en op wachtwoordinvoerpagina's in andere Windows-10-ervaringen.<br>Het vierkante logo wordt uitsluitend gebruikt bij Windows-verificatie. De versie met het donkere thema is afgeschaft en wordt nergens meer gebruikt. | Transparante PNG (bij voorkeur) of JPG<br>Afbeeldingsgrootte: 240 x 240 px<br>Bestandsgrootte: &lt; 10 KB | Gebruik hier het logo van uw organisatie.<br> Gebruik een transparante afbeelding.<br>Ga er niet van uit de achtergrond wit is.<br>Voeg geen opvulling toe aan uw logo in de afbeelding, anders ziet uw logo er onevenredig klein uit.
 
 ### <a name="show-option-to-remain-signed-in"></a>Optie weergeven om aangemeld te blijven
 Beschrijving | Beperkingen | Aanbevelingen

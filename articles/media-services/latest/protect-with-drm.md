@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/15/2018
 ms.author: juliako
-ms.openlocfilehash: 2ceae5b530d1967ccca2b33c05c183302684be41
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8bfe2fb7274fb8c6dcf977e8bd72af525d8ce8a5
+ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116764"
+ms.lasthandoff: 08/06/2018
+ms.locfileid: "39528167"
 ---
 # <a name="use-drm-dynamic-encryption-and-license-delivery-service"></a>Het gebruik van de Digital Rights Management-service voor dynamische versleuteling en licentielevering
 
@@ -65,6 +65,7 @@ In het voorbeeld in dit artikel wordt het volgende resultaat bereikt:
 Hieronder wordt aangegeven wat de vereisten zijn om de zelfstudie te voltooien.
 
 * Lees het artikel [Content protection overview](content-protection-overview.md) (Overzicht inhoudsbeveiliging).
+* Lees [Inhoudsbeveiligingssysteem met multi-DRM met toegangsbeheer ontwerpen](design-multi-drm-system-with-access-control.md)
 * Visual Studio Code of Visual Studio installeren
 * Maak een nieuw Media Services-account zoals beschreven in deze [snelstart](create-account-cli-quickstart.md).
 * Zorg dat u referenties hebt die nodig zijn om Media Services-API's te kunnen gebruiken via [toegangs-API's](access-api-cli-how-to.md)

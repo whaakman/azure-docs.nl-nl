@@ -7,14 +7,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: luis
 ms.topic: tutorial
-ms.date: 07/26/2018
+ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: f4e03271f45c29ed2556256346e29c297be563cc
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 41f74ff00e4fad751d4a2b7ae96ebb048bbcdfcd
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345355"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39492695"
 ---
 # <a name="tutorial-5-add-hierarchical-entity"></a>Zelfstudie: 5. Een hiërarchische entiteit toevoegen
 In deze zelfstudie maakt u een app die laat zien hoe u gerelateerde soorten gegevens kunt vinden op basis van context. 
@@ -119,15 +119,8 @@ De vooraf gedefinieerde cijferentiteit opnieuw toevoegen aan de toepassing.
     ![Schermopname van het selecteren van een nummer in het dialoogvenster met de vooraf gedefinieerde entiteiten](./media/luis-quickstart-intent-and-hier-entity/hr-add-number-back-ddl.png)
 
 ## <a name="train-the-luis-app"></a>LUIS-app trainen
-LUIS niet weet dat de intenties en entiteiten (het model) zijn gewijzigd, totdat u de app hebt ingeleerd. 
 
-1. Selecteer rechtsboven op de website van LUIS de knop **Train**.
-
-    ![De app trainen](./media/luis-quickstart-intent-and-hier-entity/train-button.png)
-
-2. Het trainen is voltooid wanneer u een groene statusbalk bovenaan aan de website ziet met de melding dat het trainen is gelukt.
-
-    ![Trainen is voltooid](./media/luis-quickstart-intent-and-hier-entity/trained.png)
+[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>App publiceren om eindpunt-URL op te vragen
 
@@ -242,6 +235,10 @@ Ja, maak de reguliere expressie met de rollen herkomst en bestemming en gebruik 
 
 De locaties in dit voorbeeld zoals `a-1234` volgen een specifieke indeling met één of twee letters, dan een streepje en vervolgens een reeks van 4 of 5 cijfers. Deze gegevens kunnen worden aangeduid als een entiteit van een reguliere expressie met een rol voor elke locatie. Rollen zijn beschikbaar voor patronen. U kunt op basis van deze utterances patronen maken en vervolgens een reguliere expressie voor de locatie-indeling maken en deze toevoegen aan de patronen. <!-- Go to this tutorial to see how that is done -->
 
+## <a name="patterns-with-roles"></a>Patronen met rollen
+
+[!include[LUIS Compare hierarchical entities to patterns with roles](../../../includes/cognitive-services-luis-hier-roles.md)]
+
 ## <a name="what-has-this-luis-app-accomplished"></a>Wat is er met deze LUIS-app bereikt?
 Deze app, bestaande uit slechts een paar intenties en één entiteit Hierarchical, heeft de intentie van een query in natuurlijke taal geïdentificeerd en de geëxtraheerde gegevens geretourneerd. 
 
@@ -251,7 +248,8 @@ Uw chatbot heeft nu voldoende gegevens om de primaire actie te bepalen, `MoveEmp
 LUIS hoeft niets meer te doen met deze aanvraag. De aanroepende toepassing, zoals een chatbot, kan het resultaat topScoringIntent nemen plus de gegevens van de entiteit om de volgende stap uit te voeren. LUIS is niet verantwoordelijk voor die programmatische werken voor de bot of aanroepende toepassing. LUIS bepaalt alleen wat de bedoeling van de gebruiker is. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u de LUIS-app niet meer nodig hebt, kunt u deze verwijderen. Selecteer hiervoor de drie puntjes (***...***) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+
+[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"] 

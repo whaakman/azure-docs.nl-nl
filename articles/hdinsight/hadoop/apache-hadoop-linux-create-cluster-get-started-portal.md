@@ -1,25 +1,21 @@
 ---
-title: 'Snelstartgids: Aan de slag met Hadoop en Hive in Azure HDInsight met behulp van Azure Portal | Microsoft Docs'
+title: 'Snelstart: Aan de slag met Hadoop en Hive in Azure HDInsight met behulp van Azure Portal '
 description: Lees hier alles over het maken van HDInsight-clusters met behulp van Azure Portal en het opvragen van gegevens met Hive.
 keywords: aan de slag met hadoop, hadoop linux, hadoop quickstart, aan de slag met hive, hive quickstart
 services: hdinsight
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
+author: jasonwhowell
+editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: nitinme
-ms.openlocfilehash: dd803fed4bc6a25904b2ea00a5b21af606ad7153
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: jasonh
+ms.openlocfilehash: 67fa5debac4039bf3ae9c3ef62418f033e2fa9c2
+ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097893"
+ms.lasthandoff: 08/07/2018
+ms.locfileid: "39598966"
 ---
 # <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-the-azure-portal"></a>Snelstartgids: Aan de slag met Hadoop en Hive in Azure HDInsight met behulp van Azure Portal
 

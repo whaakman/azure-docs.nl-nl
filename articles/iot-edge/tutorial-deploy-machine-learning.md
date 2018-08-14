@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: a1b34fe75f76d5f615ab33069f3012f22dc7ef2e
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 28b963922b423bb776aa97e9b76392bc484ddcd6
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413070"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39627804"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Zelfstudie: Azure Machine Learning implementeren als een IoT Edge-module (preview)
 
@@ -46,9 +46,10 @@ Een Azure IoT Edge-apparaat:
 Cloudresources:
 
 * Een standaard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)-laag in Azure. 
+* Een Azure Machine Learning-account. Volg de instructies in [Azure Machine Learning-accounts maken en Azure Machine Learning Workbench installeren](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). U hoeft de workbench-toepassing niet te installeren voor deze zelfstudie. 
 
 Ontwikkelingsresources:
-* Een Azure Machine Learning-account. Volg de instructies in [Azure Machine Learning-accounts maken en Azure Machine Learning Workbench installeren](../machine-learning/service/quickstart-installation.md#create-azure-machine-learning-services-accounts). U hoeft de workbench-toepassing niet te installeren voor deze zelfstudie. 
+
 * Modelbeheer voor Azure ML. Volg de instructies in [Model management setup](../machine-learning/desktop-workbench/deployment-setup-configuration.md) om uw omgeving in te stellen en een account te maken. Tijdens de installatie van de implementatie wordt aanbevolen waar mogelijk de lokale stappen in plaats van cluster te kiezen.
 
 ### <a name="disable-process-identification"></a>Procesidentificatie uitschakelen
@@ -56,7 +57,7 @@ Ontwikkelingsresources:
 >[!NOTE]
 >
 > In de preview-fase biedt Azure Machine Learning geen ondersteuning voor de beveiligingsfunctie voor procesidentificatie die standaard is ingeschakeld voor IoT Edge. 
-> Hieronder ziet u hoe u deze functie kunt uitschakelen. Dit is echter niet geschikt voor productieomgevingen. Deze stappen zijn alleen nodig op Linux, omdat u dit hebt gedaan tijdens de installatiestappen van de Windows Edge-runtime.
+> Hieronder ziet u hoe u deze functie kunt uitschakelen. Dit is echter niet geschikt voor productieomgevingen. Deze stappen zijn alleen nodig op Linux, omdat u dit hebt gedaan tijdens de installatie van de Windows Edge-runtime.
 
 Als u procesidentificatie wilt uitschakelen op uw IoT Edge-apparaat, moet u het IP-adres en de poort voor **workload_uri** en **management_uri** opgeven in de sectie **verbinding maken** van de IoT Edge-daemonconfiguratie.
 
@@ -93,7 +94,7 @@ export IOTEDGE_HOST="http://172.17.0.1:15580"
 ## <a name="create-the-azure-ml-container"></a>De Azure ML-container maken
 In deze sectie downloadt u de bestanden van het getrainde model en converteert die in een Azure ML-container.
 
-Download [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) en [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) vanuit de Azure ML IoT Toolkit op GitHub op het apparaat waar Module Management voor Azure ML wordt uitgevoerd en sla ze daar op. Deze bestanden definiëren het getrainde machine learning-model dat u zult implementeren naar uw IoT Edge-apparaat.
+Download [iot_score.py](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/iot_score.py) en [model.pkl](https://github.com/Azure/ai-toolkit-iot-edge/blob/master/IoT%20Edge%20anomaly%20detection%20tutorial/model.pkl) vanuit de Azure ML IoT Toolkit op GitHub op het apparaat waarop Modelbeheer voor Azure ML wordt uitgevoerd en sla ze daar op. Deze bestanden definiëren het getrainde machine learning-model dat u zult implementeren naar uw IoT Edge-apparaat.
 
 Gebruik het getrainde model om een container te maken die kan worden geïmplementeerd op de IoT Edge-apparaten. Gebruik de volgende opdracht om:
 
@@ -187,7 +188,7 @@ Als u deze opdrachten uitvoert op een Linux-apparaat, moet u mogelijk `sudo` geb
 
 ### <a name="view-data-arriving-at-your-iot-hub"></a>Gegevens weergeven die binnenkomen bij de IoT-hub
 
-U kunt de apparaat-naar-cloud-berichten die het IoT Edge-apparaat ontvangt, weergeven met behulp van [IoT Hub Explorer](https://github.com/azure/iothub-explorer) of de [Azure IoT Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+U kunt de apparaat-naar-cloud-berichten die het IoT Edge-apparaat ontvangt, weergeven met behulp van de [Azure IoT Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 In de volgende stappen ziet u hoe u Visual Studio Code kunt instellen om apparaat-naar-cloud-berichten te controleren die binnenkomen bij de IoT-hub. 
 
@@ -220,7 +221,7 @@ Anders kunt u de lokale configuraties en Azure-resources die u in dit artikel he
 Als u alleen de IoT-hub wilt verwijderen, voert u de volgende opdracht uit met behulp van de naam van de hub en van de resourcegroep:
 
 ```azurecli-interactive
-az iot hub delete --name MyIoTHub --resource-group TestResources
+az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
 ```
 
 

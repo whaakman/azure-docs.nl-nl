@@ -1,5 +1,5 @@
 ---
-title: Azure-snelstart - Een sleutelkluis maken met PowerShell | Microsoft Docs
+title: 'Azure-snelstart: Een geheim uit Key Vault instellen en ophalen met PowerShell | Microsoft Docs'
 description: ''
 services: key-vault
 author: barclayn
@@ -14,14 +14,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 4acd8286cb8635f9a76815c936328a7c441e3115
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: d4f512a9450422d819d0134f9f5d291db4ef9b20
+ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187145"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39480060"
 ---
-# <a name="quickstart-create-an-azure-key-vault-using-powershell"></a>Snelstart: Een Azure-sleutelkluis maken met behulp van PowerShell
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-powershell"></a>Snelstart: Een geheim uit Azure Key Vault instellen en ophalen met PowerShell
 
 Azure Key Vault is een cloudservice die werkt als een beveiligd geheimenarchief. U kunt veilig sleutels, wachtwoorden, certificaten en andere geheime informatie opslaan. U kunt het [Overzicht](key-vault-overview.md) raadplegen voor meer informatie over Key Vault. In deze snelstart gebruikt u PowerShell om een sleutelkluis te maken. Vervolgens slaat u een geheim op in de zojuist gemaakte kluis.
 
@@ -51,7 +51,8 @@ Hoewel we in deze snelstart 'Contoso KeyVault2' als naam voor de sleutelkluis ge
 
 - **Kluisnaam** Contoso-Vault2.
 - **Naam van resourcegroep** ContosoResourceGroup.
-- **Locatie** VS - oost.
+- 
+  **Locatie** US - oost.
 
 ```azurepowershell
 New-AzureRmKeyVault -VaultName 'Contoso-Vault2' -ResourceGroupName 'ContosoResourceGroup' -Location 'East US'
