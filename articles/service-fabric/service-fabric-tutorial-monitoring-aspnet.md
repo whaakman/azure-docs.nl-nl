@@ -246,7 +246,7 @@ public async Task<IActionResult> Delete(string name)
 }
 ```
 
-Nadat u deze wijzigingen hebt doorgevoerd, **Start** u de toepassing zodat deze de meest recente versie ervan bouwt en implementeert. Wanneer de toepassing is geïmplementeerd, gaat u naar [localhost:8080](localhost:8080) om wat stemopties toe te voegen en te verwijderen. Ga vervolgens terug naar uw Application Insights-resource om de traceringen van de laatste uitvoering te bekijken (het kan net als eerst 1-2 minuten duren voordat traceringen zijn te zien in Application Insights). Voor alle stemmen die u hebt toegevoegd en verwijderd, zou u nu een 'Aangepaste gebeurtenis' moet zien, samen met alle reactietelemetrie.
+Nadat u deze wijzigingen hebt doorgevoerd, **Start** u de toepassing zodat deze de meest recente versie ervan bouwt en implementeert. Wanneer de toepassing is geïmplementeerd, gaat u naar [localhost:8080](localhost:8080) om wat stemopties toe te voegen en te verwijderen. Ga vervolgens terug naar uw Application Insights-resource om de traceringen van de laatste uitvoering te bekijken (het kan net als eerst 1-2 minuten duren voordat traceringen zijn te zien in Application Insights). Voor alle stemmen die u hebt toegevoegd en verwijderd, zou u nu een 'Aangepaste gebeurtenis'\* moet zien, samen met alle reactietelemetrie.
 
 ![aangepaste gebeurtenissen](./media/service-fabric-tutorial-monitoring-aspnet/custom-events.png)
 
