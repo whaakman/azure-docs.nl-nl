@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
-ms.openlocfilehash: 798bf5f2b2a408798539c2e30076c2eca15c214a
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 603e7c3a0c30eb42cb75d6a6ff87a96d847b7c9f
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043760"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "40100254"
 ---
 Virtuele Azure-Machines (VM's) gaat via verschillende statussen die kunnen worden onderverdeeld in *inrichting* en *power* Staten. Het doel van dit artikel is om te beschrijven deze statussen en specifiek markeren wanneer klanten zijn bijvoorbeeld gebruik gefactureerd. 
 
@@ -44,13 +44,13 @@ Exemplaar gebruik facturering
 </td>
 <td>
 <p>Virtuele machine wordt gestart.</p>
-<code>"statuses": [</br>
-   {</br>
-      "code": "PowerState/starting",</br>
-       "level": "Info",</br>
-        "displayStatus": "VM starting"</br>
-    }</br>
-    ]</code></br>
+<code>"statuses": [<br>
+   {<br>
+      "code": "PowerState/starting",<br>
+       "level": "Info",<br>
+        "displayStatus": "VM starting"<br>
+    }<br>
+    ]</code><br>
 </td>
 <td>
 <p><b>Niet in rekening gebracht</b></p>
@@ -62,13 +62,13 @@ Exemplaar gebruik facturering
 </td>
 <td>
 <p>Normale werkende status voor een virtuele machine</p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/running",</br>
- "level": "Info",</br>
- "displayStatus": "VM running"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/running",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM running"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Kosten in rekening gebracht</b></p>
@@ -80,13 +80,13 @@ Exemplaar gebruik facturering
 </td>
 <td>
 <p>Dit is een tijdelijke situatie. Wanneer dit is voltooid, wordt deze weergegeven als **gestopt**.</p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/stopping",</br>
- "level": "Info",</br>
- "displayStatus": "VM stopping"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/stopping",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM stopping"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Kosten in rekening gebracht</b></p>
@@ -99,13 +99,13 @@ Exemplaar gebruik facturering
 <td>
 <p>De virtuele machine is afgesloten omlaag van binnen het gastbesturingssysteem te installeren of met behulp van de APIs PowerOff.</p>
 <p>Hardware nog is toegewezen aan de virtuele machine en deze blijft op de host. </p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/stopped",</br>
- "level": "Info",</br>
- "displayStatus": "VM stopped"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/stopped",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM stopped"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Niet in rekening gebracht&#42;</b></p>
@@ -117,13 +117,13 @@ Exemplaar gebruik facturering
 </td>
 <td>
 <p>Overgangsstatus. Wanneer dit is voltooid, de virtuele machine wordt weergegeven als **Deallocated**.</p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/deallocating",</br>
- "level": "Info",</br>
- "displayStatus": "VM deallocating"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/deallocating",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM deallocating"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Niet in rekening gebracht&#42;</b></p>
@@ -135,13 +135,13 @@ Exemplaar gebruik facturering
 </td>
 <td>
 <p>De virtuele machine is gestopt en verwijderd uit de host. </p>
-<code>"statuses": [</br>
- {</br>
- "code": "PowerState/deallocated",</br>
- "level": "Info",</br>
- "displayStatus": "VM deallocated"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "PowerState/deallocated",<br>
+ "level": "Info",<br>
+ "displayStatus": "VM deallocated"<br>
+ }<br>
+ ]</code><br>
 </td>
 <td>
 <p><b>Niet in rekening gebracht</b></p>
@@ -186,12 +186,12 @@ Hier volgen de Staten overgangs bewerking nadat het platform heeft een actie van
 <p><b>Het maken van</b></p>
 </td>
 <td width="366">
-<code>"statuses": [</br>
- {</br>
- "code": "ProvisioningState/creating",</br>
- "level": "Info",</br>
- "displayStatus": "Creating"</br>
- }</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/creating",<br>
+ "level": "Info",<br>
+ "displayStatus": "Creating"<br>
+ }</code><br>
 </td>
 </tr>
 <tr>
@@ -199,13 +199,13 @@ Hier volgen de Staten overgangs bewerking nadat het platform heeft een actie van
 <p><b>Bijwerken</b></p>
 </td>
 <td width="366">
-<code>"statuses": [</br>
- {</br>
- "code": "ProvisioningState/updating",</br>
- "level": "Info",</br>
- "displayStatus": "Updating"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/updating",<br>
+ "level": "Info",<br>
+ "displayStatus": "Updating"<br>
+ }<br>
+ ]</code><br>
 </td>
 </tr>
 <tr>
@@ -213,13 +213,13 @@ Hier volgen de Staten overgangs bewerking nadat het platform heeft een actie van
 <p><b>Verwijderen</b></p>
 </td>
 <td width="366">
-<code>"statuses": [</br>
- {</br>
- "code": "ProvisioningState/deleting",</br>
- "level": "Info",</br>
- "displayStatus": "Deleting"</br>
- }</br>
- ]</code></br>
+<code>"statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/deleting",<br>
+ "level": "Info",<br>
+ "displayStatus": "Deleting"<br>
+ }<br>
+ ]</code><br>
 </td>
 </tr>
 <tr>
@@ -229,21 +229,21 @@ Hier volgen de Staten overgangs bewerking nadat het platform heeft een actie van
 <td width="366">
 <p>Als een virtuele machine is gemaakt met een installatiekopie van het besturingssysteem en niet met een gespecialiseerde installatiekopie, kunnen volgende subtoestanden worden waargenomen:</p>
 <p>1. <b>OSProvisioningInprogress</b> &ndash; de virtuele machine wordt uitgevoerd, en de installatie van de Gast-OS wordt uitgevoerd. <p /> 
-<code> "statuses": [</br>
- {</br>
- "code": "ProvisioningState/creating/OSProvisioningInprogress",</br>
- "level": "Info",</br>
- "displayStatus": "OS Provisioning In progress"</br>
- }</br>
-]</code></br>
+<code> "statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/creating/OSProvisioningInprogress",<br>
+ "level": "Info",<br>
+ "displayStatus": "OS Provisioning In progress"<br>
+ }<br>
+]</code><br>
 <p>2. <b>OSProvisioningComplete</b> &ndash; tijdelijke status. De virtuele machine snel verandert in **succes** , tenzij er geen extensies moeten worden geïnstalleerd. Installeren van extensies kan even duren. <br />
-<code> "statuses": [</br>
- {</br>
- "code": "ProvisioningState/creating/OSProvisioningComplete",</br>
- "level": "Info",</br>
- "displayStatus": "OS Provisioning Complete"</br>
- }</br>
-]</code></br>
+<code> "statuses": [<br>
+ {<br>
+ "code": "ProvisioningState/creating/OSProvisioningComplete",<br>
+ "level": "Info",<br>
+ "displayStatus": "OS Provisioning Complete"<br>
+ }<br>
+]</code><br>
 <p><b>Houd er rekening mee</b>: inrichting van het besturingssysteem kunt overgaan op **mislukt** als er een OS-fouten of het besturingssysteem niet wordt geïnstalleerd in de tijd. Klanten worden gefactureerd voor de geïmplementeerde virtuele machine op de infrastructuur.</p>
 </td>
 </tr>
@@ -255,14 +255,14 @@ Nadat de bewerking voltooid is, wordt de virtuele machine verandert in een van d
 - **Geslaagd** – de gebruiker geïnitieerde acties zijn voltooid.
 
     ```
- "statuses": \[ 
+ "statuses": [ 
  {
      "code": "ProvisioningState/succeeded",
      "level": "Info",
      "displayStatus": "Provisioning succeeded",
      "time": "time"
  }
- \]
+ ]
     ```
 
  
@@ -278,6 +278,7 @@ Nadat de bewerking voltooid is, wordt de virtuele machine verandert in een van d
       "message": "Operation abandoned due to internal error. Please try again later.",
       "time": "time"
     }
+    ]
     ```
 
 
