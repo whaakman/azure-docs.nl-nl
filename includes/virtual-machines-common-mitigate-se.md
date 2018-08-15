@@ -5,76 +5,115 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/21/2018
+ms.date: 08/14/2018
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: b31e5cc3f99bdbb45aae6f9d71efdabdcc60f9c8
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 130cc66831b25621cb022eb19005c624fcd71b9e
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37138174"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "40105503"
 ---
-**Laatste document update**: 21 mei 2018 3:00 PM PST.
+**Laatste update document**: 14 augustus 2018 10:00 AM PST.
 
-De recente openbaarmaking van een [nieuwe klasse van CPU-beveiligingsproblemen](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) die bekend staat als speculatieve uitvoering side-kanaal aanvallen heeft geleid tot vragen van klanten meer duidelijkheid te zoeken.  
+De vermelding van een [nieuwe klasse van CPU-beveiligingsproblemen](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) die bekend staat als speculatieve uitvoering van side-channel aanvallen heeft geresulteerd in vragen van klanten om meer duidelijkheid te zoeken.  
 
-Microsoft heeft oplossingen geïmplementeerd op onze cloudservices. De infrastructuur die wordt uitgevoerd van Azure en werkbelastingen van de klant van elkaar isoleert is beveiligd.  Dit betekent dat andere klanten uitgevoerd op Azure uw toepassing met behulp van deze beveiligingslekken kunnen geen aanvallen.
+Microsoft heeft oplossingen worden geïmplementeerd in onze cloudservices. De infrastructuur die wordt uitgevoerd van Azure en klantwerkbelastingen van elkaar geïsoleerd is beveiligd. Dit betekent dat een potentiële aanvaller met behulp van dezelfde infrastructuur kan niet aanvallen op uw toepassing met behulp van deze beveiligingslekken.
 
-Bovendien Azure breidt het gebruik van [geheugen behouden onderhoud](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance) indien mogelijk onderbreken van de virtuele machine voor maximaal 30 seconden, terwijl de host is bijgewerkt of de virtuele machine wordt verplaatst naar een host al bijgewerkt.  Geheugen behouden onderhoud verdere klant gevolgen minimaliseert en hoeft u opnieuw wordt opgestart.  Azure maakt gebruik van deze methoden wanneer het hele systeem updates indienen bij de host.
+Het met behulp van Azure [geheugen onderhoud met statusbehoud](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates#memory-preserving-maintenance) zoveel mogelijk minimaliseren gevolgen zijn voor klanten en elimineert de noodzaak van opnieuw wordt opgestart. Azure zal blijven deze methoden gebruiken bij het maken van systeembrede updates naar de host en onze klanten te beveiligen.
+
+Meer informatie over hoe de beveiliging is geïntegreerd in elk aspect van Azure is beschikbaar op de [documentatie over Azure-beveiliging](https://docs.microsoft.com/azure/security/) site. 
 
 > [!NOTE] 
-Heeft een nieuwe subklasse van speculatieve side-kanaal beveiligingslek bekend als speculatieve Store overslaan op 21 mei 2018, Google Project nul en Microsoft. Aanvullende verdediging in de diepte van oplossingen zijn geïmplementeerd via de Microsoft cloud-infrastructuur die rechtstreeks beveiligingslekken speculatieve uitvoering. Meer informatie is hier beschikbaar: https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180012 
->
-> In latere februari 2018, Intel Corporation gepubliceerd bijgewerkte [Microcode revisie richtlijnen](https://newsroom.intel.com/wp-content/uploads/sites/11/2018/03/microcode-update-guidance.pdf) op de status van hun microcode-versies die de stabiliteit te verbeteren en beperken dat recente beveiligingsproblemen vermeld door [Google Project nul](https://googleprojectzero.blogspot.com/2018/01/reading-privileged-memory-with-side.html). De oplossingen die door Azure op [3 januari 2018](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/) worden niet beïnvloed door van Intel microcode update. Microsoft al ingevoerd sterk oplossingen Azure om klanten te beschermen van andere virtuele machines in Azure.  
->
-> Van Intel microcode adressen variant 2 Spectre - [CVE-2017-5715](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5715) of vertakking doel injectie - bescherming tegen aanvallen die alleen zijn van toepassing waarin u gedeelde of niet-vertrouwde werkbelasting uitvoeren binnen uw virtuele machines in Azure. Onze technici test de stabiliteit om te beperken van invloed op de prestaties van de microcode, voordat het beschikbaar maken op Azure-klanten.  Als klanten heel weinig niet-vertrouwde werkbelastingen binnen hun virtuele machines worden uitgevoerd, moet de meeste klanten niet inschakelen van deze mogelijkheid eenmaal uitgebracht. 
->
-> Deze pagina wordt bijgewerkt als u meer informatie beschikbaar is.  
+> Aangezien dit document werd gepubliceerd, zijn meerdere varianten van deze klasse beveiligingsproblemen gemaakt. Microsoft blijft zwaar worden geïnvesteerd in onze klanten te beschermen en bieden van richtlijnen. Deze pagina wordt bijgewerkt wanneer we doorgaan met de release verder oplossingen. 
+> 
+> 14 augustus 2018 de bedrijfstak een nieuw kanaal beveiligingslek voor speculatieve uitvoering kant wel vermeld [L1 Terminal fouttolerantie](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180018) (L1TF) die is toegewezen meerdere CVEs ([CVE-2018-3615, CVE-2018-3620, en CVE-2018-3646](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00161.html)). Deze kwetsbaarheid is van invloed op de® Core Intel-processors en Intel® Xeon®-processors. Microsoft heeft oplossingen worden geïmplementeerd in onze cloudservices die de isolatie tussen klanten versterken. Lees hieronder voor meer informatie om te beveiligen tegen L1TF en vorige zwakke plekken ([Spectre Variant 2 CVE-2017-5715 en Meltdown Variant 3 CVE-2017-5754](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution)).
+>  
 
 
 
 
 
 
-## <a name="keeping-your-operating-systems-up-to-date"></a>Uw besturingssystemen up-to-date te houden
+## <a name="keeping-your-operating-systems-up-to-date"></a>Het besturingssysteem up-to-date te houden
 
-Tijdens een update van het besturingssysteem niet vereist is voor het isoleren van uw toepassingen die worden uitgevoerd op Azure van andere klanten uitgevoerd op Azure, maar het is altijd een best practice uw versies van het besturingssysteem up-to-date kunt houden. De januari 2018 en hoger [beveiliging updatepakketten voor Windows](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) bevatten oplossingen voor deze beveiligingslekken.
+Tijdens een update van het besturingssysteem niet vereist is voor het isoleren van andere Azure-klanten uw toepassingen op Azure, maar het is altijd een aanbevolen procedure op uw software up-to-date te houden. De meest recente beveiligingsupdate updatepakketten voor Windows bevatten oplossingen voor verschillende speculatieve uitvoering kant kanaal beveiligingslekken. Linux-distributies zijn op deze manier meerdere updates om deze beveiligingslekken verhelpen uitgebracht. Hier volgen de aanbevolen acties om bij te werken van uw besturingssysteem:
 
-In de volgende aanbiedingen vindt hier u de aanbevolen acties in uw besturingssysteem bijwerken: 
+| Aanbieding | Aanbevolen actie  |
+|----------|---------------------|
+| Azure Cloud Services  | Schakel [automatische updates](https://docs.microsoft.com/azure/cloud-services/cloud-services-how-to-configure-portal) of zorg ervoor dat u het nieuwste Gast-besturingssysteem worden uitgevoerd. |
+| Virtuele Linux-machines in Azure | Updates van de provider van uw besturingssysteem geïnstalleerd. Zie voor meer informatie, [Linux](#linux) verderop in dit document. |
+| Windows Azure virtuele Machines  | Installeer de meest recente updatepakket van beveiliging.
+| Andere Azure PaaS-Services | Er is geen actie nodig is voor klanten die gebruikmaken van deze services. Azure blijft automatisch uw versies van het besturingssysteem up-to-date. |
 
-<table>
-<tr>
-<th>Aanbieding</th> <th>Aanbevolen actie </th>
-</tr>
-<tr>
-<td>Azure Cloud Services </td>  <td>Automatisch bijwerken inschakelen of zorg ervoor dat u de nieuwste Gast-besturingssysteem op worden uitgevoerd.</td>
-</tr>
-<tr>
-<td>Virtuele Linux-machines in Azure</td> <td>Updates installeren vanaf uw besturingssysteem provider indien beschikbaar. </td>
-</tr>
-<tr>
-<td>Windows Azure virtuele Machines </td> <td>Controleer of u een ondersteunde antivirusprogramma toepassing worden uitgevoerd voordat u updates voor het besturingssysteem installeert. Neem contact op met de leverancier van uw antivirussoftware voor informatie over de compatibiliteit.<p> Installeer de [totalisering van de beveiliging januari](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002). </p></td>
-</tr>
-<tr>
-<td>Andere Azure PaaS-Services</td> <td>Er is geen actie nodig is voor klanten die gebruikmaken van deze services. Azure blijft automatisch de versies van het besturingssysteem up-to-date. </td>
-</tr>
-</table>
+## <a name="additional-guidance-if-you-are-running-untrusted-code"></a>Aanvullende richtlijnen als u niet-vertrouwde code worden uitgevoerd 
 
-## <a name="additional-guidance-if-you-are-running-untrusted-code"></a>Aanvullende richtlijnen als u werkt met niet-vertrouwde code 
+Klanten die niet-vertrouwde gebruikers uit te voeren willekeurige code wilt implementeren enkele aanvullende beveiligingsfuncties in hun Azure Virtual Machines of Cloud Services. Deze functies beschermen tegen de openbaarmaking van intra verwerken vectoren die beveiligingsproblemen speculatieve uitvoering worden beschreven.
 
-Geen aanvullende klant-actie is vereist tenzij u niet-vertrouwde code uitvoert. Als u de code die u niet vertrouwt toestaat (u kunt bijvoorbeeld een van uw klanten voor het uploaden van een binair of codefragment die u vervolgens wordt uitgevoerd in de cloud in uw toepassing), en vervolgens de volgende aanvullende stappen moeten worden genomen.  
+Voorbeeld van de scenario's waarin aanvullende beveiligingsfuncties die worden aanbevolen:
 
+- U kunt code die u niet vertrouwt om te worden uitgevoerd binnen uw virtuele machine.  
+    - *U kunt bijvoorbeeld een van uw klanten om te uploaden van een binair bestand of script dat u vervolgens uit te voeren in uw toepassing*. 
+- U kunt gebruikers die u niet vertrouwt om u te melden bij uw VM lage bevoegde accounts gebruiken.   
+    - *U kunt bijvoorbeeld een gebruiker met beperkte machtigingen aan te melden bij een van uw virtuele machines met behulp van extern bureaublad of SSH*.  
+- U kunt niet-vertrouwde gebruikers toegang tot virtuele machines die zijn geïmplementeerd via geneste virtualisatie.  
+    - *Bijvoorbeeld, u de Hyper-V-host te beheren, maar de virtuele machines toewijzen aan niet-vertrouwde gebruikers*. 
+
+Klanten die niet een scenario met betrekking tot niet-vertrouwde code geïmplementeerd hoeft niet te deze aanvullende beveiligingsfuncties inschakelen. 
+
+## <a name="enabling-additional-security"></a>Extra beveiliging inschakelen 
+
+U kunt aanvullende beveiligingsfuncties die binnen uw virtuele machine of Service in de Cloud inschakelen.
 
 ### <a name="windows"></a>Windows 
-Als u met behulp van Windows en niet-vertrouwde code te hosten, moet u ook een aangeroepen Kernel virtueel adres (KVA) schaduwkopie maken die zorgt voor extra beveiliging tegen speculatieve beveiligingslekken side-kanaal (specifiek voor Windows-functie inschakelen VARIANT 3 smelten, [CVE-2017-5754](https://www.cve.mitre.org/cgi-bin/cvename.cgi?name=2017-5754), of het laden van de cache rogue gegevens). Deze functie is standaard uitgeschakeld en kan invloed hebben op prestaties als ingeschakeld. Ga als volgt [Windows Server KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) instructies voor het inschakelen van beveiliging op de Server. Als u Azure Cloud Services uitvoert, controleert u of dat u altijd WA-GUEST-OS-5.15_201801-01 of WA-GUEST-OS-4.50_201801-01 (beschikbaar vanaf op 10 januari 2018) en schakelt u het register sleutel via een taak starten.
+
+Het beoogde besturingssysteem moet worden bijgewerkt zodat deze aanvullende beveiligingsfuncties. Hoewel talrijke speculatieve uitvoering kant kanaal oplossingen zijn standaard ingeschakeld, wordt de aanvullende functies die hier worden beschreven handmatig moeten zijn ingeschakeld en kunnen ertoe leiden dat een prestatie-impact. 
+
+**Stap 1**: [contact opnemen met Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) naar expose bijgewerkt firmware (microcode) in uw virtuele Machines. 
+
+**Stap 2**: ondersteuning voor inschakelen Kernel virtuele-adres maken van schaduwkopieën (KVAS) en de vertakking doel injectie (BTI)-besturingssysteem. Volg de instructies in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) om in te schakelen die via de `Session Manager` registersleutels. Opnieuw opstarten is vereist. 
+
+**Stap 3**: voor implementaties die gebruikmaken van [geneste virtualisatie](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) (D3 en E3 alleen): deze instructies zijn van toepassing binnen de virtuele machine die u als een Hyper-V-host gebruikt. 
+
+1. Volg de instructies in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) om in te schakelen die via de `MinVmVersionForCpuBasedMitigations` registersleutels.  
+ 
+1. Het type van de scheduler hypervisor instellen op **Core** door de instructies te volgen [hier](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types). 
+
+**Stap 4**: Volg de instructies in [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) om te controleren of beveiliging zijn ingeschakeld met behulp van de [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell-module. 
+
+> [!NOTE]
+> Als u deze module eerder hebt gedownload, moet u de nieuwste versie te installeren.
+>
+
+Alle virtuele machines moeten worden weergegeven:
+
+```
+branch target injection mitigation is enabled: True
+
+kernel VA shadow is enabled: True  
+
+L1TFWindowsSupportEnabled: True
+```
 
 
 ### <a name="linux"></a>Linux
-Als u met behulp van Linux en niet-vertrouwde code te hosten, moet u ook Linux bijwerken naar een recentere versie waarop kernel tabel pagina isolatie (KPTI) die worden gescheiden van de pagina tabellen die worden gebruikt door de kernel van de referenties die horen bij de gebruikersruimte die is geïmplementeerd. Deze oplossingen vereisen een update voor de Linux-besturingssysteem en kunnen worden verkregen van uw provider distributie indien beschikbaar. Uw OS-provider kunt u zien of beveiliging zijn ingeschakeld of standaard uitgeschakeld.
 
+<a name="linux"></a>Het inschakelen van de reeks aanvullende beveiligingsfuncties in is vereist dat het gebruikte besturingssysteem volledig up-to-date zijn. Sommige oplossingen wordt standaard ingeschakeld. De volgende sectie beschrijft de functies die uitgeschakeld, standaard en/of vertrouwen op hardware-ondersteuning (microcode zijn). Inschakelen van deze functies mogelijk invloed op de prestaties. Verwijzen naar de documentatie van de provider van uw besturingssysteem voor verdere instructies
+ 
+**Stap 1**: [contact opnemen met Azure Support](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) naar expose bijgewerkt firmware (microcode) in uw virtuele Machines.
+ 
+**Stap 2**: ondersteuning voor inschakelen vertakking doel injectie (BTI) OS CVE-2017-5715 (Spectre Variant 2) beperken door de documentatie van uw besturingssysteem-provider te volgen. 
+ 
+**Stap 3**: inschakelen Kernel pagina tabel isolatie (KPTI) CVE-2017-5754 (Meltdown Variant 3) beperken door de documentatie van uw besturingssysteem-provider te volgen. 
+ 
+Meer informatie vindt u van uw besturingssysteem-provider:  
+ 
+- [RedHat en CentOS](https://access.redhat.com/security/vulnerabilities/speculativeexecution) 
+- [SUSE](https://www.suse.com/support/kb/doc/?id=7022512) 
+- [Ubuntu](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SpectreAndMeltdown) 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie, [beveiligen van Azure-klanten CPU beveiligingslek](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/).
+Zie voor meer informatie, [Azure-klanten beveiligen tegen CPU-beveiligingsproblemen](https://azure.microsoft.com/blog/securing-azure-customers-from-cpu-vulnerability/).
