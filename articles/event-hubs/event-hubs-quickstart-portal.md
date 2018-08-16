@@ -3,25 +3,25 @@ title: Azure-snelstart - Gebeurtenisstromen verwerken met behulp van Azure Porta
 description: In deze snelstart leert u hoe u gebeurtenisstromen kunt verwerken met behulp van Azure Portal.
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
-ms.openlocfilehash: da48294962dc5af5f9d623c84f9bbff1d49be03e
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: shvija
+ms.openlocfilehash: 1938f7a8400587f8f0405cb576bfbdfe8bf1dddd
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132172"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004307"
 ---
 # <a name="quickstart-process-event-streams-using-the-azure-portal-and-net"></a>Snelstart: gebeurtenisstromen verwerken met behulp van Azure Portal en .NET
 
 Azure Event Hubs is een uiterst schaalbaar platform voor het streamen van gegevens en een opneemservice die miljoenen gebeurtenissen per seconde kan opnemen en verwerken. Deze snelstart laat zien hoe u een Event Hub maakt met behulp van [Azure Portal](https://portal.azure.com) en vervolgens verzendt naar en ontvangt van een Event Hub met behulp van de .NET Standard SDK.
 
-U hebt een Azure-abonnement nodig om deze snelstart te voltooien. Als u nog geen abonnement hebt, maakt u een [gratis account][] voordat u begint.
+U hebt een Azure-abonnement nodig om deze snelstart te voltooien. Als u nog geen abonnement hebt, [maakt u een gratis account][] voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -173,7 +173,7 @@ In dit artikel hebt u de Event Hubs-naamruimte en andere resources gemaakt die z
 > [!div class="nextstepaction"]
 > [Gegevensafwijkingen visualiseren in Event Hubs-gegevensstromen](event-hubs-tutorial-visualize-anomalies.md)
 
-[gratis account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[maakt u een gratis account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Azure Portal]: https://portal.azure.com/
 [1]: ./media/event-hubs-quickstart-portal/resource-groups1.png
 [2]: ./media/event-hubs-quickstart-portal/resource-groups2.png

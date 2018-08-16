@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/14/2017
 ms.author: sngun
-ms.openlocfilehash: 6a98d3b477a3cb06c1454a79b77dffa685853a35
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 8eba0f70141fe28a478e842523023a22c2db50fe
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38668121"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628746"
 ---
 # <a name="nodejs-tutorial-use-the-sql-api-in-azure-cosmos-db-to-create-a-nodejs-console-application"></a>Node.js-zelfstudie: De SQL-API gebruiken in Azure Cosmos DB om een Node.js-consoletoepassing te maken
 
@@ -26,6 +26,7 @@ ms.locfileid: "38668121"
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
 > * [Node.js voor MongoDB](mongodb-samples.md)
 > * [Node.js](sql-api-nodejs-get-started.md)
+> * [Node.js - v2.0 Preview](sql-api-nodejs-get-started-preview.md)
 > * [Java](sql-api-java-get-started.md)
 
 
@@ -259,7 +260,7 @@ Kopieer de code en plak deze onder de plaats waar u de functie **getDatabase** i
 
 Zoek het ```app.js```-bestand in de terminal en voer de volgende opdracht uit: ```node app.js```
 
-Gefeliciteerd. U hebt een Azure Cosmos DB-database gemaakt.
+Gefeliciteerd! U hebt een Azure Cosmos DB-database gemaakt.
 
 ## <a id="CreateColl"></a>Stap 6: een verzameling maken
 
@@ -313,7 +314,7 @@ Kopieer en plak de code onder de aanroep van **getDatabase** om de functie **get
 
 Zoek het ```app.js```-bestand in de terminal en voer de volgende opdracht uit: ```node app.js```
 
-Gefeliciteerd. U hebt nu een Azure Cosmos DB-verzameling gemaakt.
+Gefeliciteerd! U hebt nu een Azure Cosmos DB-verzameling gemaakt.
 
 ## <a id="CreateDoc"></a>Stap 7: een document maken
 
@@ -366,7 +367,7 @@ Kopieer en plak de code onder de aanroep van **getCollection** om de functie **g
 
 Zoek het ```app.js```-bestand in de terminal en voer de volgende opdracht uit: ```node app.js```
 
-Gefeliciteerd. U hebt nu een Azure Cosmos DB-document gemaakt.
+Gefeliciteerd! U hebt nu een Azure Cosmos DB-document gemaakt.
 
 ![Node.js-zelfstudie: diagram waarin u de hiërarchische relatie ziet tussen het account, de database, de verzameling en de documenten - Knooppuntdatabase](./media/sql-api-nodejs-get-started/node-js-tutorial-cosmos-db-account.png)
 
@@ -424,7 +425,7 @@ Kopieer en plak de code onder de aanroep van **getFamilyDocument** om de functie
 
 Zoek het ```app.js```-bestand in de terminal en voer de volgende opdracht uit: ```node app.js```
 
-Gefeliciteerd. U hebt een query uitgevoerd op Azure Cosmos DB-documenten.
+Gefeliciteerd! U hebt een query uitgevoerd op Azure Cosmos DB-documenten.
 
 ## <a id="ReplaceDocument"></a>Stap 9: een document vervangen
 Azure Cosmos DB biedt ondersteuning voor het vervangen van JSON-documenten.
@@ -470,7 +471,7 @@ Kopieer en plak de code onder de aanroep van **queryCollection** om de functie *
 
 Zoek het ```app.js```-bestand in de terminal en voer de volgende opdracht uit: ```node app.js```
 
-Gefeliciteerd. U hebt een Azure Cosmos DB-document vervangen.
+Gefeliciteerd! U hebt een Azure Cosmos DB-document vervangen.
 
 ## <a id="DeleteDocument"></a>Stap 10: een document verwijderen
 
@@ -514,7 +515,7 @@ Kopieer en plak de code onder de aanroep van de tweede **queryCollection** om de
 
 Zoek het ```app.js```-bestand in de terminal en voer de volgende opdracht uit: ```node app.js```
 
-Gefeliciteerd. U hebt een Azure Cosmos DB-document verwijderd.
+Gefeliciteerd! U hebt een Azure Cosmos DB-document verwijderd.
 
 ## <a id="DeleteDatabase"></a>Stap 11: de knooppuntdatabase verwijderen
 
@@ -602,7 +603,7 @@ U ziet de uitvoer van uw GetStarted-app. De uitvoer moet overeenkomen met de ond
     Completed successfully
     Press any key to exit
 
-Gefeliciteerd. U hebt de Node.js-zelfstudie voltooid en beschikt nu over uw eerste Azure Cosmos DB-consoletoepassing.
+Gefeliciteerd! U hebt de Node.js-zelfstudie voltooid en beschikt nu over uw eerste Azure Cosmos DB-consoletoepassing.
 
 ## <a id="GetSolution"></a>De volledige Node.js-zelfstudieoplossing gebruiken
 

@@ -2,26 +2,26 @@
 title: 'Azure-snelstart: Gebeurtenisstromen verwerken met behulp van de Azure CLI | Microsoft Docs'
 description: In deze snelstart leert u hoe u gebeurtenisstromen kunt verwerken met behulp van de Azure CLI.
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
-ms.openlocfilehash: 3e4689aa4ef5cdbd52aa2c70b8ba754013cab3db
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: shvija
+ms.openlocfilehash: 7a15b252727589194da90af729a74e1baad7094f
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425949"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004561"
 ---
 # <a name="quickstart-process-event-streams-using-azure-cli-and-java"></a>Snelstart: Gebeurtenisstromen verwerken met behulp van de Azure CL en Java
 
 Azure Event Hubs is een uiterst schaalbaar platform voor het streamen van gegevens en een opneemservice die miljoenen gebeurtenissen per seconde kan opnemen en verwerken. Deze snelstart laat zien hoe u Event Hubs-resources kunt maken met behulp van de Azure CLI, en vervolgens gebeurtenisstromen van een Event Hub met behulp van Java-code kunt verzenden en ontvangen.
 
-U hebt een Azure-abonnement nodig om deze snelstart te voltooien. Als u nog geen abonnement hebt, maakt u een [gratis account][] voordat u begint.
+U hebt een Azure-abonnement nodig om deze snelstart te voltooien. Als u nog geen abonnement hebt, [maakt u een gratis account][] voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -292,7 +292,7 @@ In dit artikel hebt u de Event Hubs-naamruimte en andere resources gemaakt die z
 > [!div class="nextstepaction"]
 > [Gegevensafwijkingen visualiseren in Event Hubs-gegevensstromen](event-hubs-tutorial-visualize-anomalies.md)
 
-[gratis account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[maakt u een gratis account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install Azure CLI 2.0]: /cli/azure/install-azure-cli
 [az group create]: /cli/azure/group#az-group-create
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

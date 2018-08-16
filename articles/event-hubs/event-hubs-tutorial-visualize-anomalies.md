@@ -2,19 +2,19 @@
 title: Visualiseer gegevensanomalieën binnen in realtime naar Azure Event Hubs verzonden gebeurtenissen | Microsoft Docs
 description: 'Zelfstudie: gegevensanomalieën binnen in realtime naar Microsoft Azure Event Hubs verzonden gebeurtenissen visualiseren'
 services: event-hubs
-author: robinsh
+author: ShubhaVijayasarathy
 manager: timlt
-ms.author: robinsh
-ms.date: 06/26/2018
+ms.author: shvija
+ms.date: 08/08/2018
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: mvc
-ms.openlocfilehash: 28c03d12954b172388a92dd0c3f6aed2266ffaf7
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 04a9a3b3df44814d680f01595d70ced08a946591
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132676"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40004110"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Zelfstudie: gegevensanomalieën binnen in realtime naar Azure Event Hubs verzonden gebeurtenissen visualiseren
 
@@ -30,7 +30,7 @@ In deze zelfstudie leert u het volgende:
 > * Een Stream Analytics-taak configureren om die transacties te verwerken
 > * Een Power BI-visualisatie configureren om de resultaten te tonen
 
-U hebt een Azure-abonnement nodig om deze zelfstudie te voltooien. Als u nog geen abonnement hebt, maakt u een [gratis account][] voordat u begint.
+U hebt een Azure-abonnement nodig om deze zelfstudie te voltooien. Als u nog geen abonnement hebt, [maakt u een gratis account][] voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -382,4 +382,4 @@ Ga naar het volgende artikel voor meer informatie over Azure Event Hubs.
 > [!div class="nextstepaction"]
 > [Aan de slag met het verzenden van berichten naar Azure Event Hubs in .NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 
-[gratis account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[maakt u een gratis account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

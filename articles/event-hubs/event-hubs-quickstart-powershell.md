@@ -2,7 +2,7 @@
 title: 'Azure-snelstart: Gebeurtenisstromen verwerken met behulp van Powershell | Microsoft Docs'
 description: In deze snelstart wordt beschreven hoe u gebeurtenissen van Azure Event Hubs kunt verzenden en ontvangen met behulp van PowerShell en een .NET-voorbeeldtoepassing.
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.service: event-hubs
@@ -10,19 +10,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
-ms.author: sethm
-ms.openlocfilehash: 9216372038db7a6f97cfc8034f715b34de08d83c
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.author: shvija
+ms.openlocfilehash: fd2b8b2e8bd075e029a07519ced186424798fd9c
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132175"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003607"
 ---
 # <a name="quickstart-process-event-streams-using-powershell-and-net-standard"></a>Snelstart: Gebeurtenisstromen verwerken met behulp van PowerShell en .NET Standard | Microsoft Docs
 
 Azure Event Hubs is een uiterst schaalbaar platform voor het streamen van gegevens en een opneemservice die miljoenen gebeurtenissen per seconde kan opnemen en verwerken. Deze snelstart laat zien hoe u een Event Hub maakt met behulp van Azure PowerShell en vervolgens verzendt naar en ontvangt van een Event Hub met behulp van de .NET Standard-SDK.
 
-U hebt een Azure-abonnement nodig om deze snelstart te voltooien. Als u nog geen abonnement hebt, maakt u een [gratis account][] voordat u begint.
+U hebt een Azure-abonnement nodig om deze snelstart te voltooien. Als u nog geen abonnement hebt, [maakt u een gratis account][] voordat u begint.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -41,7 +41,7 @@ Als u PowerShell lokaal gebruikt, moet u de nieuwste versie van PowerShell uitvo
 
 Een resourcegroep is een logische verzameling van Azure-resources. U hebt een resourcegroep nodig om een Event Hub te maken. 
 
-In het volgende voorbeeld wordt een resourcegroep gemaakt in de regio VS - oost. Vervang `myResourceGroup` door de naam van de resourcegroep die u wilt gebruiken:
+In het volgende voorbeeld wordt een resourcegroep gemaakt in de regio US - oost. Vervang `myResourceGroup` door de naam van de resourcegroep die u wilt gebruiken:
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup –Name myResourceGroup –Location eastus
@@ -156,7 +156,7 @@ In dit artikel hebt u de Event Hubs-naamruimte en andere resources gemaakt die z
 > [!div class="nextstepaction"]
 > [Gegevensafwijkingen visualiseren in Event Hubs-gegevensstromen](event-hubs-tutorial-visualize-anomalies.md)
 
-[gratis account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[maakt u een gratis account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install and Configure Azure PowerShell]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
 [New-AzureRmResourceGroup]: https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

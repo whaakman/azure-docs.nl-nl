@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: nolachar
-ms.openlocfilehash: 5dc9478516f4e9850543a6ee129fef0f1d3ee4f7
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 353c1d91b7925a84667ef1bb7c38ab87c6a89cc1
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214914"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39716369"
 ---
 # <a name="tutorial-write-a-wpf-application-for-translator-text-using-c35"></a>Zelfstudie: Een WPF-toepassing voor Translator Text maken met behulp van C&#35;
 
@@ -666,9 +666,9 @@ Geef de tekst vervolgens door aan de `Translate`-API in een geserialiseerde JSON
 De HTTP-header met de naam `X-ClientTraceId` is optioneel. De waarde moet een GUID zijn. Een door de client geleverde traceer-id is handig voor het traceren van aanvragen wanneer iets niet werkt zoals verwacht. De waarde van X-ClientTraceID moet echter door de client worden geregistreerd. Anders hebt u er weinig aan. Met een traceer-id van de client en de datum van de aanvragen kan Microsoft eventuele problemen diagnosticeren.
 
 > [!NOTE]
-> Deze zelfstudie is gericht op de Microsoft Translator-service. Daarom worden de methoden `DetectLanguage()` en `CorrectSpelling()` niet in detail behandeld. De Tekstanalyse- en de Bing Spellingcontrole-service leveren antwoorden in JSON in plaats van XML. Voor Tekstanalyse moet de aanvraag ook als JSON zijn opgemaakt. Deze kenmerken verschillen qua code het meest van de methoden die hier zijn behandeld.
+> Deze zelfstudie is gericht op de Microsoft Translator-service. Daarom worden de methoden `DetectLanguage()` en `CorrectSpelling()` niet in detail behandeld.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Naslaginformatie over de Translator Text-API van Microsoft](http://docs.microsofttranslator.com/text-translate.html)
+> [Naslaginformatie over de Translator Text-API van Microsoft](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)

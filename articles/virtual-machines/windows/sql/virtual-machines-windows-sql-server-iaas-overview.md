@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/12/2018
 ms.author: jroth
-ms.openlocfilehash: 2d38e5d7902e0db2342bce19ae2022a9433bfcfe
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 905caa7d0de514ae9fd13cb058b2b7826b8b6abf
+ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617731"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40003668"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Wat is SQL Server op Azure Virtual Machines? (Windows)
 
@@ -68,7 +68,7 @@ De volgende tabel bevat een matrix met SQL Server-installatiekopieën voor betal
 Zie [Overzicht van SQL Server op virtuele Azure-machines (Linux)](../../linux/sql/sql-server-linux-virtual-machines-overview.md) voor de beschikbare installatiekopieën van SQL Server voor virtuele Linux-machines.
 
 ### <a id="BYOL"></a> Neem uw eigen licentie mee
-U kunt ook uw eigen licentie gebruiken (Bring Your Own Licence, BYOL). In dit scenario betaalt u alleen voor de virtuele machine, zonder eventuele extra kosten voor SQL Server-licentieverlening.  Als u uw eigen licentie hebt, kan dit u in de loop van de tijd geld besparen voor doorlopende productieworkloads. Zie [Prijsinformatie voor Azure VM's van SQL Server](virtual-machines-windows-sql-server-pricing-guidance.md) voor de vereisten om van deze optie gebruik te maken.
+U kunt ook uw eigen licentie gebruiken (Bring Your Own Licence, BYOL). In dit scenario betaalt u alleen voor de virtuele machine, zonder eventuele extra kosten voor SQL Server-licentieverlening.  Als u uw eigen licentie hebt, kan dit u in de loop van de tijd geld besparen voor doorlopende productieworkloads. Zie [Prijsinformatie voor Azure VM's van SQL Server](virtual-machines-windows-sql-server-pricing-guidance.md#byol) voor de vereisten om van deze optie gebruik te maken.
 
 | Versie | Besturingssysteem | Editie |
 | --- | --- | --- |

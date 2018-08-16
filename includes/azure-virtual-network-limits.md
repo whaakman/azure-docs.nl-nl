@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/03/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 60f1b133bdd6acdb25717c2b98f81b57b751d505
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 9dbd230e431b2bc3041cfc854c0161ce8d453870
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39721019"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "40133323"
 ---
 <a name="virtual-networking-limits-classic"></a>De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via het klassieke implementatiemodel voor elk abonnement. Meer informatie over het [weergeven van uw huidige brongebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
 
@@ -38,7 +38,7 @@ ms.locfileid: "39721019"
 De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via Azure Resource Manager. De beperkingen gelden per regio en per abonnement. Meer informatie over het [weergeven van uw huidige brongebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
-> We alle standaardlimieten om de maximale limieten voor het laatst verhoogd. Als er geen **maximumlimiet** kolom en vervolgens de resource geen instelbare limieten. Als u hebt bevat deze limieten verhogen door de ondersteuning in het verleden en geen bijgewerkte limieten als hieronder ziet, kunt u [opent u een ondersteuningsaanvraag online klant gratis](../articles/azure-resource-manager/resource-manager-quota-errors.md)
+> We alle standaardlimieten om de maximale limieten voor het laatst verhoogd. Als er geen **maximumlimiet** kolom en vervolgens de resource geen instelbare limieten. Als u deze limieten verhogen door de ondersteuning in het verleden hebben gehad en geen bijgewerkte limieten als hieronder ziet, kunt u [opent u een ondersteuningsaanvraag online klant gratis](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
 | Resource | Standaardlimiet | 
 | --- | --- |

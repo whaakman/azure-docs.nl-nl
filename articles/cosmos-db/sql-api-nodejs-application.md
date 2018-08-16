@@ -11,17 +11,18 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/23/2018
 ms.author: sngun
-ms.openlocfilehash: d18e6dd9464ef103157a8532215fa797ab282437
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cdf3edf5bfd8d13f71c25b8bf0bbf0ea3d992a5d
+ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38543850"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39628151"
 ---
 # <a name="_Toc395783175"></a>Een Node.js-webtoepassing bouwen met Azure Cosmos DB
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
+> * [Node.js - v2.0 Preview](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
 > * [Python](sql-api-python-application.md)
 > 
@@ -62,15 +63,21 @@ Laten we eens kijken hoe u het [Express](http://expressjs.com/)-framework gebrui
 1. Open een terminal waarmee u graag werkt, zoals de Node.js-opdrachtprompt.
 2. Navigeer naar de map waarin u de nieuwe toepassing wilt opslaan.
 3. Gebruik de express-generator om een toepassing met de naam **todo** te maken.
-   
-        express todo
+
+   ```bash
+   express todo
+   ```
 4. Open de nieuwe map **todo** en installeer afhankelijkheden.
-   
-        cd todo
-        npm install
+
+   ```bash
+    cd todo
+    npm install
+   ```
 5. Voer uw nieuwe toepassing uit.
-   
-        npm start
+
+   ```bash
+   npm start
+   ```
 6. U kunt uw nieuwe toepassing bekijken door in uw browser naar [http://localhost:3000](http://localhost:3000) te gaan.
    
     ![Node.js leren - Schermopname van de toepassing Hello World in een browservenster](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
@@ -81,11 +88,15 @@ Laten we eens kijken hoe u het [Express](http://expressjs.com/)-framework gebrui
 Het bestand **package.json** is een van de bestanden die zijn gemaakt in de hoofdmap van het project. Dit bestand bevat een lijst met aanvullende modules die u nodig hebt voor uw Node.js-toepassing. Later, wanneer u deze toepassing implementeert op Azure Websites, wordt dit bestand gebruikt om te bepalen welke modules ter ondersteuning van uw toepassing in Azure moeten worden geïnstalleerd. Voor deze zelfstudie moeten u nog twee pakketten installeren.
 
 1. Keer terug naar de terminal en installeer de **async**-module via npm.
-   
-        npm install async --save
+
+   ```bash
+   npm install async --save
+   ```
 2. Installeer de **DocumentDB**-module via NPM. Dit is de module waarin alle Azure Cosmos DB-magie plaatsvindt.
-   
-        npm install documentdb --save
+
+   ```bash
+   npm install documentdb --save
+   ```
 
 ## <a name="_Toc395783180"></a>Stap 4: De Azure Cosmos DB-service in een knooppunttoepassing gebruiken
 Hiermee is de installatie en eerste configuratie voltooid en kunnen we aan het echte werk beginnen, namelijk het schrijven van code met Azure Cosmos DB.
@@ -377,7 +388,7 @@ Hiermee is de installatie en eerste configuratie voltooid en kunnen we aan het e
     var DocumentDBClient = require('documentdb').DocumentClient;
     var config = require('./config');
     var TaskList = require('./routes/tasklist');
-    var TaskModel = require('./models/taskModel');
+    var TaskModel = require('./models/task-model');
     ```
 3. Deze code definieert het configuratiebestand dat moet worden gebruikt en leest waarden uit dit bestand naar enkele variabelen die we zo dadelijk gaan gebruiken.
 4. Vervang de volgende twee regels in het bestand **app.js**:
@@ -509,7 +520,7 @@ Dit is alles wat we nodig hebben voor een goed werkende toepassing.
         git push azure master
 4. Over een paar seconden zal GIT de publicatie van uw webtoepassing voltooien en een browser starten waarin u kunt zien hoe uw werk in Azure wordt uitgevoerd.
 
-    Gefeliciteerd. U hebt zojuist uw eerste Node.js Express-webtoepassing met Azure Cosmos DB gemaakt en gepubliceerd naar Azure Websites.
+    Gefeliciteerd! U hebt zojuist uw eerste Node.js Express-webtoepassing met Azure Cosmos DB gemaakt en gepubliceerd naar Azure Websites.
 
     Als u de volledige referentietoepassing voor deze zelfstudie wilt downloaden of raadplegen, kunt u dit doen op [GitHub][GitHub].
 
