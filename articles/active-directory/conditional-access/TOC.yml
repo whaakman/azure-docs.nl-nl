@@ -1,0 +1,71 @@
+items:
+- name: Documentatie over voorwaardelijke toegang
+  href: index.yml
+- name: Overzicht
+  items:
+  - name: Wat is voorwaardelijke toegang?
+    href: overview.md
+- name: Snelstartgidsen
+  items:
+  - name: Meervoudige verificatie vereisen voor specifieke apps
+    href: app-based-mfa.md
+  - name: Vereisen dat de gebruiksvoorwaarden worden geaccepteerd
+    href: require-tou.md
+  - name: Toegang blokkeren wanneer er een sessierisico wordt gedetecteerd
+    href: app-sign-in-risk.md
+- name: Zelfstudies
+  items:
+  - name: Klassiek MFA-beleid migreren
+    href: policy-migration-mfa.md
+- name: Concepten
+  items:
+  - name: Basisbescherming
+    href: baseline-protection.md
+  - name: Voorwaarden
+    href: conditions.md
+  - name: Locatievoorwaarden
+    href: location-condition.md
+  - name: Besturingselementen
+    href: controls.md
+  - name: Hulpprogramma What If
+    href: what-if-tool.md
+  expanded: false
+- name: Handleidingen
+  items:
+  - name: Aanbevolen procedures
+    href: best-practices.md
+  - name: Meervoudige verificatie vereisen voor toegangspogingen vanuit niet-vertrouwde netwerken
+    href: untrusted-networks.md
+  - name: Beheerde apparaten vereisen
+    href: require-managed-devices.md
+  - name: Goedgekeurde client-apps vereisen
+    href: app-based-conditional-access.md
+  - name: Toegang tot Exchange Online en SharePoint Online beheren
+    href: conditional-access-for-exo-and-spo.md
+  - name: Klassieke beleidsregels migreren
+    href: policy-migration.md
+  expanded: true
+- name: Naslaginformatie
+  items:
+  - name: Technische naslaginformatie
+    href: technical-reference.md
+- name: Resources
+  items:
+  - name: Azure-feedbackforum
+    href: https://feedback.azure.com/forums/169401-azure-active-directory
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/active-directory/
+  - name: Service-updates
+    href: ../fundamentals/whats-new.md
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-active-directory
+  - name: Video's
+    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+ms.openlocfilehash: 04d8d41dcd87af15d0d3b7e2eb919e71e22b1bf8
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40177325"

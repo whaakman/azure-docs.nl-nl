@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 9e78d534579a89f0fc97830616d7b5cd550253f7
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40177317"
+documentType: LandingData
+title: Documentatie over voorwaardelijke toegang voor Azure AD
+metadata:
+  document_id: 
+  title: Documentatie over voorwaardelijke toegang voor Azure Active Directory - Zelfstudies, snelstartgidsen, concepten, naslaginformatie | Microsoft Docs
+  description: Leer hoe u voorwaardelijke toegang voor Azure Active Directory kunt configureren en testen.
+  services: active-directory
+  ms.component: authentication
+  author: MarkusVi
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/14/2018
+  ms.author: markvi
+abstract:
+  description: Leer hoe u de juiste balans vindt tussen beveiliging en productiviteit door voorwaardelijke toegang voor Azure AD te configureren. Met beleid voor voorwaardelijke toegang kunt u rekening houden met de manier waarop uw cloud-apps kunnen worden geopend als uw beslissingen voor toegang van toepassing zijn. U kunt bijvoorbeeld de volgende vragen opnemen in uw beslissingen voor toegang:<ul><li>Wat is de netwerklocatie van de gebruiker?</li><li>Is de toegangspoging gestart vanaf een beheerd apparaat?</li><li>Vanuit welke client-app is er geprobeerd verbinding te maken?</li><li>Is er een toegangspoging ondernomen door een riskante aanmelding?</li></ul>Met de volgende bronnen kunt u snel aan de slag.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ./media/index/video.png
+      width: 246
+    title: Uitleg over voorwaardelijke toegang
+    href: https://www.youtube.com/watch?v=A7IrxAH87wc
+    width: 246
+sections:
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: Leer hoe u beleid voor voorwaardelijke toegang configureert voor veelvoorkomende toegangsscenario's.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Meervoudige verificatie vereisen voor specifieke apps
+      href: app-based-mfa.md
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Toegang blokkeren wanneer er een sessierisico wordt gedetecteerd
+      href: app-sign-in-risk.md
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Vereisen dat de gebruiksvoorwaarden worden geaccepteerd
+      href: require-tou.md
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Leer hoe u uw klassieke beleid voor voorwaardelijke toegang migreert.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/conditional-access/policy-migration-mfa">Klassiek beleid migreren waarvoor meervoudige verificatie is vereist</a>

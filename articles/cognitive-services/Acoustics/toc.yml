@@ -1,0 +1,32 @@
+items:
+- name: Documentatie over Project Acoustics
+- name: Overzicht
+  items:
+  - name: Wat is Project Acoustics?
+    href: what-is-acoustics.md
+- name: Snelstartgidsen
+  items:
+  - name: Aan de slag
+    href: getting-started.md
+- name: Instructies
+  items:
+  - name: Een Azure Batch-account maken
+    href: create-azure-account.md
+  - name: Acoustics maken
+    href: bake-ui-walkthrough.md
+  - name: Acoustics ontwerpen
+    href: design-process.md
+- name: Resources
+  items:
+  - name: Voorbeeldscène van Acoustics
+    href: sample-walkthrough.md
+  - name: Veelgestelde vragen
+    href: faq.md
+  - name: Bekende problemen
+    href: known-issues.md
+ms.openlocfilehash: 225d620cddfd68f3d5fb6d6d841c8f33254f1309
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "40181827"
