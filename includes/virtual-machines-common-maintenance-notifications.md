@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 782c855ff6d28f2cd96a87893ebf74023472badc
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: efedb2f48748264fb936fe82a1dbb3cf4403cc5e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38944965"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40167100"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Gepland voor onderhoud in de portal van de virtuele machines weergeven
 
@@ -38,6 +38,8 @@ U kunt gebruiken de Azure-portal en zoek naar virtuele machines die zijn gepland
       | Al bijgewerkt | Uw virtuele machine al is bijgewerkt en op dit moment is geen verdere actie vereist. | 
       | Later opnieuw proberen | U hebt gestart onderhoud is mislukt. U kunt zich de optie selfservice-onderhoud gebruiken op een later tijdstip. | 
       | Nu opnieuw proberen | U kunt een eerder mislukte zelf gestart onderhoud opnieuw proberen. | 
+      | - | Uw virtuele machine maakt geen deel uit van een geplande onderhoudsgolf. |
+      
 
    **Onderhoud - venster selfservice**: het tijdvenster ziet wanneer u zelf onderhoud op uw virtuele machines starten kunt.
    

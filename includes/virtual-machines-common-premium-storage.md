@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 4c14bfbad58849acefdc8c3a5513f681aba84ab8
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 2223c1ed95675a5091ce91a38a7901d6b61ac8d4
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37909915"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40165871"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Krachtige Premium Storage en beheerde schijven voor virtuele machines
 Azure Premium Storage voorziet in ondersteuning voor hoge prestaties en lage latentie schijven voor virtuele machines (VM's) met invoer/uitvoer (I/O)-intensieve workloads. VM-schijven die gebruikmaken van Premium Storage worden gegevens opgeslagen op SSD-schijven (SSD's). Als u wilt profiteren van de snelheid en prestaties van premium storage-schijven, kunt u bestaande VM-schijven kunt migreren naar Premium Storage.
@@ -150,7 +150,7 @@ Zie voor meer informatie, [schaalbaarheids- en prestatiedoelen voor Azure Storag
 Als u premium storage-accounts voor niet-beheerde schijven gebruikt en uw toepassing is groter dan de schaalbaarheidsdoelen van een enkel opslagaccount, is het raadzaam om te migreren naar managed disks. Als u niet migreren naar managed disks wilt, moet u uw toepassing gebruik meerdere opslagaccounts maken. Partities voor uw gegevens vervolgens over de storage-accounts. Bijvoorbeeld, als u koppelen 51-TB schijven op meerdere virtuele machines wilt, verdeeld over deze twee opslagaccounts. 35 TB is de limiet voor één premium storage-account. Zorg ervoor dat één premium storage-account nooit meer dan 35 TB ingerichte schijven heeft.
 
 ### <a name="premium-storage-disk-limits"></a>Limieten voor Premium Storage-schijf
-Als u een premium-opslagschijf inricht, wordt de grootte van de schijf bepaalt de maximale IOPS en doorvoer (bandbreedte). Azure biedt zeven typen premium-opslagschijven: P4 (beheerde schijven alleen), P6 (beheerde schijven alleen), P10, P20 of P30, P40 of P50. Elke schijftype voor premium storage heeft bepaalde limieten voor IOPS en doorvoer. Limieten voor de schijftypen worden beschreven in de volgende tabel:
+Als u een premium-opslagschijf inricht, wordt de grootte van de schijf bepaalt de maximale IOPS en doorvoer (bandbreedte). Azure biedt acht typen premium-opslagschijven: P4 (beheerde schijven alleen), P6 (beheerde schijven alleen), P10, P15 of P20, P30, P40 of P50. Elke schijftype voor premium storage heeft bepaalde limieten voor IOPS en doorvoer. Limieten voor de schijftypen worden beschreven in de volgende tabel:
 
 | Schijftype voor Premium-schijven  | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | 
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|

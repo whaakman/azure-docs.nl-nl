@@ -8,136 +8,141 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: 4e62342a32456787863da775ea98df178ab1d559
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 021ae7808f53c3417a9f9ba5f427cb34c5e585b4
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34806295"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40182277"
 ---
-# <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Rendabele standaardopslag en niet-beheerde en beheerde Azure VM-schijven
+# <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Rendabele standaardopslag en niet-beheerde en beheerde Azure-VM-schijven
 
-Azure Standard-opslag biedt ondersteuning voor betrouwbare, goedkope schijven voor virtuele machines waarop niet latentie gevoelig werkbelastingen worden uitgevoerd. Het ondersteunt ook blobs, tabellen, wachtrijen en -bestanden. De gegevens worden opgeslagen met de Standard-opslag op de harde schijven (HDD's). Als u werkt met virtuele machines, kunt u standaard SSD en HDD-schijven voor ontwikkel-/ Testscenario's en minder kritieke werkbelastingen en premium-SSD-schijven voor essentiële productietoepassingen. Standard-opslag is beschikbaar in alle Azure-regio's. 
+Azure Standard-opslag biedt een betrouwbare, voordelige schijfondersteuning voor virtuele machines waarop niet gevoelig werkbelastingen worden uitgevoerd. Het ondersteunt ook blobs, tabellen, wachtrijen en bestanden. Met de Standard-opslag, worden de gegevens worden opgeslagen op hardeschijfstations (HDD's). Als u werkt met virtuele machines, kunt u standaard SSD en HDD-schijven voor Dev/Test-scenario's en minder kritieke werkbelastingen en premium-SSD-schijven voor essentiële productietoepassingen. Standard-opslag is beschikbaar in alle Azure-regio's. 
 
-Dit artikel is gericht op het gebruik van standaard SSD en HDD-schijven. Zie voor meer informatie over het gebruik van opslag met blobs, tabellen, wachtrijen en bestanden [Inleiding tot Storage](../articles/storage/common/storage-introduction.md).
+In dit artikel richt zich op het gebruik van standard-SSD en HDD-schijven. Zie voor meer informatie over het gebruik van opslag-blobs, tabellen, wachtrijen en bestanden [Inleiding tot Storage](../articles/storage/common/storage-introduction.md).
 
 ## <a name="disk-types"></a>Schijftypen
 
-Er zijn twee manieren standaardschijven maken voor Azure virtuele machines:
+Er zijn twee manieren om te maken van standard-schijven voor virtuele Azure-machines:
 
-**Schijven zonder begeleiding**: dit type schijf is de oorspronkelijke methode waar u de storage-accounts gebruikt voor het opslaan van de VHD-bestanden die met de VM-schijven overeenkomen kunt beheren. VHD-bestanden worden opgeslagen als pagina-blobs in opslagaccounts. Niet-beheerde schijven kunnen worden gekoppeld aan een Azure VM-grootte, met inbegrip van de virtuele machines die voornamelijk Premium-opslag, zoals de DSv2 en GS-serie gebruikt. Virtuele machines in Azure ondersteuning voor het koppelen van verschillende standaardschijven toestaan maximaal 256 TB aan opslag per VM.
+**Niet-beheerde schijven**: dit type schijf is de oorspronkelijke methode waarbij u de storage-accounts gebruikt voor het opslaan van de VHD-bestanden die met de VM-schijven overeenkomen beheren. VHD-bestanden worden opgeslagen als pagina-blobs in opslagaccounts. Niet-beheerde schijven kunnen worden gekoppeld aan elke Azure-VM-grootte, met inbegrip van de virtuele machines die voornamelijk gebruikmaken van Premium-opslag, zoals de DSv2 en GS-serie. Azure VM's ondersteunen meerdere standaardschijven, zodat tot 256 TB opslagruimte per virtuele machine koppelen.
 
-[**Azure-beheerde schijven**](../articles/virtual-machines/windows/managed-disks-overview.md): deze functie de storage-accounts gebruikt voor de VM-schijven voor u beheert. U geeft het type (Premium-SSD, standaard SSD of standaard harde schijven) en de grootte van de schijf moet u en Azure maken en beheren van de schijf voor u. U hoeft te hoeven maken over de schijven tussen meerdere opslagaccounts plaatsen om ervoor te zorgen binnen de limieten voor schaalbaarheid voor de storage-accounts te blijven--Azure verwerkt die voor u.
+[**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md): deze functie wordt de storage-accounts die voor u gebruikt voor de VM-schijven beheerd. U geeft het type (Premium-SSD-, Standard-SSD- of Standard HDD) en de grootte van de schijf die u nodig hebt en Azure maakt en beheert de schijf voor u. U hoeft te bekommeren plaatsen van de schijven voor meerdere opslagaccounts om ervoor te zorgen, u binnen de grenzen van de schaalbaarheid voor de storage-accounts blijven--Azure regelt die voor u.
 
-Hoewel beide typen schijven beschikbaar zijn, wordt u aangeraden beheerd schijven om te profiteren van veel functies.
+Hoewel beide typen schijven beschikbaar zijn, kunt u het beste Managed Disks gebruiken om te profiteren van de vele functies.
 
-Om aan de slag met Azure Standard-opslag, gaat u naar [gratis aan de slag](https://azure.microsoft.com/pricing/free-trial/). 
+Als u wilt aan de slag met Azure Standard-opslag, gaat u naar [voor gratis aan de slag](https://azure.microsoft.com/pricing/free-trial/). 
 
-Zie een van de volgende artikelen voor meer informatie over het maken van een virtuele machine met schijven beheerd.
+Zie een van de volgende artikelen voor informatie over het maken van een virtuele machine met Managed Disks.
 
 * [Een virtuele machine maken met behulp van Resource Manager en PowerShell](../articles/virtual-machines/windows/quick-create-powershell.md)
 * [Een virtuele Linux-machine maken met behulp van de Azure CLI 2.0](../articles/virtual-machines/linux/quick-create-cli.md)
 
 ## <a name="standard-storage-features"></a>Standard-opslag-functies 
 
-U gaat nu een overzicht van enkele van de functies van de Standard-opslag. Zie voor meer informatie [Inleiding tot Azure Storage](../articles/storage/common/storage-introduction.md).
+Laten we eens enkele van de functies van Standard-opslag. Zie voor meer informatie, [Inleiding tot Azure Storage](../articles/storage/common/storage-introduction.md).
 
-**Standard-opslag**: Azure Standard-opslag biedt ondersteuning voor schijven van Azure, Azure Blobs, Azure-bestanden, Azure-tabellen en wachtrijen in Azure. Standard-opslag om services te gebruiken, beginnen met [maken van een Azure Storage-account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
+**Standard-opslag**: Azure Standard-opslag biedt ondersteuning voor Azure Disks, Azure-Blobs, Azure Files, Azure-tabellen en wachtrijen van Azure. Voor het gebruik van Standard Storage-services, beginnen met [maken van een Azure Storage-account](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account).
 
-**Standaardschijven SSD:** standaard SSD-schijven meer betrouwbare prestaties dan standaard harde schijven bieden en zijn momenteel in preview beschikbaar. Zie voor meer informatie over de beschikbaarheid van de regio van standaard SSD-schijven [beschikbaarheid in regio's standaard SSD-schijven (Preview)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
+**Standard-SSD-schijven:** Standard-SSD-schijven bieden meer betrouwbare prestaties dan standaard harde schijven, en zijn momenteel beschikbaar in preview. Zie voor meer informatie over beschikbaarheid in regio's van de Standard-SSD-schijven, [beschikbaarheid in regio's van de Standard-SSD-schijven (Preview)](../articles/virtual-machines/windows/faq-for-disks.md#standard-ssds-azure-regions).
 
-**Standaardschijven HDD:** standaard harde schijven kunnen worden gekoppeld aan alle Azure-machines, met inbegrip van grootte-serie virtuele machines gebruikt met Premium-opslag, zoals de DSv2 en GS-serie. Een standaard harde schijf kan alleen worden gekoppeld aan één virtuele machine. U kunt echter een of meer van deze schijven koppelen aan een VM, tot aan het maximale aantal schijven voor de gedefinieerd voor deze VM-grootte. De specificaties in meer detail worden beschreven in de volgende sectie op standaard Storage Scalability and Performance Targets.
+**Standaardschijven HDD:** standaard harde schijven kunnen worden gekoppeld aan alle Azure-VM's, inclusief grootte-serie VM's met Premium Storage gebruikt, zoals de DSv2 en GS-serie. Een diskette standaard harde schijven kan alleen worden gekoppeld aan een virtuele machine. U kunt echter een of meer van deze schijven koppelen aan een virtuele machine, tot het maximum aantal op schijf aantal gedefinieerd voor deze VM-grootte. In de volgende sectie op Standard Storage Scalability and Performance Targets, wordt de specificaties in meer detail beschreven.
 
-**Standaard pagina-blob**: standaard pagina-blobs worden gebruikt om permanente schijven voor virtuele machines en kan ook rechtstreeks via REST net als andere soorten Azure Blobs worden geopend. [Pagina-blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) zijn van een verzameling 512-byte-'s die zijn geoptimaliseerd voor willekeurige lees- en schrijfbewerkingen. 
+**Standard-pagina-blob**: standaard pagina-blobs worden gebruikt voor het opslaan van permanente schijven voor virtuele machines en ook rechtstreeks via REST net als andere soorten Azure-Blobs kunnen worden geopend. [Pagina-blobs](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) zijn een verzameling van 512-byte-'s die zijn geoptimaliseerd voor willekeurige lees- en schrijfbewerkingen. 
 
-**Storage-replicatie:** In de meeste regio's, gegevens in een standaard opslagaccount gerepliceerde lokaal of geogerepliceerde in meerdere datacentrums kunnen worden. De vier typen replicatie beschikbaar zijn lokaal redundante opslag (LRS), Zone-redundante opslag (ZRS), geografisch redundante opslag (GRS) en geografisch redundante opslag met leestoegang (RA-GRS). Beheerde schijven in de Standard-opslag ondersteunt momenteel lokaal redundante opslag (LRS) alleen. Zie voor meer informatie [Opslagreplicatie](../articles/storage/common/storage-redundancy.md).
+**Storage-replicatie:** In de meeste regio's, gegevens in een standaardopslagaccount mag gerepliceerde lokaal of geo-replicatie over meerdere datacenters. De vier typen replicatie beschikbaar zijn voor lokaal redundante opslag (LRS), Zone-redundante opslag (ZRS), geografisch redundante opslag (GRS) en geografisch redundante opslag met leestoegang (RA-GRS). Beheerde schijven in standaardopslag ondersteuning momenteel voor lokaal redundante opslag (LRS) alleen. Zie voor meer informatie, [Opslagreplicatie](../articles/storage/common/storage-redundancy.md).
 
 ## <a name="scalability-and-performance-targets"></a>Schaalbaarheids- en prestatiedoelen
 
-In deze sectie beschrijven we de schaalbaarheid en prestaties doelen die u overwegen moet wanneer u de standard-opslag.
+In deze sectie beschrijven we de schaalbaarheids- en prestatiedoelen die u overwegen moet bij het gebruik van standard-opslag.
 
-### <a name="account-limits--does-not-apply-to-managed-disks"></a>Limieten: niet van toepassing op beheerde schijven
+### <a name="account-limits--does-not-apply-to-managed-disks"></a>Limieten voor account: niet van toepassing op beheerde schijven
 
 | **Resource** | **Standaardlimiet** |
 |--------------|-------------------|
-| TB per storage-account  | 500 TB |
-| Maximale inkomende<sup>1</sup> per storage-account (ons regio's) | 10 Gbps als GRS/ZRS is ingeschakeld, 20 Gbps voor LRS |
-| Maximum aantal uitgaande<sup>1</sup> per storage-account (ons regio's) | 20 Gbps als RA-GRS/GRS/ZRS is ingeschakeld, 30 Gbps voor LRS |
-| Maximale inkomende<sup>1</sup> per storage-account (Europese en Aziatische regio's) | 5 Gbps als GRS/ZRS is ingeschakeld, 10 Gbps voor LRS |
-| Maximum aantal uitgaande<sup>1</sup> per storage-account (Europese en Aziatische regio's) | 10 Gbps als RA-GRS/GRS/ZRS is ingeschakeld, 15 Gbps voor LRS |
-| Totale snelheid van aanvragen voor (ervan uitgaande dat de grootte van 1 KB object) per storage-account | Maximaal 20.000 IOP's, entiteiten per seconde of berichten per seconde |
+| TB per opslagaccount  | 500 TB |
+| Maximum aantal inkomende<sup>1</sup> per opslagaccount (VS-regio's) | 10 Gbps als GRS/ZRS ingeschakeld, 20 Gbps voor LRS |
+| Maximum aantal uitgaande<sup>1</sup> per opslagaccount (VS-regio's) | 20 Gbps als ingeschakeld RA-GRS/GRS/ZRS, 30 Gbps voor LRS |
+| Maximum aantal inkomende<sup>1</sup> per opslagaccount (Europese en Aziatische regio's) | 5 Gbps als GRS/ZRS ingeschakeld, 10 Gbps voor LRS |
+| Maximum aantal uitgaande<sup>1</sup> per opslagaccount (Europese en Aziatische regio's) | 10 Gbps als ingeschakeld RA-GRS/GRS/ZRS, 15 Gbps voor LRS |
+| Totale snelheid van aanvragen (ervan uitgaande dat de grootte van 1 KB-object) per opslagaccount | Maximaal 20.000 IOP's, entiteiten per seconde of berichten per seconde |
 
-<sup>1</sup> inkomend verwijst naar alle gegevens (aanvragen) verstuurd naar een opslagaccount. Uitgaande gegevens verwijst naar alle gegevens (antwoorden) ontvangen van een opslagaccount.
+<sup>1</sup> inkomend verwijst naar alle gegevens (aanvragen) die worden verzonden naar een opslagaccount. Uitgaande gegevens verwijst naar alle gegevens (reacties) worden ontvangen van een storage-account.
 
-Zie voor meer informatie [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md).
+Zie voor meer informatie, [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md).
 
-Als de behoeften van uw toepassing de schaalbaarheidsdoelen van een enkele storage-account overschrijdt, moet u uw toepassing te gebruiken van meerdere opslagaccounts en partitioneren van uw gegevens over de storage-accounts maken. Ook kunt u beheerde Azure-schijven en Azure beheert het partitioneren en de plaatsing van uw gegevens voor u.
+Als de behoeften van uw toepassing de schaalbaarheidsdoelen van een enkel opslagaccount overschrijdt, moet u uw toepassing gebruik meerdere opslagaccounts en partities voor uw gegevens voor deze opslagaccounts maken. U kunt ook kunt u Azure Managed Disks en Azure beheert de partitionerings- en de plaatsing van uw gegevens voor u.
 
-### <a name="standard-disks-limits"></a>Standaardschijven limieten
+### <a name="standard-disks-limits"></a>Limieten voor Standard-schijven
 
-In tegenstelling tot de Premium-schijven, worden de i/o-bewerkingen per seconde (IOPS) en de doorvoer (bandbreedte) van standaardschijven niet ingericht. De prestaties van standaardschijven afhankelijk van de VM-grootte op de schijf is gekoppeld, niet op de grootte van de schijf. U kan verwacht te verkrijgen tot de prestaties is bereikt die worden vermeld in de onderstaande tabel.
+In tegenstelling tot Premium-schijven, zijn de i/o-bewerkingen per seconde (IOPS) en doorvoer (bandbreedte) van de Standard-schijven niet ingericht. De prestaties van de standard-schijven is afhankelijk van de VM-grootte voor de schijf is gekoppeld, niet voor de grootte van de schijf. U kunt verwacht te verkrijgen tot de prestatielimiet die worden vermeld in de onderstaande tabel.
 
-**Standaardschijven limieten (beheerde en onbeheerde)**
+**Limieten voor Standard-schijven (beheerd en niet-beheerd)**
 
-| **VM-laag**            | **Basis VM-laag** | **Standaard VM-laag** |
+| **VM-laag**            | **Basic-laag virtuele machine** | **Standard-laag virtuele machine** |
 |------------------------|-------------------|----------------------|
-| De grootte van de maximale diskette          | 4095 GB           | 4095 GB              |
-| Maximaal 8 KB IOP's per schijf | 300         | Maximaal 500            |
+| Disk maximale grootte          | 4095 GB           | 4095 GB              |
+| Max 8 KB IOPS per schijf | Maximaal 300         | Maximaal 500            |
 | Maximale Bandwidth per schijf | Maximaal 60 MB/s     | Maximaal 60 MB/s        |
 
-Als uw werkbelasting schijfondersteuning met hoge prestaties, lage latentie is vereist, moet u rekening houden met behulp van Premium-opslag. Als u wilt weten meer voordelen van Premium-opslag, gaat u naar [High-Performance Premium-opslag- en Azure VM-schijven](../articles/virtual-machines/windows/premium-storage.md). 
+Als uw workload schijfondersteuning met hoge prestaties en lage latentie, moet u overwegen Premium-opslag. Als u wilt weten meer voordelen van Premium-opslag, gaat u naar [High-Performance Premium Storage en Azure VM-schijven](../articles/virtual-machines/windows/premium-storage.md). 
 
-## <a name="snapshots-and-copy-blob"></a>Momentopnamen en blob kopiëren
+## <a name="snapshots-and-copy-blob"></a>Momentopnamen en kopiëren van de blob
 
-Het VHD-bestand is met de Storage-service een pagina-blob. U kunt momentopnamen van pagina-blobs en kopieer deze naar een andere locatie, zoals een ander opslagaccount.
+Met de Storage-service is het VHD-bestand een pagina-blob. U kunt momentopnamen van pagina-blobs en kopieer deze naar een andere locatie, zoals een ander opslagaccount.
 
 ### <a name="unmanaged-disks"></a>Niet-beheerde schijven
 
-U kunt maken [incrementele momentopnamen](../articles/virtual-machines/windows/incremental-snapshots.md) voor niet-beheerde standaardschijven op dezelfde manier als u momentopnamen met Standard-opslag gebruiken. U wordt aangeraden dat u momentopnamen maken en kopieer deze momentopnamen naar een standaard geografisch redundante opslagaccount als de bronschijf in een account met lokaal redundante opslag is. Zie voor meer informatie [Azure redundantie opslagopties](../articles/storage/common/storage-redundancy.md).
+U kunt maken [incrementele momentopnamen](../articles/virtual-machines/windows/incremental-snapshots.md) voor niet-beheerde standaardschijven op dezelfde manier als u momentopnamen gebruiken met de Standard-opslag. U wordt aangeraden dat u momentopnamen maken en kopieert u deze momentopnamen naar een standaard geografisch redundante opslagaccount als de bronschijf in een account voor lokaal redundante opslag is. Zie voor meer informatie, [opslagopties van Azure voor redundantie](../articles/storage/common/storage-redundancy.md).
 
-Als een schijf aan een virtuele machine is gekoppeld, worden bepaalde API-bewerkingen zijn niet toegestaan op de schijven. Bijvoorbeeld, u kunt niet uitvoeren een [Blob kopiëren](/rest/api/storageservices/Copy-Blob) bewerking op de blob zolang de schijf is gekoppeld aan een virtuele machine. In plaats daarvan eerst een momentopname maken van blob met behulp van de [momentopname Blob](/rest/api/storageservices/Snapshot-Blob) REST-API-methode en voert u de [Blob kopiëren](/rest/api/storageservices/Copy-Blob) van de momentopname naar de gekoppelde schijf kopiëren. U kunt ook Ontkoppel de schijf en vervolgens alle noodzakelijke bewerkingen uitvoeren.
+Als een schijf is gekoppeld aan een virtuele machine, worden bepaalde API-bewerkingen zijn niet toegestaan op de schijven. Bijvoorbeeld, u kunt niet uitvoeren een [kopiëren van de Blob](/rest/api/storageservices/Copy-Blob) bewerking op die blob als de schijf is gekoppeld aan een virtuele machine. In plaats daarvan eerst een momentopname maken van die blob met behulp van de [momentopname maken van Blob](/rest/api/storageservices/Snapshot-Blob) REST-API-methode en vervolgens voert u de [kopiëren van de Blob](/rest/api/storageservices/Copy-Blob) van de momentopname naar de gekoppelde schijf kopiëren. U kunt ook de schijf loskoppelen en vervolgens voert geen bewerkingen uit die nodig zijn.
 
-Om te blijven geografisch redundante exemplaren van de momentopnamen, kunt u momentopnamen van een account met lokaal redundante opslag met geografisch redundante standard-opslagaccount met behulp van AzCopy of Blob kopiëren. Zie voor meer informatie [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](../articles/storage/common/storage-use-azcopy.md) en [Blob kopiëren](/rest/api/storageservices/Copy-Blob).
+Als u wilt behouden geografisch redundante kopieën van uw momentopnamen, kunt u momentopnamen van een account voor lokaal redundante opslag naar een standaard geografisch redundante opslagaccount kopiëren met behulp van AzCopy of kopiëren van de Blob. Zie voor meer informatie, [gegevensoverdracht met het AzCopy-opdrachtregelprogramma](../articles/storage/common/storage-use-azcopy.md) en [kopiëren van de Blob](/rest/api/storageservices/Copy-Blob).
 
-Zie voor gedetailleerde informatie voor het uitvoeren van de REST-bewerkingen op de pagina-blobs in opslagaccounts standaard [REST-API van Azure Storage-Services](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference).
+Zie voor gedetailleerde informatie over het uitvoeren van REST-bewerkingen voor pagina-blobs in standard storage-accounts [REST-API voor Azure Storage-Services](/rest/api/storageservices/Azure-Storage-Services-REST-API-Reference).
 
 ### <a name="managed-disks"></a>Managed Disks
 
-Een momentopname voor een beheerde schijf is een alleen-lezen kopie van de beheerde schijf die wordt opgeslagen als een standard-beheerde schijven. Incrementele momentopnamen worden momenteel niet ondersteund voor schijven die worden beheerd, maar in de toekomst worden ondersteund.
+Een momentopname van een beheerde schijf is een alleen-lezen kopie van de beheerde schijf die is opgeslagen als een standard-beheerde schijven. Incrementele momentopnamen worden momenteel niet ondersteund voor Managed Disks, maar in de toekomst worden ondersteund.
 
-Als een beheerde schijf is gekoppeld aan een VM, worden bepaalde API-bewerkingen zijn niet toegestaan op de schijven. U kunt bijvoorbeeld een shared access signature (SAS) naar een kopieerbewerking niet uitvoeren terwijl de schijf is gekoppeld aan een virtuele machine niet genereren. In plaats daarvan maakt eerst een momentopname van de schijf en voer de kopie van de momentopname. U kunt ook Ontkoppel de schijf en vervolgens een shared access signature (SAS) om uit te voeren de kopieerbewerking te genereren.
+Als een beheerde schijf is gekoppeld aan een virtuele machine, worden bepaalde API-bewerkingen zijn niet toegestaan op de schijven. U kunt bijvoorbeeld een shared access signature (SAS) om uit te voeren van een kopieerbewerking terwijl de schijf is gekoppeld aan een virtuele machine niet genereren. In plaats daarvan maakt u eerst een momentopname van de schijf en voert u de kopie van de momentopname. U kunt ook de schijf loskoppelen en vervolgens een shared access signature (SAS) om uit te voeren van de kopieerbewerking te genereren.
 
 ## <a name="pricing-and-billing"></a>Prijzen en facturering
 
 Wanneer u de Standard-opslag, zijn de volgende factureringsvoorwaarden van toepassing:
 
-* Standard-opslag zonder begeleiding schijven/gegevensgrootte 
+* Standard-opslag niet-beheerde schijven/gegevensgrootte 
 * Beheerde standaardschijven
-* Standard-opslag-momentopnamen
+* Standard storage-momentopnamen
 * Uitgaande gegevensoverdracht
 * Transacties
 
-**De grootte van de schijf en gegevens van de opslagruimte zonder begeleiding:** voor niet-beheerde schijven en andere gegevens (blobs, tabellen, wachtrijen en -bestanden), u in rekening worden gebracht alleen voor de hoeveelheid ruimte u gebruikt. Bijvoorbeeld, als u een VM hebt waarvoor pagina-blob is ingericht als 127 GB, maar de virtuele machine is in feite alleen met behulp van 10 GB aan ruimte u wordt gefactureerd voor 10 GB aan ruimte. We bieden ondersteuning voor Standard-opslag maximaal 8191 GB en standaard zonder begeleiding schijven 4095 GB. 
+**Niet-beheerde gegevens en schijf opslaggrootte:** voor niet-beheerde schijven en andere gegevens (blobs, tabellen, wachtrijen en bestanden), u betaalt alleen voor de hoeveelheid ruimte u gebruikt. Bijvoorbeeld, als u een virtuele machine hebt waarvan pagina-blob is ingericht als 127 GB, maar de virtuele machine is in feite alleen met behulp van 10 GB aan schijfruimte, in rekening gebracht voor 10 GB aan ruimte. We bieden ondersteuning voor Standard-opslag tot 8191 GB en standaard niet-beheerde schijven tot 4095 GB. 
 
-**Schijven die worden beheerd:** beheerde schijven worden gefactureerd voor de ingerichte grootte. Als de schijf is ingericht als een schijf van 10 GB en u alleen met behulp van 5 GB, wordt u in rekening gebracht voor de grootte van het inrichten van 10 GB.
+**Beheerde schijven:** facturering voor standaard beheerde schijven, is afhankelijk van de ingerichte grootte van de schijf. Azure wijst de ingerichte grootte (afgerond) naar de dichtstbijzijnde Managed Disks-optie die zijn opgegeven in de onderstaande tabellen. Elke beheerde schijf wordt toegewezen aan een van de ondersteunde ingerichte grootte en dienovereenkomstig wordt gefactureerd. Bijvoorbeeld, als u een standaard beheerde schijf maken en een ingerichte grootte van 200 GiB opgeven, in rekening gebracht volgens de prijzen van het type S15 schijf.
 
-**Momentopnamen**: momentopnamen van standaardschijven wordt gefactureerd voor de extra capaciteit die wordt gebruikt door de momentopnamen. Zie voor informatie over momentopnamen [maken van een momentopname van een Blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
+| **Standaard harde schijven die worden beheerd <br>schijftype** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** |
+|------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------| 
+| Schijfgrootte        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 
 
-**Uitgaande gegevensoverdracht**: [uitgaande gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/) (gegevens uit de Azure-datacenters gaan) worden gefactureerd voor bandbreedtegebruik.
+
+**Momentopnamen**: momentopnamen van schijven die standaard worden in rekening gebracht voor de extra capaciteit gebruikt door de momentopnamen. Zie voor meer informatie over momentopnamen [het maken van een momentopname van een Blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
+
+**Uitgaande gegevensoverdracht**: [uitgaande gegevensoverdrachten](https://azure.microsoft.com/pricing/details/data-transfers/) (gegevens die vanuit Azure-datacenters) worden gefactureerd voor bandbreedtegebruik.
 
 **Transactie**: Azure rekent $0.0036 per 100.000 transacties voor standard-opslag. Transacties bestaan zowel uit lees- als schrijfbewerkingen voor opslag.
 
-Zie voor gedetailleerde informatie over prijzen voor Standard-opslag, virtuele Machines en schijven beheerd:
+Zie voor gedetailleerde informatie over prijzen voor Standard-opslag, virtuele Machines en beheerde schijven:
 
 * [Prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/)
-* [Virtuele Machines prijzen](https://azure.microsoft.com/pricing/details/virtual-machines/)
-* [Beheerde schijven prijzen](https://azure.microsoft.com/pricing/details/managed-disks)
+* [Prijzen voor Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* [Prijzen van Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks)
 
-## <a name="azure-backup-service-support"></a>Ondersteuning voor Azure Backup-service 
+## <a name="azure-backup-service-support"></a>Ondersteuning van Azure Backup-service 
 
-Virtuele machines met niet-beheerde schijven kunt een back-up maken met Azure Backup. [Meer informatie](../articles/backup/backup-azure-vms-first-look-arm.md).
+Virtuele machines met niet-beheerde schijven kunnen worden reservekopie maken met Azure Backup. [Meer informatie](../articles/backup/backup-azure-vms-first-look-arm.md).
 
-U kunt ook de Azure Backup-service met beheerd schijven gebruiken een back-uptaak met back-ups op basis van tijd, eenvoudig herstel van de virtuele machine en bewaarbeleid voor back-up te maken. U vindt meer informatie over dit op [met behulp van Azure Backup-service voor virtuele machines met schijven beheerd](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
+U kunt ook de Azure Backup-service met Managed Disks gebruiken om te maken van een back-uptaak met back-ups op basis van tijd, eenvoudig herstel van de virtuele machine en voor het bewaren van back-up. U kunt meer lezen over deze [met behulp van Azure Backup-service voor virtuele machines met Managed Disks](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
 
 ## <a name="next-steps"></a>Volgende stappen
 

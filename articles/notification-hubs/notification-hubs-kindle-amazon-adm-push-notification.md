@@ -83,7 +83,7 @@ Voeg in de portal het clientgeheim en de client-id in op het tabblad **Configure
 De ADM-bibliotheken aan uw Eclipse-project toevoegen:
 
 1. Als u de ADM-bibliotheek wilt verkrijgen, [downloadt u de SDK]. Pak het SDK-zipbestand uit.
-2. Klik in Eclipse met de rechtermuisknop op het project en klik vervolgens op **Eigenschappen**. Selecteer **JavaBuild-pad** aan de linkerkant en vervolgens het tabblad **Bibliotheken** bovenaan. Klik op **Externe jar toevoegen** en selecteer het bestand `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` in de map waaruit u de Amazon SDK hebt opgehaald.
+2. Klik in Eclipse met de rechtermuisknop op het project en klik vervolgens op **Eigenschappen**. Selecteer **JavaBuild-pad** aan de linkerkant en vervolgens het tabblad Bibliotheken bovenaan. Klik op **Externe jar toevoegen** en selecteer het bestand `\SDK\Android\DeviceMessaging\lib\amazon-device-messaging-*.jar` in de map waaruit u de Amazon SDK hebt opgehaald.
 3. Download de NotificationHubs Android-SDK (koppeling).
 4. Pak het pakket uit en sleep het bestand `notification-hubs-sdk.jar` in de `libs` map in Eclipse.
 

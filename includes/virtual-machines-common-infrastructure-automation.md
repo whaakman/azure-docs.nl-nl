@@ -37,7 +37,7 @@ Leer hoe u het volgende doet:
 
 Leer hoe u het volgende doet:
 
-- [Puppet in Azure Marketplace implementeren](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2016-1?tab=Overview).
+- [Puppet in Azure Marketplace implementeren](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2?tab=Overview).
 
 
 ## <a name="cloud-init"></a>Cloud-init
