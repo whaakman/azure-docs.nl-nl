@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 336e6e163178cd6d244460dbf9bee2a5bc9d714e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: fabb734d5e21015f7cc3022993f01809daec0648
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37935747"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "40211276"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS VM-schijven en beheerde en onbeheerde premium-schijven
 
@@ -67,7 +67,7 @@ Nee. De virtuele machines in een beschikbaarheidsset moeten alle beheerde schijv
 
 **De standaardoptie in de Azure-portal voor Managed Disks is?**
 
-Ja. 
+Ja.
 
 **Kan ik een lege beheerde schijf maken?**
 
@@ -101,7 +101,6 @@ Klanten kunnen een momentopname van de beheerde schijven en vervolgens de moment
 
 Ja, niet-beheerde en beheerde schijven worden ondersteund. U wordt aangeraden dat u beheerde schijven voor nieuwe workloads gebruiken en uw huidige workloads naar managed disks migreren.
 
-
 **Als ik een schijf van 128 GB maken en vervolgens de grootte tot 130 GB verhogen, moet ik betalen voor de volgende schijfgrootte (256 GB)?**
 
 Ja.
@@ -130,18 +129,26 @@ Nee. U kunt de naameigenschap van de computer niet bijwerken. De nieuwe virtuele
 
 Nee.
 
+**Bij het maken van een schijf van een blob, is er geen voortdurend bestaande relatie met die bron-blob?**
+
+Nee, wanneer de nieuwe schijf wordt gemaakt op dat moment een volledig zelfstandige kopie van die blob is en er is geen verbinding tussen de twee. Als u dat wilt, als u de schijf hebt gemaakt, kan de bron-blob kan worden verwijderd zonder gevolgen voor de zojuist gemaakte schijf op geen enkele manier.
+
+**Kan ik een beheerde of niet-beheerde schijf wijzigen nadat deze is gemaakt?**
+
+Voor beheerde schijven kan niet u deze wijzigen. U mag een niet-beheerde schijf echter wijzigen, zolang het is momenteel niet gekoppeld aan een VHD of de virtuele machine.
+
 ## <a name="standard-ssd-disks-preview"></a>Standard SSD-schijven (Preview)
 
 **Wat zijn Azure Standard-SSD-schijven?**
 Standard-SSD-schijven worden ondersteund door SSD media, geoptimaliseerd als voordelige opslag voor workloads die consistente prestaties op lagere niveaus van IOPS moet standaardschijven. Preview-versie zijn ze beschikbaar in een beperkt aantal regio's met beperkte beheermogelijkheden (beschikbaar via Resource Manager-sjablonen).
 
 <a id="standard-ssds-azure-regions"></a>**Wat zijn de regio's die momenteel worden ondersteund voor Standard-SSD-schijven (Preview)?**
-* Noord-Europa
+* Europa - noord
 * Frankrijk - centraal
-* VS - oost 2
-* VS - midden
+* US - oost 2
+* US - centraal
 * Canada - midden
-* Oost-Azië
+* Azië - oost
 * Korea - zuid
 * Australië - oost
 
@@ -177,11 +184,11 @@ Nee, Standard-SSD-schijven zijn alleen beschikbaar als beheerde schijven.
 **Standard-SSD-schijven bieden ondersteuning voor 'single instance VM SLA'?**
 Nee, Standard-SSD's geen enkel exemplaar VM SLA. Premium-SSD-schijven gebruiken voor één exemplaar VM SLA.
 
-## <a name="migrate-to-managed-disks"></a>Migreren naar Managed Disks 
+## <a name="migrate-to-managed-disks"></a>Migreren naar Managed Disks
 
 **Welke wijzigingen vereist zijn in een bestaande Azure Backup-service configuration voorafgaande/na de migratie naar Managed Disks?**
 
-Er zijn geen wijzigingen vereist. 
+Er zijn geen wijzigingen vereist.
 
 **Mijn virtuele machine back-ups die zijn gemaakt via Azure Backup-service vóór de migratie blijven werken?**
 
@@ -189,15 +196,15 @@ Ja, back-ups werken naadloos.
 
 **Welke wijzigingen vereist zijn in een bestaande Azure-schijven versleuteling configuratie voorafgaande/na de migratie naar Managed Disks?**
 
-Er zijn geen wijzigingen vereist. 
+Er zijn geen wijzigingen vereist.
 
 **Sets van niet-beheerde schijven naar beheerde schijven die worden ondersteund voor automatische migratie van een bestaande virtuele-machineschaalset is?**
 
-Nee. U kunt een nieuwe schaalset met Managed Disks met behulp van de installatiekopie van uw oude schaalset met niet-beheerde schijven kunt maken. 
+Nee. U kunt een nieuwe schaalset met Managed Disks met behulp van de installatiekopie van uw oude schaalset met niet-beheerde schijven kunt maken.
 
 **Kan ik een beheerde schijf maken van een pagina-blob-momentopname gemaakt voordat u migreert naar Managed Disks?**
 
-Nee. U kunt een pagina-blob-momentopname exporteren als een pagina-blob en maak vervolgens een beheerde schijf van de geëxporteerde pagina-blob. 
+Nee. U kunt een pagina-blob-momentopname exporteren als een pagina-blob en maak vervolgens een beheerde schijf van de geëxporteerde pagina-blob.
 
 **Kan ik mijn on-premises computers beveiligd door Azure Site Recovery voor een virtuele machine met Managed Disks failover?**
 
@@ -211,7 +218,7 @@ Ja. Azure Site Recovery Azure naar Azure-beveiliging voor virtuele machines met 
 
 Ja
 
-## <a name="managed-disks-and-storage-service-encryption"></a>Beheerde schijven en Storage-Serviceversleuteling 
+## <a name="managed-disks-and-storage-service-encryption"></a>Beheerde schijven en Storage-Serviceversleuteling
 
 **Azure Storage-Serviceversleuteling standaard zijn ingeschakeld wanneer ik een beheerde schijf maken?**
 
