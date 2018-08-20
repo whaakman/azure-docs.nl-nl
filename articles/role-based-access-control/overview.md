@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a2e0bf35f73a355197f821f7cce12294f7b35576
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: d0d140a1656719b406567fee431d8e48a51852c5
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344746"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39714448"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Wat is toegangsbeheer op basis van rollen?
 
@@ -79,16 +79,15 @@ Azure heeft gegevensbewerkingen (momenteel in Preview-versie) geïntroduceerd wa
 
 *Bereik* is de grens die waarop de toegang van toepassing is. Wanneer u een rol toewijst, kunt u de acties die zijn toegestaan verder beperken door een bereik te definiëren. Dit is handig als u van iemand een [Inzender voor websites](built-in-roles.md#website-contributor) wilt maken, maar slechts voor één resourcegroep.
 
-In Azure, kunt u een bereik op meerdere niveaus opgeven: abonnement, resourcegroep of resource. Bereiken zijn gestructureerd volgens een bovenliggende/onderliggende relatie waar elk onderliggend bereik slechts één bovenliggend bereik heeft.
+In Azure kunt u een bereik op meerdere niveaus opgeven: [beheergroep](../azure-resource-manager/management-groups-overview.md), abonnement, resourcegroep of resource. Bereiken zijn gestructureerd in een bovenliggende/onderliggende relatie.
 
 ![Bereik voor een roltoewijzing](./media/overview/rbac-scope.png)
 
-De toegang die u aan een bovenliggend bereik toewijst, wordt door het onderliggende bereik overgenomen. Bijvoorbeeld:
+Wanneer u toegang op een bovenliggend bereik verleent, worden deze machtigingen overgenomen door de onderliggende bereiken. Bijvoorbeeld:
 
+- Als u de [Eigenaar](built-in-roles.md#owner)-rol aan een gebruiker bij het bereik van de beheergroep toewijst, kan die gebruiker alles in alle abonnementen in de beheergroep beheren.
 - Als u de rol van [lezer](built-in-roles.md#reader) toewijst aan een groep in het bereik van het abonnement, kunnen de leden van die groep elke resourcegroep en de resource in het abonnement bekijken.
 - Als u de rol van [inzender](built-in-roles.md#contributor) toewijst aan een toepassing in het bereik van de resource, kunnen hiermee resources van alle typen in die resourcegroep worden beheerd, maar geen andere resourcegroepen in het abonnement.
-
-Azure bevat ook een bereik hoger dan het niveau van abonnementen met de naam [beheergroepen](../azure-resource-manager/management-groups-overview.md), deze bevindt zich in preview. Beheergroepen zijn een manier om meerdere abonnementen te beheren. Wanneer u een bereik voor op rollen gebaseerd toegangsbeheer opgeeft, kunt u een hiërarchie op het niveau van beheergroep opgeven of op het niveau van abonnement, resourcegroep of resource.
 
 ### <a name="role-assignment"></a>Roltoewijzing
 
@@ -98,10 +97,10 @@ Het volgende diagram toont een voorbeeld van een roltoewijzing. In dit voorbeeld
 
 ![Roltoewijzing om toegang te beheren](./media/overview/rbac-overview.png)
 
-U kunt roltoewijzingen maken met behulp van Azure Portal, Azure CLI, Azure PowerShell, Azure-SDK's of REST-API's. U kunt maximaal 2000 roltoewijzingen in elk abonnement hebben. Om roltoewijzingen te maken en te verwijderen, moet u een `Microsoft.Authorization/roleAssignments/*`-machtiging hebben. Deze machtiging wordt verleend via de rol van [eigenaar](built-in-roles.md#owner) of [administrator](built-in-roles.md#user-access-administrator).
+U kunt roltoewijzingen maken met behulp van de Azure-portal, Azure CLI, Azure PowerShell, Azure-SDK's of REST-API's. U kunt maximaal 2000 roltoewijzingen in elk abonnement hebben. Om roltoewijzingen te maken en te verwijderen, moet u een `Microsoft.Authorization/roleAssignments/*`-machtiging hebben. Deze machtiging wordt verleend via de rol van [eigenaar](built-in-roles.md#owner) of [administrator](built-in-roles.md#user-access-administrator).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Snelstart: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md) (Snelstart: Toegang verlenen aan een gebruiker met op rollen gebaseerd toegangsbeheer en Azure Portal)
-- [Toegang beheren met op rollen gebaseerd toegangsbeheer en Azure Portal](role-assignments-portal.md)
+- [Snelstart: Grant access for a user using RBAC and the Azure portal](quickstart-assign-role-user-portal.md) (Snelstart: Toegang verlenen aan een gebruiker met op rollen gebaseerd toegangsbeheer en de Azure-portal)
+- [Toegang beheren met op rollen gebaseerd toegangsbeheer en de Azure-portal](role-assignments-portal.md)
 - [Inzicht in de verschillende rollen](rbac-and-directory-admin-roles.md)

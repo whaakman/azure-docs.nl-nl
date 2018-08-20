@@ -8,24 +8,28 @@ ms.author: jmartens
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 02/28/2018
-ms.openlocfilehash: c47c0a90535a4749ae3fd467b86102aa668285b8
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.date: 07/27/2018
+ms.openlocfilehash: 2ce7e083444eb6c4e02f04f36eb0810ea37d8ae7
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
-ms.locfileid: "29574975"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39513892"
 ---
-Als u deze app niet verder gaat gebruiken, kunt u alle resources verwijderen die door deze Quick Start zijn aangemaakt door de onderstaande stappen te volgen, zodat u geen kosten in rekening worden gebracht:
+>[!IMPORTANT]
+>De resources die u hebt gemaakt kunnen worden gebruikt als de vereisten voor andere Azure Machine Learning-zelfstudies en artikelen met procedures. 
 
->[!NOTE]
->Deze resources zijn nuttig wanneer u de andere zelfstudies van Azure Machine Learning-services nu wilt gebruiken.
 
-1. Selecteer **Resourcegroepen** links in Azure Portal.  
+Als u wat u hier hebt gemaakt niet meer gaat gebruiken, verwijdert u de resources die u zojuist met deze Quick Start hebt gemaakt, zodat u geen kosten maakt.
+
+1. Selecteer **Resourcegroepen** links in de Azure-portal.  
  
-   ![Verwijderen in Azure Portal](./media/aml-delete-resource-group/delete-resources.png)
+   ![Verwijderen in de Azure-portal](./media/aml-delete-resource-group/delete-resources.png)
 
-2. Selecteer de resourcegroep die u hebt gemaakt in de lijst met resourcegroepen en klik op **Resourcegroep verwijderen**.
+1. Selecteer de resourcegroep die u eerder hebt gemaakt uit de lijst.
 
-3. Typ de naam van de resourcegroep die u wilt verwijderen en klik vervolgens op **Verwijderen**.
+1. Selecteer **Resourcegroep verwijderen**.
 
+1. Typ de naam van de resourcegroep en selecteer vervolgens **Verwijderen**.
+
+   Als u de fout 'Kan resource pas verwijderen als geneste resources zijn verwijderd', moet u eerst alle geneste resources verwijderen. [Lees dit gedeelte voor probleemoplossing](../articles/machine-learning/service/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account) voor meer informatie. 

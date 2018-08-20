@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: heidist
-ms.openlocfilehash: 0c7f9807605236a8250d75623d0885730c9945a0
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 83e34f926ec3133f89ccb90979fc3e6708613a80
+ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37950669"
+ms.lasthandoff: 08/08/2018
+ms.locfileid: "39713924"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Een Azure Search-service maken in de portal
 
@@ -28,7 +28,7 @@ Hebt u liever PowerShell? Gebruik de [servicesjabloon](https://azure.microsoft.c
 U kunt ook [voordelen voor MSDN-abonnees activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Als u een MSDN-abonnement hebt, ontvangt u elke maand tegoeden die u voor betaalde Azure-services kunt gebruiken. 
 
 ## <a name="find-azure-search"></a>Azure Search vinden
-1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+1. Meld u aan bij de [Azure-portal](https://portal.azure.com/).
 2. Klik op het plusteken (+ Resource maken) in de linkerbovenhoek.
 3. Selecteer **Web** > **Azure Search**.
 
@@ -60,7 +60,7 @@ Azure Search kan als Azure-service worden gehost in datacenters over de hele wer
 ## <a name="select-a-pricing-tier-sku"></a>Een prijscategorie selecteren (SKU)
 [Azure Search wordt momenteel aangeboden in verschillende prijscategorieën](https://azure.microsoft.com/pricing/details/search/): Gratis, Basic of Standard. Elke categorie heeft eigen [capaciteiten en limieten](search-limits-quotas-capacity.md). Raadpleeg [Choose a pricing tier or SKU](search-sku-tier.md) (Een prijscategorie of SKU kiezen) voor hulp.
 
-In deze stapsgewijze handleiding hebben we voor onze service gekozen voor de categorie Standard.
+Standard wordt meestal gekozen voor productieworkloads, maar de meeste klanten beginnen met de gratis service.
 
 Een prijscategorie kan niet worden gewijzigd nadat de service is gemaakt. Als u een hogere of lagere categorie nodig hebt, moet u de service opnieuw maken.
 
@@ -82,7 +82,7 @@ Als u resources toevoegt, wordt uw maandfactuur hoger. Met de [prijscalculator](
 > [!Important]
 > Een service moet [twee replica's hebben voor een alleen-lezen-SLA en drie replica's voor een lezen/schrijven-SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-1. Ga naar de pagina van uw zoekservice in Azure Portal.
+1. Ga naar de pagina van uw zoekservice in de Azure-portal.
 2. Selecteer in het navigatiedeelvenster aan de linkerkant **Instellingen** > **Schalen**.
 3. Gebruik de schuifbalk om resources van een bepaald type toe te voegen.
 

@@ -8,36 +8,36 @@ ms.topic: include
 ms.date: 05/25/2018
 ms.author: crdun
 ms.custom: include file
-ms.openlocfilehash: 4da469ac31c3ee50d601c87b4d7487ae5bb7bc3a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1d3bfb7bc8a5432392dba3b0c5019902b3e59773
+ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34664001"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39513761"
 ---
 1. Klik op de knop **App Services**, selecteer uw Mobile Apps-back-end, selecteer **Quickstart** en selecteer ten slotte uw clientplatform (iOS, Android, Xamarin, Cordova).
 
-    ![Azure Portal met Mobile Apps Quickstart gemarkeerd][quickstart]
+    ![Azure-portal met Mobile Apps Quickstart gemarkeerd][quickstart]
 
-2. Als er nog geen databaseverbinding is geconfigureerd, maakt u er een door de volgende stappen uit te voeren:
+1. Als er nog geen databaseverbinding is geconfigureerd, maakt u er een door de volgende stappen uit te voeren:
 
-    ![Azure Portal met Mobile Apps: verbinding maken met database][connect]
+    ![Azure-portal met Mobile Apps: verbinding maken met database][connect]
 
-    a. Maak een nieuwe SQL-database en -server.
+    a. Maak een nieuwe SQL-database en -server. Mogelijk moet u het naamveld van de verbindingstekenreeks laten staan op de standaardwaarde MS_TableConnectionString om stap 3 hieronder te kunnen voltooien.
 
-    ![Azure Portal met Mobile Apps: nieuwe database en server maken][server]
+    ![Azure-portal met Mobile Apps: nieuwe database en server maken][server]
 
     b. Wacht totdat de gegevensverbinding tot stand is gebracht.
 
-    ![Melding in Azure Portal dat de gegevensverbinding is gemaakt][notification]
+    ![Melding in de Azure-portal dat de gegevensverbinding is gemaakt][notification]
 
     c. Gegevensverbinding moet zijn gelukt.
 
-    ![Melding 'U hebt al een gegevensverbinding' in Azure Portal][already-connection]
+    ![Melding 'U hebt al een gegevensverbinding' in de Azure-portal][already-connection]
 
-3. Selecteer bij **2. Een tabel-API maken** de optie Node.js voor **Back-endtaal**.
+1. Selecteer bij **2. Een tabel-API maken** de optie Node.js voor **Back-endtaal**.
 
-4. Accepteer de bevestiging en selecteer vervolgens **Takentabel maken**.
+1. Accepteer de bevestiging en selecteer vervolgens **Takentabel maken**.
     Met deze actie wordt er een nieuwe takentabel in uw database gemaakt.
 
     >[!IMPORTANT]
