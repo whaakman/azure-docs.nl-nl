@@ -1,0 +1,52 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 153c3884d3802259fafac82650d79534472d7641
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "40209050"
+documentType: LandingData
+title: Documentatie voor Azure Active Directory-gebruikersbeheer
+metadata:
+  document_id: 
+  title: Documentatie voor gebruikers, groepen, rollen en licenties van Azure Active Directory
+  description: Lees hoe u verificatie bij Azure cloudservices in uw tenant kunt beheren met behulp van gebruikers, groepen, rollen en licenties.
+  services: active-directory
+  ms.component: users-groups-roles
+  author: curtand
+  manager: mtillman
+  ms.service: active-directory
+  ms.topic: landing-page
+  ms.date: 08/12/2018
+  ms.author: curtand
+abstract:
+  description: In Azure AD hebt u de beschikking over hulpprogramma's voor gebruikersbeheer, zoals groepen en toewijzing van beheerdersrollen, zodat u belangrijke taken sneller kunt uitvoeren en kunt inspelen op een groeiende organisatie. U kunt licenties toewijzen aan groepen in plaats van personen. Dit geldt trouwens ook voor de toegang tot SaaS-apps. Bovendien kunt u machtigingen delegeren om de overhead van identiteitsbeheer in Azure AD te verdelen.
+sections:
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: Lees hoe u hulpprogramma's voor gebruikersbeheer gebruikt in Azure Active Directory
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Gebruikers toevoegen aan Azure AD</a>
+    - html: <a href="/azure/active-directory/fundamentals/license-users-groups">Licenties toewijzen aan een gebruikers</a>
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Meld u aan voor Azure AD Premium</a>
+    - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-expiration">Verlooptijd instellen voor door gebruikers gemaakte groepen</a>
+    - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-naming-policy">Naamgevingsbeleid instellen voor door gebruikers gemaakte groepen</a>
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Lees hoe u groepen in Azure Active Directory dynamisch kunt vullen
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/users-groups-roles/groups-dynamic-tutorial">Een dynamisch gevulde groep maken</a>
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Naslagkoppelingen
+      html: <p><a href="https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0">Azure AD PowerShell-cmdlets</a></p>

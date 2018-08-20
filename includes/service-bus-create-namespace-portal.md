@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/03/2018
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: a110998505ed49c36e1ec722b1dfbf0969def060
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6fb9b5cd1379f39796f984f0436900f629c66436
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449555"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "40209471"
 ---
 Als u Service Bus-berichtenentiteiten wilt gebruiken in Azure, moet u eerst een naamruimte maken met een naam die uniek is binnen Azure. Een naamruimte biedt een scoping container voor het verwerken van Service Bus-resources in uw toepassing.
 
@@ -39,7 +39,7 @@ Bij het maken van een nieuwe naamruimte wordt automatisch een eerste SAS-regel (
 3. Klik in het scherm **Beleid voor gedeelde toegang** op **RootManageSharedAccessKey**.
    
     ![verbinding-gegevens][connection-info]
-4. Klik in het venster **Beleid: RootManageSharedAccessKey** op de knop Kopiëren naast **Verbindingsreeks–primaire sleutel** om de verbindingsreeks naar het klembord te kopiëren voor later gebruik. Plak deze waarde in Kladblok of een andere tijdelijke locatie.
+4. Klik in het venster **Beleid: RootManageSharedAccessKey** op de knop Kopiëren naast **Primaire verbindingsreeks** om de verbindingsreeks naar het klembord te kopiëren voor later gebruik. Plak deze waarde in Kladblok of een andere tijdelijke locatie.
    
     ![connection-string][connection-string]
 
