@@ -1,0 +1,57 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 749dc6c2d329ae7055ee0a6adc429c378de51871
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40235263"
+documentType: LandingData
+title: Documentatie over Azure Stack-partner
+metadata:
+  document_id: 
+  title: Azure Stack-partners D\documentation - zelfstudies, API-R\reference
+  description: Informatie over het valideren van uw hardware naar Azure Stack-host. Als een Service-validatie is een systeemeigen Azure-Service die is ontworpen voor gebruik met oplossingspartners die naast elkaar worden engineering-aanbiedingen met Microsoft Azure Stack.
+  services: azure-stack
+  author: mattbriggs
+  manager: femila
+  ms.service: azure-stack
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 07/25/2018
+  ms.author: mabrigg
+  ms.reviewer: John.Haskin
+abstract:
+  description: U kunt de validatie gebruiken als een service om te controleren of uw hardware voor gebruik met Azure Stack. De service is een systeemeigen Azure-service die is ontworpen voor gebruik met oplossingspartners die naast elkaar worden engineering-aanbiedingen met Microsoft Azure Stack.
+sections:
+- title: Quickstart van 5 minuten
+  items:
+  - type: paragraph
+    text: Meer informatie over hoe u voor uw VM's en computers onboarding uitvoert voor Security Center en hoe u verbinding maakt met uw beveiligingsoplossingen.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/i_account-management.svg
+      text: De validatie gebruiken als een serviceportal voor het plannen van uw eerste test
+      href: /azure/azure-stack/partner/azure-stack-vaas-schedule-your-first-test
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Informatie over het valideren van uw Azure Stack-hardware.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-test-vm">De lokale agent en test virtuele machine implementeren</a>
+    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-automate-with-powershell">Azure Stack-validatie met PowerShell automatiseren</a>
+    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-solution-new">Een nieuwe Azure Stack-oplossing te valideren</a>
+    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-oem-package">OEM-pakketten valideren</a>
+    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">Valideren van software-updates van Microsoft</a>
+- title: Referentie
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Validatie uit als een service
+      html: <a href="/azure/azure-stack/partner/azure-stack-vaas-parameters">Validatie-configuratiebestand</a>

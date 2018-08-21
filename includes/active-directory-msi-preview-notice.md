@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: e1f55b26e7e9f76ae4bc3f6d4af98c8110c3d37a
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 3004e2e4db12b7b5beb7ab024562d4e285c99a50
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399971"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40238228"
 ---
 |  |
 |--|
-|Managed Service Identity is een openbare preview-functie van Azure Active Directory. Zorg ervoor dat u de [bekende problemen](/azure/active-directory/managed-service-identity/known-issues) bekijkt voordat u begint. Zie [Aanvullende gebruiksvoorwaarden voor Microsoft Azure-previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voor meer informatie over previews.|
+|Managed Service Identity is een functie van Azure Active Directory. Voor alle [Azure-services die Managed Service Identity ondersteunen](/azure/active-directory/managed-service-identity/services-support-msi), geldt een eigen tijdlijn. Controleer de [beschikbaarheidsstatus](/azure/active-directory/managed-service-identity/services-support-msi) van beheerde identiteiten voor uw resource en eventuele [bekende problemen](/azure/active-directory/managed-service-identity/known-issues) voordat u begint.|
 |  |
