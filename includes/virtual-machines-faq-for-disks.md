@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: fabb734d5e21015f7cc3022993f01809daec0648
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e8005da056c08b21bf0b91dc71b3dafac281de1f
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "40211276"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40238056"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Veelgestelde vragen over Azure IaaS VM-schijven en beheerde en onbeheerde premium-schijven
 
@@ -142,18 +142,11 @@ Voor beheerde schijven kan niet u deze wijzigen. U mag een niet-beheerde schijf 
 **Wat zijn Azure Standard-SSD-schijven?**
 Standard-SSD-schijven worden ondersteund door SSD media, geoptimaliseerd als voordelige opslag voor workloads die consistente prestaties op lagere niveaus van IOPS moet standaardschijven. Preview-versie zijn ze beschikbaar in een beperkt aantal regio's met beperkte beheermogelijkheden (beschikbaar via Resource Manager-sjablonen).
 
-<a id="standard-ssds-azure-regions"></a>**Wat zijn de regio's die momenteel worden ondersteund voor Standard-SSD-schijven (Preview)?**
-* Europa - noord
-* Frankrijk - centraal
-* US - oost 2
-* US - centraal
-* Canada - midden
-* Azië - oost
-* Korea - zuid
-* Australië - oost
+<a id="standard-ssds-azure-regions"></a>**Wat zijn de regio's die momenteel worden ondersteund voor Standard-SSD-schijven?**
+Alle Azure-regio's bieden nu ondersteuning voor Standard-SSD-schijven.
 
 **Hoe kan ik de Standard-SSD-schijven maken?**
-Op dit moment kunt u een Standard-SSD-schijven met behulp van Azure Resource Manager-sjablonen maken. Hieronder vindt u de parameters nodig in het Resource Manager-sjabloon voor het maken van de Standard-SSD-schijven:
+U kunt Standard-SSD-schijven met behulp van Azure Resource Manager-sjablonen, SDK, PowerShell of CLI maken. Hieronder vindt u de parameters nodig in het Resource Manager-sjabloon voor het maken van de Standard-SSD-schijven:
 
 * *apiVersion* voor Microsoft.Compute moet worden ingesteld als `2018-04-01` (of hoger)
 * Geef *managedDisk.storageAccountType* als `StandardSSD_LRS`
@@ -177,6 +170,9 @@ Zie voor een voorbeeld van de volledige sjabloon van het maken van een Standard-
 **Kan ik mijn bestaande schijven converteren naar Standard-SSD?**
 Ja, dat is mogelijk. Raadpleeg [converteren Azure managed disks-opslag van standard naar premium, en vice versa](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage) voor de algemene richtlijnen voor het converteren van Managed Disks. En gebruik de volgende waarde voor het bijwerken van het schijftype naar de Standard-SSD.
 -AccountType StandardSSD_LRS
+
+**Wat is het voordeel van het gebruik van Standard-SSD-schijven in plaats van HDD?**
+Standard-SSD-schijven bieden betere latentie, consistentie, beschikbaarheid en betrouwbaarheid ten opzichte van HDD-schijven. Werkbelastingen van toepassingen soepeler veel op Standard-SSD vanwege die. Houd er rekening mee, Premium-SSD-schijven zijn de aanbevolen oplossing voor de meeste i/o-intensieve productieworkloads. 
 
 **Kan ik standaard SSD's als niet-beheerde schijven gebruiken?**
 Nee, Standard-SSD-schijven zijn alleen beschikbaar als beheerde schijven.

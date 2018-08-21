@@ -1,0 +1,1 @@
+*Is van toepassing op: Azure Stack-geïntegreerde systemen.*

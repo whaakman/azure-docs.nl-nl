@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 2223c1ed95675a5091ce91a38a7901d6b61ac8d4
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: e6a2493b0bc9e2b4c9695e29ae0c175dac9814fe
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40165871"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "40236826"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Krachtige Premium Storage en beheerde schijven voor virtuele machines
 Azure Premium Storage voorziet in ondersteuning voor hoge prestaties en lage latentie schijven voor virtuele machines (VM's) met invoer/uitvoer (I/O)-intensieve workloads. VM-schijven die gebruikmaken van Premium Storage worden gegevens opgeslagen op SSD-schijven (SSD's). Als u wilt profiteren van de snelheid en prestaties van premium storage-schijven, kunt u bestaande VM-schijven kunt migreren naar Premium Storage.
@@ -52,7 +52,7 @@ Hier volgen enkele van de functies van Premium Storage:
 
 * **Premium storage-schijven**
 
-    Premium-opslag biedt ondersteuning voor VM-schijven die kunnen worden gekoppeld aan specifieke grootte-serie VM's. Premium Storage ondersteunt een groot aantal Azure-VM's. U hebt een ruime keuze aan zeven schijfgrootten: P4 (32 GB), P6 (64 GB), P10 (128 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). P4 en P6 schijfgrootten worden alleen nog ondersteund voor Managed Disks. De grootte van elke schijf heeft een eigen prestatiespecificaties. Afhankelijk van uw toepassingsvereisten kunt u een of meer schijven koppelen aan uw virtuele machine. We beschrijven de specificaties in meer detail in [schaalbaarheids- en prestatiedoelen van Premium Storage](#scalability-and-performance-targets).
+    Premium-opslag biedt ondersteuning voor VM-schijven die kunnen worden gekoppeld aan specifieke grootte-serie VM's. Premium Storage ondersteunt een groot aantal Azure-VM's. U hebt een ruime keuze aan zeven schijfgrootten: P4 (32 GB), P6 (64 GB), P10 (128 GB), P15 (256 GB), P20 (512 GB), P30 (1024 GB), P40 (2048 GB), P50 (4095 GB). P4 en P6 schijfgrootten worden alleen nog ondersteund voor Managed Disks. De grootte van elke schijf heeft een eigen prestatiespecificaties. Afhankelijk van uw toepassingsvereisten kunt u een of meer schijven koppelen aan uw virtuele machine. We beschrijven de specificaties in meer detail in [schaalbaarheids- en prestatiedoelen van Premium Storage](#scalability-and-performance-targets).
 
 * **Premium-pagina-blobs**
 
