@@ -19,8 +19,8 @@ Als u wilt maken en beheren van virtuele Azure-machines (VM's) op een consistent
 Leer hoe u het volgende doet:
 
 - [Ansible installeren en configureren op Linux voor gebruik met Azure](../articles/virtual-machines/linux/ansible-install-configure.md).
-- [Een basis-VM maken](../articles/virtual-machines/linux/ansible-create-vm.md).
-- [Een volledige VM-omgeving, met inbegrip van ondersteunende resources maken](../articles/virtual-machines/linux/ansible-create-complete-vm.md).
+- [Maken van een virtuele Linux-machine](../articles/virtual-machines/linux/ansible-create-vm.md).
+- [Een virtuele Linux-machine beheren](../articles/virtual-machines/linux/ansible-manage-linux-vm.md).
 
 
 ## <a name="chef"></a>Chef
