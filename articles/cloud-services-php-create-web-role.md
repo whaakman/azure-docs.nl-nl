@@ -13,12 +13,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
-ms.openlocfilehash: 9d4be08e732127d6da12a9e0367383347f53c796
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 30afc1c577ab6dd18374d5ef5199c7e7d9e89fe4
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34608896"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42060561"
 ---
 # <a name="create-php-web-and-worker-roles"></a>PHP-web- en werkrollen maken
 
@@ -211,7 +211,7 @@ Als u wilt stoppen met de emulator, deze opdracht wordt uitgevoerd:
 
 ## <a name="publish-your-application"></a>Uw toepassing publiceren
 
-Voor het publiceren van uw toepassing, moet u eerst importeren uw publicatie-instellingen met behulp van de [importeren AzurePublishSettingsFile](https://msdn.microsoft.com/library/azure/dn790370.aspx) cmdlet. Vervolgens kunt u uw toepassing met behulp van de [Publish-AzureServiceProject](https://msdn.microsoft.com/library/azure/dn495166.aspx) cmdlet. Zie voor meer informatie over het ondertekenen van [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).
+Voor het publiceren van uw toepassing, moet u eerst importeren uw publicatie-instellingen met behulp van de [importeren AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/servicemanagement/azure/import-azurepublishsettingsfile) cmdlet. Vervolgens kunt u uw toepassing met behulp van de [Publish-AzureServiceProject](https://docs.microsoft.com/powershell/module/servicemanagement/azure/publish-azureserviceproject) cmdlet. Zie voor meer informatie over het ondertekenen van [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -221,6 +221,6 @@ Zie voor meer informatie de [PHP-ontwikkelaarscentrum](https://azure.microsoft.c
 [servicedefinition (.csdef)]: http://msdn.microsoft.com/library/windowsazure/ee758711.aspx
 [serviceconfiguratie (.cscfg)]: http://msdn.microsoft.com/library/windowsazure/ee758710.aspx
 [iis.net]: http://www.iis.net/
-[sql native client]: http://msdn.microsoft.com/sqlserver/aa937733.aspx
+[sql native client]: https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation
 [sqlsrv drivers]: http://php.net/sqlsrv
 [sqlncli.msi x64 installatieprogramma]: http://go.microsoft.com/fwlink/?LinkID=239648

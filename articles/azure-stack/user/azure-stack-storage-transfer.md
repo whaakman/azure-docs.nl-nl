@@ -13,12 +13,12 @@ ms.topic: get-started-article
 ms.date: 07/03/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 1adfd5dc21a7cab207fa14eeecc21d02507277f8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 91ba9b388566cc72f3024943005af499b7c3f3ec
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444133"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42139464"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Gebruik van hulpmiddelen voor het overbrengen van gegevens voor Azure Stack
 
@@ -146,13 +146,13 @@ Azure Stack compatibele Azure PowerShell-modules zijn vereist voor het werken me
 
 In dit voorbeeld wordt ervan uitgegaan dat u hebt [geïnstalleerd PowerShell voor Azure Stack](azure-stack-powershell-install.md). Dit script kunt u de configuratie te voltooien en vraagt u uw Azure Stack-tenant referenties voor uw account toevoegen aan de lokale PowerShell-omgeving. Vervolgens wordt het script de standaard Azure-abonnement instellen, een nieuw opslagaccount maken in Azure, een nieuwe container maken in deze nieuwe storage-account en een bestaand installatiekopiebestand (blob) uploaden naar deze container. Nadat het script geeft een lijst van alle blobs in die container, wordt een nieuwe bestemming-map maken op uw lokale computer en downloaden van het afbeeldingsbestand.
 
-1. Voor Azure Stack, [blobEndpoint](azure-stack-powershell-install.md) moet worden opgegeven naast accountName, accountKey/sasToken, containerName, tijdens het configureren van de referenties van het Opslagaccount in de stap van de voorbereiding voor koppelen.
+1. Installeer [Azure Stack-compatibel is met Azure PowerShell-modules](azure-stack-powershell-install.md).
 2. In het [Azure Stack development Kit, worden de blobEndpoint](azure-stack-powershell-download.md) .
-3. In geïntegreerde Azure Stack-systeem, contact op met uw cloudbeheerder als u niet zeker weet over uw eindpunt.
-4. Houd er rekening mee dat accountKey en sasToken mag alleen bestaan uit geconfigureerde één bewerking tegelijk.
-5. Wanneer de sleutel van het opslagaccount is opgegeven, is het configuratiebestand van de referenties in de volgende indeling:
+3. Open **Windows PowerShell ISE** en **als Administrator uitvoeren**, klikt u op **bestand** > **nieuw** om een nieuwe scriptbestand te maken.
+4. Het onderstaande script kopiëren en plakken naar het nieuwe scriptbestand.
+5. De scriptvariabelen op basis van uw configuratie-instellingen bijwerken.
    > [!NOTE]
-   > Wanneer het token voor gedeelde toegang is opgegeven, is het configuratiebestand van de referenties in de volgende indeling:
+   > Met dit script moet worden uitgevoerd op de hoofdmap voor **AzureStack_Tools**.
 
 ```PowerShell  
 # begin
@@ -219,11 +219,11 @@ $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 # end
 ````
 
-### <a name="powershell-known-issues"></a>Storage explorer verbinden met een Azure Stack-abonnement
+### <a name="powershell-known-issues"></a>Bekende problemen met PowerShell
 
-Aan de slag met Opslagverkenner Azure consistente: verschillen en overwegingen Inleiding tot Microsoft Azure storage
+Met de huidige compatibele Azure PowerShell-moduleversie voor Azure Stack is 1.2.11 voor de gebruikersbewerkingen. Dit wijkt af van de meest recente versie van Azure PowerShell. Dit verschil heeft gevolgen voor opslagbewerking services:
 
-* De indeling van de geretourneerde waarde van `Get-AzureRmStorageAccountKey` in versie 1.3.0 heeft twee eigenschappen: `Key1` en `Key2`, terwijl de huidige versie van de Azure retourneert een matrix met alle accountsleutels.
+* De indeling van de geretourneerde waarde van `Get-AzureRmStorageAccountKey` in versie 1.2.11 heeft twee eigenschappen: `Key1` en `Key2`, terwijl de huidige versie van de Azure retourneert een matrix met alle accountsleutels.
 
    ```
    # This command gets a specific key for a storage account, 

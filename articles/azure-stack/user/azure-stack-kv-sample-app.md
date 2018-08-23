@@ -1,9 +1,9 @@
 ---
-title: Toepassingen kunnen ophalen van geheimen Azure Stack Sleutelkluis | Microsoft Docs
-description: Een voorbeeld-app gebruiken om te werken met Azure Sleutelkluis voor Stack
+title: Toestaan dat toepassingen om op te halen van Azure Stack Key Vault-geheimen | Microsoft Docs
+description: Een voorbeeld-app gebruiken om te werken met Azure Stack Key Vault
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 3748b719-e269-4b48-8d7d-d75a84b0e1e5
@@ -12,41 +12,41 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/11/2018
-ms.author: mabrigg
-ms.openlocfilehash: 39bce286c756660cd8755358cf98f2c8d35ce351
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.date: 08/15/2018
+ms.author: sethm
+ms.openlocfilehash: ed02174247de1a99f3d9a4880fd0afa60f867552
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807377"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139359"
 ---
-# <a name="a-sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Een voorbeeldtoepassing die gebruikmaakt van sleutels en geheimen die zijn opgeslagen in een sleutelkluis
+# <a name="a-sample-application-that-uses-keys-and-secrets-stored-in-a-key-vault"></a>Een voorbeeldtoepassing die gebruikmaakt van sleutels en geheimen die zijn opgeslagen in een key vault
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Volg de stappen in dit artikel voor het uitvoeren van een voorbeeldtoepassing (HelloKeyVault) die sleutels en geheimen opgehaald uit een sleutelkluis in Azure-Stack.
+Volg de stappen in dit artikel om uit te voeren van een voorbeeldtoepassing (HelloKeyVault) die sleutels en geheimen opgehaald uit een key vault in Azure Stack.
 
 ## <a name="prerequisites"></a>Vereisten
 
-U kunt de volgende vereisten installeren vanaf de Azure-Stack [Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), of vanuit een Windows-externe client als u [verbonden via VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
+U kunt de volgende vereisten installeren via de Azure Stack [Development Kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), of vanuit een Windows-externe client als u [verbonden zijn via VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
-* Installeer [Azure Stack-compatibele Azure PowerShell-modules](azure-stack-powershell-install.md).
-* Download de [hulpprogramma's voor het werken met Azure-Stack](azure-stack-powershell-download.md).
+* Installeer [Azure Stack-compatibel is met Azure PowerShell-modules](azure-stack-powershell-install.md).
+* In het [Azure Stack development Kit, worden de blobEndpoint](azure-stack-powershell-download.md) .
 
 ## <a name="create-and-get-the-key-vault-and-application-settings"></a>Maken en de sleutelkluis en toepassingsinstellingen
 
-Voorbereiden voor de voorbeeldtoepassing:
+Om voor te bereiden voor de voorbeeldtoepassing:
 
-* Een sleutelkluis maken in Azure-Stack.
-* Registreert een toepassing in Azure Active Directory (Azure AD).
+* Een key vault maakt in Azure Stack.
+* Een toepassing registreren in Azure Active Directory (Azure AD).
 
-U kunt de Azure-portal of PowerShell gebruiken om voor te bereiden voor de voorbeeldtoepassing. In dit artikel laat zien hoe een sleutelkluis maken en een toepassing registreren met behulp van PowerShell.
+U kunt de Azure portal of PowerShell gebruiken om voor te bereiden voor de voorbeeldtoepassing. In dit artikel wordt beschreven hoe u een sleutelkluis maken en registreren van een toepassing met behulp van PowerShell.
 
 >[!NOTE]
->Het PowerShell-script wordt standaard een nieuwe toepassing gemaakt in Active Directory. U kunt echter een van uw bestaande toepassingen registreren.
+>Het PowerShell-script maakt standaard een nieuwe toepassing in Active Directory. U kunt echter een van uw bestaande toepassingen registreren.
 
- Voordat u het volgende script uitvoert, zorg ervoor dat u waarden opgeven voor de `aadTenantName` en `applicationPassword` variabelen. Als u niet een waarde opgeven voor `applicationPassword`, dit script genereert een willekeurig wachtwoord.
+ Voordat u het volgende script uitvoert, zorg ervoor dat u waarden opgeven voor de `aadTenantName` en `applicationPassword` variabelen. Als u een waarde op voor geen opgeeft `applicationPassword`, met dit script wordt een willekeurig wachtwoord gegenereerd.
 
 ```powershell
 $vaultName           = 'myVault'
@@ -137,43 +137,43 @@ Write-Host
 
 ```
 
-De volgende schermafbeelding ziet u de uitvoer van het script waarmee u de sleutelkluis hebt gemaakt:
+De volgende schermopname ziet u de uitvoer van het script gebruikt voor het maken van de key vault:
 
-![Sleutel kluis met toegangstoetsen](media/azure-stack-kv-sample-app/settingsoutput.png)
+![Voor Key vault met toegangssleutels](media/azure-stack-kv-sample-app/settingsoutput.png)
 
-Noteer de **VaultUrl**, **AuthClientId**, en **AuthClientSecret** door het vorige script geretourneerde waarden. Deze waarden kunt u de toepassing HelloKeyVault uitvoeren.
+Noteer de **VaultUrl**, **AuthClientId**, en **AuthClientSecret** waarden die zijn geretourneerd door het vorige script. U gebruikt deze waarden in de toepassing HelloKeyVault uit te voeren.
 
 ## <a name="download-and-configure-the-sample-application"></a>Downloaden en configureren van de voorbeeldtoepassing
 
-De sleutelkluis-voorbeeld downloaden van de Azure [Sleutelkluis client voorbeelden](https://www.microsoft.com/en-us/download/details.aspx?id=45343) pagina. Pak de inhoud van het ZIP-bestand op uw ontwikkelwerkstation. Er zijn twee toepassingen in de map samples, HelloKeyVault maakt gebruik van dit artikel.
+De sleutelkluis-voorbeeld downloaden van de Azure [Key Vault-client voorbeelden](https://www.microsoft.com/en-us/download/details.aspx?id=45343) pagina. Pak de inhoud van het ZIP-bestand op uw ontwikkelwerkstation. Er zijn twee toepassingen in de map met voorbeelden, in dit artikel wordt gebruikgemaakt van HelloKeyVault.
 
 Het voorbeeld HelloKeyVault laden:
 
 * Blader naar de **Microsoft.Azure.KeyVault.Samples** > **voorbeelden** > **HelloKeyVault** map.
-* Open de HelloKeyVault-toepassing in Visual Studio.
+* Open de toepassing HelloKeyVault in Visual Studio.
 
-### <a name="configure-the-sample-application"></a>De voorbeeldtoepassing configureren
+### <a name="configure-the-sample-application"></a>De voorbeeld-App configureren
 
 In Visual Studio:
 
 * Open het bestand HelloKeyVault\App.config en vinden, bladert u naar de &lt; **appSettings** &gt; element.
-* Update de **VaultUrl**, **AuthClientId**, en **AuthClientSecret** sleutels met de waarden die door de gebruikte om de sleutelkluis te maken. (Het bestand App.config heeft standaard een tijdelijke aanduiding voor *AuthCertThumbprint*. Vervang deze tijdelijke aanduiding met *AuthClientSecret*.)
+* Update de **VaultUrl**, **AuthClientId**, en **AuthClientSecret** sleutels met de waarden die zijn geretourneerd door de gebruikt voor het maken van de key vault. (Het bestand App.config heeft standaard een tijdelijke aanduiding voor *AuthCertThumbprint*. Vervang deze tijdelijke aanduiding met *AuthClientSecret*.)
 
   ![App-instellingen](media/azure-stack-kv-sample-app/appconfig.png)
 
-* De oplossing opnieuw worden opgebouwd.
+* De oplossing opnieuw maakt.
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 
-Wanneer u HelloKeyVault uitvoert, wordt de toepassing zich aanmeldt bij Azure AD en vervolgens het token AuthClientSecret gebruikt om de sleutelkluis in Azure-Stack te verifiëren.
+Wanneer u HelloKeyVault uitvoert, wordt de toepassing zich aanmeldt bij Azure AD en vervolgens het token AuthClientSecret gebruikt om de key vault in Azure Stack te verifiëren.
 
-U kunt de steekproef die HelloKeyVault gebruiken:
+U kunt het voorbeeld HelloKeyVault te gebruiken:
 
-* Basisbewerkingen zoals maakt, versleutelen, verpakken, en verwijderen uit te voeren op de sleutels en geheimen.
-* Parameters zoals doorgeven *versleutelen* en *ontsleutelen* naar HelloKeyVault, en de opgegeven wijzigingen toepassen op een sleutelkluis.
+* Eenvoudige bewerkingen zoals het maken, coderen, verpakken, en verwijderen uitvoeren op de sleutels en geheimen.
+* Parameters doorgeven zoals *versleutelen* en *ontsleutelen* naar HelloKeyVault, en de opgegeven wijzigingen toepassen op een key vault.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 [Een virtuele machine implementeren met een Key Vault-wachtwoord](azure-stack-kv-deploy-vm-with-secret.md)
 
-[Een virtuele machine met een certificaat Sleutelkluis implementeren](azure-stack-kv-push-secret-into-vm.md)
+[Een VM implementeren met een Key Vault-certificaat](azure-stack-kv-push-secret-into-vm.md)

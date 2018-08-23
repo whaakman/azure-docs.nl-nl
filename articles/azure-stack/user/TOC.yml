@@ -1,179 +1,189 @@
+items:
 - name: Documentatie voor Azure Stack-gebruiker
   href: index.yml
 - name: Overzicht
   items:
-    - name: Belangrijkste overwegingen
-      href: azure-stack-considerations.md
+  - name: Belangrijkste overwegingen
+    href: azure-stack-considerations.md
 - name: Snelstartgidsen
-  expanded: true
   items:
-    - name: Windows-VM maken - Portal
-      href: azure-stack-quick-windows-portal.md
-    - name: Windows-VM maken - PowerShell
-      href: azure-stack-quick-create-vm-windows-powershell.md
-    - name: Windows-VM maken - CLI
-      href: azure-stack-quick-create-vm-windows-cli.md
-    - name: Linux-VM maken - Portal
-      href: azure-stack-quick-linux-portal.md
-    - name: Linux-VM maken - PowerShell
-      href: azure-stack-quick-create-vm-linux-powershell.md
-    - name: Linux-VM maken - CLI
-      href: azure-stack-quick-create-vm-linux-cli.md
+  - name: Windows-VM maken - Portal
+    href: azure-stack-quick-windows-portal.md
+  - name: Windows-VM maken - PowerShell
+    href: azure-stack-quick-create-vm-windows-powershell.md
+  - name: Windows-VM maken - CLI
+    href: azure-stack-quick-create-vm-windows-cli.md
+  - name: Linux-VM maken - Portal
+    href: azure-stack-quick-linux-portal.md
+  - name: Linux-VM maken - PowerShell
+    href: azure-stack-quick-create-vm-linux-powershell.md
+  - name: Linux-VM maken - CLI
+    href: azure-stack-quick-create-vm-linux-cli.md
+  expanded: true
 - name: Zelfstudies
   items:
-    - name: Apps implementeren in Azure en Azure Stack
-      href: azure-stack-solution-pipeline.md
-    - name: Configureren van hybride cloud-identiteit
-      href: azure-stack-solution-hybrid-identity.md
-    - name: Hybride cloud-connectiviteit configureren
-      href: azure-stack-solution-hybrid-connectivity.md
-    - name: Abonneren op een aanbieding
-      href: azure-stack-subscribe-services.md
-    - name: Een virtuele machine maken van een sjabloon
-      href: azure-stack-create-vm-template.md
+  - name: Apps implementeren in Azure en Azure Stack
+    href: azure-stack-solution-pipeline.md
+  - name: Configureren van hybride cloud-identiteit
+    href: azure-stack-solution-hybrid-identity.md
+  - name: Hybride cloud-connectiviteit configureren
+    href: azure-stack-solution-hybrid-connectivity.md
+  - name: Abonneren op een aanbieding
+    href: azure-stack-subscribe-services.md
+  - name: Een virtuele machine maken van een sjabloon
+    href: azure-stack-create-vm-template.md
 - name: Handleidingen
   items:
-    - name: Azure Stack-portal gebruiken
-      href: azure-stack-use-portal.md
-    - name: De Azure Stack-API gebruiken
-      href: azure-stack-rest-api-use.md
-    - name: Beveiliging en naleving
+  - name: Azure Stack-portal gebruiken
+    href: azure-stack-use-portal.md
+  - name: De Azure Stack-API gebruiken
+    href: azure-stack-rest-api-use.md
+  - name: Beveiliging en naleving
+    items:
+    - name: Op rollen gebaseerd toegangsbeheer gebruiken
+      href: azure-stack-manage-permissions.md
+    - name: Service-principals gebruiken
+      href: Azure-stack-create-service-principals.md
+  - name: Services gebruiken
+    items:
+    - name: Belangrijkste overwegingen
+      href: azure-stack-considerations.md
+    - name: Compute
       items:
-        - name: Op rollen gebaseerd toegangsbeheer gebruiken
-          href: azure-stack-manage-permissions.md
-        - name: Service-principals gebruiken
-          href: Azure-stack-create-service-principals.md
-    - name: Services gebruiken
+      - name: Overzicht
+        href: azure-stack-compute-overview.md
+      - name: Overwegingen omtrent virtuele machines
+        href: azure-stack-vm-considerations.md
+      - name: Formaten van virtuele machines
+        href: azure-stack-vm-sizes.md
+      - name: VM-schijven beheren
+        href: azure-stack-manage-vm-disks.md
+      - name: Virtuele machines beschermen
+        href: azure-stack-manage-vm-protect.md
+      - name: Overwegingen voor SQL Server-VM
+        href: azure-stack-sql-server-vm-considerations.md
+    - name: Storage
       items:
-        - name: Belangrijkste overwegingen
-          href: azure-stack-considerations.md
-        - name: Compute
-          items:
-            - name: Overzicht
-              href: azure-stack-compute-overview.md
-            - name: Overwegingen omtrent virtuele machines
-              href: azure-stack-vm-considerations.md
-            - name: Formaten van virtuele machines
-              href: azure-stack-vm-sizes.md
-            - name: VM-schijven beheren
-              href: azure-stack-manage-vm-disks.md
-            - name: Virtuele machines beschermen
-              href: azure-stack-manage-vm-protect.md
-            - name: Overwegingen voor SQL Server-VM
-              href: azure-stack-sql-server-vm-considerations.md
-        - name: Storage
-          items:
-            - name: Overzicht
-              href: azure-stack-storage-overview.md
-            - name: Opslagoverwegingen
-              href: azure-stack-acs-differences.md
-            - name: Hulpprogramma’s voor opslagontwikkeling
-              href: azure-stack-storage-dev.md
-            - name: Hulpprogramma’s voor gegevensoverdracht
-              href: azure-stack-storage-transfer.md
-            - name: Opslagverkenner koppelen
-              href: azure-stack-storage-connect-se.md
-        - name: Netwerk
-          items:
-            - name: Overzicht
-              href: azure-stack-network-overview.md
-            - name: Aandachtspunten voor netwerken
-              href: azure-stack-network-differences.md
-            - name: iDNS voor Azure Stack
-              href: azure-stack-understanding-dns.md
-            - name: DNS in Azure Stack
-              href: azure-stack-dns.md
-        - name: Key Vault
-          items:
-            - name: Overzicht
-              href: azure-stack-kv-intro.md
-            - name: Beheren met de Portal
-              href: azure-stack-kv-manage-portal.md
-            - name: Beheren met PowerShell
-              href: azure-stack-kv-manage-powershell.md
-            - name: Een virtuele machine maken met een geheim
-              href: azure-stack-kv-deploy-vm-with-secret.md
-            - name: Een virtuele machine maken met een certificaat
-              href: azure-stack-kv-push-secret-into-vm.md
-            - name: Voorbeeld-app van KeyVault
-              href: azure-stack-kv-sample-app.md
-        - name: Oplossingssjablonen
-          items:
-            - name: Een Service Fabric-cluster implementeren
-              href: azure-stack-solution-template-service-fabric-cluster.md
-            - name: Een Kubernetes-cluster implementeren
-              href: azure-stack-solution-template-kubernetes-deploy.md
-    - name: Apps bouwen
+      - name: Overzicht
+        href: azure-stack-storage-overview.md
+      - name: Opslagoverwegingen
+        href: azure-stack-acs-differences.md
+      - name: Hulpprogramma’s voor opslagontwikkeling
+        href: azure-stack-storage-dev.md
+      - name: Hulpprogramma’s voor gegevensoverdracht
+        href: azure-stack-storage-transfer.md
+      - name: Opslagverkenner koppelen
+        href: azure-stack-storage-connect-se.md
+    - name: Netwerk
       items:
-        - name: Ontwikkelen voor Azure Stack
-          href: azure-stack-developer.md
-        - name: De ontwikkelomgeving instellen
-          items:
-            - name: PowerShell voor Azure Stack installeren
-              href: ../azure-stack-powershell-install.md
-              maintainContext: true
-            - name: Azure Stack-hulpprogramma's downloaden
-              href: azure-stack-powershell-download.md
-            - name: PowerShell instellen voor gebruiker
-              href: azure-stack-powershell-configure-user.md
-            - name: Visual Studio installeren
-              href: azure-stack-install-visual-studio.md
-            - name: Met behulp van API-versieprofielen
-              href: azure-stack-version-profiles.md
-              items:
-                - name: PowerShell
-                  href: azure-stack-version-profiles-powershell.md
-                - name: Azure CLI 2.0
-                  href: azure-stack-version-profiles-azurecli2.md
-                - name: GA NAAR
-                  href: azure-stack-version-profiles-go.md
-                - name: Ruby
-                  href: azure-stack-version-profiles-ruby.md
-                - name: Python
-                  href: azure-stack-version-profiles-python.md
-                - name: Resourceprovider API's ondersteund door profielen
-                  href: azure-stack-profiles-azure-resource-manager-versions.md
-        - name: Gebruik de Azure Stack-beleidsmodule
-          href: azure-stack-policy-module.md
-        - name: Sjablonen gebruiken
-          items:
-            - name: Overzicht van sjablonen
-              href: azure-stack-arm-templates.md
-            - name: Overwegingen voor sjabloon
-              href: azure-stack-develop-templates.md
-            - name: Sjablonen controleren
-              href: azure-stack-validate-templates.md
-            - name: Implementeren met de Portal
-              href: azure-stack-deploy-template-portal.md
-            - name: Implementeren met PowerShell
-              href: azure-stack-deploy-template-powershell.md
-            - name: Implementeren met Visual Studio
-              href: azure-stack-deploy-template-visual-studio.md
-    - name: Een Cloudserviceprovider inschakelen
-      href: azure-stack-csp-enable-billing-usage-tracking.md
+      - name: Overzicht
+        href: azure-stack-network-overview.md
+      - name: Aandachtspunten voor netwerken
+        href: azure-stack-network-differences.md
+      - name: iDNS voor Azure Stack
+        href: azure-stack-understanding-dns.md
+      - name: DNS in Azure Stack
+        href: azure-stack-dns.md
+    - name: Key Vault
+      items:
+      - name: Overzicht
+        href: azure-stack-kv-intro.md
+      - name: Beheren met de Portal
+        href: azure-stack-kv-manage-portal.md
+      - name: Beheren met PowerShell
+        href: azure-stack-kv-manage-powershell.md
+      - name: Een virtuele machine maken met een geheim
+        href: azure-stack-kv-deploy-vm-with-secret.md
+      - name: Een virtuele machine maken met een certificaat
+        href: azure-stack-kv-push-secret-into-vm.md
+      - name: Voorbeeld-app van KeyVault
+        href: azure-stack-kv-sample-app.md
+    - name: Oplossingssjablonen
+      items:
+      - name: Een Service Fabric-cluster implementeren
+        href: azure-stack-solution-template-service-fabric-cluster.md
+      - name: Een Kubernetes-cluster implementeren
+        href: azure-stack-solution-template-kubernetes-deploy.md
+  - name: Apps bouwen
+    items:
+    - name: Ontwikkelen voor Azure Stack
+      href: azure-stack-developer.md
+    - name: De ontwikkelomgeving instellen
+      items:
+      - name: PowerShell voor Azure Stack installeren
+        href: ../azure-stack-powershell-install.md
+        maintainContext: true
+      - name: PowerShell configureren
+        href: azure-stack-powershell-configure-user.md
+      - name: Azure Stack-hulpprogramma's downloaden
+        href: ../azure-stack-powershell-download.md
+        maintainContext: true
+      - name: Visual Studio installeren
+        href: azure-stack-install-visual-studio.md
+      - name: Met behulp van API-versieprofielen
+        href: azure-stack-version-profiles.md
+        items:
+        - name: PowerShell
+          href: azure-stack-version-profiles-powershell.md
+        - name: Azure CLI 2.0
+          href: azure-stack-version-profiles-azurecli2.md
+        - name: GA NAAR
+          href: azure-stack-version-profiles-go.md
+        - name: Ruby
+          href: azure-stack-version-profiles-ruby.md
+        - name: Python
+          href: azure-stack-version-profiles-python.md
+        - name: Resourceprovider API's ondersteund door profielen
+          href: azure-stack-profiles-azure-resource-manager-versions.md
+    - name: Gebruik de Azure Stack-beleidsmodule
+      href: azure-stack-policy-module.md
+    - name: Sjablonen gebruiken
+      items:
+      - name: Overzicht van sjablonen
+        href: azure-stack-arm-templates.md
+      - name: Overwegingen voor sjabloon
+        href: azure-stack-develop-templates.md
+      - name: Sjablonen controleren
+        href: azure-stack-validate-templates.md
+      - name: Implementeren met de Portal
+        href: azure-stack-deploy-template-portal.md
+      - name: Implementeren met PowerShell
+        href: azure-stack-deploy-template-powershell.md
+      - name: Implementeren met Visual Studio
+        href: azure-stack-deploy-template-visual-studio.md
+  - name: Een Cloudserviceprovider inschakelen
+    href: azure-stack-csp-enable-billing-usage-tracking.md
 - name: Referentie
   items:
-    - name: PowerShell voor Azure Stack
-      href: /powershell/azure/azure-stack/overview?view=azurestackps-1.2.10
-    - name: Azure Stack CLI
-      href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
+  - name: PowerShell voor Azure Stack
+    href: /powershell/azure/azure-stack/overview?view=azurestackps-1.3.0
+  - name: Azure Stack-REST API-Browser
+    href: /rest/api/
+  - name: Azure Stack CLI
+    href: /cli/azure/reference-index?view=azure-cli-2017-03-09-profile
 - name: Verwant
   items:
-    - name: Documentatie voor Azure Stack-operator
-      href: /azure/azure-stack/
-    - name: ASDK-documentatie
-      href: /azure/azure-stack/asdk/
+  - name: Documentatie voor Azure Stack-operator
+    href: /azure/azure-stack/
+  - name: ASDK-documentatie
+    href: /azure/azure-stack/asdk/
 - name: Resources
   items:
-    - name: Azure Stack-roadmap
-      href: 'https://azure.microsoft.com/roadmap/?tag=azure-stack'
-    - name: Azure Stack-MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack'
-    - name: Feedback over Azure Stack-documentatie
-      href: 'https://feedback.azure.com/forums/344565-azure-stack?category_id=160275'
-    - name: Prijsinformatie
-      href: 'https://azure.microsoft.com/overview/azure-stack/how-to-buy/'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-stack'
-    - name: Training en certificering
-      href: 'https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert'
+  - name: Azure Stack-roadmap
+    href: https://azure.microsoft.com/roadmap/?tag=azure-stack
+  - name: Azure Stack-MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStack
+  - name: Feedback over Azure Stack-documentatie
+    href: https://feedback.azure.com/forums/344565-azure-stack?category_id=160275
+  - name: Prijsinformatie
+    href: https://azure.microsoft.com/overview/azure-stack/how-to-buy/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-stack
+  - name: Training en certificering
+    href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
+ms.openlocfilehash: 343847c800ce888cd211f6d2314af71c45189b50
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139284"

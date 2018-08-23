@@ -1,6 +1,6 @@
 ---
-title: Verplaatsen van gegevens - Data Management Gateway | Microsoft Docs
-description: Stel een gegevensgateway in om gegevens te verplaatsen tussen on-premises en de cloud. Gebruik Data Management Gateway in Azure Data Factory om uw gegevens te verplaatsen.
+title: Gegevens - Data Management Gateway verplaatsen | Microsoft Docs
+description: Instellen van een gegevensgateway om gegevens te verplaatsen tussen on-premises en de cloud. Gebruik Data Management Gateway in Azure Data Factory om uw gegevens te verplaatsen.
 services: data-factory
 documentationcenter: ''
 author: nabhishek
@@ -14,175 +14,175 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1d19cf6ecc9f2bedb6ceaf6312b247670d965b84
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: d695627efddc0ca02c3d9299f4b8a13bdc85e8fb
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048546"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42061408"
 ---
-# <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Gegevens verplaatsen tussen lokale bronnen en de cloud met Data Management Gateway
+# <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Gegevens verplaatsen tussen on-premises bronnen en de cloud met Data Management Gateway
 > [!NOTE]
-> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [kopiëren van gegevens tussen on-premises en in de cloud met behulp van de Data Factory](../tutorial-hybrid-copy-powershell.md).
+> Dit artikel is van toepassing op versie 1 van Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [kopiëren van gegevens tussen on-premises en in de cloud met behulp van Data Factory](../tutorial-hybrid-copy-powershell.md).
 
-Dit artikel bevat een overzicht van de gegevensintegratie tussen on-premises gegevensopslagexemplaren en cloud gegevensarchieven gebruik Data Factory. Dit is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel en andere data factory core concepten artikelen: [gegevenssets](data-factory-create-datasets.md) en [pijplijnen](data-factory-create-pipelines.md).
+Dit artikel bevat een overzicht van de integratie van gegevens tussen on-premises gegevensopslagexemplaren en cloudgegevensopslag met behulp van Data Factory. Dit is gebaseerd op de [activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) artikel en andere data factory core concepten artikelen: [gegevenssets](data-factory-create-datasets.md) en [pijplijnen](data-factory-create-pipelines.md).
 
 ## <a name="data-management-gateway"></a>Gegevensbeheergateway
-U moet de Data Management Gateway installeren op uw on-premises machine zwevend gegevens uit een on-premises gegevensopslag inschakelen. De gateway kan worden geïnstalleerd op dezelfde computer als het gegevensarchief of op een andere computer, zolang de gateway verbinding met de gegevensopslag maken kan.
+U kunt Data Management Gateway moet installeren op uw on-premises computer om in te schakelen om gegevens te verplaatsen naar/van een on-premises-gegevensarchief. De gateway kan worden geïnstalleerd op dezelfde computer als het gegevensarchief of op een andere computer, zolang de gateway verbinding met het gegevensarchief maken kan.
 
 > [!IMPORTANT]
-> Zie [Data Management Gateway](data-factory-data-management-gateway.md) voor meer informatie over Data Management Gateway. 
+> Zie [Data Management Gateway](data-factory-data-management-gateway.md) artikel voor meer informatie over Data Management Gateway. 
 
-De volgende procedure laat zien hoe een gegevensfactory maken met een pijplijn die de gegevens vanuit een on-premises verplaatst u **SQL Server** database naar een Azure blob storage. Als onderdeel van de procedure installeert en configureert u de gegevensbeheergateway op uw computer.
+De volgende procedure ziet u hoe u een data factory maken met een pijplijn die gegevens van een on-premises verplaatst **SQL Server** database naar een Azure blob-opslag. Als onderdeel van de procedure installeert en configureert u de gegevensbeheergateway op uw computer.
 
-## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>Overzicht: kopieer on-premises gegevens in de cloud
+## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>Walkthrough: on-premises gegevens kopiëren naar de cloud
 In dit scenario moet u de volgende stappen uitvoeren: 
 
 1. Een data factory maken.
 2. Maak een data management gateway. 
-3. Gekoppelde services voor de bron- en sink gegevensarchieven maken.
-4. Maak gegevenssets vertegenwoordigen de invoer-en uitvoergegevens.
+3. Maak gekoppelde services voor de bron en sink-gegevensopslag.
+4. Gegevenssets voor invoer- en -gegevens maken.
 5. Een pijplijn maakt met een kopieeractiviteit om de gegevens te verplaatsen.
 
 ## <a name="prerequisites-for-the-tutorial"></a>Vereisten voor de zelfstudie
-Voordat u deze procedure begint, hebt u de volgende vereisten:
+Voordat u deze procedure begint, moet u de volgende vereisten:
 
 * **Azure-abonnement**.  Als u geen abonnement hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie de [gratis proefversie](http://azure.microsoft.com/pricing/free-trial/) artikel voor meer informatie.
-* **Azure Storage-Account**. Gebruik van de blob storage als een **bestemming/sink** gegevens opslaan in deze zelfstudie. Als u geen Azure Storage-account hebt, raadpleegt u het artikel [Een opslagaccount maken](../../storage/common/storage-create-storage-account.md#create-a-storage-account) voor de stappen voor het maken van een account.
+* **Azure Storage-Account**. U gebruikt de blobopslag als een **doel/sink** gegevens opslaan in deze zelfstudie. Als u geen Azure Storage-account hebt, raadpleegt u het artikel [Een opslagaccount maken](../../storage/common/storage-quickstart-create-account.md) voor de stappen voor het maken van een account.
 * **SQL Server**. In deze zelfstudie gebruikt u een on-premises SQL Server-database als een **brongegevensopslag**. 
 
 ## <a name="create-data-factory"></a>Een gegevensfactory maken
-In deze stap maakt u de Azure portal gebruiken voor het maken van een Azure Data Factory-exemplaar met de naam **ADFTutorialOnPremDF**.
+In deze stap maakt u de Azure-portal gebruiken om u te maken van een Azure Data Factory-exemplaar met de naam **ADFTutorialOnPremDF**.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Klik op **maken van een resource**, klikt u op **Intelligence en analyse**, en klik op **Data Factory**.
+2. Klik op **een resource maken**, klikt u op **Intelligence en analyse**, en klikt u op **Data Factory**.
 
    ![Nieuw -> DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
-3. In de **nieuwe gegevensfactory** pagina **ADFTutorialOnPremDF** voor de naam.
+3. In de **nieuwe data factory** pagina **ADFTutorialOnPremDF** voor de naam.
 
     ![Toevoegen aan Startboard](./media/data-factory-move-data-between-onprem-and-cloud/OnPremNewDataFactoryAddToStartboard.png)
 
    > [!IMPORTANT]
-   > De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u de foutmelding: **Data factory-naam 'ADFTutorialOnPremDF' is niet beschikbaar**, wijzig de naam van de gegevensfactory (bijvoorbeeld yournameADFTutorialOnPremDF) en probeert u het opnieuw. Gebruik deze naam in plaats van ADFTutorialOnPremDF tijdens het uitvoeren van de resterende stappen in deze zelfstudie.
+   > De naam van de Azure-gegevensfactory moet wereldwijd uniek zijn. Als u de foutmelding: **Data factory name 'ADFTutorialOnPremDF' is niet beschikbaar**, wijzigt u de naam van de data factory (bijvoorbeeld yournameADFTutorialOnPremDF) en probeert u het opnieuw. Deze naam in plaats van ADFTutorialOnPremDF gebruiken tijdens het uitvoeren van de resterende stappen in deze zelfstudie.
    >
    > De naam van de gegevensfactory wordt in de toekomst mogelijk geregistreerd als **DNS**-naam en wordt daarmee ook voor iedereen zichtbaar.
    >
    >
 4. Selecteer het **Azure-abonnement** waarvoor u de gegevensfactory wilt maken.
-5. Selecteer een bestaande **resourcegroep** of maak een resourcegroep. Voor de zelfstudie maakt u een resourcegroep met de naam: **ADFTutorialResourceGroup**.
-6. Klik op **maken** op de **nieuwe gegevensfactory** pagina.
+5. Selecteer een bestaande **resourcegroep** of maak een resourcegroep. Voor deze zelfstudie maakt u een resourcegroep met de naam: **ADFTutorialResourceGroup**.
+6. Klik op **maken** op de **nieuwe data factory** pagina.
 
    > [!IMPORTANT]
    > Als u Data Factory-exemplaren wilt maken, moet u lid zijn van de rol [Inzender Data Factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) op abonnements-/resourcegroepsniveau.
    >
    >
-7. Nadat het maken voltooid is, ziet u de **Data Factory** pagina zoals in de volgende afbeelding:
+7. Wanneer het aanmaken is voltooid, ziet u de **Data Factory** pagina zoals in de volgende afbeelding:
 
    ![Data Factory-startpagina](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
 
 ## <a name="create-gateway"></a>Gateway maken
-1. In de **Data Factory** pagina, klikt u op **auteur en implementeren van** tegel starten de **Editor** voor de data factory.
+1. In de **Data Factory** pagina, klikt u op **auteur en implementeer** tegel om te starten de **Editor** voor de data factory.
 
     ![Tegel Ontwerpen en implementeren](./media/data-factory-move-data-between-onprem-and-cloud/author-deploy-tile.png)
-2. In de Data Factory-Editor, klikt u op **... Meer** op de werkbalk en klikt u vervolgens op **nieuwe gegevensgateway**. U kunt ook u kunt met de rechtermuisknop op **gegevensgateways** in de structuurweergave en klik op **nieuwe gegevensgateway**.
+2. In de Data Factory-Editor, klikt u op **... Meer** op de werkbalk en klik vervolgens op **nieuwe gegevensgateway**. U kunt ook u kunt met de rechtermuisknop op **gegevensgateways** in de structuurweergave wordt weergegeven, en klik op **nieuwe gegevensgateway**.
 
-   ![Nieuwe gegevensgateway op werkbalk](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)
-3. In de **maken** pagina **adftutorialgateway** voor de **naam**, en klik op **OK**.     
+   ![Nieuwe gegevensgateway op de werkbalk](./media/data-factory-move-data-between-onprem-and-cloud/NewDataGateway.png)
+3. In de **maken** pagina **adftutorialgateway** voor de **naam**, en klikt u op **OK**.     
 
-    ![Pagina Gateway maken](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
+    ![Gateway-pagina maken](./media/data-factory-move-data-between-onprem-and-cloud/OnPremCreateGatewayBlade.png)
 
     > [!NOTE]
-    > In dit scenario maakt u de logische gateway met slechts één knooppunt (lokale Windows-machine). U kunt een data management gateway uitbreiden door meerdere lokale computers koppelen aan de gateway. U kunt schalen omhoog door het aantal data movement taken die kunnen tegelijkertijd worden uitgevoerd op een knooppunt te verhogen. Deze functie is ook beschikbaar voor een logische gateway met één knooppunt. Zie [schaal data management gateway in Azure Data Factory](data-factory-data-management-gateway-high-availability-scalability.md) artikel voor meer informatie.  
-4. In de **configureren** pagina, klikt u op **rechtstreeks op deze computer installeren**. Deze actie downloadt van het installatiepakket voor de gateway, wordt geïnstalleerd, configureert en registreert de gateway op de computer.  
+    > In dit scenario maakt u de logische-gateway met slechts één knooppunt (on-premises Windows-computer). U kunt een data management gateway uitschalen door meerdere on-premises computers koppelen aan de gateway. U kunt de schaal omhoog door het aantal gegevens verkeer taken die gelijktijdig kunnen worden uitgevoerd op een knooppunt. Deze functie is ook beschikbaar voor een logische gateway met een enkel knooppunt. Zie [gegevensbeheergateway schalen in Azure Data Factory](data-factory-data-management-gateway-high-availability-scalability.md) artikel voor meer informatie.  
+4. In de **configureren** pagina, klikt u op **rechtstreeks op deze computer installeren**. Deze actie wordt gedownload van het installatiepakket voor de gateway, wordt geïnstalleerd, configureert en registreert de gateway op de computer.  
 
    > [!NOTE]
-   > Internet Explorer of een webbrowser die Microsoft ClickOnce compatibel gebruiken.
+   > Internet Explorer of een met Microsoft ClickOnce compatibele webbrowser gebruiken.
    >
    > Als u met Chrome werkt, gaat u naar de [Chrome Web Store](https://chrome.google.com/webstore/), zoekt u op het trefwoord 'ClickOnce', en kiest en installeert u een van de ClickOnce-extensies.
    >
-   > Doe hetzelfde voor Firefox (install-invoegtoepassing). Klik op **Menu openen** op de werkbalk (**drie horizontale lijnen** in de rechterbovenhoek), klikt u op **invoegtoepassingen**, zoeken met het sleutelwoord 'ClickOnce', kies een van de ClickOnce-extensies en te installeren.    
+   > Doe hetzelfde voor Firefox (Installeer de invoegtoepassing). Klik op **Menu openen** op de werkbalk (**drie horizontale lijnen** in de rechterbovenhoek), klikt u op **invoegtoepassingen**, zoekt u met een trefwoord 'ClickOnce', kies een van de ClickOnce-extensies en installeer deze.    
    >
    >
 
     ![Gateway - pagina configureren](./media/data-factory-move-data-between-onprem-and-cloud/OnPremGatewayConfigureBlade.png)
 
-    Op deze manier is de eenvoudigste manier (met één muisklik) te downloaden, installeren, configureren en registreren van de gateway in één enkele stap. U ziet de **Microsoft Data Management Gateway Configuration Manager** toepassing op uw computer is geïnstalleerd. U kunt ook het uitvoerbare bestand vinden **ConfigManager.exe** in de map: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**.
+    Op deze manier is de eenvoudigste manier (met één muisklik) te downloaden, installeren, configureren en registreren van de gateway in één één stap. U ziet de **Microsoft Data Management Gateway Configuratiebeheer** toepassing is geïnstalleerd op uw computer. U kunt ook het uitvoerbare bestand vinden **ConfigManager.exe** in de map: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**.
 
-    U kunt ook downloaden en gateway handmatig installeren met behulp van de koppelingen op deze pagina en registreren met behulp van de sleutel die wordt weergegeven in de **nieuwe sleutel** in het tekstvak.
+    U kunt ook downloaden en installeren van de gateway handmatig via de koppelingen op deze pagina en registreren met behulp van de sleutel die wordt weergegeven in de **nieuwe sleutel** in het tekstvak.
 
-    Zie [Data Management Gateway](data-factory-data-management-gateway.md) artikel voor de details over de gateway.
+    Zie [Data Management Gateway](data-factory-data-management-gateway.md) artikel voor meer informatie over de gateway.
 
    > [!NOTE]
-   > U moet een beheerder op de lokale computer installeren en configureren van de Data Management Gateway is. U kunt extra gebruikers toevoegen aan de **Data Management Gateway-gebruikers** lokale Windows-groep. De leden van deze groep kunnen het Data Management Gateway Configuration Manager-hulpprogramma gebruiken om de gateway te configureren.
+   > U moet een beheerder op de lokale computer installeren en configureren van de Data Management Gateway is. U kunt extra gebruikers toevoegen aan de **Data Management Gateway-gebruikers** lokale Windows-groep. De leden van deze groep kunnen het hulpprogramma Data Management Gateway Configuration Manager gebruiken om de gateway te configureren.
    >
    >
-5. Wacht een paar minuten of wacht tot u de volgende melding:
+5. Wacht een paar minuten of wacht totdat u de volgende melding ziet:
 
-    ![Gateway-installatie is geslaagd](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png)
-6. Start **Data Management Gateway Configuration Manager** toepassing op uw computer. In de **Search** venster, type **Data Management Gateway** voor toegang tot dit hulpprogramma. U kunt ook het uitvoerbare bestand vinden **ConfigManager.exe** in de map: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
+    ![Gatewayinstallatie is geslaagd](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png)
+6. Start **Data Management Gateway Configuratiebeheer** toepassingen op uw computer. In de **zoeken** venster, type **Data Management Gateway** voor toegang tot dit hulpprogramma. U kunt ook het uitvoerbare bestand vinden **ConfigManager.exe** in de map: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
 
-    ![Gateway-Configuratiebeheer](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
-7. Controleer of u `adftutorialgateway is connected to the cloud service` bericht. De statusbalk in het onderste worden **verbonden met de cloudservice** samen met een **groen vinkje**.
+    ![Gateway Configuration Manager](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
+7. Controleer of `adftutorialgateway is connected to the cloud service` bericht. De statusbalk weergegeven als de onderste **verbonden met de cloudservice** samen met een **groen vinkje**.
 
     Op de **Start** tabblad kunt u ook de volgende bewerkingen uitvoeren:
 
-   * **Registreren** een gateway met een sleutel van de Azure-portal met behulp van de knop registreren.
-   * **Stop** de Data Management Gateway Host Service uitgevoerd op uw computer met de gateway.
+   * **Registreren** een gateway met een sleutel vanuit de Azure-portal met behulp van de knop registreren klikt.
+   * **Stop** de Data Management Gateway Host-Service die wordt uitgevoerd op de gatewaycomputer.
    * **Updates plannen** moet worden geïnstalleerd op een bepaald tijdstip van de dag.
-   * Wanneer de gateway is **laatst bijgewerkt**.
+   * Weergeven als de gateway is **laatst bijgewerkt**.
    * Geef de tijd waarop een update voor de gateway kan worden geïnstalleerd.
-8. Schakel over naar het tabblad **Instellingen**. Het certificaat dat is opgegeven in de **certificaat** worden gebruikt om de referenties voor het lokale gegevensarchief die u in de portal opgeeft versleutelen/ontsleutelen. (optioneel) Klik op **wijziging** voor gebruik in plaats hiervan uw eigen certificaat. De gateway maakt standaard gebruik van het certificaat dat automatisch wordt gegenereerd door de Data Factory-service.
+8. Schakel over naar het tabblad **Instellingen**. Het certificaat dat is opgegeven in de **certificaat** worden gebruikt om de referenties voor de on-premises gegevensopslag die u opgeeft op de portal voor versleutelen/ontsleutelen. (optioneel) Klik op **wijziging** in plaats daarvan uw eigen certificaat gebruiken. De gateway gebruikt standaard het certificaat dat automatisch wordt gegenereerd door de Data Factory-service.
 
     ![De configuratie van de gateway-certificaat](./media/data-factory-move-data-between-onprem-and-cloud/gateway-certificate.png)
 
     U kunt ook de volgende acties uitvoeren op de **instellingen** tabblad:
 
    * Weergeven of Exporteer het certificaat wordt gebruikt door de gateway.
-   * Wijzig de HTTPS-eindpunt dat is gebruikt door de gateway.    
+   * Wijzig het HTTPS-eindpunt door de gateway gebruikt.    
    * Stel een HTTP-proxy moet worden gebruikt door de gateway.     
-9. (optioneel) Overschakelen naar de **Diagnostics** tabblad, Controleer de **uitgebreide logboekregistratie inschakelen** optie als u uitgebreide logboekregistratie die u gebruiken kunt voor het oplossen van problemen met de gateway in te schakelen. Gegevens in het logboek vindt u in **logboeken** onder **logboeken toepassingen en Services** -> **Data Management Gateway** knooppunt.
+9. (optioneel) Schakel over naar de **Diagnostics** tabblad en controleer de **uitgebreide logboekregistratie inschakelen** optie als u inschakelen, uitgebreide logboekregistratie die u gebruiken wilt kunt voor het oplossen van problemen met de gateway. Gegevens in het logboek kan worden gevonden **logboeken** onder **logboeken toepassingen en Services** -> **Data Management Gateway** knooppunt.
 
     ![Tabblad Diagnostische gegevens](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
     U kunt ook uitvoeren met de volgende acties in de **Diagnostics** tabblad:
 
-   * Gebruik **testverbinding** sectie met een lokale gegevensbron met behulp van de gateway.
-   * Klik op **logboeken bekijken** om te zien van het logboek Data Management Gateway in een venster Logboeken.
-   * Klik op **logboeken verzenden** met Logboeken van de afgelopen zeven dagen een zip-bestand uploaden naar Microsoft te vergemakkelijken oplossen van problemen met uw.
-10. Op de **Diagnostics** tabblad, in de **testverbinding** sectie **SqlServer** voor het type van het gegevensarchief, voer de naam van de databaseserver, de naam van de database verificatietype opgeven, gebruikersnaam en wachtwoord invoeren en op **testen** om te controleren of de gateway verbinding met de database maken kan.
-11. Ga naar de webbrowser en in de **Azure-portal**, klikt u op **OK** op de **configureren** pagina en klik vervolgens op de **nieuwe gegevensgateway** pagina.
-12. U ziet **adftutorialgateway** onder **gegevensgateways** in de structuurweergave links.  Als u erop klikt, ziet u de bijbehorende JSON.
+   * Gebruik **testverbinding** sectie met een on-premises gegevensbron met behulp van de gateway.
+   * Klik op **logboeken weergeven** om te zien van het logboek Data Management Gateway in een venster Logboeken.
+   * Klik op **logboeken verzenden** naar een zip-bestand met de logboeken van de afgelopen zeven dagen geüpload naar Microsoft om het oplossen van problemen met uw vergemakkelijken.
+10. Op de **Diagnostics** tabblad, in de **testverbinding** sectie, selecteer **SqlServer** voor het type van het gegevensarchief, voer de naam van de database-server, de naam van de database. Geef het verificatietype, gebruikersnaam en wachtwoord invoeren en op **testen** om te testen of de gateway verbinding met de database maken kan.
+11. Ga naar de webbrowser, en in de **Azure-portal**, klikt u op **OK** op de **configureren** pagina en klik vervolgens op de **nieuwe gegevensgateway** pagina.
+12. U ziet **adftutorialgateway** onder **gegevensgateways** in de structuurweergave aan de linkerkant.  Als u erop klikt, ziet u de bijbehorende JSON.
 
 ## <a name="create-linked-services"></a>Gekoppelde services maken
-In deze stap maakt u twee gekoppelde services: **AzureStorageLinkedService** en **SqlServerLinkedService**. De **SqlServerLinkedService** koppelingen van een lokale SQL Server-database en de **AzureStorageLinkedService** gekoppelde service een Azure blob-archief is gekoppeld aan de gegevensfactory. U maakt een pijplijn verderop in dit scenario waarmee gegevens worden gekopieerd van de lokale SQL Server-database naar de Azure blob-store.
+In deze stap maakt u twee gekoppelde services maken: **AzureStorageLinkedService** en **SqlServerLinkedService**. De **SqlServerLinkedService** wordt een on-premises SQL Server-database en de **AzureStorageLinkedService** gekoppelde service is een Azure blob-opslag gekoppeld aan de data factory. Maakt u een pijplijn verderop in dit scenario waarmee gegevens uit de on-premises SQL Server-database gekopieerd naar de Azure blob-archief.
 
-#### <a name="add-a-linked-service-to-an-on-premises-sql-server-database"></a>Een gekoppelde service toevoegen aan een lokale SQL Server-database.
-1. In de **Data Factory-Editor**, klikt u op **nieuwe gegevensopslag** op de werkbalk en selecteer **SQL Server**.
+#### <a name="add-a-linked-service-to-an-on-premises-sql-server-database"></a>Een gekoppelde service toevoegen aan een on-premises SQL Server-database
+1. In de **Data Factory-Editor**, klikt u op **nieuw gegevensarchief** op de werkbalk en selecteer **SQL Server**.
 
-   ![Nieuwe SQL-Server gekoppeld-service](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
-2. In de **JSON-editor** aan de rechterkant, komen de volgende stappen uit:
+   ![Nieuwe gekoppelde SQL Server-service](./media/data-factory-move-data-between-onprem-and-cloud/NewSQLServer.png)
+2. In de **JSON-editor** aan de rechterkant, voer de volgende stappen uit:
 
    1. Voor de **gatewayName**, geef **adftutorialgateway**.    
-   2. In de **connectionString**, moet u de volgende stappen uitvoeren:    
+   2. In de **connectionString**, de volgende stappen uit:    
 
       1. Voor **servername**, voer de naam van de server die als host fungeert voor de SQL Server-database.
       2. Voor **databasename**, voer de naam van de database.
-      3. Klik op **versleutelen** op de werkbalk. Ziet u de toepassing Referentiebeheer.
+      3. Klik op **versleutelen** op de werkbalk. U ziet dat de toepassing Referentiebeheer.
 
          ![Referenties Manager-toepassing](./media/data-factory-move-data-between-onprem-and-cloud/credentials-manager-application.png)
-      4. In de **instelling referenties** in het dialoogvenster verificatietype, gebruikersnaam en wachtwoord opgeven en klik op **OK**. Als de verbinding geslaagd is, de versleutelde referenties worden opgeslagen in de JSON en het dialoogvenster wordt gesloten.
-      5. Het tabblad leeg browser dat in het dialoogvenster gestart als deze optie wordt niet automatisch gesloten sluiten en terug te gaan naar het tabblad met de Azure-portal.
+      4. In de **instelling referenties** in het dialoogvenster, verificatietype, gebruikersnaam en wachtwoord opgeven en op **OK**. Als de verbinding geslaagd is, wordt de versleutelde referenties worden opgeslagen in de JSON en wordt het dialoogvenster wordt gesloten.
+      5. Sluit het lege browsertabblad die in het dialoogvenster gestart als deze niet automatisch wordt gesloten en teruggaan naar het tabblad met de Azure-portal.
 
-         Op de gatewaycomputer deze referenties zijn **versleutelde** met behulp van een Data Factory-service-certificaat. Als u wilt het certificaat dat is gekoppeld aan de Data Management Gateway in plaats daarvan gebruiken, raadpleegt u [referenties veilig instellen](#set-credentials-and-security).    
-   3. Klik op **implementeren** gekoppelde service op de opdrachtbalk voor het implementeren van de SQL-Server. Hier ziet u de gekoppelde service in de structuurweergave.
+         Op de gatewaycomputer deze referenties worden **versleutelde** met behulp van een certificaat dat is eigenaar van de Data Factory-service. Als u wilt gebruiken van het certificaat dat is gekoppeld aan de Data Management Gateway in plaats daarvan, raadpleegt u [referenties veilig instellen](#set-credentials-and-security).    
+   3. Klik op **implementeren** gekoppelde service op de opdrachtbalk aan de SQL-Server implementeren. Hier ziet u de gekoppelde service in de structuurweergave wordt weergegeven.
 
-      ![De service SQL Server is gekoppeld in de structuurweergave](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    
+      ![Gekoppelde SQL Server-service in de structuurweergave wordt weergegeven](./media/data-factory-move-data-between-onprem-and-cloud/sql-linked-service-in-tree-view.png)    
 
-#### <a name="add-a-linked-service-for-an-azure-storage-account"></a>Een gekoppelde service voor een Azure storage-account toevoegen
-1. In de **Data Factory-Editor**, klikt u op **nieuwe gegevensopslag** op de opdrachtbalk klikken en op **Azure storage**.
+#### <a name="add-a-linked-service-for-an-azure-storage-account"></a>Een gekoppelde service voor Azure storage-account toevoegen
+1. In de **Data Factory-Editor**, klikt u op **nieuw gegevensarchief** op de opdrachtbalk en klik op **Azure storage**.
 2. Voer de naam van uw Azure storage-account voor de **accountnaam**.
 3. Voer de sleutel voor uw Azure storage-account voor de **accountsleutel**.
-4. Klik op **implementeren** voor het implementeren van de **AzureStorageLinkedService**.
+4. Klik op **implementeren** implementeren de **AzureStorageLinkedService**.
 
 ## <a name="create-datasets"></a>Gegevenssets maken
 In deze stap maakt u invoer- en uitvoergegevenssets die invoer- en uitvoergegevenssets voor de kopieerbewerking vertegenwoordigen (on-premises SQL Server-database => Azure Blob-opslag). Voordat u de gegevenssets maakt, voert u de volgende stappen uit (gedetailleerde stappen vindt u na de lijst):
@@ -212,7 +212,7 @@ In deze stap maakt u invoer- en uitvoergegevenssets die invoer- en uitvoergegeve
 
 ### <a name="create-input-dataset"></a>Invoergegevensset maken
 
-1. Klik in de **Data Factory-editor** op **... Meer**, klikt u op **nieuwe gegevensset** op de opdrachtbalk klikken en op **SQL Server-tabel**.
+1. Klik in de **Data Factory-editor** op **... Meer**, klikt u op **nieuwe gegevensset** op de opdrachtbalk en klik op **SQL Server-tabel**.
 2. Vervang de JSON in het rechterdeelvenster met de volgende tekst:
 
     ```JSON   
@@ -244,14 +244,14 @@ In deze stap maakt u invoer- en uitvoergegevenssets die invoer- en uitvoergegeve
    * **type** is ingesteld op **SqlServerTable**.
    * **tableName** is ingesteld op **emp**.
    * **linkedServiceName** is ingesteld op **SqlServerLinkedService** (u hebt deze gekoppelde service gemaakt eerder in dit scenario.).
-   * Voor een invoergegevensset die niet worden gegenereerd door een andere pijplijn in Azure Data Factory, moet u instellen **externe** naar **true**. Hiermee wordt aangegeven dat de invoergegevens buiten de Azure Data Factory-service wordt geproduceerd. U kunt optioneel opgeven de beleidsregels van elke externe gegevens met behulp van de **externalData** -element in de **beleid** sectie.    
+   * Voor een invoergegevensset die niet worden gegenereerd door een andere pijplijn in Azure Data Factory, moet u instellen **externe** naar **waar**. Deze geeft aan dat de ingevoerde gegevens buiten de Azure Data Factory-service wordt geproduceerd. U kunt optioneel een externe gegevens beleidsregels met behulp van opgeven de **externalData** -element in de **beleid** sectie.    
 
-   Zie [gegevens verplaatsen naar/van de SQL Server](data-factory-sqlserver-connector.md) voor meer informatie over de JSON-eigenschappen.
+   Zie [gegevens verplaatsen naar/van SQL Server](data-factory-sqlserver-connector.md) voor meer informatie over JSON-eigenschappen.
 3. Klik op **implementeren** op de opdrachtbalk om de gegevensset te implementeren.  
 
 ### <a name="create-output-dataset"></a>Uitvoergegevensset maken
 
-1. In de **Data Factory-Editor**, klikt u op **nieuwe gegevensset** op de opdrachtbalk klikken en op **Azure Blob storage**.
+1. In de **Data Factory-Editor**, klikt u op **nieuwe gegevensset** op de opdrachtbalk en klik op **Azure Blob-opslag**.
 2. Vervang de JSON in het rechterdeelvenster met de volgende tekst:
 
     ```JSON   
@@ -279,11 +279,11 @@ In deze stap maakt u invoer- en uitvoergegevenssets die invoer- en uitvoergegeve
    * **type** is ingesteld op **AzureBlob**.
    * **linkedServiceName** is ingesteld op **AzureStorageLinkedService** (u hebt deze gekoppelde service gemaakt in stap 2).
    * **folderPath** is ingesteld op **adftutorial/outfromonpremdf** waar outfromonpremdf is de map in de container adftutorial. Maak de **adftutorial** container als deze niet al bestaat.
-   * De **beschikbaarheid** wordt ingesteld op **elk uur** (de **frequentie** wordt ingesteld op **elk uur** en het **interval** wordt ingesteld op **1**).  De Data Factory-service een gegevenssegment uitvoer genereert elk uur in de **emp** tabel in de Azure SQL Database.
+   * De **beschikbaarheid** wordt ingesteld op **elk uur** (de **frequentie** wordt ingesteld op **elk uur** en het **interval** wordt ingesteld op **1**).  De Data Factory-service genereert een uitvoergegevenssegment elk uur in de **emp** tabel in de Azure SQL Database.
 
    Als u geen opgeeft een **fileName** voor een **uitvoertabel**, de bestanden in die worden gegenereerd de **folderPath** zijn met de naam in de volgende indeling: Data.<Guid>. txt (bijvoorbeeld:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
 
-   Om in te stellen **folderPath** en **fileName** dynamisch op basis van de **SliceStart** tijd, gebruikt u de eigenschap partitionedBy. In het volgende voorbeeld worden voor folderPath Year, Month en Day gebruikt van de SliceStart-waarde (tijd waarop is begonnen met het verwerken van het segment). Voor fileName wordt gebruikgemaakt van Hour van de SliceStart-waarde. Als er bijvoorbeeld een segment wordt geproduceerd voor 2014-10-20T08:00:00, wordt folderName ingesteld op wikidatagateway/wikisampledataout/2014/10/20 en wordt fileName ingesteld op 08.csv.
+   Om in te stellen **folderPath** en **fileName** dynamisch op basis van de **SliceStart** tijd, de eigenschap partitionedBy gebruikt. In het volgende voorbeeld worden voor folderPath Year, Month en Day gebruikt van de SliceStart-waarde (tijd waarop is begonnen met het verwerken van het segment). Voor fileName wordt gebruikgemaakt van Hour van de SliceStart-waarde. Als er bijvoorbeeld een segment wordt geproduceerd voor 2014-10-20T08:00:00, wordt folderName ingesteld op wikidatagateway/wikisampledataout/2014/10/20 en wordt fileName ingesteld op 08.csv.
 
     ```JSON
     "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
@@ -298,13 +298,13 @@ In deze stap maakt u invoer- en uitvoergegevenssets die invoer- en uitvoergegeve
     ],
     ```
 
-    Zie [gegevens verplaatsen naar/van Azure Blob Storage](data-factory-azure-blob-connector.md) voor meer informatie over de JSON-eigenschappen.
-3. Klik op **implementeren** op de opdrachtbalk om de gegevensset te implementeren. Controleer of u zowel de gegevenssets in de structuurweergave.  
+    Zie [gegevens verplaatsen naar/van Azure Blob Storage](data-factory-azure-blob-connector.md) voor meer informatie over JSON-eigenschappen.
+3. Klik op **implementeren** op de opdrachtbalk om de gegevensset te implementeren. Bevestig dat u ziet dat zowel de gegevenssets in de structuurweergave wordt weergegeven.  
 
 ## <a name="create-pipeline"></a>Pijplijn maken
-In deze stap maakt u een **pijplijn** met een **Kopieeractiviteit** die gebruikmaakt van **EmpOnPremSQLTable** als invoer en **OutputBlobTable** als uitvoer.
+In deze stap maakt u een **pijplijn** met een **Kopieeractiviteit** die gebruikmaakt van **EmpOnPremSQLTable** als invoer en **OutputBlobTable** als de uitvoer.
 
-1. Klik in Data Factory-Editor **... Meer** en vervolgens op **Nieuwe pijplijn**.
+1. In Data Factory-Editor, klikt u op **... Meer** en vervolgens op **Nieuwe pijplijn**.
 2. Vervang de JSON in het rechterdeelvenster met de volgende tekst:    
 
     ```JSON   
@@ -358,7 +358,7 @@ In deze stap maakt u een **pijplijn** met een **Kopieeractiviteit** die gebruikm
 
    Houd rekening met de volgende punten:
 
-   * In het gedeelte activiteiten is alleen activiteit waarvan **type** is ingesteld op **kopie**.
+   * In het gedeelte activiteiten is er alleen activiteit waarvan **type** is ingesteld op **kopie**.
    * **Invoer** voor de activiteit is ingesteld op **EmpOnPremSQLTable** en **uitvoer** voor de activiteit is ingesteld op **OutputBlobTable**.
    * In de **typeProperties** sectie **SqlSource** is opgegeven als de **gegevensbrontype** en ** BlobSink ** is opgegeven als de **sink-type**.
    * SQL-query `select * from emp` is opgegeven voor de **sqlReaderQuery** eigenschap van **SqlSource**.
@@ -367,51 +367,51 @@ In deze stap maakt u een **pijplijn** met een **Kopieeractiviteit** die gebruikm
 
    Als u geen waarde opgeeft voor de eigenschap **end**, wordt automatisch **start + 48 uur** gebruikt. Als u de pijplijn voor onbepaalde tijd wilt uitvoeren, geeft u **9/9/9999** op als waarde voor de eigenschap **end**.
 
-   U definieert de tijdsduur waarin de gegevenssegmenten worden verwerkt op basis van de **beschikbaarheid** eigenschappen die zijn gedefinieerd voor elke Azure Data Factory-gegevensset.
+   Definieert u de tijdsduur waarin de gegevenssegmenten worden verwerkt op basis van de **beschikbaarheid** eigenschappen die zijn gedefinieerd voor elke Azure Data Factory-gegevensset.
 
    In het bovenstaande voorbeeld zijn er 24 gegevenssegmenten omdat er elk uur één gegevenssegment wordt gemaakt.        
-3. Klik op **implementeren** op de opdrachtbalk om de gegevensset te implementeren (tabel is een rechthoekige gegevensset). Bevestig dat de pijplijn wordt weergegeven in de structuurweergave onder **pijplijnen** knooppunt.  
-4. Klik nu op **X** twee keer te sluiten van de pagina terugkeren naar de **Data Factory** pagina voor de **ADFTutorialOnPremDF**.
+3. Klik op **implementeren** op de opdrachtbalk om de gegevensset te implementeren (tabel is een rechthoekige gegevensset). Bevestig dat de pijplijn wordt weergegeven in de structuurweergave wordt weergegeven onder **pijplijnen** knooppunt.  
+4. Klik nu op **X** twee keer te sluiten van de pagina terug te gaan naar de **Data Factory** pagina voor de **ADFTutorialOnPremDF**.
 
-**Gefeliciteerd!** U hebt een Azure-gegevensfactory, gekoppelde services, gegevenssets en een pijplijn gemaakt en u hebt ingesteld voor de pijplijn.
+**Gefeliciteerd!** U hebt een Azure data factory, gekoppelde services, gegevenssets en een pijplijn gemaakt en de pijplijn gepland.
 
 #### <a name="view-the-data-factory-in-a-diagram-view"></a>De gegevensfactory weergeven in een diagramweergave
-1. In de **Azure-portal**, klikt u op **Diagram** tegel op de startpagina van de **ADFTutorialOnPremDF** gegevensfactory. :
+1. In de **Azure-portal**, klikt u op **Diagram** tegel op de startpagina van de **ADFTutorialOnPremDF** data factory. :
 
-    ![Diagram koppeling](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
+    ![Diagram van koppeling](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
 2. U ziet een diagram dat lijkt op de volgende afbeelding:
 
     ![Diagramweergave](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramView.png)
 
-    U kunt inzoomen, uitzoomen, zoomen naar 100%, zoomen past, automatisch plaats pijplijnen en gegevenssets en afkomst weergeven (upstream- en downstreamitems van items worden gemarkeerd geselecteerde).  U kunt dubbelklikken op een object (invoer/uitvoer gegevensset of pijplijn) Controleer de eigenschappen voor.
+    U kunt inzoomen, uitzoomen, zoomen naar 100%, zoomen past, automatisch plaats pijplijnen en gegevenssets en afkomst weergeven (upstream- en downstreamitems van items worden gemarkeerd geselecteerde).  U kunt dubbelklikken op een object (invoer/uitvoer-gegevensset of pijplijn) eigenschappen om ervan te bekijken.
 
 ## <a name="monitor-pipeline"></a>De pijplijn bewaken
-In deze stap gebruikt u Azure Portal om te controleren wat er gebeurt in een Azure data factory. U kunt ook PowerShell-cmdlets gebruiken om gegevenssets en pijplijnen te bewaken. Zie voor meer informatie over het bewaken van [pijplijnen bewaken en beheren](data-factory-monitor-manage-pipelines.md).
+In deze stap gebruikt u Azure Portal om te controleren wat er gebeurt in een Azure data factory. U kunt ook PowerShell-cmdlets gebruiken om gegevenssets en pijplijnen te bewaken. Zie voor meer informatie over het controleren van [pijplijnen bewaken en beheren](data-factory-monitor-manage-pipelines.md).
 
 1. Dubbelklik in het diagram op **EmpOnPremSQLTable**.  
 
     ![EmpOnPremSQLTable segmenten](./media/data-factory-move-data-between-onprem-and-cloud/OnPremSQLTableSlicesBlade.png)
-2. U ziet dat de gegevenssegmenten up allemaal **gereed** status omdat de pipeline-duur (tijd met de eindtijd) in het verleden. Het is ook omdat u de gegevens in de SQL Server-database hebt geplaatst en er voortdurend. Bevestig dat er geen segmenten weergegeven in de **probleemsegmenten** sectie onderaan. Als u wilt weergeven van alle segmenten **meer** onder aan de lijst met segmenten.
+2. U ziet dat alle gegevens van segmenten **gereed** status omdat de duur van de pijplijn (tijd tot eindtijd) in het verleden. Het is ook omdat u de gegevens in de SQL Server-database hebt geplaatst en er voortdurend. Bevestig dat er geen segmenten weergegeven in de **probleemsegmenten** sectie aan de onderkant. Klik op om alle segmenten **meer** onder aan de lijst met segmenten.
 3. Nu In de **gegevenssets** pagina, klikt u op **OutputBlobTable**.
 
     ![OputputBlobTable segmenten](./media/data-factory-move-data-between-onprem-and-cloud/OutputBlobTableSlicesBlade.png)
-4. Klik op een gegevenssegment uit de lijst en u ziet de **gegevenssegment** pagina. U ziet dat de activiteit voor het segment wordt uitgevoerd. Er is slechts één activiteit die meestal worden uitgevoerd.  
+4. Klik op een gegevenssegment uit de lijst en u ziet de **gegevenssegment** pagina. U ziet uitvoeringen van activiteit voor het segment. Ziet u slechts één activiteit meestal worden uitgevoerd.  
 
     ![Blade gegevenssegment](./media/data-factory-move-data-between-onprem-and-cloud/DataSlice.png)
 
     Als het segment niet de status **Gereed** heeft, kunt u de upstreamsegmenten bekijken die niet de status Gereed hebben en die voorkomen dat de huidige status wordt uitgevoerd. U ziet deze segmenten in de lijst **Upstreamsegmenten die niet gereed zijn**.
-5. Klik op de **activiteit die wordt uitgevoerd** uit de lijst onderaan om te zien **details uitvoering van activiteit**.
+5. Klik op de **uitvoering van activiteit** in de lijst onderaan om te zien **details uitvoering van activiteit**.
 
-   ![De pagina Details uitvoering van activiteit](./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png)
+   ![Pagina met Details uitvoering van activiteiten](./media/data-factory-move-data-between-onprem-and-cloud/ActivityRunDetailsBlade.png)
 
-   Hier ziet u informatie zoals de doorvoer, de duur en de gateway die wordt gebruikt voor de gegevensoverdracht.
+   Hier ziet u informatie zoals de doorvoer, de duur en de gateway gebruikt de gegevens over te dragen.
 6. Klik op **X** alle pagina's totdat u sluiten
 7. teruggaan naar de startpagina van de **ADFTutorialOnPremDF**.
 8. (optioneel) Klik op **pijplijnen**, klikt u op **ADFTutorialOnPremDF**, en detailanalyse van invoertabellen (**verbruikt**) of uitvoergegevenssets (**geproduceerde**).
-9. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) om te controleren of een blob of het bestand is gemaakt voor elk uur.
+9. Gebruik hulpprogramma's zoals [Microsoft Opslagverkenner](http://storageexplorer.com/) om te controleren of een blob/bestand is gemaakt voor elk uur.
 
    ![Azure Opslagverkenner](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie [Data Management Gateway](data-factory-data-management-gateway.md) artikel voor de details over de Data Management Gateway.
-* Zie [gegevens kopiëren van Azure-Blob naar Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor meer informatie over het gebruik van de Kopieeractiviteit om gegevens te verplaatsen van een brongegevensarchief naar een gegevensopslag sink.
+* Zie [Data Management Gateway](data-factory-data-management-gateway.md) artikel voor meer informatie over de Data Management Gateway.
+* Zie [gegevens kopiëren van Azure-Blob naar Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) voor meer informatie over het gebruik van Kopieeractiviteit om gegevens te verplaatsen van een brongegevensarchief naar een sink-gegevensopslag.

@@ -1,9 +1,9 @@
 ---
-title: VM-schijven in Azure-Stack beheren | Microsoft Docs
-description: Schijven voor virtuele machines in Azure-Stack inrichten.
+title: Beheren van VM-schijven in Azure Stack | Microsoft Docs
+description: Schijven voor virtuele machines in Azure Stack inricht.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: mattbriggs
 manager: femila
 editor: ''
 ms.assetid: 4e5833cf-4790-4146-82d6-737975fb06ba
@@ -12,126 +12,126 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/11/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: 6364c0bec8437ba0dfa195c6532b26ec506a2e90
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.openlocfilehash: fc17ce0ebd13fb7e89405fcf4d6633551f340a27
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34807428"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139756"
 ---
-# <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>De schijfopslag virtuele machine in Azure-Stack inrichten
+# <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Inrichten van virtuele machine disk-opslag in Azure Stack
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-In dit artikel wordt beschreven hoe om in te richten schijfopslag van de virtuele machine met behulp van de Stack van Azure-portal of met behulp van PowerShell.
+Dit artikel wordt beschreven hoe u om in te richten schijfopslag voor virtuele machine met behulp van de Azure Stack-portal of met behulp van PowerShell.
 
 ## <a name="overview"></a>Overzicht
 
-Ondersteunt het gebruik van Azure Stack [zonder begeleiding schijven](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) op virtuele machines, als een besturingssysteem (OS) en een gegevensschijf.
+Ondersteunt het gebruik van Azure Stack [niet-beheerde schijven](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) op virtuele machines, als zowel een besturingssysteem (OS) en een gegevensschijf.
 
-Voor het gebruik van niet-beheerde schijven die u maakt een [opslagaccount](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) voor het opslaan van de schijven. De schijven die u maakt, VM-schijven genoemd en worden opgeslagen in containers in het opslagaccount.
+Voor het gebruik van niet-beheerde schijven die u maakt een [opslagaccount](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) voor het opslaan van de schijven. De schijven die u hebt gemaakt, worden aangeduid als VM-schijven en worden opgeslagen in containers in het opslagaccount.
 
 ### <a name="best-practice-guidelines"></a>Richtlijnen voor aanbevolen procedures
 
-Om de prestaties verbeteren en de algehele kosten te verlagen, wordt u aangeraden dat u elke schijf VM plaatsen in een afzonderlijke container. Een container moet een besturingssysteemschijf of een gegevensschijf maar niet beide op hetzelfde moment bevatten. (Maar er is niets om te voorkomen dat u beide soorten schijf plaatsen in dezelfde container.)
+Als u wilt de prestaties verbeteren en de totale kosten te verlagen, wordt u aangeraden dat u elke VM-schijf in een afzonderlijke container plaatsen. Een container moet bevatten een besturingssysteemschijf of een gegevensschijf, maar niet beide op hetzelfde moment. (Er is echter niets om te voorkomen dat u beide soorten schijf plaatsen in dezelfde container.)
 
-Als u een of meer gegevensschijven aan een VM toevoegt, extra containers gebruiken als locatie voor het opslaan van deze schijven. De besturingssysteemschijf voor extra virtuele machines moet zich in hun eigen containers.
+Als u een of meer gegevensschijven aan een virtuele machine toevoegen, gebruikt u aanvullende containers als locatie voor het opslaan van deze schijven. De besturingssysteemschijf voor aanvullende virtuele machines moet ook in hun eigen containers.
 
-Wanneer u meerdere virtuele machines maakt, kunt u hetzelfde opslagaccount voor elke nieuwe virtuele machine opnieuw gebruiken. Alleen de containers die u maakt moet uniek zijn.
+Wanneer u meerdere virtuele machines maakt, kunt u hetzelfde opslagaccount voor elke nieuwe virtuele machine opnieuw gebruiken. Alleen de containers die u maakt moeten uniek zijn.
 
 ### <a name="adding-new-disks"></a>Toevoegen van nieuwe schijven
 
-De volgende tabel geeft een overzicht van het toevoegen van schijven met behulp van de portal en met behulp van PowerShell.
+De volgende tabel geeft een overzicht van hoe u schijven toevoegt met behulp van de portal en met behulp van PowerShell.
 
 | Methode | Opties
 |-|-|
-|[Gebruikersportal](#use-the-portal-to-add-additional-disks-to-a-vm)|-Nieuwe gegevensschijven toevoegen aan een bestaande virtuele machine. Nieuwe schijven worden gemaakt door de Azure-Stack. </br> </br>-Een bestaand bestand van de schijf (VHD) toevoegen aan een eerder ingerichte virtuele machine. Om dit te doen, moet u de VHD voorbereiden en vervolgens het bestand te uploaden naar Azure-Stack. |
-|[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | -Maak een nieuwe virtuele machine met een besturingssysteemschijf en op hetzelfde moment voegt u een of meer gegevensschijven aan die VM. |
+|[Gebruikersportal](#use-the-portal-to-add-additional-disks-to-a-vm)|-Nieuwe gegevensschijven toevoegen aan een bestaande virtuele machine. Nieuwe schijven worden gemaakt door Azure Stack. </br> </br>-Een bestaande schijf (VHD)-bestand toevoegen aan een eerder ingerichte virtuele machine. Om dit te doen, moet u de VHD voorbereiden en vervolgens het bestand uploaden naar Azure Stack. |
+|[PowerShell](#use-powershell-to-add-multiple-unmanaged-disks-to-a-vm) | -Een nieuwe virtuele machine maken met een besturingssysteemschijf en op hetzelfde moment een of meer gegevensschijven aan die virtuele machine toevoegen. |
 
 ## <a name="use-the-portal-to-add-disks-to-a-vm"></a>Gebruik de portal schijven toevoegen aan een virtuele machine
 
-Wanneer u de portal gebruiken voor het maken van een virtuele machine voor de meeste marketplace-items, wordt standaard alleen de OS-schijf gemaakt.
+Wanneer u de portal voor het maken van een virtuele machine voor de meeste marketplace-items, wordt standaard alleen de OS-schijf gemaakt.
 
-Nadat u een virtuele machine maakt, kunt u de portal om te gebruiken:
-* Een nieuwe gegevensschijf maken en deze te koppelen aan de virtuele machine.
-* Een bestaande gegevensschijf uploaden en deze te koppelen aan de virtuele machine.
+Nadat u een virtuele machine hebt gemaakt, kunt u de portal om te gebruiken:
+* Maak een nieuwe gegevensschijf en deze koppelen aan de virtuele machine.
+* Een schijf met bestaande gegevens uploaden en deze koppelen aan de virtuele machine.
 
 Elke niet-beheerde schijf die u toevoegt, moet in een afzonderlijke container worden geplaatst.
 
 >[!NOTE]
->Schijven gemaakt en beheerd door Azure worden genoemd [schijven die worden beheerd](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
+>Schijven gemaakt en beheerd door Azure worden aangeroepen [beheerde schijven](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview).
 
-### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>Met de portal kunt maken en een nieuwe gegevensschijf koppelen
+### <a name="use-the-portal-to-create-and-attach-a-new-data-disk"></a>De portal gebruiken om te maken en een nieuwe gegevensschijf koppelen
 
 1.  Kies in de portal **virtuele machines**.    
-    ![Voorbeeld: VM-dashboard](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+    ![Voorbeeld:-Dashboard voor VM 's](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 2.  Selecteer een virtuele machine die eerder zijn ingericht.   
-    ![Voorbeeld: Een virtuele machine in het dashboard selecteren](media/azure-stack-manage-vm-disks/select-a-vm.png)
+    ![Voorbeeld: Selecteer een virtuele machine in het dashboard](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-3.  Selecteer voor de virtuele machine, **schijven** > **Attach nieuwe**.       
+3.  Selecteer voor de virtuele machine, **schijven** > **koppelen nieuwe**.       
     ![Voorbeeld: Een nieuwe schijf koppelen aan de virtuele machine](media/azure-stack-manage-vm-disks/Attach-disks.png)    
 
-4.  In de **nieuwe schijf koppelen** deelvenster **locatie**. De locatie is standaard ingesteld op de container die schijf met het besturingssysteem bevat.      
+4.  In de **nieuwe schijf koppelen** venster **locatie**. De locatie is standaard ingesteld op de dezelfde container met de besturingssysteemschijf.      
     ![Voorbeeld: Stel de schijflocatie](media/azure-stack-manage-vm-disks/disk-location.png)
 
-5.  Selecteer de **opslagaccount** te gebruiken. Selecteer vervolgens de **Container** waar u de gegevensschijf wilt. Van de **Containers** pagina kunt u een nieuwe container maken als u wilt. Vervolgens kunt u de locatie voor de nieuwe schijf wijzigen naar een eigen container. Wanneer u een afzonderlijke container voor elke schijf gebruikt, kunt u de plaatsing van de gegevensschijf die u kunt de prestaties verbeteren distribueren. Kies **Selecteer** de selectie opslaan.     
-    ![Voorbeeld: Selecteer een container](media/azure-stack-manage-vm-disks/select-container.png)
+5.  Selecteer de **opslagaccount** te gebruiken. Selecteer vervolgens de **Container** waar u de gegevensschijf wilt. Uit de **Containers** pagina, kunt u een nieuwe container maken als u wilt. Vervolgens kunt u de locatie voor de nieuwe schijf wijzigen naar een eigen container. Wanneer u een afzonderlijke container voor elke schijf gebruikt, kunt u de plaatsing van de gegevensschijf die u kunt de prestaties verbeteren distribueren. Kies **Selecteer** om op te slaan van de selectie.     
+    ![Voorbeeld: Een container selecteren](media/azure-stack-manage-vm-disks/select-container.png)
 
-6.  In de **nieuwe schijf koppelen** pagina, werkt de **naam**, **Type**, **grootte**, en **Hostcaching** instellingen van de schijf. Selecteer vervolgens **OK** om op te slaan van de nieuwe schijfconfiguratie voor de virtuele machine.  
-    ![Voorbeeld: Volledige schijf koppelen](media/azure-stack-manage-vm-disks/complete-disk-attach.png)  
+6.  In de **nieuwe schijf koppelen** pagina, bij te werken de **naam**, **Type**, **grootte**, en **Hostcaching** instellingen van de schijf. Selecteer vervolgens **OK** om op te slaan van de configuratie van de nieuwe schijven voor de virtuele machine.  
+    ![Voorbeeld: Volledige schijf bijlage](media/azure-stack-manage-vm-disks/complete-disk-attach.png)  
 
-7.  Nadat de Azure-Stack de schijf wordt gemaakt en gekoppeld aan de virtuele machine, de nieuwe schijf wordt weergegeven in de instellingen voor de schijf van de virtuele machine onder **GEGEVENSSCHIJVEN**.   
+7.  Nadat Azure Stack de schijf wordt en gekoppeld aan de virtuele machine, de nieuwe schijf wordt weergegeven in de instellingen van de schijven van de virtuele machine onder **GEGEVENSSCHIJVEN**.   
     ![Voorbeeld: Weergave-schijf](media/azure-stack-manage-vm-disks/view-data-disk.png)
 
 
 ### <a name="attach-an-existing-data-disk-to-a-vm"></a>Een bestaande gegevensschijf koppelen aan een virtuele machine
 
-1.  [Voorbereiden van een .vhd-bestand](https://docs.microsoft.com/azure/virtual-machines/windows/classic/createupload-vhd) voor gebruik als gegevensschijf voor een virtuele machine. Die VHD-bestand naar een opslagaccount die u gebruikt met de virtuele machine die u wilt koppelen van het VHD-bestand te uploaden.
+1.  [Voorbereiden van een VHD-bestand](https://docs.microsoft.com/azure/virtual-machines/windows/classic/createupload-vhd) voor gebruik als gegevensschijf voor een virtuele machine. Die VHD-bestand uploaden naar een opslagaccount die u gebruikt met de virtuele machine die u wilt het VHD-bestand te koppelen.
 
   Wilt u een andere container gebruiken voor het opslaan van het VHD-bestand dan de container met de besturingssysteemschijf.   
   ![Voorbeeld: Een VHD-bestand uploaden](media/azure-stack-manage-vm-disks/upload-vhd.png)
 
-2.  Nadat het VHD-bestand is geüpload, bent u klaar om te koppelen van de VHD op een virtuele machine. Selecteer in het menu aan de linkerkant **virtuele machines**.  
- ![Voorbeeld: Een virtuele machine in het dashboard selecteren](media/azure-stack-manage-vm-disks/vm-dashboard.png)
+2.  Nadat het VHD-bestand is geüpload, kunt u bent de VHD koppelen aan een virtuele machine. Selecteer in het menu aan de linkerkant, **virtuele machines**.  
+ ![Voorbeeld: Selecteer een virtuele machine in het dashboard](media/azure-stack-manage-vm-disks/vm-dashboard.png)
 
 3.  Kies de virtuele machine in de lijst.    
-  ![Voorbeeld: Een virtuele machine in het dashboard selecteren](media/azure-stack-manage-vm-disks/select-a-vm.png)
+  ![Voorbeeld: Selecteer een virtuele machine in het dashboard](media/azure-stack-manage-vm-disks/select-a-vm.png)
 
-4.  Selecteer op de pagina voor de virtuele machine **schijven** > **Attach bestaande**.   
+4.  Selecteer op de pagina voor de virtuele machine, **schijven** > **koppelen aan bestaande**.   
   ![Voorbeeld: Een bestaande schijf koppelen](media/azure-stack-manage-vm-disks/attach-disks2.png)
 
-5.  In de **bestaande schijf koppelen** pagina **VHD-bestand**. De **opslagaccounts** pagina wordt geopend.    
+5.  In de **bestaande schijf koppelen** weergeeft, schakelt **VHD-bestand**. De **Storage-accounts** pagina wordt geopend.    
   ![Voorbeeld: Selecteer een VHD-bestand](media/azure-stack-manage-vm-disks/select-vhd.png)
 
-6.  Onder **opslagaccounts**, selecteer het account te gebruiken en kies vervolgens een container met het VHD-bestand dat u eerder hebt geüpload. Selecteer het VHD-bestand en kies vervolgens **Selecteer** de selectie opslaan.    
-  ![Voorbeeld: Selecteer een container](media/azure-stack-manage-vm-disks/select-container2.png)
+6.  Onder **opslagaccounts**, selecteert u het account moet worden gebruikt, en kies vervolgens een container met het VHD-bestand dat u eerder hebt geüpload. Selecteer het VHD-bestand en kies vervolgens **Selecteer** om op te slaan van de selectie.    
+  ![Voorbeeld: Een container selecteren](media/azure-stack-manage-vm-disks/select-container2.png)
 
-7.  Onder **bestaande schijf koppelen**, het geselecteerde bestand wordt vermeld onder **VHD-bestand**. Update de **Hostcaching** instelling van de schijf en selecteer vervolgens **OK** om op te slaan van de nieuwe schijfconfiguratie voor de virtuele machine.    
+7.  Onder **bestaande schijf koppelen**, het bestand dat u hebt geselecteerd wordt vermeld onder **VHD-bestand**. Update de **Hostcaching** instellen van de schijf en selecteer vervolgens **OK** om op te slaan van de configuratie van de nieuwe schijven voor de virtuele machine.    
   ![Voorbeeld: Koppel het VHD-bestand](media/azure-stack-manage-vm-disks/attach-vhd.png)
 
-8.  Nadat de Azure-Stack de schijf wordt gemaakt en gekoppeld aan de virtuele machine, de nieuwe schijf wordt weergegeven in de instellingen voor de schijf van de virtuele machine onder **gegevensschijven**.   
-  ![Voorbeeld: Voltooi de schijf koppelen](media/azure-stack-manage-vm-disks/complete-disk-attach.png)
+8.  Nadat Azure Stack de schijf wordt en gekoppeld aan de virtuele machine, de nieuwe schijf wordt weergegeven in de instellingen van de schijven van de virtuele machine onder **gegevensschijven**.   
+  ![Voorbeeld: Voer de schijf koppelen](media/azure-stack-manage-vm-disks/complete-disk-attach.png)
 
 
 ## <a name="use-powershell-to-add-multiple-unmanaged-disks-to-a-vm"></a>PowerShell gebruiken voor meerdere niet-beheerde schijven toevoegen aan een virtuele machine
 U kunt PowerShell gebruiken voor het inrichten van een virtuele machine en een nieuwe gegevensschijf toevoegen of koppelen van een reeds bestaande **.vhd** bestand als een gegevensschijf.
 
-De **toevoegen AzureRmVMDataDisk** cmdlet wordt een gegevensschijf toegevoegd aan een virtuele machine. U kunt een gegevensschijf toevoegen wanneer u een virtuele machine maakt, of u een gegevensschijf aan een bestaande virtuele machine toevoegen kunt. Geef de **VhdUri** parameter voor het distribueren van de schijven zich verschillende containers.
+De **Add-azurermvmdatadisk en** cmdlet een gegevensschijf aan een virtuele machine toegevoegd. U kunt een gegevensschijf toevoegen wanneer u een virtuele machine maakt, of u een gegevensschijf aan een bestaande virtuele machine toevoegen kunt. Geef de **VhdUri** parameter voor het distribueren van de schijven naar verschillende containers.
 
 ### <a name="add-data-disks-to-a-new-virtual-machine"></a>Gegevensschijven toevoegen aan een nieuwe virtuele machine
-De volgende voorbeelden PowerShell-opdrachten gebruiken voor het maken van een virtuele machine met drie gegevensschijven, elk in een andere container hebt geplaatst.
+De volgende voorbeelden PowerShell-opdrachten gebruiken om te maken van een virtuele machine met de drie gegevensschijven, elk in een andere container geplaatst.
 
-De eerste opdracht wordt een object van de virtuele machine gemaakt en opgeslagen in de *$VirtualMachine* variabele. De opdracht wijst een naam en de grootte toe aan de virtuele machine.
+De eerste opdracht wordt een object van de virtuele machine gemaakt en wordt vervolgens opgeslagen in de *$VirtualMachine* variabele. De opdracht wordt een naam en de grootte van toegewezen aan de virtuele machine.
   ```
   $VirtualMachine = New-AzureRmVMConfig -VMName "VirtualMachine" `
                                       -VMSize "Standard_A2"
   ```
 
-De volgende drie opdrachten toewijzen paden van drie gegevensschijven voor de *$DataDiskVhdUri01*, *$DataDiskVhdUri02*, en *$DataDiskVhdUri03* variabelen. Definieer de naam van een ander pad in de URL voor het distribueren van de schijven zich verschillende containers.     
+De volgende drie opdrachten toewijzen paden van drie gegevensschijven die aan de *$DataDiskVhdUri01*, *$DataDiskVhdUri02*, en *$DataDiskVhdUri03* variabelen. Definieer de naam van een ander pad in de URL voor het distribueren van de schijven naar verschillende containers.     
   ```
   $DataDiskVhdUri01 = "https://contoso.blob.local.azurestack.external/test1/data1.vhd"
   ```
@@ -144,7 +144,7 @@ De volgende drie opdrachten toewijzen paden van drie gegevensschijven voor de *$
   $DataDiskVhdUri03 = "https://contoso.blob.local.azurestack.external/test3/data3.vhd"
   ```
 
-De laatste drie opdrachten gegevensschijven toevoegen aan de virtuele machine opgeslagen in *$VirtualMachine*. Elke opdracht geeft de naam, locatie en aanvullende eigenschappen van de schijf. De URI van elke schijf zijn opgeslagen in *$DataDiskVhdUri01*, *$DataDiskVhdUri02*, en *$DataDiskVhdUri03*.
+De laatste drie opdrachten gegevensschijven toegevoegd aan de virtuele machine die zijn opgeslagen in *$VirtualMachine*. Elke opdracht geeft u de naam, locatie en de aanvullende eigenschappen van de schijf. De URI van elke schijf wordt opgeslagen in *$DataDiskVhdUri01*, *$DataDiskVhdUri02*, en *$DataDiskVhdUri03*.
   ```
   $VirtualMachine = Add-AzureRmVMDataDisk -VM $VirtualMachine -Name 'DataDisk1' `
                   -Caching 'ReadOnly' -DiskSizeInGB 10 -Lun 0 `
@@ -163,7 +163,7 @@ De laatste drie opdrachten gegevensschijven toevoegen aan de virtuele machine op
                   -VhdUri $DataDiskVhdUri03 -CreateOption Empty
   ```
 
-Gebruik de volgende PowerShell-opdrachten de schijf- en configuratie van het besturingssysteem toevoegen aan de virtuele machine en de nieuwe virtuele machine start.
+Gebruik de volgende PowerShell-opdrachten om toe te voegen van de schijf- en configuratie van het besturingssysteem op de virtuele machine en start vervolgens de nieuwe virtuele machine.
   ```
   #set variables
   $rgName = "myResourceGroup"
@@ -213,13 +213,13 @@ Gebruik de volgende PowerShell-opdrachten de schijf- en configuratie van het bes
 
 
 ### <a name="add-data-disks-to-an-existing-virtual-machine"></a>Gegevensschijven toevoegen aan een bestaande virtuele machine
-De volgende voorbeelden PowerShell-opdrachten gebruiken drie gegevensschijven toevoegen aan een bestaande virtuele machine.
-De eerste opdracht wordt de virtuele machine met de naam virtuele machine met behulp van de **Get-AzureRmVM** cmdlet. De opdracht slaat de virtuele machine in de *$VirtualMachine* variabele.
+PowerShell-opdrachten in de volgende voorbeelden gebruiken drie gegevensschijven toevoegen aan een bestaande virtuele machine.
+De eerste opdracht wordt de virtuele machine met de naam VirtualMachine met behulp van de **Get-AzureRmVM** cmdlet. De opdracht slaat de virtuele machine in de *$VirtualMachine* variabele.
   ```
   $VirtualMachine = Get-AzureRmVM -ResourceGroupName "myResourceGroup" `
                                   -Name "VirtualMachine"
   ```
-De volgende drie opdrachten toewijzen paden van drie gegevensschijven aan de variabelen DataDiskVhdUri01 $ $DataDiskVhdUri02 en $DataDiskVhdUri03.  De namen van ander pad in de vhduri geven aan verschillende containers voor de plaatsing van de schijf.
+De volgende drie opdrachten toewijzen paden van de drie gegevensschijven aan de variabelen $DataDiskVhdUri01 $DataDiskVhdUri02 en $DataDiskVhdUri03.  De namen van ander pad in de vhduri geven aan verschillende containers voor de plaatsing van de schijf.
   ```
   $DataDiskVhdUri01 = "https://contoso.blob.local.azurestack.external/test1/data1.vhd"
   ```
@@ -231,7 +231,7 @@ De volgende drie opdrachten toewijzen paden van drie gegevensschijven aan de var
   ```
 
 
-  De volgende drie opdrachten de gegevensschijven toevoegen aan de virtuele machine opgeslagen in de *$VirtualMachine* variabele. Elke opdracht geeft de naam, locatie en aanvullende eigenschappen van de schijf. De URI van elke schijf zijn opgeslagen in *$DataDiskVhdUri01*, *$DataDiskVhdUri02*, en *$DataDiskVhdUri03*.
+  De volgende drie opdrachten de gegevensschijven toegevoegd aan de virtuele machine die zijn opgeslagen in de *$VirtualMachine* variabele. Elke opdracht geeft u de naam, locatie en de aanvullende eigenschappen van de schijf. De URI van elke schijf wordt opgeslagen in *$DataDiskVhdUri01*, *$DataDiskVhdUri02*, en *$DataDiskVhdUri03*.
   ```
   Add-AzureRmVMDataDisk -VM $VirtualMachine -Name "disk1" `
                         -VhdUri $DataDiskVhdUri01 -LUN 0 `
@@ -249,7 +249,7 @@ De volgende drie opdrachten toewijzen paden van drie gegevensschijven aan de var
   ```
 
 
-  De laatste opdracht werkt u de status van de virtuele machine opgeslagen in *$VirtualMachine* in -*ResourceGroupName*.
+  De laatste opdracht werkt de status van de virtuele machine die zijn opgeslagen in *$VirtualMachine* in -*ResourceGroupName*.
   ```
   Update-AzureRmVM -ResourceGroupName "myResourceGroup" -VM $VirtualMachine
   ```
@@ -262,4 +262,4 @@ To do so, use the scripts from the following location in GitHub. These scripts c
 -->
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over virtuele machines van Azure-Stack, [overwegingen voor virtuele Machines in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-considerations).
+Zie voor meer informatie over virtuele machines van Azure Stack, [overwegingen voor virtuele Machines in Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-vm-considerations).

@@ -4,7 +4,7 @@ description: Informatie over het programmeren en testen van Azure functions vana
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: functions
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 08/14/2018
 ms.author: glenga
-ms.openlocfilehash: 57011e1f7633688e00a4639ba36fd4442073161d
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: cb336d6742aab10e1fd8305fd52f1376bb4f2598
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618611"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42058150"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -131,13 +131,13 @@ In het terminalvenster of vanaf een opdrachtprompt, voer de volgende opdracht om
 func init MyFunctionProj
 ```
 
+Wanneer u de naam van een project opgeeft, wordt een nieuwe map met die naam gemaakt en geïnitialiseerd. Anders wordt is de huidige map geïnitialiseerd.  
 In versie 2.x, wanneer u de opdracht uitvoert moet u een runtime voor uw project. Als u van plan bent voor het ontwikkelen van JavaScript-functies, kiest u **knooppunt**:
 
 ```output
 Select a worker runtime:
 dotnet
 node
-java
 ```
 
 Omhoog/omlaag pijltoetsen een taal kiezen, druk op Enter. De uitvoer ziet eruit zoals in het volgende voorbeeld voor een JavaScript-project:
@@ -298,19 +298,24 @@ Om uit te voeren een Functions-project, de host van de functies worden uitgevoer
 ```bash
 func host start
 ```
+De `host` opdracht is alleen vereist in versie 1.x.
 
 `func host start` ondersteunt de volgende opties:
 
 | Optie     | Beschrijving                            |
 | ------------ | -------------------------------------- |
-|**`--port -p`** | De lokale poort voor luisteren. Standaardwaarde: 7071. |
-| **`--debug <type>`** | Start de host met de poort voor foutopsporing openen zodat u kunt koppelen aan de **func.exe** verwerken van [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) of [Visual Studio 2017](functions-dotnet-class-library.md). De *\<type\>* opties zijn `VSCode` en `VS`.  |
 | **`--cors`** | Een door komma's gescheiden lijst met CORS-oorsprong, zonder spaties. |
-| **`--nodeDebugPort -n`** | De poort voor het foutopsporingsprogramma knooppunt te gebruiken. Standaard: Een waarde van launch.json of 5858. |
-| **`--debugLevel -d`** | Het traceerniveau console (uit, uitgebreid, info, waarschuwing of fout). Standaard: Info.|
+| **`--debug <type>`** | Start de host met de poort voor foutopsporing openen zodat u kunt koppelen aan de **func.exe** verwerken van [Visual Studio Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started) of [Visual Studio 2017](functions-dotnet-class-library.md). De *\<type\>* opties zijn `VSCode` en `VS`.  |
+| **`--port -p`** | De lokale poort voor luisteren. Standaardwaarde: 7071. |
 | **`--timeout -t`** | De time-out voor de host functies om te starten, in seconden. Standaard: 20 seconden.|
 | **`--useHttps`** | Verbinding maken met `https://localhost:{port}` in plaats van naar `http://localhost:{port}`. Deze optie maakt standaard een vertrouwd certificaat op uw computer.|
-| **`--pause-on-error`** | Aanvullende invoer wacht voordat het proces wordt afgesloten. Bij het starten van Core Tools van Visual Studio of Visual Studio Code gebruikt.|
+| **`--build`** | Bouw huidige project voordat wordt uitgevoerd. Versie 2.x en C# projecten alleen. |
+| **`--cert`** | Het pad naar een pfx-bestand dat een persoonlijke sleutel bevat. Alleen gebruikt met `--useHttps`. Versie 2.x alleen. | 
+| **`--password`** | Het wachtwoord of een bestand met het wachtwoord voor een pfx-bestand. Alleen gebruikt met `--cert`. Versie 2.x alleen. |
+| **`--language-worker`** | Argumenten voor het configureren van de werknemer taal. Versie 2.x alleen. |
+| **`--nodeDebugPort -n`** | De poort voor het foutopsporingsprogramma knooppunt te gebruiken. Standaard: Een waarde van launch.json of 5858. Versie 1.x alleen. |
+
+Voor een C#-klassebibliotheekproject (.csproj), moet u opnemen de `--build` optie voor het genereren van het DLL-bestand voor de bibliotheek.
 
 Wanneer de Functions-host wordt gestart, levert dit de URL van de HTTP-geactiveerde functies:
 

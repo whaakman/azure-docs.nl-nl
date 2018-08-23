@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/07/2017
+ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: b38d90251ab59e537e7d637f45f04c4db87a94ae
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 6d3847f547646ae7c62f98b4cee716af5c6ba5e9
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581417"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42054942"
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Bereiken, machtigingen en toestemming in de Azure Active Directory v2.0-eindpunt
 Apps die met Azure Active Directory (Azure AD integreren) gaat u als volgt een autorisatiemodel waarmee gebruikers controle over hoe een app toegang heeft tot hun gegevens. Het v2.0-implementatie van de autorisatiemodel is bijgewerkt en verandert hoe een app moet communiceren met Azure AD. In dit artikel bevat informatie over de basisconcepten van dit autorisatiemodel, met inbegrip van bereiken, machtigingen en toestemming.
@@ -73,6 +73,19 @@ De [ `offline_access` bereik](http://openid.net/specs/openid-connect-core-1_0.ht
 Als uw app geen heeft aangevraagd de `offline_access` bereik, het ontvangt geen vernieuwingstokens. Dit betekent dat wanneer u een autorisatiecode in inwisselt de [OAuth 2.0-autorisatiecodestroom](active-directory-v2-protocols.md), ontvangt u alleen een toegangstoken van de `/token` eindpunt. Het toegangstoken is ongeldig voor een korte periode. Het toegangstoken is verlopen meestal binnen een uur. Op dat punt, uw app nodig heeft om te leiden van de gebruiker terug naar de `/authorize` eindpunt naar een nieuwe autorisatiecode ophalen. Tijdens deze omleiding, afhankelijk van het type app, moet de gebruiker mogelijk hun referenties opnieuw invoeren of opnieuw instemmen met machtigingen.
 
 Zie voor meer informatie over het vernieuwen van tokens gebruiken de [protocolnaslaginformatie voor v2.0](active-directory-v2-protocols.md).
+
+## <a name="accessing-v10-resources"></a>Toegang tot bronnen v1.0
+v2.0-toepassingen kunnen aanvragen van tokens en toestemming voor v1.0 toepassingen (zoals de Power BI-API `https://analysis.windows.net/powerbi/api` of Sharepoint-API `https://{tenant}.sharepoint.com`).  Om dit te doen, kunt u verwijzen naar de app-URI en scope-tekenreeks in de `scope` parameter.  Bijvoorbeeld, `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All` zou aanvragen de Power BI `View all Datasets` machtiging voor uw toepassing. 
+
+Voor het aanvragen van meerdere machtigingen toevoegen de volledige URI met een spatie of `+`, bijvoorbeeld `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://analysis.windows.net/powerbi/api/Report.Read.All`.  Deze beide vraagt de `View all Datasets` en `View all Reports` machtigingen.  Houd er rekening mee dat net als bij alle Azure AD-bereiken en machtigingen, toepassingen alleen een aanvraag voor één resource tegelijkertijd indienen kunnen - zodat de aanvraag `scope=https://analysis.windows.net/powerbi/api/Dataset.Read.All+https://api.skypeforbusiness.com/Conversations.Initiate`, die zowel de Power BI-aanvragen `View all Datasets` machtigingen en de Skype voor bedrijven `Initiate conversations` machtiging geweigerd vanwege waarin machtiging wordt gevraagd op twee verschillende bronnen.  
+
+### <a name="v10-resources-and-tenancy"></a>V1.0 resources en tenants
+De v1.0 en v2.0 Azure AD-protocollen maken gebruik van een `{tenant}` parameter ingesloten in de URI (`https://login.microsoftonline.com/{tenant}/oauth2/`).  Wanneer het v2.0-eindpunt wordt gebruikt voor toegang tot een organisatie-resource v1.0 de `common` en `consumers` tenants kunnen niet worden gebruikt, aangezien deze resources alleen toegankelijk zijn met de organisatie (Azure AD zijn) accounts.  Dus bij het openen van deze resources, alleen de GUID van de tenant of `organizations` kan worden gebruikt als de `{tenant}` parameter.  
+
+Als een toepassing probeert te krijgen tot een organisatie v1.0-resource met een onjuiste tenant, een die vergelijkbaar is met de volgende fout geretourneerd. 
+
+`AADSTS90124: Resource 'https://analysis.windows.net/powerbi/api' (Microsoft.Azure.AnalysisServices) is not supported over the /common or /consumers endpoints. Please use the /organizations or tenant-specific endpoint.`
+
 
 ## <a name="requesting-individual-user-consent"></a>Aanvragen van toestemming van de afzonderlijke gebruiker
 In een [OpenID Connect of OAuth 2.0](active-directory-v2-protocols.md) autorisatie-aanvraag, een app kunt aanvragen de machtigingen die nodig zijn met behulp van de `scope` queryparameter. Bijvoorbeeld, wanneer een gebruiker zich aanmeldt bij een app, de app verzendt een aanvraag, zoals in het volgende voorbeeld (met regeleinden toegevoegd voor een betere leesbaarheid):

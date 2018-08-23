@@ -9,19 +9,19 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: fmegen
-ms.openlocfilehash: ad1bf15f198529487dbed92d8f8639704b0c5fc7
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: bbf10d9bd0912dab22c81e2bb850ede52a3bd9e3
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325122"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41988620"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>Snelstartgids: Spraakherkenning in Java op Android met behulp van de SDK spraak herkennen
 
 [!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In dit artikel leert u over het maken van een Java-toepassing voor Android met behulp van de Cognitive Services Speech SDK spraak naar tekst te transcriberen.
-De toepassing is gebaseerd op de Microsoft Cognitive Services Speech SDK Maven-pakket, versie 0.5.0 en Android Studio 3.1.
+De toepassing is gebaseerd op de Microsoft Cognitive Services Speech SDK Maven-pakket, versie 0.6.0 en Android Studio 3.1.
 
 > [!NOTE]
 > Voor de SDK van de apparaten spraak en het apparaat Roobo, gaat u naar de [spraak Devices SDK](speech-devices-sdk.md) pagina.
@@ -63,7 +63,7 @@ Nadat het is uitgevoerd voor een tijdje uw zojuist gemaakte Android Studio-proje
 
 [!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-De huidige versie van de Cognitive Services Speech SDK is `0.5.0`.
+De huidige versie van de Cognitive Services Speech SDK is `0.6.0`.
 
 De spraak-SDK voor Android wordt geleverd als een [AAR (Android-bibliotheek)](https://developer.android.com/studio/projects/android-library), waaronder de vereiste bibliotheken, evenals de vereiste Android-machtigingen voor het gebruik ervan.
 Deze wordt gehost in een Maven-opslagplaats op https://csspeechstorage.blob.core.windows.net/maven/.
@@ -81,7 +81,7 @@ In het venster dat weergegeven maken de volgende wijzigingen wordt (Klik op **OK
 
   ![](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. Voer in het venster dat weergegeven wordt, de naam en versie van onze spraak-SDK voor Android, `com.microsoft.cognitiveservices.speech:client-sdk:0.5.0`, klikt u vervolgens op **OK**.
+1. Voer in het venster dat weergegeven wordt, de naam en versie van onze spraak-SDK voor Android, `com.microsoft.cognitiveservices.speech:client-sdk:0.6.0`, klikt u vervolgens op **OK**.
    De spraak-SDK moet worden toegevoegd aan de lijst met afhankelijkheden nu, zoals hieronder wordt weergegeven:
 
   ![](media/sdk/qs-java-android-08-dependency-added.png)

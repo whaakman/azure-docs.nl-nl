@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/14/2018
+ms.date: 08/14/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 9322c364832a12e711ee7e1b6ad9722ec82d8468
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 878b7952938c7ec534bc09e27ee8b859c1aaeefb
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449968"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42139656"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Verbinding maken met Azure Stack met behulp van Azure ExpressRoute
 
@@ -180,7 +180,7 @@ Nadat u de gateway van virtueel netwerk hebt gemaakt, kunt u het openbare IP-adr
 
 1. Selecteer in de gebruikersportal van Azure Stack **alle resources**.
 1. Onder **alle resources**, selecteert u de virtuele netwerkgateway, is **GW1** in het voorbeeld.
-1. Onder **gateway van virtueel netwerk**, selecteer **overzicht**. in de lijst met resources. U kunt ook selecteren **eigenschappen**.
+1. Onder **gateway van virtueel netwerk**, selecteer **overzicht** uit de lijst met resources. U kunt ook selecteren **eigenschappen**.
 1. Het IP-adres dat u wilt Houd er rekening mee wordt vermeld onder **openbaar IP-adres**. Voor de voorbeeldconfiguratie van het is dit adres 192.68.102.1.
 
 #### <a name="create-a-virtual-machine"></a>Een virtuele machine maken
@@ -360,7 +360,7 @@ Herhaal deze stappen voor elke extra tenant vnet's die u wilt verbinding maken i
 
 ## <a name="configure-the-router"></a>De router configureren
 
-U kunt de volgende *ExpressRoute routerconfiguratie* diagram als richtlijn voor het configureren van uw ExpressRoute-Router. In dit diagram ziet twee tenants (Tenant-1 en 2 van de Tenant) met de desbetreffende Expressroute-circuits. Elke tenant is gekoppeld aan hun eigen VRF (virtuele Routering en doorsturen via) in de LAN en WAN-zijde van de router voor ExpressRoute. Deze configuratie zorgt ervoor dat de end-to-end-isolatie tussen de twee tenants. Noteer de IP-adressen in de routerinterfaces gebruikt als u de van configuratievoorbeeld volgen.
+U kunt de volgende *ExpressRoute routerconfiguratie* diagram als richtlijn voor het configureren van uw ExpressRoute-Router. In dit diagram ziet twee tenants (Tenant-1 en 2 van de Tenant) met de desbetreffende ExpressRoute-circuits. Elke tenant is gekoppeld aan hun eigen VRF (virtuele Routering en doorsturen via) in de LAN en WAN-zijde van de router voor ExpressRoute. Deze configuratie zorgt ervoor dat de end-to-end-isolatie tussen de twee tenants. Noteer de IP-adressen in de routerinterfaces gebruikt als u de van configuratievoorbeeld volgen.
 
 *Afbeelding 4. De configuratie van de ExpressRoute-router*
 
@@ -368,7 +368,7 @@ U kunt de volgende *ExpressRoute routerconfiguratie* diagram als richtlijn voor 
 
 U kunt elke router die ondersteuning biedt voor IKEv2 VPN en BGP voor het beëindigen van de Site-naar-Site VPN-verbinding van Azure Stack kunt gebruiken. Dezelfde router wordt gebruikt om te verbinden met behulp van een ExpressRoute-circuit.
 
-De volgende configuratievoorbeeld van Cisco Azure Site Recovery 1000 ondersteunt de infrastructuur van het netwerk wordt weergegeven in de *ExpressRoute routerconfiguratie* diagram.
+De volgende configuratievoorbeeld van Cisco ASR 1000 reeks aggregatie Services Router ondersteunt de infrastructuur van het netwerk wordt weergegeven in de *ExpressRoute routerconfiguratie* diagram.
 
 **Configuratievoorbeeld van Cisco ASR-1000**
 
@@ -457,7 +457,7 @@ description S2S VPN Tunnel for Tenant 2
  tunnel protection ipsec profile V4-PROFILE
 !
 interface GigabitEthernet0/0/1
- description PRIMARY Express Route Link to AZURE over Equinix
+ description PRIMARY ExpressRoute Link to AZURE over Equinix
  no ip address
  negotiation auto
 !
@@ -476,7 +476,7 @@ description Primary WAN interface of Tenant 2
  ip address 192.168.1.17 255.255.255.252
 !
 interface GigabitEthernet0/0/2
- description BACKUP Express Route Link to AZURE over Equinix
+ description BACKUP ExpressRoute Link to AZURE over Equinix
  no ip address
  negotiation auto
 !
