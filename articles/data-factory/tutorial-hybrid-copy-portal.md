@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: e007fd5e616b24b3a802b7ded0cd879bb0d7f34b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 994df42557ebd99d159e531f11ffa892be2e9870
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436005"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41919153"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Gegevens van een on-premises SQL-serverdatabase naar Azure Blob Storage kopiëren
 In deze zelfstudie gebruikt u de gebruikersinterface (UI) van Azure Data Factory om een pijplijn voor een data factory te maken waarmee gegevens worden gekopieerd van een on-premises SQL Server-database naar Azure Blob-opslag. U gaat een zelf-hostende Integration Runtime maken en gebruiken. Deze verplaatst gegevens van on-premises gegevensarchieven en gegevensarchieven in de cloud en omgekeerd.
@@ -75,7 +75,7 @@ In deze zelfstudie gebruikt u een on-premises SQL Server-database als een *brong
 1. In de structuurweergave klikt u met de rechtermuisknop op de database die u hebt gemaakt en selecteert u **Nieuwe query**.
 
 ### <a name="azure-storage-account"></a>Azure Storage-account
-In deze zelfstudie gaat u een algemeen Azure Storage-account (en dan met name Blob Storage) gebruiken als een doel/sink-gegevensopslag. Zie het artikel [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) als u geen Azure Storage-account hebt voor algemene doeleinden. De pijplijn in de data factory die u in deze zelfstudie gaat maken, kopieert gegevens van deze on-premises SQL Server-database (bron) naar Blob Storage (sink). 
+In deze zelfstudie gaat u een algemeen Azure Storage-account (en dan met name Blob Storage) gebruiken als een doel/sink-gegevensopslag. Zie het artikel [Een opslagaccount maken](../storage/common/storage-quickstart-create-account.md) als u geen Azure Storage-account hebt voor algemene doeleinden. De pijplijn in de data factory die u in deze zelfstudie gaat maken, kopieert gegevens van deze on-premises SQL Server-database (bron) naar Blob Storage (sink). 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>De naam en sleutel van een opslagaccount ophalen
 In deze zelfstudie gaat u de naam en sleutel van uw opslagaccount gebruiken. Voer de volgende stappen uit om de naam en sleutel van uw opslagaccount op te halen: 
@@ -269,15 +269,15 @@ De naam van de data factory moet *wereldwijd uniek* zijn. Als het volgende foutb
 
 1. Als het goed is, ziet u nu het venster met de geopende sink-gegevensset weer. Voer op het tabblad **Verbinding** de volgende stappen uit: 
 
-       a. In **Linked service**, confirm that **AzureStorageLinkedService** is selected.
+    a. Controleer of **AzureStorageLinkedService** is geselecteerd bij **Gekoppelde service**.
 
-       b. For the **folder**/ **Directory** part of **File path**, enter **adftutorial/fromonprem**. If the output folder doesn't exist in the adftutorial container, Data Factory automatically creates the output folder.
+    b. Voer **adftutorial/fromonprem** in voor het **map**/ **Directory**-gedeelte van het **bestandspad**. Als de uitvoermap niet bestaat in de container adftutorial, wordt de uitvoermap automatisch gemaakt door Data Factory.
 
-       c. For the **file name** part of **File path**, select **Add dynamic content**.   
+    c. Selecteer **Dynamische inhoud toevoegen**voor het **bestandsnaam**-deel van het **bestandspad**.   
 
     ![waarde voor dynamische bestandsnaam](./media/tutorial-hybrid-copy-portal/file-name.png)
 
-       d. Add `@CONCAT(pipeline().RunId, '.txt')`, select **Finish**. This will rename the file with PipelineRunID.txt. 
+    d. Voeg `@CONCAT(pipeline().RunId, '.txt')` toe, selecteer **Voltooien**. Hierdoor wordt de naam van het bestand gewijzigd in PipelineRunID.txt. 
 
     ![dynamische expressie voor omzetten van bestandsnaam](./media/tutorial-hybrid-copy-portal/add-dynamic-file-name.png)
 

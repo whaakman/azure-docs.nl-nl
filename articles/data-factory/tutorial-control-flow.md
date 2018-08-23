@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 3b69556c45709629e73aced374db276844e41120
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7f555c727db88efd54aeae57da0b8ac626672ced
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618373"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41919151"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Activiteiten vertakken en koppelen in een Data Factory-pijplijn
 In deze zelfstudie maakt u een Data Factory-pijplijn die enkele van de stroombeheerfuncties demonstreert. Deze pijplijn voert een eenvoudige kopieerbewerking uit van een container in Azure Blob Storage naar een andere container in hetzelfde opslagaccount. Als de kopieerbewerking is geslaagd, wilt u details over de geslaagde kopieerbewerking (zoals de hoeveelheid geschreven gegevens) verzenden in een e-mail met een succesbericht. Als de kopieerbewerking is mislukt, wilt u details over de mislukte kopieerbewerking (zoals de foutmelding) verzenden in een e-mailbericht met een foutmelding. In de zelfstudie ziet u hoe u parameters kunt doorgeven.
@@ -43,7 +43,7 @@ Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure
 
 ## <a name="prerequisites"></a>Vereisten
 
-* **Een Azure Storage-account**. U gebruikt de blob-opslag als **bron**-gegevensopslag. Als u geen Azure-opslagaccount hebt, raadpleegt u het artikel [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) om een account te maken.
+* **Een Azure Storage-account**. U gebruikt de blob-opslag als **bron**-gegevensopslag. Als u geen Azure-opslagaccount hebt, raadpleegt u het artikel [Een opslagaccount maken](../storage/common/storage-quickstart-create-account.md) om een account te maken.
 * **Azure SQL-database**. U gebruikt de database als **sink**-gegevensopslag. Als u geen Azure SQL-database hebt, raadpleegt u het artikel [Een Azure SQL-database maken](../sql-database/sql-database-get-started-portal.md) om een database te maken.
 * **Visual Studio** 2013, 2015, of 2017. De procedures in dit artikel zijn gebaseerd op Visual Studio 2017.
 * **Download en installeer [Azure .NET SDK](http://azure.microsoft.com/downloads/)**.
