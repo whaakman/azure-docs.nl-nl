@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: bee75bcefb370382825c6867ea504e14102aa107
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 68304b3e5eea50aba28f46344abcbd7ad060c5c8
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628280"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42057562"
 ---
 # <a name="configure-managed-service-identity-on-virtual-machine-scale-using-a-template"></a>Beheerde Service-identiteit configureren op virtuele-machineschaalset met behulp van een sjabloon
 
@@ -55,18 +55,16 @@ Ongeacht welke optie die u kiest, is de sjabloonsyntaxis van de hetzelfde tijden
 
 In deze sectie maakt u inschakelen en uitschakelen van het systeem toegewezen identiteit met een Azure Resource Manager-sjabloon.
 
-### <a name="enable-system-assigned-identity-during-creation-the-creation-of-or-an-existing-azure-virtual-machine-scale-set"></a>Inschakelen door het systeem toegewezen identiteit tijdens het maken van het maken van of een bestaande schaalset voor virtuele Azure-machine
+### <a name="enable-system-assigned-identity-during-creation-the-creation-of-a-virtual-machines-scale-set-or-a-existing-virtual-machine-scale-set"></a>Systeem toegewezen identiteit inschakelen tijdens het maken van het maken van een schaalset voor virtuele machines of een bestaande virtuele-machineschaalset
 
-1. Laden van de sjabloon in een editor, Ga naar de `Microsoft.Compute/virtualMachineScaleSets` resource van belang zijn binnen de `resources` sectie. Uw uitzien enigszins afwijken van de volgende schermafbeelding, afhankelijk van de editor die u gebruikt en of het bewerken van een sjabloon voor de implementatie van een nieuwe of bestaande resourcegroep.
+1. Of u zich aanmeldt bij Azure lokaal of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement met de virtuele-machineschaalset.
    
-   ![Schermafbeelding van de sjabloon: zoek VM](../managed-service-identity/media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-before-vmss.png) 
-
-2. Om in te schakelen op het systeem toegewezen identiteit, voeg de `"identity"` eigenschap op hetzelfde niveau als het `"type": "Microsoft.Compute/virtualMachineScaleSets"` eigenschap. Gebruik de volgende syntaxis:
+2. Op het systeem toegewezen identiteit inschakelen, de sjabloon laden in een editor, Ga naar de `Microsoft.Compute/virtualMachinesScaleSets` resource van belang zijn binnen de resources sectie en voeg de `identity` eigenschap op hetzelfde niveau als het `"type": "Microsoft.Compute/virtualMachines"` eigenschap. Gebruik de volgende syntaxis:
 
    ```JSON
    "identity": { 
-       "type": "systemAssigned"
-   },
+       "type": "SystemAssigned"
+   }
    ```
 
 3. (Optioneel) Toevoegen van de virtuele-machineschaalset uitbreiding van de beheerde Service-identiteit als een `extensionsProfile` element. Deze stap is optioneel, zoals u de identiteit van de Azure Instance Metadata Service (IMDS), kunt evenals tokens op te halen.  Gebruik de volgende syntaxis:
@@ -75,7 +73,7 @@ In deze sectie maakt u inschakelen en uitschakelen van het systeem toegewezen id
    > Het volgende voorbeeld wordt ervan uitgegaan dat een virtuele-machineschaalset in Windows extensie instellen (`ManagedIdentityExtensionForWindows`) wordt geïmplementeerd. U kunt ook configureren voor Linux met behulp van `ManagedIdentityExtensionForLinux` in plaats daarvan voor de `"name"` en `"type"` elementen.
    >
 
-   ```JSON
+   ```json
    "extensionProfile": {
         "extensions": [
             {
@@ -93,9 +91,44 @@ In deze sectie maakt u inschakelen en uitschakelen van het systeem toegewezen id
             }
    ```
 
-4. Wanneer u klaar bent, is de sjabloon ziet die vergelijkbaar is met het volgende:
+4. Wanneer u klaar bent, wordt de volgende secties moeten toegevoegd aan de resource-sectie van uw sjabloon en is vergelijkbaar met het volgende:
 
-   ![Schermafbeelding van de sjabloon na-update](../managed-service-identity/media/msi-qs-configure-template-windows-vmss/msi-arm-template-file-after-vmss.png) 
+   ```json
+    "resources": [
+        {
+            //other resource provider properties...
+            "apiVersion": "2018-06-01",
+            "type": "Microsoft.Compute/virtualMachineScaleSets",
+            "name": "[variables('vmssName')]",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "SystemAssigned",
+            },
+           "properties": {
+                //other resource provider properties...
+                "virtualMachineProfile": {
+                    //other virtual machine profile properties...
+                    "extensionProfile": {
+                        "extensions": [
+                            {
+                                "name": "ManagedIdentityWindowsExtension",
+                                "properties": {
+                                  "publisher": "Microsoft.ManagedIdentity",
+                                  "type": "ManagedIdentityExtensionForWindows",
+                                  "typeHandlerVersion": "1.0",
+                                  "autoUpgradeMinorVersion": true,
+                                  "settings": {
+                                      "port": 50342
+                                  }
+                                }
+                            } 
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+   ``` 
 
 ### <a name="disable-a-system-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Een systeem toegewezen identiteit van een schaalset voor virtuele Azure-machine uitschakelen
 
@@ -103,12 +136,24 @@ Als u een virtuele-machineschaalset die niet langer moet een beheerde service-id
 
 1. Of u zich aanmeldt bij Azure lokaal of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement met de virtuele-machineschaalset.
 
-2. Laden van de sjabloon in een [editor](#azure-resource-manager-templates) en zoek de `Microsoft.Compute/virtualMachineScaleSets` resource van belang zijn binnen de `resources` sectie. Als u een virtuele-machineschaalset waarvoor alleen systeem toegewezen identiteit hebt, kunt u deze uitschakelen door het veranderen van de id-type naar `None`.  Als uw virtuele-machineschaalset heeft zowel de systeem- en de gebruiker toegewezen identiteiten, verwijdert u `SystemAssigned` van de id-type en blijf aan de `UserAssigned` samen met de `identityIds` matrix van de gebruiker toegewezen identiteiten.  Het volgende voorbeeld ziet u hoe een systeem toegewezen identiteit van een virtuele-machineschaalset zonder gebruiker toegewezen identiteiten verwijderen:
+2. Laden van de sjabloon in een [editor](#azure-resource-manager-templates) en zoek de `Microsoft.Compute/virtualMachineScaleSets` resource van belang zijn binnen de `resources` sectie. Hebt u een virtuele machine die alleen systeem toegewezen identiteit heeft, kunt u deze uitschakelen door het wijzigen van het identiteitstype aan `None`.
+
+   **Microsoft.Compute/virtualMachineScaleSets API-versie 2018-06-01**
+
+   Als uw apiVersion `2018-06-01` en uw virtuele machine heeft zowel de systeem- en de gebruiker toegewezen identiteiten, verwijdert u `SystemAssigned` van de id-type en blijf aan de `UserAssigned` samen met de waarden van de woordenlijst userAssignedIdentities.
+
+   **Microsoft.Compute/virtualMachineScaleSets API-versie 2018-06-01 en oudere versies**
+
+   Als uw apiVersion `2017-12-01` en uw virtuele-machineschaalset is zowel de systeem- en de gebruiker toegewezen identiteiten, verwijdert u `SystemAssigned` van de id-type en blijf aan de `UserAssigned` samen met de `identityIds` matrix van de gebruiker toegewezen identiteiten. 
+   
+    
+
+   Het volgende voorbeeld ziet u hoe een systeem toegewezen identiteit van een virtuele-machineschaalset zonder gebruiker toegewezen identiteiten verwijderen:
    
    ```json
    {
        "name": "[variables('vmssName')]",
-       "apiVersion": "2017-03-30",
+       "apiVersion": "2018-06-01",
        "location": "[parameters(Location')]",
        "identity": {
            "type": "None"
@@ -119,32 +164,52 @@ Als u een virtuele-machineschaalset die niet langer moet een beheerde service-id
 
 ## <a name="user-assigned-identity"></a>Door gebruiker toegewezen identiteit
 
-In deze sectie wijst u de identiteit van een gebruiker toegewezen aan een Azure-VMSS met behulp van Azure Resource Manager-sjabloon.
+In deze sectie maakt toewijzen u een gebruiker toegewezen identiteit een schaalset van de virtuele machine met behulp van Azure Resource Manager-sjabloon.
 
 > [!Note]
 > Zie voor het maken van een gebruiker toegewezen identiteit met een Azure Resource Manager-sjabloon, [maken van een gebruiker toegewezen identiteit](how-to-manage-ua-identity-arm.md#create-a-user-assigned-identity).
 
 ### <a name="assign-a-user-assigned-identity-to-an-azure-vmss"></a>Een gebruiker toegewezen identiteit aan een Azure-VMSS toewijzen
 
-1. Onder de `resources` -element de volgende vermelding voor het toewijzen van de identiteit van een gebruiker toegewezen aan uw VMSS toevoegen.  Vervang `<USERASSIGNEDIDENTITY>` met de naam van de toegewezen gebruikers-id die u hebt gemaakt.
+1. Onder de `resources` -element, voeg de volgende vermelding voor het toewijzen van de identiteit van een gebruiker toegewezen aan uw virtuele-machineschaalset.  Vervang `<USERASSIGNEDIDENTITY>` met de naam van de toegewezen gebruikers-id die u hebt gemaakt.
+   
+   **Microsoft.Compute/virtualMachineScaleSets API-versie 2018-06-01**
 
-   > [!Important]
-   > De `<USERASSIGNEDIDENTITYNAME>` waarde die wordt weergegeven in het volgende voorbeeld moet worden opgeslagen in een variabele.  Ook voor de momenteel ondersteunde implementatie van een gebruiker toegewezen identiteiten toewijzen aan een virtuele machine in een Resource Manager-sjabloon, de api-versie moet overeenkomen met de versie in het volgende voorbeeld. 
+   Als uw apiVersion `2018-06-01`, door gebruiker toegewezen identiteiten worden opgeslagen in de `userAssignedIdentities` woordenlijst indeling en de `<USERASSIGNEDIDENTITYNAME>` waarde moet worden opgeslagen in een variabele die is gedefinieerd in de `variables` gedeelte van uw sjabloon.
 
-    ```json
-    {
-        "name": "[variables('vmssName')]",
-        "apiVersion": "2017-03-30",
-        "location": "[parameters(Location')]",
-        "identity": {
-            "type": "userAssigned",
-            "identityIds": [
-                "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITY>'))]"
-            ]
-        }
+   ```json
+   {
+       "name": "[variables('vmssName')]",
+       "apiVersion": "2018-06-01",
+       "location": "[parameters(Location')]",
+       "identity": {
+           "type": "userAssigned",
+           "userAssignedIdentities": {
+               "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
+           }
+       }
+    
+   }
+   ```   
 
-    }
-    ```
+   **Microsoft.Compute/virtualMachineScaleSets API-versie 2017-12-01**
+    
+   Als uw `apiVersion` is `2017-12-01` of eerder wordt de gebruiker toegewezen identiteiten worden opgeslagen in de `identityIds` matrix en de `<USERASSIGNEDIDENTITYNAME>` waarde moet worden opgeslagen in een variabele die is gedefinieerd in de sectie met variabelen van uw sjabloon.
+
+   ```json
+   {
+       "name": "[variables('vmssName')]",
+       "apiVersion": "2017-03-30",
+       "location": "[parameters(Location')]",
+       "identity": {
+           "type": "userAssigned",
+           "identityIds": [
+               "[resourceID('Micrososft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITY>'))]"
+           ]
+       }
+
+   }
+   ``` 
 
 2. (Optioneel) Voeg de volgende vermelding onder de `extensionProfile` element de extensie beheerde identiteit toewijzen aan uw VMSS. Deze stap is optioneel als u het eindpunt van de identiteit Azure Instance Metadata Service (IMDS) gebruiken kunt voor het ophalen en tokens. Gebruik de volgende syntaxis:
    
@@ -166,34 +231,124 @@ In deze sectie wijst u de identiteit van een gebruiker toegewezen aan een Azure-
                 }
     ```
 
-3.  Wanneer u klaar bent, is de sjabloon ziet die vergelijkbaar is met het volgende:
+3. Wanneer u klaar bent, is de sjabloon ziet die vergelijkbaar is met het volgende:
    
-      ![Schermafbeelding van de gebruiker toegewezen identiteit](./media/qs-configure-template-windows-vmss/qs-configure-template-windows-final.PNG)
+   **Microsoft.Compute/virtualMachineScaleSets API-versie 2018-06-01**   
 
+   ```json
+   "resources": [
+        {
+            //other resource provider properties...
+            "apiVersion": "2018-06-01",
+            "type": "Microsoft.Compute/virtualMachineScaleSets",
+            "name": "[variables('vmssName')]",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "UserAssigned",
+                "userAssignedIdentities": {
+                    "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
+                }
+            },
+           "properties": {
+                //other virtual machine properties...
+                "virtualMachineProfile": {
+                    //other virtual machine profile properties...
+                    "extensionProfile": {
+                        "extensions": [
+                            {
+                                "name": "ManagedIdentityWindowsExtension",
+                                "properties": {
+                                  "publisher": "Microsoft.ManagedIdentity",
+                                  "type": "ManagedIdentityExtensionForWindows",
+                                  "typeHandlerVersion": "1.0",
+                                  "autoUpgradeMinorVersion": true,
+                                  "settings": {
+                                      "port": 50342
+                                  }
+                                }
+                            } 
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+   ```
+
+   **Eerder Microsoft.Compute/virtualMachines API-versie 2017-12-01-eand**
+
+   ```json
+   "resources": [
+        {
+            //other resource provider properties...
+            "apiVersion": "2017-12-01",
+            "type": "Microsoft.Compute/virtualMachineScaleSets",
+            "name": "[variables('vmssName')]",
+            "location": "[resourceGroup().location]",
+            "identity": {
+                "type": "UserAssigned",
+                "identityIds": [
+                    "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]"
+                ]
+            },
+           "properties": {
+                //other virtual machine properties...
+                "virtualMachineProfile": {
+                    //other virtual machine profile properties...
+                    "extensionProfile": {
+                        "extensions": [
+                            {
+                                "name": "ManagedIdentityWindowsExtension",
+                                "properties": {
+                                  "publisher": "Microsoft.ManagedIdentity",
+                                  "type": "ManagedIdentityExtensionForWindows",
+                                  "typeHandlerVersion": "1.0",
+                                  "autoUpgradeMinorVersion": true,
+                                  "settings": {
+                                      "port": 50342
+                                  }
+                                }
+                            } 
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+   ```
 ### <a name="remove-user-assigned-identity-from-an-azure-virtual-machine-scale-set"></a>Verwijder de gebruiker toegewezen identiteit van een schaalset voor virtuele Azure-machine
 
 Als u een virtuele-machineschaalset die niet langer moet een beheerde service-identiteit:
 
 1. Of u zich aanmeldt bij Azure lokaal of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement met de virtuele-machineschaalset.
 
-2. Laden van de sjabloon in een [editor](#azure-resource-manager-templates) en zoek de `Microsoft.Compute/virtualMachineScaleSets` resource van belang zijn binnen de `resources` sectie. Als u een virtuele-machineschaalset waarvoor alleen toegewezen gebruikers-id hebt, kunt u deze uitschakelen door het veranderen van de id-type naar `None`.  Als uw virtuele-machineschaalset heeft zowel de systeem- en de gebruiker toegewezen identiteiten en u wilt behouden systeem toegewezen identiteit, verwijdert u `UserAssigned` van het identiteitstype samen met de `identityIds` matrix van de gebruiker toegewezen identiteiten.
-    
-   Verwijderen van een een enkele gebruiker toegewezen identiteit van een virtuele-machineschaalset verwijderen uit de `identityIds` matrix.
-   
-   Het volgende voorbeeld ziet u hoe u het verwijderen van alle gebruiker toegewezen identiteiten uit een virtuele-machineschaalset met geen enkel systeem toegewezen identiteit:
-   
+2. Laden van de sjabloon in een [editor](#azure-resource-manager-templates) en zoek de `Microsoft.Compute/virtualMachineScaleSets` resource van belang zijn binnen de `resources` sectie. Als u een virtuele-machineschaalset waarvoor alleen toegewezen gebruikers-id hebt, kunt u deze uitschakelen door het veranderen van de id-type naar `None`.
+
+   Het volgende voorbeeld ziet u hoe alle gebruiker toegewezen identiteiten van een virtuele machine met geen enkel systeem toegewezen identiteit verwijderen:
+
    ```json
    {
        "name": "[variables('vmssName')]",
-       "apiVersion": "2017-03-30",
+       "apiVersion": "2018-06-01",
        "location": "[parameters(Location')]",
        "identity": {
            "type": "None"
         }
-
    }
    ```
+   
+   **Microsoft.Compute/virtualMachineScaleSets API-versie 2018-06-01**
+    
+   Verwijderen van een een enkele gebruiker toegewezen identiteit van een virtuele-machineschaalset verwijderen uit de `userAssignedIdentities` woordenlijst.
 
+   Als u een systeem toegewezen identiteit hebt, moet u deze de in de `type` waarde onder de `identity` waarde.
+
+   **Microsoft.Compute/virtualMachineScaleSets API-versie 2017-12-01**
+
+   Als u een enkele gebruiker toegewezen identiteit van een virtuele-machineschaalset, wilt verwijderen uit de `identityIds` matrix.
+
+   Als u een systeem toegewezen identiteit hebt, moet u deze de in de `type` waarde onder de `identity` waarde.
+   
 ## <a name="next-steps"></a>Volgende stappen
 
 - Lees voor een breder perspectief over beheerde Service-identiteit, de [overzicht van de beheerde Service-identiteit](overview.md).

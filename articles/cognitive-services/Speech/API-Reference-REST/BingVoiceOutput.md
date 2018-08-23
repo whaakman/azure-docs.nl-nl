@@ -1,6 +1,6 @@
 ---
-title: Text to Speech API van de Service Microsoft Speech | Microsoft Docs
-description: De tekst-naar-spraak API gebruiken voor realtime-naar-spraak conversie in tal van stemmen en talen
+title: Text to Speech-API van Microsoft Speech Service | Microsoft Docs
+description: De text to speech-API gebruiken voor realtime-naar-spraak conversie in een aantal stemmen en talen
 services: cognitive-services
 author: priyaravi20
 manager: yanbo
@@ -9,24 +9,24 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: priyar
-ms.openlocfilehash: 4b633cefa37c11511a8171d5a7f61b03dfaa4466
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6236bf1c4d9ac7ba672939543c16b8d02a79892e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344786"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41987562"
 ---
-# <a name="bing-text-to-speech-api"></a>Bing tekst-naar-spraak API
+# <a name="bing-text-to-speech-api"></a>Bing text to speech-API
 
 ## <a name="Introduction"></a>Inleiding
 
-Met de Bing tekst-naar-spraak API, kan uw toepassing HTTP-aanvragen naar een cloud-server, waarbij tekst onmiddellijk moet worden gemaakt in human klinkt spraak en geretourneerd als een audiobestand verzenden. Deze API kan worden gebruikt in veel verschillende contexten voor realtime-naar-spraak conversie in tal van verschillende stemmen en talen.
+Met de Bing text to speech-API, kan uw toepassing HTTP-aanvragen verzenden naar een cloud-server, waarbij tekst onmiddellijk human klinkende spraaksynthese en geretourneerd als een geluidsbestand. Deze API kan in veel verschillende contexten worden gebruikt voor realtime-naar-spraak conversie in tal van verschillende stemmen en talen.
 
-## <a name="VoiceSynReq"></a>Voice synthese aanvraag
+## <a name="VoiceSynReq"></a>Stem synthese aanvraag
 
-### <a name="Subscription"></a>Verificatietoken
+### <a name="Subscription"></a>Autorisatietoken
 
-Elke stem synthese aanvraag vereist een toegangstoken JSON Web Token (JWT). Het toegangstoken JWT wordt doorgegeven in de aanvraagheader spraak. Het token heeft een verlooptijd van 10 minuten. Zie voor meer informatie over abonneren en het verkrijgen van de API-sleutels die worden gebruikt voor het ophalen van geldige JWT-toegangstokens [cognitieve Services abonnement](https://azure.microsoft.com/try/cognitive-services/).
+Elke stem synthese-aanvraag moet een toegangstoken van JSON Web Token (JWT). De JWT-toegangstoken wordt doorgegeven in de aanvraagheader van spraak. Het token heeft een verlooptijd van 10 minuten. Zie voor meer informatie over het abonnement en het verkrijgen van API-sleutels die worden gebruikt om op te halen ongeldig JWT-tokens voor toegang tot [Cognitive Services-abonnement](https://azure.microsoft.com/try/cognitive-services/).
 
 De API-sleutel wordt doorgegeven aan de service voor beveiligingstokens. Bijvoorbeeld:
 
@@ -35,46 +35,46 @@ POST https://api.cognitive.microsoft.com/sts/v1.0/issueToken
 Content-Length: 0
 ```
 
-De vereiste header-informatie voor tokentoegang is als volgt.
+De vereiste header-informatie voor token-toegang is als volgt.
 
 Naam| Indeling | Beschrijving
 ----|----|----
 OCP-Apim-Subscription-Key | ASCII | Uw abonnementssleutel
 
-Retourneert de token service de toegang JWT-token als `text/plain`. En vervolgens de JWT wordt doorgegeven als een `Base64 access_token` naar het eindpunt spraak als een verificatieheader voorafgegaan door de tekenreeks `Bearer`. Bijvoorbeeld:
+De service voor beveiligingstokens retourneert het toegangstoken JWT als `text/plain`. En vervolgens de JWT wordt doorgegeven als een `Base64 access_token` naar het eindpunt spraak als een autorisatie-header voorafgegaan door de tekenreeks `Bearer`. Bijvoorbeeld:
 
 `Authorization: Bearer [Base64 access_token]`
 
-Clients moeten het volgende eindpunt gebruiken voor toegang tot de service-naar-spraak:
+Clients moeten het volgende eindpunt gebruiken voor toegang tot de Text to Speech-service:
 
 `https://speech.platform.bing.com/synthesize`
 
 >[!NOTE]
->Deze koppeling wordt gegenereerd nadat u een toegangstoken aangeschaft met de abonnementssleutel van uw, hebt zoals eerder beschreven, een `403 Forbidden` antwoordfout.
+>Deze koppeling wordt gegenereerd totdat u kunt een toegangstoken hebt aangeschaft met uw abonnementssleutel, zoals eerder beschreven, een `403 Forbidden` antwoordfout.
 
 ### <a name="Http"></a>HTTP-headers
 
-De volgende tabel bevat de HTTP-headers die worden gebruikt voor stem synthese aanvragen.
+De volgende tabel ziet u de HTTP-headers die worden gebruikt voor spraak synthese aanvragen.
 
 Koptekst |Waarde |Opmerkingen
 ----|----|----
 Inhoudstype | toepassing/ssml + xml | De invoer inhoudstype.
-X-Microsoft-OutputFormat | **1.** ssml-16 khz-16-bits-mono-tts <br> **2.** raw-16 khz-16-bits-mono-pcm <br>**3.** audio-16 khz-16 kbps-mono-siren <br> **4.** riff-16 khz-16 kbps-mono-siren <br> **5.** riff-16 khz-16-bits-mono-pcm <br> **6.** audio-16 khz-128kbitrate-mono-mp3 <br> **7.** audio-16 khz-64kbitrate-mono-mp3 <br> **8.** audio-16 khz-32kbitrate-mono-mp3 | De uitvoer audio-indeling.
-X-Search-toepassings-id | Een GUID (hex alleen, geen streepjes) | Een ID die een unieke identificatie van de clienttoepassing. Dit kan zijn dat de opslag-ID voor apps. Indien deze niet beschikbaar is, kan de ID van de gebruiker gegenereerde voor een toepassing zijn.
-X-Search-ClientID | Een GUID (hex alleen, geen streepjes) | Een ID die een unieke identificatie van de instantie van een toepassing voor elke installatie.
-Gebruikersagent | De naam van de toepassing | Naam van de toepassing is vereist en moet minder dan 255 tekens.
-Autorisatie | Verificatietoken |  Zie de <a href="#Subscription">verificatietoken</a> sectie.
+X-Microsoft-uitvoerindeling | **1.** ssml-16 khz-16-bits-mono-tts <br> **2.** raw-16 khz-16-bits-mono-pcm <br>**3.** audio-16 khz-16 kbps-mono-siren <br> **4.** riff-16 khz-16 kbps-mono-siren <br> **5.** riff-16 khz-16-bits-mono-pcm <br> **6.** audio-16 khz-128kbitrate-mono-mp3 <br> **7.** audio-16 khz-64kbitrate-mono-mp3 <br> **8.** audio-16 khz-32kbitrate-mono-mp3 | De uitvoer audio-indeling.
+X-Search-toepassings-id | Een GUID (hexadecimaal alleen, geen streepjes) | Een ID die de clienttoepassing wordt aangeduid. Dit kan de opslag-ID voor apps zijn. Als een niet beschikbaar is, kan de ID gebruiker gegenereerd voor een toepassing zijn.
+X-Search-ClientID | Een GUID (hexadecimaal alleen, geen streepjes) | Een ID die de instantie van een toepassing voor elke installatie wordt aangeduid.
+Gebruikersagent | De naam van de toepassing | De toepassingsnaam is vereist en moet minder dan 255 tekens.
+Autorisatie | Autorisatietoken |  Zie de <a href="#Subscription">Autorisatietoken</a> sectie.
 
 ### <a name="InputParam"></a>Invoerparameters
 
-Aanvragen voor de Bing tekst-naar-spraak API worden gedaan met behulp van HTTP POST-aanroepen. De headers worden opgegeven in de vorige sectie. De hoofdtekst bevat spraak synthese Markup Language (SSML) invoer met de tekst die moet worden gemaakt. Zie voor een beschrijving van de markering die wordt gebruikt voor het beheren van de aspecten van spraak zoals de taal en geslacht van de spreker de [SSML W3C-specificatie](http://www.w3.org/TR/speech-synthesis/).
+Aanvragen voor Bing text to speech-API worden gedaan met behulp van HTTP POST-aanroepen. De headers zijn opgegeven in de vorige sectie. De hoofdtekst bevat invoer spraak synthese Markup Language (SSML) waarmee de tekst die moet worden gemaakt. Zie voor een beschrijving van de markering die wordt gebruikt voor het beheren aspecten van spraakherkenning, zoals de taal en geslacht van de spreker analyseren, de [SSML W3C-specificatie](http://www.w3.org/TR/speech-synthesis/).
 
 >[!NOTE]
->De maximale grootte van de SSML-invoer, die wordt ondersteund is 1024 tekens, inclusief alle codes.
+>De maximale grootte van de invoer SSML die wordt ondersteund is 1024 tekens, inclusief alle tags.
 
-###  <a name="SampleVoiceOR"></a>Voorbeeld: een verzoek mondeling uitvoer
+###  <a name="SampleVoiceOR"></a>Voorbeeld: stem uitvoeraanvraag
 
-Een voorbeeld van een aanvraag van de uitvoer stem is als volgt:
+Een voorbeeld van een aanvraag voice-uitvoer is als volgt:
 
 ```HTTP
 POST /synthesize
@@ -90,13 +90,13 @@ Authorization: Bearer [Base64 access_token]
 <speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>Microsoft Bing Voice Output API</voice></speak>
 ```
 
-## <a name="VoiceOutResponse"></a>Voice uitvoer antwoord
+## <a name="VoiceOutResponse"></a>Stem uitvoer antwoord
 
-De Bing tekst-naar-spraak API gebruikt HTTP POST te verzenden audio terug naar de client. De API-reactie bevat de audiostroom en de codec en deze overeenkomt met de indeling van de gevraagde uitvoer. De audio geretourneerd voor een bepaalde aanvraag mag niet groter zijn dan 15 seconden.
+Bing text to speech-API maakt gebruik van HTTP POST voor het verzenden van audio terug naar de client. De API-reactie bevat de audiostream en de codec en deze overeenkomt met de indeling van de gevraagde uitvoer. De audio geretourneerd voor een bepaalde aanvraag mag niet groter zijn dan 15 seconden.
 
-### <a name="SuccessfulRecResponse"></a>Voorbeeld: geslaagde synthese antwoord
+### <a name="SuccessfulRecResponse"></a>Voorbeeld: geslaagd synthese antwoord
 
-De volgende code is een voorbeeld van een JSON-antwoord op een geslaagde stem synthese-aanvraag. De opmerkingen en opmaak van de code zijn voor dit voorbeeld alleen en worden weggelaten uit het werkelijke antwoord.
+De volgende code is een voorbeeld van een JSON-antwoord op een geslaagde stem synthese-aanvraag. De opmerkingen en opmaak van de code voor dit voorbeeld alleen zijn en zijn weggelaten uit de daadwerkelijke reactie.
 
 ```HTTP
 HTTP/1.1 200 OK
@@ -106,9 +106,9 @@ Content-Type: audio/x-wav
 Response audio payload
 ```
 
-### <a name="RecFailure"></a>Voorbeeld: synthese mislukt
+### <a name="RecFailure"></a>Voorbeeld: synthese fout
 
-De volgende voorbeeldcode ziet u een JSON-antwoord aan een gesproken synthese query-fout:
+De volgende voorbeeldcode ziet u een JSON-antwoord aan een stem-synthese query-fout:
 
 ```HTTP
 HTTP/1.1 400 XML parser error
@@ -120,12 +120,12 @@ Content-Length: 0
 
 Fout | Beschrijving
 ----|----
-Onjuiste aanvraag HTTP/400 | Een vereiste parameter ontbreekt, is leeg of null is of de waarde die is doorgegeven aan een vereiste of optionele parameter is ongeldig. Een reden voor het ophalen van het antwoord 'ongeldig' met het doorgeven van een tekenreekswaarde die langer is dan de toegestane lengte. Een korte beschrijving van de parameter problematisch is opgenomen.
-HTTP/401-niet toegestaan | De aanvraag is niet gemachtigd.
-HTTP-/ 413 RequestEntityTooLarge  | De SSML-invoer is groter dan wat wordt ondersteund.
+HTTP-/ 400 Ongeldige aanvraag | Er ontbreekt een vereiste parameter ontbreekt, is leeg of null zijn of de waarde die wordt doorgegeven aan een vereiste of optionele parameter is ongeldig. Eén reden voor het ophalen van het antwoord 'Ongeldige' is een tekenreekswaarde die langer is dan de toegestane lengte doorgegeven. Een korte beschrijving van de problematische parameter is opgenomen.
+HTTP/401-niet gemachtigd | De aanvraag is niet gemachtigd.
+HTTP-/ 413 RequestEntityTooLarge  | De invoer SSML is groter dan wat wordt ondersteund.
 HTTP 502/BadGateway | Er is een probleem met netwerk of een probleem met de serverzijde.
 
-Een voorbeeld van een reactie op een fout is als volgt:
+Een voorbeeld van een foutbericht is als volgt:
 
 ```HTTP
 HTTP/1.0 400 Bad Request
@@ -137,7 +137,7 @@ Voice name not supported
 
 ## <a name="ChangeSSML"></a>Voice-uitvoer via SSML wijzigen
 
-Microsoft TTS-API ondersteunt SSML 1.0 zoals gedefinieerd in W3C [spraak synthese Markup Language (SSML) versie 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/). Deze sectie ziet u voorbeelden van het wijzigen van bepaalde kenmerken van de gegenereerde stem uitvoer spreken classificeren, de uitspraak enz. met behulp van SSML-codes.
+Text to Speech-API van Microsoft SSML 1.0 ondersteunt, zoals gedefinieerd in W3C [spraak synthese Markup Language (SSML) versie 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/). In deze sectie ziet u voorbeelden van het wijzigen van bepaalde kenmerken van de gegenereerde voice-uitvoer zoals spreekstijl beoordelen, enz. met behulp van tags SSML uitspraak.
 
 1. Einde toevoegen
 
@@ -145,13 +145,13 @@ Microsoft TTS-API ondersteunt SSML 1.0 zoals gedefinieerd in W3C [spraak synthes
   <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, BenjaminRUS)'> Welcome to use Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.</voice> </speak>
   ```
 
-2. De snelheid van spreken wijzigen
+2. Snelheid van spreken wijzigen
 
   ```
   <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody rate="+30.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
   ```
 
-3. Uitspraak
+3. Uitspraak van
 
   ```
   <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'> <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme></voice> </speak>
@@ -163,118 +163,118 @@ Microsoft TTS-API ondersteunt SSML 1.0 zoals gedefinieerd in W3C [spraak synthes
   <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody volume="+20.00%">Welcome to use Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
   ```
 
-5. Presentatie wijzigen
+5. Breedte wijzigen
 
   ```
   <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>Welcome to use <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody></voice> </speak>
   ```
 
-6. Wijziging prosody werklast
+6. Wijziging prosody contour
 
   ```
   <speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'><voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'><prosody contour="(80%,+20%) (90%,+30%)" >Good morning.</prosody></voice> </speak>
   ```
 
 > [!NOTE]
-> De audiogegevens heeft 8 kB of 16 k wav worden opgeslagen in de volgende indeling: **CRC code** (CRC-32): 4 bytes (DWORD) met het geldige bereik 0x00000000 ~ 0xFFFFFFFF; **Audio-indeling vlag**: 4 bytes (DWORD) met het geldige bereik 0x00000000 ~ 0xFFFFFFFF; **Aantal samples**: 4 bytes (DWORD) met het geldige bereik 0x00000000 ~ 0x7FFFFFFF; **Grootte van de hoofdtekst van de binaire**: 4 bytes (DWORD) met het geldige bereik 0x00000000 ~ 0x7FFFFFFF; **Binaire hoofdtekst**: n bytes.
+> De gegevens heeft om te worden van 8 kB of 16 kB wav wordt ingediend in de volgende indeling: **CRC code** (CRC-32): 4 bytes (DWORD) met het geldige bereik 0x00000000 ~ 0xFFFFFFFF; **Audio-indeling vlag**: 4 bytes (DWORD) met het geldige bereik 0x00000000 ~ 0xFFFFFFFF; **Aantal**: 4 bytes (DWORD) met het geldige bereik 0x00000000 ~ 0x7FFFFFFF; **Grootte van de hoofdtekst van de binaire**: 4 bytes (DWORD) met het geldige bereik 0x00000000 ~ 0x7FFFFFFF; **Binaire hoofdtekst**: n bytes.
 
 ## <a name="SampleApp"></a>Voorbeeld van een toepassing
 
-Zie voor meer informatie voor implementatie, de [Visual C# .NET-naar-spraak voorbeeldtoepassing](https://github.com/Microsoft/Cognitive-Speech-TTS/blob/master/Samples-Http/CSharp/TTSProgram.cs).
+Zie voor meer informatie voor implementatie, de [Visual C# .NET-naar-spraak-voorbeeldtoepassing](https://github.com/Microsoft/Cognitive-Speech-TTS/blob/master/Samples-Http/CSharp/TTSProgram.cs).
 
-## <a name="SupLocales"></a>Ondersteunde talen en stem lettertypen
+## <a name="SupLocales"></a>Ondersteunde talen en spraakstijlen
 
-De volgende tabel bevat enkele van de ondersteunde talen en verwante stem lettertypen.
+De volgende tabel bevat enkele van de ondersteunde landinstellingen en gerelateerde spraakstijlen.
 
 Landinstelling | Geslacht | De toewijzing van service
 ---------|--------|------------
-ar bijvoorbeeld * | Vrouw | "Microsoft Server Speech Text naar stem (ar-BIJV: Hoda)"
-ar-SA | Man | 'Microsoft Server Speech tekst stem (ar-SA, Naayf)'
-bg-BG | Man | "Microsoft Server Speech Text to Speech stem (bg-BG, Ivan)"
-CA-ES | Vrouw | "Microsoft Server Speech Text to Speech stem (ca-ES, HerenaRUS)"
-cs-CZ | Man | "Microsoft Server Speech Text naar stem (cs-CZ, Jakub)"
-da-DK | Vrouw | 'Microsoft Server Speech tekst stem (da-DK, HelleRUS)'
-de AT | Man | 'Microsoft Server Speech tekst stem (de-AT, Michael)'
-de CH | Man | 'Microsoft Server Speech tekst stem (de-h, Karsten)'
-de-DE | Vrouw | 'Microsoft Server Speech tekst stem (nl-nl, Hedda)'
-de-DE | Vrouw | 'Microsoft Server Speech tekst stem (nl-nl, HeddaRUS)'
-de-DE | Man | 'Microsoft Server Speech tekst stem (nl-nl, Stefan, Apollo)'
-el-GR | Man | 'Microsoft Server Speech tekst stem (el-GR, Stefanos)'
-en-AU | Vrouw | 'Microsoft Server Speech tekst stem (en-AU, Catherine)'
-en-AU | Vrouw | 'Microsoft Server Speech tekst stem (en-AU, HayleyRUS)'
-NL-CA | Vrouw | 'Microsoft Server Speech tekst stem (nl-CA, Linda)'
-NL-CA | Vrouw | 'Microsoft Server Speech tekst stem (nl-CA, HeatherRUS)'
-NL GB | Vrouw | 'Microsoft Server Speech tekst stem (nl-GB, Susan, Apollo)'
-NL GB | Vrouw | 'Microsoft Server Speech tekst stem (nl-GB, HazelRUS)'
-NL GB | Man | 'Microsoft Server Speech tekst stem (nl-GB, George, Apollo)'
-NL-IE | Man | 'Microsoft Server Speech tekst stem (nl-IE, Jan)'
-NL-IN | Vrouw | 'Microsoft Server Speech tekst stem (nl-IN, Heera, Apollo)'
-NL-IN | Vrouw | 'Microsoft Server Speech tekst stem (nl-IN, PriyaRUS)'
-NL-IN | Man | 'Microsoft Server Speech tekst stem (nl-IN, Ravi, Apollo)'
-nl-NL | Vrouw | 'Microsoft Server Speech tekst stem (en-US, ZiraRUS)'
-nl-NL | Vrouw | 'Microsoft Server Speech tekst stem (en-US, JessaRUS)'
-nl-NL | Man | 'Microsoft Server Speech tekst stem (en-US, BenjaminRUS)'
-es-ES | Vrouw | "Microsoft Server Speech Text to Speech stem (es-ES, Ellen, Apollo)"
-es-ES | Vrouw | "Microsoft Server Speech Text to Speech stem (es-ES, HelenaRUS)"
-es-ES | Man | "Microsoft Server Speech Text to Speech stem (es-ES, Pablo, Apollo)"
-es-MX | Vrouw | "Microsoft Server-stem Text to Speech (es-MX, HildaRUS)"
-es-MX | Man | "Microsoft Server-stem Text to Speech (es-MX, Raul, Apollo)"
-fi-FI | Vrouw | 'Microsoft Server Speech tekst stem (fi-FI, HeidiRUS)'
-fr-CA | Vrouw | "Microsoft Server Speech Text to Speech stem (fr-CA, Caroline)"
-fr-CA | Vrouw | "Microsoft Server Speech Text to Speech stem (fr-CA, HarmonieRUS)"
-FR CH | Man | "Microsoft Server Speech Text to Speech stem (fr-h, Guillaume)"
-fr-FR | Vrouw | "Microsoft Server Speech Text to Speech stem (fr-FR, Julia, Apollo)"
-fr-FR | Vrouw | "Microsoft Server Speech Text to Speech stem (fr-FR, HortenseRUS)"
-fr-FR | Man | "Microsoft Server Speech Text to Speech stem (fr-FR, Paul, Apollo)"
-hij IL| Man| 'Microsoft Server Speech tekst stem (he-IL, Asaf)'
-hi-IN | Vrouw | 'Microsoft Server Speech tekst stem (Hallo-IN, Kalpana, Apollo)'
-hi-IN | Vrouw | 'Microsoft Server Speech tekst stem (Hallo-IN, Kalpana)'
-hi-IN | Man | 'Microsoft Server Speech tekst stem (Hallo-IN, Hemant)'
-hr-HR | Man | "Microsoft Server Speech Text to Speech stem (hr-HR, Matej)"
-hu-HU | Man | 'Microsoft Server Speech tekst stem (hu-HU, Szabolcs)'
-id-ID | Man | 'Microsoft Server Speech tekst stem (id-ID, Andika)'
-IT-IT | Man | 'Microsoft Server Speech tekst stem (it-IT, Cosimo, Apollo)'
-ja-JP | Vrouw | "Microsoft Server Speech Text to Speech stem (ja-JP, Ayumi, Apollo)"
-ja-JP | Man | "Microsoft Server Speech Text to Speech stem (ja-JP, Ichiro, Apollo)"
-ja-JP | Vrouw | "Microsoft Server Speech Text to Speech stem (ja-JP, HarukaRUS)"
-ja-JP | Vrouw | "Microsoft Server Speech Text to Speech stem (ja-JP, LuciaRUS)"
-ja-JP | Man | "Microsoft Server Speech Text to Speech stem (ja-JP, EkaterinaRUS)"
-ko-KR | Vrouw | 'Microsoft Server Speech tekst stem (ko-KR, HeamiRUS)'
-ms-MY | Man | "Microsoft Server-stem Text to Speech (ms-mijn Rizwan)"
-nb-NO | Vrouw | "Microsoft Server-stem Text to Speech (nb-NO HuldaRUS)"
-NL-NL | Vrouw | "Microsoft Server Speech Text to Speech stem (nl-NL, HannaRUS)"
-pl-PL | Vrouw | "Microsoft Server Speech Text to Speech stem (pl-PL, PaulinaRUS)"
-pt-BR | Vrouw | "Microsoft Server Speech Text to Speech stem (pt-BR, HeloisaRUS)"
-pt-BR | Man | "Microsoft Server Speech Text to Speech stem (pt-BR, Daniel, Apollo)"
-pt-PT | Vrouw | "Microsoft Server Speech Text to Speech stem (pt-PT, HeliaRUS)"
-ro-RO | Man | 'Microsoft Server Speech tekst stem (ro-RO, Andrei)'
-ru-RU | Vrouw | "Microsoft Server Speech Text to Speech stem (ru-RU, Irina, Apollo)"
-ru-RU | Man | "Microsoft Server Speech Text to Speech stem (ru-RU, Pavel, Apollo)"
-sk-SK | Man | "Microsoft Server Speech Text to Speech stem (sk-SK, Filip)"
-sl-SI | Man | "Microsoft Server Speech Text to Speech stem (sl-SI, Lado)"
-SV-SE | Vrouw | 'Microsoft Server Speech tekst stem (sv-SE, HedvigRUS)'
-DBC-IN | Man | 'Microsoft Server Speech tekst stem (DBC-IN, Valluvar)'
-th-TH | Man | "Microsoft Server Speech Text to Speech stem (th-TH, Pattara)"
-tr-TR | Vrouw | "Microsoft Server Speech Text to Speech stem (tr-TR, SedaRUS)"
-vi-VN | Man | "Microsoft Server-stem Text to Speech (vi-VN een)"
-zh-CN | Vrouw | 'Microsoft Server Speech tekst stem (zh-CN, HuihuiRUS)'
-zh-CN | Vrouw | 'Microsoft Server Speech tekst stem (zh-CN, Yaoyao, Apollo)'
-zh-CN | Man | 'Microsoft Server Speech tekst stem (zh-CN, Kangkang, Apollo)'
-zh-HK | Vrouw | 'Microsoft Server Speech tekst stem (zh-HK Tracy, Apollo)'
-zh-HK | Vrouw | 'Microsoft Server Speech tekst stem (zh-HK TracyRUS)'
-zh-HK | Man | 'Microsoft Server Speech tekst stem (zh-HK Danny, Apollo)'
-zh-TW. | Vrouw | 'Microsoft Server Speech tekst stem (zh-TW, Yating, Apollo)'
-zh-TW. | Vrouw | 'Microsoft Server Speech tekst stem (zh-TW, HanHanRUS)'
-zh-TW. | Man | 'Microsoft Server Speech tekst stem (zh-TW, Zhiwei, Apollo)'
- * ar-bijvoorbeeld ondersteunt moderne standaard Arabisch (MSA).
+ar bijvoorbeeld * | Vrouw | "Microsoft Server spraak tekst en spraak spraak (ar-bijvoorbeeld Hoda)"
+ar-SA | Man | "Microsoft Server spraak tekst en spraak, spraak (ar-SA, Naayf)"
+bg-BG | Man | "Microsoft Server tekst naar spraak stem (bg-BG, Ivan)"
+CA-ES | Vrouw | "Microsoft Server tekst naar spraak stem (ca-ES, HerenaRUS)"
+cs-CZ | Man | "Microsoft Server spraak tekst en spraak spraak (cs-CZ, Jakub)"
+da-DK | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (da-DK, HelleRUS)"
+de-AT | Man | "Microsoft Server spraak tekst en spraak, spraak (de-AT, Michael)"
+de CH | Man | "Microsoft Server spraak tekst en spraak, spraak (de-h, Karsten)"
+de-DE | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (nl-nl, Hedda)"
+de-DE | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (nl-nl, HeddaRUS)"
+de-DE | Man | "Microsoft Server spraak tekst en spraak, spraak (nl-nl, Stefan, Apollo)"
+el GR | Man | "Microsoft Server spraak tekst en spraak, spraak (el-GR, Stefanos)"
+en-AU | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-AU, Catherine)"
+en-AU | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-AU, HayleyRUS)"
+NL-CA | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-CA, Linda)"
+NL-CA | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-CA, HeatherRUS)"
+en-GB | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-GB, Susan, Apollo)"
+en-GB | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-GB, HazelRUS)"
+en-GB | Man | "Microsoft Server spraak tekst en spraak, spraak (en-GB, George, Apollo)"
+NL-Internet Explorer | Man | "Microsoft Server spraak tekst en spraak, spraak (en Internet Explorer, Jan)"
+NL-IN | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-IN, Heera, Apollo)"
+NL-IN | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-IN, PriyaRUS)"
+NL-IN | Man | "Microsoft Server spraak tekst en spraak, spraak (en-IN, Ravi, Apollo)"
+nl-NL | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, ZiraRUS)"
+nl-NL | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, JessaRUS)"
+nl-NL | Man | "Microsoft Server spraak tekst en spraak, spraak (en-US, BenjaminRUS)"
+es-ES | Vrouw | "Microsoft Server tekst naar spraak stem (es-ES, Laura, Apollo)"
+es-ES | Vrouw | "Microsoft Server tekst naar spraak stem (es-ES, HelenaRUS)"
+es-ES | Man | "Microsoft Server tekst naar spraak stem (es-ES, Pablo, Apollo)"
+es-MX | Vrouw | "Microsoft Server-stem tekst naar spraak (es-MX, HildaRUS)"
+es-MX | Man | "Microsoft Server-stem tekst naar spraak (es-MX, Raul, Apollo)"
+fi-FI | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (fi-FI, HeidiRUS)"
+fr-CA | Vrouw | "Microsoft Server tekst naar spraak stem (fr-CA, Caroline)"
+fr-CA | Vrouw | "Microsoft Server tekst naar spraak stem (fr-CA, HarmonieRUS)"
+FR-h | Man | "Microsoft Server tekst naar spraak stem (fr-h, Guillaume)"
+fr-FR | Vrouw | "Microsoft Server tekst naar spraak stem (fr-FR, Julia, Apollo)"
+fr-FR | Vrouw | "Microsoft Server tekst naar spraak stem (fr-FR, HortenseRUS)"
+fr-FR | Man | "Microsoft Server tekst naar spraak stem (fr-FR, Paul, Apollo)"
+hij IL| Man| "Microsoft Server spraak tekst en spraak, spraak (hij-IL, Asaf)"
+hi-IN | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (High-IN, Kalpana, Apollo)"
+hi-IN | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (High-IN, Kalpana)"
+hi-IN | Man | "Microsoft Server spraak tekst en spraak, spraak (High-IN, Hemant)"
+hr-HR | Man | "Microsoft Server tekst naar spraak stem (hr-HR, Matej)"
+hu-HU | Man | "Microsoft Server spraak tekst en spraak, spraak (hu-HU, Szabolcs)"
+id-ID | Man | "Microsoft Server spraak tekst en spraak, spraak (id-ID, Andika)"
+IT-IT | Man | "Microsoft Server spraak tekst en spraak, spraak (it-IT, Cosimo, Apollo)"
+IT-IT | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (it-IT, LuciaRUS)"
+ja-JP | Vrouw | "Microsoft Server tekst naar spraak stem (ja-JP, Ayumi, Apollo)"
+ja-JP | Man | "Microsoft Server tekst naar spraak stem (ja-JP, Ichiro, Apollo)"
+ja-JP | Vrouw | "Microsoft Server tekst naar spraak stem (ja-JP, HarukaRUS)"
+ko-KR | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (ko-KR, HeamiRUS)"
+ms-MY | Man | "Microsoft Server-stem tekst naar spraak (ms-mijn Rizwan)"
+nb-NO | Vrouw | "Microsoft Server-stem tekst naar spraak (nb-NO HuldaRUS)"
+NL-NL | Vrouw | "Microsoft Server tekst naar spraak stem (nl-NL, HannaRUS)"
+pl-PL | Vrouw | "Microsoft Server tekst naar spraak stem (pl-PL, PaulinaRUS)"
+pt-BR | Vrouw | "Microsoft Server tekst naar spraak stem (pt-BR, HeloisaRUS)"
+pt-BR | Man | "Microsoft Server tekst naar spraak stem (pt-BR, Daniel, Apollo)"
+pt-PT | Vrouw | "Microsoft Server tekst naar spraak stem (pt-PT, HeliaRUS)"
+ro-RO | Man | "Microsoft Server spraak tekst en spraak, spraak (ro-RO, Andrei)"
+ru-RU | Vrouw | "Microsoft Server tekst naar spraak stem (ru-RU, Irina, Apollo)"
+ru-RU | Man | "Microsoft Server tekst naar spraak stem (ru-RU, Pavel, Apollo)"
+ru-RU | Vrouw | "Microsoft Server tekst naar spraak stem (ru-RU, EkaterinaRUS)"
+sk-SK | Man | "Microsoft Server tekst naar spraak stem (sk-SK, Filip)"
+sl-SI | Man | "Microsoft Server tekst naar spraak stem (sl-SI, Lado)"
+SV-SE | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (sv-SE, HedvigRUS)"
+TA-IN | Man | "Microsoft Server spraak tekst en spraak, spraak (ta-IN, Valluvar)"
+e-e | Man | "Microsoft Server tekst naar spraak stem (th-TH, Pattara)"
+tr-TR | Vrouw | "Microsoft Server tekst naar spraak stem (tr-TR, SedaRUS)"
+vi-VN | Man | "Microsoft Server-stem tekst naar spraak (vi-VN, een)"
+zh-CN | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (zh-CN, HuihuiRUS)"
+zh-CN | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (zh-CN, Yaoyao, Apollo)"
+zh-CN | Man | "Microsoft Server spraak tekst en spraak, spraak (zh-CN, Kangkang, Apollo)"
+zh-HK | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (zh-HK Tracy, Apollo)"
+zh-HK | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (zh-HK TracyRUS)"
+zh-HK | Man | "Microsoft Server spraak tekst en spraak, spraak (zh-HK Danny, Apollo)"
+zh-TW | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (zh-TW, Yating, Apollo)"
+zh-TW | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (zh-TW, HanHanRUS)"
+zh-TW | Man | "Microsoft Server spraak tekst en spraak, spraak (zh-TW, Zhiwei, Apollo)"
+ * ar-bijvoorbeeld ondersteunt moderne Standard Arabisch (MSA).
 
 > [!NOTE]
-> Houd er rekening mee dat de vorige servicenamen **Microsoft Server Speech Text naar stem (cs-CZ, Vit)** en **Microsoft Server Speech Text naar stem (nl-IE Shaun)** afgeschaft na 31-3/2018 in de volgorde om te optimaliseren van de Bing Speech-API-mogelijkheden. Werk uw code bij met de bijgewerkte namen.
+> Houd er rekening mee dat de vorige servicenamen **Microsoft Server spraak tekst en spraak spraak (cs-CZ, Vit)** en **Microsoft Server spraak tekst en spraak, spraak (en Internet Explorer, Shaun)** na 3/31 januari 2018 wordt afgeschaft de volgorde voor het optimaliseren van de Bing Speech-API-mogelijkheden. Werk uw code met de bijgewerkte namen.
 
-## <a name="TrouNSupport"></a>Probleemoplossing en ondersteuning
+## <a name="TrouNSupport"></a>Problemen oplossen en ondersteuning
 
-Plaats alle vragen en problemen op de [Bing Speech Service](https://social.msdn.microsoft.com/Forums/en-US/home?forum=SpeechService) MSDN-forum. Meer informatie, zoals omvatten:
+Plaats alle vragen en problemen met de [Bing Speech-Service](https://social.msdn.microsoft.com/Forums/en-US/home?forum=SpeechService) MSDN-forum. Meer informatie, zoals zijn onder andere:
 
 * Een voorbeeld van de volledige aanvraag-tekenreeks.
-* Indien van toepassing, meld u met de volledige uitvoer van een mislukte aanvraag, waaronder id's.
-* Het percentage verzoeken die mislukken.
+* Indien van toepassing, meld u met de volledige uitvoer van een mislukte aanvragen, waaronder id's.
+* Het percentage aanvragen dat mislukken.

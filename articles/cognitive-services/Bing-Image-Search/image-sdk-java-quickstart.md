@@ -1,6 +1,6 @@
 ---
-title: Quick Start Bing installatiekopie zoeken SDK Java | Microsoft Docs
-description: Informatie over het instellen van de consoletoepassing Bing installatiekopie Search SDK.
+title: 'Snelstartgids: Vragen en filteren van afbeeldingen met behulp van de SDK in Java'
+description: In deze snelstartgids hebt u aanvragen en filteren van de installatiekopieën die zijn geretourneerd door Bing afbeeldingen zoeken, met behulp van Java.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
@@ -10,21 +10,21 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 02/16/2018
 ms.author: v-gedod
-ms.openlocfilehash: 0c44bb313328081167a419f3b7d5ce17e49d2c99
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 280a4b67d81b0734ea983c1d7fe1389e59651ccd
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345700"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41988136"
 ---
-# <a name="bing-image-search-sdk-java-quickstart"></a>Bing installatiekopie zoeken SDK Java Quick Start
+# <a name="quickstart-request-and-filter-images-using-the-sdk-and-java"></a>Snelstartgids: Vragen en filteren van afbeeldingen met behulp van de SDK en Java
 
-De Bing installatiekopie Search SDK biedt de functionaliteit van de REST-API voor de installatiekopie van query's en parseren resultaten. 
+De Bing afbeeldingen zoeken-SDK biedt de functionaliteit van de REST-API voor de installatiekopie van query's en parseren resultaten. 
 
-De [broncode voor voorbeelden van Java Bing installatiekopie Search SDK](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch) beschikbaar is op de Git-Hub. 
+De [broncode voor Java Bing afbeeldingen zoeken-SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingImageSearch) is beschikbaar op Git Hub. 
 
 ## <a name="application-dependencies"></a>Afhankelijkheden voor toepassingen
-Ophalen van een [cognitieve toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) onder **Search**. De Bing installatiekopie Search SDK-afhankelijkheden installeren met behulp van Maven, Gradle of een ander beheersysteem van afhankelijkheid. Het bestand Maven POM is vereist voor de declaratie:
+Krijgen een [Cognitive Services-toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) onder **zoeken**. Installeer de Bing afbeeldingen zoeken-SDK-afhankelijkheden met behulp van Maven of Gradle, een ander systeem voor Afhankelijkheidsbeheer. Het Maven-POM-bestand moet de declaratie:
 ```
  <dependencies>
     <dependency>
@@ -34,7 +34,7 @@ Ophalen van een [cognitieve toegangssleutel](https://azure.microsoft.com/try/cog
     </dependency>
  </dependencies> 
 ```
-## <a name="image-search-client"></a>Afbeelding zoeken client
+## <a name="image-search-client"></a>Afbeeldingen zoeken-client
 Invoer toevoegen aan de implementatie van de klasse.
 ```
 import com.microsoft.azure.cognitiveservices.imagesearch.*;
@@ -79,7 +79,7 @@ public static ImageSearchAPIImpl getClient(final String subscriptionKey) {
 }
 
 ```
-Zoeken naar afbeeldingen over de 'Canadees Rockies'. Controleer of het aantal resultaten. Afdrukken van de waarden voor de **firstImageResult**, **pivotSuggestions**, en **queryExpansions** parameters.
+Zoeken naar afbeeldingen over de 'Canadese Rockies'. Controleer of het aantal resultaten. Afdrukken van de waarden voor de **firstImageResult**, **pivotSuggestions**, en **queryExpansions** parameters.
 ```
 public static void imageSearch(String subscriptionKey)
 {
@@ -164,7 +164,7 @@ public static void imageSearch(String subscriptionKey)
 }
 
 ```
-Zoeken naar afbeeldingen over 'Gibraltar' en filter voor GIF-bestanden en een breed hoogte-breedteverhouding. Controleer of het aantal resultaten. Afdrukken van de waarden voor de **insightsToken**, **thumbnailUrl**, en **webUrl** parameters voor het eerste resultaat.
+Zoeken naar afbeeldingen over 'Gibraltar' en het filter voor GIF-animaties en een breed hoogte-breedteverhouding. Controleer of het aantal resultaten. Afdrukken van de waarden voor de **insightsToken**, **thumbnailUrl**, en **webUrl** parameters voor het eerste resultaat.
 ```
 public static void imageSearchWithFilters(String subscriptionKey)
 {
@@ -208,7 +208,7 @@ public static void imageSearchWithFilters(String subscriptionKey)
 }
 
 ```
-Zoeken naar trends afbeeldingen. Controleer of de **categorieën** en **tegels** parameters.
+Zoeken naar trending afbeeldingen. Controleer of de **categorieën** en **tegels** parameters.
 ```
 public static void imageTrending(String subscriptionKey)
 {
@@ -260,7 +260,7 @@ public static void imageTrending(String subscriptionKey)
 }
 
 ```
-Zoeken naar afbeeldingen met de query 'Degas' en zoek vervolgens naar meer informatie over het eerste resultaat van de installatiekopie. 
+Zoeken naar afbeeldingen met de query 'Degas' en zoek vervolgens de details over de eerste afbeelding-resultaat. 
 ```
 public static void imageDetail(String subscriptionKey)
 {
@@ -396,7 +396,7 @@ public static void imageDetail(String subscriptionKey)
     }
 }
 ```
-Voeg de methoden die worden beschreven in dit artikel voor een klasse met een belangrijke functie voor het uitvoeren van de code.
+De methoden die worden beschreven in dit artikel voor een klasse met een main-functie voor het uitvoeren van de code toevoegen.
 ```
 package ImageSDK;
 import com.microsoft.azure.cognitiveservices.imagesearch.*;
@@ -416,4 +416,4 @@ public class ImageSrchSDK {
 ```
 ## <a name="next-steps"></a>Volgende stappen
 
-[Cognitieve Services Java SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)
+[Cognitive Services Java SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples)

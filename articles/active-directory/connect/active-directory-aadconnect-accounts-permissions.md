@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: cfb6fb512ecb7d57cf411a31b2e04726bfc4b743
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: a628e28e9e6bd603fb2a3789c3281bc2181c91fe
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263399"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42059103"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Accounts en machtigingen
 
@@ -121,7 +121,7 @@ Welke machtigingen die u nodig hebt, is afhankelijk van de optionele functies in
 
 | Functie | Machtigingen |
 | --- | --- |
-| de functie msDS-ConsistencyGuid |Schrijfmachtigingen heeft voor het kenmerk msDS-ConsistencyGuid is beschreven in [ontwerpconcepten - msDS-ConsistencyGuid gebruiken als sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). | 
+| MS-DS-ConsistencyGuid functie |Schrijfmachtigingen heeft voor het kenmerk ms-DS-ConsistencyGuid is beschreven in [ontwerpconcepten - ms-DS-ConsistencyGuid gebruiken als sourceAnchor](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
 | Synchronisatie van wachtwoordhashes |<li>Directorywijzigingen repliceren</li>  <li>Alle repliceren Directory gewijzigd |
 | Hybride implementatie voor Exchange |Schrijfmachtigingen heeft voor de kenmerken beschreven in [Exchange hybrid terugschrijven](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) voor gebruikers, groepen en contactpersonen. |
 | Openbare map voor Exchange-e-Mail |Leesmachtigingen voor de kenmerken beschreven in [Exchange Mail openbare map](active-directory-aadconnectsync-attributes-synchronized.md#exchange-mail-public-folder) voor openbare mappen. | 

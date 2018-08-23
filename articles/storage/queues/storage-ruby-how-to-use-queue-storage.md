@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 7074ae21c1816b5266cbcf69d0126751ded19439
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 907175ac341632d2ba0048ab486392b949f83626
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522601"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42059107"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Queue Storage gebruiken met Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -156,4 +156,4 @@ Nu dat u de basisprincipes van queue storage hebt geleerd, volgt u deze koppelin
 * Ga naar de [Blog Azure Storage-Team](http://blogs.msdn.com/b/windowsazurestorage/)
 * Ga naar de [Azure SDK voor Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) -bibliotheek op GitHub
 
-Voor een vergelijking tussen de Azure Queue-Service die in dit artikel worden besproken en Azure Service Bus-wachtrijen beschreven in de [over het gebruik van Service Bus-wachtrijen](/develop/ruby/how-to-guides/service-bus-queues/) artikel, Zie [Azure Queues en Service Bus-wachtrijen: vergeleken en Verschillen](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+Voor een vergelijking tussen de Azure Queue-Service die in dit artikel worden besproken en Azure Service Bus-wachtrijen beschreven in de [over het gebruik van Service Bus-wachtrijen](https://azure.microsoft.com/develop/ruby/how-to-guides/service-bus-queues/) artikel, Zie [Azure Queues en Service Bus-wachtrijen: vergeleken en Verschillen](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

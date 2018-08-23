@@ -1,31 +1,32 @@
 ---
-title: Azure Event raster event hubs gebeurtenis schema
-description: Beschrijft de eigenschappen die beschikbaar zijn voor event hubs gebeurtenissen met Azure Event raster
+title: Azure Event Grid event hubs-gebeurtenisschema
+description: Beschrijft de eigenschappen die beschikbaar zijn voor gebeurtenissen van event hubs met Azure Event Grid
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/30/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6fac70a8837245e6d60a5a61db8a22ab718d4b49
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: e301f3895126ed52b8d4c1f046f69dfcedb3563c
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34302658"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055313"
 ---
-# <a name="azure-event-grid-event-schema-for-event-hubs"></a>Azure Event raster gebeurtenis schema voor event hubs
+# <a name="azure-event-grid-event-schema-for-event-hubs"></a>Azure Event Grid-gebeurtenisschema voor eventhubs
 
-Dit artikel bevat de eigenschappen en het schema voor gebeurtenissen van event hubs. Zie voor een inleiding tot gebeurtenis schema's, [Azure gebeurtenis raster gebeurtenis schema](event-schema.md).
+Dit artikel bevat de eigenschappen en het schema voor event hubs-gebeurtenissen. Zie voor een inleiding tot gebeurtenisschema's, [Azure Event Grid-gebeurtenisschema](event-schema.md).
 
-### <a name="available-event-types"></a>Typen beschikbare gebeurtenissen
+Zie voor een lijst met zelfstudies en voorbeelden van scripts, [Event Hubs-gebeurtenisbron](event-sources.md#event-hubs).
 
-Event Hubs verzendt de **Microsoft.EventHub.CaptureFileCreated** gebeurtenistype wanneer een bestand met vastleggen wordt gemaakt.
+### <a name="available-event-types"></a>Typen van de gebeurtenis berichten beschikbaar
+
+Eventhubs verzendt de **Microsoft.EventHub.CaptureFileCreated** gebeurtenistype wanneer een bestand vastleggen wordt gemaakt.
 
 ## <a name="example-event"></a>Voorbeeld van de gebeurtenis
 
-Deze voorbeeldgebeurtenis ziet u het schema van een event hubs-gebeurtenis die optreedt wanneer de functie voor het vastleggen van een bestand wordt opgeslagen: 
+Deze voorbeeldgebeurtenis ziet u het schema van een event hubs-gebeurtenis treedt op wanneer de capture-functie wordt een bestand opgeslagen: 
 
 ```json
 [
@@ -58,22 +59,22 @@ Een gebeurtenis heeft de volgende gegevens op het hoogste niveau:
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| Onderwerp | tekenreeks | Volledige resource-pad naar de gegevensbron. Dit veld is niet beschrijfbaar. Gebeurtenis raster bevat deze waarde. |
-| Onderwerp | tekenreeks | Publisher gedefinieerde pad naar het onderwerp van de gebeurtenis. |
-| EventType | tekenreeks | Een van de typen van de geregistreerde gebeurtenis van de bron van deze gebeurtenis. |
-| eventTime | tekenreeks | De tijd dat de gebeurtenis wordt gegenereerd, gebaseerd op de UTC-tijd van de provider. |
+| onderwerp | tekenreeks | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid biedt deze waarde. |
+| Onderwerp | tekenreeks | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
+| type gebeurtenis | tekenreeks | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
+| eventTime | tekenreeks | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
 | id | tekenreeks | De unieke id voor de gebeurtenis. |
 | gegevens | object | Gebeurtenisgegevens van de Event hub. |
 | dataVersion | tekenreeks | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
-| metadataVersion | tekenreeks | De schemaversie van de metagegevens van de gebeurtenis. Gebeurtenis raster definieert het schema van de eigenschappen op het hoogste niveau. Gebeurtenis raster bevat deze waarde. |
+| metadataVersion | tekenreeks | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
 
 Het gegevensobject heeft de volgende eigenschappen:
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
 | fileUrl | tekenreeks | Het pad naar het bestand vastleggen. |
-| Bestandstype | tekenreeks | Het type van het bestand vastleggen. |
-| partitionId | tekenreeks | De shard-ID. |
+| Bestandstype | tekenreeks | Het bestandstype van het bestand vastleggen. |
+| PartitionId | tekenreeks | De shard-ID. |
 | sizeInBytes | geheel getal | De bestandsgrootte. |
 | eventCount | geheel getal | Het aantal gebeurtenissen in het bestand. |
 | firstSequenceNumber | geheel getal | Het kleinste volgnummer uit de wachtrij. |
@@ -83,6 +84,6 @@ Het gegevensobject heeft de volgende eigenschappen:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een inleiding tot Azure gebeurtenis raster, [wat gebeurtenis raster is?](overview.md)
-* Zie voor meer informatie over het maken van een abonnement op Azure gebeurtenis raster [gebeurtenis raster abonnement schema](subscription-creation-schema.md).
-* Zie voor meer informatie over het verwerken van gebeurtenissen van event hubs [Stream big data in een datawarehouse](event-grid-event-hubs-integration.md).
+* Zie voor een inleiding tot Azure Event Grid, [wat is Event Grid?](overview.md)
+* Zie voor meer informatie over het maken van een Azure Event Grid-abonnement [Event Grid-abonnementsschema](subscription-creation-schema.md).
+* Zie voor meer informatie over het verwerken van gebeurtenissen van event hubs [Stream van big data in een datawarehouse](event-grid-event-hubs-integration.md).

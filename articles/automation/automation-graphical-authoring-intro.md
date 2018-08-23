@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b0517af9f8066d2d5849b0ffe3d4a0d00afdad44
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: afc1ec8e171bc602f2698b4a36f249bc454cbed9
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437872"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42059438"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisch ontwerpen in Azure Automation
 
@@ -332,7 +332,7 @@ Elke invoerparameter wordt gedefinieerd door de eigenschappen in de volgende tab
 
 ### <a name="runbook-output"></a>Runbook-uitvoer
 
-Gemaakt door elke activiteit die een uitgaande verbinding heeft geen gegevens worden opgeslagen in de [uitvoer van het runbook](http://msdn.microsoft.com/library/azure/dn879148.aspx). De uitvoer wordt opgeslagen met de runbooktaak en is beschikbaar voor een bovenliggend runbook wanneer het runbook wordt gebruikt als een onderliggend element.
+Gemaakt door elke activiteit die een uitgaande verbinding heeft geen gegevens worden opgeslagen in de [uitvoer van het runbook](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages). De uitvoer wordt opgeslagen met de runbooktaak en is beschikbaar voor een bovenliggend runbook wanneer het runbook wordt gebruikt als een onderliggend element.
 
 ## <a name="powershell-expressions"></a>PowerShell-expressies
 

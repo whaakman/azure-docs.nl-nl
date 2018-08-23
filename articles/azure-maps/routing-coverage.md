@@ -1,23 +1,23 @@
 ---
-title: Routering dekking van Azure Maps | Microsoft Docs
-description: Meer informatie over routering dekking van Azure Maps
-author: jinzh-azureiot
+title: Dekking voor routering van Azure Maps | Microsoft Docs
+description: Meer informatie over de dekking voor routering in Azure-kaarten
+author: jingjing-z
 ms.author: jinzh
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: aa611b1cc406cd16ffdecb244c3010a7e0318519
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 80d98fd8108d0b64f9c25b82d6d79f60fcdd771e
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34599946"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42055058"
 ---
-# <a name="azure-maps-routing-coverage"></a>Azure Maps dekking routering
+# <a name="azure-maps-routing-coverage"></a>Azure Maps dekking voor routering
 
-Dit artikel bevat informatie voor het doorsturen van Azure Maps dekking. 
+Dit artikel bevat informatie dekking voor routering van Azure Maps. 
 
 Bekijk dekking voor [ **Geocodering**](geocoding-coverage.md).       
 Bekijk dekking voor [ **verkeer**](traffic-coverage.md).  
@@ -27,13 +27,13 @@ Bekijk dekking voor [ **renderen**](render-coverage.md).
 
 | Symbool             | Betekenis                                |
 |--------------------|----------------------------------------|
-| ✓                  | Land voorzien van gedetailleerde gegevens.   |
+| ✓                  | Land is voorzien van gedetailleerde gegevens.   |
 | Ø                  | Land vereenvoudigde gegevens voorzien. |
-| Land ontbreekt | Gegevens van een land is niet opgegeven.          |
+| Land/regio ontbreekt | Het land is niet opgegeven.          |
 
 <br>  
 
-De volgende tabel bevat informatie voor het doorsturen van Azure Maps dekking.
+De volgende tabel bevat de informatie dekking voor routering van Azure Maps.
 <br>  
 
 | Regio                         | Routering |
@@ -56,7 +56,7 @@ De volgende tabel bevat informatie voor het doorsturen van Azure Maps dekking.
 | Malawi                         |        ✓       |
 | Mali                           |        ✓       |
 | Mauretanië                     |        ✓       |
-| Mauritius, Mayotte en Réunion |        ✓       |
+| Mauritius en Mayotte Réunion |        ✓       |
 | Marokko                        |        ✓       |
 | Mozambique                     |        ✓       |
 | Namibië                        |        ✓       |
@@ -76,7 +76,7 @@ De volgende tabel bevat informatie voor het doorsturen van Azure Maps dekking.
 | **Americas**                       |                |
 | Argentinië                      |        ✓       |
 | Brazilië                         |        ✓       |
-| Caraïbische eilanden              |        ✓       |
+| Caribisch gebied-eilanden              |        ✓       |
 | Canada                         |        ✓       |
 | Chili                          |        ✓       |
 | Colombia                       |        ✓       |
@@ -110,7 +110,7 @@ De volgende tabel bevat informatie voor het doorsturen van Azure Maps dekking.
 | Oostenrijk                        |        ✓       |
 | Wit-Rusland                        |        ✓       |
 | België                        |        ✓       |
-| Bosnië-Herzegovina             |        ✓       |
+| Bosnische             |        ✓       |
 | Bulgarije                       |        ✓       |
 | Kroatië                        |        ✓       |
 | Cyprus                         |        ✓       |

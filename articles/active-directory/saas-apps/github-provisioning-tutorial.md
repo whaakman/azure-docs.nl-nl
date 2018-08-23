@@ -1,6 +1,6 @@
 ---
 title: 'Zelfstudie: GitHub configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
-description: Informatie over het configureren van Azure Active Directory voor het automatisch inrichten en gebruikersaccounts met GitHub ongedaan in te richten.
+description: Informatie over het configureren van Azure Active Directory voor het automatisch inrichten en verwijdering van gebruikersaccounts naar GitHub.
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: d3b2f8860f5b8ddd2cc53d8805b7eace788e73a7
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: ff22ad4f8abae019591150dd9a8ea2cd4ca4e5d9
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36230536"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42058719"
 ---
-# <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Zelfstudie: GitHub configureren voor het automatisch gebruikers inrichten
+# <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Zelfstudie: GitHub configureren voor het automatisch inrichten van gebruikers
 
 
-Het doel van deze zelfstudie is zodat u de stappen die u uitvoeren in GitHub en Azure AD wilt om automatisch inrichten en de gebruikersaccounts van Azure AD met GitHub ongedaan in te richten. 
+Het doel van deze zelfstudie is om weer te geven u de stappen die u uitvoeren in GitHub en Azure AD wilt om automatisch inrichten en verwijdering van gebruikersaccounts vanuit Azure AD naar GitHub. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -36,76 +36,76 @@ Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items
 *   Een gebruikersaccount in GitHub met beheerdersmachtigingen 
 
 > [!NOTE]
-> De Azure AD integratie inrichting is afhankelijk van de [GitHub SCIM API](https://developer.github.com/v3/scim/), die beschikbaar zijn voor Github teams op het bedrijfsplan of hoger is.
+> De integratie wordt ingericht op Azure AD is afhankelijk van de [GitHub SCIM API](https://developer.github.com/v3/scim/), die beschikbaar zijn voor Github-teams van het plan zakelijke of hoger is.
 
 ## <a name="assigning-users-to-github"></a>Gebruikers toewijzen aan GitHub
 
-Azure Active Directory gebruikt een concept 'toewijzingen' genoemd om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van automatische gebruikers account inrichten, alleen de gebruikers en groepen die '' tot een toepassing in Azure AD toegewezen zijn gesynchroniseerd. 
+Azure Active Directory maakt gebruik van een concept genaamd "toewijzingen" om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van het inrichten van automatische gebruikersaccounts, wordt alleen de gebruikers en groepen die '' aan een toepassing in Azure AD toegewezen zijn gesynchroniseerd. 
 
-Voordat u configureren en inschakelen van de inrichting service, moet u om te bepalen welke gebruikers en/of groepen in Azure AD vertegenwoordigen de gebruikers die toegang nodig tot uw app in GitHub. Als besloten, kunt u deze gebruikers toewijzen aan uw GitHub-app door de volgende instructies te volgen:
+Voordat u configureren en inschakelen van de inrichtingsservice, moet u bepalen welke gebruikers en/of groepen in Azure AD vertegenwoordigen de gebruikers die toegang nodig tot uw GitHub-app. Als besloten, kunt u deze gebruikers toewijzen aan uw GitHub-app door de instructies hier:
 
 [Een gebruiker of groep toewijzen aan een enterprise-app](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-github"></a>Belangrijke tips voor het toewijzen van gebruikers met GitHub
 
-*   Het is raadzaam om één Azure AD-gebruiker is toegewezen aan GitHub voor het testen van de configuratie van de inrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
+*   Het wordt aanbevolen dat één Azure AD-gebruiker is toegewezen aan GitHub voor het testen van de configuratie van de inrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
 
 *   Bij het toewijzen van een gebruiker met GitHub, moet u ofwel de **gebruiker** functie of een andere geldige toepassingsspecifieke-rol (indien beschikbaar) in het dialoogvenster toewijzing. De **standaardtoegang** rol werkt niet voor het inrichten en deze gebruikers worden overgeslagen.
 
 
 ## <a name="configuring-user-provisioning-to-github"></a>Configuratie van gebruikers inrichten met GitHub 
 
-Deze sectie helpt u bij uw Azure AD verbinden met de GitHub-gebruikersaccount inrichten API en configureren van de inrichting service te maken, bijwerken en uitschakelen van toegewezen gebruikersaccounts in GitHub op basis van gebruikers en groepen toewijzen in Azure AD.
+In deze sectie helpt u bij uw Azure AD verbinden met de GitHub-gebruikersaccount Inrichtings-API en configureren van de provisioning-service voor het maken, bijwerken en uitschakelen van toegewezen gebruikersaccounts in GitHub op basis van gebruikers en groepen in Azure AD.
 
 > [!TIP]
-> U kunt ook op basis van SAML eenmalige aanmelding is ingeschakeld voor GitHub, vindt u de instructies te volgen in [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies aanvulling van elkaar.
+> U kunt ook op SAML gebaseerde eenmalige aanmelding ingeschakeld voor GitHub, vindt u de instructies te volgen in [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies een fraaie aanvulling in elkaar.
 
 
-### <a name="configure-automatic-user-account-provisioning-to-github-in-azure-ad"></a>Automatisch gebruikers account inrichten met GitHub in Azure AD configureren
+### <a name="configure-automatic-user-account-provisioning-to-github-in-azure-ad"></a>Automatisch inrichten van gebruikersaccounts naar GitHub in Azure AD configureren
 
 
-1. In de [Azure-portal](https://portal.azure.com), blader naar de **Azure Active Directory > zakelijke Apps > alle toepassingen** sectie.
+1. In de [Azure-portal](https://portal.azure.com), blader naar de **Azure Active Directory > Bedrijfsapps > alle toepassingen** sectie.
 
-2. Als u al GitHub voor eenmalige aanmelding hebt geconfigureerd, kunt u zoeken naar uw exemplaar van het zoekveld met GitHub. Selecteer anders **toevoegen** en zoek naar **GitHub** in de galerie met toepassingen. GitHub selecteert in de zoekresultaten en toe te voegen aan uw lijst met toepassingen.
+2. Als u al GitHub hebt geconfigureerd voor eenmalige aanmelding, zoeken naar uw exemplaar van GitHub met behulp van het zoekveld. Selecteer anders **toevoegen** en zoek naar de **GitHub** in de toepassingengalerie. Selecteer GitHub in de resultaten voor zoeken en toe te voegen aan uw lijst met toepassingen.
 
-3. Selecteer uw exemplaar van GitHub en selecteer vervolgens de **inrichten** tabblad.
+3. Selecteer uw exemplaar van GitHub en selecteer vervolgens de **Provisioning** tabblad.
 
 4. Stel de **Inrichtingsmodus** naar **automatische**.
 
     ![Het inrichten van GitHub](./media/github-provisioning-tutorial/GitHub1.png)
 
-5. Onder de **beheerdersreferenties** sectie, klikt u op **autoriseren**. Deze bewerking wordt een dialoogvenster met GitHub autorisatie in een nieuw browservenster geopend. 
+5. Onder de **beheerdersreferenties** sectie, klikt u op **autoriseren**. Met deze bewerking wordt een GitHub-autorisatie-dialoogvenster geopend in een nieuw browservenster. 
 
-6. Aanmelden bij uw beheerdersaccount met GitHub in het nieuwe venster. Selecteer in de resulterende autorisatie dialoogvenster de GitHub-team dat u inschakelen wilt voor inrichting en selecteer vervolgens **autoriseren**. Als voltooid, terug naar de Azure-portal om het inrichtingsproces configuratie te voltooien.
+6. In het nieuwe venster, zich aanmelden bij GitHub met uw beheerdersaccount. Selecteer in het dialoogvenster resulterende autorisatie het GitHub-team dat u inschakelen wilt voor inrichting, en selecteer vervolgens **autoriseren**. Als voltooid, terug naar de Azure-portal om de configuratie van de inrichting te voltooien.
 
-    ![Dialoogvenster autorisatie](./media/github-provisioning-tutorial/GitHub2.png)
+    ![Autorisatie-dialoogvenster](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. Voer in de Azure portal **Tenant-URL** en klik op **testverbinding** om te controleren of Azure AD, kan verbinding maken met uw GitHub-app. Als de verbinding is mislukt, zorg ervoor dat uw GitHub-account beheerdersmachtigingen heeft en **Tenant-URl** is opgegeven correct en probeer het opnieuw de stap 'Autoriseren' (u kunt vormen **Tenant-URL** door regel: 'https://api.github.com/scim/v2/organizations/ + < Organizations_name > ', kunt u uw organisaties vinden onder uw GitHub-account: **instellingen** > **organisaties**).
+7. Voer in de Azure-portal **Tenant-URL** en klikt u op **testverbinding** om te controleren of Azure AD kunt verbinden met uw GitHub-app. Als de verbinding is mislukt, controleert u of uw GitHub-account beheerdersmachtigingen heeft en **Tenant-URl** correct is ingevoerde en probeer het opnieuw de stap 'Autoriseren' (u kunt vormen **Tenant-URL** door regel: `https://api.github.com/scim/v2/<Organizations_name>` u kunt uw organisaties vinden onder uw GitHub-account: **instellingen** > **organisaties**).
 
-    ![Dialoogvenster autorisatie](./media/github-provisioning-tutorial/GitHub3.png)
+    ![Autorisatie-dialoogvenster](./media/github-provisioning-tutorial/GitHub3.png)
 
-8. Voer het e-mailadres van een persoon of groep die in inrichting fout meldingen moet ontvangen de **e-mailmelding** veld en schakel het selectievakje "Een e-mailmelding verzenden wanneer een fout optreedt."
+8. Voer het e-mailadres van een persoon of groep die inrichting fout meldingen moet ontvangen de **e-mailmelding** veld en schakel het selectievakje "Een e-mailmelding verzenden wanneer een fout optreedt."
 
 9. Klik op **Opslaan**. 
 
-10. Selecteer onder de sectie toewijzingen **synchroniseren Azure Active Directory-gebruikers met GitHub**.
+10. Selecteer onder de sectie toewijzingen **synchroniseren Azure Active Directory: gebruikers naar GitHub**.
 
-11. In de **kenmerktoewijzingen** sectie, controleert u de kenmerken van de gebruiker die zijn gesynchroniseerd vanuit Azure AD met GitHub. De kenmerken die zijn geselecteerd als **overeenkomend** eigenschappen overeenkomen met de gebruikersaccounts in GitHub voor update-bewerkingen worden gebruikt. Selecteer de knop Opslaan eventuele wijzigingen doorvoeren.
+11. In de **kenmerktoewijzingen** sectie, controleert u de kenmerken van de gebruiker die worden gesynchroniseerd vanuit Azure AD naar GitHub. De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt zodat deze overeenkomen met de gebruikersaccounts in GitHub voor update-bewerkingen. Selecteer de knop Opslaan om door te voeren van eventuele wijzigingen.
 
-12. Om de Azure AD-service voor GitHub inricht, wijzigen de **inrichting Status** naar **op** in de **instellingen** sectie
+12. Wijzigen zodat de Azure AD-inrichtingsservice voor GitHub, de **Inrichtingsstatus** naar **op** in de **instellingen** sectie
 
 13. Klik op **Opslaan**. 
 
-Deze bewerking begint de initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen aan GitHub in de sectie gebruikers en groepen. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden als de service wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van activiteitenlogboeken waarin alle acties die worden uitgevoerd door de inrichting-service.
+Met deze bewerking wordt gestart voor de initiële synchronisatie van alle gebruikers en/of groepen die zijn toegewezen aan GitHub in de sectie gebruikers en groepen. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden als de service wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en koppelingen volgen voor het inrichten van activiteitenlogboeken, waarin alle acties die worden uitgevoerd door de inrichtingsservice worden beschreven.
 
-Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over automatische account gebruikersaanvragen](../active-directory-saas-provisioning-reporting.md).
+Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](../active-directory-saas-provisioning-reporting.md).
 
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Het beheren van gebruikers account inrichten voor zakelijke Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Informatie over het bekijken van Logboeken en rapporten over het inrichten van de activiteit ophalen](../active-directory-saas-provisioning-reporting.md)
+* [Meer informatie over het controleren van Logboeken en rapporten over het inrichten van activiteit ophalen](../active-directory-saas-provisioning-reporting.md)

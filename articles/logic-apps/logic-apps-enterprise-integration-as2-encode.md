@@ -1,6 +1,6 @@
 ---
-title: Coderen van berichten in AS2 - Azure Logic Apps | Microsoft Docs
-description: Het gebruik van het coderingsprogramma AS2 in de Enterprise-integratiepakket voor Azure Logic Apps
+title: Gecodeerd AS2-berichten - Azure Logic Apps | Microsoft Docs
+description: Over het gebruik van de AS2-codering in Enterprise Integration Pack voor Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -12,39 +12,39 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2017
+ms.date: 08/08/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: fe8a2b00f15fa737c8ed343a47e1cab1c260346b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b3b57b2505c4185f3a81530cbc9eeb464dcfa518
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35297927"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42057498"
 ---
-# <a name="encode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>AS2-berichten te coderen voor Azure Logic Apps met de Enterprise-integratiepakket
+# <a name="encode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>AS2-berichten coderen voor Azure Logic Apps met het Enterprise Integration Pack
 
-Om vast te stellen op beveiliging en betrouwbaarheid bij het verzenden van berichten, de coderen AS2-bericht-connector te gebruiken. Deze connector biedt digitale ondertekening, versleuteling en bevestigingen via bericht Disposition meldingen (MDN), zodat de ook ondersteuning voor niet-afwijzing.
+Voor het maken van beveiliging en betrouwbaarheid bij het verzenden van berichten, de coderen AS2-bericht-connector te gebruiken. Deze connector biedt digitale ondertekening, versleuteling en bevestigingen via bericht toestand meldingen (MDN), die ook leiden tot ondersteuning voor niet-afwijzing.
 
 ## <a name="before-you-start"></a>Voordat u begint
 
-Hier volgt de items die u nodig:
+Hier volgt de items die u nodig hebt:
 
-* Een Azure-account; kunt u een [gratis account](https://azure.microsoft.com/free)
-* Een [integratie account](logic-apps-enterprise-integration-create-integration-account.md) die al is gedefinieerd en die zijn gekoppeld aan uw Azure-abonnement. U moet een integratie-account aan het gebruik van de connector coderen AS2-bericht hebben.
-* Ten minste twee [partners](logic-apps-enterprise-integration-partners.md) die al zijn gedefinieerd in uw account integratie
-* Een [AS2-overeenkomst](logic-apps-enterprise-integration-as2.md) die al is gedefinieerd in uw account integratie
+* Een Azure-account; u kunt maken een [gratis account](https://azure.microsoft.com/free)
+* Een [integratieaccount](logic-apps-enterprise-integration-create-integration-account.md) die al is gedefinieerd en die zijn gekoppeld aan uw Azure-abonnement. Hebt u een integratieaccount om de coderen AS2-bericht-connector te gebruiken.
+* Ten minste twee [partners](logic-apps-enterprise-integration-partners.md) die al zijn gedefinieerd in uw integratieaccount
+* Een [AS2-overeenkomst](logic-apps-enterprise-integration-as2.md) die al gedefinieerd in uw integratieaccount
 
-## <a name="encode-as2-messages"></a>AS2-berichten te coderen
+## <a name="encode-as2-messages"></a>AS2-berichten coderen
 
-1. [Een logische app maken](quickstart-create-first-logic-app-workflow.md).
+1. [Maak een logische app](quickstart-create-first-logic-app-workflow.md).
 
-2. De connector coderen AS2-bericht geen triggers, dus moet u een trigger voor het starten van uw logische app, zoals een aanvraag-trigger toevoegen. In de ontwerpfunctie voor Logic App een trigger toevoegen en vervolgens een actie toevoegen aan uw logische app.
+2. De connector coderen AS2-bericht geen triggers, dus moet u een trigger voor het starten van uw logische app, zoals een aanvraag als trigger toevoegen. Een trigger toevoegen in de Logic App Designer en klikt u vervolgens een actie toevoegen aan uw logische app.
 
-3.  Voer in het zoekvak 'AS2' voor uw filter. Selecteer **AS2 - coderen AS2-bericht**.
+3.  Voer in het zoekvak 'AS2' voor uw filter. Selecteer **AS2 - codering AS2-bericht**.
    
-    ![Zoek naar 'AS2'](./media/logic-apps-enterprise-integration-as2-encode/as2decodeimage1.png)
+    ![Zoek naar "AS2"](./media/logic-apps-enterprise-integration-as2-encode/as2decodeimage1.png)
 
-4. Als u geen verbindingen tot je account integratie eerder hebt gemaakt, wordt u gevraagd nu die verbinding maken. Naam van uw verbinding en selecteer de integratie-account waarmee u verbinding wilt maken. 
+4. Als u geen verbindingen voor uw integratieaccount eerder hebt gemaakt, wordt u gevraagd om nu deze verbinding te maken. Naam van de verbinding en selecteer de integratieaccount waarmee u verbinding wilt maken. 
    
     ![Maak verbinding met de integratie-account](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage1.png)  
 
@@ -53,32 +53,40 @@ Hier volgt de items die u nodig:
     | Eigenschap | Details |
     | --- | --- |
     | Verbindingsnaam * |Voer een naam voor de verbinding. |
-    | Integratie Account * |Voer een naam voor uw account integratie. Zorg ervoor dat uw account en logica app voor integratie in dezelfde Azure-locatie. |
+    | Integratie-Account * |Voer een naam voor uw integratie-account. Zorg ervoor dat uw integratie-account en logica-app zich in dezelfde Azure-locatie. |
 
-5.  Wanneer u bent klaar, de verbindingsdetails van uw moeten er ongeveer uitzien in dit voorbeeld. Voor het voltooien van de verbinding te maken, kies **maken**.
+5.  Wanneer u klaar bent, moeten uw verbindingsgegevens lijken op het volgende voorbeeld. Kies voor het voltooien van het maken van uw verbinding, **maken**.
    
-    ![de verbindingsdetails integratie](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage2.png)
+    ![integratie-verbindingsgegevens](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage2.png)
 
-6. Nadat de verbinding is gemaakt, zoals in dit voorbeeld, vindt u informatie voor **AS2-van**, **AS2-aan-id's** zoals geconfigureerd in de overeenkomst en **hoofdtekst**, die is de nettolading van het bericht.
+6. Nadat de verbinding is gemaakt, zoals wordt weergegeven in dit voorbeeld, Geef details op voor **AS2-uit**, **AS2-naar-id's** zoals geconfigureerd in de overeenkomst en **hoofdtekst**, die is de berichtnettolading van het.
    
-    ![verplichte velden bieden](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage3.png)
+    ![verplichte velden bevatten](./media/logic-apps-enterprise-integration-as2-encode/as2encodeimage3.png)
 
-## <a name="as2-encoder-details"></a>AS2-encoder details
+## <a name="as2-encoder-details"></a>Details van de AS2-codering
 
-Het coderen AS2-connector voert deze taken uit: 
+De connector coderen AS2 voert deze taken uit: 
 
-* AS2/HTTP-headers van toepassing is
-* Tekenen uitgaande berichten (indien geconfigureerd)
-* Versleutelt uitgaande berichten (indien geconfigureerd)
+* Van toepassing is AS2/HTTP-headers
+* Symptomen uitgaande berichten (indien geconfigureerd)
+* Uitgaande berichten versleutelt (indien geconfigureerd)
 * Comprimeren van het bericht (indien geconfigureerd)
+* Bestandsnaam in MIME-header verzenden (indien geconfigureerd)
+
+
+  > [!NOTE]
+  > Als u Azure Key Vault voor het beheren van certificaten gebruikt, zorg ervoor dat u configureert de sleutels om toe te staan de **versleutelen** bewerking.
+  > Anders wordt de AS2-codering mislukken.
+  >
+  > ![Hiermee ontsleutelt u Key Vault](media/logic-apps-enterprise-integration-as2-encode/keyvault1.png)
 
 ## <a name="try-this-sample"></a>Probeer dit voorbeeld
 
-Als u wilt proberen een volledig operationeel logic app en voorbeeld AS2-scenario implementeren, Zie de [AS2 logic app-sjabloon en het scenario](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
+Als u wilt proberen om de implementatie van een volledig operationeel logische app en voorbeeld AS2-scenario, Zie de [AS2 scenario en de sjabloon voor logische app](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
 
 ## <a name="view-the-swagger"></a>De swagger weergeven
-Zie de [swagger details](/connectors/as2/). 
+Zie de [details swagger](/connectors/as2/). 
 
 ## <a name="next-steps"></a>Volgende stappen
-[Meer informatie over het Enterprise-integratiepakket](logic-apps-enterprise-integration-overview.md "meer informatie over Enterprise Integration Pack") 
+[Meer informatie over het Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "meer informatie over Enterprise Integration Pack") 
 

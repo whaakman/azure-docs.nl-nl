@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 17ff6ebed615971b4157831431d9e2395ca68b48
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: dcfcfb24d2b47a8272c576856fc3accc547f354a
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441672"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42054495"
 ---
 # <a name="create-a-model-in-azure-portal"></a>Een model maken in Azure portal
 
@@ -23,9 +23,10 @@ Houd er rekening mee, is de webdesigner **preview**. Functionaliteit is beperkt.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-- Een Azure Analysis Services-server op de laag Standard- of -ontwikkelaar. Nieuwe modellen die zijn gemaakt met behulp van de Web designer zijn DirectQuery, alleen ondersteund door deze lagen.
+- Uw Azure Analysis Services-server moet zich op de laag Standard- of -ontwikkelaar. Nieuwe modellen die zijn gemaakt met behulp van de Web designer zijn DirectQuery, alleen ondersteund door deze lagen.
 - Een Azure SQL Database, Azure SQL Data Warehouse of Power BI Desktop (.pbix)-bestand als een gegevensbron. Nieuwe modellen die zijn gemaakt op basis van Power BI Desktop-ondersteuning voor Azure SQL Database en Azure SQL Data Warehouse.
 - Een SQL Server-account en wachtwoord om verbinding te maken met Azure SQL Database of Azure SQL Data Warehouse-gegevensbronnen.
+- U moet de server-beheerder-bevoegdheden voor het maken van een nieuw model hebben. Database-beheerdersbevoegdheden zijn vereist om te bewerken en query uitvoeren op een model met behulp van de ontwerpfunctie.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 

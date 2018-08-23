@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 1ddc74b1960095509a77d4b3072017847df42d90
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 359648a843375477ea56ab791533208c11af9c81
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235530"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42059432"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault klant functies
 
@@ -48,11 +48,11 @@ Voorlopig verwijderen kunt u verwijderde gegevens herstellen voor 90 dagen na ve
 
 ## <a name="exporting-customer-data"></a>Exporteren van gegevens van de klant
 
-De dezelfde REST-API's, portal-ervaring, en SDK's die worden gebruikt voor het maken van kluizen, sleutels, geheimen, certificaten en beheerde opslag-accounts ook zijn kunnen u weergeven en exporteren van deze objecten.
+De dezelfde REST-API's, portal-ervaring en SDK's die worden gebruikt voor het maken van kluizen, sleutels, geheimen en certificaten, en worden ook beheerd van storage-accounts kunnen u weergeven en exporteren van deze objecten.
 
 Azure Key Vault-logboekregistratie een optionele functie die kan worden ingeschakeld is op genereren logboeken voor elke REST-API-aanroep. Deze logboeken worden overgedragen naar een opslagaccount in uw abonnement waar u het bewaarbeleid dat voldoet aan de vereisten van uw organisatie kunt toepassen.
 
-Diagnostische logboeken in Azure Key Vault met persoonsgegevens kunnen worden opgehaald door een aanvraag voor exporteren in de portal van de Privacy van gebruikers. Deze aanvraag moet worden gemaakt door de tenantbeheerder.
+Azure Key Vault diagnostische logboeken met persoonlijke gegevens kunnen worden opgehaald door een aanvraag voor exporteren in de portal van de Privacy van gebruikers. Deze aanvraag moet worden gemaakt door de tenantbeheerder.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -60,14 +60,10 @@ Diagnostische logboeken in Azure Key Vault met persoonsgegevens kunnen worden op
 
 - [Overzicht van Azure Key Vault-functie voor voorlopig verwijderen](key-vault-soft-delete-cli.md)
 
-- [Kluizen](https://docs.microsoft.com/rest/api/keyvault/vaults)
-
 - [Azure Key Vault-sleutelbewerkingen](https://docs.microsoft.com/rest/api/keyvault/key-operations)
 
 - [Azure Key Vault geheime bewerkingen](https://docs.microsoft.com/rest/api/keyvault/secret-operations)
 
 - [Azure Key Vault-certificaten en het beleid](https://docs.microsoft.com/rest/api/keyvault/certificates-and-policies)
-
-- [Uitgevers van certificaten](https://docs.microsoft.com/rest/api/keyvault/certificate-issuers)
 
 - [Azure Key Vault-storage-accountbewerkingen](https://docs.microsoft.com/rest/api/keyvault/storage-account-key-operations)

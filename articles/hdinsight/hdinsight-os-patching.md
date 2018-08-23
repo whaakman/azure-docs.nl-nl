@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 5d8fae7412bece631e6961fb92b7d87e308cc857
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 8bde1e8846dbaee957e2498ea4fae0c5cf79a913
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599211"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42059436"
 ---
 # <a name="os-patching-for-hdinsight"></a>OS-patches voor HDInsight 
 HDInsight zorgt patchen van het besturingssysteem van de onderliggende virtuele machines die door HDInsight-clusters worden gebruikt als een beheerde Hadoop-service. Vanaf 1 augustus 2016 hebben we de Gast OS beleid toepassen van patches voor HDInsight op basis van Linux-clusters (versie 3.4 of hoger) gewijzigd. Het doel van het nieuwe beleid is aanzienlijk minder opnieuw te worden opgestart vanwege het toepassen van patches. Het nieuwe beleid blijft patch virtuele machines (VM's) op Linux-clusters elke maandag of donderdag begint bij 12: 00 uur UTC gespreide wijze op knooppunten in een bepaald cluster. Een virtuele machine wordt echter alleen opnieuw opgestart maximaal eenmaal per 30 dagen vanwege Gast OS-patches. Bovendien de eerste keer opnieuw opstarten voor een nieuw cluster gebeurt niet eerder dan 30 dagen na het maken van het cluster. Patches worden van kracht nadat de virtuele machines opnieuw zijn opgestart.
@@ -59,7 +59,7 @@ Als u het script als onderdeel van het proces voor het maken van cluster toepast
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor specifieke stappen over het gebruik van de scriptactie, Zie de volgende secties in het [Linuz aanpassen op basis van HDInsight-clusters met script action](hdinsight-hadoop-customize-cluster-linux.md):
+Voor specifieke stappen over het gebruik van de scriptactie, Zie de volgende secties in het [aanpassen Linux gebaseerde HDInsight-clusters met script action](hdinsight-hadoop-customize-cluster-linux.md):
 
 * [Een scriptactie tijdens het maken van clusters gebruiken](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
 * [Een scriptactie toepassen op een actief cluster](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)

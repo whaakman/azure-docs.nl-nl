@@ -1,6 +1,6 @@
 ---
-title: Zakelijke continuïteit en noodherstel aanbevelingen voor herstel (BCDR) voor Azure-SSIS Integration Runtime | Microsoft Docs
-description: In dit artikel bevat een overzicht van zakelijke continuïteit en noodherstel recovery aanbevelingen voor Azure-SSIS Integration Runtime.
+title: Azure-SSIS-Integratieruntime configureren voor failover van de SQL-Database | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u de Azure-SSIS-Integratieruntime configureren met Azure SQL Database geo-replicatie en failover voor de SSISDB-database
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
@@ -8,23 +8,69 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 08/14/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 37347df2d543116085f52fed76c692b60fac2ad6
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 2012ccf4d9fd3e62ba248f29f922f868077e4061
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285735"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42061332"
 ---
-# <a name="business-continuity-and-disaster-recovery-bcdr-recommendations-for-azure-ssis-integration-runtime"></a>Zakelijke continuïteit en noodherstel aanbevelingen voor herstel (BCDR) voor Azure-SSIS Integration Runtime
+# <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>De Azure-SSIS Integration Runtime met Azure SQL Database geo-replicatie en failover configureren
 
-Ten behoeve van herstel na noodgevallen, kunt u stoppen van uw Azure-SSIS integratieruntime in de regio waarin deze momenteel wordt uitgevoerd en schakel over naar een andere regio opnieuw te starten. Het is raadzaam dat u [Azure gekoppelde regio's](../best-practices-availability-paired-regions.md) voor dit doel.
+In dit artikel wordt beschreven hoe u de Azure-SSIS-Integratieruntime configureren met Azure SQL Database geo-replicatie voor de SSISDB-database. Wanneer er een failover optreedt, kunt u ervoor zorgen dat de Azure-SSIS-IR met de secundaire database werken blijft.
 
-## <a name="prerequisites"></a>Vereisten
+Zie voor meer informatie over geo-replicatie en failover voor SQL-Database [overzicht: actieve geo-replicatie en automatische failover-groepen](../sql-database/sql-database-geo-replication-overview.md).
+
+## <a name="scenario-1---azure-ssis-ir-is-pointing-to-read-write-listener-endpoint"></a>Scenario 1: Azure-SSIS IR verwijst voor listener-eindpunt voor lezen / schrijven
+
+### <a name="conditions"></a>Voorwaarden
+
+In deze sectie is van toepassing wanneer de volgende voorwaarden voldaan wordt:
+
+- De Azure-SSIS-IR verwijst naar de lezen / schrijven-listener-eindpunt van de failovergroep.
+
+  EN
+
+- De SQL Database-server is *niet* geconfigureerd met de regel voor virtuele netwerken service-eindpunt.
+
+### <a name="solution"></a>Oplossing
+
+Wanneer een failover optreedt, is het transparant voor de Azure-SSIS-IR. De Azure-SSIS-IR wordt automatisch verbinding met de nieuwe primaire van de failovergroep.
+
+## <a name="scenario-2---azure-ssis-ir-is-pointing-to-primary-server-endpoint"></a>Scenario 2: Azure-SSIS IR verwijst naar het eindpunt van de primaire server
+
+### <a name="conditions"></a>Voorwaarden
+
+In deze sectie is van toepassing wanneer een van de volgende voorwaarden voldaan wordt:
+
+- De Azure-SSIS-IR verwijst naar het eindpunt van de primaire server van de failovergroep. Dit eindpunt wordt gewijzigd wanneer een failover optreedt.
+
+  OF
+
+- De Azure SQL Database-server is geconfigureerd met de regel voor virtuele netwerken service-eindpunt.
+
+  OF
+
+- De database-server is een SQL Database Managed Instance geconfigureerd met een virtueel netwerk.
+
+### <a name="solution"></a>Oplossing
+
+Wanneer failover optreedt, hebt u het volgende doen:
+
+1. Stoppen van de Azure-SSIS-IR.
+
+2. De configuratie van de IR om te verwijzen naar de nieuwe primaire eindpunt en met een virtueel netwerk in de nieuwe regio.
+
+3. Opnieuw opstarten van de IR.
+
+De volgende secties beschrijven deze stappen nader uiteengezet.
+
+### <a name="prerequisites"></a>Vereisten
 
 - Zorg ervoor dat u herstel na noodgevallen hebt ingeschakeld voor uw Azure SQL Database-server als de server een storing op hetzelfde moment heeft. Zie voor meer informatie, [overzicht van bedrijfscontinuïteit met Azure SQL Database](../sql-database/sql-database-business-continuity.md).
 
@@ -32,13 +78,13 @@ Ten behoeve van herstel na noodgevallen, kunt u stoppen van uw Azure-SSIS integr
 
 - Als u een aangepaste installatie gebruikt, moet u mogelijk om voor te bereiden van een andere SAS-URI voor de blob-container waarin uw aangepaste setup-script en de bijbehorende bestanden, zodat deze blijven toegankelijk tijdens een storing. Zie voor meer informatie, [configureren van een aangepaste installatie op een Azure-SSIS integratieruntime](how-to-configure-azure-ssis-ir-custom-setup.md).
 
-## <a name="steps"></a>Stappen
+### <a name="steps"></a>Stappen
 
 Volg deze stappen voor uw Azure-SSIS IR stopt, de IR overschakelen naar een nieuwe regio en probeer het opnieuw.
 
 1. Stop de IR in de oorspronkelijke regio.
 
-2. De volgende opdracht uit in PowerShell om bij te werken van de IR aanroepen
+2. Roep de volgende opdracht uit in PowerShell om bij te werken van de IR met de nieuwe instellingen.
 
     ```powershell
     Set-AzureRmDataFactoryV2IntegrationRuntime -Location "new region" `

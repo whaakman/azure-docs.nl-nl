@@ -1,122 +1,105 @@
 ---
-title: B2B-berichten met de certificaten in Azure Logic Apps beveiligen | Microsoft Docs
-description: Toevoegen van certificaten om B2B-berichten met de Enterprise-integratiepakket te beveiligen
+title: Beveiligde B2B-berichten met certificaten - Azure Logic Apps | Microsoft Docs
+description: Certificaten voor het beveiligen van B2B-berichten in Azure Logic Apps met het Enterprise Integration Pack toevoegen
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: estfan, LADocs
+manager: jeconnoc
+ms.assetid: 4cbffd85-fe8d-4dde-aa5b-24108a7caa7d
+ms.suite: integration
 ms.topic: article
-ms.date: 02/03/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 7ba76a15792fe40b2a628b030f06930641d197a3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 08/17/2018
+ms.openlocfilehash: 5ae69d365a183f7d2a219d853241e73c1e27212b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299331"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42060582"
 ---
 # <a name="secure-b2b-messages-with-certificates"></a>Beveiligde B2B-berichten met certificaten
 
-Soms moet u B2B-communicatie vertrouwelijk houden. U kunt certificaten toevoegen aan uw account integratie om te helpen beveiligen B2B-communicatie voor uw onderneming integratie-apps, speciaal logic apps. Certificaten worden digitale documenten die de identiteit van de deelnemers aan elektronische communicatie.
-Certificaten kunnen u beveiligde communicatie op de volgende manieren:
+Als u wilt de B2B-communicatie vertrouwelijk te houden, kunt u beveiligen B2B-communicatie voor uw onderneming integratieapps, specifiek logic apps, certificaten toe te voegen aan uw integratie-account. Certificaten worden digitale documenten die de identiteit voor de deelnemers in elektronische communicatie controleren en bij het beveiligen van communicatie op de volgende manieren:
 
-* Inhoud van het bericht te versleutelen
-* Digitaal ondertekenen van berichten  
+* Codeer inhoud van het bericht.
+* Digitaal ondertekenen van berichten. 
 
-U kunt deze certificaten gebruiken in uw onderneming integratie-apps:
+U kunt deze certificaten gebruiken in uw apps in enterprise integration:
 
-* Openbare certificaten, moeten worden aangeschaft van een certificeringsinstantie (CA).
-* Persoonlijke certificaten, kunt u zelf uitgeven. Deze certificaten worden soms aangeduid als zelfondertekende certificaten.
+* [Openbare certificaten](https://en.wikipedia.org/wiki/Public_key_certificate), die u moet aanschaffen bij een openbare internet [certificeringsinstantie (CA)](https://en.wikipedia.org/wiki/Certificate_authority) maar die niet vereisen geen sleutels. 
+
+* Persoonlijke certificaten of [ *zelfondertekende certificaten*](https://en.wikipedia.org/wiki/Self-signed_certificate), waarbij u maken en uitgeven van uzelf, maar ook persoonlijke sleutels vereist. 
 
 ## <a name="upload-a-public-certificate"></a>Een openbaar certificaat uploaden
 
-Gebruik een *openbaar certificaat* in logic apps die mogelijkheden voor B2B hebt, moet u eerst het certificaat uploaden naar uw integratie-account. Nadat u de eigenschappen definiëren in de [overeenkomsten](logic-apps-enterprise-integration-agreements.md) dat u maakt, wordt het certificaat is beschikbaar om te helpen beveiligen van uw B2B-berichten.
+Gebruik een *openbaar certificaat* in logische apps met B2B-mogelijkheden, moet u eerst het certificaat uploaden naar uw integratie-account. Na het definiëren van de eigenschappen in de [overeenkomsten](logic-apps-enterprise-integration-agreements.md) dat u maakt, wordt het certificaat is beschikbaar voor het beveiligen van uw B2B-berichten.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
+1. Meld u aan bij [Azure Portal](https://portal.azure.com). Selecteer in het hoofdmenu van Azure **alle resources**. In het zoekvak, typ de naam van uw integratie-account en selecteer vervolgens de integratieaccount dat u wilt.
 
-2. Selecteer op het Azure hoofdmenu **alle services**. Voer in het zoekvak "-integratie" en selecteer vervolgens **integratieaccounts**.
+   ![Zoek en selecteer uw integratie-account](media/logic-apps-enterprise-integration-certificates/select-integration-account.png)  
 
-   ![Uw account integratie vinden](media/logic-apps-enterprise-integration-certificates/overview-1.png)  
+2. Onder **onderdelen**, kiest u de **certificaten** tegel.
 
-3. Onder **Integratieaccounts**, selecteert u de integratie account waar u het certificaat niet toevoegen.
+   ![Kies 'Certificaten'](media/logic-apps-enterprise-integration-certificates/add-certificates.png)
 
-   ![Selecteer de integratie-account waarnaar u wilt het certificaat toevoegen](media/logic-apps-enterprise-integration-certificates/overview-3.png)  
+3. Onder **certificaten**, kiest u **toevoegen**. Onder **certificaat toevoegen**, geef de volgende gegevens voor uw certificaat. Wanneer u klaar bent, kiest u **OK**.
 
-4. Kies de **certificaten** tegel.  
+   | Eigenschap | Waarde | Beschrijving | 
+   |----------|-------|-------------|
+   | **Naam** | <*naam van certificaat*> | De naam van het certificaat, namelijk 'publicCert' in dit voorbeeld | 
+   | **Certificaattype** | Public | Type van uw certificaat |
+   | **Certificaat** | <*certificaat-bestandsnaam*> | Als u wilt zoeken en selecteren van het certificaatbestand dat u wilt uploaden, kies het pictogram van de map naast de **certificaat** vak. |
+   ||||
 
-   ![Kiest u 'Certificaten'](media/logic-apps-enterprise-integration-certificates/certificate-1.png)
+   ![Kies 'Toevoegen', geeft u de details van certificaat](media/logic-apps-enterprise-integration-certificates/public-certificate-details.png)
 
-5. Onder **certificaten**, kies **toevoegen**.
+   Nadat Azure uw selectie heeft gevalideerd, is Azure uploadt uw certificaat.
 
-   ![Kies 'Add'](media/logic-apps-enterprise-integration-certificates/certificate-2.png)
-
-6. Onder **certificaat toevoegen**, geef de details voor het certificaat.
-   
-   1. Voer uw certificaat **naam**. Selecteer voor het certificaattype **openbare**.
-
-   2. Aan de rechterkant van de **certificaat** pictogram van de map kiest. 
-   Zoek en selecteer het certificaatbestand dat u wilt uploaden. 
-   Als u bent klaar, kiest u **OK**.
-
-      ![Openbaar certificaat uploaden](media/logic-apps-enterprise-integration-certificates/certificate-3.png)
-
-   Azure uploadt u uw certificaat na de validatie van uw selectie.
-
-   ![Zie het nieuwe certificaat](media/logic-apps-enterprise-integration-certificates/certificate-4.png) 
+   ![Azure wordt het nieuwe certificaat weergegeven](media/logic-apps-enterprise-integration-certificates/new-public-certificate.png) 
 
 ## <a name="upload-a-private-certificate"></a>Een persoonlijk certificaat uploaden
 
-Gebruik een *persoonlijk certificaat* in logic apps die mogelijkheden voor B2B hebt, moet u eerst het certificaat uploaden naar uw integratie-account. U moet bovendien beschikken over een persoonlijke sleutel die u eerst toevoegen aan [Azure Key Vault](../key-vault/key-vault-get-started.md). 
+Gebruik een *persoonlijk certificaat* in logische apps met B2B-mogelijkheden, moet u eerst het certificaat uploaden naar uw integratie-account. U moet ook een persoonlijke sleutel die u eerst toevoegen aan [Azure Key Vault](../key-vault/key-vault-get-started.md). 
 
-Nadat u de eigenschappen definiëren in de [overeenkomsten](logic-apps-enterprise-integration-agreements.md) dat u maakt, wordt het certificaat is beschikbaar om te helpen beveiligen van uw B2B-berichten.
+Na het definiëren van de eigenschappen in de [overeenkomsten](logic-apps-enterprise-integration-agreements.md) dat u maakt, wordt het certificaat is beschikbaar voor het beveiligen van uw B2B-berichten.
 
 > [!NOTE]
-> Persoonlijke certificaten, zorg ervoor dat u, een certificaat met de bijbehorende openbare moet worden weergegeven toevoegt de [AS2-overeenkomst](logic-apps-enterprise-integration-as2.md) verzenden en ontvangen van instellingen voor het ondertekenen en versleutelen van berichten.
+> Voor persoonlijke certificaten, zorg ervoor dat u een bijbehorende openbare certificaat dat wordt weergegeven toevoegt in de [AS2-overeenkomst](logic-apps-enterprise-integration-as2.md) **verzenden en ontvangen** instellingen voor het ondertekenen en versleutelen van berichten.
 
-1. [Uw persoonlijke sleutel toevoegen aan Azure Sleutelkluis](../key-vault/key-vault-get-started.md#add) en geef een **sleutelnaam**.
+1. [Uw persoonlijke sleutel toevoegen aan Azure Key Vault](../key-vault/key-vault-get-started.md#add) en bieden een **sleutelnaam**.
    
-2. Toestaan dat Azure Logic Apps op bewerkingen uitvoeren op Azure Sleutelkluis. Om toegang te verlenen aan de service-principal van Logic Apps, gebruikt u de PowerShell-opdracht [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy), bijvoorbeeld:
+2. Toestaan dat Azure Logic Apps voor het uitvoeren van bewerkingen op Azure Key Vault. Om toegang te verlenen aan de service-principal voor Logic Apps, gebruikt u de PowerShell-opdracht [Set-AzureRmKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/azurerm.keyvault/set-azurermkeyvaultaccesspolicy), bijvoorbeeld:
 
    `Set-AzureRmKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName 
    '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
  
-3. Meld u aan bij [Azure Portal](https://portal.azure.com).
+3. Meld u aan bij [Azure Portal](https://portal.azure.com). Selecteer in het hoofdmenu van Azure **alle resources**. In het zoekvak, typ de naam van uw integratie-account en selecteer vervolgens de integratieaccount dat u wilt.
 
-4. Selecteer op het Azure hoofdmenu **alle services**. Voer in het zoekvak "-integratie" en selecteer vervolgens **integratieaccounts**.
+   ![Uw integratie-account zoeken](media/logic-apps-enterprise-integration-certificates/select-integration-account.png) 
 
-   ![Uw account integratie vinden](media/logic-apps-enterprise-integration-certificates/overview-1.png) 
+4. Onder **onderdelen**, kiest u de **certificaten** tegel.  
 
-5. Onder **Integratieaccounts**, selecteert u de integratie account waar u het certificaat niet toevoegen.
+   ![Kies de tegel certificaten](media/logic-apps-enterprise-integration-certificates/add-certificates.png)
 
-6. Kies de **certificaten** tegel.  
+5. Onder **certificaten**, kiest u **toevoegen**. Onder **certificaat toevoegen**, geef de volgende gegevens voor uw certificaat. Wanneer u klaar bent, kiest u **OK**.
 
-   ![Kies de tegel certificaten](media/logic-apps-enterprise-integration-certificates/certificate-1.png)
+   | Eigenschap | Waarde | Beschrijving | 
+   |----------|-------|-------------|
+   | **Naam** | <*naam van certificaat*> | De naam van het certificaat, namelijk 'privateCert' in dit voorbeeld | 
+   | **Certificaattype** | Privé | Type van uw certificaat |
+   | **Certificaat** | <*certificaat-bestandsnaam*> | Als u wilt zoeken en selecteren van het certificaatbestand dat u wilt uploaden, kies het pictogram van de map naast de **certificaat** vak. | 
+   | **Resourcegroep** | <*integratie-account-resource-group*> | De resourcegroep van uw integratie-account, die 'MyResourceGroup' in dit voorbeeld is | 
+   | **Key Vault** | <*naam van een Key vault*> | De naam van uw Azure key vault |
+   | **Sleutelnaam** | <*naam van de sleutel*> | De naam van uw sleutel |
+   ||||
 
-7. Onder **certificaten**, kies **toevoegen**.   
+   ![Kies 'Toevoegen', geeft u de details van certificaat](media/logic-apps-enterprise-integration-certificates/private-certificate-details.png)
 
-   ![Kies de knop toevoegen](media/logic-apps-enterprise-integration-certificates/certificate-2.png)
+   Nadat Azure uw selectie heeft gevalideerd, is Azure uploadt uw certificaat.
 
-8. Onder **certificaat toevoegen**, geef de details voor het certificaat.
-   
-   1. Voer uw certificaat **naam**. Selecteer voor het certificaattype **persoonlijke**.
-
-   2. Aan de rechterkant van de **certificaat** pictogram van de map kiest. 
-   Zoek en selecteer het certificaatbestand dat u wilt uploaden. 
-   Schakel ook het **resourcegroep**, **Sleutelkluis**, en **sleutelnaam**. 
-   Als u bent klaar, kiest u **OK**.
-
-      ![Certificaat toevoegen](media/logic-apps-enterprise-integration-certificates/privatecertificate-1.png)
-
-   Azure uploadt u uw certificaat na de validatie van uw selectie.
-
-   ![Zie het nieuwe certificaat](media/logic-apps-enterprise-integration-certificates/privatecertificate-2.png)
+   ![Azure wordt het nieuwe certificaat weergegeven](media/logic-apps-enterprise-integration-certificates/new-private-certificate.png) 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Maken van een B2B-overeenkomst](logic-apps-enterprise-integration-agreements.md)
+* [Een B2B-overeenkomst maken](logic-apps-enterprise-integration-agreements.md)

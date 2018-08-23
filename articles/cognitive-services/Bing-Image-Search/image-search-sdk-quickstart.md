@@ -1,6 +1,6 @@
 ---
-title: Zoeken naar afbeelding Quick Start SDK C# | Microsoft Docs
-description: Zoeken naar afbeelding SDK in C#-consoletoepassing instellen.
+title: 'Snelstartgids: Vragen en filteren van afbeeldingen met behulp van de SDK met C#'
+description: In deze snelstartgids hebt u aanvragen en filteren van de installatiekopieën die zijn geretourneerd door Bing afbeeldingen zoeken, met behulp van C#.
 titleSuffix: Azure cognitive services setup Image search SDK C# console application
 services: cognitive-services
 author: mikedodaro
@@ -10,30 +10,30 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: v-gedod
-ms.openlocfilehash: f58556f13bb25c3ea2ed9378c0669d649554a8c0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 81375019e53b49b531fde1f81fbcb9a061cc5562
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345699"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41987573"
 ---
-# <a name="image-search-sdk-c-quickstart"></a>Afbeelding zoeken SDK C# Quick Start
+# <a name="quickstart-request-and-filter-images-using-the-sdk-and-c"></a>Snelstartgids: Vragen en filteren van afbeeldingen met behulp van de SDK en C#
 
-De Bing installatiekopie Search SDK bevat de functionaliteit van de REST-API voor aanvragen van de installatiekopie en parseren resultaten. 
+De Bing afbeeldingen zoeken-SDK bevat de functionaliteit van de REST-API voor aanvragen van de installatiekopie en parseren resultaten. 
 
-De [broncode voor voorbeelden van C# Bing installatiekopie Search SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) beschikbaar is op de Git-Hub.
+De [broncode voor C# Bing afbeeldingen zoeken-SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) is beschikbaar op Git Hub.
 
 ## <a name="application-dependencies"></a>Afhankelijkheden voor toepassingen
 
-Als u een consoletoepassing met de Bing installatiekopie Search SDK instelt, blader naar de `Manage NuGet Packages` optie in Solution Explorer in Visual Studio.  Voeg de `Microsoft.Azure.CognitiveServices.Search.ImageSearch` pakket.
+Als u een consoletoepassing met behulp van de Bing afbeeldingen zoeken-SDK instelt, blader naar de `Manage NuGet Packages` optie vanuit de Solution Explorer in Visual Studio.  Voeg de `Microsoft.Azure.CognitiveServices.Search.ImageSearch` pakket.
 
-Installeren van de [zoeken naar afbeelding van NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0) installeert ook afhankelijkheden, met inbegrip van:
+Installeren van de [afbeeldingen zoeken-NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/1.2.0) installeert ook afhankelijkheden, met inbegrip van:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
-## <a name="image-search-client"></a>Afbeelding zoeken client
-Maken van een exemplaar van de `ImageSearchAPI` -client toevoegen met behulp van instructies:
+## <a name="image-search-client"></a>Afbeeldingen zoeken-client
+Het maken van een exemplaar van de `ImageSearchAPI` client using-instructies toevoegen:
 ```
 using Microsoft.Azure.CognitiveServices.Search.ImageSearch;
 using Microsoft.Azure.CognitiveServices.Search.ImageSearch.Models;
@@ -52,7 +52,7 @@ var imageResults = client.Images.SearchAsync(query: "Canadian Rockies").Result;
 Console.WriteLine("Search images for query \"canadian rockies\"");
 
 ```
-Parseren van de installatiekopie resultaten geretourneerd door de vorige query:
+Parseren van de resultaten van de installatiekopie die wordt geretourneerd door de vorige query:
 
 ```
 if (imageResults.Value.Count > 0)
@@ -73,9 +73,9 @@ Console.WriteLine($"\r\nImage result total estimated matches: {imageResults.Tota
 
 ```
 
-## <a name="complete-console-application"></a>Volledige consoletoepassing
+## <a name="complete-console-application"></a>Volledige-consoletoepassing
 
-De volgende consoletoepassing wordt uitgevoerd de eerder gedefinieerde query 'Canadees Rockies' te zoeken voor de resultaten en vervolgens afdrukken eerste afbeelding insights token, miniatuur-url en inhoud afbeeldings-url:
+De volgende consoletoepassing wordt uitgevoerd de eerder gedefinieerde query 'Canadese Rockies' om te zoeken voor de resultaten vervolgens afdrukken eerste afbeelding insights token, miniatuur-url en inhoud afbeeldings-url:
 
 ```
 using System;
@@ -186,11 +186,11 @@ namespace ImageSrchSDK
 
 ## <a name="search-options"></a>Zoekopties
 
-Bing zoeken-voorbeelden laten zien dat verschillende functies van de SDK.  De volgende functies toevoegen aan het eerder gedefinieerde `ImageSrchSDK` klasse.
+De Bing zoeken-voorbeelden laten zien dat verschillende functies van de SDK.  Voeg de volgende functies toe aan de eerder gedefinieerde `ImageSrchSDK` klasse.
 
-### <a name="search-using-a-filter"></a>Zoeken met een filter
+### <a name="search-using-a-filter"></a>Zoeken met behulp van een filter
 
-Afbeeldingen voor 'studio ghibli' gemaakt, gefilterd voor GIF-bestanden en wide aspect zoeken en vervolgens controleren of het aantal resultaten en afdrukken insightsToken miniatuur-url en url van de eerste resultaat.
+Installatiekopieën voor 'studio ghibli' gemaakt, gefilterd op GIF-animaties en breed aspect zoeken en vervolgens controleren of het aantal resultaten en afdrukken insightsToken, miniatuur-url en de url van de eerste resultaat.
 
 ```
         public static void ImageSearchWithFilters(ImageSearchAPI client)
@@ -234,7 +234,7 @@ Afbeeldingen voor 'studio ghibli' gemaakt, gefilterd voor GIF-bestanden en wide 
 
 ### <a name="trending-images"></a>Trending afbeeldingen
 
-Zoeken naar trends afbeeldingen en controleer vervolgens de categorieën en tegels.
+Zoeken naar trending afbeeldingen en controleer vervolgens of categorieën en tegels.
 
 ```
         public static void ImageTrending(ImageSearchAPI client)
@@ -286,9 +286,9 @@ Zoeken naar trends afbeeldingen en controleer vervolgens de categorieën en tege
 
 ```
 
-### <a name="image-details"></a>Details van de afbeelding
+### <a name="image-details"></a>Details van installatiekopie
 
-Installatiekopieën van het zoeken naar 'Degas' en zoek vervolgens naar de details van de installatiekopie van de eerste afbeelding.
+Zoeken naar afbeeldingen 'Degas', en zoek vervolgens de details van de installatiekopie van de eerste afbeelding.
 ```
         public static void ImageDetail(ImageSearchAPI client)
         {
@@ -406,4 +406,4 @@ Installatiekopieën van het zoeken naar 'Degas' en zoek vervolgens naar de detai
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Cognitieve services .NET SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+[Cognitive services SDK voor .NET-voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

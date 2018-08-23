@@ -1,38 +1,38 @@
 ---
-title: Renderen dekking van Azure Maps | Microsoft Docs
-description: Meer informatie over Render dekking van Azure Maps
-author: jinzh-azureiot
+title: Dekking van Azure Maps voor weergave | Microsoft Docs
+description: Meer informatie over de Render-dekking van Azure Maps
+author: jingjing-z
 ms.author: jinzh
 ms.date: 03/07/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: c973897015df978f31d267ec6f2a20812d9d541c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 6e4ebd5bfd7225537046d34dd885d04e8a94878f
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34600575"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42058672"
 ---
-# <a name="azure-maps-render-coverage"></a>Azure Maps weergeven dekking
+# <a name="azure-maps-render-coverage"></a>Azure Maps dekking voor weergave
 
-Azure Maps maakt gebruik van zowel raster tegels en vector tegels om toewijzingen te maken. Met de laagste resolutie wordt de hele wereld op één venster past. Met de hoogste resolutie vertegenwoordigt één tegel 38 vierkante meters. Als u op een kaart inzoomen, daarom kunt u zien steeds meer informatie over continenten, regio's, plaatsen en afzonderlijke streets. Zie voor meer informatie [niveaus zoomen en raster tegel](zoom-levels-and-tile-grid.md).
+Azure kaarten maakt gebruik van zowel tegels rasterafbeeldingen vectortegels om toewijzingen te maken. De laagste resolutie past de hele wereld op een enkele tegel. Met de hoogste resolutie vertegenwoordigt een enkele tegel 38 vierkante meter. Als u op een kaart inzoomen, dus kunt u steeds meer details weergeven over continenten, regio's, plaatsen en afzonderlijke Streets (straten). Zie voor meer informatie, [zoomniveaus en tegelraster](zoom-levels-and-tile-grid.md).
 
-Maps heeft echter geen hetzelfde niveau van informatie en nauwkeurigheid voor alle regio's. De volgende tabellen bevatten informatie over welk niveau van de gerenderde details die u van elke regio verwachten kunt.
+Maps hoeft echter niet dezelfde mate van informatie en de nauwkeurigheid van de gegevens voor alle regio's. De volgende tabellen bevatten informatie over welk niveau van de weergegeven gegevens die u van elke regio verwachten kunt.
 
 ## <a name="legend"></a>Legenda
 
 | Symbool | Betekenis |
 |--------|---------|
-| ✓ | Regio wordt aangeduid met gedetailleerde gegevens.   |
-| Ø | Regio wordt aangeduid met vereenvoudigde gegevens. |
+| ✓ | Regio wordt weergegeven met gedetailleerde gegevens.   |
+| Ø | Regio wordt weergegeven met vereenvoudigde. |
 
 
 ## <a name="africa"></a>Afrika 
 
 
-| Regio | Raster tegels Unified | Vector tegels Unified |
+| Regio | Raster tegels Unified | Unified Vectortegels |
 | ------ | :------------------: | :------------------: |
 | Algerije                          | ✓ | ✓ |
 | Angola                           | ✓ | ✓ |
@@ -93,7 +93,7 @@ Maps heeft echter geen hetzelfde niveau van informatie en nauwkeurigheid voor al
 
 ## <a name="americas"></a>Noord- en Zuid-Amerika
 
-| Regio | Raster tegels Unified | Vector tegels Unified |
+| Regio | Raster tegels Unified | Unified Vectortegels |
 | ------ | :------------------: | :------------------: |
 | Anguilla                  | ✓ | ✓ |
 | Antigua en Barbuda       | ✓ | ✓ |
@@ -140,10 +140,10 @@ Maps heeft echter geen hetzelfde niveau van informatie en nauwkeurigheid voor al
 | Saint-Barthélemy          | ✓ | ✓ |
 | Saint Kitts en Nevis     | ✓ | ✓ |
 | Saint Lucia               | ✓ | ✓ |
-| Saint to (Frans)     | ✓ | ✓ |
+| Saint-Martin (Franse)     | ✓ | ✓ |
 | Saint-Pierre en Miquelon |   | ✓ |
 | Saint Vincent en de Grenadines | ✓ | ✓ |
-| Sint Maarten (Nederlands)      | ✓ | ✓ |
+| Sint-Maarten (Nederlands)      | ✓ | ✓ |
 | Zuid-Georgia en de Zuidelijke Sandwicheilanden |   | ✓ |
 | Suriname                  |   | ✓ |
 | Trinidad en Tobago       | ✓ | ✓ |
@@ -156,7 +156,7 @@ Maps heeft echter geen hetzelfde niveau van informatie en nauwkeurigheid voor al
 
 ## <a name="asia"></a>Azië 
 
-| Regio | Raster tegels Unified | Vector tegels Unified |
+| Regio | Raster tegels Unified | Unified Vectortegels |
 | ------ | :------------------: | :------------------: |
 | Afghanistan               |   | Ø |
 | Bahrein                   | ✓ | ✓ |
@@ -210,7 +210,7 @@ Maps heeft echter geen hetzelfde niveau van informatie en nauwkeurigheid voor al
 
 ## <a name="oceania"></a>Oceanië
 
-| Regio | Raster tegels Unified | Vector tegels Unified |
+| Regio | Raster tegels Unified | Unified Vectortegels |
 | ------ | :------------------: | :------------------: |
 | Amerikaans-Samoa            |   | ✓ |
 | Australië                 | ✓ | ✓ |
@@ -240,7 +240,7 @@ Maps heeft echter geen hetzelfde niveau van informatie en nauwkeurigheid voor al
 
 ## <a name="europe"></a>Europa
 
-| Regio | Raster tegels Unified | Vector tegels Unified |
+| Regio | Raster tegels Unified | Unified Vectortegels |
 | ------ | :------------------: | :------------------: |
 | Albanië                   | ✓ | ✓ |
 | Andorra                   | ✓ | ✓ |
@@ -249,7 +249,7 @@ Maps heeft echter geen hetzelfde niveau van informatie en nauwkeurigheid voor al
 | Azerbeidzjan                |   | Ø |
 | Wit-Rusland                   | Ø | ✓ |
 | België                   | ✓ | ✓ |
-| Bosnië-Herzegovina        | ✓ | ✓ |
+| Bosnische        | ✓ | ✓ |
 | Bulgarije                  | ✓ | ✓ |
 | Kroatië                   | ✓ | ✓ |
 | Cyprus                    | ✓ | ✓ |
@@ -302,6 +302,6 @@ Maps heeft echter geen hetzelfde niveau van informatie en nauwkeurigheid voor al
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Azure Maps rendering [niveaus zoomen en raster tegel](zoom-levels-and-tile-grid.md).
+Zie voor meer informatie over Azure Maps rendering, [zoomniveaus en tegelraster](zoom-levels-and-tile-grid.md).
 
-Meer informatie over de [dekking gebieden voor de service Routering Maps](routing-coverage.md). 
+Meer informatie over de [dekking gebieden voor de service Routering kaarten](routing-coverage.md). 

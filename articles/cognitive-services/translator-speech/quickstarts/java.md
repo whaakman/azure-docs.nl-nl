@@ -9,12 +9,12 @@ ms.component: translator-speech
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: b06ee0c37d52f81db1a3bad6907690619002ef7c
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 0db55f4064d3415cb647519ea9030936012a8446
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205500"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41987453"
 ---
 # <a name="quickstart-for-microsoft-translator-speech-api-with-java"></a>Snelstartgids voor Microsoft Translator Speech-API met Java 
 <a name="HOLTop"></a>
@@ -277,4 +277,4 @@ Geslaagd gevolg hiervan is het maken van een bestand met de naam 'speak2.wav'. H
 ## <a name="see-also"></a>Zie ook 
 
 [Overzicht van Translator Speech](../overview.md)
-[API-verwijzing](http://docs.microsofttranslator.com/speech-translate.html)
+[API-verwijzing](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

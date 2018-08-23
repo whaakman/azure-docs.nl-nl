@@ -11,22 +11,24 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/04/2017
+ms.date: 08/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: d891cd92e70d3491ee0c7a58f1409823301b299c
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: cfcdf13f8aa4dfab9b361ccbb82ea4b2c3e2ca0d
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989750"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42055474"
 ---
 # <a name="import-data-into-analytics"></a>Gegevens importeren in Analytics
 
 Importeren van alle tabelgegevens in [Analytics](app-insights-analytics.md)om toe te voegen met een [Application Insights](app-insights-overview.md) telemetrie van uw app of zodat u ze als een afzonderlijke stroom kunt analyseren. Analytics is een krachtige querytaal die geschikt zijn voor het analyseren van grote volumes voorzien van een tijdstempel streams van telemetrie.
-
 U kunt gegevens importeren in Analytics met behulp van uw eigen schema. Dit hoeft niet te gebruiken de standaard Application Insights-schema's, zoals aanvraag of trace.
 
 U kunt importeren JSON of DSV (scheidingsteken gescheiden - komma, puntkomma of tabblad) bestanden.
+
+> [!IMPORTANT]
+> In dit artikel is **afgeschaft**. De aanbevolen methode van het ophalen van gegevens in Log Analytics is via de [Log Analytics-gegevensverzamelaar API.](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api)
 
 Er zijn drie situaties waarin importeren naar Analytics handig is:
 

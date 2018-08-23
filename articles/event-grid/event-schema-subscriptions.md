@@ -3,17 +3,16 @@ title: Gebeurtenisschema in Azure Event Grid-abonnement
 description: Beschrijft de eigenschappen die beschikbaar zijn voor abonnement-gebeurtenissen met Azure Event Grid
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/02/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6eb5cd9a086522bfe5125189f87a2498dda0ef7e
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 18f2a64a4354fbd99f1a471c21cc35cbf5df6619
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493571"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42059442"
 ---
 # <a name="azure-event-grid-event-schema-for-subscriptions"></a>Azure Event Grid-gebeurtenisschema voor abonnementen
 
@@ -27,7 +26,9 @@ Wanneer u zich op gebeurtenissen voor een Azure-abonnement abonneert, ontvangt u
 
 Via een programma om gebeurtenissen te verwerken, kunt u gebeurtenissen sorteren door te kijken de `operationName` waarde. Bijvoorbeeld, het eindpunt van de gebeurtenis kan alleen gebeurtenissen worden verwerkt voor bewerkingen die gelijk zijn aan `Microsoft.Compute/virtualMachines/write` of `Microsoft.Storage/storageAccounts/write`.
 
-Het onderwerp van de gebeurtenis is de resource-ID van de resource die het doel van de bewerking. Als u wilt filteren van gebeurtenissen voor een resource, bieden die resource-ID bij het maken van het gebeurtenisabonnement. Zie voor voorbeelden van scripts, [abonneren en het filter voor de resourcegroep - PowerShell](scripts/event-grid-powershell-resource-group-filter.md) of [abonneren en het filter voor de resourcegroep - Azure CLI](scripts/event-grid-cli-resource-group-filter.md). Als u wilt filteren op een resourcetype, gebruik een waarde in de volgende indeling: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+Het onderwerp van de gebeurtenis is de resource-ID van de resource die het doel van de bewerking. Als u wilt filteren van gebeurtenissen voor een resource, bieden die resource-ID bij het maken van het gebeurtenisabonnement. Als u wilt filteren op een resourcetype, gebruik een waarde in de volgende indeling: `/subscriptions/<subscription-id>/resourcegroups/<resource-group>/providers/Microsoft.Compute/virtualMachines`
+
+Zie voor een lijst met zelfstudies en voorbeelden van scripts, [gebeurtenisbron voor Azure-abonnement](event-sources.md#azure-subscriptions).
 
 ## <a name="available-event-types"></a>Typen van de gebeurtenis berichten beschikbaar
 

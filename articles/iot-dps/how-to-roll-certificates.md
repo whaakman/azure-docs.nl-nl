@@ -1,6 +1,6 @@
 ---
 title: Het verwijderen van X.509-certificaten in Azure IoT Hub Device Provisioning Service | Microsoft Docs
-description: Het X.509-certificaten implementeren met uw device provisioning service-exemplaar
+description: Het verwijderen van X.509-certificaten met uw Device Provisioning service-exemplaar
 author: wesmc7777
 ms.author: wesmc
 ms.date: 08/06/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9c73ce159ae7cf5778210e0fb587135f37c73f57
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: a8ba667e6af316620d7a8530f29a6640edada13d
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40025031"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42054866"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Het verwijderen van certificaten voor x.509-apparaten
 
@@ -46,7 +46,7 @@ Als u uw eigen certificaten voor apparaten beheert, hebt u uw eigen pijplijn voo
 
 ## <a name="roll-the-certificate-in-the-iot-hub"></a>Het certificaat te rollen in de IoT-hub
 
-Het certificaat voor apparaten kan handmatig worden toegevoegd aan een IoT-hub. Het certificaat kan ook worden geautomatiseerd met behulp van een Device Provisioning Service-exemplaar. In dit artikel veronderstellen we dat een exemplaar van de inrichting wordt gebruikt ter ondersteuning van automatische inrichting.
+Het certificaat voor apparaten kan handmatig worden toegevoegd aan een IoT-hub. Het certificaat kan ook worden geautomatiseerd met behulp van een Device Provisioning service-exemplaar. In dit artikel veronderstellen we dat een Device Provisioning service-exemplaar wordt gebruikt ter ondersteuning van automatische inrichting.
 
 Wanneer een apparaat in eerste instantie is ingericht via automatische inrichting, het Start-up, en neemt contact op met de provisioning-service. De provisioning-service reageert door het uitvoeren van een identiteit te controleren voordat u een apparaat-id maakt in een IoT-hub met behulp van het leaf-certificaat van het apparaat als de referentie. De provisioning-service wordt vervolgens het apparaat toegewezen aan welke IoT-hub en het apparaat gebruikt dan de leaf-certificaat om te verifiëren en verbinding maken met de IoT-hub. 
 
@@ -104,7 +104,7 @@ Voor het bijwerken van de groepsinschrijving van een in reactie op een schending
 
 #### <a name="update-compromised-root-ca-certificates"></a>Verdachte basis-CA-certificaten bijwerken
 
-1. Klik op de **certificaten** tabblad voor uw provisioning-service-exemplaar.
+1. Klik op de **certificaten** tabblad voor uw Device Provisioning service-exemplaar.
 
 2. Klik op het waarmee is geknoeid certificaat in de lijst en klik vervolgens op de **verwijderen** knop. Bevestig het verwijderen door de certificaatnaam te voeren en op **OK**. Herhaal dit proces voor alle verdachte certificaten.
 
@@ -112,7 +112,7 @@ Voor het bijwerken van de groepsinschrijving van een in reactie op een schending
 
 3. Volg de stappen [configureren CA-certificaten geverifieerd](how-to-verify-certificates.md) toe te voegen en te controleren of de nieuwe basis-CA-certificaten.
 
-4. Klik op de **registraties beheren** tabblad voor uw provisioning-service-exemplaar en klik op de **Registratiegroepen** lijst. Klik op de naam van uw inschrijving in de lijst.
+4. Klik op de **registraties beheren** tabblad voor uw Device Provisioning service-exemplaar en klik op de **Registratiegroepen** lijst. Klik op de naam van uw inschrijving in de lijst.
 
 5. Klik op **CA-certificaat**, en selecteer het nieuwe basis-CA-certificaat. Klik vervolgens op **Opslaan**. 
 
@@ -149,13 +149,13 @@ Later opnieuw wanneer het secundaire certificaat ook bijna is verlopen en moeten
 
 1. Volg de stappen [configureren CA-certificaten geverifieerd](how-to-verify-certificates.md) toe te voegen en te controleren of de nieuwe basis-CA-certificaten.
 
-2. Klik op de **registraties beheren** tabblad voor uw provisioning-service-exemplaar en klik op de **Registratiegroepen** lijst. Klik op de naam van uw inschrijving in de lijst.
+2. Klik op de **registraties beheren** tabblad voor uw Device Provisioning service-exemplaar en klik op de **Registratiegroepen** lijst. Klik op de naam van uw inschrijving in de lijst.
 
 3. Klik op **CA-certificaat**, en selecteer het nieuwe basis-CA-certificaat onder de **secundair certificaat** configuratie. Klik vervolgens op **Opslaan**. 
 
     ![De nieuwe basis-CA-certificaat selecteren](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
-4. Later opnieuw als het primaire certificaat is verlopen, klikt u op de **certificaten** tabblad voor uw provisioning-service-exemplaar. Klik op het verlopen certificaat in de lijst en klik vervolgens op de **verwijderen** knop. Bevestig het verwijderen door de naam van het certificaat invoeren en op **OK**.
+4. Later opnieuw als het primaire certificaat is verlopen, klikt u op de **certificaten** tabblad voor uw Device Provisioning service-exemplaar. Klik op het verlopen certificaat in de lijst en klik vervolgens op de **verwijderen** knop. Bevestig het verwijderen door de naam van het certificaat invoeren en op **OK**.
 
     ![Basis-CA-certificaat verwijderen](./media/how-to-roll-certificates/delete-root-cert.png)
 
@@ -177,7 +177,7 @@ Later opnieuw wanneer het secundaire certificaat ook bijna is verlopen en moeten
 
 ## <a name="reprovision-the-device"></a>Het apparaat opnieuw inrichten
 
-Zodra het certificaat wordt geïmplementeerd op het apparaat en de Device Provisioning Service, het apparaat kan opnieuw inrichten zelf contact opnemen met de Device Provisioning Service. 
+Zodra het certificaat wordt geïmplementeerd op het apparaat en de Device Provisioning Service, het apparaat kan opnieuw inrichten zelf contact opnemen met de Device Provisioning service. 
 
 Een eenvoudige manier van programmeren apparaten opnieuw inrichten is om het apparaat te programmeren Neem contact op met de provisioning-service om te gaan via de inrichting stroom als het apparaat de foutmelding 'onbevoegd' ontvangt probeert verbinding maken met de IoT-hub.
 

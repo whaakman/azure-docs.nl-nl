@@ -1,6 +1,6 @@
 ---
-title: Enterprise-integratie voor B2B - Azure Logic Apps | Microsoft Docs
-description: B2B-werkstromen bouwen en ondersteuning voor enterprise integration-scenario's voor logische apps met de Enterprise-integratiepakket
+title: Bedrijfsintegratie voor B2B - Azure Logic Apps | Microsoft Docs
+description: B2B-werkstromen bouwen en ondersteuning voor enterprise integration-scenario's voor logische apps met het Enterprise Integration Pack
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: msftman
@@ -14,47 +14,47 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 25349d48d88b64568fef0f5a6bac5950da15196b
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: c4f83d2bf082b5f1358b4eee6468d470b5cb8088
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298634"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42056631"
 ---
-# <a name="overview-b2b-scenarios-and-communication-with-the-enterprise-integration-pack"></a>Overzicht: B2B-scenario's en communicatie met de Enterprise-integratiepakket
+# <a name="overview-b2b-scenarios-and-communication-with-the-enterprise-integration-pack"></a>Overzicht: B2B-scenario's en communicatie met het Enterprise Integration Pack
 
-U kunt enterprise integratiescenario's met Microsoft cloud-gebaseerde oplossing voor het integratiepakket Enterprise inschakelen voor business-to-business (B2B) werkstromen en naadloze communicatie met Azure Logic Apps. Organisaties kunnen uitwisselen berichten elektronisch, zelfs als ze verschillende protocollen en indelingen gebruiken. Het pack transformeert verschillende indelingen in een indeling die organisaties systemen kunnen interpreteren en verwerken. Organisaties kunnen berichten via industriestandaard-protocollen, zoals uitwisselen [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), en [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). U kunt ook berichten met zowel versleuteling als digitale handtekeningen beveiligen.
+U kunt voor business-to-business (B2B) werkstromen en naadloze communicatie met Azure Logic Apps enterprise integratiescenario's met Microsoft cloud-gebaseerde oplossing, het Enterprise Integration Pack inschakelen. Organisaties kunnen uitwisselen berichten elektronisch, zelfs als ze verschillende protocollen en indelingen gebruiken. Het pack transformeert verschillende indelingen in een indeling die organisaties systemen kunnen interpreteren en verwerken. Organisaties kunnen berichten via het industriestandaard-protocollen, zoals uitwisselen [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), en [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). U kunt ook beveiligde berichten met zowel versleuteling en digitale handtekeningen.
 
-Als u bekend met BizTalk Server of Microsoft Azure BizTalk Services bent, zijn de functies voor Enterprise Integration eenvoudig te gebruiken omdat de meeste concepten vergelijkbaar zijn. Een belangrijk verschil is dat Enterprise Integration integratieaccounts gebruikt voor het vereenvoudigen van de opslag en het beheer van artefacten in B2B-communicatie gebruikt. 
+Als u bekend met BizTalk Server of Microsoft Azure BizTalk Services bent, is het Enterprise Integration-functies zijn eenvoudig te gebruiken omdat de meeste concepten vergelijkbaar zijn. Een belangrijk verschil is dat in Enterprise Integration-integratieaccounts gebruikt voor het vereenvoudigen van de opslag en het beheer van artefacten in B2B-communicatie gebruikt. 
 
-Het integratiepakket Enterprise is qua architectuur is gebaseerd op 'integratieaccounts'. Deze accounts zijn cloud-gebaseerde containers waarin alle uw artefacten, zoals schema's, partners, certificaten, maps en overeenkomsten. U kunt deze artefacten ontwerpen, implementeren en onderhouden van uw B2B-apps en om B2B-werkstromen voor logic apps te bouwen. Maar voordat u deze artefacten gebruiken kunt, moet u eerst uw integratie-account koppelen aan uw logische app. Daarna uw logische app toegang tot uw integratie-account artefacten.
+Het Enterprise Integration Pack is qua, gebaseerd op 'integratieaccounts'. Deze accounts zijn cloud-gebaseerde containers die opslaan van alle uw artefacten, zoals schema's, partners, certificaten, kaarten, en overeenkomsten. U kunt deze artefacten gebruiken om te ontwerpen, implementeren en onderhouden van uw B2B-apps en ook om B2B-werkstromen voor logische apps te bouwen. Maar voordat u deze artefacten gebruiken kunt, moet u eerst uw integratie-account koppelen aan uw logische app. Daarna uw logische app toegang tot uw integratie-account-artefacten.
 
-## <a name="why-should-you-use-enterprise-integration"></a>Waarom moet u de enterprise-integratie gebruiken?
+## <a name="why-should-you-use-enterprise-integration"></a>Waarom zou u bedrijfsintegratie gebruiken?
 
-* Met enterprise-integratie kunt u alle uw artefacten opslaan op één plek--uw integratie-account.
-* U kunt B2B werkstromen bouwen en integreren met software-as-service (SaaS)-apps van derden, lokale apps en aangepaste apps met behulp van de Azure Logic Apps-engine en alle bijbehorende connectors.
+* Met enterprise-integratie, kunt u alle uw artefacten opslaan op één plek--uw integratie-account.
+* U kunt de B2B-werkstromen bouwen en integreren met software-as-service (SaaS)-apps van derden, on-premises toepassingen en aangepaste apps met behulp van de Azure Logic Apps-engine en alle bijbehorende connectors.
 * U kunt aangepaste code maken voor uw logische apps met Azure functions.
 
-## <a name="how-to-get-started-with-enterprise-integration"></a>Hoe kan ik aan de slag met enterprise-integratie?
+## <a name="how-to-get-started-with-enterprise-integration"></a>Hoe kan ik aan de slag met bedrijfsintegratie?
 
-U kunt bouwen en B2B apps beheren met de Enterprise Integration Pack via de App-ontwerper van de logica in de **Azure-portal**. U kunt ook uw logische apps met beheren [PowerShell](https://msdn.microsoft.com/library/azure/mt652195.aspx "Logic apps PowerShell-onderwerpen").
+U kunt bouwen en beheren van B2B-apps met het Enterprise Integration Pack via de ontwerper van logische App in de **Azure-portal**. U kunt ook uw logische apps beheren met [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp "Logic apps PowerShell").
 
-Hier volgen de hoofdstappen die u nemen moet voordat u apps in de Azure portal maken kunt:
+Hier volgen de hoofdstappen die u uitvoeren moet voordat u apps in Azure portal maken kunt:
 
-![Overzicht van de installatiekopie](media/logic-apps-enterprise-integration-overview/overview-0.png)  
+![Overzichtsafbeelding](media/logic-apps-enterprise-integration-overview/overview-0.png)  
 
 ## <a name="what-are-some-common-scenarios"></a>Wat zijn enkele algemene scenario's?
 
 Enterprise Integration ondersteunt deze industrienormen:
 
 * EDI - Electronic Data Interchange
-* EAI - Enterprise toepassingsintegratie
+* EAI - Enterprise Application Integration
 
-## <a name="heres-what-you-need-to-get-started"></a>Dit is wat u moet aan de slag
+## <a name="heres-what-you-need-to-get-started"></a>Dit is wat u nodig hebt om aan de slag
 
-* Een Azure-abonnement met een account voor de integratie
-* Visual Studio 2015 maps en schema's maken
-* [Microsoft Azure Logic Apps Enterprise Integration-Tools voor Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas)  
+* Een Azure-abonnement aan een integratieaccount
+* Visual Studio 2015 om toewijzingen en schema's te maken
+* [Microsoft Azure Logic Apps Enterprise Integration-hulpprogramma's voor Visual Studio 2015 2.0](https://aka.ms/vsmapsandschemas)  
 
 ## <a name="try-it-now"></a>Probeer het nu
 
@@ -62,17 +62,17 @@ Enterprise Integration ondersteunt deze industrienormen:
 
 ## <a name="learn-more"></a>Meer informatie
 * [Overeenkomsten](../logic-apps/logic-apps-enterprise-integration-agreements.md "meer informatie over enterprise integration-overeenkomsten")
-* [Scenario's voor Business-to-Business (B2B)](../logic-apps/logic-apps-enterprise-integration-b2b.md "informatie over het maken van logische apps met B2B-functies ")  
-* [Certificaten](logic-apps-enterprise-integration-certificates.md "meer informatie over certificaten voor ondernemingen-integratie")
-* [Platte bestand codering/decodering](logic-apps-enterprise-integration-flatfile.md "informatie over het coderen en decoderen plat bestand-inhoud")  
+* [Business to Business (B2B)-scenario's](../logic-apps/logic-apps-enterprise-integration-b2b.md "informatie over het maken van logische apps met B2B-functies ")  
+* [Certificaten](logic-apps-enterprise-integration-certificates.md "meer informatie over enterprise integration-certificaten")
+* [Met de platte bestand codering/decodering](logic-apps-enterprise-integration-flatfile.md "meer informatie over het coderen en decoderen van de inhoud van een plat bestand")  
 * [Integratieaccounts](../logic-apps/logic-apps-enterprise-integration-accounts.md "meer informatie over integratieaccounts")
-* [Toegewezen](../logic-apps/logic-apps-enterprise-integration-maps.md "meer informatie over enterprise integration maps")
+* [Toegewezen](../logic-apps/logic-apps-enterprise-integration-maps.md "meer informatie over enterprise integration-kaarten")
 * [Partners](logic-apps-enterprise-integration-partners.md "meer informatie over enterprise integration-partners")
 * [Schema's](logic-apps-enterprise-integration-schemas.md "meer informatie over enterprise integration-schema's")
-* [XML-bericht validatie](logic-apps-enterprise-integration-xml.md "informatie over het valideren van XML-berichten met Logic apps")
-* [XML-transformatie](logic-apps-enterprise-integration-transform.md "meer informatie over enterprise integration maps")
+* [XML-bericht validatie](logic-apps-enterprise-integration-xml.md "meer informatie over het valideren van XML-berichten met Logic apps")
+* [XML-transformatie](logic-apps-enterprise-integration-transform.md "meer informatie over enterprise integration-kaarten")
 * [Enterprise Integration-Connectors](../connectors/apis-list.md "meer informatie over enterprise integration pack-connectors")
-* [Integratie Account metagegevens](../logic-apps/logic-apps-enterprise-integration-metadata.md "meer informatie over de metagegevens van de integratie-account")
-* [B2B-berichten](logic-apps-monitor-b2b-message.md "meer informatie over het bewaken van B2B-berichten")
-* [B2B-berichten in de OMS-portal bijhouden](logic-apps-track-b2b-messages-omsportal.md "meer informatie over het bijhouden van B2B-berichten in de OMS-portal")
+* [Integratie-Account metagegevens](../logic-apps/logic-apps-enterprise-integration-metadata.md "meer informatie over de metagegevens van de integratie-account")
+* [B2B-berichten bewaken](logic-apps-monitor-b2b-message.md "meer informatie over het controleren van B2B-berichten")
+* [B2B-berichten in OMS-portal traceren](logic-apps-track-b2b-messages-omsportal.md "meer informatie over het bijhouden van B2B-berichten in OMS-portal")
 

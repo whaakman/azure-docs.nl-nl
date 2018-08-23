@@ -1,9 +1,9 @@
 ---
-title: Azure API Management-services in meerdere Azure-regio's implementeren | Microsoft Docs
-description: Informatie over het implementeren van een Azure API Management-service-exemplaar op meerdere Azure-regio's.
+title: Azure API Management-services implementeren op meerdere Azure-regio's | Microsoft Docs
+description: Informatie over het implementeren van een Azure API Management service-exemplaar naar meerdere Azure-regio's.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,56 +11,101 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: ff0101bde54f99f99461d0f042af520b1642d0df
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2ec8d53b0d8da3a7d643362abf58d3a5d4b42e74
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31586803"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42059157"
 ---
-# <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Een Azure API Management-service-exemplaar implementeren op meerdere Azure-regio 's
-API Management biedt ondersteuning voor meerdere landen/regio-implementatie waarmee de API-uitgevers voor een enkele API management-service verdelen over een willekeurig aantal gewenste Azure-regio's. Dit vermindert de latentie waargenomen door geografisch verspreid API consumenten en verbetert tevens de servicebeschikbaarheid als één regio offline gaat. 
+# <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Over het implementeren van een Azure API Management service-exemplaar naar meerdere Azure-regio 's
 
-Wanneer u een API Management-service in eerste instantie is gemaakt, bevat deze slechts één [eenheid] [ unit] en bevindt zich op één Azure-regio, die is opgegeven als de primaire regio. Extra gebieden kunnen eenvoudig worden toegevoegd via de Azure-Portal. Een API Management-gatewayserver wordt geïmplementeerd voor elke regio en aanroep verkeer wordt doorgestuurd naar de dichtstbijzijnde gateway. Als een regio offline gaat, wordt het verkeer automatisch opnieuw gerichte naar de volgende dichtstbijzijnde gateway. 
+Met Azure API Management biedt ondersteuning voor implementatie voor meerdere regio's, waarmee de API-uitgevers voor het distribueren van een enkele Azure API management-service naar een willekeurig aantal gewenste Azure-regio's. Dit vermindert de latentie waargenomen door consumenten API geografisch wordt gedistribueerd en verbetert tevens de servicebeschikbaarheid als één regio offline gaat.
+
+Een nieuwe Azure API Management-service bevat in eerste instantie slechts één [eenheid] [ unit] in één Azure-regio, de primaire regio. Extra regio's kunnen eenvoudig worden toegevoegd via de Azure-portal. Een API Management gateway-server is geïmplementeerd in elke regio en aanroep verkeer wordt doorgestuurd naar de dichtstbijzijnde gateway. Als een regio offline gaat, wordt het verkeer automatisch omgeleid naar de volgende dichtstbijzijnde gateway.
 
 > [!IMPORTANT]
-> Implementatie van meerdere landen/regio is alleen beschikbaar in de **[Premium] [ Premium]** laag.
-> 
-> 
+> Implementatie in meerdere regio's is alleen beschikbaar in de **[Premium] [ Premium]** laag.
 
-## <a name="add-region"> </a>Exemplaar van API Management-service implementeren in een nieuw gebied
 > [!NOTE]
-> Als u nog geen exemplaar van API Management-service hebt gemaakt, raadpleegt u [API Management service-exemplaar maken][Create an API Management service instance].
-> 
-> 
+> Met Azure API Management wordt alleen het onderdeel in de API-gateway gerepliceerd tussen regio's. Het onderdeel van de management-service wordt alleen in de primaire regio gehost. In het geval van een storing in de primaire regio is wijzigingen in de configuratie toepassen op een exemplaar van de Azure API Management-service niet mogelijk - met inbegrip van instellingen of beleid voor updates.
 
-Navigeer in de Azure Portal naar de **schaal en prijzen** pagina voor uw API Management-service-exemplaar. 
+## <a name="add-region"> </a>Exemplaar van API Management-service implementeren naar een nieuwe regio
 
-![Tabblad schaal][api-management-scale-service]
+> [!NOTE]
+> Als u een exemplaar van API Management-service nog niet hebt gemaakt, raadpleegt u [API Management service-exemplaar maken][Create an API Management service instance].
 
-Als u wilt implementeren op een nieuwe regio, klikt u op **+ toevoegen regio** van de werkbalk.
+In de Azure-portal, gaat u naar de **schalen en prijzen** pagina voor uw API Management service-exemplaar. 
+
+![Het tabblad schalen][api-management-scale-service]
+
+Als u wilt implementeren naar een nieuwe regio, klikt u op **+ toevoegen regio** via de werkbalk.
 
 ![Regio toevoegen][api-management-add-region]
 
-Selecteer de locatie in de vervolgkeuzelijst en het aantal eenheden voor met de schuifregelaar ingesteld.
+Selecteer de locatie in de vervolgkeuzelijst en stel het aantal eenheden voor met de schuifregelaar.
 
-![Geef de eenheden][api-management-select-location-units]
+![Eenheden opgeven][api-management-select-location-units]
 
-Klik op **toevoegen** uw selectie in de tabel locaties plaatsen. 
+Klik op **toevoegen** om uw selectie in de tabel locaties. 
 
-Herhaal dit proces totdat u alle geconfigureerde locaties en klik op **opslaan** van de werkbalk om het implementatieproces start.
+Herhaal dit proces totdat u alle geconfigureerde locaties en klikt u op **opslaan** via de werkbalk om het implementatieproces te starten.
 
-## <a name="remove-region"> </a>Verwijderen van exemplaar van API Management-service van een locatie
+## <a name="remove-region"> </a>Verwijderen van exemplaar van API Management-service vanaf een locatie
 
-Navigeer in de Azure Portal naar de **schaal en prijzen** pagina voor uw API Management-service-exemplaar. 
+In de Azure-portal, gaat u naar de **schalen en prijzen** pagina voor uw API Management service-exemplaar. 
 
-![Tabblad schaal][api-management-scale-service]
+![Het tabblad schalen][api-management-scale-service]
 
-Voor de locatie die u wilt verwijderen open het context-menu met de **...**  knop aan de rechterkant van de tabel. Selecteer de **verwijderen** optie.
+Voor de locatie die u wilt verwijderen, opent u de context menu met behulp van de **...**  knop aan de rechterkant van de tabel. Selecteer de **verwijderen** optie.
 
-De verwijdering te bevestigen en klikt u op **opslaan** de wijzigingen toe te passen.
+Bevestig de verwijdering en klikt u op **opslaan** de wijzigingen moeten worden toegepast.
+
+## <a name="route-backend"> </a>Route API-aanroepen naar regionale back-endservices
+
+Met Azure API Management biedt slechts één back-end-service-URL. Hoewel er zijn exemplaren van Azure API Management in verschillende regio's, wordt de API-gateway aanvragen nog steeds doorsturen naar de dezelfde back endservice, die wordt geïmplementeerd in slechts één regio. In dit geval de prestatieverbetering afkomstig is alleen van antwoorden in de cache opgeslagen in Azure API Management in een regio die specifiek zijn voor de aanvraag, maar contact opnemen met de back-end over de hele wereld kan nog steeds leiden tot hoge latentie.
+
+Als u wilt maken volledig gebruik van geografische verdeling van uw systeem, moet u back endservices die zijn geïmplementeerd in dezelfde regio's als Azure API Management-instanties hebben. Klik vervolgens met behulp van beleid en `@(context.Deployment.Region)` eigenschap, kunt u het verkeer routeren naar lokale exemplaren van uw back-end.
+
+1. Navigeer naar uw Azure API Management-exemplaar en klik op **API's** in het menu links.
+2. Selecteer de gewenste API.
+3. Klik op **Code-editor** in de vervolgkeuzelijst pijl in de **binnenkomende verwerking**.
+
+    ![API-code-editor](./media/api-management-howto-deploy-multi-region/api-management-api-code-editor.png)
+
+4. Gebruik de `set-backend` in combinatie met voorwaardelijke `choose` beleid voor het maken van een juiste routeringsbeleid in de `<inbound> </inbound>` sectie van het bestand.
+
+    Bijvoorbeeld, de onderstaande XML-bestand voor regio's VS-West en Oost-Azië zou moeten werken:
+
+    ```xml
+    <policies>
+        <inbound>
+            <base />
+            <choose>
+                <when condition="@("West US".Equals(context.Deployment.Region, StringComparison.OrdinalIgnoreCase))">
+                    <set-backend-service base-url="http://contoso-us.com/" />
+                </when>
+                <when condition="@("East Asia".Equals(context.Deployment.Region, StringComparison.OrdinalIgnoreCase))">
+                    <set-backend-service base-url="http://contoso-asia.com/" />
+                </when>
+                <otherwise>
+                    <set-backend-service base-url="http://contoso-other.com/" />
+                </otherwise>
+            </choose>
+        </inbound>
+        <backend>
+            <base />
+        </backend>
+        <outbound>
+            <base />
+        </outbound>
+        <on-error>
+            <base />
+        </on-error>
+    </policies>
+    ```
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
 
@@ -77,4 +122,3 @@ De verwijdering te bevestigen en klikt u op **opslaan** de wijzigingen toe te pa
 
 [unit]: http://azure.microsoft.com/pricing/details/api-management/
 [Premium]: http://azure.microsoft.com/pricing/details/api-management/
-

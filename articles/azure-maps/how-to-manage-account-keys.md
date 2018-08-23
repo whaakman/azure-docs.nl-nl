@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 38926cc42b44e61bd83f6b1e33946a9026cda06d
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: f5596f4c9bc827852c730d18856753e87de3c59c
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989398"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42054853"
 ---
 # <a name="how-to-manage-your-azure-maps-account-and-keys"></a>Uw Azure kaarten-account en sleutels beheren
 
@@ -51,4 +51,5 @@ U kunt een account verwijderen uit de Azure-portal. Navigeer naar de overzichtsp
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het gebruik van de [beheer-API-kaarten](https://docs.microsoft.com/rest/api/maps-management/accounts) wilt maken, bijwerken en verwijderen van Maps-accounts. 
+* Informatie over het gebruik van Azure Maps Zoek-API's op [zoeken naar een adres](./how-to-search-for-address.md).
+* Informatie over het gebruik van Azure maps [kaartbesturingselement in JavaScript](./how-to-use-map-control.md).

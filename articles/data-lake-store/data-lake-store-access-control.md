@@ -1,6 +1,6 @@
 ---
-title: Overzicht van Access Control in Data Lake Store | Microsoft Docs
-description: Begrijpen hoe toegangsbeheer werkt in Azure Data Lake Store
+title: Overzicht van access control in Data Lake Storage Gen1 | Microsoft Docs
+description: Begrijpen hoe toegangsbeheer werkt in Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: afe1a784ecc0a8f8846a71d21cc7ca8eb76078ec
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 86cc1a71bb09ea465621d65f84d2b838cb169a62
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337679"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055112"
 ---
-# <a name="access-control-in-azure-data-lake-store"></a>Toegangsbeheer in Azure Data Lake Store
+# <a name="access-control-in-azure-data-lake-storage-gen1"></a>Toegangsbeheer in Azure Data Lake Storage Gen1
 
-Azure Data Lake Store implementeert een model voor toegangsbeheer dat is afgeleid van HDFS. Dit is op zijn beurt afgeleid van het POSIX-model voor toegangsbeheer. Dit artikel bevat een overzicht van de basisbeginselen van het model voor toegangsbeheer voor Data Lake Store. Voor meer informatie over het HDFS-model voor toegangsbeheer, raadpleegt u de [Handleiding voor HDFS-machtigingen](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
+Azure Data Lake Storage Gen1 implementeert een model voor toegangsbeheer die is afgeleid van HDFS, wat op zijn beurt afgeleid van het POSIX-model voor toegangsbeheer. In dit artikel bevat een overzicht van de basisbeginselen van het model voor toegangsbeheer voor Data Lake Storage Gen1. Voor meer informatie over het HDFS-model voor toegangsbeheer, raadpleegt u de [Handleiding voor HDFS-machtigingen](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
 
 ## <a name="access-control-lists-on-files-and-folders"></a>Toegangsbeheerlijsten voor bestanden en mappen
 
@@ -31,11 +31,11 @@ Er zijn twee soorten toegangsbeheerlijsten (ACL's): **Toegangs-ACL's** en **Stan
 
 * **Standaard-ACL's**: een 'sjabloon' van ACL's die zijn gekoppeld aan een map die de Toegangs-ACL's bepaalt voor alle onderliggende items die zijn gemaakt onder die map. Bestanden hebben geen Standaard-ACL's.
 
-![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-acls-1.png)
+![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-acls-1.png)
 
 Toegangs-ACL's en Standaard-ACL's hebben dezelfde structuur.
 
-![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-acls-2.png)
+![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-acls-2.png)
 
 
 
@@ -54,17 +54,17 @@ Alle bestanden en mappen beschikken over verschillende machtigingen voor de volg
 * Benoemde groepen
 * Alle andere gebruikers
 
-De identiteiten van gebruikers en groepen zijn Azure Active Directory-identiteiten (Azure AD). Dus tenzij anders vermeld, kan een 'gebruiker' in de context van Data Lake Store een Azure AD-gebruiker of een Azure AD-beveiligingsgroep betekenen.
+De identiteiten van gebruikers en groepen zijn Azure Active Directory-identiteiten (Azure AD). Dus tenzij anders vermeld, een 'gebruiker' in de context van Data Lake Storage Gen1, kan een Azure AD-gebruiker of een Azure AD-beveiligingsgroep betekenen.
 
 ## <a name="permissions"></a>Machtigingen
 
 De machtigingen voor een bestandssysteemobject zijn **Lezen**, **Schrijven** en **Uitvoeren**. Deze kunnen worden gebruikt voor bestanden en mappen zoals weergegeven in de onderstaande tabel:
 
-|            |    Bestand     |   Map |
+|            |    File     |   Map |
 |------------|-------------|----------|
 | **Lezen (L)** | Kan de inhoud van een bestand lezen | **Lezen** en **Uitvoeren** zijn vereist om de inhoud van de map weer te geven|
 | **Schrijven (S)** | Kan schrijven of toevoegen aan een bestand | **Schrijven** en **Uitvoeren** zijn vereist om onderliggende items in een map te maken |
-| **Uitvoeren (U)** | Heeft geen functie in de context van Data Lake Store | Vereist om de onderliggende items van een map door te gaan |
+| **Uitvoeren (U)** | Betekent niet dat alles in de context van Data Lake Storage Gen1 | Vereist om de onderliggende items van een map door te gaan |
 
 ### <a name="short-forms-for-permissions"></a>Korte formulieren voor machtigingen
 
@@ -80,29 +80,29 @@ De machtigingen voor een bestandssysteemobject zijn **Lezen**, **Schrijven** en 
 
 ### <a name="permissions-do-not-inherit"></a>Machtigingen worden niet overgenomen
 
-In het POSIX-model dat wordt gebruikt door Data Lake Store worden machtigingen voor een item opgeslagen op het item zelf. Machtigingen voor een item kunnen dus niet worden overgenomen van de bovenliggende items.
+In het POSIX model dat wordt gebruikt door Data Lake Storage Gen1, worden machtigingen voor een item opgeslagen op het item zelf. Machtigingen voor een item kunnen dus niet worden overgenomen van de bovenliggende items.
 
 ## <a name="common-scenarios-related-to-permissions"></a>Algemene scenario's met machtigingen
 
-Hier volgen enkele algemene scenario's om te begrijpen welke machtigingen zijn vereist om bepaalde bewerkingen uit te voeren op een Data Lake Store-account.
+Hieronder vindt u enkele algemene scenario's om te begrijpen welke machtigingen zijn vereist om uit te voeren van bepaalde bewerkingen op een Gen1 van Data Lake Storage-account.
 
 ### <a name="permissions-needed-to-read-a-file"></a>Vereiste machtigingen om een bestand te lezen
 
-![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-acls-3.png)
+![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-acls-3.png)
 
 * De aanroeper heeft **Leesmachtigingen** nodig om het bestand te lezen.
 * De aanroeper heeft **Uitvoeringsmachtigingen** nodig voor alle mappen in de mapstructuur die het bestand bevatten.
 
 ### <a name="permissions-needed-to-append-to-a-file"></a>Vereiste machtigingen om toe te voegen aan een bestand
 
-![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-acls-4.png)
+![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-acls-4.png)
 
 * De aanroeper heeft **Schrijfmachtigingen** nodig om toe te voegen aan het bestand.
 * De aanroeper heeft **Uitvoeringsmachtigingen** nodig voor alle mappen die het bestand bevatten.
 
 ### <a name="permissions-needed-to-delete-a-file"></a>Vereiste machtigingen om een bestand te verwijderen
 
-![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-acls-5.png)
+![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-acls-5.png)
 
 * De aanroeper heeft **Schrijf- en uitvoeringsmachtigingen** nodig voor de bovenliggende map.
 * De aanroeper heeft **Uitvoeringsmachtigingen** nodig voor alle andere mappen in het pad van het bestand.
@@ -116,24 +116,24 @@ Hier volgen enkele algemene scenario's om te begrijpen welke machtigingen zijn v
 
 ### <a name="permissions-needed-to-enumerate-a-folder"></a>Vereiste machtigingen om een map op te sommen
 
-![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-acls-6.png)
+![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-acls-6.png)
 
 * De aanroeper heeft **Lees- en uitvoeringsmachtigingen** nodig om de map op te sommen.
 * De aanroeper heeft **Uitvoeringsmachtigingen** nodig voor alle bovenliggende mappen.
 
 ## <a name="viewing-permissions-in-the-azure-portal"></a>Weergavemachtigingen in de Azure Portal
 
-Klik in de blade **Data Explorer** in het Data Lake Store-account op **Toegang** om de ACL's te bekijken voor het bestand dat of de map die in de Data Explorer wordt bekeken. Klik op **Toegang** om de ACL's te zien voor de map **Catalogus** in het **mydatastore**-account.
+Uit de **Data Explorer** blade van de Gen1 van Data Lake Storage-account, klikt u op **toegang** om te zien van de ACL's voor het bestand of map die wordt weergegeven in de Data Explorer. Klik op **Toegang** om de ACL's te zien voor de map **Catalogus** in het **mydatastore**-account.
 
-![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
+![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
 Op deze blade ziet u in het bovenste gedeelte de machtigingen van de eigenaar. (Op de schermopname is Bob de gebruiker die eigenaar is.) Daarna worden de toegewezen toegangsbeheerlijsten weergegeven. 
 
-![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
+![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
 Klik op **Geavanceerde weergave** om een geavanceerdere weergave te openen waar de Standaard ACL's, Masker en een omschrijving van supergebruikers worden weergegeven.  Deze blade biedt ook een manier om Standaard-ACL's recursief in te stellen voor onderliggende bestanden en mappen op basis van de machtigingen van de huidige map.
 
-![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
+![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
 ## <a name="the-super-user"></a>De supergebruiker
 
@@ -143,13 +143,13 @@ Een supergebruiker heeft de meeste rechten van alle gebruikers in de Data Lake S
 * kan de machtigingen voor elk bestand en elke map wijzigen,
 * kan de eigenaar of groep die eigenaar is van een bestand of map wijzigen.
 
-In Azure heeft een Data Lake Store-account meerdere Azure-rollen, waaronder:
+In Azure heeft een Gen1 van Data Lake Storage-account meerdere Azure-rollen, met inbegrip van:
 
 * Eigenaren
 * Inzenders
 * Lezers
 
-Iedereen met de rol **Eigenaar** voor een Data Lake Store-account wordt automatisch een supergebruiker voor dat account. Zie [Op rollen gebaseerd toegangsbeheer](../role-based-access-control/role-assignments-portal.md) voor meer informatie.
+Iedereen in de **eigenaren** rol voor een Data Lake Storage Gen1-account wordt automatisch een supergebruiker voor dat account. Zie [Op rollen gebaseerd toegangsbeheer](../role-based-access-control/role-assignments-portal.md) voor meer informatie.
 Als u aangepast op rollen gebaseerd toegangsbeheer (RBAC) wilt maken met supergebruikersmachtigingen, moet dit de volgende machtigingen hebben:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
@@ -171,9 +171,9 @@ De gebruiker die het item heeft gemaakt, wordt automatisch de gebruiker die eige
 
 In de POSIX ACL's is elke gebruiker gekoppeld aan een 'hoofdgroep'. Gebruiker 'Els' kan bijvoorbeeld behoren tot de groep 'Financiën'. Els kan behoren tot meerdere groepen, maar één groep is altijd ingesteld als haar hoofdgroep. Wanneer Els in POSIX een bestand maakt, wordt de groep die eigenaar van het bestand is als haar hoofdgroep ingesteld. In dit geval is dit 'Financiën'.
 
-Wanneer een nieuw item in het bestandssysteem wordt gemaakt, wijst Data Lake Store een waarde toe aan de groep die eigenaar is.
+Wanneer een nieuw item in het bestandssysteem wordt gemaakt, wijst Data Lake Storage Gen1 een waarde toe aan de groep die eigenaar is.
 
-* **Voorbeeld 1**: de hoofdmap '/'. Deze map wordt gemaakt wanneer een Data Lake Store-account wordt gemaakt. In dit geval is de groep die eigenaar is, ingesteld op de gebruiker die het account heeft gemaakt.
+* **Voorbeeld 1**: de hoofdmap '/'. Deze map wordt gemaakt wanneer een Gen1 van Data Lake Storage-account is gemaakt. In dit geval is de groep die eigenaar is, ingesteld op de gebruiker die het account heeft gemaakt.
 * **Voorbeeld 2** (alle andere gevallen): wanneer een nieuw item wordt gemaakt, wordt de groep die eigenaar is, gekopieerd van de bovenliggende map.
 
 De groep die eigenaar is, gedraagt zich op dezelfde manier als toegewezen machtigingen voor andere gebruikers/groepen.
@@ -187,9 +187,9 @@ De groep die eigenaar is kan worden gewijzigd door:
 
 ## <a name="access-check-algorithm"></a>Algoritme voor toegangscontrole
 
-In de volgende afbeelding ziet u het algoritme voor toegangscontrole voor Data Lake Store-accounts.
+De volgende afbeelding is het algoritme voor toegangscontrole voor Data Lake Storage Gen1 accounts.
 
-![Algoritme voor Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-acls-algorithm.png)
+![Algoritme voor Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-acls-algorithm.png)
 
 
 ## <a name="the-mask-and-effective-permissions"></a>Het masker en 'effectieve machtigingen'
@@ -202,18 +202,18 @@ Het **masker** is een LSU-waarde die wordt gebruikt voor het beperken van de toe
 
 We bekijken enkele voorbeelden. In het volgende voorbeeld is het masker ingesteld op **LSU**. Dit betekent dat het masker machtigingen niet verwijdert. De effectieve machtigingen voor de benoemde gebruiker, de groep die eigenaar is en de benoemde groep worden niet gewijzigd tijdens de toegangscontrole.
 
-![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-acls-mask-1.png)
+![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-acls-mask-1.png)
 
 In het volgende voorbeeld is het masker ingesteld op **L-U**. Dit betekent dat het **de Schrijfmachtiging uitschakelt** voor **de benoemde gebruiker**, **de groep die eigenaar is** en **de benoemde groep** tijdens de toegangscontrole.
 
-![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-acls-mask-2.png)
+![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-acls-mask-2.png)
 
 Ter informatie: dit is waar het masker voor een bestand of map wordt weergegeven in Azure Portal.
 
-![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
+![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
 
 > [!NOTE]
-> Het masker voor de Toegangs-ACL van de hoofdmap ('/') zijn voor een nieuw Data Lake Store-account standaard ingesteld op LSU.
+> Voor een nieuw Data Lake Storage Gen1-account, is het masker voor de toegangs-ACL van de hoofdmap ('/') standaard ingesteld op LSU.
 >
 >
 
@@ -228,7 +228,7 @@ Wanneer een nieuw bestand of een nieuwe map wordt gemaakt onder een bestaande ma
 
 Wanneer een onderliggend bestand of een onderliggende map wordt gemaakt, wordt de bovenliggende Standaard-ACL gekopieerd als de Toegangs-ACL van het onderliggende bestand of de onderliggende map. Als een **andere** gebruiker LSU-machtigingen heeft in de bovenliggende Standaard-ACL, wordt deze verwijderd uit de Toegangs-ACL van het onderliggende item.
 
-![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-acls-child-items-1.png)
+![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-acls-child-items-1.png)
 
 De bovenstaande informatie is in de meeste gevallen alles wat u hoeft te weten over hoe de Toegangs-ACL van een onderliggend item wordt bepaald. Als u echter bekend bent met POSIX-systemen en op geavanceerd niveau wilt begrijpen hoe deze transformatie tot stand komt, kunt u het gedeelte [De rol van Umask bij het maken van de Toegangs-ACL voor nieuwe bestanden en mappen](#umasks-role-in-creating-the-access-acl-for-new-files-and-folders) verderop in dit artikel raadplegen.
 
@@ -237,17 +237,17 @@ De bovenstaande informatie is in de meeste gevallen alles wat u hoeft te weten o
 
 Als een onderliggende map wordt gemaakt onder een bovenliggende map, wordt de Standaard-ACL van de bovenliggende map gekopieerd als de Standaard-ACL van de onderliggende map.
 
-![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-acls-child-items-2.png)
+![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-acls-child-items-2.png)
 
-## <a name="advanced-topics-for-understanding-acls-in-data-lake-store"></a>Geavanceerde onderwerpen om ACL's in de Data Lake Store te begrijpen
+## <a name="advanced-topics-for-understanding-acls-in-data-lake-storage-gen1"></a>Geavanceerde onderwerpen voor informatie over ACL's in Data Lake Storage Gen1
 
-Hieronder vindt u een aantal geavanceerde onderwerpen om u te helpen begrijpen hoe de ACL's voor Data Lake Store-bestanden of -mappen worden bepaald.
+Hier volgen een paar geavanceerde onderwerpen om te begrijpen hoe de ACL's voor Data Lake Storage Gen1 bestanden of mappen worden bepaald.
 
 ### <a name="umasks-role-in-creating-the-access-acl-for-new-files-and-folders"></a>De rol van Umask bij het maken van de Toegangs-ACL voor nieuwe bestanden en mappen
 
 In een POSIX-compatibel systeem geldt het volgende als algemeen concept: umask is een 9-bits waarde van de bovenliggende map die wordt gebruikt om de machtiging voor **de gebruiker die eigenaar is**, **de groep die eigenaar is** en **anderen** te transformeren op de Toegangs-ACL van een nieuw onderliggend bestand of een nieuwe onderliggende map. De bits van een umask identificeren welke bits moeten worden uitgeschakeld in de Toegangs-ACL van het onderliggende item. Deze wordt dus gebruikt om de verspreiding van machtigingen voor **de gebruiker die eigenaar is**, **de groep die eigenaar is** en **anderen** selectief te voorkomen.
 
-In een HDFS-systeem is de umask doorgaans een configuratieoptie voor de gehele site die wordt beheerd door beheerders. Data Lake Store gebruikt een **umask voor het hele account** die niet kan worden gewijzigd. De volgende tabel geeft de umask van Data Lake Store weer.
+In een HDFS-systeem is de umask doorgaans een configuratieoptie voor de gehele site die wordt beheerd door beheerders. Maakt gebruik van Data Lake Storage Gen1 een **umask voor het hele account** kan niet worden gewijzigd. De volgende tabel geeft de umask van Data Lake Storage Gen1.
 
 | Gebruikersgroep  | Instelling | Invloed op de Toegangs-ACL van het nieuwe onderliggende item |
 |------------ |---------|---------------------------------------|
@@ -257,28 +257,28 @@ In een HDFS-systeem is de umask doorgaans een configuratieoptie voor de gehele s
 
 De volgende afbeelding geeft deze umask in actie weer. Het uiteindelijke resultaat is dat **Lezen + Schrijven + Uitvoeren** voor de **andere** gebruiker worden verwijderd. Aangezien de umask geen bits heeft opgegeven voor de **gebruiker die eigenaar is** en **de groep die eigenaar is**, worden deze machtigingen niet getransformeerd.
 
-![Data Lake Store ACL’s](./media/data-lake-store-access-control/data-lake-store-acls-umask.png)
+![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-acls-umask.png)
 
 ### <a name="the-sticky-bit"></a>De vergrendelde bit
 
-De vergrendelde bit is een geavanceerdere functie van een POSIX-bestandssysteem. In de context van Data Lake Store is het onwaarschijnlijk dat de vergrendelde bit nodig is.
+De vergrendelde bit is een geavanceerdere functie van een POSIX-bestandssysteem. In de context van Data Lake Storage Gen1 is het onwaarschijnlijk dat de vergrendelde bit nodig is.
 
-De volgende tabel laat zien hoe de vergrendelde bit in de Data Lake Store werkt.
+In de volgende tabel laat zien hoe de vergrendelde bit in Data Lake Storage Gen1 werkt.
 
-| Gebruikersgroep         | Bestand    | Map |
+| Gebruikersgroep         | File    | Map |
 |--------------------|---------|-------------------------|
 | Vergrendelde bit **UIT** | Geen effect   | Geen effect.           |
 | Vergrendelde bit **AAN**  | Geen effect   | Zorgt ervoor dat niemand behalve **supergebruikers** en de **gebruiker die eigenaar is** van een onderliggend item het betreffende item kan verwijderen of hernoemen.               |
 
 De vergrendelde bit wordt niet weergegeven in Azure Portal.
 
-## <a name="common-questions-about-acls-in-data-lake-store"></a>Veelgestelde vragen over ACL's in Data Lake Store
+## <a name="common-questions-about-acls-in-data-lake-storage-gen1"></a>Veelgestelde vragen over ACL's in Data Lake Storage Gen1
 
-Hier volgen enkele vragen die vaak worden gesteld over ACL's in Data Lake Store.
+Hier volgen enkele vragen die vaak worden gesteld over ACL's in Data Lake Storage Gen1.
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>Moet ik ondersteuning voor ACL's inschakelen?
 
-Nee. Toegangsbeheer via de ACL's is altijd ingeschakeld voor een Data Lake Store-account.
+Nee. Toegangsbeheer via de ACL's is altijd ingeschakeld voor een Data Lake Storage Gen1-account.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Welke machtigingen zijn vereist voor het recursief verwijderen van een map en de inhoud ervan?
 
@@ -310,7 +310,7 @@ Vermeldingen worden in de ACL's opgeslagen als GUID's die zijn gekoppeld aan geb
 
 Er wordt een GUID weergegeven wanneer een gebruiker niet meer bestaat in Azure AD. Dit gebeurt doorgaans wanneer gebruikers het bedrijf verlaten of hun accounts zijn verwijderd in Azure AD.
 
-### <a name="does-data-lake-store-support-inheritance-of-acls"></a>Biedt Data Lake Store ondersteuning voor overname van ACL's?
+### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>Data Lake Storage Gen1 biedt ondersteuning voor overname van ACL's?
 
 Nee, maar Standaard ACL's kunnen worden gebruikt voor het instellen van ACL's voor onderliggende bestanden en mappen die nieuw zijn gemaakt onder de bovenliggende map.  
 
@@ -318,7 +318,7 @@ Nee, maar Standaard ACL's kunnen worden gebruikt voor het instellen van ACL's vo
 
 | masker | umask|
 |------|------|
-| De eigenschap **masker** is beschikbaar op elk bestand en elke map. | De **umask** is een eigenschap van het Data Lake Store-account. Er bevindt zich dus slechts één umask in de Data Lake Store.    |
+| De eigenschap **masker** is beschikbaar op elk bestand en elke map. | De **umask** is een eigenschap van het Data Lake Storage Gen1-account. Er bevindt zich dus slechts één umask in de Data Lake Storage Gen1.    |
 | De eigenschap masker op een bestand of map kan worden gewijzigd door de gebruiker of groep die eigenaar is van een bestand, of door een supergebruiker. | De eigenschap umask kan niet worden gewijzigd door een gebruiker, zelfs niet door een supergebruiker. Het is een onveranderbare, constante waarde.|
 | De eigenschap masker wordt gebruikt om tijdens het algoritme toegangscontrole bij runtime te bepalen of een gebruiker een bewerking op een bestand of map uit mag voeren. De rol van het masker is om op het moment van toegangscontrole 'effectieve machtigingen' te maken. | De umask wordt helemaal niet gebruikt tijdens toegangscontrole. De umask wordt gebruikt om de Toegangs-ACL van nieuwe onderliggende items van een map te bepalen. |
 | Het masker is een LSU-waarde van 3-bits die van toepassing is op de benoemde gebruiker, de groep die eigenaar is en de benoemde groep op het moment van de toegangscontrole.| De umask is een 9-bits-waarde die van toepassing is op de gebruiker die eigenaar is, de groep die eigenaar is en **anderen** van een nieuw onderliggend element.|
@@ -343,4 +343,4 @@ Nee, maar Standaard ACL's kunnen worden gebruikt voor het instellen van ACL's vo
 
 ## <a name="see-also"></a>Zie ook
 
-* [Overzicht van Azure Data Lake Store](data-lake-store-overview.md)
+* [Overzicht van Azure Data Lake Storage Gen1](data-lake-store-overview.md)

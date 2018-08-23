@@ -11,12 +11,12 @@ ms.topic: article
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: b2ef450a429b26843cf770a6243c6f4de932de43
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 001d58aa22d4fc52acebfc88ba07d2467c1be08e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247316"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42060775"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
@@ -63,6 +63,27 @@ In Visual Studio:
 2. Wijzig de instellingen voor **MSBuild-project build uitvoer uitgebreidheid** naar **gedetailleerd** of **diagnostische**.
 
     ![Schermafbeelding van de opties in menu Extra](media/common/VerbositySetting.PNG)
+    
+## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>DNS-naamomzetting voor een openbare URL die is gekoppeld aan een Dev-Spaces-service is mislukt
+
+Wanneer dit het geval is, ziet u mogelijk een 'Pagina kan niet worden weergegeven' of "deze site kan niet worden bereikt" fout in uw webbrowser wanneer er wordt geprobeerd verbinding maken met de openbare URL die is gekoppeld aan een service Dev spaties.
+
+### <a name="try"></a>Probeer:
+
+U kunt de volgende opdracht uit om alle URL's die zijn gekoppeld aan uw opslagruimten Dev-services:
+
+```cmd
+azds list-uris
+```
+
+Als een URL in de *in behandeling* staat, betekent dit dat Dev spaties nog voor DNS-registratie te voltooien. Soms duurt het enkele minuten duren voordat dit mag gebeuren. Dev opslagruimten wordt ook geopend wanneer u een tunnel ' localhost ' voor elke service, die u gebruiken kunt tijdens het wachten op DNS-registratie.
+
+Als een URL in blijft de *in behandeling* status voor meer dan 5 minuten, kan dit wijzen op een probleem met de externe DNS-schil die het openbare eindpunt worden gemaakt en/of de schil nginx ingress-controller die krijgt van het openbare eindpunt. U kunt de volgende opdrachten gebruiken om te verwijderen van deze schillen. Ze zullen automatisch worden gemaakt.
+
+```cmd
+kubectl delete pod -n kube-system -l app=addon-http-application-routing-external-dns
+kubectl delete pod -n kube-system -l app=addon-http-application-routing-nginx-ingress
+```
 
 ## <a name="error-required-tools-and-configurations-are-missing"></a>Fout 'Vereiste hulpprogramma's en configuraties ontbreken'
 
@@ -119,6 +140,14 @@ Starten van het foutopsporingsprogramma VS Code kan soms leiden tot deze fout. D
 1. Sluiten en opnieuw openen van VS Code.
 2. Druk nogmaals op F5.
 
+## <a name="debugging-error-failed-to-find-debugger-extension-for-typecoreclr"></a>Fout 'Failed foutopsporingsprogramma vinden voor het type: coreclr'-foutopsporing
+Het foutopsporingsprogramma VS Code wordt uitgevoerd, rapporteert de fout: `Failed to find debugger extension for type:coreclr.`
+
+### <a name="reason"></a>Reden
+U hebt niet de VS Code-extensie voor C# geïnstalleerd op uw ontwikkelcomputer waaronder foutopsporing ondersteuning voor .net Core (CoreCLR).
+
+### <a name="try"></a>Probeer:
+Installeer de [VS Code-extensie voor C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 
 ## <a name="debugging-error-configured-debug-type-coreclr-is-not-supported"></a>Fout bij foutopsporing 'geconfigureerd foutopsporing type 'coreclr' wordt niet ondersteund'
 Het foutopsporingsprogramma VS Code wordt uitgevoerd, rapporteert de fout: `Configured debug type 'coreclr' is not supported.`

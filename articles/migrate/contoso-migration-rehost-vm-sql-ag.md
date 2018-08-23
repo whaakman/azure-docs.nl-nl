@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/13/2018
 ms.author: raynew
-ms.openlocfilehash: 0cfb583f9d16039249aaffe18f71039e91dc3705
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: cd7a5832faf0fbb15349edee8ed504c1f94d1aa9
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359203"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42058361"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migratie van Contoso: een on-premises-app op Azure VM's en SQL Server AlwaysOn-beschikbaarheidsgroep Rehost
 
@@ -76,8 +76,8 @@ In dit scenario geldt het volgende:
 
 **Service** | **Beschrijving** | **Kosten**
 --- | --- | ---
-[Database Management-Service](https://docs.microsoft.com/azure/dms/dms-overview) | Contoso worden gemigreerd van de gegevenslaag van de app met behulp van DMS. DMS verbinding maken met de SQLVM on-premises computer via een site-naar-site-VPN en migreren van DMS kunnen naadloze migratie van meerdere databasebronnen naar Azure-gegevensplatforms, met minimale downtime. | Meer informatie over [ondersteunde regio's](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) voor DMS en get [prijsinformatie](https://azure.microsoft.com/pricing/details/database-migration/).
-[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | Contoso wordt Site Recovery gebruiken voor een lift-and-shift-migratie van de app front-end virtuele machine. Site Recovery coördineert en beheert de migratie en herstel na noodgevallen voor Azure-VM's en on-premises virtuele machines en fysieke servers.  | Tijdens de replicatie naar Azure, rekening Azure Storage-kosten in gebracht.  Azure-VM's worden gemaakt en kosten, wanneer een failover optreedt. [Meer informatie](https://azure.microsoft.com/pricing/details/site-recovery/) kosten in rekening gebracht en prijzen.
+[Database migratieservice](https://docs.microsoft.com/azure/dms/dms-overview) | DMS kunt naadloze migratie van meerdere databasebronnen naar Azure-gegevensplatforms, met minimale downtime. | Meer informatie over [ondersteunde regio's](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) voor DMS en get [prijsinformatie](https://azure.microsoft.com/pricing/details/database-migration/).
+[Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | Site Recovery coördineert en beheert de migratie en herstel na noodgevallen voor Azure-VM's en on-premises virtuele machines en fysieke servers.  | Tijdens de replicatie naar Azure, rekening Azure Storage-kosten in gebracht.  Azure-VM's worden gemaakt en kosten, wanneer een failover optreedt. [Meer informatie](https://azure.microsoft.com/pricing/details/site-recovery/) kosten in rekening gebracht en prijzen.
 
  
 
@@ -114,7 +114,7 @@ Hier ziet u hoe Contoso de migratie wordt uitgevoerd:
 > [!div class="checklist"]
 > * **Stap 1: De SQL Server-VM's maken in Azure**: voor hoge beschikbaarheid, Contoso wilt implementeren van een geclusterde database in Azure. Deze implementeren twee SQL Server-VM's en een interne load balancer van Azure.
 > * **Stap 2: Het cluster implementeren**: voorbereiden van na de implementatie van de SQL Server-VM's, een Azure SQL Server-cluster.  Zij u hun database in deze vooraf gemaakte cluster migreren.
-> * **Stap 3: Voorbereiden DMS**: om voor te bereiden DMS ze zich registreren op de provider van de migratie van de Database, een DMS-exemplaar en een project maken. Ze instellen van een shared access signature (SAS) Uniform Resource Identifier (URI). DMS maakt gebruik van de SA-URI voor toegang tot de opslagaccountcontainer waarop SQL Server back-up maken van bestanden voor de service worden geüpload.
+> * **Stap 3: Voorbereiden DMS**: om voor te bereiden DMS ze zich registreren op de provider van de migratie van de Database, een DMS-exemplaar en een project maken. Ze instellen van een shared access signature (SAS) Uniform Resource Identifier (URI). DMS wordt de SAS-URI gebruikt voor toegang tot de opslagaccountcontainer waarop SQL Server back-up maken van bestanden voor de service worden geüpload.
 > * **Stap 4: Azure voorbereiden voor Site Recovery**: maken van een Azure storage-account voor het opslaan van gerepliceerde gegevens, en een Recovery Services-kluis.
 > * **Stap 5: On-premises VMware voorbereiden voor Site Recovery**: ze accounts voorbereiden op VM-detectie- en agent-installatie, en on-premises machines voorbereiden, zodat ze verbinding met virtuele Azure-machines na een failover maken kunnen.
 > * **Stap 6:-Machines repliceren**: ze replicatie-instellingen configureren en inschakelen van replicatie van virtuele machines.

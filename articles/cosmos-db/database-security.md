@@ -3,19 +3,19 @@ title: Beveiliging - Azure Cosmos DB-database | Microsoft Docs
 description: Meer informatie over hoe Azure Cosmos DB biedt beveiliging en gegevens Databasebeveiliging voor uw gegevens.
 keywords: nosql-database security, informatiebeveiliging, gegevensbeveiliging, versleuteling van de database, databasebeveiliging, beveiligingsbeleid, beveiligingstesten
 services: cosmos-db
-author: SnehaGunda
+author: rafats
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.author: sngun
-ms.openlocfilehash: 641a665e0f41a612455d5649b19948146b504199
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.author: rafats
+ms.openlocfilehash: d74aa6b7ef762b7971fd67654e7fc1a23a8d83cc
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599944"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42057502"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Azure Cosmos DB-database-beveiliging
 

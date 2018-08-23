@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: e00af59c39219cf6efd14a1c6b2d831fc8addf5a
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 405f69ae1c37e478758d984ddf7dc0e267910fef
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364425"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42022668"
 ---
 # <a name="what-is-azure-policy"></a>Wat is Azure Policy?
 
@@ -119,19 +119,7 @@ U kunt bijvoorbeeld een lijst met waardeopties maken in een initiatiefdefinitie 
 
 ## <a name="maximum-count-of-policy-objects"></a>Maximum aantal Policy-objecten
 
-Voor elk objecttype in Azure Policy bestaat er een maximum. De vermelding _Bereik_ slaat op het abonnement of op de beheergroep.
-
-| Waar | Wat | Maximum |
-|---|---|---|
-| Bereik | Definities voor beleid | 250 |
-| Bereik | Initiatiefdefinities | 100 |
-| Tenant | Initiatiefdefinities | 1000 |
-| Bereik | Beleids-/initiatieftoewijzingen | 100 |
-| Beleidsdefinitie | Parameters | 20 |
-| Initiatiefdefinitie | Beleidsregels | 100 |
-| Initiatiefdefinitie | Parameters | 100 |
-| Beleids-/initiatieftoewijzingen | Uitzonderingen (geen bereiken) | 100 |
-| Beleidsregel | Geneste voorwaarden | 512 |
+[!INCLUDE [policy-limits](../../includes/azure-policy-limits.md)]
 
 ## <a name="recommendations-for-managing-policies"></a>Aanbevelingen voor het beheren van beleid
 

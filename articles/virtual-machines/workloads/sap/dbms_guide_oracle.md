@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bda1c4074db123294ffde39e5c4cd5494474ca38
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 2daa624dd7912d09f01e5bab5dc6de9cc14a771c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076147"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42054857"
 ---
 # <a name="oracle-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Oracle Azure virtuele Machines DBMS-implementatie voor de werkbelasting van SAP
 
@@ -311,7 +311,7 @@ ms.locfileid: "39076147"
 
 
 ## <a name="specifics-to-oracle-database"></a>Specifieke informatie met Oracle-Database
-Oracle-software wordt ondersteund door Oracle worden uitgevoerd op Microsoft Azure. Raadpleeg voor meer informatie over de algemene ondersteuning van Windows Hyper-V en Azure: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle-software wordt ondersteund door Oracle worden uitgevoerd op Microsoft Azure. Raadpleeg voor meer informatie over de algemene ondersteuning van Windows Hyper-V en Azure: <http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html> 
 
 Na de algemene ondersteuning is ook het specifieke scenario aan SAP-toepassingen gebruik te maken van Oracle-Databases ondersteund. Details zijn met de naam in het document. Als een pull-aanvraag gelezen in dit document, u moet lezen hebben het document [overwegingen voor Azure Virtual Machines DBMS-implementatie voor de werkbelasting van SAP](dbms_guide_general.md) evenals andere handleidingen in de [SAP-workloads op Azure-documentatie](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started). 
 
@@ -384,7 +384,7 @@ Voor Oracle-implementaties op Windows, is het raadzaam de Azure-functionaliteit 
 Andere algemene onderdelen zoals Beschikbaarheidssets van Azure of SAP bewaking toepassen, zoals beschreven in het document [overwegingen voor Azure Virtual Machines DBMS-implementatie voor de werkbelasting van SAP](dbms_guide_general.md) voor implementaties van virtuele machines met de Oracle-Database als goed.
 
 ## <a name="specifics-to-oracle-database-on-oracle-linux"></a>Specifieke informatie met Oracle-Database voor Oracle Linux
-Oracle-software wordt ondersteund door Oracle uit te voeren op Microsoft Azure met Oracle Linux als gastbesturingssysteem. Raadpleeg voor meer informatie over de algemene ondersteuning van Windows Hyper-V en Azure: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle-software wordt ondersteund door Oracle uit te voeren op Microsoft Azure met Oracle Linux als gastbesturingssysteem. Raadpleeg voor meer informatie over de algemene ondersteuning van Windows Hyper-V en Azure: <http://www.oracle.com/technetwork/topics/cloud/faq-1963009.html> 
 
 Na de algemene ondersteuning is ook het specifieke scenario aan SAP-toepassingen gebruik te maken van Oracle-Databases ondersteund. Details zijn met de naam in dit gedeelte van het document.
 

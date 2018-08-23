@@ -3,7 +3,7 @@ title: Over sleutels, geheimen en certificaten
 description: Overzicht van de REST-interface en informatie over KV developer
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: BryanLa
 manager: mbaldwin
 tags: azure-resource-manager
 ms.assetid: abd1b743-1d58-413f-afc1-d08ebf93828a
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/09/2018
-ms.author: alleonar
-ms.openlocfilehash: 8597b2d995b68e9ccff9b856b2ef6bd325cd2439
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.date: 08/14/2018
+ms.author: bryanla
+ms.openlocfilehash: 962f9be53ce0b2022e8e5490bdeb04b2eefb4d7c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359186"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42060573"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Over sleutels, geheimen en certificaten
 Azure Key Vault kunnen gebruikers voor het opslaan en gebruiken van cryptografische sleutels binnen de Microsoft Azure-omgeving. Key Vault ondersteunt meerdere sleuteltypen en algoritmen, en maakt het gebruik van Hardware Security Modules (HSM) voor hoge waarde sleutels. Key Vault kunnen bovendien gebruikers geheimen veilig opslaan. Geheimen zijn geen specifieke semantiek beperkte grootte octet objecten. Key Vault biedt ook ondersteuning voor certificaten die zijn gebaseerd op de sleutels en geheimen en toevoegen van een functie voor automatische verlenging.
@@ -28,26 +28,26 @@ Zie voor meer algemene informatie over Azure Key Vault [wat is Azure Key Vault?]
 
 **Algemene informatie van Key Vault**
 
--   [Ondersteuning van standaarden](about-keys-secrets-and-certificates.md#BKMK_Standards)
--   [Gegevenstypen](about-keys-secrets-and-certificates.md#BKMK_DataTypes)  
--   [Objecten,-id's en versiebeheer](about-keys-secrets-and-certificates.md#BKMK_ObjId)  
+-   [Ondersteuning van standaarden](#BKMK_Standards)
+-   [Gegevenstypen](#BKMK_DataTypes)  
+-   [Objecten,-id's en versiebeheer](#BKMK_ObjId)  
 
 **Over sleutels**
 
--   [Sleutels en sleuteltypen](about-keys-secrets-and-certificates.md#BKMK_KeyTypes)  
--   [RSA-algoritmen](about-keys-secrets-and-certificates.md#BKMK_RSAAlgorithms)  
--   [RSA-HSM-algoritmen](about-keys-secrets-and-certificates.md#BKMK_RSA-HSMAlgorithms)  
--   [Cryptografische beveiliging](about-keys-secrets-and-certificates.md#BKMK_Cryptographic)
--   [Sleutelbewerkingen](about-keys-secrets-and-certificates.md#BKMK_KeyOperations)  
--   [Belangrijke kenmerken](about-keys-secrets-and-certificates.md#BKMK_KeyAttributes)  
--   [Sleutel-tags](about-keys-secrets-and-certificates.md#BKMK_Keytags)  
+-   [Sleutels en sleuteltypen](#BKMK_KeyTypes)  
+-   [RSA-algoritmen](#BKMK_RSAAlgorithms)  
+-   [RSA-HSM-algoritmen](#BKMK_RSA-HSMAlgorithms)  
+-   [Cryptografische beveiliging](#BKMK_Cryptographic)
+-   [Sleutelbewerkingen](#BKMK_KeyOperations)  
+-   [Belangrijke kenmerken](#BKMK_KeyAttributes)  
+-   [Sleutel-tags](#BKMK_Keytags)  
 
 **Over geheimen** 
 
--   [Werken met geheimen](about-keys-secrets-and-certificates.md#BKMK_WorkingWithSecrets)  
--   [Geheime kenmerken](about-keys-secrets-and-certificates.md#BKMK_SecretAttrs)  
--   [De geheime codes](about-keys-secrets-and-certificates.md#BKMK_SecretTags)  
--   [Toegangsbeheer voor geheimen](about-keys-secrets-and-certificates.md#BKMK_SecretAccessControl)  
+-   [Werken met geheimen](#BKMK_WorkingWithSecrets)  
+-   [Geheime kenmerken](#BKMK_SecretAttrs)  
+-   [De geheime codes](#BKMK_SecretTags)  
+-   [Toegangsbeheer voor geheimen](#BKMK_SecretAccessControl)  
 
 **Over certificaten**
 
@@ -133,7 +133,7 @@ Azure Key Vault ondersteunt RSA-sleutels van de grootte 2048, 3072 en 4096 en el
 
 ### <a name="BKMK_Cryptographic"></a> Cryptografische beveiliging
 
-De cryptografische modules die gebruikmaakt van Azure Key Vault, of HSM of software zijn FIPS-gevalideerde modules. U hoeft te doen niets om uit te voeren in de FIPS-modus. Als u **maken** of **importeren** sleutels als HSM-beveiliging, ze moeten worden verwerkt in HSM's die zijn gevalideerd voor FIPS 140-2 Level 2 of hoger worden gegarandeerd. Als u **maken** of **importeren** sleutels als softwarebeveiliging en ze worden verwerkt in de cryptografische modules die zijn gevalideerd voor FIPS 140-2 niveau 1 of hoger. Zie voor meer informatie, [sleutels en sleuteltypen](about-keys-secrets-and-certificates.md#BKMK_KeyTypes).
+De cryptografische modules die gebruikmaakt van Azure Key Vault, of HSM of software zijn FIPS-gevalideerde modules. U hoeft te doen niets om uit te voeren in de FIPS-modus. Als u **maken** of **importeren** sleutels als HSM-beveiliging, ze moeten worden verwerkt in HSM's die zijn gevalideerd voor FIPS 140-2 Level 2 of hoger worden gegarandeerd. Als u **maken** of **importeren** sleutels als softwarebeveiliging en ze worden verwerkt in de cryptografische modules die zijn gevalideerd voor FIPS 140-2 niveau 1 of hoger. Zie voor meer informatie, [sleutels en sleuteltypen](#BKMK_KeyTypes).
 
 ###  <a name="BKMK_ECAlgorithms"></a> EG algoritmen
  De volgende algoritme-id's worden ondersteund met de EG en EG-HSM-sleutels in Azure Key Vault. 
@@ -174,7 +174,7 @@ Azure Key Vault ondersteunt de volgende bewerkingen voor sleutels objecten:
 -   **Back-up**: Hiermee exporteert u een sleutel in een beveiligde vorm.  
 -   **Herstellen**: een back-up sleutel geïmporteerd.  
 
-Zie voor meer informatie, [operations sleutel](/rest/api/keyvault/key-operations).  
+Zie voor meer informatie, [belangrijke bewerkingen in de de Key Vault REST API-verwijzing](/rest/api/keyvault).  
 
 Zodra een sleutel is gemaakt in Azure Key Vault, kunnen de volgende cryptografische bewerkingen worden uitgevoerd met behulp van de sleutel:  
 
@@ -194,22 +194,22 @@ Zie voor meer informatie over JWK objecten [JSON Web sleutel (JWK)](http://tools
 
 Naast het sleutelmateriaal, kunnen de volgende kenmerken worden opgegeven. In een JSON-aanvraag, de kenmerken sleutelwoord en accolades, ' {' '}', zijn vereist, zelfs als er geen kenmerken opgegeven zijn.  
 
-- *ingeschakeld*: Booleaans, optioneel, de standaardwaarde is **waar**. Hiermee geeft u op of de sleutel ingeschakeld en bruikbaar voor cryptografische bewerkingen is. De *ingeschakeld* kenmerk wordt gebruikt in combinatie met *nbf* en *exp*. Wanneer een bewerking plaatsvindt tussen *nbf* en *exp*, wordt alleen worden toegestaan als *ingeschakeld* is ingesteld op **waar**. Bewerkingen buiten de *nbf* / *exp* venster zijn automatisch toegestaan, met uitzondering van bepaalde bewerkingstypen onder [bepaalde voorwaarden](about-keys-secrets-and-certificates.md#BKMK_key-date-time-ctrld-ops).
-- *NBF*: IntDate, optioneel, standaard is nu. De *nbf* (niet voor) kenmerk wordt de tijd waarbinnen moet de sleutel niet worden gebruikt voor cryptografische bewerkingen, met uitzondering van bepaalde bewerkingstypen onder [bepaalde voorwaarden](about-keys-secrets-and-certificates.md#BKMK_key-date-time-ctrld-ops). De verwerking van de *nbf* kenmerk vereist dat de huidige datum en tijd moeten na of gelijk aan de niet-vóór de datum/tijd die worden vermeld in de *nbf* kenmerk. Azure Key Vault kan bieden voor enkele kleine eenheidsprofiel meestal niet meer dan een paar minuten, voor het account voor de klok scheeftrekken. De waarde moet een getal met een IntDate-waarde.  
-- *EXP*: IntDate, optioneel, standaard 'altijd' is. De *exp* (verlooptijd) kenmerk identificeert de verlooptijd op of na die de sleutel mag niet worden gebruikt voor cryptografische bewerking, met uitzondering van bepaalde bewerkingstypen onder [bepaalde voorwaarden](about-keys-secrets-and-certificates.md#BKMK_key-date-time-ctrld-ops). De verwerking van de *exp* kenmerk is vereist dat de huidige datum en tijd zijn moet voordat de vervaldatum van de datum/tijd die worden vermeld in de *exp* kenmerk. Azure Key Vault kan bieden voor enkele kleine eenheidsprofiel meestal niet meer dan een paar minuten, voor het account voor de klok scheeftrekken. De waarde moet een getal met een IntDate-waarde.  
+- *ingeschakeld*: Booleaans, optioneel, de standaardwaarde is **waar**. Hiermee geeft u op of de sleutel ingeschakeld en bruikbaar voor cryptografische bewerkingen is. De *ingeschakeld* kenmerk wordt gebruikt in combinatie met *nbf* en *exp*. Wanneer een bewerking plaatsvindt tussen *nbf* en *exp*, wordt alleen worden toegestaan als *ingeschakeld* is ingesteld op **waar**. Bewerkingen buiten de *nbf* / *exp* venster zijn automatisch toegestaan, met uitzondering van bepaalde bewerkingstypen onder [bepaalde voorwaarden](#BKMK_key-date-time-ctrld-ops).
+- *NBF*: IntDate, optioneel, standaard is nu. De *nbf* (niet voor) kenmerk wordt de tijd waarbinnen moet de sleutel niet worden gebruikt voor cryptografische bewerkingen, met uitzondering van bepaalde bewerkingstypen onder [bepaalde voorwaarden](#BKMK_key-date-time-ctrld-ops). De verwerking van de *nbf* kenmerk vereist dat de huidige datum en tijd moeten na of gelijk aan de niet-vóór de datum/tijd die worden vermeld in de *nbf* kenmerk. Azure Key Vault kan bieden voor enkele kleine eenheidsprofiel meestal niet meer dan een paar minuten, voor het account voor de klok scheeftrekken. De waarde moet een getal met een IntDate-waarde.  
+- *EXP*: IntDate, optioneel, standaard 'altijd' is. De *exp* (verlooptijd) kenmerk identificeert de verlooptijd op of na die de sleutel mag niet worden gebruikt voor cryptografische bewerking, met uitzondering van bepaalde bewerkingstypen onder [bepaalde voorwaarden](#BKMK_key-date-time-ctrld-ops). De verwerking van de *exp* kenmerk is vereist dat de huidige datum en tijd zijn moet voordat de vervaldatum van de datum/tijd die worden vermeld in de *exp* kenmerk. Azure Key Vault kan bieden voor enkele kleine eenheidsprofiel meestal niet meer dan een paar minuten, voor het account voor de klok scheeftrekken. De waarde moet een getal met een IntDate-waarde.  
 
 Er zijn aanvullende kenmerken voor alleen-lezen die zijn opgenomen in elke reactie met belangrijke kenmerken:  
 
 - *gemaakt*: IntDate, optioneel. De *gemaakt* kenmerk geeft aan wanneer deze versie van de sleutel is gemaakt. Deze waarde is null voor sleutels die zijn gemaakt vóór het toevoegen van dit kenmerk. De waarde moet een getal met een IntDate-waarde.  
 - *bijgewerkt*: IntDate, optioneel. De *bijgewerkt* kenmerk geeft aan wanneer deze versie van de sleutel is bijgewerkt. Deze waarde is null voor sleutels die voor het laatst vóór het toevoegen van dit kenmerk bijgewerkt zijn. De waarde moet een getal met een IntDate-waarde.  
 
-Zie voor meer informatie over IntDate en andere gegevenstypen [gegevenstypen](about-keys-secrets-and-certificates.md#BKMK_DataTypes)  
+Zie voor meer informatie over IntDate en andere gegevenstypen [gegevenstypen](#BKMK_DataTypes)  
 
 #### <a name="BKMK_key-date-time-ctrld-ops"></a> Beheerde bewerkingen voor datum / tijd
 
 Niet nog geldig is en verlopen sleutels, die buiten de *nbf* / *exp* venster werkt voor **ontsleutelen**, **uitpakken** en **controleren** bewerkingen (403, niet als resultaat verboden). De logica voor het gebruik van de status niet nog geldig is om een sleutel moet worden getest voordat u gebruik in productieomgevingen. De logica voor het gebruik van de verlopen staat is om toe te staan van de recovery-bewerkingen op gegevens die is gemaakt tijdens de sleutel ongeldig is. Bovendien kunt u toegang tot een sleutel met behulp van Key Vault-beleid of door bij te werken uitschakelen de *ingeschakeld* sleutelkenmerk naar **false**.
 
-Zie voor meer informatie over gegevens gegevenstypen, [gegevenstypen](about-keys-secrets-and-certificates.md#BKMK_DataTypes).
+Zie voor meer informatie over gegevens gegevenstypen, [gegevenstypen](#BKMK_DataTypes).
 
 Zie voor meer informatie over andere kenmerken, de [JSON Web sleutel (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key).
 
@@ -256,9 +256,9 @@ Azure Key Vault ondersteunt ook het veld contentType voor geheimen. Clients kunn
 
 Naast de geheime gegevens kunnen de volgende kenmerken worden opgegeven:  
 
-- *EXP*: IntDate, optioneel, standaard is **altijd**. De *exp* (verlooptijd) kenmerk identificeert de verlooptijd op of na die de geheime gegevens mag niet worden opgehaald, met uitzondering van in [bepaalde situaties](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops). De verwerking van de *exp* kenmerk is vereist dat de huidige datum en tijd zijn moet voordat de vervaldatum van de datum/tijd die worden vermeld in de *exp* kenmerk. Azure Key Vault kan bieden voor enkele kleine eenheidsprofiel meestal niet meer dan een paar minuten, voor het account voor de klok scheeftrekken. De waarde moet een getal met een IntDate-waarde.  
-- *NBF*: IntDate, optioneel, standaard is **nu**. De *nbf* (niet voor) kenmerk wordt de tijd waarbinnen moet de geheime gegevens niet worden opgehaald, met uitzondering van in [bepaalde situaties](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops). De verwerking van de *nbf* kenmerk vereist dat de huidige datum en tijd moeten na of gelijk aan de niet-vóór de datum/tijd die worden vermeld in de *nbf* kenmerk. Azure Key Vault kan bieden voor enkele kleine eenheidsprofiel meestal niet meer dan een paar minuten, voor het account voor de klok scheeftrekken. De waarde moet een getal met een IntDate-waarde.  
-- *ingeschakeld*: Booleaans, optioneel, de standaardwaarde is **waar**. Dit kenmerk wordt opgegeven of de geheime gegevens kunnen worden opgehaald. De ingeschakelde kenmerk wordt gebruikt in combinatie met en *exp* wanneer een bewerking plaatsvindt tussen exp, deze alleen worden toegestaan als ingeschakeld is ingesteld op **waar**. Bewerkingen buiten de *nbf* en *exp* venster worden automatisch niet-toegestane, behalve in [bepaalde situaties](about-keys-secrets-and-certificates.md#BKMK_secret-date-time-ctrld-ops).  
+- *EXP*: IntDate, optioneel, standaard is **altijd**. De *exp* (verlooptijd) kenmerk identificeert de verlooptijd op of na die de geheime gegevens moeten niet worden opgehaald, met uitzondering van in [bepaalde situaties](#BKMK_secret-date-time-ctrld-ops). Dit veld is bedoeld voor **informatief** doeleinden alleen als deze gebruikers van de sleutelkluis-service geïnformeerd dat een bepaalde geheim niet kan worden gebruikt. De waarde moet een getal met een IntDate-waarde.   
+- *NBF*: IntDate, optioneel, standaard is **nu**. De *nbf* (niet voor) kenmerk wordt de tijd waarbinnen moet de geheime gegevens niet worden opgehaald, met uitzondering van in [bepaalde situaties](#BKMK_secret-date-time-ctrld-ops). Dit veld is bedoeld voor **informatief** uitsluitend bedoeld. De waarde moet een getal met een IntDate-waarde. 
+- *ingeschakeld*: Booleaans, optioneel, de standaardwaarde is **waar**. Dit kenmerk wordt opgegeven of de geheime gegevens kunnen worden opgehaald. De ingeschakelde kenmerk wordt gebruikt in combinatie met en *exp* wanneer een bewerking plaatsvindt tussen exp, deze alleen worden toegestaan als ingeschakeld is ingesteld op **waar**. Bewerkingen buiten de *nbf* en *exp* venster worden automatisch niet-toegestane, behalve in [bepaalde situaties](#BKMK_secret-date-time-ctrld-ops).  
 
 Er zijn aanvullende kenmerken voor alleen-lezen die zijn opgenomen in elke reactie met geheime kenmerken:  
 
@@ -269,7 +269,7 @@ Er zijn aanvullende kenmerken voor alleen-lezen die zijn opgenomen in elke react
 
 Van een geheim **ophalen** bewerking werkt voor geen nog geldig is en verlopen geheimen, buiten de *nbf* / *exp* venster. Aanroepen van een geheim **ophalen** bewerking, voor een geheim niet nog geldig kan worden gebruikt voor testdoeleinden. Bij het ophalen van (**ophalen**ing) een geheim verlopen, kan worden gebruikt voor herstelbewerkingen.
 
-Zie voor meer informatie over gegevens gegevenstypen, [gegevenstypen](about-keys-secrets-and-certificates.md#BKMK_DataTypes).  
+Zie voor meer informatie over gegevens gegevenstypen, [gegevenstypen](#BKMK_DataTypes).  
 
 ###  <a name="BKMK_SecretAccessControl"></a> Toegangsbeheer voor geheimen
 
@@ -283,7 +283,7 @@ De volgende machtigingen kunnen worden gebruikt, op basis van per-principal, in 
 -   *Verwijder*: het geheim verwijderen  
 -   *alle*: alle machtigingen  
 
-Zie voor meer informatie over het werken met geheimen [geheime bewerkingen](/rest/api/keyvault/secret-operations).  
+Zie voor meer informatie over het werken met geheimen [geheime bewerkingen in de de Key Vault REST API-verwijzing](/rest/api/keyvault).  
 
 ###  <a name="BKMK_SecretTags"></a> De geheime codes  
 U kunt aanvullende toepassingsspecifieke metagegevens opgeven in de vorm van tags. Azure Key Vault ondersteunt maximaal 15 tags, die elk een naam van 256 tekens en een waarde 256 tekens hebben.  
@@ -436,18 +436,14 @@ Als het beleid van het certificaat is ingesteld op automatische verlenging, word
 -   *Maak*: kan het maken van een Key Vault-certificaat.  
 -   *importeren*: kunt u het importeren van certificaten materiaal in een Key Vault-certificaat.  
 -   *Update*: kan de update van een certificaat.  
--   *manageconnects*: beheer van Key Vault certificaatcontactpersonen toegestaan  
+-   *managecontacts*: beheer van Key Vault certificaatcontactpersonen toegestaan  
 -   *getissuers*: ophalen van uitgevers van certificaten van een certificaat kunt  
 -   *listissuers*: kan de lijst van certificaatverleners  
 -   *setissuers*: kunt maken of bijwerken van certificaatverleners Key Vault  
 -   *deleteissuers*: kan het verwijderen van certificaatverleners Key Vault  
 -   *alle*: verleent alle machtigingen  
 
-## <a name="additional-information-for-certificates"></a>Aanvullende informatie voor certificaten
-
-- [Certificaten en het beleid](/rest/api/keyvault/certificates-and-policies)
-- [Uitgevers van certificaten](/rest/api/keyvault/certificate-issuers)
-- [Certificaatcontactpersonen](/rest/api/keyvault/certificate-contacts)
+Zie voor meer informatie de [certificaatbewerkingen in de de Key Vault REST API-verwijzing](/rest/api/keyvault). 
 
 ## <a name="see-also"></a>Zie ook
 

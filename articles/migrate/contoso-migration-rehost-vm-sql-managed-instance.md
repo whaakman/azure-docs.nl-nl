@@ -1,20 +1,8 @@
+---Gegevens titel: een Contoso-app voor on-premises Rehost door te migreren naar Azure VM's en Azure SQL Database Managed Instance | Microsoft-Docs-beschrijving: informatie over hoe Contoso naamconflicten met een on-premises app op Azure Virtual machines en met behulp van Azure SQL Database Managed Instance.
+Services: site recovery-auteur: rayne wiselman manager: carmonm ms.service: site recovery ms.topic: conceptueel ms.date: 08/13/2018 ms.author: raynew
+
 ---
-title: Een on-premises Contoso app rehost door te migreren naar Azure VM's en Azure SQL Database Managed Instance | Microsoft Docs
-description: Meer informatie over hoe Contoso naamconflicten met een on-premises app op Azure Virtual machines en met behulp van Azure SQL Database Managed Instance.
-services: site-recovery
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 07/12/2018
-ms.author: raynew
-ms.openlocfilehash: 3e3f8dffbaa7109423aacdbfbaa658bada8bb84a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
-ms.translationtype: MT
-ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215336"
----
+
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migratie van Contoso: een on-premises-app op een virtuele machine van Azure en SQL Database Managed Instance Rehost
 
 In dit artikel, Contoso zijn app SmartHotel migreert front-end virtuele machine met een Azure-VM met behulp van de Azure Site Recovery-service. Contoso wordt ook de app-database migreert naar Azure SQL Database Managed Instance.
@@ -94,7 +82,7 @@ In dit scenario geldt het volgende:
 
 Service | Beschrijving | Kosten
 --- | --- | ---
-[Database Management-Service](https://docs.microsoft.com/azure/dms/dms-overview) | De Database-Service kunt naadloze migratie van meerdere databasebronnen naar Azure data-platforms met minimale downtime. | Meer informatie over [ondersteunde regio's](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) en [Database Management-Service-prijzen](https://azure.microsoft.com/pricing/details/database-migration/).
+[Database migratieservice](https://docs.microsoft.com/azure/dms/dms-overview) | De Database Migration Service kunt naadloze migratie van meerdere databasebronnen naar Azure data-platforms met minimale downtime. | Meer informatie over [ondersteunde regio's](https://docs.microsoft.com/azure/dms/dms-overview#regional-availability) en [Database Migration Service-prijzen](https://azure.microsoft.com/pricing/details/database-migration/).
 [Beheerd exemplaar voor Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) | Managed Instance is een beheerde databaseservice die staat voor een volledig beheerde SQL Server-exemplaar in de Azure-cloud. Het maakt gebruik van dezelfde code als de meest recente versie van SQL Server Database Engine en heeft de nieuwste functies, prestatieverbeteringen en beveiligingspatches. | Met behulp van een SQL Database Managed Instance die wordt uitgevoerd in Azure, worden kosten in rekening gebracht op basis van capaciteit. Meer informatie over [prijzen van Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/). 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | De service Site Recovery coördineert en beheert de migratie en herstel na noodgevallen voor Azure-VM's en on-premises virtuele machines en fysieke servers.  | Tijdens de replicatie naar Azure, rekening Azure Storage-kosten in gebracht.  Azure-VM's worden gemaakt en kosten in rekening gebracht wanneer een failover optreedt. Meer informatie over [Site Recovery-kosten en prijzen](https://azure.microsoft.com/pricing/details/site-recovery/).
 
@@ -117,7 +105,7 @@ Vereisten | Details
 **Schrijf u in de Managed Instance-preview** | U moet zijn geregistreerd bij de beperkte openbare preview voor SQL Database Managed Instance. U moet een Azure-abonnement [aanmelden](https://portal.azure.com#create/Microsoft.SQLManagedInstance). Registreren duurt een paar dagen om te voltooien, dus zorg ervoor dat u zich kunt registreren voordat u begint met het implementeren van dit scenario.
 **Azure-abonnement** | U moet al een abonnement hebt gemaakt wanneer u de beoordeling in het eerste artikel in deze reeks uitvoeren. Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) aan.<br/><br/> Als u een gratis account maakt, bent u de beheerder van uw abonnement en kunt u alle acties uitvoeren.<br/><br/> Als u een bestaand abonnement gebruiken en u niet de beheerder van het abonnement bent, moet u contact op met de beheerder om u de eigenaar of bijdrager machtigingen.<br/><br/> Als u meer gedetailleerde machtigingen nodig hebt, raadpleegt u [op rollen gebaseerd toegangsbeheer gebruiken voor het beheren van Site Recovery toegang](../site-recovery/site-recovery-role-based-linked-access-control.md). 
 **Site Recovery (on-premises)** | Uw on-premises vCenter Server-exemplaar moet versie 5.5, 6.0 of 6.5 worden uitgevoerd<br/><br/> Een ESXi-host waarop versie 5.5, 6.0 of 6.5<br/><br/> Een of meer virtuele VMware-machines die worden uitgevoerd op de ESXi-host.<br/><br/> Virtuele machines moeten voldoen aan [Azure-vereisten](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements).<br/><br/> Ondersteund [netwerk](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#network) en [opslag](https://docs.microsoft.com/azure/site-recovery/vmware-physical-azure-support-matrix#storage) configuratie.
-**Database Management-Service** | Voor de Database-Management-Service, moet u een [compatibel on-premises VPN-apparaat](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).<br/><br/> U moet de on-premises VPN-apparaat configureren. Een extern gericht openbaar IPv4-adres moet hebben. Het adres kan zich niet achter een NAT-apparaat.<br/><br/> Zorg ervoor dat u toegang hebt tot uw on-premises SQL Server-database.<br/><br/> Windows Firewall moet toegang hebben tot de bron-database-engine. Meer informatie over het [Windows Firewall configureren voor toegang tot de Database-Engine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).<br/><br/> Als er een firewall voor uw databasemachine, kunt u regels voor toegang tot de database en de bestanden via SMB-poort 445 toevoegen.<br/><br/> De referenties die worden gebruikt voor het verbinding maken met de SQL Server-bronexemplaar en die beheerd exemplaar als doel, moeten lid zijn van de serverrol sysadmin.<br/><br/> U moet een netwerk delen in uw on-premises database die de Database Management-Service gebruiken kunt om back-up van de brondatabase.<br/><br/> Zorg ervoor dat de serviceaccount met de SQL Server-bronexemplaar schrijfmachtigingen voor de netwerkshare heeft.<br/><br/> Maak een notitie van een Windows-gebruiker en wachtwoord waarmee machtigingen voor volledig beheer op de netwerkshare heeft. De Database Management-Service imiteert de referenties van deze gebruiker voor het uploaden van back-upbestanden naar de Azure Storage-container.<br/><br/> Het installatieproces van SQL Server Express wordt het TCP/IP-protocol ingesteld op **uitgeschakelde** standaard. Zorg ervoor dat deze ingeschakeld.
+**Database migratieservice** | Voor de Database Migration Service, moet u een [compatibel on-premises VPN-apparaat](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices).<br/><br/> U moet de on-premises VPN-apparaat configureren. Een extern gericht openbaar IPv4-adres moet hebben. Het adres kan zich niet achter een NAT-apparaat.<br/><br/> Zorg ervoor dat u toegang hebt tot uw on-premises SQL Server-database.<br/><br/> Windows Firewall moet toegang hebben tot de bron-database-engine. Meer informatie over het [Windows Firewall configureren voor toegang tot de Database-Engine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).<br/><br/> Als er een firewall voor uw databasemachine, kunt u regels voor toegang tot de database en de bestanden via SMB-poort 445 toevoegen.<br/><br/> De referenties die worden gebruikt voor het verbinding maken met de SQL Server-bronexemplaar en die beheerd exemplaar als doel, moeten lid zijn van de serverrol sysadmin.<br/><br/> U moet een netwerk delen in uw on-premises database die de Database Migration Service gebruiken kunt om back-up van de brondatabase.<br/><br/> Zorg ervoor dat de serviceaccount met de SQL Server-bronexemplaar schrijfmachtigingen voor de netwerkshare heeft.<br/><br/> Maak een notitie van een Windows-gebruiker en wachtwoord waarmee machtigingen voor volledig beheer op de netwerkshare heeft. De Database Migration Service imiteert de referenties van deze gebruiker voor het uploaden van back-upbestanden naar de Azure Storage-container.<br/><br/> Het installatieproces van SQL Server Express wordt het TCP/IP-protocol ingesteld op **uitgeschakelde** standaard. Zorg ervoor dat deze ingeschakeld.
 
 ## <a name="scenario-steps"></a>Scenariostappen
 
@@ -125,11 +113,11 @@ Hier ziet u hoe Contoso voor het instellen van de implementatie plannen:
 
 > [!div class="checklist"]
 > * **Stap 1: Een SQL Database Managed Instance instellen**: Contoso moet een vooraf gemaakte beheerd exemplaar waarnaar de on-premises SQL Server-database wilt migreren.
-> * **Stap 2: Bereid de Database Management-Service**: Contoso moet de database migration-provider hebt geregistreerd, een exemplaar maken en vervolgens een Database Management-Service-project maken. Contoso moet ook instellen van een shared access signature (SAS) Uniform Resource Identifier (URI) voor de Database Management-Service. Een SAS-URI biedt gedelegeerde toegang tot resources in het Contoso-storage-account, zodat Contoso beperkte machtigingen voor opslagobjecten kunt toewijzen. Contoso stelt u een SAS-URI, waardoor de Database Management-Service toegang heeft tot de container van het opslagaccount waarnaar de service de SQL Server-back-upbestanden uploadt.
+> * **Stap 2: Bereid de Database Migration Service**: Contoso moet de database migration-provider hebt geregistreerd, een exemplaar maken en vervolgens een Database Migration Service-project maken. Contoso moet ook instellen van een shared access signature (SAS) Uniform Resource Identifier (URI) voor de Database Migration Service. Een SAS-URI biedt gedelegeerde toegang tot resources in het Contoso-storage-account, zodat Contoso beperkte machtigingen voor opslagobjecten kunt toewijzen. Contoso stelt u een SAS-URI, waardoor de Database Migration Service toegang heeft tot de container van het opslagaccount waarnaar de service de SQL Server-back-upbestanden uploadt.
 > * **Stap 3: Azure voorbereiden voor Site Recovery**: Contoso een storage-account voor het opslaan van gerepliceerde gegevens voor Site Recovery moet maken. Het moet ook een Azure Recovery Services-kluis maken.
 > * **Stap 4: On-premises VMware voorbereiden voor Site Recovery**: Contoso-accounts voor VM-detectie- en agent-installatie verbinding maken met virtuele Azure-machines na een failover wordt voorbereid.
 > * **Stap 5:-Machines repliceren**: als u replicatie instelt, Contoso configureren van de Site Recovery-bron en doel-omgevingen, stelt u een replicatiebeleid, en start virtuele machines te repliceren naar Azure Storage.
-> * **Stap 6: Migreren van de database met behulp van de Database Management-Service**: Contoso worden gemigreerd van de database.
+> * **Stap 6: Migreren van de database met behulp van de Database Migration Service**: Contoso worden gemigreerd van de database.
 > * **Stap 7: De virtuele machines migreren met behulp van Site Recovery**: Contoso voert een testfailover uit om te controleren of alles werkt. Vervolgens wordt een volledige failover voor de virtuele machines migreren naar Azure uitgevoerd door Contoso.
 
 ## <a name="step-1-prepare-a-sql-database-managed-instance"></a>Stap 1: Een beheerd exemplaar van SQL Database voorbereiden
@@ -229,36 +217,36 @@ Contoso kan nu een SQL Database Managed Instance inrichten:
 
 Meer informatie over het [inrichten van een beheerd exemplaar](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal).
 
-## <a name="step-2-prepare-the-database-management-service"></a>Stap 2: Bereid de Database Management-Service
+## <a name="step-2-prepare-the-database-migration-service"></a>Stap 2: Bereid de Database migratieservice
 
-Als u wilt voorbereiden van de Database Management-Service, moet Contoso een paar dingen doen:
+Als u wilt voorbereiden van de Database Migration Service, moet Contoso een paar dingen doen:
 
-- De Database Management-Service-provider registreren in Azure.
-- De Database Management-Service toegang geven tot Azure Storage voor het uploaden van de back-upbestanden die worden gebruikt voor het migreren van een database. Contoso maakt om toegang te bieden met Azure Storage, een Azure Blob storage-container. Contoso genereert een SAS-URI voor de Blob storage-container. 
-- Maak een project-Database Management-Service.
+- De Database Migration Service-provider registreren in Azure.
+- De Database Migration Service toegang geven tot Azure Storage voor het uploaden van de back-upbestanden die worden gebruikt voor het migreren van een database. Contoso maakt om toegang te bieden met Azure Storage, een Azure Blob storage-container. Contoso genereert een SAS-URI voor de Blob storage-container. 
+- Maak een Database Migration Service-project.
 
 Contoso voert vervolgens de volgende stappen uit:
 
 1. Contoso registreert de database migration-provider onder het abonnement.
-    ![Database Management-Service - Register](media/contoso-migration-rehost-vm-sql-managed-instance/dms-subscription.png)
+    ![Database migratieservice - Register](media/contoso-migration-rehost-vm-sql-managed-instance/dms-subscription.png)
 
-2. Contoso maakt u een Blob storage-container. Contoso genereert een SAS-URI, zodat de Database Management-Service toegang kan hebben.
+2. Contoso maakt u een Blob storage-container. Contoso genereert een SAS-URI, zodat de Database Migration Service toegang kan hebben.
 
-    ![Database-Management-Service: genereren van een SAS-URI](media/contoso-migration-rehost-vm-sql-managed-instance/dms-sas.png)
+    ![Database migratieservice: genereren van een SAS-URI](media/contoso-migration-rehost-vm-sql-managed-instance/dms-sas.png)
 
-3. Contoso maakt een exemplaar van Database Management-Service. 
+3. Contoso maakt een Database Migration Service-exemplaar. 
 
-    ![Database-Management-Service - exemplaar maken](media/contoso-migration-rehost-vm-sql-managed-instance/dms-instance.png)
+    ![Database migratieservice - exemplaar maken](media/contoso-migration-rehost-vm-sql-managed-instance/dms-instance.png)
 
-4. Contoso plaatst de Database Management Service-exemplaar in de **PROD-DC-EUS2** subnet van de **VNET-PROD-DC-EUS2** virtueel netwerk.
-    - Contoso wordt de Database Management-Service er geplaatst omdat de service moet zich in een virtueel netwerk dat toegang heeft tot de on-premises SQL Server-VM via een VPN-gateway.
-    - De **VNET-PROD-EUS2** is gekoppeld aan **VNET-HUB-EUS2** en mag externe gateways gebruiken. De **externe gateways gebruiken** optie zorgt ervoor dat de Database Management-Service als vereist communiceren kan.
+4. Contoso plaatst de Database Migration Service-exemplaar in de **PROD-DC-EUS2** subnet van de **VNET-PROD-DC-EUS2** virtueel netwerk.
+    - Contoso wordt de Database Migration Service er geplaatst omdat de service moet zich in een virtueel netwerk dat toegang heeft tot de on-premises SQL Server-VM via een VPN-gateway.
+    - De **VNET-PROD-EUS2** is gekoppeld aan **VNET-HUB-EUS2** en mag externe gateways gebruiken. De **externe gateways gebruiken** optie zorgt ervoor dat de Database Migration Service als vereist communiceren kan.
 
-        ![Management-Service-database - netwerk configureren](media/contoso-migration-rehost-vm-sql-managed-instance/dms-network.png)
+        ![Database migratieservice - netwerk configureren](media/contoso-migration-rehost-vm-sql-managed-instance/dms-network.png)
 
 *Meer hulp nodig?*
 
-- Meer informatie over het [instellen van de Database Management-Service](https://docs.microsoft.com/azure/dms/quickstart-create-data-migration-service-portal).
+- Meer informatie over het [instellen van de Database Migration Service](https://docs.microsoft.com/azure/dms/quickstart-create-data-migration-service-portal).
 - Meer informatie over het [maken en gebruiken van SAS](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
 
@@ -451,15 +439,15 @@ Nu kunt Contoso beginnen met het repliceren WebVM.
 
 U kunt een overzicht van de volgende stappen uit in lezen [inschakelen replicatie](https://docs.microsoft.com/azure/site-recovery/vmware-azure-enable-replication).
 
-## <a name="step-6-migrate-the-database-by-using-the-database-management-service"></a>Stap 6: Migreren van de database met behulp van de Database Management-Service
+## <a name="step-6-migrate-the-database-by-using-the-database-migration-service"></a>Stap 6: Migreren van de database met behulp van de Database Migration Service
 
-Contoso moet een Database Management-Service-project maken en vervolgens migreren van de database.
+Contoso moet een Database Migration Service-project maken en vervolgens migreren van de database.
 
-### <a name="create-a-database-management-service-project"></a>Een Database Management-Service-project maken
+### <a name="create-a-database-migration-service-project"></a>Een Database Migration Service-project maken
 
-1. Contoso maakt een project-Database Management-Service. Contoso selecteert de **SQL Server** bronservertype. Contoso selecteert **Azure SQL Database Managed Instance** als het doel.
+1. Contoso maakt een Database Migration Service-project. Contoso selecteert de **SQL Server** bronservertype. Contoso selecteert **Azure SQL Database Managed Instance** als het doel.
 
-     ![Database Management-Service - nieuw migratieproject](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-project.png)
+     ![Database migratieservice - nieuw migratieproject](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-project.png)
 
 2. De Wizard wordt geopend.
 
@@ -467,34 +455,34 @@ Contoso moet een Database Management-Service-project maken en vervolgens migrere
 
 1. Hiermee geeft u de bron-VM waarop de on-premises database zich bevindt in de Wizard migratie op Contoso. Contoso voert de referenties voor toegang tot de database.
 
-    ![Database Management-Service - details van gegevensbron](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-source.png)
+    ![Database migratieservice - details van gegevensbron](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-source.png)
 
 2. Contoso selecteert u de database te migreren (**SmartHotel.Registration**):
 
-    ![Database Management-Service - databases van de bron selecteren](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-sourcedb.png)
+    ![Database migratieservice - databases van de bron selecteren](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-sourcedb.png)
 
 3. Voor het doel krijgt de naam van het beheerde exemplaar de Contoso in Azure. Contoso krijgt de referenties voor toegang voor het beheerde exemplaar.
 
-    ![Database Management-Service - Doeldetails](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-target-details.png)
+    ![Database migratieservice - Doeldetails](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-target-details.png)
 
 4. In **nieuwe activiteit** > **migratie uitvoeren**, Contoso Hiermee geeft u de instellingen voor het uitvoeren van de migratie:
     - Referenties voor de bron en het doel.
     - De database te migreren.
-    - De netwerkshare die Contoso gemaakt op de on-premises VM. De Database Management-Service gaat bron back-ups naar deze share. 
+    - De netwerkshare die Contoso gemaakt op de on-premises VM. De Database Migration Service gaat bron back-ups naar deze share. 
         - Het serviceaccount dat de SQL Server-bronexemplaar wordt uitgevoerd moet schrijfmachtigingen hebben op deze share.
         - De FQDN-pad naar de share moet worden gebruikt.
-    - De SAS-URI die de Database Management-Service toegang biedt tot de container van het opslagaccount waarnaar de service wordt geüpload de back-upbestanden voor de migratie.
+    - De SAS-URI die de Database Migration Service toegang biedt tot de container van het opslagaccount waarnaar de service wordt geüpload de back-upbestanden voor de migratie.
 
-        ![Management-Service-database - migratie-instellingen configureren](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
+        ![Database migratieservice - migratie-instellingen configureren](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
 
 5. Contoso-Hiermee slaat u de migratie en vervolgens uitgevoerd.
 6. In **overzicht**, Contoso bewaakt de migratiestatus.
 
-    ![Database-Service Management - Monitor](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
+    ![Database migratieservice - Monitor](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
 
 7. Wanneer de migratie is voltooid, controleert Contoso of dat de doeldatabase op het beheerde exemplaar bestaat.
 
-    ![Database-Management-Service: de databasemigratie controleren](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor2.png)
+    ![Database migratieservice: de databasemigratie controleren](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor2.png)
 
 ## <a name="step-7-migrate-the-vm-by-using-site-recovery"></a>Stap 7: De virtuele machine migreren met behulp van Site Recovery
 
@@ -592,7 +580,7 @@ Contoso back-ups van de gegevens op WEBVM met behulp van de Azure Backup-service
 
 ## <a name="conclusion"></a>Conclusie
 
-In dit artikel naamconflicten Contoso de SmartHotel-app in Azure door te migreren van de app front-end-VM naar Azure met behulp van de Site Recovery-service. Contoso migreert de on-premises database naar een Azure SQL Database Managed Instance met behulp van de Azure-Database Management-Service.
+In dit artikel naamconflicten Contoso de SmartHotel-app in Azure door te migreren van de app front-end-VM naar Azure met behulp van de Site Recovery-service. Contoso migreert de on-premises database naar een Azure SQL Database Managed Instance met behulp van de Azure Database Migration Service.
 
 ## <a name="next-steps"></a>Volgende stappen
 

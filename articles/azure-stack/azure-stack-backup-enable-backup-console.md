@@ -12,14 +12,14 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 08/16/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 08bce6284b672ae092e2cee3c26140e8c6049a34
-ms.sourcegitcommit: d76d9e9d7749849f098b17712f5e327a76f8b95c
+ms.openlocfilehash: 6231ee760902618afedf64443690be0b02c4d0eb
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39242849"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42055684"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Back-up inschakelen voor Azure Stack vanuit de beheerportal
 Schakel de infrastructuur voor Backup-Service via de beheerportal zodat Azure Stack-back-ups kunt genereren. U kunt deze back-ups gebruiken om te herstellen van uw omgeving met behulp van de cloudherstel in geval van [een onherstelbare fout](.\azure-stack-backup-recover-data.md). Het doel van cloudherstel is om ervoor te zorgen dat uw operators en gebruikers zich weer in de portal aanmelden kunnen nadat het herstel is voltooid. Gebruikers hebben hun abonnementen hersteld met inbegrip van machtigingen voor toegang op basis van rollen en functies, oorspronkelijke plannen, aanbiedingen, en eerder gedefinieerde compute, opslag en netwerkquota.
@@ -33,26 +33,60 @@ Beheerders en gebruikers zijn die verantwoordelijk is voor back-up en herstellen
 - [SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview)
 
 
-> [!Note]  
-> Voordat u de back-up via de console inschakelt, moet u de Backup-service configureren. U kunt de Backup-service met behulp van PowerShell configureren. Zie voor meer informatie, [back-up inschakelen voor Azure Stack met PowerShell](azure-stack-backup-enable-backup-powershell.md).
+## <a name="enable-or-reconfigure-backup"></a>In- of back-up configureren
 
-## <a name="enable-backup"></a>Back-up inschakelen
-
-1. Open de Azure Stack-beheerportal bij [ https://adminportal.local.azurestack.external ](https://adminportal.local.azurestack.external).
+1. Open de [Azure Stack-beheerportal](azure-stack-manage-portals.md).
 2. Selecteer **meer services** > **infrastructuur back-up**. Kies **configuratie** in de **infrastructuur back-up** blade.
-
-    ![Azure Stack - instellingen voor back-up-controller](media\azure-stack-backup\azure-stack-backup-settings.png).
-
 3. Typ het pad naar de **back-up van opslaglocatie**. Een Universal Naming Convention (UNC)-tekenreeks voor het pad naar een bestandsshare die wordt gehost op een afzonderlijk apparaat gebruiken. Een UNC-tekenreeks geeft de locatie van bronnen zoals gedeelde bestanden of apparaten. Voor de service, kunt u een IP-adres. Voor beschikbaarheid van de back-upgegevens na een noodgeval, moet het apparaat zich in een andere locatie.
+
     > [!Note]  
     > Als uw omgeving biedt ondersteuning voor naamomzetting van het netwerk voor Azure Stack-infrastructuur naar de omgeving van uw bedrijf, kunt u een FQDN-naam in plaats van het IP-adres gebruiken.
+    
 4. Type de **gebruikersnaam** met behulp van het domein en gebruikersnaam met voldoende toegangsrechten voor bestanden lezen en schrijven. Bijvoorbeeld `Contoso\backupshareuser`.
 5. Type de **wachtwoord** voor de gebruiker.
-5. Typ het wachtwoord opnieuw **wachtwoord bevestigen**.
-6. Geef een vooraf gedeelde sleutel in de **versleutelingssleutel** vak. Back-upbestanden zijn versleuteld met behulp van deze sleutel. Zorg ervoor dat u deze sleutel opslaan op een veilige locatie. Nadat u deze sleutel voor de eerste keer instellen of de sleutel in de toekomst draaien, kunt u deze sleutel uit deze interface niet weergeven. Voor meer instructies voor het genereren van een vooraf gedeelde sleutel, volgt u de scripts op [back-up inschakelen voor Azure Stack met PowerShell](azure-stack-backup-enable-backup-powershell.md).
-7. Selecteer **OK** uw back-controller-instellingen op te slaan.
+6. Typ het wachtwoord opnieuw **wachtwoord bevestigen**.
+7. De **frequentie in uren** wordt bepaald hoe vaak back-ups worden gemaakt. De standaardwaarde is 12. Scheduler biedt ondersteuning voor maximaal 12 en een minimum van 4. 
+8. De **bewaarperiode in dagen** bepaalt het aantal dagen van de back-ups, blijven behouden in de externe locatie. De standaardwaarde is 7. Scheduler biedt ondersteuning voor maximaal 14 en een minimum van 2. Back-ups ouder is dan de bewaarperiode worden automatisch verwijderd van de externe locatie.
 
-Voor het uitvoeren van een back-up, moet u de Azure Stack-hulpprogramma's downloaden en voer de PowerShell-cmdlet **Start AzSBackup** op het knooppunt voor het beheer van Azure Stack. Zie voor meer informatie, [maakt u een Back-up van Azure Stack](azure-stack-backup-back-up-azure-stack.md ).
+    > [!Note]  
+    > Als u wilt archiveren van back-ups ouder is dan de bewaarperiode liggen, zorg ervoor dat u de back-up van de bestanden voordat de scheduler wordt verwijderd als de back-ups. Als u de back-up bewaarperiode verkorten (bijvoorbeeld van 7 dagen tot 5 dagen), wordt de scheduler verwijderd ouder is dan de nieuwe bewaarperiode alle back-ups. Zorg ervoor dat u ok bent met de back-ups verwijderd voordat u deze waarde aanpassen. 
+
+9. Geef een vooraf gedeelde sleutel in de **versleutelingssleutel** vak. Back-upbestanden zijn versleuteld met behulp van deze sleutel. Zorg ervoor dat u deze sleutel opslaan op een veilige locatie. Nadat u deze sleutel voor de eerste keer instellen of de sleutel in de toekomst draaien, kunt u de sleutel van deze interface niet weergeven. Voer de volgende PowerShell voor Azure Stack-opdrachten voor het maken van de sleutel:
+    ```powershell
+    New-AzsEncryptionKeyBase64
+    ```
+10. Selecteer **OK** uw back-controller-instellingen op te slaan.
+
+    ![Azure Stack - instellingen voor back-up-controller](media\azure-stack-backup\backup-controller-settings.png)
+
+## <a name="start-backup"></a>Back-up starten
+Voor het starten van een back-up, klikt u op **back-up nu** starten van een on-demand back-up. Een on-demand back-up wordt de tijd voor de volgende geplande back-up niet worden gewijzigd. Nadat de taak is voltooid, kunt u Bevestig de instellingen in **Essentials**:
+
+![Azure Stack - back-up op aanvraag](media\azure-stack-backup\scheduled-backup.png).
+
+U kunt ook de PowerShell-cmdlet uitvoeren **Start AzsBackup** op uw computer Azure Stack-beheer. Zie voor meer informatie, [maakt u een Back-up van Azure Stack](azure-stack-backup-back-up-azure-stack.md).
+
+## <a name="enable-or-disable-automatic-backups"></a>In- of uitschakelen van automatische back-ups
+Back-ups worden automatisch gepland wanneer u back-up inschakelen. U kunt de volgende back-uptijd van planning controleren in **Essentials**. 
+
+![Azure Stack - back-up op aanvraag](media\azure-stack-backup\on-demand-backup.png)
+
+Als u uitschakelen toekomstige geplande back-ups wilt, klikt u op **uitschakelen automatische back-ups**. Uitschakelen automatische back-ups blijven back-instellingen die zijn geconfigureerd en de back-upschema, behouden. Deze actie wordt gewoon de scheduler om over te slaan toekomstige back-ups. 
+
+![Azure Stack - uitschakelen geplande back-ups](media\azure-stack-backup\disable-auto-backup.png)
+
+Bevestig dat toekomstige geplande back-ups zijn uitgeschakeld **Essentials**:
+
+![Azure Stack - back-ups zijn uitgeschakeld bevestigen](media\azure-stack-backup\confirm-disable.png)
+
+Klik op **inschakelen automatische back-ups** om te informeren over de planner voor het starten van toekomstige back-ups op het geplande tijdstip. 
+
+![Azure Stack - inschakelen geplande back-ups](media\azure-stack-backup\enable-auto-backup.png)
+
+
+> [!Note]  
+> Als u infrastructuur back-up voordat u bijwerkt naar 1807 hebt geconfigureerd, kunt u automatische back-ups wordt uitgeschakeld. Op deze manier de back-ups die aan de slag met Azure Stack niet conflicteren met het back-ups aan de slag door een externe taak plannings-engine. Als u een externe Taakplanner uitschakelen, klikt u op **inschakelen automatische back-ups**.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

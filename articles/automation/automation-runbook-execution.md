@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3dfe16cc09f0453aef8adf8bf87a00aebd2054bc
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: eb6516400d362fe60adc05590353ec003c70e059
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214632"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42055056"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Uitvoeren van Runbook in Azure Automation
 
@@ -88,7 +88,7 @@ U kunt de volgende stappen uit om de taken voor een runbook weer te geven.
 
 ## <a name="retrieving-job-status-using-windows-powershell"></a>Bij het ophalen van de status van taak met behulp van Windows PowerShell
 
-U kunt de [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx) om op te halen van de taken die voor een runbook en de details van een bepaalde taak is gemaakt. Als u een runbook te met Windows PowerShell starten [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx), en vervolgens wordt de resulterende taak geretourneerd. Gebruik [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx)de uitvoer van uitvoer naar een taak ophalen.
+U kunt de [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) om op te halen van de taken die voor een runbook en de details van een bepaalde taak is gemaakt. Als u een runbook te met Windows PowerShell starten [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook), en vervolgens wordt de resulterende taak geretourneerd. Gebruik [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) om een taak ophalen de uitvoer.
 
 De volgende voorbeeldopdrachten de laatste taak voor een voorbeeldrunbook opgehaald en de status ervan, de waarden voor de runbookparameters en de uitvoer van de taak weergeven.
 
@@ -145,7 +145,7 @@ Dit is de service beschermen tegen runbooks die voor onbepaalde tijd worden uitg
 
 Als het runbook geen controlepunten heeft of de taak niet het eerste controlepunt bereikt heeft voordat het wordt ongedaan gemaakt, klikt u vervolgens opnieuw wordt gestart vanaf het begin.
 
-Voor het lang werken met taken, is het raadzaam te gebruiken een [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Workers worden niet beperkt door evenredige deel en ook geen een beperking op hoe lang een runbook kunt uitvoeren.
+Voor langdurige taken wordt u aangeraden een [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior) te gebruiken. Hybrid Runbook Workers worden niet door evenredige verdeling beperkt en kennen geen limiet ten aanzien van de uitvoeringsperiode van een runbook.
 
 Als u een PowerShell Workflow-runbook in Azure, wanneer u een runbook maakt, moet u ervoor zorgen dat de tijd voor het uitvoeren van alle activiteiten tussen twee controlepunten niet meer dan drie uur. U moet mogelijk controlepunten toevoegen aan uw runbook om ervoor te zorgen dat deze niet kan deze drie uur limiet is bereikt of splits lange bewerkingen. Uw runbook kan bijvoorbeeld een reindex uitvoeren op een grote SQL-database. Als deze één bewerking niet voltooid binnen de limiet van evenredige deel, vervolgens de taak is verwijderd en opnieuw opgestart vanaf het begin. In dit geval moet u splitst u de bewerking opnieuw indexeren in meerdere stappen, zoals het indexeren van een tabel op een tijdstip, en voeg vervolgens een controlepunt na elke bewerking zodat de taak kan worden hervat na de laatste bewerking is voltooid.
 

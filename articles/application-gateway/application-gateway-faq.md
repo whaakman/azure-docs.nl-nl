@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 6/20/2018
+ms.date: 8/10/2018
 ms.author: victorh
-ms.openlocfilehash: b8b5b1da902a854dacea7e3019e3fa1116f04212
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 858427bfd2a9b4c40ddf7054e09d98bcf5c1a992
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399139"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42057194"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Veelgestelde vragen over Application Gateway
 
@@ -122,6 +122,12 @@ Netwerkbeveiligingsgroepen worden ondersteund in de Application Gateway-subnet m
 * Uitgaande verbinding met internet kan niet worden geblokkeerd.
 
 * Verkeer van de tag AzureLoadBalancer moet worden toegestaan.
+
+**Q. Worden de gebruiker gedefinieerde routes ondersteund op het subnet van de gateway?**
+
+Gebruiker gedefinieerde routes (udr's) worden ondersteund op het subnet van de gateway, zolang ze de end-to-end verzoek/reactie-communicatie niet wijzigen.
+
+Bijvoorbeeld, u kunt een UDR in het subnet van de gateway instellen om te verwijzen naar een firewallapparaat voor pakketinspecties uitvoeren, maar moet u ervoor zorgen dat het pakket de inspectie van de bestemming van het bericht kan bereiken. Dit niet doet, kan leiden tot onjuiste health test of verkeer omleiden gedrag. Dit omvat geleerde routes of 0.0.0.0/0 standaardroutes doorgegeven door ExpressRoute of VPN-Gateways in het virtuele netwerk.
 
 **Q. Wat zijn de limieten in Application Gateway? Kan ik deze limieten verhogen?**
 

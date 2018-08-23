@@ -1,6 +1,6 @@
 ---
-title: Configureren en controleren van de IoT-apparaten op schaal met Azure IoT Hub | Microsoft Docs
-description: Azure IoT Hub automatische inrichting configuraties gebruiken voor het toewijzen van een configuratie aan meerdere apparaten
+title: Configureren en controleren van IoT-apparaten op schaal met Azure IoT Hub | Microsoft Docs
+description: Azure IoT Hub automatische inrichting configuraties gebruiken voor het toewijzen van een configuratie op meerdere apparaten
 author: ChrisGMsft
 manager: bruz
 ms.service: iot-hub
@@ -8,36 +8,36 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
-ms.openlocfilehash: 29a56e212f842e8f4243eca7fc865175fd275a39
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 2edde122b109779794bb86752d69a5318edb9235
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37030764"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42058673"
 ---
-# <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-portal"></a>Configureren en controleren van de IoT-apparaten op grote schaal met behulp van de Azure-portal
+# <a name="configure-and-monitor-iot-devices-at-scale-using-the-azure-portal"></a>Configureren en controleren van IoT-apparaten op schaal met Azure portal
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-hub-auto-device-config-selector.md)]
 
-Automatische Apparaatbeheer in Azure IoT Hub automatiseert veel van de herhalende en complexe taken van het beheer van grote apparaat vloten via het geheel van hun levenscycli. Met automatische device management, kunt u gericht op een reeks apparaten op basis van hun eigenschappen, een gewenste configuratie definiëren en IoT-Hub apparaten bijwerken wanneer ze scope binnenkomen te laten.  Dit wordt uitgevoerd met behulp van de configuratie van een automatische inrichting, die ook u samenvatten voltooiing en naleving kunt, het samenvoegen van de greep en conflicten en implementeer configuraties in een gefaseerde benadering.
+Automatische Apparaatbeheer in Azure IoT Hub automatiseert veel herhaalde en complexe taken van grote apparaat vloten via het geheel van de levenscycli hiervan te beheren. Met automatische device management, kunt u richten op een set met apparaten op basis van hun eigenschappen, definieert een gewenste configuratie en IoT Hub-apparaten bijgewerkt wanneer ze scope binnenkomen te laten.  Dit wordt uitgevoerd met behulp van de configuratie van een automatische inrichting, die ook u samenvatten is voltooid en naleving kunt, ingang samenvoegen en conflicten en configuraties in een gefaseerde benadering worden uitgerold.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Automatische inrichting configuraties werk door een reeks apparaat horende bijwerken met de gewenste eigenschappen en rapportage een overzicht op basis van het apparaat twin gerapporteerd eigenschappen.  Dit introduceert een nieuwe klasse en een JSON-document aangeroepen een _configuratie_ die bestaat uit drie delen:
+Automatische inrichting configuraties werk door een set dubbele apparaten bijwerken met de gewenste eigenschappen en rapportage een overzicht op basis van de apparaatdubbel gerapporteerde eigenschappen.  Dit introduceert een nieuwe klasse en JSON-document met de naam een *configuratie* die bestaat uit drie delen:
 
-* De **doel voorwaarde** definieert het bereik van apparaat horende worden bijgewerkt. De doel-voorwaarde is opgegeven als een query op het apparaat twin tags en/of eigenschappen gerapporteerd.
+* De **voorwaarde als doel** definieert het bereik van apparaatdubbels om te worden bijgewerkt. De doelvoorwaarde is opgegeven als een query op apparaat apparaatdubbel-tags en/of gerapporteerde eigenschappen.
 
-* De **inhoud** bepaalt de gewenste eigenschappen moeten worden toegevoegd of bijgewerkt in het betreffende apparaat horende. De inhoud bevat een pad naar het gedeelte van de gewenste eigenschappen die moeten worden gewijzigd.
+* De **inhoud richten** bepaalt de gewenste eigenschappen om te worden toegevoegd of bijgewerkt in de betreffende apparaatdubbels. De inhoud bevat een pad naar de sectie van de gewenste eigenschappen die moeten worden gewijzigd.
 
-* De **metrische gegevens** definiëren van de samenvatting tellingen van verschillende configuratiestatussen zoals **geslaagd**, **In uitvoering**, en **fout**. Aangepaste metrische gegevens zijn opgegeven als de query's op apparaat twin eigenschappen gerapporteerd.  Systeem metrische gegevens zijn standaard metrische gegevens die het meten van de updatestatus twin, zoals het aantal horende apparaten die zijn gericht en het aantal horende die zijn bijgewerkt. 
+* De **metrische gegevens** definiëren de samenvatting tellingen van verschillende configuratiestatussen zoals **succes**, **In voortgang**, en **fout**. Aangepaste metrische gegevens zijn opgegeven als query's op apparaat gerapporteerde eigenschappen.  Metrische systeemmeetgegevens zijn standaard metrische gegevens die het meten van de status van het dubbele bijwerken, zoals het aantal dubbele apparaten die zijn gericht en het aantal dubbele die zijn bijgewerkt. 
 
-## <a name="implement-device-twins-to-configure-devices"></a>Implementeer apparaat horende apparaten configureren
+## <a name="implement-device-twins-to-configure-devices"></a>Apparaatdubbels implementeren om apparaten te configureren
 
-Automatische inrichting configuraties vereisen het gebruik van horende apparaten synchroniseren tussen de cloud en apparaten.  Raadpleeg [Understand and gebruik apparaat horende in IoT-Hub] [ lnk-device-twin] voor instructies over het gebruik van horende apparaten.
+Automatische inrichting configuraties vereisen het gebruik van apparaatdubbels om te synchroniseren tussen de cloud en apparaten. Raadpleeg [apparaatdubbels begrijpen en gebruiken in IoT Hub](iot-hub-devguide-device-twins.md) voor informatie over het gebruik van apparaatdubbels.
 
-## <a name="identify-devices-using-tags"></a>Identificatie van apparaten met tags
+## <a name="identify-devices-using-tags"></a>Identificatie van apparaten met behulp van tags
 
-Voordat u een configuratie maken kunt, moet u opgeven welke apparaten die u wilt beïnvloeden. Azure IoT Hub identificeert-apparaten met labels in de apparaat-twin. Elk apparaat kan meerdere labels hebben, en kunt u ze een manier die zinvol is voor uw oplossing. Als u apparaten in verschillende locaties beheren, mag u de volgende codes toevoegen aan een apparaat-twin:
+Voordat u een configuratie maken kunt, moet u opgeven welke apparaten die u wilt toepassen. Azure IoT Hub identificeert-apparaten met behulp van tags in de apparaatdubbel. Elk apparaat kan meerdere labels, en u ze een manier die zinvol is voor uw oplossing kunt definiëren. Als u apparaten in verschillende locaties beheert, kan u bijvoorbeeld de volgende codes toevoegen aan een apparaatdubbel:
 
 ```json
 "tags": {
@@ -50,133 +50,167 @@ Voordat u een configuratie maken kunt, moet u opgeven welke apparaten die u wilt
 
 ## <a name="create-a-configuration"></a>Een configuratie maken
 
-1. In de [Azure-portal][lnk-portal], gaat u naar uw IoT-hub. 
-1. Selecteer **IoT apparaatconfiguratie**.
-1. Selecteer **configuratie toevoegen**.
+1. In de [Azure-portal](https://portal.azure.com), gaat u naar uw IoT-hub. 
 
-Er zijn vijf stappen voor het maken van een configuratie. De volgende secties helpt bij elkaar. 
+2. Selecteer **IoT apparaatconfiguratie**.
 
-### <a name="step-1-name-and-label"></a>Stap 1: Naam en een Label
+3. Selecteer **configuratie toevoegen**.
 
-1. Geef de configuratie van een unieke naam die maximaal 128 kleine letters. Vermijd spaties en de volgende ongeldige tekens: `& ^ [ ] { } \ | " < > /`.
-1. Labels voor het bijhouden van uw configuraties toevoegen. Labels zijn **naam**, **waarde** paren met een beschrijving van uw configuratie. Bijvoorbeeld: `HostPlatform, Linux` of `Version, 3.0.1`.
-1. Selecteer **volgende** verplaatsen naar stap 2. 
+Er zijn vijf stappen voor het maken van een configuratie. De volgende secties helpen bij elkaar. 
 
-### <a name="step-2-specify-settings"></a>Stap 2: Instellingen opgeven
+### <a name="name-and-label"></a>Naam en label
 
-Deze sectie bevat de doel-inhoud moet worden ingesteld in het betreffende apparaat horende. Er zijn twee invoeren voor elke set instellingen. De eerste is het apparaat twin-pad, dit is het pad naar de sectie JSON binnen de gewenste twin-eigenschappen die worden ingesteld.  De tweede is de JSON-inhoud moet worden ingevoegd in die sectie. Bijvoorbeeld, het apparaat Twin pad en de inhoud instellen met de volgende:
+1. Geef uw configuratie van een unieke naam die maximaal 128 kleine letters. Vermijd spaties en de volgende ongeldige tekens: `& ^ [ ] { } \ | " < > /`.
 
-![Stel het apparaat Twin pad en de inhoud](./media/iot-hub-auto-device-config/create-configuration-full-browser.png)
+2. Labels voor het bijhouden van uw configuraties toevoegen. Labels zijn **naam**, **waarde** paren, die uw configuratie wordt beschreven. Bijvoorbeeld, `HostPlatform, Linux` of `Version, 3.0.1`.
 
-U kunt ook afzonderlijke instellingen instellen door te geven van het gehele pad in het pad naar de Twin en de waarde in de inhoud niets haakjes. Het pad naar de Twin bijvoorbeeld ingesteld op `properties.desired.chiller-water.temperature` en stelt u de inhoud op: `66`
+3. Selecteer **volgende** te verplaatsen naar de volgende stap. 
 
-Als er twee of meer configuraties gericht op hetzelfde apparaat Twin pad, de inhoud van de configuratie van de hoogste prioriteit toepassing (prioriteit wordt gedefinieerd in stap 4).
+### <a name="specify-settings"></a>Instellingen opgeven
 
-Als u verwijderen van een eigenschap wilt, geeft u de waarde van de eigenschap naar `null`.
+In deze sectie bevat de doel-inhoud moet worden ingesteld in de betreffende apparaatdubbels. Er zijn twee invoeren voor elke set instellingen. De eerste is het pad van de dubbele apparaat, dat het pad naar de JSON-sectie in de apparaatdubbel-gewenste eigenschappen die worden ingesteld.  De tweede is het JSON-inhoud moet worden ingevoegd in deze sectie. Het Apparaatdubbel pad en de inhoud bijvoorbeeld ingesteld op het volgende:
 
-U kunt extra instellingen toevoegen door te selecteren **Apparaatinstelling Twin toevoegen**
+![Instellen van het Apparaatdubbel pad en de inhoud](./media/iot-hub-auto-device-config/create-configuration-full-browser.png)
 
-### <a name="step-3-specify-metrics-optional"></a>Stap 3: Geef de metrische gegevens (optioneel)
+U kunt ook afzonderlijke instellingen instellen door het volledige pad op te geven in het pad van de dubbele apparaat en de waarde in de inhoud met geen vierkante haken. Het pad van de dubbel apparaat bijvoorbeeld ingesteld op `properties.desired.chiller-water.temperature` en stelt u de inhoud op `66`.
 
-Metrische gegevens bieden een samenvatting van de aantallen voor de verschillende statussen die een apparaat rapporteren kan als gevolg van het toepassen van configuratie-inhoud. U kunt bijvoorbeeld een metriek voor in behandeling zijnde instellingen wijzigingen, een metriek op fouten en gegevens voor wijzigingen in de geslaagde maken.
+Als twee of meer configuraties gericht op hetzelfde Apparaatdubbel pad, de inhoud van de configuratie van de hoogste prioriteit wordt toegepast (prioriteit is gedefinieerd in stap 4).
 
-1. Voer een naam voor **metriek naam**
-1. Voer een query voor **metriek Criteria**.  De query is gebaseerd op apparaat twin eigenschappen gerapporteerd.  De metriek geeft het aantal rijen dat wordt geretourneerd door de query.
+Als u verwijderen van een eigenschap wilt, geeft u de waarde van de eigenschap te `null`.
 
-Bijvoorbeeld: `SELECT deviceId FROM devices WHERE properties.reported.chillerWaterSettings.status='pending'`
+U kunt aanvullende instellingen toevoegen door te selecteren **Device Twin-instelling toevoegen**.
 
-U kunt een component dat de configuratie is toegepast, bijvoorbeeld opnemen: `SELECT deviceId FROM devices WHERE configurations.[[yourconfigname]].status='Applied'` met inbegrip van de dubbele vierkante haken.
+### <a name="specify-metrics-optional"></a>Geef de metrische gegevens (optioneel)
 
+Metrische gegevens bieden samenvatting tellingen van de verschillende statussen aan die een apparaat rapporteren kan als gevolg van het toepassen van configuratie-inhoud. U kunt bijvoorbeeld een metrische waarde voor in behandeling zijnde wijzigingen, een metrische waarde voor de fouten en metrische gegevens voor wijzigingen in de geslaagde maken.
 
-### <a name="step-4-target-devices"></a>Stap 4: Doelapparaten
+1. Voer een naam in voor **metriek naam**.
 
-Gebruik de eigenschap labels van uw apparaat horende toe te passen van de specifieke apparaten dat deze configuratie moeten ontvangen.  U kunt ook doelapparaten door apparaat twin eigenschappen gerapporteerd.
+2. Voer een query voor **metriek Criteria**.  De query is gebaseerd op het apparaat gerapporteerde eigenschappen.  De metrische waarde geeft het aantal rijen dat wordt geretourneerd door de query.
 
-Aangezien configuraties met meerdere zijn op hetzelfde apparaat gericht kunnen, moet u elke configuratie een getal prioriteit geven. Als er een conflict optreedt is, wordt de configuratie met de hoogste prioriteit wins. 
+Bijvoorbeeld:
 
-1. Voer een positief geheel getal voor de configuratie van de **prioriteit**. Hoogste numerieke waarde wordt beschouwd als de hoogste prioriteit. Als twee configuraties de dezelfde prioriteitsnummer hebt, wordt het account waarmee de meeste is gemaakt onlangs wins. 
-1. Voer een **doel voorwaarde** om te bepalen welke apparaten met deze configuratie moeten worden toegepast. De voorwaarde is gebaseerd op het apparaat twin tags of apparaat twin eigenschappen gerapporteerd en moet overeenkomen met de indeling van de expressie. Bijvoorbeeld: `tags.environment='test'` of `properties.reported.chillerProperties.model='4000x'`. U kunt opgeven `*` toe te passen van alle apparaten.
-1. Selecteer **volgende** om door te gaan naar de laatste stap.
+```sql
+SELECT deviceId FROM devices 
+  WHERE properties.reported.chillerWaterSettings.status='pending'
+```
 
-### <a name="step-5-review-configuration"></a>Stap 5: Configuratie controleren
+U kunt een component of de configuratie is toegepast, bijvoorbeeld opnemen: 
 
-Controleer uw configuratie-informatie en selecteer vervolgens **indienen**.
+```sql
+/* Include the double brackets. */
+SELECT deviceId FROM devices 
+  WHERE configurations.[[yourconfigname]].status='Applied'
+```
+
+### <a name="target-devices"></a>Doelapparaten
+
+Gebruik de eigenschap tags uit uw apparaatdubbels gericht op de specifieke apparaten die deze configuratie moeten ontvangen.  U kunt ook doelapparaten door apparaat gerapporteerde eigenschappen.
+
+Omdat meerdere configuraties zijn op hetzelfde apparaat gericht kunnen, moet u elke configuratie geven een prioriteitsnummer. Als er een conflict optreedt, wordt de configuratie met de hoogste prioriteit WINS-server is. 
+
+1. Voer een positief geheel getal voor de configuratie van **prioriteit**. De hoogste numerieke waarde wordt beschouwd als de hoogste prioriteit. Als twee configuraties de dezelfde prioriteitsnummer hebt, wordt het account waarmee de meeste is gemaakt onlangs wins. 
+
+2. Voer een **voorwaarde als doel** om te bepalen welke apparaten wordt met deze configuratie worden toegepast. De voorwaarde is gebaseerd op het apparaat apparaatdubbel-tags of apparaatdubbel gerapporteerde eigenschappen en moet overeenkomen met de indeling van de expressie. Bijvoorbeeld, `tags.environment='test'` of `properties.reported.chillerProperties.model='4000x'`. U kunt opgeven `*` om u te richten op alle apparaten.
+
+3. Selecteer **volgende** om door te gaan naar de laatste stap.
+
+### <a name="review-configuration"></a>Configuratie controleren
+
+Uw configuratie-informatie, en selecteer vervolgens **indienen**.
 
 ## <a name="monitor-a-configuration"></a>Een configuratie controleren
 
-Bekijk de details van een configuratie en controleren van de apparaten waarop deze wordt uitgevoerd, gebruik de volgende stappen:
+Bekijk de details van een configuratie en controleren van de apparaten waarop deze wordt uitgevoerd, gebruikt u de volgende stappen uit:
 
-1. In de [Azure-portal][lnk-portal], gaat u naar uw IoT-hub. 
-1. Selecteer **IoT apparaatconfiguratie**.
-2. Inspecteer de configuratielijst. U kunt de volgende gegevens bekijken voor elke configuratie:
+1. In de [Azure-portal](https://portal.azure.com), gaat u naar uw IoT-hub. 
+
+2. Selecteer **IoT apparaatconfiguratie**.
+
+3. Inspecteer de configuratielijst. Voor elke configuratie kunt u de volgende gegevens bekijken:
+
    * **ID** -de naam van de configuratie.
-   * **Doel voorwaarde** -de query gebruikt voor het definiëren van de betreffende apparaten.
+
+   * **Doel van de voorwaarde** -de query die wordt gebruikt voor het definiëren van apparaten uit de doelgroep.
+
    * **Prioriteit** -het getal prioriteit is toegewezen aan de configuratie.
-   * **Aanmaaktijd** -de tijdstempel van wanneer de configuratie is gemaakt. Dit tijdstempel wordt gebruikt voor ties verbroken wanneer twee configuraties dezelfde prioriteit hebben. 
-   * **Systeem metrische gegevens** -metrische gegevens die worden berekend door de IoT Hub en kan niet worden aangepast door ontwikkelaars. Gericht geeft het aantal apparaten horende die overeenkomen met de doel-voorwaarde. Van toepassing is het aantal horende apparaten die zijn gewijzigd door de configuratie, waaronder gedeeltelijke wijzigingen in het geval dat een hogere prioriteit afzonderlijke configuratie ook wijzigingen hebt aangebracht kunt opgegeven. 
-   * **Aangepaste metrische gegevens** -metrische gegevens die zijn opgegeven door de ontwikkelaar als een query uitgevoerd naar apparaat twin eigenschappen gerapporteerd.  Per configuratie kan maximaal vijf aangepaste metrische gegevens worden gedefinieerd. 
+
+   * **Aanmaaktijd** -de timestamp van wanneer de configuratie is gemaakt. Dit tijdstempel wordt gebruikt om ties afbreken wanneer twee configuraties dezelfde prioriteit hebben. 
+
+   * **Systeemmeetgegevens** -metrische gegevens die worden berekend door de IoT Hub en kunnen niet worden aangepast door ontwikkelaars. Gericht geeft het aantal dubbele apparaten die voldoen aan de doelvoorwaarde. Van toepassing is opgegeven, het aantal dubbele apparaten die zijn gewijzigd door de configuratie, waaronder gedeeltelijke wijzigingen in het geval dat een hogere prioriteit afzonderlijke configuratie ook wijzigingen aangebracht. 
+
+   * **Aangepaste metrische gegevens** -metrische gegevens die zijn opgegeven door de ontwikkelaar als query's voor apparaatdubbel-gerapporteerde eigenschappen.  Maximaal vijf aangepaste metrische gegevens kunnen worden gedefinieerd per configuratie. 
    
-1. Selecteer de configuratie die u wilt bewaken.  
-1. Inspecteer de configuratie-informatie. U kunt tabbladen gebruiken om specifieke details over de apparaten die worden ontvangen van de configuratie weer te geven: 
-   * **Doel voorwaarde** -de apparaten die overeenkomen met de doel-voorwaarde. 
-   * **Metrische gegevens** -een lijst met systeem metrische gegevens en aangepaste metrische gegevens.  U kunt een lijst met apparaten die worden geteld voor elke metriek weergeven door te selecteren van de metrische gegevens in de vervolgkeuzelijst **apparaten weergeven**.
-   * **Apparaatinstellingen Twin** -de twin-instellingen voor apparaten die zijn ingesteld door de configuratie. 
-   * **Configuratie Labels** -sleutel-waardeparen die wordt gebruikt om een configuratie te beschrijven.  Labels hebben geen invloed op de functionaliteit. 
+4. Selecteer de configuratie die u wilt bewaken.  
+
+5. Controleer de informatie over de configuratie. U kunt de tabbladen gebruiken om specifieke details over de apparaten die worden ontvangen van de configuratie weer te geven.
+
+   * **Doel van de voorwaarde** -de apparaten die voldoen aan de doelvoorwaarde. 
+
+   * **Metrische gegevens** -een lijst van systeemmeetgegevens en aangepaste metrische gegevens.  U kunt een lijst met apparaten die worden geteld voor elke metrische gegevens weergeven door het selecteren van de metrische gegevens in de vervolgkeuzelijst en selecteer vervolgens **apparaten weergeven**.
+
+   * **Dubbele apparaatinstellingen** -de dubbele-instellingen voor apparaten die zijn ingesteld door de configuratie. 
+
+   * **Configuratie van Labels** -sleutel-waardeparen gebruikt om te beschrijven van een configuratie.  Labels hebben geen invloed op de functionaliteit. 
 
 ## <a name="modify-a-configuration"></a>Een configuratie wijzigen
 
-Wanneer u een configuratie wijzigt, worden de wijzigingen direct repliceren naar alle apparaten. 
+Wanneer u een configuratie wijzigt, worden de wijzigingen onmiddellijk gerepliceerd naar alle apparaten uit de doelgroep. 
 
-Als u de doelvoorwaarden bijwerkt, gebeuren de volgende updates:
-* Als een apparaat-twin niet voldoen aan de oude doelvoorwaarden, maar voldoet aan de nieuwe doel-voorwaarde en deze configuratie de hoogste prioriteit voor dat apparaat is, wordt deze configuratie toegepast op de apparaat-twin. 
-* Als een apparaat-twin voldoet niet aan de doelvoorwaarden, de instellingen van de configuratie wordt verwijderd en de apparaat-twin wordt gewijzigd door de configuratie van de volgende hoogste prioriteit. 
-* Als een apparaat twin momenteel met deze configuratie niet meer voldoet aan de voorwaarde doel en voldoet niet aan de voorwaarde van het doel van alle andere configuraties, de instellingen van de configuratie wordt verwijderd en geen andere wijzigingen worden aangebracht op de twin. 
+Als u de doelvoorwaarde bijwerkt, gebeuren de volgende updates:
 
-Gebruik de volgende stappen voor het wijzigen van een configuratie: 
+* Als een apparaatdubbel is niet voldoen aan de oude doelvoorwaarde, maar voldoet aan de nieuwe doelvoorwaarde en deze configuratie de hoogste prioriteit voor die apparaatdubbel is, wordt deze configuratie toegepast op het dubbele apparaat. 
 
-1. In de [Azure-portal][lnk-portal], gaat u naar uw IoT-hub. 
-1. Selecteer **IoT apparaatconfiguratie**. 
-2. Selecteer de configuratie die u wilt wijzigen. 
-3. Updates aanbrengen in de volgende velden: 
-   * Doelvoorwaarden 
+* Als een apparaatdubbel is niet meer voldoet aan de doelvoorwaarde, de instellingen van de configuratie wordt verwijderd en het dubbele apparaat wordt gewijzigd door de configuratie van de volgende hoogste prioriteit. 
+
+* Als een apparaatdubbel momenteel met deze configuratie niet meer voldoet aan de doelvoorwaarde en niet voldoet aan de doelvoorwaarde van alle andere configuraties, klikt u vervolgens de instellingen van de configuratie wordt verwijderd en geen andere wijzigingen worden aangebracht op het dubbele. 
+
+Voor het wijzigen van een configuratie, gebruikt u de volgende stappen uit: 
+
+1. In de [Azure-portal](https://portal.azure.com), gaat u naar uw IoT-hub. 
+
+2. Selecteer **IoT apparaatconfiguratie**. 
+
+3. Selecteer de configuratie die u wilt wijzigen. 
+
+4. Updates aanbrengen in de volgende velden: 
+
+   * Doelvoorwaarde 
    * Labels 
    * Prioriteit 
    * Metrische gegevens
+
 4. Selecteer **Opslaan**.
-5. Volg de stappen in [Monitor een configuratie] [anker-monitor] bekijkt u de wijzigingen implementeert. 
+
+5. Volg de stappen in [bewaken van een configuratie](#monitor-a-configuration) om te bekijken van de wijzigingen worden uitgerold. 
 
 ## <a name="delete-a-configuration"></a>Een configuratie verwijderen
 
-Wanneer u een configuratie verwijdert, nemen alle horende apparaten op hun volgende hoogste prioriteit-configuratie. Als horende apparaten niet voldoen aan de voorwaarde van het doel van een andere configuratie, wordt er geen andere instellingen toegepast. 
+Wanneer u een configuratie verwijdert, worden alle dubbele apparaten op de volgende configuratie met hoogste prioriteit. Als u dubbele apparaten niet voldoen aan de doelvoorwaarde van een andere configuratie, wordt er geen andere instellingen toegepast. 
 
-1. In de [Azure-portal][lnk-portal], gaat u naar uw IoT-hub. 
-1. Selecteer **IoT apparaatconfiguratie**. 
-2. Gebruik het selectievakje in om de configuratie die u wilt verwijderen. 
-3. Selecteer **Verwijderen**.
-4. Een prompt wordt u gevraagd te bevestigen.
+1. In de [Azure-portal](https://portal.azure.com) Ga naar uw IoT-hub. 
+
+2. Selecteer **IoT apparaatconfiguratie**. 
+
+3. Gebruik het selectievakje in om de configuratie die u wilt verwijderen. 
+
+4. Selecteer **Verwijderen**.
+
+5. Een prompt wordt u gevraagd om te bevestigen.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe configureren en controleren van de IoT-apparaten op schaal. Volg deze koppelingen voor meer informatie over het beheren van Azure IoT Hub:
 
-* [Beheren van uw IoT Hub apparaat-id's in bulk][lnk-bulkIDs]
-* [IoT Hub metrische gegevens][lnk-metrics]
-* [Bewerkingen controleren][lnk-monitor]
+In dit artikel hebt u geleerd hoe configureren en controleren van IoT-apparaten op schaal. Volg deze koppelingen voor meer informatie over het beheren van Azure IoT Hub:
+
+* [Uw IoT-Hub apparaatidentiteiten bulksgewijs beheren](iot-hub-bulk-identity-mgmt.md)
+* [Metrische gegevens van IoT Hub](iot-hub-metrics.md)
+* [Controle van bewerkingen](iot-hub-operations-monitoring.md)
 
 Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
-* [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide]
-* [AI implementeren op Edge-apparaten met Azure IoT Edge][lnk-iotedge]
+* [Ontwikkelaarshandleiding voor IoT Hub](iot-hub-devguide.md)
+* [AI implementeren op edge-apparaten met Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
-Als u wilt verkennen met behulp van de IoT Hub apparaat inrichtingsservice om in te schakelen zonder tussenkomst, Zie just-in-time-inrichting: 
+Om te verkennen met behulp van de IoT Hub Device Provisioning Service inschakelen zero-touch, just-in-time inrichting, Zie: 
 
-* [Azure IoT Hub apparaat-Service inricht][lnk-dps]
-
-[lnk-device-twin]: iot-hub-devguide-device-twins.md
-[lnk-bulkIDs]: iot-hub-bulk-identity-mgmt.md
-[lnk-metrics]: iot-hub-metrics.md
-[lnk-monitor]: iot-hub-operations-monitoring.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
-[lnk-portal]: https://portal.azure.com
+* [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)

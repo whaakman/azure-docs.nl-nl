@@ -4,16 +4,16 @@ description: Meer informatie over de Azure IoT Edge-runtime en hoe deze in staat
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/05/2018
+ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 36750a4d907da1d4fa029aca0ecc503db7e82d81
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f832b05969c028880f6e375ff4a2ee8dc7a7eaf4
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526089"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42058365"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>De Azure IoT Edge-runtime en de bijbehorende architectuur begrijpen
 
@@ -23,9 +23,9 @@ IoT Edge-runtime voert de volgende functies op IoT Edge-apparaten:
 
 * Installeert workloads op het apparaat en werkt deze bij.
 * Onderhoudt de Azure IoT Edge-beveiligingsstandaarden op het apparaat.
-* Zorgt ervoor dat [IoT Edge-modules][lnk-modules] altijd worden uitgevoerd.
+* Zorgt ervoor dat [IoT Edge-modules] [ lnk-modules] altijd worden uitgevoerd.
 * Rapporteert de status van de module aan de cloud voor externe bewaking.
-* Vergemakkelijkt de communicatie tussen downstream leaf-apparaten en het IoT Edge-apparaat.
+* Vergemakkelijkt de communicatie tussen downstream leaf-apparaten en IoT Edge-apparaten.
 * Vergemakkelijkt de communicatie tussen modules op het IoT Edge-apparaat.
 * Vergemakkelijkt de communicatie tussen het IoT Edge-apparaat en de cloud.
 
@@ -33,7 +33,7 @@ IoT Edge-runtime voert de volgende functies op IoT Edge-apparaten:
 
 De verantwoordelijkheden van de IoT Edge-runtime kunnen worden onderverdeeld in twee categorieën: Modulebeheer en communicatie. Deze twee rollen worden uitgevoerd door twee onderdelen die gezamenlijk de IoT Edge-runtime. De IoT Edge hub is verantwoordelijk voor communicatie, terwijl de IoT Edge-agent wordt beheerd, implementeren en controleren van de modules. 
 
-Zowel de Edge agent en Edge hub zijn modules, net als elke andere module die wordt uitgevoerd op een IoT Edge-apparaat. Zie voor meer informatie over de werking van modules [lnk-modules]. 
+Zowel de Edge agent en Edge hub zijn modules, net als elke andere module die wordt uitgevoerd op een IoT Edge-apparaat. 
 
 ## <a name="iot-edge-hub"></a>IoT Edge hub
 
@@ -52,9 +52,6 @@ Als u wilt de bandbreedte reduceren uw IoT Edge-oplossing gebruikt, de Edge hub 
 ![Edge hub fungeert als een gateway tussen meerdere fysieke apparaten en de cloud][2]
 
 Edge hub kunt bepalen of deze verbonden met IoT Hub. Als de verbinding verbroken wordt, Edge hub-berichten of dubbele updates lokaal wordt opgeslagen. Zodra een verbinding opnieuw tot stand is gebracht, worden deze gesynchroniseerd met alle gegevens. De locatie die wordt gebruikt voor deze tijdelijke cache wordt bepaald door een eigenschap van de moduledubbel van de Edge hub. De grootte van de cache wordt niet beperkt tot, en zullen groeien zolang het apparaat heeft opslagcapaciteit. 
-
->[!NOTE]
->Controle over aanvullende opslaan in cache parameters toe te voegen wordt aan het product worden toegevoegd voordat deze algemeen beschikbaar komt.
 
 ### <a name="module-communication"></a>Module-communicatie
 
@@ -86,11 +83,11 @@ De ontwikkelaar van de oplossing is verantwoordelijk voor het opgeven van de reg
 
 De IoT Edge-agent is de module die de Azure IoT Edge-runtime vormt. Het is verantwoordelijk voor het instantiëren van modules, ervoor te zorgen dat ze worden uitgevoerd en de status van de modules teruggestuurd rapportages naar IoT Hub. Net als elke andere module gebruikt de Edge agent de moduledubbel voor het opslaan van deze configuratiegegevens. 
 
-Als u wilt uitvoeren van de Edge agent, moet u de azure-iot-edge-runtime-ctl.py start-opdracht uitvoeren. De agent haalt de moduledubbel van IoT-Hub en inspecteert de woordenlijst modules. De modules woordenlijst is een verzameling van modules die worden gestart. 
+De [IoT Edge security daemon](iot-edge-security-manager.md) wordt de Edge agent wordt gestart bij het opstarten van apparaat. De agent haalt de moduledubbel van IoT-Hub en inspecteert het manifest van de implementatie. Het manifest voor de implementatie is een JSON-bestand dat verklaart de modules die worden gestart. 
 
-Elk item in de woordenlijst modules bevat specifieke informatie over een module en door de Edge agent wordt gebruikt voor het beheren van de levenscyclus van de module. Sommige van de interessanter eigenschappen zijn: 
+Elk item in het manifest van de implementatie bevat specifieke informatie over een module en door de Edge agent wordt gebruikt voor het beheren van de levenscyclus van de module. Sommige van de interessanter eigenschappen zijn: 
 
-* **Settings.Image** – de container-installatiekopie die gebruikmaakt van de Edge agent te starten van de module. De Edge agent moet worden geconfigureerd met referenties voor de container registry als de afbeelding met een wachtwoord is beveiligd. Voor het configureren van de Edge agent bijwerken de `config.yaml` bestand. In Linux, gebruikt u de volgende opdracht uit: `sudo nano /etc/iotedge/config.yaml`
+* **Settings.Image** – de container-installatiekopie die gebruikmaakt van de Edge agent te starten van de module. De Edge agent moet worden geconfigureerd met referenties voor de container registry als de afbeelding met een wachtwoord is beveiligd. Referenties voor het containerregister dat kan worden geconfigureerd op afstand met behulp van de implementatie van het manifest, of op het Edge-apparaat zelf door bij te werken de `config.yaml` bestand in de map IoT Edge-programma.
 * **settings.createOptions** : een tekenreeks is die rechtstreeks naar de Docker-daemon wordt doorgegeven bij het starten van een module-container. Docker-opties toe te voegen in deze eigenschap kunt voor geavanceerde opties, zoals poort doorsturen of koppelen van volumes in de container van een module.  
 * **status** – de status waarin de Edge agent de module plaatst. Deze waarde wordt meestal ingesteld op *met* als de meeste mensen willen de Edge agent om direct te starten alle modules op het apparaat. U kan echter de initiële status van een module om te worden gestopt en wachten op een later tijdstip te zien van de Edge-agent te starten van een module opgeven. De Edge agent rapporteert de status van elke module terug naar de cloud in de gerapporteerde eigenschappen. Een verschil tussen de gewenste eigenschap en de gerapporteerde eigenschap is een indicator van een metagegevenscaching apparaat. De ondersteunde statussen zijn:
    * Downloaden
@@ -114,13 +111,13 @@ De IoT Edge-agent verzendt runtimereactie naar IoT Hub. Hier volgt een lijst van
 
 ### <a name="security"></a>Beveiliging
 
-De IoT Edge agent speelt een cruciale rol in de beveiliging van een IoT Edge-apparaat. Bijvoorbeeld, worden er acties, zoals de installatiekopie van een module controleren voordat u begint met het uitgevoerd. Deze functies worden toegevoegd bij algemene beschikbaarheid. 
+De IoT Edge agent speelt een cruciale rol in de beveiliging van een IoT Edge-apparaat. Bijvoorbeeld, worden er acties, zoals de installatiekopie van een module controleren voordat u begint met het uitgevoerd. 
 
-<!-- For more information about the Azure IoT Edge security framework, see []. -->
+Voor meer informatie over het Azure IoT Edge security-framework, leest u over de [IoT Edge-beveiligingsbeheer](iot-edge-security-manager.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Informatie over Azure IoT Edge-modules][lnk-modules]
+[Informatie over Azure IoT Edge-modules][lnk-modules]
 
 <!-- Images -->
 [1]: ./media/iot-edge-runtime/Pipeline.png

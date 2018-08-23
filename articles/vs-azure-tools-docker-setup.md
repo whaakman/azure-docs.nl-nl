@@ -1,6 +1,6 @@
 ---
 title: Een Docker-Host configureren met VirtualBox | Microsoft Docs
-description: Stapsgewijze instructies voor het configureren van een standaard Docker-exemplaar met behulp van Docker-Machine en VirtualBox
+description: Stapsgewijze instructies voor het configureren van een standaard-Docker-exemplaar met behulp van Docker Machine en VirtualBox
 services: azure-container-service
 documentationcenter: na
 author: mlearned
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
 ms.author: mlearned
-ms.openlocfilehash: 11e238fa901a164df1dfd896e38df828601e650b
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 7c78f27fa948c15202e83df4ed42a805a414a72e
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30190395"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42055068"
 ---
-# <a name="configure-a-docker-host-with-virtualbox"></a>Een Docker-Host met VirtualBox configureren
+# <a name="configure-a-docker-host-with-virtualbox"></a>Een Docker-Host configureren met VirtualBox
 ## <a name="overview"></a>Overzicht
-In dit artikel begeleidt u bij het configureren van een standaard Docker-exemplaar met behulp van Docker-Machine en VirtualBox. Als u de [Docker voor Windows beta](http://beta.docker.com/), deze configuratie is niet nodig.
+In dit artikel begeleidt u bij het configureren van een standaard-Docker-exemplaar met behulp van Docker Machine en VirtualBox. Als u de [Docker voor Windows](https://www.docker.com/products/docker-desktop), deze configuratie is niet nodig.
 
 ## <a name="prerequisites"></a>Vereisten
 De volgende hulpprogramma's moeten worden geïnstalleerd.
@@ -31,7 +31,7 @@ De volgende hulpprogramma's moeten worden geïnstalleerd.
 * [Docker-werkset](https://github.com/docker/toolbox/releases)
 
 ## <a name="configuring-the-docker-client-with-windows-powershell"></a>De Docker-client configureren met Windows PowerShell
-Voor het configureren van een client Docker gewoon opent u Windows PowerShell en voer de volgende stappen uit:
+Voor het configureren van een Docker-client, gewoon opent u Windows PowerShell en voer de volgende stappen uit:
 
 1. Maak een standaardexemplaar van de docker-host.
    
@@ -44,8 +44,8 @@ Voor het configureren van een client Docker gewoon opent u Windows PowerShell en
     docker-machine ls 
     ```
    
-    ![docker-machine ls-uitvoer][0]
-3. Als de huidige host instellen en configureren van de shell.
+    ![docker-machine ls uitvoer][0]
+3. Als de huidige host instellen en configureren van uw shell.
    
     ```PowerShell
     docker-machine env default | Invoke-Expression
@@ -59,8 +59,8 @@ Voor het configureren van een client Docker gewoon opent u Windows PowerShell en
     ![docker ps-uitvoer][1]
 
 > [!NOTE]
-> Telkens wanneer die u opnieuw opstarten van uw ontwikkelcomputer, moet u opnieuw opstarten van uw lokale docker-host.
-> Geef hiertoe de volgende opdracht achter de opdrachtprompt: `docker-machine start default`.
+> Telkens wanneer die u start opnieuw op uw ontwikkelmachine, moet u opnieuw opstarten van uw lokale docker-host.
+> U doet dit door de volgende opdracht achter de opdrachtprompt: `docker-machine start default`.
 > 
 > 
 

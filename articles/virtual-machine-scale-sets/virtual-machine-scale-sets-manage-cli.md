@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: a9e01039f1fbf46739ff8dbafea411aad2c3f4f2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 512dd7c3318022106b721d8f215bff17de51e51d
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308050"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42058061"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Beheren van een virtuele-machineschaalset met de Azure CLI 2.0
 Gedurende de levenscyclus van een schaalset voor virtuele machines moet u mogelijk een of meer beheertaken uitvoeren. Bovendien wilt u misschien scripts maken die verschillende levenscyclustaken automatiseren. Dit artikel worden enkele van de algemene Azure CLI 2.0-opdrachten waarmee u kunnen deze taken uitvoeren.
@@ -92,7 +92,7 @@ Het duurt een paar minuten om de capaciteit van de schaalset bij te werken. Als 
 
 
 ## <a name="stop-and-start-vms-in-a-scale-set"></a>Stoppen en starten van virtuele machines in een schaalset
-Als u wilt stoppen met een of meer virtuele machines in een schaalset, gebruikt u [az vmss stop](/cli/azure/vmss/stop). Met de parameter `--instance-ids` kunt u een of meer VM's opgeven om te stoppen. Als u geen exemplaar-id opgeeft, worden alle VM's in de schaalset gestopt. Als u wilt stoppen met meerdere virtuele machines, scheidt u elke instantie-ID met een spatie.
+Als u wilt stoppen met een of meer virtuele machines in een schaalset, gebruikt u [az vmss stop](/cli/azure/vmss#az-vmss-stop). Met de parameter `--instance-ids` kunt u een of meer VM's opgeven om te stoppen. Als u geen exemplaar-id opgeeft, worden alle VM's in de schaalset gestopt. Als u wilt stoppen met meerdere virtuele machines, scheidt u elke instantie-ID met een spatie.
 
 Het volgende voorbeeld stopt exemplaar *0* in de schaalset met de naam *myScaleSet* en de *myResourceGroup* resourcegroep. Geef uw eigen waarden als volgt:
 

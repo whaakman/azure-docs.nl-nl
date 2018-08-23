@@ -8,19 +8,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: f2a95ac879dd2d6b1af3d50e1be53efac26331c4
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 11cec9621ad72cfeaee45e4cd466430e64b9b836
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525549"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42054854"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referentie - IoT-Hub-quota en beperkingen
 
 ## <a name="quotas-and-throttling"></a>Quota en beperkingen
 Elk Azure-abonnement zijn maximaal 50 IoT-hubs en maximaal 1 gratis hub.
 
-Elke IoT-hub is ingericht met een bepaald aantal eenheden in een bepaalde laag. Zie voor meer informatie, [prijzen van Azure IoT Hub][lnk-pricing]. De laag en het aantal eenheden bepalen de maximale dagelijkse quotum voor berichten die u kunt verzenden.
+Elke IoT-hub is ingericht met een bepaald aantal eenheden in een bepaalde laag. De laag en het aantal eenheden bepalen de maximale dagelijkse quotum voor berichten die u kunt verzenden. De grootte van het bericht gebruikt voor het berekenen van dat het dagelijkse quotum is 0,5 KB voor een gratis laag-hub en 4KB voor alle andere lagen. Zie voor meer informatie, [prijzen van Azure IoT Hub][lnk-pricing].
 
 De laag bepaalt ook de bandbreedteregeling limieten die IoT Hub wordt afgedwongen op alle bewerkingen.
 

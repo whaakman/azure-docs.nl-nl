@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 056716e243980f0a8aadc1ff7e9b8776809ad88e
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 660080a629e00884dd61a49bc0950ebe25b6a0c5
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036394"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42060777"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Aantekeningen op grafieken met metrische gegevens in Application Insights
 Aantekeningen op [Metrics Explorer](app-insights-metrics-explorer.md) grafieken weergeven waar u een nieuwe build of andere belangrijke gebeurtenis hebt geïmplementeerd. Ze maken het gemakkelijk om te zien of uw wijzigingen geen effect op de prestaties van uw toepassing heeft. Ze automatisch kunnen worden gemaakt door de [bouwen van Visual Studio Team Services-systeem](https://docs.microsoft.com/vsts/pipelines/tasks/). U kunt ook maken met aantekeningen voor het markeren van een gebeurtenis die u met wilt [ze worden gemaakt vanuit PowerShell](#create-annotations-from-powershell).
@@ -34,7 +34,7 @@ Release-aantekeningen zijn een functie van de cloud gebaseerde build en release-
 ### <a name="install-the-annotations-extension-one-time"></a>Installeer de extensie aantekeningen (één keer)
 Als u om release-aantekeningen te maken, moet u een van de vele beschikbare Team Service-extensies installeren in de Visual Studio Marketplace.
 
-1. Aanmelden bij uw [Visual Studio Team Services](https://www.visualstudio.com/en-us/get-started/setup/sign-up-for-visual-studio-online) project.
+1. Aanmelden bij uw [Visual Studio Team Services](https://visualstudio.microsoft.com/vso/) project.
 2. In Visual Studio Marketplace, [ophalen van de extensie Versieaantekeningen](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations), en voeg deze toe aan uw Team Services-account.
 
 ![AT rechtsboven in Team Services-webpagina, open Marketplace. Selecteer Visual Team Services en vervolgens Kies meer onder Build and Release.](./media/app-insights-annotations/10.png)

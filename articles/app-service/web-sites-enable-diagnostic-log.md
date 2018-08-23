@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 0eefb8ecb7c9641b3e025054f54e2b7cf97b94bd
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 37b11eea5c37103c0bc296a5f466658fbc77ed24
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206000"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42061329"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Diagnostische logboekregistratie inschakelen voor web-apps in Azure App Service
 ## <a name="overview"></a>Overzicht
@@ -171,7 +171,7 @@ Om te filteren op specifieke logboek typen, zoals HTTP, gebruikt u de **-pad** p
 Een lijst van beschikbare paden wilt bekijken, gebruikt u de parameter - ListPath.
 
 > [!NOTE]
-> Als u Azure PowerShell nog niet hebt geïnstalleerd, of zijn niet geconfigureerd voor het gebruik van uw Azure-abonnement, Zie [over het gebruik van Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Als u Azure PowerShell nog niet hebt geïnstalleerd, of zijn niet geconfigureerd voor het gebruik van uw Azure-abonnement, Zie [over het gebruik van Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 >
 >
 
@@ -219,7 +219,7 @@ Wanneer u zich naar table storage, worden aanvullende eigenschappen worden gebru
 | --- | --- |
 | PartitionKey |Datum/tijd van de gebeurtenis in de indeling yyyyMMddHH |
 | RowKey |Een GUID-waarde die deze entiteit wordt aangeduid |
-| Timestamp |De datum en tijd waarop de gebeurtenis heeft plaatsgevonden |
+| Tijdstempel |De datum en tijd waarop de gebeurtenis heeft plaatsgevonden |
 | EventTickCount |De datum en tijd waarop de gebeurtenis heeft plaatsgevonden, in de indeling van de maatstreepjes (grotere precisie) |
 | ApplicationName |De naam van de web-app |
 | Niveau |Gebeurtenisniveau (bijvoorbeeld fout, waarschuwing, informatie) |

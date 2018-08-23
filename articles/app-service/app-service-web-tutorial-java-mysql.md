@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 77cd4c1d5333f7f10e6caccee5011200bdb4ccca
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5e1d7a88e5a1a8ab60a01aea6ca42e850ac6e0e3
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424385"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41918460"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Zelfstudie: een Java- en MySQL-web-app bouwen in Azure
 
@@ -243,7 +243,7 @@ Wanneer het plan klaar is, laat de Azure CLI uitvoer zien die vergelijkbaar is m
 
 ### <a name="create-an-azure-web-app"></a>Een Azure-web-app maken
 
-Gebruik in de Cloud Shell de CLI-opdracht [`az webapp create`](/cli/azure/appservice/web#az-appservice-web-create) voor het maken van de definitie van een web-app in het `myAppServicePlan` App Service-plan. De definitie van de web-app biedt een URL voor toegang tot uw toepassing en configureert diverse opties voor het implementeren van uw code naar Azure. 
+Gebruik in de Cloud Shell de CLI-opdracht [`az webapp create`](/cli/azure/webapp#az-webapp-create) voor het maken van de definitie van een web-app in het `myAppServicePlan` App Service-plan. De definitie van de web-app biedt een URL voor toegang tot uw toepassing en configureert diverse opties voor het implementeren van uw code naar Azure. 
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
@@ -282,7 +282,7 @@ az webapp config set --name <app_name> --resource-group myResourceGroup --java-v
 
 Voordat u de voorbeeld-app uitvoert, stelt u toepassingsinstellingen op de web-app in om de Azure MySQL-database te gebruiken die u in Azure hebt gemaakt. Deze eigenschappen worden als omgevingsvariabelen blootgesteld aan de webtoepassing en overschrijven de waarden in de application.properties binnen de verpakte web-app. 
 
-Stel in de Cloud Shell de toepassingsinstellingen in met [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/appservice/web/config/appsettings) in de CLI:
+Stel in de Cloud Shell de toepassingsinstellingen in met [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/webapp/config/appsettings) in de CLI:
 
 ```azurecli-interactive
 az webapp config appsettings set --settings SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" --resource-group myResourceGroup --name <app_name>
@@ -299,7 +299,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ### <a name="get-ftp-deployment-credentials"></a>FTP-implementatiereferenties verkrijgen 
 U kunt uw web-app op verschillende manieren in Azure App Service implementeren, zoals met FTP, lokale Git, GitHub, Visual Studio Team Services en Bitbucket. In dit voorbeeld gebruikt u FTP voor het implementeren van het .WAR-bestand dat eerder op uw lokale machine in Azure App Service is gebouwd.
 
-Gebruik de opdracht [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/appservice/web/deployment#az-appservice-web-deployment-list-publishing-profiles) in de Cloud Shell om te bepalen welke referenties u door moet geven in een FTP-opdracht in de web-app: 
+Gebruik de opdracht [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/webapp/deployment#az-appservice-web-deployment-list-publishing-profiles) in de Cloud Shell om te bepalen welke referenties u door moet geven in een FTP-opdracht in de web-app: 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json

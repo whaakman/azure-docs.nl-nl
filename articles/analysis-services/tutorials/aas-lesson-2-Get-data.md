@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e10f6cdb60a2c03bfb42e46f179546b623d625dd
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 5803bf2c71b2cf3fe7bb145b4d3d664c60642294
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443763"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42059109"
 ---
 # <a name="get-data"></a>Gegevens ophalen
 
@@ -52,11 +52,11 @@ Dit onderwerp maakt deel uit van een zelfstudie over het ontwerpen van een tabel
   
 5.  Selecteer in Navigator de database **AdventureWorksDW2014** en klik vervolgens op **OK**. Hiermee wordt de verbinding met de database tot stand gebracht. 
   
-6.  Schakel in Navigator het selectievakje van de volgende tabellen in : **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**, **DimProductCategory**, **DimProductSubcategory** en **FactInternetSales**.  
+6.  Selecteer in Navigator het selectievakje in voor de volgende tabellen: **DimCustomer**, **DimDate**, **DimGeography**, **DimProduct**,  **DimProductCategory**, **DimProductSubcategory**, en **FactInternetSales**, en klik vervolgens op **bewerken**.
 
     ![aas-lesson2-select-tables](../tutorials/media/aas-lesson2-select-tables.png)
   
-Als u op OK klikt, wordt Query Editor geopend. In de volgende sectie gaat u de gegevens selecteren die u wilt importeren.
+    De Query-Editor wordt geopend. In de volgende sectie gaat u de gegevens selecteren die u wilt importeren.
 
   
 ## <a name="filter-the-table-data"></a>De tabelgegevens filteren  

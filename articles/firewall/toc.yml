@@ -1,54 +1,62 @@
+items:
 - name: Documentatie voor Azure Firewall
   href: index.yml
 - name: Overzicht
   items:
-    - name: Wat is Azure Firewall?
-      href: overview.md
+  - name: Wat is Azure Firewall?
+    href: overview.md
 - name: Zelfstudies
   items:
-    - name: 1. Implementeren en configureren
-      href: tutorial-firewall-deploy-portal.md
-    - name: 2. Diagnostische logboeken bewaken
-      href: tutorial-diagnostics.md
+  - name: 1. Implementeren en configureren
+    href: tutorial-firewall-deploy-portal.md
+  - name: 2. Diagnostische logboeken bewaken
+    href: tutorial-diagnostics.md
+  expanded: true
 - name: Voorbeelden
   items:
-    - name: Azure PowerShell
-      href: sample-powershell.md
+  - name: Azure PowerShell
+    href: sample-powershell.md
 - name: Handleidingen
   items:
-    - name: Aanmelden voor openbare preview
-      href: public-preview.md
-    - name: Implementeren met behulp van een sjabloon
-      href: deploy-template.md
+  - name: Aanmelden voor openbare preview
+    href: public-preview.md
+  - name: Implementeren met behulp van een sjabloon
+    href: deploy-template.md
 - name: Naslaginformatie
   items:
-    - name: Azure-CLI
-      href: /cli/azure/network
-    - name: Azure PowerShell
-      href: /powershell/azure/overview
-    - name: .NET
-      href: /dotnet/api
-    - name: Java
-      href: /java/api
-    - name: Node.js
-      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
-    - name: Python
-      href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
-      href: /rest/api/firewall
-    - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
+  - name: Azure-CLI
+    href: /cli/azure/network
+  - name: Azure PowerShell
+    href: /powershell/azure/overview
+  - name: .NET
+    href: /dotnet/api
+  - name: Java
+    href: /java/api
+  - name: Node.js
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: REST
+    href: /rest/api/firewall
+  - name: Azure Resource Manager
+    href: ../azure-resource-manager/resource-group-overview.md
 - name: Resources
   items:
-    - name: Veelgestelde vragen
-      href: firewall-faq.md
-    - name: Auteursjablonen
-      href: ../azure-resource-manager/resource-group-authoring-templates.md
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Communitysjablonen
-      href: 'https://azure.microsoft.com/documentation/templates'
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/#Linux'
-    - name: Regionale beschikbaarheid
-      href: 'https://azure.microsoft.com/regions/services/'
+  - name: Veelgestelde vragen
+    href: firewall-faq.md
+  - name: Auteursjablonen
+    href: ../azure-resource-manager/resource-group-authoring-templates.md
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Communitysjablonen
+    href: https://azure.microsoft.com/documentation/templates
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/#Linux
+  - name: Regionale beschikbaarheid
+    href: https://azure.microsoft.com/regions/services/
+ms.openlocfilehash: 5b4ec962353e1d948725839dfd3b7ef72f883ee1
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41927301"

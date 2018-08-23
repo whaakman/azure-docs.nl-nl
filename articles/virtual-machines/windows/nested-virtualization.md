@@ -11,22 +11,24 @@ ms.topic: howto
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 3b606fc78327035e135e0f037288a817171385dd
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 0d47b89a468aade8cec51ec04709ed99bfd4684c
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857941"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42054864"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Het inschakelen van geneste virtualisatie in een Azure-VM
 
-Geneste virtualisatie wordt ondersteund in de Dv3- en Ev3-serie virtuele machines van Azure. Deze mogelijkheid biedt hoge mate van flexibiliteit in scenario's zoals ontwikkeling, testen, training en demo-omgevingen ondersteunen. 
+Geneste virtualisatie wordt ondersteund in verschillende virtuele machine van Azure-families. Deze mogelijkheid biedt hoge mate van flexibiliteit in scenario's zoals ontwikkeling, testen, training en demo-omgevingen ondersteunen.   
 
-Alle Dv3- en Ev3-serie virtuele machines ondersteunen geneste virtualisatie zonder extra configuratie.  In dit artikel wordt stapsgewijs uitgelegd Hyper-V op een virtuele Azure-machine inschakelen en configureren van verbinding met Internet op die virtuele gastmachine.
+In dit artikel wordt stapsgewijs uitgelegd Hyper-V op een virtuele Azure-machine inschakelen en configureren van verbinding met Internet op die virtuele gastmachine.
 
-## <a name="create-a-dv3-or-ev3-series-azure-vm"></a>Een Dv3 of Ev3-serie virtuele Azure-machine maken
+## <a name="create-a-nesting-capable-azure-vm"></a>Een geneste kunnen Azure-VM maken
 
-Maak een nieuwe Windows Server 2016 Azure VM en kies een grootte van de Dv3 of Ev3-serie. Zorg ervoor dat u kiest een omvang die groot genoeg is voor de ondersteuning van de eisen van een virtuele gastmachine. In dit voorbeeld gebruiken we een D3_v3 grootte virtuele machine van Azure. 
+Maak een nieuwe Windows Server 2016 Azure VM.  Voor snelle motorkap ondersteuning alle v3 virtuele machines voor geneste virtualisatie. Voor een volledige lijst van de VM-die nesten ondersteuning grootten, bekijk de [Azure Compute-eenheid artikel](acu.md).
+
+Vergeet niet om een groot genoeg is voor de ondersteuning van de eisen van een virtuele gastmachine VM-grootte kiezen. In dit voorbeeld gebruiken we een D3_v3 grootte virtuele machine van Azure. 
 
 U kunt de regionale beschikbaarheid van de Dv3 of Ev3-serie virtuele machines weergeven [hier](https://azure.microsoft.com/regions/services/).
 

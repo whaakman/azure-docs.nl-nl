@@ -4,14 +4,14 @@ description: U leert hier hoe u een herstelanalyse uitvoert van on-premises naar
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 08/13/2018
 ms.author: raynew
-ms.openlocfilehash: af8062fc0134975542c8a5ec420c790f33996154
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 33cbe29771573bd234548f549ed6027fb5801945
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920168"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41919892"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Noodherstelanalyse uitvoeren in Azure
 
@@ -32,7 +32,7 @@ In deze zelfstudie leert u het volgende:
 > * Voorbereiden om verbinding te maken met de virtuele Azure-machine na de failover
 > * Een failovertest uitvoeren voor één machine
 
-Deze zelfstudie
+
 
 ## <a name="verify-vm-properties"></a>VM-eigenschappen verifiëren
 

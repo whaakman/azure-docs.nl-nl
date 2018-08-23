@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/25/2018
 ms.author: juliako
-ms.openlocfilehash: 9a926eb274e5e4cec721864d1d9c5faee8ec58ef
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 43cc02417fad8a2fa46bd309235951393cd55b8a
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618329"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41987527"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Bekijk de Video Indexer-uitvoer geproduceerd door de v2-API
 
@@ -81,8 +81,8 @@ In deze sectie bevat een overzicht van de inzichten.
 |shortId|De ID van de video. Bijvoorbeeld: 63c6d532ff.|
 |privacyMode|Uitsplitsing van uw kan hebben een van de volgende modi: **persoonlijke**, **openbare**. **Openbare** -de video is zichtbaar voor iedereen in uw account en iedereen met een koppeling naar de video. **Persoonlijke** -de video is zichtbaar voor iedereen in uw account.|
 |duur|Bevat een duur van de beschrijving van de tijd die een inzicht is opgetreden. Er is een duur in seconden.|
-|thumbnailVideoId|De id van de video van waaruit de miniatuur is gehaald.
-|thumbnailId|Miniaturen van de video-id. Om op te halen van de werkelijke miniaturen aanroep Get-miniatuur (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) en deze doorgeven thumbnailVideoId en thumbnailId.|
+|thumbnailVideoId|De ID van de video van waaruit de miniatuur is gehaald.
+|thumbnailId|Miniatuur van de video-id. Om op te halen van de werkelijke miniaturen aanroep Get-miniatuur (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) en deze doorgeven thumbnailVideoId en thumbnailId.|
 |gezichten|Kan nul of meer gezichten bevatten. Zie voor meer informatie, [gezichten](#faces).|
 |trefwoorden|Kan nul of meer trefwoorden bevatten. Zie voor meer informatie, [trefwoorden](#keywords).|
 |sentimenten|Kan nul of meer sentimenten bevatten. Zie voor meer informatie, [sentimenten](#sentiments).|
@@ -107,7 +107,7 @@ In deze sectie bevat een overzicht van de inzichten.
 |metagegevens|De metagegevens van video's externe (indien opgegeven door de gebruiker).|
 |isAdult|Geeft aan of er handmatig de video is bekeken en geïdentificeerd als een volwassene video.|
 |inzichten|De insights-object. Zie voor meer informatie, [insights](#insights).|
-|thumbnailId|Miniaturen van de video-id. Om op te halen van de werkelijke miniaturen aanroep Get-miniatuur (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) en geef deze de video-id en thumbnailId.|
+|thumbnailId|Miniatuur van de video-id. Om op te halen van de werkelijke miniaturen aanroep Get-miniatuur (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) en geeft die door de video-ID en thumbnailId.|
 |publishedUrl|Een url naar de video te streamen.|
 |publishedUrlProxy|Een url naar het streamen van video van (voor Apple-apparaten).|
 |viewToken|Een korte levensduur hebben weergave-token voor het streamen van de video.|
@@ -670,7 +670,7 @@ Video's die zijn gevonden voor volwassenen of ongepaste inhoud mogelijk beschikb
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Video Indexer-API](https://videobreakdown.portal.azure-api.net/docs/services/582074fb0dc56116504aed75/operations/5857caeb0dc5610f9ce979e4)
+[Video Indexer-API](https://api-portal.videoindexer.ai)
 
 Zie voor meer informatie over het widgets insluiten in uw toepassing [widgets insluiten van Video Indexer in uw toepassingen](video-indexer-embed-widgets.md). 
 

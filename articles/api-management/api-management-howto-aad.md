@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 6c288e4492ac56436d40d1e3db98af8eb7b173c8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d4eb8f3e805d96a276851052b74cac90465d1185
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436315"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42056871"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Ontwikkelaarsaccounts authoriseren met behulp van Azure Active Directory in Azure API Management
 
@@ -63,7 +63,7 @@ Dit artikel leest u hoe de developer-Portal voor gebruikers om toegang te krijge
     De **maken** deelvenster wordt weergegeven aan de rechterkant. Dat is waar u de Azure AD app relevante informatie invoeren.
 1. Voer een naam voor de toepassing.
 1. Selecteer voor het toepassingstype **Web-app/API**.
-1. Voer de URL aanmelden van uw developer-portal voor de URL aanmelden. In dit voorbeeld wordt de URL van de aanmelding is https://apimwithaad.portal.azure-api.net/signin.
+1. Voer de URL aanmelden van uw developer-portal voor de URL aanmelden. In dit voorbeeld wordt de URL van de aanmelding is `https://apimwithaad.portal.azure-api.net/signin`.
 1. Selecteer **maken** om de toepassing te maken.
 1. Selecteer uw app zoekt, **App-registraties** en zoeken op naam.
 

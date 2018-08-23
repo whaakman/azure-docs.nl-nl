@@ -14,16 +14,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 522bc9e757abeae930e47eaf53bb6da4bd9d0531
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 1c56f705c07e2001e1ef8f5f9f05c264c33c2c3f
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224106"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42054689"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Een web-app in Azure App Service met behulp van Visual Studio oplossen
 ## <a name="overview"></a>Overzicht
-Deze zelfstudie laat zien hoe u Visual Studio-hulpprogramma's gebruiken om u te helpen bij foutopsporing in een WebApp [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), door te voeren in [foutopsporingsmodus](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) op afstand of door toepassingslogboeken en webserverlogboeken te bekijken.
+Deze zelfstudie laat zien hoe u Visual Studio-hulpprogramma's gebruiken om u te helpen bij foutopsporing in een WebApp [App Service](http://go.microsoft.com/fwlink/?LinkId=529714), door te voeren in [foutopsporingsmodus](https://docs.microsoft.com/visualstudio/debugger/) op afstand of door toepassingslogboeken en webserverlogboeken te bekijken.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -134,7 +134,8 @@ public ActionResult About()
     return View();
 }
 ```
-4. [Stel een onderbrekingspunt](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) op de `ViewBag.Message` regel.
+
+4. [Stel een onderbrekingspunt](https://docs.microsoft.com/visualstudio/debugger/) op de `ViewBag.Message` regel.
 
 5. In **Solution Explorer**, met de rechtermuisknop op het project en klik op **publiceren**.
 
@@ -185,7 +186,7 @@ Foutopsporing op afstand werkt alleen met doorlopende webtaken. Geplande en on-d
 
 2. Open in het project ContosoAdsWebJob *Functions.cs*.
 
-3. [Stel een onderbrekingspunt](http://www.visualstudio.com/get-started/debug-your-app-vs.aspx) op de eerste instructie in de `GnerateThumbnail` methode.
+3. [Stel een onderbrekingspunt](https://docs.microsoft.com/visualstudio/debugger/) op de eerste instructie in de `GnerateThumbnail` methode.
 
     ![Onderbrekingspunt instellen](./media/web-sites-dotnet-troubleshoot-visual-studio/wjbreakpoint.png)
 
@@ -250,7 +251,7 @@ Als uw functie [Logboeken geschreven](https://github.com/Azure/azure-webjobs-sdk
   <httpRuntime targetFramework="4.5" />
 </system.web>
 ```
-* Als u merkt dat het foutopsporingsprogramma niet stap in de code die u fouten wilt opsporen, is het mogelijk om de instelling alleen mijn Code te wijzigen.  Zie voor meer informatie, [beperken naar alleen mijn Code stapsgewijs](http://msdn.microsoft.com/library/vstudio/y740d9d3.aspx#BKMK_Restrict_stepping_to_Just_My_Code).
+* Als u merkt dat het foutopsporingsprogramma niet stap in de code die u fouten wilt opsporen, is het mogelijk om de instelling alleen mijn Code te wijzigen.  Zie voor meer informatie, [opgeven of u alleen gebruikerscode met alleen mijn Code in Visual Studio fouten opsporen in](https://docs.microsoft.com/visualstudio/debugger/just-my-code).
 * Een timer wordt gestart op de server wanneer u de functie voor externe foutopsporing inschakelen, en na 48 uur de functie is automatisch uitgeschakeld. Deze limiet 48 uur is uitgevoerd voor beveiliging en prestaties. U kunt eenvoudig de functie weer inschakelen als vaak is als u wilt. Het is raadzaam dat wanneer u niet actief foutopsporing uitgeschakeld.
 * U kunt het foutopsporingsprogramma handmatig koppelen aan een proces, niet alleen de web-app proces (w3wp.exe). Zie voor meer informatie over het gebruik van foutopsporingsmodus in Visual Studio [foutopsporing in Visual Studio](http://msdn.microsoft.com/library/vstudio/sc65sadd.aspx).
 

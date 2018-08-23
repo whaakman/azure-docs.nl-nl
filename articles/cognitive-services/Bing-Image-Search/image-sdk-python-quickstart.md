@@ -1,6 +1,6 @@
 ---
-title: Afbeelding zoeken SDK Python Quick Start | Microsoft Docs
-description: Instellingen voor de installatiekopie Search SDK-consoletoepassing.
+title: 'Snelstartgids: Vragen en filteren van afbeeldingen met behulp van de SDK in Python'
+description: In deze snelstartgids hebt u aanvragen en filteren van de installatiekopieën die zijn geretourneerd door Bing afbeeldingen zoeken, met behulp van Python.
 titleSuffix: Azure Image Search SDK Python quickstart
 services: cognitive-services
 author: mikedodaro
@@ -10,33 +10,33 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: v-gedod
-ms.openlocfilehash: e30852439ad8ec2d5ddc667b75167e8b5d35be33
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 4729f103bb9b50d4ff039907db8eb677f3dc290a
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345696"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41987957"
 ---
-# <a name="image-search-sdk-python-quickstart"></a>Afbeelding zoeken SDK Python Quick Start
+ # <a name="quickstart-request-and-filter-images-using-the-sdk-and-python"></a>Snelstartgids: Vragen en filteren van afbeeldingen met behulp van de SDK en Python
 
-De Bing installatiekopie Search SDK bevat de functionaliteit van de REST-API voor web-query's en parseren resultaten. 
+De Bing afbeeldingen zoeken-SDK bevat de functionaliteit van de REST-API voor web-query's en parseren resultaten. 
 
-De [broncode voor Python Bing installatiekopie Search SDK voorbeelden](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image_search_samples.py) beschikbaar is op de Git-Hub.
+De [broncode voor Python Bing afbeeldingen zoeken-SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/search/image_search_samples.py) is beschikbaar op Git Hub.
 
 ## <a name="application-dependencies"></a>Afhankelijkheden voor toepassingen
-Als u dit nog geen hebt, installeert u Python. De SDK is compatibel met Python 2.7 3.3, 3.4, 3.5 en 3.6.
+Als u er nog geen hebt, installeert u Python. De SDK is compatibel met Python 2.7, 3.3, 3.4, 3.5 en 3.6.
 
-De algemene aanbevelingen voor de ontwikkeling van een Python is met een [virtuele omgeving](https://docs.python.org/3/tutorial/venv.html). Installeren en het initialiseren van de virtuele omgeving met de [venv module](https://pypi.python.org/pypi/virtualenv). Voor Python 2.7 moet u virtualenv installeren.
+De algemene aanbevelingen voor het ontwikkelen van Python is het gebruik van een [virtuele omgeving](https://docs.python.org/3/tutorial/venv.html). Installeren en het initialiseren van de virtuele omgeving met de [venv module](https://pypi.python.org/pypi/virtualenv). U moet voor Python 2.7 virtualenv installeren.
 ```
 python -m venv mytestenv
 ```
-Bing installatiekopie zoeken SDK-afhankelijkheden installeren:
+Bing afbeeldingen zoeken-SDK-afhankelijkheden installeren:
 ```
 cd mytestenv
 python -m pip install azure-cognitiveservices-search-imagesearch
 ```
-## <a name="image-search-client"></a>Afbeelding zoeken client
-Ophalen van een [cognitieve toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) onder *Search*. Invoer toevoegen:
+## <a name="image-search-client"></a>Afbeeldingen zoeken-client
+Krijgen een [Cognitive Services-toegangssleutel](https://azure.microsoft.com/try/cognitive-services/) onder *zoeken*. Invoer toevoegen:
 ```
 from azure.cognitiveservices.search.imagesearch import ImageSearchAPI
 from azure.cognitiveservices.search.imagesearch.models import ImageType, ImageAspect, ImageInsightModule
@@ -44,11 +44,11 @@ from msrest.authentication import CognitiveServicesCredentials
 
 subscription_key = "YOUR-SUBSCRIPTION-KEY"
 ```
-Maak een instantie van de `CognitiveServicesCredentials`, en te maken van de client:
+Maak een instantie van de `CognitiveServicesCredentials`, en het instantiëren van de client:
 ```
 client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
 ```
-Installatiekopieën van de query (Yosemite) gefilterd voor GIF-bestanden en wide aspect zoeken. Controleer of het aantal resultaten en afdrukken insightsToken miniatuur-URL en web URL van de eerste resultaat.
+Zoeken naar afbeeldingen op query (Yosemite), gefilterd op GIF-animaties en breed aspect. Controleer of het aantal resultaten en afdrukken insightsToken, miniatuur-URL en web-URL van de eerste resultaat.
 ```
 image_results = client.images.search(
         query="Yosemite",
@@ -67,7 +67,7 @@ image_results = client.images.search(
         print("Couldn't find image results!")
 
 ```
-Afbeeldingen voor (Yosemite) gefilterd voor GIF-bestanden en wide aspect zoeken.  Controleer of het aantal resultaten.  Afdrukken `insightsToken`, `thumbnail url` en `web url` van eerste resultaat.
+Zoeken naar afbeeldingen voor (Yosemite), gefilterd op GIF-animaties en breed aspect.  Controleer of het aantal resultaten.  Afdrukken `insightsToken`, `thumbnail url` en `web url` van eerste resultaat.
 ```
 image_results = client.images.search(
     query="Yosemite",
@@ -87,7 +87,7 @@ else:
 
 ```
 
-Trends resultaten ophalen:
+Trending resultaten ophalen:
 ```
 trending_result = client.images.trending()
 print("\r\nSearch trending images")
@@ -111,6 +111,6 @@ if trending_result.categories:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Cognitieve Services Python SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
+[Cognitive Services Python SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 

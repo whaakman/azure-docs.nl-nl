@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 8b7d2119e1eef8532c30b0a45ae2684493462277
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: fe3bb3a778a42696cd15f9e4265448479bf043a1
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990010"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42054649"
 ---
 # <a name="how-to-find-an-address-using-the-azure-maps-search-service"></a>Het zoeken naar een adres met behulp van de search-service van Azure Maps
 
@@ -164,19 +164,11 @@ U kunt een volledige of gedeeltelijke adres doorgeven aan het adres search API e
 
     | Sleutel | Waarde |
     |-----|------------|
-    | spatialKeys | true |
-
-    Wanneer de [spatialKeys](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter is ingesteld, wordt het antwoord bevat eigen geo-ruimtelijk belangrijke informatie voor een opgegeven locatie.
-
-6. Voeg de volgende sleutel / waarde-paar aan de **Params** sectie en klikt u op **verzenden**:
-
-    | Sleutel | Waarde |
-    |-----|------------|
     | returnSpeedLimit | true |
     
     Wanneer de [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter is ingesteld, het antwoord geretourneerd van de limiet voor geboekte snelheid.
 
-7. Voeg de volgende sleutel / waarde-paar aan de **Params** sectie en klikt u op **verzenden**:
+6. Voeg de volgende sleutel / waarde-paar aan de **Params** sectie en klikt u op **verzenden**:
 
     | Sleutel | Waarde |
     |-----|------------|
@@ -184,7 +176,7 @@ U kunt een volledige of gedeeltelijke adres doorgeven aan het adres search API e
 
     Wanneer de [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) queryparameter is ingesteld, wordt het antwoord retourneert de matrix voor het gebruik van weg voor reversegeocodes op straat niveau.
 
-8. Voeg de volgende sleutel / waarde-paar aan de **Params** sectie en klikt u op **verzenden**:
+7. Voeg de volgende sleutel / waarde-paar aan de **Params** sectie en klikt u op **verzenden**:
 
     | Sleutel | Waarde |
     |-----|------------|

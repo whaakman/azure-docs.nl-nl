@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: f954e726aabb34f74d81580e3afc08f2b0b9914b
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 0056364883d5a4a350e5b35374e1fc3abd0c7bea
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619403"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42055065"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Het oplossen van & beperkingen van Azure Cloud Shell
 
@@ -31,6 +31,11 @@ Bekende oplossingen voor het oplossen van problemen in Azure Cloud Shell zijn on
 
 - **Details**: Cloud Shell gebruikmaakt van een open websocket invoer/uitvoer doorgeven aan de browser. FireFox is vooraf ingestelde beleidsregels die van de websocket voortijdig veroorzaakt vroege time-outs in Cloud Shell kunnen sluiten.
 - **Resolutie**: Open FireFox en navigeert u naar ' over: config ' in het vak URL. Zoeken naar 'network.websocket.timeout.ping.request' en wijzig de waarde van 0 tot en met 10.
+
+### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Cloud Shell uitschakelen in een vergrendelde netwerk omgeving
+
+- **Details**: beheerders mogelijk willen toegang tot Cloud Shell voor hun gebruikers uitschakelen. Cloudshell gebruikmaakt van toegang tot de `ux.console.azure.com` domein dat kan worden geweigerd, toegang heeft tot de Cloud Shell-toegangspunten, waaronder portal.azure.com, shell.azure.com, Visual Studio Code Azure-accountextensie en docs.microsoft.com stoppen.
+- **Resolutie**: beperken van toegang tot `ux.console.azure.com` via instellingen om uw omgeving. Het pictogram van Cloud Shell wordt nog steeds aanwezig zijn in portal.azure.com, maar wordt geen verbinding maken met de service.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Opslag-dialoogvenster - fout: 403 RequestDisallowedByPolicy
 

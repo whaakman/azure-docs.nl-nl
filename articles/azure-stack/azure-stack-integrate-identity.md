@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/07/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: c22831ae781239f2474720ee9cd1b58f6e14fe41
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 9bbe55e08d7a005d38c5608df39f9285d79eb203
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412862"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42059099"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Datacenter-integratie Azure Stack - identiteit
 U kunt Azure Stack met behulp van Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) implementeren als de id-providers. Voordat u Azure Stack implementeren, moet u de keuze maken. Implementatie met behulp van AD FS is ook aangeduid als Azure Stack implementeren in de niet-verbonden modus.
@@ -151,7 +151,7 @@ Voor deze procedure gebruikt u een computer die kan communiceren met het bevoorr
 
 ## <a name="setting-up-ad-fs-integration-by-providing-federation-metadata-file"></a>AD FS-integratie instellen door op te geven van bestand met federatieve metagegevens
 
-Gebruik deze methode als een van de volgende voorwaarden voldaan wordt:
+Vanaf versie 1807, gebruik deze methode als een van de volgende voorwaarden voldaan wordt:
 
 - De certificaatketen is verschillend voor AD FS in vergelijking met alle andere eindpunten in Azure Stack.
 - Er is geen netwerkverbinding met de bestaande AD FS-server van AD FS-exemplaar van Azure Stack.
@@ -163,6 +163,8 @@ De volgende informatie is vereist als invoer voor de automation-parameters:
 |---------|---------|---------|
 |CustomAdfsName|De naam van de claimprovider. Op die manier op de startpagina van de AD FS wordt deze weergegeven.|Contoso|
 |CustomADFSFederationMetadataFileContent|De metagegevens van inhoud|$using: federationMetadataFileContent|
+
+
 
 ### <a name="create-federation-metadata-file"></a>Bestand met federatieve metagegevens maken
 

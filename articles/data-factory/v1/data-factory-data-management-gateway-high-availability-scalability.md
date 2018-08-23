@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b9ec9867e9abd188142067e593c925e3c8acdd0b
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 58f612906af55575e9d42307af924ea0a8501ca1
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37113337"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42060575"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - hoge beschikbaarheid en schaalbaarheid (Preview)
 > [!NOTE]
@@ -169,7 +169,7 @@ Hier volgen de vereisten voor het TLS/SSL-certificaat dat wordt gebruikt voor he
 - Jokertekens certificaten worden ondersteund. Als uw FQDN-naam is **node1.domain.contoso.com**, kunt u ***. domain.contoso.com** als onderwerpnaam van het certificaat.
 - SAN-certificaten worden niet aanbevolen, omdat alleen het laatste item van de alternatieve namen voor onderwerpen worden gebruikt en alle andere worden genegeerd vanwege een beperking. Bijvoorbeeld u hebt een SAN-certificaat waarvan SAN zijn **node1.domain.contoso.com** en **node2.domain.contoso.com**, kunt u dit certificaat alleen gebruiken op de machine waarvan FQDN **node2.domain.contoso.com**.
 - Ondersteunt sleutelgrootte ondersteund door Windows Server 2012 R2 voor SSL-certificaten.
-- Het certificaat met CNG sleutels worden niet ondersteund. Doesrted DoesDoes ondersteuning geen voor certificaten met CNG-sleutels.
+- Het certificaat met CNG sleutels worden niet ondersteund.
 
 #### <a name="faq-when-would-i-not-enable-this-encryption"></a>Veelgestelde vragen: Wanneer kan ik versleuteling niet inschakelen dit?
 Versleuteling is ingeschakeld kunt toevoegen bepaalde daarom kosten verbonden aan de infrastructuur (die eigenaar is openbaar certificaat) kunt u overslaan inschakelen van versleuteling in de volgende gevallen:

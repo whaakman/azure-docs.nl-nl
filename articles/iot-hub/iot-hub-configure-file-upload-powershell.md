@@ -1,61 +1,63 @@
 ---
-title: Azure PowerShell gebruiken om te uploaden bestand configureren | Microsoft Docs
-description: Het gebruik van de Azure PowerShell-cmdlets voor het configureren van uw IoT-hub zodat bestand uploadt van verbonden apparaten. Bevat informatie over het configureren van de doel-Azure storage-account.
+title: Azure PowerShell gebruikt voor het uploaden van bestanden configureren | Microsoft Docs
+description: Hoe u Azure PowerShell-cmdlets gebruiken om te configureren van uw IoT-hub zodat het bestand wordt geüpload van verbonden apparaten. Bevat informatie over het configureren van de bestemming Azure storage-account.
 author: dominicbetts
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 1a4a52b6a028f4c656404e90fe05f201ac77204d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9cf13589fb83f100dd024e65dfe9178cb54802f2
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34631850"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42054863"
 ---
-# <a name="configure-iot-hub-file-uploads-using-powershell"></a>Uploaden van bestanden met PowerShell IoT-Hub configureren
+# <a name="configure-iot-hub-file-uploads-using-powershell"></a>IoT Hub-bestand wordt geüpload met behulp van PowerShell configureren
 
 [!INCLUDE [iot-hub-file-upload-selector](../../includes/iot-hub-file-upload-selector.md)]
 
-Gebruik de [bestand uploaden functionaliteit in IoT-Hub][lnk-upload], moet u eerst een Azure storage-account koppelen met uw IoT-hub. U kunt een bestaand opslagaccount gebruiken of een nieuwe maken.
+Gebruik de [bestand functionaliteit voor het uploaden van IoT-Hub](iot-hub-devguide-file-upload.md), moet u eerst een Azure storage-account koppelen met uw IoT-hub. U kunt een bestaand opslagaccount gebruiken of een nieuwe maken.
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Een actief Azure-account. Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.
-* [Azure PowerShell-cmdlets][lnk-powershell-install].
-* Een Azure-IoT-hub. Als u een IoT-hub hebt, kunt u de [cmdlet New-AzureRmIoTHub] [ lnk-powershell-iothub] te maken of de portal gebruiken om [een iothub maken][lnk-portal-hub].
-* Een Azure Storage-account. Als u geen Azure storage-account hebt, kunt u de [Azure PowerShell-cmdlets Storage] [ lnk-powershell-storage] te maken of de portal gebruiken om [een opslagaccount maken] [lnk-portal-storage].
+* Een actief Azure-account. Als u geen account hebt, kunt u een [gratis account](http://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.
 
-## <a name="sign-in-and-set-your-azure-account"></a>Aanmelden en uw Azure-account instellen
+* [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+
+* Een Azure IoT-hub. Als u een IoT-hub hebt, kunt u de [cmdlet New-AzureRmIoTHub](https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub) te maken of de portal gebruiken om [maken van een IoT-hub](iot-hub-create-through-portal.md).
+
+* Een Azure Storage-account. Als u geen Azure storage-account hebt, kunt u de [Azure PowerShell-cmdlets Storage](https://docs.microsoft.com/powershell/module/azurerm.storage/) te maken of de portal gebruiken om [een opslagaccount maken](../storage/common/storage-create-storage-account.md)
+
+## <a name="sign-in-and-set-your-azure-account"></a>Meld u aan en stel uw Azure-account
 
 Meld u aan bij uw Azure-account en selecteer uw abonnement.
 
-1. Uitvoeren op de PowerShell-prompt de **Connect-AzureRmAccount** cmdlet:
+1. Voer bij de PowerShell-prompt de **Connect-AzureRmAccount** cmdlet:
 
     ```powershell
     Connect-AzureRmAccount
     ```
 
-1. Als u meerdere Azure-abonnementen hebt, verleent aanmelden bij Azure u toegang tot alle de Azure-abonnementen die zijn gekoppeld aan uw referenties. Gebruik de volgende opdracht voor een lijst met de Azure-abonnementen beschikbaar moet worden gebruikt:
+2. Als u meerdere Azure-abonnementen hebt, u aanmelden bij Azure in, hebt u toegang tot alle de Azure-abonnementen die zijn gekoppeld aan uw referenties. Gebruik de volgende opdracht om de Azure-abonnementen beschikbaar voor gebruik weer te geven:
 
     ```powershell
     Get-AzureRMSubscription
     ```
 
-    Gebruik de volgende opdracht om abonnement die u gebruiken wilt voor het uitvoeren van de opdrachten voor het beheren van uw IoT-hub te selecteren. U kunt de naam van het abonnement of de id van de uitvoer van de vorige opdracht gebruiken:
+    Gebruik de volgende opdracht om het abonnement dat u wilt gebruiken voor het uitvoeren van de opdrachten voor het beheren van uw IoT-hub te selecteren. U kunt de naam van het abonnement of de id van de uitvoer van de vorige opdracht gebruiken:
 
     ```powershell
     Select-AzureRMSubscription `
         -SubscriptionName "{your subscription name}"
     ```
 
-## <a name="retrieve-your-storage-account-details"></a>De gegevens van uw storage-account ophalen
+## <a name="retrieve-your-storage-account-details"></a>Details van uw opslagaccount ophalen
 
-De volgende stappen wordt ervan uitgegaan dat u hebt gemaakt dat uw storage-account met de **Resource Manager** -implementatiemodel, en niet de **klassieke** implementatiemodel.
+De volgende stappen wordt ervan uitgegaan dat u hebt gemaakt uw storage-account met de **Resource Manager** implementatiemodel, en niet de **klassieke** implementatiemodel.
 
-Als u wilt configureren bestandsuploads van uw apparaten, moet u de verbindingsreeks voor Azure storage-account. Het opslagaccount moet zich in hetzelfde abonnement als uw IoT-hub. U moet ook de naam van een blob-container in het opslagaccount. Gebruik de volgende opdracht voor het ophalen van uw toegangscodes voor opslag:
+Voor het configureren van het uploaden van bestanden van uw apparaten, moet u de verbindingsreeks voor een Azure storage-account. Het opslagaccount moet zich in hetzelfde abonnement als uw IoT-hub. U moet ook de naam van een blob-container in het opslagaccount. Gebruik de volgende opdracht om op te halen van de sleutels van uw storage-account:
 
 ```powershell
 Get-AzureRmStorageAccountKey `
@@ -63,11 +65,11 @@ Get-AzureRmStorageAccountKey `
   -ResourceGroupName {your storage account resource group}
 ```
 
-Noteer de **key1** sleutelwaarde storage-account. U moet deze in de volgende stappen.
+Noteer de **key1** sleutelwaarde voor storage-account. U hebt deze nodig in de volgende stappen.
 
-U kunt een bestaande blobcontainer voor uw bestandsuploads gebruiken of nieuwe maken:
+U kunt een bestaande blobcontainer gebruiken voor het uploaden van uw bestanden of nieuwe maken:
 
-* Als de bestaande blobcontainers in uw opslagaccount wilt weergeven, gebruikt u de volgende opdrachten:
+* Als u de bestaande blob-containers in uw opslagaccount, gebruikt u de volgende opdrachten:
 
     ```powershell
     $ctx = New-AzureStorageContext `
@@ -76,7 +78,7 @@ U kunt een bestaande blobcontainer voor uw bestandsuploads gebruiken of nieuwe m
     Get-AzureStorageContainer -Context $ctx
     ```
 
-* Voor het maken van een blob-container in uw opslagaccount, gebruik de volgende opdrachten:
+* Voor het maken van een blob-container in uw opslagaccount, gebruikt u de volgende opdrachten:
 
     ```powershell
     $ctx = New-AzureStorageContext `
@@ -88,23 +90,23 @@ U kunt een bestaande blobcontainer voor uw bestandsuploads gebruiken of nieuwe m
         -Context $ctx
     ```
 
-## <a name="configure-your-iot-hub"></a>Configureren van uw IoT-hub
+## <a name="configure-your-iot-hub"></a>Uw IoT hub configureren
 
-U kunt nu uw IoT-hub om in te schakelen configureren [bestand uploaden functionaliteit] [ lnk-upload] met behulp van de gegevens van uw opslag.
+U kunt nu uw IoT-hub kunt u configureren [bestanden uploaden naar de IoT-hub](iot-hub-devguide-file-upload.md) met behulp van de details van uw opslagaccount.
 
-De configuratie is vereist voor de volgende waarden:
+De configuratie moet de volgende waarden:
 
-**Storage-container**: een blobcontainer in Azure storage-account in uw huidige Azure-abonnement wilt koppelen aan uw IoT-hub. U hebt de accountgegevens voor de benodigde opslag in de vorige sectie hebt opgehaald. IoT Hub genereert automatisch SAS URI's met schrijfmachtigingen in voor deze blob-container voor apparaten voor gebruik bij het uploaden van bestanden.
+* **Storage-container**: een blob-container in Azure storage-account in uw huidige Azure-abonnement koppelen aan uw IoT-hub. U hebt de benodigde opslag-accountgegevens in de voorgaande sectie hebt opgehaald. IoT Hub wordt automatisch gegenereerd SAS URI's met schrijfmachtigingen voor deze blob-container voor apparaten moet worden gebruikt bij het uploaden van bestanden.
 
-**Meldingen ontvangen voor de geüploade bestanden**: bestand uploaden meldingen- of uitschakelen.
+* **Meldingen over geüploade bestanden ontvangen**: bestand uploaden meldingen in of uit.
 
-**SAS TTL**: deze instelling wordt de time-to-live van de SAS-URI's die aan het apparaat wordt geretourneerd door de IoT Hub. Standaard ingesteld op één uur.
+* **SAS TTL**: deze instelling wordt de time-to-live van de SAS-URI's op het apparaat wordt geretourneerd door de IoT Hub. Standaard ingesteld op één uur.
 
-**Bestand notification instellingen standaard TTL**: de time-to-live van een bestand uploaden melding voordat het is verlopen. Standaard ingesteld op één dag.
+* **Melding instellingen standaard TTL-bestand**: de time-to-live van een bestand uploaden melding voordat deze is verlopen. Standaard ingesteld op één dag.
 
-**Melding levering van het maximum aantal bestanden**: het aantal keren dat de IoT-Hub probeert een bestand uploaden een melding. Standaard ingesteld op 10.
+* **Maximumaantal leveringen voor melding bestand**: het aantal keren dat de IoT-Hub wil ervoor zorgen dat een bestand uploaden een melding. Standaard ingesteld op 10.
 
-Gebruik de volgende PowerShell-cmdlet voor het configureren van het bestand uploaden instellingen op uw IoT-hub:
+Gebruik de volgende PowerShell-cmdlet voor het configureren van het bestand uploaden-instellingen op uw IoT-hub:
 
 ```powershell
 Set-AzureRmIotHub `
@@ -120,32 +122,16 @@ Set-AzureRmIotHub `
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de functies voor het uploaden van bestanden van IoT Hub [uploaden van bestanden van een apparaat][lnk-upload].
+Zie voor meer informatie over de functies voor het uploaden van bestanden van IoT-Hub, [uploaden van bestanden vanaf een apparaat](iot-hub-devguide-file-upload.md).
 
 Volg deze koppelingen voor meer informatie over het beheren van Azure IoT Hub:
 
-* [Bulksgewijs IoT-apparaten beheren][lnk-bulk]
-* [IoT Hub metrische gegevens][lnk-metrics]
-* [Bewerkingen controleren][lnk-monitor]
+* [IoT-apparaten bulksgewijs beheren](iot-hub-bulk-identity-mgmt.md)
+* [Metrische gegevens van IoT Hub](iot-hub-metrics.md)
+* [Controle van bewerkingen](iot-hub-operations-monitoring.md)
 
 Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
-* [Ontwikkelaarshandleiding voor IoT Hub][lnk-devguide]
-* [AI implementeren op Edge-apparaten met Azure IoT Edge][lnk-iotedge]
-* [Beveiligen van uw IoT-oplossing bouwen up][lnk-securing]
-
-[lnk-upload]: iot-hub-devguide-file-upload.md
-
-[lnk-bulk]: iot-hub-bulk-identity-mgmt.md
-[lnk-metrics]: iot-hub-metrics.md
-[lnk-monitor]: iot-hub-operations-monitoring.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-securing]: iot-hub-security-ground-up.md
-[lnk-powershell-install]: https://docs.microsoft.com/powershell/azure/install-azurerm-ps
-[lnk-powershell-storage]: https://docs.microsoft.com/powershell/module/azurerm.storage/
-[lnk-powershell-iothub]: https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub
-[lnk-portal-hub]: iot-hub-create-through-portal.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-portal-storage]:../storage/common/storage-create-storage-account.md
+* [Ontwikkelaarshandleiding voor IoT Hub](iot-hub-devguide.md)
+* [AI implementeren op edge-apparaten met Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Beveiligen van uw IoT-oplossing vanaf het begin van](/../iot-fundamentals/iot-security-ground-up.md)

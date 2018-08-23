@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: ccc0836a296bb392e60dd0c973516a7087ff6ea5
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c2c1ef83ade7040e16f54b87f63f6eb27714bf2a
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429323"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42022456"
 ---
 # <a name="deploy-a-dcos-cluster"></a>Een DC/OS-cluster implementeren
 
@@ -78,7 +78,7 @@ Als de SSH-tunnel is gemaakt, wordt de DC/OS-portal geretourneerd.
 
 ## <a name="install-dcos-cli"></a>De DC/OS CLI installeren
 
-De DC/OS-opdrachtregelinterface wordt gebruikt om een DC/OS-cluster te beheren via de opdrachtregel. Installeer de DC/OS CLI met behulp van de opdracht [az acs dcos install-cli](/azure/acs/dcos#install-cli). Als u Azure CloudShell gebruikt, is de DC/OS CLI al geïnstalleerd. 
+De DC/OS-opdrachtregelinterface wordt gebruikt om een DC/OS-cluster te beheren via de opdrachtregel. Installeer de DC/OS CLI met behulp van de opdracht [az acs dcos install-cli](/cli/azure/acs/dcos#az-acs-dcos-install-cli). Als u Azure CloudShell gebruikt, is de DC/OS CLI al geïnstalleerd. 
 
 Als u Azure CLI uitvoert in Mac OS of Linux, moet u de opdracht mogelijk uitvoeren met sudo.
 

@@ -1,6 +1,6 @@
 ---
-title: Oproep- en antwoord - Python Quick Start voor Azure cognitieve Services, Bing installatiekopie zoeken-API | Microsoft Docs
-description: Get-informatie en codevoorbeelden kunt u snel aan de slag met Bing installatiekopie Search API in Microsoft cognitieve Services in Azure.
+title: "Snelstartgids: Verzenden zoekquery's met de REST-API voor de Bing afbeeldingen zoeken-API in Python"
+description: In deze Quick Start stuurt u zoekopdrachten naar de Bing webzoekopdrachten-API om een lijst met relevante afbeeldingen met behulp van Python.
 services: cognitive-services
 author: v-jerkin
 ms.service: cognitive-services
@@ -8,29 +8,29 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 3b5d6a961ce4bcde8aaf73f1fbd30689a6c2c2d1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bc527ba39b580935f113f56aa63f7bdd283ba304
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344729"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41988790"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-in-python"></a>Oproep- en -antwoord: uw eerste zoekopdracht van Bing installatiekopie in Python
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-python"></a>Snelstartgids: Verzenden zoekquery's met behulp van de REST-API en Python
 
-De Bing-API van zoekservice afbeelding biedt een vergelijkbaar met Bing.com/Images ervaring doordat u een zoekopdracht gebruiker verzenden naar Bing en ophalen van een lijst met relevante installatiekopieën.
+De Bing afbeeldingen zoeken-API biedt een ervaring die vergelijkbaar is met Bing.com/Images doordat u kunt een zoekquery voor de gebruiker naar Bing te verzenden en een lijst met relevante afbeeldingen teruggaan.
 
-In dit scenario ziet u een eenvoudig voorbeeld van het aanroepen van de Search-API van Bing installatiekopie en de resulterende JSON-object achteraf worden verwerkt. Zie voor meer informatie [zoeken naar Bing-afbeelding documentatie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).
+Dit scenario ziet u een eenvoudig voorbeeld van de aanroep naar de Bing afbeeldingen zoeken-API en nabewerking het resulterende JSON-object. Zie voor meer informatie, [Bing afbeeldingen zoeken-documentatie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).
 
-U kunt in dit voorbeeld uitvoeren als een Jupyter-notebook op [MyBinder](https://mybinder.org) door te klikken op de lancering Binder badge: 
+In dit voorbeeld kunt u uitvoeren als een Jupyter-notebook op [MyBinder](https://mybinder.org) door te klikken op de lancering Binder badge: 
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingImageSearchAPI.ipynb)
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet hebben een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing zoeken-API's**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) voldoende is voor deze snelstartgids. U moet de toegangssleutel die is opgegeven bij het activeren van uw gratis proefversie of u kunt de sleutel van een betaald abonnement van uw Azure-dashboard.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="running-the-walkthrough"></a>De procedure wordt uitgevoerd
-Om door te gaan met deze stapsgewijze Kennismaking ingesteld `subscription_key` naar uw API-sleutel voor de Bing-API-service.
+## <a name="running-the-walkthrough"></a>De procedures uitvoeren
+Om door te gaan met deze stapsgewijze Kennismaking instelt `subscription_key` tot uw API-sleutel voor de Bing API-service.
 
 
 ```python
@@ -38,7 +38,7 @@ subscription_key = None
 assert subscription_key
 ```
 
-Controleer vervolgens de `search_url` eindpunt juist is. In dit artikel wordt slechts één eindpunt voor Bing zoeken-API's gebruikt. Als u autorisatie fouten optreden, controleer dan deze waarde voor het eindpunt Bing zoeken in uw Azure-dashboard.
+Vervolgens controleren of de `search_url` eindpunt juist is. In dit artikel is geschreven, wordt slechts één eindpunt gebruikt voor Bing zoeken-API's. Als u autorisatiefouten optreden, Controleer u deze waarde op basis van de Bing zoeken-eindpunten in uw Azure-dashboard.
 
 
 ```python
@@ -52,7 +52,7 @@ Stel `search_term` om te zoeken voor afbeeldingen van Puppy's.
 search_term = "puppies"
 ```
 
-De volgende blokkeren maakt gebruik van de `requests` bibliotheek in Python aanroepen uit de Bing zoeken-API's en de resultaten worden geretourneerd als een JSON-object. Zien dat wordt doorgegeven in de API-sleutel via de `headers` woordenlijst en de zoekopdracht benaming de `params` woordenlijst. Zie de volledige lijst met opties die kunnen worden gebruikt om zoekresultaten te filteren, de [REST-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) documentatie.
+De volgende blokkeren maakt gebruik van de `requests` bibliotheek in Python aanroepen uit naar de Bing zoeken-API's en de resultaten worden geretourneerd als JSON-object. Zien dat we in de API-sleutel via doorgeven de `headers` woordenlijst en de zoekopdracht termijn de `params` woordenlijst. Zie de volledige lijst met opties die kunnen worden gebruikt om zoekresultaten te filteren, de [REST-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) documentatie.
 
 
 ```python
@@ -65,14 +65,14 @@ response.raise_for_status()
 search_results = response.json()
 ```
 
-De `search_results` object bevat de werkelijke installatiekopieën samen met de rijke metagegevens zoals verwante items. De volgende coderegel kan bijvoorbeeld de miniatuur-URL's voor de eerste 16 resultaten extraheren.
+De `search_results` -object bevat de werkelijke hoeveelheid installatiekopieën en uitgebreide metagegevens zoals verwante items. De volgende coderegel kunt bijvoorbeeld de miniatuur-URL's voor de eerste 16 resultaten ophalen.
 
 
 ```python
 thumbnail_urls = [img["thumbnailUrl"] for img in search_results["value"][:16]]
 ```
 
-Vervolgens kunnen we gebruiken de `PIL` bibliotheek voor het downloaden van de miniatuurafbeeldingen en de `matplotlib` bibliotheek om ze in een raster $4 \times 4$ weer te geven.
+Vervolgens, gebruiken we de `PIL` bibliotheek voor het downloaden van de miniaturen en de `matplotlib` bibliotheek om ze in een raster $4 \times 4$ weer te geven.
 
 
 ```python
@@ -94,11 +94,11 @@ for i in range(4):
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zoeken naar Bing-afbeelding één pagina app-zelfstudie](../tutorial-bing-image-search-single-page-app.md)
+> [Zelfstudie voor Bing afbeeldingen zoeken-app met één pagina](../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>Zie ook 
 
-[Zoeken naar afbeelding van Bing-overzicht](../overview.md)  
-[Probeer deze](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+[Overzicht van de Bing afbeeldingen zoeken](../overview.md)  
+[Nu uitproberen](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 [Een gratis proefversie toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-[Bing installatiekopie Search API-verwijzingen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+[Bing afbeeldingen zoeken-API-verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

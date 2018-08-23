@@ -1,6 +1,6 @@
 ---
-title: Oproep- en antwoord - Java-Snelstartgids voor Azure cognitieve Services, Bing installatiekopie zoeken-API | Microsoft Docs
-description: Get-informatie en codevoorbeelden kunt u snel aan de slag met Bing installatiekopie Search API in Microsoft cognitieve Services in Azure.
+title: "Snelstartgids: Verzenden zoekquery's met behulp van de REST-API voor Bing afbeeldingen zoeken-API en Java"
+description: In deze Quick Start stuurt u zoekopdrachten naar de Bing webzoekopdrachten-API om een lijst met relevante afbeeldingen met behulp van Java.
 services: cognitive-services
 documentationcenter: ''
 author: v-jerkin
@@ -9,31 +9,31 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 9/21/2017
 ms.author: v-jerkin
-ms.openlocfilehash: 658025e997f27a3974b473e5c556780733d68045
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3d779bae099bde5b015ee8316906ace77c0ad3bb
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345467"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41988457"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-in-java"></a>Oproep- en -antwoord: uw eerste zoekopdracht van Bing installatiekopie in Java
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-java"></a>Snelstartgids: Verzenden zoekquery's met behulp van de REST-API en Java
 
-De Bing-API van zoekservice afbeelding biedt een vergelijkbaar met Bing.com/Images ervaring doordat u een zoekopdracht gebruiker verzenden naar Bing en ophalen van een lijst met relevante installatiekopieën.
+De Bing afbeeldingen zoeken-API biedt een ervaring die vergelijkbaar is met Bing.com/Images doordat u kunt een zoekquery voor de gebruiker naar Bing te verzenden en een lijst met relevante afbeeldingen teruggaan.
 
-Dit artikel bevat een eenvoudige consoletoepassing die voert een query Bing-API van zoekservice installatiekopie en de geretourneerde onbewerkte zoekresultaten in het JSON-indeling weergegeven. Terwijl deze toepassing is geschreven in Java, is de API een compatibel is met elke programmeertaal die kunt maken van HTTP-aanvragen en parseren van JSON RESTful-Web-service. 
+Dit artikel bevat een eenvoudige consoletoepassing die een Bing afbeeldingen zoeken-API-query en de zoekresultaten geretourneerde onbewerkte, die zich in de JSON-indeling worden weergegeven. Terwijl deze toepassing is geschreven in Java, de API is een RESTful-Web-compatibel is met elke programmeertaal die HTTP-aanvragen te parseren van JSON. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet [JDK 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) compileren en uitvoeren van deze code. U mag een IDE voor Java gebruiken als u een favoriet hebben, maar worden volstaan met een teksteditor.
+U moet [JDK 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) compileren en uitvoeren van deze code. U kunt een Java-IDE gebruiken als u een favoriet hebt, maar worden volstaan met een teksteditor.
 
-U moet hebben een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing zoeken-API's**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) voldoende is voor deze snelstartgids. U moet de toegangssleutel die is opgegeven bij het activeren van uw gratis proefversie of u kunt de sleutel van een betaald abonnement van uw Azure-dashboard.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="running-the-application"></a>De toepassing uitvoeren
 
-Volg deze stappen voor het uitvoeren van deze toepassing.
+Volg deze stappen om uit te voeren deze toepassing.
 
-1. Downloaden en installeren de [gson bibliotheek](https://github.com/google/gson). U kunt deze ook ophalen via Maven.
-2. Maak een nieuwe Java-project in uw favoriete IDE of -editor.
+1. Downloaden en installeren de [gson bibliotheek](https://github.com/google/gson). U mag deze ook verkrijgen via Maven.
+2. Maak een nieuwe Java-project in uw favoriete IDE of editor.
 3. De opgegeven code toevoegen in een bestand met de naam `BingImageSearch.java`.
 4. Vervang de `subscriptionKey` waarde met een geldige toegangssleutel voor uw abonnement.
 5. Voer het programma.
@@ -154,7 +154,7 @@ class SearchResults{
 
 ## <a name="json-response"></a>JSON-antwoord
 
-Er volgt een voorbeeldantwoord. Als u wilt beperken de lengte van de JSON, alleen een enkelvoudig resultaat wordt verkregen wordt weergegeven en andere onderdelen van het antwoord is afgekapt. 
+Er volgt een voorbeeldantwoord. Als u wilt beperken de lengte van de JSON, slechts één resultaat wordt weergegeven en andere onderdelen van het antwoord is afgekapt. 
 
 ```json
 {
@@ -243,11 +243,11 @@ Er volgt een voorbeeldantwoord. Als u wilt beperken de lengte van de JSON, allee
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zoeken naar Bing-afbeelding één pagina app-zelfstudie](../tutorial-bing-image-search-single-page-app.md)
+> [Zelfstudie voor Bing afbeeldingen zoeken-app met één pagina](../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>Zie ook 
 
-[Zoeken naar afbeelding van Bing-overzicht](../overview.md)  
-[Probeer deze](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+[Overzicht van de Bing afbeeldingen zoeken](../overview.md)  
+[Nu uitproberen](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 [Een gratis proefversie toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-[Bing installatiekopie Search API-verwijzingen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+[Bing afbeeldingen zoeken-API-verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

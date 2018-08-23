@@ -1,36 +1,37 @@
 ---
-title: Azure Event raster blob storage gebeurtenis schema
-description: Beschrijft de eigenschappen die beschikbaar zijn voor blob storage-gebeurtenissen met Azure Event raster
+title: Azure Event Grid blob storage-gebeurtenisschema
+description: Beschrijft de eigenschappen die beschikbaar zijn voor gebeurtenissen van blob storage met Azure Event Grid
 services: event-grid
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/30/2018
+ms.date: 08/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: a4d3f5d50df49851437cfd3bcec16ad217220eca
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 11524f8868a0102e30b06f3385a26b1bd06aae6e
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34301386"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055320"
 ---
-# <a name="azure-event-grid-event-schema-for-blob-storage"></a>Azure Event raster gebeurtenis schema voor Blob-opslag
+# <a name="azure-event-grid-event-schema-for-blob-storage"></a>Azure Event Grid-gebeurtenisschema voor Blob-opslag
 
-Dit artikel bevat de eigenschappen en het schema voor blob storage-gebeurtenissen. Zie voor een inleiding tot gebeurtenis schema's, [Azure gebeurtenis raster gebeurtenis schema](event-schema.md).
+Dit artikel bevat de eigenschappen en het schema voor gebeurtenissen van blob storage. Zie voor een inleiding tot gebeurtenisschema's, [Azure Event Grid-gebeurtenisschema](event-schema.md).
 
-## <a name="available-event-types"></a>Typen beschikbare gebeurtenissen
+Zie voor een lijst met zelfstudies en voorbeelden van scripts, [opslag gebeurtenisbron](event-sources.md#storage).
+
+## <a name="available-event-types"></a>Typen van de gebeurtenis berichten beschikbaar
 
 BLOB-opslag, verzendt de volgende typen gebeurtenissen:
 
 | Gebeurtenistype | Beschrijving |
 | ---------- | ----------- |
-| Microsoft.Storage.BlobCreated | Deze gebeurtenis treedt op wanneer een blob is gemaakt. |
-| Microsoft.Storage.BlobDeleted | Deze gebeurtenis treedt op wanneer een blob wordt verwijderd. |
+| Microsoft.Storage.BlobCreated | Treedt op wanneer een blob wordt gemaakt. |
+| Microsoft.Storage.BlobDeleted | Treedt op wanneer een blob wordt verwijderd. |
 
 ## <a name="example-event"></a>Voorbeeld van de gebeurtenis
 
-Het volgende voorbeeld ziet u het schema van een blob gemaakt van gebeurtenis: 
+Het volgende voorbeeld ziet u het schema van een blob die wordt gemaakt van gebeurtenis: 
 
 ```json
 [{
@@ -58,7 +59,7 @@ Het volgende voorbeeld ziet u het schema van een blob gemaakt van gebeurtenis:
 }]
 ```
 
-Het schema voor een gebeurtenis blob verwijderd is vergelijkbaar: 
+Het schema voor een blob verwijderd gebeurtenis lijkt: 
 
 ```json
 [{
@@ -89,32 +90,32 @@ Een gebeurtenis heeft de volgende gegevens op het hoogste niveau:
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| Onderwerp | tekenreeks | Volledige resource-pad naar de gegevensbron. Dit veld is niet beschrijfbaar. Gebeurtenis raster bevat deze waarde. |
-| Onderwerp | tekenreeks | Publisher gedefinieerde pad naar het onderwerp van de gebeurtenis. |
-| EventType | tekenreeks | Een van de typen van de geregistreerde gebeurtenis van de bron van deze gebeurtenis. |
-| eventTime | tekenreeks | De tijd dat de gebeurtenis wordt gegenereerd, gebaseerd op de UTC-tijd van de provider. |
+| onderwerp | tekenreeks | Volledige resource-pad naar de bron van de gebeurtenis. Dit veld is niet beschrijfbaar. Event Grid biedt deze waarde. |
+| Onderwerp | tekenreeks | Uitgever gedefinieerde pad naar het onderwerp van de gebeurtenis. |
+| type gebeurtenis | tekenreeks | Een van de geregistreerde gebeurtenis-typen voor de bron van deze gebeurtenis. |
+| eventTime | tekenreeks | Het moment waarop dat de gebeurtenis is gegenereerd, is afhankelijk van de UTC-tijd van de provider. |
 | id | tekenreeks | De unieke id voor de gebeurtenis. |
-| gegevens | object | BLOB storage-gebeurtenisgegevens. |
+| gegevens | object | Gebeurtenisgegevens voor BLOB-opslag. |
 | dataVersion | tekenreeks | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
-| metadataVersion | tekenreeks | De schemaversie van de metagegevens van de gebeurtenis. Gebeurtenis raster definieert het schema van de eigenschappen op het hoogste niveau. Gebeurtenis raster bevat deze waarde. |
+| metadataVersion | tekenreeks | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
 
 Het gegevensobject heeft de volgende eigenschappen:
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
-| api | tekenreeks | De bewerking waarmee de gebeurtenis is geactiveerd. |
-| clientRequestId | tekenreeks | Een client is gegenereerd, ondoorzichtige waarde met een maximaal 1 KB tekens. Wanneer u opslaganalyse logboekregistratie hebt ingeschakeld, is het vastgelegd in het analytics. |
+| api | tekenreeks | De bewerking waarmee de gebeurtenis geactiveerd. |
+| clientRequestId | tekenreeks | Een client is gegenereerd, ondoorzichtig waarde met een tekenlimiet van 1 KB. Wanneer u opslaganalyse, logboekregistratie hebt ingeschakeld, wordt deze vastgelegd in de analytics-Logboeken. |
 | aanvraag-id | tekenreeks | De unieke id voor de aanvraag. Deze gebruiken voor het oplossen van de aanvraag. |
-| ETag | tekenreeks | De waarde die u gebruiken kunt voor voorwaardelijk bewerkingen uitvoeren. |
-| ContentType | tekenreeks | Het inhoudstype dat is opgegeven voor de blob. |
+| eTag | tekenreeks | De waarde die u gebruiken kunt voor het uitvoeren van bewerkingen voorwaardelijk. |
+| contentType | tekenreeks | Het inhoudstype dat is opgegeven voor de blob. |
 | contentLength | geheel getal | De grootte van de blob in bytes. |
 | blobType | tekenreeks | Het type van de blob. Geldige waarden zijn 'BlockBlob' of 'PageBlob'. |
 | url | tekenreeks | Het pad naar de blob. |
-| sequencer | tekenreeks | Een gebruiker gecontroleerde waarde die u gebruiken kunt om aanvragen te volgen. |
-| storageDiagnostics | object | Informatie over diagnostische gegevens over de opslag. |
+| sequencer | tekenreeks | Een door de gebruiker beheerde waarde die u gebruiken kunt om aanvragen te volgen. |
+| storageDiagnostics | object | Informatie over de diagnostische gegevens. |
  
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor een inleiding tot Azure gebeurtenis raster, [wat gebeurtenis raster is?](overview.md)
-* Zie voor meer informatie over het maken van een abonnement op Azure gebeurtenis raster [gebeurtenis raster abonnement schema](subscription-creation-schema.md).
-* Zie voor een inleiding in het werken met blob storage gebeurtenissen [gebeurtenissen in de Route Blob-opslag - Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json). 
+* Zie voor een inleiding tot Azure Event Grid, [wat is Event Grid?](overview.md)
+* Zie voor meer informatie over het maken van een Azure Event Grid-abonnement [Event Grid-abonnementsschema](subscription-creation-schema.md).
+* Zie voor een inleiding tot het werken met gebeurtenissen van blob storage, [Route Blob-opslaggebeurtenissen - Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json). 

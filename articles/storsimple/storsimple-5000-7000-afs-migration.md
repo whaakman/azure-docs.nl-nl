@@ -11,16 +11,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/10/2018
+ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 4dc4ddb2d11cf792bfa6288eadce8eb03470ae1d
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 6a52db27491ef707b813a7645d275b371b11368c
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099908"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42054251"
 ---
-# <a name="migrate-data-from-storsimple-5000-7000-series"></a>Gegevens migreren van de StorSimple 5000-7000 serie 
+# <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Gegevens van de StorSimple 5000-7000-serie migreren naar Azure File Sync
 
 Migratie van gegevens is het proces van het verplaatsen van gegevens van de ene opslaglocatie naar de andere. Dit omvat een exacte kopie van de huidige gegevens van een organisatie van het ene apparaat naar een ander apparaat te maken, bij voorkeur zonder onderbreken of uitschakelen van actieve toepassingen, en vervolgens alle invoer/uitvoer (I/O) activiteit wordt omgeleid naar het nieuwe apparaat. 
 
@@ -67,17 +67,17 @@ Migreren van gegevens van de StorSimple is 5000-7000 naar AFS een proces in twee
 
 Voer de volgende stappen uit voor het migreren van de Windows-bestandsshare die is geconfigureerd op het StorSimple-volumes naar een Azure File Sync-share. 
 1.  Deze stappen uitvoeren op de dezelfde Windows Server-host waar de StorSimple-volumes zijn gekoppeld of gebruik een ander systeem. 
-    - [Voorbereiden van Windows Server voor gebruik met Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal).
-    - [Installeer de Azure File Sync-agent](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal).
-    - [De Opslagsynchronisatieservice-service implementeren](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). 
-    - [Windows-Server registreren met opslag-Sync-service](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). 
-    - [Maak een groep voor synchronisatie en een cloudeindpunt] (https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal. Synchronisatiegroepen moeten worden gemaakt voor elke Windows-bestandsshare die moet worden gemigreerd van de host.
-    - [Maken van een servereindpunt](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal). Geef het pad op als het pad van het StorSimple-volume met de gegevens van uw bestand delen. Bijvoorbeeld, als het StorSimple-volume station `J`, en uw gegevens zich bevinden `J:/<myafsshare>`, klikt u vervolgens dit pad toevoegen als een servereindpunt. Laat de **Opslaglagen** als **uitgeschakelde**.
+    - [Voorbereiden van Windows Server voor gebruik met Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#prepare-windows-server-to-use-with-azure-file-sync).
+    - [Installeer de Azure File Sync-agent](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#install-the-azure-file-sync-agent).
+    - [De Opslagsynchronisatieservice-service implementeren](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#deploy-the-storage-sync-service). 
+    - [Windows-Server registreren met opslag-Sync-service](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#register-windows-server-with-storage-sync-service). 
+    - [Maak een groep voor synchronisatie en een cloudeindpunt](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide#create-a-sync-group-and-a-cloud-endpoint). Synchronisatiegroepen moeten worden gemaakt voor elke Windows-bestandsshare die moet worden gemigreerd van de host.
+    - [Maken van een servereindpunt](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=portal#create-a-server-endpoint). Geef het pad op als het pad van het StorSimple-volume met de gegevens van uw bestand delen. Bijvoorbeeld, als het StorSimple-volume station `J`, en uw gegevens zich bevinden `J:/<myafsshare>`, klikt u vervolgens dit pad toevoegen als een servereindpunt. Laat de **Opslaglagen** als **uitgeschakelde**.
 2.  Wacht totdat de synchronisatie van de server bestand voltooid is. Voor elke server in een bepaalde synchronisatiegroep, zorg ervoor dat:
     - De tijdstempels voor de laatste synchronisatie heeft geprobeerd voor zowel uploaden en downloaden zijn recente.
     - De status is groen voor zowel uploaden en downloaden.
-    - De synchronisatie-activiteit bevat zeer weinig of geen bestanden om te synchroniseren.
-    - De bestanden niet synchroniseren is 0 voor zowel uploaden en downloaden.
+    - De **synchronisatieactiviteiten** bevat te weinig of geen bestanden om te synchroniseren.
+    - De **bestanden niet synchroniseren** is 0 voor zowel uploaden en downloaden.
     Voor meer informatie over wanneer de serversynchronisatie voltooid is, gaat u naar [problemen met Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#how-do-i-know-if-my-servers-are-in-sync-with-each-other). De synchronisatie kan enkele uren duren, afhankelijk van uw gegevensgrootte en bandbreedte, dagen. Nadat de synchronisatie is voltooid, is al uw gegevens veilig in de Azure-bestandsshare. 
 3.  Ga naar de shares op de StorSimple-volumes. Selecteer een share, klik met de rechtermuisknop en selecteer **eigenschappen**. Houd er rekening mee de sharemachtigingen onder **Security**. Deze machtigingen moet handmatig worden toegepast op de nieuwe share in de volgende stap.
 4.  Afhankelijk van of u de dezelfde Windows Server-host of een ander account gebruiken, zijn de volgende stappen verschillend.

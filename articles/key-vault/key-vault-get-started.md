@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 05/10/2018
 ms.author: barclayn
-ms.openlocfilehash: 2d959eb9c4f55624d0d0915dd5dea4c62ba1f8e5
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: fcf3c7d47e43adc94d2de933430f16d64ec987a2
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505710"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41920281"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Aan de slag met Azure Sleutelkluis
 Dit artikel helpt u aan de slag te gaan met Azure Key Vault met behulp van PowerShell en leidt u stapsgewijs door de volgende activiteiten:
@@ -28,9 +28,6 @@ Dit artikel helpt u aan de slag te gaan met Azure Key Vault met behulp van Power
 - Een toepassing gebruik laten maken van die sleutel of wachtwoord.
 
 Azure Sleutelkluis is beschikbaar in de meeste regio's. Zie de pagina [Prijzen van Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) voor meer informatie.
-
-> [!NOTE]
-> Dit artikel bevat geen instructies voor het schrijven van een Azure-toepassing. U kunt voor deze stappen de [Azure Key Vault-voorbeeldtoepassing](https://www.microsoft.com/download/details.aspx?id=45343) gebruiken.
 
 Zie [deze equivalente zelfstudie](key-vault-manage-with-cli2.md) voor instructies om een platformonafhankelijke opdrachtregelinterface te maken.
 
@@ -269,7 +266,7 @@ De autorisatie van een toepassing voor het gebruik van sleutels of geheimen wijz
 ## <a id="HSM"></a>Met een Hardware Security Module (HSM) werken
 Voor de zekerheid kunt u sleutels in HSM's (Hardware Security Module) importeren of genereren die de HSM-grens nooit verlaten. De HSM's zijn FIPS 140-2 Level 2-gevalideerde modules. Als deze vereiste niet van toepassing is op u, kunt u deze sectie overslaan om naar [De sleutelkluis en de bijbehorende sleutels en geheimen verwijderen](#delete) te gaan.
 
-Om deze met HSM beveiligde sleutels te maken, moet u de [Azure Sleutelkluis Premium-servicelaag gebruiken voor ondersteuning voor met HSM beveiligde sleutels](https://azure.microsoft.com/pricing/free-trial/). Deze functionaliteit is niet beschikbaar voor Azure China.
+Om deze met HSM beveiligde sleutels te maken, moet u de [Azure Sleutelkluis Premium-servicelaag gebruiken voor ondersteuning voor met HSM beveiligde sleutels](https://azure.microsoft.com/pricing/details/key-vault/). Deze functionaliteit is niet beschikbaar voor Azure China.
 
 Wanneer u de sleutelkluis maakt, voegt u de parameter **-SKU** toe:
 

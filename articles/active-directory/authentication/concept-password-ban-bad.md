@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: rogoya
-ms.openlocfilehash: dfeacb266d6aa6a43e49a39bd19c9699ef65ce82
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 1ad499e2703ff8376c063d933c0cc1f03765fc23
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162011"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42054447"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Onjuiste wachtwoorden in uw organisatie te elimineren
 
@@ -28,7 +28,7 @@ Toonaangevende bedrijven vertellen u niet hetzelfde wachtwoord gebruiken op meer
 
 ## <a name="global-banned-password-list"></a>Lijst met uitgesloten wachtwoorden globale
 
-Microsoft werkt continu om te blijven van een stap voor cybercriminelen maken. Het Azure AD Identity Protection-team zoeken daarom voortdurend voor wachtwoorden voor vaak gebruikte en waarmee is geknoeid. Ze vervolgens blokkeren deze wachtwoorden op dat te veel voorkomt in wat de lijst met algemene uitgesloten wachtwoorden heet worden geacht. Cybercriminelen maken gebruik van vergelijkbare strategieën in hun aanvallen, dus Microsoft niet publiceert de inhoud van deze lijst openbaar. Deze kwetsbare wachtwoorden worden geblokkeerd voordat ze een echte bedreiging voor klanten van Microsoft. Zie voor meer informatie over de inspanningen de [Microsoft Security Intelligence Report](https://www.microsoft.com/security/intelligence-report).
+Microsoft stelt altijd alles in het werk om cybercriminelen een stap voor te blijven. Het Azure AD Identity Protection-team zoeken daarom voortdurend voor wachtwoorden voor vaak gebruikte en waarmee is geknoeid. Ze vervolgens blokkeren deze wachtwoorden op dat te veel voorkomt in wat de lijst met algemene uitgesloten wachtwoorden heet worden geacht. Cybercriminelen maken gebruik van vergelijkbare strategieën in hun aanvallen, dus Microsoft niet publiceert de inhoud van deze lijst openbaar. Deze kwetsbare wachtwoorden worden geblokkeerd voordat ze een echte bedreiging voor klanten van Microsoft. Zie voor meer informatie over de inspanningen de [Microsoft Security Intelligence Report](https://www.microsoft.com/security/intelligence-report).
 
 ## <a name="preview-custom-banned-password-list"></a>Voorbeeld: Aangepaste verboden lijst met wachtwoorden
 
@@ -54,11 +54,10 @@ Telkens wanneer een gebruiker wordt opnieuw ingesteld of Azure AD wachtwoord die
 
 ## <a name="license-requirements"></a>Licentievereisten
 
-De voordelen van de lijst met uitgesloten wachtwoorden globale gelden voor alle gebruikers van Azure Active Directory (Azure AD).
-
-De lijst met aangepaste uitgesloten wachtwoorden vereist Azure AD Basic-licenties.
-
-Azure AD-wachtwoordbeveiliging voor Windows Server Active Directory vereist Azure AD Premium-licenties. 
+|   | Azure AD-wachtwoordbeveiliging met de lijst met uitgesloten wachtwoorden globale | Azure AD-wachtwoordbeveiliging met de lijst met aangepaste uitgesloten wachtwoorden|
+| --- | --- | --- |
+| Cloudgebruikers | Azure AD Free | Azure AD Basic |
+| Gebruikers die zijn gesynchroniseerd vanaf on-premises Windows Server Active Directory | Azure AD Premium P1 of P2 | Azure AD Premium P1 of P2 |
 
 Extra licentie-informatie, inclusief kosten, vindt u op de [Azure Active Directory-site prijzen](https://azure.microsoft.com/pricing/details/active-directory/).
 

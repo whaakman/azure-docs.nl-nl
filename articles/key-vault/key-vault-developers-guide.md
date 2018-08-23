@@ -2,19 +2,19 @@
 title: Handleiding voor ontwikkelaars van Azure Key Vault
 description: Ontwikkelaars kunnen Azure Key Vault gebruiken om cryptografische sleutels binnen de Microsoft Azure-omgeving te beheren.
 services: key-vault
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
 ms.date: 10/12/2017
-ms.author: alleonar
-ms.openlocfilehash: 3a2ab6bbe2470fa12113ca4367316cf7a21190b8
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.author: bryanla
+ms.openlocfilehash: d8554d235fdfeb5b192ddf1268e60b7bc32aabe7
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626725"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42060110"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Handleiding voor ontwikkelaars van Azure Key Vault
 
@@ -23,7 +23,7 @@ Key Vault kunt u veilig toegang krijgen tot gevoelige gegevens in uw toepassinge
 - Sleutels en geheimen worden beveiligd zonder te hoeven schrijven van de code zelf en u bent eenvoudig kunnen worden gebruikt in uw toepassingen.
 - U zijn kunt uw eigen klanten en hun eigen sleutels te beheren, zodat u zich concentreren kunt op het leveren van de belangrijkste softwarefuncties. Op deze manier wordt de verantwoordelijk of potentiële aansprakelijkheid voor uw klanten tenantsleutels en geheimen geen eigenaar van uw toepassingen.
 - Uw toepassing kunt sleutels gebruiken voor het ondertekenen en versleuteling nog houdt het Sleutelbeheer externe van uw toepassing, zodat de oplossing geschikt is als een geografisch gedistribueerde app.
-- Vanaf de release van September 2016 van Key Vault, uw toepassingen nu Key Vault kunnen gebruiken [certificaten](https://docs.microsoft.com/rest/api/keyvault/certificate-operations). Zie voor meer informatie, [over sleutels, geheimen en certificaten](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates).
+- Vanaf de release van September 2016 van Key Vault, kunnen uw toepassingen nu Key Vault-certificaten beheren. Zie voor meer informatie, [over sleutels, geheimen en certificaten](https://docs.microsoft.com/rest/api/keyvault/about-keys--secrets-and-certificates).
 
 Zie voor meer algemene informatie over Azure Key Vault [wat is Key Vault](key-vault-whatis.md).
 

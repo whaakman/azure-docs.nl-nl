@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: 0f64bcecadf5979e9983028354c41457771020bd
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: aeb4ff26b05a5542fd77ac32589c8f8efb622798
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40129237"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40166288"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Een Kubernetes-cluster maken dat is ingeschakeld voor Azure Dev Spaces
 
@@ -28,7 +28,7 @@ ms.locfileid: "40129237"
     - **CLUSTERDETAILS**: voer een naam, regio (momenteel moet u EastUS, Central US, WestEurope, WestUS2, CanadaCentral of CanadaEast), versie en DNS-voorvoegsel in voor het AKS-cluster.
     - **SCHAAL**: selecteer een VM-grootte voor de AKS-agentknooppunten en het aantal knooppunten. Als u begint met Azure Dev Spaces, is één knooppunt voldoende voor het verkennen van alle functies. Het aantal knooppunten kan op elk gewenst moment na de implementatie van het cluster gemakkelijk worden aangepast. Let op: de VM-grootte kan niet meer worden gewijzigd als een AKS-cluster eenmaal is gemaakt. Zodra een AKS-cluster is geïmplementeerd, kunt u echter eenvoudig een nieuw AKS-cluster met grotere virtuele machines maken en Dev Spaces gebruiken om dat grotere cluster opnieuw te implementeren als u wilt opschalen.
 
-   Zorg ervoor dat u Kubernetes versie 1.10.3 of hoger kiest.
+   Zorg ervoor dat u Kubernetes versie 1.9.6 of hoger kiest.
 
    ![Configuratie-instellingen voor Kubernetes](../media/common/Kubernetes-Create-Cluster-2.PNG)
 

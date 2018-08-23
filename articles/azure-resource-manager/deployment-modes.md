@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 00800cb233776878e1fa330ce72cb067b8c698f3
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c8c6c5499e1cea04bc5bdffbb5c07b53b96182e2
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39634332"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42057511"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager-implementatiemodi
 Bij het implementeren van uw resources, kunt u opgeven dat de implementatie een incrementele update of een volledige update is.  Het belangrijkste verschil tussen deze twee modi is hoe Resource Manager omgaat met bestaande resources in de resourcegroep die zich niet in de sjabloon.
@@ -82,7 +82,7 @@ az group deployment create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-Het instellen van de implementatiemodus voor in een [gekoppelde of geneste sjabloon](resource-group-linked-templates.md), gebruikt u de `mode` eigenschap.
+Wanneer u een [gekoppelde of geneste sjabloon](resource-group-linked-templates.md), moet u instellen de `mode` eigenschap `Incremental`. Alleen de sjablonen op hoofdniveau ondersteunen de volledige implementatie-modus.
 
 ```json
 "resources": [

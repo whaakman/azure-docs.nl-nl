@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/02/2018
+ms.date: 08/16/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d55139a6b0c4da4869c65f0a19eb3f6f3bf31066
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: a497ceab45bb3ace4e3f1ea063ef9c3e33818426
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39481029"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42059440"
 ---
 # <a name="create-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>De Azure-SSIS integratieruntime in Azure Data Factory maken
 In dit artikel bevat stappen voor het inrichten van een Azure-SSIS integratieruntime in Azure Data Factory. Vervolgens kunt u SSDT (SQL Server Data Tools) of SSMS (SQL Server Management Studio) gebruiken om SSIS-pakketten (SQL Server Integration Services) te implementeren en uit te voeren in deze runtime van Azure. 
@@ -68,7 +68,7 @@ De volgende tabel vergelijkt bepaalde functies van SQL-Database en de Managed In
 | **Verificatie** | U kunt een database maken met een ingesloten database-gebruikersaccount dat staat voor een Azure Active Directory-gebruiker in de **dbmanager** rol.<br/><br/>Zie [inschakelen van Azure AD in Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | U kunt een database maken met een ingesloten database-gebruikersaccount dat staat voor een Azure Active Directory-gebruiker dan een Azure AD-beheerder. <br/><br/>Zie [inschakelen van Azure AD op beheerd exemplaar voor Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
 | **Servicelaag** | Als u de Azure-SSIS-IR in SQL-Database maakt, selecteert u de servicelaag voor SSISDB. Er zijn meerdere lagen van de services. | Wanneer u de Azure-SSIS-IR op een beheerd exemplaar maakt, kunt u de servicelaag niet selecteren voor SSISDB. Alle databases op de dezelfde Managed Instance delen dezelfde resource toegewezen aan deze instantie. |
 | **Virtueel netwerk** | Biedt ondersteuning voor Azure Resource Manager en klassieke virtuele netwerken. | Biedt alleen ondersteuning voor virtueel netwerk van Azure Resource Manager. Het virtuele netwerk is vereist.<br/><br/>Als u uw Azure-SSIS IR aan hetzelfde virtuele netwerk bevinden als het beheerde exemplaar toevoegen, zorg ervoor dat de Azure-SSIS IR in een ander subnet dan het beheerde exemplaar is. Als u de Azure-SSIS IR aan een ander virtueel netwerk dan het beheerde exemplaar toevoegen, raden wij peering op virtueel netwerk (dit is beperkt tot dezelfde regio bevinden) of een virtueel netwerk met virtuele netwerk. Zie [verbinding maken met uw toepassing naar Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md). |
-| **Gedistribueerde transacties** | Ondersteund door middel van elastische transacties en aangepaste code. Microsoft Distributed Transaction Coordinator (MSDTC)-transacties worden niet ondersteund. Als uw pakketten MSDTC gedistribueerde transacties te coördineren, kunt u overwegen migreren naar elastische transactie voor SQL-Database. Voor het gebruik van elastische transacties in uw SSIS-pakket, moet u aangepaste code schrijven in een taak Script omdat SSIS geen ingebouwde ondersteuning voor elastische transacties. Zie voor meer informatie, [gedistribueerde transacties tussen clouddatabases](../sql-database/sql-database-elastic-transactions-overview.md). | Wordt niet ondersteund. |
+| **Gedistribueerde transacties** | Microsoft Distributed Transaction Coordinator (MSDTC)-transacties worden niet ondersteund. Als uw pakketten MSDTC gedistribueerde transacties te coördineren, kunt u mogelijk een tijdelijke oplossing implementeren met behulp van elastische transacties voor SQL-Database. Op dit moment geen SSIS ingebouwde ondersteuning voor elastische transacties. Voor het gebruik van elastische transacties in uw SSIS-pakket, moet u aangepaste ADO.NET-code in de taak van een Script schrijven. Deze taak script moet het begin en einde van de transactie en de acties die plaatsvinden binnen de transactie moeten bevatten.<br/><br/>Zie voor meer informatie over het coderen van elastische transacties [transacties met Elastic databases met Azure SQL Database](https://azure.microsoft.com/en-us/blog/elastic-database-transactions-with-azure-sql-database/). Zie voor meer informatie over elastische transacties in het algemeen [gedistribueerde transacties tussen clouddatabases](../sql-database/sql-database-elastic-transactions-overview.md). | Wordt niet ondersteund. |
 | | | |
 
 ## <a name="azure-portal"></a>Azure Portal

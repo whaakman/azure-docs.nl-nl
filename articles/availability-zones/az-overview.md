@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 06/27/2018
 ms.author: iainfou
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: f2890338f69e8ad5e97077dbb227f557b34f1a4b
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 6a4dcc2cd3b196221b881783c79ddb0adaa6f38b
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090282"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42056829"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Wat zijn Beschikbaarheidszones in Azure?
 Beschikbaarheidszones is een aanbieding die uw toepassingen en gegevens beveiligt tegen storingen in datacenters hoge beschikbaarheid. Beschikbaarheidszones zijn unieke fysieke locaties binnen een Azure-regio. Elke zone bestaat uit een of meer datacenters die zijn uitgerust met onafhankelijke voeding, koeling en netwerken. Om ervoor te zorgen tolerantie, is er een minimum van drie afzonderlijke zones in alle ingeschakelde regio's. De fysieke scheiding tussen Beschikbaarheidszones binnen een regio beschermt toepassingen en gegevens tegen storingen in datacenters. Zone-redundante services repliceren uw toepassingen en gegevens in meerdere Beschikbaarheidszones om te beschermen tegen enkele punten van de fout. Met Beschikbaarheidszones biedt Azure branche aanbevolen VM uptime SLA van 99,99%. In de volledige [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) wordt de gegarandeerde beschikbaarheid van Azure als geheel uitgelegd.
@@ -39,10 +39,10 @@ Bouw uw toepassingsarchitectuur met behulp van de combinatie van de Beschikbaarh
 
 ## <a name="regions-that-support-availability-zones"></a>Regio's die ondersteuning voor Beschikbaarheidszones
 
-- VS - midden
+- US - centraal
 - Frankrijk - centraal
 - VS-Oost 2 (Preview)
-- West-Europa
+- Europa -west
 - Zuidoost-Azië (Preview)
 
 
@@ -74,7 +74,7 @@ Er is geen extra kosten voor virtuele machines die in een Beschikbaarheidszone i
 - [Taakverdeling tussen VM's in zones met behulp van een Standard Load Balancer met een zone-redundante front](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 - [Taakverdeling tussen VM's binnen een zone met behulp van een Standard Load Balancer met een zonegebonden frontend.](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Zone-redundante opslag](../storage/common/storage-redundancy-zrs.md)
-- [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
+- [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration-preview)
 - [Geo-noodherstel Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
 - [Geo-noodherstel Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
 - [Een zone-redundante virtuele netwerkgateway maken](../vpn-gateway/create-zone-redundant-vnet-gateway.md)

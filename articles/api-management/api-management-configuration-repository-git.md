@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: b2cdb88ba71b4a3d3005ec9d64b6e94cdb1d1c55
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 8c4ae9c7b8be8cf390ad4ad6d99cd1ec41cd3d08
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857528"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42058679"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Het opslaan en het configureren van de configuratie van uw API Management-service met behulp van Git
 
@@ -107,7 +107,7 @@ Gebruik het gecodeerde wachtwoord samen met de locatie van de naam en de opslagp
 git clone https://username:url encoded password@bugbashdev4.scm.azure-api.net/
 ```
 
-U kunt bekijken en ermee te werken in uw lokale bestandssysteem zodra de opslagplaats hebt gekloond. Zie voor meer informatie, [bestands- en structuur van verwijzing van lokale Git-opslagplaats](#file-and-folder-structure-reference-of-local-git-repository).
+Zodra de opslagplaats hebt gekloond, kunt u bekijken en ermee te werken in uw lokale bestandssysteem. Zie voor meer informatie, [bestands- en structuur van verwijzing van lokale Git-opslagplaats](#file-and-folder-structure-reference-of-local-git-repository).
 
 ## <a name="to-update-your-local-repository-with-the-most-current-service-instance-configuration"></a>Uw lokale opslagplaats bijwerken met de configuratie van de meest recente service-exemplaar
 
@@ -166,7 +166,7 @@ Elke map kan een of meer bestanden bevatten, en in sommige gevallen een of meer 
 | xml |Beleidsinstructies |
 | CSS |Opmaakmodellen voor ontwikkelaars van de portal aanpassen |
 
-Deze bestanden kunnen worden gemaakt, verwijderd, bewerkt en beheerd op het lokale bestandssysteem en de wijzigingen die zijn geïmplementeerd terug naar de uw API Management service-exemplaar.
+Deze bestanden kunnen worden gemaakt, verwijderd, bewerkt en beheerd op het lokale bestandssysteem en de wijzigingen terug naar uw API Management service-exemplaar geïmplementeerd.
 
 > [!NOTE]
 > De volgende entiteiten zijn niet opgenomen in de Git-opslagplaats en kunnen niet worden geconfigureerd met behulp van Git.
@@ -177,7 +177,7 @@ Deze bestanden kunnen worden gemaakt, verwijderd, bewerkt en beheerd op het loka
 > * Developer portal entiteiten dan stijlen
 > 
 
-### <a name="root-api-management-folder"></a>Hoofdmap van de api-beheer
+### <a name="root-api-management-folder"></a>hoofdmap van de api-beheer
 De hoofdmap `api-management` map bevat een `configuration.json` bestand die op het hoogste niveau informatie over de service-exemplaar in de volgende notatie bevat.
 
 ```json
@@ -217,11 +217,11 @@ De volgende vier instellingen (`DelegationEnabled`, `DelegationUrl`, `DelegatedS
 De instelling van de laatste `$ref-policy`, toegewezen aan het globale beleid instructies-bestand voor het service-exemplaar.
 
 ### <a name="apis-folder"></a>map van de API 's
-De `apis` een map bevat voor elke API in de service-exemplaar dat de volgende items bevat.
+De `apis` een map bevat voor elke API in het service-exemplaar dat de volgende items bevat.
 
 * `apis\<api name>\configuration.json` -Dit is de configuratie voor de API en bevat informatie over de URL van de back-end-service en de bewerkingen. Dit is dezelfde informatie die wordt geretourneerd als u aan te roepen [ophalen van een bepaalde API](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) met `export=true` in `application/json` indeling.
 * `apis\<api name>\api.description.html` -Dit is de beschrijving van de API en komt overeen met de `description` eigenschap van de [API-entiteit](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
-* `apis\<api name>\operations\` -Deze map bevat `<operation name>.description.html` bestanden die zijn toegewezen aan de bewerkingen in de API. Elk bestand bevat de beschrijving van een enkele bewerking in de API die wordt toegewezen aan de `description` eigenschap van de [bewerking entiteit](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) in de REST-API.
+* `apis\<api name>\operations\` -Deze map bevat `<operation name>.description.html` bestanden die zijn toegewezen aan de bewerkingen in de API. Elk bestand bevat de beschrijving van een enkele bewerking in de API, die wordt toegewezen aan de `description` eigenschap van de [bewerking entiteit](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) in de REST-API.
 
 ### <a name="groups-folder"></a>map groepen
 De `groups` map bevat een map voor elke groep die is gedefinieerd in het service-exemplaar.
@@ -259,8 +259,8 @@ De `templates` map bevat de configuratie voor de [e-mailsjablonen](api-managemen
 Zie voor informatie over andere manieren voor het beheren van uw service-exemplaar:
 
 * Beheer van uw service-exemplaar met behulp van de volgende PowerShell-cmdlets
-  * [Naslaginformatie over PowerShell-cmdlets voor service-implementatie](https://msdn.microsoft.com/library/azure/mt619282.aspx)
-  * [Naslaginformatie over PowerShell-cmdlets voor servicebeheer](https://msdn.microsoft.com/library/azure/mt613507.aspx)
+  * [Naslaginformatie over PowerShell-cmdlets voor service-implementatie](https://docs.microsoft.com/powershell/module/wds)
+  * [Naslaginformatie over PowerShell-cmdlets voor servicebeheer](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * Beheer van uw service-exemplaar met behulp van de REST-API
   * [API Management REST API-naslaginformatie](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 

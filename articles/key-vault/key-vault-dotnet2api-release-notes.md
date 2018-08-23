@@ -1,10 +1,10 @@
 ---
 title: Belangrijke opmerkingen bij de Release van de kluis .NET 2.x API | Microsoft Docs
-description: .NET-ontwikkelaars wilt deze API code voor Azure Sleutelkluis gebruiken
+description: .NET-ontwikkelaars wordt deze API in code gebruiken voor Azure Key Vault
 services: key-vault
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
-editor: alleonar
+editor: bryanla
 ms.assetid: 1cccf21b-5be9-4a49-8145-483b695124ba
 ms.service: key-vault
 ms.devlang: CSharp
@@ -12,38 +12,38 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
-ms.author: alleonar
-ms.openlocfilehash: a7735f8c1c4332bf2472bc83c0c37baf49019004
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.author: bryanla
+ms.openlocfilehash: f2bcace1ba328aff20971b46880f317295f3a406
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "27909751"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42058066"
 ---
-# <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Sleutelkluis .NET 2.0 - Release-opmerkingen en Migratiehandleiding
-De volgende informatie kunt migreren naar versie 2.0 van de Azure Sleutelkluis-bibliotheek voor C# en .NET.  Apps die zijn geschreven voor oudere versies moeten worden bijgewerkt ter ondersteuning van de meest recente versie.  Deze wijzigingen nodig zijn voor een volledige nieuwe en verbeterde functies, zoals ondersteuning **Sleutelkluis certificaten**.
+# <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>Azure Key Vault .NET 2.0 - Release-opmerkingen en Migratiehandleiding
+De volgende informatie helpt bij het migreren naar versie 2.0 van de Azure Key Vault-bibliotheek voor C# en .NET.  Apps die zijn geschreven voor oudere versies moeten worden bijgewerkt ter ondersteuning van de meest recente versie.  Deze wijzigingen nodig zijn voor een volledige nieuwe en verbeterde functies, zoals ondersteuning **Key Vault-certificaten**.
 
-## <a name="key-vault-certificates"></a>Sleutelkluis-certificaten
+## <a name="key-vault-certificates"></a>Key Vault-certificaten
 
-Sleutelkluis certificaten beheren x509 certificaten en ondersteunt de volgende problemen:  
+Key Vault-certificaten beheren x509 certificaten en biedt ondersteuning voor het volgende gedrag:  
 
-* Certificaten via een proces voor het maken van een Sleutelkluis maken of bestaande certificaat importeren. Dit omvat zowel zelfondertekend en certificeringsinstantie (CA) certificaten gegenereerd.
+* Certificaten via een proces voor het maken van Key Vault maken of bestaande certificaat importeren. Dit omvat zowel zelfondertekend en certificeringsinstantie (CA) die certificaten worden gegenereerd.
 * Veilig opslaan en beheren van x509 opslag zonder tussenkomst van de privésleutelmateriaal met behulp van het certificaat.  
-* Definieer de beleidsregels die Sleutelkluis directe voor het beheren van de levensduur van het certificaat.  
-* Contactgegevens voor de levenscyclus van gebeurtenissen, zoals een vervaldatum waarschuwingen en meldingen voor verlenging bevatten.  
-* Automatisch vernieuwen van certificaten met de geselecteerde verleners (Sleutelkluis partner X509 certificaatproviders en CA's). * certificaat voor ondersteuning van alternatieve (niet-partner) biedt en certificeringsinstanties (geen ondersteuning voor automatisch verlengen).  
+* Zelfs beleidsregels definiëren die Key Vault directe voor het beheren van de levensduur van het certificaat.  
+* Geef de contactgegevens van de van levenscyclusgebeurtenissen, zoals een vervaldatum waarschuwingen en meldingen voor het vernieuwen.  
+* Automatisch vernieuwen van certificaten met geselecteerde verleners (Key Vault partner X509 certificaatproviders en -CA's). * ondersteuning certificaat uit andere (niet-partners) biedt en certificeringsinstanties (geen ondersteuning voor automatische verlenging).  
 
-## <a name="net-support"></a>Ondersteuning voor .NET
+## <a name="net-support"></a>.NET-ondersteuning
 
-* **.NET 4.0** wordt niet ondersteund door de versie 2.0 van de Azure Key Vault .NET-bibliotheek
-* **.NET framework 4.5.2** wordt ondersteund door de versie 2.0 van de Azure Key Vault .NET-bibliotheek
-* **Standard 1.4 .NET** wordt ondersteund door de versie 2.0 van de Azure Key Vault .NET-bibliotheek
+* **.NET 4.0** wordt niet ondersteund door versie 2.0 van de Azure Key Vault .NET-bibliotheek
+* **.NET framework 4.5.2** wordt ondersteund door versie 2.0 van de Azure Key Vault .NET-bibliotheek
+* **.NET standard 1.4** wordt ondersteund door versie 2.0 van de Azure Key Vault .NET-bibliotheek
 
 ## <a name="namespaces"></a>Naamruimten
 
-* De naamruimte voor **modellen** wordt gewijzigd van **Microsoft.Azure.KeyVault** naar **Microsoft.Azure.KeyVault.Models**.
+* De naamruimte voor **modellen** is gewijzigd van **Microsoft.Azure.KeyVault** naar **Microsoft.Azure.KeyVault.Models**.
 * De **Microsoft.Azure.KeyVault.Internal** naamruimte is verwijderd.
-* De volgende naamruimten van de Azure SDK-afhankelijkheden hebben 
+* De volgende naamruimten van de Azure SDK-afhankelijkheden 
 
     - **Hyak.Common** is nu **Microsoft.Rest**.
     - **Hyak.Common.Internals** is nu **Microsoft.Rest.Serialization**.
@@ -52,13 +52,13 @@ Sleutelkluis certificaten beheren x509 certificaten en ondersteunt de volgende p
 
 * *Geheim* gewijzigd in *SecretBundle*
 * *Woordenlijst* gewijzigd in *IDictionary*
-* *Lijst<T>, string []* gewijzigd in *IList<T>*
+* *Lijst met<T>, string []* gewijzigd in *IList<T>*
 * *NextList* gewijzigd in *NextPageLink*
 
-## <a name="return-types"></a>Retourtypen
+## <a name="return-types"></a>Typen retourneren
 
-* **KeyList** en **SecretList** nu retourneert *IPage<T>*  in plaats van *ListKeysResponseMessage*
-* De gegenereerde **BackupKeyAsync** nu retourneert *BackupKeyResult*, die bevat *waarde* (back-up van blob). De methode is eerder ingepakt en alleen de waarde geretourneerd.
+* **KeyList** en **SecretList** retourneert nu *IPage<T>*  in plaats van *ListKeysResponseMessage*
+* Het gegenereerde **BackupKeyAsync** retourneert nu *BackupKeyResult*, die bevat *waarde* (back-up maken van blob). De methode is eerder, verpakt en alleen de waarde geretourneerd.
 
 ## <a name="exceptions"></a>Uitzonderingen
 
@@ -68,11 +68,11 @@ Sleutelkluis certificaten beheren x509 certificaten en ondersteunt de volgende p
 
 ## <a name="constructors"></a>Constructors
 
-* In plaats van het accepteren van een *HttpClient* als constructor-argument accepteert de constructor alleen *HttpClientHandler* of *DelegatingHandler []*.
+* In plaats van het accepteren van een *HttpClient* als een constructorargument accepteert de constructor alleen *HttpClientHandler* of *DelegatingHandler []*.
 
 ## <a name="downloaded-packages"></a>Gedownloade pakketten
 
-Wanneer een client een afhankelijkheid Sleutelkluis verwerkt, worden de volgende pakketten gedownload:
+Wanneer een client een Key Vault-afhankelijkheid verwerkt, worden de volgende pakketten gedownload:
 
 ### <a name="previous-package-list"></a>Vorige pakketlijst
 
@@ -91,22 +91,22 @@ Wanneer een client een afhankelijkheid Sleutelkluis verwerkt, worden de volgende
 * `package id="Microsoft.Rest.ClientRuntime" version="2.2.0" targetFramework="net45"`
 * `package id="Microsoft.Rest.ClientRuntime.Azure" version="3.2.0" targetFramework="net45"`
 
-## <a name="class-changes"></a>Wijzigingen voor klasse
+## <a name="class-changes"></a>Wijzigingen van de klasse
 
 * **UnixEpoch** klasse is verwijderd.
 * **Base64UrlConverter** klasse is gewijzigd in **Base64UrlJsonConverter**.
 
 ## <a name="other-changes"></a>Andere wijzigingen
 
-* Ondersteuning voor de configuratie van beleid voor KV bewerking opnieuw proberen op tijdelijke fouten is toegevoegd in deze versie van de API.
+* Ondersteuning voor de configuratie van beleid voor KV bewerking opnieuw proberen op tijdelijke fouten toegevoegd aan deze versie van de API.
 
 ## <a name="microsoftazuremanagementkeyvault-nuget"></a>Microsoft.Azure.Management.KeyVault NuGet
 
 * Voor de bewerkingen die geretourneerd een *kluis*, het retourtype is een klasse die een **kluis** eigenschap. Het retourtype is nu *kluis*.
 * *PermissionsToKeys* en *PermissionsToSecrets* zijn nu *Permissions.Keys* en *Permissions.Secrets*
-* Bepaalde retourtypen wijzigingen aan het besturingselement-ook van toepassing.
+* De wijzigingen van bepaalde typen retourneren die van toepassing op het besturingselement vlak ook.
 
 ## <a name="microsoftazurekeyvaultextensions-nuget"></a>Microsoft.Azure.KeyVault.Extensions NuGet
 
-* Het pakket is verbroken tot **Microsoft.Azure.KeyVault.Extensions** en **Microsoft.Azure.KeyVault.Cryptography** voor de cryptografie-bewerkingen.
+* Het pakket is verbroken tot **Microsoft.Azure.KeyVault.Extensions** en **Microsoft.Azure.KeyVault.Cryptography** voor de cryptografische bewerkingen.
 

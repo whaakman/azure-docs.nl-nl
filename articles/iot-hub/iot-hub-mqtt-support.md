@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: elioda
-ms.openlocfilehash: 19a129ec4646f13f1bd095dffd423f3b90bb32a7
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 2e45422ca6a861894193600eff17f192bc20b357
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345457"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42060103"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communiceren met uw IoT-hub met behulp van het MQTT-protocol
 
@@ -21,6 +21,8 @@ Met IoT Hub kunt apparaten om te communiceren met de IoT Hub apparaat-eindpunten
 
 * [MQTT v3.1.1] [ lnk-mqtt-org] op poort 8883
 * MQTT v3.1.1 via WebSocket op poort 443.
+
+IoT Hub is niet een volledig functionele MQTT broker en biedt geen ondersteuning voor de problemen die zijn opgegeven in de MQTT v3.1.1 standaard. Dit artikel wordt beschreven hoe apparaten ondersteunde MQTT-gedrag kunnen gebruiken om te communiceren met IoT Hub.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 

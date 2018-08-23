@@ -1,6 +1,6 @@
 ---
-title: Procedures voor omgevingsvariabelen voor services in Azure Service Fabric opgeven | Microsoft Docs
-description: Ziet u het gebruik van omgevingsvariabelen voor toepassingen in Service Fabric
+title: Hoe kan ik opgeven omgevingsvariabelen voor services in Azure Service Fabric | Microsoft Docs
+description: Ziet u hoe u omgevingsvariabelen voor toepassingen in Service Fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: markfuss
@@ -12,29 +12,29 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: 4325b3acd3cbc73ee5976021bebe96c267b2a6dd
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f75de635f08ae06db349387a436c636c149ec9f2
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206025"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055689"
 ---
 # <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>Het opgeven van omgevingsvariabelen voor services in Service Fabric
 
-In dit artikel leest u hoe het opgeven van omgevingsvariabelen voor een service of de container in Service Fabric.
+Dit artikel ziet u hoe u omgevingsvariabelen voor een service of de container opgeven in Service Fabric.
 
 ## <a name="procedure-for-specifying-environment-variables-for-services"></a>Procedure voor het opgeven van omgevingsvariabelen voor services
 
-In dit voorbeeld stelt u een omgevingsvariabele voor een container. Het artikel wordt ervan uitgegaan dat u hebt al een toepassing en service manifest.
+In dit voorbeeld kunt u een omgevingsvariabele instellen voor een container. Het artikel wordt ervan uitgegaan dat u hebt al een toepassing en service manifest.
 
 1. Open het bestand ServiceManifest.xml.
-1. In de `CodePackage` element, Voeg een nieuwe `EnvironmentVariables` element en een `EnvironmentVariable` element voor elk omgevingsvariabele.
+1. In de `CodePackage` -element, toevoegen van een nieuwe `EnvironmentVariables` element en een `EnvironmentVariable` -element voor elk omgevingsvariabele.
 
     ```xml
       <CodePackage Name="MyCode" Version="CodeVersion1">
       ...
         <EnvironmentVariables>
-          <EnvironmentVariable Name="MyEnvVariable" Value="DeafultValue"/>
+          <EnvironmentVariable Name="MyEnvVariable" Value="DefaultValue"/>
           <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
         </EnvironmentVariables>
       </CodePackage>
@@ -42,7 +42,7 @@ In dit voorbeeld stelt u een omgevingsvariabele voor een container. Het artikel 
 
     Omgevingsvariabelen kunnen worden overschreven in het toepassingsmanifest.
 
-1. U kunt de omgevingsvariabelen in het toepassingsmanifest overschrijven, met de `EnvironmentOverrides` element.
+1. Als u wilt overschrijven de omgevingsvariabelen in het toepassingsmanifest, gebruikt u de `EnvironmentOverrides` element.
 
     ```xml
       <ServiceManifestImport>
@@ -54,6 +54,6 @@ In dit voorbeeld stelt u een omgevingsvariabele voor een container. Het artikel 
     ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over een aantal van de belangrijkste concepten die worden beschreven in dit artikel, de [beheren van toepassingen voor artikelen in meerdere omgevingen](service-fabric-manage-multiple-environment-app-configuration.md).
+Zie voor meer informatie over een aantal van de belangrijkste concepten die in dit artikel worden besproken, de [beheren van toepassingen voor meerdere omgevingen artikelen](service-fabric-manage-multiple-environment-app-configuration.md).
 
 Zie voor meer informatie over de mogelijkheden van andere app-beheer die beschikbaar in Visual Studio zijn [beheren van uw Service Fabric-toepassingen in Visual Studio](service-fabric-manage-application-in-visual-studio.md).

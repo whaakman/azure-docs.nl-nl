@@ -1,49 +1,47 @@
 ---
-title: Aan de slag met Azure IoT Hub module identiteits- en module twin (C) | Microsoft Docs
-description: Meer informatie over het module-id maken en bijwerken van de module twin met IoT SDK's voor C.
+title: Aan de slag met Azure IoT Hub identiteits- en module moduledubbel (C) | Microsoft Docs
+description: Meer informatie over het module-id maken en bijwerken met behulp van IoT SDK's voor C. moduledubbel
 author: chrissie926
-manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: 5a9e3fb741563d2804c916dc3db3e02a79147b6c
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 94c7bd50b9c331370aaac802e0a453c5cdd8b7c1
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035933"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42055063"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-c-back-end-and-c-device"></a>Aan de slag met IoT Hub module identiteits- en module twin met behulp van de back-end C en C-apparaat
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-c-backend-and-c-device"></a>Aan de slag met IoT Hub identiteits- en module moduledubbel met behulp van back-end C en C-apparaat
 
 > [!NOTE]
 > [Module-id's en moduledubbels](iot-hub-devguide-module-twins.md) zijn vergelijkbaar met Azure IoT Hub-apparaat-id's en apparaatdubbels, maar bieden een hogere granulariteit. Met een Azure IoT Hub-apparaat-id en apparaatdubbel kan een apparaat worden geconfigureerd via de back-endtoepassing en kunt u inzicht krijgen in de toestand van een apparaat. Een module-id en moduledubbel bieden deze mogelijkheden voor afzonderlijke onderdelen van een apparaat. Op apparaten met meerdere onderdelen, zoals apparaten met een besturingssysteem of firmware, kunt u afzonderlijke configuraties en voorwaarden voor elk onderdeel instellen.
 
-Aan het einde van deze zelfstudie hebt u twee C apps:
+Aan het einde van deze zelfstudie hebt u twee C-apps:
 
 * **CreateIdentities**: deze toepassing maakt een apparaat-id, een module-id en de bijbehorende beveiligingssleutel waarmee uw apparaat- en moduleclients verbonden kunnen worden.
+
 * **UpdateModuleTwinReportedProperties**: deze toepassing verzendt bijgewerkte gerapporteerde eigenschappen van de moduledubbel naar uw IoT Hub.
 
 > [!NOTE]
-> Raadpleeg het artikel [Azure IoT-SDKs][lnk-hub-sdks] voor meer informatie over de verschillende Azure IoT-SDK's die u kunt gebruiken om beide toepassingen zo te maken dat ze zowel op het apparaat als op de back-end van uw oplossing kunnen worden uitgevoerd.
+> Zie voor informatie over de Azure IoT SDK's die u gebruiken kunt om beide toepassingen uit te voeren op apparaten en uw oplossing voor back-end te bouwen, [Azure IoT SDK's](iot-hub-devguide-sdks.md).
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Een actief Azure-account. (Als u geen account hebt, kunt u binnen een paar minuten een [gratis account][lnk-free-trial] maken.)
+* Een actief Azure-account. (Als u geen account hebt, kunt u een [gratis Azure-account](http://azure.microsoft.com/pricing/free-trial/) binnen een paar minuten.)
 * Een IoT-Hub.
-* Installeer de meest recente [C SDK](https://github.com/Azure/azure-iot-sdk-c).
-
+* De meest recente [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
 U hebt nu uw IoT Hub gemaakt en u hebt de hostnaam en de IoT Hub-verbindingsreeks die u nodig hebt voor de rest van deze handleiding.
 
-<a id="DeviceIdentity_csharp"></a>
-## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Een apparaat-id en de identiteit van een module in IoT Hub maken
+## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Een apparaat-id en de identiteit van een module in IoT-Hub maken
 
-In deze sectie maakt u een C-app die u een apparaat-id en de identiteit van een module in het identiteitenregister van uw IoT-hub maakt. Een apparaat of module kan alleen verbinding maken met de IoT-hub als het apparaat of de module is vermeld in het identiteitsregister. Zie de sectie Id-register in de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie. Als u deze consoletoepassing uitvoert, worden er een unieke id en een unieke sleutel gemaakt voor zowel het apparaat als de module. Deze waarden worden door het apparaat en de module gebruikt om zichzelf te identificeren bij het verzenden van apparaat-naar-cloud-berichten naar IoT Hub. De id's zijn hoofdlettergevoelig.
+In deze sectie maakt u een C-app die wordt gemaakt van een apparaat-id en de identiteit van een module in het identiteitenregister van uw IoT-hub. Een apparaat of module kan alleen verbinding maken met de IoT-hub als het apparaat of de module is vermeld in het identiteitsregister. Zie voor meer informatie de **id-register** sectie van de [Ontwikkelaarshandleiding voor IoT Hub](iot-hub-devguide-identity-registry.md). Als u deze consoletoepassing uitvoert, worden er een unieke id en een unieke sleutel gemaakt voor zowel het apparaat als de module. Deze waarden worden door het apparaat en de module gebruikt om zichzelf te identificeren bij het verzenden van apparaat-naar-cloud-berichten naar IoT Hub. De id's zijn hoofdlettergevoelig.
 
-De volgende code toevoegen aan uw C-bestand:
+Voeg de volgende code toe aan het bestand C:
 
 ```C
 #include <stdio.h>
@@ -58,7 +56,8 @@ De volgende code toevoegen aan uw C-bestand:
 
 static const char* hubConnectionString ="[your hub's connection string]"; // modify
 
-static void createDevice(IOTHUB_REGISTRYMANAGER_HANDLE iotHubRegistryManagerHandle, const char* deviceId)
+static void createDevice(IOTHUB_REGISTRYMANAGER_HANDLE 
+  iotHubRegistryManagerHandle, const char* deviceId)
 {
     IOTHUB_REGISTRY_DEVICE_CREATE_EX deviceCreateInfo;
     IOTHUB_REGISTRYMANAGER_RESULT result;
@@ -75,7 +74,8 @@ static void createDevice(IOTHUB_REGISTRYMANAGER_HANDLE iotHubRegistryManagerHand
     deviceInfoEx.version = 1;
     
     // Create device
-    result = IoTHubRegistryManager_CreateDevice_Ex(iotHubRegistryManagerHandle, &deviceCreateInfo, &deviceInfoEx);
+    result = IoTHubRegistryManager_CreateDevice_Ex(iotHubRegistryManagerHandle, 
+      &deviceCreateInfo, &deviceInfoEx);
     if (result == IOTHUB_REGISTRYMANAGER_OK)
     {
         (void)printf("IoTHubRegistryManager_CreateDevice: Device has been created successfully: deviceId=%s, primaryKey=%s\n", deviceInfoEx.deviceId, deviceInfoEx.primaryKey);
@@ -167,20 +167,18 @@ int main(void)
 }
 ```
 
-Deze app maakt een apparaat-id met de ID **myFirstDevice** en de identiteit van een module met ID **myFirstModule** onder apparaat **myFirstDevice**. (Als deze module-id al in het id-register staat, haalt de code gewoon de bestaande modulegegevens op.) De app geeft vervolgens de primaire sleutel voor die identiteit weer. U gebruikt deze sleutel in de gesimuleerde module-app om verbinding te maken met uw IoT-hub.
+Deze app maakt een apparaat-id met de ID **myFirstDevice** en de identiteit van een module met de ID **myFirstModule** onder apparaat **myFirstDevice**. (Als deze module-id al in het id-register staat, haalt de code gewoon de bestaande modulegegevens op.) De app geeft vervolgens de primaire sleutel voor die identiteit weer. U gebruikt deze sleutel in de gesimuleerde module-app om verbinding te maken met uw IoT-hub.
 
 > [!NOTE]
-> In het identiteitsregister van IoT Hub worden alleen apparaat- en module-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen. In het identiteitsregister worden apparaat-id's en -sleutels opgeslagen die als beveiligingsreferenties worden gebruikt. In het identiteitsregister wordt ook een vlag ingeschakeld/uitgeschakeld voor elk apparaat opgeslagen die u kunt gebruiken om de toegang tot dat apparaat uit te schakelen. Als uw toepassing andere apparaatspecifieke metagegevens moet opslaan, moet deze een toepassingsspecifieke opslagmethode gebruiken. Er is geen vlag voor ingeschakeld/uitgeschakeld voor module-id's. Zie de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie.
+> In het identiteitsregister van IoT Hub worden alleen apparaat- en module-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen. In het identiteitsregister worden apparaat-id's en -sleutels opgeslagen die als beveiligingsreferenties worden gebruikt. In het identiteitsregister wordt ook een vlag ingeschakeld/uitgeschakeld voor elk apparaat opgeslagen die u kunt gebruiken om de toegang tot dat apparaat uit te schakelen. Als uw toepassing andere apparaatspecifieke metagegevens moet opslaan, moet deze een toepassingsspecifieke opslagmethode gebruiken. Er is geen vlag voor ingeschakeld/uitgeschakeld voor module-id's. Zie voor meer informatie, [Ontwikkelaarshandleiding voor IoT Hub](iot-hub-devguide-identity-registry.md).
 
+## <a name="update-the-module-twin-using-c-device-sdk"></a>De moduledubbel met de C SDK bijwerken
 
-<a id="D2C_csharp"></a>
-## <a name="update-the-module-twin-using-c-device-sdk"></a>De module-twin C apparaat SDK bijwerken
+In deze sectie maakt u een app C op uw gesimuleerde apparaat die updates van de moduledubbel gerapporteerde eigenschappen.
 
-In deze sectie maakt u een C-app maken in uw gesimuleerde apparaat die updates van de module-twin gemeld eigenschappen.
+1. **Haal de verbindingsreeks van uw module** --als u zich aanmelden bij nu [Azure-portal](https://portal.azure.com). Navigeer naar uw IoT Hub en klik op IoT-apparaten. Zoek naar MyFirstDevice, open het apparaat en u ziet dat myFirstModule is gemaakt. Kopieer de moduleverbindingsreeks. Deze is vereist voor de volgende stap.
 
-1. **Haal nu de moduleverbindingsreeks op** als u zich aanmeldt bij [Azure Portal][lnk-portal]. Navigeer naar uw IoT Hub en klik op IoT-apparaten. Zoek naar MyFirstDevice, open het apparaat en u ziet dat myFirstModule is gemaakt. Kopieer de moduleverbindingsreeks. Deze is vereist voor de volgende stap.
-
-    ![Details van de Azure Portal-module][15]
+    ![Details van de Azure Portal-module](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG)
 
 2. **Maak UpdateModuleTwinReportedProperties app** Voeg de volgende `using` instructies aan het begin van de **Program.cs** bestand:
 
@@ -238,10 +236,11 @@ In deze sectie maakt u een C-app maken in uw gesimuleerde apparaat die updates v
     }
     ```
 
-Dit voorbeeld ziet u hoe de module-twin ophalen en de eigenschappen van de gerapporteerde bijwerken. 
+Dit codevoorbeeld laat zien hoe u de moduledubbel ophalen en gerapporteerde eigenschappen bij te werken. 
 
-## <a name="get-updates-on-the-device-side"></a>Updates aan de kant van het apparaat ophalen
-Naast de bovenstaande code kunt u toevoegen onder codeblok ophalen van de update twin bericht op het apparaat.
+## <a name="get-updates-on-the-device-side"></a>Ontvang updates aan de kant van het apparaat
+
+Naast de bovenstaande code kunt u toevoegen onderstaande codeblok om de update dubbele bericht op uw apparaat.
 
 ```C
 #include <stdio.h>
@@ -300,7 +299,6 @@ static void reportedStateCallback(int status_code, void* userContextCallback)
 
     g_continueRunning = false;
 }
-
 
 void iothub_module_client_sample_device_twin_run(void)
 {
@@ -373,23 +371,9 @@ int main(void)
 }
 ```
 
-
 ## <a name="next-steps"></a>Volgende stappen
 
 Als u aan de slag wilt gaan met IoT Hub en andere IoT-scenario's wilt verkennen, leest u deze artikelen:
 
-* [Aan de slag met apparaatbeheer][lnk-device-management]
-* [Aan de slag met IoT Edge][lnk-iot-edge]
-
-
-<!-- Images. -->
-[15]: ./media\iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG
-<!-- Links -->
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-portal]: https://portal.azure.com/
-
-[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-devguide-identity]: iot-hub-devguide-identity-registry.md
-[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+* [Aan de slag met Apparaatbeheer](iot-hub-node-node-device-management-get-started.md)
+* [Aan de slag met IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

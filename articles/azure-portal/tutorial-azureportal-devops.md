@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: 2764d8a17d50f1589d413c2343badfded6adb66e
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: db3cc8bb546758402e4f0b3fe91449e597e754fa
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216339"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42054045"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Zelfstudie: DevOps met de Azure-portal
 Het Azure-platform bevat tal van flexibele DevOps-werkstromen. In deze zelfstudie leert u hoe u gebruik kunt maken van de mogelijkheden van de Azure portal om te ontwikkelen, testen, implementeren, problemen oplossen, bewaken en beheren van actieve toepassingen. Deze zelfstudie is gericht op het volgende:
@@ -125,7 +125,7 @@ Vervolgens brengt u enkele wijzigingen in de code aan en gaat u deze wijzigingen
 12. Ga terug naar de blade Hulpprogramma’s en klik onder de categorie Ontwikkelen op Prestatietests.
     
     ![image28][image28]
-13. U moet een Team Services-account instellen. Zie [Een Team Services-account maken](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services) voor meer informatie
+13. U moet een Team Services-account instellen. Hier ziet voor meer informatie: [maken van een Team Services-Account](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
 14. Klik op Nieuw om een nieuwe prestatietest te maken.
     
     ![image29][image29]

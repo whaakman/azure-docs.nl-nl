@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/11/2018
 ms.author: rogarana
 ms.component: queues
-ms.openlocfilehash: 7ab755972760d5f262e00ca4aaf284c8d2847460
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 70efdf1fb2c1b8411e922f16fdf401d1bf428d08
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528279"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42055683"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Queue Storage gebruiken met PHP
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -416,7 +416,7 @@ Nu dat u de basisprincipes van Azure Queue storage hebt geleerd, volgt u deze ko
 * Ga naar de [API-naslaginformatie voor Azure Storage-clientbibliotheek voor PHP](http://azure.github.io/azure-storage-php/)
 * Zie de [wachtrij Geavanceerd voorbeeld](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
 
-Zie voor meer informatie, ook de [PHP-ontwikkelaarscentrum](/develop/php/).
+Zie voor meer informatie, ook de [PHP-ontwikkelaarscentrum](https://azure.microsoft.com/develop/php/).
 
 [download]: https://github.com/Azure/azure-storage-php
 [require_once]: http://www.php.net/manual/en/function.require-once.php

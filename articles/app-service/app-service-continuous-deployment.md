@@ -1,5 +1,5 @@
 ---
-title: Continue implementatie naar Azure App Service | Microsoft Docs
+title: Continue implementatie in Azure App Service | Microsoft Docs
 description: Meer informatie over hoe u continue implementatie voor Azure App Service kunt inschakelen.
 services: app-service
 documentationcenter: ''
@@ -13,86 +13,86 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: d83d1ad74d04356f73f18a744c2d1509b5efc280
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 4d3f1c66c6403720bf02c80af1d6833dc3cee3f1
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35233841"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42058366"
 ---
-# <a name="continuous-deployment-to-azure-app-service"></a>Continue implementatie naar Azure App Service
-Dit artikel ziet u het configureren van continue implementatie voor [Azure App Service](app-service-web-overview.md). App Service kunt continue implementatie van BitBucket, GitHub en [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) door binnen te halen in de meest recente updates van uw bestaande opslagplaats in een van deze services.
+# <a name="continuous-deployment-to-azure-app-service"></a>Continue implementatie in Azure App Service
+Dit artikel leest u hoe u continue implementatie voor [Azure App Service](app-service-web-overview.md). App Service kunt u continue implementatie vanuit BitBucket, GitHub, en [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) door te halen in de meest recente updates van uw bestaande opslagplaats in een van deze services.
 
-Voor informatie over het configureren van continue implementatie handmatig van een cloud-opslagplaats niet vermeld in de Azure-portal (zoals [GitLab](https://gitlab.com/)), Zie [instellen van continue implementatie met handmatige stappen](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
+Voor meer informatie over het configureren van continue implementatie handmatig vanuit de opslagplaats van een cloud niet vermeld in de Azure-portal (zoals [GitLab](https://gitlab.com/)), Zie [instellen van continue implementatie met behulp van handmatige stappen](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
-Uw opslagplaats voorbereid op een van de ondersteunde services publiceren. Zie [Een repo maken (GitHub)], [Een repo maken (BitBucket)] en [Aan de slag met VSTS] voor meer informatie over het publiceren van uw project bij deze services.
+De voorbereide-opslagplaats publiceren naar een van de ondersteunde services. Zie [Een repo maken (GitHub)], [Een repo maken (BitBucket)] en [Aan de slag met VSTS] voor meer informatie over het publiceren van uw project bij deze services.
 
-## <a name="deploy-continuously-from-github"></a>Continu implementeren vanuit GitHub
+## <a name="deploy-continuously-from-github"></a>Doorlopend implementeren vanuit GitHub
 
-Om continue implementatie met GitHub, gaat u naar uw App Service-app-pagina in de [Azure-portal](https://portal.azure.com).
+Om in te schakelen doorlopende implementatie met GitHub, gaat u naar de pagina met uw App Service-app in de [Azure-portal](https://portal.azure.com).
 
 Klik in het menu links op **Implementatiecentrum** > **GitHub** > **autoriseren**. Volg de aanwijzingen voor autorisatie. 
 
 ![](media/app-service-continuous-deployment/github-choose-source.png)
 
-U hoeft alleen te autoriseren eenmaal met GitHub. Als u al bent gemachtigd, klikt u op **doorgaan**. U kunt de geautoriseerde GitHub-account wijzigen door te klikken op **account wijzigen**.
+U hoeft alleen te autoriseren met GitHub één keer. Als u al bent gemachtigd, klikt u op **doorgaan**. U kunt het geautoriseerde GitHub-account wijzigen door te klikken op **account wijzigen**.
 
 ![](media/app-service-continuous-deployment/github-continue.png)
 
 In de **Build-provider** pagina, kies de build-provider en klikt u op > **doorgaan**.
 
-### <a name="option-1-use-app-service-kudu-build-server"></a>Optie 1: App Service Kudu build-server gebruiken
+### <a name="option-1-use-app-service-kudu-build-server"></a>Optie 1: gebruik die App Service Kudu server maken
 
-In de **configureren** pagina, selecteert u de organisatie, de opslagplaats en het vertakking waaruit u wilt implementeren, voortdurend. Wanneer u klaar bent, klikt u op **doorgaan**.
+In de **configureren** pagina, selecteert u de organisatie, de opslagplaats en het vertakking waaruit u wilt continue implementatie. Wanneer u klaar bent, klikt u op **doorgaan**.
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>Optie 2: VSTS continue levering gebruiken
+### <a name="option-2-use-vsts-continuous-delivery"></a>Optie 2: VSTS constante levering gebruiken
 
 > [!NOTE]
-> Voor App Service voor het maken van de benodigde build en definities in uw account VSTS release, uw Azure-account de rol van moet zijn **eigenaar** in uw Azure-abonnement.
+> Voor App Service voor het maken van de benodigde build en release-definities in uw VSTS-account, moet uw Azure-account de rol van **eigenaar** in uw Azure-abonnement.
 >
 
-In de **configureren** pagina in de **Code** sectie, selecteert u de organisatie, de opslagplaats en het vertakking waaruit u wilt implementeren, voortdurend. Wanneer u klaar bent, klikt u op **doorgaan**.
+In de **configureren** pagina, in de **Code** sectie, selecteer de organisatie, de opslagplaats en het vertakking waaruit u wilt continue implementatie. Wanneer u klaar bent, klikt u op **doorgaan**.
 
-In de **configureren** pagina in de **bouwen** sectie, configureert u een nieuw VSTS-account of geef een bestaande account. Wanneer u klaar bent, klikt u op **doorgaan**.
+In de **configureren** pagina, in de **bouwen** sectie, configureren van een nieuwe VSTS-account of een bestaand account opgeven. Wanneer u klaar bent, klikt u op **doorgaan**.
 
 > [!NOTE]
-> Als u gebruiken van een bestaand VSTS account die niet wordt vermeld wilt, moet u [de VSTS-account koppelen aan uw Azure-abonnement](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Als u gebruiken van een bestaande VSTS-account dat niet wordt vermeld wilt, moet u [het VSTS-account koppelen aan uw Azure-abonnement](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
-In de **Test** pagina, kies of u wilt laden tests inschakelen en klik vervolgens op **doorgaan**.
+In de **Test** pagina, kies of u wilt inschakelen load tests uit en klik vervolgens op **doorgaan**.
 
-Afhankelijk van de [prijscategorie](/pricing/details/app-service/plans/) van uw App Service-abonnement u ziet misschien ook een **implementeren voor fasering** pagina. Kies of u wilt [inschakelen implementatiesites](web-sites-staged-publishing.md), klikt u vervolgens op **doorgaan**.
+Afhankelijk van de [prijscategorie](https://azure.microsoft.com/pricing/details/app-service/plans/) van uw App Service-plan, ziet u mogelijk ook een **implementeren voor fasering** pagina. Kies of u wilt [inschakelen implementatiesites](web-sites-staged-publishing.md), klikt u vervolgens op **doorgaan**.
 
 ### <a name="finish-configuration"></a>Configuratie voltooien
 
 In de **samenvatting** pagina, Controleer uw opties en klik op **voltooien**.
 
-Wanneer de configuratie is voltooid, worden nieuwe doorvoeringen in de geselecteerde opslagplaats continu geïmplementeerd in uw App Service-app.
+Wanneer de configuratie is voltooid, worden voortdurend nieuwe doorvoeringen in de geselecteerde opslagplaats geïmplementeerd in uw App Service-app.
 
 ![](media/app-service-continuous-deployment/github-finished.png)
 
-## <a name="deploy-continuously-from-bitbucket"></a>Continu implementeren vanaf BitBucket
+## <a name="deploy-continuously-from-bitbucket"></a>Doorlopend implementeren in BitBucket
 
-Om continue implementatie met BitBucket, gaat u naar uw App Service-app-pagina in de [Azure-portal](https://portal.azure.com).
+Om in te schakelen doorlopende implementatie met BitBucket, gaat u naar de pagina met uw App Service-app in de [Azure-portal](https://portal.azure.com).
 
 Klik in het menu links op **Implementatiecentrum** > **BitBucket** > **autoriseren**. Volg de aanwijzingen voor autorisatie. 
 
 ![](media/app-service-continuous-deployment/bitbucket-choose-source.png)
 
-U hoeft alleen te autoriseren eenmaal met BitBucket. Als u al bent gemachtigd, klikt u op **doorgaan**. U kunt het geautoriseerde BitBucket-account wijzigen door te klikken op **account wijzigen**.
+U hoeft alleen te autoriseren met BitBucket één keer. Als u al bent gemachtigd, klikt u op **doorgaan**. U kunt de geautoriseerde BitBucket-account wijzigen door te klikken op **account wijzigen**.
 
 ![](media/app-service-continuous-deployment/bitbucket-continue.png)
 
-In de **configureren** pagina, selecteert u de opslagplaats en de vertakking waaruit u wilt implementeren, voortdurend. Wanneer u klaar bent, klikt u op **doorgaan**.
+In de **configureren** pagina, selecteert u de opslagplaats en de vertakking waaruit u wilt continue implementatie. Wanneer u klaar bent, klikt u op **doorgaan**.
 
 In de **samenvatting** pagina, Controleer uw opties en klik op **voltooien**.
 
-Wanneer de configuratie is voltooid, worden nieuwe doorvoeringen in de geselecteerde opslagplaats continu geïmplementeerd in uw App Service-app.
+Wanneer de configuratie is voltooid, worden voortdurend nieuwe doorvoeringen in de geselecteerde opslagplaats geïmplementeerd in uw App Service-app.
 
-## <a name="deploy-continuously-from-vsts"></a>Continu implementeren vanaf VSTS
+## <a name="deploy-continuously-from-vsts"></a>Continu implementeren vanuit VSTS
 
-Om continue implementatie met VSTS, gaat u naar uw App Service-app-pagina in de [Azure-portal](https://portal.azure.com).
+Om in te schakelen doorlopende implementatie met VSTS, gaat u naar de pagina met uw App Service-app in de [Azure-portal](https://portal.azure.com).
 
 Klik in het menu links op **Implementatiecentrum** > **VSTS** > **doorgaan**. 
 
@@ -100,36 +100,36 @@ Klik in het menu links op **Implementatiecentrum** > **VSTS** > **doorgaan**.
 
 In de **Build-provider** pagina, kies de build-provider en klikt u op > **doorgaan**.
 
-### <a name="option-1-use-app-service-kudu-build-server"></a>Optie 1: App Service Kudu build-server gebruiken
+### <a name="option-1-use-app-service-kudu-build-server"></a>Optie 1: gebruik die App Service Kudu server maken
 
-In de **configureren** pagina, selecteert u de VSTS account, project-opslagplaats en vertakking waaruit u wilt implementeren, voortdurend. Wanneer u klaar bent, klikt u op **doorgaan**.
+In de **configureren** pagina, selecteert u de VSTS-account, project-opslagplaats en vertakking waaruit u wilt continue implementatie. Wanneer u klaar bent, klikt u op **doorgaan**.
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>Optie 2: VSTS continue levering gebruiken
+### <a name="option-2-use-vsts-continuous-delivery"></a>Optie 2: VSTS constante levering gebruiken
 
 > [!NOTE]
-> Voor App Service voor het maken van de benodigde build en definities in uw account VSTS release, uw Azure-account de rol van moet zijn **eigenaar** in uw Azure-abonnement.
+> Voor App Service voor het maken van de benodigde build en release-definities in uw VSTS-account, moet uw Azure-account de rol van **eigenaar** in uw Azure-abonnement.
 >
 
-In de **configureren** pagina in de **Code** sectie, selecteert u de VSTS account, project-opslagplaats en vertakking waaruit u wilt implementeren, voortdurend. Wanneer u klaar bent, klikt u op **doorgaan**.
+In de **configureren** pagina, in de **Code** sectie, selecteer de VSTS-account, project-opslagplaats en vertakking waaruit u wilt continue implementatie. Wanneer u klaar bent, klikt u op **doorgaan**.
 
 > [!NOTE]
-> Als u gebruiken van een bestaand VSTS account die niet wordt vermeld wilt, moet u [de VSTS-account koppelen aan uw Azure-abonnement](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Als u gebruiken van een bestaande VSTS-account dat niet wordt vermeld wilt, moet u [het VSTS-account koppelen aan uw Azure-abonnement](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
-In de **configureren** pagina in de **bouwen** sectie, geeft u het taalframework die VSTS gebruiken moeten voor het uitvoeren van de build-taken voor de geselecteerde opslagplaats. Wanneer u klaar bent, klikt u op **doorgaan**.
+In de **configureren** pagina, in de **bouwen** sectie, geeft u het taalframework die VSTS gebruiken moeten voor het uitvoeren van de build-taken voor de geselecteerde opslagplaats. Wanneer u klaar bent, klikt u op **doorgaan**.
 
-In de **Test** pagina, kies of u wilt laden tests inschakelen en klik vervolgens op **doorgaan**.
+In de **Test** pagina, kies of u wilt inschakelen load tests uit en klik vervolgens op **doorgaan**.
 
-Afhankelijk van de [prijscategorie](/pricing/details/app-service/plans/) van uw App Service-abonnement u ziet misschien ook een **implementeren voor fasering** pagina. Kies of u wilt [inschakelen implementatiesites](web-sites-staged-publishing.md), klikt u vervolgens op **doorgaan**. 
+Afhankelijk van de [prijscategorie](https://azure.microsoft.com/pricing/details/app-service/plans/) van uw App Service-plan, ziet u mogelijk ook een **implementeren voor fasering** pagina. Kies of u wilt [inschakelen implementatiesites](web-sites-staged-publishing.md), klikt u vervolgens op **doorgaan**. 
 
 ### <a name="finish-configuration"></a>Configuratie voltooien
 
 In de **samenvatting** pagina, Controleer uw opties en klik op **voltooien**.
 
-Wanneer de configuratie is voltooid, worden nieuwe doorvoeringen in de geselecteerde opslagplaats continu geïmplementeerd in uw App Service-app.
+Wanneer de configuratie is voltooid, worden voortdurend nieuwe doorvoeringen in de geselecteerde opslagplaats geïmplementeerd in uw App Service-app.
 
-## <a name="disable-continuous-deployment"></a>Doorlopende implementatie uitschakelen
+## <a name="disable-continuous-deployment"></a>Continue implementatie uitschakelen
 
-Als u wilt uitschakelen continue implementatie, gaat u naar uw App Service-app-pagina in de [Azure-portal](https://portal.azure.com).
+Voor continue implementatie uitschakelen, gaat u naar de pagina met uw App Service-app in de [Azure-portal](https://portal.azure.com).
 
 Klik in het menu links op **Implementatiecentrum** > **GitHub** of **VSTS** of **BitBucket**  >  **Verbreken**.
 
@@ -143,7 +143,7 @@ Klik in het menu links op **Implementatiecentrum** > **GitHub** of **VSTS** of *
 * [PowerShell voor Azure gebruiken]
 * [Git-documentatie]
 * [Project Kudu](https://github.com/projectkudu/kudu/wiki)
-* [Gebruik Azure voor het automatisch genereren van een pijplijn CI/CD voor het implementeren van een app ASP.NET 4](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)
+* [Gebruik Azure voor het automatisch genereren van een CI/CD-pijplijn voor het implementeren van een ASP.NET 4-app](https://www.visualstudio.com/docs/build/get-started/aspnet-4-ci-cd-azure-automatic)
 
 [Azure portal]: https://portal.azure.com
 [VSTS Portal]: https://www.visualstudio.com/en-us/products/visual-studio-team-services-vs.aspx

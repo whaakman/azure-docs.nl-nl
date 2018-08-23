@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/04/2018
+ms.date: 08/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 582513e7e556859e70c1af9c4f6179e1d60e0139
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 2060239b27ef05c34ea6f5b388b4c4086a44a826
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216496"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42056626"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Onderliggende runbooks in Azure Automation
 
@@ -24,7 +24,7 @@ Het is een best practice in Azure Automation schrijven herbruikbare, modulaire r
 
 Als u wilt een runbook inline vanuit een ander runbook aanroepen, gebruikt u de naam van het runbook en geef waarden op voor de parameters ervan precies zoals wanneer u een activiteit of cmdlet.  Alle runbooks in het hetzelfde Automation-account zijn beschikbaar voor alle overige moet worden gebruikt op deze manier. Het bovenliggende runbook wacht tot het onderliggende runbook gereed is voordat het naar de volgende regel en eventuele uitvoer rechtstreeks naar het bovenliggende object wordt geretourneerd.
 
-Als u een runbook inline aanroept, wordt deze uitgevoerd in dezelfde taak als het bovenliggende runbook. Er is geen vermelding in de taakgeschiedenis van het onderliggende runbook die is uitgevoerd. Eventuele uitzonderingen en eventuele Stroomuitvoer van het onderliggende runbook worden gekoppeld aan het bovenliggende item. Dit resulteert in minder taken en maakt ze eenvoudiger om bij te houden en op te lossen omdat eventuele uitzonderingen die door het onderliggende runbook en een van de Stroomuitvoer daarvan gekoppeld aan de bovenliggende taak zijn.
+Als u een runbook inline aanroept, wordt deze uitgevoerd in dezelfde taak als het bovenliggende runbook. Er is geen vermelding in de taakgeschiedenis van het onderliggende runbook die is uitgevoerd. Eventuele uitzonderingen en eventuele Stroomuitvoer van het onderliggende runbook worden gekoppeld aan het bovenliggende item. Dit resulteert in minder taken en maakt deze gemakkelijker om bij te houden en op te lossen omdat eventuele uitzonderingen die door het onderliggende runbook en een van de stream-uitvoer zijn gekoppeld aan de bovenliggende taak.
 
 Wanneer een runbook wordt gepubliceerd, moeten alle onderliggende runbooks die daardoor worden aangeroepen al worden gepubliceerd. Dit is omdat Azure Automation een koppeling met onderliggende runbooks maakt wanneer een runbook wordt gecompileerd. Als ze niet, is het bovenliggende runbook publiceren correct wordt weergegeven, maar wordt een uitzondering gegenereerd wanneer deze wordt gestart. Als dit het geval is, kunt u het bovenliggende runbook opnieuw publiceren om correct wordt verwezen naar de onderliggende runbooks. U hoeft niet naar het bovenliggende runbook opnieuw publiceren als een van de onderliggende runbooks is gewijzigd, omdat de koppeling wordt al zijn gemaakt.
 
@@ -42,7 +42,7 @@ Wanneer volgorde zaak wordt gepubliceerd:
 
 * De volgorde van het publiceren van runbooks is alleen belangrijk voor PowerShell-werkstromen en grafische PowerShell Workflow-runbooks.
 
-Wanneer u een grafische of PowerShell-werkstroom onderliggend runbook met inline-uitvoering aanroepen, gebruikt u alleen de naam van het runbook.  Wanneer u een PowerShell onderliggend runbook aanroepen, moet u de naam ervan met voorafgegaan *.\\*  om op te geven dat het script in de lokale map bevindt zich. 
+Wanneer u een grafische of PowerShell-werkstroom onderliggend runbook met inline-uitvoering aanroepen, gebruikt u alleen de naam van het runbook.  Wanneer u een PowerShell onderliggend runbook aanroepen, moet u beginnen met de naam ervan *.\\*  om op te geven dat het script in de lokale map bevindt zich.
 
 ### <a name="example"></a>Voorbeeld
 
@@ -72,25 +72,36 @@ Als u niet dat het bovenliggende runbook wordt geblokkeerd op wachten wilt, kunt
 
 Parameters voor een onderliggend runbook gestart met een cmdlet worden opgegeven als hashtabel, zoals beschreven in [Runbookparameters](automation-starting-a-runbook.md#runbook-parameters). Alleen eenvoudige gegevenstypen kunnen worden gebruikt. Als het runbook een parameter met een complex gegevenstype heeft, klikt u vervolgens het moet dit inline worden aangeroepen.
 
+Als de context van het abonnement met meerdere abonnementen werken gegaan zijn verloren bij het aanroepen van de onderliggende runbooks. Om ervoor te zorgen dat de context van het abonnement wordt doorgegeven aan de onderliggende runbooks, voeg de `DefaultProfile` parameter voor de cmdlet en geeft u de context toe.
+
 ### <a name="example"></a>Voorbeeld
 
-Het volgende voorbeeld wordt een onderliggend runbook met parameters gestart en wacht dan tot deze is voltooid met behulp van de Start-AzureRmAutomationRunbook-parameter wachten. Zodra het is voltooid, wordt de uitvoer van het onderliggende runbook verzameld. Gebruik `Start-AzureRmAutomationRunbook` moet worden geverifieerd met uw Azure-abonnement.
+Het volgende voorbeeld wordt een onderliggend runbook met parameters gestart en wacht dan tot deze is voltooid met behulp van de Start-AzureRmAutomationRunbook-parameter wachten. Zodra het is voltooid, wordt de uitvoer van het onderliggende runbook verzameld. Gebruik `Start-AzureRmAutomationRunbook`, moet worden geverifieerd met uw Azure-abonnement.
 
 ```azurepowershell-interactive
 # Connect to Azure with RunAs account
-$conn = Get-AutomationConnection -Name "AzureRunAsConnection"
+$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
-$null = Add-AzureRmAccount `
-  -ServicePrincipal `
-  -TenantId $conn.TenantId `
-  -ApplicationId $conn.ApplicationId `
-  -CertificateThumbprint $conn.CertificateThumbprint
+Add-AzureRmAccount `
+    -ServicePrincipal `
+    -TenantId $ServicePrincipalConnection.TenantId `
+    -ApplicationId $ServicePrincipalConnection.ApplicationId `
+    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+
+$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
 
 $params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
-$joboutput = Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-ChildRunbook" -ResourceGroupName "LabRG" –Parameters $params –wait
+
+Start-AzureRmAutomationRunbook `
+    –AutomationAccountName 'MyAutomationAccount' `
+    –Name 'Test-ChildRunbook' `
+    -ResourceGroupName 'LabRG' `
+    -DefaultProfile $AzureContext `
+    –Parameters $params –wait
 ```
 
 ## <a name="comparison-of-methods-for-calling-a-child-runbook"></a>Vergelijking van methoden voor het aanroepen van een onderliggend runbook
+
 De volgende tabel geeft een overzicht van de verschillen tussen de twee methoden voor het aanroepen van een runbook vanuit een ander runbook.
 
 |  | Inline | Cmdlet |

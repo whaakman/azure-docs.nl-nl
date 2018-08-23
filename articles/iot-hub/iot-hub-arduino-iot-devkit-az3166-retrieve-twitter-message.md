@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 33d7c7f7f2e127647b43a62541fbc29c8417743c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 722f350c4f11648753465e302e84949fc340e281
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595991"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42054243"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Schud, laat een Tweet--ophalen van een Twitter-bericht met Azure Functions
 
@@ -163,7 +163,7 @@ Dit voorbeeldproject maakt gebruik van een vooraf geconfigureerde Twitter bearer
 
 1. Ga naar [Twitter-ontwikkelaarsportal](https://dev.twitter.com/) om een nieuwe Twitter-app te registreren.
 
-2. [Consumentsleutel en consumenten geheimen ophalen](https://support.yapsody.com/hc/en-us/articles/203068116-How-do-I-get-a-Twitter-Consumer-Key-and-Consumer-Secret-key-) van uw app.
+2. [Consumentsleutel en consumenten geheimen ophalen](https://support.yapsody.com/hc/en-us/articles/360003291573-How-do-I-get-a-Twitter-Consumer-Key-and-Consumer-Secret-key-) van uw app.
 
 3. Gebruik [enkele hulpprogramma](https://gearside.com/nebula/utilities/twitter-bearer-token-generator/) voor het genereren van een Twitter-bearer-token van deze twee sleutels.
 

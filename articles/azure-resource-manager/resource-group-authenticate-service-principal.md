@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: aec79655dde48a18891776f40c51aa5a5c859ef8
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: df1cf093a154b4f7adf59fae93f90fbc70459788
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577261"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42058670"
 ---
 # <a name="use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Azure PowerShell gebruiken om een service-principal met een certificaat te maken
 
@@ -186,7 +186,7 @@ Als u de toepassings-id wilt ophalen, gebruikt u:
 
 ## <a name="change-credentials"></a>Referenties wijzigen
 
-Als u de referenties voor een AD-app wilt wijzigen, bijvoorbeeld vanwege een inbreuk op de beveiliging of omdat de referenties zijn verlopen, gebruikt u de cmdlets [Remove-AzureRmADAppCredential](/powershell/resourcemanager/azurerm.resources/v3.3.0/remove-azurermadappcredential) en [New-AzureRmADAppCredential](/powershell/module/azurerm.resources/new-azurermadappcredential).
+Als u de referenties voor een AD-app wilt wijzigen, bijvoorbeeld vanwege een inbreuk op de beveiliging of omdat de referenties zijn verlopen, gebruikt u de cmdlets [Remove-AzureRmADAppCredential](/powershell/module/azurerm.resources/remove-azurermadappcredential) en [New-AzureRmADAppCredential](/powershell/module/azurerm.resources/new-azurermadappcredential).
 
 Als u alle referenties voor een toepassing wilt verwijderen, gebruikt u:
 

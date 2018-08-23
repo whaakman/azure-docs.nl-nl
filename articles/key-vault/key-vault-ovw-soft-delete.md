@@ -1,84 +1,84 @@
 ---
 ms.assetid: ''
-title: Azure Sleutelkluis voorlopig verwijderen | Microsoft Docs
+title: Azure Key Vault-functie voor voorlopig verwijderen | Microsoft Docs
 ms.service: key-vault
-author: lleonard-msft
-ms.author: alleonar
+author: bryanla
+ms.author: bryanla
 manager: mbaldwin
 ms.date: 09/25/2017
-ms.openlocfilehash: 6a3573cf31418309a31126b2a0c6a43ea2e0c745
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: ccdefc83642285194635ffe7b561e9e322360533
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30262684"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42055059"
 ---
-# <a name="azure-key-vault-soft-delete-overview"></a>Overzicht van Azure Sleutelkluis voorlopig verwijderen
+# <a name="azure-key-vault-soft-delete-overview"></a>Overzicht van Azure Key Vault-functie voor voorlopig verwijderen
 
-Functie van de voorlopig verwijderen van de Sleutelkluis kunt herstel van de verwijderde kluizen en objecten van de kluis, bekend als voorlopig verwijderd. In het bijzonder houden we de volgende scenario's:
+Functie voor voorlopig verwijderen van de Sleutelkluis kan herstel van de verwijderde kluizen en kluis objecten, functie voor voorlopig verwijderen genoemd. Specifiek, behandelen we de volgende scenario's:
 
-- Ondersteuning voor herstelbare verwijdering van een sleutelkluis
-- Ondersteuning voor herstelbare verwijderen van sleutelkluis-objecten (ex. sleutels, geheimen, certificaten)
+- Ondersteuning voor het herstelbare verwijderen van een key vault
+- Ondersteuning voor herstelbare verwijdering van key vault-objecten (ex.) sleutels, geheimen, certificaten)
 
 ## <a name="supporting-interfaces"></a>Interfaces ondersteunen
 
-De functie voor voorlopig verwijderen is in eerste instantie beschikbaar via de REST, .NET / C#, PowerShell en CLI-interfaces.
+De functie voor voorlopig verwijderen is in eerste instantie beschikbaar zijn via de REST, .NET / C#, PowerShell en CLI-interfaces.
 
 Zie de naslaginformatie voor algemene informatie voor deze voor meer informatie [Key Vault Reference](https://docs.microsoft.com/azure/key-vault/).
 
 ## <a name="scenarios"></a>Scenario's
 
-Azure sleutel kluizen worden bijgehouden resources, beheerd door Azure Resource Manager. Azure Resource Manager bevat ook een goed gedefinieerde gedrag voor verwijdering, die vereist dat een geslaagde verwijderbewerking moet resulteren in die resource niet meer wordt toegankelijk. De functie voor voorlopig verwijderen heeft betrekking op het herstel van het verwijderde object of de verwijdering per ongeluk of opzettelijk is.
+Sleutelkluizen van Azure worden bijgehouden bronnen, die worden beheerd door Azure Resource Manager. Azure Resource Manager geeft ook een goed gedefinieerde gedrag voor verwijdering, waarvoor is vereist dat een geslaagde bewerking moet resulteren in die resource niet meer wordt toegankelijk is. De functie voor voorlopig verwijderen wordt het herstel van het verwijderde object of de verwijdering per ongeluk of opzettelijk is.
 
-1. In het typische scenario, een gebruiker mogelijk per ongeluk verwijderd een sleutelkluis of een sleutelkluis-object. Als die sleutel kluis of sleutel kluis object zou worden hersteld voor een vooraf bepaalde periode, de gebruiker kan de verwijdering ongedaan maken en hun gegevens herstellen.
+1. In de typische scenario wordt een gebruiker mogelijk per ongeluk verwijderd een key vault of een key vault-object. Als die key vault of key vault-object zijn om te worden hersteld voor een vooraf vastgestelde periode, de gebruiker kan de verwijdering ongedaan maken en herstellen van hun gegevens.
 
-2. Een malafide gebruiker kan in een ander scenario proberen om een sleutelkluis of een object van de sleutelkluis, zoals een sleutel in een kluis, om te leiden tot een onderbreking van de zakelijke te verwijderen. Het verwijderen van de sleutelkluis-object van de sleutelkluis of scheiden van de werkelijke verwijdering van de onderliggende gegevens kan worden gebruikt als veiligheidsmaatregel door, bijvoorbeeld rol beperken van machtigingen voor het verwijderen van de gegevens naar een andere vertrouwde. Deze benadering vergt effectief quorum voor een bewerking die anders in een onmiddellijke gegevensverlies resulteert mogelijk.
+2. In een ander scenario kan een rogue-gebruiker probeert te verwijderen van een key vault of een key vault-object, zoals een sleutel in een kluis, een bedrijfsonderbreking veroorzaken. Het verwijderen van de key vault of key vault-object te scheiden van de werkelijke verwijdering van de onderliggende gegevens kan worden gebruikt als een veiligheidsmaatregel door, bijvoorbeeld rol beperken van machtigingen voor het verwijderen van gegevens naar een andere vertrouwd. Deze aanpak vereist effectief quorum voor een bewerking die anders tot een directe gegevens verloren gaan leiden kan.
 
-### <a name="soft-delete-behavior"></a>Gedrag voor voorlopig verwijderen
+### <a name="soft-delete-behavior"></a>Gedrag van de functie voor voorlopig verwijderen
 
-Met deze functie is de DELETE-bewerking op een sleutelkluis of sleutelkluis object een voorlopig verwijderen, de resources effectief te houden voor een bepaalde bewaartermijn tijdens het doorgeven van de weergave of het object is verwijderd. De service verder biedt een mechanisme voor het herstellen van het verwijderde object, de verwijdering in wezen ongedaan te maken. 
+Met deze functie is de DELETE-bewerking op een key vault of key vault-object een voorlopig verwijderen, effectief met de resources voor een bepaalde bewaartermijn, terwijl het uiterlijk dat het object is verwijderd. De service meer biedt een mechanisme voor het herstellen van het verwijderde object, in feite de verwijdering ongedaan te maken. 
 
-Voorlopig verwijderen is een optionele Sleutelkluis gedrag en is **niet standaard ingeschakeld** in deze release. 
+Voorlopig verwijderen is een optionele Key Vault-gedrag en is **niet standaard ingeschakeld** in deze release. 
 
-### <a name="key-vault-recovery"></a>Sleutelkluis-herstel
+### <a name="key-vault-recovery"></a>Herstel van de sleutelkluis
 
-Bij een sleutelkluis te verwijderen, maakt de service een middel proxy onder het abonnement toe te voegen voldoende metagegevens voor herstel. De proxy-bron is een opgeslagen object beschikbaar zijn in dezelfde locatie als de verwijderde sleutelkluis. 
+Bij het verwijderen van een key vault, maakt de service een resource proxy onder het abonnement, voldoende metagegevens voor herstel. De proxy-bron is een opgeslagen-object, beschikbaar in dezelfde locatie als de verwijderde key vault. 
 
 ### <a name="key-vault-object-recovery"></a>Sleutelkluis objectherstel
 
-Bij het verwijderen van een object van de sleutelkluis, zoals een sleutel en plaatst de service het object in een verwijderde staat bevindt, waardoor deze niet toegankelijk voor alle bewerkingen voor het ophalen. In deze toestand is, kan de sleutelkluis-object alleen worden weergegeven, herstelde of geforceerd/permanent verwijderd. 
+Bij het verwijderen van een key vault-object, zoals een sleutel, plaatst de service het object in een verwijderde status, waardoor deze niet toegankelijk voor alle bewerkingen voor het ophalen. In deze toestand kan de sleutelkluis-object alleen worden weergegeven, hersteld of geforceerd/definitief verwijderd. 
 
-Sleutelkluis wordt de verwijdering van de onderliggende gegevens voor de sleutelkluis-object voor uitvoering na een vooraf vastgestelde retentie-interval van de verwijderde sleutelkluis of gepland op hetzelfde moment. De DNS-record die overeenkomt met de kluis is ook behouden voor de duur van de retentie-interval.
+Key Vault wordt de verwijdering van de onderliggende gegevens die overeenkomt met de verwijderde sleutelkluis of het object van de sleutelkluis voor uitgevoerd na een vooraf vastgestelde bewaarinterval plannen op hetzelfde moment. De DNS-record die overeenkomt met de kluis is ook behouden voor de duur van de retentie-interval.
 
 ### <a name="soft-delete-retention-period"></a>Bewaarperiode voor voorlopig verwijderen
 
-Voorlopig verwijderde bronnen worden bewaard gedurende een bepaalde tijd, 90 dagen. Tijdens het voorlopig verwijderen retentie-interval, de volgende van toepassing:
+Voorlopig verwijderde bronnen worden gedurende een bepaalde periode, kunt u 90 dagen bewaard. Tijdens het voorlopig verwijderen retentie-interval, de volgende van toepassing:
 
-- U kunt alle sleutelkluizen en sleutelkluis-objecten in de voorlopig verwijderen voor uw abonnement, evenals de verwijdering en herstel informatie over deze aanbieden.
-    - Alleen gebruikers met speciale machtigingen kunnen verwijderde kluizen aanbieden. U kunt het beste onze gebruikers een aangepaste beveiligingsrol maken met deze speciale machtigingen voor de verwerking van verwijderde kluizen.
-- Een sleutelkluis met dezelfde naam kan niet worden gemaakt op dezelfde locatie; : een sleutelkluis-object kan niet worden gemaakt in een kluis gegeven als dat sleutelkluis bevat een object met dezelfde naam en deze bevindt zich in een verwijderde staat bevindt 
-- Alleen een specifiek bevoegde gebruiker mogelijk een sleutelkluis of sleutelkluis object hersteld door een opdracht herstellen op de overeenkomende resource in de proxy.
-    - De gebruiker lid is van de aangepaste rol met de bevoegdheid om een sleutelkluis onder de resourcegroep te maken kunt herstellen de kluis.
-- Alleen een specifiek bevoegde gebruiker mogelijk een sleutelkluis of sleutelkluis-object door uitgifte van een verwijderopdracht op de overeenkomende resource in de proxy geforceerd verwijderen.
+- U kunt alle sleutelkluizen en key vault-objecten in de status van de functie voor voorlopig verwijderen voor uw abonnement, evenals de toegang verwijderen en herstel informatie over deze aanbieden.
+    - Alleen gebruikers met speciale machtigingen kunnen aanbieden, verwijderde kluizen. Het wordt aangeraden om onze gebruikers een aangepaste rol maken met speciale machtigingen voor de verwerking van verwijderde kluizen.
+- Een sleutelkluis met dezelfde naam kan niet worden gemaakt op dezelfde locatie; dienovereenkomstig, een key vault-object kan niet worden gemaakt in een bepaalde kluis als die key vault bevat een object met dezelfde naam en deze bevindt zich in een verwijderde status 
+- Alleen een specifiek bevoegde gebruiker mogelijk een key vault of key vault-object herstellen door een opdracht voor herstellen op de bijbehorende proxy-resource.
+    - De gebruiker lid is van de aangepaste rol met de bevoegdheid om een sleutelkluis onder de resourcegroep te maken kunt de kluis herstellen.
+- Alleen een specifiek bevoegde gebruiker mogelijk een key vault of key vault-object met behulp van een opdracht tot verwijderen van de bijbehorende proxy-bron geforceerd verwijderen.
 
-Tenzij een sleutelkluis of sleutelkluis-object is hersteld, aan het einde van de retentie-interval dat de service uitvoert een opschonen van de sleutelkluis voorlopig verwijderde of sleutelkluis-object en de inhoud ervan. Verwijderen van de resource kan niet opnieuw worden gepland.
+Tenzij een key vault of key vault-object is hersteld, aan het einde van de retentie-interval dat de service wordt uitgevoerd een opschonen van de voorlopig verwijderde key vault of key vault-object en de bijbehorende inhoud. Verwijderen van de resource kan niet opnieuw worden gepland.
 
 ### <a name="permitted-purge"></a>Toegestane opschonen
 
-Permanent verwijderen, verwijderen, wordt een sleutelkluis is mogelijk via een POST-bewerking op de proxy-resource en speciale bevoegdheden vereist. In het algemeen is de eigenaar van het abonnement mogelijk een sleutelkluis verwijderen. De POST-bewerking activeert de onmiddellijke en onherstelbare verwijdering van deze kluis. 
+Definitief verwijderen, verwijderen van gegevens, wordt een key vault is het mogelijk is via een POST-bewerking op de proxy-resource en speciale bevoegdheden vereist. Over het algemeen is alleen de eigenaar van het abonnement mogelijk een sleutelkluis leegmaken. De POST-bewerking wordt geactiveerd voor de onmiddellijke en niet-herstelbare verwijdering van deze kluis. 
 
-Een uitzondering hierop is het geval wanneer het Azure-abonnement is gemarkeerd als *niet kan*. In dit geval wordt alleen de service voert de werkelijke verwijdering en als een geplande proces gebeurt. 
+Een uitzondering hierop is het geval wanneer het Azure-abonnement is gemarkeerd als *niet kan*. In dit geval alleen de service voert de werkelijke verwijdering en wordt als een geplande proces. 
 
-### <a name="billing-implications"></a>De implicaties van facturering
+### <a name="billing-implications"></a>Gevolgen van facturering
 
-In het algemeen als een object (een sleutelkluis of een sleutel of geheim) in verwijderde staat, er zijn slechts twee bewerkingen mogelijk: 'verwijderen' en 'herstellen'. De bewerkingen mislukken. Hoewel het object bestaat, daarom kunnen geen bewerkingen worden uitgevoerd en daarom geen gebruik wordt uitgevoerd, dus geen factuur. Maar er zijn de volgende uitzonderingen:
+In het algemeen, wanneer een object (een key vault of een sleutel of geheim) verwijderde status heeft, er zijn slechts twee bewerkingen mogelijk: 'wissen' en 'herstellen'. Alle andere bewerkingen mislukken. Hoewel het object bestaat, daarom geen bewerkingen kunnen worden uitgevoerd en kan daarom geen gebruik wordt uitgevoerd, dus geen factuur. Maar er zijn de volgende uitzonderingen:
 
-- acties 'verwijderen' en 'herstellen' meetelt voor normale sleutelkluisbewerkingen en wordt gefactureerd.
-- Als het object een HSM-sleutel is, wordt de 'HSM beschermde sleutel' kosten per sleutel versie per maand kosten van toepassing als een sleutel versie is gebruikt in de afgelopen 30 dagen. Hierna is omdat het object verkeert in verwijderde staat die geen bewerkingen kunnen worden uitgevoerd, dus zonder kosten van toepassing.
+- 'wissen' en 'herstellen' Acties tellen mee voor normale key vault-bewerkingen en wordt in rekening gebracht.
+- Als het object een HSM-sleutel is, geldt de 'HSM beveiligde sleutel' kosten in rekening gebracht per sleutelversie per maand kosten in rekening gebracht als een sleutelversie is gebruikt in de afgelopen 30 dagen. Hierna, omdat het object verwijderde status heeft die geen bewerkingen kunnen worden uitgevoerd op basis van deze, dus geen kosten in rekening gebracht is van toepassing.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-De volgende twee handleidingen bieden de primaire gebruiksscenario's voor het gebruik van voorlopig verwijderen.
+De volgende twee handleidingen bieden de primaire gebruiksscenario's voor voorlopig verwijderen gebruiken.
 
 - [De Key Vault-functie voor voorlopig verwijderen gebruiken met PowerShell](key-vault-soft-delete-powershell.md) 
 - [De Key Vault-functie voor voorlopig verwijderen gebruiken met CLI](key-vault-soft-delete-cli.md)

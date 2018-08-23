@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b19d02e7d2bcbd696a7256c06b067f976fd36161
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 05ec147e705da4951735616881ad19ad265b403d
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931725"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41920702"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Zelfstudie: Een infrastructuur voor ontwikkeling maken op een virtuele Linux-machine in Azure met Jenkins, GitHub en Docker
 
@@ -151,7 +151,7 @@ Selecteer in uw Jenkins-website **Nieuwe taken maken** vanaf de startpagina:
 - Selecteer onder de sectie **Algemeen** de optie **GitHub-project** en voer de URL van uw gevorkte opslagplaats in, zoals *https://github.com/cynthn/nodejs-docs-hello-world*
 - Selecteer onder de sectie **Broncodebeheer** de optie **Git** en voer de *.git*-URL van uw gevorkte opslagplaats in, zoals *https://github.com/cynthn/nodejs-docs-hello-world.git*
 - Onder de sectie **Triggers compileren** selecteert u **GitHub hook-trigger voor GITscm-polling**.
-- Onder de sectie **Build** selecteert u **Build-stap toevoegen**. Selecteer **Shell uitvoeren**, voer dan `echo "Testing"` in het opdrachtvenster in.
+- Onder de sectie **Build** selecteert u **Build-stap toevoegen**. Selecteer **Shell uitvoeren**, voer dan `echo "Test"` in het opdrachtvenster in.
 - Selecteer **Opslaan** aan de onderkant van het venster met taken.
 
 

@@ -1,6 +1,6 @@
 ---
-title: Extensie van virtuele machine met Azure-netwerk-Watcher-Agent voor Windows | Microsoft Docs
-description: De netwerk-Watcher-Agent op virtuele Windows-computer met de extensie van een virtuele machine implementeren.
+title: Extensie van virtuele machine met Azure Network Watcher-Agent voor Windows | Microsoft Docs
+description: Implementeer de Network Watcher-Agent op Windows-machine met behulp van een VM-extensie.
 services: virtual-machines-windows
 documentationcenter: ''
 author: gurudennis
@@ -15,35 +15,35 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 29f346b2a42f8d12e26bd59fbab86d763d3f29f0
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 2f07107ad63ddd04e67528bf4f409dabf4a4d0c0
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33942632"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42054860"
 ---
-# <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>De extensie van de virtuele machine Watcher-Agent voor Windows-netwerk
+# <a name="network-watcher-agent-virtual-machine-extension-for-windows"></a>Network Watcher-Agent-extensie voor virtuele machine voor Windows
 
 ## <a name="overview"></a>Overzicht
 
-[Azure-netwerk-Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is een prestaties bewaken, diagnose en analyse netwerkservice waarmee de bewaking van netwerken in Azure. De extensie van de Agent voor netwerk-Watcher-virtuele machine is vereist voor het vastleggen van netwerkverkeer op aanvraag en andere geavanceerde functies op virtuele machines in Azure.
+[Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) is een netwerk prestaties bewaking, diagnose en analyse-service waarmee de bewaking van netwerken van Azure. De virtuele machine-extensie van Network Watcher-Agent is een vereiste voor het vastleggen van netwerkverkeer op aanvraag en andere geavanceerde functies op Azure virtual machines.
 
 
-In dit document worden de ondersteunde platforms en implementatie-opties voor de extensie van de Agent voor netwerk-Watcher-virtuele machine voor Windows. Installatie van de agent niet verstoren, of opnieuw starten van de virtuele machine.
+In dit document worden de ondersteunde platformen en implementatie-opties voor de virtuele machine-extensie voor Network Watcher-Agent voor Windows. Installatie van de agent niet worden onderbroken, of moeten worden opgestart, van de virtuele machine. U kunt de extensie implementeren in virtuele machines die u implementeert. Als de virtuele machine is geïmplementeerd door een Azure-service, controleert u de documentatie voor de service om te bepalen of het installeren van extensies in de virtuele machine toestaat.
 
 ## <a name="prerequisites"></a>Vereisten
 
 ### <a name="operating-system"></a>Besturingssysteem
 
-De Agent voor netwerk-Watcher-extensie versies voor Windows kan worden uitgevoerd op basis van Windows Server 2008 R2, 2012, 2012 R2 en 2016. Nano Server wordt niet ondersteund op dit moment.
+De extensie voor Network Watcher-Agent versies voor Windows kan worden uitgevoerd op basis van Windows Server 2008 R2, 2012, 2012 R2 en 2016. Nano Server wordt niet ondersteund op dit moment.
 
 ### <a name="internet-connectivity"></a>Internetconnectiviteit
 
-Sommige van de Agent voor netwerk-Watcher-functionaliteit is vereist dat de virtuele doelmachine worden verbonden met Internet. Zonder de mogelijkheid uitgaande verbindingen tot stand gebracht, de netwerk-Watcher-Agent niet worden kunnen pakket opnamen uploaden naar uw storage-account. Zie voor meer informatie de [netwerk-Watcher documentatie](../../network-watcher/network-watcher-monitoring-overview.md).
+Enkele van de functionaliteit van Network Watcher-Agent is vereist dat de virtuele doelmachine worden verbonden met Internet. Zonder de mogelijkheid om uitgaande verbindingen tot stand brengen, zich Network Watcher-Agent niet kunnen pakketopnamen uploaden naar uw storage-account. Zie voor meer informatie de [documentatie voor Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md).
 
 ## <a name="extension-schema"></a>Extensieschema
 
-De volgende JSON vindt u het schema voor de Agent voor netwerk-Watcher-extensie. De extensie niet vereist, noch ondersteunt, worden alle door de gebruiker opgegeven instellingen, en is afhankelijk van de standaardconfiguratie.
+De volgende JSON ziet u het schema voor de extensie voor Network Watcher-Agent. De extensie geen van beide is vereist, noch ondersteunt, de gebruiker opgegeven instellingen, en is afhankelijk van de standaardconfiguratie.
 
 ```json
 {
@@ -63,7 +63,7 @@ De volgende JSON vindt u het schema voor de Agent voor netwerk-Watcher-extensie.
 }
 ```
 
-### <a name="property-values"></a>Eigenschapswaarden
+### <a name="property-values"></a>Waarden van eigenschappen
 
 | Naam | Waarde / voorbeeld |
 | ---- | ---- |
@@ -75,11 +75,11 @@ De volgende JSON vindt u het schema voor de Agent voor netwerk-Watcher-extensie.
 
 ## <a name="template-deployment"></a>Sjabloonimplementatie
 
-U kunt Azure VM-extensies met Azure Resource Manager-sjablonen kunt implementeren. De JSON-schema uiteengezet in de vorige sectie in een Azure Resource Manager-sjabloon kunt u de Agent voor netwerk-Watcher-extensie wordt uitgevoerd tijdens de sjabloonimplementatie van een Azure Resource Manager.
+U kunt Azure VM-extensies met Azure Resource Manager-sjablonen implementeren. U kunt de JSON-schema dat is beschreven in het vorige gedeelte van een Azure Resource Manager-sjabloon gebruiken om uit te voeren van de extensie voor Network Watcher-Agent tijdens de sjabloonimplementatie van een Azure Resource Manager.
 
 ## <a name="powershell-deployment"></a>PowerShell-implementatie
 
-Gebruik de `Set-AzureRmVMExtension` opdracht voor het implementeren van de extensie van de Agent voor netwerk-Watcher-virtuele machine op een bestaande virtuele machine:
+Gebruik de `Set-AzureRmVMExtension` opdracht voor het implementeren van de virtuele machine-extensie van Network Watcher-Agent op een bestaande virtuele machine:
 
 ```powershell
 Set-AzureRmVMExtension `
@@ -96,13 +96,13 @@ Set-AzureRmVMExtension `
 
 ### <a name="troubleshooting"></a>Problemen oplossen
 
-U kunt gegevens over de status van extensie-implementaties ophalen van de Azure-portal en PowerShell. Overzicht van de implementatiestatus van uitbreidingen voor een bepaalde virtuele machine, voer de volgende opdracht met de Azure PowerShell-module:
+U kunt gegevens over de status van extensie implementaties ophalen van de Azure portal en PowerShell. Als u wilt zien de implementatiestatus van extensies voor een bepaalde virtuele machine, voer de volgende opdracht uit met behulp van de Azure PowerShell-module:
 
 ```powershell
 Get-AzureRmVMExtension -ResourceGroupName myResourceGroup1 -VMName myVM1 -Name networkWatcherAgent
 ```
 
-De uitvoer van de extensie-uitvoering wordt vastgelegd in bestanden gevonden in de volgende map:
+Extensie uitvoering uitvoer wordt vastgelegd op bestanden die zijn gevonden in de volgende map:
 
 ```cmd
 C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentWindows\
@@ -110,4 +110,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentW
 
 ### <a name="support"></a>Ondersteuning
 
-Als u meer hulp op elk gewenst moment in dit artikel nodig hebt, kunt u Raadpleeg de gebruikershandleiding voor netwerk-Watcher-documentatie of neem contact op met de Azure deskundigen op het [MSDN Azure en Stack Overflow-forums](https://azure.microsoft.com/support/forums/). U kunt ook een incident voor ondersteuning van Azure indienen. Ga naar de [ondersteuning van Azure site](https://azure.microsoft.com/support/options/) en selecteer de Get-ondersteuning. Voor meer informatie over het gebruik van Azure ondersteuning voor de [ondersteuning van Microsoft Azure Veelgestelde vragen over](https://azure.microsoft.com/support/faq/).
+Als u hulp nodig hebt op elk gewenst moment in dit artikel nodig hebt, kunt u verwijzen naar de gebruikershandleiding voor netwerk-Watcher-documentatie of neem contact op met de Azure-experts op het [forums voor Azure MSDN en Stack Overflow](https://azure.microsoft.com/support/forums/). U kunt ook een Azure-ondersteuning-incident indienen. Ga naar de [ondersteuning van Azure site](https://azure.microsoft.com/support/options/) en selecteer Get-ondersteuning. Voor meer informatie over het gebruik van ondersteuning voor Azure, de [Veelgestelde vragen over Microsoft Azure-ondersteuning](https://azure.microsoft.com/support/faq/).

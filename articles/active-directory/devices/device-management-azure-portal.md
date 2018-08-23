@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/01/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fd810f6e5a4211f64044a88ae6ca6bb6dc044e28
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: bc29fbd0946f0abfe692e2270d145cd2cb292356
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39415223"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42054868"
 ---
 # <a name="managing-devices-using-the-azure-portal"></a>Beheer van apparaten met behulp van de Azure portal
 
@@ -46,7 +46,7 @@ De Azure-portal biedt u een centrale locatie om uw apparaten te beheren. U toega
 
 3. In de **beheren** sectie, klikt u op **apparaten**.
 
-    ![Apparaatinstellingen configureren](./media/device-management-azure-portal/11.png)
+    ![Apparaatinstellingen configureren](./media/device-management-azure-portal/74.png)
  
 De **apparaten** pagina kunt u naar:
 
@@ -70,13 +70,13 @@ De instellingenpagina voor het apparaat kunt u configureren:
 ![Een Intune-apparaat beheren](./media/device-management-azure-portal/21.png)
 
 
-- **Gebruikers kunnen apparaten koppelen aan Azure AD** -deze instelling kunt u de gebruikers kunnen selecteren [apparaten](overview.md#azure-ad-joined-devices) naar Azure AD. De standaardwaarde is **alle**.
+- **Gebruikers kunnen apparaten koppelen aan Azure AD** -deze instelling kunt u de gebruikers kunnen selecteren [apparaten](overview.md#azure-ad-joined-devices) naar Azure AD. De standaardwaarde is **alle**. Deze instelling is alleen van toepassing op Azure AD Join op Windows 10.
 
 - **Extra lokale beheerders op Azure AD gekoppelde apparaten** -kunt u de gebruikers die lokale beheerdersrechten op een apparaat worden verleend. Gebruikers die zijn toegevoegd, worden toegevoegd aan de *Apparaatbeheerders* rol in Azure AD. Globale beheerders in Azure AD en eigenaren van de apparaten standaard lokale beheerdersrechten worden verleend. Deze optie is een premium-editie-mogelijkheid beschikbaar via producten, zoals Azure AD Premium of Enterprise Mobility Suite (EMS). 
 
 - **Gebruikers kunnen hun apparaten registreren bij Azure AD** -u moet deze instelling instelt op het apparaat mag worden [geregistreerd](overview.md#azure-ad-registered-devices) met Azure AD. Als u selecteert **geen**, apparaten, zijn niet toegestaan om te registreren wanneer ze niet toegevoegd aan Azure AD of toegevoegd aan hybrid Azure AD. Registratie bij Microsoft Intune of Mobile Device Management (MDM) voor Office 365 is registratie vereist. Als u een van deze services hebt geconfigureerd **alle** is geselecteerd en **is** niet beschikbaar.
 
-- **Multi-factor Authentication worden toegevoegd aan apparaten vereist** -u kunt kiezen of gebruikers zijn vereist voor een tweede verificatiefactor naar [join](overview.md#azure-ad-joined-devices) hun apparaat naar Azure AD. De standaardwaarde is **Nee**. Het is raadzaam om meervoudige verificatie vereisen bij het registreren van een apparaat. Voordat u multi-factor authentication voor deze service inschakelt, moet u ervoor zorgen dat multi-factor authentication is geconfigureerd voor de gebruikers die hun apparaten registreren. Zie voor meer informatie over de verschillende Azure multi-factor authentication-services, [aan de slag met Azure multi-factor authentication](../authentication/concept-mfa-whichversion.md). 
+- **Multi-factor Authentication worden toegevoegd aan apparaten vereist** -u kunt kiezen of gebruikers zijn vereist voor een tweede verificatiefactor naar [join](overview.md#azure-ad-joined-devices) hun apparaat naar Azure AD. De standaardwaarde is **Nee**. Het is raadzaam om meervoudige verificatie vereisen bij het registreren van een apparaat. Voordat u multi-factor authentication voor deze service inschakelt, moet u ervoor zorgen dat multi-factor authentication is geconfigureerd voor de gebruikers die hun apparaten registreren. Zie voor meer informatie over de verschillende Azure multi-factor authentication-services, [aan de slag met Azure multi-factor authentication](../authentication/concept-mfa-whichversion.md). Deze instelling heeft geen invloed op hybride join voor Windows 10 of Windows 7. Dit is alleen van toepassing op Azure AD Join op Windows 10 en BYO device Registration service voor Windows 10, iOS en Android. 
 
 - **Maximum aantal apparaten** -deze instelling kunt u het maximum aantal apparaten dat een gebruiker in Azure AD hebben mag selecteren. Als een gebruiker dit quotum bereikt, dat niet meer mogelijk extra apparaten worden toegevoegd totdat een of meer van de bestaande apparaten worden verwijderd. De prijsopgave apparaat wordt geteld voor alle apparaten die zijn toegevoegd aan Azure AD of Azure AD geregistreerd vandaag nog. De standaardwaarde is **20**.
 

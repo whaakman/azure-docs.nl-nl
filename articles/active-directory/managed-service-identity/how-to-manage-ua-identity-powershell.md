@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: 31a632138a4946accfcab858b7b61782fb4e7d72
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 3c4aa6d91d5f8c1e28cb52f6846f6ac9feeb4edd
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005368"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42055672"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-azure-powershell"></a>Maken, weergeven of verwijderen van een gebruiker toegewezen identiteit met Azure PowerShell
 
@@ -34,16 +34,15 @@ In dit artikel leert u hoe u kunt maken, weergeven en verwijderen van een gebrui
 - Als u niet bekend met beheerde Service-identiteit bent, bekijk dan de [overzichtssectie](overview.md). **Lees de [verschil tussen een systeem toegewezen en een gebruiker toegewezen identiteit](overview.md#how-does-it-work)**.
 - Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
 - Installeer [de meest recente versie van Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) als u dat nog niet gedaan hebt.
-- Als u wilt installeren en gebruiken van PowerShell lokaal, in deze zelfstudie moduleversie 5.7.0 van Azure PowerShell vereist of hoger. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+- Als u wilt installeren en gebruiken van PowerShell lokaal, in deze zelfstudie moduleversie 5.7.0 Azure PowerShell vereist of hoger. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). 
+- Als u PowerShell lokaal uitvoert, moet u ook aan: 
+    - Voer `Login-AzureRmAccount` uit om een verbinding op te zetten met Azure.
+    - Installeer de [meest recente versie van PowerShellGet](/powershell/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
+    - Uitvoeren `Install-Module -Name PowerShellGet -AllowPrerelease` om op te halen van de voorlopige versie van de `PowerShellGet` module (u moet mogelijk `Exit` buiten de huidige PowerShell-sessie na het uitvoeren van deze opdracht voor het installeren van de `AzureRM.ManagedServiceIdentity` module).
+    - Voer `Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease` voor het installeren van de voorlopige versie van de `AzureRM.ManagedServiceIdentity` module om uit te voeren van de gebruiker toegewezen identiteit bewerkingen in dit artikel.
 - Als u wilt de beheerbewerkingen in dit artikel uitvoert, moet uw account de volgende roltoewijzingen:
     - [Beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) (lijst) rol te maken, lezen, bijwerken en verwijderen van de identiteit van een gebruiker toegewezen.
     - [Beheerde identiteit Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) rol te lezen (lijst) de eigenschappen van de identiteit van een gebruiker toegewezen.
-
-> [!NOTE]
-> Terwijl de gebruiker toegewezen zijn identiteiten nog in preview, moet u eerst de AzureRM.ManagedServiceIdentity-module met de volgende opdracht handmatig te installeren. 
-```azurepowershell-interactive
-Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease
-```
 
 ## <a name="create-a-user-assigned-identity"></a>Door de gebruiker toegewezen identiteit maken
 

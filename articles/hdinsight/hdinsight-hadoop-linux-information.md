@@ -2,19 +2,19 @@
 title: Tips voor het gebruik van Hadoop op Linux gebaseerde HDInsight - Azure
 description: Krijg implementatie tips voor het gebruik van clusters op basis van Linux HDInsight (Hadoop) op een vertrouwde Linux-omgeving die wordt uitgevoerd in de Azure-cloud.
 services: hdinsight
-author: jasonwhowell
-editor: jasonwhowell
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: 5a896edd87b2e7741ade2f9d475049086fb86833
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.date: 08/09/2018
+ms.openlocfilehash: 85741e91ab074ca45fef79e7e946a74824a1734f
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39598514"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42054849"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informatie over het gebruik van HDInsight in Linux
 
@@ -98,18 +98,21 @@ Van de voorbeeldgegevens en de JAR-bestanden kunnen u vinden op Hadoop Distribut
 
 ## <a name="hdfs-azure-storage-and-data-lake-store"></a>HDFS, Azure Storage en Data Lake Store
 
-HDFS wordt in de meeste Hadoop-distributies ondersteund door lokale opslag op de virtuele machines in het cluster. Lokale opslag kan erg kostbaar voor een cloud-gebaseerde oplossing waarbij u betaalt per uur of per minuut voor compute-resources.
+In de meeste Hadoop-distributies, worden de gegevens worden opgeslagen in HDFS, dit wordt ondersteund door lokale opslag op de virtuele machines in het cluster. Lokale opslag kan erg kostbaar voor een cloud-gebaseerde oplossing waarbij u betaalt per uur of per minuut voor compute-resources.
 
-HDInsight maakt gebruik van ofwel blobs in Azure Storage of Azure Data Lake Store als de standaardopslag. Deze services bieden de volgende voordelen:
+Bij het gebruik van HDInsight, wordt de gegevensbestanden worden opgeslagen in een schaalbare en flexibele manier in de cloud met behulp van Azure Blob Storage en eventueel Azure Data Lake Store. Deze services bieden de volgende voordelen:
 
 * Goedkope opslag op lange termijn
 * Toegankelijkheid van externe services, zoals websites, hulpprogramma's voor het uploaden/downloaden van bestand, verschillende taal-SDK's en webbrowsers
+* Grote bestandscapaciteit en grote schaalbare opslag
 
-Een Azure Storage-account kan maximaal 4.75 TB bevatten als afzonderlijke blobs (of bestanden vanuit een HDInsight-perspectief) alleen 195 GB kunnen gaan. Azure Data Lake Store kan dynamisch worden uitgebreid om Biljoenen bestanden, met afzonderlijke bestanden groter is dan een petabyte bevatten. Zie voor meer informatie, [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) en [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
+Zie voor meer informatie, [Understanding blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) en [Data Lake Store](https://azure.microsoft.com/services/data-lake-store/).
 
 Wanneer u Azure Storage of Data Lake Store, bevindt u zich hoeft te doen niets uit HDInsight toegang tot de gegevens. Bijvoorbeeld, de volgende opdracht geeft een lijst van bestanden in de `/example/data` map, ongeacht of deze is opgeslagen in Azure Storage of Data Lake Store:
 
     hdfs dfs -ls /example/data
+
+In HDInsight, zijn de gegevens storage-resources (Azure Blob Storage en Azure Data Lake Store) ontkoppeld van compute-resources. Daarom kunt u HDInsight-clusters voor het berekenen van de doen als u nodig hebt, en het cluster later verwijderen wanneer het werk is voltooid, veilig in opslag in de cloud in de tussentijd zorgen houden van uw gegevensbestanden behouden zolang u nodig hebt.
 
 ### <a name="uri-and-scheme"></a>URI- en -schema
 

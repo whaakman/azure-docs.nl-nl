@@ -1,6 +1,6 @@
 ---
 title: ForEach-activiteit in Azure Data Factory | Microsoft Docs
-description: De elke activiteit voor definieert een herhalende controlestroom in de pipeline. Het wordt gebruikt voor iteratie van een verzameling en opgegeven activiteiten uitvoeren.
+description: De voor elke activiteit voor definieert een herhalende controlestroom in de pijplijn. Het wordt gebruikt voor iteratie van een verzameling en opgegeven activiteiten uitvoeren.
 services: data-factory
 documentationcenter: ''
 author: sharonlo101
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
-ms.openlocfilehash: a029cb815f7765e6fe4e2fdbf81d437d5ac4ebe3
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 23f00280a69212b9e623ae1da16a681ca30c9d51
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047578"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42054652"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>ForEach-activiteit in Azure Data Factory
-De ForEach-activiteit definieert een herhalende controlestroom in de pipeline. Deze activiteit wordt gebruikt om een verzameling te herhalen en voert opgegeven activiteiten uit in een lus. De lusimplementatie van deze activiteit is vergelijkbaar met Foreach-lusstructuur in computertalen.
+De ForEach-activiteit definieert een herhalende controlestroom in de pijplijn. Deze activiteit wordt gebruikt om een verzameling te herhalen en voert opgegeven activiteiten uit in een lus. De lusimplementatie van deze activiteit is vergelijkbaar met Foreach-lusstructuur in computertalen.
 
 ## <a name="syntax"></a>Syntaxis
-De eigenschappen worden verderop in dit artikel beschreven. De eigenschap items is een verzameling en elk item in de verzameling wordt aangeduid met behulp van de `@item()` zoals weergegeven in de volgende syntaxis:  
+De eigenschappen worden verderop in dit artikel beschreven. De eigenschap items is een verzameling en elk item in de verzameling wordt aangeduid met behulp van de `@item()` zoals wordt weergegeven in de volgende syntaxis:  
 
 ```json
 {  
@@ -72,22 +72,23 @@ De eigenschappen worden verderop in dit artikel beschreven. De eigenschap items 
 
 Eigenschap | Beschrijving | Toegestane waarden | Vereist
 -------- | ----------- | -------------- | --------
-naam | De naam van de voor elke activiteit. | Reeks | Ja
+naam | Naam van de voor elke activiteit. | Reeks | Ja
 type | Moet worden ingesteld op **ForEach** | Reeks | Ja
-isSequential | Hiermee geeft u op of de lus sequentieel of parallel moet worden uitgevoerd.  Maximum van 20 lus iteraties kan worden uitgevoerd in één keer parallel). Bijvoorbeeld, als u hebt een ForEach activiteit met iteratie van een kopieeractiviteit met 10 verschillende bron- en sink gegevenssets met **isSequential** ingesteld op False, alle exemplaren worden uitgevoerd in één keer. De standaardwaarde is ONWAAR. <br/><br/> Als 'isSequential' is ingesteld op False, zorg ervoor dat er een juiste configuratie om uit te voeren van meerdere uitvoerbare bestanden. Anders moet u deze eigenschap gebruikt behoedzaam te vermijden schrijven conflicten. Zie voor meer informatie [parallelle uitvoering](#parallel-execution) sectie. | Boole-waarde | Nee. De standaardwaarde is ONWAAR.
-Items | Een expressie die een JSON-matrix worden iteratie retourneert. | Expressie (die resulteert in een JSON-matrix) | Ja
+isSequential | Hiermee geeft u op of de lus sequentieel of parallel moet worden uitgevoerd.  Maximaal 20 lus iteraties kan worden uitgevoerd in één keer parallel). Bijvoorbeeld, als u hebt een ForEach activiteit met iteratie van een kopieeractiviteit met 10 verschillende gegevensbronnen en sinks gegevenssets met **isSequential** ingesteld op False, alle exemplaren worden uitgevoerd in één keer. Standaardinstelling is False. <br/><br/> Als 'isSequential' is ingesteld op False, zorg ervoor dat er een juiste configuratie om uit te voeren van meerdere uitvoerbare bestanden. Deze eigenschap moet anders voorzichtig worden gebruikt om te vermijden kunt oplossen. Zie voor meer informatie, [parallelle uitvoering](#parallel-execution) sectie. | Booleaans | Nee. Standaardinstelling is False.
+batchCount | Batch-aantal moet worden gebruikt voor het beheren van het aantal parallelle uitvoering (als isSequential is ingesteld op false). | Geheel getal (maximum 50) | Nee. Standaardwaarde is 20.
+Items | Een expressie die als een JSON-matrix resultaat te worden herhaald. | Expressie (die resulteert in een JSON-matrix) | Ja
 Activiteiten | De activiteiten worden uitgevoerd. | Lijst van activiteiten | Ja
 
 ## <a name="parallel-execution"></a>Parallelle uitvoering
-Als **isSequential** is ingesteld op false, de activiteit in combinatie met een maximum van 20 gelijktijdige iteraties doorloopt. Deze instelling moet worden gebruikt met de waarschuwing. Als de gelijktijdige iteraties naar dezelfde map, maar naar verschillende bestanden schrijft, is deze benadering is geen probleem. Als de gelijktijdige iteraties gelijktijdig exact hetzelfde bestand schrijft, wordt deze benadering waarschijnlijk veroorzaakt een fout. 
+Als **isSequential** is ingesteld op false, de activiteit gegevensbrontabellen loopt, in combinatie met een maximum van 20 gelijktijdige iteraties. Deze instelling moet voorzichtig worden gebruikt. Als de gelijktijdige iteraties naar dezelfde map, maar naar verschillende bestanden schrijft, is deze aanpak is niets mis mee. Als de gelijktijdige iteraties gelijktijdig naar de exacte hetzelfde bestand schrijft, wordt deze benadering waarschijnlijk veroorzaakt een fout. 
 
-## <a name="iteration-expression-language"></a>Herhaling expressietaal
-Geef in de ForEach-activiteit, een matrix aan iteratie voor de eigenschap **items**. " Gebruik `@item()` worden herhaald voor één opsomming in ForEach-activiteit. Bijvoorbeeld, als **items** is een matrix: [1, 2, 3], `@item()` retourneert 1 in de eerste iteratie 2 in de tweede iteratie en 3 in de derde herhaling.
+## <a name="iteration-expression-language"></a>Iteratie expressietaal
+Geef in de ForEach-activiteit, een matrix te worden herhaald voor de eigenschap **items**. " Gebruik `@item()` om te herhalen met een één-opsomming in ForEach-activiteit. Bijvoorbeeld, als **items** is een matrix: [1, 2, 3], `@item()` retourneert 1 in de eerste versie 2 in de tweede iteratie en 3 in de derde iteratie.
 
 ## <a name="iterating-over-a-single-activity"></a>Iteratie van een enkele activiteit
-**Scenario:** kopiëren uit hetzelfde bronbestand in Azure Blob naar meerdere doelbestanden in Azure Blob.
+**Scenario:** kopiëren uit het hetzelfde bronbestand in Azure-Blob naar meerdere doelbestanden in Azure Blob.
 
-### <a name="pipeline-definition"></a>Pipeline-definitie
+### <a name="pipeline-definition"></a>De pijplijndefinitie van de
 
 ```json
 {
@@ -180,7 +181,7 @@ Geef in de ForEach-activiteit, een matrix aan iteratie voor de eigenschap **item
 
 ```
 
-### <a name="run-parameter-values"></a>Parameterwaarden worden uitgevoerd
+### <a name="run-parameter-values"></a>Parameterwaarden uitvoeren
 
 ```json
 {
@@ -190,8 +191,8 @@ Geef in de ForEach-activiteit, een matrix aan iteratie voor de eigenschap **item
 
 ```
 
-## <a name="iterate-over-multiple-activities"></a>Meerdere activiteiten doorlopen
-Het is mogelijk worden herhaald voor meerdere activiteiten (bijvoorbeeld: kopiëren en web activiteiten) in een ForEach-activiteit. In dit scenario is het raadzaam dat u uit meerdere activiteiten in een afzonderlijke pijplijn abstracte. Vervolgens kunt u de [ExecutePipeline activiteit](control-flow-execute-pipeline-activity.md) in de pijplijn met ForEach-activiteit aan te roepen de afzonderlijke pijplijn met meerdere activiteiten. 
+## <a name="iterate-over-multiple-activities"></a>Meerdere activiteiten herhalen
+Het is mogelijk om te herhalen meerdere activiteiten (bijvoorbeeld: kopiëren en web activiteiten) in een ForEach-activiteit. In dit scenario is het raadzaam dat u uit meerdere activiteiten in afzonderlijke pijplijn abstracte. Vervolgens kunt u de [activiteit ExecutePipeline](control-flow-execute-pipeline-activity.md) in de pijplijn met ForEach-activiteit om aan te roepen van de afzonderlijke pijplijn met meerdere activiteiten. 
 
 
 ### <a name="syntax"></a>Syntaxis
@@ -236,9 +237,9 @@ Het is mogelijk worden herhaald voor meerdere activiteiten (bijvoorbeeld: kopië
 
 ```
 ### <a name="example"></a>Voorbeeld
-**Scenario:** Iterate via een InnerPipeline binnen een ForEach-activiteit met de activiteit van de pijplijn niet uitvoeren. De interne pijplijn kopieert met schemadefinities parameters gebruikt.
+**Scenario:** Iterate via een InnerPipeline binnen een ForEach-activiteit met Execute Pipeline-activiteit. De binnenste pijplijn kopieert met schemadefinities met parameters.
 
-#### <a name="master-pipeline-definition"></a>De definitie van de master-Pipeline
+#### <a name="master-pipeline-definition"></a>De definitie van de master-pijplijn
 
 ```json
 {
@@ -298,7 +299,7 @@ Het is mogelijk worden herhaald voor meerdere activiteiten (bijvoorbeeld: kopië
 
 ```
 
-#### <a name="inner-pipeline-definition"></a>Interne pipeline-definitie
+#### <a name="inner-pipeline-definition"></a>Binnenste pijplijndefinitie
 
 ```json
 {
@@ -404,7 +405,7 @@ Het is mogelijk worden herhaald voor meerdere activiteiten (bijvoorbeeld: kopië
 
 ```
 
-#### <a name="sink-dataset-definition"></a>De definitie van gegevensset sink
+#### <a name="sink-dataset-definition"></a>Sink gegevenssetdefinitie
 
 ```json
 {
@@ -438,7 +439,7 @@ Het is mogelijk worden herhaald voor meerdere activiteiten (bijvoorbeeld: kopië
 
 ```
 
-#### <a name="master-pipeline-parameters"></a>Master pipeline-parameters
+#### <a name="master-pipeline-parameters"></a>Master pijplijnparameters
 ```json
 {
     "inputtables": [
@@ -471,11 +472,11 @@ Het is mogelijk worden herhaald voor meerdere activiteiten (bijvoorbeeld: kopië
 }
 
 ```
-## <a name="aggregating-metric-output"></a>Samenvoegen van metrische uitvoer
-Expressie voor het verzamelen van de uitvoer van alle herhalingen van een ForEach is `@activity('NameofInnerActivity')`. Bijvoorbeeld, als een ForEach-activiteit een 'MyCopyActivity' iteratie, de syntaxis zou zijn: `@activity('MyCopyActivity')`. De uitvoer is een matrix, maar bij elk item met gedetailleerde informatie over een specifieke iteratie.
+## <a name="aggregating-metric-output"></a>Metrische uitvoer verzamelen
+Expressie voor het verzamelen van de uitvoer van alle herhalingen van een ForEach `@activity('NameofInnerActivity')`. Bijvoorbeeld, als een ForEach-activiteit iteratie van een 'MyCopyActivity', de syntaxis van de zou zijn: `@activity('MyCopyActivity')`. De uitvoer is een matrix met elk artikel met gedetailleerde informatie over een specifieke versie.
 
 > [!NOTE]
-> Als u meer informatie over een specifieke iteratie wilt, de syntaxis is: `@activity('NameofInnerActivity')[0]` voor de meest recente iteratie. Het nummer in de vierkante haken gebruiken voor toegang tot de specifieke herhaling van de matrix. U zou gebruiken voor toegang tot een bepaalde eigenschap van een specifieke herhaling moet: `@activity('NameofInnerActivity')[0].output` of `@activity('NameofInnerActivity')[0].pipelineName`.
+> Als u meer informatie over een specifieke versie wilt, de syntaxis is: `@activity('NameofInnerActivity')[0]` voor de laatste iteratie. Het nummer in de vierkante haken gebruiken voor toegang tot de specifieke herhaling van de matrix. Voor toegang tot een bepaalde eigenschap van een bepaalde iteratie, zou u: `@activity('NameofInnerActivity')[0].output` of `@activity('NameofInnerActivity')[0].pipelineName`.
 
 **Details van de matrix uitvoer van alle herhalingen:**
 ```json

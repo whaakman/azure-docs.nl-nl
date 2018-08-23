@@ -1,9 +1,9 @@
 ---
 title: Azure Key Vault-beperkingsrichtlijnen
-description: Beperking van de Sleutelkluis beperkt het aantal gelijktijdige aanroepen om te voorkomen dat overmatig gebruik van bronnen.
+description: Key Vault wordt beperkt het aantal gelijktijdige aanroepen om te voorkomen dat bronnen overmatig worden gebruikt.
 services: key-vault
 documentationcenter: ''
-author: lleonard-msft
+author: bryanla
 manager: mbaldwin
 tags: ''
 ms.assetid: 9b7d065e-1979-4397-8298-eeba3aec4792
@@ -11,50 +11,50 @@ ms.service: key-vault
 ms.workload: identity
 ms.topic: article
 ms.date: 05/10/2018
-ms.author: alleonar
-ms.openlocfilehash: 59968f2bccbe2828ebe5fb33c57ed28d4f8509b6
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: bryanla
+ms.openlocfilehash: 28756cf28305927246d82f1f006f02b2e9b96469
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067687"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42056625"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault-beperkingsrichtlijnen
 
-Beperking is een proces dat u starten die het aantal gelijktijdige aanroepen naar de Azure-service beperkt om te voorkomen dat overmatig gebruik van bronnen. Azure-kluis (Azure sleutel Sleutelkluis) is ontworpen voor het verwerken van een groot aantal aanvragen. Als er een groot aantal aanvragen optreedt, kunt beperking van de client aanvragen onderhouden voor optimale prestaties en betrouwbaarheid van de Azure Sleutelkluis-service.
+Beperking is een proces dat u starten die het aantal gelijktijdige oproepen aan de Azure-service beperkt om te voorkomen dat bronnen overmatig worden gebruikt. Azure Key Vault (AKV) is ontworpen voor het verwerken van een groot aantal aanvragen. Als er een groot aantal aanvragen optreedt, zorgt van de client aanvragen beperking onderhouden van optimale prestaties en betrouwbaarheid van de Azure Sleutelkluis-service.
 
-Limieten voor bandbreedteregeling variëren, afhankelijk van het scenario. Bijvoorbeeld, als u een groot aantal schrijfbewerkingen uitvoert, is de mogelijkheid voor beperking hoger dan als u alleen leesbewerkingen uitvoert.
+Limieten voor bandbreedteregeling hangen af van het scenario. Bijvoorbeeld, als u een groot aantal schrijfbewerkingen uitvoert, is de mogelijkheid voor de beperking hoger dan als u alleen leesbewerkingen uitvoert.
 
-## <a name="how-does-key-vault-handle-its-limits"></a>Hoe wordt de grenzen in Sleutelkluis verwerkt?
+## <a name="how-does-key-vault-handle-its-limits"></a>Hoe wordt de grenzen in Key Vault verwerkt?
 
-Er zijn er Servicelimieten in Sleutelkluis te voorkomen dat misbruik van resources en ervoor zorgen dat quality of service voor alle clients van de Sleutelkluis. Wanneer een service-drempelwaarde wordt overschreden, beperkt Sleutelkluis alle verdere aanvragen van die client voor een bepaalde periode. Als dit gebeurt, Sleutelkluis retourneert HTTP-statuscode 429 (te veel aanvragen), en de aanvragen mislukken. Ook mislukte aanvragen die resulteren in een 429 telling voor de versnelling limieten bijgehouden door de Sleutelkluis. 
+Er zijn er Servicelimieten in Key Vault te voorkomen dat misbruik van resources en ervoor zorgen dat quality of service voor alle clients van de Sleutelkluis. Wanneer een service-drempel wordt overschreden, beperkt Key Vault nieuwe aanvragen van die client gedurende een bepaalde periode. Als dit gebeurt, Key Vault retourneert HTTP-statuscode 429 (te veel aanvragen), en de aanvragen mislukken. Ook mislukte aanvragen die 429 geteld naar de beperkingslimieten bijgehouden door Key Vault. 
 
-Als u een geldige business case voor hogere versnelling limieten hebt, neem dan contact met ons.
+Als u een geldige zakelijke-aanvraag voor hogere beperkingslimieten hebt, neem dan contact met ons.
 
 
-## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Hoe uw app in reactie op Servicelimieten beperken
+## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Hoe u uw app in reactie op Servicelimieten beperken
 
-Hieronder vindt u **aanbevolen procedures** voor beperking van uw app:
+Hieronder vindt u **aanbevolen procedures** voor de beperking van uw app:
 - Verminder het aantal bewerkingen per aanvraag.
-- Verlaag de frequentie van aanvragen.
-- Vermijd directe nieuwe pogingen. 
-    - Alle aanvragen samenvoegen op basis van uw gebruikslimieten.
+- Verminder de frequentie van aanvragen.
+- Vermijd direct nieuwe pogingen. 
+    - Alle aanvragen gebracht op basis van de gebruikslimieten.
 
-Wanneer u uw app foutafhandeling implementeert, moet u de HTTP-foutcode 429 gebruiken voor het detecteren van de client-side '-beperking. Als de aanvraag opnieuw met een foutcode HTTP 429 mislukt, doe u nog steeds een limiet voor de Azure-service. Blijven gebruiken van de aanbevolen clientzijde methode beperken, de aanvraag opnieuw proberen totdat dit is gelukt.
+Wanneer u foutafhandeling van uw app kunt implementeren, gebruikt u de HTTP-foutcode 429 voor het detecteren van client-side '-beperking. Als de aanvraag is mislukt opnieuw met een foutcode HTTP 429, ondervindt u nog steeds een limiet voor de Azure-service. Echter ook doorgaan met de aanbevolen client-side methode beperken, de aanvraag opnieuw proberen totdat het is gelukt.
 
-### <a name="recommended-client-side-throttling-method"></a>Aanbevolen bandbreedteregeling client-side '-methode
+### <a name="recommended-client-side-throttling-method"></a>Aanbevolen methode voor client-side '-beperking
 
-In de HTTP-foutcode 429 beginnen met beperking van de client met een benadering exponentieel uitstel:
+Beginnen met beperking van de client met behulp van een benadering exponentieel uitstel op HTTP-foutcode 429:
 
-1. Wacht 1 seconde, de aanvraag opnieuw proberen
-2. Als u nog steeds beperkt 2 seconden wachten, aanvraag opnieuw proberen
-3. Als u nog steeds beperkt wacht 4 seconden, aanvraag opnieuw proberen
-4. Als u nog steeds beperkt 8 seconden wachten, aanvraag opnieuw proberen
-5. Als u nog steeds beperkt 16 seconden wachten, aanvraag opnieuw proberen
+1. Wacht 1 seconde, aanvraag voor opnieuw proberen
+2. Als u nog steeds beperkt 2 seconden wachten, opnieuw proberen de aanvraag
+3. Als u nog steeds beperkt 4 seconden wachten, opnieuw proberen de aanvraag
+4. Als u nog steeds beperkt 8 seconden wachten, opnieuw proberen de aanvraag
+5. Als u nog steeds beperkt 16 seconden wachten, opnieuw proberen de aanvraag
 
-Op dit moment moet u niet worden opgehaald HTTP 429 responscodes.
+Op dit moment moet niet worden aan te bieden u HTTP 429-responscodes.
 
 ## <a name="see-also"></a>Zie ook
 
-Zie voor een beter afdrukstand van beperking op de Microsoft Cloud [patroon beperking](https://docs.microsoft.com/azure/architecture/patterns/throttling).
+Zie voor een uitgebreidere richting van de beperking op de Microsoft Cloud, [patroon beperking](https://docs.microsoft.com/azure/architecture/patterns/throttling).
 

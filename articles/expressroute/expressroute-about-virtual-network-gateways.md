@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: a27200803ff13ed04a194fcbe45cf5edfe62ea50
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: d89463826cb05bf4cafd36cf4a38e60852d93094
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161720"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42059094"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Virtuele netwerkgateways voor ExpressRoute
 Een virtuele netwerkgateway wordt gebruikt voor het verzenden van netwerkverkeer tussen virtuele netwerken van Azure en on-premises locaties. U kunt een virtuele netwerkgateway kan worden gebruikt voor verkeer van ExpressRoute of VPN-verkeer. In dit artikel richt zich op de virtuele netwerkgateways voor ExpressRoute.
@@ -62,7 +62,7 @@ Zie voor aanvullende technische bronnen en de syntaxis van de specifieke vereist
 
 | **Klassiek** | **Resource Manager** |
 | --- | --- |
-| [PowerShell](https://msdn.microsoft.com/library/mt270335.aspx) |[PowerShell](https://msdn.microsoft.com/library/mt163510.aspx) |
+| [PowerShell](https://msdn.microsoft.com/library/mt270335.aspx) |[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.network#networking) |
 | [REST API](https://msdn.microsoft.com/library/jj154113.aspx) |[REST API](https://msdn.microsoft.com/library/mt163859.aspx) |
 
 ## <a name="next-steps"></a>Volgende stappen

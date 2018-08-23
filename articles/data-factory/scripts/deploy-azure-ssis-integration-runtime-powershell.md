@@ -1,6 +1,6 @@
 ---
-title: PowerShell script - runtime voor Azure SSIS-integratie implementeren | Microsoft Docs
-description: Deze PowerShell-script maakt een Azure-SSIS-integratie runtime die SSIS-pakketten kan worden uitgevoerd in de cloud.
+title: PowerShell-script - implementatie van Azure-SSIS-integratieruntime | Microsoft Docs
+description: Dit PowerShell-script maakt een Azure-SSIS integratieruntime die SSIS-pakketten in de cloud kunt uitvoeren.
 services: data-factory
 author: douglaslMS
 manager: craigg
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: douglasl
-ms.openlocfilehash: 6b1ef4ab14cbcb4e91ad023f9fdda5c2c2e71260
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 9684258fde0504cfa5b10ddb4f0df736ff0e1e70
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30164988"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42059102"
 ---
-# <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>PowerShell script - runtime voor Azure SSIS-integratie implementeren
+# <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>PowerShell-script - implementatie van Azure-SSIS-integratieruntime
 
-Deze PowerShell-voorbeeldscript wordt een Azure-SSIS-integratie runtime die de SSIS-pakketten kan worden uitgevoerd in Azure gemaakt.  
+Met dit PowerShell-voorbeeldscript maakt u een Azure-SSIS integratieruntime die uw SSIS-pakketten kan worden uitgevoerd in Azure.  
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -31,12 +31,12 @@ Deze PowerShell-voorbeeldscript wordt een Azure-SSIS-integratie runtime die de S
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
-Nadat u hebt het voorbeeldscript uitvoeren, kunt u de volgende opdracht om te verwijderen van de resourcegroep en alle resources die zijn gekoppeld:
+Nadat u het voorbeeld van een script uitvoert, kunt u de volgende opdracht uit om te verwijderen van de resourcegroep en alle bijbehorende resources:
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName $resourceGroupName
 ```
-Als u wilt de gegevensfactory verwijderen uit de resourcegroep, voer de volgende opdracht: 
+Als u wilt de data factory uit de resourcegroep verwijdert, moet u de volgende opdracht uitvoeren: 
 
 ```powershell
 Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
@@ -48,17 +48,17 @@ In dit script worden de volgende opdrachten gebruikt:
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/new-azurermresourcegroup) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
+| [New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroup) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
 | [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2) | Een data factory maken. |
-| [Set-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2integrationruntime) | Hiermee maakt u een Azure-SSIS-integratie runtime die SSIS-pakketten kan worden uitgevoerd in de cloud |
-| [Start-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-azurermdatafactoryv2integrationruntime) | Hiermee start u de Azure-SSIS-integratie-runtime. |
-| [Get-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2integrationruntime) | Hiermee haalt u informatie over de integratie van Azure SSIS runtime. |
-| [Get-AzureRmDataFactoryV2IntegrationRuntimeStatus](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2integrationruntimestatus) | Hiermee haalt u informatie over de status van de runtime Azure SSIS-integratie. |
-| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.5.0/remove-azurermresourcegroup) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
+| [Set-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2integrationruntime) | Hiermee maakt u een Azure-SSIS integratieruntime die SSIS-pakketten kan worden uitgevoerd in de cloud |
+| [Start-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-azurermdatafactoryv2integrationruntime) | Hiermee start u de Azure-SSIS integratieruntime. |
+| [Get-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2integrationruntime) | Hiermee haalt u informatie over de Azure-SSIS integratieruntime. |
+| [Get-AzureRmDataFactoryV2IntegrationRuntimeStatus](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2integrationruntimestatus) | Hiermee haalt u informatie over de status van de Azure-SSIS integratieruntime. |
+| [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 |||
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie [Documentatie over Azure PowerShell](https://docs.microsoft.com/powershell/) voor meer informatie over Azure PowerShell.
 
-Aanvullende voorbeelden van Azure Data Factory PowerShell-script kunnen worden gevonden in de [voorbeelden van Azure Data Factory PowerShell](../samples-powershell.md).
+Meer Azure Data Factory PowerShell-voorbeeldscripts vindt u de [voorbeelden van Azure Data Factory PowerShell](../samples-powershell.md).

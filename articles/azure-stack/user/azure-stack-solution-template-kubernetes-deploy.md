@@ -11,29 +11,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/29/2018
+ms.date: 08/09/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 1fb7716ff1b5ce661dff55c3a8dac90a062fad53
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: f6a2b3f242e5989d0c72083eef4faad9c4798cfe
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630779"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42054442"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Een Kubernetes-cluster implementeren in Azure Stack
 
 *Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 > [!Note]  
-> De Azure Container Services (ACS) voor Kubernetes op Azure Stack is in de beperkte Preview-versie. Uw Azure Stack-operator moet de toegang tot het Kubernetes-Marketplace-item die nodig zijn om uit te voeren van de instructies in dit artikel.
-<!-- Should "Azure Container Services" be replaced globally with Azure Kubernetes Services? It seems the Azure container page is now redirectin to Azure Kubernetes https://azure.microsoft.com/en-us/services/container-service -->
+> De Kubernetes Azure Kubernetes-Services (AKS) in Azure Stack is in de beperkte Preview-versie. Uw Azure Stack-operator moet de toegang tot het Kubernetes-Marketplace-item die nodig zijn om uit te voeren van de instructies in dit artikel.
 
 Het volgende artikel kijkt met behulp van de sjabloon voor een Azure Resource Manager-oplossing te implementeren en inrichten van de resources voor Kubernetes in een enkele, gecoördineerde bewerking. U moet de vereiste gegevens verzamelen over uw Azure Stack-installatie genereren van de sjabloon, en vervolgens naar de cloud kunt implementeren.
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes en containers
 
-U kunt installeren met behulp van Azure Resource Manager-sjablonen die zijn gegenereerd door de Engine voor Azure Container Services (ACS) op Azure Stack Kubernetes. [Kubernetes](https://kubernetes.io) is een open-source systeem voor het automatiseren van implementatie, schalen en beheren van toepassingen in containers. Een [container](https://www.docker.com/what-container) is opgenomen in een afbeelding, vergelijkbaar met een virtuele machine. In tegenstelling tot een virtuele machine bevat de containerinstallatiekopie alleen de benodigde resources beschikken om uit te voeren van een toepassing, zoals de code, runtime voor het uitvoeren van de code, specifieke bibliotheken en -instellingen.
+U kunt installeren met behulp van Azure Resource Manager-sjablonen die zijn gegenereerd door de Engine Azure Kubernetes-Services (AKS) in Azure Stack Kubernetes. [Kubernetes](https://kubernetes.io) is een open-source systeem voor het automatiseren van implementatie, schalen en beheren van toepassingen in containers. Een [container](https://www.docker.com/what-container) is opgenomen in een afbeelding, vergelijkbaar met een virtuele machine. In tegenstelling tot een virtuele machine bevat de containerinstallatiekopie alleen de benodigde resources beschikken om uit te voeren van een toepassing, zoals de code, runtime voor het uitvoeren van de code, specifieke bibliotheken en -instellingen.
 
 U kunt Kubernetes te gebruiken:
 
@@ -73,7 +72,7 @@ Als u wilt beginnen, zorg ervoor dat u de juiste machtigingen hebt en dat uw Azu
 
     c. Klik op **Create**.
 
-1. Noteer de **toepassings-ID**. U moet de ID bij het maken van het cluster. De ID wordt verwezen als **Client-ID Service-Principal**.
+1. Noteer de **toepassings-id**. U moet de ID bij het maken van het cluster. De ID wordt verwezen als **Client-ID Service-Principal**.
 
 1. Selecteer **instellingen** > **sleutels**.
 

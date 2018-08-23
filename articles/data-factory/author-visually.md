@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 08/14/2018
 ms.author: shlo
-ms.openlocfilehash: 7f186a819e2142bef6e736c7f7b5d0c733413fd5
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: b457d1ae01e523ac99c6171fa8d2123023ebcd2c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716328"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42054452"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Visueel ontwerpen in Azure Data Factory
 De Azure Data Factory gebruikersinterface gebruikerservaring (UX) kunt u visueel ontwerpen en resources van uw gegevensfactory implementeren zonder code te schrijven. U kunt slepen van activiteiten op een pijplijncanvas, testuitvoeringen uitvoeren, iteratief, fouten en implementeren en uw pijplijnuitvoeringen controleren. Er zijn twee benaderingen voor het gebruik van de UX om uit te voeren visueel ontwerpen:
@@ -42,10 +42,10 @@ Bij het gebruik van de UX **Ontwerpcanvas** om rechtstreeks met de Data Factory-
 Visueel ontwerpen met VSTS Git-integratie ondersteunt broncodebeheer en samenwerking voor het werk aan uw data factory-pijplijnen. U kunt een data factory koppelen aan een account VSTS Git-opslagplaats voor broncodebeheer, samenwerking, versiebeheer enzovoort. Een enkele VSTS Git-account kan meerdere opslagplaatsen hebben, maar een VSTS Git-opslagplaats kan worden gekoppeld aan slechts één data factory. Als u geen een VSTS-account of een opslagplaats hebt, volgt u [deze instructies](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student) om uw resources te maken.
 
 > [!NOTE]
-> U kunt het taakscript en gegevensbestanden opslaan in een VSTS GIT-opslagplaats. U moet echter de bestanden handmatig uploaden naar Azure Storage. Een Data Factory-pijplijn uploadt script of gegevens-bestanden die zijn opgeslagen in een VSTS GIT-opslagplaats naar Azure Storage niet automatisch.
+> U kunt het taakscript en gegevensbestanden opslaan in een VSTS Git-opslagplaats. U moet echter de bestanden handmatig uploaden naar Azure Storage. Een Data Factory-pijplijn uploadt script of gegevens-bestanden die zijn opgeslagen in een VSTS Git-opslagplaats naar Azure Storage niet automatisch.
 
 ### <a name="configure-a-vsts-git-repository-with-azure-data-factory"></a>Een VSTS Git-opslagplaats met Azure Data Factory configureren
-U kunt een VSTS GIT-opslagplaats met een data factory configureren via twee methoden.
+U kunt een VSTS Git-opslagplaats met een data factory configureren via twee methoden.
 
 #### <a name="method1"></a> Van configuratiemethode 1 (VSTS Git-opslagplaats): we pagina aan de slag
 
@@ -77,13 +77,17 @@ Een configuratie-deelvenster wordt weergegeven. Zie voor meer informatie over de
 
 ![Configureer de instellingen van de opslagplaats code voor het ontwerpen van UX](media/author-visually/configure-repo-2.png)
 
+## <a name="use-a-different-azure-active-directory-tenant"></a>Gebruik een andere Azure Active Directory-tenant
+
+U kunt een VSTS Git-opslagplaats maken in een andere Azure Active Directory-tenant. Om op te geven van een andere Azure AD-tenant die u hebt beheerdersmachtigingen voor de Azure-abonnement dat u gebruikt.
+
 ## <a name="switch-to-a-different-git-repo"></a>Schakel over naar een andere Git-opslagplaats
 
 Als u wilt overschakelen naar een andere Git-opslagplaats, zoekt u het pictogram in de rechterbovenhoek van de overzichtspagina van Data Factory, zoals wordt weergegeven in de volgende schermafbeelding. Als u het pictogram niet ziet, moet u de cache van uw lokale browser wissen. Selecteer het pictogram op de koppeling met de huidige opslagplaats verwijderen.
 
 Nadat u de koppeling met de huidige opslagplaats hebt verwijderd, kunt u uw Git-instellingen voor het gebruik van een andere opslagplaats kunt configureren. Vervolgens kunt u bestaande resources van Data Factory importeren naar de nieuwe opslagplaats.
 
-![Verwijder de koppeling met de huidige Git-opslagplaats.](media/author-visually/remove-repo.png)
+![Verwijder de koppeling met de huidige Git-opslagplaats](media/author-visually/remove-repo.png)
 
 ## <a name="use-version-control"></a>Versiebeheer gebruiken
 Versiebeheersystemen (ook wel bekend als _broncodebeheer_) kunnen ontwikkelaars samenwerken aan code en wijzigingen bijhouden die worden aangebracht in de code basis. Broncodebeheer is een essentieel hulpprogramma voor ontwikkelaars op meerdere projecten.
@@ -92,7 +96,7 @@ Elke VSTS Git-opslagplaats die is gekoppeld aan een data factory is een vertakki
 
 ![Wijzig de code door synchroniseren of publiceren](media/author-visually/sync-publish.png)
 
-Wanneer u klaar met het ontwikkelen van functies in uw vertakking functie bent, kunt u klikken op **pull-aanvraag maken**. Deze actie vindt u VSTS GIT waar u pull-aanvragen kunt verhogen code, revisies, en wijzigingen samen te voegen aan uw vertakking samenwerking. (`master` is de standaardinstelling). U mag alleen publiceren naar de Data Factory-service vanuit uw vertakking samenwerking. 
+Wanneer u klaar met het ontwikkelen van functies in uw vertakking functie bent, kunt u klikken op **pull-aanvraag maken**. Deze actie vindt u VSTS Git waar u pull-aanvragen kunt verhogen code, revisies, en wijzigingen samen te voegen aan uw vertakking samenwerking. (`master` is de standaardinstelling). U mag alleen publiceren naar de Data Factory-service vanuit uw vertakking samenwerking. 
 
 ![Maak een nieuwe pull-aanvraag](media/author-visually/create-pull-request.png)
 
@@ -106,10 +110,21 @@ Nadat u wijzigingen in de vertakking samenwerking zijn samengevoegd (`master` is
 
 ## <a name="author-with-github-integration"></a>Ontwerpen met GitHub-integratie
 
-Visueel ontwerpen met GitHub-integratie ondersteunt broncodebeheer en samenwerking voor het werk aan uw data factory-pijplijnen. U kunt een data factory koppelen aan een GitHub-account-opslagplaats voor broncodebeheer, samenwerking, versiebeheer. Een enkele GitHub-account kan meerdere opslagplaatsen hebben, maar een GitHub-opslagplaats kan worden gekoppeld aan slechts één data factory. Als u geen aGitHub account of een opslagplaats hebt, volgt u [deze instructies](https://github.com/join) om uw resources te maken. De GitHub-integratie met Data Factory ondersteunt zowel openbare GitHub, evenals GitHub Enterprise.
+Visueel ontwerpen met GitHub-integratie ondersteunt broncodebeheer en samenwerking voor het werk aan uw data factory-pijplijnen. U kunt een data factory koppelen aan een GitHub-account-opslagplaats voor broncodebeheer, samenwerking, versiebeheer. Een enkele GitHub-account kan meerdere opslagplaatsen hebben, maar een GitHub-opslagplaats kan worden gekoppeld aan slechts één data factory. Als u geen een GitHub-account of een opslagplaats hebt, volgt u [deze instructies](https://github.com/join) om uw resources te maken. De GitHub-integratie met Data Factory ondersteunt zowel openbare GitHub, evenals GitHub Enterprise.
 
-> [!NOTE]
-> U kunt het taakscript en gegevensbestanden opslaan in een GitHub-opslagplaats. U moet echter de bestanden handmatig uploaden naar Azure Storage. Een Data Factory-pijplijn uploadt script of gegevens-bestanden die zijn opgeslagen in een GitHub-opslagplaats naar Azure Storage niet automatisch.
+U moet beheerdersmachtigingen voor de Azure-abonnement dat u gebruikt voor het configureren van een GitHub-opslagplaats.
+
+Bekijk de volgende video voor een 9 minuten durende inleiding en demonstratie van deze functie:
+
+> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Azure-Data-Factory-visual-tools-now-integrated-with-GitHub/player]
+
+### <a name="limitations"></a>Beperkingen
+
+- U kunt het taakscript en gegevensbestanden opslaan in een GitHub-opslagplaats. U moet echter de bestanden handmatig uploaden naar Azure Storage. Een Data Factory-pijplijn uploadt script of gegevens-bestanden die zijn opgeslagen in een GitHub-opslagplaats naar Azure Storage niet automatisch.
+
+- GitHub-onderneming met een versie die ouder zijn dan 2.14.0 werkt niet in de browser Microsoft Edge.
+
+- GitHub-integratie met de gegevens van meerdere factoren visual ontwerpgereedschap werkt alleen in de algemeen beschikbare versie van Data Factory.
 
 ### <a name="configure-a-public-github-repository-with-azure-data-factory"></a>Configureren van een openbare GitHub-opslagplaats met Azure Data Factory
 

@@ -8,22 +8,21 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4b6e642c86c5e618cae2d46aad84a61b3f4866ae
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: a53bcbe90f39999a838c84807ca834a1e6cd1813
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446143"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42056638"
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services - Adventure Works-zelfstudie
 
-Deze zelfstudie bestaat uit een aantal lessen waarin u leert hoe u met behulp van Visual Studio met [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) een tabellair model maakt en implementeert op het compatibiliteitsniveau 1400.  
-
+In deze zelfstudie bevat lessen over het maken en implementeren van een tabellair model op het compatibiliteitsniveau 1400 met behulp van Visual Studio [Analysis Services-projecten](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects) of [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 Als u geen ervaring hebt met Analysis Services en tabellaire modellen, is het volgen van deze zelfstudie de snelste manier om te leren hoe u een eenvoudig tabellair model maakt en implementeert met Visual Studio. Zodra aan alle vereisten is voldaan, zal het afronden van de zelfstudie twee tot drie uur duren.  
   
 ## <a name="what-you-learn"></a>Wat u leert   
   
--   Een nieuw project voor een tabellair model maken op het **compatibiliteitsniveau 1400** in Visual Studio met SSDT.
+-   Over het maken van een nieuw project voor tabellair model op de **compatibiliteitsniveau 1400** in Visual Studio.
   
 -   Gegevens uit een relationele database importeren in een werkruimtedatabase voor een tabellair-modelproject.  
   
@@ -37,7 +36,7 @@ Als u geen ervaring hebt met Analysis Services en tabellaire modellen, is het vo
   
 -   Modelobjecten en gegevens beveiligen door rollen te maken met gebruikersleden.  
   
--   Een tabellair model implementeren op een **Azure Analysis Services**-server of een **SQL Server 2017 Analysis Services**-server met behulp van SSDT.  
+-   Over het implementeren van een tabellair model op een **Azure Analysis Services** server of **SQL Server 2017 Analysis Services** server met behulp van Visual Studio.  
   
 ## <a name="prerequisites"></a>Vereisten  
 Voor deze zelfstudie hebt u het volgende nodig:  

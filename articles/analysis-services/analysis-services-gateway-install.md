@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/13/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 59dc2dad103de60cb7d4b6a44a6d6f7271368391
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 10bcf54da9660da1edcc8358f10289e9678be5cb
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444936"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42055266"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installeren en configureren van een on-premises gegevensgateway
 Een on-premises gegevensgateway is vereist wanneer een of meer Azure Analysis Services-servers in dezelfde regio verbinding met on-premises gegevensbronnen maken. Zie voor meer informatie over de gateway, [On-premises gegevensgateway](analysis-services-gateway.md).
@@ -38,6 +38,7 @@ Een on-premises gegevensgateway is vereist wanneer een of meer Azure Analysis Se
 * De gateway installeren op een computer die blijft op en gaat niet naar de slaapstand.
 * Moet u de gateway niet installeren op een computer draadloos zijn verbonden met uw netwerk. Prestaties kan worden verminderd.
 * Aanmelden bij Azure met een account in Azure AD voor dezelfde [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) als het abonnement registreert u de gateway in. Azure B2B (Gast)-accounts worden niet ondersteund bij het installeren en registreren van een gateway.
+* Als de gegevensbronnen zijn in een Azure-netwerk (VNet), moet u configureren de [AlwaysUseGateway](analysis-services-vnet-gateway.md) servereigenschap.
 * De hier beschreven, (geïntegreerde) gateway wordt niet ondersteund in Azure Government, Azure Duitsland en Azure China soevereine regio's. Gebruik **toegewezen On-premises gateway voor Azure Analysis Services**geïnstalleerd vanuit van uw server **Quick Start** in de portal. 
 
 
@@ -114,4 +115,5 @@ Dat is alles. Als u wilt openen van poorten of problemen oplost, moet u uitcheck
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Analyseservices beheren](analysis-services-manage.md)   
-* [Gegevens ophalen uit Azure Analysis Services](analysis-services-connect.md)
+* [Gegevens ophalen uit Azure Analysis Services](analysis-services-connect.md)   
+* [Gateway gebruiken voor gegevensbronnen op een Azure Virtual Network](analysis-services-vnet-gateway.md)

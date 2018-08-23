@@ -6,14 +6,14 @@ keywords: ansible, azure, devops, bash, cloudshell, dynamische voorraad
 author: tomarcher
 manager: routlaw
 ms.author: tarcher
-ms.date: 01/14/2018
+ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 35033f7a6a0340be4dff5fa0051fd3c5ddb3c0eb
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5f4793759bfba68c8a01d682b6b13de5cb96a8f6
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449414"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42057504"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Ansible gebruiken voor het beheren van uw Azure dynamische voorraden
 Ansible kan worden gebruikt voor het ophalen van inventarisatie-informatie uit verschillende bronnen (met inbegrip van cloudbronnen zoals Azure) in een *dynamische voorraad*. In dit artikel gebruikt u de [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) label een van deze virtuele machines voor het configureren van het dynamische voorraad van een Ansible Azure waarin u twee virtuele machines maakt, en installeer Nginx op de gelabelde virtuele machine.
@@ -31,6 +31,9 @@ Ansible kan worden gebruikt voor het ophalen van inventarisatie-informatie uit v
 1. Open [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 1. Maak een Azure-resourcegroep voor het opslaan van de virtuele machines voor deze zelfstudie.
+
+    > [!IMPORTANT]  
+    > De Azure-resourcegroep die in deze stap u maakt moet een naam die is volledig kleine hebben. Anders mislukt de generatie van de dynamische voorraad.
 
     ```azurecli-interactive
     az group create --resource-group ansible-inventory-test-rg --location eastus
@@ -183,7 +186,7 @@ In deze sectie ziet u een techniek als u wilt testen dat Nginx is geïnstalleerd
     --query [0].virtualMachine.network.publicIpAddresses[0].ipAddress -o tsv`
     ```
 
-1. De [nginx - v](https://nginx.org/en/docs/switches.html) opdracht wordt doorgaans gebruikt om de Nginx-versie af te drukken. Het kan echter ook worden gebruikt om te bepalen als Nginx is geïnstalleerd. Voer deze tijdens verbinding met de `ansible-inventory-test-vm1` virtuele machine.
+1. Tijdens verbinding met de `ansible-inventory-test-vm1` virtuele machine, voer de [nginx - v](https://nginx.org/en/docs/switches.html) opdracht om te bepalen als Nginx is geïnstalleerd.
 
     ```azurecli-interactive
     nginx -v

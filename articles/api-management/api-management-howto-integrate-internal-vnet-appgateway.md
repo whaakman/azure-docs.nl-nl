@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 53c993b6c7ad868c4781ced374b0c1b227a43e6d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: ce4fd27c89f529b9c12999689152c3025648d2ce
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595090"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42060098"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>API Management in een intern VNET integreren met Application Gateway
 
@@ -45,7 +45,7 @@ Als u wilt volgen de stappen in dit artikel, moet u het volgende hebben:
 
 ##<a name="scenario"> </a> Scenario
 
-In dit artikel wordt uitgelegd hoe u gebruik van een geïntegreerde API Management-service voor interne en externe gebruikers en maken deze fungeren als een enkel frontend voor zowel on-premises en cloud-API's. U ziet ook hoe u kunt alleen een subset van uw API's (in het voorbeeld dat ze zijn gemarkeerd in het groen) beschikbaar voor extern verbruik met behulp van de PathBasedRouting-functionaliteit die beschikbaar is in Application Gateway.
+In dit artikel wordt uitgelegd hoe u gebruik van een geïntegreerde API Management-service voor interne en externe gebruikers en maken deze fungeren als een enkel frontend voor zowel on-premises en cloud-API's. U ziet ook hoe u kunt alleen een subset van uw API's (in het voorbeeld dat ze zijn gemarkeerd in het groen) beschikbaar voor extern verbruik met behulp van routering functionaliteit beschikbaar is in Application Gateway.
 
 Al uw API's worden in het eerste voorbeeld van de instellingen alleen van beheerd binnen uw Virtueelnetwerk. Interne consumenten (gemarkeerd in oranje) hebben toegang tot al uw interne en externe API's. Verkeer wordt nooit verzonden naar Internet wordt geleverd met een hoge prestaties via Expressroute-circuits.
 
@@ -80,7 +80,7 @@ Al uw API's worden in het eerste voorbeeld van de instellingen alleen van beheer
 In deze handleiding we ook wordt weergegeven de **ontwikkelaarsportal** naar een externe publiek via de Application Gateway. Hiervoor is aanvullende stappen voor het maken van de ontwikkelaarsportal listener, test, instellingen en regels. Alle details vindt u in de respectieve stappen.
 
 > [!WARNING]
-> In de beschreven installatie van de ontwikkelaarsportal wordt geopend via de Application Gateway kan u problemen met de AAD- en Facebook-verificatie.
+> In de beschreven installatie van de ontwikkelaarsportal wordt geopend via de Application Gateway kan u problemen met de verificatie met AAD en van derden.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Een resourcegroep maken voor Resource Manager
 

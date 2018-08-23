@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: hero-article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 10ade991b77b90f31309dbe6a105744dbc02df40
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d9871b399ff06fb08d817c0d892b667b4ef0242d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003639"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41917684"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Python-web- en -werkrollen met Python-tools voor Visual Studio
 
@@ -42,7 +42,7 @@ Zie [Wat is een cloudservice?] voor meer informatie.
 
 > [!NOTE]
 > *Wilt u een eenvoudige website bouwen?*
-> Als uw scenario slechts een ongecompliceerde website-front-end omvat, kunt u overwegen de eenvoudige functie Web Apps in Azure App Service te gebruiken. U kunt vervolgens gemakkelijk upgraden naar een cloudservice naarmate uw website groeit en de vereisten veranderen. Zie het <a href="/develop/python/">Python Developer Center</a> voor artikelen over ontwikkeling met de functie Web Apps in Azure App Service.
+> Als uw scenario slechts een ongecompliceerde website-front-end omvat, kunt u overwegen de eenvoudige functie Web Apps in Azure App Service te gebruiken. U kunt vervolgens gemakkelijk upgraden naar een cloudservice naarmate uw website groeit en de vereisten veranderen. Zie het [Python Developer Center](https://azure.microsoft.com/develop/python/) voor artikelen over ontwikkeling met de functie Web Apps in Azure App Service.
 > <br />
 > 
 > 

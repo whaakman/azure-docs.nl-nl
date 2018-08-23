@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 9dda6d45caf69734eb135779c8bac00fea721efd
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 17029f51be9fed8fc36c5f919ece84acbf0461d9
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901055"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42060107"
 ---
 # <a name="dcos-agent-pools-for-azure-container-service"></a>Agentpools van DC/OS voor Azure Container Service
 DC/OS-clusters in Azure Container Service bevatten agentknooppunten in twee groepen, een openbare groep en een persoonlijke groep. Een toepassing kan worden geïmplementeerd met een groep, die betrekking hebben op toegankelijkheid tussen machines in uw containerservice. De machines kunnen worden blootgesteld aan internet (openbaar) of interne (particuliere) bewaard. Dit artikel geeft een kort overzicht van waarom er openbare en privé-groepen zijn.
@@ -24,7 +24,7 @@ DC/OS-clusters in Azure Container Service bevatten agentknooppunten in twee groe
 
 * **Openbare agents**: openbare agent-knooppunten uitvoeren DC/OS-apps en services via een openbaar netwerk. 
 
-Zie voor meer informatie over netwerkbeveiliging DC/OS, de [DC/OS-documentatie](https://dcos.io/docs/1.7/administration/securing-your-cluster/).
+Zie voor meer informatie over netwerkbeveiliging DC/OS, de [DC/OS-documentatie](https://dcos.io/docs/1.8/administration/securing-your-cluster/).
 
 ## <a name="deploy-agent-pools"></a>Agentpools implementeren
 

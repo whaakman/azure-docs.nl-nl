@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: e4e3d331665ddb6c45e47ce8b2cf8170ca622690
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 43552ae2d7601a63156ac74104b85a90326ff473
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089788"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42054655"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Network Security Group Flow logboeken configureren met Azure CLI
 
@@ -51,7 +51,9 @@ De opdracht uit om Logboeken van de stroom wordt weergegeven in het volgende voo
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
 ```
 
-Het opslagaccount dat u opgeeft kan niet zijn geconfigureerd voor het netwerkregels waarmee toegang tot het netwerk wordt beperkt tot alleen Microsoft-services of specifieke virtuele netwerken. Het opslagaccount kan zich in dezelfde of een ander Azure-abonnement, dan de NSG waarmee het stroomlogboek voor. Als u verschillende abonnementen vallen, moeten ze beide zijn gekoppeld aan dezelfde Azure Active Directory-tenant. Het account dat u voor elk abonnement gebruikt moet hebben de [benodigde machtigingen](required-rbac-permissions.md).
+Het opslagaccount dat u opgeeft kan niet zijn geconfigureerd voor het netwerkregels waarmee toegang tot het netwerk wordt beperkt tot alleen Microsoft-services of specifieke virtuele netwerken. Het opslagaccount kan zich in dezelfde of een ander Azure-abonnement, dan de NSG waarmee het stroomlogboek voor. Als u verschillende abonnementen vallen, moeten ze beide zijn gekoppeld aan dezelfde Azure Active Directory-tenant. Het account dat u voor elk abonnement gebruikt moet hebben de [benodigde machtigingen](required-rbac-permissions.md). 
+
+Als het opslagaccount zich in een andere resourcegroep of abonnement, geeft u de volledige-ID van het storage-account, in plaats van de naam dan de netwerkbeveiligingsgroep. Bijvoorbeeld, als het opslagaccount zich in een resourcegroep met de naam *RG-opslag*, in plaats van op te geven *storageAccountName* in de vorige opdracht geeft u   */subscriptions / { SubscriptionID}/resourceGroups/RG-Storage/providers/Microsoft.Storage/storageAccounts/storageAccountName*.
 
 ## <a name="disable-network-security-group-flow-logs"></a>Stroomlogboeken van Netwerkbeveiligingsgroep uitschakelen
 

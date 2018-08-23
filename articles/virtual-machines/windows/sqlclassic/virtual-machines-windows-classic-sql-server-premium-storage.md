@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: jroth
-ms.openlocfilehash: 252e4f9fe5ed6b4ff9997fc41c691636e6d002b3
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: bb9e30489aa8870fe1c71c8c9a8bd557a2dcf2b1
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413535"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42055260"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Azure Premium Storage gebruiken met SQL Server op Virtual Machines
 ## <a name="overview"></a>Overzicht
@@ -645,7 +645,7 @@ De onderstaande code dumpen van de instellingen voor VNN en stelt deze voor u. V
 
 In een latere migratiestap, moet u de Always On-listener bijwerken met een bijgewerkte IP-adres dat verwijst naar een load balancer, hiervoor moet een IP-adres resource verwijderen en toevoegen. Nadat de update IP moet u om te controleren of het nieuwe IP-adres in DNS-Zone is bijgewerkt en dat de clients hun lokale DNS-cache wordt bijgewerkt.
 
-Als de clients bevinden zich in een ander netwerk-segment en verwijzen naar een andere DNS-server, moet u afvragen wat er gebeurt over DNS-Zone Transfer tijdens de migratie, omdat de toepassing opnieuw verbinding maken met tijd is beperkt door ten minste de Zone Transfer-tijd van een nieuw IP-adres adressen voor de listener. Als u hier een tijd-beperking, u moet bespreken en testen forceren van een incrementele zoneoverdracht met uw Windows-teams, en plaatst de DNS-hostrecord ook naar een lagere Time To Live (TTL), zodat de clients bijwerken. Zie voor meer informatie, [incrementele zoneoverdracht](https://technet.microsoft.com/library/cc958973.aspx) en [Start DnsServerZoneTransfer](https://technet.microsoft.com/library/jj649917.aspx).
+Als de clients bevinden zich in een ander netwerk-segment en verwijzen naar een andere DNS-server, moet u afvragen wat er gebeurt over DNS-Zone Transfer tijdens de migratie, omdat de toepassing opnieuw verbinding maken met tijd is beperkt door ten minste de Zone Transfer-tijd van een nieuw IP-adres adressen voor de listener. Als u hier een tijd-beperking, u moet bespreken en testen forceren van een incrementele zoneoverdracht met uw Windows-teams, en plaatst de DNS-hostrecord ook naar een lagere Time To Live (TTL), zodat de clients bijwerken. Zie voor meer informatie, [incrementele zoneoverdracht](https://technet.microsoft.com/library/cc958973.aspx) en [Start DnsServerZoneTransfer](https://docs.microsoft.com/powershell/module/dnsserver/start-dnsserverzonetransfer).
 
 Is standaard de TTL voor DNS-Record die is gekoppeld aan de Listener altijd op in Azure 1200 seconden. U wilt dit beperken als u onder tijd beperking tijdens de migratie om te controleren of de clients hun DNS bijwerken met het bijgewerkte IP-adres voor de listener. U kunt zien en de configuratie wijzigen door het dumpen van een van de configuratie van de VNN:
 

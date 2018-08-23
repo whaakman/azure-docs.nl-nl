@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: e19130c5ee418ebaa41f9ee42e217c52cdeec6cb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7297633b5a8954eb39e0a40bfd45b02d3838a734
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697939"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055114"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Maken van een virtuele-machineschaalset die gebruikmaakt van Beschikbaarheidszones
 
@@ -45,10 +45,10 @@ Wanneer u een schaalset implementeert, hebt u ook de mogelijkheid om te implemen
 
 ### <a name="zone-balancing"></a>Zone Netwerktaakverdeling
 
-Ten slotte voor schaalsets geïmplementeerd in meerdere zones, hebt u ook de mogelijkheid van een "aanbevolen inspanning zone balance" of "strikte zonebalans" te kiezen. Een schaalset wordt beschouwd als voor 'met gelijke taakverdeling' als het aantal virtuele machines in elke zone binnen een van het aantal VM's in andere zones voor de schaalset. Bijvoorbeeld:
+Ten slotte voor schaalsets geïmplementeerd in meerdere zones, hebt u ook de mogelijkheid van een "aanbevolen inspanning zone balance" of "strikte zonebalans" te kiezen. Een schaalset wordt beschouwd als 'met gelijke taakverdeling' als elke zone hetzelfde aantal virtuele machines of +\\-1 virtuele machine in andere zones voor de schaalset. Bijvoorbeeld:
 
-- Een schaalset met 2 virtuele machines in zone 1, 3 VM's in zone 2 en 3 virtuele machines in zone 3 wordt beschouwd als met gelijke taakverdeling.
-- Een schaalset instellen met 1 virtuele machine in zone 1, 3 VM's in zone 2 en 3 virtuele machines in zone 3 wordt beschouwd als niet-regelmatige.
+- Een schaalset met 2 virtuele machines in zone 1, 3 VM's in zone 2 en 3 virtuele machines in zone 3 wordt beschouwd als met gelijke taakverdeling. Er is slechts één zone met een ander aantal voor VM's en is slechts 1 kleiner is dan de andere zones. 
+- Een schaalset instellen met 1 virtuele machine in zone 1, 3 VM's in zone 2 en 3 virtuele machines in zone 3 wordt beschouwd als niet-regelmatige. Zone 1 heeft 2 minder virtuele machines dan zones 2 en 3.
 
 Het is mogelijk dat virtuele machines in de schaalset zijn gemaakt, maar niet voldoen aan-extensies op deze virtuele machines te implementeren. Deze VM's met extensies oplossen worden nog steeds geteld wanneer u bepaalt als een schaalset met gelijke taakverdeling. Bijvoorbeeld: een schaalset met 3 VM's in zone 1, 3 VM's in zone 2 en 3 VM's in zone 3 wordt beschouwd als met gelijke taakverdeling, zelfs als alle extensies is mislukt in zone 1 en alle extensies geslaagd in zones 2 en 3.
 
@@ -98,7 +98,7 @@ Voor een compleet voorbeeld van een schaalset met één zone en -netwerkbronnen,
 
 ### <a name="zone-redundant-scale-set"></a>Zone-redundante schaalset
 
-Om te maken van een zone-redundante schaalset, gebruikt u een *Standard* SKU openbare IP-adres en de load balancer. Voor uitgebreide redundantie, de *Standard* SKU maakt zone-redundante netwerkbronnen. Zie voor meer informatie, [overzicht van Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md).
+Om te maken van een zone-redundante schaalset, gebruikt u een *Standard* SKU openbare IP-adres en de load balancer. Voor uitgebreide redundantie, de *Standard* SKU maakt zone-redundante netwerkbronnen. Zie voor meer informatie, [overzicht van Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md) en [Standard Load Balancer en Beschikbaarheidszones](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Geef voor het maken van een zone-redundante schaalset meerdere zones met de `--zones` parameter. Het volgende voorbeeld wordt een zone-redundante schaalset met de naam *myScaleSet* in zones *1,2,3*:
 
@@ -215,7 +215,7 @@ Geef voor het maken van een zone-redundante schaalset meerdere waarden in de `zo
 }
 ```
 
-Als u een openbaar IP-adres of een load balancer maakt, geeft u de *"sku": {'name': 'Standaard'} '* eigenschap om zone-redundante netwerkresources te maken. U moet ook een Netwerkbeveiligingsgroep en regels om verkeer toe te maken. Zie voor meer informatie, [overzicht van Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md).
+Als u een openbaar IP-adres of een load balancer maakt, geeft u de *"sku": {'name': 'Standaard'} '* eigenschap om zone-redundante netwerkresources te maken. U moet ook een Netwerkbeveiligingsgroep en regels om verkeer toe te maken. Zie voor meer informatie, [overzicht van Azure Load Balancer Standard](../load-balancer/load-balancer-standard-overview.md) en [Standard Load Balancer en Beschikbaarheidszones](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Voor een compleet voorbeeld van een zone-redundante schaalset ingesteld en netwerkbronnen, Zie [in dit voorbeeld Resource Manager-sjabloon](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 

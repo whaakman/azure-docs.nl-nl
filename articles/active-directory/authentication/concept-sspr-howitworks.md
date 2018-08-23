@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8c0810c4a1b92f14e510d005eaf1b6945a058dd7
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 54e6b4f5804e7390b7574aa60b4d3a76df15da11
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413100"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42058359"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Hoe het werkt: Azure AD Self-service voor wachtwoord opnieuw instellen
 
@@ -94,6 +94,9 @@ Wanneer u een mobiele app, zoals de Microsoft Authenticator-app als een methode 
 | Mam-functies die beschikbaar zijn | Code | Code- of -meldingen |
 
 Gebruikers hebben niet de optie voor het registreren van hun mobiele app bij het registreren voor self-service voor wachtwoord opnieuw van instellen [ https://aka.ms/ssprsetup ](https://aka.ms/ssprsetup). Gebruikers kunnen hun mobiele app registreren [ https://aka.ms/mfasetup ](https://aka.ms/mfasetup), of in de nieuwe preview-info registratie beveiliging op [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo).
+
+> [!WARNING]
+> U moet inschakelen de [geconvergeerd registratie voor self-service voor wachtwoord opnieuw instellen en Azure multi-factor Authentication (openbare preview)](concept-registration-mfa-sspr-converged.md) voordat gebruikers toegang kunnen krijgen tot de nieuwe ervaring op [ https://aka.ms/setupsecurityinfo ](https://aka.ms/setupsecurityinfo).
 
 ### <a name="change-authentication-methods"></a>Verificatiemethoden wijzigen
 

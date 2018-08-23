@@ -1,6 +1,6 @@
 ---
-title: Decoderen van berichten in AS2 - Azure Logic Apps | Microsoft Docs
-description: Het gebruik van de decoder AS2 in de Enterprise-integratiepakket voor Azure Logic Apps
+title: AS2-berichten - Azure Logic Apps-decodering | Microsoft Docs
+description: Over het gebruik van de AS2-decodeerfunctie in het Enterprise Integration Pack voor Azure Logic Apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: padmavc
@@ -12,84 +12,93 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/27/2016
+ms.date: 08/08/2018
 ms.author: LADocs; padmavc
-ms.openlocfilehash: a5ca615d984d07513b12399b6f7e7901490f2e41
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a1b2d68a4a9433dc5c68d65552bf6bd509463958
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298828"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42054440"
 ---
-# <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>AS2-berichten worden gedecodeerd voor Azure Logic Apps met de Enterprise-integratiepakket 
+# <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>AS2-berichten decoderen voor Azure Logic Apps met het Enterprise Integration Pack 
 
-Om vast te stellen op beveiliging en betrouwbaarheid bij het verzenden van berichten, de decoderen AS2-bericht-connector te gebruiken. Deze connector biedt digitale ondertekening, ontsleuteling en bevestigingen via bericht Disposition meldingen (MDN).
+Voor het maken van beveiliging en betrouwbaarheid bij het verzenden van berichten, door de AS2-decodering bericht-connector te gebruiken. Deze connector biedt digitale ondertekening, ontsleuteling en bevestigingen via bericht toestand meldingen (MDN).
 
 ## <a name="before-you-start"></a>Voordat u begint
 
-Hier volgt de items die u nodig:
+Hier volgt de items die u nodig hebt:
 
-* Een Azure-account; kunt u een [gratis account](https://azure.microsoft.com/free)
-* Een [integratie account](logic-apps-enterprise-integration-create-integration-account.md) die al is gedefinieerd en die zijn gekoppeld aan uw Azure-abonnement. U moet een integratie-account aan het gebruik van de connector decoderen AS2-bericht hebben.
-* Ten minste twee [partners](logic-apps-enterprise-integration-partners.md) die al zijn gedefinieerd in uw account integratie
-* Een [AS2-overeenkomst](logic-apps-enterprise-integration-as2.md) die al is gedefinieerd in uw account integratie
+* Een Azure-account; u kunt maken een [gratis account](https://azure.microsoft.com/free)
+* Een [integratieaccount](logic-apps-enterprise-integration-create-integration-account.md) die al is gedefinieerd en die zijn gekoppeld aan uw Azure-abonnement. Hebt u een integratieaccount om de AS2-decodering bericht-connector te gebruiken.
+* Ten minste twee [partners](logic-apps-enterprise-integration-partners.md) die al zijn gedefinieerd in uw integratieaccount
+* Een [AS2-overeenkomst](logic-apps-enterprise-integration-as2.md) die al gedefinieerd in uw integratieaccount
 
-## <a name="decode-as2-messages"></a>AS2-berichten worden gedecodeerd
+## <a name="decode-as2-messages"></a>AS2-berichten decoderen
 
-1. [Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+1. [Maak een logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-2. De connector decoderen AS2-bericht geen triggers, dus moet u een trigger voor het starten van uw logische app, zoals een aanvraag-trigger toevoegen. In de ontwerpfunctie voor Logic App een trigger toevoegen en vervolgens een actie toevoegen aan uw logische app.
+2. De AS2-decodering bericht connector geen triggers, dus moet u een trigger voor het starten van uw logische app, zoals een aanvraag als trigger toevoegen. Een trigger toevoegen in de Logic App Designer en klikt u vervolgens een actie toevoegen aan uw logische app.
 
-3.  Voer in het zoekvak 'AS2' voor uw filter. Selecteer **AS2 - decoderen AS2-bericht**.
+3.  Voer in het zoekvak 'AS2' voor uw filter. Selecteer **AS2 - decodering AS2-bericht**.
    
-    ![Zoek naar 'AS2'](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage1.png)
+    ![Zoek naar "AS2"](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage1.png)
 
-4. Als u geen verbindingen tot je account integratie eerder hebt gemaakt, wordt u gevraagd nu die verbinding maken. Naam van uw verbinding en selecteer de integratie-account waarmee u verbinding wilt maken.
+4. Als u geen verbindingen voor uw integratieaccount eerder hebt gemaakt, wordt u gevraagd om nu deze verbinding te maken. Naam van de verbinding en selecteer de integratieaccount waarmee u verbinding wilt maken.
    
-    ![Integratie verbinding maken](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage2.png)
+    ![Integratie-verbinding maken](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage2.png)
 
     Eigenschappen met een sterretje zijn vereist.
 
     | Eigenschap | Details |
     | --- | --- |
     | Verbindingsnaam * |Voer een naam voor de verbinding. |
-    | Integratie Account * |Voer een naam voor uw account integratie. Zorg ervoor dat uw account en logica app voor integratie in dezelfde Azure-locatie. |
+    | Integratie-Account * |Voer een naam voor uw integratie-account. Zorg ervoor dat uw integratie-account en logica-app zich in dezelfde Azure-locatie. |
 
-5.  Wanneer u bent klaar, de verbindingsdetails van uw moeten er ongeveer uitzien in dit voorbeeld. Voor het voltooien van de verbinding te maken, kies **maken**.
+5.  Wanneer u klaar bent, moeten uw verbindingsgegevens lijken op het volgende voorbeeld. Kies voor het voltooien van het maken van uw verbinding, **maken**.
 
-    ![de verbindingsdetails integratie](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage3.png)
+    ![integratie-verbindingsgegevens](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage3.png)
 
-6. Nadat de verbinding is gemaakt, zoals in dit voorbeeld, selecteer **hoofdtekst** en **Headers** van de uitvoer van de aanvraag.
+6. Nadat de verbinding is gemaakt, zoals wordt weergegeven in dit voorbeeld, selecteer **hoofdtekst** en **Headers** uit de uitvoer van de aanvraag.
    
     ![integratie van verbinding is gemaakt](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage4.png) 
 
     Bijvoorbeeld:
 
-    ![Selecteer hoofdtekst en Headers van de uitvoer van de aanvraag](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
+    ![Selecteer hoofdtekst en koppen uit de uitvoer van de aanvraag](media/logic-apps-enterprise-integration-as2-decode/as2decodeimage5.png) 
 
-## <a name="as2-decoder-details"></a>AS2-decoder details
 
-Het decoderen AS2-connector voert deze taken uit: 
+## <a name="as2-decoder-details"></a>Details van de AS2-decodeerfunctie
+
+Deze taken worden uitgevoerd door de AS2-decodering-connector: 
 
 * AS2/HTTP-headers worden verwerkt
-* Verifieert de handtekening (indien geconfigureerd)
-* De berichten ontsleutelt (indien geconfigureerd)
-* Het bericht decomprimeert (indien geconfigureerd)
-* Voor overeenstemming zorgt met een ontvangen MDN met het oorspronkelijke uitgaand bericht
-* Updates en records in de database onweerlegbaarheid correleert
-* Records voor statusrapportage AS2 schrijft
-* De inhoud van het uitvoer-nettolading is base64-codering
+* Controleert of de handtekening (indien geconfigureerd)
+* Hiermee ontsleutelt u de berichten (indien geconfigureerd)
+* Decomprimeren van het bericht (indien geconfigureerd)
+* Controleer en bericht-ID duplicaten weigeren (indien geconfigureerd)
+* Voor overeenstemming zorgt met een MDN ontvangen met de oorspronkelijke uitgaand multicastverkeer voor message
+* Updates en correleert records in de database niet-afwijzing
+* Schrijft voor AS2-statusrapportage
+* De inhoud van de uitvoer-nettolading is base64-gecodeerd
 * Bepaalt of een MDN vereist is, en of de MDN synchrone moet of asynchrone op basis van configuratie in AS2-overeenkomst
 * Genereert een synchrone of asynchrone MDN (op basis van overeenkomst configuraties)
-* De eigenschappen en correlatietokens ingesteld op de MDN
+* Hiermee stelt u de correlatietokens en eigenschappen van de MDN
+
+
+  > [!NOTE]
+  > Als u Azure Key Vault voor het beheren van certificaten gebruikt, zorg ervoor dat u configureert de sleutels om toe te staan de **ontsleutelen** bewerking.
+  > Anders wordt de AS2-decodering mislukken.
+  >
+  > ![Hiermee ontsleutelt u Key Vault](media/logic-apps-enterprise-integration-as2-decode/keyvault1.png)
 
 ## <a name="try-this-sample"></a>Probeer dit voorbeeld
 
-Als u wilt proberen een volledig operationeel logic app en voorbeeld AS2-scenario implementeren, Zie de [AS2 logic app-sjabloon en het scenario](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
+Als u wilt proberen om de implementatie van een volledig operationeel logische app en voorbeeld AS2-scenario, Zie de [AS2 scenario en de sjabloon voor logische app](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
 
 ## <a name="view-the-swagger"></a>De swagger weergeven
-Zie de [swagger details](/connectors/as2/). 
+Zie de [details swagger](/connectors/as2/). 
 
 ## <a name="next-steps"></a>Volgende stappen
-[Meer informatie over het Enterprise-integratiepakket](logic-apps-enterprise-integration-overview.md) 
+[Meer informatie over het Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md) 
 

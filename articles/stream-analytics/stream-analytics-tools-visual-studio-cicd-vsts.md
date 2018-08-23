@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 7/10/2018
-ms.openlocfilehash: 303c1cfaf2b91712f706c5b78e027bb02739c770
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: d4f1e188a1a145ba3be5fb45d2b0ea4d0bfd57a7
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39074211"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41920544"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-vsts"></a>Zelfstudie: Een Azure Stream Analytics-taak met CI/CD met behulp van VSTS
 In deze zelfstudie wordt beschreven hoe u continue integratie en implementatie instelt voor een Azure Stream Analytics-taak met behulp van Visual Studio-teamservices. 
@@ -32,8 +32,8 @@ Zorg ervoor dat u het volgende hebt voordat u begint:
 
 * Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan.
 * Installeer [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) en de workload **Azure-ontwikkeling** of **Gegevensopslag en verwerking**.
-* Maak een [Stream Analytics-project in Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-vs).
-* Maak een [Visual Studio Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)-account.
+* Maak een [Stream Analytics-project in Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-vs).
+* Maak een [Visual Studio Team Services](https://visualstudio.microsoft.com/team-services/)-account.
 
 ## <a name="configure-nuget-package-dependency"></a>Afhankelijkheid van NuGet-pakket configureren
 Om automatisch een build te kunnen maken en automatisch te implementeren op een willekeurige computer, moet u het NuGet-pakket `Microsoft.Azure.StreamAnalytics.CICD` gebruiken. Dit bevat de tools voor MSBuild, lokaal uitvoeren en implementatie die ondersteuning bieden voor het continue integratie- en implementatieproces van Stream Analytics Visual Studio-projecten. Zie [Stream Analytics CI/CD-hulpprogramma's](stream-analytics-tools-for-visual-studio-cicd.md) voor meer informatie.

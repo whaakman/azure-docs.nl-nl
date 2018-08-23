@@ -1,43 +1,43 @@
 ---
-title: Oproep- en antwoord - C#-Snelstartgids voor Azure cognitieve Services, Bing installatiekopie zoeken-API | Microsoft Docs
-description: Get-informatie en codevoorbeelden kunt u snel aan de slag met Bing installatiekopie Search API in Microsoft cognitieve Services in Azure.
+title: "Snelstartgids: Verzenden zoekquery's met de REST-API voor de Bing afbeeldingen zoeken-API met behulp van C#"
+description: In deze Quick Start stuurt u zoekopdrachten naar de Bing webzoekopdrachten-API om een lijst met relevante afbeeldingen met behulp van C#.
 services: cognitive-services
 documentationcenter: ''
-author: v-jerkin
+author: aahill
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
-ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: e5a506b9a25e94c827815323d209bf7c175bac4e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 8/9/2018
+ms.author: aahi
+ms.openlocfilehash: 7a5ef36f02d82ee17698af9c647f043792280fbc
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345474"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "41987616"
 ---
-# <a name="call-and-response-your-first-bing-image-search-query-in-c"></a>Oproep- en -antwoord: uw eerste zoekopdracht van Bing installatiekopie in C#
+# <a name="quickstart-send-search-queries-using-the-rest-api-and-c"></a>Snelstartgids: Verzenden zoekquery's met behulp van de REST-API en C#
 
-De Bing-API van zoekservice afbeelding biedt een vergelijkbaar met Bing.com/Images ervaring doordat u een zoekopdracht gebruiker verzenden naar Bing en ophalen van een lijst met relevante installatiekopieën.
+De Bing afbeeldingen zoeken-API biedt een ervaring die vergelijkbaar is met Bing.com/Images doordat u kunt een zoekquery voor de gebruiker naar Bing te verzenden en een lijst met relevante afbeeldingen teruggaan.
 
-Dit artikel bevat een eenvoudige consoletoepassing die voert een query Bing-API van zoekservice installatiekopie en de geretourneerde onbewerkte zoekresultaten in het JSON-indeling weergegeven. Terwijl deze toepassing is geschreven in C#, is de API een compatibel is met elke programmeertaal die kunt maken van HTTP-aanvragen en parseren van JSON RESTful-Web-service. 
+Dit artikel bevat een eenvoudige consoletoepassing die een Bing afbeeldingen zoeken-API-query en de zoekresultaten geretourneerde onbewerkte, die zich in de JSON-indeling worden weergegeven. Terwijl deze toepassing is geschreven in C#, de API is een RESTful-Web-compatibel is met elke programmeertaal die HTTP-aanvragen te parseren van JSON. 
 
-Voorbeeld gebruikt alleen .NET Core klassen en wordt uitgevoerd op Windows met behulp van de .NET CLR- of Linux- of met behulp van Mac OS [Mono](http://www.mono-project.com/).
+Het voorbeeldprogramma maakt gebruik van alleen .NET Core-klassen en wordt uitgevoerd op Windows met behulp van de .NET CLR of op Linux of macOS met behulp van [Mono](http://www.mono-project.com/).
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) deze code die wordt uitgevoerd op Windows ophalen. (De editie free Community blijft werken.)
+U moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) om op te halen van deze code die wordt uitgevoerd op Windows. (De gratis Community-editie volstaat.)
 
-U moet hebben een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing zoeken-API's**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) voldoende is voor deze snelstartgids. U moet de toegangssleutel die is opgegeven bij het activeren van uw gratis proefversie of u kunt de sleutel van een betaald abonnement van uw Azure-dashboard.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="running-the-application"></a>De toepassing uitvoeren
 
-Volg deze stappen voor het uitvoeren van deze toepassing.
+Volg deze stappen om uit te voeren deze toepassing.
 
 1. Maak een nieuwe Console-oplossing in Visual Studio.
-1. Vervang `Program.cs` met de opgegeven code.
-2. Vervang de `accessKey` waarde met een geldige toegangssleutel voor uw abonnement.
-3. Voer het programma.
+2. Vervang `Program.cs` met de opgegeven code.
+3. Vervang de `accessKey` waarde met een geldige toegangssleutel voor uw abonnement.
+4. Voer het programma.
 
 ```csharp
 using System;
@@ -208,7 +208,7 @@ namespace BingSearchApisQuickstart
 
 ## <a name="json-response"></a>JSON-antwoord
 
-Er volgt een voorbeeldantwoord. Als u wilt beperken de lengte van de JSON, alleen een enkelvoudig resultaat wordt verkregen wordt weergegeven en andere onderdelen van het antwoord is afgekapt. 
+Er volgt een voorbeeldantwoord. Als u wilt beperken de lengte van de JSON, slechts één resultaat wordt weergegeven en andere onderdelen van het antwoord is afgekapt. 
 
 ```json
 {
@@ -297,11 +297,11 @@ Er volgt een voorbeeldantwoord. Als u wilt beperken de lengte van de JSON, allee
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Zoeken naar Bing-afbeelding één pagina app-zelfstudie](../tutorial-bing-image-search-single-page-app.md)
+> [Zelfstudie voor Bing afbeeldingen zoeken-app met één pagina](../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>Zie ook 
 
-[Zoeken naar afbeelding van Bing-overzicht](../overview.md)  
-[Probeer deze](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+[Overzicht van de Bing afbeeldingen zoeken](../overview.md)  
+[Nu uitproberen](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
 [Een gratis proefversie toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-[Bing installatiekopie Search API-verwijzingen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+[Bing afbeeldingen zoeken-API-verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

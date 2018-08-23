@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: sngun
-ms.openlocfilehash: 49f6d6ee65ffae71cba8c73301355bfe2bdcd1d6
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 020f9c8753b2b91b3336b304a1c92590f62be003
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480553"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42060776"
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Gegevens in Azure Cosmos DB-verzamelingen met time to live van automatisch laten verlopen
 Toepassingen kunnen maken en opslaan van grote hoeveelheden gegevens. Sommige van deze gegevens, zoals machine gegenereerde gegevens, logboeken en gebruiker gebeurtenissessie informatie is alleen nuttig voor een beperkte periode. Zodra de gegevens van de 1e overschot aan de behoeften van de toepassing, het is veilig om deze gegevens opschonen en de opslagbehoeften van een toepassing te verminderen.
@@ -41,11 +41,11 @@ Als het document is verlopen (`ttl`  +  `_ts` < = huidige servertijd), het docum
 
 De bovenstaande logica kan worden weergegeven in de volgende matrix:
 
-|  | DefaultTTL ontbreekt of niet is ingesteld op de verzameling | DefaultTTL =-1 op verzameling | DefaultTTL = "n" op verzameling |
+|  | DefaultTTL ontbreekt of niet is ingesteld op de verzameling | DefaultTTL =-1 op verzameling | DefaultTTL = n' op verzameling |
 | --- |:--- |:--- |:--- |
-| TTL voor het document ontbreekt |Niets om op te heffen op het documentniveau van, omdat het document en de verzameling hebt geen concept van TTL-waarde. |Er zijn geen documenten in deze verzameling verloopt. |De documenten in deze verzameling verloopt als n interval is verstreken. |
-| TTL =-1 op document |Er is niets om op te heffen op het documentniveau van het, omdat de verzameling bevat geen definitie van de eigenschap DefaultTTL die een document kunt onderdrukken. TTL voor een document is niet-geïnterpreteerde door het systeem. |Er zijn geen documenten in deze verzameling verloopt. |Het document met TTL =-1 in deze verzameling verloopt nooit. Alle andere documenten verloopt na "n" interval. |
-| TTL = n op document |Niets om op te heffen op het documentniveau van het. TTL voor een document is niet-geïnterpreteerde door het systeem. |Het document met TTL = n verloopt na n interval, in seconden. Andere documenten worden overgenomen van het interval van -1 en nooit verlopen. |Het document met TTL = n verloopt na n interval, in seconden. Andere documenten worden "n" interval overgenomen uit de verzameling. |
+| TTL voor het document ontbreekt |Niets om op te heffen op het documentniveau van, omdat het document en de verzameling hebt geen concept van TTL-waarde. |Er zijn geen documenten in deze verzameling verloopt. |De documenten in deze verzameling zal verlopen wanneer interval n' is verstreken. |
+| TTL =-1 op document |Er is niets om op te heffen op het documentniveau van het, omdat de verzameling bevat geen definitie van de eigenschap DefaultTTL die een document kunt onderdrukken. TTL voor een document is niet-geïnterpreteerde door het systeem. |Er zijn geen documenten in deze verzameling verloopt. |Het document met TTL =-1 in deze verzameling verloopt nooit. Alle andere documenten verloopt na n' interval. |
+| TTL = n op document |Niets om op te heffen op het documentniveau van het. TTL voor een document is niet-geïnterpreteerde door het systeem. |Het document met TTL = n verloopt na n interval, in seconden. Andere documenten worden overgenomen van het interval van -1 en nooit verlopen. |Het document met TTL = n verloopt na n interval, in seconden. Andere documenten worden overgenomen door n' interval van de verzameling. |
 
 ## <a name="configuring-ttl"></a>TTL configureren
 Standaard wordt de time to live van standaard in alle Cosmos DB-verzamelingen en op alle documenten uitgeschakeld. TTL-waarde kan worden ingesteld via programmacode of via de Azure-portal. Gebruik de volgende stappen uit om te configureren van TTL vanuit Azure-portal:

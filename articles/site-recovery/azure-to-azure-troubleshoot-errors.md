@@ -7,14 +7,14 @@ manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 08/09/2018
 ms.author: sujayt
-ms.openlocfilehash: a41cd658060ef92efb0fc21a98ca616276378c5e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 86d6c77dab817cf755c34bdd699ee1158e852f37
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113851"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42054645"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Problemen met Azure-naar-Azure-VM-replicatie oplossen
 
@@ -148,12 +148,44 @@ Omdat symlinks SuSE Linux gebruikt voor het onderhouden van een lijst van certif
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Uitgaande connectiviteit voor Site Recovery-URL's of IP-adresbereiken (foutcode 151037 of 151072)
 
-Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde URL's of IP-bereiken zijn van de virtuele machine. Als uw VM zich achter een firewall bevindt of regels voor network security group (NSG) gebruikt voor het beheren van uitgaande connectiviteit, ziet u mogelijk een van deze foutberichten weergegeven:
+Voor Site Recovery-replicatie met werk, uitgaande connectiviteit voor bepaalde URL's of IP-bereiken zijn van de virtuele machine. Als uw VM zich achter een firewall bevindt of regels voor network security group (NSG) gebruikt voor het beheren van uitgaande connectiviteit, kunt u een van deze problemen kan tegenkomen.
 
-**Foutcodes** | **Mogelijke oorzaken** | **Aanbevelingen**
---- | --- | ---
-151037<br></br>**Bericht**: registratie van virtuele machine van Azure met Site Recovery is mislukt. | -U NSG voor het beheren van uitgaande toegang op de virtuele machine en de vereiste IP-bereiken worden niet opgenomen in de whitelist voor uitgaande toegang.</br></br>-U gebruikt firewallhulpprogramma's van derden en de vereiste IP-bereiken/URL's zijn niet opgenomen in de whitelist.</br>| -Als u firewallproxy gebruikt voor het beheren van uitgaande netwerkverbindingen op de virtuele machine, zorg ervoor dat de vereiste URL's of IP-datacenterbereiken in de whitelist opgenomen. Zie voor meer informatie, [firewall-proxy richtlijnen](https://aka.ms/a2a-firewall-proxy-guidance).</br></br>-Als u NSG-regels voor het beheren van uitgaande netwerkverbindingen op de virtuele machine gebruikt, zorg ervoor dat de vereiste datacenter-IP-adresbereiken in de whitelist opgenomen. Zie voor meer informatie, [network security group richtlijnen](https://aka.ms/a2a-nsg-guidance).
-151072<br></br>**Bericht**: Site Recovery-configuratie is mislukt. | Kan geen verbinding maken met Site Recovery service-eindpunten. | -Als u firewallproxy gebruikt voor het beheren van uitgaande netwerkverbindingen op de virtuele machine, zorg ervoor dat de vereiste URL's of IP-datacenterbereiken in de whitelist opgenomen. Zie voor meer informatie, [firewall-proxy richtlijnen](https://aka.ms/a2a-firewall-proxy-guidance).</br></br>-Als u NSG-regels voor het beheren van uitgaande netwerkverbindingen op de virtuele machine gebruikt, zorg ervoor dat de vereiste datacenter-IP-adresbereiken in de whitelist opgenomen. Zie voor meer informatie, [network security group richtlijnen](https://aka.ms/a2a-nsg-guidance).
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151037-br"></a>1 probleem: Kan niet registreren van virtuele machine van Azure met Site Recovery (151037) </br>
+- **Mogelijke oorzaak** </br>
+  - U gebruikt NSG voor het beheren van uitgaande toegang op de virtuele machine en de vereiste IP-bereiken worden niet opgenomen in de whitelist voor uitgaande toegang.
+  - U hulpprogramma's voor externe firewall en de vereiste IP-bereiken/URL's zijn niet opgenomen in de whitelist.
+
+
+- **Resolutie**
+   - Als u firewallproxy gebruikt voor het beheren van uitgaande netwerkverbindingen op de virtuele machine, zorg ervoor dat de vereiste URL's of IP-datacenterbereiken in de whitelist opgenomen. Zie voor meer informatie, [firewall-proxy richtlijnen](https://aka.ms/a2a-firewall-proxy-guidance).
+   - Als u NSG-regels voor het beheren van uitgaande netwerkverbindingen op de virtuele machine gebruikt, zorg ervoor dat de vereiste datacenter-IP-adresbereiken in de whitelist opgenomen. Zie voor meer informatie, [network security group richtlijnen](https://aka.ms/a2a-nsg-guidance).
+   - Aan lijst met geaccepteerde [de vereiste URL's](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) of de [vereiste IP-adresbereiken](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), volg de stappen in de [netwerken document met richtlijnen](site-recovery-azure-to-azure-networking-guidance.md).
+
+### <a name="issue-2-site-recovery-configuration-failed-151072"></a>Probleem 2: De configuratie van Site Recovery is mislukt (151072)
+- **Mogelijke oorzaak** </br>
+  - Verbinding kan geen worden gemaakt met Site Recovery service-eindpunten
+
+
+- **Resolutie**
+   - Als u firewallproxy gebruikt voor het beheren van uitgaande netwerkverbindingen op de virtuele machine, zorg ervoor dat de vereiste URL's of IP-datacenterbereiken in de whitelist opgenomen. Zie voor meer informatie, [firewall-proxy richtlijnen](https://aka.ms/a2a-firewall-proxy-guidance).
+   - Als u NSG-regels voor het beheren van uitgaande netwerkverbindingen op de virtuele machine gebruikt, zorg ervoor dat de vereiste datacenter-IP-adresbereiken in de whitelist opgenomen. Zie voor meer informatie, [network security group richtlijnen](https://aka.ms/a2a-nsg-guidance).
+   - Aan lijst met geaccepteerde [de vereiste URL's](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) of de [vereiste IP-adresbereiken](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), volg de stappen in de [netwerken document met richtlijnen](site-recovery-azure-to-azure-networking-guidance.md).
+
+### <a name="issue-3-a2a-replication-failed-when-the-network-traffic-goes-through-on-premise-proxy-server-151072"></a>Probleem 3: A2A-replicatie is mislukt tijdens het netwerkverkeer via on-premises proxy-server (151072 verloopt)
+ - **Mogelijke oorzaak** </br>
+   - De aangepaste proxy-instellingen zijn ongeldig en ASR Mobility Service-agent heeft geen automatische detectie de proxy-instellingen van Internet Explorer
+
+
+ - **Resolutie**
+  1.    Mobility Service-agent detecteert de proxy-instellingen van Internet Explorer op Windows en /etc/environment op Linux.
+  2.  Als u liever proxy alleen voor ASR Mobility-Service instellen, kunt u de proxygegevens in ProxyInfo.conf dat zich bevindt in opgeven:</br>
+      - ``/usr/local/InMage/config/`` op ***Linux***
+      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` op ***Windows***
+  3.    De ProxyInfo.conf moet de proxy-instellingen in de volgende INI-indeling hebben. </br>
+                   *[proxy]*</br>
+                   *Adres =http://1.2.3.4*</br>
+                   *Poort 567 =*</br>
+  4. ASR Mobility Service-agent ondersteunt alleen ***niet-geverifieerde proxy's***.
 
 ### <a name="fix-the-problem"></a>Het probleem wordt opgelost
 Aan lijst met geaccepteerde [de vereiste URL's](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) of de [vereiste IP-adresbereiken](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), volg de stappen in de [netwerken document met richtlijnen](site-recovery-azure-to-azure-networking-guidance.md).
@@ -213,6 +245,20 @@ Inschakelen van replicatie op de virtuele machine, de Inrichtingsstatus moet **g
 - Als **provisioningState** is **mislukt**, neem contact op met ondersteuning voor meer informatie om op te lossen.
 - Als **provisioningState** is **bijwerken**, kan ophalen van een andere extensie geïmplementeerd. Controleer of er zijn actieve bewerkingen op de virtuele machine, wacht tot ze voltooid en probeer de mislukte Site Recovery **inschakelen replicatie** taak.
 
+## <a name="unable-to-select-target-virtual-network---network-selection-tab-is-grayed-out"></a>Kan geen virtueel netwerk - tabblad voor netwerk-selectie is grijs doel selecteren.
+
+**1 oorzaak: Als uw virtuele machine is gekoppeld aan een netwerk dat al aan een doelnetwerk toegewezen is.**
+- Als de bron-VM deel uit van een virtueel netwerk maakt en een andere virtuele machine in hetzelfde virtuele netwerk is al met een netwerk in de doelresourcegroep die is toegewezen, wordt klikt u vervolgens door de standaardselectie netwerk vervolgkeuzelijst uitgeschakeld.
+
+![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
+
+**2 oorzaak: Als u eerder hebt beveiligd van de virtuele machine met Azure Site Recovery en de replicatie uitgeschakeld.**
+ - Uitschakelen van de replicatie van een virtuele machine verwijdert niet de netwerktoewijzing. Er moet worden verwijderd uit de recovery Services-kluis waarin de virtuele machine is beveiligd. </br>
+ Navigeer naar de recovery Services-kluis > Site Recovery-infrastructuur > netwerktoewijzing. </br>
+ ![Delete_NW_Mapping](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
+ - Doelnetwerk geconfigureerd tijdens de installatie van noodhersteladapter kan worden gewijzigd na de eerste instellen nadat de virtuele machine is beveiligd. </br>
+ ![Modify_NW_mapping](./media/site-recovery-azure-to-azure-troubleshoot/modify_nw_mapping.png)
+ - Houd er rekening mee dat als u netwerktoewijzing wijzigt van invloed op alle beveiligde virtuele machines die gebruikmaken van dat specifieke netwerktoewijzing.
 
 
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>COM +/ fout van de Volume Shadow Copy service (foutcode 151025)

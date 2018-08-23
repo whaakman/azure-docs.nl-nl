@@ -1,6 +1,6 @@
 ---
-title: Azure CLI 2.0 en de IoT-extensie gebruiken om services voor het inrichten van apparaten te beheren | Microsoft Docs
-description: Azure CLI 2.0 en de IoT-extensie leren gebruiken om services voor het inrichten van apparaten te beheren
+title: Over het gebruik van Azure CLI en de IoT-extensie voor het beheren van de IoT Hub Device Provisioning Service | Microsoft Docs
+description: Informatie over het gebruik van Azure CLI en de IoT-extensie voor het beheren van de IoT Hub Device Provisioning Service
 author: chrissie926
 ms.author: menchi
 ms.date: 01/17/2018
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 174f8447b17d1fa580472cbb45d0a72f41c793c3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 70ce30bdc5a12aec198a2bb1b78c9bdfa8a18882
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628314"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42057200"
 ---
-# <a name="how-to-use-azure-cli-20-and-the-iot-extension-to-manage-device-provisioning-services"></a>Azure CLI 2.0 en de IoT-extensie gebruiken om services voor het inrichten van apparaten te beheren
+# <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Over het gebruik van Azure CLI en de IoT-extensie voor het beheren van de IoT Hub Device Provisioning Service
 
-[Azure CLI 2.0](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is een open-source, cross-platform opdrachtregelprogramma voor het beheren van Azure-resources, zoals IoT Edge. Azure CLI 2.0 is beschikbaar voor Windows, Linux en Mac OS. Met Azure CLI 2.0 kunt u Azure IoT Hub-resources, service-exemplaren voor apparaatinrichting en gebruiksklare gekoppelde hubs beheren.
+[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is een open-source, cross-platform opdrachtregelprogramma voor het beheren van Azure-resources, zoals IoT Edge. Azure CLI is beschikbaar op Windows, Linux en MacOS. Azure CLI kunt u voor het beheren van resources voor Azure IoT Hub Device Provisioning service-exemplaren en gekoppelde hubs buiten het vak.
 
-De IoT-extensie voorziet Azure CLI 2.0 van extra functies zoals Apparaatbeheer en alle functionaliteit van IoT Edge.
+Azure CLI verrijkt de IoT-extensie met functies zoals Apparaatbeheer en de volledige functionaliteit van IoT Edge.
 
-In deze zelfstudie voert u eerst de stappen uit om Azure CLI 2.0 en de IoT-extensie in te stellen. Vervolgens leert u CLI-opdrachten te gebruiken om eenvoudige servicebewerkingen voor apparaatinrichting uit te voeren. 
+In deze zelfstudie maakt stappen u eerst de om Azure CLI en de IoT-extensie in te stellen. Vervolgens leert u hoe u CLI-opdrachten om uit te voeren van de Device Provisioning Service basisbewerkingen uitvoeren. 
 
 ## <a name="installation"></a>Installatie 
 
@@ -29,17 +29,17 @@ In deze zelfstudie voert u eerst de stappen uit om Azure CLI 2.0 en de IoT-exten
 
 [Python 2.7x of Python 3.x](https://www.python.org/downloads/) is vereist.
 
-### <a name="step-2---install-azure-cli-20"></a>Stap 2: Azure CLI 2.0 installeren
+### <a name="step-2---install-azure-cli"></a>Stap 2: Azure CLI installeren
 
-Volg de [installatie-instructie](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) voor het instellen van Azure CLI 2.0 in uw omgeving. Uw versie van Azure CLI 2.0 moet minimaal versie 2.0.24 of hoger zijn. Gebruik `az –version` om de versie te valideren. In deze versie worden az-extensie-opdrachten ondersteund en is voor het eerst het Knack-opdrachtframework opgenomen. Een eenvoudige manier om Azure CLI 2.0 te installeren in Windows is de [MSI](https://aka.ms/InstallAzureCliWindows) te downloaden en installeren.
+Ga als volgt de [installatie-instructie](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) voor het instellen van Azure CLI in uw omgeving. Uw Azure CLI-versie moet ten minste 2.0.24 of hoger. Gebruik `az –version` om de versie te valideren. In deze versie worden az-extensie-opdrachten ondersteund en is voor het eerst het Knack-opdrachtframework opgenomen. Een eenvoudige manier om Azure CLI 2.0 te installeren in Windows is de [MSI](https://aka.ms/InstallAzureCliWindows) te downloaden en installeren.
 
 ### <a name="step-3---install-iot-extension"></a>Stap 3: IoT-extensie installeren
 
 [In het Leesmij-bestand bij de IoT-extensie](https://github.com/Azure/azure-iot-cli-extension) worden verschillende manieren voor het installeren van de extensie beschreven. De eenvoudigste manier is `az extension add --name azure-cli-iot-ext` uit te voeren. Na de installatie kunt u gebruikmaken van `az extension list` om de momenteel geïnstalleerde extensies te valideren of van `az extension show --name azure-cli-iot-ext` voor informatie over de IoT-extensie. U kunt `az extension remove --name azure-cli-iot-ext` gebruiken om de extensie te verwijderen.
 
 
-## <a name="basic-device-provisioning-service-operations"></a>Eenvoudige servicebewerkingen voor apparaatinrichting
-Het voorbeeld laat zien hoe u zich aanmeldt bij uw Azure-account, een Azure-resourcegroep maakt (bestaande uit een container die verwante resources voor een Azure-oplossing bevat), een IoT Hub maakt, een service voor apparaatinrichting maakt, de bestaande services voor apparaatinrichting weergeeft en een gekoppelde IoT-hub maakt met behulp van CLI-opdrachten. 
+## <a name="basic-device-provisioning-service-operations"></a>Basisbewerkingen van de Device Provisioning Service
+Het voorbeeld ziet u hoe u Meld u aan bij uw Azure-account, maakt een Azure Resource Group (een container die verwante resources voor een Azure-oplossing bevat), een IoT-Hub maken, maken van een Device Provisioning service, lijst van de bestaande services voor Apparaatinrichting en een gekoppelde IoT-hub maken met CLI-opdrachten. 
 
 Voer de hierboven beschreven installatiestappen uit voordat u begint. Als u geen Azure-account hebt, kunt u nu [een gratis account maken](https://azure.microsoft.com/free/?v=17.39a). 
 
@@ -57,19 +57,19 @@ Voer de hierboven beschreven installatiestappen uit voordat u begint. Als u geen
 ![Een resourcegroep maken][2]
 
 
-### <a name="3-create-two-device-provisioning-services"></a>3. Twee services voor apparaatinrichting maken
+### <a name="3-create-two-device-provisioning-services"></a>3. Twee Device Provisioning Services
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps
 
-![DPS maken][3]
+![Device Provisioning Service maken][3]
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps2
 
-### <a name="4-list-all-the-existing-device-provisioning-services-under-this-resource-group"></a>4. Alle bestaande services voor apparaatinrichting onder deze resourcegroep weergeven
+### <a name="4-list-all-the-existing-device-provisioning-services-under-this-resource-group"></a>4. Lijst van alle bestaande Device Provisioning services onder deze resourcegroep
 
     az iot dps list --resource-group IoTHubBlogDemo
 
-![DPS weergeven][4]
+![Services voor Apparaatinrichting lijst][4]
 
 
 ### <a name="5-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>5. Een IoT Hub-blogDemoHub onder de nieuwe resourcegroep maken
@@ -78,7 +78,7 @@ Voer de hierboven beschreven installatiestappen uit voordat u begint. Als u geen
 
 ![IoT Hub maken][5]
 
-### <a name="6-link-one-existing-iot-hub-to-a-device-provisioning-service"></a>6. Eén bestaande IoT-hub koppelen aan een service voor apparaatinrichting
+### <a name="6-link-one-existing-iot-hub-to-a-device-provisioning-service"></a>6. Een bestaande IoT-Hub koppelen aan een Device Provisioning service
 
     az iot dps linked-hub create --resource-group IoTHubBlogDemo --dps-name demodps --connection-string <connection string> -l westus
 

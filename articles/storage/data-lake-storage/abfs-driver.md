@@ -9,12 +9,12 @@ ms.author: jamesbak
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 8be6df5f4098b8a97e41c73edc5664799fd3edbe
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: dedf398064dd0a49e5691e952ea7c9b6d16e34fd
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520812"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42054441"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Het bestandssysteem van Azure Blob-stuurprogramma (ABFS): een speciale Azure Storage-stuurprogramma voor Hadoop
 
@@ -45,7 +45,11 @@ Intern, het stuurprogramma ABFS vertaalt de resource (s) opgegeven in de URI op 
 
 ### <a name="authentication"></a>Verificatie
 
-Het stuurprogramma ABFS ondersteunt momenteel gedeelde sleutelverificatie zodat de Hadoop-toepassing veilig toegang krijgen resources die zich in Data Lake Storage Gen2 tot kan. De sleutel is versleuteld en opgeslagen in de configuratie van Hadoop.
+Het stuurprogramma ABFS ondersteunt twee soorten verificatie zodat de Hadoop-toepassing veilig toegang krijgen resources die zich in een Data Lake Storage Gen2 geschikt-account tot kan. Volledige details van de beschikbare verificatiemethoden zijn opgegeven de [Azure Storage-beveiligingshandleiding](../common/storage-security-guide.md). Dit zijn:
+
+- **Gedeelde sleutel:** Hierdoor kunnen gebruikers toegang tot alle resources in het account. De sleutel is versleuteld en opgeslagen in de configuratie van Hadoop.
+
+- **Azure Active Directory OAuth Bearer-Token:** bearer-tokens van Azure AD worden verkregen en vernieuwd door het stuurprogramma met de identiteit van de eindgebruiker of via een geconfigureerde Service-Principal. Met dit verificatiemodel, is alle toegang geautoriseerd op basis van per aanroep met behulp van de identiteit die is gekoppeld aan het opgegeven token en geëvalueerd op basis van de toegewezen POSIX lijst met ACL (Access Control).
 
 ### <a name="configuration"></a>Configuratie
 

@@ -15,12 +15,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/26/2016
 ms.author: huvalo
-ms.openlocfilehash: f1859660d2370093ab582c417233b25d363ce952
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 796de682df28c28bc66f2409e486dfdc221aedd1
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228036"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42055268"
 ---
 # <a name="configuring-python-with-azure-app-service-web-apps"></a>Python configureren met Azure App Service WebApps
 In deze zelfstudie beschrijft opties voor het ontwerpen en configureren van een Server Gateway Interface WSGI (Web) compatibel Python-basistoepassing op [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -356,7 +356,7 @@ Inhoud van `ptvs_virtualenv_proxy.py`:
 [!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
-Raadpleeg het [Python Developer Center](/python/azure/) voor meer informatie.
+Raadpleeg het [Python Developer Center](https://azure.microsoft.com/develop/python/) voor meer informatie.
 
 > [!NOTE]
 > Als u aan de slag wilt met Azure App Service voordat u zich aanmeldt voor een Azure-account, gaat u naar [App Service uitproberen](https://azure.microsoft.com/try/app-service/). Hier kunt u direct een tijdelijke web-app maken in App Service. U hebt geen creditcard nodig en u gaat geen verplichtingen aan.

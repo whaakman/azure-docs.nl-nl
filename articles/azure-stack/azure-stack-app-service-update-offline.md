@@ -1,6 +1,6 @@
 ---
-title: Azure App Service Offline bijwerken | Microsoft Docs
-description: Gedetailleerde richtlijnen voor het bijwerken van Azure App Service op Azure-Stack offline
+title: Bijwerken van de Azure App Service Offline | Microsoft Docs
+description: Gedetailleerde richtlijnen voor het bijwerken van Azure App Service in Azure Stack offline
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -12,80 +12,80 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 08/15/2018
 ms.author: anwestg
-ms.openlocfilehash: 8671cba484a779e8d7cd0172df141497bb396a97
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: f48872d1853dfd4c40022f42c8e237973ac70fe6
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359030"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42058368"
 ---
-# <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Offline bijwerken van de Azure App Service op Azure-Stack
+# <a name="offline-update-of-azure-app-service-on-azure-stack"></a>Offline-update van Azure App Service in Azure Stack
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> De update 1802 toepassen op uw Azure-Stack geïntegreerd systeem of de nieuwste Azure-Stack development kit implementeren voordat u Azure App Service implementeert.
+> De update 1807 toepassen op uw geïntegreerde Azure Stack-systeem of de meest recente Azure Stack development kit implementeren voordat u Azure App Service 1.3 implementeert.
 >
 >
 
-Volg de instructies in dit artikel, kunt u upgraden de [App Service-resourceprovider](azure-stack-app-service-overview.md) in een Azure-Stack-omgeving die is geïmplementeerd:
+Door de instructies in dit artikel te volgen, kunt u upgraden de [App Service-resourceprovider](azure-stack-app-service-overview.md) in een Azure Stack-omgeving die is geïmplementeerd:
 
 * niet verbonden met Internet
 * beveiligd door Active Directory Federation Services (AD FS).
 
 > [!IMPORTANT]
-> Voordat u de upgrade uitvoert, zorg ervoor dat u al hebt voltooid de [implementatie van de Azure App Service op Azure Stack van Resource Provider](azure-stack-app-service-deploy-offline.md)
+> Vóór de upgrade uitvoert, zorg ervoor dat u al hebt voltooid de [implementatie van de Azure App Service op Azure Stack-Resourceprovider](azure-stack-app-service-deploy-offline.md)
 >
 >
 
-## <a name="run-the-app-service-resource-provider-installer"></a>Voer het App Service resource provider-installatieprogramma
+## <a name="run-the-app-service-resource-provider-installer"></a>Voer het installatieprogramma van App Service resource provider
 
-Als u de App Service-resourceprovider in een Azure-Stack-omgeving upgraden, moet u deze taken uitvoeren:
+Als u de App Service-resourceprovider in een Azure Stack-omgeving bijwerken, moet u deze taken uitvoeren:
 
-1. Download de [App Service-installatie](https://aka.ms/appsvcupdate2installer)
-2. Een upgradepakket voor het offline maken.
+1. Download de [App Service-installatieprogramma](https://aka.ms/appsvcupdate3installer)
+2. Maak een upgradepakket voor offline.
 3. Voer het App Service-installatieprogramma (appservice.exe) en de upgrade is voltooid.
 
 Tijdens dit proces wordt de upgrade:
 
 * Detecteren van eerdere implementatie van App Service
-* Uploaden naar de opslag
-* Upgraden van alle functies van de App Service (domeincontrollers, beheer, front-, uitgever en Worker rollen)
-* Definities App Service-schaalset bijwerken
-* App Service Provider Bronmanifest bijwerken
+* Uploaden naar Storage
+* Upgrade van alle App Service-rollen (domeincontrollers, beheer, front-end, uitgever en werknemer rollen)
+* App Service scale set definities bijwerken
+* Manifest van Resourceprovider App Service bijwerken
 
-## <a name="create-an-offline-upgrade-package"></a>Een upgradepakket voor het offline maken
+## <a name="create-an-offline-upgrade-package"></a>Maak een offlinepakket bijwerken
 
-Als u wilt upgraden App Service in een omgeving zonder verbinding, moet u eerst een upgradepakket voor het offline maken op een computer die verbonden met Internet.
+Als u App Service bijwerken in een omgeving zonder verbinding, moet u eerst een upgradepakket voor offline maken op een computer die verbonden met Internet.
 
-1. Appservice.exe als administrator uitvoeren
+1. Appservice.exe uitvoeren als beheerder
 
-    ![App Service-installatie][1]
+    ![App Service-installatieprogramma][1]
 
-2. Klik op **Geavanceerd** > **offline pakket maken**
+2. Klik op **Geavanceerd** > **offlinepakket maken**
 
-    ![Geavanceerde App Service-installatieprogramma][2]
+    ![App Service-installatieprogramma geavanceerde][2]
 
-3. Het App Service-installatieprogramma maakt een upgradepakket voor het offline en geeft u het pad weer aan.  U kunt klikken op **map openen** de map in de Verkenner openen.
+3. Het App Service-installatieprogramma maakt een offline-upgradepakket en het pad naar deze wordt weergegeven.  U kunt klikken op **map openen** de map in de Verkenner te openen.
 
-4. Kopieer het installatieprogramma (AppService.exe) en het offline upgradepakket naar uw Azure-Stack-hostcomputer.
+4. Kopieer het installatieprogramma (AppService.exe) en het offline-upgradepakket naar uw Azure Stack-hostmachine.
 
-## <a name="complete-the-upgrade-of-app-service-on-azure-stack"></a>Voltooi de upgrade van App-Service op Azure-Stack
+## <a name="complete-the-upgrade-of-app-service-on-azure-stack"></a>Voltooi de upgrade van App Service in Azure Stack
 
 > [!IMPORTANT]
-> Het installatieprogramma van de App Service moet worden uitgevoerd op een computer die het Azure-Stack beheerder Azure Resource Manager-eindpunt kan bereiken.
+> Het installatieprogramma van de App Service moet worden uitgevoerd op een computer die de Azure Stack beheerder van Azure Resource Manager-eindpunt kan bereiken.
 >
 >
 
 1. Appservice.exe uitvoeren als beheerder.
 
-    ![App Service-installatie][1]
+    ![App Service-installatieprogramma][1]
 
-2. Klik op **Geavanceerd** > **offline-installatie of upgrade voltooien**.
+2. Klik op **Geavanceerd** > **uitvoeren van offline-installatie of upgrade**.
 
-    ![Geavanceerde App Service-installatieprogramma][2]
+    ![App Service-installatieprogramma geavanceerde][2]
 
 3. Blader naar de locatie van het offline upgradepakket die u eerder hebt gemaakt en klik vervolgens op **volgende**.
 
@@ -93,34 +93,34 @@ Als u wilt upgraden App Service in een omgeving zonder verbinding, moet u eerst 
 
 5. Controleer en accepteer de licentievoorwaarden van derden en klik vervolgens op **volgende**.
 
-6. Zorg ervoor dat het Azure Stack Azure Resource Manager-eindpunt en de Active Directory-Tenant informatie juist is. Als u de standaardinstellingen tijdens de implementatie van Azure Stack Development Kit gebruikt, kunt u hier de standaardwaarden accepteren. Als u de opties aangepast wanneer u Azure-Stack geïmplementeerd, moet u de waarden in dit venster om weer te geven die bewerken. Bijvoorbeeld, als u het domeinachtervoegsel *mycloud.com*, uw Azure Stack Azure Resource Manager-eindpunt moet wijzigen in *management.region.mycloud.com*. Nadat u uw gegevens bevestigen, klikt u op **volgende**.
+6. Zorg ervoor dat de Azure Stack Azure Resource Manager-eindpunt en de Active Directory-Tenant informatie juist is. Als u de standaardinstellingen tijdens de implementatie van Azure Stack Development Kit gebruikt, kunt u hier de standaardwaarden accepteren. Als u de opties aangepast tijdens de implementatie van Azure Stack, moet u de waarden in dit venster om weer te geven die bewerken. Bijvoorbeeld, als u het domeinachtervoegsel *mycloud.com*, uw Azure Stack Azure Resource Manager-eindpunt moet wijzigen in *management.region.mycloud.com*. Nadat u uw gegevens bevestigen, klikt u op **volgende**.
 
-    ![Informatie over de Stack van Azure-Cloud][3]
+    ![Informatie over de Cloud van Azure Stack][3]
 
 7. Op de volgende pagina:
 
-   1. Klik op de **Connect** naast de **Stack-Azure-abonnementen** vak.
-        * Als u gebruikmaakt van Azure Active Directory (Azure AD), voert u de Azure AD-beheerdersaccount en het wachtwoord die u hebt opgegeven tijdens de implementatie van Azure-Stack. Klik op **aanmelden**.
-        * Als u Active Directory Federation Services (AD FS), Geef uw beheerdersaccount. Bijvoorbeeld: *cloudadmin@azurestack.local*. Voer uw wachtwoord in en klikt u op **aanmelden**.
-   2. In de **Stack-Azure-abonnementen** de optie de **Provider-abonnement standaard**.
-   3. In de **Azure stacklocaties** Selecteer de locatie die overeenkomt met de regio die u implementeert op. Selecteer bijvoorbeeld **lokale** als uw implementatie van de Azure-Stack Development Kit.
-   4. Als een bestaande App Service-implementatie wordt gedetecteerd, vervolgens de resource-account voor groep en opslag ingevuld en grijs.
-   5. Klik op **volgende** naar het overzicht van de upgrade.
+   1. Klik op de **Connect** naast de **Azure Stack-abonnementen** vak.
+        * Als u Azure Active Directory (Azure AD), voert u de Azure AD-beheerdersaccount en het wachtwoord die u hebt opgegeven tijdens de implementatie van Azure Stack. Klik op **aanmelden**.
+        * Als u Active Directory Federation Services (AD FS), Geef uw beheerdersaccount. Bijvoorbeeld *cloudadmin@azurestack.local*. Voer uw wachtwoord in en klikt u op **aanmelden**.
+   2. In de **Azure Stack-abonnementen** Schakel de **Providerabonnement standaard**.
+   3. In de **Azure Stack-locaties** vak, selecteert u de locatie die overeenkomt met de regio die u naar implementeert. Selecteer bijvoorbeeld **lokale** als uw implementatie van de Azure Stack Development Kit.
+   4. Als een bestaande App Service-implementatie wordt gedetecteerd, klikt u vervolgens de resource-account voor groep en de opslag ingevuld en grijs.
+   5. Klik op **volgende** om te controleren van de samenvatting van de upgrade.
 
     ![App Service-installatie gedetecteerd][4]
 
-8. Op de pagina overzicht:
-   1. Controleer of de selecties die u hebt aangebracht. Als u wilt wijzigen, gebruikt u de **vorige** knoppen naar vorige pagina's te gaan.
-   2. Als de configuraties correct zijn, schakel het selectievakje in.
-   3. Voor het starten van de upgrade, klikt u op **volgende**.
+8. Op de pagina Samenvatting:
+   1. Controleer of de selecties die u hebt gemaakt. Als u wilt wijzigen, gebruikt u de **vorige** knoppen om naar de vorige pagina's te gaan.
+   2. Als de configuratie juist zijn, selecteert u het selectievakje in.
+   3. De upgrade starten, klikt u op **volgende**.
 
-       ![App Service-Upgradeoverzicht][5]
+       ![Samenvatting van de App Service-Upgrade][5]
 
-9. De voortgangspagina van een upgrade uitvoeren:
-    1. Voortgang van de upgrade bijhouden. De duur van de upgrade van App-Service op Azure-Stack varieert afhankelijk van het aantal rolexemplaren die zijn geïmplementeerd.
+9. De voortgangspagina van upgrade:
+    1. Voortgang van de upgrade bijhouden. De duur van de upgrade van de App Service in Azure Stack varieert afhankelijk van het aantal rolexemplaren die zijn geïmplementeerd.
     2. Nadat de upgrade is voltooid, klikt u op **afsluiten**.
 
-        ![Voortgang van de App Service-Upgrade][6]
+        ![App Service de voortgang van Upgrade][6]
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-update-offline/app-service-exe.png

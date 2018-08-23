@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 975f76fa15507874a16b2b14c2988d618daf2b29
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8779b067c33ce76cd60b020e2952bcbccf0dd944
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520483"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42056629"
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Queue Storage gebruiken met Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -127,7 +127,7 @@ queue_service.delete_queue('taskqueue')
 ## <a name="next-steps"></a>Volgende stappen
 Nu dat u de basisprincipes van Queue storage hebt geleerd, volgt u deze koppelingen voor meer informatie.
 
-* [Python Developer Center](/develop/python/)
+* [Python Developer Center](https://azure.microsoft.com/develop/python/)
 * [REST-API voor Azure Storage-services](http://msdn.microsoft.com/library/azure/dd179355)
 * [Blog van het Azure Storage-team]
 * [Microsoft Azure Storage SDK voor Python]

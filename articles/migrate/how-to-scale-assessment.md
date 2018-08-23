@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 4bcb6734c33d70e4045860a2c0f0acfedfa06eff
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 06905a2f16a23e5a7c4612f4b567aaf86322924d
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215176"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42054861"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Een grote VMware-omgeving ontdekken en beoordelen
 
@@ -75,7 +75,7 @@ Als u meerdere vCenter-Servers in uw omgeving hebt en het totale aantal virtuele
 
 ### <a name="multiple-vcenter-servers-with-more-than-1500-vms"></a>Meerdere vCenter-Servers met meer dan 1500 VM 's
 
-Als u meerdere vCenter-Servers met minder dan 1500 virtuele machines per vCenter-Server, maar meer dan 1500 VM's in alle vCenter fungeert hebt, moet u meerdere migration-projecten (één migration-project kan bevatten alleen 1500 VM's) maken. U kunt dit doen door het maken van een migratieproject per vCenter-Server en de detecties splitsen. U kunt één collector gebruiken voor het detecteren van elke vCenter-Server (achter elkaar). Als u wilt dat de detecties te starten op hetzelfde moment, kunt u ook meerdere apparaten implementeren en de detecties parallel worden uitgevoerd.
+Als u meerdere vCenter-Servers met minder dan 1500 virtuele machines per vCenter-Server, maar meer dan 1500 VM's voor alle vCenter-Servers hebt, moet u meerdere migration-projecten (één migration-project kan bevatten alleen 1500 VM's) maken. U kunt dit doen door het maken van een migratieproject per vCenter-Server en de detecties splitsen. U kunt één collector gebruiken voor het detecteren van elke vCenter-Server (achter elkaar). Als u wilt dat de detecties te starten op hetzelfde moment, kunt u ook meerdere apparaten implementeren en de detecties parallel worden uitgevoerd.
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Meer dan 1500 machines in een enkele vCenter-Server
 
@@ -93,8 +93,8 @@ Wanneer u klaar met uw abonnement bent, kunt u vervolgens de detectie van de on-
 
 Maak een Azure Migrate-project in overeenstemming met uw vereisten:
 
-1. Selecteer in de Azure portal, **een resource maken**.
-2. Zoek naar **Azure Migrate** en selecteer de service **Azure Migrate (preview)** in de zoekresultaten. Selecteer vervolgens **Maken**.
+1. Selecteer in Azure Portal **Een resource maken**.
+2. Zoek naar **Azure Migrate** en selecteer de service **Azure Migrate** in de zoekresultaten. Selecteer vervolgens **Maken**.
 3. Geef een naam van het project en de Azure-abonnement voor het project.
 4. Maak een nieuwe resourcegroep.
 5. Geef de locatie waarin u wilt maken van het project en selecteer vervolgens **maken**. Houd er rekening mee dat u uw virtuele machines voor een andere doellocatie nog steeds kunt beoordelen. De opgegeven locatie voor het project wordt gebruikt voor het opslaan van de metagegevens die zijn verzameld van on-premises VM's.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: maheshu
-ms.openlocfilehash: 63244a8f767f71d0f9be80aad09f06f14c4d3acf
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 8d87312591f44bac5fd9a4ff63eccc19333a870c
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503968"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42055681"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure Active Directory (AD) Domain Services voor Azure Cloud Solution Providers (CSP)
 In dit artikel wordt uitgelegd hoe u Azure AD Domain Services kunt gebruiken in een Azure CSP-abonnement.
@@ -87,7 +87,7 @@ De volgende belangrijke overwegingen zijn van toepassing bij het beheren van een
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Schrijf u in het Azure CSP-programma](https://partnercenter.microsoft.com/partner/programs) en beginnen met het maken van zakelijke via Azure CSP.
+* [Schrijf u in het Azure CSP-programma](https://docs.microsoft.com/partner-center/enrolling-in-the-csp-program) en beginnen met het maken van zakelijke via Azure CSP.
 * Bekijk de lijst [Azure-services beschikbaar zijn in Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
 * [Azure AD Domain Services inschakelen met behulp van PowerShell](active-directory-ds-enable-using-powershell.md)
 * [Aan de slag met Azure AD Domain Services](active-directory-ds-getting-started.md)

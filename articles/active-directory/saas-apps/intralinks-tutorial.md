@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: b3c74631515301498aedcb035fae32b0a451e308
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 44cae95cfd01f8d6fbd6ddb4a11e9af290042ffa
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424774"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42055669"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-intralinks"></a>Zelfstudie: Azure Active Directory-integratie met Intralinks
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van Intralinks in Azure AD, moet u Intra
 
 **Als u wilt toevoegen Intralinks uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -115,7 +115,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon:  `https://<company name>.Intralinks.com/?PartnerIdpId=https://sts.windows.net/<AzureADTenantID>`
 
     > [!NOTE] 
-    > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Intralinks Client ondersteuningsteam](https://www.intralinks.com/contact-1) deze waarde op te halen. 
+    > Deze waarde is niet echt. Deze waarde bijwerken met de werkelijke aanmeldings-URL. Neem contact op met [Intralinks Client ondersteuningsteam](https://www.intralinks.com/contact) deze waarde op te halen. 
  
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Metadata XML** en sla het bestand met metagegevens op uw computer.
 
@@ -125,7 +125,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/intralinks-tutorial/tutorial_general_400.png)
 
-1. Het configureren van eenmalige aanmelding op **Intralinks** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** [Intralinks ondersteuningsteam](https://www.intralinks.com/contact-1). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+1. Het configureren van eenmalige aanmelding op **Intralinks** zijde, moet u voor het verzenden van de gedownloade **Metadata XML** [Intralinks ondersteuningsteam](https://www.intralinks.com/contact). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -163,7 +163,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
  
 ### <a name="creating-an-intralinks-test-user"></a>Het maken van een testgebruiker Intralinks
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Intralinks. Neem contact op met [Intralinks ondersteuningsteam](https://www.intralinks.com/contact-1) om toe te voegen de gebruikers in het Intralinks-platform.
+In deze sectie maakt u een gebruiker met de naam van Britta Simon in Intralinks. Neem contact op met [Intralinks ondersteuningsteam](https://www.intralinks.com/contact) om toe te voegen de gebruikers in het Intralinks-platform.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 
@@ -204,7 +204,7 @@ Daarna voert u de onderstaande procedure voor het toevoegen van een andere Intra
 >[!NOTE]
 >Deze functie is alleen beschikbaar voor klanten van Azure AD Premium-SKU en niet beschikbaar voor klanten van gratis of Basic SKU.
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -237,7 +237,7 @@ Daarna voert u de onderstaande procedure voor het toevoegen van een andere Intra
  
     ![Eenmalige aanmelding configureren](./media/intralinks-tutorial/tutorial_intralinks_linkedsignon.png)
 
-1. Om de URL SP geïnitieerde eenmalige aanmelding vanaf ophalen [Intralinks team](https://www.intralinks.com/contact-1) voor de andere Intralinks-toepassing en voer deze in **configureren aanmeldings-URL** zoals hieronder wordt weergegeven. 
+1. Om de URL SP geïnitieerde eenmalige aanmelding vanaf ophalen [Intralinks team](https://www.intralinks.com/contact) voor de andere Intralinks-toepassing en voer deze in **configureren aanmeldings-URL** zoals hieronder wordt weergegeven. 
     
      ![Eenmalige aanmelding configureren](./media/intralinks-tutorial/tutorial_intralinks_customappurl.png)
     

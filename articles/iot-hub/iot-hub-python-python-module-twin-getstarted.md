@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure IoT Hub module identiteits- en module twin (Python) | Microsoft Docs
-description: Informatie over het module-id maken en bijwerken van de module twin met IoT SDK's voor Python.
+title: Aan de slag met Azure IoT Hub identiteits- en module moduledubbel (Python) | Microsoft Docs
+description: Informatie over het module-id maken en bijwerken van de moduledubbel met behulp van IoT SDK's voor Python.
 author: chrissie926
 manager: ''
 ms.service: iot-hub
@@ -9,14 +9,14 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 7ef4d00f34cdf35c670099baa6c3bc655d94afb4
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 5a4d9debfcc48279bbb56df076a77a5c8b44e231
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035875"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42055064"
 ---
-# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>Aan de slag met IoT Hub module identiteits- en module twin met behulp van back-end van Python en Python-apparaat
+# <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-python-back-end-and-python-device"></a>Aan de slag met IoT Hub identiteits- en module moduledubbel met behulp van Python-back-end en Python-apparaat
 
 > [!NOTE]
 > [Module-id's en moduledubbels](iot-hub-devguide-module-twins.md) zijn vergelijkbaar met Azure IoT Hub-apparaat-id's en apparaatdubbels, maar bieden een hogere granulariteit. Met een Azure IoT Hub-apparaat-id en apparaatdubbel kan een apparaat worden geconfigureerd via de back-endtoepassing en kunt u inzicht krijgen in de toestand van een apparaat. Een module-id en moduledubbel bieden deze mogelijkheden voor afzonderlijke onderdelen van een apparaat. Op apparaten met meerdere onderdelen, zoals apparaten met een besturingssysteem of firmware, kunt u afzonderlijke configuraties en voorwaarden voor elk onderdeel instellen.
@@ -38,8 +38,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 U hebt nu uw IoT Hub gemaakt en u hebt de hostnaam en de IoT Hub-verbindingsreeks die u nodig hebt voor de rest van deze handleiding.
 
-<a id="DeviceIdentity_csharp"></a>
-## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Een apparaat-id en de identiteit van een module in IoT Hub maken
+## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>Een apparaat-id en de identiteit van een module in IoT-Hub maken
 
 In deze sectie maakt u een Python-app die u een apparaat-id en de identiteit van een module in het identiteitenregister van uw IoT-hub maakt. Een apparaat of module kan alleen verbinding maken met de IoT-hub als het apparaat of de module is vermeld in het identiteitsregister. Zie de sectie Id-register in de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie. Als u deze consoletoepassing uitvoert, worden er een unieke id en een unieke sleutel gemaakt voor zowel het apparaat als de module. Deze waarden worden door het apparaat en de module gebruikt om zichzelf te identificeren bij het verzenden van apparaat-naar-cloud-berichten naar IoT Hub. De id's zijn hoofdlettergevoelig.
 
@@ -75,16 +74,14 @@ except KeyboardInterrupt:
     print ( "IoTHubRegistryManager sample stopped" )
 ```
 
-Deze app maakt een apparaat-id met de ID **myFirstDevice** en de identiteit van een module met ID **myFirstModule** onder apparaat **myFirstDevice**. (Als deze module-id al in het id-register staat, haalt de code gewoon de bestaande modulegegevens op.) De app geeft vervolgens de primaire sleutel voor die identiteit weer. U gebruikt deze sleutel in de gesimuleerde module-app om verbinding te maken met uw IoT-hub.
+Deze app maakt een apparaat-id met de ID **myFirstDevice** en de identiteit van een module met de ID **myFirstModule** onder apparaat **myFirstDevice**. (Als deze module-id al in het id-register staat, haalt de code gewoon de bestaande modulegegevens op.) De app geeft vervolgens de primaire sleutel voor die identiteit weer. U gebruikt deze sleutel in de gesimuleerde module-app om verbinding te maken met uw IoT-hub.
 
 > [!NOTE]
 > In het identiteitsregister van IoT Hub worden alleen apparaat- en module-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen. In het identiteitsregister worden apparaat-id's en -sleutels opgeslagen die als beveiligingsreferenties worden gebruikt. In het identiteitsregister wordt ook een vlag ingeschakeld/uitgeschakeld voor elk apparaat opgeslagen die u kunt gebruiken om de toegang tot dat apparaat uit te schakelen. Als uw toepassing andere apparaatspecifieke metagegevens moet opslaan, moet deze een toepassingsspecifieke opslagmethode gebruiken. Er is geen vlag voor ingeschakeld/uitgeschakeld voor module-id's. Zie de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie.
 
+## <a name="update-the-module-twin-using-python-device-sdk"></a>De moduledubbel met de Python SDK bijwerken
 
-<a id="D2C_csharp"></a>
-## <a name="update-the-module-twin-using-python-device-sdk"></a>De module-twin SDK voor Python-apparaat bijwerken
-
-In deze sectie maakt u een Python-app op uw gesimuleerde apparaat die updates van de module-twin eigenschappen gerapporteerd.
+In deze sectie maakt u een Python-app op uw gesimuleerde apparaat die updates van de moduledubbel gerapporteerde eigenschappen.
 
 1. **Haal nu de moduleverbindingsreeks op** als u zich aanmeldt bij [Azure Portal][lnk-portal]. Navigeer naar uw IoT Hub en klik op IoT-apparaten. Zoek naar MyFirstDevice, open het apparaat en u ziet dat myFirstModule is gemaakt. Kopieer de moduleverbindingsreeks. Deze is vereist voor de volgende stap.
 
@@ -124,8 +121,8 @@ In deze sectie maakt u een Python-app op uw gesimuleerde apparaat die updates va
 
 In dit codevoorbeeld ziet u hoe u de gerapporteerde eigenschappen van de moduledubbel kunt ophalen en bijwerken met het AMQP-protocol. 
 
-## <a name="get-updates-on-the-device-side"></a>Updates aan de kant van het apparaat ophalen
-Naast de bovenstaande code kunt u toevoegen onder codeblok ophalen van de update twin bericht op het apparaat.
+## <a name="get-updates-on-the-device-side"></a>Ontvang updates aan de kant van het apparaat
+Naast de bovenstaande code kunt u toevoegen onderstaande codeblok om de update dubbele bericht op uw apparaat.
 
 ```Python
 import random

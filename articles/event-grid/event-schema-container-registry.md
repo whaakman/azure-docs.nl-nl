@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/20/2018
+ms.date: 08/13/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9ed918a7402abcbe79e302421f3b2ac725857464
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: d18a6718e4c29f3d04639644dc752b0733f15ba8
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188783"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42060144"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Azure Event Grid-gebeurtenisschema voor Container Registry
 
@@ -117,8 +117,6 @@ Het gegevensobject heeft de volgende eigenschappen:
 | actie | tekenreeks | De actie die de opgegeven gebeurtenis omvat. |
 | doel | object | Het doel van de gebeurtenis. |
 | aanvraag | object | De aanvraag die de gebeurtenis is gegenereerd. |
-| actor | object | De agent die de gebeurtenis heeft gestart. Deze waarde kan zijn voor de meeste situaties uit de autorisatiecontext van de aanvraag. |
-| source | object | De registerknooppunt dat de gebeurtenis is gegenereerd. De bron plaats anders, terwijl de actor de gebeurtenis initieert, genereert het. |
 
 Het doelobject heeft de volgende eigenschappen:
 
@@ -129,7 +127,6 @@ Het doelobject heeft de volgende eigenschappen:
 | Verificatiesamenvatting | tekenreeks | De samenvatting van de inhoud, zoals gedefinieerd door het register V2 HTTP API-specificatie. |
 | Lengte | geheel getal | Het aantal bytes van de inhoud. Hetzelfde als het veld grootte. |
 | Opslagplaats | tekenreeks | De naam van de opslagplaats. |
-| url | tekenreeks | De rechtstreekse URL naar de inhoud. |
 | tag | tekenreeks | De naam van de tag. |
 
 Het request-object heeft de volgende eigenschappen:
@@ -141,19 +138,6 @@ Het request-object heeft de volgende eigenschappen:
 | host | tekenreeks | De extern toegankelijke hostnaam van de registry-exemplaar, zoals opgegeven door de http host-header op binnenkomende aanvragen. |
 | method | tekenreeks | De aanvraagmethode waarmee de gebeurtenis is gegenereerd. |
 | userAgent | tekenreeks | De gebruiker agent-kop van de aanvraag. |
-
-De actorobject heeft de volgende eigenschappen:
-
-| Eigenschap | Type | Beschrijving |
-| -------- | ---- | ----------- |
-| naam | tekenreeks | Het onderwerp of de gebruikersnaam die is gekoppeld aan de context van de aanvraag die de gebeurtenis is gegenereerd. |
-
-Het bronobject heeft de volgende eigenschappen:
-
-| Eigenschap | Type | Beschrijving |
-| -------- | ---- | ----------- |
-| adres van doel | tekenreeks | Het IP-adres of hostnaam en de poort van de registerknooppunt dat de gebeurtenis is gegenereerd. Over het algemeen wordt deze waarde worden omgezet door besturingssysteem. Hostname() samen met de actieve. |
-| instanceID | tekenreeks | Het actieve exemplaar van een toepassing. Wijzigingen na elke opnieuw opstarten. |
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c2297f072786bdc1e80255dee278d640b0c0d26d
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 5a134e14768e0576c501232b6aedb1f836bc05b1
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629511"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42054095"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Notification Hubs implementeren en beheren met PowerShell
 ## <a name="overview"></a>Overzicht
-Dit artikel leest u hoe het gebruik van maken en beheren van Azure Notification Hubs met behulp van PowerShell. De volgende algemene automatiseringstaken worden weergegeven in dit onderwerp.
+Dit artikel leest u hoe het gebruik van maken en beheren van Azure Notification Hubs met behulp van PowerShell. De volgende algemene automatiseringstaken worden weergegeven in dit artikel.
 
 * Een Notification Hub maken
 * Referenties instellen
@@ -89,15 +89,15 @@ Gebruiken voor het inrichten van een nieuwe notification hub, de [.NET API voor 
 
 In dit gedeelte van het script maakt instellen u vier lokale variabelen. 
 
-1. `$Namespace` : Stel dit in op de naam van de naamruimte waarin u wilt maken van een notification hub.
-2. `$Path` : Stel dit pad op de naam van de nieuwe notification hub.  Bijvoorbeeld: 'MyHub'.    
-3. `$WnsPackageSid` : Stel dit in op de pakket-SID voor uw Windows-App uit de [Windows Dev Center](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
-4. `$WnsSecretkey`: Stel dit in op de geheime sleutel voor uw Windows-App uit de [Windows Dev Center](http://go.microsoft.com/fwlink/p/?linkid=266582&clcid=0x409).
+1. `$Namespace`: Stel dit in op de naam van de naamruimte waarin u wilt maken van een notification hub.
+2. `$Path`: Stel dit pad op de naam van de nieuwe notification hub.  Bijvoorbeeld: 'MyHub'.    
+3. `$WnsPackageSid`: Stel dit in op de pakket-SID voor uw Windows-App uit de [Windows Dev Center](https://developer.microsoft.com/en-us/windows).
+4. `$WnsSecretkey`: Stel dit in op de geheime sleutel voor uw Windows-App uit de [Windows Dev Center](https://developer.microsoft.com/en-us/windows).
 
 Deze variabelen worden gebruikt om verbinding maken met uw naamruimte en een nieuwe Notification Hub is geconfigureerd voor het afhandelen van Windows Notification Services (WNS) verzenden met WNS-referenties voor een Windows-App maken. Voor meer informatie over het verkrijgen van het pakket-SID en geheime sleutel zien, de [aan de slag met Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) zelfstudie. 
 
 * Het script-fragment wordt de `NamespaceManager` object om te controleren om te zien als de Notification Hub wordt geïdentificeerd door `$Path` bestaat.
-* Als deze niet bestaat, maakt het script `NotificationHubDescription` referenties met WNS en dat doorgeven aan de `NamespaceManager` klasse `CreateNotificationHub` methode.
+* Als deze niet bestaat, maakt het script `NotificationHubDescription` referenties met WNS en doorgegeven aan de `NamespaceManager` klasse `CreateNotificationHub` methode.
 
 ``` powershell
 

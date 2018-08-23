@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/14/2018
 ms.author: raynew
-ms.openlocfilehash: 3fdaaf4bc671996350b8138fb0f7fc3d7adaf567
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e363885afb77a60bfc0229a872fdb4e519d5979d
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442765"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42055468"
 ---
 # <a name="support-matrix-for-hyper-v-replication-to-azure"></a>Ondersteuningsmatrix voor Hyper-V-replicatie naar Azure
 
@@ -25,7 +25,7 @@ In dit artikel bevat een overzicht van de ondersteunde onderdelen en -instelling
 
 **Scenario** | **Details**
 --- | ---
-Hyper-V met Virtual Machine Manager | U kunt herstel na noodgevallen naar Azure uitvoeren voor virtuele machines die worden uitgevoerd op Hyper-V-hosts die worden beheerd in de System Center Virtual Machine Manager-infrastructuur.<br/><br/> U kunt dit scenario in Azure portal of met behulp van PowerShell kunt implementeren.<br/><br/> Wanneer Hyper-V-hosts worden beheerd door Virtual Machine Manager, kunt u ook herstel na noodgevallen naar een secundaire on-premises site uitvoeren. Lees voor meer informatie over dit scenario [in deze zelfstudie](tutorial-vmm-to-vmm.md).
+Hyper-V met Virtual Machine Manager | U kunt herstel na noodgevallen naar Azure uitvoeren voor virtuele machines die worden uitgevoerd op Hyper-V-hosts die worden beheerd in de System Center Virtual Machine Manager-infrastructuur.<br/><br/> U kunt dit scenario in Azure portal of met behulp van PowerShell kunt implementeren.<br/><br/> Wanneer Hyper-V-hosts worden beheerd door Virtual Machine Manager, kunt u ook herstel na noodgevallen naar een secundaire on-premises site uitvoeren. Lees voor meer informatie over dit scenario [in deze zelfstudie](hyper-v-vmm-disaster-recovery.md).
 Hyper-V zonder Virtual Machine Manager | U kunt herstel na noodgevallen naar Azure uitvoeren voor virtuele machines die worden uitgevoerd op Hyper-V-hosts die niet worden beheerd door Virtual Machine Manager.<br/><br/> U kunt dit scenario in Azure portal of met behulp van PowerShell kunt implementeren.
 
 
@@ -44,8 +44,8 @@ De volgende tabel geeft een overzicht van ondersteuning voor virtuele machine. S
 
  **Onderdeel** | **Details**
 --- | ---
-VM-configuratie | Virtuele machines die worden gerepliceerd naar Azure moeten voldoen aan [Azure-vereisten](#failed-over-azure-vm-requirements).
-Gast-besturingssysteem | Een gast-OS ondersteund door Azure.<br/><br/> Windows Server 2016 Nano Server wordt niet ondersteund.
+VM-configuratie | Virtuele machines die worden gerepliceerd naar Azure moeten voldoen aan [Azure-vereisten](#azure-vm-requirements).
+Gast-besturingssysteem | Een gast-OS [ondersteund voor Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases)...<br/><br/> Windows Server 2016 Nano Server wordt niet ondersteund.
 
 
 ## <a name="vmdisk-management"></a>Beheer van de virtuele machine/schijf

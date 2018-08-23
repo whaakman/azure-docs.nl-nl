@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/19/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 6ed8265a0b1a014ad15a6bb42fabb6003fb6a775
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 12b5c013a0704eb2d3f7df58011571b902955c75
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342937"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42058360"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installeer de extensie duurzame functies en voorbeelden (Azure Functions)
 
@@ -146,14 +146,14 @@ Visual Studio Code biedt een lokale ontwikkeling die betrekking hebben op alle g
 
 ## <a name="azure-portal"></a>Azure Portal
 
-Als u liever, kunt u de Azure-portal voor het ontwikkelen van duurzame functies.
+Als u liever, kunt u de [Azure-portal](https://portal.azure.com) voor de ontwikkeling van duurzame functies.
 
    > [!NOTE]
    > Duurzame functies in JavaScript zijn nog niet beschikbaar in de portal.
 
 ### <a name="create-an-orchestrator-function"></a>Een orchestrator-functie maken
 
-1. Maak een nieuwe functie-app op [functions.azure.com](https://functions.azure.com/signin).
+1. Een nieuwe functie-app maken in de portal, zoals wordt weergegeven in de [functies snelstartartikel](functions-create-first-azure-function.md#create-a-function-app).
 
 2. De functie-app configureren [gebruikt u de runtimeversie 2.0](set-runtime-version.md).
 

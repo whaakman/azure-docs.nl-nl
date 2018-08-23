@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: kumud
-ms.openlocfilehash: bac3747f3f410e63454f543c035d7e04c20fac2a
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 6c196d16258e4bf000f998899086c7a6d0197fba
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399174"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42056824"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager Frequently Asked Questions (FAQ)
 
@@ -286,7 +286,7 @@ Azure Resource Manager is vereist voor alle resourcegroepen een locatie, waarmee
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>Hoe bepaal ik de huidige status van elk eindpunt?
 
-De huidige bewakingsstatus van elk eindpunt, naast de algemene profiel wordt weergegeven in de Azure-portal. Deze informatie is ook beschikbaar via de Monitor verkeer [REST-API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell-cmdlets](https://msdn.microsoft.com/library/mt125941.aspx), en [platformoverschrijdende Azure CLI](../cli-install-nodejs.md).
+De huidige bewakingsstatus van elk eindpunt, naast de algemene profiel wordt weergegeven in de Azure-portal. Deze informatie is ook beschikbaar via de Monitor verkeer [REST-API](https://msdn.microsoft.com/library/azure/mt163667.aspx), [PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager), en [platformoverschrijdende Azure CLI](../cli-install-nodejs.md).
 
 U kunt ook Azure Monitor gebruiken bij te houden van de status van uw eindpunten en een visuele representatie van deze zien. Zie voor meer informatie over het gebruik van Azure Monitor, de [documentatie Azure Monitoring](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 8546b1228c8d8f213cb87692144e8d1d31a949d8
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a660b36f383eaf1fd0e868200ad7f59aba0f8225
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001800"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42060773"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Hoe u Azure API Management te integreren met Azure Application Insights
 
@@ -111,9 +111,15 @@ Een mislukte aanvragen is een aanvraag die:
 
 Op basis van de interne load tests, veroorzaakt inschakelen van deze functie een 40-50% reductie in doorvoer wanneer snelheid van aanvragen voor 1000 aanvragen per seconde is overschreden. Azure Application Insights is ontworpen om statistische analyses gebruiken voor het beoordelen van de prestaties van de toepassing. Het is niet bedoeld als een systeem controlebeleid en is niet geschikt voor het registreren van elke afzonderlijke aanvraag voor grote volumes API's.
 
-U kunt het aantal aanvragen dat is vastgelegd door aan te passen bewerken de **steekproeven** instellen (Zie de bovenstaande stappen). De waarde 100% betekent dat die alle aanvragen worden vastgelegd, terwijl 0% weerspiegelt helemaal geen logboekregistratie. **Sampling** helpt te verminderen de hoeveelheid telemetrie, effectief zo wordt voorkomen dat aanzienlijk slechtere prestaties, terwijl u nog steeds uitvoering van de voordelen van logboekregistratie.
+U kunt het aantal aanvragen dat is vastgelegd door aan te passen bewerken de **steekproeven** instellen (Zie de bovenstaande stappen). De waarde 100% betekent dat die alle aanvragen worden vastgelegd, terwijl 0% weerspiegelt helemaal geen logboekregistratie. **Sampling** helpt te verminderen de hoeveelheid telemetrie, effectief zo wordt voorkomen dat merkbare prestatievermindering, terwijl u nog steeds uitvoering van de voordelen van logboekregistratie.
 
 Logboekregistratie van headers en hoofdtekst van aanvragen en antwoorden wordt overgeslagen is ook positieve invloed op prestatieproblemen te verlichten.
+
+## <a name="video"></a>Video
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2pkXv]
+>
+>
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,68 +1,68 @@
 ---
-title: Gebruik Studio 3T (MongoChef) met Azure Cosmos DB | Microsoft Docs
-description: Informatie over het gebruik van Studio 3T met een account voor Azure Cosmos DB MongoDB-API
+title: Studio 3T gebruiken (MongoChef) met Azure Cosmos DB | Microsoft Docs
+description: Meer informatie over het Studio 3T gebruiken met een MongoDB-API van Azure Cosmos DB-account
 keywords: mongochef, studio 3T
 services: cosmos-db
-author: SnehaGunda
+author: slyons
 manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: sngun
-ms.openlocfilehash: 9d00f260252e31ab9186c8aab8f07db848d1af29
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.author: sclyon
+ms.openlocfilehash: af66f413055c01d9a4c3e94c7d3b9c5f1d5917b0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34794767"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42061320"
 ---
-# <a name="azure-cosmos-db-use-studio-3t-with-a-mongodb-api-account"></a>Azure Cosmos DB: Gebruik Studio 3T met een account met MongoDB-API
+# <a name="azure-cosmos-db-use-studio-3t-with-a-mongodb-api-account"></a>Azure Cosmos DB: Gebruik Studio 3T met een MongoDB-API-account
 
-Voor verbinding met een Azure Cosmos DB MongoDB-API-account, moet u het volgende doen:
+Voor verbinding met een MongoDB-API van Azure Cosmos DB-account, moet u:
 
 * Download en installeer [Studio 3T](https://studio3t.com/) (voorheen bekend als MongoChef)
-* Hebt u uw Azure-Cosmos-DB [verbindingsreeks](connect-mongodb-account.md) informatie voor uw account MongoDB
+* Uw Azure Cosmos DB hebt [verbindingsreeks](connect-mongodb-account.md) informatie voor uw MongoDB-account
 
 ## <a name="create-the-connection-in-studio-3t"></a>De verbinding in Studio 3T maken
-Als u wilt uw Azure DB die Cosmos-account toevoegen aan de Studio 3T connection manager, moet u de volgende stappen uitvoeren:
+Uw Azure Cosmos DB-account toevoegen aan de Studio 3T connection manager, moet u de volgende stappen uitvoeren:
 
-1. Ophalen van de Azure Cosmos DB-verbindingsgegevens voor de MongoDB-API-account van de instructies in de [verbinding maken met een toepassing MongoDB bij Azure Cosmos DB](connect-mongodb-account.md) artikel.
+1. Ophalen van de Azure Cosmos DB-verbindingsgegevens voor uw MongoDB-API-account met behulp van de instructies in de [verbinding maken met een MongoDB-toepassing met Azure Cosmos DB](connect-mongodb-account.md) artikel.
 
-    ![Schermopname van de pagina van de tekenreeks verbinding](./media/mongodb-mongochef/ConnectionStringBlade.png)
-2. Klik op **Connect** om te openen in het Verbindingsbeheer, klikt u vervolgens op **nieuwe verbinding**
+    ![Schermopname van de pagina verbindingsreeks](./media/mongodb-mongochef/ConnectionStringBlade.png)
+2. Klik op **Connect** om te openen in de Connection Manager, klikt u vervolgens op **nieuwe verbinding**
 
     ![Schermopname van de Studio 3T connection manager](./media/mongodb-mongochef/ConnectionManager.png)
-3. In de **nieuwe verbinding** venster op de **Server** tabblad, voert u de HOST (FQDN) van de Azure DB die Cosmos-account en de poort.
+3. In de **nieuwe verbinding** venster op de **Server** tabblad, voert u de HOST (FQDN) van het Azure Cosmos DB-account en de poort.
 
     ![Schermopname van het tabblad Studio 3T connection manager-server](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
-4. In de **nieuwe verbinding** venster op de **verificatie** Kies verificatiemodus **Basic (MONGODB CR of SCARM-SHA-1)** en voer de gebruikersnaam en wachtwoord.  Accepteer de standaard verificatie-db (admin) of geef uw eigen waarde.
+4. In de **nieuwe verbinding** venster op de **verificatie** Kies verificatiemodus **Basic (MONGODB-CR of SCARM-SHA-1)** en voer de gebruikersnaam en wachtwoord.  Accepteer de standaard verificatie db (admin) of geef uw eigen waarde.
 
     ![Schermopname van het tabblad Studio 3T connection manager verificatie](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
-5. In de **nieuwe verbinding** venster op de **SSL** tabblad, Controleer de **Gebruik SSL-protocol om verbinding te** selectievakje en de **accepteren van zelfondertekende SSL-certificaten van server**  keuzerondje.
+5. In de **nieuwe verbinding** venster op de **SSL** tabblad en controleer de **Gebruik SSL-protocol om verbinding te** selectievakje en de **server zelf-ondertekend SSL-certificaten accepteren**  keuzerondje.
 
-    ![Schermopname van het tabblad Studio 3T verbinding manager SSL](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
-6. Klik op de **testverbinding** knop valideren van de verbindingsinformatie, klikt u op **OK** terug te keren naar de nieuwe verbinding en klik vervolgens op **opslaan**.
+    ![Schermopname van het tabblad SSL van Studio 3T connection manager](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
+6. Klik op de **testverbinding** knop valideren van de verbindingsgegevens, klikt u op **OK** terug te keren naar de nieuwe verbinding en klik vervolgens op **opslaan**.
 
-    ![Schermopname van het venster Studio 3T test verbinding](./media/mongodb-mongochef/TestConnectionResults.png)
+    ![Schermopname van het venster met Studio 3T test-verbinding](./media/mongodb-mongochef/TestConnectionResults.png)
 
-## <a name="use-studio-3t-to-create-a-database-collection-and-documents"></a>Studio-3T gebruiken voor het maken van een database, de verzameling en de documenten
-Voor het maken van een database, verzameling en -documenten met Studio 3T, moet u de volgende stappen uitvoeren:
+## <a name="use-studio-3t-to-create-a-database-collection-and-documents"></a>Studio 3T gebruiken voor het maken van een database, verzameling en documenten
+Voor het maken van een database, verzameling en documenten Studio 3T gebruiken, moet u de volgende stappen uitvoeren:
 
-1. In **Verbindingsbeheer**, markeer de verbinding en klikt u op **Connect**.
+1. In **Connection Manager**, markeert u de verbinding en klikt u op **Connect**.
 
     ![Schermopname van de Studio 3T connection manager](./media/mongodb-mongochef/ConnectToAccount.png)
-2. Met de rechtermuisknop op de host en kies **Database toevoegen**.  Geef de naam van een database en klik op **OK**.
+2. Met de rechtermuisknop op de host en kies **Database toevoegen**.  Geef een databasenaam op en klik op **OK**.
 
     ![Schermopname van de optie Studio 3T Database toevoegen](./media/mongodb-mongochef/AddDatabase1.png)
 3. Met de rechtermuisknop op de database en kies **verzameling toevoegen**.  Geef de naam van een verzameling en klik op **maken**.
 
     ![Schermopname van de optie Studio 3T verzameling toevoegen](./media/mongodb-mongochef/AddCollection.png)
-4. Klik op de **verzameling** menu item, klikt u vervolgens op **toevoegen Document**.
+4. Klik op de **verzameling** menu, klikt u vervolgens op **Document toevoegen**.
 
-    ![Schermopname van de menuopdracht Studio 3T Document toevoegen](./media/mongodb-mongochef/AddDocument1.png)
-5. Plak het volgende in het dialoogvenster Document toevoegen en klik vervolgens op **toevoegen Document**.
+    ![Schermopname van het menu-item van Studio 3T Document toevoegen](./media/mongodb-mongochef/AddDocument1.png)
+5. Plak het volgende in het dialoogvenster Document toevoegen en klik vervolgens op **Document toevoegen**.
 
         {
         "_id": "AndersenFamily",
@@ -80,7 +80,7 @@ Voor het maken van een database, verzameling en -documenten met Studio 3T, moet 
         "address": { "state": "WA", "county": "King", "city": "seattle" },
         "isRegistered": true
         }
-6. Toevoegen van een ander document, ditmaal met de volgende inhoud:
+6. Voeg een ander document, ditmaal met de volgende inhoud:
 
         {
         "_id": "WakefieldFamily",
@@ -107,9 +107,9 @@ Voor het maken van een database, verzameling en -documenten met Studio 3T, moet 
         "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
         "isRegistered": false
         }
-7. Een voorbeeldquery uitvoeren. Bijvoorbeeld zoeken families met de naam van de laatste 'Andersen' en de bovenliggende groepen en velden voor status geretourneerd.
+7. Een voorbeeld-query uitvoeren. Bijvoorbeeld zoeken naar gezinnen zijn met de achternaam 'Andersen' en de ouders en statusvelden retourneren.
 
-    ![Schermopname van het Mongo Chef queryresultaten](./media/mongodb-mongochef/QueryDocument1.png)
+    ![Schermopname van de queryresultaten Mongo Chef](./media/mongodb-mongochef/QueryDocument1.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* MongoDB-API van Azure Cosmos DB verkennen [voorbeelden](mongodb-samples.md).
+* Azure Cosmos DB MongoDB API verkennen [voorbeelden](mongodb-samples.md).

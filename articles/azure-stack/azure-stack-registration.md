@@ -12,40 +12,53 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 08/13/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: e73cd24064f2b0d6197a69251b55639d41e3212c
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: e2411a91174fd0b52227b4cfe8783c8c74c4039e
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39357745"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42058064"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
-Registreren van [Azure Stack](azure-stack-poc.md) met Azure kunt u voor het downloaden van marketplace-items van Azure en het instellen van rapportage terug naar Microsoft commercegegevens. Nadat u zich registreert voor Azure Stack, gebruik wordt gerapporteerd aan Azure commerce en kunt u deze bekijken onder het abonnement dat wordt gebruikt voor de registratie.
+Azure Stack registreren bij Azure, kunt u voor het downloaden van marketplace-items van Azure en het instellen van rapportage terug naar Microsoft commercegegevens. Nadat u zich registreert voor Azure Stack, gebruik wordt gerapporteerd aan Azure commerce en kunt u deze bekijken onder het abonnement dat wordt gebruikt voor de registratie.
 
 > [!IMPORTANT]  
-> Registratie is vereist voor ondersteuning van de volledige functionaliteit van Azure Stack, met inbegrip van marketplace-syndicatie. Bovendien moet u in strijd is met Azure Stack licentievoorwaarden als u niet registreren bij het gebruik van het facturering model voor betalen als u-gebruik. Raadpleeg voor meer informatie over Azure Stack-licentieverlening modellen, de [over het aanschaffen van pagina](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
+> Registratie is vereist voor ondersteuning van de volledige functionaliteit van de Azure Stack, waaronder items in de marketplace-aanbieding. Bovendien moet u in strijd is met Azure Stack licentievoorwaarden als u niet registreren bij het gebruik van het facturering model voor betalen als u-gebruik. Raadpleeg voor meer informatie over Azure Stack-licentieverlening modellen, de [over het aanschaffen van pagina](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
 
 ## <a name="prerequisites"></a>Vereisten
+
+U moet de volgende voldaan voordat u registreert:
+
+ - Controleer uw referenties
+ - De PowerShell-taalmodus instellen
+ - PowerShell voor Azure Stack installeren
+ - De hulpprogramma's voor Azure Stack downloaden
+ - Bepalen van uw registratie-scenario
+
+### <a name="verify-your-credentials"></a>Controleer uw referenties
 
 Voordat u registreert Azure Stack met Azure, moet u het volgende hebben:
 
 - De abonnements-ID voor een Azure-abonnement. Als u de ID, aanmelden bij Azure, klikt u op **meer services** > **abonnementen**, klik op het abonnement dat u gebruiken wilt, en klikt u onder **Essentials** vindt u de Abonnements-ID.
 
-  > [!NOTE]
-  > Duitsland en US Government-cloud-abonnementen worden momenteel niet ondersteund.
+  > [!Note]  
+  > Duitsland-cloudabonnementen worden momenteel niet ondersteund.
 
 - De gebruikersnaam en wachtwoord voor een account dat eigenaar van het abonnement (MSA/2FA accounts worden ondersteund).
+
+- Het gebruikersaccount moet een beheerder in de Azure AD-tenant waarvoor Azure Stack is geregistreerd, bijvoorbeeld `yourazurestacktenant.onmicrosoft.com`.
+
 - De Azure Stack-resourceprovider geregistreerd (Zie de sectie Azure Stack-Resourceprovider registreren hieronder voor meer informatie).
 
-Als u geen Azure-abonnement dat aan deze vereisten voldoet, kunt u [maken van een gratis Azure-account hier](https://azure.microsoft.com/free/?b=17.06). Registreren van Azure Stack maakt geen kosten op uw Azure-abonnement.
+  Als u geen Azure-abonnement dat aan deze vereisten voldoet, kunt u [maken van een gratis Azure-account hier](https://azure.microsoft.com/free/?b=17.06). Registreren van Azure Stack maakt geen kosten op uw Azure-abonnement.
 
 ### <a name="powershell-language-mode"></a>PowerShell-taalmodus
 
-Als u wilt registreren is Azure Stack, de PowerShell-taalmodus moet worden ingesteld op **FullLanguageMode**.  Om te controleren dat de huidige taalmodus is ingesteld op full, open een verhoogde PowerShell-venster en voer de volgende PowerShell-opdrachten:
+Als u wilt registreren is Azure Stack, de PowerShell-taalmodus moet worden ingesteld op **FullLanguageMode**.  Om te controleren dat de huidige taalmodus is ingesteld op volledig, opent u een PowerShell-venster met verhoogde bevoegdheid en voer de volgende PowerShell-cmdlts:
 
 ```PowerShell  
 $ExecutionContext.SessionState.LanguageMode
@@ -53,69 +66,78 @@ $ExecutionContext.SessionState.LanguageMode
 
 Zorg ervoor dat de uitvoer geeft als resultaat **FullLanguageMode**. Als een andere taalmodus wordt geretourneerd, registratie moet worden uitgevoerd op een andere computer of de taalmodus worden ingesteld moet op **FullLanguageMode** voordat u doorgaat.
 
-### <a name="bkmk_powershell"></a>PowerShell voor Azure Stack installeren
+### <a name="install-powershell-for-azure-stack"></a>PowerShell voor Azure Stack installeren
 
 U moet de nieuwste versie van PowerShell voor Azure Stack gebruiken om u te registreren bij Azure.
 
-Als u nog niet is geïnstalleerd, [PowerShell voor Azure Stack installeren](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
+Als u niet de meest recente versie niet al is geïnstalleerd, raadpleegt u [PowerShell voor Azure Stack installeren](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 
-### <a name="bkmk_tools"></a>De hulpprogramma's voor Azure Stack downloaden
+### <a name="download-the-azure-stack-tools"></a>De hulpprogramma's voor Azure Stack downloaden
 
-De Azure Stack-hulpprogramma's-GitHub-opslagplaats bevat een PowerShell-modules die ondersteuning bieden voor Azure Stack-functionaliteit; met inbegrip van registratie-functionaliteit. Tijdens de registratie die u wilt importeren en gebruiken van de RegisterWithAzure.psm1 PowerShell-module gevonden in de opslagplaats van de Azure Stack-hulpprogramma's voor het registreren van uw Azure Stack-exemplaar met Azure.
+De Azure Stack-hulpprogramma's-GitHub-opslagplaats bevat een PowerShell-modules die ondersteuning bieden voor Azure Stack-functionaliteit; met inbegrip van registratie-functionaliteit. Tijdens de registratie die u wilt importeren en gebruiken de **RegisterWithAzure.psm1** PowerShell-module, gevonden in de opslagplaats van de Azure Stack-hulpprogramma's voor het registreren van uw Azure Stack-exemplaar met Azure.
 
 Om te controleren of u de meest recente versie gebruikt, verwijdert u alle bestaande versies van de Azure Stack-hulpprogramma's en [de nieuwste versie downloaden vanuit GitHub](azure-stack-powershell-download.md) voordat u registreert met Azure.
 
-## <a name="register-azure-stack-in-connected-environments"></a>Azure Stack in verbonden omgevingen registreren
+### <a name="determine-your-registration-scenario"></a>Bepalen van uw registratie-scenario
+
+Uw Azure Stack-implementatie mogelijk *verbonden* of *verbroken*.
+
+ - **Verbonden**  
+ Verbonden betekent dat u kunt Azure Stack hebt geïmplementeerd, zodat deze verbinding met Internet en naar Azure maken kan. U hebt een Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) voor uw archief. Met een gekoppelde implementatie, kunt u kiezen uit twee factureringsmodellen: betalen als u-gebruik of op basis van capaciteit.
+    - [Registreren van een gekoppelde Azure-Stack met Azure met de **betalen als u-gebruik** factureringsmodel](#register-a-connected-azure-stack-with-azure-using-the-pay-as-you-use-billing-model)
+    - [Registreren van een gekoppelde Azure-Stack met Azure met de **capaciteit** factureringsmodel](#register-a-connected-azure-stack-with-azure-using-the-capacity-billing-model)
+
+ - **De verbinding verbroken**  
+ Met de niet-verbonden via de Azure-implementatie-optie, u kunt implementeren en gebruiken van Azure Stack zonder een verbinding met Internet. Met de implementatie van een niet-verbonden bent u echter beperkt tot een AD FS-identiteitsarchief en het factureringsmodel op basis van capaciteit.
+    - [Registreer een niet-verbonden met Azure Stack de **capaciteit** factureringsmodel ](#register-a-disconnected-Azure-Stack-using-the-capacity-billing-model
+)
+
+## <a name="register-connected-with-pay-as-you-go-billing"></a>Verbonden met betalen per gebruik facturering registreren
+
+Gebruik deze stappen om Azure Stack registreren bij Azure met behulp van het facturering model voor betalen als u-gebruik.
+
+> [!Note]  
+> Al deze stappen moeten worden uitgevoerd vanaf een computer die toegang tot het eindpunt van de bevoegde (PEP heeft). Zie voor meer informatie over de PEP [met behulp van het eindpunt van de bevoegde in Azure Stack](azure-stack-privileged-endpoint.md).
 
 Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze omgevingen moet u de Azure Stack-resourceprovider registreren bij Azure en configureer vervolgens uw factureringsmodel.
 
-> [!NOTE]
-> Al deze stappen moeten worden uitgevoerd vanaf een computer die toegang tot het eindpunt van de bevoegdheden heeft.
+1. Voor het registreren van de resourceprovider van Azure Stack met Azure, PowerShell ISE starten als beheerder en gebruik de volgende PowerShell-cmdlts met de **EnvironmentName** parameter ingesteld op het juiste Azure-abonnement-type (Zie onderstaande parameters).
 
-### <a name="register-the-azure-stack-resource-provider"></a>Registreer de resourceprovider van Azure Stack
-
-Voor het registreren van de resourceprovider van Azure Stack met Azure, PowerShell ISE starten als beheerder en gebruik de volgende PowerShell-opdrachten met de **EnvironmentName** parameter ingesteld op het juiste Azure-abonnement-type (Zie onderstaande parameters).
-
-1. Het Azure-account die u gebruikt voor het registreren van Azure Stack toevoegen. Als u wilt het account toevoegt, worden uitgevoerd de **Add-AzureRmAccount** cmdlet. U wordt gevraagd uw globale beheerder van Azure-accountreferenties kunt invoeren en mogelijk moet u gebruikmaken van 2-factor-verificatie op basis van de configuratie van uw account.
+2. Het Azure-account die u gebruikt voor het registreren van Azure Stack toevoegen. Als u wilt het account toevoegt, worden uitgevoerd de **Add-AzureRmAccount** cmdlet. U wordt gevraagd uw globale beheerder van Azure-accountreferenties kunt invoeren en mogelijk moet u gebruikmaken van 2-factor-verificatie op basis van de configuratie van uw account.
 
    ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<Either AzureCloud or AzureChinaCloud>"
+      Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
    ```
 
    | Parameter | Beschrijving |  
    |-----|-----|
-   | EnvironmentName | De naam van de omgeving in de Azure-cloud-abonnement. Omgevingsnamen van de ondersteunde zijn **AzureCloud** of, als met een Azure-abonnement van China **AzureChinaCloud**.  |
-   |  |  |
+   | EnvironmentName | De naam van de omgeving in de Azure-cloud-abonnement. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een Azure-abonnement van China **AzureChinaCloud**.  |
 
-2. Als u meerdere abonnementen hebt, voert u de volgende opdracht om het abonnement te selecteren die u wilt gebruiken:  
+3. Als u meerdere abonnementen hebt, voert u de volgende opdracht om het abonnement te selecteren die u wilt gebruiken:  
 
    ```PowerShell  
       Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
-3. Voer de volgende opdracht om de Azure Stack resourceprovider registreren in uw Azure-abonnement:
+4. Voer de volgende opdracht om de Azure Stack resourceprovider registreren in uw Azure-abonnement:
 
    ```PowerShell  
    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
    ```
 
-### <a name="register-azure-stack-with-azure-using-the-pay-as-you-use-billing-model"></a>Azure Stack registreren bij Azure met behulp van het facturering model voor betalen als u-gebruik
-
-Gebruik deze stappen om Azure Stack registreren bij Azure met behulp van het facturering model voor betalen als u-gebruik.
-
-1. PowerShell ISE starten als beheerder en navigeer naar de **registratie** map in de **AzureStack-hulpprogramma's-master** directory gemaakt wanneer u [gedownload van de hulpprogramma's voor Azure Stack](#bkmk_tools). Importeren van de **RegisterWithAzure.psm1** module met behulp van PowerShell:
+5. PowerShell ISE starten als beheerder en navigeer naar de **registratie** map in de **AzureStack-hulpprogramma's-master** directory gemaakt wanneer u [gedownload van de hulpprogramma's voor Azure Stack](#bkmk_tools). Importeren van de **RegisterWithAzure.psm1** module met behulp van PowerShell:
 
    ```PowerShell  
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-2. Vervolgens, in dezelfde PowerShell-sessie, zorg ervoor dat u bent aangemeld bij de juiste Context van Azure PowerShell. Dit is het azure-account dat is gebruikt om de bovenstaande Azure Stack resourceprovider te registreren. Als u PowerShell om uit te voeren:
+6. Vervolgens, in dezelfde PowerShell-sessie, zorg ervoor dat u bent aangemeld bij de juiste Context van Azure PowerShell. Dit is het azure-account dat is gebruikt om de bovenstaande Azure Stack resourceprovider te registreren. Als u PowerShell om uit te voeren:
 
    ```PowerShell  
-   Add-AzureRmAccount -Environment "<Either AzureCloud or AzureChinaCloud>"
+   Add-AzureRmAccount -Environment "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
    ```
 
-3. Voer in dezelfde PowerShell-sessie, het **Set AzsRegistration** cmdlet. Als u PowerShell om uit te voeren:  
+7. Voer in dezelfde PowerShell-sessie, het **Set AzsRegistration** cmdlet. Als u PowerShell om uit te voeren:  
 
    ```PowerShell  
    $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -126,34 +148,62 @@ Gebruik deze stappen om Azure Stack registreren bij Azure met behulp van het fac
       -BillingModel PayAsYouUse `
       -RegistrationName $RegistrationName
    ```
-
-  |Parameter|Beschrijving|
-  |-----|-----|
-  |PrivilegedEndpointCredential|De referenties waarmee [toegang tot het eindpunt met bevoegde](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). De gebruikersnaam bevindt zich in de indeling **AzureStackDomain\CloudAdmin**.|
-  |PrivilegedEndpoint|Een vooraf geconfigureerde externe PowerShell-console waarmee u mogelijkheden, zoals logboekverzameling en andere post implementatietaken. Raadpleeg voor meer informatie, de [met behulp van het eindpunt van de bevoegde](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artikel.|
-  |BillingModel|Het factureringsmodel die gebruikmaakt van uw abonnement. Toegestane waarden voor deze parameter zijn: capaciteit, PayAsYouUse en ontwikkeling.|
-  | registrationName | Instellen van een unieke naam voor de inschrijving als u het script voor de registratie op meer dan één exemplaar van Azure Stack met behulp van de dezelfde Azure-abonnement-ID. De parameter heeft een standaardwaarde van **AzureStackRegistration**. Echter, als u dezelfde naam op meer dan één exemplaar van Azure Stack gebruikt, het script mislukken. |
+   Zie voor meer informatie over de cmdlet Set-AzsRegistration [registratie verwijzing](#registration-reference).
 
   Het proces duurt tussen 10 en 15 minuten. Wanneer de opdracht is voltooid, ziet u het bericht **'uw omgeving is nu geregistreerd en geactiveerd met behulp van de opgegeven parameters.'**
 
-### <a name="register-azure-stack-with-azure-using-the-capacity-billing-model"></a>Azure Stack registreren bij Azure met behulp van het factureringsmodel voor capaciteit
+## <a name="register-connected-with-capacity-billing"></a>Verbonden zijn met capaciteit facturering registreren
 
-Volg de instructies die worden gebruikt voor het registreren met behulp van het factureringsmodel betalen als u-gebruik, maar de overeenkomstnummer waaronder capaciteit is aangeschaft toevoegen en wijzig de **BillingModel** parameter **capaciteit**. Alle andere parameters zijn niet gewijzigd.
+Gebruik deze stappen om Azure Stack registreren bij Azure met behulp van het facturering model voor betalen als u-gebruik.
 
-Als u PowerShell om uit te voeren:
+> [!Note]  
+> Al deze stappen moeten worden uitgevoerd vanaf een computer die toegang tot het eindpunt van de bevoegde (PEP heeft). Zie voor meer informatie over de PEP [met behulp van het eindpunt van de bevoegde in Azure Stack](azure-stack-privileged-endpoint.md).
 
-```PowerShell  
-$CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
-$RegistrationName = "<unique-registration-name>"
-Set-AzsRegistration `
-    -PrivilegedEndpointCredential $CloudAdminCred `
-    -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
-    -AgreementNumber <EA agreement number> `
-    -BillingModel Capacity `
-    -RegistrationName $RegistrationName
-```
+Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze omgevingen moet u de Azure Stack-resourceprovider registreren bij Azure en configureer vervolgens uw factureringsmodel.
 
-## <a name="register-azure-stack-in-disconnected-environments"></a>Azure Stack in niet-verbonden omgevingen registreren
+1. Voor het registreren van de resourceprovider van Azure Stack met Azure, PowerShell ISE starten als beheerder en gebruik de volgende PowerShell-cmdlts met de **EnvironmentName** parameter ingesteld op het juiste Azure-abonnement-type (Zie onderstaande parameters).
+
+2. Het Azure-account die u gebruikt voor het registreren van Azure Stack toevoegen. Als u wilt het account toevoegt, worden uitgevoerd de **Add-AzureRmAccount** cmdlet. U wordt gevraagd uw globale beheerder van Azure-accountreferenties kunt invoeren en mogelijk moet u gebruikmaken van 2-factor-verificatie op basis van de configuratie van uw account.
+
+   ```PowerShell  
+      Add-AzureRmAccount -EnvironmentName "<AzureCloud, AzureChinaCloud, or AzureUSGovernment>"
+   ```
+
+   | Parameter | Beschrijving |  
+   |-----|-----|
+   | EnvironmentName | De naam van de omgeving in de Azure-cloud-abonnement. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een Azure-abonnement van China **AzureChinaCloud**.  |
+
+3. Als u meerdere abonnementen hebt, voert u de volgende opdracht om het abonnement te selecteren die u wilt gebruiken:  
+
+   ```PowerShell  
+      Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   ```
+
+4. Voer de volgende opdracht om de Azure Stack resourceprovider registreren in uw Azure-abonnement:
+
+   ```PowerShell  
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
+   ```
+
+5. PowerShell ISE starten als beheerder en navigeer naar de **registratie** map in de **AzureStack-hulpprogramma's-master** directory gemaakt wanneer u [gedownload van de hulpprogramma's voor Azure Stack](#bkmk_tools). Importeren van de **RegisterWithAzure.psm1** module met behulp van PowerShell:
+
+  ```PowerShell  
+  $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
+  $RegistrationName = "<unique-registration-name>"
+  Set-AzsRegistration `
+      -PrivilegedEndpointCredential $CloudAdminCred `
+      -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
+      -AgreementNumber <EA agreement number> `
+      -BillingModel Capacity
+      -RegistrationName $RegistrationName
+  ```
+   > [!Note]  
+   > U kunt uitschakelen voor gebruiksrapporten met de parameter UsageReportingEnabled voor de **Set AzsRegistration** cmdlet. Stel de parameter op onwaar. Bijvoorbeeld: ' UsageReportingEnabled
+   
+  Zie voor meer informatie over de cmdlet Set-AzsRegistration [registratie verwijzing](#registration-reference).
+
+## <a name="register-disconnected-with-capacity-billing"></a>Niet-verbonden met een capaciteit facturering registreren
+
 Als u Azure Stack in een omgeving zonder verbinding (met geen verbinding met internet) registreert, moet u een registratie-token ophalen uit de Azure Stack-omgeving en dat token vervolgens gebruiken op een computer die verbinding kan maken met Azure en heeft [PowerShell voor Azure Stack geïnstalleerd](#bkmk_powershell).  
 
 ### <a name="get-a-registration-token-from-the-azure-stack-environment"></a>Registratie van een toegangstoken ophalen uit de Azure Stack-omgeving
@@ -164,14 +214,15 @@ Als u Azure Stack in een omgeving zonder verbinding (met geen verbinding met int
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-2. Als u het registratietoken, voer de volgende PowerShell-opdrachten:  
+2. Als u het registratietoken, voer de volgende PowerShell-cmdlts:  
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -EnableUsageReporting False $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
+   Zie voor meer informatie over de cmdlet Get-AzsRegistrationToken [registratie verwijzing](#registration-reference).
 
-   > [!TIP]  
+   > [!Tip]  
    > De registratietoken is opgeslagen in het bestand dat is opgegeven voor *$FilePathForRegistrationToken*. U kunt het bestandspad of de bestandsnaam naar eigen goeddunken wijzigen.
 
 3. Sla deze voor gebruik in de Azure-registratietoken verbonden machine. U kunt het bestand of de tekst van $FilePathForRegistrationToken kopiëren.
@@ -193,14 +244,14 @@ U kunt de cmdlet Get-inhoud (optioneel) gebruiken om te verwijzen naar een besta
   Register-AzsEnvironment -RegistrationToken $registrationToken -RegistrationName $RegistrationName
   ```
 
-  > [!NOTE]  
+  > [!Note]  
   > De naam van de registratie-resource en de registratietoken voor toekomstig gebruik opslaan.
 
 ### <a name="retrieve-an-activation-key-from-azure-registration-resource"></a>Haal een activeringscode van registratie van Azure-Resource
 
 Vervolgens moet u een activeringscode ophalen van de registratie-resource in Azure tijdens de Register-AzsEnvironment gemaakt.
 
-Als u de activeringscode, voer de volgende PowerShell-opdrachten:  
+Als u de activeringscode, voer de volgende PowerShell-cmdlts:  
 
   ```Powershell
   $RegistrationResourceName = "AzureStack-<Cloud Id for the Environment to register>"
@@ -208,12 +259,12 @@ Als u de activeringscode, voer de volgende PowerShell-opdrachten:
   $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName -KeyOutputFilePath $KeyOutputFilePath
   ```
 
-  > [!TIP]  
+  > [!Tip]  
   > De activeringscode is opgeslagen in het bestand dat is opgegeven voor *$KeyOutputFilePath*. U kunt het bestandspad of de bestandsnaam naar eigen goeddunken wijzigen.
 
 ### <a name="create-an-activation-resource-in-azure-stack"></a>Een activering-Resource maken in Azure Stack
 
-Ga terug naar de Azure Stack-omgeving met het bestand of de tekst van de activeringscode gemaakt op basis van Get-AzsActivationKey. Vervolgens maakt u een bron voor activering in Azure Stack met deze activeringssleutel. Voer de volgende PowerShell-opdrachten voor het maken van een resource activering:  
+Ga terug naar de Azure Stack-omgeving met het bestand of de tekst van de activeringscode gemaakt op basis van Get-AzsActivationKey. Vervolgens maakt u een bron voor activering in Azure Stack met deze activeringssleutel. Voer de volgende PowerShell-cmdlts voor het maken van een resource activering:  
 
   ```Powershell
   $ActivationKey = "<activation key>"
@@ -236,7 +287,7 @@ Volg deze stappen om te controleren of Azure Stack is geregistreerd met Azure.
 
 Als u ziet een lijst met items die beschikbaar zijn in Azure (zoals WordPress), wordt de activering is voltooid. Echter, in niet-verbonden omgevingen niet ziet u Azure marketplace-items in de Azure Stack marketplace.
 
-> [!NOTE]
+> [!Note]  
 > Nadat de registratie is voltooid, wordt de actieve waarschuwing voor het registreren van niet langer worden weergegeven.
 
 ## <a name="renew-or-change-registration"></a>Vernieuwen of wijzigen van inschrijving
@@ -259,9 +310,9 @@ Als u wilt wijzigen van het abonnement dat u gebruikt, moet u eerst uitvoeren de
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
   ```
 
-#### <a name="change-the-billing-model-or-syndication-features"></a>Wijzigen van de facturering model of syndication-functies
+#### <a name="change-the-billing-model-or-how-to-offer-features"></a>Wijzig het factureringsmodel of hoe u functies bieden
 
-Als u wilt de facturering van maandabonnementen of syndication-functies voor uw installatie wijzigen, kunt u de registratiefunctie om in te stellen de nieuwe waarden kunt aanroepen. U hoeft niet verwijdert u eerst de huidige registratie:
+Als u wilt wijzigen van de facturering van maandabonnementen of hoe u functies voor uw installatie bieden, kunt u de registratiefunctie om in te stellen de nieuwe waarden kunt aanroepen. U hoeft niet verwijdert u eerst de huidige registratie:
 
   ```PowerShell  
   Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
@@ -279,13 +330,13 @@ U moet bijwerken of vernieuwen van de inschrijving in de volgende omstandigheden
 
 U moet eerst de resource activering verwijderen uit Azure Stack en vervolgens de registratie-resource in Azure.  
 
-Als u wilt verwijderen van de activering-resource in Azure Stack, de volgende PowerShell-opdrachten worden uitgevoerd in uw Azure Stack-omgeving:  
+Als u wilt verwijderen van de activering-resource in Azure Stack, voert u de volgende PowerShell-cmdlts in uw Azure Stack-omgeving:  
 
   ```Powershell
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   ```
 
-Vervolgens als u wilt verwijderen van de registratie-resource in Azure, zorg ervoor dat u gebruikmaakt van een verbonden Azure computer, zich aanmelden bij de juiste context van Azure PowerShell, en de juiste PowerShell-opdrachten uitvoeren, zoals hieronder wordt beschreven.
+Vervolgens als u wilt verwijderen van de registratie-resource in Azure, zorg ervoor dat u gebruikmaakt van een verbonden Azure computer, zich aanmelden bij de juiste context van Azure PowerShell, en de juiste PowerShell-cmdlts uitvoeren, zoals hieronder wordt beschreven.
 
 U kunt de registratietoken gebruikt voor het maken van de resource:  
 
@@ -297,13 +348,97 @@ U kunt de registratietoken gebruikt voor het maken van de resource:
 Of u kunt de naam van de registratie:
 
   ```Powershell
-  $registrationName = "AzureStack-<Cloud Id of Azure Stack Environment>"
+  $registrationName = "AzureStack-<Cloud ID of Azure Stack Environment>"
   Unregister-AzsEnvironment -RegistrationName $registrationName
   ```
 
 ### <a name="re-register-using-disconnected-steps"></a>Registreer opnieuw met niet-verbonden stappen
 
 U hebt nu volledig verwijderd in een niet-verbonden scenario en moet de stappen voor het registreren van een Azure Stack-omgeving in een niet-verbonden scenario.
+
+### <a name="disable-or-enable-usage-reporting"></a>Rapportage over het gebruik in- of uitschakelen
+
+Uitschakelen voor gebruiksrapporten met voor Azure Stack-omgevingen die gebruikmaken van een capaciteit factureringsmodel, de **EnableUsageReporting** parameter met behulp van de **Set AzsRegistration** of de  **Get-AzsRegistrationToken** cmdlets. Azure Stack-standaard metrische gegevens over gebruik rapporten. Operators met een capaciteit gebruikt of ondersteunen van een niet-verbonden omgeving moet uitschakelen rapportage over het gebruik.
+
+#### <a name="with-a-connected-azure-stack"></a>Met een gekoppelde Azure Stack
+
+   ```PowerShell  
+   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
+   $RegistrationName = "<unique-registration-name>"
+   Set-AzsRegistration `
+      -PrivilegedEndpointCredential $CloudAdminCred `
+      -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
+      -BillingModel Capacity
+      -RegistrationName $RegistrationName
+   ```
+
+#### <a name="with-a-disconnected-azure-stack"></a>Met een niet-verbonden Azure Stack
+
+1. Als u wilt wijzigen van het registratietoken, voer de volgende PowerShell-cmdlets:  
+
+   ```Powershell
+   $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -EnableUsageReporting False
+   $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
+   ```
+
+   > [!Tip]  
+   > De registratietoken is opgeslagen in het bestand dat is opgegeven voor *$FilePathForRegistrationToken*. U kunt het bestandspad of de bestandsnaam naar eigen goeddunken wijzigen.
+
+2. Sla deze voor gebruik in de Azure-registratietoken verbonden machine. U kunt het bestand of de tekst van $FilePathForRegistrationToken kopiëren.
+
+
+## <a name="registration-reference"></a>Registratie-verwijzing
+
+### <a name="set-azsregistration"></a>Set-AzsRegistration
+
+Set-AzsRegistration kunt u Azure Stack registreren bij Azure en in- of uitschakelen van de aanbieding van items in de marketplace en rapportage over het gebruik.
+
+Als u wilt de cmdlet uitvoert, hebt u het volgende nodig:
+- Een globale Azure-abonnement van elk type.
+- U moet ook worden geregistreerd Azure PowerShell met een account dat een eigenaar of bijdrager aan het abonnement.
+
+```PowerShell
+    Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String> [[-AzureContext]
+    <PSObject>] [[-ResourceGroupName] <String>] [[-ResourceGroupLocation] <String>] [[-BillingModel] <String>]
+    [-MarketplaceSyndicationEnabled] [-UsageReportingEnabled] [[-AgreementNumber] <String>] [[-RegistrationName]
+    <String>] [<CommonParameters>]
+   ```
+
+| Parameter | Type | Beschrijving |
+|-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| PrivilegedEndpointCredential | PSCredential | De referenties waarmee [toegang tot het eindpunt met bevoegde](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). De gebruikersnaam bevindt zich in de indeling **AzureStackDomain\CloudAdmin**. |
+| PrivilegedEndpoint | Reeks | Een vooraf geconfigureerde externe PowerShell-console waarmee u mogelijkheden, zoals logboekverzameling en andere post implementatietaken. Raadpleeg voor meer informatie, de [met behulp van het eindpunt van de bevoegde](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artikel. |
+| AzureContext | PSObject |  |
+| ResourceGroupName | Reeks |  |
+| ResourceGroupLocation | Reeks |  |
+| BillingModel | Reeks | Het factureringsmodel die gebruikmaakt van uw abonnement. Toegestane waarden voor deze parameter zijn: capaciteit, PayAsYouUse en ontwikkeling. |
+| MarketplaceSyndicationEnabled |  |  |
+| UsageReportingEnabled | Waar/onwaar | Azure Stack-standaard metrische gegevens over gebruik rapporten. Operators met een capaciteit gebruikt of ondersteunen van een niet-verbonden omgeving moet uitschakelen rapportage over het gebruik. Toegestane waarden voor deze parameter zijn: True, False. |
+| AgreementNumber | Reeks |  |
+| registrationName | Reeks | Instellen van een unieke naam voor de inschrijving als u het script voor de registratie op meer dan één exemplaar van Azure Stack met behulp van de dezelfde Azure-abonnement-ID. De parameter heeft een standaardwaarde van **AzureStackRegistration**. Echter, als u dezelfde naam op meer dan één exemplaar van Azure Stack gebruikt, het script mislukken. |
+
+### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
+
+Get-AzsRegistrationToken genereert een registratietoken van de invoerparameters.
+
+```PowerShell  
+    Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String>
+    [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
+    [<CommonParameters>]
+```
+| Parameter | Type | Beschrijving |
+|-------------------------------|--------------|-------------|
+| PrivilegedEndpointCredential | PSCredential | De referenties waarmee [toegang tot het eindpunt met bevoegde](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). De gebruikersnaam bevindt zich in de indeling **AzureStackDomain\CloudAdmin**. |
+| PrivilegedEndpoint | Reeks |  Een vooraf geconfigureerde externe PowerShell-console waarmee u mogelijkheden, zoals logboekverzameling en andere post implementatietaken. Raadpleeg voor meer informatie, de [met behulp van het eindpunt van de bevoegde](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artikel. |
+| AzureContext | PSObject |  |
+| ResourceGroupName | Reeks |  |
+| ResourceGroupLocation | Reeks |  |
+| BillingModel | Reeks | Het factureringsmodel die gebruikmaakt van uw abonnement. Toegestane waarden voor deze parameter zijn: capaciteit, PayAsYouUse en ontwikkeling. |
+| MarketplaceSyndicationEnabled | Waar/onwaar |  |
+| UsageReportingEnabled | Waar/onwaar | Azure Stack-standaard metrische gegevens over gebruik rapporten. Operators met een capaciteit gebruikt of ondersteunen van een niet-verbonden omgeving moet uitschakelen rapportage over het gebruik. Toegestane waarden voor deze parameter zijn: True, False. |
+| AgreementNumber | Reeks |  |
+
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 321d70a04e3c524e578a01e8531d63733d088c3f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7704e08246798108aa251c19a4ab0c3baaaad570
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444181"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42060780"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-querytaal voor dubbels voor apparaat- en -module, taken en berichtroutering
 
@@ -309,7 +309,7 @@ Op dit moment een query uitgevoerd op **devices.jobs** bieden geen ondersteuning
 
 Met behulp van [apparaat-naar-cloud-routes][lnk-devguide-messaging-routes], kunt u IoT-Hub voor het verzenden van apparaat-naar-cloud-berichten naar verschillende eindpunten configureren. Verzenden is gebaseerd op expressies geëvalueerd op basis van afzonderlijke berichten.
 
-De route [voorwaarde] [ lnk-query-expressions] maakt gebruik van de dezelfde IoT Hub-querytaal als voorwaarden in dubbel en taak query's. Route voorwaarden worden geëvalueerd op de berichtheaders en hoofdtekst. Uw routering query-expressie kan alleen berichtkoppen, omvatten de hoofdtekst van het bericht of beide. IoT Hub wordt ervan uitgegaan dat een specifieke schema voor de headers en hoofdtekst van het bericht om te routeren van berichten. De volgende secties wordt beschreven wat is vereist voor IoT Hub voor het routeren van goed.
+De route [voorwaarde] [ lnk-query-expressions] maakt gebruik van de syntaxis van de IoT Hub query omdat voorwaarden in query's met dubbele en taak, maar slechts een subset van de functies die beschikbaar zijn. Route voorwaarden worden geëvalueerd op de berichtheaders en hoofdtekst. Uw routering query-expressie is mogelijk alleen berichtkoppen, alleen de berichttekst, of beide bericht-headers en hoofdtekst. IoT Hub wordt ervan uitgegaan dat een specifieke schema voor de headers en hoofdtekst van het bericht om te routeren van berichten en de volgende secties wordt beschreven wat is vereist voor IoT Hub voor het routeren van goed.
 
 ### <a name="routing-on-message-headers"></a>Routering op berichtkoppen
 

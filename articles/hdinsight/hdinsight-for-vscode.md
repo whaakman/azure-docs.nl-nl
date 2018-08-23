@@ -1,20 +1,20 @@
 ---
 title: Azure HDInsight-Tools - Visual Studio-Code gebruiken voor Hive, LLAP of pySpark
 description: Informatie over het gebruik van de Azure HDInsight Tools voor Visual Studio Code maken en verzenden van query's en scripts.
-Keywords: VS Code,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,Interactive Hive,Interactive Query
-services: HDInsight
+keywords: VS Code, Azure HDInsight-hulpprogramma's, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, Interactive Hive, Interactive Query
+services: hdinsight
 author: jejiang
-editor: jasonwhowell jgao
-ms.service: HDInsight
+ms.author: jejiang
+editor: jasonwhowell
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/27/2017
-ms.author: jejiang
-ms.openlocfilehash: 7bf74155cba65d2b5abdc80103a46047aec1b5b7
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 255f1ecb3c55ef94b6f4f3393257b3054ff1b725
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592397"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42055055"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Azure HDInsight-hulpprogramma's voor Visual Studio Code gebruiken
 
@@ -294,7 +294,7 @@ Livy-configuratie wordt ondersteund, deze kan worden ingesteld op de instellinge
     | argumenten | Opdrachtregelargumenten voor de toepassing | lijst met tekenreeksen | 
     | JAR-bestanden | JAR-bestanden moet worden gebruikt in deze sessie | Lijst met tekenreeksen | 
     | pyFiles | Python-bestanden moet worden gebruikt in deze sessie | Lijst met tekenreeksen |
-    | bestanden | bestanden in deze sessie moet worden gebruikt | Lijst met tekenreeksen |
+    | bestanden weergeven | bestanden in deze sessie moet worden gebruikt | Lijst met tekenreeksen |
     | driverMemory | Hoeveelheid geheugen die moet worden gebruikt voor het stuurprogramma-proces | tekenreeks |
     | driverCores | Aantal kernen moet worden gebruikt voor het stuurprogramma-proces | int |
     | executorMemory | Hoeveelheid geheugen per executorproces gebruiken | tekenreeks |
@@ -317,7 +317,7 @@ Livy-configuratie wordt ondersteund, deze kan worden ingesteld op de instellinge
     | state |   De batch-status | tekenreeks |
 
 
-## <a name="additional-features"></a>Extra functies
+## <a name="additional-features"></a>Aanvullende functies
 
 HDInsight voor Visual Studio Code ondersteunt de volgende functies:
 

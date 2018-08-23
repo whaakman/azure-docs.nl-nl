@@ -2,19 +2,19 @@
 title: Doorvoer inrichten voor Azure Cosmos DB | Microsoft Docs
 description: Informatie over het instellen van de ingerichte doorvoer voor uw Azure Cosmos DB containsers, verzamelingen, grafieken en tabellen.
 services: cosmos-db
-author: SnehaGunda
+author: aliuy
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
-ms.author: sngun
-ms.openlocfilehash: a454bfc06cf119d43e545a5a911a2f6686fb755b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.author: andrl
+ms.openlocfilehash: 2c3e4806aef506ef9016699b46eadd5f8a187224
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600156"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42056823"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Instellen en opvragen van doorvoer voor Azure Cosmos DB-containers en -database
 
@@ -262,20 +262,6 @@ Een methode voor het schatten van de hoeveelheid gereserveerde doorvoer die is v
 > Hebt u itemtypen die aanzienlijk wat betreft grootte en het aantal geïndexeerde eigenschappen verschillen, en noteer vervolgens de kosten van toepassing bewerking aanvraag eenheden die zijn gekoppeld aan elk *type* van gemiddeld item.
 > 
 > 
-
-## <a id="RequestchargeGraphAPI"></a>Aanvraag kosten in rekening gebracht voor de Gremlin-API-accounts ophalen 
-
-Hier volgt een voorbeeld voor het verkrijgen van aanvraag kosten in rekening gebracht voor de Gremlin-API-accounts met behulp van de bibliotheek Gremlin.Net. 
-
-```csharp
-
-var response = await gremlinClient.SubmitAsync<int>(requestMsg, bindings);
-                var resultSet = response.AsResultSet();
-                var statusAttributes= resultSet.StatusAttributes;
-```
-
-Naast de bovenstaande methode, kunt u "x-ms-totaal aantal-verzoek-kosten" header ook gebruiken voor berekeningen van Aanvraageenheden.
-
 
 ## <a name="throughput-faq"></a>Veelgestelde vragen over de doorvoer
 

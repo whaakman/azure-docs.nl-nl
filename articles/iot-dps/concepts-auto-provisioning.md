@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9a45f8269e0ca2bc4188016af0ace06831c762b6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 025e447995d302c24ab2a7d1c8668857cb47ffdd
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521275"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42054653"
 ---
 # <a name="auto-provisioning-concepts"></a>Concepten voor automatische inrichting
 
@@ -62,7 +62,7 @@ Het volgende diagram geeft een overzicht van de functies en de volgorde van bewe
 [![Automatische inrichting reeks voor een apparaat](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png)](./media/concepts-auto-provisioning/sequence-auto-provision-device-vs.png#lightbox) 
 
 > [!NOTE]
-> (Optioneel) de fabrikant kan ook de bewerking niet uitvoeren "voor registratie apparaat-id' met Device Provisioning Service API's (in plaats van via de Operator). Zie voor een gedetailleerde beschrijving van deze sequentiëren en nog veel meer, de [nul touch-apparaatregistratie met Azure IoT-video](https://myignite.microsoft.com/sessions/55087) (vanaf markering 41:00)
+> (Optioneel) de fabrikant kan ook de bewerking niet uitvoeren "voor registratie apparaat-id' met Device Provisioning Service API's (in plaats van via de Operator). Zie voor een gedetailleerde beschrijving van deze sequentiëren en nog veel meer, de [nul touch-apparaatregistratie met Azure IoT-video](https://youtu.be/cSbDRNg72cU?t=2460) (vanaf markering 41:00)
 
 ## <a name="next-steps"></a>Volgende stappen
 

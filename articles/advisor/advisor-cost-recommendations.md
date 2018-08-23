@@ -1,11 +1,10 @@
 ---
 title: Azure Advisor kosten aanbevelingen | Microsoft Docs
-description: Gebruik Azure Advisor om te optimaliseren van de kosten van uw Azure-implementaties.
+description: Met Azure Advisor kunt verlagen de kosten van uw Azure-implementaties.
 services: advisor
 documentationcenter: NA
-author: KumudD
-manager: carmonm
-editor: ''
+author: manbeenkohli
+manager: ''
 ms.assetid: ''
 ms.service: advisor
 ms.devlang: NA
@@ -13,44 +12,47 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
-ms.author: kumud
-ms.openlocfilehash: ade6ef996c00c0c06d5b8e44815520e6e4ab7e9f
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.author: makohli
+ms.openlocfilehash: 71c380a1caae730b6b01615ce3047c2e22bd6dfb
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735864"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42060570"
 ---
-# <a name="advisor-cost-recommendations"></a>Advisor kosten aanbevelingen
+# <a name="advisor-cost-recommendations"></a>Aanbevelingen van Advisor-kosten
 
-Advisor helpt u te optimaliseren en reduceren uw algehele Azure hoeven te besteden aan met het vaststellen van niet-actieve- en onderbenutte resources. U kunt ophalen kosten aanbevelingen van de **kosten** op het dashboard Advisor.
+Advisor helpt u te optimaliseren en uw totale Azure verminderen besteden door niet-actieve en onderbenutte resources te identificeren. U kunt u kosten aanbevelingen van de **kosten** tabblad op de Advisor-dashboard.
 
-## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Optimaliseren te besteden aan de virtuele machine door afsluiten onderbenutte exemplaren of vergroten of verkleinen 
-Hoewel bepaalde toepassingsscenario's leiden minder gebruik standaard tot kunnen, kunt u vaak geld besparen door het beheer van de grootte en het nummer van uw virtuele machines. Advisor bewaakt het gebruik van uw virtuele machine 14 dagen en identificeert dan laag gebruik virtuele machines. Virtuele machines waarvan CPU-gebruik 5 is % of minder en netwerkgebruik is 7 MB of minder voor vier of meer dagen worden beschouwd als laag gebruik virtuele machines.
+## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Optimaliseer virtuele machine uitgaven per vergroten of verkleinen of weinig gebruikte exemplaren afsluiten 
+Hoewel bepaalde toepassingsscenario's in laag gebruik standaard resulteren kunnen, kunt u vaak geld besparen door het beheer van de grootte en het nummer van uw virtuele machines. Advisor bewaakt uw gebruik van virtuele machines gedurende 14 dagen en vervolgens laag gebruik virtuele machines identificeert. Virtuele machines waarvan CPU-gebruik 5 is % of minder en netwerkgebruik is 7 MB of minder voor vier of meer dagen worden beschouwd als laag gebruik virtuele machines.
 
-Advisor ziet u de geschatte kosten van u wilt doorgaan met het uitvoeren van uw virtuele machine, zodat u kunt deze afsluiten of het formaat.
+Advisor geeft u de geschatte kosten van u verdergaat met het uitvoeren van uw virtuele machine, zodat u kunt deze wordt afgesloten of wijzig de grootte ervan.
 
-Als u worden agressievere wilt op onderbenutte virtuele machines te identificeren, kunt u het gemiddelde CPU-gebruik regel op basis van per abonnement kunt aanpassen.
+Als u wilt agressiever ten grondslag ligt weinig gebruikte virtuele machines moet worden, kunt u de gemiddelde CPU-gebruik regel op basis van een abonnement aanpassen.
 
-## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>Doordat de inrichting van ExpressRoute-circuits kosten te verlagen
-Advisor identificeert ExpressRoute-circuits die zijn aangebracht in de providerstatus van *niet ingericht* voor meer dan één maand en raadt het circuit verwijderen als u van plan zijn niet het circuit inrichten met de verbinding in orde provider.
+## <a name="reduce-costs-by-eliminating-unprovisioned-expressroute-circuits"></a>Kosten verlagen door het elimineren van niet-ingerichte ExpressRoute-circuits
+Advisor identificeert ExpressRoute-circuits die in de status van de provider van zijn *niet ingericht* voor meer dan één maand en de gebruiker wordt aanbevolen het circuit verwijderen als u niet van plan bent voor het inrichten van het circuit met de verbinding de provider.
 
-## <a name="buy-virtual-machine-reserved-instances-to-save-money-over-pay-as-you-go-costs"></a>Gereserveerde instanties van virtuele machines kopen om te besparen ten opzichte van betaling per gebruik
-Advisor wordt uw gebruik van virtuele machines controleren in de afgelopen 30 dagen en Bepaal als u geld besparen kan door aan te schaffen gereserveerde exemplaren. Advisor ziet u de regio's en grootten waar u mogelijk hebt de meeste besparingen en ziet u de geschatte besparingen van het aanschaffen van een gereserveerde exemplaren. 
+## <a name="reduce-costs-by-deleting-or-reconfiguring-idle-virtual-network-gateways"></a>Kosten verlagen door te verwijderen of opnieuw configureren van niet-actieve virtuele netwerkgateways
+Advisor identificeert virtuele netwerk-poorten die meer dan 90 dagen inactief zijn geweest. Omdat deze gateways worden per uur gefactureerd, moet u rekening houden met opnieuw configureren of te verwijderen als u niet wilt dat ze niet meer gebruiken. 
 
-U kunt vooraf de basiskosten voor uw virtuele machines met gereserveerde exemplaren aanschaffen. Kortingen automatisch van toepassing op nieuwe of bestaande virtuele machines die de grootte en de regio als uw gereserveerde exemplaren hebben. [Meer informatie over Azure gereserveerde VM-exemplaren.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
+## <a name="buy-reserved-virtual-machine-instances-to-save-money-over-pay-as-you-go-costs"></a>Gereserveerde virtuele machine-instanties om geld te besparen ten opzichte van betalen per gebruik kopen
+Advisor wordt uw gebruik van virtuele machines in de afgelopen 30 dagen bekijken en te bepalen als u geld besparen kunt door het aanschaffen van een Azure-reservering. Advisor ziet u de regio's en -grootten waar u mogelijk hebt de meeste besparingen en ziet u de geschatte besparing bij de aanschaf van reserveringen. 
 
-## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Toegang tot de aanbevelingen in Azure Advisor kosten
+Met Azure reserveringen, kunt u de basiskosten voor het vooraf kunt kopen voor uw virtuele machines. Kortingen wordt automatisch toegepast op nieuwe of bestaande virtuele machines met dezelfde grootte en regio als uw reserveringen. [Meer informatie over Azure Reserved VM Instances.](https://azure.microsoft.com/pricing/reserved-vm-instances/)
+
+## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Toegang tot kosten aanbevelingen in Azure Advisor
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en open vervolgens [Advisor](https://aka.ms/azureadvisordashboard).
 
-2.  Klik op het dashboard Advisor de **kosten** tabblad.
+2.  Klik op de Advisor-dashboard op de **kosten** tabblad.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Advisor aanbevelingen:
+Zie voor meer informatie over aanbevelingen van Advisor:
 * [Inleiding tot Advisor](advisor-overview.md)
 * [Aan de slag](advisor-get-started.md)
-* [Aanbevelingen van Advisor-prestaties](advisor-cost-recommendations.md)
-* [Hoge beschikbaarheid aanbevelingen Advisor te ontvangen](advisor-cost-recommendations.md)
-* [Aanbevelingen voor beveiliging van Advisor](advisor-cost-recommendations.md)
+* [Advisor-aanbevelingen voor prestaties](advisor-cost-recommendations.md)
+* [Advisor-aanbevelingen voor hoge beschikbaarheid](advisor-cost-recommendations.md)
+* [Advisor-aanbevelingen voor beveiliging](advisor-cost-recommendations.md)

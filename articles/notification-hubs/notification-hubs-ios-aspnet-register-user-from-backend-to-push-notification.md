@@ -1,6 +1,6 @@
 ---
 title: De huidige gebruiker voor pushmeldingen registreren met behulp van Web-API | Microsoft Docs
-description: Informatie over het aanvragen van registratie voor pushberichten in een iOS-app met Azure Notification Hubs wanneer de registratie wordt uitgevoerd door ASP.NET Web API.
+description: Leer hoe u registratie voor pushberichten in een iOS-app met Azure Notification Hubs aanvragen wanneer de registratie wordt uitgevoerd door de ASP.NET-Web-API.
 services: notification-hubs
 documentationcenter: ios
 author: dimazaid
@@ -14,12 +14,12 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c43c15131afb5fbf346b0137dac566f5331c65a2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f89c97f1220c0e949912a3002021eca20f91441d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776369"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42054247"
 ---
 # <a name="register-the-current-user-for-push-notifications-by-using-aspnet"></a>De huidige gebruiker voor pushmeldingen registreren met behulp van ASP.NET
 > [!div class="op_single_selector"]
@@ -28,23 +28,23 @@ ms.locfileid: "33776369"
 > 
 
 ## <a name="overview"></a>Overzicht
-Dit onderwerp leest u hoe u kunt registratie voor pushberichten met Azure Notification Hubs aanvragen wanneer de registratie wordt uitgevoerd door ASP.NET Web API. In dit onderwerp breidt de zelfstudie [meldingen verzenden naar gebruikers met Notification Hubs]. U moet nog hebt voltooid de vereiste stappen in deze zelfstudie voor het maken van de geverifieerde mobiele service. Zie voor meer informatie over de gebruikers waarschuwen scenario [meldingen verzenden naar gebruikers met Notification Hubs].
+Dit onderwerp ziet u hoe u registratie voor pushberichten met Azure Notification Hubs aanvragen wanneer de registratie wordt uitgevoerd door de ASP.NET-Web-API. In dit gedeelte de zelfstudie is een vervolg [meldingen verzenden naar gebruikers met Notification Hubs]. U moet al hebt voltooid de vereiste stappen in deze zelfstudie om te maken van de geverifieerde mobiele service. Zie voor meer informatie over de gebruikers waarschuwen scenario [meldingen verzenden naar gebruikers met Notification Hubs].
 
 ## <a name="update-your-app"></a>Uw app bijwerken
 1. Voeg de volgende onderdelen van de objectbibliotheek in uw MainStoryboard_iPhone.storyboard:
    
-   * **Label**: 'Push naar de gebruiker met Notification Hubs'
-   * **Label**: 'Omwille van'
+   * **Label**: "Push naar de gebruiker met Notification Hubs"
+   * **Label**: "InstallationId"
    * **Label**: 'Gebruiker'
    * **Tekstveld**: 'Gebruiker'
-   * **Label**: 'Password'
-   * **Tekstveld**: 'Password'
+   * **Label**: 'Wachtwoord'
+   * **Tekstveld**: 'Wachtwoord'
    * **Knop**: 'Aanmelding'
      
-     Op dit moment een storyboard ziet er als volgt:
+     Op dit moment uw storyboard ziet er als volgt uit:
      
       ![][0]
-2. In de editor assistent aansluitingen van de geschakelde besturingselementen maken en ze aanroept, de tekstvelden verbinden met de weergavebesturing (gemachtigde) en maken een **actie** voor de **aanmelding** knop.
+2. In de editor assistent uitgangen van de geschakelde besturingselementen maken en ze aanroept, verbinding maken met de velden met de View-Controller (gemachtigde) en maken een **actie** voor de **aanmelding** knop.
    
        ![][1]
    
@@ -55,7 +55,7 @@ Dit onderwerp leest u hoe u kunt registratie voor pushberichten met Azure Notifi
         @property (weak, nonatomic) IBOutlet UITextField *Password;
    
         - (IBAction)login:(id)sender;
-3. Maak een klasse met de naam **DeviceInfo**, en kopieer de volgende code naar het gedeelte van de interface van het bestand DeviceInfo.h:
+3. Maak een klasse met de naam **DeviceInfo**, en kopieer de volgende code in de sectie van de interface van het bestand DeviceInfo.h:
    
         @property (readonly, nonatomic) NSString* installationId;
         @property (nonatomic) NSData* deviceToken;
@@ -90,31 +90,31 @@ Dit onderwerp leest u hoe u kunt registratie voor pushberichten met Azure Notifi
                                       ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
                 return hexToken;
             }
-5. In PushToUserAppDelegate.h, voegt u de volgende eigenschap singleton:
+5. In PushToUserAppDelegate.h, voegt u de volgende eigenschap singleton toe:
    
         @property (strong, nonatomic) DeviceInfo* deviceInfo;
-6. In de **didFinishLaunchingWithOptions** methode in PushToUserAppDelegate.m, voeg de volgende code:
+6. In de **didFinishLaunchingWithOptions** methode in PushToUserAppDelegate.m, voeg de volgende code toe:
    
         self.deviceInfo = [[DeviceInfo alloc] init];
    
         [[UIApplication sharedApplication] registerForRemoteNotificationTypes: UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
    
-    De eerste regel initialiseert de **DeviceInfo** singleton. De tweede regel begint de registratie voor pushmeldingen, die al aanwezig als u al hebt voltooid de [aan de slag met Notification Hubs] zelfstudie.
-7. In PushToUserAppDelegate.m, implementeert u de methode **didRegisterForRemoteNotificationsWithDeviceToken** in uw AppDelegate en voeg de volgende code:
+    De eerste regel initialiseert de **DeviceInfo** singleton. De tweede regel begint de registratie voor pushmeldingen, die al aanwezig is als u al hebt voltooid de [aan de slag met Notification Hubs] zelfstudie.
+7. In PushToUserAppDelegate.m, implementeert u de methode **didRegisterForRemoteNotificationsWithDeviceToken** in uw AppDelegate en voeg de volgende code toe:
    
         self.deviceInfo.deviceToken = deviceToken;
    
     Hiermee stelt u het apparaattoken voor de aanvraag.
    
    > [!NOTE]
-   > Op dit moment moet niet er een andere code in deze methode. Als u al een aanroep van de **registerNativeWithDeviceToken** methode die is toegevoegd wanneer u voltooid de [aan de slag met Notification Hubs](/manage/services/notification-hubs/get-started-notification-hubs-ios/) zelfstudie, moet u commentarieer of verwijder deze aanroep.
+   > Op dit moment mogen er geen andere codes die bij deze methode. Als u al een aanroep naar de **registerNativeWithDeviceToken** methode die is toegevoegd wanneer u voltooid de [aan de slag met Notification Hubs](notification-hubs-ios-apple-push-notification-apns-get-started.md) zelfstudie, moet u Voeg een opmerking of verwijder deze aanroep.
    > 
    > 
 8. In het bestand PushToUserAppDelegate.m, voegt u de volgende handlermethode:
    
-   * (leeg) toepassing:(UIApplication *) toepassing didReceiveRemoteNotification:(NSDictionary *) gebruikersgegevens {NSLog (@"% @", gebruikersgegevens);   UIAlertView * waarschuwing = [[UIAlertView toewijzingseenheid] initWithTitle:@"Notification" bericht: [gebruikersgegevens objectForKey:@"inAppMessage"] gemachtigde: nil cancelButtonTitle: @"OK" otherButtonTitles:nil, nil];   [waarschuwing weergeven]; }
+   * (leeg) toepassing:(UIApplication *) toepassing didReceiveRemoteNotification:(NSDictionary *) gebruikersgegevens {NSLog (@ ' % @", gebruikersgegevens);   UIAlertView * waarschuwing = [[UIAlertView toewijzingseenheid] initWithTitle:@"Notification" bericht: [gebruikersgegevens objectForKey:@"inAppMessage"] gemachtigde: nil cancelButtonTitle: @"OK" otherButtonTitles:nil, nil];   [waarschuwing weergeven;] }
    
-   Deze methode wordt een waarschuwing weergegeven in de gebruikersinterface wanneer uw app meldingen ontvangt terwijl deze wordt uitgevoerd.
+   Deze methode wordt een waarschuwing weergegeven in de gebruikersinterface wanneer uw app meldingen, ontvangt terwijl deze wordt uitgevoerd.
 9. Open het bestand PushToUserViewController.m en het toetsenbord retourneren in de volgende implementatie:
    
         - (BOOL)textFieldShouldReturn:(UITextField *)theTextField {
@@ -123,15 +123,15 @@ Dit onderwerp leest u hoe u kunt registratie voor pushberichten met Azure Notifi
             }
             return YES;
         }
-10. In de **viewDidLoad** methode in het bestand PushToUserViewController.m initialiseren van het label voor de installatie-id als volgt:
+10. In de **viewDidLoad** methode in het bestand PushToUserViewController.m initialiseren van het label installationId als volgt:
     
          DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
          Self.installationId.text = deviceInfo.installationId;
-11. De volgende eigenschappen op de interface in PushToUserViewController.m toevoegen:
+11. Voeg de volgende eigenschappen in de interface in PushToUserViewController.m:
     
         @property (readonly) NSOperationQueue* downloadQueue;
         - (NSString*)base64forData:(NSData*)theData;
-12. Voeg de volgende implementatie:
+12. Vervolgens voegt u de volgende implementatie:
     
             - (NSOperationQueue *)downloadQueue {
                 if (!_downloadQueue) {
@@ -174,7 +174,7 @@ Dit onderwerp leest u hoe u kunt registratie voor pushberichten met Azure Notifi
     
                 return [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
             }
-13. Kopieer de volgende code in de **aanmelding** gemaakt door XCode handler-methode:
+13. Kopieer de volgende code in de **aanmelding** handlermethode die zijn gemaakt door XCode:
     
             DeviceInfo* deviceInfo = [(PushToUserAppDelegate*)[[UIApplication sharedApplication]delegate] deviceInfo];
     
@@ -207,9 +207,9 @@ Dit onderwerp leest u hoe u kunt registratie voor pushberichten met Azure Notifi
                 }
             }];
     
-    Deze methode opgehaald van een installatie-ID en de kanaal voor pushmeldingen en verzendt, samen met het apparaattype op de geverifieerde Web API-methode die een registratie in Notification Hubs maakt. Deze Web-API is gedefinieerd in [meldingen verzenden naar gebruikers met Notification Hubs].
+    Deze methode wordt zowel een installatie-ID en het kanaal voor pushmeldingen en verzendt dit, samen met het apparaattype naar de geverifieerde Web-API-methode die u een registratie in Notification Hubs maakt. Deze Web-API is gedefinieerd in [meldingen verzenden naar gebruikers met Notification Hubs].
 
-Nu dat de client-app is bijgewerkt en terugkeren naar de [meldingen verzenden naar gebruikers met Notification Hubs] en bijwerken van de mobiele service om meldingen te verzenden via Notification Hubs.
+Nu dat de client-app is bijgewerkt, Ga terug naar de [meldingen verzenden naar gebruikers met Notification Hubs] en bijwerken van de mobiele service om meldingen te verzenden via Notification Hubs.
 
 <!-- Anchors. -->
 
@@ -218,6 +218,6 @@ Nu dat de client-app is bijgewerkt en terugkeren naar de [meldingen verzenden na
 [1]: ./media/notification-hubs-ios-aspnet-register-user-push-notifications/notification-hub-user-aspnet-ios2.png
 
 <!-- URLs. -->
-[meldingen verzenden naar gebruikers met Notification Hubs]: /manage/services/notification-hubs/notify-users-aspnet
+[Meldingen verzenden naar gebruikers met Notification Hubs]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 
-[aan de slag met Notification Hubs]: /manage/services/notification-hubs/get-started-notification-hubs-ios
+[Aan de slag met Notification Hubs]: notification-hubs-ios-apple-push-notification-apns-get-started.md

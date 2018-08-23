@@ -1,6 +1,6 @@
 ---
-title: Ondersteuning voor de Load Balancer van Azure Resource Manager | Microsoft Docs
-description: Met behulp van powershell voor de Load Balancer met Azure Resource Manager. Met behulp van sjablonen voor de load balancer
+title: Azure Resource Manager-ondersteuning voor Load Balancer | Microsoft Docs
+description: Met behulp van powershell voor Load Balancer met Azure Resource Manager. Met behulp van sjablonen voor load balancer
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 599c016763fde6f1dc8221fffa554cf68e8c498f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 43db9db3842d05fa13c3be92df14b905d2ddfc17
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790386"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42055259"
 ---
-# <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Ondersteuning van Azure Resource Manager gebruiken met Azure Load Balancer
+# <a name="using-azure-resource-manager-support-with-azure-load-balancer"></a>Ondersteuning voor Azure Resource Manager gebruiken met Azure Load Balancer
 
 
 
-Azure Resource Manager is het framework voorkeursbeheerpunten voor services in Azure. Azure Load Balancer kunnen worden beheerd met Azure Resource Manager gebaseerde API's en hulpprogramma's.
+Azure Resource Manager is het gewenste management framework voor services in Azure. Azure Load Balancer kan worden beheerd met behulp van Azure Resource Manager gebaseerde API's en hulpprogramma's.
 
 ## <a name="concepts"></a>Concepten
 
-Met Resource Manager Azure Load Balancer bevat de volgende onderliggende bronnen:
+Met Resource Manager, Azure Load Balancer bevat de volgende onderliggende bronnen:
 
-* Front-end-IP-configuratie: een Load balancer kan een of meer frontend IP-adressen, ook bekend als een virtueel IP-adressen (VIP's) bevatten. Deze IP-adressen fungeren als ingang voor het verkeer.
-* Back-end-adresgroep: dit zijn IP-adressen die zijn gekoppeld met de virtuele machine Network Interface Card (NIC) waarop taakverdeling wordt gedistribueerd.
-* Taakverdelingsregels: een regeleigenschap wordt een gegeven frontend-IP- en de poort op een reeks back-end-IP-adressen en de poort toegewezen. Een enkele load balancer kan meerdere regels voor taakverdeling bevatten. Elke regel is een combinatie van een frontend-IP- en de poort en de back-end-IP- en de poort die is gekoppeld aan virtuele machines.
-* Tests-tests kunnen u om de status van de VM-exemplaren bij te houden. Als een health test mislukt, wordt de VM-instantie automatisch buiten rotatie genomen.
-* Binnenkomende NAT-regels – NAT-regels definiëren van het binnenkomende verkeer de frontend-IP-stromen en gedistribueerd naar de back-end-IP.
+* Front-end-IP-configuratie: een Load balancer kan een of meer front-end IP-adressen, ook bekend als een virtueel IP-adressen (VIP's) bevatten. Deze IP-adressen fungeren als ingang voor het verkeer.
+* Back-end-adresgroep: dit zijn IP-adressen die zijn gekoppeld met de virtuele machine netwerk netwerkkaart (NIC) waarop taakverdeling wordt gedistribueerd.
+* Taakverdelingsregels: een voor de regeleigenschap wijst een bepaalde frontend-IP en poort naar een set van back-end-IP-adressen en poort. Een enkele load balancer kan meerdere regels voor taakverdeling bevatten. Elke regel is een combinatie van een front-end-IP en poort en back-end IP en poort die is gekoppeld aan virtuele machines.
+* Tests: tests kunnen u de status van VM-exemplaren bij te houden. Als een statustest mislukt, wordt het VM-exemplaar automatisch uit rotatie gehaald.
+* Inkomende NAT-regels, NAT-regels definiëren het inkomende verkeer worden gebruikt met de frontend-IP en gedistribueerd naar de back-end-IP-adres.
 
 ![](./media/load-balancer-arm/load-balancer-arm.png)
 
@@ -49,25 +49,25 @@ Sjablonen kunnen definities voor virtuele Machines, virtuele netwerken, Beschikb
 
 [Meer informatie over netwerkbronnen](../networking/networking-overview.md)
 
-Zie voor Quick Start-sjablonen met behulp van Azure Load Balancer, het [GitHub-opslagplaats](https://github.com/Azure/azure-quickstart-templates) die als host fungeert voor een set sjablonen community is gegenereerd.
+Zie voor Quickstart-sjablonen met behulp van Azure Load Balancer, de [GitHub-opslagplaats](https://github.com/Azure/azure-quickstart-templates) die als host fungeert voor een aantal community is gegenereerd.
 
 Voorbeelden van sjablonen:
 
 * [2 virtuele machines in een Load Balancer en taakverdelingsregels](http://go.microsoft.com/fwlink/?LinkId=544799)
 * [2 virtuele machines in een VNET met een interne Load Balancer en Load Balancer-regels](http://go.microsoft.com/fwlink/?LinkId=544800)
-* [2 virtuele machines in een Load Balancer en NAT-regels configureren op de Load Balancer](http://go.microsoft.com/fwlink/?LinkId=544801)
+* [2 virtuele machines in een Load Balancer en NAT-regels configureren op de LB](http://go.microsoft.com/fwlink/?LinkId=544801)
 
-## <a name="setting-up-azure-load-balancer-with-a-powershell-or-cli"></a>Azure Load Balancer met een PowerShell of CLI instellen
+## <a name="setting-up-azure-load-balancer-with-a-powershell-or-cli"></a>Instellen van Azure Load Balancer met een PowerShell of CLI
 
-Aan de slag met Azure Resource Manager-cmdlets, opdrachtregel-hulpprogramma's en REST-API 's
+Aan de slag met Azure Resource Manager-cmdlets, opdrachtregelprogramma's en REST-API 's
 
-* [Azure-netwerken Cmdlets](https://msdn.microsoft.com/library/azure/mt163510.aspx) kan worden gebruikt voor het maken van een Load Balancer.
-* [Het maken van een load balancer met Azure Resource Manager](load-balancer-get-started-ilb-arm-ps.md)
-* [De Azure CLI gebruiken met Azure Resourcemanagement](../xplat-cli-azure-resource-manager.md)
-* [De Load Balancer REST-API 's](https://msdn.microsoft.com/library/azure/mt163651.aspx)
+* [Azure-netwerken Cmdlets](https://docs.microsoft.com/powershell/module/azurerm.network#networking) kan worden gebruikt voor het maken van een Load Balancer.
+* [Over het maken van een load balancer met behulp van Azure Resource Manager](load-balancer-get-started-ilb-arm-ps.md)
+* [De Azure CLI gebruiken met Azure Resource Manager](../xplat-cli-azure-resource-manager.md)
+* [Load Balancer REST-API 's](https://msdn.microsoft.com/library/azure/mt163651.aspx)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt ook [maken van de load balancer van een Internetgericht](load-balancer-get-started-internet-arm-ps.md) en configureren van welk type [distributie modus](load-balancer-distribution-mode.md) voor een specifieke load balancer-netwerk het gedrag van verkeer.
+U kunt ook [maken van een internetgerichte load balancer](load-balancer-get-started-internet-arm-ps.md) en configureren welk type [distributiemodus](load-balancer-distribution-mode.md) voor een gedrag voor netwerkverkeer van specifieke load balancer.
 
-Meer informatie over het beheren van [inactieve TCP-time-outinstellingen voor een load balancer](load-balancer-tcp-idle-timeout.md). Dit is belangrijk wanneer uw toepassing moet verbindingen keepalive voor servers achter een load balancer.
+Meer informatie over het beheren van [actieve TCP-time-outinstellingen voor een load balancer](load-balancer-tcp-idle-timeout.md). Dit is belangrijk wanneer uw toepassing moet verbindingen actief houden voor servers achter een load balancer.

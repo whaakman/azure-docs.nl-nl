@@ -9,12 +9,12 @@ ms.component: translator-speech
 ms.topic: article
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 4f12d74aedbcadc311cd9c5ccd12dc1ad3501dbf
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 0a6d3775238512cacc21fb3e47f395e37c3fd29b
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205099"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41988454"
 ---
 # <a name="quickstart-for-microsoft-translator-speech-api-with-c"></a>Snelstartgids voor Microsoft Translator Speech-API met C# 
 <a name="HOLTop"></a>
@@ -23,7 +23,7 @@ In dit artikel leest u hoe de Microsoft Translator Speech-API gebruiken voor de 
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) om uit te voeren van deze code op Windows. (De gratis Community-editie blijft werken.)
+U moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) om uit te voeren van deze code op Windows. (De gratis Community-editie volstaat.)
 
 U moet een wav-bestand met de naam 'speak.wav' in dezelfde map als het uitvoerbare bestand dat uit de onderstaande code worden gecompileerd. Dit WAV-bestand moet zich in de standard PCM, 16-bits, 16kHz mono-indeling. U vindt deze een wav-bestand van de [Text to Speech-API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
@@ -156,4 +156,4 @@ Geslaagd gevolg hiervan is het maken van een bestand met de naam 'speak2.wav'. H
 ## <a name="see-also"></a>Zie ook 
 
 [Overzicht van Translator Speech](../overview.md)
-[API-verwijzing](http://docs.microsofttranslator.com/speech-translate.html)
+[API-verwijzing](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

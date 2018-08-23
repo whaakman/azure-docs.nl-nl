@@ -10,12 +10,12 @@ ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 93440b8a1c9fd1b386931e5998c70133071a079e
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 14b51cc2ad2e8e0f294e5e73e542001e30d21c9d
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34823041"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918081"
 ---
 # <a name="azure-dev-spaces"></a>Azure Dev Spaces
 Azure Dev Spaces biedt een snelle, iteratieve Kubernetes-ontwikkelervaring voor teams. Met minimale instelling van ontwikkelingsmachines kunt u rechtstreeks in Azure Kubernetes Service (AKS) herhaaldelijk containers uitvoeren en fouten hierin opsporen. Ontwikkel in Windows, Mac of Linux met bekende hulpprogramma's zoals Visual Studio, Visual Studio Code of de opdrachtregel.

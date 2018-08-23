@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 05/30/2018
+ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6d8d911acf3e3eff2cf3340972b9b77a10be0a5f
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 79bdab4c7a867117f6473864f1654f77603f7b26
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "35645733"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42060104"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Ontwerpconcepten
 Het doel van dit document is om te beschrijven van de gebieden die moeten worden beschouwd door tijdens het implementatieontwerp van de van Azure AD Connect. Dit document is een gedetailleerde informatie over bepaalde gebieden en deze concepten worden kort beschreven in andere documenten.
@@ -72,20 +72,20 @@ Daarom gelden de volgende beperkingen naar Azure AD Connect:
 * Als u een andere Azure AD Connect-server installeert, moet u de dezelfde sourceAnchor-kenmerk zoals eerder gebruikt selecteren. Als u eerder hebt gebruikt als DirSync en verplaatsen naar Azure AD Connect, dan moet u **objectGUID** omdat dat het kenmerk wordt gebruikt door DirSync.
 * Als de waarde voor sourceAnchor wordt gewijzigd nadat is het object geëxporteerd naar Azure AD, klikt u vervolgens Azure AD Connect sync genereert een fout en kan geen wijzigingen meer op dat object voordat het probleem is opgelost en het sourceAnchor is gewijzigd in de bron-directeur y.
 
-## <a name="using-msds-consistencyguid-as-sourceanchor"></a>Met behulp van msDS-ConsistencyGuid as sourceAnchor
-Standaard Azure AD Connect (versie 1.1.486.0 en ouder) objectGUID gebruikt als het kenmerk sourceAnchor. ObjectGUID is door het systeem gegenereerd. U kunt de waarde bij het maken van on-premises AD-objecten niet opgeven. Zoals uitgelegd in de sectie [sourceAnchor](#sourceanchor), er zijn scenario's waarbij u moet de waarde sourceAnchor op te geven. Als de scenario's op u van toepassing zijn, moet u een configureerbare AD-kenmerk (bijvoorbeeld msDS-ConsistencyGuid) gebruiken als het kenmerk sourceAnchor.
+## <a name="using-ms-ds-consistencyguid-as-sourceanchor"></a>Met behulp van ms-DS-ConsistencyGuid as sourceAnchor
+Standaard Azure AD Connect (versie 1.1.486.0 en ouder) objectGUID gebruikt als het kenmerk sourceAnchor. ObjectGUID is door het systeem gegenereerd. U kunt de waarde bij het maken van on-premises AD-objecten niet opgeven. Zoals uitgelegd in de sectie [sourceAnchor](#sourceanchor), er zijn scenario's waarbij u moet de waarde sourceAnchor op te geven. Als de scenario's op u van toepassing zijn, moet u een configureerbare AD-kenmerk (bijvoorbeeld, ms-DS-ConsistencyGuid) als het kenmerk sourceAnchor.
 
-Azure AD Connect (versie 1.1.524.0 en hoger en na) nu vereenvoudigt het uitvoeren van het gebruik van msDS-ConsistencyGuid as sourceAnchor-kenmerk. Wanneer u deze functie gebruikt, configureert Azure AD Connect automatisch de synchronisatieregels op:
+Azure AD Connect (versie 1.1.524.0 en hoger en na) nu vereenvoudigt het uitvoeren van het gebruik van ms-DS-ConsistencyGuid as sourceAnchor-kenmerk. Wanneer u deze functie gebruikt, configureert Azure AD Connect automatisch de synchronisatieregels op:
 
-1. MsDS-ConsistencyGuid gebruiken als het kenmerk sourceAnchor voor gebruikersobjecten. ObjectGUID wordt gebruikt voor andere objecttypen.
+1. Ms-DS-ConsistencyGuid gebruiken als het kenmerk sourceAnchor voor gebruikersobjecten. ObjectGUID wordt gebruikt voor andere objecttypen.
 
-2. Voor een gegeven on-premises AD-gebruiker object waarvan het kenmerk msDS-ConsistencyGuid niet is ingevuld, Azure AD Connect schrijft de waarde objectGUID back-ups maken met het kenmerk msDS-ConsistencyGuid in on-premises Active Directory. Nadat het kenmerk msDS-ConsistencyGuid is ingevuld, wordt het object vervolgens geëxporteerd met Azure AD Connect naar Azure AD.
+2. Voor een gegeven on-premises AD-gebruiker object waarvan het kenmerk ms-DS-ConsistencyGuid niet is ingevuld, Azure AD Connect schrijft de waarde objectGUID back-ups maken met het kenmerk ms-DS-ConsistencyGuid in on-premises Active Directory. Nadat het kenmerk ms-DS-ConsistencyGuid is ingevuld, wordt het object vervolgens geëxporteerd met Azure AD Connect naar Azure AD.
 
 >[!NOTE]
-> Eenmaal een on-premises AD-object is geïmporteerd in Azure AD Connect (die is geïmporteerd in het AD-Connectorgebied en in de metaverse geprojecteerd), u kunt de waarde sourceAnchor niet meer wijzigen. De sourceAnchor op waarde opgeven voor een gegeven on-premises AD-object, configureren van het kenmerk msDS-ConsistencyGuid voordat het wordt geïmporteerd naar Azure AD Connect.
+> Eenmaal een on-premises AD-object is geïmporteerd in Azure AD Connect (die is geïmporteerd in het AD-Connectorgebied en in de metaverse geprojecteerd), u kunt de waarde sourceAnchor niet meer wijzigen. De sourceAnchor op waarde opgeven voor een gegeven on-premises AD-object, configureren van het kenmerk ms-DS-ConsistencyGuid voordat het wordt geïmporteerd naar Azure AD Connect.
 
 ### <a name="permission-required"></a>Machtiging is vereist
-Voor deze functie te gebruiken, moet de machtiging schrijven naar het kenmerk msDS-ConsistencyGuid in on-premises Active Directory op de AD DS-account gebruikt om te synchroniseren met on-premises Active Directory worden verleend.
+Voor deze functie te gebruiken, moet de machtiging schrijven naar het kenmerk ms-DS-ConsistencyGuid in on-premises Active Directory op de AD DS-account gebruikt om te synchroniseren met on-premises Active Directory worden verleend.
 
 ### <a name="how-to-enable-the-consistencyguid-feature---new-installation"></a>Het inschakelen van de functie ConsistencyGuid - nieuwe installatie
 U kunt het gebruik van ConsistencyGuid as sourceAnchor inschakelen tijdens de installatie van nieuwe. In deze sectie bevat informatie over zowel Express en aangepaste installatie in details.
@@ -104,7 +104,7 @@ Bij het installeren van Azure AD Connect met Express-modus, bepaalt de Azure AD 
   >[!NOTE]
   > Alleen nieuwere versies van Azure AD Connect (1.1.524.0 en hoger en na) informatie over het kenmerk sourceAnchor stores in uw Azure AD-tenant die tijdens de installatie wordt gebruikt. Oudere versies van Azure AD Connect niet.
 
-* Als u informatie over het kenmerk sourceAnchor gebruikt niet beschikbaar is, controleert de wizard de status van het kenmerk msDS-ConsistencyGuid in uw on-premises Active Directory. Als het kenmerk is niet geconfigureerd op een object in de directory, gebruikt de wizard de msDS-ConsistencyGuid als het kenmerk sourceAnchor. Als het kenmerk is geconfigureerd op een of meer objecten in de map, wordt de wizard is het kenmerk wordt gebruikt door andere toepassingen en is niet geschikt als sourceAnchor-kenmerk...
+* Als u informatie over het kenmerk sourceAnchor gebruikt niet beschikbaar is, controleert de wizard de status van het kenmerk ms-DS-ConsistencyGuid in uw on-premises Active Directory. Als het kenmerk is niet geconfigureerd op een object in de directory, gebruikt de wizard ms-DS-ConsistencyGuid als het kenmerk sourceAnchor. Als het kenmerk is geconfigureerd op een of meer objecten in de map, wordt de wizard is het kenmerk wordt gebruikt door andere toepassingen en is niet geschikt als sourceAnchor-kenmerk...
 
 * In dat geval de wizard terugvalt op het gebruik objectGUID als het kenmerk sourceAnchor.
 
@@ -140,7 +140,7 @@ Overschakelen van objectGUID naar ConsistencyGuid als het kenmerk Bronanker:
 
 3. Voer de referenties van uw Azure AD-beheerder en klik op **volgende**.
 
-4. Azure AD Connect-wizard analyseert de status van het kenmerk msDS-ConsistencyGuid in uw on-premises Active Directory. Als het kenmerk niet is geconfigureerd op een object in de directory, Azure AD Connect dat er geen andere toepassing momenteel wordt gebruikt door het kenmerk en is veilig om te gebruiken als het kenmerk Bronanker wordt afgesloten. Klik op **volgende** om door te gaan.
+4. Azure AD Connect-wizard analyseert de status van het kenmerk ms-DS-ConsistencyGuid in uw on-premises Active Directory. Als het kenmerk niet is geconfigureerd op een object in de directory, Azure AD Connect dat er geen andere toepassing momenteel wordt gebruikt door het kenmerk en is veilig om te gebruiken als het kenmerk Bronanker wordt afgesloten. Klik op **volgende** om door te gaan.
 
    ![ConsistencyGuid inschakelen voor bestaande implementatie - stap 4](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment02.png)
 
@@ -148,7 +148,7 @@ Overschakelen van objectGUID naar ConsistencyGuid als het kenmerk Bronanker:
 
    ![ConsistencyGuid inschakelen voor bestaande implementatie - stap 5](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment03.png)
 
-6. Nadat de configuratie is voltooid, wordt de wizard geeft aan dat msDS-ConsistencyGuid nu als het kenmerk Bronanker wordt gebruikt.
+6. Nadat de configuratie is voltooid, wordt de wizard geeft aan dat ms-DS-ConsistencyGuid nu als het kenmerk Bronanker wordt gebruikt.
 
    ![ConsistencyGuid inschakelen voor bestaande implementatie - stap 6](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment04.png)
 
@@ -170,7 +170,7 @@ Als u AD FS buiten Azure AD Connect beheert of als u externe federation-servers 
 ![Externe federation-configuratie](./media/active-directory-aadconnect-design-concepts/consistencyGuid-03.png)
 
 ### <a name="adding-new-directories-to-existing-deployment"></a>Nieuwe mappen toevoegen aan bestaande implementatie
-Stel dat u Azure AD Connect hebt geïmplementeerd met de functie ConsistencyGuid is ingeschakeld, en nu u wilt een andere map toevoegen aan de implementatie. Wanneer u probeert toe te voegen van de map, controleert Azure AD Connect-wizard in de status van het kenmerk mSDS-ConsistencyGuid in de map. Als het kenmerk is geconfigureerd op een of meer objecten in de map, wordt de wizard concludeert het kenmerk wordt gebruikt door andere toepassingen en een foutmelding zoals wordt geïllustreerd in het onderstaande diagram. Als u er zeker van zijn dat het kenmerk wordt niet door bestaande toepassingen gebruikt, moet u contact op met ondersteuning voor meer informatie over het onderdrukken van de fout.
+Stel dat u Azure AD Connect hebt geïmplementeerd met de functie ConsistencyGuid is ingeschakeld, en nu u wilt een andere map toevoegen aan de implementatie. Wanneer u probeert toe te voegen van de map, controleert Azure AD Connect-wizard in de status van het kenmerk ms-DS-ConsistencyGuid in de map. Als het kenmerk is geconfigureerd op een of meer objecten in de map, wordt de wizard concludeert het kenmerk wordt gebruikt door andere toepassingen en een foutmelding zoals wordt geïllustreerd in het onderstaande diagram. Als u er zeker van zijn dat het kenmerk wordt niet door bestaande toepassingen gebruikt, moet u contact op met ondersteuning voor meer informatie over het onderdrukken van de fout.
 
 ![Nieuwe mappen toevoegen aan bestaande implementatie](./media/active-directory-aadconnect-design-concepts/consistencyGuid-04.png)
 

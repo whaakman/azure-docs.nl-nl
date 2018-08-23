@@ -2,19 +2,19 @@
 title: Meer informatie over extraheren, laden en overdragen met Azure Databricks
 description: Leer hoe u gegevens uit Data Lake Store Storage Gen2 Preview extraheert en overdraagt naar Azure Databricks, de gegevens transformeert en vervolgens laadt in Azure SQL Data Warehouse.
 services: azure-databricks
-author: jamesbak
-ms.component: data-lake-storage-gen2
 ms.service: azure-databricks
+author: jamesbak
+ms.author: jamesbak
+ms.reviewer: jasonwhowell
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.author: jamesbak
-ms.openlocfilehash: dcc0cb6d761fde5af16dbc86c674e2fc00dad58a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ed8230b76300d6b7fee06761133ebbea779fe3cb
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522285"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41919505"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Zelfstudie: Gegevens extraheren, transformeren en laden met behulp van Azure Databricks
 

@@ -1,6 +1,6 @@
 ---
 title: Coderen of decoderen van platte bestanden in Azure logic apps | Microsoft Docs
-description: Over het gebruik van het bestand file encoder of decoder in de Enterprise Integration Pack in uw logische apps
+description: Over het gebruik van het coderingsprogramma van bestand of de decoder in de Enterprise Integration Pack in uw logische apps
 services: logic-apps
 documentationcenter: .net,nodejs,java
 author: divyaswarnkar
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; divswa
-ms.openlocfilehash: 4c8ac7aa3ccafaf14c0399860f3576430dd6ba1a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b13e8da04c984456027f152f5af63cfa6604ddc4
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429995"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42054239"
 ---
 # <a name="overview-of-enterprise-integration-with-flat-files"></a>Overzicht van de enterprise integration met platte bestanden
 

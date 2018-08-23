@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: f9d962b96df760d1382439abcd80eb21fef62128
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 6cf7f35e60502d0e21ffa2b777f1700a57add965
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530760"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42059426"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Azure PowerShell gebruiken met Azure Storage
 
@@ -215,7 +215,6 @@ Nu dat u hoe u begrijpt voor het beheren van uw storage-account met PowerShell, 
 Azure Cosmos DB Table-API biedt premium-functies voor tabelopslag, zoals kant en klare wereldwijde distributie, leesbewerkingen met lage latentie en schrijfbewerkingen, automatische secundaire indexering en speciaal toegewezen doorvoer. 
 
 * Zie voor meer informatie, [Azure Cosmos DB Table-API](../../cosmos-db/table-introduction.md). 
-* Zie voor meer informatie over het gebruik van PowerShell Azure Cosmos DB Table-API-bewerkingen uit te voeren, [uitvoeren van Azure Cosmos DB Table-API-bewerkingen met PowerShell](../../cosmos-db/table-powershell.md).
 
 ## <a name="independent-cloud-deployments-of-azure"></a>Onafhankelijke implementaties van Azure
 

@@ -5,15 +5,15 @@ services: storage
 author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 08/13/2018
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: aaae191baaa7b712c77d93303ded777afe97c249
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a0e2400163433ba5290525d0fe807ede624a31ed
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531129"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42059435"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Gegevens overdragen met het AzCopy voor Windows
 AzCopy is een opdrachtregelprogramma voor het kopiëren van gegevens naar/van Microsoft Azure Blob-, bestands- en Table-opslag met behulp van eenvoudige opdrachten die zijn ontworpen voor optimale prestaties. U kunt gegevens tussen een bestandssysteem en een opslagaccount of tussen opslagaccounts kopiëren.  
@@ -22,16 +22,16 @@ Er zijn twee versies van AzCopy die u kunt downloaden. AzCopy in Windows biedt W
 
 ## <a name="download-and-install-azcopy-on-windows"></a>Download en installeer AzCopy op Windows
 
-### <a name="latest-preview-version-v800"></a>Meest recente Preview-versie (v8.0.0)
-Download de [meest recente preview-versie van AzCopy in Windows](https://aka.ms/downloadazcopypr). Deze Preview-versie biedt aanzienlijke prestatieverbeteringen en .NET Core-pakketten in de installatie.
+### <a name="latest-version-v81"></a>Meest recente versie (v8.1)
+Download de [meest recente versie van AzCopy in Windows](https://aka.ms/downloadazcopy).
 
-#### <a name="azcopy-on-windows-80-preview-release-notes"></a>AzCopy in Windows 8.0 Preview Release-opmerkingen
-- Table-service wordt niet meer ondersteund in de meest recente versie. Als u de exportfunctie tabel, download de stabiele versie.
+#### <a name="azcopy-on-windows-81-release-notes"></a>AzCopy in Windows 8.1 opmerkingen bij de Release
+- Table-service wordt niet meer ondersteund in de meest recente versie. Als u de exportfunctie tabel, download u AzCopy 7.3-versie.
 - Gebouwd met .NET Core 2.1 en alle afhankelijkheden van .NET Core worden nu geleverd bij de installatie.
-- Aanzienlijke prestatieverbeteringen voor zowel bij het uploaden en downloaden van scenario 's
+- Toegevoegde ondersteuning voor OAuth-verificatie. Gebruik ```azcopy login``` om aan te melden met behulp van Azure Active Directory.
 
-### <a name="latest-stable-version-v710"></a>Laatste stabiele versie (v7.1.0)
-Download de [laatste stabiele versie van AzCopy in Windows](https://aka.ms/downloadazcopy).
+### <a name="azcopy-with-table-support-v73"></a>Azcopy met ondersteuning voor tabel (v7.3)
+Download de [AzCopy 7.3 met ondersteuning voor tabel](https://aka.ms/downloadazcopynet).
 
 ### <a name="post-installation-step"></a>Stap na de installatie
 

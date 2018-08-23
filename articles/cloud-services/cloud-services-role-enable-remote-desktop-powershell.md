@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 1b1aa8105ab90b0016863f0bf3c47f6aa815d3e7
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: c5b70d40ed43cfc5d1c7a826c639d00d394733fb
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001031"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42055666"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Verbinding met extern bureaublad inschakelen voor een rol in Azure Cloud Services met behulp van PowerShell
 
@@ -34,7 +34,7 @@ In dit artikel wordt beschreven hoe u extern bureaublad inschakelen op uw Cloud 
 
 ## <a name="configure-remote-desktop-from-powershell"></a>Extern bureaublad vanuit PowerShell configureren
 
-De [Set AzureServiceRemoteDesktopExtension](/powershell/module/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet kunt u extern bureaublad inschakelen op de opgegeven rollen of alle functies van uw cloud service-implementatie. De cmdlet kunt u de gebruikersnaam en wachtwoord opgeven voor de extern bureaublad-gebruiker via de *referentie* parameter een PSCredential-object accepteert.
+De [Set AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet kunt u extern bureaublad inschakelen op de opgegeven rollen of alle functies van uw cloud service-implementatie. De cmdlet kunt u de gebruikersnaam en wachtwoord opgeven voor de extern bureaublad-gebruiker via de *referentie* parameter een PSCredential-object accepteert.
 
 Als u PowerShell interactief gebruikt, kunt u eenvoudig de PSCredential-object instellen door het aanroepen van de [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx) cmdlet.
 
@@ -57,7 +57,7 @@ ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-S
 
 Voor het maken van het referentieobject uit het bestand beveiligd-wachtwoordverificatie, moet u de inhoud van het bestand lezen en terug te converteren naar een beveiligde tekenreeks met [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
 
-De [Set AzureServiceRemoteDesktopExtension](/powershell/module/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet accepteert ook een *verlopen* parameter, die Hiermee geeft u een **datum-/** aan het gebruikersaccount dat is verlopen. U kunt bijvoorbeeld het account verloopt binnenkort een paar dagen vanaf de huidige datum en tijd instellen.
+De [Set AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet accepteert ook een *verlopen* parameter, die Hiermee geeft u een **datum-/** aan het gebruikersaccount dat is verlopen. U kunt bijvoorbeeld het account verloopt binnenkort een paar dagen vanaf de huidige datum en tijd instellen.
 
 Dit PowerShell-voorbeeld laat zien hoe de extern bureaublad-extensie op een cloudservice instellen:
 
@@ -75,7 +75,7 @@ De extern bureaublad-extensie is gekoppeld aan een implementatie. Als u een nieu
 
 ## <a name="remote-desktop-into-a-role-instance"></a>Extern bureaublad in een rolinstantie
 
-De [Get-AzureRemoteDesktopFile](/powershell/module/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) cmdlet wordt gebruikt voor het externe bureaublad naar een specifieke rol exemplaar van uw cloudservice. U kunt de *LocalPath* parameter voor het downloaden van de RDP-bestand lokaal. Of u kunt de *starten* parameter voor het dialoogvenster verbinding met extern bureaublad voor toegang tot de cloudservicerolinstantie rechtstreeks te starten.
+De [Get-AzureRemoteDesktopFile](/powershell/module/servicemanagement/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) cmdlet wordt gebruikt voor het externe bureaublad naar een specifieke rol exemplaar van uw cloudservice. U kunt de *LocalPath* parameter voor het downloaden van de RDP-bestand lokaal. Of u kunt de *starten* parameter voor het dialoogvenster verbinding met extern bureaublad voor toegang tot de cloudservicerolinstantie rechtstreeks te starten.
 
 ```
 Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
@@ -83,7 +83,7 @@ Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -L
 
 ## <a name="check-if-remote-desktop-extension-is-enabled-on-a-service"></a>Controleer of de extern bureaublad-extensie is ingeschakeld op een service
 
-De [Get-AzureServiceRemoteDesktopExtension](/powershell/module/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) cmdlet geeft weer die extern bureaublad is ingeschakeld of uitgeschakeld op een service-implementatie. De cmdlet retourneert de gebruikersnaam voor de extern bureaublad-gebruiker en de functies die voor de extern bureaublad-uitbreiding is ingeschakeld. Dit gebeurt op de implementatiesleuf standaard, en u kunt in plaats daarvan de staging-site gebruiken.
+De [Get-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) cmdlet geeft weer die extern bureaublad is ingeschakeld of uitgeschakeld op een service-implementatie. De cmdlet retourneert de gebruikersnaam voor de extern bureaublad-gebruiker en de functies die voor de extern bureaublad-uitbreiding is ingeschakeld. Dit gebeurt op de implementatiesleuf standaard, en u kunt in plaats daarvan de staging-site gebruiken.
 
 ```
 Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
@@ -93,7 +93,7 @@ Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
 
 Als u de extern bureaublad-extensie op een implementatie al hebt ingeschakeld en moet de instellingen voor extern bureaublad, moet u eerst de extensie verwijderen. En deze opnieuw inschakelen met de nieuwe instellingen. Bijvoorbeeld, als u wilt een nieuw wachtwoord voor het externe gebruikersaccount instellen of het account is verlopen. Dit is vereist op bestaande implementaties waarvoor het externe bureaublad uitbreiding is ingeschakeld. Voor nieuwe implementaties kunt u de extensie gewoon rechtstreeks toepassen.
 
-Als u wilt de extern bureaublad-extensie verwijderen uit de implementatie, kunt u de [Remove-AzureServiceRemoteDesktopExtension](/powershell/module/azure/remove-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet. U kunt eventueel ook de implementatiesleuf en de rol van waaruit u wilt verwijderen van de extern bureaublad-extensie opgeven.
+Als u wilt de extern bureaublad-extensie verwijderen uit de implementatie, kunt u de [Remove-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure/remove-azureserviceremotedesktopextension?view=azuresmps-3.7.0) cmdlet. U kunt eventueel ook de implementatiesleuf en de rol van waaruit u wilt verwijderen van de extern bureaublad-extensie opgeven.
 
 ```
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration

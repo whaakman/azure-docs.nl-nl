@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: d093aa6119b5ab316e5ffba77806e10cd067b032
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 3ae2e883e3e27adc167b7e831ca53d3cd1572257
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626808"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42058671"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory bewijs van concept playbook: bouwstenen
 
@@ -185,7 +185,7 @@ Geschatte tijd om te voltooien: 15 minuten
 | --- | --- |
 | De browserextensie installeren | [Deelvenster-extensie voor toegang voor Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Deelvenster-extensie voor toegang voor Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Deelvenster-extensie voor toegang voor Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configureren van de toepassing van de galerie | [Wat is er nieuw in Enterprise Application management in Azure Active Directory: de nieuwe en verbeterde toepassingsgalerie](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configureren van SSO-wachtwoord | [Beheren van eenmalige aanmelding voor zakelijke apps in de nieuwe Azure portal: wachtwoord gebaseerde aanmelding](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Configureren van SSO-wachtwoord | [Beheren van eenmalige aanmelding voor zakelijke apps in de nieuwe Azure portal: wachtwoord gebaseerde aanmelding](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | De app toewijzen aan de groep in de vereisten zijn geïdentificeerd | [Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Meld u aan bij https://myapps.microsoft.com/ als een testgebruiker die toegang heeft |  |
 | Klik op de tegel voor de toepassing die zojuist is gemaakt. | [Wat is het toegangsvenster?: wachtwoord gebaseerde SSO zonder in te richten van identiteit](user-help/active-directory-saas-access-panel-introduction.md#password-based-sso-without-identity-provisioning) |
@@ -220,7 +220,7 @@ Geschatte tijd om te voltooien: 30 minuten
 | --- | --- |
 | De browserextensie installeren | [Deelvenster-extensie voor toegang voor Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Deelvenster-extensie voor toegang voor Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Deelvenster-extensie voor toegang voor Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configureren van de toepassing van de galerie | [Wat is er nieuw in Enterprise Application management in Azure Active Directory: de nieuwe en verbeterde toepassingsgalerie](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
-| Configureren van SSO-wachtwoord | [Beheren van eenmalige aanmelding voor zakelijke apps in de nieuwe Azure portal: wachtwoord gebaseerde aanmelding](manage-apps/configure-single-sign-on-portal.md#password-based-sign-on) |
+| Configureren van SSO-wachtwoord | [Beheren van eenmalige aanmelding voor zakelijke apps in de nieuwe Azure portal: wachtwoord gebaseerde aanmelding](manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work).|
 | De app toewijzen aan de groep die is geïdentificeerd in de vereisten bij het toewijzen van referenties | [Een gebruiker of groep toewijzen aan een enterprise-app in Azure Active Directory](manage-apps/assign-user-or-group-access-portal.md) |
 | Aanmelden als andere gebruikers toegang tot de app als de **hetzelfde gedeelde account.**  |  |
 | Eventueel kunt u de toepassing gebruiksrapporten controleren. Let op: Er is enige vertraging, daarom moet u wachten tot enige tijd om te zien van het verkeer in de rapporten. | [Rapporten van aanmeldingsactiviteiten in de Azure Active Directory-portal: gebruik van beheerde toepassingen](reports-monitoring/concept-sign-ins.md#usage-of-managed-applications)<br/>[Azure Active Directory report retention policies](reports-monitoring/reference-reports-data-retention.md) (Retentiebeleid voor Azure Active Directory-rapporten) |

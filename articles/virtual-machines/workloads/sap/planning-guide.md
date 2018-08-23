@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: da7d3898e1385119c8241efc89c68a6a60c29994
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: a64c27b9634e2da6b0c46c5233b9ed5c61aea282
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619087"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42054646"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuele Machines, planning en implementatie van SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1017,7 +1017,7 @@ Een bestaande virtuele machine of een VHD uploaden van de on-premises netwerk om
 * Gebruik *sysprep* op Windows of *waagent-inrichting* op Linux om te generaliseren van uw virtuele machine - Zie [technische documentatie van Sysprep](https://technet.microsoft.com/library/cc766049.aspx) voor Windows of [vastleggen een Virtuele Linux-machine om te gebruiken als een Resource Manager-sjabloon] [ capture-image-linux-step-2-create-vm-image] voor Linux
 * Uploaden van de VHD met Powershell of Azure CLI
 * (Optioneel) De installatiekopie van een beheerde schijf van de VHD met Powershell, Azure CLI of Azure portal maken
-* Implementeer de virtuele machine met een JSON-sjabloon die verwijst naar de VHD-installatiekopie, zoals wordt weergegeven in [deze voorbeeld-JSON-sjabloon](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/sap-2-tier-user-image/azuredeploy.json) of met behulp van de beheerde schijf zoals wordt weergegeven in [deze voorbeeld-JSON-sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
+* Implementeer de virtuele machine met een JSON-sjabloon die verwijst naar de VHD-installatiekopie, zoals wordt weergegeven in [deze voorbeeld-JSON-sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-specialized-vhd-new-or-existing-vnet/azuredeploy.json) of met behulp van de beheerde schijf zoals wordt weergegeven in [deze voorbeeld-JSON-sjabloon](https://github.com/Azure/azure-quickstart-templates/blob/master/sap-2-tier-user-image-md/azuredeploy.json).
 
 #### <a name="downloading-vhds-or-managed-disks-to-on-premises"></a>Virtuele harde schijven of beheerde schijven downloaden naar on-premises
 Azure-infrastructuur als een Service is niet een eenzijdige straat alleen te kunnen uploaden VHD's en SAP systemen. U kunt verplaatsen SAP-systemen vanaf Azure back-ups maken in de on-premises wereld.

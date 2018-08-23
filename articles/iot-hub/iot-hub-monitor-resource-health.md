@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/09/2017
+ms.date: 08/09/2018
 ms.author: kgremban
-ms.openlocfilehash: 39171f7d7a7b27ec54f67b592e184e90134a1a52
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c7d8631a8e7b99cca8f84ea1011c361db01e399e
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611368"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42059431"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Controleer de status van Azure IoT Hub en snel problemen vaststellen
 
@@ -58,7 +58,7 @@ De verbindingen categorie nummers apparaat verbinding maken en gebeurtenissen lo
 }
 ```
 
-#### <a name="cloud-to-device-commands"></a>Cloud-naar-apparaatopdrachten
+#### <a name="cloud-to-device-commands"></a>Cloud-naar-apparaat-opdrachten
 
 De categorie cloud-naar-apparaatopdrachten houdt bij of fouten die optreden bij de IoT-hub en zijn gerelateerd aan de pijplijn cloud-naar-apparaat bericht. Deze categorie bevat fouten die optreden bij het verzenden van berichten van cloud-naar-apparaat (zoals niet-geautoriseerde afzender), het ontvangen van berichten van cloud-naar-apparaat (zoals aantal bezorgingen is overschreden) en het ontvangen van feedback van cloud-naar-apparaat bericht (zoals feedback verlopen). Deze categorie geen fouten van een apparaat dat een cloud-naar-apparaat-bericht niet goed verwerkt als de cloud-naar-apparaat-bericht met succes is afgeleverd af.
 
@@ -155,7 +155,7 @@ Deze categorie worden geen fouten die optreden wanneer het apparaat een bestand 
 
 #### <a name="cloud-to-device-twin-operations"></a>Cloud-naar-apparaat dubbele bewerkingen
 
-De categorie van cloud-naar-apparaat dubbele bewerkingen bijgehouden service geïnitieerde gebeurtenissen op dubbele apparaten. Deze bewerkingen kunnen get dubbele opnemen, gerapporteerde eigenschappen bij te werken en Abonneer u op de gewenste eigenschappen
+De categorie van cloud-naar-apparaat dubbele bewerkingen bijgehouden service geïnitieerde gebeurtenissen op dubbele apparaten. Deze bewerkingen kunnen bevatten dubbele ophalen, bijwerken of vervangen van tags, en bijwerken of vervangen gewenste eigenschappen. 
 
 ```json
 {
@@ -172,7 +172,7 @@ De categorie van cloud-naar-apparaat dubbele bewerkingen bijgehouden service ge�
 
 #### <a name="device-to-cloud-twin-operations"></a>Dubbele apparaat-naar-cloud-bewerkingen
 
-De categorie van het dubbele apparaat-naar-cloud-bewerkingen bijgehouden apparaat geïnitieerde gebeurtenissen op dubbele apparaten. Deze bewerkingen kunnen bevatten dubbele ophalen, bijwerken of vervangen van tags, en bijwerken of vervangen gewenste eigenschappen. 
+De categorie van het dubbele apparaat-naar-cloud-bewerkingen bijgehouden apparaat geïnitieerde gebeurtenissen op dubbele apparaten. Deze bewerkingen kunnen get dubbele opnemen, gerapporteerde eigenschappen bij te werken en Abonneer u op de gewenste eigenschappen.
 
 ```json
 {
@@ -223,7 +223,7 @@ De categorie van de bewerkingen taken rapporteert over taakaanvragen voor het bi
 
 #### <a name="direct-methods"></a>Directe methoden
 
-De categorie directe methoden, aanvraag-respons interacties verzonden naar afzonderlijke apparaten worden bijgehouden. Deze aanvragen worden gestart in de cloud. 
+De categorie directe methoden houdt request response-interacties verzonden naar afzonderlijke apparaten. Deze aanvragen worden gestart in de cloud. 
 
 ```json
 {

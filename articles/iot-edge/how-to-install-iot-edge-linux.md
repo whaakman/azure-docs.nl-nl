@@ -7,14 +7,14 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 08/14/2018
 ms.author: kgremban
-ms.openlocfilehash: be8fb801acfb625685604a302051d813bfd97939
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 5cd12d4fab97f295cad1e0ea06112fc53e376b12
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325299"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42060151"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>De Azure IoT Edge-runtime installeren in Linux (x64)
 
@@ -128,6 +128,9 @@ Na het invoeren van de Inrichtingsgegevens in de configuratie, start u de daemon
 ```cmd/sh
 sudo systemctl restart iotedge
 ```
+
+>[!TIP]
+>U moet verhoogde bevoegdheden hebben om uit te voeren `iotedge` opdrachten. Nadat u uw computer afmelden en meld u opnieuw aan de eerste keer na de installatie van de IoT Edge-runtime, worden de machtigingen automatisch bijgewerkt. Gebruik tot die tijd kun **sudo** vóór de opdrachten. 
 
 ## <a name="verify-successful-installation"></a>Controleer of geslaagde installatie
 

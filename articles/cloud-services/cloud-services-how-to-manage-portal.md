@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 3e4520df5c1ca8477abf5a9c4b4e7e124bb38282
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e9f4153c68f0a2a4ce83f900ff63152311163ff6
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005754"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42056825"
 ---
 # <a name="manage-cloud-services-in-the-azure-portal"></a>Cloud Services beheren in Azure portal
 In de **Cloudservices** gebied van Azure portal, kunt u:
@@ -83,7 +83,7 @@ Er zijn twee belangrijke vereisten voor een geslaagde implementatie wisselen:
 
 - Als u een statisch IP-adres voor uw productiesite gebruiken wilt, moet u één voor de staging-site ook reserveren. Anders mislukt de wisseling.
 
-- Alle exemplaren van de rollen moeten worden uitgevoerd voordat u de wisseling kunt uitvoeren. U kunt de status van uw instanties controleren op de **overzicht** blade van de Azure-portal. U kunt ook kunt u de [Get-AzureRole](/powershell/module/azure/get-azurerole?view=azuresmps-3.7.0) opdracht in Windows PowerShell.
+- Alle exemplaren van de rollen moeten worden uitgevoerd voordat u de wisseling kunt uitvoeren. U kunt de status van uw instanties controleren op de **overzicht** blade van de Azure-portal. U kunt ook kunt u de [Get-AzureRole](/powershell/module/servicemanagement/azure/get-azurerole?view=azuresmps-3.7.0) opdracht in Windows PowerShell.
 
 Houd er rekening mee dat Gast-OS-updates en service healing bewerkingen ook leiden implementatie swaps tot kunnen mislukken. Zie voor meer informatie, [problemen met cloud service-implementatie oplossen](cloud-services-troubleshoot-deployment-problems.md).
 

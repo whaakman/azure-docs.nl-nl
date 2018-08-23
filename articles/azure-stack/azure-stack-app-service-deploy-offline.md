@@ -1,6 +1,6 @@
 ---
-title: App Service implementeren in een offline-omgeving in Azure-Stack | Microsoft Docs
-description: Gedetailleerde richtlijnen voor het App Service implementeren in een omgeving zonder verbinding Azure Stack beveiligd met AD FS.
+title: App Service implementeren in een offline-omgeving in Azure Stack | Microsoft Docs
+description: Gedetailleerde instructies over het App Service implementeren in een niet-verbonden Azure Stack-omgeving beveiligd door AD FS.
 services: azure-stack
 documentationcenter: ''
 author: apwestgarth
@@ -12,188 +12,198 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 08/15/2018
 ms.author: anwestg
-ms.openlocfilehash: 7084243c0fc84429b585c3e8fd9e5c64df469ec4
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 9e36e470c3516c55089ce1e44540b6b1eacbb6b2
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34604281"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42056632"
 ---
-# <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Een App Service-resourceprovider toevoegen aan een Azure-Stack omgeving zonder verbinding beveiligd met AD FS
+# <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Een App Service-resourceprovider toevoegen aan een niet-verbonden Azure Stack-omgeving beveiligd door AD FS
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 > [!IMPORTANT]
-> De update 1804 toepassen op uw Azure-Stack geïntegreerd systeem of de nieuwste Azure-Stack development kit implementeren voordat u Azure App Service 1.2 implementeert.
+> De update 1807 toepassen op uw geïntegreerde Azure Stack-systeem of de meest recente Azure Stack development kit implementeren voordat u Azure App Service 1.3 implementeert.
 >
 >
 
-Volg de instructies in dit artikel, kunt u de [App Service-resourceprovider](azure-stack-app-service-overview.md) naar een Azure-Stack-omgeving is:
+Door de instructies in dit artikel te volgen, kunt u de [App Service-resourceprovider](azure-stack-app-service-overview.md) in een Azure Stack-omgeving die is:
 
 - niet verbonden met Internet
 - beveiligd door Active Directory Federation Services (AD FS).
 
-Als de App Service-resourceprovider toevoegen aan uw offline Azure Stack-implementatie, moet u deze op het hoogste niveau taken uitvoeren:
+De App Service-resourceprovider toevoegen aan uw offline Azure Stack-implementatie, moet u deze op het hoogste niveau taken uitvoeren:
 
-1. Voltooi de [vereiste stappen](azure-stack-app-service-before-you-get-started.md) (zoals de aanschaf van certificaten die kan duren ontvangt een paar dagen).
+1. Voltooi de [vereiste stappen](azure-stack-app-service-before-you-get-started.md) (zoals de aanschaf van certificaten, die kan een paar dagen duren voor het ontvangen van).
 2. [Downloaden en uitpakken van de installatie en Help-bestanden](azure-stack-app-service-before-you-get-started.md) op een computer die is verbonden met Internet.
-3. Maak een pakket offline-installatie.
+3. Een offline-installatiepakket maken.
 4. Voer het installatiebestand appservice.exe.
 
-## <a name="create-an-offline-installation-package"></a>Maken van een offline-installatie-pakket
+## <a name="create-an-offline-installation-package"></a>Een offline-installatiepakket maken
 
-Voor het App Service implementeren in een omgeving zonder verbinding, moet u eerst een offline-installatie-pakket op een computer die verbonden met Internet maken.
+Voor het implementeren van App Service in een omgeving zonder verbinding, moet u eerst een offline-installatiepakket maken op een computer die verbonden met Internet.
 
-1. Het installatieprogramma AppService.exe uitvoeren op een computer die verbonden met Internet.
+1. Voer het installatieprogramma AppService.exe op een computer die verbonden met Internet.
 
-2. Klik op **Geavanceerd** > **maken offline installatiepakket**.
+2. Klik op **Geavanceerd** > **offline-installatiepakket maken**.
 
-    ![App Service-installatie][1]
+    ![App Service-installatieprogramma][1]
 
-3. Het App Service-installatieprogramma maakt een offline-installatiepakket en het pad naar het wordt weergegeven. U kunt klikken op **map openen** de map in de Verkenner openen.
+3. Het App Service-installatieprogramma maakt een offline-installatiepakket en het pad naar deze wordt weergegeven. U kunt klikken op **map openen** de map in de Verkenner te openen.
 
-    ![App Service-installatie](media/azure-stack-app-service-deploy-offline/image02.png)
+    ![App Service-installatieprogramma](media/azure-stack-app-service-deploy-offline/image02.png)
 
-4. Kopieer het installatieprogramma (AppService.exe) en het pakket offline-installatie naar uw Azure-Stack-hostcomputer.
+4. Kopieer het installatieprogramma (AppService.exe) en de offline-installatiepakket naar uw Azure Stack-hostmachine.
 
-## <a name="complete-the-offline-installation-of-app-service-on-azure-stack"></a>De offline-installatie van App-Service op Azure-Stack voltooid
+## <a name="complete-the-offline-installation-of-app-service-on-azure-stack"></a>Voltooi de offline-installatie van App Service in Azure Stack
 
-1. Appservice.exe als administrator uitvoeren vanaf een computer die de Azure-Stack Admin Azure Resource Management-eindpunt kan bereiken.
+1. Appservice.exe als beheerder uitvoeren vanaf een computer die de Azure Stack Admin Azure Resource Manager-eindpunt kan bereiken.
 
 2. Klik op **Geavanceerd** > **offline-installatie voltooien**.
 
-    ![App Service-installatie][2]
+    ![App Service-installatieprogramma][2]
 
-3. Blader naar de locatie van het offline installatiepakket die u eerder hebt gemaakt en klik vervolgens op **volgende**.
+3. Blader naar de locatie van het offline-installatie-pakket dat u eerder hebt gemaakt en klik vervolgens op **volgende**.
 
-    ![App Service-installatie](media/azure-stack-app-service-deploy-offline/image04.png)
+    ![App Service-installatieprogramma](media/azure-stack-app-service-deploy-offline/image04.png)
 
 4. Controleer en accepteer de licentievoorwaarden voor Microsoft-Software en klik vervolgens op **volgende**.
 
 5. Controleer en accepteer de licentievoorwaarden van derden en klik vervolgens op **volgende**.
 
-6. Zorg ervoor dat de App Service-cloud-configuratie-informatie juist is. Als u de standaardinstellingen tijdens de implementatie van Azure Stack Development Kit gebruikt, kunt u hier de standaardwaarden accepteren. Als u de opties aangepast wanneer u Azure-Stack geïmplementeerd of op een geïntegreerd systeem implementeert, moet u de waarden in dit venster om weer te geven die bewerken. Als u het domein achtervoegsel mycloud.com gebruikt, kunt u voor uw Azure Stack Tenant Azure Resource Manager-eindpunt, moet wijzigen naar management. <region>. mycloud.com. Nadat u uw gegevens bevestigen, klikt u op **volgende**.
+6. Zorg ervoor dat de App Service-cloud-configuratie-informatie juist is. Als u de standaardinstellingen tijdens de implementatie van Azure Stack Development Kit gebruikt, kunt u hier de standaardwaarden accepteren. Als u de opties aangepast wanneer u Azure Stack geïmplementeerd of op een geïntegreerd systeem implementeert, moet u de waarden in dit venster om weer te geven die bewerken. Als u de domein-achtervoegsel mycloud.com gebruikt, kunt u voor uw Azure Stack Tenant Azure Resource Manager-eindpunt, moet wijzigen voor beheer. <region>. mycloud.com. Nadat u uw gegevens bevestigen, klikt u op **volgende**.
 
-    ![App Service-installatie][3]
+    ![App Service-installatieprogramma][3]
 
 7. Op de volgende pagina:
-    1. Klik op de **Connect** naast de **Stack-Azure-abonnementen** vak.
+    1. Klik op de **Connect** naast de **Azure Stack-abonnementen** vak.
         - Geef uw beheerdersaccount. Bijvoorbeeld cloudadmin@azurestack.local. Voer uw wachtwoord in en klikt u op **aanmelden**.
-    2. In de **Stack-Azure-abonnementen** de optie de **Provider-abonnement standaard**.
+    2. In de **Azure Stack-abonnementen** Schakel de **Providerabonnement standaard**.
     
     > [!NOTE]
-    > App Service kan alleen worden geïmplementeerd in de **Provider-abonnement standaard** op dit moment.  In een toekomstige update App Service implementeert in het nieuwe abonnement softwarelicentiecontrole geïntroduceerd in Azure Stack 1804 en alle bestaande implementaties worden gemigreerd naar het nieuwe abonnement ook.
+    > App Service kan alleen worden geïmplementeerd in de **Providerabonnement standaard** op dit moment.  App Service wordt in een toekomstige update implementeren in het nieuwe abonnement meten die is geïntroduceerd in Azure Stack 1804 en alle bestaande implementaties worden gemigreerd naar het nieuwe abonnement ook.
     >
     >
     
-    3. In de **Azure stacklocaties** Selecteer de locatie die overeenkomt met de regio die u implementeert op. Selecteer bijvoorbeeld **lokale** als uw implementatie van de Azure-Stack Development Kit.
+    3. In de **Azure Stack-locaties** vak, selecteert u de locatie die overeenkomt met de regio die u naar implementeert. Selecteer bijvoorbeeld **lokale** als uw implementatie van de Azure Stack Development Kit.
     4. Klik op **Volgende**.
 
-    ![App Service-installatie][4]
+    ![App Service-installatieprogramma][4]
 
-8. U hebt nu de optie om te implementeren in een bestaand virtueel netwerk, zoals die zijn geconfigureerd door de stappen [hier](azure-stack-app-service-before-you-get-started.md#virtual-network), of het App Service-installatieprogramma voor het maken van een virtueel netwerk en gekoppelde subnetten toe.
-    1. Selecteer **VNet maken met de standaardinstellingen**, accepteer de standaardinstellingen en klik vervolgens op **volgende**, of;
-    2. Selecteer **gebruiken van bestaande VNet en subnetten**.
-        1. Selecteer de **resourcegroep** waarin het virtuele netwerk.
-        2. Kies de juiste **virtueel netwerk** naam die u implementeren wilt in;
-        3. Selecteer de juiste **Subnet** waarden voor elk van de vereiste functieservices subnetten;
+8. U hebt nu de mogelijkheid om te implementeren in een bestaand Virtueelnetwerk, zoals ingesteld door de stappen [hier](azure-stack-app-service-before-you-get-started.md#virtual-network), of het installatieprogramma van de App Service te maken van een Virtueelnetwerk en gekoppelde subnetten toe te staan.
+    1. Selecteer **VNet maken met standaardinstellingen**, accepteer de standaardwaarden en klik vervolgens op **volgende**, of;
+    2. Selecteer **bestaande VNet en subnetten gebruiken**.
+        1. Selecteer de **resourcegroep** waarin het Virtueelnetwerk.
+        2. Kies de juiste **Virtueelnetwerk** naam die u implementeren wilt in;
+        3. Selecteer de juiste **Subnet** waarden voor elk van de subnetten van de vereiste rol;
         4. Klik op **Volgende**
 
-    ![App Service-installatie][5]
+    ![App Service-installatieprogramma][5]
 
-9. Geef de gegevens voor de bestandsshare en klik vervolgens op **volgende**. Het adres van de bestandsshare moet gebruiken voor de FQDN-naam of IP-adres van de bestandsserver. Bijvoorbeeld: \\\appservicefileserver.local.cloudapp.azurestack.external\websites, of \\\10.0.0.1\websites
+9. Voer de gegevens voor de bestandsshare en klik vervolgens op **volgende**. Het adres van de bestandsshare moet gebruiken de FQDN-naam of IP-adres van de bestandsserver. Bijvoorbeeld, \\\appservicefileserver.local.cloudapp.azurestack.external\websites, of \\\10.0.0.1\websites
 
     > [!NOTE]
-    > Het installatieprogramma probeert te testen van verbinding met de bestandsshare voordat u doorgaat.  Echter, als u wilt implementeren in een bestaand virtueel netwerk, het installatieprogramma mogelijk geen verbinding maken met de bestandsshare en een waarschuwing weergegeven waarin wordt gevraagd of u wilt doorgaan.  Controleer de bestandsshare en doorgaan als ze juist zijn.
+    > Het installatieprogramma wil test de verbinding met de bestandsshare voordat u doorgaat.  Als u hebt gekozen om te implementeren in een bestaand Virtueelnetwerk, het installatieprogramma mogelijk geen verbinding maken met de bestandsshare en een waarschuwing weergegeven waarin wordt gevraagd of u wilt doorgaan.  Controleer of de bestandsshare-informatie en blijven als ze juist zijn.
     >
     >
 
-   ![App Service-installatie][8]
+   ![App Service-installatieprogramma][8]
 
 10. Op de volgende pagina:
-    1. In de **identiteit toepassings-ID** Voer de GUID voor de toepassing die u voor de identiteit (van Azure AD gebruikt).
-    2. In de **Application Identity-certificaatbestand** vak (Typ of blader naar) de locatie van het certificaatbestand.
-    3. In de **identiteit toepassing certificaatwachtwoord** Voer het wachtwoord voor het certificaat. Dit wachtwoord is die u genoteerd hebt als u het script gebruikt voor het maken van de certificaten.
-    4. In de **Azure Resource Manager basiscertificaatbestand** vak (Typ of blader naar) de locatie van het certificaatbestand.
+    1. In de **Identiteitstoepassings-ID** voert u de GUID voor de toepassing die u voor de identiteit (van Azure AD).
+    2. In de **Identiteitstoepassing certificaatbestand** vak, typ (of blader naar) de locatie van het certificaatbestand.
+    3. In de **Identiteitstoepassing certificaatwachtwoord** vak, voer het wachtwoord voor het certificaat. Dit wachtwoord is degene die u hebt genoteerd als u het script gebruikt voor het maken van de certificaten.
+    4. In de **basiscertificaatbestand voor Azure Resource Manager** vak, typ (of blader naar) de locatie van het certificaatbestand.
     5. Klik op **Volgende**.
 
-    ![App Service-installatie][10]
+    ![App Service-installatieprogramma][10]
 
-11. Elk van de drie vakken bestand van het certificaat, klikt u op **Bladeren** en navigeer vervolgens naar het gewenste certificaatbestand. U moet het wachtwoord opgeven voor elk certificaat. Deze certificaten zijn degene die u hebt gemaakt in de [maken vereiste certificaten stap](azure-stack-app-service-before-you-get-started.md#get-certificates). Klik op **volgende** na het invoeren van alle informatie.
+11. Voor elk van de drie vakken bestand van het certificaat, klikt u op **Bladeren** en navigeer vervolgens naar het juiste certificaatbestand. U moet het wachtwoord opgeven voor elk certificaat. Deze certificaten zijn degene die u hebt gemaakt in de [maken vereiste certificaten stap](azure-stack-app-service-before-you-get-started.md#get-certificates). Klik op **volgende** na het invoeren van alle informatie.
 
-    | Box | Voorbeeld van de naam van een certificaat |
+    | Box | Voorbeeld van de naam van certificaat |
     | --- | --- |
-    | **App Service standaard SSL-certificaat-bestand** | \_.appservice.local.AzureStack.external.pfx |
-    | **API-App Service SSL-certificaatbestand** | api.appservice.local.AzureStack.external.pfx |
-    | **App Service Publisher SSL-certificaat-bestand** | ftp.appservice.local.AzureStack.external.pfx |
+    | **Standaard SSL-certificaatbestand van App Service** | \_.appservice.local.AzureStack.external.pfx |
+    | **SSL-certificaatbestand voor App Service API** | api.appservice.local.AzureStack.external.pfx |
+    | **App Service Publisher SSL-certificaatbestand** | ftp.appservice.local.AzureStack.external.pfx |
 
-    Als u een andere domeinachtervoegsel gebruikt bij het maken van de certificaten, de bestandsnamen van uw certificaat niet gebruikt *lokale. AzureStack.external*. In plaats daarvan gebruik de informatie van uw aangepaste domein.
+    Als u een andere domeinachtervoegsel gebruikt tijdens het maken van de certificaten, de bestandsnamen van uw certificaat niet gebruikt *lokale. AzureStack.external*. In plaats daarvan gebruik de informatie van uw aangepaste domein.
 
-    ![App Service-installatie][11]
+    ![App Service-installatieprogramma][11]
 
-12. Voer de SQL Server-gegevens voor het serverexemplaar waarmee de App Service resource provider-databases hosten en klik vervolgens op **volgende**. Het installatieprogramma valideert de eigenschappen van de SQL-verbinding. U **moet** Voer de intern IP-adres of FQDN-naam voor de SQL Server-naam.
+12. Geef de SQL Server-details voor de server-exemplaar dat is gebruikt voor het hosten van de App Service resource provider-databases, en klik vervolgens op **volgende**. Het installatieprogramma evalueert de eigenschappen van de SQL-verbinding. U **moet** voert u de interne IP- of de FQDN-naam voor de naam van de SQL Server.
 
     > [!NOTE]
-    > Het installatieprogramma probeert te testen van verbinding met de SQl-Server voordat u doorgaat.  Echter, als u wilt implementeren in een bestaand virtueel netwerk, het installatieprogramma mogelijk geen verbinding maken met de SQL-Server en toont een waarschuwing waarin wordt gevraagd of u wilt doorgaan.  Controleer of de SQL Server-gegevens en doorgaan als ze juist zijn.
+    > Het installatieprogramma wil test de verbinding met de SQl-Server voordat u doorgaat.  Als u hebt gekozen om te implementeren in een bestaand Virtueelnetwerk, het installatieprogramma mogelijk geen verbinding maken met de SQL-Server en geeft een waarschuwing waarin wordt gevraagd of u wilt doorgaan.  Controleer of de SQL Server-gegevens en blijven als ze juist zijn.
     >
-    >
+    > Het installatieprogramma wordt gecontroleerd dat de SQL-Server ingeschakeld op het niveau van de SQL Server database-containment is van Azure App Service op Azure Stack 1.3 en hoger.  Als dat niet het geval is, wordt u gevraagd met de volgende uitzondering:
+    > ```sql
+    >    Enable contained database authentication for SQL server by running below command on SQL server (Ctrl+C to copy)
+    >    ***********************************************************
+    >    sp_configure 'contained database authentication', 1;  
+    >    GO  
+    >    RECONFIGURE;  
+    >    GO
+    >    ***********************************************************
+    > ```
+    > Raadpleeg de [opmerkingen bij de release voor Azure App Service op Azure Stack 1.3](azure-stack-app-service-release-notes-update-three.md) voor meer informatie.
    
-   ![App Service-installatie][12]
+   ![App Service-installatieprogramma][12]
 
-13. Bekijk de rolinstantie en SKU-opties. De standaardwaarden worden ingevuld met het minimum aantal exemplaar en de minimale SKU voor elke rol in de implementatie van een ASDK. Een overzicht van de vereisten voor vCPU en het geheugen is opgegeven bij het plannen van uw implementatie. Nadat u uw selecties maken, klikt u op **volgende**.
+13. Bekijk de rolinstantie en SKU-opties. De standaardinstellingen worden ingevuld met het minimum aantal exemplaren en de minimale SKU voor elke rol in een ASDK-implementatie. Een overzicht van de vereisten voor vCPU en het geheugen wordt geboden om u te helpen bij uw implementatie plannen. Nadat u uw selecties, klikt u op **volgende**.
 
      > [!NOTE]
-     > Volg de instructies in voor de productie-implementaties [planning van capaciteit voor Azure App Service-serverfuncties in Azure-Stack](azure-stack-app-service-capacity-planning.md).
+     > Volg de instructies in voor productie-implementaties, [planning van capaciteit voor Azure App Service-server-rollen in Azure Stack](azure-stack-app-service-capacity-planning.md).
      >
      >
 
     | Rol | Minimale exemplaren | Minimale SKU | Opmerkingen |
     | --- | --- | --- | --- |
-    | Controller | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Beheert en onderhoudt de status van de cloud-App Service. |
-    | Beheer | 1 | Standard_A2 - (2 vCPUs, 3584 MB) | Beheert de App Service Azure Resource Manager en API-eindpunten, portal-extensies (admin, tenant, Functions-portal) en de data-service. Ter ondersteuning van failover, vergroot u de aanbevolen exemplaren 2. |
+    | Controller | 1 | Standard_A2 - (2 vCPU, 3584 MB) | Beheert en onderhoudt de status van de App Service-cloud. |
+    | Beheer | 1 | Standard_A2 - (2 vCPUs, 3584 MB) | De App Service Azure Resource Manager en API-eindpunten, portal-extensies (admin, tenant, Functions-portal) en de gegevensservice beheert. Ter ondersteuning van failover, vergroot u de aanbevolen 2-exemplaren. |
     | Uitgever | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Inhoud via FTP en web deployment publiceert. |
-    | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Routes aanvragen voor App Service-toepassingen. |
-    | Gedeelde Worker | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Hosts webtoepassingen of API en apps van Azure Functions. Mogelijk wilt meer exemplaren toe te voegen. Als operator kunt u definiëren van uw aanbod en eventuele SKU-categorie kiezen. De lagen moeten minimaal één vCPU hebben. |
+    | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Stuurt aanvragen door naar App Service-toepassingen. |
+    | Gedeelde Werkrol | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Hosts web of API-Apps en Azure Functions-apps. Mogelijk wilt u meer instanties toevoegen. Als operator kunt u definiëren van uw aanbieding en het kiezen van een SKU-laag. De lagen moeten minimaal één vCPU hebben. |
 
-    ![App Service-installatie][14]
+    ![App Service-installatieprogramma][14]
 
     > [!NOTE]
-    > **Windows Server 2016-Core, is geen ondersteund platforminstallatiekopie voor gebruik met Azure App Service op Azure-Stack.  Gebruik geen evaluatie installatiekopieën voor productie-implementaties.**
+    > **Windows Server 2016 Core is geen ondersteund platform-installatiekopie voor gebruik met Azure App Service in Azure Stack.  Gebruik geen evaluatie installatiekopieën voor productie-implementaties.  Azure App Service in Azure Stack is vereist dat Microsoft.Net 3.5.1 SP1 op de installatiekopie die wordt gebruikt voor de implementatie is geactiveerd.   Marketplace publiceren Windows Server 2016 installatiekopieën nog geen deze functie is ingeschakeld.**
 
-14. In de **Platforminstallatiekopie Selecteer** vak, kiest u de installatiekopie van uw implementatie van Windows Server 2016-virtuele machine die beschikbaar zijn in de compute resourceprovider voor de cloud-App Service. Klik op **Volgende**.
+14. In de **Platforminstallatiekopie selecteren** vak, kiest u de installatiekopie van uw implementatie van Windows Server 2016 virtuele machine van de gegevensbronnen die beschikbaar zijn in de resourceprovider voor compute voor de App Service-cloud. Klik op **Volgende**.
 
 15. Op de volgende pagina:
      1. Voer de gebruikersnaam voor Worker-rol virtuele machine-beheerder en het wachtwoord.
-     2. Voer de gebruikersnaam van de beheerder voor andere rollen virtuele machine en het wachtwoord.
+     2. Voer de gebruikersnaam van beheerder van overige rollen virtuele machine en het wachtwoord.
      3. Klik op **Volgende**.
 
-    ![App Service-installatie][16]
+    ![App Service-installatieprogramma][16]
 
-16. Op de pagina overzicht:
-    1. Controleer of de selecties die u hebt aangebracht. Als u wilt wijzigen, gebruikt u de **vorige** knoppen naar vorige pagina's te gaan.
-    2. Als de configuraties correct zijn, schakel het selectievakje in.
+16. Op de pagina Samenvatting:
+    1. Controleer of de selecties die u hebt gemaakt. Als u wilt wijzigen, gebruikt u de **vorige** knoppen om naar de vorige pagina's te gaan.
+    2. Als de configuratie juist zijn, selecteert u het selectievakje in.
     3. Voor het starten van de implementatie, klikt u op **volgende**.
 
-    ![App Service-installatie][17]
+    ![App Service-installatieprogramma][17]
 
 17. Op de volgende pagina:
-    1. De installatievoortgang volgen. App-Service op Azure-Stack duurt ongeveer 60 minuten te implementeren op basis van de standaardselecties.
+    1. De van de installatievoortgang bijhouden. App Service in Azure Stack duurt ongeveer 60 minuten om te implementeren op basis van de standaardselecties.
     2. Nadat het installatieprogramma met succes is voltooid, klikt u op **afsluiten**.
 
-    ![App Service-installatie][18]
+    ![App Service-installatieprogramma][18]
 
-## <a name="validate-the-app-service-on-azure-stack-installation"></a>De App-Service op Azure-Stack installatie valideren
+## <a name="validate-the-app-service-on-azure-stack-installation"></a>Valideren van de App-Service op Azure Stack-installatie
 
-1. Ga in de Stack van Azure-beheerportal naar **Administration - App Service**.
+1. In de Azure Stack-beheerportal, gaat u naar **beheer - App Service**.
 
-2. Schakel in het overzicht onder status om te zien die de **Status** toont **alle rollen gereed zijn**.
+2. Schakel in het overzicht van de onder de status om te zien die de **Status** bevat **alle rollen zijn gereed**.
 
     ![App Service-beheer](media/azure-stack-app-service-deploy/image12.png)
     
 > [!NOTE]
-> Als u wilt implementeren in een bestaand virtueel netwerk en een interne IP-adres conenct bij uw bestandsserver, moet u een uitgaande beveiligingsregel toevoegen voor het inschakelen van SMB-verkeer tussen het subnet van de werknemer en de bestandsserver aan te geven.  Hiervoor gaat u naar de WorkersNsg in het beheerportal en een uitgaande beveiligingsregel met de volgende eigenschappen toevoegen:
+> Als u wilt implementeren in een bestaand virtueel netwerk en een interne IP-adres verbinding maken met de bestandsserver, moet u een uitgaande beveiligingsregel toevoegen voor het inschakelen van SMB-verkeer tussen het worker-subnet en de bestandsserver aan te geven.  Om dit te doen, gaat u naar de WorkersNsg in de beheerportal en voeg een uitgaande beveiligingsregel met de volgende eigenschappen toe:
 > * Bron:
 > * Poortbereik van bron: *
 > * Bestemming: IP-adressen
@@ -205,28 +215,28 @@ Voor het App Service implementeren in een omgeving zonder verbinding, moet u eer
 > * Naam: Outbound_Allow_SMB445
 >
 
-## <a name="test-drive-app-service-on-azure-stack"></a>App Service-station op Azure-Stack testen
+## <a name="test-drive-app-service-on-azure-stack"></a>Probeer de App Service in Azure Stack
 
-Nadat u de App Service-resourceprovider registreren en implementeert, testen om ervoor te zorgen dat gebruikers web- en API apps kunnen implementeren.
+Nadat u implementeert en registreer de resourceprovider App Service, het testen om ervoor te zorgen dat gebruikers web-apps en API apps kunnen implementeren.
 
 > [!NOTE]
-> U moet een aanbieding met de naamruimte Microsoft.Web binnen het plan maken. Vervolgens moet u een tenantabonnement hebt met deze aanbieding is geabonneerd. Zie voor meer informatie [maken aanbieding](azure-stack-create-offer.md) en [plan maken](azure-stack-create-plan.md).
+> U moet maken van een aanbieding die de naamruimte Microsoft.Web binnen het abonnement heeft. Vervolgens moet u een tenantabonnement hebben waarin ze zich op deze aanbieding abonneren. Zie voor meer informatie, [maken aanbieding](azure-stack-create-offer.md) en [plan maken](azure-stack-create-plan.md).
 >
-U *moet* beschikt over een tenantabonnement te maken van toepassingen die gebruikmaken van App Service op Azure-Stack. De enige mogelijkheden die een servicebeheerder kan worden voltooid binnen de beheerportal zijn gerelateerd aan het beheer van de resource provider van App Service. Deze mogelijkheden zijn capaciteit toe te voegen, implementatie-bronnen configureren en lagen van de werknemer en SKU's toe te voegen.
+U *moet* een tenantabonnement te maken van toepassingen die gebruikmaken van App Service in Azure Stack hebt. De enige mogelijkheden die een servicebeheerder in de beheerportal uitvoeren kunt zijn met betrekking tot het beheer van de resource provider van App Service. Deze mogelijkheden omvatten capaciteit toe te voegen, implementatiebronnen configureren en werkrolniveaus en SKU's toe te voegen.
 >
-Vanaf de derde technical preview functies voor het maken van web-API en Azure apps, moet u een tenantabonnement hebt en de tenantportal gebruiken.
+Vanaf de derde technical preview, voor het maken van web-API en Azure Functions apps, moet u de tenantportal te gebruiken en een tenantabonnement hebt.
 
-1. Klik in de tenantportal Azure Stack op **nieuw** > **Web en mobiel** > **Web-App**.
+1. Klik in de portal voor Azure Stack-tenant op **nieuw** > **Web en mobiel** > **Web-App**.
 
-2. Op de **Web-App** blade een naam in de **Web-app** vak.
+2. Op de **Web-App** blade, typ een naam in de **Web-app** vak.
 
 3. Onder **resourcegroep**, klikt u op **nieuw**. Typ een naam in de **resourcegroep** vak.
 
 4. Klik op **App Service-plan/-locatie** > **Nieuw**.
 
-5. Op de **App Service-abonnement** blade een naam in de **App Service-abonnement** vak.
+5. Op de **App Service-plan** blade, typ een naam in de **App Service-plan** vak.
 
-6. Klik op **prijscategorie** > **vrije gedeelde** of **gedeelde gedeelde** > **Selecteer**  >   **OK** > **maken**.
+6. Klik op **prijscategorie** > **gratis gedeelde** of **gedeelde gedeelde** > **selecteren**  >   **OK** > **maken**.
 
 7. In minder dan een minuut een tegel voor de nieuwe web-app wordt weergegeven op het dashboard. Klik op de tegel.
 
@@ -234,11 +244,11 @@ Vanaf de derde technical preview functies voor het maken van web-API en Azure ap
 
 ## <a name="deploy-a-wordpress-dnn-or-django-website-optional"></a>Een WordPress, DNN of Django-website (optioneel) implementeren
 
-1. Klik in de tenantportal Azure Stack op **+**, gaat u naar de Azure Marketplace een Django-website te implementeren en wacht met succes is voltooid. Een bestand gebaseerde database maakt gebruik van het Django webplatform. Eventuele extra resourceproviders, zoals SQL of MySQL nodig niet is.
+1. Klik in de portal voor Azure Stack-tenant op **+**, gaat u naar de Azure Marketplace, een Django-website kunt implementeren en wachten op voltooiing. Een bestand system gebaseerde database maakt gebruik van het Django webplatform. Er is aanvullende resourceproviders, zoals SQL- of MySQL geen vereist.
 
-2. Als u een MySQL-resourceprovider ook hebt geïmplementeerd, kunt u een WordPress-website van de Marketplace kunt implementeren. Wanneer u wordt gevraagd om de databaseparameters, voert u de naam van de gebruiker als *User1@Server1*, met de gebruikersnaam en de naam van uw keuze.
+2. Als u ook een MySQL-resourceprovider hebt geïmplementeerd, kunt u een WordPress-website vanuit de Marketplace kunt implementeren. Wanneer u wordt gevraagd voor databaseparameters, voert u de naam van de gebruiker als *User1@Server1*, met de gebruikersnaam en de naam van de server van uw keuze.
 
-3. Als u een SQL Server-resourceprovider ook hebt geïmplementeerd, kunt u een website DNN vanuit de Marketplace kunt implementeren. Wanneer u wordt gevraagd om de databaseparameters, kiest u een database in de computer met SQL Server die verbonden met uw resourceprovider.
+3. Als u ook een SQL Server-resourceprovider hebt geïmplementeerd, kunt u een website met DNN vanuit de Marketplace kunt implementeren. Wanneer u wordt gevraagd voor databaseparameters, kiest u een database in de computer met SQL Server die verbonden met de resourceprovider.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 5b9ef9691d3d9b9aaced3ad2aaa54e6cfc03fa14
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 254c68c45a06022588ade6ab6f005989205ff405
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857443"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42054043"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Beveiliging-Frame: Configuratiebeheer | Oplossingen 
 | Product/Service | Artikel |
@@ -606,7 +606,7 @@ Als u wilt uitschakelen CORS voor een domeincontroller of een actie, door het ke
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | .NET framework 3 |
 | **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Voeg Koninkrijk](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Voeg Koninkrijk](https://vulncat.fortify.com) |
 | **Stappen** | <p>Niet het plaatsen van een limiet op het gebruik van systeembronnen kan leiden tot uitputting van bronnen en uiteindelijk een DoS-aanval.</p><ul><li>**UITLEG:** Windows Communication Foundation (WCF) biedt de mogelijkheid om te beperken van serviceaanvragen. Te veel aanvragen van clients zodat kunt overspoelen van een systeem en de bronnen. Aan de andere kant, zodat slechts een beperkt aantal aanvragen voor een service kunt voorkomen dat legitieme gebruikers met behulp van de service. Elke service moet afzonderlijk worden afgestemd op en geconfigureerd, zodat de juiste hoeveelheid resources.</li><li>**AANBEVELINGEN** van inschakelen WCF service functie en limieten instellen geschikt zijn voor uw toepassing.</li></ul>|
 
 ### <a name="example"></a>Voorbeeld
@@ -629,7 +629,7 @@ Hier volgt een voorbeeldconfiguratie met beperking ingeschakeld:
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | .NET framework 3 |
 | **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Voeg Koninkrijk](https://vulncat.fortify.com/en/vulncat/index.html) |
+| **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Voeg Koninkrijk](https://vulncat.fortify.com) |
 | **Stappen** | Metagegevens kunt aanvallers meer informatie over het systeem en plannen van een vorm van de aanval. WCF-services kunnen worden geconfigureerd als metagegevens beschikbaar wilt maken. Metagegevens biedt gedetailleerde beschrijving van informatie en niet in een productieomgeving moet worden verzonden. De `HttpGetEnabled`  /  `HttpsGetEnabled` eigenschappen van de klasse ServiceMetaData bepaalt of een service de metagegevens wordt weergegeven | 
 
 ### <a name="example"></a>Voorbeeld

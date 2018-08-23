@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 46b8aead2a217ab827731a6636d3527fd99ea753
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e7f9c0c3ad11cb6988f528503d614ab26dcc0968
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432103"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41920832"
 ---
 # <a name="run-applications-in-kubernetes"></a>Toepassingen uitvoeren in Kubernetes
 
@@ -86,7 +86,7 @@ service "azure-vote-front" created
 
 Er wordt een [Kubernetes-service](https://kubernetes.io/docs/concepts/services-networking/service/) gemaakt die de toepassing beschikbaar maakt op internet. Dit proces kan enkele minuten duren. 
 
-Gebruik de opdracht [kubectl get service](https://review.docs.microsoft.com/azure/container-service/container-service-kubernetes-walkthrough?branch=pr-en-us-17681) met het argument `--watch` om de voortgang te controleren.
+Gebruik de opdracht [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) met het argument `--watch` om de voortgang te controleren.
 
 ```azurecli-interactive
 kubectl get service azure-vote-front --watch

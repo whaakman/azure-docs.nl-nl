@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: b5028010953b9dbe2386c30e6fa05cc4a94cb971
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6a9b4fc5479dda58dd024cdf93cbdf4853f9c965
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185489"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42057568"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Apparaatverificatie met behulp van x.509-CA-certificaten
 
@@ -64,7 +64,7 @@ Lees hier hoe u [registreren van uw CA-certificaat](iot-hub-security-x509-get-st
 
 ## <a name="how-to-create-a-device-on-iot-hub"></a>Over het maken van een apparaat in IoT Hub
 
-Als u wilt dat apparaat imitatie, moet IoT Hub u aan zodat deze informatie over welke apparaten die u kunt verwachten.  U doen dit door het maken van een vermelding in de IoT-Hub-apparaatregister.  Dit proces is geautomatiseerd bij het gebruik van IoT-Hub [Device Provisioning Service](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/) (DPS). 
+Als u wilt dat apparaat imitatie, moet IoT Hub u aan zodat deze informatie over welke apparaten die u kunt verwachten.  U doen dit door het maken van een vermelding in de IoT-Hub-apparaatregister.  Dit proces is geautomatiseerd bij het gebruik van IoT-Hub [Device Provisioning Service](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/). 
 
 Lees hier hoe u [handmatig maken van een apparaat in IoT Hub](iot-hub-security-x509-get-started.md#createdevice).
 

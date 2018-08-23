@@ -7,83 +7,86 @@ manager: shreeshd
 keywords: azure vm backup, virtuele azure-machines herstellen, back-upbeleid
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/18/2017
+ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: d637a98029b33be890b31f32c3080650b251f7a8
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 58b0622da2ef617e652c8bb9dacbf7daa2d79966
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606372"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42058721"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Vragen over de Azure VM Backup-service
 In dit artikel vindt u antwoorden op veelgestelde vragen om u snel een beeld te geven van de verschillende onderdelen van Azure VM Backup. Sommige antwoorden bevatten koppelingen naar artikelen met uitgebreide informatie over het onderwerp. U kunt ook in het [discussieforum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup) vragen over de Azure Backup-service plaatsen.
 
 ## <a name="configure-backup"></a>Back-up configureren
 ### <a name="do-recovery-services-vaults-support-classic-vms-or-resource-manager-based-vms-br"></a>Ondersteunen Recovery Services-kluizen klassieke virtuele machines of virtuele machines op basis van Resource Manager? <br/>
-Recovery Services-kluizen ondersteunen beide modellen.  U kunt een back-up naar een Recovery Services-kluis maken van een klassieke virtuele machine die in de klassieke portal is gemaakt of van een virtuele Resource Manager-machine die in Azure Portal is gemaakt.
+Recovery Services-kluizen ondersteunen beide modellen.  U kunt back-up van een klassieke virtuele machine of een Resource Manager-VM naar een Recovery Services-kluis.
 
 ### <a name="what-configurations-are-not-supported-by-azure-vm-backup"></a>Welke configuraties worden niet ondersteund door Azure VM backup?
-Doorloop [ondersteunde besturingssystemen](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup) en [beperkingen van VM-back-up](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
+Doorloop [ondersteunde besturingssystemen](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup) en [beperkingen van Azure VM backup](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
 
 ### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>Waarom zie ik mijn virtuele machine niet in de wizard Back-up configureren?
-In de wizard Back-up configureren, Azure Backup alleen een lijst met virtuele machines die zijn:
-  * Nog niet beveiligd kunt u de back-status van een virtuele machine controleren door te gaan naar de blade VM en controleren van de status van de back-up van het Menu instellingen. Meer informatie over [hoe u de back-upstatus van een virtuele machine controleert](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu)
+In configureren de wizard Back-up, Azure Backup alleen een lijst met virtuele machines die zijn:
+  * Nog niet zijn beveiligd kunt u de status van de back-up van een virtuele machine controleren door te gaan naar de blade van de virtuele machine en de status van de back-up van Menu instellingen controleren. Meer informatie over [hoe u de back-upstatus van een virtuele machine controleert](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-vm-operations-menu)
   * Tot dezelfde regio behoren als de virtuele machine
 
 ## <a name="backup"></a>Back-up maken
 ### <a name="will-on-demand-backup-job-follow-same-retention-schedule-as-scheduled-backups"></a>Geldt voor back-uptaken op aanvraag hetzelfde bewaarschema als voor geplande back-ups?
-Nee. U moet de bewaartermijn voor een back-uptaak op aanvraag opgeven. Standaard wordt deze 30 dagen bewaard wanneer geactiveerd vanuit de portal. 
+Nee. U moet de bewaartermijn voor een back-uptaak op aanvraag. Standaard is dit 30 dagen bewaard bij activering vanuit de portal. 
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Ik heb onlangs Azure Disk Encryption ingeschakeld op een aantal virtuele machines. Worden mijn back-ups gewoon uitgevoerd?
 U moet de Azure Backup-service toegang verlenen tot Key Vault. De hiervoor benodigde machtigingen kunt u in PowerShell opgeven door de stappen te volgen die worden beschreven in het gedeelte *Back-up inschakelen* van de documentatie voor [PowerShell](backup-azure-vms-automation.md).
 
 ### <a name="i-migrated-disks-of-a-vm-to-managed-disks-will-my-backups-continue-to-work"></a>Ik heb schijven van een virtuele machine gemigreerd naar beheerde schijven. Worden mijn back-ups gewoon uitgevoerd?
-Ja, back-ups naadloos werken en u hoeft geen back-up opnieuw configureren. 
+Ja, back-ups werken naadloos en niet nodig om back-up opnieuw te configureren. 
 
-### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>Mijn VM is afgesloten. Maakt op aanvraag of een geplande back-up werk?
-Ja. Zelfs wanneer een machine is afgesloten back-ups werken en het herstelpunt dat is gemarkeerd als Crash consistent. Voor meer informatie, Zie de sectie van de consistentie gegevens in [in dit artikel](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines)
+### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>Mijn virtuele machine wordt afgesloten. Maakt een on-demand of een geplande back-werk?
+Ja. Zelfs wanneer een virtuele machine is afgesloten back-ups werken en het herstelpunt dat is gemarkeerd als Crash consistent. Voor meer informatie, Zie de sectie van de consistentie van gegevens in [in dit artikel](backup-azure-vms-introduction.md#how-does-azure-back-up-virtual-machines)
 
-### <a name="can-i-cancel-an-in-progress-backup-job"></a>Kan ik een back-uptaak wordt uitgevoerd annuleren?
-Ja. Als het zich in momentopname ' te maken' fase, kunt u back-uptaak annuleren. **U kunt een taak als de overdracht van gegevens vanuit een momentopname uitgevoerd wordt niet annuleren**. 
+### <a name="can-i-cancel-an-in-progress-backup-job"></a>Kan ik een back-uptaak in uitvoering annuleren?
+Ja. Als het zich in de fase "Om momentopname te maken", kunt u back-uptaak annuleren. **U kunt een taak niet annuleren als de overdracht van gegevens van de momentopname uitgevoerd wordt**. 
 
-### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Ik resourcegroep vergrendeling ingeschakeld op de beheerde computer voor back-up virtuele machines. Worden mijn back-ups gewoon uitgevoerd?
-Als de gebruiker Hiermee vergrendelt u de resourcegroep, kan Backup-service niet worden verwijderd van de oudere herstelpunten. Als gevolg van dit nieuwe back-ups mislukken als er een limiet van maximaal 18 herstelpunten die zijn opgelegd vanuit de back-end geldt. Als uw back-ups met een interne fout nadat de vergrendeling RG mislukken, volgt u deze [stappen voor het verwijderen van het terugzetten van wijst verzameling](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
+### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>Ik resourcegroep vergrendeling ingeschakeld op mijn back-up virtuele machines op beheerde schijven. Worden mijn back-ups gewoon uitgevoerd?
+Als de gebruiker Hiermee vergrendelt u de resourcegroep, is back-up-service niet kunt verwijderen van de oudere herstelpunten. Vanwege dit nieuwe back-ups mislukken omdat er een limiet van maximaal 18 herstelpunten die zijn opgelegd vanuit de back-end. Als uw back-ups met een interne fout opgetreden na de RG-vergrendeling mislukken, volgt u deze [stappen voor het verwijderen van de herstelbewerking wijst verzameling](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
 
-### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>Back-up beleid Daylight opslaan Time(DST) rekening gehouden met
-Nee. Let erop dat datum en tijd op uw lokale computer in uw lokale tijd en met uw huidige zomertijd afwijking wordt weergegeven. Dus kan de geconfigureerde tijd voor de geplande back-ups afwijken van de lokale tijd vanwege Zomertijd.
+### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>Back-upbeleid zomer-en opslaan van Time(DST) rekening gehouden?
+Nee. Let erop dat de datum en tijd op uw lokale computer wordt weergegeven in uw lokale tijd en met uw huidige afwijking van de zomer-en wintertijd. Dus kan de geconfigureerde tijd voor geplande back-ups afwijken van de lokale tijd vanwege de Zomertijd.
 
 ## <a name="restore"></a>Herstellen
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Hoe bepaal ik of ik beter afzonderlijke schijven kan herstellen of de virtuele machine als geheel?
-Azure volledig VM herstel beschouwen als een optie snel maken. Wijzigingen van VM-optie de namen van containers die worden gebruikt door deze schijven, openbare IP-adressen en netwerkinterfacenamen schijven herstellen. De wijziging is vereist voor het onderhouden van de uniekheid van resources die zijn gemaakt tijdens het maken van de virtuele machine. Maar de virtuele machine wordt niet toevoegen aan beschikbaarheidsset. 
+Azure virtuele machine als geheel beschouwen als de optie voor een snelle versie maken. Wijzigingen voor VM-optie de namen van containers die worden gebruikt door deze schijven, het openbare IP-adressen en de netwerkinterfacenamen schijven herstellen. De wijziging is vereist voor het onderhouden van de uniekheid van resources die zijn gemaakt tijdens het maken van virtuele machine. Maar wordt de virtuele machine niet wordt toegevoegd aan de beschikbaarheidsset. 
 
 Gebruik de optie voor het herstellen van afzonderlijke schijven voor het volgende:
-  * De virtuele machine die wordt gemaakt van een punt in tijd configuratie zoals het wijzigen van de grootte aanpassen
+  * De virtuele machine die wordt gemaakt van point in time-configuratie zoals het wijzigen van de grootte aanpassen
   * Configuraties die niet aanwezig op het moment van back-up toevoegen 
   * De naamgevingsconventie beheren voor de resources die worden gemaakt
   * De virtuele machine toevoegen aan de beschikbaarheidsset
-  * Voor andere configuratie die alleen met behulp van PowerShell een declaratief Sjabloondefinitie kan worden bereikt
+  * Voor een andere configuratie die kan worden bereikt alleen met behulp van PowerShell of een declaratieve Sjabloondefinitie
   
-### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>Kan ik back-ups van niet-beheerde schijf-VM gebruiken nadat ik mijn schijven te naar beheerde schijven upgraden herstellen?
-Ja, kunt u de back-ups gemaakt voordat het migreren van de schijven van niet-begeleid naar beheerde. Standaard wordt de hersteltaak voor de virtuele machine een virtuele machine maken met niet-beheerde schijven. U kunt terugzetten schijven functionaliteit gebruiken bij het herstel van schijven en ze gebruiken voor het maken van een virtuele machine op de beheerde schijven. 
+### <a name="can-i-use-backups-of-unmanaged-disk-vm-to-restore-after-i-upgrade-my-disks-to-managed-disks"></a>Kan ik back-ups van niet-beheerde schijf-VM herstellen nadat ik mijn schijven te naar beheerde schijven upgraden gebruiken?
+Ja, kunt u de back-ups uitgevoerd voordat de migratie van de schijven van niet-beheerde beheren. Standaard wordt de hersteltaak voor de virtuele machine een virtuele machine maken met niet-beheerde schijven. Herstel schijven functionaliteit kunt u schijven herstellen en te gebruiken voor het maken van een virtuele machine op beheerde schijven. 
 
-### <a name="what-is-the-procedure-to-restore-a-vm-to-a-restore-point-taken-before-the-conversion-from-unmanaged-to-managed-disks-was-done-for-a-vm"></a>Wat is de procedure voor het herstellen van een virtuele machine naar een herstelpunt gemaakt voordat de conversie van niet-begeleid naar beheerde schijven is uitgevoerd voor een virtuele machine?
-In dit scenario wordt maakt standaard hersteltaak VM een virtuele machine met niet-beheerde schijven. Een virtuele machine maken met beheerde schijven:
+### <a name="what-is-the-procedure-to-restore-a-vm-to-a-restore-point-taken-before-the-conversion-from-unmanaged-to-managed-disks-was-done-for-a-vm"></a>Wat is de procedure voor het herstellen van een virtuele machine naar een herstelpunt gemaakt voordat de conversie van niet-beheerde naar beheerde schijven voor een virtuele machine is uitgevoerd?
+In dit scenario wordt standaard hersteltaak voor de virtuele machine wordt een virtuele machine maken met niet-beheerde schijven. Een virtuele machine maken met beheerde schijven:
 1. [Herstellen naar niet-beheerde schijven](tutorial-restore-disk.md#restore-a-vm-disk)
-2. [De herstelde schijven converteren naar beheerde schijven](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
-3. [Een virtuele machine maken met beheerde-schijven](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
-Raadpleeg voor Powershell-cmdlets [hier](backup-azure-vms-automation.md#restore-an-azure-vm).
+2. [De herstelde schijven converteren naar managed disks](tutorial-restore-disk.md#convert-the-restored-disk-to-a-managed-disk)
+3. [Een virtuele machine maken met beheerde schijven](tutorial-restore-disk.md#create-a-vm-from-the-restored-disk) <br>
+Voor Powershell-cmdlets, raadpleegt u [hier](backup-azure-vms-automation.md#restore-an-azure-vm).
+
+### <a name="can-i-restore-the-vm-if-my-vm-is-deleted"></a>Kan ik de virtuele machine herstellen als mijn virtuele machine wordt verwijderd?
+Ja. Levenscyclus van de VM en de bijbehorende back-upitem zijn verschillend. Dus, zelfs als u de virtuele machine verwijdert, kunt u Ga naar het bijbehorende item in de Recovery Services-kluis back-up en herstellen met behulp van een van de herstelpunten te activeren. 
 
 ## <a name="manage-vm-backups"></a>Back-ups van uw virtuele machine beheren
 ### <a name="what-happens-when-i-change-a-backup-policy-on-vms"></a>Wat gebeurt er wanneer ik het back-upbeleid voor een of meer virtuele machines wijzig?
-Wanneer een nieuw beleid wordt toegepast op VM('s), wordt planning en retentie van het nieuwe beleid gevolgd. Als de retentie is uitgebreid, worden de bestaande herstelpunten gemarkeerd voor bewaring conform het nieuwe beleid. Als de retentie is beperkt, worden de bestaande herstelpunten gemarkeerd voor verwijdering in de eerstvolgende opschoontaak, en worden ze vervolgens verwijderd. 
+Wanneer een nieuw beleid wordt toegepast op een of meer virtuele machines, schema en de retentie van het nieuwe beleid gevolgd. Als de retentie is uitgebreid, worden de bestaande herstelpunten gemarkeerd voor bewaring conform het nieuwe beleid. Als de retentie is beperkt, worden de bestaande herstelpunten gemarkeerd voor verwijdering in de eerstvolgende opschoontaak, en worden ze vervolgens verwijderd. 
 
-### <a name="how-can-i-move-a-vm-enrolled-in-azure-backup-between-resource-groups"></a>Hoe kan ik een virtuele machine die is geregistreerd in Azure back-up tussen brongroepen verplaatsen?
-Volg de onderstaande stappen zijn de back-up VM verplaatsen naar de doelresourcegroep 
-1. Tijdelijk stoppen van de back-up en bewaren van back-upgegevens
-2. Verplaats de VM naar de doelresourcegroep
-3. Opnieuw beveiligen met hetzelfde/nieuwe kluis
+### <a name="how-can-i-move-a-vm-enrolled-in-azure-backup-between-resource-groups"></a>Hoe kan ik een virtuele machine geregistreerd bij Azure backup tussen resourcegroepen verplaatsen?
+Volg de onderstaande stappen is in de doelresourcegroep die naar de VM waarvan een back-up is gemaakt 
+1. Tijdelijk back-up stoppen en back-upgegevens behouden
+2. De virtuele machine verplaatsen naar de doelresourcegroep
+3. Opnieuw beveiligen met dezelfde/nieuwe kluis
 
-Gebruikers kunnen herstellen met de beschikbare herstelpunten gemaakt vóór de verplaatsing.
+Gebruikers kunnen herstellen met de beschikbare herstelpunten die zijn gemaakt vóór de verplaatsing.
 
 

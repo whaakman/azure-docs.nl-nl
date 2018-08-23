@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 85d0c91a0b1cdf5703b394d6d232ab9cee72ee0c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 21dde5b0199345e9e8faffc6feac4854a3aa7350
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627141"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42061336"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Een SSL-certificaat kopen en configureren voor uw Azure App Service
 
@@ -205,7 +205,7 @@ Als u wilt handmatig vernieuwen van het certificaat in plaats daarvan, klikt u o
 Als uw SSL-certificaat is geconfigureerd voor automatische verlenging, maar deze niet automatisch wordt vernieuwd, kunt u een in behandeling domeinverificatie mogelijk. Houd rekening met het volgende: 
 
 - GoDaddy, welke App Service-certificaten genereert, vereist domeinverificatie uit te voeren om de twee jaar. De domeinbeheerder ontvangt een e-mailbericht om de drie jaar om te controleren of het domein. Het controleren van het e-mailbericht of verifieer uw domein wordt voorkomen dat het App Service-certificaat wordt automatisch vernieuwd. 
-- Vanwege een wijziging in GoDaddy-beleid moeten alle App Service-certificaten uitgegeven voor 1 maart 2018 Herverificatie van domein op het moment van de volgende vernieuwing (zelfs als de automatische verlenging is ingeschakeld voor het certificaat). Controleer uw e-mail en voltooien van deze eenmalige domeinverificatie om door te gaan van de automatische verlenging van het App Service-certificaat. 
+- Vanwege een wijziging in GoDaddy-beleid moeten alle App Service-certificaten uitgegeven vóór 1 maart 2017 Herverificatie van domein op het moment van de volgende vernieuwing (zelfs als de automatische verlenging is ingeschakeld voor het certificaat). Controleer uw e-mail en voltooien van deze eenmalige domeinverificatie om door te gaan van de automatische verlenging van het App Service-certificaat. 
 
 ## <a name="more-resources"></a>Meer bronnen
 

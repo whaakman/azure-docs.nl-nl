@@ -1,74 +1,74 @@
 ---
-title: Ga in Azure-Stack van profielen voor API-versie met | Microsoft Docs
-description: Meer informatie over het gebruik van API-versie profielen met gaat u in Azure-Stack.
+title: Met behulp van API-versieprofielen met GO in Azure Stack | Microsoft Docs
+description: Meer informatie over het gebruik van API-versieprofielen met GO in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
-ms.author: mabrigg
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: dd2d0c46c0829a73d32c96b506b9f2111eda3c84
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.openlocfilehash: 9ad4402098e938f72cf4b8c61cce8d0d46b5a147
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34010061"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42058686"
 ---
-# <a name="use-api-version-profiles-with-go-in-azure-stack"></a>API-versie profielen met gaat u in Azure-Stack gebruiken
+# <a name="use-api-version-profiles-with-go-in-azure-stack"></a>API-versieprofielen met Go in Azure Stack gebruiken
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-## <a name="go-and-version-profiles"></a>Ga en versie-profielen
+## <a name="go-and-version-profiles"></a>Go en versie-profielen
 
-Een profiel is een combinatie van verschillende brontypen met verschillende versies van andere services. Een profiel kunt u meng en verschillende brontypen overeenstemmen. Profielen kunnen opgeven:
+Een profiel is een combinatie van verschillende resourcetypen met verschillende versies van verschillende services. Met behulp van een profiel kunt u combineren en matchen tussen verschillende resourcetypen. Profielen kunnen opgeven:
 
- - De stabiliteit voor uw toepassing door af te grendelen op specifieke API-versies.
- - Compatibiliteit voor uw toepassing met Azure-Stack en regionale Azure-datacenters.
+ - De stabiliteit voor uw toepassing met een vergrendeling aan specifieke API-versies.
+ - Compatibiliteit voor uw toepassing met Azure Stack en regionale Azure-datacenters.
 
-In de SDK gaat profielen zijn beschikbaar onder de profielen / pad met de versie in de **jjjj-MM-DD** indeling. Nu direct de nieuwste Azure-Stack Profielversie is **2017-03-09**. Voor het importeren van een bepaalde service uit een profiel, moet u de bijbehorende module importeren uit het profiel. Om bijvoorbeeld te importeren **Compute** service **2017-03-09** profiel:
+In de Go SDK profielen zijn beschikbaar onder de profielen / pad met de versie in de **jjjj-MM-DD** indeling. Nu de meest recente Azure Stack Profielversie is **2017-03-09**. Voor het importeren van een bepaalde service van een profiel, moet u de bijbehorende module importeren uit het profiel. Bijvoorbeeld, om te importeren **Compute** service **2017-03-09** profiel:
 
 ````go
 import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute" 
 ````
 
-## <a name="install-azure-sdk-for-go"></a>Installeer Azure SDK voor Ga
+## <a name="install-azure-sdk-for-go"></a>Azure SDK voor Go installeren
 
-  1. Installeer Git. Zie voor instructies [aan de slag - installeren van Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-  2. Installeer de [gaat programmeertaal](https://golang.org/dl).  
-  Profielen van de API voor Azure is Ga versie 1,9 of hoger vereist.
-  3. Ga Azure SDK en de bijbehorende afhankelijkheden installeren met de volgende bash-opdracht:
+  1. Git installeren. Zie voor instructies [aan de slag - installeren van Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+  2. Installeer de [programmeertaal Go](https://golang.org/dl).  
+  Profielen van de API voor Azure is Go versie 1.9 of hoger vereist.
+  3. De Azure-SDK voor Go en de bijbehorende afhankelijkheden installeren met de volgende bash-opdracht:
   ```
     go get -u -d github.com/Azure/azure-sdk-for-go/...
   ```
 
-### <a name="the-go-sdk"></a>De Ga SDK
+### <a name="the-go-sdk"></a>De GO-SDK
 
-U vindt meer informatie over de Azure SDK gaat op:
-- De Azure SDK op Go [installeren van de Azure SDK voor Ga](https://docs.microsoft.com/go/azure/azure-sdk-go-install).
-- De Azure SDK gaat is algemeen beschikbaar op GitHub op [azure sdk voor Ga](https://github.com/Azure/azure-sdk-for-go).
+U vindt meer informatie over de Azure SDK gaat u op:
+- De Azure-SDK op Ga [installatie van de Azure SDK voor Go](https://docs.microsoft.com/go/azure/azure-sdk-go-install).
+- De Go SDK van Azure is openbaar beschikbaar op GitHub op [azure sdk voor go](https://github.com/Azure/azure-sdk-for-go).
 
-### <a name="go-autorest-dependencies"></a>Ga AutoRest-afhankelijkheden
+### <a name="go-autorest-dependencies"></a>Go-AutoRest-afhankelijkheden
 
-De SDK gaan, is afhankelijk van de modules Azure Ga-AutoRest REST aanvragen verzenden naar Azure Resource Manager-eindpunten. U moet voor het importeren van de afhankelijkheden van de module Azure Ga-AutoRest van [Azure Ga-AutoRest op GitHub](https://github.com/Azure/go-autorest). U vindt de installatie bash-opdrachten in de **installeren** sectie.
+De GO SDK is afhankelijk van de Azure-Ga-AutoRest-modules REST-aanvragen verzenden naar Azure Resource Manager-eindpunten. U moet voor het importeren van de Azure-Ga-AutoRest-module-afhankelijkheden van [Azure Go-AutoRest op GitHub](https://github.com/Azure/go-autorest). U vindt de installatie van bash-opdrachten in de **installeren** sectie.
 
-## <a name="how-to-use-go-sdk-profiles-on-azure-stack"></a>Hoe gaat SDK profielen op Azure-Stack gebruiken
+## <a name="how-to-use-go-sdk-profiles-on-azure-stack"></a>GO SDK profielen gebruiken in Azure Stack
 
-Een voorbeeld van code gaat uitvoeren op Azure-Stack:
-  1. Azure SDK voor gaan en de bijbehorende afhankelijkheden installeren. Zie voor instructies voor de vorige sectie, [Azure SDK installeren voor Ga](#install-azure-sdk-for-go).
-  2. Informatie over de metagegevens ophalen van het Resource Manager-eindpunt. Het eindpunt retourneert een JSON-bestand met de informatie die is vereist voor het uitvoeren van uw code gaat.
+Een voorbeeld van Go-code uitvoeren in Azure Stack:
+  1. Azure SDK voor Go en de bijbehorende afhankelijkheden installeren. Zie voor instructies voor de vorige sectie, [Azure SDK voor Go installeren](#install-azure-sdk-for-go).
+  2. Informatie over de metagegevens van het Resource Manager-eindpunt ophalen. Het eindpunt retourneert een JSON-bestand met de informatie die is vereist voor het uitvoeren van uw Go-code.
 
   > [!Note]  
-  > De **ResourceManagerUrl** in Azure Stack Development Kit (ASDK) is: `https://management.local.azurestack.external/`  
+  > De **ResourceManagerUrl** is in de Azure Stack Development Kit (ASDK): `https://management.local.azurestack.external/`  
   > De **ResourceManagerUrl** in geïntegreerde systemen is: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`  
-  > Voor het ophalen van de metagegevens die vereist zijn: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
+  > Om op te halen de metagegevens die vereist zijn: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`
   
-  Voorbeeld van JSON-bestand:
+  JSON-voorbeeldbestand:
 
   ```json
   { "galleryEndpoint": "https://portal.local.azurestack.external:30015/",  
@@ -81,16 +81,16 @@ Een voorbeeld van code gaat uitvoeren op Azure-Stack:
   }
   ```
 
-  3. Als niet beschikbaar is, een abonnement maken en opslaan van de abonnements-ID moet later worden gebruikt. Zie voor meer informatie over het maken van een abonnement [abonnementen op aanbiedingen maken in Azure-Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm). 
-  4. Een service-principal maken met ' abonnementsbereik ' en **eigenaar** rol. De service-principals Sla-ID en geheim. Zie voor meer informatie over het maken van een service-principal voor Azure-Stack [service-principal maken](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). Uw Azure-Stack-omgeving is ingesteld.
-  5. Een servicemodule importeren uit profiel SDK gaat u in uw code. De huidige versie van Azure-Stack-profiel is **2017-03-09**. Bijvoorbeeld, netwerk-module van importeren **2017-03-09** profieltype: 
+  3. Als niet beschikbaar is, maakt u een abonnement en opslaan van de abonnements-ID moet later worden gebruikt. Zie voor meer informatie over het maken van een abonnement [abonnementen voor aanbiedingen maken in Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm). 
+  4. Een service-principal maken met 'Abonnement' bereik en **eigenaar** rol. Sla de service-principals ID en -geheim op. Zie voor meer informatie over het maken van een service-principal voor Azure Stack [service-principal maken](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#create-service-principal-for-azure-ad). Uw Azure Stack-omgeving is ingesteld.
+  5. Een servicemodule importeren van het profiel van de Go SDK in uw code. De huidige versie van Azure Stack-profiel is **2017-03-09**. Bijvoorbeeld, voor het importeren van de module op basis van netwerk **2017-03-09** profieltype: 
 
   ````go
     package main 
     import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/network/mgmt/network"
   ````
   
-  6. In de functie maken en verifiëren van een client met een **nieuw** aanroep van de Client-functie. U kunt de volgende code gebruiken voor het maken van een virtueel netwerk-client:  
+  6. In de functie maken en verifiëren van een client met een **nieuw** aanroep van de Client-functie. Voor het maken van een virtueel netwerk-client, kunt u de volgende code:  
 
   ````go
   package main 
@@ -103,10 +103,10 @@ Een voorbeeld van code gaat uitvoeren op Azure-Stack:
   ````
 
   Stel `<baseURI>` naar de **ResourceManagerUrl** waarde die wordt gebruikt in stap 2.
-  Stel `<subscriptionID>` naar de **abonnements-id** waarde uit stap drie opgeslagen.
-  Zie verificatie maken token onderstaande sectie.  
+  Stel `<subscriptionID>` naar de **SubscriptionID** waarde genoteerd in stap 3.
+  Zie voor het maken van tokens, verificatie in onderstaande sectie.  
 
-  7. API-methoden worden aangeroepen met behulp van de client die u in de vorige stap hebt gemaakt. Als u bijvoorbeeld een virtueel netwerk maken met behulp van onze client van de vorige stap: 
+  7. API-methoden aanroepen met behulp van de client die u in de vorige stap hebt gemaakt. Als u bijvoorbeeld het maken van een virtueel netwerk met behulp van onze client uit de vorige stap: 
   
 ````go
 package main
@@ -119,19 +119,19 @@ func main() {
   vnetClient .CreateOrUpdate( ) 
 ````
   
-  Zie voor een compleet voorbeeld van het maken van een virtueel netwerk op Azure-Stack met SDK gaat profiel [voorbeeld](#example).
+  Zie voor een compleet voorbeeld van het maken van een virtueel netwerk in Azure Stack met behulp van Go SDK-profiel, [voorbeeld](#example).
 
 ## <a name="authentication"></a>Verificatie
 
-Als u de eigenschap Authorizer van Azure Active Directory met behulp van SDK gaat, moet u de Ga-AutoRest-modules installeren. Deze modules moeten is al geïnstalleerd hebben met de installatie 'SDK gaan'; Als dit niet het geval is, installeert de [verificatiepakket op GitHub](https://github.com/Azure/go-autorest/tree/master/autorest/adal).
+Als u de eigenschap Authorizer uit Azure Active Directory met behulp van Go SDK, de Go-AutoRest-modules te installeren. Deze modules moeten is al geïnstalleerd hebben met de installatie van de 'SDK gaan'; Als dit niet het geval is, installeert de [verificatiepakket op GitHub](https://github.com/Azure/go-autorest/tree/master/autorest/adal).
 
-De Authorizer moet worden ingesteld als de authorizer voor de resource-client. Er zijn verschillende methoden om op te halen van een Authorizer; voor een volledige lijst Zie hier.
+De Authorizer moet worden ingesteld als de authorizer voor de resource-client. Er zijn verschillende methoden voor het ophalen van een Authorizer; voor een volledige lijst Zie hier.
 
-Deze sectie geeft een veelgebruikte manier voor het verkrijgen van authorizer tokens op Azure-Stack door middel van de clientreferenties:
+In deze sectie geeft een veelgebruikte manier authorizer tokens ophalen in Azure Stack met behulp van clientreferenties:
 
-  1. Als een service-principal met de rol van eigenaar voor het abonnement beschikbaar is, moet u deze stap overslaan. Anders maakt u een service-principal [instructies]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) en wijs deze schijf een 'eigenaar'-rol binnen het bereik van uw abonnement [instructies]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). Sla het service-principal toepassings-ID en het geheim. 
+  1. Als een service-principal met de rol van eigenaar van het abonnement beschikbaar is, moet u deze stap overslaan. Anders maakt u een service-principal [instructies]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals) en toe te wijzen een 'eigenaar'-rol binnen het bereik van uw abonnement [instructies]( https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal). De service principal toepassings-ID en geheim opslaan. 
 
-  2. Importeren **adal** pakket van Ga AutoRest in uw code. 
+  2. Importeren **adal** van Go-AutoRest-pakket in uw code. 
   
   ````go
   package main
@@ -150,10 +150,10 @@ Deze sectie geeft een veelgebruikte manier voor het verkrijgen van authorizer to
       oauthConfig, err := adal.NewOAuthConfig(activeDirectoryEndpoint, tenantID)
   ````
    
-  Stel `<activeDirectoryEndpoint>` aan de waarde van 'loginEndpoint' eigenschap uit de metagegevens van de ResourceManagerUrl opgehaald op de vorige sectie van dit document.
-  Stel `<tenantID>` waarde aan uw Azure-Stack-tenant-ID. 
+  Stel `<activeDirectoryEndpoint>` aan de waarde van "loginEndpoint" eigenschap uit de ResourceManagerUrl metagegevens opgehaald op de vorige sectie van dit document.
+  Stel `<tenantID>` waarde aan uw Azure Stack-tenant-ID. 
 
-  4. Maak ten slotte de principal-token van een service met behulp van de methode NewServicePrincipalToken met adal-module. 
+  4. Maak ten slotte de token van een service-principal met behulp van de methode NewServicePrincipalToken uit adal-module. 
 
   ````go
   package main 
@@ -172,17 +172,17 @@ Deze sectie geeft een veelgebruikte manier voor het verkrijgen van authorizer to
   ````
   
   Stel `<activeDirectoryResourceID>` op een van de waarden in de 'doelgroep' lijst van de metagegevens van de ResourceManagerUrl opgehaald op de vorige sectie van dit document.  
-  Stel `<clientID>` voor de servicetoepassing principal ID opgeslagen wanneer service-principal is gemaakt op de vorige sectie van dit document.  
-  Stel `<clientSecret>` voor de servicetoepassing principal geheim opgeslagen wanneer service-principal is gemaakt op de vorige sectie van dit document.  
+  Stel `<clientID>` naar de service-principal toepassing ID opgeslagen wanneer service-principal is gemaakt op de vorige sectie van dit document.  
+  Stel `<clientSecret>` naar de service-principal toepassing geheim opgeslagen wanneer service-principal is gemaakt op de vorige sectie van dit document.  
 
 ## <a name="example"></a>Voorbeeld
 
-Deze sectie toont een voorbeeld van code Ga virtueel netwerk maken op Azure-Stack. Voor volledige voorbeelden van SDK gaat Zie [Ga-SDk van Azure-voorbeelden opslagplaats](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Azure Stack-voorbeelden zijn beschikbaar onder hybride / pad in servicemappen van de opslagplaats.
+In deze sectie wordt een voorbeeld van Go-code voor het virtueel netwerk maken in Azure Stack. Voor volledige voorbeelden van Go SDK, Zie [opslagplaats met Azure-SDk voor Go-voorbeelden](https://github.com/Azure-Samples/azure-sdk-for-go-samples). Azure Stack-voorbeelden zijn beschikbaar onder hybride / pad binnen de servicemappen van de opslagplaats.
 
 > [!Note]  
-> Controleer of het abonnement dat u gebruikt is om de code in dit voorbeeld uitvoert, **netwerk** resourceprovider vermeld als **geregistreerde**. Om deze te verifiëren, zoekt u het abonnement in de Stack van Azure-portal en klik op **resourceproviders.**
+> Controleer of het abonnement dat u gebruikt is voor het uitvoeren van de code in dit voorbeeld **netwerk** -resourceprovider als vermeld **geregistreerde**. Om deze te verifiëren, zoekt u het abonnement in de Azure Stack-portal en klikt u op **resourceproviders.**
 
-1. Importeer de vereiste pakketten in uw code. U moet het meest recente profiel op Azure-Stack gebruiken de netwerk-module te importeren. 
+1. Importeer de vereiste pakketten in uw code. U moet de meest recente profiel in Azure Stack gebruiken om de netwerk-module te importeren. 
   
   ````go
   package main
@@ -197,7 +197,7 @@ Deze sectie toont een voorbeeld van code Ga virtueel netwerk maken op Azure-Stac
   )
   ````
 
-2. Definieer de omgevingsvariabelen. Een virtueel netwerk, die moet u beschikken over een resourcegroep maken. 
+2. Definieer de omgevingsvariabelen. Voor het maken van een virtueel netwerk moet u een resourcegroep hebt. 
 
   ````go
   var (
@@ -212,7 +212,7 @@ Deze sectie toont een voorbeeld van code Ga virtueel netwerk maken op Azure-Stac
   )
   ````
 
-3. Nadat u de omgevingsvariabelen van uw hebt gedefinieerd, voegt u toe een methode voor het verificatietoken te maken met behulp van **adal** pakket. Zie informatie over verificatie in de vorige sectie.
+3. Nu dat u de omgevingsvariabelen hebt gedefinieerd, Voeg een methode voor het verificatietoken te maken met behulp van **adal** pakket. Zie meer informatie over verificatie in de vorige sectie.
   
   ````go
   //CreateToken creates a service principal token
@@ -228,7 +228,7 @@ Deze sectie toont een voorbeeld van code Ga virtueel netwerk maken op Azure-Stac
   }
   ````
 
-4. De belangrijkste methode toevoegen. De belangrijkste methode haalt eerst een token met behulp van de methode die is gedefinieerd in de vorige stap. Vervolgens wordt een client met behulp van netwerk-module van profiel gemaakt. Ten slotte wordt gemaakt van een virtueel netwerk. 
+4. De belangrijkste methode toevoegen. De belangrijkste methode wordt eerst een token opgehaald met behulp van de methode die is gedefinieerd in de vorige stap. Vervolgens wordt een client met behulp van netwerk-module van het profiel. Ten slotte wordt een virtueel netwerk gemaakt. 
   
 ````go
 package main
@@ -300,4 +300,4 @@ func main() {
 
 ## <a name="next-steps"></a>Volgende stappen
 * [PowerShell voor Azure Stack installeren](azure-stack-powershell-install.md)
-* [Configureren van de gebruiker van de Stack van Azure PowerShell-omgeving](azure-stack-powershell-configure-user.md)  
+* [PowerShell-omgeving van de Azure Stack-gebruiker configureren](azure-stack-powershell-configure-user.md)  

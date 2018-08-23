@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/06/2018
+ms.date: 08/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 2ae61d672083508d49e72afd5a015191082c23e9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8027149f3e5ace163bf380bc5362fcb101397986
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521928"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42056633"
 ---
 # <a name="monitor-azure-kubernetes-service-aks-container-health-preview"></a>Containerstatus van Azure Kubernetes Service (AKS) (voorbeeld) bewaken
 
 Dit artikel wordt beschreven hoe u kunt instellen en containerstatus van Azure Monitor gebruiken voor het bewaken van de prestaties van workloads die zijn geïmplementeerd in Kubernetes-omgevingen en worden gehost in Azure Kubernetes Service (AKS). Controle van uw Kubernetes-cluster en de containers is kritiek, met name wanneer u een productiecluster op schaal, met meerdere toepassingen uitvoert.
 
-Containerstatus biedt u de mogelijkheid door verzamelen geheugen en processors metrische gegevens van domeincontrollers, knooppunten en containers die beschikbaar in Kubernetes via de API voor metrische gegevens zijn voor prestatiebewaking. Nadat u de containerstatus hebt ingeschakeld, deze metrische gegevens automatisch worden via een beperkte versie van de Operations Management Suite (OMS)-Agent voor Linux voor u verzameld en opgeslagen in uw [Log Analytics](../log-analytics/log-analytics-overview.md) werkruimte. De opgenomen vooraf gedefinieerde weergaven weergegeven die container-workloads en wat van invloed is op de prestatiestatus van het Kubernetes-cluster dat u kunt:  
+Containerstatus biedt u de mogelijkheid door verzamelen geheugen en processors metrische gegevens van domeincontrollers, knooppunten en containers die beschikbaar in Kubernetes via de API voor metrische gegevens zijn voor prestatiebewaking. Nadat u de containerstatus hebt ingeschakeld, deze metrische gegevens automatisch worden via een beperkte versie van de Log Analytics-agent voor Linux voor u verzameld en opgeslagen in uw [Log Analytics](../log-analytics/log-analytics-overview.md) werkruimte. De opgenomen vooraf gedefinieerde weergaven weergegeven die container-workloads en wat van invloed is op de prestatiestatus van het Kubernetes-cluster dat u kunt:  
 
 * Identificeer de containers die worden uitgevoerd op het knooppunt en het gemiddelde gebruik van de processor en geheugen. Aan de hand van deze kennis kunt u knelpunten in de resource.
 * Bepalen waar de container bevindt zich in een domeincontroller of een schil. Aan de hand van deze kennis kunt u de algehele prestaties van de van de domeincontroller of de schil weergeven. 
@@ -38,13 +38,15 @@ Als u geïnteresseerd bent in controle en beheer van uw Docker- en Windows conta
 Voordat u begint, zorg ervoor dat u het volgende hebt:
 
 - Een nieuw of bestaand AKS-cluster.
-- Een App in een container OMS-Agent voor Linux-versie microsoft / oms:ciprod04202018 of hoger. Het versienummer wordt vertegenwoordigd door een datum in de volgende indeling: *mmddyyyy*. De agent wordt automatisch geïnstalleerd tijdens de onboarding van de containerstatus. 
+- Een beperkte Log Analytics-agent voor Linux-versie microsoft / oms:ciprod04202018 of hoger. Het versienummer wordt vertegenwoordigd door een datum in de volgende indeling: *mmddyyyy*. De agent wordt automatisch geïnstalleerd tijdens de onboarding van de containerstatus. 
 - Een Log Analytics-werkruimte. Als u bewaking van uw nieuwe AKS-cluster of laat het onboarding-ervaring een standaardwerkruimte maken in de standaard-resourcegroep van het AKS-cluster-abonnement, kunt u deze maken. Als u wilt deze zelf maken, kunt u het maken via [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md), tot en met [PowerShell](https://docs.microsoft.com/azure/log-analytics/scripts/log-analytics-powershell-sample-create-workspace?toc=%2fpowershell%2fmodule%2ftoc.json), of in de [Azure-portal](../log-analytics/log-analytics-quick-create-workspace.md).
 - De Log Analytics inzendersrol, containerbewaking van de wilt inschakelen. Zie voor meer informatie over het beheren van toegang tot een Log Analytics-werkruimte [werkruimten beheren](../log-analytics/log-analytics-manage-access.md).
 
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+
 ## <a name="components"></a>Onderdelen 
 
-De mogelijkheid om prestaties te bewaken is gebaseerd op een beperkte OMS-Agent voor Linux, welke prestaties en gebeurtenisgegevens worden verzameld van alle knooppunten in het cluster. De agent is geregistreerd met de opgegeven Log Analytics-werkruimte nadat u containerbewaking inschakelen en automatisch geïmplementeerd. 
+De mogelijkheid om prestaties te bewaken, is afhankelijk van een beperkte Log Analytics-agent voor Linux, welke prestaties en gebeurtenisgegevens worden verzameld van alle knooppunten in het cluster. De agent is geregistreerd met de opgegeven Log Analytics-werkruimte nadat u containerbewaking inschakelen en automatisch geïmplementeerd. 
 
 >[!NOTE] 
 >Als u al een AKS-cluster hebt geïmplementeerd, kunt u inschakelen bewaking met behulp van Azure CLI of een opgegeven Azure Resource Manager-sjabloon, zoals verderop in dit artikel wordt gedemonstreerd. U kunt geen gebruiken `kubectl` als u wilt bijwerken, verwijderen, opnieuw implementeren of implementeren van de agent. 
@@ -59,7 +61,7 @@ Tijdens de implementatie kunt u bewaking van een nieuw AKS-cluster in Azure port
 Volg de stappen in dit artikel in de sectie voor bewaking van een nieuw AKS-cluster gemaakt met Azure CLI, [maken-AKS-cluster](../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
->Als u ervoor de Azure CLI gebruiken kiest, moet u eerst installeren en de CLI lokaal gebruikt. U moet worden uitgevoerd van Azure CLI versie 2.0.27 of hoger. Voor het identificeren van uw versie uitvoeren `az --version`. Als u wilt installeren of upgraden van de Azure CLI, Zie [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+>Als u ervoor de Azure CLI gebruiken kiest, moet u eerst installeren en de CLI lokaal gebruikt. U moet worden uitgevoerd van Azure CLI versie 2.0.43 of hoger. Voor het identificeren van uw versie uitvoeren `az --version`. Als u wilt installeren of upgraden van de Azure CLI, Zie [Azure CLI installeren](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 >
 
 Nadat u bewaking hebt ingeschakeld, en alle configuratietaken zijn voltooid, kunt u de prestaties van uw cluster op twee manieren controleren:
@@ -303,7 +305,7 @@ omsagent   1         1         1            1            3h
 
 ### <a name="agent-version-earlier-than-06072018"></a>Agent-versie ouder is dan 06072018
 
-Om te controleren dat de versie van de OMS-agent vóór uitgebracht *06072018* correct is geïmplementeerd met de volgende opdracht uitvoeren:  
+Om te controleren dat de versie van de Log Analytics-agent vóór uitgebracht *06072018* correct is geïmplementeerd met de volgende opdracht uitvoeren:  
 
 ```
 kubectl get ds omsagent --namespace=kube-system
@@ -501,7 +503,7 @@ Vaak is het handig om te maken van query's die beginnen met een voorbeeld of twe
 | ContainerInventory<br> &#124;Computer, de naam, afbeelding, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime project<br> &#124;tabel weergeven | Lijst met alle van de container levenscyclus van gegevens| 
 | KubeEvents_CL<br> &#124;waar not(isempty(Namespace_s))<br> &#124;sorteren op TimeGenerated desc<br> &#124;tabel weergeven | Kubernetes-gebeurtenissen|
 | ContainerImageInventory<br> &#124;summarize AggregatedValue = count() by afbeelding, ImageTag, actief | Voorraad | 
-| **Selecteer in de Advanced Analytics lijndiagrammen**:<br> Voor prestaties<br> &#124;waarbij ObjectName == 'Container' en CounterName == "% processortijd"<br> &#124;samenvatten AvgCPUPercent avg(CounterValue) door bin (TimeGenerated, 30 min.), InstanceName = | Container CPU | 
+| **Selecteer in de Advanced Analytics lijndiagrammen**:<br> Prestaties<br> &#124;waarbij ObjectName == 'Container' en CounterName == "% processortijd"<br> &#124;samenvatten AvgCPUPercent avg(CounterValue) door bin (TimeGenerated, 30 min.), InstanceName = | Container CPU | 
 | **Selecteer in de Advanced Analytics lijndiagrammen**:<br> Perf &#124; waarbij ObjectName == 'Container' en CounterName == "MB geheugen gebruik"<br> &#124;samenvatten AvgUsedMemory avg(CounterValue) door bin (TimeGenerated, 30 min.), InstanceName = | Container-geheugen |
 
 ## <a name="how-to-stop-monitoring-with-container-health"></a>Bewaking met de containerstatus stoppen

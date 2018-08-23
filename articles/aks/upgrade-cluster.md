@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/18/2018
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 9557311c97ea0fde66790c37b08d1a22d1197405
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 4ff2b56afc4496b6344735b4e3c813b06cee17e3
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144581"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42058375"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Een cluster Azure Kubernetes Service (AKS) upgraden
 
@@ -39,7 +39,7 @@ default  mytestaks007     1.8.10           1.8.10             1.9.1, 1.9.2, 1.9.
 Er zijn drie versies beschikbaar voor de upgrade: 1.9.1, 1.9.2 en 1.9.6. We kunnen de opdracht `az aks upgrade` gebruiken om te upgraden naar de meest recente beschikbare versie.  Tijdens het upgradeproces AKS wordt een nieuw knooppunt toevoegen aan het cluster, klikt u vervolgens zorgvuldig [cordon en leegmaken] [ kubernetes-drain] één knooppunt tegelijk om onderbreking actieve toepassingen te minimaliseren.
 
 > [!NOTE]
-> Bij het upgraden van een AKS-cluster, kunnen niet secundaire versies van Kubernetes worden overgeslagen. Bijvoorbeeld, upgrades tussen 1.8.x -> 1.9.x of 1.9.x -> 1.10.x zijn toegestaan, maar 1.8 -> 1.10 is niet.
+> Bij het upgraden van een AKS-cluster, kunnen niet secundaire versies van Kubernetes worden overgeslagen. Bijvoorbeeld, upgrades tussen 1.8.x -> 1.9.x of 1.9.x -> 1.10.x zijn toegestaan, maar 1.8 -> 1.10 is niet. Als u wilt upgraden, van 1.8 1.10 ->, moet u eerst een upgrade uitvoert van 1.8 1.9 -> en klik vervolgens nog een andere doen 1.10-upgrade van 1.9 >
 
 ```azurecli-interactive
 az aks upgrade --name myAKSCluster --resource-group myResourceGroup --kubernetes-version 1.9.6

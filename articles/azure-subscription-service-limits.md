@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 08/16/2018
 ms.author: byvinyal
-ms.openlocfilehash: 570eee6cc849c474cfeacf5a9ba1798f64f27183
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6b6e713c0da11a3d2c8cfbf388b84940a4542e95
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188069"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42060580"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-abonnement en servicelimieten, quota's en beperkingen
 In dit document vindt u enkele van de meest algemene Microsoft Azure-limieten, die soms ook wel quotums genoemd. Dit document niet op dit moment betrekking hebben op alle Azure-services. Na verloop van tijd, wordt de lijst worden uitgebreid en bijgewerkt in verband met betrekking hebben op meer van het platform.
@@ -35,7 +35,8 @@ In de onderstaande grenzen, is een nieuwe tabel toegevoegd om weer te geven van 
 
 > [!NOTE]
 > Het is belangrijk om te benadrukken dat quota voor resources in Azure-resourcegroepen per regio toegankelijk is voor uw abonnement zijn, en niet per abonnement, omdat de service management-quota zijn. We gaan vCPU-quota gebruiken als voorbeeld. Als u nodig hebt om aan te vragen een quotaverhoging met ondersteuning voor vcpu's, moet u het aantal vcpu's die u wilt gebruiken in welke regio's en breng een specifieke aanvraag voor Azure-resourcegroep vCPU-quota voor de bedragen en regio's die u wilt bepalen. Als u 30 vcpu's in West-Europa er voor uw toepassing gebruiken wilt, moet u daarom specifiek 30 vcpu's in West-Europa aanvragen. Maar hebt u geen een vCPU-quotum verhogen in een andere regio--alleen West-Europa heeft de 30-vCPU-quotum.
-> <!-- --> U kunt als gevolg hiervan vindt u het handig om te overwegen beslist wat uw Azure-resourcegroep quota's nodig hebt voor uw workload in elke regio een en bedrag in elke regio waarin u implementatie overweegt aanvragen. Zie [het oplossen van implementatieproblemen](resource-manager-common-deployment-errors.md) voor meer hulp bij het detecteren van uw huidige quota voor specifieke regio's.
+> <!-- -->
+> U kunt als gevolg hiervan vindt u het handig om te overwegen beslist wat uw Azure-resourcegroep quota's nodig hebt voor uw workload in elke regio een en bedrag in elke regio waarin u implementatie overweegt aanvragen. Zie [het oplossen van implementatieproblemen](resource-manager-common-deployment-errors.md) voor meer hulp bij het detecteren van uw huidige quota voor specifieke regio's.
 >
 >
 
@@ -51,6 +52,7 @@ In de onderstaande grenzen, is een nieuwe tabel toegevoegd om weer te geven van 
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure Event Grid](#azure-event-grid-limits)
 * [Azure Maps](#azure-maps-limits)
+* [Azure Policy](#azure-policy-limits)
 * [Azure Redis-cache](#azure-redis-cache-limits)
 * [Een back-up maken](#backup-limits)
 * [Batch](#batch-limits)
@@ -293,6 +295,9 @@ Zie voor meer informatie over limieten voor een meer gedetailleerd niveau, zoals
 
 ### <a name="azure-maps-limits"></a>Azure Maps-limieten
 [!INCLUDE [maps-limits](../includes/maps-limits.md)]
+
+### <a name="azure-policy-limits"></a>Limieten voor Azure Policy
+[!INCLUDE [policy-limits](../includes/azure-policy-limits.md)]
 
 ### <a name="storsimple-system-limits"></a>Limieten voor StorSimple-systeem
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]

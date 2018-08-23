@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2017
+ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 67a7a701eb7700fab9aa9d0ec22354cc1618f856
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 9b4d992d690bb3237f8c92e44020c0ac83978d7e
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004691"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42054701"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Beschikbaarheid en consistentie in Event Hubs
 
@@ -37,7 +37,7 @@ De Brewer theorema consistentie en beschikbaarheid wordt als volgt gedefinieerd:
 Eventhubs is gebaseerd op een model gepartitioneerde gegevens. U kunt het aantal partities in uw event hub configureren tijdens de installatie, maar u kunt deze waarde later niet wijzigen. Omdat partities u met Event Hubs gebruiken moet, moet u een beslissing nemen over de beschikbaarheid en consistentie voor uw toepassing.
 
 ## <a name="availability"></a>Beschikbaarheid
-De eenvoudigste manier om aan de slag met Event Hubs is het standaardgedrag te gebruiken. Als u een nieuwe maakt ** [EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient) ** object en gebruik de ** [verzenden](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_) ** methode en de gebeurtenissen worden automatisch verdeeld tussen partities in de event hub. Dit gedrag kunt u de grootste mate van beschikbaarheid.
+De eenvoudigste manier om aan de slag met Event Hubs is het standaardgedrag te gebruiken. Als u een nieuwe maakt **[EventHubClient](/dotnet/api/microsoft.azure.eventhubs.eventhubclient)** object en gebruik de **[verzenden](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync?view=azure-dotnet#Microsoft_Azure_EventHubs_EventHubClient_SendAsync_Microsoft_Azure_EventHubs_EventData_)** methode en de gebeurtenissen worden automatisch verdeeld tussen partities in de event hub. Dit gedrag kunt u de grootste mate van beschikbaarheid.
 
 Voor use-cases die de maximale tijd nodig hebben, heeft dit model de voorkeur.
 

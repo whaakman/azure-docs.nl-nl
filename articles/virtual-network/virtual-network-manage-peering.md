@@ -13,18 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/09/2018
+ms.date: 08/16/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 1b9807b587b6b52594133e8c792c72b21e8bd4ea
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7d27b95f9c7d21f49f547534ca99a44657062abc
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503618"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055111"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Maken, wijzigen of een virtueel netwerk-peering verwijderen
 
-Informatie over het maken, wijzigen of verwijderen van een peering op virtueel netwerk. Peering op virtueel netwerk, kunt u virtuele netwerken verbinden via het Azure-backbone-netwerk. Na de peering wordt de virtuele netwerken worden nog steeds beheerd als afzonderlijke resources. Als u geen ervaring met peering op virtueel netwerk, kunt u meer informatie over het in de [overzicht van virtual network-peering](virtual-network-peering-overview.md) of door te voeren een [zelfstudie](tutorial-connect-virtual-networks-portal.md).
+Informatie over het maken, wijzigen of verwijderen van een peering op virtueel netwerk. Peering op virtueel netwerk kunt u verbinding maken met virtuele netwerken in dezelfde regio en tussen regio's (ook wel bekend als wereldwijde VNet-Peering) via de Azure-backbone-netwerk. Na de peering wordt de virtuele netwerken worden nog steeds beheerd als afzonderlijke resources. Als u geen ervaring met peering op virtueel netwerk, kunt u meer informatie over het in de [overzicht van virtual network-peering](virtual-network-peering-overview.md) of door te voeren een [zelfstudie](tutorial-connect-virtual-networks-portal.md).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -112,10 +112,10 @@ Als u virtuele netwerken om te communiceren soms, maar niet altijd, in plaats va
 
 ## <a name="requirements-and-constraints"></a>Vereisten en beperkingen 
 
-- <a name="cross-region"></a>U kunt virtuele netwerken in de dezelfde regio bevinden, of verschillende regio's koppelen. De volgende beperkingen zijn niet van toepassing wanneer beide virtuele netwerken zich in de *dezelfde* regio, maar is dit van toepassing wanneer de virtuele netwerken zijn wereldwijd gekoppeld: 
-    - De virtuele netwerken kunnen bestaan in een openbare cloud van Azure-regio, maar niet in Azure, nationale clouds.
-    - Resources in een virtueel netwerk kunnen niet communiceren met het IP-adres van een interne Azure load balancer in het gekoppelde virtuele netwerk. De load balancer en de resources die met het communiceren moeten zich in hetzelfde virtuele netwerk.
-    - U kunt geen externe gateways gebruiken of gatewayoverdracht toestaan. Als u externe gateways gebruiken of gatewayoverdracht toestaan, worden beide virtuele netwerken in de peering moeten bestaan in dezelfde regio. 
+- <a name="cross-region"></a>U kunt virtuele netwerken in de dezelfde regio bevinden, of verschillende regio's koppelen. Peering van virtuele netwerken in verschillende regio's wordt ook aangeduid als *wereldwijde peering*. 
+- Bij het maken van een wereldwijde peering, wordt de gekoppelde virtuele netwerken kunnen bestaan in een openbare cloud van Azure-regio, maar niet in Azure, nationale clouds. U kunt alleen virtuele netwerken in dezelfde regio in nationale clouds koppelen.
+- Resources in een virtueel netwerk kunnen niet communiceren met de front-end-IP-adres van een interne Azure load balancer in een wereldwijd gekoppelde virtuele netwerk. De load balancer en de resources die met deze communiceren moeten zich in een virtueel netwerk in dezelfde regio. Als de gekoppelde virtuele netwerken zich echter in dezelfde regio bevinden, kunnen resources in beide virtuele netwerken communiceren met de front-end-IP-adres van een interne Azure load balancer in beide virtuele netwerken in de peering.
+- U kunt geen externe gateways gebruiken of gatewayoverdracht toestaan in wereldwijd gekoppelde virtuele netwerken. Als u externe gateways gebruiken of gatewayoverdracht toestaan, moet de gekoppelde virtuele netwerken in dezelfde regio.
 - De virtuele netwerken kunnen zich in de dezelfde of verschillende abonnementen behoren. Wanneer u virtuele netwerken in verschillende abonnementen koppelen, moeten beide abonnementen gekoppeld aan dezelfde Azure Active Directory-tenant zijn. Als u nog een AD-tenant hebt, kunt u snel [maakt u er een](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-new-azure-ad-tenant). U kunt een [VPN-Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) naar twee virtuele netwerken koppelen die zich in verschillende abonnementen die gekoppeld aan verschillende Active Directory-tenants zijn.
 - De virtuele netwerken die u op hetzelfde niveau moeten niet-overlappende IP-adresruimten hebben.
 - U kan niet-adresbereiken aan toevoegen of verwijderen-adresbereiken in de adresruimte van een virtueel netwerk van wanneer een virtueel netwerk is gekoppeld aan een ander virtueel netwerk. Als u wilt toevoegen of verwijderen-adresbereiken, de peering verwijderen, toevoegen of verwijderen van de adresbereiken, maakt u opnieuw de peering. -Adresbereiken aan toevoegen of verwijderen-adresbereiken van virtuele netwerken, Zie [virtuele netwerken beheren](manage-virtual-network.md).
@@ -143,7 +143,7 @@ De accounts die u gebruiken om te werken met virtueel-netwerkpeering moeten word
 
 Als uw account niet aan een van de vorige rollen toegewezen is, moet deze worden toegewezen aan een [aangepaste rol](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) die de noodzakelijke acties op basis van de volgende tabel is toegewezen:
 
-| Actie | Naam |
+| Bewerking | Naam |
 |---|---|
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Vereist voor het maken van de peering van het virtueel netwerk A met virtual network B. virtueel moet netwerk A een virtueel netwerk (Resource Manager)                            |
 | Microsoft.Network/virtualNetworks/peer/action                   | Vereist voor het maken van een peering van virtueel netwerk B (Resource Manager) naar een virtueel netwerk A                                                                                |

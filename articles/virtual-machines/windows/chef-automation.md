@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: 31a0177ecfd87fa7ea78989b36141070c2ac193b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 3a6fbc8410dbc5aec4522f0972a29c67527edb23
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865723"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42058669"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Implementatie van virtuele Azure-machine automatiseren met Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -59,7 +59,7 @@ Vervolgens maakt u een tweede directory c:\chef\cookbooks genoemd.
 
 Nu moeten we de instellingen van het Azure-bestand downloaden, zodat Chef met het Azure-abonnement communiceren kan.
 
-Download uw publicatie-instellingen met behulp van PowerShell Azure [Get-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) opdracht. 
+Download uw publicatie-instellingen met behulp van PowerShell Azure [Get-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) opdracht. 
 
 Sla het publish settings-bestand in C:\chef.
 

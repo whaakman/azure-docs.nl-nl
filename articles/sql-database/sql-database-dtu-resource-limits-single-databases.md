@@ -7,18 +7,18 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 08/03/2018
 ms.author: carlrab
-ms.openlocfilehash: effb09cfc68961065ad0b4e4be52255bcd1fe4e0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: b8c1a0a0c4f2b3b33338f1f76245fd4bcb66ad61
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414164"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42055070"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Resourcelimieten voor individuele databases met behulp van het op DTU gebaseerde aankoopmodel 
 
-In dit artikel bevat de gedetailleerde resourcelimieten voor elastische pools van Azure SQL Database met behulp van het op DTU gebaseerde aankoopmodel.
+In dit artikel bevat de gedetailleerde resourcelimieten voor individuele databases van Azure SQL Database met behulp van het op DTU gebaseerde aankoopmodel.
 
 Zie voor DTU gebaseerde aankopen model resourcelimieten voor elastische pools, [DTU gebaseerde resourcelimieten - elastische pools](sql-database-vcore-resource-limits-elastic-pools.md). Zie voor vCore gebaseerde resourcelimieten [vCore gebaseerde resourcelimieten - individuele databases](sql-database-vcore-resource-limits-single-databases.md) en [vCore gebaseerde resourcelimieten - elastische pools](sql-database-vcore-resource-limits-elastic-pools.md).
 
@@ -42,7 +42,7 @@ De volgende tabellen ziet voor individuele databases, de beschikbare resources v
 
 ### <a name="standard-service-tier"></a>Standaardservicelaag
 | **Prestatieniveau** | **S0** | **S1** | **S2** | **S3** |
-| :--- |---:| ---:|---:|---:|---:|
+| :--- |---:| ---:|---:|---:|
 | Maximaal aantal DTU's | 10 | 20 | 50 | 100 |
 | Inbegrepen opslag (GB) | 250 | 250 | 250 | 250 |
 | Maximale opslagopties (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
@@ -53,7 +53,7 @@ De volgende tabellen ziet voor individuele databases, de beschikbare resources v
 
 ### <a name="standard-service-tier-continued"></a>Standard-servicelaag (vervolg)
 | **Prestatieniveau** | **S4** | **S6** | **S7** | **S9** | **S12** |
-| :--- |---:| ---:|---:|---:|---:|---:|
+| :--- |---:| ---:|---:|---:|---:|
 | Maximaal aantal DTU's | 200 | 400 | 800 | 1600 | 3000 |
 | Inbegrepen opslag (GB) | 250 | 250 | 250 | 250 | 250 |
 | Maximale opslagopties (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
@@ -124,6 +124,7 @@ Een maximale grootte die groter zijn dan 1 TB voor P11 en P15-database wordt ond
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie [Veelgestelde vragen over SQL-Database](sql-database-faq.md) voor antwoorden op veelgestelde vragen.
+- Zie [overzicht van Azure SQL Database-resourcebeperkingen](sql-database-resource-limits.md) voor informatie over de beperkingen op het niveau van de server en -abonnement.
 - Zie voor meer informatie over algemene Azure-limieten [Azure-abonnement en Servicelimieten, quotums en beperkingen](../azure-subscription-service-limits.md).
 - Zie voor meer informatie over dtu's en edtu's [dtu's en edtu's](sql-database-service-tiers.md#what-are-database-transaction-units-dtus).
 - Zie voor meer informatie over de maximale grootte tempdb https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database.

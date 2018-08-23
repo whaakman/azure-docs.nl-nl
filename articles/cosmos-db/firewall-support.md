@@ -3,20 +3,20 @@ title: Azure Cosmos DB-firewallondersteuning & IP-toegangsbeheer | Microsoft Doc
 description: Informatie over het gebruik van beleid voor IP-toegangsbeheer voor firewallondersteuning op de Azure Cosmos DB-database-accounts.
 keywords: IP-toegangsbeheer, firewallondersteuning
 services: cosmos-db
-author: SnehaGunda
+author: kanshiG
 manager: kfile
 tags: azure-resource-manager
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
-ms.author: sngun
-ms.openlocfilehash: e67fc5e00a638f116a69dbb36c60cf183cbde808
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.author: govindk
+ms.openlocfilehash: 7c9367cccf8d59d60dfa474f02567d59b9c8c8c2
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857827"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42054038"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure Cosmos DB-firewallondersteuning
 Als u wilt beveiligen gegevens die zijn opgeslagen in een Azure Cosmos DB-databaseaccount, Azure Cosmos DB heeft biedt ondersteuning voor een geheim op basis van [autorisatiemodel](https://msdn.microsoft.com/library/azure/dn783368.aspx) die gebruikmaakt van een sterke Hash-based message authentication code (HMAC). Azure Cosmos DB ondersteunt nu, naast het geheim op basis van autorisatiemodel, beleid voor IP-gebaseerd toegangsbeheer voor ondersteuning van de firewallregels voor binnenkomend aangestuurd. Dit model is vergelijkbaar met de firewall-regels van een traditionele database-systeem en biedt een extra beveiligingsniveau bij de Azure Cosmos DB-databaseaccount. Met dit model kunt u nu een Azure Cosmos DB-databaseaccount om te worden alleen toegankelijk vanuit een goedgekeurde set computers en/of cloud services configureren. Toegang tot Azure Cosmos DB-resources uit deze goedgekeurde sets van machines en services is nog steeds vereist voor de oproepende functie om weer te geven van een geldige Autorisatietoken.

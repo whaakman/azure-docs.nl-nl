@@ -8,16 +8,16 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: b4776ef3589d994fff692e450d252c491c20f7b2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 4751a76c39060f48d3b816ecee0de5b58e29bdaa
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522863"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42058119"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Toegang tot Azure IoT Hub Device Provisioning Service beheren
 
-In dit artikel beschrijft de opties voor het beveiligen van uw IoT device provisioning service. De provisioning-service wordt gebruikt *machtigingen* toegang verlenen tot elk eindpunt. Machtigingen beperken de toegang tot een service-exemplaar op basis van functionaliteit.
+In dit artikel beschrijft de opties voor het beveiligen van uw IoT-Device Provisioning service. De provisioning-service wordt gebruikt *machtigingen* toegang verlenen tot elk eindpunt. Machtigingen beperken de toegang tot een service-exemplaar op basis van functionaliteit.
 
 Dit artikel wordt beschreven:
 
@@ -34,7 +34,7 @@ U kunt verlenen [machtigingen](#device-provisioning-service-permissions) in de v
 
 * **Gedeeld toegangsbeleid voor autorisatie**. Beleid voor gedeelde toegang kunnen verlenen tot een combinatie van [machtigingen](#device-provisioning-service-permissions). U kunt beleid in definiëren de [Azure-portal][lnk-management-portal], of programmatisch met behulp van de [Device Provisioning Service REST-API's][lnk-resource-provider-apis]. Een nieuwe provisioning-service heeft het standaardbeleid voor het volgende:
 
-  * **provisioningserviceowner**: beleid met alle machtigingen.
+   **provisioningserviceowner**: beleid met alle machtigingen.
 
 > [!NOTE]
 > Zie [machtigingen](#device-provisioning-service-permissions) voor gedetailleerde informatie.
@@ -51,12 +51,16 @@ Zie de volgende sectie voor meer informatie over het maken en gebruiken van beve
 HTTP is de enige ondersteunde protocol en deze verificatie wordt geïmplementeerd door te nemen van een geldig token in de **autorisatie** aanvraagheader.
 
 #### <a name="example"></a>Voorbeeld
-`SharedAccessSignature sr=mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`
+```csharp
+SharedAccessSignature sr = 
+   mydps.azure-devices-provisioning.net&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501&skn=provisioningserviceowner`\
+```
 
 > [!NOTE]
 > De [Azure IoT Device Provisioning Service-SDK's] [ lnk-sdks] automatisch genereren van tokens bij het verbinden met de service.
 
 ## <a name="security-tokens"></a>Beveiligingstokens
+
 De Device Provisioning Service maakt gebruik van beveiligingstokens voor de verificatie van services om te voorkomen dat sleutels op de kabel verzonden. Bovendien zijn beveiligingstokens beperkt in de geldigheid van de tijd en het bereik. [Azure IoT Device Provisioning Service-SDK's] [ lnk-sdks] automatisch genereren van tokens zonder speciale configuratie. Sommige scenario's hoeven te genereren en beveiligingstokens rechtstreeks gebruiken. Dergelijke scenario's omvatten het direct gebruik van de HTTP-aanvallen.
 
 ### <a name="security-token-structure"></a>Token beveiligingsstructuur
@@ -131,7 +135,6 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
 > [!NOTE]
 > Aangezien de geldigheid van het token is gevalideerd op IoT Device Provisioning Service-machines, moet de afwijking van de klok van de computer waarmee het token wordt gegenereerd minimaal zijn.
 
-
 ### <a name="use-security-tokens-from-service-components"></a>Beveiligingstokens van de onderdelen van service gebruiken
 
 Serviceonderdelen kunnen alleen beveiligingstokens met behulp van de juiste machtigingen verlenen zoals hierboven is beleid voor gedeelde toegang genereren.
@@ -150,9 +153,9 @@ Als u bijvoorbeeld een service die zijn gegenereerd met een vooraf gemaakte gede
 * resource-URI: `{mydps}.azure-devices-provisioning.net`,
 * ondertekeningssleutel: een van de sleutels van de `enrollmentread` -beleid
 * Beleidsnaam: `enrollmentread`,
-* elk gewenst moment verlopen.
+* alle time.backn verlopen
 
-![Maken van een gedeeld toegangsbeleid voor uw DPS-exemplaar in de portal][img-add-shared-access-policy]
+![Maken van een gedeeld toegangsbeleid voor uw Device Provisioning service-exemplaar in de portal][img-add-shared-access-policy]
 
 ```nodejs
 var endpoint ="mydps.azure-devices-provisioning.net";
@@ -170,7 +173,7 @@ Het resultaat toegang tot het lezen van alle inschrijvingsrecords verleent zou, 
 
 De volgende onderwerpen met naslaginformatie bieden u meer informatie over het beheren van toegang tot uw IoT Device Provisioning Service.
 
-## <a name="device-provisioning-service-permissions"></a>Machtigingen voor Device Provisioning Service
+### <a name="device-provisioning-service-permissions"></a>Machtigingen voor Device Provisioning Service
 
 De volgende tabel bevat de machtigingen die u gebruiken kunt voor het beheren van toegang tot uw IoT Device Provisioning Service.
 

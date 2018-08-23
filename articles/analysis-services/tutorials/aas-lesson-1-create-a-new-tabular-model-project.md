@@ -5,19 +5,19 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/15/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 17abcc7dea2f695b4678b30fe7448b0bcbb11590
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b9d3e9df62ffd31a6a01ea427fec8d5a3d168bfa
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441484"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42061335"
 ---
 # <a name="create-a-tabular-model-project"></a>Een project voor een tabellair model maken
 
-In deze les gebruikt u Visual Studio met SQL Server Data Tools (SSDT) om een nieuw project voor een tabellair model te maken op het compatibiliteitsniveau 1400. Zodra het nieuwe project is gemaakt, kunt u gegevens gaan toevoegen en het model gaan ontwerpen. In deze les krijgt u ook een korte inleiding op de omgeving in Visual Studio voor het ontwerpen van een tabellair model.  
+In deze les gaat uitvoeren gebruikt u Visual Studio met Analysis Services-projecten of SQL Server Data Tools (SSDT) voor een nieuw project voor tabellair model maken op het compatibiliteitsniveau 1400. Zodra het nieuwe project is gemaakt, kunt u gegevens gaan toevoegen en het model gaan ontwerpen. In deze les krijgt u ook een korte inleiding op de omgeving in Visual Studio voor het ontwerpen van een tabellair model.  
   
 Geschatte tijd voor het voltooien van deze les: **10 minuten**  
   
@@ -49,7 +49,7 @@ Dit is de eerste les in een zelfstudie over het ontwerpen van een tabellair mode
     Als u SQL Server 2017 / Azure Analysis Services (1400) niet ziet staan in de vervolgkeuzelijst Compatibility level, gebruikt u niet de nieuwste versie van SQL Server Data Tools. Zie [SQL Server Data Tools installeren](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt) om de nieuwste versie te downloaden.  
       
   
-## <a name="understanding-the-ssdt-tabular-model-authoring-environment"></a>Overzicht van de SSDT-ontwerpomgeving voor tabellaire modellen  
+## <a name="understanding-the-visual-studio-tabular-model-authoring-environment"></a>Inzicht in het tabellaire model omgeving voor het ontwerpen van Visual Studio  
 U hebt net een nieuw project voor een tabellair model gemaakt. Het is handig om nu eerst even de omgeving van Visual Studio voor het ontwerpen van tabellaire modellen te bekijken.  
   
 Nadat uw project is gemaakt, wordt het geopend in Visual Studio. Aan de rechterkant, bij **Tabular Model Explorer**, ziet u een structuurweergave van de objecten in uw model. Aangezien u nog geen gegevens hebt geïmporteerd, zijn de mappen leeg. Klik met de rechtermuisknop op een objectmap om bewerkingen uit te voeren. De beschikbare opties zijn ook op te roepen via de menubalk. Tijdens het doorlopen van de stappen van deze zelfstudie, kunt u Tabular Model Explorer gebruiken om door verschillende objecten in uw modelproject te bladeren.
@@ -68,7 +68,7 @@ Wanneer u een modelproject maakt, worden bepaalde eigenschappen van het model au
 
 Klik in **Solution Explorer** met de rechtermuisknop op **AW Internet Sales** (project) en klik vervolgens op **Properties**. Het dialoogvenster **AW Internet Sales Property Pages** wordt weergegeven. Enkele van deze eigenschappen gaat u later instellen, wanneer u het model implementeert.  
   
-Tijdens de installatie van SSDT, zijn er een paar nieuwe menuopdrachten toegevoegd aan de Visual Studio-omgeving. Klik op het menu **Model**. Met de opdrachten in dit menu kunt u gegevens importeren, gegevens in de werkruimte vernieuwen, door het model bladeren in Excel, perspectieven en rollen maken, de modelweergave selecteren en berekeningsopties instellen. Klik op het menu **Table**. Hier ziet u opdrachten voor het maken en beheren van relaties, het opgeven van instellingen voor gegevenstabellen, het maken van partities en het bewerken van tabeleigenschappen. Als u op het menu **Column** klikt, kunt u kolommen toevoegen en verwijderen in een tabel, kolommen blokkeren en de sorteervolgorde opgeven. Er worden ook enkele knoppen door SSDT toegevoegd aan de werkbalk. De handigste functie is AutoSum. Hiermee kunt u een standaardaggregatiemeting maken voor een geselecteerde kolom. Andere knoppen op de werkbalk bieden snelle toegang tot veelgebruikte functies en opdrachten.  
+Tijdens de installatie van Analysis Services-projecten of SSDT, zijn paar nieuwe menuopdrachten toegevoegd aan de Visual Studio-omgeving. Klik op het menu **Model**. Met de opdrachten in dit menu kunt u gegevens importeren, gegevens in de werkruimte vernieuwen, door het model bladeren in Excel, perspectieven en rollen maken, de modelweergave selecteren en berekeningsopties instellen. Klik op het menu **Table**. Hier ziet u opdrachten voor het maken en beheren van relaties, het opgeven van instellingen voor gegevenstabellen, het maken van partities en het bewerken van tabeleigenschappen. Als u op het menu **Column** klikt, kunt u kolommen toevoegen en verwijderen in een tabel, kolommen blokkeren en de sorteervolgorde opgeven. Visual Studio wordt ook enkele knoppen toegevoegd aan de werkbalk. De handigste functie is AutoSum. Hiermee kunt u een standaardaggregatiemeting maken voor een geselecteerde kolom. Andere knoppen op de werkbalk bieden snelle toegang tot veelgebruikte functies en opdrachten.  
   
 Bekijk enkele dialoogvensters en locaties voor verschillende functies die specifiek zijn voor het ontwerpen van tabellaire modellen. Hoewel sommige items nog niet actief zijn, kunt u zo toch een goed beeld krijgen de ontwerpomgeving voor tabellaire modellen.  
   

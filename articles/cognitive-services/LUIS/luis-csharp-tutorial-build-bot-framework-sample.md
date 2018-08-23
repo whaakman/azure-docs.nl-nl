@@ -1,24 +1,24 @@
 ---
-title: LUIS integreren met een bot met behulp van de Bot Builder-SDK voor C# in Azure | Microsoft Docs
-description: Bouw een bot die is geïntegreerd met een LUIS-toepassing met behulp van Bot Framework.
+title: Met behulp van C#, LUIS integreren met een bot met behulp van de Bot Builder SDK - Azure Cognitive Services | Microsoft Docs
+description: Met C#, bouw een chatbot geïntegreerd met taalbegrip (LUIS). Deze chatbot maakt gebruik van het vooraf gedefinieerde HomeAutomation domein een bot-oplossing snel implementeren.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/06/2018
+ms.date: 08/13/2018
 ms.author: diberry
-ms.openlocfilehash: ca893dadfed04c90a4d89087299bf1cc2bf55eb9
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: d0010ccf51fc688fa66e1be82c735ae38455509b
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225955"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41988140"
 ---
 # <a name="web-app-bot-using-the-luis-template-for-c"></a>Web App-Bot met behulp van de sjabloon LUIS voor C#
 
-Bouw een chatbot met geïntegreerde language understanding.
+Met C#, bouw een chatbot geïntegreerd met taalbegrip (LUIS). Deze chatbot maakt gebruik van het vooraf gedefinieerde HomeAutomation domein een bot-oplossing snel implementeren. 
 
 ## <a name="prerequisite"></a>Vereiste
 
@@ -148,7 +148,7 @@ Klik in de Azure-portal op **testen in Web Chat** voor het testen van de bot. Ty
 > U kunt uw LUIS-app zonder wijzigingen in de code van uw bot opnieuw trainen. Zie [voorbeeld utterances toevoegen](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) en [trainen en testen van uw LUIS-app](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test). 
 
 ## <a name="download-the-bot-to-debug"></a>De bot voor foutopsporing downloaden
-Als uw bot niet werkt, het project hebt gedownload naar uw lokale computer en verder [foutopsporing](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-an-azure-app-service-web-app-c-bot). 
+Als uw bot niet werkt, het project hebt gedownload naar uw lokale computer en verder [foutopsporing](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-a-c-bot). 
 
 ## <a name="learn-more-about-bot-framework"></a>Meer informatie over Bot Framework
 Meer informatie over [Bot Framework](https://dev.botframework.com/) en de [3.x](https://github.com/Microsoft/BotBuilder) en [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK's.

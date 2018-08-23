@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 172747032990bb16d19ecf9d53adbd3da2f5887c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 65495209714c37e5e166545ed7ed029e36c258c0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592054"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42055667"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-preview-using-azure-data-factory-preview"></a>Gegevens kopiëren naar of van Azure Data Lake Storage Gen2 Preview met behulp van Azure Data Factory (Preview)
 
@@ -33,7 +33,7 @@ Deze connector ondersteunt name:
 - Kopiëren van bestanden als- of parseren of genereren van bestanden met [ondersteunde indelingen en codecs voor compressie](supported-file-formats-and-compression-codecs.md).
 
 >[!TIP]
->Als u de hiërarchische naamruimte inschakelt, bestaat er momenteel geen interoperabiliteit van bewerkingen tussen de Blob en ADLS Gen2 API's. Als u de fout van bereikt "ErrorCode FilesystemNotFound =" met het gedetailleerde bericht als "het opgegeven bestandssysteem bestaat niet.", dit wordt veroorzaakt door de opgegeven sink bestandssysteem is gemaakt via de Blob-API in plaats van ADLS Gen2 API elders. Los het probleem, gebruik de systeemnaam van een bestand dat niet bestaat en ADF kopieert de gegevens correct.
+>Als u de hiërarchische naamruimte inschakelt, bestaat er momenteel geen interoperabiliteit van bewerkingen tussen de Blob en ADLS Gen2 API's. Als u de fout van bereikt "ErrorCode FilesystemNotFound =" met het gedetailleerde bericht als "het opgegeven bestandssysteem bestaat niet.", dit wordt veroorzaakt door de opgegeven sink bestandssysteem is gemaakt via de Blob-API in plaats van ADLS Gen2 API elders. Los het probleem, Geef een nieuwe bestandssysteem met een naam die niet als de naam van een Blob-container bestaat en ADF maakt automatisch dit bestandssysteem tijdens het kopiëren van gegevens.
 
 ## <a name="get-started"></a>Aan de slag
 

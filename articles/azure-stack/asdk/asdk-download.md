@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/16/2018
+ms.date: 08/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: b55bc7f6aab522a6313498b6fdccc88870796224
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: a6ccfa439b58d36ee44d5f8441c2058622965653
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213024"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42061322"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>Downloaden en uitpakken van de Azure Stack Development Kit (ASDK)
 Nadat u hebt gecontroleerd of uw development kit host-computer voldoet aan de basisvereisten voor het installeren van de ASDK, wordt de volgende stap is het downloaden en uitpakken van het implementatiepakket ASDK om op te halen van de Cloudbuilder.vhdx.
@@ -43,7 +43,7 @@ Nadat u hebt gecontroleerd of uw development kit host-computer voldoet aan de ba
 2. Lees en accepteer de gebruiksrechtovereenkomst voor weergegeven van de **License Agreement** pagina van de Wizard zelf Extractor en klik vervolgens op **volgende**.
 3. Lees de privacy statement-informatie weergegeven op de **belangrijke kennisgeving** pagina van de Wizard zelf Extractor en klik vervolgens op **volgende**.
 4. Selecteer de locatie voor Azure Stack-setup-bestanden moeten worden uitgepakt in op aan de **doellocatie selecteren** pagina van de Wizard zelf Extractor en klik vervolgens op **volgende**. De standaardlocatie is *huidige map*\Azure Stack Development Kit. 
-5. Controleer de doellocatie samenvatting op de **gereed voor uitpakken** pagina van de Wizard zelf Extractor, en klik vervolgens op **extraheren** om op te halen van de CloudBuilder.vhdx (ongeveer 25 GB) en ThirdPartyLicenses.rtf bestanden. Dit proces duurt enige tijd om te voltooien.
+5. Controleer de doellocatie samenvatting op de **gereed voor uitpakken** pagina van de Wizard zelf Extractor, en klik vervolgens op **extraheren** om op te halen van de CloudBuilder.vhdx (ongeveer 28 GB) en ThirdPartyLicenses.rtf bestanden. Dit proces duurt enige tijd om te voltooien.
 6. Kopieer of het bestand CloudBuilder.vhdx verplaatsen naar de hoofdmap van het station C:\ (C:\CloudBuilder.vhdx) op de hostcomputer ASDK.
 
 > [!NOTE]

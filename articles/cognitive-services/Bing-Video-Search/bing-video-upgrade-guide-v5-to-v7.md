@@ -1,6 +1,6 @@
 ---
-title: Upgrade van Bing Video API v5 naar v7 | Microsoft Docs
-description: Identificeert de onderdelen van uw toepassing die u nodig hebt om bij te werken als versie 7 wilt gebruiken.
+title: Upgrade van de Bing Video-API versie 5 naar versie 7 | Microsoft Docs
+description: Hiermee geeft u de onderdelen van uw toepassing die u nodig hebt om bij te werken voor het gebruik van versie 7.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
@@ -10,43 +10,43 @@ ms.component: bing-video-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 62646d026e141d0549c68e18f9318fa32d3e00df
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: db1bc07c06f3d073b6cc0f206620e50a5f048e2a
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344493"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41987960"
 ---
-# <a name="video-search-api-upgrade-guide"></a>Video-API van zoekservice upgrade guide
+# <a name="video-search-api-upgrade-guide"></a>Upgrade guide voor video zoeken-API
 
-Deze upgrade handleiding identificeert de wijzigingen tussen 5 en versie 7 van de API van Bing Video zoeken. Gebruik deze handleiding kunt u de onderdelen van uw toepassing die u nodig hebt om bij te werken voor het gebruik van versie 7 herkennen.
+Deze upgrade handleiding identificeert de wijzigingen tussen 5 en versie 7 van de Bing video's zoeken-API. Deze handleiding gebruiken om te bepalen van de onderdelen van uw toepassing die u nodig hebt om bij te werken voor het gebruik van versie 7.
 
 ## <a name="breaking-changes"></a>Wijzigingen die fouten veroorzaken
 
 ### <a name="endpoints"></a>Eindpunten
 
-- Het versienummer van het eindpunt is gewijzigd van v5 in v7. Bijvoorbeeld: https://api.cognitive.microsoft.com/bing/\ * \*v7.0**/videos/search.
+- Het versienummer van het eindpunt is gewijzigd van versie 5 in versie 7. Bijvoorbeeld `https://api.cognitive.microsoft.com/bing/v7.0/videos/search`.
 
-### <a name="error-response-objects-and-error-codes"></a>Fout antwoord objecten en foutcodes
+### <a name="error-response-objects-and-error-codes"></a>Fout antwoordobjecten en foutcodes
 
-- Alle mislukte aanvragen moeten omvatten nu een `ErrorResponse` -object in de hoofdtekst van de reactie.
+- Alle mislukte aanvragen moeten nu bevatten een `ErrorResponse` object in de hoofdtekst van het antwoord.
 
-- De volgende velden te toegevoegd de `Error` object.  
-  - `subCode`&mdash;De foutcode partities indien mogelijk in discrete buckets
-  - `moreDetails`&mdash;Aanvullende informatie over de fout wordt beschreven in de `message` veld
+- De volgende velden toevoegt aan de `Error` object.  
+  - `subCode`&mdash;Indien mogelijk partities van de foutcode in discrete buckets
+  - `moreDetails`&mdash;Als u meer informatie over de fout wordt beschreven in de `message` veld
    
 
 - De foutcodes v5 vervangen door de volgende mogelijke `code` en `subCode` waarden.
 
-|Code|SubCode|Beschrijving
+|Code|De subCode|Beschrijving
 |-|-|-
-|ServerError|UnexpectedError<br/>ResourceError<br/>Niet geïmplementeerd|Bing retourneert ServerError wanneer een van de onderliggende code voorwaarden zich voordoen. Het antwoord bevat deze fouten als de HTTP-statuscode 500 is.
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Geblokkeerd|Bing retourneert InvalidRequest wanneer een deel van de aanvraag niet geldig is. Bijvoorbeeld, een vereiste parameter ontbreekt of een parameterwaarde is niet geldig.<br/><br/>Als de fout ParameterMissing of ParameterInvalidValue is, is de HTTP-statuscode 400.<br/><br/>Als de fout HttpNotAllowed, de HTTP-statuscode 410 is.
-|RateLimitExceeded||Bing retourneert RateLimitExceeded wanneer u uw query's per seconde (QPS) of de query's per maand (QPM)-quota overschrijdt.<br/><br/>Bing retourneert HTTP-statuscode 429 als overschreden QPS en 403 als u QPM overschreden.
-|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing retourneert InvalidAuthorization wanneer Bing de aanroeper kan niet worden geverifieerd. Bijvoorbeeld, de `Ocp-Apim-Subscription-Key` header ontbreekt of de abonnementssleutel is niet geldig.<br/><br/>Redundantie treedt op als u meer dan één verificatiemethode opgeven.<br/><br/>Als de fout InvalidAuthorization is, is de HTTP-statuscode 401.
-|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing retourneert InsufficientAuthorization wanneer de aanroeper is niet gemachtigd voor toegang tot de bron. Dit kan gebeuren als de abonnementssleutel is uitgeschakeld of is verlopen. <br/><br/>Als de fout InsufficientAuthorization is, is de HTTP-statuscode 403.
+|ServerError|UnexpectedError<br/>ResourceError<br/>Niet geïmplementeerd|Bing retourneert ServerError wanneer een van de voorwaarden van de onderliggende code optreden. Het antwoord bevat deze fouten als de HTTP-statuscode 500.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Geblokkeerd|Bing retourneert InvalidRequest wanneer er een deel van de aanvraag niet geldig is. Bijvoorbeeld, een vereiste parameter ontbreekt of een parameterwaarde is niet geldig.<br/><br/>Als de fout ParameterMissing of ParameterInvalidValue is, is de HTTP-statuscode 400.<br/><br/>Als de fout HttpNotAllowed, de HTTP-statuscode 410 is.
+|RateLimitExceeded||Bing retourneert RateLimitExceeded wanneer u uw query's per seconde (QPS) of query's per maand (QPM) quotum overschrijdt.<br/><br/>Bing retourneert HTTP-statuscode 429 als u overschreden QPS en 403 als u QPM overschreden.
+|InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing retourneert InvalidAuthorization wanneer Bing de oproepende functie kan niet worden geverifieerd. Bijvoorbeeld, de `Ocp-Apim-Subscription-Key` koptekst ontbreekt of de abonnementssleutel is niet geldig.<br/><br/>Redundantie treedt op als u meer dan één verificatiemethode opgeven.<br/><br/>Als de fout InvalidAuthorization is, is de HTTP-statuscode 401.
+|InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing retourneert InsufficientAuthorization wanneer de oproepende functie heeft geen machtigingen voor toegang tot de resource. Dit kan gebeuren als de abonnementssleutel is uitgeschakeld of is verlopen. <br/><br/>Als de fout InsufficientAuthorization is, is de HTTP-statuscode 403.
 
-- Het volgende worden de vorige foutcodes toegewezen aan de nieuwe codes. Als u een afhankelijkheid v5 foutcodes hebt genomen, worden uw code dienovereenkomstig bijgewerkt.
+- Het volgende wordt de vorige foutcodes toegewezen aan de nieuwe codes. Als u een afhankelijkheid hebt gemaakt in de foutcodes versie 5, overeenkomstig uw code bijwerken.
 
 |Versie 5-code|Versie 7 code.subCode
 |-|-
@@ -71,11 +71,11 @@ Geblokkeerd|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>Queryparameters
 
-- Hernoemd de `modulesRequested` queryparameter naar [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested).  
+- De naam van gewijzigd de `modulesRequested` parameter query [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#modulesrequested).  
 
 ### <a name="object-changes"></a>Wijzigingen van object
 
-- Hernoemd de `nextOffsetAddCount` veld [video's](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) naar `nextOffset`. De manier waarop u de offset is ook gewijzigd. Eerder, stelt u de [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#offset) query-parameter voor de `nextOffset` waarde plus de vorige waarde van de offset en het aantal video's in het resultaat. Nu u gewoon instellen de `offset` query-parameter voor de `nextOffset` waarde.  
+- De naam van gewijzigd de `nextOffsetAddCount` veld [video's](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) naar `nextOffset`. De manier waarop u de offset is ook gewijzigd. Eerder, stelt u de [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#offset) queryparameter naar de `nextOffset` waarde plus de vorige waarde intervalverschuiving en het aantal video's in het resultaat. Nu u stelt de `offset` queryparameter naar de `nextOffset` waarde.  
   
 - Gewijzigd van het gegevenstype van de `relatedVideos` veld `Video[]` naar [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videosmodule) (Zie [VideoDetails](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videodetails)).
 

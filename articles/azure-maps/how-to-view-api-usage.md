@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 9eb58f41ec89d084cc388eeadb335046fb587bc3
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e62d2ff1fdd6bc94244511a2de95c4268a58d6f9
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581382"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42056831"
 ---
 # <a name="how-to-view-the-azure-maps-api-usage"></a>Het gebruik van Azure kaarten-API weergeven
 Dit artikel leest u hoe u om weer te geven de metrische gegevens over gebruik API voor uw Azure-kaarten-account in de [portal](https://portal.azure.com). De metrische gegevens worden weergegeven in een handige grafiek langs een aanpasbare tijdsduur. 
@@ -59,10 +59,6 @@ Doorgaan naar de volgende sectie als u nodig hebt om aan te passen van de grafie
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe u uw gebruik van Azure Maps bijhouden, kunt u doorgaan voor meer informatie over meer geavanceerde functies, zoals:
+U hebt geleerd hoe u uw gebruik van Azure Maps bijhouden, kunt u doorgaan met meer informatie over de API's die u met de:
 
-* [Vehicle verbruik](consumption-model.md), of
-* [GeoJSON uitbreiden](extend-geojson.md)
-
-Ten slotte, meer informatie over de API's die u met de:
 * [Azure kaarten REST-API-documentatie](https://docs.microsoft.com/rest/api/maps)

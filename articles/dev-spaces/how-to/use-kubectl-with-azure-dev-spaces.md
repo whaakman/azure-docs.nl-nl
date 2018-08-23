@@ -11,21 +11,21 @@ ms.topic: article
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 3dc0dd4b571f716bcabb67c4cbef1ea6d762eb94
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 978274a6059a327c8596df6776eaa47a27ea4a34
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248655"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42058676"
 ---
-# <a name="use-kubectl-with-an-azure-dev-space"></a>Kubectl met een Azure-Dev-ruimte gebruiken
+# <a name="use-kubectl-with-an-azure-dev-space"></a>Kubectl gebruiken met een Azure Dev-ruimte
 
-U hebt toegang tot het cluster Kubernetes binnen een Azure-Dev-adresruimte en gebruik bestaande Kubernetes hulpprogramma's, zoals `kubectl`.
+U kunt toegang tot het Kubernetes-cluster in een Azure Dev-ruimte, en gebruik bestaande Kubernetes-hulpprogramma's zoals `kubectl`.
 
-Met `az aks use-dev-spaces` opdracht automatisch wordt toegevoegd een `kubectl` configuratiecontext voor u, zodat kubectl moeten al zijn verbonden met uw Azure Dev spaties Kubernetes-cluster. Voorbeelden:
-- Controleer de huidige context. `kubectl config current-context`
-- Lijst van alle beschikbare contexten: `kubectl config get-contexts`. 
-- Context wijzigen: `kubectl config use-context <context-name>`
-- Het dashboard Kubernetes weergeven: uitvoeren `kubectl proxy`, open uw browser het adres dat u deze opdracht verzendt (append `/ui` naar de URL om te navigeren naar het dashboard Kubernetes).
+Met `az aks use-dev-spaces` opdracht automatisch wordt toegevoegd een `kubectl` configuratiecontext voor u, zodat u kubectl al moet zijn verbonden met uw Azure Dev spaties Kubernetes-cluster. Voorbeelden:
+- Controleer of de huidige context: `kubectl config current-context`
+- Lijst met alle beschikbare contexten: `kubectl config get-contexts`. 
+- De context wijzigen: `kubectl config use-context <context-name>`
+- Het Kubernetes dashboard bekijken: uitvoeren `kubectl proxy`, open uw browser naar het adres dat met deze opdracht verzendt (append `/ui` naar de URL om te navigeren naar het Kubernetes-dashboard).
 - Lijst met de actieve services in de standaard Azure Dev spaties ruimte met de naam *standaard*: `kubectl get services --namespace=default`
 

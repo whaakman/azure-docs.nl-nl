@@ -1,6 +1,6 @@
 ---
-title: Service-concepten in Azure IoT Hub apparaat-inrichtingsservice | Microsoft Docs
-description: Beschrijft service inrichting concepten specifiek zijn voor apparaten met DP's en IoT-Hub
+title: Service-concepten in Azure IoT Hub Device Provisioning Service | Microsoft Docs
+description: Beschrijving van service inrichten concepten specifiek zijn voor apparaten met de Device Provisioning Service en IoT-Hub
 author: nberdy
 ms.author: nberdy
 ms.date: 03/30/2018
@@ -8,68 +8,71 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 2908e08e36f41ebb8a154e7c490e5c6719d911be
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ca2ea3c000e811223ded3022021c2516f547ae66
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628297"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42059443"
 ---
-# <a name="iot-hub-device-provisioning-service-concepts"></a>Inrichting-Service van IoT Hub apparaat-concepten
+# <a name="iot-hub-device-provisioning-service-concepts"></a>Concepten van IoT Hub Device Provisioning Service
 
-IoT Hub apparaat-inrichtingsservice is een helper-service voor IoT-Hub die u gebruikt om zonder tussenkomst apparaat inrichten met een opgegeven IoT-hub te configureren. Met de Service apparaat inrichting, kunt u [automatisch inrichten](concepts-auto-provisioning.md) miljoenen apparaten op een veilige en schaalbare manier.
+IoT Hub Device Provisioning Service is een helper-service voor IoT Hub die u met zero-touch-apparaatinrichting voor een opgegeven IoT hub configureren. Met de Device Provisioning Service, kunt u [automatisch inrichten](concepts-auto-provisioning.md) miljoenen apparaten op een veilige en schaalbare manier.
 
-Mobiele apparaten inrichten bestaat uit twee fasen. Het eerste deel is tot stand brengen van de eerste verbinding tussen het apparaat en IoT-oplossing door *registreren* het apparaat. Het tweede gedeelte toepast de juiste *configuratie* op het apparaat op basis van de specifieke vereisten van de oplossing. Wanneer beide stappen hebt voltooid, het apparaat volledig is *ingericht*. De Device Provisioning Service automatiseert beide stappen en biedt zo een naadloze ervaring voor de inrichting van het apparaat.
+Apparaatinrichting bestaat proces uit twee delen. Het eerste deel is tot stand brengen van de eerste verbinding tussen het apparaat en de IoT-oplossing door *registreren* het apparaat. Het tweede gedeelte is de juiste toepassing *configuratie* op het apparaat op basis van de specifieke vereisten van de oplossing. Nadat de beide stappen zijn voltooid, het apparaat volledig is *ingericht*. De Device Provisioning Service automatiseert beide stappen en biedt zo een naadloze ervaring voor de inrichting van het apparaat.
 
-In dit artikel biedt een overzicht van de inrichting concepten meest van toepassing op het beheren van de *service*. Dit artikel is het meest relevant voor Persona's die zijn betrokken bij de [cloud instellingsstap](about-iot-dps.md#cloud-setup-step) van een apparaat voorbereiden voor implementatie.
+In dit artikel biedt een overzicht van de inrichting concepten die het meest van toepassing voor het beheren van de *service*. In dit artikel is het meest relevant voor personen die betrokken zijn bij de [cloud instellingsstap](about-iot-dps.md#cloud-setup-step) van een apparaat voorbereiden voor implementatie.
 
 ## <a name="service-operations-endpoint"></a>Operations-service-eindpunt
 
-Het service-eindpunt voor bewerkingen is het eindpunt voor de service-instellingen beheren en onderhouden van de lijst van de inschrijving. Dit eindpunt wordt alleen gebruikt door de servicebeheerder; Dit wordt niet gebruikt door apparaten.
+Het service-eindpunt voor bewerkingen is het eindpunt voor de service-instellingen beheren en onderhouden van de lijst inschrijving. Dit eindpunt wordt alleen gebruikt door de servicebeheerder. het wordt niet gebruikt door apparaten.
 
-## <a name="device-provisioning-endpoint"></a>Inrichting endpoint van apparaat
+## <a name="device-provisioning-endpoint"></a>Inrichting apparaateindpunt
 
-Het eindpunt van apparaat-inrichting is het één eindpunt dat alle apparaten voor het automatisch inrichten gebruiken. De URL is hetzelfde voor alle inrichting service-exemplaren, de noodzaak voor apparaten met nieuwe verbindingsgegevens reflash in levering keten scenario's elimineren. De [ID-bereik](#id-scope) zorgt ervoor dat de isolatie van tenants.
+Het eindpunt voor het inrichten van apparaat is het één eindpunt dat alle apparaten voor automatische inrichting gebruiken. De URL is hetzelfde voor alle provisioning service-exemplaren, elimineert de noodzaak voor apparaten met de nieuwe verbindingsinformatie reflash in supply chain scenario's. De ID-bereik zorgt ervoor dat de isolatie van tenants.
 
 ## <a name="linked-iot-hubs"></a>Gekoppelde IoT-hubs
 
-Apparaat inrichtingsservice kunt IoT-hubs die zijn gekoppeld aan deze apparaten inrichten. Koppelen van een IoT-hub aan inrichtingsservice apparaat, krijgt de machtigingen voor het lezen/schrijven van service aan het apparaatregister van de IoT-hub; met de koppeling inrichtingsservice apparaat registreren van een apparaat-ID en de eerste configuratie ingesteld in de apparaat-twin. Gekoppelde IoT hubs kunnen zich in een Azure-regio. U kunt hubs in andere abonnementen koppelingen naar uw provisioning-service.
+De Device Provisioning Service kan alleen apparaten met IoT-hubs die zijn gekoppeld aan het inrichten. Een IoT-hub koppelen aan een exemplaar van de Device Provisioning service, krijgt de machtigingen van de service voor lezen/schrijven van de IoT hub-apparaatregister; met de koppeling een Device Provisioning service registreren van een apparaat-ID en de eerste configuratie ingesteld op het dubbele apparaat. Gekoppelde IoT-hubs mogelijk zijn in elke Azure-regio. U kunt hubs in andere abonnementen koppelen aan uw provisioning-service.
 
-## <a name="allocation-policy"></a>Toewijzingsbeleid voor
+## <a name="allocation-policy"></a>Toewijzingsbeleid
 
-Het serviceniveau-instelling die bepaalt hoe apparaat inrichtingsservice apparaten wijst naar een iothub. Er worden drie soorten toewijzingsbeleid ondersteund:
-* **Gelijkmatig gewogen distributie**: gekoppelde IoT hubs zijn waarschijnlijk gelijkmatig ingericht op deze apparaten hebben. De standaardinstelling. Als u apparaten voor slechts één IoT-hub inricht, kunt u deze instelling bewaren.
-* **Laagste latentie**: apparaten die zijn ingericht naar een iothub met de laagste latentie voor het apparaat. Als meerdere gekoppelde IoT hubs kan dezelfde laagste latentie opgeven wilt, hash de inrichting service-apparaten via deze hubs
-* **Statische configuratie via de lijst inschrijving**: specificatie van de gewenste IoT-hub in de lijst inschrijving heeft voorrang boven het serviceniveau toewijzingsbeleid voor.
+Het serviceniveau-instelling waarmee wordt bepaald hoe Device Provisioning Service apparaten toegewezen aan een IoT-hub. Er worden drie soorten toewijzingsbeleid ondersteund:
+
+* **Gelijk gewogen distributie**: gekoppelde IoT-hubs hebben evenveel kans dat apparaten die voor hen ingericht. De standaardinstelling. Als u apparaten voor slechts één IoT-hub inricht, kunt u deze instelling bewaren.
+
+* **Laagste latentie**: apparaten worden ingericht voor een IoT-hub met de laagste latentie voor het apparaat. Als meerdere gekoppelde IoT-hubs dezelfde laagste latentie bieden, hashes de inrichtingsservice apparaten via deze hubs
+
+* **Statische configuratie via de registratielijst**: specificatie van de gewenste IoT-hub in de registratielijst heeft voorrang boven het toewijzingsbeleid serviceniveau.
 
 ## <a name="enrollment"></a>Inschrijving
 
-Een van de inschrijving is de registratie van apparaten of groepen van apparaten die via automatische inrichting kunnen registreren. De registratie-record bevat informatie over het apparaat of de groep van apparaten, waaronder:
-- de [attestation mechanisme](concepts-security.md#attestation-mechanism) gebruikt door het apparaat
-- de optionele eerste gewenste configuratie
+Een inschrijving is de registratie van apparaten of groepen van apparaten dat kunnen worden geregistreerd via automatische inrichting. De inschrijvingsrecord bevat informatie over het apparaat of een groep apparaten, waaronder:
+- de [attestation-mechanisme](concepts-security.md#attestation-mechanism) wordt gebruikt door het apparaat
+- de optionele gewenste beginconfiguratie
 - gewenste IoT-hub
 - de gewenste apparaat-ID
 
-Er zijn twee soorten inschrijvingen ondersteund door apparaten inrichtingsservice:
+Er zijn twee soorten inschrijvingen die worden ondersteund door de Device Provisioning Service:
 
-### <a name="enrollment-group"></a>Inschrijvingsgroep
+### <a name="enrollment-group"></a>Registratiegroep
 
-Een registratie-groep is een groep apparaten die een specifieke attestation-mechanisme delen. Alle apparaten in de inschrijving groep aanwezig X.509-certificaten die zijn ondertekend door de dezelfde hoofd- of tussenliggende CA. Inschrijving groepen kunnen alleen het X.509-mechanisme voor attestation gebruikt. De groepsnaam van de inschrijving en de naam van het certificaat moeten alfanumerieke, kleine letters en kunnen de afbreekstreepjes bevatten.
+Een registratiegroep zit is een groep van apparaten die een specifiek attestation-mechanisme delen. Alle apparaten in de registratiegroep aanwezig X.509-certificaten die zijn ondertekend door de dezelfde basis of tussenliggende certificeringsinstantie (CA). Registreren van groepen kunnen alleen gebruiken voor het x.509-attestation-mechanisme. De naam van de registratiegroep en de naam van het certificaat moeten alfanumeriek, kleine letters en afbreekstreepjes mag bevatten.
 
 > [!TIP]
-> Aangeraden wordt een inschrijvingsgroep voor voor een groot aantal apparaten die een gewenste initiële configuratie delen of voor apparaten alle gaat dezelfde tenant.
+> Wordt u aangeraden een registratiegroep voor een groot aantal apparaten die een gewenste initiële configuratie delen, of voor apparaten die allemaal zijn verbonden aan dezelfde tenant.
 
 ### <a name="individual-enrollment"></a>Afzonderlijke inschrijving
 
-De inschrijving van een afzonderlijke is een vermelding voor één apparaat kan registreren. Afzonderlijke inschrijvingen mag leaf-X.509-certificaten of SAS-tokens (van een fysieke of virtuele TPM) gebruiken zoals attestation mechanismen. De registratie-ID in een afzonderlijke inschrijving is alfanumerieke, kleine letters en kan de afbreekstreepjes bevatten. Afzonderlijke inschrijvingen hebben mogelijk de gewenste apparaat-id voor IoT Hub die is opgegeven.
+Een afzonderlijke inschrijving wordt een post voor één apparaat dat kan worden geregistreerd. Afzonderlijke inschrijvingen kunnen X.509 leaf-certificaten of SAS-tokens (van een fysiek of virtueel TPM) gebruiken als attestation-mechanismen. De registratie-ID in een afzonderlijke inschrijving is alfanumerieke tekens, kleine letters en afbreekstreepjes mag bevatten. Afzonderlijke inschrijvingen hebben mogelijk de gewenste apparaat-id voor IoT Hub die is opgegeven.
 
 > [!TIP]
-> U wordt aangeraden met afzonderlijke inschrijvingen voor apparaten die zijn uniek initiële configuraties vereist of voor apparaten die alleen kunnen verifiëren met behulp van SAS-tokens via TPM attestation.
+> Het is raadzaam om afzonderlijke inschrijvingen te gebruiken voor apparaten die unieke initiële configuraties vereisen, of voor apparaten die alleen kunnen verifiëren met behulp van SAS-tokens via TPM-attestation.
 
 ## <a name="registration"></a>Registratie
 
-Een registratie is de record van een apparaat is geregistreerd/inrichting naar een IoT-Hub via apparaat inrichtingsservice. Registratie-records worden automatisch gemaakt. ze kunnen worden verwijderd, maar kan niet worden bijgewerkt.
+Een registratie is de record van een apparaat is geregistreerd/inrichting naar een IoT-Hub via de Device Provisioning Service. Registratie-records worden automatisch gemaakt. ze kunnen worden verwijderd, maar ze kunnen niet worden bijgewerkt.
 
 ## <a name="operations"></a>Bewerkingen
 
-Bewerkingen zijn de facturering eenheid van het apparaat inrichtingsservice. Een bewerking is voltooid met één instructie met de service. Dit omvat de registratie en herregistratie van apparaten en wijzigingen aan de serverkant, zoals het toevoegen en bijwerken van inschrijvingslijsten.
+Bewerkingen zijn de Factureringseenheid van de Device Provisioning Service. Een bewerking is de voltooiing van een instructie met de service. Dit omvat de registratie en herregistratie van apparaten en wijzigingen aan de serverkant, zoals het toevoegen en bijwerken van inschrijvingslijsten.

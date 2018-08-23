@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 08/15/2018
 ms.author: jeffgo
-ms.openlocfilehash: 5af8380accc23a62baf04b842430e692fdff3692
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d24902b894a632e9fe8c57f2fb2b652b44ab128c
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443549"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42054496"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Een Red Hat gebaseerde virtuele machine voorbereiden voor Azure Stack
 
@@ -40,7 +40,7 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
 * Wanneer u de Linux-besturingssysteem installeert, raden wij aan dat u standaard partities in plaats van logische Volume Manager (LVM), dit is vaak de standaardwaarde voor vele installaties. Met deze procedure voorkomt LVM naam conflicteert met de gekloonde virtuele machines, met name als u ooit een besturingssysteemschijf koppelen aan een andere identieke virtuele machine moet voor probleemoplossing.
 * Kernel-ondersteuning voor het koppelen van bestandssystemen Universal Disk Format (UDF's) is vereist. Op de eerste keer opstarten geeft de UDF-indeling media die is gekoppeld aan de Gast de inrichtingsconfiguratie aan de virtuele Linux-machine. De Azure Linux Agent moeten de UDF-bestandssysteem om te lezen van de configuratie en het inrichten van de virtuele machine te koppelen.
 * Stel een swap-partitie niet op de besturingssysteemschijf. De Linux-Agent kan worden geconfigureerd voor het maken van een wisselbestand op de tijdelijke schijf. Meer informatie over kan worden gevonden in de volgende stappen.
-* Alle VHD's op Azure beschikken over een virtuele grootte die is afgestemd op 1 MB. Bij het converteren van een onbewerkte schijf naar de VHD moet u ervoor zorgen dat de onbewerkte schijfgrootte een veelvoud van 1 MB vóór de conversie is. Meer informatie vindt u in de onderstaande stappen.
+* Alle VHD's op Azure beschikken over een virtuele grootte die is afgestemd op 1 MB. Bij het converteren van een onbewerkte schijf naar VHD, moet u ervoor zorgen dat de onbewerkte schijfgrootte een veelvoud van 1 MB vóór de conversie is. Meer informatie vindt u in de onderstaande stappen.
 * Azure Stack biedt geen ondersteuning voor cloud-init. Uw virtuele machine moet worden geconfigureerd met een ondersteunde versie van de Windows Azure Linux Agent (WALA).
 
 ### <a name="prepare-a-rhel-7-virtual-machine-from-hyper-v-manager"></a>Een RHEL 7 virtuele machine op basis van Hyper-V Manager voorbereiden
@@ -71,14 +71,14 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
 
 1. Zorg ervoor dat de netwerkservice wordt gestart bij het opstarten met de volgende opdracht:
 
-    ```sh
-    # sudo systemctl enable network
+    ```bash
+    sudo systemctl enable network
     ```
 
 1. Registreer uw Red Hat-abonnement om in te schakelen van de installatie van pakketten van de RHEL-opslagplaats met de volgende opdracht:
 
-    ```sh
-    # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
+    ```bash
+    sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
 1. Wijzig de kernel boot line in de grub-configuratie om op te nemen van aanvullende kernel-parameters voor Azure. Open hiervoor deze wijziging `/etc/default/grub` in een teksteditor en wijzig de `GRUB_CMDLINE_LINUX` parameter. Bijvoorbeeld:
@@ -87,7 +87,7 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
     GRUB_CMDLINE_LINUX="rootdelay=300 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0"
     ```
 
-   Dit zorgt ervoor dat alle consoleberichten worden verzonden naar de eerste seriële poort, die Azure helpen kan ondersteuning bij het opsporen van problemen. Deze configuratie worden ook uitgeschakeld de nieuwe naamgeving van RHEL 7 NIC's. 
+   Dit zorgt ervoor dat alle consoleberichten worden verzonden naar de eerste seriële poort, die Azure helpen kan ondersteuning bij het opsporen van problemen. Deze configuratie worden ook uitgeschakeld de nieuwe naamgeving van RHEL 7 NIC's.
 
    Grafische en stil opstarten zijn niet nuttig in een cloudomgeving waar we alle logboeken worden verzonden naar de seriële poort. U kunt laten de `crashkernel` geconfigureerd als de gewenste optie. Houd er rekening mee dat deze parameter vermindert de hoeveelheid beschikbaar geheugen in de virtuele machine door 128 MB of meer, die mogelijk problemen op kleinere virtuele machine. U wordt aangeraden dat u de volgende parameters:
 
@@ -97,8 +97,8 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
 
 1. Als u klaar bent bewerken `/etc/default/grub`, voer de volgende opdracht om op te bouwen de grub-configuratie:
 
-    ```sh
-    # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```bash
+    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
 1. Zorg ervoor dat de SSH-server is geïnstalleerd en geconfigureerd om te starten tijdens het opstarten, dit doorgaans de standaardinstelling is. Wijzigen `/etc/ssh/sshd_config` om op te nemen in de volgende regel:
@@ -109,15 +109,15 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
 
 1. Het pakket WALinuxAgent `WALinuxAgent-<version>`, naar de opslagplaats van Red Hat extra's is gepusht. De opslagplaats extra's inschakelen met de volgende opdracht:
 
-    ```sh
-    # subscription-manager repos --enable=rhel-7-server-extras-rpms
+    ```bash
+    subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
 1. De Azure Linux-Agent installeren met de volgende opdracht:
 
-    ```sh
-    # sudo yum install WALinuxAgent
-    # sudo systemctl enable waagent.service
+    ```bash
+    sudo yum install WALinuxAgent
+    sudo systemctl enable waagent.service
     ```
 
 1. Maak geen wisselruimte op de besturingssysteemschijf.
@@ -129,23 +129,23 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
     ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
+    ResourceDisk.SwapSizeMB=2048    #NOTE: set this to whatever you need it to be.
     ```
 
 1. Als u wilt de registratie van het abonnement, moet u de volgende opdracht uitvoeren:
 
-    ```sh
-    # sudo subscription-manager unregister
+    ```bash
+    sudo subscription-manager unregister
     ```
 
 1. Als u van een systeem dat is geïmplementeerd met behulp van de certificeringsinstantie van een bedrijf gebruikmaakt, vertrouwt de RHEL-virtuele machine niet de Azure Stack-basiscertificaat. U moet die in het archief Vertrouwde basiscertificeringsinstanties plaatsen. Zie [toe te voegen vertrouwde basiscertificaten op de server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Voer de volgende opdrachten voor de inrichting van de virtuele machine ongedaan maken en voorbereiden voor het inrichten op Azure:
 
-    ```sh
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+    ```bash
+    sudo waagent -force -deprovision
+    export HISTSIZE=0
+    logout
     ```
 
 1. Klik op **actie** > **afsluiten** in Hyper-V-beheer.
@@ -160,14 +160,14 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
 
     Een versleuteld wachtwoord genereren en kopieer de uitvoer van de opdracht:
 
-    ```sh
-    # openssl passwd -1 changeme
+    ```bash
+    openssl passwd -1 changeme
     ```
 
    Stel een hoofdwachtwoord met guestfish:
 
     ```sh
-    # guestfish --rw -a <image-name>
+    guestfish --rw -a <image-name>
     > <fs> run
     > <fs> list-filesystems
     > <fs> mount /dev/sda1 /
@@ -201,14 +201,14 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
 
 1. Zorg ervoor dat de netwerkservice wordt gestart bij het opstarten met de volgende opdracht:
 
-    ```sh
-    # sudo systemctl enable network
+    ```bash
+    sudo systemctl enable network
     ```
 
 1. Registreer uw Red Hat-abonnement om in te schakelen van installatie van pakketten van de RHEL-opslagplaats met de volgende opdracht:
 
-    ```sh
-    # subscription-manager register --auto-attach --username=XXX --password=XXX
+    ```bash
+    subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
 1. Wijzig de kernel boot line in de grub-configuratie om op te nemen van aanvullende kernel-parameters voor Azure. Open hiervoor deze configuratie `/etc/default/grub` in een teksteditor en wijzig de `GRUB_CMDLINE_LINUX` parameter. Bijvoorbeeld:
@@ -227,8 +227,8 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
 
 1. Als u klaar bent bewerken `/etc/default/grub`, voer de volgende opdracht om op te bouwen de grub-configuratie:
 
-    ```sh
-    # grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```bash
+    grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
 1. Hyper-V-modules in initramfs toevoegen.
@@ -241,20 +241,20 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
 
     Opnieuw opbouwen initramfs:
 
-    ```sh
-    # dracut -f -v
+    ```bash
+    dracut -f -v
     ```
 
 1. Cloud-init verwijderen:
 
-    ```sh
-    # yum remove cloud-init
+    ```bash
+    yum remove cloud-init
     ```
 
 1. Zorg ervoor dat de SSH-server is geïnstalleerd en geconfigureerd om te starten tijdens het opstarten:
 
-    ```sh
-    # systemctl enable sshd
+    ```bash
+    systemctl enable sshd
     ```
 
     Wijzig /etc/ssh/sshd_config om op te nemen van de volgende regels:
@@ -266,20 +266,20 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
 
 1. Het pakket WALinuxAgent `WALinuxAgent-<version>`, naar de opslagplaats van Red Hat extra's is gepusht. De opslagplaats extra's inschakelen met de volgende opdracht:
 
-    ```sh
-    # subscription-manager repos --enable=rhel-7-server-extras-rpms
+    ```bash
+    subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
 1. De Azure Linux-Agent installeren met de volgende opdracht:
 
-    ```sh
-    # yum install WALinuxAgent
+    ```bash
+    yum install WALinuxAgent
     ```
 
     De service waagent inschakelen:
 
-    ```sh
-    # systemctl enable waagent.service
+    ```bash
+    systemctl enable waagent.service
     ```
 
 1. Maak geen wisselruimte op de besturingssysteemschijf.
@@ -291,23 +291,23 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
     ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
+    ResourceDisk.SwapSizeMB=2048    #NOTE: set this to whatever you need it to be.
     ```
 
 1. Het abonnement (indien nodig) registratie met de volgende opdracht:
 
-    ```sh
-    # subscription-manager unregister
+    ```bash
+    subscription-manager unregister
     ```
 
 1. Als u van een systeem dat is geïmplementeerd met behulp van de certificeringsinstantie van een bedrijf gebruikmaakt, vertrouwt de RHEL-virtuele machine niet de Azure Stack-basiscertificaat. U moet die in het archief Vertrouwde basiscertificeringsinstanties plaatsen. Zie [toe te voegen vertrouwde basiscertificaten op de server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Voer de volgende opdrachten voor de inrichting van de virtuele machine ongedaan maken en voorbereiden voor het inrichten op Azure:
 
-    ```sh
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+    ```bash
+    sudo waagent -force -deprovision
+    export HISTSIZE=0
+    logout
     ```
 
 1. De virtuele machine in KVM afgesloten.
@@ -319,30 +319,30 @@ In deze sectie wordt ervan uitgegaan dat u al hebt een ISO-bestand van de Red Ha
 
     De installatiekopie eerst converteren naar onbewerkte indeling:
 
-    ```sh
-    # qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
+    ```bash
+    qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
     ```
 
     Zorg ervoor dat de grootte van de installatiekopie van het onbewerkte wordt uitgelijnd met 1 MB. Anders ronden de grootte aan te passen aan 1 MB:
 
-    ```sh
-    # MB=$((1024*1024))
-    # size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
+    ```bash
+    MB=$((1024*1024))
+    size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
     gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-    # rounded_size=$((($size/$MB + 1)*$MB))
-    # qemu-img resize rhel-7.4.raw $rounded_size
+    rounded_size=$((($size/$MB + 1)*$MB))
+    qemu-img resize rhel-7.4.raw $rounded_size
     ```
 
     De onbewerkte schijf converteren naar een VHD met vaste grootte en:
 
-    ```sh
-    # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
+    ```bash
+    qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
     Of, voor qemu versie **2.6 +** bevatten de `force_size` optie:
 
-    ```sh
-    # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
+    ```bash
+    qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-vmware"></a>Een Red Hat gebaseerde virtuele machine van VMware voorbereiden
@@ -377,14 +377,14 @@ In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware a
 
 1. Zorg ervoor dat de netwerkservice wordt gestart bij het opstarten met de volgende opdracht:
 
-    ```sh
-    # sudo chkconfig network on
+    ```bash
+    sudo chkconfig network on
     ```
 
 1. Registreer uw Red Hat-abonnement om in te schakelen van de installatie van pakketten van de RHEL-opslagplaats met de volgende opdracht:
 
-    ```sh
-    # sudo subscription-manager register --auto-attach --username=XXX --password=XXX
+    ```bash
+    sudo subscription-manager register --auto-attach --username=XXX --password=XXX
     ```
 
 1. Wijzig de kernel boot line in de grub-configuratie om op te nemen van aanvullende kernel-parameters voor Azure. Open hiervoor deze wijziging `/etc/default/grub` in een teksteditor en wijzig de `GRUB_CMDLINE_LINUX` parameter. Bijvoorbeeld:
@@ -403,8 +403,8 @@ In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware a
 
 1. Als u klaar bent bewerken `/etc/default/grub`, voer de volgende opdracht om op te bouwen de grub-configuratie:
 
-    ```sh
-    # sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+    ```bash
+    sudo grub2-mkconfig -o /boot/grub2/grub.cfg
     ```
 
 1. Hyper-V-modules aan initramfs toevoegen.
@@ -417,8 +417,8 @@ In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware a
 
     Opnieuw opbouwen initramfs:
 
-    ```sh
-    # dracut -f -v
+    ```bash
+    dracut -f -v
     ```
 
 1. Zorg ervoor dat de SSH-server is geïnstalleerd en geconfigureerd om te starten tijdens het opstarten. Dit is doorgaans de standaardinstelling. Wijzigen `/etc/ssh/sshd_config` om op te nemen in de volgende regel:
@@ -429,15 +429,15 @@ In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware a
 
 1. Het pakket WALinuxAgent `WALinuxAgent-<version>`, naar de opslagplaats van Red Hat extra's is gepusht. De opslagplaats extra's inschakelen met de volgende opdracht:
 
-    ```sh
-    # subscription-manager repos --enable=rhel-7-server-extras-rpms
+    ```bash
+    subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
 1. De Azure Linux-Agent installeren met de volgende opdracht:
 
-    ```sh
-    # sudo yum install WALinuxAgent
-    # sudo systemctl enable waagent.service
+    ```bash
+    sudo yum install WALinuxAgent
+    sudo systemctl enable waagent.service
     ```
 
 1. Maak geen wisselruimte op de besturingssysteemschijf.
@@ -449,56 +449,56 @@ In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware a
     ResourceDisk.Filesystem=ext4
     ResourceDisk.MountPoint=/mnt/resource
     ResourceDisk.EnableSwap=y
-    ResourceDisk.SwapSizeMB=2048    # NOTE: set this to whatever you need it to be.
+    ResourceDisk.SwapSizeMB=2048    NOTE: set this to whatever you need it to be.
     ```
 
 1. Als u wilt de registratie van het abonnement, moet u de volgende opdracht uitvoeren:
 
-    ```sh
-    # sudo subscription-manager unregister
+    ```bash
+    sudo subscription-manager unregister
     ```
 
 1. Als u van een systeem dat is geïmplementeerd met behulp van de certificeringsinstantie van een bedrijf gebruikmaakt, vertrouwt de RHEL-virtuele machine niet de Azure Stack-basiscertificaat. U moet die in het archief Vertrouwde basiscertificeringsinstanties plaatsen. Zie [toe te voegen vertrouwde basiscertificaten op de server](https://manuals.gfi.com/en/kerio/connect/content/server-configuration/ssl-certificates/adding-trusted-root-certificates-to-the-server-1605.html).
 
 1. Voer de volgende opdrachten voor de inrichting van de virtuele machine ongedaan maken en voorbereiden voor het inrichten op Azure:
 
-    ```sh
-    # sudo waagent -force -deprovision
-    # export HISTSIZE=0
-    # logout
+    ```bash
+    sudo waagent -force -deprovision
+    export HISTSIZE=0
+    logout
     ```
 
 1. Sluit de virtuele machine en het VMDK-bestand converteren naar de VHD-indeling.
 
     > [!NOTE]
-    > Er is een bekend probleem in qemu img versies > = 2.2.1 die in een onjuiste indeling VHD resulteert. Het probleem is opgelost in QEMU 2.6. Het verdient aanbeveling qemu-img 2.2.0 of lager gebruiken, of bijwerken op 2.6 of hoger. Naslaginformatie over: <https://bugs.launchpad.net/qemu/+bug/1490611.>
+    > Er is een bekend probleem in qemu img versies > = 2.2.1 die in een onjuiste indeling VHD resulteert. Het probleem is opgelost in QEMU 2.6. Het verdient aanbeveling qemu-img 2.2.0 of lager gebruiken, of bijwerken op 2.6 of hoger. Naslaginformatie: <https://bugs.launchpad.net/qemu/+bug/1490611>.
 
     De installatiekopie eerst converteren naar onbewerkte indeling:
 
-    ```sh
-    # qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
+    ```bash
+    qemu-img convert -f qcow2 -O raw rhel-7.4.qcow2 rhel-7.4.raw
     ```
 
     Zorg ervoor dat de grootte van de installatiekopie van het onbewerkte wordt uitgelijnd met 1 MB. Anders ronden de grootte aan te passen aan 1 MB:
 
-    ```sh
-    # MB=$((1024*1024))
-    # size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
+    ```bash
+    MB=$((1024*1024))
+    size=$(qemu-img info -f raw --output json "rhel-7.4.raw" | \
     gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
-    # rounded_size=$((($size/$MB + 1)*$MB))
-    # qemu-img resize rhel-7.4.raw $rounded_size
+    rounded_size=$((($size/$MB + 1)*$MB))
+    qemu-img resize rhel-7.4.raw $rounded_size
     ```
 
     De onbewerkte schijf converteren naar een VHD met vaste grootte en:
 
-    ```sh
-    # qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
+    ```bash
+    qemu-img convert -f raw -o subformat=fixed -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
     Of, voor qemu versie **2.6 +** bevatten de `force_size` optie:
 
-    ```sh
-    # qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
+    ```bash
+    qemu-img convert -f raw -o subformat=fixed,force_size -O vpc rhel-7.4.raw rhel-7.4.vhd
     ```
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-an-iso-by-using-a-kickstart-file-automatically"></a>Een Red Hat gebaseerde virtuele machine op basis van een ISO met behulp van een bestand kickstart automatisch voorbereiden
@@ -506,58 +506,58 @@ In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware a
 1. Maak een bestand kickstart met de volgende inhoud en sla het bestand. Zie voor meer informatie over de installatie van kickstart de [Kickstart installatiehandleiding](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Installation_Guide/chap-kickstart-installations.html).
 
     ```sh
-    # Kickstart for provisioning a RHEL 7 Azure VM
+    Kickstart for provisioning a RHEL 7 Azure VM
 
-    # System authorization information
+    System authorization information
     auth --enableshadow --passalgo=sha512
 
-    # Use graphical install
+    Use graphical install
     text
 
-    # Do not run the Setup Agent on first boot
+    Do not run the Setup Agent on first boot
     firstboot --disable
 
-    # Keyboard layouts
+    Keyboard layouts
     keyboard --vckeymap=us --xlayouts='us'
 
-    # System language
+    System language
     lang en_US.UTF-8
 
-    # Network information
+    Network information
     network  --bootproto=dhcp
 
-    # Root password
+    Root password
     rootpw --plaintext "to_be_disabled"
 
-    # System services
+    System services
     services --enabled="sshd,waagent,NetworkManager"
 
-    # System timezone
+    System timezone
     timezone Etc/UTC --isUtc --ntpservers 0.rhel.pool.ntp.org,1.rhel.pool.ntp.org,2.rhel.pool.ntp.org,3.rhel.pool.ntp.org
 
-    # Partition clearing information
+    Partition clearing information
     clearpart --all --initlabel
 
-    # Clear the MBR
+    Clear the MBR
     zerombr
 
-    # Disk partitioning information
+    Disk partitioning information
     part /boot --fstype="xfs" --size=500
     part / --fstyp="xfs" --size=1 --grow --asprimary
 
-    # System bootloader configuration
+    System bootloader configuration
     bootloader --location=mbr
 
-    # Firewall configuration
+    Firewall configuration
     firewall --disabled
 
-    # Enable SELinux
+    Enable SELinux
     selinux --enforcing
 
-    # Don't configure X
+    Don't configure X
     skipx
 
-    # Power down the machine after install
+    Power down the machine after install
     poweroff
 
     %packages
@@ -574,41 +574,41 @@ In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware a
 
     #!/bin/bash
 
-    # Register Red Hat Subscription
+    Register Red Hat Subscription
     subscription-manager register --username=XXX --password=XXX --auto-attach --force
 
-    # Install latest repo update
+    Install latest repo update
     yum update -y
 
-    # Enable extras repo
+    Enable extras repo
     subscription-manager repos --enable=rhel-7-server-extras-rpms
 
-    # Install WALinuxAgent
+    Install WALinuxAgent
     yum install -y WALinuxAgent
 
-    # Unregister Red Hat subscription
+    Unregister Red Hat subscription
     subscription-manager unregister
 
-    # Enable waaagent at boot-up
+    Enable waaagent at boot-up
     systemctl enable waagent
 
-    # Disable the root account
+    Disable the root account
     usermod root -p '!!'
 
-    # Configure swap in WALinuxAgent
+    Configure swap in WALinuxAgent
     sed -i 's/^\(ResourceDisk\.EnableSwap\)=[Nn]$/\1=y/g' /etc/waagent.conf
     sed -i 's/^\(ResourceDisk\.SwapSizeMB\)=[0-9]*$/\1=2048/g' /etc/waagent.conf
 
-    # Set the cmdline
+    Set the cmdline
     sed -i 's/^\(GRUB_CMDLINE_LINUX\)=".*"$/\1="console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300"/g' /etc/default/grub
 
-    # Enable SSH keepalive
+    Enable SSH keepalive
     sed -i 's/^#\(ClientAliveInterval\).*$/\1 180/g' /etc/ssh/sshd_config
 
-    # Build the grub cfg
+    Build the grub cfg
     grub2-mkconfig -o /boot/grub2/grub.cfg
 
-    # Configure network
+    Configure network
     cat << EOF > /etc/sysconfig/network-scripts/ifcfg-eth0
     DEVICE=eth0
     ONBOOT=yes
@@ -620,7 +620,7 @@ In deze sectie wordt ervan uitgegaan dat u een virtuele RHEL-machine in VMware a
     NM_CONTROLLED=no
     EOF
 
-    # Deprovision and prepare for Azure
+    Deprovision and prepare for Azure
     waagent -force -deprovision
 
     %end
@@ -656,15 +656,15 @@ U lost dit probleem, Hyper-V-modules toevoegen aan initramfs en deze opnieuw bou
 
 Bewerken `/etc/dracut.conf`, en voeg de volgende inhoud:
 
-```sh
-add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
-```
+    ```sh
+    add_drivers+="hv_vmbus hv_netvsc hv_storvsc"
+    ```
 
 Opnieuw opbouwen initramfs:
 
-```sh
-# dracut -f -v
-```
+    ```bash
+    dracut -f -v
+    ```
 
 Zie voor meer informatie, [opnieuw opbouwen van initramfs](https://access.redhat.com/solutions/1958).
 

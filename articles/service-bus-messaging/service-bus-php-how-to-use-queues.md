@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: 3514812f7f087582035dad5d9a4d620652aa4da9
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b2bf67ac6943c80e5bf6ae94eca346fe964f95e6
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531619"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42054858"
 ---
 # <a name="how-to-use-service-bus-queues-with-php"></a>Over het gebruik van Service Bus-wachtrijen met PHP
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -162,13 +162,13 @@ Service Bus-wachtrijen ondersteunen een maximale berichtgrootte van 256 kB in de
 
 ## <a name="receive-messages-from-a-queue"></a>Berichten ontvangen van een wachtrij
 
-De beste manier om berichten te ontvangen van een wachtrij is met een `ServiceBusRestProxy->receiveQueueMessage` methode. Kunnen u berichten ontvangen in twee verschillende modi: [ *ReceiveAndDelete* ](/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) en [ *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock). **PeekLock** is de standaardmodus.
+De beste manier om berichten te ontvangen van een wachtrij is met een `ServiceBusRestProxy->receiveQueueMessage` methode. Kunnen u berichten ontvangen in twee verschillende modi: [ *ReceiveAndDelete* ](/dotnet/api/microsoft.servicebus.messaging.receivemode) en [ *PeekLock*](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock). **PeekLock** is de standaardmodus.
 
-Bij het gebruik van [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete) modus, ontvangen is een eenmalige bewerking uitgevoerd; dat wil zeggen, Service Bus een leesaanvraag voor een bericht in een wachtrij ontvangt, wordt het bericht als verbruikt gemarkeerd en geeft dit terug aan de toepassing. De [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode.receiveanddelete)-modus is het eenvoudigste model en werkt het beste voor scenario's waarin een toepassing het niet verwerken van een bericht bij een fout kan tolereren. Neem bijvoorbeeld een scenario waarin de consument de ontvangstaanvraag uitgeeft en het systeem vervolgens vastloopt voordat de aanvraag wordt verwerkt. Omdat Service Bus het bericht als verbruikt heeft gemarkeerd, klikt u vervolgens wanneer de toepassing opnieuw wordt opgestart en het verbruik van berichten opnieuw begint, ontbreekt het bericht dat voor het vastlopen is verbruikt.
+Bij het gebruik van [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) modus, ontvangen is een eenmalige bewerking uitgevoerd; dat wil zeggen, Service Bus een leesaanvraag voor een bericht in een wachtrij ontvangt, wordt het bericht als verbruikt gemarkeerd en geeft dit terug aan de toepassing. De [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode)-modus is het eenvoudigste model en werkt het beste voor scenario's waarin een toepassing het niet verwerken van een bericht bij een fout kan tolereren. Neem bijvoorbeeld een scenario waarin de consument de ontvangstaanvraag uitgeeft en het systeem vervolgens vastloopt voordat de aanvraag wordt verwerkt. Omdat Service Bus het bericht als verbruikt heeft gemarkeerd, klikt u vervolgens wanneer de toepassing opnieuw wordt opgestart en het verbruik van berichten opnieuw begint, ontbreekt het bericht dat voor het vastlopen is verbruikt.
 
-In de standaard [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock) modus, ontvangen een bericht wordt een bewerking met twee fasen, waardoor er toepassingen kunnen worden ondersteund die geen ontbrekende berichten kunnen tolereren. Wanneer Service Bus een aanvraag ontvangt, deze vindt het volgende bericht om te worden verbruikt, wordt vergrendeld om te voorkomen dat andere consumenten het ontvangen en vervolgens terugkeert naar de toepassing. Nadat de toepassing klaar is met het verwerken van bericht (of deze op betrouwbare wijze voor toekomstige verwerking slaat), is de tweede fase van het ontvangstproces voltooid door door te geven van het ontvangen bericht `ServiceBusRestProxy->deleteMessage`. Wanneer Service Bus ziet de `deleteMessage` aanroep, wordt het bericht als verbruikt markeren en verwijderen uit de wachtrij.
+In de standaard [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) modus, ontvangen een bericht wordt een bewerking met twee fasen, waardoor er toepassingen kunnen worden ondersteund die geen ontbrekende berichten kunnen tolereren. Wanneer Service Bus een aanvraag ontvangt, deze vindt het volgende bericht om te worden verbruikt, wordt vergrendeld om te voorkomen dat andere consumenten het ontvangen en vervolgens terugkeert naar de toepassing. Nadat de toepassing klaar is met het verwerken van bericht (of deze op betrouwbare wijze voor toekomstige verwerking slaat), is de tweede fase van het ontvangstproces voltooid door door te geven van het ontvangen bericht `ServiceBusRestProxy->deleteMessage`. Wanneer Service Bus ziet de `deleteMessage` aanroep, wordt het bericht als verbruikt markeren en verwijderen uit de wachtrij.
 
-Het volgende voorbeeld laat zien hoe ontvangen en verwerken van een bericht met [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode.peeklock) -modus (de standaardinstelling).
+Het volgende voorbeeld laat zien hoe ontvangen en verwerken van een bericht met [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) -modus (de standaardinstelling).
 
 ```php
 require_once 'vendor/autoload.php';

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 51f38cf7ade01b58ad5ce7925af5546d1a4f1a0c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 072573b16fbeebac1ec942b0be508cf901b5cd27
+ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525379"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "42055258"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Inleiding tot Azure Data Lake Storage Gen2 Preview
 
@@ -33,6 +33,8 @@ In het verleden had cloudanalyses te boeten op het gebied van prestaties, beheer
 
 - **Management** is eenvoudiger omdat u kunt ordenen en manipuleren van bestanden door middel van mappen en submappen.
 
+- **Beveiliging** uitvoerbaar is omdat u kunt bestanden in mappen of personen POSIX-machtigingen definiëren.
+
 - **Kosteneffectiviteit** wordt mogelijk gemaakt zoals Data Lake Storage Gen2 is gebaseerd op de lage kosten [Azure Blob-opslag](../blobs/storage-blobs-introduction.md). De aanvullende functies nog verder verlagen de totale eigendomskosten voor het uitvoeren van big data-analyses op Azure.
 
 ## <a name="key-features-of-data-lake-storage-gen2"></a>Belangrijke functies van Data Lake Storage Gen2
@@ -43,9 +45,7 @@ In het verleden had cloudanalyses te boeten op het gebied van prestaties, beheer
 
 - **Hadoop-compatibele toegang**: Data Lake Storage Gen2 kunt u beheren en toegang tot gegevens, net zoals u zou met doen een [Hadoop Distributed File System (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). De nieuwe [ABFS stuurprogramma](./abfs-driver.md) is beschikbaar in alle Apache Hadoop-omgevingen, met inbegrip van [Azure HDInsight](../../hdinsight/index.yml) en [Azure Databricks](../../azure-databricks/index.yml) voor toegang tot gegevens die zijn opgeslagen in Data Lake-opslag Gen2.
 
-- **Toegang tot gegevens van meerdere protocollen en multimodale**: Data Lake Storage Gen2 wordt beschouwd als een **meerdere modale** storage-service omdat deze biedt opslag en de bestandsnaam systeeminterfaces met dezelfde gegevens **tegelijkertijd tijd**. Dit wordt bereikt door op te geven meerdere protocoleindpunten die toegang hebben tot dezelfde gegevens. 
-
-    In tegenstelling tot andere analyseoplossingen hoeft gegevens die zijn opgeslagen in Data Lake Storage Gen2 te verplaatsen of worden omgezet voordat u tal van analysehulpprogramma's kunt uitvoeren. U kunt toegang tot gegevens via traditionele [Blob storage-API's](../blobs/storage-blobs-introduction.md) (bijvoorbeeld: opnemen van gegevens via [Event Hubs Capture](../../event-hubs/event-hubs-capture-enable-through-portal.md)) en die gegevens met HDInsight of Azure Databricks op hetzelfde moment te verwerken. 
+- **Een hoofdverzameling van POSIX-machtigingen**: het beveiligingsmodel voor Data Lake Gen2 biedt volledige ondersteuning voor ACL en POSIX-machtigingen, samen met enkele extra granulariteit die specifiek zijn voor Data Lake Storage Gen2. Instellingen kunnen worden geconfigureerd via de beheerhulpprogramma's of frameworks, zoals Hive- en Spark.
 
 - **Voordelige**: Data Lake Storage Gen2 is uitgerust met lage kosten voor de opslagcapaciteit en transacties. Als gegevens overgangen gedurende de volledige levensduur, factureringstarieven invloed op de bewaren kosten tot een minimum beperkt via de ingebouwde functies zoals [Azure Blob storage-levenscyclus](../common/storage-lifecycle-managment-concepts.md).
 

@@ -3,18 +3,18 @@ title: SCP.NET-programmeergids voor Storm in Azure HDInsight
 description: Informatie over het gebruik van SCP.NET te maken. NET gebaseerde Storm-topologieën voor gebruik met die worden uitgevoerd in Azure HDInsight Storm.
 services: hdinsight
 ms.service: hdinsight
-author: raviperi
-ms.author: raviperi
+author: jasonwhowell
+ms.author: jasonwhowell
 editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 35f26d6acca26a8800407fe0d76f8b79689ce122
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 8ac0703fa0ec5f9a9e3f994ccaac61c3748bb8f0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621001"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42054648"
 ---
 # <a name="scp-programming-guide"></a>SCP-programmeergids
 SCP is een platform voor het bouwen van realtime, betrouwbare en consistente en hoogwaardige gegevensverwerking toepassing. Het is gebouwd boven [Apache Storm](http://storm.incubator.apache.org/) --een verwerkingssysteem die is ontworpen door de OSS-community's. Storm is ontworpen door Nathan Marz en is open source op Twitter. Hierbij wordt gebruikgemaakt van [Apache ZooKeeper](http://zookeeper.apache.org/), een ander Apache-project om in te schakelen zeer betrouwbare gedistribueerd beheer coördinatie en status. 

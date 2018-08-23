@@ -8,12 +8,12 @@ ms.date: 02/15/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 261c26290a4a7c4b8bb22ada7f97470a6efa7a91
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9064e0da6dde6c4b30235adf771f06a4f25d709a
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576318"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42055674"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Informatie over Azure IoT Edge-modules
 
@@ -33,7 +33,11 @@ Telkens wanneer de installatiekopie van een module is geïmplementeerd op een ap
 
 ![Module afbeeldingen in de cloud - module-exemplaren op apparaten][1]
 
-In uitvoering, modules installatiekopieën bestaan als containerinstallatiekopieën in een opslagplaats en module-exemplaren zijn containers op apparaten. Als gebruiksvoorbeelden voor Azure IoT Edge toenemen, kunt u nieuwe typen van installatiekopieën van de module en exemplaren wordt gemaakt. Bijvoorbeeld, kunnen niet worden resource beperkte apparaten containers, zodat de installatiekopieën van de module die bestaan als dll-bestanden en -exemplaren die uitvoerbare bestanden mogelijk uitgevoerd. 
+In uitvoering, modules installatiekopieën bestaan als containerinstallatiekopieën in een opslagplaats en module-exemplaren zijn containers op apparaten. 
+
+<!--
+As use cases for Azure IoT Edge grow, new types of module images and instances will be created. For example, resource constrained devices cannot run containers so may require module images that exist as dynamic link libraries and instances that are executables. 
+-->
 
 ## <a name="module-identities"></a>Module-id 's
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 6777842f3ca336eb4ae0d134cbc7ffd062bc6f29
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1a4be7b5caba751f0f90e865d8ef23e5e9c899d6
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37889538"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42058060"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Problemen met Azure Load Balancer oplossen
 
@@ -87,7 +87,7 @@ Als een back-endpool VM wordt vermeld als in orde is en reageert op de statuscon
 * Load Balancer-back-end-pool die VM is niet op de gegevenspoort luisteren 
 * Netwerkbeveiligingsgroep wordt geblokkeerd door de poort op de Load Balancer back-endpool VM  
 * Toegang tot de Load Balancer van dezelfde virtuele machine en NIC 
-* Toegang tot het Internet Load Balancer-VIP-adres van de deelnemende Load Balancer back-endpool VM 
+* Toegang tot de internetgerichte Load Balancer-frontend van de deelnemende Load Balancer back-endpool VM 
 
 ### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>1 oorzaak: Load Balancer back-endpool-VM is niet op de gegevenspoort luisteren 
 Als een virtuele machine niet op het gegevensverkeer reageert, kan het zijn omdat de doelpoort niet geopend op de deelnemende virtuele machine is, of de virtuele machine niet bij die poort luistert. 
@@ -119,10 +119,11 @@ Als uw toepassing die wordt gehost in de back-end van de virtuele machine van ee
 * Afzonderlijke back-endpool, virtuele machines per toepassing configureren. 
 * De toepassing in twee NIC-VM's configureren, zodat elke toepassing heeft een eigen netwerkinterface en IP-adres gebruikt. 
 
-### <a name="cause-4-accessing-the-internal-load-balancer-vip-from-the-participating-load-balancer-backend-pool-vm"></a>4 oorzaak: Toegang tot de interne Load Balancer-VIP van de deelnemende Load Balancer back-endpool VM
+### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>4 oorzaak: Toegang tot de interne Load Balancer-frontend van de deelnemende Load Balancer back-endpool VM
 
-Als een ILB-VIP-adres binnen een VNet is geconfigureerd en een van de cursist back-end-VM's probeert te krijgen tot de interne Load Balancer-VIP, die het resultaat is mislukt. Dit scenario wordt niet ondersteund.
-**Resolutie** toepassingsgateway evalueren of andere proxy's (bijvoorbeeld nginx of haproxy) voor de ondersteuning van dit soort scenario. Zie voor meer informatie over Application Gateway [overzicht van Application Gateway](../application-gateway/application-gateway-introduction.md)
+Als een interne Load Balancer is geconfigureerd in een VNet en een van de cursist back-end-VM's probeert te krijgen tot de interne Load Balancer-frontend, worden de fouten kunnen optreden wanneer de stroom is toegewezen aan de oorspronkelijke virtuele machine. In dit scenario wordt niet ondersteund. Beoordeling [beperkingen](load-balancer-overview.md#limitations) voor gedetailleerde informatie.
+
+**Resolutie** er zijn verschillende manieren voor het deblokkeren van dit scenario, inclusief het gebruik van een proxy. Application Gateway of andere 3e partij proxy's (bijvoorbeeld nginx of haproxy) evalueren. Zie voor meer informatie over Application Gateway [overzicht van Application Gateway](../application-gateway/application-gateway-introduction.md)
 
 ## <a name="additional-network-captures"></a>Aanvullende netwerkopnamen
 Als u besluit een ondersteuningsaanvraag openen, verzamel dan de volgende informatie voor een snellere oplossing. Kies een eenmalige back-end VM het uitvoeren van de volgende tests:

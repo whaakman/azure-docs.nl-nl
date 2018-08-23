@@ -9,18 +9,18 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 21f63ebcca4b766f8df8c7b2390c4f44ff4dc7b1
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: d2c4c890e1a1599e68fba1a0728061ec244f382f
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099907"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42058372"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Gebruik Azure Cosmos DB-wijzigingenfeed voor het visualiseren van realtime gegevensanalyse
 
 De Azure Cosmos DB-wijzigingenfeed is een mechanisme om op te halen een continue en incrementele feed van de records uit een Azure Cosmos DB-container als deze records worden gemaakt of gewijzigd. Wijzigingenfeed ondersteuning werkt door te luisteren naar de container voor eventuele wijzigingen. Het voert vervolgens de gesorteerde lijst met documenten die zijn gewijzigd in de volgorde waarin ze zijn gewijzigd. Zie voor meer informatie over de wijzigingenfeed [werken met change feed](change-feed.md) artikel. 
 
-Dit artikel wordt beschreven hoe wijzigingenfeed kan worden gebruikt door een handelsversie-bedrijf Gebruikerspatronen begrijpen, voert u gegevens in realtime analyses en visualisatie. U kunt gebeurtenissen, zoals een gebruiker een item weergeven, een item toe te voegen aan hun winkelwagen of aanschaffen van een item wordt analyseren. Wanneer een van deze gebeurtenissen zich voordoet, een nieuwe record wordt gemaakt en de wijzigingenfeed logboeken die record. Wijzigingenfeed vervolgens triggers een reeks stappen, wat resulteert in een visualisatie van metrische gegevens die de bedrijfsprestaties van het en de activiteit analyseert. Voorbeeld van metrische gegevens die u kunt visualiseren omzet, unieke bezoekers, meest populaire artikelen bevatten en gemiddelde prijs van de items die worden weergegeven ten opzichte van toegevoegd aan een winkelwagen ten opzichte van die zijn aangeschaft. Deze metrische voorbeeldgegevens kunt een e-commerce-bedrijf evalueren de populariteit van de site, de reclame- en winsten te ontwikkelen en beslissingen met betrekking tot welke voorraad te investeren in.
+Dit artikel wordt beschreven hoe wijzigingenfeed kan worden gebruikt door een e-commerce-bedrijf Gebruikerspatronen begrijpen, voert u gegevens in realtime analyses en visualisatie. U kunt gebeurtenissen, zoals een gebruiker een item weergeven, een item toe te voegen aan hun winkelwagen of aanschaffen van een item wordt analyseren. Wanneer een van deze gebeurtenissen zich voordoet, een nieuwe record wordt gemaakt en de wijzigingenfeed logboeken die record. Wijzigingenfeed vervolgens triggers een reeks stappen, wat resulteert in een visualisatie van metrische gegevens die de bedrijfsprestaties van het en de activiteit analyseert. Voorbeeld van metrische gegevens die u kunt visualiseren omzet, unieke bezoekers, meest populaire artikelen bevatten en gemiddelde prijs van de items die worden weergegeven ten opzichte van toegevoegd aan een winkelwagen ten opzichte van die zijn aangeschaft. Deze metrische voorbeeldgegevens kunt een e-commerce-bedrijf evalueren de populariteit van de site, de reclame- en winsten te ontwikkelen en beslissingen met betrekking tot welke voorraad te investeren in.
 
 Geïnteresseerd in een video over de oplossing voordat u aan de slag, Zie de volgende video:
 
@@ -315,7 +315,7 @@ Power BI is een suite met hulpprogramma's voor business analytics voor het analy
    * Voor de omzet, zou het zinvol zijn om te doen van een lijndiagram met tijd als de as en de som van de prijzen als de waarde. Het tijdvenster om weer te geven moet de grootste mogelijke om zoveel mogelijk informatie leveren.  
    * Voor unieke bezoekers, zou het zinvol zijn om te doen van een kaartvisualisatie met het aantal unieke bezoekers van de als de waarde.
 
-   Dit is de weergave van het dashboard met deze grafieken:
+   Dit is het een voorbeelddashboard uiterlijk met deze grafieken:
 
    ![Visualisaties](./media/changefeed-ecommerce-solution/visualizations.png)
 

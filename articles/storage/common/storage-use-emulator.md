@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 4f4c5870bb1bdd804aa4b2da8c46c0698b897798
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 543f581659d54bd14ccb2a818fd74e379bcc8cfe
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526178"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42056869"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>De Azure-opslagemulator gebruiken voor ontwikkelen en testen
 
@@ -204,6 +204,12 @@ De volgende verschillen naar Table storage in de emulator van toepassing:
 Er zijn geen verschillen die specifiek zijn voor Queue-opslag in de emulator.
 
 ## <a name="storage-emulator-release-notes"></a>Opmerkingen bij de release van de Storage-emulator
+
+### <a name="version-57"></a>Versie 5.7
+Een opgelost waardoor een crash als logboekregistratie is ingeschakeld.
+
+### <a name="version-56"></a>Versie 5.6
+* De opslagemulator biedt nu ondersteuning voor versie 2018-03-28 van de storage-services op Blob, Queue en Table service-eindpunten.
 
 ### <a name="version-55"></a>Versie 5.5
 * De opslagemulator biedt nu ondersteuning voor versie 2017-11-09 van de storage-services op Blob, Queue en Table service-eindpunten.

@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: PowerShell runbook, json, azure automation
-ms.openlocfilehash: 9fa60a56ecbff802e69e01e038bb45c7a6639873
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 1bdeef02621924bbb7af1e676d2b275229761081
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435755"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "42055673"
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Een JSON-object doorgeven aan een Azure Automation-runbook
 
@@ -23,7 +23,7 @@ Kan het nuttig zijn voor het opslaan van gegevens die u wilt doorgeven aan een r
 U kunt bijvoorbeeld een JSON-bestand met alle van de parameters die u wilt doorgeven aan een runbook maken.
 Om dit te doen, moet u de JSON converteren naar een tekenreeks en vervolgens de tekenreeks converteren naar een PowerShell-object voordat de inhoud ervan wordt doorgegeven aan het runbook.
 
-In dit voorbeeld maken we een PowerShell-script aanroept [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx) naar een PowerShell-runbook, de inhoud van de JSON wordt doorgegeven aan het runbook te starten.
+In dit voorbeeld maken we een PowerShell-script aanroept [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) naar een PowerShell-runbook, de inhoud van de JSON wordt doorgegeven aan het runbook te starten.
 De PowerShell-runbook start een Azure-VM ophalen van de parameters voor de virtuele machine uit de JSON die is doorgegeven.
 
 ## <a name="prerequisites"></a>Vereisten

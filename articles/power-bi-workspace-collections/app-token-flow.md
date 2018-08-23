@@ -1,6 +1,6 @@
 ---
-title: Verificatie en autorisatie bij Power BI werkruimte verzamelingen | Microsoft Docs
-description: Verificatie en autorisatie bij Power BI werkruimte verzamelingen.
+title: Verifiëren en autoriseren met Power BI Workspace Collections | Microsoft Docs
+description: Verifiëren en autoriseren met Power BI Workspace Collections.
 services: power-bi-embedded
 documentationcenter: ''
 author: markingmyname
@@ -16,50 +16,50 @@ ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 74d34e708fb74daa295642d50643b78af8f6cb7a
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4bf92638e15767ea254b33e5804977f0d6ab5476
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412182"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42054249"
 ---
-# <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Verificatie en autorisatie bij Power BI werkruimte verzamelingen
+# <a name="authenticating-and-authorizing-with-power-bi-workspace-collections"></a>Verifiëren en autoriseren met Power BI-Werkruimteverzamelingen
 
-Power BI werkruimte verzamelingen gebruik **sleutels** en **App-Tokens** voor verificatie en autorisatie in plaats van expliciete eindgebruiker verificatie. In dit model wordt beheerd door uw toepassing verificatie en autorisatie voor uw eindgebruikers. Indien nodig, wordt uw app maakt en verzendt het app-tokens voor onze service voor het weergeven van het gevraagde rapport. Dit ontwerp hoeft niet uw app met Azure Active Directory voor verificatie en autorisatie, hoewel u nog steeds kunt.
+Power BI Workspace Collections gebruiken **sleutels** en **App-Tokens** voor verificatie en autorisatie, in plaats van expliciete verificatie van eindgebruikers. In dit model wordt beheerd door uw toepassing verificatie en autorisatie voor uw eindgebruikers. Wanneer dat nodig is, wordt uw app wordt gemaakt en verzendt het app-tokens die vertellen onze service om het gevraagde rapport weer te geven. Dit ontwerp zijn vereist om uw app met Azure Active Directory voor verificatie en autorisatie, maar u nog steeds kan.
 
 > [!IMPORTANT]
 > Power BI Workspace Collections is afgeschaft en is beschikbaar tot juni 2018 of tot de datum die in uw contract wordt aangegeven. Om onderbreking van uw toepassing te voorkomen, wordt u geadviseerd om een migratie naar Power BI Embedded te plannen. Voor meer informatie over het migreren van gegevens naar Power BI Embedded raadpleegt u [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/) (Inhoud van Power BI-werkruimteverzamelingen migreren naar Power BI Embedded).
 
 ## <a name="two-ways-to-authenticate"></a>Twee manieren om te verifiëren
 
-**Sleutel** -kunt u sleutels gebruiken voor alle Power BI werkruimte verzamelingen REST API-aanroepen. De sleutels kunnen worden gevonden in de **Microsoft Azure-portal** door te selecteren **alle instellingen** en vervolgens **toegangssleutels**. Uw sleutel altijd behandeld alsof deze een wachtwoord zijn. Deze sleutels hebben machtigingen voor alle REST-API niet aanroepen voor een bepaalde werkruimteverzameling maken.
+**Sleutel** -u kunt sleutels gebruiken voor alle Power BI-werkruimte verzamelingen REST-API-aanroepen. De sleutels kunnen u vinden in de **Microsoft Azure portal** hiervoor **alle instellingen** en vervolgens **toegangssleutels**. Uw sleutel altijd behandelen alsof het een wachtwoord. Deze sleutels hebben machtigingen voor het maken van een REST-API aanroepen op een bepaalde werkruimte-verzameling.
 
-Voor informatie over het gebruik van een sleutel op een REST-aanroep toevoegen de volgende autorisatie-header:
+Voor het gebruik van een sleutel op een REST-aanroep, voeg de volgende autorisatie-header:
 
     Authorization: AppKey {your key}
 
-**App-token** -App-tokens worden gebruikt voor alle insluiten aanvragen. Ze zijn ontworpen om te worden uitgevoerd aan de clientzijde. Het token is beperkt tot één rapport en de beste praktijken een verlooptijd instellen.
+**App-token** -App-tokens worden gebruikt voor alle aanvragen voor insluiten. Ze zijn ontworpen om te worden uitgevoerd aan de clientzijde. Het token is beperkt tot één rapport en de aanbevolen procedure om in te stellen van een verlooptijd.
 
 App-tokens zijn een JWT (JSON Web Token) die is ondertekend door een van uw sleutels.
 
 Uw app-token kan de volgende claims bevatten:
 
-| Claim | Beschrijving |
+| Claim | Beschrijving |    
 | --- | --- |
 | **ver** |De versie van het app-token. 0.2.0 is de huidige versie. |
-| **AUD** |De beoogde ontvanger van het token. Voor Power BI werkruimte verzamelingen gebruikt: "https://analysis.windows.net/powerbi/api." |
-| **ISS** |Een tekenreeks die aangeeft van de toepassing die het token heeft uitgegeven. |
-| **type** |Het type van app-token wordt gemaakt. Huidige aantal is het enige ondersteunde type **insluiten**. |
-| **draadloze** |Naam van de verzameling werkruimte het token wordt uitgegeven. |
-| **WID** |Het token van de werkruimte-ID wordt uitgegeven. |
-| **RID** |Rapport-ID van het token wordt uitgegeven. |
-| **gebruikersnaam** (optioneel) |Gebruikt voor beveiliging op Rijniveau, de gebruikersnaam is een tekenreeks waarmee de gebruiker te identificeren bij het toepassen van RLS regels. |
-| **rollen** (optioneel) |Een tekenreeks met de rollen selecteren bij het toepassen van regels voor beveiliging op rijniveau. Als meer dan één rol wordt doorgegeven, moeten worden doorgegeven als een String-matrix. |
-| **SCP** (optioneel) |Een tekenreeks met de machtigingen bereiken. Als meer dan één rol wordt doorgegeven, moeten worden doorgegeven als een String-matrix. |
-| **EXP** (optioneel) |Geeft de tijd waarin het token verloopt. De waarde moet worden doorgegeven als Unix tijdstempels. |
+| **AUD** |De beoogde ontvanger van het token. Voor Power BI Workspace Collections gebruiken: *https:\//analysis.windows.net/powerbi/api*. |
+| **ISS** |Een tekenreeks die aangeeft van de toepassing die het token is uitgegeven. |
+| **type** |Het type van de app-token dat wordt gemaakt. Huidige aantal is het enige ondersteunde type **insluiten**. |
+| **draadloze** |Naam van werkruimteverzameling het token wordt uitgegeven. |
+| **WID** |Werkruimte-ID het token wordt uitgegeven. |
+| **verwijderen** |Rapport-ID van het token wordt uitgegeven. |
+| **gebruikersnaam** (optioneel) |Beveiliging op rijniveau gebruikt, de gebruikersnaam is een tekenreeks die kan helpen bij het identificeren van de gebruiker bij het toepassen van RLS-regels. |
+| **rollen** (optioneel) |Een tekenreeks met de rollen selecteren bij het toepassen van beveiliging op rijniveau regels. Als meer dan één rol wordt doorgegeven, moeten ze worden doorgegeven als een String-matrix. |
+| **SCP** (optioneel) |Een tekenreeks met de machtigingen bereiken. Als meer dan één rol wordt doorgegeven, moeten ze worden doorgegeven als een String-matrix. |
+| **EXP** (optioneel) |Geeft de tijd waarin het token is verlopen. De waarde moet worden doorgegeven als Unix tijdstempels. |
 | **NBF** (optioneel) |Geeft de tijd waarin begint het token geldig wordt. De waarde moet worden doorgegeven als Unix tijdstempels. |
 
-Een voorbeeld-app-token ziet eruit als:
+De token van een voorbeeld-app ziet eruit zoals:
 
 ```
 eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ2ZXIiOiIwLjIuMCIsInR5cGUiOiJlbWJlZCIsIndjbiI6Ikd1eUluQUN1YmUiLCJ3aWQiOiJkNGZlMWViMS0yNzEwLTRhNDctODQ3Yy0xNzZhOTU0NWRhZDgiLCJyaWQiOiIyNWMwZDQwYi1kZTY1LTQxZDItOTMyYy0wZjE2ODc2ZTNiOWQiLCJzY3AiOiJSZXBvcnQuUmVhZCIsImlzcyI6IlBvd2VyQklTREsiLCJhdWQiOiJodHRwczovL2FuYWx5c2lzLndpbmRvd3MubmV0L3Bvd2VyYmkvYXBpIiwiZXhwIjoxNDg4NTAyNDM2LCJuYmYiOjE0ODg0OTg4MzZ9.v1znUaXMrD1AdMz6YjywhJQGY7MWjdCR3SmUSwWwIiI
@@ -90,15 +90,15 @@ Body
 
 ```
 
-Er zijn methoden beschikbaar zijn in de SDK's die het maken van app-tokens te vereenvoudigen. Bijvoorbeeld: voor .NET kunt u bekijken de [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) klasse en de [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) methoden.
+Er zijn methoden beschikbaar zijn in de SDK's die het maken van app-tokens te vereenvoudigen. Bijvoorbeeld, voor .NET kunt u bekijken de [Microsoft.PowerBI.Security.PowerBIToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken) klasse en de [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) methoden.
 
 Voor de .NET SDK, kunt u verwijzen naar [Scopes](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.scopes).
 
 ## <a name="scopes"></a>Bereiken
 
-Wanneer u insluiten tokens gebruikt, kunt u beperkt gebruik van de resources die u toegang te geven. Daarom kunt u een token met bereik machtigingen genereren.
+Wanneer u insluittokens gebruikt, kunt u slechts beperkt gebruik van de resources die u toegang te geven. Daarom kunt u een token met scoped machtigingen genereren.
 
-Hieronder vindt u de beschikbare scopes voor Power BI werkruimte verzamelingen.
+Hieronder vindt u de beschikbare bereiken voor Power BI Workspace Collections.
 
 |Bereik|Beschrijving|
 |---|---|
@@ -108,19 +108,19 @@ Hieronder vindt u de beschikbare scopes voor Power BI werkruimte verzamelingen.
 |Report.Read|Machtiging voor het weergeven van het opgegeven rapport bevat.|
 |Report.ReadWrite|Machtiging voor het weergeven en bewerken van het opgegeven rapport bevat.|
 |Workspace.Report.Create|Machtiging voor het maken van een nieuw rapport binnen de opgegeven werkruimte biedt.|
-|Workspace.Report.Copy|Machtiging voor het klonen van een bestaand rapport binnen de opgegeven werkruimte biedt.|
+|Workspace.Report.Copy|Machtiging voor het klonen van een bestaand rapport in de opgegeven werkruimte biedt.|
 
-U kunt meerdere scopes opgeven met behulp van een ruimte tussen de scopes als volgt.
+U kunt meerdere scopes opgeven met behulp van een spatie tussen de bereiken als volgt uit.
 
 ```
 string scopes = "Dataset.Read Workspace.Report.Create";
 ```
 
-**Vereiste claims - scopes**
+**Vereiste claims - bereiken**
 
-SCP: {scopesClaim} scopesClaim mag een tekenreeks of een matrix van tekenreeksen, zoek ook de toegestane machtigingen voor werkruimte resources (rapport, gegevensset, enz.)
+SCP: {scopesClaim} scopesClaim mag een tekenreeks of een matrix van tekenreeksen, waarbij de toegestane machtigingen voor werkruimteresources (rapport, gegevensset, enz.)
 
-Een gecodeerde token met het bereik dat is gedefinieerd, zou er ongeveer uitzien:
+Een token gedecodeerde zou met scopes die zijn gedefinieerd, er ongeveer als volgt:
 
 ```
 Header
@@ -148,44 +148,44 @@ Body
 
 ### <a name="operations-and-scopes"></a>Bewerkingen en -scopes
 
-|Bewerking|Doelresource|Token machtigingen|
+|Bewerking|Doelbron|Token machtigingen|
 |---|---|---|
-|Een nieuw rapport op basis van een gegevensset voor (in het geheugen) maken.|Gegevensset|Dataset.Read|
-|(In het geheugen) Maak een nieuw rapport op basis van een gegevensset en sla het rapport.|Gegevensset|* Dataset.Read<br>* Workspace.Report.Create|
-|(In het geheugen) een bestaand rapport verkennen/bewerken en weergeven. Report.Read impliceert Dataset.Read. Er kan geen Report.Read opslaan van wijzigingen.|Rapport|Report.Read|
+|(In-memory) een nieuw rapport op basis van een gegevensset maken.|Gegevensset|Dataset.Read|
+|(In-memory) Maak een nieuw rapport op basis van een gegevensset en sla het rapport.|Gegevensset|* Dataset.Read<br>* Workspace.Report.Create|
+|(In-memory) een bestaand rapport verkennen/bewerken en weergeven. Report.Read impliceert Dataset.Read. Report.Read kan geen wijzigingen opslaan.|Rapport|Report.Read|
 |Bewerken en opslaan van een bestaand rapport.|Rapport|Report.ReadWrite|
 |Sla een kopie van een rapport (OpslaanAls).|Rapport|* Report.Read<br>* Workspace.Report.Copy|
 
-## <a name="heres-how-the-flow-works"></a>Hier wordt de werking van de stroom
-1. Kopieer de API-sleutels voor uw toepassing. U kunt de sleutels krijgen in **Azure-portal**.
+## <a name="heres-how-the-flow-works"></a>De stroom werkt als volgt
+1. Kopieer de API-sleutels voor uw toepassing. Krijgt u de sleutels bij **Azure-portal**.
    
-    ![Waar vind ik de API-sleutels in de Azure portal](media/get-started-sample/azure-portal.png)
-1. Token een claim asserts en heeft een verlooptijd.
+    ![Waar vind ik de API-sleutels in Azure portal](media/get-started-sample/azure-portal.png)
+1. Token worden bevestigd met een claim en een verlooptijd heeft.
    
-    ![App-tokenstroom - token asserts claim](media/get-started-sample/token-2.png)
+    ![App-tokenstroom - token worden bevestigd met claim](media/get-started-sample/token-2.png)
 1. Token opgehaald ondertekend met een API-sleutels voor toegang.
    
-    ![App-tokenstroom - token opgehaald ondertekend](media/get-started-sample/token-3.png)
-1. Gebruikersaanvragen om een rapport weer te geven.
+    ![App-tokenstroom - token wordt ondertekend](media/get-started-sample/token-3.png)
+1. Aanvragen van gebruikers om een rapport weer te geven.
    
     ![App-tokenstroom - gebruiker vraagt om een rapport weer te geven](media/get-started-sample/token-4.png)
 1. Token is gevalideerd met een API-sleutels voor toegang.
    
    ![App-tokenstroom - token wordt gevalideerd](media/get-started-sample/token-5.png)
-1. Power BI werkruimte verzamelingen kunt u een rapport naar gebruikers verzonden.
+1. Power BI Workspace Collections verzonden een rapport naar gebruikers.
    
    ![App-tokenstroom - service rapport naar gebruiker verzenden](media/get-started-sample/token-6.png)
 
-Na **Power BI werkruimte verzamelingen** verzendt een rapport met de gebruiker, de gebruiker het rapport in uw aangepaste app kunnen weergeven. Bijvoorbeeld, als u hebt geïmporteerd de [analyseren verkoop gegevens PBIX voorbeeld](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), de voorbeeld-web-app eruit als:
+Na **Power BI Workspace Collections** verzendt een rapport voor de gebruiker, de gebruiker het rapport in uw aangepaste app kunnen weergeven. Bijvoorbeeld, als u hebt geïmporteerd de [analyseren verkoop gegevens PBIX voorbeeld](http://download.microsoft.com/download/1/4/E/14EDED28-6C58-4055-A65C-23B4DA81C4DE/Analyzing_Sales_Data.pbix), de voorbeeldweb-app zou er als volgt uitzien:
 
-![Voorbeeld van het rapport ingesloten in toepassing](media/get-started-sample/sample-web-app.png)
+![Voorbeeld van het rapport ingesloten in de toepassing](media/get-started-sample/sample-web-app.png)
 
 ## <a name="see-also"></a>Zie ook
 
 [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
-[Aan de slag met Microsoft Power BI werkruimte verzamelingen voorbeeld](get-started-sample.md)  
-[Algemene scenario's voor Microsoft Power BI werkruimte verzamelingen](scenarios.md)  
-[Aan de slag met Microsoft Power BI werkruimte verzamelingen](get-started.md)  
-[Power BI-CSharp Git-opslagplaats](https://github.com/Microsoft/PowerBI-CSharp)
+[Aan de slag met Microsoft Power BI Workspace Collections-voorbeeld](get-started-sample.md)  
+[Algemene scenario's voor Microsoft Power BI-Werkruimteverzamelingen](scenarios.md)  
+[Aan de slag met Microsoft Power BI-Werkruimteverzamelingen](get-started.md)  
+[Git-opslagplaats voor Power BI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)
 
 Nog vragen? [Probeer de Power BI-community](http://community.powerbi.com/)

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f8ee8a2a4aae61e2edc275527d80a162c9bb4dc0
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 241fd1f9168ce6bfb8a4dfe97bbb1ef45ddf3f74
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345704"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42056628"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Een Azure Automation-runbook starten met een webhook
 
@@ -110,21 +110,21 @@ De client ontvangt een van de volgende retourcodes van de POST-aanvraag.
 | Code | Tekst | Beschrijving |
 |:--- |:--- |:--- |
 | 202 |Geaccepteerd |De aanvraag is geaccepteerd en het runbook is met succes in de wachtrij geplaatst. |
-| 400 |Ongeldig verzoek |De aanvraag is niet geaccepteerd voor een van de volgende redenen: <ul> <li>De webhook is verlopen.</li> <li>De webhook is uitgeschakeld.</li> <li>Het token in de URL is ongeldig.</li>  </ul> |
+| 400 |Onjuiste aanvraag |De aanvraag is niet geaccepteerd voor een van de volgende redenen: <ul> <li>De webhook is verlopen.</li> <li>De webhook is uitgeschakeld.</li> <li>Het token in de URL is ongeldig.</li>  </ul> |
 | 404 |Niet gevonden |De aanvraag is niet geaccepteerd voor een van de volgende redenen: <ul> <li>De webhook is niet gevonden.</li> <li>Het runbook is niet gevonden.</li> <li>Het account is niet gevonden.</li>  </ul> |
 | 500 |Interne serverfout |De URL is geldig, maar er is een fout opgetreden. Verzend de aanvraag. |
 
-Ervan uitgaande dat de aanvraag is geslaagd, bevat het antwoord voor webhook de taak-id in JSON-indeling als volgt. Het kan een enkele taak-id bevatten, maar de JSON-indeling kan voor mogelijke toekomstige verbeteringen.
+Ervan uitgaande dat de aanvraag is geslaagd, bevat het antwoord voor webhook de taak-ID in JSON-indeling als volgt. Het kan een enkele taak-ID bevatten, maar de JSON-indeling kan voor mogelijke toekomstige verbeteringen.
 
 ```json
 {"JobIds":["<JobId>"]}
 ```
 
-De client kan niet bepalen wanneer de runbooktaak is voltooid of de status van de voltooiing van de webhook. Kan het deze gegevens met behulp van de taak-id met een andere methode zoals bepalen [Windows PowerShell](http://msdn.microsoft.com/library/azure/dn690263.aspx) of de [API van Azure Automation](/rest/api/automation/job).
+De client kan niet bepalen wanneer de runbooktaak is voltooid of de status van de voltooiing van de webhook. Kan het deze gegevens met behulp van de taak-ID met een andere methode zoals bepalen [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjob) of de [API van Azure Automation](/rest/api/automation/job).
 
 ## <a name="sample-runbook"></a>Voorbeeldrunbook
 
-Het volgende voorbeeldrunbook accepteert de webhook-gegevens accepteert en de virtuele machines dat is opgegeven in de hoofdtekst van de aanvraag wordt gestart. Dit runbook testen in uw Automation-Account onder **Runbooks**, klikt u op **+ toevoegen van een runbook**. Als u niet hoe een runbook te maken weet, raadpleegt u [het maken van een runbook](automation-quickstart-create-runbook.md).
+Het volgende voorbeeldrunbook accepteert de webhookgegevens die zijn en start de virtuele machines dat is opgegeven in de aanvraagtekst. Dit runbook testen in uw Automation-Account onder **Runbooks**, klikt u op **+ toevoegen van een runbook**. Als u niet hoe een runbook te maken weet, raadpleegt u [het maken van een runbook](automation-quickstart-create-runbook.md).
 
 ```powershell
 param
@@ -201,7 +201,7 @@ Het volgende voorbeeld ziet u de hoofdtekst van de aanvraag die beschikbaar is v
 ]
 ```
 
-De volgende afbeelding ziet u de aanvraag is verzonden vanaf de Windows PowerShell en het resulterende antwoord. De taak-id is geëxtraheerd uit het antwoord en geconverteerd naar een tekenreeks.
+De volgende afbeelding ziet u de aanvraag is verzonden vanaf de Windows PowerShell en het resulterende antwoord. De taak-ID is geëxtraheerd uit het antwoord en geconverteerd naar een tekenreeks.
 
 ![Knop Webhooks](media/automation-webhooks/webhook-request-response.png)
 

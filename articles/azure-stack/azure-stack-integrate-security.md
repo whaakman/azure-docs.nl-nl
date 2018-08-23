@@ -1,96 +1,304 @@
 ---
-title: Datacenter-integratie Azure Stack - beveiliging
-description: Meer informatie over het integreren van Azure Stack-beveiliging met de datacenterbeveiliging van uw
+title: Azure Stack syslog doorsturen
+description: Meer informatie over het integreren van Azure Stack met oplossingen voor de controle met behulp van syslog doorsturen
 services: azure-stack
-author: jeffgilb
+author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 02/28/2018
-ms.author: jeffgilb
-ms.reviewer: wfayed
+ms.date: 08/14/2018
+ms.author: patricka
+ms.reviewer: fiseraci
 keywords: ''
-ms.openlocfilehash: 9f356b814ac1ac6ca8b6d6efe7cb9f5d9ed66270
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8e59f2e7e2fceda7f30e12571cd9e2a552f76231
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442472"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42054248"
 ---
-# <a name="azure-stack-datacenter-integration---security"></a>Datacenter-integratie Azure Stack - beveiliging
-Azure Stack is ontworpen en gebouwd met beveiliging in gedachten. Azure Stack is een systeem vergrendeld, zodat de installatie van de agent van software wordt niet ondersteund.
+# <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Integratie van datacenter voor Azure Stack - syslog doorsturen
 
-Dit artikel helpt u de beveiligingsfuncties van Azure Stack te integreren met de beveiligingsoplossingen die al zijn geïmplementeerd in uw datacenter.
+Dit artikel ziet u hoe u Azure Stack-infrastructuur integreren met externe beveiliging oplossing(en) al geïmplementeerd in uw datacenter met syslog. Bijvoorbeeld, een Security informatie Event Management (SIEM)-systeem. De syslog-kanaal wordt aangegeven dat controles, waarschuwingen en beveiligingslogboeken van alle onderdelen van de Azure Stack-infrastructuur. Syslog doorsturen gebruiken voor integratie met oplossingen voor beveiligingsbewaking en/of Logboeken om op te halen van alle controles, waarschuwingen en beveiliging om op te slaan ze voor het bewaren van. 
 
-## <a name="security-logs"></a>Beveiligingslogboeken
+Beginnen met de update 1805, is Azure Stack een geïntegreerde syslog-client die, wanneer dit is geconfigureerd, verzendt de syslog-berichten met de nettolading in Common Event Format (CEF). 
 
-Azure Stack verzamelt besturingssysteem en beveiligingsgebeurtenissen voor de functies van de infrastructuur en schaal eenheid knooppunten elke twee minuten. De logboeken worden opgeslagen in de storage-account blob-containers.
+> [!IMPORTANT]
+> Syslog doorsturen is in preview. Deze moet niet wordt vertrouwd in een productieomgeving. 
 
-Er is één opslagaccount per functie van de infrastructuur en een algemeen opslagaccount voor alle typisch besturingssysteemgebeurtenissen.
+Het volgende diagram toont de belangrijkste onderdelen die deel in de syslog-integratie.
 
-De health-resourceprovider kan worden aangeroepen via de REST-protocol om op te halen van de URL naar de blob-container. Beveiligingsoplossingen van derden kunnen de API- en storage-accounts gebruiken voor het ophalen van gebeurtenissen voor verwerking.
+![Syslog doorsturen van diagram](media/azure-stack-integrate-security/syslog-forwarding.png)
 
-### <a name="use-azure-storage-explorer-to-view-events"></a>Azure Storage Explorer gebruiken om gebeurtenissen te bekijken
+## <a name="configuring-syslog-forwarding"></a>Syslog doorsturen configureren
 
-U kunt gebeurtenissen die worden verzameld door Azure Stack is een hulpprogramma voor Azure Storage Explorer met de naam ophalen. U kunt Azure Storage Explorer uit downloaden [ http://storageexplorer.com ](http://storageexplorer.com).
+De syslog-client in Azure Stack ondersteunt de volgende configuraties:
 
-De volgende procedure is een voorbeeld die kunt u Azure Storage Explorer configureren voor Azure Stack:
+1. **Syslog via TCP met wederzijdse verificatie (client en server) en TLS 1.2-versleuteling:** In deze configuratie worden zowel de syslog-server en de syslog-client kunnen controleren of de identiteit van elkaar met behulp van certificaten. De berichten worden verzonden via een versleuteld kanaal TLS 1.2.
 
-1. Meld u aan de portal van Azure Stack-beheerder als een operator.
-1. Blader **opslagaccounts** en zoek naar **frphealthaccount**. De **frphealthaccount** is het algemene opslagaccount dat is gebruikt voor het opslaan van alle gebeurtenissen van het besturingssysteem.
+2. **Syslog via TCP met server-verificatie en TLS 1.2-versleuteling:** In deze configuratie de syslog-client kunt controleren of de identiteit van de syslog-server via een certificaat. De berichten worden verzonden via een versleuteld kanaal TLS 1.2.
 
-   ![Opslagaccounts](media/azure-stack-integrate-security/storage-accounts.png)
+3. **Syslog via TCP met geen versleuteling:** In deze configuratie de syslog-client, noch syslog-server verifieert de identiteit van elkaar. De berichten worden verzonden in ongecodeerde tekst via TCP.
 
-1. Selecteer **frphealthaccount**, klikt u vervolgens op **toegangssleutels**.
+4. **Syslog via UDP, met geen versleuteling:** In deze configuratie de syslog-client, noch syslog-server verifieert de identiteit van elkaar. De berichten worden verzonden in ongecodeerde tekst via UDP.
 
-   ![Toegangssleutels](media/azure-stack-integrate-security/access-keys.png)
+> [!IMPORTANT]
+> Microsoft adviseert om TCP met behulp van verificatie en versleuteling te gebruiken (configuratie #1 of in de zeer minimale #2) voor productieomgevingen ter bescherming tegen man-in-the-middle-aanvallen en niet kan worden afgeluisterd van berichten.
 
-1. De toegangssleutel naar het Klembord kopiëren.
-1. Open Azure Storage Explorer.
-1. Op de **bewerken** in het menu **Azure Stack als doel**.
-1. Selecteer **-Account toevoegen**, en selecteer vervolgens **een opslagaccountnaam en -sleutel gebruiken**.
+### <a name="cmdlets-to-configure-syslog-forwarding"></a>Cmdlets voor het doorsturen van syslog configureren
+Syslog doorsturen configureren vereist toegang tot het eindpunt van de bevoegde (PEP). Twee PowerShell-cmdlets zijn toegevoegd aan de PEP om de syslog-forwarding te configureren:
 
-   ![Verbinding maken met opslag](media/azure-stack-integrate-security/connect-storage.png)
 
-1. Klik op **Volgende**.
-1. Op de **externe opslag koppelen** pagina:
+```powershell
+### cmdlet to pass the syslog server information to the client and to configure the transport protocol, the encryption and the authentication between the client and the server
 
-   a. Typ de naam van het **frphealthaccount**.
+Set-SyslogServer [-ServerName <String>] [-NoEncryption] [-SkipCertificateCheck] [-SkipCNCheck] [-UseUDP] [-Remove]
 
-   b. De toegangssleutel voor opslagaccount plakken.
+### cmdlet to configure the certificate for the syslog client to authenticate with the server
 
-   c. Onder **domein van opslageindpunten**, selecteer **andere**, en geeft u het opslageindpunt **[regio]. [ Domeinnaam]**.
+Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCertificate] 
+```
+#### <a name="cmdlets-parameters"></a>Cmdlets parameters
 
-   d. Selecteer de **Gebruik HTTP** selectievakje.
+Parameters voor *Set SyslogServer* cmdlet:
 
-   ![Externe opslag koppelen](media/azure-stack-integrate-security/attach-storage.png)
+| Parameter | Beschrijving | Type |
+|---------|---------| ---------|
+| *Servernaam* | FQDN of IP-adres van de syslog-server | Reeks |
+|*NoEncryption*| Afdwingen dat de client voor het verzenden van syslog-berichten in niet-versleutelde tekst | Vlag | 
+|*SkipCertificateCheck*| De validatie van het certificaat dat is geleverd door de syslog-server tijdens de initiële TLS-handshake overslaan | Vlag |
+|*SkipCNCheck*| De validatie van de waarde van de algemene naam van het certificaat dat is geleverd door de syslog-server tijdens de initiële TLS-handshake overslaan | Vlag |
+|*UseUDP*| Syslog met UDP als protocol-transport gebruiken |Vlag |
+|*verwijderen*| Configuratie van de server van de client verwijderen en syslog doorsturen stoppen| Vlag |
 
-1. Klik op **volgende**, controleert u de samenvatting en **voltooien** de Wizard.
-1. U kunt nu de afzonderlijke blobcontainers bladeren en downloaden van de gebeurtenissen.
+Parameters voor *Set SyslogClient* cmdlet:
+| Parameter | Beschrijving | Type |
+|---------|---------| ---------|
+| *pfxBinary* | PFX-bestand met het certificaat moet worden gebruikt door de client-id voor verificatie op basis van de syslog-server  | Byte[] |
+| *CertPassword* |  Wachtwoord voor het importeren van de persoonlijke sleutel die is gekoppeld aan het pfx-bestand | SecureString |
+|*RemoveCertificate* | Certificaat verwijderen uit de client | Vlag|
 
-   ![Door blobs bladeren](media/azure-stack-integrate-security/browse-blob.png)
+### <a name="configuring-syslog-forwarding-with-tcp-mutual-authentication-and-tls-12-encryption"></a>Syslog doorsturen configureren met TCP, wederzijdse verificatie en TLS 1.2-versleuteling
 
-### <a name="use-programming-languages-to-access-events"></a>Gebruik van moderne programmeertalen op toegangsgebeurtenissen
+Bij deze configuratie stuurt de syslog-client in Azure Stack berichten naar de syslog-server via TCP, met TLS 1.2-versleuteling. Tijdens de initiële handshake, controleert de client of dat de server een geldig en vertrouwd certificaat biedt; de client biedt een certificaat met de server op dezelfde manier, ook als bewijs van zijn identiteit. Deze configuratie is het veiligste niveau als het biedt een volledige validatie van de identiteit van zowel de client en de server en het verzenden van berichten via een versleuteld kanaal. 
 
-U kunt diverse programmeertalen gebruiken voor toegang tot een opslagaccount. Gebruik de volgende documentatie voor een voorbeeld dat overeenkomt met de taal kiezen:
+> [!IMPORTANT]
+> Microsoft raadt het gebruik van deze configuratie voor productieomgevingen. 
 
-[https://azure.microsoft.com/resources/samples/?term=storage+account](https://azure.microsoft.com/resources/samples/?term=storage+account)
+Als wilt syslog doorsturen configureren met TCP, wederzijdse verificatie en TLS 1.2-versleuteling, voert u deze beide cmdlets:
+```powershell
+# Configure the server
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server>
 
-## <a name="device-access-auditing"></a>Controle van apparaat
+# Provide certificate to the client to authenticate against the server
+Set-SyslogClient -pfxBinary <Byte[] of pfx file> -CertPassword <SecureString, password for accessing the pfx file>
+```
+Het clientcertificaat moet dezelfde basis als het account dat is opgegeven tijdens de implementatie van Azure Stack. Het moet ook een persoonlijke sleutel bevatten.
 
-Alle fysieke apparaten in Azure Stack ondersteuning voor het gebruik van TACACS of RADIUS. Dit omvat toegang tot de BMC (baseboard management controller) en de netwerkswitches.
+```powershell
+##Example on how to set your syslog client with the ceritificate for mutual authentication. 
+##Run these cmdlets from your hardware lifecycle host or privileged access workstation.
 
-Azure Stack-oplossingen niet geleverd met RADIUS of TACACS ingebouwd. De oplossingen zijn echter gevalideerd ter ondersteuning van het gebruik van bestaande RADIUS of TACACS oplossingen beschikbaar in de markt.
+$ErcsNodeName = "<yourPEP>"
+$password = ConvertTo-SecureString -String "<your cloudAdmin account password" -AsPlainText -Force
+ 
+$cloudAdmin = "<your cloudAdmin account name>"
+$CloudAdminCred = New-Object System.Management.Automation.PSCredential ($cloudAdmin, $password)
+ 
+$certPassword = $password
+$certContent = Get-Content -Path C:\cert\<yourClientCertificate>.pfx -Encoding Byte
+ 
+$params = @{ 
+    ComputerName = $ErcsNodeName 
+    Credential = $CloudAdminCred 
+    ConfigurationName = "PrivilegedEndpoint" 
+}
 
-Voor RADIUS, is MSCHAPv2 gevalideerd. Hiermee wordt de veiligste implementatie met behulp van RADIUS.
-Neem contact op met uw hardwareleverancier OEM TACAS of RADIUS inschakelen in de apparaten die zijn opgenomen in uw Azure Stack-oplossing.
+$session = New-PSSession @params
+ 
+$params = @{ 
+    Session = $session 
+    ArgumentList = @($certContent, $certPassword) 
+}
+Write-Verbose "Invoking cmdlet to set syslog client certificate..." -Verbose 
+Invoke-Command @params -ScriptBlock { 
+    param($CertContent, $CertPassword) 
+    Set-SyslogClient -PfxBinary $CertContent -CertPassword $CertPassword 
+```
 
-## <a name="syslog"></a>Syslog
+### <a name="configuring-syslog-forwarding-with-tcp-server-authentication-and-tls-12-encryption"></a>Syslog doorsturen configureren met TCP, Server-verificatie en TLS 1.2-versleuteling
 
-Alle fysieke apparaten in Azure Stack kunnen Syslog-berichten verzenden. Azure Stack-oplossingen niet geleverd met een Syslog-server. De oplossingen zijn echter gevalideerd ter ondersteuning van berichten verzenden naar bestaande Syslog oplossingen beschikbaar in de markt.
+Bij deze configuratie stuurt de syslog-client in Azure Stack berichten naar de syslog-server via TCP, met TLS 1.2-versleuteling. Tijdens de initiële handshake verifieert de client ook dat de server een geldig certificaat van vertrouwde biedt. Dit voorkomt dat de client om berichten te verzenden naar niet-vertrouwde doelen.
+TCP-met behulp van verificatie en versleuteling is de standaardconfiguratie en Hiermee geeft u het minimale niveau van beveiliging die door Microsoft wordt aanbevolen voor een productie-omgeving. 
 
-Het doeladres Syslog is een optionele parameter voor de implementatie kan worden verzameld, maar deze kan ook worden toegevoegd na de implementatie.
+```powershell
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server>
+```
 
+Als u testen van de integratie van uw syslog-server met de Azure Stack-client wilt met behulp van een zelf-ondertekend en/of niet-vertrouwd certificaat, kunt u deze vlaggen om over te slaan van de validatie van de server door de client tijdens de initiële handshake uitgevoerd.
+
+```powershell
+ #Skip validation of the Common Name value in the server certificate. Use this flag if you provide an IP address for your syslog server
+ Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -SkipCNCheck
+ 
+ #Skip entirely the server certificate validation
+ Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -SkipCertificateCheck
+```
+> [!IMPORTANT]
+> Microsoft raadt aan op basis van het gebruik van de vlag - SkipCertificateCheck voor productieomgevingen. 
+
+
+### <a name="configuring-syslog-forwarding-with-tcp-and-no-encryption"></a>Syslog doorsturen configureren met TCP- en geen versleuteling
+
+Bij deze configuratie stuurt de syslog-client in Azure Stack berichten naar de syslog-server via TCP, met geen versleuteling. De client controleert niet of de identiteit van de server en het biedt een eigen identiteit op de server voor verificatie. 
+
+```powershell
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -NoEncryption
+```
+> [!IMPORTANT]
+> Microsoft raadt het gebruik van deze configuratie voor productie-omgevingen. 
+
+
+### <a name="configuring-syslog-forwarding-with-udp-and-no-encryption"></a>Syslog doorsturen configureren met UDP en geen versleuteling
+
+Bij deze configuratie stuurt de syslog-client in Azure Stack berichten naar de syslog-server via UDP, met geen versleuteling. De client controleert niet of de identiteit van de server en het biedt een eigen identiteit op de server voor verificatie. 
+
+```powershell
+Set-SyslogServer -ServerName <FQDN or ip address of syslog server> -UseUDP
+```
+UDP met geen versleuteling is de eenvoudigste manier om te configureren, biedt bescherming tegen man-in-the-middle-aanvallen en niet kan worden afgeluisterd van berichten niet meer. 
+
+> [!IMPORTANT]
+> Microsoft raadt het gebruik van deze configuratie voor productie-omgevingen. 
+
+
+## <a name="removing-syslog-forwarding-configuration"></a>Verwijderen van syslog doorsturen configureren
+
+Verwijderen van de configuratie van de syslog-server kan worden overgeslagen en syslog doorsturen stoppen:
+
+**De configuratie van de syslog-server van de client verwijderen**
+
+```PowerShell  
+Set-SyslogServer -Remove
+```
+
+**Het certificaat van de client verwijderen**
+
+```PowerShell  
+Set-SyslogClient -RemoveCertificate
+```
+
+## <a name="verifying-the-syslog-setup"></a>De syslog-instellingen controleren
+
+Als u de syslog-client is verbonden met uw syslog-server, moet u snel starten het ontvangen van gebeurtenissen. Als u een gebeurtenis niet ziet, Controleer of de configuratie van uw syslog-client, door het uitvoeren van de volgende cmdlets:
+
+**Controleer of de configuratie van de server in de syslog-client**
+
+```PowerShell  
+Get-SyslogServer
+```
+
+**Controleer de instellingen van het certificaat in de syslog-client**
+
+```PowerShell  
+Get-SyslogClient
+```
+
+## <a name="syslog-message-schema"></a>Schema voor Syslog-bericht
+
+De syslog doorsturen van de infrastructuur van Azure Stack wordt verzonden berichten opgemaakt in Common Event Format (CEF).
+Alle syslog-bericht is opgebouwd op basis van dit schema: 
+
+```Syslog
+<Time> <Host> <CEF payload>
+```
+
+De nettolading van de CEF is gebaseerd op de onderstaande structuur, maar de toewijzing voor elk veld is afhankelijk van het type van bericht (Windows-gebeurtenis, waarschuwing gemaakt, waarschuwing gesloten).
+
+```CEF
+# Common Event Format schema
+CEF: <Version>|<Device Vendor>|<Device Product>|<Device Version>|<Signature ID>|<Name>|<Severity>|<Extensions>
+* Version: 0.0 
+* Device Vendor: Microsoft
+* Device Product: Microsoft Azure Stack
+* Device Version: 1.0
+```
+
+### <a name="cef-mapping-for-windows-events"></a>CEF-toewijzing voor Windows-gebeurtenissen
+```
+* Signature ID: ProviderName:EventID
+* Name: TaskName
+* Severity: Level (for details, see the severity table below)
+* Extension: Custom Extension Name (for details, see the Custom Extension table below)
+```
+
+Ernst van de tabel voor Windows-gebeurtenissen: 
+| CEF-waarde voor ernst | Niveau van de Windows-gebeurtenissen | Numerieke waarde |
+|--------------------|---------------------| ----------------|
+|0|Niet gedefinieerd|Waarde: 0. Geeft aan dat de logboeken op alle niveaus|
+|10|Kritiek|Waarde: 1. Geeft aan dat de logboeken voor een kritieke waarschuwing|
+|8|Fout| Waarde: 2. Geeft aan dat de logboeken voor een fout|
+|5|Waarschuwing|Waarde: 3. Geeft aan dat de logboeken voor een waarschuwing|
+|2|Informatie|Waarde: 4. Geeft aan dat de logboeken voor een informatief bericht|
+|0|Uitgebreid|Waarde: 5. Geeft aan dat de logboeken op alle niveaus|
+
+Aangepaste extensie-tabel voor Windows-gebeurtenissen in Azure Stack:
+| Naam van de aangepaste uitbreiding | Voorbeeld van de Windows-gebeurtenis | 
+|-----------------------|---------|
+|MasChannel | Systeem|
+|MasComputer | Test.azurestack.contoso.com|
+|MasCorrelationActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
+|MasCorrelationRelatedActivityID| C8F40D7C-3764-423B-A4FA-C994442238AF|
+|MasEventData| Svchost. 4132, G, 0. EseDiskFlushConsistency. ESENT. 0x800000|
+|MasEventDescription| De instellingen voor Groepsbeleid voor de gebruiker zijn verwerkt. Er zijn geen wijzigingen gedetecteerd sinds de laatste geslaagde verwerking van Groepsbeleid.|
+|MasEventID|1501|
+|MasEventRecordID|26637|
+|MasExecutionProcessID | 29380|
+|MasExecutionThreadID |25480|
+|MasKeywords |0x8000000000000000|
+|MasKeywordName |Controle geslaagd|
+|MasLevel |4|
+|MasOpcode |1|
+|MasOpcodeName |informatie|
+|MasProviderEventSourceName ||
+|MasProviderGuid |AEA1B4FA-97D1-45F2-A64C-4D69FFFD92C9|
+|MasProviderName |Microsoft-Windows-architectuur|
+|MasSecurityUserId |\<Windows SID\> |
+|MasTask |0|
+|MasTaskCategory| Maken van het proces|
+|MasUserData|KB4093112. 5112. Geïnstalleerd. 0x0. WindowsUpdateAgent Xpath: / Event/UserData / *|
+|MasVersion|0|
+
+### <a name="cef-mapping-for-alerts-created"></a>CEF-toewijzing voor waarschuwingen die zijn gemaakt
+```
+* Signature ID: Microsoft Azure Stack Alert Creation : FaultTypeId
+* Name: FaultTypeId : AlertId
+* Severity: Alert Severity (for details, see alerts severity table below)
+* Extension: Custom Extension Name (for details, see the Custom Extension table below)
+```
+Tabel van de ernst van waarschuwingen:
+| Severity | Niveau |
+|----------|-------|
+|0|Niet gedefinieerd|
+|10|Kritiek|
+|5|Waarschuwing|
+
+Aangepaste extensie-tabel voor waarschuwingen die zijn gemaakt in Azure Stack:
+| Naam van de aangepaste uitbreiding | Voorbeeld | 
+|-----------------------|---------|
+|MasEventDescription|Beschrijving: Een gebruikersaccount \<TestUser\> is gemaakt voor \<TestDomain\>. Het is een mogelijk beveiligingsrisico. --HERSTEL: Neem contact op met ondersteuning. Klantondersteuning is vereist om dit probleem te verhelpen. Probeer niet om op te lossen dit probleem zonder de hulp. Voordat u een ondersteuningsaanvraag opent, start u het bestand logboekverzamelproces volgens de richtlijnen van https://aka.ms/azurestacklogfiles |
+
+### <a name="cef-mapping-for-alerts-closed"></a>CEF-toewijzing voor waarschuwingen gesloten
+```
+* Signature ID: Microsoft Azure Stack Alert Creation : FaultTypeId
+* Name: FaultTypeId : AlertId
+* Severity: Information
+```
+
+Het volgende voorbeeld ziet u een syslog-bericht met CEF nettolading:
+```
+2018:05:17:-23:59:28 -07:00 TestHost CEF:0.0|Microsoft|Microsoft Azure Stack|1.0|3|TITLE: User Account Created -- DESCRIPTION: A user account \<TestUser\> was created for \<TestDomain\>. It's a potential security risk. -- REMEDIATION: Please contact Support. Customer Assistance is required to resolve this issue. Do not try to resolve this issue without their assistance. Before you open a support request, start the log file collection process using the guidance from https://aka.ms/azurestacklogfiles|10
+```
 ## <a name="next-steps"></a>Volgende stappen
 
 [Servicebeleid](azure-stack-servicing-policy.md)

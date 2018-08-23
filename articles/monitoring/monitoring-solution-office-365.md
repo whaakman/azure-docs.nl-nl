@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 2cc00aefb6099eb053aac321625a9b94cb7b4188
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 3772b03d9a9d688b9d0eac42d51af7a2f2e0c5bd
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888871"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42058114"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-oplossing in Azure (Preview)
 
@@ -72,7 +72,7 @@ De eerste stap is het maken van een toepassing in Azure Active Directory dat doo
     ![App-registratie toevoegen](media/monitoring-solution-office-365/add-app-registration.png)
 1. Voer een toepassing **naam** en **aanmeldings-URL**.  De naam moet beschrijvend zijn.  Gebruik _http://localhost_ voor de URL en blijf _Web-app / API_ voor de **toepassingstype**
     
-    ![App maken](media/monitoring-solution-office-365/create-application.png)
+    ![Toepassing maken](media/monitoring-solution-office-365/create-application.png)
 1. Klik op **maken** en informatie over de toepassing te valideren.
 
     ![Geregistreerde app](media/monitoring-solution-office-365/registered-app.png)
@@ -122,23 +122,18 @@ Als u wilt de Administrator-account voor de eerste keer inschakelt, moet u toest
     )
     
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-        
+    
     IF ($Subscription -eq $null)
         {Login-AzureRmAccount -ErrorAction Stop}
     $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $WorkspaceLocation= $Workspace.Location
-    $WorkspaceLocationShort= $Workspace.PortalUrl.Split("/",$option)[1].Split(".",$option)[0]
     $WorkspaceLocation
     
     Function AdminConsent{
     
     $domain='login.microsoftonline.com'
-    $mmsDomain = 'login.mms.microsoft.com'
-    $WorkspaceLocationShort= $Workspace.PortalUrl.Split("/",$option)[1].Split(".",$option)[0]
-    $WorkspaceLocationShort
-    $WorkspaceLocation
     switch ($WorkspaceLocation.Replace(" ","").ToLower()) {
            "eastus"   {$OfficeAppClientId="d7eb65b0-8167-4b5d-b371-719a2e5e30cc"; break}
            "westeurope"   {$OfficeAppClientId="c9005da2-023d-40f1-a17a-2b7d91af4ede"; break}
@@ -152,16 +147,13 @@ Als u wilt de Administrator-account voor de eerste keer inschakelt, moet u toest
            "eastus2"  {$OfficeAppClientId="7eb65b0-8167-4b5d-b371-719a2e5e30cc"; break}
            "westus2"  {$OfficeAppClientId="98a2a546-84b4-49c0-88b8-11b011dc8c4e"; break} #Need to check
            "usgovvirginia" {$OfficeAppClientId="c8b41a87-f8c5-4d10-98a4-f8c11c3933fe"; 
-                             $domain='login.microsoftonline.us';
-                             $mmsDomain = 'usbn1.login.oms.microsoft.us'; break} # US Gov Virginia
+                             $domain='login.microsoftonline.us'; break}
            default {$OfficeAppClientId="55b65fb5-b825-43b5-8972-c8b6875867c1";
                     $domain='login.windows-ppe.net'; break} #Int
         }
     
-        $OfficeAppRedirectUrl="https://$($WorkspaceLocationShort).$($mmsDomain)/Office365/Authorize"
-        $OfficeAppRedirectUrl
         $domain
-        Start-Process -FilePath  "https://$($domain)/common/adminconsent?client_id=$($OfficeAppClientId)&state=12345&redirect_uri=$($OfficeAppRedirectUrl)"
+        Start-Process -FilePath  "https://$($domain)/common/adminconsent?client_id=$($OfficeAppClientId)&state=12345"
     }
     
     AdminConsent -ErrorAction Stop
@@ -231,12 +223,6 @@ De laatste stap is om u te abonneren van de toepassing aan uw Log Analytics-werk
     
     Function RESTAPI-Auth { 
     
-    # Load ADAL Azure AD Authentication Library Assemblies
-    $adal = "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Services\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
-    $adalforms = "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Services\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll"
-    $null = [System.Reflection.Assembly]::LoadFrom($adal)
-    $null = [System.Reflection.Assembly]::LoadFrom($adalforms)
-     
     $global:SubscriptionID = $Subscription.SubscriptionId
     # Set Resource URI to Azure Service Management API
     $resourceAppIdURIARM=$ARMResource;
@@ -364,7 +350,7 @@ De laatste stap is om u te abonneren van de toepassing aan uw Log Analytics-werk
     .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
     ```
 
-### <a name="troublshooting"></a>Probleemoplossing
+### <a name="troubleshooting"></a>Problemen oplossen
 
 Mogelijk ziet u de volgende fout als u probeert te maken van een abonnement nadat het abonnement al bestaat.
 
@@ -436,12 +422,6 @@ U kunt de oplossing voor het beheer van Office 365 met behulp van het proces in 
     
     Function RESTAPI-Auth { 
     
-    # Load ADAL Azure AD Authentication Library Assemblies
-    $adal = "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Services\Microsoft.IdentityModel.Clients.ActiveDirectory.dll"
-    $adalforms = "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\PowerShell\ServiceManagement\Azure\Services\Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll"
-    $null = [System.Reflection.Assembly]::LoadFrom($adal)
-    $null = [System.Reflection.Assembly]::LoadFrom($adalforms)
-     
     $global:SubscriptionID = $Subscription.SubscriptionId
     # Set Resource URI to Azure Service Management API
     $resourceAppIdURIARM=$ARMResource;

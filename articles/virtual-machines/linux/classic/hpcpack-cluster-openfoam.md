@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 07/22/2016
 ms.author: danlep
-ms.openlocfilehash: 73ad78fc73a7605f8feaf114ebdfac5023cc91b6
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 9032a0b68c4c8789010b0304b64a63d4924521fb
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342418"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42058371"
 ---
 # <a name="run-openfoam-with-microsoft-hpc-pack-on-a-linux-rdma-cluster-in-azure"></a>OpenFoam uitvoeren met Microsoft HPC Pack op een Linux RDMA-cluster in Azure
 Dit artikel ziet u een manier om OpenFoam uitvoeren in virtuele machines van Azure. Hier kunt u een Microsoft HPC Pack-cluster met Linux-rekenknooppunten in Azure en voer implementeert een [OpenFoam](http://openfoam.com/) taak met Intel MPI. Zodat de compute-knooppunten via het netwerk van Azure RDMA communiceren, kunt u RDMA-compatibele Azure-VM's voor de compute-knooppunten. Andere opties OpenFoam uitvoeren in Azure volledig geconfigureerde commerciële installatiekopieën die beschikbaar zijn in de Marketplace, zoals de UberCloud [OpenFoam 2.3 op CentOS 6](https://azuremarketplace.microsoft.com/marketplace/apps/cfd-direct.cfd-direct-from-the-cloud), en door te voeren op [Azure Batch](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/). 
@@ -46,7 +46,7 @@ Microsoft HPC Pack biedt functies voor het uitvoeren van grootschalige HPC en pa
   * Na de implementatie van de Linux-knooppunten, verbinding maken met SSH naar eventuele extra administratieve taken uitvoeren. De details van de SSH-verbinding voor elke Linux VM in Azure portal vinden.  
 * **Intel MPI** - OpenFOAM uitvoeren op SLES 12 HPC-rekenknooppunten in Azure, moet u voor het installeren van de runtime Intel MPI-bibliotheek 5 van de [Intel.com site](https://software.intel.com/en-us/intel-mpi-library/). (Intel MPI 5 is voorgeïnstalleerd op CentOS gebaseerde HPC-installatiekopieën.)  Installeer Intel MPI op uw Linux-rekenknooppunten in een latere stap, indien nodig. Om voor te bereiden voor deze stap nadat u zich bij Intel registreren, volgt u de koppeling in de bevestigingse-mail naar de gerelateerde webpagina. Kopieer vervolgens de downloadkoppeling voor het bestand .tgz voor de juiste versie van Intel MPI. In dit artikel is gebaseerd op Intel MPI versie 5.0.3.048.
 * **OpenFOAM bron Pack** -Download de OpenFOAM bron Pack-software voor Linux uit de [OpenFOAM Foundation-site](http://openfoam.org/download/2-3-1-source/). In dit artikel is gebaseerd op bron Pack versie 2.3.1, gedownload als OpenFOAM 2.3.1.tgz. Volg de instructies verderop in dit artikel uitpakken en compileren OpenFOAM op de Linux-rekenknooppunten.
-* **EnSight** (optioneel): de resultaten van uw OpenFOAM simulatie, downloadt en installeert u de [EnSight](https://www.ceisoftware.com/download/) visualisatie en analyse-programma. Informatie over licentieverlening en download zijn op de site EnSight.
+* **EnSight** (optioneel): de resultaten van uw OpenFOAM simulatie, downloadt en installeert u de [EnSight](https://ensighttransfe.wpengine.com/direct-access-downloads/) visualisatie en analyse-programma. Informatie over licentieverlening en download zijn op de site EnSight.
 
 ## <a name="set-up-mutual-trust-between-compute-nodes"></a>Wederzijdse vertrouwensrelatie tussen rekenknooppunten instellen
 Een taak meerdere knooppunten wordt uitgevoerd op meerdere Linux-knooppunten vereist dat de knooppunten die elkaar vertrouwen (door **rsh** of **ssh**). Wanneer u het Microsoft HPC Pack IaaS-implementatiescript HPC Pack-cluster maakt, wordt het script automatisch stelt u permanente wederzijds vertrouwen voor het beheerdersaccount dat u opgeeft. Voor gebruikers die geen beheerder u in domein van het cluster maakt, kunt u hebt in te stellen van tijdelijke wederzijdse vertrouwensrelatie tussen de knooppunten wanneer een taak is toegewezen aan deze, en de relatie vernietigen nadat de taak voltooid is. Geef een RSA-sleutelpaar aan het cluster met HPC Pack voor de vertrouwensrelatie voor het maken van een vertrouwensrelatie voor elke gebruiker.
@@ -362,7 +362,7 @@ Nu kunt u een taak in HPC Cluster Manager verzenden. U moet het script hpcimpiru
 10. De taak is voltooid, vindt de resultaten van de taak in mappen onder C:\OpenFoam\sloshingTank3D en de logboekbestanden op C:\OpenFoam.
 
 ## <a name="view-results-in-ensight"></a>Resultaten weergeven in EnSight
-(Optioneel) Gebruik [EnSight](https://www.ceisoftware.com/) visualiseren en analyseren van de resultaten van de taak OpenFOAM. Zie voor meer informatie over de visualisatie en animatie in EnSight, [video handleiding](http://www.ceisoftware.com/wp-content/uploads/screencasts/vof_visualization/vof_visualization.html).
+(Optioneel) Gebruik [EnSight](http://www.ensight.com/) visualiseren en analyseren van de resultaten van de taak OpenFOAM. Zie voor meer informatie over de visualisatie en animatie in EnSight, [video handleiding](http://www.ensight.com/ensight.com/envideo/).
 
 1. Nadat u op het hoofdknooppunt EnSight hebt geïnstalleerd, start u deze.
 2. Open C:\OpenFoam\sloshingTank3D\EnSight\sloshingTank3D.case.

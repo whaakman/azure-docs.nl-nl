@@ -5,24 +5,28 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/16/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3dd90fc862e64812c0ba17bef74818d18788f4b5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: a2855ca5dbb76d3fcc30c4b1007c20bb48c91c9b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440977"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055117"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Een Power BI Desktop-bestand importeren
 
 U kunt een gegevensmodel in Power BI Desktop-bestand (pbix) importeren in Azure Analysis Services. Model metagegevens, gegevens in de cache en gegevensbronverbindingen worden geïmporteerd. Rapporten en visualisaties zijn niet geïmporteerd. Geïmporteerde gegevens modellen vanuit Power BI Desktop op het compatibiliteitsniveau 1400 zijn.
 
 **Beperkingen**   
-- Het pbix-model verbinding kan maken met **Azure SQL Database** en **Azure SQL Data Warehouse** worden alleen de gegevensbronnen. 
+
+- Importeren uit een pbix-bestand maakt gebruik van de webfunctie designer in de portal, die is **preview**. Functionaliteit is beperkt. Voor meer geavanceerde model ontwikkelen en testen is het raadzaam het gebruik van Visual Studio (SSDT) en SQL Server Management Studio (SSMS).
+- U moet over de machtigingen van de server-beheerder om te importeren uit een pbix-bestand.
+- Het pbix-model verbinding kan maken met **Azure SQL Database** en **Azure SQL Data Warehouse** worden alleen de gegevensbronnen.
 - Het pbix-model kan niet live hebben of DirectQuery-verbindingen. 
 - Importeren mislukt mogelijk als uw pbix-gegevensmodel metagegevens niet ondersteund in Analysis Services bevat.
+
 
 ## <a name="to-import-from-pbix"></a>Om te importeren uit pbix
 
@@ -41,6 +45,27 @@ U kunt een gegevensmodel in Power BI Desktop-bestand (pbix) importeren in Azure 
 4. In **importeren**, zoekt en selecteert u het bestand.
 
      ![Verbinding maken met het dialoogvenster in Azure portal](./media/analysis-services-import-pbix/aas-import-pbix-select-file.png)
+
+## <a name="change-credentials"></a>Referenties wijzigen
+
+Wanneer u een gegevensmodel uit een pbix-bestand, standaard importeert, worden de referenties waarmee verbinding wordt gemaakt met een gegevensbron zijn ingesteld op ServiceAccount. Nadat een model is geïmporteerd uit een pbix, kunt u de referenties wijzigen met behulp van de volgende methoden:
+
+- Gebruik de juli 2018 (versie 17.8.1) of een latere versie van SSMS op referenties bewerken. Dit is de eenvoudigste manier.
+- Gebruik TMSL [opdracht Alter](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/alter-command-tmsl) op de [gegevensbronnen object](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-objects/datasources-object-tmsl) te wijzigen van de eigenschap van de verbindingsreeks. 
+- Het model openen in Visual Studio, de referenties voor de verbinding met gegevensbron bewerken en het model opnieuw implementeren.
+
+Referenties wijzigen met behulp van SSMS. 
+
+1. Vouw in SSMS, database > **verbindingen**. 
+2. Met de rechtermuisknop op de verbinding met de database en klik vervolgens op **vernieuwen referenties**. 
+
+    ![Vernieuwen van referenties](./media/analysis-services-import-pbix/aas-import-pbix-creds.png)
+
+3. Selecteer een referentietype in het dialoogvenster referenties en referenties invoeren. Selecteer de Database voor SQL-verificatie. Selecteer de Microsoft-account voor organisatieaccount (OAuth).
+    ![Referenties bewerken](./media/analysis-services-import-pbix/aas-import-pbix-edit-creds.png)
+
+De versie juli 2018 van Power BI Desktop bevat een nieuwe functie voor het wijzigen van de machtigingen van de gegevensbron. Op de **Start** tabblad **query's bewerken**  > **instellingen voor gegevensbron**. Selecteer de verbinding van de gegevensbron en klik vervolgens op **machtigingen bewerken**.
+
 
 ## <a name="see-also"></a>Zie ook
 

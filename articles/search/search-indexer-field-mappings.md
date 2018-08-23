@@ -1,5 +1,5 @@
 ---
-title: Veld-verwijzingen in Azure Search indexeerfuncties
+title: Veldtoewijzingen in indexeerfuncties in Azure Search
 description: Azure Search-indexeerfunctie veldtoewijzingen voor verschillen in de veldnamen en gegevensweergaven configureren
 author: chaosrealm
 manager: jlembicz
@@ -9,34 +9,34 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 08/30/2017
 ms.author: eugenesh
-ms.openlocfilehash: 041866cd1c290bc576577771abcae31db747095e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 51fa689030c4a8ce4e900ecd600cdd0524aa13d9
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31796845"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42060142"
 ---
-# <a name="field-mappings-in-azure-search-indexers"></a>Veld-verwijzingen in Azure Search indexeerfuncties
-Wanneer u Azure Search indexeerfuncties, kunt u zelf zo nu en dan vinden in situaties waarin de invoergegevens behoorlijk het schema van de doelindex komt niet overeen. In deze gevallen kunt u **veld toewijzingen** voor het transformeren van uw gegevens in de gewenste vorm.
+# <a name="field-mappings-in-azure-search-indexers"></a>Veldtoewijzingen in indexeerfuncties in Azure Search
+Bij het gebruik van Azure Search-indexeerfuncties vindt van tijd tot tijd u uzelf in situaties waarin de invoergegevens niet helemaal overeen met het schema van de doelindex. In deze gevallen kunt u **veldtoewijzingen** het transformeren van uw gegevens in de gewenste vorm.
 
-Sommige situaties waarin het veldtoewijzingen handig:
+Sommige situaties waarin veldtoewijzingen handig:
 
-* De gegevensbron bevat een veld `_id`, maar Azure Search mag geen veldnamen die beginnen met een onderstrepingsteken. Een veldtoewijzing kunt u een veld ' naam '.
-* Wilt u verschillende velden in de index met dezelfde gegevens brongegevens, bijvoorbeeld omdat u wilt toepassen van andere analyzers deze velden invullen. Veldtoewijzingen kunnen u een gegevensbronveld ' vertakken'.
-* U moet naar Base64 coderen of uw gegevens worden ontsleuteld. Veldtoewijzingen ondersteuning voor diverse **toewijzing functies**, waaronder functies voor Base64 coderen en decoderen.   
+* Uw gegevensbron biedt een veld `_id`, maar Azure Search is niet toegestaan veldnamen die beginnen met een onderstrepingsteken. De veldtoewijzing van een kunt u een veld 'naam'.
+* U wilt vullen van verschillende velden in de index met de dezelfde gegevens brongegevens, bijvoorbeeld omdat u wilt toepassen van andere analyzers aan deze velden. Veldtoewijzingen kunnen u 'splitsen' van het veld voor een gegevensbron.
+* U moet naar Base64 coderen of decoderen van uw gegevens. Veldtoewijzingen ondersteunen verschillende **toewijzing functies**, waaronder functies voor Base64 coderen en decoderen.   
 
-## <a name="setting-up-field-mappings"></a>Instellen van veld-verwijzingen
-U kunt veldtoewijzingen toevoegen bij het maken van een nieuw indexeerfunctie met de [indexeerfunctie maken](https://msdn.microsoft.com/library/azure/dn946899.aspx) API. U kunt beheren veldtoewijzingen op een indexering indexeerfunctie met behulp van de [Update indexeerfunctie](https://msdn.microsoft.com/library/azure/dn946892.aspx) API.
+## <a name="setting-up-field-mappings"></a>Instellen van veldtoewijzingen
+U kunt veldtoewijzingen toevoegen bij het maken van een nieuwe indexeerfunctie met de [indexeerfunctie maken](https://msdn.microsoft.com/library/azure/dn946899.aspx) API. U kunt beheren veldtoewijzingen op een indexering indexeerfunctie met behulp van de [Update indexeerfunctie](https://msdn.microsoft.com/library/azure/dn946892.aspx) API.
 
-Een veldtoewijzing bestaat uit drie delen:
+De veldtoewijzing van een bestaat uit drie onderdelen:
 
 1. Een `sourceFieldName`, die staat voor een veld in de gegevensbron. Deze eigenschap is vereist.
-2. Een optionele `targetFieldName`, die staat voor een veld in uw search-index. Als u dit weglaat, wordt de dezelfde naam als in de gegevensbron wordt gebruikt.
-3. Een optionele `mappingFunction`, die kunt transformeert u uw gegevens met behulp van een van de vooraf gedefinieerde functies. De volledige lijst met functies is [hieronder](#mappingFunctions).
+2. Een optionele `targetFieldName`, die een veld in uw search-index vertegenwoordigt. Als u dit weglaat, wordt de dezelfde naam als in de gegevensbron wordt gebruikt.
+3. Een optionele `mappingFunction`, die kunt gebruiken om uw gegevens met behulp van een van verschillende vooraf gedefinieerde functies. De volledige lijst van functies is [hieronder](#mappingFunctions).
 
 Velden toewijzingen worden toegevoegd aan de `fieldMappings` matrix op de definitie van de indexeerfunctie.
 
-Dit is hoe u aankan verschillen in veldnamen:
+Dit is hoe u aankan verschillen in de namen van velden:
 
 ```JSON
 
@@ -50,7 +50,7 @@ api-key: [admin key]
 }
 ```
 
-Een indexeerfunctie kan meerdere veldtoewijzingen hebben. Hier volgt een voorbeeld van hoe u kunt "vertakken' een veld:
+Een indexeerfunctie kan meerdere veldtoewijzingen hebben. Hier volgt een voorbeeld van hoe u kunt "splitsen" een veld:
 
 ```JSON
 
@@ -61,13 +61,13 @@ Een indexeerfunctie kan meerdere veldtoewijzingen hebben. Hier volgt een voorbee
 ```
 
 > [!NOTE]
-> Niet-hoofdlettergevoelige vergelijking Azure Search gebruikt voor het veld en functie naamomzetting in veld-verwijzingen. Dit is handig (u hoeft het hoofdlettergebruik direct), maar het betekent dat de gegevensbron en index kan geen velden hebben die alleen geval verschillen.  
+> Azure Search maakt gebruik van niet-hoofdlettergevoelige vergelijking op te lossen de namen van het veld en functies in veldtoewijzingen. Dit is handig (u hebt niet meteen alle het hoofdlettergebruik), maar betekent dit dat uw gegevensbron of de index kan geen velden hebben die alleen per aanvraag verschillen.  
 >
 >
 
 <a name="mappingFunctions"></a>
 
-## <a name="field-mapping-functions"></a>Veld toewijzing functies
+## <a name="field-mapping-functions"></a>Veld toewijzing van functies
 Deze functies worden momenteel ondersteund:
 
 * [base64Encode](#base64EncodeFunction)
@@ -78,10 +78,10 @@ Deze functies worden momenteel ondersteund:
 <a name="base64EncodeFunction"></a>
 
 ## <a name="base64encode"></a>base64Encode
-Voert *URL-safe* Base64-codering van de invoertekenreeks. Wordt ervan uitgegaan dat de invoer UTF-8 is-codering.
+Voert *URL-safe* Base64-codering van de ingevoerde tekenreeks. Wordt ervan uitgegaan dat de invoer UTF-8 is-codering.
 
-### <a name="sample-use-case---document-key-lookup"></a>Voorbeeld gebruiksvoorbeeld - document opzoeken van een sleutel
-Alleen URL-safe tekens kunnen worden weergegeven in een Azure Search documentsleutel (omdat klanten moeten kunnen voor het oplossen van het document met behulp van de [Lookup API](https://docs.microsoft.com/rest/api/searchservice/lookup-document), bijvoorbeeld). Als uw gegevens URL onveilige tekens bevat en u gebruiken wilt voor het vullen van een sleutelveld in uw search-index, moet u deze functie gebruiken. Zodra de sleutel is gecodeerd, kunt u het decoderen van base64 om op te halen van de oorspronkelijke waarde. Zie voor meer informatie de [base64-codering en decodering](#base64details) sectie.
+### <a name="sample-use-case---document-key-lookup"></a>Voorbeeld van use-case - document opzoeken van een sleutel
+Alleen URL-safe tekens kunnen worden weergegeven in een Azure Search-documentsleutel (omdat klanten moeten kunnen adres het document met behulp van de [Lookup API](https://docs.microsoft.com/rest/api/searchservice/lookup-document), bijvoorbeeld). Als uw gegevens URL onveilige tekens bevat en u wilt gebruiken voor het vullen van een sleutelveld in uw search-index, moet u deze functie gebruiken. Nadat de sleutel is gecodeerd, kunt u met base64 decoderen om op te halen van de oorspronkelijke waarde. Zie voor meer informatie, de [base64 coderen en decoderen](#base64details) sectie.
 
 #### <a name="example"></a>Voorbeeld
 ```JSON
@@ -94,8 +94,8 @@ Alleen URL-safe tekens kunnen worden weergegeven in een Azure Search documentsle
   }]
 ```
 
-### <a name="sample-use-case---retrieve-original-key"></a>Voorbeeld gebruiksvoorbeeld - de oorspronkelijke sleutel ophalen
-U hebt een blob-indexeerfunctie die indexen blobs met de metagegevens van de blob pad als de documentsleutel. Bij het ophalen van de gecodeerde documentsleutel, die u wilt decoderen van het pad en de blob te downloaden.
+### <a name="sample-use-case---retrieve-original-key"></a>Voorbeeld van een use-case - oorspronkelijke sleutel ophalen
+Hebt u een blob-indexeerfunctie die indexen blobs met de metagegevens van de blob-pad als de documentsleutel. Bij het ophalen van de gecodeerde documentsleutel, die u wilt decoderen van het pad en de blob te downloaden.
 
 #### <a name="example"></a>Voorbeeld
 ```JSON
@@ -106,17 +106,17 @@ U hebt een blob-indexeerfunctie die indexen blobs met de metagegevens van de blo
     "targetFieldName" : "IndexKey",
     "mappingFunction" : { "name" : "base64Encode", "parameters" : { "useHttpServerUtilityUrlTokenEncode" : false } }
   }]
-```
+ ```
 
-Als u niet nodig hebt om te zoeken documenten met sleutels en ook niet nodig hebt tot decoderen van de gecodeerde inhoud, kunt u zojuist hebt laten uit `parameters` voor de functie voor toewijzing, die standaard `useHttpServerUtilityUrlTokenEncode` naar `true`. Raadpleeg anders [base64 details](#base64details) sectie om te bepalen welke instellingen u wilt gebruiken.
+Als u niet wilt opzoeken van documenten door sleutels en ook geen moet moet worden gedecodeerd de gecodeerde inhoud, u kunt alleen weglaat `parameters` voor de toewijzing-functie die standaard `useHttpServerUtilityUrlTokenEncode` naar `true`. Raadpleeg anders [base64 details](#base64details) sectie om te bepalen welke instellingen u wilt gebruiken.
 
 <a name="base64DecodeFunction"></a>
 
 ## <a name="base64decode"></a>base64Decode
-Voert het decoderen van Base64-tekenreeks van de invoer. De invoer wordt ervan uitgegaan dat een *URL-safe* Base64-gecodeerde tekenreeks.
+Voert het decoderen van Base64 van de ingevoerde tekenreeks. De invoer wordt ervan uitgegaan dat een *URL-safe* Base64-gecodeerde tekenreeks.
 
-### <a name="sample-use-case"></a>Voorbeeld gebruiksvoorbeeld
-BLOB aangepaste metagegevenswaarden moet ASCII-codering. U kunt een Base64-codering gebruiken om aan te duiden willekeurige UTF-8-tekenreeksen in de blob aangepaste metagegevens. U kunt echter om zoeken af te stemmen, deze functie gebruiken om de gecodeerde gegevens terug in 'reguliere' tekenreeksen wanneer uw search-index te vullen.
+### <a name="sample-use-case"></a>Voorbeeld van use-case
+BLOB aangepaste metagegevenswaarden moet ASCII-codering. U kunt een Base64-codering gebruiken om weer te geven van willekeurige UTF-8-tekenreeksen in aangepaste metagegevens van de blob. Echter om search af te stemmen, kunt u deze functie gebruiken om de gecodeerde gegevens terug in "normale" tekenreeksen tijdens het vullen van uw search-index.
 
 #### <a name="example"></a>Voorbeeld
 ```JSON
@@ -129,39 +129,39 @@ BLOB aangepaste metagegevenswaarden moet ASCII-codering. U kunt een Base64-coder
   }]
 ```
 
-Als u een geen opgeeft `parameters`, klikt u vervolgens de standaardwaarde van `useHttpServerUtilityUrlTokenDecode` is `true`. Zie [base64 details](#base64details) sectie om te bepalen welke instellingen u wilt gebruiken.
+Als u geen dat een opgeeft `parameters`, klikt u vervolgens de standaardwaarde van `useHttpServerUtilityUrlTokenDecode` is `true`. Zie [base64 details](#base64details) sectie om te bepalen welke instellingen u wilt gebruiken.
 
 <a name="base64details"></a>
 
-### <a name="details-of-base64-encoding-and-decoding"></a>Details van base64-codering en decodering
-Azure Search ondersteunt twee base64-coderingen: HttpServerUtility URL token en URL-safe base64-codering zonder opvulling. U moet dezelfde codering gebruiken als de toewijzing van functies als u wilt coderen van een documentsleutel voor het uiterlijk van, coderen een waarde om te worden gedecodeerd door de indexeerfunctie of een veld dat is gecodeerd door de indexeerfunctie worden ontsleuteld.
+### <a name="details-of-base64-encoding-and-decoding"></a>Details van base64 coderen en decoderen
+Azure Search ondersteunt twee base64-codering: HttpServerUtility URL token en URL-safe base64-codering zonder opvulling. U moet de dezelfde codering gebruiken als de toewijzing van functies als u wilt coderen van een documentsleutel voor het zoeken van, een waarde die moet worden gedecodeerd door de indexeerfunctie coderen of een veld door de indexeerfunctie gecodeerde decoderen.
 
-Als u .NET Framework gebruiken, kunt u instellen `useHttpServerUtilityUrlTokenEncode` en `useHttpServerUtilityUrlTokenDecode` naar `true`, voor het coderen en decoderen van respectievelijk. Vervolgens `base64Encode` gedraagt zich als [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) en `base64Decode` gedraagt zich als [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
+Als `useHttpServerUtilityUrlTokenEncode` of `useHttpServerUtilityUrlTokenDecode` parameters voor het coderen en decoderen van respectievelijk zijn ingesteld op `true`, klikt u vervolgens `base64Encode` gedraagt zich als [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) en `base64Decode` gedraagt zich als [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 
-Als u .NET Framework niet gebruikt, wordt u moet instellen `useHttpServerUtilityUrlTokenEncode` en `useHttpServerUtilityUrlTokenDecode` naar `false`. Afhankelijk van de bibliotheek die u gebruikt de base64 coderen en decoderen hulpprogramma functies kunnen afwijken van de Azure Search.
+Als u niet het volledige .NET Framework gebruikt (dat wil zeggen, u gebruikmaakt van .NET Core of andere programmeeromgeving) om te produceren de sleutelwaarden om Azure Search-gedrag te emuleren, moet u vervolgens ingesteld `useHttpServerUtilityUrlTokenEncode` en `useHttpServerUtilityUrlTokenDecode` naar `false`. Afhankelijk van de bibliotheek die u gebruikt, de met base64 coderen en decoderen hulpprogramma functies kunnen afwijken van de Azure Search.
 
-De volgende tabel vergelijkt verschillende base64-coderingen van de tekenreeks `00>00?00`. Toepassen om te bepalen de vereiste extra verwerking (indien aanwezig) voor uw base64-functies, de tapewisselaar coderen functie op de tekenreeks `00>00?00` en vergelijkt u de uitvoer met de verwachte uitvoer `MDA-MDA_MDA`.
+De volgende tabel vergelijkt verschillende base64-codering van de tekenreeks `00>00?00`. Om te bepalen de extra verwerking die vereist (indien aanwezig) voor uw base64-functies, van toepassing uw bibliotheek gecodeerd functie op de tekenreeks `00>00?00` en vergelijkt u de uitvoer met de verwachte uitvoer `MDA-MDA_MDA`.
 
-| Encoding | Base64-gecodeerd uitvoer | Extra verwerking na bibliotheek codering | Extra verwerking voordat het decoderen van de bibliotheek |
+| Encoding | Met base64 coderen uitvoer | Extra verwerking na bibliotheek codering | Als u meer te worden verwerkt voordat het decoderen van bibliotheek |
 | --- | --- | --- | --- |
-| Base64 met opvulling | `MDA+MDA/MDA=` | URL-safe tekens gebruiken en opvulling verwijderen | Gebruik standaard base64-tekens en opvulling toevoegen |
-| Base64 zonder opvulling | `MDA+MDA/MDA` | URL-safe tekens gebruiken | Gebruik standaard base64-tekens |
+| Met base64 met opvulling | `MDA+MDA/MDA=` | URL-safe tekens gebruiken en verwijderen van opvulling | Gebruik standaard base64-tekens en opvulling toevoegen |
+| Met base64 zonder opvulling | `MDA+MDA/MDA` | URL-safe tekens gebruiken | Standard base64-tekens gebruiken |
 | URL-safe base64 met opvulling | `MDA-MDA_MDA=` | Opvulling verwijderen | Opvulling toevoegen |
 | URL-safe base64 zonder opvulling | `MDA-MDA_MDA` | Geen | Geen |
 
 <a name="extractTokenAtPositionFunction"></a>
 
 ## <a name="extracttokenatposition"></a>extractTokenAtPosition
-Een string-veld met het opgegeven scheidingsteken splitst en neemt over van het token van de opgegeven positie in de resulterende splitsen.
+Hiermee wordt een tekenreeksveld met behulp van het opgegeven scheidingsteken en kiest het token op de opgegeven positie in de resulterende splitsen.
 
-Bijvoorbeeld, als de invoer is `Jane Doe`, wordt de `delimiter` is `" "`(spatie) en de `position` 0 is, het resultaat is `Jane`; als de `position` 1, is het resultaat is `Doe`. Als de positie naar een token dat niet bestaat verwijst, wordt er een fout geretourneerd.
+Bijvoorbeeld, als de invoer is `Jane Doe`, wordt de `delimiter` is `" "`(spatie) en de `position` 0 is, is het resultaat `Jane`; als de `position` 1, is het resultaat is `Doe`. Als de positie naar een token die niet bestaat verwijst, wordt er een fout geretourneerd.
 
-### <a name="sample-use-case"></a>Voorbeeld gebruiksvoorbeeld
-De gegevensbron bevat een `PersonName` veld en u wilt deze index als twee aparte `FirstName` en `LastName` velden. U kunt deze functie gebruiken voor het scheiden van de invoer met een spatie als scheidingsteken.
+### <a name="sample-use-case"></a>Voorbeeld van use-case
+De gegevensbron bevat een `PersonName` veld, en u wilt deze index als twee afzonderlijke `FirstName` en `LastName` velden. Deze functie kunt u de invoer met behulp van de spatie als scheidingsteken gesplitst.
 
 ### <a name="parameters"></a>Parameters
-* `delimiter`: een tekenreeks die moet worden gebruikt als scheidingsteken wanneer de invoerreeks splitsen.
-* `position`: een geheel getal op nul gebaseerde positie van het token om op te halen nadat de invoertekenreeks is gesplitst.    
+* `delimiter`: een tekenreeks die moet worden gebruikt als scheidingsteken als de ingevoerde tekenreeks te splitsen.
+* `position`: een geheel getal op nul gebaseerde positie van het token om op te halen nadat de invoertekenreeks wordt gesplitst.    
 
 ### <a name="example"></a>Voorbeeld
 ```JSON
@@ -182,12 +182,12 @@ De gegevensbron bevat een `PersonName` veld en u wilt deze index als twee aparte
 <a name="jsonArrayToStringCollectionFunction"></a>
 
 ## <a name="jsonarraytostringcollection"></a>jsonArrayToStringCollection
-Zet een tekenreeks die is opgemaakt als een JSON-matrix met tekenreeksen in een tekenreeksmatrix die kan worden gebruikt voor het vullen van een `Collection(Edm.String)` veld in de index.
+Zet een tekenreeks die is opgemaakt als een JSON-matrix van tekenreeksen in een string-matrix die kan worden gebruikt voor het vullen van een `Collection(Edm.String)` veld in de index.
 
-Bijvoorbeeld, als de invoertekenreeks is `["red", "white", "blue"]`, klikt u vervolgens het doelveld van het type `Collection(Edm.String)` wordt gevuld met de drie waarden `red`, `white`, en `blue`. Voor invoerwaarden kunnen niet worden geparseerd als matrices van JSON-tekenreeks, een fout geretourneerd.
+Bijvoorbeeld, als de invoertekenreeks is `["red", "white", "blue"]`, klikt u vervolgens het doelveld van het type `Collection(Edm.String)` wordt gevuld met de drie waarden `red`, `white`, en `blue`. Voor de invoerwaarden die kunnen niet worden geparseerd als matrices van JSON-tekenreeks, een fout geretourneerd.
 
-### <a name="sample-use-case"></a>Voorbeeld gebruiksvoorbeeld
-Azure SQL-database beschikt niet over een ingebouwde gegevenstype dat is natuurlijk is toegewezen aan `Collection(Edm.String)` velden in Azure Search. Indeling van de brongegevens als een tekenreeksmatrix JSON om in te vullen tekenreeksvelden verzameling, en deze functie wilt gebruiken.
+### <a name="sample-use-case"></a>Voorbeeld van use-case
+Azure SQL database beschikt niet over een ingebouwde gegevenstype dat op een natuurlijke manier worden toegewezen aan `Collection(Edm.String)` velden in Azure Search. Tekenreeks verzameling velden te vullen, uw gegevens als een tekenreeksmatrix JSON-indeling en deze functie wilt gebruiken.
 
 ### <a name="example"></a>Voorbeeld
 ```JSON
@@ -198,5 +198,5 @@ Azure SQL-database beschikt niet over een ingebouwde gegevenstype dat is natuurl
 ```
 
 
-## <a name="help-us-make-azure-search-better"></a>Help ons Azure Search te verbeteren
-Als u functieaanvragen of suggesties voor verbeteringen hebt, kunt contact met ons op onze [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
+## <a name="help-us-make-azure-search-better"></a>Help ons Azure Search verbeteren
+Als u functieverzoeken heeft of suggesties voor verbeteringen hebt, neem contact met ons opnemen op onze [UserVoice-site](https://feedback.azure.com/forums/263029-azure-search/).

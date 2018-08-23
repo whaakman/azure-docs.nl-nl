@@ -1,5 +1,5 @@
 ---
-title: Bing Visual zoeken SDK | Microsoft Docs
+title: Bing visuele zoekopdrachten SDK | Microsoft Docs
 titleSuffix: Microsoft Cognitive Services
 description: Bing Visual Search SDK voor toepassingen die op het web zoeken.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.technology: bing-visual-search
 ms.topic: article
 ms.date: 4/19/2018
 ms.author: scottwhi
-ms.openlocfilehash: 43b7b71ee1cce3d0f9f8d9f955004825d6b1a3af
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9095ef443e406c0f3e40ae575cdf6d6484726e0f
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345821"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41987544"
 ---
-# <a name="bing-visual-search-sdk"></a>Bing Visual zoeken SDK
+# <a name="bing-visual-search-sdk"></a>Bing visuele zoekopdrachten SDK
 
-Bing Visual Search biedt de volgende client-SDK's die u gebruiken kunt om uit te oefenen van de Visual zoeken-API.
+Bing visuele zoekopdrachten biedt de volgende client-SDK's die u gebruiken kunt om te oefenen de visuele zoekopdrachten-API.
 
 * [.NET-voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
     * [NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VisualSearch/1.2.0)
@@ -31,4 +31,9 @@ Bing Visual Search biedt de volgende client-SDK's die u gebruiken kunt om uit te
 * [Voorbeelden van Python](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
     * [Python-bibliotheken](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-imagesearch) voor definities en afhankelijkheden
 
-SDK-voorbeelden voor elke taal bevatten een Leesmij-bestand met de vereisten voor het gebruik van de SDK samen met de stappen voor het installeren en uitvoeren van de voorbeelden.
+SDK-voorbeelden voor elke taal omvatten een Leesmij-bestand aan de vereisten voor het gebruik van de SDK samen met stappen voor het installeren en uitvoeren van de voorbeelden.
+
+### <a name="sdk-tools"></a>SDK-hulpprogramma 's
+SDK-hulpprogramma's om te verkennen van de mogelijkheden van Bing visuele zoekopdrachten vindt u in deze Git-Repo: [Bing visuele zoekopdrachten-hulpprogramma's](https://github.com/Azure-Samples/bing-visualsearch-tools)
+
+

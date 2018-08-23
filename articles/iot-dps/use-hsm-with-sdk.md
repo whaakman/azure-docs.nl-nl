@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: 2d5bc3d0167c08c41b38bb324d55c239041f1fba
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: c94b5d4800f5776b51247c6ec2f6662a6ab26abc
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34630422"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42054702"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Verschillende attestation-mechanismen gebruiken met de SDK van de Device Provisioning Service-client voor C
 
@@ -147,7 +147,7 @@ Als u een TPM gebruikt, volgt u de instructies in [Een gesimuleerd apparaat make
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
-2. Meld u aan bij Azure Portal, klik in het linkermenu op de knop **All resources** en open de DPS-service.
+2. Meld u aan bij Azure Portal, klik in het linkermenu op de knop **Alle bronnen** en open Device Provisioning Service.
    - Afzonderlijke inschrijving voor X **.** 509: selecteer **Manage enrollments** in de overzichtsblade van de Device Provisioning Service. Selecteer het tabblad **Individual Enrollments** en klik bovenaan op de knop **Add**. Selecteer **X**.**509** als het *mechanisme* voor identiteitsattestation en upload het certificaat zoals is vereist door de blade. Klik op de knop **Save** als u klaar bent. 
    - X **.** 509-groepsregistratie: selecteer **Manage enrollments** in de overzichtsblade van de Device Provisioning Service. Selecteer het tabblad **Group Enrollments** en klik bovenaan op de knop **Add**. Selecteer **X**.**509** als het *mechanisme* voor identiteitsattestation. voer een groepsnaam en certificaatnaam in en upload het CA-/tussencertificaat zoals is vereist door de blade. Klik op de knop **Save** als u klaar bent. 
 

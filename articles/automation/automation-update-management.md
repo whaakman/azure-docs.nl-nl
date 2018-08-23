@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d12ce7b3416fac5de5cba9543f3bed5bcedf2012
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: ea96898e36080096c91285f3ff7621f84bf81edf
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115670"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42056836"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -213,12 +213,14 @@ Voor het maken van een nieuwe update-implementatie selecteert **update-implement
 
 | Eigenschap | Beschrijving |
 | --- | --- |
-|Naam |Unieke naam voor het identificeren van de update-implementatie. |
-|Besturingssysteem| Selecteer **Linux** of **Windows**.|
-|Bij te werken computers |Selecteer een opgeslagen zoekopdracht **Machine** uit de vervolgkeuzelijst en selecteer vervolgens afzonderlijke computers. |
-|Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt. CentOS ondersteunt dit niet buiten het vak.|
-|Updates die moeten worden uitgesloten|Voer de updates om uit te sluiten. Voor Windows, voert u het KB-artikel zonder de **KB** voorvoegsel. Voer de naam van het pakket voor Linux of een jokerteken gebruiken.  |
-|Planningsinstellingen|Selecteer de tijd om te gaan en selecteer vervolgens **eenmaal** of **periodiek** voor het terugkeerpatroon.|| Onderhoudsvenster |Het aantal minuten instellen voor updates. De waarde mag niet kleiner dan 30 minuten of meer dan 6 uur. |
+| Naam |Unieke naam voor het identificeren van de update-implementatie. |
+|Besturingssysteem| Linux of Windows|
+| Bij te werken computers |Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of Machine kiezen in de vervolgkeuzelijst en selecteer afzonderlijke computers. Als u ervoor kiest **Machines**, de gereedheid van de machine wordt weergegeven in de **gereedheid voor UPDATE-AGENT** kolom.</br> Zie voor meer informatie over de verschillende methoden voor het maken van computergroepen in Log Analytics, [computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
+|Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt|
+|Updates die moeten worden uitgesloten|Voer de updates om uit te sluiten. Voer de KB zonder de KB-voorvoegsel voor Windows. Voer de naam van het pakket voor Linux of een jokerteken gebruiken.  |
+|Planningsinstellingen|Selecteer de tijd om te starten, en selecteer een van beide eenmaal of terugkerende voor het terugkeerpatroon|
+| Onderhoudsvenster |Het aantal minuten instellen voor updates. De waarde kan niet worden zijn minder dan 30 minuten en niet meer dan 6 uur |
+| Opnieuw opstarten van besturingselement| Detemines hoe opnieuw wordt opgestart moeten worden verwerkt.</br>De beschikbare opties zijn:</br>Opnieuw opstarten indien nodig (standaard)</br>Altijd opnieuw opstarten</br>Nooit opnieuw opstarten</br>Alleen opnieuw opstarten - updates kan niet worden geïnstalleerd.|
 
 ## <a name="update-classifications"></a>Updateclassificaties
 

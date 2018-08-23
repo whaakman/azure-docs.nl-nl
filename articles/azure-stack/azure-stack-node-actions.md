@@ -1,6 +1,6 @@
 ---
-title: Knooppunt-eenheidacties schalen in Azure-Stack | Microsoft Docs
-description: Informatie over het knooppunt status te bekijken en gebruik van de kracht op uitschakelen leegmaken en knooppunt acties op een Azure-Stack geïntegreerd systeem hervat.
+title: Knooppunt-eenheidacties schalen in Azure Stack | Microsoft Docs
+description: Informatie over het knooppuntstatus bekijken en gebruik de kracht van uitschakelen, drain en hervatten knooppunt acties op een geïntegreerde Azure Stack-systeem.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,114 +11,113 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 08/14/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 3ecc8885a30a11472fe93bbda60c39131c6b3bd7
-ms.sourcegitcommit: b7290b2cede85db346bb88fe3a5b3b316620808d
+ms.openlocfilehash: 1f59f2ce6e3bf8d34ce225aa93da76ad523775e0
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34801412"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42054044"
 ---
-# <a name="scale-unit-node-actions-in-azure-stack"></a>Knooppunt-eenheidacties schalen in Azure-Stack
+# <a name="scale-unit-node-actions-in-azure-stack"></a>Knooppunt-eenheidacties schalen in Azure Stack
 
-*Van toepassing op: Azure Stack geïntegreerd systemen*
+*Is van toepassing op: Azure Stack-geïntegreerde systemen*
 
-Dit artikel wordt beschreven hoe u kunt de status van een schaaleenheid en de bijbehorende knooppunten weergeven en het gebruik van de acties beschikbaar knooppunt. Knooppunt acties power op power zijn uitgeschakeld, leegmaakt, hervatten en herstellen. Meestal gebruikt u deze acties knooppunt tijdens veld vervanging van onderdelen of voor knooppunt herstelscenario's.
+Dit artikel wordt beschreven hoe u om de status van een schaaleenheid en de bijbehorende knooppunten weer te geven en het gebruik van de acties beschikbaar knooppunt. Knooppunt acties opnemen power op power uitschakelen, leegmaken, hervatten en herstellen. Meestal gebruikt u deze acties knooppunt tijdens veld vervanging van delen, of voor knooppunt herstelscenario's.
 
 > [!Important]  
-> Alle knooppunt acties beschreven in dit artikel moeten alleen doel één knooppunt tegelijk.
+> Alle knooppunt-acties die worden beschreven in dit artikel moeten alleen doel één knooppunt tegelijk.
 
 
-## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>De status van een schaaleenheid en de knooppunten ervan bekijken
+## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>De status van een schaaleenheid en de knooppunten ervan weergeven
 
-In de beheerdersportal kunt u eenvoudig de status van een schaaleenheid en de bijbehorende knooppunten weergeven.
+In de beheerdersportal voor de, kunt u eenvoudig de status van een schaaleenheid en de bijbehorende knooppunten weergeven.
 
 De status van een schaaleenheid weergeven:
 
-1. Op de **regio management** tegel, selecteer de regio.
-2. Aan de linkerkant onder **infrastructuurresources**, selecteer **schaaleenheden**.
-3. Selecteer in de resultaten van de schaaleenheid.
+1. Op de **regiobeheer** tegel, selecteert u de regio.
+2. Aan de linkerkant, onder **beschikken over infrastructurele resources**, selecteer **schaaleenheden**.
+3. Selecteer in de resultaten de schaaleenheid.
  
-Hier kunt u de volgende informatie bekijken:
+Hier vindt u de volgende informatie:
 
-- Regionaam. De regionaam van de waarnaar wordt verwezen met **-locatie** in de PowerShell-module.
-- type systeem
-- Totaal aantal logische kernen
-- totale hoeveelheid geheugen
-- de lijst met afzonderlijke knooppunten en hun status; beide **met** of **gestopt**.
+- naam van de regio. De regionaam van de waarnaar wordt verwezen met **-locatie** in de PowerShell-module.
+- type van systeem
+- Totaal aantal logische kerngeheugens
+- Totaal geheugen
+- de lijst met afzonderlijke knooppunten en hun status; een van beide **met** of **gestopt**.
 
-![Scale unit tegel met de status actief heeft voor elk knooppunt](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
+![Schaal eenheid tegel weer met de status actief heeft voor elk knooppunt](media/azure-stack-node-actions/ScaleUnitStatus.PNG)
 
 ## <a name="view-information-about-a-scale-unit-node"></a>Informatie weergeven over een scale unit-knooppunt
 
-Als u een afzonderlijk knooppunt selecteert, kunt u de volgende informatie bekijken:
+Als u een afzonderlijke knooppunt selecteert, kunt u de volgende informatie bekijken:
 
-- Regionaam
+- regionaam
 - server-model
 - IP-adres van de BMC (baseboard management controller)
 - operationele status
-- Totaal aantal kernen
+- Totale aantal kernen
 - totale hoeveelheid geheugen
  
-![Scale unit tegel met de status actief heeft voor elk knooppunt](media/azure-stack-node-actions/NodeActions.PNG)
+![Schaal eenheid tegel weer met de status actief heeft voor elk knooppunt](media/azure-stack-node-actions/NodeActions.PNG)
 
-U kunt ook scale unit knooppunt acties uitvoeren vanaf hier.
+U kunt ook de schaal-eenheidacties dat knooppunt uitvoeren vanaf hier.
 
-## <a name="scale-unit-node-actions"></a>Scale-eenheidacties dat knooppunt
+## <a name="scale-unit-node-actions"></a>Schaalacties eenheid knooppunt
 
-Wanneer u informatie over een scale unit-knooppunt bekijken, kunt u ook knooppunt bewerkingen uitvoeren, zoals:
+Als u informatie over een scale unit-knooppunt bekijken, kunt u ook knooppunt acties uitvoeren zoals:
 
-- inschakelen en uitschakelen
-- leegmaken en hervatten
+- Clusterbesturingssysteem en hervatten
 - Herstellen
 
 De operationele status van het knooppunt bepaalt welke opties beschikbaar zijn.
 
 ### <a name="power-off"></a>Uitschakelen
 
-De **uitschakelen** actie schakelt het knooppunt. Dit is hetzelfde als wanneer u op de knop drukt. Dit gebeurt **niet** afsluiten signaal verzenden naar het besturingssysteem. Voor geplande uitschakelen bewerkingen, moet dat u eerst een scale unit knooppunt leegmaakt.
+De **uitschakelen** actie schakelt het knooppunt. Het is hetzelfde als wanneer u op de knop drukt. Dit gebeurt **niet** een afsluitingssignaal verzenden naar het besturingssysteem. Voor geplande uitschakelen operations, moet dat u eerst een schaal eenheid knooppunt leegmaken.
 
-Deze actie wordt doorgaans gebruikt wanneer een knooppunt in een toepassing is vastgelopen en niet meer op aanvragen reageert.
+Deze actie wordt doorgaans gebruikt wanneer een knooppunt vastgelopen is en niet meer op aanvragen reageert.
 
 > [!Important] 
-> Deze functionaliteit is alleen beschikbaar via PowerShell. Deze zijn beschikbaar in de Azure-Stack-beheerdersportal opnieuw op een later tijdstip.
+> Deze functionaliteit is alleen beschikbaar via PowerShell. Dit is beschikbaar in de portal van de beheerder van Azure Stack op een later tijdstip opnieuw uit.
 
 
-Het uitschakelen van de actie via PowerShell uitvoeren:
+De kracht uitschakelen via PowerShell uitvoeren:
 
 ````PowerShell
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```` 
 
-In het onwaarschijnlijke geval dat het uitschakelen van de actie niet werkt, gebruikt u de BMC webinterface.
+In het onwaarschijnlijke geval dat het uitschakelen van de actie niet werkt, gebruikt u de webinterface voor de BMC.
 
 ### <a name="power-on"></a>Inschakelen
 
-De **inschakelen** actie Hiermee schakelt u het knooppunt. Dit is hetzelfde als wanneer u op de knop drukt. 
+De **inschakelen** actie Hiermee schakelt u het knooppunt. Het is hetzelfde als wanneer u op de knop drukt. 
 
 > [!Important] 
-> Deze functionaliteit is alleen beschikbaar via PowerShell. Deze zijn beschikbaar in de Azure-Stack-beheerdersportal opnieuw op een later tijdstip.
+> Deze functionaliteit is alleen beschikbaar via PowerShell. Dit is beschikbaar in de portal van de beheerder van Azure Stack op een later tijdstip opnieuw uit.
 
-De macht op actie via PowerShell uitvoeren:
+De kracht van actie via PowerShell uitvoeren:
 
 ````PowerShell
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ````
 
-In het onwaarschijnlijke geval dat de actie inschakelen niet werkt, gebruikt u de BMC webinterface.
+In het onwaarschijnlijke geval die de kracht van de actie niet werkt, gebruikt u de webinterface voor de BMC.
 
-### <a name="drain"></a>Leegmaken
+### <a name="drain"></a>Clusterbesturingssysteem
 
-De **leegmaakt** actie evacuates alle actieve werkbelastingen doordat ze tussen de resterende knooppunten in die bepaalde schaaleenheid.
+De **leegmaken** actie evacuates alle actieve werkbelastingen door ze te verdelen tussen de resterende knooppunten in die specifieke schaaleenheid.
 
-Deze actie wordt meestal gebruikt tijdens de vervanging van veld van onderdelen, zoals de vervanging van een knooppunt als geheel.
+Deze actie wordt doorgaans gebruikt tijdens het veld vervanging van onderdelen, zoals het vervangen van een heel knooppunt.
 
 > [!IMPORTANT]  
-> Zorg ervoor dat u een knooppunt leegmaken alleen tijdens een geplande onderhoudsvenster, waar gebruikers zijn aangemeld. Onder bepaalde omstandigheden kunnen actieve werkbelastingen onderbrekingen optreden.
+> Zorg ervoor dat u een knooppunt alleen tijdens een geplande onderhoudsvenster leegmaken, waar gebruikers zijn aangemeld. Onder bepaalde omstandigheden kunnen actieve werklasten onderbrekingen optreden.
 
-De actie leegmaken via PowerShell uitvoeren:
+De actie drain via PowerShell uitvoeren:
 
   ````PowerShell
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
@@ -126,9 +125,9 @@ De actie leegmaken via PowerShell uitvoeren:
 
 ### <a name="resume"></a>Hervatten
 
-De **hervatten** actie een uitgedropen knooppunt hervat en markeert actief is voor plaatsing. Eerdere werkbelastingen die werden uitgevoerd op het knooppunt mislukken niet terug. (Als u een knooppunt en uitschakelen, wanneer u het knooppunt terug op rekenkracht leegmaakt, deze niet is gemarkeerd als actief is voor plaatsing. Wanneer u klaar bent, moet u de actie hervatten het knooppunt als actief gemarkeerd.)
+De **hervatten** actie hervat een uitgedropen knooppunt en wordt er aangegeven actief is voor plaatsing van werkbelastingen. Eerdere workloads die op het knooppunt werden uitgevoerd mislukken niet terug. (Als u een knooppunt en uitschakelen, wanneer u het knooppunt weer rekenkracht leegmaken, deze niet is gemarkeerd als actief is voor plaatsing van werkbelastingen. Wanneer u klaar bent, moet u de actie doorgaan naar het knooppunt als actief gemarkeerd.)
 
-De actie hervatten via PowerShell uitvoeren:
+Om uit te voeren met de actie hervatten via PowerShell:
 
   ````PowerShell
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
@@ -136,13 +135,13 @@ De actie hervatten via PowerShell uitvoeren:
 
 ### <a name="repair"></a>Herstellen
 
-De **reparatie** actie een knooppunt hersteld. Gebruik dit alleen voor een van de volgende scenario's:
+De **herstellen** actie herstelt een knooppunt. Deze alleen gebruikt voor een van de volgende scenario's:
 
 - Volledige knooppunt vervanging (met of zonder nieuwe gegevensschijven)
-- Na onderdeelfout hardware- en vervangingsdimensie (als op de hoogte in de documentatie van veld (FRU) replaceable unit).
+- Na onderdeelfouten hardware- en vervangingsdimensie (als op de hoogte in de documentatie van het veld (FRU) replaceable unit).
 
 > [!IMPORTANT]  
-> Zie de OEM-hardwareleverancier FRU-documentatie voor de exacte stappen wanneer u moet een knooppunt of afzonderlijke hardwareonderdelen vervangen. De documentatie FRU wordt aangegeven of u de herstelactie moet na het vervangen van een hardware-onderdeel uitvoeren.  
+> Raadpleeg uw OEM-hardwareleverancier FRU-documentatie voor de exacte stappen wanneer u nodig hebt om een knooppunt of afzonderlijke hardware-onderdelen te vervangen. De documentatie FRU wordt aangegeven of u de herstelactie moet na het vervangen van een hardware-onderdeel uitvoeren.  
 
 Wanneer u de herstelactie uitvoert, moet u het BMC IP-adres opgeven. 
 
@@ -154,4 +153,4 @@ De herstelactie via PowerShell uitvoeren:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over de Azure-Stack Fabric-beheermodule, [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.3.0).
+Zie voor meer informatie over de Azure Stack-infrastructuur beheerder-module, [Azs.Fabric.Admin](https://docs.microsoft.com/powershell/module/azs.fabric.admin/?view=azurestackps-1.4.0).

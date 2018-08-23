@@ -1,19 +1,19 @@
 ---
 title: Een Contoso-app met migratie naar virtuele Azure-machines met Azure Site Recovery rehost | Microsoft Docs
-description: Informatie over hoe een on-premises app rehost en met een lift-and-shift-migratie naar Azure voor de migratie van on-premises computers met de Azure Site Recovery-service.
+description: Meer informatie over hoe een on-premises rehost-app met een lift-and-shift-migratie van on-premises machines naar Azure met behulp van de Azure Site Recovery-service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/13/2018
 ms.author: raynew
-ms.openlocfilehash: e152a95a392fd503e027591a4930fbeef744d6f4
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 11859beb3d7bf0d0b0b801328c6570d274f1ea68
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009418"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42057513"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Migratie van Contoso: een app on-premises naar Azure VM's opnieuw hosten
 
@@ -237,7 +237,7 @@ Contoso nodig heeft om de bronomgeving te configureren. U doet dit door ze een O
 De configuratieserver wordt uitgevoerd voor een aantal onderdelen:
 
 - Het configuratieserveronderdeel coördineert de communicatie tussen on-premises en Azure en beheert de gegevensreplicatie.
-- Initiëren van failover met één klik in de portal of kunt u  PowerShell dat een failover wordt geactiveerd. Deze ontvangt replicatiegegevens, optimaliseert de gegevens met caching, compressie en versleuteling, en verzendt ze naar de Azure-opslag.
+- De processerver die als replicatiegateway fungeert. Deze ontvangt replicatiegegevens, optimaliseert de gegevens met caching, compressie en versleuteling, en verzendt ze naar de Azure-opslag.
 - De processerver installeert ook Mobility Service op VM's die u wilt repliceren, en detecteert automatisch on-premises VMware-VM's.
 
 

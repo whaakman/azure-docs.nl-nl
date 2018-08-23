@@ -9,12 +9,12 @@ ms.author: dacoulte
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8f3c008ad58ed7e274ffe0e9f670b4303d057182
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: dc0e49f2857468338f6e1f16462ed814893ea6e7
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003984"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42058058"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Voorbeeld van gebruik: Continue implementatie voor virtuele Machines met behulp van de configuratie van de Automation-status en Chocolatey
 
@@ -194,6 +194,11 @@ U hoeft niet te Resource Manager-sjabloon en de VM-extensie gebruiken deze techn
 Wanneer u een pakket op een virtuele machine die in productie bijwerkt, moet u natuurlijk, worden die virtuele machine uitgeschakeld terwijl de update is geïnstalleerd. Doet u als volgt varieert aanzienlijk. Bijvoorbeeld, met een VM uit achter een Load Balancer van Azure, kunt u toevoegen een aangepaste test. Tijdens het bijwerken van de virtuele machine, hebt u het eindpunt van de test een 400 geretourneerd. De bewerking wilt uitvoeren die nodig zijn om deze wijziging is in uw configuratie, zoals kan de bewerking wilt uitvoeren als u wilt het overschakelen naar een 200 retourneren nadat de update voltooid is.
 
 Volledige bron voor dit voorbeeld gebruik is in [deze Visual Studio-project](https://github.com/sebastus/ARM/tree/master/CDIaaSVM) op GitHub.
+
+## <a name="related-articles"></a>Gerelateerde artikelen
+* [Overzicht van Azure Automation DSC](automation-dsc-overview.md)
+* [Azure Automation DSC-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.automation#automation)
+* [Onboarding van machines voor beheer met Azure Automation DSC](automation-dsc-onboarding.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 

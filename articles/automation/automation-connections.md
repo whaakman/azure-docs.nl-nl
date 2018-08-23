@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d5b31529c9ccfdc5d7871ec860a97d964ece69f8
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 5c865ff5c83626f13bb4fb9df7c1533371733540
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435686"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42054647"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Verbindingsassets in Azure Automation
 
@@ -42,7 +42,7 @@ De activiteiten in de volgende tabel worden gebruikt voor toegang tot verbinding
 
 |Activiteiten|Beschrijving|
 |---|---|
-|[Get-AutomationConnection](/powershell/module/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Hiermee haalt u een verbinding moet worden gebruikt. Retourneert een hashtabel met de eigenschappen van de verbinding.|
+|[Get-AutomationConnection](/powershell/module/servicemanagement/azure/get-azureautomationconnection?view=azuresmps-3.7.0)|Hiermee haalt u een verbinding moet worden gebruikt. Retourneert een hashtabel met de eigenschappen van de verbinding.|
 
 >[!NOTE] 
 >Vermijd het gebruik van variabelen met de parameter-Name van **Get - AutomationConnection** omdat dit detecteren van afhankelijkheden tussen runbooks of DSC-configuraties en verbindingsassets tijdens de ontwerpfase bemoeilijken kan.

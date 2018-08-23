@@ -14,18 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: jeconnoc
-ms.openlocfilehash: c46c0665eefd7615bf90aeca7b918ddf9195237f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 4c4b5491bba072ba22ec20e164b7315691877a22
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004860"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42054240"
 ---
 # <a name="enable-diagnostics-in-azure-cloud-services-using-powershell"></a>Diagnostische gegevens in Azure Cloud Services met behulp van PowerShell inschakelen
 U kunt diagnostische gegevens, zoals toepassingslogboeken, verzamelen prestatiemeteritems enzovoort uit een Cloudservice met de Azure Diagnostics-extensie. In dit artikel wordt beschreven hoe u de Azure Diagnostics-extensie inschakelen voor een Cloudservice met behulp van PowerShell.  Zie [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview) voor de vereisten voor dit artikel.
 
 ## <a name="enable-diagnostics-extension-as-part-of-deploying-a-cloud-service"></a>De extensie voor diagnostische gegevens inschakelen als onderdeel van het implementeren van een cloudservice
-Deze benadering is van toepassing op type continue integratie van scenario's, waar de diagnostics-extensie kan worden ingeschakeld als onderdeel van de implementatie van de cloudservice. Bij het maken van een nieuwe Cloudservice-implementatie kunt u de extensie voor diagnostische gegevens inschakelen door te geven in de *ExtensionConfiguration* parameter voor de [New-Azure-implementatie](/powershell/module/azure/new-azuredeployment?view=azuresmps-3.7.0) cmdlet. De *ExtensionConfiguration* parameter heeft een matrix met configuraties voor diagnostische gegevens die kunnen worden gemaakt met de [New-AzureServiceDiagnosticsExtensionConfig](/powershell/module/azure/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0) cmdlet.
+Deze benadering is van toepassing op type continue integratie van scenario's, waar de diagnostics-extensie kan worden ingeschakeld als onderdeel van de implementatie van de cloudservice. Bij het maken van een nieuwe Cloudservice-implementatie kunt u de extensie voor diagnostische gegevens inschakelen door te geven in de *ExtensionConfiguration* parameter voor de [New-Azure-implementatie](/powershell/module/servicemanagement/azure/new-azuredeployment?view=azuresmps-3.7.0) cmdlet. De *ExtensionConfiguration* parameter heeft een matrix met configuraties voor diagnostische gegevens die kunnen worden gemaakt met de [New-AzureServiceDiagnosticsExtensionConfig](/powershell/module/servicemanagement/azure/new-azureservicediagnosticsextensionconfig?view=azuresmps-3.7.0) cmdlet.
 
 Het volgende voorbeeld ziet hoe u diagnostische gegevens voor een cloudservice met een WebRole en WorkerRole, elk met een andere diagnostische gegevens over configuratie kunt inschakelen.
 
@@ -97,7 +97,7 @@ $workerrole_diagconfig = New-AzureServiceDiagnosticsExtensionConfig -Role "Worke
 ```
 
 ## <a name="enable-diagnostics-extension-on-an-existing-cloud-service"></a>De extensie voor diagnostische gegevens inschakelen voor een bestaande cloudservice
-U kunt de [Set AzureServiceDiagnosticsExtension](/powershell/module/azure/set-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet in-of werk de configuratie van diagnostische gegevens op een Cloudservice die al wordt uitgevoerd.
+U kunt de [Set AzureServiceDiagnosticsExtension](/powershell/module/servicemanagement/azure/set-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet in-of werk de configuratie van diagnostische gegevens op een Cloudservice die al wordt uitgevoerd.
 
 [!INCLUDE [cloud-services-wad-warning](../../includes/cloud-services-wad-warning.md)]
 
@@ -113,14 +113,14 @@ Set-AzureServiceDiagnosticsExtension -DiagnosticsConfiguration @($webrole_diagco
 ```
 
 ## <a name="get-current-diagnostics-extension-configuration"></a>De huidige configuratie van de extensie voor diagnostische gegevens ophalen
-Gebruik de [Get-AzureServiceDiagnosticsExtension](/powershell/module/azure/get-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet om op te halen van de huidige configuratie van diagnostische gegevens voor een cloudservice.
+Gebruik de [Get-AzureServiceDiagnosticsExtension](/powershell/module/servicemanagement/azure/get-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet om op te halen van de huidige configuratie van diagnostische gegevens voor een cloudservice.
 
 ```powershell
 Get-AzureServiceDiagnosticsExtension -ServiceName "MyService"
 ```
 
 ## <a name="remove-diagnostics-extension"></a>De extensie voor diagnostische gegevens verwijderen
-Uitschakelen van diagnostische gegevens op een cloudservice kunt u de [Remove-AzureServiceDiagnosticsExtension](/powershell/module/azure/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet.
+Uitschakelen van diagnostische gegevens op een cloudservice kunt u de [Remove-AzureServiceDiagnosticsExtension](/powershell/module/servicemanagement/azure/remove-azureservicediagnosticsextension?view=azuresmps-3.7.0) cmdlet.
 
 ```powershell
 Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService"

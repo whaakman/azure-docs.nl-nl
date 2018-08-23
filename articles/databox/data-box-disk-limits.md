@@ -15,12 +15,12 @@ ms.workload: TBD
 ms.date: 07/12/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 4db70fa93914ba0544d9beb8e523241513a2e5ce
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 358f81498d8caad7c0a67519bbb776efa153249f
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009299"
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42054651"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Limieten voor Azure Data Box-schijf (Preview)
 
@@ -38,7 +38,7 @@ Houd rekening met deze limieten bij het implementeren en uitvoeren van uw oploss
 
 ## <a name="data-box-disk-performance"></a>Prestaties van de Data Box-schijf
 
-Wanneer getest met schijven die zijn verbonden via USB 3.0, is de schijfprestaties tot 430 MB/s. De werkelijke getallen variëren al naar gelang de bestandsgrootte die wordt gebruikt. Voor kleinere bestanden ziet u mogelijk lagere prestaties.
+Bij een test met schijven die verbonden waren via USB 3.0 was de prestatie van de schijven maximaal 430 MB/s. De werkelijke waarden variëren, afhankelijk van de gebruikte bestandsgrootte. Voor kleinere bestanden zijn de prestaties lager.
 
 ## <a name="azure-storage-limits"></a>Limieten voor Azure-opslag
 
@@ -64,7 +64,7 @@ Voor de meest recente informatie over limieten voor Azure storage-service en aan
 
 ## <a name="azure-storage-account-size-limits"></a>Maximale grootte van Azure storage-account
 
-Hier zijn de limieten voor de grootte van de gegevens die worden gekopieerd naar storage-account. Zorg ervoor dat de gegevens die u uploadt, aan deze limieten voldoet. Voor de meest actuele informatie over deze limieten, gaat u naar [prestatiedoelen voor Azure blob storage schaal](https://docs.microsoft.com/en-us/azure/storage/cstorage-scalability-targets#azure-blob-storage-scale-targets) en [Azure Files schalen doelen](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Hier zijn de limieten voor de grootte van de gegevens die worden gekopieerd naar storage-account. Zorg ervoor dat de gegevens die u uploadt, aan deze limieten voldoet. Voor de meest actuele informatie over deze limieten, gaat u naar [prestatiedoelen voor Azure blob storage schaal](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) en [Azure Files schalen doelen](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
 
 | Grootte van gegevens die zijn gekopieerd naar Azure storage-account                      | Standaardlimiet          |
 |---------------------------------------------------------------------|------------------------|
@@ -85,5 +85,5 @@ Hier vindt u de grootte van de Azure-objecten die kunnen worden geschreven. Zorg
 
 | Entiteit                                       | Conventies                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Namen van containers voor blok-blobs en pagina-blobs | Moet een geldige DNS-naam die tussen de 3 en 63 tekens lang zijn. <br>  Moet beginnen met een letter of cijfer. <br> Mag alleen kleine letters, cijfers en afbreekstreepjes (-). <br> Elk streepje (-) moet direct worden voorafgegaan en gevolgd door een letter of cijfer. <br> Opeenvolgende streepjes zijn niet toegestaan in namen. |
-| BLOB-namen voor blok-blobs en pagina-blobs      | BLOB-namen zijn hoofdlettergevoelig en kunnen elke combinatie van tekens bevatten. <br> Een blobnaam moet tussen 1 tot 1024 tekens lang zijn. <br> Gereserveerde URL-tekens moeten correct worden weergegeven. <br>Het aantal padsegmenten die bestaat uit de blob-naam niet langer zijn dan 254. Een padsegment is de waarde in tussen opeenvolgende scheidingstekens (bijvoorbeeld de slash '/') die overeenkomen met de naam van een virtuele map. |
+| Namen van containers voor blok-blobs en pagina-blobs | Moet een geldige DNS-naam die tussen de 3 en 63 tekens lang zijn. <br>  Moet beginnen met een letter of cijfer. <br> Mag alleen kleine letters, cijfers en afbreekstreepjes (-). <br> Elk koppelteken (-) moet direct worden voorafgegaan en gevolgd door een letter of cijfer. <br> In namen worden geen opeenvolgende koppeltekens toegestaan. |
+| Blobnamen voor blok-blob en pagina-blob      | Blobnamen zijn hoofdlettergevoelig en kunnen elke combinatie van tekens bevatten. <br> Een blobnaam moet 1 tot 1024 tekens bevatten. <br> Gereserveerde tekens voor URL's moeten op de juiste wijze van een escape-teken zijn voorzien. <br>Het aantal padsegmenten dat de blobnaam omvat, mag niet meer dan 254 zijn. Een padsegment is de tekenreeks tussen opeenvolgende scheidingstekens (bijvoorbeeld de slash '/') die overeenkomt met de naam van een virtuele map. |

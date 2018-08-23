@@ -1,6 +1,6 @@
 ---
-title: 'Azure-portal: SQL-Database dynamische-gegevensmaskering | Microsoft Docs'
-description: Hoe u aan de slag met SQL-Database dynamische gegevensmaskering in de Azure portal
+title: 'Azure-portal: SQL Database dynamische gegevensmaskering | Microsoft Docs'
+description: Aan de slag met SQL Database dynamische gegevensmaskering in Azure portal
 services: sql-database
 author: ronitr
 manager: craigg
@@ -9,49 +9,49 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: ronitr
-ms.openlocfilehash: 9b47345278bd74449c16e4e17ed1748dba489f82
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8f7720555a3cfc39ce9e9b5ad2c392bab74b64ca
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645511"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42054049"
 ---
-# <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Aan de slag met SQL-Database van de dynamische gegevens maskeren met de Azure-portal
+# <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Aan de slag met SQL Database dynamische gegevensmaskering met Azure portal
 
-Dit artikel laat zien hoe u implementeert [dynamische gegevensmaskering](sql-database-dynamic-data-masking-get-started.md) met de Azure-portal. U kunt ook implementeren dat maskering met behulp van dynamische gegevens [cmdlets van Azure SQL Database](https://msdn.microsoft.com/library/azure/mt574084.aspx) of de [REST-API](https://msdn.microsoft.com/library/dn505719.aspx).
+Dit artikel leest u hoe u voor het implementeren van [dynamische gegevensmaskering](sql-database-dynamic-data-masking-get-started.md) met de Azure-portal. U kunt ook implementeren dynamische gegevens maskeren met [Azure SQL Database-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.sql/) of de [REST-API](https://msdn.microsoft.com/library/dn505719.aspx).
 
 
-## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Dynamische-gegevensmaskering voor uw database met de Azure portal instellen
+## <a name="set-up-dynamic-data-masking-for-your-database-using-the-azure-portal"></a>Dynamische gegevensmaskering voor uw database met behulp van de Azure-portal instellen
 1. Starten van de Azure portal op [ https://portal.azure.com ](https://portal.azure.com).
 2. Navigeer naar de instellingenpagina van de database met de gevoelige gegevens die u wilt maskeren.
-3. Klik op de **dynamische-Gegevensmaskering** tegel die start de **dynamische-Gegevensmaskering** configuratiepagina.
+3. Klik op de **Dynamic Data Masking** tegel die wordt gestart de **Dynamic Data Masking** configuratiepagina.
    
-   * U kunt ook Schuif omlaag naar de **Operations** sectie en klik op **dynamische-Gegevensmaskering**.
+   * U kunt ook, schuif omlaag naar de **Operations** sectie en klikt u op **Dynamic Data Masking**.
      
      ![Navigatievenster](./media/sql-database-dynamic-data-masking-get-started/4_ddm_settings_tile.png)<br/><br/>
-4. In de **dynamische-Gegevensmaskering** configuratiepagina mogelijk ziet u enkele databasekolommen die voor de engine voor aanbevelingen voor maskering is gemarkeerd. Om de aanbevelingen hebt geaccepteerd, klikt u op **masker toevoegen** voor een of meer kolommen en een masker is gemaakt op basis van het standaardtype voor deze kolom. U kunt de maskeringsfunctie wijzigen door te klikken op de maskeringsregel en bewerken van het maskeren veldindeling naar een andere indeling van uw keuze. Klik op **opslaan** uw instellingen op te slaan.
+4. In de **Dynamic Data Masking** configuratiepagina, ziet u enkele kolommen die de recommendations-engine is gemarkeerd voor maskeren. Als u wilt de aanbevelingen accepteren, klikt u op **masker toevoegen** voor een of meer kolommen en een subnetmasker is gemaakt op basis van het standaardtype voor deze kolom. U kunt de maskeringsfunctie wijzigen door te klikken op de maskeringsregel en bewerken van het maskeren veldindeling naar een andere indeling van uw keuze. Klik op **opslaan** uw instellingen op te slaan.
    
     ![Navigatievenster](./media/sql-database-dynamic-data-masking-get-started/5_ddm_recommendations.png)<br/><br/>
-5. Toevoegen van een masker voor elke kolom in de database, aan de bovenkant van de **dynamische-Gegevensmaskering** configuratiepagina, klikt u op **masker toevoegen** openen de **maskeren regel toevoegen** configuratiepagina .
+5. Om toe te voegen een masker voor elke kolom in de database, aan de bovenkant van de **Dynamic Data Masking** configuratiepagina, klikt u op **masker toevoegen** openen de **maskeren regel toevoegen** configuratiepagina .
    
     ![Navigatievenster](./media/sql-database-dynamic-data-masking-get-started/6_ddm_add_mask.png)<br/><br/>
-6. Selecteer de **Schema**, **tabel** en **kolom** voor het definiëren van het veld dat is opgegeven voor maskering.
-7. Kies een **maskeren veldindeling** uit de lijst met gevoelige gegevens maskeren categorieën.
+6. Selecteer de **Schema**, **tabel** en **kolom** voor het definiëren van het veld dat is opgegeven voor maskeren.
+7. Kies een **notatie veld maskeren** uit de lijst met gevoelige gegevens maskeren categorieën.
    
     ![Navigatievenster](./media/sql-database-dynamic-data-masking-get-started/7_ddm_mask_field_format.png)<br/><br/>        
-8. Klik op **opslaan** in de gegevens maskeren pagina van de regel voor het bijwerken van de reeks regels in het beleid voor dynamische gegevensmaskering maskeren.
-9. Geef de SQL-gebruikers of AAD-identiteiten die moeten worden uitgesloten van maskering en hebben toegang tot de ontmaskerd gevoelige gegevens. Dit moet een door puntkomma's gescheiden lijst met gebruikers. Gebruikers met beheerdersrechten hebben altijd toegang tot de oorspronkelijke gegevens toegankelijk is.
+8. Klik op **opslaan** in de pagina van de regel voor het bijwerken van de set met regels in het beleid voor dynamische gegevensmaskering maskeren voor gegevensmaskering.
+9. Geef de SQL-gebruikers of AAD-identiteiten die moeten worden uitgesloten van maskeren en hebben toegang tot de ontmaskerd gevoelige gegevens. Dit moet een puntkomma's gescheiden lijst van gebruikers. Gebruikers met administrator-bevoegdheden hebben altijd toegang tot de oorspronkelijke gegevens toegankelijk maakt.
    
     ![Navigatievenster](./media/sql-database-dynamic-data-masking-get-started/8_ddm_excluded_users.png)
    
    > [!TIP]
-   > Als u wilt ervoor zorgen dat de toepassingslaag gevoelige gegevens voor de bevoegde toepassingsgebruikers kunt weergeven, voeg de SQL-gebruiker of AAD-identiteit de toepassing wordt gebruikt om te zoeken in de database. Het is raadzaam dat deze lijst een minimum aantal bevoegde gebruikers om te beperken van blootstelling van de gevoelige gegevens bevatten.
+   > Als u wilt ervoor zorgen dat de toepassingslaag gevoelige gegevens voor gebruikers van de toepassing in beschermde modus kan weergeven, voeg de SQL-gebruiker of de AAD-identiteit is die de toepassing gebruikt om te zoeken in de database. Het is raadzaam dat deze lijst een minimum aantal gebruikers met bevoegdheden om te beperken van blootstelling van gevoelige gegevens bevatten.
    > 
    > 
-10. Klik op **opslaan** in de configuratiepagina voor het opslaan van de nieuwe of bijgewerkte maskeren gegevens maskeren beleid.
+10. Klik op **opslaan** maskeren in de gegevens maskeren configuratiepagina voor het opslaan van de nieuwe of bijgewerkte beleid.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie voor een overzicht van dynamische gegevensmaskering [dynamische gegevensmaskering](sql-database-dynamic-data-masking-get-started.md).
-* U kunt ook implementeren dat maskering met behulp van dynamische gegevens [cmdlets van Azure SQL Database](https://msdn.microsoft.com/library/azure/mt574084.aspx) of de [REST-API](https://msdn.microsoft.com/library/dn505719.aspx).
+* U kunt ook implementeren dynamische gegevens maskeren met [Azure SQL Database-cmdlets](https://docs.microsoft.com/powershell/module/azurerm.sql/) of de [REST-API](https://msdn.microsoft.com/library/dn505719.aspx).

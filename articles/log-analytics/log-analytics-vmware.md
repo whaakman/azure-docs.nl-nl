@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: 6ba37a026a3c8f50fa47b0775a2ad49ee75f2769
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b6078ac326fe51f4198137eec2de728b6036c271
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424643"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42054047"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (Preview) solution in Log Analytics
 
@@ -36,7 +36,7 @@ De oplossing maakt gebruik van systeemeigen syslog-functionaliteit van de ESXi-h
 ## <a name="install-and-configure-the-solution"></a>Installeren en configureren van de oplossing
 Gebruik de volgende informatie om de oplossing te installeren en configureren.
 
-* VMware Monitoring solution toevoegen aan uw abonnement met behulp van de procedure beschreven in [toevoegen van een oplossing voor](log-analytics-add-solutions.md#add-a-management-solution).
+* VMware Monitoring solution toevoegen aan uw abonnement met behulp van de procedure beschreven in [installeren van een oplossing voor](../monitoring/monitoring-solutions.md#install-a-management-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>Ondersteunde VMware ESXi-hosts
 vSphere ESXi-Host 5.5, 6.0 of 6.5

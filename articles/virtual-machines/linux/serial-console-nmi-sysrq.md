@@ -1,6 +1,6 @@
 ---
-title: Azure-seriële Console voor het WORMGATEN en de modus voor één gebruiker | Microsoft Docs
-description: Met behulp van de seriële Console van wormgaten in virtuele machines van Azure.
+title: Azure-seriële Console voor SysRq en NMI aanroepen | Microsoft Docs
+description: Met behulp van de seriële Console voor voor SysRq en NMI roept in virtuele machines van Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: alsin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 54b5fb4ace64cc304a8eb8ce6d762d33ae18619a
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 14bf68355550d756bd3f4da1a367133d83ddbf07
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177593"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42055318"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Seriële Console gebruiken voor SysRq en NMI aanroepen
 

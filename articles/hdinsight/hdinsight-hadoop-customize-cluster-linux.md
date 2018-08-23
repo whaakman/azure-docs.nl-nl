@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: jasonh
-ms.openlocfilehash: 2e5cddc03b522471cf7eea1f1e45b15c6f73f81d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 0837029cbe22ba7f659efefb113ed47ae1cf2dfe
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39595695"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42055671"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>HDInsight Linux gebaseerde clusters aanpassen met scriptacties
 
@@ -224,7 +224,7 @@ Zie de volgende documenten voor informatie over het implementeren van een sjablo
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Een scriptactie tijdens het maken van Azure PowerShell gebruiken
 
-In deze sectie maakt u de [toevoegen AzureRmHDInsightScriptAction](https://msdn.microsoft.com/library/mt603527.aspx) cmdlet voor het aanroepen van scripts voor het aanpassen van een cluster. Voordat u doorgaat, zorg ervoor dat u hebt geïnstalleerd en geconfigureerd, Azure PowerShell. Zie voor meer informatie over het configureren van een werkstation voor het uitvoeren van HDInsight PowerShell-cmdlets [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
+In deze sectie maakt u de [toevoegen AzureRmHDInsightScriptAction](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/add-azurermhdinsightscriptaction) cmdlet voor het aanroepen van scripts voor het aanpassen van een cluster. Voordat u doorgaat, zorg ervoor dat u hebt geïnstalleerd en geconfigureerd, Azure PowerShell. Zie voor meer informatie over het configureren van een werkstation voor het uitvoeren van HDInsight PowerShell-cmdlets [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
 
 Het volgende script laat zien hoe u een scriptactie toegepast bij het maken van een cluster met behulp van PowerShell:
 

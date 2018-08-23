@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: 0f6a0e2fe3aa632137392efe806aaab265eedf10
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f461a9a7cc900ce5f8fdba7b255417b1790d3f4d
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435539"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42056635"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokale Git-implementatie op de Azure App Service
 
@@ -124,7 +124,7 @@ In de **configureren** pagina, configureren van een nieuwe VSTS-account of een b
 
 In de **Test** pagina, kies of u wilt inschakelen load tests uit en klik vervolgens op **doorgaan**.
 
-Afhankelijk van de [prijscategorie](/pricing/details/app-service/plans/) van uw App Service-plan, ziet u mogelijk ook een **implementeren voor fasering** pagina. Kies of u wilt inschakelen implementatiesites gebruiken en klik vervolgens op **doorgaan**.
+Afhankelijk van de [prijscategorie](https://azure.microsoft.com/pricing/details/app-service/plans/) van uw App Service-plan, ziet u mogelijk ook een **implementeren voor fasering** pagina. Kies of u wilt inschakelen implementatiesites gebruiken en klik vervolgens op **doorgaan**.
 
 In de **samenvatting** pagina, Controleer uw opties en klik op **voltooien**.
 
@@ -138,7 +138,7 @@ Voeg, eenmaal terug in het _lokale terminalvenster_, een externe Azure-instantie
 git remote add vsts <url>
 ```
 
-Push naar de externe Azure-instantie om uw app te implementeren met de volgende opdracht. Wanneer u hierom wordt gevraagd door Git Credential Manager, meldt u zich aan met uw gebruiker visualstudio.com. Zie voor aanvullende verificatiemethoden [VSTS authenticatiesystemen overzicht](/vsts/git/auth-overview?view=vsts).
+Push naar de externe Azure-instantie om uw app te implementeren met de volgende opdracht. Wanneer u hierom wordt gevraagd door Git Credential Manager, meldt u zich aan met uw gebruiker visualstudio.com. Zie voor aanvullende verificatiemethoden [VSTS verificatieoverzicht](/vsts/git/auth-overview?view=vsts).
 
 ```bash
 git push vsts master

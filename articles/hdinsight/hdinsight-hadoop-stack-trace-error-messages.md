@@ -3,20 +3,19 @@ title: Hadoop-stack-trace foutberichten - Azure HDInsight
 description: Index van Hadoop-stack-trace foutberichten in Azure HDInsight. Zoek de fout in de lijst om te zien met informatie over probleemoplossing.
 keywords: stack-trace, foutberichten
 services: hdinsight
-documentationcenter: NA
-author: jasonwhowell
-editor: jasonwhowell
 ms.service: hdinsight
+author: jasonwhowell
+ms.author: jasonh
+editor: jasonwhowell
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 744e9f1517931db20b8a4a7bf3453c61971fdae6
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: ecd6ec6d3d72dc5193c82558dbd7c7cae682ecc0
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593366"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42057505"
 ---
 # <a name="index-of-hadoop-in-hdinsight-troubleshooting-articles"></a>Index van Hadoop in HDInsight artikelen over probleemoplossing
 Artikelen zijn geordend op typen fouten.

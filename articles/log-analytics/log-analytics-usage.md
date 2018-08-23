@@ -12,17 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: d02c3ad3e1ca2812049608cad2eacced3686dad3
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 1bb96821b61647f5dfad54c8b0cb6248eb0db4af
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128561"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42061333"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Gegevensgebruik analyseren in Log Analytics
+
+> [!NOTE]
+> In dit artikel wordt beschreven hoe u gegevensgebruik analyseren in Log Analytics.  Raadpleeg de volgende artikelen voor meer informatie.
+> - [Kosten beheren door het gegevensvolume en retentie in Log Analytics beheren](log-analytics-manage-cost-storage.md) wordt beschreven hoe u uw kosten te beheren door het veranderen van de retentieperiode van uw gegevens.
+> - [Gebruik en geschatte kosten bewaken](../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) wordt beschreven hoe u gebruik en geschatte kosten voor meerdere Azure-bewakingsfuncties voor verschillende prijsmodellen. Ook wordt beschreven hoe u kunt wijzigen van het prijsmodel.
+
 Log Analytics bevat informatie over de hoeveelheid gegevens die is verzameld, vanuit welke bronnen de gegevens zijn verzonden, en de verschillende typen gegevens die zijn verzonden.  Gebruik het **Log Analytics-gebruiksdashboard** om het gegevensgebruik te controleren en analyseren. Het dashboard laat zien hoeveel gegevens worden verzameld door elke oplossing en hoeveel gegevens uw computers verzenden.
 
 ## <a name="understand-the-usage-dashboard"></a>Inzicht in het dashboard met gebruiksgegevens

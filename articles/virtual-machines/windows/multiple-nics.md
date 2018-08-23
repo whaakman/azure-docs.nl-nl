@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/26/2017
 ms.author: cynthn
-ms.openlocfilehash: d29676b107885350785ceb1c17eb3010cc0907d2
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 47f02c008a0498492af3503d90fda8ff6e2eefa8
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928342"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42061334"
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Een Windows virtuele machine met meerdere NIC's maken en beheren
-Virtuele machines (VM's) in Azure kunnen meerdere virtuele netwerkinterfacekaarten (NIC's) die is gekoppeld aan deze hebben. Een veelvoorkomend scenario is dat verschillende subnetten voor front-end en back-end-connectiviteit of een netwerk dat is toegewezen aan een oplossing voor controle of back-up. Dit artikel wordt uitgelegd hoe u een virtuele machine met meerdere NIC's die zijn gekoppeld aan het maakt. U leert ook hoe u kunt toevoegen of verwijderen van NIC's van een bestaande virtuele machine. Verschillende [VM-grootten](sizes.md) een verschillend aantal NIC's ondersteunen, dus het formaat van uw virtuele machine dienovereenkomstig.
+Virtuele machines (VM's) in Azure kunnen meerdere virtuele netwerkinterfacekaarten (NIC's) die is gekoppeld aan deze hebben. Een veelvoorkomend scenario is dat verschillende subnetten voor front-end en back-end-connectiviteit. U kunt meerdere NIC's op een virtuele machine met meerdere subnetten koppelen, maar deze subnetten moeten zich in hetzelfde virtuele netwerk (vNet). Dit artikel wordt uitgelegd hoe u een virtuele machine met meerdere NIC's die zijn gekoppeld aan het maakt. U leert ook hoe u kunt toevoegen of verwijderen van NIC's van een bestaande virtuele machine. Verschillende [VM-grootten](sizes.md) een verschillend aantal NIC's ondersteunen, dus het formaat van uw virtuele machine dienovereenkomstig.
 
 ## <a name="prerequisites"></a>Vereisten
 Zorg ervoor dat u hebt de [meest recente versie van Azure PowerShell is geïnstalleerd en geconfigureerd](/powershell/azure/overview).
