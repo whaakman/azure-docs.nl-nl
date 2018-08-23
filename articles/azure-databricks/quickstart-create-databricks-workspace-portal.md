@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: a302c0c6c4ecbaff2d11d852caf9e1e1500931b8
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: cd6a3b768077880d47462d1db559a4884cceb84a
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225343"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42022826"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Quickstart: Een Spark-taak uitvoeren op Azure Databricks met Azure portal
 
@@ -49,7 +49,7 @@ In deze sectie gaat u een Azure Databricks-werkruimte maken met behulp van Azure
     |**Werkruimtenaam**     | Geef een naam op voor uw Databricks-werkruimte.        |
     |**Abonnement**     | Selecteer uw Azure-abonnement in de vervolgkeuzelijst.        |
     |**Resourcegroep**     | Geef aan of u een nieuwe resourcegroep wilt maken of een bestaande groep wilt gebruiken. Een resourcegroep is een container met gerelateerde resources voor een Azure-oplossing. Zie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) voor meer informatie. |
-    |**Locatie**     | Selecteer **VS - oost 2**. Zie [Producten beschikbaar per regio](https://azure.microsoft.com/regions/services/) voor andere beschikbare regio's.        |
+    |**Locatie**     | Selecteer **US - oost 2**. Zie [Producten beschikbaar per regio](https://azure.microsoft.com/regions/services/) voor andere beschikbare regio's.        |
     |**Prijscategorie**     |  U kunt kiezen tussen **Standard** en **Premium**. Bekijk de pagina [Prijzen voor Databricks](https://azure.microsoft.com/pricing/details/databricks/) voor meer informatie over deze categorieën.       |
 
     Selecteer **Vastmaken aan dashboard** en klik op **Maken**.
@@ -95,7 +95,7 @@ Download een JSON-bestand met voorbeeldgegevens en sla het op in Azure Blob-opsl
    - Selecteer **Soort account**: **Blob-opslag**
    - Selecteer de naam van een **Resourcegroep**. Gebruik dezelfde resourcegroep als waarin u de Databricks-werkruimte hebt gemaakt.
    
-   Zie [Een Azure Blob-opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) voor meer informatie. 
+   Zie [Een Azure Blob-opslagaccount maken](../storage/common/storage-quickstart-create-account.md) voor meer informatie. 
 
 3. Maak een opslagcontainer in het Blob-opslagaccount en upload het JSON-voorbeeldbestand naar de container. U kunt het bestand uploaden via Azure Portal of de [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 

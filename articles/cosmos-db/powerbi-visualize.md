@@ -8,14 +8,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2018
+ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: 3734c30dad0735164d4501d1d63d8ffe301396a3
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 63ea7e384f9bc5713a41f6c5537ec5548810e5d9
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249111"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42059487"
 ---
 # <a name="power-bi-tutorial-for-azure-cosmos-db-visualize-data-using-the-power-bi-connector"></a>Power BI-zelfstudie voor Azure Cosmos DB: gegevens visualiseren met behulp van de Power BI-connector
 [PowerBI.com](https://powerbi.microsoft.com/) is een online service waar u kunt maken en delen van dashboards en rapporten met gegevens die belangrijk is voor u en uw organisatie.  Power BI Desktop is een speciale rapport ontwerpgereedschap waarmee u gegevens ophalen uit verschillende gegevensbronnen, samenvoegen en de gegevens te transformeren, krachtige rapporten en visualisaties maken en de rapporten publiceren naar Power BI.  De meest recente versie van Power BI Desktop, u kunt nu verbinding maken met uw Azure Cosmos DB-account via de Azure Cosmos DB-connector voor Power BI.   
@@ -42,8 +42,8 @@ Voordat u de instructies in deze zelfstudie Power BI, zorg ervoor dat u toegang 
 * [De meest recente versie van Power BI Desktop](https://powerbi.microsoft.com/desktop).
 * Toegang tot onze demo-account of de gegevens in uw Azure Cosmos DB-account.
   * De demo-account wordt gevuld met de Vulkaan gegevens weergegeven in deze zelfstudie. Deze demo-account is niet gebonden bent aan de SLA's en is bedoeld voor demonstratiedoeleinden alleen te gebruiken.  We behouden ons het recht om wijzigingen in deze demo account, zoals te brengen, maar niet beperkt tot het account beëindigen, wijzigen van de sleutel, beperken van toegang, wijzigen, en de gegevens op elk gewenst moment zonder vooraf een kennisgeving of opgave van redenen te verwijderen.
-    * URL: https://analytics.documents.azure.com
-    * Read-only key: MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==
+    * URL: `https://analytics.documents.azure.com`
+    * Alleen-lezensleutel: `MSr6kt7Gn0YRQbjd6RbTnTt7VHc5ohaAFu7osF0HdyQmfR+YhwCH2D2jcczVIR1LNK3nMPNBD31losN7lQ/fkw==`
   * Of, voor het maken van uw eigen account, Zie [maken van een Azure Cosmos DB-databaseaccount met behulp van de Azure-portal](https://azure.microsoft.com/documentation/articles/create-account/). Klik, om op te halen voorbeeld Vulkaan gegevens die vergelijkbaar is met wat in deze zelfstudie wordt gebruikt (maar bevat niet de GeoJSON-blokken), Zie de [NOAA site](https://www.ngdc.noaa.gov/nndc/struts/form?t=102557&s=5&d=5) en importeer vervolgens de gegevens met de [Azure Cosmos DB-hulpprogramma voor gegevensmigratie](import-data.md).
 
 Als u wilt delen in uw rapporten in PowerBI.com, moet u een account hebben in PowerBI.com.  Voor meer informatie over Power BI voor gratis en Power BI Pro, gaat u naar [ https://powerbi.microsoft.com/pricing ](https://powerbi.microsoft.com/pricing).

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/01/2018
 ms.author: genli
-ms.openlocfilehash: 48037bc92d26cd01086451fdc778651df5b6bf67
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 0f7b19b0848886c7a906e79d63a814fddf5ef5a6
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398968"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42054735"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Een Windows VHD of VHDX te uploaden naar Azure voorbereiden
 Voordat u een Windows virtuele machines (VM van on-premises met Microsoft Azure) uploadt, moet u de virtuele harde schijf (VHD of VHDX) voorbereiden. Azure ondersteunt **alleen virtuele machines van generatie 1** die in de VHD-indeling en hebben een schijf met vaste grootte. De maximale grootte van de VHD is 1023 GB. U kunt een generatie 1 VM op basis van de VHDX-bestandssysteem en naar een dynamisch uitbreidbare schijf naar vaste VHD converteren. Maar u kunt een virtuele machine generatie niet wijzigen. Zie voor meer informatie, [maak ik een generatie 1 of 2 virtuele machine in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -67,7 +67,7 @@ Voer alle opdrachten in de volgende stappen uit op de virtuele machine die u van
 1. Een statische permanente route in de routeringstabel verwijderen:
    
    * Uitvoeren als u de routetabel, `route print` bij de opdrachtprompt.
-   * Controleer de **persistentie Routes** secties. Als er een permanente route, gebruikt u [route delete](https://technet.microsoft.com/library/cc739598.apx) om deze te verwijderen.
+   * Controleer de **persistentie Routes** secties. Als er een permanente route, gebruikt u de **route delete** opdracht om deze te verwijderen.
 2. Verwijder de WinHTTP-proxy:
    
     ```PowerShell
@@ -90,7 +90,7 @@ Voer alle opdrachten in de volgende stappen uit op de virtuele machine die u van
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -name "RealTimeIsUniversal" 1 -Type DWord
 
-    Set-Service -Name w32time -StartupType Auto
+    Set-Service -Name w32time -StartupType Automatic
     ```
 5. Het profiel power ingesteld op de **hoge prestaties**:
 
@@ -102,17 +102,17 @@ Voer alle opdrachten in de volgende stappen uit op de virtuele machine die u van
 Zorg ervoor dat elk van de volgende Windows-services is ingesteld op de **Windows standaardwaarden**. Dit zijn de minimale nummers van de services die moeten worden ingesteld om ervoor te zorgen dat de VM verbinding heeft. Als u wilt herstellen van de opstartinstellingen voor, voer de volgende opdrachten:
    
 ```PowerShell
-Set-Service -Name bfe -StartupType Auto
-Set-Service -Name dhcp -StartupType Auto
-Set-Service -Name dnscache -StartupType Auto
-Set-Service -Name IKEEXT -StartupType Auto
-Set-Service -Name iphlpsvc -StartupType Auto
+Set-Service -Name bfe -StartupType Automatic
+Set-Service -Name dhcp -StartupType Automatic
+Set-Service -Name dnscache -StartupType Automatic
+Set-Service -Name IKEEXT -StartupType Automatic
+Set-Service -Name iphlpsvc -StartupType Automatic
 Set-Service -Name netlogon -StartupType Manual
 Set-Service -Name netman -StartupType Manual
-Set-Service -Name nsi -StartupType Auto
+Set-Service -Name nsi -StartupType Automatic
 Set-Service -Name termService -StartupType Manual
-Set-Service -Name MpsSvc -StartupType Auto
-Set-Service -Name RemoteRegistry -StartupType Auto
+Set-Service -Name MpsSvc -StartupType Automatic
+Set-Service -Name RemoteRegistry -StartupType Automatic
 ```
 
 ## <a name="update-remote-desktop-registry-settings"></a>Instellingen voor extern bureaublad-register bijwerken
@@ -307,11 +307,22 @@ Zorg ervoor dat de volgende instellingen correct zijn geconfigureerd voor verbin
     - Computer Configuration\Windows Settings\Security instellingen\Beveiligingsinstellingen\Lokaal beleid\Toewijzing weigeren aanmelden via Extern bureaublad-Services
 
 
-9. Opnieuw opstarten van de virtuele machine om ervoor te zorgen dat Windows nog steeds in orde is, kan worden bereikt met behulp van de RDP-verbinding. Op dit moment kunt u een virtuele machine maken in uw lokale Hyper-V Zorg ervoor dat de virtuele machine volledig is gestart en vervolgens controleren of het RDP-bereikbaar is.
+9. Controleer de volgende Active Directory-beleid om ervoor te zorgen dat u een van de volgende niet wilt verwijderen de accounts vereist voor toegang:
 
-10. Verwijder eventuele extra filters voor het Transport Driver Interface, zoals software waarmee worden geanalyseerd TCP-pakketten of extra firewalls. U kunt ook bekijkt u deze op een later stadium nadat de virtuele machine is geïmplementeerd in Azure, indien nodig.
+    - Computer Configuration\Windows Settings\Security instellingen\Beveiligingsinstellingen\Lokaal beleid\Toewijzing rechten Assignment\Access deze berekeningen van het netwerk
 
-11. Verwijder eventuele andere software van derden en stuurprogramma's met betrekking tot fysieke onderdelen of andere virtualisatietechnologie bevindt.
+    De volgende groepen moeten worden weergegeven op dit beleid:
+
+    - Beheerders
+    - Back-upoperators
+    - Iedereen
+    - Gebruikers
+
+10. Opnieuw opstarten van de virtuele machine om ervoor te zorgen dat Windows nog steeds in orde is, kan worden bereikt met behulp van de RDP-verbinding. Op dit moment kunt u een virtuele machine maken in uw lokale Hyper-V Zorg ervoor dat de virtuele machine volledig is gestart en vervolgens controleren of het RDP-bereikbaar is.
+
+11. Verwijder eventuele extra filters voor het Transport Driver Interface, zoals software waarmee worden geanalyseerd TCP-pakketten of extra firewalls. U kunt ook bekijkt u deze op een later stadium nadat de virtuele machine is geïmplementeerd in Azure, indien nodig.
+
+12. Verwijder eventuele andere software van derden en stuurprogramma's met betrekking tot fysieke onderdelen of andere virtualisatietechnologie bevindt.
 
 ### <a name="install-windows-updates"></a>Windows-Updates installeren
 De ideale configuratie is het **hebben van de patch-niveau van de machine op de meest recente**. Als dit niet mogelijk is, zorg ervoor dat de volgende updates zijn geïnstalleerd:

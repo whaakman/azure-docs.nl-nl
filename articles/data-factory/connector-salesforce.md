@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 08/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 69e3e308fb5af98dd5763c56503cc28bd4ecfa9e
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 19ba4a97b93c01a049f921904d0f5aba4b8c0617
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125245"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442051"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Salesforce met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -184,7 +184,7 @@ Voor het kopiëren van gegevens uit Salesforce, stelt u het brontype in de kopie
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de bron voor kopiëren-activiteit moet worden ingesteld op **SalesforceSource**. | Ja |
-| query |De aangepaste query gebruiken om gegevens te lezen. U kunt een SQL-92-query of [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query. Een voorbeeld is `select * from MyTable__c`. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
+| query |De aangepaste query gebruiken om gegevens te lezen. U kunt [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query of 92 SQL-query. Bekijk meer tips in [tips query](#query-tips) sectie. | Nee (als de 'tableName' in de gegevensset is opgegeven) |
 | readBehavior | Hiermee wordt aangegeven of de records van bestaande query, of query alle records ook verwijderd die zijn. Indien niet opgegeven, is het standaardgedrag is het eerste. <br>Toegestane waarden: **query** (standaard), **queryAll**.  | Nee |
 
 > [!IMPORTANT]
@@ -282,10 +282,20 @@ U kunt gegevens uit Salesforce-rapporten ophalen door het opgeven van een query 
 
 ### <a name="retrieve-deleted-records-from-the-salesforce-recycle-bin"></a>Verwijderde records uit de Prullenbak van Salesforce opgehaald
 
-Om te vragen het voorlopig verwijderde records uit de Prullenbak van Salesforce, kunt u **"IsDeleted = 1"** in uw query. Bijvoorbeeld:
+Om te vragen het voorlopig verwijderde records uit de Prullenbak van Salesforce, kunt u `readBehavior` als `queryAll`. 
 
-* Om te vragen alleen de verwijderde records, Geef "Selecteer * uit MyTable__c **waar IsDeleted = 1**."
-* Om te vragen van alle records, met inbegrip van de bestaande en de verwijderde, Geef "Selecteer * uit MyTable__c **waar IsDeleted = 0 of IsDeleted = 1**."
+### <a name="difference-between-soql-and-sql-query-syntax"></a>Verschil tussen SOQL en SQL-querysyntaxis
+
+Het kopiëren van gegevens uit Salesforce, kunt u SOQL query of SQL-query. Houd er rekening mee dat deze twee verschillende syntaxis en functionaliteit ondersteuning heeft, niet combineren. U worden voorgesteld om de SOQL-query die wordt ondersteund door Salesforce te gebruiken. De volgende tabel bevat de belangrijkste verschillen:
+
+| Syntaxis | SOQL modus | SQL-modus |
+|:--- |:--- |:--- |
+| Kolom selecteren | Moet de velden die moeten worden gekopieerd in de query, bijvoorbeeld opsommen `SELECT field1, filed2 FROM objectname` | `SELECT *` naast de kolom selecteren wordt ondersteund. |
+| Aanhalingstekens | Gearchiveerde/objectnamen kunnen niet worden vermeld. | Veld/objectnamen kunnen tussen aanhalingstekens staan, bijvoorbeeld `SELECT "id" FROM "Account"` |
+| Datum-/ tijdindeling |  Raadpleeg de details [hier](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) en voorbeelden in de volgende sectie. | Raadpleeg de details [hier](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) en voorbeelden in de volgende sectie. |
+| Booleaanse waarden | Weergegeven als `False` en `Ture`, bijvoorbeeld `SELECT … WHERE IsDeleted=True`. | Weergegeven als 0 of 1, bijvoorbeeld `SELECT … WHERE IsDeleted=1`. |
+| Naam van kolom wijzigen | Wordt niet ondersteund. | Ondersteund, bijvoorbeeld: `SELECT a AS b FROM …`. |
+| Relatie | Ondersteund, bijvoorbeeld `Account_vod__r.nvs_Country__c`. | Wordt niet ondersteund. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Gegevens ophalen met behulp van een where component voor de datum/tijd-kolom
 

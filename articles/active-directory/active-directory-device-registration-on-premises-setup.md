@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: f0a6e164ed6b2269ec223a18f37d3475316d3e77
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 38d024de0fd2490d33f7c06498d3ff8d0d06e503
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629069"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42058426"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Instellen van on-premises voorwaardelijke toegang met behulp van Azure Active Directory device Registration service
 Wanneer u vereisen dat gebruikers met workplace join hun persoonlijke apparaten aan de apparaatregistratieservice van Azure Active Directory (Azure AD), kunnen hun apparaten worden gemarkeerd als bekend is bij uw organisatie. Hieronder volgt een stapsgewijze handleiding voor het inschakelen van voorwaardelijke toegang tot on-premises toepassingen met behulp van Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
@@ -48,7 +48,7 @@ Deze mogelijkheden zijn beschikbaar voor klanten die een Azure Active Directory 
 * Licentie voor Azure Active Directory Premium
 * Windows Server 2012 R2 Federation Services, geconfigureerd voor eenmalige aanmelding met Azure AD
 * Windows Server 2012 R2 Web Application Proxy 
-* Microsoft Azure Active Directory Connect (Azure AD Connect) [(Azure AD Connect downloaden)](http://www.microsoft.com/en-us/download/details.aspx?id=47594)
+* Microsoft Azure Active Directory Connect (Azure AD Connect) [(Azure AD Connect downloaden)](http://www.microsoft.com/download/details.aspx?id=47594)
 * Geverifieerd domein
 
 ## <a name="known-issues-in-this-release"></a>Bekende problemen in deze release
@@ -158,7 +158,7 @@ Er zijn veel verschillende manieren om te communiceren deze URL naar uw gebruike
 
 ### <a name="join-a-windows-81-device-by-using-azure-active-directory-device-registration"></a>Deelnemen aan een Windows 8.1-apparaat met behulp van Azure Active Directory device Registration service
 1. Selecteer op het apparaat Windows 8.1 **PC-instellingen** > **netwerk** > **werkplek**.
-2. Voer uw gebruikersnaam in UPN-indeling. bijvoorbeeld, ** dan@contoso.com **.
+2. Voer uw gebruikersnaam in UPN-indeling. bijvoorbeeld, **dan@contoso.com**.
 3. Selecteer **Join**.
 4. Wanneer u hierom wordt gevraagd, meldt u zich aan met uw referenties. Het apparaat is nu lid geworden.
 

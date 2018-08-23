@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: deguhath
-ms.openlocfilehash: dae8549cb951a463688869454e2f4c71103c1363
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 6e58429567e447002b1c9191bb8e50a4351649a9
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226390"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42054934"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Het Team Data Science Process in actie: met behulp van SQL Server
 In deze zelfstudie hebt u stapsgewijs door het proces van het bouwen en implementeren van een machine learning-model met behulp van SQL Server en een openbaar beschikbare gegevensset testlab voor de [NYC Taxi Trips](http://www.andresmh.com/nyctaxitrips/) gegevensset. De procedure volgt een standaard gegevenswetenschapwerkstroom: opnemen en Verken de gegevens, functies, dingen en vervolgens bouwen en implementeren van een model bouwen.
@@ -70,7 +70,7 @@ In deze zelfstudie wordt gedemonstreerd parallelle bulkimport van de gegevens na
 
 Uw Azure Data Science-omgeving instellen:
 
-1. [Een opslagaccount maken](../../storage/common/storage-create-storage-account.md)
+1. [Een opslagaccount maken](../../storage/common/storage-quickstart-create-account.md)
 2. [Een Azure Machine Learning-werkruimte maken](../studio/create-workspace.md)
 3. [Een Data Science Virtual Machine inrichten](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), waarmee u een SQL-Server en IPython Notebook-server.
    

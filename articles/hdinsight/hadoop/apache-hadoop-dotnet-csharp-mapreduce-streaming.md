@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: jasonh
-ms.openlocfilehash: 7c9a4a0fdbc362a1c2856e35f112deaabddeb229
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: ef0001d5693d96abc128acf6c052dbedc0983b51
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594376"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42060623"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Gebruik C# met MapReduce, streaming van Hadoop in HDInsight
 
@@ -41,7 +41,7 @@ Het basisproces gebruikt voor het streamen van in dit document is als volgt:
 4. De reducer leest de door tabs gescheiden sleutel/waarde-paren, verwerkt de gegevens en verzendt vervolgens het resultaat als door tabs gescheiden sleutel/waarde-paren op STDOUT.
 5. De uitvoer is door Hadoop gelezen en geschreven naar de uitvoermap.
 
-Zie voor meer informatie over het streamen van [Hadoop-Streaming (https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html)](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
+Zie voor meer informatie over het streamen van [Hadoop-Streaming](https://hadoop.apache.org/docs/r2.7.1/hadoop-streaming/HadoopStreaming.html).
 
 ## <a name="prerequisites"></a>Vereisten
 

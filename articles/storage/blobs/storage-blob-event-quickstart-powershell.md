@@ -8,12 +8,12 @@ ms.date: 07/05/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 26e80f166e1add5cebb837c1c05e45f25ff2d086
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 502f378bd1eddc0a104438037dce50bafd508ad9
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262749"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056891"
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-with-powershell"></a>Blob-opslaggebeurtenissen doorsturen naar een aangepaste web-eindpunt met PowerShell
 
@@ -36,9 +36,6 @@ Meld u aan bij uw Azure-abonnement met de opdracht `Connect-AzureRmAccount` en v
 ```powershell
 Connect-AzureRmAccount
 ```
-
-> [!NOTE]
-> [Beschikbaarheid](../../event-grid/overview.md) voor opslaggebeurtenissen is gekoppeld aan de beschikbaarheid van Event Grid en komt beschikbaar in andere regio’s wanneer dit ook voor Event Grid geldt.
 
 In dit voorbeeld wordt **westus2** en slaat u de selectie in een variabele voor gebruik over de hele.
 

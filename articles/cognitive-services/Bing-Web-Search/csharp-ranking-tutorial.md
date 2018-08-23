@@ -10,12 +10,12 @@ ms.component: bing-web-search
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: brumbaug
-ms.openlocfilehash: 7d371a5a44f44ca743294f3f73f84e81d390cdea
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 0dd3a2057e73adda3224e7cebe7c492572f94105
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867773"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41987600"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Bouw een console-client-app zoeken in C#
 
@@ -46,7 +46,7 @@ Noem de toepassing **MyConsoleSearchApp**, en klik vervolgens op **OK**.
 JSON.net kunt u werken met de JSON-antwoord geretourneerd door de API. Voeg de NuGet-pakket toe aan uw project:
 
 - In **Solution Explorer** met de rechtermuisknop op het project en selecteer **NuGet-pakketten beheren...** . 
-- Op de **Bladeren** tabblad, zoeken voor `Newtonsoft.Json`. Selecteer de meest recente versie en klik vervolgens op **installeren**. 
+- Op de **Bladeren** tabblad, zoek `Newtonsoft.Json`. Selecteer de meest recente versie en klik vervolgens op **installeren**. 
 - Klik op de **OK** knop op de **wijzigingen controleren** venster.
 - Sluit de Visual Studio-tabblad met de titel **NuGet: MyConsoleSearchApp**.
 
@@ -308,7 +308,7 @@ Deze methoden werken samen om de zoekresultaten in de console-uitvoer.
 
 ## <a name="run-the-application"></a>De toepassing uitvoeren
 
-Voer de toepassing uit. De uitvoer ziet er vergelijkbaar met het volgende:
+Voer de toepassing uit. De uitvoer moet er als volgt uitzien:
 
 ```
 Enter Bing query: sailing lessons seattle

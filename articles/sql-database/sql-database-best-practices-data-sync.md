@@ -2,18 +2,18 @@
 title: Aanbevolen procedures voor Azure SQL Data Sync | Microsoft Docs
 description: Meer informatie over aanbevolen procedures voor het configureren en uitvoeren van Azure SQL Data Sync.
 services: sql-database
-ms.date: 07/03/2018
+ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: sql-database
 author: allenwux
 ms.author: xiwu
 manager: craigg
-ms.openlocfilehash: 2b23f9f2edbec468ecbd1395bd138e1be801c6e5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 96fff35b95a63e4f806258eff59d08afb2db0ffd
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620797"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42059506"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Aanbevolen procedures voor SQL Data Sync 
 
@@ -75,17 +75,16 @@ In deze sectie worden de beperkingen van het inrichten in SQL Data Sync besproke
 
 #### <a name="autoprovisioning-limitations"></a>Autoprovisioning beperkingen
 
-SQL Data Sync heeft de volgende beperkingen op autoprovisioning:
+SQL Data Sync heeft de volgende beperkingen voor autoprovisioning:
 
--   Selecteer alleen de kolommen die zijn gemaakt in de doeltabel.  
-    Kolommen die geen deel uitmaken van de groep voor synchronisatie niet zijn ingericht in de doeltabellen.
--   Indexen worden gemaakt voor de geselecteerde kolommen.  
-    Als de index van de bron-tabel kolommen die geen deel uitmaken van de groep voor synchronisatie heeft, worden deze indexen niet zijn ingericht in de doeltabellen.  
+-   Selecteer alleen de kolommen die zijn gemaakt in de doeltabel. Kolommen die geen deel uitmaken van de groep voor synchronisatie niet zijn ingericht in de doeltabellen.
+-   Indexen worden gemaakt voor de geselecteerde kolommen. Als de index van de bron-tabel kolommen die geen deel uitmaken van de groep voor synchronisatie heeft, worden deze indexen niet zijn ingericht in de doeltabellen.  
 -   Indexen voor kolommen van het XML-gegevenstype worden niet ingericht.  
 -   CHECK-beperkingen zijn niet ingericht.  
 -   Bestaande triggers op de brontabellen worden niet ingericht.  
 -   Weergaven en opgeslagen procedures worden niet gemaakt op de doeldatabase.
 -   ON UPDATE CASCADE- en ON DELETE CASCADE acties op beperkingen voor referentiële sleutels worden niet opnieuw worden gemaakt in de doeltabellen.
+-   Hebt u een decimale of numerieke kolommen met een grotere precisie dan 28, kunnen een probleem met de conversie overloop in SQL Data Sync optreden tijdens de synchronisatie. Het is raadzaam dat u de precisie van de decimale of numerieke kolommen tot en met 28 of minder beperkt.
 
 #### <a name="recommendations"></a>Aanbevelingen
 

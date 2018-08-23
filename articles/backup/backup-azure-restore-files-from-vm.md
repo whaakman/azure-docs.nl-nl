@@ -7,14 +7,14 @@ manager: shivamg
 keywords: herstel op itemniveau; herstel van bestanden uit back-up van virtuele Azure-machine. bestanden herstellen vanaf Azure VM
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/20/2017
+ms.date: 8/22/2018
 ms.author: pullabhk
-ms.openlocfilehash: fecdb54af58faaf601ab74f89039a47e0d32e650
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1f3b81c31dc566e5e3011167eee00145f6791cb1
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493378"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616906"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Bestanden herstellen vanuit back-up van virtuele Azure-machine
 
@@ -33,9 +33,13 @@ Als u bestanden of mappen herstellen vanaf het herstelpunt, gaat u naar de virtu
 
 2. Klik in het menu van de virtuele machine op **back-up** om de back-up-dashboard te openen.
 
-    ![Open Recovery Services-kluis back-upitem](./media/backup-azure-restore-files-from-vm/open-vault-from-vm.png)
+    ![Open Recovery Services-kluis back-upitem](./media/backup-azure-restore-files-from-vm/open-vault-for-vm.png)
 
-3. Klik in het menu back-up-dashboard op **bestandsherstel** om het menu te openen.
+3. Klik in het menu back-up-dashboard op **bestandsherstel**.
+
+    ![Knop voor het herstel van bestand](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
+
+    De **bestandsherstel** menu wordt geopend.
 
     ![Herstel-bestandsmenu](./media/backup-azure-restore-files-from-vm/file-recovery-blade.png)
 
@@ -95,7 +99,7 @@ Verwijderen (of ontkoppelen) nadat de bestanden te identificeren en ze kopiëren
 
 ![Schijven ontkoppelen](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
 
-Nadat de schijven ontkoppeld zijn, ontvangt u een bericht weergegeven zodat u weet dat goed is verlopen. Het duurt een paar minuten voor de verbinding met het vernieuwen, zodat u de schijven kunt verwijderen.
+Nadat de schijven ontkoppeld zijn, ontvangt u een bericht. Het duurt een paar minuten voor de verbinding met het vernieuwen, zodat u de schijven kunt verwijderen.
 
 In Linux, nadat de verbinding met het herstelpunt is verbroken, verwijderen het besturingssysteem niet de bijbehorende koppelpunt paden automatisch. Het koppelpunt paden bestaan als "zwevende" volumes en ze zichtbaar zijn, maar genereert een fout wanneer u toegang schrijftijd de bestanden. Ze kunnen handmatig worden verwijderd. Het script, wanneer uitvoert, identificeert deze volumes bestaande uit de vorige herstelpunten en ruimt bij toestemming.
 
@@ -204,7 +208,7 @@ Het script Python en bash-onderdelen uit te voeren en veilig verbinding maken me
 | python | 2.6.6 en hoger  |
 | TLS | 1.2 moet worden ondersteund  |
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 
 Als u problemen hebt bij het herstellen van bestanden van de virtuele machines, controleert u de volgende tabel voor meer informatie.
 
@@ -213,7 +217,7 @@ Als u problemen hebt bij het herstellen van bestanden van de virtuele machines, 
 | Exe-uitvoer: *uitzondering verbinding te maken met het doel* |Script is geen toegang krijgen tot het herstelpunt    | Controleer of de computer voldoet aan de vorige toegangsvereisten. |  
 | Exe-uitvoer: *het doel al is geregistreerd in via een iSCSI-sessie.* | Het script is al uitgevoerd op dezelfde computer en de stations zijn gekoppeld | De volumes van het herstelpunt dat zijn al gekoppeld. Ze kunnen niet worden gekoppeld met de dezelfde stationsletters van de oorspronkelijke virtuele machine. Blader door de beschikbare volumes in de Verkenner voor het bestand |
 | Exe-uitvoer: *met dit script is ongeldig omdat de schijven zijn ontkoppeld via de limiet voor de 12 uur per portal/overschreden. Een nieuw script downloaden via de portal.* |    De schijven zijn ontkoppeld van de portal of de 12 uur overschreden | Deze specifieke exe is nu ongeldig en kan niet worden uitgevoerd. Als u wilt toegang tot de bestanden van die recovery point-in-time, gaat u naar de portal voor een nieuwe exe-bestand|
-| Op de machine waarop het exe-bestand wordt uitgevoerd: de nieuwe volumes zijn niet ontkoppeld nadat de dismount-knop wordt geklikt | De iSCSI-initiator op de machine niet reageert/vernieuwen van de verbinding met het doel en onderhouden van de cache |    Wacht enkele minuten nadat de dismount-knop wordt gedrukt. Als de nieuwe volumes worden nog steeds niet ontkoppeld,. Blader door alle volumes. Dit zorgt ervoor dat de initiator te vernieuwen van de verbinding en het volume met een foutbericht weergegeven dat de schijf is niet beschikbaar is ontkoppeld|
+| Op de machine waarop het exe-bestand wordt uitgevoerd: de nieuwe volumes zijn niet ontkoppeld nadat de dismount-knop wordt geklikt | De iSCSI-initiator op de machine is niet reageert/vernieuwen van de verbinding met het doel en onderhouden van de cache. |  Nadat u hebt geklikt **ontkoppelen**, wacht een paar minuten. Als de nieuwe volumes zijn niet ontkoppeld, blader door alle volumes. Bladeren door alle volumes zorgt ervoor dat de initiator te vernieuwen van de verbinding en het volume met een foutbericht weergegeven dat de schijf is niet beschikbaar is ontkoppeld.|
 | Exe-uitvoer: Script met succes is uitgevoerd, maar 'Nieuwe volumes die zijn gekoppeld' wordt niet weergegeven op de uitvoer van het script |    Dit is een tijdelijke fout    | De volumes zou zijn al gekoppeld. Open Verkenner om te bladeren. Als u dezelfde computer gebruikt voor het uitvoeren van scripts telkens, houd rekening met de machine opnieuw opstarten en de lijst moet worden weergegeven in de volgende exe wordt uitgevoerd. |
 | Linux-specifieke: kan niet de gewenste volumes bekijken | Het onderliggende bestandssysteem van de beveiligde virtuele machine mogelijk niet herkend door het besturingssysteem van de machine waarop het script wordt uitgevoerd | Controleer of het herstelpunt dat crash-consistente of bestandsconsistente is. Als het bestand consistent is, het script uitvoert op een andere computer met OS herkend bestandssysteem van de beveiligde virtuele machine |
 | Windows-specifieke: kan niet de gewenste volumes bekijken | De schijven zijn gekoppeld, maar de volumes zijn niet geconfigureerd | Identificeer de extra schijven met betrekking tot het herstelpunt dat van het scherm voor het beheren van schijf. Als een van deze schijven offline status kunt u deze online maken met de rechtermuisknop op de schijf en klikt u op 'Online'|

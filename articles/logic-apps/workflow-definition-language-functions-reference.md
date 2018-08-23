@@ -1,32 +1,287 @@
 ---
 title: Naslaginformatie over functies voor Definitietaal van werkstroom - Azure Logic Apps | Microsoft Docs
-description: Meer informatie over functies voor het maken van logische apps met de taal van de definitie van werkstroom
+description: Meer informatie over werkstroom Definition Language-functies voor Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
 ms.topic: reference
-ms.date: 04/25/2018
+ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 46ccf9484b76ec5f24dba470a194b5b83c32f013
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 6292ea4ccd3780e1da86252b7ec9c09c2eea3982
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263773"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42061343"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Functiereferentie voor Definitietaal van werkstroom in Azure Logic Apps
 
-In dit artikel beschrijft de functies die u gebruiken kunt bij het maken van werkstromen met geautomatiseerde [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Zie voor meer informatie over functies in de definities voor logische Apps, [Werkstroomdefinitietaal voor Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md#functions). 
+Sommige [expressies](../logic-apps/logic-apps-workflow-definition-language.md#expressions) in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) worden de waarden van de runtime-acties die mogelijk nog niet wanneer de definitie van de werkstroom van de logische app begint te lopen. U kunt gebruiken om te verwijzen naar of te werken met deze waarden in expressies, *functies* geleverd door de [Werkstroomdefinitietaal](../logic-apps/logic-apps-workflow-definition-language.md). Bijvoorbeeld, kunt u wiskundige functies voor berekeningen, zoals de [add()](../logic-apps/workflow-definition-language-functions-reference.md#add) functie, de som van gehele getallen of tekst berekent. Hier volgen enkele meer voorbeeld kunt u taken met functions uitvoeren:
+
+| Taak | Syntaxis van de functie | Resultaat | 
+| ---- | --------------- | ------ | 
+| Retourneert een tekenreeks in kleine letters indeling. | toLower ('<*tekst*>') <p>Bijvoorbeeld: toLower('Hello') | "Hallo" | 
+| Retourneert een globally unique identifier (GUID). | GUID() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" | 
+|||| 
+
+Dit artikel beschrijft de functies die u gebruiken kunt bij het maken van uw logische app-definities.
+Functies moeten worden gezocht [op basis van hun algemene](#ordered-by-purpose), gaat u verder met de volgende tabellen. Of Zie voor gedetailleerde informatie over elke functie, de [alfabetische lijst](#alphabetical-list). 
 
 > [!NOTE]
 > De syntaxis voor parameterdefinities, zijn een vraagteken (?) die wordt weergegeven nadat een parameter betekent de parameter dat is optioneel. Zie bijvoorbeeld [getFutureTime()](#getFutureTime).
 
+## <a name="functions-in-expressions"></a>Functies in expressies
+
+Als u wilt weergeven over het gebruik van een functie in een expressie, in dit voorbeeld toont hoe krijgt u de waarde van de `customerName` parameter en wijs die waarde die moet worden de `accountName` eigenschap met behulp van de [parameters()](#parameters) functie in een expressie:
+
+```json
+"accountName": "@parameters('customerName')"
+```
+
+Hier volgen enkele andere algemene manieren dat u functies kunt gebruiken in expressies voor:
+
+| Taak | Syntaxis van de functie in een expressie | 
+| ---- | -------------------------------- | 
+| Werken met een item door door te geven dat item aan een functie uitvoeren. | "\@<*functienaam*> (<*item*>)" | 
+| 1. Krijgen de *parameterName*van waarde met behulp van de geneste `parameters()` functie. </br>2. Werken met het resultaat uitvoeren door door te geven die waarde aan *functienaam*. | "\@<*functienaam*> (parameters ('<*parameterName*>")) " | 
+| 1. Het resultaat ophalen uit de geneste binnenste functie *functienaam*. </br>2. Het resultaat doorgeven aan de buitenste functie *functionName2*. | "\@<*functionName2*> (<*functienaam*> (<*item*>))" | 
+| 1. Het resultaat van *functienaam*. </br>2. Gezien het feit dat het resultaat een object met de eigenschap is *propertyName*, de waarde van die eigenschap ophalen. | "\@<*functienaam*>(<*item*>). <*propertyName*>" | 
+||| 
+
+Bijvoorbeeld, de `concat()` functie kunnen twee of meer tekenreekswaarden als parameters. Deze functie combineert deze tekenreeksen in één tekenreeks. U kunt doorgeven in de letterlijke tekenreeks, bijvoorbeeld "Sophia" en "Owen" zodat u een gecombineerde tekenreeks, 'SophiaOwen' niet ophalen:
+
+```json
+"customerName": "@concat('Sophia', 'Owen')"
+```
+
+Of u kunt tekenreekswaarden krijgen van parameters. In dit voorbeeld wordt de `parameters()` functie in elk `concat()` parameter en de `firstName` en `lastName` parameters. U geeft u de resulterende tekenreeksen die moeten worden de `concat()` functie zodat u een gecombineerde tekenreeks, bijvoorbeeld 'SophiaOwen' niet ophalen:
+
+```json
+"customerName": "@concat(parameters('firstName'), parameters('lastName'))"
+```
+
+In beide gevallen beide voorbeelden toewijzen het resultaat dat de `customerName` eigenschap. 
+
+Hier zijn de beschikbare functies gesorteerd op hun algemeen gebruik, of kunt u de functies op basis van [alfabetische volgorde](#alphabetical-list).
+
+<a name="ordered-by-purpose"></a>
+<a name="string-functions"></a>
+
+## <a name="string-functions"></a>Tekenreeksfuncties
+
+Als u wilt werken met tekenreeksen, kunt u deze tekenreeksfuncties en ook enkele [verzameling functies](#collection-functions). Tekenreeks-functies werken alleen op tekenreeksen. 
+
+| Tekenreeksfunctie | Taak | 
+| --------------- | ---- | 
+| [concat](../logic-apps/workflow-definition-language-functions-reference.md#concat) | Twee of meer tekenreeksen combineren en retourneert de gecombineerde tekenreeks. | 
+| [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Controleer of een tekenreeks met de opgegeven subtekenreeks eindigt. | 
+| [GUID](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Genereer een globally unique identifier (GUID) als een tekenreeks. | 
+| [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Retourneert de beginpositie voor een subtekenreeks. | 
+| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Retourneert de positie van de einddatum voor een subtekenreeks. | 
+| [vervangen](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Vervangen door de opgegeven tekenreeks een subtekenreeks en retourneert de bijgewerkte tekenreeks. | 
+| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Retourneert een matrix die alle tekens uit een tekenreeks en gescheiden van elkaar gehaald met de specifieke scheidingsteken. | 
+| [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Controleren of een tekenreeks met een specifieke subtekenreeks begint. | 
+| [de subtekenreeks](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Tekens retourneren uit een tekenreeks, beginnend vanaf de opgegeven positie. | 
+| [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Retourneert een tekenreeks in kleine letters indeling. | 
+| [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Retourneert een tekenreeks in hoofdletters. | 
+| [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Voorloop-en volgspaties verwijderen uit een tekenreeks en retourneert de bijgewerkte tekenreeks. | 
+||| 
+
+<a name="collection-functions"></a>
+
+## <a name="collection-functions"></a>Verzameling functies
+
+Als u wilt werken met verzamelingen, in het algemeen matrices, tekenreeksen en soms woordenboeken, kunt u de functies van deze verzameling. 
+
+| Verzameling-functie | Taak | 
+| ------------------- | ---- | 
+| [bevat](../logic-apps/workflow-definition-language-functions-reference.md#contains) | Controleer of een verzameling een specifiek item heeft. |
+| [leeg zijn](../logic-apps/workflow-definition-language-functions-reference.md#empty) | Controleer of een verzameling leeg is. | 
+| [eerste](../logic-apps/workflow-definition-language-functions-reference.md#first) | Retourneert het eerste item van een verzameling. | 
+| [snijpunt](../logic-apps/workflow-definition-language-functions-reference.md#intersection) | Retourneert een verzameling met *alleen* de algemene items in de gespecificeerde verzamelingen. | 
+| [join](../logic-apps/workflow-definition-language-functions-reference.md#join) | Retourneert een tekenreeks is die is *alle* de items uit een array, gescheiden door het opgegeven teken. | 
+| [laatste](../logic-apps/workflow-definition-language-functions-reference.md#last) | Retourneert het laatste item uit een verzameling. | 
+| [Lengte](../logic-apps/workflow-definition-language-functions-reference.md#length) | Retourneert het aantal items in een tekenreeks of een matrix. | 
+| [skip](../logic-apps/workflow-definition-language-functions-reference.md#skip) | Items verwijderen uit het voorste deel van een verzameling en retourneren *alle andere* items. | 
+| [toets maken](../logic-apps/workflow-definition-language-functions-reference.md#take) | Items retourneren vanaf het begin van een verzameling. | 
+| [Union](../logic-apps/workflow-definition-language-functions-reference.md#union) | Retourneert een verzameling met *alle* de items van de gespecificeerde verzamelingen. | 
+||| 
+
+<a name="comparison-functions"></a>
+
+## <a name="logical-comparison-functions"></a>Van de logische vergelijkingsfuncties
+
+Als u wilt werken met voorwaarden, waarden en de expressieresultaten vergelijken of verschillende soorten logische evalueren, kunt u deze vergelijkingsfuncties logische. Zie voor de volledige naslaginformatie over elke functie, de [alfabetische lijst](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Logische vergelijkingsfunctie. | Taak | 
+| --------------------------- | ---- | 
+| [en](../logic-apps/workflow-definition-language-functions-reference.md#and) | Controleer of alle expressies ' True ' zijn. | 
+| [is gelijk aan](../logic-apps/workflow-definition-language-functions-reference.md#equals) | Controleer of beide waarden gelijk zijn. | 
+| [meer](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Controleer of de eerste waarde groter dan de tweede waarde is. | 
+| [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Controleer of de eerste waarde groter dan of gelijk zijn aan de tweede waarde is. | 
+| [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | Controleer of een expressie waar of ONWAAR is. Op basis van het resultaat, een opgegeven waarde retourneren. | 
+| [minder](../logic-apps/workflow-definition-language-functions-reference.md#less) | Controleer of de eerste waarde kleiner is dan de tweede waarde. | 
+| [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Controleer of de eerste waarde kleiner zijn dan of gelijk zijn aan de tweede waarde is. | 
+| [niet](../logic-apps/workflow-definition-language-functions-reference.md#not) | Controleer of een expressie onwaar is. | 
+| [or](../logic-apps/workflow-definition-language-functions-reference.md#or) | Controleer of ten minste één expressie waar is. |
+||| 
+
+<a name="conversion-functions"></a>
+
+## <a name="conversion-functions"></a>Conversiefuncties
+
+Het type of de indeling van een waarde wilt wijzigen, kunt u deze conversiefuncties. U kunt bijvoorbeeld een waarde van een Booleaanse waarde wijzigen naar een geheel getal. Zie voor meer informatie hoe logische Apps inhoudstypen verwerken tijdens de conversie, [inhoudstypen verwerken](../logic-apps/logic-apps-content-type.md). Zie voor de volledige naslaginformatie over elke functie, de [alfabetische lijst](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Conversiefunctie | Taak | 
+| ------------------- | ---- | 
+| [Matrix](../logic-apps/workflow-definition-language-functions-reference.md#array) | Retourneert een matrix van één opgegeven invoer. Zie voor meerdere invoergegevens [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray). | 
+| [base64](../logic-apps/workflow-definition-language-functions-reference.md#base64) | Retourneert de met base64 gecodeerde versie voor een tekenreeks. | 
+| [base64ToBinary](../logic-apps/workflow-definition-language-functions-reference.md#base64ToBinary) | Retourneert de binaire versie voor een base64-gecodeerde tekenreeks. | 
+| [base64ToString](../logic-apps/workflow-definition-language-functions-reference.md#base64ToString) | Retourneert de tekenreeksversie voor een base64-gecodeerde tekenreeks. | 
+| [binaire bestanden](../logic-apps/workflow-definition-language-functions-reference.md#binary) | De binaire versie voor een invoerwaarde retourneren. | 
+| [bool](../logic-apps/workflow-definition-language-functions-reference.md#bool) | Retourneert de Booleaanse versie voor een invoerwaarde. | 
+| [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray) | Retourneert een matrix van meerdere invoergegevens. | 
+| [dataUri](../logic-apps/workflow-definition-language-functions-reference.md#dataUri) | Retourneert de gegevens-URI voor een invoerwaarde. | 
+| [dataUriToBinary](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToBinary) | Retourneert de binaire versie voor een gegevens-URI. | 
+| [dataUriToString](../logic-apps/workflow-definition-language-functions-reference.md#dataUriToString) | De tekenreeksversie voor een gegevens-URI geretourneerd. | 
+| [decodeBase64](../logic-apps/workflow-definition-language-functions-reference.md#decodeBase64) | Retourneert de tekenreeksversie voor een base64-gecodeerde tekenreeks. | 
+| [decodeDataUri](../logic-apps/workflow-definition-language-functions-reference.md#decodeDataUri) | Retourneert de binaire versie voor een gegevens-URI. | 
+| [decodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#decodeUriComponent) | Een tekenreeks die wordt vervangen escape-tekens met gedecodeerde versies retourneren. | 
+| [encodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#encodeUriComponent) | Retourneert een tekenreeks is die wordt vervangen door de URL-onveilige tekens met escape-tekens. | 
+| [drijvende komma](../logic-apps/workflow-definition-language-functions-reference.md#float) | Retourneert een drijvende-kommagetal zijn voor een invoerwaarde. | 
+| [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Retourneert de integer-versie voor een tekenreeks. | 
+| [json](../logic-apps/workflow-definition-language-functions-reference.md#json) | Retourneert de waarde van het JavaScript Object Notation (JSON) of het object voor een tekenreeks of XML. | 
+| [Tekenreeks](../logic-apps/workflow-definition-language-functions-reference.md#string) | De tekenreeksversie voor een invoerwaarde retourneren. | 
+| [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | Retourneert de versie URI-codering voor een invoerwaarde URL onveilige tekens te vervangen door een escape-tekens. | 
+| [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | Retourneert de binaire versie van een URI-gecodeerde tekenreeks. | 
+| [uriComponentToString](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToString) | Retourneert de tekenreeksversie voor een URI-gecodeerde tekenreeks. | 
+| [xml](../logic-apps/workflow-definition-language-functions-reference.md#xml) | Retourneert de XML-versie voor een tekenreeks. | 
+||| 
+
+<a name="math-functions"></a>
+
+## <a name="math-functions"></a>Wiskundige functies
+
+Als u wilt werken met gehele getallen en landen, kunt u deze wiskundige functies. Zie voor de volledige naslaginformatie over elke functie, de [alfabetische lijst](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Math functie | Taak | 
+| ------------- | ---- | 
+| [add](../logic-apps/workflow-definition-language-functions-reference.md#add) | Retourneert het resultaat van het toevoegen van twee getallen. | 
+| [div](../logic-apps/workflow-definition-language-functions-reference.md#div) | Retourneert het resultaat van het delen van twee getallen. | 
+| [max](../logic-apps/workflow-definition-language-functions-reference.md#max) | Retourneert de hoogste waarde van een reeks cijfers of een matrix. | 
+| [min](../logic-apps/workflow-definition-language-functions-reference.md#min) | Retourneert de laagste waarde van een reeks cijfers of een matrix. | 
+| [Mod](../logic-apps/workflow-definition-language-functions-reference.md#mod) | Retourneert de rest van het delen van twee getallen. | 
+| [mul](../logic-apps/workflow-definition-language-functions-reference.md#mul) | Retourneert het product van twee getallen vermenigvuldigen. | 
+| [rand](../logic-apps/workflow-definition-language-functions-reference.md#rand) | Retourneert een willekeurig geheel getal van een opgegeven bereik. | 
+| [Bereik](../logic-apps/workflow-definition-language-functions-reference.md#range) | Retourneert een matrix met gehele getallen die met een opgegeven geheel getal zijn begint. | 
+| [sub](../logic-apps/workflow-definition-language-functions-reference.md#sub) | Retourneert het resultaat van af te trekken van het tweede nummer van het eerste getal. | 
+||| 
+
+<a name="date-time-functions"></a>
+
+## <a name="date-and-time-functions"></a>Datum- en tijdfuncties
+
+Als u wilt werken met datums en tijden, kunt u deze functies date en time.
+Zie voor de volledige naslaginformatie over elke functie, de [alfabetische lijst](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Datum of tijd functie | Taak | 
+| --------------------- | ---- | 
+| [addDays](../logic-apps/workflow-definition-language-functions-reference.md#addDays) | Een aantal dagen toevoegen aan een tijdstempel. | 
+| [addHours](../logic-apps/workflow-definition-language-functions-reference.md#addHours) | Een aantal uren toevoegen aan een tijdstempel. | 
+| [addMinutes](../logic-apps/workflow-definition-language-functions-reference.md#addMinutes) | Een aantal minuten toevoegen aan een tijdstempel. | 
+| [addSeconds](../logic-apps/workflow-definition-language-functions-reference.md#addSeconds) | Voeg een aantal seconden een tijdstempel. |  
+| [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime) | Een aantal tijdseenheden toevoegen aan een tijdstempel. Zie ook [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime). | 
+| [convertFromUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertFromUtc) | Een tijdstempel van Coordinated van Universal Time (UTC) naar de doeltijdzone converteren. | 
+| [convertTimeZone](../logic-apps/workflow-definition-language-functions-reference.md#convertTimeZone) | Een tijdstempel van de brontijdzone converteren naar de doeltijdzone. | 
+| [convertToUtc](../logic-apps/workflow-definition-language-functions-reference.md#convertToUtc) | Een tijdstempel van de brontijdzone Coordinated van Universal Time (UTC) converteren. | 
+| [dayOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#dayOfMonth) | Retourneert de dag van het maandonderdeel van een tijdstempel. | 
+| [dayOfWeek](../logic-apps/workflow-definition-language-functions-reference.md#dayOfWeek) | Retourneert de dag van het onderdeel van de week van een tijdstempel. | 
+| [dayOfYear](../logic-apps/workflow-definition-language-functions-reference.md#dayOfYear) | Retourneert de dag van het jaargedeelte van een tijdstempel. | 
+| [formatDateTime](../logic-apps/workflow-definition-language-functions-reference.md#formatDateTime) | Retourneert de datum van een tijdstempel. | 
+| [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime) | Retourneert de huidige tijdstempel plus de opgegeven periode-eenheden. Zie ook [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime). | 
+| [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime) | Retourneert de huidige tijdstempel minus de opgegeven periode-eenheden. Zie ook [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime). | 
+| [startOfDay](../logic-apps/workflow-definition-language-functions-reference.md#startOfDay) | Retourneert het begin van de dag van een tijdstempel. | 
+| [startOfHour](../logic-apps/workflow-definition-language-functions-reference.md#startOfHour) | Retourneert het begin van het uur voor een tijdstempel. | 
+| [startOfMonth](../logic-apps/workflow-definition-language-functions-reference.md#startOfMonth) | Retourneert het begin van de maand voor een tijdstempel. | 
+| [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime) | Een aantal eenheden van een tijdstempel aftrekken. Zie ook [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime). | 
+| [maatstreepjes](../logic-apps/workflow-definition-language-functions-reference.md#ticks) | Retourneert de `ticks` eigenschapwaarde voor een opgegeven timestamp. | 
+| [utcNow](../logic-apps/workflow-definition-language-functions-reference.md#utcNow) | Retourneert de huidige tijdstempel als een tekenreeks. | 
+||| 
+
+<a name="workflow-functions"></a>
+
+## <a name="workflow-functions"></a>Werkstroomfuncties
+
+Deze werkstroomfuncties kunnen u helpen:
+
+* Informatie ophalen over een werkstroomexemplaar dat tijdens de uitvoering. 
+* Werken met de invoer die is gebruikt voor het instantiëren van logische apps.
+* Verwijzen naar de uitvoer van triggers en acties.
+
+U kunt bijvoorbeeld verwijzen naar de uitvoer van een actie en die gegevens gebruiken in een latere actie. Zie voor de volledige naslaginformatie over elke functie, de [alfabetische lijst](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Werkstroomfunctie | Taak | 
+| ----------------- | ---- | 
+| [Actie](../logic-apps/workflow-definition-language-functions-reference.md#action) | Retourneert de huidige actie-uitvoer in runtime, of waarden die van andere naam en waarde-paren van JSON. Zie ook [acties](../logic-apps/workflow-definition-language-functions-reference.md#actions). | 
+| [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | Resultaat van een actie `body` uitvoer tijdens runtime. Zie ook [hoofdtekst](../logic-apps/workflow-definition-language-functions-reference.md#body). | 
+| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | Retourneert de uitvoer van een actie tijdens runtime. Zie [acties](../logic-apps/workflow-definition-language-functions-reference.md#actions). | 
+| [Acties](../logic-apps/workflow-definition-language-functions-reference.md#actions) | Retourneert de uitvoer van een actie in runtime, of waarden van andere naam en waarde-paren van JSON. Zie ook [actie](../logic-apps/workflow-definition-language-functions-reference.md#action).  | 
+| [De hoofdtekst](#body) | Resultaat van een actie `body` uitvoer tijdens runtime. Zie ook [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). | 
+| [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Maken van een matrix met de waarden die overeenkomen met de naam van een sleutel in *formuliergegevens* of *formuliercodes* actie-uitvoer. | 
+| [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Retourneert één waarde die overeenkomt met een naam in van een actie *formuliergegevens* of *formuliercodes uitvoer*. | 
+| [Item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Wanneer u zich binnen een herhalingsactie via een matrix, het huidige item in de matrix te retourneren tijdens de huidige herhaling van de actie. | 
+| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | Wanneer in een voor elke of doen totdat lus retourneren het huidige item uit de opgegeven lus.| 
+| [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Retourneert de "callback-URL' die een actie of trigger aanroept. | 
+| [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Retourneert de instantie voor een bepaald deel in de uitvoer van een actie die bestaat uit meerdere delen. | 
+| [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Retourneert de waarde voor een parameter die wordt beschreven in de definitie van uw logische app. | 
+| [Trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Retourneert de uitvoer van een trigger tijdens runtime, of vanuit een andere naam en waarde-paren van JSON. Zie ook [triggerOutputs](#triggerOutputs) en [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). | 
+| [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Resultaat van een trigger `body` uitvoer tijdens runtime. Zie [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). | 
+| [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Die overeenkomen met de naam van een sleutel in één waarde retourneren *formuliergegevens* of *formuliercodes* uitvoer activeren. | 
+| [triggerMultipartBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerMultipartBody) | De instantie voor een bepaald deel in een meerdelige triggeruitvoer retourneren. | 
+| [triggerFormDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataMultiValues) | Maken van een matrix waarvan de waarden overeenkomen met de naam van een sleutel in *formuliergegevens* of *formuliercodes* uitvoer activeren. | 
+| [triggerOutputs](../logic-apps/workflow-definition-language-functions-reference.md#triggerOutputs) | Retourneert de uitvoer van een trigger in runtime, of waarden van andere naam en waarde-paren van JSON. Zie [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). | 
+| [Variabelen](../logic-apps/workflow-definition-language-functions-reference.md#variables) | Retourneert de waarde voor een opgegeven variabele. | 
+| [Werkstroom](../logic-apps/workflow-definition-language-functions-reference.md#workflow) | Als resultaat de details over de werkstroom zelf tijdens runtime. | 
+||| 
+
+<a name="uri-parsing-functions"></a>
+
+## <a name="uri-parsing-functions"></a>Functies voor URI parseren
+
+Als u wilt werken met uniform resource-id's (URI) en waarden van verschillende eigenschappen voor deze URI's te halen, kunt u deze functies voor URI parseren. Zie voor de volledige naslaginformatie over elke functie, de [alfabetische lijst](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| URI parseren van de functie | Taak | 
+| -------------------- | ---- | 
+| [uriHost](../logic-apps/workflow-definition-language-functions-reference.md#uriHost) | Retourneert de `host` waarde voor een uniform resource identifier (URI). | 
+| [uriPath](../logic-apps/workflow-definition-language-functions-reference.md#uriPath) | Retourneert de `path` waarde voor een uniform resource identifier (URI). | 
+| [uriPathAndQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriPathAndQuery) | Retourneert de `path` en `query` waarden voor een uniform resource identifier (URI). | 
+| [uriPort](../logic-apps/workflow-definition-language-functions-reference.md#uriPort) | Retourneert de `port` waarde voor een uniform resource identifier (URI). | 
+| [uriQuery](../logic-apps/workflow-definition-language-functions-reference.md#uriQuery) | Retourneert de `query` waarde voor een uniform resource identifier (URI). | 
+| [uriScheme](../logic-apps/workflow-definition-language-functions-reference.md#uriScheme) | Retourneert de `scheme` waarde voor een uniform resource identifier (URI). | 
+||| 
+
+<a name="manipulation-functions"></a>
+
+## <a name="manipulation-functions-json--xml"></a>Functies voor het bewerken: JSON en XML
+
+Als u wilt werken met JSON-objecten en XML-knooppunt, kunt u deze functies voor het bewerken. Zie voor de volledige naslaginformatie over elke functie, de [alfabetische lijst](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
+
+| Functie voor het bewerken | Taak | 
+| --------------------- | ---- | 
+| [addProperty](../logic-apps/workflow-definition-language-functions-reference.md#addProperty) | Een eigenschap en de waarde of de naam / waarde-paar, toevoegen aan een JSON-object en het bijgewerkte object retourneren. | 
+| [samenvoegen](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | Retourneert de eerste niet-null-waarde van een of meer parameters. | 
+| [removeProperty](../logic-apps/workflow-definition-language-functions-reference.md#removeProperty) | Verwijderen van een eigenschap van een JSON-object en het bijgewerkte object retourneren. | 
+| [setProperty](../logic-apps/workflow-definition-language-functions-reference.md#setProperty) | Stel de waarde voor eigenschap van een JSON-object en het bijgewerkte object geretourneerd. | 
+| [XPath](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | Controleren of XML knooppunten of waarden die overeenkomen met een (XML Path-taal) XPath-expressie en retourneert de overeenkomende waarden of knooppunten. | 
+||| 
+
+<a name="alphabetical-list"></a>
 <a name="action"></a>
 
-## <a name="action"></a>actie
+### <a name="action"></a>actie
 
 Retourneert de *huidige* actie-uitvoer in runtime, of waarden uit een andere naam en waarde-paren van JSON, die u aan een expressie toewijzen kunt. Deze functie verwijst naar de volledige actie-object, maar u kunt optioneel een eigenschap waarvoor u waarde wilt opgeven. Zie ook [actions()](../logic-apps/workflow-definition-language-functions-reference.md#actions).
 
@@ -53,7 +308,7 @@ action().outputs.body.<property>
 
 <a name="actionBody"></a>
 
-## <a name="actionbody"></a>actionBody
+### <a name="actionbody"></a>actionBody
 
 Resultaat van een actie `body` uitvoer tijdens runtime. De korte benaming voor `actions('<actionName>').outputs.body`. Zie [body()](#body) en [actions()](#actions).
 
@@ -98,7 +353,7 @@ En dit resultaat wordt weergegeven:
 
 <a name="actionOutputs"></a>
 
-## <a name="actionoutputs"></a>actionOutputs
+### <a name="actionoutputs"></a>actionOutputs
 
 Retourneert de uitvoer van een actie tijdens runtime. De korte benaming voor `actions('<actionName>').outputs`. Zie [actions()](#actions).
 
@@ -161,7 +416,7 @@ En dit resultaat wordt weergegeven:
 
 <a name="actions"></a>
 
-## <a name="actions"></a>acties
+### <a name="actions"></a>Acties
 
 Retourneert de uitvoer van een actie in runtime, of waarden van andere naam en waarde-paren van JSON, die u aan een expressie toewijzen kunt. Standaard de functie verwijst naar het hele action-object, maar u kunt optioneel een eigenschap opgeven waarvan de waarde die u wilt. Zie voor steno versies [actionBody()](#actionBody), [actionOutputs()](#actionOutputs), en [body()](#body). Zie voor de huidige actie [action()](#action).
 
@@ -196,7 +451,7 @@ En dit resultaat wordt weergegeven: `"Succeeded"`
 
 <a name="add"></a>
 
-## <a name="add"></a>toevoegen
+### <a name="add"></a>toevoegen
 
 Retourneert het resultaat van het toevoegen van twee getallen.
 
@@ -226,7 +481,7 @@ En dit resultaat wordt weergegeven: `2.5`
 
 <a name="addDays"></a>
 
-## <a name="adddays"></a>addDays
+### <a name="adddays"></a>addDays
 
 Een aantal dagen toevoegen aan een tijdstempel.
 
@@ -268,7 +523,7 @@ En dit resultaat wordt weergegeven: `"2018-03-10T00:00:0000000Z"`
 
 <a name="addHours"></a>
 
-## <a name="addhours"></a>addHours
+### <a name="addhours"></a>addHours
 
 Een aantal uren toevoegen aan een tijdstempel.
 
@@ -310,7 +565,7 @@ En dit resultaat wordt weergegeven: `"2018-03-15T10:00:0000000Z"`
 
 <a name="addMinutes"></a>
 
-## <a name="addminutes"></a>addMinutes
+### <a name="addminutes"></a>addMinutes
 
 Een aantal minuten toevoegen aan een tijdstempel.
 
@@ -352,7 +607,7 @@ En dit resultaat wordt weergegeven: `"2018-03-15T00:15:00.0000000Z"`
 
 <a name="addProperty"></a>
 
-## <a name="addproperty"></a>addProperty
+### <a name="addproperty"></a>addProperty
 
 Een eigenschap en de waarde of de naam / waarde-paar, toevoegen aan een JSON-object en het bijgewerkte object retourneren. Als het object al tijdens runtime bestaat, is de functie genereert een fout.
 
@@ -382,7 +637,7 @@ addProperty(json('customerProfile'), 'accountNumber', guid())
 
 <a name="addSeconds"></a>
 
-## <a name="addseconds"></a>addSeconds
+### <a name="addseconds"></a>addSeconds
 
 Voeg een aantal seconden een tijdstempel.
 
@@ -393,7 +648,7 @@ addSeconds('<timestamp>', <seconds>, '<format>'?)
 | Parameter | Vereist | Type | Beschrijving | 
 | --------- | -------- | ---- | ----------- | 
 | <*Tijdstempel*> | Ja | Reeks | De tekenreeks met het tijdstempel | 
-| <*Seconden*> | Ja | Geheel getal | Het positieve of negatieve aantal seconden dat wordt toegevoegd | 
+| <*seconden*> | Ja | Geheel getal | Het positieve of negatieve aantal seconden dat wordt toegevoegd | 
 | <*Indeling*> | Nee | Reeks | Een van beide een [één indelingsopgave](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) of een [aangepast](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). De standaardnotatie voor de tijdstempel is ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) (jjjj-MM-ddT:mm:ss:fffffffK), die voldoet aan [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) en behoudt u informatie over de tijdzone. |
 ||||| 
 
@@ -424,7 +679,7 @@ En dit resultaat wordt weergegeven: `"2018-03-15T00:00:25.0000000Z"`
 
 <a name="addToTime"></a>
 
-## <a name="addtotime"></a>addToTime
+### <a name="addtotime"></a>addToTime
 
 Een aantal tijdseenheden toevoegen aan een tijdstempel. Zie ook [getFutureTime()](#getFutureTime).
 
@@ -467,7 +722,7 @@ En retourneert het resultaat met behulp van de optionele "D"-indeling: `"Tuesday
 
 <a name="and"></a>
 
-## <a name="and"></a>en
+### <a name="and"></a>en
 
 Controleer of alle expressies ' True ' zijn. Retourneert waar wanneer alle expressies waar zijn of onwaar retourneren wanneer ten minste één expressie onwaar is.
 
@@ -519,7 +774,7 @@ En deze resultaten retourneert:
 
 <a name="array"></a>
 
-## <a name="array"></a>matrix
+### <a name="array"></a>matrix
 
 Retourneert een matrix van één opgegeven invoer. Zie voor meerdere invoergegevens [createArray()](#createArray). 
 
@@ -549,7 +804,7 @@ En dit resultaat wordt weergegeven: `["hello"]`
 
 <a name="base64"></a>
 
-## <a name="base64"></a>met base64
+### <a name="base64"></a>met base64
 
 Retourneert de met base64 gecodeerde versie voor een tekenreeks.
 
@@ -579,7 +834,7 @@ En dit resultaat wordt weergegeven: `"aGVsbG8="`
 
 <a name="base64ToBinary"></a>
 
-## <a name="base64tobinary"></a>base64ToBinary
+### <a name="base64tobinary"></a>base64ToBinary
 
 Retourneert de binaire versie voor een base64-gecodeerde tekenreeks.
 
@@ -611,7 +866,7 @@ En dit resultaat wordt weergegeven:
 
 <a name="base64ToString"></a>
 
-## <a name="base64tostring"></a>base64ToString
+### <a name="base64tostring"></a>base64ToString
 
 De tekenreeksversie voor een base64-gecodeerde tekenreeks, effectief decoderen van base64-tekenreeks geretourneerd. Deze functie wilt gebruiken in plaats van [decodeBase64()](#decodeBase64). Hoewel beide functies werken op dezelfde manier, `base64ToString()` verdient de voorkeur.
 
@@ -641,7 +896,7 @@ En dit resultaat wordt weergegeven: `"hello"`
 
 <a name="binary"></a>
 
-## <a name="binary"></a>binaire bestanden 
+### <a name="binary"></a>binaire bestanden 
 
 Retourneert de binaire versie van een tekenreeks.
 
@@ -673,7 +928,7 @@ En dit resultaat wordt weergegeven:
 
 <a name="body"></a>
 
-## <a name="body"></a>De hoofdtekst
+### <a name="body"></a>hoofdtekst
 
 Resultaat van een actie `body` uitvoer tijdens runtime. De korte benaming voor `actions('<actionName>').outputs.body`. Zie [actionBody()](#actionBody) en [actions()](#actions).
 
@@ -718,7 +973,7 @@ En dit resultaat wordt weergegeven:
 
 <a name="bool"></a>
 
-## <a name="bool"></a>BOOL
+### <a name="bool"></a>BOOL
 
 Retourneert de Booleaanse versie voor een waarde.
 
@@ -752,7 +1007,7 @@ En deze resultaten retourneert:
 
 <a name="coalesce"></a>
 
-## <a name="coalesce"></a>samenvoegen
+### <a name="coalesce"></a>samenvoegen
 
 Retourneert de eerste niet-null-waarde van een of meer parameters. Lege tekenreeksen, lege matrices en lege objecten zijn niet null zijn.
 
@@ -788,7 +1043,7 @@ En deze resultaten retourneert:
 
 <a name="concat"></a>
 
-## <a name="concat"></a>concat
+### <a name="concat"></a>concat
 
 Twee of meer tekenreeksen combineren en retourneert de gecombineerde tekenreeks. 
 
@@ -818,7 +1073,7 @@ En dit resultaat wordt weergegeven: `"HelloWorld"`
 
 <a name="contains"></a>
 
-## <a name="contains"></a>bevat
+### <a name="contains"></a>bevat
 
 Controleer of een verzameling een specifiek item heeft. Retourneert waar wanneer het item is gevonden, of onwaar retourneren wanneer niet gevonden. Deze functie is hoofdlettergevoelig.
 
@@ -862,7 +1117,7 @@ contains('hello world', 'universe')
 
 <a name="convertFromUtc"></a>
 
-## <a name="convertfromutc"></a>convertFromUtc
+### <a name="convertfromutc"></a>convertFromUtc
 
 Een tijdstempel van Coordinated van Universal Time (UTC) naar de doeltijdzone converteren.
 
@@ -904,7 +1159,7 @@ En dit resultaat wordt weergegeven: `"Monday, January 1, 2018"`
 
 <a name="convertTimeZone"></a>
 
-## <a name="converttimezone"></a>convertTimeZone
+### <a name="converttimezone"></a>convertTimeZone
 
 Een tijdstempel van de brontijdzone converteren naar de doeltijdzone.
 
@@ -947,7 +1202,7 @@ En dit resultaat wordt weergegeven: `"Monday, January 1, 2018"`
 
 <a name="convertToUtc"></a>
 
-## <a name="converttoutc"></a>convertToUtc
+### <a name="converttoutc"></a>convertToUtc
 
 Een tijdstempel van de brontijdzone Coordinated van Universal Time (UTC) converteren.
 
@@ -989,7 +1244,7 @@ En dit resultaat wordt weergegeven: `"Monday, January 1, 2018"`
 
 <a name="createArray"></a>
 
-## <a name="createarray"></a>createArray
+### <a name="createarray"></a>createArray
 
 Retourneert een matrix van meerdere invoergegevens. Zie voor één invoer matrices [array](#array).
 
@@ -1019,7 +1274,7 @@ En dit resultaat wordt weergegeven: `["h", "e", "l", "l", "o"]`
 
 <a name="dataUri"></a>
 
-## <a name="datauri"></a>dataUri
+### <a name="datauri"></a>dataUri
 
 Retourneert een gegevens uniform resource identifier (URI) voor een tekenreeks. 
 
@@ -1049,7 +1304,7 @@ En dit resultaat wordt weergegeven: `"data:text/plain;charset=utf-8;base64,aGVsb
 
 <a name="dataUriToBinary"></a>
 
-## <a name="datauritobinary"></a>dataUriToBinary
+### <a name="datauritobinary"></a>dataUriToBinary
 
 Retourneert de binaire versie voor een data uniform resource identifier (URI). Deze functie wilt gebruiken in plaats van [decodeDataUri()](#decodeDataUri). Hoewel beide functies werken op dezelfde manier, `decodeDataUri()` verdient de voorkeur.
 
@@ -1084,7 +1339,7 @@ En dit resultaat wordt weergegeven:
 
 <a name="dataUriToString"></a>
 
-## <a name="datauritostring"></a>dataUriToString
+### <a name="datauritostring"></a>dataUriToString
 
 De tekenreeksversie voor een data uniform resource identifier (URI) retourneren.
 
@@ -1114,7 +1369,7 @@ En dit resultaat wordt weergegeven: `"hello"`
 
 <a name="dayOfMonth"></a>
 
-## <a name="dayofmonth"></a>dayOfMonth
+### <a name="dayofmonth"></a>dayOfMonth
 
 Retourneert de dag van de maand van een tijdstempel. 
 
@@ -1144,7 +1399,7 @@ En dit resultaat wordt weergegeven: `15`
 
 <a name="dayOfWeek"></a>
 
-## <a name="dayofweek"></a>dayOfWeek
+### <a name="dayofweek"></a>dayOfWeek
 
 Retourneert de dag van de week van een tijdstempel.  
 
@@ -1174,7 +1429,7 @@ En dit resultaat wordt weergegeven: `3`
 
 <a name="dayOfYear"></a>
 
-## <a name="dayofyear"></a>dayOfYear
+### <a name="dayofyear"></a>dayOfYear
 
 Retourneert de dag van het jaar van een tijdstempel. 
 
@@ -1204,7 +1459,7 @@ En dit resultaat wordt weergegeven: `74`
 
 <a name="decodeBase64"></a>
 
-## <a name="decodebase64"></a>decodeBase64
+### <a name="decodebase64"></a>decodeBase64
 
 De tekenreeksversie voor een base64-gecodeerde tekenreeks, effectief decoderen van base64-tekenreeks geretourneerd. Overweeg het gebruik van [base64ToString()](#base64ToString) in plaats van `decodeBase64()`. Hoewel beide functies werken op dezelfde manier, `base64ToString()` verdient de voorkeur.
 
@@ -1234,7 +1489,7 @@ En dit resultaat wordt weergegeven: `"hello"`
 
 <a name="decodeDataUri"></a>
 
-## <a name="decodedatauri"></a>decodeDataUri
+### <a name="decodedatauri"></a>decodeDataUri
 
 Retourneert de binaire versie voor een data uniform resource identifier (URI). Overweeg het gebruik van [dataUriToBinary()](#dataUriToBinary), in plaats van `decodeDataUri()`. Hoewel beide functies werken op dezelfde manier, `dataUriToBinary()` verdient de voorkeur.
 
@@ -1269,7 +1524,7 @@ En dit resultaat wordt weergegeven:
 
 <a name="decodeUriComponent"></a>
 
-## <a name="decodeuricomponent"></a>decodeUriComponent
+### <a name="decodeuricomponent"></a>decodeUriComponent
 
 Een tekenreeks die wordt vervangen escape-tekens met gedecodeerde versies retourneren. 
 
@@ -1299,7 +1554,7 @@ En dit resultaat wordt weergegeven: `"https://contoso.com"`
 
 <a name="div"></a>
 
-## <a name="div"></a>div
+### <a name="div"></a>div
 
 Retourneert het resultaat geheel getal van twee getallen delen. Als u de rest-resultaat, Zie [mod()](#mod).
 
@@ -1331,7 +1586,7 @@ En dit resultaat te retourneren: `2`
 
 <a name="encodeUriComponent"></a>
 
-## <a name="encodeuricomponent"></a>encodeUriComponent
+### <a name="encodeuricomponent"></a>encodeUriComponent
 
 Retourneert een uniform resource identifier (URI) gecodeerde versie voor een tekenreeks-URL-onveilige tekens te vervangen door een escape-tekens. Overweeg het gebruik van [uriComponent()](#uriComponent), in plaats van `encodeUriComponent()`. Hoewel beide functies werken op dezelfde manier, `uriComponent()` verdient de voorkeur.
 
@@ -1361,7 +1616,7 @@ En dit resultaat wordt weergegeven: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="empty"></a>
 
-## <a name="empty"></a>Leeg
+### <a name="empty"></a>Leeg
 
 Controleer of een verzameling leeg is. Retourneert waar wanneer de verzameling leeg is of retourneren ONWAAR wanneer deze niet leeg zijn.
 
@@ -1396,7 +1651,7 @@ En deze resultaten retourneert:
 
 <a name="endswith"></a>
 
-## <a name="endswith"></a>endsWith
+### <a name="endswith"></a>endsWith
 
 Controleer of een tekenreeks met een specifieke subtekenreeks eindigt. Retourneert waar wanneer de subtekenreeks wordt gevonden, of onwaar retourneren wanneer niet gevonden. Deze functie is niet hoofdlettergevoelig.
 
@@ -1437,7 +1692,7 @@ En dit resultaat wordt weergegeven: `false`
 
 <a name="equals"></a>
 
-## <a name="equals"></a>is gelijk aan
+### <a name="equals"></a>is gelijk aan
 
 Controleer of zowel waarden, expressies of objecten equivalent zijn. Retourneert ' True ' wanneer beide gelijk zijn, of onwaar retourneren wanneer ze niet gelijk zijn.
 
@@ -1471,7 +1726,7 @@ En deze resultaten retourneert:
 
 <a name="first"></a>
 
-## <a name="first"></a>eerste
+### <a name="first"></a>eerste
 
 Retourneert het eerste item van een tekenreeks of een matrix.
 
@@ -1506,7 +1761,7 @@ En deze resultaten worden geretourneerd:
 
 <a name="float"></a>
 
-## <a name="float"></a>drijvende komma
+### <a name="float"></a>drijvend
 
 De tekenreeksversie van een voor een drijvend-kommagetal converteren naar een werkelijke getal met drijvende komma. U kunt deze functie alleen als aangepaste parameters wordt doorgegeven aan een app, zoals een logische app.
 
@@ -1536,7 +1791,7 @@ En dit resultaat wordt weergegeven: `10.333`
 
 <a name="formatDateTime"></a>
 
-## <a name="formatdatetime"></a>formatDateTime
+### <a name="formatdatetime"></a>formatDateTime
 
 Retourneert een timestamp worden opgegeven in de indeling die is opgegeven.
 
@@ -1567,7 +1822,7 @@ En dit resultaat wordt weergegeven: `"2018-03-15T12:00:00"`
 
 <a name="formDataMultiValues"></a>
 
-## <a name="formdatamultivalues"></a>formDataMultiValues
+### <a name="formdatamultivalues"></a>formDataMultiValues
 
 Retourneert een matrix met waarden die overeenkomen met een naam in van een actie *formuliergegevens* of *formuliercodes* uitvoer. 
 
@@ -1598,7 +1853,7 @@ En resulteert in de tekst van het onderwerp in een matrix, bijvoorbeeld: `["Hell
 
 <a name="formDataValue"></a>
 
-## <a name="formdatavalue"></a>formDataValue
+### <a name="formdatavalue"></a>formDataValue
 
 Retourneert één waarde die overeenkomt met een naam in van een actie *formuliergegevens* of *formuliercodes* uitvoer. Als de functie vindt meer dan één overeenkomst, is de functie genereert een fout.
 
@@ -1629,7 +1884,7 @@ En retourneert de tekst van het onderwerp een tekenreeks, bijvoorbeeld: `"Hello 
 
 <a name="getFutureTime"></a>
 
-## <a name="getfuturetime"></a>getFutureTime
+### <a name="getfuturetime"></a>getFutureTime
 
 Retourneert de huidige tijdstempel plus de opgegeven periode-eenheden.
 
@@ -1671,7 +1926,7 @@ En dit resultaat wordt weergegeven: `"Tuesday, March 6, 2018"`
 
 <a name="getPastTime"></a>
 
-## <a name="getpasttime"></a>getPastTime
+### <a name="getpasttime"></a>getPastTime
 
 Retourneert de huidige tijdstempel minus de opgegeven periode-eenheden.
 
@@ -1713,7 +1968,7 @@ En dit resultaat wordt weergegeven: `"Saturday, January 27, 2018"`
 
 <a name="greater"></a>
 
-## <a name="greater"></a>meer
+### <a name="greater"></a>meer
 
 Controleer of de eerste waarde groter dan de tweede waarde is. Retourneert waar wanneer de eerste waarde meer is en retourneert false als minder.
 
@@ -1749,7 +2004,7 @@ En deze resultaten worden geretourneerd:
 
 <a name="greaterOrEquals"></a>
 
-## <a name="greaterorequals"></a>greaterOrEquals
+### <a name="greaterorequals"></a>greaterOrEquals
 
 Controleer of de eerste waarde groter dan of gelijk zijn aan de tweede waarde is.
 Retourneert waar wanneer de eerste waarde groter of gelijk zijn is, of onwaar retourneren als de eerste waarde kleiner is.
@@ -1786,7 +2041,7 @@ En deze resultaten worden geretourneerd:
 
 <a name="guid"></a>
 
-## <a name="guid"></a>GUID
+### <a name="guid"></a>GUID
 
 Een globally unique identifier (GUID) genereren als een tekenreeks, bijvoorbeeld 'c2ecc88d-88c8-4096-912c-d6f2e2b138ce': 
 
@@ -1822,7 +2077,7 @@ En dit resultaat wordt weergegeven: `"(c2ecc88d-88c8-4096-912c-d6f2e2b138ce)"`
 
 <a name="if"></a>
 
-## <a name="if"></a>if
+### <a name="if"></a>if
 
 Controleer of een expressie waar of ONWAAR is. Op basis van het resultaat, een opgegeven waarde retourneren.
 
@@ -1852,7 +2107,7 @@ if(equals(1, 1), 'yes', 'no')
 
 <a name="indexof"></a>
 
-## <a name="indexof"></a>indexOf
+### <a name="indexof"></a>indexOf
 
 Retourneert de beginpositie of de indexwaarde voor een subtekenreeks. Deze functie is niet hoofdlettergevoelig en indexen beginnen met de waarde 0. 
 
@@ -1883,7 +2138,7 @@ En dit resultaat wordt weergegeven: `6`
 
 <a name="int"></a>
 
-## <a name="int"></a>int
+### <a name="int"></a>int
 
 Retourneert de integer-versie voor een tekenreeks.
 
@@ -1913,7 +2168,7 @@ En dit resultaat wordt weergegeven: `10`
 
 <a name="item"></a>
 
-## <a name="item"></a>Item
+### <a name="item"></a>Item
 
 Wanneer gebruikt binnen een herhalingsactie via een matrix, retourneert u het huidige item in de matrix tijdens de huidige herhaling van de actie. U kunt ook de waarden ophalen uit de eigenschappen van dat item. 
 
@@ -1936,7 +2191,7 @@ item().body
 
 <a name="items"></a>
 
-## <a name="items"></a>items
+### <a name="items"></a>items
 
 Retourneert het huidige item van elke cyclus in een voor elke lus. Deze functie binnen de voor-each-lus gebruiken.
 
@@ -1964,7 +2219,7 @@ items('myForEachLoopName')
 
 <a name="json"></a>
 
-## <a name="json"></a>json
+### <a name="json"></a>json
 
 Retourneert de waarde van het JavaScript Object Notation (JSON) of het object voor een tekenreeks of XML.
 
@@ -2033,7 +2288,7 @@ En dit resultaat wordt weergegeven:
 
 <a name="intersection"></a>
 
-## <a name="intersection"></a>snijpunt
+### <a name="intersection"></a>snijpunt
 
 Retourneert een verzameling met *alleen* de algemene items in de gespecificeerde verzamelingen. Een item moet worden weergegeven in het resultaat, worden weergegeven in de verzamelingen die zijn doorgegeven aan deze functie. Als een of meer items dezelfde naam hebben, wordt het laatste item met die naam in het resultaat weergegeven.
 
@@ -2064,7 +2319,7 @@ En retourneert een matrix met *alleen* deze items: `[1, 2]`
 
 <a name="join"></a>
 
-## <a name="join"></a>join
+### <a name="join"></a>join
 
 Geretourneerd die een tekenreeks is die alle items uit een matrix heeft en elk teken gescheiden door een *scheidingsteken*.
 
@@ -2095,7 +2350,7 @@ En dit resultaat wordt weergegeven: `"a.b.c"`
 
 <a name="last"></a>
 
-## <a name="last"></a>laatste
+### <a name="last"></a>laatste
 
 Retourneert het laatste item uit een verzameling.
 
@@ -2130,7 +2385,7 @@ En deze resultaten retourneert:
 
 <a name="lastindexof"></a>
 
-## <a name="lastindexof"></a>lastIndexOf
+### <a name="lastindexof"></a>lastIndexOf
 
 Retourneert de laatste positie of index waarde voor een subtekenreeks. Deze functie is niet hoofdlettergevoelig en indexen beginnen met de waarde 0.
 
@@ -2161,7 +2416,7 @@ En dit resultaat wordt weergegeven: `10`
 
 <a name="length"></a>
 
-## <a name="length"></a>Lengte
+### <a name="length"></a>Lengte
 
 Retourneert het aantal items in een verzameling.
 
@@ -2193,7 +2448,7 @@ En dit resultaat te retourneren: `4`
 
 <a name="less"></a>
 
-## <a name="less"></a>minder
+### <a name="less"></a>minder
 
 Controleer of de eerste waarde kleiner is dan de tweede waarde.
 Retourneert waar wanneer de eerste waarde lager is, of onwaar geretourneerd wanneer de eerste waarde meer is.
@@ -2230,7 +2485,7 @@ En deze resultaten worden geretourneerd:
 
 <a name="lessOrEquals"></a>
 
-## <a name="lessorequals"></a>lessOrEquals
+### <a name="lessorequals"></a>lessOrEquals
 
 Controleer of de eerste waarde kleiner zijn dan of gelijk zijn aan de tweede waarde is.
 Retourneert waar wanneer de eerste waarde kleiner dan of gelijk zijn is, of onwaar geretourneerd wanneer de eerste waarde meer is.
@@ -2267,7 +2522,7 @@ En deze resultaten worden geretourneerd:
 
 <a name="listCallbackUrl"></a>
 
-## <a name="listcallbackurl"></a>listCallbackUrl
+### <a name="listcallbackurl"></a>listCallbackUrl
 
 Retourneert de "callback-URL' die een actie of trigger aanroept. Deze functie werkt alleen met triggers en acties voor de **HttpWebhook** en **ApiConnectionWebhook** connector typen, maar niet de **handmatig**,  **Terugkeerpatroon**, **HTTP**, en **APIConnection** typen. 
 
@@ -2288,7 +2543,7 @@ In dit voorbeeld toont een voorbeeld-URL voor terugbellen dat deze functie kan r
 
 <a name="max"></a>
 
-## <a name="max"></a>max
+### <a name="max"></a>max
 
 Retourneert de hoogste waarde van een lijst of een matrix met getallen die wordt ook meegerekend aan beide uiteinden. 
 
@@ -2321,7 +2576,7 @@ En dit resultaat te retourneren: `3`
 
 <a name="min"></a>
 
-## <a name="min"></a>min.
+### <a name="min"></a>min.
 
 Retourneert de laagste waarde van een reeks cijfers of een matrix.
 
@@ -2354,7 +2609,7 @@ En dit resultaat te retourneren: `1`
 
 <a name="mod"></a>
 
-## <a name="mod"></a>Mod
+### <a name="mod"></a>Mod
 
 Retourneert de rest van het delen van twee getallen. Als u het resultaat geheel getal zijn, raadpleegt u [div()](#div).
 
@@ -2385,7 +2640,7 @@ En dit resultaat te retourneren: `1`
 
 <a name="mul"></a>
 
-## <a name="mul"></a>mul
+### <a name="mul"></a>mul
 
 Retourneert het product van twee getallen vermenigvuldigen.
 
@@ -2420,7 +2675,7 @@ En deze resultaten worden geretourneerd:
 
 <a name="multipartBody"></a>
 
-## <a name="multipartbody"></a>multipartBody
+### <a name="multipartbody"></a>multipartBody
 
 Retourneert de instantie voor een bepaald deel in de uitvoer van een actie die bestaat uit meerdere delen.
 
@@ -2441,7 +2696,7 @@ multipartBody('<actionName>', <index>)
 
 <a name="not"></a>
 
-## <a name="not"></a>niet
+### <a name="not"></a>niet
 
 Controleer of een expressie onwaar is. Retourneert waar wanneer de expressie onwaar is, of ONWAAR wanneer de waarde true geretourneerd.
 
@@ -2489,7 +2744,7 @@ En deze resultaten worden geretourneerd:
 
 <a name="or"></a>
 
-## <a name="or"></a>of
+### <a name="or"></a>of
 
 Controleer of ten minste één expressie waar is. Retourneert waar wanneer ten minste één expressie waar is of onwaar retourneren wanneer alle ingesteld op false zijn.
 
@@ -2537,7 +2792,7 @@ En deze resultaten worden geretourneerd:
 
 <a name="parameters"></a>
 
-## <a name="parameters"></a>parameters
+### <a name="parameters"></a>parameters
 
 Retourneert de waarde voor een parameter die wordt beschreven in de definitie van uw logische app. 
 
@@ -2575,7 +2830,7 @@ En dit resultaat wordt weergegeven: `"Sophia Owen"`
 
 <a name="rand"></a>
 
-## <a name="rand"></a>rand
+### <a name="rand"></a>rand
 
 Retourneert een willekeurig geheel getal van een opgegeven bereik, ook meegerekend alleen aan het begin-eind wordt.
 
@@ -2606,7 +2861,7 @@ En een van deze getallen wordt geretourneerd als het resultaat: `1`, `2`, `3`, o
 
 <a name="range"></a>
 
-## <a name="range"></a>Bereik
+### <a name="range"></a>Bereik
 
 Retourneert een matrix met gehele getallen die met een opgegeven geheel getal zijn begint.
 
@@ -2637,7 +2892,7 @@ En dit resultaat wordt weergegeven: `[1, 2, 3, 4]`
 
 <a name="replace"></a>
 
-## <a name="replace"></a>vervangen
+### <a name="replace"></a>vervangen
 
 Vervangen door de opgegeven tekenreeks een subtekenreeks en de resultaattekenreeks retourneren. Deze functie is hoofdlettergevoelig.
 
@@ -2669,7 +2924,7 @@ En dit resultaat wordt weergegeven: `"the new string"`
 
 <a name="removeProperty"></a>
 
-## <a name="removeproperty"></a>removeProperty
+### <a name="removeproperty"></a>removeProperty
 
 Een eigenschap van een object verwijderen en het bijgewerkte object geretourneerd.
 
@@ -2698,7 +2953,7 @@ removeProperty(json('customerProfile'), 'accountLocation')
 
 <a name="setProperty"></a>
 
-## <a name="setproperty"></a>setProperty
+### <a name="setproperty"></a>setProperty
 
 Stel de waarde voor eigenschap van een object en het bijgewerkte object geretourneerd. U kunt deze functie gebruiken om toe te voegen een nieuwe eigenschap, of de [addProperty()](#addProperty) functie.
 
@@ -2728,7 +2983,7 @@ setProperty(json('customerProfile'), 'accountNumber', guid())
 
 <a name="skip"></a>
 
-## <a name="skip"></a>overslaan
+### <a name="skip"></a>overslaan
 
 Items verwijderen uit het voorste deel van een verzameling en retourneren *alle andere* items.
 
@@ -2759,7 +3014,7 @@ En retourneert deze matrix met de resterende items: `[1,2,3]`
 
 <a name="split"></a>
 
-## <a name="split"></a>split
+### <a name="split"></a>split
 
 Geretourneerd die een matrix die alle tekens uit een tekenreeks heeft en elk teken gescheiden door een *scheidingsteken*.
 
@@ -2790,7 +3045,7 @@ En dit resultaat wordt weergegeven: `[a, b, c]`
 
 <a name="startOfDay"></a>
 
-## <a name="startofday"></a>startOfDay
+### <a name="startofday"></a>startOfDay
 
 Retourneert het begin van de dag van een tijdstempel. 
 
@@ -2821,7 +3076,7 @@ En dit resultaat wordt weergegeven: `"2018-03-15T00:00:00.0000000Z"`
 
 <a name="startOfHour"></a>
 
-## <a name="startofhour"></a>startOfHour
+### <a name="startofhour"></a>startOfHour
 
 Retourneert het begin van het uur voor een tijdstempel. 
 
@@ -2852,7 +3107,7 @@ En dit resultaat wordt weergegeven: `"2018-03-15T13:00:00.0000000Z"`
 
 <a name="startOfMonth"></a>
 
-## <a name="startofmonth"></a>startOfMonth
+### <a name="startofmonth"></a>startOfMonth
 
 Retourneert het begin van de maand voor een tijdstempel. 
 
@@ -2883,7 +3138,7 @@ En dit resultaat wordt weergegeven: `"2018-03-01T00:00:00.0000000Z"`
 
 <a name="startswith"></a>
 
-## <a name="startswith"></a>startsWith
+### <a name="startswith"></a>startsWith
 
 Controleren of een tekenreeks met een specifieke subtekenreeks begint. Retourneert waar wanneer de subtekenreeks wordt gevonden, of onwaar retourneren wanneer niet gevonden. Deze functie is niet hoofdlettergevoelig.
 
@@ -2924,7 +3179,7 @@ En dit resultaat wordt weergegeven: `false`
 
 <a name="string"></a>
 
-## <a name="string"></a>tekenreeks
+### <a name="string"></a>tekenreeks
 
 De tekenreeksversie voor een waarde retourneren.
 
@@ -2964,7 +3219,7 @@ En dit resultaat wordt weergegeven: `"{ \\"name\\": \\"Sophie Owen\\" }"`
 
 <a name="sub"></a>
 
-## <a name="sub"></a>Sub
+### <a name="sub"></a>Sub
 
 Retourneert het resultaat van af te trekken van het tweede nummer van het eerste getal.
 
@@ -2995,7 +3250,7 @@ En dit resultaat wordt weergegeven: `10`
 
 <a name="substring"></a>
 
-## <a name="substring"></a>de subtekenreeks
+### <a name="substring"></a>de subtekenreeks
 
 Tekens retourneren uit een tekenreeks, beginnend vanaf de opgegeven positie, of de index. Index waarden beginnen met de waarde 0. 
 
@@ -3027,7 +3282,7 @@ En dit resultaat wordt weergegeven: `"world"`
 
 <a name="subtractFromTime"></a>
 
-## <a name="subtractfromtime"></a>subtractFromTime
+### <a name="subtractfromtime"></a>subtractFromTime
 
 Een aantal eenheden van een tijdstempel aftrekken. Zie ook [getPastTime](#getPastTime).
 
@@ -3070,7 +3325,7 @@ En dit resultaat wordt met behulp van de optionele "D"-indeling: `"Monday, Janua
 
 <a name="take"></a>
 
-## <a name="take"></a>toets maken
+### <a name="take"></a>toets maken
 
 Items retourneren vanaf het begin van een verzameling. 
 
@@ -3106,7 +3361,7 @@ En deze resultaten worden geretourneerd:
 
 <a name="ticks"></a>
 
-## <a name="ticks"></a>tikken
+### <a name="ticks"></a>tikken
 
 Retourneert de `ticks` eigenschapwaarde voor een opgegeven timestamp. Een *maatstreepjes* is een interval van 100 nanoseconden.
 
@@ -3126,7 +3381,7 @@ ticks('<timestamp>')
 
 <a name="toLower"></a>
 
-## <a name="tolower"></a>toLower
+### <a name="tolower"></a>toLower
 
 Retourneert een tekenreeks in kleine letters indeling. Als een teken in de tekenreeks geen in kleine letters, blijft het teken ongewijzigd in de geretourneerde tekenreeks.
 
@@ -3156,7 +3411,7 @@ En dit resultaat wordt weergegeven: `"hello world"`
 
 <a name="toUpper"></a>
 
-## <a name="toupper"></a>toUpper
+### <a name="toupper"></a>toUpper
 
 Retourneert een tekenreeks in hoofdletters. Als een teken in de tekenreeks geen hoofdletters, blijft het teken ongewijzigd in de geretourneerde tekenreeks.
 
@@ -3186,7 +3441,7 @@ En dit resultaat wordt weergegeven: `"HELLO WORLD"`
 
 <a name="trigger"></a>
 
-## <a name="trigger"></a>Trigger
+### <a name="trigger"></a>Trigger
 
 Retourneert de uitvoer van een trigger in runtime, of waarden van andere naam en waarde-paren van JSON, die u aan een expressie toewijzen kunt. 
 
@@ -3207,7 +3462,7 @@ trigger()
 
 <a name="triggerBody"></a>
 
-## <a name="triggerbody"></a>triggerBody
+### <a name="triggerbody"></a>triggerBody
 
 Resultaat van een trigger `body` uitvoer tijdens runtime. De korte benaming voor `trigger().outputs.body`. Zie [trigger()](#trigger). 
 
@@ -3222,7 +3477,7 @@ triggerBody()
 
 <a name="triggerFormDataMultiValues"></a>
 
-## <a name="triggerformdatamultivalues"></a>triggerFormDataMultiValues
+### <a name="triggerformdatamultivalues"></a>triggerFormDataMultiValues
 
 Retourneert een matrix met waarden die overeenkomen met een naam in van een trigger *formuliergegevens* of *formuliercodes* uitvoer. 
 
@@ -3252,7 +3507,7 @@ En worden deze matrix geretourneerd als een voorbeeld van resultaat: `["http://f
 
 <a name="triggerFormDataValue"></a>
 
-## <a name="triggerformdatavalue"></a>triggerFormDataValue
+### <a name="triggerformdatavalue"></a>triggerFormDataValue
 
 Retourneert een tekenreeks zijn met één waarde die overeenkomt met een naam in van een trigger *formuliergegevens* of *formuliercodes* uitvoer. Als de functie vindt meer dan één overeenkomst, is de functie genereert een fout.
 
@@ -3300,7 +3555,7 @@ triggerMultipartBody(<index>)
 
 <a name="triggerOutputs"></a>
 
-## <a name="triggeroutputs"></a>triggerOutputs
+### <a name="triggeroutputs"></a>triggerOutputs
 
 Retourneert de uitvoer van een trigger in runtime, of waarden van andere naam en waarde-paren van JSON. De korte benaming voor `trigger().outputs`. Zie [trigger()](#trigger). 
 
@@ -3315,7 +3570,7 @@ triggerOutputs()
 
 <a name="trim"></a>
 
-## <a name="trim"></a>Trim
+### <a name="trim"></a>Trim
 
 Voorloop-en volgspaties verwijderen uit een tekenreeks en retourneert de bijgewerkte tekenreeks.
 
@@ -3345,7 +3600,7 @@ En dit resultaat wordt weergegeven: `"Hello World"`
 
 <a name="union"></a>
 
-## <a name="union"></a>Union
+### <a name="union"></a>Union
 
 Retourneert een verzameling met *alle* de items van de gespecificeerde verzamelingen. Een item kan worden weergegeven in het resultaat, worden weergegeven in een verzameling die is doorgegeven aan deze functie. Als een of meer items dezelfde naam hebben, wordt het laatste item met die naam in het resultaat weergegeven. 
 
@@ -3376,7 +3631,7 @@ En dit resultaat wordt weergegeven: `[1, 2, 3, 10, 101]`
 
 <a name="uriComponent"></a>
 
-## <a name="uricomponent"></a>uriComponent
+### <a name="uricomponent"></a>uriComponent
 
 Retourneert een uniform resource identifier (URI) gecodeerde versie voor een tekenreeks-URL-onveilige tekens te vervangen door een escape-tekens. Deze functie wilt gebruiken in plaats van [encodeUriComponent()](#encodeUriComponent). Hoewel beide functies werken op dezelfde manier, `uriComponent()` verdient de voorkeur.
 
@@ -3406,7 +3661,7 @@ En dit resultaat wordt weergegeven: `"http%3A%2F%2Fcontoso.com"`
 
 <a name="uriComponentToBinary"></a>
 
-## <a name="uricomponenttobinary"></a>uriComponentToBinary
+### <a name="uricomponenttobinary"></a>uriComponentToBinary
 
 Retourneert de binaire versie voor een uniform resource identifier (URI)-component.
 
@@ -3441,7 +3696,7 @@ En dit resultaat wordt weergegeven:
 
 <a name="uriComponentToString"></a>
 
-## <a name="uricomponenttostring"></a>uriComponentToString
+### <a name="uricomponenttostring"></a>uriComponentToString
 
 Retourneert dat de tekenreeksversie voor een uniform resource identifier (URI) gecodeerde tekenreeks, effectief decoderen van de URI-gecodeerde tekenreeks.
 
@@ -3471,7 +3726,7 @@ En dit resultaat wordt weergegeven: `"https://contoso.com"`
 
 <a name="uriHost"></a>
 
-## <a name="urihost"></a>uriHost
+### <a name="urihost"></a>uriHost
 
 Retourneert de `host` waarde voor een uniform resource identifier (URI).
 
@@ -3501,7 +3756,7 @@ En dit resultaat wordt weergegeven: `"www.localhost.com"`
 
 <a name="uriPath"></a>
 
-## <a name="uripath"></a>uriPath
+### <a name="uripath"></a>uriPath
 
 Retourneert de `path` waarde voor een uniform resource identifier (URI). 
 
@@ -3531,7 +3786,7 @@ En dit resultaat wordt weergegeven: `"/catalog/shownew.htm"`
 
 <a name="uriPathAndQuery"></a>
 
-## <a name="uripathandquery"></a>uriPathAndQuery
+### <a name="uripathandquery"></a>uriPathAndQuery
 
 Retourneert de `path` en `query` waarden voor een uniform resource identifier (URI).
 
@@ -3561,7 +3816,7 @@ En dit resultaat wordt weergegeven: `"/catalog/shownew.htm?date=today"`
 
 <a name="uriPort"></a>
 
-## <a name="uriport"></a>uriPort
+### <a name="uriport"></a>uriPort
 
 Retourneert de `port` waarde voor een uniform resource identifier (URI).
 
@@ -3591,7 +3846,7 @@ En dit resultaat wordt weergegeven: `8080`
 
 <a name="uriQuery"></a>
 
-## <a name="uriquery"></a>uriQuery
+### <a name="uriquery"></a>uriQuery
 
 Retourneert de `query` waarde voor een uniform resource identifier (URI).
 
@@ -3621,7 +3876,7 @@ En dit resultaat wordt weergegeven: `"?date=today"`
 
 <a name="uriScheme"></a>
 
-## <a name="urischeme"></a>uriScheme
+### <a name="urischeme"></a>uriScheme
 
 Retourneert de `scheme` waarde voor een uniform resource identifier (URI).
 
@@ -3651,7 +3906,7 @@ En dit resultaat wordt weergegeven: `"http"`
 
 <a name="utcNow"></a>
 
-## <a name="utcnow"></a>utcNow
+### <a name="utcnow"></a>utcNow
 
 Retourneert de huidige tijdstempel. 
 
@@ -3694,7 +3949,7 @@ En dit resultaat wordt weergegeven: `"Sunday, April 15, 2018"`
 
 <a name="variables"></a>
 
-## <a name="variables"></a>Variabelen
+### <a name="variables"></a>Variabelen
 
 Retourneert de waarde voor een opgegeven variabele. 
 
@@ -3724,7 +3979,7 @@ En dit resultaat wordt weergegeven: `20`
 
 <a name="workflow"></a>
 
-## <a name="workflow"></a>werkstroom
+### <a name="workflow"></a>werkstroom
 
 Als resultaat de details over de werkstroom zelf tijdens runtime. 
 
@@ -3747,7 +4002,7 @@ workflow().run.name
 
 <a name="xml"></a>
 
-## <a name="xml"></a>xml
+### <a name="xml"></a>xml
 
 De XML-versie voor een tekenreeks met een JSON-object retourneren. 
 
@@ -3805,7 +4060,7 @@ En dit resultaat XML retourneert:
 
 <a name="xpath"></a>
 
-## <a name="xpath"></a>XPath
+### <a name="xpath"></a>XPath
 
 Controleren of XML knooppunten of waarden die overeenkomen met een (XML Path-taal) XPath-expressie en retourneert de overeenkomende waarden of knooppunten. Een XPath-expressie, of alleen 'XPath', kunt u een XML-documentstructuur navigeren, zodat u knooppunten of compute waarden in de XML-inhoud selecteren kunt.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: maheshu
-ms.openlocfilehash: 41a06846e914eb79e15aa47c7203b17166731ae0
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: fa4d40786fdc61183c119a17b6e36bd853a6fd64
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502325"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057256"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services - gids problemen oplossen
 Dit artikel vindt tips voor probleemoplossing voor problemen die optreden kunnen bij het instellen of beheren van Azure Active Directory (AD) Domain Services.
@@ -139,7 +139,7 @@ Als een of meer gebruikers in uw Azure AD-tenant zich niet aanmelden bij de zoju
 * **Externe accounts:** Zorg ervoor dat het betreffende gebruikersaccount geen extern account in de Azure AD-tenant. Voorbeelden van externe accounts zijn Microsoft-accounts (bijvoorbeeld 'joe@live.com') of gebruikersaccounts met een externe Azure AD-directory. Omdat Azure AD Domain Services geen referenties voor deze gebruikersaccounts, kunnen deze gebruikers zich niet aanmelden bij het beheerde domein.
 * **Accounts gesynchroniseerd:** als de betrokken gebruikersaccounts worden gesynchroniseerd vanuit een on-premises directory, controleert u of die:
 
-  * U hebt geïmplementeerd of bijgewerkt naar de [meest recente aanbevolen versie van Azure AD Connect](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+  * U hebt geïmplementeerd of bijgewerkt naar de [meest recente aanbevolen versie van Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
   * U kunt Azure AD Connect hebt geconfigureerd [een volledige synchronisatie uitvoeren](active-directory-ds-getting-started-password-sync.md).
   * Afhankelijk van de grootte van uw directory, kan het even duren voor gebruikersaccounts en referentie-hashes worden weergegeven in Azure AD Domain Services. Zorg ervoor dat u wacht lang genoeg voordat opnieuw wordt geprobeerd de verificatie.
   * Als het probleem zich blijft voordoen nadat u hebt gecontroleerd van de voorgaande stappen, probeert u de Microsoft Azure AD Sync-Service opnieuw te starten. Vanaf uw sync-computer, start een opdrachtprompt en voer de volgende opdrachten uit:

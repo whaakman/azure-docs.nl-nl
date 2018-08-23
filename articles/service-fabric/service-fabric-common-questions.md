@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: d864a663604794a249b08a7c7be471c3abba32af
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0b731e94675992e59f79b61a2f3a15fa20bdf8a7
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971533"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055742"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Veelgestelde vragen over Service Fabric
 
@@ -27,11 +27,11 @@ Er zijn veel Veelgestelde vragen over Service Fabric kunt doen en hoe deze moet 
 
 ## <a name="cluster-setup-and-management"></a>Installatie en beheer
 
-### <a name="how-do-i-rollback-my-service-fabric-cluster-certificate"></a>Hoe kan ik terugdraaien van mijn certificaat Service Fabric-cluster?
+### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Hoe ik terugdraaien mijn certificaat Service Fabric-cluster?
 
 Een upgrade voor uw toepassing vereist het terugdraaien van een health foutdetectie voorafgaand aan uw Service Fabric-clusterquorum doorvoeren van de wijziging; doorgevoerde wijzigingen kunnen alleen worden doorgevoerd. Escalation engineer via Customer Support Services mogelijk vereist voor het herstellen van uw cluster als een niet-bewaakte belangrijke wijziging van het certificaat is geïntroduceerd.  [De service Fabric-toepassingsupgrade](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) is van toepassing [parameters toepassingsupgrade](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master), en levert nul downtime upgrade belofte.  Na onze aanbevolen toepassing upgraden bewaakte modus, automatisch wordt uitgevoerd via updatedomeinen is gebaseerd op statuscontroles aan te, rolling back automatisch als het bijwerken van een standaardservice is mislukt.
  
-Als uw cluster maakt nog steeds gebruik van de klassieke eigenschap vingerafdruk van het certificaat in het Resource Manager-sjabloon, het is raadzaam u [wijzigen-cluster op basis van de vingerafdruk van certificaat in een algemene naam](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), gebruikmaken van moderne geheimen beheerfuncties.
+Als uw cluster maakt nog steeds gebruik van de klassieke eigenschap vingerafdruk van het certificaat in de Resource Manager-sjabloon, wordt u aangeraden [wijzigen-cluster op basis van de vingerafdruk van certificaat in een algemene naam](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), gebruikmaken van moderne geheimen beheerfuncties.
 
 ### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>Kan ik een cluster die meerdere Azure-regio's of mijn eigen datacenters omvat maken?
 
@@ -56,11 +56,11 @@ De uitdaging met updates van het besturingssysteem is dat ze moeten doorgaans de
 
 In de toekomst, willen we ondersteuning voor een update-beleid voor het besturingssysteem die volledig is geautomatiseerd en gecoördineerd in meerdere updatedomeinen, ervoor te zorgen dat de beschikbaarheid wordt gehandhaafd ondanks opnieuw wordt opgestart en andere onverwachte fouten.
 
-### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>We hebben open-source-onderdelen van Service Fabric (reliable services-framework, betrouwbare actoren framework, ASP.NET Core-integratie-bibliotheken,  Service Fabric Explorer, en Service Fabric-CLI) op GitHub en bijdragen aan projecten van de community accepteren. 
+### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>Kan ik grote virtuele-machineschaalsets gebruiken in mijn SF cluster? 
 
-**We **onlangs aangekondigd** dat wij van plan te open-source de Service Fabric-runtime bent. 
+**Korte antwoord** : Nee 
 
-**Op dit moment hebben we de **Service Fabric-opslagplaats** maximaal op GitHub met Linux bouwen en testen van hulpprogramma's, wat betekent dat u kunt kloon de opslagplaats, het bouwen van Service Fabric voor Linux, eenvoudige tests uitvoeren, problemen melden en pull-aanvragen indienen. We werken hard aan de Windows-opbouwomgeving de migratie gespreid over, samen met een volledige CI-omgeving. Ga als volgt de Service Fabric-blog voor meer informatie, zoals ze zijn aangekondigd. Meer informatie over de basisconcepten van Service Fabric en best practices
+**Lang antwoord** : hoewel de grote virtuele-machineschaalsets u kunnen voor het schalen van een virtuele machine maximaal 1000 VM-exemplaren schalen, doet dit door het gebruik van Plaatsingsgroepen (PGs). Foutdomeinen (FD's) en upgrade-domeinen (ud's) zijn alleen consistent binnen een plaatsing groep Service fabric gebruikt Foutdomeinen en Upgradedomeinen om beslissingen te plaatsing van uw service-replica's / Service-exemplaren. Aangezien de Foutdomeinen en Upgradedomeinen alleen binnen een plaatsingsgroep vergelijkbare zijn, moet op SF deze niet gebruiken. Bijvoorbeeld, als VM1 in PG1 een topologie van FD heeft = 0 en VM9 in PG2 heeft een topologie van FD = 4, dit betekent niet dat VM1 en VM2 zich op twee verschillende Hardware rekken, daarom SF niet gebruiken de FD-waarden in dit geval om beslissingen voor plaatsing.
 
 Er momenteel andere problemen met grote virtuele-machineschaalsets, zoals het ontbreken van een niveau-4 taakverdeling ondersteuning niet laden. Raadpleeg voor [meer informatie over grote schaalsets](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 
@@ -119,6 +119,12 @@ Ja.  Zie voor meer informatie, [een cluster maken met gekoppelde gegevensschijve
 | FabricRM.exe |
 | FileStoreService.exe |
  
+### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>Hoe kan mijn toepassing verifiëren met Key Vault geheimen ophalen?
+Hier volgen betekent voor uw toepassing om op te halen van referenties voor verificatie bij de KeyVault:
+
+A. Tijdens uw toepassingen bouwen/verpakking taak, kunt u een certificaat in het gegevenspakket van uw app SF ophalen en dit gebruiken om te verifiëren bij de KeyVault.
+B. Voor virtuele-ingeschakelde MSI-hosts machineschaalset, kunt u een eenvoudige PowerShell SetupEntryPoint voor uw app SF om op te halen ontwikkelen [een toegangstoken van het MSI-eindpunt](https://docs.microsoft.com/en-us/azure/active-directory/managed-service-identity/how-to-use-vm-token), en vervolgens [uw geheimen ophalen uit Key Vault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret?view=azurermps-6.5.0)
+
 ## <a name="application-design"></a>Het ontwerp van toepassing
 
 ### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Wat is de beste manier om gegevens te doorzoeken over meerdere partities van een betrouwbare verzameling?

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: d00a6d3c476e10b13d00ff1738cb54c2eeea104c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a98c8ac65de930eabcedea2a009769ed6d245216
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521819"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617189"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -151,7 +151,7 @@ Omdat antivirus werkt door te scannen van bestanden voor bekende schadelijke cod
 De volgende oplossingen zijn bekende ter ondersteuning van offlinebestanden overslaan:
 
 - [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
-    - Windows Defender slaat automatisch over het lezen van deze bestanden. We hebben getest Defender en een klein probleem geïdentificeerd: wanneer u een server aan een bestaande synchronisatiegroep toevoegen, bestanden kleiner is dan 800 bytes (gedownload) op de nieuwe server worden ingetrokken. Deze bestanden blijven aanwezig op de nieuwe server en gelaagd omdat ze niet voldoen aan de vereiste cloudlagen (> 64kb).
+    - Windows Defender slaat automatisch over het lezen van bestanden die de offline kenmerk hebben. We hebben getest Defender en een klein probleem geïdentificeerd: wanneer u een server aan een bestaande synchronisatiegroep toevoegen, bestanden kleiner is dan 800 bytes (gedownload) op de nieuwe server worden ingetrokken. Deze bestanden blijven aanwezig op de nieuwe server en gelaagd omdat ze niet voldoen aan de vereiste cloudlagen (> 64kb).
 - [System Center Endpoint Protection (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
     - SCEP werkt op dezelfde manier als Defender; Zie hierboven
 - [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
@@ -192,11 +192,13 @@ Azure File Sync is alleen beschikbaar in de volgende regio's:
 | Australië - zuidoost | Victoria |
 | Canada - midden | Toronto |
 | Canada - oost | Quebec (stad) |
+| India - centraal | Pune |
 | US - centraal | Iowa |
 | Azië - oost | Hongkong |
 | US - oost | Virginia |
 | US - oost 2 | Virginia |
 | Europa - noord | Ierland |
+| India - zuid | Chennai |
 | Azië - zuidoost | Singapore |
 | Verenigd Koninkrijk Zuid | Londen |
 | Verenigd Koninkrijk West | Cardiff |
@@ -212,15 +214,17 @@ Ter ondersteuning van de failover-integratie tussen geografisch redundante opsla
 
 | Primaire regio      | Gekoppelde regio      |
 |---------------------|--------------------|
-| Australië - oost      | Australië Southest |
+| Australië - oost      | Australië - zuidoost |
 | Australië - zuidoost | Australië - oost     |
 | Canada - midden      | Canada - oost        |
 | Canada - oost         | Canada - midden     |
+| India - centraal       | India - zuid        |
 | US - centraal          | US - oost 2          |
 | Azië - oost           | Azië - zuidoost     |
 | US - oost             | US - west            |
 | US - oost 2           | US - centraal         |
 | Europa - noord        | Europa -west        |
+| India - zuid         | India - centraal      |
 | Azië - zuidoost      | Azië - oost          |
 | Verenigd Koninkrijk Zuid            | Verenigd Koninkrijk West            |
 | Verenigd Koninkrijk West             | Verenigd Koninkrijk Zuid           |

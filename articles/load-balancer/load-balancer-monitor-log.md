@@ -1,6 +1,6 @@
 ---
-title: Bewaken van bewerkingen, gebeurtenissen en prestatiemeteritems voor de Load Balancer | Microsoft Docs
-description: Informatie over het inschakelen van waarschuwingsgebeurtenissen en registratie van de health-status voor Azure Load Balancer-test
+title: Bewaken van bewerkingen, gebeurtenissen en prestatiemeteritems voor openbare Basic Load Balancer | Microsoft Docs
+description: Meer informatie over het inschakelen van waarschuwingsgebeurtenissen en registratie van de health-status voor openbare Basic Load Balancer-test
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -12,37 +12,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: dabf4bcae957559978e731636bb13554f1a68b73
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 5c196a24d5cc9e4343762e55b5885c1264c2fcad
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30179052"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056707"
 ---
-# <a name="log-analytics-for-azure-load-balancer"></a>Logboekanalyse voor Azure Load Balancer
+# <a name="log-analytics-for-public-basic-load-balancer"></a>Log analytics voor openbare Basic Load Balancer
 
->[!NOTE] 
->Azure Load Balancer ondersteunt twee verschillende typen: Basic en Standard. In dit artikel wordt Basic Load Balancer beschreven. Zie voor meer informatie over Standard Load Balancer [standaard Load Balancer overzicht](load-balancer-standard-overview.md).
+>[!IMPORTANT] 
+>Azure Load Balancer ondersteunt twee verschillende typen: Basic en Standard. In dit artikel wordt Basic Load Balancer beschreven. Zie voor meer informatie over Standard Load Balancer [overzicht van Standard Load Balancer](load-balancer-standard-overview.md) die telemetrie via multi-dimensionale metrische gegevens in Azure Monitor beschikbaar maakt.
 
-U kunt verschillende typen logboeken in Azure beheren en problemen oplossen netwerktaakverdelers. Sommige van deze logboeken zijn toegankelijk via de portal. Alle logboeken kunnen worden opgehaald uit Azure blob-opslag en worden bekeken in verschillende hulpprogramma's zoals Excel en Power BI. U kunt meer informatie over de verschillende typen logboeken in de onderstaande lijst.
+U kunt verschillende soorten logboeken in Azure gebruiken om te beheren en problemen oplossen Basic Load Balancers. Sommige van deze logboeken kunnen worden geopend via de portal. Alle logboeken kunnen worden opgehaald uit Azure blob-opslag, en worden bekeken in verschillende hulpprogramma's, zoals Excel en Power BI. U kunt meer informatie over de verschillende typen logboeken in de onderstaande lijst.
 
-* **Controlelogboeken:** kunt u [Azure controlelogboeken](../monitoring-and-diagnostics/insights-debugging-with-events.md) (voorheen bekend als operationele Logboeken) om alle bewerkingen die worden verzonden naar uw Azure-abonnementen en hun status weer te geven. Controlelogboeken zijn standaard ingeschakeld en kunnen worden weergegeven in de Azure-portal.
-* **Waarschuwing van gebeurtenislogboeken:** kunt u dit logboek waarschuwingen die worden gegenereerd door de load balancer weergeven. De status voor de load balancer worden verzameld om de vijf minuten. Dit logboek wordt alleen geschreven als een load balancer waarschuwing gebeurtenis treedt op.
-* **Health test Logboeken:** kunt u dit logboek bekijken door uw health test, zoals het aantal exemplaren in uw back-end-pool die aanvragen vanwege health test problemen niet van de load balancer ontvangen gedetecteerde problemen. Dit logboek wordt geschreven naar wanneer er een wijziging in de status van de test.
+* **Auditlogboeken:** kunt u [auditlogboeken van Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (voorheen bekend als de operationele Logboeken) om alle bewerkingen die worden verzonden naar uw Azure-abonnementen en hun status weer te geven. Auditlogboeken zijn standaard ingeschakeld en kunnen worden weergegeven in de Azure-portal.
+* **Waarschuwing gebeurtenislogboeken:** kunt u dit logboek om weer te geven van waarschuwingen die worden gegenereerd door de load balancer. De status voor de load balancer worden verzameld om de vijf minuten. Dit logboek wordt alleen geschreven als een load balancer-waarschuwingsgebeurtenis wordt gegenereerd.
+* **Statustestlogboeken:** kunt u dit logboek om problemen gedetecteerd door de statustest, zoals het aantal exemplaren in uw back-end-pool die geen aanvragen van de load balancer vanwege health test problemen ontvangen zijn weer te geven. Dit logboek wordt geschreven naar wanneer er een wijziging in de status van de test.
 
 > [!IMPORTANT]
-> Meld u analytics momenteel werkt alleen voor Internet gerichte load balancers. Logboeken zijn alleen beschikbaar voor resources die zijn geïmplementeerd in het Resource Manager-implementatiemodel. U kunt Logboeken niet gebruiken voor resources in het klassieke implementatiemodel. Zie voor meer informatie over de implementatiemodellen [Understanding Resource Manager-implementatie en klassieke implementatie](../azure-resource-manager/resource-manager-deployment-model.md).
+> Meld u analytics momenteel geldt alleen voor openbare Basic netwerktaakverdelers. Logboeken zijn alleen beschikbaar voor resources die zijn geïmplementeerd in het Resource Manager-implementatiemodel. U kunt Logboeken niet gebruiken voor resources in het klassieke implementatiemodel. Zie voor meer informatie over de implementatiemodellen [Understanding Resource Manager-implementatie en klassieke implementatie](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="enable-logging"></a>Logboekregistratie inschakelen
 
-Logboekregistratie is automatisch ingeschakeld voor elke Resource Manager-resource. U moet inschakelen gebeurtenis en health test logboekregistratie voor het starten van de gegevens beschikbaar zijn via deze logboeken worden verzameld. Gebruik de volgende stappen logboekregistratie in te schakelen.
+Het controlelogboek is automatisch ingeschakeld voor elke Resource Manager-resource. U moet inschakelen gebeurtenis en health test logboekregistratie voor het starten van de gegevens beschikbaar zijn via deze logboeken verzamelen. Gebruik de volgende stappen om in te schakelen van logboekregistratie.
 
 Aanmelden bij de [Azure-portal](http://portal.azure.com). Als u een load balancer, nog niet hebt [maken van een load balancer](load-balancer-get-started-internet-arm-ps.md) voordat u doorgaat.
 
 1. Klik in de portal op **Bladeren**.
-2. Selecteer **Taakverdelers**.
+2. Selecteer **Load Balancers**.
 
     ![Portal - load balancer](./media/load-balancer-monitor-log/load-balancer-browse.png)
 
@@ -53,21 +53,23 @@ Aanmelden bij de [Azure-portal](http://portal.azure.com). Als u een load balance
 
 5. In de **Diagnostics** deelvenster onder **Status**, selecteer **op**.
 6. Klik op **Opslagaccount**.
-7. Onder **LOGBOEKEN**, selecteer een bestaand opslagaccount of maak een nieuwe. Gebruik de schuifregelaar om te bepalen hoeveel dagen gebeurtenisgegevens worden opgeslagen in de gebeurtenislogboeken. 
+7. Onder **LOGBOEKEN**, selecteert u een bestaand opslagaccount of maak een nieuwe. Gebruik de schuifregelaar om te bepalen hoeveel dagen aan gebeurtenisgegevens worden opgeslagen in de gebeurtenislogboeken. 
 8. Klik op **Opslaan**.
 
-    ![Portal - logboeken met diagnostische gegevens](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
+Diagnostische gegevens wordt opgeslagen in Table Storage in het opgegeven opslagaccount. Als u Logboeken niet worden opgeslagen, is omdat er geen relevante logboeken zijn wordt geproduceerd.
+
+![Portal - logboeken met diagnostische gegevens](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
 
 > [!NOTE]
-> Controlelogboeken vereisen een afzonderlijke opslagaccount niet. Het gebruik van opslag voor de gebeurtenis en health test logboekregistratie wordt service worden kosten in rekening.
+> Auditlogboeken vereisen geen een afzonderlijk opslagaccount. Het gebruik van opslag voor gebeurtenis- en health test logboekregistratie service kosten in rekening gebracht.
 
 ## <a name="audit-log"></a>Auditlogboek
 
-Het controlelogboek wordt standaard gegenereerd. De logboeken worden bewaard gedurende 90 dagen in de Azure gebeurtenislogboeken store. Meer informatie over deze logboeken door te lezen de [gebeurtenissen bekijken en controlelogboeken](../monitoring-and-diagnostics/insights-debugging-with-events.md) artikel.
+Het controlelogboek wordt standaard gegenereerd. De logboeken worden gedurende 90 dagen bewaard in de azurestore van gebeurtenislogboeken. Meer informatie over deze logboeken vindt de [weergeven van gebeurtenissen en auditlogboeken](../monitoring-and-diagnostics/insights-debugging-with-events.md) artikel.
 
 ## <a name="alert-event-log"></a>Waarschuwing gebeurtenislogboek
 
-Dit logboek wordt alleen gegenereerd als u het hebt ingeschakeld op een per load balancer basis. De gebeurtenissen worden vastgelegd in JSON-indeling en opgeslagen in het opslagaccount dat u hebt opgegeven als u de logboekregistratie ingeschakeld. Hier volgt een voorbeeld van een gebeurtenis.
+Dit logboek wordt alleen gegenereerd als u deze hebt ingeschakeld op een per load balancer basis. De gebeurtenissen worden vastgelegd in JSON-indeling en opgeslagen in het opslagaccount dat u opgeeft wanneer u de logboekregistratie hebt ingeschakeld. Hier volgt een voorbeeld van een gebeurtenis.
 
 ```json
 {
@@ -86,11 +88,11 @@ Dit logboek wordt alleen gegenereerd als u het hebt ingeschakeld op een per load
 }
 ```
 
-De JSON-uitvoer bevat de *eventname* -eigenschap hebben die de reden voor de load balancer beschrijft een waarschuwing gemaakt. In dit geval is de waarschuwing gegenereerd als gevolg van uitputting van de TCP-poort is veroorzaakt door de bron-IP NAT limieten (snat omzetten).
+De JSON-uitvoer toont de *eventname* eigenschap waarin de reden voor de load balancer wordt een waarschuwing gemaakt. In dit geval is de waarschuwing gegenereerd vanwege een TCP-poortuitputting veroorzaakt door bron IP NAT (SNAT) limieten.
 
-## <a name="health-probe-log"></a>Health test-logboek
+## <a name="health-probe-log"></a>Health test log
 
-Dit logboek wordt alleen gegenereerd als u het hebt ingeschakeld op een per per load balancer als gedetailleerde hierboven. De gegevens worden opgeslagen in het opslagaccount dat u hebt opgegeven als u de logboekregistratie ingeschakeld. Een container met de naam 'insights-logboeken-loadbalancerprobehealthstatus' wordt gemaakt en de volgende gegevens worden geregistreerd:
+Dit logboek wordt alleen gegenereerd als u deze hebt ingeschakeld op een per load balancer gefactureerd zoals hierboven. De gegevens worden opgeslagen in het opslagaccount dat u hebt opgegeven toen u de logboekregistratie hebt ingeschakeld. Een container met de naam 'insights-logs-loadbalancerprobehealthstatus' wordt gemaakt en de volgende gegevens worden geregistreerd:
 
 ```json
 {
@@ -126,26 +128,26 @@ Dit logboek wordt alleen gegenereerd als u het hebt ingeschakeld op een per per 
 }
 ```
 
-De JSON-uitvoer ziet in het eigenschappenveld de basisgegevens voor de status van de test. De *dipDownCount* eigenschap geeft het totale aantal exemplaren op de back-end die netwerkverkeer vanwege mislukte test antwoorden niet ontvangen.
+De JSON-uitvoer laat zien in het eigenschappenveld van de algemene informatie voor de status van de test. De *dipDownCount* eigenschap geeft het totale aantal exemplaren op de back-end die zijn geen netwerkverkeer ontvangen vanwege mislukte testrespons.
 
-## <a name="view-and-analyze-the-audit-log"></a>Weergeven en analyseren van het controlelogboek
+## <a name="view-and-analyze-the-audit-log"></a>Bekijk en Analyseer het auditlogboek
 
-U kunt weergeven en analyseren van audit logboekgegevens met behulp van een van de volgende methoden:
+U kunt bekijken en analyseren van logboekgegevens van controle met behulp van een van de volgende methoden:
 
-* **Azure-hulpprogramma's:** gegevens ophalen uit de controlelogboeken via Azure PowerShell, de Azure-opdrachtregelinterface (CLI), de REST-API van Azure of de Azure preview portal. Stapsgewijze instructies voor elke methode zijn aangegeven in de [bewerkingen met Resource Manager controleren](../azure-resource-manager/resource-group-audit.md) artikel.
-* **Power BI:** als u nog geen een [Power BI](https://powerbi.microsoft.com/pricing) account, kunt u proberen deze gratis. Met behulp van de [Azure controlelogboeken inhoud pack voor Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), kunt u uw gegevens met vooraf geconfigureerde dashboards analyseren, of u weergaven aanpassen aan uw vereisten kunt aanpassen.
+* **Azure-hulpprogramma's:** gegevens ophalen uit de auditlogboeken via Azure PowerShell, de Azure-opdrachtregelinterface (CLI), de Azure REST API of de Azure previewportal. Stapsgewijze instructies voor elke methode worden beschreven in de [bewerkingen controleren met Resource Manager](../azure-resource-manager/resource-group-audit.md) artikel.
+* **Power BI:** als u nog geen een [Power BI](https://powerbi.microsoft.com/pricing) -account, kunt u proberen deze gratis. Met behulp van de [auditlogboeken van Azure-inhoudspakket voor Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs), kunt u uw gegevens met vooraf geconfigureerde dashboards analyseren, of u weergaven aan de behoeften van uw behoeften kunt aanpassen.
 
-## <a name="view-and-analyze-the-health-probe-and-event-log"></a>Weergeven en analyseren van de gebeurtenislogboeken en health test
+## <a name="view-and-analyze-the-health-probe-and-event-log"></a>Bekijk en analyseer de statustest en het gebeurtenislogboek
 
-U moet verbinding maken met uw opslagaccount en ophalen van de JSON-logboekvermeldingen voor gebeurtenis en health test-Logboeken. Zodra u de JSON-bestanden hebt gedownload, kunt u ze kunt converteren naar CSV en de weergave in Excel, Power BI of een ander gegevensvisualisatie-hulpprogramma.
+U moet verbinding maken met uw opslagaccount en ophalen van vermeldingen in de JSON voor de gebeurtenis en health test-Logboeken. Nadat u de JSON-bestanden hebt gedownload, kunt u ze kunt converteren naar CSV en weergeven in Excel, Power BI of een ander hulpprogramma voor gegevensvisualisatie.
 
 > [!TIP]
-> Als u bekend met Visual Studio en de basisconcepten bent van het wijzigen van waarden voor de constanten en variabelen in C#, kunt u de [Meld converter extra](https://github.com/Azure-Samples/networking-dotnet-log-converter) beschikbaar is via GitHub.
+> Als u bekend bent met Visual Studio en de basisconcepten van het wijzigen van waarden voor constanten en variabelen in C#, kunt u de [logboekconversieprogramma’s](https://github.com/Azure-Samples/networking-dotnet-log-converter) gebruiken die beschikbaar zijn in GitHub.
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Uw Azure controlelogboeken met Power BI visualiseren](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blogbericht.
-* [Weergeven en analyseren van Azure controlelogboeken in Power BI en meer](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blogbericht.
+* [Uw Azure-auditlogboeken met Power BI visualiseren](http://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blogbericht.
+* [Bekijk en analyseer Azure-controlelogboeken in Power BI en meer](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blogbericht.
 
 ## <a name="next-steps"></a>Volgende stappen
 

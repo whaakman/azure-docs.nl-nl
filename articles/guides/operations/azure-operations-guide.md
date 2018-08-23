@@ -1,6 +1,6 @@
 ---
 title: Introductiehandleiding voor Azure IT-operators | Microsoft Docs
-description: Introductiehandleiding voor Azure IT-operators
+description: Ophalen van de slag-handleiding voor Azure IT-operators
 services: ''
 documentationcenter: ''
 author: themichaelbender-ms
@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 06/12/2017
+ms.date: 08/21/2018
 ms.author: mibender
-ms.openlocfilehash: 86f11e7c2d5503a0c474a6c15501a6b872c564e3
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 286b9b133bfbe633ad1fe69f66aa11b9e4c4fc1d
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39072331"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42061414"
 ---
-# <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introductie tot cloudcomputing en Microsoft Azure
+# <a name="get-started-for-azure-it-operators"></a>Aan de slag voor Azure IT-operators
 
 Deze handleiding introduceert de belangrijkste concepten met betrekking tot de implementatie en het beheer van een Microsoft Azure-infrastructuur. Als u niet bekend in de cloud computing, of Azure zelf, deze handleiding helpt snel aan de slag met de concepten, implementatie en beheer van meer informatie. Veel secties van deze handleiding bespreken van een bewerking zoals het implementeren van een virtuele machine, en geef vervolgens een koppeling voor uitgebreide technische beschrijving.
 
@@ -53,27 +53,33 @@ Voor kleine bedrijven kunt met Azure voor een lage kosten toegangspunt met de mo
 
 Zie voor meer informatie over de beschikbare Azure-regio's, [Azure-regio's](https://azure.microsoft.com/regions/).
 
-### <a name="cloud-computing-is-classified-into-three-categories-saas-paas-and-iaas"></a>Cloud computing in drie categorieën ingedeeld: SaaS, PaaS en IaaS.
+### <a name="cloud-computing-model"></a>Cloud computing-model
 
-#### <a name="saas-software-as-a-service"></a>SaaS: Software als een service
-
-SaaS is software die centraal wordt gehost en beheerd. Dit wordt meestal op basis van een architectuur met meerdere tenants, één versie van de toepassing wordt gebruikt voor alle klanten. Het kan worden uitgebreid naar meerdere exemplaren om de beste prestaties op alle locaties. SaaS-software wordt doorgaans via een abonnement maandelijkse of jaarlijkse licentie.
-
-Microsoft Office 365 is een goed voorbeeld van een SaaS-aanbieding. -Abonnees betalen een maandelijkse of jaarlijkse abonnementskosten en krijgen ze Microsoft Exchange, Microsoft OneDrive en de rest van de Microsoft Office-suite als een service. Abonnees altijd kunnen genieten van de meest recente versie en de Exchange-server wordt voor u beheerd. Vergeleken met het installeren en upgraden Office elk jaar, dit is minder duur en vereist minder moeite.
-
-#### <a name="paas-platform-as-a-service"></a>PaaS: Platform als een service
-
-Met PaaS implementeert u uw toepassing in een omgeving waarin de leverancier van de cloud biedt. De leverancier is van de infrastructuur overlaten zodat u zich op de ontwikkeling van toepassingen richten kunt.
-
-Azure biedt dat verschillende PaaS compute-aanbiedingen, met inbegrip van de functie Web Apps van Azure App Service en Azure Cloud Services (web- en werkrollen rollen). Ontwikkelaars hebben in beide gevallen meerdere manieren voor het implementeren van hun toepassing zonder te weten niets van de nuts en bolts die dit ondersteunen. Ontwikkelaars hoeven niet te maken van virtuele machines (VM's), Remote Desktop Protocol (RDP) zich aanmeldt bij elkaar te gebruiken of de toepassing te installeren. Ze alleen klikt u op een (of deze in de buurt) en de hulpprogramma's van Microsoft voor de virtuele machines inrichten en implementeren en installeren van de toepassing op deze.
+Azure maakt gebruik van een model op basis van categorieën van de service aan klanten aangeboden voor cloudcomputing. De drie categorieën van de service zijn Infrastructure as a Service (IaaS), Platform as a Service (PaaS) en Software as a Service (SaaS). Leveranciers delen sommige of alle van de verantwoordelijkheid voor onderdelen in de stack of in elk van deze categorieën. Laten we eens in elk van de categorieën voor cloud computing.
+![Cloud Computing Stack vergelijking](./media/cloud-computing-comparison.png)
 
 #### <a name="iaas-infrastructure-as-a-service"></a>IaaS: Infrastructuur als een service
 
-Een IaaS-cloudleverancier wordt uitgevoerd en beheert alle fysieke resources en de vereiste software om in te schakelen van computer-virtualisatie. Een klant van deze service wordt geïmplementeerd voor virtuele machines in deze gehoste datacenters. Hoewel de virtuele machines bevinden zich in een datacenter op een externe locatie, heeft de IaaS-consument controle over de configuratie en beheer van deze.
+Een IaaS-cloudleverancier wordt uitgevoerd en beheert alle fysieke resources en de vereiste software om in te schakelen van computer-virtualisatie. Een klant van deze service wordt geïmplementeerd voor virtuele machines in deze gehoste datacenters. Hoewel de virtuele machines bevinden zich in een datacenter op een externe locatie, heeft de IaaS-consument controle over de configuratie en beheer van het besturingssysteem verlaten van de onderliggende infrastructuur aan de cloudleverancier van de.
 
 Azure bevat diverse IaaS-oplossingen, met inbegrip van virtuele machines, virtuele-machineschaalsets en de bijbehorende netwerkinfrastructuur. Virtuele machines zijn een populaire keuze voor het in eerste instantie migreren naar Azure-services omdat hij Hiermee een 'lift and shift'-migratie-model. U kunt een virtuele machine, zoals de infrastructuur van uw services momenteel wordt uitgevoerd in uw datacenter configureren en vervolgens uw software naar de nieuwe virtuele machine migreren. U moet mogelijk te maken van configuratie-updates, zoals URL's voor andere services of opslag, maar u vele toepassingen op deze manier kunt migreren.
 
 Schaalsets voor virtuele machines zijn gebouwd boven op Azure Virtual Machines en bieden een eenvoudige manier om clusters van identieke VM's implementeren. Virtuele-machineschaalsets bieden ook ondersteuning voor automatisch schalen, zodat de nieuwe virtuele machines automatisch kunnen worden geïmplementeerd als vereist. Dit maakt virtuele-machineschaalsets een ideaal platform voor de host op een hoger niveau microservice rekenclusters, zoals Azure Service Fabric en Azure Container Service.
+
+#### <a name="paas-platform-as-a-service"></a>PaaS: Platform als een service
+
+Met PaaS implementeert u uw toepassing in een omgeving waarin de leverancier van de cloud biedt. De leverancier wordt alle infrastructuurbeheer zodat u zich op de ontwikkeling van toepassingen richten kunt en gegevens beheren.
+
+Azure biedt dat verschillende PaaS compute-aanbiedingen, met inbegrip van de functie Web Apps van Azure App Service en Azure Cloud Services (web- en werkrollen rollen). Ontwikkelaars hebben in beide gevallen meerdere manieren voor het implementeren van hun toepassing zonder te weten niets van de nuts en bolts die dit ondersteunen. Ontwikkelaars hoeven niet te maken van virtuele machines (VM's), Remote Desktop Protocol (RDP) zich aanmeldt bij elkaar te gebruiken of de toepassing te installeren. Ze alleen klikt u op een (of deze in de buurt) en de hulpprogramma's van Microsoft voor de virtuele machines inrichten en implementeren en installeren van de toepassing op deze.
+
+#### <a name="saas-software-as-a-service"></a>SaaS: Software als een service
+
+SaaS is software die centraal wordt gehost en beheerd. Dit wordt meestal op basis van een architectuur met meerdere tenants, één versie van de toepassing wordt gebruikt voor alle klanten. Het kan worden uitgebreid naar meerdere exemplaren om de beste prestaties op alle locaties. SaaS-software wordt doorgaans via een abonnement maandelijkse of jaarlijkse licentie. SaaS-software wordt doorgaans via een abonnement maandelijkse of jaarlijkse licentie. SaaS-softwareleveranciers zijn verantwoordelijk voor alle onderdelen van de softwarestack zodat u beheert de services die worden geleverd.
+
+Microsoft Office 365 is een goed voorbeeld van een SaaS-aanbieding. -Abonnees betalen een maandelijkse of jaarlijkse abonnementskosten en krijgen ze Microsoft Exchange, Microsoft OneDrive en de rest van de Microsoft Office-suite als een service. Abonnees altijd kunnen genieten van de meest recente versie en de Exchange-server wordt voor u beheerd. Vergeleken met het installeren en upgraden Office elk jaar, dit is minder duur en vereist minder moeite.
+
+
+
 
 ## <a name="azure-services"></a>Azure-services
 
@@ -175,6 +181,9 @@ De opdrachtregelinterface van Azure is een hulpprogramma waarmee u kunt maken, b
 
 **REST API's** Azure is gebouwd op een set REST-API's die ondersteuning bieden voor de gebruikersinterface van Azure portal. De meeste van deze REST-API's worden ook ondersteund zodat u via een programma inrichten en beheren van uw Azure-resources en apps vanaf elk apparaat toegang tot Internet hebben. Zie voor meer informatie de [Azure REST SDK-naslaginformatie](https://docs.microsoft.com/rest/api/index).
 
+### <a name="azure-cloud-shell"></a>Azure Cloud Shell
+
+Beheerders hebben toegang tot Azure PowerShell en Azure CLI via een browser toegankelijk is via Azure Cloud Shell met de naam. Interactieve interface biedt een veelzijdig hulpmiddel voor Linux en Windows-beheerders het gebruik de opdrachtregelinterface van keuze, Bash of PowerShell. Azure Cloud Shell kunnen zijn op te vragen via de portal, als een zelfstandige webinterface op [shell.azure.com](https://shell.azure.com), of van een aantal andere toegangspunten. Zie voor meer informatie, [overzicht van Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
 ## <a name="azure-subscriptions"></a>Azure-abonnementen
 
 Een abonnement is een logische groepering van Azure-services die is gekoppeld aan een Azure-account. Een afzonderlijke Azure-account kan meerdere abonnementen bevatten. Facturering voor Azure-services is uitgevoerd op basis van een per abonnement. Azure-abonnementen hebben een accountbeheerder, die volledige controle heeft over het abonnement en een servicebeheerder, die controle heeft over alle services in het abonnement. Naast de beheerders, individuele accounts kunnen worden verleend gedetailleerd beheer van Azure-resources via RBAC.
@@ -355,6 +364,7 @@ Een virtuele machine benaderen via Internet moet de bijbehorende netwerk interfa
 
 U kunt toegang tot de virtuele machine beheren via het openbare IP-adres met behulp van een resource network security group (NSG). Een NSG fungeert als een firewall en verkeer toestaat of weigert via netwerkinterface of een subnet in een set van gedefinieerde poorten. Voor het maken van een extern-bureaubladsessie met een Azure-VM, moet u bijvoorbeeld het configureren van de NSG om toe te staan van binnenkomend verkeer op poort 3389. Zie voor meer informatie, [poorten openen voor een virtuele machine in Azure met behulp van de Azure-portal](../../virtual-machines/windows/nsg-quickstart-portal.md).
 
+
 Ten slotte, net als bij het beheer van elk computersysteem, moet u zelf beveiliging voor een Azure-machine op het besturingssysteem met behulp van beveiligingsreferenties en softwarefirewalls.
 
 ## <a name="azure-storage"></a>Azure Storage
@@ -415,7 +425,7 @@ Er zijn verschillende opties voor het implementeren van een storage-account.
 
 **Portal**
 
-Een storage-account implementeren met behulp van de Azure-portal vereist alleen een actief Azure-abonnement en de toegang tot een webbrowser. U kunt een nieuw opslagaccount implementeren in een nieuwe of bestaande resourcegroep. Nadat u de storage-account hebt gemaakt, kunt u een blob-container of bestandsshare maken met behulp van de portal. U kunt de tabel maken en storage-entiteiten via een programma in de wachtrij. Zie voor meer informatie, [een opslagaccount maken](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+Een storage-account implementeren met behulp van de Azure-portal vereist alleen een actief Azure-abonnement en de toegang tot een webbrowser. U kunt een nieuw opslagaccount implementeren in een nieuwe of bestaande resourcegroep. Nadat u de storage-account hebt gemaakt, kunt u een blob-container of bestandsshare maken met behulp van de portal. U kunt de tabel maken en storage-entiteiten via een programma in de wachtrij. Zie voor meer informatie, [een opslagaccount maken](../../storage/common/storage-quickstart-create-account.md).
 
 Naast het implementeren van een storage-account vanuit Azure portal, kunt u een Azure Resource Manager-sjabloon uit de portal implementeren. Dit implementeren en configureren van alle resources, zoals gedefinieerd in de sjabloon, met inbegrip van alle opslagaccounts. Zie voor meer informatie, [resources implementeren met Resource Manager-sjablonen en Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 

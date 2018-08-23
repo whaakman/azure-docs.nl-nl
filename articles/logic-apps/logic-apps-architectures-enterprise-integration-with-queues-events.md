@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: a86c4c4227795a712dd51ace1fbefe9d2b96518a
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 9eef382ea264bcf9e59dcc408d14a59355b0369b
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39116109"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42445674"
 ---
 # <a name="reference-architecture-enterprise-integration-with-queues-and-events"></a>Referentie-architectuur: bedrijfsintegratie met wachtrijen en -gebeurtenissen
 
@@ -42,7 +42,7 @@ De architectuur heeft de volgende onderdelen:
 - **Connectors**. Logic Apps gebruikt [connectors](https://docs.microsoft.com/azure/connectors/apis-list) verbinding maken met veel gebruikte services. Logic Apps is al honderden verschillende connectors, maar u kunt ook een aangepaste connector maken.
 - **Azure Servicebus**. [Service Bus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview) biedt veilige en betrouwbare berichten. Berichten kunnen worden gebruikt voor het loskoppelen van toepassingen en integreren met andere systemen op basis van een bericht.
 - **Azure Event Grid**. [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) een serverloos platform dat wordt gebruikt om te publiceren en leveren van toepassingsgebeurtenissen is.
-- **IP-adres**. De Azure API Management-service heeft een vaste openbare [IP-adres](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) en de domeinnaam van een. De domeinnaam is een subdomein van azure-api.net, zoals contoso.azure-api.net. Logic Apps en Service Bus moet u ook een openbaar IP-adres hebben. In deze architectuur beperken we echter toegang voor het aanroepen van Logic Apps-eindpunten alleen het IP-adres van API Management (voor beveiliging). Aanroepen naar Service Bus worden beveiligd door een shared access signature (SAS).
+- **IP-adres**. De Azure API Management-service heeft een vaste openbare [IP-adres](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) en de domeinnaam van een. De standaarddomeinnaam is een subdomein van azure-api.net, zoals contoso.azure-api.net, maar [aangepaste domeinen](https://docs.microsoft.com/azure/api-management/configure-custom-domain) kan ook worden geconfigureerd. Logic Apps en Service Bus moet u ook een openbaar IP-adres hebben. In deze architectuur beperken we echter toegang voor het aanroepen van Logic Apps-eindpunten alleen het IP-adres van API Management (voor beveiliging). Aanroepen naar Service Bus worden beveiligd door een shared access signature (SAS).
 - **Azure DNS**. [Azure DNS](https://docs.microsoft.com/azure/dns/) is een hostingservice voor DNS-domeinen. Azure DNS biedt naamomzetting met behulp van de Microsoft Azure-infrastructuur. Door uw domeinen in Azure hosten, kunt u uw DNS-records beheren met behulp van dezelfde referenties, API's, hulpprogramma's en facturering, gebruikt u voor uw andere Azure-services. Voor het gebruik van een aangepaste domeinnaam (zoals contoso.com), DNS-records die de aangepaste domeinnaam aan het IP-adres toewijzen te maken. Zie voor meer informatie, [een aangepaste domeinnaam configureren in API Management](https://docs.microsoft.com/en-us/azure/api-management/configure-custom-domain).
 - **Azure Active Directory (Azure AD)**. Gebruik [Azure AD](https://docs.microsoft.com/azure/active-directory/) of een andere id-provider voor verificatie. Azure AD-verificatie voor toegang tot API-eindpunten door door te geven biedt een [JSON Web Token voor API Management](https://docs.microsoft.com/azure/api-management/policies/authorize-request-based-on-jwt-claims) om te valideren. Azure AD kan beveiligde toegang tot de API Management-ontwikkelaarsportal (alleen Standard en Premium-lagen).
 

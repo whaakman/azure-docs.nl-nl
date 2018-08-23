@@ -1,3 +1,20 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: storage
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 08/20/2018
+ms.author: tamram
+ms.custom: include file
+ms.openlocfilehash: f60c23e34962396d4ea6e030912d1ca3f3e4571b
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40260897"
+---
 Er zijn twee typen opslagaccounts:
 
 ### <a name="general-purpose-storage-accounts"></a>Opslagaccounts voor algemeen gebruik
@@ -25,5 +42,5 @@ Zie [Azure Blob Storage: Cool Storage-laag en Hot Storage-laag](../articles/stor
 
 Voordat u een opslagaccount kunt maken, moet u een Azure-abonnement hebben, een abonnement dat u toegang geeft tot diverse Azure-services. Met een [gratis account](https://azure.microsoft.com/pricing/free-trial/) kunt u direct aan de slag met Azure. Als u besluit om een abonnement aan te schaffen, kunt u kiezen uit een aantal [aanschafopties](https://azure.microsoft.com/pricing/purchase-options/). Als u een [MSDN-abonnee](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) bent, krijgt u gratis maandelijkse tegoeden die u kunt gebruiken met Azure-services, waaronder Azure Storage. Zie [Prijzen van Azure Storage](https://azure.microsoft.com/pricing/details/storage/) voor meer informatie over volumeprijzen.
 
-Zie [Een opslagaccount maken](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) voor informatie over het maken van een opslagaccount. Met één abonnement kunt u maximaal 200 opslagaccounts met een unieke naam maken. Zie [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) (Schaalbaarheids- en prestatiedoeleinden in Azure Storage) voor meer informatie over opslagaccountlimieten.
+Zie [Een opslagaccount maken](../articles/storage/common/storage-quickstart-create-account.md) voor informatie over het maken van een opslagaccount. Met één abonnement kunt u maximaal 200 opslagaccounts met een unieke naam maken. Zie [Azure Storage Scalability and Performance Targets](../articles/storage/common/storage-scalability-targets.md) (Schaalbaarheids- en prestatiedoeleinden in Azure Storage) voor meer informatie over opslagaccountlimieten.
 

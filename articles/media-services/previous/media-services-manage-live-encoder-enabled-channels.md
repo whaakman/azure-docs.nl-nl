@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 08/20/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: f4b57241085381f4b975c07038b41133b8a4319b
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 008fac84eedfd58cbcfe563504a50bc19d519382
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436188"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056906"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Live streamen met Azure Media Services om multi-bitrate streams te maken
 
@@ -130,7 +130,7 @@ Als de **Type coderingsprogramma** is ingesteld op **Standard**, geldige opties 
 * Single-bitrate **gefragmenteerd MP4** (Smooth Streaming)
 
 #### <a id="single_bitrate_RTMP"></a>Single-bitrate RTMP
-Overwegingen met betrekking tot:
+Overwegingen:
 
 * De stroom inkomende mag niet multi-bitrate-video
 * De video-stream moet een gemiddelde bitrate hieronder 15 Mbps
@@ -153,7 +153,7 @@ Typische gebruiksscenario's:
 
 Gebruik on-premises live coderingsprogramma's van leveranciers zoals Elemental technologieën, Ericsson, Ateme, Envivio voor het verzenden van de invoerstroom via het open internet op in de buurt Azure-Datacenter.
 
-Overwegingen met betrekking tot:
+Overwegingen:
 
 Hetzelfde als voor [single-bitrate RTMP](media-services-manage-live-encoder-enabled-channels.md#single_bitrate_RTMP).
 
@@ -228,7 +228,8 @@ Houd er rekening mee dat als u aangepaste voorinstellingen wilt, moet u contact 
 | 200 |340 |192 |30 |Basislijn |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Uitvoer Audio Stream
-Audio is naar stereo AAC-LC op 64 k, samplefrequentie van 44,1 kHz gecodeerd.
+
+Audio is naar stereo AAC-LC op 128 k, samplefrequentie van 48 kHz gecodeerd.
 
 ## <a name="signaling-advertisements"></a>Advertenties-signalering
 Wanneer uw kanaal Live Encoding ingeschakeld heeft, u hebt een onderdeel in de pijplijn die verwerking video en kunt bewerken. U kunt een signaal verzenden naar het kanaal slates en/of advertenties in de uitgaande adaptieve bitrate stream invoegen. Slates zijn stilstaande beelden die u gebruiken kunt om te kunnen krijgen van de invoer live feed in bepaalde gevallen (bijvoorbeeld bij een reclameonderbreking). Reclame signalen, zijn tijd gesynchroniseerd signalen die u in de uitgaande stroom om te zien van de video speler insluiten te doen – zoals overschakelen naar een aankondiging op het juiste moment. Raadpleeg deze [blog](https://codesequoia.wordpress.com/2014/02/24/understanding-scte-35/) voor een overzicht van de SCTE 35 signalering mechanisme dat wordt gebruikt voor dit doel. Hieronder volgt een typisch scenario dat u in uw live-gebeurtenis kan implementeren.
@@ -281,7 +282,7 @@ Als de **standaard leistenen Asset-Id** niet is opgegeven, en **slate invoegen o
 ## <a name="channels-programs"></a>Programma's van kanaal
 Een kanaal is gekoppeld aan programma's waarmee u het publiceren en opslaan van segmenten in een live stream kunt beheren. Kanalen beheren programma's. De kanaal- / relatie is vergelijkbaar met traditionele media waarbij een kanaal een constante stream met inhoud heeft en een programma is afgestemd op bepaalde getimede gebeurtenis op dat kanaal.
 
-U kunt het aantal uren opgeven dat u de opgenomen inhoud voor het programma wilt behouden door de lengte voor **Archiefvenster** in te stellen. Deze waarde kan worden ingesteld van minimaal 5 minuten tot maximaal 25 uur. De lengte van een archiefvenster bepaalt ook de maximale hoeveelheid tijd die clients terug in de tijd kunnen zoeken vanaf de huidige live positie. Programma's kunnen in de opgegeven tijdsduur worden uitgevoerd, maar de inhoud die achter de lengte van het venster valt, wordt altijd verwijderd. De waarde van deze eigenschap bepaalt ook hoe lang de clientmanifesten kunnen groeien.
+U kunt het aantal uren opgeven dat u de opgenomen inhoud voor het programma wilt behouden door de lengte voor **Archiefvenster** in te stellen. Deze waarde kan worden ingesteld van minimaal 5 minuten tot maximaal 25 uur. Voor het archiefvenster bepaalt ook dat het maximum aantal wanneer clients terug in tijd kan zoeken vanaf de huidige live positie. Programma's kunnen in de opgegeven tijdsduur worden uitgevoerd, maar de inhoud die achter de lengte van het venster valt, wordt altijd verwijderd. De waarde van deze eigenschap bepaalt ook hoe lang de clientmanifesten kunnen groeien.
 
 Elk programma dat is gekoppeld aan een Asset die de gestreamde inhoud opslaat. Een asset is toegewezen aan een blok-blob-container in de Azure Storage-account en de bestanden in de asset worden opgeslagen als blobs in deze container. Voor het publiceren van het programma, zodat uw klanten in de stroom weergeven kunnen moet u een OnDemand-locator voor de gekoppelde asset maken. Met deze locator kunt u een streaming-URL maken die u aan uw clients kunt leveren.
 
@@ -338,7 +339,7 @@ In de volgende tabel wordt het verband tussen de verschillende Kanaalstatussen e
 
 ## <a name="known-issues"></a>Bekende problemen
 * Uptime kanaal wordt gestart, is verbeterd met een gemiddelde van 2 minuten, maar soms met een grotere vraag kan nog steeds maximaal 20 + minuten duren.
-* Slate afbeeldingen moeten voldoen aan de beperkingen beschreven [hier](media-services-manage-live-encoder-enabled-channels.md#default_slate). Als u probeert een kanaal maken met een standaard-slate die groter is dan 1920 x 1080, de aanvraag wordt uiteindelijk fout.
+* Slate afbeeldingen moeten voldoen aan de beperkingen beschreven [hier](media-services-manage-live-encoder-enabled-channels.md#default_slate). Als u probeert te maken van een kanaal met een standaard-slate die groter is dan 1920 x 1080, wordt de aanvraag wordt uiteindelijk fout.
 * Nog een keer... Vergeet niet om te stoppen uw kanalen wanneer u klaar bent streaming. Als u dit niet doet, blijven facturering.
 
 ## <a name="next-step"></a>Volgende stap

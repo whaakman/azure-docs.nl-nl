@@ -1,25 +1,26 @@
 ---
 title: Publiceren WebApplicationVM | Microsoft Docs
-description: Informatie over het implementeren van een webtoepassing met een virtuele machine. Dit script maakt de vereiste resources in uw Azure-abonnement als deze nog niet bestaan.
+description: Informatie over het implementeren van een webtoepassing met een virtuele machine. Dit script maakt u de vereiste resources in uw Azure-abonnement als deze nog niet bestaan.
 services: visual-studio-online
 author: ghogen
 manager: douge
 assetId: de4cec95-f73f-44d9-babd-9f47f2633cdb
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/11/2016
 ms.author: ghogen
-ms.openlocfilehash: 3fdd11387096d95359fb5f578ca64720f2182c45
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c2dc6057eeb4eba1306309785e13192674bc43c6
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795908"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42060787"
 ---
-# <a name="publish-webapplicationvm-windows-powershell-script"></a>Publiceren WebApplicationVM (Windows PowerShell-script)
-Een webtoepassing met een virtuele machine implementeert. Het script maakt de vereiste resources in uw Azure-abonnement als deze nog niet bestaan.
+# <a name="publish-webapplicationvm-windows-powershell-script"></a>Publiceren-WebApplicationVM (Windows PowerShell-script)
+Een webtoepassing met een virtuele machine implementeert. Het script maakt u de vereiste resources in uw Azure-abonnement als deze nog niet bestaan.
 
 ```
 Publish-WebApplicationVM
@@ -33,12 +34,12 @@ Publish-WebApplicationVM
 ```
 
 ### <a name="configuration"></a>Configuratie
-Het pad naar het JSON-configuratiebestand dat u de details van de implementatie worden beschreven.
+Het pad naar het JSON-configuratiebestand dat de details van de implementatie worden beschreven.
 
 | Aliassen | geen |
 | --- | --- |
 | Vereist? |true |
-| Positie |Met de naam |
+| Positie |met de naam |
 | Standaardwaarde |geen |
 | Pijpleidinginvoer accepteren? |false |
 | Jokertekens accepteren? |false |
@@ -49,51 +50,51 @@ De naam van het Azure-abonnement waarin u wilt maken van de virtuele machine.
 | Aliassen | geen |
 | --- | --- |
 | Vereist? |false |
-| Positie |Met de naam |
+| Positie |met de naam |
 | Standaardwaarde |Maakt gebruik van het eerste abonnement in het abonnementsbestand |
 | Pijpleidinginvoer accepteren? |false |
 | Jokertekens accepteren? |false |
 
 ### <a name="webdeploypackage"></a>WebDeployPackage
-Het pad naar het implementatiepakket web publiceren naar de virtuele machine. U kunt dit pakket kunt maken met behulp van de wizard webpublicatie in Visual Studio. Zie [procedure: een Web-implementatiepakket maken in Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx).
+Het pad naar de webimplementatiepakket om te publiceren naar de virtuele machine. U kunt dit pakket maken met behulp van de wizard Web publiceren in Visual Studio. Zie [hoe: een Web-implementatiepakket maken in Visual Studio](https://msdn.microsoft.com/library/dd465323.aspx).
 
 | Aliassen | geen |
 | --- | --- |
 | Vereist? |false |
-| Positie |Met de naam |
+| Positie |met de naam |
 | Standaardwaarde |geen |
 | Pijpleidinginvoer accepteren? |false |
 | Jokertekens accepteren? |false |
 
 ### <a name="allowuntrusted"></a>AllowUntrusted
-Indien waar, wordt het gebruik van certificaten die niet zijn ondertekend door een vertrouwde basiscertificeringsinstantie toestaan.
+Indien waar, kunt u het gebruik van certificaten die niet zijn ondertekend door een vertrouwde basis-CA.
 
 | Aliassen | geen |
 | --- | --- |
 | Vereist? |false |
-| Positie |Met de naam |
+| Positie |met de naam |
 | Standaardwaarde |false |
 | Pijpleidinginvoer accepteren? |false |
 | Jokertekens accepteren? |false |
 
 ### <a name="vmpassword"></a>VMPassword
-De referenties voor de account van de virtuele machine. Voorbeeld: - VMPassword @{naam = 'admin'; Wachtwoord = 'password'}
+De referenties voor de virtuele machine-account. Voorbeeld: - VMPassword @{naam = 'admin'; Wachtwoord = "password"}
 
 | Aliassen | geen |
 | --- | --- |
 | Vereist? |false |
-| Positie |Met de naam |
+| Positie |met de naam |
 | Standaardwaarde |geen |
 | Pijpleidinginvoer accepteren? |false |
 | Jokertekens accepteren? |false |
 
 ### <a name="databaseserverpassword"></a>DatabaseServerPassword
-De referenties voor de SQL-database in Azure. Voorbeeld: - DatabaseServerPassword @{naam = 'admin'; Wachtwoord = 'password'}
+De referenties voor de SQL-database in Azure. Voorbeeld: - DatabaseServerPassword @{naam = 'admin'; Wachtwoord = "password"}
 
 | Aliassen | geen |
 | --- | --- |
 | Vereist? |false |
-| Positie |Met de naam |
+| Positie |met de naam |
 | Standaardwaarde |geen |
 | Pijpleidinginvoer accepteren? |false |
 | Jokertekens accepteren? |false |
@@ -104,15 +105,15 @@ Indien waar, wordt de status van afdrukken berichten van het script naar de uitv
 | Aliassen | geen |
 | --- | --- |
 | Vereist? |false |
-| Positie |Met de naam |
+| Positie |met de naam |
 | Standaardwaarde |false |
 | Pijpleidinginvoer accepteren? |false |
 | Jokertekens accepteren? |false |
 
 ## <a name="remarks"></a>Opmerkingen
-Zie voor een volledige uitleg over het gebruik van het script maken Dev- en testomgevingen, [Windows PowerShell-Scripts gebruiken om te publiceren op de ontwikkeling en testomgevingen](vs-azure-tools-publishing-using-powershell-scripts.md).
+Zie voor een volledige uitleg van hoe u het script te maken met ontwikkel- en testomgevingen, [Windows PowerShell-Scripts gebruiken om te publiceren op de ontwikkel- en testomgevingen](vs-azure-tools-publishing-using-powershell-scripts.md).
 
-Het JSON-configuratiebestand geeft de details van wat is geïmplementeerd. Deze bevat de informatie die u hebt opgegeven toen u het project, zoals de naam, de affiniteitsgroep, de VHD-installatiekopie en de grootte van de virtuele machine hebt gemaakt. Ook bevat de eindpunten van de virtuele machine en de databases naar inricht, indien van toepassing en implementatieparameters van web. De volgende code toont een voorbeeld van de JSON-configuratiebestand:
+De JSON-configuratiebestand Hiermee geeft u de details van wat is om te worden geïmplementeerd. Deze bevat de informatie die u hebt opgegeven tijdens het maken van het project, zoals de naam, de affiniteitsgroep, het VHD-installatiekopie en de grootte van de virtuele machine. Ook bevat de eindpunten van de virtuele machine, de databases om in te richten, indien van toepassing en implementatieparameters web. De volgende code toont een voorbeeld van JSON-configuratiebestand:
 
 ```
 {
@@ -181,5 +182,5 @@ Het JSON-configuratiebestand geeft de details van wat is geïmplementeerd. Deze 
 }
 ```
 
-U kunt het JSON-configuratiebestand om te wijzigen wat is ingericht bewerken. Een virtuele machine en een cloudservice zijn vereist, maar de database-sectie is optioneel.
+U kunt de JSON-configuratiebestand om te wijzigen wat is ingericht bewerken. Een virtuele machine en een service in de cloud zijn vereist, maar de database-sectie is optioneel.
 

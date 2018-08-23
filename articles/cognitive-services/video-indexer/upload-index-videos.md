@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/17/2018
 ms.author: juliako
-ms.openlocfilehash: c4a755d0c13516ce3cb0177cea2ea17e4a3abcbb
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 8a9409c46cac8397bc449c586374729a4d864036
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390966"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41987478"
 ---
 # <a name="upload-and-index-your-videos"></a>Indexeren van uw video 's  
 
@@ -47,15 +47,15 @@ Een POST-URL om te waarschuwen wanneer indexeren is voltooid. Video Indexer voeg
 
 U kunt ook meer parameters toevoegen aan de URL voordat u de aanroep van Video Indexer en deze parameters worden opgenomen in de callback. Later in uw code kunt u ophalen en parseren van de query-tekenreeks back alle van de opgegeven parameters in de queryreeks (gegevens die u oorspronkelijk had toegevoegd aan de URL plus de gegevens van de Video Indexer opgegeven.) 
 
-### <a name="streamingpereset"></a>streamingPereset
+### <a name="streamingpreset"></a>streamingPreset
 
 Zodra uw video is geüpload, codeert Video Indexer, eventueel de video. Vervolgens gaat u door naar het indexeren en analyseren van de video. Wanneer Video Indexer is klaar analyseren, ontvangt u een melding met de video-ID.  
 
-Wanneer u de [video uploaden](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) of [Video opnieuw indexeren](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API, een van de volgende optionele parameters is `streamingPreset`. Als u instelt `streamingPereset` naar `Default`, `SingleBitrate`, of `AdaptiveBitrate`, het coderingsproces wordt geactiveerd. Wanneer het indexeren en coderingstaken klaar bent, wordt de video is gepubliceerd, zodat u kunt ook uw video streamen. De Streaming-eindpunt van waaruit u wilt de video te streamen, moet zich in de **met** staat.
+Wanneer u de [video uploaden](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) of [Video opnieuw indexeren](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API, een van de volgende optionele parameters is `streamingPreset`. Als u instelt `streamingPreset` naar `Default`, `SingleBitrate`, of `AdaptiveBitrate`, het coderingsproces wordt geactiveerd. Wanneer het indexeren en coderingstaken klaar bent, wordt de video is gepubliceerd, zodat u kunt ook uw video streamen. De Streaming-eindpunt van waaruit u wilt de video te streamen, moet zich in de **met** staat.
 
 Om uit te voeren van het indexeren en coderingstaken, de [Azure Media Services-account verbonden met uw Video Indexer-account](connect-to-azure.md), gereserveerde eenheden is vereist. Zie voor meer informatie, [Media-verwerking schalen](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview). Aangezien deze intensieve rekentaken, wordt S3-eenheidstype aanbevolen. Het aantal ru's definieert het maximale aantal taken dat parallel kan worden uitgevoerd. De aanbeveling van de basislijn is 10 S3-ru's. 
 
-Als u alleen wilt uw video kunt indexeren, maar deze niet te coderen, stelt u `streamingPereset`naar `NoStreaming`.
+Als u alleen wilt uw video kunt indexeren, maar deze niet te coderen, stelt u `streamingPreset`naar `NoStreaming`.
 
 ## <a name="code-sample"></a>Codevoorbeeld
 

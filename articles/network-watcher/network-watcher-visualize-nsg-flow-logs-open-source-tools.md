@@ -1,10 +1,10 @@
 ---
-title: Azure-netwerk-Watcher NSG stroom logboeken met open-source hulpprogramma's visualiseren | Microsoft Docs
-description: Deze pagina wordt beschreven hoe open-source hulpprogramma's gebruiken voor het NSG stroom logboeken visualiseren.
+title: Azure Network Watcher NSG stroomlogboeken visualiseren met open-sourcehulpprogramma's | Microsoft Docs
+description: Deze pagina wordt beschreven hoe NSG-stroomlogboeken visualiseren met open source-hulpprogramma's.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: mattreatMSFT
+manager: vitinnan
 editor: ''
 ms.assetid: e9b2dcad-4da4-4d6b-aee2-6d0afade0cb8
 ms.service: network-watcher
@@ -13,55 +13,54 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: f7d51352aa8411e36f4224804c90c2554d4ef9e6
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.author: mareat
+ms.openlocfilehash: aa83ba1f428e70cd78cba2af6d39989179d5b30f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29394167"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42060850"
 ---
-# <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Azure-netwerk-Watcher NSG stroom logboeken met open-source hulpprogramma's te visualiseren
+# <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Azure Network Watcher NSG stroomlogboeken visualiseren met open-sourcehulpprogramma 's
 
-Netwerkbeveiligingsgroep stroom logboeken bevatten informatie die kan worden gebruikt inkomende en uitgaande IP-verkeer op Netwerkbeveiligingsgroepen begrijpen. Deze stroom logboeken weergeven binnenkomende en uitgaande stromen op basis van per regel, de NIC die de stroom is van toepassing op, 5-tuple informatie over de stroom (IP bron/het doel, bron/het doel-poort Protocol) en als het verkeer is toegestaan of geweigerd.
+Stroomlogboeken van Netwerkbeveiligingsgroep Geef informatie op die kan worden gebruikt te begrijpen van inkomende en uitgaande IP-verkeer op Netwerkbeveiligingsgroepen. Deze logboeken van de stroom weergeven binnenkomende en uitgaande stromen op basis van een per regel, de NIC die de stroom is van toepassing op, 5 tuple-informatie over de stroom (bron-/ doel-IP, poort van de bron-/ doel, Protocol), en als het verkeer is toegestaan of geweigerd.
 
-Deze stroom logboeken kunnen lastig zijn om handmatig te parseren en inzichten te krijgen. Er zijn echter enkele open-source hulpprogramma's die kunnen helpen bij het visualiseren van deze gegevens. In dit artikel biedt een oplossing voor het visualiseren van deze logboeken met behulp van de elastische Stack, waarmee u om snel te indexeren en visualiseren van uw flow logboeken op een dashboard Kibana.
+Deze logboeken van de stroom kunnen lastig zijn om handmatig te parseren en hieruit inzichten te verkrijgen. Er zijn echter enkele open-source-hulpprogramma's die kunnen helpen bij het visualiseren van deze gegevens. In dit artikel biedt een oplossing voor het visualiseren van deze logboeken met behulp van de Elastic Stack, waarmee u kunt om snel te indexeren en visualiseren van uw stroom een Kibana-dashboard zich aanmeldt.
 
 ## <a name="scenario"></a>Scenario
 
-In dit artikel wordt er een oplossing waarmee u kunt het visualiseren van Netwerkbeveiligingsgroep stroom logboeken met behulp van de elastische Stack instellen.  De logboeken van de stroom worden door een Logstash invoer invoegtoepassing rechtstreeks vanuit de blob storage is geconfigureerd voor de logboeken van de stroom die worden opgehaald. Vervolgens wordt met behulp van de elastische Stack de logboeken van de stroom geïndexeerd en gebruikt om een dashboard Kibana visualiseren van de gegevens te maken.
+In dit artikel, wordt er een oplossing waarmee u kunt Network Security Group stroomlogboeken visualiseren met de Elastic Stack instellen.  Een invoer Logstash-invoegtoepassing krijgt de logboeken van de stroom rechtstreeks vanuit de opslag-blob voor de logboeken van de stroom die is geconfigureerd. Klik vervolgens worden met behulp van de Elastic Stack, de logboeken van de stroom geïndexeerd en gebruikt voor het maken van een Kibana-dashboard voor het visualiseren van gegevens.
 
 ![scenario][scenario]
 
 ## <a name="steps"></a>Stappen
 
-### <a name="enable-network-security-group-flow-logging"></a>Netwerkbeveiligingsgroep inschakelen stroom logboekregistratie
-U moet voor dit scenario hebben Network Security groep stromen-logboekregistratie is ingeschakeld op ten minste één Netwerkbeveiligingsgroep in uw account. Voor instructies over het inschakelen van de stroom beveiligingslogboeken netwerk, raadpleegt u het volgende artikel [Inleiding tot registratie van de stroom voor Netwerkbeveiligingsgroepen](network-watcher-nsg-flow-logging-overview.md).
+### <a name="enable-network-security-group-flow-logging"></a>Stroomlogboeken van Netwerkbeveiligingsgroep inschakelen
+U moet voor dit scenario hebben Network Security Group Flow-logboekregistratie is ingeschakeld op ten minste één Netwerkbeveiligingsgroep in uw account. Zie voor instructies over het inschakelen van de logboeken van de stroom van netwerk, het volgende artikel [Inleiding tot stroomlogboeken voor Netwerkbeveiligingsgroepen](network-watcher-nsg-flow-logging-overview.md).
 
-
-### <a name="set-up-the-elastic-stack"></a>Instellen van de elastische Stack
-NSG stroom Logboeken verbinding met de elastische Stack, kunnen we een Kibana-dashboard maken wat ons te zoeken, grafiek, analyseren en inzichten worden afgeleid van onze Logboeken is toegestaan.
+### <a name="set-up-the-elastic-stack"></a>Instellen van de Elastic Stack
+NSG-stroomlogboeken in contact met de Elastic Stack, kunnen we een Kibana-dashboard maken wat kunnen we zoeken, in een grafiek, analyseren en inzichten die zijn afgeleid van onze Logboeken.
 
 #### <a name="install-elasticsearch"></a>Elasticsearch installeren
 
-1. De elastische Stack versie 5.0 en hoger vereist Java 8. Voer de opdracht `java -version` uw versie controleren. Als u nog geen java installeren, Raadpleeg de documentatie op [van Oracle-website](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html)
-1. Download het juiste binaire pakket voor uw systeem:
+1. De Elastic Stack versie 5.0 en hoger is vereist voor Java 8. Voer de opdracht `java -version` om uw versie te controleren. Als u geen java installeren, Raadpleeg de documentatie op [van Oracle-website](http://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html).
+2. Download het juiste binaire pakket voor uw systeem:
 
-    ```bash
-    curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
-    sudo dpkg -i elasticsearch-5.2.0.deb
-    sudo /etc/init.d/elasticsearch start
-    ```
+   ```bash
+   curl -L -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.2.0.deb
+   sudo dpkg -i elasticsearch-5.2.0.deb
+   sudo /etc/init.d/elasticsearch start
+   ```
 
-    Andere installatiemethoden kunnen worden gevonden op [Elasticsearch installatie](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html)
+   Andere installatiemethoden kunnen worden gevonden op [Elasticsearch-installatie](https://www.elastic.co/guide/en/beats/libbeat/5.2/elasticsearch-installation.html)
 
-1. Controleer of Elasticsearch met de opdracht is uitgevoerd:
+3. Controleren of Elasticsearch wordt uitgevoerd met de opdracht:
 
     ```bash
     curl http://127.0.0.1:9200
     ```
 
-    U ziet een reactie vergelijkbaar met het volgende:
+    U ziet een antwoord ongeveer als volgt uit:
 
     ```json
     {
@@ -78,7 +77,7 @@ NSG stroom Logboeken verbinding met de elastische Stack, kunnen we een Kibana-da
     }
     ```
 
-Zie voor verdere instructies voor het installeren van elastische zoeken naar de pagina [installatie](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html)
+Raadpleeg voor meer instructies voor installeren elastische zoeken [installatie-instructies](https://www.elastic.co/guide/en/elasticsearch/reference/5.2/_installation.html).
 
 ### <a name="install-logstash"></a>Logstash installeren
 
@@ -88,164 +87,162 @@ Zie voor verdere instructies voor het installeren van elastische zoeken naar de 
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
     sudo dpkg -i logstash-5.2.0.deb
     ```
-1. Vervolgens moet Logstash voor toegang tot en het parseren van de logboeken van de stroom te configureren. Maak een logstash.conf-bestand met:
+2. Vervolgens moeten we Logstash om te openen en parseren van de stroomlogboeken configureren. Maak een logstash.conf bestand met:
 
     ```bash
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
-1. De volgende inhoud toevoegen aan het bestand:
+3. Voeg de volgende inhoud toe aan het bestand:
 
-  ```
-input {
-   azureblob
-     {
-         storage_account_name => "mystorageaccount"
-         storage_access_key => "VGhpcyBpcyBhIGZha2Uga2V5Lg=="
-         container => "insights-logs-networksecuritygroupflowevent"
-         codec => "json"
-         # Refer https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
-         # Typical numbers could be 21/9 or 12/2 depends on the nsg log file types
-         file_head_bytes => 12
-         file_tail_bytes => 2
-         # Enable / tweak these settings when event is too big for codec to handle.
-         # break_json_down_policy => "with_head_tail"
-         # break_json_batch_count => 2
+   ```
+   input {
+      azureblob
+        {
+            storage_account_name => "mystorageaccount"
+            storage_access_key => "VGhpcyBpcyBhIGZha2Uga2V5Lg=="
+            container => "insights-logs-networksecuritygroupflowevent"
+            codec => "json"
+            # Refer https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
+            # Typical numbers could be 21/9 or 12/2 depends on the nsg log file types
+            file_head_bytes => 12
+            file_tail_bytes => 2
+            # Enable / tweak these settings when event is too big for codec to handle.
+            # break_json_down_policy => "with_head_tail"
+            # break_json_batch_count => 2
+        }
+      }
+
+      filter {
+        split { field => "[records]" }
+        split { field => "[records][properties][flows]"}
+        split { field => "[records][properties][flows][flows]"}
+        split { field => "[records][properties][flows][flows][flowTuples]"}
+
+     mutate{
+      split => { "[records][resourceId]" => "/"}
+      add_field => {"Subscription" => "%{[records][resourceId][2]}"
+                    "ResourceGroup" => "%{[records][resourceId][4]}"
+                    "NetworkSecurityGroup" => "%{[records][resourceId][8]}"}
+      convert => {"Subscription" => "string"}
+      convert => {"ResourceGroup" => "string"}
+      convert => {"NetworkSecurityGroup" => "string"}
+      split => { "[records][properties][flows][flows][flowTuples]" => ","}
+      add_field => {
+                  "unixtimestamp" => "%{[records][properties][flows][flows][flowTuples][0]}"
+                  "srcIp" => "%{[records][properties][flows][flows][flowTuples][1]}"
+                  "destIp" => "%{[records][properties][flows][flows][flowTuples][2]}"
+                  "srcPort" => "%{[records][properties][flows][flows][flowTuples][3]}"
+                  "destPort" => "%{[records][properties][flows][flows][flowTuples][4]}"
+                  "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
+                  "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
+                  "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
+                   }
+      convert => {"unixtimestamp" => "integer"}
+      convert => {"srcPort" => "integer"}
+      convert => {"destPort" => "integer"}        
      }
-   }
 
-   filter {
-     split { field => "[records]" }
-     split { field => "[records][properties][flows]"}
-     split { field => "[records][properties][flows][flows]"}
-     split { field => "[records][properties][flows][flows][flowTuples]"}
+     date{
+       match => ["unixtimestamp" , "UNIX"]
+     }
+    }
+   output {
+     stdout { codec => rubydebug }
+     elasticsearch {
+       hosts => "localhost"
+       index => "nsg-flow-logs"
+     }
+   }  
+   ```
 
-  mutate{
-   split => { "[records][resourceId]" => "/"}
-   add_field => {"Subscription" => "%{[records][resourceId][2]}"
-                 "ResourceGroup" => "%{[records][resourceId][4]}"
-                 "NetworkSecurityGroup" => "%{[records][resourceId][8]}"}
-   convert => {"Subscription" => "string"}
-   convert => {"ResourceGroup" => "string"}
-   convert => {"NetworkSecurityGroup" => "string"}
-   split => { "[records][properties][flows][flows][flowTuples]" => ","}
-   add_field => {
-               "unixtimestamp" => "%{[records][properties][flows][flows][flowTuples][0]}"
-               "srcIp" => "%{[records][properties][flows][flows][flowTuples][1]}"
-               "destIp" => "%{[records][properties][flows][flows][flowTuples][2]}"
-               "srcPort" => "%{[records][properties][flows][flows][flowTuples][3]}"
-               "destPort" => "%{[records][properties][flows][flows][flowTuples][4]}"
-               "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
-               "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
-               "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
-                }
-   convert => {"unixtimestamp" => "integer"}
-   convert => {"srcPort" => "integer"}
-   convert => {"destPort" => "integer"}        
-  }
+Voor verdere instructies over het installeren van Logstash, raadpleegt u de [officiële documentatie](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html).
 
-  date{
-    match => ["unixtimestamp" , "UNIX"]
-  }
- }
-output {
-  stdout { codec => rubydebug }
-  elasticsearch {
-    hosts => "localhost"
-    index => "nsg-flow-logs"
-  }
-}  
-  ```
+### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>De invoer Logstash-invoegtoepassing voor Azure blob-opslag installeren
 
-Raadpleeg voor meer informatie over het installeren van Logstash de [officiële documentatie](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html)
-
-### <a name="install-the-logstash-input-plugin-for-azure-blob-storage"></a>Installeren van de invoer Logstash-invoegtoepassing voor Azure blob-opslag
-
-Deze invoegtoepassing Logstash kunt u rechtstreeks toegang krijgen tot de logboeken van de stroom van hun aangewezen storage-account. Voer de opdracht uit de standaardinstallatiemap van Logstash (in dit geval /usr/share/logstash/bin) voor het installeren van deze invoegtoepassing:
+Deze Logstash-invoegtoepassing kunt u rechtstreeks toegang tot de logboeken van de stroom vanuit hun aangewezen storage-account. Voer de opdracht uit de installatiemap van de standaard-Logstash (in dit geval /usr/share/logstash/bin) voor het installeren van deze invoegtoepassing:
 
 ```bash
 logstash-plugin install logstash-input-azureblob
 ```
 
-Voer de opdracht Logstash starten:
+Start Logstash voert u de opdracht uit:
 
 ```bash
 sudo /etc/init.d/logstash start
 ```
 
-Raadpleeg de documentatie voor meer informatie over deze invoegtoepassing [hier](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob)
+Raadpleeg voor meer informatie over deze invoegtoepassing de [documentatie](https://github.com/Azure/azure-diagnostics-tools/tree/master/Logstash/logstash-input-azureblob).
 
 ### <a name="install-kibana"></a>Kibana installeren
 
 1. Voer de volgende opdrachten voor het installeren van Kibana:
 
-  ```bash
-  curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
-  tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
-  ```
+   ```bash
+   curl -L -O https://artifacts.elastic.co/downloads/kibana/kibana-5.2.0-linux-x86_64.tar.gz
+   tar xzvf kibana-5.2.0-linux-x86_64.tar.gz
+   ```
 
-1. Kibana gebruik de opdrachten uitvoeren:
+2. Kibana gebruik de opdrachten uitvoeren:
 
-  ```bash
-  cd kibana-5.2.0-linux-x86_64/
-  ./bin/kibana
-  ```
+   ```bash
+   cd kibana-5.2.0-linux-x86_64/
+   ./bin/kibana
+   ```
 
-1. Als u wilt de webinterface voor uw Kibana weergeven, gaat u naar `http://localhost:5601`
-1. In dit scenario is het patroon index voor de logboeken van de stroom 'nsg-flow-logs'. U kunt het patroon van de index in de sectie 'uitvoer' van het bestand logstash.conf wijzigen.
+3. Als u de webinterface voor uw Kibana, gaat u naar `http://localhost:5601`
+4. Voor dit scenario is de index-patroon gebruikt voor de logboeken van de stroom '--stroomlogboeken'. U kunt het patroon index in de sectie 'uitvoer' van het bestand logstash.conf wijzigen.
+5. Als u wilt om op afstand de Kibana-dashboard weer te geven, maakt u een inkomende NSG-regel toestaan van toegang tot **poort 5601**.
 
-1. Als u weergeven van het dashboard Kibana op afstand wilt, maakt u een inkomende NSG-regel om toegang te kunnen **5601 poort**.
+### <a name="create-a-kibana-dashboard"></a>Een Kibana-dashboard maken
 
-### <a name="create-a-kibana-dashboard"></a>Een dashboard Kibana maken
-
-We hebben een voorbeelddashboard u trends en details weergeven in uw waarschuwingen opgegeven voor dit artikel.
+In de volgende afbeelding ziet u een voorbeelddashboard om trends en details in uw waarschuwingen weer te geven:
 
 ![afbeelding 1][1]
 
-1. Download het bestand dashboard [hier](https://aka.ms/networkwatchernsgflowlogdashboard), het bestand visualisatie [hier](https://aka.ms/networkwatchernsgflowlogvisualizations), en het bestand opgeslagen zoekopdracht [hier](https://aka.ms/networkwatchernsgflowlogsearch).
+Download de [dashboardbestand](https://aka.ms/networkwatchernsgflowlogdashboard), wordt de [visualisatie bestand](https://aka.ms/networkwatchernsgflowlogvisualizations), en de [search-bestand hebt opgeslagen](https://aka.ms/networkwatchernsgflowlogsearch).
 
-1. Onder de **Management** tabblad van Kibana, gaat u naar **opgeslagen objecten** en alle drie bestanden te importeren. Klik vanuit de **Dashboard** tabblad kunt u openen en de voorbeelddashboard laden.
+Onder de **Management** tabblad van Kibana, gaat u naar **opgeslagen objecten** en alle drie bestanden te importeren. Klik vanuit de **Dashboard** tabblad kunt u openen en het voorbeelddashboard laden.
 
-U kunt ook uw eigen visualisaties en -dashboards naar metrische gegevens van uw eigen belang aangepast maken. Meer informatie over het maken van Kibana visualisaties van de Kibana [officiële documentatie](https://www.elastic.co/guide/en/kibana/current/visualize.html).
+U kunt ook uw eigen visualisaties en dashboards die zijn afgestemd op uw eigen nuttige meetgegevens beschikbaar maken. Meer informatie over het maken van Kibana visualisaties uit de Kibana [officiële documentatie](https://www.elastic.co/guide/en/kibana/current/visualize.html).
 
-### <a name="visualize-nsg-flow-logs"></a>NSG-logboeken voor stroom visualiseren
+### <a name="visualize-nsg-flow-logs"></a>NSG-stroomlogboeken visualiseren
 
-De voorbeelddashboard biedt verschillende visualisaties van de stroom-Logboeken:
+Het voorbeelddashboard van biedt verschillende visualisaties van de logboeken van de stroom:
 
-1. Loopt door besluit/richting gedurende een periode - time series grafieken met het aantal stromen gedurende de periode. U kunt de tijdseenheid en bereik van deze beide visualisaties bewerken. Stromen beschikking toont het aandeel van toestaan of weigeren beslissingen, hoewel stromen door richting wordt aangegeven dat het aandeel van binnenkomend en uitgaand verkeer. U kunt met deze visuele verkeer trends na verloop van tijd onderzoeken en zoekt u alle pieken of ongebruikelijke patronen.
+1. Stromen op besluit/richting gedurende een periode - tijd reeks grafieken met het aantal stromen gedurende de periode. U kunt de eenheid van de tijd en tijdsbestek van beide deze visualisaties bewerken. Stromen op besluit geeft het deel van de toestaan of weigeren van beslissingen, hoewel stromen op richting op het aandeel van binnenkomend en uitgaand verkeer. U kunt met deze visuele elementen onderzoeken verkeer trends na verloop van tijd en zoek naar eventuele pieken of ongewone patronen.
 
-  ![afbeelding 2][2]
+   ![afbeelding 2][2]
 
-1. Loopt door bestemming/bronpoort – cirkeldiagrammen de uitsplitsing van stromen naar hun respectieve poorten wordt weergegeven. Aan deze weergave ziet u de meest gebruikte poorten. Als u op een specifieke poort binnen het cirkeldiagram klikt, wordt de rest van het dashboard naar beneden stromen van die poort filteren.
+2. Stromen op bestemming/bronpoort – cirkeldiagrammen met de verdeling van de stromen naar hun respectieve poorten. Met deze weergave ziet u de meest gebruikte poorten. Als u op een specifieke poort in het cirkeldiagram klikt, wordt de rest van het dashboard wordt gefilterd op stromen van deze poort.
 
-  ![figure3][3]
+   ![figure3][3]
 
-1. Aantal stromen en vroegste logboek tijd – metrische gegevens die u met het aantal overdrachten geregistreerd en de datum van het eerste logboek vastgelegd.
+3. Aantal stromen en vroegste tijd van beveiligingslogboek: metrische gegevens die u het aantal stromen die zijn geregistreerd en de datum van het eerste logboek vastgelegd.
 
-  ![figure4][4]
+   ![figure4][4]
 
-1. Stromen door het NSG en regel: een staafdiagram waarin u de distributie van stromen binnen elke NSG, evenals de distributie van regels binnen elke NSG. Hier ziet u welke NSG en de regels voor de meeste verkeer gegenereerd.
+4. Stromen op Netwerkbeveiligingsgroep en regel: een staafdiagram waarin u de distributie van stromen binnen elke NSG, evenals de verdeling van de regels in elke NSG. Hier ziet u welke NSG en regels voor de meeste verkeer gegenereerd.
 
-  ![figure5][5]
+   ![figure5][5]
 
-1. Top 10 bron/het doel IP-adressen – staafdiagrammen met de top 10 bron en doel-IP-adressen. U kunt deze grafieken om weer te geven van meer of minder bovenste IP-adressen aanpassen. Hier ziet u het meest optreden IP-adressen, evenals het verkeer besluit (toestaan of weigeren) wordt gemaakt voor elke IP.
+5. Top 10 bron-/ doel-IP-adressen: staafdiagrammen met de top 10-bron en doel-IP-adressen. U kunt deze grafieken om meer of minder bovenste IP-adressen weer te geven. Hier ziet u het meest optreden IP-adressen, evenals de beslissing verkeer (toestaan of weigeren) wordt gemaakt voor elke IP.
 
-  ![figure6][6]
+   ![figure6][6]
 
-1. Stroom Tuples – deze tabel ziet u de informatie in elke tuple stroom, evenals de bijbehorende NGS en de regel.
+6. Stroom Tuples – deze tabel ziet u de informatie in elke tuple stroom, evenals de bijbehorende NGS en regel.
 
-  ![figure7][7]
+   ![figure7][7]
 
-Met behulp van de query-balk aan de bovenkant van het dashboard, kunt u filteren op het dashboard op basis van een parameter van de flows zoals abonnements-ID, resourcegroepen, regel of een andere variabele van belang. Raadpleeg voor meer informatie over Kibana van query's en filters, de [officiële documentatie](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
+Met behulp van de balk voor query's aan de bovenkant van het dashboard, kunt u filteren op het dashboard op basis van een parameter van de stromen, zoals de abonnements-ID, resourcegroepen, regel of een andere variabele van belang zijn. Raadpleeg voor meer informatie over de Kibana-query's en filters, de [officiële documentatie](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 
 ## <a name="conclusion"></a>Conclusie
 
-Door de logboeken van de stroom van de Netwerkbeveiligingsgroep in combinatie met de elastische Stack, hebben we actief krachtige manier om te visualiseren onze netwerkverkeer. Deze dashboards kunnen u snel toegang en inzichten te delen over uw netwerkverkeer, evenals de filter omlaag en onderzoek op alle mogelijke afwijkingen. Kibana gebruikt, kunt u deze dashboards aanpassen en maak specifieke visualisaties om te voldoen aan de behoeften van elke beveiliging, controle en naleving.
+Door de stroomlogboeken van Netwerkbeveiligingsgroep combineren met de Elastic Stack, wij hebben zijn beschikbaar met krachtige en aanpasbare manier voor het visualiseren van onze netwerkverkeer. Deze dashboards kunnen u snel toegang en deel inzichten over uw netwerkverkeer, evenals de filter omlaag en onderzoek op elke mogelijke afwijkingen. Met behulp van Kibana, kunt u deze dashboards aanpassen en maken van specifieke visualisaties om te voldoen aan de behoeften voor beveiliging, controle en naleving.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het visualiseren van uw NSG stroom logboeken met Power BI in via [visualiseren NSG loopt logboeken met Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
-
+Meer informatie over het visualiseren van uw NSG-stroomlogboeken met Power BI recentst [visualiseren NSG-stromen logboeken met Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
 
 <!--Image references-->
 

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/20/2018
+ms.date: 08/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: b6547bee13d039dcd34377565eb518eeb6739a38
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 47509cd0a9208f41a52bf1a07c460bcdda2cb479
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480898"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42060645"
 ---
 # <a name="what-is-azure-load-balancer"></a>Wat is Azure Load Balancer?
 
@@ -44,7 +44,7 @@ U kunt Azure Load Balancer te gebruiken:
 
 
 >[!NOTE]
-> Azure biedt een reeks volledig beheerde oplossingen voor taakverdeling voor uw scenario's. Als u zoekt naar beëindiging van Transport Layer Security (TLS)-protocol ('SSL-offload') of per-HTTP/HTTPS-aanvraag, toepassingslaag verwerken, raadpleegt u [Application Gateway](../application-gateway/application-gateway-introduction.md). Als u voor globale DNS-taakverdeling, Controleer [Traffic Manager](../traffic-manager/traffic-manager-overview.md). Uw end-to-end scenario's kunnen profiteren van deze oplossingen worden gecombineerd als nodig is.
+> Azure biedt een pakket volledig beheerde oplossingen voor taakverdeling voor uw scenario's. Als u op zoek bent naar beëindiging van het TLS-protocol (Transport Layer Security), ('SSL-offload') of aanvragen per HTTP/HTTPS-aanvraag, verwerking via de toepassingslaag, raadpleegt u [Application Gateway](../application-gateway/application-gateway-introduction.md). Als u voor globale DNS-taakverdeling, Controleer [Traffic Manager](../traffic-manager/traffic-manager-overview.md). Uw end-to-end scenario 's kunnen eventueel profiteren van een combinatie van deze oplossingen.
 
 ## <a name="what-are-load-balancer-resources"></a>Wat zijn de resources voor load balancer?
 
@@ -86,15 +86,11 @@ Load Balancer biedt de volgende fundamentele mogelijkheden voor TCP en UDP-toepa
 
 * **Statuscontroles**
 
-     Load Balancer gebruikt om te bepalen van de status van exemplaren in de back-endpool, statuscontroles die u definieert. Wanneer een test niet reageert, stopt de load balancer nieuwe verbindingen te verzenden naar de exemplaren. Bestaande verbindingen worden niet beïnvloed en blijven totdat de toepassing wordt de stroom beëindigd er treedt een time-out voor inactiviteit op, of de virtuele machine wordt afgesloten.
+    Load Balancer gebruikt om te bepalen van de status van exemplaren in de back-endpool, statuscontroles die u definieert. Wanneer een test niet reageert, stopt de load balancer nieuwe verbindingen te verzenden naar de exemplaren. Bestaande verbindingen worden niet beïnvloed en blijven totdat de toepassing wordt de stroom beëindigd er treedt een time-out voor inactiviteit op, of de virtuele machine wordt afgesloten.
+     
+    Load Balancer biedt [dan de status test typen](load-balancer-custom-probe-overview.md#types) voor TCP, HTTP en HTTPS-eindpunten.
 
-    Drie typen van de tests worden ondersteund:
-
-    - **Aangepaste HTTP-test**: U kunt deze test gebruiken om te maken van uw eigen aangepaste logica om te bepalen van de status van een exemplaar van de groep back-end. De load balancer controleert regelmatig uw eindpunt (elke 15 seconden, standaard). Het exemplaar wordt beschouwd als in orde zijn als met een HTTP-200 binnen de time-outperiode (standaard 31 seconden reageert). Elke status dan HTTP 200 zorgt ervoor dat deze test mislukt. Deze test is ook handig voor het implementeren van uw eigen logica voor de exemplaren uit de load balancer-rotatie verwijderen. U kunt bijvoorbeeld configureren dat de instantie de status van een niet-200 retourneren als het exemplaar groter is dan 90 procent CPU.  Deze test heeft voorrang op de standaard guest agent-test.
-
-    - **Aangepaste test TCP**: deze test is afhankelijk van het tot stand brengen van een geslaagde TCP-sessie met een gedefinieerde testpoort. Als de opgegeven listener op de virtuele machine bestaat, wordt deze test slaagt. Als de verbinding is geweigerd, mislukt de test. Deze test heeft voorrang op de standaard guest agent-test.
-
-    - **Test voor Guest agent**: de load balancer kan ook gebruikmaken van de gastagent binnen de virtuele machine. De gastagent luistert en reageert met een HTTP 200 OK antwoord alleen wanneer het exemplaar in de status gereed heeft is. Als de agent niet reageert met een HTTP 200 OK, wordt de load balancer markeert het exemplaar als niet-reagerende en verkeer verzenden naar dat exemplaar stopt. De load balancer blijft probeert te krijgen tot het exemplaar. Als de guest-agent met een HTTP-200 reageert, stuurt de load balancer verkeer opnieuw naar dat exemplaar. Gast-agent tests zijn een _laatste redmiddel en wordt niet aanbevolen_ wanneer HTTP of TCP-test met aangepaste configuraties mogelijk zijn. 
+    Bovendien, als u klassieke cloudservices, een aanvullend type is toegestaan: [gastagent](load-balancer-custom-probe-overview.md#guestagent).  Dit moet overwegen om te worden van een statustest van de laatste redmiddel en wordt niet aanbevolen als andere opties mogelijk zijn.
     
 * **Uitgaande verbindingen (SNAT)**
 
@@ -170,7 +166,7 @@ Voor informatie over de Standard Load Balancer SLA, gaat u naar de [Load Balance
 ## <a name="limitations"></a>Beperkingen
 
 - Load Balancer is een TCP of UDP-product voor taakverdeling en doorsturen via poort voor deze specifieke IP-protocollen.  Taakverdelingsregels en inkomende NAT-regels worden ondersteund voor TCP en UDP en wordt niet ondersteund voor andere IP-protocollen met inbegrip van ICMP. Load Balancer niet beëindigt, reageren of anders communiceren met de nettolading van een UDP of TCP-stroom. Het is niet een proxy. Succesvolle validatie van connectiviteit naar een frontend plaats in-band moet uitvoeren met hetzelfde protocol gebruikt in een load balancing of inkomende NAT-regel (TCP of UDP) _en_ moet ten minste één van uw virtuele machines een antwoord genereren voor een client Zie een reactie van een frontend.  Niet ontvangen van een in-band-antwoord van de Load Balancer-frontend geeft aan dat er waren geen virtuele machines kunnen reageren.  Het is niet mogelijk om te communiceren met een Load Balancer-frontend zonder een virtuele machine kunnen reageren.  Dit geldt ook voor uitgaande verbindingen waar [poort maskerade SNAT](load-balancer-outbound-connections.md#snat) wordt alleen ondersteund voor TCP en UDP-; geen andere IP-protocollen met inbegrip van ICMP ook mislukken.  Toewijzen van een openbaar IP-adres op exemplaarniveau te beperken.
-- In tegenstelling tot openbare Load Balancers waardoor [uitgaande verbindingen](load-balancer-outbound-connections.md) bij het overstappen van privé-IP-adressen binnen het virtuele netwerk naar openbare IP-adressen, interne Load Balancers niet doen vertalen uitgaande afkomstig is verbindingen met de front-end van een interne Load Balancer als beide zijn in privé-IP-adresruimte.  Hiermee voorkomt u mogelijkheden voor uitputting van SNAT in unieke interne IP-adresruimte waarbij vertaling niet vereist is.  Een neveneffect is dat als een uitgaande stroom vanuit een virtuele machine in de back-endpool probeert een stroom aan de front-end van de interne Load Balancer in die groep zich bevindt _en_ is toegewezen naar zichzelf, beide zijden van de stroom komen niet overeen en de stroom mislukt.  Als de stroom niet terug naar dezelfde virtuele machine in de back-endpool waarop de stroom aan de front-end hebt gemaakt toegewezen is, wordt de stroom slaagt.   Wanneer de stroom wordt toegewezen aan zichzelf de uitgaande stroom lijkt te zijn afkomstig uit de virtuele machine aan de front-end en de bijbehorende inkomende stroom lijkt te zijn afkomstig uit de virtuele machine naar zichzelf. Uit oogpunt van het Gastbesturingssysteem, niet overeenkomen met de binnenkomende en uitgaande delen van dezelfde stroom in de virtuele machine. Deze helften van dezelfde stroom wordt niet herkend als deel van dezelfde stroom als de bron- en doelserver komen niet overeen voor de TCP-stack.  Wanneer de stroom wordt toegewezen aan andere VM's in de back-endpool, komt overeen met de halve van de stroom en de stroom is de virtuele machine kan reageren.  Het symptoom voor dit scenario is onregelmatige verbindingstime-outs. Er zijn enkele algemene oplossingen voor het bereiken van dit scenario (die afkomstig zijn van stromen van een back-endpool naar de back-end-pools respectieve interne Load Balancer front-end) op betrouwbare wijze waaronder beide invoegen van een derde partij proxy achter de interne Load Balancer of [met behulp van de stijlregels DSR](load-balancer-multivip-overview.md).  Terwijl u een openbare Load Balancer gebruiken kunt om te beperken, het resulterende scenario is de kans op [SNAT bronuitputting](load-balancer-outbound-connections.md#snat) en moeten worden vermeden, tenzij zorgvuldig worden beheerd.
+- In tegenstelling tot openbare Load Balancers waardoor [uitgaande verbindingen](load-balancer-outbound-connections.md) bij het overstappen van privé-IP-adressen binnen het virtuele netwerk naar openbare IP-adressen, interne Load Balancers niet doen vertalen uitgaande afkomstig is verbindingen met de front-end van een interne Load Balancer als beide zijn in privé-IP-adresruimte.  Hiermee voorkomt u mogelijkheden voor SNAT poortuitputting in unieke interne IP-adresruimte waarbij vertaling niet vereist is.  Een neveneffect is dat als een uitgaande stroom vanuit een virtuele machine in de back-endpool probeert een stroom aan de front-end van de interne Load Balancer in die groep zich bevindt _en_ is toegewezen naar zichzelf, beide zijden van de stroom komen niet overeen en de stroom mislukt.  Als de stroom niet terug naar dezelfde virtuele machine in de back-endpool waarop de stroom aan de front-end hebt gemaakt toegewezen is, wordt de stroom slaagt.   Wanneer de stroom wordt toegewezen aan zichzelf de uitgaande stroom lijkt te zijn afkomstig uit de virtuele machine aan de front-end en de bijbehorende inkomende stroom lijkt te zijn afkomstig uit de virtuele machine naar zichzelf. Uit oogpunt van het Gastbesturingssysteem, niet overeenkomen met de binnenkomende en uitgaande delen van dezelfde stroom in de virtuele machine. Deze helften van dezelfde stroom wordt niet herkend als deel van dezelfde stroom als de bron- en doelserver komen niet overeen voor de TCP-stack.  Wanneer de stroom wordt toegewezen aan andere VM's in de back-endpool, komt overeen met de halve van de stroom en de stroom is de virtuele machine kan reageren.  Het symptoom voor dit scenario is onregelmatige verbindingstime-outs wanneer de stroom weer de dezelfde back-end die afkomstig zijn van de stroom. Er zijn enkele algemene oplossingen voor het bereiken van dit scenario (die afkomstig zijn van stromen van een back-endpool naar de back-end-pools respectieve interne Load Balancer front-end) op betrouwbare wijze waaronder beide invoegen van een proxylaag achter de interne Load Balancer of [met behulp van de stijlregels DSR](load-balancer-multivip-overview.md).  Klanten een interne Load Balancer combineren met een 3e partij proxy of vervanging interne [Application Gateway](../application-gateway/application-gateway-introduction.md) voor proxy's is beperkt tot HTTP/HTTPS. Terwijl u een openbare Load Balancer gebruiken kunt om te beperken, het resulterende scenario is de kans op [SNAT bronuitputting](load-balancer-outbound-connections.md#snat) en moeten worden vermeden, tenzij zorgvuldig worden beheerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

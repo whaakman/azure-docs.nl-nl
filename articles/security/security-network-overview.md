@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
+ms.date: 08/17/2018
 ms.author: terrylan
-ms.openlocfilehash: 7533f9db25da8e69d3fcfa76a61a06af2f1bc78c
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: ec8e4b1edfe815670664de83edf98a9e478101d2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345954"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42060633"
 ---
 # <a name="azure-network-security-overview"></a>Overzicht van de beveiliging van Azure-netwerk
 
@@ -57,6 +57,9 @@ Azure ondersteunt verschillende soorten netwerktoegangsbeheer, zoals:
 ### <a name="network-layer-control"></a>Besturingselement voor netwerk-laag
 
 Alle beveiligde implementatie vereist bepaalde meting van network access control. Het doel van netwerktoegangsbeheer is om te beperken de communicatie van de virtuele machine naar de systemen die nodig zijn. Andere communicatiepogingen worden geblokkeerd.
+
+>[!NOTE]
+Storage-Firewalls worden behandeld in de [beveiligingsoverzicht voor Azure storage](security-storage-overview.md) artikel
 
 #### <a name="network-security-rules-nsgs"></a>Netwerkbeveiligingsregels (nsg's)
 
@@ -323,7 +326,6 @@ U kunt ook [Microsoft Power BI](https://powerbi.microsoft.com/what-is-power-bi/)
 Meer informatie:
 
 * [Logboekanalyses voor Netwerkbeveiligingsgroepen (nsg's)](../virtual-network/virtual-network-nsg-manage-log.md)
-
 
 ## <a name="azure-ddos-protection"></a>Azure DDoS Protection
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 05bfa4a65098245c43b97af296bf6f26950d018f
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 04afd71183bcb8001d017b0027f29338b8d67ddb
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39330860"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442364"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Inschakelen en controleren van Kubernetes-hoofdknooppunt in Azure Kubernetes Service (AKS registreert)
 
@@ -127,4 +127,4 @@ In dit artikel hebt u geleerd over het inschakelen en bekijk de logboeken voor d
 [log-analytics-overview]: ../log-analytics/log-analytics-overview.md
 [analyze-log-analytics]: ../log-analytics/log-analytics-tutorial-viewdata.md
 [kubelet-logs]: kubelet-logs.md
-[aks-ssh]: aks-ssh.md
+[aks-ssh]: ssh.md

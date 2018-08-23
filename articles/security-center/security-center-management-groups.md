@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/18/2018
+ms.date: 08/22/2018
 ms.author: terrylan
-ms.openlocfilehash: 800ec83b3599dba716e7a4a015b9b8c1745a0975
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 91d1be062dbf05f4c7c9c5c4a1eb3dfcfdb001af
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144564"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42441691"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Tenant-brede inzicht voor Azure Security Center
 Dit artikel helpt u aan de slag met het uitvoeren van verschillende acties die de Azure Security Center biedt voordelen maximaliseren. Deze acties worden uitgevoerd, kunt u inzicht op alle Azure-abonnementen die zijn gekoppeld aan uw Azure Active Directory-tenant en effectief beheren van de beveiligingsstatus van uw organisatie op schaal door het toepassen van beveiligingsbeleid voor meerdere krijgen abonnementen op een aggregative manier.
@@ -85,21 +85,26 @@ Een tenantbeheerder van Azure Active Directory heeft geen directe toegang tot Az
 
 5. Voer de taken die u wilt maken op de uitgebreide toegangsrechten. Wanneer u klaar bent, stelt u de switch terug naar **Nee**.
 
-### <a name="open-or-refresh-security-center"></a>Open of vernieuwen van Security Center
-Als u toegang hebt uitgebreid, openen of vernieuwen van Azure Security Center om te controleren of dat u hebt inzicht in alle abonnementen voor uw Azure AD-tenant. 
-
-1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
-2. Zorg ervoor dat u alle abonnementen in de lijst met abonnementen die u wilt weergeven in Security Center.
-    ![Schermafbeelding van de abonnement-selector](./media/security-center-management-groups/subscription-selector.png)
-1. Selecteer **alle services** onder het Azure-hoofdmenu Selecteer **Security Center**.
-2. In de **overzicht**, bevindt zich een diagram van de dekking voor abonnement. 
-    ![Schermafbeelding van abonnement dekking grafiek](./media/security-center-management-groups/security-center-subscription-coverage.png)
-3. Klik op **dekking** om te zien van de lijst met abonnementen gedekt. 
-    ![Schermafbeelding van de lijst met abonnement dekking](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="assign-rbac-roles-to-users"></a>RBAC-rollen toewijzen aan gebruikers
-Zodra een tenantbeheerder met verhoogde voor toegang bevoegdheden heeft, kan een RBAC-rol toewijzen aan gebruikers op het niveau van de root management. De aanbevolen functie om toe te wijzen is [ **lezer**](../role-based-access-control/built-in-roles.md#reader). Deze rol is vereist voor zichtbaarheid op tenantniveau. De toegewezen rol wordt automatisch doorgegeven aan alle beheergroepen en abonnementen onder de root management-groep. Zie voor meer informatie over RBAC-rollen, [beschikbare rollen](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles). 
+Voor meer zichtbaarheid voor alle abonnementen, moeten tenantbeheerders de juiste RBAC-rol toewijzen aan gebruikers voor het verlenen van tenant-brede zichtbaarheid, zelf, met inbegrip van op het hoofdniveau van de management-groep. De aanbevolen rollen om toe te wijzen zijn **beveiligingsbeheerder** of **Beveiligingslezer**. De rol Beveiligingsbeheerder is over het algemeen moet beleidsregels toepassen op het hoogste niveau doen, terwijl Beveiligingslezer worden volstaan om aan te bieden zichtbaarheid op tenantniveau. Zie voor meer informatie over de machtigingen van deze rollen, de [beschrijving van de ingebouwde rol Beveiligingsbeheerder](../role-based-access-control/built-in-roles.md#security-admin) of de [beschrijving van de ingebouwde rol Beveiligingslezer](../role-based-access-control/built-in-roles.md#security-reader).
 
+
+#### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>RBAC-rollen toewijzen aan gebruikers via de Azure-portal: 
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
+2. Als u beheergroepen, selecteer **alle services** onder het Azure-hoofdmenu Selecteer **beheergroepen**.
+3.  Selecteer een beheergroep en klik op **details**.
+
+    ![Beheer van groepen details-schermafbeelding](./media/security-center-management-groups/management-group-details.PNG)
+ 
+4. Klik op **toegangsbeheer (IAM)** vervolgens **toevoegen**.
+5. Selecteer de rol om toe te wijzen en de gebruiker en klik vervolgens op **opslaan**.  
+   
+   ![Schermafbeelding van de rol van Beveiligingslezer toevoegen](./media/security-center-management-groups/asc-security-reader.png)
+
+
+#### <a name="assign-rbac-roles-to-users-with-powershell"></a>RBAC-rollen toewijzen aan gebruikers met PowerShell: 
 1. Installeer [Azure PowerShell](/powershell/azure/install-azurerm-ps).
 2. Voer de volgende opdrachten uit: 
 
@@ -128,19 +133,17 @@ Zodra een tenantbeheerder met verhoogde voor toegang bevoegdheden heeft, kan een
     Remove-AzureRmRoleAssignment -SignInName "user@domain.com" -RoleDefinitionName "Reader" -Scope "/" 
     ```
 
-<!-- Currently, PowerShell method only 6/26/18
+### <a name="open-or-refresh-security-center"></a>Open of vernieuwen van Security Center
+Als u toegang hebt uitgebreid, openen of vernieuwen van Azure Security Center om te controleren of dat u hebt inzicht in alle abonnementen voor uw Azure AD-tenant. 
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. To view management groups, select **All services** under the Azure main menu then select **Management Groups**.
-3.  Select a management group and click **details**.
-
-    ![Management Groups details screenshot](./media/security-center-management-groups/management-group-details.PNG)
- 
-4. Click **Access control (IAM)** then **Add**.
-5. Select the role to assign and the user, then click **Save**.  
-   
-   ![Add Security Reader role screenshot](./media/security-center-management-groups/asc-security-reader.png)
--->
+1. Meld u aan bij [Azure Portal](https://portal.azure.com). 
+2. Zorg ervoor dat u alle abonnementen in de lijst met abonnementen die u wilt weergeven in Security Center.
+    ![Schermafbeelding van de abonnement-selector](./media/security-center-management-groups/subscription-selector.png)
+1. Selecteer **alle services** onder het Azure-hoofdmenu Selecteer **Security Center**.
+2. In de **overzicht**, bevindt zich een diagram van de dekking voor abonnement. 
+    ![Schermafbeelding van abonnement dekking grafiek](./media/security-center-management-groups/security-center-subscription-coverage.png)
+3. Klik op **dekking** om te zien van de lijst met abonnementen gedekt. 
+    ![Schermafbeelding van de lijst met abonnement dekking](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>Toegang met verhoogde bevoegdheid verwijderen 
 Zodra de RBAC-rollen zijn toegewezen aan de gebruikers, moet de tenantbeheerder zelf verwijderen uit de rol Beheerder gebruikerstoegang.

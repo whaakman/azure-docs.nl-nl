@@ -1,6 +1,6 @@
 ---
-title: Gegevens verplaatsen van een lokale SQL Server naar SQL Azure met Azure Data Factory | Microsoft Docs
-description: Stel een ADF-pijplijn die stelt het bericht op twee activiteiten van de gegevens migreren die gegevens samen dagelijks tussen databases on-premises en in de cloud verplaatsen.
+title: Gegevens verplaatsen van een on-premises SQL Server naar SQL Azure met Azure Data Factory | Microsoft Docs
+description: Instellen van een ADF-pijplijn waarmee stelt het bericht op twee activiteiten van de gegevens migreren die samen gegevens dagelijks tussen databases on-premises en in de cloud verplaatsen.
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,108 +15,108 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: e9f6de3d4f4f731c2e727889bef1aef129cb00bf
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 5e5e8c3a81d911cb47edfcb5432bc423872a29ec
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838098"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42054940"
 ---
-# <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Gegevens verplaatsen van een lokale SQL server naar SQL Azure met Azure Data Factory
-Dit onderwerp wordt beschreven hoe gegevens uit een lokale SQL Server-Database verplaatsen naar een Azure SQL Database via Azure Blob Storage met Azure Data Factory (ADF).
+# <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Gegevens verplaatsen van een on-premises SQL server naar SQL Azure met Azure Data Factory
+In dit onderwerp wordt beschreven hoe gegevens uit een on-premises SQL Server-Database verplaatsen naar een SQL Azure-Database via Azure Blob Storage met behulp van de Azure Data Factory (ADF).
 
-Zie voor een tabel die een overzicht van de verschillende opties voor het verplaatsen van gegevens naar een Azure SQL Database, [gegevens verplaatsen naar een Azure SQL Database voor Azure Machine Learning](move-sql-azure.md).
+Zie voor een tabel met een overzicht van verschillende opties voor het verplaatsen van gegevens naar een Azure SQL Database, [gegevens verplaatsen naar een Azure SQL Database voor Azure Machine Learning](move-sql-azure.md).
 
 ## <a name="intro"></a>Inleiding: Wat is er ADF en wanneer moet deze worden gebruikt om gegevens te migreren?
-Azure Data Factory is een volledig beheerde gegevens cloud-gebaseerde integration-service die is ingedeeld en automatiseert de verplaatsing en transformatie van gegevens. Het belangrijkste concept in het model ADF is pijplijn. Een pijplijn is een logische groepering van activiteiten, die elk de acties die worden uitgevoerd op de gegevens in de gegevenssets definieert. Gekoppelde services worden gebruikt voor het definiëren van de informatie die nodig zijn voor Data Factory verbinding maken met de gegevensbronnen.
+Azure Data Factory is een volledig beheerde cloud-gebaseerde service voor gegevensintegratie die wordt georganiseerd en de verplaatsing en transformatie van gegevens worden geautomatiseerd. Het belangrijkste concept in het model ADF is de pijplijn. Een pijplijn is een logische groepering van activiteiten, die elk de acties die worden uitgevoerd op de gegevens die zijn opgenomen in gegevenssets definieert. Gekoppelde services worden gebruikt om de informatie die nodig zijn voor Data Factory verbinding maken met de gegevensbronnen die worden gedefinieerd.
 
-Met ADF, bestaande services voor gegevensverwerking samengesteld kunnen zijn, in gegevenspijplijnen die maximaal beschikbaar en wordt beheerd in de cloud. Deze gegevenspijplijnen voor opnemen, voorbereiden, transformeren, analyseren en publiceren van gegevens kunnen worden gepland en ADF beheert en stuurt de complexe gegevens en de verwerking van afhankelijkheden. Oplossingen kunnen snel worden gemaakt en geïmplementeerd in de cloud, verbinding maken met een toenemend aantal lokale en cloud-gegevensbronnen.
+Met ADF, kunnen bestaande services voor gegevensverwerking bestaan in gegevenspijplijnen die maximaal beschikbaar en beheerd in de cloud. Deze gegevens-pipelines voor het opnemen, voorbereiden, transformeren, analyseren en publiceren van gegevens kunnen worden gepland en ADF beheert en orkestreert de complexe gegevens en de verwerking van afhankelijkheden. Oplossingen kunnen snel worden gebouwd en geïmplementeerd in de cloud, verbinding te maken van een groeiend aantal on-premises en cloudgegevensbronnen.
 
 Overweeg het gebruik van ADF:
 
-* Wanneer de gegevens moeten voortdurend worden gemigreerd in een hybride scenario die toegang heeft tot zowel on-premises en cloudresources
-* Wanneer de gegevens is transactionele of moet worden gewijzigd of dat er zakelijke logica toegevoegd wanneer wordt gemigreerd.
+* Wanneer gegevens moeten voortdurend worden gemigreerd een hybride scenario die toegang heeft tot zowel on-premises en cloudbronnen
+* Wanneer de gegevens is uitgevoerd of moet worden gewijzigd of toegevoegd als gemigreerd bedrijfslogica hebt.
 
-ADF kunt u de planning en bewaking van taken met behulp van eenvoudige JSON-scripts die de verplaatsing van gegevens op periodieke basis beheren. ADF heeft ook andere mogelijkheden, zoals ondersteuning voor complexe bewerkingen. Zie de documentatie op voor meer informatie over ADF [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
+ADF kunt u de planning en controle van taken met behulp van eenvoudige JSON-scripts waarmee de verplaatsing van gegevens op periodieke basis kunt beheren. ADF heeft ook andere mogelijkheden, zoals ondersteuning voor complexe bewerkingen. Voor meer informatie over ADF, Raadpleeg de documentatie bij [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
 
 ## <a name="scenario"></a>Het Scenario
-We instellen een ADF-pijplijn die de activiteiten van de migratie twee gegevens stelt het bericht. Samen wordt gegevens dagelijks verplaatsen tussen een lokale SQL-database en een Azure SQL Database in de cloud. Er zijn twee activiteiten:
+We instellen een ADF-pijplijn waarmee twee gegevens migratieactiviteiten stelt het bericht. Samen wordt gegevens dagelijks verplaatsen tussen een on-premises SQL-database en een Azure SQL Database in de cloud. De twee activiteiten zijn:
 
-* gegevens kopiëren van een on-premises SQL Server database naar een Azure Blob Storage-account
+* gegevens kopiëren van een on-premises SQL Server-database naar een Azure Blob Storage-account
 * gegevens kopiëren van de Azure Blob Storage-account naar een Azure SQL Database.
 
 > [!NOTE]
-> De stappen die hier zijn aangepast uit de meer gedetailleerde zelfstudie geleverd door de ADF-team weergegeven: [gegevens verplaatsen tussen lokale bronnen en cloud met Data Management Gateway](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md) verwijzingen naar de relevante secties in dat onderwerp zijn opgegeven indien van toepassing.
+> De stappen die hier zijn aangepast van de meer gedetailleerde zelfstudie die door het team ADF weergegeven: [gegevens verplaatsen tussen on-premises bronnen en de cloud met Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md) verwijzingen naar de relevante secties van dit onderwerp zijn Als dat mogelijk is opgegeven.
 >
 >
 
 ## <a name="prereqs"></a>Vereisten
-Deze zelfstudie wordt ervan uitgegaan dat u hebt:
+In deze zelfstudie wordt ervan uitgegaan dat u hebt:
 
 * Een **Azure-abonnement**. Als u geen abonnement hebt, kunt u zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
-* Een **Azure storage-account**. U kunt een Azure storage-account gebruiken voor het opslaan van de gegevens in deze zelfstudie. Zie het artikel [Een opslagaccount maken](../../storage/common/storage-create-storage-account.md#create-a-storage-account) als u geen account Azure-opslagaccount hebt. Nadat u het opslagaccount hebt gemaakt, moet u de accountsleutel ophalen die wordt gebruikt voor toegang tot de opslag. Zie [beheren van uw toegangssleutels voor opslag](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
-* Toegang tot een **Azure SQL Database**. Als u een Azure SQL Database het onderwerp moet instellen [aan de slag met Microsoft Azure SQL Database ](../../sql-database/sql-database-get-started.md) bevat informatie over het inrichten van een nieuw exemplaar van een Azure SQL Database.
-* Geïnstalleerd en geconfigureerd **Azure PowerShell** lokaal. Zie voor instructies [installeren en configureren van Azure PowerShell](/powershell/azure/overview).
+* Een **Azure storage-account**. U kunt een Azure storage-account gebruiken voor het opslaan van de gegevens in deze zelfstudie. Zie het artikel [Een opslagaccount maken](../../storage/common/storage-quickstart-create-account.md) als u geen account Azure-opslagaccount hebt. Nadat u het opslagaccount hebt gemaakt, moet u de accountsleutel ophalen die wordt gebruikt voor toegang tot de opslag. Zie [beheren van uw toegangssleutels voor opslag](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
+* Toegang tot een **Azure SQL Database**. Als u een Azure SQL-Database het onderwerp moet instellen [aan de slag met Microsoft Azure SQL Database ](../../sql-database/sql-database-get-started.md) bevat informatie over hoe u een nieuw exemplaar van een Azure SQL-Database inricht.
+* Geïnstalleerd en geconfigureerd **Azure PowerShell** lokaal. Zie voor instructies [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).
 
 > [!NOTE]
-> Deze procedure gebruikt u de [Azure-portal](https://portal.azure.com/).
+> Deze procedure maakt gebruik van de [Azure-portal](https://portal.azure.com/).
 >
 >
 
-## <a name="upload-data"></a> De gegevens uploaden naar uw lokale SQL Server
-We gebruiken de [NYC Taxi gegevensset](http://chriswhong.com/open-data/foil_nyc_taxi/) ter illustratie van het migratieproces. De gegevensset NYC Taxi beschikbaar is, zoals beschreven in deze post, op Azure-blobopslag [NYC Taxi gegevens](http://www.andresmh.com/nyctaxitrips/). De gegevens heeft twee bestanden: het bestand trip_data.csv reis details bevat, en het bestand trip_far.csv details van het tarief dat voor elke reis betaald bevat. Een beschrijving van deze bestanden en voorbeelden vindt u in [NYC Taxi reizen gegevensset beschrijving](sql-walkthrough.md#dataset).
+## <a name="upload-data"></a> De gegevens uploaden naar uw on-premises SQL-Server
+We gebruiken de [NYC Taxi gegevensset](http://chriswhong.com/open-data/foil_nyc_taxi/) ter illustratie van het migratieproces. De gegevensset NYC over taxi's is beschikbaar, zoals beschreven in dit item, op Azure blob-opslag [NYC Taxi gegevens](http://www.andresmh.com/nyctaxitrips/). De gegevens heeft twee bestanden, het bestand trip_data.csv, dat de details van de fietstocht bevat, en het bestand trip_far.csv details van het tarief voor elke reis betaald bevat. Een voorbeeld en een beschrijving van deze bestanden zijn beschikbaar in [NYC Taxi Trips gegevensset beschrijving](sql-walkthrough.md#dataset).
 
-U kunt aanpassen van de procedure die hier worden opgegeven voor een set van uw eigen gegevens of de stappen zoals beschreven met behulp van de NYC Taxi gegevensset. Als u wilt de gegevensset NYC Taxi uploaden naar uw lokale SQL Server-database, volgt u de procedure beschreven in [gegevens voor bulksgewijs importeren in SQL Server-Database](sql-walkthrough.md#dbload). Deze instructies zijn voor een SQL-Server op een virtuele Machine van Azure, maar de procedure voor het uploaden naar de lokale SQL Server is hetzelfde.
+U kunt aanpassen van de procedure die hier beschikbaar zijn op een set van uw eigen gegevens of volg de stappen beschreven met behulp van de NYC Taxi-gegevensset. Als u wilt uploaden de gegevensset NYC over taxi's in uw on-premises SQL Server-database, volgt u de procedure wordt beschreven in [bulksgewijs importeren van gegevens in SQL Server-Database](sql-walkthrough.md#dbload). Deze instructies zijn voor een SQL-Server op een Azure-Machine, maar de procedure voor het uploaden naar de on-premises SQL-Server is hetzelfde.
 
-## <a name="create-adf"></a> Een Azure-Gegevensfactory maken
-De instructies voor het maken van een nieuwe Azure Data Factory en een resourcegroep in de [Azure-portal](https://portal.azure.com/) vindt u [maken van een Azure Data Factory](../../data-factory/v1/data-factory-build-your-first-pipeline-using-editor.md#create-a-data-factory). Naam van het nieuwe exemplaar van de ADF *adfdsp* en de naam van de resourcegroep gemaakt *adfdsprg*.
+## <a name="create-adf"></a> Maak een Azure Data Factory
+De instructies voor het maken van een nieuwe Azure Data Factory en een resourcegroep in de [Azure-portal](https://portal.azure.com/) vindt u [maken van een Azure Data Factory](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Naam van het nieuwe exemplaar van de ADF *adfdsp* en de naam van de resourcegroep gemaakt *adfdsprg*.
 
 ## <a name="install-and-configure-up-the-data-management-gateway"></a>Installeren en configureren van de Data Management Gateway
-Zodat uw pijplijnen in een Azure data factory werkt met een lokale SQL Server die u wilt toevoegen als een gekoppelde Service aan de gegevensfactory. Voor het maken van een gekoppelde Service voor een lokale SQL Server, moet u het volgende doen:
+Om in te schakelen uw pijplijnen in een Azure data factory om te werken met een on-premises SQL Server, moet u dit toevoegen als een gekoppelde Service aan de data factory. Voor het maken van een gekoppelde Service voor een on-premises SQL Server, moet u:
 
 * Download en installeer Microsoft Data Management Gateway op de lokale computer.
-* Configureer de gekoppelde service voor de lokale gegevensbron om de gateway te gebruiken.
+* Configureer de gekoppelde service voor de on-premises gegevensbron om de gateway te gebruiken.
 
-Data Management Gateway serialiseert en deserializes van de bron- en sink-gegevens op de computer waarop deze wordt gehost.
+De Data Management Gateway serialiseert en gedeserialiseerd van de bron en sink-gegevens op de computer waar dit wordt gehost.
 
-Zie voor installatie-instructies en informatie over Data Management Gateway [gegevens verplaatsen tussen lokale bronnen en cloud met Data Management Gateway](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md)
+Zie voor installatie-instructies en informatie over Data Management Gateway [gegevens verplaatsen tussen on-premises bronnen en de cloud met Data Management Gateway](../../data-factory/tutorial-hybrid-copy-portal.md)
 
-## <a name="adflinkedservices"></a>Gekoppelde services verbinding maken met de gegevensbronnen maken
-Een gekoppelde service definieert de informatie die nodig zijn voor Azure Data Factory verbinding maken met een bron van gegevens. Drie bronnen hebben we in dit scenario waarvoor de gekoppelde services vereist zijn:
+## <a name="adflinkedservices"></a>Maak gekoppelde services verbinding maken met de gegevensbronnen
+De informatie die nodig zijn voor Azure Data Factory verbinding maken met een Gegevensresource definieert de gekoppelde service. We hebben drie resources in dit scenario waarvoor gekoppelde services nodig zijn:
 
 1. On-premises SQL Server
 2. Azure Blob Storage
 3. Azure SQL-database
 
-Stapsgewijze procedures voor het maken van de gekoppelde services is beschikbaar in [gekoppelde services maken](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-linked-services).
+De stapsgewijze procedure voor het maken van gekoppelde services vindt u in [gekoppelde services](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 
 
-## <a name="adf-tables"></a>Definieer en tabellen om op te geven over toegang tot de gegevenssets maken
-Maak tabellen die de structuur, de locatie en de beschikbaarheid van de gegevenssets met de volgende procedures op basis van scripts opgeven. JSON-bestanden worden gebruikt voor het definiëren van de tabellen. Zie voor meer informatie over de structuur van deze bestanden [gegevenssets](../../data-factory/v1/data-factory-create-datasets.md).
+## <a name="adf-tables"></a>Definiëren en maken van tabellen op te geven hoe u toegang tot de gegevenssets
+Tabellen die de structuur, de locatie en de beschikbaarheid van de gegevenssets met de volgende procedures op basis van een script opgeven maken. JSON-bestanden worden gebruikt voor het definiëren van de tabellen. Zie voor meer informatie over de structuur van deze bestanden [gegevenssets](../../data-factory/concepts-datasets-linked-services.md).
 
 > [!NOTE]
-> U dient te worden uitgevoerd de `Add-AzureAccount` cmdlet voordat u de [nieuw AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) cmdlet om te bevestigen dat het juiste Azure-abonnement is ingeschakeld voor uitvoering van de opdracht. Zie voor documentatie van deze cmdlet [Add-AzureAccount](/powershell/module/azure/add-azureaccount?view=azuresmps-3.7.0).
+> U dient te worden uitgevoerd de `Add-AzureAccount` cmdlet alvorens de [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) cmdlet om te bevestigen dat het juiste Azure-abonnement is geselecteerd voor de uitvoering van de opdracht. Zie voor documentatie van deze cmdlet [Add-AzureAccount](/powershell/module/servicemanagement/azure/add-azureaccount?view=azuresmps-3.7.0).
 >
 >
 
-De definities JSON-indeling in de tabellen gebruiken de volgende namen:
+De definities van JSON-indeling in de tabellen gebruiken de volgende namen:
 
-* de **tabelnaam** in de lokale SQL server is *nyctaxi_data*
+* de **tabelnaam** in de on-premises SQL server is *nyctaxi_data*
 * de **containernaam** in Azure Blob Storage-account is *containername*  
 
-Drie tabeldefinities nodig zijn voor deze ADF-pijplijn:
+Drie tabeldefinities die nodig zijn voor deze ADF-pijplijn:
 
 1. [On-premises SQL-tabel](#adf-table-onprem-sql)
 2. [Blobtabel ](#adf-table-blob-store)
 3. [SQL Azure-tabel](#adf-table-azure-sql)
 
 > [!NOTE]
-> Deze procedures Azure PowerShell gebruiken om te definiëren en te maken van de ADF-activiteiten. Maar deze taken kunnen ook worden bereikt met de Azure-portal. Zie voor meer informatie [gegevenssets maken](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-datasets).
+> Deze procedures gebruikt Azure PowerShell om te definiëren en maken van de ADF-activiteiten. Maar deze taken kunnen ook worden bereikt met behulp van de Azure portal. Zie voor meer informatie, [gegevenssets](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 >
 >
 
 ### <a name="adf-table-onprem-sql"></a>On-premises SQL-tabel
-De definitie van de tabel voor de lokale SQL Server is opgegeven in het volgende JSON-bestand:
+De definitie van de tabel voor de on-premises SQL Server is opgegeven in de volgende JSON-bestand:
 
         {
             "name": "OnPremSQLTable",
@@ -143,15 +143,15 @@ De definitie van de tabel voor de lokale SQL Server is opgegeven in het volgende
             }
         }
 
-De kolomnamen zijn hier niet opgenomen. U kunt subplan selecteren op de kolomnamen door ze hier (Raadpleeg voor meer informatie de [ADF documentatie](../../data-factory/v1/data-factory-data-movement-activities.md) onderwerp.
+De kolomnamen zijn niet opgenomen in hier. U kunt subplan selecteren op de kolomnamen door ze hier (voor meer informatie de [ADF documentatie](../../data-factory/copy-activity-overview.md) onderwerp.
 
-Naam van de JSON-definitie van de tabel in een bestand kopiëren *onpremtabledef.json* -bestand en sla deze op een bekende locatie (hier ervan uitgegaan dat de *C:\temp\onpremtabledef.json*). De tabel in ADF maken met de volgende Azure PowerShell-cmdlet:
+Kopieer de JSON-definitie van de tabel in een bestand met de naam *onpremtabledef.json* -bestand en sla deze op een bekende locatie (hier ervan uitgegaan dat *C:\temp\onpremtabledef.json*). De tabel in ADF maken met de volgende Azure PowerShell-cmdlet:
 
     New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
 
 
 ### <a name="adf-table-blob-store"></a>Blobtabel
-De definitie voor de tabel voor de locatie van de uitvoer-blob is in de volgende (Hiermee worden de opgenomen gegevens van on-premises naar Azure blob):
+De definitie voor de tabel voor de locatie van de uitvoer-blob is in de volgende (Hiermee worden de opgenomen gegevens van on-premises naar Azure-blob):
 
         {
             "name": "OutputBlobTable",
@@ -176,12 +176,12 @@ De definitie voor de tabel voor de locatie van de uitvoer-blob is in de volgende
             }
         }
 
-Naam van de JSON-definitie van de tabel in een bestand kopiëren *bloboutputtabledef.json* -bestand en sla deze op een bekende locatie (hier ervan uitgegaan dat de *C:\temp\bloboutputtabledef.json*). De tabel in ADF maken met de volgende Azure PowerShell-cmdlet:
+Kopieer de JSON-definitie van de tabel in een bestand met de naam *bloboutputtabledef.json* -bestand en sla deze op een bekende locatie (hier ervan uitgegaan dat *C:\temp\bloboutputtabledef.json*). De tabel in ADF maken met de volgende Azure PowerShell-cmdlet:
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json  
 
 ### <a name="adf-table-azure-sql"></a>SQL Azure-tabel
-Definitie voor de tabel voor de SQL Azure-uitvoer is in de volgende (de gegevens die afkomstig zijn van de blob dit schema toegewezen):
+Definitie voor de tabel voor de SQL Azure-uitvoer is in de volgende (dit schema wijst de gegevens die afkomstig zijn van de blob):
 
     {
         "name": "OutputSQLAzureTable",
@@ -206,23 +206,23 @@ Definitie voor de tabel voor de SQL Azure-uitvoer is in de volgende (de gegevens
         }
     }
 
-Naam van de JSON-definitie van de tabel in een bestand kopiëren *AzureSqlTable.json* -bestand en sla deze op een bekende locatie (hier ervan uitgegaan dat de *C:\temp\AzureSqlTable.json*). De tabel in ADF maken met de volgende Azure PowerShell-cmdlet:
+Kopieer de JSON-definitie van de tabel in een bestand met de naam *AzureSqlTable.json* -bestand en sla deze op een bekende locatie (hier ervan uitgegaan dat *C:\temp\AzureSqlTable.json*). De tabel in ADF maken met de volgende Azure PowerShell-cmdlet:
 
     New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json  
 
 
-## <a name="adf-pipeline"></a>Definiëren en de pijplijn maken
-Geef de activiteiten die behoren tot de pijplijn en de pijplijn maken met de volgende procedures op basis van scripts. Een JSON-bestand wordt gebruikt voor het definiëren van de pipeline-eigenschappen.
+## <a name="adf-pipeline"></a>Definiëren en de pijplijn te maken
+Geef de activiteiten die deel uitmaken van de pijplijn en de pijplijn maken met de volgende procedures op basis van een script. Een JSON-bestand wordt gebruikt om de pijplijn-eigenschappen te definiëren.
 
-* Het script wordt ervan uitgegaan dat de **pijplijn naam** is *AMLDSProcessPipeline*.
-* Houd er ook rekening mee dat we de periodiciteit van de pijplijn worden dagelijks uitgevoerd en de uitvoeringstijd van de standaard gebruiken voor de taak (12: 00 a.m. UTC) ingesteld.
+* Het script wordt ervan uitgegaan dat de **pijplijnnaam** is *AMLDSProcessPipeline*.
+* Let ook op dat we de periodiciteit van de pijplijn worden uitgevoerd op dagelijkse basis en gebruiken van de standaard-uitvoeringstijd voor de taak (12: 00 uur UTC) ingesteld.
 
 > [!NOTE]
-> Azure PowerShell de volgende procedures gebruiken om te definiëren en te maken van de ADF-pijplijn. Maar deze taak kan ook worden bereikt met de Azure-portal. Zie voor meer informatie [maken pijplijn](../../data-factory/v1/data-factory-move-data-between-onprem-and-cloud.md#create-pipeline).
+> Azure PowerShell de volgende procedures gebruiken om te definiëren en maken van de ADF-pijplijn. Maar deze taak kan ook worden bereikt met behulp van de Azure portal. Zie voor meer informatie, [pijplijn maken](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 >
 >
 
-Met behulp van de tabeldefinities eerder hebt opgegeven, wordt de definitie van de pijplijn voor de ADF als volgt opgegeven:
+De tabeldefinities die u eerder hebt gebruikt, wordt de pijplijndefinitie van de voor de ADF als volgt opgegeven:
 
         {
             "name": "AMLDSProcessPipeline",
@@ -291,18 +291,18 @@ Met behulp van de tabeldefinities eerder hebt opgegeven, wordt de definitie van 
             }
         }
 
-Kopieer deze JSON-definitie van de pijplijn in een bestand genaamd *pipelinedef.json* -bestand en sla deze op een bekende locatie (hier ervan uitgegaan dat de *C:\temp\pipelinedef.json*). De pijplijn in ADF maken met de volgende Azure PowerShell-cmdlet:
+Kopieer deze JSON-definitie van de pijplijn in een bestand met de naam *pipelinedef.json* -bestand en sla deze op een bekende locatie (hier ervan uitgegaan dat *C:\temp\pipelinedef.json*). Maak de pijplijn in ADF met de volgende Azure PowerShell-cmdlet:
 
     New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json
 
 
-## <a name="adf-pipeline-start"></a>Start de pijplijn
-De pijplijn kan nu worden uitgevoerd met de volgende opdracht:
+## <a name="adf-pipeline-start"></a>De pijplijn starten
+De pijplijn kan nu worden uitgevoerd met de volgende opdracht uit:
 
     Set-AzureDataFactoryPipelineActivePeriod -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp -StartDateTime startdateZ –EndDateTime enddateZ –Name AMLDSProcessPipeline
 
 De *startdate* en *enddate* parameterwaarden moeten worden vervangen door de werkelijke datums tussen wie u wilt dat de pijplijn om uit te voeren.
 
-Zodra de pijplijn wordt uitgevoerd, moet u mogelijk zijn om de gegevens weergegeven in de container die is geselecteerd voor de blob, één bestand per dag te bekijken.
+Zodra de pijplijn wordt uitgevoerd, zou het mogelijk om te zien van de gegevens weergegeven in de container voor de blob, één bestand per dag is geselecteerd.
 
-Houd er rekening mee dat we hebben de functionaliteit van ADF pipe gegevens stapsgewijs niet gebruikt. Zie voor meer informatie over hoe u deze en andere mogelijkheden van ADF de [ADF documentatie](https://azure.microsoft.com/services/data-factory/).
+Houd er rekening mee dat we de functionaliteit die stapsgewijs door ADF pipe gegevens niet hebben gemaakt. Zie voor meer informatie over hoe u deze en andere mogelijkheden van ADF doet de [ADF documentatie](https://azure.microsoft.com/services/data-factory/).

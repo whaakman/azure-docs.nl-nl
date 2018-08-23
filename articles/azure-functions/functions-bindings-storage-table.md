@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: f42948f0f3acf1bacf6c80010489890f4b8d122b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 28a6082718080314a769b59c81cf51a20ff7e120
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523662"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42054110"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Table storage-bindingen voor Azure Functions
 
@@ -58,6 +58,7 @@ Zie het voorbeeld taalspecifieke:
 * [C#-script-binding aan CloudTable](#input---c-script-example---cloudtable)
 * [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
+* [Java](#input---java-example)
 
 ### <a name="input---c-example---one-entity"></a>Invoer - voorbeeld met C# - één entiteit
 
@@ -414,6 +415,25 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
+### <a name="input---java-example"></a>Invoer - Java-voorbeeld
+
+Het volgende voorbeeld ziet een door HTTP geactiveerde functie die als resultaat het totale aantal van de items in een opgegeven partitie in de tabelopslag geeft.
+
+```java
+@FunctionName("getallcount")
+public int run(
+   @HttpTrigger(name = "req",
+                 methods = {"get"},
+                 authLevel = AuthorizationLevel.ANONYMOUS) Object dummyShouldNotBeUsed,
+   @TableInput(name = "items",
+                tableName = "mytablename",  partitionKey = "myparkey",
+                connection = "myconnvarname") MyItem[] items
+) {
+    return items.length;
+}
+```
+
+
 ## <a name="input---attributes"></a>Invoer - kenmerken
  
 In [C#-klassebibliotheken](functions-dotnet-class-library.md), de volgende kenmerken gebruiken om een tabel invoer binding te configureren:
@@ -471,6 +491,10 @@ Het storage-account te gebruiken, wordt bepaald in de volgende volgorde:
 * De `StorageAccount` kenmerk toegepast op de functie.
 * De `StorageAccount` kenmerk toegepast op de klasse.
 * Het standaardopslagaccount voor de functie-app (app-instelling 'AzureWebJobsStorage').
+
+## <a name="input---java-annotations"></a>Invoer - Java-aantekeningen
+
+In de [Java functions runtime library](/java/api/overview/azure/functions/runtime), gebruikt u de `@TableInput` aantekening op parameters waarvan de waarde afkomstig van Table storage zijn kan.  Deze aantekening kan worden gebruikt met systeemeigen Java-typen, pojo's of null-waarden met behulp van optioneel<T>. 
 
 ## <a name="input---configuration"></a>Invoer - configuratie
 

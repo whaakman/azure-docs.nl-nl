@@ -5,20 +5,20 @@ services: storage
 author: MichaelHauss
 ms.service: storage
 ms.topic: article
-ms.date: 06/26/18
+ms.date: 08/17/18
 ms.author: mihauss
 ms.component: blobs
-ms.openlocfilehash: e53b573a27f0b1462ccf1170bbde2f8af01d0d3a
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 65a1cd85baf18ac1f0d193e7e6d6c3139919fb59
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397472"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617394"
 ---
 # <a name="static-website-hosting-in-azure-storage-preview"></a>Statische website hosting in Azure Storage (Preview)
-Azure Storage biedt nu de statische website die als host fungeert (Preview), waardoor u rendabele en schaalbare moderne webtoepassingen op Azure implementeren. Webpagina's bevatten een statische website statische inhoud en JavaScript of een andere client-side-code. Daarentegen, dynamische websites afhankelijk zijn van code op de server en kan worden gehost met behulp van [Azure Web Apps](/app-service/app-service-web-overview.md).
+Azure Storage biedt nu de statische website die als host fungeert (Preview), waardoor u rendabele en schaalbare moderne webtoepassingen op Azure implementeren. Webpagina's bevatten een statische website statische inhoud en JavaScript of een andere client-side-code. Daarentegen, dynamische websites afhankelijk zijn van code op de server en kan worden gehost met behulp van [Azure Web Apps](/azure/app-service/app-service-web-overview).
 
-Als u implementaties wilt voor flexibele, kosteneffectieve modellen, is de mogelijkheid om te leveren webinhoud zonder de noodzaak voor het serverbeheer van essentieel. De introductie van statische website hosting in Azure Storage maakt dit mogelijk, uitgebreide back-endmogelijkheden inschakelen met serverloze architecturen gebruik te maken van [Azure Functions](/azure-functions/functions-overview.md) en andere PaaS-services.
+Als u implementaties wilt voor flexibele, kosteneffectieve modellen, is de mogelijkheid om te leveren webinhoud zonder de noodzaak voor het serverbeheer van essentieel. De introductie van statische website hosting in Azure Storage maakt dit mogelijk, uitgebreide back-endmogelijkheden inschakelen met serverloze architecturen gebruik te maken van [Azure Functions](/azure/azure-functions/functions-overview) en andere PaaS-services.
 
 ## <a name="how-does-it-work"></a>Hoe werkt het?
 Wanneer u statische websites op uw storage-account inschakelt, een nieuwe webservice-eindpunt wordt gemaakt van het formulier `<account-name>.<zone-name>.web.core.windows.net`.
@@ -31,14 +31,14 @@ Wanneer u inhoud uploadt naar uw website, gebruikt u het eindpunt van blob stora
 
 
 ## <a name="custom-domain-names"></a>Aangepaste domeinnamen
-U kunt een aangepast domein gebruiken voor het hosten van inhoud van uw website. Om dit te doen, volg de instructies in [een aangepaste domeinnaam voor uw Azure Storage-account configureren](storage-custom-domain-name.md). Voor toegang tot uw website die wordt gehost op een aangepaste domeinnaam via HTTPS, Zie [de Azure CDN gebruiken voor toegang tot blobs met aangepaste domeinen via HTTPS](storage-https-custom-domain-cdn.md).
+U kunt een aangepast domein gebruiken voor het hosten van inhoud van uw website. Om dit te doen, volg de instructies in [een aangepaste domeinnaam voor uw Azure Storage-account configureren](storage-custom-domain-name.md). Voor toegang tot uw website die wordt gehost op een aangepaste domeinnaam via HTTPS, Zie [de Azure CDN gebruiken voor toegang tot blobs met aangepaste domeinen via HTTPS](storage-https-custom-domain-cdn.md). Uw CDN verwijzen naar het eindpunt op het web in plaats van het eindpunt van blob en houd er rekening mee dat de configuratie van het CDN onmiddellijk, gebeurt niet dus u over een paar minuten moet misschien voordat de inhoud van uw zichtbaar is.
 
 ## <a name="pricing-and-billing"></a>Prijzen en facturering
 Statische website hosting wordt geleverd zonder extra kosten. Bekijk voor meer informatie over prijzen voor Azure Blob Storage, de [Azure Blob Storage pagina met prijzen van](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="quickstart"></a>Snelstartgids
 ### <a name="azure-portal"></a>Azure Portal
-Als u wilt starten die als host fungeert voor uw web-App in Azure Storage, kunt u de functie met behulp van de Azure-Portal configureren en klik op 'Statische website (preview)' onder 'Instellingen' in de linker navigatiebalk. Klik op 'Ingeschakeld' en voer de naam van het Indexdocument en (optioneel) de aangepaste fout bij het documentpad.
+Als u dat nog niet gedaan hebt, [maken van een GPv2-opslagaccount](../common/storage-quickstart-create-account.md) voor het starten van uw webtoepassing te hosten, kunt u de functie met behulp van de Azure-Portal configureren en klik op 'Statische website (preview)' onder 'Instellingen' in de linker navigatiebalk. Klik op 'Ingeschakeld' en voer de naam van het Indexdocument en (optioneel) de aangepaste fout bij het documentpad.
 
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
@@ -49,6 +49,29 @@ Upload uw web-items naar de container '$web' die is gemaakt als onderdeel van de
 
 Tot slot gaat u naar uw webeindpunt voor het testen van uw website.
 
+### <a name="azure-cli"></a>Azure-CLI
+De uitbreiding voor de opslag van Preview-versie installeren:
+
+```azurecli-interactive
+az extension add --name storage-preview
+```
+De functie inschakelen:
+
+```azurecli-interactive
+az storage blob service-properties update --account-name <account-name> --static-website --404-document <error-doc-name> --index-document <index-doc-name>
+```
+Query voor de eindpunt-URL:
+
+```azurecli-interactive
+az storage account show -n <account-name> -g <resource-group> --query "primaryEndpoints.web" --output tsv
+```
+
+Objecten naar de container $web uploaden:
+
+```azurecli-interactive
+az storage blob upload-batch -s deploy -d $web --account-name <account-name>
+```
+
 ## <a name="faq"></a>Veelgestelde vragen
 **Statische websites voor alle storage-accounttypen beschikbaar is?**  
 Nee, hosting van statische website is alleen beschikbaar in standard GPv2-opslagaccounts.
@@ -56,9 +79,12 @@ Nee, hosting van statische website is alleen beschikbaar in standard GPv2-opslag
 **Zijn opslag-VNET en firewall-regels op het nieuwe eindpunt op het web ondersteund?**  
 Ja, is het nieuwe eindpunt op het web gehoorzaamt aan de VNET- en firewall-regels die zijn geconfigureerd voor het opslagaccount.
 
+**Is het eindpunt op het web hoofdlettergevoelig?**  
+Ja, is het eindpunt op het web hoofdlettergevoelig net als de blob-eindpunt. 
+
 ## <a name="next-steps"></a>Volgende stappen
 * [De Azure CDN gebruiken voor toegang tot blobs met aangepaste domeinen via HTTPS](storage-https-custom-domain-cdn.md)
 * [Een aangepaste domeinnaam voor uw blob- en web-eindpunten configureren](storage-custom-domain-name.md)
-* [Azure Functions](/azure-functions/functions-overview.md)
-* [Azure Web Apps](/app-service/app-service-web-overview.md)
+* [Azure Functions](/azure/azure-functions/functions-overview)
+* [Azure Web Apps](/azure/app-service/app-service-web-overview)
 * [Uw eerste serverloze web-app bouwen](https://aka.ms/static-serverless-webapp)

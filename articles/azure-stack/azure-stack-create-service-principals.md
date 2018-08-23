@@ -3,7 +3,7 @@ title: Maken van een Service-Principal voor Azure Stack | Microsoft Docs
 description: Beschrijft hoe u een nieuwe service-principal die kan worden gebruikt met de op rollen gebaseerd toegangsbeheer in Azure Resource Manager voor het beheren van toegang tot bronnen te maken.
 services: azure-resource-manager
 documentationcenter: na
-author: mattbriggs
+author: sethmanheim
 manager: femila
 ms.assetid: 7068617b-ac5e-47b3-a1de-a18c918297b6
 ms.service: azure-resource-manager
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2018
-ms.author: mabrigg
-ms.openlocfilehash: 0db3f19c99b786d7f32f126ad7bd70efc999a751
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.date: 08/22/2018
+ms.author: sethm
+ms.openlocfilehash: f7233d6a27b9ec3d58f33f7032bbec7a646d24f7
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444262"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42366116"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Toepassingen toegang geven tot Azure Stack
 
@@ -47,7 +47,7 @@ In deze sectie maakt u een toepassing (service-principal) in Azure AD die staat 
 
 1. Meld u aan met uw Azure-Account via de [Azure-portal](https://portal.azure.com).
 2. Selecteer **Azure Active Directory** > **App-registraties** > **toevoegen**   
-3. Geef een naam en URL voor de toepassing op. Selecteer een **Web-app / API** of **systeemeigen** voor het type van de toepassing die u wilt maken. Na het instellen van de waarden, selecteer **maken**.
+3. Geef een naam en URL op voor de toepassing. Selecteer een **Web-app / API** of **systeemeigen** voor het type van de toepassing die u wilt maken. Na het instellen van de waarden, selecteer **maken**.
 
 U kunt een service-principal voor uw toepassing hebt gemaakt.
 
@@ -61,9 +61,9 @@ Wanneer u zich programmatisch aanmeldt, u de ID gebruiken voor uw toepassing, en
      ![client-id](./media/azure-stack-create-service-principal/image12.png)
 3. Voor het genereren van een verificatiesleutel voor een Web-app / API, selecteer **instellingen** > **sleutels**. 
 
-4. Geef een beschrijving van de sleutel en geef de duur van de sleutel op. Selecteer **Opslaan** wanneer u klaar bent.
+4. Geef een beschrijving op van de sleutel en geef de duur van de sleutel op. Selecteer **Opslaan** wanneer u klaar bent.
 
-Na het opslaan van de sleutel wordt de waarde van de sleutel weergegeven. Kopieer deze waarde, want u kunt de sleutel later niet meer ophalen. U geeft de sleutelwaarde samen met de toepassings-ID aan te melden als de toepassing. Sla de sleutelwaarde op waar uw toepassing deze kan ophalen.
+Na het opslaan van de sleutel wordt de waarde van de sleutel weergegeven. Kopieer deze waarde, want u kunt de sleutel later niet meer ophalen. U geeft de sleutelwaarde samen met de toepassings-ID aan te melden als de toepassing. Bewaar de sleutelwaarde op een locatie waar de toepassing deze kan ophalen.
 
 ![opgeslagen sleutel](./media/azure-stack-create-service-principal/image15.png)
 
@@ -136,6 +136,10 @@ De volgende informatie is vereist als invoer voor de automation-parameters:
     -CertificateThumbprint $ServicePrincipal.Thumbprint `
     -ApplicationId $ServicePrincipal.ClientId `
     -TenantId $TenantID
+
+    # Output the SPN details
+    $ServicePrincipal
+
    ```
 
 2. Nadat de automatisering is voltooid, wordt de vereiste gegevens op het gebruik van de SPN-naam weergegeven. 

@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: markvi
-ms.openlocfilehash: c2c94f488da6399965c59f761ff9f0539cf4de2f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: c1332679af57a4994f4337e241845a87bf16b341
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228015"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42059159"
 ---
 # <a name="enterprise-state-roaming-overview"></a>Overzicht van enterprise state roaming
-Met Windows 10, [Azure Active Directory (Azure AD)](fundamentals/active-directory-whatis.md) gebruikers krijgen de mogelijkheid hun gebruikersinstellingen en gegevens van de toepassing-instellingen naar de cloud veilig te synchroniseren. Enterprise State Roaming biedt gebruikers een uniforme ervaring op hun Windows-apparaten en vermindert de tijd die nodig is voor het configureren van een nieuw apparaat. Enterprise State Roaming werkt die vergelijkbaar is met de standaard [consumer-instellingen synchroniseren](http://windows.microsoft.com/en-US/windows-8/sync-settings-pcs) die is geïntroduceerd in Windows 8. Daarnaast biedt Enterprise State Roaming:
+Met Windows 10, [Azure Active Directory (Azure AD)](fundamentals/active-directory-whatis.md) gebruikers krijgen de mogelijkheid hun gebruikersinstellingen en gegevens van de toepassing-instellingen naar de cloud veilig te synchroniseren. Enterprise State Roaming biedt gebruikers een uniforme ervaring op hun Windows-apparaten en vermindert de tijd die nodig is voor het configureren van een nieuw apparaat. Enterprise State Roaming werkt die vergelijkbaar is met de standaard [consumer-instellingen synchroniseren](http://windows.microsoft.com/windows-8/sync-settings-pcs) die is geïntroduceerd in Windows 8. Daarnaast biedt Enterprise State Roaming:
 
 * **Scheiding van zakelijke en consumentgegevens** : organisaties zijn controle over hun gegevens en er is geen combinatie van zakelijke gegevens in een cloudopslagaccount consument of consumentgegevens in een enterprise cloud-account.
 * **Verbeterde beveiliging** : gegevens worden automatisch versleuteld vóór het verlaten van de gebruiker Windows 10-apparaat met behulp van Azure Rights Management (Azure RMS) en gegevens blijven versleuteld in rust in de cloud. Alle inhoud blijft versleuteld in rust in de cloud, met uitzondering van de naamruimten, zoals de namen van de instellingen en Windows-app.  

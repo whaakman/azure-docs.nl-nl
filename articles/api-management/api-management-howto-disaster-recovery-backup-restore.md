@@ -3,7 +3,7 @@ title: Met behulp implementeren disaster recovery back-up en herstellen in Azure
 description: Informatie over het gebruik van back-up en herstellen als u wilt uitvoeren van herstel na noodgevallen in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: erikre
 editor: ''
 ms.service: api-management
@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/17/2018
+ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 4135bd66e839037d7db694cb3c6df8f3905222e6
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ce3208fed119452ef9383fcb5b5eefb1aac6e224
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283090"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42058128"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Herstel na noodgeval met behulp van back-up van de service implementeren en te herstellen in Azure API Management
 
@@ -39,8 +39,6 @@ Deze handleiding wordt beschreven hoe u om Azure Resource Manager-aanvragen te v
 
 > [!IMPORTANT]
 > De REST-API voor back-up en herstel maakt gebruik van Azure Resource Manager en heeft een ander verificatiemechanisme dan de REST API's voor het beheren van uw API Management-entiteiten. De stappen in deze sectie wordt beschreven hoe u Azure Resource Manager-aanvragen verifiëren. Zie voor meer informatie, [verificatie van Azure Resource Manager-aanvragen](http://msdn.microsoft.com/library/azure/dn790557.aspx).
->
->
 
 Alle taken die u doen op resources met behulp van Azure Resource Manager moeten worden geverifieerd bij Azure Active Directory met de volgende stappen uit:
 
@@ -209,15 +207,16 @@ Terugzetten is een langdurige bewerking die op meer dan 30 minuten duren kan om 
 > Back-up en herstelbewerkingen kunnen ook worden uitgevoerd met Powershell *back-up-AzureRmApiManagement* en *Restore-AzureRmApiManagement* respectievelijk-opdrachten.
 
 ## <a name="next-steps"></a>Volgende stappen
-Bekijk de volgende Microsoft-blogs voor twee verschillende scenario's van het proces van het back-up/herstellen.
+
+Bekijk de volgende bronnen voor verschillende scenario's van het proces van het back-up/herstellen.
 
 * [Azure API Management-Accounts repliceren](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
+* [Automatiseren API Management maken en herstellen met Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
 * [Azure API Management: Back-Up en herstellen van configuratie](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
-  * De aanpak van gedetailleerde door Stuart komt niet overeen met de officiële richtlijnen, maar het is interessant.
+  *de aanpak van gedetailleerde door Stuart komt niet overeen met de officiële richtlijnen, maar het is interessant.*
 
 [Backup an API Management service]: #step1
 [Restore an API Management service]: #step2
-
 
 [Azure API Management REST API]: http://msdn.microsoft.com/library/azure/dn781421.aspx
 

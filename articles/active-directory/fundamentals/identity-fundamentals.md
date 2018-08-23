@@ -14,12 +14,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 797c35bad03c063203e3616740af633b71835a9c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 327cecd129befb56c33d7fcf2d59ee5b58a18549
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39640184"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42023498"
 ---
 # <a name="fundamentals-of-azure-identity-management"></a>Grondbeginselen van Azure-identiteitsbeheer
 
@@ -27,7 +27,7 @@ Omdat steeds meer digitale bedrijfsresources zich buiten het bedrijfsnetwerk bev
 
 Cloud-identiteiten worden al meer dan een decennium lang beveiligd in Microsoft. En met [Azure Active Directory (AD)](active-directory-whatis.md) zijn dezelfde beveiligingssystemen nu ook beschikbaar voor u. Met Azure AD kunnen ondernemingsbeheerders eenvoudiger zorgen voor aansprakelijkheid van gebruikers en beheerders, met betere beveiliging en beheer dan ooit tevoren.
 
-Azure AD Premium is een oplossing voor cloud-identiteit en toegangsbeheer met geavanceerde mogelijkheden voor beveiliging die één veilige identiteit voor alle apps, identiteitsbeveiliging (uitgebreid met de [beveiligingsgrafiek van Microsoft Intelligence](https://www.microsoft.com/en-us/security/intelligence)) en Privileged Identity Management biedt. Azure AD Premium is niet gewoon het zoveelste hulpprogramma voor controle of rapportage, maar biedt beveiliging in realtime voor gebruikersidentiteiten en zorgt ervoor dat u adaptief op risico’s gebaseerd toegangsbeleid kunt maken om de gegevens in uw organisatie te beveiligen.
+Azure AD Premium is een oplossing voor cloud-identiteit en toegangsbeheer met geavanceerde mogelijkheden voor beveiliging die één veilige identiteit voor alle apps, identiteitsbeveiliging (uitgebreid met de [beveiligingsgrafiek van Microsoft Intelligence](https://www.microsoft.com/security/intelligence)) en Privileged Identity Management biedt. Azure AD Premium is niet gewoon het zoveelste hulpprogramma voor controle of rapportage, maar biedt beveiliging in realtime voor gebruikersidentiteiten en zorgt ervoor dat u adaptief op risico’s gebaseerd toegangsbeleid kunt maken om de gegevens in uw organisatie te beveiligen.
 
 Bekijk deze korte video voor een snel overzicht van Azure AD-identiteitsbeheer en -beveiliging:
 >[!VIDEO https://www.youtube.com/embed/9LGIJ2-FKIM]
@@ -41,7 +41,7 @@ Organisaties die grote investeringen hebben gedaan in on-premises Active Directo
 
 [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) is het enige hulpprogramma dat u nodig hebt om de integratie uit te voeren. Azure AD Connect biedt mogelijkheden voor de ondersteuning van uw behoeften op het gebied van identiteitssynchronisatie en vervangt oudere versies van hulpprogramma’s voor identiteitsintegratie, zoals DirSync en Azure AD Sync. Met Azure AD Connect wordt identiteitsbeheer en -synchronisatie tussen on-premises en Azure AD mogelijk via:
 
-- Synchronisatie: met dit onderdeel worden gebruikers, groepen en andere objecten aangemaakt. Het kan ook gebruikt worden om te controleren of de identiteitsinformatie van uw on-premises gebruikers en groepen overeenkomt met de cloud. Het terugschrijven van wachtwoorden kan ook worden ingeschakeld om on-premises mappen gesynchroniseerd te houden, wanneer een gebruiker een wachtwoord bijwerkt in Azure AD.
+- Synchronisatie : met dit onderdeel worden gebruikers, groepen en andere objecten aangemaakt. Het kan ook gebruikt worden om te controleren of de identiteitsinformatie van uw on-premises gebruikers en groepen overeenkomt met de cloud. Het terugschrijven van wachtwoorden kan ook worden ingeschakeld om on-premises mappen gesynchroniseerd te houden, wanneer een gebruiker een wachtwoord bijwerkt in Azure AD.
 - Verificatie: wanneer Azure AD het nieuwe beheerpunt is, is verificatie de basis van cloudtoegang. Het kiezen van de juiste verificatiemethode is een belangrijke beslissing bij het instellen van een oplossing voor hybride Azure AD-identiteit. Raadpleeg [deze handleiding](https://aka.ms/auth-options) voor het maken van een keuze tussen cloudverificatie (Wachtwoord-hashsynchronisatie / Pass-through-verificatie) of federatieve verificatie (AD FS) voor uw organisatie.
 - Statuscontrole: [Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health) biedt goede controle en een centrale locatie in de Azure-portal om deze activiteit weer te geven.
 

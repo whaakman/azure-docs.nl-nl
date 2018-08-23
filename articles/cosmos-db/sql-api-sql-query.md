@@ -10,44 +10,39 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 08/10/2018
 ms.author: laviswa
-ms.openlocfilehash: f6829d497c85ef1b4e74e26befe42d5d6fa87e36
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 26928e36b09ef0dfe5576a8a8039ffac2dd3fb4a
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205966"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42060184"
 ---
-# <a name="sql-queries-for-azure-cosmos-db"></a>SQL-query's voor Azure Cosmos DB
+# <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Query uitvoeren op Azure Cosmos DB-gegevens met SQL-query 's
 
-Microsoft Azure Cosmos DB biedt ondersteuning voor documentquery met behulp van SQL (Structured Query Language) als een JSON-querytaal op SQL-API-accounts. Azure Cosmos DB is echt schema's. Omdat aan onze verplichting tot het JSON-gegevensmodel rechtstreeks in de database-engine biedt het automatisch indexeren van JSON-documenten zonder een expliciet schema of secundaire indexen worden gemaakt.
+Microsoft Azure Cosmos DB biedt ondersteuning voor documentquery met behulp van SQL (Structured Query Language) als een JSON-querytaal op SQL-API-accounts. De volgende twee doelen worden tijdens het ontwerpen van de querytaal voor Azure Cosmos DB, beschouwd als:
 
-Tijdens het ontwerpen van de querytaal voor Cosmos DB, hadden we twee drie doelen voor ogen:
+* In plaats van een nieuwe querytaal vruchtbare, we Azure Cosmos DB voor de ondersteuning van SQL, een van de bekend en meest populaire querytalen gemaakt. Azure Cosmos DB SQL biedt een formele programmeermodel voor uitgebreide query's via JSON-documenten.  
 
-* In plaats van een nieuwe querytaal voor JSON vruchtbare, willen we ondersteuning voor SQL. SQL is een van de bekend en meest populaire querytalen. Cosmos DB SQL biedt een formele programmeermodel voor uitgebreide query's via JSON-documenten.
-* Als een JSON-documentdatabase kan worden uitgevoerd van JavaScript direct in de database-engine, willen we de JavaScript-programmeermodel gebruikt als basis voor onze querytaal. De SQL-API is verankerd ligt in de JavaScript-typesysteem, evaluatie van de expressie en functieaanroepen. Deze beurt biedt een natuurlijke programmeermodel voor projecties van relationele, hiërarchische navigatie in JSON-documenten, self joins, ruimtelijke query's en aanroepen van de gebruiker gedefinieerde functies (UDF's) die zijn geschreven in JavaScript, onder andere volledig. 
+* Azure Cosmos DB maakt gebruik van JavaScript programmeermodel als basis voor de querytaal. De SQL-API is verankerd ligt in de JavaScript-typesysteem, evaluatie van de expressie en functieaanroepen. Deze beurt biedt een natuurlijke programmeermodel voor projecties van relationele, hiërarchische navigatie in JSON-documenten, self joins, ruimtelijke query's en aanroepen van de gebruiker gedefinieerde functies (UDF's) die zijn geschreven in JavaScript, onder andere volledig. 
 
-Wij geloven dat deze mogelijkheden essentieel zijn voor het reduceren van de ergernis tussen de toepassing en de database en essentieel voor productiviteit van ontwikkelaars zijn.
-
-We raden aan de slag met het bekijken van de volgende video, waarbij Azure Cosmos DB Program Manager Andrew Liu ziet u een query uitvoeren op Azure Cosmos DB-mogelijkheden en ziet u de online [testomgeving voor Query's](http://www.documentdb.com/sql/demo), waar u Azure kunt uitproberen Cosmos DB en voer SQL-query's op onze gegevensset zoals in de video wordt gedemonstreerd.
+Dit artikel begeleidt u enkele voorbeelden van SQL-query's met behulp van eenvoudige JSON-documenten. Zie voor meer informatie over de syntaxis van de Azure Cosmos DB SQL-taal, [naslaginformatie over SQL-syntaxis](sql-api-sql-query-reference.md) artikel. U kunt ook aan de slag met het bekijken van de volgende video's van Azure Cosmos DB de querymogelijkheden en ziet u de online [testomgeving voor Query's](http://www.documentdb.com/sql/demo).
 
 > [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
 >
 >
 
-Meer geavanceerde query-technieken worden getoond in deze opvolgen video:
+Meer geavanceerde query-technieken worden getoond in de volgende video:
 
 > [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
 >
 >
 
-Keer vervolgens terug naar dit artikel, waar we beginnen met een SQL-query-zelfstudie maakt u kennis met enkele eenvoudige JSON-documenten en de SQL-opdrachten.
+## <a id="GettingStarted"></a>Aan de slag met SQL-opdrachten
+Maken we twee eenvoudige JSON-documenten en query's uitvoeren op basis van die gegevens. Houd rekening met twee JSON-documenten over families, deze JSON-documenten invoegen in een verzameling en vervolgens de gegevens op te vragen. Hier hebben we een eenvoudige JSON document voor de Andersen en Wakefield families, de bovenliggende, onderliggende items (en hun huisdieren)-adres en registratie-informatie. Het document heeft tekenreeksen, getallen, Booleaanse waarden, matrices en geneste eigenschappen. 
 
-## <a id="GettingStarted"></a>Aan de slag met SQL-opdrachten in Cosmos DB
-Als u wilt zien Cosmos DB SQL op het werk, laten we beginnen met een paar eenvoudige JSON-documenten en doorloop enkele eenvoudige query's op deze. Houd rekening met deze twee JSON-documenten over twee families. Met Cosmos DB hoeft er niet expliciet een schema of secundaire indexen maken. We gewoon wilt invoegen van de JSON-documenten in een Cosmos DB-verzameling en vervolgens op te vragen. Hier hebben we een eenvoudige JSON document voor de Andersen family, de bovenliggende, onderliggende items (en hun huisdieren)-adres en registratie-informatie. Het document heeft tekenreeksen, getallen, Booleaanse waarden, matrices en geneste eigenschappen. 
-
-**Document**  
+**Document1**  
 
 ```JSON
 {
@@ -73,7 +68,7 @@ Als u wilt zien Cosmos DB SQL op het werk, laten we beginnen met een paar eenvou
 
 Hier volgt een tweede document met een subtiele verschil: `givenName` en `familyName` worden gebruikt in plaats van `firstName` en `lastName`.
 
-**Document**  
+**Document2**  
 
 ```json
 {
@@ -104,16 +99,19 @@ Hier volgt een tweede document met een subtiele verschil: `givenName` en `family
 }
 ```
 
-Nu we gaan enkele query's op deze gegevens om te begrijpen van enkele van de belangrijkste aspecten van Azure Cosmos DB SQL-querytaal. De volgende query retourneert bijvoorbeeld de documenten waarin het id-veld gelijk `AndersenFamily`. Omdat het een `SELECT *`, de uitvoer van de query is de volledige JSON-document:
+Nu we gaan enkele query's op deze gegevens om te begrijpen van enkele van de belangrijkste aspecten van Azure Cosmos DB SQL-querytaal. 
 
-**Query**
+**Query1**: de volgende query retourneert bijvoorbeeld de documenten waarin het id-veld gelijk `AndersenFamily`. Omdat het een `SELECT *`, de uitvoer van de query is de volledige JSON-document, Zie voor meer informatie over de syntaxis, [SELECT-instructie](sql-api-sql-query-reference.md#select-query):
 
+```sql
     SELECT * 
     FROM Families f 
     WHERE f.id = "AndersenFamily"
+```
 
 **Results**
 
+```json
     [{
         "id": "AndersenFamily",
         "lastName": "Andersen",
@@ -131,94 +129,173 @@ Nu we gaan enkele query's op deze gegevens om te begrijpen van enkele van de bel
         "creationDate": 1431620472,
         "isRegistered": true
     }]
+```
 
+**Query2** : nu Neem het geval waarin we wilt formatteren van de JSON-uitvoer in een andere vorm. Deze query projecteert een nieuwe JSON-object met twee geselecteerde velden, naam en plaats, wanneer het adres stad dezelfde naam als de status heeft. In dit geval "NY, NY" komt overeen met.   
 
-Bekijk nu het geval waarin we wilt formatteren van de JSON-uitvoer in een andere vorm. Deze query projecteert een nieuwe JSON-object met twee geselecteerde velden, naam en plaats, wanneer het adres stad dezelfde naam als de status heeft. In dit geval "NY, NY" komt overeen met.
-
-**Query**    
-
+```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family 
     FROM Families f 
     WHERE f.address.city = f.address.state
+```
 
 **Results**
 
+```json
     [{
         "Family": {
             "Name": "WakefieldFamily", 
             "City": "NY"
         }
     }]
+```
 
+**Query3**: deze query retourneert alle opgegeven namen van kinderen in de familie waarvan de id komt overeen met `WakefieldFamily` geordend op de plaats van wonen.
 
-De volgende query retourneert alle opgegeven namen van kinderen in de familie waarvan de id komt overeen met `WakefieldFamily` geordend op de plaats van wonen.
-
-**Query**
-
+```sql
     SELECT c.givenName 
     FROM Families f 
     JOIN c IN f.children 
     WHERE f.id = 'WakefieldFamily'
     ORDER BY f.address.city ASC
+```
 
 **Results**
 
+```json
     [
       { "givenName": "Jesse" }, 
       { "givenName": "Lisa"}
     ]
+```
 
-
-We willen graag de aandacht vestigen op een paar opmerkelijk aspecten van de querytaal van Cosmos DB met behulp van de voorbeelden die we tot nu toe hebben gezien:  
+Hier volgen enkele aspecten van de querytaal van Cosmos DB met behulp van de voorbeelden die u tot nu toe hebben gezien:  
 
 * Omdat SQL API op JSON-waarden werkt, behandelt structuur vormgegeven entiteiten in plaats van rijen en kolommen. Daarom de taal kunt u verwijzen naar de knooppunten van de structuur op elke willekeurige diepte zoals `Node1.Node2.Node3…..Nodem`, vergelijkbaar met de relationele SQL die verwijzen naar de twee onderdeelverwijzing van `<table>.<column>`.   
+
 * De structured query language werkt met gegevens zonder schema. Daarom moet het typesysteem dynamisch worden gebonden. Dezelfde expressie kan verschillende typen op verschillende documenten opleveren. Het resultaat van een query is een geldige JSON-waarde, maar is niet noodzakelijkerwijs van een vast schema.  
-* Cosmos DB biedt alleen ondersteuning voor strikte JSON-documenten. Dit betekent dat het systeem en voor expressies zijn beperkt tot alleen bekommeren om JSON-typen. Raadpleeg de [JSON-specificatie](http://www.json.org/) voor meer informatie.  
+
+* Azure Cosmos DB ondersteunt alleen strikte JSON-documenten. Dit betekent dat het systeem en voor expressies zijn beperkt tot alleen bekommeren om JSON-typen. Raadpleeg de [JSON-specificatie](http://www.json.org/) voor meer informatie.  
+
 * Een Cosmos DB-verzameling is een container schema's van JSON-documenten. De relaties in gegevensentiteiten binnen en tussen documenten in een verzameling worden impliciet door containment en niet door de primaire sleutel en refererende sleutels relaties vastgelegd. Dit is een belangrijk aspect om te zeggen, aanleiding van de intra-document wordt verderop in dit artikel besproken.
 
-## <a id="Indexing"></a> Cosmos DB indexeren
-Voordat we tot de SQL-syntaxis krijgen, is het waard is om het ontwerp van de indexering in Azure Cosmos DB verkennen. 
+## <a id="SelectClause"></a>SELECT-component
 
-Het doel van de indexen van de database is voor het bieden van query's in hun verschillende formulieren en vormen met minimale resourceverbruik (zoals CPU en input/output) terwijl met een goede doorvoer en lage latentie. De keuze van de juiste index voor query's in een database is vaak het geval is, vereist veel planning en experimenten. Deze aanpak is een uitdaging voor databases zonder schema waar de gegevens voldoen niet aan een strikt schema en zich snel verder ontwikkelt. 
+Elke query bestaat uit een SELECT-component en een optionele FROM en WHERE-componenten per ANSI SQL-standaarden. Normaal gesproken voor elke query moet de bron in de component FROM is geïnventariseerd. Het filter in de component WHERE wordt vervolgens toegepast op de bron om op te halen van een subset van JSON-documenten. Ten slotte wordt de SELECT-component gebruikt om de vereiste JSON-waarden in de selectielijst. Zie voor meer informatie over de syntaxis, [Selecteer syntaxis](sql-api-sql-query-reference.md#bk_select_query).
 
-Tijdens de indexering Cosmos DB-subsysteem, instellen we daarom de volgende doelen:
+Het volgende voorbeeld toont een typische SELECT-query. 
 
-* Documenten te indexeren zonder schema: het subsysteem voor indexering niet vereisen dat de schema-informatie of geen veronderstellingen doen over het schema van de documenten. 
-* Ondersteuning voor efficiënte, geavanceerde hiërarchische en relationele query's: de index biedt ondersteuning voor de Cosmos DB-querytaal efficiënt, inclusief ondersteuning voor hiërarchische en relationele projecties.
-* Ondersteuning voor consistente-query's in face of een doorlopend volume van schrijfbewerkingen: voor hoge schrijven doorvoer workloads met een consistente-query's, de index incrementeel, efficiënt en online geval van een doorlopend volume van schrijfbewerkingen wordt bijgewerkt. De consistente index-update is van cruciaal belang voor het bieden van de query's op het consistentieniveau van de waarin de gebruiker de documentservice hebt geconfigureerd.
-* Ondersteuning voor multitenancy: gegeven het model op basis van een reservering voor resourcebeheer voor tenants, index-updates worden uitgevoerd binnen het budget van systeembronnen (CPU, geheugen en i/o-bewerkingen per seconde) per replica toegewezen. 
-* Opslagefficiëntie: voor de kosteneffectiviteit, de opslagoverhead op de schijf van de index is gebonden en voorspelbare. Dit is essentieel omdat Cosmos DB kan de ontwikkelaar moet dienen tussen index overhead ten opzichte van de prestaties van query's op basis van kosten.  
+**Query**
 
-Raadpleeg de [voorbeelden van Azure Cosmos DB](https://github.com/Azure/azure-documentdb-net) op MSDN voor voorbeelden waarin wordt getoond hoe het indexeringsbeleid voor een verzameling configureren. Laten we nu toegang tot de details van de Azure Cosmos DB SQL-syntaxis.
+```sql
+    SELECT f.address
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
+```
 
-## <a id="Basics"></a>Basisprincipes van een Azure Cosmos DB SQL-query
-Elke query bestaat uit een SELECT-component en een optionele FROM en WHERE-componenten per ANSI SQL-standaarden. Normaal gesproken voor elke query moet de bron in de component FROM is geïnventariseerd. Het filter in de component WHERE wordt vervolgens toegepast op de bron om op te halen van een subset van JSON-documenten. Ten slotte wordt de SELECT-component gebruikt om de vereiste JSON-waarden in de selectielijst.
+**Results**
 
-    SELECT <select_list> 
-    [FROM <from_specification>] 
-    [WHERE <filter_condition>]
-    [ORDER BY <sort_specification]    
+```json
+    [{
+      "address": {
+        "state": "WA", 
+        "county": "King", 
+        "city": "seattle"
+      }
+    }]
+```
 
+### <a name="nested-properties"></a>Geneste eigenschappen
+In het volgende voorbeeld zijn er twee geneste eigenschappen projecteren `f.address.state` en `f.address.city`.
+
+**Query**
+
+```sql
+    SELECT f.address.state, f.address.city
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
+```
+
+**Results**
+
+```json
+    [{
+      "state": "WA", 
+      "city": "seattle"
+    }]
+```
+
+Projectie biedt ook ondersteuning voor JSON-expressies, zoals wordt weergegeven in het volgende voorbeeld:
+
+**Query**
+
+```sql
+    SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
+```
+
+**Results**
+
+```json
+    [{
+      "$1": {
+        "state": "WA", 
+        "city": "seattle", 
+        "name": "AndersenFamily"
+      }
+    }]
+```
+
+Bekijk de rol van `$1` hier. De `SELECT` component moet een JSON-object maken en omdat er geen sleutel is opgegeven, gebruiken we de impliciete argument variabele namen die beginnen met `$1`. Deze query retourneert bijvoorbeeld twee argumentvariabelen voor de impliciete, met het label `$1` en `$2`.
+
+**Query**
+
+```sql
+    SELECT { "state": f.address.state, "city": f.address.city }, 
+           { "name": f.id }
+    FROM Families f 
+    WHERE f.id = "AndersenFamily"
+```
+
+**Results**
+
+```json
+    [{
+      "$1": {
+        "state": "WA", 
+        "city": "seattle"
+      }, 
+      "$2": {
+        "name": "AndersenFamily"
+      }
+    }]
+```
 
 ## <a id="FromClause"></a>FROM-component
-De `FROM <from_specification>` component is optioneel, tenzij de bron is gefilterd of verderop in de query verwachte. Het doel van deze component is om op te geven van de gegevensbron waarop de query moet functioneren. De volledige verzameling is vaak de bron, maar één een subset van de verzameling in plaats daarvan kunt opgeven. 
 
-Een query zoals `SELECT * FROM Families` geeft aan dat de volledige verzameling worden Families de bron via die u wilt inventariseren. Een speciale ROOT-id kan worden gebruikt voor de verzameling in plaats van de naam van de verzameling. De volgende lijst bevat de regels die per query gelden:
+De van < from_specification > component is optioneel, tenzij de bron is gefilterd of verderop in de query verwachte. Zie voor meer informatie over de syntaxis, [van syntaxis](sql-api-sql-query-reference.md#bk_from_clause). Een query zoals `SELECT * FROM Families` geeft aan dat de volledige verzameling worden Families de bron via die u wilt inventariseren. Een speciale ROOT-id kan worden gebruikt voor de verzameling in plaats van de naam van de verzameling. De volgende lijst bevat de regels die per query gelden:
 
-* De verzameling kunt aliasnamen worden gebruikt, zoals `SELECT f.id FROM Families AS f` of gewoon `SELECT f.id FROM Families f`. Hier `f` is het equivalent van `Families`. `AS` is een optioneel trefwoord tot de alias van de id.
-* Eenmaal alias, de oorspronkelijke bron kan niet worden gekoppeld. Bijvoorbeeld, `SELECT Families.id FROM Families f` syntaxis is ongeldig omdat de id 'Families' kan niet meer worden omgezet.
+* De verzameling kunt aliasnamen worden gebruikt, zoals `SELECT f.id FROM Families AS f` of gewoon `SELECT f.id FROM Families f`. Hier `f` is het equivalent van `Families`. `AS` is een optioneel trefwoord tot de alias van de id.  
+
+* Eenmaal alias, de oorspronkelijke bron kan niet worden gekoppeld. Bijvoorbeeld, `SELECT Families.id FROM Families f` syntaxis is ongeldig omdat de id 'Families' kan niet meer worden omgezet.  
+
 * Alle eigenschappen die moeten worden verwezen naar de moeten volledig gekwalificeerde zijn. In de afwezigheid van strikt schema voldoet, wordt dit afgedwongen om te voorkomen dat een niet-eenduidige bindingen. Daarom `SELECT id FROM Families f` syntaxis is ongeldig omdat de eigenschap `id` niet is gebonden.
 
-### <a name="subdocuments"></a>Subdocumenten
+### <a name="get-subdocuments-using-from-clause"></a>Met behulp van FROM-component subdocumenten ophalen
+
 De bron kan ook worden teruggebracht tot een kleinere subset. Bijvoorbeeld voor het inventariseren van alleen een substructuur in elk document, kan de subroot vervolgens worden de bron, zoals wordt weergegeven in het volgende voorbeeld:
 
 **Query**
 
+```sql
     SELECT * 
     FROM Families.children
+```
 
 **Results**  
 
+```json
     [
       [
         {
@@ -247,35 +324,42 @@ De bron kan ook worden teruggebracht tot een kleinere subset. Bijvoorbeeld voor 
         }
       ]
     ]
+```
 
 Hoewel het bovenstaande voorbeeld gebruikt een matrix als de bron, een object kan ook worden gebruikt als de bron, dit is wat wordt weergegeven in het volgende voorbeeld: een geldig JSON-waarde (niet ongedefinieerd) die kan worden gevonden in de bron wordt beschouwd als voor opname in het resultaat van de query. Als sommige families geen een `address.state` -waarde in het queryresultaat worden uitgesloten.
 
 **Query**
 
+```sql
     SELECT * 
     FROM Families.address.state
+```
 
 **Results**
 
+```json
     [
       "WA", 
       "NY"
     ]
-
+```
 
 ## <a id="WhereClause"></a>WHERE-component
-De component WHERE (**`WHERE <filter_condition>`**) is optioneel. Hiermee geeft u de voorwaarden die de JSON-documenten die zijn opgegeven door de bron moet voldoen om te worden opgenomen als onderdeel van het resultaat. Elk JSON-document moet de opgegeven voorwaarden op "true" worden overwogen voor het resultaat opleveren. De WHERE-component wordt gebruikt door de index-laag om te bepalen van de absolute kleinste subset van de brondocumenten die deel van het resultaat uitmaken kunnen. 
+De component WHERE (**`WHERE <filter_condition>`**) is optioneel. Hiermee geeft u de voorwaarden die de JSON-documenten die zijn opgegeven door de bron moet voldoen om te worden opgenomen als onderdeel van het resultaat. Elk JSON-document moet de opgegeven voorwaarden op "true" worden overwogen voor het resultaat opleveren. De WHERE-component wordt gebruikt door de index-laag om te bepalen van de absolute kleinste subset van de brondocumenten die deel van het resultaat uitmaken kunnen. Zie voor meer informatie over de syntaxis, [waar syntaxis](sql-api-sql-query-reference.md#bk_where_clause).
 
 De volgende query-documenten met een eigenschap name waarvan de waarde vraagt `AndersenFamily`. Elk document dat geen een eigenschap name of waar de waarde komt niet overeen met `AndersenFamily` is uitgesloten. 
 
 **Query**
 
+```sql
     SELECT f.address
     FROM Families f 
     WHERE f.id = "AndersenFamily"
+```
 
 **Results**
 
+```json
     [{
       "address": {
         "state": "WA", 
@@ -283,38 +367,23 @@ De volgende query-documenten met een eigenschap name waarvan de waarde vraagt `A
         "city": "seattle"
       }
     }]
-
+```
 
 Het vorige voorbeeld hebt u een eenvoudige gelijkheid query geleerd. De SQL-API biedt ook ondersteuning voor tal van scalaire expressies. Het meest worden gebruikt zijn binaire bestanden en unaire expressies. De eigenschap verwijzingen van de bron-JSON-object zijn ook geldig expressies. 
 
 De volgende binaire operators worden momenteel ondersteund en kunnen worden gebruikt in query's, zoals wordt weergegeven in de volgende voorbeelden:  
 
-<table>
-<tr>
-<td>Rekenkundige</td>    
-<td>+,-,*,/,%</td>
-</tr>
-<tr>
-<td>Bitsgewijze</td>    
-<td>|, &, ^, <<>>,, >>> (shift-nul-opvulling rechts)</td>
-</tr>
-<tr>
-<td>Logische</td>
-<td>EN, OF NIET</td>
-</tr>
-<tr>
-<td>Vergelijking</td>    
-<td>=, !=, &lt;, &gt;, &lt;=, &gt;=, <></td>
-</tr>
-<tr>
-<td>Reeks</td>    
-<td>|| (samenvoegen)</td>
-</tr>
-</table>  
-
+|**Operatortype**  |**Waarden**  |
+|---------|---------|
+|Rekenkundige    |   +,-,*,/,%   |
+|Bitsgewijze  |   |, &, ^, <<>>,, >>> (shift-nul-opvulling rechts)      |
+|Logische   |   EN, OF NIET      |
+|Vergelijking   |    =, !=, &lt;, &gt;, &lt;=, &gt;=, <>     |
+|Reeks  |  || (samenvoegen)       |
 
 Laten we eens enkele query's met behulp van binaire operators.
 
+```sql
     SELECT * 
     FROM Families.children[0] c
     WHERE c.grade % 2 = 1     -- matching grades == 5, 1
@@ -326,10 +395,11 @@ Laten we eens enkele query's met behulp van binaire operators.
     SELECT *
     FROM Families.children[0] c
     WHERE c.grade >= 5     -- matching grades == 5
+```
 
+De unitaire operators +,-, ~, worden ook ondersteund, en niet kan worden gebruikt in query's, zoals wordt weergegeven in de volgende voorbeelden:
 
-De unitaire operators +,-, ~ worden ook ondersteund, en niet kan worden gebruikt in query's, zoals wordt weergegeven in het volgende voorbeeld:
-
+```sql
     SELECT *
     FROM Families.children[0] c
     WHERE NOT(c.grade = 5)  -- matching grades == 1
@@ -337,8 +407,7 @@ De unitaire operators +,-, ~ worden ook ondersteund, en niet kan worden gebruikt
     SELECT *
     FROM Families.children[0] c
     WHERE (-c.grade = -5)  -- matching grades == 5
-
-
+```
 
 Naast de binaire bestanden en unaire operators, zijn ook verwijzen naar eigenschappen toegestaan. Bijvoorbeeld, `SELECT * FROM Families f WHERE f.isRegistered` retourneert het JSON-document met de eigenschap `isRegistered` waar de waarde van de eigenschap is gelijk aan de JSON `true` waarde. Alle overige waarden (de waarde false, null, niet-gedefinieerde, `<number>`, `<string>`, `<object>`, `<array>`, enzovoort) leidt tot de brondocument wordt uitgesloten van het resultaat. 
 
@@ -515,9 +584,9 @@ Niet gedefinieerd </td>
    </tbody>
 </table>
 
-Voor andere vergelijkingsoperators zoals >, > =,! =, < en < =, de volgende regels van toepassing:   
+Voor andere vergelijkingsoperators zoals >, > =,! =, <, en < =, de volgende regels van toepassing:   
 
-* Vergelijking van de verschillende typen leidt er niet gedefinieerd.
+* Vergelijking van de verschillende typen leidt er niet gedefinieerd.  
 * Vergelijking tussen de twee objecten of twee matrices leidt niet gedefinieerd.   
 
 Als het resultaat van de scalaire expressie die u in het filter is niet gedefinieerd, de bijbehorende document zou niet opgenomen in het resultaat, omdat Undefined logisch niet met een 'true overeen'.
@@ -527,21 +596,28 @@ U kunt ook het sleutelwoord BETWEEN-query's op het bereik van waarden, zoals in 
 
 Deze query retourneert bijvoorbeeld alle familie documenten waarin het eerste onderliggende niveau tussen 1-5 (zowel inclusief is). 
 
+```sql
     SELECT *
     FROM Families.children[0] c
     WHERE c.grade BETWEEN 1 AND 5
+```
 
 In tegenstelling tot in ANSI-SQL, kunt u ook gebruiken de BETWEEN-component in de component FROM, zoals in het volgende voorbeeld.
 
+```sql
     SELECT (c.grade BETWEEN 0 AND 10)
     FROM Families.children[0] c
-
-Houd er rekening mee voor snellere query uitvoeringstijden, om te maken van een indexeringsbeleid die gebruikmaakt van een type bereik index op basis van een numerieke eigenschappen/paden die zijn gefilterd in de component BETWEEN. 
+```
 
 Het belangrijkste verschil tussen het gebruik van BETWEEN in de SQL API en de ANSI SQL is dat u kunt de bereik-query's op basis van eigenschappen van gemengde gegevenstypen express – bijvoorbeeld, u mogelijk "Geavanceerde" een getal (5) in bepaalde documenten en tekenreeksen in andere gevallen ("grade4"). In dergelijke gevallen wordt, zoals in JavaScript, een vergelijking tussen twee verschillende typen resulteert in 'niet-gedefinieerde' en het document overgeslagen.
 
+> [!NOTE]
+> Houd er rekening mee voor snellere query uitvoeringstijden, om te maken van een indexeringsbeleid die gebruikmaakt van een type bereik index op basis van een numerieke eigenschappen/paden die zijn gefilterd in de component BETWEEN. 
+
 ### <a name="logical-and-or-and-not-operators"></a>Logische (AND, OR en NOT) operators
 Logische operators worden uitgevoerd voor Booleaanse waarden. De logische waarheid tabellen voor deze operators worden weergegeven in de volgende tabellen.
+
+**OF een operator**
 
 | OF | True | False | Niet gedefinieerd |
 | --- | --- | --- | --- |
@@ -549,11 +625,15 @@ Logische operators worden uitgevoerd voor Booleaanse waarden. De logische waarhe
 | False |True |False |Niet gedefinieerd |
 | Niet gedefinieerd |True |Niet gedefinieerd |Niet gedefinieerd |
 
+**EN de operator**
+
 | EN | True | False | Niet gedefinieerd |
 | --- | --- | --- | --- |
 | True |True |False |Niet gedefinieerd |
 | False |False |False |False |
 | Niet gedefinieerd |Niet gedefinieerd |False |Niet gedefinieerd |
+
+**NIET-operator**
 
 | NIET |  |
 | --- | --- |
@@ -562,141 +642,75 @@ Logische operators worden uitgevoerd voor Booleaanse waarden. De logische waarhe
 | Niet gedefinieerd |Niet gedefinieerd |
 
 ## <a name="in-keyword"></a>TREFWOORD
+
 Het sleutelwoord kan worden gebruikt om te controleren of een opgegeven waarde komt overeen met een willekeurige waarde in een lijst. Bijvoorbeeld, retourneert deze query alle familie documenten waarin de id is een van de 'WakefieldFamily' of 'AndersenFamily'. 
 
+```sql
     SELECT *
     FROM Families 
     WHERE Families.id IN ('AndersenFamily', 'WakefieldFamily')
+```
 
 In dit voorbeeld retourneert alle documenten waarin de status is een van de opgegeven waarden.
 
+```sql
     SELECT *
     FROM Families 
     WHERE Families.address.state IN ("NY", "WA", "CA", "PA", "OH", "OR", "MI", "WI", "MN", "FL")
+```
 
 ## <a name="ternary--and-coalesce--operators"></a>Ternair (?) en operators samenvoegen (?)
-De operators Ternair en samenvoegen kunnen worden gebruikt om te bouwen voorwaardelijke expressies, die vergelijkbaar is met populaire programmeertalen, zoals C# en JavaScript. 
 
-De operator Ternair (?) is heel handig bij het maken van nieuwe JSON-eigenschappen op elk gewenst moment. Bijvoorbeeld: nu kunt u query's voor het classificeren van het niveau van de klasse in een mens leesbaar formulier zoals Beginner/tussenliggende/Geavanceerd zoals hieronder wordt weergegeven.
+De operators Ternair en samenvoegen kunnen worden gebruikt om te bouwen voorwaardelijke expressies, die vergelijkbaar is met populaire programmeertalen, zoals C# en JavaScript. De operator Ternair (?) is heel handig bij het maken van nieuwe JSON-eigenschappen op elk gewenst moment. Bijvoorbeeld: nu kunt u query's voor het classificeren van het niveau van de klasse in een mens leesbaar formulier zoals Beginner/tussenliggende/Geavanceerd zoals hieronder wordt weergegeven.
 
+```sql
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel 
      FROM Families.children[0] c
+```
 
 U kunt ook het aanroepen van de operator, zoals in de onderstaande query nesten.
 
+```sql
     SELECT (c.grade < 5)? "elementary": ((c.grade < 9)? "junior": "high")  AS gradeLevel 
     FROM Families.children[0] c
+```
 
 Als met andere standaardoperators voor query's, als de eigenschappen waarnaar wordt verwezen in de voorwaardelijke expressie ontbreekt in een document, of als het type dat wordt vergeleken verschillen, vervolgens die documenten worden niet opgenomen in de queryresultaten.
 
 De operator samenvoegen (?) kan worden gebruikt om efficiënt te controleren op de aanwezigheid van een eigenschap (ook wel) gedefinieerd) in een document. Dit is handig bij het uitvoeren van query's op basis van semi-gestructureerde of gegevens van verschillende typen. Deze query retourneert er bijvoorbeeld voor dat de 'lastName' indien aanwezig, of de "Achternaam" Als deze niet aanwezig is.
 
+```sql
     SELECT f.lastName ?? f.surname AS familyName
     FROM Families f
+```
 
 ## <a id="EscapingReservedKeywords"></a>Tussen aanhalingstekens eigenschapsaccessor
 U kunt ook toegang tot eigenschappen met behulp van de operator tussen aanhalingstekens eigenschap `[]`. Bijvoorbeeld, `SELECT c.grade` en `SELECT c["grade"]` gelijk zijn. Deze syntaxis is handig wanneer u nodig hebt als u een eigenschap die spaties, speciale tekens bevat of gebeurt er met dezelfde naam als een SQL-sleutelwoord of een gereserveerd woord.
 
+```sql
     SELECT f["lastName"]
     FROM Families f
     WHERE f["id"] = "AndersenFamily"
-
-
-## <a id="SelectClause"></a>SELECT-component
-De component SELECT (**`SELECT <select_list>`**) is verplicht en geeft aan welke waarden worden opgehaald uit de query, net zoals in de ANSI SQL. De subset die zijn gefilterd op de brondocumenten zijn doorgegeven aan de Projectiefase, waarbij de opgegeven JSON-waarden worden opgehaald en een nieuwe JSON-object is samengesteld, voor elke invoer doorgegeven aan deze. 
-
-Het volgende voorbeeld toont een typische SELECT-query. 
-
-**Query**
-
-    SELECT f.address
-    FROM Families f 
-    WHERE f.id = "AndersenFamily"
-
-**Results**
-
-    [{
-      "address": {
-        "state": "WA", 
-        "county": "King", 
-        "city": "seattle"
-      }
-    }]
-
-
-### <a name="nested-properties"></a>Geneste eigenschappen
-In het volgende voorbeeld zijn er twee geneste eigenschappen projecteren `f.address.state` en `f.address.city`.
-
-**Query**
-
-    SELECT f.address.state, f.address.city
-    FROM Families f 
-    WHERE f.id = "AndersenFamily"
-
-**Results**
-
-    [{
-      "state": "WA", 
-      "city": "seattle"
-    }]
-
-
-Projectie biedt ook ondersteuning voor JSON-expressies, zoals wordt weergegeven in het volgende voorbeeld:
-
-**Query**
-
-    SELECT { "state": f.address.state, "city": f.address.city, "name": f.id }
-    FROM Families f 
-    WHERE f.id = "AndersenFamily"
-
-**Results**
-
-    [{
-      "$1": {
-        "state": "WA", 
-        "city": "seattle", 
-        "name": "AndersenFamily"
-      }
-    }]
-
-
-Bekijk de rol van `$1` hier. De `SELECT` component moet een JSON-object maken en omdat er geen sleutel is opgegeven, gebruiken we de impliciete argument variabele namen die beginnen met `$1`. Deze query retourneert bijvoorbeeld twee argumentvariabelen voor de impliciete, met het label `$1` en `$2`.
-
-**Query**
-
-    SELECT { "state": f.address.state, "city": f.address.city }, 
-           { "name": f.id }
-    FROM Families f 
-    WHERE f.id = "AndersenFamily"
-
-**Results**
-
-    [{
-      "$1": {
-        "state": "WA", 
-        "city": "seattle"
-      }, 
-      "$2": {
-        "name": "AndersenFamily"
-      }
-    }]
-
+```
 
 ## <a name="aliasing"></a>Aliasing
+
 Nu gaan we uitgebreid in het voorbeeld hierboven met expliciete aliasing van waarden. Als het sleutelwoord gebruikt voor aliasing is. Het is optioneel, zoals wordt weergegeven tijdens het projecteren van de tweede waarde als `NameInfo`. 
 
 Als een query twee eigenschappen met dezelfde naam heeft, moet aliasing worden gebruikt om een of beide van de eigenschappen wijzigen zodat ze zijn disambiguated in het verwachte resultaat.
 
 **Query**
-
+```sql
     SELECT 
            { "state": f.address.state, "city": f.address.city } AS AddressInfo, 
            { "name": f.id } NameInfo
     FROM Families f 
     WHERE f.id = "AndersenFamily"
+```
 
 **Results**
 
+```json
     [{
       "AddressInfo": {
         "state": "WA", 
@@ -706,44 +720,53 @@ Als een query twee eigenschappen met dezelfde naam heeft, moet aliasing worden g
         "name": "AndersenFamily"
       }
     }]
-
+```
 
 ## <a name="scalar-expressions"></a>Scalaire expressies
 Naast de verwijzingen van de eigenschap ondersteuning de component SELECT ook voor scalaire expressies, zoals constanten, rekenkundige bewerkingen, logische expressies, enzovoort. Dit is bijvoorbeeld een eenvoudige 'Hallo wereld'-query.
 
 **Query**
 
+```sql
     SELECT "Hello World"
+```
 
 **Results**
 
+```json
     [{
       "$1": "Hello World"
     }]
-
+```
 
 Hier volgt een meer complex voorbeeld die gebruikmaakt van een scalaire expressie.
 
 **Query**
 
+```sql
     SELECT ((2 + 11 % 7)-2)/3    
+```
 
 **Results**
 
+```json
     [{
       "$1": 1.33333
     }]
-
+```
 
 In het volgende voorbeeld is het resultaat van de scalaire expressie die een Booleaanse waarde.
 
 **Query**
 
+```sql
     SELECT f.address.city = f.address.state AS AreFromSameCityState
     FROM Families f    
+```
 
 **Results**
 
+```json
     [
       {
         "AreFromSameCityState": false
@@ -752,18 +775,21 @@ In het volgende voorbeeld is het resultaat van de scalaire expressie die een Boo
         "AreFromSameCityState": true
       }
     ]
-
+```
 
 ## <a name="object-and-array-creation"></a>Object en matrix maken
 Een andere belangrijke functie van de SQL-API is object array/maken. In het vorige voorbeeld, houd er rekening mee dat we een nieuwe JSON-object gemaakt. Op deze manier kan een matrices ook bouwen zoals wordt weergegeven in de volgende voorbeelden:
 
 **Query**
 
+```sql
     SELECT [f.address.city, f.address.state] AS CityState 
     FROM Families f    
+```
 
 **Results**  
 
+```json
     [
       {
         "CityState": [
@@ -778,30 +804,37 @@ Een andere belangrijke functie van de SQL-API is object array/maken. In het vori
         ]
       }
     ]
+```
 
 ## <a id="ValueKeyword"></a>WAARDE trefwoord
 De **waarde** sleutelwoord biedt een manier om JSON-waarde te retourneren. De onderstaande query retourneert bijvoorbeeld scalaire `"Hello World"` in plaats van `{$1: "Hello World"}`.
 
 **Query**
 
+```sql
     SELECT VALUE "Hello World"
+```
 
 **Results**
 
+```json
     [
       "Hello World"
     ]
-
+```
 
 De volgende query retourneert de JSON-waarde zonder de `"address"` label in de resultaten.
 
 **Query**
 
+```sql
     SELECT VALUE f.address
     FROM Families f    
+```
 
 **Results**  
 
+```json
     [
       {
         "state": "WA", 
@@ -814,33 +847,40 @@ De volgende query retourneert de JSON-waarde zonder de `"address"` label in de r
         "city": "NY"
       }
     ]
+```
 
 Het volgende voorbeeld is een uitbreiding om toe te laten zien hoe u JSON primitieve waarden (het knooppuntniveau van de JSON-structuur) retourneren. 
 
 **Query**
 
+```sql
     SELECT VALUE f.address.state
     FROM Families f    
+```
 
 **Results**
 
+```json
     [
       "WA",
       "NY"
     ]
-
+```
 
 ## <a name="-operator"></a>* Operator
 De speciale operator (*) wordt ondersteund voor het document als project-is. Als u gebruikt, moet deze de enige verwachte veld. Terwijl een query zoals `SELECT * FROM Families f` geldig is, `SELECT VALUE * FROM Families f ` en `SELECT *, f.id FROM Families f ` zijn niet geldig.
 
 **Query**
 
+```sql
     SELECT * 
     FROM Families f 
     WHERE f.id = "AndersenFamily"
+```
 
 **Results**
 
+```json
     [{
         "id": "AndersenFamily",
         "lastName": "Andersen",
@@ -858,17 +898,21 @@ De speciale operator (*) wordt ondersteund voor het document als project-is. Als
         "creationDate": 1431620472,
         "isRegistered": true
     }]
+```
 
 ## <a id="TopKeyword"></a>TOP-Operator
 Het sleutelwoord TOP kan worden gebruikt om het aantal waarden uit een query te beperken. Als boven wordt gebruikt in combinatie met de component ORDER BY, is de resultatenset beperkt tot de eerste N aantal geordende waarden; anders, wordt de eerste N-nummer van de resultaten in een niet-gedefinieerde volgorde geretourneerd. Als een best practice, in een instructie SELECT gebruik altijd een ORDER BY-component met de TOP-component. Dit is de enige manier om aan te geven zoals verwacht waarin rijen zijn beïnvloed door boven. 
 
 **Query**
 
+```sql
     SELECT TOP 1 * 
     FROM Families f 
+```
 
 **Results**
 
+```json
     [{
         "id": "AndersenFamily",
         "lastName": "Andersen",
@@ -886,6 +930,7 @@ Het sleutelwoord TOP kan worden gebruikt om het aantal waarden uit een query te 
         "creationDate": 1431620472,
         "isRegistered": true
     }]
+```
 
 TOP kan worden gebruikt met een constante waarde (zoals hierboven) of met de waarde van een variabele met geparameteriseerde query's. Zie geparameteriseerde query's hieronder voor meer informatie.
 
@@ -894,37 +939,49 @@ U kunt ook uitvoeren de aggregaties in de `SELECT` component. Statistische funct
 
 **Query**
 
+```sql
     SELECT COUNT(1) 
     FROM Families f 
+```
 
 **Results**
 
+```json
     [{
         "$1": 2
     }]
+```
 
 U kunt ook de scalaire waarde van de statistische functie retourneren met behulp van de `VALUE` trefwoord. De volgende query retourneert bijvoorbeeld het aantal waarden als één getal:
 
 **Query**
 
+```sql
     SELECT VALUE COUNT(1) 
     FROM Families f 
+```
 
 **Results**
 
+```json
     [ 2 ]
+```
 
 U kunt ook statistische functies uitvoeren in combinatie met filters. De volgende query retourneert bijvoorbeeld het aantal documenten met het adres in de staat Washington.
 
 **Query**
 
+```sql
     SELECT VALUE COUNT(1) 
     FROM Families f
     WHERE f.address.state = "WA" 
+```
 
 **Results**
 
+```json
     [ 1 ]
+```
 
 De volgende tabel bevat de lijst met ondersteunde statistische functies in de SQL-API. `SUM` en `AVG` worden uitgevoerd over numerieke waarden, terwijl `COUNT`, `MIN`, en `MAX` in getallen, tekenreeksen, Booleaanse waarden en een null-waarden kunnen worden uitgevoerd. 
 
@@ -951,12 +1008,15 @@ Bijvoorbeeld, als volgt een query waarmee families in volgorde van de residente 
 
 **Query**
 
+```sql
     SELECT f.id, f.address.city
     FROM Families f 
     ORDER BY f.address.city
+```
 
 **Results**
 
+```json
     [
       {
         "id": "WakefieldFamily",
@@ -967,17 +1027,21 @@ Bijvoorbeeld, als volgt een query waarmee families in volgorde van de residente 
         "city": "Seattle"    
       }
     ]
+```
 
 En Hier volgt een query die wordt opgehaald families in volgorde van de aanmaakdatum, dat is opgeslagen als een getal voor de epoche tijd, Internet Explorer, verstreken tijd sinds 1 januari 1970 in seconden.
 
 **Query**
 
+```sql
     SELECT f.id, f.creationDate
     FROM Families f 
     ORDER BY f.creationDate DESC
+```
 
 **Results**
 
+```json
     [
       {
         "id": "WakefieldFamily",
@@ -988,6 +1052,7 @@ En Hier volgt een query die wordt opgehaald families in volgorde van de aanmaakd
         "creationDate": 1431620472    
       }
     ]
+```
 
 ## <a id="Advanced"></a>Concepten van geavanceerde database en SQL-query 's
 
@@ -996,11 +1061,14 @@ Een nieuwe constructie is toegevoegd de **IN** sleutelwoord in de SQL-API om ond
 
 **Query**
 
+```sql
     SELECT * 
     FROM Families.children
+```
 
 **Results**  
 
+```json
     [
       [
         {
@@ -1025,16 +1093,20 @@ Een nieuwe constructie is toegevoegd de **IN** sleutelwoord in de SQL-API om ond
         }
       ]
     ]
+```
 
 Nu gaan we bekijken een andere query die iteratie van onderliggende items in de verzameling uitvoert. Let op het verschil in de uitvoermatrix. In dit voorbeeld splitst `children` en worden de resultaten in een matrix samengevoegd.  
 
 **Query**
 
+```sql
     SELECT * 
     FROM c IN Families.children
+```
 
 **Results**  
 
+```json
     [
       {
           "firstName": "Henriette Thaulow",
@@ -1055,35 +1127,44 @@ Nu gaan we bekijken een andere query die iteratie van onderliggende items in de 
           "grade": 8
       }
     ]
+```
 
 Dit kan verder worden gebruikt om te filteren op elke afzonderlijke vermelding van de matrix, zoals wordt weergegeven in het volgende voorbeeld:
 
 **Query**
 
+```sql
     SELECT c.givenName
     FROM c IN Families.children
     WHERE c.grade = 8
+```
 
 **Results**  
 
+```json
     [{
       "givenName": "Lisa"
     }]
+```
 
 U kunt ook globalisatie uitvoeren via het resultaat van de matrix iteratie. Bijvoorbeeld telt de volgende query het aantal onderliggende items tussen alle gezinnen.
 
 **Query**
 
+```sql
     SELECT COUNT(child) 
     FROM child IN Families.children
+```
 
 **Results**  
 
+```json
     [
       { 
         "$1": 3
       }
     ]
+```
 
 ### <a id="Joins"></a>Joins
 In een relationele database, de noodzaak om toe te voegen in tabellen, het is belangrijk. Het is de logische overheidsinstelling voor het ontwerpen van genormaliseerde schema's. De SQL-API behandelt het model gedenormaliseerd gegevens zonder schema documenten niet overeenkomstig dit. Dit is het logische equivalent van een 'self-join'.
@@ -1094,26 +1175,32 @@ De volgende voorbeelden ziet de werking van de JOIN-component. In het volgende v
 
 **Query**
 
+```sql
     SELECT f.id
     FROM Families f
     JOIN f.NonExistent
+```
 
 **Results**  
 
+```json
     [{
     }]
-
+```
 
 In het volgende voorbeeld wordt de join is tussen de hoofdmap van het document en de `children` subroot. Het is een vectorproduct tussen twee JSON-objecten. Het feit dat kinderen is een matrix is niet effectief in de JOIN omdat we te maken hebt met een hoofdmap die de matrix van de onderliggende items. Het resultaat bevat daarom slechts twee resultaten, omdat het vectorproduct van elk document met de matrix precies slechts één document levert.
 
 **Query**
 
+```sql
     SELECT f.id
     FROM Families f
     JOIN f.children
+```
 
 **Results**
 
+```json
     [
       {
         "id": "AndersenFamily"
@@ -1122,18 +1209,21 @@ In het volgende voorbeeld wordt de join is tussen de hoofdmap van het document e
         "id": "WakefieldFamily"
       }
     ]
-
+```
 
 Het volgende voorbeeld ziet u een meer conventionele join:
 
 **Query**
 
+```sql
     SELECT f.id
     FROM Families f
     JOIN c IN f.children 
+```
 
 **Results**
 
+```json
     [
       {
         "id": "AndersenFamily"
@@ -1145,8 +1235,7 @@ Het volgende voorbeeld ziet u een meer conventionele join:
         "id": "WakefieldFamily"
       }
     ]
-
-
+```
 
 Het eerste wat om te weten is dat de `from_source` van de **JOIN** component is een iterator. Ja, de stroom in dit geval is als volgt:  
 
@@ -1160,6 +1249,7 @@ De echte hulpprogramma van de JOIN is het formulier tuples uit het vectorproduct
 
 **Query**
 
+```sql
     SELECT 
         f.id AS familyName,
         c.givenName AS childGivenName,
@@ -1168,9 +1258,11 @@ De echte hulpprogramma van de JOIN is het formulier tuples uit het vectorproduct
     FROM Families f 
     JOIN c IN f.children 
     JOIN p IN c.pets
+```
 
 **Results**
 
+```json
     [
       {
         "familyName": "AndersenFamily", 
@@ -1188,11 +1280,11 @@ De echte hulpprogramma van de JOIN is het formulier tuples uit het vectorproduct
        "petName": "Shadow"
       }
     ]
-
-
+```
 
 In dit voorbeeld is een natuurlijke uitbreiding van het vorige voorbeeld, en voert een dubbele koppeling. Het vectorproduct kunnen dus worden weergegeven als de volgende pseudo-code:
 
+```
     for-each(Family f in Families)
     {    
         for-each(Child c in f.children)
@@ -1206,6 +1298,7 @@ In dit voorbeeld is een natuurlijke uitbreiding van het vorige voorbeeld, en voe
             }
         }
     }
+```
 
 `AndersenFamily` heeft één onderliggende die één huisdier heeft. Dus het vectorproduct resulteert in een rij (1\*1\*1) van deze serie. WakefieldFamily heeft echter twee kinderen, maar slechts één onderliggende "Jesse" huisdieren. Jesse heeft echter twee huisdieren. Daarom het vectorproduct 1 levert\*1\*2 = 2 rijen uit deze serie.
 
@@ -1213,6 +1306,7 @@ In het volgende voorbeeld wordt er is een extra filter op `pet`. Alle tuples waa
 
 **Query**
 
+```sql
     SELECT 
         f.id AS familyName,
         c.givenName AS childGivenName,
@@ -1222,9 +1316,11 @@ In het volgende voorbeeld wordt er is een extra filter op `pet`. Alle tuples waa
     JOIN c IN f.children 
     JOIN p IN c.pets
     WHERE p.givenName = "Shadow"
+```
 
 **Results**
 
+```json
     [
       {
        "familyName": "WakefieldFamily", 
@@ -1232,7 +1328,7 @@ In het volgende voorbeeld wordt er is een extra filter op `pet`. Alle tuples waa
        "petName": "Shadow"
       }
     ]
-
+```
 
 ## <a id="JavaScriptIntegration"></a>JavaScript-integratie
 Azure Cosmos DB biedt een programmeermodel voor het uitvoeren van op basis van JavaScript-toepassingslogica rechtstreeks op de verzamelingen in termen van opgeslagen procedures en triggers. Hierdoor kunnen voor beide:
@@ -1247,6 +1343,7 @@ De SQL-syntaxis is uitgebreid ter ondersteuning van aangepaste toepassingslogica
 
 Hieronder volgt een voorbeeld van hoe een UDF kan worden geregistreerd bij de Cosmos DB-database, om precies onder een documentverzameling.
 
+```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
        {
            Id = "REGEX_MATCH",
@@ -1258,6 +1355,7 @@ Hieronder volgt een voorbeeld van hoe een UDF kan worden geregistreerd bij de Co
        UserDefinedFunction createdUdf = client.CreateUserDefinedFunctionAsync(
            UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
            regexMatchUdf).Result;  
+```
 
 Het voorgaande voorbeeld wordt een UDF met de naam `REGEX_MATCH`. De cmdlet accepteert twee waarden voor JSON-tekenreeks `input` en `pattern` en controleert of het eerste komt overeen met het patroon die zijn opgegeven in de tweede JavaScript functie string.match() te gebruiken.
 
@@ -1270,11 +1368,14 @@ We kunnen deze UDF nu gebruiken in een query in een projectie. UDF's moeten word
 
 **Query**
 
+```sql
     SELECT udf.REGEX_MATCH(Families.address.city, ".*eattle")
     FROM Families
+```
 
 **Results**
 
+```json
     [
       {
         "$1": true
@@ -1283,27 +1384,32 @@ We kunnen deze UDF nu gebruiken in een query in een projectie. UDF's moeten word
         "$1": false
       }
     ]
+```
 
 De UDF kan ook worden gebruikt in een filter, zoals wordt weergegeven in het onderstaande voorbeeld ook gekwalificeerd met de 'udf." voorvoegsel:
 
 **Query**
 
+```sql
     SELECT Families.id, Families.address.city
     FROM Families
     WHERE udf.REGEX_MATCH(Families.address.city, ".*eattle")
+```
 
 **Results**
 
+```json
     [{
         "id": "AndersenFamily",
         "city": "Seattle"
     }]
-
+```
 
 In wezen UDF's geldige scalaire expressies zijn en kunnen worden gebruikt in projecties en filters. 
 
 Als u wilt uitbreiden op de kracht van UDF's, laten we bekijken een ander voorbeeld met voorwaardelijke logica:
 
+```javascript
        UserDefinedFunction seaLevelUdf = new UserDefinedFunction()
        {
            Id = "SEALEVEL",
@@ -1323,17 +1429,20 @@ Als u wilt uitbreiden op de kracht van UDF's, laten we bekijken een ander voorbe
             UserDefinedFunction createdUdf = await client.CreateUserDefinedFunctionAsync(
                 UriFactory.CreateDocumentCollectionUri("testdb", "families"), 
                 seaLevelUdf);
-
+```
 
 Hieronder volgt een voorbeeld waarin de UDF oefeningen.
 
 **Query**
 
+```sql
     SELECT f.address.city, udf.SEALEVEL(f.address.city) AS seaLevel
     FROM Families f    
+```
 
 **Results**
 
+```json
      [
       {
         "city": "seattle", 
@@ -1344,7 +1453,7 @@ Hieronder volgt een voorbeeld waarin de UDF oefeningen.
         "seaLevel": 410
       }
     ]
-
+```
 
 Als de voorgaande voorbeelden laten zien, integreren UDF's in de kracht van JavaScript-taal de SQL-API biedt een uitgebreide programmeerbare interface hiervoor complexe procedurele, voorwaardelijke logica aan de hand van de geïntegreerde JavaScript-runtime-functionaliteit.
 
@@ -1364,12 +1473,15 @@ Cosmos DB biedt ondersteuning voor query's met parameters worden uitgedrukt met 
 
 U kunt bijvoorbeeld een query schrijven waarmee de achternaam en -adresstatus als parameters duurt en vervolgens uitvoeren voor de verschillende waarden van de laatste naam en adres staat op basis van de invoer van de gebruiker.
 
+```sql
     SELECT * 
     FROM Families f
     WHERE f.lastName = @lastName AND f.address.state = @addressState
+```
 
 Deze aanvraag kan vervolgens worden verzonden naar Cosmos DB als een JSON-query met parameters, zoals hieronder wordt weergegeven.
 
+```sql
     {      
         "query": "SELECT * FROM Families f WHERE f.lastName = @lastName AND f.address.state = @addressState",     
         "parameters": [          
@@ -1377,15 +1489,18 @@ Deze aanvraag kan vervolgens worden verzonden naar Cosmos DB als een JSON-query 
             {"name": "@addressState", "value": "NY"},           
         ] 
     }
+```
 
 Het argument voor TOP kan worden ingesteld met geparameteriseerde query's, zoals hieronder wordt weergegeven.
 
+```sql
     {      
         "query": "SELECT TOP @n * FROM Families",     
         "parameters": [          
             {"name": "@n", "value": 10},         
         ] 
     }
+```
 
 Parameterwaarden mag geldige JSON (tekenreeksen, getallen, Booleaanse waarden, null, zelfs matrices of geneste JSON). Ook omdat Cosmos DB zonder schema, worden parameters niet gevalideerd met elk type.
 
@@ -1436,12 +1551,15 @@ Bijvoorbeeld, kunt u nu query's als volgt uitvoeren:
 
 **Query**
 
+```sql
     SELECT VALUE ABS(-4)
+```
 
 **Results**
 
+```json
     [4]
-
+```
 Het belangrijkste verschil tussen van Cosmos DB-functies ten opzichte van ANSI SQL is dat ze zijn ontworpen om te werken goed voor schemagegevens zonder schema en een gemengde. Hebt u een document waarin de grootte van de eigenschap ontbreekt of heeft een niet-numerieke waarde als 'Onbekend' en het document is overgeslagen, klikt u in plaats van een fout geretourneerd.
 
 ### <a name="type-checking-functions"></a>Controle van functies van het type
@@ -1491,11 +1609,15 @@ U kunt nu een query's als volgt uitvoeren met behulp van deze functies:
 
 **Query**
 
+```sql
     SELECT VALUE IS_NUMBER(-4)
+```
 
 **Results**
 
+```json
     [true]
+```
 
 ### <a name="string-functions"></a>Tekenreeksfuncties
 De volgende scalaire functies uitvoeren van een bewerking op een tekenreekswaarde voor invoer en retourneert een tekenreeks, een numerieke of Booleaanse waarde. Hier volgt een tabel met ingebouwde tekenreeksfuncties:
@@ -1523,25 +1645,32 @@ U kunt nu een query's als volgt uitvoeren met behulp van deze functies. Bijvoorb
 
 **Query**
 
+```sql
     SELECT VALUE UPPER(Families.id)
     FROM Families
+```
 
 **Results**
 
+```json
     [
         "WAKEFIELDFAMILY", 
         "ANDERSENFAMILY"
     ]
+```
 
 Of tekenreeksen, zoals in dit voorbeeld:
 
 **Query**
 
+```sql
     SELECT Families.id, CONCAT(Families.address.city, ",", Families.address.state) AS location
     FROM Families
+```
 
 **Results**
 
+```json
     [{
       "id": "WakefieldFamily",
       "location": "NY,NY"
@@ -1550,22 +1679,26 @@ Of tekenreeksen, zoals in dit voorbeeld:
       "id": "AndersenFamily",
       "location": "seattle,WA"
     }]
-
+```
 
 Tekenreeksfuncties kunnen ook worden gebruikt in de WHERE-component om resultaten te filteren, zoals in het volgende voorbeeld:
 
 **Query**
 
+```sql
     SELECT Families.id, Families.address.city
     FROM Families
     WHERE STARTSWITH(Families.id, "Wakefield")
+```
 
 **Results**
 
+```json
     [{
       "id": "WakefieldFamily",
       "city": "NY"
     }]
+```
 
 ### <a name="array-functions"></a>Matrixfuncties
 De volgende scalaire functies uitvoeren van een bewerking op een matrix invoerwaarde en retourneren numerieke, Booleaanse waarde of een matrix-waarde. Hier volgt een tabel met ingebouwde matrixfuncties:
@@ -1581,40 +1714,50 @@ Matrixfuncties kunnen worden gebruikt voor het bewerken van matrices in JSON. Bi
 
 **Query**
 
+```sql
     SELECT Families.id 
     FROM Families 
     WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin", familyName: "Wakefield" })
+```
 
 **Results**
 
+```json
     [{
       "id": "WakefieldFamily"
     }]
+```
 
 U kunt een gedeeltelijke fragment voor het afstemmen van elementen in de matrix. De volgende query vindt u alle bovenliggende items met de `givenName` van `Robin`.
 
 **Query**
 
+```sql
     SELECT Families.id 
     FROM Families 
     WHERE ARRAY_CONTAINS(Families.parents, { givenName: "Robin" }, true)
+```
 
 **Results**
 
+```json
     [{
       "id": "WakefieldFamily"
     }]
-
+```
 
 Hier volgt een voorbeeld waarin ARRAY_LENGTH om het aantal onderliggende items per serie.
 
 **Query**
 
+```sql
     SELECT Families.id, ARRAY_LENGTH(Families.children) AS numberOfChildren
     FROM Families 
+```
 
 **Results**
 
+```json
     [{
       "id": "WakefieldFamily",
       "numberOfChildren": 2
@@ -1623,6 +1766,7 @@ Hier volgt een voorbeeld waarin ARRAY_LENGTH om het aantal onderliggende items p
       "id": "AndersenFamily",
       "numberOfChildren": 1
     }]
+```
 
 ### <a name="spatial-functions"></a>Ruimtelijke-functies
 Cosmos DB biedt ondersteuning voor de volgende Open georuimtelijke Consortium (OGC) ingebouwde functies voor georuimtelijke query's. 
@@ -1658,15 +1802,19 @@ Ruimtelijke functies kunnen worden gebruikt om uit te voeren van de service-quer
 
 **Query**
 
+```sql
     SELECT f.id 
     FROM Families f 
     WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 30000
+```
 
 **Results**
 
+```json
     [{
       "id": "WakefieldFamily"
     }]
+```
 
 Zie voor meer informatie over ondersteuning voor georuimtelijke in Cosmos DB [werken met georuimtelijke gegevens in Azure Cosmos DB](geospatial.md). Afgerond ruimtelijke functies en de SQL-syntaxis voor Cosmos DB. Nu eens kijken hoe LINQ-query's werkt en hoe deze samenwerkt met de syntaxis van de we hebben gezien tot nu toe.
 
@@ -1682,6 +1830,7 @@ De toewijzing tussen .NET-objecten en JSON-documenten is natuurlijk - elk gegeve
 
 **C#-klasse**
 
+```csharp
     public class Family
     {
         [JsonProperty(PropertyName="id")]
@@ -1725,10 +1874,11 @@ De toewijzing tussen .NET-objecten en JSON-documenten is natuurlijk - elk gegeve
     Pet pet = new Pet { givenName = "Fluffy" };
     Address address = new Address { state = "NY", county = "Manhattan", city = "NY" };
     Family family = new Family { Id = "WakefieldFamily", parents = new Parent [] { mother, father}, children = new Child[] { child }, isRegistered = false };
-
+```
 
 **JSON**  
 
+```json
     {
         "id": "WakefieldFamily",
         "parents": [
@@ -1756,7 +1906,7 @@ De toewijzing tussen .NET-objecten en JSON-documenten is natuurlijk - elk gegeve
         "address": { "state": "NY", "county": "Manhattan", "city": "NY" },
         "isRegistered": false
     };
-
+```
 
 
 ### <a name="linq-to-sql-translation"></a>LINQ tot vertaling van SQL
@@ -1808,10 +1958,10 @@ De syntaxis is `input.Select(x => f(x))`, waarbij `f` is een scalaire expressie.
 
 **SQL** 
 
+```sql
     SELECT VALUE f.parents[0].familyName
     FROM Families f
-
-
+```
 
 **LINQ lambda-expressie**
 
@@ -1820,9 +1970,10 @@ De syntaxis is `input.Select(x => f(x))`, waarbij `f` is een scalaire expressie.
 
 **SQL** 
 
+```sql
     SELECT VALUE f.children[0].grade + c
     FROM Families f 
-
+```
 
 
 **LINQ lambda-expressie**
@@ -1836,10 +1987,11 @@ De syntaxis is `input.Select(x => f(x))`, waarbij `f` is een scalaire expressie.
 
 **SQL** 
 
+```sql
     SELECT VALUE {"name":f.children[0].familyName, 
                   "grade": f.children[0].grade + 3 }
     FROM Families f
-
+```
 
 
 #### <a name="selectmany-operator"></a>SelectMany operator
@@ -1851,10 +2003,10 @@ De syntaxis is `input.SelectMany(x => f(x))`, waarbij `f` is een scalaire expres
 
 **SQL** 
 
+```sql
     SELECT VALUE child
     FROM child IN Families.children
-
-
+```
 
 #### <a name="where-operator"></a>Waar operator
 De syntaxis is `input.Where(x => f(x))`, waarbij `f` is een scalaire expressie die een Booleaanse waarde retourneert.
@@ -1865,11 +2017,11 @@ De syntaxis is `input.Where(x => f(x))`, waarbij `f` is een scalaire expressie d
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     WHERE f.parents[0].familyName = "Smith" 
-
-
+```
 
 **LINQ lambda-expressie**
 
@@ -1879,11 +2031,12 @@ De syntaxis is `input.Where(x => f(x))`, waarbij `f` is een scalaire expressie d
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     WHERE f.parents[0].familyName = "Smith"
     AND f.children[0].grade < 3
-
+```
 
 ### <a name="composite-sql-queries"></a>Samengestelde SQL-query 's
 De bovenstaande operators kunnen worden samengesteld uit om te krachtige query's vormen. Sinds de Cosmos DB biedt ondersteuning voor geneste verzamelingen, kan de samenstelling worden samengevoegd of genest.
@@ -1898,11 +2051,11 @@ De syntaxis is `input(.|.SelectMany())(.Select()|.Where())*`. Een samengevoegde 
 
 **SQL**
 
+```sql
     SELECT *
     FROM Families f
     WHERE f.parents[0].familyName = "Smith"
-
-
+```
 
 **LINQ lambda-expressie**
 
@@ -1911,10 +2064,11 @@ De syntaxis is `input(.|.SelectMany())(.Select()|.Where())*`. Een samengevoegde 
 
 **SQL** 
 
+```sql
     SELECT VALUE f.parents[0].familyName
     FROM Families f
     WHERE f.children[0].grade > 3
-
+```
 
 
 **LINQ lambda-expressie**
@@ -1924,11 +2078,11 @@ De syntaxis is `input(.|.SelectMany())(.Select()|.Where())*`. Een samengevoegde 
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     WHERE ({grade: f.children[0].grade}.grade > 3)
-
-
+```
 
 **LINQ lambda-expressie**
 
@@ -1937,10 +2091,11 @@ De syntaxis is `input(.|.SelectMany())(.Select()|.Where())*`. Een samengevoegde 
 
 **SQL** 
 
+```sql
     SELECT *
     FROM p IN Families.parents
     WHERE p.familyName = "Smith"
-
+```
 
 
 #### <a name="nesting"></a>Nesten
@@ -1955,10 +2110,11 @@ In een geneste query, wordt de binnenste query toegepast op elk element van de b
 
 **SQL** 
 
+```sql
     SELECT VALUE p.familyName
     FROM Families f
     JOIN p IN f.parents
-
+```
 
 **LINQ lambda-expressie**
 
@@ -1967,11 +2123,12 @@ In een geneste query, wordt de binnenste query toegepast op elk element van de b
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     JOIN c IN f.children
     WHERE c.familyName = "Jeff"
-
+```
 
 
 **LINQ lambda-expressie**
@@ -1981,11 +2138,12 @@ In een geneste query, wordt de binnenste query toegepast op elk element van de b
 
 **SQL** 
 
+```sql
     SELECT *
     FROM Families f
     JOIN c IN f.children
     WHERE c.familyName = f.parents[0].familyName
-
+```
 
 ## <a id="ExecutingSqlQueries"></a>SQL-query's uitvoeren
 Cosmos DB Ontsluit resources via een REST-API die kan worden aangeroepen in elke taal waarmee HTTP/HTTPS-aanvragen. Cosmos DB biedt bovendien programmeringsbibliotheken voor verschillende veelgebruikte talen zoals .NET, Node.js, JavaScript en Python. De REST-API en de verschillende bibliotheken ondersteuning voor het uitvoeren van query's via SQL. De .NET SDK biedt ondersteuning voor LINQ-query's uitvoeren naast SQL.
@@ -2016,6 +2174,7 @@ De volgende voorbeelden ziet een bericht voor een SQL-API-query uitgevoerd voor 
 
 **Results**
 
+```
     HTTP/1.1 200 Ok
     x-ms-activity-id: 8b4678fa-a947-47d3-8dd3-549a40da6eed
     x-ms-item-count: 1
@@ -2063,7 +2222,7 @@ De volgende voorbeelden ziet een bericht voor een SQL-API-query uitgevoerd voor 
        ],
        "count":1
     }
-
+```
 
 Het tweede voorbeeld ziet een complexere query die meerdere resultaten uit de join retourneert.
 
@@ -2089,6 +2248,7 @@ Het tweede voorbeeld ziet een complexere query die meerdere resultaten uit de jo
 
 **Results**
 
+```
     HTTP/1.1 200 Ok
     x-ms-activity-id: 568f34e3-5695-44d3-9b7d-62f8b83e509d
     x-ms-item-count: 1
@@ -2117,7 +2277,7 @@ Het tweede voorbeeld ziet een complexere query die meerdere resultaten uit de jo
        ],
        "count":3
     }
-
+```
 
 Als de resultaten van een query niet binnen één pagina met resultaten past en vervolgens de REST-API een vervolgtoken via retourneert de `x-ms-continuation-token` response-header. Clients kunnen resultaten pagineren door op te nemen van de koptekst in de volgende resultaten. Het aantal resultaten per pagina kan ook worden beheerd via de `x-ms-max-item-count` getal-header. Als de opgegeven query een statistische functie, zoals bevat `COUNT`, de querypagina kan een gedeeltelijk geaggregeerde waarde geretourneerd via de pagina met resultaten. De clients moeten een aggregatie op het tweede niveau uitvoeren via deze resultaten het uiteindelijke resultaat, bijvoorbeeld, som via de aantallen die worden geretourneerd in de afzonderlijke pagina's om de totale telling te retourneren.
 

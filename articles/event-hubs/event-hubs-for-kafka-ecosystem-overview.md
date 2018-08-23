@@ -3,26 +3,28 @@ title: Azure Eventhubs voor Apache Kafka | Microsoft Docs
 description: Overzicht van en inleiding tot Kafka ingeschakeld Azure Event Hubs
 services: event-hubs
 documentationcenter: .net
-author: djrosanova
+author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: darosa
-ms.openlocfilehash: 51f2ad736ccbf27cafb05b8f68653f5effdecbf0
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.date: 08/16/2018
+ms.author: bahariri
+ms.openlocfilehash: 16c101068be48ba1435ef230b29c679fcef17d08
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503499"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42054112"
 ---
 # <a name="azure-event-hubs-for-apache-kafka-preview"></a>Azure Event Hubs voor Apache Kafka (preview)
 
-Eventhubs biedt een Kafka-eindpunt dat kan worden gebruikt door uw bestaande Kafka op basis van toepassingen als alternatief voor het uitvoeren van uw eigen Kafka-cluster. Biedt ondersteuning voor Eventhubs [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) en nieuwere clientversies en werkt met uw bestaande Kafka-toepassingen, met inbegrip van MirrorMaker. Wijzig de verbindingsreeks en streamen van gebeurtenissen uit uw toepassingen die gebruikmaken van het Kafka-protocol in Event Hubs.
+Eventhubs biedt een Kafka-eindpunt dat kan worden gebruikt door uw bestaande Kafka op basis van toepassingen als alternatief voor het uitvoeren van uw eigen Kafka-cluster. Biedt ondersteuning voor Eventhubs [Apache Kafka 1.0](https://kafka.apache.org/10/documentation.html) en nieuwere clientversies en werkt met uw bestaande Kafka-toepassingen, met inbegrip van MirrorMaker. 
 
 ## <a name="what-does-event-hubs-for-kafka-provide"></a>Wat biedt Event Hubs voor Kafka
 
-De Event Hubs voor Kafka-functie biedt een protocol hoofd boven op Azure Event Hubs die binaire compatibel is met Kafka-versies 1.0 en hoger voor zowel lezen van en schrijven naar het Kafka-onderwerpen. Conceptueel gezien Kafka en Event Hubs zijn bijna identiek zijn: ze zijn beide gepartitioneerde logboeken die is gebouwd voor het streamen van gegevens. De volgende tabel worden de concepten tussen Kafka- en Event Hubs toegewezen.
+De Event Hubs voor Kafka-functie biedt een protocol hoofd boven op Azure Event Hubs die binaire compatibel is met Kafka-versies 1.0 en hoger voor zowel lezen van en schrijven naar het Kafka-onderwerpen. U kunt beginnen met behulp van het Kafka-eindpunt van uw toepassingen met een minimale configuratie wijzigen, maar er zijn geen codewijzigingen. U kunt de verbindingsreeks in configuraties om te verwijzen naar het Kafka-eindpunt beschikbaar gesteld door uw event hub in plaats van dat verwijst naar het Kafka-cluster bijwerken. Vervolgens kun u streaming-gebeurtenissen uit uw toepassingen die gebruikmaken van het Kafka-protocol in Event Hubs. 
+
+Conceptueel gezien Kafka en Event Hubs zijn bijna identiek zijn: ze zijn beide gepartitioneerde logboeken die is gebouwd voor het streamen van gegevens. De volgende tabel worden de concepten tussen Kafka- en Event Hubs toegewezen.
 
 ### <a name="kafka-and-event-hub-conceptual-mapping"></a>Kafka en Event Hub conceptuele toewijzing
 
@@ -36,7 +38,7 @@ De Event Hubs voor Kafka-functie biedt een protocol hoofd boven op Azure Event H
 
 ### <a name="key-differences-between-kafka-and-event-hubs"></a>Belangrijke verschillen tussen Kafka- en Event Hubs
 
-Terwijl [Apache Kafka](https://kafka.apache.org/) -software, die u uitvoeren kunt wanneer u kiest, is Event Hubs is een cloudservice die vergelijkbaar is met Azure Blob Storage. Er zijn geen servers of netwerken te beheren en geen brokers te configureren. U maakt een naamruimte een FQDN-naam in die uw onderwerpen is, en maak vervolgens Event Hubs en onderwerpen binnen die naamruimte. Zie voor meer informatie over Event Hubs en naamruimten [wat is Event Hubs](event-hubs-what-is-event-hubs.md). Als een cloudservice, Event Hubs maakt gebruik van één stabiel virtuele IP-adres als het eindpunt in, zodat clients niet hoeft te weten over de brokers of machines binnen een cluster. 
+Terwijl [Apache Kafka](https://kafka.apache.org/) -software, die u uitvoeren kunt wanneer u kiest, is Event Hubs is een cloudservice die vergelijkbaar is met Azure Blob Storage. Er zijn geen servers of netwerken te beheren en geen brokers te configureren. U maakt een naamruimte een FQDN-naam in die uw onderwerpen is, en maak vervolgens Event Hubs en onderwerpen binnen die naamruimte. Zie voor meer informatie over Event Hubs en naamruimten [functies van Event Hubs](event-hubs-features.md#namespace). Als een cloudservice, Event Hubs maakt gebruik van één stabiel virtuele IP-adres als het eindpunt in, zodat clients niet hoeft te weten over de brokers of machines binnen een cluster. 
 
 Schaal in Event Hubs wordt bepaald door u hoeveel doorvoereenheden u hebt gekocht, met elke throughput unit grond u 1 MB per seconde of 1000 gebeurtenissen per seconde van inkomend verkeer. Standaard Event Hubs omhoog wordt geschaald uitgaande doorvoereenheden wanneer u uw limiet voor het privégeheugen bereikt de [automatisch vergroten](event-hubs-auto-inflate.md) functie; deze functie ook werkt met de Event Hubs voor Kafka-functie. 
 

@@ -13,19 +13,19 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: c8c0f4c3f99aa413531f54c1807883fcd73f039a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: b52a447bf643510528e1bd8c6d473bf5d77731fe
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627930"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056883"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Beveiligen van bevoegde toegang voor cloud- en hybride implementaties in Azure AD
 
 De beveiliging van de meeste of alle bedrijfsassets in de moderne organisatie, is afhankelijk van de integriteit van de bevoegde accounts waarmee IT-systemen worden beheerd. Kwaadwillende actoren vaak met inbegrip van cyberaanvallers richten beheerdersaccounts en andere elementen van bevoegde toegang proberen te snel toegang krijgen tot gevoelige gegevens en systemen met behulp van referentie diefstal aanvallen. Zijn de gezamenlijke verantwoordelijkheden van de cloudserviceprovider en de klant voor cloud services, voorkomen en de reactie. Zie voor meer informatie over de nieuwste bedreigingen van eindpunten en de cloud, de [Microsoft Security Intelligence Report](https://www.microsoft.com/security/sir/default.aspx). In dit artikel kunt u bij ontwikkelen van een schema voor het sluiten van de tussenruimte tussen uw huidige plannen en de richtlijnen die hier worden beschreven.
 
 > [!NOTE] 
-> Microsoft streeft naar het hoogste niveau van vertrouwen, transparantie, conformiteit met de normen en naleving van regelgeving. Meer informatie over hoe het team van Microsoft wereldwijd reageren op incidenten vermindert de gevolgen van aanvallen op cloudservices en hoe de beveiliging is ingebouwd in zakelijke Microsoft-producten en cloudservices op [Microsoft Trust Center - beveiliging](https://www.microsoft.com/en-us/trustcenter/security)en Microsoft naleving doelen op [Microsoft Trust Center - naleving](https://www.microsoft.com/en-us/trustcenter/compliance).
+> Microsoft streeft naar het hoogste niveau van vertrouwen, transparantie, conformiteit met de normen en naleving van regelgeving. Meer informatie over hoe het team van Microsoft wereldwijd reageren op incidenten vermindert de gevolgen van aanvallen op cloudservices en hoe de beveiliging is ingebouwd in zakelijke Microsoft-producten en cloudservices op [Microsoft Trust Center - beveiliging](https://www.microsoft.com/trustcenter/security)en Microsoft naleving doelen op [Microsoft Trust Center - naleving](https://www.microsoft.com/trustcenter/compliance).
 
 <!--## Risk management, incident response, and recovery preparation
 
@@ -337,7 +337,7 @@ Naast het beheren van uw accounts bevoegde toegang, raden we dat u de volgende r
 * Alleen wanneer dat nodig is van bevoegde toegang verlenen en verwijdert u deze later (just-in-time).
 * Behouden en controleert u controle-activiteiten met betrekking tot beschermde accounts.
 
-Zie voor meer informatie over het bouwen van een compleet beveiligingsschema [Microsoft IT-architectuur cloudbronnen](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Neem contact op met uw Microsoft-vertegenwoordiger of Zie voor meer informatie over het gebruik van Microsoft-services om te helpen met een van deze onderwerpen [kritieke cyber beveiliging ter bescherming van uw onderneming bouwen](https://www.microsoft.com/en-us/microsoftservices/campaigns/cybersecurity-protection.aspx).
+Zie voor meer informatie over het bouwen van een compleet beveiligingsschema [Microsoft IT-architectuur cloudbronnen](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources). Neem contact op met uw Microsoft-vertegenwoordiger of Zie voor meer informatie over het gebruik van Microsoft-services om te helpen met een van deze onderwerpen [kritieke cyber beveiliging ter bescherming van uw onderneming bouwen](https://www.microsoft.com/microsoftservices/campaigns/cybersecurity-protection.aspx).
 
 Deze laatste lopende fase van het beveiligingsschema voor bevoegde toegang beveiligd omvat de volgende onderdelen.
 
@@ -440,16 +440,16 @@ Zie voor meer informatie over hoe Microsoft Office 365 beveiligingsincidenten ve
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Microsoft Trust Center voor de beveiliging van het Product](https://www.microsoft.com/en-us/trustcenter/security) – beveiligingsfuncties van Microsoft-producten en services in de cloud
+* [Microsoft Trust Center voor de beveiliging van het Product](https://www.microsoft.com/trustcenter/security) – beveiligingsfuncties van Microsoft-producten en services in de cloud
 
-* [Microsoft Trust Center - naleving](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) – uitgebreide set compliance-aanbiedingen voor cloudservices van Microsoft
+* [Microsoft Trust Center - naleving](https://www.microsoft.com/trustcenter/compliance/complianceofferings) – uitgebreide set compliance-aanbiedingen voor cloudservices van Microsoft
 
-* [Instructies over het uitvoeren van een risicoanalyse](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment) -vereisten voor beveiliging en naleving voor Microsoft-cloudservices beheren
+* [Instructies over het uitvoeren van een risicoanalyse](https://www.microsoft.com/trustcenter/guidance/risk-assessment) -vereisten voor beveiliging en naleving voor Microsoft-cloudservices beheren
 
 ### <a name="other-ms-online-services"></a>Andere Online Services van MS 
 
-* [Microsoft Intune Security](https://www.microsoft.com/en-us/trustcenter/security/intune-security) – Intune biedt beheer van mobiele apparaten, beheer van mobiele toepassingen en beheermogelijkheden voor pc's vanuit de cloud.
+* [Microsoft Intune Security](https://www.microsoft.com/trustcenter/security/intune-security) – Intune biedt beheer van mobiele apparaten, beheer van mobiele toepassingen en beheermogelijkheden voor pc's vanuit de cloud.
 
-* [Microsoft Dynamics 365 security](https://www.microsoft.com/en-us/trustcenter/security/dynamics365-security) : Dynamics 365 is de Microsoft cloud-gebaseerde oplossing die verenigt klantrelatiebeheer (CRM) en voor enterprise resource planning (ERP-)-mogelijkheden.
+* [Microsoft Dynamics 365 security](https://www.microsoft.com/trustcenter/security/dynamics365-security) : Dynamics 365 is de Microsoft cloud-gebaseerde oplossing die verenigt klantrelatiebeheer (CRM) en voor enterprise resource planning (ERP-)-mogelijkheden.
 
  

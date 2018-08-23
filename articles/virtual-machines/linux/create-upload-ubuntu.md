@@ -1,6 +1,6 @@
 ---
-title: Maken en uploaden van een VHD Ubuntu Linux in Azure
-description: Informatie over het maken en uploaden van een Azure virtuele harde schijf (VHD) die een Ubuntu Linux-besturingssysteem bevat.
+title: Een Ubuntu Linux-VHD in Azure maken en uploaden
+description: Informatie over het maken en uploaden van een Azure virtuele harde schijf (VHD) met een Ubuntu Linux-besturingssysteem.
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
@@ -15,37 +15,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: f9a4588a444b5bfeb37f0bd98ada6a336baabb04
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 5b2f902389b96136e0ea0c4c58f5e8be8144a248
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30908864"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42055140"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Een virtuele Ubuntu-machine voor Azure voorbereiden
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="official-ubuntu-cloud-images"></a>Officiële Ubuntu cloud installatiekopieën
-Ubuntu publiceert nu officiële Azure VHD's worden gedownload op [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/). Als u nodig hebt om uw eigen gespecialiseerde Ubuntu installatiekopie ontwikkelen voor Azure, in plaats daarvan dan de handmatige procedure hieronder gebruiken het verdient aanbeveling om te starten met deze bekende VHD's werkt en indien nodig aanpassen. De nieuwste versies van de installatiekopie kunnen altijd worden gevonden op de volgende locaties:
+## <a name="official-ubuntu-cloud-images"></a>Officiële cloud Ubuntu-installatiekopieën
+Nu publiceren officiële Azure-VHD's voor downloaden op Ubuntu [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/). Als u uw eigen gespecialiseerde Ubuntu-installatiekopie bouwen voor Azure wilt, in plaats daarvan dan de handmatige procedure hieronder gebruiken het verdient aanbeveling om te starten met deze bekende VHD's werkt en indien nodig aanpassen. De meest recente versies van de installatiekopie kunnen altijd worden gevonden op de volgende locaties:
 
-* Ubuntu 12.04/Precise: [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.vhd.zip)
-* Ubuntu 14.04/Trusty: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
+* Ubuntu 12.04/nauwkeurige: [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.vhd.zip)
+* Ubuntu 14.04/betrouwbare: [ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/trusty/release/ubuntu-14.04-server-cloudimg-amd64-disk1.vhd.zip)
 * Ubuntu 16.04/Xenial: [ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip](http://cloud-images.ubuntu.com/releases/xenial/release/ubuntu-16.04-server-cloudimg-amd64-disk1.vhd.zip)
 
 ## <a name="prerequisites"></a>Vereisten
-In dit artikel wordt ervan uitgegaan dat u al een Ubuntu Linux-besturingssysteem hebt geïnstalleerd op een virtuele harde schijf. Er bestaan meerdere hulpprogramma's voor het maken van de VHD-bestanden, bijvoorbeeld een virtualisatieoplossing zoals Hyper-V. Zie voor instructies [de Hyper-V-rol installeren en configureren van een virtuele Machine](http://technet.microsoft.com/library/hh846766.aspx).
+In dit artikel wordt ervan uitgegaan dat u hebt een Ubuntu Linux-besturingssysteem geïnstalleerd op een virtuele harde schijf. Er bestaan meerdere hulpprogramma's voor het maken van VHD-bestanden, bijvoorbeeld een oplossing voor netwerkvirtualisatie zoals Hyper-V. Zie voor instructies [de Hyper-V-rol installeren en configureren van een virtuele Machine](http://technet.microsoft.com/library/hh846766.aspx).
 
-**Opmerkingen bij de installatie Ubuntu**
+**Opmerkingen bij de installatie van Ubuntu**
 
-* Zie ook [algemene opmerkingen bij de installatie van Linux](create-upload-generic.md#general-linux-installation-notes) voor meer tips over Linux voorbereiden voor Azure.
+* Zie ook [algemene opmerkingen bij de installatie van Linux](create-upload-generic.md#general-linux-installation-notes) voor meer tips voor Linux voorbereiden voor Azure.
 * De VHDX-indeling wordt niet ondersteund in Azure, alleen **vaste VHD**.  U kunt de schijf converteren naar VHD-indeling met behulp van Hyper-V-beheer of de cmdlet convert-vhd.
-* Bij het installeren van de Linux-systeem wordt het aanbevolen dat u standaard partities in plaats van LVM (vaak de standaardinstelling voor vele installaties gebruikt). Dit voorkomt LVM naam conflicteert met de gekloonde virtuele machines, met name als een besturingssysteemschijf ooit worden gekoppeld aan een andere virtuele machine moet voor het oplossen van problemen. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) mag worden gebruikt voor gegevensschijven als voorkeur.
-* Configureer een partitie van de wisseling niet op de schijf met het besturingssysteem. De Linux-agent kan worden geconfigureerd voor het maken van een wisselbestand op de tijdelijke schijf.  Meer informatie hierover vindt u in de volgende stappen uit.
-* Alle VHD's in Azure, moeten een virtuele grootte die is afgestemd op 1MB hebben. Bij het converteren van een onbewerkte schijf naar VHD moet u ervoor zorgen dat de grootte voor onbewerkte schijven een veelvoud van 1MB vóór de conversie is. Zie [opmerkingen bij de installatie van Linux](create-upload-generic.md#general-linux-installation-notes) voor meer informatie.
+* Bij het installeren van de Linux-systeem is het raadzaam dat u standaard partities in plaats van LVM (vaak de standaardinstelling voor vele installaties gebruikt). Dit zal LVM naam conflicteert met de gekloonde virtuele machines, voorkomen dat met name als een besturingssysteemschijf ooit worden gekoppeld aan een andere virtuele machine moet voor probleemoplossing. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) of [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) op gegevensschijven kunnen worden gebruikt als de voorkeur.
+* Stel een swap-partitie niet op de besturingssysteemschijf. De Linux-agent kan worden geconfigureerd voor het maken van een wisselbestand op de tijdelijke schijf.  Meer informatie hierover vindt in de onderstaande stappen.
+* Alle VHD's op Azure beschikken over een virtuele grootte die is afgestemd op 1MB. Bij het converteren van een onbewerkte schijf naar de VHD moet u ervoor zorgen dat de onbewerkte schijfgrootte een veelvoud van 1MB vóór de conversie is. Zie [opmerkingen bij de installatie van Linux](create-upload-generic.md#general-linux-installation-notes) voor meer informatie.
 
 ## <a name="manual-steps"></a>Handmatige stappen
 > [!NOTE]
-> Voordat u uw eigen aangepaste Ubuntu-afbeelding voor Azure maken, u kunt overwegen de installatiekopieën van het vooraf samengestelde en geteste van [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/) in plaats daarvan.
+> Voordat u probeert te maken van uw eigen aangepaste Ubuntu-installatiekopie voor Azure, overweeg dan de afbeeldingen vooraf gebouwd en getest in [ http://cloud-images.ubuntu.com/ ](http://cloud-images.ubuntu.com/) in plaats daarvan.
 > 
 > 
 
@@ -53,9 +53,9 @@ In dit artikel wordt ervan uitgegaan dat u al een Ubuntu Linux-besturingssysteem
 
 2. Klik op **Connect** om het venster voor de virtuele machine te openen.
 
-3. Vervang de huidige opslagplaatsen in de installatiekopie van Ubuntu Azure repo's gebruiken. De stappen verschillen, afhankelijk van de Ubuntu-versie.
+3. Vervang de huidige opslagplaatsen in de afbeelding moet worden gebruikt Azure de Ubuntu-opslagplaatsen. De stappen verschillen, afhankelijk van de Ubuntu-versie.
    
-    Voordat u bewerkt `/etc/apt/sources.list`, wordt u aangeraden te maken van een back-up:
+    Voordat u bewerkt `/etc/apt/sources.list`, het is raadzaam om een back-up:
    
         # sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
 
@@ -74,7 +74,7 @@ In dit artikel wordt ervan uitgegaan dat u al een Ubuntu Linux-besturingssysteem
         # sudo sed -i 's/[a-z][a-z].archive.ubuntu.com/azure.archive.ubuntu.com/g' /etc/apt/sources.list
         # sudo apt-get update
 
-4. De afbeeldingen Ubuntu Azure volgt nu de *hardware stuk* kernel (HWE). Werk het besturingssysteem naar de meest recente kernel met de volgende opdrachten:
+4. De Ubuntu Azure-installatiekopieën volgt nu het *hardware, stuk* (HWE) kernel. Werk het besturingssysteem naar de meest recente kernel door het uitvoeren van de volgende opdrachten:
 
     Ubuntu 12.04:
    
@@ -107,7 +107,7 @@ In dit artikel wordt ervan uitgegaan dat u al een Ubuntu Linux-besturingssysteem
     - [https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack](https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack)
 
 
-5. De regel voor het opstarten van kernel voor wormgaten aanvullende kernel-parameters voor Azure opnemen wijzigen. Deze open doen `/etc/default/grub` in een teksteditor, ziet u de variabele met de naam `GRUB_CMDLINE_LINUX_DEFAULT` (of toe te voegen indien nodig) en het bewerken om op te nemen van de volgende parameters:
+5. Wijzig de kernel boot line voor wormgaten om op te nemen van aanvullende kernel-parameters voor Azure. Deze open doen `/etc/default/grub` in een teksteditor en zoek de variabele met de naam `GRUB_CMDLINE_LINUX_DEFAULT` (of toe te voegen indien nodig) en bewerk deze zodanig dat de volgende parameters:
    
         GRUB_CMDLINE_LINUX_DEFAULT="console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 rootdelay=300"
 
@@ -115,28 +115,28 @@ In dit artikel wordt ervan uitgegaan dat u al een Ubuntu Linux-besturingssysteem
 
 6. Zorg ervoor dat de SSH-server is geïnstalleerd en geconfigureerd om te starten tijdens het opstarten.  Dit is doorgaans de standaardinstelling.
 
-7. Installeer de Azure Linux Agent:
+7. De Azure Linux-Agent installeren:
    
         # sudo apt-get update
         # sudo apt-get install walinuxagent
 
     >[!Note]
-    De `walinuxagent` pakket kan verwijderen de `NetworkManager` en `NetworkManager-gnome` pakketten als ze zijn geïnstalleerd.
+    De `walinuxagent` pakket kan verwijderen de `NetworkManager` en `NetworkManager-gnome` pakketten, als ze zijn geïnstalleerd.
 
-8. Voer de volgende opdrachten inrichting ervan ongedaan maakt de virtuele machine en deze voorbereiden voor het inrichten op Azure:
+8. Voer de volgende opdrachten voor de inrichting van de virtuele machine ongedaan maken en voorbereiden voor het inrichten op Azure:
    
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-9. Klik op **actie-Afsluiten > omlaag** in Hyper-V-beheer. Uw Linux VHD is nu gereed om te worden geüpload naar Azure.
-
-## <a name="next-steps"></a>Volgende stappen
-U bent nu klaar voor gebruik van de Ubuntu Linux virtuele harde schijf maken van nieuwe virtuele machines in Azure. Als dit de eerste keer dat u de VHD-bestand naar Azure uploadt, Zie [een Linux-VM te maken van een aangepaste schijf](upload-vhd.md#option-1-upload-a-vhd).
+9. Klik op **actie-Afsluiten omlaag >** in Hyper-V-beheer. De VHD met Linux is nu klaar om te worden geüpload naar Azure.
 
 ## <a name="references"></a>Verwijzingen
-Ubuntu hardware inschakelen (HWE) kernel:
+[Ubuntu hardware activering (HWE) kernel](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)
 
-* [http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html](http://blog.utlemming.org/2015/01/ubuntu-1404-azure-images-now-tracking.html)
-* [http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html](http://blog.utlemming.org/2015/02/1204-azure-cloud-images-now-using-hwe.html)
+## <a name="next-steps"></a>Volgende stappen
+U bent nu klaar voor gebruik van de Ubuntu Linux virtuele harde schijf te maken van nieuwe virtuele machines in Azure. Als dit de eerste keer dat u de VHD-bestand naar Azure uploadt, Zie [een Linux-VM maken van een aangepaste schijf](upload-vhd.md#option-1-upload-a-vhd).
+
+
+
 

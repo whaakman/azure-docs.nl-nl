@@ -10,18 +10,18 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: dbb95c8aadc66e7ece93fa800055a0f6be81f015
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 7e7952a327134197f1e8492931d7ada871789395
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161409"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42054705"
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Een upgrade uitvoert naar de meest recente Azure multi-factor Authentication-Server
 
 Dit artikel helpt u bij het verwerken van het upgraden van Azure multi-factor Authentication (MFA)-Server versie 6.0 of hoger. Als u een oude versie van de PhoneFactor-Agent upgraden wilt, raadpleegt u [de PhoneFactor Agent bijwerken naar Azure multi-factor Authentication-Server](howto-mfaserver-deploy-upgrade-pf.md).
 
-Als u een van versie 6.x of naar v7.x oudere of nieuwere upgrade uitvoert, wordt de status van alle onderdelen gewijzigd van .NET 2.0 in .NET 4.5. Alle onderdelen moeten ook Microsoft Visual C++ 2015 Redistributable Update 1 of hoger. Het installatieprogramma van de MFA-Server installeert zowel de x86 x64-versies van deze onderdelen als ze niet al zijn geïnstalleerd. Als de Gebruikersportal en de webservice voor mobiele Apps worden uitgevoerd op afzonderlijke servers, moet u deze om pakketten te installeren vóór de upgrade van deze onderdelen. U kunt zoeken naar de nieuwste update van Microsoft Visual C++ 2015 Redistributable op de [Microsoft Download Center](https://www.microsoft.com/en-us/download/). 
+Als u een van versie 6.x of naar v7.x oudere of nieuwere upgrade uitvoert, wordt de status van alle onderdelen gewijzigd van .NET 2.0 in .NET 4.5. Alle onderdelen moeten ook Microsoft Visual C++ 2015 Redistributable Update 1 of hoger. Het installatieprogramma van de MFA-Server installeert zowel de x86 x64-versies van deze onderdelen als ze niet al zijn geïnstalleerd. Als de Gebruikersportal en de webservice voor mobiele Apps worden uitgevoerd op afzonderlijke servers, moet u deze om pakketten te installeren vóór de upgrade van deze onderdelen. U kunt zoeken naar de nieuwste update van Microsoft Visual C++ 2015 Redistributable op de [Microsoft Download Center](https://www.microsoft.com/download/). 
 
 ## <a name="install-the-latest-version-of-azure-mfa-server"></a>Installeer de nieuwste versie van Azure MFA-Server
 

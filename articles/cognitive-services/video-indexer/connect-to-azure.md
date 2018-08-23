@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 08/05/2018
 ms.author: juliako
-ms.openlocfilehash: 2c7c74d81f6d6634312b9af3f8657c520449787a
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 66ba79926a949371cb2280de408835862dd1a099
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577322"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41987618"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Maken van een Video Indexer-account dat is verbonden met Azure
 
@@ -44,11 +44,11 @@ In dit artikel laat zien hoe een Video Indexer-account dat gekoppeld aan een Azu
 
         ![Toegangsbeheer](./media/create-account/access-control-iam.png)
 
-    * Registreer de resourceprovider voor EventGrid met behulp van de Azure portal.
+* Registreer de resourceprovider voor EventGrid met behulp van de Azure portal.
 
-        In de Azure-portal, gaat u naar **abonnementen** > [abonnement] > **resourceproviders en** > **Microsoft.EventGrid**. Als u niet in de status 'Registered', klikt u op **registreren**. Het duurt enkele minuten om te registreren. 
+    In de Azure-portal, gaat u naar **abonnementen** > [abonnement] > **resourceproviders en** > **Microsoft.EventGrid**. Als u niet in de status 'Registered', klikt u op **registreren**. Het duurt enkele minuten om te registreren. 
 
-        ![EventGrid](./media/create-account/event-grid.png)
+    ![EventGrid](./media/create-account/event-grid.png)
 
 ## <a name="connect-to-azure"></a>Verbinding maken met Azure
 

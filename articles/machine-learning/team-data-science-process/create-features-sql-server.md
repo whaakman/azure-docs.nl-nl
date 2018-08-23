@@ -1,6 +1,6 @@
 ---
-title: Maken van de functies voor gegevens in SQL Server met behulp van SQL en Python | Microsoft Docs
-description: Gegevens over het installatieproces van SQL Azure
+title: Functies maken voor gegevens in SQL Server met behulp van SQL en Python | Microsoft Docs
+description: Gegevens uit SQL Azure verwerken
 services: machine-learning
 documentationcenter: ''
 author: deguhath
@@ -15,74 +15,74 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: deguhath
-ms.openlocfilehash: 432f7b9bb27c1dee396677c54edf48d9fdb027a0
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: eb81d6726b083d864a58b6c11eed67f95aeda350
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836331"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42061407"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Met SQL en Python functies maken voor gegevens in SQL Server
-Dit document wordt beschreven hoe functies voor opgeslagen gegevens in een SQL Server VM op Azure waarmee algoritmen efficiënter meer van de gegevens genereren. U kunt SQL- of een programmeertaal zoals Python gebruiken deze taak uit te voeren. Beide benaderingen zijn hier gedemonstreerd.
+Dit document laat zien hoe voor het genereren van functies voor gegevens die zijn opgeslagen op een SQL Server-VM in Azure waarmee algoritmen efficiënter Leer van de gegevens. U kunt SQL of een programmeertaal zoals Python gebruiken om deze taak te volbrengen. Beide methoden die hier.
 
 [!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
 
-Dit **menu** koppelingen naar onderwerpen waarin wordt beschreven hoe u functies voor gegevens in verschillende omgevingen maken. Deze taak is een stap in de [Team gegevens wetenschap proces (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
+Dit **menu** koppelingen naar onderwerpen waarin wordt beschreven hoe u functies maken voor gegevens in verschillende omgevingen. Deze taak is een stap in de [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 
 > [!NOTE]
-> Voor een voorbeeld, kunt u raadplegen de [NYC Taxi gegevensset](http://www.andresmh.com/nyctaxitrips/) en verwijzen naar de met de titel IPNB [IPython laptop- en SQL Server met de gegevens van de NYC worsteling](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) voor een end-to-end-procedure.
+> Voor een voorbeeld, kunt u raadplegen de [NYC Taxi gegevensset](http://www.andresmh.com/nyctaxitrips/) en verwijzen naar de met de titel IPNB [NYC Data wrangling met behulp van IPython Notebook en SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) voor een overzicht van end-to-end.
 > 
 > 
 
 ## <a name="prerequisites"></a>Vereisten
 In dit artikel wordt ervan uitgegaan dat u hebt:
 
-* Een Azure storage-account gemaakt. Als u instructies nodig hebt, raadpleegt u [een Azure Storage-account maken](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
-* Uw gegevens opgeslagen in SQL Server. Als u niet hebt, raadpleegt u [gegevens verplaatsen naar een Azure SQL Database voor Azure Machine Learning](move-sql-azure.md) voor instructies over het verplaatsen van de gegevens bevat.
+* Een Azure storage-account gemaakt. Als u instructies nodig hebt, raadpleegt u [maken van een Azure Storage-account](../../storage/common/storage-quickstart-create-account.md)
+* Uw gegevens opgeslagen in SQL Server. Als u niet hebt gedaan, Zie [gegevens verplaatsen naar een Azure SQL Database voor Azure Machine Learning](move-sql-azure.md) voor instructies over het verplaatsen van de gegevens bevat.
 
 ## <a name="sql-featuregen"></a>Functie genereren met behulp van SQL
-In deze sectie beschrijven we manieren voor het genereren van functies met behulp van SQL:  
+In deze sectie wordt beschreven manieren voor het genereren van functies met behulp van SQL:  
 
-1. [Aantal op basis van functie generatie](#sql-countfeature)
-2. [Met binning functie generatie](#sql-binningfeature)
+1. [Aantal op basis van functie genereren](#sql-countfeature)
+2. [Genereren van de functie binning](#sql-binningfeature)
 3. [Implementeren van de functies van één kolom](#sql-featurerollout)
 
 > [!NOTE]
-> Als u extra functies genereert, kunt u als kolommen toevoegen aan de bestaande tabel of een nieuwe tabel maken met de aanvullende functies en de primaire sleutel, die kan worden samengevoegd met de oorspronkelijke tabel.
+> Nadat u extra functies genereert, kunt u ze als kolommen toevoegen aan de bestaande tabel of een nieuwe tabel maken met de aanvullende functies en de primaire sleutel, die kan worden samengevoegd met de oorspronkelijke tabel.
 > 
 > 
 
-### <a name="sql-countfeature"></a>Aantal op basis van functie generatie
-Dit document wordt gedemonstreerd op twee manieren voor het genereren van het aantal functies. De eerste methode Voorwaardelijke som en de tweede methode gebruikt de component 'where'. Deze kunnen vervolgens worden samengevoegd met de oorspronkelijke tabel (met behulp van de primaire-sleutelkolommen) om het aantal functies samen met de oorspronkelijke gegevens hebben.
+### <a name="sql-countfeature"></a>Aantal op basis van functie genereren
+Dit document ziet u twee manieren voor het genereren van het aantal functies. De eerste methode maakt gebruik van Voorwaardelijke som en de tweede methode maakt gebruik van de component 'where'. Deze kunnen vervolgens worden samengevoegd met de oorspronkelijke tabel (met behulp van de primaire-sleutelkolommen) als u wilt dat het aantal functies samen met de oorspronkelijke gegevens.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
 
     select <column_name1>,<column_name2> , sum(1) as Count_Features from <tablename>
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
-### <a name="sql-binningfeature"></a>Met binning functie generatie
-Het volgende voorbeeld ziet u hoe het genereren van binned functies met binning (met behulp van 5 opslaglocaties) een numerieke kolom die kan worden gebruikt als een functie in plaats daarvan:
+### <a name="sql-binningfeature"></a>Genereren van de functie binning
+Het volgende voorbeeld laat zien hoe voor het genereren van binned functies door binning (met behulp van 5 opslaglocaties) een numerieke kolom die kan worden gebruikt als een functie in plaats daarvan:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
 
 ### <a name="sql-featurerollout"></a>Implementeren van de functies van één kolom
-In deze sectie ziet u hoe u één kolom in een tabel voor het genereren van aanvullende functies implementeren. In het voorbeeld wordt ervan uitgegaan dat er een breedtegraad of lengtegraad kolom in de tabel waaruit u wilt genereren van functies.
+In deze sectie laten we zien hoe u één kolom in een tabel voor het genereren van extra functies worden uitgerold. Het voorbeeld wordt ervan uitgegaan dat er een kolom voor breedtegraad of lengtegraad in de tabel waaruit u wilt genereren van functies.
 
-Hier volgt een korte primer op breedtegraad/lengtegraad locatiegegevens (resources voorzien van stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Hier volgen enkele nuttige overwegingen bij het gebruik van locatiegegevens voordat u onderdelen uit het veld maakt:
+Hier volgt een korte uitleg van breedtegraad/lengtegraad locatiegegevens (resources voorzien van stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Hier volgen enkele handige dingen om te begrijpen over Locatiegegevens voordat u functies maakt vanuit het veld:
 
-* Het teken geeft aan of we noorden of Zuid, Oost of west op de hele wereld.
+* Het teken geeft aan of we Noord of -Zuid, Oost- of westen van de hele wereld.
 * Een andere waarde dan nul honderden cijfer lengtegraad aangeeft, niet breedtegraad wordt gebruikt.
-* De tientallen cijfer biedt een positie naar ongeveer 1000 kilometers. Dit biedt nuttige informatie over welke continent of Oceaan we worden op.
-* Het cijfer eenheden (één decimale graad) biedt een positie tot 111 kilometers (60 zeemijl, ongeveer 69 mijl). Dit geeft aan ongeveer, voor welke grote rechtsgebied we zijn in.
-* De eerste decimaal verdient aanbeveling tot 11.1 km: deze de positie van een grote plaats van een aangrenzende grote stad kunt onderscheiden.
-* De tweede decimaal verdient aanbeveling tot 1.1 km: het één village kunt scheiden van de volgende.
-* De derde decimaal is waard tot 110 m: dat deze grote de veld of institutionele bereik kunt identificeren.
-* De vierde decimaal is waard maximaal 11 m: dat deze een pakket van de grond kunt identificeren. Dit is vergelijkbaar met de gebruikelijke nauwkeurigheid van een GPS-eenheid niet corrigeert zonder storing.
-* De vijfde decimaal is waard maximaal 1.1 m: dat deze structuren onderscheidt van elkaar. Nauwkeurigheid tot dit niveau met commerciële GPS-eenheden kan alleen worden verkregen met differentiële gecorrigeerd.
-* De zesde decimaal is waard maximaal 0.11 m: die u kunt deze gebruiken voor het indelen van structuren met details voor het ontwerpen van landschappen, wegen bouwen. Moet meer dan goed genoeg voor het bijhouden van verkeer van glaciers en rivieren zijn. Dit kan worden bereikt door middel van hele maatregelen met GPS zoals differentially gecorrigeerde GPS.
+* De tientallen cijfer biedt een positie naar ongeveer 1000 kilometer zijn verwijderd. Het biedt nuttige informatie over welke continent of in de Indische Oceaan worden op.
+* De eenheden cijfers (één decimaal graad) biedt een positie tot 111 kilometer (60 zeemijl, ongeveer 69 mijl). Het kan ongeveer, geeft wat grote staat of land/regio, zijn we in.
+* De eerste decimaal de moeite waard tot 11.1 km is: het de positie van een grote plaats van een nabijgelegen grote plaats kunt onderscheiden.
+* De tweede decimaalpositie de moeite waard tot 1.1 km is: kan het één village scheiden van de volgende.
+* De derde decimaal de moeite waard is maximaal 110 m: dat het een grote agricultural veld of institutionele campus kunt identificeren.
+* De vierde decimaal de moeite waard is maximaal 11 m: dat er een pakket van de grond kunt identificeren. Het is vergelijkbaar met de typische nauwkeurigheid van een niet-gecorrigeerde GPS-eenheid zonder storing.
+* De vijfde decimaal de moeite waard is tot 1.1 m: dat deze structuren van elkaar worden onderscheiden. Nauwkeurigheid van de gegevens op dit niveau met commerciële GPS-eenheden kan alleen worden bereikt met differentiële correctie.
+* De zesde decimaal is waard tot 0.11 m: die u kunt deze gebruiken voor het opmaken van structuren in detail voor het ontwerpen van landschappen, het bouwen van wegen. Dit moet meer dan goed genoeg voor het bijhouden van bewegingen van glaciers en rivieren. Dit kan worden bereikt door middel van hele maatregelen met GPS, zoals differentially gecorrigeerde GPS.
 
-Informatie over de locatie kan featurized worden door het scheiden van de regio, locatie en plaats. Let op: één keer kunt ook aanroepen een REST-eindpunt zoals Bing kaarten-API beschikbaar op `https://msdn.microsoft.com/library/ff701710.aspx` voor de regio/regionale informatie.
+De locatie-informatie kan boommodel zijn door te scheiden van regio, locatie en plaats. Let op: één keer kan ook aanroepen een REST-eindpunt, zoals Bing kaarten-API die beschikbaar zijn op `https://msdn.microsoft.com/library/ff701710.aspx` voor de regio/district-informatie.
 
     select
         <location_columnname>
@@ -95,32 +95,32 @@ Informatie over de locatie kan featurized worden door het scheiden van de regio,
         ,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end     
     from <tablename>
 
-Deze functies op basis van locatie kunnen verder worden gebruikt voor het genereren van aantal aanvullende functies, zoals eerder beschreven.
+Deze functies op basis van locatie kunnen verder worden gebruikt voor het genereren van aantal extra functies, zoals eerder beschreven.
 
 > [!TIP]
-> U kunt de records met behulp van de taal van keuze programmatisch invoegen. U wilt opnemen in segmenten schrijven efficiëntie te verbeteren. [Hier volgt een voorbeeld van hoe u dit doen met pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
-> Een ander alternatief is gegevens invoegen in de database met behulp [hulpprogramma BCP](https://msdn.microsoft.com/library/ms162802.aspx)
+> U kunt de records die met de taal van keuze programmatisch invoegen. U moet mogelijk de gegevens invoegen in segmenten schrijven efficiëntie te verbeteren. [Hier volgt een voorbeeld van hoe u dit doet met pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
+> Een ander alternatief is om in te voegen van gegevens in de database met [hulpprogramma BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 > 
 > 
 
 ### <a name="sql-aml"></a>Verbinding maken met Azure Machine Learning
-De nieuwe functie worden toegevoegd als een kolom aan een bestaande tabel of opgeslagen in een nieuwe tabel en samengevoegd met de oorspronkelijke tabel voor machine learning. Functies kunnen worden gegenereerd of als u al hebt gemaakt, toegankelijk via de [importgegevens](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) -module in de Azure ML zoals hieronder wordt weergegeven:
+De nieuwe functie kan worden toegevoegd als een kolom aan een bestaande tabel of die zijn opgeslagen in een nieuwe tabel en samengevoegd met de oorspronkelijke tabel voor machine learning. Functies kunnen worden gegenereerd of geopend als u al hebt gemaakt, met behulp van de [importgegevens](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) module in Azure ML, zoals hieronder weergegeven:
 
 ![Azure ML-lezers](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
 
-## <a name="python"></a>Gebruik een programmeertaal zoals Python
-Met behulp van Python functies genereren wanneer de gegevens in SQL Server is vergelijkbaar met het verwerken van gegevens in Azure blob met behulp van Python. Zie voor vergelijking [proces Azure Blob-gegevens in uw omgeving van de wetenschappelijke gegevens](data-blob.md). De gegevens uit de database in een frame pandas gegevens verdere verwerking laden. Het proces van het verbinden met de database en de gegevens in het kader van de gegevens te laden wordt in deze sectie beschreven.
+## <a name="python"></a>Met behulp van een programmeertaal zoals Python
+Met behulp van Python voor het genereren van functies als de gegevens in SQL Server is vergelijkbaar met het verwerken van gegevens in Azure blob met behulp van Python. Zie voor vergelijking [proces Azure Blob-gegevens in uw data science-omgeving](data-blob.md). Laad de gegevens uit de database in een gegevensframe pandas verdere verwerking. Het proces van verbinding met de database en de gegevens in het kader van de gegevens te laden wordt in deze sectie beschreven.
 
-Indeling van de volgende verbindingsreeks kan worden gebruikt voor het verbinden met een SQL Server-database met Python pyodbc (vervang servername, dbname, gebruikersnaam en wachtwoord op uw specifieke waarden) met:
+De volgende indeling van de verbindingsreeks kan worden gebruikt voor het verbinding maken met een SQL Server-database vanuit Python met behulp van pyodbc (vervang servername, dbname, gebruikersnaam en wachtwoord met uw specifieke waarden):
 
     #Set up the SQL Azure connection
     import pyodbc
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-De [Pandas bibliotheek](http://pandas.pydata.org/) in Python voorziet in een uitgebreide set van gegevensstructuren en hulpprogramma's voor gegevensanalyse voor gegevensmanipulatie voor het programmeren van Python. De volgende code leest de resultaten van een SQL Server-database in een kader Pandas-gegevens geretourneerd:
+De [Pandas bibliotheek](http://pandas.pydata.org/) in Python biedt u een uitgebreide set gegevensstructuren en hulpprogramma's voor gegevensanalyse voor gegevensmanipulatie voor Python programmeren. De volgende code leest de resultaten van een SQL Server-database in een gegevensframe Pandas:
 
     # Query database and load the returned results in pandas data frame
     data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
 
-Nu u met het kader van de gegevens Pandas werken kunt zoals beschreven in de onderwerpen [maken van de functies voor Azure blob storage-gegevens met behulp van Panda](create-features-blob.md).
+Nu u met het Pandas dataframe werken kunt zoals beschreven in de onderwerpen over [functies maken voor Azure blob storage-gegevens met Panda](create-features-blob.md).
 

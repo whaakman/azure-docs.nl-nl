@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 08/20/2018
 ms.author: anwestg
 ms.reviewer: brenduns
-ms.openlocfilehash: 7cf41a10f13e2edeb4ab1944c0d38cc7064c02bb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 88a4bcf018387ac83b485ec9e2efac11f85ba97c
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40161476"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42432286"
 ---
 # <a name="app-service-on-azure-stack-update-3-release-notes"></a>App Service op de opmerkingen bij de release van de Azure Stack update 3
 
@@ -70,6 +70,10 @@ Azure App Service onder Azure Stack Update 3 bevat de volgende verbeteringen en 
   - Toegevoegde Wincache 2.0.0.8
   - Bijgewerkte Git voor Windows v 2.17.1.2
   - Bijgewerkte Kudu op 74.10611.3437
+  
+- **Updates voor het onderliggende besturingssysteem dat van alle rollen**:
+  - [Servicing stack update voor Windows Server 2016 voor x64 64-systemen (KB4132216)](https://support.microsoft.com/help/4132216/servicing-stack-update-for-windows-10-1607-may-17-2018)
+  - [2018-07 cumulatieve Update voor WindowsServer 2016 voor x64 64-systemen (KB4338822)](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822)
 
 ### <a name="post-update-steps-optional"></a>Boeken updatestappen (optioneel)
 
@@ -80,7 +84,7 @@ Voor klanten die willen migreren naar een ingesloten database voor bestaande Azu
 >
 >
 
-1. Voeg [database aan een beschikbaarheidsgroep toevoegen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
+1. Voeg [AppService-databases (appservice_hosting en appservice_metering) aan een beschikbaarheidsgroep toevoegen](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database)
 
 1. Database inschakelen die zijn opgenomen
     ```sql

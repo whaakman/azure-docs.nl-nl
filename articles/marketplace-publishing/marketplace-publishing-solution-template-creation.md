@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2016
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 675316b97e821a81ca4946d57a76d7bce978361b
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 0e1c049596b5231ad72590fc17a73cd5aa457e4d
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714543"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42054930"
 ---
 # <a name="guide-to-create-a-solution-template-for-azure-marketplace"></a>Handleiding voor het maken van een oplossingssjabloon voor Azure Marketplace
 Na het voltooien van stap 1, [van accountaanmaking en registratie][link-acct-creation], we u op het maken van een sjabloon op Azure-compatibele oplossing bij begeleide [technische vereisten voor het maken van een oplossingssjabloon](marketplace-publishing-solution-template-creation-prerequisites.md). Nu we u stapsgewijs door de stappen begeleidt voor het maken van een oplossingssjabloon voor meerdere virtuele machines op de [Portal voor publiceren] [ link-pubportal] voor de Azure Marketplace.
@@ -60,7 +60,7 @@ Nu dat u uw oplossingssjabloon hebt gemaakt en het zip-bestand wordt geüpload,.
 U mogelijk ook geïnteresseerd in deze artikelen:
 
 * VM-installatiekopieën: [About VM Images in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
-* VM-extensies: [VM-Agent en overzicht van VM-extensies](https://msdn.microsoft.com/library/azure/dn832621.aspx) en [Azure VM-extensies en functies](https://msdn.microsoft.com/library/azure/dn606311.aspx)
+* VM-extensies: [Azure VM-extensies en functies](../virtual-machines/extensions/features-windows.md)
 * Azure Resource Manager: [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md) en [eenvoudige sjabloonvoorbeelden](https://github.com/rjmax/ArmExamples)
 * Storage-account beperkt: [bewaken voor de beperking van de Storage-Account](http://blogs.msdn.com/b/mast/archive/2014/08/02/how-to-monitor-for-storage-account-throttling.aspx) en [Premium-opslag](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets)
 

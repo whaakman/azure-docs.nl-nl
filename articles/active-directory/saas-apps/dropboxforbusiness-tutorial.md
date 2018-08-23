@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 08/20/2018
 ms.author: jeedes
-ms.openlocfilehash: d46f2aac5fb16b10f33cccabdcd76d60f0d6dfb9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: eadf6724891d348c2ea3654bcf19ef0d74078049
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438050"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057269"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>Zelfstudie: Azure Active Directory-integratie met Dropbox voor bedrijven
 
@@ -50,29 +50,32 @@ Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen v
 - Als u geen een proefversie Azure AD-omgeving hebt, kunt u [een proefversie van één maand krijgen](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeschrijving
-In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
+
+In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving.
+Het scenario in deze zelfstudie bestaat uit twee belangrijkste bouwstenen:
 
 1. Dropbox voor bedrijven uit de galerie toe te voegen
-1. Configureren en testen van Azure AD eenmalige aanmelding
+2. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-dropbox-for-business-from-the-gallery"></a>Dropbox voor bedrijven uit de galerie toe te voegen
+
 Voor het configureren van de integratie van Dropbox voor bedrijven in Azure AD, moet u Dropbox voor bedrijven uit de galerie toevoegen aan uw lijst met beheerde SaaS-apps.
 
 **Als u wilt toevoegen Dropbox voor bedrijven uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De Azure Active Directory-knop][1]
 
-1. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
+2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![De blade Enterprise-toepassingen][2]
-    
-1. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
+
+3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![De knop nieuwe toepassing][3]
 
-1. Typ in het zoekvak **Dropbox voor bedrijven**, selecteer **Dropbox voor bedrijven** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
+4. Typ in het zoekvak **Dropbox voor bedrijven**, selecteer **Dropbox voor bedrijven** van resultaat deelvenster klik vervolgens op **toevoegen** om toe te voegen van de toepassing.
 
     ![Dropbox voor bedrijven in de lijst met resultaten](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_addfromgallery.png)
 
@@ -87,10 +90,10 @@ In Dropbox voor bedrijven en wijs de waarde van de **gebruikersnaam** in Azure A
 Om te configureren en testen van Azure AD eenmalige aanmelding met Dropbox voor bedrijven, moet u de volgende bouwstenen voltooien:
 
 1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-1. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-1. **[Maken van een Dropbox voor bedrijven-testgebruiker](#create-a-dropbox-for-business-test-user)**  : als u wilt een equivalent van Britta Simon in Dropbox voor bedrijven die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-1. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-1. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+3. **[Maken van een Dropbox voor bedrijven-testgebruiker](#create-a-dropbox-for-business-test-user)**  : als u wilt een equivalent van Britta Simon in Dropbox voor bedrijven die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -102,11 +105,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Koppeling voor eenmalige aanmelding configureren][4]
 
-1. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
+2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
  
     ![In het dialoogvenster voor eenmalige aanmelding](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_samlbase.png)
 
-1. Op de **Dropbox voor bedrijven-domein en URL's** sectie, voert u de volgende stappen uit:
+3. Op de **Dropbox voor bedrijven-domein en URL's** sectie, voert u de volgende stappen uit:
 
     ![Dropbox voor bedrijven-domein en URL's één aanmeldings-informatie](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_url1.png)
 
@@ -114,59 +117,56 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     b. In de **id** tekstvak, een waarde: `Dropbox`
 
-    > [!NOTE] 
-    > De bovenstaande aanmeldings-URL-waarde is geen echte waarde. U kunt de waarde wordt bijgewerkt met de werkelijke aanmeldings-URL, die later in de zelfstudie wordt uitgelegd. Neem contact op met [Dropbox voor bedrijven-Client-ondersteuningsteam](https://www.dropbox.com/business/contact) om de waarde. 
- 
+    > [!NOTE]
+    > De bovenstaande aanmeldings-URL-waarde is geen echte waarde. U kunt de waarde wordt bijgewerkt met de werkelijke aanmeldings-URL, die later in de zelfstudie wordt uitgelegd.
 
-1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
+4. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
 
     ![De downloadkoppeling certificaat](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_certificate.png) 
 
-1. Klik op **opslaan** knop.
+5. Klik op **opslaan** knop.
 
     ![Configureren van eenmalige aanmelding opslaan](./media/dropboxforbusiness-tutorial/tutorial_general_400.png)
 
-1. Op de **Dropbox voor bedrijven-configuratie** sectie, klikt u op **Dropbox voor bedrijven configureren** openen **aanmelding configureren** venster. Kopiëren de **Single Sign-On Service URL voor SAML** uit de **Naslaggids sectie.**
+6. Op de **Dropbox voor bedrijven-configuratie** sectie, klikt u op **Dropbox voor bedrijven configureren** openen **aanmelding configureren** venster. Kopiëren de **Single Sign-On Service URL voor SAML** uit de **Naslaggids sectie.**
 
     ![Dropbox voor bedrijven-configuratie](./media/dropboxforbusiness-tutorial/tutorial_dropboxforbusiness_configure.png) 
 
-1. Het configureren van eenmalige aanmelding op **Dropbox voor bedrijven** zijde, gaat u in uw Dropbox voor bedrijven-tenant.
+7. Het configureren van eenmalige aanmelding op **Dropbox voor bedrijven** zijde, gaat u in uw Dropbox voor bedrijven-tenant en meld u in uw Dropbox voor bedrijven-tenant.
 
-    a. Meld u aan bij uw Dropbox voor bedrijven-tenant. 
-   
     ![Configureren van eenmalige aanmelding](./media/dropboxforbusiness-tutorial/ic769509.png "eenmalige aanmelding configureren")
-   
-    b. Klik in het navigatiedeelvenster aan de linkerkant op **-beheerconsole**. 
-   
-    ![Configureren van eenmalige aanmelding](./media/dropboxforbusiness-tutorial/ic769510.png "eenmalige aanmelding configureren")
-   
-    c. Op de **-beheerconsole**, klikt u op **verificatie** in het navigatiedeelvenster links. 
-   
-    ![Configureren van eenmalige aanmelding](./media/dropboxforbusiness-tutorial/ic769511.png "eenmalige aanmelding configureren")
-   
-    d. In de **eenmalige aanmelding** sectie, selecteer **eenmalige aanmelding inschakelen**, en klik vervolgens op **meer** om uit te vouwen in deze sectie.  
-   
-    ![Configureren van eenmalige aanmelding](./media/dropboxforbusiness-tutorial/ic769512.png "eenmalige aanmelding configureren")
-   
-    e. Kopieer de URL naast **gebruikers kunnen zich aanmelden door te voeren van het e-mailadres of kunnen ze rechtstreeks naar** en plak deze in de **aanmeldings-URL** tekstvak van **Dropbox voor bedrijven-domein en URL's** sectie in Azure portal. 
-    
-    ![Eenmalige aanmelding configureren](./media/dropboxforbusiness-tutorial/ic769513.png)
-    
-1. In de **eenmalige aanmelding** sectie van de **verificatie** pagina, voert u de volgende stappen uit: 
-   
-    ![Configureren van eenmalige aanmelding](./media/dropboxforbusiness-tutorial/IC769516.png "eenmalige aanmelding configureren")
-   
-    a. Klik op **vereist**.
-   
-    b. In de **aanmelden URL** tekstvak, plak de waarde van **Single Sign-On Service URL voor SAML** die u hebt gekopieerd vanuit Azure portal.
 
-    c. Klik op **certificaat kiezen**, en blader vervolgens naar uw **Base64-gecodeerd certificaatbestand**.
+8. Klik op de **Gebruikerspictogram** en selecteer **instellingen** tabblad.
 
-    d. Klik op **wijzigingen opslaan** om de configuratie in uw DropBox voor bedrijven-tenant te voltooien.
+    ![Configureren van eenmalige aanmelding](./media/dropboxforbusiness-tutorial/configure1.png "eenmalige aanmelding configureren")
 
-> [!TIP]
-> U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+9. Klik in het navigatiedeelvenster aan de linkerkant op **-beheerconsole**.
+
+    ![Configureren van eenmalige aanmelding](./media/dropboxforbusiness-tutorial/configure2.png "eenmalige aanmelding configureren")
+
+10. Op de **-beheerconsole**, klikt u op **instellingen** in het navigatiedeelvenster links.
+
+    ![Configureren van eenmalige aanmelding](./media/dropboxforbusiness-tutorial/configure3.png "eenmalige aanmelding configureren")
+
+11. Selecteer **eenmalige aanmelding** onder de optie de **verificatie** sectie.
+
+    ![Configureren van eenmalige aanmelding](./media/dropboxforbusiness-tutorial/configure4.png "eenmalige aanmelding configureren")
+
+12. In de **eenmalige aanmelding** sectie, voert u de volgende stappen uit:  
+
+    ![Configureren van eenmalige aanmelding](./media/dropboxforbusiness-tutorial/configure5.png "eenmalige aanmelding configureren")
+
+    a. Selecteer **vereist** als een optie in de vervolgkeuzelijst voor de **eenmalige aanmelding**.
+
+    b. Klik op **aanmelden-URL toevoegen** en in de **aanmelden URL identiteitsprovider** tekstvak plakken de **Single Sign-On Service URL voor SAML** waarde die u hebt gekopieerd vanuit Azure portal en selecteer vervolgens **gedaan**.
+
+    ![Configureren van eenmalige aanmelding](./media/dropboxforbusiness-tutorial/configure6.png "eenmalige aanmelding configureren")
+
+    c. Klik op **certificaat uploaden**, en blader vervolgens naar uw **Base64-gecodeerd certificaatbestand** die u hebt gedownload vanuit Azure portal.
+
+    d. Klik op **koppeling kopiëren** en plak de gekopieerde waarde in de **aanmeldings-URL** tekstvak van **Dropbox voor bedrijven-domein en URL's** sectie in Azure portal.
+
+    e. Klik op **Opslaan**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 

@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: b4b37a073f41295bf800d4e6c34681e0a06799c7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f465a6e6cb0642f64670a8d2727c939f91bad134
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449776"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617246"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure-beveiliging en naleving blauwdruk: PaaS Web-toepassing die als host fungeert voor de officiële Workloads groot-Brittannië
 
@@ -23,7 +23,7 @@ Azure blauwdrukken bestaan uit richtlijnen documenten en automation-sjablonen di
 
 ## <a name="overview"></a>Overzicht
 
-Deze Azure-beveiliging en naleving blauwdruk biedt richtlijnen en automation-scripts voor het leveren van een Microsoft Azure [platform als een service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) gehost architectuur voor webtoepassingen geschikt is voor het verwerken van workloads die zijn geclassificeerd Als [UK-OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/251480/Government-Security-Classifications-April-2014.pdf). Deze beveiligingsclassificatie omvat het merendeel van de gegevens die zijn gemaakt of verwerkt via de openbare sector. Dit omvat routinematige zakelijke activiteiten en -services, welke indien verloren, gestolen of gepubliceerd in de media, waarvan sommige kan schadelijke gevolgen hebben. De typische bedreigingsprofiel voor de officiële classificatie is bijna hetzelfde als een privé-onderneming die waardevolle informatie en services bevat. Groot-Brittannië officiële verwacht de noodzaak om te beschermen van gegevens van de Britse overheid of services op basis van een dreiging of een inbreuk op door aanvallers met gebonden mogelijkheden en resources, zoals (maar is niet beperkt tot) hactivists, single-issue druk te verlichten groepen, resulterend journalisten bevoegde afzonderlijke hackers, en het merendeel van strafrechtelijke personen en groepen.
+Deze Azure-beveiliging en naleving blauwdruk biedt richtlijnen en automation-scripts voor het leveren van een Microsoft Azure [platform als een service (PaaS)](https://azure.microsoft.com/overview/what-is-paas/) gehost architectuur voor webtoepassingen geschikt is voor het verwerken van workloads die zijn geclassificeerd Als [UK-OFFICIAL](https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/715778/May-2018_Government-Security-Classifications-2.pdf). Deze beveiligingsclassificatie omvat het merendeel van de gegevens die zijn gemaakt of verwerkt via de openbare sector. Dit omvat routinematige zakelijke activiteiten en -services, welke indien verloren, gestolen of gepubliceerd in de media, waarvan sommige kan schadelijke gevolgen hebben. De typische bedreigingsprofiel voor de officiële classificatie is bijna hetzelfde als een privé-onderneming die waardevolle informatie en services bevat. Groot-Brittannië officiële verwacht de noodzaak om te beschermen van gegevens van de Britse overheid of services op basis van een dreiging of een inbreuk op door aanvallers met gebonden mogelijkheden en resources, zoals (maar is niet beperkt tot) hactivists, single-issue druk te verlichten groepen, resulterend journalisten bevoegde afzonderlijke hackers, en het merendeel van strafrechtelijke personen en groepen.
 
 Deze blauwdruk is gecontroleerd door de UK nationale Cyber Security Center (NCSC) en overeenstemt met de NCSC 14 Cloud Security Principles.
 

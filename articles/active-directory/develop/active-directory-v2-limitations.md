@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 08/14/2018
 ms.author: celested
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
-ms.openlocfilehash: edf0b52e5889fe8fa875de65fcaa8c2a22df1a7f
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9245e85781482a3aa1e45333d8e8a748983675b6
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590746"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057586"
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Moet ik het v2.0-eindpunt gebruiken?
 
@@ -101,6 +101,7 @@ Ondersteuning voor clientbibliotheek voor het v2.0-eindpunt is momenteel beperkt
 * Als u een bureaublad of mobiele toepassing ontwikkelt, kunt u een van de Preview-versie van Microsoft Authentication Libraries (MSAL). Deze bibliotheken zijn in een productie-ondersteunde preview, dus is het veilig om ze in productie-Apps gebruiken. U kunt meer lezen over de voorwaarden van de Preview-versie en de beschikbare bibliotheken in [verificatie-bibliotheken verwijzing](reference-v2-libraries.md).
 * Voor platforms die niet wordt gedekt door Microsoft-bibliotheken, kunt u integreren met het v2.0-eindpunt door rechtstreeks verzenden en ontvangen van protocolberichten in uw toepassingscode. De OpenID Connect en OAuth-protocollen van v2.0 [expliciet worden gedocumenteerd](active-directory-v2-protocols.md) om u te helpen bij het uitvoeren van een dergelijke integratie.
 * Ten slotte kunt u Open ID Connect en OAuth voor open source-bibliotheken om te integreren met het v2.0-eindpunt. Het v2.0-protocol moet compatibel zijn met veel open-source-protocol bibliotheken zonder ingrijpende wijzigingen. De beschikbaarheid van dit soort bibliotheken varieert per taal en platform. De [Open ID Connect](http://openid.net/connect/) en [OAuth 2.0](http://oauth.net/2/) websites een lijst met populaire implementaties bijhouden. Zie voor meer informatie, [Azure Active Directory v2.0 en verificatie bibliotheken](reference-v2-libraries.md), en de lijst met open source-clientbibliotheken en voorbeelden die zijn getest met het v2.0-eindpunt.
+  * Voor een verwijzing naar de `.well-known` -eindpunt voor de algemene v2.0-eindpunt is `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` .  Vervang `common` door uw tenant-ID op specifieke gegevens ophalen in uw tenant.  
 
 ## <a name="restrictions-on-protocols"></a>Beperkingen voor protocollen
 
@@ -109,7 +110,6 @@ Het v2.0-eindpunt biedt geen ondersteuning voor SAML of WS-Federation; het onder
 De volgende protocol-functies en mogelijkheden zijn momenteel *niet beschikbaar* in het v2.0-eindpunt:
 
 * Op dit moment de `email` claim wordt alleen geretourneerd als een optionele claim is geconfigureerd en bereik scope = e-mailbericht is opgegeven in de aanvraag. Dit gedrag wijzigen, zoals het v2.0-eindpunt is bijgewerkt om verder te voldoen aan de Open ID Connect en OAuth 2.0-standaarden.
-* Het eindpunt van de OpenID verbinding maken met gebruikersgegevens is niet geïmplementeerd op het v2.0-eindpunt. Alle gebruikersprofielgegevens die u mogelijk wilt ontvangen op dit eindpunt is echter beschikbaar is via de Microsoft Graph `/me` eindpunt.
 * Het v2.0-eindpunt biedt geen ondersteuning voor claims van verlenende rol of groep in het ID-tokens.
 * De [clientreferenties van OAuth 2.0-Resource-eigenaar wachtwoord](https://tools.ietf.org/html/rfc6749#section-4.3) wordt niet ondersteund door het v2.0-eindpunt.
 

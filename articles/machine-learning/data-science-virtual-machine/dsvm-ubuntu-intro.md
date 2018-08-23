@@ -3,7 +3,8 @@ title: Een Linux (Ubuntu) Data Science Virtual Machine op Azure inrichten | Micr
 description: Configureer en maak een Data Science Virtual Machine voor Linux (Ubuntu) in Azure voor het analyseren en machine learning.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: gopitk
+ms.author: gokuma
 manager: cgronlun
 ms.assetid: 3bab0ab9-3ea5-41a6-a62a-8c44fdbae43b
 ms.service: machine-learning
@@ -13,13 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.author: bradsev
-ms.openlocfilehash: 19f190c66f7bb4042c640f2cbb82f911746ceb45
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f45bb3b47209bd6b02cea49c23b0a59ad75fc2e2
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422372"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42055342"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>De virtuele Machine voor Datatechnologie voor Linux (Ubuntu) inrichten
 
@@ -53,7 +53,7 @@ De virtuele Machine voor Datatechnologie voor Linux bevat ook populaire hulpprog
 * Hulpprogramma's voor machine learning
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): een snelle machine learning-systeem, zoals de online, hash, allreduce, kortingen, learning2search, actief, ondersteuning en interactieve training
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): een hulpprogramma voor snelle en nauwkeurige boosted structuur-implementatie
-  * [Rattle](http://rattle.togaware.com/): een grafisch hulpprogramma die aan de slag met gegevensanalyse en machine learning in R eenvoudig maakt
+  * [Rattle](https://togaware.com/rattle/): een grafisch hulpprogramma die aan de slag met gegevensanalyse en machine learning in R eenvoudig maakt
   * [LightGBM](https://github.com/Microsoft/LightGBM): een snelle, gedistribueerde, hoogwaardige verloop framework versterking
 * Azure SDK in Java, Python, node.js, Ruby, PHP
 * Bibliotheken in R en Python voor gebruik in Azure Machine Learning en andere Azure-services
@@ -149,7 +149,7 @@ Nadat u zich aanmeldt bij de virtuele machine met behulp van de SSH-client of de
 
 De Ubuntu-DSVM wordt uitgevoerd [JupyterHub](https://github.com/jupyterhub/jupyterhub), een Jupyter-server van meerdere gebruikers. Als u wilt verbinden, blader naar https://your-vm-ip:8000 op uw laptop of het bureaublad, voer de gebruikersnaam en het wachtwoord die u hebt gebruikt voor het maken van de virtuele machine en aanmelden. Veel voorbeeldnotitieblokken zijn beschikbaar voor u om te bladeren en uit te proberen.
 
-Jjupyterlab, is de volgende generatie van Jupyter notebooks en JupyterHub, ook beschikbaar. Meld u aan bij JupyterHub voor toegang, en blader naar de URL https://your-vm-ip:8000/lab. U kunt Jjupyterlab instellen als de standaardserver voor de notebook door deze regel toe te voegen aan /etc/jupyterhub/jupyterhub_config.py:
+Jjupyterlab, is de volgende generatie van Jupyter notebooks en JupyterHub, ook beschikbaar. Meld u aan bij JupyterHub voor toegang, en blader naar de URL https://your-vm-ip:8000/user/your-username/lab. U kunt Jjupyterlab instellen als de standaardserver voor de notebook door deze regel toe te voegen aan /etc/jupyterhub/jupyterhub_config.py:
 
     c.Spawner.default_url = '/lab'
 

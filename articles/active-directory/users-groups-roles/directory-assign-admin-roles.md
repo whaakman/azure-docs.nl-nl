@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 08/21/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: c6c388bb98d189d91703c0ce82971b3ec4da4150
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 6c97d7c2f901110421f9fc5d0a1d4468d832c472
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505508"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42060652"
 ---
-# <a name="assigning-administrator-roles-in-azure-active-directory"></a>Beheerdersrollen toewijzen in Azure Active Directory
+# <a name="assigning-administrator-roles-in-azure-active-directory"></a>Beheerrollen toewijzen in Azure Active Directory
 
 Met Azure Active Directory (Azure AD), kunt u afzonderlijke beheerders verschillende functies vervullen aanwijzen. Beheerders worden aangewezen in de Azure AD-portal om uit te voeren taken, zoals het toevoegen of wijzigen, gebruikers, beheerdersrollen toewijzen, gebruikerswachtwoorden opnieuw instellen, Gebruikerslicenties beheren en beheren van domeinnamen.
 
@@ -59,7 +59,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **[Schrijvers van mappen](#directory-writers)**: dit is een verouderde rol die moet worden toegewezen aan toepassingen die geen ondersteuning voor de [toestemming geven Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Deze moet niet worden toegewezen aan alle gebruikers.
 
-* **[Dynamics 365-servicebeheerder / CRM-servicebeheerder](#dynamics-365-service-administrator)**: gebruikers met deze rol hebben algemene machtigingen in Microsoft Dynamics 365 Online, wanneer de service aanwezig is, evenals de mogelijkheid ondersteuningstickets te beheren en servicestatus controleren. Meer informatie op [de rol admin gebruiken voor het beheren van uw tenant](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
+* **[Dynamics 365-servicebeheerder / CRM-servicebeheerder](#dynamics-365-service-administrator)**: gebruikers met deze rol hebben algemene machtigingen in Microsoft Dynamics 365 Online, wanneer de service aanwezig is, evenals de mogelijkheid ondersteuningstickets te beheren en servicestatus controleren. Meer informatie op [de rol admin gebruiken voor het beheren van uw tenant](https://docs.microsoft.com/dynamics365/customer-engagement/admin/use-service-admin-role-manage-tenant).
 
 * **[Exchange Service-beheerder](#exchange-service-administrator)**: gebruikers met deze rol hebben algemene machtigingen in Microsoft Exchange Online, wanneer de service aanwezig is. Meer informatie op [over Office 365-beheerdersrollen](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
@@ -74,7 +74,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **[Information Protection-beheerder](#information-protection-administrator)**: gebruikers met deze rol hebben alle machtigingen in de Azure Information Protection-service. Deze rol kan labels voor de Azure Information Protection-beleid configureren, beveiligingssjablonen beheren en beveiliging activeren. Deze rol verleent alle machtigingen in Identity Protection Center, Privileged Identity Management, Monitor Office 365-servicestatus of Office 365 Centrum voor beveiliging en naleving.
 
-* **[Intune-servicebeheerder](#intune-service-administrator)**: gebruikers met deze rol hebben algemene machtigingen in Microsoft Intune Online, wanneer de service aanwezig is. Daarnaast bevat deze rol de mogelijkheid voor het beheren van gebruikers en apparaten om te koppelen van beleid, evenals groepen maken en beheren. Meer informatie op [rollen gebaseerd toegangsbeheer (RBAC) met Microsoft Intune](https://docs.microsoft.com/en-us/intune/role-based-access-control)
+* **[Intune-servicebeheerder](#intune-service-administrator)**: gebruikers met deze rol hebben algemene machtigingen in Microsoft Intune Online, wanneer de service aanwezig is. Daarnaast bevat deze rol de mogelijkheid voor het beheren van gebruikers en apparaten om te koppelen van beleid, evenals groepen maken en beheren. Meer informatie op [rollen gebaseerd toegangsbeheer (RBAC) met Microsoft Intune](https://docs.microsoft.com/intune/role-based-access-control)
 
 * **[Message Center lezer](#message-center-reader)**: gebruikers in deze rol kunnen controleren, meldingen en de gezondheid van advies-updates in [Office 365-berichtencentrum](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) voor hun organisatie op de geconfigureerde services zoals Exchange, Intune en Microsoft Teams. Berichtencentrum-lezer wekelijkse e-mailbericht verwerkingen van berichten, updates, ontvangen en message center berichten in Office 365 kunnen delen. In Azure AD, wordt gebruikers die zijn toegewezen aan deze rol alleen alleen-lezen toegang hebben op Azure AD-services, zoals gebruikers en groepen. 
 
@@ -89,7 +89,7 @@ De volgende beheerdersrollen zijn beschikbaar:
   >
   >
   
-* **[Power BI-servicebeheerder](#power-bi-service-administrator)**: gebruikers met deze rol hebben algemene machtigingen in Microsoft Power BI, wanneer de service aanwezig is, evenals de mogelijkheid ondersteuningstickets beheren en servicestatus controleren. Meer informatie op [inzicht in de Power BI-beheerdersrol](https://docs.microsoft.com/en-us/power-bi/service-admin-role).
+* **[Power BI-servicebeheerder](#power-bi-service-administrator)**: gebruikers met deze rol hebben algemene machtigingen in Microsoft Power BI, wanneer de service aanwezig is, evenals de mogelijkheid ondersteuningstickets beheren en servicestatus controleren. Meer informatie op [inzicht in de Power BI-beheerdersrol](https://docs.microsoft.com/power-bi/service-admin-role).
 
 * **[Rol van beheerder in beschermde modus](#privileged-role-administrator)**: gebruikers met deze rol kunnen roltoewijzingen in Azure Active Directory, evenals in Azure AD Privileged Identity Management beheren. Bovendien kan deze rol beheer van alle aspecten van Privileged Identity Management.
 
@@ -107,7 +107,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 
   | In | Kan doen |
   | --- | --- |
-  | Identity Protection Center |Alle beveiligingsrapporten en informatie over de instellingen voor beveiligingsfuncties lezen<ul><li>Anti-spam<li>Versleuteld<li>Preventie van gegevensverlies<li>Anti-malware<li>Geavanceerde beveiliging tegen bedreigingen<li>Anti-phishing<li>Mailflow regels |
+  | Identity Protection Center |Alle beveiligingsrapporten en informatie over de instellingen voor beveiligingsfuncties lezen<ul><li>Anti-spam<li>Versleuteling<li>Preventie van gegevensverlies<li>Anti-malware<li>Geavanceerde beveiliging tegen bedreigingen<li>Anti-phishing<li>Mailflow regels |
   | Privileged Identity Management |<p>Alleen-lezen toegang tot alle gegevens zichtbaar is in Azure AD PIM: beleid en rapporten voor Azure AD-roltoewijzingen security beoordeelt en toegang tot gegevens en rapporten voor scenario's behalve Azure AD-roltoewijzing in de toekomst te lezen.<p>**Kan geen** aanmelden voor Azure AD PIM of wijzigingen aanbrengen. In de PIM-portal of via PowerShell kunt iemand zich in deze rol aanvullende rollen (bijvoorbeeld: globale beheerder of beheerder met bevoorrechte rol), activeren als de gebruiker een kandidaat een voor hen. |
   | <p>Monitor voor Office 365-servicestatus</p><p>Office 365-centrum voor beveiliging en naleving</p> |<ul><li>Lezen en waarschuwingen beheren<li>Beveiligingsbeleid lezen<li>Bedreigingsinformatie, Cloud App Discovery en in quarantaine plaatsen in Search en onderzoeken<li>Alle rapporten lezen |
 
@@ -136,7 +136,7 @@ De volgende rollen moeten niet worden gebruikt. Ze zijn afgeschaft en wordt verw
 * Toevoegen
 * Apparaatbeheerders
 * Gebruikers van apparaten
-* Maker van geverifieerde e-mailgebruiker
+* Maker van via e-mail geverifieerde gebruikers
 * Postvakbeheerder
 * Werkplekapparaat toevoegen
 
@@ -163,7 +163,7 @@ De volgende tabellen beschrijven de specifieke machtigingen in Azure Active Dire
 Kan alle aspecten van app-registraties en bedrijfsapps maken en beheren.
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -198,7 +198,7 @@ Kan alle aspecten van app-registraties en bedrijfsapps maken en beheren.
 Toepassingsregistraties kunt maken, onafhankelijk van de **gebruikers kunnen toepassingen registreren** instelling.
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -213,7 +213,7 @@ Toepassingsregistraties kunt maken, onafhankelijk van de **gebruikers kunnen toe
 Kan algemene taken met betrekking tot facturering uitvoeren, zoals betalingsgegevens bijwerken.
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -235,7 +235,7 @@ Kan algemene taken met betrekking tot facturering uitvoeren, zoals betalingsgege
 Kan alle aspecten van app-registraties en bedrijfsapps maken en beheren, behalve App Proxy.
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -314,11 +314,11 @@ Kan alle aspecten beheren van Azure AD en Microsoft-services die Azure AD-identi
 | microsoft.sharepoint/AllEntities/AllActions | Beheer SharePoint Online. |
 | microsoft.skypeforbusiness/AllEntities/AllActions | Beheer Skype voor Bedrijven Online. |
 
-### <a name="compliance-administrator"></a>Beheerder voor naleving
+### <a name="compliance-administrator"></a>Compliancebeheerder
 Kan nalevingsconfiguratie en -rapporten lezen en beheren in Azure AD en Office 365.
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -341,7 +341,7 @@ Kan nalevingsconfiguratie en -rapporten lezen en beheren in Azure AD en Office 3
 Kan de mogelijkheden van voorwaardelijke toegang beheren.
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -360,7 +360,7 @@ Kan de mogelijkheden van voorwaardelijke toegang beheren.
 Gebruikers met deze rol worden lokale computerbeheerders op alle Windows 10-apparaten die zijn toegevoegd aan Azure Active Directory. Ze hebben niet de mogelijkheid voor het beheren van apparaatobjecten in Azure Active Directory.
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -472,7 +472,7 @@ Kan lezen en schrijven van basic directory-informatie. Voor het verlenen van toe
 Kan alle aspecten van het Dynamics 365-product beheren.
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -493,7 +493,7 @@ Kan alle aspecten van het Dynamics 365-product beheren.
 Kan alle aspecten van het product Exchange beheren.
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -536,7 +536,7 @@ Kunt uitnodigen van gastgebruikers ook kunnen onafhankelijk van de **leden kunne
 Kan wachtwoorden voor niet-beheerders en Helpdesk-medewerkers opnieuw instellen.
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -553,7 +553,7 @@ Kan wachtwoorden voor niet-beheerders en Helpdesk-medewerkers opnieuw instellen.
 Kan alle aspecten van het product Azure Information Protection beheren.
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -574,7 +574,7 @@ Kan alle aspecten van het product Azure Information Protection beheren.
 Kan alle aspecten van het product Intune beheren.
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -615,7 +615,7 @@ Kan alle aspecten van het product Intune beheren.
 Kan alle aspecten van het product Skype voor Bedrijven beheren.
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -654,7 +654,7 @@ Kan berichten en updates voor hun organisatie alleen in het Office 365-berichten
 Gebruik geen - niet bedoeld voor algemeen gebruik.
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -690,7 +690,7 @@ Gebruik geen - niet bedoeld voor algemeen gebruik.
 Gebruik geen - niet bedoeld voor algemeen gebruik.
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -729,7 +729,7 @@ Gebruik geen - niet bedoeld voor algemeen gebruik.
 Kan alle aspecten van het Power BI-product beheren.
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -750,7 +750,7 @@ Kan alle aspecten van het Power BI-product beheren.
 Kunnen roltoewijzingen beheren in Azure AD
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -787,7 +787,7 @@ Kan rapporten met betrekking tot aanmeldingen en controles lezen.
 Kan beveiligingsgegevens en -rapporten lezen
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -836,7 +836,7 @@ Kan beveiligingsgegevens en -rapporten lezen in Azure AD en Office 365.
 Kan gegevens over de servicestatus lezen en ondersteuningstickets beheren.
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -852,11 +852,11 @@ Kan gegevens over de servicestatus lezen en ondersteuningstickets beheren.
 | microsoft.aad.supporttickets/AllEntities/AllActions | Maak en beheer tickets voor Office 365-ondersteuning. |
 | microsoft.aad.servicehealth/AllEntities/AllActions | Lees en configureer de Office 365-servicestatus. |
 
-### <a name="sharepoint-service-administrator"></a>SharePoint-servicebeheerder
+### <a name="sharepoint-service-administrator"></a>SharePoint Service-beheerder
 Kan alle aspecten van de SharePoint-service beheren.
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 
@@ -876,7 +876,7 @@ Kan alle aspecten van de SharePoint-service beheren.
 Kan alle aspecten van gebruikers en groepen beheren
 
   > [!NOTE]
-  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/en-us/azure/active-directory/users-default-permissions).
+  > Deze rol aanvullende machtigingen overneemt de [gebruikersrol](https://docs.microsoft.com/azure/active-directory/users-default-permissions).
   >
   >
 

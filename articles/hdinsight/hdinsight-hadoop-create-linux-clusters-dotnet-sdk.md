@@ -2,19 +2,19 @@
 title: Met behulp van .NET - Azure HDInsight Hadoop-clusters maken
 description: Leer hoe u Hadoop, HBase, Storm of Spark-clusters maken in Linux voor HDInsight met behulp van de HDInsight .NET SDK.
 services: hdinsight
-author: jasonwhowell
+author: mamccrea
 editor: jasonwhowell
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/09/2018
-ms.author: jasonh
-ms.openlocfilehash: 0c7f8e9ea37ac932b152bb90b7a75b3c5b8e90bf
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.date: 08/16/2018
+ms.author: mamccrea
+ms.openlocfilehash: eb6c5ef3a483a5ce702cc0a367f66e0444bc1e45
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590531"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42055489"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Op basis van Linux-clusters maken in HDInsight met behulp van de .NET SDK
 
@@ -33,7 +33,7 @@ Informatie over het maken van een Hadoop-cluster in Azure HDInsight-cluster met 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **Een Azure storage-account**. Zie [een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* **Een Azure storage-account**. Zie [een opslagaccount maken](../storage/common/storage-quickstart-create-account.md).
 * **Visual Studio 2013, Visual Studio 2015 of Visual Studio 2017**.
 
 ## <a name="create-clusters"></a>Clusters maken
@@ -160,12 +160,12 @@ Informatie over het maken van een Hadoop-cluster in Azure HDInsight-cluster met 
             static TokenCloudCredentials GetTokenCloudCredentials(string TenantId, string ClientId, string SubscriptionId)
             {
                 var authContext = new AuthenticationContext("https://login.microsoftonline.com/" + TenantId);
-                var tokenAuthResult = authContext.AcquireToken("https://management.core.windows.net/", 
+                var tokenAuthResult = authContext.AcquireTokenAsync("https://management.core.windows.net/",
                     ClientId, 
                     new Uri("urn:ietf:wg:oauth:2.0:oob"), 
-                    PromptBehavior.Always, 
+                    new PlatformParameters(PromptBehavior.Always), 
                     UserIdentifier.AnyUser);
-                return new TokenCloudCredentials(SubscriptionId, tokenAuthResult.AccessToken);
+                return new TokenCloudCredentials(SubscriptionId, tokenAuthResult.Result.AccessToken);
             }
             /// <summary>
             /// Marks your subscription as one that can use HDInsight, if it has not already been marked as such.

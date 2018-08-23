@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: juliako
-ms.openlocfilehash: 4ce1eedac69b06f491510be93fcfbdfbc879ff7e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ba81030c3d6384ca6b66d6a3b14e614d1626e3e0
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398129"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41987465"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Video Indexer widgets insluiten in uw toepassingen
 
@@ -241,6 +241,4 @@ Automatisch afspelen – standaard die de speler de video wordt afgespeeld. u ku
 
 Zie voor meer informatie over het weergeven en bewerken van Video Indexer-inzichten [dit](video-indexer-view-edit.md) artikel.
 
-## <a name="see-also"></a>Zie ook
-
-[Video Indexer-overzicht](video-indexer-overview.md)
+Lees ook, [Video indexer codepen](https://codepen.io/videoindexer/pen/eGxebZ).

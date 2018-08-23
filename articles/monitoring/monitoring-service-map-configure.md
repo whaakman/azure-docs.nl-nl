@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/06/2018
+ms.date: 08/20/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: 0140c34a14f67064eaa28df65360cee6e92ff31a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: faf4e06b714714fce206ef8227a934df8c290447
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618451"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42060651"
 ---
 # <a name="configure-service-map-in-azure"></a>Serviceoverzicht configureren in Azure
 Serviceoverzicht ontdekt automatisch toepassingsonderdelen op Windows- en Linux-systemen en wijst de communicatie tussen services toe. U kunt deze gebruiken om weer te geven van uw servers beschouwen zoals u ze--onderling verbonden systemen die kritieke services verlenen. Servicetoewijzing toont verbindingen tussen servers, processen en poorten in alle via TCP verbonden architectuur zonder configuratie vereist, dan een agent geïnstalleerd.
@@ -87,19 +87,12 @@ De volgende sectie worden de ondersteunde besturingssystemen voor de agent voor 
 | 6.8 | 2.6.32-642 |
 | 6.9 | 2.6.32-696 |
 
-### <a name="red-hat-linux-5"></a>Red Hat Linux 5
-
-| Versie van het besturingssysteem | Kernelversie |
-|:--|:--|
-| 5.8 | 2.6.18-308 |
-| 5.9 | 2.6.18-348 |
-| 5.10 | 2.6.18-371 |
-| 5.11 | 2.6.18-398<br>2.6.18-400<br>2.6.18-402<br>2.6.18-404<br>2.6.18-406<br>2.6.18-407<br>2.6.18-408<br>2.6.18-409<br>2.6.18-410<br>2.6.18-411<br>2.6.18-412<br>2.6.18-416<br>2.6.18-417<br>2.6.18-419<br>2.6.18-420 |
-
 ### <a name="ubuntu-server"></a>Ubuntu Server
 
 | Versie van het besturingssysteem | Kernelversie |
 |:--|:--|
+| Ubuntu 18.04 | kernel 4.15. * |
+| Ubuntu 16.04.3 | kernel 4.15. * |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
 
@@ -119,13 +112,12 @@ De volgende sectie worden de ondersteunde besturingssystemen voor de agent voor 
 | 5.10 | Oracle 2.6.39-400 (UEK R2) |
 | 5.11 | Oracle 2.6.39-400 (UEK R2) |
 
-### <a name="suse-linux-11-enterprise-server"></a>SUSE Linux 11 Enterprise Server
+## <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
 | Versie van het besturingssysteem | Kernelversie
 |:--|:--|
-| 11 SP2 | 3.0.101-0.7 |
-| 11 SP3 | 3.0.101-0.47 |
-| 11 SP4 | 3.0.101-65 |
+|12 SP2 | 4.4. * |
+|12 SP3 | 4.4. * |
 
 ## <a name="dependency-agent-downloads"></a>Agent voor afhankelijkheden downloaden
 
@@ -264,7 +256,7 @@ De agent voor afhankelijkheden is geïnstalleerd op Linux-doelcomputers uit `Ins
 
 Gebruik de volgende stappen voor het installeren van de agent voor afhankelijkheden op elke Linux-computer:
 
-1.  Installeer de OMS-Agent na een van de methoden die worden beschreven in [verzamelen van gegevens in een hybride omgeving met Log Analytics-agent](../log-analytics/log-analytics-concept-hybrid.md).
+1.  De volgende op een van de methoden die worden beschreven in Log Analytics-agent installeren [verzamelen van gegevens in een hybride omgeving met Log Analytics-agent](../log-analytics/log-analytics-concept-hybrid.md).
 2.  De agent voor Linux-afhankelijkheden als root installeren met de volgende opdracht:
     
     `sh InstallDependencyAgent-Linux64.bin`
@@ -394,9 +386,9 @@ Als uw agent-installatie van afhankelijkheid is voltooid, maar u kunt uw server 
 
 * Is uw server verzenden logboek- en prestatiegegevens naar Log Analytics? Ga naar zoeken in Logboeken en voer de volgende query uit voor uw computer: 
 
-        * Computer="<your computer name here>" | measure count() by Type
-        
-  Krijgt u een aantal gebeurtenissen in de resultaten? Zijn de gegevens recente? Als dit het geval is, wordt uw OMS-Agent naar behoren werkt en communiceren met Log Analytics. Als dit niet het geval is, controleert u de OMS-Agent op uw server: [OMS-Agent voor Windows-probleemoplossing](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) of [OMS-Agent voor problemen oplossen in Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md).
+        Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
+
+Krijgt u een aantal gebeurtenissen in de resultaten? Zijn de gegevens recente? Als dit het geval is, wordt uw Log Analytics-Agent naar behoren werkt en communiceren met Log Analytics. Als dit niet het geval is, controleert u de agent op uw server: [Log Analytics-agent voor het oplossen van Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) of [Log Analytics-agent voor het oplossen van Linux](../log-analytics/log-analytics-agent-linux-support.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>Server wordt weergegeven in het Serviceoverzicht, maar er zijn geen processen is
 Als u uw server in het Serviceoverzicht ziet, maar er geen gegevens verwerken of verbinding, die aangeeft dat de agent voor afhankelijkheden geïnstalleerd en actief is, maar het kernelstuurprogramma zijn niet geladen. 

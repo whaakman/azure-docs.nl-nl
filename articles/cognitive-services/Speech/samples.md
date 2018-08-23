@@ -1,6 +1,6 @@
 ---
-title: Voorbeelden voor het gebruik van Microsoft spraak Service | Microsoft Docs
-description: Voorbeelden voor het gebruik van Microsoft spraak Service waarmee wordt gesproken audio geconverteerd naar tekst.
+title: Voorbeelden voor het gebruik van Microsoft Speech Service | Microsoft Docs
+description: Voorbeelden voor het gebruik van Microsoft Speech-Service die wordt gesproken audio naar tekst geconverteerd.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
@@ -9,16 +9,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: zhouwang
-ms.openlocfilehash: 63c767483fa56f1b716ef61a18fa93c6947a1d3b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 20ffba69d9f0f5b6648b19967c086e23e1dcb923
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344672"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41987530"
 ---
-# <a name="microsoft-speech-client-samples"></a>Microsoft spraak client-voorbeelden
+# <a name="microsoft-speech-client-samples"></a>Microsoft speech client-voorbeelden
 
-Microsoft spraak Service biedt end-to-end-voorbeelden waarin wordt getoond hoe Microsoft spraakherkenning API in andere gevallen, bijvoorbeeld opdracht herkenning, continue erkenning en opzet detectie gebruiken. Alle voorbeelden zijn beschikbaar op GitHub en kan worden gedownload door de volgende koppelingen: de README.md in elke opslagplaats, evenals de [clientbibliotheken](GetStarted/GetStartedClientLibraries.md) pagina vindt u informatie over het bouwen en uitvoeren van de voorbeelden.
+Microsoft Speech Service biedt end-to-end-voorbeelden waarin wordt getoond hoe u Microsoft spraakherkennings-API in verschillende use cases, bijvoorbeeld erkenning van de opdracht, continue erkenning en detectie van intentie. Alle voorbeelden zijn beschikbaar op GitHub en kan worden gedownload door de volgende koppelingen: het README.md in elke opslagplaats, evenals de [clientbibliotheken](GetStarted/GetStartedClientLibraries.md) pagina vindt u informatie over het bouwen en uitvoeren van de voorbeelden.
 
 - [Voorbeelden van de REST-API](https://github.com/Azure-Samples/SpeechToText-REST)
 
@@ -32,4 +32,4 @@ Microsoft spraak Service biedt end-to-end-voorbeelden waarin wordt getoond hoe M
 
 - [ObjectiveC op iOS-voorbeelden](https://github.com/Azure-Samples/Cognitive-Speech-STT-iOS)
 
-Alle Microsoft cognitieve Services SDK's en voorbeelden worden in licentie gegeven aan de MIT-licentie. Zie voor meer informatie [licentie](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
+Alle Microsoft Cognitive Services-SDK's en voorbeelden hebben een licentie voor de MIT-licentie. Zie voor meer informatie, [licentie](https://github.com/Azure-Samples/SpeechToText-REST/blob/master/LICENSE).

@@ -2,25 +2,22 @@
 title: Apps publiceren met een Azure AD-toepassingsproxy | Microsoft Docs
 description: Publiceer on-premises toepassingen naar de cloud met Azure AD-toepassingsproxy in de Azure-portal.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/20/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 1224642bb7e6fc0c51b3f839a78449132db5b4bb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 973a6201a227e6c2e295e6e5ea2f40c302572504
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364254"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42054737"
 ---
 # <a name="publish-applications-using-azure-ad-application-proxy"></a>Toepassingen publiceren met Azure AD-toepassingsproxy
 
@@ -72,6 +69,7 @@ Volg deze stappen voor het publiceren van uw apps met Application Proxy. Als u d
    ![Uw toepassing configureren](./media/application-proxy-publish-azure-portal/configure-app.png)
 5. Indien nodig, kunt u aanvullende instellingen configureren. Voor de meeste toepassingen, moet u deze instellingen behouden de standaardwaarden hebben. 
    - **Back-end toepassing time-out**: deze waarde instelt op **lang** alleen als uw toepassing langzaam om te verifiëren en verbinding maken. 
+   - **HTTP-Only Cookie gebruiken**: deze waarde instelt op **Ja** hebben Application Proxy cookies bevatten de HTTPOnly-vlag in de HTTP-antwoordheader.
    - **URL's vertalen in Headers**: deze waarde als houden **Ja** , tenzij uw toepassing de oorspronkelijke host-header in de verificatieaanvraag vereist.
    - **URL's vertalen in de hoofdtekst van de toepassing**: deze waarde als houden **Nee** , tenzij u vastgelegd HTML-koppelingen naar andere on-premises toepassingen hebt en aangepaste domeinen niet gebruiken. Zie voor meer informatie, [vertaling met Application Proxy koppelen](application-proxy-configure-hard-coded-link-translation.md).
    

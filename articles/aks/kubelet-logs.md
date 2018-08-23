@@ -1,40 +1,38 @@
 ---
-title: Kubelet-logboeken ophalen uit Azure Kubernetes Service (AKS)
-description: Kubelet logboeken ophalen uit Azure Kubernetes Service (AKS) clusterknooppunten
+title: Weergave kubelet-Logboeken in Azure Kubernetes Service (AKS)
+description: Probleemoplossingsinformatie weergeven in de kubelet-logboeken van Azure Kubernetes Service (AKS)-knooppunten
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/08/2018
+ms.date: 08/21/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: 6fadc502812ea0d983b86c94914d86fcb21a54cd
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: aeab24685f3663ba2c50205344d33db3d34676c2
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100161"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42441945"
 ---
-# <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Kubelet logboeken ophalen uit Azure Kubernetes Service (AKS) clusterknooppunten
+# <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Kubelet-logboeken ophalen uit de knooppunten van het cluster Azure Kubernetes Service (AKS)
 
-In sommige gevallen moet u wellicht kubelet logboeken ophalen uit een Azure Kubernetes Service (AKS)-knooppunt voor het oplossen van problemen. In dit document worden één optie voor het ophalen van deze logboeken.
+In sommige gevallen moet u mogelijk ophalen *kubelet* logboeken van een knooppunt Azure Kubernetes Service (AKS) voor het oplossen van problemen. In dit artikel laat u zien hoe u kunt `journalctl` om weer te geven de *kubelet* Logboeken.
 
-## <a name="create-an-ssh-connection"></a>Maken van een SSH-verbinding
+## <a name="create-an-ssh-connection"></a>Maak een SSH-verbinding
 
-Maak eerst een SSH-verbinding met het knooppunt waarop u wilt pull-kubelet Logboeken. Deze bewerking wordt beschreven in de [SSH in Azure Kubernetes Service (AKS) clusterknooppunten] [ aks-ssh] document.
+Maak eerst een SSH-verbinding met het knooppunt waarop die u nodig hebt om weer te geven *kubelet* Logboeken. Met deze bewerking wordt beschreven in de [SSH in Azure Kubernetes Service (AKS)-clusterknooppunten] [ aks-ssh] document.
 
 ## <a name="get-kubelet-logs"></a>Kubelet-logboeken ophalen
 
-U hebt één keer verbonden met het knooppunt, voer de volgende opdracht voor het ophalen van de logboeken kubelet.
-
-```azurecli-interactive
-journalctl -u kubelet -o cat
-```
-
-Voorbeeld van uitvoer:
+Nadat u verbinding hebt gemaakt met het knooppunt, voer de volgende opdracht voor het ophalen van de *kubelet* Logboeken:
 
 ```console
+sudo journalctl -u kubelet -o cat
+```
+
+Het volgende voorbeeld ziet de uitvoer de *kubelet* gegevens vastleggen:
+
+```
 I0508 12:26:17.905042    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
 I0508 12:26:27.943494    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
 I0508 12:26:28.920125    8672 server.go:796] GET /stats/summary: (10.370874ms) 200 [[Ruby] 10.244.0.2:52292]
@@ -58,5 +56,10 @@ I0508 12:28:48.321952    8672 kubelet_node_status.go:497] Using Node Hostname fr
 I0508 12:28:58.344656    8672 kubelet_node_status.go:497] Using Node Hostname from cloudprovider: "aks-agentpool-11482510-0"
 ```
 
+## <a name="next-steps"></a>Volgende stappen
+
+Als u aanvullende informatie voor probleemoplossing van het Kubernetes-model, Zie [master knooppunt in AKS logboeken Kubernetes weergeven][aks-master-logs].
+
 <!-- LINKS - internal -->
-[aks-ssh]: aks-ssh.md
+[aks-ssh]: ssh.md
+[aks-master-logs]: view-master-logs.md

@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 7/18/2018
+ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: a075b60c525fc3883f4464f19a8964fb64ce15a0
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 69ff295e434f199f3a15e96f134f92098b1b8b79
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627709"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42054127"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Ondersteunde services, schema's en categorieën voor diagnostische logboeken van Azure
 
@@ -53,6 +53,7 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 | Toepassingsgateways |[Diagnostische logboekregistratie voor Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Logboekanalyse voor Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch-diagnostische logboeken](../batch/batch-diagnostics.md) |
+| Cognitive Services | Het schema is niet beschikbaar. |
 | CDN (Content Delivery Network) | [Diagnostische logboeken voor CDN in Azure](../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB-logboekregistratie](../cosmos-db/logging.md) |
 | Data Factory | [Data Factory's met behulp van Azure Monitor bewaken](../data-factory/monitor-using-azure-monitor.md) |
@@ -61,13 +62,14 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 | DB voor PostgreSQL |  Het schema is niet beschikbaar. |
 | Event Hubs |[Diagnostische logboeken in Azure Event Hubs](../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | Het schema is niet beschikbaar. |
+| Azure Firewall | Het schema is niet beschikbaar. |
 | IoT Hub | [IoT Hub-bewerkingen](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Logboekregistratie van Azure Key Vault](../key-vault/key-vault-logging.md) |
 | Load Balancer |[Logboekanalyse voor Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Aangepast Logic Apps B2B-volgschema](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Netwerkbeveiligingsgroepen |[Logboekanalyses voor netwerkbeveiligingsgroepen (NSG's)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | DDoS Protection | [Azure DDoS-bescherming standaard beheren](../virtual-network/manage-ddos-protection.md) |
-| Power BI toegewezen | Het schema is niet beschikbaar. |
+| Power BI toegewezen | [Diagnostische logboekregistratie voor Power BI Embedded in Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Gegevensmodel voor Azure Backup](../backup/backup-azure-reports-data-model.md)|
 | Search |[Inschakelen en gebruiken van Search Traffic Analytics](../search/search-traffic-analytics.md) |
 | Service Bus |[Diagnostische logboeken in Azure Service Bus](../service-bus-messaging/service-bus-diagnostic-logs.md) |
@@ -88,6 +90,12 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 |Microsoft.Automation/automationAccounts|DscNodeStatus|DSC-Knooppuntstatus|
 |Microsoft.Batch/batchAccounts|ServiceLog|Servicelogboeken|
 |Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Hiermee worden de metrische gegevens van het eindpunt opgehaald, zoals bandbreedte, uitgaand verkeer enzovoort.|
+|Microsoft.ClassicNetwork/networksecuritygroups|Gebeurtenis voor stroomregel van netwerkbeveiligingsgroep|Gebeurtenis voor stroomregel van netwerkbeveiligingsgroep|
+|Microsoft.CognitiveServices/accounts|Controleren|Controleren|
+|Microsoft.ContainerService/managedClusters|kube-apiserver|Kubernetes-API-Server|
+|Microsoft.ContainerService/managedClusters|kube-controller-manager|Kubernetes Controller Manager|
+|Microsoft.ContainerService/managedClusters|kube-planner|Kubernetes-Scheduler|
+|Microsoft.ContainerService/managedClusters|GUARD|Verificatie-Webhook|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|ActivityRuns|Uitvoeringen van pijplijn activiteitenlogboek|
 |Microsoft.DataFactory/factories|PipelineRuns|Pijplijnuitvoeringen log|
@@ -97,7 +105,6 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 |Microsoft.DataLakeStore/accounts|Controleren|Controlelogboeken|
 |Microsoft.DataLakeStore/accounts|Aanvragen|Logboeken van de aanvraag|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|PostgreSQL-Server-logboeken|
-|Microsoft.DBforPostgreSQL/servers|PostgreSQLBackupEvents|PostgreSQL-back-gebeurtenissen|
 |Microsoft.Devices/IotHubs|Verbindingen|Verbindingen|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Telemetrie van apparaten|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D-opdrachten|
@@ -110,6 +117,7 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 |Microsoft.Devices/IotHubs|JobsOperations|Taakbewerkingen|
 |Microsoft.Devices/IotHubs|DirectMethods|Directe methoden|
 |Microsoft.Devices/IotHubs|E2EDiagnostics|E2E diagnostische gegevens (Preview)|
+|Microsoft.Devices/IotHubs|Configuraties|Configuraties|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Apparaatbewerkingen|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Servicebewerkingen|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
@@ -130,13 +138,17 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Application Gateway-Toegangslogboek|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Prestaties van toepassingsgateway|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Firewall-toepassingsgateway|
+|Microsoft.Network/securegateways|AzureFirewallApplicationRule|Azure-toepassing firewallregel|
+|Microsoft.Network/securegateways|AzureFirewallNetworkRule|Azure-netwerk firewallregel|
+|Microsoft.Network/azurefirewalls|AzureFirewallApplicationRule|Azure-toepassing firewallregel|
+|Microsoft.Network/azurefirewalls|AzureFirewallNetworkRule|Azure-netwerk firewallregel|
 |Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Diagnostische logboeken van gateway|
 |Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Tunnel diagnostische logboeken|
 |Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Route diagnostische logboeken|
 |Microsoft.Network/virtualNetworkGateways|IKEDiagnosticLog|IKE-diagnostische logboeken|
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|Diagnostische logboeken voor P2S|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Traffic Manager-test statusgebeurtenis resultaten|
-|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tabel met GWM tellers|
+|Microsoft.Network/expressRouteCircuits|PeeringRouteLog|Peering Route-Table-Logboeken|
 |Microsoft.PowerBIDedicated/capacities|Engine|Engine|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Azure Backup waarvoor gegevens zijn gerapporteerd|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Azure Site Recovery-taken|
@@ -148,15 +160,19 @@ Het schema voor diagnostische logboeken van resources, is afhankelijk van de cat
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery beveiligde Gegevensverloop van bronschijf|
 |Microsoft.Search/searchServices|OperationLogs|Bewerkingslogboeken|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Operationele Logboeken|
+|Microsoft.Sql/servers/databases|SQLInsights|SQL-inzichten|
+|Microsoft.Sql/servers/databases|AutomaticTuning|Automatisch instellen|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Query Store Runtime-statistieken|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Query Store wacht statistieken|
 |Microsoft.Sql/servers/databases|Fouten|Fouten|
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Statistieken over de wachttijd|
 |Microsoft.Sql/servers/databases|Time-outs|Time-outs|
 |Microsoft.Sql/servers/databases|blokken|blokken|
-|Microsoft.Sql/servers/databases|SQLInsights|SQL-inzichten|
+|Microsoft.Sql/servers/databases|Deadlocks|Deadlocks|
 |Microsoft.Sql/servers/databases|Controleren|Controlelogboeken|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|Controlegebeurtenis voor SQL-beveiliging|
+|Microsoft.Sql/servers/databases|SqlDw_Requests|SQL DW-aanvragen|
+|Microsoft.Sql/servers/databases|SqlDw_RequestSteps|SQL DW-aanvraag stappen|
 |Microsoft.StreamAnalytics/streamingjobs|Uitvoering|Uitvoering|
 |Microsoft.StreamAnalytics/streamingjobs|Ontwerpen|Ontwerpen|
 

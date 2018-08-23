@@ -1,6 +1,6 @@
 ---
-title: Azure Security whitepapers | Microsoft Docs
-description: Het artikel bevat een samengestelde lijst white papers. Azure-beveiliging voor verschillende Azure-resources.
+title: Azure Security technische documenten | Microsoft Docs
+description: Het artikel biedt een gecureerde lijst met technische documenten raadplegen die Azure-beveiliging voor andere Azure-resources.
 services: azure-security
 documentationcenter: na
 author: TomShinder
@@ -12,32 +12,29 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/19/2018
+ms.date: 8/17/2018
 ms.author: tomsh
-ms.openlocfilehash: 63f892dfdade3c61c2adf84f86cdcaff1fb1cb5c
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 933d0f60b902ae2cb0abcde2ca39a58e59457c6b
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37126989"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055479"
 ---
-# <a name="azure-security-white-papers"></a>Azure Security whitepapers
+# <a name="azure-security-white-papers"></a>Azure Security technische documenten
 | | |
 |-|-|
-|[Inleiding&nbsp;naar&nbsp;Azure&nbsp;beveiliging](azure-security.md)|Legt uit de verzameling van beveiligingsmechanismen geïmplementeerd in Azure vanuit zowel van de klant en de Microsoft operations perspectieven. Biedt een uitgebreide blik op de klantgerichte beveiligingsmechanismen beschikbaar met Azure.|
-|[Geavanceerde detectie van bedreigingen](azure-threat-detection.md)|Handleidingen die u via de Azure naar beveiligingslek bedreigingen, diagnostische gegevens en analyse nadert. Legt uit hoe Microsoft geavanceerde threat detectiemechanismen gebruikt voor het beveiligen van het platform. Ook wordt uitgelegd hoe Microsoft deze mechanismen bevat in openbare gerichte functies en services.|
-|[Azure data encryption in rust](azure-security-encryption-atrest.md)|Richt zich op hoe gegevens in rust in Azure en de verschillende onderdelen die deel uitmaken van de data protection-implementatie wordt beveiligd. Controleert de voor- en nadelen van de verschillende Sleutelbeheer beveiliging methoden.|
-|[Logboekregistratie en bewaking in Azure](azure-log-audit.md)|Bevat een inleiding voor het genereren van verzamelen en analyseren van beveiligingslogboeken van services die worden gehost op Azure. Deze logboeken kunt u beveiliging voor inzicht in uw Azure-implementaties. |
-|[Azure-netwerkbeveiliging](azure-network-security.md)|Vindt u de breed scala aan netwerkfuncties die u configureren kunt voor het verbeteren van de beveiliging van de oplossingen die u in Azure implementeren. De focus is klantgerichte netwerk beveiligingsmechanismen.|
-|[Azure Functions en zonder server platform-beveiliging](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)|Deze downloadbare document bevat informatie over de voordelen van de IT-zonder server waarbij de beveiligingsoverwegingen en oplossingen beschreven in de context van Azure. | 
-|[Azure-operationele beveiliging](azure-operational-security.md)|Biedt een uitgebreide blik op de klantgerichte operationele beveiligingstechnologieën en -services die beschikbaar zijn met Azure.|
-|[Technische mogelijkheden van Azure-beveiliging](azure-security-technical-capabilities.md)|Richt zich op de beveiligingsfuncties en -functionaliteit ondersteunen Azure Storage, Azure SQL-Databases, het model van de virtuele machine van Azure, en de hulpprogramma's en infrastructuur die alles beheren.|
-|[Veiligheidsgids voor Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Biedt een overzicht van elk van de beveiligingsfuncties die kunnen worden gebruikt met Azure Storage. Bevat informatie over beveiliging van management vlak, vlak van gegevensbeveiliging, versleuteling in rust, vlucht- en storage analytics-versleuteling.|
-|[Gegevensclassificatie voor cloudvoorbereiding](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03/file/172083/1/Data%20Classification%20for%20Cloud%20Readiness%20(2017-04-11).pdf)  |Dit artikel, downloadbare introduceert de grondbeginselen van gegevensclassificatie en de waarde in de context van de cloud computing. Organisaties beoordeling van de cloud computing voor toekomstig gebruik of organisaties die momenteel met cloudservices en zoek naar manieren om te optimaliseren van data management wordt profiteren het meest van dit artikel.|
-|[Governance in Azure](governance-in-azure.md)|Legt uit de beveiliging en beheeracties functies die zijn ingebouwd in Azure. De belangrijkste governance problemen besproken zijn: beleidsregels, processen en procedures implementatie voor de doelstellingen van uw organisatie; beveiliging en continue naleving van de organisatie normen; waarschuwingen en bewaking.
-|[Isolatie van opslagprestaties in de openbare Azure-cloud](azure-isolation.md)|Geeft een overzicht van hoe Azure biedt isolatie tegen schadelijke en niet kwaadwillende gebruikers. Fungeert als een handleiding voor de cloudoplossingen door verschillende isolatie-opties biedt voor architecten worden veranderd. Richt zich op de beveiligingsbesturingselementen klantgerichte en probeert niet te adres Sla's prijzen modellen en DevOps practice overwegingen.|
-|[Overzicht van Azure naleving](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)|Deze downloadbare dit artikel wordt de offerings Azure naleving, waaronder formele certificeringen, verklaringen, validaties, autorisaties en beoordelingen die wordt geproduceerd door onafhankelijke controle ondernemingen van derden, evenals contractueel wijzigingen zelf-beoordelingen en leidraad voor een klant die wordt geproduceerd door Microsoft. <br/> Elk beschrijving statussen welke Azure klantgerichte-services in het bereik voor de beoordeling en bevat koppelingen naar downloadbare bronnen waarmee klanten hun eigen verplichtingen aanbieden.|
-|[Beveiligingsbeheer in Azure](azure-security-management.md)|Worden problemen beschreven in de externe toegang van Azure-resources. De aard van de cloud eisen RAS-beheer en daarmee beveiliging is uitermate belangrijk. Bevat informatie over algemene beveiligingsrichtlijnen, clientconfiguratie, aanbevolen procedures en operationele beginselen en procedures. |
-
-
-
+|[Inleiding&nbsp;naar&nbsp;Azure&nbsp;beveiliging](azure-security.md)|Legt uit de verzameling van beveiligingsmaatregelen die zijn geïmplementeerd in Azure van de klant en de Microsoft-bewerkingen perspectieven. Azure biedt een uitgebreid overzicht van de klantgerichte beveiligingsmechanismen beschikbaar.|
+|[Geavanceerde detectie van bedreigingen](azure-threat-detection.md)|Handleidingen voor die u via de Azure tegen bedreigingen door een beveiligingslek beoordelingen, diagnostische gegevens en analyse nadert. Wordt uitgelegd hoe Microsoft maakt gebruik van geavanceerde threat detectiemechanismen voor het beveiligen van het platform. Ook wordt uitgelegd hoe Microsoft deze methoden bevat in openbare, internetgerichte functies en services.|
+|[Azure data encryption-at-rest](azure-security-encryption-atrest.md)|Richt zich op het beveiligen van gegevens in rust in Azure en de verschillende onderdelen die deel uitmaken van de implementatie van de bescherming van gegevens. Controleert de voor- en nadelen van de verschillende Sleutelbeheer protection-methoden.|
+|[Logboekregistratie en bewaking in Azure](azure-log-audit.md)|Bevat een inleiding voor het genereren, verzamelen en analyseren van beveiligingslogboeken van services die worden gehost op Azure. Deze logboeken kunt u inzicht kunnen verkrijgen in uw Azure-implementaties. |
+|[Azure-netwerkbeveiliging](abstract-azure-network-security.md)|Vindt u het brede aanbod van netwerk-besturingselementen die u zo de beveiliging van de oplossingen die u in Azure implementeert kunt configureren. De focus ligt klantgerichte netwerk beveiligingscontroles.|
+|[Azure Functions en serverloos platformbeveiliging](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)|Deze downloadbare whitepaper gaat over de voordelen van serverloze computing terwijl beveiligingsoverwegingen en oplossingen in de context van Azure. |
+|[Azure operationele beveiliging](azure-operational-security.md)|Azure biedt een uitgebreid overzicht van de klantgerichte operationele beveiligingstechnologieën en -services die beschikbaar zijn.|
+|[Technische mogelijkheden van Azure-beveiliging](azure-security-technical-capabilities.md)|Richt zich op de beveiligingsfuncties en -functionaliteit met ondersteuning voor Azure Storage, Azure SQL-Databases, het model virtuele Azure-machine en de hulpprogramma's en infrastructuur die alles.|
+|[Veiligheidsgids voor Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Bevat een overzicht van elk van de beveiligingsfuncties die kunnen worden gebruikt met Azure Storage. Bevat informatie over management vlak van beveiliging, gegevensbeveiliging vlak, versleuteling-at-rest, versleuteling van vertragingen van vluchten en opslaganalyse.|
+|[Gegevensclassificatie voor cloudvoorbereiding](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03/file/172083/1/Data%20Classification%20for%20Cloud%20Readiness%20(2017-04-11).pdf)  |Dit downloadbare document introduceert de basisbeginselen van gegevensclassificatie en de waarde ervan in de context van cloud computing. Organisaties beoordelen van cloud computing voor toekomstig gebruik of organisaties die momenteel met cloudservices en zoek naar manieren om te optimaliseren van data management wordt profiteren het meest van dit document.|
+|[Governance in Azure](governance-in-azure.md)|Legt uit de beveiliging en governance-functies die zijn ingebouwd in Azure. De belangrijkste governance-problemen die worden beschreven zijn: beleidsregels, processen en procedures implementatie voor de doelstellingen van uw organisatie; beveiliging en continue naleving van standaarden van de organisatie; waarschuwingen en bewaking.
+|[Isolatie in de openbare cloud van Azure](azure-isolation.md)|Geeft een overzicht van hoe Azure biedt isolatie tegen schadelijke en niet-kwaadwillende gebruikers. Fungeert als richtlijn voor het ontwerpen van oplossingen voor cloudopslag door verschillende isolatie-opties biedt voor architecten. Primaire focus is op de klantgerichte beveiligingsbesturingselementen en probeert niet te adres Sla's, prijzen modellen en overwegingen met betrekking tot DevOps-praktijken.|
+|[Overzicht van Azure-naleving](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)|Deze downloadbare document worden de Azure compliance-aanbiedingen, met inbegrip van officiële certificeringen, verklaringen, validaties, machtigingen en beoordelingen die worden geproduceerd door onafhankelijke externe controle ondernemingen, evenals de contractuele wijzigingen zelfcontroles en documenten die richtlijnen voor klanten die door Microsoft zijn geproduceerd. <br/> Elke aanbieding beschrijving Staten welke Azure klantgerichte services binnen het bereik voor de evaluatie en vindt u koppelingen naar downloadbare resources om u te helpen van klanten met hun eigen verplichtingen.|
+|[Beveiligingsbeheer in Azure](azure-security-management.md)|Worden problemen beschreven in de externe toegang van Azure-resources. De aard van de cloud eisen RAS-beheer en daarom beveiliging is cruciaal. Bevat informatie over algemene beveiligingsrichtlijnen, clientconfiguratie, aanbevolen procedures en operationele principes en procedures. |

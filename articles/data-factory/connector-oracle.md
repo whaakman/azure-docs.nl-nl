@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: jingwang
-ms.openlocfilehash: 5039399ac875add02319e1a745d99344956c7bee
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: ec0fc11ac2caf421f331a8fe72f1dacdf6b8a702
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860211"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42312094"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Oracle met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -64,6 +64,12 @@ De volgende eigenschappen worden ondersteund voor de Oracle gekoppelde service.
 
 >[!TIP]
 >Als u fout uitspraak bereikt "ORA 01025: UPI parameter buiten het bereik ' en de Oracle-van versie 8i, toevoegen `WireProtocolMode=1` met de verbindingstekenreeks en probeer het opnieuw.
+
+Het inschakelen van versleuteling op Oracle-verbinding, hebt u twee opties:
+
+1.  Aan de serverzijde Oracle, gaat u naar Oracle Advanced Security (OAS) en configureer de versleutelingsinstellingen, die ondersteuning biedt versleuteling van Triple-DES (3DES) en Advanced Encryption Standard (AES), verwijzen naar details [hier](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759). ADF Oracle-connector wordt automatisch onderhandelt over de versleutelingsmethode voor het gebruik van de versie die u in OAS configureert bij het maken van verbinding met Oracle.
+
+2.  U kunt toevoegen aan clientzijde, `EncryptionMethod=1` in de verbindingsreeks. Hiermee worden SSL/TLS gebruikt als de versleutelingsmethode. Om dit te gebruiken, moet u niet-SSL-coderingsinstellingen in OAS aan de serverzijde Oracle om te voorkomen dat versleuteling-conflict uitschakelen.
 
 **Voorbeeld:**
 
@@ -170,7 +176,7 @@ Om gegevens te kopiëren naar Oracle, stelt u het sink-type in de kopieeractivit
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de kopie-activiteit-sink moet worden ingesteld op **OracleSink**. | Ja |
-| writeBatchSize | Voegt de gegevens in de SQL-tabel wanneer de buffergrootte writeBatchSize bereikt.<br/>Toegestane waarden zijn gehele getallen (aantal rijen). |Nee (de standaardinstelling is 10.000) |
+| WriteBatchSize | Voegt de gegevens in de SQL-tabel wanneer de buffergrootte writeBatchSize bereikt.<br/>Toegestane waarden zijn gehele getallen (aantal rijen). |Nee (de standaardinstelling is 10.000) |
 | writeBatchTimeout | Wachttijd voor de batch insert bewerking is voltooid voordat er een optreedt time-out.<br/>Toegestane waarden zijn Timespan. Een voorbeeld is 00:30:00 uur (30 minuten). | Nee |
 | preCopyScript | Geef een SQL-query voor de kopieeractiviteit om uit te voeren voordat het schrijven van gegevens in Oracle in elke uitvoering. U kunt deze eigenschap gebruiken voor het opschonen van de vooraf geladen gegevens. | Nee |
 

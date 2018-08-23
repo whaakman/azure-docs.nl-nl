@@ -1,9 +1,9 @@
 ---
-title: Sjablonen voor Azure-Stack ontwikkelen | Microsoft Docs
-description: Informatie over aanbevolen procedures voor Azure-Stack-sjabloon
+title: Sjablonen ontwikkelen voor Azure Stack | Microsoft Docs
+description: Informatie over aanbevolen procedures voor Azure Stack-sjabloon
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: 8a5bc713-6f51-49c8-aeed-6ced0145e07b
@@ -12,28 +12,29 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
-ms.author: brenduns
+ms.date: 08/15/2018
+ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 046866d9ed7ce65e3b46be1c67b4ab2058cefa4d
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: d09dec2f327d8b5911a4e55832ba106838c7ebc3
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42054107"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Overwegingen met betrekking tot Azure Resource Manager-sjabloon
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Tijdens het ontwikkelen van uw toepassing, is het belangrijk om ervoor te zorgen sjabloon draagbaarheid tussen Azure en Azure-Stack. Dit artikel vindt u overwegingen voor het ontwikkelen van Azure Resource Manager [sjablonen](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), zodat u kunt prototype van uw toepassing en test-implementatie in Azure zonder toegang tot een Azure-Stack-omgeving.
+Als u uw toepassing ontwikkelt, is het belangrijk om te controleren of de sjabloon overdraagbaarheid tussen Azure en Azure Stack. Dit artikel bevat overwegingen voor het ontwikkelen van Azure Resource Manager [sjablonen](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf), zodat u kunt prototype van uw toepassing en test deze implementatie in Azure zonder toegang tot een Azure Stack-omgeving.
 
-## <a name="resource-provider-availability"></a>Provider beschikbaarheid
+## <a name="resource-provider-availability"></a>Provider voor resourcebeschikbaarheid
 
-De sjabloon die u van plan bent om te implementeren moet alleen gebruiken voor Microsoft Azure-services die al beschikbaar of in het voorbeeld in de Azure-Stack zijn.
+De sjabloon die u van plan bent om te implementeren moet alleen gebruiken voor Microsoft Azure-services die al beschikbaar of in de Preview-versie in Azure Stack zijn.
 
-## <a name="public-namespaces"></a>Openbare naamruimten
+## <a name="public-namespaces"></a>Openbare-naamruimten
 
-Omdat Azure Stack wordt gehost in uw datacenter, heeft andere service-eindpunt naamruimten dan de openbare Azure-cloud. Als gevolg hiervan mislukken hardcoded openbare eindpunten in Azure Resource Manager-sjablonen wanneer u probeert te implementeren naar Azure-Stack. U kunt dynamisch opbouwen service-eindpunten met behulp van de *verwijzing* en *samenvoegen* functies voor het ophalen van waarden van de resourceprovider tijdens de implementatie. Bijvoorbeeld, in plaats van hardcoderen *blob.core.windows.net* ophalen in de sjabloon de [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) dynamisch instellen de *osDisk.URI* eindpunt:
+Omdat Azure Stack wordt gehost in uw datacenter, heeft andere service-eindpunt naamruimten dan de openbare cloud van Azure. Als gevolg hiervan niet vastgelegd openbare eindpunten in Azure Resource Manager-sjablonen wanneer u probeert te implementeren voor Azure Stack. U kunt dynamisch bouwen met service-eindpunten met behulp van de *verwijzing* en *samenvoegen* functies voor het ophalen van waarden van de resourceprovider tijdens de implementatie. Bijvoorbeeld, in plaats van hardcoderen *blob.core.windows.net* in uw sjabloon, haalt de [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) dynamisch instellen de *osDisk.URI* eindpunt:
 
      "osDisk": {"name": "osdisk","vhd": {"uri":
      "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
@@ -41,7 +42,7 @@ Omdat Azure Stack wordt gehost in uw datacenter, heeft andere service-eindpunt n
 
 ## <a name="api-versioning"></a>API-versiebeheer
 
-Versies van Azure service kunnen verschillen tussen Azure en Azure-Stack. Elke resource vereist de **apiVersion** kenmerk de mogelijkheden die worden aangeboden definieert. Om ervoor te zorgen versiecompatibiliteit API in Azure-Stack, zijn de volgende API-versies zijn geldig voor elke Resource Provider:
+Azure-versies kunnen verschillen tussen Azure en Azure Stack. Elke resource vereist de **apiVersion** kenmerk, waarin de mogelijkheden die zijn gedefinieerd. De volgende API-versies zijn om te controleren of de compatibiliteit van de API-versie in Azure Stack, geldig zijn voor elke Resource Provider:
 
 | Resourceprovider | apiVersion |
 | --- | --- |
@@ -53,20 +54,20 @@ Versies van Azure service kunnen verschillen tussen Azure en Azure-Stack. Elke r
 
 ## <a name="template-functions"></a>Sjabloonfuncties
 
-Azure Resource Manager [functies](../../azure-resource-manager/resource-group-template-functions.md) bieden mogelijkheden die zijn vereist voor het bouwen van dynamische sjablonen. Als u bijvoorbeeld kunt u functies voor taken, zoals:
+Azure Resource Manager [functies](../../azure-resource-manager/resource-group-template-functions.md) bieden mogelijkheden voor het ontwikkelen van dynamische sjablonen. Als u bijvoorbeeld kunt u functies voor taken, zoals:
 
-* Cookievalidatie of bijsnijden tekenreeksen.
+* Samenvoegen of bijsnijden tekenreeksen.
 * Verwijzen naar waarden van andere bronnen.
-* Bronnen voor het implementeren van meerdere exemplaren doorlopen.
+* Herhalen op resources om te implementeren van meerdere exemplaren.
 
-Deze functies zijn niet beschikbaar in de Azure-Stack:
+Deze functies zijn niet beschikbaar in Azure Stack:
 
 * Overslaan
-* duren
+* toets maken
 
 ## <a name="resource-location"></a>Resourcelocatie
 
-Azure Resource Manager-sjablonen gebruiken een locatiekenmerk om resources plaats tijdens de implementatie. In Azure verwijzen locaties naar een regio VS-West of Zuid-Amerika. In Azure-Stack zijn locaties verschillend, omdat Azure-Stack in uw datacenter. U moet verwijzen naar de locatie van de resourcegroep als u afzonderlijke resources implementeren zodat sjablonen zijn naar tussen Azure en Azure-Stack. U kunt dit doen met behulp van `[resourceGroup().Location]` om te controleren of alle bronnen overnemen locatie van de resourcegroep. Het volgende fragment volgt een voorbeeld van het gebruik van deze functie tijdens de implementatie van een opslagaccount:
+Een locatiekenmerk Azure Resource Manager-sjablonen gebruiken om resources tijdens de implementatie. In Azure verwijzen locaties naar een regio, zoals VS-West of Zuid-Amerika. In Azure Stack zijn locaties verschillend, omdat Azure Stack in uw datacenter is. U moet verwijzen naar de locatie voor resourcegroep als u afzonderlijke resources implementeren om ervoor te zorgen sjablonen zijn overdraagbare tussen Azure en Azure Stack. U kunt dit doen met `[resourceGroup().Location]` om te controleren of alle resources overnemen locatie voor de resourcegroep. Het volgende fragment wordt een voorbeeld van het gebruik van deze functie tijdens de implementatie van een storage-account:
 
     "resources": [
     {
@@ -84,5 +85,5 @@ Azure Resource Manager-sjablonen gebruiken een locatiekenmerk om resources plaat
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Sjablonen implementeren met PowerShell](azure-stack-deploy-template-powershell.md)
-* [Sjablonen met Azure CLI implementeren](azure-stack-deploy-template-command-line.md)
+* [Sjablonen implementeren met Azure CLI](azure-stack-deploy-template-command-line.md)
 * [Sjablonen implementeren met Visual Studio](azure-stack-deploy-template-visual-studio.md)

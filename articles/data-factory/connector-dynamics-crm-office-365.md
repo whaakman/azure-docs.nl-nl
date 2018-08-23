@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: 3f45f9337a5522f490c268bbdae3ef1a41205175
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e4ebddc35b402d7a8997d899ce97577e93a27b84
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859371"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444857"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Dynamics 365 (Common Data Service) of Dynamics CRM met behulp van Azure Data Factory
 
@@ -272,8 +272,8 @@ Om gegevens te kopiëren naar Dynamics, stelt u het sink-type in de kopieeractiv
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type van de kopie-activiteit-sink moet worden ingesteld op **DynamicsSink**. | Ja |
-| writeBehavior | Het gedrag van het schrijven van de bewerking.<br/>Toegestane waarde is **"Upsert"**. | Ja |
-| writeBatchSize | Het aantal rijen van de gegevens die naar Dynamics zijn geschreven in elke batch. | Nee (de standaardwaarde is 10) |
+| WriteBehavior | Het gedrag van het schrijven van de bewerking.<br/>Toegestane waarde is **"Upsert"**. | Ja |
+| WriteBatchSize | Het aantal rijen van de gegevens die naar Dynamics zijn geschreven in elke batch. | Nee (de standaardwaarde is 10) |
 | ignoreNullValues | Hiermee wordt aangegeven of null-waarden van invoergegevens (met uitzondering van velden voor sleutels) tijdens een schrijfactie negeren.<br/>Toegestane waarden zijn **waar** en **false**.<br>- **De waarde True**: laat de gegevens in het doelobject ongewijzigd wanneer u een bewerking upsert/bijwerken. Voeg een gedefinieerde standaardwaarde wanneer u een insert-bewerking.<br/>- **De waarde False**: de gegevens in het doelobject op NULL bijwerken wanneer u een bewerking upsert/bijwerken. Voeg een NULL-waarde als u een insert-bewerking. | Nee (de standaardinstelling is false) |
 
 >[!NOTE]
@@ -329,14 +329,14 @@ Configureer het bijbehorende gegevenstype voor de Data Factory in de gegevensset
 | AttributeTypeCode.Boolean | Booleaans | ✓ | ✓ |
 | AttributeType.Customer | GUID | ✓ | | 
 | AttributeType.DateTime | Datum en tijd | ✓ | ✓ |
-| AttributeType.Decimal | Decimaal | ✓ | ✓ |
+| AttributeType.Decimal | decimaal | ✓ | ✓ |
 | AttributeType.Double | Double-waarde | ✓ | ✓ |
 | AttributeType.EntityName | Reeks | ✓ | ✓ |
 | AttributeType.Integer | Int32 | ✓ | ✓ |
-| AttributeType.Lookup | GUID | ✓ | ✓ (met één type dat is gekoppeld) |
+| AttributeType.Lookup | GUID | ✓ | ✓ (met één doel die is gekoppeld) |
 | AttributeType.ManagedProperty | Booleaans | ✓ | |
 | AttributeType.Memo | Reeks | ✓ | ✓ |
-| AttributeType.Money | Decimaal | ✓ | ✓ |
+| AttributeType.Money | decimaal | ✓ | ✓ |
 | AttributeType.Owner | GUID | ✓ | |
 | AttributeType.Picklist | Int32 | ✓ | ✓ |
 | AttributeType.Uniqueidentifier | GUID | ✓ | ✓ |

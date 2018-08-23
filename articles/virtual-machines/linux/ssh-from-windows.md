@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 08/20/2018
 ms.author: danlep
-ms.openlocfilehash: d0762f80267fa927681344a3e0de78b0800c8306
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fc245d38af90e0c395389e24b14d061fcfe0c10c
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630208"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42054330"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>SSH-sleutels gebruiken met Windows op Azure
 
@@ -33,9 +33,9 @@ Dit artikel bevat manieren om te genereren en gebruiken van SSH (secure shell) s
 ## <a name="windows-packages-and-ssh-clients"></a>Windows-pakketten en SSH-clients
 U verbinding maken met en beheren van virtuele Linux-machines in Azure met een *SSH-client*. Computers met Linux of macOS meestal hebben een reeks opdrachten SSH te genereren en SSH-sleutels beheren en te maken van SSH-verbindingen. 
 
-Windows-computers altijd geen vergelijkbare SSH opdrachten die zijn geïnstalleerd. Windows 10-versies met de [Windows-subsysteem voor Linux](https://docs.microsoft.com/windows/wsl/about) kunt u uitvoeren en toegang tot hulpprogramma's zoals een SSH-client systeemeigen binnen een Bash-shell. 
+Windows-computers altijd geen vergelijkbare SSH opdrachten die zijn geïnstalleerd. Recente versies van Windows 10 bieden [OpenSSH-clientopdrachten](https://blogs.msdn.microsoft.com/commandline/2018/03/07/windows10v1803/) maken en beheren van SSH-sleutels en SSH-verbindingen vanaf een opdrachtprompt. Recente versies van Windows 10 bevat ook de [Windows-subsysteem voor Linux](https://docs.microsoft.com/windows/wsl/about) uitvoeren en toegang tot hulpprogramma's zoals een SSH-client systeemeigen binnen een Bash-shell. 
 
-Als u gebruiken dan Bash wilt voor Windows, algemene Windows SSH clients die kunt u lokaal installeren zijn opgenomen in de volgende pakketten:
+Als u een andere SSH-hulpprogramma gebruiken voor Windows wilt, algemene Windows SSH clients die kunt u lokaal installeren zijn opgenomen in de volgende pakketten:
 
 * [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/)
 * [GIT voor Windows](https://git-for-windows.github.io/)
@@ -52,7 +52,7 @@ Deze sectie ziet u twee opties voor het maken van een SSH-sleutelpaar in Windows
 
 ### <a name="create-ssh-keys-with-ssh-keygen"></a>SSH-sleutels maken met ssh-keygen
 
-Als u een opdrachtshell zoals Bash voor Windows of GitBash (of Bash in Azure Cloud Shell) uitvoeren kunt, maakt u een SSH-sleutelpaar gebruiken de `ssh-keygen` opdracht. Typ de volgende opdracht en de hierom wordt gevraagd. Als een SSH-sleutelpaar in de huidige locatie bestaat, worden deze bestanden overschreven. 
+Als u een opdrachtshell uitvoeren op Windows die ondersteuning biedt voor hulpprogramma's voor SSH-client (of u Azure Cloud Shell gebruiken), maakt u een SSH-sleutelpaar met behulp van de `ssh-keygen` opdracht. Typ de volgende opdracht en de hierom wordt gevraagd. Als een SSH-sleutelpaar in de huidige locatie bestaat, worden deze bestanden overschreven. 
 
 ```bash
 ssh-keygen -t rsa -b 2048

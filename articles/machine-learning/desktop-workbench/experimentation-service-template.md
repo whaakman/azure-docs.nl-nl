@@ -1,34 +1,32 @@
 ---
-title: Azure Machine Learning-experimenten maken met een Azure Resource Manager-sjabloon | Microsoft Docs
-description: Dit artikel bevat een voorbeeld om de account van een Azure Machine Learning experimenteren met een Azure Resource Manager-sjabloon te maken.
+title: Azure Machine Learning experimenten maken met een Azure Resource Manager-sjabloon | Microsoft Docs
+description: Dit artikel bevat een voorbeeld voor het maken van een Azure Machine Learning experimenten-account met behulp van een Azure Resource Manager-sjabloon.
 services: machine-learning
-author: ahgyger
-ms.author: ahgyger
-manager: haining
-ms.reviewer: jmartens, jasonwhowell, mldocs
+author: hning86
+ms.author: haining
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/14/2017
-ms.openlocfilehash: 65efee0eea5e2595ef8833788281c5ba60ca3a43
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7938eaa0e06c9a33034a7388d02845d60967774e
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830779"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42055343"
 ---
-# <a name="configure-the-azure-machine-learning-experimentation-service"></a>Configureren van de Service Azure Machine Learning-experimenten
+# <a name="configure-the-azure-machine-learning-experimentation-service"></a>De Azure Machine Learning experimenten-Service configureren
 
 ## <a name="overview"></a>Overzicht
-Azure Machine Learning-experimenten Service-account, werkruimte en project zijn Azure-Resources. Als zodanig kunnen ze worden geïmplementeerd met behulp van sjablonen Resources Manager. Resource Manager-sjablonen zijn JSON-bestanden die de resources definiëren die u voor uw oplossing moet implementeren. Zie [Overzicht van Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) voor inzicht in de concepten die gerelateerd zijn aan het implementeren en beheren van uw Azure-oplossingen.
+Azure Machine Learning experimenten-Service-account en werkruimte project zijn Azure-Resources. Als zodanig, kunnen ze worden geïmplementeerd met behulp van Resources Manager-sjablonen. Resource Manager-sjablonen zijn JSON-bestanden die de resources definiëren die u voor uw oplossing moet implementeren. Zie [Overzicht van Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) voor inzicht in de concepten die gerelateerd zijn aan het implementeren en beheren van uw Azure-oplossingen.
 
 ## <a name="deploy-a-template"></a>Een sjabloon implementeren
-Implementeren van een sjabloon vereist een aantal stappen in de Azure-opdrachtregelinterface of in de Azure portal.
+Implementeren van een sjabloon is slechts een paar stappen uit in de Azure Command Line Interface of in de Azure-portal vereist.
 
 ### <a name="deploy-a-template-from-the-command-line"></a>Een sjabloon implementeren vanuit de opdrachtregel
-Via de opdrachtregelinterface, implementeren één opdracht een sjabloon om een bestaande resourcegroep te.
-Zie hieronder voor meer informatie over het maken van een sjabloon.
+Met behulp van de opdrachtregelinterface, implementeren slechts één opdracht een sjabloon om een bestaande resourcegroep te.
+Ziet u de volgende voor informatie over het maken van een sjabloon.
 
 ```sh
 # Login and validate your are in the right subscription context
@@ -39,27 +37,27 @@ az group create --name <resource group name> --location <supported Azure region>
 az group deployment create -n testdeploy -g <resource group name> --template-file <template-file.json> --parameters <parameters.json>
 ```
 
-### <a name="deploy-a-template-from-the-azure-portal"></a>Een sjabloon implementeren vanuit de Azure-portal
-Als u liever, kunt u Azure-portal ook maken en implementeren van een sjabloon gebruiken. Ga als volgt:
+### <a name="deploy-a-template-from-the-azure-portal"></a>Een sjabloon implementeren vanuit Azure portal
+Als u liever, kunt u ook Azure portal gebruiken om te maken en implementeren van een sjabloon. Ga als volgt:
 
 1. Ga naar de [Azure-portal](https://portal.azure.com).
-2. Selecteer **alle Services** en zoek naar 'sjablonen'.
+2. Selecteer **alle Services** en zoek naar "-sjablonen."
 3. Selecteer **sjablonen**.
 4. Klik op **+ toevoegen** en kopieer de sjabloongegevens van uw. 
 5. Selecteer de sjabloon hebt gemaakt in stap 4 # en klik op **implementeren**.
 
 
-## <a name="create-a-template-from-an-existing-azure-resource-in-the-azure-portal"></a>Een sjabloon maken van een bestaande Azure resource in de Azure portal
-Als u al een Azure-Machine experimenteren account beschikbaar in [Azure-portal](https://portal.azure.com), kunt u een sjabloon van die bron genereren. 
+## <a name="create-a-template-from-an-existing-azure-resource-in-the-azure-portal"></a>Een sjabloon maken van een bestaande Azure-resource in Azure portal
+Als u al een Azure-Machine-experimenten-account beschikbaar is, in [Azure-portal](https://portal.azure.com), u kunt een sjabloon genereren op basis van die resource. 
 
-1. Navigeer naar een Azure-Account voor experimenteren in [Azure-portal](https://portal.azure.com).
+1. Navigeer naar een Azure-experimenten-Account in [Azure-portal](https://portal.azure.com).
 2. Onder **instellingen**, klikt u op **automatiseringsscript**.
-3. De sjabloon downloaden. 
+3. Download de sjabloon. 
 
 U kunt ook handmatig de sjabloonbestanden bewerken. Zie het volgende voor een voorbeeld van een sjabloon en parameters bestanden. 
 
 ### <a name="template-file-example"></a>Voorbeeld van een sjabloon
-Maak een bestand met de naam 'sjabloon file.json' met onderstaande inhoud. 
+Maak een bestand met de naam 'sjabloon-file.json' met onderstaande inhoud. 
 
 ```json
 {
@@ -137,9 +135,9 @@ Maak een bestand met de naam 'sjabloon file.json' met onderstaande inhoud.
 Maak een bestand met de onderstaande inhoud en sla deze op als < parameters.json >. 
 
 Er zijn drie waarden die u kunt wijzigen. 
-* AccountName: De naam van het account experimenteren.
+* Accountnaam: De naam van het experimenten-account.
 * Locatie: Een van de ondersteunde Azure-regio's.
-* SKU-Opslagaccount: De Azure ML ondersteunt alleen de standard-opslag, niet premium. Zie voor meer informatie over opslag [opslag inleiding](https://docs.microsoft.com/azure/storage/common/storage-introduction). 
+* Opslagaccount-SKU: De Azure ML ondersteunt alleen de standard-opslag, niet-premium. Zie voor meer informatie over storage [opslag inleiding](https://docs.microsoft.com/azure/storage/common/storage-introduction). 
 
 ```json
 {

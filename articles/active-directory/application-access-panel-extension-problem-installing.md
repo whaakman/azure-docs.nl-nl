@@ -1,6 +1,6 @@
 ---
-title: De extensie in de browser toepassing toegang Configuratiescherm - Azure installeren | Microsoft Docs
-description: Algemene fouten aangetroffen tijdens de installatie van de uitbreiding voor toegang tot Configuratiescherm browser oplossen.
+title: Installeer de extensie in de browser toepassing toegang Configuratiescherm - Azure | Microsoft Docs
+description: Oplossen van veelvoorkomende fouten aangetroffen tijdens de installatie van het deelvenster browser-extensie voor toegang.
 services: active-directory
 documentationcenter: ''
 author: barbkess
@@ -15,41 +15,41 @@ ms.topic: article
 ms.date: 5/4/18
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 00dade0926f9f2601757ac637e21737027f24c45
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 642f07be0eb58e4d10630bc4482d26bd00e08a94
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36332606"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42054497"
 ---
-# <a name="install-the-access-panel-browser-extension"></a>De uitbreiding voor toegang tot Configuratiescherm browser installeren
+# <a name="install-the-access-panel-browser-extension"></a>De toegang tot deelvenster browser-extensie installeren
 
-Het toegangspaneel is een webportal. Als u een werk hebt of school-account in Azure Active Directory (Azure AD), kunt u het toegangsvenster weergeven en starten van cloud-gebaseerde toepassingen die Azure AD-beheerder u toegang tot heeft verleend. 
+Het toegangsvenster is een portal op Internet. Als u een werk hebt- of in Azure Active Directory (Azure AD schoolaccount), kunt u het toegangsvenster gebruiken om te bekijken en starten van cloud-gebaseerde toepassingen die een Azure AD-beheerder u toegang tot heeft verleend. 
 
-Als u Azure AD-edities, kunt u ook groepsbeheer met Self-service en app-mogelijkheden voor beheer via het toegangsvenster gebruiken. 
+Als u Azure AD-edities, kunt u ook groepsbeheer met Self-service en mogelijkheden voor app via het toegangsvenster gebruiken. 
 
-Het toegangspaneel is gescheiden van de Azure-portal. Dit vereist niet dat u een Azure-abonnement hebt.
+Het toegangsvenster is gescheiden van de Azure-portal. Dit vereist niet dat u een Azure-abonnement hebt.
 
 ## <a name="web-browser-requirements"></a>Vereisten voor webbrowsers
 
-Ten minste het toegangsvenster vereist een browser die JavaScript ondersteunt en CSS is ingeschakeld. Als u wilt worden aangemeld via eenmalige aanmelding op basis van wachtwoorden in het deelvenster toegang aan toepassingen, moet u de uitbreiding van toegang tot Configuratiescherm geïnstalleerd in uw browser hebben. De extensie wordt automatisch gedownload wanneer u een toepassing die geconfigureerd voor eenmalige aanmelding op basis van wachtwoorden selecteert.
+Ten minste het toegangsvenster vereist een browser die ondersteuning biedt voor JavaScript en CSS is ingeschakeld. Om te worden aangemeld bij toepassingen via eenmalige aanmelding op basis van wachtwoorden in het toegangsvenster, moet u de uitbreiding voor toegang tot Configuratiescherm geïnstalleerd in uw browser hebben. De extensie wordt automatisch gedownload wanneer u een toepassing selecteert die geconfigureerd voor eenmalige aanmelding op basis van wachtwoorden.
 
 U kunt een van de volgende browsers gebruiken voor eenmalige aanmelding op basis van wachtwoorden:
 
-- **Rand**: verjaardagseditie van Windows 10 of hoger. 
-- **Chrome**: Windows 7 of hoger, en op Mac OS X of hoger.
-- **Firefox 26,0 of hoger**: Windows XP SP2 of hoger, en op Mac OS X 10.6 of hoger.
+- **Edge**: Windows 10 Anniversary Edition of hoger. 
+- **Chrome**: op Windows 7 of hoger, en op Mac OS X of hoger.
+- **Firefox 26,0 of hoger**: in Windows XP SP2 of hoger, en op Mac OS X 10.6 of hoger.
 
-## <a name="install-the-access-panel-browser-extension"></a>De uitbreiding voor toegang tot Configuratiescherm browser installeren
+## <a name="install-the-access-panel-browser-extension"></a>De toegang tot deelvenster browser-extensie installeren
 
-Voor het installeren van de uitbreiding voor toegang tot Configuratiescherm browser, het volgende doen:
+Voor het installeren van de uitbreiding voor toegang tot deelvenster browser, het volgende doen:
 
-1.  Open in een van de ondersteunde browsers en de [toegangspaneel](https://myapps.microsoft.com), en vervolgens weer aanmelden als gebruiker in uw Azure AD-account.
+1.  Open in een van de ondersteunde browsers en de [Toegangsvenster](https://myapps.microsoft.com), en meldt u zich aan als een gebruiker in uw Azure AD-account.
 
-2.  Selecteer een toepassing eenmalige aanmelding op basis van wachtwoorden.
+2.  Selecteer een wachtwoord gebaseerde SSO-toepassing.
 
 3.  Wanneer u wordt gevraagd, selecteert u **nu installeren**.  
-    U wordt omgeleid naar de downloadkoppeling voor de geselecteerde browser. 
+    U bent omgeleid naar de downloadkoppeling voor de geselecteerde browser. 
     
 4.  Selecteer **Toevoegen**.
 
@@ -57,73 +57,73 @@ Voor het installeren van de uitbreiding voor toegang tot Configuratiescherm brow
 
 6.  Nadat de installatie is voltooid, start u de browser opnieuw.
 
-7.  Aanmelden bij het toegangspaneel en controleer om te zien of u uw toepassingen op basis van wachtwoorden SSO kunt starten.
+7.  Meld u aan het toegangsvenster en de controle om te zien of u uw wachtwoord gebaseerde SSO-toepassingen kunt starten.
 
-U kunt ook de uitbreiding downloaden voor Chrome en rand rechtstreeks vanuit de volgende sites:
+U kunt ook de extensie downloaden voor Chrome en Microsoft Edge rechtstreeks vanuit de volgende sites:
 
-- [Chrome-uitbreiding](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Edge-uitbreiding](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
+- [Chrome-extensie](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
+- [Edge-extensie](https://www.microsoft.com/store/apps/9pc9sckkzk84) 
 
-## <a name="use-the-my-apps-secure-sign-in-extension"></a>Gebruik de mijn Apps beveiligen aanmelden extensie
-* Als u een URL voor mijn Apps dan `https://myapps.microsoft.com`, standaard-URL configureren door het volgende te doen:
-   1. Terwijl u bent *niet* aangemeld bij de extensie, met de rechtermuisknop op het pictogram extensie.
+## <a name="use-the-my-apps-secure-sign-in-extension"></a>Gebruik de mijn Apps beveiligde aanmelding-extensie
+* Als u een URL voor mijn Apps dan `https://myapps.microsoft.com`, de standaard-URL configureren door het volgende te doen:
+   1. Terwijl u bent *niet* aangemeld bij de extensie, met de rechtermuisknop op het pictogram van de extensie.
    2. Selecteer in het menu **URL voor mijn Apps**.
-   3. Selecteer uw standaard-URL.
-   4. Selecteer het pictogram extensie.
-   5. Als u wilt aanmelden bij de extensie, selecteer **melden aan de slag**.
+   3. Selecteer de standaard-URL.
+   4. Selecteer het pictogram van de extensie.
+   5. Als u wilt aanmelden bij de extensie, selecteer **Meld u aan de slag**.
 
-* Om aan te melden rechtstreeks naar een app van de browser, het volgende doen:
-   1. Nadat u de uitbreiding hebt geïnstalleerd, zich aanmelden bij het selecteren van **melden aan de slag**.
-   2. Aanmelden bij de app met de aanmeldings-URL.  
-       De aanmeldings-URL is meestal de URL van de app die het formulier aanmeldingspagina wordt weergegeven.
+* Om te melden bij rechtstreeks naar een app vanuit de browser, het volgende doen:
+   1. Nadat u de uitbreiding hebt geïnstalleerd, aanmelden bij het selecteren van **Meld u aan de slag**.
+   2. Meld u aan de app met de aanmeldings-URL.  
+       De aanmeldings-URL is meestal de URL van de app die wordt weergegeven het aanmeldingsformulier.
       De extensie moet een statuswijziging en laat u weten dat een wachtwoord beschikbaar is.
-   3. Als u wilt aanmelden, selecteer het extensie-pictogram.
+   3. Om aan te melden, selecteert u het pictogram van de extensie.
 
 * Voor het starten van een app van de extensie, het volgende doen:
-   1. Nadat u de uitbreiding hebt geïnstalleerd, zich aanmelden bij het selecteren van **melden aan de slag**.
-   2. Selecteer het pictogram extensie om het menu te openen.
-   3. Zoeken naar een app die beschikbaar is in de portal voor mijn Apps.
+   1. Nadat u de uitbreiding hebt geïnstalleerd, aanmelden bij het selecteren van **Meld u aan de slag**.
+   2. Selecteer het pictogram van de extensie om het menu te openen.
+   3. Zoeken naar een app die beschikbaar is in de portal mijn Apps.
    4. Selecteer de app in de lijst met zoekresultaten.  
-       De laatste drie apps die u hebt gebruikt, worden weergegeven in de **recent gebruikte** snelkoppeling lijst.
+       De laatste drie apps die u hebt gebruikt, worden weergegeven in de **onlangs gebruikte** snelkoppeling naar de lijst.
        
-* Voor het gebruik van URL's intern bedrijf terwijl deze extern is het volgende doen:
-    1. [Configureren van Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) op uw tenant
-    2. [De toepassing publiceren](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) en de URL via toepassingsproxy
-    3. De uitbreiding te installeren en aanmelden bij het selecteren van aanmelding aan de slag
-    4. Nu kunt u bladeren naar de URL van de interne bedrijf zelfs terwijl deze extern
+* Als u wilt gebruiken intern bedrijf URL's terwijl deze extern is, het volgende doen:
+    1. [Application Proxy configureren](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) op uw tenant
+    2. [De toepassing publiceren](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) en -URL via de toepassingsproxy
+    3. De extensie installeren en ME niet aanmelden door te selecteren, meld u aan de slag
+    4. U kunt nu naar de URL van de interne bedrijf zelfs terwijl de externe bladeren
 
 > [!NOTE]
-> De voorgaande opties zijn alleen beschikbaar voor rand en Chrome, Firefox.
+> De voorgaande opties zijn alleen beschikbaar voor Microsoft Edge, Chrome en Firefox.
 
 ## <a name="set-up-a-group-policy-for-internet-explorer"></a>Instellen van een groepsbeleid voor Internet Explorer
 
-U kunt een groepsbeleid waarmee u de uitbreiding van het deelvenster toegang tot voor Internet Explorer op afstand installeren op computers van uw gebruikers kunt instellen.
+U kunt een groepsbeleid waarmee u de uitbreiding van het Configuratiescherm toegang voor Internet Explorer op afstand installeren op uw gebruikers virtuele machines kunt instellen.
 
-Voordat u een Groepsbeleid instellen, zorg ervoor dat:
+Voordat u een Groepsbeleid instelt, zorg ervoor dat:
 
 -   U hebt ingesteld [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), en u hebt uw gebruikers machines toegevoegd aan uw domein.
 
--   Als u wilt bewerken in het groepsbeleidsobject (GPO), moet u hebben *instellingen bewerken* machtigingen. Standaard wordt deze machtiging verleend aan leden van de volgende beveiligingsgroepen: Domeinadministrators, Ondernemingsadministrators en Maker Eigenaar Groepsbeleid.
+-   Als u wilt bewerken in het groepsbeleidsobject (GPO), moet u hebben *instellingen bewerken* machtigingen. Standaard deze machtiging is verleend aan leden van de volgende beveiligingsgroepen: Domeinadministrators, Ondernemingsadministrators en beveiligingsgroep Maker Eigenaar Groepsbeleid.
 
-Zie voor stapsgewijze instructies over het configureren van het Groepsbeleid en geïmplementeerd op gebruikers, [de extensie van het Configuratiescherm toegang voor Internet Explorer implementeren met behulp van Groepsbeleid](active-directory-saas-ie-group-policy.md).
+Zie voor stapsgewijze instructies over het configureren van het Groepsbeleid en deze is geïmplementeerd voor gebruikers, [de Configuratiescherm-extensie voor toegang voor Internet Explorer implementeren met behulp van Groepsbeleid](active-directory-saas-ie-group-policy.md).
 
-## <a name="troubleshoot-the-access-panel-extension-in-internet-explorer"></a>Problemen met de extensie van het Configuratiescherm toegang in Internet Explorer
+## <a name="troubleshoot-the-access-panel-extension-in-internet-explorer"></a>Problemen met de extensie van het deelvenster toegang in Internet Explorer oplossen
 
-Zie voor toegang tot een hulpprogramma voor diagnostische gegevens en informatie over het configureren van de uitbreiding voor Internet Explorer, [oplossen met de extensie van het Configuratiescherm toegang voor Internet Explorer](active-directory-saas-ie-troubleshooting.md).
+Zie voor toegang tot een hulpprogramma voor diagnostische gegevens en informatie over het configureren van de extensie voor Internet Explorer, [oplossen met de extensie van het Configuratiescherm toegang voor Internet Explorer](active-directory-saas-ie-troubleshooting.md).
 
 > [!NOTE]
-> Internet Explorer is beperkte ondersteuning en nieuwe software-updates niet meer ontvangt. Rand is de aanbevolen browser.
+> Internet Explorer is ingeschakeld beperkte ondersteuning en nieuwe software-updates niet meer ontvangt. Edge is de aanbevolen browser.
 
 ## <a name="if-the-preceding-steps-do-not-resolve-the-issue"></a>Als de voorgaande stappen het probleem niet verhelpen
 
-Als deze beschikbaar is, moet u een ondersteuningsticket opent met de volgende informatie:
+Als deze beschikbaar is, moet u een ondersteuningsticket openen met de volgende informatie:
 
--   Correlatie fout-ID
--   UPN (e-mailadres van de gebruiker)
+-   Correlatie-ID van fout
+-   UPN (e-mailadres van gebruiker)
 -   TenantID
 -   Browsertype
--   Tijdzone, tijd en tijdsbestek als de fout is opgetreden
+-   Tijdzone, de tijd en tijdsbestek als de fout is opgetreden
 -   Fiddler traceringen
 
 ## <a name="next-steps"></a>Volgende stappen
-[Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](manage-apps/what-is-single-sign-on.md)
+[What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

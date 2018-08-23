@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/02/2018
 ms.author: borisb
-ms.openlocfilehash: 570b820e21df6db70b9cadf33d5a120132be62ed
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4a8bc45b253def1130e5a02dfcd6d359f0e74506
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426748"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42060653"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure voor on-demand Red Hat Enterprise Linux-machines in Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) kunt u cloudproviders, zoals Azure, voor het spiegelen van de inhoud van Red Hat gehoste opslagplaats, aangepaste opslagplaatsen maken met Azure-specifieke inhoud en het beschikbaar maken voor virtuele machines door eindgebruikers.
@@ -29,7 +29,7 @@ Red Hat Enterprise Linux (RHEL) betalen naar gebruik (betalen per gebruik) afbee
 ## <a name="important-information-about-azure-rhui"></a>Belangrijke informatie over Azure RHUI
 * Azure RHUI ondersteunt momenteel alleen de nieuwste secundaire versie van de RHEL-familie (RHEL6 of RHEL7). Als u een RHEL VM-exemplaar dat is verbonden met RHUI naar de nieuwste secundaire versie upgraden, uitvoeren `sudo yum update`.
 
-    Bijvoorbeeld, als u een virtuele machine van een installatiekopie van een RHEL 7.2 PAYG inrichten en voer `sudo yum update`, krijgt u uiteindelijk met een 7.4 RHEL VM (de nieuwste secundaire versie in de familie RHEL7).
+    Bijvoorbeeld, als u een virtuele machine van een installatiekopie van een RHEL 7.2 PAYG inrichten en voer `sudo yum update`, krijgt u uiteindelijk met een 7.5 RHEL VM (de nieuwste secundaire versie in de familie RHEL7).
 
     Om te voorkomen dat dit probleem, moet u uw eigen installatiekopie bouwen zoals wordt beschreven in de [maken en uploaden, een Red Hat gebaseerde virtuele machine voor Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) artikel. Moet u verbinding maakt met een andere update-infrastructuur ([rechtstreeks naar Red Hat content delivery servers](https://access.redhat.com/solutions/253273) of een [Red Hat satelliet server](https://access.redhat.com/products/red-hat-satellite)).
 

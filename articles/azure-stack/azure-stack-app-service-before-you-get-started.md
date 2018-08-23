@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 08/20/2018
 ms.author: anwestg
-ms.openlocfilehash: 22901374988f6654bc1fb282315db81bb17c815f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e5fc6b5d396a45d15548cfdd8f445158147ad12f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857862"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056704"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Voordat u aan de slag met App Service in Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "37857862"
 Voordat u Azure App Service in Azure Stack implementeren, moet u de vereiste stappen in dit artikel te voltooien.
 
 > [!IMPORTANT]
-> De update 1804 toepassen op uw geïntegreerde Azure Stack-systeem of de meest recente Azure Stack Development Kit (ASDK) implementeren voordat u implementeert in Azure App Service 1.2.
+> De update 1807 toepassen op uw geïntegreerde Azure Stack-systeem of implementeren van de meest recente Azure Stack Development Kit (ASDK) voordat u Azure App Service 1.3 implementeert.
 
 ## <a name="download-the-installer-and-helper-scripts"></a>Het installatieprogramma en helper scripts downloaden
 
@@ -241,27 +241,6 @@ net share %WEBSITES_SHARE% /delete
 net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
 ```
 
-### <a name="add-the-fileshareowners-group-to-the-local-administrators-group"></a>De groep FileShareOwners toevoegen aan de lokale groep Administrators
-
-Voor Windows Remote Management goed te laten werken, moet u de groep FileShareOwners toevoegen aan de lokale groep Administrators.
-
-#### <a name="active-directory"></a>Active Directory
-
-Voer de volgende opdrachten bij een opdrachtprompt met verhoogde bevoegdheid op de bestandsserver of op elke bestandsserver die als een failoverclusterknooppunt fungeert. Vervang de waarde voor `<DOMAIN>` met de domeinnaam die u wilt gebruiken.
-
-```DOS
-set DOMAIN=<DOMAIN>
-net localgroup Administrators %DOMAIN%\FileShareOwners /add
-```
-
-#### <a name="workgroup"></a>Werkgroep
-
-Voer de volgende opdracht bij een opdrachtprompt met verhoogde bevoegdheid op de bestandsserver:
-
-```DOS
-net localgroup Administrators FileShareOwners /add
-```
-
 ### <a name="configure-access-control-to-the-shares"></a>Beheer van toegang tot de shares configureren
 
 Voer de volgende opdrachten bij een opdrachtprompt met verhoogde bevoegdheid op de bestandsserver of op het failoverclusterknooppunt, de huidige eigenaar van de cluster-resource is. Waarden in cursief vervangen door waarden die specifiek voor uw omgeving zijn.
@@ -353,6 +332,7 @@ Volg deze stappen:
 | AzureStackAdminCredential | Vereist | Null | Azure AD-service-beheerreferenties. |
 | CertificateFilePath | Vereist | Null | **Volledig pad** naar het bestand voor het identiteitstoepassingscertificaat eerder gegenereerd. |
 | CertificatePassword | Vereist | Null | Het wachtwoord dat helpt de persoonlijke sleutel van het certificaat te beschermen. |
+| Omgeving | Optioneel | AzureCloud | De naam van de ondersteunde Cloud-omgeving waarin het doel-Azure Active Directory Graph-Service beschikbaar is.  Toegestane waarden: 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'.|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Een Active Directory Federation Services-toepassing maken
 

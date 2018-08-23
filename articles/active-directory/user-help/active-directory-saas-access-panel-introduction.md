@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/11/18
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: a5b96279993c35aad4cc49c52950576f12dd15ce
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: f69830deb4d2c74b5fe1c85ad8c9452097dd2a1e
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345940"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42054103"
 ---
 # <a name="what-is-the-access-panel"></a>Wat is het toegangsvenster?
 
@@ -79,7 +79,7 @@ Als u wilt aanmelden bij op basis van wachtwoorden eenmalige aanmelding, moet u 
 - U kunt aanmelden bij een app rechtstreeks met behulp van de app **aanmeldings-URL**. Wanneer u de URL van de app gebruikt, wordt de extensie detecteert de actie en biedt de mogelijkheid van het aanmelden van de extensie.
 - U kunt uw Apps vanuit het toegangsvenster starten met behulp van de *snelle zoekactie* functie van de extensie. 
 - De extensie ziet u de laatste drie toepassingen die u in de markt gebracht **onlangs gebruikte** sectie.
-- U kunt URL's voor interne bedrijf terwijl deze extern via [Application Proxy](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-get-started)
+- U kunt URL's voor interne bedrijf terwijl deze extern via [Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
 > [!NOTE]
 > Aanvullende functies zijn alleen beschikbaar voor Microsoft Edge, Chrome en Firefox.
@@ -97,8 +97,8 @@ Als u een URL voor mijn Apps dan `https://myapps.microsoft.com`, de standaard-UR
 5. Selecteer **Meld u aan de slag**.
 
 Als u wilt gebruiken intern bedrijf URL's tijdens het externe bestand met de extensie, het volgende doen:
-1. [Application Proxy configureren](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-application-proxy-enable) op uw tenant.
-2. [De toepassing publiceren](https://docs.microsoft.com/en-us/azure/active-directory/application-proxy-publish-azure-portal) en -URL via de toepassingsproxy.
+1. [Application Proxy configureren](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable) op uw tenant.
+2. [De toepassing publiceren](https://docs.microsoft.com/azure/active-directory/application-proxy-publish-azure-portal) en -URL via de toepassingsproxy.
 3. Installeer de extensie en ME niet aanmelden door te selecteren, meld u aan de slag.
 4. Nu kunt u bladeren naar de URL van de interne bedrijf zelfs terwijl deze extern is.
 

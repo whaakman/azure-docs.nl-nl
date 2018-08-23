@@ -9,12 +9,12 @@ ms.author: dacoulte
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6f4f3939b1e8fc50c1a942498d7f90d6e0db0633
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 03b22e3a4c2c0b8eb87ee0b61edba3c6f0923170
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003091"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443812"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>DSC-configuraties in Azure Automation-staat configuratie compileren
 
@@ -55,7 +55,9 @@ U kunt [ `Start-AzureRmAutomationDscCompilationJob` ](/powershell/module/azurerm
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
 ```
 
-`Start-AzureRmAutomationDscCompilationJob` retourneert een taakobject compilatie die u gebruiken kunt voor het bijhouden van de status ervan. U kunt dit object compileren met [ `Get-AzureRmAutomationDscCompilationJob` ](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjob) om te bepalen van de status van de Compilatietaak en [ `Get-AzureRmAutomationDscCompilationJobOutput` ](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjoboutput) om de-streams (uitvoer) weer te geven. De volgende voorbeeldcode wordt gestart compilatie van de **SampleConfig** configuratie, wacht u totdat deze is voltooid en wordt vervolgens de streams.
+`Start-AzureRmAutomationDscCompilationJob` retourneert een taakobject compilatie die u gebruiken kunt voor het bijhouden van de status ervan. U kunt dit object compileren met [`Get-AzureRmAutomationDscCompilationJob`](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjob)
+om te bepalen van de status van de Compilatietaak en [`Get-AzureRmAutomationDscCompilationJobOutput`](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjoboutput)
+om weer te geven de-streams (uitvoer). De volgende voorbeeldcode wordt gestart compilatie van de **SampleConfig** configuratie, wacht u totdat deze is voltooid en wordt vervolgens de streams.
 
 ```powershell
 $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
@@ -233,8 +235,7 @@ Asset verwijzingen zijn hetzelfde als in runbooks en Azure Automation State Conf
 
 ### <a name="credential-assets"></a>Referentieassets
 
-DSC-configuraties in Azure Automation kunnen verwijzen naar Automation referentieassets met behulp van `Get-AzureRmAutomationCredential`. Als een configuratie heeft een parameter waarvoor een **PSCredential** typt, en vervolgens kunt u de `Get-AutomationRmAutomationCredential` cmdlet doordat de naam van een Azure Automation-referentieasset worden doorgegeven aan de cmdlet voor het ophalen van de referentie. U kunt vervolgens gebruikt u vervolgens dat object gebruiken voor het vereisen van de parameter de **PSCredential** object. De Azure Automation-referentieasset met die naam is achter de schermen, opgehaald en doorgegeven aan de configuratie.
-In het volgende voorbeeld ziet u dit in actie.
+DSC-configuraties in Azure Automation kunnen verwijzen naar Automation referentieassets met behulp van `Get-AzureRmAutomationCredential`. Als een configuratie heeft een parameter waarvoor een **PSCredential** typt, en vervolgens kunt u de `Get-AutomationRmAutomationCredential` cmdlet doordat de naam van een Azure Automation-referentieasset worden doorgegeven aan de cmdlet voor het ophalen van de referentie. U kunt dit object vervolgens gebruiken voor het vereisen van de parameter de **PSCredential** object. De Azure Automation-referentieasset met die naam is achter de schermen, opgehaald en doorgegeven aan de configuratie. In het volgende voorbeeld ziet u dit in actie.
 
 Referenties te houden beveiligd in knooppuntconfiguraties (MOF configuratiedocumenten) is vereist voor het versleutelen van de referenties in het knooppunt van het MOF-configuratiebestand. Echter, momenteel u moet op de hoogte PowerShell DSC is goed om referenties als tekst zonder opmaak output tijdens het genereren van de configuratie MOF-knooppunt, omdat PowerShell DSC niet weten dat Azure Automation wordt worden versleutelen van het hele MOF-bestand nadat de generatie via een Compilatietaak.
 
@@ -246,7 +247,7 @@ Het volgende voorbeeld toont een DSC-configuratie die gebruikmaakt van een Autom
 Configuration CredentialSample
 {
     Import-DscResource -ModuleName PSDesiredStateConfiguration
-    $Cred = Get-AutomationRmAutomationCredential -ResourceGroupName 'ResourceGroup01' -AutomationAccountName 'ContosoAutomationAccount' -Name 'SomeCredentialAsset'
+    $Cred = Get-AutomationPSCredential 'SomeCredentialAsset'
 
     Node $AllNodes.NodeName
     {

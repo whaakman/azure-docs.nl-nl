@@ -1,208 +1,222 @@
 ---
 title: Batch-berichten verwerken als een groep of een verzameling - Azure Logic Apps | Microsoft Docs
-description: Verzenden en ontvangen van berichten voor batchverwerking in logic apps
-keywords: batch, batchproces
-author: jonfancey
-manager: jeconnoc
-editor: ''
+description: Berichten verzenden en ontvangen als batches in Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+author: divyaswarnkar
+ms.author: divswa
+manager: jeconnoc
 ms.topic: article
-ms.date: 08/7/2017
-ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: 2815ce7fe0e10aadb60eaa77b58e5395fb5c98d8
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 08/19/2018
+ms.reviewer: estfan, LADocs
+ms.suite: integration
+ms.openlocfilehash: 5190e5d4191cb4d07b000920dd1be1b53e679350
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298012"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057271"
 ---
-# <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Verzenden, ontvangen en verwerken van berichten in logic apps batch
+# <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Verzenden, ontvangen en verwerken van berichten in Azure Logic Apps voor batch
 
-Voor het verwerken van berichten samen in groepen, u kunt verzenden gegevensitems of berichten naar een *batch*, en vervolgens deze items als een batch te verwerken. Deze methode is handig als u wilt controleren of gegevensitems worden gegroepeerd in een bepaalde manier en samen worden verwerkt. 
+Als u wilt verzenden en berichten bij elkaar op een specifieke manier verwerken als groepen, kunt u een batchverwerkingsindeling oplossing die worden verzameld van berichten in een *batch* totdat uw opgegeven criteria wordt voldaan voor het vrijgeven van en de batch-berichten worden verwerkt. Batchverwerking, kunt u beperken hoe vaak uw logische app berichten worden verwerkt. Dit artikel wordt beschreven hoe u een batchverwerkingsindeling oplossing kunt maken met het maken van twee logische apps binnen hetzelfde Azure-abonnement, Azure-regio, en deze specifieke volgorde te volgen: 
 
-Kunt u logic apps die items als een batch met behulp van ontvangen de **Batch** trigger. Vervolgens kunt u maken logic apps die items naar een batch te met behulp van verzenden de **Batch** in te grijpen.
+* De ["batch ontvanger"](#batch-receiver) logische app, die worden geaccepteerd en berichten worden verzameld in een batch tot aan de opgegeven criteria wordt voldaan voor vrijgeven en deze berichten worden verwerkt.
 
-Dit onderwerp wordt beschreven hoe u een batchen oplossing kunt maken met het uitvoeren van deze taken: 
+  Zorg ervoor dat u eerst de batch-ontvanger maken zodat u de batch-bestemming later selecteren kunt bij het maken van de batch-afzender.
 
-* [Maken van een logische app dat ontvangt en verzamelt items als batch](#batch-receiver). Deze 'batch ontvanger' logische app geeft de batch-naam en release criteria om te voldoen aan voordat u de ontvanger logische app vrijgegeven en worden items verwerkt. 
+* Een of meer ['batch zender'](#batch-sender) logic apps, die de berichten naar de ontvanger van de eerder gemaakte batch verzenden. 
 
-* [Maken van een logische app waarmee items worden verzonden naar een batch](#batch-sender). Deze 'batch afzender' logische app geeft aan waar items, die een bestaande batch ontvanger logic app moet verzenden. U kunt ook een unieke sleutel, zoals een klantnummer 'partitie' of delen, de doel-batch in subsets op basis van die sleutel opgeven. Op die manier worden alle items met die sleutel verzameld en verwerkt samen. 
+   U kunt ook een unieke sleutel, zoals een klantnummer opgeven die *partities* of de doel-batch in logische subsets op basis van deze sleutel wordt verdeeld. Op die manier kunnen kunt de app ontvanger alle items met dezelfde sleutel verzamelen en ze samen worden verwerkt.
 
-## <a name="requirements"></a>Vereisten
+Zorg ervoor dat uw batch-ontvanger en de batch-afzender delen hetzelfde Azure-abonnement *en* Azure-regio. Als ze dit niet doet, kunt u de batch-ontvanger niet selecteren bij het maken van de afzender batch omdat ze niet zichtbaar zijn voor elkaar.
 
-Wilt u dit voorbeeld gebruiken, moet u deze items:
+## <a name="prerequisites"></a>Vereisten
 
-* Een Azure-abonnement. Als u geen abonnement hebt, kunt u [beginnen met een gratis Azure-account](https://azure.microsoft.com/free/). U kunt eventueel ook direct kiezen voor [een Betalen per gebruik-abonnement](https://azure.microsoft.com/pricing/purchase-options/).
+Als u wilt dit voorbeeld volgen, moet u deze items:
 
-* Elementaire kennis over [logic apps maken](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
+* Een Azure-abonnement. Als u geen abonnement hebt, kunt u [beginnen met een gratis Azure-account](https://azure.microsoft.com/free/). Of, [zich aanmelden voor een abonnement op gebruiksbasis](https://azure.microsoft.com/pricing/purchase-options/).
 
-* Een e-mailaccount met een [e-provider wordt ondersteund door Azure Logic Apps](../connectors/apis-list.md)
+* Een e-mailaccount met een [e-mailprovider ondersteund door Azure Logic Apps](../connectors/apis-list.md)
+
+* Basiskennis over [over het maken van logische apps](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
+
+* Voor het gebruik van Visual Studio in plaats van de Azure-portal, zorg ervoor dat [Visual Studio instellen voor het werken met logische Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 <a name="batch-receiver"></a>
 
-## <a name="create-logic-apps-that-receive-messages-as-a-batch"></a>Logic apps die berichten te als een batch ontvangen maken
+## <a name="create-batch-receiver"></a>Maken van batch-ontvanger
 
-Voordat u berichten naar een batch verzenden kunt, moet u eerst een 'batch ontvanger' logische app met maken de **Batch** trigger. Op die manier kunt u deze ontvanger logic app bij het maken van de afzender logische app. Voor de ontvanger geeft u de batchnaam van de, release criteria en andere instellingen. 
+Voordat u berichten naar een batch verzenden kunt, moet eerst die partij bestaan als de doellocatie waar u die berichten verzenden. Dus eerst moet u de 'batch ontvanger' logische app, die met begint de **Batch** trigger. Op die manier kunnen bij het maken van de 'zender batch' logische app, kunt u de batch-ontvanger logische app selecteren. De batch-ontvanger blijft verzamelen van berichten, tot aan de opgegeven criteria wordt voldaan voor vrijgeven en deze berichten worden verwerkt. Terwijl de batch-ontvangers niet hoeft te weten niets van afzenders van batch, moeten de afzenders van batch de doellocatie waar ze de berichten verzenden weten. 
 
-Afzender logische apps moeten weten waar items, terwijl de ontvanger logische apps hoeft niet te weten over de afzenders.
+1. In de [Azure-portal](https://portal.azure.com) of Visual Studio, een logische app maken met deze naam: "BatchReceiver" 
 
-1. In de [Azure-portal](https://portal.azure.com), een logische app maken met deze naam: 'BatchReceiver' 
+2. In Logic Apps Designer voegen de **Batch** trigger, die de werkstroom van uw logische app wordt gestart. Typ 'batch' als filter in het zoekvak. Selecteer deze trigger: **Batch-berichten**
 
-2. In Logic Apps Designer, voegt u de **Batch** trigger uw logische app-werkstroom op te starten. Voer in het zoekvak 'batch' als filter. Selecteer deze trigger: **Batch: Batch-berichten**
+   !['Batch berichten' trigger toevoegen](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
 
-   ![Batch-trigger toevoegen](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
+3. De batch ontvanger eigenschappen instellen: 
 
-3. Geef een naam voor de batch en Geef criteria op voor het vrijgeven van de batch, bijvoorbeeld:
-
-   * **Batch-naam**: de naam die wordt gebruikt voor het identificeren van de batch is 'TestBatch' in dit voorbeeld.
-   * **Release Criteria**: de batch release criteria, die kunnen worden gebaseerd op het aantal berichten, planning, of beide.
+   | Eigenschap | Beschrijving | 
+   |----------|-------------|
+   | **Batchmodus** | - **Inline**: voor het definiëren van releasecriteria in de batchtrigger <br>- **Integratieaccount**: voor het definiëren van configuraties met meerdere release criteria via een [integratieaccount](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). U kunt deze configuraties allemaal op één locatie in plaats van in afzonderlijke logische apps te onderhouden met een integratieaccount. | 
+   | **Batchnaam** | De naam voor uw batch-, die in dit voorbeeld 'TestBatch', en is alleen bedoeld voor **Inline** batchmodus |  
+   | **Releasecriteria** | Is alleen bedoeld voor **Inline** batch-modus en Hiermee geeft u de criteria om te voldoen aan voordat elke batch wordt verwerkt: <p>- **Bericht op basis van aantal**: het aantal berichten voor het verzamelen van 10 berichten in de batch, bijvoorbeeld: <br>- **Op basis van grootte**: de maximale batchgrootte in bytes, voor bijvoorbeeld 100 MB <br>- **Op basis van planning**: het interval en frequentie tussen batch worden vrijgegeven, bijvoorbeeld tien minuten. U kunt ook een datum en tijd opgeven. <br>- **Selecteer alle**: Gebruik de opgegeven criteria. | 
+   ||| 
    
-     ![Geef details op Batch trigger](./media/logic-apps-batch-process-send-receive-messages/receive-batch-release-criteria.png)
+   In dit voorbeeld worden alle criteria geselecteerd:
 
-   * **Aantal berichten**: het aantal berichten voor het opslaan als een batch voordat voor verwerking, namelijk '5' in dit voorbeeld zijn vrijgegeven.
+   ![Geef de details van de Batch-trigger](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-criteria.png)
 
-     ![Geef details op Batch trigger](./media/logic-apps-batch-process-send-receive-messages/receive-batch-count-based.png)
+4. Nu toevoegen een of meer acties waarmee elke batch worden verwerkt. 
 
-   * **Planning**: het schema van de batch release voor verwerking 'om de 5 minuten' in dit voorbeeld is.
+   Voor dit voorbeeld wordt een actie toevoegen die een e-mailbericht wordt verzonden wanneer de batchtrigger wordt geactiveerd. 
+   De trigger wordt uitgevoerd en een e-mailbericht wordt verzonden wanneer de batch 10 berichten heeft, 10 MB is bereikt, of na 10 minuten doorgegeven.
 
-     ![Geef details op Batch trigger](./media/logic-apps-batch-process-send-receive-messages/receive-batch-schedule-based.png)
+   1. Kies onder de batchtrigger **nieuwe stap**.
 
-
-4. Voeg een andere actie die een e-mailbericht wordt verzonden wanneer de batch-trigger wordt geactiveerd. Telkens wanneer die de batch vijf items of de afgelopen vijf minuten heeft verzendt de logische app een e-mailbericht.
-
-   1. Kies onder de trigger batch **+ een nieuwe stap** > **een actie toevoegen**.
-
-   2. Typ 'e-mail' als filter in het zoekvak.
+   2. Voer 'e-mail verzenden' als filter in het zoekvak in.
    Op basis van uw e-mailprovider, selecteert u een e-connector.
-   
-      Als u een account voor werk of school hebt, Selecteer bijvoorbeeld de Outlook van Office 365-connector. 
-      Als u een Gmail-account hebt, selecteert u de connector Gmail.
+      
+      Bijvoorbeeld, als u hebt een persoonlijk account is, zoals @outlook.com of @hotmail.com, selecteert u de Outlook.com-connector. 
+      Als u een Gmail-account hebt, selecteert u de Gmail-connector. 
+      In dit voorbeeld maakt gebruik van Office 365 Outlook. 
 
-   3. Deze actie voor de connector selecteert: **{*e-mailprovider*}-e-mailbericht verzenden**
+   3. Selecteer deze actie: **stuurt u een e-mail - <*e-mailprovider*>**
 
       Bijvoorbeeld:
 
-      ![Selecteer de actie 'E-mailbericht verzenden' voor uw e-mailprovider](./media/logic-apps-batch-process-send-receive-messages/add-send-email-action.png)
+      ![Selecteer de actie 'Een e-mail verzenden' voor uw e-mailprovider](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-send-email-action.png)
 
-5. Als u niet eerder verbinding kunt voor uw e-mailprovider maken, moet u uw e-referenties opgeven voor verificatie wanneer u wordt gevraagd. Meer informatie over [verifiëren van de referenties van uw e-mailadres](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+5. Meld u aan bij uw e-mailaccount als dat wordt gevraagd. 
 
-6. Stel de eigenschappen voor de actie die u zojuist hebt toegevoegd.
+6. Stel de eigenschappen voor de actie die u hebt toegevoegd.
 
    * Voer het e-mailadres van de ontvanger in het vak **Aan** in. 
    Voor testdoeleinden kunt u uw eigen e-mailadres gebruiken.
 
-   * In de **onderwerp** vak, wanneer de **dynamische inhoud** lijst wordt weergegeven, selecteert u de **partitienaam** veld.
+   * In de **onderwerp** vak, wanneer de lijst met dynamische inhoud wordt weergegeven, selecteert u de **partitienaam** veld.
 
-     ![Selecteer in de lijst 'Dynamische inhoud', 'Partitienaam'](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details.png)
+     ![Selecteer in de lijst met dynamische inhoud, "Partitienaam"](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details.png)
 
-     In een volgende sectie, kunt u een unieke partitiesleutel die verdeelt de doel-batch in logische groepen waarbij u kunt om berichten te verzenden. 
-     Elke set heeft een uniek nummer dat wordt gegenereerd door de afzender logische app. 
-     Deze mogelijkheid kunt u één batch met meerdere subsets gebruikt, en elke subset met de naam die u opgeeft.
+     In een volgende sectie, kunt u een unieke partitiesleutel waarmee de doel-batch verdeelt in logische subsets waar u kunt om berichten te verzenden. 
+     Elke set is een uniek nummer dat wordt gegenereerd door de batch afzender logische app. 
+     Deze mogelijkheid kunt u één batch met meerdere subsets gebruiken en het definiëren van een bepaalde subset met de naam die u opgeeft.
 
-   * In de **hoofdtekst** vak, wanneer de **dynamische inhoud** lijst wordt weergegeven, selecteert u de **bericht-Id** veld.
+     > [!IMPORTANT]
+     > Een partitie heeft een limiet van 5000 berichten of 80 MB. Als een van beide voorwaarden is voldaan, vrijgeven Logic Apps kan de batch, zelfs als niet aan de gedefinieerde release-voorwaarde wordt voldaan.
 
-     ![Selecteer voor 'Hoofdtekst', 'bericht-Id](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details-for-each.png)
+   * In de **hoofdtekst** vak, wanneer de lijst met dynamische inhoud wordt weergegeven, selecteert u de **bericht-Id** veld. 
 
-     Omdat de invoer voor de e-mailbericht verzendactie een matrix is, voegt de ontwerpfunctie automatisch een **voor elk** lus rond de **e-mailbericht verzenden** in te grijpen. 
-     Deze lus voert de interne actie op elk item in de batch. 
-     Dus met de batch-trigger is ingesteld op vijf items, beschikt u over tijd vijf e-mails die de trigger wordt geactiveerd.
+     Ontwerper van logische Apps wordt automatisch een lus 'voor elke' rond de actie voor e-mail verzenden toegevoegd omdat deze actie wordt een matrix als invoer geaccepteerd. 
+     Deze lus verzendt een e-mail voor elk bericht in de batch. 
+     Dus als de batchtrigger is ingesteld op 10 berichten, u krijgt tijd 10 e-mails de trigger wordt geactiveerd.
 
-7.  Nu dat u een batch ontvanger logische app hebt gemaakt, sla uw logische app.
+     ![Selecteer voor 'Hoofdtekst', '-bericht-Id'](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details-for-each.png)
+
+7.  Sla uw logische app op. U hebt nu de ontvanger van een batch.
 
     ![Uw logische app opslaan](./media/logic-apps-batch-process-send-receive-messages/save-batch-receiver-logic-app.png)
 
-    > [!IMPORTANT]
-    > Een partitie heeft een limiet van 5000 berichten of 80 MB. Als beide voorwaarden is voldaan, kan de batch worden vrijgegeven, zelfs als niet aan de gebruiker gedefinieerde voorwaarde wordt voldaan.
-
+8. Als u Visual Studio, zorg ervoor dat u [uw batch-ontvanger logische app implementeren in Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). Anders kunt u niet de batch-ontvanger selecteren bij het maken van de batch-afzender.
 
 <a name="batch-sender"></a>
 
-## <a name="create-logic-apps-that-send-messages-to-a-batch"></a>Logic apps die berichten naar een batch verzenden maken
+## <a name="create-batch-sender"></a>Maken van batch-afzender
 
-Maak nu een of meer logische apps die items naar de batch gedefinieerd door de ontvanger logische app verzendt. Voor de afzender geeft u de ontvanger logische app en de batchnaam van de, inhoud van het bericht en eventuele andere instellingen. U kunt eventueel een unieke partitiesleutel voor het delen van de batch in deelverzamelingen voor het verzamelen van items met die sleutel opgeven.
+Maak nu een of meer batch afzender logische apps die berichten naar de batch-ontvanger logische app verzenden. In elke batch afzender geeft u de batch-ontvanger en de batchnaam van de, inhoud van het bericht en eventuele andere instellingen. U kunt eventueel een unieke partitiesleutel voor het verdelen van de batch in logische subsets voor het verzamelen van berichten met die sleutel opgeven. 
 
-Afzender logische apps moeten weten waar items, terwijl de ontvanger logische apps hoeft niet te weten over de afzenders.
+* Zorg ervoor dat u hebt al [gemaakt van uw batch-ontvanger](#batch-receiver) , zodat wanneer u uw batch-afzender maakt, kunt u de bestaande batch ontvanger als de doel-batch. Terwijl batch ontvangers niet hoeft te weten niets van afzenders van batch, weet batch afzenders om berichten te verzenden. 
 
-1. Een andere logische app maken met deze naam: 'BatchSender'
+* Zorg ervoor dat uw batch-ontvanger en de batch-afzender delen dezelfde Azure-regio *en* Azure-abonnement. Als ze dit niet doet, kunt u de batch-ontvanger niet selecteren bij het maken van de afzender batch omdat ze niet zichtbaar zijn voor elkaar.
 
-   1. Voer in het zoekvak "recurrence" als filter. 
-   Selecteer deze trigger: **Planning - Terugkeerpatroon**
+1. Een andere logische app maken met deze naam: "BatchSender"
 
-      ![Toevoegen van de trigger "Terugkeerpatroon plannen"](./media/logic-apps-batch-process-send-receive-messages/add-schedule-trigger-batch-receiver.png)
+   1. Typ "terugkeerpatroon" als filter in het zoekvak. 
+   Selecteer deze trigger: **herhaling - schema**
 
-   2. Stel de frequentie en het interval om uit te voeren van de afzender logische app elke minuut.
+      ![De trigger '--terugkeerschema' toevoegen](./media/logic-apps-batch-process-send-receive-messages/add-schedule-trigger-batch-sender.png)
 
-      ![Frequentie en het interval voor de trigger terugkeerpatroon ingesteld](./media/logic-apps-batch-process-send-receive-messages/recurrence-trigger-batch-receiver-details.png)
+   2. Stel de frequentie en interval om uit te voeren van de afzender logische app elke minuut.
 
-2. Voeg een nieuwe stap voor het verzenden van berichten naar een batch.
+      ![Frequentie en interval voor de trigger met terugkeerpatroon instellen](./media/logic-apps-batch-process-send-receive-messages/recurrence-trigger-batch-sender-details.png)
 
-   1. Kies onder de trigger terugkeerpatroon **+ een nieuwe stap** > **een actie toevoegen**.
+2. Voeg een nieuwe actie voor het verzenden van berichten aan een batch.
 
-   2. Voer in het zoekvak 'batch' als filter. 
+   1. Kies onder de trigger terugkeerpatroon **nieuwe stap**.
 
-   3. Deze actie selecteert: **berichten verzenden naar batch: Kies een werkstroom Logic Apps met batch-trigger**
+   2. Typ 'batch' als filter in het zoekvak. 
+   Selecteer de **acties** lijst en selecteer vervolgens deze actie: **kiest u een werkstroom voor Logic Apps met batchtrigger - berichten verzenden naar batches**
 
-      ![Selecteer 'Verzenden van berichten in een batch moet'](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
+      ![Selecteer 'Kies een Logic Apps-werkstroom met batchtrigger'](./media/logic-apps-batch-process-send-receive-messages/send-messages-batch-action.png)
 
-   4. Nu uw 'BatchReceiver' logische app die u eerder hebt gemaakt, die nu wordt weergegeven als een actie selecteren.
+   3. Selecteer de logische app van uw batch-ontvanger die u eerder hebt gemaakt.
 
-      !['Batch ontvanger' logische app selecteren](./media/logic-apps-batch-process-send-receive-messages/send-batch-select-batch-receiver.png)
+      ![Selecteer 'batch ontvanger' logische app](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch-receiver.png)
 
       > [!NOTE]
-      > De lijst bevat ook andere logic apps waarvoor de batch-triggers.
+      > De lijst bevat ook een andere logische apps met triggers van batch. 
+      > 
+      > Als u Visual Studio, en u alle ontvangers batch ziet te selecteren, Controleer of u uw batch-ontvanger in Azure geïmplementeerd. Als u nog niet hebt, krijgt u informatie over het [uw batch-ontvanger logische app implementeren in Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). 
 
-3. De Batcheigenschappen instellen.
+   4. Selecteer deze actie: **Batch_messages - <*uw batch-ontvanger*>**
 
-   * **Batch-naam**: de batchnaam gedefinieerd door de ontvanger logische app, die 'TestBatch' in dit voorbeeld en wordt gevalideerd tijdens runtime.
+      ![Selecteer deze actie: ' Batch_messages - < uw-logica-app > "](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
 
-     > [!IMPORTANT]
-     > Zorg ervoor dat u de batchnaam, die moet overeenkomen met de batchnaam die wordt opgegeven door de ontvanger logische app niet te wijzigen.
-     > Als de batchnaam van de wijzigt, wordt de afzender logische app mislukken.
+3. De batch van de afzender eigenschappen instellen:
 
-   * **Inhoud bericht**: de inhoud van het bericht dat u wilt verzenden. 
-   Voor dit voorbeeld voegen deze expressie die de huidige datum en tijd worden ingevoegd in de inhoud van het bericht dat u de batch verzenden:
+   | Eigenschap | Beschrijving | 
+   |----------|-------------| 
+   | **Batchnaam** | De batchnaam die door de ontvanger logische app, die 'TestBatch' in dit voorbeeld is gedefinieerd <p>**Belangrijke**: de batchnaam van de wordt gevalideerd tijdens runtime en moet overeenkomen met de naam die is opgegeven door de ontvanger logische app. Wijzigen van de batchnaam zorgt ervoor dat de afzender batch mislukken. | 
+   | **Inhoud van het bericht** | De inhoud van het bericht dat u wilt verzenden | 
+   ||| 
 
-     1. Wanneer de **dynamische inhoud** lijst wordt weergegeven, kies **expressie**. 
-     2. Voer de expressie **utcnow()**, en kies **OK**. 
+   Voor dit voorbeeld voegt u deze expressie, wordt de huidige datum en tijd ingevoegd in de inhoud van het bericht dat u naar de batch verzendt:
 
-        ![Kies in 'Bericht inhoud', 'Expressie'. Voer 'utcnow()'.](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-details.png)
+   1. Klik in de **berichtinhoud** vak. 
 
-4. Nu ingesteld op een partitie voor de batch. Kies in de actie 'BatchReceiver' **geavanceerde opties weergeven**.
+   2. Wanneer de lijst met dynamische inhoud wordt weergegeven, kiest u **expressie**. 
 
-   * **De naam van partitie**: een optionele unieke partitiesleutel moet worden gebruikt voor het verdelen van de doel-batch. Voor dit voorbeeld voegt u een expressie die een willekeurig getal tussen een en vijf genereert.
+   3. Voer de expressie `utcnow()`, en kies vervolgens **OK**. 
+
+      ![In "Message Content", 'Expressie' kiest, "utcnow()" Voer en kies "OK".](./media/logic-apps-batch-process-send-receive-messages/batch-sender-details.png)
+
+4. Nu instellen op een partitie voor de batch. Kies in de actie "BatchReceiver" **geavanceerde opties weergeven** en stel deze eigenschappen:
+
+   | Eigenschap | Beschrijving | 
+   |----------|-------------| 
+   | **Naam van de partitie** | Een optionele unieke partitiesleutel te gebruiken voor het verdelen van de doel-batch in logische subsets en verzamelen van berichten op basis van die sleutel | 
+   | **Bericht-Id** | Een optioneel bericht-id die een gegenereerde globally unique identifier (GUID) leeg is | 
+   ||| 
+
+   In dit voorbeeld in de **partitienaam** vak, voegt u een expressie die een willekeurig getal tussen 1 en 5 genereert. Laat de **bericht-Id** vak leeg zijn.
    
-     1. Wanneer de **dynamische inhoud** lijst wordt weergegeven, kies **expressie**.
-     2. Voer deze expressie: **rand(1,6)**
+   1. Klik in de **partitienaam** vak zodat de lijst met dynamische inhoud wordt weergegeven. 
 
-        ![Instellen van een partitie voor de doel-batch](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-partition-advanced-options.png)
+   2. Kies in de lijst met dynamische inhoud voor **Expressie**.
+   
+   3. Voer de expressie `rand(1,6)`, en kies vervolgens **OK**.
 
-        Dit **RNG** functie genereert een getal tussen 1 en 5. 
-        U zijn zodat deze batch verdelen in vijf genummerde partities, waarmee deze expressie voor het dynamisch wordt ingesteld.
+      ![Instellen van een partitie voor uw doel-batch](./media/logic-apps-batch-process-send-receive-messages/batch-sender-partition-advanced-options.png)
 
-   * **Bericht-Id**: een optionele bericht-id en een gegenereerde GUID wanneer leeg is. 
-   In dit voorbeeld laat u dit vak leeg.
+      Dit **rand** functie genereert een getal tussen 1 en 5. 
+      U bent dus deze batch verdelen in vijf genummerde partities, die dynamisch Hiermee stelt u deze expressie.
 
-5. Sla uw logische app op. Uw afzender logische app nu er ongeveer als volgt in dit voorbeeld:
+5. Sla uw logische app op. De afzender logische app ziet er nu uit zoals in dit voorbeeld:
 
-   ![Sla uw logische app van afzender](./media/logic-apps-batch-process-send-receive-messages/send-batch-receiver-details-finished.png)
+   ![Sla uw logische app van afzender](./media/logic-apps-batch-process-send-receive-messages/batch-sender-finished.png)
 
-## <a name="test-your-logic-apps"></a>Uw logische apps testen
+## <a name="test-your-logic-apps"></a>Test uw logische apps
 
-Laat uw logische apps uitgevoerd voor een paar minuten voor het testen van uw batchen oplossing. U start binnenkort opvragen van e-mailberichten in groepen van vijf allemaal met dezelfde partitiesleutel.
+Als u wilt de batchverwerkingsindeling oplossing testen, laat u uw logische apps met een paar minuten. Binnenkort beginnen u met het ophalen van e-mailberichten in groepen van vijf, allemaal met dezelfde partitiesleutel.
 
-Uw BatchSender logische app uitgevoerd elke minuut, genereert een willekeurig getal tussen 1 en 5 en maakt gebruik van deze gegenereerd nummer als de partitiesleutel voor de doel-batch waarin berichten worden verzonden. Telkens wanneer die de batch vijf items met dezelfde partitiesleutel bevat uw BatchReceiver logische app wordt gestart en e-mail voor elk bericht verzendt.
+Uw logische app van de batch afzender per minuut wordt uitgevoerd, genereert een willekeurig getal tussen 1 en 5 en maakt gebruik van deze gegenereerd nummer als de partitiesleutel voor de doel-batch waarnaar moeten worden verzonden. Telkens wanneer die de batch vijf items met dezelfde partitiesleutel heeft, uw batch-ontvanger logische app wordt gestart en e-mail voor elk bericht wordt verzonden.
 
 > [!IMPORTANT]
-> Wanneer u klaar bent testen, zorg ervoor dat de BatchSender logische app om te stoppen met het verzenden van berichten en te voorkomen dat uw postvak in overbelasting uit te schakelen.
+> Wanneer u klaar bent testen, zorg ervoor dat de BatchSender logische app als u wilt stoppen met het verzenden van berichten en te voorkomen dat overbelasting van uw postvak in te schakelen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Maken van logic app-definities met behulp van JSON](../logic-apps/logic-apps-author-definitions.md)
-* [Een zonder server-App in Visual Studio met Azure Logic Apps en functies](../logic-apps/logic-apps-serverless-get-started-vs.md)
-* [Afhandeling van uitzonderingen en foutenregistratie voor logic apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
+* [Bouwen op definities voor logische Apps met behulp van JSON](../logic-apps/logic-apps-author-definitions.md)
+* [Een serverloze app bouwen in Visual Studio met Azure Logic Apps en Functions](../logic-apps/logic-apps-serverless-get-started-vs.md)
+* [Afhandeling van uitzonderingen en logboekregistratie van fouten voor logische apps](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)

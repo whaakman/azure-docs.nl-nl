@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 03/26/2018
+ms.date: 08/17/2018
 ms.author: rnagpal
-ms.openlocfilehash: 2fba67b247ad0b53e11ca012969163a68013e82f
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: d0bd7dba5d50445cb681c16d9575b1bd69167e2f
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126708"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42054925"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB Table-API .NET: Downloaden en opmerkingen bij de release
 > [!div class="op_single_selector"]
@@ -39,8 +39,8 @@ ms.locfileid: "39126708"
 ## <a name="release-notes"></a>Releaseopmerkingen
 
 ### <a name="a-name113113"></a><a name="1.1.3"/>1.1.3
-* Vaste Nuget-pakketafhankelijkheden op Microsoft.Azure.Storage.Common en Microsoft.Azure.DocumentDB.
-* Oplossingen voor problemen op tabel serialisatie wanneer JsonConvert.DefaultSettings is geconfigureerd.
+* Vaste NuGet-pakketafhankelijkheden op Microsoft.Azure.Storage.Common en Microsoft.Azure.DocumentDB.
+* Oplossingen voor problemen op tabel serialisatie wanneer JsonConvert.DefaultSettings zijn geconfigureerd.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
 * Toegevoegde validatie voor onjuiste ETAGs in de directe modus.
@@ -48,7 +48,7 @@ ms.locfileid: "39126708"
 * Synchrone API's wordt nu uitgevoerd op de thread-groep met SynchronizationContext.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism en TableQueryContinuationTokenLimitInKb aan TableRequestOptions toevoegen
+* TableQueryMaxItemCount, TableQueryEnableScan TableQueryMaxDegreeOfParallelism en TableQueryContinuationTokenLimitInKb aan TableRequestOptions toevoegen
 * Oplossingen voor problemen
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
@@ -60,7 +60,7 @@ ms.locfileid: "39126708"
 ## <a name="release-and-retirement-dates"></a>Release-en buiten gebruik stellen
 Microsoft biedt melding ten minste **12 maanden** voorafgaand aan buiten gebruik stellen van een SDK soepel te verwerken de overgang naar een nieuwere/ondersteunde versie.
 
-De [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) preview-pakket is afgeschaft en vervangen door de [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) pakket. De SDK WindowsAzure.Storage-PremiumTable wordt beëindigd op 15 November 2018, op dat moment aanvragen naar de buiten gebruik gestelde SDK niet worden toegestaan.
+De [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) preview-pakket is afgeschaft en vervangen door de [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) pakket. De SDK WindowsAzure.Storage-PremiumTable wordt beëindigd op 15 November 2018, op dat moment aanvragen naar de buiten gebruik gestelde SDK niet worden toegestaan. De `Microsoft.Azure.CosmosDB.Table` bibliotheek is alleen beschikbaar voor .NET Standard, het is nog niet beschikbaar voor .NET Core.
 
 Nieuwe functies en functionaliteit en -optimalisatie worden alleen toegevoegd aan de huidige SDK, daarom is het raadzaam dat u altijd een upgrade uitvoert naar de nieuwste SDK versie zo vroeg mogelijk. 
 
@@ -91,7 +91,7 @@ Wanneer u probeert het Microsoft.Azure.CosmosDB.Table NuGet-pakket, hebt u twee 
     Install-Package Microsoft.Azure.CosmosDB.Table -IncludePrerelease
     ```
     
-* Met behulp van uw voorkeur beheerprogramma van de Nuget-pakket, de Microsoft.Azure.Storage.Common Nuget-pakket installeren voordat u Microsoft.Azure.CosmosDB.Table installeert.
+* Met behulp van uw voorkeur beheerprogramma van de NuGet-pakket, de Microsoft.Azure.Storage.Common NuGet-pakket installeren voordat u Microsoft.Azure.CosmosDB.Table installeert.
 
 ## <a name="faq"></a>Veelgestelde vragen
 

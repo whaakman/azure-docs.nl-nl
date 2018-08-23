@@ -5,16 +5,16 @@ services: backup
 author: markgalioto
 ms.service: backup
 keywords: ''
-ms.date: 7/14/2018
+ms.date: 08/17/2018
 ms.topic: conceptual
 ms.author: markgal
 manager: carmonm
-ms.openlocfilehash: 4167e8214674527039fd838f81c3489840e6ef68
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: ff12428027225c62bec03b05da8e43d60cae9739
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284909"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42058147"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Beveiligingsmatrix voor Azure Backup Server
 
@@ -80,7 +80,7 @@ In dit artikel bevat de verschillende servers en werkbelastingen die u met Azure
 |Hyper-V-host: DPM-beveiligingsagent op de Hyper-V-hostserver, het cluster of virtuele machine|WindowsServer 2012: Datacenter en Standard|Fysieke server<br /><br />On-premises Hyper-V virtuele machine|J|J|Beveiligen: Hyper-V-computers, gedeelde clustervolumes (CSV's)<br /><br />Herstellen: virtuele machine, herstel op itemniveau van bestanden en map, volumes en virtuele harde schijven|
 |Hyper-V-host: DPM-beveiligingsagent op de Hyper-V-hostserver, het cluster of virtuele machine|Windows Server 2008 R2 SP1 - Enterprise en Standard|Fysieke server<br /><br />On-premises Hyper-V virtuele machine|J|J|Beveiligen: Hyper-V-computers, gedeelde clustervolumes (CSV's)<br /><br />Herstellen: virtuele machine, herstel op itemniveau van bestanden en map, volumes en virtuele harde schijven|
 |Hyper-V-host: DPM-beveiligingsagent op de Hyper-V-hostserver, het cluster of virtuele machine|Windows Server 2008 SP2|Fysieke server<br /><br />On-premises Hyper-V virtuele machine|N|N|Beveiligen: Hyper-V-computers, gedeelde clustervolumes (CSV's)<br /><br />Herstellen: virtuele machine, herstel op itemniveau van bestanden en map, volumes en virtuele harde schijven|
-|Virtuele VMware-machines|VMware-server 5.5 of 6.0 of 6.5 |Fysieke server <br/>On-premises Hyper-V-VM <br/> Windows virtuele machine in VMWare|J|Y (met UR1)|Virtuele VMware-machines op gedeelde clustervolumes (CSV's), NFS en SAN-opslag<br /> Herstel op itemniveau van bestanden en mappen die alleen beschikbaar voor Windows<br /> VMware vApps niet ondersteund|
+|Virtuele VMware-machines|VMware vCenter/vSphere ESX/ESXi in licentie gegeven versie 5.5/6.0/6.5 |Fysieke server <br/>On-premises Hyper-V-VM <br/> Windows virtuele machine in VMWare|J|Y (met UR1)|Virtuele VMware-machines op gedeelde clustervolumes (CSV's), NFS en SAN-opslag<br /> Herstel op itemniveau van bestanden en mappen is alleen beschikbaar voor Windows-VM's, VMware vApps worden niet ondersteund.|
 |Linux|Linux uitvoeren als Hyper-V of VMware-Gast|Fysieke server <br/>On-premises Hyper-V-VM <br/> Windows virtuele machine in VMWare|J|J|Hyper-V moet worden uitgevoerd op Windows Server 2012 R2 of Windows Server 2016. Beveiligen: Volledige virtuele machine<br /><br />Herstellen: Volledige virtuele machine <br/><br/> Zie het artikel voor een volledige lijst van ondersteunde Linux-distributies en versies [Linux op door Azure onderschreven distributies](../virtual-machines/linux/endorsed-distros.md).|
 
 ## <a name="cluster-support"></a>Clusterondersteuning

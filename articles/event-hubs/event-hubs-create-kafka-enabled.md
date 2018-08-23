@@ -3,19 +3,19 @@ title: Apache Kafka ingeschakeld Azure Eventhubs maken | Microsoft Docs
 description: Maak een Kafka ingeschakeld Azure Event Hubs-naamruimte met behulp van de Azure portal
 services: event-hubs
 documentationcenter: .net
-author: ShubhaVijayasarathy
+author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: shvija
-ms.openlocfilehash: 79b6b879bd2332c044ce871e2c9a938c6b9c900c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.date: 08/16/2018
+ms.author: bahariri
+ms.openlocfilehash: 7ce12f9dcaa15ade95274419f99c13d5915dbaaa
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285074"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42060183"
 ---
 # <a name="create-apache-kafka-enabled-event-hubs"></a>Apache Kafka ingeschakeld eventhubs maken
 
@@ -29,29 +29,29 @@ In dit artikel wordt beschreven hoe u een Event Hubs-naamruimte maken en haal de
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.
 
-## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Maak een Kafka ingeschakeld Event Hubs-naamruimte
+## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Een Event Hubs-naamruimte maken waarvoor Kafka is ingeschakeld
 
 1. Aanmelden bij de [Azure-portal][Azure portal], en klikt u op **een resource maken** op linksboven in het scherm.
 
-2. Zoeken naar Event Hubs en selecteer de opties die hier worden weergegeven:
+2. Zoek naar Event Hubs en selecteer de hier getoonde opties:
     
     ![Zoeken naar Event Hubs in de portal](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. Geef een unieke naam op en schakel van Kafka in de naamruimte. Klik op **Create**.
+3. Geef een unieke naam op en schakel Kafka in op de naamruimte. Klik op **Create**.
     
     ![Een naamruimte maken](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.png)
  
-4. Nadat de naamruimte is gemaakt, op de **instellingen** klikt u op tab **beleid voor gedeelde toegang** om op te halen van de verbindingsreeks.
+4. Als de naamruimte is gemaakt, klikt u op het tabblad **Instellingen** op **Beleid voor gedeelde toegang** om de verbindingsreeks op te halen.
 
-    ![Klik op beleid voor gedeelde toegang](./media/event-hubs-create/create-event-hub7.png)
+    ![Klikken op Beleid voor gedeelde toegang](./media/event-hubs-create/create-event-hub7.png)
 
-5. U kunt de standaard **RootManageSharedAccessKey**, of een nieuw beleid toe te voegen. Klik op de beleidsnaam en kopieer de verbindingsreeks. 
+5. U kunt de standaardwaarde **RootManageSharedAccessKey** kiezen of een nieuwe beleid toevoegen. Klik op de beleidsnaam en kopieer de verbindingsreeks. 
     
-    ![Selecteer een beleid](./media/event-hubs-create/create-event-hub8.png)
+    ![Beleid selecteren](./media/event-hubs-create/create-event-hub8.png)
  
-6. Deze verbindingsreeks toevoegen aan de configuratie van uw Kafka-toepassing.
+6. Voeg deze verbindingsreeks toe aan de Kafka-toepassingsconfiguratie.
 
-U kunt nu gebeurtenissen uit uw toepassingen die gebruikmaken van het Kafka-protocol in Event Hubs streamen.
+U kunt nu gebeurtenissen vanaf uw toepassing, waarbij gebruikgemaakt wordt van het Kafka-protocol, naar Event Hubs streamen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

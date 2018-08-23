@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/09/2018
+ms.date: 08/20/2018
 ms.author: markvi
 ms.custom: it-pro
 ms.reviewer: jeedes
-ms.openlocfilehash: ac338283bfe123e70697b0301fdccca886653c42
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: d6ee8da276bdefb7561a445f6ae0f0281274c5ef
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285296"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42054123"
 ---
 # <a name="saas-application-integration-with-azure-active-directory"></a>Integratie van de SaaS-toepassingen met Azure Active Directory
 
@@ -41,6 +41,7 @@ Zie voor een uitgebreide lijst van SaaS-apps die al vooraf geïntegreerd in Azur
 | ![logo](./media/tutorial-list/active-directory-saas-15five-tutorial.png)| [15Five](15five-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-23video-tutorial.png)| [23 Video](23video-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-360online-tutorial.png)| [360 Online](360online-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-4me-tutorial.png)| [4me](4me-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-8x8virtualoffice-tutorial.png)| [8 x 8 virtuele Office](8x8virtualoffice-tutorial.md)|
 
 ## <a name="a"></a>A
@@ -115,6 +116,7 @@ Zie voor een uitgebreide lijst van SaaS-apps die al vooraf geïntegreerd in Azur
 | ![logo](./media/tutorial-list/active-directory-saas-boxcryptor-tutorial.png)| [Boxcryptor](boxcryptor-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-bpmonline-tutorial.png)| [Bpmâonline](bpmonline-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-bridge-tutorial.png)| [Bridge](bridge-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-bridgelineunbound-tutorial.png)| [Bridgeline is losgekoppeld](bridgelineunbound-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-brightspace-desire2learn-tutorial.png)| [Brightspace door Desire2Learn](brightspace-desire2learn-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-bynder-tutorial.png)| [Bynder](bynder-tutorial.md)|
 
@@ -149,6 +151,7 @@ Zie voor een uitgebreide lijst van SaaS-apps die al vooraf geïntegreerd in Azur
 | ![logo](./media/tutorial-list/active-directory-saas-newsignature-tutorial.png)| [Cloud Management Portal voor Microsoft Azure](newsignature-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-cloudpassage-tutorial.png)| [CloudPassage](cloudpassage-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-collaborativeinnovation-tutorial.png)| [Gezamenlijke innovatie](collaborativeinnovation-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-comm100livechat-tutorial.png)| [Comm100 Live Chat](comm100livechat-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-communifire-tutorial.png)| [Communifire](communifire-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-competencyiq-tutorial.png)| [CompetencyIQ](competencyiq-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-complianceelf-tutorial.png)| [Naleving ELF](complianceelf-tutorial.md)|
@@ -177,6 +180,8 @@ Zie voor een uitgebreide lijst van SaaS-apps die al vooraf geïntegreerd in Azur
 | ![logo](./media/tutorial-list/active-directory-saas-docusign-tutorial.png)| [DocuSign](docusign-tutorial.md)|[DocuSign - inrichten van gebruikers](docusign-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-dome9arc-tutorial.png)| [Dome9 boog](dome9arc-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-domo-tutorial.png)| [Domo](domo-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-dossier-tutorial.png)| [Dossier](dossier-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-dovetale-tutorial.png)| [Dovetale](dovetale-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-dowjones-factiva-tutorial.png)| [Derhoud Jones Factiva](dowjones-factiva-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-dropboxforbusiness-tutorial.png)| [Dropbox voor bedrijven](dropboxforbusiness-tutorial.md)| [Dropbox voor bedrijven - inrichten van gebruikers](dropboxforbusiness-provisioning-tutorial.md)| 
 | ![logo](./media/tutorial-list/active-directory-saas-druva-tutorial.png)| [Druva](druva-tutorial.md)|
@@ -247,6 +252,7 @@ Zie voor een uitgebreide lijst van SaaS-apps die al vooraf geïntegreerd in Azur
 | ![logo](./media/tutorial-list/active-directory-saas-heroku-tutorial.png)| [Heroku](heroku-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-hightail-tutorial.png)| [Hightail](hightail-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-hirevue-tutorial.png)| [HireVue](hirevue-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-hornbill-tutorial.png)| [Hornbill](hornbill-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-hostedgraphite-tutorial.png)| [Gehoste grafiek](hostedgraphite-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-hpesaas-tutorial.png)| [HPE SaaS](hpesaas-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-hr2day-tutorial.png)| [HR2day door Merces](hr2day-tutorial.md)|
@@ -297,6 +303,7 @@ Zie voor een uitgebreide lijst van SaaS-apps die al vooraf geïntegreerd in Azur
 | ![logo](./media/tutorial-list/active-directory-saas-jobscience-tutorial.png)| [Jobscience](jobscience-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-jobscore-tutorial.png)| [JobScore](jobscore-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-jostle-tutorial.png)| [Jostle](jostle-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-kanbanize-tutorial.png)| [Kanbanize](kanbanize-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-kantegassoforbamboo-tutorial.png)| [Kantega SSO voor Bamboe](kantegassoforbamboo-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-kantegassoforbitbucket-tutorial.png)| [Kantega SSO voor Bitbucket](kantegassoforbitbucket-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-kantegassoforconfluence-tutorial.png)| [Kantega SSO voor samenloop](kantegassoforconfluence-tutorial.md)|
@@ -348,6 +355,7 @@ Zie voor een uitgebreide lijst van SaaS-apps die al vooraf geïntegreerd in Azur
 | ![logo](./media/tutorial-list/active-directory-saas-mercell-tutorial.png)| [Mercell](mercell-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-mercerhrs-tutorial.png)| [Mercer BenefitsCentral (van MBC)](mercerhrs-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-merchlogix-tutorial.png)| [Merchlogix](merchlogix-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-metanetworksconnector-tutorial.png)| [Connector voor META-netwerken](metanetworksconnector-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-mimecast-admin-console-tutorial.png)| [Mimecast-beheerconsole](mimecast-admin-console-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-mimecast-personal-portal-tutorial.png)| [Mimecast Personal-Portal](mimecast-personal-portal-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-mindflash-tutorial.png)| [Mindflash](mindflash-tutorial.md)|
@@ -368,6 +376,7 @@ Zie voor een uitgebreide lijst van SaaS-apps die al vooraf geïntegreerd in Azur
 
 | Logo | Zelfstudie voor eenmalige aanmelding | Zelfstudie voor het inrichten van gebruikers |
 | :---: | :--- | :--- |
+| ![logo](./media/tutorial-list/active-directory-saas-n2fexpensereports-tutorial.png)| [N2F - onkostennota](n2f-expensereports-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-namely-tutorial.png)| [Namelijk](namely-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-neotalogicstudio-tutorial.png)| [Neota Logic Studio](neotalogicstudio-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-netdocuments-tutorial.png)| [NetDocuments](netdocuments-tutorial.md)|
@@ -424,6 +433,7 @@ Zie voor een uitgebreide lijst van SaaS-apps die al vooraf geïntegreerd in Azur
 | ![logo](./media/tutorial-list/active-directory-saas-procoresso-tutorial.png)| [Procore eenmalige aanmelding](procoresso-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-projectplace-tutorial.png)| [Projectplace](projectplace-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-promapp-tutorial.png)| [Promapp](promapp-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-promaster-tutorial.png)| [ProMaster (door Inlogik)](promaster-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-proofpoint-ondemand-tutorial.png)| [Proofpoint op aanvraag](proofpoint-ondemand-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-proxyclick-tutorial.png)| [Proxyclick](proxyclick-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-purelyhr-tutorial.png)| [PurelyHR](purelyhr-tutorial.md)|
@@ -459,10 +469,11 @@ Zie voor een uitgebreide lijst van SaaS-apps die al vooraf geïntegreerd in Azur
 
 | Logo | Zelfstudie voor eenmalige aanmelding | Zelfstudie voor het inrichten van gebruikers |
 | :---: | :--- | :--- |
+| ![logo](./media/tutorial-list/active-directory-saas-safeconnect-tutorial.png)| [SafeConnect](safeconnect-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-safetynet-tutorial.png)| [SafetyNet](safetynet-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-salesforce-tutorial.png)| [Salesforce](salesforce-tutorial.md)|[SalesForce - inrichten van gebruikers](salesforce-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-salesforce-sandbox-tutorial.png)| [SalesForce-Sandbox](salesforce-sandbox-tutorial.md)|[SalesForce-Sandbox - inrichten van gebruikers](salesforce-sandbox-provisioning-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-samanage-tutorial.png)| [Samanage](samanage-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-samanage-tutorial.png)| [Samanage](samanage-tutorial.md)|[Samanage - inrichten van gebruikers](samanage-provisioning-tutorial.md)
 | ![logo](./media/tutorial-list/active-directory-saas-saml-tutorial.png)| [SAML 1.1 Token ingeschakeld LOB-App](saml-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-bamboo-tutorial.png)| [SAML SSO voor Bamboe resolutie GmbH](bamboo-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-bitbucket-tutorial.png)| [SAML SSO voor Bitbucket resolutie GmbH](bitbucket-tutorial.md)|
@@ -476,6 +487,7 @@ Zie voor een uitgebreide lijst van SaaS-apps die al vooraf geïntegreerd in Azur
 | ![logo](./media/tutorial-list/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial.png)| [SAP Cloud Platform-identiteitsverificatie](sap-hana-cloud-platform-identity-authentication-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-saphana-tutorial.png)| [SAP HANA](saphana-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-sap-netweaver-tutorial.png)| [SAP NetWeaver](sap-netweaver-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-saucelabs-tutorial.png)| [Saus Labs - mobiele en Web testen](saucelabs-mobileandwebtesting-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-scalexenterprise-tutorial.png)| [ScaleX Enterprise](scalexenterprise-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-scclifecycle-tutorial.png)| [Levenscyclus van SCC](scclifecycle-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-screencast-tutorial.png)| [Screencast-O-automatische](screencast-tutorial.md)|
@@ -486,6 +498,7 @@ Zie voor een uitgebreide lijst van SaaS-apps die al vooraf geïntegreerd in Azur
 | ![logo](./media/tutorial-list/active-directory-saas-sd-elements-tutorial.png)| [SD-elementen](sd-elements-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-secretserver-on-premises-tutorial.png)| [Geheime Server (On-Premises)](secretserver-on-premises-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-securedeliver-tutorial.png)| [BEVEILIGDE LEVERING](securedeliver-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-securew2joinnowconnector-tutorial.png)| [SecureW2 JoinNow-Connector](securejoinnow-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-sedgwickcms-tutorial.png)| [Sedgwick CMS](sedgwickcms-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-sensoscientific-tutorial.png)| [Bewakingssysteem voor SensoScientific draadloze temperatuur](sensoscientific-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-sequr-tutorial.png)| [Sequr](sequr-tutorial.md)|
@@ -500,6 +513,7 @@ Zie voor een uitgebreide lijst van SaaS-apps die al vooraf geïntegreerd in Azur
 | ![logo](./media/tutorial-list/active-directory-saas-simplenexus-tutorial.png)| [SimpleNexus](simplenexus-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-skilljar-tutorial.png)| [Skilljar](skilljar-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-skillport-tutorial.png)| [Skillport](skillport-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-skillsbase-tutorial.png)| [Vaardigheden Base](skillsbase-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-skillsmanager-tutorial.png)| [Vaardigheden Manager](skillsmanager-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-skydeskemail-tutorial.png)| [SkyDesk e-mailadres](skydeskemail-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-skyhighnetworks-tutorial.png)| [Skyhigh netwerken](skyhighnetworks-tutorial.md)|
@@ -507,12 +521,14 @@ Zie voor een uitgebreide lijst van SaaS-apps die al vooraf geïntegreerd in Azur
 | ![logo](./media/tutorial-list/active-directory-saas-slack-tutorial.png)| [Slack](slack-tutorial.md)|[Slack - inrichten van gebruikers](slack-provisioning-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-smallimprovements-tutorial.png)| [Kleine verbeteringen](smallimprovements-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-smarteru-tutorial.png)| [SmarterU](smarteru-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-smartlpa-tutorial.png)| [SmartLPA](smartlpa-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-smartrecruiters-tutorial.png)| [SmartRecruiters](smartrecruiters-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-softeon-tutorial.png)| [Softeon WMS](softeon-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-soonr-tutorial.png)| [Soonr werkplek](soonr-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-spaceiq-tutorial.png)| [SpaceIQ](spaceiq-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-spacio-tutorial.png)| [Spacio](spacio-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-splunkenterpriseandsplunkcloud-tutorial.png)| [Splunk Enterprise en Splunk Cloud](splunkenterpriseandsplunkcloud-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-spotinst-tutorial.png)| [Spotinst](spotinst-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-spring-cm-tutorial.png)| [SpringCM](spring-cm-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-springerlink-tutorial.png)| [Springer-koppeling](springerlink-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-sprinklr-tutorial.png)| [Sprinklr](sprinklr-tutorial.md)|
@@ -531,7 +547,7 @@ Zie voor een uitgebreide lijst van SaaS-apps die al vooraf geïntegreerd in Azur
 | Logo | Zelfstudie voor eenmalige aanmelding | Zelfstudie voor het inrichten van gebruikers |
 | :---: | :--- | :--- |
 | ![logo](./media/tutorial-list/active-directory-saas-tyeexpress-tutorial.png)| [T & E Express](tyeexpress-tutorial.md)|
-| ![logo](./media/tutorial-list/active-directory-saas-tableauonline-tutorial.png)| [Tableau Online](tableauonline-tutorial.md)|
+| ![logo](./media/tutorial-list/active-directory-saas-tableauonline-tutorial.png)| [Tableau Online](tableauonline-tutorial.md)|[Online - tableau inrichten van gebruikers](tableau-online-provisioning-tutorial.md)
 | ![logo](./media/tutorial-list/active-directory-saas-tableauserver-tutorial.png)| [Tableau Server](tableauserver-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-talentlms-tutorial.png)| [TalentLMS](talentlms-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-tangoanalytics-tutorial.png)| [Tango Analytics](tangoanalytics-tutorial.md)|
@@ -578,6 +594,7 @@ Zie voor een uitgebreide lijst van SaaS-apps die al vooraf geïntegreerd in Azur
 
 | Logo | Zelfstudie voor eenmalige aanmelding | Zelfstudie voor het inrichten van gebruikers |
 | :---: | :--- | :--- |
+| ![logo](./media/tutorial-list/active-directory-saas-waywedo-tutorial.png)| [Manier waarop die wij doen](waywedo-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-wdesk-tutorial.png)| [Wdesk](wdesk-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-weekdone-tutorial.png)| [Weekdone](weekdone-tutorial.md)|
 | ![logo](./media/tutorial-list/active-directory-saas-wikispaces-tutorial.png)| [Wikispaces](wikispaces-tutorial.md)|

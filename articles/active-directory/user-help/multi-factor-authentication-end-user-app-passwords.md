@@ -12,12 +12,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: c6340133971a226002ce11ae1521bdc88e3e7975
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 86cc98721681750617e374679c38ad29cf5a2362
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343285"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42058432"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>App-wachtwoorden voor verificatie in twee stappen beheren
 
@@ -38,7 +38,7 @@ Wanneer u app-wachtwoorden, is het belangrijk om te onthouden:
 
 Tijdens het registreren van uw initiële verificatie in twee stappen controle krijgt u een app-wachtwoord. Als u meer dan één wachtwoord nodig hebt, kunt u aanvullende wachtwoorden, op basis van hoe u verificatie in twee stappen:
 
-- **U verificatie in twee stappen gebruiken met uw Microsoft Azure-account.** Maken en verwijderen van uw app-wachtwoorden met behulp van de [Azure-portal](https://portal.azure.com). Zie voor meer informatie de [App-wachtwoorden en verificatie in twee stappen](https://support.microsoft.com/en-us/help/12409/microsoft-account-app-passwords-two-step-verification) artikel.
+- **U verificatie in twee stappen gebruiken met uw Microsoft Azure-account.** Maken en verwijderen van uw app-wachtwoorden met behulp van de [Azure-portal](https://portal.azure.com). Zie voor meer informatie de [App-wachtwoorden en verificatie in twee stappen](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) artikel.
 
 - **U verificatie in twee stappen gebruiken met uw persoonlijke Microsoft-account.** Maken en verwijderen van uw app-wachtwoorden met behulp van de [basisprincipes van beveiliging](https://account.microsoft.com/account/) pagina met uw Microsoft-account. Zie voor meer informatie de [App-wachtwoorden en verificatie in twee stappen](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) artikel.
 

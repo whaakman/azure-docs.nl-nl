@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 9ffc84009adfca60e9ae6b188b65b15e874e7d9c
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d49b5404f1a2b4ac7fa4cc170ccc010a28bf98a2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622167"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42058740"
 ---
 # <a name="how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>De hybride Azure AD join van uw apparaten beheren
 
@@ -116,7 +116,7 @@ U moet deze clientinstelling instelt op een locatie van uw keuze te koppelen. Bi
 
 ## <a name="control-windows-down-level-devices"></a>Windows downlevel-apparaten beheren
 
-Voor het registreren van Windows downlevel-apparaten die u wilt downloaden en installeren van Windows Installer-pakket (.msi) van Download Center op de [Microsoft Workplace Join voor Windows 10-computers](https://www.microsoft.com/en-us/download/details.aspx?id=53554) pagina.
+Voor het registreren van Windows downlevel-apparaten die u wilt downloaden en installeren van Windows Installer-pakket (.msi) van Download Center op de [Microsoft Workplace Join voor Windows 10-computers](https://www.microsoft.com/download/details.aspx?id=53554) pagina.
 
 U kunt het pakket implementeren met behulp van het systeem in een software-distributie, zoals System Center Configuration Manager. Het pakket biedt ondersteuning voor de opties standaard op de achtergrond installeren met de stille parameter. [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager) Current Branch biedt extra voordelen van eerdere versies, zoals de mogelijkheid voor het bijhouden van voltooide registraties.
 

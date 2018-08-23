@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 8afd743f6010822709bf3d49f7a3bbcd51b19edf
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: c8e14091d7a3fb5b925735824b1dd3ce26f034e8
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346484"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42056695"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Aan de slag met de Microsoft Authenticator-app
 
-De Microsoft Authenticator-app te voorkomen dat onbevoegde toegang tot accounts en frauduleuze transacties stoppen door te geven u een extra beveiligingsniveau voor uw werk- of schoolaccount (bijvoorbeeld alain@contoso.com) of uw persoonlijke Microsoft-account (voor bijvoorbeeld alain@outlook.com). U kunt gebruiken deze als een tweede verificatiemethode of als vervanging voor uw wachtwoord bij het gebruik van aanmelden via telefoon. Zie voor meer informatie over het instellen en gebruiken aanmelden via telefoon zonder wachtwoord uitproberen [Meld u aan met uw telefoon, niet uw wachtwoord](microsoft-authenticator-app-phone-signin-faq.md).
+De Microsoft Authenticator-app te voorkomen dat onbevoegde toegang tot accounts en frauduleuze transacties stoppen door te geven u een extra beveiligingsniveau voor uw werk- of schoolaccount (bijvoorbeeld alain@contoso.com) of uw persoonlijke Microsoft-account (voor bijvoorbeeld alain@outlook.com).
 
 Wanneer u de app voor verificatie in twee stappen, kan dit werkt op twee manieren:
 
@@ -110,8 +110,6 @@ Als u ervoor kiest verificatiecodes gebruiken in de app, zult u start in de **Ac
 ## <a name="next-steps"></a>Volgende stappen
 
 - Als u meer algemene vragen over de app hebt, raadpleegt u [Veelgestelde vragen over de Microsoft Authenticator](microsoft-authenticator-app-faq.md)
-
-- Als u vragen over hoe u aanmelding via telefoon hebt, raadpleegt u [Meld u aan met uw telefoon, niet uw wachtwoord](microsoft-authenticator-app-phone-signin-faq.md)
 
 - Als u meer informatie over verificatie in twee stappen wilt, Zie [Mijn account voor verificatie in twee stappen instellen](multi-factor-authentication-end-user-first-time.md)
 

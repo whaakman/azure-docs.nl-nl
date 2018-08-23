@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: eb46347e82063d2e990b319ab108cf257c7e6b88
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4c7dddcb5e39eb1f72fb59af753ab167bc44d3e3
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440623"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42060647"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Spark-programma's van Azure Data Factory-pijplijnen aanroepen
 
@@ -56,7 +56,7 @@ Hier volgen de gebruikelijke stappen voor het maken van een data factory-pijplij
 * Een pijplijn maken met Spark-activiteit die verwijst naar de gekoppelde HDInsight-service die u hebt gemaakt. De activiteit is geconfigureerd met de gegevensset die u hebt gemaakt in de vorige stap als uitvoergegevensset. De uitvoer wordt de uitvoergegevensset van de planning (elk uur, dagelijks). Daarom moet u de uitvoergegevensset opgeven, zelfs als de activiteit niet echt een uitvoer wordt geproduceerd.
 
 ### <a name="prerequisites"></a>Vereisten
-1. Maak een algemeen opslagaccount door de instructies in [een opslagaccount maken](../../storage/common/storage-create-storage-account.md#create-a-storage-account).
+1. Maak een algemeen opslagaccount door de instructies in [een opslagaccount maken](../../storage/common/storage-quickstart-create-account.md).
 
 1. Een Spark-cluster in HDInsight maken door de instructies in de zelfstudie [maken van een Spark-cluster in HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Koppel het storage-account dat u hebt gemaakt in stap 1 met dit cluster.
 

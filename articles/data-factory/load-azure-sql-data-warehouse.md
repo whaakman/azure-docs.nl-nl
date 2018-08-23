@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 4322f1837c9b7fffba180f7106911d010a9ad8aa
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8525dd443e80bb7d67bc48cc007ab1632ee3e611
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448533"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42060641"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Gegevens laden in Azure SQL Data Warehouse met behulp van Azure Data Factory
 
@@ -40,7 +40,7 @@ Dit artikel laat u het gebruik van het hulpprogramma Data Factory kopiëren van 
 * Azure-abonnement: als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 * Azure SQL datawarehouse: Het datawarehouse bevat de gegevens die uit de SQL-database gekopieerd. Als u een Azure SQL Data Warehouse hebt, raadpleegt u de instructies in [maken van een SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md).
 * Azure SQL Database: In deze zelfstudie worden gegevens gekopieerd van een Azure SQL-database met Adventure Works LT-voorbeeldgegevens. U kunt een SQL-database maken door de instructies in [maken van een Azure SQL database](../sql-database/sql-database-get-started-portal.md). 
-* Azure storage-account: Azure Storage wordt gebruikt als de _staging_ blob in de bulksgewijze kopieerbewerking. Als u geen Azure-opslagaccount hebt, raadpleegt u de instructies in [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+* Azure storage-account: Azure Storage wordt gebruikt als de _staging_ blob in de bulksgewijze kopieerbewerking. Als u geen Azure-opslagaccount hebt, raadpleegt u de instructies in [Een opslagaccount maken](../storage/common/storage-quickstart-create-account.md).
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
 

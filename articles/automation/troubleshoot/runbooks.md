@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 53b35fbdc469639b1fdc09293e05247bcc5d8c31
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 78f9ba817008a28e63ec167c4e2ccc7f3859be16
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714482"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42054724"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Fouten met runbooks oplossen
 
@@ -38,7 +38,7 @@ Deze fout treedt op als de naam van de referentie-asset niet geldig is of als de
 
 Om te bepalen wat er mis is, moet u de volgende stappen uitvoeren:  
 
-1. Zorg ervoor dat u geen speciale tekens heeft, met inbegrip van de ** @ ** teken in de naam van Automation-referentie asset die u gebruikt voor het verbinding maken met Azure.  
+1. Zorg ervoor dat u geen speciale tekens heeft, met inbegrip van de **@** teken in de naam van Automation-referentie asset die u gebruikt voor het verbinding maken met Azure.  
 2. Controleer dat u de gebruikersnaam en het wachtwoord die zijn opgeslagen in de Azure Automation-referentie in uw lokale PowerShell ISE-editor kunt gebruiken. U kunt dit doen door het uitvoeren van de volgende cmdlets in PowerShell ISE:  
 
    ```powershell
@@ -137,7 +137,43 @@ Deze fout kan worden veroorzaakt door verouderde Azure-modules.
 
 Deze fout kan worden opgelost door uw Azure-modules bijwerken naar de nieuwste versie.
 
-Klik in uw Automation-Account op **Modules**, en klikt u op **Update Azure-modules**. De update duurt ongeveer 15 minuten, één keer voltooid opnieuw uitvoeren van het runbook is mislukt.
+Klik in uw Automation-Account op **Modules**, en klikt u op **Update Azure-modules**. De update duurt ongeveer 15 minuten, één keer voltooid opnieuw uitvoeren van het runbook is mislukt. Zie voor meer informatie over het bijwerken van de modules, [Update Azure-modules in Azure Automation](../automation-update-azure-modules.md).
+
+### <a name="child-runbook-auth-failure"></a>Scenario: Onderliggende runbook is mislukt tijdens het afhandelen van meerdere abonnementen
+
+#### <a name="issue"></a>Probleem
+
+Bij het uitvoeren van de onderliggende runbooks met `Start-AzureRmRunbook`, het onderliggende runbook is mislukt voor het beheren van Azure-resources.
+
+#### <a name="cause"></a>Oorzaak
+
+Het onderliggende runbook is niet de juiste context gebruikt bij het uitvoeren van.
+
+#### <a name="resolution"></a>Oplossing
+
+Als u werkt met meerdere abonnementen mogelijk de context van het abonnement worden verbroken tijdens het aanroepen van de onderliggende runbooks. Om ervoor te zorgen dat de context van het abonnement wordt doorgegeven aan de onderliggende runbooks, voeg de `DefaultProfile` parameter voor de cmdlet en geeft u de context toe.
+
+```azurepowershell-interactive
+# Connect to Azure with RunAs account
+$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+
+Add-AzureRmAccount `
+    -ServicePrincipal `
+    -TenantId $ServicePrincipalConnection.TenantId `
+    -ApplicationId $ServicePrincipalConnection.ApplicationId `
+    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+
+$AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+
+$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
+
+Start-AzureRmAutomationRunbook `
+    –AutomationAccountName 'MyAutomationAccount' `
+    –Name 'Test-ChildRunbook' `
+    -ResourceGroupName 'LabRG' `
+    -DefaultProfile $AzureContext `
+    –Parameters $params –wait
+```
 
 ### <a name="not-recognized-as-cmdlet"></a>Scenario: Het runbook is mislukt vanwege een ontbrekende cmdlet
 
@@ -189,6 +225,8 @@ Een van de volgende oplossingen het probleem wordt opgelost:
 * Voorgestelde methoden voor het werk binnen de geheugenlimiet zijn de werkbelasting tussen meerdere runbooks splitsen, niet zo veel gegevens in het geheugen, om onnodige uitvoer schrijven in uw runbooks niet te verwerken of houd rekening met het aantal controlepunten u in uw PowerShell-werkstroom schrijven runbooks.  
 
 * Uw Azure-modules bijwerken met de volgende stappen [het bijwerken van Azure PowerShell-modules in Azure Automation](../automation-update-azure-modules.md).  
+
+* Een andere oplossing is om uit te voeren van het runbook op een [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Workers worden niet beperkt door de [evenredige deel](../automation-runbook-execution.md#fair-share) beperkt dat Azure-sandboxes geladen zijn.
 
 ### <a name="fails-deserialized-object"></a>Scenario: Runbook is mislukt vanwege gedeserialiseerde object
 
@@ -309,7 +347,7 @@ Er zijn enkele veelvoorkomende redenen waarom dat een module niet met succes in 
 
 Een van de volgende oplossingen het probleem wordt opgelost:
 
-* Zorg ervoor dat de module de volgende indeling heeft: ModuleName.Zip ** -> ** ModuleName of het versienummer ** -> ** (ModuleName.psm1, ModuleName.psd1)
+* Zorg ervoor dat de module de volgende indeling heeft: ModuleName.Zip **->** ModuleName of het versienummer **->** (ModuleName.psm1, ModuleName.psd1)
 * Open het .psd1-bestand en zien of de module afhankelijkheden heeft. Als dit het geval is, moet u deze modules uploaden naar het Automation-account.
 * Zorg ervoor dat eventuele waarnaar wordt verwezen, dll's zijn aanwezig in de modulemap.
 

@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 08/16/2018
 ms.author: douglasl
-ms.openlocfilehash: c3aeb57bf9c613da3edb8c5dda0e88aa308a4b6e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8bbc64a34b5ae95e044b95f921770adc9045574c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448438"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42054114"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Continue integratie en implementatie in Azure Data Factory
 
@@ -47,6 +47,10 @@ Hiermee gaat u naar de Azure-portal, waar u de geëxporteerde sjabloon kunt impo
 Selecteer **bestand laden** voor het selecteren van de geëxporteerde Resource Manager-sjabloon en geef alle configuratiewaarden (bijvoorbeeld, gekoppelde services).
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
+
+**Tekenreeksen voor databaseverbindingen**. U kunt de informatie die is vereist voor het maken van verbindingsreeksen in de artikelen over de afzonderlijke connectors vinden. Bijvoorbeeld, voor Azure SQL Database, Zie [gegevens kopiëren naar of van Azure SQL Database met behulp van Azure Data Factory](connector-azure-sql-database.md). Om te controleren of de juiste verbindingsreeks - voor een gekoppelde service, bijvoorbeeld: kunt u ook openen codeweergave voor de resource in de gebruikersinterface van Data Factory. In de weergave van code, maar het wachtwoord of account sleutel gedeelte van de verbindingsreeks verwijderd. Als codeweergave wilt openen, selecteert u het pictogram gemarkeerd in de volgende schermopname.
+
+![Open-code weer te geven van de verbindingsreeks](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>Levenscyclus van continue integratie
 Hier wordt de hele levenscyclus voor doorlopende integratie en implementatie die u kunt gebruiken nadat u VSTS GIT-integratie in de Data Factory-gebruikersinterface ingeschakeld:
@@ -174,11 +178,7 @@ Implementatie kan mislukken als u probeert active triggers bijwerken. Voor het a
 
 U kunt uitvoeren van gelijksoortige stappen en vergelijkbare code gebruiken (met de `Start-AzureRmDataFactoryV2Trigger` functie) opnieuw op te starten van de triggers na de implementatie.
 
-## <a name="sample-template-and-script"></a>Voorbeeldsjabloon en het script
-Hier volgen twee voorbeelden die u aan de slag met continue integratie en implementatie voor Data Factory kunt gebruiken:
-
--   Een implementatiesjabloon voorbeeld dat u in VSTS importeren kunt.
--   Een voorbeeld van een script triggers vóór de implementatie te stoppen en opnieuw opstarten daarna wordt geactiveerd. Het script bevat ook de code voor het verwijderen van resources die zijn verwijderd.
+## <a name="sample-deployment-template"></a>Voorbeeldsjabloon voor implementatie
 
 Hier volgt een voorbeeld-implementatiesjabloon die u in VSTS importeren kunt.
 
@@ -718,7 +718,9 @@ Hier volgt een voorbeeld-implementatiesjabloon die u in VSTS importeren kunt.
 }
 ```
 
-Hier volgt een voorbeeld van een script om te stoppen triggers vóór de implementatie en triggers daarna opnieuw starten:
+## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Voorbeeld van een script om te stoppen en opnieuw opstarten van triggers en opschonen
+
+Hier volgt een voorbeeld van een script om te stoppen triggers vóór de implementatie en triggers daarna opnieuw starten. Het script bevat ook een code voor het verwijderen van resources die zijn verwijderd.
 
 ```powershell
 param

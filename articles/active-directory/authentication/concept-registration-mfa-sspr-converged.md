@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: d6915ce659d96021d4185be3818919fcfb9d4371
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: af57faddcc1413747b4bb847e27287ba86562175
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492889"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055329"
 ---
 # <a name="converged-registration-for-self-service-password-reset-and-azure-multi-factor-authentication-public-preview"></a>Geconvergeerde registratie voor self-service voor wachtwoord opnieuw instellen en Azure multi-factor Authentication (openbare preview)
 
@@ -39,7 +39,7 @@ Gebruikers kunnen nu gaat u naar [ https://aka.ms/setupsecurityinfo ](https://ak
 > [!NOTE]
 > Nadat u deze ervaring, gebruikers die registreren of bevestigen hun telefoonnummer in- of mobiele app via de nieuwe ervaring de mogelijkheid om ze te gebruiken voor MFA en SSPR, hebben als deze methoden zijn ingeschakeld in het beleid voor MFA en Self-service voor Wachtwoordherstel. Als u deze vervolgens uitschakelt, moeten de gebruikers die gaat u naar de vorige pagina van de registratie van SSPR op aka.ms/ssprsetup om uit te voeren MFA voordat ze krijgen de pagina tot toegang.  
 
-## <a name="how-it-works"></a>Hoe alles werkt
+## <a name="how-it-works"></a>Hoe werkt het?
 
 Als een gebruiker heeft eerder verificatiemethoden via de afzonderlijke registratie ervaringen van MFA en SSPR geregistreerd, hoeft ze niet te registreren die gegevens opnieuw. Echter, als de instellingen vereisen gebruikers dat zich registreren voor MFA of SSPR, zien zij mogelijk een prompt om hun beveiligingsgegevens te controleren tijdens het aanmelden.
 
@@ -55,6 +55,9 @@ Gebruikers wordt gevraagd om u te registreren bij het aanmelden, ziet de volgend
 > Deze ervaring wordt alleen weergegeven wanneer een gebruiker wordt gevraagd om u te registreren bij het aanmelden. Gebruikers die gaat u rechtstreeks naar de nieuwe ervaring op aka.ms/setupsecurityinfo ziet een andere versie van de ervaring, die verderop in dit artikel wordt beschreven.
 
 De authenticatiemethoden die worden weergegeven wordt op basis van de methoden die zijn ingeschakeld in uw MFA of SSPR-beleid gewijzigd. De gebruiker wordt gevraagd om u te registreren van het minimum aantal verificatiemethoden die nodig zijn om te voldoen aan het MFA-beleid en/of de SSPR-beleid. Als er flexibiliteit in welke verificatiemethoden de gebruiker kan registreren, kunnen ze selecteren **Kies beveiligingsgegevens** andere verificatiemethoden kiezen.  
+
+> [!NOTE]
+> Als u het gebruik van zowel de mobiele app-meldingen en de mobiele app-code inschakelt, worden gebruikers die de Microsoft Authenticator-app met behulp van een melding te registreren kunnen zowel melding en code gebruiken om hun identiteit te verifiëren.
 
 In tegenstelling tot de ervaring van MFA-registratie worden gebruikers niet gevraagd om u te registreren van een app-wachtwoord wanneer de nieuwe ervaring voor inschrijving te doorlopen. In plaats daarvan moeten ze volgen de stappen in de zelfstudie apps wachtwoorden voor het registreren van app-wachtwoorden in de nieuwe ervaring.  
 

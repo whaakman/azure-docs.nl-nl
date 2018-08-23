@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met de Analytics-Portal in Azure Log Analytics | Microsoft Docs
-description: Dit artikel bevat een zelfstudie voor het gebruik van de Analytics-portal voor het schrijven van query's in Log Analytics.
+title: Aan de slag met de Log Analytics-pagina in Azure portal | Microsoft Docs
+description: Dit artikel bevat een zelfstudie voor het gebruik van de Log Analytics-pagina voor het schrijven van query's.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/20/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 6f6916b27aa251bc0a0c25be060378c11faab607
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 493497476fdfe7d96d6f2dde735bab0147e547a7
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39634340"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42054327"
 ---
-# <a name="get-started-with-the-analytics-portal"></a>Aan de slag met de Analytics-portal
+# <a name="get-started-with-the-log-analytics-page-in-the-azure-portal"></a>Aan de slag met de Log Analytics-pagina in Azure portal
 
-In deze zelfstudie leert u hoe u kunt de Analytics-portal gebruiken om Azure Log Analytics-query's schrijven. Deze leert u hoe aan:
+In deze zelfstudie leert u hoe u Log Analytics-query's schrijven met de Log Analytics-pagina in de Azure-portal (momenteel in Preview-versie). Deze leert u hoe aan:
 
 - Eenvoudige query's schrijven
 - Het schema van uw gegevens begrijpen
@@ -35,12 +35,12 @@ In deze zelfstudie leert u hoe u kunt de Analytics-portal gebruiken om Azure Log
 - Exporteren en delen van query 's
 
 
-## <a name="meet-the-analytics-portal"></a>Voldoen aan de Analytics-portal
-De Analytics-portal is een web-hulpprogramma gebruikt om te schrijven en uitvoeren van Azure Log Analytics-query's. 
+## <a name="meet-the-log-analytics-page"></a>Voldoen aan de Log Analytics-pagina 
+De pagina Log Analytics is een web-hulpprogramma gebruikt om te schrijven en uitvoeren van Azure Log Analytics-query's. Open het door het selecteren van **Logboeken (preview)** in het menu van Log Analytics. Het begint al met een nieuwe lege query.
 
 ![Startpagina](media/get-started-analytics-portal/homepage.png)
 
-De startpagina biedt eenvoudige toegang tot nuttige bronnen, zoals recente en opgeslagen query's en voorbeelden. Open een nieuw tabblad als u wilt gaan met het schrijven van uw eigen query's.
+
 
 ## <a name="basic-queries"></a>Eenvoudige query 's
 Query's kunnen worden gebruikt om te zoeken naar termen, trends te identificeren, patronen analyseren en veel andere inzichten op basis van uw gegevens te kunnen bieden. Beginnen met een eenvoudige query uitvoert:
@@ -83,7 +83,7 @@ Beginnen met het ophalen van alles wat de _gebeurtenis_ tabel.
 Event
 ```
 
-De Analytics-portal bereiken automatisch resultaten op basis van:
+De pagina logboekanalyse scopes automatisch resultaten op basis van:
 
 - Tijdsbereik: standaard, query's zijn beperkt tot de laatste 24 uur.
 - Aantal resultaten: resultaten zijn beperkt tot maximaal 10.000 records.
@@ -121,7 +121,7 @@ De tabel met resultaten wordt vaak een groot aantal kolommen bevat. Mogelijk vin
 
 
 ## <a name="select-a-time-range"></a>Een tijdsbereik selecteren
-Standaard de Analytics-portal is van toepassing de _afgelopen 24 uur_ tijdsbereik. Voor het gebruik van een ander bereik, selecteert u een andere waarde via de tijdkiezer en klikt u op **uitvoeren**. Naast de vooraf gedefinieerde waarden, kunt u de _aangepast tijdsbereik_ optie om een absolute bereik voor uw query te selecteren.
+Standaard de Log Analytics-pagina van toepassing is de _afgelopen 24 uur_ tijdsbereik. Voor het gebruik van een ander bereik, selecteert u een andere waarde via de tijdkiezer en klikt u op **uitvoeren**. Naast de vooraf gedefinieerde waarden, kunt u de _aangepast tijdsbereik_ optie om een absolute bereik voor uw query te selecteren.
 
 ![Tijdkiezer](media/get-started-analytics-portal/time-picker.png)
 
@@ -131,7 +131,7 @@ Als de query bevat expliciet een filter voor _TimeGenerated_, het tijdstip datum
 
 
 ## <a name="charts"></a>Grafieken
-Daarnaast retourneren van resultaten in een tabel, worden queryresultaten weergegeven in de visuele opmaak. Gebruik de volgende query uit als een voorbeeld:
+Naast het retourneren van resultaten in een tabel, kunnen de queryresultaten worden weergegeven in de visuele opmaak. Gebruik de volgende query uit als een voorbeeld:
 
 ```OQL
 Event 
@@ -183,7 +183,7 @@ Het pictogram van de Query is op het gebied rechtsboven. Dit geeft een lijst van
 ![Queryverkenner](media/get-started-analytics-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>Exporteren en delen als koppeling
-De analyseportal ondersteunt meerdere methoden voor exporteren:
+De pagina Log Analytics ondersteunt meerdere methoden voor exporteren:
 
 - Excel: De resultaten opslaan als een CSV-bestand.
 - Power BI: De resultaten exporteren naar power BI. Zie [importeren Azure Log Analytics-gegevens in Power BI](../log-analytics-powerbi.md) voor meer informatie.

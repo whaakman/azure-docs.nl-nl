@@ -1,70 +1,71 @@
 ---
-title: Upgraden en schalen van een exemplaar van Azure API Management | Microsoft Docs
-description: In dit onderwerp wordt beschreven hoe om te upgraden en schalen van een exemplaar van Azure API Management.
+title: Bijwerken en schalen van exemplaar van Azure API Management | Microsoft Docs
+description: In dit onderwerp wordt beschreven hoe u bijwerken en schalen van een Azure API Management-exemplaar.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: anneta
 editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 06/18/2018
+ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: ca32c72b1582b2a09f9f1754ad778cf1b682a1c2
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 99848cf4ba1e6e65a8c41c682916ca391128eb21
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293309"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42059186"
 ---
-# <a name="upgrade-and-scale-an-api-management-instance"></a>Upgraden en schalen van een exemplaar van API Management  
+# <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Bijwerken en schalen van een Azure API Management-exemplaar  
 
-Klanten kunnen een exemplaar van API Management (APIM) schalen door toevoegen en verwijderen van eenheden. Een **eenheid** bestaat uit het toegewezen Azure-resources en heeft een bepaalde dragende capaciteit uitgedrukt als een aantal API-per maand aanroepen. Dit aantal geeft geen een limiet aanroep, maar in plaats daarvan een maximale doorvoer waarde om toe te staan voor de ruwe capaciteitsplanning. Werkelijke doorvoer en latentie variëren grotendeels afhankelijk van factoren zoals het aantal en het aantal gelijktijdige verbindingen, het type en aantal geconfigureerde beleidsregels, aanvraag- en grootten en back-end latentie.
+Klanten kunnen een exemplaar van Azure API Management (APIM) door het toevoegen en verwijderen van eenheden schalen. Een **eenheid** bestaat uit het toegewezen Azure-resources en heeft een bepaalde dragende capaciteit uitgedrukt als een aantal API-per maand aanroepen. Dit getal staat niet voor een aanroep limiet, maar in plaats daarvan een maximale doorvoer waarde om toe te staan voor de ruwe capaciteitsplanning. Werkelijke doorvoer en latentie verschilt grotendeels afhankelijk van factoren zoals aantal en de snelheid van gelijktijdige verbindingen, het soort en aantal geconfigureerde beleidsregels, aanvragen en antwoordgroottes en backend-latentie.
 
-Capaciteit en prijs per eenheid is afhankelijk van de **laag** in de eenheid bestaat. U kunt kiezen uit vier lagen: **Developer**, **Basic**, **standaard**, **Premium**. Als u vergroot de capaciteit voor een service in een laag wilt, moet u een eenheid toevoegen. Als de laag die momenteel is geselecteerd in uw exemplaar APIM niet toe meer eenheden toe te voegen dat staat, moet u een upgrade uitvoert naar een hogere laag.
+Capaciteit en de prijs van elke eenheid is afhankelijk van de **laag** in dat de eenheid bestaat. U kunt kiezen uit vier lagen: **Developer**, **Basic**, **Standard**, **Premium**. Als u nodig hebt om de capaciteit voor een service binnen een laag te vergroten, moet u een eenheid toevoegen. Als de laag die in de APIM-instantie is geselecteerd, niet toe meer eenheden toe te voegen dat staat, moet u een upgrade naar een hogere laag.
 
-De prijs van elke eenheid en de beschikbare functies (bijvoorbeeld meerdere landen/regio-implementatie), is afhankelijk van de laag die u hebt gekozen voor uw APIM-exemplaar. De [prijsinformatie](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) artikel, wordt de prijs per eenheid en functies die u in elke laag kunt uitgelegd. 
+De prijs van elke eenheid en de beschikbare functies (bijvoorbeeld meerdere regio's implementatie), is afhankelijk van de laag die u hebt gekozen voor de APIM-instantie. De [prijsinformatie](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) artikel, wordt de prijs per eenheid en functies die u in elke laag uitgelegd. 
 
 >[!NOTE]
->De [prijsinformatie](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) artikel ziet u geschatte aantal eenheid capaciteit in elke laag. Als u meer nauwkeurige getallen, moet u om te kijken naar een realistische scenario voor uw API's. Zie de [capaciteit van een exemplaar van Azure API Management](api-management-capacity.md) artikel.
+>De [prijsinformatie](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) geschatte aantal eenheid capaciteit wordt uitgelegd in elke laag. Als u wilt meer nauwkeurige nummers ophalen, moet u kijken naar een realistische scenario voor uw API's. Zie de [capaciteit van een Azure API Management-exemplaar](api-management-capacity.md) artikel.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Om de stappen in dit artikel, moet u het volgende doen:
+Als u wilt volgen de stappen in dit artikel, moet u:
 
 + Een actief Azure-abonnement hebben.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ Een exemplaar APIM hebben. Zie voor meer informatie [Azure API Management-exemplaar maken](get-started-create-service-instance.md).
++ Een APIM-instantie hebt. Zie voor meer informatie, [maken van een Azure API Management-exemplaar](get-started-create-service-instance.md).
 
-+ Inzicht in het concept van [capaciteit van een exemplaar van Azure API Management] (api management capacity.md).
++ Informatie over het concept van [capaciteit van een Azure API Management-exemplaar] (api-beheer-capacity.md).
 
 ## <a name="upgrade-and-scale"></a>Upgraden en de schaal aanpassen  
 
-U kunt kiezen uit vier lagen: **Developer**, **Basic**, **standaard** en **Premium**. De **Developer** laag moet worden gebruikt voor het evalueren van de service; mag niet worden gebruikt voor productie. De **Developer** laag heeft geen SLA en deze laag (eenheden toevoegen of verwijderen) kan niet worden geschaald. 
+U kunt kiezen uit vier lagen: **Developer**, **Basic**, **Standard** en **Premium**. De **Developer** laag moet worden gebruikt om de service evalueren; mag niet worden gebruikt voor productie. De **Developer** laag heeft geen SLA en u deze laag (eenheden toevoegen of verwijderen) kan niet schalen. 
 
-**Basic**, **standaard** en **Premium** zijn productie lagen die SLA hebben en kunnen worden geschaald. De **Basic** laag is de goedkoopste laag waarvoor de SLA en deze kan worden uitgebreid tot 2 eenheden, **standaard** laag kan worden geschaald naar maximaal vier eenheden. U kunt een willekeurig aantal eenheden toevoegen de **Premium** laag.
+**Basic**, **Standard** en **Premium** zijn productie-lagen die SLA hebben en kunnen worden geschaald. De **Basic** -laag is de goedkoopste laag met SLA-geschaalde maximaal 2 eenheden, kan het zijn **Standard** laag kan worden geschaald naar maximaal vier eenheden. U kunt een willekeurig aantal eenheden toevoegen de **Premium** laag.
 
-De **Premium** laag kunt u slechts één exemplaar van API management verdelen over een willekeurig aantal gewenste Azure-regio's. Wanneer u in eerste instantie een API Management-service maakt, wordt het exemplaar bevat slechts één eenheid en bevindt zich in één Azure-regio. De eerste regio is aangewezen als het **primaire** regio. Als u meer regio's kunnen gemakkelijk worden toegevoegd. Wanneer een regio toevoegt, geeft u het aantal eenheden dat u wilt toewijzen. U kunt bijvoorbeeld één eenheid hebben de **primaire** regio en vijf eenheden in sommige andere regio. U kunt het aantal eenheden op het verkeer dat er in elke regio aanpassen. Zie voor meer informatie [implementeren van een Azure API Management-service-exemplaar op meerdere Azure-regio's](api-management-howto-deploy-multi-region.md).
+De **Premium** laag kunt u voor het distribueren van één Azure API Management-exemplaar naar een willekeurig aantal gewenste Azure-regio's. Wanneer u in eerste instantie een Azure API Management-service maakt, wordt het exemplaar bevat slechts één eenheid en bevindt zich in één Azure-regio. De eerste regio wordt aangewezen als het **primaire** regio. Extra regio's kunnen eenvoudig worden toegevoegd. Wanneer u een regio toevoegt, geeft u het aantal eenheden dat u wilt toewijzen. U kunt bijvoorbeeld één eenheid hebben de **primaire** regio en vijf eenheden in een andere regio. U kunt het aantal eenheden op het verkeer die u in elke regio hebt aanpassen. Zie voor meer informatie, [over het implementeren van een Azure API Management service-exemplaar naar meerdere Azure-regio's](api-management-howto-deploy-multi-region.md).
 
-U kunt upgraden en downgraden naar en van elke categorie. Houd er rekening mee dat een upgrade of een downgrade sommige onderdelen - zoals VNETs of implementatie van meerdere landen/regio verwijderen kunt wanneer downgraden naar Standard of Basic uit de laag Premium.
+U kunt upgraden en downgraden naar en van elke laag. Houd er rekening mee dat het upgraden of downgraden van sommige functies - bijvoorbeeld VNETs of implementatie in meerdere regio's, verwijderen kunt wanneer downgraden naar Standard of Basic van de Premium-laag.
 
 >[!NOTE]
->De upgrade of schaal kan duren van 15 tot 45 minuten om toe te passen. U krijgt melding wanneer het is voltooid.
+>De upgrade of schaal kan duren vanaf 15 tot 45 minuten om toe te passen. U krijgt bericht wanneer dit is voltooid.
 
-## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>De Azure portal gebruiken om te upgraden en schalen
+## <a name="use-the-azure-portal-to-upgrade-and-scale"></a>De Azure portal gebruiken voor het bijwerken en schalen
 
-![Schaal APIM in Azure-portal](./media/upgrade-and-scale/portal-scale.png)
+![Schaal APIM in Azure portal](./media/upgrade-and-scale/portal-scale.png)
 
-1. Navigeer naar uw APIM exemplaar in de [Azure-portal](https://portal.azure.com/).
-2. Selecteer **schaal en prijzen** in het menu.
-3. Kies de gewenste categorie.
-4. Geef het aantal **eenheden** toe te voegen. Gebruik de schuifregelaar of typt u het aantal eenheden.  
+1. Navigeer naar de APIM-instantie in de [Azure-portal](https://portal.azure.com/).
+2. Selecteer **schalen en prijzen** in het menu.
+3. Kies de gewenste laag.
+4. Geef het aantal **eenheden** toe te voegen. U kunt de schuifregelaar of typ het aantal eenheden.  
     Als u ervoor kiest de **Premium** laag, moet u eerst een regio selecteren.
-5. Druk op **opslaan**
+5. Klik op **Opslaan**.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Een Azure API Management-service-exemplaar implementeren op meerdere Azure-regio 's](api-management-howto-deploy-multi-region.md)
+*[Over het implementeren van een Azure API Management service-exemplaar naar meerdere Azure-regio's](api-management-howto-deploy-multi-region.md)
+*[exemplaar van Azure API Management-service automatisch schalen](api-management-howto-autoscale.md)

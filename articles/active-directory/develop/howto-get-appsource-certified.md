@@ -13,46 +13,51 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/03/2017
+ms.date: 08/21/2018
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 83436fe7f47c156f70995d66922e9fc0564ef872
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: a2876ccdfe073a3c642304a1381faf77ae4a7d90
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601946"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42054125"
 ---
 # <a name="how-to-get-appsource-certified-for-azure-active-directory"></a>Over het verkrijgen van AppSource-gecertificeerd voor Azure Active Directory
+
 [Microsoft AppSource](https://appsource.microsoft.com/) is een doel voor zakelijke gebruikers om te ontdekken, uitproberen en line-of-business SaaS-toepassingen (zelfstandige SaaS en invoegtoepassing voor bestaande Microsoft SaaS-producten) beheren.
 
-Als u een zelfstandige SaaS-toepassing op AppSource, moet uw toepassing accepteren eenmalige aanmelding van werkaccounts van een bedrijf of organisatie die Azure Active Directory heeft. Het proces voor aanmelden moet gebruiken de [OpenID Connect](v1-protocols-openid-connect-code.md) of [OAuth 2.0](v1-protocols-oauth-code.md) protocollen. SAML-integratie wordt niet geaccepteerd voor AppSource-certificering.
+Als u een zelfstandige SaaS-toepassing op AppSource, moet uw toepassing accepteren eenmalige aanmelding van werkaccounts van een bedrijf of organisatie die Azure Active Directory (Azure AD) is. Het proces voor aanmelden moet gebruiken de [OpenID Connect](v1-protocols-openid-connect-code.md) of [OAuth 2.0](v1-protocols-oauth-code.md) protocollen. SAML-integratie wordt niet geaccepteerd voor AppSource-certificering.
 
 ## <a name="guides-and-code-samples"></a>Handleidingen en codevoorbeelden
-Als u wilt meer informatie over het integreren van uw toepassing met Azure Active Directory met behulp van Open ID verbinden, volgt u onze richtlijnen en codevoorbeelden in de [ontwikkelaarsgids van Azure Active Directory](azure-ad-developers-guide.md#get-started "aan de slag met Azure AD voor ontwikkelaars").
+
+Als u wilt meer informatie over het integreren van uw toepassing met Azure AD met behulp van Open ID verbinden, volgt u onze richtlijnen en codevoorbeelden in de [ontwikkelaarsgids van Azure Active Directory](azure-ad-developers-guide.md#get-started "aan de slag met Azure AD ontwikkelaars").
 
 ## <a name="multi-tenant-applications"></a>Toepassingen met meerdere tenants
 
-Een toepassing die aanmeldingen van gebruikers van een bedrijf of organisatie die Azure Active Directory hebben zonder een afzonderlijk exemplaar, de configuratie of de implementatie accepteert wordt ook wel een *toepassing met meerdere tenants*. AppSource raadt aan dat de multitenancy om in te schakelen voor het implementeren van toepassingen de *met één klik* gratis proefversie.
+Een *toepassing met meerdere tenants* is een toepassing die aanmeldingen van gebruikers van een bedrijf of organisatie die Azure AD hebben zonder een afzonderlijk exemplaar, de configuratie of de implementatie accepteert. AppSource raadt aan dat de multitenancy om in te schakelen voor het implementeren van toepassingen de *met één klik* gratis proefversie.
 
-Om in te schakelen multitenancy op uw toepassing:
-- Instellen `Multi-Tenanted` eigenschap `Yes` op de informatie van de registratie van uw toepassing in de [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) (standaard, toepassingen die zijn gemaakt in de Azure Portal zijn geconfigureerd als *metééntenant*)
-- Werk uw code voor het verzenden van aanvragen voor de '`common`' eindpunt (bijwerken van het eindpunt van *https://login.microsoftonline.com/{yourtenant}* naar *https://login.microsoftonline.com/common*)
-- Voor sommige platformen, zoals ASP.NET, moet u ook uw code voor het accepteren van meerdere certificaatverleners bijwerken
+Om in te schakelen multitenancy op uw toepassing, de volgende stappen uit:
+1. Instellen `Multi-Tenanted` eigenschap `Yes` op de informatie van de registratie van uw toepassing in de [Azure-portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps). Toepassingen die zijn gemaakt in Azure portal zijn standaard geconfigureerd als  *[één tenant](#single-tenant-applications)*.
+1. Werk uw code voor het verzenden van aanvragen voor de `common` eindpunt. U doet dit door bijwerken van het eindpunt van `https://login.microsoftonline.com/{yourtenant}` naar `https://login.microsoftonline.com/common*`.
+1. Voor sommige platformen, zoals ASP .NET, moet u ook uw code voor het accepteren van meerdere certificaatverleners bijwerken.
 
-Zie voor meer informatie over multitenancy: [aanmelden bij een Azure Active Directory (AD) gebruiker met behulp van het patroon voor multitenant-toepassingen](howto-convert-app-to-be-multi-tenant.md).
+Zie voor meer informatie over multitenancy [aanmelden bij een Azure Active Directory (Azure AD) gebruiker met behulp van het patroon voor multitenant-toepassingen](howto-convert-app-to-be-multi-tenant.md).
 
 ### <a name="single-tenant-applications"></a>Toepassingen met één tenant
-Toepassingen die alleen aanmeldingen van gebruikers van een gedefinieerde Azure Active Directory-exemplaar accepteren worden aangeduid als *toepassing met één tenant*. Externe gebruikers (met inbegrip van werk of School-accounts van andere organisaties of persoonlijk account) kunnen zich aanmelden bij een toepassing met één tenant na het toevoegen van elke gebruiker als *gastaccount* naar de Azure Active Directory-exemplaar dat de toepassing is geregistreerd. U kunt gebruikers als Gast-account toevoegen aan een Azure Active Directory via de [ *Azure AD B2B-samenwerking* ](../b2b/what-is-b2b.md) - en kan worden gedaan [programmatisch](../../active-directory-b2c/code-samples.md). Wanneer u een gebruiker als Gast-account aan een Azure Active Directory toevoegen, wordt een uitnodiging via e-mail verzonden naar de gebruiker, met de uitnodiging te accepteren door te klikken op de koppeling in de uitnodiging per e-mail. Uitnodigingen die worden verzonden naar een andere gebruiker in een organisatie die ook lid is van de partnerorganisatie zijn niet vereist om een uitnodiging aan te melden bij te accepteren.
 
-Toepassingen met één tenant kunnen inschakelen de *Contact Me* optreden, maar als u de éénkliks- / gratis proefversie waarmee AppSource raadt inschakelen wilt, multitenancy inschakelen op uw toepassing in plaats daarvan.
+Een *één tenant toepassing* is een toepassing die alleen aanmeldingen van gebruikers van een opgegeven Azure accepteert AD-exemplaar. Externe gebruikers (met inbegrip van werk- of schoolaccounts van andere organisaties of persoonlijke accounts) kunnen zich aanmelden bij een toepassing met één tenant na elke gebruiker toe te voegen als een Gast-account met het Azure AD-exemplaar dat de toepassing is geregistreerd. 
 
+U kunt gebruikers als Gast-account toevoegen aan Azure AD via de [Azure AD B2B-samenwerking](../b2b/what-is-b2b.md) en u kunt dit doen [programmatisch](../../active-directory-b2c/code-samples.md). Wanneer u B2B, kunnen gebruikers een self-service portal waarvoor een uitnodiging aan te melden bij maken. Zie voor meer informatie, [self-serviceportal voor aanmelding bij Azure AD B2B-samenwerking](https://docs.microsoft.com/azure/active-directory/b2b/self-service-portal).
+
+Toepassingen met één tenant kunnen inschakelen de *Contact Me* optreden, maar als u de één-klik/gratis proefversie waarmee AppSource raadt inschakelen wilt, multitenancy inschakelen op uw toepassing in plaats daarvan.
 
 ## <a name="appsource-trial-experiences"></a>Proefversie ervaringen van AppSource
 
 ### <a name="free-trial-customer-led-trial-experience"></a>Gratis proefversie (klant geleide proefversie) 
-De *klant geleide proef* is de ervaring die AppSource wordt aanbevolen als het biedt een één-op-toegang tot uw toepassing. Hieronder een voorbeeld van hoe deze ervaring eruitziet:<br/><br/>
+
+De klant geleide proef is de ervaring die AppSource wordt aanbevolen als het biedt een één-op-toegang tot uw toepassing. Hieronder een voorbeeld van hoe deze ervaring eruitziet:<br/><br/>
 
 <table >
 <tr>
@@ -67,8 +72,9 @@ De *klant geleide proef* is de ervaring die AppSource wordt aanbevolen als het b
 </tr>
 </table>
 
-### <a name="contact-me-partner-led-trial-experience"></a>Contact met mij (door Partner geleide proef experience)
-De *testervaring partner* kan worden gebruikt wanneer een handmatige of een langdurige bewerking moet worden opgestart voor het inrichten van de gebruiker / company: bijvoorbeeld de toepassing nodig heeft voor het inrichten van virtuele machines, database-exemplaren of bewerkingen die veel tijd in beslag nemen. In dit geval nadat de gebruiker selecteert de *'Proefversie aanvragen'* knop en vult van een formulier, AppSource verzendt u de contactgegevens van de gebruiker. Na ontvangst van deze informatie u vervolgens de omgeving inrichten en de instructies voor de gebruiker bij het openen van de testervaring verzenden:<br/><br/>
+### <a name="contact-me-partner-led-trial-experience"></a>Contact met mij (door partner geleide proef experience)
+
+U kunt de partner-testervaring gebruiken wanneer een handmatige of een langdurige bewerking moet worden opgestart voor het inrichten van die de gebruiker/bedrijf--bijvoorbeeld uw toepassing nodig heeft om het inrichten van virtuele machines, database-exemplaren of bewerkingen die veel tijd in beslag nemen. In dit geval nadat de gebruiker selecteert de **proefversie aanvragen** knop en vult van een formulier, AppSource verzendt u de contactgegevens van de gebruiker. Wanneer u deze informatie ontvangt, klikt u vervolgens de omgeving inrichten en de instructies voor de gebruiker bij het openen van de testervaring verzenden:<br/><br/>
 
 <table valign="top">
 <tr>
@@ -101,17 +107,18 @@ De *testervaring partner* kan worden gebruikt wanneer een handmatige of een lang
 </table>
 
 ### <a name="more-information"></a>Meer informatie
+
 Zie voor meer informatie over de AppSource-testervaring [in deze video](https://aka.ms/trialexperienceforwebapps). 
  
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over het bouwen van toepassingen die ondersteuning bieden voor Azure Active Directory-aanmeldingen, [Verificatiescenario's voor Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-scenarios) 
-
+- Zie voor meer informatie over het bouwen van toepassingen die ondersteuning bieden voor Azure AD-aanmeldingen, [Verificatiescenario's voor Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
 - Ga voor informatie over hoe u uw SaaS-toepassing in AppSource, Zie [partnergegevens AppSource](https://appsource.microsoft.com/partners)
 
 
-## <a name="get-support"></a>Krijg ondersteuning
-Voor Azure Active Directory-integratie, gebruiken we [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) met de community om ondersteuning te bieden. 
+## <a name="get-support"></a>Ondersteuning krijgen
+
+Voor Azure AD-integratie, gebruiken we [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource) met de community om ondersteuning te bieden. 
 
 Wij raden u eerst uw vragen stellen op Stack Overflow en bestaande problemen om te zien als iemand anders uw vraag voordat u heeft gevraagd. Zorg ervoor dat uw vragen of opmerkingen worden gemarkeerd met [ `[azure-active-directory]` en `[appsource]` ](http://stackoverflow.com/questions/tagged/azure-active-directory+appsource).
 

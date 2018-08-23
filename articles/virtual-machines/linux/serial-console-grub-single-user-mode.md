@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: e0b5978f1c0254cdd4c0216a4188e84f67eb4263
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 059cb0cbc7e62af16dbf95693be421feebcc1ee0
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177591"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42055553"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Seriële Console gebruiken voor toegang tot WORMGATEN en de modus voor één gebruiker
 Modus voor één gebruiker is een minimale omgeving met een minimale functionaliteit. Kan het nuttig zijn voor onderzoeken opstartproblemen of netwerkproblemen minder services kunnen worden uitgevoerd op de achtergrond en, afhankelijk van de (uitvoeringsniveau), een bestandssysteem kan niet ook worden automatisch gekoppeld. Dit is nuttig voor situaties zoals een beschadigd bestandssysteem, een verbroken fstab onderzoeken of de netwerkverbinding (onjuiste iptables configureren).
@@ -64,7 +64,7 @@ Als u hebt ingesteld WORMGATEN en root openen met de bovenstaande instructies, d
 1. Druk op Ctrl + X af te sluiten en opnieuw opstarten met de toegepaste instellingen
 1. U wordt gevraagd het beheerderswachtwoord modus voor één gebruiker invoeren voordat u: dit is de hetzelfde wachtwoord dat u hebt gemaakt in de bovenstaande instructies    
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-systemd-unit-rescue-target.png)
+    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Modus voor één gebruiker invoeren zonder root-account is ingeschakeld in RHEL
 Als u niet de stappen hierboven om in te schakelen van de hoofdgebruiker hebt doorlopen, kunt u nog steeds het root-wachtwoord opnieuw instellen. Gebruik de volgende instructies:
@@ -81,7 +81,7 @@ Als u niet de stappen hierboven om in te schakelen van de hoofdgebruiker hebt do
 1. Zodra u in de modus voor één gebruiker opstart, typt u in `chroot /sysroot` overschakelen naar de `sysroot` jailbroken
 1. U bent nu hoofdmap. U kunt opnieuw instellen van het root-wachtwoord met `passwd` en gebruik vervolgens de bovenstaande instructies om in te voeren van de modus voor één gebruiker. Type `reboot -f` opnieuw op te starten wanneer u klaar bent.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-rd-break.png)
+![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > Opmerking: De bovenstaande instructies wilt doorlopen doorlaat u in noodgevallen shell, zodat u kunt ook taken zoals het bewerken van `fstab`. Het algemeen aanvaarde voorstel is echter het root-wachtwoord opnieuw instellen en gebruiken die voor het invoeren van de modus voor één gebruiker. 
 
@@ -136,7 +136,7 @@ Toegang tot WORMGATEN in SLES vereist bootloader configuratie via YaST. U doet d
 1. Om in te voeren WORMGATEN, opnieuw opstarten van uw virtuele machine en drukt u op een willekeurige toets tijdens opstartprocedure te blijven op het scherm WORMGATEN
     - De standaardtime-out voor WORMGATEN is 1s. U kunt dit wijzigen door het wijzigen van de `GRUB_TIMEOUT` variabele in `/etc/default/grub`
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-bootloader.png)
+![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
 
 ### <a name="single-user-mode-in-suse-sles"></a>Modus voor één gebruiker in SUSE SLES
 U wordt automatisch verwijderd in noodgevallen shell als SLES niet normaal mag opstarten. Als u wilt de noodgevallen shell handmatig invoeren, gebruikt u de volgende instructies:

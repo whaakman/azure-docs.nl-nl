@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/22/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: f54849b9fef8ff09aa9b5b6254c92fc3c452ef4a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 48e2f85488adfb776da5f52c154028f8aafb167a
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414422"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617018"
 ---
 # <a name="network-connectivity"></a>Verbinding met het netwerk
 Dit artikel bevat informatie over de infrastructuur Azure Stack-netwerk om te bepalen hoe u het beste Azure Stack integreren met uw bestaande netwerkomgeving. 
@@ -41,7 +41,7 @@ De volgende tabel ziet u de logische netwerken en gekoppelde bereiken van de IPv
 
 | Logisch netwerk | Beschrijving | Grootte | 
 | -------- | ------------- | ------------ | 
-| Openbare VIP | Een totaal van 32 adressen van dit netwerk maakt gebruik van Azure Stack. Acht openbare IP-adressen worden gebruikt voor een kleine set Azure Stack-services en de rest worden gebruikt door virtuele machines van tenants. Als u van plan bent te gebruiken van App Service en de SQL-resourceproviders, worden 7 meer adressen gebruikt. | / 26 (62 hosts) - /22 (1022 hosts)<br><br>Aanbevolen = /24 (254 hosts) | 
+| Openbare VIP | Een totaal van 31-adressen van dit netwerk maakt gebruik van Azure Stack. Acht openbare IP-adressen worden gebruikt voor een kleine set Azure Stack-services en de rest worden gebruikt door virtuele machines van tenants. Als u van plan bent te gebruiken van App Service en de SQL-resourceproviders, worden 7 meer adressen gebruikt. De resterende 15 IP-adressen zijn gereserveerd voor toekomstige Azure-services. | / 26 (62 hosts) - /22 (1022 hosts)<br><br>Aanbevolen = /24 (254 hosts) | 
 | Switch-infrastructuur | Point-to-Point IP-adressen voor routeringsdoeleinden, toegewezen overschakelen beheerinterfaces en loopback-adressen die zijn toegewezen aan de switch. | /26 | 
 | Infrastructuur | Gebruikt voor interne onderdelen van Azure Stack om te communiceren. | /24 |
 | Privé | Gebruikt voor het opslagnetwerk en privé-VIP. | /24 | 

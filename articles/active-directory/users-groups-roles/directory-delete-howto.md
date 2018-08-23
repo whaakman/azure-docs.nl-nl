@@ -13,12 +13,12 @@ ms.date: 06/13/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 44781c976afa94ebe3c8df8c7fd70c3e16956916
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: b1d3439412e324c71687c43aa9e47c520cb72262
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37871951"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055124"
 ---
 # <a name="delete-an-azure-active-directory-tenant"></a>Een Azure Active Directory-tenant niet verwijderen
 Wanneer een tenant is verwijderd, worden ook alle resources die zijn opgenomen in de tenant verwijderd. U moet de tenant voorbereiden door het minimaliseren van alle bijbehorende resources, voordat u verwijderen. Alleen een globale beheerder van Azure Active Directory (Azure AD) u een Azure AD-tenant uit de portal verwijderen kunt.
@@ -63,7 +63,7 @@ Ongedaan gemaakt (30 dagen na uitgeschakeld) | Gegevens zijn verwijderd (automat
 
 U kunt een abonnement in plaatst een **Deprovisoned** status moet worden verwijderd in 3 dagen met behulp van de Microsoft Store voor bedrijven-beheercentrum. Deze functie is binnenkort beschikbaar voor Office 365-beheercentrum.
 
-1. Aanmelden bij de [Microsoft Store voor bedrijven-beheercentrum](https://businessstore.microsoft.com/en-us/manage/) met een account dat een globale beheerder in de tenant. Als u probeert te verwijderen van de tenant 'Contoso' waarvoor de initiële standaard domein contoso.onmicrosoft.com, aanmelden met een UPN zoals admin@contoso.onmicrosoft.com.
+1. Aanmelden bij de [Microsoft Store voor bedrijven-beheercentrum](https://businessstore.microsoft.com/manage/) met een account dat een globale beheerder in de tenant. Als u probeert te verwijderen van de tenant 'Contoso' waarvoor de initiële standaard domein contoso.onmicrosoft.com, aanmelden met een UPN zoals admin@contoso.onmicrosoft.com.
 
 2. Ga naar de **beheren** tabblad en selecteer **producten en Services**, kies vervolgens het abonnement dat u wilt annuleren. Nadat u op **annuleren**, vernieuw de pagina.
   

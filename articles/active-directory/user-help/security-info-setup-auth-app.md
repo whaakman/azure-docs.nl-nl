@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: bd62ff03c3158743337ce958eb1bda7c7bd2a7f6
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e7b07ba892f8f904b1b2127fa8e76649eb004388
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348318"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055476"
 ---
 # <a name="set-up-security-info-to-use-an-authenticator-app-preview"></a>Beveiligingsgegevens ingesteld voor het gebruik van een verificator-app (preview)
 
@@ -60,6 +60,9 @@ Om te downloaden en meer informatie over de Microsoft Authenticator-app, Zie [aa
 6. Gebruik de Microsoft Authenticator-app goed te keuren van de melding naar de app activeren.
 
     Je beveiligingsgegevens is bijgewerkt voor het gebruik van de Microsoft Authenticator-app waarmee uw identiteit te verifiëren bij het gebruik van verificatie in twee stappen verificatie of selfservice voor wachtwoordherstel.
+
+    >[!Note]
+    >Als uw organisatie is toegestaan, krijgt u ook een verificatiecode, samen met de Microsoft Authenticator-app-melding. Als u uw standaardmethode voor de code maken wilt, volgt u de instructies in [je beveiligingsgegevens beheren](security-info-setup-auth-app.md).
 
 ## <a name="additional-security-info-options"></a>Opties voor extra beveiliging info
 

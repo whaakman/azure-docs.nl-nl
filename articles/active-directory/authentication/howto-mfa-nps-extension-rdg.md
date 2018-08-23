@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e22fedda4861e68f2318aff89bc3fe5a15cb6ede
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6348a6d003aa3efcd1b9c45e61438e0ac4b4c8d5
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160100"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42061410"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>De infrastructuur van uw extern bureaublad-Gateway met behulp van de extensie voor Network Policy Server (NPS) en Azure AD integreren
 
@@ -175,12 +175,12 @@ Verbinding met extern bureaublad-autorisatiebeleid (RD CAP's) worden de vereiste
 
   ![Externe bureaubladservices](./media/howto-mfa-nps-extension-rdg/image8.png)
 
-3. Met de rechtermuisknop in de RD-Gateway-Manager  **\[servernaam\] (lokaal)**, en klikt u op **eigenschappen**.
+3. In de RD-gatewaybeheer met de rechtermuisknop op  **\[servernaam\] (lokaal)**, en klikt u op **eigenschappen**.
 
   ![Servernaam](./media/howto-mfa-nps-extension-rdg/image9.png)
 
 4. Selecteer in het dialoogvenster Eigenschappen van de **RD CAP Store** tabblad.
-5. Selecteer op het tabblad RD CAP Store **centrale Server waarop NPS wordt uitgevoerd**. 
+5. Selecteer op het tabblad RD CAP Store **centrale server waarop NPS wordt uitgevoerd**. 
 6. In de **Voer een naam of IP-adres voor de server met NPS** veld, typt u het IP-adres of de naam van de server waarop u de NPS-extensie geïnstalleerd.
 
   ![Voer de naam of IP-adres](./media/howto-mfa-nps-extension-rdg/image10.png)
@@ -226,7 +226,7 @@ Verificatie in twee stappen uitvoeren om te controleren of er voldoende tijd voo
 Standaard, dat bij het configureren van de RD-Gateway met een centrale beleidsarchief voor Verbindingsautorisatiebeleid, de RD-Gateway is geconfigureerd voor het doorsturen van KAPJE aanvragen naar de NPS-server. De NPS-server met de Azure MFA-extensie is geïnstalleerd, verwerkt de RADIUS-toegangsaanvraag. De volgende stappen laten zien hoe om te controleren of het standaardbeleid voor verbinding. 
 
 1. Op de RD-Gateway in de NPS (lokaal)-console, vouw **beleid**, en selecteer **beleid voor verbindingsaanvragen**.
-2. Met de rechtermuisknop op **verbinding beleid**, en dubbelklik op **TS GATEWAY-AUTORISATIEBELEID**.
+2. Dubbelklik op **TS GATEWAY-AUTORISATIEBELEID**.
 3. In de **TS GATEWAY-AUTORISATIEBELEID eigenschappen** in het dialoogvenster, klikt u op de **instellingen** tabblad.
 4. Op **instellingen** klikt u op tabblad onder de verbindingsaanvraag **verificatie**. RADIUS-client is geconfigureerd om aanvragen doorsturen voor verificatie.
 
@@ -266,8 +266,8 @@ Extern bureaublad-Gateway moet worden geconfigureerd als een RADIUS-client naar 
 ### <a name="configure-network-policy"></a>Beleid voor netwerken configureren
 Intrekken dat de NPS-server met de Azure MFA-extensie het aangewezen centrale beleidsarchief voor de verbinding autorisatie beleid (CAP is). Daarom moet u voor het implementeren van een LIMIET op de NPS-server om geldige verbindingen aanvragen te autoriseren.  
 
-1. Vouw in de NPS (lokaal)-console **beleid**, en klikt u op **netwerkbeleid**.
-2. Met de rechtermuisknop op **verbindingen met andere servers voor clienttoegang**, en klikt u op **Dupliceerbeleid**. 
+1. Open de console NPS (lokaal) op de NPS-Server uit, vouw **beleid**, en klikt u op **netwerkbeleid**.
+2. Met de rechtermuisknop op **verbindingen met andere servers voor clienttoegang**, en klikt u op **beleid dupliceren**. 
 
  ![Dupliceerbeleid](./media/howto-mfa-nps-extension-rdg/image19.png)
 

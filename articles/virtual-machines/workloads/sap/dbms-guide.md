@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2caa9a5137edd4e012adf704c01dc5c470e1bb51
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f6b0ea7479910f7026974e37f8c05099453c0b26
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972441"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42058446"
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Azure virtuele Machines DBMS-implementatie voor SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1161,7 +1161,7 @@ De installatie en het gebruik van SRS werkt ook functioneel in een virtuele mach
 As-omgeving HADR via SAP replicatie-Server wordt op dit moment niet ondersteund. Het kan worden getest met en die zijn uitgebracht voor Microsoft Azure-platform in de toekomst.
 
 ## <a name="specifics-to-oracle-database-on-windows"></a>Specifieke met Oracle-Database op Windows-instellingen
-Oracle-software wordt ondersteund door Oracle worden uitgevoerd op Microsoft Windows Hyper-V en Azure. Raadpleeg voor meer informatie over de algemene ondersteuning van Windows Hyper-V en Azure: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle-software wordt ondersteund door Oracle worden uitgevoerd op Microsoft Windows Hyper-V en Azure. 
 
 Na de algemene ondersteuning is ook het specifieke scenario aan SAP-toepassingen gebruik te maken van Oracle-Databases ondersteund. Details zijn met de naam in dit gedeelte van het document.
 
@@ -1199,7 +1199,7 @@ Oracle Data Guard wordt ondersteund voor hoge beschikbaarheid en noodherstel. Me
 Andere algemene onderdelen zoals Beschikbaarheidssets van Azure of SAP bewaking toepassen zoals beschreven in de eerste drie hoofdstukken van dit document voor implementaties van virtuele machines met de Oracle-Database.
 
 ## <a name="specifics-to-oracle-database-on-oracle-linux"></a>Specifieke informatie met Oracle-Database voor Oracle Linux
-Oracle-software wordt ondersteund door Oracle worden uitgevoerd op Microsoft Windows Hyper-V en Azure. Raadpleeg voor meer informatie over de algemene ondersteuning van Windows Hyper-V en Azure: <https://blogs.oracle.com/cloud/entry/oracle_and_microsoft_join_forces> 
+Oracle-software wordt ondersteund door Oracle worden uitgevoerd op Microsoft Windows Hyper-V en Azure. 
 
 Na de algemene ondersteuning is ook het specifieke scenario aan SAP-toepassingen gebruik te maken van Oracle-Databases ondersteund. Details zijn met de naam in dit gedeelte van het document.
 

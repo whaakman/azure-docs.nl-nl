@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: deguhath
-ms.openlocfilehash: 4c368c3f06347b1164731d056a7341bdabb759b4
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: b368bf76516b0b6f87ad8ff57ca886a44b71926c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34837341"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42057593"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Het Team Data Science Process in de praktijk - met behulp van een Azure HDInsight Hadoop-Cluster op een gegevensset van 1 TB
 
@@ -64,7 +64,7 @@ Twee voorbeeld voorspelling problemen worden in dit scenario behandeld:
 
 Instellen van uw Azure Data Science-omgeving voor het bouwen van voorspellende analyseoplossingen met HDInsight-clusters in drie stappen:
 
-1. [Maak een opslagaccount](../../storage/common/storage-create-storage-account.md): dit storage-account wordt gebruikt voor het opslaan van gegevens in Azure Blob Storage. De gegevens die worden gebruikt in HDInsight-clusters wordt hier opgeslagen.
+1. [Maak een opslagaccount](../../storage/common/storage-quickstart-create-account.md): dit storage-account wordt gebruikt voor het opslaan van gegevens in Azure Blob Storage. De gegevens die worden gebruikt in HDInsight-clusters wordt hier opgeslagen.
 2. [Azure HDInsight Hadoop-Clusters aanpassen voor Data Science](customize-hadoop-cluster.md): deze stap maakt u een Azure HDInsight Hadoop-cluster met 64-bits Anaconda Python 2.7 geïnstalleerd op alle knooppunten. Er zijn twee belangrijke stappen (in dit onderwerp beschreven) om uit te voeren bij het aanpassen van het HDInsight-cluster.
    
    * Het opslagaccount dat in stap 1 met uw HDInsight-cluster gemaakt wanneer deze is gemaakt, moet u koppelen. Dit opslagaccount wordt gebruikt voor toegang tot gegevens die kunnen worden verwerkt binnen het cluster.

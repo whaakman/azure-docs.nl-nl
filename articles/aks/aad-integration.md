@@ -1,36 +1,36 @@
 ---
 title: Azure Active Directory integreren met Azure Kubernetes Service
-description: Het maken van Azure Active Directory-functionaliteit Azure Kubernetes Service-clusters.
+description: Over het maken van Azure Active Directory-functionaliteit Azure Kubernetes Service (AKS)-clusters.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 6/17/2018
+ms.date: 8/9/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 2c4e0f8c31299644c912a70fc91bbdfa6da6795b
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 9bbf7ad201a70a315b75ed5e1f35671e4a5604fc
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579024"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42054310"
 ---
-# <a name="integrate-azure-active-directory-with-aks---preview"></a>Azure Active Directory integreren met AKS - Preview
+# <a name="integrate-azure-active-directory-with-aks"></a>Azure Active Directory integreren met AKS
 
-Azure Kubernetes Service (AKS) kunnen worden geconfigureerd voor het gebruik van Azure Active Directory voor gebruikersverificatie. In deze configuratie kunt u zich aanmelden bij een Azure Kubernetes Service-cluster met behulp van uw Azure Active Directory-verificatietoken. Bovendien, clusterbeheerders kunnen Kubernetes op rollen gebaseerd toegangsbeheer configureren op basis van lidmaatschap van een gebruikers-id of de map.
+Azure Kubernetes Service (AKS) kunnen worden geconfigureerd voor het gebruik van Azure Active Directory (AD) voor verificatie van de gebruiker. In deze configuratie kunt u zich aanmelden bij een AKS-cluster met behulp van uw Azure Active Directory-verificatietoken. Bovendien, clusterbeheerders kunnen Kubernetes op rollen gebaseerd toegangsbeheer (RBAC) op basis van lidmaatschap van een gebruikers-id of de map configureren.
 
-In dit document worden het maken van alle benodigde vereisten voor AKS en Azure AD, het implementeren van een Azure AD-functionaliteit-cluster en het maken van een eenvoudige RBAC-rol in het AKS-cluster. Houd er rekening mee dat bestaande RBAC ingeschakeld AKS-clusters op dit moment kunnen niet worden bijgewerkt voor RBAC gebruiken.
+Dit artikel leest u hoe u implementeert de vereisten voor AKS en Azure AD en over het implementeren van een Azure AD-functionaliteit-cluster en een eenvoudige RBAC-rol in het AKS-cluster maken.
 
-> [!IMPORTANT]
-> Azure Kubernetes Service (AKS) RBAC en Azure AD-integratie is momenteel in **preview**. Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord gaat met de [aanvullende gebruiksvoorwaarden](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Sommige aspecten van deze functie worden mogelijk nog gewijzigd voordat de functie algemeen beschikbaar wordt.
->
+Er gelden de volgende beperkingen:
+
+- Bestaande RBAC ingeschakeld AKS clusters kunnen niet op dit moment worden bijgewerkt voor RBAC gebruiken.
+- *Gast* gebruikers in Azure AD, bijvoorbeeld als u van een federatieve aanmelding vanuit een andere map gebruikmaakt, worden niet ondersteund.
 
 ## <a name="authentication-details"></a>Verificatiegegevens
 
-Azure AD-verificatie wordt geleverd met Azure Kubernetes-clusters met OpenID Connect. OpenID Connect is een identiteitslaag is gebaseerd op het OAuth 2.0-protocol. Meer informatie over het OpenID Connect vindt u de [Open ID connect documentatie][open-id-connect].
+Azure AD-verificatie wordt geleverd met AKS-clusters met OpenID Connect. OpenID Connect is een identiteitslaag is gebaseerd op het OAuth 2.0-protocol. Zie voor meer informatie over het OpenID Connect, de [Open ID connect documentatie][open-id-connect].
 
-Uit binnen het Kubernetes-cluster, wordt Webhook-tokenverificatie gebruikt om te controleren of de verificatietokens. Webhook-tokenverificatie is geconfigureerd en beheerd als onderdeel van het AKS-cluster. Meer informatie over Webhook-token verificatie kunt u vinden in de [webhook verificatie documentatie][kubernetes-webhook].
+Uit binnen het Kubernetes-cluster, wordt Webhook-tokenverificatie gebruikt om te controleren of de verificatietokens. Webhook-tokenverificatie is geconfigureerd en beheerd als onderdeel van het AKS-cluster. Zie voor meer informatie over Webhook-tokenverificatie de [webhook verificatie documentatie][kubernetes-webhook].
 
 > [!NOTE]
 > Wanneer u Azure AD voor de AKS-verificatie configureert, worden twee Azure AD-toepassing geconfigureerd. Deze bewerking moet worden voltooid door de beheerder van de Azure-tenant.
@@ -72,6 +72,10 @@ De eerste Azure AD-toepassing wordt gebruikt om op te halen van een groepslidmaa
 7. Selecteer **gedaan**, kiest u *Microsoft Graph* uit de lijst met API's, selecteert u vervolgens **machtigingen verlenen**. Deze stap mislukt als het huidige account niet een tenantbeheerder is.
 
   ![Graph-machtigingen van de toepassing instellen](media/aad-integration/grant-permissions.png)
+
+  Wanneer de machtigingen hebt verleend, wordt het volgende bericht weergegeven in de portal:
+
+  ![Kennisgeving van geslaagde machtigingen](media/aad-integration/permissions-granted.png)
 
 8. Ga terug naar de toepassing en noteer de **toepassings-ID**. Wanneer u een Azure AD-functionaliteit AKS-cluster implementeert, deze waarde wordt aangeduid als de `Server application ID`.
 
@@ -131,7 +135,7 @@ az aks create --resource-group myAKSCluster --name myAKSCluster --generate-ssh-k
 
 ## <a name="create-rbac-binding"></a>RBAC-binding maken
 
-Voordat u een Azure Active Directory-account kan worden gebruikt met het AKS-cluster, moet een binding van de rol of een cluster rol binding worden gemaakt.
+Voordat u een Azure Active Directory-account kan worden gebruikt met het AKS-cluster, moet een binding van de rol of een cluster rol binding worden gemaakt. *Rollen* definiëren de machtigingen te verlenen en *bindingen* toepassen op de gewenste gebruikers. Deze toewijzingen kunnen worden toegepast op een bepaalde naamruimte, of in het hele cluster. Zie voor meer informatie, [met behulp van RBAC-autorisatie][rbac-authorization].
 
 Gebruik eerst de [az aks get-credentials] [ az-aks-get-credentials] opdracht met de `--admin` argument voor aanmelding bij het cluster met beheerderstoegang.
 
@@ -139,7 +143,7 @@ Gebruik eerst de [az aks get-credentials] [ az-aks-get-credentials] opdracht met
 az aks get-credentials --resource-group myAKSCluster --name myAKSCluster --admin
 ```
 
-Gebruik vervolgens de volgende manifest te maken van een ClusterRoleBinding voor een Azure AD-account. Werk de naam van de gebruiker met een van uw Azure AD-tenant. In dit voorbeeld geeft de account volledige toegang tot alle naamruimten van het cluster.
+Gebruik vervolgens de volgende manifest te maken van een ClusterRoleBinding voor een Azure AD-account. Werk de naam van de gebruiker met een van uw Azure AD-tenant. In dit voorbeeld geeft de account volledige toegang tot alle naamruimten van het cluster:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -156,7 +160,7 @@ subjects:
   name: "user@contoso.com"
 ```
 
-De binding van een rol kan ook worden gemaakt voor alle leden van een Azure AD-groep. Azure AD-groepen zijn opgegeven met behulp van de object-ID.
+De binding van een rol kan ook worden gemaakt voor alle leden van een Azure AD-groep. Azure AD-groepen zijn opgegeven met behulp van het groepsobject-ID, zoals wordt weergegeven in het volgende voorbeeld:
 
  ```yaml
 apiVersion: rbac.authorization.k8s.io/v1

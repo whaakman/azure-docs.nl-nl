@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1897f2c5d532c030b2711a35eabeefd889f560c8
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 4f3ffb3c769adeabd1edc10ce064653f7b336330
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264992"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42054509"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Veelgestelde vragen over Azure Active Directory Connect
 
@@ -65,7 +65,7 @@ Dingen om eenvoudig te houden, is het raadzaam dat gebruikers die Azure AD Conne
 Alle netwerksoftware, fysieke apparaten of iets anders waardoor de maximumtijd die verbindingen kunnen open blijven moet een drempel van ten minste vijf minuten (300 seconden) gebruiken voor verbinding tussen de server waarop de Azure AD Connect-client is geïnstalleerd en Azure Active Directory. Deze aanbeveling geldt ook voor alle eerder uitgebrachte Microsoft Identity synchronisatie-hulpprogramma's.
 
 **V: zijn enkelvoudige domeinen (niveaudomeinen) ondersteund?**  
-Terwijl het wordt aangeraden op basis van deze configuratie van het netwerk ([Zie artikel](https://support.microsoft.com/en-us/help/2269810/microsoft-support-for-single-label-domains)), met behulp van Azure AD Connect-synchronisatie met een domein met enkelvoudig label wordt ondersteund, zolang de netwerkconfiguratie voor het domein op één niveau werkt correct.
+Terwijl het wordt aangeraden op basis van deze configuratie van het netwerk ([Zie artikel](https://support.microsoft.com/help/2269810/microsoft-support-for-single-label-domains)), met behulp van Azure AD Connect-synchronisatie met een domein met enkelvoudig label wordt ondersteund, zolang de netwerkconfiguratie voor het domein op één niveau werkt correct.
 
 **V: worden Forests met niet-aaneengesloten AD-domeinen ondersteund?**  
 Nee, Azure AD Connect biedt geen ondersteuning voor on-premises forests met niet-aaneengesloten naamruimten.
@@ -91,8 +91,8 @@ Nee. De synchronisatie-engine kan geen verbinding met de SQL database-instantie 
 **V: waarom niet het kenmerk userPrincipalName (UPN) in Azure AD overeenkomt met de on-premises UPN?**  
 Voor meer informatie, Zie de volgende artikelen:
 
-* [Gebruikersnamen in Office 365, Azure of Intune komen niet overeen met de on-premises UPN of alternatieve aanmeldings-ID](https://support.microsoft.com/en-us/kb/2523192)
-* [Wijzigingen worden niet gesynchroniseerd met het hulpprogramma Azure Active Directory-synchronisatie nadat u de UPN van een gebruikersaccount voor het gebruik van een ander federatief domein wijzigen](https://support.microsoft.com/en-us/kb/2669550)
+* [Gebruikersnamen in Office 365, Azure of Intune komen niet overeen met de on-premises UPN of alternatieve aanmeldings-ID](https://support.microsoft.com/kb/2523192)
+* [Wijzigingen worden niet gesynchroniseerd met het hulpprogramma Azure Active Directory-synchronisatie nadat u de UPN van een gebruikersaccount voor het gebruik van een ander federatief domein wijzigen](https://support.microsoft.com/kb/2669550)
 
 U kunt ook configureren met Azure AD zodat de synchronisatie-engine om bij te werken van de UPN, zoals beschreven in [functies van Azure AD Connect sync service](active-directory-aadconnectsyncservice-features.md).
 
@@ -134,11 +134,11 @@ De PowerShell-script uit te voeren [download het script](https://aka.ms/repairaa
 
 Als u handmatig bijwerken, moet u downloaden en uitvoeren van de meest recente versie van het bestand AADConnect.msi.
  
--  Als uw huidige versie ouder dan 1.1.750.0 is, [downloaden en te upgraden naar de nieuwste versie](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+-  Als uw huidige versie ouder dan 1.1.750.0 is, [downloaden en te upgraden naar de nieuwste versie](https://www.microsoft.com/download/details.aspx?id=47594).
 - Als uw Azure AD Connect-versie 1.1.750.0 is of hoger, er geen verdere actie vereist is. U gebruikt al de versie die de automatische upgrade-oplossing bevat. 
 
 **V: ik heb ontvangen een e-mailbericht waarin staat dat de upgrade naar de meest recente versie opnieuw inschakelen Automatische upgrade. Ik gebruik versie 1.1.654.0. Heb ik nodig om bij te werken?**  
-Ja, moet u bijwerken naar versie 1.1.750.0 of later opnieuw inschakelen Automatische upgrade. [Downloaden en te upgraden naar de nieuwste versie](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+Ja, moet u bijwerken naar versie 1.1.750.0 of later opnieuw inschakelen Automatische upgrade. [Downloaden en te upgraden naar de nieuwste versie](https://www.microsoft.com/download/details.aspx?id=47594).
 
 **V: ik heb ontvangen een e-mailbericht waarin staat dat de upgrade naar de meest recente versie opnieuw inschakelen Automatische upgrade. Als ik PowerShell gebruikt hebt om in te schakelen van Automatische upgrade, nog steeds moet ik de meest recente versie installeren?**  
 Ja, u toch wilt bijwerken naar versie 1.1.750.0 of hoger. Inschakelen van de service automatisch upgraden met PowerShell, wordt de automatische upgrade-probleem gevonden in versies vóór 1.1.750.0 niet opgelost.
@@ -190,7 +190,7 @@ Als u hulp nodig upgraden naar een nieuwere versie van Azure AD Connect hebt, op
 ## <a name="troubleshooting"></a>Problemen oplossen
 **V: hoe kan ik hulp met Azure AD Connect?**
 
-[Zoeken naar de Microsoft Knowledge Base (KB)](https://www.microsoft.com/en-us/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
+[Zoeken naar de Microsoft Knowledge Base (KB)](https://www.microsoft.com/Search/result.aspx?q=azure%20active%20directory%20connect&form=mssupport)
 
 * Zoeken naar de KB voor technische oplossingen voor veelvoorkomende break-fix-problemen over ondersteuning voor Azure AD Connect.
 

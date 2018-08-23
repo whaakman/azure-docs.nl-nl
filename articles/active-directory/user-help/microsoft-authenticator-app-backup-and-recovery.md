@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 29226f0645a772ffe02e378c9b4df0a87909731a
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 39ec7c979294860967deb3307f5d87112b762257
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358117"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057265"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Back-up en herstel van accountreferenties met de Microsoft Authenticator-app
 
@@ -100,9 +100,7 @@ Er zijn enkele redenen waarom de back-up mogelijk niet beschikbaar:
 Nu dat u hebt een back-up en referenties van uw account op het nieuwe apparaat kunt herstellen, kunt u echter ook doorgaan met de Microsoft Authenticator-app om uw identiteit te verifiëren.
 
 ## <a name="related-topics"></a>Verwante onderwerpen
-- [Aan de slag met de Microsoft Authenticator-app](microsoft-authenticator-app-how-to.md)  
-
-- [Aanmelden via uw telefoon](microsoft-authenticator-app-phone-signin-faq.md)
+- [Aan de slag gaan met de Microsoft Authenticator-app](microsoft-authenticator-app-how-to.md)  
 
 - [Veelgestelde vragen over Microsoft Authenticator-app](microsoft-authenticator-app-faq.md)
 

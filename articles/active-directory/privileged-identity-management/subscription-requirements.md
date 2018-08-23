@@ -16,12 +16,12 @@ ms.component: pim
 ms.date: 06/01/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2fe80f01faae89256c96e23944025d3bd0c55811
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: dbe4efa57a7c4c31b2bdca84665eef8179564a8f
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617187"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617066"
 ---
 # <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Vereisten voor het abonnement van Azure Active Directory Privileged Identity Management
 
@@ -42,7 +42,7 @@ Met deze opdracht haalt een lijst van de abonnementen in uw tenant. Als er geen 
 
 Als deze opdracht retourneert een regel in welke SkuPartNumber is 'AAD_PREMIUM_P2' of 'EMSPREMIUM' en IsTrial 'True' is, dit geeft aan dat een Azure AD Premium P2-proefversie is aanwezig in de tenant.  Als de status van het abonnement is niet ingeschakeld en u hebt geen een Azure AD Premium P2- of EMS E5-abonnement kopen, moet klikt u vervolgens u een Azure AD Premium P2-abonnement of aanschaffen EMS E5-abonnement om door te gaan met behulp van Azure AD Privileged Identity Management.
 
-Azure AD Premium P2 is beschikbaar via een [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), wordt de [Open Volume License-programma](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx), en de [programma Cloud Solution Providers](https://partner.microsoft.com/en-US/cloud-solution-provider). Azure en Office 365-abonnees kunnen ook online Azure AD Premium P2 aanschaffen.  Meer informatie over prijzen van Azure AD Premium en hoe u online bestellen kan worden gevonden op [prijzen Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure AD Premium P2 is beschikbaar via een [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx), wordt de [Open Volume License-programma](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx), en de [programma Cloud Solution Providers](https://partner.microsoft.com/cloud-solution-provider). Azure en Office 365-abonnees kunnen ook online Azure AD Premium P2 aanschaffen.  Meer informatie over prijzen van Azure AD Premium en hoe u online bestellen kan worden gevonden op [prijzen Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="azure-ad-privileged-identity-management-is-not-available-in-tenant"></a>Azure AD Privileged Identity Management is niet beschikbaar in de tenant
 

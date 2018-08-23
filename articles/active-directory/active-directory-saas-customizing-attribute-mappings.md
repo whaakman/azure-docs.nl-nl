@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 366b89d3db0db634e239ac2d99188c7ea0444c13
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: accc2e994e7ea361315d5dfb33b257e58410490c
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365189"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42057258"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Kenmerktoewijzingen voor Gebruikersinrichting voor SaaS-toepassingen in Azure Active Directory aanpassen
 Microsoft Azure AD biedt ondersteuning voor het inrichten van gebruikers voor SaaS-toepassingen van derden zoals Salesforce, Google Apps en anderen. Als u hebt met het inrichten van gebruikers voor een SaaS-toepassing van derden ingeschakeld, bepaalt de Azure-portal de kenmerkwaarden in de vorm van kenmerk-toewijzingen.
@@ -121,7 +121,7 @@ Tijdens het bewerken van de lijst met ondersteunde kenmerken, vindt u de volgend
 * **Meerdere waarden?** -Controleren of het kenmerk ondersteunt meerdere waarden.
 * **Hoofdlettergevoelig?** -Al dan niet de waarden voor kenmerken worden geëvalueerd in een hoofdlettergevoelige manier.
 * **API-expressie** -niet gebruikt, tenzij dit niet doet, in de documentatie voor een specifieke inrichting connector (zoals Workday).
-* **Objectkenmerk waarnaar wordt verwezen** : als dit een kenmerk van het type referentie, is wordt dit menu kunt u de tabel en het kenmerk in de doeltoepassing waarin de waarde die is gekoppeld aan het kenmerk selecteren. Als u een kenmerk met de naam 'Afdeling' waarvan u de opgeslagen waarde verwijst naar een object in een afzonderlijke "Diensten"-tabel hebt, zou u bijvoorbeeld 'Departments.Name' selecteren. Houd er rekening mee dat de referentietabellen en de primaire id-velden die worden ondersteund voor een bepaalde toepassing vooraf zijn geconfigureerd en op dit moment kunnen niet worden bewerkt met behulp van de Azure portal, maar kunnen worden bewerkt met behulp van de [Graph API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
+* **Objectkenmerk waarnaar wordt verwezen** : als dit een kenmerk van het type referentie, is wordt dit menu kunt u de tabel en het kenmerk in de doeltoepassing waarin de waarde die is gekoppeld aan het kenmerk selecteren. Als u een kenmerk met de naam 'Afdeling' waarvan u de opgeslagen waarde verwijst naar een object in een afzonderlijke "Diensten"-tabel hebt, zou u bijvoorbeeld 'Departments.Name' selecteren. Houd er rekening mee dat de referentietabellen en de primaire id-velden die worden ondersteund voor een bepaalde toepassing vooraf zijn geconfigureerd en op dit moment kunnen niet worden bewerkt met behulp van de Azure portal, maar kunnen worden bewerkt met behulp van de [Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes).
 
 Als u wilt een nieuw kenmerk toevoegen, Ga naar het einde van de lijst met ondersteunde kenmerken, vul de velden dan het gebruik van de opgegeven invoer en selecteer **kenmerk toevoegen**. Selecteer **opslaan** wanneer u klaar bent kenmerken toe te voegen. Vervolgens moet u laden van de **Provisioning** tabblad voor de nieuwe kenmerken beschikbaar in de editor kenmerk-toewijzing.
 

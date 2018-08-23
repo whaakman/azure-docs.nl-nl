@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/28/2018
 ms.author: liydu
-ms.openlocfilehash: acfff95afacfa1e5c75a799ba84d64cfa0579f66
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: cd67e612dd020ba600e33ac8baf77bc094d8afd3
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592088"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42055482"
 ---
 # <a name="use-iot-devkit-az3166-with-azure-functions-and-cognitive-services-to-make-a-language-translator"></a>IoT DevKit AZ3166 met Azure Functions en Cognitive Services gebruiken om te maken van een vertaler
 
@@ -122,10 +122,6 @@ Op het scherm van het resultaat vertaling kunt u het volgende doen:
 ![mini-solution-voice-to-tweet-diagram](media/iot-hub-arduino-iot-devkit-az3166-translator/diagram.png)
 
 De Arduino schets records uw stem vervolgens een HTTP post vragen om een Azure-functie te activeren. De Azure-functie roept de spraakomzetting cognitive service API voor het uitvoeren van de vertaling. Nadat de Azure-functie de vertaalde tekst haalt, verzendt deze een C2D (cloud-naar-apparaat)-bericht naar het apparaat. De vertaling wordt vervolgens weergegeven op het scherm.
-
-## <a name="change-device-id"></a>Apparaat-ID wijzigen
-
-De geregistreerd in Azure IoT Hub apparaat-ID is **AZ3166**. Zie voor het wijzigen van de apparaat-ID, hoe u [aanpassen van de IoT-apparaat-ID voor de DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/customize-device-id/).
 
 ## <a name="problems-and-feedback"></a>Problemen en feedback
 

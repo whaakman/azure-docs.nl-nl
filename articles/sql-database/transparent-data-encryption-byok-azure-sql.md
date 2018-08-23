@@ -17,16 +17,16 @@ ms.topic: conceptual
 ms.date: 06/28/2018
 ms.author: aliceku
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: 4a2f751c55a3bd386c6a984a3b5a16a24166f90c
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: d3e8d34599600512a1d9d0308c0d6014691bf519
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043785"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442719"
 ---
 # <a name="transparent-data-encryption-with-bring-your-own-key-support-for-azure-sql-database-and-data-warehouse"></a>De Transparent Data Encryption met Bring Your Own Key-ondersteuning voor Azure SQL Database en Data Warehouse
 
-Bring Your Own Key (BYOK) ondersteuning voor [Transparent Data Encryption (TDE)] ((https://docs.microsoft.com/sql/relational-databases/security/transparent-data-encryption) kunt u voor het versleutelen van de Database Gegevensversleutelingsleutel (DEK) met een asymmetrische sleutel met de naam TDE-beveiliging.  De TDE-beveiliging worden opgeslagen onder het besturingselement in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), van het Azure-cloud-gebaseerde externe sleutelbeheersysteem. Azure Key Vault is de eerste service voor sleutelbeheer, waarbij TDE ondersteuning voor BYOK is geïntegreerd. De DEK TDE, die is opgeslagen op de opstartpagina van een database wordt versleuteld en ontsleuteld door de TDE-beveiliging. De TDE-beveiliging worden opgeslagen in Azure Key Vault en nooit verlaat de key vault. Als de server toegang tot de key vault is ingetrokken, kunnen een database kan niet worden ontsleuteld en lezen in het geheugen.  De TDE-beveiliging is ingesteld op het niveau van de logische server en wordt overgenomen door alle databases die zijn gekoppeld aan die server. 
+Bring Your Own Key (BYOK) ondersteuning voor [transparante gegevensversleuteling (TDE)](https://docs.microsoft.com/sql/relational-databases/security/transparent-data-encryption) kunt u voor het versleutelen van de Database Gegevensversleutelingsleutel (DEK) met een asymmetrische sleutel met de naam TDE-beveiliging.  De TDE-beveiliging worden opgeslagen onder het besturingselement in [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), van het Azure-cloud-gebaseerde externe sleutelbeheersysteem. Azure Key Vault is de eerste service voor sleutelbeheer, waarbij TDE ondersteuning voor BYOK is geïntegreerd. De DEK TDE, die is opgeslagen op de opstartpagina van een database wordt versleuteld en ontsleuteld door de TDE-beveiliging. De TDE-beveiliging worden opgeslagen in Azure Key Vault en nooit verlaat de key vault. Als de server toegang tot de key vault is ingetrokken, kunnen een database kan niet worden ontsleuteld en lezen in het geheugen.  De TDE-beveiliging is ingesteld op het niveau van de logische server en wordt overgenomen door alle databases die zijn gekoppeld aan die server. 
 
 Met BYOK-ondersteuning, gebruikers kunnen nu essentiële beheertaken, met inbegrip van sleutelrotaties beheren, key vault-machtigingen, verwijderen van sleutels en inschakelen van controle/rapportage over alle TDE beveiligingstoepassingen met behulp van Azure Key Vault-functionaliteit. Key Vault biedt centraal beheer, maakt gebruik van nauw bewaakte hardware security modules (HSM's), en kunt scheiding van functies tussen het beheer van sleutels en gegevens om te voldoen aan regelgeving.  
 

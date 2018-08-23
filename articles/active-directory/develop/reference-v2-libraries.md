@@ -17,12 +17,12 @@ ms.date: 04/13/2018
 ms.author: celested
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 1450cffca7a4cfa57856c75cdcc9e106958ea043
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: f3ac6050ca73f96facd621823dc4bad413b139c7
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601673"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42058121"
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Azure Active Directory v2.0-verificatiebibliotheken
 
@@ -44,7 +44,7 @@ Azure AD v2.0-eindpunt werkt met twee typen bibliotheken:
 
 ## <a name="library-support"></a>Ondersteuning voor clientbibliotheek
 
-Omdat u een standards-compatibele bibliotheek kiezen kunt wanneer u het v2.0-eindpunt is het belangrijk te weten waar u voor ondersteuning. Neem contact op met de eigenaar van de bibliotheek voor problemen en functieaanvragen in de code van de bibliotheek. Neem contact op met Microsoft voor problemen en functieaanvragen in de implementatie van het servicezijde-protocol. [Een functieaanvraag bestand](https://feedback.azure.com/forums/169401-azure-active-directory) voor aanvullende functies u graag zou willen zien in het protocol. [Maak een ondersteuningsaanvraag](https://docs.microsoft.com/en-us/azure/azure-supportability/how-to-create-azure-support-request) als u een probleem vindt waarbij de Azure AD v2.0-eindpunt is niet compatibel zijn met OAuth 2.0 of OpenID Connect 1.0.
+Omdat u een standards-compatibele bibliotheek kiezen kunt wanneer u het v2.0-eindpunt is het belangrijk te weten waar u voor ondersteuning. Neem contact op met de eigenaar van de bibliotheek voor problemen en functieaanvragen in de code van de bibliotheek. Neem contact op met Microsoft voor problemen en functieaanvragen in de implementatie van het servicezijde-protocol. [Een functieaanvraag bestand](https://feedback.azure.com/forums/169401-azure-active-directory) voor aanvullende functies u graag zou willen zien in het protocol. [Maak een ondersteuningsaanvraag](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) als u een probleem vindt waarbij de Azure AD v2.0-eindpunt is niet compatibel zijn met OAuth 2.0 of OpenID Connect 1.0.
 
 Bibliotheken zijn er twee categorieën voor ondersteuning:
 

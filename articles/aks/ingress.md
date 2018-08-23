@@ -6,15 +6,15 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 08/17/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c65cfec41c2002fd4d4ff27ea74daf0bb4246b5f
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: b5adf161c99ebe6d7b8b2d7b0c7b5b73c67bec02
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145594"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42059163"
 ---
 # <a name="deploy-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Een controller voor HTTPS binnenkomend verkeer op Azure Kubernetes Service (AKS) implementeren
 
@@ -51,6 +51,40 @@ eager-crab-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none> 
 Nog zijn geen binnenkomende regels gemaakt. Als u naar het openbare IP-adres bladert, wordt de NGINX-ingangscontroller standaard 404-pagina weergegeven, zoals wordt weergegeven in het volgende voorbeeld:
 
 ![Standaard NGINX-back-end](media/ingress/default-back-end.png)
+
+### <a name="use-an-existing-static-public-ip-address"></a>Gebruik een bestaande statische openbare IP-adres
+
+In de vorige `helm install` stap, de NGINX-controller voor binnenkomend verkeer is gemaakt met een nieuwe, dynamische openbare IP-adrestoewijzing. Een algemene configuratievereiste is het bieden van een bestaande *statische* openbaar IP-adres. Deze aanpak kunt u bestaande DNS-records en configuraties van het netwerk op een consistente manier gebruiken. De volgende optionele stappen kunnen worden gebruikt in plaats van de vorige `helm install` opdracht waaraan een dynamisch openbaar IP-adres voor u is toegewezen.
+
+Als u maken van een statisch openbaar IP-adres wilt, de eerste keer de naam van de resourcegroep van het AKS-cluster met de [az aks show] [ az-aks-show] opdracht:
+
+```azurecli
+az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+```
+
+Maak vervolgens een openbaar IP-adres met de *statische* voor het gebruik van een toewijzing-methode de [az network public-ip maken] [ az-network-public-ip-create] opdracht. Het volgende voorbeeld wordt een openbaar IP-adres met de naam *myAKSPublicIP* resourcegroep in de vorige stap hebt verkregen in de AKS-cluster:
+
+```azurecli
+az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
+```
+
+Nu implementeren de *nginx-inkomend* grafiek met Helm. Voeg de `--set controller.service.loadBalancerIP` parameter, en geef uw eigen openbare IP-adres in de vorige stap hebt gemaakt:
+
+```console
+helm install stable/nginx-ingress --namespace kube-system --set controller.service.loadBalancerIP="40.121.63.72"
+```
+
+Wanneer de load balancer-service van Kubernetes voor de controller voor binnenkomend verkeer van NGINX wordt gemaakt, wordt het statische IP-adres toegewezen, zoals wordt weergegeven in de volgende voorbeelduitvoer:
+
+```
+$ kubectl get service -l app=nginx-ingress --namespace kube-system
+
+NAME                                        TYPE           CLUSTER-IP    EXTERNAL-IP    PORT(S)                      AGE
+dinky-panda-nginx-ingress-controller        LoadBalancer   10.0.232.56   40.121.63.72   80:31978/TCP,443:32037/TCP   3m
+dinky-panda-nginx-ingress-default-backend   ClusterIP      10.0.95.248   <none>         80/TCP                       3m
+```
+
+Nogmaals, geen binnenkomende regels zijn gemaakt nog, zodat de NGINX-ingangscontroller standaard 404-pagina wordt weergegeven als u naar het openbare IP-adres bladeren. Ingress regels zijn geconfigureerd in de volgende stappen uit.
 
 ## <a name="configure-a-dns-name"></a>Configureren van een DNS-naam
 
@@ -119,10 +153,10 @@ spec:
     http01: {}
 ```
 
-Gebruik voor het maken van de uitgever van de `kubectl create -f cluster-issuer.yaml` opdracht.
+Gebruik voor het maken van de uitgever van de `kubectl apply -f cluster-issuer.yaml` opdracht.
 
 ```
-$ kubectl create -f cluster-issuer.yaml
+$ kubectl apply -f cluster-issuer.yaml
 
 clusterissuer.certmanager.k8s.io/letsencrypt-staging created
 ```
@@ -153,10 +187,10 @@ spec:
     kind: ClusterIssuer
 ```
 
-Gebruik voor het maken van de certificaatresource de `kubectl create -f certificates.yaml` opdracht.
+Gebruik voor het maken van de certificaatresource de `kubectl apply -f certificates.yaml` opdracht.
 
 ```
-$ kubectl create -f certificates.yaml
+$ kubectl apply -f certificates.yaml
 
 certificate.certmanager.k8s.io/tls-secret created
 ```
@@ -219,10 +253,10 @@ spec:
           servicePort: 80
 ```
 
-Maakt de ingress resource via de `kubectl create -f hello-world-ingress.yaml` opdracht.
+Maakt de ingress resource via de `kubectl apply -f hello-world-ingress.yaml` opdracht.
 
 ```
-$ kubectl create -f hello-world-ingress.yaml
+$ kubectl apply -f hello-world-ingress.yaml
 
 ingress.extensions/hello-world-ingress created
 ```
@@ -267,3 +301,5 @@ In dit artikel bevat enkele externe onderdelen over AKS. Zie voor meer informati
 <!-- LINKS - internal -->
 [use-helm]: kubernetes-helm.md
 [azure-cli-install]: /cli/azure/install-azure-cli
+[az-aks-show]: /cli/azure/aks#az-aks-show
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create

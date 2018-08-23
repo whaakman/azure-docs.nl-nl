@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: 0a5c73728f939fc239f4af79f5f084867856581a
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: dc70a20667db7e59f0fe77ec4d84831cfb7e75a5
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494205"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617215"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-cluster overwegingen voor capaciteitsplanning
 Voor een productie-implementatie is plannen van capaciteit een belangrijke stap. Hier volgen enkele van de artikelen waarmee u rekening moet houden als onderdeel van dit proces.
@@ -77,12 +77,13 @@ De duurzaamheidslaag wordt gebruikt om aan te geven aan het systeem de rechten v
 | Duurzaamheidslaag  | Vereiste minimum aantal VM 's | Ondersteunde VM-SKU 's                                                                  | Updates die u in uw VMSS aanbrengt                               | Updates en onderhoud gestart door Azure                                                              | 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | Goudkleurig             | 5                              | Volledige-node-SKU's die zijn toegewezen aan één klant (bijvoorbeeld L32s, GS5, G5, DS15_v2, D15_v2) | Kan worden uitgesteld totdat goedgekeurd door de Service Fabric-cluster | Gedurende 2 uur per UD waarmee extra tijd voor replica's te herstellen van eerdere fouten kan worden onderbroken |
-| Zilverkleurig           | 5                              | Virtuele machines van één kern of hoger                                                        | Kan worden uitgesteld totdat goedgekeurd door de Service Fabric-cluster | Voor een aanzienlijke tijd actief kan niet worden uitgesteld                                                    |
+| Zilver           | 5                              | Virtuele machines van één kern of hoger                                                        | Kan worden uitgesteld totdat goedgekeurd door de Service Fabric-cluster | Voor een aanzienlijke tijd actief kan niet worden uitgesteld                                                    |
 | Brons           | 1                              | Alle                                                                                | Niet worden door de Service Fabric-cluster vertraagd           | Voor een aanzienlijke tijd actief kan niet worden uitgesteld                                                    |
 
 > [!WARNING]
 > Knooppunttypen met de duurzaamheid Brons verkrijgen _geen bevoegdheden_. Dit betekent dat infrastructuur-taken die invloed hebben op uw staatloze werkbelastingen worden niet worden gestopt of uitgesteld, kan dit gevolgen hebben voor uw workloads. Gebruik alleen Brons voor typen die alleen staatloze werkbelastingen worden uitgevoerd. Voor productieworkloads, Zilver uitgevoerd of hoger wordt aanbevolen. 
->
+
+> Ongeacht eventuele duurzaamheidsniveau [toewijzing is opgeheven](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/deallocate) bewerking op de VM-Schaalset wordt het cluster vernietigen
 
 **Voordelen van het gebruik van Silver- of Gold duurzaamheid niveaus**
  
@@ -142,7 +143,7 @@ Hier is de aanbeveling bij het kiezen van de betrouwbaarheidslaag.
 | --- | --- |
 | 1 |Geef de parameter Betrouwbaarheidslaag geen berekend door het systeem |
 | 3 |Brons |
-| 5 of 6|Zilverkleurig |
+| 5 of 6|Zilver |
 | 7 of 8 |Goudkleurig |
 | 9 en hoger |Platina |
 
@@ -150,7 +151,7 @@ Hier is de aanbeveling bij het kiezen van de betrouwbaarheidslaag.
 
 Hier ziet u de aanwijzingen voor het plannen van de capaciteit van het primaire knooppunt-type:
 
-- **Aantal VM-exemplaren voor het uitvoeren van een productie-werkbelasting in Azure:** moet u een minimale primaire knooppunt type grootte van 5 opgeven. 
+- **Aantal VM-exemplaren voor het uitvoeren van een productie-werkbelasting in Azure:** moet u een minimale primaire knooppunt type grootte van 5 en een laag van Silver van betrouwbaarheid.  
 - **Aantal VM-exemplaren testwerkbelastingen uitvoeren in Azure** kunt u een minimale primaire knooppunt type grootte van 1 of 3 opgeven. Het cluster met één knooppunt wordt uitgevoerd met een speciale configuratie en zijn er dus, opwaartse dat cluster wordt niet ondersteund. Het cluster met één knooppunt, heeft geen betrouwbaarheid en daarom in het Resource Manager-sjabloon, moet u verwijderen/niet opgeven dat de configuratie (niet de waarde van de configuratie is niet voldoende). Als u het cluster met één knooppunt ingesteld via de portal hebt ingesteld, wordt klikt u vervolgens de configuratie automatisch afgehandeld. Clusters met één en drie knooppunten worden niet ondersteund voor het uitvoeren van productieworkloads. 
 - **VM-SKU:** primaire knooppunttype is waar de systeemservices worden uitgevoerd, zodat de VM-SKU u kiest, moet nemen bij de piek algehele-account laden u van plan bent om in het cluster te plaatsen. Hier volgt een vergelijking te laten zien wat ik hier betekenen - zien van het primaire knooppunttype als uw "longen', is wat uw brein zuurstof biedt, en dus als het brein moeite heeft geen voldoende zuurstof, uw instantie leidt dit tot slechtere. 
 
@@ -166,8 +167,7 @@ Voor werkbelastingen voor productie:
 - Standard A1-SKU wordt niet ondersteund voor productieworkloads voor betere prestaties.
 
 > [!WARNING]
-> Op dit moment wordt wijzigen van het primaire knooppunt VM-SKU-grootte op een actieve cluster niet ondersteund. Kies het primaire knooppunttype VM-SKU dus zorgvuldig, rekening houdend met de capaciteit van de toekomstige behoeften. Op dit moment de enige ondersteunde manier om het primaire knooppunttype naar een nieuwe VM-SKU (kleiner of groter) is een nieuw cluster maken met de juiste capaciteit, Implementeer uw toepassingen en herstellen van de status van de toepassing (indien van toepassing) van de [ meest recente service back-ups](service-fabric-reliable-services-backup-restore.md) u uit het oude cluster hebt gemaakt. U hoeft niet te herstellen van een systeemstatus van de service, ze worden opnieuw gemaakt wanneer u toepassingen implementeert voor het nieuwe cluster. Als u alleen stateless toepassingen uitgevoerd op het cluster, en u hoeft alleen uw toepassingen naar het nieuwe cluster te implementeren, er is niets om te herstellen.
-> 
+> Wijzigen van het primaire knooppunt VM-SKU-grootte op een cluster wordt uitgevoerd, is een bewerking waarbij de vergroten/verkleinen en gedocumenteerd in [virtuele-Machineschaalset scale-out](virtual-machine-scale-set-scale-node-type-scale-out.md) documentatie.
 
 ## <a name="non-primary-node-type---capacity-guidance-for-stateful-workloads"></a>Niet-primaire knooppunttype - capaciteit richtlijnen voor stateful werkbelastingen
 

@@ -9,20 +9,34 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 766534bfa02146e894916e2f9c953ef631913764
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 6166161f6d50e747681217281a0afc6514df78fb
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40024955"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617448"
 ---
 # <a name="deploy-resources-to-an-azure-subscription"></a>Resources implementeren op een Azure-abonnement
 
 Normaal gesproken implementeren u resources in een resourcegroep in uw Azure-abonnement. Sommige resources kunnen echter worden geïmplementeerd op het niveau van uw Azure-abonnement. Deze resources toepassen voor uw abonnement. [Beleid](../azure-policy/azure-policy-introduction.md), [rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md), en [Azure Security Center](../security-center/security-center-intro.md) zijn services die u mogelijk wilt toepassen op het abonnementsniveau, in plaats van het niveau van de resource.
 
-In dit artikel wordt Azure CLI gebruikt om de sjablonen te implementeren. Op dit moment biedt geen PowerShell ondersteuning voor het implementeren van een sjabloon naar een abonnement.
+Dit artikel wordt gebruikgemaakt van Azure CLI en PowerShell om de sjablonen te implementeren.
+
+## <a name="name-and-location-for-deployment"></a>Naam en locatie voor de implementatie
+
+Bij het implementeren van uw abonnement, moet u een locatie voor de implementatie opgeven. U kunt ook een naam voor de implementatie opgeven. Als u een naam voor de implementatie niet opgeeft, wordt de naam van de sjabloon wordt gebruikt als de implementatienaam van de. Bijvoorbeeld, het implementeren van een sjabloon die met de naam **azuredeploy.json** maakt u een standaardnaam voor de implementatie van **azuredeploy**.
+
+De locatie van niveau abonnementimplementaties is onveranderbaar. U kunt een implementatie in één locatie wanneer er een bestaande implementatie met dezelfde naam maar een andere locatie maken. Als u de foutcode `InvalidDeploymentLocation`, gebruik een andere naam of dezelfde locatie als de vorige implementatie voor deze naam.
+
+## <a name="using-template-functions"></a>Met behulp van functies van sjablonen
+
+Voor abonnement niveau implementaties zijn er enkele belangrijke overwegingen bij het gebruik van functies van sjablonen:
+
+* De [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) functie **niet** ondersteund.
+* De [resourceId()](resource-group-template-functions-resource.md#resourceid) functie wordt ondersteund. Gebruik dit voor de resource-ID niet ophalen voor resources die worden gebruikt op abonnement niveau implementaties. Bijvoorbeeld: de resource-ID niet ophalen voor een beleidsdefinitie met `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`
+* De [reference()](resource-group-template-functions-resource.md#reference) en [list()](resource-group-template-functions-resource.md#list) functies worden ondersteund.
 
 ## <a name="assign-policy"></a>Beleid toewijzen
 
@@ -73,6 +87,19 @@ az deployment create \
   --parameters policyDefinitionID=$definition policyName=auditRGLocation
 ```
 
+Voor het implementeren van deze sjabloon met PowerShell, gebruikt u:
+
+```azurepowershell-interactive
+$definition = Get-AzureRmPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Audit resource location matches resource group location' }
+
+New-AzureRmDeployment `
+  -Name policyassign `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
+  -policyDefinitionID $definition.PolicyDefinitionId `
+  -policyName auditRGLocation
+```
+
 Als u wilt een ingebouwde beleid toepassen op uw Azure-abonnement, moet u de volgende Azure CLI-opdrachten gebruiken. In dit voorbeeld heeft het beleid voor parameters.
 
 ```azurecli-interactive
@@ -84,6 +111,23 @@ az deployment create \
   -l southcentralus \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json \
   --parameters policyDefinitionID=$definition policyName=setLocation policyParameters="{'listOfAllowedLocations': {'value': ['westus']} }"
+```
+
+Voor het implementeren van deze sjabloon met PowerShell, gebruikt u:
+
+```azurepowershell-interactive
+$definition = Get-AzureRmPolicyDefinition | Where-Object { $_.Properties.DisplayName -eq 'Allowed locations' }
+
+$locations = @("westus", "westus2")
+$policyParams =@{listOfAllowedLocations = @{ value = $locations}}
+
+New-AzureRmDeployment `
+  -Name policyassign `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
+  -policyDefinitionID $definition.PolicyDefinitionId `
+  -policyName setLocation `
+  -policyParameters $policyParams
 ```
 
 ## <a name="define-and-assign-policy"></a>Definieer en toewijzen van beleid
@@ -140,6 +184,15 @@ az deployment create \
   --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
+Voor het implementeren van deze sjabloon met PowerShell, gebruikt u:
+
+```azurepowershell-interactive
+New-AzureRmDeployment `
+  -Name definePolicy `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
+```
+
 ## <a name="assign-role"></a>Rol toewijzen
 
 Het volgende voorbeeld wordt een rol toegewezen aan een gebruiker of groep.
@@ -178,7 +231,7 @@ Als u wilt een Active Directory-groep toewijzen aan een rol voor uw abonnement, 
 role=$(az role definition list --name Contributor --query [].name --output tsv)
 
 # Get ID of the AD group to assign the role to
-principalid=$(az ad group show --group tomfitzexample --query objectId --output tsv)
+principalid=$(az ad group show --group demogroup --query objectId --output tsv)
 
 az deployment create \
   -n demoRole \
@@ -187,8 +240,24 @@ az deployment create \
   --parameters principalId=$principalid roleDefinitionId=$role
 ```
 
+Voor het implementeren van deze sjabloon met PowerShell, gebruikt u:
+
+```azurepowershell-interactive
+$role = Get-AzureRmRoleDefinition -Name Contributor
+
+$adgroup = Get-AzureRmADGroup -DisplayName demogroup
+
+New-AzureRmDeployment `
+  -Name demoRole `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json `
+  -roleDefinitionId $role.Id `
+  -principalId $adgroup.Id
+```
+
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor een voorbeeld van de implementatie van de werkruimte-instellingen voor Azure Security Center, [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
+* Zie voor het maken van een resourcegroep, [resourcegroepen in Azure Resource Manager-sjablonen maken](create-resource-group-in-template.md).
 * Zie voor meer informatie over het maken van Azure Resource Manager-sjablonen, [-sjablonen maken](resource-group-authoring-templates.md). 
 * Zie voor een lijst van de beschikbare functies in een sjabloon, [sjabloonfuncties](resource-group-template-functions.md).
 

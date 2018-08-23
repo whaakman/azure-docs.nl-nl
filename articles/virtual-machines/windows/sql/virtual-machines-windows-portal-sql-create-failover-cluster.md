@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: a4b63c9d184f58fe13c1271f9a425919a42fd897
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 8e107c1721d5623239a694eba39b32e8a2a6089d
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216497"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42058148"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configureren van SQL Server-failovercluster-exemplaar op Azure Virtual Machines
 
@@ -481,7 +481,13 @@ Connectiviteit wilt testen, moet u zich aanmelden bij een andere virtuele machin
 >Zo nodig u kunt [SQL Server Management Studio downloaden](http://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="limitations"></a>Beperkingen
-Op Azure virtual machines, wordt Microsoft Distributed Transaction Coordinator (DTC) niet ondersteund op Failoverclusterinstanties omdat de RPC-poort wordt niet ondersteund door de load balancer.
+
+Azure virtuele Machines ondersteunen Microsoft Distributed Transaction Coordinator (MSDTC) op Windows Server 2019 met opslag op geclusterde gedeelde volumes (CSV) en een [standaardversie van load balancer](../../../load-balancer/load-balancer-standard-overview.md).
+
+Op Azure virtual machines, wordt MSDTC niet ondersteund op Windows Server 2016 en eerdere versies omdat:
+
+- De geclusterde MSDTC-bron kan niet worden geconfigureerd voor het gebruik van gedeelde opslag. Met Windows Server 2016 als u een MSDTC-resource, maakt weergegeven deze niet gedeelde opslag beschikbaar voor gebruik, zelfs als de opslag er is. Dit probleem is verholpen in Windows Server 2019.
+- De basisversie van load balancer verwerkt RPC-poorten niet.
 
 ## <a name="see-also"></a>Zie ook
 

@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 6f6fa1ebc086530f138d32ee5a9c799b5bfbbdeb
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 3b05f553e591de2660e9842f316de0cb6f80c852
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412107"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42054529"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Overzicht van Azure SQL Database-resourcebeperkingen 
 
@@ -22,15 +22,15 @@ Dit artikel bevat een overzicht van de resource van Azure SQL Database beperkt e
 
 ## <a name="what-is-the-maximum-number-of-servers-and-databases"></a>Wat is het maximum aantal servers en databases?
 
-| Maximum | Waarde |
-| :--- | :--- |
-| Databases per server | 5000 |
-| Standaardaantal servers per abonnement in andere regio 's | 20 |
-| Maximumaantal servers per abonnement in andere regio 's | 200 |
-| DTU / eDTU-quotum per server | 54,000 |
-| vCore quotum per server | 540 |
-| Maximum aantal toepassingen per server | afhankelijk van het aantal dtu's of vCores |
-|||
+| Maximum | Logische server | Beheerd exemplaar |
+| :--- | :--- | :--- |
+| Databases per server-exemplaar | 5000 | 100 |
+| Standaardaantal servers per abonnement in andere regio 's | 20 | N/A |
+| Maximumaantal servers per abonnement in andere regio 's | 200 | N/A | 
+| DTU / eDTU-quotum per server | 54,000 | N/A |  
+| vCore quotum per server-exemplaar | 540 | 80 |
+| Maximum aantal toepassingen per server | afhankelijk van het aantal dtu's of vCores | N/A |
+||||
 
 > [!NOTE]
 > Als u wilt meer DTU-quotum voor /eDTU, vCore quotum of meer servers dan de standaardinstelling, kan een nieuwe ondersteuningsaanvraag in de Azure-portal voor het abonnement met probleemtype 'Target' worden verzonden. De DTU / eDTU-quota en database-limiet per server beperkt het aantal elastische pools per server. 

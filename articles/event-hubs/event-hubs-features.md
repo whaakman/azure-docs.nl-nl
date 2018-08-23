@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/08/2018
+ms.date: 09/08/2018
 ms.author: shvija
-ms.openlocfilehash: abc85c322f7b8ee63c06639ae8845a5f07266b50
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: c41612b46102dc8fef67887c164ff6e48a8cf6c6
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40006384"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42055335"
 ---
 # <a name="event-hubs-features-overview"></a>Overzicht van de functies van de Event Hubs
 
@@ -94,7 +94,10 @@ Elke entiteit die gebeurtenisgegevens van een Event Hub leest, is een *gebeurten
 
 Het Event Hubs-mechanisme voor publiceren/abonneren wordt geactiveerd via *consumergroepen*. Een consumergroep is een weergave (status, positie of offset) van een volledige Event Hub. Consumergroepen maken het mogelijk dat meerdere consumers beschikken over een afzonderlijke weergave van de gebeurtenisstroom. De toepassingen kunnen de stroom onafhankelijk, in hun eigen tempo en met hun eigen offsets lezen.
 
-In een architectuur waarin de stroom wordt verwerkt, is elke downstream-toepassing gelijk aan een consumergroep. Als u gebeurtenisgegevens naar de langetermijnopslag wilt schrijven, is de schrijftoepassing die hiervoor wordt gebruikt, een consumergroep. De complexe verwerking van gebeurtenissen kan vervolgens worden uitgevoerd door een andere, afzonderlijke consumergroep. U hebt alleen toegang tot partities via een consumergroep. Er mag maximaal 5 gelijktijdige lezers op een partitie per consumentengroep. echter **het verdient aanbeveling dat er slechts één actieve ontvanger beschikbaar op een partitie per consumergroep is**. Een Event Hub bevat altijd een standaardconsumergroep. Voor een Event Hub van het type Standaard kunt u maximaal 20 consumergroepen maken.
+In een architectuur waarin de stroom wordt verwerkt, is elke downstream-toepassing gelijk aan een consumergroep. Als u gebeurtenisgegevens naar de langetermijnopslag wilt schrijven, is de schrijftoepassing die hiervoor wordt gebruikt, een consumergroep. De complexe verwerking van gebeurtenissen kan vervolgens worden uitgevoerd door een andere, afzonderlijke consumergroep. U hebt alleen toegang tot partities via een consumergroep. Een Event Hub bevat altijd een standaardconsumergroep. Voor een Event Hub van het type Standaard kunt u maximaal 20 consumergroepen maken.
+
+Er mag maximaal 5 gelijktijdige lezers op een partitie per consumentengroep. echter **het verdient aanbeveling dat er slechts één actieve ontvanger beschikbaar op een partitie per consumergroep is**. Binnen een enkele partitie ontvangt elke lezer alle berichten. Als u meerdere lezers op dezelfde partitie hebt, klikt verwerken u dubbele berichten. U moet dit in uw code, die mogelijk niet eenvoudig te verwerken. Het is echter een geldig benadering in sommige scenario's.
+
 
 Dit zijn voorbeelden van de URI-conventie voor consumergroepen:
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Authenticator voor Android | Microsoft Docs
-description: Microsoft Azure Authenticator-app kan worden gebruikt om aan te melden voor toegang tot bronnen op het werk. De app Azure Authenticator waarschuwt u over een openstaand verificatieverzoek tweeledige door een waarschuwing naar uw mobiele apparaat weer te geven.
+description: Microsoft Azure Authenticator-app kan worden gebruikt om aan te melden voor toegang tot bronnen op het werk. De app Azure Authenticator waarschuwt u van een verificatieaanvraag in behandeling tweeledige door een melding naar uw mobiele apparaat weer te geven.
 services: active-directory
 documentationcenter: ''
 author: femila
@@ -16,108 +16,108 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 5c34219d01c8670102df40d9157cb0deff74b8e4
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: fbd728ec8cd2c8c4cd7ca74ecd84fd4d0d41cbd0
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724282"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42061339"
 ---
 # <a name="azure-authenticator-for-android"></a>Azure Authenticator voor Android
-Uw IT-beheerder kan hebt aanbevolen u met de Microsoft Azure Authenticator om aan te melden voor toegang tot uw werkbronnen. Deze toepassing biedt deze twee opties aanmelden:
+Uw IT-beheerder kan u de Microsoft Azure Authenticator gebruiken om aan te melden voor toegang tot de werkresources van uw zijn aanbevolen. Deze toepassing biedt deze twee opties voor aanmelden:
 
-* Meerledige verificatie kunt u voor het beveiligen van uw werk- of schoolaccount accounts met verificatie in twee stappen. U Meld u aan met iets u weet (bijvoorbeeld uw wachtwoord) en het account te beveiligen met iets hebt u nog verder (een beveiligingssleutel uit deze app). De app Azure Authenticator waarschuwt u over een openstaand verificatieverzoek tweeledige door een waarschuwing naar uw mobiele apparaat weer te geven. U moet gewoon weergeven die de aanvraag in de app en tik op verifiëren of te annuleren. Ook wordt u mogelijk gevraagd de code invoeren in de app weergegeven.
-* Werkaccount kunt u uw Android-telefoon of tablet omzetten in een vertrouwd apparaat en het bieden van eenmalige aanmelding (SSO) tot bedrijfstoepassingen. Uw IT-beheerder moet u mogelijk een werkaccount toevoegen om te kunnen krijgen tot bedrijfsresources. Eenmalige aanmelding kunt u één keer aanmelden en automatisch gebruikmaken van aanmelding bij alle toepassingen die uw bedrijf voor u beschikbaar heeft gesteld.
+* Multi-factor Authentication kunt u voor het beveiligen van uw werk- of schoolaccount accounts met verificatie in twee stappen. U aanmelden met iets dat u weet (bijvoorbeeld uw wachtwoord) en het account beveiligen met iets hebt u nog verder (een beveiligingssleutel uit deze app). De app Azure Authenticator waarschuwt u van een verificatieaanvraag in behandeling tweeledige door een melding naar uw mobiele apparaat weer te geven. Moet u gewoon de weergave de aanvraag in de app en tik op verifiëren of te annuleren. U kunt ook u mogelijk gevraagd de wachtwoordcode die wordt weergegeven in de app in te voeren.
+* Werkaccount kunt u uw Android-telefoon of tablet omzetten in een vertrouwd apparaat en eenmalige aanmelding (SSO) bieden tot bedrijfstoepassingen. Uw IT-beheerder moet u mogelijk een werkaccount toevoegen voor toegang tot bedrijfsbronnen. Eenmalige aanmelding kunt u één keer aanmelden en automatisch gebruikmaken van aanmelding bij alle toepassingen die uw bedrijf aan u beschikbaar heeft gesteld.
 
 ## <a name="installing-the-azure-authenticator-app"></a>De Azure Authenticator-app installeren
-U kunt de Azure Authenticator-app vanuit Google Play Store installeren.
-De instructies voor het werkaccount toevoegen van Samsung Android-apparaat tegenover een Samsung Android-apparaat zijn enigszins anders. Hieronder vindt u de instructies voor beide.
+U kunt de Azure Authenticator-app installeren vanuit Google Play Store.
+De instructies voor het werkaccount toevoegen van Samsung Android-apparaat versus een Samsung Android-apparaat zijn iets anders. De instructies voor beide worden hieronder vermeld.
 
-## <a name="adding-the-work-account-from-samsung-android-device"></a>Het toevoegen van werkaccount van Samsung Android-apparaat
+## <a name="adding-the-work-account-from-samsung-android-device"></a>Het werkaccount toevoegen van Samsung Android-apparaat
 ### <a name="adding-the-work-account-through-the-app-home-screen"></a>Het werkaccount via het startscherm van een app toevoegen
 De volgende instructies zijn van toepassing op Samsung GS3 en boven telefoons of opmerking 2 en hoger tablets.
 
 1. Accepteer de gebruiksrechtovereenkomst (EULA) op het startscherm van de app.
-2. Klik op aan de rechterkant en selecteer het snelmenu dat verschijnt op het scherm Account activeren **Werkaccount**.
-3. Klik op het Account toevoegen scherm Selecteer ** werk Account **.
+2. Klik op het contextmenu aan de rechterkant en selecteer op het scherm Account activeren **Werkaccount**.
+3. Op het Account toevoegen scherm, selecteer ** Work Account **.
 4. Klik op het scherm apparaatbeheerder activeren, **activeren**.
-5. Schakel het selectievakje op het scherm voor het privacybeleid en klikt u op **bevestigen**.
-6. Voer op het scherm werkplek toevoegen de gebruikersnaam die wordt geleverd door uw organisatie en klik op **Join**.
-7. Als u wilt aanmelden bij de Azure Authenticator-app, Voer uw organisatieaccount en wachtwoord en klik op **aanmelden**.
-8. Het volgende scherm waarin informatie over meervoudige verificatie (MFA) is voor extra beveiliging en is optioneel. Dit scherm wordt weergegeven als uw werk of school tweeledige verificatie is vereist voor het maken van werkaccount. Dit vindt u instructies voor uw account verder verifiëren.
-9. Het scherm werkplek koppelen wordt het bericht '**uw werkplek**'. De Azure authenticator-app wordt geprobeerd het apparaat koppelen aan uw werkplek.
-10. U ziet het bericht Workplace Joined op het volgende scherm.
+5. Op het scherm privacybeleid, schakel het selectievakje in en klikt u op **bevestigen**.
+6. Voer op het scherm werkplek koppelen, de userID geleverd door uw organisatie en klik op **Join**.
+7. Als u wilt aanmelden bij de Azure Authenticator-app, Voer uw organisatieaccount en wachtwoord en klikt u op **aanmelden**.
+8. Het volgende scherm wordt informatie over multi-factor authentication (MFA weergegeven) is voor extra beveiliging en is optioneel. U kunt dit scherm wordt weergegeven als uw werk of school tweeledige verificatie vereist voor het maken van work-account. Het biedt instructies voor het verder controleren of uw account.
+9. Het scherm werkplek koppelen wordt het bericht '**uw werkplek**'. De Azure authenticator-app probeert uw apparaat koppelen aan uw werkplek.
+10. In het volgende scherm ziet u het Workplace Joined-bericht.
 
 > [!NOTE]
 > U mag een één werkaccount op uw apparaat.
 > 
 > 
 
-### <a name="adding-the-work-account-from-the-settings-menu"></a>Werkaccount toe te voegen in het menu instellingen
-Nadat u de Azure Authenticator-app hebt geïnstalleerd, maakt u kunt ook een werkaccount van de accountbeheerder van Android.
+### <a name="adding-the-work-account-from-the-settings-menu"></a>Het werkaccount toe te voegen in het instellingenmenu
+Nadat u de Azure Authenticator-app hebt geïnstalleerd, kunt u ook maken een werkaccount van de Android-accountbeheerder.
 
-1. Ga vanuit het menu instellingen naar **Accounts** en klik op **Account toevoegen**.
-2. Volg de stappen 3-10 in de procedure, werkaccount door het app-startscherm toevoegen van een werkaccount toe te voegen.
+1. Navigeer in het menu instellingen naar **Accounts** en klikt u op **-Account toevoegen**.
+2. Volg de stappen 3-10 in de procedure wordt het werkaccount via het app-startscherm om toe te voegen een werkaccount toe te voegen.
 
-## <a name="adding-the-work-account-from-a-non-samsung-android-device"></a>Werkaccount toevoegen van een Samsung Android-apparaat
+## <a name="adding-the-work-account-from-a-non-samsung-android-device"></a>Toevoegen van het werkaccount van een niet - Samsung Android-apparaat
 ### <a name="adding-the-work-account-through-the-app-home-screen"></a>Het werkaccount via het startscherm van een app toevoegen
 1. Accepteer de gebruiksrechtovereenkomst (EULA) op het startscherm van de app.
-2. Klik op aan de rechterkant en selecteer het snelmenu dat verschijnt op het scherm Account activeren **Werkaccount**.
-3. Klik op het scherm Accounts **Account toevoegen**.
-4. Als u de Accounts scherm ziet, klikt u op **account toevoegen**. Als een werkaccount al eerder is gemaakt, ziet u een synchronisatie-scherm met de bestaande werkaccount. U kunt werkaccount behouden door simpelweg te tikken op de pijl naar links op het startscherm. Ook kunt u het account te verwijderen en opnieuw maken van een nieuw werk account op de werkplek koppelen scherm, voer de gebruikersnaam die wordt geleverd door uw organisatie en klikt u op deelnemen.
-5. Als u wilt aanmelden bij de Azure Authenticator-app, Voer uw organisatieaccount en wachtwoord en klik op **aanmelden**.
-6. Het volgende scherm waarin informatie over meervoudige verificatie (MFA) is voor extra beveiliging en is optioneel. Dit scherm wordt weergegeven als uw werk of school tweeledige verificatie is vereist voor het maken van werkaccount. Dit vindt u instructies voor uw account verder verifiëren.
-7. Klik op **OK** op het volgende scherm. Wijzig de naam van het certificaat niet.
-   het bericht 'Uw werkplek toevoegen'. De Azure authenticator-app wordt geprobeerd het apparaat koppelen aan uw werkplek.
-   U ziet het bericht Workplace Joined op het volgende scherm.
+2. Klik op het contextmenu aan de rechterkant en selecteer op het scherm Account activeren **Werkaccount**.
+3. Klik op het scherm Accounts **-Account toevoegen**.
+4. Als u de Accounts scherm ziet, klikt u op **account toevoegen**. Als een work-account is al eerder hebt gemaakt, ziet u een synchronisatie-scherm met de bestaande werkaccount. U kunt het werkaccount bewaren met een Tik op de pijl-terug naar het startscherm. U kunt ook kunt u het account te verwijderen en opnieuw maken van een nieuw work-account op de werkplek koppelen scherm, voer de gebruikersnaam die wordt geleverd door uw organisatie en klik op lid worden.
+5. Als u wilt aanmelden bij de Azure Authenticator-app, Voer uw organisatieaccount en wachtwoord en klikt u op **aanmelden**.
+6. Het volgende scherm wordt informatie over multi-factor authentication (MFA weergegeven) is voor extra beveiliging en is optioneel. U kunt dit scherm wordt weergegeven als uw werk of school tweeledige verificatie vereist voor het maken van work-account. Het biedt instructies voor het verder controleren of uw account.
+7. Klik op **OK** in het volgende scherm. Wijzig de naam van het certificaat niet.
+   het bericht 'Uw werkplek toevoegen'. De Azure authenticator-app probeert uw apparaat koppelen aan uw werkplek.
+   In het volgende scherm ziet u het Workplace Joined-bericht.
 
 > [!NOTE]
 > U mag een één werkaccount op uw apparaat.
 > 
 > 
 
-Nadat u de Azure Authenticator-app hebt geïnstalleerd, maakt u kunt ook een werkaccount van de accountbeheerder van Android.
+Nadat u de Azure Authenticator-app hebt geïnstalleerd, kunt u ook maken een werkaccount van de Android-accountbeheerder.
 
-1. Van de **instellingen** menu, gaat u naar de Accounts en klik op **Account toevoegen**.
-2. Volg de stappen 2 tot en met 7 in de procedure, toevoegen aan het werkaccount via de app thuis scherm **, een werkaccount toevoegen.
+1. Uit de **instellingen** menu, gaat u naar Accounts en klik op **-Account toevoegen**.
+2. Volg de stappen 2 tot en met 7 in de procedure wordt het werkaccount dat via de app start scherm **, toe te voegen als een work-account wilt toevoegen.
 
 ### <a name="how-to-find-out-which-version-is-installed"></a>Nagaan welke versie is geïnstalleerd
-1. U vindt hier welke versie van de Azure Authenticator-app en versies van de gekoppelde service zijn geïnstalleerd op uw apparaat.
-2. Klik op de pop menu **over**.
+1. U vindt hier informatie welke versie van de Azure Authenticator-app en versies van de bijbehorende services zijn geïnstalleerd op uw apparaat.
+2. In de pop up menu, klikt u op **over**.
 3. Het scherm over weergegeven de services van de app en de versies zijn geïnstalleerd op uw apparaat.
 
-### <a name="sending-log-files-to-report-issues"></a>Verzenden van logboekbestanden problemen rapporteren
-1. Volg de richtlijnen van Microsoft Support rapporteren van een incident met de Azure Authenticator-app, een incident nummer verkrijgen en logboekbestanden op basis van het toegewezen incident nummer als volgt verzenden:
-2. Klik op de pop menu **logboekregistratie**.
-3. Als u een geopend incident met Microsoft Support hebt, noteer het nummer van de incidenten (u hebt deze nodig voor een later stadium). Als u nog geen hebt gemaakt van een incident support en ondersteuning, volgt u de instructies op [Microsoft Support](https://support.microsoft.com/en-us/contactus) openen van een nieuw incident.
+### <a name="sending-log-files-to-report-issues"></a>Verzenden van logboekbestanden om problemen te melden
+1. Volg de richtlijnen op Microsoft Support rapporteren van een incident met de Azure Authenticator-app, verkrijgen van een incident-nummer en verzenden van logboekbestanden op basis van het toegewezen incident nummer als volgt:
+2. In de pop up menu, klikt u op **logboekregistratie**.
+3. Als u een open incident met Microsoft Support hebt, maak notitie van het incident getal (u hebt deze nodig voor een latere stap). Als u nog geen hebt gemaakt van een ondersteuningsincident en graag bijstand, volgt u de informatie op [Microsoft Support](https://support.microsoft.com/contactus) openen van een nieuw incident.
 4. Klik op het scherm logboekregistratie **nu verzenden**.
 5. Selecteer de e-mailprovider die u wilt gebruiken.
-6. Als u al een open incident Microsoft Support hebt, neem contact op met de ondersteuningstechnicus toegewezen aan uw probleem wilt weten hoe de logboekgegevens te verzenden en zijn deze gekoppeld aan uw incident. De ondersteuningstechnicus krijgt u informatie voor de e-mailadres en onderwerp regel. Als u nog geen een ondersteuningsincident, volgt u de informatie op Microsoft Support openen van een nieuw incident.
+6. Als u al een open incident Microsoft Support hebt, neem dan contact op met de ondersteuningstechnicus toegewezen aan uw probleem om meer informatie over het verzenden van de logboekgegevens en deze die zijn gekoppeld aan uw incident. De ondersteuningstechnicus zullen u voorzien van informatie voor de e-mailadres en onderwerp regel. Als u een ondersteuningsincident niet al hebt, volgt u de informatie op Microsoft Support om te openen van een nieuw incident.
 7. Bewerk de **naar** regel en **onderwerp** regel met de informatie die u hebt ontvangen van Microsoft Support.
-8. De app Azure Authenticator koppelt het logboekbestand aan het e-mailbericht dat wordt verzonden. Het probleem wordt beschreven, bijwerken adreslijst (optioneel) en het e-mailbericht verzenden.
+8. De Azure Authenticator-app koppelt u het logboekbestand aan het e-mailbericht dat wordt verzonden. Beschrijf het probleem dat zich voordoet, werken de lijst met meldingsontvangers (optioneel) en het e-mailbericht verzenden.
 
-### <a name="deleting-the-work-account-and-leaving-your-workplace"></a>Werkaccount verwijderd en wordt van uw werkplek
-U kunt u als volgt op elk gewenst moment gemaakt werkaccount verwijderen:
+### <a name="deleting-the-work-account-and-leaving-your-workplace"></a>Het werkaccount verwijderd en wordt van uw werkplek
+U kunt het werkaccount dat u hebt gemaakt op elk gewenst moment worden als volgt verwijderen:
 
-**Werkaccount verwijderen in het menu instellingen**
+**Het werkaccount in het menu instellingen verwijderen**
 
 1. Selecteer in de manager accounts **Werkaccount**.
-2. Op het scherm Werkaccount in **algemene instellingen**, selecteer **Accountinstellingen – laat uw werkpleknetwerk**.
+2. Op het scherm Werkaccount in **algemene instellingen**, selecteer **Accountinstellingen: laat uw werkpleknetwerk**.
 3. Selecteer **laat** op de **Workplace Join** scherm.
 4. Klik op **OK** wanneer het bericht 'Weet u zeker dat u wilt laten werkplek' wordt weergegeven.
 5. Dit zorgt ervoor dat u uw werkaccount hebt verwijderd van uw werkplek.
 
 > [!NOTE]
-> Het is raadzaam dat u niet de optie-Account verwijderen gebruiken om te verwijderen van een werkaccount als deze optie niet in een aantal eerdere versies van Android werkt mogelijk.
+> Het is raadzaam dat u het Account verwijderen-optie niet gebruikt om te verwijderen van een werkaccount als deze optie niet in enkele oudere versies van Android werkt mogelijk.
 > 
 > 
 
 ## <a name="uninstalling-the-app"></a>De app verwijderen
-Op een apparaat Samsung Android administratorbevoegdheden voor apparaat als volgt moeten worden verwijderd voordat het verwijderen van de 
+Op een apparaat Samsung Android device administrator-bevoegdheden als volgt moeten worden verwijderd voordat het verwijderen van de 
 
-1. Van **instellingen**onder **System**, selecteer **beveiliging**.
-2. Binnen D**evice beheer**, klikt u op **apparaatbeheerders**. Zorg ervoor dat het selectievakje in naast **Azure Authenticator** is uitgeschakeld.
+1. Van **instellingen**onder **System**, selecteer **Security**.
+2. Binnen D**pparaatmodel beheer**, klikt u op **apparaatbeheerders**. Zorg ervoor dat het selectievakje in naast **Azure Authenticator** is uitgeschakeld.
 
 ## <a name="troubleshooting"></a>Problemen oplossen
-Als u ziet de **Keystore fout**, dit kan komen doordat er geen vergrendeling set up scherm met een PINCODE. Verwijderen van de Azure Authenticator-app, configureren van een PINCODE voor uw vergrendelingsscherm en installeer de app opnieuw om dit probleem omzeilen.
+Als u ziet de **Keystore fout**, dit komt mogelijk doordat u niet de vergrendeling hoeft instellen van het scherm met een PINCODE. Dit probleem omzeilen, de Azure Authenticator-app verwijderen, een PINCODE voor het vergrendelingsscherm van het configureren en de app opnieuw installeren.
 

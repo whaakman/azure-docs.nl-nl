@@ -1,6 +1,6 @@
 ---
-title: Azure IoT-rand platformondersteuning | Microsoft Docs
-description: Platforms die worden ondersteund door Azure IoT rand
+title: Ondersteuning voor Azure IoT Edge-Platform | Microsoft Docs
+description: Platforms die worden ondersteund door Azure IoT Edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
@@ -8,59 +8,60 @@ ms.date: 6/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 05a571c4491122ec5c7c35f6bccc4b8c332a4be2
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 91821d66ac0be265e6b66fd9eb2378169e337430
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130706"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42055345"
 ---
-# <a name="azure-iot-edge-support"></a>Azure IoT-Edge-ondersteuning
-Er zijn verschillende manieren te zoeken naar ondersteuning voor het product Azure IoT rand.
+# <a name="azure-iot-edge-support"></a>Ondersteuning van Azure IoT Edge
+Er zijn tal van manieren om te zoeken naar ondersteuning voor de Azure IoT Edge-product.
 
-**Rapportage van fouten** – het merendeel van de ontwikkeling die u in het product Azure IoT rand gebeurt er in het IoT rand open source-project. Fouten worden gerapporteerd in de [pagina kwesties](https://github.com/azure/iotedge/issues) van het project. Oplossingen maken snel hun manier van het project in op productupdates.
+**Rapportage van fouten** – het merendeel van ontwikkeling die in de Azure IoT Edge-product gaat er gebeurt in de IoT Edge open source-project. Fouten worden gerapporteerd in de [kwesties](https://github.com/azure/iotedge/issues) van het project. Oplossingen maken snel mogelijk naar productupdates van het project in.
 
-**Microsoft Customer Support team** – gebruikers die beschikken over een [ondersteuningsplan](https://azure.microsoft.com/support/plans/) de klantondersteuning van Microsoft-team kan benaderen door het maken van een ondersteuningsticket rechtstreeks vanuit de [Azure-portal]( https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
+**Microsoft Customer Support team** : gebruikers die beschikken over een [ondersteuningsplan](https://azure.microsoft.com/support/plans/) het team Microsoft Customer Support kunnen verrichten door het maken van een ondersteuningsticket rechtstreeks vanuit de [Azure-portal]( https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
-**Functie aanvragen** – rand van de Azure-IoT-product houdt functie-aanvragen via het product [User Voice pagina](https://feedback.azure.com/forums/907045-azure-iot-edge).
+**Functie aanvragen** : de Azure IoT Edge-product functieverzoeken bijgehouden via van het product [Uservoice-pagina](https://feedback.azure.com/forums/907045-azure-iot-edge).
 
 ## <a name="operating-systems"></a>Besturingssystemen
-Azure IoT-rand wordt uitgevoerd op de meeste besturingssystemen met containers; echter worden al deze waarden niet gelijkmatig ondersteund. Besturingssystemen zijn gegroepeerd in lagen die het niveau van ondersteuning gebruikers kunnen verwachten vertegenwoordigen.
+Azure IoT Edge wordt uitgevoerd op de meeste besturingssystemen die containers; kunnen worden uitgevoerd. al deze waarden worden echter niet gelijkmatig ondersteund. Besturingssystemen zijn gegroepeerd in lagen, waarbij het niveau van ondersteuning voor gebruikers kunnen verwachten.
 
 ### <a name="tier-1"></a>Categorie 1
-Laag 1-systemen worden beschouwd als officieel ondersteund. Dit betekent dat Microsoft:
-* Deze besturingssysteem heeft in automatische tests
-* installatiepakketten biedt voor deze
+Laag 1-systemen kunnen worden beschouwd als officieel ondersteund. Dit betekent dat Microsoft:
+* Deze besturingssysteem heeft in geautomatiseerde tests uit
+* biedt de installatiepakketten van deze
 
 Algemeen beschikbaar
-* Ubuntu Server 18.04
-* Ubuntu Server 16.04
-* Raspbian stretch
+| Besturingssysteem | AMD64 | ARM32 |
+| ---------------- | ----- | ----- |
+| Ubuntu-Server 18.04 | Ja | Nee |
+| Ubuntu Server 16.04 | Ja | Nee |
+| Raspbian stretch | Nee | Ja|
 
 Openbare Preview
-* Windows 10-Server 1803
-* Windows 10 IoT Enterprise (met April 2018 update)
-* Windows 10 IoT Core (met April 2018 update)
+| Besturingssysteem | AMD64 | ARM32 |
+| ---------------- | ----- | ----- |
+| Windows 10-Server 1803 | Ja | Nee |
+| Windows 10 IoT Enterprise (April 2018 update) | Ja | Nee |
+| Windows 10 IoT Core (April 2018 update) | Ja | Nee |
 
 ### <a name="tier-2"></a>Categorie 2
-Laag 2-systemen worden beschouwd als compatibel met Azure IoT rand en relatief eenvoudig kunnen worden gebruikt. Dit betekent dat:
-* Microsoft heeft gedaan ad-hoc testen op de platforms of kent van een partner Azure IoT rand correct functioneert op het platform
-* Installatiepakketten voor andere platforms werkt op deze platforms
+Laag 2-systemen kunnen worden beschouwd als compatibel met Azure IoT Edge en relatief eenvoudig kunnen worden gebruikt. Dit betekent dat:
+* Microsoft heeft gedaan ad-hoc testen op een platform of kent van een partner die Azure IoT Edge is uitgevoerd op het platform
+* Installatiepakketten voor andere platforms werken op deze platforms
 
-Ubuntu 18.04
-
-Ubuntu 16.04
-
-De o 8
-
-Yocto
-
-Debian
-
-Mac
+| Besturingssysteem | AMD64 | ARM32 |
+| ---------------- | ----- | ----- |
+| Ubuntu 18.04 | Ja | Nee |
+| Ubuntu 16.04 | Ja | Nee |
+| Wind rivier 8 | Ja | Nee |
+| Yocto | Ja | Nee |
+| Debian | Ja | Nee |
+| Mac | Ja | Nee |
 
 ## <a name="container-engines"></a>Container-engines
-Azure IoT-rand moet een container engine voor het starten van modules, ongeacht het besturingssysteem waarop deze wordt uitgevoerd. Microsoft biedt een container-engine moby-engine, om te voldoen aan deze vereiste. Deze is gebaseerd op het Moby open source-project. Docker CE en Docker EE zijn andere motoren populaire container. Ze ook zijn gebaseerd op het Moby open-source-project en compatibel zijn met Azure IoT rand. Microsoft biedt best effort ondersteuning voor systemen met behulp van de container motoren; Microsoft heeft echter niet de mogelijkheid voor het verzenden van oplossingen voor problemen bevat. Microsoft raadt daarom moby-engine op productiesystemen.
+Azure IoT Edge moet een container-engine starten modules, ongeacht het besturingssysteem waarop deze wordt uitgevoerd. Microsoft biedt een container-engine, moby-engine, om te voldoen aan deze vereiste. Deze is gebaseerd op de Moby open source-project. Docker CE- en Docker EE zijn andere populaire container-engines. Ze zijn ook afhankelijk van het Moby open-source-project en compatibel zijn met Azure IoT Edge. Microsoft biedt best inspanning ondersteuning voor systemen met behulp van de container motoren; Microsoft heeft echter niet de mogelijkheid om oplossingen voor problemen in deze af te leveren. Microsoft adviseert om deze reden moby-engine op productiesystemen.
 
 
 <!-- Links -->

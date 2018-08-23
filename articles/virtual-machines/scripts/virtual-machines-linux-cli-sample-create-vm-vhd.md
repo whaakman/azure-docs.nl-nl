@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: 414ef43063cc48b7b9ae7be5fbccbb7906ae8c03
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 271390757b7e79eb29c5a3c14ca9ee1b38b53e29
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29849338"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918625"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>Een virtuele machine met een virtuele harde schijf maken
 
@@ -29,8 +29,7 @@ In dit voorbeeld wordt een virtuele machine met een virtuele harde schijf gemaak
 Er wordt eerst een resourcegroep, een opslagaccount en een container gemaakt, en vervolgens een virtuele machine door de virtuele harde schijf naar de container te uploaden.
 De openbare ssh-sleutel wordt vervangen door uw eigen openbare sleutel zodat u toegang hebt tot de virtuele machine.
 
-U hebt hiervoor een opstartbare virtuele harde schijf nodig.
-U kunt de door ons gebruikte virtuele harde schijf downloaden vanaf https://azclisamples.blob.core.windows.net/vhds/sample.vhd, maar u kunt ook uw eigen virtuele harde schijf gebruiken. Het script zoekt naar `~/sample.vhd`.
+U hebt hiervoor een opstartbare virtuele harde schijf nodig. Het script zoekt naar `~/sample.vhd`.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -63,7 +62,6 @@ Dit script gebruikt de volgende opdrachten voor het maken van een resourcegroep,
 | [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_upload) | Hiermee maakt u een blob in de container door de virtuele harde schijf te uploaden. |
 | [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Gebruikt met `--query` om te controleren of de naam van de virtuele machine in gebruik is. | 
 | [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Hiermee maakt u de virtuele machines. |
-| [az vm access set-linux-user](https://docs.microsoft.com/cli/azure/vm/access#az_vm_access_set_linux_user) | Hiermee stelt u de SSH-sleutel opnieuw in om de huidige gebruiker toegang te verlenen tot de virtuele machine. |
 | [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list-ip-addresses) | Hiermee haalt u het IP-adres van de gemaakte virtuele machine op. |
 
 ## <a name="next-steps"></a>Volgende stappen

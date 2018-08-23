@@ -1,62 +1,60 @@
 ---
 title: Azure asynchrone bewerkingen | Microsoft Docs
-description: Beschrijving van het bijhouden van asynchrone bewerkingen in Azure.
+description: Beschrijft hoe u voor het bijhouden van asynchrone bewerkingen in Azure.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/11/2017
+ms.date: 08/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: f62212f0488e4d1be49b419615b3a16b80033fd9
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 601f4a899393d8ddd5ea698d4d01ade7141ee91f
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358707"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42059515"
 ---
-# <a name="track-asynchronous-azure-operations"></a>Asynchrone bewerkingen voor Azure bijhouden
-Sommige Azure REST-bewerkingen asynchroon uitgevoerd omdat de bewerking kan niet snel worden voltooid. In dit onderwerp wordt beschreven hoe de status van asynchrone bewerkingen via waarden in het antwoord geretourneerd.  
+# <a name="track-asynchronous-azure-operations"></a>Azure-asynchrone bewerkingen bijhouden
+Sommige Azure REST-bewerkingen worden asynchroon uitgevoerd omdat de bewerking snel kan niet worden voltooid. Dit artikel wordt beschreven hoe u kunt de status van asynchrone bewerkingen via waarden in het antwoord geretourneerd bijhouden.  
 
 ## <a name="status-codes-for-asynchronous-operations"></a>Statuscodes voor asynchrone bewerkingen
-Een asynchrone bewerking retourneert in eerste instantie een HTTP-statuscode van een van beide:
+Een asynchrone bewerking retourneert in eerste instantie van een HTTP-statuscode:
 
-* 201 (gemaakt)
-* 202 (geaccepteerde) 
+* 201 (aangemaakt)
+* 202 (aanvaard) 
 
-Wanneer de bewerking is voltooid, wordt een:
+Als de bewerking is voltooid, retourneert een:
 
 * 200 (OK)
 * 204 (geen inhoud) 
 
-Raadpleeg de [REST API-documentatie](/rest/api/) om te zien van de antwoorden voor de bewerking die u uitvoert. 
+Raadpleeg de [REST API-documentatie](/rest/api/) om te zien van de antwoorden voor de bewerking die u wilt uitvoeren.
 
 ## <a name="monitor-status-of-operation"></a>Monitor status van bewerking
-De asynchrone REST-bewerkingen retourwaarden header die u gebruikt om de status van de bewerking te bepalen. Er zijn mogelijk drie headerwaarden om te controleren:
+De asynchrone REST-bewerkingen retourneren headerwaarden, die u gebruiken om de status van de bewerking te bepalen. Er zijn mogelijk drie headerwaarden om te controleren:
 
-* `Azure-AsyncOperation` -URL voor het controleren van de actieve status van de bewerking. Als de bewerking voor deze waarde retourneert, gebruik altijd het (in plaats van locatie) de status van de bewerking.
-* `Location` -URL om te bepalen wanneer een bewerking is voltooid. Gebruik deze waarde alleen als Azure-asynchrone bewerking wordt niet geretourneerd.
-* `Retry-After` -Het aantal seconden moet worden gewacht voordat de status van de asynchrone bewerking.
+* `Azure-AsyncOperation` -URL voor het controleren van de doorlopende status van de bewerking. Als de bewerking voor deze waarde retourneert, altijd deze gebruiken (in plaats van locatie) om bij te houden van de status van de bewerking.
+* `Location` -URL om te bepalen wanneer een bewerking is voltooid. Deze waarde gebruikt alleen wanneer de Azure-AsyncOperation niet geretourneerd.
+* `Retry-After` -Het aantal seconden dat moet worden gewacht voordat het controleren van de status van de asynchrone bewerking.
 
-Niet elke asynchrone bewerking retourneert echter al deze waarden. U wilt bijvoorbeeld de waarde van de Azure-asynchrone bewerking header voor één bewerking en de waarde van de locatie-header voor een andere bewerking evalueren. 
+Niet elke asynchrone bewerking retourneert echter al deze waarden. U wilt bijvoorbeeld de waarde van de Azure-AsyncOperation-header voor één bewerking, en de waarde van de locatie-header voor een andere bewerking evalueren. 
 
-U haalt u de waarden van de koptekst als u een headerwaarde voor een aanvraag wilt ophalen. In C#, ophalen u bijvoorbeeld de waarde van de header van een `HttpWebResponse` object met de naam `response` met de volgende code:
+U haalt de headerwaarden als u een headerwaarde voor een aanvraag wilt ophalen. In C#, haalt u bijvoorbeeld de waarde van de header van een `HttpWebResponse` object met de naam `response` met de volgende code:
 
 ```cs
 response.Headers.GetValues("Azure-AsyncOperation").GetValue(0)
 ```
 
-## <a name="azure-asyncoperation-request-and-response"></a>Azure-asynchrone bewerking aanvraag en -antwoord
+## <a name="azure-asyncoperation-request-and-response"></a>Azure-AsyncOperation aanvragen en reacties
 
-Als u de status van de asynchrone bewerking, een GET-aanvraag te verzenden naar de URL in de kopwaarde Azure-asynchrone bewerking.
+Als u de status van de asynchrone bewerking, door een GET-aanvraag te verzenden naar de URL in de Azure-AsyncOperation header-waarde.
 
-De hoofdtekst van het antwoord van deze bewerking bevat informatie over het opnieuw. Het volgende voorbeeld ziet u de mogelijke waarden geretourneerd van de bewerking:
+De hoofdtekst van het antwoord van deze bewerking bevat informatie over het opnieuw. Het volgende voorbeeld ziet u de mogelijke waarden geretourneerd door de bewerking:
 
 ```json
 {
@@ -76,42 +74,42 @@ De hoofdtekst van het antwoord van deze bewerking bevat informatie over het opni
 }
 ```
 
-Alleen `status` wordt geretourneerd voor alle antwoorden op. Het foutobject wordt geretourneerd wanneer de status mislukt of geannuleerd is. Alle andere waarden zijn optioneel. daarom het antwoord dat u ontvangt zien er mogelijk anders dan in het voorbeeld.
+Alleen `status` wordt geretourneerd voor alle antwoorden. Het foutobject wordt geretourneerd wanneer de status mislukt of geannuleerd is. Alle andere waarden zijn optioneel. daarom het antwoord u ontvangt zien er mogelijk anders dan in het voorbeeld.
 
 ## <a name="provisioningstate-values"></a>provisioningState waarden
 
-Bewerkingen die maken, bijwerken of verwijderen (PUT, PATCH, verwijderen) een resource doorgaans retourneren een `provisioningState` waarde. Wanneer een bewerking is voltooid, wordt de volgende drie waarden geretourneerd: 
+Bewerkingen maken, bijwerken of verwijderen (PUT, PATCH, DELETE) een resource is doorgaans retourneren een `provisioningState` waarde. Wanneer een bewerking is voltooid, wordt een van de volgende drie waarden geretourneerd: 
 
 * Geslaagd
 * Mislukt
 * Geannuleerd
 
-Alle andere waarden geven dat de bewerking wordt nog steeds uitgevoerd. De resourceprovider kan een aangepaste waarde die aangeeft van de status retourneren. Bijvoorbeeld, krijgt u **geaccepteerde** wanneer de aanvraag is ontvangen en wordt uitgevoerd.
+Alle andere waarden geven aan dat de bewerking wordt nog steeds uitgevoerd. De resourceprovider kan een aangepaste waarde die aangeeft van de status retourneren. Bijvoorbeeld: u ontvangt mogelijk **geaccepteerde** wanneer de aanvraag is ontvangen en wordt uitgevoerd.
 
-## <a name="example-requests-and-responses"></a>Voorbeeld aanvragen en antwoorden
+## <a name="example-requests-and-responses"></a>Voorbeeld van de aanvragen en antwoorden
 
-### <a name="start-virtual-machine-202-with-azure-asyncoperation"></a>Start de virtuele machine (202 met Azure-asynchrone bewerking)
-Dit voorbeeld ziet u hoe u bepaalt de status van **start** bewerking voor virtuele machines. De eerste aanvraag is in de volgende indeling:
+### <a name="start-virtual-machine-202-with-azure-asyncoperation"></a>Virtuele machine (202 met Azure-AsyncOperation) starten
+In dit voorbeeld laat zien hoe bepalen van de status van **start** bewerking voor virtuele machines. De eerste aanvraag is in de volgende indeling:
 
 ```HTTP
 POST 
 https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Compute/virtualMachines/{vm-name}/start?api-version=2016-03-30
 ```
 
-Deze retourneert statuscode 202. U ziet tussen de headerwaarden:
+Het resultaat-statuscode 202. Onder de kop-waarden ziet u de:
 
 ```HTTP
 Azure-AsyncOperation : https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Compute/locations/{region}/operations/{operation-id}?api-version=2016-03-30
 ```
 
-Controleer de status van de asynchrone bewerking, een andere aanvraag verzenden naar deze URL.
+Controleer de status van de asynchrone bewerking een nieuwe aanvraag verzenden naar deze URL.
 
 ```HTTP
 GET 
 https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Compute/locations/{region}/operations/{operation-id}?api-version=2016-03-30
 ```
 
-Hoofdtekst van de reactie bevat de status van de bewerking:
+De antwoordtekst bevat de status van de bewerking:
 
 ```json
 {
@@ -121,9 +119,9 @@ Hoofdtekst van de reactie bevat de status van de bewerking:
 }
 ```
 
-### <a name="deploy-resources-201-with-azure-asyncoperation"></a>Resources (201 met Azure-asynchrone bewerking) implementeren
+### <a name="deploy-resources-201-with-azure-asyncoperation"></a>Resources (201 met Azure-AsyncOperation) implementeren
 
-Dit voorbeeld ziet u hoe u bepaalt de status van **implementaties** bewerking voor het implementeren van resources in Azure. De eerste aanvraag is in de volgende indeling:
+In dit voorbeeld laat zien hoe bepalen van de status van **implementaties** bewerking voor het implementeren van resources naar Azure. De eerste aanvraag is in de volgende indeling:
 
 ```HTTP
 PUT
@@ -136,20 +134,20 @@ Deze retourneert statuscode 201. De hoofdtekst van het antwoord bevat:
 "provisioningState":"Accepted",
 ```
 
-U ziet tussen de headerwaarden:
+Onder de kop-waarden ziet u de:
 
 ```HTTP
 Azure-AsyncOperation: https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Resources/deployments/{deployment-name}/operationStatuses/{operation-id}?api-version=2016-09-01
 ```
 
-Controleer de status van de asynchrone bewerking, een andere aanvraag verzenden naar deze URL.
+Controleer de status van de asynchrone bewerking een nieuwe aanvraag verzenden naar deze URL.
 
 ```HTTP
 GET 
 https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group}/providers/Microsoft.Resources/deployments/{deployment-name}/operationStatuses/{operation-id}?api-version=2016-09-01
 ```
 
-Hoofdtekst van de reactie bevat de status van de bewerking:
+De antwoordtekst bevat de status van de bewerking:
 
 ```json
 {"status":"Running"}
@@ -161,38 +159,38 @@ Wanneer de implementatie is voltooid, wordt het antwoord bevat:
 {"status":"Succeeded"}
 ```
 
-### <a name="create-storage-account-202-with-location-and-retry-after"></a>Storage-account (202 met locatie en probeer het opnieuw na) maken
+### <a name="create-storage-account-202-with-location-and-retry-after"></a>Storage-account (202 met locatie en opnieuw proberen na) maken
 
-Dit voorbeeld ziet u hoe u bepaalt de status van de **maken** bewerking voor storage-accounts. De eerste aanvraag is in de volgende indeling:
+In dit voorbeeld laat zien hoe bepalen van de status van de **maken** bewerking voor storage-accounts. De eerste aanvraag is in de volgende indeling:
 
 ```HTTP
 PUT
 https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-name}?api-version=2016-01-01
 ```
 
-En de hoofdtekst van de aanvraag bevat de eigenschappen voor het opslagaccount:
+De aanvraagtekst bevat eigenschappen voor het opslagaccount en:
 
 ```json
 { "location": "South Central US", "properties": {}, "sku": { "name": "Standard_LRS" }, "kind": "Storage" }
 ```
 
-Deze retourneert statuscode 202. Tussen de headerwaarden ziet u de volgende twee waarden:
+Het resultaat-statuscode 202. Onder de kop-waarden ziet u de volgende twee waarden:
 
 ```HTTP
 Location: https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Storage/operations/{operation-id}?monitor=true&api-version=2016-01-01
 Retry-After: 17
 ```
 
-Nadat het wachten op aantal seconden zijn opgegeven in de nieuwe poging na, Controleer de status van de asynchrone bewerking door een andere aanvraag verzenden naar deze URL.
+Na wachten op aantal, opgegeven in Retry-After, Controleer de status van de asynchrone bewerking seconden door een andere aanvraag te verzenden naar deze URL.
 
 ```HTTP
 GET 
 https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Storage/operations/{operation-id}?monitor=true&api-version=2016-01-01
 ```
 
-Als de aanvraag wordt nog steeds uitgevoerd, ontvangt u een statuscode 202. Als de aanvraag is voltooid, de statuscode 200 ontvangt en de hoofdtekst van het antwoord bevat de eigenschappen van het opslagaccount dat is gemaakt.
+Als de aanvraag wordt nog steeds uitgevoerd, ontvangt u een statuscode 202. Als de aanvraag is voltooid, het ontvangen van een 200-statuscode en de hoofdtekst van het antwoord bevat de eigenschappen van het opslagaccount dat is gemaakt.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor documentatie over elke REST-bewerking [REST API-documentatie](/rest/api/).
-* Zie voor meer informatie over het implementeren van sjablonen met de REST-API van Resource Manager [resources met Resource Manager-sjablonen en REST-API van Resource Manager implementeren](resource-group-template-deploy-rest.md).
+* Zie voor documentatie over de REST-bewerking, [REST API-documentatie](/rest/api/).
+* Zie voor meer informatie over het implementeren van sjablonen met de REST-API voor Resource Manager [resources implementeren met Resource Manager-sjablonen en Resource Manager REST API](resource-group-template-deploy-rest.md).

@@ -2,19 +2,19 @@
 title: Meer informatie over het beveiligen van toegang tot gegevens in Azure Cosmos DB | Microsoft Docs
 description: Meer informatie over concepten voor toegangsbeheer in Azure Cosmos DB, met inbegrip van hoofdsleutels, alleen-lezensleutels, gebruikers en machtigingen.
 services: cosmos-db
-author: SnehaGunda
+author: rafats
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2017
-ms.author: sngun
-ms.openlocfilehash: c51d399b646e7914ba85048c0928837caac7c15b
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.date: 08/19/2018
+ms.author: rafats
+ms.openlocfilehash: cfd1160d1592c03eea94e3c4d04fdc5754eca671
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901116"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42054941"
 ---
 # <a name="securing-access-to-azure-cosmos-db-data"></a>Toegang tot Azure Cosmos DB-gegevens beveiligen
 In dit artikel biedt een overzicht van het beveiligen van toegang tot gegevens die zijn opgeslagen in [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
@@ -174,6 +174,20 @@ foreach (Permission perm in permFeed)
 
 DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 ```
+
+## <a name="add-users-and-assign-roles"></a>Gebruikers toevoegen en toewijzen van rollen
+
+Toegang tot de lezer van de Azure Cosmos DB-account toevoegen aan uw gebruikersaccount, hebt u de eigenaar van een abonnement op de volgende stappen uitvoeren in Azure portal.
+
+1. Open de Azure-portal en selecteer uw Azure Cosmos DB-account.
+2. Klik op de **toegangsbeheer (IAM)** tabblad en klik vervolgens op **+ toevoegen**.
+3. In de **machtigingen toevoegen** deelvenster in de **rol** Schakel **Cosmos DB Account Reader-rol**.
+4. In de **toegang toewijzen tot vak**, selecteer **Azure AD-gebruiker, groep of toepassing**.
+5. Selecteer de gebruiker, groep of toepassing in de map waarnaar u wilt om toegang te verlenen.  U kunt zoeken naar de map met de naam, e-mailadres of object-id's.
+    De geselecteerde gebruiker, groep of toepassing wordt weergegeven in de lijst met geselecteerde leden.
+6. Klik op **Opslaan**.
+
+De entiteit kan nu lezen voor Azure Cosmos DB-resources.
 
 ## <a name="delete-or-export-user-data"></a>Verwijder of gebruikersgegevens exporteren
 Azure Cosmos DB kunt u zoeken, selecteren, wijzigen en verwijderen van persoonlijke gegevens zich bevinden in de database of verzamelingen. Azure Cosmos DB biedt API's om te zoeken en verwijderen van persoonlijke gegevens echter, is het uw verantwoordelijkheid om te gebruiken de API's en het definiëren van logica die nodig zijn om de persoonlijke gegevens te wissen. Elke multi-modeldatabase API (SQL-API, MongoDB-API, Gremlin-API, Cassandra-API, tabel-API) biedt een andere taal-SDK's methoden voor het zoeken en verwijderen van persoonlijke gegevens bevatten. U kunt ook inschakelen de [introductie op de live (TTL)](time-to-live.md) functie om gegevens te verwijderen automatisch na een opgegeven periode, zonder extra kosten.

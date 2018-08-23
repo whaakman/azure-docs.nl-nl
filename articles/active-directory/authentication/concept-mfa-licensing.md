@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 92be187a1c593742feb90409f2b8cc305bf9a6c8
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 8ecb2008b85bb6a7ac35b5f95deaf0fb321ce155
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161648"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42054710"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Over het verkrijgen van Azure multi-factor Authentication
 
@@ -63,7 +63,7 @@ De volgende tabel geeft een lijst van de functies die beschikbaar in de verschil
 
 ## <a name="how-to-turn-on-azure-multi-factor-authentication-for-azure-ad-administrators"></a>Het inschakelen van Azure multi-factor Authentication voor beheerders van Azure AD
 
-Gebruikers die zijn toegewezen de rol globale beheerder in Azure AD-tenants kunt verificatie in twee stappen voor de globale beheerder van Azure AD-accounts zonder extra kosten. Als u van een Microsoft-Account gebruikmaakt, kunt u registreren voor meervoudige verificatie met behulp van de richtlijnen in het ondersteuningsartikel voor Microsoft-account gevonden [over verificatie in twee stappen](https://support.microsoft.com/en-us/help/12408/microsoft-account-about-two-step-verification). Als u een Microsoft-Account niet gebruikt, schakelt u multi-factor authentication voor globale beheerders volgens de richtlijnen die zijn gevonden in het artikel [hoe u verificatie in twee stappen vereist voor een gebruiker of groep](howto-mfa-userstates.md).
+Gebruikers die zijn toegewezen de rol globale beheerder in Azure AD-tenants kunt verificatie in twee stappen voor de globale beheerder van Azure AD-accounts zonder extra kosten. Als u van een Microsoft-Account gebruikmaakt, kunt u registreren voor meervoudige verificatie met behulp van de richtlijnen in het ondersteuningsartikel voor Microsoft-account gevonden [over verificatie in twee stappen](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification). Als u een Microsoft-Account niet gebruikt, schakelt u multi-factor authentication voor globale beheerders volgens de richtlijnen die zijn gevonden in het artikel [hoe u verificatie in twee stappen vereist voor een gebruiker of groep](howto-mfa-userstates.md).
 
 ## <a name="how-to-get-azure-multi-factor-authentication"></a>Over het verkrijgen van Azure multi-factor Authentication
 

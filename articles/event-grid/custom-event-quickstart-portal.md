@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 07/05/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 4fef565dbd78cf3559cd47ed6c59800c8e6f9c9d
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: ec85a866279412232aa23fad8f975d1642525772
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869140"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023426"
 ---
 # <a name="create-and-route-custom-events-with-the-azure-portal-and-event-grid"></a>Aangepaste gebeurtenissen maken en routeren met behulp van Azure Portal en Event Grid
 
@@ -41,7 +41,7 @@ Een Event Grid-onderwerp biedt een door de gebruiker gedefinieerd eindpunt waaro
 
    ![Eerste stappen](./media/custom-event-quickstart-portal/select-create.png)
 
-1. Geef een unieke naam op voor het aangepaste onderwerp. De onderwerpnaam moet uniek zijn omdat deze wordt vertegenwoordigd door een DNS-vermelding. Gebruik niet de naam die in de afbeelding wordt weergegeven. Maak in plaats daarvan een eigen naam. Selecteer een van de [ondersteunde regio's](overview.md). Geef een naam op voor de resourcegroep. Selecteer **Maken**.
+1. Geef een unieke naam op voor het aangepaste onderwerp. De onderwerpnaam moet uniek zijn omdat deze wordt vertegenwoordigd door een DNS-vermelding. Gebruik niet de naam die in de afbeelding wordt weergegeven. Maak in plaats daarvan een eigen naam. Geef een naam op voor de resourcegroep. Selecteer **Maken**.
 
    ![Waarden opgeven voor Event Grid-onderwerp](./media/custom-event-quickstart-portal/create-custom-topic.png)
 

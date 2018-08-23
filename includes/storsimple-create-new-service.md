@@ -1,8 +1,19 @@
 <!--author=alkohli last changed:01/14/2016-->
 
+---
+title: bestand opnemen
+description: bestand opnemen
+services: storage
+author: alkohli
+ms.service: storage
+ms.topic: include
+ms.date: 08/20/2018
+ms.author: alkohli
+ms.custom: include file
+---
 
 #### <a name="to-create-a-new-service"></a>Een nieuwe service maken
-1. Met behulp van uw Microsoft-accountreferenties, zich aanmelden bij de klassieke Azure portal op deze URL: [ https://manage.windowsazure.com/ ](https://manage.windowsazure.com/).
+1. Met behulp van de referenties van uw Microsoft-account, zich aanmelden bij de klassieke Azure portal op de volgende URL: [ https://manage.windowsazure.com/ ](https://manage.windowsazure.com/).
 2. Klik in de klassieke Azure-portal op **Nieuw** > **Data Services** > **StorSimple Manager** > **Snelle invoer**.
 3. Ga in het formulier dat wordt weergegeven, als volgt te werk:
    
@@ -10,7 +21,7 @@
    2. Geef een **locatie** voor uw service op. Kies in het algemeen een locatie die het dichtst bij de geografische regio ligt waar u uw apparaat wilt implementeren. U kunt ook rekening houden met het volgende: 
       
       * Als u bestaande workloads in Azure hebt die u ook wilt implementeren met uw StorSimple-apparaat, moet u dat datacenter gebruiken.
-      * Uw StorSimple Manager-service en Azure Storage kunnen zich op twee verschillende locaties bevinden. In dat geval moet u het StorSimple Manager- en Azure Storage-account afzonderlijk maken. U maakt een Azure Storage-account door naar de Azure Storage-service in de klassieke Azure-portal te gaan en de stappen in [Een Azure Storage-account maken](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) uit te voeren. Nadat u dit account hebt gemaakt, voegt u het toe aan de StorSimple Manager-service met de stappen in [Een nieuw opslagaccount voor de service maken](../articles/storsimple/storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service).
+      * Uw StorSimple Manager-service en Azure Storage kunnen zich op twee verschillende locaties bevinden. In dat geval moet u het StorSimple Manager- en Azure Storage-account afzonderlijk maken. U maakt een Azure Storage-account door naar de Azure Storage-service in de klassieke Azure-portal te gaan en de stappen in [Een Azure Storage-account maken](../articles/storage/common/storage-quickstart-create-account.md) uit te voeren. Nadat u dit account hebt gemaakt, voegt u het toe aan de StorSimple Manager-service met de stappen in [Een nieuw opslagaccount voor de service maken](../articles/storsimple/storsimple-deployment-walkthrough.md#configure-a-new-storage-account-for-the-service).
    3. Kies een **abonnement** in de vervolgkeuzelijst. Het abonnement is gekoppeld aan uw factureringsrekening. Dit veld wordt niet weergegeven als u slechts één abonnement hebt.
    4. Selecteer **Een nieuw opslagaccount maken** om automatisch een opslagaccount te maken met de service. Dit opslagaccount heeft een speciale naam, zoals storsimplebwv8c6dcnf. Als u een andere locatie voor uw gegevens wilt kiezen, schakelt u dit vakje uit. 
    5. Klik op **StorSimple Manager maken** om de service te maken.

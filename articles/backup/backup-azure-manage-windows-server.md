@@ -1,311 +1,299 @@
 ---
 title: Azure Recovery Services-kluizen en servers beheren
-description: Gebruik dit artikel bij het beheren van Azure Recovery Services-kluizen en servers.
+description: Beheren van taken en waarschuwingen in een Azure Recovery Services-kluis.
 services: backup
 author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/23/2018
+ms.date: 8/21/2018
 ms.author: markgal
-ms.openlocfilehash: 3d0404654631520909e63853d47b7de2b6cb4361
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9fad5876ce177129d6178052916843b94b33ccf1
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606525"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42445464"
 ---
-# <a name="monitor-and-manage-azure-recovery-services-vaults-and-servers-for-windows-machines"></a>Azure Recovery Services-kluizen en -servers controleren en beheren voor Windows-machines
+# <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services-kluizen beheren en controleren
 
-Dit artikel bevat een overzicht van de back-monitor en beheertaken via de Azure portal en de Microsoft Azure Backup agent beschikbaar. In dit artikel wordt ervan uitgegaan dat u al een Azure-abonnement en ten minste één Recovery Services-kluis hebt gemaakt.
+In dit artikel wordt uitgelegd hoe u de Recovery Services-kluis **overzicht** dashboard om te controleren en beheren van uw Recovery Services-kluizen. Wanneer u een Recovery Services-kluis in de lijst opent de **overzicht** dashboard voor de geselecteerde kluis wordt geopend. Het dashboard biedt verschillende details over de kluis. Er zijn *tegels* waarin: de status van kritieke en waarschuwingen, in uitvoering en mislukte back-uptaken en de hoeveelheid lokaal redundante opslag (LRS) en geografisch redundante opslag (GRS) gebruikt. Als u back-up van virtuele Azure-machines naar de kluis, de [ **back-up de Voorcontrolestatus** tegel toont alle items die kritieke of waarschuwingsstatus](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/). De volgende afbeelding is de **overzicht** dashboard voor **Contoso-kluis**. De **back-Upitems** tegel ziet er negen items zijn geregistreerd bij de kluis.
+
+![Recovery services-kluis-dashboard](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
+
+De vereisten voor dit artikel zijn: een Azure-abonnement, een Recovery Services-kluis en dat er is ten minste één back-upitem geconfigureerd voor de kluis.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
 
 ## <a name="open-a-recovery-services-vault"></a>Een Recovery Services-kluis openen
 
-De Recovery Services-kluisdashboard ziet u de gegevens of de kenmerken van een Recovery Services-kluis.
+Te bewaken, waarschuwingen, of gegevens over een Recovery Services-kluis weergeven, opent u de kluis.
 
 1. Aanmelden bij de [Azure Portal](https://portal.azure.com/) met behulp van uw Azure-abonnement.
-2. Klik op **Alle services**. 
 
-3. U wilt openen een Recovery Services-kluis. Begint te typen in het dialoogvenster **Recovery Services**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Klik op **Recovery Services-kluizen** om de lijst met Recovery Services-kluizen in uw abonnement weer te geven.
+2. Klik in de portal op **alle services**.
 
-     ![Lijst met Recovery Services-kluizen stap 1 openen](./media/backup-azure-manage-windows-server/open-rs-vault-list.png) <br/>
+   ![Lijst met Recovery Services-kluizen stap 1 openen](./media/backup-azure-manage-windows-server/open-rs-vault-list.png)
 
-    De lijst met Recovery Services-kluizen wordt geopend.
+3. In de **alle services** in het dialoogvenster, type **herstelservices**. Als u begint te typen, wordt de lijst gefilterd op basis van uw invoer. Wanneer de **Recovery Services-kluizen** optie wordt weergegeven, klikt u hierop om de lijst met Recovery Services-kluizen openen in uw abonnement.
 
     ![Een Recovery Services-kluis maken, stap 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. Selecteer de naam van de Recovery Services-kluis die u wilt openen in de lijst met kluizen. De Recovery Services-kluis dashboard menu wordt geopend.
+4. Klik op een kluis om te openen in de lijst met kluizen, de **overzicht** dashboard. 
 
-    ![Recovery services-kluisdashboard](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
+    ![Recovery services-kluis-dashboard](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
-    Nu u de Recovery Services-kluis hebt geopend, proberen een van de taken bewaken of beheren.
+    Het dashboard overzicht gebruikt tegels voor waarschuwingen en gegevens back-uptaak.
 
-## <a name="monitor-backup-jobs-and-alerts"></a>Monitor voor back-uptaken en waarschuwingen
+## <a name="monitor-backup-jobs-and-alerts"></a>Back-taken bewaken en waarschuwingen
 
-U controleren taken en waarschuwingen vanuit het dashboard Recovery Services-kluis, waarin u zien hoe:
+De Recovery Services-kluis **overzicht** dashboard bevat tegels voor informatie over controle en gebruik. De tegels in de weergave van de sectie bewaking kritiek en waarschuwing waarschuwingen, en In voortgang en mislukte taken. Klik op een bepaalde waarschuwing of taak om het menu waarschuwingen voor back-up- of back-uptaken, gefilterd voor die taak of een waarschuwing te openen.
 
-* Details van de back-waarschuwingen
-* Bestanden en mappen, evenals Azure virtuele machines die beveiligd in de cloud
-* Totale opslagruimte is verbruikt in Azure
-* Status van de back-uptaak
+![Taken van de back-dashboard](./media/backup-azure-manage-windows-server/monitor-dashboard-tiles-warning.png)
 
-![Taken van de back-dashboard](./media/backup-azure-manage-windows-server/dashboard-tiles.png)
+De sectie bewaking toont de resultaten van vooraf gedefinieerde **waarschuwingen voor back-up** en **back-uptaken** query's. De bewaking-tegels bevatten actuele informatie over:
 
-Op de informatie in elk van deze tegels, wordt het bijbehorende menu waar u gerelateerde taken beheren geopend.
+* Kritiek en waarschuwing waarschuwingen voor back-uptaken (in de afgelopen 24 uur)
+* De voorcontrolestatus voor virtuele machines van Azure - voor meer informatie over de controle vooraf voor de status, Zie de [back-up-blog over de status van de controle vooraf voor de back-up van](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/).
+* De back-uptaken in voortgang, en taken die zijn mislukt (in de afgelopen 24 uur).
 
-Vanaf de bovenkant van het Dashboard:
+De tegels gebruik geven:
 
-* Instellingen voor - toegang biedt beschikbare back-uptaken.
-* Back-up - kunt u back-up van nieuwe bestanden en mappen (of virtuele Azure-machines) naar de Recovery Services-kluis.
-* Verwijderen - als een recovery services-kluis is niet langer in gebruik en verwijdert het vrijmaken van opslagruimte. Verwijderen is alleen ingeschakeld nadat alle beveiligde servers zijn verwijderd uit de kluis.
+* Het aantal back-up-items die zijn geconfigureerd voor de kluis.
+* De Azure-opslag (gescheiden door LRS en GRS) die worden gebruikt door de kluis.
 
-![Taken van de back-dashboard](./media/backup-azure-manage-windows-server/dashboard-tasks.png)
+Klik op de tegels (met uitzondering van opslag, back-up) om het bijbehorende menu te openen. In de bovenstaande afbeelding ziet de waarschuwingen voor back-up-tegel u drie kritieke waarschuwingen. Op de rij kritieke waarschuwingen in de tegel waarschuwingen voor back-up klikt, wordt de back-up-waarschuwingen gefilterd voor kritieke waarschuwingen geopend.
 
-## <a name="alerts-for-backups-using-azure-backup-agent"></a>Waarschuwingen voor back-ups met Azure backup-agent:
-| Waarschuwingsniveau | Waarschuwingen verzonden |
-| --- | --- |
-| Kritiek | voor back-up mislukt, herstelfout en uitgestelde verwijderen dat wil zeggen, wanneer iemand stopt de beveiliging met gegevens verwijderen |
-| Waarschuwing | voor back-up is voltooid met waarschuwingen (wanneer < 100 bestanden zijn niet back-up vanwege problemen met de beschadiging en > 1.000.000 bestanden zijn met succes back-up) |
-| Informatief | Er is geen informatieve waarschuwingen zijn momenteel beschikbaar voor Azure backup-agent |
+![Back-up waarschuwingenmenu gefilterd voor kritieke waarschuwingen](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
+
+Het menu back-up waarschuwingen in de afbeelding hierboven, wordt gefilterd op: de Status actief is, ernst is kritiek en -tijd is de afgelopen 24 uur.
 
 ## <a name="manage-backup-alerts"></a>Back-up waarschuwingen beheren
-Klik op de **waarschuwingen voor back-up** tegel openen de **waarschuwingen voor back-up** menu waarschuwingen en beheren.
 
-![Back-waarschuwingen](./media/backup-azure-manage-windows-server/manage-backup-alerts.png)
+Klik op toegang tot het menu back-up waarschuwingen in het menu Recovery Services-kluis **waarschuwingen voor back-up**.
 
-De tegel waarschuwingen voor back-up toont het aantal:
+![Back-upwaarschuwingen](./media/backup-azure-manage-windows-server/backup-alerts-menu.png)
 
-* kritieke waarschuwingen niet omgezet in de afgelopen 24 uur
-* waarschuwingen niet omgezet in de afgelopen 24 uur
+Waarschuwingen voor back-up in dit rapport worden de waarschuwingen voor de kluis. 
 
-Klik op de koppeling om weer te geven de **waarschuwingen voor back-up** menu, met een gefilterde weergave van waarschuwingen (kritieke of waarschuwingsstatus).
+![Back-upwaarschuwingen](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
-In het menu back-up waarschuwingen u:
+### <a name="alerts"></a>Waarschuwingen
 
-* Kies de juiste informatie om op te nemen met uw waarschuwingen.
+De lijst met waarschuwingen voor back-up weergegeven de geselecteerde gegevens voor de gefilterde waarschuwingen. In het menu back-up-waarschuwingen kunt u filteren op waarschuwing of kritieke waarschuwingen.
 
-    ![Kolommen kiezen](./media/backup-azure-manage-windows-server/choose-alerts-colunms.png)
-* Waarschuwingen voor de status van de ernst filteren en tijden beginnen of eindigen.
+| Waarschuwingsniveau | Gebeurtenissen die waarschuwingen genereren |
+| ----------- | ----------- |
+| Kritiek | U ontvangt kritieke waarschuwingen wanneer: back-up taken mislukken, mislukt de recovery-taken, en wanneer u beveiliging stoppen op een server, maar blijven de gegevens bewaard.|
+| Waarschuwing | U waarschuwing ontvangt wanneer een waarschuwing: back-uptaken voltooid met waarschuwingen, bijvoorbeeld wanneer minder dan 100 bestanden worden niet opgeslagen vanwege problemen met de beschadiging, of wanneer meer dan 1.000.000 bestanden kunnen worden opgeslagen). |
+| Informatief | Er is geen informatieve waarschuwingen zijn momenteel in gebruik. |
 
-    ![Waarschuwingen filteren](./media/backup-azure-manage-windows-server/filter-alerts.png)
-* Meldingen configureren voor de ernst, frequentie en ontvangers, evenals waarschuwingen inschakelen of uitschakelen.
+### <a name="viewing-alert-details"></a>Waarschuwingsdetails weergeven
 
-    ![Waarschuwingen filteren](./media/backup-azure-manage-windows-server/configure-notifications.png)
+Het rapport waarschuwingen voor back-up worden bijgehouden acht details over elke waarschuwing. Gebruik de **kolommen kiezen** om de details in het rapport bewerken.
 
-Als **Per waarschuwing** is geselecteerd als de **hoogte** frequentie, geen groepering of vermindering van e-mailberichten optreedt. Elke waarschuwing resulteert in een melding (de standaardinstelling) en een resolutie e-mailadres onmiddellijk wordt verzonden.
+![Back-upwaarschuwingen](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
-Als **per uur Digest** is geselecteerd als de **hoogte** frequentie, wordt een e-mailbericht verzonden naar de gebruiker uitleg over niet-opgeloste waarschuwingen zijn gegenereerd in het afgelopen uur. Een resolutie e-mailbericht is verzonden aan het einde van het uur.
+Standaard worden alle gegevens, met uitzondering van **tijd laatste keer voorgekomen**, worden weergegeven in het rapport.
 
-Waarschuwingen kunnen worden verzonden voor de volgende niveaus:
-
-* Kritieke
 * Waarschuwing
-* informatie
+* Back-upitem
+* Beveiligde Server
+* Severity
+* Duur
+* Aanmaaktijd
+* Status
+* Tijd laatste keer voorgekomen
 
-Deactiveren van de waarschuwing met de **deactiveren** knop in het menu taak details. Wanneer u klikt op deactiveert, kunt u de opmerkingen bij de resolutie opgeven.
+### <a name="change-the-details-in-alerts-report"></a>De details in rapport waarschuwingen wijzigen
 
-Kies van de kolommen die u wilt weergeven als onderdeel van de waarschuwing met de **kolommen kiezen** knop.
+1. Voor het wijzigen van de rapportgegevens in de **waarschuwingen voor back-up** menu, klikt u op **kolommen kiezen**.
+
+   ![Back-upwaarschuwingen](./media/backup-azure-manage-windows-server/alerts-menu-choose-columns.png)
+
+   De **kolommen kiezen** menu wordt geopend.
+
+2. In de **kolommen kiezen** menu, kiest u de details die u wilt weergeven in het rapport.
+
+    ![Kies in het menu van de kolommen](./media/backup-azure-manage-windows-server/choose-columns-menu.png)
+
+3. Klik op **gedaan** uw wijzigingen opslaan en sluiten van het menu van de kolommen kiezen.
+
+   Als u wijzigingen aanbrengen, maar niet wilt dat om de wijzigingen te behouden, klikt u op **opnieuw** opgeslagen om terug te keren naar de laatste de geselecteerde configuratie.
+
+### <a name="change-the-filter-in-alerts-report"></a>Wijzig het filter in rapport waarschuwingen
+
+Gebruik de **Filter** menu om te wijzigen van de ernst, Status, begintijd en eindtijd voor de waarschuwingen. 
 
 > [!NOTE]
-> Van de **instellingen** menu u back-waarschuwingen beheren door te selecteren **bewaking en rapporten > waarschuwingen en gebeurtenissen > back-waarschuwingen** en vervolgens te klikken op **Filter** of  **Meldingen configureren**.
->
->
+> Bewerken van de waarschuwingen voor back-up wijzigen niet filter de waarschuwing of kritieke waarschuwingen in de kluis een dashboard.
+>  
 
-## <a name="manage-backup-items"></a>Back-up-items beheren
-Het beheren van lokale back-ups is nu beschikbaar in de beheerportal. In de sectie back-up van het dashboard, het **back-ups** tegel ziet u het aantal back-items die zijn beveiligd door de kluis.
+1. Klik om te wijzigen van het filter waarschuwingen voor back-up, in het menu back-up waarschuwingen **Filter**.
 
-Klik op **bestandsmappen** tegel in de back-up-Items.
+   ![Kies in het filtermenu](./media/backup-azure-manage-windows-server/alerts-menu-choose-filter.png)
 
-![Tegel back-items](./media/backup-azure-manage-windows-server/backup-items-tile.png)
+   Het Filter-menu wordt weergegeven.
 
-Het menu back-Items wordt geopend met het filter ingesteld op bestand met de map waar u elke specifieke back-up vermeld item zien.
+   ![Kies in het filtermenu](./media/backup-azure-manage-windows-server/filter-alert-menu.png)
 
-![Back-items](./media/backup-azure-manage-windows-server/backup-item-list.png)
+2. De ernst, Status, begintijd en eindtijd, bewerken en klik op **gedaan** uw wijzigingen op te slaan.
 
-Als u een specifieke back-item uit de lijst selecteert, ziet u de essentiële gegevens voor het item.
+## <a name="configuring-notifications-for-alerts"></a>Meldingen voor waarschuwingen configureren
 
-> [!NOTE]
-> Van de **instellingen** menu u bestanden en mappen beheren door te selecteren **beveiligde Items > back-Upitems** en selecteren **bestandsmappen** in de vervolgkeuzelijst.
->
->
+Meldingen voor het genereren van e-mailberichten wanneer er een waarschuwing of kritieke waarschuwing optreedt configureren. U kunt e-mailwaarschuwingen te verzenden elk uur of wanneer een bepaalde waarschuwing optreedt.
 
-![Back-items uit de instellingen voor](./media/backup-azure-manage-windows-server/backup-files-and-folders.png)
+   ![Waarschuwingen filteren](./media/backup-azure-manage-windows-server/configure-notification.png)
+
+E-mailmeldingen zijn standaard **op**. Klik op **uit** stoppen van de e-mailmeldingen.
+
+Op de **waarschuwen** toe, kies **Per waarschuwing** als niet wilt groeperen of zijn veel items die waarschuwingen kunnen genereren. Elke waarschuwing resulteert in één melding (de standaardinstelling), en een e-mailadres van het probleem zou moeten onmiddellijk worden verzonden.
+
+Als u selecteert **samenvatting per uur**, een e-mailbericht is verzonden naar de ontvangers het niet-opgeloste waarschuwingen die in het afgelopen uur gegenereerd waarin wordt uitgelegd. Een resolutie van e-mailbericht wordt verzonden aan het einde van het uur.
+
+Kies de ernst van waarschuwing (Kritiek of waarschuwing) gebruikt voor het genereren van e-mailbericht. Er zijn momenteel geen waarschuwingen informatie.
+
+## <a name="manage-backup-items"></a>Back-up items beheren
+
+Een Recovery Services-kluis bevat veel soorten back-upgegevens. Zie voor een volledige lijst van de back-uptypen [die toepassingen en werkbelastingen kunnen een back-up](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use). Voor het beheren van de verschillende servers, computers, databases en werkbelastingen, klikt u op de **back-Upitems** tegel om de inhoud van de kluis weer te geven.
+
+![Back-upitems van tegel](./media/backup-azure-manage-windows-server/backup-items.png)
+
+De lijst met back-Upitems, gerangschikt op Type back-upbeheer, wordt geopend.
+
+![lijst met back-upitems](./media/backup-azure-manage-windows-server/list-backup-items.png)
+
+Als u wilt een specifiek type beveiligd exemplaar verkennen, klikt u op het item in de kolom Type back-upbeheer. Bijvoorbeeld, in de bovenstaande afbeelding zijn er twee Azure beveiligde virtuele machines in deze kluis. Te klikken op **virtuele Azure-Machine**, opent u de lijst van beveiligde virtuele machines in deze kluis.
+
+![lijst van het type back-up](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
+
+De lijst met virtuele machines heeft nuttige gegevens: de bijbehorende resourcegroep, vorige [controle vooraf voor de back-up](https://azure.microsoft.com/blog/azure-vm-backup-pre-checks/), Status van de laatste back-up en datum van de meest recente herstelpunt. Het beletselteken opent in de laatste kolom, u het menu voor het activeren van algemene taken. De nuttige gegevens die zijn opgegeven in de kolommen, verschilt voor elk type back-up.
+
+![lijst van het type back-up](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
 
 ## <a name="manage-backup-jobs"></a>Back-uptaken beheren
-Back-up taken voor zowel on-premises (wanneer de on-premises server is een back-up naar Azure) en Azure back-ups zijn zichtbaar in het dashboard.
 
-In de sectie back-up van het dashboard ziet u de tegel van de taak back-up van het aantal taken:
+De **back-uptaken** tegel op het kluisdashboard ziet u het aantal taken die in de afgelopen 24 uur wordt uitgevoerd of is mislukt. De tegel bevat een kort overzicht in het menu back-uptaken.
 
-* wordt uitgevoerd
-* mislukt in de afgelopen 24 uur.
+![Back-up items van instellingen](./media/backup-azure-manage-windows-server/backup-jobs-tile.png)
 
-Voor het beheren van uw back-uptaken, klikt u op de **back-uptaken** tegel, waarmee u het back-uptaken menu opent.
+Voor meer informatie over de taken, klikt u op **In voortgang** of **mislukt** om het menu back-uptaken is gefilterd op die staat.
 
-![Back-items uit de instellingen voor](./media/backup-azure-manage-windows-server/backup-jobs.png)
+### <a name="backup-jobs-menu"></a>Back-uptaken menu
 
-Wijzigen van de informatie die beschikbaar zijn in het menu taken van de back-up met de **kolommen kiezen** knop aan de bovenkant van de pagina.
+De **back-uptaken** menu geeft informatie weer over het Item type bewerking, Status, begintijd en duur.  
 
-Gebruik de **Filter** knop van bestanden en mappen en back-up van virtuele machine van Azure kunt selecteren.
+Open het menu back-uptaken in het hoofdmenu van de kluis, te klikken op **back-uptaken**. 
 
-Als u uw back-bestanden en mappen niet ziet, klikt u op **Filter** knop aan de bovenkant van de pagina en selecteer **bestanden en mappen** in het menu-Item.
+![Back-up items van instellingen](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
-> [!NOTE]
-> Van de **instellingen** menu voor het beheren van de back-uptaken door te selecteren **bewaking en rapporten > taken > back-uptaken** en selecteren **bestandsmappen** in de vervolgkeuzelijst het menu.
->
->
+De lijst met back-uptaken wordt geopend.
 
-## <a name="monitor-backup-usage"></a>Gebruik back-up controleren
-In de sectie back-up van het dashboard toont de tegel back-up-gebruik de opslag in Azure verbruikt. Opslaggebruik is voorzien:
+![Back-up items van instellingen](./media/backup-azure-manage-windows-server/backup-jobs-list.png)
+
+Het menu back-uptaken toont de status voor alle bewerkingen, op alle back-uptypen, voor de afgelopen 24 uur. Gebruik **Filter** de filters wijzigen. De filters worden in de volgende secties beschreven.
+
+De filters wijzigen:
+
+1. In de kluis back-uptaken menu, klikt u op **Filter**.
+
+   ![Back-up items van instellingen](./media/backup-azure-manage-windows-server/vault-backup-job-menu-filter.png)
+
+    Het menu Filter wordt geopend.
+
+   ![Back-up items van instellingen](./media/backup-azure-manage-windows-server/filter-menu-backup-jobs.png)
+
+2. Kies de instellingen voor het filter en klik op **gedaan**. De gefilterde lijst wordt vernieuwd op basis van de nieuwe instellingen.
+
+#### <a name="item-type"></a>Itemtype
+
+Het itemtype is het type back-upbeheer van het beveiligde exemplaar. Er zijn vier typen; Zie de volgende lijst. U kunt alle itemtypen, of een itemtype weergeven. U kunt twee of drie itemtypen niet selecteren. De beschikbare typen zijn:
+
+* Alle itemtypen
+* virtuele Azure-machine
+* Bestanden en mappen
+* Azure Storage
+* Azure-workload
+
+#### <a name="operation"></a>Bewerking
+
+U kunt één bewerking, of alle bewerkingen bekijken. U kunt twee of drie bewerkingen niet selecteren. De beschikbare bewerkingen zijn:
+
+* Alle bewerkingen
+* Registreren
+* Back-up configureren
+* Backup
+* Herstellen
+* Back-up uitschakelen
+* back-upgegevens verwijderen
+
+#### <a name="status"></a>Status
+
+U kunt de Status van alle of een weergeven. U kunt twee of drie statussen niet selecteren. De beschikbare statussen zijn:
+
+* Status van alle
+* Voltooid
+* Wordt uitgevoerd
+* Mislukt
+* Geannuleerd
+* Voltooid met waarschuwingen
+
+#### <a name="start-time"></a>Begintijd
+
+De dag en tijd waarop de query wordt gestart. De standaardwaarde is een periode van 24 uur.
+
+#### <a name="end-time"></a>Eindtijd
+
+De dag en tijdstip waarop de query eindigt.
+
+### <a name="export-jobs"></a>Taken exporteren
+
+Gebruik **taken exporteren** een werkblad met alle taken menugegevens maken. Het werkblad heeft een blad dat bevat een overzicht van alle taken en afzonderlijke werkbladen voor elke taak.
+
+Als u wilt de gegevens van taken naar een spreadsheet exporteren, klikt u op **taken exporteren**. De service maakt een speadsheet met de naam van de kluis en de datum, maar u kunt de naam wijzigen.
+
+## <a name="monitor-backup-usage"></a>Bewaak het gebruik van de back-up
+
+De back-upopslag-tegel in het dashboard ziet u de opslag verbruikt in Azure. Opslaggebruik is van toepassing op:
 
 * LRS-opslaggebruik voor de cloud die is gekoppeld aan de kluis
-* Cloud GRS gebruik van opslag die is gekoppeld aan de kluis
+* GRS-opslaggebruik voor de cloud die is gekoppeld aan de kluis
 
-## <a name="manage-your-production-servers"></a>Uw productieservers beheren
-Voor het beheren van uw productieservers, klikt u op **instellingen**.
-
-Klik onder beheren op **back-upinfrastructuur > productieservers**.
-
-De productieservers menu een lijst met alle beschikbare productieservers. Klik op een server in de lijst met gegevens van de server openen.
-
-![Beveiligde items](./media/backup-azure-manage-windows-server/production-server-list.png)
-
-
-## <a name="open-the-azure-backup-agent"></a>Open de Azure Backup agent
-Open de **Microsoft Azure backup-agent** (vindt u het door te zoeken naar uw computer *Microsoft Azure Backup*).
-
-![Een Windows Server back-up plannen](./media/backup-azure-manage-windows-server/snap-in-search.png)
-
-Van de **acties** beschikbaar op het recht van de back-upagent console u beheertaken het volgende:
-
-* Server registreren
-* Back-up plannen
-* Nu een back-maken
-* Eigenschappen wijzigen
-
-![Microsoft Azure Backup agent console acties](./media/backup-azure-manage-windows-server/console-actions.png)
-
-> [!NOTE]
-> Naar **gegevens herstellen**, Zie [bestanden terugzetten op een WindowsServer of Windows-clientcomputer](backup-azure-restore-windows-server.md).
->
->
-
-[!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
-
-## <a name="modify-the-backup-schedule"></a>Het back-upschema wijzigen
-1. Klik in de Microsoft Azure Backup agent op **back-up plannen**.
-
-    ![Een Windows Server back-up plannen](./media/backup-azure-manage-windows-server/schedule-backup.png)
-2. In de **Wizard Back-upschema** laat de **wijzigingen aanbrengen in de back-items of tijden** optie is geselecteerd en klik op **volgende**.
-
-    ![Een Windows Server back-up plannen](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)
-3. Als u wilt toevoegen of wijzigen van items, op de **Items selecteren voor back-up** scherm op **Items toevoegen**.
-
-    U kunt ook instellen **Uitsluitingsinstellingen** via deze pagina in de wizard. Als u wilt uitsluiten van bestanden of bestandstypen leest u de procedure voor het toevoegen van [uitsluitingsinstellingen](#manage-exclusion-settings).
-4. Selecteer de bestanden en mappen die u wilt back-up en klikt u op **OK**.
-
-    ![Een Windows Server back-up plannen](./media/backup-azure-manage-windows-server/add-items-modify.png)
-5. Geef de **back-upschema** en klik op **volgende**.
-
-    U kunt de dag (maximaal 3 keer per dag) of een wekelijkse back-ups plannen.
-
-    ![Items voor back-up van Windows Server](./media/backup-azure-manage-windows-server/specify-backup-schedule-modify-close.png)
-
-   > [!NOTE]
-   > Het back-upschema opgeven wordt gedetailleerd uitgelegd in dit [artikel](backup-azure-backup-cloud-as-tape.md).
-   >
-
-6. Selecteer de **bewaarbeleid** voor de back-up en klik op **volgende**.
-
-    ![Items voor back-up van Windows Server](./media/backup-azure-manage-windows-server/select-retention-policy-modify.png)
-7. Op de **bevestiging** scherm Lees de informatie en klik op **voltooien**.
-8. Zodra de wizard is voltooid met het maken van de **back-upschema**, klikt u op **sluiten**.
-
-    Na het wijzigen van beveiliging, kunt u bevestigen dat back-ups correct worden geactiveerd door te gaan naar de **taken** tabblad en te bevestigen dat de wijzigingen worden doorgevoerd in de back-uptaken.
-
-## <a name="enable-network-throttling"></a>Netwerkbeperking inschakelen
-
-De Azure Backup agent biedt een tabblad bandbreedtebeperking zodat u kunt bepalen hoe netwerkbandbreedte wordt gebruikt tijdens de gegevensoverdracht. Dit besturingselement is handig als u back wilt-up van gegevens tijdens werkuren, maar niet wilt dat de back-upproces andere internetverkeer verstoort zijn. Beperken van de gegevens overbrengen van toepassing op back-up en herstelbewerkingen.  
-
-Naar beperking inschakelen:
-
-1. In de **backup-agent**, klikt u op **eigenschappen wijzigen**.
-2. Op de ** tabblad beperking, selecteer **inschakelen voor gebruik van internetbandbreedte voor back-upbewerkingen**.
-
-    ![Netwerkbeperking](./media/backup-azure-manage-windows-server/throttling-dialog.png)
-
-    Wanneer u de beperking hebt ingeschakeld, geef de toegestane bandbreedte voor tijdens de back gegevensoverdracht- **werkuren** en **niet-werkuren**.
-
-    De waarden van de bandbreedte begint in 512 kB per seconde (Kbps) en maximaal 1023 megabytes per seconde (Mbps) kunnen gaan. U kunt ook aanwijzen is gestart en voltooien voor **werkuren**, en welke dagen van de week worden beschouwd als werk dagen. De tijd buiten de werkuren aangewezen wordt beschouwd als niet-werkuren.
-3. Klik op **OK**.
-
-## <a name="manage-exclusion-settings"></a>Uitsluitingsinstellingen voor beheren
-1. Open de **Microsoft Azure backup-agent** (u vindt deze door te zoeken naar uw computer *Microsoft Azure Backup*).
-
-    ![Een Windows Server back-up plannen](./media/backup-azure-manage-windows-server/snap-in-search.png)
-2. Klik in de Microsoft Azure Backup agent op **back-up plannen**.
-
-    ![Een Windows Server back-up plannen](./media/backup-azure-manage-windows-server/schedule-backup.png)
-3. In de Wizard Back-upschema laat de **wijzigingen aanbrengen in de back-items of tijden** optie is geselecteerd en klik op **volgende**.
-
-    ![Een Windows Server back-up plannen](./media/backup-azure-manage-windows-server/modify-or-stop-a-scheduled-backup.png)
-4. Klik op **uitsluitingen instellingen**.
-
-    ![Een Windows Server back-up plannen](./media/backup-azure-manage-windows-server/exclusion-settings.png)
-5. Klik op **uitsluiting toevoegen**.
-
-    ![Een Windows Server back-up plannen](./media/backup-azure-manage-windows-server/add-exclusion.png)
-6. Selecteer de locatie en klik vervolgens op **OK**.
-
-    ![Een Windows Server back-up plannen](./media/backup-azure-manage-windows-server/exclusion-location.png)
-7. Toevoegen van extensie in de **bestandstype** veld.
-
-    ![Een Windows Server back-up plannen](./media/backup-azure-manage-windows-server/exclude-file-type.png)
-
-    Een uitbreiding .mp3 toevoegen
-
-    ![Een Windows Server back-up plannen](./media/backup-azure-manage-windows-server/exclude-mp3.png)
-
-    Klik op als u een andere extensie **uitsluiting toevoegen** en voert u een ander bestandstype (extensie .jpeg toevoegen).
-
-    ![Een Windows Server back-up plannen](./media/backup-azure-manage-windows-server/exclude-jpg.png)
-8. Wanneer u alle extensies hebt toegevoegd, klikt u op **OK**.
-9. Ga verder met de Wizard planning back-up door te klikken op **volgende** totdat de **bevestigingspagina**, klikt u vervolgens op **voltooien**.
-
-    ![Een Windows Server back-up plannen](./media/backup-azure-manage-windows-server/finish-exclusions.png)
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
-**W1. De status van de back-uptaak wordt als voltooid in de Azure backup-agent, waarom niet het ophalen van onmiddellijk weergegeven in de portal?**
 
-A1. Er wordt op maximale vertraging van 15 minuten tussen de status van de back-uptaak doorgevoerd in de Azure backup agent en de Azure portal.
+**Q1. Hoe lang duurt het voor de status van de Azure backup-agent om weer te geven in de portal?**
 
-**Q.2 als een back-uptaak is mislukt, hoe lang duurt een melding kan genereren?**
+A1. De Azure-portal kan maximaal 15 minuten duren in overeenstemming met de status van de Azure backup-agent-taak.
 
-A.2 een waarschuwing wordt gegenereerd binnen de 20 minuten van de Azure Backup-fout.
+**Q2. Wanneer een back-uptaak is mislukt, hoe lang duurt het voordat een waarschuwing te activeren?**
+
+A2. Een waarschuwing wordt gegenereerd binnen 20 minuten van de Azure back-upfouten.
 
 **Q3. Is er een aanvraag waarin een e-mailbericht niet verzonden als meldingen zijn geconfigureerd?**
 
-A3. Hieronder volgen de gevallen wanneer de melding niet verzonden wordt om te reduceren van de waarschuwing ruis:
+A3. Ja. In de volgende situaties, worden geen meldingen verzonden.
 
-* Als meldingen per uur zijn geconfigureerd en er een waarschuwing gegenereerd en opgelost binnen het uur
-* Taak is geannuleerd.
-* Tweede back-uptaak is mislukt, omdat de oorspronkelijke back-uptaak wordt uitgevoerd.
+* Als meldingen per uur worden geconfigureerd en een waarschuwing wordt gegenereerd en opgelost binnen het uur
+* Wanneer een taak is geannuleerd
+* Als een tweede back-uptaak is mislukt omdat de oorspronkelijke back-uptaak uitgevoerd wordt
 
-## <a name="troubleshooting-monitoring-issues"></a>Het oplossen van problemen met bewaking
-**Probleem:** taken en/of waarschuwingen van de Azure Backup agent worden niet weergegeven in de portal.
+## <a name="troubleshooting-monitoring-issues"></a>Het oplossen van problemen met de bewaking
 
-**Stappen voor probleemoplossing:** het proces ```OBRecoveryServicesManagementAgent```, verzendt de taak en waarschuwing gegevens naar de Azure Backup-service. Tijd tot tijd dit proces zijn vastgelopen of afsluiten.
+**Probleem:** taken en/of waarschuwingen van de Azure backup-agent worden niet weergegeven in de portal.
 
-1. Om te controleren of het proces wordt niet uitgevoerd, opent u **Taakbeheer** en controleer of de ```OBRecoveryServicesManagementAgent``` proces wordt uitgevoerd.
-2. Ervan uitgaande dat het proces niet wordt uitgevoerd, opent u **Configuratiescherm** en de lijst met services bladeren. Starten of opnieuw starten **Microsoft Azure Recovery Services Management Agent**.
+**Stappen voor probleemoplossing:** het proces ```OBRecoveryServicesManagementAgent```, verzendt de taak en de waarschuwing naar de Azure Backup-service. Van tijd tot tijd dit proces kan zijn vastgelopen of afsluiten.
 
-    Ga voor meer informatie de logbestanden op:<br/>
+1. Als u wilt controleren of het proces wordt niet uitgevoerd, opent u **Taakbeheer**, en Controleer ```OBRecoveryServicesManagementAgent``` wordt uitgevoerd.
+
+2. Als het proces niet wordt uitgevoerd, opent u **Configuratiescherm**, en blader door de lijst met services. Starten of opnieuw starten **Microsoft Azure Recovery Services Management Agent**.
+
+    Ga voor meer informatie de logboeken op:<br/>
    `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*` Bijvoorbeeld:<br/>
    `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
 
 ## <a name="next-steps"></a>Volgende stappen
-* [WindowsServer of Windows-Client uit Azure herstellen](backup-azure-restore-windows-server.md)
+* [Herstellen van WindowsServer of Windows-Client van Azure](backup-azure-restore-windows-server.md)
 * Zie voor meer informatie over Azure Backup, [overzicht van Azure-back-up](backup-introduction-to-azure-backup.md)
 * Ga naar de [Azure back-Forum](http://go.microsoft.com/fwlink/p/?LinkId=290933)

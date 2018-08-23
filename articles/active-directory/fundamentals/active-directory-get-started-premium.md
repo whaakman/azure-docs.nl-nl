@@ -13,12 +13,12 @@ ms.date: 09/07/2017
 ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro;
-ms.openlocfilehash: c15cbb632410eb0b6867677d7802960033dfdd44
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: a5ede142b7f3dd314d1a6b3eb8f100ec55a4ea4e
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36268379"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42022598"
 ---
 # <a name="quickstart-sign-up-for-azure-active-directory-premium"></a>Snelstartgids: Registreren voor Azure Active Directory Premium
 U kunt licenties kopen en deze koppelen aan uw Azure-abonnement om aan de slag te gaan met Azure AD (Azure Active Directory) Premium. Als u een nieuw Azure-abonnement maakt, moet u ook uw licentieabonnement en toegang tot de Azure AD-service activeren zoals beschreven in de volgende secties. 
@@ -46,7 +46,7 @@ U kunt aan de slag met Azure AD via EMS-licenties met een van de volgende licent
 ### <a name="microsoft-volume-licensing"></a>Microsoft Volume Licensing
 Azure Active Directory Premium is beschikbaar via een [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx) (250 of meer licenties) of het [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)-programma (5-250 licenties).
 
-Ga naar de pagina [How to purchase through Volume Licensing](https://www.microsoft.com/en-us/Licensing/how-to-buy/how-to-buy.aspx) (Een licentie kopen via Volume Licensing) voor meer informatie over de opties voor het kopen van volumelicenties.
+Ga naar de pagina [How to purchase through Volume Licensing](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx) (Een licentie kopen via Volume Licensing) voor meer informatie over de opties voor het kopen van volumelicenties.
 
 > [!NOTE]
 > De Azure Active Directory-edities Premium en Basic zijn beschikbaar voor klanten in China via het wereldwijde exemplaar van Azure Active Directory. De edities Azure Active Directory Premium en Basic worden momenteel niet ondersteund in de Microsoft Azure-service die wordt beheerd door 21Vianet in China. Neem contact met ons op via het [Azure Active Directory-forum](https://feedback.azure.com/forums/169401-azure-active-directory/) voor meer informatie.

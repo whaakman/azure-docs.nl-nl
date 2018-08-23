@@ -8,12 +8,12 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: 6f3afa22a50728070c42cd6e2eff0cc148815fbc
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: d38ab71ed2d2ebff04004f02589cfccca4199318
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262681"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42055332"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reageren op gebeurtenissen van Blob storage
 
@@ -21,7 +21,7 @@ Gebeurtenissen van Azure Storage kunnen toepassingen om te reageren op het maken
 
 Algemene Blob storage event-scenario's omvatten afbeelding of video verwerking, zoekindexen of elke werkstroom bestand gerichte.  Asynchrone bestandsuploads zijn uitstek geschikt voor de gebeurtenissen.  Wanneer wijzigingen incidentele zijn, maar uw scenario direct reactietijd is vereist, kan architectuur op basis van gebeurtenissen met name efficiënt zijn.
 
-[Beschikbaarheid](../../event-grid/overview.md) voor opslaggebeurtenissen is gekoppeld aan de beschikbaarheid van Event Grid en komt beschikbaar in andere regio’s wanneer dit ook voor Event Grid geldt. Kijk eens [Route Blob-opslaggebeurtenissen aan een aangepaste web-eindpunt - CLI](storage-blob-event-quickstart.md) of [Route Blob-opslaggebeurtenissen aan een aangepaste web-eindpunt - PowerShell](storage-blob-event-quickstart-powershell.md) voor een kort voorbeeld. 
+Kijk eens [Route Blob-opslaggebeurtenissen aan een aangepaste web-eindpunt - CLI](storage-blob-event-quickstart.md) of [Route Blob-opslaggebeurtenissen aan een aangepaste web-eindpunt - PowerShell](storage-blob-event-quickstart-powershell.md) voor een kort voorbeeld. 
 
 ![Event Grid-Model](./media/storage-blob-event-overview/event-grid-functional-model.png)
 

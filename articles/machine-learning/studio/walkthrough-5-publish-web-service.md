@@ -1,6 +1,6 @@
 ---
 title: 'Stap 5: De Machine Learning-webservice implementeren | Microsoft Docs'
-description: 'Stap 5 van de prognose een voorspellende oplossing overzicht: een Voorspellend experiment in Machine Learning Studio als een webservice implementeert.'
+description: 'Stap 5 van het ontwikkelen van een voorspellende oplossing-overzicht: een Voorspellend experiment in Machine Learning Studio als een webservice implementeren.'
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
-ms.openlocfilehash: 7a0dc7e92df342789d2c498479aa54b94070c9f4
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 436656195e00311dd350a5526b01fffa56ac02ca
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835940"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42056904"
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Kennismaken, stap 5: De Azure Machine Learning-webservice implementeren
 Dit is de vijfde stap van de procedure [predictive analytics-oplossing in Azure Machine Learning ontwikkelen](walkthrough-develop-predictive-solution.md)
@@ -33,173 +33,174 @@ Dit is de vijfde stap van de procedure [predictive analytics-oplossing in Azure 
 6. [De webservice openen](walkthrough-6-access-web-service.md)
 
 - - -
-Om de kans te gebruiken het voorspellende model dat we hebben ontwikkeld in dit overzicht anderen, kunnen we het implementeren als een webservice in Azure.
+Als u wilt een kans om te gebruiken de Voorspellend model dat we hebben ontwikkeld die in dit overzicht anderen, kunnen we het implementeren als een webservice op Azure.
 
-Naar dit punt Experimenteer we met het model te trainen. Maar de geïmplementeerde service niet meer wilt doen training - gaat het genereren van nieuwe voorspellingen door score berekenen voor invoer van de gebruiker op basis van het model. Dus gaan we voorbereiding converteren dit experiment uit een ***training*** experimenteren naar een ***voorspellende*** experimenteren. 
+Tot nu hebben we is experimenteren met het trainen van ons model. Maar de geïmplementeerde service is niet meer gaan doen training - gaat het genereren van nieuwe voorspellingen van de invoer van de gebruiker op basis van onze model scoren. We gaan doen voorbereiding om te converteren van dit experiment uit een ***training*** experimenteren naar een ***voorspellende*** experimenteren. 
 
 Dit is een proces drie stappen:  
 
 1. Verwijder een van de modellen
-2. Converteer de *trainingsexperiment* we hebt gemaakt in een *Voorspellend experiment*
+2. Converteer de *trainingsexperiment* we hebben gemaakt in een *Voorspellend experiment*
 3. De Voorspellend experiment implementeren als een webservice
 
 ## <a name="remove-one-of-the-models"></a>Verwijder een van de modellen
 
-Eerst moet dit experiment enigszins trim omlaag. Momenteel hebben we twee verschillende modellen in het experiment, maar we alleen wilt gebruiken één model wanneer we dit als een webservice implementeren.  
+Eerst moet dit experiment iets trim omlaag. Momenteel hebben we twee verschillende modellen in het experiment, maar we willen alleen één model gebruiken wanneer we dit als een webservice implementeert.  
 
-Stel, dat we hebt besloten dat de gestimuleerd structuur model beter presteert dan het SVM-model. Zodat het eerste wat te doen is verwijderen de [Two-Class ondersteuning Vectormachine] [ two-class-support-vector-machine] module en de modules die werden gebruikt voor het trainen van het. U kunt een kopie maken van het experiment eerst door te klikken op **OpslaanAls** aan de onderkant van het experimentcanvas.
+Stel dat hebben we besloten dat de boosted structuur model beter presteert dan de SVM-model. Dus verwijder de Allereerst moet u de [Two-Class Support Vector Machine] [ two-class-support-vector-machine] -module en de modules die zijn gebruikt voor het trainen van het. U wilt mogelijk maakt u eerst een kopie van het experiment door te klikken op **OpslaanAls** aan de onderkant van het experimentcanvas.
 
-We moeten de volgende modules te verwijderen:  
+We moeten de volgende modules verwijderen:  
 
-* [Vectormachine Two-Class-ondersteuning][two-class-support-vector-machine]
-* [Model trainen] [ train-model] en [Score Model] [ score-model] modules die zijn verbonden
+* [Two-Class Support Vector Machine][two-class-support-vector-machine]
+* [Model te trainen] [ train-model] en [Score Model] [ score-model] modules die zijn verbonden met het
 * [Gegevens normaliseren] [ normalize-data] (van beide)
 * [Model evalueren] [ evaluate-model] (omdat we klaar bent met het evalueren van de modellen)
 
-Selecteer elke module en druk op de toets Delete of met de rechtermuisknop op de module en selecteer **verwijderen**. 
+Selecteer elke module en druk op Delete te drukken, of met de rechtermuisknop op de module en selecteer **verwijderen**. 
 
 ![Het model SVM verwijderd][3a]
 
-Het model moet nu als volgt uitzien:
+Ons model ziet er ongeveer als volgt:
 
 ![Het model SVM verwijderd][3]
 
-Nu we klaar zijn voor het implementeren van dit model met behulp van de [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree].
+Nu kunt u implementeren in dit model met behulp van de [Two-Class Boosted beslissingsstructuur][two-class-boosted-decision-tree].
 
 ## <a name="convert-the-training-experiment-to-a-predictive-experiment"></a>Het trainingsexperiment converteren naar een Voorspellend experiment
 
-Om dit model klaar voor implementatie, moet dit trainingsexperiment converteren naar een Voorspellend experiment. Dit omvat drie stappen:
+Om dit model klaar is voor implementatie, moeten we deze trainingsexperiment converteren naar een Voorspellend experiment. Dit omvat drie stappen:
 
-1. Sla het model dat we hebben getraind en vervang onze trainingsmodules
-2. Het experiment voor het verwijderen van modules die zijn alleen nodig voor training Trim
-3. Definiëren waar de webservice invoer accepteert en waarin de uitvoer wordt gegenereerd
+1. Sla het model dat we hebben getraind en vervangt u onze trainingsmodules
+2. Verwijder het experiment als u wilt verwijderen van modules die zijn alleen nodig voor training
+3. Bepalen waar de webservice invoer accepteert en waarin de uitvoer wordt gegenereerd
 
-We kunnen dit handmatig doen, maar gelukkig alle drie stappen kunnen worden uitgevoerd door te klikken op **webservice ingesteld** aan de onderkant van het experimentcanvas (en het selecteren van de **voorspellende webservice** optie).
+We kunnen dit handmatig doen, maar gelukkig alle drie stappen kunnen worden bereikt door te klikken op **webservice ingesteld** aan de onderkant van het experimentcanvas (en selecteren van de **voorspellende webservice** optie).
 
 > [!TIP]
-> Als u meer informatie wilt over wat er gebeurt wanneer u een trainingsexperiment converteren naar een Voorspellend experiment, Zie [uw model voorbereiden voor implementatie in Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md).
+> Als u wilt meer informatie over wat er gebeurt wanneer u een opleidingsexperiment converteren naar een Voorspellend experiment, Zie [over het voorbereiden van uw model voor implementatie in Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md).
 
 Wanneer u klikt op **webservice ingesteld**, op verschillende manieren gebeuren:
 
-* Het getrainde model wordt geconverteerd naar één **getrainde Model** module en opgeslagen in het modulepalet links van het experimentcanvas (u vindt deze onder **Trained Models**)
-* Modules die zijn gebruikt voor training zijn verwijderd; specifieke opdrachten:
-  * [Two-Class gestimuleerd beslissingsstructuur][two-class-boosted-decision-tree]
+* Het getrainde model wordt geconverteerd naar een enkele **getrainde Model** module en opgeslagen in het modulepalet links van het experimentcanvas (u vindt deze onder **getrainde modellen**)
+* Modules die zijn gebruikt voor trainingen, worden verwijderd; met name:
+  * [Two-Class Boosted-beslisboom][two-class-boosted-decision-tree]
   * [Train Model][train-model]
-  * [Gegevens splitsen][split]
-  * de tweede [R-Script uitvoeren] [ execute-r-script] module die is gebruikt voor testgegevens
-* Het opgeslagen getrainde model weer toegevoegd aan het experiment
-* **Web-invoer** en **Web service uitvoer** modules worden toegevoegd (deze vaststellen waar gegevens van de gebruiker voert het model en welke gegevens worden geretourneerd wanneer de web-service is geopend)
+  * [Split Data][split]
+  * de tweede [R-Script uitvoeren] [ execute-r-script] -module die is gebruikt voor testgegevens
+* Het opgeslagen getrainde model wordt toegevoegd in het experiment
+* **Web service invoer** en **Web service uitvoer** modules worden toegevoegd (worden geïdentificeerd waarbij gegevens van de gebruiker voert het model en welke gegevens worden geretourneerd wanneer de web-service wordt geopend)
 
 > [!NOTE]
-> U kunt zien dat het experiment wordt opgeslagen in twee delen onder tabbladen die zijn toegevoegd aan de bovenkant van het experimentcanvas. De oorspronkelijke trainingsexperiment is op het tabblad **trainingsexperiment**, en de zojuist gemaakte Voorspellend experiment ligt onder de **Voorspellend experiment**. De Voorspellend experiment is de die we als een webservice implementeert.
+> U kunt zien dat het experiment wordt opgeslagen in twee onderdelen onder tabbladen die zijn toegevoegd aan de bovenkant van het experimentcanvas. De oorspronkelijke trainingsexperiment is op het tabblad **trainingsexperiment**, en wordt de zojuist gemaakte Voorspellend experiment **Voorspellend experiment**. De Voorspellend experiment is de die we als een webservice implementeert.
 
-Er moet een aanvullende stap met dit bepaalde experiment uitvoeren.
-We twee toegevoegd [R-Script uitvoeren] [ execute-r-script] modules voor een functie weging tot de gegevens. Dat is slechts een slag die we nodig voor het trainen en te testen, zodat we uit deze modules in het laatste model kunt nemen.
-Machine Learning Studio verwijderd een [R-Script uitvoeren] [ execute-r-script] module wanneer u deze verwijderen de [gesplitste] [ split] module. Nu kan het andere verwijderen en verbinding maken met [metagegevens Editor] [ metadata-editor] rechtstreeks naar [Score Model][score-model].    
+We moeten voor een aanvullende stap met dit bepaalde experiment.
+We hebben twee toegevoegd [R-Script uitvoeren] [ execute-r-script] modules voor een gewicht van functie tot de gegevens. Dat is slechts een truc die we nodig hebben voor het trainen en te testen, dus we uit deze modules in het uiteindelijke model kiezen kunnen.
+Machine Learning Studio verwijderd een [R-Script uitvoeren] [ execute-r-script] module wanneer deze verwijderd de [splitsen] [ split] module. Nu kunnen we de andere verwijderen en verbinding maken [metagegevens Editor] [ metadata-editor] rechtstreeks naar [Score Model][score-model].    
 
-Onze experiment ziet er nu als volgt:  
+Onze experiment moet er nu als volgt uitzien:  
 
-![Score berekenen voor het getrainde model][4]  
+![Het getrainde model scoren][4]  
 
 > [!NOTE]
-> U vraagt zich misschien af waarom we de gegevensset UCI Duits creditcardgegevens achtergebleven in de Voorspellend experiment. De service wilt beoordelen van gegevens van de gebruiker, niet de oorspronkelijke gegevensset, dus waarom laat de oorspronkelijke gegevensset in het model?
+> U vraagt zich misschien af waarom we de gegevensset UCI Duits creditcardgegevens links in de Voorspellend experiment. De service gaat van de gebruiker gegevens, niet de oorspronkelijke gegevensset te beoordelen, dus waarom laat u de oorspronkelijke gegevensset in het model?
 > 
-> Het is waar de service hoeft niet de oorspronkelijke creditcard-gegevens. Maar hoeft het schema voor die gegevens, waaronder gegevens zoals het aantal kolommen zijn en welke kolommen numeriek zijn. Dit schema-informatie is nodig om gegevens van de gebruiker te interpreteren. We laten deze onderdelen die zijn verbonden, zodat de scoremodule het schema van de dataset heeft wanneer de service wordt uitgevoerd. De gegevens wordt niet gebruikt, alleen het schema.  
+> Het is waar de service hoeft niet de oorspronkelijke gegevens van de creditcard. Maar hoeft het schema voor die gegevens, die uit informatie zoals het aantal kolommen in er zijn en welke kolommen zijn numerieke. Dit schema-informatie is nodig om gegevens van de gebruiker worden geïnterpreteerd. Laten we deze onderdelen die zijn gekoppeld, zodat de scoring-module bevat een schema van de gegevensset als de service wordt uitgevoerd. De gegevens wordt niet gebruikt, alleen het schema.  
 > 
+>Een van de belangrijke dingen om te weten is dat als de oorspronkelijke gegevensset deel uitmaakt van het label, klikt u vervolgens het verwachte schema van de web-invoer ook verwacht een kolom met het label dat. Er is een manier om dit om het label en alle andere gegevens die in de gegevensset training is, maar worden niet in de web-invoer, voordat u verbinding maakt de web-invoer- en training-gegevensset naar een algemene module te verwijderen. 
 > 
 
-Voer het experiment outproblemen (Klik op **uitvoeren**.) Als u controleren wilt of het model nog steeds werkt, klikt u op de uitvoer van de [Score Model] [ score-model] module en selecteer **resultaten weergeven**. U kunt zien dat de oorspronkelijke gegevens worden weergegeven, samen met de waarde van tegoed risico's ('Scored Labels') en de scoreprofiel waarschijnlijkheidswaarde ('berekend kansen'.) 
+Voer het experiment een keer (Klik op **uitvoeren**.) Als u controleren wilt of het model nog steeds werkt, klikt u op de uitvoer van de [Score Model] [ score-model] -module en selecteer **resultaten weergeven**. U kunt zien dat de oorspronkelijke gegevens wordt weergegeven, samen met de waarde van het tegoed risico's ("Scored Labels') en de scoring kanswaarde ("score kansen'.) 
 
 ## <a name="deploy-the-web-service"></a>De webservice implementeren
-U kunt het experiment implementeren als ofwel Classic webservice of als een nieuwe webservice die gebaseerd op Azure Resource Manager.
+U kunt het experiment implementeren als een van beide een klassieke webservice of als een nieuwe webservice die gebaseerd op Azure Resource Manager.
 
-### <a name="deploy-as-a-classic-web-service"></a>Als een klassiek-webservice implementeren
-Klik voor het implementeren van een klassiek-webservice die is afgeleid van onze experiment **webservice implementeren** onder het canvas en selecteer **webservice implementeren [klassieke]**. Machine Learning Studio implementeert het experiment als een webservice en gaat u naar het dashboard voor de webservice. Op deze pagina kunt u terugkeren naar het experimentcanvas (**weergave momentopname** of **geven het meest recente**) en een eenvoudige test van de webservice wordt uitgevoerd (Zie **testen van de webservice** hieronder). Er is ook hier informatie voor het maken van toepassingen die toegang heeft tot de webservice (meer informatie over die in de volgende stap van deze rondleiding).
+### <a name="deploy-as-a-classic-web-service"></a>Als een klassieke webservice implementeren
+Voor het implementeren van een klassieke webservice die is afgeleid van onze experiment, klikt u op **webservice implementeren** onder het canvas en selecteer **webservice implementeren [klassieke]**. Machine Learning Studio implementeert het experiment als een webservice en gaat u naar het dashboard voor de webservice. Op deze pagina kunt u terugkeren naar het experimentcanvas (**weergave momentopname** of **weergeven het meest recente**) en voert u een eenvoudige test van de webservice (Zie **testen van de webservice** hieronder). Er is ook hier informatie voor het maken van toepassingen die toegang hebben tot de webservice (meer hierover in de volgende stap van deze procedure).
 
-![Web service-dashboard][6]
+![Dashboard van de webservice][6]
 
-U kunt de service configureren door te klikken op de **configuratie** tabblad. Hier kunt u de naam van de service (dit is de naam van het experiment standaard toegekend) wijzigen en wijs hieraan een beschrijving. U kunt ook meer beschrijvende labels geven voor de invoer- en -gegevens.  
+U kunt de service configureren door te klikken op de **configuratie** tabblad. Hier kunt u de naam van de service (dit is de naam van het experiment standaard toegekend) wijzigen en wijs hieraan een beschrijving. U kunt ook meer beschrijvende labels bieden voor de invoer- en -gegevens.  
 
 ![Configureer de webservice][5]  
 
 ### <a name="deploy-as-a-new-web-service"></a>Als een nieuwe webservice implementeren
 
 > [!NOTE] 
-> Voor het implementeren van een nieuwe webservice moet u voldoende machtigingen hebben in het abonnement waaraan u de webservice implementeert. Zie voor meer informatie [beheren van een webservice via de portal voor Azure Machine Learning-webservices](manage-new-webservice.md). 
+> Voor het implementeren van een nieuwe webservice moet u voldoende machtigingen hebben in het abonnement waarvan u de webservice implementeert. Zie voor meer informatie, [beheren van een webservice met behulp van de Azure Machine Learning-webserviceportal](manage-new-webservice.md). 
 
-Voor het implementeren van een nieuwe webservice afgeleid van onze experiment:
+Een nieuwe webservice implementeren afgeleid van onze experiment:
 
-1. Klik op **webservice implementeren** onder het canvas en selecteer **Web Service implementeren [New]**. Machine Learning Studio brengt u naar de Azure Machine Learning-webservices **implementeren Experiment** pagina.
+1. Klik op **webservice implementeren** onder het canvas en selecteer **Web Service implementeren [Nieuw]**. Machine Learning Studio brengt u naar de Azure Machine Learning-webservices **Experiment implementeren** pagina.
 
 2. Voer een naam voor de webservice. 
 
-3. Voor **prijs Plan**, kan een bestaande prijscategorie selecteren of 'Nieuw maken' en geef een naam op voor het nieuwe plan en selecteer de optie voor maandelijks plannen. De standaardwaarde van de lagen abonnement op de plannen voor uw regio standaard en uw web-service wordt geïmplementeerd in deze regio.
+3. Voor **Prijsplan**, u kunt een bestaande prijsstelling selecteren of selecteert u 'Nieuw' en geef een naam op voor het nieuwe abonnement en selecteert u de optie voor maandelijks plannen. De standaardwaarde van de lagen plan voor de abonnementen voor uw standaardregio en wordt uw webservice wordt geïmplementeerd voor deze regio.
 
 4. Klik op **implementeren**.
 
-Na een paar minuten de **Quick Start** pagina voor uw webservice wordt geopend.
+Na een paar minuten de **snelstartgids** pagina voor uw webservice wordt geopend.
 
-U kunt de service configureren door te klikken op de **configureren** tabblad. Hier kunt u de service wijzigen title en wijs hieraan een beschrijving. 
+U kunt de service configureren door te klikken op de **configureren** tabblad. Hier kunt u de service wijzigen van titel en wijs hieraan een beschrijving. 
 
-Als u wilt testen van de webservice, klikt u op de **testen** tabblad (Zie **testen van de webservice** hieronder). Voor informatie over het maken van toepassingen die toegang heeft tot de webservice, klikt u op de **verbruiken** tabblad (de volgende stap in dit scenario gaat in meer detail).
+Als u wilt testen van de webservice, klikt u op de **testen** tabblad (Zie **testen van de webservice** hieronder). Voor informatie over het maken van toepassingen die toegang hebben tot de webservice, klikt u op de **verbruiken** tabblad (is de volgende stap in dit scenario gaat meer informatie).
 
 > [!TIP]
-> Nadat u deze hebt geïmplementeerd, kunt u de webservice bijwerken. Bijvoorbeeld, als u uw model wijzigen wilt en vervolgens kunt u het trainingsexperiment, aanpassen van de Modelparameters en klikt u op **webservice implementeren**, selecteren **webservice implementeren [klassieke]** of **[New]-webservice implementeren**. Wanneer u het experiment opnieuw implementeert, vervangt dan de web-service, nu met gebruik van uw bijgewerkte model.  
+> Nadat u deze hebt geïmplementeerd, kunt u de webservice bijwerken. Bijvoorbeeld, als u wijzigen van het model wilt vervolgens u het trainingsexperiment bewerkt, aanpassen van de Modelparameters en klikt u op **webservice implementeren**, Klik daarvoor **webservice implementeren [klassieke]** of **[Nieuw]-webservice implementeren**. Wanneer u het experiment opnieuw implementeert, wordt deze vervangen door de webservice, nu met behulp van het model van uw bijgewerkte.  
 > 
 > 
 
 ## <a name="test-the-web-service"></a>De webservice testen
 
-Als de webservice wordt geopend, krijgt de gegevens van de gebruiker via de **Web service invoer** module waar wordt doorgegeven aan de [Score Model] [ score-model] module en gewaardeerd. De manier waarop die we de Voorspellend experiment hebt ingesteld, het model verwacht gegevens in dezelfde indeling als de oorspronkelijke tegoed risico gegevensset.
-De resultaten worden geretourneerd naar de gebruiker van de webservice via de **Web service uitvoer** module.
+Als de webservice wordt geopend, krijgt de gegevens van de gebruiker via de **Web service invoer** module waar deze wordt doorgegeven aan de [Score Model] [ score-model] module en gewaardeerd. De manier waarop die we de Voorspellend experiment hebt ingesteld, het model wordt verwacht dat gegevens in dezelfde indeling als de oorspronkelijke credit risk gegevensset.
+De resultaten worden geretourneerd aan de gebruiker van de webservice via de **Web service uitvoer** module.
 
 > [!TIP]
-> De manier waarop we de Voorspellend experiment geconfigureerd, hebben de gehele resultaat is van de [Score Model] [ score-model] module worden geretourneerd. Dit omvat alle ingevoerde gegevens plus de tegoed risico waarde en de kans op scoreprofiel. Maar u kunt een iets andere betekenis als u wilt terugkeren - u kan bijvoorbeeld alleen de tegoed risico waarde retourneren. U doet dit door invoegen een [Projectkolommen] [ project-columns] module tussen [Score Model] [ score-model] en de **Web service uitvoer**elimineren kolommen u niet wilt dat de webservice om terug te keren. 
+> De manier waarop we de Voorspellend experiment geconfigureerd, zijn de volledige resultaat is van de [Score Model] [ score-model] module worden geretourneerd. Dit omvat de ingevoerde gegevens plus de waarde van de risico-tegoed en de kans op score. Maar u kunt iets anders als u wilt terugkeren: u kunt bijvoorbeeld alleen de tegoed risico waarde retourneren. Om dit te doen, Voeg een [Projectkolommen] [ project-columns] module tussen [Score Model] [ score-model] en de **Web service uitvoer**te elimineren kolommen u niet wilt dat de webservice om terug te keren. 
 > 
 > 
 
-U kunt een klassiek web testen in service **Machine Learning Studio** of in de **Azure Machine Learning-webservices** portal.
-U kunt een nieuw web testen service alleen in de **Machine Learning-webservices** portal.
+U kunt testen een klassieke web service in **Machine Learning Studio** of in de **Azure Machine Learning-webservices** portal.
+U kunt een nieuw web test service alleen in de **Machine Learning-webservices** portal.
 
 > [!TIP]
-> Wanneer u in de portal voor Azure Machine Learning-webservices test, kunt u de portal voorbeeldgegevens die u gebruiken kunt voor het testen van de service aanvragen en antwoorden maken kunt hebben. Op de **configureren** pagina, selecteert u 'Ja' voor **voorbeeld gegevens ingeschakeld?**. Wanneer u opent het tabblad aanvragen en antwoorden op de **Test** pagina de portal ingevuld voorbeeldgegevens die afkomstig zijn uit de oorspronkelijke tegoed risico gegevensset.
+> Wanneer u test in de portal voor Azure Machine Learning-webservices, kunt u de voorbeeldgegevens die u gebruiken kunt voor het testen van de Request Response-service maken-portal hebt. Op de **configureren** pagina, selecteert u 'Ja' voor **Sample Data ingeschakeld?**. Wanneer u de Request Response-tabblad openen op de **Test** pagina, de portal ingevuld voorbeeldgegevens afkomstig uit de oorspronkelijke credit risk gegevensset.
 
 ### <a name="test-a-classic-web-service"></a>Een klassieke webservice testen
 
-U kunt een webservice klassieke testen in Machine Learning Studio of in de portal van de Machine Learning-webservices. 
+U kunt een klassieke webservice testen in Machine Learning Studio of in de portal voor Machine Learning-webservices. 
 
 #### <a name="test-in-machine-learning-studio"></a>Testen in Machine Learning Studio
 
-1. Op de **DASHBOARD** pagina voor de webservice, klikt u op de **Test** knop onder **eindpunt standaard**. Een dialoogvenster weergegeven en u wordt gevraagd de invoergegevens van de service. Dit zijn dezelfde kolommen die zijn opgetreden in de oorspronkelijke tegoed risico gegevensset.  
+1. Op de **DASHBOARD** pagina voor de webservice, klikt u op de **Test** knop onder **standaard eindpunt**. Een dialoogvenster wordt weergegeven en u wordt gevraagd de invoergegevens voor de service. Dit zijn dezelfde kolommen die zijn opgetreden in de oorspronkelijke credit risk gegevensset.  
 
-2. Geef een set gegevens en klik op **OK**. 
+2. Voer een set gegevens en klik vervolgens op **OK**. 
 
 #### <a name="test-in-the-machine-learning-web-services-portal"></a>Testen in de portal voor Machine Learning-webservices
 
-1. Op de **DASHBOARD** pagina voor de webservice, klikt u op de **Test preview** koppeling onder **eindpunt standaard**. De testpagina in de portal voor Azure Machine Learning-webservices voor de webservice-eindpunt wordt geopend en u wordt gevraagd de invoergegevens van de service. Dit zijn dezelfde kolommen die zijn opgetreden in de oorspronkelijke tegoed risico gegevensset.
+1. Op de **DASHBOARD** pagina voor de webservice, klikt u op de **Test preview** koppeling onder **standaard eindpunt**. De testpagina in de portal voor Azure Machine Learning-webservices voor de webservice-eindpunt wordt geopend en u wordt gevraagd de invoergegevens voor de service. Dit zijn dezelfde kolommen die zijn opgetreden in de oorspronkelijke credit risk gegevensset.
 
-2. Klik op **testen aanvragen en antwoorden**. 
+2. Klik op **testen Request Response**. 
 
-### <a name="test-a-new-web-service"></a>Een nieuwe webservice testen
+### <a name="test-a-new-web-service"></a>Een nieuwe webservice betreft testen
 
-U kunt een nieuwe webservice testen alleen in de portal voor Machine Learning-webservices.
+U kunt een nieuwe webservice betreft testen alleen in de portal voor Machine Learning-webservices.
 
-1. In de [Azure Machine Learning-webservices](https://services.azureml.net/quickstart) en klik op **Test** boven aan de pagina. De **Test** pagina wordt geopend en u kunt gegevens voor de service. De invoervelden weergegeven overeenkomen met de kolommen die zijn opgetreden in de oorspronkelijke tegoed risico gegevensset. 
+1. In de [Azure Machine Learning-webservices](https://services.azureml.net/quickstart) en klik op **Test** aan de bovenkant van de pagina. De **Test** pagina wordt geopend en u kunt gegevens voor de service. De velden weergegeven komen overeen met de kolommen die zijn opgetreden in de oorspronkelijke credit risk gegevensset. 
 
-2. Geef een set gegevens en klik op **Test aanvragen en antwoorden**.
+2. Voer een set gegevens en klik vervolgens op **Test Request Response**.
 
 De resultaten van de test worden weergegeven aan de rechterkant van de pagina in de uitvoerkolom. 
 
 
 ## <a name="manage-the-web-service"></a>De webservice beheren
 
-Als u hebt uw webservice geïmplementeerd of klassieke of nieuwe, kunt u het beheren van de [Microsoft Azure Machine Learning-webservices](https://services.azureml.net/quickstart) portal.
+Als u kunt uw web-service hebt geïmplementeerd, of het klassieke of nieuwe, kunt u het beheren van de [Microsoft Azure Machine Learning-webservices](https://services.azureml.net/quickstart) portal.
 
-Voor het bewaken van de prestaties van uw web-service:
+Voor het bewaken van de prestaties van uw webservice:
 
 1. Aanmelden bij de [Microsoft Azure Machine Learning-webservices](https://services.azureml.net/quickstart) portal
-2. Klik op **webservices**
-3. Klik op uw web-service
+2. Klik op **Web services**
+3. Klik op de webservice
 4. Klik op de **Dashboard**
 
 - - -

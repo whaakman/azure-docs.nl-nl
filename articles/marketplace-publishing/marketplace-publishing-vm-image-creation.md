@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 9199c9fc9a46e6b09eb066be5125c74420ad6cd6
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: bf2ba6d31c170715a52b84439276c45665293c35
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715332"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42061403"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Handleiding voor het maken van een VM-installatiekopie voor de Azure Marketplace
 In dit artikel **stap 2**, helpt u bij het voorbereiden van de virtuele harde schijven (VHD's) dat u op Azure Marketplace implementeren wilt. Uw VHD's vormen de basis van uw SKU. Het proces verschilt, afhankelijk van of u een SKU op basis van Linux of Windows is gebaseerd. In dit artikel bevat informatie over beide scenario's. Dit proces kan worden uitgevoerd in combinatie met [van accountaanmaking en registratie][link-acct-creation].
@@ -69,9 +69,9 @@ Het besturingssysteem VHD voor uw VM-installatiekopie moet worden gebaseerd op e
 
 Om te beginnen een VM maken van een van de volgende installatiekopieën, dat zich bevindt in de [Microsoft Azure portal][link-azure-portal]:
 
-* WindowsServer ([2012 R2 Datacenter][link-datactr-2012-r2], [2012 Datacenter][link-datactr-2012], [2008 R2 SP1] [link-datactr-2008-r2])
-* SQL Server 2014 ([Enterprise][link-sql-2014-ent], [Standard][link-sql-2014-std], [Web] [ link-sql-2014-web])
-* SQL Server 2012 SP2 ([Enterprise][link-sql-2012-ent], [Standard][link-sql-2012-std], [Web] [ link-sql-2012-web])
+* Windows Server ([2012 R2 Datacenter] [link-datactr-2012-r2] [2012 Datacenter] [link-datactr-2012], [2008 R2 SP1][link-datactr-2008-r2])
+* SQL Server 2014 
+* SQL Server 2012 SP2 
 
 Deze koppelingen zijn ook te vinden in de Portal voor Publiceren onder aan de SKU-pagina.
 
@@ -431,7 +431,7 @@ Hieronder vindt u instructies voor het genereren van SAS-URL met behulp van Micr
 
 Hieronder vindt u instructies voor het genereren van SAS-URL met behulp van Azure CLI
 
-1.  Downloaden van Microsoft Azure CLI uit [hier](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). U vindt hier ook koppelingen naar de andere ** [Windows](http://aka.ms/webpi-azure-cli) ** en ** [MAC OS](http://aka.ms/mac-azure-cli)**.
+1.  Downloaden van Microsoft Azure CLI uit [hier](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). U vindt hier ook koppelingen naar de andere **[Windows](http://aka.ms/webpi-azure-cli)** en  **[MAC OS](http://aka.ms/mac-azure-cli)**.
 
 2.  Zodra de App is gedownload, geïnstalleerd.
 
@@ -515,11 +515,11 @@ Nadat u uw aanbieding en SKU hebt gemaakt, moet u de details van de afbeelding d
 
 |Probleem|Foutbericht|Oplossen|Koppeling voor documentatie|
 |---|---|---|---|
-|Fout bij het kopiëren van afbeeldingen - '? ' is niet gevonden in de SAS-url|Fout: Kopiëren van afbeeldingen. Kan geen blob downloaden met behulp van SAS-Uri opgegeven.|De SAS-Url met behulp van aanbevolen hulpprogramma's bijwerken|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Fout bij het kopiëren van afbeeldingen - parameters voor "st" en "se" niet in de SAS-url|Fout: Kopiëren van afbeeldingen. Kan geen blob downloaden met behulp van SAS-Uri opgegeven.|De SAS-Url met de begin- en einddatums erop bijwerken|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Fout bij het kopiëren van afbeeldingen: "sp = rl" niet in de SAS-url|Fout: Kopiëren van afbeeldingen. Kan geen blob downloaden met behulp van SAS-Uri opgegeven|De SAS-Url met de machtigingen die zijn ingesteld als "Lezen" en "lijst bijwerken|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Fout bij het kopiëren van afbeeldingen - SAS-url hebt spaties in vhd-naam|Fout: Kopiëren van afbeeldingen. Kan geen blob downloaden met behulp van SAS-Uri opgegeven.|De SAS-Url zonder spaties bijwerken|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Fout bij het kopiëren van afbeeldingen: fout van de SAS-Url-autorisatie|Fout: Kopiëren van afbeeldingen. Kan geen blob vanwege Autorisatiefout downloaden|De SAS-Url opnieuw genereren|[https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/en-us/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Fout bij het kopiëren van afbeeldingen - '? ' is niet gevonden in de SAS-url|Fout: Kopiëren van afbeeldingen. Kan geen blob downloaden met behulp van SAS-Uri opgegeven.|De SAS-Url met behulp van aanbevolen hulpprogramma's bijwerken|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Fout bij het kopiëren van afbeeldingen - parameters voor "st" en "se" niet in de SAS-url|Fout: Kopiëren van afbeeldingen. Kan geen blob downloaden met behulp van SAS-Uri opgegeven.|De SAS-Url met de begin- en einddatums erop bijwerken|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Fout bij het kopiëren van afbeeldingen: "sp = rl" niet in de SAS-url|Fout: Kopiëren van afbeeldingen. Kan geen blob downloaden met behulp van SAS-Uri opgegeven|De SAS-Url met de machtigingen die zijn ingesteld als "Lezen" en "lijst bijwerken|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Fout bij het kopiëren van afbeeldingen - SAS-url hebt spaties in vhd-naam|Fout: Kopiëren van afbeeldingen. Kan geen blob downloaden met behulp van SAS-Uri opgegeven.|De SAS-Url zonder spaties bijwerken|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Fout bij het kopiëren van afbeeldingen: fout van de SAS-Url-autorisatie|Fout: Kopiëren van afbeeldingen. Kan geen blob vanwege Autorisatiefout downloaden|De SAS-Url opnieuw genereren|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Fout bij het kopiëren van installatiekopieën – SAS-Url "st" en "se" parameters nog geen datum / tijd-specificatie|Fout: Kopiëren van afbeeldingen. Kan geen blob vanwege onjuiste SAS-Url voor downloaden |SAS-Url Start- en einddatum parameters ("st", 'se') zijn vereist om volledige datum / tijd-specificatie, zoals 11-02-2017T00:00:00Z, en niet alleen de datum of verkort versies voor de tijd. Het is mogelijk aan het optreden van dit scenario met behulp van Azure CLI 2.0 (az-opdracht). Zorg dat de volledige datum / tijd-specificatie en opnieuw genereren van de SAS-Url.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## <a name="next-step"></a>Volgende stap
@@ -557,15 +557,6 @@ Als u klaar bent met de SKU-details, kunt u verder gaan naar de [Azure Marketpla
 [link-technet-2]:https://msdn.microsoft.com/library/dn495261.aspx
 [link-azure-portal]:https://portal.azure.com
 [link-pubportal]:https://publish.windowsazure.com
-[link-sql-2014-ent]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014enterprisewindowsserver2012r2/
-[link-sql-2014-std]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014standardwindowsserver2012r2/
-[link-sql-2014-web]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2014webwindowsserver2012r2/
-[link-sql-2012-ent]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2enterprisewindowsserver2012/
-[link-sql-2012-std]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2standardwindowsserver2012/
-[link-sql-2012-web]:http://azure.microsoft.com/marketplace/partners/microsoft/sqlserver2012sp2webwindowsserver2012/
-[link-datactr-2012-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012r2datacenter/
-[link-datactr-2012]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2012datacenter/
-[link-datactr-2008-r2]:http://azure.microsoft.com/marketplace/partners/microsoft/windowsserver2008r2sp1/
 [link-acct-creation]:marketplace-publishing-accounts-creation-registration.md
 [link-technet-1]:https://technet.microsoft.com/library/hh848454.aspx
 [link-azure-vm-2]:./virtual-machines-linux-agent-user-guide/

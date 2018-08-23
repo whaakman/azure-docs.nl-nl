@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 77bb891dd8e7d6a3cb6363b06eaf361d09db594c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6ad3b4c1f59f5c46fd31aa24d6d2ceb4d7411abd
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422413"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42055759"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Grootschalige gegevenssets verwerken met behulp van Data Factory en Batch
 > [!NOTE]
@@ -91,10 +91,10 @@ De Voorbeeldoplossing is opzettelijk eenvoudig. Het is ontworpen om u te laten z
 Als u geen Azure-abonnement hebt, kunt u snel een gratis proefaccount maken. Zie voor meer informatie, [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
 
 #### <a name="azure-storage-account"></a>Azure Storage-account
-U kunt een storage-account gebruiken voor het opslaan van de gegevens in deze zelfstudie. Als u geen een storage-account hebt, raadpleegt u [een opslagaccount maken](../../storage/common/storage-create-storage-account.md#create-a-storage-account). De Voorbeeldoplossing maakt gebruik van blob-opslag.
+U kunt een storage-account gebruiken voor het opslaan van de gegevens in deze zelfstudie. Als u geen een storage-account hebt, raadpleegt u [een opslagaccount maken](../../storage/common/storage-quickstart-create-account.md). De Voorbeeldoplossing maakt gebruik van blob-opslag.
 
 #### <a name="azure-batch-account"></a>Azure Batch-account
-Een Batch-account maken met behulp van de [Azure-portal](http://portal.azure.com/). Zie voor meer informatie, [maken en beheren van een Batch-account](../../batch/batch-account-create-portal.md). Houd er rekening mee de Batch-account naam en de accountsleutel. Ook kunt u de [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) cmdlet voor het maken van een Batch-account. Zie voor instructies over het gebruik van deze cmdlet [aan de slag met Batch PowerShell-cmdlets](../../batch/batch-powershell-cmdlets-get-started.md).
+Een Batch-account maken met behulp van de [Azure-portal](http://portal.azure.com/). Zie voor meer informatie, [maken en beheren van een Batch-account](../../batch/batch-account-create-portal.md). Houd er rekening mee de Batch-account naam en de accountsleutel. Ook kunt u de [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount) cmdlet voor het maken van een Batch-account. Zie voor instructies over het gebruik van deze cmdlet [aan de slag met Batch PowerShell-cmdlets](../../batch/batch-powershell-cmdlets-get-started.md).
 
 De Voorbeeldoplossing maakt gebruik van Batch (indirect via een data factory-pijplijn) om gegevens te verwerken in een parallelle manier op een pool van rekenknooppunten (een beheerde verzameling virtuele machines).
 

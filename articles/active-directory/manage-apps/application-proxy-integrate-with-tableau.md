@@ -1,26 +1,23 @@
 ---
 title: Azure Active Directory Application Proxy en Tableau | Microsoft Docs
-description: Informatie over het gebruik van Azure Active Directory (Azure AD) Application Proxy om externe toegang voor uw implementatie Tableau te bieden.  .
+description: Informatie over het gebruik van Azure Active Directory (Azure AD) Application Proxy om externe toegang voor uw implementatie Tableau te bieden.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 08/20/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 7cace1af527c1c7c80bf0e23f7a88aa9ac9f9d03
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: a68b0465acdb416cd953e22d7f024eb399c94493
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365019"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42058756"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory Application Proxy en Tableau 
 
@@ -35,19 +32,10 @@ Het scenario in dit artikel wordt ervan uitgegaan dat u hebt:
 - Een [Application Proxy-connector](application-proxy-enable.md) geïnstalleerd. 
 
  
-
 ## <a name="enabling-application-proxy-for-tableau"></a>Toepassingsproxy voor Tableau wordt ingeschakeld 
 
-Als u gebruiken van de toepassingsproxy voor Tableau wilt, moet u een e-mail verzenden naar [ aadapfeedback@microsoft.com ](mailto:aadapfeedback@microsoft.com) om op te halen van dit scenario is ingeschakeld.
-In uw e-mailadres:
+Application Proxy biedt ondersteuning voor de OAuth 2.0 stroom voor het verlenen, die is vereist voor Tableau goed te laten werken. Dit betekent dat er niet langer speciale stappen vereist voor het inschakelen van deze toepassing zijn, dan configureren door de publishing onderstaande stappen te volgen.
 
--   Toepassingsproxy inschakelen voor Tableau gebruiken als onderwerp
--   Uw tenant-ID opnemen in de hoofdtekst    
-
-U krijgt een bevestiging wanneer u klaar bent voor het gebruik van de toepassing. U kunt de configuraties voltooien tijdens het wachten op voor de bevestiging.
-
-
- 
 
 ## <a name="publish-your-applications-in-azure"></a>Uw toepassingen publiceren in Azure 
 

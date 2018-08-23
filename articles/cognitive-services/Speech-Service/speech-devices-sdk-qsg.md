@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 266315a731eec8a2c0ab0a880ce9e1db58331184
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 463a015b7c01dafc5b30de56b95fa0510ffb98e4
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283133"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42424366"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Aan de slag met de SDK van de apparaten spraak
 
@@ -44,11 +44,11 @@ Verzamel de informatie en de software u moet, voordat u begint met ontwikkelen m
 
 ## <a name="set-up-the-development-kit"></a>Instellen van de development kit
 
-1. Sluit de development kit power-adapter. Een indicator groen power moet onder het bovenste bord beschikbaar stellen.
+1. Stroom van de dev kit met behulp van een mini USB-kabel verbonden met een PC of een adptor power. Een indicator groen power moet onder het bovenste bord beschikbaar stellen.
 
-1. De development kit verbinden met een computer met behulp van een mini USB-kabel.
+1. De development kit verbinden met een computer met behulp van een tweede mini USB-kabel.
 
-    ![de dev kit verbinding te maken](media/speech-devices-sdk/qsg-1.jpg)
+    ![de dev kit verbinding te maken](media/speech-devices-sdk/qsg-1.png)
 
 1. Plaatsen op de juiste wijze uw development kit.
 
@@ -57,7 +57,7 @@ Verzamel de informatie en de software u moet, voordat u begint met ontwikkelen m
     |Kringverwijzing|Rechtop, met microfoons geconfronteerd met het maximum|
     |Lineair|Aan de zijde, met microfoons u (Zie hieronder)|
 
-    ![lineaire dev kit afdrukstand](media/speech-devices-sdk/qsg-2.jpg)
+    ![lineaire dev kit afdrukstand](media/speech-devices-sdk/qsg-2.png)
 
 1. Installeer de certificaten en het bestand wake word (trefwoord) tabel en stel de machtigingen van het apparaat. Typ de volgende opdrachten in een opdrachtvenster.
 
@@ -82,9 +82,22 @@ Verzamel de informatie en de software u moet, voordat u begint met ontwikkelen m
 
 1.  Uw apparaat moet worden weergegeven onder 'Kies een apparaat'. Klik op de **weergave** knop ernaast. 
  
-1.  Verbinding maken met het draadloze netwerk door te klikken op **instellingen**, klikt u vervolgens **WLAN**.
+1.  Verbinding maken met het draadloze netwerk door te klikken op het pictogram van de map, klikt u vervolgens **instellingen**, klikt u vervolgens **WLAN**.
 
     ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
+ 
+ > [!NOTE]
+ > Als uw bedrijf beleidsregels heeft met betrekking tot verbindende apparaten aan het Wi-Fi-systeem, moet u het Mac-adres verkrijgen en neem contact op met uw IT-afdeling over het verbinden met uw Wi-Fi-systeem. Als u het Mac-adres van de dev kit zoekt, klikt u op het mappictogram op het bureaublad van de dev kit, klikt u vervolgens **instellingen**, zoeken naar 'Mac-adres', klikt u op **Mac-adres** toegang te krijgen tot **geavanceerde WLAN** , noteert u de Mac-adres gevonden aan de onderkant. Sommige bedrijven mogelijk ook een limiet van hoe lang een apparaat kan worden verbonden met de Wi-Fi-systemen tijd. Mogelijk moet u de registratie van de dev kit met uw Wi-Fi-systeem, na een bepaald aantal dagen uitbreiden.  
+ 
+ 
+   ![Bestandsmap Vysor](media/speech-devices-sdk/qsg-10.png)
+   
+   ![Vysor Mac-adres](media/speech-devices-sdk/qsg-11.png)
+   
+   
+ > Als u wilt een spreker koppelen aan de dev kit, kunt u het verbinding maken met de lijn-Audio uit. U moet ook een goede kwaliteit 3,5 mm spreker kiezen.
+ 
+   ![Vysor Audio](media/speech-devices-sdk/qsg-14.png)
  
 ## <a name="run-a-sample-application"></a>Een voorbeeld-App uitvoeren
 
@@ -126,7 +139,7 @@ Als u wilt de Roobo tests uitvoeren en uw development kit valideren, bouwen en d
         exit
         ```
 
-    * Kopieer de bestanden `kws.table`, `kws_g.fst`, `kws_k.fst`, en `words_kw.txt`) van het apparaat \data\keyword\ map. Voer de volgende opdrachten in het opdrachtvenster o.
+    * Kopieer de bestanden `kws.table`, `kws_g.fst`, `kws_k.fst`, en `words_kw.txt`) van het apparaat \data\keyword\ map. Voer de volgende opdrachten in het opdrachtvenster o. Als u hebt gemaakt een [aangepaste wake word](speech-devices-sdk-create-kws.md), het kws.table-bestand gegenereerd op basis van de website wordt gebruikt in dezelfde map als `kws.table`, `kws_g.fst`, `kws_k.fst`, en `words_kw.txt` bestanden zijn. Gebruik adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table/data/sleutelwoord opdracht het bestand kws.table in plaats daarvan naar de dev kit pushen.
 
         ```
         adb push C:\SDSDK\Android-Sample-Release\keyword\kws.table /data/keyword
@@ -179,7 +192,11 @@ Als u wilt de Roobo tests uitvoeren en uw development kit valideren, bouwen en d
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Als er certificaatfouten bij het gebruik van de spraakservice, zorg er dan voor dat het apparaat heeft de juiste datum en tijd.
+Als er certificaatfouten bij het gebruik van de spraakservice, zorg er dan voor dat het apparaat heeft de juiste datum en tijd. Ga naar **instellingen**, klikt u op **datum en tijd** onder System en **Selecteer tijdzone** moet uw huidige tijdzone. Houd **automatische datum en tijd** op. Als u ziet de ontwikkelingsset tijd overeenkomt met de tijd van uw PC en vervolgens hebt u wellicht de dev kit is verbonden met internet. 
+
+ ![Bestandsmap Vysor](media/speech-devices-sdk/qsg-12.png)
+ 
+ ![Bestandsmap Vysor](media/speech-devices-sdk/qsg-13.png)
 
 Zie voor meer informatie over ontwikkelingen, van Roobo [development guide](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
 

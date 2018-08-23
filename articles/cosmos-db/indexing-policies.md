@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 79585195cf95e2074a1c455c82faa500af20218a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d7cbeebff42bddd93cac35a0205d031a90bb4715
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618764"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42054111"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Hoe gaat de gegevens van Azure Cosmos DB indexeren?
 
@@ -36,6 +36,22 @@ Na het lezen van dit artikel, zal het mogelijk om de volgende vragen te beantwoo
 * Hoe kan ik configureren om uit te voeren van de ORDER BY of bereik-query's te indexeren?
 * Hoe kan ik wijzigingen aanbrengen aan het indexeringsbeleid van een verzameling?
 * Hoe ik opslag en prestaties van verschillende beleidsregels voor indexering vergelijken?
+
+## <a id="Indexing"></a> Cosmos DB indexeren
+
+Het doel van de indexen van de database is voor het bieden van query's in hun verschillende formulieren en vormen met minimale resourceverbruik (zoals CPU en input/output) terwijl met een goede doorvoer en lage latentie. De keuze van de juiste index voor query's in een database is vaak het geval is, vereist veel planning en experimenten. Deze aanpak is een uitdaging voor databases zonder schema waar de gegevens voldoen niet aan een strikt schema en zich snel verder ontwikkelt. 
+
+Tijdens de indexering Cosmos DB-subsysteem, instellen we daarom de volgende doelen:
+
+* Documenten te indexeren zonder schema: het subsysteem voor indexering niet vereisen dat de schema-informatie of geen veronderstellingen doen over het schema van de documenten.  
+
+* Ondersteuning voor efficiënte, geavanceerde hiërarchische en relationele query's: de index biedt ondersteuning voor de Cosmos DB-querytaal efficiënt, inclusief ondersteuning voor hiërarchische en relationele projecties.  
+
+* Ondersteuning voor consistente-query's in face of een doorlopend volume van schrijfbewerkingen: voor hoge schrijven doorvoer workloads met een consistente-query's, de index incrementeel, efficiënt en online geval van een doorlopend volume van schrijfbewerkingen wordt bijgewerkt. De consistente index-update is van cruciaal belang voor het bieden van de query's op het consistentieniveau van de waarin de gebruiker de documentservice hebt geconfigureerd.  
+
+* Ondersteuning voor multitenancy: gegeven het model op basis van een reservering voor resourcebeheer voor tenants, index-updates worden uitgevoerd binnen het budget van systeembronnen (CPU, geheugen en i/o-bewerkingen per seconde) per replica toegewezen.  
+
+* Opslagefficiëntie: voor de kosteneffectiviteit, de opslagoverhead op de schijf van de index is gebonden en voorspelbare. Dit is essentieel omdat Cosmos DB kan de ontwikkelaar moet dienen tussen index overhead ten opzichte van de prestaties van query's op basis van kosten.  
 
 ## Het indexeringsbeleid van een verzameling aanpassen <a id="CustomizingIndexingPolicy"></a>  
 U kunt de wisselwerking tussen opslag, schrijf- en prestaties van query's en queryconsistentie aanpassen door de standaardbeleidsregels voor indexering van beleid op een Azure Cosmos DB-verzameling te overschrijven. U kunt de volgende aspecten:

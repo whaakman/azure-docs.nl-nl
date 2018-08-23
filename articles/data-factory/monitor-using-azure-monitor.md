@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/12/2018
+ms.date: 08/22/2018
 ms.author: shlo
-ms.openlocfilehash: 25bb455ea46fdc96e32e34d434dd844779b0b650
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1023eadbf4b799cd8b0c761c1689b9249cee450a
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495295"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616841"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Waarschuwen en bewaken van data factory's met behulp van Azure Monitor
 Cloud-Apps zijn complexe met veel bewegende onderdelen bevatten. Monitoring biedt gegevens om ervoor te zorgen dat uw toepassing actief en wordt uitgevoerd in een foutloze toestand bevindt. Ook kunt u potentiële problemen voorkomen of oplossen van het verleden zijn. Bovendien kunt u bewakingsgegevens diep om inzicht te krijgen over uw toepassing. Deze kennis kan u helpen te verbeteren van de prestaties van de toepassing of onderhoud, of Automatiseer acties die anders handmatig worden opgelost moeten zouden.
@@ -26,7 +26,7 @@ Cloud-Apps zijn complexe met veel bewegende onderdelen bevatten. Monitoring bied
 Azure Monitor biedt op basisniveau infrastructuur metrische gegevens en logboeken voor de meeste services in Microsoft Azure. Zie voor meer informatie, [bewakingsoverzicht](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor). Diagnostische logboeken in Azure zijn Logboeken door een resource met uitgebreide, regelmatig gegevens over de werking van die resource. Data Factory voert diagnostische logboeken in Azure Monitor.
 
 ## <a name="persist-data-factory-data"></a>Data Factory gegevens behouden
-Data Factory worden alleen gegevens voor pijplijnuitvoering voor 45 dagen opgeslagen. Als u wilt om vast te leggen van de pijplijn gegevens langer dan 45 dagen worden uitgevoerd met behulp van Azure Monitor, kunt u niet alleen logboeken met diagnostische gegevens voor analyse routeren, u kunt ze ook behouden in een storage-account, zodat u gegevens voor de duur van uw chossing factory hebt.
+Data Factory worden alleen gegevens voor pijplijnuitvoering voor 45 dagen opgeslagen. Als u wilt om vast te leggen van de pijplijn gegevens langer dan 45 dagen worden uitgevoerd met behulp van Azure Monitor, kunt u niet alleen logboeken met diagnostische gegevens voor analyse routeren, u kunt ze ook behouden in een storage-account, zodat u beschikt over factory informatie voor de duur van uw keuze.
 
 ## <a name="diagnostic-logs"></a>Diagnostische logboeken
 
@@ -109,11 +109,11 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | storageAccountId |Reeks | De resource-ID van het opslagaccount waarnaar u wilt verzenden van diagnostische logboeken |
 | serviceBusRuleId |Reeks | De service bus regel-ID van de service bus-naamruimte waarin u hebben van Event Hubs gemaakt wilt voor het streamen van diagnostische logboeken. De regel-ID van de indeling is: "{service bus-resource-ID} /authorizationrules/ {naam} '.|
 | Werkruimte-id | Complex Type | Matrix van metrische tijd rijstkorrels en hun beleid voor het bewaren. Deze eigenschap is momenteel leeg. |
-|metrische gegevens| Parameterwaarden van de pijplijn uitvoeren om te worden doorgegeven aan de pijplijn aangeroepen| Namen van parameters toe te wijzen aan de waarden van het argument een JSON-object |
+|metrics| Parameterwaarden van de pijplijn uitvoeren om te worden doorgegeven aan de pijplijn aangeroepen| Namen van parameters toe te wijzen aan de waarden van het argument een JSON-object |
 | logboeken| Complex Type| De naam van een categorie diagnostische logboeken voor een resourcetype. Als u de lijst met categorieën van diagnostische logboeken voor een resource, moet u eerst een GET-bewerking voor diagnostische instellingen uitvoeren. |
 | category| Reeks| Matrix van logboekcategorieën en hun bewaarbeleid |
 | timeGrain | Reeks | De granulatie van metrische gegevens die zijn vastgelegd in ISO 8601-notatie voor de duur. Moet PT1M (één minuut)|
-| ingeschakeld| Booleaanse waarde | Hiermee geeft u op of de verzameling van deze categorie metrische gegevens of logboekbestanden is ingeschakeld voor deze resource|
+| ingeschakeld| Booleaans | Hiermee geeft u op of de verzameling van deze categorie metrische gegevens of logboekbestanden is ingeschakeld voor deze resource|
 | retentionPolicy| Complex Type| Beschrijft het bewaarbeleid voor categorie metrische gegevens of logboek. Voor de optie voor het opslagaccount alleen wordt gebruikt.|
 | dagen| Int| Het aantal dagen te bewaren van de metrische gegevens en Logboeken. Een waarde van 0 worden de logboeken voor onbepaalde tijd bewaard. Voor de optie voor het opslagaccount alleen wordt gebruikt. |
 
@@ -382,7 +382,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| Reeks | Begin van de trigger worden gestart in timespan UTC-notatie | `2017-06-26T20:55:29.5007959Z`|
 |status| Reeks | De definitieve status van of trigger is geactiveerd (geslaagd of mislukt) | `Succeeded`|
 
-## <a name="metrics"></a>Metrieken
+## <a name="metrics"></a>Metrische gegevens
 
 Azure Monitor kunt u telemetrie voor inzicht in de prestaties en status van uw werklasten op Azure gebruiken. De belangrijkste type Azure telemetrische gegevens is de metrische gegevens die (ook wel prestatiemeteritems) gegenereerd door de meeste Azure-resources. Azure Monitor biedt verschillende manieren om te configureren en gebruiken van deze metrische gegevens voor controle en probleemoplossing.
 
@@ -390,14 +390,78 @@ ADFV2 verzendt de volgende metrische gegevens
 
 | **Gegevens**           | **De naam van de metrische gegevens weergeven**         | **Eenheid** | **Type samenvoeging geselecteerd** | **Beschrijving**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRun | Pijplijn-runs metrische gegevens is voltooid | Aantal    | Totaal                | Totaal aantal pijplijnen werkstroomuitvoeringen binnen een minuut |
-| PipelineFailedRuns   | Pijplijn-runs metrische gegevens is mislukt    | Aantal    | Totaal                | Totale pijplijnen wordt uitgevoerd binnen een minuut    |
-| ActiviySucceededRuns | Metrische gegevens de uitvoeringen van activiteiten is voltooid | Aantal    | Totaal                | Totaal aantal uitvoeringen van activiteit is voltooid binnen een minuut  |
-| ActivityFailedRuns   | Kan geen metrische gegevens van activiteiten wordt uitgevoerd    | Aantal    | Totaal                | Totaal aantal uitvoeringen van activiteit is mislukt binnen een minuut     |
-| TriggerSucceededRuns | Trigger wordt uitgevoerd metrische gegevens is voltooid  | Aantal    | Totaal                | Totaal aantal trigger werkstroomuitvoeringen binnen een minuut   |
-| TriggerFailedRuns    | Trigger wordt uitgevoerd metrische gegevens is mislukt     | Aantal    | Totaal                | Totaal aantal trigger wordt uitgevoerd binnen een minuut      |
+| PipelineSucceededRun | Pijplijn-runs metrische gegevens is voltooid | Count    | Totaal                | Totaal aantal pijplijnen werkstroomuitvoeringen binnen een minuut |
+| PipelineFailedRuns   | Pijplijn-runs metrische gegevens is mislukt    | Count    | Totaal                | Totale pijplijnen wordt uitgevoerd binnen een minuut    |
+| ActiviySucceededRuns | Metrische gegevens de uitvoeringen van activiteiten is voltooid | Count    | Totaal                | Totaal aantal uitvoeringen van activiteit is voltooid binnen een minuut  |
+| ActivityFailedRuns   | Kan geen metrische gegevens van activiteiten wordt uitgevoerd    | Count    | Totaal                | Totaal aantal uitvoeringen van activiteit is mislukt binnen een minuut     |
+| TriggerSucceededRuns | Trigger wordt uitgevoerd metrische gegevens is voltooid  | Count    | Totaal                | Totaal aantal trigger werkstroomuitvoeringen binnen een minuut   |
+| TriggerFailedRuns    | Trigger wordt uitgevoerd metrische gegevens is mislukt     | Count    | Totaal                | Totaal aantal trigger wordt uitgevoerd binnen een minuut      |
 
 Voor toegang tot de metrische gegevens, volg de instructies in het artikel: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
+
+## <a name="monitor-data-factory-metrics-with-azure-monitor"></a>Monitor voor Gegevensfactory-metrieken met Azure Monitor
+
+U kunt Azure Data Factory-integratie met Azure Monitor gebruiken het routeren van gegevens naar Azure Monitor. Deze integratie is handig in de volgende scenario's:
+
+1.  Wilt u het schrijven van complexe query's op een uitgebreide set metrische gegevens die door Data Factory naar Azure Monitor is gepubliceerd. U kunt ook aangepaste waarschuwingen maken op deze query's via Azure Monitor.
+
+2.  U wilt controleren in data factory's. U kunt gegevens uit meerdere data factory's doorsturen naar één Azure Monitor-werkruimte.
+
+Bekijk de volgende video voor een inleiding van 7 minuten en demonstratie van deze functie:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Monitor-Data-Factory-pipelines-using-Operations-Management-Suite-OMS/player]
+
+### <a name="configure-diagnostic-settings-and-workspace"></a>Diagnostische instellingen en werkruimte configureren
+
+Diagnostische instellingen inschakelen voor uw data factory.
+
+1.  Selecteer **Azure Monitor** -> **diagnostische instellingen** -> Selecteer de data factory -> Schakel diagnostische gegevens.
+
+    ![monitor-oms-image1.png](media/data-factory-monitor-oms/monitor-oms-image1.png)
+
+2.  Diagnostische instellingen zoals de configuratie van de werkruimte kan leveren.
+
+    ![monitor-oms-image2.png](media/data-factory-monitor-oms/monitor-oms-image2.png)
+
+### <a name="install-azure-data-factory-analytics-from-azure-marketplace"></a>Azure Data Factory Analytics installeren via Azure Marketplace
+
+![monitor-oms-image3.png](media/data-factory-monitor-oms/monitor-oms-image3.png)
+
+![monitor-oms-image4.png](media/data-factory-monitor-oms/monitor-oms-image4.png)
+
+Klik op **maken** en selecteer de werkruimte en de werkruimte instellingen.
+
+![monitor-oms-image5.png](media/data-factory-monitor-oms/monitor-oms-image5.png)
+
+### <a name="monitor-data-factory-metrics"></a>Monitor voor Gegevensfactory-metrieken
+
+Installeren van **Azure Data Factory Analytics** maakt u een standaardset van weergaven waarmee de volgende metrische gegevens:
+
+- Pijplijnuitvoeringen ADF wordt-1) door Data Factory
+
+- Uitvoeringen van activiteit ADF uitvoeringen-2) door Data Factory
+
+- Triggeruitvoeringen ADF uitvoeringen-3) door Data Factory
+
+- ADF-fouten-1) Top 10 pijplijn fouten door Data Factory
+
+- ADF-fouten-2) Top 10 uitvoeringen van activiteit door Data Factory
+
+- ADF-fouten-3) Top 10 Trigger fouten door Data Factory
+
+- Uitvoeringen van activiteit ADF statistieken-1) per Type
+
+- Triggeruitvoeringen ADF statistieken-2) per Type
+
+- ADF-statistieken-3) Pijplijnuitvoeringen Max duur
+
+![monitor-oms-image6.png](media/data-factory-monitor-oms/monitor-oms-image6.png)
+
+![monitor-oms-image7.png](media/data-factory-monitor-oms/monitor-oms-image7.png)
+
+U kunt de bovenstaande metrische gegevens visualiseren, kijken naar de query's achter deze metrische gegevens, de query's bewerken, maken van waarschuwingen, enzovoort.
+
+![monitor-oms-image8.png](media/data-factory-monitor-oms/monitor-oms-image8.png)
 
 ## <a name="alerts"></a>Waarschuwingen
 

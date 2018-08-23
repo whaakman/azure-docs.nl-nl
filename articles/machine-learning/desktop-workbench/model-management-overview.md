@@ -1,129 +1,127 @@
 ---
-title: Conceptueel overzicht van Azure Machine Learning-Model Management | Microsoft Docs
-description: Dit document wordt uitgelegd concepten Model Management voor Azure Machine Learning.
+title: Conceptueel overzicht van Azure Machine Learning Modelbeheer | Microsoft Docs
+description: Dit document wordt uitgelegd Modelbeheer-concepten voor Azure Machine Learning.
 services: machine-learning
-author: nk773
-ms.author: padou
-manager: mwinkle
-ms.reviewer: jasonwhowell, mldocs
+author: hjerezmsft
+ms.author: hjerez
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 6fac3fa0207d942c5a7f5fa438ba8262ea5b7a22
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 041f7147f171514d941555ff2f6144bac2062b06
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34832224"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42058750"
 ---
 # <a name="azure-machine-learning-model-management"></a>Machine Learning Modelbeheer van Azure
 
-Azure Machine Learning-Model Management kunt u beheren en implementeren van werkstromen en modellen van machine learning. 
+Azure Machine Learning Modelbeheer kunt u machine learning-werkstromen en modellen beheren en implementeren. 
 
-Model Management biedt mogelijkheden voor:
-- Model versiebeheer
-- Bijhouden van modellen in productie
-- Implementeren van modellen naar productie via berekenen voor AzureML-omgeving met [Azure Container Service](https://azure.microsoft.com/services/container-service/) en [Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
-- Docker-containers maken met de modellen en deze lokaal testen
-- Geautomatiseerde model retraining
-- Het opnemen van model telemetrie om bruikbare inzicht te krijgen. 
+Modelbeheer biedt mogelijkheden voor:
+- Model-versiebeheer
+- Tracerings-modellen in productie
+- Implementeren van modellen in productie door middel van AzureML-Compute-omgeving met [Azure Container Service](https://azure.microsoft.com/services/container-service/) en [Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
+- Docker-containers met de modellen maken en deze lokaal testen
+- Geautomatiseerde opnieuw trainen van modellen
+- Model-telemetrie voor inzichten vast te leggen. 
 
-Azure Machine Learning-Model Management biedt een register van de modelversies. Het bevat ook geautomatiseerde werkstromen voor het verpakken en Machine Learning-containers als REST-API's implementeren. De modellen en hun runtime-afhankelijkheden zijn verpakt in op basis van Linux Docker-container met voorspelling API. 
+Azure Machine Learning Modelbeheer voorziet in een register van modelversies. Het biedt ook geautomatiseerde werkstromen voor het verpakken en implementeren van Machine Learning-containers als REST-API's. De modellen en hun runtime-afhankelijkheden zijn verpakt in Docker op basis van Linux-container met de voorspellings-API. 
 
-Azure Machine Learning Compute-omgevingen help bij het instellen en beheren van schaalbare clusters voor het hosten van de modellen. De compute-omgeving is gebaseerd op Azure Container Services. Azure Container Services biedt automatische blootstelling van Machine Learning API's als REST-API-eindpunten met de volgende functies:
+Azure Machine Learning-computeromgevingen helpen bij het instellen en beheren van schaalbare clusters voor het hosten van de modellen. De compute-omgeving is gebaseerd op Azure Container Services. Azure Container Services biedt automatische blootstelling van API's voor Machine Learning als REST-API-eindpunten met de volgende functies:
 
 - Verificatie
 - Taakverdeling
 - Automatische scale-out
 - Versleuteling
 
-Azure Machine Learning-Model Management biedt deze mogelijkheden via de CLI, API en de Azure-portal. 
+Azure Machine Learning Modelbeheer biedt deze mogelijkheden via de CLI, API en de Azure-portal. 
 
-Azure Machine Learning-model management gebruikt de volgende informatie:
+Azure Machine Learning-Modelbeheer maakt gebruik van de volgende informatie:
 
  - Modelbestand of map met de modelbestanden
- - Implementatie van een functie score model Python-bestand gemaakt
- - Conda afhankelijkheidsbestand met runtime-afhankelijkheden
- - Keuze voor runtime-omgeving, en 
- - Schemabestand voor API-parameters 
+ - Gebruiker heeft gemaakt voor het implementeren van een model scoren functie Python-bestand
+ - Conda-afhankelijkheidsbestand runtime-afhankelijkheden weergeven
+ - Keuze van runtime-omgeving, en 
+ - Schema-bestand voor de API-parameters 
 
 Deze informatie wordt gebruikt bij het uitvoeren van de volgende acties:
 
 - Registreren van een model
-- Maken van een manifest dat wordt gebruikt bij het bouwen van een container
-- Een Docker-container installatiekopie bouwen
-- Een container implementeren in Azure Container Service
+- Het maken van een manifest die wordt gebruikt bij het bouwen van een container
+- Het bouwen van een Docker-containerinstallatiekopie
+- Een container te implementeren naar Azure Container Service
  
-De volgende afbeelding toont een overzicht van hoe modellen zijn geregistreerd en geïmplementeerd in het cluster. 
+De volgende afbeelding toont een overzicht van hoe de modellen worden geregistreerd en geïmplementeerd in het cluster. 
 
 ![](media/model-management-overview/modelmanagement.png)
 
 ## <a name="create-and-manage-models"></a>Maken en beheren van modellen 
-U kunt modellen met Azure Machine Learning-Model Management registreren voor het bijhouden van modelversies in productie. De service legt vereenvoudigen reproduceerbaarheid en beheeracties, afhankelijkheden en de bijbehorende informatie. U kunt model telemetrie met de opgegeven SDK vastleggen voor een beter inzicht in prestaties. Model telemetrie is in de gebruiker opgegeven opslag gearchiveerd. De model-telemetrie kan later worden gebruikt voor het model prestaties te analyseren, retraining en inzichten voor uw bedrijf krijgen.
+U kunt modellen met Azure Machine Learning Modelbeheer registreren voor het bijhouden van modelversies in de productieomgeving. De service vastgelegd voor het gebruiksgemak reproduceerbaarheid en beheeracties, afhankelijkheden en de bijbehorende informatie. Voor meer inzicht in prestaties kunt u de model-telemetrie met behulp van de opgegeven SDK vastleggen. Model-telemetrie is in de gebruiker opgegeven opslag gearchiveerd. De model-telemetrie kan later worden gebruikt voor het analyseren van modelprestaties, opnieuw trainen en inzichten te verkrijgen voor uw bedrijf.
 
 ## <a name="create-and-manage-manifests"></a>Maken en beheren van de manifesten 
-Modellen vereisen aanvullende artefacten te implementeren in productie. Het systeem biedt de mogelijkheid voor het maken van een manifest dat model, afhankelijkheden, Deductie script (aka scoreprofiel script), voorbeeldgegevens, schema enzovoort omvat. Dit manifest fungeert als een recept om de installatiekopie van een Docker-container te maken. Ondernemingen kunnen automatisch manifest genereren, verschillende versies maken en beheren van hun manifesten. 
+Modellen nodig extra artefacten te implementeren in productie. Het systeem biedt de mogelijkheid voor het maken van een manifest van het model, afhankelijkheden, Deductie script (ook wel scoring-script), voorbeeldgegevens, schema enzovoort. Dit manifest fungeert als een recept om een Docker-containerinstallatiekopie te maken. Ondernemingen kunnen automatisch manifest genereren, verschillende versies maken en beheren van hun manifesten. 
 
-## <a name="create-and-manage-docker-container-images"></a>Maken en beheren van installatiekopieën van de Docker-container 
-U kunt het manifest van de vorige stap voor het maken van installatiekopieën op basis van Docker-container in hun respectieve omgevingen. Installatiekopieën van het beperkte, op basis van Docker voorzien ondernemingen van de flexibiliteit voor het uitvoeren van deze installatiekopieën op de volgende compute-omgevingen:
+## <a name="create-and-manage-docker-container-images"></a>Maken en beheren van Docker-containerinstallatiekopieën 
+U kunt het manifest van de vorige stap gebruiken om te bouwen op basis van een Docker-containerinstallatiekopieën in hun respectieve omgevingen. De in containers, op basis van een Docker-installatiekopieën bevatten ondernemingen met de flexibiliteit voor het uitvoeren van deze installatiekopieën op de volgende omgevingen:
 
 - [Kubernetes op basis van Azure Container Service](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)
-- On-premises container-services
-- Ontwikkelomgevingen
+- On-premises containerservices
+- U kunt ontwikkelomgevingen
 - IoT-apparaten
 
-Deze beperkte Docker-installatiekopieën worden ingesloten met alle benodigde afhankelijkheden die zijn vereist voor het genereren van voorspellingen. 
+Deze containers op basis van een Docker-installatiekopieën zijn op zichzelf staand met alle benodigde afhankelijkheden die zijn vereist voor het genereren van voorspellingen. 
 
-## <a name="deploy-docker-container-images"></a>Installatiekopieën van de Docker-container implementeren 
-U kunt met Azure Machine Learning-Model Management op basis van Docker-container afbeeldingen met één opdracht implementeren in Azure Container Service beheerd via ML Compute-omgeving. Deze implementaties worden gemaakt met een front-server de volgende functies biedt:
+## <a name="deploy-docker-container-images"></a>Installatiekopieën van Docker-container implementeren 
+Met Machine Learning Modelbeheer van Azure, kunt u op basis van een Docker-containerinstallatiekopieën met slechts één opdracht implementeren op Azure Container Service worden beheerd door ML Compute-omgeving. Deze implementaties worden gemaakt met een front-endwebserver die de volgende functies biedt:
 
-- Lage latentie voorspellingen op grote schaal
+- Voorspellingen van de lage latentie op grote schaal
 - Taakverdeling
-- Automatische schaling van ML-eindpunten
-- API-sleutel autorisatie
-- API swagger-document
+- Automatisch schalen van ML-eindpunten
+- Autorisatiebeleid API
+- API-swagger-document
 
-U kunt de omvang van de implementatie en de telemetrie via de volgende configuratie-instellingen beheren:
+U kunt de schaal van de implementatie en de telemetrie via de volgende configuratie-instellingen beheren:
 
-- Systeemregistratie en model telemetrie voor elke web service-niveau. Bij inschakeling alle stdout logboeken worden gestreamd naar [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Model telemetrie wordt in de opslag die u opgeeft gearchiveerd. 
-- Limieten voor automatisch schalen en een gelijktijdigheid van taken. Het aantal geïmplementeerde containers op basis van de belasting binnen het bestaande cluster wordt automatisch vergroten door deze instellingen. Hiermee regelt u ook de doorvoer en consistentie van de voorspelling latentie.
+- Systeemregistratie en model telemetrie voor elke web service-niveau. Bij inschakeling alle stdout-logboeken worden gestreamd naar [Azure Application Insights](https://azure.microsoft.com/services/application-insights/). Model telemetrie wordt gearchiveerd in de opslag die u opgeeft. 
+- Limieten voor automatisch schalen en gelijktijdigheid. Deze instellingen worden automatisch het aantal geïmplementeerde containers op basis van de belasting binnen het bestaande cluster verhogen. Ze bepalen ook de doorvoer en consistentie van voorspelling latentie.
 
 ## <a name="consumption"></a>Verbruik 
-Azure Machine Learning-Model Management REST-API voor het geïmplementeerde model samen met de swagger-document gemaakt. U kunt geïmplementeerde modellen verbruiken door aanroepen van de REST-API's met API sleutel en model van de invoer voor de voorspellingen krijgt als onderdeel van de line-of-business-toepassingen. De voorbeeldcode is beschikbaar in GitHub voor Java, talen [Python](https://github.com/CortanaAnalyticsGallery-Int/digit-recognition-cnn-tf/blob/master/client.py), en C# voor het aanroepen van REST-API's. Azure Machine Learning-Model Management CLI biedt een eenvoudige manier om met deze REST-API's te werken. U kunt de API's via één CLI opdracht, een swagger-toepassingen, of met een curl verbruiken. 
+Azure Machine Learning Modelbeheer maakt REST-API voor het gedistribueerde model samen met de swagger-document. U kunt gebruiken van geïmplementeerde modellen door aanroepen van de REST-API's met API-sleutel en het model van de invoer voor de voorspellingen krijgt als onderdeel van de line-of-business-toepassingen. De voorbeeldcode is beschikbaar in GitHub voor talen Java, [Python](https://github.com/CortanaAnalyticsGallery-Int/digit-recognition-cnn-tf/blob/master/client.py), en C# voor het aanroepen van REST-API's. Azure Machine Learning-Model Management CLI biedt een eenvoudige manier om te werken met deze REST-API's. U kunt de API's met behulp van een enkele CLI-opdracht, een swagger-toepassingen, of curl verbruiken. 
 
-## <a name="retraining"></a>Retraining 
-Azure Machine Learning-Model Management biedt API's waarmee u kunt opnieuw trainen van modellen. U kunt ook de API's gebruiken bij het bijwerken van bestaande implementaties met bijgewerkte versies van het model. Als onderdeel van de wetenschappelijke werkstroom, kunt u het model maken in uw omgeving experimenteren. Vervolgens u het model met Model Management registreren en bijwerken van bestaande implementaties. Updates worden uitgevoerd met één opdracht UPDATE CLI. De opdracht UPDATE updates bestaande implementaties zonder de API-URL of de sleutel te wijzigen. De toepassingen het model blijven werken zonder codewijziging en betere voorspellingen nieuw model met krijgen.
+## <a name="retraining"></a>Opnieuw trainen 
+Azure Machine Learning Modelbeheer biedt API's die u gebruiken kunt voor uw modellen opnieuw trainen. U kunt ook de API's gebruiken voor het bijwerken van bestaande implementaties met bijgewerkte versies van het model. Als onderdeel van de werkstroom voor datatechnologie, maakt u het model opnieuw in uw experimenten-omgeving. Vervolgens u het model registreren bij Modelbeheer en bestaande implementaties van updates. Updates worden uitgevoerd met behulp van een eenmalige UPDATE CLI-opdracht. De opdracht UPDATE werkt bestaande implementaties zonder de API-URL of de sleutel te wijzigen. Het model de toepassingen blijven werken zonder codewijziging, en beginnen met het doen van betere voorspellingen met behulp van nieuwe model ophalen.
 
-De volledige werkstroom met een beschrijving van deze begrippen is vastgelegd in de volgende afbeelding:
+De volledige werkstroom met een beschrijving van deze concepten worden vastgelegd in de volgende afbeelding:
 
 ![](media/model-management-overview/modelmanagementworkflow.png)
 
 ## <a name="frequently-asked-questions-faq"></a>Veelgestelde vragen 
 - **Welke gegevenstypen worden ondersteund? Kan ik matrices NumPy rechtstreeks als invoer voor de webservice?**
 
-   Als u schemabestand dat is gemaakt met behulp van generate_schema SDK biedt, kunt klikt u vervolgens u doorgeven NumPy en/of Pandas DF. U kunt ook een serialiseerbare JSON-invoer doorgeven. Afbeelding kan worden doorgegeven als ook binaire gecodeerde tekenreeks.
+   Als u schemabestand dat is gemaakt met behulp van generate_schema SDK opgeeft, kunt klikt u vervolgens u doorgeven NumPy en/of Pandas DF. U kunt ook een JSON-invoer voor serialiseerbare doorgeven. U kunt installatiekopie doorgeven als ook binaire gecodeerde tekenreeks.
 
-- **De webservice ondersteuning voor meerdere invoer of andere invoer parseren?**
+- **De webservice ondersteunen meerdere invoergegevens of parseren van verschillende soorten invoer?**
 
-   Ja, kunt u meerdere invoer verpakt in een JSON-aanvraag als een woordenboek nemen. Elke invoer zou komen overeen met een sleutel één unieke woordenlijst.
+   Ja, kunt u meerdere invoergegevens verpakt in een JSON-aanvraag als een woordenboek uitvoeren. Elke invoer zou komen overeen met een sleutel één unieke woordenlijst.
 
-- **Is de aanroep geactiveerd door een aanvraag naar de web service een aanroep van blokkerende of een asynchrone aanroep?**
+- **Is de aanroep geactiveerd door een aanvraag voor de web service teruggebeld te blokkeren of een asynchrone aanroep?**
 
-   Als de service is gemaakt met behulp van de optie realtime als onderdeel van de CLI of API, is het een blokkeren/synchrone aanroep. Naar verwachting worden snel realtime. Hoewel blokkeren aan de clientzijde die u met behulp van asynchrone HTTP-bibliotheek aanroepen kunt om te voorkomen dat de client-thread.
+   Als service is gemaakt met behulp van de optie voor real-time als onderdeel van de CLI of API, is het een blokkeren/synchrone aanroep. Naar verwachting worden realtime snel. Hoewel blokkeren aan de clientzijde die u met behulp van asynchrone HTTP-bibliotheek aanroepen kunt om te voorkomen dat de client-thread.
 
-- **Hoeveel aanvragen de webservice tegelijk kan verwerken?**
+- **Het aantal aanvragen voor de webservice tegelijk kan verwerken?**
 
-   Dit is afhankelijk van de cluster en web service schaal. U kunt uw service tot 100 x van replica's uitbreiden en vervolgens het gelijktijdig veel aanvragen kan verwerken. U kunt ook de maximum aantal gelijktijdige aanvragen per replica hogere service doorvoersnelheid configureren.
+   Dat hangt ervan af op de schaal van de service-cluster en het web. U kunt de service tot 100 x van replica's uitbreiden en vervolgens het gelijktijdig veel aanvragen kan verwerken. U kunt ook het maximum aantal gelijktijdige aanvraag per replica om service-doorvoer te vergroten.
 
-- **Hoeveel aanvragen kan de webservice in de wachtrij?**
+- **Het aantal aanvragen kan de webservice wachtrij komen?**
 
-   Het kan worden geconfigureerd. Standaard is ingesteld op 10 ~ per één replica, maar u kunt vergroten of verkleinen het aan de toepassingsvereisten van uw. Normaal gesproken verhogen deze het aantal aanvragen in de wachtrij verhoogt de doorvoer service maar maakt de latenties erger op hogere percentielen. Als u wilt de latenties consistent te houden, mag u wilt instellen op het in de wachtrij op een lage waarde (1-5) en verhoog het aantal replica's voor het afhandelen van de doorvoer. U kunt ook automatisch schalen aanbrengen het aantal replica's aanpassen automatisch op basis van load inschakelen. 
+   Het kan worden geconfigureerd. Standaard is ingesteld op ~ 10 per één replica, maar u kunt vergroten/verkleinen het aan de toepassingsvereisten voor uw. Meestal het vergroten het aantal aanvragen in de wachtrij verhoogt de netwerkdoorvoer service, maar Hiermee wordt de latenties nog erger op hogere percentielen. U kunt om te voorkomen dat de latenties consistente, wilt instellen op het in de wachtrij op een lage waarde (1-5), en het aantal replica's voor het afhandelen van de doorvoer te verhogen. U kunt ook automatisch schalen om te laten het aantal replica's aanpassen automatisch op basis van load inschakelen. 
 
-- **Kan de dezelfde machine of het cluster worden gebruikt voor meerdere webservice-eindpunten?**
+- **Kan de dezelfde machine of het cluster worden gebruikt voor meerdere web service-eindpunten?**
 
-   Absoluut. U kunt 100 x van de services-eindpunten uitvoeren in hetzelfde cluster. 
+   Absoluut. U kunt 100 x de prijs van services /-eindpunten in hetzelfde cluster uitvoeren. 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor aan de slag met Model Management, [Configuring Model Management](deployment-setup-configuration.md).
+Zie voor het aan de slag met Modelbeheer, [Modelbeheer configureren](deployment-setup-configuration.md).

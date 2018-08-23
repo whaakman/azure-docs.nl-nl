@@ -7,17 +7,19 @@ author: mrbullwinkle
 manager: carmonm
 ms.assetid: 2059802b-1131-477e-a7b4-5f70fb53f974
 ms.service: application-insights
-ms.workload: tbd
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: mbullwin
-ms.openlocfilehash: 656c62e7227eef967696715f0882114631249c6c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 1b00c57ee0890319d70bd7634d301a6472b8416e
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443912"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Fouten opsporen in uw toepassingen met Azure Application Insights in Visual Studio
 In Visual Studio (2015 en hoger) kunt u de prestaties analyseren en problemen in uw ASP.NET web-app identificeren tijdens de foutopsporing en algemeen gebruik. Dit gebeurt aan de hand van telemetrie uit [Azure Application Insights](app-insights-overview.md).
@@ -36,7 +38,7 @@ In Visual Studio ziet u een aantal van de gebeurtenissen die zijn geregistreerd 
 Klik op deze knop om uw telemetrie te doorzoeken. 
 
 ## <a name="application-insights-search"></a>Application Insights-zoekopdracht
-In het zoekvenster van Application Insights worden geregistreerde gebeurtenissen weergegeven. (Als u aangemeld bij Azure bij het instellen van Application Insights, kunt u dezelfde gebeurtenissen zoeken in de Azure portal.)
+In het zoekvenster van Application Insights worden geregistreerde gebeurtenissen weergegeven. (Als u aangemeld bij Azure bij het instellen van Application Insights, kunt u dezelfde gebeurtenissen zoeken in Azure portal.)
 
 ![Klik met de rechtermuisknop op het project en kies Application Insights > Zoeken.](./media/app-insights-visual-studio/34.png)
 
@@ -56,15 +58,15 @@ U kunt ook de Verwante items openen om mislukte aanvragen of uitzonderingen te d
 
 ![Blader onder Aanvraagdetails naar beneden, naar gerelateerde items](./media/app-insights-visual-studio/41.png)
 
-## <a name="view-exceptions-and-failed-requests"></a>Weergave uitzonderingen en mislukte aanvragen
+## <a name="view-exceptions-and-failed-requests"></a>Weergave-uitzonderingen en mislukte aanvragen
 Uitzonderingsrapporten worden weergegeven in het venster Zoeken. (In enkele oudere typen ASP.NET-toepassingen moet u [uitzonderingencontrole instellen](app-insights-asp-net-exceptions.md) om te zien welke uitzonderingen door het framework worden afgehandeld.)
 
 Klik op een uitzondering voor een stack-trace. Als de code van de app in Visual Studio is geopend, kunt u via de stack-trace doorklikken naar de relevante coderegel.
 
 ![Uitzondering voor stack-trace](./media/app-insights-visual-studio/17.png)
 
-## <a name="view-request-and-exception-summaries-in-the-code"></a>Samenvattingen van de aanvraag en uitzonderingen in de code weergeven
-In de regel Code Lens boven elke handler-methode ziet u een aantal van de aanvragen en uitzonderingen die zijn geregistreerd door Application Insights in de afgelopen 24 uur.
+## <a name="view-request-and-exception-summaries-in-the-code"></a>Samenvattingen van aanvragen en uitzonderingen in de code weergeven
+In de Code Lens-regel boven elke handlermethode ziet u een aantal van de aanvragen en uitzonderingen dat door Application Insights in de afgelopen 24 uur is geregistreerd.
 
 ![Uitzondering voor stack-trace](./media/app-insights-visual-studio/21.png)
 
@@ -86,7 +88,7 @@ Als u wilt zoeken naar afwijkingen in uw gegevens, kiest u een van de afwijkings
 [Meer informatie over Trends](app-insights-visual-studio-trends.md).
 
 ## <a name="local-monitoring"></a>Lokale bewaking
-(Vanaf Visual Studio 2015 Update 2) Als u dit nog niet hebt geconfigureerd voor de SDK voor het verzenden van telemetrie naar de Application Insights-portal (zodat er geen instrumentatiesleutel in ApplicationInsights.config is) geeft de diagnostics-venster weer telemetrie van de meest recente foutopsporingssessie. 
+(Van Visual Studio 2015 Update 2) Als u dit nog niet hebt geconfigureerd voor de SDK om telemetrie te verzenden naar de Application Insights-portal (zodat er geen instrumentatiesleutel in ApplicationInsights.config is) wordt het venster diagnostische gegevens telemetrie van de meest recente foutopsporingssessie. 
 
 Dit is handig als u al een eerdere versie van uw app hebt gepubliceerd. Zo voorkomt u dat de telemetrie van uw foutopsporingssessies in de Application Insights-portal wordt verward met de telemetrie over de gepubliceerde app.
 
@@ -102,5 +104,5 @@ Ook als u beschikt over [aangepaste telemetrie](app-insights-api-custom-events-m
 |  |  |
 | --- | --- |
 | **[Meer gegevens toevoegen](app-insights-asp-net-more.md)**<br/>Bewaak het gebruik, de beschikbaarheid, de afhankelijkheden en de uitzonderingen. Integreer bijgehouden informatie uit frameworks voor logboekregistratie. Schrijf aangepaste telemetrie. |![Visual Studio](./media/app-insights-visual-studio/64.png) |
-| **[Werken met de Application Insights-portal](app-insights-dashboards.md)**<br/>Dashboards, krachtige hulpprogramma's voor diagnose en analyse, waarschuwingen, een live afhankelijkheidskaart van uw toepassing en de geëxporteerde telemetriegegevens weergeven. |![Visual Studio](./media/app-insights-visual-studio/62.png) |
+| **[Werken met de Application Insights-portal](app-insights-dashboards.md)**<br/>Dashboards, krachtige hulpprogramma's voor diagnose en analyse, waarschuwingen, een live afhankelijkheidskaart van uw toepassing en de geëxporteerde telemetrische gegevens weergeven. |![Visual Studio](./media/app-insights-visual-studio/62.png) |
 

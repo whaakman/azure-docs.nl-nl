@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 08/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 5a373c397df09653395eea7996b19262aee75c7a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 537777d2e379959d427c025036652a87ecc4a1fe
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619046"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617155"
 ---
 # <a name="built-in-roles-in-azure"></a>Ingebouwde rollen in Azure
 [Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) heeft diverse ingebouwde roldefinities die u aan gebruikers, groepen en service-principals toewijzen kunt. Roltoewijzingen zijn de manier waarop u de toegang tot resources in Azure. Als de ingebouwde rollen niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen [aangepaste rollen](custom-roles.md) maken.
@@ -47,6 +47,8 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [Operator voor Automation](#automation-job-operator) | Taken maken en beheren met Automation-runbooks. |
 | [Automation-Operator](#automation-operator) | Operators voor Automation kunnen taken starten, stoppen, onderbreken en hervatten |
 | [Operator voor Automation-Runbook](#automation-runbook-operator) | Runbook-eigenschappen lezen: hiermee kunnen taken van de runbook worden gemaakt. |
+| [Beheerdersrol voor Azure Kubernetes Service-Cluster](#azure-kubernetes-service-cluster-admin-role) | Lijst met cluster admin credential actie. |
+| [Azure Kubernetes Service-Cluster-gebruikersrol](#azure-kubernetes-service-cluster-user-role) | Lijst met cluster referentie actie van de gebruiker. |
 | [De eigenaar van de Azure Stack-registratie](#azure-stack-registration-owner) | Hiermee kunt u Azure Stack-registraties beheren. |
 | [Back-Inzender](#backup-contributor) | Hiermee kunt u de back-upservice beheren, maar u kunt geen kluizen maken of anderen toegang verlenen |
 | [Back-upoperator](#backup-operator) | Hiermee kunt u back-upservices beheren, met uitzondering van het verwijderen van back-ups, het maken van kluizen en het verlenen van toegang aan anderen |
@@ -60,8 +62,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [Inzender voor klassieke netwerken](#classic-network-contributor) | Hiermee beheert u klassieke netwerken, maar kunt u niet de toegang tot de netwerken beheren. |
 | [Inzender voor klassieke Opslagaccounts](#classic-storage-account-contributor) | Hiermee kunt u klassieke opslagaccounts beheren, maar niet de toegang. |
 | [Klassieke opslag Account servicerol Sleuteloperator](#classic-storage-account-key-operator-service-role) | Sleuteloperators voor klassieke opslagaccounts kunnen een lijst met sleutels voor klassieke opslagaccounts maken en de sleutels opnieuw genereren |
-| [Inzender voor klassieke virtuele machines](#classic-virtual-machine-contributor) | Hiermee beheert u klassieke virtuele machines, maar kunt u niet de toegang tot de virtuele machines of het virtuele netwerk of opslagaccount beheren waaraan de virtuele machines zijn gekoppeld. |
-| [Inzender voor ClearDB MySQL-Databases](#cleardb-mysql-db-contributor) | Hiermee beheert u ClearDB MySQL-databases, maar kunt u niet de toegang tot de databases beheren. |
+| [Inzender voor klassieke virtuele machines](#classic-virtual-machine-contributor) | Hiermee beheert u klassieke virtuele machines, maar kunt u niet de toegang tot de virtuele machines of het virtuele netwerk of opslagaccount beheren waaraan de virtuele machines zijn gekoppeld.|
 | [Rol van lezer voor cosmos DB-Account](#cosmos-db-account-reader-role) | Kan Azure Cosmos DB-accountgegevens lezen. Zie [Inzender voor DocumentDB-Account](#documentdb-account-contributor) voor het beheren van Azure Cosmos DB-accounts. |
 | [Inzender voor Data Box](#data-box-contributor) | Hiermee beheert u alles onder de Data Box-Service, behalve het verlenen van toegang aan anderen. |
 | [Data Box-Operator](#data-box-operator) | U kunt Data Box-Service met uitzondering van het maken van de volgorde of ordergegevens bewerken en toegang geven tot andere beheren. |
@@ -84,6 +85,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [Beheergroep-Inzender](#management-group-contributor) | De rol Inzender beheergroep |
 | [Lezer van de beheergroep](#management-group-reader) | Rol Lezer beheergroep |
 | [Controlebijdrager](#monitoring-contributor) | Kan alle controlegegevens lezen en bewerken van instellingen voor controle. Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
+| [Uitgever van de metrische gegevens controleren](#monitoring-metrics-publisher) | Hiermee schakelt het publiceren van metrische gegevens bij Azure-resources |
 | [Controlelezer](#monitoring-reader) | Kan alle controlegegevens lezen (metrische gegevens, Logboeken, enz.). Zie ook [aan de slag met rollen, machtigingen en beveiliging met Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md#built-in-monitoring-roles). |
 | [Inzender voor netwerken](#network-contributor) | Hiermee beheert u netwerken, maar kunt u niet de toegang tot de netwerken beheren. |
 | [Nieuwe Relic APM-Account Inzender](#new-relic-apm-account-contributor) | Hiermee beheert u New Relic Application Performance Management-accounts en -toepassingen, maar kunt u niet de toegang tot de accounts en toepassingen beheren. |
@@ -275,13 +277,14 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | **Id** | 4fe576fe-1146-4730-92eb-48519fa6bf9f |
 > | **Acties** |  |
 > | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
+> | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Resources voor de Hybrid Runbook Worker gelezen |
 > | Microsoft.Automation/automationAccounts/jobs/read | Een Azure Automation-taak opgehaald |
 > | Microsoft.Automation/automationAccounts/jobs/resume/action | Een Azure Automation-taak wordt hervat |
 > | Microsoft.Automation/automationAccounts/jobs/stop/action | Een Azure Automation-taak gestopt |
-> | Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read | Resources voor de Hybrid Runbook Worker gelezen |
 > | Microsoft.Automation/automationAccounts/jobs/streams/read | Een Azure Automation-taakstroom opgehaald |
 > | Microsoft.Automation/automationAccounts/jobs/suspend/action | Hiermee wordt een Azure Automation-taak onderbroken |
 > | Microsoft.Automation/automationAccounts/jobs/write | Hiermee maakt u een Azure Automation-taak |
+> | Microsoft.Automation/automationAccounts/jobs/output/read | De uitvoer van een taak opgehaald |
 > | Microsoft.Insights/alertRules/* | Maken en beheren van inzicht waarschuwingsregels |
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
@@ -329,6 +332,24 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
+
+## <a name="azure-kubernetes-service-cluster-admin-role"></a>Beheerdersrol voor Azure Kubernetes Service-Cluster
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Lijst met cluster admin credential actie. |
+> | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
+> | **Acties** |  |
+> | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Lijst van de referentie clusterAdmin van een beheerde cluster |
+
+## <a name="azure-kubernetes-service-cluster-user-role"></a>Azure Kubernetes Service-Cluster-gebruikersrol
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Lijst met cluster referentie actie van de gebruiker. |
+> | **Id** | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
+> | **Acties** |  |
+> | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Lijst van de referentie clusterUser van een beheerde cluster |
 
 ## <a name="azure-stack-registration-owner"></a>Eigenaar Azure Stack-registratie
 > [!div class="mx-tableFixed"]
@@ -631,21 +652,6 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
-
-## <a name="cleardb-mysql-db-contributor"></a>Inzender voor ClearDB MySQL-databases
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Beschrijving** | Hiermee beheert u ClearDB MySQL-databases, maar kunt u niet de toegang tot de databases beheren. |
-> | **Id** | 9106cda0-8a86-4e81-b686-29a22c54effe |
-> | **Acties** |  |
-> | Microsoft.Authorization/*/read | Meer functies en roltoewijzingen |
-> | Microsoft.Insights/alertRules/* | Maken en beheren van regels voor waarschuwingen |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | De beschikbaarheidsstatus ophalen voor alle resources binnen het opgegeven bereik |
-> | Microsoft.Resources/deployments/* | Maken en beheren van brongroepimplementaties |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
-> | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
-> | successbricks.cleardb/databases/* | ClearDB MySQL-databases maken en beheren |
 
 ## <a name="cosmos-db-account-reader-role"></a>Rol van lezer voor Cosmos DB-account
 > [!div class="mx-tableFixed"]
@@ -1041,6 +1047,19 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 > | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
 > | Microsoft.WorkloadMonitor/workloads/* |  |
 > | Microsoft.WorkloadMonitor/workloadInsights/* |  |
+
+## <a name="monitoring-metrics-publisher"></a>Uitgever van de metrische gegevens controleren
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beschrijving** | Hiermee schakelt het publiceren van metrische gegevens bij Azure-resources |
+> | **Id** | 3913510d-42f4-4E42-8a64-420c390055eb |
+> | **Acties** |  |
+> | Microsoft.Insights/Register/Action | De Microsoft Insights-provider registreren |
+> | Microsoft.Support/* | Maken en ondersteuningstickets beheren |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hiermee kunt u resourcegroepen ophalen of opnemen in een lijst. |
+> | **DataActions** |  |
+> | Microsoft.Insights/Metrics/Write | Metrische gegevens schrijven |
 
 ## <a name="monitoring-reader"></a>Controlelezer
 > [!div class="mx-tableFixed"]

@@ -1,6 +1,6 @@
 ---
-title: Mobile Services toevoegen met behulp van verbonden Services in Visual Studio | Microsoft Docs
-description: Mobile Services toevoegen met behulp van de Visual Studio verbonden dialoogvenster Services toevoegen
+title: Mobile Services toe te voegen met behulp van Connected Services in Visual Studio | Microsoft Docs
+description: Mobile Services toevoegen met behulp van het dialoogvenster Visual Studio verbonden Services toevoegen
 services: visual-studio-online
 documentationcenter: na
 author: mlhoop
@@ -12,68 +12,69 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: mobile
+ms.custom: vs-azure
 ms.date: 12/16/2015
 ms.author: mlearned
-ms.openlocfilehash: d185fdafebad56f8970e390b2a0672c3fb84df8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6cceb760ab62ea4f7225c9cc0cee7a6baf8ed8be
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23884214"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442208"
 ---
-# <a name="adding-mobile-services-by-using-visual-studio-connected-services"></a>Mobile Services toevoegen met behulp van Visual Studio verbonden Services
-Met Visual Studio 2015, kunt u verbinden met Azure Mobile Services via de **verbonden Service toevoegen** dialoogvenster. U kunt verbinding maken vanaf elke clienttoepassing C#, een JavaScript-app of platformoverschrijdende Cordova-app. Als u verbinding hebt gemaakt, kunt u maken en toegang tot gegevens, aangepaste API's en geplande taken maken of toevoegen van ondersteuning voor pushmeldingen.  De bewerking verbonden services voegt alle juiste verwijzingen en code van de verbinding. U kunt ook te profiteren van ingebouwde ondersteuning voor verificatie met tal van populaire identity-schema's, zoals Azure AD, Facebook, Twitter en Microsoft-Accounts.
+# <a name="adding-mobile-services-by-using-visual-studio-connected-services"></a>Mobile Services toe te voegen met behulp van Visual Studio verbonden Services
+Visual Studio 2015, u kunt verbinding maken met Azure Mobile Services met behulp van de **Add Connected Service** dialoogvenster. U kunt verbinding maken van een C#-client-app, een JavaScript-app of Cordova-app voor meerdere platformen. Wanneer u verbinding hebt gemaakt, kunt u maken en toegang tot gegevens, aangepaste API's en geplande taken maken of toevoegen van ondersteuning voor pushmeldingen.  De bewerking verbonden services voegt alle juiste verwijzingen en code van de verbinding. U kunt ook profiteren van de ingebouwde ondersteuning voor verificatie met een scala aan populaire id-schema's, zoals Azure AD, Facebook, Twitter en Microsoft-Accounts.
 
 ## <a name="supported-project-types"></a>Ondersteunde projecttypen
 > [!NOTE]
-> In Visual Studio 2015 wordt Azure Mobile Services toevoegen aan een universele Windows-(Windows 10) projecten via het dialoogvenster verbonden Services toevoegen niet ondersteund. U kunt Azure Mobile Services toevoegen door het installeren van de juiste pakketten met NuGet Package Manager voor uw project.
+> In Visual Studio 2015, wordt Azure Mobile Services toe te voegen aan een Windows Universal (Windows 10) projecten met behulp van het dialoogvenster Connected Services toevoegen niet ondersteund. U kunt Azure Mobile Services toevoegen door het installeren van de juiste pakketten met behulp van de NuGet Package Manager voor uw project.
 > 
 > 
 
-Verbinding maken met Azure Mobile Services in de volgende projecttypen kunt u het dialoogvenster Services verbonden.
+Het dialoogvenster Connected Services kunt u verbinding maken met Azure Mobile Services in de volgende projecttypen.
 
-* .NET Windows 8.1 Store en Phone universele App-projecten
-* JavaScript Windows 8.1 Store en Phone universele App-projecten
-* Projecten gemaakt met behulp van Visual Studio Tools voor Apache Cordova
+* .NET Windows 8.1-Store, Phone en universele App-projecten
+* JavaScript Windows 8.1-Store, Phone en universele App-projecten
+* Projecten die zijn gemaakt met behulp van Visual Studio Tools voor Apache Cordova
 
-## <a name="connect-to-azure-mobile-services-using-the-add-connected-services-dialog"></a>Verbinding maken met Azure Mobile Services met het dialoogvenster verbonden Services toevoegen
+## <a name="connect-to-azure-mobile-services-using-the-add-connected-services-dialog"></a>Verbinding maken met Azure Mobile Services met behulp van het dialoogvenster Connected Services toevoegen
 1. Zorg ervoor dat u hebt een Azure-account. Als u nog geen Azure-account hebt, kunt u zich registreren voor een [gratis proefversie](http://go.microsoft.com/fwlink/?LinkId=518146).
-2. Open de **verbonden Services toevoegen** in het dialoogvenster.
+2. Open de **Connected Services toevoegen** in het dialoogvenster.
    
-   * Open het project in Visual Studio voor .NET-toepassingen, opent u het snelmenu voor het **verwijzingen** knooppunt in Solution Explorer en kies vervolgens **verbonden Service toevoegen**
+   * Voor .NET-apps, opent u uw project in Visual Studio, open het contextmenu voor de **verwijzingen** knooppunt in Solution Explorer en kies vervolgens **Add Connected Service**
      
-        ![Verbinding maken met Azure Mobile Service](./media/vs-azure-tools-connected-services-add-mobile-services/IC797635.png)
-   * Apache Cordova-app-projecten, opent u het project in Visual Studio, opent u het snelmenu voor het projectknooppunt in Solution Explorer en kies vervolgens **verbonden Service toevoegen**.
-3. In de **verbonden Service toevoegen** dialoogvenster Kies **Azure Mobile Services**, en kies vervolgens de **configureren** knop. U wordt mogelijk gevraagd aan te melden bij Azure als u dat nog niet hebt gedaan.
+        ![Verbinding maken met de mobiele Service van Azure](./media/vs-azure-tools-connected-services-add-mobile-services/IC797635.png)
+   * Projecten met Apache Cordova-app, opent u het project in Visual Studio, open het contextmenu voor het projectknooppunt in Solution Explorer en kies vervolgens **Add Connected Service**.
+3. In de **Add Connected Service** dialoogvenster vak, kiest u **Azure Mobile Services**, en kies vervolgens de **configureren** knop. U mogelijk gevraagd om aan te melden bij Azure als u dat nog niet hebt gedaan.
    
     ![Toevoegen van een mobiele Service van Azure](./media/vs-azure-tools-connected-services-add-mobile-services/IC797636.png)
-4. In de **Azure Mobile Services** dialoogvenster Kies een bestaande mobiele service als er een. Als u maken van een nieuwe mobiele service van Azure wilt, volgt u de onderstaande procedure om te doen. Ga anders naar de volgende stap.
+4. In de **Azure Mobile Services** dialoogvenster vak, kiest u een bestaande mobiele service als u die hebt. Als u nodig hebt voor het maken van een nieuwe mobiele service van Azure, volgt u de procedure hieronder om dit te doen. Ga anders naar de volgende stap.
    
     Een nieuwe mobiele service-account maken:
    
-   1. Kies de ** maken van een Service ** koppelen aan de onderkant van het dialoogvenster.
-       ![Nieuwe mobiele service die verbonden toevoegen](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
-   2. Op de **mobiele Service maken** in het dialoogvenster kunt u een JavaScript back-end voor mobiele service, of een mobiele service van .NET-back-end van de **Runtime** vervolgkeuzelijst. 
+   1. Kies de ** maken van een Service ** koppeling aan de onderkant van het dialoogvenster.
+       ![Nieuwe mobiele verbonden service toevoegen](./media/vs-azure-tools-connected-services-add-mobile-services/IC797637.png)
+   2. Op de **mobiele Service maken** in het dialoogvenster kunt u een JavaScript-back-end mobiele service, of een mobiele service van .NET-back-end van de **Runtime** vervolgkeuzelijst. 
       
-       ![Een mobiele service maken](./media/vs-azure-tools-connected-services-add-mobile-services/IC797638.png)
+       ![Het maken van een mobiele service](./media/vs-azure-tools-connected-services-add-mobile-services/IC797638.png)
       
-       Een back-endservice JavaScript is een eenvoudige en krachtige. Als u een JavaScript back-end voor mobiele service maakt, wordt de serverzijde JavaScript-code is opgeslagen in de cloud, maar u kunt de server-scripts bewerken met behulp van Server Explorer of de Azure-beheerportal. 
+       Een JavaScript-back-end-service is eenvoudig en krachtige. Als u een mobiele JavaScript back-end-service maakt, wordt de serverzijde JavaScript-code is opgeslagen in de cloud, maar u kunt serverscripts bewerken met behulp van Server Explorer of de Azure management portal. 
       
-       Een .NET-back-end voor mobiele service biedt u de volledige kracht en flexibiliteit van Web-API en Entity Framework. Als u een .NET-back-end voor mobiele service maakt, wordt een project voor u gemaakt en toegevoegd aan uw oplossing. 
-   3. Kies de **regio** waar de mobiele service en voer vervolgens een gebruikersnaam en wachtwoord in voor de server.
+       Een mobiele .NET-back-end-service biedt u de volledige kracht en flexibiliteit van de Web-API en Entity Framework. Als u een .NET-back-end mobiele service maakt, wordt er een project voor u gemaakt en wordt deze toegevoegd aan uw oplossing. 
+   3. Kies de **regio** waar u wilt de mobiele service, en voer vervolgens een gebruikersnaam en wachtwoord in voor de server.
    4. Nadat u de vereiste gegevens hebt ingevoerd, kiest u de **maken** om te maken van de mobiele service.
    5. De nieuwe mobiele service moet worden weergegeven in de lijst met Services op de **Azure Mobile Services** in het dialoogvenster. Kies de nieuwe mobiele service in de lijst en kies vervolgens de **toevoegen** om toe te voegen van de service aan uw project.
-5. Bekijk de ophalen gestart pagina die verschijnt en weten hoe uw project is gewijzigd. Wanneer u een gekoppelde service toevoegt, verschijnt er een pagina aan de slag in uw browser. U kunt de voorgestelde Vervolgstappen en codevoorbeelden bekijken of overschakelen naar de pagina wat er gebeurd is om te zien welke referenties zijn toegevoegd aan uw project en hoe uw code en configuratie-bestanden die zijn aangepast.
-6. Start met behulp van de codevoorbeelden als richtlijn schrijven van code voor toegang tot uw mobiele service.
+5. Controleer de aan de slag te gaan pagina die wordt weergegeven en ontdek hoe uw project is gewijzigd. Wanneer u een verbonden service toevoegt, wordt er in uw browser een aan de slag-pagina weergegeven. U kunt de voorgestelde volgende stappen en voorbeelden van code bekijken of schakel over naar de pagina Wat is er gebeurd om te zien welke referenties zijn toegevoegd aan uw project, en hoe uw code en configuratie van bestanden die zijn aangepast.
+6. Start met behulp van de codevoorbeelden als richtlijn voor het schrijven van code voor toegang tot uw mobiele service!
 
 ## <a name="how-your-project-is-modified"></a>Hoe uw project is gewijzigd
-Hoe uw project in Visual Studio wordt gewijzigd, is afhankelijk van het projecttype. Zie voor C# client-apps, [wat is er gebeurd – C#-projecten](http://go.microsoft.com/fwlink/p/?LinkId=513119). Zie voor JavaScript-client-apps [wat is er gebeurd – JavaScript-projecten](http://go.microsoft.com/fwlink/p/?LinkId=513120). Zie voor Cordova-apps [wat is er gebeurd – Cordova-projecten](http://go.microsoft.com/fwlink/p/?LinkId=513116).
+Hoe uw project in Visual Studio wordt gewijzigd, is afhankelijk van het projecttype. Zie voor C#-client-apps, [wat is er gebeurd: C#-projecten](http://go.microsoft.com/fwlink/p/?LinkId=513119). Zie voor JavaScript-client-apps, [wat is er gebeurd: JavaScript-projecten](http://go.microsoft.com/fwlink/p/?LinkId=513120). Zie voor Cordova-apps, [wat is er gebeurd: Cordova projecten](http://go.microsoft.com/fwlink/p/?LinkId=513116).
 
 ## <a name="next-steps"></a>Volgende stappen
-Vragen stellen en hulp te krijgen: 
+Vragen stellen en hulp bij: 
 
 * [MSDN-Forum: Azure Mobile Services](https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile)
-* [Azure Mobile Services op de Microsoft Azure-teamblog](https://azure.microsoft.com/blog/topics/mobile/)
+* [Azure Mobile Services op het teamblog van Microsoft Azure](https://azure.microsoft.com/blog/topics/mobile/)
 * [Azure Mobile Services op azure.microsoft.com](https://azure.microsoft.com/services/mobile-services/)
 * [Azure Mobile Services-documentatie op azure.microsoft.com](https://azure.microsoft.com/documentation/services/mobile-services/)
 

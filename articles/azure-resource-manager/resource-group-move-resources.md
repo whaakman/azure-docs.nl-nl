@@ -4,22 +4,20 @@ description: Azure Resource Manager gebruiken voor resources verplaatsen naar ee
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/02/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 69614fe84941ea2003d39de165c692b812d10785
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 7ddab3717626df14f491662849d01cb85658791c
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503577"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617287"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -57,7 +55,7 @@ Voordat u een resource verplaatst, moeten er enkele belangrijke stappen worden u
   Als de tenant-id's voor de bron- en doelabonnementen niet hetzelfde zijn, moet u de volgende methoden gebruiken om af te stemmen van de tenant-id's:
 
   * [Eigendom van een Azure-abonnement naar een ander account overdragen](../billing/billing-subscription-transfer.md)
-  * [Koppelen of een Azure-abonnement toevoegen aan Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+  * [Een Azure-abonnement koppelen of toevoegen aan Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
 2. De service moet de mogelijkheid activeren om resources te verplaatsen. In dit artikel geeft een lijst van welke services verplaatsing van resources activeren en welke services verplaatsing van resources niet activeren.
 3. Het doelabonnement moet zijn geregistreerd voor de resourceprovider van de resource die wordt verplaatst. Als u niet het geval is, ontvangt u een foutmelding waarin staat dat de **abonnement is niet geregistreerd voor een resourcetype**. U kunt dit probleem tegenkomen bij het verplaatsen van een resource naar een nieuw abonnement, terwijl dat abonnement nooit is gebruikt met dat type resource.
@@ -113,12 +111,12 @@ Neem contact op met [ondersteunen](https://portal.azure.com/#blade/Microsoft_Azu
 
 De services waarmee u verplaatsen naar een nieuwe resourcegroep en een abonnement zijn:
 
+* Analysis Services
 * API Management
 * App Service-apps (web-apps) - Zie [beperkingen voor App Service](#app-service-limitations)
 * App Service Certificates
 * Application Insights
-* Analysis Services
-* Automatisering
+* Automation
 * Azure Active Directory B2C
 * Azure Cosmos DB
 * Azure Maps
@@ -127,12 +125,14 @@ De services waarmee u verplaatsen naar een nieuwe resourcegroep en een abonnemen
 * Azure Migrate
 * Batch
 * BizTalk Services
-* Bot-service
+* Bot Service
 * CDN
 * Cloud Services - Zie [klassieke Implementatiebeperkingen](#classic-deployment-limitations)
 * Cognitive Services
-* Containerregister
+* Container Registry
 * Content Moderator
+* Cost Management
+* Customer Insights
 * Data Catalog
 * Data Factory
 * Data Lake Analytics
@@ -141,12 +141,14 @@ De services waarmee u verplaatsen naar een nieuwe resourcegroep en een abonnemen
 * Event Grid
 * Event Hubs
 * HDInsight-clusters - Zie [HDInsight beperkingen](#hdinsight-limitations)
+* IOT Central
 * IoT Hubs
 * Key Vault
 * Load Balancers - Zie [beperkingen van de Load Balancer](#lb-limitations)
 * Log Analytics
 * Logic Apps
 * Machine Learning - Machine Learning Studio-webservices kunnen worden verplaatst naar een resourcegroep in hetzelfde abonnement, maar niet een ander abonnement. Andere Machine Learning-resources kunnen worden uitgewisseld tussen abonnementen.
+* Beheerde identiteit - gebruiker toegewezen
 * Media Services
 * Mobile Engagement
 * Notification Hubs
@@ -155,11 +157,12 @@ De services waarmee u verplaatsen naar een nieuwe resourcegroep en een abonnemen
 * Portal-dashboards
 * Power BI - zowel Power BI Embedded en Power BI-Werkruimteverzameling
 * Openbaar IP-adres - Zie [openbaar IP-beperkingen](#pip-limitations)
-* Redis-cache
+* Redis Cache
 * Scheduler
-* Zoeken
+* Search
 * Service Bus
 * Service Fabric
+* Service Fabric Mesh
 * SignalR-Service
 * Storage
 * Opslag (klassiek) - Zie [klassieke Implementatiebeperkingen](#classic-deployment-limitations)
@@ -180,22 +183,26 @@ De services die momenteel niet mogelijk verplaatsen van een resource zijn:
 
 * AD Domain Services
 * Hybride AD Health-Service
-* Toepassingsgateway
+* Application Gateway
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
 * Azure Database Migration
 * Azure Databricks
 * Batch AI
 * Certificaten - App Service-certificaten kunnen worden verplaatst, maar de geüploade certificaten hebben [beperkingen](#app-service-limitations).
-* Containerservice
+* Container Instances
+* Container Service
+* Data Box
+* Dev-opslagruimten
 * Dynamics LCS
-* Express Route
-* Kubernetes-Service
+* ExpressRoute
+* Kubernetes Service
 * Lab-Services - verplaatsen naar de nieuwe resourcegroep in hetzelfde abonnement is ingeschakeld, maar de verplaatsing van kruislings abonnement is niet ingeschakeld.
 * Load Balancers - Zie [beperkingen van de Load Balancer](#lb-limitations)
 * Managed Applications
 * Beheerde schijven - Zie [beperkingen van de virtuele Machines](#virtual-machines-limitations)
 * Microsoft Genomics
+* NetApp
 * Openbaar IP-adres - Zie [openbaar IP-beperkingen](#pip-limitations)
 * Recovery Services-kluis - ook niet de Reken-, netwerk- en resources die zijn gekoppeld aan de Recovery Services-kluis wilt verplaatsen, Zie [beperkingen voor Recovery Services](#recovery-services-limitations).
 * SAP HANA op Azure
@@ -225,7 +232,7 @@ Virtuele Machines met een certificaat dat is opgeslagen in Key Vault kan worden 
 
 ## <a name="virtual-networks-limitations"></a>Beperkingen voor virtuele netwerken
 
-Bij het verplaatsen van een virtueel netwerk, moet u ook de afhankelijke resources verplaatsen. Bijvoorbeeld, moet u gateways met het virtuele netwerk verplaatsen.
+Bij het verplaatsen van een virtueel netwerk, moet u ook de afhankelijke resources verplaatsen. Voor VPN-Gateways, moet u IP-adressen, virtuele netwerkgateways en alle bijbehorende verbindingsresources verplaatsen. Lokale netwerkgateways kunnen zich in een andere resourcegroep.
 
 Voor het verplaatsen van een gekoppeld virtueel netwerk, moet u eerst de virtueel-netwerkpeering uitschakelen. Als uitgeschakeld, kunt u het virtuele netwerk kunt verplaatsen. Na de verplaatsing opnieuw de peering op virtueel netwerk.
 
@@ -255,9 +262,9 @@ Wanneer u een Web-App verplaatst _voor abonnementen_, gelden de volgende beperki
 
 - De doelresourcegroep mag geen bestaande App Service-resources. App Service-resources zijn onder andere:
     - Web Apps
-    - App Service-plannen
+    - App Service-abonnementen
     - Geüpload of geïmporteerd SSL-certificaten
-    - App-serviceomgevingen
+    - App Service-omgevingen
 - Alle App Service-resources in de resourcegroep, moeten tegelijk worden verplaatst.
 - App Service-resources kunnen alleen worden verplaatst uit de resourcegroep waarin ze oorspronkelijk zijn gemaakt. Als een resource App Service niet langer in de oorspronkelijke resourcegroep is, het moet worden teruggezet naar die oorspronkelijke resourcegroep eerst en vervolgens kunnen worden verplaatst tussen abonnementen.
 

@@ -1,73 +1,73 @@
 ---
-title: Structuur van de processjabloon Team gegevens wetenschap-projecten | Microsoft Docs
-description: Het instantiëren van het Team gegevens wetenschap proces (TDSP)-sjablonen in Azure Machine Learning die structuur voor samenwerking projecten
+title: Structuur van projecten met de sjabloon voor Team Data Science Process | Microsoft Docs
+description: Het instantiëren van sjablonen voor Team Data Science Process (TDSP) in Azure Machine Learning die structuur voor samenwerking projecten
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
+ms.author: deguhath
 manager: cgronlun
 editor: cgronlun
 ms.assetid: ''
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: bradsev
-ms.openlocfilehash: 5b53bd3ec479ba6e096b4d00089f968e37f0135c
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 05cb2a62cf0f001012f5faa022de233d7cbdce97
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831765"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42058748"
 ---
-# <a name="structure-projects-with-the-team-data-science-process-template"></a>Projecten met een structuur met de sjabloon Team gegevens wetenschappelijke processen
+# <a name="structure-projects-with-the-team-data-science-process-template"></a>Projecten structureren met de sjabloon voor Team Data Science Process
 
-Dit document bevat instructies voor het maken van gegevens wetenschappelijke projecten in Azure Machine Learning met sjablonen Team gegevens wetenschap proces (TDSP). Deze sjablonen helpen de structuur projecten voor samenwerking en reproduceerbaarheid. 
+Dit document bevat instructies voor het maken van data science-projecten in Azure Machine Learning met sjablonen voor Team Data Science Process (TDSP). Deze sjablonen helpen aan projecten voor samenwerking en reproduceerbaarheid structuur. 
 
 
 ## <a name="what-is-the-team-data-science-process"></a>Wat is Team Data Science Process?
-De TDSP is een flexibele, herhalende, gegevens wetenschap-proces voor het uitvoeren van en geavanceerde analytics-oplossingen leveren. Het is ontworpen voor het verbeteren van de samenwerking en efficiëntie van gegevens wetenschappelijke teams binnen ondernemingen. Deze ondersteuning biedt voor deze doelstellingen met vier belangrijke onderdelen:
+De TDSP is een flexibele, iteratieve, data science-proces voor het uitvoeren van en het leveren van geavanceerde analyseoplossingen. Het is ontworpen voor het verbeteren van de samenwerking en efficiëntie van data-scienceteams in enterprise-organisaties. Deze biedt ondersteuning voor deze doelstellingen met vier belangrijke onderdelen:
 
-   * Een standaard [gegevens wetenschappelijke lifecycle](../team-data-science-process/lifecycle.md) definitie.
-   * De structuur van een gestandaardiseerde project [project documentatie en de rapportage van sjablonen](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
-   * Een infrastructuur en resources voor de projectuitvoering van het, zoals respectievelijk een berekenings- en infrastructuur en code-opslagplaatsen.
-   * [Hulpprogramma's](https://github.com/Azure/Azure-TDSP-Utilities) voor gegevenswetenschap project taken, zoals:
-      - Samenwerking versiebeheer
+   * Een standaard [levenscyclus van wetenschappelijke gegevens](../team-data-science-process/lifecycle.md) definitie.
+   * Een gestandaardiseerde projectstructuur [project documentatie en de rapportage van sjablonen](https://github.com/Azure/Azure-TDSP-ProjectTemplate).
+   * Een infrastructuur en bronnen voor het project wordt uitgevoerd, zoals respectievelijk een reken- en infrastructuur en code-opslagplaatsen.
+   * [Hulpprogramma's](https://github.com/Azure/Azure-TDSP-Utilities) voor datatechnologie project taken, zoals:
+      - Gezamenlijke versiebeheer
       - Code-revisie
-      - Gegevensverkenning en modellering
+      - Gegevens verkennen en modelleren
       - Werk plannen
 
-Zie voor een uitgebreidere bespreking van de TDSP de [Team gegevens wetenschappelijke procesoverzicht](../team-data-science-process/overview.md).
+Zie voor een uitgebreidere bespreking van de TDSP, de [Team Data Science Process overzicht](../team-data-science-process/overview.md).
 
-## <a name="why-should-you-use-the-tdsp-structure-and-templates"></a>Waarom moet u de structuur TDSP en sjablonen gebruiken?
-Standaardisatie van de structuur, lifecycle en documentatie van de gegevens wetenschappelijke projecten is de sleutel te vergemakkelijken effectieve samenwerking op gegevens wetenschappelijke teams. Machine learning projecten maken met de sjabloon TDSP voor dergelijke een framework voor gecoördineerde werken als een team.
+## <a name="why-should-you-use-the-tdsp-structure-and-templates"></a>Waarom zou u de TDSP-structuur en -sjablonen gebruiken?
+Ordening van de structuur, de levenscyclus en de documentatie van data science-projecten is essentieel voor effectieve samenwerking voor teams van data science te vergemakkelijken. Machine learning-projecten maken met de TDSP-sjabloon om dergelijke een framework voor gecoördineerde teamwerk.
 
-We eerder is uitgebracht een [GitHub-opslagplaats voor de structuur van TDSP-project en sjablonen](https://github.com/Azure/Azure-TDSP-ProjectTemplate) om u te helpen deze doelstellingen te bereiken. Maar was het niet mogelijk, tot op heden instantiëren van de structuur TDSP en sjablonen in een wetenschappelijke Gegevenshulpprogramma. Het is nu mogelijk te maken van een machine learning-project dat de TDSP structuur en documentatie sjablonen ServiceHost. 
+We eerder uitgebrachte een [GitHub-opslagplaats voor de TDSP-projectstructuur en sjablonen](https://github.com/Azure/Azure-TDSP-ProjectTemplate) om u te helpen deze doelstellingen te bereiken. Maar het is niet mogelijk, tot nu toe voor het starten van de TDSP-structuur en sjablonen in een data science-hulpprogramma. Het is nu mogelijk te maken van een machine learning-project waarmee een instantie van de TDSP-structuur en de documentatie van sjablonen. 
 
-## <a name="things-to-note-before-creating-a-new-project"></a>Let op voordat u een nieuw project maken
-Bekijk de volgende items *voordat* u een nieuw project maakt:
+## <a name="things-to-note-before-creating-a-new-project"></a>Let voordat u een nieuw project maken
+Bekijk de volgende items *voordat* u een nieuw project maken:
 * Bekijk de TDSP Machine Learning [sjabloon](https://aka.ms/tdspamlgithubrepo).
-* De inhoud (met uitzondering van de wat is al aanwezig in de map "documenten") zijn moet kleiner zijn dan 25 MB groot vereist. Zie de opmerking na deze lijst.
-* Het voorbeeld\_gegevensmap wordt alleen gebruikt voor kleine gegevensbestanden (minder dan 5 MB) waarmee u kunt uw code te testen of vroege ontwikkeling.
-* Bestanden, zoals Word en PowerPoint-bestanden worden opgeslagen, kan de aanzienlijk verhogen voor de grootte van de map 'docs'. We adviseren dat u een gezamenlijke Wiki vinden [SharePoint](https://products.office.com/en-us/sharepoint/collaboration), of een andere bron samenwerking dergelijke bestanden op te slaan.
-* Lees meer informatie over het verwerken van grote bestanden en de uitvoer in Machine Learning, [behouden blijven van wijzigingen en omgaan met grote bestanden](http://aka.ms/aml-largefiles).
+* De inhoud (met uitzondering van de wat is al aanwezig in de map 'docs') moet kleiner zijn dan 25 MB in grootte. Zie de opmerking die volgt op deze lijst.
+* Het voorbeeld\_gegevensmap is uitsluitend bedoeld voor kleine gegevensbestanden (minder dan 5 MB) waarmee u kunt testen van uw code of beginnen met vroege ontwikkelen.
+* Opslaan van bestanden, zoals Word en PowerPoint-bestanden, kunt de aanzienlijk verhogen voor de grootte van de map 'docs'. We adviseren dat u een gezamenlijke Wiki [SharePoint](https://products.office.com/en-us/sharepoint/collaboration), of een andere gezamenlijke bron voor het opslaan van deze bestanden.
+* Lees voor informatie over het verwerken van grote bestanden en de uitvoer in Machine Learning, [persistent maken van wijzigingen en het werken met grote bestanden](http://aka.ms/aml-largefiles).
 
 > [!NOTE]
-> Alle documentatie-gerelateerde inhoud (tekst, promoties, afbeeldingen en andere documentbestanden) die is *niet* gebruikt tijdens het uitvoeren van het project, anders dan het bestand readme.md moet zich bevinden in de map met de naam "documenten" (alle kleine letters). De map 'docs' is een speciale map genegeerd door de uitvoering van de Machine Learning, zodat de inhoud in deze map niet ophalen gekopieerd om doelen onnodig berekenen. Objecten in deze map ook meetellen niet voor de initiaal 25 MB voor de projectgrootte van het. De map 'docs' is bijvoorbeeld de plaats voor het opslaan van grote afbeelding-bestanden die nodig zijn in de documentatie. Deze bestanden nog steeds worden bijgehouden door Git via de uitvoeringsgeschiedenis. 
+> Alle documentatie met betrekking tot inhoud (tekst, promoties, afbeeldingen en andere bestanden) die is *niet* gebruikt tijdens het uitvoeren van het project, dan het readme.md-bestand moet zich bevinden in de map met de naam 'docs' (zonder hoofdletters). De map 'docs' is een speciale map genegeerd door de uitvoering van Machine Learning, zodat de inhoud in deze map om onnodig compute-doelen niet gekopieerd. Objecten in deze map ook tellen niet mee voor het maximum van 25 MB voor de projectgrootte van het. De map 'docs', bijvoorbeeld, is de plaats voor het opslaan van grote afbeelding-bestanden die nodig zijn in de documentatie. Deze bestanden worden nog steeds door Git bijgehouden via de uitvoeringsgeschiedenis. 
 
-## <a name="instantiate-the-tdsp-structure-and-templates-from-the-machine-learning-template-gallery"></a>Exemplaar maken van de TDSP structuur en sjablonen uit de galerie met Machine Learning
-Een nieuw project maakt met de structuur en documentatie sjablonen voor TDSP, voer de volgende procedures.
+## <a name="instantiate-the-tdsp-structure-and-templates-from-the-machine-learning-template-gallery"></a>Exemplaar maken van de TDSP-structuur en de sjablonen van de Machine Learning-galerie met sjablonen
+Voer de volgende procedures voor het maken van een nieuw project met de TDSP-structuur en de documentatie van sjablonen.
 
 ### <a name="create-a-new-project"></a>Een nieuw project maken
-Open Azure Machine Learning voor het maken van een nieuw project. Onder **projecten** selecteren in het deelvenster linksboven het plusteken (**+**), en selecteer vervolgens **nieuw Project**.
+Open Azure Machine Learning voor het maken van een nieuw project. Onder **projecten** linksboven in het deelvenster, selecteer het plusteken (**+**), en selecteer vervolgens **nieuw Project**.
 
 ![Nieuw project](./media/how-to-use-tdsp-in-azure-ml/instantiation-1.png)
 
 
-### <a name="create-a-new-tdsp-structured-project"></a>Een nieuw TDSP gestructureerd-project maken
+### <a name="create-a-new-tdsp-structured-project"></a>Een nieuw gestructureerde TDSP-project maken
    1. Geef de parameters en de informatie in het relevante selectievakje of de lijst:
 
       - Projectnaam
@@ -76,45 +76,45 @@ Open Azure Machine Learning voor het maken van een nieuw project. Onder **projec
       - Een leeg pad van de Git-opslagplaats
       - Naam van de werkruimte
 
-   2. Klik in de **Search** Voer **TDSP**. 
-   3. Wanneer de **structuur van een project met TDSP** optie wordt weergegeven, selecteert u dat de sjabloon. 
-   4. Selecteer de **maken** knop uw nieuw project maken met een TDSP-structuur. Als u een leeg Git-opslagplaats opgeeft wanneer u het project (in de juiste tekstvak) maakt, wordt vervolgens die opslagplaats gevuld met de projectstructuur en inhoud na het maken van het project.
+   2. Klik in de **zoeken** Voer **TDSP**. 
+   3. Wanneer de **een project structureren met TDSP** optie wordt weergegeven, selecteert u die sjabloon. 
+   4. Selecteer de **maken** om te maken van het nieuwe project met een TDSP-structuur. Als u een lege Git-opslagplaats opgeeft bij het maken van het project (in het desbetreffende tekstvak), wordt vervolgens die opslagplaats gevuld met de projectstructuur en inhoud na het maken van het project.
 
 ![Een TDSP-project maken](./media/how-to-use-tdsp-in-azure-ml/instantiation-2.png)
 
 
-## <a name="examine-the-tdsp-project-structure"></a>De structuur van het project TDSP onderzoeken
-Nadat het nieuwe project is gemaakt, kunt u de structuur bestuderen (Zie het linkerdeelvenster in de volgende afbeelding). Deze bevat alle aspecten van gestandaardiseerde documentatie voor bedrijven begrijpen. Deze items zijn de fasen van de levenscyclus van TDSP, locatie van gegevens, definities en de architectuur van deze sjabloon documentatie. 
+## <a name="examine-the-tdsp-project-structure"></a>Bekijk de structuur van de TDSP-project
+Nadat het nieuwe project is gemaakt, kunt u de structuur bekijken (Zie het linkerdeelvenster in de volgende afbeelding). Deze bevat alle aspecten van gestandaardiseerde documentatie voor inzicht in het bedrijf. Deze items zijn de fasen van de TDSP-levenscyclus, gegevenslocatie, definities en de architectuur van deze sjabloon documentatie. 
 
-De structuur weergegeven is afgeleid van de TDSP-structuur die wordt gepubliceerd in [TDSP structuur, documenten en artefact projectsjablonen](https://github.com/Azure/Azure-TDSP-ProjectTemplate), met een aantal wijzigingen. Bijvoorbeeld, verschillende van de documentsjablonen die worden samengevoegd in één markdown namelijk [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport). 
+De structuur die wordt weergegeven is afgeleid van de TDSP-structuur die is gepubliceerd in [TDSP-structuur, documenten en artefact projectsjablonen](https://github.com/Azure/Azure-TDSP-ProjectTemplate), met enkele wijzigingen. Bijvoorbeeld, verschillende van de documentsjablonen die worden samengevoegd in één markdown, namelijk [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport). 
 
-### <a name="project-folder-structure"></a>Mapstructuur van project
-De projectsjabloon TDSP bevat de volgende mappen op het hoogste niveau:
+### <a name="project-folder-structure"></a>Project-mapstructuur
+De sjabloon voor de TDSP-project bevat de volgende mappen op het hoogste niveau:
    - **code**: code bevat.
-   - **documenten**: bevat documentatie over het project (bijvoorbeeld markdown-bestanden en gerelateerde media).
-   - **sample_data**: bevat **voorbeeld (klein)** gegevens die u voor vroege ontwikkeling of tests gebruiken kunt. Deze sets zijn doorgaans niet groter zijn dan enkele (5) MB. Deze map is niet beschikbaar voor volledige of grote gegevenssets.
+   - **Docs**: bevat de benodigde documentatie over het project (bijvoorbeeld markdown-bestanden en gerelateerde media).
+   - **sample_data**: bevat **voorbeeld (klein)** gegevens die u voor vroege ontwikkeling en testen gebruiken kunt. Deze sets zijn doorgaans niet groter zijn dan enkele (5) MB. Deze map is niet beschikbaar voor volledige of grote gegevenssets.
 
 ![Voorbeeldgegevens](./media/how-to-use-tdsp-in-azure-ml/instantiation-3.png)
 
 
-## <a name="use-the-tdsp-structure-and-templates"></a>De structuur TDSP en sjablonen gebruiken
-U moet de project-specifieke informatie toevoegen aan de structuur en sjablonen. U bent verwacht voor het vullen met de code en de informatie die nodig zijn uit te voeren en leveren van uw project. De [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport) bestand is een sjabloon die u wilt wijzigen met informatie die relevant zijn voor uw project. Wordt geleverd met een reeks vragen die u helpen bij het invullen van de gegevens voor elk van de vier fasen van de [TDSP lifecycle](../team-data-science-process/lifecycle.md).
+## <a name="use-the-tdsp-structure-and-templates"></a>De TDSP-structuur en sjablonen gebruiken
+U moet de project-specifieke informatie toevoegen aan de structuur en sjablonen. U bent verwacht voor het vullen van deze met de code en de informatie die nodig zijn om te worden uitgevoerd en het leveren van uw project. De [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport) bestand is een sjabloon die u nodig hebt om te wijzigen met de informatie die relevant zijn voor uw project. Het wordt geleverd met een reeks vragen die u helpen bij Vul de gegevens voor elk van de vier fasen van de [TDSP-levenscyclus](../team-data-science-process/lifecycle.md).
 
-Een voorbeeld van een projectstructuur ziet er als tijdens de uitvoering of na voltooiing wordt weergegeven in het linkerdeelvenster in de volgende afbeelding. Dit project is afkomstig uit de [voorbeeldproject Team gegevens wetenschappelijke processen: classificeren inkomsten van VS telling gegevens in Azure Machine Learning](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) voorbeeldproject.
+Een voorbeeld van wat een projectstructuur ziet eruit als tijdens de uitvoering of na voltooiing wordt weergegeven in het linkerdeelvenster in de volgende afbeelding. Dit project is afkomstig uit de [voorbeeldproject Team Data Science Process: classificeren van inkomsten in VS-tellinggegevens in Azure Machine Learning](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) voorbeeldproject.
 
 ![De structuur van de voorbeeld-project](./media/how-to-use-tdsp-in-azure-ml/instantiation-4.png)
 
 ## <a name="document-your-project"></a>Documenteer uw project
-Raadpleeg de [TDSP documentatiesjablonen](https://github.com/Azure/Azure-TDSP-ProjectTemplate) voor meer informatie over het vastleggen van uw project. In de huidige sjabloon in de documentatie van Machine Learning TDSP, raden wij dat u ook de informatie in de [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport) bestand. Deze sjabloon moet worden ingevuld met gegevens die specifiek is voor uw project. 
+Raadpleeg de [TDSP documentatiesjablonen](https://github.com/Azure/Azure-TDSP-ProjectTemplate) voor meer informatie over het vastleggen van uw project. In de huidige sjabloon in de documentatie voor Machine Learning TDSP, wordt aangeraden dat u de informatie in bevatten de [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport) bestand. Deze sjabloon moet worden ingevuld met gegevens die specifiek is voor uw project. 
 
-We bieden ook een [ProjectLearnings](https://aka.ms/tdspamlgithubrepoprojectlearnings) sjabloon. Deze sjabloon kunt u geen gegevens die niet is opgenomen in het document primaire project, maar die nog steeds gebruiken om vast te leggen. 
+We bieden ook een [ProjectLearnings](https://aka.ms/tdspamlgithubrepoprojectlearnings) sjabloon. U kunt deze sjabloon gebruiken om op te nemen van alle gegevens die niet is opgenomen in het primaire project-document, maar dat is nog steeds nuttig om het document. 
 
 ### <a name="example-project-report"></a>Voorbeeld van een projectrapport
-U krijgt een [project voorbeeldrapport](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliverable_docs/ProjectReport.md). Dit projectrapport voor de [VS inkomsten classificatie-voorbeeldproject](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) laat zien hoe instantiëren en de sjabloon TDSP gebruiken voor een wetenschappelijke gegevensproject.
+U krijgt een [project voorbeeldrapport](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome/blob/master/docs/deliverable_docs/ProjectReport.md). Dit projectrapport voor de [VS inkomsten classificatie-voorbeeldproject](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) laat zien hoe u instantiëren en de TDSP-sjabloon gebruiken voor een data science-project.
 
 ## <a name="next-steps"></a>Volgende stappen
-Als u wilt uw kennis over het gebruik van de structuur TDSP en sjablonen in Machine Learning-projecten vergemakkelijken, bieden we enkele voorbeelden van de voltooide project in de documentatie voor Machine Learning:
+Uw kennis over het gebruik van de TDSP-structuur en sjablonen in Machine Learning-projecten in het kader, bieden we enkele voorbeelden van voltooide project in de documentatie voor Machine Learning:
 
-- Zie voor een steekproef die het maken van een project TDSP in Machine Learning, [voorbeeldproject Team gegevens wetenschappelijke processen: classificeren inkomsten van ons telling gegevens in Azure Machine Learning](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome).
-- Zie voor een steekproef die gebruikmaakt van grondige learning in natuurlijke taal (NLP) worden verwerkt in een project TDSP geïnstantieerd in Machine Learning, [biografie medische entiteit erkenning met behulp van natuurlijke taal verwerken met grondige learning](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction).
+- Zie voor een voorbeeld waarin wordt uitgelegd hoe een TDSP-project maken in Machine Learning, [voorbeeldproject Team Data Science Process: classificeren van inkomsten van ons tellinggegevens in Azure Machine Learning](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome).
+- Zie voor een voorbeeld dat gebruikmaakt van diepteleren in natuurlijke taal verwerken (NLP) in een project TDSP geïnstantieerd in Machine Learning, [biografie-medische entiteit herkenning van natuurlijke taal verwerken met deep learning](https://github.com/Azure/MachineLearningSamples-BiomedicalEntityExtraction).
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: b4fc67acae83573db772923a94cdbb6b1c4a301f
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: b6f1185a94f865578d9a6514fb6841f8811b2230
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159838"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42054502"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Veelgestelde vragen over Azure multi-factor Authentication
 
@@ -218,7 +218,7 @@ Een tijdelijke oplossing voor deze fout is dat afzonderlijke accounts voor met b
 
 Als uw vraag hier niet wordt beantwoord, laat u het pakket in de opmerkingen onder aan de pagina. Of hier zijn enkele aanvullende opties om hulp te krijgen:
 
-* Zoek de [Microsoft Support Knowledge Base](https://www.microsoft.com/en-us/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) voor oplossingen voor technische problemen.
+* Zoek de [Microsoft Support Knowledge Base](https://www.microsoft.com/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport) voor oplossingen voor technische problemen.
 * Zoeken en bladeren door technische vragen en antwoorden van de community of uw eigen vraag in de [forums van Azure Active Directory](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 * Als u een oudere PhoneFactor-klant bent en u vragen hebt of hulp krijgen bij opnieuw instellen van een wachtwoord, gebruikt de [wachtwoordherstel](mailto:phonefactorsupport@microsoft.com) koppeling naar een ondersteuningsaanvraag openen.
 * Neem contact op met een ondersteuningsmedewerker via [ondersteuning voor Azure multi-factor Authentication-Server (PhoneFactor)](https://support.microsoft.com/oas/default.aspx?prid=14947). Wanneer u contact met ons opneemt, is het handig als u zo veel mogelijk informatie over uw probleem mogelijk kunt opnemen. Informatie die u opgeven kunt, bevat de pagina waar u hebt gezien de fout, de specifieke foutcode, de specifieke sessie-ID en de ID van de gebruiker die de fout hebt gezien.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 15bc320bd82ea21ff608fcc834ba51b9bc7b6dea
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 6709fb8ae328f749b367c58f95b8a9ef8da9bc65
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716141"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056680"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gebruikers beheren in Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Afhankelijk van de toepassing verordening mogelijk ouderlijke toestemming worden
 
 Hier volgt een voorbeeld van een beleid voor het verzamelen van ouderlijke toestemming:
 
-1. Een [Azure Active Directory Graph API](https://msdn.microsoft.com/en-us/library/azure/ad/graph/api/api-catalog) bewerking, wordt de gebruiker als een minderjarige en de gebruikersgegevens voor de toepassing in de vorm van een niet-ondertekende JSON-token retourneert.
+1. Een [Azure Active Directory Graph API](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog) bewerking, wordt de gebruiker als een minderjarige en de gebruikersgegevens voor de toepassing in de vorm van een niet-ondertekende JSON-token retourneert.
 
 2. De toepassing verwerkt het JSON-token en ziet u een scherm naar de secundaire, hoogte hem of haar dat ouderlijke toestemming vereist is en de toestemming van een bovenliggende online aanvraagt. 
 
@@ -56,7 +56,7 @@ Hier volgt een voorbeeld van een beleid voor het verzamelen van ouderlijke toest
 
 5. Als de secundaire of de volwassene trekt u toestemming, de Azure AD Graph-API kan worden gebruikt om te wijzigen **consentProvidedForMinor** naar **geweigerd**. U kunt ook besluiten de toepassing te verwijderen van een secundaire waarvan toestemming is ingetrokken. Het is eventueel mogelijk voor het aanpassen van de gebruikersstroom, zodat de geverifieerde secundaire (of bovenliggende die van de secundaire-account wordt gebruikt) kan toestemming intrekken. Azure AD B2C-records **consentProvidedForMinor** als **geweigerd**.
 
-Voor meer informatie over **legalAgeGroupClassification**, **consentProvidedForMinor**, en **ageGroup**, Zie [resourcetype van gebruiker](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/user). Zie voor meer informatie over aangepaste kenmerken [aangepaste kenmerken gebruiken voor het verzamelen van informatie over uw consumenten](active-directory-b2c-reference-custom-attr.md). Als u uitgebreide kenmerken kunt oplossen met behulp van de Azure AD Graph-API, moet u de lange versie van het kenmerk, zoals *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
+Voor meer informatie over **legalAgeGroupClassification**, **consentProvidedForMinor**, en **ageGroup**, Zie [resourcetype van gebruiker](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Zie voor meer informatie over aangepaste kenmerken [aangepaste kenmerken gebruiken voor het verzamelen van informatie over uw consumenten](active-directory-b2c-reference-custom-attr.md). Als u uitgebreide kenmerken kunt oplossen met behulp van de Azure AD Graph-API, moet u de lange versie van het kenmerk, zoals *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
 
 ## <a name="gather-date-of-birth-and-country-data"></a>Datum van geboortedatum en land-gegevens verzamelen
 

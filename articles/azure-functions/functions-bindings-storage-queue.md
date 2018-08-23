@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 04502e80cea096ce384f97559bc7bad95ee2bcd8
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e034d6c57c619ea74003f531d3309f7da17210b0
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344096"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42057578"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage-bindingen voor Azure Functions
 
@@ -54,6 +54,7 @@ Zie het voorbeeld taalspecifieke:
 * [C#](#trigger---c-example)
 * [C# script (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
+* [Java](#trigger---Java-example)
 
 ### <a name="trigger---c-example"></a>Trigger - voorbeeld met C#
 
@@ -166,6 +167,22 @@ module.exports = function (context) {
 ```
 
 De [gebruik](#trigger---usage) sectie wordt uitgelegd `myQueueItem`, die met de naam van de `name` eigenschap in de function.json.  De [bericht sectie met metagegevens](#trigger---message-metadata) wordt uitgelegd dat alle andere variabelen die worden weergegeven.
+
+### <a name="trigger---java-example"></a>Trigger - Java-voorbeeld
+
+Het volgende Java-voorbeeld ziet u een trigger voor storage-wachtrij-functies die het geactiveerde bericht in de wachtrij geplaatst `myqueuename`.
+ 
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
 
 ## <a name="trigger---attributes"></a>Trigger - kenmerken
  
@@ -299,6 +316,7 @@ Zie het voorbeeld taalspecifieke:
 * [C#](#output---c-example)
 * [C# script (.csx)](#output---c-script-example)
 * [JavaScript](#output---javascript-example)
+* [Java](#output---java-example)
 
 ### <a name="output---c-example"></a>Uitvoer - voorbeeld met C#
 
@@ -428,6 +446,25 @@ module.exports = function(context) {
     context.done();
 };
 ```
+
+### <a name="output---java-example"></a>Uitvoer - Java-voorbeeld
+
+ Het volgende voorbeeld ziet een Java-functie waarmee een wachtrijbericht voor wanneer ze worden geactiveerd door een HTTP-aanvraag.
+
+```java
+@FunctionName("httpToQueue")
+@QueueOutput(name = "item", queueName = "myqueue-items", connection = "AzureWebJobsStorage")
+ public String pushToQueue(
+     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+     final String message,
+     @HttpOutput(name = "response") final OutputBinding&lt;String&gt; result) {
+       result.setValue(message + " has been added.");
+       return message;
+ }
+ ```
+
+In de [Java functions runtime library](/java/api/overview/azure/functions/runtime), gebruikt u de `@QueueOutput` aantekening op parameters waarvan de waarde kan worden geschreven naar Queue storage.  Het parametertype moet `OutputBinding<T>`, waarbij T alle systeemeigen Java-type van een POJO.
+
 
 ## <a name="output---attributes"></a>Uitvoer - kenmerken
  

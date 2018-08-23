@@ -3,9 +3,8 @@ title: Vergelijking van Azure App Service, Virtual Machines, Service Fabric en C
 description: Informatie over hoe u kiest tussen Azure App Service, Virtual Machines, Service Fabric en Cloud Services voor het hosten van webtoepassingen.
 services: app-service\web, virtual-machines, cloud-services
 documentationcenter: ''
-author: ggailey777
-manager: erikre
-editor: jimbe
+author: cephalin
+manager: jeconnoc
 ms.assetid: 7d346a23-532a-42a9-98a8-23b7286d32a8
 ms.service: app-service-web
 ms.workload: web
@@ -13,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 07/07/2016
-ms.author: glenga
+ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 016427e6cfbb8bbb4910e5deffb3ab68d423fb90
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3b1fb14fbb21876d0b3f7d98327353d54bb1cfb2
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224952"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42022904"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Vergelijking van Azure App Service, Virtual Machines, Service Fabric en Cloud Services
-## <a name="overview"></a>Overzicht
+
 Azure biedt verschillende manieren om websites te hosten: [Azure App Service][Azure App Service], [Virtual Machines][Virtual Machines], [Service Fabric][Service Fabric] en [Cloud Services][Cloud Services]. Dit artikel geeft u inzicht in de diverse opties en helpt u de juiste keuze te maken voor uw webtoepassing.
 
 Azure App Service is de beste keuze voor de meeste web-apps. Implementatie en beheer zijn geïntegreerd in het platform, de schaal van sites kan snel worden aangepast bij intensief verkeer, en de ingebouwde taakverdeling en verkeersbeheer zorgen voor hoge beschikbaarheid. U kunt bestaande sites eenvoudig verplaatsen naar Azure App Service met een [online migratiehulpprogramma][migrate-tool], een open source-app uit de galerie met webtoepassingen gebruiken of een nieuwe site maken met behulp van een framework en hulpprogramma's van uw keuze. Met de functie [WebJobs][WebJobs] kunt u eenvoudig achtergrondverwerking van taken toevoegen aan uw App Service-web-app.

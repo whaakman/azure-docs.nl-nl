@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 9d398d810a2d43b3754fd8950376c605d4654f38
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: cde70518164c386697127b079979b5b3b76ae088
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621528"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42056882"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Article Index for Application Management in Azure Active Directory (Engelstalig)
 Deze pagina bevat een uitgebreide lijst van elk document geschreven over de verschillende functies van de toepassing in Azure Active Directory (Azure AD).
@@ -96,7 +96,7 @@ Als uw organisatie een Windows Server Active Directory on-premises, samen met uw
 |:---:| --- |
 | Een overzicht van de opties voor eenmalige aanmelding wordt aangeboden in Azure AD Connect, evenals informatie over het beheren van hybride omgevingen |[Aanmelding door een gebruiker op opties in Azure AD Connect](active-directory-aadconnect-user-signin.md) |
 | Algemene richtlijnen voor het beheren van omgevingen met zowel on-premises Active Directory en Azure Active Directory |[Ontwerpoverwegingen voor Azure AD-hybride identiteit](active-directory-hybrid-identity-design-considerations-overview.md)<br /><br />[Uw On-Premises identiteiten integreren met Azure Active Directory](active-directory-aadconnect.md) |
-| Informatie over het gebruik van Password Sync SSO inschakelen |[Implement Password Synchronization met Azure AD Connect](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[Problemen met Wachtwoordsynchronisatie oplossen](https://support.microsoft.com/en-us/kb/2855271) |
+| Informatie over het gebruik van Password Sync SSO inschakelen |[Implement Password Synchronization met Azure AD Connect](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md)<br /><br />[Problemen met Wachtwoordsynchronisatie oplossen](https://support.microsoft.com/kb/2855271) |
 | Informatie over het gebruik van wachtwoord terugschrijven SSO inschakelen |[Aan de slag met wachtwoordbeheer in Azure AD](authentication/quickstart-sspr.md)<br /><br />[Problemen met Wachtwoord terugschrijven oplossen](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Informatie over het gebruik van de id-providers van derden SSO inschakelen |[Lijst met compatibele externe id-Providers die kunnen worden gebruikt voor eenmalige aanmelding inschakelen](https://aka.ms/ssoproviders) |
 | Hoe Windows 10-gebruikers kunnen profiteren van de voordelen van eenmalige aanmelding via de Azure AD Join |[Cloudmogelijkheden worden uitgebreid naar Windows Join 10-apparaten via Azure Active Directory](active-directory-azureadjoin-overview.md) |

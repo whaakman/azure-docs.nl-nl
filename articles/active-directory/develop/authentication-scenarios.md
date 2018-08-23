@@ -17,12 +17,12 @@ ms.date: 07/26/2018
 ms.author: celested
 ms.reviewer: jmprieur, andret, nacanuma, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dda0d8e9496eb310f6d2a2791977e9de0eea6503
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: fc6c97906525b2f575a18ce5357eb3e10bfb4887
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578521"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42054872"
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Verificatiescenario's voor Azure AD
 
@@ -52,7 +52,7 @@ Met het diagram hierboven in gedachten is dit wat u moet weten over de verschill
 * Azure AD is de id-provider, die verantwoordelijk is voor het verifiëren van de identiteit van gebruikers en toepassingen die zijn opgenomen in de adreslijst van een organisatie en uiteindelijk uitgeven van beveiligingstokens bij een geslaagde verificatie van gebruikers en toepassingen.
 * Een toepassing die wil uitbesteden van Azure AD-verificatie moet zijn geregistreerd in Azure AD. Hierbij worden geregistreerd en de app in de map wordt aangeduid.
 * Ontwikkelaars kunnen de open-source Azure AD-verificatiebibliotheken gebruiken voor verificatie vereenvoudigen doordat de gegevens van het protocol voor u. Zie voor meer informatie, [Azure Active Directory Authentication Libraries](active-directory-authentication-libraries.md).
-* Wanneer een gebruiker is geverifieerd, moet de toepassing van de gebruiker beveiligingstoken om ervoor te zorgen dat de verificatie is geslaagd valideren. Er zijn voorbeelden van wat de toepassing moet doen in verschillende talen en frameworks op [GitHub](https://github.com/Azure-Samples?q=active-directory). Als u een web-app in ASP.NET bouwt, ziet de [aanmelden voor een ASP.NET web-app-handleiding toevoegen](https://docs.microsoft.com/en-us/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp). Als u een web API-resource in ASP.NET bouwt, ziet de [web-API aan de slag](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
+* Wanneer een gebruiker is geverifieerd, moet de toepassing van de gebruiker beveiligingstoken om ervoor te zorgen dat de verificatie is geslaagd valideren. Er zijn voorbeelden van wat de toepassing moet doen in verschillende talen en frameworks op [GitHub](https://github.com/Azure-Samples?q=active-directory). Als u een web-app in ASP.NET bouwt, ziet de [aanmelden voor een ASP.NET web-app-handleiding toevoegen](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp). Als u een web API-resource in ASP.NET bouwt, ziet de [web-API aan de slag](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devquickstarts-webapi-dotnet).
 * De stroom van aanvragen en antwoorden voor het verificatieproces wordt bepaald door het verificatieprotocol dat is gebruikt, zoals OAuth 2.0, OpenID Connect, WS-Federation of SAML 2.0. Deze protocollen zijn uitgebreider besproken in de [Azure Active Directory-verificatieprotocollen](active-directory-authentication-protocols.md) artikel en in de onderstaande secties.
 
 > [!NOTE]

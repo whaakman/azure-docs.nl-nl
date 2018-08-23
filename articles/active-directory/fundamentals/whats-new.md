@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d39d98a39fb8692d696adfbedc9bb1a34f8be4d6
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: d4bbf26f6535f50b15068125d911df6a1ca20a72
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358831"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42054311"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
-> Blijf op de hoogte over wanneer u terug naar deze pagina voor updates Abonneer u op de [ ![RSS](./media/whats-new/feed-icon-16x16.png)](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) [feed](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us).
+>Te worden geïnformeerd over wanneer u terug naar deze pagina voor updates door toe te voegen deze [URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) aan uw ![RSS-pictogram](./media/whats-new/feed-icon-16x16.png) reader-feed.
 
 Azure AD ontvangt verbeteringen regelmatig. Als u wilt bijhouden met de meest recente ontwikkelingen, vindt in dit artikel u informatie over:
 
@@ -38,6 +38,24 @@ Deze pagina wordt maandelijks bijgewerkt, dus regelmatig bezoekt.
 ---
 
 ## <a name="july-2018"></a>Juli 2018
+
+### <a name="changes-to-azure-active-directory-ip-address-ranges"></a>Wijzigingen in Azure Active Directory-IP-adresbereiken
+
+**Type:** plannen voor wijziging  
+**Service-categorie:** andere  
+**Product-mogelijkheid:** Platform
+
+We introduceren grotere IP-adresbereiken naar Azure AD, wat betekent dat als u Azure AD-IP-adresbereiken voor uw firewalls, routers of Netwerkbeveiligingsgroepen hebt geconfigureerd, moet u deze bijwerken. We doorvoeren deze update zodat u uw firewall, router of Network Security groepen IP-bereik configuraties opnieuw wijzigen hoeft wanneer Azure AD nieuwe eindpunten toevoegt. 
+
+Netwerkverkeer wordt verplaatst naar deze nieuwe bereiken in de volgende twee maanden. Als u wilt doorgaan met de service niet wordt onderbroken, moet u deze bijgewerkte waarden toevoegen aan uw IP-adressen voor 10 September 2018:
+
+- 20.190.128.0/18 
+
+- 40.126.0.0/18 
+
+Het is raadzaam de oude IP-adresbereiken niet verwijderen tot al uw netwerkverkeer is verplaatst naar de nieuwe bereiken. Zie voor updates over de overstap en voor meer informatie over wanneer u de oude bereiken kunt verwijderen, [Office 365-URL's en IP-adresbereiken](https://support.office.com/en-us/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
+
+---
 
 ### <a name="improvements-to-azure-active-directory-email-notifications"></a>Verbeteringen in Azure Active Directory-e-mailmeldingen
 
@@ -81,7 +99,7 @@ Zie onze blog voor meer informatie over deze nieuwe mogelijkheden, [Azure AD-act
 
 ---
 
-### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Voorwaardelijke toegang tot informatie toegevoegd aan het rapport van Azure AD-aanmeldingen
+### <a name="conditional-access-information-added-to-the-azure-ad-sign-ins-report"></a>Er is informatie over voorwaardelijke toegang toegevoegd aan het rapport Azure AD-aanmeldingen
 
 **Type:** nieuwe functie  
 **Service-categorie:** rapportage  
@@ -101,7 +119,7 @@ Dankzij de introductie van de **Client-App** veld in de activiteit aanmelden zic
 
 ---
 
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---july-2018"></a>Nieuwe federatieve Apps beschikbaar in de galerie van Azure AD-app - juli 2018
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---july-2018"></a>Er zijn nieuwe federatieve apps beschikbaar in de galerie met apps van Azure AD - juli 2018
 
 **Type:** nieuwe functie  
 **Service-categorie:** zakelijke Apps  
@@ -115,7 +133,7 @@ Zie voor meer informatie over de apps [SaaS-toepassing-integratie met Azure Acti
 
 ---
  
-### <a name="new-user-provisioning-saas-app-integrations---july-2018"></a>Nieuwe gebruiker integraties in de SaaS-app - juli 2018 wordt ingericht
+### <a name="new-user-provisioning-saas-app-integrations---july-2018"></a>Nieuwe SaaS-app-integraties voor het inrichten van gebruikers - juli 2018
 
 **Type:** nieuwe functie  
 **Service-categorie:** App-inrichting  
@@ -133,7 +151,7 @@ Zie voor een lijst van alle toepassingen die ondersteuning bieden voor het inric
 
 ---
 
-### <a name="connect-health-for-sync---an-easier-way-to-fix-orphaned-and-duplicate-attribute-sync-errors"></a>Connect Health for Sync - een eenvoudigere manier om op te lossen zwevende en dubbele kenmerk synchronisatiefouten
+### <a name="connect-health-for-sync---an-easier-way-to-fix-orphaned-and-duplicate-attribute-sync-errors"></a>Connect Health voor synchronisatie - een eenvoudigere manier om synchronisatiefouten met zwevende en dubbele kenmerken te herstellen
 
 **Type:** nieuwe functie  
 **Service-categorie:** AD Connect  
@@ -151,7 +169,7 @@ Zie voor meer informatie, [vaststellen en herstellen van de synchronisatiefouten
 
 ---
 
-### <a name="visual-updates-to-the-azure-ad-and-msa-sign-in-experiences"></a>Visueel element wordt bijgewerkt naar de Azure AD en ervaringen van aanmelding bij beheerde Serviceaccounts
+### <a name="visual-updates-to-the-azure-ad-and-msa-sign-in-experiences"></a>Visualupdates voor de aanmeldingservaring van Azure AD en van MSA
 
 **Type:** gewijzigde functie  
 **Service-categorie:** Azure AD  
@@ -161,7 +179,7 @@ We hebben de gebruikersinterface voor de ervaring van Microsoft online services 
 
 ---
 
-### <a name="new-release-of-azure-ad-connect---july-2018"></a>Nieuwe release van Azure AD Connect - juli 2018
+### <a name="new-release-of-azure-ad-connect---july-2018"></a>Nieuwe versie van Azure AD Connect - juli 2018
 
 **Type:** gewijzigde functie  
 **Service-categorie:** App-inrichting  
@@ -179,7 +197,7 @@ Zie voor meer informatie over deze update [Azure AD Connect: releasegeschiedenis
 
 ---
 
-### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>Updates voor de gebruikersinterface van de eindgebruiker gebruiksvoorwaarden (gebruiksvoorwaarden)
+### <a name="updates-to-the-terms-of-use-tou-end-user-ui"></a>Updates voor de gebruiksvoorwaarden voor de gebruikersinterface van de eindgebruiker
 
 **Type:** gewijzigde functie  
 **Service-categorie:** gebruiksvoorwaarden  
@@ -213,7 +231,7 @@ Nu Pass through-verificatie biedt ondersteuning voor verouderde protocollen en -
 
 ---
  
-### <a name="converged-security-info-management-for-self-service-password-reset-and-multi-factor-authentication"></a>Geconvergeerde beveiligingsbeheer beveiligingsgegevens voor selfservice voor wachtwoordherstel en multi-factor Authentication
+### <a name="converged-security-info-management-for-self-service-password-reset-and-multi-factor-authentication"></a>Geconvergeerd beveiligingsinformatiebeheer voor selfservice voor wachtwoordherstel en Multi-Factor Authentication
 
 **Type:** nieuwe functie  
 **Service-categorie:** SSPR  
@@ -227,7 +245,7 @@ Dit is een opt-in voor openbare preview-versie. Beheerders kunnen inschakelen op
 
 ---
  
-### <a name="use-the-microsoft-authenticator-app-to-verify-your-identity-when-you-reset-your-password"></a>Gebruik de Microsoft Authenticator-app waarmee uw identiteit te verifiëren wanneer u uw wachtwoord opnieuw instellen
+### <a name="use-the-microsoft-authenticator-app-to-verify-your-identity-when-you-reset-your-password"></a>De app Microsoft Authenticator gebruiken om uw identiteit te verifiëren wanneer u uw wachtwoord opnieuw instelt
 
 **Type:** gewijzigde functie  
 **Service-categorie:** SSPR  
@@ -419,7 +437,7 @@ Als u moet echter ook doorgaan met toegewezen circuits, moet u om te communicere
  
 ---
 
-### <a name="microsoft-graph-apis-for-administrative-scenarios-for-tou"></a>Microsoft Graph-API's voor beheerscenario's voor de gebruiksvoorwaarden
+### <a name="microsoft-graph-apis-for-administrative-scenarios-for-tou"></a>Microsoft Graph API's voor beheerscenario's voor gebruiksvoorwaarden
 
 **Type:** nieuwe functie  
 **Service-categorie:** gebruiksvoorwaarden  
@@ -549,13 +567,13 @@ Problemen met het vinden van uw toepassingen / service-principals? We hebben de 
 
 ---
  
-### <a name="the-may-release-of-aadconnect-contains-a-public-preview-of-the-integration-with-pingfederate-important-security-updates-many-bug-fixes-and-new-great-new-troubleshooting-tools"></a>De versie van AADConnect een openbare preview-versie van de integratie met PingFederate bevat, mei belangrijke beveiligingsupdates, veel oplossingen voor problemen en nieuwe geweldige nieuwe hulpprogramma's voor probleemoplossing. 
+### <a name="the-may-release-of-aadconnect-contains-a-public-preview-of-the-integration-with-pingfederate-important-security-updates-many-bug-fixes-and-new-great-new-troubleshooting-tools"></a>De in mei uitgegeven versie van AADConnect bevat een openbare preview van de integratie met PingFederate, belangrijke beveiligingsupdates, veel oplossingen voor problemen en nieuwe hulpprogramma's voor probleemoplossing. 
 
 **Type:** gewijzigde functie  
 **Service-categorie:** AD Connect  
 **Product-mogelijkheid:** beheer van Identiteitslevenscycli
  
-De versie van AADConnect een openbare preview-versie van de integratie met PingFederate bevat, mei belangrijke beveiligingsupdates, veel oplossingen voor problemen en nieuwe geweldige nieuwe hulpprogramma's voor probleemoplossing. U vindt de opmerkingen bij de release [hier](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#118190).
+De in mei uitgegeven versie van AADConnect bevat een openbare preview van de integratie met PingFederate, belangrijke beveiligingsupdates, veel oplossingen voor problemen en nieuwe hulpprogramma's voor probleemoplossing. U vindt de opmerkingen bij de release [hier](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#118190).
 
 ---
 
@@ -795,7 +813,7 @@ Meer informatie over hoe dit in onze [blogbericht](https://cloudblogs.microsoft.
 
 Zie voor meer informatie:
 
-- [Voorwaardelijke toegang op basis van een toepassing instellen](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Voorwaardelijke toegang op basis van een toepassing instellen](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 - [Beheerde-browserbeleid configureren](https://aka.ms/managedbrowser)  
 
@@ -1155,7 +1173,7 @@ De volgende toepassingen worden toegevoegd aan het einde van februari:
 Zie voor meer informatie:
 
 - [Vereiste voor goedgekeurde client-app](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD op Apps gebaseerde voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Azure AD op Apps gebaseerde voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1447,13 +1465,13 @@ Zie voor meer informatie, [voorwaardelijke toegang in Azure AD](https://docs.mic
 
 De volgende apps zijn in de lijst met [goedgekeurde client-apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement):
 
-- [Microsoft Kaizala](https://microsoft.com/garage/profiles/kaizala/)
+- [Microsoft Kaizala](https://www.microsoft.com/garage/profiles/kaizala/)
 - [Microsoft StaffHub](https://staffhub.office.com/what-it-is)
 
 Zie voor meer informatie:
 
 - [Vereiste voor goedgekeurde client-app](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD op Apps gebaseerde voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Azure AD op Apps gebaseerde voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 ---
 
@@ -1491,9 +1509,9 @@ Zie voor meer informatie, [on-premises integratie](https://docs.microsoft.com/az
 **Service-categorie:** Azure AD  
 **Product-mogelijkheid:** identiteit, beveiliging en bescherming
 
-U kunt toegang nu beperken tot Office 365 en andere Azure AD verbonden cloud-apps naar [goedgekeurde client-apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) die ondersteuning bieden voor Intune beveiligingsbeleid voor apps met behulp van [voorwaardelijke toegang van Azure AD-app op basis van](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam). Intune beveiligingsbeleid voor apps worden gebruikt voor het configureren en beveiligen van bedrijfsgegevens op deze clienttoepassingen.
+U kunt toegang nu beperken tot Office 365 en andere Azure AD verbonden cloud-apps naar [goedgekeurde client-apps](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement) die ondersteuning bieden voor Intune beveiligingsbeleid voor apps met behulp van [voorwaardelijke toegang van Azure AD-app op basis van](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access). Intune beveiligingsbeleid voor apps worden gebruikt voor het configureren en beveiligen van bedrijfsgegevens op deze clienttoepassingen.
 
-Door te combineren [op basis van app](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam) met [apparaatgebaseerde](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) beleid voor voorwaardelijke toegang hebt u de flexibiliteit om gegevens voor persoonlijke en bedrijfsapparaten te beveiligen.
+Door te combineren [op basis van app](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access) met [apparaatgebaseerde](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-policy-connected-applications) beleid voor voorwaardelijke toegang hebt u de flexibiliteit om gegevens voor persoonlijke en bedrijfsapparaten te beveiligen.
 
 De volgende voorwaarden en besturingselementen zijn nu beschikbaar voor gebruik met Apps gebaseerde voorwaardelijke toegang:
 
@@ -1510,7 +1528,7 @@ De volgende voorwaarden en besturingselementen zijn nu beschikbaar voor gebruik 
 
 - Goedgekeurde client-apps vereisen
 
-Zie voor meer informatie, [voorwaardelijke toegang van Azure AD-app op basis van](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam).
+Zie voor meer informatie, [voorwaardelijke toegang van Azure AD-app op basis van](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access).
  
 ---
 
@@ -1607,7 +1625,7 @@ De volgende apps zijn toegevoegd aan de lijst met [goedgekeurde client-apps](htt
 Zie voor meer informatie:
 
 - [Vereiste voor goedgekeurde client-app](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#approved-client-app-requirement)
-- [Azure AD op Apps gebaseerde voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam)
+- [Azure AD op Apps gebaseerde voorwaardelijke toegang](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access)
 
 
 ---

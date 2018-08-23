@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/02/2017
+ms.date: 08/20/2017
 ms.author: marsma
-ms.openlocfilehash: e85b69e452f4d76dfdf974698fa7d3b5cdbc0c30
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c424e81b13c3c60e975d3721693b1f80e00cfdd7
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39426085"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42054113"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Met behulp van Azure Container Registry-webhooks
 
@@ -95,4 +95,14 @@ az acr webhook delete --registry mycontainerregistry --name myacrwebhook01
 
 ## <a name="next-steps"></a>Volgende stappen
 
+### <a name="webhook-schema-reference"></a>Webhook-schemaverwijzing
+
+Zie voor meer informatie over de indeling en de eigenschappen van de JSON-gebeurtenis-nettoladingen gegenereerd door Azure Container Registry, de webhook-schema-verwijzing:
+
 [Azure Container Registry webhook-schemaverwijzing](container-registry-webhook-reference.md)
+
+### <a name="event-grid-events"></a>Event Grid-gebeurtenissen
+
+Naast de systeemeigen register webhookgebeurtenissen die in dit artikel worden besproken, kan Azure Container Registry gebeurtenissen naar Event Grid verzenden:
+
+[Snelstartgids: Verzenden container registry-gebeurtenissen naar Event Grid](container-registry-event-grid-quickstart.md)

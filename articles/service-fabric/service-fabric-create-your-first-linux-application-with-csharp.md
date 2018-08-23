@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
 ms.author: subramar
-ms.openlocfilehash: 59dc090053c78dbddc1854f21db39f66df7bc91c
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 7427af3e814752801c4738675f7cd2263843f9b8
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020542"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617083"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Uw eerste Azure Service Fabric-toepassing maken
 > [!div class="op_single_selector"]
@@ -41,27 +41,19 @@ Service Fabric biedt hulpprogramma's waarmee u vanuit een terminal Service Fabri
 
 1. nodejs en NPM installeren op uw computer
 
-   Ubuntu
    ```bash
-   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash –
-   sudo apt-get install -y nodejs 
+   curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash 
+   nvm install node 
    ```
-
-   Red Hat Enterprise Linux 7.4 (ondersteuning voor Service Fabric-preview)
-   ```bash
-   sudo yum install nodejs
-   sudo yum install npm
-   ```
-
 2. [Yeoman](http://yeoman.io/)-sjabloongenerator installeren op uw computer vanuit NPM
 
   ```bash
-  sudo npm install -g yo
+  npm install -g yo
   ```
 3. De generator voor Service Fabric Yeoman C#-toepassingen installeren vanuit NPM
 
   ```bash
-  sudo npm install -g generator-azuresfcsharp
+  npm install -g generator-azuresfcsharp
   ```
 
 ## <a name="create-the-application"></a>De toepassing maken
@@ -109,7 +101,7 @@ Parameters voor deze opdrachten vindt u in de gegenereerde manifesten binnen het
 Nadat de toepassing is geïmplementeerd, opent u een browser en gaat u naar [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) op [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Vouw vervolgens het knooppunt **Toepassingen** uit. U ziet dat er nu een vermelding is voor uw toepassingstype en nog een voor het eerste exemplaar van dat type.
 
 > [!IMPORTANT]
-> Als u wilt de toepassing implementeert op een veilige Linux-cluster in Azure, moet u een certificaat voor het valideren van uw toepassing met de Service Fabric-runtime configureren. In dat geval kunnen uw services Reliable Services om te communiceren met de onderliggende API's van de Service Fabric-runtime. Zie voor meer informatie, [configureren van een app Reliable Services uit te voeren op Linux-clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Voor het implementeren van de toepassing met een beveiligd Linux-cluster in Azure, moet u een certificaat voor het valideren van uw toepassing met de Service Fabric-runtime configureren. In dat geval kunt uw Reliable Services-services om te communiceren met de onderliggende Service Fabric-runtime-API's. Zie voor meer informatie, [een Reliable Services-app uit te voeren op Linux-clusters configureren](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>De testclient starten en een failover uitvoeren
@@ -117,7 +109,7 @@ Actorprojecten doen niets uit zichzelf. Ze hebben een andere service of client n
 
 1. Voer het script uit met behulp van het controleprogramma om de uitvoer van de actorservice te bekijken.
 
-   In geval van MAC OS X moet u de map myactorsvcTestClient kopiëren naar de enige locatie in de container met de volgende aanvullende opdrachten.
+   In het geval van MAC OS X moet u de map myactorsvcTestClient kopiëren naar de enige locatie in de container door het uitvoeren van de volgende aanvullende opdrachten.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home

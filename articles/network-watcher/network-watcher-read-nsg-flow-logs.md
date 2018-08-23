@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: 492a0a63198fe2013cfeac0459fc6da8521a5e6e
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b43c082b5c4925fee2b1145956a2847e7f30bb11
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056797"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42054924"
 ---
 # <a name="read-nsg-flow-logs"></a>NSG-stroomlogboeken lezen
 
@@ -28,7 +28,7 @@ NSG-stroomlogboeken zijn opgeslagen in een opslagaccount in [blok-blobs](/rest/a
 
 ## <a name="scenario"></a>Scenario
 
-In het volgende scenario hebt u een voorbeeld van de flow-logboek die zijn opgeslagen in een storage-account. we stapsgewijs hoe u de meest recente gebeurtenissen in NSG-stroomlogboeken selectief kunt lezen. In dit artikel gebruiken we PowerShell, maar de concepten die worden beschreven in het artikel zijn niet beperkt tot de programmeertaal en van toepassing zijn op alle talen die worden ondersteund door de Azure Storage-API 's
+In het volgende scenario hebt u een voorbeeld van de flow-logboek die zijn opgeslagen in een storage-account. Leert u hoe u de meest recente gebeurtenissen in NSG-stroomlogboeken selectief kan lezen. In dit artikel gebruikt u PowerShell, maar de concepten die in het artikel worden besproken, zijn niet beperkt tot de programmeertaal en zijn van toepassing op alle talen ondersteund door de Azure Storage-API's.
 
 ## <a name="setup"></a>Instellen
 
@@ -98,7 +98,7 @@ ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 
 ## <a name="read-the-block-blob"></a>Lees de blok-blob
 
-Vervolgens moeten we lezen het `$blocklist` variabele om de gegevens te halen. In dit voorbeeld die wordt de blokkeringslijst hebt doorlopen, het aantal bytes lezen uit elk blok en ze in een matrix van artikel. We gebruiken de [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) methode voor het ophalen van de gegevens.
+Vervolgens moet u om te lezen de `$blocklist` variabele om de gegevens te halen. In dit voorbeeld die wordt de blokkeringslijst hebt doorlopen, het aantal bytes lezen uit elk blok en ze in een matrix van artikel. Gebruik de [DownloadRangeToByteArray](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadrangetobytearray?view=azurestorage-8.1.3#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadRangeToByteArray_System_Byte___System_Int32_System_Nullable_System_Int64__System_Nullable_System_Int64__Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_) methode voor het ophalen van de gegevens.
 
 ```powershell
 # Set the size of the byte array to the largest block
@@ -132,7 +132,7 @@ $valuearray += $value
 }
 ```
 
-Nu de `$valuearray` matrix de tekenreekswaarde bevat van elk blok. Als u wilt controleren of de vermelding, krijgen de tweede op de laatste waarde van de matrix door te voeren `$valuearray[$valuearray.Length-2]`. We doen niet wilt dat de laatste waarde is alleen een haakje sluiten.
+Nu de `$valuearray` matrix de tekenreekswaarde bevat van elk blok. Als u wilt controleren of de vermelding, krijgen de tweede op de laatste waarde van de matrix door te voeren `$valuearray[$valuearray.Length-2]`. U wilt niet de laatste waarde, omdat het een haakje sluiten.
 
 De resultaten van deze waarde worden weergegeven in het volgende voorbeeld:
 
@@ -157,7 +157,6 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
 ```
 
 Dit scenario is een voorbeeld van vermeldingen in de NSG-stroomlogboeken lezen zonder dat het hele logboek parseren. U kunt nieuwe vermeldingen in het logboek kunt lezen, zoals ze zijn geschreven met behulp van de blok-ID of door bij te houden van de lengte van blokken die zijn opgeslagen in de blok-blob. Hiermee kunt u alleen de nieuwe gegevens worden gelezen.
-
 
 ## <a name="next-steps"></a>Volgende stappen
 

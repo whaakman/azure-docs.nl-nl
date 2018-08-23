@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 4a0fb5739812950f3a01a18acae1d797fa4f9158
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7776ca63dd5c02e470ead35e3dad73c051731fd1
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622249"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42054875"
 ---
 # <a name="what-are-authentication-methods"></a>Wat zijn verificatiemethoden?
 
@@ -136,6 +136,8 @@ De Microsoft Authenticator-app kunt u voorkomt ongeoorloofde toegang tot account
 >
 > Wanneer twee methoden vereist zijn in te stellen met behulp van gebruikers is mogelijk **uitvoeren** melding **of** verificatiecode naast eventuele andere methoden ingeschakeld.
 >
+
+Als u het gebruik van inschakelt zijn beide melding via mobiele app en verificatiecode via mobiele app, gebruikers die de Microsoft Authenticator-app met behulp van een melding te registreren kunnen zowel melding en code gebruiken om hun identiteit te verifiëren.
 
 ### <a name="verification-code-from-mobile-app"></a>Verificatiecode via mobiele app
 

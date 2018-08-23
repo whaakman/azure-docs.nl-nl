@@ -1,54 +1,54 @@
 ---
 title: Diagnostische gegevens in Azure Stack
-description: Het verzamelen van logboekbestanden voor diagnostische gegevens in Azure-Stack
+description: Over het verzamelen van logboekbestanden voor diagnostische gegevens in Azure Stack
 services: azure-stack
 author: jeffgilb
 manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 08/22/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 50fef25a3b7b71821e64638729eb8d93f65b9e31
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: a36609ae63351070bb28469d9ccf1f3deb7bc6ff
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063849"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616946"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Azure Stack diagnostische hulpprogramma 's
 
-Azure-Stack is een grote verzameling onderdelen samenwerken en interactie met elkaar. Al deze onderdelen genereren hun eigen unieke Logboeken. Hierdoor vaststellen van problemen met een uitdaging, met name voor fouten die afkomstig zijn van meerdere, interactie van onderdelen van de Azure-Stack. 
+Azure Stack is een grote verzameling van onderdelen die samenwerken en interactie met elkaar. Al deze onderdelen genereren hun eigen unieke Logboeken. Hierdoor worden vaststellen van problemen met een uitdaging, met name voor fouten die afkomstig zijn van meerdere, communiceren onderdelen van Azure Stack. 
 
-Onze diagnostische hulpprogramma's zorgen dat het mechanisme voor het verzamelen van logboek is eenvoudig en efficiënt. Verzameling hulpprogramma's voor Meld het volgende diagram laat zien hoe in Azure Stack werk:
+Onze diagnostische hulpprogramma's zorgen dat het mechanisme voor het verzamelen van logboek is eenvoudig en efficiënt. Het volgende diagram laat zien Meld hoe verzameling hulpprogramma's werken met Azure Stack:
 
 ![Azure Stack diagnostische hulpprogramma 's](media/azure-stack-diagnostics/get-azslogs.png)
  
  
 ## <a name="trace-collector"></a>Trace-Collector
  
-De Trace-verzamelaar is standaard ingeschakeld en continu op de achtergrond voor het verzamelen van alle Event Tracing voor Windows (ETW) logboeken van Azure-Stack componentservices worden uitgevoerd. ETW-logboeken worden opgeslagen in een algemene lokale share met een limiet van vijf dagen oud. Zodra deze limiet is bereikt, wordt de oudste bestanden worden verwijderd wanneer er nieuwe worden gemaakt. De standaard maximale grootte van elk bestand is 200 MB. Een controle van de grootte van deze gebeurtenis treedt op elke 2 minuten en als het huidige bestand > = 200 MB, wordt deze opgeslagen en een nieuw bestand is gegenereerd. Er is ook een limiet voor 8 GB op de totale bestandsgrootte gegenereerd per gebeurtenissessie. 
+De Trace-Collector is standaard ingeschakeld en achtereen wordt uitgevoerd op de achtergrond voor het verzamelen van alle logboeken van Event Tracing voor Windows (ETW) van Azure Stack componentservices. ETW-logboeken worden opgeslagen in een algemene lokale share met een limiet van vijf dagen oud. Zodra deze limiet is bereikt, worden de oudste bestanden verwijderd nadat er nieuwe labels zijn gemaakt. De standaard maximale grootte van elk bestand is 200 MB. Een controle grootte wordt elke twee minuten, en als het huidige bestand > = 200 MB, wordt deze opgeslagen en een nieuw bestand wordt gegenereerd. Er is ook een limiet van 8 GB op de totale bestandsgrootte gegenereerd per event-sessie. 
 
-## <a name="log-collection-tool"></a>Hulpprogramma voor log-verzameling
+## <a name="log-collection-tool"></a>Hulpprogramma voor het verzamelen van Logboeken
  
-De PowerShell-cmdlet **Get-AzureStackLog** kan worden gebruikt voor het verzamelen van Logboeken van alle onderdelen van een Azure-Stack-omgeving. Opgeslagen in het zip-bestanden in een door de gebruiker gedefinieerde locatie. Als het team van de technische ondersteuning van Azure-Stack uw logboeken moet bij het oplossen van een probleem, kunnen ze vragen u dit programma wilt uitvoeren.
+De PowerShell-cmdlet **Get-AzureStackLog** kan worden gebruikt voor het verzamelen van Logboeken van alle onderdelen in een Azure Stack-omgeving. Deze slaat ze op in het zip-bestanden in een door de gebruiker gedefinieerde locatie. Als de Azure Stack-team voor technische ondersteuning nodig heeft voor uw logboeken op een probleem op te lossen, kunnen ze vragen u dit hulpprogramma uit te voeren.
 
 > [!CAUTION]
-> Deze logboekbestanden mogelijk persoonsgegevens (PII) bevatten. Hiermee rekening houden voordat u alle logboekbestanden openbaar.
+> Deze logboekbestanden kunnen persoonsgegevens (PII) bevatten. Voordat u alle logboekbestanden openbaar plaatst, moet u hiermee rekening gehouden.
  
-Hier volgen enkele voorbeeld logboek typen die worden verzameld:
+Hier volgen enkele typen in een voorbeeld van de logboeken die worden verzameld:
 *   **Logboeken van Azure Stack-implementatie**
 *   **Windows-gebeurtenislogboeken**
 *   **Panther Logboeken**
-*   **Cluster-Logboeken**
-*   **Diagnostische logboeken van opslag**
+*   **Clusterlogboeken**
+*   **Opslag, diagnostische logboeken**
 *   **ETW-Logboeken**
 
 Deze bestanden worden verzameld en opgeslagen in een share Trace-collector. De **Get-AzureStackLog** PowerShell-cmdlet kan vervolgens worden gebruikt voor het verzamelen van deze indien nodig.
 
-### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems"></a>Voor het uitvoeren van Get-AzureStackLog op Azure-Stack geïntegreerd systemen 
-Het hulpprogramma log verzameling op een geïntegreerd systeem uitgevoerd, moet u beschikken over naar de bevoorrechte eindpunt (PEP). Hier volgt een voorbeeldscript dat u kunt uitvoeren met behulp van de PEP voor het verzamelen van Logboeken op een geïntegreerde systeem:
+### <a name="to-run-get-azurestacklog-on-azure-stack-integrated-systems"></a>Als u wilt uitvoeren van Get-AzureStackLog in Azure Stack-geïntegreerde systemen 
+Het hulpprogramma log verzameling op een geïntegreerd systeem uitgevoerd, moet u beschikken over naar de bevoegde eindpunt (PEP). Hier volgt een voorbeeld-script dat u kunt uitvoeren met behulp van de PEP voor het verzamelen van Logboeken op een geïntegreerd systeem:
 
 ```powershell
 $ip = "<IP ADDRESS OF THE PEP VM>" # You can also use the machine name instead of IP here.
@@ -71,100 +71,102 @@ if($s)
 }
 ```
 
-- De parameters **OutputSharePath** en **OutputShareCredential** worden gebruikt voor het uploaden van logboeken naar een externe gedeelde map.
-- Zoals weergegeven in het vorige voorbeeld de **FromDate** en **ToDate** parameters kunnen worden gebruikt voor het verzamelen van Logboeken voor een bepaalde periode. Dit kan erg handig scenario's zoals het verzamelen van Logboeken nadat een updatepakket zijn toegepast op een geïntegreerde systeem.
+- De parameters **OutputSharePath** en **OutputShareCredential** worden gebruikt om Logboeken te uploaden naar een externe gedeelde map.
+- Zoals wordt weergegeven in het vorige voorbeeld de **FromDate** en **ToDate** parameters kunnen worden gebruikt voor het verzamelen van Logboeken voor een bepaalde periode. Dit kan handig voor scenario's zoals het verzamelen van Logboeken na een updatepakket toepast op een geïntegreerd systeem.
 
 
  
-### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Voor het uitvoeren van Get-AzureStackLog op een systeem Azure Stack Development Kit (ASDK)
-1. Meld u aan als **AzureStack\CloudAdmin** op de host.
+### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Get-AzureStackLog uitvoeren op een Azure Stack Development Kit (ASDK)-systeem
+1. Meld u als **AzureStack\CloudAdmin** op de host.
 2. Open een PowerShell-venster als beheerder.
 3. Voer de **Get-AzureStackLog** PowerShell-cmdlet.
 
 **Voorbeelden:**
 
-  Alle logboeken voor alle rollen verzamelen:
+  Verzamelen van alle logboeken voor alle rollen:
 
   ```powershell
   Get-AzureStackLog -OutputPath C:\AzureStackLogs
   ```
 
-  Logboeken van de rollen van virtuele machines en BareMetal verzamelen:
+  Logboeken verzamelen van virtuele machines en BareMetal rollen:
 
   ```powershell
   Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
   ```
 
-  Logboeken van virtuele machines en BareMetal rollen, met datum filteren voor logboekbestanden voor de afgelopen 8 uur verzamelen:
+  Logboeken verzamelen van virtuele machines en BareMetal rollen, met datumfiltering voor de logboekbestanden voor de afgelopen 8 uur:
     
   ```powershell
   Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
   ```
 
-  Logboeken van virtuele machines en BareMetal rollen, met datum filteren voor logboekbestanden voor de periode tussen de 8 uur geleden en 2 uur geleden verzamelen:
+  Logboeken verzamelen van virtuele machines en BareMetal rollen, met datumfiltering voor de logboekbestanden voor de periode tussen de 8 uur geleden en 2 uur geleden:
 
   ```powershell
   Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
-### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>De parameter-overwegingen voor zowel ASDK en geïntegreerde systemen
+### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Parameter-overwegingen voor zowel ASDK en geïntegreerde systemen
 
-- Als de **FromDate** en **ToDate** parameters niet zijn opgegeven, logboeken worden standaard verzameld voor de afgelopen vier uur.
-- U kunt de **TimeOutInMinutes** -parameter voor de time-out voor logboekverzameling ingesteld. Dit is standaard ingesteld op 150 (2,5 uur).
-- In versie 1805 en hoger, is dump logboek bestandsverzameling standaard uitgeschakeld. Als u wilt inschakelen, gebruikt u de **IncludeDumpFile** parameter overschakelen. 
-- Op dit moment kunt u de **FilterByRole** parameter filter logboekgegevens verzameld door de volgende rollen:
+- Als de **FromDate** en **ToDate** parameters niet zijn opgegeven, wordt standaard logboeken voor de afgelopen vier uur worden verzameld.
+- Gebruik de **FilterByNode** parameter Logboeken filteren op computernaam. Bijvoorbeeld: ```Get-AzureStackLog -OutputPath <path> -FilterByNode azs-xrp01```
+- Gebruik de **FilterByLogType** parameter voor het filteren van Logboeken op type. U kunt kiezen om te filteren op bestand, delen of WindowsEvent. Bijvoorbeeld: ```Get-AzureStackLog -OutputPath <path> -FilterByLogType File```
+- U kunt de **TimeOutInMinutes** parameter voor de time-out voor de logboekverzameling instellen. Dit is standaard ingesteld op 150 (2,5 uur).
+- In versie 1805 en hoger, is de dump bestand logboekverzameling standaard uitgeschakeld. Als u wilt inschakelen, gebruikt u de **IncludeDumpFile** parameter overschakelen. 
+- Op dit moment kunt u de **FilterByRole** parameter voor de logboekverzameling filter door de volgende rollen:
 
-   |   |   |   |
-   | - | - | - |
-   | ACS                    | DeploymentMachine                | NC                         |
-   | ACSBlob                | DiskRP                           | Netwerk                    |
-   | ACSFabric              | Domein                           | NonPrivilegedAppGateway    |
-   | ACSFrontEnd            | ECE                              | NRP                        |
-   | ACSMetrics             | ExternalDNS                      | OEM                        |
-   | ACSMigrationService    | Fabric                           | PXE                        |
-   | ACSMonitoringService   | FabricRing                       | SeedRing                   | 
-   | ACSSettingsService     | FabricRingServices               | SeedRingServices           |
-   | ACSTableMaster         | FRP                              | AANVRAAGPAD                        |   
-   | ACSTableServer         | Gallery                          | SlbVips                    |
-   | ACSWac                 | Gateway                          | SQL                        |   
-   | ADFS                   | HealthMonitoring                 | SRP                        |
-   | ASAppGateway           | HRP                              | Storage                    |   
-   | NCAzureBridge          | IBC                              | StorageAccounts            |    
-   | AzurePackConnector     | IdentityProvider                 | StorageController          |  
-   | AzureStackBitlocker    | IDN 's                             | Tenant                     |
-   | BareMetal              | InfraServiceController           | TraceCollector             |
-   | BRP                    | Infrastructuur                   | URP                        |
-   | CA                     | KeyVaultAdminResourceProvider    | UsageBridge                |
-   | Cloud                  | KeyVaultControlPlane             | virtuele machines            |
-   | Cluster                | KeyVaultDataPlane                | IS                        |
-   | Compute                | KeyVaultInternalControlPlane     | WASBootstrap               |
-   | KPI                    | KeyVaultInternalDataPlane        | WASPUBLIC                  |
-   | CRP                    | KeyVaultNamingService            |                            |
-   | DatacenterIntegration  | MonitoringAgent                  |                            |
-   |                        |                                  |                            |
+ |   |   |   |    |
+ | - | - | - | -  |   
+ |ACS|Compute|InfraServiceController|QueryServiceCoordinator|
+ |ACSBlob|KPI|Infrastructuur|QueryServiceWorker|
+ |ACSDownloadService|CRP|KeyVaultAdminResourceProvider|SeedRing|
+ |ACSFabric|DatacenterIntegration|KeyVaultControlPlane|SeedRingServices|
+ |ACSFrontEnd|DeploymentMachine|KeyVaultDataPlane|SLB|
+ |ACSMetrics|DiskRP|KeyVaultInternalControlPlane|SlbVips|
+ |ACSMigrationService|Domein|KeyVaultInternalDataPlane|SQL|
+ |ACSMonitoringService|EEG|KeyVaultNamingService|SRP|
+ |ACSSettingsService|EventAdminRP|MDM|Storage|
+ |ACSTableMaster|EventRP|MetricsAdminRP|StorageAccounts|
+ |ACSTableServer|ExternalDNS|MetricsRP|StorageController|
+ |ACSWac|Fabric|MetricsServer|Tenant|
+ |ADFS|FabricRing|MetricsStoreService|TraceCollector|
+ |ApplicationController|FabricRingServices|MonAdminRP|URP|
+ |ASAppGateway|FirstTierAggregationService|MonitoringAgent|Gebruik|
+ |AzureBridge|FRP|MonRP|UsageBridge|
+ |AzureMonitor|Gallery|NC|virtuele machines|
+ |AzureStackBitlocker|Gateway|Netwerk|IS|
+ |BareMetal|HealthMonitoring|NonPrivilegedAppGateway|WASBootstrap|
+ |BRP|HintingServiceV2|NRP|WASPUBLIC|
+ |CA|HRP|OboService|WindowsDefender|
+ |CacheService|IBC|OEM|     |
+ |Cloud|id-provider|OnboardRP|     |   
+ |Cluster|IDN 's|PXE|     |
+ |   |   |   |    |
 
-### <a name="bkmk_gui"></a>Verzamelen van logboeken met behulp van een grafische gebruikersinterface
-In plaats van de vereiste parameters voor de cmdlet Get-AzureStackLog voor het ophalen van Azure-Stack-logboeken bieden, kunt u gebruikmaken van de beschikbare open-source Azure Stack-hulpprogramma's zich in de belangrijkste Azure Stack extra GitHub tools-opslagplaats op http://aka.ms/AzureStackTools.
 
-De **ERCS_AzureStackLogs.ps1** PowerShell-script wordt opgeslagen in de GitHub-opslagplaats voor hulpprogramma's en regelmatig wordt bijgewerkt. Om ervoor te zorgen dat u de laatst beschikbare versie hebt, moet u het downloaden rechtstreeks vanuit http://aka.ms/ERCS. Het script hebt gestart vanuit een administratief PowerShell-sessie, verbinding maakt met het bevoorrechte eindpunt en Get-AzureStackLog uitvoert met de opgegeven parameters. Als er geen parameters zijn opgegeven, wordt het script wordt standaard ingesteld op te vragen voor parameters via een grafische gebruikersinterface.
+### <a name="bkmk_gui"></a>Logboeken verzamelen met een grafische gebruikersinterface
+In plaats van de vereiste parameters voor de cmdlet Get-AzureStackLog voor het ophalen van Azure Stack-logboeken bieden, kunt u ook gebruikmaken van de beschikbare open-source Azure Stack-hulpprogramma's zich in de Azure Stack-hulpprogramma's GitHub extra hoofdopslagplaats op http://aka.ms/AzureStackTools.
 
-U kunt bekijken voor meer informatie over het ERCS_AzureStackLogs.ps1 PowerShell-script, [een korte video](https://www.youtube.com/watch?v=Utt7pLsXEBc) of weergeven van het script [Leesmij-bestand](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) zich in de Azure-Stack extra GitHub-opslagplaats. 
+De **ERCS_AzureStackLogs.ps1** PowerShell-script wordt opgeslagen in de GitHub-opslagplaats voor hulpprogramma's en regelmatig wordt bijgewerkt. Om ervoor te zorgen dat u de meest recente beschikbare versie hebt, moet u deze rechtstreeks vanuit downloaden http://aka.ms/ERCS. Gestart vanuit een PowerShell-sessie met beheerdersrechten, het script maakt verbinding met het eindpunt van de bevoegdheden en Get-AzureStackLog uitgevoerd met de opgegeven parameters. Als er geen parameters zijn opgegeven, standaard het script dat wordt gevraagd om parameters via een grafische gebruikersinterface.
+
+Voor meer informatie over het ERCS_AzureStackLogs.ps1 PowerShell-script, kunt u bekijken [een korte video](https://www.youtube.com/watch?v=Utt7pLsXEBc) of weergeven van het script [Leesmij-bestand](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) zich in de GitHub-opslagplaats van de Azure Stack-hulpprogramma's. 
 
 ### <a name="additional-considerations"></a>Aanvullende overwegingen
 
-* De opdracht wordt uitgevoerd op basis van welke rollen van Logboeken van de verzamelen enige tijd. Factoren omvatten ook de tijd die is opgegeven voor het logboek verzamelen en het aantal knooppunten in de Azure-Stack-omgeving.
-* Als u zich aanmeldt verzameling wordt uitgevoerd, controleert de nieuwe map gemaakt de **OutputSharePath** parameter die is opgegeven in de opdracht.
-* Elke functie heeft haar Logboeken in afzonderlijke zip-bestanden. Afhankelijk van de grootte van de logboeken die worden verzameld, kan een rol de logboeken splitsen in meerdere zip-bestanden hebben. Gebruik een hulpprogramma dat kunt pak bulksgewijs (zoals 7zip) voor een functie als u dat alle logboekbestanden naar één map wilt zijn uitgepakt. Selecteer de gecomprimeerde bestanden voor de rol en selecteer **extraheren hier**. Hiermee wordt de logboekbestanden voor die rol in een enkele samengevoegde map uitgepakt.
-* Een bestand met de naam **Get-AzureStackLog_Output.log** ook in de map waarin de gecomprimeerde logboekbestanden gemaakt. Dit bestand is een logboek van de uitvoer van de opdracht, die kan worden gebruikt voor het oplossen van problemen tijdens de logboekgegevens verzameld. Soms bevat het logboekbestand `PS>TerminatingError` vermeldingen die kunnen worden genegeerd, tenzij de verwachte logboekbestanden ontbreken na het aanmelden van de verzameling wordt uitgevoerd.
-* Voor het onderzoeken van een specifieke fout mogelijk van meer dan één component logboeken nodig.
-    -   Systeem- en gebeurtenislogboeken voor alle virtuele machines van infrastructuur worden bijgehouden in de *virtuele machines* rol.
-    -   Systeem- en gebeurtenislogboeken op alle hosts worden bijgehouden in de *BareMetal* rol.
-    -   Failover-Cluster en Hyper-V logboeken worden bijgehouden in de *opslag* rol.
-    -   ACS-logboeken worden bijgehouden in de *opslag* en *ACS* rollen.
+* De opdracht duurt enige tijd worden uitgevoerd op basis van welke rollen zijn de logboeken verzamelen. Factoren omvatten ook de tijdsduur die is opgegeven voor het verzamelen en het aantal knooppunten in de Azure Stack-omgeving.
+* Als zich verzameling wordt uitgevoerd, controleert u de nieuwe map gemaakt in de **OutputSharePath** parameter die is opgegeven in de opdracht.
+* Elke rol heeft de logboeken in afzonderlijke zip-bestanden. Afhankelijk van de grootte van de logboeken die worden verzameld, kan een rol de logboeken splitsen meerdere zip-bestanden hebben. Voor een rol gebruiken als u wilt dat alle logboekbestanden uitgepakt één map, een hulpprogramma waarmee u in bulk (zoals 7zip uitpakken kunt). Selecteer alle ZIP-bestanden voor de rol en selecteer **hier extraheren**. Hiermee wordt de logboekbestanden voor die rol in een enkele, samengevoegde map uitgepakt.
+* Een bestand met de naam **Get-AzureStackLog_Output.log** ook wordt gemaakt in de map waarin de gecomprimeerde logboekbestanden. Dit bestand is een logboek van de uitvoer van de opdracht, die kan worden gebruikt voor het oplossen van problemen tijdens logboekverzameling. Soms bevat het logboekbestand `PS>TerminatingError` vermeldingen die kunnen worden genegeerd, tenzij de verwachte logboekbestanden ontbreken na het aanmelden van de verzameling wordt uitgevoerd.
+* Voor het onderzoeken van een specifieke fout mogelijk van meer dan één onderdeel Logboeken nodig.
+    -   Systeem- en gebeurtenislogboeken voor alle infrastructuur-VM's worden verzameld de *virtuele machines* rol.
+    -   Systeem- en gebeurtenislogboeken voor alle hosts worden verzameld de *BareMetal* rol.
+    -   Logboeken voor Failover-Cluster en Hyper-V worden verzameld de *opslag* rol.
+    -   ACS-logboeken worden verzameld de *opslag* en *ACS* rollen.
 
 > [!NOTE]
-> Grootte en leeftijd limieten gelden voor de logboeken die worden verzameld omdat het is essentieel om ervoor te zorgen efficiënt gebruik van uw opslagruimte om te controleren of dat deze flooded met Logboeken niet ophalen. Bij het oplossen van een probleem moet u echter soms logboeken die niet meer vanwege deze limieten bestaat mogelijk. Het is dus **ten zeerste aangeraden** offloaden van uw logboeken naar een externe opslagruimte (een opslagaccount in Azure, een opslagapparaat extra on-premises enzovoort) in elke 8 tot 12 uur en bewaar deze er voor 1-3 maanden, afhankelijk van uw vereisten. Controleer ook op dat deze locatie voor de opslag is versleuteld.
+> Limieten voor grootte en leeftijd worden afgedwongen voor de logboeken die worden verzameld, is het essentieel om ervoor te zorgen efficiënte benutting van uw opslagruimte om te controleren of dat deze overspoeld met Logboeken niet ophalen. Bij het oplossen van een probleem moet u echter soms logboeken die niet meer vanwege deze limieten bestaat mogelijk. Het is dus **ten zeerste aangeraden** dat u uw logboeken naar een externe opslagruimte (een opslagaccount in Azure, een extra on-premises-opslagapparaat enz.)-offload elke 8 tot 12 uur en houd ze daar voor 1-3 maanden, afhankelijk van uw vereisten. Zorg er ook voor dat deze locatie voor de opslag is versleuteld.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Microsoft Azure-Stack probleemoplossing](azure-stack-troubleshooting.md)
+[Het oplossen van Microsoft Azure Stack](azure-stack-troubleshooting.md)
 

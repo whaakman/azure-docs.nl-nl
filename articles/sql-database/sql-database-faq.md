@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 08/21/2018
 ms.author: carlrab
-ms.openlocfilehash: 6c43a52309a6f41d73ead19fc5f5b7df2f06d6f6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 03e24679ea01dabb78a0d7028d49b624b2e3bf64
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308810"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42058443"
 ---
 # <a name="sql-database-faq"></a>Veelgestelde vragen over SQL Database
 
@@ -46,7 +46,6 @@ De [Azure Hybrid Use Benefit voor SQL Server](../virtual-machines/windows/hybrid
 
 ## <a name="are-there-dual-use-rights-with-azure-hybrid-benefit-for-sql-server"></a>Zijn er twee gebruiksrechten met Azure Hybrid Benefit voor SQL Server?
 U hebt 180 dagen van dual de gebruiksrechten van de licentie om te controleren of de migraties naadloos worden uitgevoerd. Na die periode van 180 dagen, de SQL Server-licentie kan alleen worden gebruikt in de cloud in SQL-Database, en heeft geen dubbele rechten on-premises gebruiken en in de cloud.
-
 
 ## <a name="how-does-azure-hybrid-benefit-for-sql-server-differ-from-license-mobility"></a>Hoe verschilt Azure Hybrid Benefit voor SQL Server van mobiliteit van licenties?
 Vandaag, bieden we van mobiliteit van licenties voor SQL Server-klanten met Software Assurance waarmee hernieuwde toewijzing van licenties aan gedeelde servers van derden. Dit voordeel kan worden gebruikt op Azure IaaS- en AWS EC2.
@@ -168,7 +167,10 @@ Controle is ingebouwd in de service SQL Database zonder extra kosten en is besch
 In de [Azure-portal](https://portal.azure.com), klikt u op **SQL-Servers**, selecteert u de server in de lijst en klik vervolgens op **wachtwoord opnieuw instellen**.
 
 ## <a name="how-do-i-manage-databases-and-logins"></a>Hoe kan ik databases en aanmeldingen beheren?
-Zie [databases en aanmeldingen beheren](sql-database-manage-logins.md).
+Zie [databases en aanmeldingen beheren](sql-database-manage-logins.md). 
+
+> [!NOTE]
+> U kunt de naam van het serverbeheerdersaccount niet wijzigen nadat deze is gemaakt.
 
 ## <a name="how-do-i-make-sure-only-authorized-ip-addresses-are-allowed-to-access-a-server"></a>Hoe maak ik ervoor dat alleen geautoriseerde IP-adressen zijn toegestaan voor toegang tot een server?
 Zie [hoe: firewallinstellingen voor SQL-Database configureren](sql-database-configure-firewall-settings.md).

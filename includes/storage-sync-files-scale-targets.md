@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: a9aa4680d91a4ab95933ae636c4467217fd162b2
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: e2e8da3d2dec2c74bbd1c0ca0f52b7eaba5c024e
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39277894"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42060655"
 ---
 | Resource | Doel | Vaste limiet |
 |----------|--------------|------------|
@@ -27,5 +27,6 @@ ms.locfileid: "39277894"
 | -Bestandssysteem (mappen en bestanden) per groep voor synchronisatie | 25 miljoen objecten | Nee |
 | Maximum aantal bestandssysteemobjecten (mappen en bestanden) in een map | 200.000 objecten | Ja |
 | Lengte van maximaal object (mappen en bestanden) | 255 tekens | Ja |
+| Maximale grootte van object (mappen en bestanden) security descriptor | 4 KiB | Ja |
 | Bestandsgrootte | 100 GiB | Nee |
 | Minimale bestandsgrootte voor een bestand in tiers worden verdeeld | 64 KiB | Ja |

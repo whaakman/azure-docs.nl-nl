@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 07f739243b80230fbf4914535ea65183c3590937
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 61b804b876c91b5fcd12ce15bd7e2438f5d897a0
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37020438"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617414"
 ---
 # <a name="create-your-first-java-service-fabric-reliable-actors-application-on-linux"></a>Uw eerste betrouwbare Service Fabric Java-actortoepassing maken in Linux
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Installeer ook de [Service Fabric-CLI](service-fabric-cli.md).
 Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal een Service Fabric Java-toepassing kunt maken met behulp van de Yeoman-sjabloongenerator.  Als Yeoman niet al is geïnstalleerd, raadpleegt u [Service Fabric getting started with Linux](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables) (Service Fabric: aan de slag met Linux) voor instructies over het installeren van Yeoman. Voer de volgende opdracht uit om de Service Fabric Yeoman-sjabloongenerator voor Java te installeren.
 
   ```bash
-  sudo npm install -g generator-azuresfjava
+  npm install -g generator-azuresfjava
   ```
 
 ## <a name="basic-concepts"></a>Basisbegrippen
@@ -220,18 +220,18 @@ Nadat de toepassing is geïmplementeerd, opent u een browser en gaat u naar [Ser
 Vouw vervolgens het knooppunt **Toepassingen** uit. U ziet dat er nu een vermelding is voor uw toepassingstype en nog een voor het eerste exemplaar van dat type.
 
 > [!IMPORTANT]
-> Als u wilt de toepassing implementeert op een veilige Linux-cluster in Azure, moet u een certificaat voor het valideren van uw toepassing met de Service Fabric-runtime configureren. In dat geval kunnen uw Reliable Actors services om te communiceren met de onderliggende API's van de Service Fabric-runtime. Zie voor meer informatie, [configureren van een app Reliable Services uit te voeren op Linux-clusters](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Voor het implementeren van de toepassing met een beveiligd Linux-cluster in Azure, moet u een certificaat voor het valideren van uw toepassing met de Service Fabric-runtime configureren. In dat geval kunt uw Reliable Actors-services om te communiceren met de onderliggende Service Fabric-runtime-API's. Zie voor meer informatie, [een Reliable Services-app uit te voeren op Linux-clusters configureren](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>De testclient starten en een failover uitvoeren
 Actoren doen niets uit zichzelf, ze hebben een andere service of client nodig die hen berichten stuurt. De actorsjabloon bevat een eenvoudig testscript dat u kunt gebruiken om te communiceren met de actorservice.
 
 > [!Note]
-> De testclient gebruikt de ActorProxy-klasse om te communiceren met actoren die moeten worden uitgevoerd in hetzelfde cluster als de service actor of delen van dezelfde IP-adresruimte.  U kunt de testclient uitvoeren op dezelfde computer als de lokaal ontwikkelcluster.  Om te communiceren met actoren in een RAS-cluster, moet u echter een gateway op het cluster die verantwoordelijk is voor externe communicatie met de actoren implementeren.
+> De testclient gebruikt de klasse actorproxy heeft om te communiceren met actors, die moeten worden uitgevoerd binnen hetzelfde cluster als de actor-service of delen van dezelfde IP-adresruimte.  U kunt de testclient uitvoeren op dezelfde computer als het lokale ontwikkelcluster.  Om te communiceren met actoren in een extern cluster, moet u echter een gateway in het cluster die verantwoordelijk is voor externe communicatie met de actoren implementeren.
 
 1. Voer het script uit met behulp van het controleprogramma om de uitvoer van de actorservice te bekijken.  Via het testscript wordt de methode `setCountAsync()` op de actor aangeroepen om een teller te verhogen, wordt de methode `getCountAsync()` op de actor aangeroepen om de nieuwe tellerwaarde op te halen en wordt deze waarde weergegeven op de console.
 
-   In geval van MAC OS X moet u de map HelloWorldTestClient kopiëren naar de enige locatie in de container met de volgende aanvullende opdrachten.    
+   In het geval van MAC OS X moet u de map HelloWorldTestClient kopiëren naar de enige locatie in de container door het uitvoeren van de volgende aanvullende opdrachten.    
     
     ```bash
      docker cp HelloWorldTestClient [first-four-digits-of-container-ID]:/home

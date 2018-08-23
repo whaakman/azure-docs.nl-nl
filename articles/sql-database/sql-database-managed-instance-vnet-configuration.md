@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 04/10/2018
+ms.date: 08/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 0fea91fb067a6d78ef25cb0ff8014b65a8b6a916
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: f634167f24c221e702696174ea86a212c535695b
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258097"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42054120"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Een VNet configureren voor het beheerde exemplaar van Azure SQL Database
 
@@ -29,7 +29,7 @@ Azure SQL Database Managed Instance (preview) moet worden geïmplementeerd in ee
 Plan hoe het implementeren van een beheerd exemplaar in virtueel netwerk met behulp van uw antwoorden op de volgende vragen: 
 - Wilt u één of meerdere beheerde exemplaren implementeren? 
 
-  Het aantal beheerde instanties bepaalt de minimale grootte van het subnet toewijzen voor uw beheerde instanties. Zie voor meer informatie, [bepaalt de grootte van het subnet voor Managed Instance](#create-a-new-virtual-network-for-managed-instances). 
+  Het aantal beheerde instanties bepaalt de minimale grootte van het subnet toewijzen voor uw beheerde instanties. Zie voor meer informatie, [bepaalt de grootte van het subnet voor Managed Instance](#determine-the-size-of-subnet-for-managed-instances). 
 - Heb ik nodig voor het implementeren van uw beheerde exemplaar in een bestaand virtueel netwerk of maakt u een nieuw netwerk? 
 
    Als u van plan bent een bestaand virtueel netwerk gebruiken, moet u die netwerkconfiguratie om te voldoen aan uw beheerde exemplaar wijzigen. Zie voor meer informatie, [wijzigen bestaand virtueel netwerk voor beheerd exemplaar](#modify-an-existing-virtual-network-for-managed-instances). 
@@ -38,7 +38,7 @@ Plan hoe het implementeren van een beheerd exemplaar in virtueel netwerk met beh
 
 ## <a name="requirements"></a>Vereisten
 
-Voor het maken van een beheerd exemplaar moet u speciaal aan subnet binnen het VNet dat voldoet aan de volgende vereisten:
+Voor het maken van een beheerd exemplaar moet u toe te wijzen aan een subnet binnen het VNet dat voldoet aan de volgende vereisten:
 - **Niet leeg zijn**: het subnet moet een andere cloudservice die is gekoppeld aan het niet bevatten en mag geen gatewaysubnet. Kunt u zich niet beheerd exemplaar maakt in het subnet met andere resources dan beheerd exemplaar of andere bronnen binnen het subnet later toevoegen.
 - **Er is geen NSG**: het subnet moet een Netwerkbeveiligingsgroep die is gekoppeld aan deze niet hebben.
 - **Hebt u specifieke routetabel**: het subnet moet een gebruiker Route tabel (UDR) met 0.0.0.0/0 Next Hop Internet hebben als de enige route die is toegewezen. Zie voor meer informatie, [de vereiste routetabel maken en deze koppelen](#create-the-required-route-table-and-associate-it)
@@ -63,7 +63,28 @@ Als u van plan bent te implementeren van meerdere beheerde exemplaren binnen het
 
 **Voorbeeld**: U van plan bent de drie algemene en twee bedrijven essentiële beheerde instanties. Dat betekent dat u moet 5 + 3 * 2 + 2 * 4 = 19 IP-adressen. Als het IP-adresbereiken zijn gedefinieerd in de macht van 2, moet u het IP-adresbereik van 32 (2 ^ 5) IP-adressen. Daarom moet u het subnet met het subnetmasker/27 reserveren. 
 
-## <a name="create-a-new-virtual-network-for-managed-instances"></a>Een nieuw virtueel netwerk maken voor beheerde exemplaren 
+## <a name="create-a-new-virtual-network-for-managed-instance-using-azure-resource-manager-deployment"></a>Een nieuw virtueel netwerk maken voor beheerd exemplaar met behulp van Azure Resource Manager-implementatie
+
+De eenvoudigste manier om te maken en configureren van virtueel netwerk is met Azure Resource Manager-implementatiesjabloon.
+
+1. Meld u aan bij Azure Portal.
+
+2. Gebruik **implementeren in Azure** knop om virtuele netwerk in Azure-cloud te implementeren:
+
+  <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
+
+  Deze knop opent u een formulier dat u gebruiken kunt om netwerkomgeving te configureren waarin u Managed Instance kunt implementeren.
+
+  > [!Note]
+  > Deze Azure Resource Manager-sjabloon implementeert een virtueel netwerk met twee subnetten. Een subnet met de naam **ManagedInstances** is gereserveerd voor beheerde instanties en heeft routetabel, vooraf geconfigureerd terwijl het andere subnet met de naam **standaard** wordt gebruikt voor andere resources die toegang moeten hebben tot de beheerde Het exemplaar (bijvoorbeeld Azure virtuele Machines). U kunt verwijderen **standaard** subnet als u deze niet nodig.
+
+3. Netwerkomgeving configureren. U kunt parameters van uw netwerkomgeving configureren op de volgende notatie:
+
+![Azure-netwerk configureren](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
+
+U mogelijk de namen wijzigen van het VNet en subnetten en IP-adresbereiken die zijn gekoppeld aan uw netwerkresources aanpassen. Zodra u op "Aankoop" knop drukt, wordt dit formulier maken en configureren van uw omgeving. Als u geen twee subnetten kunt u de standaardwaarde kunt verwijderen. 
+
+## <a name="create-a-new-virtual-network-for-managed-instances-using-portal"></a>Een nieuw virtueel netwerk maken voor beheerde instanties met behulp van portal
 
 Het maken van een Azure-netwerk is een vereiste voor het maken van een beheerd exemplaar. U kunt de Azure-portal [PowerShell](../virtual-network/quick-create-powershell.md), of [Azure CLI](../virtual-network/quick-create-cli.md). De volgende sectie bevat de stappen met behulp van de Azure portal. Details van de hier besproken gelden voor elk van deze methoden.
 
@@ -92,7 +113,7 @@ Het maken van een Azure-netwerk is een vereiste voor het maken van een beheerd e
 
    ![formulier virtueel netwerk maken](./media/sql-database-managed-instance-tutorial/service-endpoint-disabled.png)
 
-## <a name="create-the-required-route-table-and-associate-it"></a>De vereiste routetabel maken en deze koppelen
+### <a name="create-the-required-route-table-and-associate-it"></a>De vereiste routetabel maken en deze koppelen
 
 1. Aanmelden bij Azure Portal  
 2. Zoek en klik op **Routetabel** en klik vervolgens op de pagina Routetabel op **Maken**.

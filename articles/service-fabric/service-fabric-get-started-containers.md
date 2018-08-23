@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: e76ffa3256da5acecf55ad37ea3d927510565ffe
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 41246e434f8adade65f39b3471417888f62d7528
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577285"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42061348"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Uw eerste Service Fabric-containertoepassing maken in Windows
 > [!div class="op_single_selector"]
@@ -204,6 +204,8 @@ De containerservice heeft een eindpunt voor communicatie nodig. Voeg een `Endpoi
   </Endpoints>
 </Resources>
 ```
+> [!NOTE]
+> Extra eindpunten voor een service kunnen worden toegevoegd door op te geven aanvullende eindpunt elementen met die van toepassing zijn eigenschapswaarden. Elke poort kunt slechts één protocolwaarde declareren.
 
 Als u een eindpunt opgeeft, publiceert Service Fabric het eindpunt naar de Naming-service. Andere services die in dit cluster worden uitgevoerd, kunnen deze container dan omzetten. U kunt ook communicatie van container naar container laten plaatsvinden met behulp van een [omgekeerde proxy](service-fabric-reverseproxy.md). Communicatie wordt uitgevoerd door de omgekeerde proxy de HTTP-poort voor luisteren en de naam van de services waarmee u wilt communiceren door te geven als omgevingsvariabelen.
 
@@ -247,6 +249,8 @@ Configureer een hostpoort voor communicatie met de container. De poortbinding wi
     ...
 </ServiceManifestImport>
 ```
+> [!NOTE]
+> Aanvullende PortBindings voor een service kunnen worden toegevoegd door op te geven aanvullende PortBinding elementen met die van toepassing zijn eigenschapswaarden.
 
 ## <a name="configure-container-registry-authentication"></a>Verificatie containerregister configureren
 Configureer de verificatie van het containerregister `RepositoryCredentials` door toe te voegen aan `ContainerHostPolicies` van het bestand ApplicationManifest.xml. Voeg het account en wachtwoord toe aan het containerregister myregistry.azurecr.io, waardoor de service voor de containerinstallatiekopie uit de opslagplaats kan downloaden.
@@ -598,13 +602,13 @@ De Service Fabric-runtime wijst 20 minuten toe om containerinstallatiekopieën t
 
 ```json
 {
-"name": "Hosting",
+        "name": "Hosting",
         "parameters": [
           {
               "name": "ContainerImageDownloadTimeout",
               "value": "1200"
           }
-]
+        ]
 }
 ```
 
@@ -626,7 +630,7 @@ Met versie 6.2 of hoger van de Service Fabric-runtime kunt u de Docker-daemon me
 
 ```json
 { 
-   "name": "Hosting", 
+        "name": "Hosting", 
         "parameters": [ 
           { 
             "name": "ContainerServiceArguments", 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: f2283125aff705aae87b6260b48deee01aa12f0d
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: bd3eeb5ebb9b30ac315fee1597348f3bd34f3bb6
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343549"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42059501"
 ---
 # <a name="getting-compliance-data"></a>Ophalen van Nalevingsgegevens
 
@@ -26,6 +26,9 @@ Er zijn verschillende manieren toegang krijgen tot de informatie over naleving d
 - Via [vanaf de opdrachtregel](#command_line) scripting
 
 Voordat u de methoden voor het rapporteren van naleving bekijkt, laten we kijken wanneer de compatibiliteitsinformatie wordt bijgewerkt en de frequentie en gebeurtenissen die een evaluatiecyclus van een te activeren.
+
+> [!WARNING]
+> Als de nalevingsstatus wordt gerapporteerd als **'N.V.T.'**, Controleer de **Microsoft.PolicyInsights** Resourceprovider is geregistreerd en de gebruiker beschikt over de juiste op rollen gebaseerd toegangsbeheer (RBAC) de machtigingen zoals wordt beschreven [hier](azure-policy-introduction.md#rbac-permissions-in-azure-policy).
 
 ## <a name="evaluation-triggers"></a>Evaluatie-triggers
 

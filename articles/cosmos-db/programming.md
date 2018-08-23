@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 6374fcf1477d56b9803b63476f3fef38fc12def1
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 6296eb423f24762ed32a21ef40852dc1a9dd8f36
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618893"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42058439"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Azure Cosmos DB-server-side-programmering: opgeslagen procedures, databasetriggers en UDF's
 
@@ -98,7 +98,7 @@ client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld'
     });
 ```
 
-Het contextobject biedt toegang tot alle bewerkingen die kunnen worden uitgevoerd op Cosmos DB-opslag, evenals de toegang tot de aanvraag- en -objecten. In dit geval kunt u de antwoordobject voor de hoofdtekst van het antwoord dat is verzonden naar de client ingesteld. Zie voor meer informatie de [Azure Cosmos DB JavaScript server SDK-documentatie](http://azure.github.io/azure-documentdb-js-server/).  
+Het contextobject biedt toegang tot alle bewerkingen die kunnen worden uitgevoerd op Cosmos DB-opslag, evenals de toegang tot de aanvraag- en -objecten. In dit geval kunt u de antwoordobject voor de hoofdtekst van het antwoord dat is verzonden naar de client ingesteld. Zie voor meer informatie de [Azure Cosmos DB JavaScript server SDK-documentatie](https://azure.github.io/azure-cosmosdb-js-server/).  
 
 Laat het ons Vouw op het volgende voorbeeld en meer met betrekking tot database functionaliteit toevoegen aan de opgeslagen procedure. Opgeslagen procedures kunnen maken, bijwerken, lezen, query's uitvoeren en verwijderen van documenten en bijlagen in de verzameling.    
 
@@ -591,7 +591,7 @@ De volgende JavaScript-constructies kunnen niet worden geoptimaliseerd voor Azur
 * Controlestroom (bijvoorbeeld, als voor, tijdens)
 * Functieaanroepen
 
-Zie voor meer informatie de [serverzijde JSDocs](http://azure.github.io/azure-documentdb-js-server/).
+Zie voor meer informatie de [serverzijde JSDocs](https://azure.github.io/azure-cosmosdb-js-server/).
 
 ### <a name="example-write-a-stored-procedure-using-the-javascript-query-api"></a>Voorbeeld: Een opgeslagen procedure met behulp van de JavaScript API-query schrijven
 Het volgende codevoorbeeld is een voorbeeld van hoe de JavaScript-Query-API kan worden gebruikt in de context van een opgeslagen procedure. De opgeslagen procedure voegt u een document, komt overeen met een invoerparameter en updates van de metagegevens van een document, met behulp van de `__.filter()` methode, met minSize, maxSize en totalSize op basis van de eigenschap van de grootte van het ingevoerde document.
@@ -674,7 +674,7 @@ De volgende beschrijvingen uitgelegd elke query in de bovenstaande tabel.
 
 
 ## <a name="runtime-support"></a>Runtime-ondersteuning
-De Azure Cosmos DB [JavaScript-API van server side](http://azure.github.io/azure-documentdb-js-server/) biedt ondersteuning voor de meeste van de algemene functies van JavaScript taal als gestandaardiseerde door [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
+De Azure Cosmos DB [JavaScript-API van server side](https://azure.github.io/azure-cosmosdb-js-server/) biedt ondersteuning voor de meeste van de algemene functies van JavaScript taal als gestandaardiseerde door [ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm).
 
 ### <a name="security"></a>Beveiliging
 JavaScript opgeslagen procedures en triggers zijn sandbox zodat de gevolgen van een script niet naar het andere gelekt kunnen zonder tussenkomst van de snapshot-isolatie voor transactie op het databaseniveau van de. De runtime-omgevingen zijn gegroepeerd, maar na elke uitvoering van de context is verwijderd. Ze worden daarom gegarandeerd veilig van een onbedoelde neveneffecten van elkaar.
@@ -683,7 +683,7 @@ JavaScript opgeslagen procedures en triggers zijn sandbox zodat de gevolgen van 
 Opgeslagen procedures, triggers en UDF's zijn impliciet vooraf gecompileerde naar de byte-codeopmaak om te voorkomen dat compilatie kosten op het moment van elke aanroepen van scripts. Vooraf compilatie aanroep van opgeslagen procedures is snel en een lage footprint hebben.
 
 ## <a name="client-sdk-support"></a>Client SDK-ondersteuning
-Naast de Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB heeft [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript ](http://azure.github.io/azure-documentdb-js/), en [Python SDK's](sql-api-sdk-python.md) voor de SQL-API. Opgeslagen procedures, triggers en UDF's kunnen worden gemaakt en uitgevoerd met behulp van een van deze SDK's ook. Het volgende voorbeeld ziet hoe u maakt en een opgeslagen procedure met behulp van de .NET-client uitvoeren. Houd er rekening mee hoe de .NET-typen zijn doorgegeven aan de opgeslagen procedure als JSON en terug te lezen.
+Naast de Azure Cosmos DB [Node.js](sql-api-sdk-node.md) API, Azure Cosmos DB heeft [.NET](sql-api-sdk-dotnet.md), [.NET Core](sql-api-sdk-dotnet-core.md), [Java](sql-api-sdk-java.md), [JavaScript ](sql-api-sdk-node.md), en [Python SDK's](sql-api-sdk-python.md) voor de SQL-API. Opgeslagen procedures, triggers en UDF's kunnen worden gemaakt en uitgevoerd met behulp van een van deze SDK's ook. Het volgende voorbeeld ziet hoe u maakt en een opgeslagen procedure met behulp van de .NET-client uitvoeren. Houd er rekening mee hoe de .NET-typen zijn doorgegeven aan de opgeslagen procedure als JSON en terug te lezen.
 
 ```javascript
 var markAntiquesSproc = new StoredProcedure
@@ -828,7 +828,7 @@ In tegenstelling tot opgeslagen procedures, triggers kunnen niet rechtstreeks wo
 Hier wordt de trigger vooraf moeten worden uitgevoerd met de aanvraag opgegeven in de x-ms-documentdb-pre-trigger-include header. Dienovereenkomstig, geen na triggers zijn opgegeven in de x-ms-documentdb-post-trigger-include header. Zowel vóór en na triggers kunnen worden opgegeven voor een bepaalde aanvraag.
 
 ## <a name="sample-code"></a>Voorbeeldcode
-U vindt meer voorbeelden van code op de server (met inbegrip van [bulksgewijs verwijderen](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/bulkDelete.js), en [bijwerken](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples/stored-procedures/update.js)) in de [GitHub-opslagplaats](https://github.com/Azure/azure-documentdb-js-server/tree/master/samples).
+U vindt meer voorbeelden van code op de server (met inbegrip van [bulksgewijs verwijderen](https://github.com/Azure/azure-cosmosdb-js-server/blob/master/samples/stored-procedures/bulkDelete.js), en [bijwerken](https://github.com/Azure/azure-cosmosdb-js-server/blob/master/samples/stored-procedures/update.js)) in de [GitHub-opslagplaats](https://github.com/Azure/azure-cosmosdb-js-server/tree/master/samples).
 
 Wilt u uw geweldige opgeslagen procedure delen? bijdragen aan de opslagplaats en maakt u een pull-aanvraag. 
 

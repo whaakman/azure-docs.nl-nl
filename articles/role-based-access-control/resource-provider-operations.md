@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 08/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a4e062b1bc56eada2fa2c27797151e265271022e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 86a2fba7730a653a254a2fd996f9e45ed322fbe3
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621154"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42055131"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resourceproviderbewerkingen
 
@@ -391,8 +391,12 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Authorization/checkAccess/action | Hiermee wordt gecontroleerd of de aanroeper is gemachtigd een bepaalde actie uit te voeren |
 > | Bewerking | Microsoft.Authorization/classicAdministrators/delete | Hiermee wordt de beheerder verwijderd uit het abonnement. |
+> | Bewerking | Microsoft.Authorization/classicAdministrators/operationstatuses/read | Hiermee worden de bewerkingsstatussen van de beheerder opgehaald. |
 > | Bewerking | Microsoft.Authorization/classicAdministrators/read | Hiermee worden de beheerders voor het abonnement ingelezen. |
 > | Bewerking | Microsoft.Authorization/classicAdministrators/write | Hiermee wordt de beheerder gewijzigd of aan een abonnement toegevoegd. |
+> | Bewerking | Microsoft.Authorization/denyAssignments/delete | Een opdracht tot weigeren van een toewijzing verwijderen uit het opgegeven bereik. |
+> | Bewerking | Microsoft.Authorization/denyAssignments/read | Informatie ophalen over het weigeren van een toewijzing. |
+> | Bewerking | Microsoft.Authorization/denyAssignments/write | Een opdracht tot weigeren van een toewijzing maken in het opgegeven bereik. |
 > | Bewerking | Microsoft.Authorization/elevateAccess/action | Hiermee wordt oproepende functie de rechten van Administrator voor gebruikerstoegang gegeven voor het tenantbereik |
 > | Bewerking | Microsoft.Authorization/locks/delete | De vergrendelingen bij het opgegeven bereik worden verwijderd. |
 > | Bewerking | Microsoft.Authorization/locks/read | De vergrendelingen bij het opgegeven bereik worden opgehaald. |
@@ -1165,6 +1169,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Compute/virtualMachineScaleSets/instanceView/read | Hiermee wordt de instantieweergave van de virtuele-machineschaalset opgehaald |
 > | Bewerking | Microsoft.Compute/virtualMachineScaleSets/manualUpgrade/action | Hiermee worden instanties handmatig bijgewerkt naar het laatste model van de virtuele-machineschaalset |
 > | Bewerking | Microsoft.Compute/virtualMachineScaleSets/networkInterfaces/read | Hiermee worden de eigenschappen van alle netwerkinterfaces van een virtuele-machineschaalset opgehaald |
+> | Bewerking | Microsoft.Compute/virtualMachineScaleSets/osRollingUpgrade/action | Hiermee start u een rolling upgrade om alle instanties van de virtuele-machineschaalset te verplaatsen naar de nieuwste beschikbare besturingssysteemversie van de platforminstallatiekopie. |
 > | Bewerking | Microsoft.Compute/virtualMachineScaleSets/osUpgradeHistory/read | Hiermee wordt de geschiedenis van de upgrades van het besturingssysteem voor een virtuele-machineschaalset opgehaald |
 > | Bewerking | Microsoft.Compute/virtualMachineScaleSets/performMaintenance/action | Hiermee wordt gepland onderhoud uitgevoerd op de instanties van de virtuele-machineschaalset |
 > | Bewerking | Microsoft.Compute/virtualMachineScaleSets/powerOff/action | Hiermee worden de instanties van de virtuele-machineschaalset uitgeschakeld |
@@ -1229,7 +1234,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/write | Hiermee wordt de diagnostische instelling voor de containergroep gemaakt of bijgewerkt. |
 > | Bewerking | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/metricDefinitions/read | Hiermee worden de beschikbare metrische gegevens opgehaald voor de containergroep. |
 > | Bewerking | Microsoft.ContainerInstance/containerGroups/read | Alle containergroepen ophalen. |
-> | Bewerking | Microsoft.ContainerInstance/containerGroups/restart/action | Een specifieke containergroep opnieuw is opgestart. |
+> | Bewerking | Microsoft.ContainerInstance/containerGroups/restart/action | Hiermee wordt een specifieke containergroep opnieuw opgestart. |
 > | Bewerking | Microsoft.ContainerInstance/containerGroups/stop/action | Hiermee stopt u een specifieke containergroep. COMPUTE-resources wordt ongedaan worden gemaakt en facturering wordt gestopt. |
 > | Bewerking | Microsoft.ContainerInstance/containerGroups/write | Een specifieke containergroep maken of bijwerken. |
 > | Bewerking | Microsoft.ContainerInstance/register/action | Hiermee wordt het abonnement voor de resourceprovider van het containerexemplaar geregistreerd en wordt het maken van containergroepen mogelijk. |
@@ -1244,10 +1249,23 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.ContainerRegistry/locations/operationResults/read | De resultaten van een asynchrone bewerking opgehaald |
 > | Bewerking | Microsoft.ContainerRegistry/operations/read | Een lijst met alle van de beschikbare bewerkingen voor de REST-API van Azure Container Registry |
 > | Bewerking | Microsoft.ContainerRegistry/register/action | Hiermee wordt het abonnement voor de container registry-resourceprovider geregistreerd en wordt het maken van de container Registry. |
+> | Bewerking | Microsoft.ContainerRegistry/registries/builds/cancel/action | Een bestaande build, wordt geannuleerd. |
+> | Bewerking | Microsoft.ContainerRegistry/registries/builds/getLogLink/action | Hiermee haalt u een koppeling om de build-logboeken te downloaden. |
+> | Bewerking | Microsoft.ContainerRegistry/registries/builds/read | De eigenschappen van de opgegeven build opgehaald of een lijst met alle builds voor de opgegeven container registry. |
+> | Bewerking | Microsoft.ContainerRegistry/registries/builds/write | Werkt een build voor een container registry met de opgegeven parameters. |
+> | Bewerking | Microsoft.ContainerRegistry/registries/buildTasks/delete | Hiermee verwijdert u een taak maken vanuit een containerregister. |
+> | Bewerking | Microsoft.ContainerRegistry/registries/buildTasks/listSourceRepositoryProperties/action | Hier worden de eigenschappen van het bron-besturingselement voor een build-taak. |
+> | Bewerking | Microsoft.ContainerRegistry/registries/buildTasks/read | De eigenschappen van de opgegeven build-taak opgehaald of een lijst met de build-taken voor de opgegeven container registry. |
+> | Bewerking | Microsoft.ContainerRegistry/registries/buildTasks/steps/delete | Hiermee verwijdert u een build-stap van een build-taak. |
+> | Bewerking | Microsoft.ContainerRegistry/registries/buildTasks/steps/listBuildArguments/action | Geeft een lijst van de build-argumenten voor een build-stap met inbegrip van de geheime argumenten. |
+> | Bewerking | Microsoft.ContainerRegistry/registries/buildTasks/steps/read | De eigenschappen van de opgegeven build-stap opgehaald of een lijst met de build-stappen voor de opgegeven build-taak. |
+> | Bewerking | Microsoft.ContainerRegistry/registries/buildTasks/steps/write | Hiermee of een build-stap voor een build-taak bijwerken met de opgegeven parameters. |
+> | Bewerking | Microsoft.ContainerRegistry/registries/buildTasks/write | Hiermee of een taak maken voor een container registry bijgewerkt met de opgegeven parameters. |
 > | Bewerking | Microsoft.ContainerRegistry/registries/delete | Hiermee verwijdert u een containerregister. |
 > | Bewerking | Microsoft.ContainerRegistry/registries/eventGridFilters/delete | Hiermee verwijdert een event grid-filter uit een containerregister. |
 > | Bewerking | Microsoft.ContainerRegistry/registries/eventGridFilters/read | Haalt u de eigenschappen van het opgegeven event grid-filter of een lijst met alle filters voor event grid voor de opgegeven container registry. |
 > | Bewerking | Microsoft.ContainerRegistry/registries/eventGridFilters/write | Hiermee of bijwerken van een event grid-filter voor een container registry met de opgegeven parameters. |
+> | Bewerking | Microsoft.ContainerRegistry/registries/getBuildSourceUploadUrl/action | Hiermee haalt u de uploadlocatie voor de gebruiker om te kunnen uploaden van de bron. |
 > | Bewerking | Microsoft.ContainerRegistry/registries/importImage/action | Importeren van de installatiekopie naar container registry met de opgegeven parameters. |
 > | Bewerking | Microsoft.ContainerRegistry/registries/listCredentials/action | Een lijst met de aanmeldingsreferenties voor de opgegeven container registry. |
 > | Bewerking | Microsoft.ContainerRegistry/registries/listPolicies/read | Geeft een lijst van de beleidsregels voor de opgegeven container registry |
@@ -1256,12 +1274,18 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/read | Hiermee wordt de diagnostische instelling voor de resource opgehaald |
 > | Bewerking | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/diagnosticSettings/write | Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt |
 > | Bewerking | Microsoft.ContainerRegistry/registries/providers/Microsoft.Insights/metricDefinitions/read | Hiermee haalt u de beschikbare metrische gegevens voor Microsoft ContainerRegistry |
+> | Bewerking | Microsoft.ContainerRegistry/registries/pull/read | Pull- of installatiekopieën ophalen uit een containerregister. |
+> | Bewerking | Microsoft.ContainerRegistry/registries/push/write | Push- of installatiekopieën schrijven naar een containerregister. |
+> | Bewerking | Microsoft.ContainerRegistry/registries/quarantineRead/read | Pull- of in quarantaine geplaatste afbeeldingen kunt verkrijgen van containerregister |
+> | Bewerking | Microsoft.ContainerRegistry/registries/quarantineWrite/write | Status van de in quarantaine plaatsen van in quarantaine geplaatste afbeeldingen schrijven/wijzigen |
+> | Bewerking | Microsoft.ContainerRegistry/registries/queueBuild/action | Hiermee maakt u een nieuwe build op basis van de aanvraagparameters en toe te voegen aan de build-wachtrij. |
 > | Bewerking | Microsoft.ContainerRegistry/registries/read | De eigenschappen van de opgegeven container registry opgehaald of een lijst met alle containerregisters onder de opgegeven resourcegroep of abonnement. |
 > | Bewerking | Microsoft.ContainerRegistry/registries/regenerateCredential/action | Wordt opnieuw gegenereerd op een van de aanmeldingsreferenties voor de opgegeven container registry. |
 > | Bewerking | Microsoft.ContainerRegistry/registries/replications/delete | Hiermee verwijdert u een replicatie van een containerregister. |
 > | Bewerking | Microsoft.ContainerRegistry/registries/replications/operationStatuses/read | Hiermee wordt een status van replicatie asynchrone bewerking opgehaald |
 > | Bewerking | Microsoft.ContainerRegistry/registries/replications/read | De eigenschappen van de opgegeven replicatie opgehaald of een lijst met alle replicaties voor de opgegeven container registry. |
 > | Bewerking | Microsoft.ContainerRegistry/registries/replications/write | Hiermee of een replicatie voor een container registry bijgewerkt met de opgegeven parameters. |
+> | Bewerking | Microsoft.ContainerRegistry/registries/sign/write | Push of eruit te halen de metagegevens van inhoud vertrouwensrelatie voor een container registry. |
 > | Bewerking | Microsoft.ContainerRegistry/registries/updatePolicies/write | Updates van de beleidsregels voor de opgegeven container registry |
 > | Bewerking | Microsoft.ContainerRegistry/registries/webhooks/delete | Hiermee verwijdert een webhook uit een containerregister. |
 > | Bewerking | Microsoft.ContainerRegistry/registries/webhooks/getCallbackConfig/action | Hiermee haalt de configuratie van service-URI en aangepaste headers voor de webhook. |
@@ -1524,9 +1548,11 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.DataFactory/factories/pipelineruns/activityruns/read | Leest dat de activiteit wordt uitgevoerd voor de opgegeven id voor de pijplijnuitvoering |
 > | Bewerking | Microsoft.DataFactory/factories/pipelineruns/cancel/action | Hiermee annuleert u de pijplijnuitvoering die is opgegeven door de run-ID. |
 > | Bewerking | Microsoft.DataFactory/factories/pipelineruns/queryactivityruns/action | Query's die de activiteit wordt uitgevoerd voor de opgegeven pijplijn uitvoeren ID. |
+> | Bewerking | Microsoft.DataFactory/factories/pipelineruns/queryactivityruns/read | Leest dat het resultaat van query-activiteiten wordt uitgevoerd voor de opgegeven id voor de pijplijnuitvoering |
 > | Bewerking | Microsoft.DataFactory/factories/pipelineruns/read | Hiermee leest u de pijplijn wordt uitgevoerd. |
 > | Bewerking | Microsoft.DataFactory/factories/pipelines/createrun/action | Hiermee maakt u een uitvoering voor de pijplijn. |
 > | Bewerking | Microsoft.DataFactory/factories/pipelines/delete | Hiermee verwijdert u een pijplijn. |
+> | Bewerking | Microsoft.DataFactory/factories/pipelines/pipelineruns/activityruns/progress/read | Hiermee haalt u de voortgang van de uitvoeringen van activiteit. |
 > | Bewerking | Microsoft.DataFactory/factories/pipelines/pipelineruns/read | Hiermee leest u de uitvoering van de pijplijn. |
 > | Bewerking | Microsoft.DataFactory/factories/pipelines/read | Leest de pijplijn. |
 > | Bewerking | Microsoft.DataFactory/factories/pipelines/write | Maken of bijwerken van de pijplijn |
@@ -1535,7 +1561,9 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.DataFactory/factories/providers/Microsoft.Insights/logDefinitions/read | De beschikbare logboeken opgehaald voor de factory 's |
 > | Bewerking | Microsoft.DataFactory/factories/providers/Microsoft.Insights/metricDefinitions/read | Hiermee haalt u de beschikbare metrische gegevens voor de factory 's |
 > | Bewerking | Microsoft.DataFactory/factories/querypipelineruns/action | Query uitgevoerd voor de pijplijn wordt uitgevoerd. |
+> | Bewerking | Microsoft.DataFactory/factories/querypipelineruns/read | Hiermee wordt het resultaat van Query-Pijplijnuitvoeringen gelezen. |
 > | Bewerking | Microsoft.DataFactory/factories/querytriggerruns/action | Query uitgevoerd voor de Trigger wordt uitgevoerd. |
+> | Bewerking | Microsoft.DataFactory/factories/querytriggerruns/read | Hiermee leest u het resultaat van de Trigger wordt uitgevoerd. |
 > | Bewerking | Microsoft.DataFactory/factories/read | Hiermee leest u Data Factory. |
 > | Bewerking | Microsoft.DataFactory/factories/triggerruns/read | Hiermee leest u de Trigger wordt uitgevoerd. |
 > | Bewerking | Microsoft.DataFactory/factories/triggers/delete | Hiermee verwijdert u een Trigger. |
@@ -1546,6 +1574,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.DataFactory/factories/triggers/write | Hiermee of bijwerken van een Trigger. |
 > | Bewerking | Microsoft.DataFactory/factories/write | Maken of bijwerken van de Data Factory |
 > | Bewerking | Microsoft.DataFactory/locations/configureFactoryRepo/action | Hiermee configureert u de opslagplaats voor de factory. |
+> | Bewerking | Microsoft.DataFactory/operations/read | Leest alle bewerkingen in Microsoft Data Factory-Provider. |
 > | Bewerking | Microsoft.DataFactory/register/action | Hiermee wordt het abonnement voor de Data Factory-Resourceprovider geregistreerd. |
 > | Bewerking | Microsoft.DataFactory/unregister/action | De registratie van het abonnement voor de Data Factory-Resourceprovider. |
 
@@ -2071,6 +2100,14 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Features/providers/features/unregister/action | Hiermee kunt u de registratie van de functie van een abonnement voor een opgegeven resourceprovider ongedaan maken. |
 > | Bewerking | Microsoft.Features/register/action | Hiermee registreert u de functie van een abonnement. |
 
+## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
+
+> [!div class="mx-tdCol2BreakAll"]
+> | Actietype | Bewerking | Beschrijving |
+> | --- | --- | --- |
+> | Bewerking | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | Get Gast configuration toewijzing. |
+> | Bewerking | Microsoft.GuestConfiguration/guestConfigurationAssignments/write | Nieuwe toewijzing van Gast-configuratie maken. |
+
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
 > [!div class="mx-tdCol2BreakAll"]
@@ -2359,7 +2396,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | DataAction | Microsoft.LogAnalytics/logs/ADAssessmentRecommendation/read | Gegevens lezen uit de tabel ADAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/ADReplicationResult/read | Gegevens lezen uit de tabel ADReplicationResult |
 > | DataAction | Microsoft.LogAnalytics/logs/ADSecurityAssessmentRecommendation/read | Gegevens lezen uit de tabel ADSecurityAssessmentRecommendation |
-> | DataAction | Microsoft.LogAnalytics/logs/Alert/read | Gegevens lezen uit de tabel met waarschuwingen |
+> | DataAction | Microsoft.LogAnalytics/logs/Alert/read | Gegevens lezen uit de tabel Alert |
 > | DataAction | Microsoft.LogAnalytics/logs/AlertHistory/read | Gegevens lezen uit de tabel AlertHistory |
 > | DataAction | Microsoft.LogAnalytics/logs/ApplicationInsights/read | Gegevens lezen uit de Application Insights-tabel |
 > | DataAction | Microsoft.LogAnalytics/logs/AzureActivity/read | Gegevens lezen uit de tabel AzureActivity |
@@ -2373,7 +2410,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | DataAction | Microsoft.LogAnalytics/logs/ContainerInventory/read | Gegevens lezen uit de tabel ContainerInventory |
 > | DataAction | Microsoft.LogAnalytics/logs/ContainerLog/read | Gegevens lezen uit de tabel ContainerLog |
 > | DataAction | Microsoft.LogAnalytics/logs/ContainerServiceLog/read | Gegevens lezen uit de tabel ContainerServiceLog |
-> | DataAction | Microsoft.LogAnalytics/logs/CustomLogs/read | Lezen van gegevens uit een aangepaste logboek |
+> | DataAction | Microsoft.LogAnalytics/logs/CustomLogs/read | Gegevens lezen van een aangepast logboek |
 > | DataAction | Microsoft.LogAnalytics/logs/DeviceAppCrash/read | Gegevens lezen uit de tabel DeviceAppCrash |
 > | DataAction | Microsoft.LogAnalytics/logs/DeviceAppLaunch/read | Gegevens lezen uit de tabel DeviceAppLaunch |
 > | DataAction | Microsoft.LogAnalytics/logs/DeviceCalendar/read | Gegevens lezen uit de tabel DeviceCalendar |
@@ -2397,7 +2434,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | DataAction | Microsoft.LogAnalytics/logs/DnsEvents/read | Gegevens lezen uit de tabel DnsEvents |
 > | DataAction | Microsoft.LogAnalytics/logs/DnsInventory/read | Gegevens lezen uit de tabel DnsInventory |
 > | DataAction | Microsoft.LogAnalytics/logs/ETWEvent/read | Gegevens lezen uit de tabel ETWEvent |
-> | DataAction | Microsoft.LogAnalytics/logs/Event/read | Gegevens lezen uit de tabel gebeurtenis |
+> | DataAction | Microsoft.LogAnalytics/logs/Event/read | Gegevens lezen uit de tabel Event |
 > | DataAction | Microsoft.LogAnalytics/logs/ExchangeAssessmentRecommendation/read | Gegevens lezen uit de tabel ExchangeAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/ExchangeOnlineAssessmentRecommendation/read | Gegevens lezen uit de tabel ExchangeOnlineAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/Heartbeat/read | Lezen van gegevens van de Heartbeat-tabel |
@@ -2450,11 +2487,11 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | DataAction | Microsoft.LogAnalytics/logs/MAWindowsSysReqInstanceReadiness/read | Gegevens lezen uit de tabel MAWindowsSysReqInstanceReadiness |
 > | DataAction | Microsoft.LogAnalytics/logs/NetworkMonitoring/read | Gegevens lezen uit de tabel NetworkMonitoring |
 > | DataAction | Microsoft.LogAnalytics/logs/OfficeActivity/read | Gegevens lezen uit de tabel OfficeActivity |
-> | DataAction | Microsoft.LogAnalytics/logs/Operation/read | Gegevens lezen uit de tabel |
+> | DataAction | Microsoft.LogAnalytics/logs/Operation/read | Gegevens lezen uit de tabel Operation |
 > | DataAction | Microsoft.LogAnalytics/logs/OutboundConnection/read | Gegevens lezen uit de tabel OutboundConnection |
-> | DataAction | Microsoft.LogAnalytics/logs/Perf/read | Gegevens lezen uit de tabel voor prestaties |
+> | DataAction | Microsoft.LogAnalytics/logs/Perf/read | Gegevens lezen uit de prestatietabel |
 > | DataAction | Microsoft.LogAnalytics/logs/ProtectionStatus/read | Gegevens lezen uit de tabel ProtectionStatus |
-> | Bewerking | Microsoft.LogAnalytics/logs/read | Lezen van gegevens uit alle uw logboeken |
+> | Bewerking | Microsoft.LogAnalytics/logs/read | Gegevens lezen uit al uw logboeken |
 > | DataAction | Microsoft.LogAnalytics/logs/ReservedAzureCommonFields/read | Gegevens lezen uit de tabel ReservedAzureCommonFields |
 > | DataAction | Microsoft.LogAnalytics/logs/ReservedCommonFields/read | Gegevens lezen uit de tabel ReservedCommonFields |
 > | DataAction | Microsoft.LogAnalytics/logs/SCCMAssessmentRecommendation/read | Gegevens lezen uit de tabel SCCMAssessmentRecommendation |
@@ -2487,10 +2524,10 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | DataAction | Microsoft.LogAnalytics/logs/UAProposedActionPlan/read | Gegevens lezen uit de tabel UAProposedActionPlan |
 > | DataAction | Microsoft.LogAnalytics/logs/UASysReqIssue/read | Gegevens lezen uit de tabel UASysReqIssue |
 > | DataAction | Microsoft.LogAnalytics/logs/UAUpgradedComputer/read | Gegevens lezen uit de tabel UAUpgradedComputer |
-> | DataAction | Microsoft.LogAnalytics/logs/Update/read | Gegevens lezen uit de tabel bijwerken |
+> | DataAction | Microsoft.LogAnalytics/logs/Update/read | Gegevens lezen uit de tabel Update |
 > | DataAction | Microsoft.LogAnalytics/logs/UpdateRunProgress/read | Gegevens lezen uit de tabel UpdateRunProgress |
 > | DataAction | Microsoft.LogAnalytics/logs/UpdateSummary/read | Gegevens lezen uit de tabel UpdateSummary |
-> | DataAction | Microsoft.LogAnalytics/logs/Usage/read | Gegevens lezen uit de tabel Gebruik |
+> | DataAction | Microsoft.LogAnalytics/logs/Usage/read | Gegevens lezen uit de tabel Usage |
 > | DataAction | Microsoft.LogAnalytics/logs/VMBoundPort/read | Gegevens lezen uit de tabel VMBoundPort |
 > | DataAction | Microsoft.LogAnalytics/logs/VMConnection/read | Gegevens lezen uit de tabel VMConnection |
 > | DataAction | Microsoft.LogAnalytics/logs/W3CIISLog/read | Gegevens lezen uit de tabel W3CIISLog |
@@ -2503,6 +2540,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | DataAction | Microsoft.LogAnalytics/logs/WindowsFirewall/read | Gegevens lezen uit de tabel WindowsFirewall |
 > | DataAction | Microsoft.LogAnalytics/logs/WindowsServerAssessmentRecommendation/read | Gegevens lezen uit de tabel WindowsServerAssessmentRecommendation |
 > | DataAction | Microsoft.LogAnalytics/logs/WireData/read | Gegevens lezen uit de tabel WireData |
+> | DataAction | Microsoft.LogAnalytics/logs/WorkloadMonitoringPerf/read | Gegevens lezen uit de tabel WorkloadMonitoringPerf |
 > | DataAction | Microsoft.LogAnalytics/logs/WUDOAggregatedStatus/read | Gegevens lezen uit de tabel WUDOAggregatedStatus |
 > | DataAction | Microsoft.LogAnalytics/logs/WUDOStatus/read | Gegevens lezen uit de tabel WUDOStatus |
 
@@ -2715,6 +2753,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
+> | DataAction | Microsoft.Maps/accounts/data/read | Verleent toegang tot het lezen van gegevens naar een maps-account. |
 > | Bewerking | Microsoft.Maps/accounts/delete | Een Maps-Account verwijderen. |
 > | Bewerking | Microsoft.Maps/accounts/listKeys/action | Een lijst met kaarten-Account sleutels |
 > | Bewerking | Microsoft.Maps/accounts/providers/Microsoft.Insights/diagnosticSettings/read | Hiermee wordt de diagnostische instelling voor de resource opgehaald |
@@ -3449,8 +3488,11 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | --- | --- | --- |
 > | Bewerking | Microsoft.PolicyInsights/asyncOperationResults/read | Hiermee wordt het resultaat van de asynchrone bewerking opgehaald. |
 > | Bewerking | Microsoft.PolicyInsights/policyEvents/queryResults/action | Informatie over beleidsgebeurtenissen opvragen. |
+> | Bewerking | Microsoft.PolicyInsights/policyEvents/queryResults/read | Informatie over beleidsgebeurtenissen opvragen. |
 > | Bewerking | Microsoft.PolicyInsights/policyStates/queryResults/action | Informatie over beleidsstatussen opvragen. |
+> | Bewerking | Microsoft.PolicyInsights/policyStates/queryResults/read | Informatie over beleidsstatussen opvragen. |
 > | Bewerking | Microsoft.PolicyInsights/policyStates/summarize/action | Samenvattingsinformatie over de meest recente beleidsstatussen opvragen. |
+> | Bewerking | Microsoft.PolicyInsights/policyStates/summarize/read | Samenvattingsinformatie over de meest recente beleidsstatussen opvragen. |
 > | Bewerking | Microsoft.PolicyInsights/policyStates/triggerEvaluation/action | Hiermee wordt een nieuwe evaluatie van de compatibiliteit voor het geselecteerde bereik geactiveerd. |
 > | Bewerking | Microsoft.PolicyInsights/register/action | Hiermee wordt de resourceprovider voor policy insights geregistreerd en wordt acties uitgevoerd. |
 
@@ -4809,6 +4851,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Web/sites/config/DELETE | Configuratie van de Web-Apps verwijderen. |
 > | Bewerking | Microsoft.Web/sites/config/list/Action | Overzicht van Web-App gevoelige beveiligingsinstellingen, zoals het publiceren van referenties, app-instellingen en verbindingsreeksen |
 > | Bewerking | Microsoft.Web/sites/config/Read | Instellingen voor Web-App-configuratie ophalen |
+> | Bewerking | Microsoft.Web/sites/config/Snapshots/Read | Web Apps-Config momentopnamen ophalen. |
 > | Bewerking | Microsoft.Web/sites/config/Write | Web-App-configuratie-instellingen bijwerken |
 > | Bewerking | Microsoft.Web/sites/containerlogs/Action | Containerlogbestanden ophalen voor Web-App worden ingepakt. |
 > | Bewerking | Microsoft.Web/sites/continuouswebjobs/DELETE | Doorlopende webtaken van Web-Apps verwijderen. |
@@ -4857,6 +4900,8 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Web/sites/hostnamebindings/DELETE | Web Apps-Hostnaambindingen verwijderen. |
 > | Bewerking | Microsoft.Web/sites/hostnamebindings/Read | Web Apps-Hostnaambindingen ophalen. |
 > | Bewerking | Microsoft.Web/sites/hostnamebindings/Write | Web Apps-Hostnaambindingen bijwerken. |
+> | Bewerking | Microsoft.Web/sites/hostruntime/host/_master/read | De hoofdsleutel van de functie-App voor de bewerkingen ophalen |
+> | Bewerking | Microsoft.Web/sites/hostruntime/host/action | Runtime-actie, zoals triggers synchroniseren, functies toevoegen, aanroepen van functies, functies enzovoort verwijderen van functie-App uitvoeren. |
 > | Bewerking | Microsoft.Web/sites/hybridconnection/DELETE | Web Apps hybride verbinding verwijderen. |
 > | Bewerking | Microsoft.Web/sites/hybridconnection/Read | Get-Web-Apps hybride verbinding. |
 > | Bewerking | Microsoft.Web/sites/hybridconnection/Write | Web Apps hybride verbinding bijwerken. |
@@ -4871,6 +4916,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Web/sites/Instances/Extensions/Read | Get-extensies voor Web Apps-instanties. |
 > | Bewerking | Microsoft.Web/sites/Instances/processes/DELETE | Verwijderen van Web Apps-instanties processen. |
 > | Bewerking | Microsoft.Web/sites/Instances/processes/Read | Web Apps-instanties processen ophalen. |
+> | Bewerking | Microsoft.Web/sites/Instances/processes/threads/Read | Web Apps-instanties processen Threads ophalen. |
 > | Bewerking | Microsoft.Web/sites/Instances/Read | Web Apps-instanties ophalen. |
 > | Bewerking | Microsoft.Web/sites/listsyncfunctiontriggerstatus/Action | Lijst met synchronisatie functie Trigger Status Web-Apps. |
 > | Bewerking | Microsoft.Web/sites/metricdefinitions/Read | Web Apps metrische definities ophalen. |
@@ -4886,6 +4932,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Web/sites/premieraddons/DELETE | Web Apps Premier-invoegtoepassingen verwijderen. |
 > | Bewerking | Microsoft.Web/sites/premieraddons/Read | Web Apps Premier-invoegtoepassingen ophalen. |
 > | Bewerking | Microsoft.Web/sites/premieraddons/Write | Web Apps Premier-invoegtoepassingen werken. |
+> | Bewerking | Microsoft.Web/sites/privateaccess/Read | Ophalen van gegevens over persoonlijke site toegang inschakelen en toegestane virtuele netwerken die toegang hebben tot de site. |
 > | Bewerking | Microsoft.Web/sites/processes/Read | Web Apps processen ophalen. |
 > | Bewerking | microsoft.web/sites/providers/Microsoft.Insights/diagnosticSettings/read | Hiermee wordt de diagnostische instelling voor de resource opgehaald |
 > | Bewerking | microsoft.web/sites/providers/Microsoft.Insights/diagnosticSettings/write | Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt |
@@ -4907,6 +4954,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Web/sites/restart/Action | Een Web-App opnieuw starten |
 > | Bewerking | Microsoft.Web/sites/Restore/Read | Herstellen van Web-Apps ophalen. |
 > | Bewerking | Microsoft.Web/sites/Restore/Write | Herstellen van WebApps. |
+> | Bewerking | Microsoft.Web/sites/restorefrombackupblob/Action | Web-App herstellen vanuit back-Blob. |
 > | Bewerking | Microsoft.Web/sites/restorefromdeletedwebapp/Action | Web-Apps herstellen van verwijderde App. |
 > | Bewerking | Microsoft.Web/sites/restoresnapshot/Action | Terugzetten van momentopnamen van de Web-Apps. |
 > | Bewerking | Microsoft.Web/sites/siteextensions/DELETE | Verwijderen van Web Apps-Site-uitbreidingen. |
@@ -4917,6 +4965,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Web/sites/slots/backup/Action | Nieuwe Web-App sleuf back-up maken. |
 > | Bewerking | Microsoft.Web/sites/slots/Backup/Read | Get-back-up-sleuven voor Web-Apps. |
 > | Bewerking | Microsoft.Web/sites/slots/Backup/Write | Web Apps-sleuven back-up. |
+> | Bewerking | Microsoft.Web/sites/slots/backups/Action | Web Apps-sleuven back-ups detecteren. |
 > | Bewerking | Microsoft.Web/sites/slots/backups/DELETE | Back-ups sleuven voor Web-Apps verwijderen. |
 > | Bewerking | Microsoft.Web/sites/slots/backups/List/Action | Lijst met Web Apps-sleuven back-ups. |
 > | Bewerking | Microsoft.Web/sites/slots/backups/Read | Hiermee worden de eigenschappen van een web-appsites back-up |
@@ -4925,6 +4974,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Web/sites/slots/config/list/Action | Overzicht van Web-App sleuf gevoelige beveiligingsinstellingen, zoals het publiceren van referenties, app-instellingen en verbindingsreeksen |
 > | Bewerking | Microsoft.Web/sites/slots/config/Read | Configuratie-instellingen voor Web-App sleuf ophalen |
 > | Bewerking | Microsoft.Web/sites/slots/config/Write | Web-App sleuf configuratie-instellingen bijwerken |
+> | Bewerking | Microsoft.Web/sites/slots/containerlogs/Action | Logboeken voor containers ophalen voor de Web-App-site worden ingepakt. |
 > | Bewerking | Microsoft.Web/sites/slots/continuouswebjobs/DELETE | Web Apps-sleuven doorlopende webtaken verwijderen. |
 > | Bewerking | Microsoft.Web/sites/slots/continuouswebjobs/Read | Web Apps-sleuven doorlopende webtaken ophalen. |
 > | Bewerking | Microsoft.Web/sites/slots/continuouswebjobs/start/Action | Web Apps-sleuven doorlopende webtaken starten. |
@@ -4934,6 +4984,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Web/sites/slots/Deployments/log/Read | Web Apps-sleuven implementaties Log ophalen. |
 > | Bewerking | Microsoft.Web/sites/slots/Deployments/Read | Web Apps-sleuven implementaties ophalen. |
 > | Bewerking | Microsoft.Web/sites/slots/Deployments/Write | Update-implementaties van Web Apps-sleuven. |
+> | Bewerking | Microsoft.Web/sites/slots/detectors/Read | Web Apps-sleuven detectoren ophalen. |
 > | Bewerking | microsoft.web/sites/slots/diagnostics/analyses/execute/Action | Web Apps-sleuven diagnostische analyses uitvoeren. |
 > | Bewerking | Microsoft.Web/sites/slots/Diagnostics/analyses/Read | Analyse van Web Apps-sleuven diagnostische gegevens ophalen. |
 > | Bewerking | Microsoft.Web/sites/slots/Diagnostics/aspnetcore/Read | Web Apps-sleuven diagnostische gegevens ophalen voor ASP.NET Core-app. |
@@ -4958,6 +5009,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Web/sites/slots/Diagnostics/workeravailability/Read | Web Apps-sleuven Diagnostics Workeravailability ophalen. |
 > | Bewerking | Microsoft.Web/sites/slots/Diagnostics/workerprocessrecycle/Read | Recyclen van Web Apps-sleuven Diagnostics Worker proces ophalen. |
 > | Bewerking | Microsoft.Web/sites/slots/domainownershipidentifiers/Read | Web Apps-sleuven domein eigenaar-id's ophalen |
+> | Bewerking | Microsoft.Web/sites/slots/Functions/Read | Get-functies van Web Apps-sleuven. |
 > | Bewerking | Microsoft.Web/sites/slots/hostnamebindings/DELETE | Web Apps-sleuven Hostnaambindingen verwijderen. |
 > | Bewerking | Microsoft.Web/sites/slots/hostnamebindings/Read | Web Apps-sleuven Hostnaambindingen ophalen. |
 > | Bewerking | Microsoft.Web/sites/slots/hostnamebindings/Write | Web Apps-sleuven Hostnaambindingen bijwerken. |
@@ -4999,6 +5051,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Web/sites/slots/restart/Action | Opnieuw opstarten van een Web-App-sleuf |
 > | Bewerking | Microsoft.Web/sites/slots/Restore/Read | Get-Web-Apps-sleuven terugzetten. |
 > | Bewerking | Microsoft.Web/sites/slots/Restore/Write | Web Apps-sleuven herstellen. |
+> | Bewerking | Microsoft.Web/sites/slots/restorefrombackupblob/Action | Web Apps-sleuf herstellen vanuit back-Blob. |
 > | Bewerking | Microsoft.Web/sites/slots/restorefromdeletedwebapp/Action | Web-Appsites herstellen van verwijderde App. |
 > | Bewerking | Microsoft.Web/sites/slots/restoresnapshot/Action | Web Apps-sleuven momentopnamen terugzetten. |
 > | Bewerking | Microsoft.Web/sites/slots/siteextensions/DELETE | Site-uitbreidingen voor Web Apps-sleuven verwijderen. |
@@ -5057,21 +5110,15 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.WorkloadMonitor/components/read | Bronnen voor bedrijfsactiviteiten lezen |
-> | Bewerking | Microsoft.WorkloadMonitor/healthInstances/read | Bronnen voor bedrijfsactiviteiten lezen |
-> | Bewerking | Microsoft.WorkloadMonitor/Operations/read | Bronnen voor bedrijfsactiviteiten lezen |
-> | Bewerking | Microsoft.WorkloadMonitor/workloadInsights/delete | Hiermee verwijdert u een resource workloadInsights |
-> | Bewerking | Microsoft.WorkloadMonitor/workloadInsights/delete | Hiermee verwijdert u een resource workloadInsights |
-> | Bewerking | Microsoft.WorkloadMonitor/workloadInsights/read | Leest een workloadInsights-resource |
-> | Bewerking | Microsoft.WorkloadMonitor/workloadInsights/read | Leest een workloadInsights-resource |
-> | Bewerking | Microsoft.WorkloadMonitor/workloadInsights/write | Schrijft een workloadInsights-resource |
-> | Bewerking | Microsoft.WorkloadMonitor/workloadInsights/write | Schrijft een workloadInsights-resource |
-> | Bewerking | Microsoft.WorkloadMonitor/workloads/delete |  |
-> | Bewerking | Microsoft.WorkloadMonitor/workloads/delete |  |
-> | Bewerking | Microsoft.WorkloadMonitor/workloads/read | Leest een workload resource |
-> | Bewerking | Microsoft.WorkloadMonitor/workloads/read | Leest een workload resource |
-> | Bewerking | Microsoft.WorkloadMonitor/workloads/write | Schrijft een workload resource |
-> | Bewerking | Microsoft.WorkloadMonitor/workloads/write | Schrijft een workload resource |
+> | Bewerking | Microsoft.WorkloadMonitor/components/read | Hiermee haalt u onderdelen voor de resource |
+> | Bewerking | Microsoft.WorkloadMonitor/componentsSummary/read | Overzicht van onderdelen opgehaald |
+> | Bewerking | Microsoft.WorkloadMonitor/monitorInstances/read | Hiermee haalt u exemplaren van de monitors voor de resource |
+> | Bewerking | Microsoft.WorkloadMonitor/monitorInstancesSummary/read | Overzicht van de monitor-instanties opgehaald |
+> | Bewerking | Microsoft.WorkloadMonitor/monitors/read | Hiermee haalt u monitors voor de resource |
+> | Bewerking | Microsoft.WorkloadMonitor/monitors/write | Monitor voor de resource configureren |
+> | Bewerking | Microsoft.WorkloadMonitor/notificationSettings/read | Instellingen voor meldingen voor de resource opgehaald |
+> | Bewerking | Microsoft.WorkloadMonitor/notificationSettings/write | Configureren van instellingen voor meldingen voor de resource |
+> | Bewerking | Microsoft.WorkloadMonitor/operations/read | De ondersteunde bewerkingen opgehaald |
 
 ## <a name="next-steps"></a>Volgende stappen
 

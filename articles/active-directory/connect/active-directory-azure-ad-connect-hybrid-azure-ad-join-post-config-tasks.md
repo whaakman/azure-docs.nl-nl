@@ -4,7 +4,7 @@ description: De Documentdetails van dit post-configuratietaken die nodig zijn vo
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: samueld
+manager: mtillman
 editor: billmath
 ms.assetid: ''
 ms.service: active-directory
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/27/2018
+ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9949275b18206ca66f38bab036337a00fdde6ee5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 05cb6d10a7e4269cbe5f9c97ef70cd9eb5a4d68e
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916544"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "42055324"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Taken van na configuratie voor de hybride Azure AD join
 
@@ -62,7 +62,7 @@ Als uw organisatie gebruikmaakt van een federation-service zich aanmeldt bij Azu
 
 ## <a name="6-enable-azure-ad-seamless-sso-for-windows-down-level-devices"></a>6. Azure AD naadloze eenmalige aanmelding voor Windows downlevel-apparaten inschakelen
 
-Als uw organisatie gebruikmaakt van wachtwoord-Hashsynchronisatie of Pass through-verificatie te melden bij Azure AD, Azure AD naadloze eenmalige aanmelding inschakelen met deze methode aanmelden om Windows downlevel-apparaten te verifiëren: https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-sso. 
+Als uw organisatie gebruikmaakt van wachtwoord-Hashsynchronisatie of Pass through-verificatie te melden bij Azure AD, Azure AD naadloze eenmalige aanmelding inschakelen met deze methode aanmelden om Windows downlevel-apparaten te verifiëren: https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso. 
 
 ## <a name="7-set-azure-ad-policy-for-windows-down-level-devices"></a>7. Azure AD-beleid voor Windows downlevel-apparaten instellen
 
@@ -81,7 +81,7 @@ Als u [naadloze eenmalige aanmelding](https://aka.ms/hybrid/sso), ook deze zone 
 
 ## <a name="9-install-microsoft-workplace-join-on-windows-down-level-devices"></a>9. Microsoft Workplace Join op Windows downlevel-apparaten installeren
 
-Met dit installatieprogramma maakt een geplande taak op het apparaat-systeem dat wordt uitgevoerd in de context van de gebruiker. De taak wordt geactiveerd wanneer de gebruiker zich aanmeldt bij Windows. De taak op de achtergrond lid wordt van het apparaat met Azure AD met de referenties van de gebruiker na verificatie met behulp van geïntegreerde Windows-verificatie. Het download center loopt https://www.microsoft.com/en-us/download/details.aspx?id=53554. 
+Met dit installatieprogramma maakt een geplande taak op het apparaat-systeem dat wordt uitgevoerd in de context van de gebruiker. De taak wordt geactiveerd wanneer de gebruiker zich aanmeldt bij Windows. De taak op de achtergrond lid wordt van het apparaat met Azure AD met de referenties van de gebruiker na verificatie met behulp van geïntegreerde Windows-verificatie. Het download center loopt https://www.microsoft.com/download/details.aspx?id=53554. 
 
 ## <a name="10-configure-group-policy-to-allow-device-registration"></a>10. Groepsbeleid om toe te staan van device Registration service configureren
 

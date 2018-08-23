@@ -8,17 +8,18 @@ manager: wpickett
 editor: ''
 ms.service: storage
 ms.workload: web
+ms.custom: vs-azure
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: casoper
-ms.openlocfilehash: 42390effd6a2d2a8afe9350e0a77d3c0a17b6129
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 82c5fb0f3f3e8edad948b82f77c9c336636f3077
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38720226"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42442738"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Aan de slag met Azure Blob storage en Visual Studio verbonden services (ASP.NET Core)
 
@@ -69,7 +70,7 @@ In deze sectie helpt bij het instellen van de ontwikkelomgeving. Dit omvat het m
 1. In de **Azure Storage** in het dialoogvenster, selecteer het Azure storage-account moet worden gebruikt voor deze zelfstudie. Voor het maken van een nieuw Azure storage-account selecteert **maken van een nieuw Opslagaccount**, en vul het formulier. Selecteer na het selecteren van een bestaand opslagaccount of het maken van een nieuwe, **toevoegen**. Visual Studio installeert het NuGet-pakket voor Azure Storage en een verbindingsreeks voor opslag op **appsettings.json**.
 
 > [!TIP]
-> Voor meer informatie over het maken van een storage-account met de [Azure-portal](https://portal.azure.com), Zie [een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account).
+> Voor meer informatie over het maken van een storage-account met de [Azure-portal](https://portal.azure.com), Zie [een opslagaccount maken](../storage/common/storage-quickstart-create-account.md).
 >
 > U kunt ook een storage-account maken met behulp van [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), [Azure CLI](../storage/common/storage-azure-cli.md), of [Azure Cloud Shell](../cloud-shell/overview.md).
 

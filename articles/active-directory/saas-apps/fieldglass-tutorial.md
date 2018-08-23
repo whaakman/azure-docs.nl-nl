@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/18/2017
 ms.author: jeedes
-ms.openlocfilehash: 446eac2bf6eed10f919d6c64de1d7b9dbba1f35d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a14aeb55d9e5756660708e9e63a867a66a54a7b6
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420346"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42443949"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>Zelfstudie: Azure Active Directory-integratie met Fieldglass
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van Fieldglass in Azure AD, moet u Field
 
 **Als u wilt toevoegen Fieldglass uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -121,7 +121,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     | `https://<company name>.fgvms.com/<company name>`|
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke id en de antwoord-URL. Neem contact op met [Fieldglass ondersteuningsteam](http://www.fieldglass.com/solutions/support) om deze waarden te verkrijgen.
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke id en de antwoord-URL. Neem contact op met [Fieldglass ondersteuningsteam](https://www.fieldglass.com/customer-support) om deze waarden te verkrijgen.
  
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 
@@ -135,7 +135,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/fieldglass-tutorial/tutorial_fieldglass_configure.png) 
 
-1. Het configureren van eenmalige aanmelding op **Fieldglass** zijde, moet u voor het verzenden van de gedownloade **Certificate(Base64)** en **URL van de afmelding, SAML-entiteit-ID** naar [ Fieldglass ondersteuningsteam](http://www.fieldglass.com/solutions/support). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+1. Het configureren van eenmalige aanmelding op **Fieldglass** zijde, moet u voor het verzenden van de gedownloade **Certificate(Base64)** en **URL van de afmelding, SAML-entiteit-ID** naar [ Fieldglass ondersteuningsteam](https://www.fieldglass.com/customer-support). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -173,7 +173,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
  
 ### <a name="creating-a-fieldglass-test-user"></a>Het maken van een testgebruiker Fieldglass
 
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in FieldGlass. Neem contact op met uw [Fieldglass ondersteuningsteam](http://www.fieldglass.com/solutions/support) om toe te voegen de gebruikers in de Fieldglass-account.
+Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in FieldGlass. Neem contact op met uw [Fieldglass ondersteuningsteam](https://www.fieldglass.com/customer-support) om toe te voegen de gebruikers in de Fieldglass-account.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 

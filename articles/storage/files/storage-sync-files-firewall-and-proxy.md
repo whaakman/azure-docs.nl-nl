@@ -5,15 +5,15 @@ services: storage
 author: fauhse
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 08/08/2018
 ms.author: fauhse
 ms.component: files
-ms.openlocfilehash: 44bfdd192f846b710e378b1f00799eda304cec1e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f5fa68488fa8130ad49da37c91b7f4c04376edb3
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522761"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42440676"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Proxy- en firewallinstellingen van Azure File Sync
 Azure File Sync verbindt uw on-premises servers naar Azure Files, synchronisatie van meerdere locaties en cloud-opslaglagen functies inschakelen. Als zodanig moet een on-premises server worden verbonden met internet. IT-beheerder nodig heeft om te bepalen van het beste pad voor de server te bereiken in Azure cloudservices.
@@ -46,15 +46,47 @@ Azure File Sync werkt via middelen beschikbaar waarmee het bereik in Azure, auto
 ## <a name="proxy"></a>Proxy
 Azure File Sync biedt ondersteuning voor app-specifieke en alle computers proxy-instellingen.
 
-Machine-proxy-instellingen zijn transparant voor de Azure File Sync-agent omdat het volledige verkeer van de server wordt doorgestuurd via de proxy.
-
-App-specifieke proxy-instellingen van de configuratie van een proxy specifiek voor Azure File Sync-verkeer toestaan. App-specifieke proxy-instellingen worden ondersteund op agentversie 3.0.12.0 of hoger en kunnen worden geconfigureerd tijdens de installatie van de agent of met behulp van de Set-StorageSyncProxyConfiguration PowerShell-cmdlet.
+**App-specifieke proxy-instellingen** configuratie van een proxy specifiek voor Azure File Sync-verkeer toestaan. App-specifieke proxy-instellingen worden ondersteund op agentversie 3.0.12.0 of hoger en kunnen worden geconfigureerd tijdens de installatie van de agent of met behulp van de Set-StorageSyncProxyConfiguration PowerShell-cmdlet.
 
 PowerShell-opdrachten voor het app-specifieke proxy-instellingen configureren:
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
 ```
+**Proxy-instellingen machine hele** transparant voor de Azure File Sync-agent zijn als het hele verkeer van de server wordt doorgestuurd via de proxy.
+
+Voor het configureren van machine-proxy-instellingen, de volgende stappen uit te voeren: 
+
+1. Proxy-instellingen voor .NET-toepassingen configureren 
+
+  - Bewerk deze twee bestanden:  
+    C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config  
+    C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
+
+  - De sectie < system.net > toevoegen in het bestand Machine.config (onder de sectie < system.serviceModel >).  Wijzig 127.0.01:8888 in de IP-adres en poort voor de proxyserver. 
+  ```
+      <system.net>
+        <defaultProxy enabled="true" useDefaultCredentials="true">
+          <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
+        </defaultProxy>
+      </system.net>
+  ```
+
+2. Stel de WinHTTP-proxy-instellingen 
+
+  - Voer de volgende opdracht vanaf een opdrachtprompt met verhoogde bevoegdheid of PowerShell om te zien van de bestaande proxy-instellingen:   
+
+    proxy van netsh winhttp show
+
+  - Voer de volgende opdracht vanaf een opdrachtprompt met verhoogde bevoegdheid of PowerShell om in te stellen van de proxy-instellingen (127.0.01:8888 wijzigen in de IP-adres en poort voor de proxyserver):  
+
+    netsh winhttp instellen proxy 127.0.0.1:8888
+
+3. Met de volgende opdracht vanaf een opdrachtprompt met verhoogde bevoegdheid of PowerShell om de opslag-Sync-Agent-service opnieuw te starten: 
+
+      net stop filesyncsvc
+
+      Opmerking: De service opslag-Sync-Agent (filesyncsvc) wordt automatisch wordt gestart zodra deze is gestopt.
 
 ## <a name="firewall"></a>Firewall
 Zoals vermeld in een vorige sectie, open poort 443 moet uitgaande. Op basis van beleid in uw datacenter, de vertakking of de regio, verder beperken van verkeer via deze poort tot specifieke domeinen mogelijk gewenst of vereist.
@@ -76,7 +108,22 @@ Als &ast;. one.microsoft.com te ruim is, kunt u de communicatie van de server be
 
 Voor zakelijke continuïteit en noodherstel (BCDR) recovery redenen kan u hebt opgegeven dat uw Azure-bestandsshares in een wereldwijd redundant (GRS) storage-account. Als dit het geval is, wordt klikt u vervolgens uw Azure-bestandsshares failover naar de gekoppelde regio in geval van een langdurige regionale uitval. Azure File Sync maakt gebruik van de dezelfde regionale koppelingen als opslag. Dus als u GRS-opslagaccounts gebruiken, moet u om in te schakelen als u meer URL's voor het toestaan van uw server om te communiceren met de gekoppelde regio voor Azure File Sync. De onderstaande tabel roept deze 'gepaarde regio'. Daarnaast is er een traffic manager-profiel-URL die moet ook worden ingeschakeld. Dit zorgt ervoor netwerkverkeer kan worden naadloos opnieuw doorgestuurd naar de gekoppelde regio in het geval van een failover en met de naam 'Detectie-URL' in de onderstaande tabel.
 
-| Regio | Primair eindpunt-URL | Gekoppelde regio | Detectie-URL | |---|---|| --------|| ---------------------------------------| | Australië-Oost | https://kailani-aue.one.microsoft.com | Australië Souteast | https://kailani-aue.one.microsoft.com | | Australië-Zuidoost | https://kailani-aus.one.microsoft.com | Australië-Oost | https://tm-kailani-aus.one.microsoft.com | | Canada centraal | https://kailani-cac.one.microsoft.com | Canada-Oost | https://tm-kailani-cac.one.microsoft.com | | Canada-Oost | https://kailani-cae.one.microsoft.com | Canada centraal | https://tm-kailani.cae.one.microsoft.com | | VS-midden | https://kailani-cus.one.microsoft.com | VS-Oost 2 | https://tm-kailani-cus.one.microsoft.com | | Oost-Azië | https://kailani11.one.microsoft.com | Zuidoost-Azië | https://tm-kailani11.one.microsoft.com | | VS-Oost | https://kailani1.one.microsoft.com | VS-West | https://tm-kailani1.one.microsoft.com | | VS-Oost 2 | https://kailani-ess.one.microsoft.com | VS-midden | https://tm-kailani-ess.one.microsoft.com | | Noord-Europa | https://kailani7.one.microsoft.com | West-Europa | https://tm-kailani7.one.microsoft.com | | Zuidoost-Azië | https://kailani10.one.microsoft.com | Oost-Azië | https://tm-kailani10.one.microsoft.com | | UK-Zuid | https://kailani-uks.one.microsoft.com | UK-West | https://tm-kailani-uks.one.microsoft.com | | UK-West | https://kailani-ukw.one.microsoft.com | UK-Zuid | https://tm-kailani-ukw.one.microsoft.com | | West-Europa | https://kailani6.one.microsoft.com | Noord-Europa | https://tm-kailani6.one.microsoft.com | | VS-West | https://kailani.one.microsoft.com | VS-Oost | https://tm-kailani.one.microsoft.com |
+| Regio | Primair eindpunt-URL | Gekoppelde regio | Detectie-URL |
+|--------|---------------------------------------|--------|---------------------------------------|
+| Australië - oost | https://kailani-aue.one.microsoft.com | Australië Souteast | https://kailani-aue.one.microsoft.com |
+| Australië - zuidoost | https://kailani-aus.one.microsoft.com | Australië - oost | https://tm-kailani-aus.one.microsoft.com |
+| Canada - midden | https://kailani-cac.one.microsoft.com | Canada - oost | https://tm-kailani-cac.one.microsoft.com |
+| Canada - oost | https://kailani-cae.one.microsoft.com | Canada - midden | https://tm-kailani.cae.one.microsoft.com |
+| US - centraal | https://kailani-cus.one.microsoft.com | US - oost 2 | https://tm-kailani-cus.one.microsoft.com |
+| Azië - oost | https://kailani11.one.microsoft.com | Azië - zuidoost | https://tm-kailani11.one.microsoft.com |
+| US - oost | https://kailani1.one.microsoft.com | US - west | https://tm-kailani1.one.microsoft.com |
+| US - oost 2 | https://kailani-ess.one.microsoft.com | US - centraal | https://tm-kailani-ess.one.microsoft.com |
+| Europa - noord | https://kailani7.one.microsoft.com | Europa -west | https://tm-kailani7.one.microsoft.com |
+| Azië - zuidoost | https://kailani10.one.microsoft.com | Azië - oost | https://tm-kailani10.one.microsoft.com |
+| Verenigd Koninkrijk Zuid | https://kailani-uks.one.microsoft.com | Verenigd Koninkrijk West | https://tm-kailani-uks.one.microsoft.com |
+| Verenigd Koninkrijk West | https://kailani-ukw.one.microsoft.com | Verenigd Koninkrijk Zuid | https://tm-kailani-ukw.one.microsoft.com |
+| Europa -west | https://kailani6.one.microsoft.com | Europa - noord | https://tm-kailani6.one.microsoft.com |
+| US - west | https://kailani.one.microsoft.com | US - oost | https://tm-kailani.one.microsoft.com |
 
 - Als u lokaal redundant (LRS) of zone redundant (ZRS) storage-accounts gebruiken, moet u alleen de URL die wordt vermeld onder 'primaire eindpunt-URL' inschakelen.
 

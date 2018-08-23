@@ -1,6 +1,6 @@
 ---
-title: Gegevens kopiëren van Blob-opslag naar SQL Database - Azure | Microsoft Docs
-description: Deze zelfstudie ziet u het gebruik van de Kopieeractiviteit in een Azure Data Factory-pijplijn om gegevens te kopiëren van Blob-opslag met SQL-database.
+title: Gegevens kopiëren van Blob Storage naar SQL Database - Azure | Microsoft Docs
+description: Deze zelfstudie leert u over het gebruik van de Kopieeractiviteit in een Azure Data Factory-pijplijn om gegevens te kopiëren van Blob-opslag naar SQL database.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4538e5b49b161f22ba6d5979234786a58cae5783
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a9f76b38139cccedb97c6026f0e0efa14d0dbc8c
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047723"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42054116"
 ---
-# <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Zelfstudie: Gegevens kopiëren van Blob Storage met SQL Database met behulp van de Data Factory
+# <a name="tutorial-copy-data-from-blob-storage-to-sql-database-using-data-factory"></a>Zelfstudie: Gegevens kopiëren van Blob-opslag naar SQL Database met behulp van Data Factory
 > [!div class="op_single_selector"]
 > * [Overzicht en vereisten](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)
@@ -34,14 +34,14 @@ ms.locfileid: "37047723"
 > * [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 
 > [!NOTE]
-> In dit artikel is van toepassing op versie 1 van de Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u [kopie activiteit zelfstudie](../quickstart-create-data-factory-dot-net.md). 
+> Dit artikel is van toepassing op versie 1 van Data Factory. Als u de huidige versie van de Data Factory-service gebruikt, raadpleegt u de [zelfstudie over kopieeractiviteiten](../quickstart-create-data-factory-dot-net.md). 
 
-In deze zelfstudie maakt u een gegevensfactory met een pijplijn om gegevens te kopiëren van Blob-opslag met SQL-database.
+In deze zelfstudie maakt maken u een data factory met een pijplijn om gegevens te kopiëren van Blob-opslag naar SQL database.
 
 Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uitgevoerd. De activiteit wordt mogelijk gemaakt door een wereldwijd beschikbare service waarmee gegevens veilig, betrouwbaar en schaalbaar kunnen worden gekopieerd tussen verschillende gegevensarchieven. Zie [Activiteiten voor gegevensverplaatsing](data-factory-data-movement-activities.md) voor meer informatie over de kopieeractiviteit.  
 
 > [!NOTE]
-> Zie voor een gedetailleerd overzicht van de Data Factory-service de [Inleiding tot Azure Data Factory](data-factory-introduction.md) artikel.
+> Zie voor een gedetailleerd overzicht van de Data Factory-service, de [Inleiding tot Azure Data Factory](data-factory-introduction.md) artikel.
 >
 >
 
@@ -49,12 +49,12 @@ Met de kopieeractiviteit wordt de gegevensverplaatsing in Azure Data Factory uit
 Voordat u met deze zelfstudie begint, moet u aan de volgende vereisten voldoen:
 
 * **Azure-abonnement**.  Als u geen abonnement hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie de [gratis proefversie](http://azure.microsoft.com/pricing/free-trial/) artikel voor meer informatie.
-* **Azure Storage-Account**. Gebruik van de blob storage als een **bron** gegevens opslaan in deze zelfstudie. Als u geen Azure Storage-account hebt, raadpleegt u het artikel [Een opslagaccount maken](../../storage/common/storage-create-storage-account.md#create-a-storage-account) voor de stappen voor het maken van een account.
-* **Azure SQL-database**. Gebruik van een Azure SQL database als een **bestemming** gegevens opslaan in deze zelfstudie. Als u een Azure SQL-database die u in de zelfstudie, Zie gebruiken kunt geen [maken en configureren van een Azure SQL Database](../../sql-database/sql-database-get-started.md) een maken.
-* **SQL Server 2012-2014 of Visual Studio 2013**. U gebruikt de SQL Server Management Studio of Visual Studio een voorbeelddatabase te maken en de result-gegevens weergeven in de database.  
+* **Azure Storage-Account**. U gebruikt de blobopslag als een **bron** gegevens opslaan in deze zelfstudie. Als u geen Azure Storage-account hebt, raadpleegt u het artikel [Een opslagaccount maken](../../storage/common/storage-quickstart-create-account.md) voor de stappen voor het maken van een account.
+* **Azure SQL-database**. U gebruikt een Azure SQL-database als een **bestemming** gegevens opslaan in deze zelfstudie. Als u hebt een Azure SQL-database die u in de zelfstudie, Zie gebruiken kunt [maken en configureren van een Azure SQL Database](../../sql-database/sql-database-get-started.md) een te maken.
+* **SQL Server 2012/2014 of Visual Studio 2013**. U SQL Server Management Studio of Visual Studio gebruiken om te maken van een voorbeelddatabase en om de resulterende gegevens in de database weer te geven.  
 
-## <a name="collect-blob-storage-account-name-and-key"></a>Blob storage-accountnaam en sleutel verzamelen
-U moet de accountnaam en accountsleutel van uw Azure storage-account te doen in deze zelfstudie. Noteer **accountnaam** en **accountsleutel** voor uw Azure storage-account.
+## <a name="collect-blob-storage-account-name-and-key"></a>Verzamelen van blob storage-accountnaam en -sleutel
+U moet de accountnaam en accountsleutel van uw Azure storage-account te doen in deze zelfstudie. Noteer de **accountnaam** en **accountsleutel** voor uw Azure storage-account.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 2. Klik op **alle services** op het menu aan de linkerkant en selecteer **Opslagaccounts**.
@@ -69,26 +69,26 @@ U moet de accountnaam en accountsleutel van uw Azure storage-account te doen in 
 7. Alle blades te sluiten door te klikken op **X**.
 
 ## <a name="collect-sql-server-database-user-names"></a>SQL server, database, gebruikersnamen verzamelen
-U moet de namen van Azure SQL-server, database en gebruiker in deze zelfstudie. Noteer de namen van **server**, **database**, en **gebruiker** voor uw Azure SQL database.
+Moet u de namen van de Azure SQL-server, database en gebruiker in deze zelfstudie. Noteer de namen van **server**, **database**, en **gebruiker** voor uw Azure SQL-database.
 
-1. In de **Azure-portal**, klikt u op **alle services** op de linkerkant en selecteer **SQL-databases**.
-2. In de **SQL databases blade**, selecteer de **database** die u wilt gebruiken in deze zelfstudie. Noteer de **databasenaam**.  
+1. In de **Azure-portal**, klikt u op **alle services** aan de linkerkant en selecteer **SQL-databases**.
+2. In de **blade SQL-databases**, selecteer de **database** die u wilt gebruiken in deze zelfstudie. Noteer de **databasenaam**.  
 3. In de **SQL-database** blade, klikt u op **eigenschappen** onder **instellingen**.
-4. Noteer de waarden voor **servernaam** en **AANMELDGEGEVENS van SERVERBEHEERDER**.
+4. Noteer de waarden voor **servernaam** en **SERVERBEHEERDER**.
 5. Alle blades te sluiten door te klikken op **X**.
 
 ## <a name="allow-azure-services-to-access-sql-server"></a>Azure-services voor toegang tot SQL server toestaan
 Zorg ervoor dat **toegang tot Azure-services toestaan** instelling ingeschakeld **ON** voor uw Azure SQL-server zodat de Data Factory-service toegang heeft tot uw Azure SQL-server. Voer de volgende stappen uit om dit te controleren en de instelling in te schakelen:
 
-1. Klik op **alle services** hub aan de linkerzijde en klik op **SQL-servers**.
+1. Klik op **alle services** hub aan de linkerkant en klikt u op **SQL-servers**.
 2. Selecteer uw server en klik op **Firewall** onder **INSTELLINGEN**.
 3. In de blade **Firewallinstellingen**schakelt u **Toegang tot Azure-services toestaan** **in**.
 4. Alle blades te sluiten door te klikken op **X**.
 
-## <a name="prepare-blob-storage-and-sql-database"></a>Blob-opslag- en SQL-Database voorbereiden
-Nu uw Azure blob storage en Azure SQL database voor de zelfstudie door bereid de volgende stappen uit te voeren:  
+## <a name="prepare-blob-storage-and-sql-database"></a>Blob-opslag en SQL-Database voorbereiden
+Voorbereiden nu uw Azure-blobopslag en Azure SQL-database voor de zelfstudie door de volgende stappen uit:  
 
-1. Start Kladblok. Kopieer de volgende tekst en sla het bestand als **emp.txt** naar **C:\ADFGetStarted** map op de harde schijf.
+1. Start Kladblok. Kopieer de volgende tekst en sla het bestand als **emp.txt** naar **C:\ADFGetStarted** map op uw harde schijf.
 
     ```
     John, Doe
@@ -96,7 +96,7 @@ Nu uw Azure blob storage en Azure SQL database voor de zelfstudie door bereid de
     ```
 2. Gebruik hulpprogramma's zoals [Azure Opslagverkenner](http://storageexplorer.com/) om de container **adftutorial** te maken en om het bestand **emp.txt** te uploaden naar de container.
 
-    ![Azure Storage Explorer. Gegevens kopiëren van Blob-opslag naar SQL-database](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
+    ![Azure Storage Explorer. Gegevens kopiëren van Blob storage naar SQL database](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Gebruik het volgende SQL-script om de tabel **emp** te maken in uw Azure SQL Database.  
 
     ```SQL
@@ -111,12 +111,12 @@ Nu uw Azure blob storage en Azure SQL database voor de zelfstudie door bereid de
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-    **Als u SQL Server 2012-2014 op uw computer geïnstalleerd hebben:** Volg de instructies uit [beherende Azure SQL Database met SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) verbinding maken met uw Azure SQL-server en voer de SQL-script. 
+    **Als u SQL Server 2012/2014 op uw computer geïnstalleerd hebt:** Volg de instructies uit [beherende Azure SQL Database met behulp van SQL Server Management Studio](../../sql-database/sql-database-manage-azure-ssms.md) verbinding maken met uw Azure SQL-server en de SQL-script uitvoeren. 
 
     Als de client geen toegang heeft tot de Azure SQL-server, moet u de firewall configureren voor uw Azure SQL-server zodat toegang vanaf uw apparaat (IP-adres) wordt toegestaan. Raadpleeg [dit artikel](../../sql-database/sql-database-configure-firewall-settings.md) voor stappen waarmee u uw firewall kunt configureren voor uw Azure SQL-server.
 
 ## <a name="create-a-data-factory"></a>Een gegevensfactory maken
-U kunt de vereisten hebt voltooid. U kunt een gegevensfactory met een van de volgende manieren maken. Klik op een van de opties in de vervolgkeuzelijst boven of de volgende koppelingen voor het uitvoeren van de zelfstudie.     
+U kunt de vereisten hebt voltooid. U kunt een data factory maken met een van de volgende manieren. Klik op een van de opties in de vervolgkeuzelijst aan de bovenkant of de volgende koppelingen om uit te voeren van de zelfstudie.     
 
 * [De wizard Kopiëren](data-factory-copy-data-wizard-tutorial.md)
 * [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)

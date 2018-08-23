@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2018
+ms.date: 08/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a82cae05bfd11145a1415494908679748870f680
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 6c080d44aed7c2b3db54a34f4b711db66681cbe9
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494486"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42058151"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versiegeschiedenis van release
 Azure AD Connect het team van Azure Active Directory (Azure AD) regelmatig bijgewerkt met nieuwe functies en functionaliteit. Niet alle toevoegingen gelden voor alle doelgroepen.
@@ -41,7 +41,7 @@ Downloaden | [Azure AD Connect downloaden](http://go.microsoft.com/fwlink/?LinkI
 
 ### <a name="release-status"></a>Releasestatus
 
-7/20/2018: die zijn uitgebracht voor het downloaden en Automatische upgrade. Het upgradeproces automatisch wordt nog steeds uitgevoerd.
+8/21/2018: die zijn uitgebracht voor het downloaden en Automatische upgrade. 
 
 ### <a name="new-features-and-improvements"></a>Nieuwe functies en verbeteringen
 
@@ -67,7 +67,7 @@ Downloaden | [Azure AD Connect downloaden](http://go.microsoft.com/fwlink/?LinkI
 - Er is een fout die problemen gemaakt wanneer de gebruiker doorsturen/terug in de wizard gaat opgelost
 - Een probleem opgelost om te voorkomen dat een fout opgetreden vanwege een onjuiste multi-thread verwerking in de wizard gebeurt
 - Pagina synchronisatiefilters groep, wordt er een LDAP-fout optreedt bij het omzetten van beveiligingsgroepen, Azure AD Connect nu is, retourneert de uitzondering met volledige betrouwbaarheid.  De hoofdoorzaak voor de referentie-uitzondering is nog steeds onbekend en wordt verholpen door een andere fout.
--  Een bug opgelost waarbij de machtigingen voor de BEURS en NGC sleutels (kenmerk msDS-KeyCredentialLink op objecten voor WHfB gebruiker/apparaat) zijn niet juist ingesteld.     
+-  Een bug opgelost waarbij de machtigingen voor de BEURS en NGC sleutels (ms-DS-KeyCredentialLink kenmerk op objecten voor WHfB gebruiker/apparaat) zijn niet juist ingesteld.     
 - Een bug opgelost waarbij 'Set-ADSyncRestrictedPermissions' is niet correct aangeroepen
 -  Ondersteuning toegevoegd voor machtigingen worden verleend voor write-back van groep in de installatiewizard van AADConnect
 - Wanneer u aanmelden bij de methode van synchronisatie van Wachtwoordhashes naar AD FS, is geen synchronisatie van Wachtwoordhashes uitgeschakeld.
@@ -362,7 +362,7 @@ Status: Oktober 19 2017
 
 ### <a name="ad-fs-management"></a>AD FS-Management
 #### <a name="fixed-issue"></a>Probleem opgelost
-* Er is een probleem met betrekking tot het gebruik van opgelost [msDS-ConsistencyGuid als Bronanker](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) functie. Dit probleem heeft betrekking op klanten die hebben geconfigureerd *Federatie met AD FS* als de gebruiker aanmelden-methode. Wanneer u uitvoert *Bronanker configureren* verandert in met behulp van een taak in de wizard, Azure AD Connect * ms-DS-ConsistencyGuid als bronkenmerk voor immutableId. Als onderdeel van deze wijziging probeert Azure AD Connect bij te werken van de claimregels voor ImmutableId in AD FS. Deze stap is echter mislukt omdat Azure AD Connect heeft niet de beheerdersreferenties vereist voor het configureren van AD FS. Met deze oplossing wordt Azure AD Connect nu vraagt u de beheerdersreferenties opgeven voor AD FS, wanneer u uitvoert het *Bronanker configureren* taak.
+* Er is een probleem met betrekking tot het gebruik van opgelost [ms-DS-ConsistencyGuid als Bronanker](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) functie. Dit probleem heeft betrekking op klanten die hebben geconfigureerd *Federatie met AD FS* als de gebruiker aanmelden-methode. Wanneer u uitvoert *Bronanker configureren* verandert in met behulp van een taak in de wizard, Azure AD Connect * ms-DS-ConsistencyGuid als bronkenmerk voor immutableId. Als onderdeel van deze wijziging probeert Azure AD Connect bij te werken van de claimregels voor ImmutableId in AD FS. Deze stap is echter mislukt omdat Azure AD Connect heeft niet de beheerdersreferenties vereist voor het configureren van AD FS. Met deze oplossing wordt Azure AD Connect nu vraagt u de beheerdersreferenties opgeven voor AD FS, wanneer u uitvoert het *Bronanker configureren* taak.
 
 
 
@@ -377,7 +377,7 @@ Status: September-05-2017
 * Er is een bekend probleem met Azure AD Connect upgraden die invloed heeft op klanten die hebben ingeschakeld [naadloze eenmalige aanmelding](active-directory-aadconnect-sso.md). Na de upgrade van Azure AD Connect, de functie wordt weergegeven als uitgeschakeld in de wizard, zelfs als de functie ingeschakeld blijft. Een oplossing voor dit probleem wordt gegeven in de toekomst brengt. Klanten die zich zorgen maakt over dit probleem weergeven kunnen dit handmatig oplossen door in te schakelen naadloze eenmalige aanmelding in de wizard.
 
 #### <a name="fixed-issues"></a>Opgeloste problemen
-* Er is een probleem waardoor Azure AD Connect uit het bijwerken van de claims in de on-premises opgelost AD FS tijdens het inschakelen van de [msDS-ConsistencyGuid als Bronanker](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) functie. Het probleem treedt op als u de functie voor een bestaande Azure AD Connect-implementatie met AD FS geconfigureerd als de aanmeldingsmethode in te schakelen. Het probleem treedt op omdat de wizard wordt niet gevraagd om referenties van de AD FS voor het bijwerken van de claimregels in AD FS.
+* Er is een probleem waardoor Azure AD Connect uit het bijwerken van de claims in de on-premises opgelost AD FS tijdens het inschakelen van de [ms-DS-ConsistencyGuid als Bronanker](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) functie. Het probleem treedt op als u de functie voor een bestaande Azure AD Connect-implementatie met AD FS geconfigureerd als de aanmeldingsmethode in te schakelen. Het probleem treedt op omdat de wizard wordt niet gevraagd om referenties van de AD FS voor het bijwerken van de claimregels in AD FS.
 * Er is een probleem waardoor Azure AD Connect installatie mislukt als opgelost de on-premises AD-forest heeft NTLM is uitgeschakeld. Het probleem wordt veroorzaakt door van Azure AD Connect-wizard volledig gekwalificeerde referenties niet op te geven bij het maken van de beveiligingscontext die is vereist voor Kerberos-verificatie. Dit zorgt ervoor dat Azure AD Connect-wizard terugvallen op met behulp van NTLM en Kerberos-verificatie mislukt.
 
 ### <a name="azure-ad-connect-sync"></a>Azure AD Connect Sync
@@ -427,7 +427,7 @@ Status: Juli 23-2017
 
   * Dit probleem doet zich voor wanneer Azure AD Connect is bijgewerkt, of wanneer de taakoptie *synchronisatieconfiguratie bijwerken* in de Azure AD Connect-wizard om bij te werken van de configuratie van de Azure AD Connect-synchronisatie wordt gebruikt.
   
-  * Deze synchronisatieregel van toepassing op klanten die hebben ingeschakeld is de [msDS-ConsistencyGuid als Bronanker functie](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor). Deze functie is geïntroduceerd in versie 1.1.524.0 en hoger en na. Wanneer de regel voor synchronisatie wordt verwijderd, Azure AD Connect niet meer kunt vullen on-premises AD-ms-DS-ConsistencyGuid kenmerk met de waarde van het kenmerk ObjectGuid. Hiermee wordt niet voorkomen dat nieuwe gebruikers wordt ingericht in Azure AD.
+  * Deze synchronisatieregel van toepassing op klanten die hebben ingeschakeld is de [ms-DS-ConsistencyGuid als Bronanker functie](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). Deze functie is geïntroduceerd in versie 1.1.524.0 en hoger en na. Wanneer de regel voor synchronisatie wordt verwijderd, Azure AD Connect niet meer kunt vullen on-premises AD-ms-DS-ConsistencyGuid kenmerk met de waarde van het kenmerk ObjectGuid. Hiermee wordt niet voorkomen dat nieuwe gebruikers wordt ingericht in Azure AD.
   
   * De oplossing zorgt ervoor dat de regel voor synchronisatie niet meer worden verwijderd tijdens de upgrade of tijdens het wijzigen van de configuratie, zolang de functie is ingeschakeld. Voor bestaande klanten die voor dit probleem gevolgen hebben, zorgt de oplossing er ook voor dat de synchronisatieregel terug na de upgrade naar deze versie van Azure AD Connect wordt toegevoegd.
 
@@ -463,7 +463,7 @@ Status: Niet vrijgegeven. Wijzigingen in deze versie zijn opgenomen in versie 1.
 
 #### <a name="fixed-issue"></a>Probleem opgelost
 
-* Er is een probleem waardoor de synchronisatieregel voor out-of-box "Out met AD - gebruiker ImmutableId" opgelost moeten worden verwijderd wanneer de configuratie van filteren op basis van een organisatie-eenheid is bijgewerkt. Deze synchronisatieregel is vereist voor de [msDS-ConsistencyGuid als Bronanker functie](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
+* Er is een probleem waardoor de synchronisatieregel voor out-of-box "Out met AD - gebruiker ImmutableId" opgelost moeten worden verwijderd wanneer de configuratie van filteren op basis van een organisatie-eenheid is bijgewerkt. Deze synchronisatieregel is vereist voor de [ms-DS-ConsistencyGuid als Bronanker functie](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor).
 
 * Er is een probleem opgelost waarbij de [domein en OE filteren scherm](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) in de Azure AD Connect wizard wordt weergegeven *alle domeinen en OE's filteren* optie geselecteerd is, zelfs als op basis van een organisatie-eenheid-filtering is ingeschakeld.
 
@@ -529,14 +529,14 @@ Het probleem dat zich voordoet, is dat de **alle domeinen en organisatie-eenhede
 
 * Er is een probleem opgelost met wachtwoord terugschrijven waarmee een Azure AD-beheerder opnieuw instellen van het wachtwoord van een on-premises AD-gebruikersaccount bevoegdheden. Het probleem treedt op wanneer Azure AD Connect is de machtiging wachtwoord opnieuw instellen via het bevoorrechte account. Het probleem is verholpen in deze versie van Azure AD Connect door Azure AD-beheerder opnieuw instellen van het wachtwoord van een willekeurige on-premises AD-gebruikersaccount bevoegde, tenzij de beheerder de eigenaar van dat account is. Raadpleeg voor meer informatie, [Security Advisory 4033453](https://technet.microsoft.com/library/security/4033453).
 
-* Er is een probleem met betrekking tot opgelost de [msDS-ConsistencyGuid als Bronanker](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) functie waar Azure AD Connect niet terugschrijven naar biedt lokale AD msDS-ConsistencyGuid-kenmerk. Dit probleem doet zich voor wanneer er meerdere on-premises AD-forests die zijn toegevoegd aan Azure AD Connect en de *gebruikers-id's aanwezig zijn in meerdere mappen optie* is geselecteerd. Wanneer deze configuratie wordt gebruikt, kunnen de resulterende synchronisatieregels niet het kenmerk sourceAnchorBinary in de Metaverse invullen. Het kenmerk sourceAnchorBinary wordt gebruikt als het bronkenmerk voor het kenmerk msDS-ConsistencyGuid. Write-back met het kenmerk ms-DSConsistencyGuid als gevolg hiervan wordt niet uitgevoerd. Los het probleem, zijn volgende synchronisatieregels bijgewerkt om ervoor te zorgen dat het kenmerk sourceAnchorBinary in de Metaverse altijd werden ingevuld:
+* Er is een probleem met betrekking tot opgelost de [ms-DS-ConsistencyGuid als Bronanker](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) functie waar Azure AD Connect niet terugschrijven naar biedt lokale AD-ms-DS-ConsistencyGuid-kenmerk. Dit probleem doet zich voor wanneer er meerdere on-premises AD-forests die zijn toegevoegd aan Azure AD Connect en de *gebruikers-id's aanwezig zijn in meerdere mappen optie* is geselecteerd. Wanneer deze configuratie wordt gebruikt, kunnen de resulterende synchronisatieregels niet het kenmerk sourceAnchorBinary in de Metaverse invullen. Het kenmerk sourceAnchorBinary wordt gebruikt als het bronkenmerk voor ms-DS-ConsistencyGuid kenmerk. Write-back met het kenmerk ms-DSConsistencyGuid als gevolg hiervan wordt niet uitgevoerd. Los het probleem, zijn volgende synchronisatieregels bijgewerkt om ervoor te zorgen dat het kenmerk sourceAnchorBinary in de Metaverse altijd werden ingevuld:
   * In uit Active Directory - InetOrgPerson AccountEnabled.xml
   * In uit Active Directory - InetOrgPerson Common.xml
   * In uit Active Directory - gebruiker AccountEnabled.xml
   * In uit Active Directory - gebruiker Common.xml
   * In uit Active Directory - gebruiker toevoegen SOAInAAD.xml
 
-* Eerder, zelfs als de [msDS-ConsistencyGuid als Bronanker](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) functie is niet ingeschakeld, de synchronisatieregel "Out met AD-gebruiker ImmutableId" is nog steeds toegevoegd aan Azure AD Connect. Het effect is goedaardige en niet leidt tot Write-back van kenmerk msDS-ConsistencyGuid optreden. Om verwarring te voorkomen, is logische toegevoegd om ervoor te zorgen dat er alleen de synchronisatieregel wordt toegevoegd als de functie is ingeschakeld.
+* Eerder, zelfs als de [ms-DS-ConsistencyGuid als Bronanker](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) functie is niet ingeschakeld, de synchronisatieregel "Out met AD-gebruiker ImmutableId" is nog steeds toegevoegd aan Azure AD Connect. Het effect is goedaardige en niet leidt tot Write-back van ms-DS-ConsistencyGuid-kenmerk moet plaatsvinden. Om verwarring te voorkomen, is logische toegevoegd om ervoor te zorgen dat er alleen de synchronisatieregel wordt toegevoegd als de functie is ingeschakeld.
 
 * Er is een probleem waardoor de wachtwoord-hashsynchronisatie mislukken met foutgebeurtenis 611 opgelost. Dit probleem treedt op een of meer domain controllers zijn verwijderd uit on-premises AD. Aan het einde van elke cyclus van de synchronisatie van wachtwoord, de cookie voor adreslijstsynchronisatie van dat is uitgegeven door on-premises AD aanroep-id's van de verwijderde domeincontrollers met de waarde van 0 USN (Update Sequence Number) bevat. De Manager van de synchronisatie van wachtwoord kan niet worden om vast te leggen synchronisatie cookie met USN-waarde van 0 en mislukt en er is een foutgebeurtenis 611. Tijdens de volgende synchronisatiecyclus hergebruikt wachtwoord Synchronization Manager de laatste synchronisatie persistente cookie die geen USN-waarde van 0 bevat. Dit zorgt ervoor dat de dezelfde wachtwoordwijzigingen opnieuw worden gesynchroniseerd. Met deze oplossing wordt Synchronisatiebeheer wachtwoord clusterverbinding blijven behouden de cookie voor adreslijstsynchronisatie van correct.
 
@@ -544,10 +544,10 @@ Het probleem dat zich voordoet, is dat de **alle domeinen en organisatie-eenhede
 
 #### <a name="new-features-and-improvements"></a>Nieuwe functies en verbeteringen
 
-* Voorheen was de [msDS-ConsistencyGuid als Bronanker](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-msds-consistencyguid-as-sourceanchor) functie is beschikbaar voor alleen voor nieuwe implementaties. Het is nu beschikbaar voor bestaande implementaties. Met name:
+* Voorheen was de [ms-DS-ConsistencyGuid als Bronanker](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor) functie is beschikbaar voor alleen voor nieuwe implementaties. Het is nu beschikbaar voor bestaande implementaties. Met name:
   * Voor toegang tot de functie, start u de Azure AD Connect-wizard en kies de *Update Bronanker* optie.
   * Deze optie is alleen zichtbaar voor bestaande implementaties die van objectGuid als sourceAnchor-kenmerk gebruikmaken.
-  * Bij het configureren van de optie, valideert de wizard de status van het kenmerk msDS-ConsistencyGuid in uw on-premises Active Directory. Als het kenmerk is niet geconfigureerd op een gebruikersobject in de directory, gebruikt de wizard de msDS-ConsistencyGuid als het kenmerk sourceAnchor. Als het kenmerk is geconfigureerd op een of meer objecten in de map, wordt de wizard concludeert het kenmerk wordt gebruikt door andere toepassingen en is niet geschikt als sourceAnchor-kenmerk en staat niet toe dat de wijziging Bronanker om door te gaan. Als u er zeker van zijn dat het kenmerk wordt niet door bestaande toepassingen gebruikt, moet u contact op met ondersteuning voor meer informatie over het onderdrukken van de fout.
+  * Bij het configureren van de optie, valideert de wizard de status van het kenmerk ms-DS-ConsistencyGuid in uw on-premises Active Directory. Als het kenmerk is niet geconfigureerd op een gebruikersobject in de directory, gebruikt de wizard ms-DS-ConsistencyGuid als het kenmerk sourceAnchor. Als het kenmerk is geconfigureerd op een of meer objecten in de map, wordt de wizard concludeert het kenmerk wordt gebruikt door andere toepassingen en is niet geschikt als sourceAnchor-kenmerk en staat niet toe dat de wijziging Bronanker om door te gaan. Als u er zeker van zijn dat het kenmerk wordt niet door bestaande toepassingen gebruikt, moet u contact op met ondersteuning voor meer informatie over het onderdrukken van de fout.
 
 * Specifieke **userCertificate** kenmerk op apparaatobjecten, Azure AD Connect nu eruitziet voor waarden van de certificaten die zijn vereist voor [domein apparaten verbinden met Azure AD voor Windows 10](https://docs.microsoft.com/azure/active-directory/active-directory-azureadjoin-devices-group-policy) en filters voor de overige voordat u synchroniseert met Azure AD. Als u wilt inschakelen dit gedrag, de synchronisatieregel voor out-of-box "Uit naar AAD – apparaat Join SOAInAD" is bijgewerkt.
 
@@ -667,7 +667,7 @@ Azure AD Connect-synchronisatie
   * Toegevoegd **preferredDataLocation** naar de Metaverse-schema en het schema van de AAD-Connector. Klanten die willen werken beide kenmerken in Azure AD kunnen implementeren, aangepaste synchronisatieregels om dit te doen. 
   * Toegevoegd **userType** naar de Metaverse-schema en het schema van de AAD-Connector. Klanten die willen werken beide kenmerken in Azure AD kunnen implementeren, aangepaste synchronisatieregels om dit te doen.
 
-* Azure AD Connect automatisch kunt nu het gebruik van ConsistencyGuid kenmerk als het kenmerk Bronanker voor on-premises AD-objecten. Bovendien kunnen de Azure AD Connect vult het ConsistencyGuid-kenmerk met de waarde van het kenmerk objectGuid als deze leeg is. Deze functie is van toepassing op nieuwe alleen-implementatie. Meer informatie over deze functie, Raadpleeg de sectie [Azure AD Connect: ontwerpconcepten - msDS-ConsistencyGuid gebruiken als sourceAnchor](active-directory-aadconnect-design-concepts.md#using-msds-consistencyguid-as-sourceanchor).
+* Azure AD Connect automatisch kunt nu het gebruik van ConsistencyGuid kenmerk als het kenmerk Bronanker voor on-premises AD-objecten. Bovendien kunnen de Azure AD Connect vult het ConsistencyGuid-kenmerk met de waarde van het kenmerk objectGuid als deze leeg is. Deze functie is van toepassing op nieuwe alleen-implementatie. Meer informatie over deze functie, Raadpleeg de sectie [Azure AD Connect: ontwerpconcepten - ms-DS-ConsistencyGuid gebruiken als sourceAnchor](active-directory-aadconnect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor).
 * Nieuwe probleemoplossing cmdlet is Invoke-ADSyncDiagnostics toegevoegd om u te helpen bij het analyseren van wachtwoord-Hashsynchronisatie problemen met betrekking tot. Raadpleeg het artikel voor meer informatie over het gebruik van de cmdlet [wachtwoord-hashsynchronisatie met Azure AD Connect-synchronisatie oplossen](active-directory-aadconnectsync-troubleshoot-password-hash-synchronization.md).
 * Azure AD Connect nu ondersteunt het synchroniseren van de berichtgrootte openbare map waarin de objecten van on-premises AD met Azure AD. U kunt de functie met behulp van Azure AD Connect-wizard onder optionele functies inschakelen. Meer informatie over deze functie, raadpleegt u het artikel [Office 365 Directory op basis van Edge blokkeren van ondersteuning voor on-premises ingeschakeld openbare e-mailmappen](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders).
 * Azure AD Connect vereist een AD DS-account voor synchronisatie vanuit on-premises AD. Eerder, als u Azure AD Connect met behulp van de Express-modus hebt geïnstalleerd, kunt u opgeven dat de referenties van een ondernemingsadministrator-account en een Azure AD Connect maakt de AD DS-account vereist. Voor een aangepaste installatie en het forests toevoegen aan een bestaande implementatie, moet u zijn echter in plaats daarvan geeft u de AD DS-account. Nu hebt u ook de optie voor het opgeven van de referenties van een Enterprise-beheerdersaccount tijdens een aangepaste installatie en laat Azure AD Connect maken van de AD DS-account vereist.
@@ -1070,7 +1070,7 @@ Uitgebracht: December 2014
 **Nieuwe functies:**
 
 * Wachtwoordsynchronisatie met filteren op basis van een kenmerk wordt nu ondersteund. Zie voor meer informatie, [Wachtwoordsynchronisatie met filteren](active-directory-aadconnectsync-configure-filtering.md).
-* Het kenmerk msDS-ExternalDirectoryObjectID teruggeschreven naar Active Directory. Deze functie wordt ondersteuning toegevoegd voor Office 365-toepassingen. Het OAuth2 gebruikt voor toegang tot de postvakken in een hybride implementatie voor Exchange Online en On-Premises.
+* Het kenmerk ms-DS-ExternalDirectoryObjectID teruggeschreven naar Active Directory. Deze functie wordt ondersteuning toegevoegd voor Office 365-toepassingen. Het OAuth2 gebruikt voor toegang tot de postvakken in een hybride implementatie voor Exchange Online en On-Premises.
 
 **Vaste problemen met de upgrade:**
 

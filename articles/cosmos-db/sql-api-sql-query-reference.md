@@ -8,29 +8,27 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/18/2017
+ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 4e9bdfab3abf9545218e80bf79d1b9b5df0cf2ff
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 33614628926e53354db14886530d7ca44da61f0a
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39042007"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42055481"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Naslaginformatie over Azure Cosmos DB SQL-syntaxis
 
-Azure Cosmos DB ondersteunt het opvragen van documenten met behulp van een vertrouwde SQL (Structured Query Language) zoals grammatica via hiërarchische JSON-documenten zonder een expliciet schema of secundaire indexen worden gemaakt. Dit onderwerp vindt u naslaginformatie voor de SQL-query-taal, die compatibel met SQL API-accounts is.
-
-Zie voor een overzicht van de SQL-querytaal [SQL-query's voor Azure Cosmos DB](sql-api-sql-query.md).  
+Azure Cosmos DB ondersteunt het opvragen van documenten met behulp van een vertrouwde SQL (Structured Query Language) zoals grammatica via hiërarchische JSON-documenten zonder een expliciet schema of secundaire indexen worden gemaakt. Dit artikel bevat een verwijzing/syntaxis van de documentatie voor de SQL-query-taal, die compatibel met SQL API-accounts is. Zie voor een overzicht van de SQL-query's met voorbeeldgegevens [Azure Cosmos DB-gegevens op te vragen](sql-api-sql-query.md).  
   
-We nodigen u ook uit op Ga naar de [testomgeving voor Query's](http://www.documentdb.com/sql/demo) waar u kunt Azure Cosmos DB uitproberen en SQL-query's uitvoeren in de gegevensset.  
+Ga naar de [testomgeving voor Query's](http://www.documentdb.com/sql/demo) waar u kunt Azure Cosmos DB uitproberen en SQL-query's uitvoeren in de gegevensset.  
   
 ## <a name="select-query"></a>SELECT-query  
-Hiermee haalt u JSON-documenten uit de database. Biedt ondersteuning voor evaluatie van expressies, projecties, filters en lid wordt.  De conventies voor het beschrijven van de SELECT-instructies zijn in de sectie syntaxis conventies tabelindeling.  
+Elke query bestaat uit een SELECT-component en een optionele FROM en WHERE-componenten per ANSI SQL-standaarden. Normaal gesproken voor elke query moet de bron in de component FROM is geïnventariseerd. Het filter in de component WHERE wordt vervolgens toegepast op de bron om op te halen van een subset van JSON-documenten. Ten slotte wordt de SELECT-component gebruikt om de vereiste JSON-waarden in de selectielijst. De conventies voor het beschrijven van de SELECT-instructies zijn in de sectie syntaxis conventies tabelindeling. Zie voor voorbeelden van [SELECT-query-voorbeelden](sql-api-sql-query.md#SelectClause)
   
 **Syntaxis**  
   
-```
+```sql
 <select_query> ::=  
 SELECT <select_specification>   
     [ FROM <from_specification>]   
@@ -42,17 +40,14 @@ SELECT <select_specification>
   
  Zie de volgende secties voor meer informatie op elke component:  
   
--   [SELECT-component](#bk_select_query)  
-  
--   [FROM-component](#bk_from_clause)  
-  
--   [WHERE-component](#bk_where_clause)  
-  
+-   [SELECT-component](#bk_select_query)    
+-   [FROM-component](#bk_from_clause)    
+-   [WHERE-component](#bk_where_clause)    
 -   [ORDER BY-component](#bk_orderby_clause)  
   
 De clausules in de SELECT-instructie moeten worden besteld, zoals hierboven. Een van de optionele componenten kan worden weggelaten. Maar als de optionele componenten zijn gebruikt, moeten ze worden weergegeven in de juiste volgorde.  
   
-**Logische verwerkingsvolgorde van de SELECT-instructie**  
+### <a name="logical-processing-order-of-the-select-statement"></a>Logische verwerkingsvolgorde van de SELECT-instructie  
   
 De volgorde waarin de EU worden verwerkt, is:  
 
@@ -63,7 +58,7 @@ De volgorde waarin de EU worden verwerkt, is:
 
 Houd er rekening mee dat dit wijkt af van de volgorde waarin ze worden weergegeven in de syntaxis. De volgorde is dat alle nieuwe symbolen die door een verwerkte component zichtbaar zijn en kunnen worden gebruikt in de componenten die later worden verwerkt. Bijvoorbeeld, aliassen gedeclareerd in een FROM-component in, waarbij toegankelijk zijn en SELECT-component.  
 
-**Spaties bevatten en opmerkingen**  
+### <a name="whitespace-characters-and-comments"></a>Spaties bevatten en opmerkingen  
 
 Alle witruimtetekens die geen deel uitmaken van een tekenreeks tussen aanhalingstekens of tussen aanhalingstekens id maken geen deel uit van de taal-grammatica en worden genegeerd tijdens het parseren.  
 
@@ -74,10 +69,11 @@ De querytaal biedt ondersteuning voor T-SQL-stijl opmerkingen, zoals
 Terwijl uit witruimte bestaat en opmerkingen niet een betekenis in de grammatica hebt, moeten ze worden gebruikt voor het scheiden van tokens. Bijvoorbeeld: `-1e5` is één getal token, even`: – 1 e5` wordt-token van een minteken, gevolgd door nummer 1 en id e5.  
 
 ##  <a name="bk_select_query"></a> SELECT-component  
-De clausules in de SELECT-instructie moeten worden besteld, zoals hierboven. Een van de optionele componenten kan worden weggelaten. Maar als de optionele componenten zijn gebruikt, moeten ze worden weergegeven in de juiste volgorde.  
+De clausules in de SELECT-instructie moeten worden besteld, zoals hierboven. Een van de optionele componenten kan worden weggelaten. Maar als de optionele componenten zijn gebruikt, moeten ze worden weergegeven in de juiste volgorde. Zie voor voorbeelden van [SELECT-query-voorbeelden](sql-api-sql-query.md#SelectClause)
 
 **Syntaxis**  
-```  
+
+```sql
 SELECT <select_specification>  
 
 <select_specification> ::=   
@@ -92,25 +88,25 @@ SELECT <select_specification>
   
  **Argumenten**  
   
- `<select_specification>`  
+- `<select_specification>`  
+
+  De eigenschappen of de waarde die moet worden geselecteerd voor de resultatenset.  
   
- De eigenschappen of de waarde die moet worden geselecteerd voor de resultatenset.  
+- `'*'`  
+
+  Hiermee geeft u op dat de waarde zonder wijzigingen moet worden opgehaald. Specifiek als de verwerkte waarde een object is, worden alle eigenschappen worden opgehaald.  
   
- `'*'`  
+- `<object_property_list>`  
   
-Hiermee geeft u op dat de waarde zonder wijzigingen moet worden opgehaald. Specifiek als de verwerkte waarde een object is, worden alle eigenschappen worden opgehaald.  
+  Hiermee geeft u de lijst met eigenschappen die moeten worden opgehaald. Elke geretourneerde waarde is een object met de eigenschappen die zijn opgegeven.  
   
- `<object_property_list>`  
+- `VALUE`  
+
+  Hiermee geeft u op dat de JSON-waarde moet worden opgehaald in plaats van de volledige JSON-object. Dit, in tegenstelling tot `<property_list>` loopt niet de verwachte waarde in een object.  
   
-Hiermee geeft u de lijst met eigenschappen die moeten worden opgehaald. Elke geretourneerde waarde is een object met de eigenschappen die zijn opgegeven.  
-  
-`VALUE`  
-  
-Hiermee geeft u op dat de JSON-waarde moet worden opgehaald in plaats van de volledige JSON-object. Dit, in tegenstelling tot `<property_list>` loopt niet de verwachte waarde in een object.  
-  
-`<scalar_expression>`  
-  
-Expressie voor de waarde die moet worden berekend. Zie [scalaire expressies](#bk_scalar_expressions) sectie voor meer informatie.  
+- `<scalar_expression>`  
+
+  Expressie voor de waarde die moet worden berekend. Zie [scalaire expressies](#bk_scalar_expressions) sectie voor meer informatie.  
   
 **Opmerkingen**  
   
@@ -118,17 +114,17 @@ De `SELECT *` syntaxis is alleen geldig als FROM-component precies één alias i
   
 Houd er rekening mee dat `SELECT <select_list>` en `SELECT *` 'syntactische suiker' zijn en kan ook worden uitgedrukt met behulp van eenvoudige SELECT-instructies zoals hieronder wordt weergegeven.  
   
-1.  `SELECT * FROM ... AS from_alias ...`  
+1. `SELECT * FROM ... AS from_alias ...`  
   
-     is gelijk aan:  
+   is gelijk aan:  
   
-     `SELECT from_alias FROM ... AS from_alias ...`  
+   `SELECT from_alias FROM ... AS from_alias ...`  
   
-2.  `SELECT <expr1> AS p1, <expr2> AS p2,..., <exprN> AS pN [other clauses...]`  
+2. `SELECT <expr1> AS p1, <expr2> AS p2,..., <exprN> AS pN [other clauses...]`  
   
-     is gelijk aan:  
+   is gelijk aan:  
   
-     `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
+   `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
 **Zie ook**  
   
@@ -136,11 +132,11 @@ Houd er rekening mee dat `SELECT <select_list>` en `SELECT *` 'syntactische suik
 [SELECT-component](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> FROM-component  
-Hiermee geeft u de bron- of gekoppelde gegevensbronnen. De component FROM is optioneel. Als dat niet wordt opgegeven, andere componenten nog steeds uitgevoerd alsof de FROM-component die één document.  
+Hiermee geeft u de bron- of gekoppelde gegevensbronnen. De component FROM is optioneel, tenzij de bron is gefilterd of verderop in de query verwachte. Het doel van deze component is om op te geven van de gegevensbron waarop de query moet functioneren. De volledige verzameling is vaak de bron, maar één een subset van de verzameling in plaats daarvan kunt opgeven. Als deze component niet opgegeven is, wordt nog steeds andere componenten uitgevoerd alsof de FROM-component die één document. Zie voor voorbeelden van [uit component-voorbeelden](sql-api-sql-query.md#FromClause)
   
 **Syntaxis**  
   
-```  
+```sql  
 FROM <from_specification>  
   
 <from_specification> ::=   
@@ -160,55 +156,55 @@ FROM <from_specification>
   
 **Argumenten**  
   
-`<from_source>`  
+- `<from_source>`  
   
-Hiermee geeft u een gegevensbron, met of zonder een alias. Als alias niet opgegeven is, wordt deze worden afgeleid van de `<collection_expression>` van de volgende regels:  
+  Hiermee geeft u een gegevensbron, met of zonder een alias. Als alias niet opgegeven is, wordt deze worden afgeleid van de `<collection_expression>` van de volgende regels:  
   
--   De expressie is een verzamelingnaam, zal verzamelingnaam worden gebruikt als een alias.  
+  -  De expressie is een verzamelingnaam, zal verzamelingnaam worden gebruikt als een alias.  
   
--   Als de expressie `<collection_expression>`, en vervolgens %{Property_Name/ en vervolgens %{Property_Name/ wordt gebruikt als een alias. De expressie is een verzamelingnaam, zal verzamelingnaam worden gebruikt als een alias.  
+  -  Als de expressie `<collection_expression>`, en vervolgens %{Property_Name/ en vervolgens %{Property_Name/ wordt gebruikt als een alias. De expressie is een verzamelingnaam, zal verzamelingnaam worden gebruikt als een alias.  
   
-AS `input_alias`  
+- AS `input_alias`  
   
-Hiermee wordt aangegeven dat de `input_alias` is een set waarden geretourneerd door de expressie van de onderliggende verzameling.  
+  Hiermee wordt aangegeven dat de `input_alias` is een set waarden geretourneerd door de expressie van de onderliggende verzameling.  
  
-`input_alias` IN  
+- `input_alias` IN  
   
-Hiermee wordt aangegeven dat de `input_alias` moet vertegenwoordigen de set met waarden die zijn verkregen met iteratie van alle matrixelementen van elk matrix geretourneerd door de expressie van de onderliggende verzameling. Een waarde die wordt geretourneerd door de onderliggende verzameling-expressie die is geen matrix wordt genegeerd.  
+  Hiermee wordt aangegeven dat de `input_alias` moet vertegenwoordigen de set met waarden die zijn verkregen met iteratie van alle matrixelementen van elk matrix geretourneerd door de expressie van de onderliggende verzameling. Een waarde die wordt geretourneerd door de onderliggende verzameling-expressie die is geen matrix wordt genegeerd.  
   
-`<collection_expression>`  
+- `<collection_expression>`  
   
-Hiermee geeft u de verzameling-expressie moet worden gebruikt om de documenten te halen.  
+  Hiermee geeft u de verzameling-expressie moet worden gebruikt om de documenten te halen.  
   
-`ROOT`  
+- `ROOT`  
   
-Hiermee geeft u op dat document moet worden opgehaald van de standaardwaarde, momenteel verbonden verzameling.  
+  Hiermee geeft u op dat document moet worden opgehaald van de standaardwaarde, momenteel verbonden verzameling.  
   
-`collection_name`  
+- `collection_name`  
   
-Hiermee geeft u op dat document moet worden opgehaald uit de opgegeven verzameling. De naam van de verzameling moet overeenkomen met de naam van de verzameling die momenteel is verbonden met.  
+  Hiermee geeft u op dat document moet worden opgehaald uit de opgegeven verzameling. De naam van de verzameling moet overeenkomen met de naam van de verzameling die momenteel is verbonden met.  
   
-`input_alias`  
+- `input_alias`  
   
-Hiermee geeft u op dat document moet worden opgehaald uit de andere bron die wordt gedefinieerd door de opgegeven alias.  
+  Hiermee geeft u op dat document moet worden opgehaald uit de andere bron die wordt gedefinieerd door de opgegeven alias.  
   
-`<collection_expression> '.' property_`  
+- `<collection_expression> '.' property_`  
   
-Hiermee geeft u het document moet worden opgehaald door het openen van de `property_name` eigenschap of matrixindex matrixelement voor alle documenten die zijn opgehaald door bits-expressie voor verzameling opgegeven.  
+  Hiermee geeft u het document moet worden opgehaald door het openen van de `property_name` eigenschap of matrixindex matrixelement voor alle documenten die zijn opgehaald door bits-expressie voor verzameling opgegeven.  
   
-`<collection_expression> '[' "property_name" | array_index ']'`  
+- `<collection_expression> '[' "property_name" | array_index ']'`  
   
-Hiermee geeft u het document moet worden opgehaald door het openen van de `property_name` eigenschap of matrixindex matrixelement voor alle documenten die zijn opgehaald door bits-expressie voor verzameling opgegeven.  
+  Hiermee geeft u het document moet worden opgehaald door het openen van de `property_name` eigenschap of matrixindex matrixelement voor alle documenten die zijn opgehaald door bits-expressie voor verzameling opgegeven.  
   
 **Opmerkingen**  
   
 Alle aliassen opgegeven of afgeleid in de `<from_source>(`s) moet uniek zijn. De syntaxis van de `<collection_expression>.`%{Property_Name/ is hetzelfde als `<collection_expression>' ['"property_name"']'`. De syntaxis van de laatste kan echter worden gebruikt als de eigenschapsnaam van een een niet-id-tekens bevat.  
   
-**Ontbrekende eigenschappen, matrixelementen, ontbreekt een niet-gedefinieerde waarden verwerken**  
+### <a name="handling-missing-properties-missing-array-elements-and-undefined-values"></a>afhandeling van ontbrekende eigenschappen, ontbrekende matrixelementen en niet-gedefinieerde waarden
   
 Als een expressie voor een verzameling eigenschappen of matrixelementen en waarde niet bestaat, wordt die waarde genegeerd en niet verder wordt verwerkt.  
   
-**Verzameling expressie context scoping**  
+### <a name="collection-expression-context-scoping"></a>Verzameling expressie context scoping  
   
 Een expressie voor een verzameling zijn binnen het bereik van verzameling of binnen het bereik van document:  
   
@@ -216,11 +212,11 @@ Een expressie voor een verzameling zijn binnen het bereik van verzameling of bin
   
 -   Een expressie is document binnen het bereik, als de onderliggende bron van de verzameling-expressie is `input_alias` die eerder in de query is geïntroduceerd. Deze expressie vertegenwoordigt een set documenten die zijn verkregen door het evalueren van de expressie in het bereik van de verzameling van elk document die behoren tot de verzameling die zijn gekoppeld aan de alias-verzameling.  De resulterende set is een samenvoeging van die worden verkregen door het evalueren van de verzameling-expressie voor elk van de documenten in de onderliggende verzameling.  
   
-**Joins**  
+### <a name="joins"></a>Samenvoegingen 
   
-Azure Cosmos DB biedt ondersteuning voor inner joins in de huidige versie. Lid worden van aanvullende mogelijkheden worden aangebracht.
+Azure Cosmos DB biedt ondersteuning voor inner joins in de huidige versie. Lid worden van aanvullende mogelijkheden worden aangebracht. 
 
-Inner joins leiden tot een volledige vectorproduct van de sets die deel uitmaken van de join. Het resultaat van een join N manier is een set met tuples van de N-element, waarbij elke waarde in de tuple is gekoppeld aan de alias instellen die deel uitmaken van de join en kan worden geopend door te verwijzen naar deze alias in andere componenten.  
+Inner joins leiden tot een volledige vectorproduct van de sets die deel uitmaken van de join. Het resultaat van een join N manier is een set met tuples van de N-element, waarbij elke waarde in de tuple is gekoppeld aan de alias instellen die deel uitmaken van de join en kan worden geopend door te verwijzen naar deze alias in andere componenten. Zie voor voorbeelden van [JOIN sleutelwoord voorbeelden](sql-api-sql-query.md#Joins)
   
 De evaluatie van de join, is afhankelijk van het bereik van de context van de deelnemende sets:  
   
@@ -230,13 +226,13 @@ De evaluatie van de join, is afhankelijk van het bereik van de context van de de
   
  In de huidige release, wordt maximaal één expressie binnen het bereik van verzameling ondersteund door de queryprocessor.  
   
-**Voorbeelden van joins:**  
+### <a name="examples-of-joins"></a>Voorbeelden van joins  
   
 Bekijk de volgende FROM-component: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
  Elke bron definiëren, kunnen `input_alias1, input_alias2, …, input_aliasN`. Deze component FROM retourneert een set met N-tuples (tuple met N-waarden). Elke tuple heeft waarden die worden geproduceerd door alle verzameling aliassen iteratie van hun respectieve sets.  
   
-*Voorbeeld 1, met 2 bronnen toevoegen:*  
+**Voorbeeld 1** -2 bronnen  
   
 - Laat `<from_source1>` verzameling bereik en set {A, B, C} vertegenwoordigen.  
   
@@ -254,7 +250,7 @@ Bekijk de volgende FROM-component: `<from_source1> JOIN <from_source2> JOIN ... 
   
     `(A, 1), (A, 2), (B, 3), (C, 4), (C, 5)`  
   
-*Voorbeeld 2 met 3 bronnen toevoegen:*  
+**Voorbeeld 2** -3-bronnen  
   
 - Laat `<from_source1>` verzameling bereik en set {A, B, C} vertegenwoordigen.  
   
@@ -278,10 +274,10 @@ Bekijk de volgende FROM-component: `<from_source1> JOIN <from_source2> JOIN ... 
   
     (A, 1, 100), (A, 1, 200), (B, 3, 300)  
   
-> [!NOTE]
-> Gebrek aan tuples voor andere waarden van `input_alias1`, `input_alias2`, waarvoor de `<from_source3>` heeft geen waarden geretourneerd.  
+  > [!NOTE]
+  > Gebrek aan tuples voor andere waarden van `input_alias1`, `input_alias2`, waarvoor de `<from_source3>` heeft geen waarden geretourneerd.  
   
-*Voorbeeld 3, met 3 bronnen toevoegen:*  
+**Voorbeeld 3** -3-bronnen  
   
 - Laat < from_source1 > worden binnen het bereik van verzameling en set {A, B, C} vertegenwoordigen.  
   
@@ -307,19 +303,19 @@ Bekijk de volgende FROM-component: `<from_source1> JOIN <from_source2> JOIN ... 
   
     (A, 1, 100), (A, 1, 200), (A, 2, 100), (A, 2, 200), C, 4, 300, (C, 5, 300)  
   
-> [!NOTE]
-> Dit heeft geresulteerd in vectorproduct tussen `<from_source2>` en `<from_source3>` omdat beide zijn gericht op hetzelfde `<from_source1>`.  Dit leidde tot 4 (2 x 2) tuples die waarde A of 0 tuples waarde B (1, 0) en 2 (2 x 1) tuples waarde C.  
+  > [!NOTE]
+  > Dit heeft geresulteerd in vectorproduct tussen `<from_source2>` en `<from_source3>` omdat beide zijn gericht op hetzelfde `<from_source1>`.  Dit leidde tot 4 (2 x 2) tuples die waarde A of 0 tuples waarde B (1, 0) en 2 (2 x 1) tuples waarde C.  
   
 **Zie ook**  
   
  [SELECT-component](#bk_select_query)  
   
 ##  <a name="bk_where_clause"></a> WHERE-component  
- Hiermee geeft u de zoekvoorwaarde voor de documenten die zijn geretourneerd door de query.  
+ Hiermee geeft u de zoekvoorwaarde voor de documenten die zijn geretourneerd door de query. Zie voor voorbeelden van [WHERE-component voorbeelden](sql-api-sql-query.md#WhereClause)
   
  **Syntaxis**  
   
-```  
+```sql  
 WHERE <filter_condition>  
 <filter_condition> ::= <scalar_expression>  
   
@@ -340,11 +336,11 @@ WHERE <filter_condition>
  Opdat het document dat moet worden geretourneerd van een expressie die is opgegeven als filter moet voorwaarde resulteren in waar. Alleen Booleaanse waarde ' True ', voldoen aan de voorwaarde, een andere waarde: niet-gedefinieerde, null, ingesteld op false, getal, matrix of Object zal voldoen niet aan de voorwaarde.  
   
 ##  <a name="bk_orderby_clause"></a> ORDER BY-component  
- Hiermee geeft u de sorteervolgorde voor de resultaten geretourneerd door de query.  
+ Hiermee geeft u de sorteervolgorde voor de resultaten geretourneerd door de query. Zie voor voorbeelden van [ORDER BY-component-voorbeelden](sql-api-sql-query.md#OrderByClause)
   
  **Syntaxis**  
   
-```  
+```sql  
 ORDER BY <sort_specification>  
 <sort_specification> ::= <sort_expression> [, <sort_expression>]  
 <sort_expression> ::= <scalar_expression> [ASC | DESC]  
@@ -378,13 +374,13 @@ ORDER BY <sort_specification>
  Terwijl de querygrammatica biedt ondersteuning voor meerdere order met eigenschappen, ondersteunt de runtime van Azure Cosmos DB-query alleen tegen één eigenschap, en alleen de namen van de eigenschappen, dat wil zeggen, niet op basis van eigenschappen van berekende sorteren. Sorteren is ook vereist dat het indexeringsbeleid een index van het bereik voor de eigenschap en het opgegeven type, met de maximale precisie bevat. Raadpleeg de indexering beleid-documentatie voor meer informatie.  
   
 ##  <a name="bk_scalar_expressions"></a> Scalaire expressies  
- Een scalaire expressie die is een combinatie van tekens en operators die kunnen worden geëvalueerd om te verkrijgen van een enkele waarde. Eenvoudige expressies mag bestaan uit constanten, verwijzen naar eigenschappen, matrix-element verwijst naar, alias-verwijzingen of functieaanroepen. Eenvoudige expressies kunnen worden gecombineerd tot complexe expressies operators gebruiken.  
+ Een scalaire expressie die is een combinatie van tekens en operators die kunnen worden geëvalueerd om te verkrijgen van een enkele waarde. Eenvoudige expressies mag bestaan uit constanten, verwijzen naar eigenschappen, matrix-element verwijst naar, alias-verwijzingen of functieaanroepen. Eenvoudige expressies kunnen worden gecombineerd tot complexe expressies operators gebruiken. Zie voor voorbeelden van [scalaire expressies voorbeelden](sql-api-sql-query.md#scalar-expressions)
   
  Zie voor meer informatie over welke scalaire expressie die u mogelijk waarden, [constanten](#bk_constants) sectie.  
   
  **Syntaxis**  
   
-```  
+```sql  
 <scalar_expression> ::=  
        <constant>   
      | input_alias   
@@ -550,7 +546,7 @@ ORDER BY <sort_specification>
   
  **Syntaxis**  
   
-```  
+```sql  
 <constant> ::=  
    <undefined_constant>  
      | <null_constant>   
@@ -580,45 +576,45 @@ ORDER BY <sort_specification>
   
  **Argumenten**  
   
-1.  `<undefined_constant>; undefined`  
+* `<undefined_constant>; undefined`  
   
-     Geeft een niet-gedefinieerde waarde van het type niet gedefinieerd.  
+  Geeft een niet-gedefinieerde waarde van het type niet gedefinieerd.  
   
-2.  `<null_constant>; null`  
+* `<null_constant>; null`  
   
-     Hiermee geeft u **null** waarde van het type **Null**.  
+  Hiermee geeft u **null** waarde van het type **Null**.  
   
-3.  `<boolean_constant>`  
+* `<boolean_constant>`  
   
-     Constante van het type Boolean-waarde vertegenwoordigt.  
+  Constante van het type Boolean-waarde vertegenwoordigt.  
   
-4.  `false`  
+* `false`  
   
-     Hiermee geeft u **false** waarde van het type Booleaanse waarde.  
+  Hiermee geeft u **false** waarde van het type Booleaanse waarde.  
   
-5.  `true`  
+* `true`  
   
-     Hiermee geeft u **waar** waarde van het type Booleaanse waarde.  
+  Hiermee geeft u **waar** waarde van het type Booleaanse waarde.  
   
-6.  `<number_constant>`  
+* `<number_constant>`  
   
-     Hiermee geeft u een constante zijn.  
+  Hiermee geeft u een constante zijn.  
   
-7.  `decimal_literal`  
+* `decimal_literal`  
   
-     Decimale letterlijke waarden zijn getallen weergegeven met behulp van de decimale notatie of wetenschappelijke notatie.  
+  Decimale letterlijke waarden zijn getallen weergegeven met behulp van de decimale notatie of wetenschappelijke notatie.  
   
-8.  `hexadecimal_literal`  
+* `hexadecimal_literal`  
   
-     Hexadecimale letterlijke waarden zijn getallen weergegeven met behulp van voorvoegsel '0 x' gevolgd door een of meer hexadecimale cijfers.  
+  Hexadecimale letterlijke waarden zijn getallen weergegeven met behulp van voorvoegsel '0 x' gevolgd door een of meer hexadecimale cijfers.  
   
-9. `<string_constant>`  
+* `<string_constant>`  
   
-     Hiermee geeft u een constante van het type tekenreeks.  
+  Hiermee geeft u een constante van het type tekenreeks.  
   
-10. `string _literal`  
+* `string _literal`  
   
-     Letterlijke tekenreeks zijn vertegenwoordigd door een reeks van nul of meer Unicode-tekens of escapereeksen Unicode-tekenreeksen. Letterlijke tekenreeks zijn ingesloten in enkele aanhalingstekens (apostrof: ') of dubbele aanhalingstekens (aanhalingsteken: ").  
+  Letterlijke tekenreeks zijn vertegenwoordigd door een reeks van nul of meer Unicode-tekens of escapereeksen Unicode-tekenreeksen. Letterlijke tekenreeks zijn ingesloten in enkele aanhalingstekens (apostrof: ') of dubbele aanhalingstekens (aanhalingsteken: ").  
   
  Volgende escapereeksen zijn toegestaan:  
   
@@ -1854,7 +1850,7 @@ SELECT
 |[LAGERE](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
 |[REPLICEREN](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[DE SUBTEKENREEKS](#bk_substring)|  
-|[ToString](#bk_tostring)|[BOVENSTE](#bk_upper)|||  
+|[ToString](#bk_tostring)|[TRIM](#bk_trim)|[BOVENSTE](#bk_upper)||| 
   
 ####  <a name="bk_concat"></a> CONCAT  
  Retourneert een tekenreeks die het resultaat van het samenvoegen van twee of meer tekenreekswaarden.  
@@ -2440,7 +2436,40 @@ JOIN n IN food.nutrients
 {"nutrientID":"307","nutritionVal":"912"},
 {"nutrientID":"308","nutritionVal":"90"},
 {"nutrientID":"309","nutritionVal":"null"}]
- ```  
+ ``` 
+ 
+####  <a name="bk_trim"></a> TRIM  
+ Retourneert een tekenreeksexpressie na het verwijderen van voorloopspaties en volgspaties.  
+  
+ **Syntaxis**  
+  
+```  
+TRIM(<str_expr>)  
+```  
+  
+ **Argumenten**  
+  
+-   `str_expr`  
+  
+     Is een geldige tekenreeks-expressie.  
+  
+ **Typen retourneren**  
+  
+ Retourneert een tekenreeksexpressie.  
+  
+ **Voorbeelden**  
+  
+ Het volgende voorbeeld ziet hoe u TRIM binnen een query.  
+  
+```  
+SELECT TRIM("   abc"), TRIM("   abc   "), TRIM("abc   "), TRIM("abc")   
+```  
+  
+ Hier volgt de resultatenset.  
+  
+```  
+[{"$1": "abc", "$2": "abc", "$3": "abc", "$4": "abc"}]  
+``` 
 ####  <a name="bk_upper"></a> BOVENSTE  
  Retourneert een tekenreeksexpressie na kleine letter gegevens converteren naar hoofdletters.  
   

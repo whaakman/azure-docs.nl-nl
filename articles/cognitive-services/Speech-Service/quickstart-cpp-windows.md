@@ -9,12 +9,12 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 7c93f9f450cc2d244a0d716401171cde02abf70b
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 59c70d33d537742a5918dc1ba55ab8ac1f84e12c
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324568"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41987528"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-desktop-using-the-speech-sdk"></a>Snelstartgids: Herkennen gesproken tekst in C++ op Windows-bureaublad met de spraak-SDK
 
@@ -55,7 +55,7 @@ In de rechterbovenhoek, in de **pakketbron** Kies 'Nuget.org'.
 Uit de **Bladeren** tabblad, zoek het pakket 'Microsoft.CognitiveServices.Speech', selecteert u deze en controleer de **Project** en **helloworld** vakken aan de rechterkant en selecteer **Installeren** om deze te installeren in de helloworld-project.
 
 > [!NOTE]
-> De huidige versie van de Cognitive Services Speech SDK is `0.5.0`.
+> De huidige versie van de Cognitive Services Speech SDK is `0.6.0`.
 
 ![Microsoft.CognitiveServices.Speech NuGet-pakket installeren](media/sdk/qs-cpp-windows-04-nuget-install-0.5.0.png)
 

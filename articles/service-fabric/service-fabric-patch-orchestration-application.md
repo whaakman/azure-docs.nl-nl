@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: a74eab546eefd765b89aae6f12fcff554d9937c4
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: bc9fbf56b37cb8c6690bd036db704532cb8b0437
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036935"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42054733"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor het Windows-besturingssysteem in uw Service Fabric-cluster
 
@@ -282,7 +282,7 @@ Als de reparatie manager-service niet in het cluster gevonden is, wordt er een s
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-Q. **Waarom zie ik mijn cluster in een foutstatus wanneer de patch orchestration-app wordt uitgevoerd?**
+V. **Waarom zie ik mijn cluster in een foutstatus wanneer de patch orchestration-app wordt uitgevoerd?**
 
 A. Tijdens het installatieproces de patch orchestration-app wordt uitgeschakeld of opnieuw wordt opgestart knooppunten die tijdelijk kunnen resulteren in de status van het cluster uitvalt.
 
@@ -296,15 +296,15 @@ In het volgende voorbeeld wordt het cluster is een fout op een foutstatus tijdel
 
 Als het probleem zich blijft voordoen, raadpleegt u de sectie over probleemoplossing.
 
-Q. **Patch orchestration-app is in de waarschuwingsstatus heeft**
+V. **Patch orchestration-app is in de waarschuwingsstatus heeft**
 
 A. Controleer of een statusrapport geplaatst op basis van de toepassing de hoofdoorzaak is. De waarschuwing bevat meestal, details van het probleem. Als het probleem tijdelijk is, wordt automatisch herstellen van deze status van de toepassing verwacht.
 
-Q. **Wat moet ik doen als mijn cluster niet in orde is en ik wil een urgent besturingssysteemupdate doen?**
+V. **Wat moet ik doen als mijn cluster niet in orde is en ik wil een urgent besturingssysteemupdate doen?**
 
 A. De patch orchestration-app heeft geen updates installeren, terwijl het cluster niet in orde is. Probeer uw cluster naar een goede status om de blokkering van de patch orchestration-app-werkstroom te brengen.
 
-Q. **Moet ik TaskApprovalPolicy als 'NodeWise' of 'UpgradeDomainWise' instellen voor mijn cluster?**
+V. **Moet ik TaskApprovalPolicy als 'NodeWise' of 'UpgradeDomainWise' instellen voor mijn cluster?**
 
 A. 'UpgradeDomainWise' maakt de algehele cluster patchen sneller patches voor alle knooppunten die behoren tot een upgradedomein tegelijkertijd. Dit betekent dat knooppunten die behoren tot een volledige upgradedomein niet beschikbaar zijn zou (in [uitgeschakelde](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled) staat) tijdens het toepassen van patches.
 
@@ -312,7 +312,7 @@ Daarentegen 'NodeWise' beleid slechts één knooppunt tegelijk patches, dit bete
 
 Als uw cluster uitgevoerd op het aantal upgradedomeinen N-1 tolereren kan tijdens het toepassen van patches cyclus (waarbij N staat voor het totale aantal upgradedomeinen in uw cluster), kunt u het beleid als 'UpgradeDomainWise' instellen, anders u dit instellen op 'NodeWise'.
 
-Q. **Hoeveel tijd doet het allemaal voor toets maken voor het vullen van een knooppunt?**
+V. **Hoeveel tijd doet het allemaal voor toets maken voor het vullen van een knooppunt?**
 
 A. Patch toepassen op een knooppunt kan duren (bijvoorbeeld: [definitie-updates voor Windows Defender](https://www.microsoft.com/wdsi/definitions)) uur (bijvoorbeeld: [Windows cumulatieve updates](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Tijd die nodig is voor het vullen van een knooppunt is afhankelijk van voornamelijk op 
  - De grootte van updates
@@ -320,7 +320,7 @@ A. Patch toepassen op een knooppunt kan duren (bijvoorbeeld: [definitie-updates 
  - De tijd die nodig is de updates worden geïnstalleerd, het knooppunt (indien nodig) opnieuw opstarten en stappen na opnieuw opstarten-installatie te voltooien.
  - Prestaties van virtuele machine/machine en netwerkomstandigheden.
 
-Q. **Hoe lang duurt het voor het vullen van een geheel cluster?**
+V. **Hoe lang duurt het voor het vullen van een geheel cluster?**
 
 A. De tijd die nodig is voor het vullen van een geheel cluster is afhankelijk van de volgende factoren:
 
@@ -331,11 +331,11 @@ A. De tijd die nodig is voor het vullen van een geheel cluster is afhankelijk va
 - Belasting van de cluster - elke patch-bewerking moet de workload van een klant verplaatsen naar andere beschikbare knooppunten in het cluster. Knooppunt die een patch op zou zijn [Disabling](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) status gedurende deze tijd. Als het cluster wordt uitgevoerd in de buurt van piekbelasting, zou de uitschakelen proces langer duren. Daarom lijkt algehele patchproces langzaam in dergelijke extreme omstandigheden.
 - Elk cluster-statusfouten tijdens het toepassen van patches - [degradatie](https://docs.microsoft.com/dotnet/api/system.fabric.health.healthstate?view=azure-dotnet#System_Fabric_Health_HealthState_Error) in [status van het cluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-health-introduction) het patchproces onderbroken. Dit zou toevoegen aan de totale tijd die nodig is voor het vullen van het hele cluster.
 
-Q. **Waarom zie ik bepaalde updates in de resultaten van de Windows Update is verkregen via de REST API, maar niet in de geschiedenis van Windows Update op de machine?**
+V. **Waarom zie ik bepaalde updates in de resultaten van de Windows Update is verkregen via de REST API, maar niet in de geschiedenis van Windows Update op de machine?**
 
 A. Sommige productupdates wordt alleen weergegeven in de geschiedenis van hun respectieve updates/patching. Bijvoorbeeld updates voor Windows Defender kunnen of mogelijk niet weergegeven in de geschiedenis van Windows Update op Windows Server 2016.
 
-Q. **Kan Patch Orchestration-app worden gebruikt voor het vullen van mijn dev-cluster (cluster met één knooppunt)?**
+V. **Kan Patch Orchestration-app worden gebruikt voor het vullen van mijn dev-cluster (cluster met één knooppunt)?**
 
 A. Nee, Patch orchestration-app kan niet worden gebruikt om patch cluster met één knooppunt. Deze beperking is standaard, als [service fabric-systeemservices](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) of alle apps van de klant wordt krijgen met downtime en kan daarom elke taak herstellen voor het patchen van zouden nooit ophalen goedgekeurd door reparatiemanager.
 
@@ -391,6 +391,10 @@ Een beheerder moet waarbij en te bepalen waarom de toepassing of het cluster is 
 - Opgelost probleem bij het maken van RM taken vanwege welke status selectievakje tijdens het voorbereiden van herstellen taken is niet gebeurt, zoals verwacht.
 - De opstartmodus gewijzigd voor windows service POANodeSvc van automatische vertraagd automatisch.
 
-### <a name="version-121-latest"></a>Versie 1.2.1 (recentste)
+### <a name="version-121"></a>Versie 1.2.1
 
 - Opgelost probleem in cluster omlaag schalen werkstroom. Garbagecollection verzameling logica voor POA herstellen taken die behoren tot niet-bestaande knooppunten geïntroduceerd.
+
+### <a name="version-122-latest"></a>Versie 1.2.2 (recentste)
+
+- Diverse oplossingen voor problemen.

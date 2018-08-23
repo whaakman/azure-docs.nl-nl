@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: sujayt
-ms.openlocfilehash: c2892d51c6eb5e71c0b1af400b78e993742fede0
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 32bdf1080aa6e7c5884747eeecad3f42c7334c3a
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173047"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42444823"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van de ene Azure-regio naar een andere
 
@@ -34,11 +34,11 @@ In dit artikel bevat een overzicht van ondersteunde configuraties en -onderdelen
 
 ## <a name="resource-support"></a>Resource-ondersteuning
 
-**Resourcetype verplaatsen** | **Details** 
+**Resourcetype verplaatsen** | **Details**
 --- | --- | ---
 **Kluis verplaatsen tussen resourcegroepen** | Niet ondersteund<br/><br/> U kunt een Recovery services-kluis niet verplaatsen tussen resourcegroepen.
 **Compute/opslagnetwerk resources verplaatsen tussen resourcegroepen** | Wordt niet ondersteund.<br/><br/> Als u een virtuele machine of de bijbehorende onderdelen, zoals opslag/netwerk verplaatsen wanneer deze wordt gerepliceerd, moet u replicatie uitschakelen en weer inschakelen replicatie voor de virtuele machine.
-**Virtuele Azure-machines repliceren van één abonnement naar een andere voor herstel na noodgevallen** | Wordt niet ondersteund.
+**Virtuele Azure-machines repliceren van één abonnement naar een andere voor herstel na noodgevallen** | Ondersteund binnen dezelfde Azure Active Directory-tenant.
 **Virtuele machines migreren tussen abonnementen** | Wordt niet ondersteund.
 **Migreren van VM's binnen dezelfde regio** | Wordt niet ondersteund.
 
