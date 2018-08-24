@@ -9,7 +9,8 @@
 ## [SQL Server migreren naar een met Azure SQL-database beheerd exemplaar](tutorial-sql-server-to-managed-instance.md)
 
 # Handleidingen
-## [PowerShell gebruiken om SQL Server te migreren](howto-sql-server-to-azure-sql-powershell.md)
+## [PowerShell gebruiken om SQL Server te migreren naar Azure SQL DB](howto-sql-server-to-azure-sql-powershell.md)
+## [PowerShell gebruiken om SQL Server te migreren naar Azure SQL DB MI](howto-sql-server-to-azure-sql-mi-powershell.md)
 
 # Resources
 ## [Feedback van gebruikers](https://feedback.azure.com/forums/906100-azure-database-migration-service)

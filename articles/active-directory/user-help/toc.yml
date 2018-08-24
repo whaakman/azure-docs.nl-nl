@@ -1,72 +1,77 @@
+items:
 - name: Documentatie voor gebruikershulp
   href: index.md
 - name: Hulp bij verificatie in twee stappen
   items:
-    - name: Overzicht
-      href: user-help-two-step-verification-overview.md
-    - name: Mijn account instellen
-      href: multi-factor-authentication-end-user-first-time.md
-    - name: Uw instellingen beheren
-      href: multi-factor-authentication-end-user-manage-settings.md
-    - name: Help opvragen
-      href: multi-factor-authentication-end-user-troubleshoot.md
-    - name: App-wachtwoorden beheren
-      href: multi-factor-authentication-end-user-app-passwords.md
-    - name: Aanmelden
-      href: user-help-sign-in.md?toc=./toc.json
+  - name: Overzicht
+    href: user-help-two-step-verification-overview.md
+  - name: Mijn account instellen
+    href: multi-factor-authentication-end-user-first-time.md
+  - name: Uw instellingen beheren
+    href: multi-factor-authentication-end-user-manage-settings.md
+  - name: Help opvragen
+    href: multi-factor-authentication-end-user-troubleshoot.md
+  - name: App-wachtwoorden beheren
+    href: multi-factor-authentication-end-user-app-passwords.md
+  - name: Aanmelden
+    href: user-help-sign-in.md?toc=./toc.json
 - name: Hulp bij wachtwoord opnieuw instellen
   items:
-    - name: Overzicht
-      href: user-help-password-reset-overview.md
-    - name: Registreren voor wachtwoordherstel
-      href: active-directory-passwords-reset-register.md
-    - name: Uw wachtwoord opnieuw instellen
-      href: user-help-reset-password.md
+  - name: Overzicht
+    href: user-help-password-reset-overview.md
+  - name: Registreren voor wachtwoordherstel
+    href: active-directory-passwords-reset-register.md
+  - name: Uw wachtwoord opnieuw instellen
+    href: user-help-reset-password.md
 - name: Hulp bij beveiligingsgegevens (preview)
   items:
-    - name: Overzicht
-      href: user-help-security-info-overview.md
-    - name: Een verificator-app instellen
-      href: security-info-setup-auth-app.md
-    - name: Sms-berichten instellen
-      href: security-info-setup-text-msg.md
-    - name: Telefoongesprekken instellen
-      href: security-info-setup-phone-number.md
-    - name: E-mail instellen
-      href: security-info-setup-email.md
-    - name: Beveiligingsvragen instellen
-      href: security-info-setup-questions.md
-    - name: App-wachtwoorden beheren
-      href: security-info-app-passwords.md
-    - name: Uw beveiligingsgegevens beheren
-      href: security-info-manage-settings.md
-    - name: Aanmelden
-      href: user-help-sign-in.md?toc=./toc.json
+  - name: Overzicht
+    href: user-help-security-info-overview.md
+  - name: Een verificator-app instellen
+    href: security-info-setup-auth-app.md
+  - name: Sms-berichten instellen
+    href: security-info-setup-text-msg.md
+  - name: Telefoongesprekken instellen
+    href: security-info-setup-phone-number.md
+  - name: E-mail instellen
+    href: security-info-setup-email.md
+  - name: Beveiligingsvragen instellen
+    href: security-info-setup-questions.md
+  - name: App-wachtwoorden beheren
+    href: security-info-app-passwords.md
+  - name: Uw beveiligingsgegevens beheren
+    href: security-info-manage-settings.md
+  - name: Aanmelden
+    href: user-help-sign-in.md?toc=./toc.json
 - name: Hulp bij Microsoft Authenticator-app
   items:
-    - name: Overzicht
-      href: user-help-auth-app-overview.md
-    - name: Aan de slag
-      href: microsoft-authenticator-app-how-to.md
-    - name: 'Meld u aan met uw telefoon, niet met uw wachtwoord'
-      href: microsoft-authenticator-app-phone-signin-faq.md
-    - name: Back-up maken en herstellen
-      href: microsoft-authenticator-app-backup-and-recovery.md
-    - name: Veelgestelde vragen
-      href: microsoft-authenticator-app-faq.md
+  - name: Overzicht
+    href: user-help-auth-app-overview.md
+  - name: Aan de slag
+    href: microsoft-authenticator-app-how-to.md
+  - name: Back-up maken en herstellen
+    href: microsoft-authenticator-app-backup-and-recovery.md
+  - name: Veelgestelde vragen
+    href: microsoft-authenticator-app-faq.md
 - name: Hulp bij Mijn Apps-portal
   items:
-    - name: Overzicht
-      href: user-help-my-apps-overview.md
-    - name: Wat is de Mijn Apps-portal?
-      href: active-directory-saas-access-panel-introduction.md
-    - name: Problemen oplossen
-      href: active-directory-saas-access-panel-user-help.md
+  - name: Overzicht
+    href: user-help-my-apps-overview.md
+  - name: Wat is de Mijn Apps-portal?
+    href: active-directory-saas-access-panel-introduction.md
+  - name: Problemen oplossen
+    href: active-directory-saas-access-panel-user-help.md
 - name: Hulp bij apparaten beheren
   items:
-    - name: Overzicht
-      href: user-help-device-mgmt-overview.md
-    - name: Uw apparaten samenvoegen
-      href: device-management-azuread-joined-devices-setup.md
-    - name: Uw Windows 10-apparaten registreren
-      href: device-management-azuread-registered-devices-windows10-setup.md
+  - name: Overzicht
+    href: user-help-device-mgmt-overview.md
+  - name: Uw werkapparaat toevoegen
+    href: user-help-join-device-on-network.md
+  - name: Uw persoonlijke apparaat registreren voor werk
+    href: user-help-register-device-on-network.md
+ms.openlocfilehash: 48a980e7b3d9b8a3faa7917ae1f41c7f0cc6d9bc
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41927197"

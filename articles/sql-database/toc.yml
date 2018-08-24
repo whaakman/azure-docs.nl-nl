@@ -1,585 +1,614 @@
+items:
 - name: Documentatie voor SQL DB
   href: index.yml
 - name: SQL Database Service
   items:
-    - name: Informatie over SQL DB
-      href: sql-database-technical-overview.md
-    - name: Een versie van Azure SQL kiezen
-      href: sql-database-paas-vs-sql-server-iaas.md
+  - name: Informatie over SQL DB
+    href: sql-database-technical-overview.md
+  - name: Een versie van Azure SQL kiezen
+    href: sql-database-paas-vs-sql-server-iaas.md
 - name: Snelstartgidsen
-  expanded: true
   items:
-    - name: Database maken - Portal
-      href: sql-database-get-started-portal.md
-    - name: Database maken - Azure CLI
-      href: sql-database-get-started-cli.md
-    - name: Database maken - Azure PowerShell
-      href: sql-database-get-started-powershell.md
-    - name: Verbinding maken en query's uitvoeren
-      href: sql-database-connect-query.md
-      items:
-        - name: SSMS
-          href: sql-database-connect-query-ssms.md
-        - name: SQL Operations Studio
-          href: 'https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json'
-        - name: Azure Portal
-          href: sql-database-connect-query-portal.md
-        - name: VS-code
-          href: sql-database-connect-query-vscode.md
-        - name: .NET met Visual Studio
-          href: sql-database-connect-query-dotnet-visual-studio.md
-        - name: .NET Core
-          href: sql-database-connect-query-dotnet-core.md
-        - name: .NET met Active Directory-MFA
-          href: active-directory-interactive-connect-azure-sql-db.md
-        - name: Aan de slag
-          href: sql-database-connect-query-go.md
-        - name: Java
-          href: sql-database-connect-query-java.md
-        - name: Node.js
-          href: sql-database-connect-query-nodejs.md
-        - name: PHP
-          href: sql-database-connect-query-php.md
-        - name: Python
-          href: sql-database-connect-query-python.md
-        - name: Ruby
-          href: sql-database-connect-query-ruby.md
+  - name: Database maken - Portal
+    href: sql-database-get-started-portal.md
+  - name: Database maken - Azure CLI
+    href: sql-database-get-started-cli.md
+  - name: Database maken - Azure PowerShell
+    href: sql-database-get-started-powershell.md
+  - name: Beheerd exemplaar maken
+    href: sql-database-managed-instance-get-started.md
+  - name: Verbinding maken en query's uitvoeren
+    href: sql-database-connect-query.md
+    items:
+    - name: SSMS
+      href: sql-database-connect-query-ssms.md
+    - name: SQL Operations Studio
+      href: https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
+    - name: Azure Portal
+      href: sql-database-connect-query-portal.md
+    - name: VS-code
+      href: sql-database-connect-query-vscode.md
+    - name: .NET met Visual Studio
+      href: sql-database-connect-query-dotnet-visual-studio.md
+    - name: .NET Core
+      href: sql-database-connect-query-dotnet-core.md
+    - name: .NET met Active Directory-MFA
+      href: active-directory-interactive-connect-azure-sql-db.md
+    - name: Aan de slag
+      href: sql-database-connect-query-go.md
+    - name: Java
+      href: sql-database-connect-query-java.md
+    - name: Node.js
+      href: sql-database-connect-query-nodejs.md
+    - name: PHP
+      href: sql-database-connect-query-php.md
+    - name: Python
+      href: sql-database-connect-query-python.md
+    - name: Ruby
+      href: sql-database-connect-query-ruby.md
+  expanded: true
 - name: Zelfstudies
   items:
-    - name: 1 - Database ontwerpen met behulp van SSMS
-      href: sql-database-design-first-database.md
-    - name: 2 - Database ontwerpen met behulp van .NET
-      href: sql-database-design-first-database-csharp.md
-    - name: 3 - Migreren naar SQL Server DB met DMA
-      href: sql-database-migrate-your-sql-server-database.md
-    - name: 4 - Uw SQL-database beveiligen
-      href: sql-database-security-tutorial.md
-    - name: 5 - Een geografisch gedistribueerde database implementeren
-      href: sql-database-implement-geo-distributed-database.md
-    - name: 6 - Beheerd exemplaar maken
-      href: sql-database-managed-instance-create-tutorial-portal.md
-    - name: 7 - Een back-up terugzetten naar een beheerd exemplaar
-      href: sql-database-managed-instance-restore-from-backup-tutorial.md
-    - name: 8 - Met DMS naar een beheerd exemplaar migreren
-      href: ../dms/tutorial-sql-server-to-managed-instance.md
-    - name: 9 - Azure SQL Data Sync instellen
-      href: sql-database-get-started-sql-data-sync.md
+  - name: 1 - Database ontwerpen met behulp van SSMS
+    href: sql-database-design-first-database.md
+  - name: 2 - Database ontwerpen met behulp van .NET
+    href: sql-database-design-first-database-csharp.md
+  - name: 3 - Migreren naar SQL Server DB met DMA
+    href: sql-database-migrate-your-sql-server-database.md
+  - name: 4 - Uw SQL-database beveiligen
+    href: sql-database-security-tutorial.md
+  - name: 5 - Een geografisch gedistribueerde database implementeren
+    href: sql-database-implement-geo-distributed-database.md
+  - name: 6 - Beheerd exemplaar maken
+    href: sql-database-managed-instance-create-tutorial-portal.md
+  - name: 7 - Een back-up terugzetten naar een beheerd exemplaar
+    href: sql-database-managed-instance-restore-from-backup-tutorial.md
+  - name: 8 - Met DMS naar een beheerd exemplaar migreren
+    href: ../dms/tutorial-sql-server-to-managed-instance.md
+  - name: 9 - Azure SQL Data Sync instellen
+    href: sql-database-get-started-sql-data-sync.md
 - name: Voorbeelden
   items:
-    - name: Codevoorbeelden
-      href: 'https://azure.microsoft.com/resources/samples/?service=sql-database'
-    - name: Azure-CLI
-      href: sql-database-cli-samples.md
-    - name: Azure PowerShell
-      href: sql-database-powershell-samples.md
+  - name: Codevoorbeelden
+    href: https://azure.microsoft.com/resources/samples/?service=sql-database
+  - name: Azure-CLI
+    href: sql-database-cli-samples.md
+  - name: Azure PowerShell
+    href: sql-database-powershell-samples.md
 - name: Concepten
   items:
-    - name: Modellen kopen
-      items:
-        - name: vCore vs. DTU
-          href: sql-database-service-tiers.md
-        - name: vCore-model
-          href: sql-database-service-tiers-vcore.md
-        - name: DTU-model
-          href: sql-database-service-tiers-dtu.md
-        - name: Bronlimieten
-          href: sql-database-resource-limits.md
-        - name: Vooruitbetalen voor reservecapaciteit
-          href: sql-database-reserved-capacity.md
-    - name: Logische servers
-      items:
-        - name: Maken en beheren
-          href: sql-database-logical-servers.md
-        - name: Connectiviteitsarchitectuur
-          href: sql-database-connectivity-architecture.md
-        - name: T-SQL-verschillen
-          href: sql-database-transact-sql-information.md
-    - name: Individuele databases
-      items:
-        - name: Maken en beheren
-          href: sql-database-single-databases-manage.md
-        - name: Op vCore gebaseerde resourcelimieten
-          href: sql-database-vcore-resource-limits-single-databases.md
-        - name: Op DTU gebaseerde resourcelimieten
-          href: sql-database-dtu-resource-limits-single-databases.md
-        - name: Resources omhoog/omlaag schalen
-          href: sql-database-single-database-scale.md
+  - name: Modellen kopen
+    items:
+    - name: vCore vs. DTU
+      href: sql-database-service-tiers.md
+    - name: vCore-model
+      href: sql-database-service-tiers-vcore.md
+    - name: DTU-model
+      href: sql-database-service-tiers-dtu.md
+    - name: Bronlimieten
+      href: sql-database-resource-limits.md
+    - name: Vooruitbetalen voor reservecapaciteit
+      href: sql-database-reserved-capacity.md
+  - name: Logische servers
+    items:
+    - name: Maken en beheren
+      href: sql-database-logical-servers.md
+    - name: Connectiviteitsarchitectuur
+      href: sql-database-connectivity-architecture.md
+    - name: T-SQL-verschillen
+      href: sql-database-transact-sql-information.md
+  - name: Individuele databases
+    items:
+    - name: Maken en beheren
+      href: sql-database-single-databases-manage.md
+    - name: Op vCore gebaseerde resourcelimieten
+      href: sql-database-vcore-resource-limits-single-databases.md
+    - name: Op DTU gebaseerde resourcelimieten
+      href: sql-database-dtu-resource-limits-single-databases.md
+    - name: Resources omhoog/omlaag schalen
+      href: sql-database-single-database-scale.md
+  - name: Pools voor Elastic Database
+    items:
     - name: Pools voor Elastic Database
-      items:
-        - name: Pools voor Elastic Database
-          href: sql-database-elastic-pool.md
-        - name: Maken en beheren
-          href: sql-database-elastic-pool-manage.md
-        - name: Op vCore gebaseerde resourcelimieten
-          href: sql-database-vcore-resource-limits-elastic-pools.md
-        - name: Op DTU gebaseerde resourcelimieten
-          href: sql-database-dtu-resource-limits-elastic-pools.md
-        - name: Resources omhoog/omlaag schalen
-          href: sql-database-elastic-pool-scale.md
+      href: sql-database-elastic-pool.md
+    - name: Maken en beheren
+      href: sql-database-elastic-pool-manage.md
+    - name: Op vCore gebaseerde resourcelimieten
+      href: sql-database-vcore-resource-limits-elastic-pools.md
+    - name: Op DTU gebaseerde resourcelimieten
+      href: sql-database-dtu-resource-limits-elastic-pools.md
+    - name: Resources omhoog/omlaag schalen
+      href: sql-database-elastic-pool-scale.md
+  - name: Beheerde exemplaren
+    items:
     - name: Beheerde exemplaren
-      items:
-        - name: Beheerde exemplaren
-          href: sql-database-managed-instance.md
-        - name: VNET-configuratie
-          href: sql-database-managed-instance-vnet-configuration.md
-        - name: Aangepaste DNS
-          href: sql-database-managed-instance-custom-dns.md
-        - name: Netwerkconfiguratie synchroniseren
-          href: sql-database-managed-instance-sync-network-configuration.md
-        - name: Toepassingen koppelen
-          href: sql-database-managed-instance-connect-app.md
-        - name: T-SQL-verschillen
-          href: sql-database-managed-instance-transact-sql-information.md
+      href: sql-database-managed-instance.md
+    - name: VNET-configuratie
+      href: sql-database-managed-instance-vnet-configuration.md
+    - name: Aangepaste DNS
+      href: sql-database-managed-instance-custom-dns.md
+    - name: Netwerkconfiguratie synchroniseren
+      href: sql-database-managed-instance-sync-network-configuration.md
+    - name: Connectiviteitsarchitectuur
+      href: sql-database-managed-instance-connectivity-architecture.md
+    - name: Toepassingen koppelen
+      href: sql-database-managed-instance-connect-app.md
+    - name: T-SQL-verschillen
+      href: sql-database-managed-instance-transact-sql-information.md
+  - name: Bedrijfscontinuïteit
+    items:
     - name: Bedrijfscontinuïteit
+      href: sql-database-business-continuity.md
+    - name: Hoge beschikbaarheid
+      href: sql-database-high-availability.md
+    - name: Databaseback-ups
+      href: sql-database-automated-backups.md
+    - name: Langetermijnretentie van back-ups
       items:
-        - name: Bedrijfscontinuïteit
-          href: sql-database-business-continuity.md
-        - name: Hoge beschikbaarheid
-          href: sql-database-high-availability.md
-        - name: Databaseback-ups
-          href: sql-database-automated-backups.md
-        - name: Langetermijnretentie van back-ups
-          items:
-            - name: Langetermijnretentie van back-ups
-              href: sql-database-long-term-retention.md
-            - name: Configureren met Azure Blob-opslag
-              href: sql-database-long-term-backup-retention-configure.md
-            - name: Configureren met Azure Vault (afgeschaft)
-              href: sql-database-long-term-backup-retention-configure-vault.md
-        - name: Failovergroepen en geo-replicatie
-          items:
-            - name: Failovergroepen en geo-replicatie
-              href: sql-database-geo-replication-overview.md
-            - name: Geo-replicatie configureren - Portal
-              href: sql-database-geo-replication-portal.md
-            - name: Beveiliging voor replica's configureren
-              href: sql-database-geo-replication-security-config.md
-        - name: Databaseherstel
-          items:
-            - name: Databaseherstel
-              href: sql-database-recovery-using-backups.md
-            - name: Herstellen na een storing
-              href: sql-database-disaster-recovery.md
-            - name: Herstelanalyse uitvoeren
-              href: sql-database-disaster-recovery-drills.md
-        - name: App-ontwerp
-          items:
-            - name: Ontwerpen voor herstel na noodgeval
-              href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
-            - name: Ontwerpen voor elastische pools
-              href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
-            - name: Ontwerpen voor app-upgrades
-              href: sql-database-manage-application-rolling-upgrade.md
+      - name: Langetermijnretentie van back-ups
+        href: sql-database-long-term-retention.md
+      - name: Configureren met Azure Blob-opslag
+        href: sql-database-long-term-backup-retention-configure.md
+      - name: Configureren met Azure Vault (afgeschaft)
+        href: sql-database-long-term-backup-retention-configure-vault.md
+    - name: Failovergroepen en geo-replicatie
+      items:
+      - name: Failovergroepen en geo-replicatie
+        href: sql-database-geo-replication-overview.md
+      - name: Geo-replicatie configureren - Portal
+        href: sql-database-geo-replication-portal.md
+      - name: Beveiliging voor replica's configureren
+        href: sql-database-geo-replication-security-config.md
+    - name: Databaseherstel
+      items:
+      - name: Databaseherstel
+        href: sql-database-recovery-using-backups.md
+      - name: Herstellen na een storing
+        href: sql-database-disaster-recovery.md
+      - name: Herstelanalyse uitvoeren
+        href: sql-database-disaster-recovery-drills.md
+    - name: App-ontwerp
+      items:
+      - name: Ontwerpen voor herstel na noodgeval
+        href: sql-database-designing-cloud-solutions-for-disaster-recovery.md
+      - name: Ontwerpen voor elastische pools
+        href: sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md
+      - name: Ontwerpen voor app-upgrades
+        href: sql-database-manage-application-rolling-upgrade.md
+  - name: Beveiliging
+    items:
     - name: Beveiliging
+      href: sql-database-security-overview.md
+    - name: Advanced Threat Protection
       items:
-        - name: Beveiliging
-          href: sql-database-security-overview.md
-        - name: Advanced Threat Protection
-          items:
-            - name: Advanced Threat Protection
-              href: sql-advanced-threat-protection.md
-            - name: Gegevensdetectie en -classificatie
-              href: sql-database-data-discovery-and-classification.md
-            - name: Evaluatie van beveiligingsproblemen
-              href: sql-vulnerability-assessment.md
-            - name: Detectie van bedreigingen - SQL Database
-              href: sql-database-threat-detection.md
-            - name: Detectie van bedreigingen - beheerd exemplaar
-              href: sql-database-managed-instance-threat-detection.md
-        - name: Firewall-regels
-          items:
-            - name: Maken en beheren
-              href: sql-database-firewall-configure.md
-            - name: Eindpunten van virtueel netwerk
-              href: sql-database-vnet-service-endpoint-rule-overview.md
-            - name: Eindpunten van virtueel netwerk - PowerShell
-              href: sql-database-vnet-service-endpoint-rule-powershell.md
-        - name: Toegangsbeheer
-          items:
-            - name: Toegangsbeheer
-              href: sql-database-control-access.md
-            - name: Aanmeldingen en gebruikers
-              href: sql-database-manage-logins.md
-        - name: Azure Active Directory-verificatie
-          items:
-            - name: Azure Active Directory-verificatie
-              href: sql-database-aad-authentication.md
-            - name: Azure AD-verificatie configureren
-              href: sql-database-aad-authentication-configure.md
-            - name: Voorwaardelijke toegang
-              href: sql-database-conditional-access.md
-            - name: Multi-Factor Authentication
-              href: sql-database-ssms-mfa-authentication.md
-            - name: Multi-Factor Authentication instellen
-              href: sql-database-ssms-mfa-authentication-configure.md
-        - name: Controleren
-          items:
-            - name: 'Controleren - Servers, pools en databases'
-              href: sql-database-auditing.md
-            - name: Controleren - beheerd exemplaar
-              href: sql-database-managed-instance-auditing.md
-            - name: Tabel controleren (afgeschaft)
-              href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
-        - name: Dynamische gegevensmaskering
-          items:
-            - name: Dynamische gegevensmaskering
-              href: sql-database-dynamic-data-masking-get-started.md
-            - name: Maskering configureren
-              href: sql-database-dynamic-data-masking-get-started-portal.md
-        - name: Altijd versleuteld
-          items:
-            - name: Het certificaatarchief gebruiken
-              href: sql-database-always-encrypted.md
-            - name: De Azure Key Vault gebruiken
-              href: sql-database-always-encrypted-azure-key-vault.md
-    - name: Elastische schaalbaarheid
+      - name: Advanced Threat Protection
+        href: sql-advanced-threat-protection.md
+      - name: Gegevensdetectie en -classificatie
+        href: sql-database-data-discovery-and-classification.md
+      - name: Evaluatie van beveiligingsproblemen
+        href: sql-vulnerability-assessment.md
+      - name: Detectie van bedreigingen - SQL Database
+        href: sql-database-threat-detection.md
+      - name: Detectie van bedreigingen - beheerd exemplaar
+        href: sql-database-managed-instance-threat-detection.md
+    - name: Firewall-regels
       items:
-        - name: Schaalbaarheid van de resource
-          href: sql-database-scale-resources.md
-        - name: Uitschaling lezen
-          href: sql-database-read-scale-out.md
-        - name: Database-sharding
-          items:
-            - name: Database-sharding
-              href: sql-database-elastic-scale-introduction.md
-            - name: Elastische clientbibliotheek - consolideren
-              href: sql-database-elastic-database-client-library.md
-            - name: Clientbibliotheek voor Elastic Database upgraden
-              href: sql-database-elastic-scale-upgrade-client-library.md
-            - name: Shard-kaarten
-              href: sql-database-elastic-scale-shard-map-management.md
-            - name: Query-routering
-              href: sql-database-elastic-scale-data-dependent-routing.md
-            - name: Referenties beheren
-              href: sql-database-elastic-scale-manage-credentials.md
-            - name: Shard-query's uitvoeren
-              href: sql-database-elastic-scale-multishard-querying.md
-            - name: Elastic-hulpprogramma's
-              href: sql-database-elastic-scale-glossary.md
-            - name: Shard-gegevens verplaatsen
-              href: sql-database-elastic-scale-overview-split-and-merge.md
-            - name: Elastische clientbibliotheek - Dapper
-              href: sql-database-elastic-scale-working-with-dapper.md
-            - name: Veelgestelde vragen over Elastic-hulpprogramma's
-              href: sql-database-elastic-scale-faq.md
-            - name: Een shard-app maken
-              href: sql-database-elastic-scale-get-started.md
-            - name: Een query uitvoeren op horizontaal gedeelde gegevens
-              href: sql-database-elastic-query-getting-started.md
-            - name: Shard-gegevens verplaatsen
-              href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
-            - name: Beveiligingsconfiguratie
-              href: sql-database-elastic-scale-split-merge-security-configuration.md
-            - name: Een shard toevoegen
-              href: sql-database-elastic-scale-add-a-shard.md
-            - name: Shard-toewijzingsproblemen oplossen
-              href: sql-database-elastic-database-recovery-manager.md
-            - name: Een shard-database migreren
-              href: sql-database-elastic-convert-to-use-elastic-tools.md
-            - name: Tellers maken
-              href: sql-database-elastic-database-perf-counters.md
-            - name: Entity Framework gebruiken
-              href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
-    - name: Vergelijking van SQL-functies
-      href: sql-database-features.md
+      - name: Maken en beheren
+        href: sql-database-firewall-configure.md
+      - name: Eindpunten van virtueel netwerk
+        href: sql-database-vnet-service-endpoint-rule-overview.md
+      - name: Eindpunten van virtueel netwerk - PowerShell
+        href: sql-database-vnet-service-endpoint-rule-powershell.md
+    - name: Toegangsbeheer
+      items:
+      - name: Toegangsbeheer
+        href: sql-database-control-access.md
+      - name: Aanmeldingen en gebruikers
+        href: sql-database-manage-logins.md
+    - name: Azure Active Directory-verificatie
+      items:
+      - name: Azure Active Directory-verificatie
+        href: sql-database-aad-authentication.md
+      - name: Azure AD-verificatie configureren
+        href: sql-database-aad-authentication-configure.md
+      - name: Voorwaardelijke toegang
+        href: sql-database-conditional-access.md
+      - name: Multi-Factor Authentication
+        href: sql-database-ssms-mfa-authentication.md
+      - name: Multi-Factor Authentication instellen
+        href: sql-database-ssms-mfa-authentication-configure.md
+    - name: Controleren
+      items:
+      - name: Controleren - Servers, pools en databases
+        href: sql-database-auditing.md
+      - name: Controleren - beheerd exemplaar
+        href: sql-database-managed-instance-auditing.md
+      - name: Tabel controleren (afgeschaft)
+        href: sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md
+    - name: Dynamische gegevensmaskering
+      items:
+      - name: Dynamische gegevensmaskering
+        href: sql-database-dynamic-data-masking-get-started.md
+      - name: Maskering configureren
+        href: sql-database-dynamic-data-masking-get-started-portal.md
+    - name: Altijd versleuteld
+      items:
+      - name: Het certificaatarchief gebruiken
+        href: sql-database-always-encrypted.md
+      - name: De Azure Key Vault gebruiken
+        href: sql-database-always-encrypted-azure-key-vault.md
+    - name: TDE met Azure SQL
+      items:
+      - name: TDE met Azure SQL
+        href: transparent-data-encryption-azure-sql.md
+      - name: TDE met BYOK (Bring Your Own Key)
+        href: transparent-data-encryption-byok-azure-sql.md
+      - name: TDE met BYOK (Bring Your Own Key) configureren
+        href: transparent-data-encryption-byok-azure-sql-configure.md
+      - name: TDE BYOK-sleutels roteren
+        href: transparent-data-encryption-byok-azure-sql-key-rotation.md
+      - name: TDE-beveiliging verwijderen
+        href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
+  - name: Elastische schaalbaarheid
+    items:
+    - name: Schaalbaarheid van de resource
+      href: sql-database-scale-resources.md
+    - name: Uitschaling lezen
+      href: sql-database-read-scale-out.md
+    - name: Database-sharding
+      items:
+      - name: Database-sharding
+        href: sql-database-elastic-scale-introduction.md
+      - name: Elastische clientbibliotheek - consolideren
+        href: sql-database-elastic-database-client-library.md
+      - name: Clientbibliotheek voor Elastic Database upgraden
+        href: sql-database-elastic-scale-upgrade-client-library.md
+      - name: Shard-kaarten
+        href: sql-database-elastic-scale-shard-map-management.md
+      - name: Query-routering
+        href: sql-database-elastic-scale-data-dependent-routing.md
+      - name: Referenties beheren
+        href: sql-database-elastic-scale-manage-credentials.md
+      - name: Shard-query's uitvoeren
+        href: sql-database-elastic-scale-multishard-querying.md
+      - name: Elastic-hulpprogramma's
+        href: sql-database-elastic-scale-glossary.md
+      - name: Shard-gegevens verplaatsen
+        href: sql-database-elastic-scale-overview-split-and-merge.md
+      - name: Elastische clientbibliotheek - Dapper
+        href: sql-database-elastic-scale-working-with-dapper.md
+      - name: Veelgestelde vragen over Elastic-hulpprogramma's
+        href: sql-database-elastic-scale-faq.md
+      - name: Een shard-app maken
+        href: sql-database-elastic-scale-get-started.md
+      - name: Een query uitvoeren op horizontaal gedeelde gegevens
+        href: sql-database-elastic-query-getting-started.md
+      - name: Shard-gegevens verplaatsen
+        href: sql-database-elastic-scale-configure-deploy-split-and-merge.md
+      - name: Beveiligingsconfiguratie
+        href: sql-database-elastic-scale-split-merge-security-configuration.md
+      - name: Een shard toevoegen
+        href: sql-database-elastic-scale-add-a-shard.md
+      - name: Shard-toewijzingsproblemen oplossen
+        href: sql-database-elastic-database-recovery-manager.md
+      - name: Een shard-database migreren
+        href: sql-database-elastic-convert-to-use-elastic-tools.md
+      - name: Tellers maken
+        href: sql-database-elastic-database-perf-counters.md
+      - name: Entity Framework gebruiken
+        href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
+  - name: Vergelijking van SQL-functies
+    href: sql-database-features.md
+  - name: Controleren en afstemmen
+    items:
     - name: Controleren en afstemmen
+      href: sql-database-troubleshoot-performance.md
+    - name: Prestatiebewaking
+      href: sql-database-single-database-monitor.md
+    - name: Prestatie-aanbevelingen
+      href: sql-database-advisor.md
+    - name: Verwerking van intelligente query's
       items:
-        - name: Controleren en afstemmen
-          href: sql-database-troubleshoot-performance.md
-        - name: Prestatiebewaking
-          href: sql-database-single-database-monitor.md
-        - name: Prestatie-aanbevelingen
-          href: sql-database-advisor.md
-        - name: Automatisch instellen
-          items:
-            - name: Automatisch instellen
-              href: sql-database-automatic-tuning.md
-            - name: Automatisch instellen inschakelen
-              href: sql-database-automatic-tuning-enable.md
-            - name: E-mailmeldingen inschakelen
-              href: sql-database-automatic-tuning-email-notifications.md
-        - name: Intelligent Insights
-          items:
-            - name: Intelligent Insights
-              href: sql-database-intelligent-insights.md
-            - name: Diagnostische logboeken
-              href: sql-database-metrics-diag-logging.md
-            - name: Logboeken met diagnostische gegevens gebruiken
-              href: sql-database-intelligent-insights-use-diagnostics-log.md
-            - name: Probleemoplossing voor prestaties
-              href: sql-database-intelligent-insights-troubleshoot-performance.md
-        - name: Aanbevelingen voor prestaties
-          href: sql-database-performance.md
-        - name: Query Performance Insight gebruiken
-          href: sql-database-query-performance.md
-        - name: Prestatie-aanbevelingen toepassen
-          href: sql-database-advisor-portal.md
-        - name: Handmatig instellen
-          items:
-            - name: Handmatig instellen
-              href: sql-database-performance-guidance.md
-            - name: DMV's gebruiken voor het bewaken van prestatiegegevens
-              href: sql-database-monitoring-with-dmvs.md
-            - name: Query Store uitvoeren
-              href: sql-database-operate-query-store.md
-        - name: In-memory bewaken
-          href: sql-database-in-memory-oltp-monitoring.md
-        - name: Uitgebreide gebeurtenissen
-          items:
-            - name: Uitgebreide gebeurtenissen
-              href: sql-database-xevent-db-diff-from-svr.md
-            - name: Uitgebreide gebeurtenissen - gebeurtenisbestand
-              href: sql-database-xevent-code-event-file.md
-            - name: Uitgebreide gebeurtenissen - ringbuffer
-              href: sql-database-xevent-code-ring-buffer.md
-        - name: Waarschuwingen maken
-          href: sql-database-insights-alerts-portal.md
-        - name: Problemen met verbindingen oplossen
-          href: sql-database-troubleshoot-common-connection-issues.md
-        - name: Azure Automation
-          href: sql-database-manage-automation.md
-    - name: Bewerkingen voor meerdere databases
+      - name: Verwerking van intelligente query's
+        href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
+      - name: Verwerking van adaptieve query’s
+        href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
+    - name: Automatisch instellen
       items:
-        - name: Taken voor Elastic Database
-          items:
-            - name: Taken voor Elastic Database
-              href: elastic-jobs-overview.md
-            - name: Maken en beheren (PowerShell)
-              href: elastic-jobs-powershell.md
-            - name: Maken en beheren (T-SQL)
-              href: elastic-jobs-tsql.md
-            - name: Migreren (vanuit oude elastische taken)
-              href: elastic-jobs-migrate.md
-            - name: Elastische taken (afgeschaft)
-              items:
-                - name: Elastische taken (afgeschaft)
-                  href: sql-database-elastic-jobs-overview.md
-                - name: Elastische taak installeren (afgeschaft)
-                  href: sql-database-elastic-jobs-service-installation.md
-                - name: Taak maken - Portal (afgeschaft)
-                  href: sql-database-elastic-jobs-create-and-manage.md
-                - name: Taak maken - Azure PowerShell (afgeschaft)
-                  href: sql-database-elastic-jobs-powershell.md
-                - name: Taak maken - voorbeeld-app (afgeschaft)
-                  href: sql-database-elastic-jobs-getting-started.md
-                - name: Elastische taak verwijderen (afgeschaft)
-                  href: sql-database-elastic-jobs-uninstall.md
-        - name: Elastische query’s
-          items:
-            - name: Elastische query’s
-              href: sql-database-elastic-query-overview.md
-            - name: Een query uitvoeren op verticaal gepartitioneerde gegevens
-              href: sql-database-elastic-query-getting-started-vertical.md
-            - name: Rapportage voor uitgeschaalde gegevenslaag
-              href: sql-database-elastic-query-horizontal-partitioning.md
-            - name: Query's uitvoeren op tabellen met verschillende schema's
-              href: sql-database-elastic-query-vertical-partitioning.md
-        - name: Elastische transacties
-          href: sql-database-elastic-transactions-overview.md
-    - name: SaaS met meerdere tenants
+      - name: Automatisch instellen
+        href: sql-database-automatic-tuning.md
+      - name: Automatisch instellen inschakelen
+        href: sql-database-automatic-tuning-enable.md
+      - name: E-mailmeldingen inschakelen
+        href: sql-database-automatic-tuning-email-notifications.md
+    - name: Intelligent Insights
       items:
-        - name: SaaS-ontwerppatronen
-          href: saas-tenancy-app-design-patterns.md
-        - name: Indexeerfunctie voor SaaS-video
-          href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
-        - name: Beveiliging van SaaS-app
-          href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
+      - name: Intelligent Insights
+        href: sql-database-intelligent-insights.md
+      - name: Diagnostische logboeken
+        href: sql-database-metrics-diag-logging.md
+      - name: Logboeken met diagnostische gegevens gebruiken
+        href: sql-database-intelligent-insights-use-diagnostics-log.md
+      - name: Probleemoplossing voor prestaties
+        href: sql-database-intelligent-insights-troubleshoot-performance.md
+    - name: Aanbevelingen voor prestaties
+      href: sql-database-performance.md
+    - name: Query Performance Insight gebruiken
+      href: sql-database-query-performance.md
+    - name: Prestatie-aanbevelingen toepassen
+      href: sql-database-advisor-portal.md
+    - name: Handmatig instellen
+      items:
+      - name: Handmatig instellen
+        href: sql-database-performance-guidance.md
+      - name: DMV's gebruiken voor het bewaken van prestatiegegevens
+        href: sql-database-monitoring-with-dmvs.md
+      - name: Query Store uitvoeren
+        href: sql-database-operate-query-store.md
+    - name: In-memory bewaken
+      href: sql-database-in-memory-oltp-monitoring.md
+    - name: Uitgebreide gebeurtenissen
+      items:
+      - name: Uitgebreide gebeurtenissen
+        href: sql-database-xevent-db-diff-from-svr.md
+      - name: Uitgebreide gebeurtenissen - gebeurtenisbestand
+        href: sql-database-xevent-code-event-file.md
+      - name: Uitgebreide gebeurtenissen - ringbuffer
+        href: sql-database-xevent-code-ring-buffer.md
+    - name: Waarschuwingen maken
+      href: sql-database-insights-alerts-portal.md
+    - name: Problemen met verbindingen oplossen
+      href: sql-database-troubleshoot-common-connection-issues.md
+    - name: Azure Automation
+      href: sql-database-manage-automation.md
+  - name: Bewerkingen voor meerdere databases
+    items:
+    - name: Taken voor Elastic Database
+      items:
+      - name: Taken voor Elastic Database
+        href: elastic-jobs-overview.md
+      - name: Maken en beheren (PowerShell)
+        href: elastic-jobs-powershell.md
+      - name: Maken en beheren (T-SQL)
+        href: elastic-jobs-tsql.md
+      - name: Migreren (vanuit oude elastische taken)
+        href: elastic-jobs-migrate.md
+      - name: Elastische taken (afgeschaft)
+        items:
+        - name: Elastische taken (afgeschaft)
+          href: sql-database-elastic-jobs-overview.md
+        - name: Elastische taak installeren (afgeschaft)
+          href: sql-database-elastic-jobs-service-installation.md
+        - name: Taak maken - Portal (afgeschaft)
+          href: sql-database-elastic-jobs-create-and-manage.md
+        - name: Taak maken - Azure PowerShell (afgeschaft)
+          href: sql-database-elastic-jobs-powershell.md
+        - name: Taak maken - voorbeeld-app (afgeschaft)
+          href: sql-database-elastic-jobs-getting-started.md
+        - name: Elastische taak verwijderen (afgeschaft)
+          href: sql-database-elastic-jobs-uninstall.md
+    - name: Elastische query’s
+      items:
+      - name: Elastische query’s
+        href: sql-database-elastic-query-overview.md
+      - name: Een query uitvoeren op verticaal gepartitioneerde gegevens
+        href: sql-database-elastic-query-getting-started-vertical.md
+      - name: Rapportage voor uitgeschaalde gegevenslaag
+        href: sql-database-elastic-query-horizontal-partitioning.md
+      - name: Query's uitvoeren op tabellen met verschillende schema's
+        href: sql-database-elastic-query-vertical-partitioning.md
+    - name: Elastische transacties
+      href: sql-database-elastic-transactions-overview.md
+  - name: SaaS met meerdere tenants
+    items:
+    - name: SaaS-ontwerppatronen
+      href: saas-tenancy-app-design-patterns.md
+    - name: Indexeerfunctie voor SaaS-video
+      href: saas-tenancy-video-index-wingtip-brk3120-20171011.md
+    - name: Beveiliging van SaaS-app
+      href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
+  - name: Databases ontwikkelen
+    items:
     - name: Databases ontwikkelen
-      items:
-        - name: Databases ontwikkelen
-          href: sql-database-develop-overview.md
-        - name: JSON-gegevens
-          href: sql-database-json-features.md
-        - name: In het geheugen
-          href: sql-database-in-memory.md
-        - name: Tijdelijke tabellen
-          href: sql-database-temporal-tables.md
-        - name: Bewaarbeleid
-          href: sql-database-temporal-tables-retention-policy.md
-        - name: In-memory configureren
-          href: sql-database-in-memory-oltp-migration.md
+      href: sql-database-develop-overview.md
+    - name: JSON-gegevens
+      href: sql-database-json-features.md
+    - name: In het geheugen
+      href: sql-database-in-memory.md
+    - name: Tijdelijke tabellen
+      href: sql-database-temporal-tables.md
+    - name: Bewaarbeleid
+      href: sql-database-temporal-tables-retention-policy.md
+    - name: In-memory configureren
+      href: sql-database-in-memory-oltp-migration.md
 - name: Handleidingen
   items:
+  - name: Migreren naar SQL Database
+    items:
     - name: Migreren naar SQL Database
+      href: sql-database-cloud-migrate.md
+    - name: Migreren naar beheerd exemplaar
+      href: sql-database-managed-instance-migrate.md
+    - name: TDE-certificaat migreren naar beheerd exemplaar
+      href: sql-database-managed-instance-migrate-tde-certificate.md
+    - name: SQL Database na migratie beheren
+      href: sql-database-manage-after-migration.md
+  - name: Gegevens laden en verplaatsen
+    items:
+    - name: Een DB binnen Azure kopiëren
+      href: sql-database-copy.md
+    - name: Een DB uit een BACPAC importeren
+      href: sql-database-import.md
+    - name: Een DB naar een BACPAC exporteren
+      href: sql-database-export.md
+    - name: Gegevenssynchronisatie
       items:
-        - name: Migreren naar SQL Database
-          href: sql-database-cloud-migrate.md
-        - name: Migreren naar beheerd exemplaar
-          href: sql-database-managed-instance-migrate.md
-        - name: TDE-certificaat migreren naar beheerd exemplaar
-          href: sql-database-managed-instance-migrate-tde-certificate.md
-        - name: SQL Database na migratie beheren
-          href: sql-database-manage-after-migration.md
-    - name: Gegevens laden en verplaatsen
+      - name: SQL Data Sync
+        href: sql-database-sync-data.md
+      - name: Schemawijzigingen repliceren
+        href: sql-database-update-sync-schema.md
+      - name: Bewaken met OMS
+        href: sql-database-sync-monitor-oms.md
+      - name: Best practices voor Data Sync
+        href: sql-database-best-practices-data-sync.md
+      - name: Problemen met Data Sync oplossen
+        href: sql-database-troubleshoot-data-sync.md
+    - name: Gegevens laden met BCP
+      href: sql-database-load-from-csv-with-bcp.md
+    - name: Gegevens laden met ADF
+      href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
+  - name: Bestandsruimte beheren
+    href: sql-database-file-space-management.md
+  - name: Apps ontwikkelen
+    items:
+    - name: Connectiviteit
+      href: sql-database-libraries.md
+    - name: Spark-connector gebruiken
+      href: sql-database-spark-connector.md
+    - name: App verifiëren
+      href: sql-database-client-id-keys.md
+    - name: Foutberichten
+      href: sql-database-develop-error-messages.md
+    - name: Batchverwerking voor perf
+      href: sql-database-use-batching-to-improve-performance.md
+    - name: Connectiviteitsrichtlijnen
+      href: sql-database-connectivity-issues.md
+    - name: DNS-aliassen
+      href: dns-alias-overview.md
+    - name: DNS-aliassen in PowerShell
+      href: dns-alias-powershell.md
+    - name: Poorten - ADO.NET
+      href: sql-database-develop-direct-route-ports-adonet-v12.md
+    - name: C en C ++
+      href: sql-database-develop-cplusplus-simple.md
+    - name: Excel
+      href: sql-database-connect-excel.md
+  - name: Voorbeeld van SaaS-toepassing met meerdere tenants
+    items:
+    - name: Voorbeeld van Wingtip Tickets
+      href: saas-tenancy-welcome-wingtip-tickets-app.md
+    - name: Algemene richtlijnen
+      href: saas-tenancy-wingtip-app-guidance-tips.md
+    - name: Zelfstandige toepassing
       items:
-        - name: Een DB binnen Azure kopiëren
-          href: sql-database-copy.md
-        - name: Een DB uit een BACPAC importeren
-          href: sql-database-import.md
-        - name: Een DB naar een BACPAC exporteren
-          href: sql-database-export.md
-        - name: Gegevenssynchronisatie
-          items:
-            - name: SQL Data Sync
-              href: sql-database-sync-data.md
-            - name: Schemawijzigingen repliceren
-              href: sql-database-update-sync-schema.md
-            - name: Bewaken met OMS
-              href: sql-database-sync-monitor-oms.md
-            - name: Best practices voor Data Sync
-              href: sql-database-best-practices-data-sync.md
-            - name: Problemen met Data Sync oplossen
-              href: sql-database-troubleshoot-data-sync.md
-        - name: Gegevens laden met BCP
-          href: sql-database-load-from-csv-with-bcp.md
-        - name: Gegevens laden met ADF
-          href: ../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json
-    - name: Bestandsruimte beheren
-      href: sql-database-file-space-management.md
-    - name: Apps ontwikkelen
+      - name: Een voorbeeld-app implementeren
+        href: saas-standaloneapp-get-started-deploy.md
+      - name: Tenants inrichten
+        href: saas-standaloneapp-provision-and-catalog.md
+    - name: Database per tenant
       items:
-        - name: Connectiviteit
-          href: sql-database-libraries.md
-        - name: Spark-connector gebruiken
-          href: sql-database-spark-connector.md
-        - name: App verifiëren
-          href: sql-database-client-id-keys.md
-        - name: Foutberichten
-          href: sql-database-develop-error-messages.md
-        - name: Batchverwerking voor perf
-          href: sql-database-use-batching-to-improve-performance.md
-        - name: Connectiviteitsrichtlijnen
-          href: sql-database-connectivity-issues.md
-        - name: DNS-aliassen
-          href: dns-alias-overview.md
-        - name: DNS-aliassen in PowerShell
-          href: dns-alias-powershell.md
-        - name: Poorten - ADO.NET
-          href: sql-database-develop-direct-route-ports-adonet-v12.md
-        - name: C en C ++
-          href: sql-database-develop-cplusplus-simple.md
-        - name: Excel
-          href: sql-database-connect-excel.md
-    - name: SaaS-referentiearchitectuur met meerdere tenants
+      - name: Inleiding van zelfstudie
+        href: saas-dbpertenant-wingtip-app-overview.md
+      - name: Een voorbeeld-app implementeren
+        href: saas-dbpertenant-get-started-deploy.md
+      - name: Tenants inrichten
+        href: saas-dbpertenant-provision-and-catalog.md
+      - name: Databaseprestaties bewaken
+        href: saas-dbpertenant-performance-monitoring.md
+      - name: Bewaken met Log Analytics
+        href: saas-dbpertenant-log-analytics.md
+      - name: Een tenant herstellen
+        href: saas-dbpertenant-restore-single-tenant.md
+      - name: Het tenantschema beheren
+        href: saas-tenancy-schema-management.md
+      - name: Cross-tenant-rapportage
+        href: saas-tenancy-cross-tenant-reporting.md
+      - name: Tenantanalyses
+        items:
+        - name: Met SQL DB
+          href: saas-tenancy-tenant-analytics.md
+        - name: Met SQL DW
+          href: saas-tenancy-tenant-analytics-adf.md
+      - name: Herstel na noodgevallen met geo-herstel
+        href: saas-dbpertenant-dr-geo-restore.md
+      - name: Herstel na noodgevallen met geo-replicatie vanuit database
+        href: saas-dbpertenant-dr-geo-replication.md
+    - name: Multitenant-database
       items:
-        - name: Voorbeeld van Wingtip Tickets
-          href: saas-tenancy-welcome-wingtip-tickets-app.md
-        - name: Algemene richtlijnen
-          href: saas-tenancy-wingtip-app-guidance-tips.md
-        - name: Zelfstandige toepassing
-          items:
-            - name: Een voorbeeld-app implementeren
-              href: saas-standaloneapp-get-started-deploy.md
-            - name: Tenants inrichten
-              href: saas-standaloneapp-provision-and-catalog.md
-        - name: Database per tenant
-          items:
-            - name: Inleiding van zelfstudie
-              href: saas-dbpertenant-wingtip-app-overview.md
-            - name: Een voorbeeld-app implementeren
-              href: saas-dbpertenant-get-started-deploy.md
-            - name: Tenants inrichten
-              href: saas-dbpertenant-provision-and-catalog.md
-            - name: Databaseprestaties bewaken
-              href: saas-dbpertenant-performance-monitoring.md
-            - name: Bewaken met Log Analytics
-              href: saas-dbpertenant-log-analytics.md
-            - name: Een tenant herstellen
-              href: saas-dbpertenant-restore-single-tenant.md
-            - name: Het tenantschema beheren
-              href: saas-tenancy-schema-management.md
-            - name: Cross-tenant-rapportage
-              href: saas-tenancy-cross-tenant-reporting.md
-            - name: Tenantanalyses
-              items:
-                - name: Met SQL DB
-                  href: saas-tenancy-tenant-analytics.md
-                - name: Met SQL DW
-                  href: saas-tenancy-tenant-analytics-adf.md
-            - name: Herstel na noodgevallen met geo-herstel
-              href: saas-dbpertenant-dr-geo-restore.md
-            - name: Herstel na noodgevallen met geo-replicatie vanuit database
-              href: saas-dbpertenant-dr-geo-replication.md
-        - name: Multitenant-database
-          items:
-            - name: Een voorbeeld-app implementeren
-              href: saas-multitenantdb-get-started-deploy.md
-            - name: Tenants inrichten
-              href: saas-multitenantdb-provision-and-catalog.md
-            - name: Databaseprestaties bewaken
-              href: saas-multitenantdb-performance-monitoring.md
-            - name: Ad-hocquery's uitvoeren
-              href: saas-multitenantdb-adhoc-reporting.md
-            - name: Het tenantschema beheren
-              href: saas-multitenantdb-schema-management.md
-            - name: ETL voor analyse
-              href: saas-multitenantdb-tenant-analytics.md
+      - name: Een voorbeeld-app implementeren
+        href: saas-multitenantdb-get-started-deploy.md
+      - name: Tenants inrichten
+        href: saas-multitenantdb-provision-and-catalog.md
+      - name: Databaseprestaties bewaken
+        href: saas-multitenantdb-performance-monitoring.md
+      - name: Ad-hocquery's uitvoeren
+        href: saas-multitenantdb-adhoc-reporting.md
+      - name: Het tenantschema beheren
+        href: saas-multitenantdb-schema-management.md
+      - name: ETL voor analyse
+        href: saas-multitenantdb-tenant-analytics.md
 - name: Naslaginformatie
   items:
-    - name: Azure PowerShell
-      href: '/powershell/module/azurerm.sql/#sql'
-    - name: Azure CLI 2.0
-      href: /cli/azure/sql
-    - name: .NET
-      href: /dotnet/api/microsoft.azure.management.sql.models
-    - name: Java
-      href: /java/api/com.microsoft.azure.management.sql
-    - name: Node.js
-      href: /sql/connect/node-js/node-js-driver-for-sql-server
-    - name: Python
-      href: /sql/connect/python/python-driver-for-sql-server
-    - name: Ruby
-      href: /sql/connect/ruby/ruby-driver-for-sql-server
-    - name: PHP
-      href: /sql/connect/php/microsoft-php-driver-for-sql-server
-    - name: T-SQL
-      href: /sql/t-sql/language-reference
-    - name: REST
-      href: /rest/api/sql/
-    - name: SQL Server-hulpprogramma's
-      href: /sql/tools/overview-sql-tools
-    - name: SQL Server Management Studio (SSMS)
-      href: /sql/ssms/download-sql-server-management-studio-ssms
-    - name: SQL Server Data Tools (SSDT)
-      href: /sql/ssdt/download-sql-server-data-tools-ssdt
-    - name: BCP
-      href: /sql/tools/bcp-utility
-    - name: SQLCMD
-      href: /sql/tools/sqlcmd-utility
-    - name: SqlPackage
-      href: 'https://msdn.microsoft.com/hh550080.aspx'
-    - name: Pakket met SQL Database-beheerbibliotheek
-      href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Sql'
-    - name: SQL Server-stuurprogramma's
-      href: /sql/connect/sql-server-drivers
-      items:
-        - name: ADO.NET
-          href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
-        - name: JDBC
-          href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
-        - name: ODBC
-          href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.sql/#sql
+  - name: Azure CLI 2.0
+    href: /cli/azure/sql
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.sql.models
+  - name: Java
+    href: /java/api/com.microsoft.azure.management.sql
+  - name: Node.js
+    href: /sql/connect/node-js/node-js-driver-for-sql-server
+  - name: Python
+    href: /sql/connect/python/python-driver-for-sql-server
+  - name: Ruby
+    href: /sql/connect/ruby/ruby-driver-for-sql-server
+  - name: PHP
+    href: /sql/connect/php/microsoft-php-driver-for-sql-server
+  - name: T-SQL
+    href: /sql/t-sql/language-reference
+  - name: REST
+    href: /rest/api/sql/
+  - name: SQL Server-hulpprogramma's
+    href: /sql/tools/overview-sql-tools
+  - name: SQL Server Management Studio (SSMS)
+    href: /sql/ssms/download-sql-server-management-studio-ssms
+  - name: SQL Server Data Tools (SSDT)
+    href: /sql/ssdt/download-sql-server-data-tools-ssdt
+  - name: BCP
+    href: /sql/tools/bcp-utility
+  - name: SQLCMD
+    href: /sql/tools/sqlcmd-utility
+  - name: SqlPackage
+    href: https://msdn.microsoft.com/hh550080.aspx
+  - name: Pakket met SQL Database-beheerbibliotheek
+    href: https://www.nuget.org/packages/Microsoft.Azure.Management.Sql
+  - name: SQL Server-stuurprogramma's
+    href: /sql/connect/sql-server-drivers
+    items:
+    - name: ADO.NET
+      href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
+    - name: JDBC
+      href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
+    - name: ODBC
+      href: /sql/connect/odbc/microsoft-odbc-driver-for-sql-server
 - name: Resources
   items:
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Veelgestelde vragen
-      href: sql-database-faq.md
-    - name: Openbare gegevenssets
-      href: sql-database-public-data-sets.md
-    - name: Problemen met verbindingen oplossen
-      href: 'https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database'
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/sql-database/'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/sql-azure'
-    - name: Video's
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-database'
-    - name: Service-updates
-      href: 'https://azure.microsoft.com/updates/?service=sql-database'
-    - name: Architecturencentrum
-      href: /azure/architecture/
-    - name: Verhalen van klanten
-      href: 'https://customers.microsoft.com/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Veelgestelde vragen
+    href: sql-database-faq.md
+  - name: Openbare gegevenssets
+    href: sql-database-public-data-sets.md
+  - name: Problemen met verbindingen oplossen
+    href: https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/sql-database/
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/sql-azure
+  - name: Video's
+    href: https://azure.microsoft.com/documentation/videos/index/?services=sql-database
+  - name: Service-updates
+    href: https://azure.microsoft.com/updates/?service=sql-database
+  - name: Architecturencentrum
+    href: /azure/architecture/
+  - name: Verhalen van klanten
+    href: https://customers.microsoft.com/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
+ms.openlocfilehash: 0f94b45c3344e28d20469f97097be1aea330b2c7
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41928385"

@@ -10,12 +10,12 @@ ms.component: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 00232a24310b13658fbfa04d2d410e7039c42bfe
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 3ee8834a2ff8b9126fea38b19df115474c36a9e9
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358397"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41928038"
 ---
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Gebruikershulp voor verificatie, apps en apparaatbeheer
 
@@ -87,7 +87,6 @@ We hebben deze inhoud gemaakt om u te helpen aan de slag te gaan en beveiligings
                         <h3>Hulp bij Microsoft Authenticator-app</h3>
                         <p>
                         <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">Aan de slag</a><br/>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq">Veelgestelde vragen over aanmelding met telefoon</a><br/>
                         <a href="/azure/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery">Back-up en herstel van accountreferenties</a>
                         </p>
                     </div>
@@ -117,8 +116,8 @@ We hebben deze inhoud gemaakt om u te helpen aan de slag te gaan en beveiligings
                     <div class="cardText">
                         <h3>Hulp bij mijn apparaten beheren</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/device-management-azuread-joined-devices-setup">Mijn apparaten samenvoegen</a><br/>
-                        <a href="/azure/active-directory/user-help/device-management-azuread-registered-devices-windows10-setup">Mijn Windows 10-apparaten registreren</a>
+                        <a href="/azure/active-directory/user-help/user-help-join-device-on-network">Uw werkapparaat toevoegen</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-register-device-on-network">Uw persoonlijke apparaat registreren voor werk</a>
                         </p>
                     </div>
                 </div>

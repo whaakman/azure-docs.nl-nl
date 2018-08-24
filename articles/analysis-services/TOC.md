@@ -34,6 +34,7 @@
 ### [Een alias voor een servernaam configureren](analysis-services-server-alias.md)
 ### [Uitschalen configureren](analysis-services-scale-out.md)
 ### [Een on-premises gegevensgateway installeren en configureren](analysis-services-gateway-install.md)
+### [Gateway gebruiken voor gegevensbronnen in een virtueel Azure-netwerk](analysis-services-vnet-gateway.md)
 ### [Een server beheren](analysis-services-manage.md)
 ### [Metrische servergegevens bewaken](analysis-services-monitor.md)
 ### [Registratie in diagnoselogboek instellen](analysis-services-logging.md)

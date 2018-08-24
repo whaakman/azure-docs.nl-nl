@@ -74,9 +74,9 @@
 #### [Versiebeheer voor client en server](app-service-mobile-client-and-server-versioning.md)
 
 ### App Service-omgeving
-#### [Een web-app maken in een App Service-omgeving](../app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Een ILB ASE maken met behulp van Azure Resource Manager-sjablonen](../app-service/environment/app-service-app-service-environment-create-ilb-ase-resourcemanager.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-#### [Een interne load balancer maken](../app-service/environment/app-service-environment-with-internal-load-balancer.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Een web-app maken in een App Service-omgeving](../app-service/environment/intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Een interne load balancer-set maken en gebruiken](../app-service/environment/create-ilb-ase.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+#### [Een ASE maken met een sjabloon](../app-service/environment/create-from-template.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 ## Implementeren
 ### [Cloudsynchronisatie implementeren](../app-service/app-service-deploy-content-sync.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)

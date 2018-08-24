@@ -1,309 +1,346 @@
+items:
 - name: Documentatie voor Azure Log Analytics
   href: index.yml
 - name: Overzicht
   items:
-    - name: Wat is Log Analytics?
-      href: log-analytics-overview.md
+  - name: Wat is Log Analytics?
+    href: log-analytics-overview.md
 - name: Snelstartgidsen
-  expanded: true
   items:
-    - name: Verzamelen - Azure-VM's
-      href: log-analytics-quick-collect-azurevm.md
-    - name: Verzamelen - Hybride Linux-computer
-      href: log-analytics-quick-collect-linux-computer.md
-    - name: Verzamelen - Hybride Windows-computer
-      href: log-analytics-quick-collect-windows-computer.md
+  - name: Verzamelen - Azure-VM's
+    href: log-analytics-quick-collect-azurevm.md
+  - name: Verzamelen - Hybride Linux-computer
+    href: log-analytics-quick-collect-linux-computer.md
+  - name: Verzamelen - Hybride Windows-computer
+    href: log-analytics-quick-collect-windows-computer.md
+  expanded: true
 - name: Zelfstudies
   items:
-    - name: 1 - Gegevens analyseren
-      href: log-analytics-tutorial-viewdata.md
-    - name: 2 - Gegevens visualiseren
-      href: log-analytics-tutorial-dashboards.md
-    - name: 3 - Waarschuwen bij gegevens
-      href: log-analytics-tutorial-response.md
+  - name: 1 - Gegevens analyseren
+    href: log-analytics-tutorial-viewdata.md
+  - name: 2 - Gegevens visualiseren
+    href: log-analytics-tutorial-dashboards.md
+  - name: 3 - Waarschuwen bij gegevens
+    href: log-analytics-tutorial-response.md
 - name: Voorbeelden
   items:
-    - name: Azure PowerShell
-      href: powershell-samples.md
+  - name: Azure PowerShell
+    href: powershell-samples.md
 - name: Concepten
   items:
-    - name: Overgang OMS-portal
-      items:
-        - name: Overzicht
-          href: log-analytics-oms-portal-transition.md
-        - name: Veelgestelde vragen
-          href: log-analytics-oms-portal-faq.md
-    - name: Veelgestelde vragen over Log Analytics
-      href: log-analytics-faq.md
-    - name: Gegevensopnametijd
-      href: log-analytics-data-ingestion-time.md
-    - name: Gegevensbeveiliging
-      href: log-analytics-data-security.md
-    - name: Toegang beheren
-      href: log-analytics-manage-access.md
-    - name: Overzicht van agents
-      href: ../monitoring/monitoring-overview-azure-agents.md
-    - name: Hybride omgevingen bewaken
-      href: log-analytics-concept-hybrid.md
-    - name: Functies voor serviceproviders
-      href: log-analytics-service-providers.md
-    - name: Zoeken in logboeken
-      items:
-        - name: Overzicht van zoekopdrachten in logboeken
-          href: log-analytics-log-search.md
-        - name: Portals voor zoekopdrachten in logboeken
-          href: log-analytics-log-search-portals.md
+  - name: Overgang OMS-portal
+    items:
+    - name: Overzicht
+      href: log-analytics-oms-portal-transition.md
+    - name: Veelgestelde vragen
+      href: log-analytics-oms-portal-faq.md
+  - name: Veelgestelde vragen over Log Analytics
+    href: log-analytics-faq.md
+  - name: Gegevensopnametijd
+    href: log-analytics-data-ingestion-time.md
+  - name: Gegevensbeveiliging
+    href: log-analytics-data-security.md
+  - name: Toegang beheren
+    href: log-analytics-manage-access.md
+  - name: Overzicht van agents
+    href: ../monitoring/monitoring-overview-azure-agents.md
+  - name: Hybride omgevingen bewaken
+    href: log-analytics-concept-hybrid.md
+  - name: Functies voor serviceproviders
+    href: log-analytics-service-providers.md
+  - name: Zoeken in logboeken
+    items:
+    - name: Overzicht van zoekopdrachten in logboeken
+      href: log-analytics-log-search.md
+    - name: Portals voor zoekopdrachten in logboeken
+      href: log-analytics-log-search-portals.md
 - name: Handleidingen
   items:
-    - name: Werkruimte maken
+  - name: Werkruimte maken
+    items:
+    - name: Azure Portal gebruiken
+      href: log-analytics-quick-create-workspace.md
+  - name: Gegevens verzamelen
+    items:
+    - name: Verbonden bronnen
       items:
-        - name: Azure Portal gebruiken
-          href: log-analytics-quick-create-workspace.md
-    - name: Gegevens verzamelen
+      - name: Windows-agents
+        href: log-analytics-agent-windows.md
+      - name: VM-extensie voor Windows
+        href: ../virtual-machines/windows/extensions-oms.md
+      - name: VM-extensie voor Linux
+        href: ../virtual-machines/linux/extensions-oms.md
+      - name: Azure-resources
+        href: log-analytics-azure-storage.md
+      - name: Azure PaaS-resources
+        href: log-analytics-collect-azurepass-posh.md
+      - name: Diagnose- of logboekgegevens van Azure Storage
+        href: log-analytics-azure-storage-iis-table.md
+      - name: Operations Manager
+        href: log-analytics-om-agents.md
+      - name: Configuratiebeheer
+        href: log-analytics-sccm.md
+      - name: OMS-gateway
+        href: log-analytics-oms-gateway.md
+    - name: Gegevensbronnen
       items:
-        - name: Verbonden bronnen
-          items:
-            - name: Windows-agents
-              href: log-analytics-agent-windows.md
-            - name: VM-extensie voor Windows
-              href: ../virtual-machines/windows/extensions-oms.md
-            - name: VM-extensie voor Linux
-              href: ../virtual-machines/linux/extensions-oms.md
-            - name: Azure-resources
-              href: log-analytics-azure-storage.md
-            - name: Azure PaaS-resources
-              href: log-analytics-collect-azurepass-posh.md
-            - name: Diagnose- of logboekgegevens van Azure Storage
-              href: log-analytics-azure-storage-iis-table.md
-            - name: Operations Manager
-              href: log-analytics-om-agents.md
-            - name: Configuratiebeheer
-              href: log-analytics-sccm.md
-            - name: OMS-gateway
-              href: log-analytics-oms-gateway.md
-        - name: Gegevensbronnen
-          items:
-            - name: Overzicht van gegevensbronnen
-              href: log-analytics-data-sources.md
-            - name: Windows-gebeurtenissen
-              href: log-analytics-data-sources-windows-events.md
-            - name: Aangepaste JSON-gegevens
-              href: log-analytics-data-sources-json.md
-            - name: Verzamelde prestatiegegevens
-              href: log-analytics-data-sources-collectd.md
-            - name: Nagios- en Zabbix-waarschuwingen
-              href: log-analytics-data-sources-alerts-nagios-zabbix.md
-            - name: Syslog
-              href: log-analytics-data-sources-syslog.md
-            - name: Prestatiemeteritems
-              href: log-analytics-data-sources-performance-counters.md
-            - name: Prestaties van Linux-toepassingen
-              href: log-analytics-data-sources-linux-applications.md
-            - name: IIS-logboeken
-              href: log-analytics-data-sources-iis-logs.md
-            - name: Aangepaste logboeken
-              href: log-analytics-data-sources-custom-logs.md
-            - name: Aangepaste velden
-              href: log-analytics-custom-fields.md
-            - name: Gegevensverzamelaar-API
-              href: log-analytics-data-collector-api.md
-    - name: Querygegevens
+      - name: Overzicht van gegevensbronnen
+        href: log-analytics-data-sources.md
+      - name: Windows-gebeurtenissen
+        href: log-analytics-data-sources-windows-events.md
+      - name: Aangepaste JSON-gegevens
+        href: log-analytics-data-sources-json.md
+      - name: Verzamelde prestatiegegevens
+        href: log-analytics-data-sources-collectd.md
+      - name: Nagios- en Zabbix-waarschuwingen
+        href: log-analytics-data-sources-alerts-nagios-zabbix.md
+      - name: Syslog
+        href: log-analytics-data-sources-syslog.md
+      - name: Prestatiemeteritems
+        href: log-analytics-data-sources-performance-counters.md
+      - name: Prestaties van Linux-toepassingen
+        href: log-analytics-data-sources-linux-applications.md
+      - name: IIS-logboeken
+        href: log-analytics-data-sources-iis-logs.md
+      - name: Aangepaste logboeken
+        href: log-analytics-data-sources-custom-logs.md
+      - name: Aangepaste velden
+        href: log-analytics-custom-fields.md
+      - name: Gegevensverzamelaar-API
+        href: log-analytics-data-collector-api.md
+      - name: Voorbeeld van pijplijn van Gegevensverzamelaar-API
+        href: log-analytics-create-pipeline-datacollector-api.md
+  - name: Querygegevens
+    items:
+    - name: Taaldocumentatie
       items:
-        - name: Taaldocumentatie
-          items:
-            - name: Overstappen van een verouderde taal
-              href: log-analytics-log-search-transition.md
-            - name: Aan de slag met de Analytics-portal
-              href: query-language/get-started-analytics-portal.md
-            - name: Aan de slag met query's
-              href: query-language/get-started-queries.md
-            - name: Zoekquery 's
-              href: query-language/search-queries.md
-            - name: Taalverwijzing
-              href: 'https://docs.loganalytics.io'
-        - name: Zoekopdrachten in meerdere bronnen
-          href: log-analytics-cross-workspace-search.md
-        - name: Acties uitvoeren vanuit de zoekresultaten
-          href: log-analytics-log-search-takeaction.md
-        - name: Computergroepen gebruiken
-          href: log-analytics-computer-groups.md
-        - name: Stroomconnector
-          href: log-analytics-flow-tutorial.md
-        - name: API voor zoeken in logboeken
-          href: 'https://dev.loganalytics.io/'
-    - name: Gegevens analyseren
+      - name: Overstappen van een verouderde taal
+        href: log-analytics-log-search-transition.md
+      - name: Taalverwijzing
+        href: https://docs.loganalytics.io
+      - name: Aan de slag
+        items:
+        - name: Aan de slag met de Analytics-portal
+          href: query-language/get-started-analytics-portal.md
+        - name: Aan de slag met query's
+          href: query-language/get-started-queries.md
+        - name: Zoekquery 's
+          href: query-language/search-queries.md
+        - name: Nuttige operatoren
+          href: query-language/useful-operators.md
+      - name: Lessen
+        items:
+        - name: Tekenreeksbewerkingen
+          href: query-language/string-operations.md
+        - name: Datum- en tijdbewerkingen
+          href: query-language/datetime-operations.md
+        - name: Aggregatiefuncties
+          href: query-language/aggregations.md
+        - name: Geavanceerde aggregaties
+          href: query-language/advanced-aggregations.md
+        - name: Samenvoegingen
+          href: query-language/joins.md
+        - name: JSON en gegevensstructuren
+          href: query-language/json-data-structures.md
+        - name: Geavanceerde query's schrijven
+          href: query-language/advanced-query-writing.md
+        - name: Grafieken en diagrammen
+          href: query-language/charts.md
+      - name: Cheatsheets
+        items:
+        - name: SQL
+          href: query-language/sql-cheatsheet.md
+        - name: Splunk
+          href: query-language/splunk-cheatsheet.md
+    - name: Zoekopdrachten in meerdere bronnen
+      href: log-analytics-cross-workspace-search.md
+    - name: Acties uitvoeren vanuit de zoekresultaten
+      href: log-analytics-log-search-takeaction.md
+    - name: Computergroepen gebruiken
+      href: log-analytics-computer-groups.md
+    - name: Stroomconnector
+      href: log-analytics-flow-tutorial.md
+    - name: API voor zoeken in logboeken
+      href: https://dev.loganalytics.io/
+  - name: Gegevens analyseren
+    items:
+    - name: Dashboards
+      href: log-analytics-dashboards.md
+    - name: Designer weergeven
       items:
-        - name: Dashboards
-          href: log-analytics-dashboards.md
-        - name: Designer weergeven
-          items:
-            - name: Overzicht
-              href: log-analytics-view-designer.md
-            - name: Naslaginformatie voor tegels
-              href: log-analytics-view-designer-tiles.md
-            - name: Naslaginformatie voor visualisatieonderdelen
-              href: log-analytics-view-designer-parts.md
-            - name: Filters
-              href: log-analytics-view-designer-filters.md
-        - name: Power BI
-          href: log-analytics-powerbi.md
-    - name: Waarschuwingen maken
+      - name: Overzicht
+        href: log-analytics-view-designer.md
+      - name: Naslaginformatie voor tegels
+        href: log-analytics-view-designer-tiles.md
+      - name: Naslaginformatie voor visualisatieonderdelen
+        href: log-analytics-view-designer-parts.md
+      - name: Filters
+        href: log-analytics-view-designer-filters.md
+    - name: Power BI
+      href: log-analytics-powerbi.md
+  - name: Waarschuwingen maken
+    items:
+    - name: Informatie over logboekwaarschuwingen
+      href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md
+    - name: Logboekwaarschuwing maken
+      href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md
+    - name: Webhookacties voor logboekwaarschuwingen
+      href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md
+    - name: Een waarschuwing voor een logboek maken met een Resource Manager-sjabloon
+      href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-template.md
+    - name: Waarschuwingen van Log Analytics kopiëren naar Azure Alerts
+      href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md
+  - name: Beheren
+    items:
+    - name: Persoonlijke gegevens verwerken
+      href: log-analytics-personal-data-mgmt.md
+    - name: Agents beheren
+      href: log-analytics-agent-manage.md
+    - name: De kosten voor werkruimtes beheren
       items:
-        - name: Informatie over logboekwaarschuwingen
-          href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md
-        - name: Logboekwaarschuwing maken
-          href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md
-        - name: Webhookacties voor logboekwaarschuwingen
-          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md
-        - name: Een waarschuwing voor een logboek maken met een Resource Manager-sjabloon
-          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-template.md
-        - name: Waarschuwingen van Log Analytics kopiëren naar Azure Alerts
-          href: ../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md
-    - name: Beheren
+      - name: Gegevensvolume en -retentie
+        href: log-analytics-manage-cost-storage.md
+      - name: Gebruik bewaken
+        href: log-analytics-usage.md
+    - name: Een werkruimte verwijderen
+      href: log-analytics-manage-del-workspace.md
+  - name: Problemen oplossen
+    items:
+    - name: Problemen met een VM-extensie oplossen
+      href: log-analytics-azure-vmext-troubleshoot.md
+    - name: Problemen met een Linux-agent oplossen
+      href: log-analytics-agent-linux-support.md
+  - name: Oplossingen gebruiken
+    items:
+    - name: Oplossingen installeren
+      href: ../monitoring/monitoring-solutions.md?toc=%2fazure%2flog-analytics%2ftoc.json
+    - name: Oplossingsinventaris
+      href: ../monitoring/monitoring-solutions-inventory.md?toc=%2fazure%2flog-analytics%2ftoc.json
+    - name: Doeloplossingen
+      href: ../monitoring/monitoring-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
+    - name: Oplossingsgidsen
       items:
-        - name: Persoonlijke gegevens verwerken
-          href: log-analytics-personal-data-mgmt.md
-        - name: Agents beheren
-          href: log-analytics-agent-manage.md
-        - name: De kosten voor werkruimtes beheren
-          items:
-            - name: Gegevensvolume en -retentie
-              href: log-analytics-manage-cost-storage.md
-            - name: Gebruik bewaken
-              href: log-analytics-usage.md
-        - name: Een werkruimte verwijderen
-          href: log-analytics-manage-del-workspace.md
-    - name: Problemen oplossen
-      items:
-        - name: Problemen met een VM-extensie oplossen
-          href: log-analytics-azure-vmext-troubleshoot.md
-        - name: Problemen met een Linux-agent oplossen
-          href: log-analytics-agent-linux-support.md
-    - name: Oplossingen gebruiken
-      items:
-        - name: Oplossingen installeren
-          href: ../monitoring/monitoring-solutions.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Oplossingsinventaris
-          href: ../monitoring/monitoring-solutions-inventory.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Doeloplossingen
-          href: ../monitoring/monitoring-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Oplossingsgidsen
-          items:
-            - name: Activiteitenlogboeken van Azure
-              items:
-                - name: Analyse
-                  href: log-analytics-activity.md
-                - name: Verzamelen uit verschillende abonnementen
-                  href: log-analytics-activity-logs-subscriptions.md
-            - name: AD-evaluatie
-              href: log-analytics-ad-assessment.md
-            - name: AD-replicatiestatus
-              href: log-analytics-ad-replication-status.md
-            - name: Status van agent
-              href: ../monitoring/monitoring-solution-agenthealth.md?toc=%2fazure%2flog-analytics%2ftoc.json
-            - name: Waarschuwingsbeheer
-              href: log-analytics-solution-alert-management.md
-            - name: Application Insights-connector
-              href: log-analytics-app-insights-connector.md
-            - name: Azure SQL-analyse
-              href: log-analytics-azure-sql.md
-            - name: Azure Web Apps-analyse
-              href: log-analytics-azure-web-apps-analytics.md
-            - name: Capaciteit en prestaties
-              href: log-analytics-capacity.md
-            - name: Tracering wijzigen
-              href: log-analytics-change-tracking.md
-            - name: Containers
-              href: log-analytics-containers.md
-            - name: DNS-analyse
-              href: log-analytics-dns.md
-            - name: IT Service Management Connector
-              href: log-analytics-itsmc-overview.md
-              items:
-                - name: IT Service Management-verbindingen
-                  href: log-analytics-itsmc-connections.md
-            - name: Key Vault
-              href: log-analytics-azure-key-vault.md
-            - name: Logic Apps B2B-berichten
-              items:
-                - name: Oplossing berichten Logische apps B2B
-                  href: ../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json
-                - name: Aangepast volgschema Logische apps B2B
-                  href: ../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json
-            - name: Networking Analytics
-              href: log-analytics-azure-networking-analytics.md
-            - name: Netwerkprestatiemeter
-              items:
-                - name: Oplossingenoverzicht
-                  href: log-analytics-network-performance-monitor.md
-                - name: Prestatiemeter
-                  href: log-analytics-network-performance-monitor-performance-monitor.md
-                - name: Service-eindpunt
-                  href: log-analytics-network-performance-monitor-service-endpoint.md
-                - name: ExpressRoute
-                  href: log-analytics-network-performance-monitor-expressroute.md
-                - name: Prijzen
-                  href: log-analytics-network-performance-monitor-pricing-faq.md
-            - name: Office 365
-              href: ../monitoring/monitoring-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
-            - name: SCOM-statuscontrole
-              href: log-analytics-scom-assessment.md
-            - name: Beveiligingscontrole
-              href: ../security-center/security-center-intro.md
-            - name: Service Fabric met Azure PowerShell
-              href: log-analytics-service-fabric.md
-              items:
-                - name: Service Fabric met Azure Resource Manager
-                  href: log-analytics-service-fabric-azure-resource-manager.md
-            - name: Serviceoverzicht
-              items:
-                - name: Gebruiken
-                  href: ../monitoring/monitoring-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
-                - name: Configureren
-                  href: ../monitoring/monitoring-service-map-configure.md?toc=%2fazure%2flog-analytics%2ftoc.json
-                - name: Integratie met Operations Manager
-                  href: ../monitoring/monitoring-service-map-scom.md?toc=%2fazure%2flog-analytics%2ftoc.json
-            - name: SQL-statuscontrole
-              href: log-analytics-sql-assessment.md
-            - name: Surface Hub
-              href: log-analytics-surface-hubs.md
-            - name: Updatebeheer
-              href: ../automation/automation-update-management.md?toc=%2fazure%2flog-analytics%2ftoc.json
-            - name: VMware
-              href: log-analytics-vmware.md
-            - name: Windows Analytics
-              items:
-                - name: Updatenaleving
-                  href: 'https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started'
-                - name: Upgradegereedheid
-                  href: 'https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started'
-            - name: Bedradingsgegevens
-              href: log-analytics-wire-data.md
-    - name: Ontwikkelen
-      items:
-        - name: PowerShell-cmdlets
-          href: log-analytics-powershell-workspace-configuration.md
-        - name: Resource Manager-sjablonen
-          href: log-analytics-template-workspace-configuration.md
-        - name: Waarschuwings-API
-          href: log-analytics-api-alerts.md
+      - name: Activiteitenlogboeken van Azure
+        items:
+        - name: Analyse
+          href: log-analytics-activity.md
+        - name: Verzamelen uit verschillende abonnementen
+          href: log-analytics-activity-logs-subscriptions.md
+      - name: AD-evaluatie
+        href: log-analytics-ad-assessment.md
+      - name: AD-replicatiestatus
+        href: log-analytics-ad-replication-status.md
+      - name: Status van agent
+        href: ../monitoring/monitoring-solution-agenthealth.md?toc=%2fazure%2flog-analytics%2ftoc.json
+      - name: Waarschuwingsbeheer
+        href: log-analytics-solution-alert-management.md
+      - name: Application Insights-connector
+        href: log-analytics-app-insights-connector.md
+      - name: Azure SQL-analyse
+        href: log-analytics-azure-sql.md
+      - name: Azure Web Apps-analyse
+        href: log-analytics-azure-web-apps-analytics.md
+      - name: Capaciteit en prestaties
+        href: log-analytics-capacity.md
+      - name: Tracering wijzigen
+        href: log-analytics-change-tracking.md
+      - name: Containers
+        href: log-analytics-containers.md
+      - name: DNS-analyse
+        href: log-analytics-dns.md
+      - name: IT Service Management Connector
+        href: log-analytics-itsmc-overview.md
+        items:
+        - name: IT Service Management-verbindingen
+          href: log-analytics-itsmc-connections.md
+      - name: Key Vault
+        href: log-analytics-azure-key-vault.md
+      - name: Logic Apps B2B-berichten
+        items:
+        - name: Oplossing berichten Logische apps B2B
+          href: ../logic-apps/logic-apps-track-b2b-messages-omsportal.md?toc=%2fazure%2flog-analytics%2ftoc.json
+        - name: Aangepast volgschema Logische apps B2B
+          href: ../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md?toc=%2fazure%2flog-analytics%2ftoc.json
+      - name: Networking Analytics
+        href: log-analytics-azure-networking-analytics.md
+      - name: Netwerkprestatiemeter
+        items:
+        - name: Oplossingenoverzicht
+          href: log-analytics-network-performance-monitor.md
+        - name: Prestatiemeter
+          href: log-analytics-network-performance-monitor-performance-monitor.md
+        - name: Service-eindpunt
+          href: log-analytics-network-performance-monitor-service-endpoint.md
+        - name: ExpressRoute
+          href: log-analytics-network-performance-monitor-expressroute.md
+        - name: Prijzen
+          href: log-analytics-network-performance-monitor-pricing-faq.md
+      - name: Office 365
+        href: ../monitoring/monitoring-solution-office-365.md?toc=%2fazure%2flog-analytics%2ftoc.json
+      - name: SCOM-statuscontrole
+        href: log-analytics-scom-assessment.md
+      - name: Beveiligingscontrole
+        href: ../security-center/security-center-intro.md
+      - name: Service Fabric met Azure PowerShell
+        href: log-analytics-service-fabric.md
+        items:
+        - name: Service Fabric met Azure Resource Manager
+          href: log-analytics-service-fabric-azure-resource-manager.md
+      - name: Servicetoewijzing
+        items:
+        - name: Gebruiken
+          href: ../monitoring/monitoring-service-map.md?toc=%2fazure%2flog-analytics%2ftoc.json
+        - name: Configureren
+          href: ../monitoring/monitoring-service-map-configure.md?toc=%2fazure%2flog-analytics%2ftoc.json
+        - name: Integratie met Operations Manager
+          href: ../monitoring/monitoring-service-map-scom.md?toc=%2fazure%2flog-analytics%2ftoc.json
+      - name: SQL-statuscontrole
+        href: log-analytics-sql-assessment.md
+      - name: Surface Hub
+        href: log-analytics-surface-hubs.md
+      - name: Updatebeheer
+        href: ../automation/automation-update-management.md?toc=%2fazure%2flog-analytics%2ftoc.json
+      - name: VMware
+        href: log-analytics-vmware.md
+      - name: Windows Analytics
+        items:
+        - name: Updatenaleving
+          href: https://technet.microsoft.com/itpro/windows/manage/update-compliance-get-started
+        - name: Upgradegereedheid
+          href: https://technet.microsoft.com/itpro/windows/deploy/upgrade-readiness-get-started
+      - name: Bedradingsgegevens
+        href: log-analytics-wire-data.md
+  - name: Ontwikkelen
+    items:
+    - name: PowerShell-cmdlets
+      href: log-analytics-powershell-workspace-configuration.md
+    - name: Resource Manager-sjablonen
+      href: log-analytics-template-workspace-configuration.md
+    - name: Waarschuwings-API
+      href: log-analytics-api-alerts.md
 - name: Naslaginformatie
   items:
-    - name: Taalverwijzing
-      href: 'https://docs.loganalytics.io/docs/Language-Reference'
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.operationalinsights
-    - name: REST
-      href: /rest/api/loganalytics
+  - name: Taalverwijzing
+    href: https://docs.loganalytics.io/docs/Language-Reference
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.operationalinsights
+  - name: REST
+    href: /rest/api/loganalytics
 - name: Resources
   items:
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/log-analytics/'
-    - name: Prijscalculator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Service-updates
-      href: 'https://azure.microsoft.com/updates/?product=log-analytics'
-    - name: Windows Analytics
-      href: 'https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics'
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/log-analytics/
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service-updates
+    href: https://azure.microsoft.com/updates/?product=log-analytics
+  - name: Windows Analytics
+    href: https://www.microsoft.com/en-us/WindowsForBusiness/windows-analytics
+ms.openlocfilehash: 7f3e05c3eda4cdbfd7e0edcf61a7f1f6934be8e6
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42110158"

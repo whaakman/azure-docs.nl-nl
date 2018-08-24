@@ -1,51 +1,60 @@
+items:
 - name: Documentatie over Terraform op Azure
   href: index.yml
 - name: Overzicht
   items:
-    - name: Meer informatie over Terraform op Azure
-      href: terraform-overview.md
+  - name: Meer informatie over Terraform op Azure
+    href: terraform-overview.md
 - name: Snelstartgidsen
-  expanded: true
   items:
-    - name: Terraform installeren en configureren
-      href: /azure/virtual-machines/linux/terraform-install-configure
-      maintainContext: true
-    - name: Een Linux-VM maken
-      href: /azure/virtual-machines/linux/terraform-create-complete-vm
-      maintainContext: true
+  - name: Terraform installeren en configureren
+    href: /azure/virtual-machines/linux/terraform-install-configure
+    maintainContext: true
+  - name: Een Linux-VM maken
+    href: /azure/virtual-machines/linux/terraform-create-complete-vm
+    maintainContext: true
+  expanded: true
 - name: Zelfstudies
   items:
-    - name: Een Kubernetes-cluster maken met AKS en Terraform
-      href: terraform-create-k8s-cluster-with-tf-and-aks.md
-    - name: Terraform- en Azure-implementatiesites voor providers
-      href: terraform-slot-walkthru.md
-    - name: Een virtuele Terraform-machine met ingeschakelde MSI maken
-      href: terraform-vm-msi.md
-    - name: Een VM-cluster maken met Terraform-modules
-      href: terraform-create-vm-cluster-module.md
-    - name: Een VM-cluster maken met Terraform en HCL
-      href: terraform-create-vm-cluster-with-infrastructure.md
-    - name: Een VM-schaalset inrichten met infrastructuur
-      href: terraform-create-vm-scaleset-network-disks-hcl.md
-    - name: Een VM-schaalset inrichten op basis van een aangepaste Packer-installatiekopie
-      href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+  - name: Een Kubernetes-cluster maken met AKS en Terraform
+    href: terraform-create-k8s-cluster-with-tf-and-aks.md
+  - name: Terraform- en Azure-implementatiesites voor providers
+    href: terraform-slot-walkthru.md
+  - name: Een virtuele Terraform-machine met ingeschakelde MSI maken
+    href: terraform-vm-msi.md
+  - name: Een VM-cluster maken met Terraform-modules
+    href: terraform-create-vm-cluster-module.md
+  - name: Een VM-cluster maken met Terraform en HCL
+    href: terraform-create-vm-cluster-with-infrastructure.md
+  - name: Een VM-schaalset inrichten met infrastructuur
+    href: terraform-create-vm-scaleset-network-disks-hcl.md
+  - name: Een VM-schaalset inrichten op basis van een aangepaste Packer-installatiekopie
+    href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
 - name: Concepten
   items:
-    - name: Cloud Shell-integratie
-      href: terraform-cloud-shell.md
+  - name: Cloud Shell-integratie
+    href: terraform-cloud-shell.md
 - name: Voorbeelden
   items:
-    - name: Configuratiesjablonen
-      href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
+  - name: Configuratiesjablonen
+    href: https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples
 - name: Naslaginformatie
   items:
-    - name: Azure-moduleregister
-      href: 'https://registry.terraform.io/modules/Azure'
-    - name: Naslaginformatie voor Terraform
-      href: 'http://aka.ms/terraform'
+  - name: Azure-moduleregister
+    href: https://registry.terraform.io/modules/Azure
+  - name: Naslaginformatie voor Terraform
+    href: http://aka.ms/terraform
+  - name: Azure Terraform VS Code-extensie
+    href: terraform-vscode-extension.md
 - name: Resources
   items:
-    - name: Azure en Terraform
-      href: 'https://azure.microsoft.com/solutions/devops/terraform/'
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
+  - name: Azure en Terraform
+    href: https://azure.microsoft.com/solutions/devops/terraform/
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/
+ms.openlocfilehash: 349348f2230005831c1ad68eb7f48dfaa8f4b78c
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41928387"

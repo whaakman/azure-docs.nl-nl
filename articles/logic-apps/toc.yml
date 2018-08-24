@@ -1,354 +1,363 @@
+items:
 - name: Documentatie voor Azure Logic Apps
   href: index.yml
 - name: Overzicht
   items:
-    - name: Wat is Azure Logic Apps?
-      href: logic-apps-overview.md
+  - name: Wat is Azure Logic Apps?
+    href: logic-apps-overview.md
 - name: Snelstartgidsen
-  expanded: true
   items:
-    - name: Logische apps maken - Azure Portal
-      href: quickstart-create-first-logic-app-workflow.md
-    - name: Logische apps maken - Visual Studio
-      href: quickstart-create-logic-apps-with-visual-studio.md
+  - name: Logische apps maken - Azure Portal
+    href: quickstart-create-first-logic-app-workflow.md
+  - name: Logische apps maken - Visual Studio
+    href: quickstart-create-logic-apps-with-visual-studio.md
+  expanded: true
 - name: Zelfstudies
   items:
-    - name: Regelmatig verkeer controleren
-      href: tutorial-build-schedule-recurring-logic-app-workflow.md
-    - name: Mailinglijstaanvragen beheren
-      href: tutorial-process-mailing-list-subscriptions-workflow.md
-    - name: E-mailbijlagen verwerken
-      href: tutorial-process-email-attachments-workflow.md
+  - name: Regelmatig verkeer controleren
+    href: tutorial-build-schedule-recurring-logic-app-workflow.md
+  - name: Mailinglijstaanvragen beheren
+    href: tutorial-process-mailing-list-subscriptions-workflow.md
+  - name: E-mailbijlagen verwerken
+    href: tutorial-process-email-attachments-workflow.md
 - name: Concepten
   items:
-    - name: Connectors voor Logic Apps
-      href: ../connectors/apis-list.md
-    - name: Serverloos met Azure
-      href: logic-apps-serverless-overview.md
-    - name: B2B-integratie en EDI-verwerking
-      href: logic-apps-enterprise-integration-overview.md
+  - name: Connectors voor Logic Apps
+    href: ../connectors/apis-list.md
+  - name: Serverloos met Azure
+    href: logic-apps-serverless-overview.md
+  - name: B2B-integratie en EDI-verwerking
+    href: logic-apps-enterprise-integration-overview.md
 - name: Handleidingen
   items:
-    - name: Ontwikkelen
+  - name: Ontwikkelen
+    items:
+    - name: Maken op basis van bestaande sjablonen
+      href: logic-apps-create-logic-apps-from-templates.md
+    - name: Migreren vanuit BizTalk Services
+      href: logic-apps-move-from-mabs.md
+    - name: Werkstroomuitvoering beheren
       items:
-        - name: Maken op basis van bestaande sjablonen
-          href: logic-apps-create-logic-apps-from-templates.md
-        - name: Migreren vanuit BizTalk Services
-          href: logic-apps-move-from-mabs.md
-        - name: Werkstroomuitvoering beheren
-          items:
-            - name: Voorwaardelijke instructies
-              href: logic-apps-control-flow-conditional-statement.md
-            - name: Switch-instructies
-              href: logic-apps-control-flow-switch-statement.md
-            - name: Vertakkingen
-              href: logic-apps-control-flow-branches.md
-            - name: Lussen
-              href: logic-apps-control-flow-loops.md
-            - name: Bereiken
-              href: logic-apps-control-flow-run-steps-group-scopes.md
-        - name: Variabelen maken om waarden op te slaan
-          href: logic-apps-create-variables-store-values.md
-        - name: Gegevensbewerkingen uitvoeren
-          href: logic-apps-perform-data-operations.md
-        - name: Aangepaste code toevoegen met Azure Functions
-          href: logic-apps-azure-functions.md
-        - name: Logische apps aanroepen met Azure Functions
-          href: logic-apps-scenario-function-sb-trigger.md
-        - name: 'Logische apps aanroepen, triggeren of nesten'
-          href: logic-apps-http-endpoint.md
-        - name: Berichten batchgewijs verwerken
-          href: logic-apps-batch-process-send-receive-messages.md
-        - name: JSON-definities maken
-          href: logic-apps-author-definitions.md
-        - name: Inhoudstypen verwerken
-          href: logic-apps-content-type.md
-        - name: Fouten en uitzonderingen verwerken
-          href: logic-apps-exception-handling.md
-        - name: Grote berichten verwerken
-          href: logic-apps-handle-large-messages.md
-        - name: Uw logische apps beveiligen
-          href: logic-apps-securing-a-logic-app.md
-        - name: Aangepaste connectors ontwikkelen
-          href: custom-connector-overview.md
-        - name: Aangepaste API's ontwikkelen
-          items:
-            - name: Aangepaste API's maken voor logische apps
-              href: logic-apps-create-api-app.md
-            - name: Beveiligde aanroepen naar aangepaste API's
-              href: logic-apps-custom-api-authentication.md
-            - name: Aangepaste API's implementeren en aanroepen
-              href: logic-apps-custom-api-host-deploy-call.md
-        - name: Problemen oplossen
-          href: logic-apps-diagnosing-failures.md
-    - name: Ontwikkelen voor B2B-scenario's
+      - name: Voorwaardelijke instructies
+        href: logic-apps-control-flow-conditional-statement.md
+      - name: Switch-instructies
+        href: logic-apps-control-flow-switch-statement.md
+      - name: Vertakkingen
+        href: logic-apps-control-flow-branches.md
+      - name: Lussen
+        href: logic-apps-control-flow-loops.md
+      - name: Bereiken
+        href: logic-apps-control-flow-run-steps-group-scopes.md
+    - name: Variabelen maken om waarden op te slaan
+      href: logic-apps-create-variables-store-values.md
+    - name: Gegevensbewerkingen uitvoeren
+      href: logic-apps-perform-data-operations.md
+    - name: Aangepaste code toevoegen met Azure Functions
+      href: logic-apps-azure-functions.md
+    - name: Logische apps aanroepen met Azure Functions
+      href: logic-apps-scenario-function-sb-trigger.md
+    - name: Logische apps aanroepen, triggeren of nesten
+      href: logic-apps-http-endpoint.md
+    - name: Berichten batchgewijs verwerken
+      href: logic-apps-batch-process-send-receive-messages.md
+    - name: JSON-definities maken
+      href: logic-apps-author-definitions.md
+    - name: Inhoudstypen verwerken
+      href: logic-apps-content-type.md
+    - name: Fouten en uitzonderingen verwerken
+      href: logic-apps-exception-handling.md
+    - name: Grote berichten verwerken
+      href: logic-apps-handle-large-messages.md
+    - name: Uw logische apps beveiligen
+      href: logic-apps-securing-a-logic-app.md
+    - name: Aangepaste connectors ontwikkelen
+      href: custom-connector-overview.md
+    - name: Aangepaste API's ontwikkelen
       items:
-        - name: Een integratieaccount maken
-          href: logic-apps-enterprise-integration-create-integration-account.md
-        - name: Handelspartners
-          href: logic-apps-enterprise-integration-partners.md
-        - name: Overeenkomsten
-          href: logic-apps-enterprise-integration-agreements.md
-        - name: Metagegevens van artefacten
-          href: logic-apps-enterprise-integration-metadata.md
-        - name: B2B-berichten ontvangen
-          href: logic-apps-enterprise-integration-b2b.md
-        - name: AS2-berichten uitwisselen
-          href: logic-apps-enterprise-integration-as2.md
-          items:
-            - name: AS2-codering
-              href: logic-apps-enterprise-integration-as2-encode.md
-            - name: AS2-decodering
-              href: logic-apps-enterprise-integration-as2-decode.md
-        - name: EDIFACT-berichten uitwisselen
-          href: logic-apps-enterprise-integration-edifact.md
-          items:
-            - name: EDIFACT-codering
-              href: logic-apps-enterprise-integration-edifact-encode.md
-            - name: EDIFACT-decodering
-              href: logic-apps-enterprise-integration-edifact-decode.md
-            - name: EDIFACT-bestanden behandelen met UNH2.5-segment
-              href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
-        - name: X12-berichten uitwisselen
-          href: logic-apps-enterprise-integration-x12.md
-          items:
-            - name: X12-codering
-              href: logic-apps-enterprise-integration-x12-encode.md
-            - name: X12-decodering
-              href: logic-apps-enterprise-integration-x12-decode.md
-        - name: Batches maken van EDI-berichten en deze verzenden
-          href: logic-apps-scenario-edi-send-batch-messages.md
-        - name: Platte bestanden verwerken
-          href: logic-apps-enterprise-integration-flatfile.md
-        - name: XML verwerken
-          href: logic-apps-enterprise-integration-xml.md
-        - name: XML valideren
-          href: logic-apps-enterprise-integration-xml-validation.md
-        - name: Schema's voor XML-validatie toevoegen
-          href: logic-apps-enterprise-integration-schemas.md
-        - name: XML transformeren
-          href: logic-apps-enterprise-integration-transform.md
-        - name: Toewijzingen voor XML-transformatie toevoegen
-          href: logic-apps-enterprise-integration-maps.md
-        - name: JSON transformeren
-          href: logic-apps-enterprise-integration-liquid-transform.md
-        - name: Beveiligingscertificaten toevoegen
-          href: logic-apps-enterprise-integration-certificates.md
-        - name: B2B-fouten oplossen
-          href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
-        - name: Een noodherstelplan bouwen
-          href: logic-apps-enterprise-integration-b2b-business-continuity.md
-    - name: Toegang tot on-premises gegevens
+      - name: Aangepaste API's maken voor logische apps
+        href: logic-apps-create-api-app.md
+      - name: Beveiligde aanroepen naar aangepaste API's
+        href: logic-apps-custom-api-authentication.md
+      - name: Aangepaste API's implementeren en aanroepen
+        href: logic-apps-custom-api-host-deploy-call.md
+    - name: Problemen oplossen
+      href: logic-apps-diagnosing-failures.md
+  - name: Ontwikkelen voor B2B-scenario's
+    items:
+    - name: Een integratieaccount maken
+      href: logic-apps-enterprise-integration-create-integration-account.md
+    - name: Handelspartners
+      href: logic-apps-enterprise-integration-partners.md
+    - name: Overeenkomsten
+      href: logic-apps-enterprise-integration-agreements.md
+    - name: Metagegevens van artefacten
+      href: logic-apps-enterprise-integration-metadata.md
+    - name: B2B-berichten ontvangen
+      href: logic-apps-enterprise-integration-b2b.md
+    - name: AS2-berichten uitwisselen
+      href: logic-apps-enterprise-integration-as2.md
       items:
-        - name: Een gegevensgateway installeren
-          href: logic-apps-gateway-install.md
-        - name: Verbinding maken met on-premises gegevens
-          href: logic-apps-gateway-connection.md
-    - name: 'Connectors: gedetailleerde onderwerpen'
+      - name: AS2-codering
+        href: logic-apps-enterprise-integration-as2-encode.md
+      - name: AS2-decodering
+        href: logic-apps-enterprise-integration-as2-decode.md
+    - name: EDIFACT-berichten uitwisselen
+      href: logic-apps-enterprise-integration-edifact.md
       items:
-        - name: AS2
-          href: logic-apps-enterprise-integration-as2.md
-        - name: Azure Blob Storage
-          href: ../connectors/connectors-create-api-azureblobstorage.md
-        - name: Azure Event Hubs
-          href: ../connectors/connectors-create-api-azure-event-hubs.md
-        - name: Azure Functions
-          href: logic-apps-azure-functions.md
-        - name: Azure Logic Apps
-          href: logic-apps-http-endpoint.md
-        - name: Azure Service Bus
-          href: ../connectors/connectors-create-api-servicebus.md
-        - name: Azure SQL Database
-          href: ../connectors/connectors-create-api-sqlazure.md
-        - name: Bing Zoeken
-          href: ../connectors/connectors-create-api-bingsearch.md
-        - name: Box
-          href: ../connectors/connectors-create-api-box.md
-        - name: Aangepaste API's en web-apps
-          href: logic-apps-create-api-app.md
-        - name: DB2
-          href: ../connectors/connectors-create-api-db2.md
-        - name: Dropbox
-          href: ../connectors/connectors-create-api-dropbox.md
-        - name: Dynamics 365 CRM Online
-          href: ../connectors/connectors-create-api-crmonline.md
-        - name: EDIFACT
-          href: logic-apps-enterprise-integration-edifact.md
-        - name: Excel
-          href: ../connectors/connectors-create-api-excel.md
-        - name: Facebook
-          href: ../connectors/connectors-create-api-facebook.md
-        - name: Bestandssysteem
-          href: logic-apps-using-file-connector.md
-        - name: Plat bestand
-          href: logic-apps-enterprise-integration-flatfile.md
-        - name: FTP
-          href: ../connectors/connectors-create-api-ftp.md
-        - name: GitHub
-          href: ../connectors/connectors-create-api-github.md
-        - name: Google Drive
-          href: ../connectors/connectors-create-api-googledrive.md
-        - name: HTTP
-          href: ../connectors/connectors-native-http.md
-        - name: HTTP + Swagger
-          href: ../connectors/connectors-native-http-swagger.md
-        - name: HTTP-webhook
-          href: ../connectors/connectors-native-webhook.md
-        - name: Informix
-          href: ../connectors/connectors-create-api-informix.md
-        - name: Integratieaccount
-          href: logic-apps-enterprise-integration-metadata.md
-        - name: MailChimp
-          href: ../connectors/connectors-create-api-mailchimp.md
-        - name: Microsoft Translator
-          href: ../connectors/connectors-create-api-microsofttranslator.md
-        - name: MQ
-          href: ../connectors/connectors-create-api-mq.md
-        - name: Office 365 Outlook
-          href: ../connectors/connectors-create-api-office365-outlook.md
-        - name: Office 365-gebruikers
-          href: ../connectors/connectors-create-api-office365-users.md
-        - name: Office 365 Video
-          href: ../connectors/connectors-create-api-office365-video.md
-        - name: OneDrive
-          href: ../connectors/connectors-create-api-onedrive.md
-        - name: OneDrive voor Bedrijven
-          href: ../connectors/connectors-create-api-onedriveforbusiness.md
-        - name: Oracle Database
-          href: ../connectors/connectors-create-api-oracledatabase.md
-        - name: Project Online
-          href: ../connectors/connectors-create-api-projectonline.md
-        - name: Vraag/antwoord
-          href: ../connectors/connectors-native-reqres.md
-        - name: RSS
-          href: ../connectors/connectors-create-api-rss.md
-        - name: SalesForce
-          href: ../connectors/connectors-create-api-salesforce.md
-        - name: SAP
-          href: logic-apps-using-sap-connector.md
-        - name: Planning
-          href: ../connectors/connectors-native-recurrence.md
-        - name: SendGrid
-          href: ../connectors/connectors-create-api-sendgrid.md
-        - name: SFTP
-          href: ../connectors/connectors-create-api-sftp.md
-        - name: SharePoint Online
-          href: ../connectors/connectors-create-api-sharepointonline.md
-        - name: SharePoint Server
-          href: ../connectors/connectors-create-api-sharepointserver.md
-        - name: Slack
-          href: ../connectors/connectors-create-api-slack.md
-        - name: SQL Server
-          href: ../connectors/connectors-create-api-sqlazure.md
-        - name: XML transformeren
-          href: logic-apps-enterprise-integration-transform.md
-        - name: Trello
-          href: ../connectors/connectors-create-api-trello.md
-        - name: Twitter
-          href: ../connectors/connectors-create-api-twitter.md
-        - name: Twilio
-          href: ../connectors/connectors-create-api-twilio.md
-        - name: Wunderlist
-          href: ../connectors/connectors-create-api-wunderlist.md
-        - name: X12
-          href: logic-apps-enterprise-integration-x12.md
-        - name: XML-validatie
-          href: logic-apps-enterprise-integration-xml-validation.md
-        - name: Yammer
-          href: ../connectors/connectors-create-api-yammer.md
-    - name: Beheren
+      - name: EDIFACT-codering
+        href: logic-apps-enterprise-integration-edifact-encode.md
+      - name: EDIFACT-decodering
+        href: logic-apps-enterprise-integration-edifact-decode.md
+      - name: EDIFACT-bestanden behandelen met UNH2.5-segment
+        href: logic-apps-enterprise-integration-edifact_inputfile_unh2.5.md
+    - name: X12-berichten uitwisselen
+      href: logic-apps-enterprise-integration-x12.md
       items:
-        - name: Logische apps beheren - Visual Studio
-          href: manage-logic-apps-with-visual-studio.md
-        - name: Integratieaccounts beheren
-          href: logic-apps-enterprise-integration-accounts.md
-    - name: Implementeren
+      - name: X12-codering
+        href: logic-apps-enterprise-integration-x12-encode.md
+      - name: X12-decodering
+        href: logic-apps-enterprise-integration-x12-decode.md
+    - name: Batches maken van EDI-berichten en deze verzenden
+      href: logic-apps-scenario-edi-send-batch-messages.md
+    - name: Platte bestanden verwerken
+      href: logic-apps-enterprise-integration-flatfile.md
+    - name: XML verwerken
+      href: logic-apps-enterprise-integration-xml.md
+    - name: XML valideren
+      href: logic-apps-enterprise-integration-xml-validation.md
+    - name: Schema's voor XML-validatie toevoegen
+      href: logic-apps-enterprise-integration-schemas.md
+    - name: XML transformeren
+      href: logic-apps-enterprise-integration-transform.md
+    - name: Toewijzingen voor XML-transformatie toevoegen
+      href: logic-apps-enterprise-integration-maps.md
+    - name: JSON transformeren
+      href: logic-apps-enterprise-integration-liquid-transform.md
+    - name: Beveiligingscertificaten toevoegen
+      href: logic-apps-enterprise-integration-certificates.md
+    - name: B2B-fouten oplossen
+      href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
+    - name: Een noodherstelplan bouwen
+      href: logic-apps-enterprise-integration-b2b-business-continuity.md
+  - name: Toegang tot on-premises gegevens
+    items:
+    - name: Een gegevensgateway installeren
+      href: logic-apps-gateway-install.md
+    - name: Verbinding maken met on-premises gegevens
+      href: logic-apps-gateway-connection.md
+  - name: 'Connectors: gedetailleerde onderwerpen'
+    items:
+    - name: AS2
+      href: logic-apps-enterprise-integration-as2.md
+    - name: Azure Blob Storage
+      href: ../connectors/connectors-create-api-azureblobstorage.md
+    - name: Azure Event Hubs
+      href: ../connectors/connectors-create-api-azure-event-hubs.md
+    - name: Azure Functions
+      href: logic-apps-azure-functions.md
+    - name: Azure Logic Apps
+      href: logic-apps-http-endpoint.md
+    - name: Azure Service Bus
+      href: ../connectors/connectors-create-api-servicebus.md
+    - name: Azure SQL Database
+      href: ../connectors/connectors-create-api-sqlazure.md
+    - name: Bing Zoeken
+      href: ../connectors/connectors-create-api-bingsearch.md
+    - name: Box
+      href: ../connectors/connectors-create-api-box.md
+    - name: Aangepaste API's en web-apps
+      href: logic-apps-create-api-app.md
+    - name: DB2
+      href: ../connectors/connectors-create-api-db2.md
+    - name: Dropbox
+      href: ../connectors/connectors-create-api-dropbox.md
+    - name: Dynamics 365 CRM Online
+      href: ../connectors/connectors-create-api-crmonline.md
+    - name: EDIFACT
+      href: logic-apps-enterprise-integration-edifact.md
+    - name: Excel Online voor Bedrijven of OneDrive
+      href: ../connectors/connectors-create-api-excel.md
+    - name: Facebook
+      href: ../connectors/connectors-create-api-facebook.md
+    - name: Bestandssysteem
+      href: logic-apps-using-file-connector.md
+    - name: Plat bestand
+      href: logic-apps-enterprise-integration-flatfile.md
+    - name: FTP
+      href: ../connectors/connectors-create-api-ftp.md
+    - name: GitHub
+      href: ../connectors/connectors-create-api-github.md
+    - name: Google Drive
+      href: ../connectors/connectors-create-api-googledrive.md
+    - name: HTTP
+      href: ../connectors/connectors-native-http.md
+    - name: HTTP + Swagger
+      href: ../connectors/connectors-native-http-swagger.md
+    - name: HTTP-webhook
+      href: ../connectors/connectors-native-webhook.md
+    - name: Informix
+      href: ../connectors/connectors-create-api-informix.md
+    - name: Integratieaccount
+      href: logic-apps-enterprise-integration-metadata.md
+    - name: MailChimp
+      href: ../connectors/connectors-create-api-mailchimp.md
+    - name: Microsoft Translator
+      href: ../connectors/connectors-create-api-microsofttranslator.md
+    - name: MQ
+      href: ../connectors/connectors-create-api-mq.md
+    - name: Office 365 Outlook
+      href: ../connectors/connectors-create-api-office365-outlook.md
+    - name: Office 365-gebruikers
+      href: ../connectors/connectors-create-api-office365-users.md
+    - name: Office 365 Video
+      href: ../connectors/connectors-create-api-office365-video.md
+    - name: OneDrive
+      href: ../connectors/connectors-create-api-onedrive.md
+    - name: OneDrive voor Bedrijven
+      href: ../connectors/connectors-create-api-onedriveforbusiness.md
+    - name: Oracle Database
+      href: ../connectors/connectors-create-api-oracledatabase.md
+    - name: Outlook.com
+      href: ../connectors/connectors-create-api-outlook.md
+    - name: Project Online
+      href: ../connectors/connectors-create-api-projectonline.md
+    - name: Vraag/antwoord
+      href: ../connectors/connectors-native-reqres.md
+    - name: RSS
+      href: ../connectors/connectors-create-api-rss.md
+    - name: SalesForce
+      href: ../connectors/connectors-create-api-salesforce.md
+    - name: SAP
+      href: logic-apps-using-sap-connector.md
+    - name: Planning
+      href: ../connectors/connectors-native-recurrence.md
+    - name: SendGrid
+      href: ../connectors/connectors-create-api-sendgrid.md
+    - name: SFTP
+      href: ../connectors/connectors-create-api-sftp.md
+    - name: SharePoint Online
+      href: ../connectors/connectors-create-api-sharepointonline.md
+    - name: SharePoint Server
+      href: ../connectors/connectors-create-api-sharepointserver.md
+    - name: Slack
+      href: ../connectors/connectors-create-api-slack.md
+    - name: SQL Server
+      href: ../connectors/connectors-create-api-sqlazure.md
+    - name: XML transformeren
+      href: logic-apps-enterprise-integration-transform.md
+    - name: Trello
+      href: ../connectors/connectors-create-api-trello.md
+    - name: Twitter
+      href: ../connectors/connectors-create-api-twitter.md
+    - name: Twilio
+      href: ../connectors/connectors-create-api-twilio.md
+    - name: Wunderlist
+      href: ../connectors/connectors-create-api-wunderlist.md
+    - name: X12
+      href: logic-apps-enterprise-integration-x12.md
+    - name: XML-validatie
+      href: logic-apps-enterprise-integration-xml-validation.md
+    - name: Yammer
+      href: ../connectors/connectors-create-api-yammer.md
+  - name: Beheren
+    items:
+    - name: Logische apps beheren - Visual Studio
+      href: manage-logic-apps-with-visual-studio.md
+    - name: Integratieaccounts beheren
+      href: logic-apps-enterprise-integration-accounts.md
+  - name: Implementeren
+    items:
+    - name: Logische apps definiëren en implementeren
+      href: logic-apps-create-deploy-azure-resource-manager-templates.md
+    - name: Implementatiesjablonen maken - Visual Studio
+      href: logic-apps-create-deploy-template.md
+  - name: Controleren
+    items:
+    - name: De status van logische apps bewaken
+      href: logic-apps-monitor-your-logic-apps.md
+    - name: De status van logische apps bewaken met Azure Log Analytics
+      href: logic-apps-monitor-your-logic-apps-oms.md
+    - name: B2B-berichten bewaken
+      href: logic-apps-monitor-b2b-message.md
       items:
-        - name: Logische apps definiëren en implementeren
-          href: logic-apps-create-deploy-azure-resource-manager-templates.md
-        - name: Implementatiesjablonen maken - Visual Studio
-          href: logic-apps-create-deploy-template.md
-    - name: Controleren
-      items:
-        - name: De status van logische apps bewaken
-          href: logic-apps-monitor-your-logic-apps.md
-        - name: De status van logische apps bewaken met Azure Log Analytics
-          href: logic-apps-monitor-your-logic-apps-oms.md
-        - name: B2B-berichten bewaken
-          href: logic-apps-monitor-b2b-message.md
-          items:
-            - name: B2B-berichten bewaken met Azure Log Analytics
-              href: logic-apps-track-b2b-messages-omsportal.md
-            - name: Query's uitvoeren op Azure Log Analytics voor B2B-berichten
-              href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
-    - name: 'Voorbeelden, scenario''s en rondleidingen'
-      href: logic-apps-examples-and-scenarios.md
-      items:
-        - name: Gegevensbewerkingen - voorbeelden van code
-          href: logic-apps-data-operations-code-samples.md
-        - name: Sociale media bewaken
-          href: logic-apps-scenario-social-serverless.md
-        - name: 'Een serverloze app bouwen: Visual Studio'
-          href: logic-apps-serverless-get-started-vs.md
-        - name: Verwerking van fouten en uitzonderingen toevoegen
-          href: logic-apps-scenario-error-and-exception-handling.md
-        - name: B2B-verwerking
-          href: logic-apps-enterprise-integration-b2b.md
+      - name: B2B-berichten bewaken met Azure Log Analytics
+        href: logic-apps-track-b2b-messages-omsportal.md
+      - name: Query's uitvoeren op Azure Log Analytics voor B2B-berichten
+        href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
+  - name: Voorbeelden, scenario's en rondleidingen
+    href: logic-apps-examples-and-scenarios.md
+    items:
+    - name: Gegevensbewerkingen - voorbeelden van code
+      href: logic-apps-data-operations-code-samples.md
+    - name: Sociale media bewaken
+      href: logic-apps-scenario-social-serverless.md
+    - name: 'Een serverloze app bouwen: Visual Studio'
+      href: logic-apps-serverless-get-started-vs.md
+    - name: Verwerking van fouten en uitzonderingen toevoegen
+      href: logic-apps-scenario-error-and-exception-handling.md
+    - name: B2B-verwerking
+      href: logic-apps-enterprise-integration-b2b.md
 - name: Naslaginformatie
   items:
-    - name: Architectuurpatronen
+  - name: Architectuurpatronen
+    href: logic-apps-architectures-simple-enterprise-integration.md
+    items:
+    - name: Eenvoudige bedrijfsintegratie
       href: logic-apps-architectures-simple-enterprise-integration.md
-      items:
-        - name: Eenvoudige bedrijfsintegratie
-          href: logic-apps-architectures-simple-enterprise-integration.md
-        - name: Bedrijfsintegratie met wachtrijen en gebeurtenissen
-          href: logic-apps-architectures-enterprise-integration-with-queues-events.md
-    - name: 'Connectors: volledige informatie'
-      href: 'https://docs.microsoft.com/connectors/'
-    - name: Limieten en configuratie
-      href: logic-apps-limits-and-config.md
-    - name: Gebruik meten
-      href: logic-apps-pricing.md
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.logicapp
-    - name: REST-API
-      href: /rest/api/logic/
-    - name: Definitietaal van werkstroomschema
-      href: logic-apps-workflow-definition-language.md
-      items:
-        - name: Verwijzing voor trigger- en actietypen
-          href: logic-apps-workflow-actions-triggers.md
-        - name: Functieverwijzing
-          href: workflow-definition-language-functions-reference.md
-        - name: 'GA: schemageschiedenis'
-          href: logic-apps-schema-2016-04-01.md
-    - name: Volgschema's
-      items:
-        - name: Volgschema voor AS2
-          href: logic-apps-track-integration-account-as2-tracking-schemas.md
-        - name: Volgschema voor X12
-          href: logic-apps-track-integration-account-x12-tracking-schema.md
-        - name: Aangepaste volgschema's
-          href: logic-apps-track-integration-account-custom-tracking-schema.md
+    - name: Bedrijfsintegratie met wachtrijen en gebeurtenissen
+      href: logic-apps-architectures-enterprise-integration-with-queues-events.md
+  - name: 'Connectors: volledige informatie'
+    href: https://docs.microsoft.com/connectors/
+  - name: Limieten en configuratie
+    href: logic-apps-limits-and-config.md
+  - name: Gebruik meten
+    href: logic-apps-pricing.md
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.logicapp
+  - name: REST-API
+    href: /rest/api/logic/
+  - name: Definitietaal van werkstroomschema
+    href: logic-apps-workflow-definition-language.md
+    items:
+    - name: Verwijzing voor trigger- en actietypen
+      href: logic-apps-workflow-actions-triggers.md
+    - name: Functieverwijzing
+      href: workflow-definition-language-functions-reference.md
+    - name: 'GA: schemageschiedenis'
+      href: logic-apps-schema-2016-04-01.md
+  - name: Volgschema's
+    items:
+    - name: Volgschema voor AS2
+      href: logic-apps-track-integration-account-as2-tracking-schemas.md
+    - name: Volgschema voor X12
+      href: logic-apps-track-integration-account-x12-tracking-schema.md
+    - name: Aangepaste volgschema's
+      href: logic-apps-track-integration-account-custom-tracking-schema.md
 - name: Resources
   items:
-    - name: Roadmap voor Azure Logic Apps
-      href: 'https://aka.ms/logicappsroadmap/'
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-logic-apps'
-    - name: Twitter
-      href: 'https://twitter.com/logicappsio'
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/logic-apps/'
-    - name: Prijscalculator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Service-updates
-      href: 'https://azure.microsoft.com/updates/?product=logic-apps'
-    - name: Verhalen van klanten
-      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Logic%20Apps%20%22&ff=story_product_categories%26%3EAzure&p=0&so=story_publish_date%20desc'
-    - name: Video's
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest'
+  - name: Roadmap voor Azure Logic Apps
+    href: https://aka.ms/logicappsroadmap/
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-logic-apps
+  - name: Twitter
+    href: https://twitter.com/logicappsio
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/logic-apps/
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service-updates
+    href: https://azure.microsoft.com/updates/?product=logic-apps
+  - name: Verhalen van klanten
+    href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Logic%20Apps%20%22&ff=story_product_categories%26%3EAzure&p=0&so=story_publish_date%20desc
+  - name: Video's
+    href: https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest
+ms.openlocfilehash: 8abd7da40cb69be09f5053d65b03b2247cbe6d42
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42813743"

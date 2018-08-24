@@ -1,165 +1,176 @@
+items:
 - name: Documentatie over facturering en kostenbeheer van Azure
   href: index.md
 - name: Informatie over Azure-facturering
-  expanded: true
   items:
-    - name: Meer informatie over uw factuur
-      href: billing-understand-your-bill.md
-    - name: Factuur- en gebruiksgegevens ophalen
-      href: billing-download-azure-invoice-daily-usage-date.md
-    - name: Kosten voor services van derden
-      href: billing-understand-your-azure-marketplace-charges.md
-    - name: Informatie over gebruiksvoorwaarden
-      href: billing-understand-your-usage.md
-    - name: Informatie over factureringsvoorwaarden
-      href: billing-understand-your-invoice.md
+  - name: Meer informatie over uw factuur
+    href: billing-understand-your-bill.md
+  - name: Factuur- en gebruiksgegevens ophalen
+    href: billing-download-azure-invoice-daily-usage-date.md
+  - name: Kosten voor services van derden
+    href: billing-understand-your-azure-marketplace-charges.md
+  - name: Informatie over gebruiksvoorwaarden
+    href: billing-understand-your-usage.md
+  - name: Informatie over factureringsvoorwaarden
+    href: billing-understand-your-invoice.md
+  expanded: true
 - name: Kosten beheren
   items:
-    - name: Onverwachte kosten voorkomen
-      href: billing-getting-started.md
-    - name: Meldingen voor facturering instellen
-      href: billing-set-up-alerts.md
-    - name: Prijs berekenen
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Resourcetags gebruiken
-      href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
-    - name: De bestedingslimiet begrijpen
-      href: billing-spending-limit.md
-    - name: Opslaan met Azure-reserveringen
+  - name: Onverwachte kosten voorkomen
+    href: billing-getting-started.md
+  - name: Meldingen voor facturering instellen
+    href: billing-set-up-alerts.md
+  - name: Prijs berekenen
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Resourcetags gebruiken
+    href: ../azure-resource-manager/resource-group-using-tags.md?toc=/azure/billing/TOC.json
+  - name: De bestedingslimiet begrijpen
+    href: billing-spending-limit.md
+  - name: Kosten analyseren
+    href: billing-cost-analysis.md
+  - name: Opslaan met Azure-reserveringen
+    items:
+    - name: Wat zijn Azure-reserveringen?
+      href: billing-save-compute-costs-reservations.md
+    - name: Een reservering kopen
       items:
-        - name: Wat zijn Azure-reserveringen?
-          href: billing-save-compute-costs-reservations.md
-        - name: Een reservering kopen
-          items:
-            - name: Virtuele machine
-              href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
-            - name: SQL Database
-              href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
-        - name: Korting toepassen
-          items:
-            - name: Gereserveerde VM-instanties
-              href: billing-understand-vm-reservation-charges.md
-            - name: Reservecapaciteit voor SQL Database
-              href: billing-understand-reservation-charges.md
-        - name: Softwarekosten niet inbegrepen
-          href: billing-reserved-instance-windows-software-costs.md
-        - name: Gebruik voor betalen naar gebruik
-          href: billing-understand-reserved-instance-usage.md
-        - name: Gebruik voor Enterprise
-          href: billing-understand-reserved-instance-usage-ea.md
-        - name: Azure-reserveringen beheren
-          href: billing-manage-reserved-vm-instance.md
+      - name: Virtuele machine
+        href: ../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+      - name: SQL Database
+        href: ../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json
+    - name: Korting toepassen
+      items:
+      - name: Gereserveerde VM-instanties
+        href: billing-understand-vm-reservation-charges.md
+      - name: Reservecapaciteit voor SQL Database
+        href: billing-understand-reservation-charges.md
+    - name: Softwarekosten niet inbegrepen
+      href: billing-reserved-instance-windows-software-costs.md
+    - name: Gebruik voor betalen naar gebruik
+      href: billing-understand-reserved-instance-usage.md
+    - name: Gebruik voor Enterprise
+      href: billing-understand-reserved-instance-usage-ea.md
+    - name: Azure-reserveringen beheren
+      href: billing-manage-reserved-vm-instance.md
 - name: Account beheren
   items:
-    - name: Gratis account
-      items:
-        - name: Gratis services maken
-          href: billing-create-free-services-included-free-account.md
-        - name: Kosten voorkomen
-          href: billing-avoid-charges-free-account.md
-        - name: Gebruik controleren
-          href: billing-check-free-service-usage.md
-        - name: Abonnement upgraden
-          href: billing-upgrade-azure-subscription.md
-        - name: Informatie over metertoewijzing
-          href: billing-understand-free-service-meter-mapping.md
-    - name: Profiel bewerken
-      href: billing-how-to-change-azure-account-profile.md
-    - name: Toegang tot facturering verlenen
-      href: billing-manage-access.md
-    - name: Partner-id koppelen
-      href: billing-partner-admin-link-started.md
-    - name: Factureringsaccounts weergeven
-      href: billing-view-all-accounts.md
-    - name: Verschuldigd bedrag betalen
-      href: billing-azure-subscription-past-due-balance.md
-    - name: Registreren met Office 365-account
-      href: billing-use-existing-office-365-account-azure-subscription.md
-    - name: Registreren voor Office 365 met een Azure-account
-      href: billing-use-existing-azure-account-for-office-365-subscription.md
+  - name: Gratis account
+    items:
+    - name: Gratis services maken
+      href: billing-create-free-services-included-free-account.md
+    - name: Kosten voorkomen
+      href: billing-avoid-charges-free-account.md
+    - name: Gebruik controleren
+      href: billing-check-free-service-usage.md
+    - name: Abonnement upgraden
+      href: billing-upgrade-azure-subscription.md
+    - name: Informatie over metertoewijzing
+      href: billing-understand-free-service-meter-mapping.md
+  - name: Profiel bewerken
+    href: billing-how-to-change-azure-account-profile.md
+  - name: Toegang tot facturering verlenen
+    href: billing-manage-access.md
+  - name: Partner-id koppelen
+    href: billing-partner-admin-link-started.md
+  - name: Factureringsaccounts weergeven
+    href: billing-view-all-accounts.md
+  - name: Verschuldigd bedrag betalen
+    href: billing-azure-subscription-past-due-balance.md
+  - name: Registreren met Office 365-account
+    href: billing-use-existing-office-365-account-azure-subscription.md
+  - name: Registreren voor Office 365 met een Azure-account
+    href: billing-use-existing-azure-account-for-office-365-subscription.md
 - name: Abonnement beheren
   items:
-    - name: Abonnement opnieuw activeren
-      href: billing-subscription-become-disable.md
-    - name: Eigendom overdragen
-      href: billing-subscription-transfer.md
-    - name: Abonnement annuleren
-      href: billing-how-to-cancel-azure-subscription.md
-    - name: Creditcard wijzigen
-      href: billing-how-to-change-credit-card.md
-    - name: Beheerder wijzigen
-      href: billing-add-change-azure-subscription-administrator.md
-    - name: Van abonnement wisselen
-      href: billing-how-to-switch-azure-offer.md
-    - name: Betalen via factuur
-      href: billing-how-to-pay-by-invoice.md
-    - name: Beheergroepen maken
-      href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json
-    - name: Azure-resources verplaatsen
-      href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
-    - name: Enterprise-abonnementen maken
-      href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
-    - name: Abonnementsgegevens exporteren
-      href: billing-export-subscriptions.md
-    - name: Een Azure AD-tenant koppelen
-      href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
-    - name: Limieten en quota
-      href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
+  - name: Abonnement opnieuw activeren
+    href: billing-subscription-become-disable.md
+  - name: Eigendom overdragen
+    href: billing-subscription-transfer.md
+  - name: Abonnement annuleren
+    href: billing-how-to-cancel-azure-subscription.md
+  - name: Creditcard wijzigen
+    href: billing-how-to-change-credit-card.md
+  - name: Beheerder wijzigen
+    href: billing-add-change-azure-subscription-administrator.md
+  - name: Van abonnement wisselen
+    href: billing-how-to-switch-azure-offer.md
+  - name: Betalen via factuur
+    href: billing-how-to-pay-by-invoice.md
+  - name: Beheergroepen maken
+    href: ../azure-resource-manager/management-groups-create.md?toc=/azure/billing/TOC.json
+  - name: Azure-resources verplaatsen
+    href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
+  - name: Enterprise-abonnementen maken
+    href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
+  - name: Abonnementsgegevens exporteren
+    href: billing-export-subscriptions.md
+  - name: Een Azure AD-tenant koppelen
+    href: ../active-directory/active-directory-how-subscriptions-associated-directory.md?toc=/azure/billing/TOC.json
+  - name: Limieten en quota
+    href: ../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json
 - name: Problemen oplossen
   items:
-    - name: Geen abonnementen gevonden
-      href: billing-no-subscriptions-found.md
-    - name: Geweigerde kaart
-      href: 'https://support.microsoft.com/en-us/help/4042960'
-    - name: Problemen met aanmelden
-      href: 'https://support.microsoft.com/en-us/help/4042959'
-    - name: Problemen met aanmelden
-      href: 'https://support.microsoft.com/en-us/help/4042961'
-    - name: Weergave voor bedrijfskosten is uitgeschakeld
-      href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
-    - name: Contact opnemen met ondersteuning
-      href: ../azure-supportability/how-to-create-azure-support-request.md
+  - name: Geen abonnementen gevonden
+    href: billing-no-subscriptions-found.md
+  - name: Geweigerde kaart
+    href: https://support.microsoft.com/en-us/help/4042960
+  - name: Problemen met aanmelden
+    href: https://support.microsoft.com/en-us/help/4042959
+  - name: Problemen met aanmelden
+    href: https://support.microsoft.com/en-us/help/4042961
+  - name: Weergave voor bedrijfskosten is uitgeschakeld
+    href: billing-enterprise-mgmt-grp-troubleshoot-cost-view.md
+  - name: Contact opnemen met ondersteuning
+    href: ../azure-supportability/how-to-create-azure-support-request.md
 - name: Voorbeelden
   items:
-    - name: REST-API
-      items:
-        - name: Enterprise-kosten beoordelen
-          href: billing-review-enterprise-billing.md
-        - name: Abonnementsgebruik beoordelen
-          href: billing-review-subscription-billing.md
-    - name: .NET-voorbeelden
-      items:
-        - name: Codevoorbeeld voor de API voor facturen
-          href: 'https://github.com/Azure-Samples/billing-dotnet-core-invoice-download'
-        - name: Codevoorbeeld voor de API voor gebruik
-          href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
-        - name: Codevoorbeeld voor de RateCard API
-          href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
+  - name: REST-API
+    items:
+    - name: Enterprise-kosten beoordelen
+      href: billing-review-enterprise-billing.md
+    - name: Abonnementsgebruik beoordelen
+      href: billing-review-subscription-billing.md
+    - name: Resourcegebruik bekijken
+      href: billing-review-service-usage-api.md
+  - name: .NET-voorbeelden
+    items:
+    - name: Codevoorbeeld voor de API voor facturen
+      href: https://github.com/Azure-Samples/billing-dotnet-core-invoice-download
+    - name: Codevoorbeeld voor de API voor gebruik
+      href: https://github.com/Azure-Samples/billing-dotnet-usage-api
+    - name: Codevoorbeeld voor de RateCard API
+      href: https://github.com/Azure-Samples/billing-dotnet-ratecard-api
 - name: Naslaginformatie
   items:
-    - name: Automatiseringsscenario's voor facturering
-      href: billing-cost-management-automation-scenarios.md
-      items:
-        - name: Kosten beheren met Azure Budgets
-          href: billing-cost-management-budget-scenario.md
-    - name: Overzicht van Azure Billing-API
-      href: billing-usage-rate-card-overview.md
-      items:
-        - name: Azure Billing REST API
-          href: 'https://docs.microsoft.com/rest/api/billing'
-        - name: 'Partneroplossing: Cloud Cruiser'
-          href: billing-usage-rate-card-partner-solution-cloudcruiser.md
-    - name: Overzicht van Azure Consumption API
-      href: billing-consumption-api-overview.md
-      items:
-        - name: Azure Consumption REST API
-          href: 'https://docs.microsoft.com/rest/api/consumption'
-        - name: RateCard REST API
-          href: 'https://msdn.microsoft.com/library/azure/mt219005.aspx'
-        - name: Usage REST API
-          href: 'https://msdn.microsoft.com/library/azure/mt219003.aspx'
-    - name: Overzicht van Enterprise Reporting
-      href: billing-enterprise-api.md
-      items:
-        - name: REST-API van Enterprise Reporting
-          href: 'https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary'
+  - name: Automatiseringsscenario's voor facturering
+    href: billing-cost-management-automation-scenarios.md
+    items:
+    - name: Kosten beheren met Azure Budgets
+      href: billing-cost-management-budget-scenario.md
+  - name: Overzicht van Azure Billing-API
+    href: billing-usage-rate-card-overview.md
+    items:
+    - name: Azure Billing REST API
+      href: https://docs.microsoft.com/rest/api/billing
+    - name: 'Partneroplossing: Cloud Cruiser'
+      href: billing-usage-rate-card-partner-solution-cloudcruiser.md
+  - name: Overzicht van Azure Consumption API
+    href: billing-consumption-api-overview.md
+    items:
+    - name: Azure Consumption REST API
+      href: https://docs.microsoft.com/rest/api/consumption
+    - name: RateCard REST API
+      href: https://msdn.microsoft.com/library/azure/mt219005.aspx
+    - name: Usage REST API
+      href: https://msdn.microsoft.com/library/azure/mt219003.aspx
+  - name: Overzicht van Enterprise Reporting
+    href: billing-enterprise-api.md
+    items:
+    - name: REST-API van Enterprise Reporting
+      href: https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary
+ms.openlocfilehash: 5d7d56325201cbf3c851a843ea4d4393dea4bb40
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41928389"

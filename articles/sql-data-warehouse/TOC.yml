@@ -1,293 +1,286 @@
+items:
 - name: Documentatie voor SQL Data Warehouse
   href: index.md
 - name: Overzicht
   items:
-    - name: Over SQL Data Warehouse
-      href: sql-data-warehouse-overview-what-is.md
-    - name: Cheatsheet
-      href: cheat-sheet.md
+  - name: Over SQL Data Warehouse
+    href: sql-data-warehouse-overview-what-is.md
+  - name: Cheatsheet
+    href: cheat-sheet.md
 - name: Releaseopmerkingen
   items:
-    - name: Augustus 2018
-      href: release-notes-august-2018.md
-    - name: Juli 2018
-      href: release-notes-july-2018.md
-    - name: Juni 2018
-      href: release-notes-june-2018.md
-    - name: Mei 2018
-      href: release-notes-may-2018.md
-    - name: April 2018
-      href: release-notes-april-2018.md
+  - name: Augustus 2018
+    href: release-notes-august-2018.md
+  - name: Juli 2018
+    href: release-notes-july-2018.md
+  - name: Juni 2018
+    href: release-notes-june-2018.md
+  - name: Mei 2018
+    href: release-notes-may-2018.md
+  - name: April 2018
+    href: release-notes-april-2018.md
 - name: Snelstartgidsen
-  expanded: true
   items:
-    - name: Maken en koppelen - portal
+  - name: Maken en koppelen
+    items:
+    - name: Portal
       href: create-data-warehouse-portal.md
-    - name: Maken - PowerShell
+    - name: PowerShell
       href: create-data-warehouse-powershell.md
-    - name: Berekening onderbreken en hervatten
-      items:
-        - name: Portal
-          href: pause-and-resume-compute-portal.md
-        - name: PowerShell
-          href: pause-and-resume-compute-powershell.md
-    - name: De schaal van Compute aanpassen
-      items:
-        - name: Portal
-          href: quickstart-scale-compute-portal.md
-        - name: PowerShell
-          href: quickstart-scale-compute-powershell.md
-        - name: T-SQL
-          href: quickstart-scale-compute-tsql.md
-- name: Zelfstudies
-  items:
-    - name: 1 - WideWorldImporters laden
-      href: load-data-wideworldimportersdw.md
+  - name: Berekening onderbreken en hervatten
+    items:
+    - name: Portal
+      href: pause-and-resume-compute-portal.md
+    - name: PowerShell
+      href: pause-and-resume-compute-powershell.md
+  - name: De schaal van Compute aanpassen
+    items:
+    - name: Portal
+      href: quickstart-scale-compute-portal.md
+    - name: PowerShell
+      href: quickstart-scale-compute-powershell.md
+    - name: T-SQL
+      href: quickstart-scale-compute-tsql.md
+  expanded: true
 - name: Concepten
   items:
-    - name: Servicekenmerken
+  - name: Beveiliging
+    items:
+    - name: Overzicht
+      href: sql-data-warehouse-overview-manage-security.md
+    - name: Toegangsbeheer
+      href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Firewall-regels
+      href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Virtueel-netwerkregels voor firewall
+      href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Verificatie
+      href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Azure AD
+      href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Aanmeldingen en gebruikers
+      href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Multi-Factor Authentication
+      href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Controleren
+      href: sql-data-warehouse-auditing-overview.md
+    - name: Beveiliging op kolomniveau
+      href: column-level-security.md
+  - name: Gegevens laden
+    items:
+    - name: Overzicht
+      href: design-elt-data-loading.md
+    - name: Aanbevolen procedures
+      href: guidance-for-loading-data.md
+    - name: Columnstore-compressie
+      href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
+  - name: Ontwikkeling
+    items:
+    - name: Overzicht
+      href: sql-data-warehouse-overview-develop.md
+    - name: Datawarehouse-onderdelen
+      href: sql-data-warehouse-overview-workload.md
+    - name: Aanbevolen procedures
+      href: sql-data-warehouse-best-practices.md
+    - name: MPP-architectuur
+      href: massively-parallel-processing-mpp-architecture.md
+    - name: Datawarehouse-eenheden
+      href: what-is-a-data-warehouse-unit-dwu-cdwu.md
+    - name: Capaciteitslimieten
+      href: sql-data-warehouse-service-capacity-limits.md
+    - name: Veelgestelde vragen
+      href: sql-data-warehouse-overview-faq.md
+    - name: Tabellen
       items:
-        - name: MPP-architectuur
-          href: massively-parallel-processing-mpp-architecture.md
-        - name: Datawarehouse-eenheden
-          href: what-is-a-data-warehouse-unit-dwu-cdwu.md
-        - name: 'Uitschalen, onderbreken, hervatten'
-          href: sql-data-warehouse-manage-compute-overview.md
-        - name: Back-ups en herstellen
-          href: backup-and-restore.md
-        - name: Capaciteitslimieten
-          href: sql-data-warehouse-service-capacity-limits.md
-        - name: Onderhoud
-          href: service-maintenance.md
-        - name: Veelgestelde vragen
-          href: sql-data-warehouse-overview-faq.md
-    - name: Beveiliging
+      - name: Overzicht
+        href: sql-data-warehouse-tables-overview.md
+      - name: CTAS
+        href: sql-data-warehouse-develop-ctas.md
+      - name: Gegevenstypen
+        href: sql-data-warehouse-tables-data-types.md
+      - name: Gedistribueerde tabellen
+        href: sql-data-warehouse-tables-distribute.md
+      - name: Indexen
+        href: sql-data-warehouse-tables-index.md
+      - name: Identiteit
+        href: sql-data-warehouse-tables-identity.md
+      - name: Partities
+        href: sql-data-warehouse-tables-partition.md
+      - name: Gerepliceerde tabellen
+        href: design-guidance-for-replicated-tables.md
+      - name: statistieken
+        href: sql-data-warehouse-tables-statistics.md
+      - name: Tijdelijk
+        href: sql-data-warehouse-tables-temporary.md
+    - name: Query's
       items:
-        - name: Overzicht
-          href: sql-data-warehouse-overview-manage-security.md
-        - name: Toegangsbeheer
-          href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Firewall-regels
-          href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Virtueel-netwerkregels voor firewall
-          href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Verificatie
-          href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Azure AD
-          href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Aanmeldingen en gebruikers
-          href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Multi-Factor Authentication
-          href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Controleren
-          href: sql-data-warehouse-auditing-overview.md
-        - name: Beveiliging op kolomniveau
-          href: column-level-security.md
-    - name: Naar SQL Data Warehouse migreren
+      - name: Dynamic SQL
+        href: sql-data-warehouse-develop-dynamic-sql.md
+      - name: Groeperen op opties
+        href: sql-data-warehouse-develop-group-by-options.md
+      - name: Labels
+        href: sql-data-warehouse-develop-label.md
+    - name: Taalelementen T-SQL
       items:
-        - name: Overzicht
-          href: sql-data-warehouse-overview-migrate.md
-        - name: Schema migreren
-          href: sql-data-warehouse-migrate-schema.md
-        - name: Code migreren
-          href: sql-data-warehouse-migrate-code.md
-        - name: Gegevens migreren
-          href: sql-data-warehouse-migrate-data.md
-    - name: Gegevens laden en verplaatsen
-      items:
-        - name: Overzicht
-          href: design-elt-data-loading.md
-        - name: Aanbevolen procedures
-          href: guidance-for-loading-data.md
-    - name: Integreren
-      items:
-        - name: Overzicht
-          href: sql-data-warehouse-overview-integrate.md
-        - name: Elastische SQL Database-query
-          href: how-to-use-elastic-query-with-sql-data-warehouse.md
-    - name: Queryprestaties
-      items:
-        - name: Resourceklassen en werklastbeheer
-          href: resource-classes-for-workload-management.md
-        - name: Limieten voor geheugen en gelijktijdigheid
-          href: memory-and-concurrency-limits.md
-        - name: Columnstore-compressie
-          href: sql-data-warehouse-memory-optimizations-for-columnstore-compression.md
-    - name: Beheerbaarheid en bewaking
-      items:
-        - name: Controleren
-          href: sql-data-warehouse-manage-monitor.md
-        - name: Aanbevelingen
-          href: sql-data-warehouse-concept-recommendations.md
-    - name: Datawarehouses ontwikkelen
-      items:
-        - name: Overzicht
-          href: sql-data-warehouse-overview-develop.md
-        - name: Datawarehouse-onderdelen
-          href: sql-data-warehouse-overview-workload.md
-        - name: Aanbevolen procedures
-          href: sql-data-warehouse-best-practices.md
-        - name: Tabellen
-          items:
-            - name: Overzicht
-              href: sql-data-warehouse-tables-overview.md
-            - name: CTAS
-              href: sql-data-warehouse-develop-ctas.md
-            - name: Gegevenstypen
-              href: sql-data-warehouse-tables-data-types.md
-            - name: Gedistribueerde tabellen
-              href: sql-data-warehouse-tables-distribute.md
-            - name: Indexen
-              href: sql-data-warehouse-tables-index.md
-            - name: Identiteit
-              href: sql-data-warehouse-tables-identity.md
-            - name: Partities
-              href: sql-data-warehouse-tables-partition.md
-            - name: Gerepliceerde tabellen
-              href: design-guidance-for-replicated-tables.md
-            - name: statistieken
-              href: sql-data-warehouse-tables-statistics.md
-            - name: Tijdelijk
-              href: sql-data-warehouse-tables-temporary.md
-        - name: Query's
-          items:
-            - name: Dynamic SQL
-              href: sql-data-warehouse-develop-dynamic-sql.md
-            - name: Groeperen op opties
-              href: sql-data-warehouse-develop-group-by-options.md
-            - name: Labels
-              href: sql-data-warehouse-develop-label.md
-        - name: Taalelementen T-SQL
-          items:
-            - name: Lussen
-              href: sql-data-warehouse-develop-loops.md
-            - name: Opgeslagen procedures
-              href: sql-data-warehouse-develop-stored-procedures.md
-            - name: Transacties
-              href: sql-data-warehouse-develop-transactions.md
-            - name: Aanbevolen procedures voor transacties
-              href: sql-data-warehouse-develop-best-practices-transactions.md
-            - name: Door de gebruiker gedefinieerde schema's
-              href: sql-data-warehouse-develop-user-defined-schemas.md
-            - name: Variabele toewijzing
-              href: sql-data-warehouse-develop-variable-assignment.md
-            - name: Weergaven
-              href: sql-data-warehouse-develop-views.md
+      - name: Lussen
+        href: sql-data-warehouse-develop-loops.md
+      - name: Opgeslagen procedures
+        href: sql-data-warehouse-develop-stored-procedures.md
+      - name: Transacties
+        href: sql-data-warehouse-develop-transactions.md
+      - name: Aanbevolen procedures voor transacties
+        href: sql-data-warehouse-develop-best-practices-transactions.md
+      - name: Door de gebruiker gedefinieerde schema's
+        href: sql-data-warehouse-develop-user-defined-schemas.md
+      - name: Variabele toewijzing
+        href: sql-data-warehouse-develop-variable-assignment.md
+      - name: Weergaven
+        href: sql-data-warehouse-develop-views.md
+  - name: Werklastbeheer
+    items:
+    - name: Resourceklassen en werklastbeheer
+      href: resource-classes-for-workload-management.md
+    - name: Limieten voor geheugen en gelijktijdigheid
+      href: memory-and-concurrency-limits.md
+  - name: Beheerbaarheid en bewaking
+    items:
+    - name: Queryactiviteit en resourcegebruik
+      href: sql-data-warehouse-manage-monitor.md
+    - name: Gegevensbeveiliging
+      href: backup-and-restore.md
+    - name: Uitschalen, onderbreken, hervatten
+      href: sql-data-warehouse-manage-compute-overview.md
+    - name: Onderhoudsplanning
+      href: service-maintenance.md
+    - name: Aanbevelingen
+      href: sql-data-warehouse-concept-recommendations.md
     - name: Problemen oplossen
       href: sql-data-warehouse-troubleshoot.md
+  - name: Integratie
+    items:
+    - name: Overzicht
+      href: sql-data-warehouse-overview-integrate.md
+    - name: Elastische SQL Database-query
+      href: how-to-use-elastic-query-with-sql-data-warehouse.md
 - name: Handleidingen
   items:
-    - name: Verbinding maken en query uitvoeren
-      items:
-        - name: Overzicht
-          href: sql-data-warehouse-connect-overview.md
-        - name: Verbindingsreeksen
-          href: sql-data-warehouse-connection-strings.md
-        - name: sqlcmd
-          href: sql-data-warehouse-get-started-connect-sqlcmd.md
-        - name: Query's uitvoeren met SSMS
-          href: sql-data-warehouse-query-ssms.md
-        - name: Query’s uitvoeren bij Visual Studio
-          href: sql-data-warehouse-query-visual-studio.md
-        - name: Visual Studio installeren
-          href: sql-data-warehouse-install-visual-studio.md
-    - name: Upgraden
+  - name: Beveiligen
+    items:
+    - name: Azure AD-verificatie configureren
+      href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Voorwaardelijke toegang
+      href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Regels voor virtueel netwerk met PowerShell
+      href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json
+    - name: Versleuteling inschakelen - portal
+      href: sql-data-warehouse-encryption-tde.md
+    - name: Versleuteling inschakelen - T-SQL
+      href: sql-data-warehouse-encryption-tde-tsql.md
+    - name: Detectie van bedreigingen
+      href: sql-data-warehouse-security-threat-detection.md
+  - name: Gegevens laden
+    items:
+    - name: Gegevens over taxi's in New York
+      href: load-data-from-azure-blob-storage-using-polybase.md
+    - name: Openbare gegevens van Contoso
+      href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+    - name: Azure Data Lake Store
+      href: sql-data-warehouse-load-from-azure-data-lake-store.md
+    - name: Azure Databricks
+      href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json
+    - name: Data Factory
+      href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json
+    - name: SSIS
+      href: /sql/integration-services/load-data-to-sql-data-warehouse
+    - name: WideWorldImporters laden
+      href: load-data-wideworldimportersdw.md
+  - name: Ontwikkelen
+    items:
+    - name: Overzicht
+      href: sql-data-warehouse-connect-overview.md
+    - name: Verbindingsreeksen
+      href: sql-data-warehouse-connection-strings.md
+    - name: sqlcmd
+      href: sql-data-warehouse-get-started-connect-sqlcmd.md
+    - name: Query's uitvoeren met SSMS
+      href: sql-data-warehouse-query-ssms.md
+    - name: Query’s uitvoeren bij Visual Studio
+      href: sql-data-warehouse-query-visual-studio.md
+    - name: Visual Studio installeren
+      href: sql-data-warehouse-install-visual-studio.md
+  - name: Workload afstemmen
+    items:
+    - name: Uw workload analyseren
+      href: analyze-your-workload.md
+  - name: Beheren en controleren
+    items:
+    - name: Herstellen - Portal
+      href: sql-data-warehouse-restore-database-portal.md
+    - name: Herstellen - PowerShell
+      href: sql-data-warehouse-restore-database-powershell.md
+    - name: Herstellen - REST-API
+      href: sql-data-warehouse-restore-database-rest-api.md
+    - name: Upgraden naar Gen2
       href: upgrade-to-latest-generation.md
-    - name: Herstellen
-      items:
-        - name: Portal
-          href: sql-data-warehouse-restore-database-portal.md
-        - name: PowerShell
-          href: sql-data-warehouse-restore-database-powershell.md
-        - name: REST API
-          href: sql-data-warehouse-restore-database-rest-api.md
-    - name: Beveiliging
-      items:
-        - name: Azure AD-verificatie configureren
-          href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Voorwaardelijke toegang
-          href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Regels voor virtueel netwerk met PowerShell
-          href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Versleuteling inschakelen - portal
-          href: sql-data-warehouse-encryption-tde.md
-        - name: Versleuteling inschakelen - T-SQL
-          href: sql-data-warehouse-encryption-tde-tsql.md
-        - name: Detectie van bedreigingen
-          href: sql-data-warehouse-security-threat-detection.md
-    - name: Gegevens laden en verplaatsen
-      items:
-        - name: Gegevens over taxi's in New York
-          href: load-data-from-azure-blob-storage-using-polybase.md
-        - name: Openbare gegevens van Contoso
-          href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-        - name: Azure Data Lake Store
-          href: sql-data-warehouse-load-from-azure-data-lake-store.md
-        - name: Azure Databricks
-          href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json
-        - name: Data Factory
-          href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json
-        - name: SSIS
-          href: /sql/integration-services/load-data-to-sql-data-warehouse
-    - name: Integreren
-      items:
-        - name: Een elastische SQL Database-query configureren
-          href: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
-        - name: Een Azure Stream Analytics-taak toevoegen
-          href: sql-data-warehouse-integrate-azure-stream-analytics.md
-        - name: Machine Learning gebruiken
-          href: sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
-        - name: Visualiseren met Power BI
-          href: sql-data-warehouse-get-started-visualize-with-power-bi.md
-    - name: Bewaken en afstemmen
-      items:
-        - name: Uw workload analyseren
-          href: analyze-your-workload.md
-    - name: Uitschalen
-      items:
-        - name: Rekenniveaus automatiseren
-          href: manage-compute-with-azure-functions.md
+    - name: Prestatieniveaus automatiseren
+      href: manage-compute-with-azure-functions.md
+  - name: Integreren
+    items:
+    - name: Een elastische SQL Database-query configureren
+      href: tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md
+    - name: Een Azure Stream Analytics-taak toevoegen
+      href: sql-data-warehouse-integrate-azure-stream-analytics.md
+    - name: Machine Learning gebruiken
+      href: sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md
+    - name: Visualiseren met Power BI
+      href: sql-data-warehouse-get-started-visualize-with-power-bi.md
 - name: Naslaginformatie
   items:
-    - name: T-SQL
-      items:
-        - name: Volledige naslaginformatie
-          href: 'https://docs.microsoft.com/sql/t-sql/language-reference/'
-        - name: SQL DW-taalelementen
-          href: sql-data-warehouse-reference-tsql-language-elements.md
-        - name: SQL DW-instructies
-          href: sql-data-warehouse-reference-tsql-statements.md
-    - name: Systeemweergaven
-      href: sql-data-warehouse-reference-tsql-system-views.md
-    - name: PowerShell-cmdlets
-      href: sql-data-warehouse-reference-powershell-cmdlets.md
-    - name: REST-API’s
-      href: sql-data-warehouse-manage-compute-rest-api.md
+  - name: T-SQL
+    items:
+    - name: Volledige naslaginformatie
+      href: https://docs.microsoft.com/sql/t-sql/language-reference/
+    - name: SQL DW-taalelementen
+      href: sql-data-warehouse-reference-tsql-language-elements.md
+    - name: SQL DW-instructies
+      href: sql-data-warehouse-reference-tsql-statements.md
+  - name: Systeemweergaven
+    href: sql-data-warehouse-reference-tsql-system-views.md
+  - name: PowerShell-cmdlets
+    href: sql-data-warehouse-reference-powershell-cmdlets.md
+  - name: REST-API’s
+    href: sql-data-warehouse-manage-compute-rest-api.md
 - name: Resources
   items:
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: Forum
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse'
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/sql-data-warehouse/'
-    - name: Prijscalculator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Functieverzoeken
-      href: 'https://feedback.azure.com/forums/307516-sql-data-warehouse/'
-    - name: Service-updates
-      href: 'https://azure.microsoft.com/updates/?product=sql-data-warehouse'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-sqldw/'
-    - name: Ondersteuning
-      href: sql-data-warehouse-get-started-create-support-ticket.md
-    - name: Video's
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse'
-    - name: Partners
-      items:
-        - name: Business intelligence
-          href: sql-data-warehouse-partner-business-intelligence.md
-        - name: Gegevensintegratie
-          href: sql-data-warehouse-partner-data-integration.md
-        - name: Gegevensbeheer
-          href: sql-data-warehouse-partner-data-management.md
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/?category=databases
+  - name: Forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureSQLDataWarehouse
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/sql-data-warehouse/
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Functieverzoeken
+    href: https://feedback.azure.com/forums/307516-sql-data-warehouse/
+  - name: Service-updates
+    href: https://azure.microsoft.com/updates/?product=sql-data-warehouse
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-sqldw/
+  - name: Ondersteuning
+    href: sql-data-warehouse-get-started-create-support-ticket.md
+  - name: Video's
+    href: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
+  - name: Partners
+    items:
+    - name: Business intelligence
+      href: sql-data-warehouse-partner-business-intelligence.md
+    - name: Gegevensintegratie
+      href: sql-data-warehouse-partner-data-integration.md
+    - name: Gegevensbeheer
+      href: sql-data-warehouse-partner-data-management.md
+ms.openlocfilehash: 8ae5810cabf2154d6c91c2d520479beb29f925bd
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41927614"

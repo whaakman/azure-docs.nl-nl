@@ -5,14 +5,12 @@
 ## [Veelgestelde vragen](relay-faq.md)
 
 # Snelstartgidsen
-## [Een naamruimte maken](relay-create-namespace-portal.md)
 ## [Een hybride on-premises/cloudtoepassing maken](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
 ## Hybride verbindingen
 ### [.NET WebSockets](relay-hybrid-connections-dotnet-get-started.md)
 ### [.NET HTTP](relay-hybrid-connections-http-requests-dotnet-get-started.md)
 ### [Node WebSockets](relay-hybrid-connections-node-get-started.md)
 ### [Node HTTP](relay-hybrid-connections-http-requests-node-get-started.md)
-## [WCF-relay](relay-wcf-dotnet-get-started.md)
 ## [Zelfstudie over WCF Relay](service-bus-relay-tutorial.md)
 ## [Zelfstudie over WCF Relay REST](service-bus-relay-rest-tutorial.md)
 
@@ -22,6 +20,8 @@
 #### [Migreren van ACS naar SAS](relay-migrate-acs-sas.md)
 ### [Protocol hybride verbindingen](relay-hybrid-connections-protocol.md)
 ## Ontwikkelen
+### [Een naamruimte maken](relay-create-namespace-portal.md)
+### [WCF Relay gebruiken om WCF-services beschikbaar te maken voor externe clients](relay-wcf-dotnet-get-started.md)
 ### [Beschikbare API's](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)

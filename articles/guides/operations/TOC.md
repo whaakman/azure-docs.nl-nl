@@ -1,30 +1,34 @@
-# Aan de slag met Azure
-## [Overzicht van cloudcomputing](azure-operations-guide.md#cloud-computing-overview)
-### [Azure-regio's](https://azure.microsoft.com/regions/)
-## [Services](azure-operations-guide.md#azure-services)
-### [Documentatie voor Azures-service](https://docs.microsoft.com/azure)
-## [Belangrijkste concepten](azure-operations-guide.md#azure-key-concepts)
-### [Overzicht van Microsoft Azure Portal](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) 
-### [Azure-resources beheren via Portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal)
-### [Azure PowerShell installeren en configureren](/powershell/azure/install-azurerm-ps)
-### [Azure CLI installeren](/cli/azure/install-azure-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Azure REST SDK-naslaginformatie](https://docs.microsoft.com/rest/api/index)
+# Azure voor IT-operators
+## [Aan de slag met Azure](azure-operations-guide.md) 
+## Snelstartgidsen
+### Virtuele machines
+#### [Virtuele Windows-machines](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Virtuele Linux-machines](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+### Virtuele netwerken
+#### [Een virtueel netwerk maken met Azure Portal](../../virtual-network/quick-create-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Storage](https://docs.microsoft.com/azure/storage/)
+### Beveiliging
+#### [Roltoewijzingen gebruiken om resources te beheren](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
-## [Abonnementen](azure-operations-guide.md#azure-subscriptions)
+## Zelfstudies
+### Virtuele machines
+#### [Een virtuele Windows-machine maken/beheren](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Virtuele Linux-machines maken/beheren](../../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Jenkins CI/CD-pijplijn](../../virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+#### [Taakverdelingen maken voor virtuele machines](../../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Azure Resource Manager-sjablonen maken](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
+## Handleidingen
 ### [Uw Azure-factuur en de dagelijkse gebruiksgegevens downloaden](../../billing/billing-download-azure-invoice-daily-usage-date.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Inzicht verkrijgen in het gebruik van resources](../../billing/billing-usage-rate-card-overview.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-### [Online prijscalculator](http://azure.microsoft.com/pricing/calculator)
-### [Meldingen voor facturering instellen](../../billing/billing-set-up-alerts.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Azure Resource Manager](azure-operations-guide.md#azure-resource-manager)
 
 ### [Azure Resource Manager-sjablonen maken](../../resource-group-authoring-templates.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[Sjablonen implementeren met behulp van Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[Sjablonen implementeren met behulp van Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-###[Sjablonen implementeren met behulp van Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Sjablonen implementeren met behulp van Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Sjablonen implementeren met behulp van Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Sjablonen implementeren met behulp van Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Beveiliging (RBAC)](azure-operations-guide.md#security-of-azure-resource)
-###[Roltoewijzingen gebruiken om resources te beheren](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
+### [Roltoewijzingen gebruiken om resources te beheren](../../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 
 ## [Virtuele machines](azure-operations-guide.md#azure-virtual-machines)
 ### [VM-grootten voor Windows](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fguides%2foperations%2ftoc.json) 
@@ -38,7 +42,7 @@
 ### Zelfstudies over virtuele machines voor Windows
 #### [Een virtuele machine maken/beheren](../../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Schijven maken/beheren](../../virtual-machines/windows/tutorial-manage-data-disk.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
-#### [Configuratie automatiseren](../../virtual-machines/windows/tutorial-automate-vm-deployment.md
+#### [Configuratie automatiseren](../../virtual-machines/windows/tutorial-automate-vm-deployment.md)
 #### [VM-installatiekopieën maken](../../virtual-machines/windows/tutorial-custom-images.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Virtuele machines met hoge beschikbaarheid](../../virtual-machines/windows/tutorial-availability-sets.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)
 #### [Een VM-schaalset maken](../../virtual-machines/windows/tutorial-create-vmss.md?toc=%2fazure%2fguides%2foperations%2ftoc.json)

@@ -1,95 +1,112 @@
+items:
 - name: Documentatie voor Bing Afbeeldingen zoeken
   href: index.yml
 - name: Overzicht
   items:
-    - name: Wat is Bing Afbeeldingen zoeken?
-      href: overview.md
-- name: Snelstarts voor REST API
-  expanded: true
+  - name: Wat is Bing Afbeeldingen zoeken?
+    href: overview.md
+- name: Snelstartgidsen
   items:
-    - name: 'C#'
+  - name: Zoekquery's verzenden met behulp van de REST-API
+    items:
+    - name: C# gebruiken
       href: quickstarts/csharp.md
-    - name: Java
+    - name: Java gebruiken
       href: quickstarts/java.md
-    - name: Node.js
+    - name: Node.js gebruiken
       href: quickstarts/nodejs.md
-    - name: PHP
+    - name: PHP gebruiken
       href: quickstarts/php.md
-    - name: Python
+    - name: Python gebruiken
       href: quickstarts/python.md
-    - name: Ruby
+    - name: Ruby gebruiken
       href: quickstarts/ruby.md
-- name: Snelstarts voor SDK
-  items:
-    - name: Overzicht van SDK-voorbeelden
-      href: sdk.md
-    - name: 'C#-snelstart voor Afbeeldingen zoeken SDK'
+    expanded: true
+  - name: Afbeeldingen opvragen en filteren met behulp van de SDK
+    items:
+    - name: C# gebruiken
       href: image-search-sdk-quickstart.md
-    - name: Node.js-snelstart voor Afbeeldingen zoeken SDK
+    - name: Node.js gebruiken
       href: image-search-sdk-node-quickstart.md
-    - name: Python-snelstart voor Afbeeldingen zoeken SDK
+    - name: Python gebruiken
       href: image-sdk-python-quickstart.md
-    - name: Java-snelstart voor Afbeeldingen zoeken SDK
+    - name: Java gebruiken
       href: image-sdk-java-quickstart.md
 - name: Zelfstudies
   items:
-    - name: Web-app van één pagina
-      href: tutorial-bing-image-search-single-page-app.md
-    - name: Web-app van één pagina (broncode)
-      href: tutorial-bing-image-search-single-page-app-source.md
-    - name: Bing Afbeeldingen uploaden voor inzichten
-      href: tutorial-image-post.md
-    - name: Bing Afbeeldingen uploaden voor inzichten (broncode)
-      href: tutorial-image-post-source.md
+  - name: Web-app van één pagina
+    href: tutorial-bing-image-search-single-page-app.md
+  - name: Web-app van één pagina (broncode)
+    href: tutorial-bing-image-search-single-page-app-source.md
+  - name: Bing Afbeeldingen uploaden voor inzichten
+    href: tutorial-image-post.md
+  - name: Bing Afbeeldingen uploaden voor inzichten (broncode)
+    href: tutorial-image-post-source.md
 - name: Voorbeelden
   items:
-    - name: Codevoorbeelden
-      href: 'https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search'
+  - name: Codevoorbeelden
+    href: https://azure.microsoft.com/resources/samples/?sort=0&service=cognitive-services&term=Bing+Image+Search
 - name: Handleidingen
   items:
-    - name: Afbeeldingsinzichten krijgen
-      href: image-insights.md
-    - name: GIF-afbeeldingen ophalen
-      href: gif-images.md
-    - name: Trending afbeeldingen ophalen
-      href: trending-images.md
-    - name: Bladeren door afbeeldingen
-      href: paging-images.md
-    - name: Het formaat van miniaturen wijzigen en miniaturen bijsnijden
-      href: resize-and-crop-thumbnails.md
-    - name: Upgrade uitvoeren van v5 naar v7
-      href: bing-image-upgrade-guide-v5-to-v7.md
+  - name: Afbeeldingsinzichten krijgen
+    href: image-insights.md
+  - name: GIF-afbeeldingen ophalen
+    href: gif-images.md
+  - name: Trending afbeeldingen ophalen
+    href: trending-images.md
+  - name: Bladeren door afbeeldingen
+    href: paging-images.md
+  - name: Het formaat van miniaturen wijzigen en miniaturen bijsnijden
+    href: resize-and-crop-thumbnails.md
+  - name: Upgrade uitvoeren van v5 naar v7
+    href: bing-image-upgrade-guide-v5-to-v7.md
+- name: Concepten
+  items:
+  - name: Installatiekopieën ophalen van het web
+    href: concepts/bing-image-search-get-images.md
+  - name: Zoekquery's verzenden en ermee werken
+    href: concepts/bing-image-search-sending-queries.md
 - name: Naslaginformatie
   items:
-    - name: Bing Afbeeldingen zoeken-API v7
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference'
-    - name: Bing Afbeeldingen zoeken-API v5
-      href: 'https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference'
+  - name: Bing Afbeeldingen zoeken-API v7
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference
+  - name: Bing Afbeeldingen zoeken-API v5
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference
+  - name: Naslaginformatie voor PowerShell met Azure Cognitive Services
+    href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: Naslaginformatie voor opdrachtregelinterface van Azure Cognitive Services
+    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
 - name: Resources
   items:
-    - name: Veelgestelde vragen
-      href: bing-image-search-resource-faq.md
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/image/'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/555907-bing-search'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/bing-search'
-    - name: Regionale beschikbaarheid
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Knowledge Base
-      href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
-    - name: API-sleutel ophalen
-      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api'
-    - name: Probeer het nu!
-      href: 'https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/'
-    - name: Bing Afbeeldingen zoeken-eindpunten
-      href: image-search-endpoint.md
-    - name: Ondersteunde landen en markten
-      href: supported-countries-markets.md
-    - name: Vereisten voor gebruik en weergave
-      href: UseAndDisplayRequirements.md
-    - name: Analytische gegevens voor Bing Afbeeldingen zoeken-API
-      href: bing-image-stats.md
+  - name: Veelgestelde vragen
+    href: bing-image-search-resource-faq.md
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/search-api/image/
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/555907-bing-search
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/bing-search
+  - name: Regionale beschikbaarheid
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest
+  - name: API-sleutel ophalen
+    href: https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api
+  - name: Probeer het nu!
+    href: https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/
+  - name: Bing Afbeeldingen zoeken-eindpunten
+    href: image-search-endpoint.md
+  - name: Ondersteunde landen en markten
+    href: supported-countries-markets.md
+  - name: Vereisten voor gebruik en weergave
+    href: UseAndDisplayRequirements.md
+  - name: Analytische gegevens voor Bing Afbeeldingen zoeken-API
+    href: bing-image-stats.md
+ms.openlocfilehash: 02b54baef02d40373bb574d12575e2df739f1703
+ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/13/2018
+ms.locfileid: "42440148"

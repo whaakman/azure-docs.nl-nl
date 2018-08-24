@@ -1,277 +1,286 @@
+items:
 - name: Documentatie voor Functions
   href: index.yml
 - name: Overzicht
   items:
-    - name: Over Functions
-      href: functions-overview.md
-    - name: Serverloze vergelijking
-      href: functions-compare-logic-apps-ms-flow-webjobs.md
+  - name: Over Functions
+    href: functions-overview.md
+  - name: Serverloze vergelijking
+    href: functions-compare-logic-apps-ms-flow-webjobs.md
 - name: Snelstartgidsen
-  expanded: true
   items:
-    - name: Functie maken - portal
-      href: functions-create-first-azure-function.md
-    - name: Functie maken - Visual Studio
-      href: functions-create-your-first-function-visual-studio.md
-    - name: Functie maken - Java/Maven
-      href: functions-create-first-java-maven.md
-    - name: Functie maken - Azure CLI
-      href: functions-create-first-azure-function-azure-cli.md
-    - name: Functie maken - Linux
-      href: functions-create-first-azure-function-azure-cli-linux.md
-    - name: Triggers
-      items:
-        - name: Blob Storage
-          href: functions-create-storage-blob-triggered-function.md
-        - name: Azure Cosmos DB
-          href: functions-create-cosmos-db-triggered-function.md
-        - name: Timer
-          href: functions-create-scheduled-function.md
-        - name: Generieke webhook
-          href: functions-create-generic-webhook-triggered-function.md
-        - name: GitHub-webhook
-          href: functions-create-github-webhook-triggered-function.md
-        - name: Queue Storage
-          href: functions-create-storage-queue-triggered-function.md
-    - name: Integreren
-      items:
-        - name: Storage
-          href: functions-integrate-storage-queue-output-binding.md
-        - name: Azure Cosmos DB
-          href: functions-integrate-store-unstructured-data-cosmosdb.md
+  - name: Functie maken - portal
+    href: functions-create-first-azure-function.md
+  - name: Functie maken - Visual Studio
+    href: functions-create-your-first-function-visual-studio.md
+  - name: Functie maken - Java/Maven
+    href: functions-create-first-java-maven.md
+  - name: Functie maken - Azure CLI
+    href: functions-create-first-azure-function-azure-cli.md
+  - name: Functie maken - Linux
+    href: functions-create-first-azure-function-azure-cli-linux.md
+  - name: Triggers
+    items:
+    - name: Blob Storage
+      href: functions-create-storage-blob-triggered-function.md
+    - name: Azure Cosmos DB
+      href: functions-create-cosmos-db-triggered-function.md
+    - name: Timer
+      href: functions-create-scheduled-function.md
+    - name: Generieke webhook
+      href: functions-create-generic-webhook-triggered-function.md
+    - name: GitHub-webhook
+      href: functions-create-github-webhook-triggered-function.md
+    - name: Queue Storage
+      href: functions-create-storage-queue-triggered-function.md
+  - name: Integreren
+    items:
+    - name: Storage
+      href: functions-integrate-storage-queue-output-binding.md
+    - name: Azure Cosmos DB
+      href: functions-integrate-store-unstructured-data-cosmosdb.md
+  expanded: true
 - name: Zelfstudies
   items:
-    - name: Functions met Logic Apps
-      href: functions-twitter-email.md
-    - name: Een serverloze API maken
-      href: functions-create-serverless-api.md
-    - name: Een OpenAPI-definitie maken
-      href: functions-openapi-definition.md
-    - name: Het formaat van afbeeldingen wijzigen met Event Grid
-      href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Een serverloze web-app maken
-      href: 'https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database'
-    - name: Functions in Linux
-      items:
-        - name: Aangepaste installatiekopie
-          href: functions-create-function-linux-custom-image.md
-        - name: IoT Edge-apparaat
-          href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
+  - name: Functions met Logic Apps
+    href: functions-twitter-email.md
+  - name: Een serverloze API maken
+    href: functions-create-serverless-api.md
+  - name: Een OpenAPI-definitie maken
+    href: functions-openapi-definition.md
+  - name: Het formaat van afbeeldingen wijzigen met Event Grid
+    href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
+  - name: Een serverloze web-app maken
+    href: https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database
+  - name: Functions in Linux
+    items:
+    - name: Aangepaste installatiekopie
+      href: functions-create-function-linux-custom-image.md
+    - name: IoT Edge-apparaat
+      href: ../iot-edge/tutorial-deploy-function.md?toc=%2fazure%2fazure-functions%2ftoc.json
 - name: Voorbeelden
   items:
-    - name: Codevoorbeelden
-      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=functions'
-    - name: Azure-CLI
-      href: functions-cli-samples.md
+  - name: Codevoorbeelden
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=functions
+  - name: Azure-CLI
+    href: functions-cli-samples.md
+  - name: Azure Functions Recipes
+    href: https://docs.microsoft.com/sandbox/functions-recipes/
 - name: Concepten
   items:
-    - name: 1.x en 2.x vergelijken
-      href: functions-versions.md
-    - name: Schaal en hosting
-      href: functions-scale.md
-    - name: Triggers en bindingen
-      href: functions-triggers-bindings.md
-    - name: Talen
-      items:
-        - name: Ondersteunde talen
-          href: supported-languages.md
-        - name: 'C# (klassebibliotheek)'
-          href: functions-dotnet-class-library.md
-        - name: 'C#-script (.csx)'
-          href: functions-reference-csharp.md
-        - name: 'F#'
-          href: functions-reference-fsharp.md
-        - name: Javascript
-          href: functions-reference-node.md
-        - name: Java
-          href: functions-reference-java.md
+  - name: 1.x en 2.x vergelijken
+    href: functions-versions.md
+  - name: Schaal en hosting
+    href: functions-scale.md
+  - name: Triggers en bindingen
+    href: functions-triggers-bindings.md
+  - name: Talen
+    items:
+    - name: Ondersteunde talen
+      href: supported-languages.md
+    - name: C# (klassebibliotheek)
+      href: functions-dotnet-class-library.md
+    - name: C#-script (.csx)
+      href: functions-reference-csharp.md
+    - name: F#
+      href: functions-reference-fsharp.md
+    - name: Javascript
+      href: functions-reference-node.md
+    - name: Java
+      href: functions-reference-java.md
+  - name: Diagnostiek
+    href: ../app-service/app-service-diagnostics.md
+  - name: Prestatieoverwegingen
+    href: functions-best-practices.md
+  - name: Functions-proxy's
+    href: functions-proxies.md
+  - name: IP-adressen
+    href: ip-addresses.md
+  - name: On-premises functies
+    href: functions-runtime-overview.md
+  - name: Durable Functions
+    items:
+    - name: Overzicht
+      href: durable-functions-overview.md
+    - name: Functietypen en functies
+      href: durable-functions-types-features-overview.md
+    - name: Bindingen
+      href: durable-functions-bindings.md
+    - name: Controlepunt en herhaling
+      href: durable-functions-checkpointing-and-replay.md
+    - name: Status van aangepaste indeling
+      href: durable-functions-custom-orchestration-status.md
+    - name: Instantiebeheer
+      href: durable-functions-instance-management.md
+    - name: HTTP-API
+      href: durable-functions-http-api.md
+    - name: Foutafhandeling
+      href: durable-functions-error-handling.md
     - name: Diagnostiek
-      href: ../app-service/app-service-diagnostics.md
-    - name: Prestatieoverwegingen
-      href: functions-best-practices.md
-    - name: Functions-proxy's
-      href: functions-proxies.md
-    - name: IP-adressen
-      href: ip-addresses.md
-    - name: On-premises functies
-      href: functions-runtime-overview.md
-    - name: Durable Functions
-      items:
-        - name: Overzicht
-          href: durable-functions-overview.md
-        - name: Functietypen en functies
-          href: durable-functions-types-features-overview.md
-        - name: Bindingen
-          href: durable-functions-bindings.md
-        - name: Controlepunt en herhaling
-          href: durable-functions-checkpointing-and-replay.md
-        - name: Status van aangepaste indeling
-          href: durable-functions-custom-orchestration-status.md
-        - name: Instantiebeheer
-          href: durable-functions-instance-management.md
-        - name: HTTP-API
-          href: durable-functions-http-api.md
-        - name: Foutafhandeling
-          href: durable-functions-error-handling.md
-        - name: Diagnostiek
-          href: durable-functions-diagnostics.md
-        - name: Timers
-          href: durable-functions-timers.md
-        - name: Externe gebeurtenissen
-          href: durable-functions-external-events.md
-        - name: Oneindige indelingen
-          href: durable-functions-eternal-orchestrations.md
-        - name: Enkelvoudige indelingen
-          href: durable-functions-singletons.md
-        - name: Onderliggende indelingen
-          href: durable-functions-sub-orchestrations.md
-        - name: Taakhubs
-          href: durable-functions-task-hubs.md
-        - name: Versiebeheer
-          href: durable-functions-versioning.md
-        - name: Prestaties en schaal
-          href: durable-functions-perf-and-scale.md
-        - name: Herstel bij noodgeval en geodistributie
-          href: durable-functions-disaster-recovery-geo-distribution.md
+      href: durable-functions-diagnostics.md
+    - name: Timers
+      href: durable-functions-timers.md
+    - name: Externe gebeurtenissen
+      href: durable-functions-external-events.md
+    - name: Oneindige indelingen
+      href: durable-functions-eternal-orchestrations.md
+    - name: Enkelvoudige indelingen
+      href: durable-functions-singletons.md
+    - name: Onderliggende indelingen
+      href: durable-functions-sub-orchestrations.md
+    - name: Taakhubs
+      href: durable-functions-task-hubs.md
+    - name: Versiebeheer
+      href: durable-functions-versioning.md
+    - name: Prestaties en schaal
+      href: durable-functions-perf-and-scale.md
+    - name: Herstel bij noodgeval en geodistributie
+      href: durable-functions-disaster-recovery-geo-distribution.md
 - name: Handleidingen
   items:
-    - name: Ontwikkelen
-      items:
-        - name: Ontwikkelaarsgids
-          href: functions-reference.md
-        - name: Functies testen
-          href: functions-test-a-function.md
-        - name: Lokaal ontwikkelen en fouten opsporen
-          href: functions-develop-local.md
-        - name: Ontwikkelen in Visual Studio
-          href: functions-develop-vs.md
-        - name: Ontwikkeling in Core Tools
-          href: functions-run-local.md
-        - name: IntelliJ IDEA-ontwikkeling
-          href: functions-create-maven-intellij.md
-        - name: Ontwikkelen in Eclipse
-          href: functions-create-maven-eclipse.md
-        - name: Verbindingen beheren
-          href: manage-connections.md
-        - name: Foutafhandeling
-          href: functions-bindings-error-pages.md
-    - name: Implementeren
-      items:
-        - name: Doorlopende implementatie
-          href: functions-continuous-deployment.md
-        - name: Zip-push implementeren
-          href: deployment-zip-push.md
-        - name: Resource-implementatie automatiseren
-          href: functions-infrastructure-as-code.md
-        - name: On-premises functies
-          href: functions-runtime-install.md
-    - name: Configureren
-      items:
-        - name: Een functie-app beheren
-          href: functions-how-to-use-azure-function-app-settings.md
-        - name: De runtimeversie instellen
-          href: set-runtime-version.md
-        - name: Een functie uitschakelen
-          href: disable-function.md
-    - name: Controleren
-      href: functions-monitoring.md
-    - name: Integreren
-      items:
-        - name: Verbinding maken met SQL Database
-          href: functions-scenario-database-table-cleanup.md
-        - name: Een Open API 2.0-definitie maken
-          href: functions-api-definition-getting-started.md
-        - name: Exporteren naar PowerApps en Microsoft Flow
-          href: app-service-export-api-to-powerapps-and-flow.md
-        - name: Een functie van PowerApps aanroepen
-          href: functions-powerapps-scenario.md
-        - name: Een functie van Microsoft Flow aanroepen
-          href: functions-flow-scenario.md
-        - name: Een beheerde service-identiteit gebruiken
-          href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
-    - name: Durable Functions
-      items:
-        - name: Installeren
-          href: durable-functions-install.md
-        - name: Koppelen
-          href: durable-functions-sequence.md
-        - name: Uit-/inwaaieren
-          href: durable-functions-cloud-backup.md
-        - name: Monitors
-          href: durable-functions-monitor.md
-        - name: Menselijke tussenkomst
-          href: durable-functions-phone-verification.md
-        - name: Moduletests uitvoeren
-          href: durable-functions-unit-testing.md
-        - name: Gebeurtenispublicatie
-          href: durable-functions-event-publishing.md
-        - name: De WebJobs-SDK gebruiken
-          href: durable-functions-webjobs-sdk.md
+  - name: Ontwikkelen
+    items:
+    - name: Ontwikkelaarsgids
+      href: functions-reference.md
+    - name: Functies testen
+      href: functions-test-a-function.md
+    - name: Lokaal ontwikkelen en fouten opsporen
+      href: functions-develop-local.md
+    - name: Ontwikkelen in Visual Studio
+      href: functions-develop-vs.md
+    - name: Ontwikkeling in Core Tools
+      href: functions-run-local.md
+    - name: IntelliJ IDEA-ontwikkeling
+      href: functions-create-maven-intellij.md
+    - name: Ontwikkelen in Eclipse
+      href: functions-create-maven-eclipse.md
+    - name: Verbindingen beheren
+      href: manage-connections.md
+    - name: Foutafhandeling
+      href: functions-bindings-error-pages.md
+  - name: Implementeren
+    items:
+    - name: Doorlopende implementatie
+      href: functions-continuous-deployment.md
+    - name: Zip-push implementeren
+      href: deployment-zip-push.md
+    - name: Resource-implementatie automatiseren
+      href: functions-infrastructure-as-code.md
+    - name: On-premises functies
+      href: functions-runtime-install.md
+  - name: Configureren
+    items:
+    - name: Een functie-app beheren
+      href: functions-how-to-use-azure-function-app-settings.md
+    - name: De runtimeversie instellen
+      href: set-runtime-version.md
+    - name: Een functie uitschakelen
+      href: disable-function.md
+  - name: Controleren
+    href: functions-monitoring.md
+  - name: Integreren
+    items:
+    - name: Verbinding maken met SQL Database
+      href: functions-scenario-database-table-cleanup.md
+    - name: Een Open API 2.0-definitie maken
+      href: functions-api-definition-getting-started.md
+    - name: Exporteren naar PowerApps en Microsoft Flow
+      href: app-service-export-api-to-powerapps-and-flow.md
+    - name: Een functie van PowerApps aanroepen
+      href: functions-powerapps-scenario.md
+    - name: Een functie van Microsoft Flow aanroepen
+      href: functions-flow-scenario.md
+    - name: Een beheerde service-identiteit gebruiken
+      href: ../app-service/app-service-managed-service-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json
+  - name: Durable Functions
+    items:
+    - name: Installeren
+      href: durable-functions-install.md
+    - name: Koppelen
+      href: durable-functions-sequence.md
+    - name: Uit-/inwaaieren
+      href: durable-functions-cloud-backup.md
+    - name: Monitors
+      href: durable-functions-monitor.md
+    - name: Menselijke tussenkomst
+      href: durable-functions-phone-verification.md
+    - name: Moduletests uitvoeren
+      href: durable-functions-unit-testing.md
+    - name: Gebeurtenispublicatie
+      href: durable-functions-event-publishing.md
+    - name: De WebJobs-SDK gebruiken
+      href: durable-functions-webjobs-sdk.md
 - name: Naslaginformatie
   items:
-    - name: Bindingen
+  - name: Bindingen
+    items:
+    - name: Blob Storage
+      href: functions-bindings-storage-blob.md
+    - name: Azure Cosmos DB
       items:
-        - name: Blob Storage
-          href: functions-bindings-storage-blob.md
-        - name: Azure Cosmos DB
-          items:
-            - name: Functions 1.x
-              href: functions-bindings-cosmosdb.md
-            - name: Functions 2.x
-              href: functions-bindings-cosmosdb-v2.md
-        - name: Event Grid
-          href: functions-bindings-event-grid.md
-        - name: Event Hubs
-          href: functions-bindings-event-hubs.md
-        - name: Extern bestand
-          href: functions-bindings-external-file.md
-        - name: Externe tabel
-          href: functions-bindings-external-table.md
-        - name: HTTP en webhooks
-          href: functions-bindings-http-webhook.md
-        - name: Microsoft Graph
-          href: functions-bindings-microsoft-graph.md
-        - name: Mobile Apps
-          href: functions-bindings-mobile-apps.md
-        - name: Notification Hubs
-          href: functions-bindings-notification-hubs.md
-        - name: Queue Storage
-          href: functions-bindings-storage-queue.md
-        - name: SendGrid
-          href: functions-bindings-sendgrid.md
-        - name: Service Bus
-          href: functions-bindings-service-bus.md
-        - name: Table Storage
-          href: functions-bindings-storage-table.md
-        - name: Timer
-          href: functions-bindings-timer.md
-        - name: Twilio
-          href: functions-bindings-twilio.md
-    - name: Naslaginformatie voor host.json
-      href: functions-host-json.md
-    - name: Naslaginformatie voor app-instellingen
-      href: functions-app-settings.md
-    - name: Naslaginformatie voor OpenAPI
-      href: functions-api-definition.md
+      - name: Functions 1.x
+        href: functions-bindings-cosmosdb.md
+      - name: Functions 2.x
+        href: functions-bindings-cosmosdb-v2.md
+    - name: Event Grid
+      href: functions-bindings-event-grid.md
+    - name: Event Hubs
+      href: functions-bindings-event-hubs.md
+    - name: Extern bestand
+      href: functions-bindings-external-file.md
+    - name: Externe tabel
+      href: functions-bindings-external-table.md
+    - name: HTTP en webhooks
+      href: functions-bindings-http-webhook.md
+    - name: Microsoft Graph
+      href: functions-bindings-microsoft-graph.md
+    - name: Mobile Apps
+      href: functions-bindings-mobile-apps.md
+    - name: Notification Hubs
+      href: functions-bindings-notification-hubs.md
+    - name: Queue Storage
+      href: functions-bindings-storage-queue.md
+    - name: SendGrid
+      href: functions-bindings-sendgrid.md
+    - name: Service Bus
+      href: functions-bindings-service-bus.md
+    - name: Table Storage
+      href: functions-bindings-storage-table.md
+    - name: Timer
+      href: functions-bindings-timer.md
+    - name: Twilio
+      href: functions-bindings-twilio.md
+  - name: Naslaginformatie voor host.json
+    href: functions-host-json.md
+  - name: Naslaginformatie voor app-instellingen
+    href: functions-app-settings.md
+  - name: Naslaginformatie voor OpenAPI
+    href: functions-api-definition.md
 - name: Resources
   items:
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=compute'
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/functions/'
-    - name: Prijscalculator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Regionale beschikbaarheid
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Video's
-      href: 'https://www.youtube.com/c/AzureFunctions'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-functions'
-    - name: Twitter
-      href: 'https://twitter.com/azurefunctions'
-    - name: GitHub-opslagplaats voor Azure Functions
-      href: 'https://github.com/Azure/Azure-Functions/'
-    - name: Service-updates
-      href: 'https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform='
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/?category=compute
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/functions/
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Regionale beschikbaarheid
+    href: https://azure.microsoft.com/regions/services/
+  - name: Video's
+    href: https://www.youtube.com/c/AzureFunctions
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-functions
+  - name: Twitter
+    href: https://twitter.com/azurefunctions
+  - name: GitHub-opslagplaats voor Azure Functions
+    href: https://github.com/Azure/Azure-Functions/
+  - name: Service-updates
+    href: https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
+ms.openlocfilehash: 3eb52c481185c50d935991b5163d130925bd6eeb
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41926984"

@@ -1,98 +1,107 @@
+items:
 - name: Documentatie voor door Azure beheerde toepassingen
   href: index.yml
 - name: Overzicht
   items:
-    - name: Over beheerde toepassingen
-      href: overview.md
+  - name: Over beheerde toepassingen
+    href: overview.md
 - name: Snelstartgidsen
-  expanded: true
   items:
-    - name: Een beheerde toepassing maken
-      href: managed-apps-quickstart-cli.md
+  - name: Een beheerde toepassing maken
+    href: managed-apps-quickstart-cli.md
+  expanded: true
 - name: Zelfstudies
   items:
-    - name: Beheerde toepassingsbestanden maken
-      href: publish-service-catalog-app.md
-    - name: Een Marketplace-toepassing maken
-      href: publish-marketplace-app.md
+  - name: Beheerde toepassingsbestanden maken
+    href: publish-service-catalog-app.md
+  - name: Een Marketplace-toepassing maken
+    href: publish-marketplace-app.md
 - name: Voorbeelden
   items:
-    - name: Azure-CLI
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
-    - name: Beheerde toepassingsoplossingen
-      href: sample-projects.md
+  - name: Azure-CLI
+    href: cli-samples.md
+  - name: Azure PowerShell
+    href: powershell-samples.md
+  - name: Beheerde toepassingsoplossingen
+    href: sample-projects.md
 - name: Handleidingen
   items:
-    - name: Een gebruikersinterface definiëren
-      href: create-uidefinition-overview.md
-    - name: Beheerde bronnen bijwerken
-      href: update-managed-resources.md
-    - name: Portal gebruiken om te publiceren
-      href: publish-portal.md
-    - name: Een geheim van Key Vault gebruiken
-      href: key-vault-access.md
+  - name: Portal-interface maken
+    href: create-uidefinition-overview.md
+  - name: Portal-interface testen
+    href: test-createuidefinition.md
+  - name: Beheerde bronnen bijwerken
+    href: update-managed-resources.md
+  - name: Portal gebruiken om te publiceren
+    href: publish-portal.md
+  - name: Een geheim van Key Vault gebruiken
+    href: key-vault-access.md
 - name: Naslaginformatie
   items:
-    - name: Azure-CLI
-      href: /cli/azure/managedapp
-    - name: PowerShell
-      href: /powershell/module/azurerm.resources
-    - name: REST
-      href: /rest/api/resources/
-    - name: Functies van de gebruikersinterface
-      href: create-uidefinition-functions.md
-    - name: Elementen van de gebruikersinterface
-      href: create-uidefinition-elements.md
+  - name: Azure-CLI
+    href: /cli/azure/managedapp
+  - name: PowerShell
+    href: /powershell/module/azurerm.resources
+  - name: REST
+    href: /rest/api/resources/
+  - name: Functies van de gebruikersinterface
+    href: create-uidefinition-functions.md
+  - name: Elementen van de gebruikersinterface
+    href: create-uidefinition-elements.md
+    items:
+    - name: Algemeen
       items:
-        - name: Algemeen
-          items:
-            - name: Vervolgkeuzelijst
-              href: microsoft-common-dropdown.md
-            - name: Bestandsupload
-              href: microsoft-common-fileupload.md
-            - name: InfoBox
-              href: microsoft-common-infobox.md
-            - name: Optiegroep
-              href: microsoft-common-optionsgroup.md
-            - name: Wachtwoordveld
-              href: microsoft-common-passwordbox.md
-            - name: Sectie
-              href: microsoft-common-section.md
-            - name: TextBlock
-              href: microsoft-common-textblock.md
-            - name: Tekstvak
-              href: microsoft-common-textbox.md
-        - name: Compute
-          items:
-            - name: ReferentieCombo
-              href: microsoft-compute-credentialscombo.md
-            - name: SelectorGrootte
-              href: microsoft-compute-sizeselector.md
-            - name: Gebruikersnaamveld
-              href: microsoft-compute-usernametextbox.md
-        - name: Netwerk
-          items:
-            - name: AvailabilityZoneDropDown
-              href: microsoft-network-availabilityzonedropdown.md
-            - name: OpenbaarIPAdresCombo
-              href: microsoft-network-publicipaddresscombo.md
-            - name: VirtueelNetwerkCombo
-              href: microsoft-network-virtualnetworkcombo.md
-        - name: Storage
-          items:
-            - name: MultiStorageAccountCombo
-              href: microsoft-storage-multistorageaccountcombo.md
-            - name: StorageAccountSelector
-              href: microsoft-storage-storageaccountselector.md
+      - name: Vervolgkeuzelijst
+        href: microsoft-common-dropdown.md
+      - name: Bestandsupload
+        href: microsoft-common-fileupload.md
+      - name: InfoBox
+        href: microsoft-common-infobox.md
+      - name: Optiegroep
+        href: microsoft-common-optionsgroup.md
+      - name: Wachtwoordveld
+        href: microsoft-common-passwordbox.md
+      - name: Sectie
+        href: microsoft-common-section.md
+      - name: TextBlock
+        href: microsoft-common-textblock.md
+      - name: Tekstvak
+        href: microsoft-common-textbox.md
+    - name: Compute
+      items:
+      - name: ReferentieCombo
+        href: microsoft-compute-credentialscombo.md
+      - name: SelectorGrootte
+        href: microsoft-compute-sizeselector.md
+      - name: Gebruikersnaamveld
+        href: microsoft-compute-usernametextbox.md
+    - name: Netwerk
+      items:
+      - name: AvailabilityZoneDropDown
+        href: microsoft-network-availabilityzonedropdown.md
+      - name: OpenbaarIPAdresCombo
+        href: microsoft-network-publicipaddresscombo.md
+      - name: VirtueelNetwerkCombo
+        href: microsoft-network-virtualnetworkcombo.md
+    - name: Storage
+      items:
+      - name: MultiStorageAccountCombo
+        href: microsoft-storage-multistorageaccountcombo.md
+      - name: StorageAccountSelector
+        href: microsoft-storage-storageaccountselector.md
 - name: Resources
   items:
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/managed-applications/'
-    - name: Prijscalculator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-managedapps'
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/managed-applications/
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-managedapps
+ms.openlocfilehash: c468b30361163d39b94af999c9767cbc491a06ac
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41927299"

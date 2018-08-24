@@ -1,466 +1,480 @@
+items:
 - name: Documentatie over virtuele Linux-machines
   href: index.yml
 - name: Overzicht
   items:
-    - name: Informatie over virtuele machines
-      href: overview.md
+  - name: Informatie over virtuele machines
+    href: overview.md
 - name: Snelstartgidsen
-  expanded: true
   items:
-    - name: Virtuele machine maken - Portal
-      href: quick-create-portal.md
-    - name: Virtuele machine maken - PowerShell
-      href: quick-create-powershell.md
-    - name: Virtuele machine maken - Azure CLI
-      href: quick-create-cli.md
+  - name: Virtuele machine maken - Portal
+    href: quick-create-portal.md
+  - name: Virtuele machine maken - PowerShell
+    href: quick-create-powershell.md
+  - name: Virtuele machine maken - Azure CLI
+    href: quick-create-cli.md
+  expanded: true
 - name: Zelfstudies
   items:
-    - name: 1 - Een virtuele machine maken/beheren
-      href: tutorial-manage-vm.md
-    - name: 2 - Schijven maken/beheren
-      href: tutorial-manage-data-disk.md
-    - name: 3 - Configuratie automatiseren
-      href: tutorial-automate-vm-deployment.md
-    - name: 4 - VM-installatiekopieën maken
-      href: tutorial-custom-images.md
-    - name: 5 - Virtuele machines met hoge beschikbaarheid
-      href: tutorial-availability-sets.md
-    - name: 6 - Een VM-schaalset maken
-      href: tutorial-create-vmss.md
-    - name: 7 - Taakverdelingen maken voor virtuele machines
-      href: tutorial-load-balancer.md
-    - name: 8 - Netwerken beheren
-      href: tutorial-virtual-network.md
-    - name: 9 - Back-ups maken van virtuele machines
-      href: tutorial-backup-vms.md
-    - name: 10 - Virtuele machines beheren
-      href: tutorial-govern-resources.md
-    - name: 11 - Virtuele machines bewaken en bijwerken
-      href: tutorial-monitoring.md
-    - name: 12 - VM-beveiliging beheren
-      href: tutorial-azure-security.md
-    - name: 13 - Team Services CI/CD
-      href: tutorial-vsts-iis-cicd.md
-    - name: 14 - Een SQL\IIS\.NET-stack installeren
-      href: tutorial-iis-sql.md
-    - name: 15 - Webserver beveiligen met SSL
-      href: tutorial-secure-web-server.md
+  - name: 1 - Een virtuele machine maken/beheren
+    href: tutorial-manage-vm.md
+  - name: 2 - Schijven maken/beheren
+    href: tutorial-manage-data-disk.md
+  - name: 3 - Configuratie automatiseren
+    href: tutorial-automate-vm-deployment.md
+  - name: 4 - VM-installatiekopieën maken
+    href: tutorial-custom-images.md
+  - name: 5 - Virtuele machines met hoge beschikbaarheid
+    href: tutorial-availability-sets.md
+  - name: 6 - Een VM-schaalset maken
+    href: tutorial-create-vmss.md
+  - name: 7 - Taakverdelingen maken voor virtuele machines
+    href: tutorial-load-balancer.md
+  - name: 8 - Netwerken beheren
+    href: tutorial-virtual-network.md
+  - name: 9 - Back-ups maken van virtuele machines
+    href: tutorial-backup-vms.md
+  - name: 10 - Virtuele machines beheren
+    href: tutorial-govern-resources.md
+  - name: 11 - Virtuele machines bewaken en bijwerken
+    href: tutorial-monitoring.md
+  - name: 12 - VM-beveiliging beheren
+    href: tutorial-azure-security.md
+  - name: 13 - Team Services CI/CD
+    href: tutorial-vsts-iis-cicd.md
+  - name: 14 - Een SQL\IIS\.NET-stack installeren
+    href: tutorial-iis-sql.md
+  - name: 15 - Webserver beveiligen met SSL
+    href: tutorial-secure-web-server.md
 - name: Voorbeelden
   items:
-    - name: PowerShell
-      href: powershell-samples.md
-    - name: Azure-CLI
-      href: cli-samples.md
+  - name: PowerShell
+    href: powershell-samples.md
+  - name: Azure-CLI
+    href: cli-samples.md
 - name: Concepten
   items:
-    - name: Azure Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Regio’s en beschikbaarheid
-      href: regions-and-availability.md
-    - name: VM-typen en -groottes
-      href: sizes.md
+  - name: Azure Resource Manager
+    href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: Regio’s en beschikbaarheid
+    href: regions-and-availability.md
+  - name: VM-typen en -groottes
+    href: sizes.md
+    items:
+    - name: Algemeen doel
+      href: sizes-general.md
       items:
-        - name: Algemeen doel
-          href: sizes-general.md
-          items:
-            - name: B-serie 'burstable'
-              href: b-series-burstable.md
-        - name: Geoptimaliseerde rekenkracht
-          href: sizes-compute.md
-        - name: Geoptimaliseerd geheugen
-          items:
-            - name: Beperkte vCPU's
-              href: constrained-vcpu.md
-          href: sizes-memory.md
-        - name: Geoptimaliseerde opslag
-          href: sizes-storage.md
-        - name: Geoptimaliseerde GPU
-          href: sizes-gpu.md
-          items:
-            - name: GPU-stuurprogramma's instellen
-              href: n-series-driver-setup.md
-        - name: Krachtig rekenvermogen
-          href: sizes-hpc.md
-        - name: Vorige generaties
-          href: sizes-previous-gen.md
-        - name: Azure Compute Units (ACU)
-          href: acu.md
-        - name: Benchmarkscores
-          href: compute-benchmark-scores.md
-    - name: Onderhoud en updates
-      href: maintenance-and-updates.md
-    - name: File Storage
-      href: about-disks-and-vhds.md
+      - name: B-serie 'burstable'
+        href: b-series-burstable.md
+    - name: Geoptimaliseerde rekenkracht
+      href: sizes-compute.md
+    - name: Geoptimaliseerd geheugen
+      href: sizes-memory.md
       items:
-        - name: Beheerde schijven
-          href: managed-disks-overview.md
-        - name: Premium Storage
-          href: premium-storage.md
-        - name: Prestaties van Premium Storage
-          href: premium-storage-performance.md
-        - name: Standard Storage
-          href: standard-storage.md
-        - name: Schaalbaarheidsdoelen voor schijven
-          href: disk-scalability-targets.md
-        - name: Back-up en herstel na noodgeval voor schijven
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-    - name: Netwerken
-      href: network-overview.md
-    - name: Toepassingen automatisch schalen
-      href: autoscale.md
-    - name: Automatisering van infrastructuur
-      href: infrastructure-automation.md
-    - name: Beveiliging en beleid
-      href: security-policy.md
-    - name: Bewaking
-      href: monitor.md
-    - name: Back-ups maken en herstellen
-      href: backup-recovery.md
-    - name: High Performance Computing
-      href: high-performance-computing.md
-    - name: Overwegingen bij de implementatie
+      - name: Beperkte vCPU's
+        href: constrained-vcpu.md
+    - name: Geoptimaliseerde opslag
+      href: sizes-storage.md
+    - name: Geoptimaliseerde GPU
+      href: sizes-gpu.md
       items:
-        - name: Richtlijnen voor infrastructuur
-          href: infrastructure-example.md
-        - name: vCPU-quota
-          href: quotas.md
+      - name: GPU-stuurprogramma's instellen
+        href: n-series-driver-setup.md
+    - name: Krachtig rekenvermogen
+      href: sizes-hpc.md
+    - name: Vorige generaties
+      href: sizes-previous-gen.md
+    - name: Azure Compute Units (ACU)
+      href: acu.md
+    - name: Benchmarkscores
+      href: compute-benchmark-scores.md
+  - name: Onderhoud en updates
+    href: maintenance-and-updates.md
+  - name: File Storage
+    href: about-disks-and-vhds.md
+    items:
+    - name: Beheerde schijven
+      href: managed-disks-overview.md
+    - name: Premium Storage
+      href: premium-storage.md
+    - name: Standard-SSD's
+      href: disks-standard-ssd.md
+    - name: Prestaties van Premium Storage
+      href: premium-storage-performance.md
+    - name: Standard Storage
+      href: standard-storage.md
+    - name: Schaalbaarheidsdoelen voor schijven
+      href: disk-scalability-targets.md
+    - name: Back-up en herstel na noodgeval voor schijven
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+  - name: Netwerken
+    href: network-overview.md
+  - name: Toepassingen automatisch schalen
+    href: autoscale.md
+  - name: Automatisering van infrastructuur
+    href: infrastructure-automation.md
+  - name: Beveiliging en beleid
+    href: security-policy.md
+  - name: Toestanden en levenscyclus
+    href: states-lifecycle.md
+  - name: Bewaking
+    href: monitor.md
+  - name: Back-ups maken en herstellen
+    href: backup-recovery.md
+  - name: High Performance Computing
+    href: high-performance-computing.md
+  - name: Overwegingen bij de implementatie
+    items:
+    - name: Richtlijnen voor infrastructuur
+      href: infrastructure-example.md
+    - name: vCPU-quota
+      href: quotas.md
 - name: Handleidingen
   items:
-    - name: Virtuele machines maken
+  - name: Virtuele machines maken
+    items:
+    - name: C# gebruiken
+      href: csharp.md
+    - name: Een gespecialiseerde schijf gebruiken
       items:
-        - name: 'C# gebruiken'
-          href: csharp.md
-        - name: Een gespecialiseerde schijf gebruiken
-          items:
-            - name: Portal
-              href: create-vm-specialized-portal.md
-            - name: PowerShell
-              href: create-vm-specialized.md
-        - name: 'Een sjabloon met C# gebruiken'
-          href: csharp-template.md
-        - name: Een virtuele machine maken met Chef
-          href: chef-automation.md
-        - name: Java gebruiken
-          href: java.md
-        - name: Python gebruiken
-          href: python.md
-        - name: Een sjabloon gebruiken
-          href: ps-template.md
-        - name: Verbinding maken met een VM
-          href: connect-logon.md
-        - name: Licentie voor Azure Hybrid Benefit gebruiken
-          href: hybrid-use-benefit-licensing.md
-        - name: Multitenant Hosting-rechten voor Windows 10 gebruiken
-          href: windows-desktop-multitenant-hosting-deployment.md
-    - name: Virtuele machines beveiligen
+      - name: Portal
+        href: create-vm-specialized-portal.md
+      - name: PowerShell
+        href: create-vm-specialized.md
+    - name: Een sjabloon met C# gebruiken
+      href: csharp-template.md
+    - name: Een virtuele machine maken met Chef
+      href: chef-automation.md
+    - name: Java gebruiken
+      href: java.md
+    - name: Python gebruiken
+      href: python.md
+    - name: Een sjabloon gebruiken
+      href: ps-template.md
+    - name: Verbinding maken met een VM
+      href: connect-logon.md
+    - name: Licentie voor Azure Hybrid Benefit gebruiken
+      href: hybrid-use-benefit-licensing.md
+    - name: Multitenant Hosting-rechten voor Windows 10 gebruiken
+      href: windows-desktop-multitenant-hosting-deployment.md
+  - name: Virtuele machines beveiligen
+    items:
+    - name: Versleutelen
+      href: encrypt-disks.md
+    - name: WinRM gebruiken
+      href: winrm.md
+    - name: Toegangsbeheer gebruiken
+      href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Beleidsregels gebruiken
+      href: policy.md
+    - name: Een sleutelkluis maken
+      href: key-vault-setup.md
+  - name: Virtuele machines beschermen
+    href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    items:
+    - name: Een back-up maken van één virtuele machine
       items:
-        - name: Versleutelen
-          href: encrypt-disks.md
-        - name: WinRM gebruiken
-          href: winrm.md
-        - name: Toegangsbeheer gebruiken
-          href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Beleidsregels gebruiken
-          href: policy.md
-        - name: Een sleutelkluis maken
-          href: key-vault-setup.md
-    - name: Virtuele machines beschermen
-      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      - name: Azure Portal
+        href: ../../backup/quick-backup-vm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      - name: Azure PowerShell
+        href: ../../backup/quick-backup-vm-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Een back-up maken van meerdere virtuele machines
+      href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: Virtuele machines beheren
+    items:
+    - name: VM-gebruik
+      href: vm-usage.md
+    - name: Algemene PowerShell-taken
+      href: ps-common-ref.md
+    - name: Een virtuele machine verplaatsen
+      href: move-vm.md
+    - name: De grootte van een virtuele machine wijzigen
+      href: resize-vm.md
+    - name: De schijf met het besturingssysteem wisselen
+      href: os-disk-swap.md
+    - name: Een virtuele machine taggen
+      href: tag.md
+    - name: Scripts uitvoeren op een virtuele machine
+      href: run-scripts-in-vm.md
       items:
-        - name: Een back-up maken van één virtuele machine
-          items:
-            - name: Azure Portal
-              href: ../../backup/quick-backup-vm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-            - name: Azure PowerShell
-              href: ../../backup/quick-backup-vm-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Een back-up maken van meerdere virtuele machines
-          href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Virtuele machines beheren
+      - name: Aangepaste scriptextensie
+        href: ../extensions/custom-script-windows.md
+      - name: Run-opdracht
+        href: run-command.md
+    - name: Een tijdelijke stationsletter wijzigen
+      href: change-drive-letter.md
+    - name: Een beschikbaarheidsset wijzigen
+      href: change-availability-set.md
+    - name: Een sjabloon downloaden
+      href: download-template.md
+    - name: Azure VM-agent
+      href: ../extensions/agent-windows.md
+    - name: Gepland onderhoud
+      href: maintenance-notifications.md
+    - name: Speculatieve uitvoering beperken
+      href: mitigate-se.md
+    - name: Geplande gebeurtenissen
+      href: scheduled-events.md
+    - name: Metagegevens bewaken
+      href: instance-metadata-service.md
+    - name: Geneste virtualisatie inschakelen
+      href: nested-virtualization.md
+  - name: Kosten beheren
+    items:
+    - name: Vooruitbetalen voor VM's - Azure-reserveringen
+      href: prepay-reserved-vm-instances.md
+    - name: Wat zijn Azure-reserveringen?
+      href: ../../billing/billing-save-compute-costs-reservations.md
+    - name: Flexibiliteit van de VM-instantiegrootte
+      href: reserved-vm-instance-size-flexibility.md
+  - name: Installatiekopieën gebruiken
+    items:
+    - name: Installatiekopieën zoeken en gebruiken
+      href: cli-ps-findimage.md
+    - name: De virtuele machine voorbereiden voor de upload
+      href: prepare-for-upload-vhd-image.md
+    - name: Een virtuele machine vastleggen in een installatiekopie
+      href: capture-image-resource.md
+    - name: Een algemene installatiekopie gebruiken
+      href: create-vm-generalized-managed.md
+    - name: Een installatiekopie maken met Packer
+      href: build-image-with-packer.md
+    - name: Windows-clientinstallatiekopieën gebruiken
+      href: client-images.md
+    - name: Een bestaande schijf downloaden
+      href: download-vhd.md
+  - name: Beschikbaarheid en schaal
+    items:
+    - name: Virtual Machine Scale Sets
+      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Hoge beschikbaarheid
+      href: manage-availability.md
+    - name: Verticaal schalen
+      href: vertical-scaling-automation.md
+    - name: Een virtuele machine maken in de beschikbaarheidszone
       items:
-        - name: VM-gebruik
-          href: vm-usage.md
-        - name: Algemene PowerShell-taken
-          href: ps-common-ref.md
-        - name: Een virtuele machine verplaatsen
-          href: move-vm.md
-        - name: De grootte van een virtuele machine wijzigen
-          href: resize-vm.md
-        - name: De schijf met het besturingssysteem wisselen
-          href: os-disk-swap.md
-        - name: Een virtuele machine taggen
-          href: tag.md
-        - name: Scripts uitvoeren op een virtuele machine
-          href: run-scripts-in-vm.md
-          items:
-            - name: Aangepaste scriptextensie
-              href: ../extensions/custom-script-windows.md
-            - name: Run-opdracht
-              href: run-command.md
-        - name: Een tijdelijke stationsletter wijzigen
-          href: change-drive-letter.md
-        - name: Een beschikbaarheidsset wijzigen
-          href: change-availability-set.md
-        - name: Een sjabloon downloaden
-          href: download-template.md
-        - name: Azure VM-agent
-          href: ../extensions/agent-windows.md
-        - name: Gepland onderhoud
-          href: maintenance-notifications.md
-        - name: Speculatieve uitvoering beperken
-          href: mitigate-se.md
-        - name: Geplande gebeurtenissen
-          href: scheduled-events.md
-        - name: Metagegevens bewaken
-          href: instance-metadata-service.md
-        - name: Geneste virtualisatie inschakelen
-          href: nested-virtualization.md
-    - name: Kosten beheren
+      - name: PowerShell
+        href: create-powershell-availability-zone.md
+      - name: Portal
+        href: create-portal-availability-zone.md
+  - name: Automation-hulpprogramma's gebruiken
+    items:
+    - name: Chef
+      href: chef-automation.md
+    - name: Web-app publiceren vanuit Visual Studio
+      href: publish-web-app-from-visual-studio.md
+  - name: Toepassingen uitvoeren
+    items:
+    - name: SQL Server
+      href: sql/virtual-machines-windows-sql-server-iaas-overview.md
+    - name: MongoDB
+      href: install-mongodb.md
+    - name: SAP op Azure
+      href: ../workloads/sap/get-started.md
+    - name: MATLAB-cluster
+      href: matlab-mdcs-cluster.md
+    - name: Visual Studio
+      href: using-visual-studio-vm.md
+    - name: HPC (High Performance Computing)
+      href: hpcpack-cluster-options.md
       items:
-        - name: Vooruitbetalen voor VM's - Azure-reserveringen
-          href: prepay-reserved-vm-instances.md
-        - name: Wat zijn Azure-reserveringen?
-          href: ../../billing/billing-save-compute-costs-reservations.md
-        - name: Flexibiliteit van de VM-instantiegrootte
-          href: reserved-vm-instance-size-flexibility.md
-    - name: Installatiekopieën gebruiken
+      - name: HPC Pack 2016-cluster
+        href: hpcpack-2016-cluster.md
+      - name: Integratie van HPC Pack 2016 en Azure Active Directory
+        href: hpcpack-cluster-active-directory.md
+      - name: Hoofdknooppunt van HPC Pack 2012 R2
+        href: hpcpack-cluster-headnode.md
+      - name: On-premises taken verzenden naar HPC Pack 2012 R2
+        href: hpcpack-cluster-submit-jobs.md
+      - name: Excel in HPC Pack
+        href: excel-cluster-hpcpack.md
+  - name: Opslag beheren
+    items:
+    - name: Veelgestelde vragen over schijven
+      href: faq-for-disks.md
+    - name: Een schijf toevoegen
       items:
-        - name: Installatiekopieën zoeken en gebruiken
-          href: cli-ps-findimage.md
-        - name: De virtuele machine voorbereiden voor de upload
-          href: prepare-for-upload-vhd-image.md
-        - name: Een virtuele machine vastleggen in een installatiekopie
-          href: capture-image-resource.md
-        - name: Een algemene installatiekopie gebruiken
-          href: create-vm-generalized-managed.md
-        - name: Een installatiekopie maken met Packer
-          href: build-image-with-packer.md
-        - name: Windows-clientinstallatiekopieën gebruiken
-          href: client-images.md
-        - name: Een bestaande schijf downloaden
-          href: download-vhd.md
-    - name: Beschikbaarheid en schaal
+      - name: Azure Powershell
+        href: attach-disk-ps.md
+      - name: Azure Portal
+        href: attach-managed-disk-portal.md
+    - name: Een schijf loskoppelen
+      href: detach-disk.md
+    - name: De grootte van een schijf wijzigen
+      href: expand-os-disk.md
+    - name: Een momentopname maken van een schijf
+      href: snapshot-copy-managed-disk.md
+    - name: Back-up maken van niet-beheerde schijven
+      href: incremental-snapshots.md
+    - name: Een schijf converteren van Standard naar Premium
+      href: convert-disk-storage.md
+    - name: Migreren naar Premium Storage met Azure Site Recovery
+      href: migrate-to-premium-storage-using-azure-site-recovery.md
+    - name: Niet-gekoppelde schijven zoeken
+      href: find-unattached-disks.md
+    - name: Bestandsopslag gebruiken
+      href: mount-azure-file-storage.md
+    - name: Schijven implementeren met sjabloon
+      href: using-managed-disks-template-deployments.md
+    - name: Write Accelerator inschakelen
+      href: how-to-enable-write-accelerator.md
+    - name: Migreren naar Managed Disks
+      href: migrate-to-managed-disks.md
       items:
-        - name: Virtual Machine Scale Sets
-          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Hoge beschikbaarheid
-          href: manage-availability.md
-        - name: Verticaal schalen
-          href: vertical-scaling-automation.md
-        - name: Een virtuele machine maken in de beschikbaarheidszone
-          items:
-            - name: PowerShell
-              href: create-powershell-availability-zone.md
-            - name: Portal
-              href: create-portal-availability-zone.md
-    - name: Automation-hulpprogramma's gebruiken
+      - name: Niet-beheerde VM naar Managed Disks
+        href: convert-unmanaged-to-managed-disks.md
+      - name: Eén klassieke VM naar Resource Manager
+        href: migrate-single-classic-to-resource-manager.md
+  - name: Netwerken beheren
+    href: ps-common-network-ref.md
+    items:
+    - name: Virtueel netwerk maken
+      href: ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Poorten naar een VM openen
       items:
-        - name: Chef
-          href: chef-automation.md
-        - name: Web-app publiceren vanuit Visual Studio
-          href: publish-web-app-from-visual-studio.md
-    - name: Toepassingen uitvoeren
+      - name: Azure Portal
+        href: nsg-quickstart-portal.md
+      - name: Azure PowerShell
+        href: nsg-quickstart-powershell.md
+    - name: Een openbaar IP-adres toewijzen
+      href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Meerdere NIC's gebruiken
+      href: multiple-nics.md
+    - name: Versneld netwerken gebruiken
+      href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Een openbare DNS-naam toewijzen
+      href: portal-create-fqdn.md
+    - name: DNS-resolutie
+      href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: VM-extensies gebruiken
+    href: ../extensions/overview.md
+  - name: Virtuele machines migreren
+    items:
+    - name: AWS en on-premises VM's migreren
+      href: on-prem-to-azure.md
       items:
-        - name: SQL Server
-          href: sql/virtual-machines-windows-sql-server-iaas-overview.md
-        - name: MongoDB
-          href: install-mongodb.md
-        - name: SAP op Azure
-          href: ../workloads/sap/get-started.md
-        - name: MATLAB-cluster
-          href: matlab-mdcs-cluster.md
-        - name: Visual Studio
-          href: using-visual-studio-vm.md
-        - name: HPC (High Performance Computing)
-          href: hpcpack-cluster-options.md
-          items:
-            - name: HPC Pack 2016-cluster
-              href: hpcpack-2016-cluster.md
-            - name: Integratie van HPC Pack 2016 en Azure Active Directory
-              href: hpcpack-cluster-active-directory.md
-            - name: Hoofdknooppunt van HPC Pack 2012 R2
-              href: hpcpack-cluster-headnode.md
-            - name: On-premises taken verzenden naar HPC Pack 2012 R2
-              href: hpcpack-cluster-submit-jobs.md
-            - name: Excel in HPC Pack
-              href: excel-cluster-hpcpack.md
-    - name: Opslag beheren
+      - name: Een on-premises VM uploaden
+        href: upload-generalized-managed.md
+      - name: Vanuit Amazon Web Services (AWS)
+        href: aws-to-azure.md
+      - name: Azure Site Recovery gebruiken
+        href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    - name: Migreren van een klassieke implementatie naar Azure Resource Manager
+      href: migration-classic-resource-manager-overview.md
       items:
-        - name: Veelgestelde vragen over schijven
-          href: faq-for-disks.md
-        - name: Een schijf toevoegen
-          items:
-            - name: Azure Powershell
-              href: attach-disk-ps.md
-            - name: Azure Portal
-              href: attach-managed-disk-portal.md
-        - name: Een schijf loskoppelen
-          href: detach-disk.md
-        - name: De grootte van een schijf wijzigen
-          href: expand-os-disk.md
-        - name: Een momentopname maken van een schijf
-          href: snapshot-copy-managed-disk.md
-        - name: Back-up maken van niet-beheerde schijven
-          href: incremental-snapshots.md
-        - name: Een schijf converteren van Standard naar Premium
-          href: convert-disk-storage.md
-        - name: Migreren naar Premium Storage met Azure Site Recovery
-          href: migrate-to-premium-storage-using-azure-site-recovery.md
-        - name: Niet-gekoppelde schijven zoeken
-          href: find-unattached-disks.md
-        - name: Bestandsopslag gebruiken
-          href: mount-azure-file-storage.md
-        - name: Schijven implementeren met sjabloon
-          href: using-managed-disks-template-deployments.md
-        - name: Write Accelerator inschakelen
-          href: how-to-enable-write-accelerator.md
-        - name: Migreren naar Managed Disks
-          href: migrate-to-managed-disks.md
-          items:
-            - name: Niet-beheerde VM naar Managed Disks
-              href: convert-unmanaged-to-managed-disks.md
-            - name: Eén klassieke VM naar Resource Manager
-              href: migrate-single-classic-to-resource-manager.md
-    - name: Netwerken beheren
-      href: ps-common-network-ref.md
+      - name: Gedetailleerde informatie over migratie
+        href: migration-classic-resource-manager-deep-dive.md
+      - name: Plan voor migratie
+        href: migration-classic-resource-manager-plan.md
+      - name: Migreren met PowerShell
+        href: migration-classic-resource-manager-ps.md
+      - name: Algemene migratiefouten
+        href: migration-classic-resource-manager-errors.md
+      - name: Community-hulpprogramma's voor migratie
+        href: migration-classic-resource-manager-community-tools.md
+      - name: Veelgestelde vragen
+        href: migration-classic-resource-manager-faq.md
+  - name: Problemen oplossen
+    items:
+    - name: Verbindingen met extern bureaublad
+      href: troubleshoot-rdp-connection.md
       items:
-        - name: Virtueel netwerk maken
-          href: ../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Poorten naar een VM openen
-          items:
-            - name: Azure Portal
-              href: nsg-quickstart-portal.md
-            - name: Azure PowerShell
-              href: nsg-quickstart-powershell.md
-        - name: Een openbaar IP-adres toewijzen
-          href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Meerdere NIC's gebruiken
-          href: multiple-nics.md
-        - name: Versneld netwerken gebruiken
-          href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Een openbare DNS-naam toewijzen
-          href: portal-create-fqdn.md
-        - name: DNS-resolutie
-          href: ../../dns/dns-for-azure-services.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: VM-extensies gebruiken
-      href: ../extensions/overview.md
-    - name: Virtuele machines migreren
+      - name: Gedetailleerde stappen
+        href: detailed-troubleshoot-rdp.md
+      - name: Foutberichten
+        href: troubleshoot-specific-rdp-errors.md
+    - name: RDP-wachtwoord opnieuw instellen
+      href: reset-rdp.md
+    - name: Een lokaal wachtwoord opnieuw instellen zonder Azure-agent
+      href: reset-local-password-without-agent.md
+    - name: Het opnieuw opstarten van systemen begrijpen
+      href: understand-vm-reboot.md
+    - name: NIC opnieuw instellen
+      href: reset-network-interface.md
+    - name: Diagnostische gegevens over opstarten
+      href: boot-diagnostics.md
+    - name: Seriële console
+      href: serial-console.md
       items:
-        - name: AWS en on-premises VM's migreren
-          href: on-prem-to-azure.md
-          items:
-            - name: Een on-premises VM uploaden
-              href: upload-generalized-managed.md
-            - name: Vanuit Amazon Web Services (AWS)
-              href: aws-to-azure.md
-            - name: Azure Site Recovery gebruiken
-              href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-        - name: Migreren van een klassieke implementatie naar Azure Resource Manager
-          href: migration-classic-resource-manager-overview.md
-          items:
-            - name: Gedetailleerde informatie over migratie
-              href: migration-classic-resource-manager-deep-dive.md
-            - name: Plan voor migratie
-              href: migration-classic-resource-manager-plan.md
-            - name: Migreren met PowerShell
-              href: migration-classic-resource-manager-ps.md
-            - name: Algemene migratiefouten
-              href: migration-classic-resource-manager-errors.md
-            - name: Community-hulpprogramma's voor migratie
-              href: migration-classic-resource-manager-community-tools.md
-            - name: Veelgestelde vragen
-              href: migration-classic-resource-manager-faq.md
-    - name: Problemen oplossen
+      - name: CMD- en PowerShell-opdrachten
+        href: serial-console-cmd-ps-commands.md
+    - name: Een virtuele machine maken
+      href: troubleshoot-deployment-new-vm.md
+    - name: Implementatieproblemen
+      href: troubleshoot-deploy-vm.md
+    - name: Een virtuele machine opnieuw starten of het formaat van een virtuele machine wijzigen
+      href: restart-resize-error-troubleshooting.md
+    - name: Toegang tot toepassingen
+      href: troubleshoot-app-connection.md
+    - name: Activeringsproblemen
+      href: troubleshoot-activation-problems.md
+    - name: Toewijzingsfouten
+      href: allocation-failure.md
+    - name: Toewijzingsfouten - klassieke VM
+      href: allocation-failure-classic.md
+    - name: Een virtuele machine opnieuw implementeren
+      href: redeploy-to-new-node.md
+    - name: Veelvoorkomende foutberichten
+      href: error-messages.md
+    - name: Toegang tot VM voor herstel
       items:
-        - name: Verbindingen met extern bureaublad
-          href: troubleshoot-rdp-connection.md
-          items:
-            - name: Gedetailleerde stappen
-              href: detailed-troubleshoot-rdp.md
-            - name: Foutberichten
-              href: troubleshoot-specific-rdp-errors.md
-        - name: RDP-wachtwoord opnieuw instellen
-          href: reset-rdp.md
-        - name: Een lokaal wachtwoord opnieuw instellen zonder Azure-agent
-          href: reset-local-password-without-agent.md
-        - name: Het opnieuw opstarten van systemen begrijpen
-          href: understand-vm-reboot.md
-        - name: NIC opnieuw instellen
-          href: reset-network-interface.md
-        - name: Diagnostische gegevens over opstarten
-          href: boot-diagnostics.md
-        - name: Seriële console
-          href: serial-console.md
-        - name: Een virtuele machine maken
-          href: troubleshoot-deployment-new-vm.md
-        - name: Implementatieproblemen
-          href: troubleshoot-deploy-vm.md
-        - name: Een virtuele machine opnieuw starten of het formaat van een virtuele machine wijzigen
-          href: restart-resize-error-troubleshooting.md
-        - name: Toegang tot toepassingen
-          href: troubleshoot-app-connection.md
-        - name: Activeringsproblemen
-          href: troubleshoot-activation-problems.md
-        - name: Toewijzingsfouten
-          href: allocation-failure.md
-        - name: Toewijzingsfouten - klassieke VM
-          href: allocation-failure-classic.md
-        - name: Een virtuele machine opnieuw implementeren
-          href: redeploy-to-new-node.md
-        - name: Veelvoorkomende foutberichten
-          href: error-messages.md
-        - name: Toegang tot VM voor herstel
-          items:
-            - name: Azure PowerShell
-              href: troubleshoot-recovery-disks.md
-            - name: Azure Portal
-              href: troubleshoot-recovery-disks-portal.md
-        - name: PerfInsights gebruiken
-          href: how-to-use-perfInsights.md
-        - name: VM-extensie voor diagnostische gegevens over prestaties
-          href: performance-diagnostics-vm-extension.md
-        - name: Geneste virtualisatie gebruiken
-          href: troubleshoot-vm-by-use-nested-virtualization.md
-        - name: De VM-agent installeren in de offlinemodus
-          href: install-vm-agent-offline.md
-        - name: Problemen met gekoppelde VHD's oplossen
-          items:
-            - name: Fouten bij het verwijderen van een Storage-resource
-              href: storage-resource-deletion-errors.md
-            - name: Onverwacht opnieuw opstarten van VM's met gekoppelde VHD's
-              href: unexpected-reboots-attached-vhds.md
+      - name: Azure PowerShell
+        href: troubleshoot-recovery-disks.md
+      - name: Azure Portal
+        href: troubleshoot-recovery-disks-portal.md
+    - name: PerfInsights gebruiken
+      href: how-to-use-perfInsights.md
+    - name: VM-extensie voor diagnostische gegevens over prestaties
+      href: performance-diagnostics-vm-extension.md
+    - name: Geneste virtualisatie gebruiken
+      href: troubleshoot-vm-by-use-nested-virtualization.md
+    - name: De VM-agent installeren in de offlinemodus
+      href: install-vm-agent-offline.md
+    - name: Problemen met gekoppelde VHD's oplossen
+      items:
+      - name: Fouten bij het verwijderen van een Storage-resource
+        href: storage-resource-deletion-errors.md
+      - name: Onverwacht opnieuw opstarten van VM's met gekoppelde VHD's
+        href: unexpected-reboots-attached-vhds.md
 - name: Naslaginformatie
   items:
-    - name: Azure-CLI
-      href: /cli/azure/vm
-    - name: Azure PowerShell
-      href: /powershell/azureps-cmdlets-docs
-    - name: .NET
-      href: /dotnet/api/microsoft.azure.management.compute
-    - name: Java
-      href: /java/api
-    - name: Node.js
-      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
-    - name: Python
-      href: 'https://azure.microsoft.com/develop/python/'
-    - name: Compute REST
-      href: /rest/api/compute
-    - name: Managed Disks-REST
-      href: /rest/api/compute/disks
+  - name: Azure-CLI
+    href: /cli/azure/vm
+  - name: Azure PowerShell
+    href: /powershell/azureps-cmdlets-docs
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.compute
+  - name: Java
+    href: /java/api
+  - name: Node.js
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: Compute REST
+    href: /rest/api/compute
+  - name: Managed Disks-REST
+    href: /rest/api/compute/disks
 - name: Resources
   items:
-    - name: Auteursjablonen
-      href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Communitysjablonen
-      href: 'https://azure.microsoft.com/documentation/templates'
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/#Linux'
-    - name: Regionale beschikbaarheid
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
-    - name: Video's
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
-    - name: Veelgestelde vragen
-      href: faq.md
+  - name: Auteursjablonen
+    href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Communitysjablonen
+    href: https://azure.microsoft.com/documentation/templates
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/#Linux
+  - name: Regionale beschikbaarheid
+    href: https://azure.microsoft.com/regions/services/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-virtual-machine
+  - name: Video's
+    href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
+  - name: Veelgestelde vragen
+    href: faq.md
+ms.openlocfilehash: 62ee21ca28ea4f9dd70188f546051a284fd3aba3
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41928649"
