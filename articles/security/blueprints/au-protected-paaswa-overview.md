@@ -6,14 +6,14 @@ author: meladie
 ms.assetid: 708aa129-b226-4e02-85c6-1f86e54564e4
 ms.service: security
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: a8d2eca785ad166aa4cff26bce876e41770a3427
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 7d200cfa6a529c33555a18cd6598183fedbfd2fc
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246110"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818270"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure-beveiliging en naleving blauwdruk - PaaS-webtoepassing voor Australië beveiligd
 
@@ -36,7 +36,7 @@ Federatie met Azure Active Directory moet worden gebruikt om gebruikers te verif
 
 De oplossing maakt gebruik van Azure Storage-accounts, die klanten configureren kunnen met Storage Service Encryption kunt onderhouden van de vertrouwelijkheid van gegevens in rust. Azure slaat drie kopieën van gegevens binnen de geselecteerde regio van de klant voor tolerantie. Azure-regio's worden geïmplementeerd in flexibele regioparen en geografisch redundante opslag zorgt ervoor dat gegevens worden gerepliceerd naar de tweede regio met drie kopieën ook. Dit voorkomt dat een negatieve gebeurtenis om de locatie van de primaire gegevens van de klant leidt tot een verlies van gegevens.
 
-Voor een betere beveiliging, worden alle Azure-resources in deze oplossing worden beheerd als een resourcegroep via Azure Resource Manager. Azure Active Directory-rollen gebaseerd toegangsbeheer wordt gebruikt voor het beheren van toegang geïmplementeerd resources en sleutels in Azure Key Vault. Status van het bestandssysteem wordt bewaakt door Azure Security Center en Azure Monitor. Klanten configureren beide bewakingsservices voor het vastleggen van Logboeken en status van het bestandssysteem in een enkele, eenvoudig navigeerbaar dashboard weer te geven. Azure Application Gateway is geconfigureerd als een firewall in preventiemodus en is niet toegestaan door het verkeer dat is geen ondersteuning voor TLSv1.2 of hoger. De oplossing maakt gebruik van Azure-toepassing Service-omgeving v2 te isoleren van de weblaag in een omgeving met meerdere tenants.
+Voor een betere beveiliging, worden alle Azure-resources in deze oplossing worden beheerd als een resourcegroep via Azure Resource Manager. Azure Active Directory-rollen gebaseerd toegangsbeheer wordt gebruikt voor het beheren van toegang geïmplementeerd resources en sleutels in Azure Key Vault. Status van het bestandssysteem wordt bewaakt door Azure Security Center en Azure Monitor. Klanten configureren beide bewakingsservices voor het vastleggen van Logboeken en status van het bestandssysteem in een enkele, eenvoudig navigeerbaar dashboard weer te geven. Azure Application Gateway is geconfigureerd als een firewall in preventiemodus en is niet toegestaan door het verkeer dat is niet TLS 1.2 of hoger. De oplossing maakt gebruik van Azure-toepassing Service-omgeving v2 te isoleren van de weblaag in een omgeving met meerdere tenants.
 
 ![PaaS-webtoepassing voor Australië beschermde referentiearchitectuur](images/au-protected-paaswa-architecture.png?raw=true "PaaS-webtoepassing voor Architectuurdiagram AU-beveiligde referentie")
 
@@ -95,7 +95,7 @@ Gebruik van App Service-omgevingen voor deze architectuur toestaan voor de volge
 - Hosten in een beveiligde Azure-netwerk en netwerkbeveiligingsregels
 - App Service-omgevingen die zijn geconfigureerd met een zelf-ondertekend interne load balancer-certificaat voor HTTPS-communicatie. Als een best practice, wordt aangeraden het gebruik van een vertrouwde certificeringsinstantie voor verbeterde beveiliging.
 - [Interne load balancing-modus](https://docs.microsoft.com/azure/app-service-web/app-service-environment-with-internal-load-balancer) (modus 3)
-- Uitschakelen [TLS 1.0](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
+- Uitschakelen [TLS v1.0 en v1.1](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
 - Wijziging [TLS-codering](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-custom-settings)
 - Besturingselement [binnenkomende verkeer N/W poorten](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-control-inbound-traffic)
 - [Web application firewall: gegevens beperken](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
@@ -129,10 +129,8 @@ Alle communicatie naar en van Azure-datacenters versleutelt Azure standaard.
 Voor beveiligde gegevens tijdens de overdracht van netwerken van klanten, de architectuur maakt gebruik van Azure Internet of een ExpressRoute met een VPN-Gateway zijn geconfigureerd met IPSEC.
 
 Bovendien worden alle transacties naar Azure via de Azure management portal via HTTPS met TLS 1.2 optreden.
-Data-at-rest
 
 ### <a name="data-at-rest"></a>Data-at-rest
-
 De architectuur beveiligt gegevens in rust via versleuteling, controle-database en andere metingen.
 
 **Azure Storage**: om versleutelde data-at-rest-vereisten te voldoen aan alle [Azure Storage](https://azure.microsoft.com/services/storage/) maakt gebruik van [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). Dit helpt te beschermen en beveiligen van gegevens ter ondersteuning van de organisatie beveiligingsverplichtingen en nalevingsvereisten zijn gedefinieerd door de Australische overheid ISM.
