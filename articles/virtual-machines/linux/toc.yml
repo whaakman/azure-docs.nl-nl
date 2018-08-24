@@ -1,543 +1,557 @@
+items:
 - name: Documentatie voor virtuele Linux-machines
   href: index.yml
 - name: Overzicht
   items:
-    - name: Informatie over virtuele machines
-      href: overview.md
+  - name: Informatie over virtuele machines
+    href: overview.md
 - name: Snelstartgidsen
-  expanded: true
   items:
-    - name: Virtuele machine maken - Azure CLI
-      href: quick-create-cli.md
-    - name: Virtuele machine maken - Portal
-      href: quick-create-portal.md
-    - name: Virtuele machine maken - Azure PowerShell
-      href: quick-create-powershell.md
+  - name: Virtuele machine maken - Azure CLI
+    href: quick-create-cli.md
+  - name: Virtuele machine maken - Portal
+    href: quick-create-portal.md
+  - name: Virtuele machine maken - Azure PowerShell
+    href: quick-create-powershell.md
+  expanded: true
 - name: Zelfstudies
   items:
-    - name: 1 - Virtuele machines maken/beheren
-      href: tutorial-manage-vm.md
-    - name: 2 - Schijven maken/beheren
-      href: tutorial-manage-disks.md
-    - name: 3 - Configuratie automatiseren
-      href: tutorial-automate-vm-deployment.md
-    - name: 4 - VM-installatiekopieën maken
-      href: tutorial-custom-images.md
-    - name: 5 - Virtuele machines met hoge beschikbaarheid
-      href: tutorial-availability-sets.md
-    - name: 6 - Een VM-schaalset maken
-      href: tutorial-create-vmss.md
-    - name: 7 - Taakverdelingen maken voor virtuele machines
-      href: tutorial-load-balancer.md
-    - name: 8 - Netwerken beheren
-      href: tutorial-virtual-network.md
-    - name: 9 - Back-ups maken van virtuele machines
-      href: tutorial-backup-vms.md
-    - name: 10 - Virtuele machines beheren
-      href: tutorial-govern-resources.md
-    - name: 11 - Virtuele machines bewaken en bijwerken
-      href: tutorial-monitoring.md
-    - name: 12 - VM-beveiliging beheren
-      href: tutorial-azure-security.md
-    - name: 13 - Jenkins implementeren
-      href: tutorial-jenkins-github-docker-cicd.md
-    - name: 14 - CI/CD met Team Services
-      href: tutorial-build-deploy-jenkins.md
-    - name: 15a - Een LAMP-stack maken
-      href: tutorial-lamp-stack.md
-    - name: 15b - Een LEMP-stack maken
-      href: tutorial-lemp-stack.md
-    - name: 15c - Een MEAN-stack maken
-      href: tutorial-mean-stack.md
-    - name: 16 - Webserver beveiligen met SSL
-      href: tutorial-secure-web-server.md
+  - name: 1 - Virtuele machines maken/beheren
+    href: tutorial-manage-vm.md
+  - name: 2 - Schijven maken/beheren
+    href: tutorial-manage-disks.md
+  - name: 3 - Configuratie automatiseren
+    href: tutorial-automate-vm-deployment.md
+  - name: 4 - VM-installatiekopieën maken
+    href: tutorial-custom-images.md
+  - name: 5 - Virtuele machines met hoge beschikbaarheid
+    href: tutorial-availability-sets.md
+  - name: 6 - Een VM-schaalset maken
+    href: tutorial-create-vmss.md
+  - name: 7 - Taakverdelingen maken voor virtuele machines
+    href: tutorial-load-balancer.md
+  - name: 8 - Netwerken beheren
+    href: tutorial-virtual-network.md
+  - name: 9 - Back-ups maken van virtuele machines
+    href: tutorial-backup-vms.md
+  - name: 10 - Virtuele machines beheren
+    href: tutorial-govern-resources.md
+  - name: 11 - Virtuele machines bewaken en bijwerken
+    href: tutorial-monitoring.md
+  - name: 12 - VM-beveiliging beheren
+    href: tutorial-azure-security.md
+  - name: 13 - Jenkins implementeren
+    href: tutorial-jenkins-github-docker-cicd.md
+  - name: 14 - CI/CD met Team Services
+    href: tutorial-build-deploy-jenkins.md
+  - name: 15a - Een LAMP-stack maken
+    href: tutorial-lamp-stack.md
+  - name: 15b - Een LEMP-stack maken
+    href: tutorial-lemp-stack.md
+  - name: 15c - Een MEAN-stack maken
+    href: tutorial-mean-stack.md
+  - name: 16 - Webserver beveiligen met SSL
+    href: tutorial-secure-web-server.md
 - name: Voorbeelden
   items:
-    - name: Azure-CLI
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
+  - name: Azure-CLI
+    href: cli-samples.md
+  - name: Azure PowerShell
+    href: powershell-samples.md
 - name: Concepten
   items:
-    - name: Azure Resource Manager
-      href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Regio’s en beschikbaarheid
-      href: regions-and-availability.md
-    - name: VM-typen en -groottes
-      href: sizes.md
+  - name: Azure Resource Manager
+    href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Regio’s en beschikbaarheid
+    href: regions-and-availability.md
+  - name: VM-typen en -groottes
+    href: sizes.md
+    items:
+    - name: Algemeen doel
+      href: sizes-general.md
       items:
-        - name: Algemeen doel
-          href: sizes-general.md
-          items:
-            - name: B-serie 'burstable'
-              href: b-series-burstable.md
-        - name: Geoptimaliseerde rekenkracht
-          href: sizes-compute.md
-        - name: Geoptimaliseerd geheugen
-          href: sizes-memory.md
-          items:
-            - name: Beperkte vCPU's
-              href: constrained-vcpu.md
-        - name: Geoptimaliseerde opslag
-          href: sizes-storage.md
-        - name: Geoptimaliseerde GPU
-          href: sizes-gpu.md
-          items:
-            - name: GPU-stuurprogramma's instellen
-              href: n-series-driver-setup.md
-        - name: Krachtig rekenvermogen
-          href: sizes-hpc.md
-        - name: Vorige generaties
-          href: sizes-previous-gen.md
-        - name: Azure Compute Units (ACU)
-          href: acu.md
-        - name: Benchmarkscores
-          href: compute-benchmark-scores.md
-    - name: Goedgekeurde distributies
-      href: endorsed-distros.md
-    - name: Onderhoud en updates
-      href: maintenance-and-updates.md
-    - name: File Storage
-      href: about-disks-and-vhds.md
+      - name: B-serie 'burstable'
+        href: b-series-burstable.md
+    - name: Geoptimaliseerde rekenkracht
+      href: sizes-compute.md
+    - name: Geoptimaliseerd geheugen
+      href: sizes-memory.md
       items:
-        - name: Beheerde schijven
-          href: managed-disks-overview.md
-        - name: Premium Storage
-          href: premium-storage.md
-        - name: Prestaties van Premium Storage
-          href: premium-storage-performance.md
-        - name: Standard Storage
-          href: standard-storage.md
-        - name: Schaalbaarheidsdoelen voor schijven
-          href: disk-scalability-targets.md
-        - name: Back-up en herstel na noodgeval voor schijven
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
-    - name: Netwerken
-      href: network-overview.md
-    - name: Toepassingen automatisch schalen
-      href: autoscale.md
-    - name: Automatisering van infrastructuur
-      href: infrastructure-automation.md
-    - name: Beveiliging en beleid
-      href: security-policy.md
-    - name: Bewaking
-      href: monitor.md
-    - name: Back-ups maken en herstellen
-      href: backup-recovery.md
-    - name: High Performance Computing
-      href: high-performance-computing.md
-    - name: Overwegingen bij de implementatie
+      - name: Beperkte vCPU's
+        href: constrained-vcpu.md
+    - name: Geoptimaliseerde opslag
+      href: sizes-storage.md
+    - name: Geoptimaliseerde GPU
+      href: sizes-gpu.md
       items:
-        - name: Richtlijnen voor infrastructuur
-          href: infrastructure-example.md
-        - name: vCPU-quota
-          href: quotas.md
+      - name: GPU-stuurprogramma's instellen
+        href: n-series-driver-setup.md
+    - name: Krachtig rekenvermogen
+      href: sizes-hpc.md
+    - name: Vorige generaties
+      href: sizes-previous-gen.md
+    - name: Azure Compute Units (ACU)
+      href: acu.md
+    - name: Benchmarkscores
+      href: compute-benchmark-scores.md
+  - name: Goedgekeurde distributies
+    href: endorsed-distros.md
+  - name: Onderhoud en updates
+    href: maintenance-and-updates.md
+  - name: File Storage
+    href: about-disks-and-vhds.md
+    items:
+    - name: Beheerde schijven
+      href: managed-disks-overview.md
+    - name: Premium Storage
+      href: premium-storage.md
+    - name: Standard-SSD's
+      href: disks-standard-ssd.md
+    - name: Prestaties van Premium Storage
+      href: premium-storage-performance.md
+    - name: Standard Storage
+      href: standard-storage.md
+    - name: Schaalbaarheidsdoelen voor schijven
+      href: disk-scalability-targets.md
+    - name: Back-up en herstel na noodgeval voor schijven
+      href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+  - name: Netwerken
+    href: network-overview.md
+  - name: Toepassingen automatisch schalen
+    href: autoscale.md
+  - name: Automatisering van infrastructuur
+    href: infrastructure-automation.md
+  - name: Beveiliging en beleid
+    href: security-policy.md
+  - name: Bewaking
+    href: monitor.md
+  - name: Back-ups maken en herstellen
+    href: backup-recovery.md
+  - name: High Performance Computing
+    href: high-performance-computing.md
+  - name: Overwegingen bij de implementatie
+    items:
+    - name: Richtlijnen voor infrastructuur
+      href: infrastructure-example.md
+    - name: vCPU-quota
+      href: quotas.md
 - name: Handleidingen
   items:
-    - name: Virtuele machines maken
+  - name: Virtuele machines maken
+    items:
+    - name: De CLI gebruiken
+      href: create-cli-complete.md
+    - name: Een sjabloon gebruiken
+      href: create-ssh-secured-vm-from-template.md
+    - name: REST API gebruiken
+      href: create-vm-rest-api.md
+    - name: Een virtuele machine kopiëren of klonen
+      href: copy-vm.md
+  - name: Virtuele machines beveiligen
+    items:
+    - name: Versleutelen
+      href: encrypt-disks.md
+    - name: Toegangsbeheer gebruiken
+      href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Beleidsregels gebruiken
+      href: policy.md
+    - name: Een sleutelkluis maken
+      href: key-vault-setup.md
+    - name: SSH-sleutels maken en gebruiken
       items:
-        - name: De CLI gebruiken
-          href: create-cli-complete.md
-        - name: Een sjabloon gebruiken
-          href: create-ssh-secured-vm-from-template.md
-        - name: REST API gebruiken
-          href: create-vm-rest-api.md
-        - name: Een virtuele machine kopiëren of klonen
-          href: copy-vm.md
-    - name: Virtuele machines beveiligen
+      - name: In Linux of macOS
+        href: mac-create-ssh-keys.md
+      - name: In Windows
+        href: ssh-from-windows.md
+      - name: Gedetailleerde stappen
+        href: create-ssh-keys-detailed.md
+  - name: Virtuele machines beschermen
+    href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    items:
+    - name: Een back-up maken van één virtuele machine
+      href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Een back-up maken van meerdere virtuele machines
+      href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Een schijf terugzetten
+      href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Afzonderlijke bestanden terugzetten
+      href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Virtuele machines beheren
+    items:
+    - name: VM-gebruik
+      href: vm-usage.md
+    - name: Algemene CLI-taken
+      href: cli-manage.md
+    - name: Een virtuele machine verplaatsen
+      href: move-vm.md
+    - name: De grootte van een virtuele machine wijzigen
+      href: change-vm-size.md
+    - name: De schijf met het besturingssysteem wisselen
+      href: os-disk-swap.md
+    - name: Een virtuele machine taggen
+      href: tag.md
+    - name: Scripts uitvoeren op een virtuele machine
+      href: run-scripts-in-vm.md
       items:
-        - name: Versleutelen
-          href: encrypt-disks.md
-        - name: Toegangsbeheer gebruiken
-          href: ../../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Beleidsregels gebruiken
-          href: policy.md
-        - name: Een sleutelkluis maken
-          href: key-vault-setup.md
-        - name: SSH-sleutels maken en gebruiken
-          items:
-            - name: In Linux of macOS
-              href: mac-create-ssh-keys.md
-            - name: In Windows
-              href: ssh-from-windows.md
-            - name: Gedetailleerde stappen
-              href: create-ssh-keys-detailed.md
-    - name: Virtuele machines beschermen
-      href: ../../backup/backup-introduction-to-azure-backup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Aangepaste scriptextensie
+        href: ../extensions/custom-script-linux.md
+      - name: Run-opdracht
+        href: run-command.md
+    - name: Extern bureaublad gebruiken
+      href: use-remote-desktop.md
+    - name: Een virtuele machine koppelen aan Azure Active Directory
       items:
-        - name: Een back-up maken van één virtuele machine
-          href: ../../backup/quick-backup-vm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Een back-up maken van meerdere virtuele machines
-          href: ../../backup/tutorial-backup-vm-at-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Een schijf terugzetten
-          href: ../../backup/tutorial-restore-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Afzonderlijke bestanden terugzetten
-          href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Virtuele machines beheren
+      - name: Red Hat Enteprise Linux
+        href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md
+      - name: CentOS
+        href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
+      - name: Ubuntu
+        href: ../../active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md
+    - name: Aanmelden met Azure Active Directory-referenties
+      href: login-using-aad.md
+    - name: Updates en patches
       items:
-        - name: VM-gebruik
-          href: vm-usage.md
-        - name: Algemene CLI-taken
-          href: cli-manage.md
-        - name: Een virtuele machine verplaatsen
-          href: move-vm.md
-        - name: De grootte van een virtuele machine wijzigen
-          href: change-vm-size.md
-        - name: De schijf met het besturingssysteem wisselen
-          href: os-disk-swap.md
-        - name: Een virtuele machine taggen
-          href: tag.md
-        - name: Scripts uitvoeren op een virtuele machine
-          href: run-scripts-in-vm.md
-          items:
-            - name: Aangepaste scriptextensie
-              href: ../extensions/custom-script-linux.md
-            - name: Run-opdracht
-              href: run-command.md
-        - name: Extern bureaublad gebruiken
-          href: use-remote-desktop.md
-        - name: Een virtuele machine koppelen aan Azure Active Directory
-          items:
-            - name: Red Hat Enteprise Linux
-              href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md
-            - name: CentOS
-              href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
-            - name: Ubuntu
-              href: ../../active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md
-        - name: Aanmelden met Azure Active Directory-referenties
-          href: login-using-aad.md
-        - name: Updates en patches
-          items:
-            - name: Update-infrastructuur voor Red Hat
-              href: update-infrastructure-redhat.md
-        - name: Azure VM-agent
-          items:
-            - name: Overzicht
-              href: ../extensions/agent-linux.md
-            - name: Update van agent
-              href: update-agent.md
-        - name: Gepland onderhoud
-          href: maintenance-notifications.md
-        - name: Speculatieve uitvoering beperken
-          href: mitigate-se.md
-        - name: Geplande gebeurtenissen
-          href: scheduled-events.md
-        - name: Metagegevens bewaken
-          href: instance-metadata-service.md
-        - name: Metrische gebruiksgegevens ophalen met REST
-          href: metrics-vm-usage-rest.md
-    - name: Kosten beheren
+      - name: Update-infrastructuur voor Red Hat
+        href: update-infrastructure-redhat.md
+    - name: Azure VM-agent
       items:
-        - name: Vooruitbetalen voor VM's - Azure-reserveringen
-          href: prepay-reserved-vm-instances.md
-        - name: Wat zijn Azure-reserveringen?
-          href: ../../billing/billing-save-compute-costs-reservations.md
-        - name: Flexibiliteit van de VM-instantiegrootte
-          href: reserved-vm-instance-size-flexibility.md
-    - name: Installatiekopieën gebruiken
+      - name: Overzicht
+        href: ../extensions/agent-linux.md
+      - name: Update van agent
+        href: update-agent.md
+    - name: Gepland onderhoud
+      href: maintenance-notifications.md
+    - name: Speculatieve uitvoering beperken
+      href: mitigate-se.md
+    - name: Geplande gebeurtenissen
+      href: scheduled-events.md
+    - name: Metagegevens bewaken
+      href: instance-metadata-service.md
+    - name: Metrische gebruiksgegevens ophalen met REST
+      href: metrics-vm-usage-rest.md
+  - name: Kosten beheren
+    items:
+    - name: Vooruitbetalen voor VM's - Azure-reserveringen
+      href: prepay-reserved-vm-instances.md
+    - name: Wat zijn Azure-reserveringen?
+      href: ../../billing/billing-save-compute-costs-reservations.md
+    - name: Flexibiliteit van de VM-instantiegrootte
+      href: reserved-vm-instance-size-flexibility.md
+  - name: Installatiekopieën gebruiken
+    items:
+    - name: Installatiekopieën zoeken en gebruiken
+      href: cli-ps-findimage.md
+    - name: Aangepaste installatiekopie maken
       items:
-        - name: Installatiekopieën zoeken en gebruiken
-          href: cli-ps-findimage.md
-        - name: Aangepaste installatiekopie maken
-          items:
-            - name: Algemene stappen
-              href: create-upload-generic.md
-            - name: Ubuntu
-              href: create-upload-ubuntu.md
-            - name: CentOS
-              href: create-upload-centos.md
-            - name: Red Hat
-              href: redhat-create-upload-vhd.md
-            - name: Debian
-              href: debian-create-upload-vhd.md
-            - name: SUSE
-              href: suse-create-upload-vhd.md
-            - name: Oracle Linux
-              href: oracle-create-upload-vhd.md
-            - name: OpenBSD
-              href: create-upload-openbsd.md
-            - name: FreeBSD
-              href: freebsd-intro-on-azure.md
-        - name: Een virtuele machine vastleggen in een installatiekopie
-          href: capture-image.md
-        - name: Een installatiekopie maken met Packer
-          href: build-image-with-packer.md
-        - name: Een bestaande schijf downloaden
-          href: download-vhd.md
-    - name: Beschikbaarheid en schaal
+      - name: Algemene stappen
+        href: create-upload-generic.md
+      - name: Ubuntu
+        href: create-upload-ubuntu.md
+      - name: CentOS
+        href: create-upload-centos.md
+      - name: Red Hat
+        href: redhat-create-upload-vhd.md
+      - name: Debian
+        href: debian-create-upload-vhd.md
+      - name: SUSE
+        href: suse-create-upload-vhd.md
+      - name: Oracle Linux
+        href: oracle-create-upload-vhd.md
+      - name: OpenBSD
+        href: create-upload-openbsd.md
+      - name: FreeBSD
+        href: freebsd-intro-on-azure.md
+    - name: Een virtuele machine vastleggen in een installatiekopie
+      href: capture-image.md
+    - name: Een installatiekopie maken met Packer
+      href: build-image-with-packer.md
+    - name: Een bestaande schijf downloaden
+      href: download-vhd.md
+  - name: Beschikbaarheid en schaal
+    items:
+    - name: Automatisch schalen
+      href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Hoge beschikbaarheid
+      href: manage-availability.md
+    - name: Verticaal schalen
+      href: vertical-scaling-automation.md
+    - name: Een virtuele machine maken in de beschikbaarheidszone
+      href: create-cli-availability-zone.md
+  - name: Automation-hulpprogramma's gebruiken
+    items:
+    - name: Ansible
       items:
-        - name: Automatisch schalen
-          href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Hoge beschikbaarheid
-          href: manage-availability.md
-        - name: Verticaal schalen
-          href: vertical-scaling-automation.md
-        - name: Een virtuele machine maken in de beschikbaarheidszone
-          href: create-cli-availability-zone.md
-    - name: Automation-hulpprogramma's gebruiken
+      - name: Installeren en configureren
+        href: ansible-install-configure.md
+      - name: Een Linux-VM maken
+        href: ansible-create-vm.md
+      - name: Een Linux-VM beheren
+        href: ansible-manage-linux-vm.md
+    - name: Terraform
       items:
-        - name: Ansible
-          items:
-            - name: Installeren en configureren
-              href: ansible-install-configure.md
-            - name: Een basis-VM maken
-              href: ansible-create-vm.md
-            - name: Een volledige VM maken
-              href: ansible-create-complete-vm.md
-        - name: Terraform
-          items:
-            - name: Installeren en configureren
-              href: terraform-install-configure.md
-            - name: Een volledige VM maken
-              href: terraform-create-complete-vm.md
-        - name: Cloud-init
-          items:
-            - name: Overzicht van cloud-init
-              href: using-cloud-init.md
-            - name: VM-hostnaam configureren
-              href: cloudinit-update-vm-hostname.md
-            - name: Pakketten in een virtuele machine bijwerken
-              href: cloudinit-update-vm.md
-            - name: Een gebruiker toevoegen aan een virtuele machine
-              href: cloudinit-add-user.md
-            - name: Wisselbestand configureren
-              href: cloudinit-configure-swapfile.md
-            - name: Een bestaand bash-script uitvoeren
-              href: cloudinit-bash-script.md
-            - name: Een bestaande virtuele machine voorbereiden voor cloud-init
-              href: cloudinit-prepare-custom-image.md
-        - name: Jenkins
-          href: ../../jenkins/overview.md
-          items:
-            - name: Een Jenkins-server maken
-              href: ../../jenkins/install-jenkins-solution-template.md
-            - name: De schaal aanpassen met VM-agents
-              href: ../../jenkins/jenkins-azure-vm-agents.md
-            - name: Artefacten publiceren naar Storage
-              href: ../../storage/common/storage-java-jenkins-continuous-integration-solution.md
-            - name: Jenkins beveiligen
-              href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
-    - name: Containers uitvoeren
+      - name: Installeren en configureren
+        href: terraform-install-configure.md
+      - name: Een volledige VM maken
+        href: terraform-create-complete-vm.md
+    - name: Cloud-init
       items:
-        - name: Een Docker-host maken
-          href: dockerextension.md
-        - name: Docker Machine gebruiken
-          href: docker-machine.md
-        - name: Docker Compose gebruiken
-          href: docker-compose-quickstart.md
-    - name: Toepassingen uitvoeren
+      - name: Overzicht van cloud-init
+        href: using-cloud-init.md
+      - name: VM-hostnaam configureren
+        href: cloudinit-update-vm-hostname.md
+      - name: Pakketten in een virtuele machine bijwerken
+        href: cloudinit-update-vm.md
+      - name: Een gebruiker toevoegen aan een virtuele machine
+        href: cloudinit-add-user.md
+      - name: Wisselbestand configureren
+        href: cloudinit-configure-swapfile.md
+      - name: Een bestaand bash-script uitvoeren
+        href: cloudinit-bash-script.md
+      - name: Een bestaande virtuele machine voorbereiden voor cloud-init
+        href: cloudinit-prepare-custom-image.md
+    - name: Jenkins
+      href: ../../jenkins/overview.md
       items:
-        - name: Cloud Foundry
-          items:
-            - name: Overzicht
-              href: cloudfoundry-get-started.md
-            - name: Uw eerste app implementeren
-              href: cloudfoundry-deploy-your-first-app.md
-        - name: OpenShift
-          items:
-            - name: Overzicht van OpenShift
-              href: openshift-get-started.md
-            - name: Vereisten van OpenShift
-              href: openshift-prerequisites.md
-            - name: OpenShift Origin
-              href: openshift-origin.md
-            - name: OpenShift Container Platform
-              href: openshift-container-platform.md
-            - name: Taken na de implementatie van OpenShift
-              href: openshift-post-deployment.md
-            - name: Problemen met implementaties oplossen
-              href: openshift-troubleshooting.md
-        - name: SAP op Azure
-          href: ../workloads/sap/get-started.md
-        - name: Oracle
-          href: ../workloads/oracle/oracle-database-quick-create.md
-        - name: Elasticsearch
-          href: tutorial-elasticsearch.md
-        - name: Pakketfilter van FreeBSD
-          href: freebsd-pf-nat.md
-        - name: Databases
-          items:
-            - name: MySQL
-              href: mysql-install.md
-            - name: MySQL in SUSE
-              href: mysql-on-opensuse.md
-            - name: MongoDB
-              href: install-mongodb.md
-            - name: PostgreSQL
-              href: postgresql-install.md
-            - name: MS SQL in Linux
-              href: /sql/linux/sql-server-linux-azure-virtual-machine
-        - name: HPC (High Performance Computing)
-          href: hpcpack-cluster-options.md
-          items:
-            - name: NAMD uitvoeren
-              href: classic/hpcpack-cluster-namd.md
-            - name: NVIDIA GPU-stuurprogramma's installeren
-              href: n-series-driver-setup.md
-    - name: Opslag beheren
+      - name: Een Jenkins-server maken
+        href: ../../jenkins/install-jenkins-solution-template.md
+      - name: De schaal aanpassen met VM-agents
+        href: ../../jenkins/jenkins-azure-vm-agents.md
+      - name: Artefacten publiceren naar Storage
+        href: ../../storage/common/storage-java-jenkins-continuous-integration-solution.md
+      - name: Jenkins beveiligen
+        href: https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/
+  - name: Containers uitvoeren
+    items:
+    - name: Een Docker-host maken
+      href: dockerextension.md
+    - name: Docker Machine gebruiken
+      href: docker-machine.md
+    - name: Docker Compose gebruiken
+      href: docker-compose-quickstart.md
+  - name: Toepassingen uitvoeren
+    items:
+    - name: Cloud Foundry
       items:
-        - name: Veelgestelde vragen over schijven
-          href: faq-for-disks.md
-        - name: Een schijf toevoegen
-          items:
-            - name: Azure-CLI
-              href: add-disk.md
-            - name: Azure Portal
-              href: attach-disk-portal.md
-        - name: Een schijf loskoppelen
-          href: detach-disk.md
-        - name: De grootte van een schijf wijzigen
-          href: expand-disks.md
-        - name: Een momentopname maken van een schijf
-          href: snapshot-copy-managed-disk.md
-        - name: Back-up maken van niet-beheerde schijven
-          href: incremental-snapshots.md
-        - name: Converteren naar Managed Disks
-          href: convert-unmanaged-to-managed-disks.md
-        - name: Een schijf converteren van Standard naar Premium
-          href: convert-disk-storage.md
-        - name: Bestanden kopiëren naar een virtuele machine
-          href: copy-files-to-linux-vm-using-scp.md
-        - name: Migreren naar Premium Storage met Azure Site Recovery
-          href: migrate-to-premium-storage-using-azure-site-recovery.md
-        - name: Niet-gekoppelde schijven zoeken
-          href: find-unattached-disks.md
-        - name: Bestandsopslag gebruiken
-          href: mount-azure-file-storage-on-linux-using-smb.md
-        - name: Schijven implementeren met sjabloon
-          href: using-managed-disks-template-deployments.md
-        - name: Write Accelerator inschakelen
-          href: how-to-enable-write-accelerator.md
-        - name: Prestaties optimaliseren
-          href: optimization.md
-          items:
-            - name: Software-RAID configureren
-              href: configure-raid.md
-            - name: LVM configureren
-              href: configure-lvm.md
-    - name: Netwerken beheren
+      - name: Overzicht
+        href: cloudfoundry-get-started.md
+      - name: Uw eerste app implementeren
+        href: cloudfoundry-deploy-your-first-app.md
+    - name: OpenShift
       items:
-        - name: Virtueel netwerk maken
-          href: ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Poorten naar een VM openen
-          href: nsg-quickstart.md
-        - name: Een openbaar IP-adres toewijzen
-          href: ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Meerdere NIC's gebruiken
-          href: multiple-nics.md
-        - name: Versneld netwerken gebruiken
-          href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Een openbare DNS-naam toewijzen
-          href: portal-create-fqdn.md
-        - name: Niet-gekoppelde NIC's zoeken en verwijderen
-          href: find-unattached-nics.md
-        - name: DNS-resolutie
-          href: azure-dns.md
-          items:
-            - name: Interne DNS gebruiken
-              href: static-dns-name-resolution-for-linux-on-azure.md
-    - name: VM-extensies gebruiken
-      href: ../extensions/overview.md
-    - name: Virtuele machines migreren
+      - name: Overzicht van OpenShift
+        href: openshift-get-started.md
+      - name: Vereisten van OpenShift
+        href: openshift-prerequisites.md
+      - name: OpenShift Origin
+        href: openshift-origin.md
+      - name: OpenShift Container Platform
+        href: openshift-container-platform.md
+      - name: Taken na de implementatie van OpenShift
+        href: openshift-post-deployment.md
+      - name: Problemen met implementaties oplossen
+        href: openshift-troubleshooting.md
+    - name: SAP op Azure
+      href: ../workloads/sap/get-started.md
+    - name: Oracle
+      href: ../workloads/oracle/oracle-database-quick-create.md
+    - name: Elasticsearch
+      href: tutorial-elasticsearch.md
+    - name: Pakketfilter van FreeBSD
+      href: freebsd-pf-nat.md
+    - name: Databases
       items:
-        - name: AWS en on-premises VM's migreren
-          href: ../windows/on-prem-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-          items:
-            - name: Migreren van Amazon Web Services (AWS) naar Azure
-              href: ../windows/aws-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Een on-premises VM uploaden
-              href: upload-vhd.md
-            - name: Azure Site Recovery gebruiken
-              href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-        - name: Migreren van een klassieke implementatie naar Azure Resource Manager
-          href: migration-classic-resource-manager-overview.md
-          items:
-            - name: Gedetailleerde informatie over migratie
-              href: migration-classic-resource-manager-deep-dive.md
-            - name: Plan voor migratie
-              href: migration-classic-resource-manager-plan.md
-            - name: Migreren via CLI
-              href: migration-classic-resource-manager-cli.md
-            - name: Algemene migratiefouten
-              href: migration-classic-resource-manager-errors.md
-            - name: Community-hulpprogramma's voor migratie
-              href: ../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-            - name: Veelgestelde vragen
-              href: migration-classic-resource-manager-faq.md
-    - name: Problemen oplossen
+      - name: MySQL
+        href: mysql-install.md
+      - name: MySQL in SUSE
+        href: mysql-on-opensuse.md
+      - name: MongoDB
+        href: install-mongodb.md
+      - name: PostgreSQL
+        href: postgresql-install.md
+      - name: MS SQL in Linux
+        href: /sql/linux/sql-server-linux-azure-virtual-machine
+    - name: HPC (High Performance Computing)
+      href: hpcpack-cluster-options.md
       items:
-        - name: SSH-verbindingen
-          href: troubleshoot-ssh-connection.md
-          items:
-            - name: Gedetailleerde stappen voor het oplossen van problemen
-              href: detailed-troubleshoot-ssh-connection.md
-        - name: Linux-VM-wachtwoord opnieuw instellen
-          href: reset-password.md
-        - name: Inzicht in opnieuw opstarten van een systeem
-          href: understand-vm-reboot.md
-        - name: Diagnostische gegevens over opstarten
-          href: boot-diagnostics.md
-        - name: Seriële console
-          href: serial-console.md
-        - name: Toegang tot toepassingen
-          href: troubleshoot-app-connection.md
-        - name: Toewijzingsfouten
-          href: allocation-failure.md
-        - name: Toewijzingsfouten - klassieke VM
-          href: allocation-failure-classic.md
-        - name: Implementatieproblemen
-          href: troubleshoot-deploy-vm.md
-        - name: Een virtuele machine maken
-          href: troubleshoot-deployment-new-vm.md
-        - name: Apparaatnamen zijn gewijzigd
-          href: troubleshoot-device-names-problems.md
-        - name: Een virtuele machine opnieuw implementeren naar een nieuw Azure-knooppunt
-          href: redeploy-to-new-node.md
-        - name: Veelvoorkomende foutberichten
-          href: error-messages.md
-        - name: Toegang tot VM voor herstel
-          items:
-            - name: Azure-CLI
-              href: troubleshoot-recovery-disks.md
-            - name: Azure Portal
-              href: troubleshoot-recovery-disks-portal.md
-        - name: Gekoppelde VHD's
-          items:
-            - name: Fouten bij het verwijderen van een Storage-resource
-              href: storage-resource-deletion-errors.md
-            - name: Onverwacht opnieuw opstarten van VM's met gekoppelde VHD's
-              href: unexpected-reboots-attached-vhds.md
+      - name: NAMD uitvoeren
+        href: classic/hpcpack-cluster-namd.md
+      - name: NVIDIA GPU-stuurprogramma's installeren
+        href: n-series-driver-setup.md
+  - name: Opslag beheren
+    items:
+    - name: Veelgestelde vragen over schijven
+      href: faq-for-disks.md
+    - name: Een schijf toevoegen
+      items:
+      - name: Azure-CLI
+        href: add-disk.md
+      - name: Azure Portal
+        href: attach-disk-portal.md
+    - name: Een schijf loskoppelen
+      href: detach-disk.md
+    - name: De grootte van een schijf wijzigen
+      href: expand-disks.md
+    - name: Een momentopname maken van een schijf
+      href: snapshot-copy-managed-disk.md
+    - name: Back-up maken van niet-beheerde schijven
+      href: incremental-snapshots.md
+    - name: Converteren naar Managed Disks
+      href: convert-unmanaged-to-managed-disks.md
+    - name: Een schijf converteren van Standard naar Premium
+      href: convert-disk-storage.md
+    - name: Bestanden kopiëren naar een virtuele machine
+      href: copy-files-to-linux-vm-using-scp.md
+    - name: Migreren naar Premium Storage met Azure Site Recovery
+      href: migrate-to-premium-storage-using-azure-site-recovery.md
+    - name: Niet-gekoppelde schijven zoeken
+      href: find-unattached-disks.md
+    - name: Bestandsopslag gebruiken
+      href: mount-azure-file-storage-on-linux-using-smb.md
+    - name: Schijven implementeren met sjabloon
+      href: using-managed-disks-template-deployments.md
+    - name: Write Accelerator inschakelen
+      href: how-to-enable-write-accelerator.md
+    - name: Prestaties optimaliseren
+      href: optimization.md
+      items:
+      - name: Software-RAID configureren
+        href: configure-raid.md
+      - name: LVM configureren
+        href: configure-lvm.md
+  - name: Netwerken beheren
+    items:
+    - name: Virtueel netwerk maken
+      href: ../../virtual-network/virtual-networks-create-vnet-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Poorten naar een VM openen
+      href: nsg-quickstart.md
+    - name: Een openbaar IP-adres toewijzen
+      href: ../../virtual-network/virtual-network-deploy-static-pip-arm-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Meerdere NIC's gebruiken
+      href: multiple-nics.md
+    - name: Versneld netwerken gebruiken
+      href: ../../virtual-network/create-vm-accelerated-networking-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Een openbare DNS-naam toewijzen
+      href: portal-create-fqdn.md
+    - name: Niet-gekoppelde NIC's zoeken en verwijderen
+      href: find-unattached-nics.md
+    - name: DNS-resolutie
+      href: azure-dns.md
+      items:
+      - name: Interne DNS gebruiken
+        href: static-dns-name-resolution-for-linux-on-azure.md
+  - name: VM-extensies gebruiken
+    href: ../extensions/overview.md
+  - name: Virtuele machines migreren
+    items:
+    - name: AWS en on-premises VM's migreren
+      href: ../windows/on-prem-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      items:
+      - name: Migreren van Amazon Web Services (AWS) naar Azure
+        href: ../windows/aws-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Een on-premises VM uploaden
+        href: upload-vhd.md
+      - name: Azure Site Recovery gebruiken
+        href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    - name: Migreren van een klassieke implementatie naar Azure Resource Manager
+      href: migration-classic-resource-manager-overview.md
+      items:
+      - name: Gedetailleerde informatie over migratie
+        href: migration-classic-resource-manager-deep-dive.md
+      - name: Plan voor migratie
+        href: migration-classic-resource-manager-plan.md
+      - name: Migreren via CLI
+        href: migration-classic-resource-manager-cli.md
+      - name: Algemene migratiefouten
+        href: migration-classic-resource-manager-errors.md
+      - name: Community-hulpprogramma's voor migratie
+        href: ../windows/migration-classic-resource-manager-community-tools.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      - name: Veelgestelde vragen
+        href: migration-classic-resource-manager-faq.md
+  - name: Problemen oplossen
+    items:
+    - name: SSH-verbindingen
+      href: troubleshoot-ssh-connection.md
+      items:
+      - name: Gedetailleerde stappen voor het oplossen van problemen
+        href: detailed-troubleshoot-ssh-connection.md
+    - name: Linux-VM-wachtwoord opnieuw instellen
+      href: reset-password.md
+    - name: Inzicht in opnieuw opstarten van een systeem
+      href: understand-vm-reboot.md
+    - name: Diagnostische gegevens over opstarten
+      href: boot-diagnostics.md
+    - name: Seriële console
+      href: serial-console.md
+      items:
+      - name: Seriële console GRUB/modus voor één gebruiker
+        href: serial-console-grub-single-user-mode.md
+      - name: Seriële console NMI/SysRq
+        href: serial-console-nmi-sysrq.md
+    - name: Toegang tot toepassingen
+      href: troubleshoot-app-connection.md
+    - name: Toewijzingsfouten
+      href: allocation-failure.md
+    - name: Toewijzingsfouten - klassieke VM
+      href: allocation-failure-classic.md
+    - name: Implementatieproblemen
+      href: troubleshoot-deploy-vm.md
+    - name: Een virtuele machine maken
+      href: troubleshoot-deployment-new-vm.md
+    - name: Apparaatnamen zijn gewijzigd
+      href: troubleshoot-device-names-problems.md
+    - name: Een virtuele machine opnieuw implementeren naar een nieuw Azure-knooppunt
+      href: redeploy-to-new-node.md
+    - name: Veelvoorkomende foutberichten
+      href: error-messages.md
+    - name: Toegang tot VM voor herstel
+      items:
+      - name: Azure-CLI
+        href: troubleshoot-recovery-disks.md
+      - name: Azure Portal
+        href: troubleshoot-recovery-disks-portal.md
+    - name: Gekoppelde VHD's
+      items:
+      - name: Fouten bij het verwijderen van een Storage-resource
+        href: storage-resource-deletion-errors.md
+      - name: Onverwacht opnieuw opstarten van VM's met gekoppelde VHD's
+        href: unexpected-reboots-attached-vhds.md
 - name: Naslaginformatie
   items:
-    - name: Azure-CLI
-      href: /cli/azure/vm
-    - name: PowerShell
-      href: /powershell/azureps-cmdlets-docs
-    - name: .NET
-      href: /dotnet/api/microsoft.azure.management.compute
-    - name: Java
-      href: /java/api
-    - name: Node.js
-      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
-    - name: Python
-      href: 'https://azure.microsoft.com/develop/python/'
-    - name: REST
-      href: /rest/api/compute
+  - name: Azure-CLI
+    href: /cli/azure/vm
+  - name: PowerShell
+    href: /powershell/azureps-cmdlets-docs
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.compute
+  - name: Java
+    href: /java/api
+  - name: Node.js
+    href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
+  - name: Python
+    href: https://azure.microsoft.com/develop/python/
+  - name: REST
+    href: /rest/api/compute
 - name: Resources
   items:
-    - name: Auteursjablonen
-      href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Communitysjablonen
-      href: 'https://azure.microsoft.com/documentation/templates'
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/#Linux'
-    - name: Regionale beschikbaarheid
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
-    - name: Video's
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
-    - name: Veelgestelde vragen
-      href: faq.md
+  - name: Auteursjablonen
+    href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Communitysjablonen
+    href: https://azure.microsoft.com/documentation/templates
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/#Linux
+  - name: Regionale beschikbaarheid
+    href: https://azure.microsoft.com/regions/services/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-virtual-machine
+  - name: Video's
+    href: https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines
+  - name: Veelgestelde vragen
+    href: faq.md
+ms.openlocfilehash: bec61918cbd85b2c4501c580a0067a376bd089a4
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41927085"
