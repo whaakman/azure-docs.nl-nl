@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 15db2d9b872c76d70fd531af07fb55c701e86494
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 24fa3882a65bf6605444a139ad5d4ee42800a8ef
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39331420"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42744926"
 ---
 # <a name="recognize-speech-by-using-the-rest-api"></a>Spraak herkend met behulp van de REST-API
 
@@ -22,9 +22,8 @@ ms.locfileid: "39331420"
 
 De REST-API kan worden gebruikt voor het herkennen van korte uitingen met behulp van een HTTP POST-aanvraag.
 
-De REST-API is de eenvoudigste manier om spraak herkennen als u een taal die wordt ondersteund door de SDK niet gebruikt.
-U een HTTP POST-aanvraag naar de service-eindpunt, de hele utterance in de hoofdtekst van de aanvraag wordt doorgegeven.
-U ontvangt een antwoord met de herkende tekst.
+De REST-API is de eenvoudigste manier om spraak herkennen als u geen van een taal die wordt ondersteund gebruikmaakt door de [SDK](speech-sdk.md).
+Kunt u een HTTP POST aanvragen naar de service-eindpunt, de hele utterance in de hoofdtekst van de aanvraag; doorgeven en u ontvangt een antwoord met de herkende tekst.
 
 > [!NOTE]
 > Uitingen zijn beperkt tot 15 seconden of minder bij het gebruik van de REST-API.

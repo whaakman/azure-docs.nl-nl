@@ -1,6 +1,6 @@
 ---
-title: Verbinding maken met Box - Azure Logic Apps | Microsoft Docs
-description: Maken en beheren van bestanden met vak REST-API's en Azure Logic Apps
+title: Maak verbinding met Box - Azure Logic Apps | Microsoft Docs
+description: Maken en beheren van bestanden met het REST-API's en Azure Logic Apps
 author: ecfan
 manager: jeconnoc
 ms.author: estfan
@@ -11,26 +11,46 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: a8756e168a8d75cbe705ce2408b6d363f7435b5c
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b5c8c18c6d02710646560f29d4bc7b5784f730a2
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295071"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746874"
 ---
-# <a name="get-started-with-the-box-connector"></a>Aan de slag met de connector vak
-Verbinding maken met het selectievakje en maken van bestanden en bestanden verwijderen. U kunt met vak:
+# <a name="create-and-manage-files-in-box-with-azure-logic-apps"></a>Maken en beheren van bestanden in Box met Azure Logic Apps
 
-* Bouw uw zakelijke flow op basis van de gegevens die u uit vak. 
-* Triggers gebruiken wanneer een bestand is gemaakt of bijgewerkt.
-* Gebruik de acties die een bestand kopiëren, verwijderen van een bestand en meer. Deze acties reageert en vervolgens de uitvoer beschikbaar maken voor andere acties. Bijvoorbeeld wanneer een bestand is gewijzigd op het selectievakje, kunt u ondernemen dat bestand en e-met behulp van Office 365.
+Dit artikel wordt beschreven hoe u kunt maken en beheren van uw bestanden in Box uit in een logische app met de Box-connector. Op die manier kunt u logische apps die automatiseren van taken en werkstromen voor het beheren van uw bestanden en andere acties, bijvoorbeeld:
 
-U kunt aan de slag door het maken van een logische app nu, Zie [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Bouw uw bedrijfswerkstroom op basis van de gegevens die u van Box krijgt. 
 
-## <a name="connector-specific-details"></a>Connector-specifieke details
+* Geautomatiseerde taken en werkstroom geactiveerd wanneer een bestand wordt gemaakt of bijgewerkt.
 
-Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/box/).
+* Uitvoeren van acties die een bestand wordt gekopieerd, verwijdert u een bestand, en meer. 
 
-## <a name="more-connectors"></a>Meer connectors
-Ga terug naar de [API's lijst](apis-list.md).
+  Wanneer deze acties een antwoord, zodat ze de uitvoer beschikbaar voor andere acties. 
+  Wanneer een bestand in Box is gewijzigd, kunt u dat bestand verzenden in e-mailbericht met behulp van Office 365.
 
+## <a name="prerequisites"></a>Vereisten
+
+* Een [vak account](https://www.box.com/home)
+
+* Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>. 
+
+* De logische app waar u toegang tot uw Box-account. Als uw logische app met een trigger vak wilt, moet u een [lege, logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+
+* Basiskennis over [over het maken van logische apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps](../logic-apps/logic-apps-overview.md).
+
+## <a name="connector-reference"></a>Connector-verwijzing
+
+Zie voor technische details, zoals triggers en acties limieten, zoals is beschreven in de Swagger-bestand van de connector, de [van de connector-verwijzingspagina](/connectors/box/). 
+
+## <a name="get-support"></a>Ondersteuning krijgen
+
+* Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
+* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Volgende stappen
+
+* Meer informatie over andere [Logic Apps-connectors](../connectors/apis-list.md)

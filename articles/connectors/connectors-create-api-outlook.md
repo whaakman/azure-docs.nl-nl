@@ -1,47 +1,58 @@
 ---
-title: Outlook.com-connector in Azure Logic Apps | Microsoft Docs
-description: Logic apps maken met Azure App service. Outlook.com-connector kunt u uw e-mail, agenda en contactpersonen beheren. U kunt uitvoeren van verschillende acties zoals e-mail verzenden, vergaderingen plannen, Voeg contactpersonen, enzovoort.
+title: Verbinding maken met Outlook.com - Azure Logic Apps | Microsoft Docs
+description: E-mailadres, agenda's en contactpersonen met Outlook.com REST-API's en Azure Logic Apps beheren
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 87113c85-d158-4dd5-9ed5-5748130003d6
 ms.service: logic-apps
-ms.devlang: multiple
+author: ecfan
+ms.author: estfan
+manager: jeconnoc
+ms.assetid: 87113c85-d158-4dd5-9ed5-5748130003d6
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
 ms.date: 08/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 1338b7ce8f72a57cb65f9389e630fd7ebd0417b1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.reviewer: klam, LADocs
+ms.suite: integration
+ms.openlocfilehash: 8030ab9d317c1deefaf441008b9022c4a26bb17c
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295581"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746159"
 ---
-# <a name="get-started-with-the-outlookcom-connector"></a>Aan de slag met de Outlook.com-connector
-Outlook.com-connector kunt u uw e-mail, agenda en contactpersonen beheren. U kunt uitvoeren van verschillende acties zoals e-mail verzenden, vergaderingen plannen, Voeg contactpersonen, enzovoort.
+# <a name="manage-email-calendars-and-contacts-in-outlookcom-with-azure-logic-apps"></a>E-mailadres, agenda's en contactpersonen in Outlook.com met Azure Logic Apps beheren
 
-U kunt aan de slag door het maken van een logische app nu, Zie [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Dit artikel wordt beschreven hoe u kunt maken en beheren van uw Outlook.com-account in een logische app met de Box-connector. Op die manier kunt u logische apps die bijvoorbeeld automatiseren van taken en werkstromen voor uw Outlook.com-account maken:
 
-## <a name="create-a-connection-to-outlookcom"></a>Maak een verbinding met Outlook.com
-Logic apps maken met Outlook.com, moet u eerst maken een **verbinding** Geef vervolgens de details voor de volgende eigenschappen:
+* E-mail verzenden. 
+* Vergaderingen plannen.
+* Contactpersonen toevoegen. 
 
-| Eigenschap | Vereist | Beschrijving |
-| --- | --- | --- |
-| Token |Ja |Outlook.com-referenties opgeven |
+Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-Nadat u de verbinding hebt gemaakt, kunt u het uitvoeren van de acties te luisteren voor de triggers die in dit artikel wordt beschreven.
+## <a name="prerequisites"></a>Vereisten
 
-> [!INCLUDE [Steps to create a connection to Outlook.com](../../includes/connectors-create-api-outlook.md)]
->
+* Een [Outlook.com-account](https://outlook.live.com/owa/)
 
-## <a name="connector-specific-details"></a>Connector-specifieke details
+* Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>. 
 
-Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/outlook/).
+* De logische app waar u toegang tot uw Outlook.com-account. Als uw logische app met een Outlook-trigger wilt, moet u een [lege, logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
-## <a name="more-connectors"></a>Meer connectors
-Ga terug naar de [API's lijst](apis-list.md).
+* Basiskennis over [over het maken van logische apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+## <a name="connect-to-outlookcom"></a>Verbinding maken met Outlook.com
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+[!INCLUDE [Connect to Outlook.com](../../includes/connectors-create-api-outlook.md)]
+
+## <a name="connector-reference"></a>Connector-verwijzing
+
+Zie voor technische details, zoals triggers en acties limieten, zoals is beschreven in de Swagger-bestand van de connector, de [van de connector-verwijzingspagina](/connectors/outlook/). 
+
+## <a name="get-support"></a>Ondersteuning krijgen
+
+* Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
+* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Volgende stappen
+
+* Meer informatie over andere [Logic Apps-connectors](../connectors/apis-list.md)

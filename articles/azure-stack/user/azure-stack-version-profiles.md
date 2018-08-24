@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/15/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: ba8778bad9ed1b8ec095da084ffcec79658bdea8
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: db60aaacfb2ba60dbe73663cb415e2a3baea5400
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055685"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745796"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Beheren van API-versieprofielen in Azure Stack
 
@@ -67,7 +67,7 @@ In plaats daarvan kunt u dan onderzoek elke resourceprovider en de specifieke ve
 
 API-profielen werken met hulpprogramma's die gebruikmaken van Azure Resource Manager, zoals PowerShell, Azure CLI, opgegeven in de SDK en Microsoft Visual Studio code. Hulpprogramma's en SDK's kunnen profielen gebruiken om te lezen welke versie van de modules en -bibliotheken om op te nemen bij het bouwen van een toepassing.
 
-Bijvoorbeeld, als gebruik PowerShell voor het maken van een storage-account met de **Microsoft.Storage** resourceprovider, die ondersteuning biedt voor api-versie 2016-03-30 en een virtuele machine met behulp van de Microsoft.Compute-resourceprovider met api-versie 2015-12-01 , moet u die ondersteuning voor PowerShell-Module biedt opzoeken met 2016-03-30 voor opslag en welke Module biedt ondersteuning voor 2015-02-01 voor Compute en te installeren. In plaats daarvan kunt u een profiel. Gebruik de cmdlet ** installeren-profiel * profilename *** en PowerShell laadt u de juiste versie van de modules.
+Bijvoorbeeld, als u PowerShell gebruiken voor het maken van een storage-account met de **Microsoft.Storage** resourceprovider, die ondersteuning biedt voor api-versie 2016-03-30 en een virtuele machine met behulp van de Microsoft.Compute-resourceprovider met api-versie 2015-12-01, moet u die ondersteuning voor PowerShell-Module biedt opzoeken met 2016-03-30 voor opslag en welke Module biedt ondersteuning voor 2015-02-01 voor Compute en te installeren. In plaats daarvan kunt u een profiel. Gebruik de cmdlet ** installeren-profiel * profilename *** en PowerShell laadt u de juiste versie van de modules.
 
 Wanneer u de Python SDK gebruikt om een op basis van een Python-toepassing te bouwen, kunt u op dezelfde manier het-profiel opgeven. De SDK worden de juiste modules geladen voor de resourceproviders die u hebt opgegeven in het script.
 

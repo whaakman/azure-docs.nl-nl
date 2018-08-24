@@ -4,25 +4,26 @@ description: Biedt een overzicht en de vereisten van de functie voor migratie.
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: jeconnoc
+manager: twooley
 ms.assetid: ''
 ms.service: storsimple
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/11/2017
+ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 378eaea4c0cf19c48f47067e4f548f2d7f530377
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 23fde5fab8f223ff1d958a8fac6a31818f1fdd7c
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856685"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818913"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Gegevens migreren van de StorSimple 5000-7000-serie 8000-serie-apparaat
 
 > [!IMPORTANT]
+> - Op 31 juli 2019 bereiken de StorSimple 5000/7000-serie het einde van de ondersteuningstatus (EOS). U wordt aangeraden dat de StorSimple 5000/7000-serie klanten naar een van de alternatieven zoals beschreven in het document migreren.
 > - Migratie wordt momenteel een bewerking voor assistentie. Als u van plan bent om gegevens te migreren van uw StorSimple 5000-7000-serie-apparaat op een apparaat uit de 8000-serie, moet u voor het plannen van de migratie met Microsoft Support. Microsoft Support kunnen vervolgens uw abonnement voor de migratie. Zie voor meer informatie over het [Open een ondersteuningsticket](storsimple-8000-contact-microsoft-support.md).
 > - Nadat u de serviceaanvraag-bestand, duurt het enkele weken uit te voeren van het migratieplan en de migratie daadwerkelijk wordt gestart.
 > - Voordat u contact opneemt met Microsoft Support, moet u ervoor dat u de sla en volledige de [migratie vereisten](#migration-prerequisites) aangegeven in het artikel.

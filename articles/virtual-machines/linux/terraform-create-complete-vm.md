@@ -1,6 +1,6 @@
 ---
-title: Terraform gebruiken voor het maken van een volledige Linux VM in Azure | Microsoft Docs
-description: Informatie over het gebruik van Terraform maken en beheren van een omgeving met volledige Linux virtuele machines in Azure
+title: Een volledige Linux-VM in Azure maken met behulp van Terraform | Microsoft Docs
+description: Informatie over het gebruik van Terraform maken en beheren van een volledige omgeving van Linux virtuele machine in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
@@ -15,26 +15,26 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.openlocfilehash: 6b2dc2e8859efdcc57c45831381bc1870495ecf6
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: dfebda8f92837f8573fb3362c9210bce9b70d23d
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32776020"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42748065"
 ---
-# <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Maken van een volledige infrastructuur voor Linux-virtuele machine in Azure met Terraform
+# <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Een volledige Linux-VM-infrastructuur in Azure maken met Terraform
 
-Terraform kunt u definiëren en volledige infrastructuur implementaties maken in Azure. U bouwen Terraform sjablonen in een leesbare indeling maken en configureren van Azure-resources in een consistente, reproduceerbare manier. In dit artikel leest u hoe een volledige Linux-omgeving en de ondersteunende resources met Terraform maken. U kunt ook meer te weten hoe [installeren en configureren van Terraform](terraform-install-configure.md).
+Terraform kunt u definiëren en implementaties van een volledige maken in Azure. U bouwen Terraform-sjablonen in een leesbare indeling die maken en configureren van Azure-resources in een consistente, reproduceerbare manier. Dit artikel ziet u hoe u een volledige Linux-omgeving en de ondersteunende resources met Terraform maakt. U leert ook hoe u [installeren en configureren van Terraform](terraform-install-configure.md).
 
 
-## <a name="create-azure-connection-and-resource-group"></a>Azure-verbinding en resourcegroep maken
+## <a name="create-azure-connection-and-resource-group"></a>Maak verbinding met het Azure- en resourcegroep
 
-We doorlopen die elke sectie van een sjabloon Terraform. U ziet ook de volledige versie van de [Terraform sjabloon](#complete-terraform-script) die u kunt kopiëren en plakken.
+We gaan via elke sectie van een sjabloon Terraform. U ziet ook de volledige versie van de [Terraform sjabloon](#complete-terraform-script) die u kunt kopiëren en plakken.
 
-De `provider` gedeelte wordt uitgelegd Terraform gebruik van een Azure-provider. Ophalen van waarden voor *subscription_id*, *client_id*, *client_secret*, en *tenant_id*, Zie [installeren en Configureer Terraform](terraform-install-configure.md). 
+De `provider` gedeelte wordt uitgelegd Terraform om een Azure-provider te gebruiken. Om op te halen van de waarden voor *abonnements-id*, *client_id*, *client_secret*, en *tenant_id*, Zie [installeren en Terraform configureren](terraform-install-configure.md). 
 
 > [!TIP]
-> Als u omgevingsvariabelen voor de waarden maken of gebruikmaakt van de [ervaring Azure Cloud Shell Bash](/azure/cloud-shell/overview) , moet u niet de variabelendeclaraties opnemen in deze sectie.
+> Als u omgevingsvariabelen voor de waarden te maken of gebruikmaakt van de [Azure Cloud Shell-Bash-ervaring](/azure/cloud-shell/overview) , moet u niet de variabelendeclaraties opnemen in deze sectie.
 
 ```tf
 provider "azurerm" {
@@ -58,7 +58,7 @@ resource "azurerm_resource_group" "myterraformgroup" {
 }
 ```
 
-In extra secties vindt u verwijzen naar de resourcegroep met *${azurerm_resource_group.myterraformgroup.name}*.
+In extra onderdelen, verwijst u naar de resourcegroep met *${azurerm_resource_group.myterraformgroup.name}*.
 
 ## <a name="create-virtual-network"></a>Virtueel netwerk maken
 De volgende sectie maakt u een virtueel netwerk met de naam *myVnet* in de *10.0.0.0/16* adresruimte:
@@ -75,7 +75,8 @@ resource "azurerm_virtual_network" "myterraformnetwork" {
     }
 }
 ```
-: De volgende sectie maakt u een subnet met de naam *mySubnet* in de *myVnet* virtueel netwerk
+
+De volgende sectie maakt u een subnet met de naam *mySubnet* in de *myVnet* virtueel netwerk:
 
 ```tf
 resource "azurerm_subnet" "myterraformsubnet" {
@@ -88,7 +89,7 @@ resource "azurerm_subnet" "myterraformsubnet" {
 
 
 ## <a name="create-public-ip-address"></a>Openbare IP-adres maken
-Toegang krijgen tot bronnen via het Internet, maken en een openbare IP-adres toewijzen aan uw virtuele machine. De volgende sectie maakt u een openbaar IP-adres met de naam *myPublicIP*:
+Voor toegang tot resources via het Internet, maken en een openbaar IP-adres toewijzen aan uw virtuele machine. De volgende sectie maakt u een openbaar IP-adres met de naam *myPublicIP*:
 
 ```tf
 resource "azurerm_public_ip" "myterraformpublicip" {
@@ -105,10 +106,10 @@ resource "azurerm_public_ip" "myterraformpublicip" {
 
 
 ## <a name="create-network-security-group"></a>Netwerkbeveiligingsgroep maken
-Netwerkbeveiligingsgroepen regelen de stroom van netwerkverkeer binnen en buiten uw virtuele machine. De volgende sectie maakt u een netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup* en definieert u een regel voor SSH-verkeer op TCP-poort 22:
+Netwerkbeveiligingsgroepen beheren van de gegevensoverdracht van netwerkverkeer naar en uit uw virtuele machine. De volgende sectie maakt u een netwerkbeveiligingsgroep met de naam *myNetworkSecurityGroup* en definieert u een regel voor SSH-verkeer op TCP-poort 22:
 
 ```tf
-resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
+resource "azurerm_network_security_group" "myterraformnsg" {
     name                = "myNetworkSecurityGroup"
     location            = "eastus"
     resource_group_name = "${azurerm_resource_group.myterraformgroup.name}"
@@ -132,8 +133,8 @@ resource "azurerm_network_security_group" "temyterraformpublicipnsg" {
 ```
 
 
-## <a name="create-virtual-network-interface-card"></a>Maken van de virtuele netwerkinterfacekaart
-Een virtuele netwerkinterfacekaart (NIC) verbindt uw virtuele machine met een opgegeven virtuele netwerk, het openbare IP-adres en de netwerkbeveiligingsgroep. De volgende sectie in een sjabloon Terraform maakt u een virtuele NIC met de naam *myNIC* verbonden met de virtuele netwerken bronnen die u hebt gemaakt:
+## <a name="create-virtual-network-interface-card"></a>Maken van virtuele netwerkinterfacekaart
+Een virtuele netwerkinterfacekaart (NIC) verbindt de virtuele machine met een bepaald virtueel netwerk, het openbare IP-adres en de netwerkbeveiligingsgroep. De volgende sectie in een Terraform-sjabloon maakt u een virtuele NIC met de naam *myNIC* verbonden met de virtuele netwerken bronnen die u hebt gemaakt:
 
 ```tf
 resource "azurerm_network_interface" "myterraformnic" {
@@ -156,7 +157,7 @@ resource "azurerm_network_interface" "myterraformnic" {
 
 
 ## <a name="create-storage-account-for-diagnostics"></a>Opslagaccount voor diagnostische gegevens maken
-Voor het opslaan van diagnostische gegevens over opstarten voor een virtuele machine, moet u een opslagaccount. Deze diagnostische gegevens voor opstarten kunt u problemen kunt oplossen en de status bewaken van uw virtuele machine. Het opslagaccount dat u maakt is alleen voor het opslaan van de boot diagnostics-gegevens. Omdat elke storage-account een unieke naam hebben moet, genereert de volgende sectie willekeurige tekst:
+Voor het opslaan van diagnostische gegevens over opstarten voor een virtuele machine, moet u een opslagaccount. De diagnostische gegevens over deze opstarten kunt u problemen kunt oplossen en de status van uw virtuele machine controleren. Het opslagaccount dat u maakt, is alleen voor het opslaan van de gegevens van de diagnostische gegevens over opstarten. Als elk opslagaccount een unieke naam hebben moet, genereert de volgende sectie willekeurige tekst:
 
 ```tf
 resource "random_id" "randomId" {
@@ -169,7 +170,7 @@ resource "random_id" "randomId" {
 }
 ```
 
-U kunt nu een opslagaccount maken. De volgende sectie maakt een opslagaccount met de naam op basis van de gegenereerde in de vorige stap willekeurige tekst:
+U kunt nu een storage-account maken. De volgende sectie maakt u een storage-account met de naam op basis van de willekeurige tekst die in de vorige stap is gegenereerd:
 
 ```tf
 resource "azurerm_storage_account" "mystorageaccount" {
@@ -188,9 +189,9 @@ resource "azurerm_storage_account" "mystorageaccount" {
 
 ## <a name="create-virtual-machine"></a>Virtuele machine maken
 
-De laatste stap is het maken van een virtuele machine en gebruik van alle bronnen die zijn gemaakt. De volgende sectie maakt u een virtuele machine met de naam *myVM* en koppelt u de virtuele NIC met de naam *myNIC*. De meest recente *Ubuntu 16.04-LTS* installatiekopie wordt gebruikt en een gebruiker met de naam *azureuser* wordt gemaakt met wachtwoordverificatie uitgeschakeld.
+De laatste stap is het maken van een virtuele machine en gebruiken van alle resources die zijn gemaakt. De volgende sectie maakt u een virtuele machine met de naam *myVM* en koppelt u de virtuele NIC met de naam *myNIC*. De meest recente *Ubuntu 16.04-LTS* installatiekopie wordt gebruikt en een gebruiker met de naam *azureuser* wordt gemaakt met wachtwoordverificatie uitgeschakeld.
 
- SSH-sleutel gegevens vindt u in de *ssh_keys* sectie. Geef een geldige openbare SSH-sleutel in de *key_data* veld.
+ SSH-sleutel gegevens is opgegeven in de *ssh_keys* sectie. Geef een geldige openbare SSH-sleutel in de *key_data* veld.
 
 ```tf
 resource "azurerm_virtual_machine" "myterraformvm" {
@@ -238,9 +239,9 @@ resource "azurerm_virtual_machine" "myterraformvm" {
 }
 ```
 
-## <a name="complete-terraform-script"></a>Volledige Terraform script
+## <a name="complete-terraform-script"></a>Volledige Terraform-script
 
-Als u wilt alle deze secties samen te voegen en Terraform in actie, maakt u een bestand met de naam *terraform_azure.tf* en plak de volgende inhoud:
+Als u wilt samenbrengen alle deze secties en Terraform in actie zien, maakt u een bestand met de naam *terraform_azure.tf* en plak de volgende inhoud:
 
 ```tf
 variable "resourcename" {
@@ -410,19 +411,19 @@ resource "azurerm_virtual_machine" "myterraformvm" {
 
 
 ## <a name="build-and-deploy-the-infrastructure"></a>Bouwen en implementeren van de infrastructuur
-Bij uw Terraform sjabloon hebt gemaakt, wordt de eerste stap Terraform initialiseren. Deze stap zorgt u ervoor dat Terraform alle vereisten voor het bouwen van uw sjabloon in Azure.
+Met de Terraform-sjabloon is gemaakt, wordt de eerste stap is om te initialiseren van Terraform. Deze stap zorgt u ervoor dat Terraform alle vereisten voor het bouwen van uw sjabloon in Azure.
 
 ```bash
 terraform init
 ```
 
-De volgende stap is dat Terraform controleren en valideren van de sjabloon. Deze stap vergelijkt de gewenste bronnen voor informatie over de opgeslagen door Terraform en vervolgens voert de geplande uitvoering. Resources zijn *niet* gemaakt in Azure.
+De volgende stap is dat Terraform controleren en valideren van de sjabloon. Deze stap vergelijkt de aangevraagde bronnen om de informatie over de status opgeslagen met Terraform en vervolgens de geplande uitvoering weergeeft. Resources zijn *niet* gemaakt in Azure.
 
 ```bash
 terraform plan
 ```
 
-Nadat u de vorige opdracht uitvoert, ziet u ongeveer het volgende scherm:
+Nadat u de vorige opdracht hebt uitgevoerd, ziet u ongeveer het volgende scherm:
 
 ```bash
 Refreshing Terraform state in-memory prior to plan...
@@ -451,13 +452,13 @@ Note: You didn’t specify an “-out” parameter to save this plan, so when
 Plan: 7 to add, 0 to change, 0 to destroy.
 ```
 
-Als alles er goed uitziet en u klaar bent voor het bouwen van de infrastructuur in Azure, moet u de sjabloon in Terraform toepassen:
+Als alles er goed uitziet en u gereed voor het bouwen van de infrastructuur in Azure bent, moet u de sjabloon in Terraform toepassen:
 
 ```bash
 terraform apply
 ```
 
-Zodra Terraform is voltooid, wordt uw VM-infrastructuur is gereed. Het openbare IP-adres van uw virtuele machine met [az vm weergeven](/cli/azure/vm#az_vm_show):
+Nadat Terraform is voltooid, wordt uw VM-infrastructuur gereed is. Het openbare IP-adres van uw virtuele machine met [az vm show](/cli/azure/vm#az_vm_show):
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
@@ -470,4 +471,4 @@ ssh azureuser@<publicIps>
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt de basisinfrastructuur in Azure hebt gemaakt met behulp van Terraform. Voor complexere scenario's, inclusief voorbeelden die gebruik load balancers en de virtuele machine worden geschaald sets, Zie talrijke [Terraform voorbeelden voor Azure](https://github.com/hashicorp/terraform/tree/master/examples). Zie voor een bijgewerkte lijst met ondersteunde providers voor Azure de [Terraform documentatie](https://www.terraform.io/docs/providers/azurerm/index.html).
+U kunt de basisinfrastructuur in Azure hebt gemaakt met behulp van Terraform. Voor complexere scenario's, inclusief voorbeelden die kunnen worden geschaald gebruik load balancers en virtuele machine sets, Zie talrijke [Terraform-voorbeelden voor Azure](https://github.com/hashicorp/terraform/tree/master/examples). Zie voor een bijgewerkte lijst van ondersteunde Azure-providers, de [Terraform documentatie](https://www.terraform.io/docs/providers/azurerm/index.html).

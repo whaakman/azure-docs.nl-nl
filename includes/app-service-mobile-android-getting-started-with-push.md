@@ -1,4 +1,17 @@
-1. In uw **app** project, open het bestand `AndroidManifest.xml`. Voeg de volgende code na de `application` bij begincode:
+---
+author: conceptdev
+ms.author: crdun
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.openlocfilehash: 654bc3745768fccea41d7c3991142bf7183b54be
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42811545"
+---
+1. In uw **app** project, open het bestand `AndroidManifest.xml`. Voeg de volgende code na de `application` openingstag:
 
     ```xml
     <service android:name=".ToDoMessagingService">
@@ -13,7 +26,7 @@
     </service>
     ```
 
-2. Open het bestand `ToDoActivity.java`, en wijzigingen aanbrengen:
+2. Open het bestand `ToDoActivity.java`, en breng de volgende wijzigingen:
 
     - Voeg de importinstructie toe:
 
@@ -21,7 +34,7 @@
         import com.google.firebase.iid.FirebaseInstanceId;
         ```
 
-    - Wijzig de definitie van `MobileServiceClient` van **persoonlijke** naar **persoonlijke statische**, zodat er nu als volgt uitziet:
+    - De definitie van `MobileServiceClient` van **persoonlijke** naar **persoonlijke statische**, zodat er nu als volgt uitziet:
 
         ```java
         private static MobileServiceClient mClient;
@@ -43,13 +56,13 @@
         }
         ```
 
-    - Update de **onCreate** methode van de `ToDoActivity` klasse. Zorg ervoor dat u deze Voeg code toe na de `MobileServiceClient` wordt geïnstantieerd.
+    - Update de **onCreate** -methode van de `ToDoActivity` klasse. Zorg ervoor dat u deze Voeg code toe na de `MobileServiceClient` wordt geïnstantieerd.
 
         ```java
         registerPush();
         ```
 
-3. Voeg een nieuwe klasse voor het afhandelen van meldingen. Open in Projectverkenner de **app** > **java** > **uw project-naamruimte** knooppunten en met de rechtermuisknop op het knooppunt van de naam van pakket. Klik op **nieuw**, en klik vervolgens op **Java-klasse**. Typ in naam `ToDoMessagingService`, en klik op OK. Vervang vervolgens de klassendeclaratie met:
+3. Voeg een nieuwe klasse voor het afhandelen van meldingen. Open in Projectverkenner het **app** > **java** > **uw project-naamruimte** knooppunten, en met de rechtermuisknop op het knooppunt van de naam van pakket. Klik op **nieuw**, en klik vervolgens op **Java-klasse**. Typ in het vak naam `ToDoMessagingService`, en klik vervolgens op OK. Vervang daarna de klassendeclaratie met:
 
     ```java
     import android.app.Notification;
@@ -102,4 +115,4 @@
     }
     ```
 
-Uw app is nu bijgewerkt ter ondersteuning van pushmeldingen.
+Uw app wordt nu bijgewerkt ter ondersteuning van pushmeldingen.

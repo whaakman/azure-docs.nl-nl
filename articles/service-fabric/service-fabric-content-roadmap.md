@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: 9f37a7665521b69634329078258b00cb9f53c407
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 644089cea4dccc79e67b9117187b553eb4616d9f
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358715"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818211"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Zo wilt u meer informatie over Service Fabric?
 Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkelijk pakket, implementeren en beheren van schaalbare en betrouwbare microservices.  Service Fabric is een grote-gebied, en er is veel te leren.  In dit artikel biedt een overzicht van Service Fabric en beschrijft de belangrijkste concepten, programmeermodellen, levensduur van toepassingen, testen, clusters en statuscontrole. Lees de [overzicht](service-fabric-overview.md) en [wat zijn microservices?](service-fabric-overview-microservices.md) voor een inleiding en hoe Service Fabric kan worden gebruikt om te maken van microservices. In dit artikel bevat een uitgebreide lijst met inhoud, maar koppelen aan het overzicht en artikelen aan de slag voor elk gebied van Service Fabric. 
@@ -146,7 +146,7 @@ Er zijn enkele functies die worden ondersteund op Windows, maar niet op Linux. V
 ### <a name="standalone-clusters"></a>Zelfstandige clusters
 Service Fabric biedt een installatiepakket voor u maken van zelfstandige Service Fabric-clusters on-premises of op elke andere cloudprovider. Zelfstandige clusters bieden u de vrijheid voor het hosten van een cluster waar u maar wilt. Als uw gegevens onderworpen aan het nalevings- of regelgeving beperkingen is of u wilt uw gegevens lokaal te houden, kunt u uw eigen cluster en de toepassingen hosten. Service Fabric-toepassingen kunnen uitvoeren in meerdere hostingomgevingen zonder wijzigingen, zodat uw kennis van het bouwen van toepassingen wordt doorgevoerd in van de ene host-omgeving naar een andere. 
 
-[Uw eerste zelfstandige Service Fabric-cluster maken](service-fabric-get-started-standalone-cluster.md)
+[Uw eerste zelfstandige Service Fabric-cluster maken](service-fabric-cluster-creation-for-windows-server.md)
 
 Linux zelfstandige clusters worden nog niet ondersteund.
 

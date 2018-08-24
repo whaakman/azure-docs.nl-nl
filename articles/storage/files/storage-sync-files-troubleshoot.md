@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 08/22/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: e0c9708107139ec899cd5902a68ff90b57b741f7
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 4434b67393d34c3418e44e82681a586c268a37e5
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005916"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746993"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Problemen met Azure Files Sync oplossen
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -438,14 +438,15 @@ Deze fout treedt doorgaans op omdat de servertijd onjuist zijn of het certificaa
 1. Open de MMC-module Certificaten, selecteer computeraccount en navigeer naar certificaten (lokale Computer) \Personal\Certificates.
 2. Verwijderen van het certificaat voor clientverificatie als verlopen op en sluit de MMC-module Certificaten.
 3. Opent u Regedit en verwijder de sleutel ServerSetting in het register: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync\ServerSetting
-4. Voer de volgende PowerShell-opdrachten op de server:
+4. In de Azure-portal, gaat u naar de sectie geregistreerde Servers van de Opslagsynchronisatieservice. Met de rechtermuisknop op de server met het verlopen certificaat en klik op 'Unregister-Server.'
+5. Voer de volgende PowerShell-opdrachten op de server:
 
     ```PowerShell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
     Reset-StorageSyncServer
     ```
 
-5. Registreer de server opnieuw door te voeren ServerRegistration.exe (de standaardlocatie is C:\Program Files\Azure\StorageSyncAgent).
+6. Registreer de server opnieuw door te voeren ServerRegistration.exe (de standaardlocatie is C:\Program Files\Azure\StorageSyncAgent).
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**Het volume waar het servereindpunt bevindt is onvoldoende schijfruimte.**  
 | | |

@@ -9,12 +9,12 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-brapel
-ms.openlocfilehash: 87970e1c5e8487f9afca2acc680bdfeb610dc89f
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 32644fe0cf0a6e1666d2d1ee6efb826bf753f001
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41987545"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42814860"
 ---
 # <a name="call-bing-custom-search-endpoint-c"></a>Bing Custom Search-eindpunt (C#) aanroepen
 
@@ -123,6 +123,7 @@ Als u wilt uitvoeren in het volgende voorbeeld, de volgende stappen uit:
     <pre>
     dotnet build 
     </pre>
+    
 7. Voer de toepassing met behulp van de volgende opdracht vervangt **pad-uitvoer** met het pad waarnaar wordt verwezen door de build-stap.
 
     <pre>    

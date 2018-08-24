@@ -4,16 +4,16 @@ description: Hierin wordt beschreven hoe resourcedefinitie beleid wordt gebruikt
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/03/2018
+ms.date: 08/16/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ced8ebad0122973595cdede4497cd200e3090043
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ac561be75306cab6b73b457a7d450bd640aac067
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524104"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818694"
 ---
 # <a name="azure-policy-definition-structure"></a>Structuur van Azure-beleidsdefinities
 
@@ -107,7 +107,7 @@ In de metagegevenseigenschap, kunt u **strongType** voor een multi-keuzelijst me
 - `"existingResourceGroups"`
 - `"omsWorkspace"`
 
-In de beleidsregel, verwijst u naar parameters met de volgende syntaxis:
+In de beleidsregel u verwijzen naar parameters met de volgende `parameters` implementatie waarde functiesyntaxis:
 
 ```json
 {
@@ -245,6 +245,53 @@ Met **AuditIfNotExists** en **DeployIfNotExists** kunt u het bestaan van een res
 Zie voor een voorbeeld van de controle wanneer een VM-extensie niet is geïmplementeerd, [Audit als extensie is niet opgenomen](scripts/audit-ext-not-exist.md).
 
 Zie voor meer informatie over elk effect, de volgorde van de evaluatie, eigenschappen en voorbeelden, [Understanding beleid effecten](policy-effects.md).
+
+### <a name="policy-functions"></a>Beleidsfuncties
+
+Een subset van [Resource Manager-sjabloonfuncties](../azure-resource-manager/resource-group-template-functions.md) zijn beschikbaar voor gebruik binnen een beleidsregel. De functies die momenteel worden ondersteund zijn:
+
+- [parameters](../azure-resource-manager/resource-group-template-functions-deployment.md#parameters)
+- [concat](../azure-resource-manager/resource-group-template-functions-array.md#concat)
+- [resourceGroup](../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)
+- [abonnement](../azure-resource-manager/resource-group-template-functions-resource.md#subscription)
+
+Bovendien de `field` functie is beschikbaar voor de regels. Deze functie is voornamelijk voor gebruik met **AuditIfNotExists** en **DeployIfNotExists** verwijzing velden op de resource die wordt geëvalueerd. Een voorbeeld hiervan kan worden weergegeven in de [DeployIfNotExists voorbeeld](policy-effects.md#deployifnotexists-example).
+
+#### <a name="policy-function-examples"></a>Beleid voor voorbeelden
+
+In dit voorbeeld van beleid voor regel maakt gebruik van de `resourceGroup` resource-functie om op te halen de **naam** eigenschap in combinatie met de `concat` matrix- en -functie voor het bouwen een `like` voorwaarde dat de naam van de resource te starten met de naam van de resourcegroep.
+
+```json
+{
+    "if": {
+        "not": {
+            "field": "name",
+            "like": "[concat(resourceGroup().name,'*')]"
+        }
+    },
+    "then": {
+        "effect": "deny"
+    }
+}
+```
+
+In dit voorbeeld van beleid voor regel maakt gebruik van de `resourceGroup` resource-functie om op te halen de **tags** matrix eigenschapswaarde van de **CostCenter** tag op de resourcegroep en toevoegen aan de **kostenplaats**  tag op de nieuwe resource.
+
+```json
+{
+    "if": {
+        "field": "tags.CostCenter",
+        "exists": "false"
+    },
+    "then": {
+        "effect": "append",
+        "details": [{
+            "field": "tags.CostCenter",
+            "value": "[resourceGroup().tags.CostCenter]"
+        }]
+    }
+}
+```
 
 ## <a name="aliases"></a>Aliassen
 

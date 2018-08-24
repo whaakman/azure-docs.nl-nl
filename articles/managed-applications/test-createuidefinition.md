@@ -9,21 +9,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/10/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2c313538e297c5781b48fcfe9d0d5390f94c97f5
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: c88bdce64e88f8639da2c4ebb01f4594fccff8a0
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043765"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747085"
 ---
 # <a name="test-azure-portal-interface-for-your-managed-application"></a>Interface van de Azure portal voor uw beheerde toepassing testen
 Na [maken van het bestand createUiDefinition.json](create-uidefinition-overview.md) voor uw Azure beheerde toepassingen, moet u voor het testen van de gebruikerservaring. Gebruik ter vereenvoudiging van testen van een script dat uw bestand in de portal wordt geladen. U hoeft niet te uw beheerde toepassing daadwerkelijk te implementeren.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een **createUiDefinition.json** bestand. Als u dit bestand hebt, kopieert u de [voorbeeldbestand](https://github.com/Azure/azure-quickstart-templates/blob/master/test/template-validation-tests/sample-template/createUIDefinition.json) en lokaal opslaan.
+* Een **createUiDefinition.json** bestand. Als u dit bestand hebt, kopieert u de [voorbeeldbestand](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json) en lokaal opslaan.
 
 * Een Azure-abonnement. Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
@@ -36,16 +36,16 @@ Als u wilt testen uw interface in de portal, een van de volgende scripts te kopi
 
 ## <a name="run-script"></a>Script uitvoeren
 
-Als u wilt zien van de gebruikersinterface in een bestand in de portal, het gedownloade script worden uitgevoerd. Het script maakt een opslagaccount in uw Azure-abonnement en uw createUiDefinition.json-bestand wordt geüpload naar het opslagaccount. Vervolgens wordt de portal wordt geopend en wordt het bestand geladen vanuit de storage-account.
+Als u wilt zien van de gebruikersinterface in een bestand in de portal, het gedownloade script worden uitgevoerd. Het script maakt een opslagaccount in uw Azure-abonnement en uw createUiDefinition.json-bestand wordt geüpload naar het opslagaccount. Het opslagaccount dat de eerste keer dat u het script uitvoert wordt gemaakt of als het opslagaccount is verwijderd. Als het opslagaccount al in uw Azure-abonnement bestaat, wordt het door het script hergebruikt. Het script wordt geopend de portal en uw bestand wordt geladen vanuit de storage-account.
 
-Geef een locatie voor het opslagaccount en de map met uw bestand createUiDefinition.json opgeven. U hoeft alleen te bieden van de storage-account locatie van de eerste keer dat u het script uitvoert of als het opslagaccount is verwijderd.
+Geef een locatie voor het opslagaccount en de map met uw bestand createUiDefinition.json opgeven.
 
 Gebruik voor PowerShell:
 
 ```powershell
 .\SideLoad-CreateUIDefinition.ps1 `
   -StorageResourceGroupLocation southcentralus `
-  -ArtifactsStagingDirectory <path-to-folder-with-createuidefinition>
+  -ArtifactsStagingDirectory .\100-Marketplace-Sample
 ```
 
 Gebruik voor Azure CLI:
@@ -53,7 +53,21 @@ Gebruik voor Azure CLI:
 ```azurecli
 ./sideload-createuidef.sh \
   -l southcentralus \
-  -a <path-to-folder-with-createuidefinition>
+  -a .\100-Marketplace-Sample
+```
+
+Als uw createUiDefinition.json-bestand in dezelfde map als het script, en u het opslagaccount al hebt gemaakt, moet u niet voor deze parameters.
+
+Gebruik voor PowerShell:
+
+```powershell
+.\SideLoad-CreateUIDefinition.ps1
+```
+
+Gebruik voor Azure CLI:
+
+```azurecli
+./sideload-createuidef.sh
 ```
 
 ## <a name="test-your-interface"></a>Test uw interface
@@ -73,6 +87,18 @@ Als de interfacedefinitie van de een fout opgetreden heeft, ziet u de beschrijvi
 Geef waarden op voor de velden. Wanneer u klaar bent, ziet u de waarden die worden doorgegeven aan de sjabloon.
 
 ![Waarden weergeven](./media/test-createuidefinition/show-json.png)
+
+U kunt deze waarden gebruiken als de parameter-bestand voor het testen van uw sjabloon voor de implementatie.
+
+## <a name="troubleshooting-the-interface"></a>Het oplossen van de interface
+
+Er zijn een aantal veelvoorkomende fouten ziet u mogelijk:
+
+* De interface niet worden geladen in de portal. In plaats daarvan wordt een pictogram van een cloud met tear vervolgkeuzelijst weergegeven. Meestal kunt zien u dit pictogram wanneer er een syntaxisfout in het bestand. Open het bestand in VS Code (of een andere JSON-editor met schemavalidatie) en zoek naar fouten in de syntaxis.
+
+* De portal loopt vast op het scherm Samenvatting. Deze onderbreking gebeurt meestal wanneer er een fout in de sectie uitvoer is. Bijvoorbeeld, u mogelijk verwijst naar een besturingselement dat niet bestaat.
+
+* Een parameter in de uitvoer is leeg. Kan de parameter verwijst naar een eigenschap die niet bestaat. Bijvoorbeeld, de verwijzing naar het besturingselement is geldig, maar de eigenschapverwijzing is niet geldig.
 
 ## <a name="test-your-solution-files"></a>De oplossingsbestanden van uw testen
 

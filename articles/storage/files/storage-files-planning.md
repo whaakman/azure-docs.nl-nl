@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 85a2f0c13d483df40b6de2a158cf5fa43c45b5eb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b4905c8bcf3c14c7f1dfa752a930f57ccbfd8fd7
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39530953"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818483"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planning voor de implementatie van Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard SMB-protocol. Omdat Azure Files wordt volledig beheerd, is het veel eenvoudiger dan implementeren en beheren van een bestandsserver of een NAS-apparaat dat u deze in productie scenario's is geïmplementeerd. In dit artikel komen de onderwerpen om u te overwegen bij het implementeren van een Azure-bestandsshare voor gebruik in productieomgevingen binnen uw organisatie.
@@ -81,7 +81,7 @@ Azure Files ondersteunt drie opties voor gegevensredundantie: lokaal redundante 
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-GRS.md)]
 
 ## <a name="data-growth-pattern"></a>Patroon van de groei van gegevens
-De maximale grootte voor een Azure-bestandsshare is vandaag de dag van 5 TiB, inclusief momentopnamen van shares. Vanwege deze huidige beperking, u moet rekening houden met groei van de verwachte gegevens bij het implementeren van een Azure-bestandsshare. Houd er rekening mee dat een Azure Storage-account kan worden gebruikt voor het opslaan van meerdere shares met een totaal van 500 TiB die via alle shares zijn opgeslagen.
+De maximale grootte voor een Azure-bestandsshare is vandaag de dag van 5 TiB. Vanwege deze huidige beperking, u moet rekening houden met groei van de verwachte gegevens bij het implementeren van een Azure-bestandsshare. Houd er rekening mee dat een Azure Storage-account kan worden gebruikt voor het opslaan van meerdere shares met een totaal van 500 TiB die via alle shares zijn opgeslagen.
 
 Het is mogelijk om te synchroniseren die meerdere Azure-bestandsshares op een enkele Windows-bestandsserver met Azure File Sync. Hiermee kunt u om ervoor te zorgen dat oudere, zeer grote bestandsshares dat er on-premises naar Azure File Sync kunnen worden gebracht. Raadpleeg [plannen voor een implementatie van Azure File Sync](storage-files-planning.md) voor meer informatie.
 

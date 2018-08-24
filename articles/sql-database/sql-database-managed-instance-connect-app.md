@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: c9d656908d265aeb6143e857b0ea4f635203bdd9
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 82e8836892b033ccbb3c3ad9806257348afe3702
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258725"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818399"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Verbinding maken tussen uw toepassing en het beheerde exemplaar van Azure SQL Database
 
@@ -75,9 +75,23 @@ In dit scenario is geïllustreerd in het volgende diagram:
 
 Voor het beheerde exemplaar kan alleen worden verkregen via een privé IP-adres dus als u wilt openen vanaf uw developer-box, moet u eerst een verbinding tussen uw developer-box en het beheerde exemplaar VNet te maken.  
  
-Een punt-naar-Site-verbinding met een VNet met behulp van systeemeigen Azure-certificaatverificatie verificatie artikelen configureren ([Azure-portal](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) in detail weergeeft hoe het kan worden uitgevoerd.  
+Een punt-naar-Site-verbinding met een VNet met behulp van systeemeigen Azure-certificaatverificatie verificatie artikelen configureren ([Azure-portal](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) in detail weergeeft hoe het kan worden uitgevoerd. 
+
+## <a name="required-versions-of-drivers-and-tools"></a>Vereiste versies van stuurprogramma's en hulpprogramma 's
+
+De volgende minimale versies van de hulpprogramma's en stuurprogramma's worden aanbevolen als u wilt verbinding maken met Managed Instance:
+
+| Stuurprogramma/hulpprogramma | Versie |
+| --- | --- |
+|.NET Framework | 4.6.1 (of .NET Core) | 
+|ODBC-stuurprogramma    | v17 |
+|PHP-stuurprogramma | 5.2.0 |
+|JDBC-stuurprogramma    | 6.4.0 |
+|Node.js-stuurprogramma | 2.1.1 |
+|OLEDB-stuurprogramma   | 18.0.2.0 |
+|SSMS   | 17.8.1 of [hoger](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) |
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor meer informatie over Managed Instance [wat is een beheerd exemplaar](sql-database-managed-instance.md).
-- Zie voor een zelfstudie wordt uitgelegd hoe u een nieuwe Managed Instance maakt u [maken van een beheerd exemplaar](sql-database-managed-instance-create-tutorial-portal.md).
+- Zie voor een zelfstudie wordt uitgelegd hoe u een nieuwe Managed Instance maakt u [maken van een beheerd exemplaar](sql-database-managed-instance-get-started.md).

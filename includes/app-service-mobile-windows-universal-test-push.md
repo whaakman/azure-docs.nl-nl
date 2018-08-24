@@ -1,13 +1,25 @@
+---
+author: conceptdev
+ms.author: crdun
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.openlocfilehash: c86210208b9f747cbef1d9231528fa6cedbdb5d2
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42814532"
+---
+1. Met de rechtermuisknop op de Windows Store-project, klikt u op **Set as StartUp Project**, klikt u vervolgens op F5 te drukken naar de Windows Store-app uitvoeren.
 
-1. Met de rechtermuisknop op de Windows Store-project, klikt u op **instellen als opstartproject**, druk op F5 om uit te voeren van de Windows Store-app.
-   
     Nadat de app is gestart, wordt het apparaat is geregistreerd voor pushmeldingen.
 2. Stop de Windows Store-app en Herhaal de vorige stap voor de Windows Phone Store-app.
-   
-    Op dit moment zijn beide apparaten geregistreerd voor het ontvangen van pushmeldingen.
-3. Voer de Windows Store-app opnieuw en voert u tekst in **nieuwe taak invoegen**, en klik vervolgens op **opslaan**.
-   
-       Note that after the insert completes, both the Windows Store and the Windows Phone apps receive a push notification from WNS. The notification is displayed on Windows Phone even when the app isn't running.
-   
-![](./media/app-service-mobile-windows-universal-test-push/mobile-quickstart-push5-wp8.png)
 
+    Op dit moment zijn beide apparaten geregistreerd om pushmeldingen te ontvangen.
+
+3. De Windows Store-app opnieuw uitvoeren en typ tekst in **een stukje**, en klik vervolgens op **opslaan**.
+
+    Houd er rekening mee dat wanneer de insert is voltooid, zowel de Windows Store en de Windows Phone-apps een pushmelding ontvangen van WNS. De melding wordt weergegeven op Windows Phone, zelfs wanneer de app wordt niet uitgevoerd.
+
+    ![](./media/app-service-mobile-windows-universal-test-push/mobile-quickstart-push5-wp8.png)

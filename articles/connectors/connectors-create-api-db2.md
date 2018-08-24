@@ -1,282 +1,368 @@
 ---
-title: Verbinding maken met de DB2 - Azure Logic Apps | Microsoft Docs
-description: Resources beheren met de DB2 REST-API's en Azure Logic Apps
-author: gplarsen
-manager: jeconnoc
-ms.author: plarsen
-ms.date: 09/26/2016
-ms.topic: article
-ms.service: logic-apps
+title: Verbinding maken met IBM DB2 - Azure Logic Apps | Microsoft Docs
+description: Resources beheren met IBM DB2 REST-API's en Azure Logic Apps
 services: logic-apps
-ms.reviewer: klam, estfan
+ms.service: logic-apps
+author: ecfan
+ms.author: estfan
+ms.reviewer: plarsen, LADocs
 ms.suite: integration
+ms.topic: article
+ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: 507bc48b6b775d6a6fb5f855210d33520e187a74
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 354e67183a36f511811d74a0685dea2e23d6c0e2
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295088"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818872"
 ---
-# <a name="get-started-with-the-db2-connector"></a>Aan de slag met de DB2-connector
-Microsoft-connector voor DB2 verbindt Logic Apps met resources die zijn opgeslagen in een IBM DB2-database. Deze connector omvat een Microsoft-client om te communiceren met externe computers voor DB2-server via een TCP/IP-netwerk. Dit omvat cloud databases, zoals IBM Bluemix dashDB of IBM DB2 voor Windows wordt uitgevoerd in Azure virtualisatie en het on-premises databases die gebruikmaken van de lokale data gateway. Zie de [ondersteund lijst](connectors-create-api-db2.md#supported-db2-platforms-and-versions) IBM DB2-platformen en-versies (in dit onderwerp).
+# <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>IBM DB2-resources beheren met Azure Logic Apps
 
-De DB2-connector ondersteunt de volgende databasebewerkingen:
+Met Azure Logic Apps en de IBM DB2-connector, kunt u geautomatiseerde taken en werkstromen op basis van de resources die zijn opgeslagen in de DB2-database maken. Uw werkstromen kunnen verbinding maken met de resources in uw database, lezen en lijst met uw databasetabellen, rijen toevoegen, wijzigen van de rijen en rijen verwijderen. U kunt acties opnemen in uw logische apps die te antwoorden krijgen van uw database en de uitvoer beschikbaar voor andere acties. 
 
-* Lijst databasetabellen
-* Lezen van één rij met selecteren
-* Lezen van alle rijen met selecteren
-* Een rij invoegen met toevoegen
-* Wijzigen van één rij met UPDATE
-* Verwijderen van één rij met DELETE
+In dit artikel wordt beschreven hoe u een logische app waarmee u verschillende databasebewerkingen kunt maken. Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md).
 
-Dit onderwerp leest u hoe u de connector in een logische app aan databasebewerkingen proces.
+## <a name="supported-platforms-and-versions"></a>Ondersteunde platforms en versies
 
-Zie voor meer informatie over Logic Apps, [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+De DB2-connector bevat een Microsoft-client die met externe servers voor DB2 via een TCP/IP-netwerk communiceert. U kunt deze connector gebruiken voor toegang tot clouddatabases zoals IBM Bluemix dashDB of IBM DB2 voor Windows die wordt uitgevoerd in Azure virtualisatie. U kunt ook toegang tot on-premises DB2-database nadat u [installeren en instellen van de on-premises gegevensgateway](../logic-apps/logic-apps-gateway-connection.md). 
 
-## <a name="available-actions"></a>Beschikbare acties
-De DB2-connector ondersteunt de volgende logic app acties:
+De IBM DB2-connector ondersteunt deze IBM DB2-platforms en versies samen met IBM DB2 compatibele producten, zoals IBM Bluemix dashDB, die ondersteuning bieden voor gedistribueerde relationele Database architectuur (DRDA) SQL Access Manager (SQLAM) versie 10 en 11:
 
-* GetTables
-* GetRow
-* GetRows
-* InsertRow
-* UpdateRow
-* DeleteRow
+| Platform | Versie | 
+|----------|---------|
+| IBM DB2 voor z/OS | 11.1, 10.1 |
+| IBM DB2 voor ik | 7.3, 7.2, 7.1 |
+| IBM DB2 voor LUW | 11, 10,5 |
+|||
 
-## <a name="list-tables"></a>Lijst met tabellen weergeven
-Maken van een logische app voor een bewerking bestaat uit een groot aantal stappen uitgevoerd via de Microsoft Azure portal.
+## <a name="supported-database-operations"></a>Ondersteunde databasebewerkingen
 
-In de logische app, kunt u een actie toevoegen aan de lijst met tabellen in een DB2-database. Hiermee geeft u de actie die de connector voor het verwerken van een instructie DB2 schema zoals `CALL SYSIBM.SQLTABLES`.
+De IBM DB2-connector biedt ondersteuning voor deze databasebewerkingen, die zijn toegewezen aan de bijbehorende acties die in de connector:
 
-### <a name="create-a-logic-app"></a>Een logische app maken
-1. In de **Azure start board**, selecteer **+** (plusteken) **Web en mobiel**, en vervolgens **logische App**.
-2. Voer de **naam**, zoals `Db2getTables`, **abonnement**, **resourcegroep**, **locatie**, en **App Service-Plan**. Selecteer **vastmaken aan dashboard**, en selecteer vervolgens **maken**.
+| Database-bewerking | Connector-actie | 
+|--------------------|------------------|
+| Lijst met database-tabellen | Tabellen ophalen | 
+| Lezen van één rij met behulp van selecteren | Rij ophalen | 
+| Lezen van alle rijen met behulp van selecteren | Rijen ophalen | 
+| Een rij met behulp van INSERT toevoegen | Rij invoegen | 
+| Een rij met UPDATE bewerken | Rij bijwerken | 
+| Verwijderen van één rij verwijderen gebruiken | Rij verwijderen | 
+|||
 
-### <a name="add-a-trigger-and-action"></a>Toevoegen van een trigger en action
-1. In de **Logic Apps Designer**, selecteer **leeg LogicApp** in de **sjablonen** lijst.
-2. In de **triggers** selecteert **terugkeerpatroon**. 
-3. In de **terugkeerpatroon** worden geactiveerd, selecteer **bewerken**, selecteer **frequentie** vervolgkeuzelijst selecteren **dag**, en stel vervolgens de **Interval** naar het type **7**.  
-4. Selecteer de **+ een nieuwe stap** vak en selecteer vervolgens **een actie toevoegen**.
-5. In de **acties** typt `db2` in de **zoeken naar meer acties** invoervak en selecteer vervolgens **DB2 - Get-tabellen (Preview)**.
+## <a name="prerequisites"></a>Vereisten
+
+* Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>. 
+
+* Een IBM DB2-database, ofwel op basis van een cloud of on-premises
+
+* Basiskennis over [over het maken van logische apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* De logische app waar u toegang tot de DB2-database. Deze connector beschikt u alleen acties, om de logische App, selecteert u een afzonderlijke trigger, bijvoorbeeld, de **terugkeerpatroon** trigger.
+De voorbeelden in dit artikel gebruiken de **terugkeerpatroon** trigger.
+
+<a name="add-db2-action"></a>
+
+## <a name="add-db2-action---get-tables"></a>DB2-actie - Get-tabellen toevoegen
+
+1. In de [Azure-portal](https://portal.azure.com), opent u uw logische app in de ontwerper van logische App, als dit niet al geopend.
+
+1. Kies onder de trigger **nieuwe stap**.
+
+1. Typ 'db2' als filter in het zoekvak. In dit voorbeeld onder de lijst met acties, selecteert u deze actie: **tabellen (Preview) ophalen**
    
-   ![](./media/connectors-create-api-db2/Db2connectorActions.png)  
-6. In de **DB2 - Get-tabellen** deelvenster configuratie, selecteer **selectievakje** om in te schakelen **verbinden via lokale gegevensgateway**. U ziet dat de instellingen vanuit de cloud naar on-premises wijzigen.
+   ![Actie selecteren](./media/connectors-create-api-db2/select-db2-action.png)
+
+   U wordt gevraagd nu voor de verbindingsgegevens van de DB2-database. 
+
+1. Volg de stappen voor het maken van verbindingen voor [databases in de cloud](#cloud-connection) of [van on-premises databases](#on-premises-connection).
+
+<a name="cloud-connection"></a>
+
+## <a name="connect-to-cloud-db2"></a>Verbinding maken met de cloud DB2
+
+Als u uw verbinding instelt, geef de details voor deze verbinding wanneer hierom wordt gevraagd, kiest u **maken**, en sla vervolgens uw logische app:
+
+| Eigenschap | Vereist | Beschrijving | 
+|----------|----------|-------------| 
+| **Verbinding maken via on-premises gateway** | Nee | Geldt alleen voor on-premises verbindingen. | 
+| **Verbindingsnaam** | Ja | De naam voor de verbinding, bijvoorbeeld 'MyLogicApp-DB2-verbinding' |
+| **Server** | Ja | Het adres of de alias dubbele-poortnummer voor de DB2-server, bijvoorbeeld "myDB2server.cloudapp.net:50000" <p><p>**Houd er rekening mee**: deze waarde is een tekenreeks met een TCP/IP-adres of alias, hetzij in IPv4 of IPv6-indeling, gevolgd door een dubbele punt en een TCP/IP-poortnummer. |
+| **Database** | Ja | De naam voor uw database <p><p>**Houd er rekening mee**: deze waarde is een tekenreeks met een DRDA relationele Database de naam (RDBNAM): <p>-DB2 voor z/OS accepteert een 16-byte-tekenreeks waar de database op een locatie 'IBM DB2 voor z/OS' wordt genoemd. <br>-DB2 voor ik een 18-byte-tekenreeks waarin de database staat bekend accepteert als een ' IBM DB2 voor ik ' relationele database. <br>-DB2 voor LUW accepteert een 8-byte-tekenreeks. |
+| **Gebruikersnaam** | Ja | De naam van de gebruiker voor de database <p><p>**Houd er rekening mee**: deze waarde is een tekenreeks waarvan de lengte is gebaseerd op de specifieke database: <p><p>-DB2 voor z/OS accepteert een 8-byte-tekenreeks. <br>-DB2 voor ik een 10-byte-tekenreeks accepteert. <br>-DB2 voor Linux of UNIX accepteert een 8-byte-tekenreeks. <br>-DB2 voor Windows accepteert een 30-byte-tekenreeks. | 
+| **Wachtwoord** | Ja | Uw wachtwoord voor de database | 
+|||| 
+
+Bijvoorbeeld:
+
+![Verbindingsgegevens voor cloud-gebaseerde databases](./media/connectors-create-api-db2/create-db2-cloud-connection.png)
+
+<a name="on-premises-connection"></a>
+
+## <a name="connect-to-on-premises-db2"></a>Verbinding maken met on-premises DB2
+
+Voordat u de verbinding maakt, hebt u al uw on-premises gegevensgateway is geïnstalleerd. Anders wordt u niet voltooien om uw verbinding. Als u de gatewayinstallatie hebt, gaat u verder met het leveren van details voor deze verbinding en kies vervolgens **maken**.
+
+| Eigenschap | Vereist | Beschrijving | 
+|----------|----------|-------------| 
+| **Verbinding maken via on-premises gateway** | Ja | Is van toepassing wanneer u wilt dat een on-premises-verbinding en ziet u de on-premises verbindingseigenschappen. | 
+| **Verbindingsnaam** | Ja | De naam voor de verbinding, bijvoorbeeld 'MyLogicApp-DB2-verbinding' | 
+| **Server** | Ja | Het adres of de alias dubbele-poortnummer voor de DB2-server, bijvoorbeeld "myDB2server:50000" <p><p>**Houd er rekening mee**: deze waarde is een tekenreeks met een TCP/IP-adres of alias, hetzij in IPv4 of IPv6-indeling, gevolgd door een dubbele punt en een TCP/IP-poortnummer. | 
+| **Database** | Ja | De naam voor uw database <p><p>**Houd er rekening mee**: deze waarde is een tekenreeks met een DRDA relationele Database de naam (RDBNAM): <p>-DB2 voor z/OS accepteert een 16-byte-tekenreeks waar de database op een locatie 'IBM DB2 voor z/OS' wordt genoemd. <br>-DB2 voor ik een 18-byte-tekenreeks waarin de database staat bekend accepteert als een ' IBM DB2 voor ik ' relationele database. <br>-DB2 voor LUW accepteert een 8-byte-tekenreeks. | 
+| **Verificatie** | Ja | Het verificatietype voor de verbinding, bijvoorbeeld 'Basic' <p><p>**Houd er rekening mee**: Selecteer deze waarde in de lijst, waaronder het Basic- of Windows (Kerberos). | 
+| **Gebruikersnaam** | Ja | De naam van de gebruiker voor de database <p><p>**Houd er rekening mee**: deze waarde is een tekenreeks waarvan de lengte is gebaseerd op de specifieke database: <p><p>-DB2 voor z/OS accepteert een 8-byte-tekenreeks. <br>-DB2 voor ik een 10-byte-tekenreeks accepteert. <br>-DB2 voor Linux of UNIX accepteert een 8-byte-tekenreeks. <br>-DB2 voor Windows accepteert een 30-byte-tekenreeks. | 
+| **Wachtwoord** | Ja | Uw wachtwoord voor de database | 
+| **Gateway** | Ja | De naam van uw geïnstalleerde on-premises gegevensgateway <p><p>**Houd er rekening mee**: Selecteer deze waarde in de lijst, waaronder de van geïnstalleerde gegevensgateways binnen uw Azure-abonnement en resource-groep. | 
+|||| 
+
+Bijvoorbeeld:
+
+![Verbindingsgegevens voor on-premises databases](./media/connectors-create-api-db2/create-db2-on-premises-connection.png)
+
+### <a name="view-output-tables"></a>Weergave uitvoertabellen
+
+Kies voor het uitvoeren van uw logische app handmatig, op de werkbalk van de ontwerper **uitvoeren**. Nadat uw logische app is voltooid, kunt u de uitvoer van de uitvoering weergeven.
+
+1. Selecteer op het menu van uw logische app, **overzicht**. 
+
+1. Onder **samenvatting**, in de **geschiedenis van uitvoeringen** sectie, selecteert u de meest recente uitvoering, wat het eerste item in de lijst. 
+
+   ![Uitvoeringsgeschiedenis weergeven](./media/connectors-create-api-db2/run-history.png)
+
+1. Onder **logische app**, u kunt nu de status van de invoer, bekijken en uitvoer voor elke stap in uw logische app. Vouw de **tabellen ophalen** actie.
+
+   ![Vouw de actie](./media/connectors-create-api-db2/expand-action-step.png)
+
+1. U kunt bekijken van de invoer **onbewerkte invoer weergeven**. 
+
+1. U kunt de uitvoer bekijken **onbewerkte uitvoer weergeven**. 
+
+   De uitvoer bevatten een lijst met tabellen. 
    
-   * Typ de waarde voor **Server**, in de vorm van een poortnummer of de alias dubbele punt. Typ bijvoorbeeld `ibmserver01:50000`.
-   * Typ de waarde voor **Database**. Typ bijvoorbeeld `nwind`.
-   * Selecteer de waarde voor **verificatie**. Selecteer bijvoorbeeld **Basic**.
-   * Typ de waarde voor **gebruikersnaam**. Typ bijvoorbeeld `db2admin`.
-   * Typ de waarde voor **wachtwoord**. Typ bijvoorbeeld `Password1`.
-   * Selecteer de waarde voor **Gateway**. Selecteer bijvoorbeeld **datagateway01**.
-7. Selecteer **maken**, en selecteer vervolgens **opslaan**. 
+   ![Weergave uitvoertabellen](./media/connectors-create-api-db2/db2-connector-get-tables-outputs.png)
+
+## <a name="get-row"></a>Rij ophalen
+
+Als u wilt één record in een DB2-database-tabel ophalen, gebruikt u de **rij ophalen** actie in uw logische app. Deze bewerking wordt een DB2 `SELECT WHERE` instructie, bijvoorbeeld `SELECT FROM AREA WHERE AREAID = '99999'`.
+
+1. Als u in uw logische app nooit DB2 acties voordat u hebt gebruikt, raadpleegt u de stappen in de [toevoegen DB2 actie - Get-tabellen](#add-db2-action) sectie, maar toevoegen de **rij ophalen** actie in plaats daarvan en keer vervolgens hier terug om door te gaan. 
+
+   Nadat u hebt toegevoegd de **rij ophalen** actie, dit is hoe uw voorbeeld van logische app wordt weergegeven:
+
+   ![Actie van de rij ophalen](./media/connectors-create-api-db2/db2-get-row-action.png)
+
+1. Geef waarden op voor de vereiste eigenschappen (*). Nadat u een tabel hebt geselecteerd, ziet u de actie de relevante eigenschappen die specifiek voor de records in die tabel zijn.
+
+   | Eigenschap | Vereist | Beschrijving | 
+   |----------|----------|-------------| 
+   | **Tabelnaam** | Ja | De tabel die de record heeft u wilt, zoals 'Gebied' in dit voorbeeld | 
+   | **Gebied-ID** | Ja | De ID voor de record die u wilt, zoals '99999"in dit voorbeeld | 
+   |||| 
+
+   ![Tabel selecteren](./media/connectors-create-api-db2/db2-get-row-action-select-table.png)
+
+1. Wanneer u klaar bent, op de werkbalk van de ontwerper, kiest u **opslaan**. 
+
+### <a name="view-output-row"></a>Rij van de uitvoer weergeven
+
+Kies voor het uitvoeren van uw logische app handmatig, op de werkbalk van de ontwerper **uitvoeren**. Nadat uw logische app is voltooid, kunt u de uitvoer van de uitvoering weergeven.
+
+1. Selecteer op het menu van uw logische app, **overzicht**. 
+
+1. Onder **samenvatting**, in de **geschiedenis van uitvoeringen** sectie, selecteert u de meest recente uitvoering, wat het eerste item in de lijst. 
+
+1. Onder **logische app**, u kunt nu de status van de invoer, bekijken en uitvoer voor elke stap in uw logische app. Vouw de **rij ophalen** actie.
+
+1. U kunt bekijken van de invoer **onbewerkte invoer weergeven**. 
+
+1. U kunt de uitvoer bekijken **onbewerkte uitvoer weergeven**. 
+
+   De uitvoer zijn de opgegeven rij. 
    
-    ![](./media/connectors-create-api-db2/Db2connectorOnPremisesDataGatewayConnection.png)
-8. In de **Db2getTables** blade in de **alle sessies** lijst onder **samenvatting**, selecteert u het item eerst weergegeven (meest recente uitvoeren).
-9. In de **logische app uitgevoerd** blade Selecteer **Details uitvoering van**. Binnen de **actie** selecteert **Get_tables**. Zie de waarde voor **Status**, die moet worden **geslaagd**. Selecteer de **invoer koppeling** om weer te geven van de invoer. Selecteer de **uitvoer koppeling**, en de uitvoer weergeven; die een lijst met tabellen bevatten.
+   ![Rij van de uitvoer weergeven](./media/connectors-create-api-db2/db2-connector-get-row-outputs.png)
+
+## <a name="get-rows"></a>Rijen ophalen
+
+Om op te halen van alle records in een DB2-database-tabel, gebruikt u de **rijen ophalen** actie in uw logische app. Deze bewerking wordt een DB2 `SELECT` instructie, bijvoorbeeld `SELECT * FROM AREA`.
+
+1. Als u in uw logische app nooit DB2 acties voordat u hebt gebruikt, raadpleegt u de stappen in de [toevoegen DB2 actie - Get-tabellen](#add-db2-action) sectie, maar toevoegen de **rijen ophalen** actie in plaats daarvan en keer vervolgens hier terug om door te gaan. 
+
+   Nadat u hebt toegevoegd de **rijen ophalen** actie, dit is hoe uw voorbeeld van logische app wordt weergegeven:
+
+   ![Actie rijen ophalen](./media/connectors-create-api-db2/db2-get-rows-action.png)
+
+1. Open de **tabelnaam** lijst en selecteer vervolgens de gewenste tabel die 'Gebied' in dit voorbeeld is: 
+
+   ![Tabel selecteren](./media/connectors-create-api-db2/db2-get-rows-action-select-table.png)
+
+1. Als u wilt opgeven van een filter of een query voor de resultaten, kies **geavanceerde opties weergeven**.
+
+1. Wanneer u klaar bent, op de werkbalk van de ontwerper, kiest u **opslaan**. 
+
+### <a name="view-output-rows"></a>Weergave uitvoer rijen
+
+Kies voor het uitvoeren van uw logische app handmatig, op de werkbalk van de ontwerper **uitvoeren**. Nadat uw logische app is voltooid, kunt u de uitvoer van de uitvoering weergeven.
+
+1. Selecteer op het menu van uw logische app, **overzicht**. 
+
+1. Onder **samenvatting**, in de **geschiedenis van uitvoeringen** sectie, selecteert u de meest recente uitvoering, wat het eerste item in de lijst. 
+
+1. Onder **logische app**, u kunt nu de status van de invoer, bekijken en uitvoer voor elke stap in uw logische app. Vouw de **rijen ophalen** actie.
+
+1. U kunt bekijken van de invoer **onbewerkte invoer weergeven**. 
+
+1. U kunt de uitvoer bekijken **onbewerkte uitvoer weergeven**. 
+
+   De uitvoer opnemen alle records in de opgegeven tabel.
    
-   ![](./media/connectors-create-api-db2/Db2connectorGetTablesLogicAppRunOutputs.png)
+   ![Weergave uitvoer rijen](./media/connectors-create-api-db2/db2-connector-get-rows-outputs.png)
 
-## <a name="create-the-connections"></a>De verbindingen maken
-Deze connector ondersteunt verbindingen met databases die worden gehost on-premises en in de cloud met behulp van de volgende verbindingseigenschappen. 
+## <a name="insert-row"></a>Rij invoegen
 
-| Eigenschap | Beschrijving |
-| --- | --- |
-| server |Vereist. Een tekenreekswaarde die staat voor een TCP/IP-adres of de alias in IPv4 of IPv6-indeling, gevolgd (gescheiden door puntkomma) door een TCP/IP-poortnummer accepteert. |
-| database |Vereist. Accepteert een string-waarde die een DRDA relationele Database naam (RDBNAM aangeeft). DB2 voor z/OS accepteert een 16-byte-tekenreeks (de database staat bekend als een IBM DB2 voor de locatie van de z-/ OS). DB2 voor i5/OS accepteert geen 18-byte-tekenreeks (database staat bekend als een IBM DB2 voor i relationele database). DB2 voor LUW accepteert een 8-byte-tekenreeks. |
-| verificatie |Optioneel. Een item lijstwaarde, Basic of Windows (kerberos) accepteert. |
-| gebruikersnaam |Vereist. Een string-waarde accepteert. DB2 voor z/OS accepteert een 8-byte-tekenreeks. DB2 voor i een 10-byte-tekenreeks accepteert. DB2 voor Linux of UNIX accepteert een 8-byte-tekenreeks. DB2 voor Windows accepteert een 30-byte-tekenreeks. |
-| wachtwoord |Vereist. Een string-waarde accepteert. |
-| gateway |Vereist. Een lijst item-waarde die aangeeft van de lokale data gateway gedefinieerd voor Logic Apps in de opslaggroep accepteert. |
+Als u wilt één record toevoegen aan een DB2-database-tabel, gebruikt u de **rij invoegen** actie in uw logische app. Deze bewerking wordt een DB2 `INSERT` instructie, bijvoorbeeld `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
-## <a name="create-the-on-premises-gateway-connection"></a>De on-premises gatewayverbinding maken
-Deze connector hebben toegang tot een lokale DB2-database met behulp van de lokale gateway. Zie gateway-onderwerpen voor meer informatie. 
+1. Als u in uw logische app nooit DB2 acties voordat u hebt gebruikt, raadpleegt u de stappen in de [toevoegen DB2 actie - Get-tabellen](#add-db2-action) sectie, maar toevoegen de **rij invoegen** actie in plaats daarvan en keer vervolgens hier terug om door te gaan. 
 
-1. In de **Gateways** deelvenster configuratie, selecteer **selectievakje** om in te schakelen **verbinden via de gateway**. U ziet dat de instellingen vanuit de cloud naar on-premises wijzigen.
-2. Typ de waarde voor **Server**, in de vorm van een poortnummer of de alias dubbele punt. Typ bijvoorbeeld `ibmserver01:50000`.
-3. Typ de waarde voor **Database**. Typ bijvoorbeeld `nwind`.
-4. Selecteer de waarde voor **verificatie**. Selecteer bijvoorbeeld **Basic**.
-5. Typ de waarde voor **gebruikersnaam**. Typ bijvoorbeeld `db2admin`.
-6. Typ de waarde voor **wachtwoord**. Typ bijvoorbeeld `Password1`.
-7. Selecteer de waarde voor **Gateway**. Selecteer bijvoorbeeld **datagateway01**.
-8. Selecteer **maken** om door te gaan. 
+   Nadat u hebt toegevoegd de **rij invoegen** actie, dit is hoe uw voorbeeld van logische app wordt weergegeven:
+
+   ![Actie van de rij invoegen](./media/connectors-create-api-db2/db2-insert-row-action.png)
+
+1. Geef waarden op voor de vereiste eigenschappen (*). Nadat u een tabel hebt geselecteerd, ziet u de actie de relevante eigenschappen die specifiek voor de records in die tabel zijn. 
+
+   Dit zijn de eigenschappen voor dit voorbeeld:
+
+   | Eigenschap | Vereist | Beschrijving | 
+   |----------|----------|-------------| 
+   | **Tabelnaam** | Ja | De tabel waar de record, zoals 'Gebied' toe te voegen | 
+   | **Gebied-ID** | Ja | De ID voor het gebied toe te voegen, zoals "99999" | 
+   | **Beschrijving van gebied** | Ja | De beschrijving van het gebied toe te voegen, zoals "Gebied 99999" | 
+   | **Regio-ID** | Ja | De ID voor de regio om toe te voegen, zoals "102" | 
+   |||| 
+
+   Bijvoorbeeld:
+
+   ![Tabel selecteren](./media/connectors-create-api-db2/db2-insert-row-action-select-table.png)
+
+1. Wanneer u klaar bent, op de werkbalk van de ontwerper, kiest u **opslaan**. 
+
+### <a name="view-insert-row-outputs"></a>Weergave uitvoer van de rij invoegen
+
+Kies voor het uitvoeren van uw logische app handmatig, op de werkbalk van de ontwerper **uitvoeren**. Nadat uw logische app is voltooid, kunt u de uitvoer van de uitvoering weergeven.
+
+1. Selecteer op het menu van uw logische app, **overzicht**. 
+
+1. Onder **samenvatting**, in de **geschiedenis van uitvoeringen** sectie, selecteert u de meest recente uitvoering, wat het eerste item in de lijst. 
+
+1. Onder **logische app**, u kunt nu de status van de invoer, bekijken en uitvoer voor elke stap in uw logische app. Vouw de **rij invoegen** actie.
+
+1. U kunt bekijken van de invoer **onbewerkte invoer weergeven**. 
+
+1. U kunt de uitvoer bekijken **onbewerkte uitvoer weergeven**. 
+
+   De uitvoer zijn de record die u hebt toegevoegd aan de opgegeven tabel.
    
-    ![](./media/connectors-create-api-db2/Db2connectorOnPremisesDataGatewayConnection.png)
+   ![Weergave uitvoer met de ingevoegde rij](./media/connectors-create-api-db2/db2-connector-insert-row-outputs.png)
 
-## <a name="create-the-cloud-connection"></a>De verbinding van de cloud maken
-Deze connector hebben toegang tot een cloud DB2-database. 
+## <a name="update-row"></a>Rij bijwerken
 
-1. In de **Gateways** deelvenster configuratie laat de **selectievakje** uitgeschakeld (waar) **verbinden via de gateway**. 
-2. Typ de waarde voor **verbindingsnaam**. Typ bijvoorbeeld `hisdemo2`.
-3. Typ de waarde voor **DB2-servernaam**, in de vorm van een poortnummer of de alias dubbele punt. Typ bijvoorbeeld `hisdemo2.cloudapp.net:50000`.
-4. Typ de waarde voor **DB2 databasenaam**. Typ bijvoorbeeld `nwind`.
-5. Typ de waarde voor **gebruikersnaam**. Typ bijvoorbeeld `db2admin`.
-6. Typ de waarde voor **wachtwoord**. Typ bijvoorbeeld `Password1`.
-7. Selecteer **maken** om door te gaan. 
+Als u wilt één record in een DB2-database-tabel bijwerken, gebruikt u de **rij bijwerken** actie in uw logische app. Deze bewerking wordt een DB2 `UPDATE` instructie, bijvoorbeeld `UPDATE AREA SET AREAID = '99999', AREADESC = 'Updated 99999', REGIONID = 102)`.
+
+1. Als u in uw logische app nooit DB2 acties voordat u hebt gebruikt, raadpleegt u de stappen in de [toevoegen DB2 actie - Get-tabellen](#add-db2-action) sectie, maar toevoegen de **rij bijwerken** actie in plaats daarvan en keer vervolgens hier terug om door te gaan. 
+
+   Nadat u hebt toegevoegd de **rij bijwerken** actie, dit is hoe uw voorbeeld van logische app wordt weergegeven:
+
+   ![Actie van de rij bijwerken](./media/connectors-create-api-db2/db2-update-row-action.png)
+
+1. Geef waarden op voor de vereiste eigenschappen (*). Nadat u een tabel hebt geselecteerd, ziet u de actie de relevante eigenschappen die specifiek voor de records in die tabel zijn. 
+
+   Dit zijn de eigenschappen voor dit voorbeeld:
+
+   | Eigenschap | Vereist | Beschrijving | 
+   |----------|----------|-------------| 
+   | **Tabelnaam** | Ja | De tabel waar de record, zoals "Gebied" bij te werken | 
+   | **Rij-ID** | Ja | De ID voor de record bij te werken, zoals "99999" | 
+   | **Gebied-ID** | Ja | De nieuwe gebied-ID, zoals "99999" | 
+   | **Beschrijving van gebied** | Ja | De nieuwe beschrijving gebied, zoals "Bijgewerkt 99999" | 
+   | **Regio-ID** | Ja | De nieuwe regio-ID, zoals "102" | 
+   |||| 
+
+   Bijvoorbeeld:
+
+   ![Tabel selecteren](./media/connectors-create-api-db2/db2-update-row-action-select-table.png)
+
+1. Wanneer u klaar bent, op de werkbalk van de ontwerper, kiest u **opslaan**. 
+
+### <a name="view-update-row-outputs"></a>Uitvoer van de rij bijwerken weergeven
+
+Kies voor het uitvoeren van uw logische app handmatig, op de werkbalk van de ontwerper **uitvoeren**. Nadat uw logische app is voltooid, kunt u de uitvoer van de uitvoering weergeven.
+
+1. Selecteer op het menu van uw logische app, **overzicht**. 
+
+1. Onder **samenvatting**, in de **geschiedenis van uitvoeringen** sectie, selecteert u de meest recente uitvoering, wat het eerste item in de lijst. 
+
+1. Onder **logische app**, u kunt nu de status van de invoer, bekijken en uitvoer voor elke stap in uw logische app. Vouw de **rij bijwerken** actie.
+
+1. U kunt bekijken van de invoer **onbewerkte invoer weergeven**. 
+
+1. U kunt de uitvoer bekijken **onbewerkte uitvoer weergeven**. 
+
+   De uitvoer zijn de record die u in de opgegeven tabel bijgewerkt.
    
-    ![](./media/connectors-create-api-db2/Db2connectorCloudConnection.png)
+   ![Weergave uitvoer met de bijgewerkte rij](./media/connectors-create-api-db2/db2-connector-update-row-outputs.png)
 
-## <a name="fetch-all-rows-using-select"></a>Ophalen van alle rijen met selecteren
-U kunt een logische app-actie voor het ophalen van alle rijen in een tabel DB2 definiëren. Dit geeft de connector voor het verwerken van een DB2 SELECT-instructie, zoals de instructie `SELECT * FROM AREA`.
+## <a name="delete-row"></a>Rij verwijderen
 
-### <a name="create-a-logic-app"></a>Een logische app maken
-1. In de **Azure start board**, selecteer **+** (plusteken) **Web en mobiel**, en vervolgens **logische App**.
-2. Voer de **naam**, zoals `Db2getRows`, **abonnement**, **resourcegroep**, **locatie**, en **App Service-Plan**. Selecteer **vastmaken aan dashboard**, en selecteer vervolgens **maken**.
+Als u wilt één record verwijderen uit een DB2-database-tabel, gebruikt u de **rij verwijderen** actie in uw logische app. Deze bewerking wordt een DB2 `DELETE` instructie, bijvoorbeeld `DELETE FROM AREA WHERE AREAID = '99999'`.
 
-### <a name="add-a-trigger-and-action"></a>Toevoegen van een trigger en action
-1. In de **Logic Apps Designer**, selecteer **leeg LogicApp** in de **sjablonen** lijst.
-2. In de **triggers** selecteert **terugkeerpatroon**. 
-3. In de **terugkeerpatroon** worden geactiveerd, selecteer **bewerken**, selecteer **frequentie** vervolgkeuzelijst selecteren **dag**, en selecteer vervolgens **Interval** naar het type **7**. 
-4. Selecteer de **+ een nieuwe stap** vak en selecteer vervolgens **een actie toevoegen**.
-5. In de **acties** typt `db2` in de **zoeken naar meer acties** invoervak en selecteer vervolgens **DB2 - Get-rijen (Preview)**.
-6. In de **rijen (Preview) ophalen** actie, selecteer **verbinding wijzigen**.
-7. In de **verbindingen** deelvenster configuratie, selecteer **nieuw**. 
+1. Als u in uw logische app nooit DB2 acties voordat u hebt gebruikt, raadpleegt u de stappen in de [toevoegen DB2 actie - Get-tabellen](#add-db2-action) sectie, maar toevoegen de **rij verwijderen** actie in plaats daarvan en keer vervolgens hier terug om door te gaan. 
+
+   Nadat u hebt toegevoegd de **rij verwijderen** actie, dit is hoe uw voorbeeld van logische app wordt weergegeven:
+
+   ![Rij actie verwijderen](./media/connectors-create-api-db2/db2-delete-row-action.png)
+
+1. Geef waarden op voor de vereiste eigenschappen (*). Nadat u een tabel hebt geselecteerd, ziet u de actie de relevante eigenschappen die specifiek voor de records in die tabel zijn. 
+
+   Dit zijn de eigenschappen voor dit voorbeeld:
+
+   | Eigenschap | Vereist | Beschrijving | 
+   |----------|----------|-------------| 
+   | **Tabelnaam** | Ja | De tabel waar de record, zoals 'Gebied' verwijderen | 
+   | **Rij-ID** | Ja | De ID voor de record te verwijderen, zoals "99999" | 
+   |||| 
+
+   Bijvoorbeeld:
+
+   ![Tabel selecteren](./media/connectors-create-api-db2/db2-delete-row-action-select-table.png)
+
+1. Wanneer u klaar bent, op de werkbalk van de ontwerper, kiest u **opslaan**. 
+
+### <a name="view-delete-row-outputs"></a>Weergave uitvoer van de rij verwijderen
+
+Kies voor het uitvoeren van uw logische app handmatig, op de werkbalk van de ontwerper **uitvoeren**. Nadat uw logische app is voltooid, kunt u de uitvoer van de uitvoering weergeven.
+
+1. Selecteer op het menu van uw logische app, **overzicht**. 
+
+1. Onder **samenvatting**, in de **geschiedenis van uitvoeringen** sectie, selecteert u de meest recente uitvoering, wat het eerste item in de lijst. 
+
+1. Onder **logische app**, u kunt nu de status van de invoer, bekijken en uitvoer voor elke stap in uw logische app. Vouw de **rij verwijderen** actie.
+
+1. U kunt bekijken van de invoer **onbewerkte invoer weergeven**. 
+
+1. U kunt de uitvoer bekijken **onbewerkte uitvoer weergeven**. 
+
+   De uitvoer niet langer deel de record die u hebt verwijderd uit de opgegeven tabel.
    
-    ![](./media/connectors-create-api-db2/Db2connectorNewConnection.png)
-8. In de **Gateways** deelvenster configuratie laat de **selectievakje** uitgeschakeld (waar) **verbinden via de gateway**.
-   
-   * Typ de waarde voor **verbindingsnaam**. Typ bijvoorbeeld `HISDEMO2`.
-   * Typ de waarde voor **DB2-servernaam**, in de vorm van een poortnummer of de alias dubbele punt. Typ bijvoorbeeld `HISDEMO2.cloudapp.net:50000`.
-   * Typ de waarde voor **DB2 databasenaam**. Typ bijvoorbeeld `NWIND`.
-   * Typ de waarde voor **gebruikersnaam**. Typ bijvoorbeeld `db2admin`.
-   * Typ de waarde voor **wachtwoord**. Typ bijvoorbeeld `Password1`.
-9. Selecteer **maken** om door te gaan.
-   
-    ![](./media/connectors-create-api-db2/Db2connectorCloudConnection.png)
-10. In de **tabelnaam** lijst, selecteert de **pijl-omlaag**, en selecteer vervolgens **gebied**.
-11. Selecteer desgewenst **geavanceerde opties weergeven** queryopties opgeven.
-12. Selecteer **Opslaan**. 
-    
-    ![](./media/connectors-create-api-db2/Db2connectorGetRowsTableName.png)
-13. In de **Db2getRows** blade in de **alle sessies** lijst onder **samenvatting**, selecteert u het item eerst weergegeven (meest recente uitvoeren).
-14. In de **logische app uitgevoerd** blade Selecteer **Details uitvoering van**. Binnen de **actie** selecteert **Get_rows**. Zie de waarde voor **Status**, die moet worden **geslaagd**. Selecteer de **invoer koppeling** om weer te geven van de invoer. Selecteer de **uitvoer koppeling**, en de uitvoer weergeven; die een lijst met rijen bevatten.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorGetRowsOutputs.png)
+   ![Weergave uitvoer zonder verwijderde rij](./media/connectors-create-api-db2/db2-connector-delete-row-outputs.png)
 
-## <a name="add-one-row-using-insert"></a>Een rij invoegen met toevoegen
-U kunt een logische app-actie voor het toevoegen van een rij in een tabel DB2 definiëren. Deze actie Hiermee geeft u de connector voor het verwerken van een instructie INSERT DB2 zoals `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
+## <a name="connector-reference"></a>Connector-verwijzing
 
-### <a name="create-a-logic-app"></a>Een logische app maken
-1. In de **Azure start board**, selecteer **+** (plusteken) **Web en mobiel**, en vervolgens **logische App**.
-2. Voer de **naam**, zoals `Db2insertRow`, **abonnement**, **resourcegroep**, **locatie**, en **App Service-Plan**. Selecteer **vastmaken aan dashboard**, en selecteer vervolgens **maken**.
+Zie voor technische details, zoals triggers en acties limieten, zoals is beschreven in de Swagger-bestand van de connector, de [van de connector-verwijzingspagina](/connectors/db2/). 
 
-### <a name="add-a-trigger-and-action"></a>Toevoegen van een trigger en action
-1. In de **Logic Apps Designer**, selecteer **leeg LogicApp** in de **sjablonen** lijst.
-2. In de **triggers** selecteert **terugkeerpatroon**. 
-3. In de **terugkeerpatroon** worden geactiveerd, selecteer **bewerken**, selecteer **frequentie** vervolgkeuzelijst selecteren **dag**, en selecteer vervolgens **Interval** naar het type **7**. 
-4. Selecteer de **+ een nieuwe stap** vak en selecteer vervolgens **een actie toevoegen**.
-5. In de **acties** typt **db2** in de **zoeken naar meer acties** invoervak en selecteer vervolgens **DB2 - rij invoegen (Preview)**.
-6. In de **DB2 - rij invoegen (Preview)** actie, selecteer **verbinding wijzigen**. 
-7. In de **verbindingen** deelvenster configuratie, selecteert u een verbinding. Selecteer bijvoorbeeld **hisdemo2**.
-   
-    ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
-8. In de **tabelnaam** lijst, selecteert de **pijl-omlaag**, en selecteer vervolgens **gebied**.
-9. Geef waarden voor alle vereiste kolommen (Zie rode sterretjes). Typ bijvoorbeeld `99999` voor **gebieds-id**, type `Area 99999`, en het type `102` voor **REGIONID**. 
-10. Selecteer **Opslaan**.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorInsertRowValues.png)
-11. In de **Db2insertRow** blade in de **alle sessies** lijst onder **samenvatting**, selecteert u het item eerst weergegeven (meest recente uitvoeren).
-12. In de **logische app uitgevoerd** blade Selecteer **Details uitvoering van**. Binnen de **actie** selecteert **Get_rows**. Zie de waarde voor **Status**, die moet worden **geslaagd**. Selecteer de **invoer koppeling** om weer te geven van de invoer. Selecteer de **uitvoer koppeling**, en de uitvoer weergeven; die de nieuwe rij bevatten.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorInsertRowOutputs.png)
+## <a name="get-support"></a>Ondersteuning krijgen
 
-## <a name="fetch-one-row-using-select"></a>Ophalen van één rij met selecteren
-U kunt een logische app-actie voor het ophalen van een rij in een tabel DB2 definiëren. Deze actie Hiermee geeft u de connector voor het verwerken van een instructie DB2 selecteren waar zoals `SELECT FROM AREA WHERE AREAID = '99999'`.
-
-### <a name="create-a-logic-app"></a>Een logische app maken
-1. In de **Azure start board**, selecteer **+** (plusteken) **Web en mobiel**, en vervolgens **logische App**.
-2. Voer de **naam** (bijvoorbeeld) "**Db2getRow**'), **abonnement**, **resourcegroep**, **locatie**, en **App Service-Plan**. Selecteer **vastmaken aan dashboard**, en selecteer vervolgens **maken**.
-
-### <a name="add-a-trigger-and-action"></a>Toevoegen van een trigger en action
-1. In de **Logic Apps Designer**, selecteer **leeg LogicApp** in de **sjablonen** lijst. 
-2. In de **triggers** selecteert **terugkeerpatroon**. 
-3. In de **terugkeerpatroon** worden geactiveerd, selecteer **bewerken**, selecteer **frequentie** vervolgkeuzelijst selecteren **dag**, en selecteer vervolgens **Interval** naar het type **7**. 
-4. Selecteer de **+ een nieuwe stap** vak en selecteer vervolgens **een actie toevoegen**.
-5. In de **acties** typt **db2** in de **zoeken naar meer acties** invoervak en selecteer vervolgens **DB2 - Get-rijen (Preview)**.
-6. In de **rijen (Preview) ophalen** actie, selecteer **verbinding wijzigen**. 
-7. In de **verbindingen** configuraties deelvenster een bestaande verbinding selecteren. Selecteer bijvoorbeeld **hisdemo2**.
-   
-    ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
-8. In de **tabelnaam** lijst, selecteert de **pijl-omlaag**, en selecteer vervolgens **gebied**.
-9. Geef waarden voor alle vereiste kolommen (Zie rode sterretjes). Typ bijvoorbeeld `99999` voor **gebieds-id**. 
-10. Selecteer desgewenst **geavanceerde opties weergeven** queryopties opgeven.
-11. Selecteer **Opslaan**. 
-    
-    ![](./media/connectors-create-api-db2/Db2connectorGetRowValues.png)
-12. In de **Db2getRow** blade in de **alle sessies** lijst onder **samenvatting**, selecteert u het item eerst weergegeven (meest recente uitvoeren).
-13. In de **logische app uitgevoerd** blade Selecteer **Details uitvoering van**. Binnen de **actie** selecteert **Get_rows**. Zie de waarde voor **Status**, die moet worden **geslaagd**. Selecteer de **invoer koppeling** om weer te geven van de invoer. Selecteer de **uitvoer koppeling**, en de uitvoer weergeven; behoren die rij.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorGetRowOutputs.png)
-
-## <a name="change-one-row-using-update"></a>Wijzigen van één rij met UPDATE
-U kunt een logische app actie om te wijzigen van een rij in een tabel DB2 definiëren. Deze actie Hiermee geeft u de connector voor het verwerken van een instructie UPDATE DB2 zoals `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
-
-### <a name="create-a-logic-app"></a>Een logische app maken
-1. In de **Azure start board**, selecteer **+** (plusteken) **Web en mobiel**, en vervolgens **logische App**.
-2. Voer de **naam**, zoals `Db2updateRow`, **abonnement**, **resourcegroep**, **locatie**, en **App Service-Plan**. Selecteer **vastmaken aan dashboard**, en selecteer vervolgens **maken**.
-
-### <a name="add-a-trigger-and-action"></a>Toevoegen van een trigger en action
-1. In de **Logic Apps Designer**, selecteer **leeg LogicApp** in de **sjablonen** lijst.
-2. In de **triggers** selecteert **terugkeerpatroon**. 
-3. In de **terugkeerpatroon** worden geactiveerd, selecteer **bewerken**, selecteer **frequentie** vervolgkeuzelijst selecteren **dag**, en selecteer vervolgens **Interval** naar het type **7**. 
-4. Selecteer de **+ een nieuwe stap** vak en selecteer vervolgens **een actie toevoegen**.
-5. In de **acties** typt **db2** in de **zoeken naar meer acties** invoervak en selecteer vervolgens **DB2 - Update-rij (Preview)**.
-6. In de **DB2 - Update-rij (Preview)** actie, selecteer **verbinding wijzigen**. 
-7. In de **verbindingen** configuraties deelvenster, selecteer een bestaande verbinding selecteren. Selecteer bijvoorbeeld **hisdemo2**.
-   
-    ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
-8. In de **tabelnaam** lijst, selecteert de **pijl-omlaag**, en selecteer vervolgens **gebied**.
-9. Geef waarden voor alle vereiste kolommen (Zie rode sterretjes). Typ bijvoorbeeld `99999` voor **gebieds-id**, type `Updated 99999`, en het type `102` voor **REGIONID**. 
-10. Selecteer **Opslaan**. 
-    
-    ![](./media/connectors-create-api-db2/Db2connectorUpdateRowValues.png)
-11. In de **Db2updateRow** blade in de **alle sessies** lijst onder **samenvatting**, selecteert u het item eerst weergegeven (meest recente uitvoeren).
-12. In de **logische app uitgevoerd** blade Selecteer **Details uitvoering van**. Binnen de **actie** selecteert **Get_rows**. Zie de waarde voor **Status**, die moet worden **geslaagd**. Selecteer de **invoer koppeling** om weer te geven van de invoer. Selecteer de **uitvoer koppeling**, en de uitvoer weergeven; die de nieuwe rij bevatten.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorUpdateRowOutputs.png)
-
-## <a name="remove-one-row-using-delete"></a>Verwijderen van één rij met DELETE
-U kunt een logische app-actie voor het verwijderen van een rij in een tabel DB2 definiëren. Deze actie Hiermee geeft u de connector voor het verwerken van een DB2-instructie DELETE, zoals `DELETE FROM AREA WHERE AREAID = '99999'`.
-
-### <a name="create-a-logic-app"></a>Een logische app maken
-1. In de **Azure start board**, selecteer **+** (plusteken) **Web en mobiel**, en vervolgens **logische App**.
-2. Voer de **naam**, zoals `Db2deleteRow`, **abonnement**, **resourcegroep**, **locatie**, en **App Service-Plan**. Selecteer **vastmaken aan dashboard**, en selecteer vervolgens **maken**.
-
-### <a name="add-a-trigger-and-action"></a>Toevoegen van een trigger en action
-1. In de **Logic Apps Designer**, selecteer **leeg LogicApp** in de **sjablonen** lijst. 
-2. In de **triggers** selecteert **terugkeerpatroon**. 
-3. In de **terugkeerpatroon** worden geactiveerd, selecteer **bewerken**, selecteer **frequentie** vervolgkeuzelijst selecteren **dag**, en selecteer vervolgens **Interval** naar het type **7**. 
-4. Selecteer de **+ een nieuwe stap** vak en selecteer vervolgens **een actie toevoegen**.
-5. In de **acties** selecteert **db2** in de **zoeken naar meer acties** invoervak en selecteer vervolgens **DB2 - rij verwijderen (Preview)**.
-6. In de **DB2 - rij verwijderen (Preview)** actie, selecteer **verbinding wijzigen**. 
-7. In de **verbindingen** configuraties deelvenster een bestaande verbinding selecteren. Selecteer bijvoorbeeld **hisdemo2**.
-   
-    ![](./media/connectors-create-api-db2/Db2connectorChangeConnection.png)
-8. In de **tabelnaam** lijst, selecteert de **pijl-omlaag**, en selecteer vervolgens **gebied**.
-9. Geef waarden voor alle vereiste kolommen (Zie rode sterretjes). Typ bijvoorbeeld `99999` voor **gebieds-id**. 
-10. Selecteer **Opslaan**. 
-    
-    ![](./media/connectors-create-api-db2/Db2connectorDeleteRowValues.png)
-11. In de **Db2deleteRow** blade in de **alle sessies** lijst onder **samenvatting**, selecteert u het item eerst weergegeven (meest recente uitvoeren).
-12. In de **logische app uitgevoerd** blade Selecteer **Details uitvoering van**. Binnen de **actie** selecteert **Get_rows**. Zie de waarde voor **Status**, die moet worden **geslaagd**. Selecteer de **invoer koppeling** om weer te geven van de invoer. Selecteer de **uitvoer koppeling**, en de uitvoer weergeven; dat de verwijderde rij bevatten.
-    
-    ![](./media/connectors-create-api-db2/Db2connectorDeleteRowOutputs.png)
-
-## <a name="supported-db2-platforms-and-versions"></a>Ondersteunde platforms DB2 en versies
-Deze connector ondersteunt de volgende IBM DB2-platforms en versies, evenals IBM DB2 compatibele producten (bijvoorbeeld IBM Bluemix dashDB) die ondersteuning bieden voor Distributed relationele Database architectuur (DRDA) SQL toegang Manager (SQLAM) versie 10 en 11:
-
-* IBM DB2 voor z/OS 11.1
-* IBM DB2 voor z/OS 10.1
-* IBM DB2 voor i 7.3
-* IBM DB2 voor i 7.2
-* IBM DB2 voor i 7.1
-* IBM DB2 voor LUW 11
-* IBM DB2 voor LUW 10.5
-
-## <a name="connector-specific-details"></a>Connector-specifieke details
-
-Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/db2/). 
+* Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
+* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Volgende stappen
-[Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md). Bekijk de beschikbare connectors in Logic Apps op onze [API's lijst](apis-list.md).
 
+* Meer informatie over andere [Logic Apps-connectors](../connectors/apis-list.md)

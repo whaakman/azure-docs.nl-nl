@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: glenga
-ms.openlocfilehash: 610771e659a80e330fbb1c9d6fd97c15ff832386
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 3ff4c23c0538adcc3a064503431cb18016db04cd
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057264"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42747041"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Event Hubs-bindingen voor Azure Functions
 
@@ -52,24 +52,24 @@ Wanneer een functie van Event Hubs-trigger wordt geactiveerd, wordt het bericht 
 
 ## <a name="trigger---scaling"></a>Trigger - schaling
 
-Elk exemplaar van een Event Hub-Triggered-functie wordt ondersteund door slechts 1 exemplaar van EventProcessorHost (EPH). Eventhubs zorgt ervoor dat slechts 1 EPH een lease op een bepaalde partitie kunt krijgen.
+Elk exemplaar van een event hub-geactiveerde functie wordt ondersteund door slechts één [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) exemplaar. Eventhubs zorgt ervoor dat er slechts één [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) exemplaar krijgt een lease op een bepaalde partitie.
 
-Stel bijvoorbeeld dat we beginnen met de volgende instellingen en veronderstellingen voor een Event Hub:
+Neem bijvoorbeeld een Event Hub als volgt:
 
-1. 10-partities.
-1. 1000 gebeurtenissen gelijkmatig verdeeld over alle partities = > 100 berichten in elke partitie.
+* 10-partities.
+* 1000 gebeurtenissen gelijkmatig verdeeld over alle partities, met 100 berichten in elke partitie.
 
-Wanneer uw functie is ingeschakeld, is er slechts 1 exemplaar van de functie. Noemen we dit exemplaar van de functie Function_0. Function_0 hebben 1 EPH die worden beheerd om op te halen van een lease op alle 10 partities. Start het lezen van gebeurtenissen van partities 0-9. Vanaf dit punt, een van de volgende gebeurt:
+Wanneer uw functie is ingeschakeld, is er slechts één exemplaar van de functie. Noemen we dit exemplaar van de functie `Function_0`. `Function_0` heeft één [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) -doelexemplaar waarvoor een lease op alle tien partities. Dit exemplaar lezen van gebeurtenissen van partities 0-9. Vanaf dit punt gebeurt het volgende:
 
-* **Functie slechts 1 exemplaar is nodig** -Function_0 kan voor het verwerken van alle 1000 voordat vergroten/verkleinen logica van de Azure Functions begint. Daarom kan worden alle 1000 berichten verwerkt door Function_0.
+* **Nieuwe instanties van de functie niet nodig zijn**: `Function_0` kan alle 1000 gebeurtenissen voordat de logica voor vergroten/verkleinen begint in Functions te verwerken. In dit geval alle 1000 berichten worden verwerkt door `Function_0`.
 
-* **1 meer functie-exemplaar toevoegen** -Azure-Functions vergroten/verkleinen logische bepaalt dat Function_0 meer berichten dan deze verwerken, heeft kan zodat een nieuw exemplaar, Function_1, wordt gemaakt. Eventhubs detecteert dat een nieuw exemplaar van de EPH probeert berichten lezen. Eventhubs de partities te verdelen over de EPH-exemplaren wordt gestart, bijvoorbeeld 0-4-partities zijn toegewezen aan Function_0 en partities 5-9 zijn toegewezen aan Function_1. 
+* **Een extra functie-exemplaar wordt toegevoegd**: de functies schalen logische bepaalt dat `Function_0` heeft meer berichten dan deze kan verwerken. In dit geval een nieuwe functie app-exemplaar (`Function_1`) is gemaakt, samen met een nieuwe [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) exemplaar. Eventhubs detecteert dat een nieuwe instantie van de host wordt geprobeerd berichten lezen. De partities in Event Hubs-verdeelt het de hostexemplaren. Bijvoorbeeld, 0-4-partities kunnen worden toegewezen aan `Function_0` en 5-9 voor partities `Function_1`. 
 
-* **Voeg N functie meer exemplaren** -vergroten/verkleinen logische Azure-Functions bepaalt dat zowel Function_0 en Function_1 er meer berichten dan ze kunnen verwerken. Er wordt opnieuw geschaald voor Function_2... N, waarbij N groter dan de Event Hub-partities is. Eventhubs wordt geladen worden verdeeld de partities Function_0... 9-exemplaren.
+* **N meer functie-exemplaren worden toegevoegd**: de functies schalen logische bepaalt dat beide `Function_0` en `Function_1` er meer berichten dan ze kunnen verwerken. Nieuwe functie-app-instanties `Function_2`... `Functions_N` zijn gemaakt, waarbij `N` groter is dan het aantal event hub-partities. In ons voorbeeld nogmaals Event Hubs verdeelt de belasting van de partities in dit geval over de exemplaren `Function_0`... `Functions_9`. 
 
-Uniek is voor de huidige Azure-Functions schalen logica is het feit dat N groter dan het aantal partities is. Dit wordt gedaan om ervoor te zorgen dat er altijd exemplaren van EPH direct beschikbaar zodra deze beschikbaar zijn van andere exemplaren om snel een vergrendeling ophalen voor de partitie (s). Gebruikers betalen alleen voor de resources die worden gebruikt wanneer het exemplaar van de functie wordt uitgevoerd, en worden niet in rekening gebracht voor deze capaciteit in te richten.
+Houd er rekening mee dat wanneer functies kan worden geschaald naar `N` instanties, wat een getal groter dan het aantal event hub-partities. Dit wordt gedaan om ervoor te zorgen dat er altijd zijn [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) exemplaren beschikbaar zijn voor het verkrijgen van vergrendelingen op partities zodra deze beschikbaar zijn van andere exemplaren. U betaalt alleen voor de resources die worden gebruikt wanneer het exemplaar van de functie wordt uitgevoerd; u betaalt geen voor deze capaciteit in te richten.
 
-Als alle uitvoeringen van functie voltooid zonder fouten, worden controlepunten toegevoegd aan het bijbehorende opslagaccount. Als gecontroleerd is geslaagd, moeten alle 1000 berichten nooit worden opgehaald.
+Wanneer alle functie-uitvoering is voltooid (met of zonder fouten), worden controlepunten toegevoegd aan het bijbehorende opslagaccount. Als gecontroleerd is geslaagd, worden alle berichten die 1000 nooit opnieuw opgehaald.
 
 ## <a name="trigger---example"></a>Trigger - voorbeeld
 

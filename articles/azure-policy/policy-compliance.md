@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: bd3eeb5ebb9b30ac315fee1597348f3bd34f3bb6
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 6b310daec67f41ba589ce279e4a2dad427adb734
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42059501"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818889"
 ---
 # <a name="getting-compliance-data"></a>Ophalen van Nalevingsgegevens
 
@@ -23,7 +23,7 @@ Een van de grootste voordelen van Azure Policy is het inzicht en de besturingsel
 Er zijn verschillende manieren toegang krijgen tot de informatie over naleving die zijn gegenereerd door uw beleid en initiatieftoewijzingen:
 
 - Met behulp van de [Azure-Portal](#portal)
-- Via [vanaf de opdrachtregel](#command_line) scripting
+- Via [vanaf de opdrachtregel](#command-line) scripting
 
 Voordat u de methoden voor het rapporteren van naleving bekijkt, laten we kijken wanneer de compatibiliteitsinformatie wordt bijgewerkt en de frequentie en gebeurtenissen die een evaluatiecyclus van een te activeren.
 

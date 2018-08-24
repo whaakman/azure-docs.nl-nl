@@ -1,136 +1,136 @@
 ---
-title: Rolling toepassingsupgrades - Azure SQL Database | Microsoft Docs
-description: Informatie over het gebruiken van Azure SQL Database geo-replicatie ter ondersteuning van online upgrades van uw cloudtoepassing.
+title: Rolling upgrades van toepassingen - Azure SQL Database | Microsoft Docs
+description: Informatie over het gebruik van Azure SQL Database geo-replicatie voor de ondersteuning van online upgrades van uw cloudtoepassing.
 services: sql-database
 author: anosov1960
 manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 08/23/2018
 ms.author: sashan
-ms.openlocfilehash: a73284d679b4be1fbae6d5e1688915c98cbf2392
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 37960995c89c2b30d90ac45dcd8cc44d80088398
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649496"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818613"
 ---
-# <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Het beheren van rollende upgrades van cloud-toepassingen met behulp van SQL-Database actieve geo-replicatie
+# <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Rolling upgrades van cloud-toepassingen met behulp van SQL-Database van actieve geo-replicatie beheren
 > [!NOTE]
 > [Actieve geo-replicatie](sql-database-geo-replication-overview.md) is nu beschikbaar voor alle databases in alle lagen.
 > 
 
-Informatie over het gebruik [geo-replicatie](sql-database-geo-replication-overview.md) in SQL-Database om in te schakelen rollende upgrades van uw cloudtoepassing. Omdat de upgrade is een bewerking verstoren, moet het deel van uw zakelijke continuïteit planning en ontwerp. In dit artikel we kijken naar twee verschillende methoden van het upgradeproces te organiseren en de voordelen en -en nadelen van elke optie bespreken. Voor de doeleinden van dit artikel gebruiken we een eenvoudige toepassing die uit een website die is verbonden met een individuele database als de gegevenslaag bestaat. Ons doel is om bij te werken van versie 1 van de toepassing naar versie 2 zonder aanzienlijke invloed op de gebruikerservaring. 
+Meer informatie over het gebruik van [geo-replicatie](sql-database-geo-replication-overview.md) in SQL-Database voor het inschakelen van rolling upgrades van uw cloudtoepassing. Omdat een verstorende bewerking is voor upgrade, moeten deze deel uitmaken van uw zakelijke continuïteit planning en ontwerp. In dit artikel we kijken naar twee verschillende methoden van het upgradeproces en bespreken de voor- en -en nadelen van elke optie. Voor de doeleinden van dit artikel gebruiken we een eenvoudige toepassing die uit een website die is verbonden met een enkele database als de gegevenslaag bestaat. Ons doel is om bij te werken van versie 1 van de toepassing op versie 2 zonder aanzienlijke invloed op de ervaring voor de eindgebruiker. 
 
-Bij het evalueren van de upgrade-opties moet u rekening houden met de volgende factoren:
+Bij het evalueren van de upgrade-opties moet u de volgende factoren overwegen:
 
-* De impact op de beschikbaarheid van de toepassing tijdens upgrades. Hoe lang de functie van de toepassing mogelijk beperkt of gedegradeerd.
-* De mogelijkheid in het geval van een mislukte upgrade terugdraaien.
-* De kwetsbaarheid van de toepassing als een niet-verwante onherstelbare fout tijdens de upgrade optreedt.
-* Totaal aantal dollar kosten.  Dit omvat aanvullende redundantie en incrementele kosten van de tijdelijke die worden gebruikt door het upgradeproces. 
+* Gevolgen voor de beschikbaarheid van toepassingen tijdens upgrades. Hoe lang de functie van de toepassing is mogelijk beperkt of gedegradeerd.
+* De mogelijkheid om het forestfunctionaliteitsniveau terug te zetten in het geval van een upgrade mislukt.
+* Beveiligingsproblemen van de toepassing als een niet-gerelateerde onherstelbare fout tijdens de upgrade optreedt.
+* Totaal aantal dollar kosten.  Dit omvat aanvullende redundantie en incrementele kosten voor de tijdelijke onderdelen die worden gebruikt door het upgradeproces. 
 
-## <a name="upgrading-applications-that-rely-on-database-backups-for-disaster-recovery"></a>Bijwerken van toepassingen die afhankelijk van de databaseback-ups voor herstel na noodgevallen zijn
-Als uw toepassing afhankelijk van automatische databaseback-ups is en geo-herstel voor herstel na noodgevallen gebruikt, is het meestal geïmplementeerd naar één Azure-regio. In dit geval omvat het upgradeproces het maken van een back-implementatie van alle onderdelen die zijn betrokken bij de upgrade. Als u wilt de overlast minimaliseren wordt u gebruikmaken van Azure Traffic Manager (WATM) met het failover-profiel.  Het volgende diagram illustreert de operationele omgeving vóór het upgradeproces. Het eindpunt <i>contoso 1.azurewebsites.net</i> vertegenwoordigt een productiesite van de toepassing die moet worden bijgewerkt. Om aan te bieden de mogelijkheid terugdraaien de upgrade, u moet een fase sleuf maken met een volledig gesynchroniseerde kopie van de toepassing. De volgende stappen zijn vereist voor het voorbereiden van de toepassing voor de upgrade:
+## <a name="upgrading-applications-that-rely-on-database-backups-for-disaster-recovery"></a>Upgrade van toepassingen die afhankelijk van de databaseback-ups voor herstel na noodgevallen zijn
+Als uw toepassing is afhankelijk van automatische databaseback-ups en geografisch herstel voor herstel na noodgevallen gebruikt, is het meestal naar één Azure-regio geïmplementeerd. In dit geval omvat het upgradeproces het maken van een back-implementatie van alle onderdelen van de toepassing die betrokken zijn bij de upgrade. Als u wilt de onderbreking van de eindgebruiker minimaliseren u gebruik van Azure Traffic Manager (ATM) door het failover-profiel.  Het volgende diagram illustreert de operationele omgeving voordat u het upgradeproces. Het eindpunt <i>contoso-1.azurewebsites.net</i> vertegenwoordigt een productiesite van de toepassing die moet worden bijgewerkt. Als u wilt inschakelen, de mogelijkheid om terug te draaien de upgrade, u moet een fase sleuf maken met behulp van een volledig gesynchroniseerde kopie van de toepassing. De volgende stappen zijn vereist om voor te bereiden van de toepassing voor de upgrade:
 
-1. Een fase sleuf maken voor de upgrade. Om te doen die een secundaire database (1) maken en implementeren van een identieke website in dezelfde Azure-regio. Bewaken van de secundaire om te zien als het seeding proces is voltooid.
-2. Een failover-profiel maken in WATM met <i>contoso 1.azurewebsites.net</i> als online-eindpunt en <i>contoso 2.azurewebsites.net</i> als offline. 
+1. Een fase sleuf maken voor de upgrade. Om te doen die een secundaire database (1) maken en implementeren van een identieke-website in dezelfde Azure-regio. Controleer de secundaire server om te zien als het seeden proces is voltooid.
+2. Een failover-profiel maken in ATM met <i>contoso-1.azurewebsites.net</i> als online-eindpunt en <i>contoso-2.azurewebsites.net</i> als offline. 
 
 > [!NOTE]
-> Noteer de voorbereidende stappen heeft geen invloed op de toepassing in de productiesite en deze kan worden gebruikt in de modus volledige toegang.
+> Houd er rekening mee de voorbereidende stappen heeft geen gevolgen voor de toepassing in de productiesite en deze kan worden gebruikt in de modus voor volledige toegang.
 >  
 
-![Configuratie van SQL Database Ga-replicatie. Herstel na noodgevallen voor een cloud.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
+![Configuratie van SQL Database-Go-replicatie. Herstel na noodgevallen in de cloud.](media/sql-database-manage-application-rolling-upgrade/Option1-1.png)
 
-Zodra de voorbereidende stappen zijn voltooid. de toepassing is gereed voor de daadwerkelijke upgrade. Het volgende diagram illustreert de stappen voor het upgradeproces. 
+De toepassing is gereed voor de daadwerkelijke upgrade, zodra de voorbereidende stappen zijn voltooid. Het volgende diagram illustreert de stappen die betrokken zijn bij het upgradeproces. 
 
-1. Stel de primaire database in de productiesite naar alleen-lezen-modus (3). Dit wordt gegarandeerd dat de productie-exemplaar van de toepassing (V1) blijven alleen-lezen tijdens de upgrade waardoor wordt voorkomen dat de gegevensdivergentie tussen de V1- en V2-database-exemplaren.  
-2. Verbreek de verbinding met de secundaire database met behulp van de geplande beëindiging-modus (4). Er wordt een volledig gesynchroniseerde onafhankelijke kopie van de primaire database gemaakt. Deze database wordt bijgewerkt.
-3. Schakel de primaire database naar de modus lezen-schrijven en het upgrade-script uitvoeren in de fase sleuf (5).     
+1. De primaire database instellen in de productiesite naar de modus alleen-lezen (3). Dit zorgt ervoor dat de productie-instantie van de toepassing (V1) alleen-lezen tijdens de upgrade waardoor wordt voorkomen dat de gegevensdivergentie tussen de V1 en V2-database-exemplaren, blijven.  
+2. De secundaire database met behulp van de geplande beëindiging-modus (4) de verbinding verbreken. Een volledig gesynchroniseerde onafhankelijke kopie van de primaire database wordt gemaakt. Deze database wordt bijgewerkt.
+3. Schakel de primaire database naar de modus lezen / schrijven en uitvoeren van het upgrade-script in de fase sleuf (5).     
 
-![Configuratie van SQL Database-geo-replicatie. Herstel na noodgevallen voor een cloud.](media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
+![Configuratie van SQL Database-geo-replicatie. Herstel na noodgevallen in de cloud.](media/sql-database-manage-application-rolling-upgrade/Option1-2.png)
 
-Als de upgrade is voltooid bent u nu klaar om over te schakelen van de eindgebruikers op de voorbereide kopie van de toepassing. Er worden nu de productiesite van de toepassing.  Dit omvat een aantal meer stappen zoals geïllustreerd in het volgende diagram.
+Als de upgrade is voltooid bent u nu klaar om over te schakelen van de eindgebruikers naar de voorbereide kopie van de toepassing. De productiesite van de toepassing nu verandert.  Dit omvat het enkele extra stappen zoals wordt geïllustreerd in het volgende diagram.
 
-1. Het online eindpunt in het profiel WATM switch <i>contoso 2.azurewebsites.net</i>, die verwijzen naar de V2-versie van de website (6). Nu wordt de productiesite met de V2-toepassing en het verkeer door eindgebruikers wordt doorverwezen.  
-2. Als u niet langer de toepassingsonderdelen V1 zodat u veilig kunt ze (7) verwijderen.   
+1. Het eindpunt van de online in de ATM-profiel dat u wilt overschakelen <i>contoso-2.azurewebsites.net</i>, die verwijzen naar de V2-versie van de website (6). Nu wordt de productiesite met het V2-toepassing en het verkeer van eindgebruikers door wordt omgeleid naar deze.  
+2. Als u de onderdelen van de V1-toepassing niet meer nodig, zodat u veilig kunt verwijderen (7).   
 
-![Configuratie van SQL Database-geo-replicatie. Herstel na noodgevallen voor een cloud.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
+![Configuratie van SQL Database-geo-replicatie. Herstel na noodgevallen in de cloud.](media/sql-database-manage-application-rolling-upgrade/Option1-3.png)
 
-Als tijdens de upgrade mislukt is, bijvoorbeeld vanwege een fout in het upgrade-script de sleuf fase moet worden overwogen aangetast. Als u wilt terugdraaien van de toepassing naar de status van de vóór de upgrade moet u gewoon de toepassing in de productiesite naar volledige toegang herstellen. De vereiste stappen worden op het volgende diagram weergegeven.    
+Als tijdens de upgrade mislukt is, bijvoorbeeld vanwege een fout in het script bijwerken de sleuf fase moet worden beschouwd als aangetast. Als u wilt terugdraaien van de toepassing naar de status van vóór de upgrade moet u gewoon de toepassing in de productiesite naar volledige toegang herstellen. De stappen voor het worden op het volgende diagram weergegeven.    
 
-1. Het database-exemplaar ingesteld op alleen-lezen-modus (8). Hiermee herstelt u de volledige V1 functioneel in de productiesite.
-2. Analyse van de hoofdmap de oorzaak en de waarmee is geknoeid onderdelen verwijderen in de fase sleuf (9). 
+1. Stel het database-exemplaar naar de modus lezen / schrijven (8). Hiermee herstelt u de volledige V1 functioneel in de productiesite.
+2. De analyses van hoofdoorzaken uitvoeren en verwijderen van de aangetaste onderdelen in de fase sleuf (9). 
 
 Op dit moment de toepassing volledig functioneel is en de stappen voor de upgrade kunnen worden herhaald.
 
 > [!NOTE]
-> Het terugdraaien is geen wijzigingen in WATM profiel vereist omdat deze al naar verwijst <i>contoso 1.azurewebsites.net</i> als het actieve eindpunt.
+> Het terugdraaien vereist geen wijzigingen in de ATM-profiel als deze al naar verwijst <i>contoso-1.azurewebsites.net</i> als het actief eindpunt.
 > 
 > 
 
-![Configuratie van SQL Database-geo-replicatie. Herstel na noodgevallen voor een cloud.](media/sql-database-manage-application-rolling-upgrade/Option1-4.png)
+![Configuratie van SQL Database-geo-replicatie. Herstel na noodgevallen in de cloud.](media/sql-database-manage-application-rolling-upgrade/Option1-4.png)
 
-De sleutel **voordeel** van deze optie is een toepassing in één regio met behulp van een aantal eenvoudige stappen te upgraden. Het aantal dollar van de upgrade is relatief laag is. De belangrijkste **afweging** is dat als een onherstelbare fout tijdens de upgrade optreedt het herstel van de status van de vóór de upgrade eruit ziet nieuwe implementatie van de toepassing in een andere regio en het terugzetten van de database vanaf een back-up met geo-herstel. Dit proces zal leiden tot aanzienlijke downtime.   
+De sleutel **voordeel** van deze optie is dat u een toepassing in één regio met behulp van een set eenvoudige stappen kunt upgraden. De Dollarkosten van de upgrade is relatief laag. De belangrijkste **negatieve gevolgen voor de** is dat als er een onherstelbare fout optreedt tijdens de upgrade het herstel van de status van de vóór de upgrade zal hebben betrekking op nieuwe implementatie van de toepassing in een andere regio en het herstellen van de database vanuit back-up met geo-herstel. Dit proces zal leiden tot significante downtime.   
 
-## <a name="upgrading-applications-that-rely-on-database-geo-replication-for-disaster-recovery"></a>Bijwerken van toepassingen die afhankelijk van de database geo-replicatie voor herstel na noodgevallen zijn
-Als uw toepassing gebruikmaakt van geo-replicatie voor bedrijfscontinuïteit, wordt geïmplementeerd naar ten minste twee verschillende regio's met een actieve implementatie in de primaire regio en een stand-by-implementatie in de regio van de back-up. Naast de eerder genoemde factoren, moet het upgradeproces waarborgen dat:
+## <a name="upgrading-applications-that-rely-on-database-geo-replication-for-disaster-recovery"></a>Upgrade van toepassingen die afhankelijk van de database geo-replicatie voor herstel na noodgevallen zijn
+Als uw toepassing maakt gebruik van geo-replicatie voor bedrijfscontinuïteit, wordt deze geïmplementeerd op ten minste twee verschillende regio's met een actieve implementatie in de primaire regio en een stand-by-implementatie in de regio van de back-up. Naast de factoren die eerder vermeld, moet het upgradeproces garanderen dat:
 
 * De toepassing blijft te allen tijde tijdens het upgradeproces onherstelbare fouten beveiligd
-* De geografisch redundante componenten van de toepassing zijn in combinatie met de actieve onderdelen bijgewerkt
+* De geografisch redundante onderdelen van de toepassing geüpdatet zijn in combinatie met de actieve onderdelen
 
-Als u wilt deze doelstellingen te behalen wordt u gebruikmaken van Azure Traffic Manager (WATM) met het failover-profiel met een actieve en drie back-eindpunten.  Het volgende diagram illustreert de operationele omgeving vóór het upgradeproces. De websites <i>contoso 1.azurewebsites.net</i> en <i>contoso dr.azurewebsites.net</i> vertegenwoordigen een productiesite van de toepassing met volledige geografische redundantie. Om aan te bieden de mogelijkheid terugdraaien de upgrade, u moet een fase sleuf maken met een volledig gesynchroniseerde kopie van de toepassing. Omdat u nodig hebt om ervoor te zorgen dat de toepassing snel herstellen kunt als een onherstelbare fout tijdens het upgradeproces optreedt, moet de sleuf fase geografisch redundante ook. De volgende stappen zijn vereist voor het voorbereiden van de toepassing voor de upgrade:
+Als u wilt deze doelen kan bereiken u gebruik van Azure Traffic Manager (ATM) met het profiel voor een failover met één actieve en drie back-eindpunten.  Het volgende diagram illustreert de operationele omgeving voordat u het upgradeproces. De websites <i>contoso-1.azurewebsites.net</i> en <i>contoso-dr.azurewebsites.net</i> vertegenwoordigen een productiesite van de toepassing met volledige geografische redundantie. Als u wilt inschakelen, de mogelijkheid om terug te draaien de upgrade, u moet een fase sleuf maken met behulp van een volledig gesynchroniseerde kopie van de toepassing. Omdat u nodig hebt om ervoor te zorgen dat de toepassing snel herstellen kunt als een onherstelbare fout tijdens het upgradeproces optreedt, moet de sleuf fase kan ook geografisch redundant. De volgende stappen zijn vereist om voor te bereiden van de toepassing voor de upgrade:
 
-1. Een fase sleuf maken voor de upgrade. Om te doen die een secundaire database (1) maken en implementeren van een identieke kopie van de website in dezelfde Azure-regio. Bewaken van de secundaire om te zien als het seeding proces is voltooid.
-2. Een geografisch redundante secundaire database maken in de sleuf fase door geo-replicatie de secundaire database naar de back-regio (dit heet "teruggekoppeld geo-replicatie"). Bewaken van de back-up secundaire om te zien als het seeding proces is voltooid (3).
-3. Maken van een stand-by-kopie van de website in de back-regio en koppel deze aan de geografisch redundante secundaire (4).  
-4. Toevoegen van extra eindpunten <i>contoso 2.azurewebsites.net</i> en <i>contoso 3.azurewebsites.net</i> het failover-profiel in WATM als offline eindpunten (5). 
+1. Een fase sleuf maken voor de upgrade. Om te doen die een secundaire database (1) maken en implementeren van een identieke kopie van de website in dezelfde Azure-regio. Controleer de secundaire server om te zien als het seeden proces is voltooid.
+2. Een geografisch redundante secundaire database maken in de fase sleuf door geo-replicatie de secundaire database naar de back-regio (dit is met de naam 'geo-replicatie in een keten'). De back-ups controleren secundaire om te zien of het seeden proces voltooid (3).
+3. Een stand-by-kopie van de website in de regio van de back-up maken en koppelen aan de geografisch redundante secundaire (4).  
+4. Voeg de extra eindpunten <i>contoso-2.azurewebsites.net</i> en <i>contoso-3.azurewebsites.net</i> het failover-profiel in ATM-als offline eindpunten (5). 
 
 > [!NOTE]
-> Noteer de voorbereidende stappen heeft geen invloed op de toepassing in de productiesite en deze kan worden gebruikt in de modus volledige toegang.
+> Houd er rekening mee de voorbereidende stappen heeft geen gevolgen voor de toepassing in de productiesite en deze kan worden gebruikt in de modus voor volledige toegang.
 > 
 > 
 
-![Configuratie van SQL Database-geo-replicatie. Herstel na noodgevallen voor een cloud.](media/sql-database-manage-application-rolling-upgrade/Option2-1.png)
+![Configuratie van SQL Database-geo-replicatie. Herstel na noodgevallen in de cloud.](media/sql-database-manage-application-rolling-upgrade/Option2-1.png)
 
-Zodra de voorbereidende stappen zijn voltooid, is de fase sleuf gereed is voor de upgrade. Het volgende diagram illustreert de Upgradestappen.
+Zodra de voorbereidende stappen zijn voltooid, is de fase sleuf gereed is voor de upgrade. Het volgende diagram illustreert de stappen voor de upgrade.
 
-1. Stel de primaire database in de productiesite naar alleen-lezen-modus (6). Dit wordt gegarandeerd dat de productie-exemplaar van de toepassing (V1) blijven alleen-lezen tijdens de upgrade waardoor wordt voorkomen dat de gegevensdivergentie tussen de V1- en V2-database-exemplaren.  
-2. Verbreek de verbinding met de secundaire database in dezelfde regio als de geplande beëindiging-modus (7) gebruiken. Wordt er een volledig gesynchroniseerde onafhankelijke kopie van de primaire database, die een primaire na beëindiging automatisch worden gemaakt. Deze database wordt bijgewerkt.
-3. De primaire database inschakelen in de sleuf fase in de modus lezen-schrijven en uitvoeren van het upgrade-script (8).    
+1. De primaire database instellen in de productiesite naar de modus alleen-lezen (6). Dit zorgt ervoor dat de productie-instantie van de toepassing (V1) alleen-lezen tijdens de upgrade waardoor wordt voorkomen dat de gegevensdivergentie tussen de V1 en V2-database-exemplaren, blijven.  
+2. Verbreek de secundaire database in dezelfde regio met behulp van de geplande beëindiging-modus (7). Een volledig gesynchroniseerde onafhankelijke kopie van de primaire database, automatisch een primaire na beëindiging wordt wordt gemaakt. Deze database wordt bijgewerkt.
+3. Inschakelen van de primaire database in de sleuf fase naar de modus lezen / schrijven en uitvoeren van het script bijwerken (8).    
 
-![Configuratie van SQL Database-geo-replicatie. Herstel na noodgevallen voor een cloud.](media/sql-database-manage-application-rolling-upgrade/Option2-2.png)
+![Configuratie van SQL Database-geo-replicatie. Herstel na noodgevallen in de cloud.](media/sql-database-manage-application-rolling-upgrade/Option2-2.png)
 
-Als de upgrade is voltooid u nu klaar eindgebruikers overschakelen naar de V2-versie van de toepassing bent. Het volgende diagram illustreert de vereiste stappen.
+Als de upgrade is voltooid u nu klaar om over te schakelen van de eindgebruikers naar de V2-versie van de toepassing bent. Het volgende diagram illustreert de stappen die betrokken zijn.
 
-1. Overschakelen van het actieve eindpunt in het profiel WATM <i>contoso 2.azurewebsites.net</i>, welke nu verwijst naar de V2-versie van de website (9). Wordt nu een productiesite met de toepassing V2 en eindgebruikers verkeer wordt omgeleid voor het. 
-2. Als u niet langer de V1-toepassing zodat u veilig kunt verwijderen (10 en 11).  
+1. Het actieve eindpunt in de ATM-profiel dat u wilt overschakelen <i>contoso-2.azurewebsites.net</i>, die nu verwijst naar de V2-versie van de website (9). Wordt nu een productiesite met het V2-toepassing en verkeer van eindgebruikers door wordt omgeleid naar deze. 
+2. Als u de V1-toepassing niet meer nodig, zodat u veilig kunt verwijderen (10 en 11).  
 
-![Configuratie van SQL Database-geo-replicatie. Herstel na noodgevallen voor een cloud.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
+![Configuratie van SQL Database-geo-replicatie. Herstel na noodgevallen in de cloud.](media/sql-database-manage-application-rolling-upgrade/Option2-3.png)
 
-Als tijdens de upgrade mislukt is, bijvoorbeeld vanwege een fout in het upgrade-script de sleuf fase moet worden overwogen aangetast. Als u wilt de toepassing naar de status van de vóór de upgrade terugdraaien herstellen u gewoon met behulp van de toepassing in de productiesite met volledige toegang. De vereiste stappen worden op het volgende diagram weergegeven.    
+Als tijdens de upgrade mislukt is, bijvoorbeeld vanwege een fout in het script bijwerken de sleuf fase moet worden beschouwd als aangetast. Als u wilt de toepassing naar de status van vóór de upgrade terugdraaien terugkeren u gewoon naar het gebruik van de toepassing in de productiesite met volledige toegang. De stappen voor het worden op het volgende diagram weergegeven.    
 
-1. Stel de kopie van de primaire database in de productiesite naar de modus lezen-schrijven (12). Hiermee herstelt u de volledige V1 functioneel in de productiesite.
-2. Analyse van de hoofdmap de oorzaak en de waarmee is geknoeid onderdelen verwijderen in de sleuf fase (13 en 14). 
+1. Stel het primaire database-exemplaar in de productiesite naar de modus lezen / schrijven (12). Hiermee herstelt u de volledige V1 functioneel in de productiesite.
+2. De analyses van hoofdoorzaken uitvoeren en verwijderen van de aangetaste onderdelen in de sleuf fase (13 en 14). 
 
 Op dit moment de toepassing volledig functioneel is en de stappen voor de upgrade kunnen worden herhaald.
 
 > [!NOTE]
-> Het terugdraaien is geen wijzigingen in WATM profiel vereist omdat deze al naar verwijst <i>contoso 1.azurewebsites.net</i> als het actieve eindpunt.
+> Het terugdraaien vereist geen wijzigingen in de ATM-profiel als deze al naar verwijst <i>contoso-1.azurewebsites.net</i> als het actief eindpunt.
 > 
 > 
 
-![Configuratie van SQL Database-geo-replicatie. Herstel na noodgevallen voor een cloud.](media/sql-database-manage-application-rolling-upgrade/Option2-4.png)
+![Configuratie van SQL Database-geo-replicatie. Herstel na noodgevallen in de cloud.](media/sql-database-manage-application-rolling-upgrade/Option2-4.png)
 
-De sleutel **voordeel** van deze optie is dat u de geografisch redundante kopie parallel en de toepassing upgraden kunt uw zakelijke continuïteit in gevaar tijdens de upgrade. De belangrijkste **afweging** is dat het dubbele redundantie van elk toepassingsonderdeel vereist, en daarom hogere Dollarkosten maakt. Hierbij wordt ook een gecompliceerdere werkstroom. 
+De sleutel **voordeel** van deze optie is dat u zowel de toepassing en de geografisch redundante kopie parallel upgraden kunt zonder verlies van de bedrijfscontinuïteit tijdens de upgrade. De belangrijkste **negatieve gevolgen voor de** is dat het dubbele redundantie van elk toepassingsonderdeel vereist, en daarom worden hogere Dollarkosten in rekening gebracht. Hierbij wordt ook een meer complexe workflow. 
 
 ## <a name="summary"></a>Samenvatting
-De twee upgrade methoden beschreven in het artikel verschillen in complexiteit en de kosten dollar maar ze beide ligt de nadruk op het tijdstip waarop de gebruiker beperkt tot alleen-lezen bewerkingen worden voor het minimaliseren. Deze tijd is rechtstreeks door de duur van het upgrade-script gedefinieerd. Niet is afhankelijk van de grootte van de database, de servicelaag die u hebt gekozen, de configuratie van de website en andere factoren die u kunt eenvoudig niet controleren. Dit komt doordat de voorbereidende stappen worden ontkoppeld van de Upgradestappen en kunnen worden uitgevoerd zonder enige impact op de productietoepassing. De efficiëntie van het upgrade-script is het van groot belang dat bepaalt van de gebruikerservaring tijdens upgrades. De beste manier kunt u deze verbeteren dus uw inspanningen gericht op het upgrade-script zo efficiënt mogelijk te maken.  
+De twee upgrademethode die worden beschreven in het artikel verschillen in complexiteit en de dollar kosten, maar ze beide zich richten op het minimaliseren van de tijd wanneer de eindgebruiker beperkt tot alleen-lezen bewerkingen is. Deze tijd wordt rechtstreeks gedefinieerd door de duur van het upgrade-script. Het is niet afhankelijk van de grootte van de database, de servicelaag die u hebt gekozen, de configuratie van de website en andere factoren die u eenvoudig kunt niet bepalen. Dit is omdat de voorbereidende stappen zijn ontkoppeld van de Upgradestappen en kunnen worden uitgevoerd zonder gevolgen voor de productietoepassing. De efficiëntie van het upgrade-script is de belangrijkste factor waarmee wordt bepaald ervaring voor de eindgebruiker tijdens upgrades. Zo is de beste manier kunt u deze verbeteren door ons te richten van uw inspanningen op het maken van het upgrade-script zo efficiënt mogelijk.  
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een overzicht van zakelijke continuïteit en scenario's [Business continuity overview](sql-database-business-continuity.md).
+* Zie voor een overzicht voor zakelijke continuïteit en scenario's, [overzicht voor zakelijke continuïteit](sql-database-business-continuity.md).
 * Voor meer informatie over Azure SQL Database geautomatiseerde back-ups, Zie [geautomatiseerde back-ups van SQL-Database](sql-database-automated-backups.md).
-* Zie voor meer informatie over het gebruik van automatische back-ups voor herstel, [een database herstellen via automatische back-ups](sql-database-recovery-using-backups.md).
+* Zie voor meer informatie over het gebruik van geautomatiseerde back-ups voor herstel, [een database herstellen vanuit de automatische back-ups](sql-database-recovery-using-backups.md).
 * Zie voor meer informatie over opties voor sneller herstel, [actieve geo-replicatie](sql-database-geo-replication-overview.md).
 
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2018
 ms.author: glenga
-ms.openlocfilehash: c2e066ddf444cb81d7f0033641a300d18b266f62
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ce520c5972bf27c30ecb175d58b6b6071bf804db
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397844"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818289"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>IP-adressen in Azure Functions
 
@@ -39,7 +39,7 @@ Elke functie-app heeft één inkomende IP-adres. Om te zoeken dat IP-adres:
 3. Selecteer **platformfuncties**.
 4. Selecteer **eigenschappen**, en de inkomende IP-adres wordt weergegeven onder **virtueel IP-adres**.
 
-## <a name="function-app-outbound-ip-addresses"></a>Functie-app uitgaande IP-adressen
+## <a name="find-outbound-ip-addresses"></a>Functie-app uitgaande IP-adressen
 
 Elke functie-app heeft een reeks uitgaande IP-adressen beschikbaar. Alle uitgaande verbindingen van een functie, zoals het een back-end-database maakt gebruik van een van de uitgaande IP-adressen beschikbaar als het oorspronkelijke IP-adres. U weten niet vooraf welk IP-adres een bepaalde verbinding moet worden gebruikt. Om deze reden moet de back-end-service de firewall om alle uitgaande IP-adressen van de functie-app te openen.
 

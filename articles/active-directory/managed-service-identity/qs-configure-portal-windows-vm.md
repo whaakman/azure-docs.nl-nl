@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 6ba090065b18a44cc1f01a62eefb5dcf52bcf356
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 7ac4dd41c8a1adb422539e0832715d59ec385694
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213262"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745556"
 ---
 # <a name="configure-a-vm-managed-service-identity-using-the-azure-portal"></a>Een virtuele machine beheerde Service-identiteit met Azure portal configureren
 
@@ -27,10 +27,7 @@ ms.locfileid: "39213262"
 
 Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken om te verifiëren bij een service die ondersteuning biedt voor Azure AD-verificatie, zonder referenties in uw code. 
 
-In dit artikel leert u hoe u kunt in- en uitschakelen van het systeem toegewezen identiteit voor een Azure-VM met behulp van de Azure portal. Toe te wijzen en het verwijderen van gebruiker toegewezen identiteiten van Azure VM's is momenteel niet ondersteund via de Azure Portal.
-
-> [!NOTE]
-> Door gebruiker toegewezen identiteit bewerkingen worden momenteel niet ondersteund via de Azure Portal. Controleer later op updates. 
+In dit artikel leert u hoe u inschakelen en uitschakelen van systeem en door gebruiker toegewezen identiteit voor een Azure Virtual Machine (VM), met behulp van de Azure portal. 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -39,16 +36,18 @@ In dit artikel leert u hoe u kunt in- en uitschakelen van het systeem toegewezen
 - Als u wilt de beheerbewerkingen in dit artikel uitvoert, moet uw account de roltoewijzing van de volgende:
     - [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) inschakelen en verwijder de systeem toegewezen identiteit van een Azure-VM.
 
-## <a name="managed-service-identity-during-creation-of-an-azure-vm"></a>Beheerde Service-identiteit tijdens het maken van een Azure VM
+## <a name="system-assigned-identity"></a>Systeem toegewezen identiteit
 
-VM maken via Azure portal biedt momenteel geen ondersteuning voor bewerkingen van de beheerde Service-identiteit. In plaats daarvan ziet u een van de volgende artikelen maken Quick Start VM eerst een virtuele machine te maken:
+In deze sectie leert u hoe u inschakelen en uitschakelen van het systeem toegewezen identiteit voor de virtuele machine met behulp van de Azure portal.
+
+### <a name="enable-system-assigned-identity-during-creation-of-a-vm"></a>Systeem toegewezen identiteit tijdens het maken van een virtuele machine inschakelen
+
+De Azure-portal biedt momenteel geen ondersteuning voor inschakelen systeem toegewezen identiteit tijdens het maken van een virtuele machine. In plaats daarvan verwijzen naar een van de volgende artikelen maken Quick Start VM eerst een virtuele machine maken en ga daarna verder met de volgende sectie voor meer informatie over het inschakelen van systeem toegewezen identiteit op de virtuele machine:
 
 - [Een Windows-machine maken met de Azure-portal](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
 - [Een virtuele Linux-machine maken met de Azure portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)  
 
-Vervolgens gaat u verder met de volgende sectie voor meer informatie over het inschakelen van de beheerde Service-identiteit op de virtuele machine.
-
-## <a name="enable-managed-service-identity-on-an-existing-azure-vm"></a>Beheerde Service-identiteit van een bestaande VM in Azure inschakelen
+### <a name="enable-system-assigned-identity-on-an-existing-vm"></a>Systeem toegewezen identiteit op een bestaande virtuele machine inschakelen
 
 Het systeem toegewezen identiteit op een virtuele machine die oorspronkelijk is ingericht zonder inschakelen:
 
@@ -58,12 +57,9 @@ Het systeem toegewezen identiteit op een virtuele machine die oorspronkelijk is 
 
 3. Schakelt het systeem toegewezen identiteit op de virtuele machine door 'Ja' onder 'Beheerde service-identiteit' en klik vervolgens op **opslaan**. Met deze bewerking duurt 60 seconden of langer om uit te voeren:
 
-   > [!NOTE]
-   > Een gebruiker toegewezen identiteit toe te voegen aan een virtuele machine wordt momenteel niet ondersteund via de Azure Portal.
-
    ![Schermafbeelding van de pagina configuratie](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
-## <a name="remove-managed-service-identity-from-an-azure-vm"></a>Verwijder de identiteit van de beheerde Service van een Azure-VM
+### <a name="remove-system-assigned-identity-from-a-vm"></a>Systeem toegewezen identiteit van een virtuele machine verwijderen
 
 Als u een virtuele Machine die het systeem toegewezen identiteit niet meer nodig hebt:
 
@@ -73,10 +69,36 @@ Als u een virtuele Machine die het systeem toegewezen identiteit niet meer nodig
 
 3. Het systeem toegewezen identiteit op de virtuele machine selecteert u 'Nee' onder "Beheerde service-identiteit" uitschakelen en klik op opslaan. Met deze bewerking duurt 60 seconden of langer om uit te voeren:
 
-    > [!NOTE]
-    > Een gebruiker toegewezen identiteit toe te voegen aan een virtuele machine wordt momenteel niet ondersteund via de Azure Portal.
+   ![Schermafbeelding van de pagina configuratie](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)
 
-   ![Schermafbeelding van de pagina configuratie](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)  
+## <a name="user-assigned-identity"></a>Door gebruiker toegewezen identiteit
+
+ In deze sectie leert u hoe u toevoegen en verwijderen van een gebruiker toegewezen identiteit van een virtuele machine met behulp van de Azure portal.
+
+### <a name="assign-a-user-assigned-identity-during-the-creation-of-a-vm"></a>Een gebruiker toegewezen identiteit tijdens het maken van een virtuele machine toewijzen
+
+De Azure-portal biedt op dit moment geen ondersteuning voor het toewijzen van een gebruiker toegewezen identiteit tijdens het maken van een virtuele machine. In plaats daarvan verwijzen naar een van de volgende artikelen maken Quick Start VM eerst een virtuele machine maken en ga daarna verder met de volgende sectie voor meer informatie over het toewijzen van een gebruiker toegewezen identiteit voor de virtuele machine:
+
+- [Een Windows-machine maken met de Azure-portal](../../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
+- [Een virtuele Linux-machine maken met de Azure portal](../../virtual-machines/linux/quick-create-portal.md#create-virtual-machine)
+
+### <a name="assign-a-user-assigned-identity-to-an-existing-vm"></a>Een gebruiker toegewezen identiteit aan een bestaande virtuele machine toewijzen
+
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account dat is gekoppeld aan het Azure-abonnement met de virtuele machine.
+2. Navigeer naar de gewenste virtuele machine en klik op **identiteit**, **gebruiker toegewezen** en vervolgens  **\+toevoegen**.
+
+   ![Door gebruiker toegewezen identiteit toevoegen aan virtuele machine](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot1.png)
+
+3. Klik op de gebruiker toegewezen identiteit die u wilt toevoegen aan de virtuele machine en klik vervolgens op **toevoegen**.
+
+    ![Door gebruiker toegewezen identiteit toevoegen aan virtuele machine](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot2.png)
+
+### <a name="remove-a-user-assigned-identity-from-a-vm"></a>Een gebruiker toegewezen identiteit van een virtuele machine verwijderen
+
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account dat is gekoppeld aan het Azure-abonnement met de virtuele machine.
+2. Navigeer naar de gewenste virtuele machine en klik op **identiteit**, **gebruiker toegewezen**, de naam van de identiteit van de gebruiker toegewezen die u wilt verwijderen en klik vervolgens op **verwijderen** (Klik **Ja** in het deelvenster bevestiging).
+
+   ![Door gebruiker toegewezen identiteit van een virtuele machine verwijderen](./media/msi-qs-configure-portal-windows-vm/remove-user-assigned-identity-vm-screenshot.png)
 
 ## <a name="related-content"></a>Gerelateerde inhoud
 

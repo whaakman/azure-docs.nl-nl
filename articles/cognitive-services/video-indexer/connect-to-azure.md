@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 08/05/2018
 ms.author: juliako
-ms.openlocfilehash: 66ba79926a949371cb2280de408835862dd1a099
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 64a38ba617a1cc5fe1fdb3473e3cb88a49d89bb0
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41987618"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42744748"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Maken van een Video Indexer-account dat is verbonden met Azure
 
@@ -46,7 +46,7 @@ In dit artikel laat zien hoe een Video Indexer-account dat gekoppeld aan een Azu
 
 * Registreer de resourceprovider voor EventGrid met behulp van de Azure portal.
 
-    In de Azure-portal, gaat u naar **abonnementen** > [abonnement] > **resourceproviders en** > **Microsoft.EventGrid**. Als u niet in de status 'Registered', klikt u op **registreren**. Het duurt enkele minuten om te registreren. 
+    In de [Azure-portal](https://portal.azure.com/), gaat u naar **abonnementen** > [abonnement] > **resourceproviders en** > **Microsoft.EventGrid**. Als u niet in de status 'Registered', klikt u op **registreren**. Het duurt enkele minuten om te registreren. 
 
     ![EventGrid](./media/create-account/event-grid.png)
 
@@ -96,19 +96,16 @@ De volgende Azure Media Services gerelateerde overwegingen zijn van toepassing:
 
     Mogelijk moet u het type en aantal media aanpassen **gereserveerde eenheden**, op basis van het geplande laden. Houd er rekening mee dat als het laden hoog is en u geen voldoende eenheden of snelheid, video's verwerken in time-fouten resulteren kunnen.
 
-* Als u verbinding met een nieuwe Media Services-account, start Video Indexer automatisch een **Streaming-eindpunt** erin:
+* Als u verbinding met een nieuwe Media Services-account, start Video Indexer automatisch standaard **Streaming-eindpunt** erin:
 
     ![Media Services streaming-eindpunt](./media/create-account/ams-streaming-endpoint.png)
 
-* Als u met een Media Services-account verbonden, wordt de configuratie van de streaming endpoints niet gewijzigd door Video Indexer. Als er geen wordt uitgevoerd **Streaming-eindpunt**, kunt u zich niet Bekijk video's vanaf deze Media Services-account of in Video Indexer.
+* Als u met een Media Services-account verbonden, wordt de standaardconfiguratie voor Streaming-eindpunt niet gewijzigd door Video Indexer. Als er geen wordt uitgevoerd **Streaming-eindpunt**, kunt u zich niet Bekijk video's vanaf deze Media Services-account of in Video Indexer.
 
-## <a name="use-video-indexer-apis-v2"></a>Gebruik Video Indexer API v2
+## <a name="next-steps"></a>Volgende stappen
 
 U kunt via programmacode communiceren met uw proefaccount en/of met uw Video Indexer-accounts die zijn verbonden met azure door de instructies in: [gebruik API's](video-indexer-use-apis.md).
 
 U moet dezelfde Azure AD-gebruiker die u hebt gebruikt bij het verbinden met Azure.
 
-## <a name="next-steps"></a>Volgende stappen
-
-[Details van de JSON-uitvoer onderzoeken](video-indexer-output-json-v2.md).
 

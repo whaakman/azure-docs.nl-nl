@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 08/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: d21a6dc7a460e07fe7530b58bef887241a694b25
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 4e9f5a9318db813b1a0f16d3599f74fd98e53ffc
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628083"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818054"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory
 
@@ -85,7 +85,7 @@ Beide beleidsregels worden afgedwongen door Azure Active Directory en de gebruik
 
 ### <a name="what-happens-if-i-have-multiple-policies-for-the-same-user-configured"></a>Wat gebeurt er als ik meerdere beleidsregels voor dezelfde gebruiker geconfigureerd?  
 
-Voor elke aanmelding, Azure Active Directory evalueert alle beleidsregels en zorgt ervoor dat aan alle vereisten wordt voldaan voordat toegang verleend aan de gebruiker.
+Voor elke aanmelding, Azure Active Directory evalueert alle beleidsregels en zorgt ervoor dat aan alle vereisten wordt voldaan voordat toegang verleend aan de gebruiker. Toegang blokkeren trumps alle andere configuratie-instellingen. 
 
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>Werkt voorwaardelijke toegang met Exchange ActiveSync?

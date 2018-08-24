@@ -2,170 +2,198 @@
 title: Verbinding maken met Dynamics 365 - Azure Logic Apps | Microsoft Docs
 description: Maken en beheren van records met Dynamics 365 (online) REST-API's en Azure Logic Apps
 author: Mattp123
-manager: jeconnoc
 ms.author: matp
-ms.date: 02/10/2017
-ms.topic: article
 ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.reviewer: estfan, LADocs
 ms.suite: integration
+ms.topic: article
+ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: 6ac45d45ed1df0e89eb27657a064a8c95ad4be79
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b1ff93f1e03e047ad5ac00259c1aa53afda0c76d
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294840"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818937"
 ---
-# <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Verbinding maken met Dynamics 365 vanuit logic app-werkstromen
+# <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Dynamics 365-records met Azure Logic Apps beheren
 
-Met Logic Apps kunt u verbinding met Dynamics 365 (online) en nuttig business stromen die records maken, bijwerken items of retourneren een lijst met records maken. Met de connector Dynamics 365 kunt u:
+Met Azure Logic Apps en de Dynamics 365-connector, kunt u geautomatiseerde taken en werkstromen op basis van de records in Dynamics 365 maken. Uw werkstromen kunnen maken records, update-items, Ga terug en meer in uw Dynamics 365-account. U kunt acties opnemen in uw logische apps die te antwoorden krijgen van Dynamics 365 en de uitvoer beschikbaar voor andere acties. Wanneer een item in Dynamics 365 is bijgewerkt, kunt u bijvoorbeeld een e-mailbericht met behulp van Office 365 verzenden.
 
-* Bouw uw zakelijke flow op basis van de gegevens die u vanuit Dynamics 365 (online).
-* Gebruik de acties die reageert en vervolgens de uitvoer beschikbaar voor andere acties. Wanneer een item wordt bijgewerkt in Dynamics 365 (online), kunt u bijvoorbeeld een e-mailbericht met Office 365 verzenden.
-
-Dit onderwerp leest u het maken van een logische app die u een taak in Dynamics 365 maakt zodra er een nieuwe lead in Dynamics 365 is gemaakt.
+Dit artikel wordt beschreven hoe u een logische app die u een taak in Dynamics 365 maakt wanneer een nieuwe leadrecord wordt gemaakt in Dynamics 365 kunt samenstellen.
+Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md).
 
 ## <a name="prerequisites"></a>Vereisten
-* Een Azure-account.
-* Een account met Dynamics 365 (online).
 
-## <a name="create-a-task-when-a-new-lead-is-created-in-dynamics-365"></a>Een taak wordt gemaakt wanneer een nieuwe lead in Dynamics 365 wordt gemaakt
+* Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>. 
 
-1.  [Aanmelden bij Azure](https://portal.azure.com).
+* Een [Dynamics 365-account](https://dynamics.microsoft.com)
 
-2.  Typ in het Azure search `Logic apps`, en druk op ENTER.
+* Basiskennis over [over het maken van logische apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-      ![Logische Apps zoeken](./media/connectors-create-api-crmonline/find-logic-apps.png)
+* De logische app waar u toegang tot uw Dynamics 365-account. Als uw logische app met een Dynamics 365-trigger wilt, moet u een [lege, logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
-3.  Onder **Logic apps**, klikt u op **toevoegen**.
+## <a name="add-dynamics-365-trigger"></a>Dynamics 365-trigger toevoegen
 
-      ![LogicApp toevoegen](./media/connectors-create-api-crmonline/add-logic-app.png)
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-4.  Voor het maken van de logische app, voer de **naam**, **abonnement**, **resourcegroep**, en **locatie** velden en klik vervolgens op **Maken**.
+Eerst een Dynamics 365-trigger die wordt geactiveerd wanneer een nieuwe leadrecord wordt weergegeven in Dynamics 365 toevoegen.
 
-5.  Selecteer de nieuwe logische app. Wanneer u ontvangt de **implementatie is voltooid** melding, klikt u op **vernieuwen**.
+1. In de [Azure-portal](https://portal.azure.com), open uw lege, logische app in Logic App Designer, als dit niet al geopend.
 
-6.  Onder **ontwikkelingsprogramma's**, klikt u op **Logic App-ontwerper**. Klik in de lijst met sjablonen op **lege logische App**.
+1. Typ 'Dynamics 365 ' als filter in het zoekvak. In dit voorbeeld onder de lijst met triggers, selecteer deze trigger: **wanneer een record wordt gemaakt**
 
-7.  Typ in het zoekvak `Dynamics 365`. Selecteer in de lijst van de triggers Dynamics 365 **Dynamics 365 – wanneer een record gemaakt**.
+   ![Trigger selecteren](./media/connectors-create-api-crmonline/select-dynamics-365-trigger.png)
 
-8.  Als u wordt gevraagd aan te melden bij Dynamics 365, moet u dit nu doen.
+1. Als u wordt gevraagd of u aanmelden bij Dynamics 365, nu aanmelden.
 
-9.  Voer de volgende gegevens in de trigger-details:
+1. Geef de details van deze trigger:
 
-  * **Naam van de organisatie**. Selecteer het Dynamics 365-exemplaar dat u wilt dat de logische app om te luisteren.
+   | Eigenschap | Vereist | Beschrijving | 
+   |----------|----------|-------------| 
+   | **De naam van organisatie** | Ja | De naam voor Dynamics 365-exemplaar van uw organisatie moeten worden bewaakt, bijvoorbeeld 'Contoso' |
+   | **Naam van de entiteit** | Ja | De naam voor de entiteit te bewaken, bijvoorbeeld leidt' " | 
+   | **Frequentie** | Ja | De tijdseenheid voor gebruik met intervallen bij het controleren op updates met betrekking tot de trigger |
+   | **Interval** | Ja | Het aantal seconden, minuten, uren, dagen, weken of maanden die voordat de volgende controle verstrijken |
+   ||| 
 
-  * **Naam van de entiteit**. Selecteer de entiteit die u wilt luisteren. Deze gebeurtenis fungeert als een trigger voor het starten van de logische app. 
-  In dit overzicht **leidt** is geselecteerd.
+   ![Triggerdetails](./media/connectors-create-api-crmonline/trigger-details.png)
 
-  * **Hoe vaak wilt u om te controleren op items?** Deze waarden instellen hoe vaak de logische app controleert op updates met betrekking tot de trigger. De standaardinstelling is om te controleren op updates elke drie minuten.
+## <a name="add-dynamics-365-action"></a>Dynamics 365-actie toevoegen
 
-    * **Frequentie**. Selecteer seconden, minuten, uren of dagen.
+Nu de Dynamics 365-actie die u een taakrecord voor een nieuwe leadrecord maakt toevoegen.
 
-    * **Interval**. Voer het aantal seconden, minuten, uren of dagen dat u wilt laten verstrijken voordat de controle van de volgende.
+1. Kies onder de trigger **nieuwe stap**.
 
-      ![Details van de logica voor App Trigger](./media/connectors-create-api-crmonline/trigger-details.png)
+1. Typ 'Dynamics 365 ' als filter in het zoekvak. Selecteer in de lijst met acties met deze actie: **een nieuwe record maken**
 
-10. Klik op **nieuwe stap**, en klik vervolgens op **een actie toevoegen**.
+   ![Actie selecteren](./media/connectors-create-api-crmonline/select-action.png)
 
-11. Typ in het zoekvak `Dynamics 365`. Selecteer in de lijst met acties **Dynamics 365 – Maak een nieuwe record**.
+1. Geef de volgende actiegegevens:
 
-12. Voer de volgende informatie in:
+   | Eigenschap | Vereist | Beschrijving | 
+   |----------|----------|-------------| 
+   | **De naam van organisatie** | Ja | Het Dynamics 365-exemplaar waarop u maken van de record wilt, hoeft niet dezelfde te zijn van hetzelfde exemplaar in de trigger, maar het 'Contoso' is in dit voorbeeld |
+   | **Naam van de entiteit** | Ja | De entiteit waarin u wilt maken van de record, bijvoorbeeld "Taken" | 
+   | | |
 
-    * **Naam van de organisatie**. Selecteer de Dynamics 365 instantie waar u de stroom om de record te maken. 
-    Merk op dat dit exemplaar hoeft te zijn van hetzelfde exemplaar waar de gebeurtenis wordt geactiveerd vanuit.
+   ![Actiedetails](./media/connectors-create-api-crmonline/action-details.png)
 
-    * **Naam van de entiteit**. Selecteer de entiteit die u een record maken wilt als de gebeurtenis wordt geactiveerd. 
-    In dit overzicht **taken** is geselecteerd.
+1. Wanneer de **onderwerp** vak wordt weergegeven in de actie, klikt u in de **onderwerp** vak, zodat de lijst met dynamische inhoud wordt weergegeven. In deze lijst, selecteer de veldwaarden om op te nemen in de taakrecord die zijn gekoppeld aan een record met de nieuwe potentiële klant:
 
-13. Klik in de **onderwerp** vak dat wordt weergegeven. In de dynamische inhoud lijst die wordt weergegeven, kunt u een van deze velden selecteren:
+   | Veld | Beschrijving | 
+   |-------|-------------| 
+   | **Achternaam** | De achternaam van de potentiële klant als de primaire contactpersoon in de record |
+   | **Onderwerp** | De beschrijvende naam voor de lead in de record | 
+   | | | 
 
-    * **Achternaam**. Voegt de achternaam van de lead als u dit veld in het veld onderwerp voor de taak in wanneer de taak wordt gemaakt.
-    * **Onderwerp**. Als u dit veld voegt in het veld onderwerp voor de lead in het veld onderwerp voor de taak wanneer de taak wordt gemaakt. 
-    Klik op **onderwerp** om toe te voegen die u wilt de **onderwerp** vak.
+   ![De details van record](./media/connectors-create-api-crmonline/create-record-details.png)
 
-      ![Logische App maken nieuwe records details](./media/connectors-create-api-crmonline/create-record-details.png)
+1. Kies op de werkbalk van de ontwerper **opslaan** voor uw logische app. 
 
-14. Klik op de werkbalk Logic App-ontwerper **opslaan**.
+1. Kies voor het handmatig starten van de logische app op de werkbalk van de ontwerper, **uitvoeren**.
 
-    ![Logic App-ontwerper werkbalk opslaan](./media/connectors-create-api-crmonline/designer-toolbar-save.png)
+   ![Logische app uitvoeren](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
 
-15. Voor het starten van de logische App, klikt u op **uitvoeren**.
+1. Nu een leadrecord in Dynamics 365 maken, zodat u kunt uw logic app-werkstroom activeren.
 
-    ![Logic App-ontwerper werkbalk opslaan](./media/connectors-create-api-crmonline/designer-toolbar-run.png)
+## <a name="add-filter-or-query"></a>Filter of query toevoegen
 
-16. Nu een leadrecord maken in Dynamics 365 voor verkoop en uw flow in actie zien!
+Als u wilt filteren van gegevens in Dynamics 365-actie opgeeft, kies **geavanceerde opties weergeven** in actie. U kunt vervolgens een filter of een order toevoegen door query.
+Bijvoorbeeld, kunt u een filterquery voor het ophalen van alleen de actieve accounts en deze records te sorteren op naam. Volg deze stappen voor deze taak:
 
-## <a name="set-advanced-options-for-a-logic-app-step"></a>Geavanceerde opties voor de stap van een logische app instellen
+1. Onder **filterquery**, deze OData-filterquery invoeren: `statuscode eq 1`
 
-Als u wilt filteren van gegevens in een logische app stap opgeven, klikt u op **geavanceerde opties weergeven** in deze stap voegt u een filter of de volgorde door query.
+2. Onder **Order By**, wanneer de lijst met dynamische inhoud wordt weergegeven, selecteert u **accountnaam**. 
 
-Bijvoorbeeld, kunt u een filterquery alleen actieve accounts en volgorde ophalen door de accountnaam. Als u wilt uitvoeren van deze taak voert u de OData-filter-query `statuscode eq 1`, en selecteer **accountnaam** uit de lijst met dynamische inhoud. Meer informatie: [MSDN: $filter](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_1) en [$orderby](https://msdn.microsoft.com/library/gg309461.aspx#Anchor_2).
+   ![Filter en de volgorde opgeven](./media/connectors-create-api-crmonline/advanced-options.png)
 
-![Geavanceerde opties voor logische-app](./media/connectors-create-api-crmonline/advanced-options.png)
+Zie voor meer informatie deze queryopties voor Dynamics 365 Customer Engagement Web API-systeem: 
 
-### <a name="best-practices-when-using-advanced-options"></a>Aanbevolen procedures voor het gebruik van geavanceerde opties
+* [$filter](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#filter-results)
+* [$orderby](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#order-results)
 
-Wanneer u een waarde aan een veld toevoegt, moet u het veldtype overeenkomen met of u typt u een waarde of Selecteer een waarde in de lijst met dynamische inhoud.
+### <a name="best-practices-for-advanced-options"></a>Aanbevolen procedures voor geavanceerde opties
 
-Veldtype  |Gebruiksinstructies  |Waar vind ik  |Naam  |Gegevenstype  
----------|---------|---------|---------|---------
-Tekstvelden|Tekstvelden vereisen een enkele regel tekst of dynamische inhoud die is een type tekstveld. Voorbeelden hiervan zijn de categorie en subcategorie velden.|Instellingen > Aanpassingen > past u het systeem > entiteiten > taak > velden |category |Enkele regel tekst        
-Velden geheel getal | Sommige velden vereist geheel getal of dynamische inhoud die een veld van het type geheel getal is. Voorbeelden zijn percentage voltooid en duur. |Instellingen > Aanpassingen > past u het systeem > entiteiten > taak > velden |PercentComplete |Geheel getal         
-Datumvelden | Sommige velden vereisen een datum is opgegeven in de notatie dd-mm-jjjj of dynamische inhoud die is een veld van het type datum. Voorbeelden zijn gemaakt op, begindatum, werkelijke begindatum laatste op de tijd houdt, Werkelijk einde en vervaldatum. | Instellingen > Aanpassingen > past u het systeem > entiteiten > taak > velden |createdon |Datum en tijd
-Typ velden waarvoor zowel een record-ID en lookup |Sommige velden die verwijzen naar een andere entiteitsrecord vereisen zowel de record-ID en het Opzoektype. |Instellingen > Aanpassingen > past u het systeem > entiteiten > Account > velden  | AccountId  | Primaire sleutel
+Wanneer u een waarde voor een veld in een actie of trigger opgeeft, het gegevenstype van de waarde moet overeenkomen met het veldtype of u handmatig invoeren van de waarde of selecteert u de waarde in de lijst met dynamische inhoud.
 
-### <a name="more-examples-of-fields-that-require-both-a-record-id-and-lookup-type"></a>Typ voor meer voorbeelden van de velden die vereisen een record-ID en de lookup dat
-Voortbouwend op de vorige tabel, vindt hier u meer voorbeelden van de velden die niet met waarden die in de lijst met dynamische inhoud geselecteerd werken. Deze velden vereisen in plaats daarvan beide een lookup-ID en het recordtype in de velden in PowerApps ingevoerd.  
-* Eigenaar en eigenaarstype. Het veld eigenaar moet een geldige gebruiker of het team record-ID. Het Type van de eigenaar moet een **systemusers** of **teams**.
-* De klant en het klanttype. Het veld moet een geldig account of neem contact op met de record-ID. Het Type van de eigenaar moet een **accounts** of **contactpersonen**.
-* Met betrekking tot en met betrekking tot Type. Het veld betreft moet een geldige record-ID, zoals een account of neem contact op met de record-ID. Het Type met betrekking tot moet het type lookup voor de record, zoals **accounts** of **contactpersonen**.
+Deze tabel worden enkele van de veldtypen en de vereiste gegevenstypen voor hun waarden beschreven.
 
-Het volgende voorbeeld van taak maken actie wordt een record voor een account dat overeenkomt met de id van de record toe te voegen aan het betreffende veld van de taak.
+| Veldtype | Gegevens van het type vereist | Beschrijving | 
+|------------|--------------------|-------------|
+| Tekstvelden | Eén tekstregel | Deze velden vereist één regel tekst of dynamische inhoud het teksttype heeft. <p><p>*Voorbeeld van de velden*: **beschrijving** en **categorie** | 
+| Velden voor gehele getallen | Geheel getal | Sommige velden vereist geheel getal of dynamische inhoud het type geheel getal zijn heeft. <p><p>*Voorbeeld van de velden*: **percentage voltooid** en **duur** | 
+| Datumvelden | Datum en tijd | Sommige velden vereist een datum met de notatie dd-mm-jjjj of dynamische inhoud het datumtype heeft. <p><p>*Voorbeeld van de velden*: **gemaakt op**, **begindatum**, **werkelijke begindatum**, **werkelijk einde**, en **vervaldatum** | 
+| Velden waarvoor een record-ID en een Opzoektype Typ | Primaire sleutel | Sommige velden die verwijzen naar een andere entiteitsrecord vereist zowel een record-ID en een Opzoektype. | 
+||||
 
-![Stroom recordId en het type account](./media/connectors-create-api-crmonline/recordid-type-account.png)
+Voortbouwend op deze veldtypen, vindt hier u voorbeeld van de velden in Dynamics 365-triggers en acties waarvoor een record-ID en het Opzoektype zijn vereist. Deze vereiste betekent dat de waarden die u in de lijst met dynamische selecteert werkt niet. 
 
-In dit voorbeeld wordt de taak ook toegewezen aan een specifieke gebruiker op basis van de gebruiker record-ID.
+| Veld | Beschrijving | 
+|-------|-------------|
+| **Eigenaar** | Moet een geldige gebruikersnaam of team record-ID. | 
+| **Eigenaarstype** | Moet een **systemusers** of **teams**. | 
+| **Met betrekking tot** | Moet een geldige record-ID, zoals een account-ID of neem contact op met de record-ID. | 
+| **Met betrekking tot het Type** | Moet een lookup-type, zoals **accounts** of **contactpersonen**. | 
+| **De klant** | Moet een geldige record-ID, zoals een account-ID of neem contact op met de record-ID. | 
+| **Klanttype** | Moet de lookup-type, zoals **accounts** of **contactpersonen**. | 
+|||
 
-![Stroom recordId en het type account](./media/connectors-create-api-crmonline/recordid-type-user.png)
+In dit voorbeeld wordt de actie met de naam **een nieuwe record maken** maakt een nieuwe taakrecord: 
 
-Een record-ID, Zie de volgende sectie: *vinden van de record-ID*
+![Taakrecord met de record-id's en lookup-typen maken](./media/connectors-create-api-crmonline/create-record-advanced.png)
 
-## <a name="find-the-record-id"></a>De record-ID vinden
+Deze actie wordt de taakrecord toegewezen aan een specifieke gebruikers-ID of het team record-ID, op basis van de record-ID in de **eigenaar** veld- en lookup typt u in de **eigenaarstype** veld:
 
-1. Open een record bestaat, zoals een record.
+![De record-ID en een Opzoektype eigenaarstype](./media/connectors-create-api-crmonline/owner-record-id-and-lookup-type.png)
 
-2. Klik op de werkbalk Acties **Pop uit** ![popout record](./media/connectors-create-api-crmonline/popout-record.png).
-U kunt ook de acties op de werkbalk om te kopiëren van de volledige URL in het standaard e-mailprogramma, **e-MAILBERICHT een koppeling**.
+Deze actie wordt ook een accountrecord die is gekoppeld aan de record-ID toegevoegd in de **met betrekking tot** veld- en lookup typt u in de **met betrekking tot het Type** veld: 
 
-   De record-ID wordt weergegeven tussen de 7 ter en %7 %d tekens van de URL-codering.
+![Met betrekking tot ID en een Opzoektype recordtype](./media/connectors-create-api-crmonline/regarding-record-id-lookup-type-account.png)
 
-   ![Stroom recordId en het type account](./media/connectors-create-api-crmonline/recordid.png)
+## <a name="find-record-id"></a>Record-ID vinden
 
-## <a name="troubleshooting"></a>Problemen oplossen
-Voor het oplossen van een mislukte stap in een logische app, moet u de statusdetails van de gebeurtenis weergeven.
+Als u wilt zoeken in een record-ID, de volgende stappen uit: 
 
-1. Onder **Logic Apps**, selecteer uw logische app en klik vervolgens op **overzicht**. 
+1. Open in Dynamics 365, een record, zoals een accountrecord.
 
-   In het samenvattingsgebied wordt weergegeven en de uitvoeringsstatus biedt voor de logische app. 
+2. Kies een van deze stappen uit op de werkbalk Acties:
 
-   ![Logische app uitvoeringsstatus](./media/connectors-create-api-crmonline/tshoot1.png)
+   * Kies **Pop-outmodus**. ![mailprogramma record](./media/connectors-create-api-crmonline/popout-record.png) 
+   * Kies **e-MAILBERICHT een koppeling** , zodat u kunt de volledige URL naar uw standaard-e-mailprogramma kopiëren.
 
-2. Als u meer informatie over eventuele mislukte wordt uitgevoerd, klikt u op de gebeurtenis is mislukt. Als een mislukte stap wilt uitbreiden, klikt u op die stap.
+   De record-ID in de URL tussen weergegeven de `%7b` en `%7d` coderingstekens:
 
-   ![Vouw de mislukte stap](./media/connectors-create-api-crmonline/tshoot2.png)
+   ![Record-ID vinden](./media/connectors-create-api-crmonline/find-record-ID.png)
 
-   De details van de stap worden weergegeven en de oorzaak van het probleem kunnen oplossen.
+## <a name="troubleshoot-failed-runs"></a>Mislukte uitvoeringen oplossen
 
-   ![Details van de stap is mislukt](./media/connectors-create-api-crmonline/tshoot3.png)
+Als u wilt zoeken en mislukte stappen in uw logische app, kunt u de geschiedenis van uitvoeringen van uw logische app, status, invoer, uitvoer, enzovoort weergeven.
 
-Zie voor meer informatie over het oplossen van logische apps [logic app fouten opsporen](../logic-apps/logic-apps-diagnosing-failures.md).
+1. Selecteer in de Azure portal, in het hoofdmenu van uw logische app, **overzicht**. In de **geschiedenis van uitvoeringen** sectie melding ziet de uitvoering statussen voor uw logische app, selecteert u een mislukte uitvoering voor meer informatie.
 
-## <a name="connector-specific-details"></a>Connector-specifieke details
+   ![Status van logische app](./media/connectors-create-api-crmonline/run-history.png)
 
-Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/crm/). 
+1. Een mislukte stap uitbreiden, zodat u meer informatie kunt bekijken. 
+
+   ![Vouw de mislukte stap](./media/connectors-create-api-crmonline/expand-failed-step.png)
+
+1. Bekijk de details van de stap, zoals de invoer en uitvoer, waarmee u kunnen de oorzaak van de fout vinden.
+
+   ![Mislukte stap - invoer en uitvoer](./media/connectors-create-api-crmonline/expand-failed-step-inputs-outputs.png)
+
+Zie voor meer informatie over het oplossen van logische apps [diagnose van fouten in logische Apps](../logic-apps/logic-apps-diagnosing-failures.md).
+
+## <a name="connector-reference"></a>Connector-verwijzing
+
+Zie voor technische details, zoals triggers en acties limieten, zoals is beschreven in de Swagger-bestand van de connector, de [van de connector-verwijzingspagina](/connectors/crm/). 
+
+## <a name="get-support"></a>Ondersteuning krijgen
+
+* Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
+* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Volgende stappen
-Bekijk de beschikbare connectors in Logic Apps op onze [API's lijst](apis-list.md).
+
+* Meer informatie over andere [Logic Apps-connectors](../connectors/apis-list.md)

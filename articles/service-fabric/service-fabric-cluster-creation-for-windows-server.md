@@ -1,6 +1,6 @@
 ---
-title: Een zelfstandige Azure Service Fabric-cluster maken | Microsoft Docs
-description: Een Azure Service Fabric-cluster maken op elke computer (fysiek of virtueel) Windows Server, of het lokale of uitgevoerd in een cloud.
+title: Een zelfstandig Azure Service Fabric-cluster maken | Microsoft Docs
+description: Een Azure Service Fabric-cluster maken op elke computer (fysiek of virtueel) uitvoeren van Windows Server, ongeacht of deze zich on-premises of in elke cloud.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,74 +14,80 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: dekapur
-ms.openlocfilehash: efa48aa90806b45c99237404af24cb8aba762d15
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3ce47d631e8a2ec7daf96ef95200001e5d4f8327
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209151"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818578"
 ---
-# <a name="create-a-standalone-cluster-running-on-windows-server"></a>Een zelfstandige cluster met Windows Server maken
-U kunt Azure Service Fabric gebruiken voor het maken van Service Fabric-clusters op alle virtuele machines of de computers waarop Windows Server wordt uitgevoerd. Dit betekent dat u kunt implementeren en Service Fabric-toepassingen uitvoeren in een omgeving die een set met elkaar verbonden computers met Windows Server bevat, worden deze on-premises of bij een cloudprovider. Service Fabric bevat een installatiepakket voor het maken van Service Fabric-clusters die het zelfstandige pakket met Windows Server genoemd.
+# <a name="create-a-standalone-cluster-running-on-windows-server"></a>Een zelfstandige cluster uitgevoerd op Windows Server maken
+Azure Service Fabric kunt u Service Fabric-clusters maken op elke virtuele machine of computers met Windows Server. Dit betekent dat u kunt implementeren en Service Fabric-toepassingen uitvoeren in een omgeving die een set met elkaar verbonden computers met Windows Server bevat, worden deze on-premises of met elke andere cloudprovider. Service Fabric biedt een installatiepakket voor het maken van het zelfstandige pakket voor Windows Server met de naam van Service Fabric-clusters.
 
-Dit artikel begeleidt u bij de stappen voor het maken van een zelfstandige Service Fabric-cluster.
+In dit artikel leidt u door de stappen voor het maken van een zelfstandige Service Fabric-cluster.
 
 > [!NOTE]
-> Dit zelfstandige Windows Server-pakket is commercieel beschikbaar en kan worden gebruikt voor productie-implementaties. Dit pakket bevat nieuwe Service Fabric-functies die 'in Preview' zijn. Schuif omlaag naar '[Preview-functies die zijn opgenomen in dit pakket](#previewfeatures_anchor). " de sectie voor een lijst van de preview-functies. U kunt [download een exemplaar van de gebruiksrechtovereenkomst](http://go.microsoft.com/fwlink/?LinkID=733084) nu.
+> Deze zelfstandige Windows Server-pakket is commercieel verkrijgbaar en kan worden gebruikt voor productie-implementaties. Dit pakket bevat nieuwe Service Fabric-functies die zich in 'Preview'. Schuif omlaag naar '[Preview-functies opgenomen in dit pakket](#previewfeatures_anchor). " sectie voor een lijst van de preview-functies. U kunt [download een exemplaar van de gebruiksrechtovereenkomst](http://go.microsoft.com/fwlink/?LinkID=733084) nu.
 > 
 > 
 
 <a id="getsupport"></a>
 
-## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>Ondersteuning voor het Service Fabric voor Windows Server-pakket
-* De community vragen over de zelfstandige Service Fabric-pakket voor Windows-Server in de [Azure Service Fabric-forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
-* Open een serviceticket voor [Professional-ondersteuning voor Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Meer informatie over ondersteuning van Microsoft-professionals [hier](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
+## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>Profiteer van ondersteuning voor het Service Fabric voor Windows Server-pakket
+* Vraag het de community over het zelfstandige pakket met Service Fabric voor Windows Server in de [forum van Azure Service Fabric](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
+* Open een ticket voor [professionele ondersteuning voor Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Meer informatie over professionele ondersteuning van Microsoft [hier](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * U kunt ook ondersteuning voor dit pakket als onderdeel van [Microsoft Premier Support](https://support.microsoft.com/en-us/premier).
-* Zie voor meer informatie [opties voor ondersteuning van Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
-* Uitvoeren voor het verzamelen van Logboeken ter ondersteuning van de [Service Fabric zelfstandige logboekverzamelaar](service-fabric-cluster-standalone-package-contents.md).
+* Zie voor meer informatie, [ondersteuningsopties voor Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
+* Uitvoeren voor het verzamelen van Logboeken voor ondersteuning van toepassing, de [logboekverzamelaar voor Service Fabric-zelfstandige](service-fabric-cluster-standalone-package-contents.md).
 
 <a id="downloadpackage"></a>
 
-## <a name="download-the-service-fabric-for-windows-server-package"></a>De Service Fabric voor Windows Server downloaden
-Voor het maken van het cluster gebruikt het Service Fabric voor Windows Server-pakket (Windows Server 2012 R2 en nieuwer) hier vinden: <br>
-[Link - Service Fabric zelfstandige Package - Windows-Server downloaden](http://go.microsoft.com/fwlink/?LinkId=730690)
+## <a name="download-the-service-fabric-for-windows-server-package"></a>Het pakket Service Fabric voor Windows Server downloaden
+Voor het maken van het cluster, gebruikt u de Service Fabric voor Windows Server-pakket (Windows Server 2012 R2 en hoger) is hier beschikbaar: <br>
+[Link - pakket met Service Fabric zelfstandige - Windows-Server downloaden](http://go.microsoft.com/fwlink/?LinkId=730690)
 
-Meer informatie vinden van inhoud van het pakket [hier](service-fabric-cluster-standalone-package-contents.md).
+Lees informatie over de inhoud van het pakket [hier](service-fabric-cluster-standalone-package-contents.md).
 
-Het Service Fabric-runtime-pakket is automatisch gedownload tijdens het maken van het cluster. Als het implementeren van een virtuele machine niet is verbonden met internet, download u het pakket runtime buiten-band van hier: <br>
+Het Service Fabric-runtimepakket wordt automatisch gedownload tijdens het maken van clusters. Als een implementatie van een virtuele machine niet is verbonden met internet, download u de runtime-pakket buiten-band hier: <br>
 [Link - Service Fabric-Runtime - Windows-Server downloaden](https://go.microsoft.com/fwlink/?linkid=839354)
 
-Voorbeelden van de zelfstandige configuratie van het Cluster op zoeken: <br>
-[Voorbeelden van zelfstandige clusterconfiguratie](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
+Voorbeelden op zelfstandige clusterconfiguratie zoeken: <br>
+[Voorbeelden van configuraties voor zelfstandige Cluster](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples)
 
 <a id="createcluster"></a>
 
 ## <a name="create-the-cluster"></a>Het cluster maken
-Service Fabric kan worden geïmplementeerd naar een cluster met één machine ontwikkeling met behulp van de *ClusterConfig.Unsecure.DevCluster.json* bestand in [voorbeelden](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
+Met het installatiepakket worden diverse voorbeelden van clusterconfiguraties geïnstalleerd. *ClusterConfig.Unsecure.DevCluster.json* is de eenvoudigste clusterconfiguratie: een onbeveiligd cluster met drie knooppunten die worden uitgevoerd op één computer.  Andere configuratiebestanden beschrijven clusters voor één of meerdere machines die zijn beveiligd met een x.509-certificaat of met Windows-beveiliging.  U hoeft de standaardconfiguratie-instellingen voor deze zelfstudie niet te wijzigen, maar neem wel het configuratiebestand door om vertrouwd te raken met de instellingen.  De sectie **nodes** beschrijft de drie knooppunten in het cluster: naam, IP-adres, [knooppunttype, foutdomein en upgradedomein](service-fabric-cluster-manifest.md#nodes-on-the-cluster).  De sectie **properties** definieert [de beveiliging, het betrouwbaarheidsniveau, de diagnostische verzameling en de typen knooppunten](service-fabric-cluster-manifest.md#cluster-properties) voor het cluster.
 
-Uitpakken van het pakket zelfstandige naar uw computer, het voorbeeldbestand config kopiëren naar de lokale computer en voer vervolgens de *CreateServiceFabricCluster.ps1* script via een PowerShell-sessie van de beheerder van de pakketmap zelfstandige:
-### <a name="step-1a-create-an-unsecured-local-development-cluster"></a>Stap 1A: een onbeveiligde lokaal ontwikkelcluster maken
+Het cluster hebt gemaakt in dit artikel is onveilig.  Iedereen kan anoniem verbinding maken en beheerbewerkingen uitvoeren. Productieclusters moeten dus altijd worden beveiligd met X.509-certificaten of Windows-beveiliging.  Beveiliging kan alleen worden geconfigureerd tijdens het maken van het cluster. Het is niet mogelijk beveiliging in te schakelen nadat het cluster is gemaakt. Update het configuratiebestand inschakelen [beveiliging van het certificaat](service-fabric-windows-cluster-x509-security.md) of [Windows security](service-fabric-windows-cluster-windows-security.md). Lees [Een cluster beveiligen](service-fabric-cluster-security.md) voor meer informatie over de beveiliging van Service Fabric-clusters.
+
+### <a name="step-1a-create-an-unsecured-local-development-cluster"></a>Stap 1A: een onbeveiligde lokale ontwikkeling-cluster maken
+Service Fabric kunnen worden geïmplementeerd op een ontwikkelingscluster met een machine met behulp van de *ClusterConfig.Unsecure.DevCluster.json* -bestand in [voorbeelden](https://github.com/Azure-Samples/service-fabric-dotnet-standalone-cluster-configuration/tree/master/Samples).
+
+Pak het zelfstandige pakket naar uw computer, de config-voorbeeldbestand kopiëren naar de lokale computer en voer vervolgens de *CreateServiceFabricCluster.ps1* script via een PowerShell-sessie, uit het zelfstandige pakketmap .
+
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.Unsecure.DevCluster.json -AcceptEULA
 ```
 
-Zie de sectie omgeving in te stellen op [plannen en voorbereiden van uw implementatie van het cluster](service-fabric-cluster-standalone-deployment-preparation.md) voor de details voor probleemoplossing.
+Zie de sectie omgeving instellen op [plannen en voorbereiden van de implementatie van uw cluster](service-fabric-cluster-standalone-deployment-preparation.md) voor probleemoplossing.
 
-Als u actieve ontwikkelscenario's hebt voltooid, kunt u de Service Fabric-cluster verwijderen van de machine met een verwijzing naar de stappen in de sectie '[verwijderen van een cluster](#removecluster_anchor)'. 
+Als u actieve ontwikkelscenario's hebt voltooid, kunt u de Service Fabric-cluster van de computer verwijderen door te verwijzen naar de stappen in de sectie '[verwijderen van een cluster](#removecluster_anchor)'. 
 
 ### <a name="step-1b-create-a-multi-machine-cluster"></a>Stap 1B: een cluster met meerdere machines maken
-Nadat u hebt doorlopen de planning en de voorbereidende stappen op gedetailleerde op de onderstaande koppeling, bent u klaar om uw productiecluster met behulp van het configuratiebestand van de cluster te maken. <br>
-[Plannen en voorbereiden van uw implementatie van het cluster](service-fabric-cluster-standalone-deployment-preparation.md)
+Nadat u hebt doorlopen de planning en voorbereidingsstappen beschreven aan [plannen en voorbereiden van de implementatie van uw cluster](service-fabric-cluster-standalone-deployment-preparation.md), bent u klaar om uw productiecluster met behulp van het configuratiebestand van uw cluster te maken.
 
-1. Valideren van het configuratiebestand dat u hebt geschreven door het uitvoeren van de *TestConfiguration.ps1* script van de pakketmap zelfstandige:  
+De clusterbeheerder die het cluster implementeert en configureert, moet administratorbevoegdheden hebben op de computer. U kunt Service Fabric niet installeren op een domeincontroller.
+
+1. Het script *TestConfiguration.ps1* in het zelfstandige pakket wordt gebruikt als Best Practices Analyzer om te valideren of een cluster in een bepaalde omgeving kan worden geïmplementeerd. In de [Implementatievoorbereiding](service-fabric-cluster-standalone-deployment-preparation.md) vindt u de implementatie- en omgevingsvereisten. Voer het script uit om te controleren of u het ontwikkelingscluster kunt maken:  
 
     ```powershell
     .\TestConfiguration.ps1 -ClusterConfigFilePath .\ClusterConfig.json
     ```
 
-    Ziet u uitvoer zoals hieronder. Het veld onder is 'Doorgegeven' geretourneerd als 'True', zijn geslaagd voor bevestigingen en het cluster gecontroleerd worden geïmplementeerd op basis van de configuratie van de invoer.
+    Hier ziet u uitvoer die vergelijkbaar is met de volgende. Het veld onder is 'Goedgekeurd' wordt geretourneerd als 'True', bevestigingen zijn geslaagd en het cluster ziet er uit om te worden geïmplementeerd op basis van de configuratie van de invoer.
 
-    ```
+    ```powershell
     Trace folder already exists. Traces will be written to existing trace folder: C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer\DeploymentTraces
     Running Best Practices Analyzer...
     Best Practices Analyzer completed successfully.
@@ -98,73 +104,91 @@ Nadat u hebt doorlopen de planning en de voorbereidende stappen op gedetailleerd
     Passed                     : True
     ```
 
-2. Maken van het cluster: Voer de *CreateServiceFabricCluster.ps1* script voor het implementeren van de Service Fabric-cluster op elke computer in de configuratie. 
+2. Het cluster te maken: Voer de *CreateServiceFabricCluster.ps1* script voor het implementeren van de Service Fabric-cluster in elke computer in de configuratie. 
     ```powershell
     .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -AcceptEULA
     ```
 
 > [!NOTE]
-> Implementatie traceringen worden geschreven naar de virtuele machine/machine waarop u het CreateServiceFabricCluster.ps1 PowerShell-script is uitgevoerd. U vindt deze in de submap DeploymentTraces, op basis van de map van waaruit het script wordt uitgevoerd. Als u wilt zien als Service Fabric correct is geïmplementeerd op een computer, de geïnstalleerde bestanden niet vinden in de map FabricDataRoot, zoals beschreven in het configuratiebestand van het cluster FabricSettings sectie (met standaard c:\ProgramData\SF). FabricHost.exe en Fabric.exe processen kunnen ook worden gezien uitgevoerd in Taakbeheer.
+> Er worden implementatietraceringen weggeschreven naar de VM/computer waarop u het PowerShell-script CreateServiceFabricCluster.ps1 hebt uitgevoerd. U vindt deze traceringen in de submap DeploymentTraces, in de map van waaruit het script is uitgevoerd. U weet dat Service Fabric goed is geïmplementeerd op een computer als de geïnstalleerde bestanden in de map FabricDataRoot staan, zoals beschreven in de sectie FabricSettings van het configuratiebestand voor het cluster (standaard c:\ProgramData\SF). Daarnaast moeten de processen FabricHost.exe en Fabric.exe actief zijn in Taakbeheer.
 > 
 > 
 
-### <a name="step-1c-create-an-offline-internet-disconnected-cluster"></a>Stap 1C: een offline (op internet verbroken)-cluster maken
-Het Service Fabric-runtime-pakket wordt automatisch bij het maken van het cluster gedownload. Wanneer u een cluster implementeert op computers die niet is verbonden met internet, moet u het Service Fabric-runtime-pakket afzonderlijk downloaden en geef het pad naar het bij het maken van het cluster.
-Het pakket runtime kan afzonderlijk worden gedownload vanaf een andere computer is verbonden met internet, op [- Service Fabric-Runtime - koppeling Download Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). De runtime-pakket kopiëren naar waar u implementeert het offline cluster uit en het cluster maken door het uitvoeren van `CreateServiceFabricCluster.ps1` met de `-FabricRuntimePackagePath` parameter opgenomen, zoals hieronder wordt weergegeven: 
+### <a name="step-1c-create-an-offline-internet-disconnected-cluster"></a>Stap 1C: een offline (internet verbroken)-cluster maken
+Het Service Fabric-runtimepakket wordt automatisch gedownload bij het maken van clusters. Wanneer u een cluster implementeert op computers die niet zijn verbonden met internet, moet u het Service Fabric-runtimepakket afzonderlijk te downloaden en geef het pad naar het bij het maken van clusters.
+De runtime-pakket kan afzonderlijk worden gedownload vanaf een andere computer is verbonden met internet, op [koppeling downloaden - Service Fabric-Runtime - Windows Server](https://go.microsoft.com/fwlink/?linkid=839354). Kopieer de runtime-pakket naar waar u de offline cluster op basis van implementeert en maken van het cluster door uit te voeren `CreateServiceFabricCluster.ps1` met de `-FabricRuntimePackagePath` parameter opgenomen, zoals wordt weergegeven in dit voorbeeld: 
 
 ```powershell
 .\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -FabricRuntimePackagePath .\MicrosoftAzureServiceFabric.cab
 ```
-waar `.\ClusterConfig.json` en `.\MicrosoftAzureServiceFabric.cab` respectievelijk de paden naar de clusterconfiguratie en het runtime CAB-bestand zijn.
 
+*.\ClusterConfig.JSON* en *.\MicrosoftAzureServiceFabric.cab* zijn respectievelijk de paden naar de configuratie van het cluster en het runtime CAB-bestand.
 
 ### <a name="step-2-connect-to-the-cluster"></a>Stap 2: Verbinding maken met het cluster
-Zie voor verbinding met een beveiligde cluster, [Service fabric verbinding maken met veilige cluster](service-fabric-connect-to-secure-cluster.md).
+Verbinding maken met het cluster om te controleren of dat het cluster wordt uitgevoerd en beschikbaar. De Service Fabric PowerShell-module wordt met de runtime geïnstalleerd.  U kunt verbinding maken met het cluster uit een van de clusterknooppunten of vanaf een externe computer met de Service Fabric-runtime.  De cmdlet [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) brengt een verbinding met het cluster tot stand.
 
-Voor verbinding met een niet-beveiligde cluster, moet u de volgende PowerShell-opdracht uitvoeren:
+Voor verbinding met een onbeveiligd cluster, moet u de volgende PowerShell-opdracht uitvoeren:
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <*IPAddressofaMachine*>:<Client connection end point port>
 ```
-Voorbeeld:
+
+Bijvoorbeeld:
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 ```
-### <a name="step-3-bring-up-service-fabric-explorer"></a>Stap 3: Online zetten van de Service Fabric Explorer
-Nu u verbinding met het cluster met Service Fabric Explorer maken kunt rechtstreeks vanaf een van de machines met http://localhost:19080/Explorer/index.html of op afstand met http://<*IPAddressofaMachine*>: 19080/Explorer/index.html.
 
-## <a name="add-and-remove-nodes"></a>Toevoegen en verwijderen van knooppunten
-U kunt toevoegen of knooppunten aan uw zelfstandige Service Fabric-cluster verwijderen als uw bedrijf. Zie [toevoegen of verwijderen van knooppunten aan een zelfstandige Service Fabric-cluster](service-fabric-cluster-windows-server-add-remove-nodes.md) voor gedetailleerde stappen.
+Zie [Connect to a secure cluster](service-fabric-connect-to-secure-cluster.md) (Verbinding maken met een beveiligd cluster) voor meer voorbeelden van clusterverbindingen. Nadat u verbinding hebt gemaakt met het cluster, gebruikt u de cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps) om een lijst weer te geven van de knooppunten in het cluster, evenals statusinformatie voor elk knooppunt. **HealthState** moet *OK* zijn voor elk knooppunt.
+
+```powershell
+PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> Get-ServiceFabricNode |Format-Table
+
+NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersion NodeStatus NodeUpTime NodeDownTime HealthState
+-------------------- -------- --------------- --------  -----------  ------------- ---------- ---------- ------------ -----------
+                     vm2      localhost       NodeType2 5.6.220.9494 0                     Up 00:03:38   00:00:00              OK
+                     vm1      localhost       NodeType1 5.6.220.9494 0                     Up 00:03:38   00:00:00              OK
+                     vm0      localhost       NodeType0 5.6.220.9494 0                     Up 00:02:43   00:00:00              OK
+```
+
+### <a name="step-3-visualize-the-cluster-using-service-fabric-explorer"></a>Stap 3: Het cluster visualiseren met Service Fabric explorer
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) is een goed hulpmiddel om een cluster te visualiseren en toepassingen te beheren.  Service Fabric Explorer is een service die wordt uitgevoerd in het cluster, die u via een browser openen door te navigeren naar [ http://localhost:19080/Explorer ](http://localhost:19080/Explorer).
+
+Het clusterdashboard bevat een overzicht van het cluster, inclusief een overzicht van de toepassings- en knooppuntstatus. In de knooppuntweergave ziet u de fysieke indeling van het cluster. Voor elk knooppunt kunt u controleren voor welke toepassingen er op het knooppunt code is geïmplementeerd.
+
+![Service Fabric Explorer][service-fabric-explorer]
+
+## <a name="add-and-remove-nodes"></a>Knooppunten toevoegen en verwijderen
+U kunt knooppunten toevoegen aan of verwijderen uit uw zelfstandige Service Fabric-cluster wanneer de bedrijfsbehoeften veranderen. Zie [Knooppunten toevoegen aan of verwijderen uit een zelfstandig Service Fabric-cluster](service-fabric-cluster-windows-server-add-remove-nodes.md) voor gedetailleerde stappen.
 
 <a id="removecluster" name="removecluster_anchor"></a>
 ## <a name="remove-a-cluster"></a>Een cluster verwijderen
 Als u een cluster wilt verwijderen, voert u het PowerShell-script *RemoveServiceFabricCluster.ps1* uit vanuit de pakketmap en geeft u daarbij het pad op naar het JSON-configuratiebestand. Optioneel kunt u een locatie voor het verwijderingslogboek opgeven.
 
-Dit script kan worden uitgevoerd op een machine met beheerdersrechten op alle machines die worden vermeld als knooppunten in het configuratiebestand van het cluster. Dit script wordt uitgevoerd op de machine geen deel uitmaken van het cluster.
+Met dit script kan worden uitgevoerd op elke computer die de beheerderstoegang heeft tot alle machines die worden weergegeven als knooppunten in het configuratiebestand van het cluster. De machine die met dit script wordt uitgevoerd op geen deel uitmaken van het cluster.
 
-```
+```powershell
 # Removes Service Fabric from each machine in the configuration
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.json -Force
 ```
 
-```
+```powershell
 # Removes Service Fabric from the current machine
 .\CleanFabric.ps1
 ```
 
 <a id="telemetry"></a>
 
-## <a name="telemetry-data-collected-and-how-to-opt-out-of-it"></a>Telemetrische gegevens verzameld en hoe deze afmelden
-Standaard verzamelt het product telemetrie van de Service Fabric-gebruik voor het verbeteren van het product. De Best Practices Analyzer die wordt uitgevoerd als onderdeel van het installatieprogramma controleert voor connectiviteit met [ https://vortex.data.microsoft.com/collect/v1 ](https://vortex.data.microsoft.com/collect/v1). Als dit niet bereikbaar is, wordt de installatie mislukt, tenzij u telemetrie afmelden.
+## <a name="telemetry-data-collected-and-how-to-opt-out-of-it"></a>Telemetrische gegevens die worden verzameld en hoe u deze uitschakelen
+Als een standaard verzamelt het product telemetrie op het gebruik van de Service Fabric voor het verbeteren van het product. De analyse van aanbevolen procedures die wordt uitgevoerd als een onderdeel van de controles voor connectiviteit met [ https://vortex.data.microsoft.com/collect/v1 ](https://vortex.data.microsoft.com/collect/v1). Als deze niet bereikbaar is, mislukt de installatie, tenzij u afmelden voor telemetrie.
 
-1. De pijplijn telemetrie probeert te uploaden van de volgende gegevens op [ https://vortex.data.microsoft.com/collect/v1 ](https://vortex.data.microsoft.com/collect/v1) eenmaal voor elke dag. Het uploaden van een best effort is en heeft geen invloed op de clusterfunctionaliteit. De telemetrie alleen wordt verzonden via het knooppunt waarop de failover manager primaire. Er zijn geen andere knooppunten verzenden telemetrie.
+1. De pijplijn telemetrie probeert te uploaden van de volgende gegevens op [ https://vortex.data.microsoft.com/collect/v1 ](https://vortex.data.microsoft.com/collect/v1) één keer voor elke dag. Het uploaden van een best-effort is en heeft geen invloed op de clusterfunctionaliteit. De telemetrie wordt alleen verzonden vanaf het knooppunt waarop de failover manager primaire. Er zijn geen andere knooppunten verzenden telemetrie.
 2. De telemetrie bestaat uit het volgende:
 
 * Aantal services
 * Aantal ServiceTypes
 * Aantal toepassingen
 * Aantal ApplicationUpgrades
-* Aantal FailoverUnits
+* Aantal failover-eenheden
 * Aantal InBuildFailoverUnits
 * Aantal UnhealthyFailoverUnits
 * Aantal replica's
@@ -175,33 +199,34 @@ Standaard verzamelt het product telemetrie van de Service Fabric-gebruik voor he
 * QueryQueueLength
 * FailoverUnitQueueLength
 * CommitQueueLength
-* Het aantal knooppunten
+* Aantal knooppunten
 * IsContextComplete: True/False
 * ClusterId: Dit is een willekeurig gegenereerd voor elk cluster GUID
 * ServiceFabricVersion
-* IP-adres van de virtuele machine of de computer van waaruit de telemetrie is geüpload
+* IP-adres van de virtuele machine of computer van waaruit de telemetrie is geüpload
 
-Als u wilt uitschakelen telemetrie, het volgende toevoegen aan *eigenschappen* in uw cluster-config: *enableTelemetry: false*.
+Als u wilt uitschakelen telemetrie, het volgende toevoegen aan *eigenschappen* in uw cluster-configuratie: *enableTelemetry: false*.
 
 <a id="previewfeatures" name="previewfeatures_anchor"></a>
 
-## <a name="preview-features-included-in-this-package"></a>Preview-functies die zijn opgenomen in dit pakket
+## <a name="preview-features-included-in-this-package"></a>Preview-functies opgenomen in dit pakket
 Geen.
 
 
 > [!NOTE]
-> Beginnen met de nieuwe [GA-versie van het cluster zelfstandige voor Windows Server (versie 5.3.204.x)](https://azure.microsoft.com/blog/azure-service-fabric-for-windows-server-now-ga/), kunt u uw cluster upgraden naar toekomstige releases handmatig of automatisch. Raadpleeg [upgraden van een zelfstandige Service Fabric-cluster versie](service-fabric-cluster-upgrade-windows-server.md) document voor meer informatie.
+> Beginnen met de nieuwe [GA-versie van de zelfstandige-cluster voor Windows Server (versie 5.3.204.x)](https://azure.microsoft.com/blog/azure-service-fabric-for-windows-server-now-ga/), kunt u uw cluster upgraden naar toekomstige releases handmatig of automatisch. Raadpleeg [upgraden van een zelfstandige Service Fabric-clusterversie](service-fabric-cluster-upgrade-windows-server.md) document voor meer informatie.
 > 
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Implementeren en verwijderen van toepassingen met behulp van PowerShell](service-fabric-deploy-remove-applications.md)
 * [Configuratie-instellingen voor zelfstandige Windows-cluster](service-fabric-cluster-manifest.md)
-* [Toevoegen of verwijderen van knooppunten aan een zelfstandige Service Fabric-cluster](service-fabric-cluster-windows-server-add-remove-nodes.md)
-* [Een zelfstandige Service Fabric-cluster versie upgraden](service-fabric-cluster-upgrade-windows-server.md)
-* [Een zelfstandige Service Fabric-cluster maken met Azure Virtual machines waarop Windows wordt uitgevoerd](service-fabric-cluster-creation-with-windows-azure-vms.md)
-* [Beveiligen van een zelfstandige cluster op Windows met behulp van Windows-beveiliging](service-fabric-windows-cluster-windows-security.md)
-* [Beveiligen van een zelfstandige cluster op Windows met behulp van X509 certificaten](service-fabric-windows-cluster-x509-security.md)
+* [Toevoegen of verwijderen van knooppunten in een zelfstandige Service Fabric-cluster](service-fabric-cluster-windows-server-add-remove-nodes.md)
+* [Een zelfstandige Service Fabric-clusterversie bijwerken](service-fabric-cluster-upgrade-windows-server.md)
+* [Een zelfstandige Service Fabric-cluster maken met virtuele Azure-machines waarop Windows wordt uitgevoerd](service-fabric-cluster-creation-with-windows-azure-vms.md)
+* [Een zelfstandige cluster beveiligen op Windows met behulp van Windows-beveiliging](service-fabric-windows-cluster-windows-security.md)
+* [Een zelfstandige cluster beveiligen op Windows met behulp van X509 certificaten](service-fabric-windows-cluster-x509-security.md)
 
 <!--Image references-->
 [Trusted Zone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
+[service-fabric-explorer]: ./media/service-fabric-cluster-creation-for-windows-server/sfx.png

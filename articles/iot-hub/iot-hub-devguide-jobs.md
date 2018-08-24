@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 460c7d24b2810de41e20ea803ded2ea988613f10
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e2beec1308b9664d35ccd9d355403b7076567f2f
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223793"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745841"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Taken op meerdere apparaten plannen
 
-Azure IoT Hub kunt u een aantal van bouwstenen zoals [apparaatdubbeleigenschappen- en -codes] [ lnk-twin-devguide] en [directe methoden][lnk-dev-methods].  Back-end-apps inschakelen normaal gesproken apparaatbeheerders en operators om te werken en te communiceren met IoT-apparaten bulksgewijs en op het geplande tijdstip.  Taken uitvoeren van apparaatdubbel werkt bij en directe methoden aan de hand van apparaten op het geplande tijdstip.  Een operator kan bijvoorbeeld een back-end-app die geïnitieerd en bijgehouden van een taak voor het opnieuw opstarten van een set met apparaten in het bouwen van 43 en floor 3 op een tijdstip dat niet zou verstorend voor de bewerkingen van het gebouw gebruiken.
+Azure IoT Hub kunt u een aantal van bouwstenen zoals [apparaatdubbeleigenschappen- en -codes] [ lnk-twin-devguide] en [directe methoden][lnk-dev-methods]. Back-end-apps inschakelen normaal gesproken apparaatbeheerders en operators om te werken en te communiceren met IoT-apparaten bulksgewijs en op het geplande tijdstip.  Taken uitvoeren van apparaatdubbel werkt bij en directe methoden aan de hand van apparaten op het geplande tijdstip.  Een operator kan bijvoorbeeld een back-end-app die geïnitieerd en bijgehouden van een taak voor het opnieuw opstarten van een set met apparaten in het bouwen van 43 en floor 3 op een tijdstip dat niet zou verstorend voor de bewerkingen van het gebouw gebruiken.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

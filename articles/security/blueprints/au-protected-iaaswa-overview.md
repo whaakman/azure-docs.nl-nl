@@ -6,19 +6,18 @@ author: meladie
 ms.assetid: f53a25c4-1c75-42d6-a0e7-a91661673891
 ms.service: security
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 2179398cdd79db99540ce219b8f4eae24f0eca39
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: b269a145c78aaf025ef05a4562cf55124c17e2ee
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246109"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818002"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-australia-protected"></a>Azure-beveiliging en naleving blauwdruk - IaaS-webtoepassing voor Australië beveiligd
 
 ## <a name="overview"></a>Overzicht
-
 Deze Azure-beveiliging en naleving blauwdruk biedt richtlijnen voor de implementatie van een infrastructuur als een geschikt is voor het verzamelen, opslaan en ophalen van de overheid AU beschermde gegevens die voldoet aan de doelstellingen van service (IaaS)-omgeving de Australische overheid informatie beveiliging handmatig (console) die worden geproduceerd door de Australian Signals Directorate (ASD). Deze blauwdruk brengt een algemene referentiearchitectuur en helpt bij de juiste afhandeling van gevoelige government-gegevens in een omgeving beveiligd, voldoen aan het beleid, meerdere lagen laten zien.
 
 Deze referentiearchitectuur, Implementatiehandleiding en risicomodel voorzien in een basis voor klanten om hun eigen accrediteringsprocessen plannings- en system helpen van klanten workloads in een ASD-compatibele manier implementeren in Azure. Klanten kunnen ervoor kiezen om een Azure VPN-Gateway of ExpressRoute federatieve services te gebruiken en integreren van on-premises bronnen met Azure-resources te implementeren. Klanten moeten rekening houden met de gevolgen voor de beveiliging van het gebruik van on-premises bronnen. Er is aanvullende configuratie vereist om te voldoen aan alle vereisten, als ze op basis van de details van de uitvoering van elke klant variëren kunnen.
@@ -71,7 +70,6 @@ Deze oplossing maakt gebruik van de volgende Azure-services. Meer informatie vin
 Deze blauwdruk bevat Azure-Services die niet zijn gecertificeerd voor gebruik op de beveiligde-indeling door de Australische Cyber Security Center (ACSC). Alle services die zijn opgenomen in deze referentiearchitectuur zijn gecertificeerd door ACSC op het niveau van de verspreiding beperken markeringen (DLM). Microsoft raadt aan dat klanten de gepubliceerde beveiliging aangeraden en auditrapporten met betrekking tot deze Azure-Services en hun risk management framework gebruiken om te bepalen of de Azure-Service is geschikt voor hun interne erkenning en gebruik in de Beveiligde indeling.
 
 ## <a name="deployment-architecture"></a>Implementatie-architectuur
-
 De volgende sectie bevat de elementen van de implementatie en uitvoering.
 
 **Bastionhost**: de bastionhost is de enkel ingangspunt waarmee gebruikers toegang krijgen tot de geïmplementeerde resources in deze omgeving. De bastionhost biedt een beveiligde verbinding met de geïmplementeerde resources door toe te staan alleen extern verkeer vanaf openbare IP-adressen op een veilige lijst. Als u wilt toestaan dat verkeer van extern bureaublad (RDP), moet de bron van het verkeer worden gedefinieerd in de netwerkbeveiligingsgroep.
@@ -84,7 +82,6 @@ Deze oplossing maakt u een virtuele machine als een domein bastionhost met de vo
 -   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) ingeschakeld die referenties en andere geheimen in een beveiligde omgeving die is geïsoleerd van het besturingssysteem wordt uitgevoerd
 
 ### <a name="virtual-network"></a>Virtueel netwerk
-
 De architectuur definieert een particulier virtueel netwerk met een adresruimte van 10.200.0.0/16.
 
 **Netwerkbeveiligingsgroepen**: deze oplossing wordt geïmplementeerd voor resources in een architectuur met een afzonderlijke subnet, database-subnet, Active Directory-subnet en beheersubnet binnen een virtueel netwerk. Subnetten worden logisch gescheiden door regels voor netwerkbeveiligingsgroepen toegepast op de afzonderlijke subnetten te beperken het verkeer tussen subnetten die alleen dat nodig is voor het systeem en de beheerfunctionaliteit.
@@ -105,7 +102,6 @@ Voor beveiligde gegevens tijdens de overdracht van netwerken van klanten, de arc
 Bovendien worden alle transacties naar Azure via de Azure management portal via HTTPS met TLS 1.2 optreden.
 
 ### <a name="data-at-rest"></a>Data-at-rest
-
 De architectuur beveiligt gegevens in rust via versleuteling, controle-database en andere metingen.
 
 **Azure Storage**: om versleutelde data-at-rest-vereisten te voldoen aan alle [Azure Storage](https://azure.microsoft.com/services/storage/) maakt gebruik van [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption). Dit helpt te beschermen en beveiligen van gegevens ter ondersteuning van de organisatie beveiligingsverplichtingen en nalevingsvereisten zijn gedefinieerd door de Australische overheid-console.
@@ -113,7 +109,6 @@ De architectuur beveiligt gegevens in rust via versleuteling, controle-database 
 **Azure Disk Encryption**: [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) maakt gebruik van de BitLocker-functie van Windows om volumeversleuteling voor gegevensschijven te bieden. De oplossing kan worden geïntegreerd met Azure Key Vault voor het beheren en beheren van de versleutelingssleutels op de schijf.
 
 **SQL Server**: de SQL Server-exemplaar maakt gebruik van de volgende metingen van de database-beveiliging:
-
 -   [Controle van SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-2017) databasegebeurtenissen en schrijft ze auditlogboeken.
 -   [Transparante gegevensversleuteling](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) voert realtime versleuteling en ontsleuteling van de database, gekoppelde back-ups en transactielogboekbestanden om gegevens in rust te beveiligen. Transparante gegevensversleuteling biedt de zekerheid dat de opgeslagen gegevens niet is onderworpen aan onbevoegde toegang.
 -   [Firewall-regels](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) voorkomen dat u alle toegang tot de database-servers, totdat de juiste machtigingen zijn toegekend. De firewall verleent toegang tot databases op basis van het IP-adres waar de aanvraag vandaan komt.
@@ -121,7 +116,6 @@ De architectuur beveiligt gegevens in rust via versleuteling, controle-database 
 - [Dynamische gegevensmaskering](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking?view=sql-server-2017) blootstelling van gevoelige gegevens maskeren van de gegevens naar niet-gemachtigde gebruikers of toepassingen. Dynamische gegevensmaskering automatisch detecteren van potentieel gevoelige gegevens en stel de juiste maskers moet worden toegepast. Dit helpt bij het beperken van toegang dat gevoelige gegevens via niet-geautoriseerde toegang tot de database niet bestaat. **Klanten zijn verantwoordelijk voor het aanpassen van dynamische gegevensmaskering instellingen om te voldoen aan het schema van de database.**
 
 ### <a name="identity-management"></a>Identiteitsbeheer
-
 Klanten kunnen gebruikmaken van on-premises Active Directory Federated Services om te federeren met [Azure Active Directory](https://azure.microsoft.com/services/active-directory/), dit is van Microsoft cloud-gebaseerde directory- en identiteitsbeheer management service met meerdere tenants. [Azure Active Directory Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) on-premises directory's integreert met Azure Active Directory. Alle gebruikers in deze oplossing vereist Azure Active Directory-accounts. Met federation aanmelden, kunnen gebruikers zich aanmelden bij Azure Active Directory en worden geverifieerd bij Azure-resources met behulp van on-premises referenties.
 
 Bovendien helpen de volgende mogelijkheden van Azure Active Directory toegang tot gegevens in de Azure-omgeving beheren:
@@ -133,7 +127,6 @@ Bovendien helpen de volgende mogelijkheden van Azure Active Directory toegang to
 **Azure multi-factor Authentication**: ter bescherming van identiteiten, meervoudige verificatie moet worden geïmplementeerd. [Azure multi-factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/) is een gebruiksvriendelijke, schaalbare en betrouwbare oplossing waarmee u een tweede verificatiemethode om gebruikers te beschermen. Azure multi-factor Authentication gebruikt de kracht van de cloud en kan worden geïntegreerd met on-premises Active Directory en aangepaste toepassingen. Deze beveiliging wordt uitgebreid naar essentiële scenario's met hoog volume.
 
 ### <a name="security"></a>Beveiliging
-
 **Geheimen management**: de oplossing maakt gebruik van [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) voor het beheer van sleutels en geheimen. Met Azure Sleutelkluis kunt u de cryptografische sleutels en geheimen beveiligen die door cloudtoepassingen en -services worden gebruikt. De volgende mogelijkheden van Azure Key Vault helpen klanten beveiligen en toegang tot deze gegevens:
 
 - Geavanceerde beleidsregels zijn geconfigureerd op basis van behoefte.
@@ -169,7 +162,6 @@ Daarnaast wordt met deze referentiearchitectuur maakt gebruik van de [evaluatie 
 - [Azure Security Center](https://azure.microsoft.com/services/security-center) en [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) bieden extra beveiliging en meldingen. Azure Security Center biedt ook een reputatie-systeem.
 
 ### <a name="business-continuity"></a>Bedrijfscontinuïteit
-
 **Hoge beschikbaarheid**: de oplossing wordt geïmplementeerd voor alle virtuele machines in een [Beschikbaarheidsset](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets). Beschikbaarheidssets zorgen ervoor dat de virtuele machines worden verdeeld over meerdere geïsoleerde hardwareclusters beschikbaarheid verbeteren. Ten minste één virtuele machine beschikbaar is tijdens gepland of ongepland onderhoud, voldoen aan de 99,95% Azure SLA.
 
 **Recovery Services-kluis**: de [Recovery Services-kluis](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) -instellingen van de back-upgegevens en alle configuraties van Azure Virtual Machines in deze architectuur beveiligt. Met een Recovery Services-kluis, klanten kunnen bestanden en mappen terugzetten van een IaaS-virtuele machine zonder te herstellen van de volledige virtuele machine, waardoor sneller worden hersteld.
@@ -177,7 +169,6 @@ Daarnaast wordt met deze referentiearchitectuur maakt gebruik van de [evaluatie 
 **Cloud-Witness**: [Cloud-Witness](https://docs.microsoft.com/windows-server/failover-clustering/whats-new-in-failover-clustering#BKMK_CloudWitness) is een type failovercluster-quorumwitness in Windows Server 2016 die gebruikmaakt van Azure als arbitragepunt. De Cloud-Witness, net als elke andere quorumwitness een stem opgehaald en kunt deelnemen aan de quorumberekeningen, maar hierbij de standaard openbare Azure Blob Storage. Dit elimineert de noodzaak extra onderhoud van virtuele machines die worden gehost in een openbare cloud.
 
 ### <a name="logging-and-auditing"></a>Logboekregistratie en controle
-
 Azure-services zich uitgebreid systeem en activiteit van gebruikers, evenals systeemstatus:
 - **Activiteitenlogboeken**: [activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) bieden inzicht in bewerkingen die worden uitgevoerd op resources in een abonnement. Activiteitenlogboeken kunnen u eenvoudiger bepalen van een bewerking initiator, tijdstip van de gebeurtenis en status.
 - **Diagnostische logboeken**: [diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) bevatten alle logboeken die zijn gegenereerd door elke resource. Deze logboeken bevatten de logboeken voor Windows-systeem, Azure Storage-Logboeken, Key Vault-auditlogboeken en Application Gateway toegangs- en firewall-Logboeken. Alle logboeken met diagnostische gegevens schrijven naar een gecentraliseerd en versleutelde Azure storage-account voor archivering. De bewaarperiode is om te voldoen aan vereisten voor de bewaarperiode van de organisatie-specifieke gebruiker-configureren, tot maximaal 730 dagen.
@@ -197,13 +188,11 @@ De volgende Log Analytics [beheeroplossingen](https://docs.microsoft.com/azure/l
 [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview): Azure Network Watcher biedt hulpprogramma's voor het bewaken, diagnosticeren, bekijk metrische gegevens, en in- of uitschakelen Logboeken voor resources in een Azure-netwerk.  Noordelijke entiteiten moeten Network Watcher-stroomlogboeken voor nsg's en virtuele Machines implementeren. Deze logboeken moeten worden opgeslagen in een speciale storage-account dat alleen beveiligingslogboeken worden opgeslagen in en toegang tot het opslagaccount dat moet worden beveiligd met rollen gebaseerd toegangsbeheer.
 
 ## <a name="threat-model"></a>Risicomodel
-
 Het diagram van de gegevensstroom voor deze referentiearchitectuur is beschikbaar voor [downloaden](https://aka.ms/au-protected-iaaswa-tm) of vindt u hieronder. Dit model kunt klanten inzicht krijgen in de punten van de mogelijke risico's in de infrastructuur van het systeem als u wijzigingen aanbrengt.
 
 ![IaaS-webtoepassing voor Australië beschermde risicomodel](images/au-protected-iaaswa-threat-model.png?raw=true "IaaS-webtoepassing voor AU-beveiliging tegen bedreigingen modeldiagram")
 
 ## <a name="compliance-documentation"></a>Naleving-documentatie
-
 Deze documentatie naleving wordt geproduceerd door Microsoft op basis van platforms en services van Microsoft. Vanwege de grote verscheidenheid aan implementaties van klanten biedt deze documentatie een algemene aanpak voor een oplossing voor alleen die wordt gehost in de Azure-omgeving. Klanten kunnen identificeren en andere producten en services op basis van hun eigen omgevingen en de bedrijfsresultaten. Klanten die gebruik van on-premises bronnen moeten rekening houden met de beveiliging en bewerkingen voor de on-premises bronnen. De gedocumenteerde oplossing kan worden aangepast door klanten aan hun specifieke on-premises en de beveiligingsvereisten voor.
 
 De [Azure-beveiliging en naleving blauwdruk – AU-PROTECTED klant verantwoordelijkheid Matrix](https://aka.ms/au-protected-crm) geeft een lijst van alle beveiligingsmaatregelen die zijn vereist voor de AU-beveiliging. Deze matrix bevat of de implementatie van elk besturingselement de verantwoordelijkheid van Microsoft, de klant is, of gedeeld tussen de twee.
@@ -211,9 +200,7 @@ De [Azure-beveiliging en naleving blauwdruk – AU-PROTECTED klant verantwoordel
 De [Azure-beveiliging en naleving blauwdruk – AU-PROTECTED IaaS Web Application implementatie Matrix](https://aka.ms/au-protected-iaaswa-cim) bevat informatie waarop AU beschermde besturingselementen worden verholpen door de IaaS-architectuur voor web-toepassing, met inbegrip van gedetailleerde beschrijvingen van de manier waarop de implementatie voldoet aan de vereisten van elk besturingselement vallen.
 
 ## <a name="guidance-and-recommendations"></a>Richtlijnen en aanbevelingen
-
 ### <a name="vpn-and-expressroute"></a>VPN en ExpressRoute
-
 Een beveiligde tunnel met IPSec VPN moet worden geconfigureerd voor een veilig verbinding met de resources die zijn geïmplementeerd als onderdeel van deze referentiearchitectuur IaaS web application van geclassificeerde gegevens. Door in te stellen op de juiste wijze een IPSec VPN, kunnen klanten een beveiligingslaag voor gegevens toevoegen tijdens de overdracht.
 
 Door het implementeren van een beveiligde tunnel met IPSec VPN met Azure, kan een virtuele particuliere verbinding tussen een on-premises netwerk en een Azure-netwerk worden gemaakt. Deze verbinding kan plaatsvinden via Internet en kan klanten veilig 'tunnel' gegevens in een gecodeerde verbinding tussen het netwerk en Azure van de klant. Site-naar-site VPN is een veilige, volwassen technologie die is geïmplementeerd door bedrijven van alle groottes decennia. 
@@ -244,7 +231,6 @@ Om te voorkomen dat geclassificeerde gegevens synchroniseren naar Azure Active D
 - Behoud de standaardinstellingen voor [onopzettelijke verwijderingen voorkomen](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-prevent-accidental-deletes) en [Automatische upgrade](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-feature-automatic-upgrade)
 
 ## <a name="disclaimer"></a>Vrijwaring
-
 - Dit document is uitsluitend ter informatie bedoeld. MICROSOFT BIEDT GEEN GARANTIES, EXPLICIETE, IMPLICIETE OF WETTELIJKE GARANTIE VOOR DE INFORMATIE IN DIT DOCUMENT. Dit document wordt geleverd ' as-is. " Informatie en meningen in dit document, inclusief URL's en andere websiteverwijzingen, kunnen zonder kennisgeving worden gewijzigd. Klanten die in dit document leest draagt het risico van het gebruik ervan.
 - Dit document biedt klanten met een enkel wettelijk recht op enig intellectueel in andere Microsoft-producten of oplossingen.
 - Klanten kunnen kopiëren en gebruiken van dit document voor interne referentiedoeleinden.

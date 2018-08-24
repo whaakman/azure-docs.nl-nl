@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 69ff295e434f199f3a15e96f134f92098b1b8b79
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 06d9fda01a89340eb019b4900c02e321e0b73cf5
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42054127"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818961"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Ondersteunde services, schema's en categorieën voor diagnostische logboeken van Azure
 
@@ -29,7 +29,7 @@ Een combinatie van het resourcetype (beschikbaar in de `resourceId` eigenschap) 
 | resourceId | Vereist | De resource-ID van de resource die de gebeurtenis verzonden. Dit is van het formulier /tenants/tenant-id/providers/provider-name voor tenantservices. |
 | tenant-id | Vereist voor de tenant-Logboeken | De tenant-ID van de Active Directory-tenant die deze gebeurtenis is gekoppeld aan. Deze eigenschap wordt alleen gebruikt voor op tenantniveau-Logboeken is het niet wordt weergegeven in Logboeken op het niveau van resources. |
 | operationName | Vereist | De naam van de bewerking die wordt vertegenwoordigd door deze gebeurtenis. Als de gebeurtenis een RBAC-bewerking stelt, is dit de naam van de RBAC-bewerking (bv. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Doorgaans zijn gemodelleerd in de vorm van een Resource Manager-bewerking, zelfs als ze niet werkelijke gedocumenteerde Resource Manager-bewerkingen zijn (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
-| operationVersion | Optioneel | De api-versie die is gekoppeld aan de bewerking als de operationName is uitgevoerd met behulp van een API (bijvoorbeeld) http://myservice.windowsazure.net/object?api-version=2016-06-01). Als er geen API die overeenkomt met deze bewerking, vertegenwoordigt de versie van de versie van deze bewerking in het geval de eigenschappen die zijn gekoppeld aan de bewerking in de toekomst worden gewijzigd. |
+| operationVersion | Optioneel | De api-versie die is gekoppeld aan de bewerking als de operationName is uitgevoerd met behulp van een API (bijvoorbeeld) `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Als er geen API die overeenkomt met deze bewerking, vertegenwoordigt de versie van de versie van deze bewerking in het geval de eigenschappen die zijn gekoppeld aan de bewerking in de toekomst worden gewijzigd. |
 | category | Vereist | De categorie van de logboekbestanden van de gebeurtenis. Categorie is de granulatie waarmee u kunt inschakelen of uitschakelen van Logboeken op een bepaalde resource. De eigenschappen die worden weergegeven in de blob eigenschappen van een gebeurtenis zijn hetzelfde binnen een bepaalde categorie en resource Logboektype. Typische logboekcategorieën zijn 'Controle' "operationele" "Uitvoeren" en "-aanvraag. |
 | resultType | Optioneel | De status van de gebeurtenis. Typische waarden zijn gestart, wordt uitgevoerd, is voltooid, is mislukt, actieve en opgelost. |
 | resultSignature | Optioneel | De substatus van de gebeurtenis. Als deze bewerking overeenkomt met een REST-API-aanroep, is dit de HTTP-statuscode van de bijbehorende REST-aanroep. |

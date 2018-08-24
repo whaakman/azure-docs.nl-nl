@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 705f2ce674a31d7dda4d87d893078a2ade26e327
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 863cda349ca951bee1c43f09eefd364645de9dbd
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443387"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746798"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Over het maken en configureren van zelfgehoste Cloudintegratieruntime
 De Integration Runtime (IR) is de rekeninfrastructuur die door Azure Data Factory gebruikt om u te bieden mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration Runtime](concepts-integration-runtime.md).
@@ -182,6 +182,8 @@ impliciet gemaakt, data factory's die zijn gemaakt met Azure Resource Manager (A
 5. ADF .net SDK die ondersteuning bieden voor deze functie is versie > = 1.1.0
 
 6. Azure PowerShell die ondersteuning bieden voor deze functie is versie > = 6.6.0 (AzureRM.DataFactoryV2 > = 0.5.7)
+
+7. Als u wilt machtigen, moet de gebruiker 'Eigenaar'-rol of overgenomen 'eigenaar'-rol in de Data Factory waar de gedeelde IR bestaat. 
 
   > [!NOTE]
   > Deze functie is alleen beschikbaar in Azure Data Factory versie 2 

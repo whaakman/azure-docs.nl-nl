@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 00e5f5a73973a34a8611143719c91a2b1ad0c8eb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 0aadb5964b5fe08b02397588dd9b2695fb4db4ce
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971263"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746714"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor de Linux-besturingssysteem in uw Service Fabric-cluster
 
@@ -121,7 +121,7 @@ Voor Ubuntu [zonder toezicht-upgrades](https://help.ubuntu.com/community/Automat
 
 Toepassing echter samen met scripts voor installatie kan worden gedownload vanaf [archief koppeling](https://go.microsoft.com/fwlink/?linkid=867984).
 
-Toepassing in sfpkg-indeling kan worden gedownload vanaf [sfpkg koppeling](https://go.microsoft.com/fwlink/?linkid=867984&pc=sfpkg). Dit is handig voor [implementatie van toepassing op basis van Azure Resource Manager](service-fabric-application-arm-resource.md).
+Toepassing in sfpkg-indeling kan worden gedownload vanaf [sfpkg koppeling](https://aka.ms/POA/POA_v2.0.2.sfpkg). Dit is handig voor [implementatie van toepassing op basis van Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>De app configureren
 
@@ -271,7 +271,7 @@ Een statusrapport op waarschuwingsniveau wordt gegenereerd voor de Service Coord
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-Q. **Waarom zie ik mijn cluster in een foutstatus wanneer de patch orchestration-app wordt uitgevoerd?**
+V. **Waarom zie ik mijn cluster in een foutstatus wanneer de patch orchestration-app wordt uitgevoerd?**
 
 A. Tijdens de installatie, wordt de patch orchestration-app wordt uitgeschakeld of knooppunten opnieuw wordt opgestart. Met deze bewerking kan tijdelijk resulteren in de status van het cluster uitvalt.
 
@@ -285,15 +285,15 @@ In het volgende voorbeeld wordt het cluster is een fout op een foutstatus tijdel
 
 Als het probleem zich blijft voordoen, raadpleegt u de sectie over probleemoplossing.
 
-Q. **Patch orchestration-app is in de waarschuwingsstatus heeft**
+V. **Patch orchestration-app is in de waarschuwingsstatus heeft**
 
 A. Controleer of een statusrapport geplaatst op basis van de toepassing de hoofdoorzaak is. De waarschuwing bevat meestal, details van het probleem. Als het probleem tijdelijk is, wordt automatisch herstellen van deze status van de toepassing verwacht.
 
-Q. **Wat moet ik doen als mijn cluster niet in orde is en ik wil een urgent besturingssysteemupdate doen?**
+V. **Wat moet ik doen als mijn cluster niet in orde is en ik wil een urgent besturingssysteemupdate doen?**
 
 A. De patch orchestration-app heeft geen updates installeren, terwijl het cluster niet in orde is. Als u wilt deblokkeren van de patch orchestration-app-werkstroom, breng uw cluster een goede status.
 
-Q. **Waarom patches in meerdere computerclusters duurt zo lang om uit te voeren?**
+V. **Waarom patches in meerdere computerclusters duurt zo lang om uit te voeren?**
 
 A. De tijd die nodig zijn voor de patch orchestration-app is voornamelijk afhankelijk van de volgende factoren:
 
@@ -303,26 +303,26 @@ A. De tijd die nodig zijn voor de patch orchestration-app is voornamelijk afhank
 - De gemiddelde tijd die nodig zijn om te downloaden en installeren van een update die mag niet meer dan een paar uur.
 - De prestaties van de virtuele machine en netwerkbandbreedte.
 
-Q. **Hoe kiest, wordt er patch orchestration app beslist welke updates zijn beveiligingsupdates.**
+V. **Hoe kiest, wordt er patch orchestration app beslist welke updates zijn beveiligingsupdates.**
 
 A. Patch orchestration-app maakt gebruik van distributie-specifieke logica om te bepalen welke updates tussen de beschikbare updates zijn beveiligingsupdates. Bijvoorbeeld: In de app wordt gezocht naar updates van archieven $RELEASE ubuntu-beveiliging, $RELEASE-updates ($RELEASE = xenial of de linux standard base release-versie). 
 
  
-Q. **Hoe kan ik u aan bij een specifieke versie van pakket vergrendelen?**
+V. **Hoe kan ik u aan bij een specifieke versie van pakket vergrendelen?**
 
 A. Gebruik de instellingen ApprovedPatches uw pakketten op een bepaalde versie vergrendelen. 
 
 
-Q. **Wat gebeurt er met automatische updates in Ubuntu ingeschakeld?**
+V. **Wat gebeurt er met automatische updates in Ubuntu ingeschakeld?**
 
 A. Als u patch orchestration-app op uw cluster installeren, wordt zonder toezicht-upgrades in uw clusterknooppunt uitgeschakeld. Alle de werkstroom voor periodieke updates zou worden aangestuurd door patch orchestration-app.
 Als u consistentie van de omgeving voor het volledige cluster, wordt u aangeraden de updates via patch orchestration alleen app te installeren. 
  
-Q. **Upgrade boeken vullen van de orchestration-app kan het opschonen van niet-gebruikte pakketten?**
+V. **Upgrade boeken vullen van de orchestration-app kan het opschonen van niet-gebruikte pakketten?**
 
 A. Ja, het opruimen gebeurt er als onderdeel van de stappen na de installatie. 
 
-Q. **Kan Patch Orchestration-app worden gebruikt voor het vullen van mijn dev-cluster (cluster met één knooppunt)?**
+V. **Kan Patch Orchestration-app worden gebruikt voor het vullen van mijn dev-cluster (cluster met één knooppunt)?**
 
 A. Nee, Patch orchestration-app kan niet worden gebruikt om patch cluster met één knooppunt. Deze beperking is standaard, als [service fabric-systeemservices](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) of alle apps van de klant wordt krijgen met downtime en kan daarom elke taak herstellen voor het patchen van zouden nooit ophalen goedgekeurd door reparatiemanager.
 
@@ -370,5 +370,8 @@ De patch orchestration app verzamelt telemetrie om gebruik en prestaties te houd
 ### <a name="version-200"></a>Versie 2.0.0
 - Openbare versie
 
-### <a name="version-201-latest"></a>Versie 2.0.1 (recentste)
+### <a name="version-201"></a>Versie 2.0.1
 - De app met de meest recente Service Fabric SDK gecompileerd
+
+### <a name="version-202-latest"></a>Versie 2.0.2 (recentste)
+- Een probleem opgelost met de status waarschuwing ophalen overgebleven tijdens het opnieuw opstarten.

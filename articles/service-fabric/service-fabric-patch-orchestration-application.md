@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: bc9fbf56b37cb8c6690bd036db704532cb8b0437
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: f43715b9c419aab1f5b95e140eac72642ef74198
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42054733"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746894"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch uitvoeren voor het Windows-besturingssysteem in uw Service Fabric-cluster
 
@@ -139,7 +139,7 @@ Automatische updates voor Windows kunnen leiden tot verlies van beschikbaarheid,
 
 Toepassing echter samen met scripts voor installatie kan worden gedownload vanaf [archief koppeling](https://go.microsoft.com/fwlink/?linkid=869566).
 
-Toepassing in sfpkg-indeling kan worden gedownload vanaf [sfpkg koppeling](https://go.microsoft.com/fwlink/?linkid=869567). Dit is handig voor [implementatie van toepassing op basis van Azure Resource Manager](service-fabric-application-arm-resource.md).
+Toepassing in sfpkg-indeling kan worden gedownload vanaf [sfpkg koppeling](https://aka.ms/POA/POA_v1.2.2.sfpkg). Dit is handig voor [implementatie van toepassing op basis van Azure Resource Manager](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>De app configureren
 
@@ -398,3 +398,5 @@ Een beheerder moet waarbij en te bepalen waarom de toepassing of het cluster is 
 ### <a name="version-122-latest"></a>Versie 1.2.2 (recentste)
 
 - Diverse oplossingen voor problemen.
+- Binaire bestanden zijn nu aangemeld.
+- downloadkoppeling sfpkg verwijst nu naar een specifieke versie.

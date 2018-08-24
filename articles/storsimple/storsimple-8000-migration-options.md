@@ -11,16 +11,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/10/2018
+ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: a1cdf3235674ae651c30fa4f13622b80212abc7d
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 8f34d5a38f09f015547f52cc4b44819b780932bb
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "40099874"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818855"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opties voor het migreren van gegevens uit StorSimple 5000-7000 serie 
+
+> [!IMPORTANT]
+> Op 31 juli 2019 bereiken de StorSimple 5000/7000-serie het einde van de ondersteuningstatus (EOS). U wordt aangeraden dat de StorSimple 5000/7000-serie klanten naar een van de alternatieven zoals beschreven in het document migreren.
+
 StorSimple 5000-7000 serie bereikt [einde van ondersteuning](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series) in juli 2019. De klanten met een optie voor het upgraden naar andere Azure StorSimple 5000-7000-serie zijn eigen hybride services. Dit artikel beschrijft de Azure hybrid-opties die beschikbaar zijn om gegevens te migreren. 
 
 ## <a name="migration-options"></a>Opties voor de migratie

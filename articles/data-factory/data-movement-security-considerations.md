@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: b05eef79e94cff74b1e02243cd7c8d94e5acbb3c
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: c9cebd16d34758550144a50b6ff26da84924a964
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39493967"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745665"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Beveiligingsoverwegingen voor het verplaatsen van gegevens in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -60,6 +60,11 @@ Als het gegevensarchief cloud biedt ondersteuning voor HTTPS- of TLS, alle gegev
 > Alle verbindingen met Azure SQL Database en Azure SQL Data Warehouse vereisen versleuteling (SSL/TLS) terwijl de gegevens is onderweg naar en van de database. Wanneer u bent een pijplijn maakt met behulp van JSON, voeg de versleutelingseigenschap en stel deze in op **waar** in de verbindingsreeks. Voor Azure Storage, kunt u **HTTPS** in de verbindingsreeks.
 
 > [!NOTE]
+> Om in te schakelen versleuteling tijdens overdracht tijdens het verplaatsen van gegevens van Oracle Volg een van de onderstaande opties:
+> 1. In de Oracle-server, gaat u naar Oracle Advanced Security (OAS) en configureer de versleutelingsinstellingen, die ondersteuning biedt versleuteling van Triple-DES (3DES) en Advanced Encryption Standard (AES), verwijzen [hier](https://docs.oracle.com/cd/E11882_01/network.112/e40393/asointro.htm#i1008759) voor meer informatie. ADF onderhandelt automatisch over de versleutelingsmethode voor het gebruik van de versie die u in OAS configureert bij het maken van verbinding met Oracle.
+> 2. In ADF, voegt u toe EncryptionMethod = 1 in de verbindingsreeks (in de gekoppelde Service). Hiermee worden SSL/TLS gebruikt als de versleutelingsmethode. Om dit te gebruiken, moet u niet-SSL-coderingsinstellingen in OAS aan de serverzijde Oracle om te voorkomen dat versleuteling-conflict uitschakelen.
+
+> [!NOTE]
 > TLS-versie die wordt gebruikt is 1.2.
 
 ### <a name="data-encryption-at-rest"></a>Versleuteling van inactieve gegevens
@@ -83,7 +88,7 @@ Amazon S3 biedt ondersteuning voor de client- en versleuteling van data-at-rest.
 #### <a name="amazon-redshift"></a>Amazon Redshift
 Amazon Redshift ondersteunt cluster versleuteling voor data-at-rest. Zie voor meer informatie, [Amazon Redshift-Databaseversleuteling](http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-db-encryption.html). 
 
-#### <a name="salesforce"></a>Salesforce
+#### <a name="salesforce"></a>SalesForce
 SalesForce ondersteunt Shield Platform versleuteling waarmee het coderen van alle bestanden, bijlagen en aangepaste velden. Zie voor meer informatie, [inzicht in de Web Server OAuth-Verificatiestroom](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/intro_understanding_web_server_oauth_flow.htm).  
 
 ## <a name="hybrid-scenarios"></a>Hybride scenario 's
@@ -121,7 +126,7 @@ Azure-netwerk is een logische weergave van uw netwerk in de cloud. U kunt een on
 
 De volgende tabel geeft een overzicht van het netwerk en aanbevelingen voor de configuratie van zelf-hostende integration runtime op basis van verschillende combinaties van bron- en locaties voor hybride verplaatsing van gegevens.
 
-| Bron      | Bestemming                              | Netwerkconfiguratie                    | Installatie van integratieruntime                |
+| Bron      | Doel                              | Netwerkconfiguratie                    | Installatie van integratieruntime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | On-premises | Virtuele machines en cloudservices die zijn geïmplementeerd in virtuele netwerken | IPSec-VPN (punt-naar-site of site-naar-site) | De zelf-hostende integratieruntime kan worden geïnstalleerd van on-premises of op een Azure-machine in een virtueel netwerk. |
 | On-premises | Virtuele machines en cloudservices die zijn geïmplementeerd in virtuele netwerken | ExpressRoute (persoonlijke peering)           | De zelf-hostende integratieruntime kan worden geïnstalleerd van on-premises of op een Azure-machine in een virtueel netwerk. |

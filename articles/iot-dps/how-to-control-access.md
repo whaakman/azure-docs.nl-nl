@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: 4751a76c39060f48d3b816ecee0de5b58e29bdaa
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e476ca498e4dc1b36d18927beddc812d6d803120
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42058119"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42818507"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Toegang tot Azure IoT Hub Device Provisioning Service beheren
 
@@ -34,7 +34,7 @@ U kunt verlenen [machtigingen](#device-provisioning-service-permissions) in de v
 
 * **Gedeeld toegangsbeleid voor autorisatie**. Beleid voor gedeelde toegang kunnen verlenen tot een combinatie van [machtigingen](#device-provisioning-service-permissions). U kunt beleid in definiëren de [Azure-portal][lnk-management-portal], of programmatisch met behulp van de [Device Provisioning Service REST-API's][lnk-resource-provider-apis]. Een nieuwe provisioning-service heeft het standaardbeleid voor het volgende:
 
-   **provisioningserviceowner**: beleid met alle machtigingen.
+* **provisioningserviceowner**: beleid met alle machtigingen.
 
 > [!NOTE]
 > Zie [machtigingen](#device-provisioning-service-permissions) voor gedetailleerde informatie.

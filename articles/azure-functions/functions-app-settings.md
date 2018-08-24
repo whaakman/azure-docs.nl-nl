@@ -3,7 +3,7 @@ title: Naslaginformatie over App-instellingen voor Azure Functions
 description: Referentiedocumentatie voor de Azure Functions-app-instellingen of omgevingsvariabelen.
 services: functions
 author: ggailey777
-manager: cfowler
+manager: jeconnoc
 editor: ''
 tags: ''
 keywords: ''
@@ -12,18 +12,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 08/22/2018
 ms.author: glenga
-ms.openlocfilehash: b5f4ce786371608b276e41f6881dcb1e0a91e303
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 46c1cb0a0cb3104e3705e4a7d4ef0dd894a7c2d7
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345052"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42819043"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Naslaginformatie over App-instellingen voor Azure Functions
 
 App-instellingen in een functie-app bevatten globale configuratie-opties die invloed hebben op alle functies voor die functie-app. Wanneer u lokaal uitvoert, worden deze instellingen zijn in omgevingsvariabelen. In dit artikel geeft een lijst van de app-instellingen die beschikbaar in de functie-apps zijn.
+
+[! INCLUSIEF [functie app-instellingen] (.. /.. /includes/Functions-App-Settings.MD]
 
 Er zijn andere globale configuratie-opties in de [host.json](functions-host-json.md) bestand en klik in de [local.settings.json](functions-run-local.md#local-settings-file) bestand.
 
@@ -127,7 +129,7 @@ Voor verbruiksabonnementen alleen. Verbindingsreeks voor het opslagaccount waari
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol = https; AccountName = [name]; AccountKey = [-toets]|
 
-## <a name="websitecontentshare"></a>WEBSITE_CONTENTSHARE
+## <a name="websitecontentshare"></a>WEBSITE\_CONTENTSHARE
 
 Voor verbruiksabonnementen alleen. Het pad naar de functie-app-code en configuratie. Met WEBSITE_CONTENTAZUREFILECONNECTIONSTRING gebruikt. Standaard is een unieke tekenreeks die met de naam van de functie-app begint. Zie [maken van een functie-app](functions-infrastructure-as-code.md#create-a-function-app).
 
@@ -153,6 +155,19 @@ De standaardwaarde is '6.5.0'.
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
 |WEBSITE\_KNOOPPUNT\_DEFAULT_VERSION|6.5.0|
+
+## <a name="websiterunfromzip"></a>WEBSITE\_UITVOEREN\_FROM\_ZIP
+
+Hiermee kunt uw functie-app om uit te voeren vanuit een gekoppelde pakketbestand.
+
+> [!NOTE]
+> Deze instelling is voor een preview-functie.
+
+|Sleutel|Voorbeeldwaarde|
+|---|------------|
+|WEBSITE\_UITVOEREN\_FROM\_ZIP|1|
+
+Geldige waarden zijn een URL die wordt omgezet naar de locatie van een pakketbestand implementatie of `1`. Als de waarde `1`, het pakket moet zich in de `d:\home\data\SitePackages` map. Wanneer u zip-implementatie met deze instelling gebruikt, wordt het pakket automatisch geüpload naar deze locatie.  Zie voor meer informatie, [uw functies worden uitgevoerd vanuit een pakketbestand](run-functions-from-deployment-package.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
