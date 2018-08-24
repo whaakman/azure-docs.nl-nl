@@ -21,6 +21,7 @@ ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
 ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32176541"
 ---
 # <a name="manage-azure-data-lake-store-resources-by-using-storage-explorer"></a>Azure Data Lake Store-resources beheren met behulp van Storage Explorer
 

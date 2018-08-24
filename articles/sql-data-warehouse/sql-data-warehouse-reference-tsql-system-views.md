@@ -12,9 +12,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: a0e75bc9b7cfa6827794f8d4256bddc3807f17d1
 ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32195376"
 ---
 # <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Systeemweergaven ondersteund in Azure SQL Data Warehouse
 Koppelingen naar de documentatie voor T-SQL-instructies die worden ondersteund in Azure SQL Data Warehouse.
