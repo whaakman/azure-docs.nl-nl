@@ -9,23 +9,23 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: b5aea9d7fe54402693be095350f7c095334fd4b5
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/24/2018
 ms.locfileid: "30198108"
 ---
-**Scripts voor het downloaden van configuratie van VPN-apparaat:**
+**Om configuratiescripts voor VPN-apparaten te downloaden**
 
-Afhankelijk van het VPN-apparaat die u hebt, kunt u mogelijk een configuratie van VPN-apparaatscript downloaden. Zie voor meer informatie [downloaden VPN-apparaat configuratiescripts](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md).
+Afhankelijk van het VPN-apparaat dat u hebt, kunt u mogelijk een script van VPN-apparaatconfiguratie downloaden. Zie voor meer informatie [Configuratiescripts van VPN-apparaat downloaden](../articles/vpn-gateway/vpn-gateway-download-vpndevicescript.md).
 
-**Zie de volgende koppelingen voor meer informatie over configuratie:**
+**Zie de volgende links voor meer informatie over configuratie:**
 
 - Zie [Over VPN-apparaten](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md) voor meer informatie over compatibele VPN-apparaten.
 
 - Controleer voordat u uw VPN-apparaat configureert of er [bekende compatibiliteitsproblemen](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#known) zijn met het VPN-apparaat dat u wilt gebruiken.
 
-- Zie [Gevalideerde VPN-apparaten](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) voor koppelingen naar configuratie-instellingen. De koppelingen over apparaatconfiguratie worden naar beste vermogen geleverd. Het is altijd verstandig om de actuele configuratie-informatie op te vragen bij de fabrikant van uw apparaat. De lijst bevat de versies die we hebben getest. Als uw besturingssysteem niet op deze lijst staat, is het nog steeds mogelijk is de versie is compatibel. Neem contact op met de fabrikant van uw apparaat om te controleren dat de versie van het besturingssysteem voor het VPN-apparaat compatibel is.
+- Zie [Gevalideerde VPN-apparaten](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) voor koppelingen naar configuratie-instellingen. De koppelingen over apparaatconfiguratie worden naar beste vermogen geleverd. Het is altijd verstandig om de actuele configuratie-informatie op te vragen bij de fabrikant van uw apparaat. De lijst bevat de versies die we hebben getest. Als uw besturingssysteem niet op deze lijst staat, is het nog steeds mogelijk dat de versie compatibel is. Neem contact op met de fabrikant van uw apparaat om te controleren of de versie van het besturingssysteem compatibel is met uw VPN-apparaat.
 
 - Zie [Overview of 3rd party VPN device configurations](../articles/vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md) (Overzicht van VPN-apparaatconfiguraties van derden) voor een overzicht van VPN-apparaatconfiguraties.
 
@@ -33,7 +33,7 @@ Afhankelijk van het VPN-apparaat die u hebt, kunt u mogelijk een configuratie va
 
 - Zie [Informatie over cryptografische vereisten en Azure VPN-gateways](../articles/vpn-gateway/vpn-gateway-about-compliance-crypto.md) voor informatie over cryptografische vereisten.
 
-- Zie [VPN-apparaten en IPsec-/IKE-parameters voor site-naar-site-VPN-gateway-verbindingen](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) voor informatie over IPsec-/IKE-parameters. Deze koppeling geeft informatie over IKE-versie, Diffie-Hellman-groep, verificatie methode, versleuteling en hash-algoritmen, SA levensduur, PFS en DPD, naast de andere parameterinformatie die u nodig hebt om uw configuratie te voltooien.
+- Zie [VPN-apparaten en IPsec-/IKE-parameters voor site-naar-site-VPN-gateway-verbindingen](../articles/vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) voor informatie over IPsec-/IKE-parameters. Deze koppeling geeft informatie over IKE-versie, Diffie-Hellman-groep, verificatiemethode, versleuteling en hash-algoritmen, SA-levensduur, PFS en DPD, naast de andere parameterinformatie die u nodig hebt om uw configuratie te voltooien.
 
 - Zie [IPsec-/IKE-beleid configureren voor S2S VPN- of VNet-naar-VNet-verbindingen](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md) voor informatie over de configuratiestappen voor IPsec-/IKE-beleid.
 

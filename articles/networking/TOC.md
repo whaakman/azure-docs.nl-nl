@@ -1,7 +1,7 @@
 # Overzicht
 ## [Over Azure-netwerken](networking-overview.md)
 ## Architectuur
-### [Virtuele datacenters](networking-virtual-datacenter.md)
+### [Virtuele datacenters](/azure/architecture/vdc/networking-virtual-datacenter)
 ### [Asymmetrische routering met meerdere netwerkpaden](../expressroute/expressroute-asymmetric-routing.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Netwerkverkeer beveiligen](../best-practices-network-security.md?toc=%2fazure%2fnetworking%2ftoc.json)
 ### [Hub-spoke topologie](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)

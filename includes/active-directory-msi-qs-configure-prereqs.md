@@ -1,1 +1,1 @@
-Als u niet bekend bent met de Managed Service Identity-functie, raadpleegt u dit [overzicht](../articles/active-directory/msi-overview.md). Als u geen Azure-account hebt, [registreert u zich voor een gratis account](https://azure.microsoft.com/free/) voordat u verder gaat.
+- Als u niet bekend bent met de Managed Service Identity-functie, raadpleegt u dit [overzicht](../articles/active-directory/msi-overview.md). Als u geen Azure-account hebt, [registreert u zich voor een gratis account](https://azure.microsoft.com/free/) voordat u verder gaat.
